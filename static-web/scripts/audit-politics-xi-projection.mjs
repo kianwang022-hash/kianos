@@ -52,9 +52,10 @@ for (const meta of xi?.chapters || []) {
 if (!rawArrayHierarchies) fail('XI_ARRAY_HIERARCHY_SENTINEL_MISSING');
 if (!component.includes("chapter.subject === 'xi'")) fail('XI_GUIDE_LABEL_MISSING');
 if (!component.includes('去 iPad / MarginNote 学原讲义')) fail('XI_EXTERNAL_PRIMARY_HANDOFF_MISSING');
-if (!component.includes('这里不再复制乘风连续正文')) fail('XI_DUPLICATE_LECTURE_GUARD_MISSING');
+// Check the external-only structure, not a retired learner-facing warning sentence.
+if (!component.includes('data-politics-external-source') || /node\.(?:text|body|content)\b/.test(component)) fail('XI_DUPLICATE_LECTURE_GUARD_MISSING');
 if (component.includes('content_support') || component.includes('contentSupport')) fail('XI_BACKEND_CONTENT_LEAKS_TO_COMPONENT');
-if (!component.includes('<details class="politicsGuide">')) fail('XI_HIERARCHY_GUIDE_NOT_PROGRESSIVE');
+if (!/<details\s+class="politicsGuide"(?:\s+open)?>/.test(component)) fail('XI_HIERARCHY_GUIDE_NOT_PROGRESSIVE');
 if (!component.includes('<details class="politicsClosure">')) fail('XI_CLOSURE_NOT_PROGRESSIVE');
 
 const report = {

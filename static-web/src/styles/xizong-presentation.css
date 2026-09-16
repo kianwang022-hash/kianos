@@ -291,3 +291,15 @@ body#kianos-workspace.surfaceBody-xizong .xv6Block:has([data-study-panel="learn"
  body#kianos-workspace.surfaceBody-xizong .xseOptions { grid-template-columns:minmax(0,1fr); }
  body#kianos-workspace.surfaceBody-xizong :is(.xseNav,.xseActions,.xseToolbar) { flex-wrap:wrap; }
 }
+
+/* Reveal spends its viewport on Core, not repeated neutral-front chrome. */
+body#kianos-workspace.surfaceBody-xizong .portedStudyIdentity { padding-block:12px; }
+body#kianos-workspace.surfaceBody-xizong .portedStudyIdentity h2 { font-size:26px; }
+body#kianos-workspace.surfaceBody-xizong .portedStudyTabs button { min-height:40px; }
+body#kianos-workspace.surfaceBody-xizong .portedStudyMainHead { padding-block:13px; }
+body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard:has([data-kp-answer]:not([hidden]))>header { padding:16px 28px 10px; }
+body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard:has([data-kp-answer]:not([hidden]))>header>h3 { display:none; }
+body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard:has([data-kp-answer]:not([hidden]))>header>p { margin:8px 0;font-size:17px;line-height:1.75; }
+body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard:has([data-kp-answer]:not([hidden]))>.portedRecallPrompt { display:none; }
+body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard { scroll-margin-top:72px; }
+body#kianos-workspace.surfaceBody-xizong .xv6PersonalDock .position { display:block; }

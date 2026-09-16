@@ -1,0 +1,17 @@
+---
+const { value } = Astro.props;
+const labels = { role:'体系身份', upstream:'上游依据', downstream:'向下展开', goal:'目标', method:'方法', principle:'原则', task:'任务', foundation:'基础', core:'核心', position:'位置', essence:'本质', object:'对象', condition:'条件', result:'结果', development:'发展', meaning:'意义' };
+const excluded = new Set(['id','natural_unit_id','source_refs','source_evidence','learning_priority','learning_rule','schema','status']);
+const primitive = typeof value === 'string' || typeof value === 'number';
+const record = value && !primitive && !Array.isArray(value);
+const titled = record && (value.name || value.label || value.title);
+---
+{primitive ? <p class="projectionText">{String(value)}</p> : Array.isArray(value) ?
+  <div class="projectionValueList">{value.map(item => <div class="projectionValueItem"><Astro.self value={item} /></div>)}</div> : record ?
+  <div class="projectionValueRecord">
+    {titled && <h4>{value.name || value.label || value.title}</h4>}
+    {Object.entries(value).filter(([key]) => !excluded.has(key) && !['name','label','title'].includes(key)).map(([key, item]) =>
+      ['items','groups','steps','text','fact','problem','relation','distinction','meaning'].includes(key) ? <Astro.self value={item} /> :
+      <div class="projectionKeyValue"><span>{labels[key] || key}</span><div><Astro.self value={item} /></div></div>
+    )}
+  </div> : null}

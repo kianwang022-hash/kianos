@@ -1,5 +1,6 @@
 ---
-const { chapter, base = '/' } = Astro.props;
+import PoliticsCompiledGeometry from './PoliticsCompiledGeometry.astro';
+const { chapter, base = '/', compiled = null } = Astro.props;
 
 function uniqueNodes(nodes = []) {
   const seen = new Set();
@@ -61,6 +62,10 @@ const guideLabel = chapter.subject === 'history'
 
     {units.map((unit, index) => {
       const t = unit.teaching || {};
+      const projection = compiled?.get(unit.unitId) || null;
+      const currentProblem = projection ? projection.problem : t.question;
+      const nextBridge = projection ? projection.next : t.next;
+      const answerInGeometry = projection?.primary.some(item => item.value === t.answer);
       const hasGuide = t.beats?.length > 0 || t.conditions?.length > 0 || t.failureCauses?.length > 0 || t.gains?.length > 0 || t.process?.length > 0 || t.turningPoint || t.program || t.hierarchy || t.relation || t.application;
       const locatorCount = unit.sourceNodes.length || unit.sourceRefCount || 0;
       return (
@@ -70,11 +75,12 @@ const guideLabel = chapter.subject === 'history'
             <p class="politicsMicro">{index + 1} / {units.length} · 当前 Natural Unit</p>
             <h2>{unit.title}</h2>
             {t.bridge && <p class="politicsBridge">{t.bridge}</p>}
-            {t.question && <div class="politicsQuestion"><span>这一段真正要解决</span><strong>{t.question}</strong></div>}
-            {t.answer && <p class="politicsAnswer">{t.answer}</p>}
+            {currentProblem && <div class="politicsQuestion"><span>这一段真正要解决</span><strong>{currentProblem}</strong></div>}
+            {t.answer && !answerInGeometry && <p class="politicsAnswer">{t.answer}</p>}
           </header>
 
-          {hasGuide && (
+          {projection && <PoliticsCompiledGeometry projection={projection} />}
+          {!projection && hasGuide && (
             <details class="politicsGuide" open>
               <summary>{guideLabel}</summary>
               <div class="politicsGuideBody">
@@ -91,6 +97,37 @@ const guideLabel = chapter.subject === 'history'
               </div>
             </details>
           )}
+
+          <section class="politicsQuiz" data-politics-quiz>
+            <header><div><p class="politicsMicro">肖1000 · Astro 验证</p><h3>原讲义学完再做</h3></div><span>{unit.questions.length ? `${unit.questions.length} 题` : unit.questionRefCount ? '题目待解析' : '本段无题'}</span></header>
+            {unit.questions.length > 0 ? (
+              <div class="politicsQuizDeck">
+                {unit.questions.map((q, qIndex) => <article
+                  class={`politicsQ ${qIndex === 0 ? 'active' : ''}`}
+                  data-politics-question
+                  data-question-id={q.id}
+                  data-unit-id={unit.unitId}
+                  data-answer={q.answer}
+                  data-index={qIndex}
+                >
+                  <div class="politicsQMeta"><span>{qIndex + 1} / {unit.questions.length}</span><code>{q.id}</code></div>
+                  <h4>{q.stem}</h4>
+                  <div class="politicsOptions">{q.options.map((opt) => <button type="button" data-politics-option={opt.label}><b>{opt.label}</b><span>{opt.text}</span></button>)}</div>
+                  <div class="politicsActions"><button type="button" data-politics-uncertain>△ 不确定</button><button type="button" class="primary" data-politics-submit>提交</button></div>
+                  <div class="politicsResult" data-politics-result hidden></div>
+                  <div class="politicsRepair" data-politics-repair hidden>
+                    <p class="politicsMicro">只修最小缺口</p>
+                    {t.boundaries?.length > 0 ? <ul>{t.boundaries.slice(0,3).map((item) => <li>{item}</li>)}</ul> : <p>回到刚才这段，重新确认决定性关系。</p>}
+                    <a href={`#source-${unit.unitId}`}>回到乘风原讲义定位 ↑</a>
+                  </div>
+                  {q.explanation && <details class="politicsExplain"><summary>需要时再看解析</summary><p>{q.explanation}</p></details>}
+                  <button type="button" class="politicsNextQ" data-politics-next hidden>下一题 →</button>
+                </article>)}
+              </div>
+            ) : unit.questionRefCount > 0 ? (
+              <div class="politicsBlocked"><strong>题目源当前没有可靠解析出来。</strong><p>不猜题干和答案；乘风原讲义学习不受影响。</p></div>
+            ) : null}
+          </section>
 
           </div>
           <aside class="politicsUnitCompanion">
@@ -128,38 +165,8 @@ const guideLabel = chapter.subject === 'history'
             </div>
           </details>
 
-          <section class="politicsQuiz" data-politics-quiz>
-            <header><div><p class="politicsMicro">肖1000 · Astro 验证</p><h3>原讲义学完再做</h3></div><span>{unit.questions.length ? `${unit.questions.length} 题` : unit.questionRefCount ? '题目待解析' : '本段无题'}</span></header>
-            {unit.questions.length > 0 ? (
-              <div class="politicsQuizDeck">
-                {unit.questions.map((q, qIndex) => <article
-                  class={`politicsQ ${qIndex === 0 ? 'active' : ''}`}
-                  data-politics-question
-                  data-question-id={q.id}
-                  data-unit-id={unit.unitId}
-                  data-answer={q.answer}
-                  data-index={qIndex}
-                >
-                  <div class="politicsQMeta"><span>{qIndex + 1} / {unit.questions.length}</span><code>{q.id}</code></div>
-                  <h4>{q.stem}</h4>
-                  <div class="politicsOptions">{q.options.map((opt) => <button type="button" data-politics-option={opt.label}><b>{opt.label}</b><span>{opt.text}</span></button>)}</div>
-                  <div class="politicsActions"><button type="button" data-politics-uncertain>△ 不确定</button><button type="button" class="primary" data-politics-submit>提交</button></div>
-                  <div class="politicsResult" data-politics-result hidden></div>
-                  <div class="politicsRepair" data-politics-repair hidden>
-                    <p class="politicsMicro">只修最小缺口</p>
-                    {t.boundaries?.length > 0 ? <ul>{t.boundaries.slice(0,3).map((item) => <li>{item}</li>)}</ul> : <p>回到刚才这段，重新确认决定性关系。</p>}
-                    <a href={`#source-${unit.unitId}`}>回到乘风原讲义定位 ↑</a>
-                  </div>
-                  {q.explanation && <details class="politicsExplain"><summary>需要时再看解析</summary><p>{q.explanation}</p></details>}
-                  <button type="button" class="politicsNextQ" data-politics-next hidden>下一题 →</button>
-                </article>)}
-              </div>
-            ) : unit.questionRefCount > 0 ? (
-              <div class="politicsBlocked"><strong>题目源当前没有可靠解析出来。</strong><p>不猜题干和答案；乘风原讲义学习不受影响。</p></div>
-            ) : null}
-          </section>
 
-          {t.next && <p class="politicsNextBridge">接下来：{t.next}</p>}
+          {nextBridge && <p class="politicsNextBridge">接下来：{nextBridge}</p>}
           </aside>
         </section>
       );
