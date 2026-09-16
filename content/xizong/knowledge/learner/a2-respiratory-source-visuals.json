@@ -6,7 +6,7 @@
   "canonical_id": "A2",
   "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
   "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
-  "notes": "Preserves the reviewed A2 R3 source-visual slice and begins progressive high-value A2 expansion. Coverage remains intentionally partial and independently extensible.",
+  "notes": "Preserves the reviewed A2 R3 and R8 slices and adds a second source-faithful pathology batch for bronchiectasis and pulmonary tuberculosis. Coverage remains intentionally sparse, partial and independently extensible.",
   "bundles": [
     {
       "cue_id": "a2-r03-lg01-visual",
@@ -64,6 +64,87 @@
           "height": 117,
           "source_crop_sha256": "0d67c0dc3c357bfe87cdd795ffe5525f5f14ae50a6609678bd8b511553fa479c",
           "derived_asset_sha256": "fcc0cf9781c0744b95bf1f8bd510f3b36b5689cbcf597b897c48246939809464"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r06-lg01-visual",
+      "source_sha256": "8d294c90a34724d4c70bf6231dd63ce0548e17f9528503d0953078d7d84e1329",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "pathology:8d294c90a34724d4:pi65:r041992-172219-957420-605737",
+          "source_page": 66,
+          "usage_role": "BRONCHIECTASIS_SUPPORT_STRUCTURE_VISUAL",
+          "usage_label": "P66 · 支扩结构破坏与永久扩张",
+          "alt": "病理讲义 P66：支气管壁支撑结构破坏与支气管腔永久扩张的原图",
+          "asset_path": "a2-r06-lg01/p66-bronchiectasis-structure.webp",
+          "width": 520,
+          "height": 348,
+          "source_crop_sha256": "8a8006de4e1129881c70b41965089f3de384d3208f5d2054f0d332f10d7e3a03",
+          "derived_asset_sha256": "6b2a3214edc1f2c24f3d00b3592a477238efc0d1f4b8a5fc9b7807b1730ccf52"
+        },
+        {
+          "source_object_id": "pathology:8d294c90a34724d4:pi66:r041992-225667-957420-694816",
+          "source_page": 67,
+          "usage_role": "BRONCHIECTASIS_EMPHYSEMA_LEVEL_COMPARISON",
+          "usage_label": "P67 · 支扩 vs 肺气肿病变层级",
+          "alt": "病理讲义 P67：支气管扩张与肺气肿在病变部位和支撑结构层级上的对照原表",
+          "asset_path": "a2-r06-lg01/p67-bronchiectasis-vs-emphysema.webp",
+          "width": 520,
+          "height": 377,
+          "source_crop_sha256": "8dddad078007ecc303c36cdce5c2602c1d22f6056170810836fea189756d1f25",
+          "derived_asset_sha256": "beb8eb8013dca5a26dbc4325ca5bb9f7e4f10020aa85ade3bd882df782cf1622"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r07-lg01-visual",
+      "source_sha256": "8d294c90a34724d4c70bf6231dd63ce0548e17f9528503d0953078d7d84e1329",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "pathology:8d294c90a34724d4:pi109:r041992-641368-957420-938298",
+          "source_page": 110,
+          "usage_role": "TUBERCULOUS_GRANULOMA_CELL_COMPOSITION_VISUAL",
+          "usage_label": "P110 · 结核肉芽肿细胞组成",
+          "alt": "病理讲义 P110：结核肉芽肿中上皮样细胞、Langhans 巨细胞与淋巴细胞组成的原图",
+          "asset_path": "a2-r07-lg01/p110-tuberculous-granuloma-cells.webp",
+          "width": 520,
+          "height": 239,
+          "source_crop_sha256": "bd4909760dbe5087412cb83e8b1fdbc68280e62039acc0b521b25b45301c9316",
+          "derived_asset_sha256": "596b2528e797856555690c3e900c54e09322cab7dbd67727c49965655d713ba1"
+        },
+        {
+          "source_object_id": "pathology:8d294c90a34724d4:pi110:r041992-053447-957420-320684",
+          "source_page": 111,
+          "usage_role": "TUBERCULOUS_CASEATING_GRANULOMA_VISUAL",
+          "usage_label": "P111 · 干酪样坏死性结核结节",
+          "alt": "病理讲义 P111：中央干酪样坏死与周围肉芽肿结构的结核结节原图",
+          "asset_path": "a2-r07-lg01/p111-caseating-granuloma.webp",
+          "width": 520,
+          "height": 215,
+          "source_crop_sha256": "079c8d6c88045ea2e58cf8b2256b38b755d89a2c3419321b50a28eb9c3f8d1c7",
+          "derived_asset_sha256": "0538dd8e81b9af3fe9379d7fb2624ebfd30b3422736439306be90354de7c8c81"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r07-lg02-visual",
+      "source_sha256": "8d294c90a34724d4c70bf6231dd63ce0548e17f9528503d0953078d7d84e1329",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "pathology:8d294c90a34724d4:pi110:r041992-332561-957420-920482",
+          "source_page": 111,
+          "usage_role": "PRIMARY_TB_COMPLEX_VISUAL",
+          "usage_label": "P111 · 原发综合征三联",
+          "alt": "病理讲义 P111：肺内原发灶、引流淋巴管炎与肺门淋巴结结核构成的原发综合征原图",
+          "asset_path": "a2-r07-lg02/p111-primary-complex.webp",
+          "width": 520,
+          "height": 472,
+          "source_crop_sha256": "f3b662cf88e49f999a08f621fd716cc15d7c19a13557410969d12b3e8dbddfd6",
+          "derived_asset_sha256": "c5378eb3cca63632fdd99989764d0f02865281f552a656847cb794527b28695d"
         }
       ]
     }
