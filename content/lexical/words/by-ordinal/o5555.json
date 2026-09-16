@@ -7,15 +7,49 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "62177a6c5d272d6248507ea36c98bb3917649ce116927f0697b17eef68707d2c",
+    "content_hash": "dfa0a0f83ee56cb491e3d1662c973e8aebb57b5777b3302ce2677abc66bd6ce8",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "实习生",
-      "core_meaning_en": "a student or recent graduate working temporarily to gain practical experience",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "实习生；实习/住院初年医师；在相关制度中处于毕业后第一年或初级阶段的医生（尤其美式英语）",
+          "label_en": "a student or recent graduate working temporarily to gain practical experience; especially AmE: a doctor in the first postgraduate year or a junior doctor in a relevant training system",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:intern:e8f3bf0b0df851da",
+            "sense:intern:59128e80220f099d"
+          ]
+        },
+        {
+          "label_cn": "拘禁；扣押",
+          "label_en": "to confine or detain someone, especially during wartime",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:intern:e1a278ab5f195252"
+          ]
+        }
+      ],
+      "core_meaning_cn": "实习生；拘禁；扣押；实习/住院初年医师；在相关制度中处于毕业后第一年或初级阶段的医生（尤其美式英语）",
+      "core_meaning_en": "a student or recent graduate working temporarily to gain practical experience; to confine or detain someone, especially during wartime; especially AmE: a doctor in the first postgraduate year or a junior doctor in a relevant training system",
+      "mental_model_cn": "实习生；拘禁；扣押；实习/住院初年医师；在相关制度中处于毕业后第一年或初级阶段的医生（尤其美式英语）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o5375-o5874.md",
+      "boundaries": [
+        {
+          "condition": "noun (trainee/doctor)",
+          "note": "noun commonly stressed on the first syllable: IN-tern",
+          "surface": "intern"
+        },
+        {
+          "condition": "verb detain/confine",
+          "note": "verb commonly stressed on the second syllable: in-TERN",
+          "surface": "intern"
+        }
+      ],
+      "type": "noun_verb_stress_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -75,6 +109,23 @@
           "source-fact:wiktionary-wiktextract:f54ad0e2affb32edfa07"
         ],
         "transitivity": null
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "实习/住院初年医师；在相关制度中处于毕业后第一年或初级阶段的医生（尤其美式英语）",
+        "definition_en": "especially AmE: a doctor in the first postgraduate year or a junior doctor in a relevant training system",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "register": "medical/AmE",
+        "sense_id": "sense:intern:59128e80220f099d",
+        "sense_label_en": "especially AmE: a doctor in the first postgraduate year or a junior doctor in a relevant training system",
+        "sort_order": 2,
+        "transitivity": "nonverb",
+        "usage_note": "Distinct from the general student/recent-graduate internship sense.",
+        "writing_safe": true
       }
     ],
     "verification_summary": {
@@ -107,6 +158,13 @@
         "merged_into_sense_id": null,
         "source_row": 15714,
         "source_path": "content/lexical/canonical/senses/shards/o5537-5568.json"
+      },
+      {
+        "sense_id": "sense:intern:59128e80220f099d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 15734,
+        "source_path": "content/lexical/canonical/senses/shards/o5537-5568.json"
       }
     ],
     "active_collocations": [],
@@ -133,7 +191,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5553-5560.json",
-    "source_content_hash": "62177a6c5d272d6248507ea36c98bb3917649ce116927f0697b17eef68707d2c",
+    "source_content_hash": "dfa0a0f83ee56cb491e3d1662c973e8aebb57b5777b3302ce2677abc66bd6ce8",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
