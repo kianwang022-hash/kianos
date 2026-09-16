@@ -3,7 +3,7 @@
 Role: Xizong lane Work Cursor + independently continued System router  
 Parent: root `CURRENT.md`
 
-This file does not own medical Core, lane learning semantics, scoped Acceptance Truth, or Kian's learner progress.
+This file does not own medical Core, lane learning semantics, scoped Acceptance Truth, product semantics or Kian's learner progress.
 
 ---
 
@@ -11,7 +11,7 @@ This file does not own medical Core, lane learning semantics, scoped Acceptance 
 
 **Active lane-level scope:** none — router-only baseline  
 **Blocker:** none at lane-routing level  
-**Next action:** route work directly to the requested independently continued System `CURRENT.md`. Do not appoint one System as Xizong's global active child merely because it was worked on most recently.
+**Next action:** route work to the narrowest Current owner for the actual task. Do not appoint one System as Xizong's global active child merely because it was worked on most recently.
 
 Current independently continued Systems:
 
@@ -41,6 +41,87 @@ Kian learner order
 ```
 
 These are not automatically the same.
+
+---
+
+## Task-class routing｜Fresh Chat must use this before history
+
+A fresh Chat must first decide **what kind of Xizong task this is**. Historical Frozen files, old Issues, PR summaries and prior Chats are provenance only unless the Current owner explicitly points to them.
+
+### Medical / content truth
+
+```text
+content/xizong/knowledge/manifest.json
+→ exact System / Block canonical owner
+→ local CURRENT / ACCEPTANCE when applicable
+```
+
+Use for medical Core, System model, Block/KP identity, Source boundary, content repair or new System construction.
+
+### Learning / cognition / first-pass flow
+
+```text
+content/xizong/LEARNING_CONTRACT.md
+→ content/xizong/knowledge/learner/study-policy.json
+→ exact System-specific *-learning.json when material
+```
+
+Use for learner order, Logic Group semantics, Source-contact granularity, TTSX role, Recall/completion, Attention Projection, Memory/Precision timing, second-pass learning goals or phase linkage.
+
+Current lane-level invariants include:
+
+- original Lecture / MarginNote remains external-primary for continuous first-pass Source learning;
+- Logic Group is a retrieval / local-closure unit and is not automatically a Source-contact segment;
+- Lecture-attached TTSX is completed in the original Lecture / MarginNote surface; KianOS provides Boundary/Binding release, completion checkpoint and optional selected-question/note capture rather than a duplicate first-pass question workspace;
+- `Boundary = WHEN`, reviewed question binding = `WHICH`;
+- Visual / Extension is conditional support inside the same learning chain, not an independent curriculum.
+
+These are routing reminders only; the full semantics remain in the Learning owners above.
+
+### Product / display / UI / Projection
+
+```text
+static-web/XIZONG_PRODUCT_STATUS.md
+→ static-web/PRESENTATION_CONTRACT.md
+→ content/xizong/projection/PROJECTION_CONTRACT.md when Projection semantics are material
+→ exact Runtime/component only after semantic owners are understood
+```
+
+Use for Block/System workspace behavior, learner-facing information hierarchy, Attention Projection, Projection→Astro consumption, renderer or visual acceptance.
+
+Do not infer learning semantics from the current DOM or CSS.
+
+### Visual / Precision / Extension
+
+```text
+content/xizong/LEARNING_CONTRACT.md
+→ static-web/XIZONG_VISUAL_PRECISION_CAPABILITY.md
+→ content/xizong/EXTENSION_ASSET_CONTRACT.md
+→ exact cue / extension / source-visual owner
+```
+
+Use for Visual Gate, Source Visual, structured tables, reviewed MarginNote/user summary assets and replacement of existing visual slots.
+
+Sparse coverage is intentional. Missing Extension content is not learner debt and must not trigger system-wide screenshot production for symmetry.
+
+### Questions / explanations / Crosswalk / second-pass question product
+
+```text
+content/xizong/questions/
+content/xizong/explanations/
+content/xizong/question-relations/
+content/xizong/knowledge/learner/study-policy.json
+→ current shared Question Runtime under static-web/
+```
+
+Keep these distinctions:
+
+- Lecture-attached TTSX = first-pass local Lecture probe/checkpoint;
+- official System question sweep = first-pass coverage evidence after System Recall;
+- SECOND_PASS = targeted discrimination / precision / application on the same official Question Runtime;
+- reviewed Question→Knowledge relation is optional precise routing; missing relation must fail closed without blocking practice.
+
+Do not use stale issue checkboxes as Current capability truth.
 
 ---
 
@@ -111,7 +192,9 @@ Learner order in those owners does not automatically serialize engineering/const
 - lane learning constitution → `content/xizong/LEARNING_CONTRACT.md`
 - detailed shared learning policy → `content/xizong/knowledge/learner/study-policy.json`
 - System-specific learning support → `content/xizong/knowledge/learner/`
+- formal Extension assets → `content/xizong/EXTENSION_ASSET_CONTRACT.md` + `content/xizong/knowledge/learner/*-extensions.json`
 - official questions / explanations / reviewed relations → dedicated Xizong roots
+- learner product/status router → `static-web/XIZONG_PRODUCT_STATUS.md`
 - learner runtime → Xizong surfaces under `static-web/`
 
 ### Lane Acceptance
@@ -128,7 +211,7 @@ Private learner/browser/conversation evidence only. System readiness or lane Wor
 
 ## Fresh-Chat routing
 
-Known A1/A2/A3/B/C — ordinary continuation:
+Known A1/A2/A3/B/C — ordinary System continuation:
 
 ```text
 requested System CURRENT
@@ -146,17 +229,15 @@ Xizong CURRENT anti-cocoon directive
 → only then old scoped ACCEPTANCE for reconciliation
 ```
 
-Xizong lane known but exact System not yet resolved:
+Lane-level learning/product/capability request:
 
 ```text
 Xizong CURRENT
-→ choose requested independently continued System when applicable
-→ local CURRENT
-→ exact required owner(s)
+→ Task-class routing above
+→ exact Current lane owner(s)
+→ work
 ```
 
 Multiple System Chats may use these local paths concurrently. Each System advances only its own earliest unresolved eligible stage/gate along its real dependency chain.
-
-Read the lane Learning Contract only when the task actually concerns Xizong cognition, learner order, phase linkage or System/Block/KP learning boundaries.
 
 Do not read retired continuation/acceptance snapshots, unrelated Systems, history, legacy repositories or prior Chats by default.
