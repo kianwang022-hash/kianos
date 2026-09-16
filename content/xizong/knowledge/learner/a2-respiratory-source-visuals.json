@@ -6,7 +6,7 @@
   "canonical_id": "A2",
   "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
   "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
-  "notes": "Preserves reviewed R3/R8 bundles and adds reviewed pathology-backed R6/R7 source visuals. Coverage remains intentionally sparse and independently extensible.",
+  "notes": "Preserves reviewed R3/R6/R7/R8 bundles and adds reviewed high-value R4 asthma, R8 IPF and R11 lung-cancer source visuals. Coverage remains intentionally sparse and independently extensible.",
   "bundles": [
     {
       "cue_id": "a2-r03-lg01-visual",
@@ -45,6 +45,37 @@
           "width": 420,
           "height": 247,
           "derived_asset_sha256": "d4263beea13b36155da3d130c253e881a209e3786fbe91fd1f976bfcfe808c88"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r04-lg01-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi56:crop:e7e3fd25bfe65195",
+          "source_page": 47,
+          "usage_role": "ASTHMA_PATHOGENESIS_FLOW",
+          "usage_label": "P47 · 哮喘炎症—神经—高反应性",
+          "alt": "内科讲义 P47：遗传/环境因素经气道炎症、神经调节与平滑肌异常汇入气道高反应性的机制图",
+          "asset_path": "a2-r04-lg01/r04-p47-asthma-pathogenesis.webp",
+          "width": 620,
+          "height": 291,
+          "source_crop_sha256": "e7e3fd25bfe65195b26db2ddcd2cd7b64390c9299bfdda1f773aa38c2fcfff43",
+          "derived_asset_sha256": "407dae0fbb0197dcf92eb05ebdf0286561ebc6a311e00c7c8f9bbdcc6019a51f"
+        },
+        {
+          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi56:crop:d16a3089d7fac6fc",
+          "source_page": 47,
+          "usage_role": "ASTHMA_AIRWAY_NARROWING_COMPARISON",
+          "usage_label": "P47 · 正常支气管 vs 哮喘发作",
+          "alt": "内科讲义 P47：慢性炎症相关管壁肿胀、黏液分泌和支气管痉挛与正常支气管的结构对照",
+          "asset_path": "a2-r04-lg01/r04-p47-asthma-airway.webp",
+          "width": 440,
+          "height": 189,
+          "source_crop_sha256": "d16a3089d7fac6fcc554a021dcc76ad6dd585ac7afd679e47b03688dee70e21a",
+          "derived_asset_sha256": "e1349d6e70f8bf772d46e590a11bb92bcdf0c2e9e01d20bd7721380d6f3a3652"
         }
       ]
     },
@@ -145,6 +176,56 @@
           "height": 117,
           "source_crop_sha256": "0d67c0dc3c357bfe87cdd795ffe5525f5f14ae50a6609678bd8b511553fa479c",
           "derived_asset_sha256": "fcc0cf9781c0744b95bf1f8bd510f3b36b5689cbcf597b897c48246939809464"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r08-lg02-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi26:crop:950f038cd66ef5c7",
+          "source_page": 22,
+          "usage_role": "IPF_HRCT_PATTERN_VISUAL",
+          "usage_label": "P22 · IPF 网格/蜂窝与牵拉支扩",
+          "alt": "内科讲义 P22：特发性肺纤维化 HRCT 的外周/胸膜下纤维化、蜂窝改变与牵拉性支气管扩张",
+          "asset_path": "a2-r08-lg02/r08-p22-ipf-hrct.webp",
+          "width": 460,
+          "height": 211,
+          "source_crop_sha256": "950f038cd66ef5c7e0fcf7619974335fa4f638ffeb145eb998598aec8bd2f7ed",
+          "derived_asset_sha256": "4760a18df114133aaef47a5e892c318fdd3a874edf8677ca1f51406c5b99735c"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r11-lg01-visual",
+      "source_sha256": "7b41f26673fbb562519ac57bb419c2ec82a88c63b5d538a77aaff2e46428dc3f",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "pathology:7b41f26673fbb562:pi76:crop:18a89da3bd2c28e6",
+          "source_page": 75,
+          "usage_role": "LUNG_CANCER_GROSS_LOCATION_TYPES",
+          "usage_label": "P75 · 中央/周围/弥漫型肺癌",
+          "alt": "病理讲义 P75：中央型、周围型和弥漫型肺癌的大体定位与标本对照",
+          "asset_path": "a2-r11-lg01/r11-p75-lung-gross-types.webp",
+          "width": 620,
+          "height": 347,
+          "source_crop_sha256": "18a89da3bd2c28e69b49cdf2fbbec3ce9046a17e98dc5f06b06c0c6c74765911",
+          "derived_asset_sha256": "045fe458b0a01dd9dd225621cb354412422e67c05637a82e67fe25e201309f2d"
+        },
+        {
+          "source_object_id": "pathology:7b41f26673fbb562:pi77:crop:366fe94125fc07a7",
+          "source_page": 76,
+          "usage_role": "SMALL_CELL_LUNG_CANCER_HISTOLOGY",
+          "usage_label": "P76 · 小细胞肺癌镜下形态",
+          "alt": "病理讲义 P76：小细胞肺癌的燕麦样小细胞、胞质少、核深染和巢状/片状排列的镜下图",
+          "asset_path": "a2-r11-lg01/r11-p76-small-cell-histology.webp",
+          "width": 400,
+          "height": 262,
+          "source_crop_sha256": "366fe94125fc07a7c58b801488db8d75621773262513e097e464883312fd081a",
+          "derived_asset_sha256": "3f1d8683474d0648a301a1b6f2b17e23a4706852c31a688a190088f1ca6ad742"
         }
       ]
     }
