@@ -7,12 +7,21 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "d1dcaebc87ef0f84f6506c43fb68b9f256e2842994f9af3b61b2dfbd057b98bd",
+    "content_hash": "f3ddf816d195cbc19fc1ebaa52041b5eb108f89bb6c600325e6b28048e263e39",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "缺乏的, 仅有的, 不够的, 狭小的, 吝啬的",
-      "core_meaning_en": "short underpants for women or children (usually used in the plural)",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "不足的；少量的；覆盖或数量过少的",
+          "label_en": "too small, meager, or insufficient in amount, size, or coverage",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:scanty:7a7950ce74865d8e"
+          ]
+        }
+      ],
+      "core_meaning_cn": "不足的；少量的；覆盖或数量过少的",
+      "core_meaning_en": "too small, meager, or insufficient in amount, size, or coverage",
+      "mental_model_cn": "不足的；少量的；覆盖或数量过少的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,40 +35,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "缺乏的, 仅有的, 不够的, 狭小的, 吝啬的",
-        "definition_en": "short underpants for women or children (usually used in the plural)",
+        "definition_cn": "不足的；少量的；覆盖或数量过少的",
+        "definition_en": "too small, meager, or insufficient in amount, size, or coverage",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
         "level": "L1",
         "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:scanty:d6c55f514f7157f6",
-        "sense_label_en": "short underpants for women or children (usually used in the plural)",
-        "sort_order": 1,
-        "source_evidence": [
-          {
-            "evidence_id": "source-fact:248adc97255195cf6c24951d",
-            "evidence_status": "source_checked",
-            "role": "external_semantic_auditor",
-            "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
-            "source_type": "learner_dictionary"
-          }
-        ]
-      },
-      {
-        "collocations": [],
-        "confidence": "high",
-        "definition_cn": "缺乏的, 仅有的, 不够的, 狭小的, 吝啬的",
-        "definition_en": "lacking in amplitude or quantity",
-        "depth": "full_card",
-        "domain_tag": "toefl",
-        "frequency_tag": "toefl",
-        "level": "L2",
-        "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:scanty:7a7950ce74865d8e",
-        "sense_label_en": "lacking in amplitude or quantity",
+        "sense_label_en": "too small, meager, or insufficient in amount, size, or coverage",
         "sort_order": 2,
         "source_evidence": [
           {
@@ -86,7 +71,24 @@
     "word_id": "word:scanty"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:scanty:d6c55f514f7157f6",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "缺乏的, 仅有的, 不够的, 狭小的, 吝啬的",
+      "definition_en": "short underpants for women or children (usually used in the plural)",
+      "semantic_key": "6aa3f7197f9137776e553cac8fb77bf1dc8366d1b73d9ed314b7d4eb3ba605ca",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 18829,
+      "source_path": "content/lexical/canonical/senses/shards/o7425-7456.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -98,7 +100,7 @@
       },
       {
         "sense_id": "sense:scanty:d6c55f514f7157f6",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 18829,
         "source_path": "content/lexical/canonical/senses/shards/o7425-7456.json"
@@ -128,7 +130,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7433-7440.json",
-    "source_content_hash": "d1dcaebc87ef0f84f6506c43fb68b9f256e2842994f9af3b61b2dfbd057b98bd",
+    "source_content_hash": "f3ddf816d195cbc19fc1ebaa52041b5eb108f89bb6c600325e6b28048e263e39",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

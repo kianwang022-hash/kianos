@@ -7,22 +7,62 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "246b29224cc4eb474cef3bc79a7137707753ea7c35df410d799df20671ad4281",
+    "content_hash": "82a9184d8f6f674a836168a6a44e6c6e27d0e3f9deb49236a289c1b78b9409c6",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "vi. 细看, 仔细检查, 审查, 细阅",
-      "core_meaning_en": "to look at critically or searchingly, or in minute detail",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "仔细审查；严密检查；为发现细节、准确性或问题而认真查看",
+          "label_en": "to examine something very closely and critically, especially for detail, accuracy, or possible problems",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:scrutinize:de743f642a925a30"
+          ]
+        }
+      ],
+      "core_meaning_cn": "仔细审查；严密检查；为发现细节、准确性或问题而认真查看",
+      "core_meaning_en": "to examine something very closely and critically, especially for detail, accuracy, or possible problems",
+      "mental_model_cn": "仔细审查；严密检查；为发现细节、准确性或问题而认真查看",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o7375-o7874.md",
+      "boundaries": [
+        {
+          "condition": "common AmE spelling",
+          "note": "Common American spelling.",
+          "surface": "scrutinize"
+        },
+        {
+          "condition": "common BrE spelling",
+          "note": "Common British spelling of the same verb.",
+          "surface": "scrutinise"
+        }
+      ],
+      "type": "regional_spelling_variant"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "仔细审查；严密检查；为发现细节、准确性或问题而认真查看",
+        "definition_en": "to examine something very closely and critically, especially for detail, accuracy, or possible problems",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:scrutinize:de743f642a925a30",
+        "sense_label_en": "to examine something very closely and critically, especially for detail, accuracy, or possible problems",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -38,24 +78,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:scrutinize:de743f642a925a30",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "vi. 细看, 仔细检查, 审查, 细阅",
-      "definition_en": "to look at critically or searchingly, or in minute detail",
-      "semantic_key": "60313e0cf8edeab3d987d4f2da0a4268fa4b005e7336cfb4481d16b2aabf5171",
-      "semantic_key_history": [
-        "5c8aee4e7bb7f33144a8d9b08bdb453845872c67a5bc6262cafa85eec3ca4dfb"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 18846,
-      "source_path": "content/lexical/canonical/senses/shards/o7425-7456.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:scrutinize:f95adb377d0a587a",
       "status": "deprecated",
@@ -79,7 +101,7 @@
     "senses": [
       {
         "sense_id": "sense:scrutinize:de743f642a925a30",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 18846,
         "source_path": "content/lexical/canonical/senses/shards/o7425-7456.json"
@@ -106,6 +128,14 @@
   },
   "lookup_refs": [
     {
+      "spelling": "scrutinise",
+      "source": "content/lexical/canonical/lookup/spelling/sc.json",
+      "word_id": "word:scrutinize",
+      "ordinal": 7443,
+      "word_shard": "content/lexical/canonical/words/shards/o7441-7448.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/e9.json"
+    },
+    {
       "spelling": "scrutinize",
       "source": "content/lexical/canonical/lookup/spelling/sc.json",
       "word_id": "word:scrutinize",
@@ -116,7 +146,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7441-7448.json",
-    "source_content_hash": "246b29224cc4eb474cef3bc79a7137707753ea7c35df410d799df20671ad4281",
+    "source_content_hash": "82a9184d8f6f674a836168a6a44e6c6e27d0e3f9deb49236a289c1b78b9409c6",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
