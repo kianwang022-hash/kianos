@@ -1,0 +1,131 @@
+{
+  "schema": "kianos.xizong.extension_assets.v1",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED_SUBORDINATE",
+  "system_id": "urinary",
+  "canonical_id": "A3",
+  "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
+  "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
+  "assets": [
+    {
+      "slot_id": "urinary-b01-lg03-blood-vs-urine-route",
+      "owner": {
+        "block_id": "urinary-b01",
+        "logic_group_id": "urinary-b01-lg03"
+      },
+      "cue_id": "a3-b01-lg03-visual",
+      "asset_type": "SOURCE_VISUAL",
+      "revision": 1,
+      "title": "Blood-route vs urine-route nephron schematic",
+      "task": "把入球→肾小球→出球→管周/直小血管与肾小管段位放到同一张空间图里，先认‘血路’和‘尿路’。",
+      "caption": "Reviewed physiology source crop · P259",
+      "provenance": {
+        "kind": "LECTURE_SOURCE",
+        "source_locator": "生理 Lecture PDF P259",
+        "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123"
+      },
+      "display_policy": {
+        "timing": "LEARNING_MOMENT",
+        "default_state": "EXPANDED"
+      },
+      "payload": {
+        "asset_path": "a3/urinary-b01-lg03/b01-p259-blood-vs-urine-route.webp",
+        "width": 980,
+        "height": 520,
+        "alt": "生理讲义 P259：入球和出球小动脉、肾小球毛细血管、Bowman 囊、管周毛细血管、肾静脉，以及滤过、重吸收、分泌、排泄方向",
+        "source_crop_sha256": "3aa5022e1217146e89e22cb3c3b7f4aee2e6f5ddd76193f76dfc451d532a0835",
+        "derived_asset_sha256": "d04013bf81cfd362197c8b304cd44436854d8f9799cd9aeb53cc9f111709af8e"
+      }
+    },
+    {
+      "slot_id": "urinary-b01-lg05-juxtaglomerular-apparatus",
+      "owner": {
+        "block_id": "urinary-b01",
+        "logic_group_id": "urinary-b01-lg05"
+      },
+      "cue_id": "a3-b01-lg05-visual",
+      "asset_type": "SOURCE_VISUAL",
+      "revision": 1,
+      "title": "Juxtaglomerular apparatus positional anatomy",
+      "task": "在球旁器位置图上指出致密斑、入球小动脉和球旁细胞，说明远端 NaCl 信号怎样回到滤过端。",
+      "caption": "Reviewed physiology source crop · P258",
+      "provenance": {
+        "kind": "LECTURE_SOURCE",
+        "source_locator": "生理 Lecture PDF P258",
+        "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123"
+      },
+      "display_policy": {
+        "timing": "LEARNING_MOMENT",
+        "default_state": "EXPANDED"
+      },
+      "payload": {
+        "asset_path": "a3/urinary-b01-lg05/b01-p258-juxtaglomerular-apparatus.webp",
+        "width": 900,
+        "height": 440,
+        "alt": "生理讲义 P258：入球和出球小动脉、致密斑、球旁细胞与肾小球的位置关系",
+        "source_crop_sha256": "1244be463ad334a1c4a88091179435113d0976fd30060e3ae211fc059331a156",
+        "derived_asset_sha256": "a8a517f5decefde825ba28329e916a549338d0079b0625f7113b072757625dec"
+      }
+    },
+    {
+      "slot_id": "urinary-b02-lg01-filtration-barrier",
+      "owner": {
+        "block_id": "urinary-b02",
+        "logic_group_id": "urinary-b02-lg01"
+      },
+      "cue_id": "a3-b02-lg01-visual",
+      "asset_type": "SOURCE_VISUAL",
+      "revision": 1,
+      "title": "Glomerular filtration barrier layers and selectivity",
+      "task": "从毛细血管腔向 Bowman 腔逐层穿过滤过屏障，并指出‘漏蛋白’首先是哪类选择性故障。",
+      "caption": "Reviewed physiology source crop · P267",
+      "provenance": {
+        "kind": "LECTURE_SOURCE",
+        "source_locator": "生理 Lecture PDF P267",
+        "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123"
+      },
+      "display_policy": {
+        "timing": "LEARNING_MOMENT",
+        "default_state": "EXPANDED"
+      },
+      "payload": {
+        "asset_path": "a3/urinary-b02-lg01/b02-p267-filtration-barrier.webp",
+        "width": 1050,
+        "height": 300,
+        "alt": "生理讲义 P267：毛细血管内皮、基膜与肾小囊脏层上皮细胞/足细胞构成的滤过屏障",
+        "source_crop_sha256": "01a107e2e9a3d012b7011430514933ccfaaacc23e92643898c36e266a409cf1f",
+        "derived_asset_sha256": "f43e1b7b0ef1f2985914a5f0683f72f7e3ede5bb13c4483f6a027a48b1cb7ac8"
+      }
+    },
+    {
+      "slot_id": "urinary-b02-lg02-starling-filtration-pressure",
+      "owner": {
+        "block_id": "urinary-b02",
+        "logic_group_id": "urinary-b02-lg02"
+      },
+      "cue_id": "a3-b02-lg02-visual",
+      "asset_type": "SOURCE_VISUAL",
+      "revision": 1,
+      "title": "Glomerular Starling-force and filtration-pressure visual",
+      "task": "沿肾小球毛细血管看 Starling 力怎样变化，分清促进滤过与抵抗滤过的压力。",
+      "caption": "Reviewed physiology source crop · P269",
+      "provenance": {
+        "kind": "LECTURE_SOURCE",
+        "source_locator": "生理 Lecture PDF P269",
+        "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123"
+      },
+      "display_policy": {
+        "timing": "LEARNING_MOMENT",
+        "default_state": "EXPANDED"
+      },
+      "payload": {
+        "asset_path": "a3/urinary-b02-lg02/b02-p269-starling-filtration-pressure.webp",
+        "width": 1080,
+        "height": 720,
+        "alt": "生理讲义 P269：肾小球毛细血管血压、血浆胶体渗透压、囊内压和有效滤过压图示",
+        "source_crop_sha256": "65a782ce48016af03fec3ef287430d225488bd06c39028940f382d14029ddc81",
+        "derived_asset_sha256": "d377edf20be6e53d716de56c9229937d022097484d0203ba4d3e8ef5fdb9a0d8"
+      }
+    }
+  ]
+}

@@ -25,13 +25,17 @@ const EXTENSION_ASSET_ROOT = path.join(repoRoot, 'static-web/src/assets/xizong/e
 // This glob is deliberately scoped to the generic Extension directory. The
 // accepted legacy Source Visual pipeline has its own loader and remains
 // untouched for backward compatibility.
-const assetUrls = typeof import.meta.glob === 'function'
-  ? import.meta.glob('../assets/xizong/extensions/**/*.{webp,png,jpg,jpeg,svg}', {
+const assetUrls = (() => {
+  try {
+    return import.meta.glob('../assets/xizong/extensions/**/*.{webp,png,jpg,jpeg,svg}', {
     eager: true,
     query: '?url',
     import: 'default'
-  })
-  : {};
+    });
+  } catch {
+    return {};
+  }
+})();
 
 const isObject = (value) => Boolean(value) && typeof value === 'object' && !Array.isArray(value);
 const isSha256 = (value) => /^[0-9a-f]{64}$/i.test(String(value || ''));
