@@ -1,9 +1,10 @@
 # Xizong Product / UI Status
 
-Status: **CURRENT PRODUCT ROUTER · ONE RUNTIME · PROJECTION / DISPLAY RECONCILIATION ACTIVE**  
+Status: **CURRENT PRODUCT ROUTER · ONE RUNTIME · SHARED SEMANTIC ADAPTER CURRENT · PROJECTION CURRENT RECONCILED · RENDERER ADOPTION NEXT**  
 Domain router: `content/xizong/CURRENT.md`  
 Learning authority: `content/xizong/LEARNING_CONTRACT.md` + `content/xizong/knowledge/learner/study-policy.json`  
 Presentation authority: `static-web/PRESENTATION_CONTRACT.md`  
+Projection authority: `content/xizong/projection/PROJECTION_CONTRACT.md`  
 Safety / review: `XIZONG_UI_REVIEW_PROTOCOL.md`
 
 Historical integrated execution prompts, old Frozen web contracts, old Issue checklists and PR summaries are provenance only. They may explain how Current was reached but do not override the Current owners above.
@@ -264,17 +265,17 @@ Current medical / learning owners
 → learner UI
 ```
 
-Projection may decide semantic role, cognitive geometry and stage-safe visibility. It may not invent medical truth, learner state, question relations or Source locators.
+Projection may decide semantic role, cognitive geometry and stage-safe visibility. It may not invent medical truth, learner state, question relations, Source locators or Source-contact segmentation.
 
-Current durable role / geometry ideas remain useful, but historical Projection assets and manifest status are not allowed to overrule newer accepted Learning owners.
+Current reconciliation is now explicit:
 
-Known Current reconciliation facts:
-
-- A1 / A2 / A3 / B already have compiled Projection assets;
-- C now has accepted Knowledge + Learning and is eligible for Projection, including explicit / non-contiguous LG membership;
-- the old Projection manifest still contains stale C eligibility / runtime-adoption status and must be reconciled before the next P promotion;
-- production Block rendering historically bypassed much of the rich Projection layer; active Projection→Astro work must consume the unified semantic adapter rather than duplicate legacy System-specific loaders;
-- System-specific Source-contact semantics must survive: B and C need not use identical Source-contact granularity simply to share one renderer.
+- the shared A1/A2/A3/B/C semantic adapter is Current and validates LG identity/membership, Source-contact semantics, retrieval points, fail-closed TTSX, Attention items and optional Visual/Extension refs;
+- A1 / A2 / A3 / B have materialized compiled Projection assets: 4 Systems / 76 Blocks / 80 Projection assets;
+- C has accepted Knowledge + Learning and is **Projection-eligible but intentionally not yet compiled**: 27 Blocks / 423 KP / 133 LG;
+- C explicit/non-contiguous LG membership is preserved; it is not rewritten into fake contiguous ranges;
+- B whole-LG Source contact and C Block/canonical-Source-unit contact remain different accepted execution models;
+- compiled-asset validation and Current-eligibility/topology reconciliation are separate gates, so neither can manufacture the other's claim;
+- production Block rendering still needs to consume the unified semantic / Projection objects instead of reconstructing semantics through legacy System-specific loaders.
 
 Do not interpret `role / geometry` as learner-facing labels. The learner should see the mechanism chain, comparison, boundary or exact item itself, not `CHAIN / MATRIX / EXACT` engineering words.
 
@@ -282,20 +283,28 @@ Do not interpret `role / geometry` as learner-facing labels. The learner should 
 
 ## 8｜Content / System availability
 
-Knowledge inventory and product readiness are different dimensions.
+Knowledge inventory, Projection eligibility, compiled Projection assets and product readiness are different dimensions.
 
-The lane has a broad canonical Knowledge base; individual Systems may be at different K/L/P/R/E stages. Progressive availability remains legal:
+Progressive availability remains legal:
 
 ```text
-engineering/content not yet available
+accepted K/L
+≠ compiled Projection
+≠ product route available
 ≠ learner prerequisite failed
 ≠ learner debt
-≠ permission to fake placeholder content
 ```
 
-A1/A2/A3 have accepted engineering learner paths through Evidence for their named scopes; B/C have accepted modern K/L owners but still require downstream Projection/product reconciliation; later Systems continue their own content/learning acceptance work independently.
+Current product-side state:
 
-Do not wait for every System, every Visual, every Crosswalk relation or every future Extension before improving the shared learner product. Conversely, do not claim a later System is ready merely because the shared renderer exists.
+```text
+A1 / A2 / A3   accepted engineering learner paths for their named scopes
+B               accepted modern K/L + compiled Projection; downstream fresh P/renderer acceptance remains
+C               accepted modern K/L + Projection eligible; no compiled C Projection yet
+D / E / F       continue their own independent construction / acceptance chains
+```
+
+Do not wait for every System, every Visual, every Crosswalk relation or every future Extension before improving the shared learner product. Conversely, do not claim a later System is ready merely because the shared renderer exists or because its K/L content is accepted.
 
 ---
 
@@ -338,23 +347,27 @@ JSON fields / Markdown headings
 
 ## 10｜Current next product sequence
 
-Do not continue broad UI polish or bulk Visual production before the shared semantics are reconciled.
+The authority, shared semantic adapter and Projection Current reconciliation are no longer the active blockers.
 
 ```text
-1. Current learning/product authority consolidation
-2. shared A1/A2/A3/B/C semantic adapter
-   - Logic Group identity/membership
-   - Source-contact segment
-   - retrieval point
-   - TTSX boundary/binding checkpoint
-   - Attention items
-   - Visual Gate / Extension refs
-3. reconcile Projection manifest / compiler with Current Learning truth
-4. update production Block renderer to consume semantic objects
-5. representative Golden Journey
-6. B + C compatibility acceptance
-7. only then final Xizong UI convergence
-8. later Systems / Visuals / Crosswalk continue additively
+DONE  1. Current learning/product authority consolidation
+DONE  2. shared A1/A2/A3/B/C semantic adapter
+          - Logic Group identity/membership
+          - Source-contact semantics
+          - retrieval point
+          - fail-closed TTSX boundary/binding model
+          - Attention items
+          - Visual Gate / Extension refs
+DONE  3. reconcile Projection manifest / validation with Current Learning truth
+          - A1/A2/A3/B compiled
+          - C eligible, deliberately not falsely compiled
+NEXT  4. update production Block renderer to consume semantic / Projection objects
+      5. representative Golden Journey
+      6. B + C compatibility acceptance
+      7. only then final Xizong UI convergence
+      8. later Systems / Visuals / Crosswalk continue additively
 ```
+
+For step 4, modify the existing `XizongBlockV6` production family and shared loaders. Do not create `V7`, a second Xizong Runtime or a second learner-state store.
 
 Real learner U remains external and path-scoped.
