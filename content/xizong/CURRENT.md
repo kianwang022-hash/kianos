@@ -51,6 +51,7 @@ Use for learner order, Logic Groups, Source-contact granularity, TTSX, Recall/co
 
 Current reminders only:
 
+- `LEARNING_CONTRACT.md` §12 is the **locked learner-facing flow / capability closure** for fresh Chats and implementations; do not reconstruct an alternative learner model from Runtime, historical Guides, stale screenshots or prior Chat memory;
 - original Lecture / MarginNote is external-primary for continuous first-pass Source learning;
 - Logic Group = retrieval/local-closure unit, not automatically a Source-contact segment;
 - Lecture-attached TTSX is done in the original Lecture/MarginNote; KianOS only owns Boundary/Binding release, completion checkpoint and optional selected-question/note capture;
@@ -66,7 +67,7 @@ static-web/XIZONG_PRODUCT_STATUS.md
 → exact Runtime/component only after semantic owners are understood
 ```
 
-Do not infer learning semantics from the current DOM or CSS.
+Do not infer learning semantics from the current DOM or CSS. Product / UI work must preserve the locked learner-facing flow in `LEARNING_CONTRACT.md` §12; a current Runtime mismatch is an implementation defect, not a new Learning rule.
 
 ### Visual / Precision / Extension
 
