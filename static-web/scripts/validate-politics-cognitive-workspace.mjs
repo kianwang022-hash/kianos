@@ -64,19 +64,23 @@ for (const fastPath of [
   "setWorkspaceState(unit, 'VERIFY')"
 ]) requireText(bridge, fastPath, 'score-first workspace bridge');
 
+// Golden-page calibration: first glance is a spatial graph, required reasoning
+// remains visible below it, chapter context is reachable but compact, and the
+// inspector is reserved for discrimination rather than repeating the stage.
 for (const visualRule of [
   'directReasoningWorkspace',
-  'data-direct-relation-field',
-  'core reasoning is primary content',
+  'goldenGraph',
+  'goldenGraphColumn',
+  'goldenNode',
+  'goldenizeMap(panel)',
   "deck.querySelector('.mapTabs')?.remove()",
   'panel.hidden = false',
-  'promoteDirectRelations(panel)',
-  'Preserve the Map\'s own topology',
-  'data-node-deepening',
-  'inspectorPrimaryAnchor',
+  '章地图 +',
+  '.relationStrip',
+  "inspectorTitle.textContent = '容易混'",
   '.workspaceState{display:none}',
   '.suyiNote{display:none!important}'
-]) requireText(bridge, visualRule, 'topology-preserving direct-visible bridge');
+]) requireText(bridge, visualRule, 'golden topology workspace');
 
 for (const forbiddenProjection of [
   'buildDirectReasoningFlow',
@@ -85,6 +89,11 @@ for (const forbiddenProjection of [
 ]) {
   if (bridge.includes(forbiddenProjection)) fail(`projection still coerces Map into generic flow: ${forbiddenProjection}`);
 }
+
+// Do not regress to the previous blanket rules that hid the chapter context or
+// mechanically folded every relation chain regardless of its learning role.
+if (bridge.includes('.chapterContext{display:none}')) fail('chapter context was hidden instead of kept as compact map entry');
+if (bridge.includes('demoteRelationChain')) fail('required relation chain was mechanically folded');
 
 requireText(page, "subject === 'marxism'", 'route calibration');
 requireText(page, "chapter === 'ch00'", 'route calibration');
@@ -137,8 +146,9 @@ console.log(JSON.stringify({
   semanticUnits: semanticUnits.length,
   states: ['ORIENT', 'EXTERNAL_LEARN', 'RECALL', 'VERIFY', 'REPAIR', 'CLOSE'],
   scoreFirstFastPath: 'EXTERNAL_LEARN -> VERIFY; RECALL optional',
-  primaryReasoning: 'DIRECT_VISIBLE_SEMANTIC_EDGES',
-  mapProjection: 'TOPOLOGY_PRESERVED_RELATIONS_FIRST',
-  secondaryDepth: 'NODE_GLOSSARY_AND_RELATION_CHAIN_OPTIONAL',
+  primaryReasoning: 'SPATIAL_TOPOLOGY_FIRST',
+  mapProjection: 'TOPOLOGY_PRESERVED_GOLDEN_GRAPH',
+  secondaryDepth: 'REQUIRED_RELATION_CHAIN_VISIBLE_LOWER_WEIGHT',
+  chapterContext: 'COMPACT_OPTIONAL_ENTRY',
   surface: 'MAC_LANDSCAPE_COGNITIVE_WORKSPACE'
 }, null, 2));
