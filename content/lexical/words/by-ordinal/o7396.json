@@ -7,12 +7,22 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "206c3b29b5aa3cff8c1c3c0e78fb2a7a17e0d999d7da847ec8e615154c9c3e0d",
+    "content_hash": "ffff00cae43546640a3fa96a930f1f4d09424c5a542d9b72de4c8f5250256450",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "缩回, 收回, 取消, 撤消",
-      "core_meaning_en": "use a surgical instrument to hold open (the edges of a wound or an organ)",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "撤回；收回；正式撤销声明、主张、提议、承诺或指控；缩回；收回伸出的身体部位、物体或机构",
+          "label_en": "to withdraw, take back, or formally disavow a statement, claim, offer, promise, or accusation; to draw or pull back an extended body part, object, or mechanism",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:retract:093e06a8df526cef",
+            "sense:retract:2c3d02187185aaa9"
+          ]
+        }
+      ],
+      "core_meaning_cn": "撤回；收回；正式撤销声明、主张、提议、承诺或指控；缩回；收回伸出的身体部位、物体或机构",
+      "core_meaning_en": "to withdraw, take back, or formally disavow a statement, claim, offer, promise, or accusation; to draw or pull back an extended body part, object, or mechanism",
+      "mental_model_cn": "撤回；收回；正式撤销声明、主张、提议、承诺或指控；缩回；收回伸出的身体部位、物体或机构",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -31,9 +41,10 @@
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L1",
+        "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
+        "register": "surgery",
         "sense_id": "sense:retract:6856475591a852d8",
         "sense_label_en": "use a surgical instrument to hold open (the edges of a wound or an organ)",
         "sort_order": 1,
@@ -45,7 +56,36 @@
             "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
             "source_type": "learner_dictionary"
           }
-        ]
+        ],
+        "usage_note": "Specialist surgical use: hold tissue or a wound open with a retractor."
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "撤回；收回；正式撤销声明、主张、提议、承诺或指控",
+        "definition_en": "to withdraw, take back, or formally disavow a statement, claim, offer, promise, or accusation",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:retract:093e06a8df526cef",
+        "sense_label_en": "to withdraw, take back, or formally disavow a statement, claim, offer, promise, or accusation",
+        "sort_order": 2,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "缩回；收回伸出的身体部位、物体或机构",
+        "definition_en": "to draw or pull back an extended body part, object, or mechanism",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:retract:2c3d02187185aaa9",
+        "sense_label_en": "to draw or pull back an extended body part, object, or mechanism",
+        "sort_order": 3,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -70,6 +110,20 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 18762,
+        "source_path": "content/lexical/canonical/senses/shards/o7393-7424.json"
+      },
+      {
+        "sense_id": "sense:retract:093e06a8df526cef",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18813,
+        "source_path": "content/lexical/canonical/senses/shards/o7393-7424.json"
+      },
+      {
+        "sense_id": "sense:retract:2c3d02187185aaa9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18814,
         "source_path": "content/lexical/canonical/senses/shards/o7393-7424.json"
       }
     ],
@@ -97,7 +151,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7393-7400.json",
-    "source_content_hash": "206c3b29b5aa3cff8c1c3c0e78fb2a7a17e0d999d7da847ec8e615154c9c3e0d",
+    "source_content_hash": "ffff00cae43546640a3fa96a930f1f4d09424c5a542d9b72de4c8f5250256450",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
