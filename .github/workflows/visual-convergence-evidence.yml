@@ -1,0 +1,73 @@
+name: Visual Convergence Evidence
+on:
+  push:
+    branches: ['ui/visual-convergence-20260916']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: visual-convergence-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Bind evidence to the exact head
+        run: |
+          mkdir -p visual-evidence
+          git rev-parse HEAD > visual-evidence/commit.txt
+          git archive --format=tar.gz HEAD > visual-evidence/inputs.tar.gz
+      - name: Supply exact inputs for local visual iteration
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-inputs-${{ github.sha }}
+          path: |
+            visual-evidence/inputs.tar.gz
+            visual-evidence/commit.txt
+          retention-days: 3
+      - name: Install Current runtime and browser tooling
+        working-directory: static-web
+        run: |
+          npm install --no-audit --no-fund
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+      - name: Verify unchanged native Home interfaces
+        working-directory: static-web
+        run: node scripts/test-visual-home-contract.mjs
+      - name: Build exact-head Current site
+        working-directory: static-web
+        run: npm run build > ../visual-evidence/build.log 2>&1
+      - name: Install screenshot environment
+        working-directory: static-web
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y fonts-noto-cjk
+          npx playwright install --with-deps chromium
+      - name: Capture all stage-one page families
+        working-directory: static-web
+        run: node scripts/capture-visual-stage-one.mjs
+      - name: Gate adaptive Lexical Depth shapes
+        working-directory: static-web
+        run: node scripts/capture-lexical-projection.mjs
+      - name: Check viewport and existing Home journeys
+        if: always()
+        working-directory: static-web
+        run: node scripts/test-visual-convergence.mjs
+      - name: Upload exact-head evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-convergence-${{ github.sha }}
+          path: |
+            visual-evidence/commit.txt
+            visual-evidence/build.log
+            visual-evidence/screens/
+            visual-evidence/contract-checks.json
+            visual-evidence/stage1/
+            visual-evidence/lexical-projection/
+          retention-days: 7
+          if-no-files-found: error

@@ -356,11 +356,16 @@ const compressionSummary = String(rawCompression.stage_shift || rawCompression.d
   };
 
   if (runtime) {
+    // Entry/reload must not demote an exact cursor within this chapter.
+    const previousLocation = readJson(politicsLastKey, null);
+    const sameLocation = previousLocation?.subject === runtime.dataset.subject
+      && previousLocation?.chapter === runtime.dataset.chapter;
     saveJson(politicsLastKey, {
+      ...(sameLocation ? previousLocation : {}),
       subject: runtime.dataset.subject || '',
       chapter: runtime.dataset.chapter || '',
       title: runtime.dataset.title || '',
-      href: window.location.pathname,
+      href: sameLocation && previousLocation?.href ? previousLocation.href : window.location.pathname,
       observed_at: new Date().toISOString()
     });
   }

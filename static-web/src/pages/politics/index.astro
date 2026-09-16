@@ -12,52 +12,39 @@ const firstChapter = firstSubject?.chapters?.[0];
 const firstHref = firstSubject && firstChapter ? `${base}politics/${firstSubject.subject}/${firstChapter.code}/` : `${base}politics/`;
 const firstLabel = firstChapter ? `${firstSubject.label} · ${firstChapter.title}` : '开始政治学习';
 ---
-<Base
-  title="政治"
-  kicker="内容已经成熟，开始直接学习"
-  description="一条主线：先定位 → 乘风连续学习 → 小闭合 → 肖1000验证 → 错了才精准回源。"
-  active="politics"
->
-  <section class="politicsCurrentStrip">
-    <div>
-      <p class="pageKicker">当前学习方式</p>
-      <h2>你不用先看第二套框架</h2>
-      <p>苏一的框架价值已经吸收到导学层。正文仍然以乘风为唯一连续主线；肖1000只负责验证，不会反过来安排学习顺序。</p>
-    </div>
-    <aside>
-      <strong>{health.status === 'ready' ? 'Current 已接通' : '部分源待解析'}</strong>
-      <span>{subjects.length} 科 · {chapterCount} 个学习章节</span>
-      <span>答对快走 · 错了最小修复</span>
-    </aside>
-  </section>
-
+<Base title="政治" active="politics" showLead={false}>
+  <header class="politicsOverviewHeader">
+    <div><p class="pageKicker">POLITICS · STUDY WORKSPACE</p><h1>政治</h1><p>带着结构进入原讲义，用题目验证，再回到真正的缺口。</p></div>
+    <a class="politicsPracticeEntry" href={`${base}politics/practice/`}>进入肖1000 <span>→</span></a>
+  </header>
   <PoliticsHomeTools firstHref={firstHref} firstLabel={firstLabel} />
-
-  <section class="politicsSubjects">
-    {subjects.map((subject) => (
-      <article class="politicsSubjectCard">
-        <header>
-          <div><span>{subject.shape}</span><h2>{subject.label}</h2></div>
-          <b>{subject.chapters.length} 章</b>
-        </header>
-        <p>{subject.description}</p>
-        <nav>
-          {subject.chapters.map((chapter, index) => (
-            <a href={`${base}politics/${subject.subject}/${chapter.code}/`}>
-              <span>{String(index + 1).padStart(2,'0')}</span>
-              <strong>{chapter.title}</strong>
-              <b>→</b>
-            </a>
-          ))}
-        </nav>
-      </article>
-    ))}
+  <section class="politicsSubjectWorkbench" data-politics-subject-workbench>
+    <header><h2>五科与学习章节</h2><span>先定位 → 乘风原讲义 → 验证与修补</span></header>
+    <nav class="politicsSubjectTabs" aria-label="政治科目">
+      {subjects.map((subject, index) => <a href={`#subject-${subject.subject}`} class={index===0?'active':''} data-politics-subject-tab={subject.subject} aria-current={index===0?'true':undefined}><strong>{subject.label}</strong><span>{subject.shape}</span></a>)}
+    </nav>
+    {subjects.map((subject,index) => <section class="politicsSubjectPanel" id={`subject-${subject.subject}`} data-politics-subject-panel={subject.subject}>
+      <div class="politicsSubjectIdentity"><span>{subject.shape}</span><h2>{subject.label}</h2><p>{subject.description}</p><small>{subject.chapters.length} 个章节 · 自由定位</small></div>
+      <nav class="politicsChapterRows" aria-label={`${subject.label}章节`}>
+        {subject.chapters.map((chapter,i)=><a href={`${base}politics/${subject.subject}/${chapter.code}/`}><span>{String(i+1).padStart(2,'0')}</span><strong>{chapter.title}</strong><b>↗</b></a>)}
+      </nav>
+    </section>)}
   </section>
+  <p class="politicsOverviewFoot">连续学习在 iPad / MarginNote 原讲义；这里保留框架、验证和准确返回。</p>
 </Base>
-
-<style>
-  .politicsCurrentStrip{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end;padding:26px 28px;border:1px solid var(--study-line);border-radius:16px;background:#fff;box-shadow:var(--study-shadow)}
-  .politicsCurrentStrip h2{margin:4px 0 7px;font-size:28px}.politicsCurrentStrip p:not(.pageKicker){max-width:72ch;margin:0;color:var(--study-muted);font-size:14px;line-height:1.7}.politicsCurrentStrip aside{display:grid;gap:3px;min-width:205px;padding-left:22px;border-left:1px solid var(--study-line)}.politicsCurrentStrip aside strong{color:var(--study-green);font-size:13px}.politicsCurrentStrip aside span{color:var(--study-faint);font-size:10px}
-  .politicsSubjects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}.politicsSubjectCard{padding:22px;border:1px solid var(--study-line);border-radius:14px;background:#fff}.politicsSubjectCard>header{display:flex;align-items:start;justify-content:space-between;gap:14px}.politicsSubjectCard header span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.politicsSubjectCard h2{margin:5px 0 0;font-size:24px}.politicsSubjectCard>header>b{color:var(--study-faint);font-size:11px}.politicsSubjectCard>p{min-height:44px;color:var(--study-muted);font-size:13px;line-height:1.6}.politicsSubjectCard nav{display:grid;gap:4px;margin-top:15px}.politicsSubjectCard nav a{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:9px;align-items:center;padding:9px 10px;border-radius:9px;text-decoration:none;color:#34453e}.politicsSubjectCard nav a:hover{background:var(--study-green-soft);color:var(--study-green)}.politicsSubjectCard nav a>span{color:var(--study-faint);font-size:9px;font-weight:800}.politicsSubjectCard nav a>strong{min-width:0;font-size:12px;line-height:1.45}.politicsSubjectCard nav a>b{font-size:12px}
-  @media(max-width:860px){.politicsCurrentStrip{grid-template-columns:1fr}.politicsCurrentStrip aside{padding:14px 0 0;border-left:0;border-top:1px solid var(--study-line)}.politicsSubjects{grid-template-columns:1fr}}
-</style>
+<script>
+  // View selection only. No progress, scheduler, completion, or Resume writes.
+  const workbench=document.querySelector('[data-politics-subject-workbench]');
+  if(workbench){
+    const panels=[...workbench.querySelectorAll<HTMLElement>('[data-politics-subject-panel]')];
+    const links=[...workbench.querySelectorAll<HTMLAnchorElement>('[data-politics-subject-tab]')];
+    const select=(id:string)=>{
+      if(!panels.some(p=>p.dataset.politicsSubjectPanel===id))return;
+      panels.forEach(p=>{p.hidden=p.dataset.politicsSubjectPanel!==id;});
+      links.forEach(a=>{const active=a.dataset.politicsSubjectTab===id;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current');});
+    };
+    const readHash=()=>{const id=location.hash.replace('#subject-','');select(panels.some(p=>p.dataset.politicsSubjectPanel===id)?id:panels[0]?.dataset.politicsSubjectPanel||'');};
+    links.forEach(a=>a.addEventListener('click',()=>select(a.dataset.politicsSubjectTab||'')));
+    addEventListener('hashchange',readHash);readHash();
+  }
+</script>

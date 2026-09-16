@@ -95,7 +95,7 @@ try {
   // Recall front is learner-visible before Reveal while answer-bearing Depth remains hidden.
   check(!(await page.locator('[data-vocab-details]').isVisible()), 'depth_answer_hidden_before_reveal');
   const frontText = await page.locator('[data-vocab-front]').innerText();
-  const hiddenCore = String(await page.locator('[data-vocab-details] .portedVocabCoreSense p').first().textContent() || '').trim();
+  const hiddenCore = String(await page.locator('[data-vocab-details] .lexicalSenseMeaning > p').first().textContent() || '').trim();
   check(Boolean(hiddenCore) && !frontText.includes(hiddenCore), 'recall_front_does_not_leak_core_answer', hiddenCore);
   check(await page.locator('[data-route="known"]').count() === 1 && await page.locator('[data-route="mastered"]').count() === 1, 'fast_pass_controls_present');
 

@@ -1,0 +1,137 @@
+/* Desktop is a stable workspace, not a scaled-down long document.
+   Each task retains its native geometry and native permission/visibility state.
+   Long content scrolls in its own pane; no max-height clipping without a scroll
+   path, no font-size compression, and no scheduler/evidence writes. */
+@media (min-width:1101px) and (min-height:680px) {
+  body#kianos-workspace.uiStageOne { height:100dvh;min-height:0;display:flex;flex-direction:column;overflow:hidden; }
+  body#kianos-workspace.uiStageOne>.productBar { flex:0 0 54px;min-height:54px;position:relative;top:auto; }
+  body#kianos-workspace.uiStageOne>.productCanvas { flex:1;min-height:0;display:flex;flex-direction:column;width:calc(100% - 32px);margin:0 auto;padding:12px 0;overflow:auto; }
+  body#kianos-workspace.uiStageOne>.productCanvas>* { flex-shrink:0; }
+  body#kianos-workspace.uiHub>.productBar { position:fixed;inset:0 auto 0 0;min-height:100dvh; }
+  body#kianos-workspace.uiHub>.productCanvas { width:auto;margin:0 0 0 204px;padding:20px 24px 12px; }
+  body#kianos-workspace :is(.politicsUnitCognition,.politicsUnitCompanion,.politicsRail,.cognitiveStage,.contextualInspector,.portedStudyMain,.portedStudyOutline,.portedStudyChain,.xv6SystemMain,.xv6SystemRail,.xv6SystemContext,.portedVocabMeaningColumn,.portedVocabEvidenceColumn) { scrollbar-width:thin;scrollbar-color:#bdccc4 transparent; }
+
+  /* Hubs: header + Continue + dominant browse surface. Not an all-task dashboard. */
+  body#kianos-workspace.surfaceBody-politics.uiHub .politicsOverviewHeader { padding-bottom:15px; }
+  body#kianos-workspace.surfaceBody-politics.uiHub .politicsOverviewHeader h1 { margin:3px 0 5px; }
+  body#kianos-workspace.surfaceBody-politics.uiHub .politicsHomeTools { margin-bottom:16px; }
+  body#kianos-workspace.surfaceBody-politics.uiHub :is(.politicsContinue,.politicsHandoff) { padding:17px 23px; }
+  body#kianos-workspace.surfaceBody-politics.uiHub .politicsContinue { padding-right:55px; }
+  body#kianos-workspace.surfaceBody-politics.uiHub .politicsSubjectWorkbench { flex:1;min-height:0;display:flex;flex-direction:column; }
+  body#kianos-workspace.surfaceBody-politics.uiHub .politicsSubjectWorkbench>header { flex-shrink:0;padding:13px 23px; }
+  body#kianos-workspace.surfaceBody-politics.uiHub .politicsSubjectTabs { flex-shrink:0; }
+  body#kianos-workspace.surfaceBody-politics.uiHub .politicsSubjectTabs a { padding:13px 21px; }
+  body#kianos-workspace.surfaceBody-politics.uiHub .politicsSubjectPanel { flex:1;min-height:0;overflow:auto;padding:19px 23px;grid-template-columns:165px minmax(0,1fr);gap:26px; }
+  body#kianos-workspace.surfaceBody-politics.uiHub .politicsChapterRows { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  body#kianos-workspace.surfaceBody-politics.uiHub .politicsChapterRows a { padding:11px 0; }
+  body#kianos-workspace.surfaceBody-politics.uiHub .politicsOverviewFoot { margin:9px 0 0; }
+  body#kianos-workspace.surfaceBody-xizong.uiHub .xzOverviewHeader { padding-bottom:15px; }
+  body#kianos-workspace.surfaceBody-xizong.uiHub .xizongHomeTools { margin-bottom:16px; }
+  body#kianos-workspace.surfaceBody-xizong.uiHub .xzOverviewLayout { flex:1;min-height:0; }
+  body#kianos-workspace.surfaceBody-xizong.uiHub :is(.xzSystemWorkbench,.xzOverviewCompanion) { min-height:0;overflow:auto; }
+  body#kianos-workspace.uiEnglish.uiHub .englishHub { flex:1;min-height:0;display:flex;flex-direction:column; }
+  body#kianos-workspace.uiEnglish.uiHub :is(.englishTaskTabs,.englishOverview) { flex-shrink:0; }
+  body#kianos-workspace.uiEnglish.uiHub .englishCapabilityLayout { flex:1;min-height:0; }
+  body#kianos-workspace.uiEnglish.uiHub :is(.englishCapabilityMap,.englishContextRail) { min-height:0;overflow:auto; }
+
+  /* Politics keeps orientation / selected Natural Unit / exact Return. */
+  body#kianos-workspace.surfaceBody-politics .politicsStudy { flex:1;min-height:0;grid-template-rows:auto minmax(0,1fr);align-items:stretch; }
+  body#kianos-workspace.surfaceBody-politics .politicsChapterLocation { position:static;padding:12px 21px; }
+  body#kianos-workspace.surfaceBody-politics .politicsChapterLocation h1 { font-size:22px; }
+  body#kianos-workspace.surfaceBody-politics .politicsRail { position:static;align-self:stretch;min-height:0;max-height:none;overflow:auto;padding:15px 10px; }
+  body#kianos-workspace.surfaceBody-politics .politicsRail nav { margin-top:12px; }
+  body#kianos-workspace.surfaceBody-politics .politicsMain { min-height:0;overflow:hidden; }
+  body#kianos-workspace.surfaceBody-politics .politicsMain>:is(.politicsUnit,.politicsOrientation,.politicsChapterClose) { height:100%;min-height:0;box-sizing:border-box; }
+  body#kianos-workspace.surfaceBody-politics .politicsMain>:is(.politicsOrientation,.politicsChapterClose) { overflow:auto; }
+  body#kianos-workspace.surfaceBody-politics .politicsUnit { grid-template-columns:minmax(0,1fr) 270px;align-items:stretch; }
+  body#kianos-workspace.surfaceBody-politics .politicsUnitCognition { min-height:0;overflow:auto;padding:20px 27px; }
+  body#kianos-workspace.surfaceBody-politics .politicsUnitCompanion { position:static;min-height:0;max-height:none;overflow:auto;padding:20px; }
+  body#kianos-workspace.surfaceBody-politics .politicsUnitHead h2 { margin-top:7px;margin-bottom:12px;font-size:25px; }
+  body#kianos-workspace.surfaceBody-politics .politicsCompiledGeometry { margin:14px 0 20px; }
+  body#kianos-workspace.surfaceBody-politics .compiledObject { padding-block:13px; }
+  body#kianos-workspace.surfaceBody-politics .projectionText { line-height:1.75; }
+  body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace { flex:1;min-height:0;display:flex;flex-direction:column;gap:0; }
+  body#kianos-workspace.surfaceBody-politics .workspaceBar { position:static;min-height:0;flex-shrink:0;padding:12px 21px; }
+  body#kianos-workspace.surfaceBody-politics .workspaceUnitTabs { margin-top:10px; }
+  body#kianos-workspace.surfaceBody-politics .workspaceUnitTabs button { padding:9px 14px; }
+  body#kianos-workspace.surfaceBody-politics .chapterContext { flex-shrink:0;max-height:28%;overflow:auto; }
+  body#kianos-workspace.surfaceBody-politics .workspaceUnit { flex:1;min-height:0;grid-template-columns:minmax(0,1fr) 270px;align-items:stretch;border:0;border-radius:0; }
+  body#kianos-workspace.surfaceBody-politics .cognitiveStage { min-height:0;overflow:auto;padding:22px 28px; }
+  body#kianos-workspace.surfaceBody-politics .stageScene { min-height:100%; }
+  body#kianos-workspace.surfaceBody-politics .contextualInspector { position:static;min-height:0;max-height:none;overflow:auto;border:0;border-left:1px solid var(--study-line);border-radius:0;padding:20px;background:#f7faf6; }
+  body#kianos-workspace.surfaceBody-politics .stageActions { position:sticky;bottom:-22px;z-index:2;padding:13px 0;background:#fff;border-top:1px solid var(--study-line); }
+
+  /* Xiao: clean attempt and result keep different geometry; actions stay in view. */
+  body#kianos-workspace.surfaceBody-politics .politicsWorkbench { flex:1;min-height:0;display:flex;flex-direction:column; }
+  body#kianos-workspace.surfaceBody-politics .politicsWorkbench>:not(.practiceSession) { flex-shrink:0; }
+  body#kianos-workspace.surfaceBody-politics .politicsFilters { max-height:55vh;overflow:auto; }
+  body#kianos-workspace.surfaceBody-politics .practiceSession { flex:1;min-height:0;display:flex;flex-direction:column;gap:12px; }
+  body#kianos-workspace.surfaceBody-politics .politicsSessionBar { flex-shrink:0; }
+  body#kianos-workspace.surfaceBody-politics .politicsQuestionCard { flex:1;min-height:0;overflow:auto;padding:22px 30px; }
+  body#kianos-workspace.surfaceBody-politics .politicsSubmitRow { position:sticky;bottom:-22px;padding:16px 0;background:#fff;z-index:2; }
+  body#kianos-workspace.surfaceBody-politics .politicsReview { flex:1;min-height:0;display:flex;flex-direction:column; }
+  body#kianos-workspace.surfaceBody-politics .practiceQuestionReference { flex-shrink:0;max-height:35vh;overflow:auto; }
+  body#kianos-workspace.surfaceBody-politics .politicsResultLayout { flex:1;min-height:0;align-items:stretch; }
+  body#kianos-workspace.surfaceBody-politics :is(.politicsResultSummaryPane,.politicsKnowledgeReview) { min-height:0;overflow:auto; }
+  body#kianos-workspace.surfaceBody-politics .politicsReviewActions { position:sticky;bottom:-25px;z-index:2;margin-top:14px;padding:12px 0;background:#fff; }
+
+  /* Xizong: the active workspace fits; separate downstream tasks stay reachable
+     in the outer canvas. No replacement of Memory/Review/Question runtime. */
+  body#kianos-workspace.surfaceBody-xizong :is(.xv6Block,.xv6SystemShell) { flex:0 0 auto;height:calc(100dvh - 82px);min-height:0;box-sizing:border-box; }
+  body#kianos-workspace.surfaceBody-xizong .xv6Block { display:flex;flex-direction:column;overflow:hidden; }
+  body#kianos-workspace.surfaceBody-xizong .portedStudyHeader { flex-shrink:0; }
+  body#kianos-workspace.surfaceBody-xizong .portedStudyContextRow { min-height:36px;padding:5px 20px; }
+  body#kianos-workspace.surfaceBody-xizong .portedStudyIdentity { padding:10px 23px; }
+  body#kianos-workspace.surfaceBody-xizong .portedStudyLayout { flex:1;min-height:0;align-items:stretch; }
+  body#kianos-workspace.surfaceBody-xizong :is(.portedStudyOutline,.portedStudyChain) { min-height:0;overflow:auto; }
+  body#kianos-workspace.surfaceBody-xizong .portedStudyMain { min-height:0;overflow:auto; }
+  body#kianos-workspace.surfaceBody-xizong .portedStudyMain:has([data-study-stage="kp_recall"]:not([hidden])) { overflow:hidden; }
+  body#kianos-workspace.surfaceBody-xizong .portedStudyMain:has([data-study-stage="kp_recall"]:not([hidden]))>[data-study-panel="learn"] { height:100%;min-height:0; }
+  body#kianos-workspace.surfaceBody-xizong [data-study-stage="kp_recall"] { height:100%;min-height:0;display:flex;flex-direction:column; }
+  body#kianos-workspace.surfaceBody-xizong .portedKpWorkspaceHeader { flex-shrink:0;padding:12px 23px; }
+  body#kianos-workspace.surfaceBody-xizong .portedKpCards { flex:1;min-height:0;overflow:hidden; }
+  body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard { height:100%;min-height:0;display:flex;flex-direction:column; }
+  body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard>header { flex-shrink:0;max-height:40%;overflow:auto; }
+  body#kianos-workspace.surfaceBody-xizong .portedRecallAnswer { flex:1;min-height:0;overflow:auto; }
+  body#kianos-workspace.surfaceBody-xizong .portedRecallRating { flex-shrink:0;padding:12px 23px;background:#f5f9f5;border-top:1px solid var(--study-line); }
+  body#kianos-workspace.surfaceBody-xizong .portedRecallPrompt { flex:1;min-height:0;align-content:start; }
+  body#kianos-workspace.surfaceBody-xizong .portedStudyStageAction { position:sticky;bottom:-25px;background:#fff;padding:13px 0; }
+  body#kianos-workspace.surfaceBody-xizong .xv6SystemShell { align-items:stretch; }
+  body#kianos-workspace.surfaceBody-xizong :is(.xv6SystemRail,.xv6SystemMain,.xv6SystemContext) { position:static;align-self:stretch;min-height:0;max-height:none;overflow:auto; }
+
+  /* Lexical: a single Word stays a semantic sheet, not one-card-per-sense pages. */
+  body#kianos-workspace.uiWordStudy>.productCanvas { width:100%;margin:0;padding:0 16px 12px;overflow:hidden; }
+  body#kianos-workspace.uiWordStudy .lexicalStudyNav { position:static;flex-shrink:0;margin:0 -16px;padding:7px 22px;min-height:50px; }
+  body#kianos-workspace.uiWordStudy .lexicalStudyNavBottom { display:none; }
+  body#kianos-workspace.uiWordStudy .portedVocabRuntime { flex:1;min-height:0;display:flex;flex-direction:column; }
+  body#kianos-workspace.uiWordStudy .portedVocabPreviewBar { flex-shrink:0;min-height:34px;padding:3px 0; }
+  body#kianos-workspace.uiWordStudy .portedVocabStudySheet { flex:1;min-height:0;display:flex;flex-direction:column; }
+  body#kianos-workspace.uiWordStudy [data-vocab-details] { flex:1;min-height:0;display:flex;flex-direction:column; }
+  body#kianos-workspace.uiWordStudy .portedVocabWordHeader { flex-shrink:0;padding:13px 27px; }
+  body#kianos-workspace.uiWordStudy .portedVocabWordHeader h2 { margin:3px 0 5px; }
+  body#kianos-workspace.uiWordStudy .portedVocabBody { flex:1;min-height:0;align-items:stretch; }
+  body#kianos-workspace.uiWordStudy :is(.portedVocabMeaningColumn,.portedVocabEvidenceColumn) { min-height:0;overflow:auto; }
+  body#kianos-workspace.uiWordStudy .portedVocabWordFront { flex:1;min-height:0;overflow:auto;padding:28px; }
+  body#kianos-workspace.uiWordStudy .portedVocabFoot { flex-shrink:0;padding:8px 22px; }
+
+  /* English: keep Reading 1.12/.88 and other task-native ratios unchanged.
+     Flex measures remaining viewport after the real header/result state. */
+  body#kianos-workspace.uiEnglish :is(.portedReadingSession,.clozeRuntime,.translationRuntime,.writingRuntime) { flex:1;min-height:0;display:flex;flex-direction:column; }
+  body#kianos-workspace.uiEnglish :is(.portedReadingSession,.clozeRuntime,.translationRuntime,.writingRuntime)>* { flex-shrink:0; }
+  body#kianos-workspace.uiEnglish :is(.portedReadingColumns,.clozeLayout,.translationColumns,.writingRuntimeColumns) { flex:1;min-height:0;height:auto; }
+  body#kianos-workspace.uiEnglish .portedReadingSessionHeader { padding-block:10px; }
+  body#kianos-workspace.uiEnglish .portedReadingQuestionNav { margin:8px 0;padding-bottom:7px; }
+  body#kianos-workspace.uiEnglish :is(.portedReadingPassage,.portedReadingQuestions,.clozePassage,.clozeQuestions,.translationSource,.translationWork,.writingPrompt,.writingWork) { min-height:0;overflow:auto; }
+  body#kianos-workspace.uiEnglish .portedReadingHistory { flex-shrink:0;max-height:28vh;overflow:auto; }
+  body#kianos-workspace.uiEnglish :is(.translationActions,.writingActions) { position:sticky;bottom:-22px;z-index:2;background:#fff;padding:12px 0;border-top:1px solid var(--study-line); }
+  body#kianos-workspace.uiEnglish .clozeSubmitRow { flex-shrink:0; }
+  /* Guide navigation remains fixed while the complete guide scrolls. */
+  body#kianos-workspace.uiEnglish :is(.objectiveLearnShell,.translationLearnShell) { flex:1;min-height:0;align-items:stretch; }
+  body#kianos-workspace.uiEnglish :is(.objectiveLearnNav,.translationLearnNav) { position:static;min-height:0;max-height:none;overflow:auto; }
+  body#kianos-workspace.uiEnglish :is(.objectiveLearnMain,.translationLearnMain) { min-height:0;overflow:auto; }
+}
+@media (min-width:1101px) and (max-width:1300px) and (min-height:680px) {
+  body#kianos-workspace.uiHub>.productCanvas { margin-left:182px;padding-inline:20px; }
+  body#kianos-workspace.surfaceBody-politics .politicsUnit { grid-template-columns:minmax(0,1fr) 245px; }
+}
+/* Narrow windows and high browser zoom retain natural document reflow. */

@@ -6,7 +6,7 @@ import VocabularyChallengeRuntimeVNext from '../../components/VocabularyChalleng
 import { inspectLexicalSources, listLexicalWordSummaries } from '../../lib/lexical.mjs';
 const inspection=inspectLexicalSources();const rows=listLexicalWordSummaries();
 ---
-<Base title="Vocabulary" kicker="LexicalOS · Current Natural Owners" description="Continue / Search / Repair / Challenge. Coverage 是长期主线；Repair 从当前 evidence 编译，不会把 7,946 个词或错过的日历天数变成欠债。" sourcePath={inspection.manifestPath} objectId="lexical:vocabulary-home" active="lexical">
+<Base title="Vocabulary" kicker="LexicalOS · Current Natural Owners" description="Continue / Search / Repair / Challenge. Coverage 是长期主线；Repair 从当前 evidence 编译，不会把 7,946 个词或错过的日历天数变成欠债。" sourcePath={inspection.manifestPath} objectId="lexical:vocabulary-home" active="lexical" showLead={false}>
   <VocabularyHome rows={rows}><VocabularyChallengeRuntimeVNext slot="challenge"/></VocabularyHome>
   <VocabularyHomeEvidenceBridge rows={rows}/>
 </Base>

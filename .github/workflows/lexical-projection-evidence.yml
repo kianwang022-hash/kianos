@@ -1,0 +1,46 @@
+name: Lexical Projection Evidence
+on:
+  push:
+    branches: ['ui/visual-convergence-20260916']
+    paths:
+      - 'static-web/src/components/VocabularyWordRuntime.astro'
+      - 'static-web/src/styles/lexical-presentation.css'
+      - 'static-web/scripts/capture-lexical-projection.mjs'
+      - '.github/workflows/lexical-projection-evidence.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: lexical-projection-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser runtime
+        working-directory: static-web
+        run: |
+          npm install --no-audit --no-fund
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          sudo apt-get update -qq
+          sudo apt-get install -y fonts-noto-cjk
+          npx playwright install --with-deps chromium
+      - name: Build exact head
+        working-directory: static-web
+        run: npm run build
+      - name: Capture four real lexical shapes
+        working-directory: static-web
+        run: node scripts/capture-lexical-projection.mjs
+      - name: Upload browser gate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lexical-projection-${{ github.sha }}
+          path: visual-evidence/lexical-projection/
+          retention-days: 7
+          if-no-files-found: error
