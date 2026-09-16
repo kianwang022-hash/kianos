@@ -235,11 +235,8 @@ def apply_shard3(s):
 
 def apply_shard4(s):
     enroll=find_active(s,4029,any_terms=("register","record","enrol","enroll"),pos="verb"); rewrite_construction(s,4029,"register with",cn="向某机构登记；注册",en="to enroll or record oneself with an authority or organization",boundary="register with + authority/organization",source_sid=enroll["sense_id"])
-    refs=s.owner(4035).get("reference_senses",[]); rule=[r for r in refs if r.get("pos")=="verb" and any(k in norm(r.get("definition_en")) for k in ("rule as","monarch","sovereign"))]; dom=[r for r in refs if r.get("pos")=="verb" and any(k in norm(r.get("definition_en")) for k in ("dominat","prevail","supreme"))]
-    if len(rule)==1: s.reactivate(4035,rule[0]["stable_sense_id"],level="L1",pos="verb")
-    elif not any("monarch" in text_of(x) or "rule as" in text_of(x) for x in s.active(4035)): raise RuntimeError("REIGN_RULE_IDENTITY_MISSING")
-    if len(dom)==1: s.reactivate(4035,dom[0]["stable_sense_id"],level="L2",pos="verb")
-    elif not any("dominat" in text_of(x) or "prevail" in text_of(x) for x in s.active(4035)): raise RuntimeError("REIGN_DOMINATE_IDENTITY_MISSING")
+    s.reactivate(4035,"sense:reign:bb069fece4e253c9",level="L1",pos="verb")
+    s.reactivate(4035,"sense:reign:ad7790a66d225608",level="L2",pos="verb")
     set_form(s,4038,[{"condition":"noun reject","stress":"initial syllable","note":"REject"},{"condition":"verb reject","stress":"second syllable","note":"reJECT"}]); s.reactivate(4039,"sense:rejoice:76c92581ed645f79",level="L1")
     try: relate_conn=find_active(s,4040,any_terms=("connect","relation","relationship"),pos="verb")
     except RuntimeError:
