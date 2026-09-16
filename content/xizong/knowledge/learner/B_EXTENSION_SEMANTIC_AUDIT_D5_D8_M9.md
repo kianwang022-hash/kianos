@@ -9,7 +9,7 @@ Authority role: bounded semantic review receipt for Extension work; subordinate 
 
 Original Lecture / MarginNote remains the continuous first-pass surface. This audit formalizes only persistent assets that materially improve visual localization or repeated high-value discrimination. A useful source figure is not automatically an inline asset.
 
-For this slice, approved formal assets are 3 source visuals plus 4 maintainable comparison/decision assets? No: final accepted set is **3 SOURCE_VISUAL + 4?** See exact list below. The executable issue is the authoritative batch specification if a count inconsistency is found here; semantic identities/types below must not be inferred beyond the explicit rows.
+For this slice, the final accepted set is **7 formal assets = 4 SOURCE_VISUAL + 3 STRUCTURED_TABLE**.
 
 ## Approved formal Extension assets
 
