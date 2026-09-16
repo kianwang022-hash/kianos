@@ -265,9 +265,12 @@ def apply_shard4(s):
     try: s.move_colloc(4055,"with relish",es,new_meaning="津津有味地；兴致勃勃地")
     except RuntimeError: add_colloc(s,4055,es,"with relish","津津有味地；兴致勃勃地")
     s.reactivate(4059,"sense:remainder:cb8bed9ffe0f56c2",level="L1"); s.reactivate(4059,"sense:remainder:970aed013e785586",level="L2")
-    refs=s.owner(4061).get("reference_senses",[]); noun=[r for r in refs if r.get("pos")=="noun" and any(k in norm(r.get("definition_en")) for k in ("comment","statement"))]; verb=[r for r in refs if r.get("pos")=="verb" and any(k in norm(r.get("definition_en")) for k in ("comment","say","observe"))]
-    if len(noun)!=1 or len(verb)!=1: raise RuntimeError("REMARK_STABLE_MATCH_FAILED")
-    s.reactivate(4061,noun[0]["stable_sense_id"],level="L1"); s.reactivate(4061,verb[0]["stable_sense_id"],level="L1",pos="verb")
+    s.reactivate(4061,"sense:remark:cd5888bfedd554dc",level="L1")
+    remark_verb=s.reactivate(4061,"sense:remark:ef776ae04ac451b6",level="L1",pattern="vi. + on/upon",pos="verb",transitivity="vi")
+    remark_constructions=[x for x in s.rec(4061).get("constructions",[]) if "remark on" in norm(x.get("pattern","")+" "+x.get("boundary",""))]
+    if not remark_constructions: raise RuntimeError("REMARK_ON_CONSTRUCTION_MISSING")
+    for x in remark_constructions: x["source_sense_id"]=remark_verb
+    s.mark(4061)
     act=find_active(s,4064,any_terms=("remember","recall"),pos="verb"); add_construct(s,4064,"remember doing sth","记得曾经做过某事","to recall a past action or event",act["sense_id"],"L1"); add_construct(s,4064,"remember to do sth","记得要做某事；没有忘记做某事","to not forget a required or future action",act["sense_id"],"L1")
     s.reactivate(4069,"sense:remove:676d0ea55bff50f9",level="L1")
     for kws in (("move","another place"),("dismiss","position")):
@@ -279,9 +282,7 @@ def apply_shard4(s):
 
 def apply_shard5(s):
     c=s.rec(4075).setdefault("core_concept",{}); active={x["sense_id"] for x in s.active(4075)}; c["core_clusters"]=[cl for cl in c.get("core_clusters",[]) if any(sid in active for sid in cl.get("sense_ids",[]))]; c["core_meaning_cn"]="修理；修复；补救"; c["core_meaning_en"]="to fix or restore something damaged; the act/result of repairing"; c["mental_model_cn"]="修理；修复；补救"; s.mark(4075)
-    refs=s.owner(4079).get("reference_senses",[]); av=[r for r in refs if r.get("pos")=="verb" and any(k in norm(r.get("definition_en")) for k in ("disgust","strong dislike","aversion"))]
-    if len(av)==1: s.reactivate(4079,av[0]["stable_sense_id"],level="L2",pos="verb")
-    elif not any("disgust" in text_of(x) for x in s.active(4079)): raise RuntimeError("REPEL_AVERSION_IDENTITY_MISSING")
+    s.reactivate(4079,"sense:repel:ace5d6a63ee959f0",level="L1",pattern="vt. + object",pos="verb",transitivity="vt")
     reply=s.reactivate(4083,"sense:reply:904238cd08f95aeb",level="L1",pattern="vi. + to / clause",pos="verb",transitivity="vi")
     add_colloc(s,4083,reply,"reply to sb/sth","回复某人/某事")
     refs=s.owner(4086).get("reference_senses",[]); dep=[r for r in refs if r.get("pos")=="verb" and any(k in norm(r.get("definition_en")) for k in ("depict","describe","portray","present"))]
