@@ -7,22 +7,62 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "93e216fea479e7012d806a9c1ba6eff32fbc599ef66e144987ac48b9298abcdd",
+    "content_hash": "d8d2fbf8e89e40706161efa1221662278c212be265db980da8aea249d72c0b37",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "圣经；圣经的一节；圣经的一句；铭文",
-      "core_meaning_en": "any writing that is regarded as sacred by a religious group",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "经文、圣典；宗教中的神圣著作",
+          "label_en": "sacred writing or writings of a religion",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:scripture:864a9f2062965c82"
+          ]
+        }
+      ],
+      "core_meaning_cn": "经文、圣典；宗教中的神圣著作",
+      "core_meaning_en": "sacred writing or writings of a religion",
+      "mental_model_cn": "经文、圣典；宗教中的神圣著作",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o5875-o6374.md",
+      "boundaries": [
+        {
+          "condition": "general sacred writing",
+          "note": "lowercase for general use",
+          "surface": "scripture"
+        },
+        {
+          "condition": "a particular sacred corpus",
+          "note": "capitalized when referring to a particular body of sacred writings",
+          "surface": "Scripture / the Scriptures"
+        }
+      ],
+      "type": "capitalization_sense_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "经文、圣典；宗教中的神圣著作",
+        "definition_en": "sacred writing or writings of a religion",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:scripture:864a9f2062965c82",
+        "sense_label_en": "sacred writing or writings of a religion",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -37,31 +77,12 @@
     "word_id": "word:scripture"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:scripture:864a9f2062965c82",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "圣经；圣经的一节；圣经的一句；铭文",
-      "definition_en": "any writing that is regarded as sacred by a religious group",
-      "semantic_key": "90d9dfcdae6d95db136ecd2a68cd3b02fa7f11b2b22a126eb87411329c975c99",
-      "semantic_key_history": [
-        "d0e90b0b0b03ba06a1fb730d1c12d01a28310452060a01f90e89712b4e5a6a2f"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 16629,
-      "source_path": "content/lexical/canonical/senses/shards/o6113-6144.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:scripture:864a9f2062965c82",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 16629,
         "source_path": "content/lexical/canonical/senses/shards/o6113-6144.json"
@@ -91,7 +112,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6113-6120.json",
-    "source_content_hash": "93e216fea479e7012d806a9c1ba6eff32fbc599ef66e144987ac48b9298abcdd",
+    "source_content_hash": "d8d2fbf8e89e40706161efa1221662278c212be265db980da8aea249d72c0b37",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -6,13 +6,39 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "289ef68cddca6b84b7582e79a4fe86ea9e224e8ab871bde1390d82e23fdc7c69",
+    "constructions": [
+      {
+        "construction_id": "construction:1d2b79c644d3ec6f0aed",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "焦虑不安；烦恼",
+        "pattern": "be in a stew"
+      }
+    ],
+    "content_hash": "0421afb17af0e0566783b1f9ae38cc17bbf0ba14754b8790172c13de3e85dd78",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "炖菜；炖煮食物",
-      "core_meaning_en": "a dish of meat, fish, or vegetables cooked slowly in liquid",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "炖菜；炖煮食物",
+          "label_en": "a dish of meat, fish, or vegetables cooked slowly in liquid",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:stew:a7591db08983504a"
+          ]
+        },
+        {
+          "label_cn": "炖；焖；为……烦恼、焦虑；反复忧虑",
+          "label_en": "to cook food slowly in liquid; informal: to worry or remain anxiously preoccupied about something",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:stew:31d3c71bf99f5e29",
+            "sense:stew:1c0bec95d385de21"
+          ]
+        }
+      ],
+      "core_meaning_cn": "炖菜；炖煮食物；炖；焖；为……烦恼、焦虑；反复忧虑",
+      "core_meaning_en": "a dish of meat, fish, or vegetables cooked slowly in liquid; to cook food slowly in liquid; informal: to worry or remain anxiously preoccupied about something",
+      "mental_model_cn": "炖菜；炖煮食物；炖；焖；为……烦恼、焦虑；反复忧虑",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -294,6 +320,21 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "为……烦恼、焦虑；反复忧虑",
+        "definition_en": "informal: to worry or remain anxiously preoccupied about something",
+        "governing_pattern": "stew over/about sth",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "register": "informal",
+        "sense_id": "sense:stew:1c0bec95d385de21",
+        "sense_label_en": "informal: to worry or remain anxiously preoccupied about something",
+        "sort_order": 3,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -326,6 +367,13 @@
         "merged_into_sense_id": null,
         "source_row": 16691,
         "source_path": "content/lexical/canonical/senses/shards/o6145-6176.json"
+      },
+      {
+        "sense_id": "sense:stew:1c0bec95d385de21",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 16725,
+        "source_path": "content/lexical/canonical/senses/shards/o6145-6176.json"
       }
     ],
     "active_collocations": [],
@@ -352,7 +400,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6153-6160.json",
-    "source_content_hash": "289ef68cddca6b84b7582e79a4fe86ea9e224e8ab871bde1390d82e23fdc7c69",
+    "source_content_hash": "0421afb17af0e0566783b1f9ae38cc17bbf0ba14754b8790172c13de3e85dd78",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

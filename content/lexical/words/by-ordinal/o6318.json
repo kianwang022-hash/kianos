@@ -6,16 +6,50 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "88290830be0885264838b5dd8043ece4c3675c5f954405f4b9c453732c177ddc",
+    "constructions": [
+      {
+        "construction_id": "construction:abe98b4cc0b26050ae7b",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "为……苦恼、反复纠结",
+        "pattern": "agonize over/about sth",
+        "source_sense_id": "sense:agonize:6cc23a8167b65148"
+      }
+    ],
+    "content_hash": "c0dc7e6790123612f252bcbcdfea1683f493d2da2c5c97506c3f269154230478",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "使极度痛苦, 折磨",
-      "core_meaning_en": "cause to agonize",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "极度苦恼、焦虑；为难题反复痛苦思考",
+          "label_en": "to suffer intense mental anguish, worry deeply, or deliberate painfully over a difficult matter",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:agonize:6cc23a8167b65148"
+          ]
+        }
+      ],
+      "core_meaning_cn": "极度苦恼、焦虑；为难题反复痛苦思考",
+      "core_meaning_en": "to suffer intense mental anguish, worry deeply, or deliberate painfully over a difficult matter",
+      "mental_model_cn": "极度苦恼、焦虑；为难题反复痛苦思考",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o5875-o6374.md",
+      "boundaries": [
+        {
+          "condition": "American English/common -ize spelling",
+          "note": "-ize spelling",
+          "surface": "agonize"
+        },
+        {
+          "condition": "British English variant",
+          "note": "BrE -ise spelling",
+          "surface": "agonise"
+        }
+      ],
+      "type": "regional_spelling_same_owner"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -31,7 +65,7 @@
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L1",
+        "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:agonize:ac491a1b8a9a573c",
@@ -45,21 +79,22 @@
             "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
             "source_type": "learner_dictionary"
           }
-        ]
+        ],
+        "usage_note": "Rare causative use; lower than the ordinary intransitive mental-anguish sense."
       },
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "使极度痛苦, 折磨",
-        "definition_en": "suffer agony or anguish",
+        "definition_cn": "极度苦恼、焦虑；为难题反复痛苦思考",
+        "definition_en": "to suffer intense mental anguish, worry deeply, or deliberate painfully over a difficult matter",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:agonize:6cc23a8167b65148",
-        "sense_label_en": "suffer agony or anguish",
+        "sense_label_en": "to suffer intense mental anguish, worry deeply, or deliberate painfully over a difficult matter",
         "sort_order": 2,
         "source_evidence": [
           {
@@ -118,6 +153,14 @@
   },
   "lookup_refs": [
     {
+      "spelling": "agonise",
+      "source": "content/lexical/canonical/lookup/spelling/ag.json",
+      "word_id": "word:agonize",
+      "ordinal": 6318,
+      "word_shard": "content/lexical/canonical/words/shards/o6313-6320.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/3c.json"
+    },
+    {
       "spelling": "agonize",
       "source": "content/lexical/canonical/lookup/spelling/ag.json",
       "word_id": "word:agonize",
@@ -128,7 +171,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6313-6320.json",
-    "source_content_hash": "88290830be0885264838b5dd8043ece4c3675c5f954405f4b9c453732c177ddc",
+    "source_content_hash": "c0dc7e6790123612f252bcbcdfea1683f493d2da2c5c97506c3f269154230478",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

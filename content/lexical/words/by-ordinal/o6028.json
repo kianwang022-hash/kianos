@@ -7,15 +7,41 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "04285beb997814eca53e0c15d3f246bab929d88e70f5b43104880ed7eb693fff",
+    "content_hash": "bca788da80a36b3e8637fa2ad72c1a3969ff36514ba60ae61e68fd370278c0da",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "沿街叫卖的小贩；(流言)传播者",
-      "core_meaning_en": "someone who travels about selling his wares (as on the streets or at carnivals)",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "沿街叫卖的小贩；(流言)传播者；兜售者；传播谎言、毒品、观点等的人",
+          "label_en": "someone who travels about selling his wares (as on the streets or at carnivals); a person who promotes, distributes, or spreads something such as lies, drugs, or ideas",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:pedlar:31a324d107595f41",
+            "sense:pedlar:33347c603e2a1c93"
+          ]
+        }
+      ],
+      "core_meaning_cn": "沿街叫卖的小贩；(流言)传播者；兜售者；传播谎言、毒品、观点等的人",
+      "core_meaning_en": "someone who travels about selling his wares (as on the streets or at carnivals); a person who promotes, distributes, or spreads something such as lies, drugs, or ideas",
+      "mental_model_cn": "沿街叫卖的小贩；(流言)传播者；兜售者；传播谎言、毒品、观点等的人",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o5875-o6374.md",
+      "boundaries": [
+        {
+          "condition": "British English",
+          "note": "BrE spelling",
+          "surface": "pedlar"
+        },
+        {
+          "condition": "American English",
+          "note": "AmE spelling",
+          "surface": "peddler"
+        }
+      ],
+      "type": "regional_spelling_same_owner"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -67,6 +93,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "兜售者；传播谎言、毒品、观点等的人",
+        "definition_en": "a person who promotes, distributes, or spreads something such as lies, drugs, or ideas",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:pedlar:33347c603e2a1c93",
+        "sense_label_en": "a person who promotes, distributes, or spreads something such as lies, drugs, or ideas",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -92,6 +132,13 @@
         "merged_into_sense_id": null,
         "source_row": 16473,
         "source_path": "content/lexical/canonical/senses/shards/o6017-6048.json"
+      },
+      {
+        "sense_id": "sense:pedlar:33347c603e2a1c93",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 16510,
+        "source_path": "content/lexical/canonical/senses/shards/o6017-6048.json"
       }
     ],
     "active_collocations": [],
@@ -108,6 +155,14 @@
   },
   "lookup_refs": [
     {
+      "spelling": "peddler",
+      "source": "content/lexical/canonical/lookup/spelling/pe.json",
+      "word_id": "word:pedlar",
+      "ordinal": 6028,
+      "word_shard": "content/lexical/canonical/words/shards/o6025-6032.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/d8.json"
+    },
+    {
       "spelling": "pedlar",
       "source": "content/lexical/canonical/lookup/spelling/pe.json",
       "word_id": "word:pedlar",
@@ -118,7 +173,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6025-6032.json",
-    "source_content_hash": "04285beb997814eca53e0c15d3f246bab929d88e70f5b43104880ed7eb693fff",
+    "source_content_hash": "bca788da80a36b3e8637fa2ad72c1a3969ff36514ba60ae61e68fd370278c0da",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -7,12 +7,21 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "14b341c99f162348ff1f5ab6a159e7d06b8928c63dbd08db7018cb8086fd2479",
+    "content_hash": "34a301f637ce25ac720ad4974efe6575a87cbd504985159bcfb2c82e7f8d4628",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "小狗；小动物；自负的年轻人",
+      "core_clusters": [
+        {
+          "label_cn": "小狗；幼犬",
+          "label_en": "a young dog",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:puppy:9703762d38b552ff"
+          ]
+        }
+      ],
+      "core_meaning_cn": "小狗；幼犬",
       "core_meaning_en": "a young dog",
-      "mental_model_cn": "",
+      "mental_model_cn": "小狗；幼犬",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +31,39 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "小狗；幼犬",
+        "definition_en": "a young dog",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:puppy:9703762d38b552ff",
+        "sense_label_en": "a young dog",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "小狗；小动物；自负的年轻人",
+        "definition_en": "an inexperienced young person",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "register": "dated/insulting",
+        "sense_id": "sense:puppy:52799981b7a2528b",
+        "sense_label_en": "an inexperienced young person",
+        "sort_order": 999,
+        "transitivity": "nonverb",
+        "usage_note": "Dated or insulting person-use; not neutral learner-main vocabulary.",
+        "writing_safe": false
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -37,56 +78,19 @@
     "word_id": "word:puppy"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:puppy:52799981b7a2528b",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "小狗；小动物；自负的年轻人",
-      "definition_en": "an inexperienced young person",
-      "semantic_key": "cc7e932e744ed808ccc435e2273d74731dae3a4eece48061ddc137ce9283699a",
-      "semantic_key_history": [
-        "b5bd5c4205f76d56e749e292c1529975b1ff2549fa16902958ececc5b37fe546"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 16545,
-      "source_path": "content/lexical/canonical/senses/shards/o6049-6080.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:puppy:9703762d38b552ff",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "小狗；小动物；自负的年轻人",
-      "definition_en": "a young dog",
-      "semantic_key": "4fb9a13cd4790dc183f107df9270a35425b6fbe8d818f2ddd9a60d902fd4582b",
-      "semantic_key_history": [
-        "cf3dd30d82e713474078b91f896031b0a4d772d7c70e230017e136fbd3f43370"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 16546,
-      "source_path": "content/lexical/canonical/senses/shards/o6049-6080.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:puppy:52799981b7a2528b",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 16545,
         "source_path": "content/lexical/canonical/senses/shards/o6049-6080.json"
       },
       {
         "sense_id": "sense:puppy:9703762d38b552ff",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 16546,
         "source_path": "content/lexical/canonical/senses/shards/o6049-6080.json"
@@ -116,7 +120,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6073-6080.json",
-    "source_content_hash": "14b341c99f162348ff1f5ab6a159e7d06b8928c63dbd08db7018cb8086fd2479",
+    "source_content_hash": "34a301f637ce25ac720ad4974efe6575a87cbd504985159bcfb2c82e7f8d4628",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

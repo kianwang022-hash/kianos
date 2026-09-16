@@ -7,12 +7,21 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "8750e6fbe1de9b66f5e7395ab01bd6150add233c1ba2346129d0272107762dbe",
+    "content_hash": "131895f6146768c71ac56f0629c25ff2638b189a39c8e8aef014537acdc77e19",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "向前；在前面",
-      "core_meaning_en": "in a forward direction",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "向前；继续往后；在时间、顺序或进程上向前",
+          "label_en": "forward in direction, time, order, or progress",
+          "pos": "adverb",
+          "sense_ids": [
+            "sense:onwards:6c92c843bd725bc7"
+          ]
+        }
+      ],
+      "core_meaning_cn": "向前；继续往后；在时间、顺序或进程上向前",
+      "core_meaning_en": "forward in direction, time, order, or progress",
+      "mental_model_cn": "向前；继续往后；在时间、顺序或进程上向前",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,8 +35,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "向前；在前面",
-        "definition_en": "in a forward direction",
+        "definition_cn": "向前；继续往后；在时间、顺序或进程上向前",
+        "definition_en": "forward in direction, time, order, or progress",
         "depth": "full_card",
         "domain_tag": "cet6",
         "frequency_tag": "cet6",
@@ -35,7 +44,7 @@
         "needs_human_review": 0,
         "pos": "adverb",
         "sense_id": "sense:onwards:6c92c843bd725bc7",
-        "sense_label_en": "in a forward direction",
+        "sense_label_en": "forward in direction, time, order, or progress",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -75,7 +84,14 @@
     "word_family": [],
     "word_id": "word:onwards"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:horizontal:bb3bd4556fbfb88c2cfc",
+      "owner_path": "content/lexical/relations/by-id/de/de84a6d83467d1bd3e3720a90fd646f8d613cc27622ae694cd4002f69c0c53ed.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -111,7 +127,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6009-6016.json",
-    "source_content_hash": "8750e6fbe1de9b66f5e7395ab01bd6150add233c1ba2346129d0272107762dbe",
+    "source_content_hash": "131895f6146768c71ac56f0629c25ff2638b189a39c8e8aef014537acdc77e19",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

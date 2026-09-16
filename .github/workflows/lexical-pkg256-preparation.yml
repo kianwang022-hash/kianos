@@ -1,0 +1,49 @@
+name: Lexical pkg256 preparation
+
+on:
+  push:
+    branches:
+      - lexical/pkg256-exec
+    paths:
+      - '.github/workflows/lexical-pkg256-preparation.yml'
+      - 'tools/lexical_prepare_execution_package.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lexical-pkg256-preparation
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: lexical/pkg256-exec
+          fetch-depth: 0
+      - name: Compile execution package
+        run: |
+          python tools/lexical_prepare_execution_package.py \
+            --accounting content/lexical/execution/preflight/o5875-o6374.reconciliation-compile.json \
+            --reconciliation content/lexical/semantic-reconciliation/o5875-o6374.md \
+            --issue 256 \
+            --remote 227 --remote 2567 --remote 2827 --remote 2967 --remote 3063 \
+            --remote 3472 --remote 4281 --remote 5558 --remote 7182 --remote 7671 \
+            --out-prefix content/lexical/execution/preflight/o5875-o6374
+      - name: Commit preparation outputs
+        run: |
+          set -euo pipefail
+          git config user.name Kian
+          git config user.email kianwang022@gmail.com
+          git add content/lexical/execution/preflight/o5875-o6374.current-identities.json \
+                  content/lexical/execution/preflight/o5875-o6374.identity-index.json \
+                  content/lexical/execution/preflight/o5875-o6374.execution-sheet.md \
+                  content/lexical/execution/preflight/o5875-o6374.manifest-candidates.json \
+                  content/lexical/execution/preflight/o5875-o6374.manifest-summary.md \
+                  content/lexical/execution/preflight/o5875-o6374.unresolved-resolution.md
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'lexical: prepare pkg256 execution inputs [skip ci]'
+          git push origin HEAD:lexical/pkg256-exec

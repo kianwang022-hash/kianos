@@ -6,13 +6,39 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "6e6f2424424a3a7fd5c000aabf4951d0dc9c40ad1a400c2bd66fd64443b5084b",
+    "constructions": [
+      {
+        "construction_id": "construction:9e494ddf6fb3139c6534",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "把某物分配给某人",
+        "pattern": "allot sth to sb",
+        "source_sense_id": "sense:allot:35b4316f82275594"
+      },
+      {
+        "construction_id": "construction:ead0aa910c6015170877",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "分给某人某物",
+        "pattern": "allot sb sth",
+        "source_sense_id": "sense:allot:35b4316f82275594"
+      }
+    ],
+    "content_hash": "4bc278b20118d6e9ef8858f6ccbc0bf09c5e3ebd76e501a3546fc7e8243b6089",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "分配, 分摊指定",
-      "core_meaning_en": "give out",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "分配、配给",
+          "label_en": "to distribute or allocate something as a share or portion",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:allot:35b4316f82275594"
+          ]
+        }
+      ],
+      "core_meaning_cn": "分配、配给",
+      "core_meaning_en": "to distribute or allocate something as a share or portion",
+      "mental_model_cn": "分配、配给",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,8 +52,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "分配, 分摊指定",
-        "definition_en": "give out",
+        "definition_cn": "分配、配给",
+        "definition_en": "to distribute or allocate something as a share or portion",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
@@ -35,56 +61,8 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:allot:35b4316f82275594",
-        "sense_label_en": "give out",
+        "sense_label_en": "to distribute or allocate something as a share or portion",
         "sort_order": 1,
-        "source_evidence": [
-          {
-            "evidence_id": "source-fact:2e822c43dd1b0b5f18d5aa4b",
-            "evidence_status": "source_checked",
-            "role": "external_semantic_auditor",
-            "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
-            "source_type": "learner_dictionary"
-          }
-        ]
-      },
-      {
-        "collocations": [],
-        "confidence": "high",
-        "definition_cn": "分配, 分摊指定",
-        "definition_en": "allow to have",
-        "depth": "full_card",
-        "domain_tag": "toefl",
-        "frequency_tag": "toefl",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:allot:14c6bcc43a625882",
-        "sense_label_en": "allow to have",
-        "sort_order": 2,
-        "source_evidence": [
-          {
-            "evidence_id": "source-fact:2e822c43dd1b0b5f18d5aa4b",
-            "evidence_status": "source_checked",
-            "role": "external_semantic_auditor",
-            "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
-            "source_type": "learner_dictionary"
-          }
-        ]
-      },
-      {
-        "collocations": [],
-        "confidence": "high",
-        "definition_cn": "分配, 分摊指定",
-        "definition_en": "administer or bestow, as in small portions",
-        "depth": "full_card",
-        "domain_tag": "toefl",
-        "frequency_tag": "toefl",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:allot:ac28a51b0b3d56fc",
-        "sense_label_en": "administer or bestow, as in small portions",
-        "sort_order": 3,
         "source_evidence": [
           {
             "evidence_id": "source-fact:2e822c43dd1b0b5f18d5aa4b",
@@ -110,12 +88,45 @@
     "word_id": "word:allot"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:allot:14c6bcc43a625882",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "分配, 分摊指定",
+      "definition_en": "allow to have",
+      "semantic_key": "8a196b03d674cab006625ad099b4998c75f9ac41f4421d73bb0c6c0b54ac49a7",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 16956,
+      "source_path": "content/lexical/canonical/senses/shards/o6305-6336.json",
+      "reference_only": true
+    },
+    {
+      "stable_sense_id": "sense:allot:ac28a51b0b3d56fc",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "分配, 分摊指定",
+      "definition_en": "administer or bestow, as in small portions",
+      "semantic_key": "ea30fc128e30d782558ceada90fe4c58b42fa7d46dc53c0179c5035db67bccb0",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 16958,
+      "source_path": "content/lexical/canonical/senses/shards/o6305-6336.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:allot:14c6bcc43a625882",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 16956,
         "source_path": "content/lexical/canonical/senses/shards/o6305-6336.json"
@@ -129,7 +140,7 @@
       },
       {
         "sense_id": "sense:allot:ac28a51b0b3d56fc",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 16958,
         "source_path": "content/lexical/canonical/senses/shards/o6305-6336.json"
@@ -159,7 +170,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6321-6328.json",
-    "source_content_hash": "6e6f2424424a3a7fd5c000aabf4951d0dc9c40ad1a400c2bd66fd64443b5084b",
+    "source_content_hash": "4bc278b20118d6e9ef8858f6ccbc0bf09c5e3ebd76e501a3546fc7e8243b6089",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

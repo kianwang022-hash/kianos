@@ -7,38 +7,19 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "a56d3c1089b44546826dbc6b442f08be962c9bb4672f0e8f896379f107147afa",
+    "content_hash": "dd6cda4ba0c37d0a3006c5da7bfb4801979ffa521211147a070a1a65db967378",
     "core_concept": {
-      "core_clusters": [
-        {
-          "label_cn": "分期付款；分期部分",
-          "label_en": "one of a series of payments",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:instalment:70b51ca92b5e5721"
-          ]
-        },
-        {
-          "label_cn": "连续故事或节目的一集/一部分",
-          "label_en": "one part of a serial story or broadcast",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:instalment:eb0ef4742f5a5c49"
-          ]
-        }
-      ],
-      "core_meaning_cn": "分期付款；系列的一部分",
-      "core_meaning_en": "a payment instalment or one part of a serial",
-      "mental_model_cn": "分期付款；系列的一部分",
+      "core_clusters": [],
+      "core_meaning_cn": "系列中的一部分或分期付款",
+      "core_meaning_en": "a part of a series or payment",
+      "mental_model_cn": "系列中的一部分或分期付款",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [
-      "semantic-reconciliation:o2425-o2624"
-    ],
+    "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -65,16 +46,16 @@
         "level": "L1",
         "lexical_identity_overlay": {
           "case_sensitive": false,
-          "identity_type": "spelling_variant",
-          "surface_lemma": "instalment",
-          "paired_form": "installment / instalment",
-          "note": "installment is the usual American spelling; instalment is the usual British spelling for payment/serial-part senses. Both frozen Main Word identities are preserved."
+          "identity_type": "form_boundary",
+          "note": "instalment/installment BrE/AmE spelling boundary",
+          "paired_form": "installment",
+          "surface_lemma": "instalment"
         },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:instalment:70b51ca92b5e5721",
         "sense_label_en": "one of the parts into which a debt is divided for payment at intervals",
-        "sort_order": 1,
+        "sort_order": 999,
         "transitivity": "nonverb"
       },
       {
@@ -88,15 +69,8 @@
         "pos": "noun",
         "sense_id": "sense:instalment:eb0ef4742f5a5c49",
         "sense_label_en": "one part of a serial story or broadcast",
-        "sort_order": 2,
-        "transitivity": "nonverb",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "spelling_variant",
-          "surface_lemma": "instalment",
-          "paired_form": "installment / instalment",
-          "note": "installment is the usual American spelling; instalment is the usual British spelling for payment/serial-part senses. Both frozen Main Word identities are preserved."
-        }
+        "sort_order": 999,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -116,15 +90,12 @@
     },
     "word": "instalment",
     "word_family": [],
-    "word_id": "word:instalment",
-    "search_aliases": [
-      "installment"
-    ]
+    "word_id": "word:instalment"
   },
   "relation_refs": [
     {
-      "relation_id": "relation:horizontal:58a59fe582c31e1d19ef",
-      "owner_path": "content/lexical/relations/by-id/f4/f432f685f081717f9af020d14929a52e6308672d44780f4665a3e4f6fbdeef43.json",
+      "relation_id": "relation:horizontal:3f8ec7bebb445bbfa0a0",
+      "owner_path": "content/lexical/relations/by-id/5e/5e66a590b1e318065eedef5b36753368562013eb8e0ffd8538af05921a4b503f.json",
       "field": "semantic_neighbors",
       "index": 0
     }
@@ -194,7 +165,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2561-2568.json",
-    "source_content_hash": "b3f12cb06a158851e21d07bb0ca15f848a510c94b71a48e2282ed71588a58638",
+    "source_content_hash": "dd6cda4ba0c37d0a3006c5da7bfb4801979ffa521211147a070a1a65db967378",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

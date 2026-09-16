@@ -7,12 +7,21 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "f81143f5c3c27e0317ed279b53e463ab9fc582b52a5c191f155eef185ac803a9",
+    "content_hash": "53d8f708c037b29aef2e946e91a4fcc35649f566bcdfdff6ad31997ad3121645",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "分子的；由分子组成的",
-      "core_meaning_en": "relating to or produced by or consisting of molecules",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "分子的；由分子组成或与分子有关的",
+          "label_en": "relating to, consisting of, or produced by molecules",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:molecular:8f21ce5306cb5b10"
+          ]
+        }
+      ],
+      "core_meaning_cn": "分子的；由分子组成或与分子有关的",
+      "core_meaning_en": "relating to, consisting of, or produced by molecules",
+      "mental_model_cn": "分子的；由分子组成或与分子有关的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +31,22 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "分子的；由分子组成或与分子有关的",
+        "definition_en": "relating to, consisting of, or produced by molecules",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:molecular:8f21ce5306cb5b10",
+        "sense_label_en": "relating to, consisting of, or produced by molecules",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -55,24 +79,6 @@
       "source_row": 16402,
       "source_path": "content/lexical/canonical/senses/shards/o5953-5984.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:molecular:8f21ce5306cb5b10",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "分子的；由分子组成的",
-      "definition_en": "relating to or produced by or consisting of molecules",
-      "semantic_key": "56c5793cf7058f2989222184d3a4bc54ea6c9d8f57678c2831d8373d3ebbbd38",
-      "semantic_key_history": [
-        "3826e940b40d22e1fe99bc3fb006048895290b3689679a9ff6088eae823526c1"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 16403,
-      "source_path": "content/lexical/canonical/senses/shards/o5953-5984.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -86,7 +92,7 @@
       },
       {
         "sense_id": "sense:molecular:8f21ce5306cb5b10",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 16403,
         "source_path": "content/lexical/canonical/senses/shards/o5953-5984.json"
@@ -116,7 +122,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5977-5984.json",
-    "source_content_hash": "f81143f5c3c27e0317ed279b53e463ab9fc582b52a5c191f155eef185ac803a9",
+    "source_content_hash": "53d8f708c037b29aef2e946e91a4fcc35649f566bcdfdff6ad31997ad3121645",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

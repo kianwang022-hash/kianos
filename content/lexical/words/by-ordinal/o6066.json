@@ -7,12 +7,22 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "5a24ce0db44a5cc2fea9530bda2f54944583c6cf3b49cb4e6fce749b1df932c8",
+    "content_hash": "358d7a7afe2aa909bc9e6f12f5075d63c5b6ac49ac4073d73247874b41c6a1a8",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "推进；推进力",
-      "core_meaning_en": "a propelling force",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "推进力；推进系统；推进；驱动物体向前的行为或过程",
+          "label_en": "the force or system that drives something forward; the act or process of driving or moving something forward",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:propulsion:60d930d0d6b75503",
+            "sense:propulsion:f19eeb9f74025ad7"
+          ]
+        }
+      ],
+      "core_meaning_cn": "推进力；推进系统；推进；驱动物体向前的行为或过程",
+      "core_meaning_en": "the force or system that drives something forward; the act or process of driving or moving something forward",
+      "mental_model_cn": "推进力；推进系统；推进；驱动物体向前的行为或过程",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,8 +36,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "推进；推进力",
-        "definition_en": "a propelling force",
+        "definition_cn": "推进力；推进系统",
+        "definition_en": "the force or system that drives something forward",
         "depth": "full_card",
         "domain_tag": "cet6",
         "frequency_tag": "cet6",
@@ -35,7 +45,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:propulsion:60d930d0d6b75503",
-        "sense_label_en": "a propelling force",
+        "sense_label_en": "the force or system that drives something forward",
         "sort_order": 0,
         "source_evidence": [
           {
@@ -60,6 +70,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "推进；驱动物体向前的行为或过程",
+        "definition_en": "the act or process of driving or moving something forward",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:propulsion:f19eeb9f74025ad7",
+        "sense_label_en": "the act or process of driving or moving something forward",
+        "sort_order": 999,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -76,26 +100,7 @@
     "word_id": "word:propulsion"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:propulsion:f19eeb9f74025ad7",
-      "status": "merged",
-      "merged_into_sense_id": "sense:propulsion:60d930d0d6b75503",
-      "pos": "noun",
-      "definition_cn": "推进；推进力",
-      "definition_en": "the act of propelling",
-      "semantic_key": "51a5d5ba3a2ba11567023adebfecf748d4c36b5c0d31aaf714fe2796de3f6f60",
-      "semantic_key_history": [
-        "05163858f34445c55b6e53f48d32c95c576742a111eba62d9d1e8b04e2492838"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 16536,
-      "source_path": "content/lexical/canonical/senses/shards/o6049-6080.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -107,8 +112,8 @@
       },
       {
         "sense_id": "sense:propulsion:f19eeb9f74025ad7",
-        "status": "merged",
-        "merged_into_sense_id": "sense:propulsion:60d930d0d6b75503",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 16536,
         "source_path": "content/lexical/canonical/senses/shards/o6049-6080.json"
       }
@@ -137,7 +142,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6065-6072.json",
-    "source_content_hash": "5a24ce0db44a5cc2fea9530bda2f54944583c6cf3b49cb4e6fce749b1df932c8",
+    "source_content_hash": "358d7a7afe2aa909bc9e6f12f5075d63c5b6ac49ac4073d73247874b41c6a1a8",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

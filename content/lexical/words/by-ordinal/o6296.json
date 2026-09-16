@@ -7,12 +7,22 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "9f03056f4ad6def57252996f9cc4e34c1c79b07372a0285bafe55267dad0fc2c",
+    "content_hash": "33000b962c20a6bcd10de2eaa46083d9fdf6dab918991538d788576d60bf802a",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "无罪释放, 表现, 使履行",
-      "core_meaning_en": "pronounce not guilty of criminal charges",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "宣告无罪；表现、履行（职责）得好或不好",
+          "label_en": "law: to declare someone not guilty of a criminal charge; formal: to conduct or perform oneself in a specified way",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:acquit:a07059900a0f5c7f",
+            "sense:acquit:d24ad3817c72c416"
+          ]
+        }
+      ],
+      "core_meaning_cn": "宣告无罪；表现、履行（职责）得好或不好",
+      "core_meaning_en": "law: to declare someone not guilty of a criminal charge; formal: to conduct or perform oneself in a specified way",
+      "mental_model_cn": "宣告无罪；表现、履行（职责）得好或不好",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,8 +36,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "无罪释放, 表现, 使履行",
-        "definition_en": "pronounce not guilty of criminal charges",
+        "definition_cn": "宣告无罪",
+        "definition_en": "law: to declare someone not guilty of a criminal charge",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
@@ -35,7 +45,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:acquit:a07059900a0f5c7f",
-        "sense_label_en": "pronounce not guilty of criminal charges",
+        "sense_label_en": "law: to declare someone not guilty of a criminal charge",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -46,6 +56,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "表现、履行（职责）得好或不好",
+        "definition_en": "formal: to conduct or perform oneself in a specified way",
+        "governing_pattern": "acquit oneself well/badly",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:acquit:d24ad3817c72c416",
+        "sense_label_en": "formal: to conduct or perform oneself in a specified way",
+        "sort_order": 2,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -70,6 +94,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 16916,
+        "source_path": "content/lexical/canonical/senses/shards/o6273-6304.json"
+      },
+      {
+        "sense_id": "sense:acquit:d24ad3817c72c416",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 16927,
         "source_path": "content/lexical/canonical/senses/shards/o6273-6304.json"
       }
     ],
@@ -97,7 +128,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6289-6296.json",
-    "source_content_hash": "9f03056f4ad6def57252996f9cc4e34c1c79b07372a0285bafe55267dad0fc2c",
+    "source_content_hash": "33000b962c20a6bcd10de2eaa46083d9fdf6dab918991538d788576d60bf802a",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
