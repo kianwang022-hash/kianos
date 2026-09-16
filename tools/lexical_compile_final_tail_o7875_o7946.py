@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Compile exact accounting for the final 72-owner Lexical tail o7875-o7946."""
 from __future__ import annotations
-import json, sys
+import json, re, sys
 from collections import Counter
 from pathlib import Path
 
@@ -13,6 +13,7 @@ START,END=7875,7946
 PRODUCTION='content/lexical/semantic-review/o7875-o7946.md'
 AUDIT='content/lexical/semantic-audit/o7875-o7946.audit.md'
 OUT=ROOT/'content/lexical/execution/preflight/o7875-o7946.reconciliation-compile.json'
+VERDICT=r'(FLIP_TO_UPGRADE|FLIP_TO_NO_CHANGE|REFINE_UPGRADE|IDENTITY_RISK)'
 
 
 def read(rel:str)->str:
@@ -21,9 +22,24 @@ def read(rel:str)->str:
     return p.read_text(encoding='utf-8')
 
 
+def audit_verdicts(text:str)->dict[int,str]:
+    out=base.audit_verdicts(text,START,END)
+    # Final Audit Pack uses numbered Markdown headings and explicit fenced fields:
+    # ordinal: o7893 / audit verdict: FLIP_TO_UPGRADE.
+    blocks=re.finditer(r'(?ms)^```text\s*\n(.*?)^```\s*$',text)
+    for bm in blocks:
+        block=bm.group(1)
+        om=re.search(r'(?m)^ordinal:\s*o(\d{4})\s*$',block)
+        vm=re.search(r'(?m)^audit verdict:\s*`?'+VERDICT+r'`?\s*$',block)
+        if not om or not vm: continue
+        o=int(om.group(1))
+        if START<=o<=END: out[o]=vm.group(1)
+    return out
+
+
 def main():
     prod=base.production_upgrades(read(PRODUCTION),START,END)
-    verdicts=base.audit_verdicts(read(AUDIT),START,END)
+    verdicts=audit_verdicts(read(AUDIT))
     source=set(prod)
     for o,v in verdicts.items():
         if v=='FLIP_TO_NO_CHANGE': source.discard(o)
