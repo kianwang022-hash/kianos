@@ -2,6 +2,10 @@
   .politicsCognitiveWorkspace.directReasoningWorkspace{gap:8px}
   .politicsCognitiveWorkspace.directReasoningWorkspace .workspaceBar{grid-template-columns:minmax(260px,.9fr) minmax(520px,1.8fr);min-height:54px;padding:7px 14px;box-shadow:0 5px 18px rgba(22,31,27,.035)}
   .politicsCognitiveWorkspace.directReasoningWorkspace .workspaceState{display:none}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .workspaceLocation>a,
+  .politicsCognitiveWorkspace.directReasoningWorkspace .workspaceLocation>span,
+  .politicsCognitiveWorkspace.directReasoningWorkspace .workspaceLocation>strong{flex:0 0 auto;white-space:nowrap}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .workspaceLocation>b{flex:1 1 auto;min-width:0}
 
   /* Chapter context stays reachable, but it must not become a second page. */
   .politicsCognitiveWorkspace.directReasoningWorkspace .chapterContext{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:14px;min-height:44px;padding:8px 16px;border:1px solid var(--study-line);border-radius:10px;background:#fbfcfb}
@@ -26,25 +30,35 @@
   /* The main map is a spatial model, not a list of edge sentences. */
   .politicsCognitiveWorkspace.directReasoningWorkspace .mapDeck{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(390px,100%),1fr));gap:16px;align-items:start}
   .politicsCognitiveWorkspace.directReasoningWorkspace .mapTabs{display:none!important}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .semanticMap{display:grid!important;gap:10px;padding:13px 14px 14px;border:1px solid #e5ebe8;border-radius:12px;background:#fff}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .semanticMap{display:grid!important;gap:10px;padding:12px 14px 13px;border:1px solid #e5ebe8;border-radius:12px;background:#fff}
   .politicsCognitiveWorkspace.directReasoningWorkspace .semanticMap[hidden]{display:grid!important}
   .politicsCognitiveWorkspace.directReasoningWorkspace .semanticMap>header{display:grid;gap:2px;padding-bottom:8px;border-bottom:1px solid #edf1ef}
   .politicsCognitiveWorkspace.directReasoningWorkspace .semanticMap>header>span{display:none}
   .politicsCognitiveWorkspace.directReasoningWorkspace .semanticMap>header strong{font-size:14px;line-height:1.4;color:#304a41}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .semanticMap.goldenized>.semanticMapNodes,
   .politicsCognitiveWorkspace.directReasoningWorkspace .semanticMap.goldenized>.semanticEdges{display:none!important}
 
-  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenGraph{--graph-levels:2;display:grid;grid-template-columns:repeat(var(--graph-levels),minmax(0,1fr));gap:30px;align-items:center;min-height:150px;padding:6px 2px 2px}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenGraphColumn{position:relative;display:grid;gap:8px;align-content:center;min-width:0}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenGraphColumn:not(:last-child)::after{content:'→';position:absolute;right:-23px;top:50%;transform:translateY(-50%);color:#6c9a8a;font-size:18px;font-weight:800}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNode{display:grid;gap:3px;min-width:0;padding:8px 9px 8px 11px;border-left:3px solid #b8d2c8;background:#f9fbfa}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNode b{color:#173f32;font-size:13.5px;line-height:1.35}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNode p{margin:0;color:#5d6c67;font-size:11.5px;line-height:1.46}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNode small{display:block;margin-top:2px;color:#3f6d5e;font-size:10.5px;line-height:1.35;font-weight:700}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenGraph{--graph-levels:2;display:grid;grid-template-columns:repeat(var(--graph-levels),minmax(0,1fr));gap:28px;align-items:center;min-height:118px;padding:4px 2px 1px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenGraphColumn{position:relative;display:grid;gap:6px;align-content:center;min-width:0}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenGraphColumn:not(:last-child)::after{content:'→';position:absolute;right:-22px;top:50%;transform:translateY(-50%);color:#6c9a8a;font-size:18px;font-weight:800}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNode{display:grid;gap:2px;min-width:0;padding:7px 8px 7px 10px;border-left:3px solid #b8d2c8;background:#f9fbfa}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNode b{color:#173f32;font-size:13px;line-height:1.32}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNode p{display:none}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNode small{display:block;margin-top:1px;color:#3f6d5e;font-size:10.5px;line-height:1.35;font-weight:700}
   .politicsCognitiveWorkspace.directReasoningWorkspace .goldenGraphColumn:last-child .goldenNode{border-left-color:var(--study-green);background:#f4f8f6}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenCrossEdges{display:grid;gap:4px;margin-top:4px;padding-top:8px;border-top:1px dashed #dfe8e4}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenCrossEdges{display:grid;gap:4px;margin-top:3px;padding-top:7px;border-top:1px dashed #dfe8e4}
   .politicsCognitiveWorkspace.directReasoningWorkspace .goldenCrossEdges span{color:#4e685f;font-size:10.5px;line-height:1.4}
   .politicsCognitiveWorkspace.directReasoningWorkspace .goldenCrossEdges b{color:#24483c}
+
+  /* Full node explanations remain available, but they do not compete with the map at first glance. */
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNodeNotes{margin-top:2px;border:0;border-top:1px solid #edf1ef;padding-top:7px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNodeNotes>summary{width:max-content;cursor:pointer;color:#63756e;font-size:11.5px;font-weight:720;list-style:none}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNodeNotes>summary::-webkit-details-marker{display:none}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNodeNotes>summary::after{content:'  +';color:var(--study-green)}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNodeNotes[open]>summary::after{content:'  −'}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNodeNotes .semanticMapNodes{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin-top:7px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNodeNotes .semanticMapNodes article{min-height:auto;padding:7px 4px 7px 9px;border:0;border-left:2px solid #c8d9d2;background:transparent}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNodeNotes .semanticMapNodes b{font-size:11.5px;line-height:1.35}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNodeNotes .semanticMapNodes p{margin:3px 0 0;color:#66756f;font-size:10.5px;line-height:1.45}
 
   /* Required reasoning stays visible, but below the main map. */
   .politicsCognitiveWorkspace.directReasoningWorkspace .relationStrip{margin-top:12px;padding-top:10px;border-top:1px solid var(--study-line)}
@@ -80,6 +94,7 @@
     .politicsCognitiveWorkspace.directReasoningWorkspace .goldenGraph{grid-template-columns:1fr;gap:14px}
     .politicsCognitiveWorkspace.directReasoningWorkspace .goldenGraphColumn:not(:last-child)::after{content:'↓';right:auto;left:50%;top:auto;bottom:-16px;transform:translateX(-50%)}
     .politicsCognitiveWorkspace.directReasoningWorkspace .relationStrip>section{grid-template-columns:1fr}
+    .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNodeNotes .semanticMapNodes{grid-template-columns:1fr}
   }
 </style>
 
@@ -185,12 +200,24 @@
 
     const crossEdges = edgeRows.filter((edge) => (level.get(edge.to) || 0) > (level.get(edge.from) || 0) + 1);
     panel.insertBefore(graph, edgeWrap);
+
+    const notes = document.createElement('details');
+    notes.className = 'goldenNodeNotes';
+    const notesSummary = document.createElement('summary');
+    notesSummary.textContent = '节点解释';
+    notes.append(notesSummary, nodeWrap);
+    graph.after(notes);
+
     if (crossEdges.length) {
       const cross = document.createElement('div');
       cross.className = 'goldenCrossEdges';
       crossEdges.forEach((edge) => {
         const row = document.createElement('span');
-        row.innerHTML = `<b>${edge.from}</b> → ${edge.relation} → <b>${edge.to}</b>`;
+        const from = document.createElement('b');
+        from.textContent = edge.from;
+        const to = document.createElement('b');
+        to.textContent = edge.to;
+        row.append(from, document.createTextNode(` → ${edge.relation} → `), to);
         cross.appendChild(row);
       });
       graph.after(cross);
