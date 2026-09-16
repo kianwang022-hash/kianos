@@ -5,14 +5,24 @@
   "word": "titanic",
   "record": {
     "card_version": "v4",
+    "case_note": "Lowercase titanic is the ordinary adjective meaning enormous/colossal. Capitalized Titanic is the proper name of the ship and remains case-bounded reference truth, not lowercase Core.",
     "confusables": [],
     "constructions": [],
-    "content_hash": "aae89c96fe5cdd9706998038adc5d825a935a549d594d82da5fc825461093ad4",
+    "content_hash": "77c68d1283849565335b2d91896cf180942a6723183f219fbced27d863a353ff",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "四价钛的",
-      "core_meaning_en": "of great force or power",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "巨大的；庞大的；需要或体现极大力量、规模或努力的",
+          "label_en": "enormous, colossal, or involving very great power, scale, or effort",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:titanic:398ecc9c996c58e1"
+          ]
+        }
+      ],
+      "core_meaning_cn": "巨大的；庞大的；需要或体现极大力量、规模或努力的",
+      "core_meaning_en": "enormous, colossal, or involving very great power, scale, or effort",
+      "mental_model_cn": "巨大的；庞大的；需要或体现极大力量、规模或努力的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +32,22 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "巨大的；庞大的；需要或体现极大力量、规模或努力的",
+        "definition_en": "enormous, colossal, or involving very great power, scale, or effort",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:titanic:398ecc9c996c58e1",
+        "sense_label_en": "enormous, colossal, or involving very great power, scale, or effort",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -37,31 +62,12 @@
     "word_id": "word:titanic"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:titanic:398ecc9c996c58e1",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "四价钛的",
-      "definition_en": "of great force or power",
-      "semantic_key": "e5dd26cd2097d790b4aa1650049f37a020d55d870d25d724188b6fc89f68db4a",
-      "semantic_key_history": [
-        "c390db6ed0a5c3fab9d610507e3b6ba3dbdf8e04a9c085aa44b37cfd1d64a332"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 19099,
-      "source_path": "content/lexical/canonical/senses/shards/o7585-7616.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:titanic:398ecc9c996c58e1",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 19099,
         "source_path": "content/lexical/canonical/senses/shards/o7585-7616.json"
@@ -91,7 +97,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7593-7600.json",
-    "source_content_hash": "aae89c96fe5cdd9706998038adc5d825a935a549d594d82da5fc825461093ad4",
+    "source_content_hash": "77c68d1283849565335b2d91896cf180942a6723183f219fbced27d863a353ff",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
