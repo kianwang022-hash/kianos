@@ -46,11 +46,21 @@ def verify_receipts():
 
 
 def verify_identity_closure():
-    # row: line + quarrel + rowing are distinct active stable identities.
-    row=owner(4209); row_active={x.get('sense_id') for x in row.get('record',{}).get('senses',[])}
+    # row: line + quarrel + rowing are distinct active stable identities, with
+    # pronunciation truth carried on each active sense's lexical_identity_overlay.
+    row=owner(4209); row_senses=row.get('record',{}).get('senses',[])
+    row_by_id={x.get('sense_id'):x for x in row_senses}
     need={'sense:row:288f9aa2bbed532c','sense:row:2250c8db5d4355be','sense:row:95b218aabf4c5b9f'}
-    if not need.issubset(row_active): raise RuntimeError(f'ROW_IDENTITY_NOT_CLOSED {sorted(need-row_active)}')
-    if not row.get('record',{}).get('form_identity'): raise RuntimeError('ROW_FORM_IDENTITY_MISSING')
+    if not need.issubset(row_by_id): raise RuntimeError(f'ROW_IDENTITY_NOT_CLOSED {sorted(need-set(row_by_id))}')
+    expected_forms={
+      'sense:row:288f9aa2bbed532c':'row /roʊ/',
+      'sense:row:95b218aabf4c5b9f':'row /roʊ/',
+      'sense:row:2250c8db5d4355be':'row /raʊ/',
+    }
+    for sid,paired in expected_forms.items():
+        overlay=row_by_id[sid].get('lexical_identity_overlay',{})
+        if overlay.get('identity_type')!='pronunciation_boundary' or overlay.get('paired_form')!=paired:
+            raise RuntimeError(f'ROW_PRONUNCIATION_BOUNDARY_BAD {sid} {overlay}')
 
     # sceptical/skeptical: local stable senses retained, reciprocal relation materialized.
     scept=owner(4281); skept=owner(6139)
