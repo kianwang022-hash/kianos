@@ -7,9 +7,13 @@ This router does not own subject Content, Learning, Question Truth, Evidence, Ac
 
 ## Active product boundaries
 
-The screenshot-reviewed visual-convergence implementation is owned by **PR #210**, on the single `ui/visual-convergence-20260916` lane. Do not restart from retired #154 / #167 / #117 / #148 or wholesale-merge #193. Use the PR's current head, actual implementation and exact-head evidence for its temporary release cursor; `main` remains durable shared truth after landing.
+The bounded screenshot-reviewed visual-convergence release **landed on main through PR #210** (`eff6e720307e125ed613069347887cb32ce4000e`). Its temporary `ui/visual-convergence-20260916` branch is retired. There is no remaining #210 release blocker or active integration branch to resume.
 
-The visual lane now covers Global Home's native subject workbench, English task families, adaptive Lexical Study, and representative Politics / Xizong cognitive workspaces. Final browser/regression checks and publication belong to #210; a screenshot or green build alone is not final aesthetic or learner acceptance.
+The release covers Global Home's native subject workbench, English task families, adaptive Lexical Study, and representative Politics / Xizong cognitive workspaces. The final tested implementation (`b7c6c5d0`) passed 19 scoped release scripts and 14 native PR workflows; the PR and immutable artifact retain that evidence, not this router. Concurrent Source Visual content was preserved on landing.
+
+**Next genuine product work:** #224 for complete cross-subject Orchestrator Home outputs; #116 for remaining Politics product capability completeness. Do not mistake either for unfinished CSS or continue chasing the retired Stage-2 regression failures. Actual Mac/PingFang and real learner U remain separate, unperformed claims.
+
+Do not restart from retired #154 / #167 / #117 / #148 / #210 or wholesale-merge #193. Current main implementation is the visual starting point; historical PRs retain bounded provenance only.
 
 Normal entry:
 
@@ -26,7 +30,7 @@ static-web/CURRENT.md
 | --- | --- | --- |
 | English | Objective / Translation / Writing are frozen through S–E; learner U is real use only. | Preserve complete task context, first artifacts, exact Return/Resume and task-native geometry. Fix concrete defects; do not redesign learning for styling. |
 | Lexical | Bounded Repair / Challenge / Evidence closure is integrated via #174 / #191. This does not imply full-catalog or unrestricted acceptance. | `content/lexical/CURRENT.md` + `ACCEPTANCE.md`. Content continues independently of stable-interface UI. No missing optional slot may create learner debt. |
-| Politics | Five-subject Learning is closed through E. Xiao1000 Workbench was fresh-reconciled to main via #183; #117 is historical. | **#116** + `POLITICS_PRODUCT_STATUS.md` own remaining product capabilities, including review-entry completeness, NU/source/repair/exact Return consistency and Mac acceptance. #210 owns the visual release slice, not a new Politics Runtime. |
+| Politics | Five-subject Learning is closed through E. Xiao1000 Workbench was fresh-reconciled to main via #183; #117 is historical. | **#116** + `POLITICS_PRODUCT_STATUS.md` own remaining product capabilities, including review-entry completeness, NU/source/repair/exact Return consistency and Mac acceptance. #210 landed the visual release slice, not a new Politics Runtime. |
 | Xizong | One phase-aware Runtime consumes independently growing System, Source Visual, Precision and reviewed Crosswalk assets. | `content/xizong/CURRENT.md`, exact System owners and `XIZONG_PRODUCT_STATUS.md`. Content growth does not require recurring renderer redesign. |
 | Global Home | Cross-subject decisions belong to **`EXAM_ORCHESTRATOR_CONTRACT.md`**. | **#224** owns the orchestration consumer/runtime and complete Today / Attention integration. Native subject Continue alone is not full orchestration closure. |
 
@@ -34,7 +38,7 @@ static-web/CURRENT.md
 
 The former assumption that no cross-subject owner exists is retired. Read the root `EXAM_ORCHESTRATOR_CONTRACT.md` before changing global Gate, capacity, allocation, Today or Attention behavior.
 
-The presentation must consume real Orchestrator outputs when implemented. Until that consumer exists, keep native subject outputs truthful; do not fabricate allocations, progress, mastery, debt or a cross-subject winner to fill the screen. Do not label #224 complete because #210's visual release is ready.
+The presentation must consume real Orchestrator outputs when implemented. Until that consumer exists, keep native subject outputs truthful; do not fabricate allocations, progress, mastery, debt or a cross-subject winner to fill the screen. Do not label #224 complete because #210's visual release has landed.
 
 Desktop Home remains a **single-viewport command center**. Core status / Continue / Today / Attention must not be displaced by large empty handoff/import chrome. The default information budget comes from the Orchestrator contract; diagnostic detail stays out of the learner's primary surface.
 
