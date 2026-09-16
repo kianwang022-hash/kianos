@@ -43,12 +43,13 @@ const projection = {
   visualGateHtml: canonicalBlock.visualGateMarkdown ? marked.parse(projectVisualGate(canonicalBlock.visualGateMarkdown), { gfm: true }) : '',
   kpRecords: productionBlock.kpRecords.map((kp) => ({ ...kp, detailHtml: marked.parse(projectKpCore(kp.detailMarkdown), { gfm: true }) }))
 };
+const block = projection;
 ---
 <Base title={`${canonicalBlock.label} · ${canonicalBlock.title}`} kicker={`西医综合 · ${canonicalBlock.systemCanonicalId} · ${canonicalBlock.label}`} description={canonicalBlock.centerQuestion} sourcePath={canonicalBlock.sourcePath} sourceHash={canonicalBlock.sourceHash} objectId={canonicalBlock.objectId} active="xizong">
   <XizongLastLocation system={system} block={canonicalBlock} />
   <XizongBlockV6 block={projection} />
   <XizongQuestionCrosswalkReverse crosswalk={crosswalk} />
-  <XizongRuntimeStageGuard system={system} block={projection} />
+  <XizongRuntimeStageGuard system={system} block={block} />
   <XizongConnectionCues block={projection} />
   <XizongPrecisionVisualCues block={projection} />
   <XizongExtensionAssets block={projection} />
