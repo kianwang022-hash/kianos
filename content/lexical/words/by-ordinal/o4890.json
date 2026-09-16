@@ -6,30 +6,29 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "352068623cdf03e7b1449bed81cda8895dc836dca7099637e02b7370f9dcfd26",
+    "constructions": [
+      {
+        "construction_id": "construction:c06d971c5e96d5536155",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "艰巨、要求很高的任务",
+        "pattern": "a tall order"
+      }
+    ],
+    "content_hash": "7edcf4213b695b73f1162f7615476894ae979e349f76c82d34d0af90e1f48c46",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "高的；难以做到的",
-          "label_en": "great in vertical dimension; high in stature; impressively difficult",
+          "label_cn": "高的",
+          "label_en": "great in vertical dimension; high in stature",
           "pos": "adjective",
           "sense_ids": [
-            "sense:tall:ac47a1e881115c4f",
-            "sense:tall:458550db880b5fa1"
-          ]
-        },
-        {
-          "label_cn": "大号服装",
-          "label_en": "a garment size for a tall person",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:tall:dc6ddf80cad45e10"
+            "sense:tall:ac47a1e881115c4f"
           ]
         }
       ],
       "core_meaning_cn": "高的",
-      "core_meaning_en": "having great height",
+      "core_meaning_en": "great in vertical dimension; high in stature",
       "mental_model_cn": "高的",
       "mental_model_en": ""
     },
@@ -77,30 +76,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:2e28d2d6d59ac7853ff0",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:tall:458550db880b5fa1:collocation:0"
-            ],
-            "meaning_cn": "难以完成的任务",
-            "phrase": "a tall order"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "难以做到的",
-        "definition_en": "impressively difficult",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:tall:458550db880b5fa1",
-        "sense_label_en": "impressively difficult",
-        "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
             "collocation_id": "collocation:98c0c63cf0699012ab8d",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -143,12 +118,36 @@
     "word_id": "word:tall"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:tall:458550db880b5fa1",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "adjective",
+      "definition_cn": "难以做到的",
+      "definition_en": "impressively difficult",
+      "semantic_key": "1cff5ddb67fcbb0d631a517fa3a479a0a9287ce22d5a9baab443d4765662281e",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "tall:l2:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "tall:l2:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 13902,
+      "source_path": "content/lexical/canonical/senses/shards/o4865-4896.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:tall:458550db880b5fa1",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 13902,
         "source_path": "content/lexical/canonical/senses/shards/o4865-4896.json"
@@ -169,7 +168,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:2e28d2d6d59ac7853ff0",
       "collocation:5735b89c8737882b7431",
       "collocation:98c0c63cf0699012ab8d",
       "collocation:f8ed4ffaa946803afec7"
@@ -223,7 +221,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4889-4896.json",
-    "source_content_hash": "352068623cdf03e7b1449bed81cda8895dc836dca7099637e02b7370f9dcfd26",
+    "source_content_hash": "7edcf4213b695b73f1162f7615476894ae979e349f76c82d34d0af90e1f48c46",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

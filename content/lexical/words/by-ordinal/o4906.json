@@ -57,12 +57,22 @@
         "writing_safe": false
       }
     ],
-    "content_hash": "0e5fb35f81bd2b958155912055620b3b05ba79d674f264d3664a59dfbb1ae4e2",
+    "content_hash": "4f25fcae48732603ed6f67b97ef96e8e27759fcd2829578e389dcd6c3decdbce",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "传授知识或技能",
-      "core_meaning_en": "impart knowledge or skills",
-      "mental_model_cn": "传授知识或技能",
+      "core_clusters": [
+        {
+          "label_cn": "教，讲授；教书，教学",
+          "label_en": "to give someone knowledge or skills; to work as a teacher",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:teach:0d372b5d3e7152a3",
+            "sense:teach:1ac53f8fa00954c1"
+          ]
+        }
+      ],
+      "core_meaning_cn": "教，讲授；教书，教学",
+      "core_meaning_en": "to give someone knowledge or skills; to work as a teacher",
+      "mental_model_cn": "教，讲授；教书，教学",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -75,7 +85,36 @@
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "教，讲授",
+        "definition_en": "to give someone knowledge or skills",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:teach:0d372b5d3e7152a3",
+        "sense_label_en": "to give someone knowledge or skills",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "教书，教学",
+        "definition_en": "to work as a teacher",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:teach:1ac53f8fa00954c1",
+        "sense_label_en": "to work as a teacher",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 3,
       "deep_modules": {
@@ -92,61 +131,51 @@
       "runtime_model_calls": false
     },
     "word": "teach",
-    "word_family": [],
+    "word_family": [
+      {
+        "boundary": "teach 传授知识或技能",
+        "codex_reviewed": false,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {},
+        "direction": "R+P",
+        "evidence": [
+          {
+            "evidence_id": "evidence:family:teacher:teach",
+            "evidence_status": "source_checked",
+            "source_locator": "teacher|teach",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:word_family:teacher:758546ac795fecac",
+        "family_sources": [
+          "curated core-card derivative",
+          "local morphology candidate"
+        ],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "word_family",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": null,
+        "source_sense_id": "sense:teach:0d372b5d3e7152a3",
+        "target_sense_id": "sense:teacher:8774a23a826f5756",
+        "target_word": "teacher",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true
+      }
+    ],
     "word_id": "word:teach"
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:teach:0d372b5d3e7152a3",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "教，讲授",
-      "definition_en": "to give someone knowledge or skills",
-      "semantic_key": "e651a7d0d5ed7cf037e445f0a826f68b396e35e8738d7a15cf045aefbe02d3c1",
-      "semantic_key_history": [
-        "7a6e3534bf0015a02b70ded1564c5fb7dbe039ef92117c4299d00e018797a46b"
-      ],
-      "legacy_aliases": [
-        "teach:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "teach:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 13963,
-      "source_path": "content/lexical/canonical/senses/shards/o4897-4928.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:teach:1ac53f8fa00954c1",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "教书，教学",
-      "definition_en": "to work as a teacher",
-      "semantic_key": "2efc354ccae1fe9f753e4777266c301df88866866ddefe146e879bd45c66cda9",
-      "semantic_key_history": [
-        "18acd00087f4a477f0de0e8b79f2774251705db1215a59e566a12ae3b68b4856"
-      ],
-      "legacy_aliases": [
-        "teach:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "teach:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 13964,
-      "source_path": "content/lexical/canonical/senses/shards/o4897-4928.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:teach:2484ff0324b85429",
       "status": "deprecated",
@@ -177,14 +206,14 @@
     "senses": [
       {
         "sense_id": "sense:teach:0d372b5d3e7152a3",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 13963,
         "source_path": "content/lexical/canonical/senses/shards/o4897-4928.json"
       },
       {
         "sense_id": "sense:teach:1ac53f8fa00954c1",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 13964,
         "source_path": "content/lexical/canonical/senses/shards/o4897-4928.json"
@@ -258,7 +287,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4905-4912.json",
-    "source_content_hash": "0e5fb35f81bd2b958155912055620b3b05ba79d674f264d3664a59dfbb1ae4e2",
+    "source_content_hash": "4f25fcae48732603ed6f67b97ef96e8e27759fcd2829578e389dcd6c3decdbce",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

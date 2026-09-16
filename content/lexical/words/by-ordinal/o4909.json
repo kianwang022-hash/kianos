@@ -7,22 +7,116 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "b33fef78f73e233e1492abe4cd8c68dc3ff1baf159befeb6dc107b72588f3f82",
+    "content_hash": "b0c36400bff04470694452f8c156a194287c962c1b100ded275f82eee09b1090",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "撕；眼泪",
-      "core_meaning_en": "pull apart or a drop from the eye",
-      "mental_model_cn": "撕；眼泪",
+      "core_clusters": [
+        {
+          "label_cn": "撕破；撕裂；飞奔；疾驰",
+          "label_en": "pull something apart by force; move very quickly",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:tear:0b8cdcef9eb25b2e",
+            "sense:tear:24e3e5257a5c599d"
+          ]
+        },
+        {
+          "label_cn": "眼泪；泪滴；裂缝；破洞",
+          "label_en": "a drop of liquid from the eye; a hole or split caused by tearing",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:tear:147c03658b845183",
+            "sense:tear:f702a5eb006257cd"
+          ]
+        }
+      ],
+      "core_meaning_cn": "撕破；撕裂；眼泪；泪滴；裂缝；破洞；飞奔；疾驰",
+      "core_meaning_en": "pull something apart by force; a drop of liquid from the eye; a hole or split caused by tearing; move very quickly",
+      "mental_model_cn": "撕破；撕裂；眼泪；泪滴；裂缝；破洞；飞奔；疾驰",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o4875-o5374.md",
+      "boundaries": [
+        {
+          "condition": "eye-drop noun",
+          "note": "tear meaning a drop from the eye is pronounced /tɪr/",
+          "pronunciation": "/tɪr/",
+          "surface": "tear"
+        },
+        {
+          "condition": "rip verb/noun",
+          "note": "tear meaning rip or split is pronounced /ter/",
+          "pronunciation": "/ter/",
+          "surface": "tear"
+        }
+      ],
+      "type": "heteronym_pronunciation_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "撕破；撕裂",
+        "definition_en": "pull something apart by force",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:tear:0b8cdcef9eb25b2e",
+        "sense_label_en": "pull something apart by force",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "眼泪；泪滴",
+        "definition_en": "a drop of liquid from the eye",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:tear:147c03658b845183",
+        "sense_label_en": "a drop of liquid from the eye",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "裂缝；破洞",
+        "definition_en": "a hole or split caused by tearing",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:tear:f702a5eb006257cd",
+        "sense_label_en": "a hole or split caused by tearing",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "飞奔；疾驰",
+        "definition_en": "move very quickly",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:tear:24e3e5257a5c599d",
+        "sense_label_en": "move very quickly",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 3,
       "deep_modules": {
@@ -43,134 +137,33 @@
     "word_id": "word:tear"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:tear:0b8cdcef9eb25b2e",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "撕破；撕裂",
-      "definition_en": "pull something apart by force",
-      "semantic_key": "b7fc1bde9318ebff60e1fa1ae184d1117fe625dd67f78d70da4f287769903806",
-      "semantic_key_history": [
-        "1759a18ee1c558e41db625b61823be210e5d502bbdd7195772bf300576dc3482"
-      ],
-      "legacy_aliases": [
-        "tear:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "tear:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 13970,
-      "source_path": "content/lexical/canonical/senses/shards/o4897-4928.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:tear:147c03658b845183",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "眼泪；泪滴",
-      "definition_en": "a drop of liquid from the eye",
-      "semantic_key": "bd5f0d4bf070e20b44862089f1821c050031813c8928014c77cd49b6046d1eb1",
-      "semantic_key_history": [
-        "98146959b70826536e1cc898f5e590d7d74333fea42dc6d4ebf7a1e321fa8d57"
-      ],
-      "legacy_aliases": [
-        "tear:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "tear:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 13971,
-      "source_path": "content/lexical/canonical/senses/shards/o4897-4928.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:tear:24e3e5257a5c599d",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "飞奔；疾驰",
-      "definition_en": "move very quickly",
-      "semantic_key": "14f1351670f1002883afcd45fb6fefcf52e2511e9eeac065444c51f37c564caf",
-      "semantic_key_history": [
-        "89d1856bbd02b068361830f9893d142e24a7da8e7f60227cbb38134062726239"
-      ],
-      "legacy_aliases": [
-        "tear:l3:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "tear:l3:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 13972,
-      "source_path": "content/lexical/canonical/senses/shards/o4897-4928.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:tear:f702a5eb006257cd",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "裂缝；破洞",
-      "definition_en": "a hole or split caused by tearing",
-      "semantic_key": "eb4985decc1ac6be2482915b3f46edb3f58c4955e3439287f4ba601a2ef22593",
-      "semantic_key_history": [
-        "07173d77d60649a72c76926178235f6715b6ef6210aae1e6566666064e314107"
-      ],
-      "legacy_aliases": [
-        "tear:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "tear:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 13973,
-      "source_path": "content/lexical/canonical/senses/shards/o4897-4928.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:tear:0b8cdcef9eb25b2e",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 13970,
         "source_path": "content/lexical/canonical/senses/shards/o4897-4928.json"
       },
       {
         "sense_id": "sense:tear:147c03658b845183",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 13971,
         "source_path": "content/lexical/canonical/senses/shards/o4897-4928.json"
       },
       {
         "sense_id": "sense:tear:24e3e5257a5c599d",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 13972,
         "source_path": "content/lexical/canonical/senses/shards/o4897-4928.json"
       },
       {
         "sense_id": "sense:tear:f702a5eb006257cd",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 13973,
         "source_path": "content/lexical/canonical/senses/shards/o4897-4928.json"
@@ -251,7 +244,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4905-4912.json",
-    "source_content_hash": "b33fef78f73e233e1492abe4cd8c68dc3ff1baf159befeb6dc107b72588f3f82",
+    "source_content_hash": "b0c36400bff04470694452f8c156a194287c962c1b100ded275f82eee09b1090",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
