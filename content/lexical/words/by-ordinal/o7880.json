@@ -7,15 +7,41 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "d3a58098bd62f984f7474e5d740bab44724abf9fd518714c109c924b8e52d861",
+    "content_hash": "76896ad2782d1ad76fbcbab88efdf2ead2a83a8d46f5f5c7f351b0b1ddc0c3fc",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "合理化；合理化解释",
-      "core_meaning_en": "the process of making something appear reasonable or consistent with reason",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "合理化；用貌似合乎逻辑的理由解释或辩护行为、信念或决定；合理化改革；为提高效率或使流程更合理而进行的重组、精简",
+          "label_en": "the process of making an action, belief, or decision appear reasonable by giving apparently logical reasons; the reorganization or simplification of a system, process, or business to make it more efficient or logical",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:rationalization:ebdcdc65c4b453ea",
+            "sense:rationalization:b4119ec529076551"
+          ]
+        }
+      ],
+      "core_meaning_cn": "合理化；用貌似合乎逻辑的理由解释或辩护行为、信念或决定；合理化改革；为提高效率或使流程更合理而进行的重组、精简",
+      "core_meaning_en": "the process of making an action, belief, or decision appear reasonable by giving apparently logical reasons; the reorganization or simplification of a system, process, or business to make it more efficient or logical",
+      "mental_model_cn": "合理化；用貌似合乎逻辑的理由解释或辩护行为、信念或决定；合理化改革；为提高效率或使流程更合理而进行的重组、精简",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o7875-o7946.md",
+      "boundaries": [
+        {
+          "condition": "common AmE spelling",
+          "note": "Common American spelling.",
+          "surface": "rationalization"
+        },
+        {
+          "condition": "common BrE spelling",
+          "note": "Common British spelling of the same noun.",
+          "surface": "rationalisation"
+        }
+      ],
+      "type": "regional_spelling_variant"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -26,8 +52,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "合理化；合理化解释",
-        "definition_en": "the process of making something appear reasonable or consistent with reason",
+        "definition_cn": "合理化；用貌似合乎逻辑的理由解释或辩护行为、信念或决定",
+        "definition_en": "the process of making an action, belief, or decision appear reasonable by giving apparently logical reasons",
         "depth": "full_card",
         "domain_tag": "academic_awl",
         "frequency_tag": "academic_awl",
@@ -35,7 +61,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:rationalization:ebdcdc65c4b453ea",
-        "sense_label_en": "the process of making something appear reasonable or consistent with reason",
+        "sense_label_en": "the process of making an action, belief, or decision appear reasonable by giving apparently logical reasons",
         "sort_order": 0,
         "source_evidence": [
           {
@@ -53,6 +79,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "合理化改革；为提高效率或使流程更合理而进行的重组、精简",
+        "definition_en": "the reorganization or simplification of a system, process, or business to make it more efficient or logical",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:rationalization:b4119ec529076551",
+        "sense_label_en": "the reorganization or simplification of a system, process, or business to make it more efficient or logical",
+        "sort_order": 1,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -78,6 +118,13 @@
         "merged_into_sense_id": null,
         "source_row": 19432,
         "source_path": "content/lexical/canonical/senses/shards/o7873-7904.json"
+      },
+      {
+        "sense_id": "sense:rationalization:b4119ec529076551",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 19459,
+        "source_path": "content/lexical/canonical/senses/shards/o7873-7904.json"
       }
     ],
     "active_collocations": [],
@@ -94,6 +141,14 @@
   },
   "lookup_refs": [
     {
+      "spelling": "rationalisation",
+      "source": "content/lexical/canonical/lookup/spelling/ra.json",
+      "word_id": "word:rationalization",
+      "ordinal": 7880,
+      "word_shard": "content/lexical/canonical/words/shards/o7873-7880.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/63.json"
+    },
+    {
       "spelling": "rationalization",
       "source": "content/lexical/canonical/lookup/spelling/ra.json",
       "word_id": "word:rationalization",
@@ -104,7 +159,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7873-7880.json",
-    "source_content_hash": "d3a58098bd62f984f7474e5d740bab44724abf9fd518714c109c924b8e52d861",
+    "source_content_hash": "76896ad2782d1ad76fbcbab88efdf2ead2a83a8d46f5f5c7f351b0b1ddc0c3fc",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
