@@ -44,7 +44,7 @@ jobs:
           PY
       - name: Prepare identity evidence and execution sheet
         run: |
-          python tools/lexical_prepare_execution_package.py \
+          python tools/lexical_prepare_execution_package_v2.py \
             --accounting content/lexical/execution/preflight/o7375-o7874.reconciliation-compile.json \
             --reconciliation content/lexical/semantic-reconciliation/o7375-o7874.md \
             --issue 301 \
