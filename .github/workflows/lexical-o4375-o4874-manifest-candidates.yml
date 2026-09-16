@@ -1,0 +1,40 @@
+name: Lexical o4375-o4874 manifest candidates
+
+on:
+  push:
+    branches:
+      - lexical/execute-o4375-o4874-20260916
+    paths:
+      - 'tools/lexical_compile_manifest_candidates_o4375_o4874.py'
+      - '.github/workflows/lexical-o4375-o4874-manifest-candidates.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: lexical/execute-o4375-o4874-20260916
+          fetch-depth: 0
+      - name: Compile candidates
+        run: |
+          python tools/lexical_compile_manifest_candidates_o4375_o4874.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('content/lexical/execution/preflight/o4375-o4874.manifest-candidates.json')
+          o=json.loads(p.read_text(encoding='utf-8'))
+          assert o['owner_count']==161
+          print('MANIFEST_CANDIDATE_CONTRACT_PASS',o['stats'])
+          PY
+      - name: Commit candidates
+        run: |
+          git config user.name Kian
+          git config user.email kianwang022@gmail.com
+          git add content/lexical/execution/preflight/o4375-o4874.manifest-candidates.json content/lexical/execution/preflight/o4375-o4874.manifest-summary.md
+          git commit -m 'lexical: compile o4375-o4874 manifest candidates [skip ci]'
+          git push origin HEAD:lexical/execute-o4375-o4874-20260916
