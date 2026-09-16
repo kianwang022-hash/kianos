@@ -6,16 +6,59 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "88fce07465cac226b9e3b75a7e498e451319a89d2d74a56dc5b7343d40510942",
+    "constructions": [
+      {
+        "construction_id": "construction:ee6590712a87e25abd94",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "猛冲/一头扎入；鲁莽的冲进",
+        "pattern": "a headlong rush/plunge",
+        "source_sense_id": "sense:headlong:29417eafc7e95d2e"
+      },
+      {
+        "construction_id": "construction:488b8986e0a823b13773",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "猛地/鲁莽地冲入某事",
+        "pattern": "rush/plunge headlong into sth",
+        "source_sense_id": "sense:headlong:29417eafc7e95d2e"
+      }
+    ],
+    "content_hash": "a00125aea31c50e84e9865baa967e532cdee533844ff89215408a06a005f510f",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "头向前地；猛然地；用力地",
-      "core_meaning_en": "with the head foremost",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "头朝前地；一头向前地；飞快地；鲁莽、轻率地，不充分考虑后果",
+          "label_en": "head first; with the head foremost; at very high speed, or rashly/recklessly without enough thought",
+          "pos": "adverb",
+          "sense_ids": [
+            "sense:headlong:780effdd37e1599e",
+            "sense:headlong:29417eafc7e95d2e"
+          ]
+        }
+      ],
+      "core_meaning_cn": "头朝前地；一头向前地；飞快地；鲁莽、轻率地，不充分考虑后果",
+      "core_meaning_en": "head first; with the head foremost; at very high speed, or rashly/recklessly without enough thought",
+      "mental_model_cn": "头朝前地；一头向前地；飞快地；鲁莽、轻率地，不充分考虑后果",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o5375-o5874.md",
+      "boundaries": [
+        {
+          "condition": "adverb",
+          "note": "head first, very fast, or recklessly",
+          "surface": "headlong"
+        },
+        {
+          "condition": "adjective",
+          "note": "ordinary adjective use in a headlong rush/plunge, sharing the same fast/reckless or head-first semantic clusters",
+          "surface": "headlong + noun"
+        }
+      ],
+      "type": "pos_use_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -26,16 +69,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "头向前地；猛然地；用力地",
-        "definition_en": "with the head foremost",
+        "definition_cn": "头朝前地；一头向前地",
+        "definition_en": "head first; with the head foremost",
         "depth": "full_card",
         "domain_tag": "cet6",
         "frequency_tag": "cet6",
-        "level": "L1",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "adverb",
         "sense_id": "sense:headlong:780effdd37e1599e",
-        "sense_label_en": "with the head foremost",
+        "sense_label_en": "head first; with the head foremost",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -106,16 +149,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "头向前地；猛然地；用力地",
-        "definition_en": "at breakneck speed",
+        "definition_cn": "飞快地；鲁莽、轻率地，不充分考虑后果",
+        "definition_en": "at very high speed, or rashly/recklessly without enough thought",
         "depth": "full_card",
         "domain_tag": "cet6",
         "frequency_tag": "cet6",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "adverb",
         "sense_id": "sense:headlong:29417eafc7e95d2e",
-        "sense_label_en": "at breakneck speed",
+        "sense_label_en": "at very high speed, or rashly/recklessly without enough thought",
         "sort_order": 2,
         "source_evidence": [
           {
@@ -240,7 +283,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5865-5872.json",
-    "source_content_hash": "88fce07465cac226b9e3b75a7e498e451319a89d2d74a56dc5b7343d40510942",
+    "source_content_hash": "a00125aea31c50e84e9865baa967e532cdee533844ff89215408a06a005f510f",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
