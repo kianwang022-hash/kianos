@@ -1,3 +1,21 @@
+---
+const { chapter = null } = Astro.props;
+const firstRoundExactRows = (chapter?.units || []).map((unit) => ({
+  unitId: unit.unitId,
+  facts: (unit?.raw?.learning_semantics?.precision_objects || [])
+    .filter((item) => item?.learning_priority === 'FIRST_ROUND_EXACT' && item?.fact)
+    .map((item) => item.fact)
+})).filter((row) => row.unitId && row.facts.length > 0);
+---
+
+<div hidden data-first-round-exact-registry>
+  {firstRoundExactRows.map((row) => (
+    <div data-first-round-exact-unit={row.unitId}>
+      {row.facts.map((fact) => <p>{fact}</p>)}
+    </div>
+  ))}
+</div>
+
 <style is:global>
   .politicsCognitiveWorkspace.directReasoningWorkspace{gap:8px}
   .politicsCognitiveWorkspace.directReasoningWorkspace .workspaceBar{grid-template-columns:minmax(260px,.9fr) minmax(520px,1.8fr);min-height:54px;padding:7px 14px;box-shadow:0 5px 18px rgba(22,31,27,.035)}
@@ -68,15 +86,19 @@
   .politicsCognitiveWorkspace.directReasoningWorkspace .relationStrip b{min-width:max-content;color:#263f37;font-size:11.5px;line-height:1.4;font-weight:680}
   .politicsCognitiveWorkspace.directReasoningWorkspace .relationStrip i{color:#6c9a8a;font-style:normal;font-size:12px}
 
-  .politicsCognitiveWorkspace.directReasoningWorkspace .stageAnchor{margin:12px 0 0;padding:8px 0 8px 11px;border-left:3px solid var(--study-green);background:transparent;color:#315247;font-size:12.5px;line-height:1.5}
+  /* Anchors already return at CLOSE; keeping them in ORIENT only wastes first-screen space. */
+  .politicsCognitiveWorkspace.directReasoningWorkspace [data-stage="ORIENT"] .stageAnchor{display:none!important}
   .politicsCognitiveWorkspace.directReasoningWorkspace .stageActions{padding-top:16px}
 
-  /* Inspector is for discrimination, not a duplicate summary of the stage. */
+  /* Inspector is for discrimination and truly first-round exactness, not a duplicate summary. */
   .politicsCognitiveWorkspace.directReasoningWorkspace [data-inspector-state="ORIENT"] .inspectorBlock>b{display:none}
   .politicsCognitiveWorkspace.directReasoningWorkspace .inspectorBlock p{margin:0;padding:10px 0;border-bottom:1px solid #edf1ef}
   .politicsCognitiveWorkspace.directReasoningWorkspace .inspectorBlock p strong{display:block;color:#294b40;font-size:12.5px;line-height:1.4}
   .politicsCognitiveWorkspace.directReasoningWorkspace .inspectorBlock p span{display:block;margin-top:4px;color:#667771;font-size:11.5px;line-height:1.5}
   .politicsCognitiveWorkspace.directReasoningWorkspace [data-inspector-state="ORIENT"]>.inspectorDetails{display:none!important}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .firstRoundExact{display:grid;gap:5px;margin-top:16px;padding:10px 0 0;border-top:1px solid #dfe7e3}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .firstRoundExact>span{color:var(--study-green);font-size:10.5px;font-weight:820;letter-spacing:.05em}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .firstRoundExact>p{margin:0;padding:8px 0 0 10px;border-left:3px solid var(--study-green);color:#294b40;font-size:12px;line-height:1.55;font-weight:680}
   .politicsCognitiveWorkspace.directReasoningWorkspace .suyiNote{display:none!important}
 
   @media(max-width:1180px){
@@ -256,8 +278,25 @@
     });
 
     workspace.querySelectorAll('[data-workspace-unit]').forEach((unit) => {
-      const inspectorTitle = unit.querySelector('[data-inspector-state="ORIENT"] header strong');
+      const inspector = unit.querySelector('[data-inspector-state="ORIENT"]');
+      const inspectorTitle = inspector?.querySelector('header strong');
       if (inspectorTitle) inspectorTitle.textContent = '容易混';
+
+      const exactSource = document.querySelector(`[data-first-round-exact-unit="${unit.dataset.unitId || ''}"]`);
+      if (exactSource && inspector) {
+        const exactBlock = document.createElement('div');
+        exactBlock.className = 'firstRoundExact';
+        const label = document.createElement('span');
+        label.textContent = '第一轮记准';
+        exactBlock.appendChild(label);
+        exactSource.querySelectorAll('p').forEach((source) => {
+          const fact = document.createElement('p');
+          fact.textContent = source.textContent || '';
+          exactBlock.appendChild(fact);
+        });
+        inspector.appendChild(exactBlock);
+      }
+
       const verifyTitle = unit.querySelector('[data-inspector-state="VERIFY"] header strong');
       if (verifyTitle) verifyTitle.textContent = '安静作答';
       const closeEyebrow = unit.querySelector('[data-stage="CLOSE"] .stageEyebrow');
