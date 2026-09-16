@@ -1,4 +1,6 @@
 ---
+import '../styles/product-closure.css';
+import ExamOrchestratorHome from '../components/ExamOrchestratorHome.astro';
 import Base from '../layouts/Base.astro';
 import XizongHomeTools from '../components/XizongHomeTools.astro';
 import PoliticsHomeTools from '../components/PoliticsHomeTools.astro';
@@ -36,8 +38,8 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
 ---
 <Base title="学习工作台" active="home" showLead={false}>
   <header class="commandHeader">
-    <div><p class="pageKicker">YOUR LEARNING WORKSPACE</p><h1>学习工作台</h1><p class="commandSubtitle">选一条主线，回到正在做的事。</p></div>
-    <div class="commandScope"><span>当前可进入</span><strong>{xizongSystems.length} Systems <i>／</i> English <i>／</i> {politicsSubjects.length} 科政治</strong></div>
+    <div><p class="pageKicker" data-exam-phase>一轮收口 · 总目标 425+</p><h1>学习工作台</h1><p class="commandSubtitle">选一条主线，回到正在做的事。</p></div>
+    <div class="commandScope examGate"><span>下个关键节点</span><strong data-exam-gate>按本轮时间线定位</strong></div>
   </header>
 
   <div class="commandGrid">
@@ -61,17 +63,9 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
       </article>
     </section>
 
-    <aside class="commandSupport" aria-label="学习支持">
-      <section class="commandSupportSection">
-        <p class="pageKicker">English support</p><h2>Vocabulary</h2>
-        <p>词义、结构、辨析。查清楚，再回原任务。</p>
-        <a class="commandPrimaryLink" href={`${base}vocabulary/`}>打开词汇工作台 →</a>
-        <small>{lexicalState.wordCount.toLocaleString('en-US')} 词 · Continue / Search / Repair</small>
-      </section>
-      <section class="commandSupportSection">
-        <p class="pageKicker">GUIDES</p><h2>随时回到模型</h2>
-        <nav class="commandGuideLinks" aria-label="英语 Guide"><a href={`${base}objective-learn/`}><strong>Objective</strong><span>Reading / Cloze / Part B</span></a><a href={`${base}translation-learn/`}><strong>Translation</strong><span>表征 → 忠实重建 → 交付</span></a><a href={`${base}writing-learn/`}><strong>Writing</strong><span>写作模型与任务特化</span></a></nav>
-      </section>
+    <aside class="commandSupport examSupport" aria-label="今日安排与学习支持">
+      <ExamOrchestratorHome />
+      <section class="commandSupportSection examSupportLinks"><a href={`${base}vocabulary/`}>Vocabulary →</a><nav aria-label="英语 Guide"><a href={`${base}objective-learn/`}>Objective Guide</a><a href={`${base}translation-learn/`}>Translation Guide</a><a href={`${base}writing-learn/`}>Writing Guide</a></nav></section>
     </aside>
   </div>
   <footer class="commandFoot"><span>本机学习记录 · 保留各科断点</span><a href={`${base}current/`}>Current · {buildRevision.slice(0, 8)}</a></footer>

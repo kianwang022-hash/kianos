@@ -1,4 +1,5 @@
 ---
+import '../../styles/product-closure.css';
 import Base from '../../layouts/Base.astro';
 import PoliticsHomeTools from '../../components/PoliticsHomeTools.astro';
 import { listPoliticsSubjectsCurrent, politicsCurrentHealth } from '../../lib/politicsCurrent.mjs';
@@ -15,7 +16,7 @@ const firstLabel = firstChapter ? `${firstSubject.label} · ${firstChapter.title
 <Base title="政治" active="politics" showLead={false}>
   <header class="politicsOverviewHeader">
     <div><p class="pageKicker">POLITICS · STUDY WORKSPACE</p><h1>政治</h1><p>带着结构进入原讲义，用题目验证，再回到真正的缺口。</p></div>
-    <a class="politicsPracticeEntry" href={`${base}politics/practice/`}>进入肖1000 <span>→</span></a>
+    <nav class="politicsOverviewActions"><a class="politicsPracticeEntry" href={`${base}politics/practice/`}>进入肖1000 <span>→</span></a><a href={`${base}politics/review/`}>今日回访 →</a></nav>
   </header>
   <PoliticsHomeTools firstHref={firstHref} firstLabel={firstLabel} />
   <section class="politicsSubjectWorkbench" data-politics-subject-workbench>
