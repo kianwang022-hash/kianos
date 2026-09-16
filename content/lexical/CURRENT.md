@@ -9,101 +9,43 @@ Production Fresh Semantic Review:      COMPLETE — 7946 / 7946
 Independent Semantic Audit coverage:   COMPLETE — 7946 / 7946
 mechanically implemented frontier:     o7946
 post-audit closed implemented region:  o0001–o7946 COMPLETE ON MAIN via PR #307
-latest closed Content stage:           #303 — o7875–o7946 CLOSED via PR #307
 active Content execution stage:        NONE
-full-catalog K acceptance:             PASS — Issue #56 latest-main revalidation
-latest semantic authority:             o7875–o7946 reconciliation
-latest semantic source union:           35 / 72 owners
-latest Form / identity closure:         PASS
-latest remote Word writes:               0 / 0
+full-catalog K acceptance:             PASS — Issue #56
+Projection acceptance:                 PASS — Issue #323 fresh Current re-audit
+active downstream acceptance gate:     R — Runtime, Issue #323
+Evidence gate:                         E — downstream-frozen behind R
+Learner validation:                    U — UNTESTED
 remaining catalog:                     NONE
 ```
 
-Catalog Content execution: **COMPLETE — 7946 / 7946 owners closed post-audit**.
-Full-catalog integrated K gate: **PASS — 7946 / 7946 Current owners accepted as SAFE_SIMPLE or DEPTH_READY; BLOCKED 0**.
+Catalog Content execution is **COMPLETE — 7946 / 7946 owners**. Full-catalog K is **PASS — 7946 / 7946 accepted, BLOCKED 0**. Current Projection is now **PASS** for the admitted 7,946-owner generation.
 
-Production/Audit, reconciliation, implementation, main integration, acceptance and learner state are separate concepts. Only accepted integration on `main@HEAD` advances canonical Truth; engineering closure never manufactures learner progress.
+Production/Audit, Content, Projection/Runtime/Evidence acceptance and private learner state are separate concepts. Engineering closure never manufactures learner progress.
 
-## 1｜Closed authority
+## 1｜Closed Content / K authority
 
 - Production Fresh Semantic Review: **7946/7946 COMPLETE**.
-- Independent Semantic Audit: **7946/7946 COMPLETE**, zero missing intervals.
+- Independent Semantic Audit: **7946/7946 COMPLETE**.
 - Mechanical post-audit implementation: **o0001–o7946 COMPLETE**.
-- Full-catalog K re-acceptance: **Issue #56 PASS** after latest-main-synchronized Phase A+B+C validation.
+- Final Content stage: **#303 / o7875–o7946 / PR #307**.
+- Full-catalog K re-acceptance: **Issue #56 PASS / CLOSED**.
 - Coverage authority: `content/lexical/semantic-audit/reconciliation/CATALOG_COVERAGE_RECONCILIATION.md`.
-- Acceptance authority: `content/lexical/ACCEPTANCE.md` plus `content/lexical/acceptance/full-catalog-k-*.json`.
-- Do not restart broad Production Review, Independent Audit or full-catalog K audit for this catalog generation without a concrete Current defect.
+- Content receipt: `content/lexical/execution/o7875-o7946.package-receipt.json`.
+- K evidence: `content/lexical/acceptance/full-catalog-k-*.json`.
 
-Continuous integrated Content history: `o5375–o5874` → PR #254; `o5875–o6374` → #277; `o6375–o6874` → #293; `o6875–o7374` → #296; `o7375–o7874` → #302; `o7875–o7946` → #307.
+Do not restart broad Production Review, Independent Audit, Content execution or full-catalog K without a concrete Current defect.
 
-Latest durable Content receipt: `content/lexical/execution/o7875-o7946.package-receipt.json`.
+Continuous integrated Content history ends: `o5375–o5874` → PR #254; `o5875–o6374` → #277; `o6375–o6874` → #293; `o6875–o7374` → #296; `o7375–o7874` → #302; `o7875–o7946` → #307.
 
-Latest K evidence: `full-catalog-k-conclusions.json`, `full-catalog-k-report.json`, `full-catalog-k-browser.json`, `full-catalog-k-materialization-corrections.json`, and `full-catalog-k-latest-main-sync.json` under `content/lexical/acceptance/`.
+## 2｜Final Content controls preserved
 
-## 2｜#303 / o7875–o7946 final-tail closure
+The final tail closed with 72/72 owner readback, 35/35 semantic source-owner union, 8/8 same-owner BrE Form controls, 0 out-of-range Word writes, Natural Owner / transport / shard PASS, manifest materialization PASS and full Astro build PASS.
 
-Canonical semantic authority: `content/lexical/semantic-reconciliation/o7875-o7946.md`. Accepted source handoffs: Production `content/lexical/semantic-review/o7875-o7946.md`; Audit `content/lexical/semantic-audit/o7875-o7946.audit.md`.
+`utilise@o5235` remains a distinct stable verb owner; `utilisation` belongs to noun `utilization@o7939`. Audit additions for `reinforcement`, `rejection`, `respondent`, `revision`, and `suspension` were materialized without reopening semantic review.
 
-Final accounting:
+These are historical closure facts, not the active Work Cursor.
 
-```text
-scope owners:                          72
-Production UPGRADE:                    30
-Audit FLIP_TO_UPGRADE:                  5
-Audit REFINE / FLIP_TO_NO_CHANGE:       0 / 0
-semantic source-owner union:           35 / 35 PASS
-terminal BLOCKED / IDENTITY_RISK:       0 / 0
-internal receipts:                      2 / 2 PASS
-owner readback:                        72 / 72 PASS
-same-owner Form controls:               8 / 8 PASS
-read-only dependency utilise@o5235:    PASS
-out-of-range Word writes:               0 / 0 PASS
-Natural Owner / transport / shard:     PASS
-changed lexical JSON parse:            PASS
-manifest materialization:              PASS
-full Astro build after latest-main sync: PASS
-mechanical execution:                  CLOSED
-```
-
-The eight same-owner BrE Form controls are `rationalization/rationalisation`, `rationalize/rationalise`, `revolutionize/revolutionise`, `stabilization/stabilisation`, `stabilize/stabilise`, `subsidize/subsidise`, `symbolize/symbolise`, and `utilization/utilisation`.
-
-`utilise@o5235` remains a distinct stable **verb** owner and stayed read-only. `utilisation` belongs to noun `utilization@o7939`; no cross-owner lookup theft or remote Word mutation occurred.
-
-The five Independent Audit false-passes were materialized without reopening semantic review: `reinforcement` (bounded countable reinforcements), `rejection` (transplant/tissue/organ immune rejection), `respondent` (formal/legal responding party), `revision` (BrE exam-study plus revised-version/change branches), and `suspension` (hanging/support, vehicle suspension, dispersed-particle fluid branches).
-
-The final package was revalidated after syncing latest `main` containing unrelated Xizong #300 integration. Package readback and full Astro build passed; temporary workflow carriers were restored to their canonical pkg301 versions before PR #307.
-
-## 3｜Execution contract now closed
-
-The catalog execution contract used the **whole bounded package** as the Chat work unit; 50-owner boundaries were only resumable receipt/rollback checkpoints.
-
-```text
-frozen reconciliation
-→ exact executable source union
-→ continuous/resumable runner
-→ internal receipts
-→ package-wide readback/accounting
-→ identity/Form/Relation + remote-write closure
-→ Natural Owner + transport/shard/JSON
-→ full Astro build on latest main
-→ durable package receipt
-→ package PR → main
-→ advance Current frontier
-```
-
-This pipeline closed the complete `o0001–o7946` catalog for the current Content generation. Issue #56 then separately validated the integrated catalog and actual learner projection without reopening semantic review.
-
-Rules that remain authoritative:
-- do not reopen an accepted owner without a concrete Current defect or exact downstream dependency;
-- engineering/schema/hash/Git/CI defects stay executor-owned;
-- return to semantic judgment only for genuinely new ambiguity not already resolved by active authority;
-- do not maintain a competing hand-copied source list;
-- package-wide readback remains mandatory for future bounded repair;
-- learner progress is never manufactured from engineering or acceptance closure.
-
-## 4｜#56 full-catalog K re-acceptance closure
-
-Issue #56 consumed the complete `o0001–o7946` Current Content truth as one integrated acceptance claim.
+## 3｜#56 full-catalog K closure
 
 ```text
 Current owners:                        7,946 / 7,946
@@ -119,23 +61,59 @@ Evidence / Memory + English bridge:      PASS
 Astro build:                             PASS
 ```
 
-The survivor branch was synchronized with `main@00210ea389f2015fe6bb24e6ecd9398d721354ec` through merge `ce745356b4c18c0f25217c39bfa9a12a47ea9b12`. Latest-main revalidation ran on `d318964ec0985979c07ab810101b5dc5132ebc8d` as Lexical Functional First run `35160481017`; every static, build and browser step passed. Generated acceptance evidence was then persisted in `40e4d45be88c08feaddf6f8cb8231655650186ad`.
+The three exact integration repairs were `organise@3375`, `resolve@4115` and `installment@5902`; each restored existing accepted authority. The `form_identity.boundaries[]` projection gap was also closed and browser-proven.
 
-The three exact integration repairs were `organise@3375`, `resolve@4115` and `installment@5902`; each restored existing accepted authority rather than generating a new semantic judgment. The `form_identity.boundaries[]` learner projection compatibility gap was also closed and browser-proven.
+K PASS is an Artifact/Acceptance claim only. It does not create learner familiarity, mastery, Repair debt or U.
 
-K PASS is an Artifact/Acceptance claim only. It does not manufacture learner familiarity, mastery, Memory debt, Review state or `U` evidence.
+## 4｜#323 P/R/E Current re-acceptance
+
+Issue **#323** is the active downstream acceptance chain:
+
+`P → R → E → U`
+
+### P — CLOSED / PASS
+
+Fresh audit: `content/lexical/acceptance/PRE_CURRENT_REACCEPTANCE_AUDIT_20260917.md`.
+
+P was re-judged against the current generation rather than hypothetical future content. The audit branch was synchronized with `main@08b8d07ad1ae3d904fe794e0c38801f039c4ae39`; synchronized head `d511a18c182d668b900ad4fd25ea39aaca4dbdfa` passed:
+
+- Lexical Shard Tools `35163912615`;
+- LexicalOS Current Runtime `35163912664`;
+- Lexical Functional First `35163912533`.
+
+The current learner projection preserves Study/Continue, Search, Repair, Challenge, Recall→Reveal, Fast Pass/Depth routing, exact local `+`, sparse/rich shapes, Relation/Form identity and Coverage continuation without a known projection blocker.
+
+Unknown future content types are not a valid permanent blocker for Current P; newly admitted future types require their own projection evidence when they exist.
+
+### R — ACTIVE
+
+Freshly re-audit the **current executable learner loop**, not the historical bounded label.
+
+Primary question:
+
+> Does Current Runtime let Kian execute the intended loop correctly, with Coverage as the mainline and Repair as a small optional branch, without manufactured due debt or forced clearing?
+
+Inspect current facts before adding code. Current implementation already has shared-ledger Repair, exact local `+` / clear, Home + Word projection, Challenge, refresh/resume, Return Packet and exact English handoff.
+
+The main attack is Repair session entry/selection. `Home Repair = all ACTIVE targets` is not automatically a blocker because Chat is explicitly allowed to adapt strategy and Repair is not a prerequisite wall. Classify the behavior under `LEARNING_ACCEPTANCE.md` before deciding whether code is required.
+
+### E — downstream-frozen
+
+Do not advance E before R closes.
+
+A concrete later attack is already identified: canonical sense registry records include lifecycle states such as `active`, `deprecated`, `merged` and `merged_into_sense_id`. Persisted target evidence must follow explicit valid lineage or fail closed; it must not silently attach to the wrong Current object. This is an E identity-evolution question, not a reason to reopen P.
+
+### U — UNTESTED
+
+Only real private learner use can establish U. Browser/synthetic acceptance does not count as learner validation.
 
 ## Exact next action
 
-Content Work Cursor and the full-catalog K acceptance gate are **closed**. There is **no new Lexical Content/K engineering stage authorized by this file**; future Content repair requires a concrete Current defect or exact authorized dependency.
+**Issue #323 / R — fresh Current Runtime re-acceptance.**
 
-P/R/E unrestricted readiness and real learner U remain separate claims and require separate authorization/evidence.
+Read the current Runtime and Learning/Evidence contracts, attack the normal Coverage → optional Repair → Challenge/return loop, and decide whether any current executable-path defect is actually blocking. Do not rebuild working Runtime merely to preserve a historical BLOCKED label.
 
-## 5｜Downstream / learner boundary
-
-Issue **#56** is closed as the current-generation full-catalog integrated projection / integrity / K re-acceptance gate. `P`, `R` and `E` remain BLOCKED for unrestricted learner use despite bounded Functional First proof; `U` remains UNTESTED until real private learner evidence exists.
-
-Production Review, Audit, reconciliation, implementation, validators, CI and merged PRs do not manufacture learner progress, mastery, Memory debt or `U` evidence.
+If R has no known acceptance defect, promote R with durable evidence and then activate E. If a blocker exists, name the exact learner failure and make the smallest responsible repair.
 
 ## Restart boundary
 
@@ -143,19 +121,12 @@ Production Review, Audit, reconciliation, implementation, validators, CI and mer
 main@HEAD
 → Production = 7946/7946 COMPLETE
 → Independent Audit = 7946/7946 COMPLETE
-→ mechanical frontier = o7946
-→ o0001–o7946 post-audit closed
-→ latest closed Content stage = #303 / o7875–o7946 / PR #307
-→ latest source union = 35 / 72
-→ Form / identity closure = PASS
-→ remote Word writes = 0/0
-→ remaining catalog = NONE
-→ Catalog Content execution = COMPLETE
-→ #56 full-catalog integrated K gate = PASS / CLOSED
+→ Content = COMPLETE
 → K = PASS
-→ P/R/E unrestricted = BLOCKED
+→ P = PASS — Current generation
+→ #323 R = ACTIVE
+→ E = downstream-frozen behind R
 → U = UNTESTED
-→ no new Content/K stage authorized
 ```
 
-Never infer a new task from an old Issue title, branch alias, Audit count, receipt, workflow, or chat history.
+Never infer a new task from an old Issue title, branch alias, historical audit count or prior Chat narrative. Continue Current.
