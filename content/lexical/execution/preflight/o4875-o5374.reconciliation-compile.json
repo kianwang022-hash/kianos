@@ -1,0 +1,876 @@
+{
+  "schema": "kianos.lexical.reconciliation_compile.v1",
+  "package": {
+    "start": 4875,
+    "end": 5374,
+    "owner_count": 500
+  },
+  "production_sources": [
+    "content/lexical/semantic-review/o4875-o5124.md",
+    "content/lexical/semantic-review/o5125-o5374.md"
+  ],
+  "production_upgrade_count": 102,
+  "production_upgrade_owners": [
+    4880,
+    4882,
+    4890,
+    4893,
+    4895,
+    4906,
+    4909,
+    4910,
+    4911,
+    4914,
+    4917,
+    4920,
+    4934,
+    4935,
+    4949,
+    4958,
+    4961,
+    4963,
+    4964,
+    4965,
+    4967,
+    4970,
+    4980,
+    4986,
+    4998,
+    5005,
+    5009,
+    5012,
+    5018,
+    5020,
+    5026,
+    5035,
+    5040,
+    5047,
+    5051,
+    5054,
+    5056,
+    5057,
+    5065,
+    5066,
+    5076,
+    5080,
+    5083,
+    5088,
+    5092,
+    5097,
+    5098,
+    5102,
+    5109,
+    5110,
+    5115,
+    5116,
+    5118,
+    5120,
+    5125,
+    5126,
+    5128,
+    5138,
+    5139,
+    5142,
+    5144,
+    5147,
+    5154,
+    5159,
+    5161,
+    5175,
+    5180,
+    5191,
+    5211,
+    5220,
+    5231,
+    5235,
+    5240,
+    5243,
+    5252,
+    5254,
+    5257,
+    5258,
+    5261,
+    5266,
+    5267,
+    5268,
+    5271,
+    5282,
+    5288,
+    5289,
+    5290,
+    5291,
+    5294,
+    5306,
+    5308,
+    5317,
+    5332,
+    5336,
+    5338,
+    5345,
+    5356,
+    5358,
+    5361,
+    5370,
+    5372,
+    5374
+  ],
+  "production_upgrades_by_file": {
+    "content/lexical/semantic-review/o4875-o5124.md": [
+      4880,
+      4882,
+      4890,
+      4893,
+      4895,
+      4906,
+      4909,
+      4910,
+      4911,
+      4914,
+      4917,
+      4920,
+      4934,
+      4935,
+      4949,
+      4958,
+      4961,
+      4963,
+      4964,
+      4965,
+      4967,
+      4970,
+      4980,
+      4986,
+      4998,
+      5005,
+      5009,
+      5012,
+      5018,
+      5020,
+      5026,
+      5035,
+      5040,
+      5047,
+      5051,
+      5054,
+      5056,
+      5057,
+      5065,
+      5066,
+      5076,
+      5080,
+      5083,
+      5088,
+      5092,
+      5097,
+      5098,
+      5102,
+      5109,
+      5110,
+      5115,
+      5116,
+      5118,
+      5120
+    ],
+    "content/lexical/semantic-review/o5125-o5374.md": [
+      5125,
+      5126,
+      5128,
+      5138,
+      5139,
+      5142,
+      5144,
+      5147,
+      5154,
+      5159,
+      5161,
+      5175,
+      5180,
+      5191,
+      5211,
+      5220,
+      5231,
+      5235,
+      5240,
+      5243,
+      5252,
+      5254,
+      5257,
+      5258,
+      5261,
+      5266,
+      5267,
+      5268,
+      5271,
+      5282,
+      5288,
+      5289,
+      5290,
+      5291,
+      5294,
+      5306,
+      5308,
+      5317,
+      5332,
+      5336,
+      5338,
+      5345,
+      5356,
+      5358,
+      5361,
+      5370,
+      5372,
+      5374
+    ]
+  },
+  "audit_sources": [
+    "content/lexical/semantic-audit/o4825-o5024.audit.md",
+    "content/lexical/semantic-audit/o5025-o5224.audit.md",
+    "content/lexical/semantic-audit/o5225-o5424.audit.md"
+  ],
+  "audit_verdict_counts": {
+    "FLIP_TO_NO_CHANGE": 4,
+    "FLIP_TO_UPGRADE": 59,
+    "IDENTITY_RISK": 4,
+    "REFINE_UPGRADE": 13
+  },
+  "audit_verdicts": {
+    "o4884": "FLIP_TO_UPGRADE",
+    "o4886": "FLIP_TO_UPGRADE",
+    "o4889": "FLIP_TO_UPGRADE",
+    "o4897": "FLIP_TO_UPGRADE",
+    "o4898": "FLIP_TO_UPGRADE",
+    "o4907": "FLIP_TO_UPGRADE",
+    "o4915": "FLIP_TO_UPGRADE",
+    "o4921": "FLIP_TO_UPGRADE",
+    "o4938": "FLIP_TO_UPGRADE",
+    "o4948": "FLIP_TO_UPGRADE",
+    "o4956": "FLIP_TO_UPGRADE",
+    "o4959": "FLIP_TO_UPGRADE",
+    "o4972": "IDENTITY_RISK",
+    "o4975": "FLIP_TO_UPGRADE",
+    "o4978": "FLIP_TO_UPGRADE",
+    "o4986": "IDENTITY_RISK",
+    "o4995": "FLIP_TO_UPGRADE",
+    "o5001": "FLIP_TO_UPGRADE",
+    "o5002": "FLIP_TO_UPGRADE",
+    "o5012": "REFINE_UPGRADE",
+    "o5017": "FLIP_TO_UPGRADE",
+    "o5029": "FLIP_TO_UPGRADE",
+    "o5030": "FLIP_TO_UPGRADE",
+    "o5035": "REFINE_UPGRADE",
+    "o5037": "FLIP_TO_UPGRADE",
+    "o5041": "FLIP_TO_UPGRADE",
+    "o5043": "FLIP_TO_UPGRADE",
+    "o5044": "FLIP_TO_UPGRADE",
+    "o5061": "FLIP_TO_UPGRADE",
+    "o5062": "FLIP_TO_UPGRADE",
+    "o5063": "FLIP_TO_UPGRADE",
+    "o5070": "FLIP_TO_UPGRADE",
+    "o5071": "FLIP_TO_UPGRADE",
+    "o5074": "FLIP_TO_UPGRADE",
+    "o5083": "REFINE_UPGRADE",
+    "o5086": "FLIP_TO_UPGRADE",
+    "o5103": "FLIP_TO_UPGRADE",
+    "o5111": "FLIP_TO_UPGRADE",
+    "o5116": "REFINE_UPGRADE",
+    "o5118": "REFINE_UPGRADE",
+    "o5126": "FLIP_TO_NO_CHANGE",
+    "o5128": "REFINE_UPGRADE",
+    "o5136": "FLIP_TO_UPGRADE",
+    "o5138": "REFINE_UPGRADE",
+    "o5145": "FLIP_TO_UPGRADE",
+    "o5152": "FLIP_TO_UPGRADE",
+    "o5155": "FLIP_TO_UPGRADE",
+    "o5159": "IDENTITY_RISK",
+    "o5161": "REFINE_UPGRADE",
+    "o5169": "FLIP_TO_UPGRADE",
+    "o5178": "FLIP_TO_UPGRADE",
+    "o5181": "FLIP_TO_UPGRADE",
+    "o5182": "FLIP_TO_UPGRADE",
+    "o5186": "FLIP_TO_UPGRADE",
+    "o5197": "FLIP_TO_UPGRADE",
+    "o5199": "FLIP_TO_UPGRADE",
+    "o5200": "FLIP_TO_UPGRADE",
+    "o5205": "FLIP_TO_UPGRADE",
+    "o5206": "FLIP_TO_UPGRADE",
+    "o5207": "FLIP_TO_UPGRADE",
+    "o5210": "FLIP_TO_UPGRADE",
+    "o5217": "FLIP_TO_UPGRADE",
+    "o5219": "FLIP_TO_UPGRADE",
+    "o5221": "FLIP_TO_UPGRADE",
+    "o5224": "FLIP_TO_UPGRADE",
+    "o5226": "FLIP_TO_UPGRADE",
+    "o5243": "REFINE_UPGRADE",
+    "o5247": "FLIP_TO_UPGRADE",
+    "o5251": "FLIP_TO_UPGRADE",
+    "o5252": "REFINE_UPGRADE",
+    "o5254": "FLIP_TO_NO_CHANGE",
+    "o5276": "IDENTITY_RISK",
+    "o5282": "REFINE_UPGRADE",
+    "o5291": "FLIP_TO_NO_CHANGE",
+    "o5296": "FLIP_TO_UPGRADE",
+    "o5328": "FLIP_TO_UPGRADE",
+    "o5336": "REFINE_UPGRADE",
+    "o5356": "FLIP_TO_NO_CHANGE",
+    "o5368": "FLIP_TO_UPGRADE",
+    "o5370": "REFINE_UPGRADE"
+  },
+  "audit_verdict_sources": {
+    "o4884": [
+      "content/lexical/semantic-audit/o4825-o5024.audit.md"
+    ],
+    "o4886": [
+      "content/lexical/semantic-audit/o4825-o5024.audit.md"
+    ],
+    "o4889": [
+      "content/lexical/semantic-audit/o4825-o5024.audit.md"
+    ],
+    "o4897": [
+      "content/lexical/semantic-audit/o4825-o5024.audit.md"
+    ],
+    "o4898": [
+      "content/lexical/semantic-audit/o4825-o5024.audit.md"
+    ],
+    "o4907": [
+      "content/lexical/semantic-audit/o4825-o5024.audit.md"
+    ],
+    "o4915": [
+      "content/lexical/semantic-audit/o4825-o5024.audit.md"
+    ],
+    "o4921": [
+      "content/lexical/semantic-audit/o4825-o5024.audit.md"
+    ],
+    "o4938": [
+      "content/lexical/semantic-audit/o4825-o5024.audit.md"
+    ],
+    "o4948": [
+      "content/lexical/semantic-audit/o4825-o5024.audit.md"
+    ],
+    "o4956": [
+      "content/lexical/semantic-audit/o4825-o5024.audit.md"
+    ],
+    "o4959": [
+      "content/lexical/semantic-audit/o4825-o5024.audit.md"
+    ],
+    "o4972": [
+      "content/lexical/semantic-audit/o4825-o5024.audit.md"
+    ],
+    "o4975": [
+      "content/lexical/semantic-audit/o4825-o5024.audit.md"
+    ],
+    "o4978": [
+      "content/lexical/semantic-audit/o4825-o5024.audit.md"
+    ],
+    "o4986": [
+      "content/lexical/semantic-audit/o4825-o5024.audit.md"
+    ],
+    "o4995": [
+      "content/lexical/semantic-audit/o4825-o5024.audit.md"
+    ],
+    "o5001": [
+      "content/lexical/semantic-audit/o4825-o5024.audit.md"
+    ],
+    "o5002": [
+      "content/lexical/semantic-audit/o4825-o5024.audit.md"
+    ],
+    "o5012": [
+      "content/lexical/semantic-audit/o4825-o5024.audit.md"
+    ],
+    "o5017": [
+      "content/lexical/semantic-audit/o4825-o5024.audit.md"
+    ],
+    "o5029": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5030": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5035": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5037": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5041": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5043": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5044": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5061": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5062": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5063": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5070": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5071": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5074": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5083": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5086": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5103": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5111": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5116": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5118": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5126": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5128": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5136": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5138": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5145": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5152": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5155": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5159": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5161": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5169": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5178": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5181": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5182": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5186": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5197": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5199": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5200": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5205": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5206": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5207": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5210": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5217": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5219": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5221": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5224": [
+      "content/lexical/semantic-audit/o5025-o5224.audit.md"
+    ],
+    "o5226": [
+      "content/lexical/semantic-audit/o5225-o5424.audit.md"
+    ],
+    "o5243": [
+      "content/lexical/semantic-audit/o5225-o5424.audit.md"
+    ],
+    "o5247": [
+      "content/lexical/semantic-audit/o5225-o5424.audit.md"
+    ],
+    "o5251": [
+      "content/lexical/semantic-audit/o5225-o5424.audit.md"
+    ],
+    "o5252": [
+      "content/lexical/semantic-audit/o5225-o5424.audit.md"
+    ],
+    "o5254": [
+      "content/lexical/semantic-audit/o5225-o5424.audit.md"
+    ],
+    "o5276": [
+      "content/lexical/semantic-audit/o5225-o5424.audit.md"
+    ],
+    "o5282": [
+      "content/lexical/semantic-audit/o5225-o5424.audit.md"
+    ],
+    "o5291": [
+      "content/lexical/semantic-audit/o5225-o5424.audit.md"
+    ],
+    "o5296": [
+      "content/lexical/semantic-audit/o5225-o5424.audit.md"
+    ],
+    "o5328": [
+      "content/lexical/semantic-audit/o5225-o5424.audit.md"
+    ],
+    "o5336": [
+      "content/lexical/semantic-audit/o5225-o5424.audit.md"
+    ],
+    "o5356": [
+      "content/lexical/semantic-audit/o5225-o5424.audit.md"
+    ],
+    "o5368": [
+      "content/lexical/semantic-audit/o5225-o5424.audit.md"
+    ],
+    "o5370": [
+      "content/lexical/semantic-audit/o5225-o5424.audit.md"
+    ]
+  },
+  "audit_flip_to_no_change": [
+    5126,
+    5254,
+    5291,
+    5356
+  ],
+  "audit_additions_beyond_production": [
+    4884,
+    4886,
+    4889,
+    4897,
+    4898,
+    4907,
+    4915,
+    4921,
+    4938,
+    4948,
+    4956,
+    4959,
+    4972,
+    4975,
+    4978,
+    4995,
+    5001,
+    5002,
+    5017,
+    5029,
+    5030,
+    5037,
+    5041,
+    5043,
+    5044,
+    5061,
+    5062,
+    5063,
+    5070,
+    5071,
+    5074,
+    5086,
+    5103,
+    5111,
+    5136,
+    5145,
+    5152,
+    5155,
+    5169,
+    5178,
+    5181,
+    5182,
+    5186,
+    5197,
+    5199,
+    5200,
+    5205,
+    5206,
+    5207,
+    5210,
+    5217,
+    5219,
+    5221,
+    5224,
+    5226,
+    5247,
+    5251,
+    5276,
+    5296,
+    5328,
+    5368
+  ],
+  "audit_refinements": [
+    5012,
+    5035,
+    5083,
+    5116,
+    5118,
+    5128,
+    5138,
+    5161,
+    5243,
+    5252,
+    5282,
+    5336,
+    5370
+  ],
+  "identity_risks": [
+    4972,
+    4986,
+    5159,
+    5276
+  ],
+  "semantic_source_owner_count": 159,
+  "semantic_source_owners": [
+    4880,
+    4882,
+    4884,
+    4886,
+    4889,
+    4890,
+    4893,
+    4895,
+    4897,
+    4898,
+    4906,
+    4907,
+    4909,
+    4910,
+    4911,
+    4914,
+    4915,
+    4917,
+    4920,
+    4921,
+    4934,
+    4935,
+    4938,
+    4948,
+    4949,
+    4956,
+    4958,
+    4959,
+    4961,
+    4963,
+    4964,
+    4965,
+    4967,
+    4970,
+    4972,
+    4975,
+    4978,
+    4980,
+    4986,
+    4995,
+    4998,
+    5001,
+    5002,
+    5005,
+    5009,
+    5012,
+    5017,
+    5018,
+    5020,
+    5026,
+    5029,
+    5030,
+    5035,
+    5037,
+    5040,
+    5041,
+    5043,
+    5044,
+    5047,
+    5051,
+    5054,
+    5056,
+    5057,
+    5061,
+    5062,
+    5063,
+    5065,
+    5066,
+    5070,
+    5071,
+    5074,
+    5076,
+    5080,
+    5083,
+    5086,
+    5088,
+    5092,
+    5097,
+    5098,
+    5102,
+    5103,
+    5109,
+    5110,
+    5111,
+    5115,
+    5116,
+    5118,
+    5120,
+    5125,
+    5128,
+    5136,
+    5138,
+    5139,
+    5142,
+    5144,
+    5145,
+    5147,
+    5152,
+    5154,
+    5155,
+    5159,
+    5161,
+    5169,
+    5175,
+    5178,
+    5180,
+    5181,
+    5182,
+    5186,
+    5191,
+    5197,
+    5199,
+    5200,
+    5205,
+    5206,
+    5207,
+    5210,
+    5211,
+    5217,
+    5219,
+    5220,
+    5221,
+    5224,
+    5226,
+    5231,
+    5235,
+    5240,
+    5243,
+    5247,
+    5251,
+    5252,
+    5257,
+    5258,
+    5261,
+    5266,
+    5267,
+    5268,
+    5271,
+    5276,
+    5282,
+    5288,
+    5289,
+    5290,
+    5294,
+    5296,
+    5306,
+    5308,
+    5317,
+    5328,
+    5332,
+    5336,
+    5338,
+    5345,
+    5358,
+    5361,
+    5368,
+    5370,
+    5372,
+    5374
+  ],
+  "receipt_counts": [
+    {
+      "start": 4875,
+      "end": 4924,
+      "source_count": 20
+    },
+    {
+      "start": 4925,
+      "end": 4974,
+      "source_count": 15
+    },
+    {
+      "start": 4975,
+      "end": 5024,
+      "source_count": 14
+    },
+    {
+      "start": 5025,
+      "end": 5074,
+      "source_count": 22
+    },
+    {
+      "start": 5075,
+      "end": 5124,
+      "source_count": 17
+    },
+    {
+      "start": 5125,
+      "end": 5174,
+      "source_count": 15
+    },
+    {
+      "start": 5175,
+      "end": 5224,
+      "source_count": 20
+    },
+    {
+      "start": 5225,
+      "end": 5274,
+      "source_count": 15
+    },
+    {
+      "start": 5275,
+      "end": 5324,
+      "source_count": 10
+    },
+    {
+      "start": 5325,
+      "end": 5374,
+      "source_count": 11
+    }
+  ],
+  "remote_dependency_candidates": [
+    1020,
+    1410,
+    2069,
+    2586,
+    2671,
+    4375,
+    4524,
+    4731,
+    5416
+  ],
+  "status": "COMPILED_FOR_SOL_RECONCILIATION"
+}
