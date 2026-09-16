@@ -7,15 +7,23 @@ const repoRoot = process.env.KIANOS_REPO_ROOT
 
 const MANIFEST_ROOT = 'content/xizong/knowledge/learner';
 const MANIFEST_SUFFIX = '-source-visuals.json';
+const SOURCE_VISUAL_ASSET_ROOT = path.join(repoRoot, 'static-web/src/assets/xizong/source-visuals');
 
-// Vite owns emitted asset URLs. Current content manifests own which reviewed
-// assets belong to which Visual cue. Adding a new content pack must not require
-// another disease/System-specific renderer import.
-const assetUrls = import.meta.glob('../assets/xizong/source-visuals/**/*.{webp,png,jpg,jpeg}', {
-  eager: true,
-  query: '?url',
-  import: 'default'
-});
+// Vite owns emitted asset URLs. Plain Node validators do not provide
+// import.meta.glob, so they fall back to filesystem existence checks while
+// preserving the same manifest/asset identity. This keeps semantic resolution
+// usable outside the renderer without inventing a second asset loader.
+const assetUrls = (() => {
+  try {
+    return import.meta.glob('../assets/xizong/source-visuals/**/*.{webp,png,jpg,jpeg}', {
+      eager: true,
+      query: '?url',
+      import: 'default'
+    });
+  } catch {
+    return {};
+  }
+})();
 
 function absolute(relativePath) {
   return path.join(repoRoot, relativePath);
@@ -32,8 +40,9 @@ function safeAssetPath(value, cueId) {
 function normalizeAsset(asset, cueId) {
   const assetPath = safeAssetPath(asset?.asset_path, cueId);
   const viteKey = `../assets/xizong/source-visuals/${assetPath}`;
-  const src = assetUrls[viteKey];
-  if (!src) {
+  const src = assetUrls[viteKey] || null;
+  const filePath = path.resolve(SOURCE_VISUAL_ASSET_ROOT, assetPath);
+  if (!filePath.startsWith(`${path.resolve(SOURCE_VISUAL_ASSET_ROOT)}${path.sep}`) || (!src && !fs.existsSync(filePath))) {
     throw new Error(`CURRENT_XIZONG_SOURCE_VISUAL_ASSET_MISSING:${cueId}:${assetPath}`);
   }
 

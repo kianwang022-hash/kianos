@@ -8,7 +8,7 @@ const BASE = `http://127.0.0.1:${PORT}`;
 const auditDir = path.resolve(process.cwd(), '.qa');
 fs.mkdirSync(auditDir, { recursive: true });
 const reportPath = path.join(auditDir, 'xizong-a2-progressive-source-visual.json');
-const report = { schema: 'kianos.xizong.a2.progressive_source_visual.v1', started_at: new Date().toISOString(), checks: [] };
+const report = { schema: 'kianos.xizong.a2.progressive_source_visual.v2', started_at: new Date().toISOString(), checks: [] };
 const check = (condition, name, detail = '') => {
   if (!condition) throw new Error(`A2_PROGRESSIVE_SOURCE_VISUAL_FAIL:${name}${detail ? `:${detail}` : ''}`);
   report.checks.push({ name, pass: true, detail });
@@ -45,7 +45,9 @@ try {
 
   const root = page.locator('[data-xizong-v6-block]');
   await root.waitFor({ state: 'visible' });
-  const visualRoot = root.locator('[data-xizong-group-visuals]');
+  const visualRoot = root.locator('[data-learner-asset="visual"][data-learner-asset-id="a2-r08-lg01-visual"]');
+  check(await page.locator('[data-xizong-learner-object-payload]').count() === 1, 'unified_learner_object_payload_present');
+  check(await root.locator('[data-xizong-group-visuals]').count() === 0, 'legacy_group_visual_dom_owner_retired');
 
   // Current A2 Source truth is one continuous original-Lecture contact before
   // Logic Group retrieval. A Logic-Group visual keeps its accepted moment at
@@ -57,11 +59,13 @@ try {
   await root.locator('[data-source-contact-done]').click();
   await root.locator('[data-study-stage="logic_group"]').waitFor({ state: 'visible' });
   await visualRoot.waitFor({ state: 'visible' });
-  const figures = visualRoot.locator('.xv6SourceVisualFigure');
+  check(await visualRoot.locator('xpath=ancestor::*[@data-learner-object-slot="logic_group_prelearn"]').count() === 1,
+    'logic_group_visual_uses_prelearn_semantic_slot');
+  const figures = visualRoot.locator('.xv6LearnerVisualGallery figure');
   check(await figures.count() === 1, 'new_partial_content_bundle_renders_without_runtime_change', String(await figures.count()));
 
-  const pages = await figures.evaluateAll((nodes) => nodes.map((node) => Number(node.dataset.sourcePage || 0)));
-  check(JSON.stringify(pages) === JSON.stringify([22]), 'reviewed_source_page_is_exact', JSON.stringify(pages));
+  const caption = await figures.locator('figcaption').textContent() || '';
+  check(caption.includes('P22'), 'reviewed_source_page_is_exact', caption);
 
   const visualText = await visualRoot.textContent() || '';
   check(visualText.includes('内科 Lecture PDF P22'), 'existing_cue_locator_preserved');
@@ -69,6 +73,8 @@ try {
 
   const image = visualRoot.locator('img');
   check(await image.count() === 1, 'one_reviewed_asset_rendered');
+  const alt = await image.getAttribute('alt') || '';
+  check(alt.includes('P22'), 'source_visual_alt_preserves_reviewed_page', alt);
   const src = await image.getAttribute('src') || '';
   check(Boolean(src), 'asset_url_present');
   const response = await page.request.get(new URL(src, BASE).toString());
@@ -79,12 +85,13 @@ try {
   await root.locator('[data-study-stage="kp_recall"]').waitFor({ state: 'visible' });
   check(await root.locator('[data-study-stage="kp_learn"]').count() === 0, 'natural_source_group_does_not_reopen_lecture');
   check(await visualRoot.isHidden(), 'source_visual_hidden_during_recall_front');
-  check(await root.locator('[data-study-stage="kp_recall"] .xv6SourceVisualFigure').count() === 0, 'recall_front_contains_no_source_visual');
+  check(await root.locator('[data-study-stage="kp_recall"] [data-learner-asset="visual"]').count() === 0, 'recall_front_contains_no_source_visual');
   check(await root.locator('[data-kp-recall-card]:not([hidden]) [data-kp-answer]').isHidden(), 'recall_answer_remains_hidden_before_reveal');
 
   report.finished_at = new Date().toISOString();
   report.status = 'PASS';
   report.evidence_class = 'EXECUTED_BROWSER_ENGINEERING_EVIDENCE_NOT_REAL_LEARNER_U';
+  report.semantic_surface = 'kianos.xizong.learner_object.v1';
   fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
   console.log('A2_PROGRESSIVE_SOURCE_VISUAL_PASS');
   await context.close();
