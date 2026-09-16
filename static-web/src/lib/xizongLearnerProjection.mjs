@@ -1,7 +1,6 @@
 import { loadXizongSystem } from './xizong.mjs';
 import { buildXizongProductionBlock } from './xizongProductionProjection.mjs';
 import { loadXizongLearningCues, learningCuesForBlock } from './xizongLearningCues.mjs';
-import { attachSourceVisualBundles } from './xizongSourceVisualAssets.mjs';
 import { loadXizongPathways, pathwaysForBlock } from './xizongPathways.mjs';
 import { extensionAssetsForBlock } from './xizongExtensionAssets.mjs';
 import { buildXizongLearnerObject, validateXizongLearnerObject } from './xizongLearnerObject.mjs';
@@ -16,8 +15,15 @@ function fail(code, detail = '') {
  * All reviewed enrichment families are resolved here exactly once before a
  * renderer sees them. `enrichBlock` may add renderer-only fields (for example
  * pre-rendered HTML), but it must preserve Block/KP/LG identity.
+ *
+ * Source-visual URL attachment is deliberately injected by the Astro/Vite
+ * caller. The semantic resolver itself stays runnable in plain Node so Current
+ * validation does not depend on `import.meta.glob`.
  */
-export function resolveXizongLearnerProjection(canonicalBlock, { enrichBlock = null } = {}) {
+export function resolveXizongLearnerProjection(canonicalBlock, {
+  enrichBlock = null,
+  attachVisualBundles = null
+} = {}) {
   if (!canonicalBlock?.systemId || !canonicalBlock?.blockId) fail('CANONICAL_BLOCK_REQUIRED');
 
   const system = loadXizongSystem(canonicalBlock.systemId);
@@ -32,7 +38,9 @@ export function resolveXizongLearnerProjection(canonicalBlock, { enrichBlock = n
   const rawLearningCues = learningCuesForBlock(cues, block);
   const learningCues = {
     ...rawLearningCues,
-    visuals: attachSourceVisualBundles(rawLearningCues.visuals || [])
+    visuals: typeof attachVisualBundles === 'function'
+      ? attachVisualBundles(rawLearningCues.visuals || [])
+      : (rawLearningCues.visuals || [])
   };
 
   const pathways = pathwaysForBlock(loadXizongPathways(system), block.blockId);
