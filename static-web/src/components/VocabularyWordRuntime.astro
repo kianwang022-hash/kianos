@@ -12,30 +12,68 @@ const secondarySenseRows = (Array.isArray(card.secondary_senses) ? card.secondar
     (!branch?.source_sense_id || !activeSenseIds.has(String(branch.source_sense_id)))
   );
 const secondarySenses = secondarySenseRows.map(({ branch }) => branch);
-const fixedCollocationIds = new Set(
-  senses.flatMap((sense) => (sense.collocations || []))
-    .filter((item) => item.exam_value === 'fixed_pattern' && item.collocation_id)
-    .map((item) => String(item.collocation_id))
+
+const normalizePhrase = (value = '') => String(value || '')
+  .toLowerCase()
+  .replace(/[’']/g, "'")
+  .replace(/\s+/g, ' ')
+  .trim();
+
+const allCollocationsWithIndex = (sense) => (sense.collocations || [])
+  .map((item, index) => ({ item, index }))
+  .filter(({ item }) => Boolean(item?.phrase));
+const fixedCollocationsWithIndex = (sense) => allCollocationsWithIndex(sense)
+  .filter(({ item }) => item.exam_value === 'fixed_pattern');
+const sensePhraseKeys = new Set(
+  senses.flatMap((sense) => allCollocationsWithIndex(sense).map(({ item }) => normalizePhrase(item.phrase)))
 );
+
 const constructionRows = (Array.isArray(card.constructions) ? card.constructions : [])
   .map((construction, index) => ({ construction, index }))
   .filter(({ construction }) =>
     (!construction?.verification_status || ['verified', 'semantic_auditor_verified'].includes(String(construction.verification_status))) &&
-    !fixedCollocationIds.has(String(construction?.presentation_merge?.surviving_object_id || ''))
+    !construction?.presentation_merge?.surviving_object_id &&
+    !sensePhraseKeys.has(normalizePhrase(construction?.pattern || construction?.boundary || ''))
   );
 const constructions = constructionRows.map(({ construction }) => construction);
+
 const semanticNeighbors = Array.isArray(card.semantic_neighbors) ? card.semantic_neighbors : [];
 const confusables = Array.isArray(card.confusables) ? card.confusables : [];
 const relationRows = [
-  ...semanticNeighbors.map((relation, index) => ({ relation, locator: `record.semantic_neighbors[${index}]` })),
-  ...confusables.map((relation, index) => ({ relation, locator: `record.confusables[${index}]` }))
+  ...semanticNeighbors.map((relation, index) => ({ relation, locator: `record.semantic_neighbors[${index}]`, kind: 'relation' })),
+  ...confusables.map((relation, index) => ({ relation, locator: `record.confusables[${index}]`, kind: 'confusable' }))
 ];
-const fixedCollocationsWithIndex = (sense) => (sense.collocations || [])
+const importantRelationRows = relationRows.filter(({ relation, kind }) => {
+  if (kind === 'confusable') return true;
+  const priority = String(relation?.priority || relation?.tier || '').toUpperCase();
+  const learningValue = Number(relation?.learning_value_score || 0);
+  return ['S', 'A'].includes(priority) || learningValue >= 8.5;
+});
+
+const formIdentity = card.form_identity && typeof card.form_identity === 'object' ? card.form_identity : null;
+const formVariants = Array.isArray(formIdentity?.variants) ? formIdentity.variants : [];
+const wordFamilyRows = (Array.isArray(card.word_family) ? card.word_family : [])
   .map((item, index) => ({ item, index }))
-  .filter(({ item }) => item.exam_value === 'fixed_pattern');
+  .filter(({ item }) =>
+    (!item?.verification_status || ['verified', 'semantic_auditor_verified'].includes(String(item.verification_status))) &&
+    (!item?.publication_status || ['publishable', 'codex_reviewed', 'published'].includes(String(item.publication_status))) &&
+    Boolean(item?.target_word)
+  );
+
+const hasImportantExpansion = constructionRows.length > 0 || importantRelationRows.length > 0 || Boolean(formIdentity);
+const showFamilyInExpansion = hasImportantExpansion && wordFamilyRows.length > 0;
+const expansionModuleCount = [constructionRows.length > 0, importantRelationRows.length > 0, Boolean(formIdentity), showFamilyInExpansion]
+  .filter(Boolean).length;
+const expansionWeight = expansionModuleCount >= 3 ? 'rich' : expansionModuleCount === 1 ? 'light' : 'standard';
+
 const identityOverlayText = (overlay = {}) => String(
   overlay.note || overlay.label_cn || overlay.label_en || overlay.boundary || overlay.identity_type || overlay.canonical_form || 'Form / identity distinction'
 );
+const corePrimaryCn = String(core.core_meaning_cn || core.mental_model_cn || '—');
+const coreSecondaryCn = String(core.mental_model_cn || '').trim() && String(core.mental_model_cn).trim() !== corePrimaryCn.trim()
+  ? String(core.mental_model_cn).trim()
+  : '';
+const coreEnglish = String(core.core_meaning_en || '').trim();
 
 const posCode = (value = '') => {
   const pos = String(value).toLowerCase();
@@ -96,6 +134,31 @@ for (const branch of secondarySenses) {
   if (pattern) patternPrompts.push(pattern);
 }
 const recallPatterns = [...new Set(patternPrompts)].slice(0, 5);
+
+const relationLead = (relation = {}) => String(
+  relation.boundary ||
+  (Array.isArray(relation.boundaries) ? relation.boundaries[0] : '') ||
+  relation.learning_note ||
+  relation.shared_core ||
+  relation.shared_meaning ||
+  ''
+).trim();
+const relationExtraBoundaries = (relation = {}) => {
+  const lead = relationLead(relation);
+  const candidates = [
+    ...(Array.isArray(relation.boundaries) ? relation.boundaries : []),
+    relation.learning_note,
+    relation.shared_core,
+    relation.shared_meaning
+  ].map((item) => String(item || '').trim()).filter(Boolean);
+  return [...new Set(candidates)].filter((item) => item !== lead).slice(0, 2);
+};
+const relationDifferenceRows = (relation = {}) => {
+  const objects = Array.isArray(relation.source_evidence_objects) ? relation.source_evidence_objects : [];
+  const difference = objects.find((item) => item?.difference && typeof item.difference === 'object')?.difference;
+  if (!difference) return [];
+  return Object.entries(difference).filter(([, value]) => Boolean(value)).slice(0, 4);
+};
 ---
 <section class="portedVocabRuntime portedVocabRuntimeV2" data-local-port="vocabulary" data-vocab-word={card.word} data-vocab-object={answer.objectId} data-vocab-ordinal={answer.ordinal} data-vocab-source-hash={answer.sourceHash}>
   <header class="portedVocabPreviewBar">
@@ -122,10 +185,15 @@ const recallPatterns = [...new Set(patternPrompts)].slice(0, 5);
 
     <div data-vocab-details hidden>
       <header class="portedVocabWordHeader">
-        <div>
+        <div class="lexicalWordIdentity">
           <span>Depth Reveal</span>
           <h2>{card.word}</h2>
-          <p>{core.core_meaning_en || '—'}</p>
+        </div>
+        <div class="lexicalCoreHeadline" data-vocab-target-row>
+          <p>{corePrimaryCn}</p>
+          {coreSecondaryCn && <b>{coreSecondaryCn}</b>}
+          {coreEnglish && <small>{coreEnglish}</small>}
+          <button type="button" data-vocab-repair data-target-kind="core" data-target-id="" data-target-locator="record.core_concept" data-target-label={`${core.core_meaning_cn || core.mental_model_cn || core.core_meaning_en || card.word}`} aria-pressed="false">+</button>
         </div>
         <aside>
           <b>{recallParts.length ? recallParts.join(' · ') : 'Core'}</b>
@@ -133,106 +201,109 @@ const recallPatterns = [...new Set(patternPrompts)].slice(0, 5);
         </aside>
       </header>
 
-      <div class="portedVocabBody" data-vocab-body data-has-relations={relationRows.length > 0 ? "true" : "false"}>
+      <div class="portedVocabBody" data-vocab-body data-has-expansion={hasImportantExpansion ? 'true' : 'false'} data-expansion-weight={expansionWeight}>
         <main class="portedVocabMeaningColumn">
-          <section class="portedVocabCoreSense" data-vocab-target-row>
-            <header>
-              <span>CORE / WORD FEEL</span>
-              <small>核心语义</small>
-              <button type="button" data-vocab-repair data-target-kind="core" data-target-id="" data-target-locator="record.core_concept" data-target-label={`${core.core_meaning_cn || core.mental_model_cn || core.core_meaning_en || card.word}`} aria-pressed="false">+</button>
-            </header>
-            <div>
-              <p>{core.core_meaning_cn || '—'}</p>
-              <strong>{core.mental_model_cn || core.core_meaning_en || '—'}</strong>
-            </div>
-          </section>
-
           <div class="portedVocabSenseList" data-vocab-repair-list>
-            {senses.map((sense, index) => (
-              <section class="lexicalSenseRow" data-vocab-target-row>
-                <header>
-                  <span>{posCode(sense.pos)}</span>
-                  <button type="button" data-vocab-repair data-target-kind="sense" data-target-id={sense.sense_id || ''} data-target-locator={`record.senses[${index}]`} data-target-label={`${sense.definition_cn || sense.definition_en || card.word}`} aria-pressed="false">+</button>
-                </header>
-                <div class="lexicalSenseMeaning">
-                  <strong>{sense.definition_en || '—'}</strong>
-                  <p>{sense.definition_cn || '—'}</p>
-                  {sense.lexical_identity_overlay && (
-                    <article class="portedVocabIdentityOverlay" data-vocab-target-row>
-                      <small>FORM / IDENTITY</small>
-                      <b>{identityOverlayText(sense.lexical_identity_overlay)}</b>
-                      <button type="button" data-vocab-repair data-target-kind="form_identity" data-target-id="" data-target-locator={`record.senses[${index}].lexical_identity_overlay`} data-target-label={identityOverlayText(sense.lexical_identity_overlay)} aria-pressed="false">+</button>
-                    </article>
-                  )}
-                </div>
-                  {fixedCollocationsWithIndex(sense).length > 0 && (
+            {senses.map((sense, index) => {
+              const collocations = allCollocationsWithIndex(sense);
+              return (
+                <section class="lexicalSenseRow" data-vocab-target-row>
+                  <header>
+                    <span>{posCode(sense.pos)}</span>
+                    {sense.governing_pattern && <small>{sense.governing_pattern}</small>}
+                    <button type="button" data-vocab-repair data-target-kind="sense" data-target-id={sense.sense_id || ''} data-target-locator={`record.senses[${index}]`} data-target-label={`${sense.definition_cn || sense.definition_en || card.word}`} aria-pressed="false">+</button>
+                  </header>
+                  <div class="lexicalSenseMeaning">
+                    <p>{sense.definition_cn || '—'}</p>
+                    <strong>{sense.definition_en || '—'}</strong>
+                    {sense.usage_note && <small class="lexicalSenseNote">{sense.usage_note}</small>}
+                    {sense.lexical_identity_overlay && (
+                      <article class="portedVocabIdentityOverlay" data-vocab-target-row>
+                        <small>FORM / IDENTITY</small>
+                        <b>{identityOverlayText(sense.lexical_identity_overlay)}</b>
+                        <button type="button" data-vocab-repair data-target-kind="form_identity" data-target-id="" data-target-locator={`record.senses[${index}].lexical_identity_overlay`} data-target-label={identityOverlayText(sense.lexical_identity_overlay)} aria-pressed="false">+</button>
+                      </article>
+                    )}
+                  </div>
+                  {collocations.length > 0 && (
                     <ul class="lexicalSenseUsage">
-                      {fixedCollocationsWithIndex(sense).map(({ item, index: collocationIndex }) => (
-                        <li data-vocab-target-row>
-                          <b>{item.phrase}</b><span>{item.meaning_cn}</span>
-                          <button type="button" data-vocab-repair data-target-kind="collocation" data-target-id={item.collocation_id || ''} data-target-locator={`record.senses[${index}].collocations[${collocationIndex}]`} data-target-label={`${item.phrase || card.word}`} aria-pressed="false">+</button>
+                      {collocations.map(({ item, index: collocationIndex }) => (
+                        <li class={item.exam_value === 'fixed_pattern' ? 'isFixedPattern' : 'isUsageExample'} data-vocab-target-row={item.exam_value === 'fixed_pattern' ? '' : undefined}>
+                          <b>{item.phrase}</b>
+                          {item.meaning_cn && <span>{item.meaning_cn}</span>}
+                          {item.exam_value === 'fixed_pattern' && <button type="button" data-vocab-repair data-target-kind="collocation" data-target-id={item.collocation_id || ''} data-target-locator={`record.senses[${index}].collocations[${collocationIndex}]`} data-target-label={`${item.phrase || card.word}`} aria-pressed="false">+</button>}
                         </li>
                       ))}
                     </ul>
                   )}
-              </section>
-            ))}
+                </section>
+              );
+            })}
 
             {secondarySenseRows.map(({ branch, index }) => (
-              <section class="lexicalSenseRow" data-vocab-target-row>
+              <section class="lexicalSenseRow lexicalSecondarySenseRow" data-vocab-target-row>
                 <header>
                   <span>{posCode(branch.pos)}+</span>
                   <button type="button" data-vocab-repair data-target-kind="secondary_sense" data-target-id={branch.fact_id || branch.source_sense_id || ''} data-target-locator={`record.secondary_senses[${index}]`} data-target-label={`${branch.definition_cn || branch.meaning_cn || branch.definition_en || branch.label_en || card.word}`} aria-pressed="false">+</button>
                 </header>
                 <div class="lexicalSenseMeaning">
-                  <strong>{branch.definition_en || branch.label_en || '—'}</strong>
                   <p>{branch.definition_cn || branch.meaning_cn || '—'}</p>
+                  <strong>{branch.definition_en || branch.label_en || '—'}</strong>
                 </div>
-                {(branch.pattern || branch.boundary) && <div class="lexicalSenseUsage"><code>{branch.pattern || branch.boundary}</code></div>}
+                {(branch.pattern || branch.boundary) && <div class="lexicalSenseUsage lexicalSecondaryUsage"><code>{branch.pattern || branch.boundary}</code></div>}
               </section>
             ))}
           </div>
-          {constructionRows.length > 0 && <section class="lexicalConstructionSection">
-            <header><span>Constructions</span><small>构式与固定表达</small></header>
+        </main>
+
+        {hasImportantExpansion && <aside class="portedVocabEvidenceColumn" aria-label="Important lexical expansion">
+          {constructionRows.length > 0 && <section class="lexicalExpansionSection lexicalConstructionSection">
+            <header><span>Constructions</span><small>独立构式 / 固定表达</small></header>
             <div class="portedVocabEvidenceList">
               {constructionRows.map(({ construction: item, index }) => (
                 <article data-vocab-target-row>
+                  <p class="lexicalExpansionCn">{item.meaning_cn || item.definition_cn || '—'}</p>
                   <b>{item.pattern || item.boundary || item.label_en}</b>
-                  <p>{item.meaning_cn || item.definition_cn || '—'}</p>
+                  {item.definition_en && <small>{item.definition_en}</small>}
                   <button type="button" data-vocab-repair data-target-kind="construction" data-target-id={item.fact_id || item.construction_id || ''} data-target-locator={`record.constructions[${index}]`} data-target-label={`${item.pattern || item.boundary || item.label_en || card.word}`} aria-pressed="false">+</button>
                 </article>
               ))}
             </div>
           </section>}
-        </main>
 
-        <aside class="portedVocabEvidenceColumn">
-
-
-          {relationRows.length > 0 && <section>
-            <header><span>Contrast / Confusable</span><small>区别与边界</small></header>
+          {importantRelationRows.length > 0 && <section class="lexicalExpansionSection lexicalRelationSection">
+            <header><span>Contrast / Confusable</span><small>只保留会改变判断的边界</small></header>
             <div class="portedVocabEvidenceList">
-              {relationRows.map(({ relation, locator }) => (
+              {importantRelationRows.map(({ relation, locator }) => (
                 <article data-vocab-target-row>
                   <b>{relation.target_expression || relation.target_word || relation.module || 'contrast'}</b>
-                  {relation.boundary && <p>{relation.boundary}</p>}
-                  {relation.shared_core && <p>{relation.shared_core}</p>}
-                  <dl class="lexicalRelationDimensions">{Object.entries(relation.difference_axes || relation.dimensions || {}).map(([key, value]) => <div><dt>{({certainty:'确定度',collocation:'搭配',core_meaning:'意义差别',exam_trap:'辨析重点',register:'语域',semantic_prosody:'语义色彩',strength:'强度',syntax:'语法',writing_safety:'写作使用'})[key] || key.replaceAll('_',' ')}</dt><dd>{String(value)}</dd></div>)}</dl>
-                  {(relation.boundaries || []).map((boundary) => <p>{boundary}</p>)}
-                  {relation.learning_note && <p>{relation.learning_note}</p>}
+                  {relationLead(relation) && <p>{relationLead(relation)}</p>}
+                  {relationExtraBoundaries(relation).map((boundary) => <small class="lexicalRelationNote">{boundary}</small>)}
+                  {relationDifferenceRows(relation).length > 0 && <dl class="lexicalRelationDecision">{relationDifferenceRows(relation).map(([key, value]) => <div><dt>{String(key).replaceAll('_', ' ')}</dt><dd>{String(value)}</dd></div>)}</dl>}
                   <button type="button" data-vocab-repair data-target-kind="relation" data-target-id={relation.fact_id || relation.relation_id || ''} data-target-locator={locator} data-target-label={`${relation.target_expression || relation.target_word || relation.module || card.word}`} aria-pressed="false">+</button>
                 </article>
               ))}
             </div>
           </section>}
 
-          <section class="portedVocabLocalNote">
-            <header><span>Repair</span><small>本词具体分支</small></header>
-            <p data-vocab-repair-summary>当前没有加入 Repair 的分支。</p>
-            <button type="button" data-vocab-copy-packet>Copy Return Packet</button>
-          </section>
-        </aside>
+          {formIdentity && <section class="lexicalExpansionSection lexicalFormSection" data-vocab-target-row>
+            <header><span>Form / Pronunciation</span><small>形式会改变读取时才显示</small></header>
+            {formIdentity.boundary && <p class="lexicalFormBoundary">{formIdentity.boundary}</p>}
+            {formVariants.length > 0 && <div class="lexicalFormVariants">{formVariants.map((variant) => <article><b>{variant.learner_key || variant.canonical_form || variant.variant_id}</b>{variant.ipa && <span>{variant.ipa}</span>}{Array.isArray(variant.pos) && <small>{variant.pos.join(' / ')}</small>}</article>)}</div>}
+            <button type="button" data-vocab-repair data-target-kind="form_identity" data-target-id="" data-target-locator="record.form_identity" data-target-label={`${formIdentity.boundary || card.word}`} aria-pressed="false">+</button>
+          </section>}
+
+          {showFamilyInExpansion && <section class="lexicalExpansionSection lexicalFamilySection">
+            <header><span>Word Family</span><small>有压缩价值才跟随 Depth</small></header>
+            <div class="lexicalFamilyRows">{wordFamilyRows.map(({ item }) => <article><b>{item.target_word}</b>{item.boundary && <span>{item.boundary}</span>}</article>)}</div>
+          </section>}
+        </aside>}
       </div>
+
+      <section class="portedVocabLocalNote">
+        <div><b>Repair</b><p data-vocab-repair-summary>当前没有加入 Repair 的分支。</p></div>
+        <button type="button" data-vocab-copy-packet>Copy Return Packet</button>
+      </section>
     </div>
 
     <footer class="portedVocabFoot">
