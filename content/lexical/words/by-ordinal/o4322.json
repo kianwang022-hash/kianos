@@ -6,13 +6,22 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "9179f77c6962af2183d89e2cd2a4ec1f8973b59deabb884699908f8f294ec497",
+    "constructions": [
+      {
+        "construction_id": "construction:32ad7001aa66b58c6de5",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "试图、力图做某事",
+        "pattern": "seek to do sth",
+        "source_sense_id": "sense:seek:2597e6b09e9357bf"
+      }
+    ],
+    "content_hash": "2ad5fc5b80a1b339094c5573efd9d1d149c97ca6f0558916b6300ebc6aea73d3",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "寻求，寻找",
-      "core_meaning_en": "to try to find or obtain",
-      "mental_model_cn": "寻求，寻找",
+      "core_meaning_cn": "寻找；试图获得/达到；seek to do 表示试图做",
+      "core_meaning_en": "to look for or try to obtain/achieve; seek to do means attempt to",
+      "mental_model_cn": "寻找；试图获得/达到；seek to do 表示试图做",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +31,36 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "寻找，搜索",
+        "definition_en": "to look for something",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:seek:f53b86a0454a5cff",
+        "sense_label_en": "to look for something",
+        "sort_order": 0,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "寻求，追求",
+        "definition_en": "to try to get or reach something",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:seek:2597e6b09e9357bf",
+        "sense_label_en": "to try to get or reach something",
+        "sort_order": 1,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 3,
       "deep_modules": {
@@ -44,31 +82,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:seek:2597e6b09e9357bf",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "寻求，追求",
-      "definition_en": "to try to get or reach something",
-      "semantic_key": "d24af646caf48dbb87d60e79a580f33bd201a60bf58924e711edbb48890c6d77",
-      "semantic_key_history": [
-        "f8215c8fd265e72837129311d5e916eb820183e86741cc0bc7474cfa139c2a06"
-      ],
-      "legacy_aliases": [
-        "seek:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "seek:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12146,
-      "source_path": "content/lexical/canonical/senses/shards/o4321-4352.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:seek:2b90b589ff5f5a75",
       "status": "merged",
@@ -139,38 +152,13 @@
       "source_row": 12149,
       "source_path": "content/lexical/canonical/senses/shards/o4321-4352.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:seek:f53b86a0454a5cff",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "寻找，搜索",
-      "definition_en": "to look for something",
-      "semantic_key": "a9d4037a4ee68c6fb210c9005ce3ed335eed80a78f31d516577538881a735422",
-      "semantic_key_history": [
-        "557084e2608d75b96c521959f579544d450d8cbe1269af87e99db022501b0fac"
-      ],
-      "legacy_aliases": [
-        "seek:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "seek:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12150,
-      "source_path": "content/lexical/canonical/senses/shards/o4321-4352.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:seek:2597e6b09e9357bf",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12146,
         "source_path": "content/lexical/canonical/senses/shards/o4321-4352.json"
@@ -198,7 +186,7 @@
       },
       {
         "sense_id": "sense:seek:f53b86a0454a5cff",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12150,
         "source_path": "content/lexical/canonical/senses/shards/o4321-4352.json"
@@ -274,7 +262,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4321-4328.json",
-    "source_content_hash": "9179f77c6962af2183d89e2cd2a4ec1f8973b59deabb884699908f8f294ec497",
+    "source_content_hash": "2ad5fc5b80a1b339094c5573efd9d1d149c97ca6f0558916b6300ebc6aea73d3",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

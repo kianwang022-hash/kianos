@@ -7,12 +7,12 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "fb526b976146a09eeb3c2fddd7789f45d522cfd65139efd9308d7dc1163bea86",
+    "content_hash": "788ae8bf8821133256b803c8a20c76d22b7453545863f1fc5c74b343c5cf6bb9",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "责骂",
-      "core_meaning_en": "to angrily criticize someone",
-      "mental_model_cn": "责骂",
+      "core_meaning_cn": "责骂、训斥",
+      "core_meaning_en": "to angrily criticize or tell someone off for wrongdoing",
+      "mental_model_cn": "责骂、训斥",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +22,36 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "责骂，训斥",
+        "definition_en": "to angrily criticize someone, especially a child, for doing something wrong",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:scold:bbb286473e9b5a60",
+        "sense_label_en": "to angrily criticize someone, especially a child, for doing something wrong",
+        "sort_order": 0,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "好骂街的人",
+        "definition_en": "a person who often scolds",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:scold:ae8024b0ef6b586f",
+        "sense_label_en": "a person who often scolds",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 2,
       "deep_modules": {
@@ -43,70 +72,19 @@
     "word_id": "word:scold"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:scold:ae8024b0ef6b586f",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "好骂街的人",
-      "definition_en": "a person who often scolds",
-      "semantic_key": "45670d30ad1edf5b6d25b2d5c8c65dc64c720a408376fd816bf6f1af7d863a26",
-      "semantic_key_history": [
-        "79e993f7726c59c578a4c2adf628986f74d5c58ac74d782ce54c2b3a0d046fb3"
-      ],
-      "legacy_aliases": [
-        "scold:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "scold:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12032,
-      "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:scold:bbb286473e9b5a60",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "责骂，训斥",
-      "definition_en": "to angrily criticize someone, especially a child, for doing something wrong",
-      "semantic_key": "3bfc045373e599f88fc866bc99488aab85634c72da6ed3479c611e695ca6708d",
-      "semantic_key_history": [
-        "9bce2eb1e81b29504c8a0dccde6e41e6284914a45c79b6515d988447207d78b9"
-      ],
-      "legacy_aliases": [
-        "scold:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "scold:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12033,
-      "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:scold:ae8024b0ef6b586f",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12032,
         "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json"
       },
       {
         "sense_id": "sense:scold:bbb286473e9b5a60",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12033,
         "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json"
@@ -157,7 +135,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4289-4296.json",
-    "source_content_hash": "fb526b976146a09eeb3c2fddd7789f45d522cfd65139efd9308d7dc1163bea86",
+    "source_content_hash": "788ae8bf8821133256b803c8a20c76d22b7453545863f1fc5c74b343c5cf6bb9",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
