@@ -47,18 +47,27 @@ jobs:
           PY
       - name: Compile execution evidence
         run: |
-          python tools/lexical_prepare_execution_package.py \
+          python tools/lexical_prepare_execution_package_v2.py \
             --accounting content/lexical/execution/preflight/o6875-o7374.reconciliation-compile.json \
             --reconciliation content/lexical/semantic-reconciliation/o6875-o7374.md \
             --issue 295 \
             --remote 2949 --remote 6001 --remote 3646 --remote 3718 \
             --out-prefix content/lexical/execution/preflight/o6875-o7374
+      - name: Verify Production directives were captured
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          s=Path('content/lexical/execution/preflight/o6875-o7374.execution-sheet.md').read_text()
+          for marker in ['Re-rank fraternal','Broaden fraudulent','Anchor fraught','Repair gibe around taunt/mock','Add same-owner BrE spelling `hypnotise`','maneuver@o7134']:
+              assert marker in s, marker
+          print('PRODUCTION_DIRECTIVE_CAPTURE_PASS')
+          PY
       - name: Commit preparation artifacts
         run: |
           git config user.name Kian
           git config user.email kianwang022@gmail.com
           git add content/lexical/execution/preflight/o6875-o7374.*
           if ! git diff --cached --quiet; then
-            git commit -m 'lexical: compile pkg295 execution preflight [skip ci]'
+            git commit -m 'lexical: recompile pkg295 format-complete preflight [skip ci]'
             git push origin HEAD:lexical/pkg295-exec
           fi
