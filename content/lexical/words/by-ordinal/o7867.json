@@ -6,13 +6,31 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "7807ded1310ab9d04cc0f049b8f615acfdeeb18957247f2b877d76d52fd06cf9",
+    "constructions": [
+      {
+        "construction_id": "construction:bb53d1c33f6fd589e2c5",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "关于未来会发生……的预测或预言",
+        "pattern": "a prediction that ..."
+      }
+    ],
+    "content_hash": "b2ad9ea91f35fa0f9aad1b9989a2dd0c24d6e178ff233b53b18bdb267dde5804",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "预言；预报",
-      "core_meaning_en": "the act of predicting (as by reasoning about the future)",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "预测；预言未来事件、结果或发展的行为或过程；预测结果；预言；对未来会发生什么作出的陈述或预报",
+          "label_en": "the act or process of predicting a future event, result, or development; a statement, forecast, or result saying what someone expects will happen in the future",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:prediction:3f12f0aeb2cc5270",
+            "sense:prediction:b91f811d0bc44682"
+          ]
+        }
+      ],
+      "core_meaning_cn": "预测；预言未来事件、结果或发展的行为或过程；预测结果；预言；对未来会发生什么作出的陈述或预报",
+      "core_meaning_en": "the act or process of predicting a future event, result, or development; a statement, forecast, or result saying what someone expects will happen in the future",
+      "mental_model_cn": "预测；预言未来事件、结果或发展的行为或过程；预测结果；预言；对未来会发生什么作出的陈述或预报",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,8 +44,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "预言；预报",
-        "definition_en": "the act of predicting (as by reasoning about the future)",
+        "definition_cn": "预测；预言未来事件、结果或发展的行为或过程",
+        "definition_en": "the act or process of predicting a future event, result, or development",
         "depth": "full_card",
         "domain_tag": "academic_awl",
         "frequency_tag": "academic_awl",
@@ -35,7 +53,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:prediction:3f12f0aeb2cc5270",
-        "sense_label_en": "the act of predicting (as by reasoning about the future)",
+        "sense_label_en": "the act or process of predicting a future event, result, or development",
         "sort_order": 0,
         "source_evidence": [
           {
@@ -53,6 +71,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "预测结果；预言；对未来会发生什么作出的陈述或预报",
+        "definition_en": "a statement, forecast, or result saying what someone expects will happen in the future",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:prediction:b91f811d0bc44682",
+        "sense_label_en": "a statement, forecast, or result saying what someone expects will happen in the future",
+        "sort_order": 1,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -77,6 +109,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 19419,
+        "source_path": "content/lexical/canonical/senses/shards/o7841-7872.json"
+      },
+      {
+        "sense_id": "sense:prediction:b91f811d0bc44682",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 19429,
         "source_path": "content/lexical/canonical/senses/shards/o7841-7872.json"
       }
     ],
@@ -104,7 +143,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7865-7872.json",
-    "source_content_hash": "7807ded1310ab9d04cc0f049b8f615acfdeeb18957247f2b877d76d52fd06cf9",
+    "source_content_hash": "b2ad9ea91f35fa0f9aad1b9989a2dd0c24d6e178ff233b53b18bdb267dde5804",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

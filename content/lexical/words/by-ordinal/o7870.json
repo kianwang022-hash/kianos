@@ -7,15 +7,40 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "4b528d83e15ee70b2e12634cc0a7ee6eaf9afe880e7c9e43c7477ca28eb4daed",
+    "content_hash": "b1f8eeea2b253312f649ed55b04a1ccc231dff755c9466d66b9a68ec8d3e501c",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "确定优先级；优先考虑",
-      "core_meaning_en": "to assign a priority to something",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "优先处理；确定优先级；按重要性排列任务、需求或目标",
+          "label_en": "to decide that something is more important than other things, or arrange tasks, needs, or goals in order of importance",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:prioritize:4ecd462e1ca15945"
+          ]
+        }
+      ],
+      "core_meaning_cn": "优先处理；确定优先级；按重要性排列任务、需求或目标",
+      "core_meaning_en": "to decide that something is more important than other things, or arrange tasks, needs, or goals in order of importance",
+      "mental_model_cn": "优先处理；确定优先级；按重要性排列任务、需求或目标",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o7375-o7874.md",
+      "boundaries": [
+        {
+          "condition": "common AmE spelling",
+          "note": "Common American spelling.",
+          "surface": "prioritize"
+        },
+        {
+          "condition": "common BrE spelling",
+          "note": "Common British spelling of the same verb.",
+          "surface": "prioritise"
+        }
+      ],
+      "type": "regional_spelling_variant"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -26,8 +51,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "确定优先级；优先考虑",
-        "definition_en": "to assign a priority to something",
+        "definition_cn": "优先处理；确定优先级；按重要性排列任务、需求或目标",
+        "definition_en": "to decide that something is more important than other things, or arrange tasks, needs, or goals in order of importance",
         "depth": "full_card",
         "domain_tag": "academic_awl",
         "frequency_tag": "academic_awl",
@@ -35,7 +60,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:prioritize:4ecd462e1ca15945",
-        "sense_label_en": "to assign a priority to something",
+        "sense_label_en": "to decide that something is more important than other things, or arrange tasks, needs, or goals in order of importance",
         "sort_order": 0,
         "source_evidence": [
           {
@@ -94,6 +119,14 @@
   },
   "lookup_refs": [
     {
+      "spelling": "prioritise",
+      "source": "content/lexical/canonical/lookup/spelling/pr.json",
+      "word_id": "word:prioritize",
+      "ordinal": 7870,
+      "word_shard": "content/lexical/canonical/words/shards/o7865-7872.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/49.json"
+    },
+    {
       "spelling": "prioritize",
       "source": "content/lexical/canonical/lookup/spelling/pr.json",
       "word_id": "word:prioritize",
@@ -104,7 +137,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7865-7872.json",
-    "source_content_hash": "4b528d83e15ee70b2e12634cc0a7ee6eaf9afe880e7c9e43c7477ca28eb4daed",
+    "source_content_hash": "b1f8eeea2b253312f649ed55b04a1ccc231dff755c9466d66b9a68ec8d3e501c",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
