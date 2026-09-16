@@ -45,6 +45,14 @@ async function resetBlock(page, route) {
   return root;
 }
 
+async function completeNaturalSourceContact(root, suffix) {
+  await root.locator('[data-stage-next="logic_group"]').click();
+  await root.locator('[data-study-stage="source_contact"]').waitFor({ state: 'visible' });
+  check(await root.locator('[data-study-stage="kp_learn"]').count() === 0, `natural_source_has_no_group_lecture_${suffix}`);
+  await root.locator('[data-source-contact-done]').click();
+  await root.locator('[data-study-stage="logic_group"]').waitFor({ state: 'visible' });
+}
+
 async function reachTargetKp(root, targetId) {
   const targetCard = root.locator(`[data-kp-recall-card][data-kp-id="${targetId}"]`);
   check(await targetCard.count() === 1, `target_card_exists_${targetId}`);
@@ -54,12 +62,12 @@ async function reachTargetKp(root, targetId) {
   const targetGroupButton = root.locator('[data-group-target]').filter({ hasText: targetGroupLabel });
   check(await targetGroupButton.count() === 1, `target_group_button_unique_${targetId}`, targetGroupLabel);
 
+  await completeNaturalSourceContact(root, targetId);
   await targetGroupButton.click();
   await root.locator('[data-study-stage="logic_group"]').waitFor({ state: 'visible' });
   await root.locator('[data-enter-group]').click();
-  await root.locator('[data-study-stage="kp_learn"]').waitFor({ state: 'visible' });
-  await root.locator('[data-group-lecture-done]').click();
   await root.locator('[data-study-stage="kp_recall"]').waitFor({ state: 'visible' });
+  check(await root.locator('[data-study-stage="source_contact"]').isHidden(), `target_recall_does_not_reopen_source_${targetId}`);
   await root.locator(`[data-kp-target="${targetIndex}"]`).evaluate((el) => el.click());
   check(await targetCard.isVisible(), `target_card_visible_${targetId}`);
   return targetCard;
