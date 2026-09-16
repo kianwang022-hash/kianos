@@ -12,69 +12,121 @@ concurrency:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ui/visual-convergence-20260916
+          ref: ${{ github.sha }}
           fetch-depth: 0
-      - name: Apply bounded reviewed cursor and test-navigation fixes
+      - name: Apply bounded reviewed test-only corrections
         shell: python
         run: |
           from pathlib import Path
-          def replace(name, old, new):
-              p=Path(name); text=p.read_text()
-              if old in text:
-                  assert text.count(old)==1, name
-                  p.write_text(text.replace(old,new))
-              else:
-                  assert new in text, f'Unexpected Current source in {name}'
-          for filename,var in [('PoliticsChapterRuntime.astro','politicsRuntime'),('PoliticsCognitiveWorkspace.astro','runtime')]:
-              name='static-web/src/components/'+filename
-              old=f'  if ({var}) {{\n    saveJson(politicsLastKey, {{'
-              new=f'''  if ({var}) {{
-              // Entry/reload must not demote an exact cursor within this chapter.
-              const previousLocation = readJson(politicsLastKey, null);
-              const sameLocation = previousLocation?.subject === {var}.dataset.subject
-                && previousLocation?.chapter === {var}.dataset.chapter;
-              saveJson(politicsLastKey, {{
-                ...(sameLocation ? previousLocation : {{}}),'''
-              replace(name,old,new)
-              replace(name,'      href: window.location.pathname,\n      observed_at:','      href: sameLocation && previousLocation?.href ? previousLocation.href : window.location.pathname,\n      observed_at:')
-          replace('static-web/src/components/PoliticsUnitReturnEnhancer.astro',
-              "      if (current && String(current.action || '').startsWith('REPAIR') && current.unit_id === unitId) return;",
-              """      // Passive visibility in this same Unit is not explicit learner navigation.
-                if (current && current.unit_id === unitId && (
-                  String(current.action || '').startsWith('REPAIR')
-                  || ['VERIFY', 'UNIT_RETURN'].includes(String(current.action || ''))
-                )) return;""")
-          helper='''  await card.waitFor({ state: 'attached' });
-            const unitAnchor = await card.evaluate((node) => node.closest('[data-politics-unit]')?.id || '');
-            if (unitAnchor) {
-              const unit = page.locator(`[id="${unitAnchor}"]`);
-              if (!(await unit.isVisible())) {
-                await page.locator(`.politicsRail a[href="#${unitAnchor}"]`).click();
-                await unit.waitFor({ state: 'visible' });
-              }
+          import hashlib
+          originals = {'test-politics-mao-runtime.mjs':'c572075b1a92010090241c0b983d54abba414382', 'test-politics-mao-evidence.mjs':'2c9a8184dc665b433d1814b661f8a8c0faefc992', 'capture-lexical-projection.mjs':'4f10588408eb41fab04431eb54191a7cdafeeb5f'}
+          def read_original(name, marker):
+              p=Path('static-web/scripts')/name; s=p.read_text()
+              if marker in s: return p,s,False
+              b=p.read_bytes(); h=hashlib.sha1(f'blob {len(b)}\0'.encode()+b).hexdigest()
+              assert h==originals[name], f'Concurrent source change: {name}: {h}'
+              return p,s,True
+          helper='''// Fixture selection uses the visible learner navigation. Resume/Return tests below
+          // remain unassisted: no DOM unhiding, synthetic click or state pre-seeding.
+          async function openMaoConfig(page, candidate) {
+            const chapterPath = `/politics/mao/${candidate.chapter}/`;
+            if (new URL(page.url()).pathname !== chapterPath) {
+              await page.goto(`${BASE}${chapterPath}`, { waitUntil: 'domcontentloaded' });
             }
-            await card.waitFor({ state: 'visible' });'''
-          for domain in ['xi','ethics']:
-              for kind in ['runtime','evidence']:
-                  name=f'static-web/scripts/test-politics-{domain}-{kind}.mjs'
-                  old='  const card = cardFor(page, qid);'+ ('\n  ' if kind=='runtime' else ' ')+"await card.waitFor({ state: 'visible' });"
-                  replace(name,old,'  const card = cardFor(page, qid);\n'+helper)
-          replace('static-web/scripts/test-lexical-functional-first-browser.mjs','[data-vocab-details] .portedVocabCoreSense p','[data-vocab-details] .lexicalSenseMeaning > p')
-      - name: Commit only the reviewed fixes
+            const questionId = candidate.config.expected_question_ids[0];
+            const card = page.locator(`[data-politics-question][data-question-id="${questionId}"]`);
+            await card.waitFor({ state: 'attached' });
+            const unitId = await card.evaluate((node) => node.closest('[data-politics-unit]')?.id || '');
+            check(Boolean(unitId), 'mao_fixture_has_owning_unit', questionId);
+            const unit = page.locator(`[id="${unitId}"]`);
+            if (!(await unit.isVisible())) {
+              await page.locator(`.politicsRail a[href="#${unitId}"]`).click();
+            }
+            await card.waitFor({ state: 'visible' });
+            return candidate;
+          }
+
+          '''
+          for name in ['test-politics-mao-runtime.mjs','test-politics-mao-evidence.mjs']:
+              p,s,change=read_original(name,'async function openMaoConfig(')
+              if change:
+                  assert s.count('if (count <= maxQuestions) return candidate;')==1
+                  assert s.count('  return fallback;')==1
+                  s=s.replace('async function findMaoConfig',helper+'async function findMaoConfig',1)
+                  s=s.replace('if (count <= maxQuestions) return candidate;','if (count <= maxQuestions) return openMaoConfig(page, candidate);')
+                  s=s.replace('  return fallback;','  return openMaoConfig(page, fallback);')
+                  p.write_text(s)
+          p,s,change=read_original('capture-lexical-projection.mjs','const readabilityAudit =')
+          if change:
+              old="      assert.ok(metrics.rowHeights.every((height) => height <= 105), `${test.name}: sense row too tall ${metrics.rowHeights.join(',')}`);"
+              assert s.count(old)==1
+              new='''      // Kian accepted a half-step less density. A fixed 105px ceiling would
+                // reject readable content while missing clipping inside fixed-height panes.
+                // Keep the viewport/width gates; directly test reachable text, type floors,
+                // right-side cards, and detection power against a clipped-row mutation.
+                const readabilityAudit = await page.evaluate(() => {
+                  const rows = [...document.querySelectorAll('.lexicalSenseRow')];
+                  const saved = [...document.querySelectorAll('*')].filter(el => el.scrollTop || el.scrollLeft)
+                    .map(el => [el, el.scrollTop, el.scrollLeft]);
+                  const scan = () => {
+                    const failures = [];
+                    const leaves = [...document.querySelectorAll('.lexicalSenseMeaning > p, .lexicalSenseMeaning > strong, .lexicalSenseUsage li > b, .lexicalSenseUsage li > span, .lexicalExpansionSection article > b, .lexicalExpansionCn, .lexicalFormVariants b, .lexicalFamilyRows b')];
+                    for (const el of leaves) {
+                      if (!el.getClientRects().length || getComputedStyle(el).display === 'none') continue;
+                      el.scrollIntoView({block:'nearest', inline:'nearest', behavior:'instant'});
+                      const r=el.getBoundingClientRect();
+                      if (r.left < -2 || r.right > innerWidth+2 || r.top < -2 || r.bottom > innerHeight+2) failures.push('unreachable:'+el.textContent.trim().slice(0,70));
+                      for (let a=el.parentElement; a; a=a.parentElement) {
+                        const cs=getComputedStyle(a), ar=a.getBoundingClientRect();
+                        const clippedX=/hidden|clip|auto|scroll/.test(cs.overflowX) && (r.left < ar.left-2 || r.right > ar.right+2);
+                        const clippedY=/hidden|clip|auto|scroll/.test(cs.overflowY) && (r.top < ar.top-2 || r.bottom > ar.bottom+2);
+                        if (clippedX || clippedY) { failures.push('clipped:'+el.textContent.trim().slice(0,70)); break; }
+                      }
+                    }
+                    for (const row of rows) {
+                      if (row.scrollWidth > row.clientWidth+2) failures.push('row-horizontal-overflow');
+                      const cn=row.querySelector('.lexicalSenseMeaning > p');
+                      const en=row.querySelector('.lexicalSenseMeaning > strong');
+                      if (cn && parseFloat(getComputedStyle(cn).fontSize) < 18) failures.push('chinese-type-floor');
+                      if (en && parseFloat(getComputedStyle(en).fontSize) < 13.5) failures.push('english-type-floor');
+                    }
+                    return [...new Set(failures)];
+                  };
+                  const failures=scan();
+                  const first=rows[0], prior=first?.getAttribute('style');
+                  let clippedMutationDetected=false;
+                  if (first) {
+                    first.style.cssText+=';height:4px!important;max-height:4px!important;min-height:0!important;padding-block:0!important;overflow:hidden!important;';
+                    clippedMutationDetected=scan().some(s => s.startsWith('clipped:'));
+                    if (prior === null) first.removeAttribute('style'); else first.setAttribute('style', prior);
+                  }
+                  const cards=[...document.querySelectorAll('.portedVocabEvidenceColumn > .lexicalExpansionSection')];
+                  const distinctCards=cards.every(el => parseFloat(getComputedStyle(el).borderTopWidth)>0 && parseFloat(getComputedStyle(el).borderRadius)>=6);
+                  for (const el of document.querySelectorAll('*')) { if(el.scrollTop) el.scrollTop=0; if(el.scrollLeft) el.scrollLeft=0; }
+                  saved.forEach(([el,top,left]) => {el.scrollTop=top;el.scrollLeft=left;});
+                  return {failures,clippedMutationDetected,distinctCards,cardCount:cards.length};
+                });
+                assert.deepEqual(readabilityAudit.failures, [], `${test.name}: text must be readable and reachable`);
+                assert.ok(readabilityAudit.clippedMutationDetected, `${test.name}: clipping detector must catch its negative control`);
+                if (test.expectExpansion) assert.ok(readabilityAudit.distinctCards, `${test.name}: preserve accepted separate expansion cards`);
+                metrics.readabilityAudit = readabilityAudit;'''
+              p.write_text(s.replace(old,new))
+      - name: Persist only the reviewed test corrections
         run: |
           git config user.name 'KianOS visual worker'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add static-web/src/components/PoliticsChapterRuntime.astro static-web/src/components/PoliticsCognitiveWorkspace.astro static-web/src/components/PoliticsUnitReturnEnhancer.astro static-web/scripts/test-politics-xi-runtime.mjs static-web/scripts/test-politics-xi-evidence.mjs static-web/scripts/test-politics-ethics-runtime.mjs static-web/scripts/test-politics-ethics-evidence.mjs static-web/scripts/test-lexical-functional-first-browser.mjs
+          git add static-web/scripts/test-politics-mao-runtime.mjs static-web/scripts/test-politics-mao-evidence.mjs static-web/scripts/capture-lexical-projection.mjs
           if ! git diff --cached --quiet; then
-            git commit -m 'fix(ui): preserve exact resume across passive pane visibility'
+            git commit -m 'test(ui): exercise visible Mao entry and content-aware lexical readability'
             git push origin HEAD:refs/heads/ui/visual-convergence-20260916
           fi
           mkdir -p release-checks
           git rev-parse HEAD > release-checks/commit.txt
+          git diff HEAD^ --stat > release-checks/changes.txt
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -92,7 +144,7 @@ jobs:
           npx playwright install --with-deps chromium
           sudo apt-get install -y fonts-noto-cjk
           npm run build > ../release-checks/build.log 2>&1
-      - name: Execute all blocked and downstream journeys without hiding later failures
+      - name: Execute complete release journeys
         working-directory: static-web
         shell: bash
         run: |
@@ -101,30 +153,30 @@ jobs:
             timeout 120s node scripts/$script.mjs > ../release-checks/$script.log 2>&1
             echo "$script $?" >> ../release-checks/status.txt
           done
-          exit 0
-      - name: Capture current representative pages
-        if: always()
-        working-directory: static-web
-        shell: bash
-        run: |
-          set +e
           for script in capture-visual-stage-one capture-lexical-projection capture-visual-stage-two capture-desktop-workspaces; do
             timeout 180s node scripts/$script.mjs > ../release-checks/$script.log 2>&1
             echo "$script $?" >> ../release-checks/status.txt
           done
           exit 0
-      - name: Compact diagnostics
+      - name: Compact diagnostics and main integration probe
         if: always()
-        shell: python
+        shell: bash
         run: |
-          import json,re
+          python - <<'PY'
+          import json
           from pathlib import Path
-          p=Path('release-checks'); out=[]
+          p=Path('release-checks'); rows=[]
           for line in (p/'status.txt').read_text().splitlines():
-              name,code=line.rsplit(' ',1)
-              log=(p/(name+'.log')).read_text(errors='replace')
-              out.append({'name':name,'exit':int(code),'tail':log[-9000:] if code!='0' else log[-1000:]})
-          (p/'summary.json').write_text(json.dumps(out,ensure_ascii=False,indent=2))
+              name,code=line.rsplit(' ',1); log=(p/(name+'.log')).read_text(errors='replace')
+              rows.append({'name':name,'exit':int(code),'tail':log[-9000:] if code!='0' else log[-1500:]})
+          (p/'summary.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2))
+          PY
+          git diff > release-checks/uncommitted.diff
+          git restore .
+          git merge --no-commit --no-ff d19537963aa06b6bf6f926c04df0cd7a9e222568 > release-checks/main-merge.log 2>&1 || true
+          git diff --name-only --diff-filter=U > release-checks/main-conflicts.txt
+          git diff --diff-filter=U > release-checks/main-conflicts.diff
+          git merge --abort 2>/dev/null || true
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -142,7 +194,8 @@ jobs:
         run: |
           import json
           from pathlib import Path
-          rows=json.loads(Path('release-checks/summary.json').read_text())
+          p=Path('release-checks'); rows=json.loads((p/'summary.json').read_text())
           bad=[r['name'] for r in rows if r['exit']]
           print('Still failing:',bad)
+          print('Main merge conflicts:',(p/'main-conflicts.txt').read_text())
           raise SystemExit(bool(bad))
