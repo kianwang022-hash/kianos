@@ -16,6 +16,8 @@ sys.path.insert(0, str(ROOT / 'tools'))
 
 import lexical_verify_o4875_o5374 as base
 
+ORIGINAL_VERIFY_IDENTITY = base.verify_identity_form_relation
+
 
 def verify_identity_form_relation_v2():
     original_spellings = base.spellings
@@ -43,7 +45,7 @@ def verify_identity_form_relation_v2():
 
     base.spellings = spellings_with_verified_form_exception
     try:
-        result = base.verify_identity_form_relation()
+        result = ORIGINAL_VERIFY_IDENTITY()
     finally:
         base.spellings = original_spellings
 
