@@ -136,8 +136,24 @@ const payload = learnerObject || null;
 
       // One compatibility bridge owns all legacy DOM placement until the Block workspace
       // exposes first-class semantic slots. Individual asset families no longer query/mutate DOM.
-      const orientation = root.querySelector('.xv6BlockOrientation');
-      (learner.slots?.blockOrientation || []).forEach((asset) => orientation?.append(renderExtension(asset)));
+      const blockOrientationAssets = learner.slots?.blockOrientation || [];
+      if (blockOrientationAssets.length) {
+        const legacyOrientation = root.querySelector('.xv6BlockOrientation');
+        if (legacyOrientation) {
+          blockOrientationAssets.forEach((asset) => legacyOrientation.append(renderExtension(asset)));
+        } else {
+          const blockLearnStage = root.querySelector('[data-study-stage="block_learn"]');
+          const footer = blockLearnStage?.querySelector('.portedStudyStageAction');
+          if (!blockLearnStage || !footer) {
+            console.error(`CURRENT_XIZONG_BLOCK_EXTENSION_SLOT_MISSING:${learner?.identity?.blockId || ''}`);
+          } else {
+            const orientationHost = el('div', 'xv6LearnerObjectGroupSurface');
+            orientationHost.dataset.learnerObjectSlot = 'block_orientation';
+            blockOrientationAssets.forEach((asset) => orientationHost.append(renderExtension(asset)));
+            footer.insertAdjacentElement('beforebegin', orientationHost);
+          }
+        }
+      }
 
       const preHost = el('div', 'xv6LearnerObjectGroupSurface');
       preHost.dataset.learnerObjectSlot = 'logic_group_prelearn';
