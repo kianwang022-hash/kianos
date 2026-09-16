@@ -14,6 +14,7 @@ import { listProjectableXizongSystems, loadXizongBlock } from '../../../lib/xizo
 import { loadXizongQuestionCrosswalkForBlock } from '../../../lib/xizongQuestionCrosswalk.mjs';
 import { projectBlockLearn, projectKpCore, projectVisualGate } from '../../../lib/xizongProjection.mjs';
 import { resolveXizongLearnerProjection } from '../../../lib/xizongLearnerProjection.mjs';
+import { attachSourceVisualBundles } from '../../../lib/xizongSourceVisualAssets.mjs';
 
 export function getStaticPaths() {
   return listProjectableXizongSystems().flatMap((system) => system.blocks.map((block) => ({
@@ -26,6 +27,7 @@ const { systemId, blockSlug } = Astro.props;
 const canonicalBlock = loadXizongBlock(systemId, blockSlug);
 const crosswalk = loadXizongQuestionCrosswalkForBlock(canonicalBlock);
 const resolved = resolveXizongLearnerProjection(canonicalBlock, {
+  attachVisualBundles: attachSourceVisualBundles,
   enrichBlock: (productionBlock) => ({
     ...productionBlock,
     blockLearnHtml: marked.parse(projectBlockLearn(canonicalBlock.blockLearnMarkdown), { gfm: true }),
