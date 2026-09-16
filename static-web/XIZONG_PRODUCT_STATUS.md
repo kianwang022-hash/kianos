@@ -1,6 +1,6 @@
 # Xizong Product / UI Status
 
-Status: **CURRENT PRODUCT ROUTER · ONE RUNTIME · SHARED SEMANTIC ADAPTER CURRENT · PRODUCTION SEMANTIC RENDERER CURRENT · GOLDEN JOURNEY NEXT**  
+Status: **CURRENT PRODUCT ROUTER · ONE RUNTIME · SHARED SEMANTIC ADAPTER CURRENT · PRODUCTION SEMANTIC RENDERER CURRENT · GOLDEN JOURNEY CURRENT · B+C COMPATIBILITY NEXT**  
 Domain router: `content/xizong/CURRENT.md`  
 Learning authority: `content/xizong/LEARNING_CONTRACT.md` + `content/xizong/knowledge/learner/study-policy.json`  
 Presentation authority: `static-web/PRESENTATION_CONTRACT.md`  
@@ -347,7 +347,7 @@ JSON fields / Markdown headings
 
 ## 10｜Current next product sequence
 
-The authority, shared semantic adapter, Projection reconciliation and production semantic renderer are no longer the active blockers.
+The authority, shared semantic adapter, Projection reconciliation, production semantic renderer and representative Golden Journey are no longer the active blockers.
 
 ```text
 DONE  1. Current learning/product authority consolidation
@@ -367,12 +367,17 @@ DONE  4. update production Block renderer to consume semantic / Projection objec
           - whole-LG Source contact remains supported without forcing that topology onto other Systems
           - compiled Projection / Attention / optional Visual-Precision support stays inside the existing V6 family
           - existing v2 learner state and neutral Recall front are preserved
-NEXT  5. representative Golden Journey
-      6. B + C compatibility acceptance
+DONE  5. representative Golden Journey
+          - A1 circulation/B02 traverses orientation + Attention → one continuous original-Lecture Source contact → every LG/KP retrieval/closure → Block Recall → explicit Block completion
+          - clean entry and Source entry do not manufacture Recall or completion evidence
+          - overlapping LG membership is accepted as retrieval topology while unique KP evidence remains complete
+          - a first-pass FUZZY rating remains FUZZY through completion rather than being silently promoted to mastery
+          - reload preserves the existing `kianos-xizong-astro-v2` state; no parallel v3 store is created
+NEXT  6. B + C compatibility acceptance
       7. only then final Xizong UI convergence
       8. later Systems / Visuals / Crosswalk continue additively
 ```
 
-For step 5, validate one representative production learner journey end to end on the existing V6 Runtime: orientation / Attention → accepted Source contact → LG/KP retrieval and closure → Block Recall → completion. Do not create a second Runtime, bypass the external Lecture surface, reopen Source between natural-source LGs, or manufacture learner evidence merely to make the journey green.
+For step 6, validate the accepted B and C semantic variants against the same production shell without normalizing them into A semantics. B whole-Logic-Group Source contact must remain whole-LG; C explicit/non-contiguous LG membership and Block/canonical-Source-unit contact must remain intact. C may remain Projection-eligible without fabricated compiled Projection assets unless a separate accepted compilation step changes that truth.
 
 Real learner U remains external and path-scoped.
