@@ -45,6 +45,26 @@ async function configs(page) {
   }).filter(Boolean));
 }
 
+// Fixture selection uses the visible learner navigation. Resume/Return tests below
+// remain unassisted: no DOM unhiding, synthetic click or state pre-seeding.
+async function openMaoConfig(page, candidate) {
+  const chapterPath = `/politics/mao/${candidate.chapter}/`;
+  if (new URL(page.url()).pathname !== chapterPath) {
+    await page.goto(`${BASE}${chapterPath}`, { waitUntil: 'domcontentloaded' });
+  }
+  const questionId = candidate.config.expected_question_ids[0];
+  const card = page.locator(`[data-politics-question][data-question-id="${questionId}"]`);
+  await card.waitFor({ state: 'attached' });
+  const unitId = await card.evaluate((node) => node.closest('[data-politics-unit]')?.id || '');
+  check(Boolean(unitId), 'mao_fixture_has_owning_unit', questionId);
+  const unit = page.locator(`[id="${unitId}"]`);
+  if (!(await unit.isVisible())) {
+    await page.locator(`.politicsRail a[href="#${unitId}"]`).click();
+  }
+  await card.waitFor({ state: 'visible' });
+  return candidate;
+}
+
 async function findMaoConfig(page, { minQuestions = 1, maxQuestions = 6 } = {}) {
   let fallback = null;
   for (let index = 0; index <= 8; index += 1) {
@@ -56,12 +76,12 @@ async function findMaoConfig(page, { minQuestions = 1, maxQuestions = 6 } = {}) 
       const count = (config?.expected_question_ids || []).length;
       if (count < minQuestions) continue;
       const candidate = { chapter, config };
-      if (count <= maxQuestions) return candidate;
+      if (count <= maxQuestions) return openMaoConfig(page, candidate);
       if (!fallback || count < (fallback.config.expected_question_ids || []).length) fallback = candidate;
     }
   }
   check(Boolean(fallback), `mao_evidence_config_with_${minQuestions}_questions_exists`);
-  return fallback;
+  return openMaoConfig(page, fallback);
 }
 
 async function cardFor(page, questionId) {

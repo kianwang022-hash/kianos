@@ -1,153 +1,75 @@
 # KianOS Static-Web Current
 
-Role: **learner-facing productization Work Cursor / router only**  
-Program owner: **#113 — KianOS 三科 Current 对齐 / 清债 / 最终收口**
+Role: **learner-facing product Work Cursor / router only**  
+Program owner: **#113**
 
-This file routes product/UI work. It does not own subject Content, Learning, Question Truth, Evidence, Acceptance Truth, or learner progress.
+This router does not own subject Content, Learning, Question Truth, Evidence, Acceptance Truth or private learner progress.
 
----
+## Active product boundaries
 
-## Current execution mode
+The bounded screenshot-reviewed visual-convergence release **landed on main through PR #210** (`eff6e720307e125ed613069347887cb32ce4000e`). Its temporary `ui/visual-convergence-20260916` branch is retired. There is no remaining #210 release blocker or active integration branch to resume.
 
-There is **no active #148-style all-site implementation branch**.
+The release covers Global Home's native subject workbench, English task families, adaptive Lexical Study, and representative Politics / Xizong cognitive workspaces. The final tested implementation (`b7c6c5d0`) passed 19 scoped release scripts and 14 native PR workflows; the PR and immutable artifact retain that evidence, not this router. Concurrent Source Visual content was preserved on landing.
 
-Current product work is in a **semantic/runtime stabilization + historical cleanup phase before final visual convergence**:
+**Next genuine product work:** #224 for complete cross-subject Orchestrator Home outputs; #116 for remaining Politics product capability completeness. Do not mistake either for unfinished CSS or continue chasing the retired Stage-2 regression failures. Actual Mac/PingFang and real learner U remain separate, unperformed claims.
 
-```text
-subject Current / Acceptance
-→ close real Runtime / Evidence / availability blockers
-→ retire stale integration owners
-→ freeze stable learner journeys + capability slots
-→ one fresh latest-main Pro visual-convergence lane
-→ screenshot / real-journey Human Gate
-```
+Do not restart from retired #154 / #167 / #117 / #148 / #210 or wholesale-merge #193. Current main implementation is the visual starting point; historical PRs retain bounded provenance only.
 
-Do not restart from #148, #154, #167, #117, or another stale integration branch.
-
-The archived three-subject text frames and old browser screenshots remain useful **visual reference / provenance only**. Latest domain Current, Learning, Question Truth, Evidence and Runtime always outrank them. Never restore retired Xiao original-explanation display, OCR fallback, due scheduling, stale ownership/progress/Gate semantics, duplicate lecture readers, or other superseded logic merely to imitate an old frame.
-
----
-
-## Current product map
-
-| Family | Current state | Active product owner / next boundary |
-| --- | --- | --- |
-| **English** | Objective / Translation / Writing S–E frozen; post-optimization T1/T2/W1 reconciled on main | No active engineering expansion. Only concrete contradictory evidence, real learner U, or final visual convergence. |
-| **Politics** | Five-subject learning closed through E; Xiao1000 Workbench Current on main via #183 | **#116** owns remaining Politics Home/Continue, five-subject cognition, NU/Chengfeng handoff, source/repair/exact Return consistency and final Mac visual convergence. |
-| **Xizong** | Growing Current product; same Runtime/Evidence model continues to absorb new Systems/capabilities | Route through `content/xizong/CURRENT.md`, System Current/Acceptance, `XIZONG_PRODUCT_STATUS.md`. Stabilize representative Source Visual / Precision / Projection slots and progressive availability before final visual convergence. |
-| **Global Home** | Final integration intentionally deferred until subject interfaces are stable enough | Program #113. Desktop target is a **single-viewport command center** for core subject status / Continue / Today / Attention; no invented cross-subject mastery/scheduler/debt dashboard. |
-
-### Lexical supporting lane
-
-Lexical is a first-class supporting system for English, not a fourth exam subject in this product router.
-
-Its current product blocker is **Repair / Challenge / Evidence Runtime Closure** (Current rebase phase in #174, followed by target-type coverage + English↔Lexical real handoff + fresh P/R/E acceptance). Lexical content may continue expanding independently; final site UI must not assume the Repair product is already closed.
-
----
-
-## English
-
-Current facts:
-
-- scoped Objective / Translation / Writing Current + Acceptance own semantics;
-- S/K/L/P/R/E PASS; learner U remains real use only;
-- #180 merged the bounded post-optimization Translation/Writing reconciliation;
-- #137 and #141 are historical/superseded evidence ledgers;
-- #154 / #167 are historical integration/visual evidence only.
-
-Do not reopen English architecture for aesthetic work. Preserve task-native geometry, complete task context, first-artifact preservation, exact Return/Resume and protected unseen boundaries. Final styling waits for the fresh visual-convergence lane.
-
----
-
-## Politics
-
-Current facts:
-
-- five subject lanes are closed through E; learner U remains real use only;
-- the Xiao1000 Workbench from historical #117 was fresh-reconciled through #183 and is now on main;
-- #117 / #139 / #140 are historical or superseded, not Current owners;
-- `POLITICS_PRODUCT_STATUS.md` and **#116** own remaining product closure.
-
-Workbench Current preserves Current Question Truth / exact explanation binding / first attempt / Evidence / fail-closed save behavior / exact source Return. Historical visual polish is reference only; final composition still requires later screenshot-driven acceptance.
-
----
-
-## Xizong
-
-Xizong is intentionally progressive rather than waiting for every future System to be complete.
-
-Use:
-
-```text
-System
-→ Block
-→ Logic Group
-→ original Lecture handoff
-→ Recall / closure
-→ System Recall / Questions
-→ W/U Repair / Return
-```
-
-The same stable Runtime/Evidence model owns repeated study phases; #168 already closed phase-aware multi-pass System Question Attempts without creating a second Runtime.
-
-Source Visual / PDF reread follows **Visual Truth Admission**, not bulk image harvesting. Future content should enter stable capability slots rather than force page redesign.
-
----
-
-## Progressive availability
-
-Future-growing subject content / questions / visual / challenge capability uses:
-
-```text
-OPEN       current capability is usable
-PARTIAL    main path usable; bounded capability still growing
-COMING     canonical scope exists but learner surface is not open
-PROTECTED  intentionally withheld (e.g. holdout / unseen)
-N/A        capability does not apply
-```
-
-Hard rule:
-
-> **engineering incompleteness ≠ learner incompleteness ≠ prerequisite**
-
-An unopened question/visual/challenge/system capability must not manufacture learner debt, block an otherwise accepted path, or appear as a broken empty surface.
-
----
-
-## Final visual convergence boundary
-
-Do not perform a new large-scale final UI rewrite until the product-surface-changing Runtime/Evidence/availability contracts are stable enough.
-
-When that point is reached, start **one clean visual-convergence branch from latest main** and consume:
-
-- Current Truth;
-- persistent UI Reference Set;
-- Kian's real screenshots and latest preferences;
-- still-valid presentation decisions recovered from historical evidence only when they remain compatible with Current.
-
-Visual defaults:
-
-- Mac-wide origin;
-- larger comfortable text / modern system sans;
-- medium-high useful density with low disorder;
-- low gratuitous whitespace / no generic card pile;
-- subject/task-native geometry;
-- real browser screenshots as aesthetic authority.
-
-Final product acceptance remains distinct from learner U.
-
----
-
-## Historical routing
-
-Old #148-era Stage/Acceptance ledgers and integration PRs are provenance only unless #113 explicitly reactivates a bounded requirement. They must not be used as fresh Work Cursors.
-
-Normal re-entry:
+Normal entry:
 
 ```text
 static-web/CURRENT.md
-→ #113 Program map
+→ #113 when the program boundary is needed
 → exact domain Current / Product Status
-→ narrow active owner
-→ work
+→ actual touched implementation and evidence
 ```
+
+## Domain routing
+
+| Family | Semantic / Runtime boundary | Product continuation |
+| --- | --- | --- |
+| English | Objective / Translation / Writing are frozen through S–E; learner U is real use only. | Preserve complete task context, first artifacts, exact Return/Resume and task-native geometry. Fix concrete defects; do not redesign learning for styling. |
+| Lexical | Bounded Repair / Challenge / Evidence closure is integrated via #174 / #191. This does not imply full-catalog or unrestricted acceptance. | `content/lexical/CURRENT.md` + `ACCEPTANCE.md`. Content continues independently of stable-interface UI. No missing optional slot may create learner debt. |
+| Politics | Five-subject Learning is closed through E. Xiao1000 Workbench was fresh-reconciled to main via #183; #117 is historical. | **#116** + `POLITICS_PRODUCT_STATUS.md` own remaining product capabilities, including review-entry completeness, NU/source/repair/exact Return consistency and Mac acceptance. #210 landed the visual release slice, not a new Politics Runtime. |
+| Xizong | One phase-aware Runtime consumes independently growing System, Source Visual, Precision and reviewed Crosswalk assets. | `content/xizong/CURRENT.md`, exact System owners and `XIZONG_PRODUCT_STATUS.md`. Content growth does not require recurring renderer redesign. |
+| Global Home | Cross-subject decisions belong to **`EXAM_ORCHESTRATOR_CONTRACT.md`**. | **#224** owns the orchestration consumer/runtime and complete Today / Attention integration. Native subject Continue alone is not full orchestration closure. |
+
+## Global Home / Orchestrator
+
+The former assumption that no cross-subject owner exists is retired. Read the root `EXAM_ORCHESTRATOR_CONTRACT.md` before changing global Gate, capacity, allocation, Today or Attention behavior.
+
+The presentation must consume real Orchestrator outputs when implemented. Until that consumer exists, keep native subject outputs truthful; do not fabricate allocations, progress, mastery, debt or a cross-subject winner to fill the screen. Do not label #224 complete because #210's visual release has landed.
+
+Desktop Home remains a **single-viewport command center**. Core status / Continue / Today / Attention must not be displaced by large empty handoff/import chrome. The default information budget comes from the Orchestrator contract; diagnostic detail stays out of the learner's primary surface.
+
+## Accepted presentation direction
+
+- Mac-wide desktop first; system sans / PingFang SC; CI uses Noto Sans CJK, not WenQuanYi as visual evidence.
+- Comfortable learning text, useful density, restrained chrome, readable contrast and little dead space. One viewport is a target, not permission to shrink or clip content.
+- Preserve subject/task-native geometry rather than one universal card template.
+- Reading A: `1.12fr / .88fr`, complete passage/question set, independent scrolling.
+- Lexical: Chinese meaning first, English calibration second; sense-bound usage occupies the other half of each sense row. Important Expansion appears only with real content, using separate right-side cards and slightly relaxed spacing. No audit rationale, empty optional modules or standalone pronunciation band.
+- Politics: original Chengfeng learning stays on iPad/MarginNote; Astro is orientation / cognition / verification / repair. Submitted Xiao review preserves learner-result vs explanation/source/Return zones.
+- Xizong: System → Block → Logic Group → original Lecture handoff → Recall / closure, using the existing Runtime. Neutral Recall permission is workspace-wide; surrounding UI must not leak an answer.
+
+Use the persistent `/KianOS/UI Reference Set/<Subject>/` and Kian's latest feedback as visual grammar, never as authority to restore retired learning logic.
+
+## Regression / release boundary
+
+The dedicated `visual-release-check.yml` builds one immutable commit and checks all scoped journeys plus screenshot families. It must not mutate product code, manufacture learner records as real history or weaken first-attempt / Repair / Source / Recall safeguards. Test fixtures may enter a Unit through actual navigation; refresh/Resume/Return assertions must remain unassisted.
+
+Layout checks must detect unreadable text, clipping, inaccessible content, empty rails and wrong geometry. An obsolete fixed row-height limit must not force rejection of Kian's explicitly accepted relaxed spacing. Negative controls must demonstrate that a real layout failure is still caught.
+
+Human visual feedback, actual Mac/PingFang validation, real learner U, full-catalog acceptance and complete orchestration remain distinct claims. Do not promote them from CI or repository state.
+
+## Progressive availability
+
+```text
+OPEN       usable Current capability
+PARTIAL    main path usable; bounded content/capability still growing
+COMING     canonical scope exists, learner surface not open
+PROTECTED  intentionally withheld, including unseen/holdout
+N/A        does not apply
+```
+
+**Engineering incompleteness ≠ learner incompleteness ≠ prerequisite.** Future content and optional assets must not block an otherwise accepted learning path.

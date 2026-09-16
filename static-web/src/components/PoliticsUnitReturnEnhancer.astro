@@ -519,7 +519,11 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
       const unitSection = node.closest('[data-politics-unit]');
       const unitId = unitIdForSection(unitSection);
       const current = sameChapterLast();
-      if (current && String(current.action || '').startsWith('REPAIR') && current.unit_id === unitId) return;
+      // Passive visibility in this same Unit is not explicit learner navigation.
+      if (current && current.unit_id === unitId && (
+        String(current.action || '').startsWith('REPAIR')
+        || ['VERIFY', 'UNIT_RETURN'].includes(String(current.action || ''))
+      )) return;
 
       if (node.matches('[data-politics-external-source]')) {
         saveLastLocation({ unitId, action: 'EXTERNAL_LEARN', href: `${window.location.pathname}#${node.id}` });

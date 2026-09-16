@@ -36,7 +36,7 @@ function optionEntries(options) {
           const id = String(question.id || question.question_id || `q${index + 1}`);
           const options = optionEntries(question.options);
           return (
-            <section class="clozeQuestion" data-objective-question={id} data-objective-index={index} hidden={index !== 0}>
+            <section class="clozeQuestion" data-objective-question={id} data-objective-index={index}>
               <p data-objective-prompt>{question.prompt || `Blank ${index + 1}`}</p>
               <div class="clozeOptions">
                 {options.map((option) => (
@@ -114,7 +114,9 @@ function optionEntries(options) {
 
     const render = () => {
       rows.forEach((row, index) => {
-        row.hidden = index !== active;
+        // Every blank stays visible; active only determines navigation / Uncertain focus.
+        row.hidden = false;
+        row.classList.toggle('is-current', index === active);
         const id = idOf(row);
         row.querySelectorAll('[data-cloze-option]').forEach((button) => {
           const value = button.getAttribute('data-value') || '';
@@ -173,10 +175,14 @@ function optionEntries(options) {
       }
     };
 
-    rows.forEach((row) => {
+    rows.forEach((row, index) => {
+      const focusRow = () => { if (active !== index) { active = index; render(); } };
+      row.addEventListener('pointerdown', focusRow);
+      row.addEventListener('focusin', focusRow);
       row.querySelectorAll('[data-cloze-option]').forEach((button) => {
         button.addEventListener('click', () => {
           if (state.submitted) return;
+          active = rows.indexOf(row);
           const id = idOf(row);
           const answer = button.getAttribute('data-value') || '';
           state.answers[id] = answer;
@@ -198,9 +204,9 @@ function optionEntries(options) {
       save();
       render();
     });
-    root.querySelector('[data-cloze-prev]')?.addEventListener('click', () => { active = Math.max(0, active - 1); render(); });
-    root.querySelector('[data-cloze-next]')?.addEventListener('click', () => { active = Math.min(rows.length - 1, active + 1); render(); });
-    jumps.forEach((jump, index) => jump.addEventListener('click', () => { active = index; render(); }));
+    root.querySelector('[data-cloze-prev]')?.addEventListener('click', () => { active = Math.max(0, active - 1); render(); rows[active]?.scrollIntoView({ block: 'nearest' }); });
+    root.querySelector('[data-cloze-next]')?.addEventListener('click', () => { active = Math.min(rows.length - 1, active + 1); render(); rows[active]?.scrollIntoView({ block: 'nearest' }); });
+    jumps.forEach((jump, index) => jump.addEventListener('click', () => { active = index; render(); rows[active]?.scrollIntoView({ block: 'nearest' }); }));
 
     submit?.addEventListener('click', () => {
       if (state.submitted || root.getAttribute('data-objective-answers-ready') !== 'true') return;

@@ -6,8 +6,96 @@
   "canonical_id": "A2",
   "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
   "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
-  "notes": "Preserves reviewed R3/R6/R7/R8 bundles and adds reviewed high-value R4 asthma, R8 IPF and R11 lung-cancer source visuals. Coverage remains intentionally sparse and independently extensible.",
+  "notes": "Preserves reviewed R1/R2/R3/R6/R7/R8/R11 bundles and adds reviewed high-value R1/R2 physiology, R4 asthma, R5 pneumonia, R8 IPF, R10 pleural-fluid, R11 lung-cancer and R12 ARDS source visuals. Coverage remains intentionally sparse and independently extensible.",
   "bundles": [
+    {
+      "cue_id": "a2-r01-lg01-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df500372:pi168:crop:e9ccf5070ad3ffd7",
+          "source_page": 169,
+          "usage_role": "LUNG_VOLUMES_CAPACITIES_COMPOSITION_VISUAL",
+          "usage_label": "P169 · 肺容积/肺容量组成",
+          "alt": "生理讲义 P169：潮气量、补吸气量、补呼气量、残气量及 IC/FRC/VC/TLC 的组成图",
+          "asset_path": "a2-r01-lg01/r01-p169-lung-volumes-capacities.webp",
+          "width": 850,
+          "height": 490,
+          "source_crop_sha256": "e9ccf5070ad3ffd7401f7208e93b1494bdcd8ed839b2234086eb04b98812ed0a",
+          "derived_asset_sha256": "054e8a14b7c1fdf8184530919e6bbe27cc271c289bb8c2ff618a574bfa6dc031"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r01-lg04-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df500372:pi169:crop:1a23259512f86f28",
+          "source_page": 170,
+          "usage_role": "OBSTRUCTIVE_RESTRICTIVE_VENTILATION_COMPARISON",
+          "usage_label": "P170 · 阻塞 vs 限制通气障碍",
+          "alt": "生理讲义 P170：阻塞性与限制性通气障碍的阻力、呼吸困难、疾病和肺功能方向对照",
+          "asset_path": "a2-r01-lg04/r01-p170-obstructive-restrictive.webp",
+          "width": 950,
+          "height": 520,
+          "source_crop_sha256": "1a23259512f86f2806ddb9e01765bc295e5bc9964b30b56c12ba7432df89a949",
+          "derived_asset_sha256": "10be05eae43e112948a1ae63404a2693704804fe10abd5a41abaf374a3c1491c"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r02-lg01-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df500372:pi186:crop:528ee0d18c51df55",
+          "source_page": 187,
+          "usage_role": "RESPIRATORY_MEMBRANE_LAYER_ANATOMY",
+          "usage_label": "P187 · 呼吸膜六层结构",
+          "alt": "生理讲义 P187：从肺泡表面活性物质层到毛细血管内皮的呼吸膜六层结构图",
+          "asset_path": "a2-r02-lg01/r02-p187-respiratory-membrane.webp",
+          "width": 1100,
+          "height": 420,
+          "source_crop_sha256": "528ee0d18c51df55beae1cfd000400c815f6653fde6fcb54f748d2b9f0f2944f",
+          "derived_asset_sha256": "1f5071f702a47bd91da25068035d8b24d2f81de938c7e2699122b7fc04de9456"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r02-lg02-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df500372:pi186:crop:3304010f08b9b91c",
+          "source_page": 187,
+          "usage_role": "VAQ_APEX_BASE_GRADIENT_AND_DEAD_SPACE_SHUNT",
+          "usage_label": "P187 · VA/Q 肺尖—肺底梯度与死腔/分流方向",
+          "alt": "生理讲义 P187：正常 VA/Q、肺尖约 3.3、肺底约 0.63 及死腔样通气与肺内分流方向对照",
+          "asset_path": "a2-r02-lg02/r02-p187-vaq-gradient.webp",
+          "width": 1050,
+          "height": 930,
+          "source_crop_sha256": "3304010f08b9b91c7d20dcb6a3c531efd0a1eb23307a6e0fab60d13eb944e481",
+          "derived_asset_sha256": "291d25f84d0128d3780e4243586451ef6b7a4f5fda65e820998747a8dcff3c3a"
+        },
+        {
+          "source_object_id": "physiology:0ad07df500372:pi187:crop:06d38f3774f042ec",
+          "source_page": 188,
+          "usage_role": "DEAD_SPACE_SHUNT_ALVEOLAR_SCHEMATIC",
+          "usage_label": "P188 · 死腔样与分流样肺泡示意",
+          "alt": "生理讲义 P188：小气道通气不足与肺大泡压迫血流所对应的低 VA/Q 与高 VA/Q 肺泡示意图",
+          "asset_path": "a2-r02-lg02/r02-p188-vaq-dead-space-shunt.webp",
+          "width": 500,
+          "height": 300,
+          "source_crop_sha256": "06d38f3774f042ecded2f94a2fd891398236becb069a63b79ab942b1677e48fa",
+          "derived_asset_sha256": "482a2d730aa095fa6531b3331a243e10a924b21ba439ba7ef9981c54d3f771dc"
+        }
+      ]
+    },
     {
       "cue_id": "a2-r03-lg01-visual",
       "source_sha256": "7b41f26673fbb562519ac57bb419c2ec82a88c63b5d538a77aaff2e46428dc3f",
@@ -76,6 +164,25 @@
           "height": 189,
           "source_crop_sha256": "d16a3089d7fac6fcc554a021dcc76ad6dd585ac7afd679e47b03688dee70e21a",
           "derived_asset_sha256": "e1349d6e70f8bf772d46e590a11bb92bcdf0c2e9e01d20bd7721380d6f3a3652"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r05-lg02-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi40:crop:01c20136410534ae",
+          "source_page": 33,
+          "usage_role": "PNEUMONIA_SPATIAL_DISTRIBUTION_COMPOSITE",
+          "usage_label": "P33 · 肺炎病变范围与影像分布",
+          "alt": "内科讲义 P33：小叶性、融合性小叶性、间质性与大叶性肺炎的范围示意及代表性影像",
+          "asset_path": "a2-r05-lg02/r05-p33-pneumonia-spatial-distribution.webp",
+          "width": 1150,
+          "height": 490,
+          "source_crop_sha256": "01c20136410534eaedf4e2034825e1a17170613c234218459edfba310685c659",
+          "derived_asset_sha256": "311c5fff66cda88d968c7ec1e1536a0713cbfc60089a3484c329e827953349d2"
         }
       ]
     },
@@ -195,6 +302,75 @@
           "height": 211,
           "source_crop_sha256": "950f038cd66ef5c7e0fcf7619974335fa4f638ffeb145eb998598aec8bd2f7ed",
           "derived_asset_sha256": "4760a18df114133aaef47a5e892c318fdd3a874edf8677ca1f51406c5b99735c"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r10-lg01-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi81:crop:e4ebc426e6ac0d06",
+          "source_page": 67,
+          "usage_role": "TRANSUDATE_EXUDATE_FORMATION_MECHANISM",
+          "usage_label": "P67 · 渗出液/漏出液形成机制",
+          "alt": "内科讲义 P67：静水压、胶体渗透压、血管通透性和淋巴回流对渗出液/漏出液形成的机制",
+          "asset_path": "a2-r10-lg01/r10-p67-transudate-exudate-mechanism.webp",
+          "width": 1150,
+          "height": 700,
+          "source_crop_sha256": "e4ebc426e6ac0d06aeae82307ed1e49a93a8ed7eedfdd34b085fe237c87e1c53",
+          "derived_asset_sha256": "d62ebaae686bcd0fbb0a450507a89081cfa019f2baa629354ee667eb93b92ef5"
+        },
+        {
+          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi82:crop:e5c1fbda7e748a5d",
+          "source_page": 68,
+          "usage_role": "LIGHT_CRITERIA_TRANSUDATE_EXUDATE_COMPARISON",
+          "usage_label": "P68 · 渗出液/漏出液定量与 Light 标准",
+          "alt": "内科讲义 P68：渗出液与漏出液的定量指标及 Light 标准对照",
+          "asset_path": "a2-r10-lg01/r10-p68-light-criteria.webp",
+          "width": 1100,
+          "height": 600,
+          "source_crop_sha256": "e5c1fbda7e748a5d730cce2de2c0893d1851b80428d04a0d0b1f17d9e75779df",
+          "derived_asset_sha256": "0910d7a5cd486bd9a0cef6210369cd3a4de7cc0ca758e4f74fd206720c2e1cbb"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r10-lg02-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi83:crop:9a3124b3776fa71c",
+          "source_page": 69,
+          "usage_role": "PLEURAL_EFFUSION_IMAGING_MEDIASTINAL_DIRECTION",
+          "usage_label": "P69 · 胸腔积液影像与纵隔方向",
+          "alt": "内科讲义 P69：胸腔积液液体占位、弧形/D 字型密度与纵隔向健侧移位的影像对照",
+          "asset_path": "a2-r10-lg02/r10-p69-pleural-effusion-imaging.webp",
+          "width": 1400,
+          "height": 1180,
+          "source_crop_sha256": "9a3124b3776fa71c0e7d5887597bb854b94d39bb25df13bb9a3e6f7bc771d9d9",
+          "derived_asset_sha256": "56274bb4f8737508d668eecd33761f522421da6636364dab087d92e30c521332"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r12-lg01-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi64:crop:a644c5bbc51f63f6",
+          "source_page": 54,
+          "usage_role": "ARDS_DUAL_INJURY_PATHOPHYSIOLOGY_FLOW",
+          "usage_label": "P54 · ARDS 双损伤病理生理流程",
+          "alt": "内科讲义 P54：肺毛细血管内皮损伤与Ⅱ型肺泡上皮损伤两条支路汇入肺水肿/肺不张、V/Q 失调和顽固性低氧",
+          "asset_path": "a2-r12-lg01/r12-p54-ards-dual-injury.webp",
+          "width": 1000,
+          "height": 800,
+          "source_crop_sha256": "a644c5bbc51f63f6fdcf2913612071977bfe1ac7a94cf6999067452dad670b49",
+          "derived_asset_sha256": "606c3819e95c494e23bda5fb52eb37c65a7dd1bfa211c016942af17570bd129a"
         }
       ]
     },

@@ -49,6 +49,16 @@ async function chooseConfig(page, { minQuestions = 1 } = {}) {
   const rows = await configs(page);
   const row = rows.find((item) => (item?.expected_question_ids || []).length >= minQuestions);
   check(Boolean(row), `config_with_${minQuestions}_questions_exists`);
+  // Select the existing Natural Unit through its real navigation control.
+  // Presentation may show one Unit at a time; it does not change attempt rules.
+  if (row?.natural_unit_id) {
+    const unit = page.locator(`[data-politics-unit][data-unit-id="${row.natural_unit_id}"]`);
+    if (await unit.count() && !(await unit.isVisible())) {
+      const anchor = await unit.getAttribute('id');
+      await page.locator(`.politicsRail a[href="#${anchor}"]`).click();
+      await unit.waitFor({ state: 'visible' });
+    }
+  }
   return row;
 }
 

@@ -1,0 +1,96 @@
+name: Visual Release Check
+on:
+  workflow_dispatch:
+  push:
+    branches: ['ui/visual-convergence-20260916']
+    paths: ['.github/workflows/visual-release-check.yml', 'static-web/**']
+permissions:
+  contents: read
+concurrency:
+  group: visual-release-check-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            ~/.cache/ms-playwright
+          key: visual-release-node22-playwright1561-${{ hashFiles('static-web/package.json') }}
+      - name: Bind evidence to the immutable tested commit
+        run: |
+          mkdir -p release-checks
+          git rev-parse HEAD > release-checks/commit.txt
+          git status --porcelain > release-checks/initial-status.txt
+      - name: Install and build once
+        working-directory: static-web
+        run: |
+          npm install --no-audit --no-fund
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+          sudo apt-get install -y fonts-noto-cjk
+          npm run build > ../release-checks/build.log 2>&1
+      - name: Execute all release journeys and visual checks
+        working-directory: static-web
+        shell: bash
+        run: |
+          set +e
+          for script in test-politics-functional-journey test-politics-xi-runtime test-politics-xi-evidence test-politics-ethics-runtime test-politics-ethics-evidence test-politics-mao-runtime test-politics-mao-evidence test-lexical-functional-first-browser test-xizong-a2-progressive-source-visual test-xizong-a1-browser-journey test-xizong-a1-evidence-journey test-lexical-content-shape-browser test-lexical-english-handoff-browser test-lexical-form-identity-browser test-lexical-ledger-word-projection-browser; do
+            timeout 120s node scripts/$script.mjs > ../release-checks/$script.log 2>&1
+            echo "$script $?" >> ../release-checks/status.txt
+          done
+          for script in capture-visual-stage-one capture-lexical-projection capture-visual-stage-two capture-desktop-workspaces; do
+            timeout 180s node scripts/$script.mjs > ../release-checks/$script.log 2>&1
+            echo "$script $?" >> ../release-checks/status.txt
+          done
+          exit 0
+      - name: Summarize every result without hiding downstream failures
+        if: always()
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+          p=Path('release-checks'); rows=[]
+          if not (p/'status.txt').exists():
+              rows.append({'name':'build-or-environment','exit':1,'tail':'No script results were produced.'})
+          else:
+              for line in (p/'status.txt').read_text().splitlines():
+                  name,code=line.rsplit(' ',1)
+                  log=(p/(name+'.log')).read_text(errors='replace')
+                  rows.append({'name':name,'exit':int(code),'tail':log[-9000:] if code!='0' else log[-1500:]})
+          (p/'summary.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2))
+      - name: Preserve tested source snapshot
+        if: always()
+        run: |
+          git archive --format=tar.gz HEAD > release-checks/source.tar.gz
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: visual-release-check-${{ github.run_id }}
+          path: |
+            release-checks/
+            visual-evidence/
+            visual-stage-two/
+            *-audit/report.json
+            static-web/.qa/*.json
+          retention-days: 7
+      - name: Enforce all release checks
+        if: always()
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+          rows=json.loads(Path('release-checks/summary.json').read_text())
+          bad=[r['name'] for r in rows if r['exit']]
+          print('Still failing:',bad)
+          raise SystemExit(bool(bad) or len(rows)!=19)

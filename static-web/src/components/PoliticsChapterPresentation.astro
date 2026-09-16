@@ -1,0 +1,45 @@
+<script>
+  // Read-only presentation selection over existing Current nodes. All domain
+  // actions, Evidence writes, return identity and completion stay in their owners.
+  const root=document.querySelector<HTMLElement>('.politicsStudy[data-politics-runtime]');
+  if(root){
+    const units=[...root.querySelectorAll<HTMLElement>('.politicsUnit[data-politics-unit]')];
+    const orientation=root.querySelector<HTMLElement>('#orientation');
+    const closure=root.querySelector<HTMLElement>('#chapter-close');
+    const panels=[orientation,...units,closure].filter(Boolean) as HTMLElement[];
+    const nav=[...root.querySelectorAll<HTMLAnchorElement>('.politicsRail nav a')];
+    const select=(target:Element|null)=>{
+      const panel=target?.closest<HTMLElement>('.politicsUnit,.politicsOrientation,.politicsChapterClose');
+      if(!panel||!panels.includes(panel))return;
+      panels.forEach(p=>{p.hidden=p!==panel;});
+      nav.forEach(a=>{const active=a.hash===`#${panel.id}`;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});
+    };
+    const byAnchor=(hash:string)=>{try{return document.getElementById(decodeURIComponent(hash.replace(/^#/,'')));}catch{return null;}};
+    const initialTarget=()=>{
+      const exact=byAnchor(location.hash);if(exact)return exact;
+      const question=new URLSearchParams(location.search).get('practiceQuestion');
+      if(question){const card=[...root.querySelectorAll('[data-question-id]')].find(c=>c.getAttribute('data-question-id')===question);if(card)return card;}
+      try{
+        const last=JSON.parse(localStorage.getItem('kianos-politics-last-location-v1')||'null');
+        if(last?.subject===root.dataset.subject&&last?.chapter===root.dataset.chapter&&last?.unit_id){
+          const unit=units.find(u=>u.dataset.unitId===last.unit_id);if(unit)return unit;
+        }
+      }catch{ /* A missing private locator changes no learning state. */ }
+      return orientation;
+    };
+    select(initialTarget());
+    addEventListener('hashchange',()=>select(byAnchor(location.hash)));
+    document.addEventListener('click',(event)=>{
+      const target=event.target instanceof Element?event.target:null;
+      const link=target?.closest<HTMLAnchorElement>('a[href]');
+      if(link){const url=new URL(link.href,location.href);if(url.pathname===location.pathname&&url.hash)select(byAnchor(url.hash));}
+      // Existing Return owner moves to the next DOM unit. Expose that exact node
+      // before its unchanged handler scrolls to it; do not advance the learner here.
+      const next=target?.closest('[data-unit-return-continue]');
+      if(next){const unit=next.closest<HTMLElement>('[data-politics-unit]');const i=unit?units.indexOf(unit):-1;if(i>=0)select(units[i+1]||closure);}
+    },true);
+    root.addEventListener('politics:resume-state',e=>select(e.target instanceof Element?e.target:null));
+    // Allow the existing private resume and Workbench bridge to resolve first.
+    requestAnimationFrame(()=>select(initialTarget()));
+  }
+</script>

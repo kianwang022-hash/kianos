@@ -67,13 +67,35 @@ requireAny(page, ['真实 synthetic completion / exam-entry 状态由 Productive
 requireCheck(!/localStorage\.setItem\([^\n]*(response\.value|textarea|first.?try|answer)/i.test(page), 'ACTIVE_CHECK_TEXT_PERSISTED');
 requireCheck(page.includes('kianos:writing:first-learning:position:v2'), 'PRIVATE_ROUTE_CONTINUATION_MISSING');
 
-// Discoverability: English exposes the 30-point Writing lane and targeted first-learning route.
+// Discoverability is semantic, not an exact typesetting string. The 30 points
+// must still belong to the actual Writing section and productive link.
+function writingLaneDiscoverable(markup) {
+  const lane = markup.match(/data-capability="writing"[^>]*>([\s\S]*?)<\/section>/)?.[1] || '';
+  const text = lane.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return lane.includes('href={`${base}writing/`}') && /\bWriting\b/.test(text) && /\b30\s+pts\b/.test(text);
+}
+function firstLearningContext(markup) {
+  return markup.includes('href={`${base}writing-learn/`}') && (
+    markup.includes('First Learning / targeted intervention') ||
+    markup.includes('First Learning') ||
+    /首次建立框架[^<]*针对当前问题查阅/.test(markup)
+  );
+}
 requireCheck(home.includes('href={`${base}english/`}'), 'HOME_ENGLISH_ENTRY_MISSING');
 requireCheck(englishHub.includes("import { loadWritingLearningProjection } from '../lib/englishWritingLearning.mjs';"), 'ENGLISH_HUB_NOT_BOUND_TO_WRITING_PROJECTION');
-requireCheck(englishHub.includes('data-capability="writing"') && englishHub.includes('href={`${base}writing/`}') && englishHub.includes('Writing · 30 pts'), 'WRITING_SCORE_LANE_NOT_DISCOVERABLE');
+requireCheck(writingLaneDiscoverable(englishHub), 'WRITING_SCORE_LANE_NOT_DISCOVERABLE');
 requireCheck(englishHub.includes('href={`${base}writing-learn/`}'), 'WRITING_FIRST_LEARNING_NOT_DISCOVERABLE');
-requireAny(englishHub, ['First Learning / targeted intervention', 'First Learning'], 'TARGETED_FIRST_LEARNING_CONTEXT_MISSING');
+requireCheck(firstLearningContext(englishHub), 'TARGETED_FIRST_LEARNING_CONTEXT_MISSING');
 requireCheck(!englishHub.includes('S/K/L · accepted') && !englishHub.includes('U · learner validation'), 'ACCEPTANCE_DASHBOARD_LEAKED_TO_ENGLISH_HUB');
+
+// Negative probes retain the detection floor after accepting split typography.
+const discoverabilityProbes = {
+  rejectsWrongWritingScore: !writingLaneDiscoverable(englishHub.replace(/data-capability="writing"([\s\S]*?)<\/section>/, (section) => section.replace(/\b30\b/g, '29'))),
+  rejectsMissingProductiveLink: !writingLaneDiscoverable(englishHub.replaceAll('href={`${base}writing/`}', 'href="#missing-writing"')),
+  rejectsMissingGuideLink: !firstLearningContext(englishHub.replaceAll('href={`${base}writing-learn/`}', 'href="#missing-guide"')),
+  rejectsMissingGuidePurpose: !firstLearningContext(englishHub.replaceAll('First Learning / targeted intervention', '').replaceAll('First Learning', '').replace(/首次建立框架[^<]*针对当前问题查阅/g, ''))
+};
+for (const [name, pass] of Object.entries(discoverabilityProbes)) requireCheck(pass, `DISCOVERABILITY_PROBE:${name}`);
 
 // First-learning UI must not pretend to own Runtime/Evidence state semantics.
 requireAny(page, ['Writing Runtime', 'Productive Runtime'], 'RUNTIME_BOUNDARY_NOT_EXPLICIT');
@@ -101,6 +123,7 @@ const report = {
     runtimeEvidenceOwnsCompletion: true,
     scoreLaneDiscoverability: true
   },
+  discoverabilityProbes,
   failures,
   note: 'This validator protects semantic coverage and learner burden boundaries. It intentionally rejects B1–B8 and mandatory Active Check gates as canonical learning truth.'
 };

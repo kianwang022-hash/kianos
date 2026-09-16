@@ -6,9 +6,9 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
 <section class="lexicalHome" data-lexical-home data-base={base}>
   <header class="lexicalHomeHeader">
     <div>
-      <span>LexicalOS · independent lane</span>
-      <h2>Vocabulary</h2>
-      <p>Depth Scan 是高价值遍历，不是 7,946 个完成债。会的快速过；真实慢、模糊、漏掉或影响 English 表现的分支才进入 Repair / Challenge。</p>
+      <span>LEXICAL / VOCABULARY</span>
+      <h2>把词学透，也能快速扫过。</h2>
+      <p>熟悉的词快速继续；需要时展开词义，留下真正不稳的具体分支。</p>
     </div>
     <nav aria-label="Vocabulary modes">
       <button type="button" class="active" data-lexical-tab="study">Study</button>
@@ -20,14 +20,15 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
 
   <section class="lexicalHomePanel" data-lexical-panel="study">
     <a class="lexicalContinueCard" data-lexical-continue href={`${base}vocabulary/1/`}>
-      <span>Continue Depth Scan</span>
+      <span>CONTINUE / 继续学习</span>
       <strong data-lexical-continue-word>开始 Vocabulary</strong>
       <p data-lexical-continue-core>顺序只是遍历入口；当前 English performance 或 Repair 更值钱时，可以随时停。</p>
       <small data-lexical-continue-meta>{rows.length} Current Words</small>
+      <span class="lexicalContinueArrow" aria-hidden="true">↗</span>
     </a>
 
     <section class="lexicalRecent">
-      <header><strong>最近学习</strong><span>只显示实际打开过的词</span></header>
+      <header><strong>最近学习</strong><span>回到最近的位置</span></header>
       <div data-lexical-recent-list><p class="lexicalEmpty">还没有本地学习记录。</p></div>
     </section>
 
