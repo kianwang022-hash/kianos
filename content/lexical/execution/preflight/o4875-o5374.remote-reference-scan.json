@@ -1,0 +1,118 @@
+{
+  "schema": "kianos.lexical.remote_reference_scan.v1",
+  "package": [
+    4875,
+    5374
+  ],
+  "remote_reference_count": 11,
+  "remote_ordinals": [
+    104,
+    542,
+    1020,
+    1410,
+    2069,
+    2586,
+    2635,
+    4524,
+    4825,
+    5416,
+    5614
+  ],
+  "references": {
+    "o0104": [
+      {
+        "source_ordinal": 5368,
+        "source_word": "wealthy",
+        "channel": "AUDIT",
+        "context": "elation targets `sense:affluent:2c108df63e585417`, but that ordinary adjective sense is currently deprecated with no merge target; `affluent@o0104` Core says wealthy while its active senses are noun-only. **Exact desired semantic state:** Close the relation against a valid active ordinary `affluent` adjective branch, reusing"
+      },
+      {
+        "source_ordinal": 5368,
+        "source_word": "wealthy",
+        "channel": "AUDIT",
+        "context": "stable adjective identity if reactivated; keep the `wealthy` source branch unchanged. **Identity / owner boundary:** Remote owner `affluent@o0104` is read-only in this lane. Relation/target lifecycle must be reconciled without creating a replacement ID unnecessarily."
+      }
+    ],
+    "o0542": [
+      {
+        "source_ordinal": 5144,
+        "source_word": "trunk",
+        "channel": "PRODUCTION",
+        "context": "Add AmE car-luggage-compartment `trunk` and coordinate a regional relation to BrE `boot@o0542` (`sense:boot:ff7e0b273f1d53f2`). Do not merge tree/body/container trunk senses."
+      }
+    ],
+    "o1020": [
+      {
+        "source_ordinal": 4975,
+        "source_word": "therefore",
+        "channel": "AUDIT",
+        "context": "- `o4975 therefore` — `FLIP_TO_UPGRADE` — IDENTITY — `reciprocal_relation_visibility` — Accepted `therefore ↔ consequently@o1020` contrast is source-visible only; close the same Relation remotely."
+      }
+    ],
+    "o1410": [
+      {
+        "source_ordinal": 5181,
+        "source_word": "uncover",
+        "channel": "AUDIT",
+        "context": "- `o5181 uncover` — `FLIP_TO_UPGRADE` — IDENTITY — `reciprocal_relation_visibility` — close uncover↔disclose from `disclose@o1410`."
+      }
+    ],
+    "o2069": [
+      {
+        "source_ordinal": 5070,
+        "source_word": "total",
+        "channel": "AUDIT",
+        "context": "- `o5070 total` — `FLIP_TO_UPGRADE` — IDENTITY — `reciprocal_relation_visibility` — close accepted total↔full Relation from `full@o2069`."
+      }
+    ],
+    "o2586": [
+      {
+        "source_ordinal": 5207,
+        "source_word": "unity",
+        "channel": "AUDIT",
+        "context": "- `o5207 unity` — `FLIP_TO_UPGRADE` — IDENTITY — `reciprocal_relation_visibility` — close unity↔integrity from `integrity@o2586`."
+      }
+    ],
+    "o2635": [
+      {
+        "source_ordinal": 5282,
+        "source_word": "vest",
+        "channel": "AUDIT",
+        "context": "se or otherwise anchoring to a valid stable target; do not leave a dangling deprecated anchor. **Identity / owner boundary:** Remote `invest@o2635` is read-only here. Stable target identity is existing `sense:invest:5624ec75c3bd5ea9`; no replacement ID unless Sol finds genuine discontinuity."
+      }
+    ],
+    "o4524": [
+      {
+        "source_ordinal": 5017,
+        "source_word": "thus",
+        "channel": "AUDIT",
+        "context": "- `o5017 thus` — `FLIP_TO_UPGRADE` — IDENTITY — `reciprocal_relation_visibility` — Accepted `thus ↔ so@o4524` contrast is source-visible only; close reciprocal target entrypoint."
+      }
+    ],
+    "o4825": [
+      {
+        "source_ordinal": 4986,
+        "source_word": "think",
+        "channel": "RECONCILIATION",
+        "context": "28`; - replace any stale nested payload anchor to merged `sense:suppose:08f0eab612235c91` with the active target and add reciprocal `suppose@o4825` learner visibility; - do not unmerge the old `suppose` sense and do not mint a new Relation."
+      }
+    ],
+    "o5416": [
+      {
+        "source_ordinal": 5205,
+        "source_word": "unit",
+        "channel": "AUDIT",
+        "context": "- `o5205 unit` — `FLIP_TO_UPGRADE` — IDENTITY — `reciprocal_relation_visibility` — close unit↔whole from `whole@o5416`."
+      }
+    ],
+    "o5614": [
+      {
+        "source_ordinal": 4917,
+        "source_word": "telegraph",
+        "channel": "PRODUCTION",
+        "context": "Repair **telegraph vs telegram**. `telegraph` noun is the communication system/device; a transmitted message is a `telegram` (`telegram@o5614`). Remove/move any learner collocation implying `send a telegraph`; add a contrast Relation if appropriate. Preserve telegraph verbs."
+      }
+    ]
+  },
+  "status": "READ_ONLY_REMOTE_CANDIDATES"
+}
