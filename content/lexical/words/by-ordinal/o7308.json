@@ -6,13 +6,40 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "9ee4d391a86129f633f1fd867e10b5899acd4fb4eb2f2d95b64e962dc769e4d6",
+    "constructions": [
+      {
+        "construction_id": "construction:463a07cab9a311ed062f",
+        "direction": "R+P",
+        "level": "L3",
+        "meaning_cn": "浪子；源自《圣经》浪子回头故事的文化表达",
+        "pattern": "the prodigal son",
+        "source_sense_id": "sense:prodigal:43ee1d236c4657f6",
+        "usage_note": "Cultural/Biblical expression."
+      }
+    ],
+    "content_hash": "3e56fcc9bd06fb7be6ee1077c843ca44e90dddc97b0633ff31e671786b61b870",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "浪费者",
-      "core_meaning_en": "a recklessly extravagant consumer",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "挥霍者；浪子；花钱无度的人",
+          "label_en": "a person who spends money or resources recklessly; a spendthrift",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:prodigal:43ee1d236c4657f6"
+          ]
+        },
+        {
+          "label_cn": "挥霍的；浪费奢侈的",
+          "label_en": "wastefully extravagant; spending money or resources recklessly",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:prodigal:e0e2bb6eef92ae75"
+          ]
+        }
+      ],
+      "core_meaning_cn": "挥霍者；浪子；花钱无度的人；挥霍的；浪费奢侈的",
+      "core_meaning_en": "a person who spends money or resources recklessly; a spendthrift; wastefully extravagant; spending money or resources recklessly",
+      "mental_model_cn": "挥霍者；浪子；花钱无度的人；挥霍的；浪费奢侈的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,16 +53,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "浪费者",
-        "definition_en": "a recklessly extravagant consumer",
+        "definition_cn": "挥霍者；浪子；花钱无度的人",
+        "definition_en": "a person who spends money or resources recklessly; a spendthrift",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L1",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:prodigal:43ee1d236c4657f6",
-        "sense_label_en": "a recklessly extravagant consumer",
+        "sense_label_en": "a person who spends money or resources recklessly; a spendthrift",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -46,6 +73,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "挥霍的；浪费奢侈的",
+        "definition_en": "wastefully extravagant; spending money or resources recklessly",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:prodigal:e0e2bb6eef92ae75",
+        "sense_label_en": "wastefully extravagant; spending money or resources recklessly",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -70,6 +111,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 18612,
+        "source_path": "content/lexical/canonical/senses/shards/o7297-7328.json"
+      },
+      {
+        "sense_id": "sense:prodigal:e0e2bb6eef92ae75",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18649,
         "source_path": "content/lexical/canonical/senses/shards/o7297-7328.json"
       }
     ],
@@ -97,7 +145,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7305-7312.json",
-    "source_content_hash": "9ee4d391a86129f633f1fd867e10b5899acd4fb4eb2f2d95b64e962dc769e4d6",
+    "source_content_hash": "3e56fcc9bd06fb7be6ee1077c843ca44e90dddc97b0633ff31e671786b61b870",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
