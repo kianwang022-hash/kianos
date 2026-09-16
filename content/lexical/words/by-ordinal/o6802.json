@@ -6,13 +6,31 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "6ed8ba6bbcd9627a6f5ab5eaaebb15c4572b97ad61a9c01d2bd6287c3827caa7",
+    "constructions": [
+      {
+        "construction_id": "construction:d8c9c8ef98d80b73455e",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "从某人处强行勒索/逼取某物",
+        "pattern": "extort sth from sb",
+        "source_sense_id": "sense:extort:c4b4ee8500d359cc"
+      }
+    ],
+    "content_hash": "c7ffc0ab0415d7c1b1822e420c3c89928d0a9c499480995839f035db569f1cfb",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "勒索, 敲诈, 强要",
-      "core_meaning_en": "get or cause to become in a difficult or laborious manner",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "敲诈、勒索；通过武力、威胁、恐吓或滥用权力获取钱财、信息或服从",
+          "label_en": "to obtain money, information, compliance, or another benefit by force, threats, intimidation, or abuse of authority",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:extort:c4b4ee8500d359cc"
+          ]
+        }
+      ],
+      "core_meaning_cn": "敲诈、勒索；通过武力、威胁、恐吓或滥用权力获取钱财、信息或服从",
+      "core_meaning_en": "to obtain money, information, compliance, or another benefit by force, threats, intimidation, or abuse of authority",
+      "mental_model_cn": "敲诈、勒索；通过武力、威胁、恐吓或滥用权力获取钱财、信息或服从",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +40,22 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "敲诈、勒索；通过武力、威胁、恐吓或滥用权力获取钱财、信息或服从",
+        "definition_en": "to obtain money, information, compliance, or another benefit by force, threats, intimidation, or abuse of authority",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:extort:c4b4ee8500d359cc",
+        "sense_label_en": "to obtain money, information, compliance, or another benefit by force, threats, intimidation, or abuse of authority",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -57,24 +90,6 @@
       "reference_only": true
     },
     {
-      "stable_sense_id": "sense:extort:c4b4ee8500d359cc",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "勒索, 敲诈, 强要",
-      "definition_en": "obtain by coercion or intimidation",
-      "semantic_key": "c39d6aa25c0d1a45268b46009ee61e0aac3d3e3f7cbfa8ec362e7fe4ebb11d45",
-      "semantic_key_history": [
-        "9e13b781fcccf5af0b77362242538854844fcfa39d7f97df87dd17cf737b5c42"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 17760,
-      "source_path": "content/lexical/canonical/senses/shards/o6785-6816.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:extort:c9a60e5b9ff8596f",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -104,7 +119,7 @@
       },
       {
         "sense_id": "sense:extort:c4b4ee8500d359cc",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 17760,
         "source_path": "content/lexical/canonical/senses/shards/o6785-6816.json"
@@ -141,7 +156,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6801-6808.json",
-    "source_content_hash": "6ed8ba6bbcd9627a6f5ab5eaaebb15c4572b97ad61a9c01d2bd6287c3827caa7",
+    "source_content_hash": "c7ffc0ab0415d7c1b1822e420c3c89928d0a9c499480995839f035db569f1cfb",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

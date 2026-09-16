@@ -7,12 +7,21 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "de105e3c608d0db50fb95fcf8fc09db35fd19b192bdaa0ba8101002cdedbdb6c",
+    "content_hash": "e9921cd58d40a45f099de481a8391ab9a016b15defa77ecc7a6d273789b55f33",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "使恼怒, 激怒, 恶化",
-      "core_meaning_en": "make furious",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "使极度恼怒、烦躁或沮丧",
+          "label_en": "to irritate, annoy, or frustrate someone intensely",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:exasperate:0b7fbe453ce25995"
+          ]
+        }
+      ],
+      "core_meaning_cn": "使极度恼怒、烦躁或沮丧",
+      "core_meaning_en": "to irritate, annoy, or frustrate someone intensely",
+      "mental_model_cn": "使极度恼怒、烦躁或沮丧",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -27,37 +36,14 @@
         "collocations": [],
         "confidence": "high",
         "definition_cn": "使恼怒, 激怒, 恶化",
-        "definition_en": "make furious",
-        "depth": "full_card",
-        "domain_tag": "toefl",
-        "frequency_tag": "toefl",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:exasperate:c360e164e4375b1c",
-        "sense_label_en": "make furious",
-        "sort_order": 1,
-        "source_evidence": [
-          {
-            "evidence_id": "source-fact:81fe201b9927ea9c2779003f",
-            "evidence_status": "source_checked",
-            "role": "external_semantic_auditor",
-            "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
-            "source_type": "learner_dictionary"
-          }
-        ]
-      },
-      {
-        "collocations": [],
-        "confidence": "high",
-        "definition_cn": "使恼怒, 激怒, 恶化",
         "definition_en": "make worse",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L2",
+        "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
+        "register": "rare/older",
         "sense_id": "sense:exasperate:9b4a374ed2825f01",
         "sense_label_en": "make worse",
         "sort_order": 2,
@@ -69,21 +55,22 @@
             "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
             "source_type": "learner_dictionary"
           }
-        ]
+        ],
+        "usage_note": "Older aggravate/make-worse sense is lower priority."
       },
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "使恼怒, 激怒, 恶化",
-        "definition_en": "exasperate or irritate",
+        "definition_cn": "使极度恼怒、烦躁或沮丧",
+        "definition_en": "to irritate, annoy, or frustrate someone intensely",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L3",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:exasperate:0b7fbe453ce25995",
-        "sense_label_en": "exasperate or irritate",
+        "sense_label_en": "to irritate, annoy, or frustrate someone intensely",
         "sort_order": 3,
         "source_evidence": [
           {
@@ -110,7 +97,24 @@
     "word_id": "word:exasperate"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:exasperate:c360e164e4375b1c",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "使恼怒, 激怒, 恶化",
+      "definition_en": "make furious",
+      "semantic_key": "b6e60f16989dba3843ecfc7d05e65097726b5e2de8852aa3429179791e32bf36",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 17732,
+      "source_path": "content/lexical/canonical/senses/shards/o6753-6784.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -129,7 +133,7 @@
       },
       {
         "sense_id": "sense:exasperate:c360e164e4375b1c",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 17732,
         "source_path": "content/lexical/canonical/senses/shards/o6753-6784.json"
@@ -159,7 +163,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6777-6784.json",
-    "source_content_hash": "de105e3c608d0db50fb95fcf8fc09db35fd19b192bdaa0ba8101002cdedbdb6c",
+    "source_content_hash": "e9921cd58d40a45f099de481a8391ab9a016b15defa77ecc7a6d273789b55f33",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
