@@ -6,13 +6,32 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "c7c33efafbaedf355a0fbc22d34a791b71c9da0a53524995078d075c152cb5e8",
+    "constructions": [
+      {
+        "construction_id": "construction:bf5cc779ea2fcf9e81a8",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "偏离、分叉；与……产生分歧",
+        "pattern": "diverge from sth",
+        "source_sense_id": "sense:diverge:cf5dcce1185458ce"
+      }
+    ],
+    "content_hash": "9c7e73599522e015fc977a23ae518815e55db571bb0f07d40b4101a649ac9070",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "分歧；岔开",
-      "core_meaning_en": "move or draw apart",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "分歧；岔开；（数列/级数）发散；不收敛到有限极限/有限和",
+          "label_en": "move or draw apart; mathematics: for a sequence or series, not to converge to a finite limit or finite sum",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:diverge:cf5dcce1185458ce",
+            "sense:diverge:4b8f1f6f0cf75fca"
+          ]
+        }
+      ],
+      "core_meaning_cn": "分歧；岔开；（数列/级数）发散；不收敛到有限极限/有限和",
+      "core_meaning_en": "move or draw apart; mathematics: for a sequence or series, not to converge to a finite limit or finite sum",
+      "mental_model_cn": "分歧；岔开；（数列/级数）发散；不收敛到有限极限/有限和",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -92,8 +111,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "分歧；岔开",
-        "definition_en": "have no limits as a mathematical series",
+        "definition_cn": "（数列/级数）发散；不收敛到有限极限/有限和",
+        "definition_en": "mathematics: for a sequence or series, not to converge to a finite limit or finite sum",
         "depth": "full_card",
         "domain_tag": "cet6",
         "frequency_tag": "cet6",
@@ -101,7 +120,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:diverge:4b8f1f6f0cf75fca",
-        "sense_label_en": "have no limits as a mathematical series",
+        "sense_label_en": "mathematics: for a sequence or series, not to converge to a finite limit or finite sum",
         "sort_order": 2,
         "source_evidence": [
           {
@@ -212,7 +231,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5769-5776.json",
-    "source_content_hash": "c7c33efafbaedf355a0fbc22d34a791b71c9da0a53524995078d075c152cb5e8",
+    "source_content_hash": "9c7e73599522e015fc977a23ae518815e55db571bb0f07d40b4101a649ac9070",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

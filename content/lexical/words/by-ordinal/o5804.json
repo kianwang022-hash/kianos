@@ -7,12 +7,21 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "eece4d0590b7aad9c1cfb71069a672c28880d7d4094e0b5ad6769a75d1f1c8bb",
+    "content_hash": "fb3d51ea4deda5e838843c36b14f5ce41d44668d9144de2cd079805eaed8e1a3",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "排泄；分泌",
-      "core_meaning_en": "eliminate from the body",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "排泄、排出代谢废物",
+          "label_en": "to eliminate metabolic waste from the body",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:excrete:b1d4ed40c9d3555a"
+          ]
+        }
+      ],
+      "core_meaning_cn": "排泄、排出代谢废物",
+      "core_meaning_en": "to eliminate metabolic waste from the body",
+      "mental_model_cn": "排泄、排出代谢废物",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,8 +35,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "排泄；分泌",
-        "definition_en": "eliminate from the body",
+        "definition_cn": "排泄；把代谢废物从体内排出",
+        "definition_en": "to eliminate metabolic waste from the body",
         "depth": "full_card",
         "domain_tag": "cet6",
         "frequency_tag": "cet6",
@@ -35,7 +44,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:excrete:b1d4ed40c9d3555a",
-        "sense_label_en": "eliminate from the body",
+        "sense_label_en": "to eliminate metabolic waste from the body",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -68,7 +77,14 @@
     "word_family": [],
     "word_id": "word:excrete"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:horizontal:40bda185c9a30d0368ec",
+      "owner_path": "content/lexical/relations/by-id/ae/ae37cd8da91fde3ea346824c26897858b1782da33fef993ed82ce9c7e6752db8.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -104,7 +120,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5801-5808.json",
-    "source_content_hash": "eece4d0590b7aad9c1cfb71069a672c28880d7d4094e0b5ad6769a75d1f1c8bb",
+    "source_content_hash": "fb3d51ea4deda5e838843c36b14f5ce41d44668d9144de2cd079805eaed8e1a3",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

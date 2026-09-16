@@ -7,12 +7,22 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "74bf23125eea8dbbbd30cf0768c6e1cce13bc9e127f3e3aa57fc3be27c4c1b94",
+    "content_hash": "db242e2af1b192a26eea51fc2434971ef756616ea43e0b6094f839b5ea87db9b",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "伦理的；民族的；民族特有的",
-      "core_meaning_en": "of or relating to the philosophical study of ethics",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "伦理的；民族的；民族特有的；伦理的；民族的；民族特有的",
+          "label_en": "of or relating to the philosophical study of ethics; conforming to accepted standards of social or professional behavior",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:ethical:c979a03bae3f5af0",
+            "sense:ethical:59a9ed1f3fe256ae"
+          ]
+        }
+      ],
+      "core_meaning_cn": "伦理的、道德的；符合道德/职业规范的",
+      "core_meaning_en": "relating to ethics or morally/professionally acceptable",
+      "mental_model_cn": "伦理的、道德的；符合道德/职业规范的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -155,7 +165,14 @@
     "word_family": [],
     "word_id": "word:ethical"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:horizontal:8ca1a358507ec439b62c",
+      "owner_path": "content/lexical/relations/by-id/61/6162b7e0b604725ca49e775d6c719c4b3ae5d28a1f6e87fd7b7aa2aecf5cba10.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -203,7 +220,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5793-5800.json",
-    "source_content_hash": "74bf23125eea8dbbbd30cf0768c6e1cce13bc9e127f3e3aa57fc3be27c4c1b94",
+    "source_content_hash": "db242e2af1b192a26eea51fc2434971ef756616ea43e0b6094f839b5ea87db9b",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
