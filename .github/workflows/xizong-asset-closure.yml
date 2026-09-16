@@ -5,7 +5,10 @@ on:
   pull_request:
     paths:
       - 'content/xizong/LEARNER_OBJECT_CONTRACT.md'
+      - 'static-web/package.json'
       - 'static-web/src/lib/xizongLearnerObject.mjs'
+      - 'static-web/src/lib/xizongLearnerProjection.mjs'
+      - 'static-web/src/lib/xizongLearningCues.mjs'
       - 'static-web/src/components/XizongLearnerObjectBridge.astro'
       - 'static-web/src/pages/xizong/[system]/[block].astro'
       - 'static-web/scripts/validate-xizong-learner-object.mjs'
@@ -30,6 +33,6 @@ jobs:
       - name: Install dependencies
         run: npm install --no-audit --no-fund
       - name: Validate unified learner object
-        run: node scripts/validate-xizong-learner-object.mjs
+        run: npm run validate:xizong-learner-object
       - name: Build Astro
         run: npm run build
