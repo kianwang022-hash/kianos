@@ -11,17 +11,18 @@ This file does not own medical Core, Xizong lane learning semantics, Acceptance 
 ## Current Work Cursor
 
 **Scope:** D — Neuro / Sensory / Motor / Orthopedics  
-**Current accepted construction stage:** Source / Knowledge Boundary closed for current first-learning Core  
-**Active / earliest unresolved eligible stage:** **L — Learning Logic**  
+**Current accepted construction stage:** Source / Knowledge Boundary closed  
+**L construction state:** **repaired candidate complete; builder-side semantic + structural falsification complete**  
+**Earliest eligible next action:** **fresh independent L audit**  
 **Parallel Source boundary:** exact official D System question membership remains **UNTESTED** and will gate the later trusted official-question sweep only  
-**Blocker at L entry:** none
+**Blocker to L promotion:** independent semantic acceptance has not yet occurred
 
 ```text
 S1 medical / first-learning Source boundary = PASS
 S2 exact official-question membership        = UNTESTED / parallel later boundary
 K Knowledge                                  = PASS
-L Learning Logic                             = ACTIVE
-Content realization                           = downstream of accepted L decisions
+L Learning Logic                             = CANDIDATE_READY_FOR_FRESH_INDEPENDENT_AUDIT
+Content realization                           = downstream-frozen behind L acceptance
 P Projection                                  = downstream-frozen
 R Runtime                                     = downstream-frozen
 E Evidence                                    = downstream-frozen
@@ -30,7 +31,15 @@ U Learner Use                                 = no repository claim
 
 Construction issue: GitHub `#272`.
 
-**Next action:** build D Learning Logic over the frozen 27-Block / 356-KP medical Core. Resolve true Block readiness, Source-contact granularity, Logic Groups, cognition-specific closure and progressive compression before any Projection/Runtime work.
+Canonical L candidate:
+
+`content/xizong/knowledge/learner/d-neuro-sensory-motor-orthopedics-learning.json`
+
+Fresh audit brief:
+
+`content/xizong/knowledge/learner/D_PHASE6_FRESH_L_AUDIT_BRIEF.md`
+
+**Next action:** a fresh auditor must independently reconstruct the expected D learner route/surface allocation from Current Source/Core/Knowledge + inherited contracts, challenge alternatives and negative space, then reconcile against the candidate. Do not begin Content realization, Projection, Runtime or Evidence before L is independently accepted.
 
 ---
 
@@ -64,46 +73,78 @@ Trauma, compression, ischemia, overload, infection, immune inflammation, develop
 
 ---
 
-## Active L boundary
+## Built L candidate — claims under audit, not accepted truth yet
 
-L must answer:
+Current candidate proposes:
 
-1. Which Block dependencies are genuinely hard prerequisites versus only helpful recall/reactivation?
-2. What low-switching default route should Kian follow without converting that route into medical ontology?
-3. For each Block, what is the natural original-Lecture contact unit: whole Block, canonical Source sub-unit, or integration-only targeted source return?
-4. How should all 356 stable KPs partition into semantic Logic Groups exactly once per Block?
-5. What local cognitive job and closure proves each Logic Group has actually formed?
-6. Where should Block Recall, non-gating partial-System reconstruction and final System reconstruction occur?
-7. Which visual/precision/source-conflict items require explicit gating rather than prose substitution?
-8. How do Wrong / Uncertain repair and cross-System hooks return to the D mainline without duplicating neighboring owners?
+- 27 stable Blocks / 356 stable KPs / **128 explicit Logic Groups**;
+- exact-once KP membership: neural **150 / 56 LG**, orthopedics **206 / 72 LG**;
+- five intentional non-contiguous LGs;
+- three Source-contact classes: `WHOLE_BLOCK_SOURCE`, `NATURAL_SOURCE_UNITS`, `INTEGRATION_PRIMARY`;
+- N11 + O1 as integration-primary objects;
+- `VISUAL_REQUIRED` as closure/evidence requirement, **not** automatic extra MarginNote trip;
+- sparse true-prerequisite DAG plus unchanged low-switching default route;
+- five non-gating Partial-System Reconstructions;
+- final System reconstruction only after real 27-Block learner completion;
+- external-primary original Lecture / MarginNote for genuine new Source learning;
+- KianOS orientation / retrieval / closure / compression only;
+- smallest-sufficient repair and return;
+- explicit negative space and Source-conflict preservation.
 
-Hard L constraints:
+Builder-side Phase 6A found and repaired a material defect before fresh audit: the initial machine-readable readiness graph still over-serialized helpful ordering/comparison relations. The current candidate now keeps only sparse true hard prerequisites.
 
-- original Lecture / source remains the primary continuous first-learning surface where genuine new Source learning occurs;
-- KianOS remains orientation / selective cue / retrieval / local closure / compression, not a second textbook;
-- Logic Group is a cognition/retrieval unit and is **not automatically** a Source-contact chunk;
-- B whole-LG handoff and C Block/natural-Source-unit handoff are calibration examples, not templates;
-- N11 and O1 are integration-heavy objects and must not be forced into fake continuous-primary Lecture behavior merely for symmetry;
-- O1–O5 current visual Source gaps fail closed for claims requiring those missing spatial visuals;
-- Source conflicts remain Source conflicts; Learning Logic may mark when to surface them but may not adjudicate them by model intuition;
-- official-question membership and Question→Knowledge mapping are outside L;
-- no learner completion/mastery is inferred from construction.
+Executed Phase-6B accounting:
+
+```text
+Blocks                      27
+stable KPs                  356
+Logic Groups                128
+missing membership            0
+duplicate membership          0
+out-of-range membership       0
+readiness unknown nodes       0
+readiness cycles              0
+Source-contact coverage      27 / 27
+```
+
+These are construction/evidence facts only. They do **not** make L PASS.
 
 ---
 
-## Planned L construction phases
+## Fresh audit attack floor
 
-```text
-L0  cognition + surface calibration
-L1  Block readiness / low-switching route
-L2  27-Block control review
-L3  356-KP Logic-Group semantic partition
-L4  progressive compression / partial-System reconstruction
-L5  cross-surface + negative-space attack
-L6  adversarial acceptance; fresh independent audit before promotion when available
-```
+The fresh auditor must at minimum challenge:
 
-Phase receipts are construction evidence only. The eventual accepted D Learning owner must be a single `content/xizong/knowledge/learner/d-neuro-sensory-motor-orthopedics-learning.json`; receipts do not become parallel semantic owners.
+1. whether one D System is cognitively better than splitting Neuro and Orthopedics learner routes while retaining one medical owner;
+2. whether the sparse readiness graph is now too permissive or still too serial;
+3. whether N11/O1 truly deserve integration-primary treatment;
+4. whether each Source-contact class matches real Lecture continuity rather than receipt convenience;
+5. whether 128 LGs contain semantic over-grouping, fragmentation, ceremonial singletons or hidden duplicate concepts despite exact identity accounting;
+6. whether the five non-contiguous groups are justified;
+7. whether visual-heavy Blocks can form correctly without accidental per-LG device bouncing;
+8. whether external-owner interfaces accidentally duplicate C/B/O9/A-system Primary content;
+9. whether Source conflicts/gaps are surfaced at the right time without becoming learner noise;
+10. whether five PSRs and final System reconstruction truly compress rather than add hierarchy/debt.
+
+A fresh auditor should form a provisional route/surface model **before** reading builder receipts or using the candidate as an answer key.
+
+---
+
+## L construction receipts
+
+Construction evidence only:
+
+- `D_PHASE0_LEARNING_CALIBRATION.md`
+- `D_PHASE1_ROUTE_DECISION.md`
+- `D_PHASE2_BLOCK_CONTROL.md`
+- `D_PHASE3A_LOGIC_GROUPS_N01_N11.md`
+- `D_PHASE3B_LOGIC_GROUPS_O01_O16.md`
+- `D_PHASE4_PROGRESSIVE_COMPRESSION.md`
+- `D_PHASE5_CROSS_SURFACE_NEGATIVE_SPACE.md`
+- `D_PHASE6A_SELF_ADVERSARIAL_L_AUDIT.md`
+- `D_PHASE6B_STRUCTURAL_ACCOUNTING.md`
+
+Do not treat receipt count as acceptance evidence by itself.
 
 ---
 
@@ -115,7 +156,7 @@ Phase receipts are construction evidence only. The eventual accepted D Learning 
 - D medical Core → N1–N11 + O1–O16 canonical Block Markdown under this directory
 - lane Learning constitution → `content/xizong/LEARNING_CONTRACT.md`
 - shared policy → `content/xizong/knowledge/learner/study-policy.json`
-- D Learning owner → not yet accepted; construction is active under #272
+- D Learning candidate → `content/xizong/knowledge/learner/d-neuro-sensory-motor-orthopedics-learning.json`
 
 ### Acceptance Truth
 
@@ -129,20 +170,24 @@ Private real learner/browser/conversation evidence only.
 
 ## Fresh-chat continuation
 
-Ordinary continuation:
+Ordinary builder continuation is stopped at the L independence gate:
 
 ```text
 D CURRENT
 → D ACCEPTANCE
-→ current D Learning candidate / exact L receipt named by this cursor
-→ work only the earliest unresolved D dependency
+→ fresh audit brief
+→ fresh independent auditor
 ```
 
 Fresh independent re-acceptance:
 
 ```text
 Xizong CURRENT anti-cocoon directive
-→ actual D Source/Core/Knowledge/Learning owners + inherited contracts
-→ provisional independent model and strongest alternatives
-→ only then D ACCEPTANCE for reconciliation
+→ inherited contracts + actual D Source/Core/Knowledge owners
+→ independently reconstruct expected model/route/surface + failure hypotheses
+→ inspect candidate
+→ only then read D ACCEPTANCE / construction receipts for reconciliation
+→ PASS / PASS_WITH_DEBT / BLOCKED
 ```
+
+If L passes, promote the single Learning owner and only then enter Content realization. If a material L defect appears, repair the earliest responsible L object and repeat fresh acceptance; P/R/E remain frozen.
