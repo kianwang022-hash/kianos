@@ -7,12 +7,22 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "59b7c161dad0b287ae0a1365ad2c22db8a52086b55733a2e1823931af3269552",
+    "content_hash": "3503e386432118ea093d9e7bf5f0aae63fcc379ac4825119396272f43f8afc04",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "汗；流汗；努力",
-      "core_meaning_en": "salty fluid secreted by sweat glands",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "出汗；汗腺分泌汗液的过程；汗；汗液",
+          "label_en": "the process of sweating or producing perspiration; sweat; the fluid produced by sweat glands",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:perspiration:2280310367e95e30",
+            "sense:perspiration:d661bc8003ac5f96"
+          ]
+        }
+      ],
+      "core_meaning_cn": "出汗；汗腺分泌汗液的过程；汗；汗液",
+      "core_meaning_en": "the process of sweating or producing perspiration; sweat; the fluid produced by sweat glands",
+      "mental_model_cn": "出汗；汗腺分泌汗液的过程；汗；汗液",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +32,36 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "出汗；汗腺分泌汗液的过程",
+        "definition_en": "the process of sweating or producing perspiration",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:perspiration:2280310367e95e30",
+        "sense_label_en": "the process of sweating or producing perspiration",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "汗；汗液",
+        "definition_en": "sweat; the fluid produced by sweat glands",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:perspiration:d661bc8003ac5f96",
+        "sense_label_en": "sweat; the fluid produced by sweat glands",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -37,56 +76,19 @@
     "word_id": "word:perspiration"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:perspiration:2280310367e95e30",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "汗；流汗；努力",
-      "definition_en": "the process of the sweat glands of the skin secreting a salty fluid",
-      "semantic_key": "554cd6f90f9c4f2302222eefead488f3373cef0d5599bcbd87cd035b90fb9830",
-      "semantic_key_history": [
-        "8be041d007e91d38ab4ac5448c0b1d3ec996901a5ee671b6ac292a4e6b47e067"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 16486,
-      "source_path": "content/lexical/canonical/senses/shards/o6017-6048.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:perspiration:d661bc8003ac5f96",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "汗；流汗；努力",
-      "definition_en": "salty fluid secreted by sweat glands",
-      "semantic_key": "56768db5d7b57fbddba0d6e87cdfb4c60a6929f5f0c43ccc2d54c950a347bf4a",
-      "semantic_key_history": [
-        "861d76dbe5d6e5184a755ee898f7022627a108fb7d9ab78f2b1a88f0486c7b7a"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 16487,
-      "source_path": "content/lexical/canonical/senses/shards/o6017-6048.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:perspiration:2280310367e95e30",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 16486,
         "source_path": "content/lexical/canonical/senses/shards/o6017-6048.json"
       },
       {
         "sense_id": "sense:perspiration:d661bc8003ac5f96",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 16487,
         "source_path": "content/lexical/canonical/senses/shards/o6017-6048.json"
@@ -116,7 +118,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6033-6040.json",
-    "source_content_hash": "59b7c161dad0b287ae0a1365ad2c22db8a52086b55733a2e1823931af3269552",
+    "source_content_hash": "3503e386432118ea093d9e7bf5f0aae63fcc379ac4825119396272f43f8afc04",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
