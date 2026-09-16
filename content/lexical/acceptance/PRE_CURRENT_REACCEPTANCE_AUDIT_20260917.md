@@ -1,10 +1,11 @@
 # LexicalOS Current P/R/E Re-acceptance Audit — 2026-09-17
 
 Issue: #323  
-Base authority: `main@837e6c322c1e9c9137db41465ca53b221d9f3880`  
+Latest-main authority used for P: `main@08b8d07ad1ae3d904fe794e0c38801f039c4ae39`  
+Synchronized audit head: `d511a18c182d668b900ad4fd25ea39aaca4dbdfa`  
 Scope: Current 7,946-owner LexicalOS generation.  
 
-This audit does not reopen Production Review, Independent Audit, Content execution, or K. It re-judges downstream learner-facing acceptance against the current implementation rather than preserving the historical bounded-proof wording by inertia.
+This audit does not reopen Production Review, Independent Audit, Content execution, or K. It re-judges downstream learner-facing acceptance against the current implementation rather than preserving historical bounded-proof wording by inertia.
 
 ## Dependency rule
 
@@ -12,19 +13,19 @@ Acceptance advances in one chain:
 
 `P → R → E → U`
 
-P is ACTIVE first. R/E implementation may be inspected to localize later debt, but R/E acceptance cannot advance before P. U remains real learner validation only.
+P has now closed. R becomes the next active acceptance gate. E remains downstream-frozen until R is judged. U remains real learner validation only.
 
-## Fresh P question
+## P — fresh Current-generation re-acceptance
+
+### Acceptance question
 
 Under `LEARNING_ACCEPTANCE.md`, P is BLOCKED only if a known projection defect can change the intended learner path, expose answers too early, invent/lose semantics, assign a material action to the wrong surface, or make the learner unable to execute the intended projection correctly.
 
-The audited scope is the **current generation and current admitted learner surfaces**. Hypothetical future content types are not a permanent blocker; if a future type is admitted, it receives its own projection acceptance at that time.
+The audited scope is the **current generation and current admitted learner surfaces**. Hypothetical future content types are not a permanent blocker; a future admitted type receives its own projection acceptance when it exists.
 
-## Current P evidence readback
+### Current catalog projection
 
-### 1. Current catalog projection
-
-Issue #56 already established on the complete Current generation:
+Issue #56 established on the complete Current generation:
 
 - `7,946 / 7,946` Current owners hydrate through the real Lexical loader/projection path;
 - `SAFE_SIMPLE 1,546 + DEPTH_READY 6,400`, `BLOCKED 0`;
@@ -35,11 +36,11 @@ Issue #56 already established on the complete Current generation:
 - same-owner Form boundary browser proof PASS;
 - Astro build PASS.
 
-Durable evidence remains under `content/lexical/acceptance/full-catalog-k-*.json`.
+Durable K/projection evidence remains under `content/lexical/acceptance/full-catalog-k-*.json`.
 
-### 2. Current learner surface
+### Current learner surface
 
-Current `/vocabulary/` exposes the actual product modes:
+Current `/vocabulary/` exposes:
 
 - Study / Continue;
 - Search;
@@ -62,11 +63,11 @@ Current Word Study exposes:
 - US/UK speech and keyboard-first traversal;
 - Prev / Next / Coverage continuation.
 
-The Word page does not require optional Expansion modules to exist on sparse healthy words.
+Sparse healthy words do not require artificial optional Expansion modules.
 
-### 3. Current browser behavior
+### Current browser behavior
 
-The integrated Functional First browser suite proves, on the real current runtime:
+The real Functional First browser path proves:
 
 - answer-bearing Depth is hidden before Reveal;
 - Recall does not leak the hidden meaning;
@@ -80,39 +81,45 @@ The integrated Functional First browser suite proves, on the real current runtim
 - manual clear is learner agency / dormancy, not mastery;
 - Coverage resume remains available without an overdue wall.
 
-Additional representative full-catalog browser proof covers sparse/simple, rich/polysemous, familiar-new, construction-heavy, Relation/confusable, register/sensitivity, same-owner Form, distinct-owner spelling and reference-only risk families.
+Representative browser proof covers sparse/simple, rich/polysemous, familiar-new, construction-heavy, Relation/confusable, register/sensitivity, same-owner Form, distinct-owner spelling and reference-only risk families.
 
-### 4. Surface ownership / density
+### Exact-head revalidation
 
-The current Lexical learner action is natively owned by the Lexical web surface under `LEARNING_CONTRACT.md`; there is no approved external-primary reader being stolen by Astro. The accepted visual-convergence release already exercised adaptive Lexical shapes and retained current journeys. Styling debt may exist in the future, but no currently identified visual defect changes the learning action.
+After synchronizing the audit branch with latest `main@08b8d07ad1ae3d904fe794e0c38801f039c4ae39`, the exact synchronized head `d511a18c182d668b900ad4fd25ea39aaca4dbdfa` passed:
 
-## Fresh P attack
+- Lexical Shard Tools run `35163912615` — PASS;
+- LexicalOS Current Runtime run `35163912664` — PASS, including Current catalog hydration and Astro build;
+- Lexical Functional First run `35163912533` — PASS, including full-catalog verifier, Natural Owner/Repair/Evidence/English static gates, learner projection build, representative full-catalog browser, Form boundary browser, accepted-fixture learner journey, English→Lexical journey, real form identity, ledger→Word projection, Challenge resume, and sparse/rich content-shape journey.
 
-The prior Acceptance blocker text says full P is withheld because the bounded proof does not establish “every unrestricted future learner path or every future content type.” That is not a valid permanent blocker under the repository acceptance standard: a blocker must prevent the intended journey in the **audited Current scope**. Unknown future content cannot be evidence of a current semantic defect.
+No P blocker appeared on the exact latest-main-synchronized head.
 
-Potential issues inspected but **not P blockers**:
+### Fresh P attack conclusion
 
-- Repair currently projects all ACTIVE targets rather than compiling a small reasoned session subset: this is a Runtime/session-compilation question, not a failure of the Word learning projection itself.
-- Evidence split/merge/retire lineage handling needs a fresh downstream attack: this is an Evidence identity-evolution question, not a reason to withhold current Projection readiness.
-- U remains untested: simulated/browser evidence cannot grant learner validation, but U is a separate gate and does not by itself block P.
+The prior Acceptance blocker text withheld full P because the bounded proof did not establish “every unrestricted future learner path or every future content type.” That is not a valid permanent blocker under the repository standard: a blocker must prevent the intended journey in the **audited Current scope**. Unknown future content is not evidence of a current semantic defect.
 
-## P candidate verdict
+The following are deliberately **not** used to keep P blocked:
 
-`P = PASS_PENDING_EXACT_HEAD_CI`
+- Repair session selection / prioritization is a Runtime question;
+- evidence split/merge/retire lineage is an Evidence identity-evolution question;
+- U remains a separate real learner validation gate.
 
-No current Projection blocker has been identified in the admitted 7,946-owner learner journey. The remaining requirement before changing canonical Acceptance is exact-head revalidation of the existing Current Runtime / Functional First / governance gates on this audit branch.
+## P verdict
 
-If exact-head CI remains green and no new P defect appears, P should advance from historical `BLOCKED — bounded Functional First PASS` to **PASS for the Current generation**.
+`P = PASS — Current generation`
 
-## Downstream hypotheses — not yet acceptance verdicts
+The admitted 7,946-owner learner projection has no known acceptance defect that changes the intended learning path. Current Projection is learner-ready; future optional content additions require their own bounded projection evidence when admitted but do not retroactively block this Current P claim.
 
-### R hypothesis
+## R — next active gate
 
-Most Runtime semantics are already implemented and browser-proven. The likely remaining question is narrow: whether current Repair entry should compile a small reasoned subset from ACTIVE targets instead of presenting the entire ACTIVE set as the session surface. This must be judged after P closes.
+Most Runtime semantics are already implemented and browser-proven. Fresh R must now decide whether any **current** executable-path defect remains. The main attack is whether Repair entry/session selection respects the contract that Coverage is the mainline and Repair is a small optional branch, while recognizing that Chat is explicitly allowed to adapt selection strategy.
 
-### E hypothesis
+The existence of a list of all ACTIVE targets is not automatically a blocker if it is visibility rather than a compulsory due queue and the learner can continue Coverage without clearing it.
 
-The ledger/reducer already implements exact identity, replay idempotency, conflict quarantine, causal chronology, demand matching, correction/recomputation, dormancy/reactivation and no-calendar-debt semantics. The likely remaining attack is Current identity evolution: sense/object split, merge or retire must use explicit lineage or fail closed without guessing. This must be judged after R.
+## E — downstream hypothesis only
+
+The ledger/reducer already implements exact target keys, replay idempotency, conflict quarantine, causal chronology, demand matching, correction/recomputation, dormancy/reactivation and no-calendar-debt semantics.
+
+A real downstream risk has been identified for E: the canonical sense registry contains lifecycle states such as `merged` / `deprecated` and explicit `merged_into_sense_id`, while the current evidence reducer does not yet visibly consume that lineage when folding persisted target evidence. This must be attacked after R; no E verdict is granted here.
 
 ## Learner boundary
 
