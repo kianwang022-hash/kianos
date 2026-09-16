@@ -1,0 +1,270 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+<div class="englishSelectionMenu" data-english-selection-menu data-base={base} hidden>
+  <button type="button" data-selection-lexical>Lexical 查词</button>
+  <button type="button" data-selection-highlight>高亮</button>
+  <button type="button" data-selection-chat>Chat 上下文</button>
+  <small data-selection-status></small>
+</div>
+
+<div class="englishLexicalReturn" data-english-lexical-return hidden>
+  <div>
+    <span>LEXICAL · READ ONLY</span>
+    <strong data-english-return-title>返回 English</strong>
+    <small data-english-return-meta></small>
+  </div>
+  <button type="button" data-english-return-action>返回原任务</button>
+  <button type="button" class="dismiss" data-english-return-dismiss aria-label="关闭返回提示">×</button>
+</div>
+
+<script>
+  const menu = document.querySelector('[data-english-selection-menu]');
+  const returnBar = document.querySelector('[data-english-lexical-return]');
+  if (menu instanceof HTMLElement && returnBar instanceof HTMLElement) {
+    const base = menu.getAttribute('data-base') || '/';
+    const CONTEXT_KEY = 'kianos-english-lexical-return-v1';
+    const HIGHLIGHT_NAME = 'kianos-english-selection';
+    const sourceSelectors = [
+      '[data-local-port="reading"] [data-reading-passage]',
+      '[data-objective-root][data-objective-task="cloze"] [data-objective-material]',
+      '[data-translation-runtime] [data-translation-source-text]'
+    ];
+    let activeSelection = null;
+
+    const readContext = () => {
+      try { return JSON.parse(sessionStorage.getItem(CONTEXT_KEY) || 'null'); }
+      catch { return null; }
+    };
+    const writeContext = (value) => {
+      try { sessionStorage.setItem(CONTEXT_KEY, JSON.stringify(value)); return true; }
+      catch { return false; }
+    };
+    const clearContext = () => {
+      try { sessionStorage.removeItem(CONTEXT_KEY); } catch {}
+    };
+    const compact = (value, max = 1200) => String(value || '').replace(/\s+/g, ' ').trim().slice(0, max);
+    const exactToken = (value) => /^[A-Za-z]+(?:[-'’][A-Za-z]+)*$/.test(String(value || '').trim());
+    const currentHref = () => `${location.pathname}${location.search}${location.hash}`;
+
+    const routeContext = (sourceRoot) => {
+      const reading = sourceRoot.closest('[data-local-port="reading"]');
+      if (reading instanceof HTMLElement) return {
+        task: 'Reading A',
+        objectId: reading.getAttribute('data-reading-object') || '',
+        sourceRoot
+      };
+      const cloze = sourceRoot.closest('[data-objective-root][data-objective-task="cloze"]');
+      if (cloze instanceof HTMLElement) return {
+        task: 'Cloze',
+        objectId: cloze.getAttribute('data-objective-object') || '',
+        sourceRoot
+      };
+      const translation = sourceRoot.closest('[data-translation-runtime]');
+      if (translation instanceof HTMLElement) return {
+        task: 'Translation',
+        objectId: translation.getAttribute('data-object-id') || '',
+        sourceRoot
+      };
+      return null;
+    };
+
+    const sourceForRange = (range) => {
+      const start = range.startContainer instanceof Element ? range.startContainer : range.startContainer.parentElement;
+      if (!(start instanceof Element)) return null;
+      const source = start.closest(sourceSelectors.join(','));
+      if (!(source instanceof HTMLElement)) return null;
+      if (!source.contains(range.endContainer)) return null;
+      return source;
+    };
+
+    const hideMenu = () => {
+      menu.hidden = true;
+      activeSelection = null;
+    };
+
+    const placeMenu = (rect) => {
+      const width = Math.min(390, Math.max(250, menu.offsetWidth || 320));
+      const left = Math.min(window.innerWidth - width - 12, Math.max(12, rect.left));
+      const top = Math.min(window.innerHeight - 74, Math.max(68, rect.bottom + 10));
+      menu.style.left = `${left}px`;
+      menu.style.top = `${top}px`;
+    };
+
+    const captureSelection = () => {
+      const selection = window.getSelection();
+      if (!selection || selection.rangeCount === 0 || selection.isCollapsed) { hideMenu(); return; }
+      const range = selection.getRangeAt(0);
+      const sourceRoot = sourceForRange(range);
+      if (!sourceRoot) { hideMenu(); return; }
+      const text = compact(selection.toString(), 320);
+      if (!text) { hideMenu(); return; }
+      const route = routeContext(sourceRoot);
+      if (!route) { hideMenu(); return; }
+      const rect = range.getBoundingClientRect();
+      const localContext = range.startContainer.parentElement?.closest('p,blockquote,.translationSegment,[data-objective-material-block]');
+      activeSelection = {
+        text,
+        word: exactToken(text) ? text : '',
+        range: range.cloneRange(),
+        sourceRoot,
+        task: route.task,
+        objectId: route.objectId,
+        nearby: compact(localContext?.textContent || sourceRoot.textContent, 1200),
+        rect
+      };
+      const lexical = menu.querySelector('[data-selection-lexical]');
+      if (lexical instanceof HTMLButtonElement) lexical.hidden = !activeSelection.word;
+      const status = menu.querySelector('[data-selection-status]');
+      if (status) status.textContent = activeSelection.word ? activeSelection.word : `${text.length} chars`;
+      menu.hidden = false;
+      requestAnimationFrame(() => placeMenu(rect));
+    };
+
+    document.addEventListener('mouseup', (event) => {
+      if (event.target instanceof Element && event.target.closest('[data-english-selection-menu]')) return;
+      requestAnimationFrame(captureSelection);
+    });
+    document.addEventListener('keyup', (event) => {
+      if (event.key === 'Shift' || event.key.startsWith('Arrow')) requestAnimationFrame(captureSelection);
+    });
+    document.addEventListener('mousedown', (event) => {
+      if (!(event.target instanceof Element) || event.target.closest('[data-english-selection-menu]')) return;
+      if (!event.target.closest(sourceSelectors.join(','))) hideMenu();
+    });
+    menu.addEventListener('pointerdown', (event) => event.preventDefault());
+
+    const applyHighlight = () => {
+      if (!activeSelection?.range) return false;
+      const range = activeSelection.range.cloneRange();
+      try {
+        if ('highlights' in CSS && typeof Highlight !== 'undefined') {
+          let highlight = CSS.highlights.get(HIGHLIGHT_NAME);
+          if (!highlight) {
+            highlight = new Highlight();
+            CSS.highlights.set(HIGHLIGHT_NAME, highlight);
+          }
+          highlight.add(range);
+          return true;
+        }
+      } catch {}
+      try {
+        const mark = document.createElement('mark');
+        mark.className = 'englishUserHighlight';
+        range.surroundContents(mark);
+        return true;
+      } catch { return false; }
+    };
+
+    menu.querySelector('[data-selection-highlight]')?.addEventListener('click', () => {
+      const status = menu.querySelector('[data-selection-status]');
+      if (status) status.textContent = applyHighlight() ? '已高亮' : '这段跨越多个结构，暂不能直接高亮';
+    });
+
+    menu.querySelector('[data-selection-chat]')?.addEventListener('click', async () => {
+      if (!activeSelection) return;
+      const packet = [
+        '请结合这段考研英语上下文回答我接下来的问题。',
+        `Task: ${activeSelection.task}${activeSelection.objectId ? ` · ${activeSelection.objectId}` : ''}`,
+        `Selected: ${activeSelection.text}`,
+        `Context: ${activeSelection.nearby}`
+      ].join('\n\n');
+      let ok = false;
+      try { await navigator.clipboard.writeText(packet); ok = true; }
+      catch {
+        try { window.prompt('Copy context', packet); ok = true; } catch {}
+      }
+      const status = menu.querySelector('[data-selection-status]');
+      if (status) status.textContent = ok ? '已复制 Chat 上下文' : '复制失败';
+    });
+
+    menu.querySelector('[data-selection-lexical]')?.addEventListener('click', () => {
+      if (!activeSelection?.word) return;
+      const context = {
+        schema: 'kianos.english.lexical_return.v1',
+        returnHref: currentHref(),
+        task: activeSelection.task,
+        objectId: activeSelection.objectId,
+        word: activeSelection.word,
+        sourceScrollTop: activeSelection.sourceRoot.scrollTop,
+        windowScrollY: window.scrollY,
+        createdAt: new Date().toISOString(),
+        returning: false
+      };
+      if (!writeContext(context)) return;
+      location.href = `${base}vocabulary/?from=english&lookup=${encodeURIComponent(activeSelection.word)}`;
+    });
+
+    const isVocabularyRoute = () => {
+      const relative = location.pathname.startsWith(base) ? location.pathname.slice(base.length) : location.pathname.replace(/^\//, '');
+      return relative === 'vocabulary' || relative === 'vocabulary/' || relative.startsWith('vocabulary/');
+    };
+
+    const renderReturnBar = () => {
+      const context = readContext();
+      if (!context || context.schema !== 'kianos.english.lexical_return.v1' || !isVocabularyRoute()) {
+        returnBar.hidden = true;
+        return;
+      }
+      const created = Date.parse(context.createdAt || '') || 0;
+      if (!created || Date.now() - created > 2 * 60 * 60 * 1000) {
+        clearContext();
+        returnBar.hidden = true;
+        return;
+      }
+      const title = returnBar.querySelector('[data-english-return-title]');
+      const meta = returnBar.querySelector('[data-english-return-meta]');
+      if (title) title.textContent = `返回 ${context.task || 'English'}`;
+      if (meta) meta.textContent = `${context.word || 'lookup'} · 只读查词，不创建 English / Lexical mastery`;
+      returnBar.hidden = false;
+    };
+
+    const applyIncomingLookup = () => {
+      if (!isVocabularyRoute()) return;
+      const params = new URLSearchParams(location.search);
+      const lookup = compact(params.get('lookup') || '', 80);
+      if (!lookup) return;
+      const root = document.querySelector('[data-lexical-home]');
+      if (!(root instanceof HTMLElement)) return;
+      const tab = root.querySelector('[data-lexical-tab="search"]');
+      const input = root.querySelector('[data-lexical-search]');
+      if (tab instanceof HTMLButtonElement) tab.click();
+      if (input instanceof HTMLInputElement) {
+        input.value = lookup;
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+        input.focus();
+      }
+    };
+
+    returnBar.querySelector('[data-english-return-action]')?.addEventListener('click', () => {
+      const context = readContext();
+      if (!context?.returnHref) return;
+      context.returning = true;
+      writeContext(context);
+      location.href = context.returnHref;
+    });
+    returnBar.querySelector('[data-english-return-dismiss]')?.addEventListener('click', () => {
+      clearContext();
+      returnBar.hidden = true;
+    });
+
+    const restoreReturnPosition = () => {
+      const context = readContext();
+      if (!context?.returning || !context.returnHref) return;
+      let target;
+      try { target = new URL(context.returnHref, location.origin); }
+      catch { return; }
+      if (`${target.pathname}${target.search}` !== `${location.pathname}${location.search}`) return;
+      const source = document.querySelector(sourceSelectors.join(','));
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        if (source instanceof HTMLElement) source.scrollTop = Number(context.sourceScrollTop || 0);
+        window.scrollTo({ top: Number(context.windowScrollY || 0), behavior: 'instant' });
+        clearContext();
+      }));
+    };
+
+    renderReturnBar();
+    requestAnimationFrame(applyIncomingLookup);
+    restoreReturnPosition();
+  }
+</script>
