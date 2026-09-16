@@ -5,7 +5,6 @@ on:
     branches: [lexical/pkg256-exec]
     paths:
       - '.github/workflows/lexical-pkg256-closure.yml'
-      - 'tools/lexical_verify_o5875_o6374.py'
   workflow_dispatch:
 
 permissions:
@@ -16,43 +15,27 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  verify:
+  sync-main:
     runs-on: ubuntu-latest
-    env:
-      KIANOS_BASELINE_MAIN: d36a93f81eaf4bb4aca29a649457bd9fd59068fe
     steps:
       - uses: actions/checkout@v4
         with:
           ref: lexical/pkg256-exec
           fetch-depth: 0
-      - name: Package verification
+      - name: Merge latest main or report exact conflicts
         run: |
-          python tools/lexical_verify_o5875_o6374.py
-          python tools/lexical_natural_owner.py audit
-          python tools/test_lexical_transport_guards.py
-          python tools/test_lexical_shard.py
-          python - <<'PY'
-          import json, subprocess
-          from pathlib import Path
-          base='d36a93f81eaf4bb4aca29a649457bd9fd59068fe'
-          changed=subprocess.check_output(['git','diff','--name-only',f'{base}..HEAD'],text=True).splitlines()
-          targets=[p for p in changed if p.startswith('content/lexical/') and p.endswith('.json') and Path(p).exists()]
-          for p in targets:
-              json.loads(Path(p).read_text(encoding='utf-8'))
-          print('PACKAGE_JSON_PASS',len(targets))
-          PY
-      - name: Full Astro build
-        working-directory: static-web
-        run: |
-          npm install --no-audit --no-fund --no-package-lock
-          npm run build
-      - name: Finalize durable package receipt
-        env:
-          KIANOS_ASTRO_BUILD: PASS
-        run: |
-          python tools/lexical_verify_o5875_o6374.py --finalize
+          set -euo pipefail
           git config user.name Kian
           git config user.email kianwang022@gmail.com
-          git add content/lexical/execution/o5875-o6374.package-receipt.json
-          git commit -m 'lexical: verify o5875-o6374 package closure [skip ci]'
+          git fetch origin main
+          set +e
+          git merge --no-commit --no-ff origin/main
+          rc=$?
+          set -e
+          if [ "$rc" -ne 0 ]; then
+            echo 'PKG256_MAIN_SYNC_CONFLICTS'
+            git diff --name-only --diff-filter=U
+            exit "$rc"
+          fi
+          git commit -m 'lexical: sync pkg256 with latest main [skip ci]'
           git push origin HEAD:lexical/pkg256-exec
