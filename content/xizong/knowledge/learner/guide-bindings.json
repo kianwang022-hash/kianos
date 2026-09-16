@@ -1,0 +1,50 @@
+{
+  "schema": "kianos.xizong.current_guide_bindings.v1",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED",
+  "role": "CURRENT_GUIDE_PATH_RESOLUTION_ONLY",
+  "scope": "SYSTEM_LEVEL_BEGINNER_EXPLANATION",
+  "runtime_adoption_claimed": false,
+  "rules": {
+    "current_owner_first": true,
+    "legacy_system_guide_fallback_for_migrated_systems": false,
+    "missing_binding_behavior": "FAIL_CLOSED_TO_KNOWLEDGE_MANIFEST_SYSTEM_LEVEL_RESOLUTION",
+    "medical_authority": "NONE",
+    "learning_route_authority": "NONE",
+    "note": "This file resolves which explanatory Guide asset is Current. It does not make that Guide a medical or learning-route owner."
+  },
+  "bindings": {
+    "circulation": {
+      "canonical_id": "A1",
+      "guide_path": "content/xizong/knowledge/learner/a1-circulation-guide.md",
+      "guide_role": "BEGINNER_EXPLANATION_ONLY",
+      "legacy_guide_resolution": "RETIRED_NON_CURRENT"
+    },
+    "respiratory": {
+      "canonical_id": "A2",
+      "guide_path": "content/xizong/knowledge/learner/a2-respiratory-guide.md",
+      "guide_role": "BEGINNER_EXPLANATION_ONLY",
+      "legacy_guide_resolution": "RETIRED_NON_CURRENT"
+    },
+    "urinary": {
+      "canonical_id": "A3",
+      "guide_path": "content/xizong/knowledge/learner/a3-urinary-guide.md",
+      "guide_role": "BEGINNER_EXPLANATION_ONLY",
+      "legacy_guide_resolution": "RETIRED_NON_CURRENT"
+    },
+    "digestive-metabolic-endocrine": {
+      "canonical_id": "B",
+      "guide_path": "content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-guide.md",
+      "guide_role": "BEGINNER_EXPLANATION_ONLY",
+      "legacy_guide_resolution": "RETIRED_NON_CURRENT"
+    }
+  },
+  "transitional_systems": {
+    "rule": "C / D / E / F are intentionally not rebound here. Resolve their System-level transitional state through content/xizong/knowledge/manifest.json and their own Current / Acceptance state. Do not infer symmetry from A1 / A2 / A3 / B."
+  },
+  "legacy_metadata_boundary": {
+    "path": "content/xizong/knowledge/learner/shared-fields.json",
+    "field": "system_fields.*.guide_path",
+    "rule": "For A1 / A2 / A3 / B, any legacy system-guides path still present in shared-fields is historical projection metadata and MUST NOT be used as the Current Guide resolver. Current resolution is this file."
+  }
+}

@@ -13,9 +13,12 @@ content/xizong/CURRENT.md
 → requested System CURRENT.md
 → System system.json for Current System Knowledge / cognitive model
 → content/xizong/knowledge/learner/*-learning.json for accepted System-specific learner guidance when present
+→ content/xizong/knowledge/learner/*-guide.md for accepted Current beginner explanation where present
 → canonical Block Markdown for medical Core
 → scoped ACCEPTANCE.md for readiness claims
 ```
+
+Current `*-guide.md` files under `knowledge/learner/` are **new derived explanation assets governed by `BEGINNER_GUIDE_CONTRACT.md`**. They do not make this legacy directory Current again.
 
 ## What belongs here
 
@@ -34,12 +37,36 @@ Once a System has accepted replacement owners for the relevant layers (for examp
 
 Full historical prose belongs in Git history, not beside Current learner assets.
 
+If a later content audit discovers that retirement also removed a genuinely useful **explanation pattern**, recover that pattern through the Current Beginner Guide contract:
+
+```text
+Current owners first
++ last pre-retirement Guide as bounded provenance only
+→ re-verify the explanatory move
+→ rewrite into knowledge/learner/*-guide.md
+```
+
+Do **not** repopulate a retired tombstone with full Guide prose merely to restore beginner explanation.
+
+## 2026-09-17 explanation migration
+
+A1 / A2 / A3 / B now have separate Current Beginner Guide assets:
+
+- `content/xizong/knowledge/learner/a1-circulation-guide.md`
+- `content/xizong/knowledge/learner/a2-respiratory-guide.md`
+- `content/xizong/knowledge/learner/a3-urinary-guide.md`
+- `content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-guide.md`
+
+Those assets use the last full pre-retirement Guide only to recover bounded, Current-reverified explanation patterns such as a useful mother-model metaphor, failure-localization frame or DAG explanation. Historical page maps, implementation state, old scope ownership and stale source policy remain historical.
+
+The retired A1 / A2 / A3 / B files in this directory therefore stay **tombstones**.
+
 ## Current cleanup state
 
-- A1 Circulation legacy full Guide → **RETIRED tombstone**; use `systems/a1-circulation/system.json` + `learner/a1-circulation-learning.json`.
-- A2 Respiratory legacy full Guide → **RETIRED tombstone**; use `systems/a2-respiratory/system.json` + `learner/a2-respiratory-learning.json` (+ selective cues where relevant).
-- A3 Urinary legacy full Guide → **RETIRED tombstone**; use `systems/a3-urinary/system.json` + `learner/a3-urinary-learning.json`.
-- B Digestive / Metabolic / Endocrine / Tumor legacy full Guide → **RETIRED tombstone**; use `systems/b-digestive-metabolic-endocrine-tumor/system.json` + `learner/b-digestive-metabolic-endocrine-tumor-learning.json`.
+- A1 Circulation legacy full Guide → **RETIRED tombstone**; use `systems/a1-circulation/system.json` + `learner/a1-circulation-learning.json` + Current `learner/a1-circulation-guide.md` for beginner explanation.
+- A2 Respiratory legacy full Guide → **RETIRED tombstone**; use `systems/a2-respiratory/system.json` + `learner/a2-respiratory-learning.json` (+ selective cues where relevant) + Current `learner/a2-respiratory-guide.md` for beginner explanation.
+- A3 Urinary legacy full Guide → **RETIRED tombstone**; use `systems/a3-urinary/system.json` + `learner/a3-urinary-learning.json` + Current `learner/a3-urinary-guide.md` for beginner explanation.
+- B Digestive / Metabolic / Endocrine / Tumor legacy full Guide → **RETIRED tombstone**; use `systems/b-digestive-metabolic-endocrine-tumor/system.json` + `learner/b-digestive-metabolic-endocrine-tumor-learning.json` + Current `learner/b-digestive-metabolic-endocrine-tumor-guide.md` for beginner explanation.
 - C Hematology / Immunity / Infection Guide → **TRANSITIONAL System-level substrate only**; no accepted `system.json` replacement exists yet, so do not retire it prematurely.
 - D Neuro / Sensory / Motor / Orthopedics Guide → **TRANSITIONAL System-level substrate only**; no accepted `system.json` replacement exists yet, so do not retire it prematurely.
 - E Reproductive / Breast Guide → **TRANSITIONAL System-level substrate only**; no accepted `system.json` replacement exists yet, so do not retire it prematurely.
@@ -49,4 +76,4 @@ The target end-state is not “eight files with the same shape”. It is **one l
 
 ## Hard rule for agents / Chats
 
-> Do not read `content/xizong/knowledge/system-guides/**` during ordinary Xizong continuation, learner UI design, or study unless the requested System's Current owner explicitly names a specific file as still-required transitional evidence.
+> Do not read `content/xizong/knowledge/system-guides/**` during ordinary Xizong continuation, learner UI design, or study unless the requested System's Current owner explicitly names a specific file as still-required transitional evidence, or an explicit bounded historical-provenance audit authorizes reading one exact pre-retirement revision.
