@@ -25,16 +25,17 @@
         ]
       }
     ],
-    "content_hash": "13b79a15dbe63c09e31fd4ffdcb80ba798060eb1822a25abb2b348131d7063ce",
+    "content_hash": "565e744b037d147ea49aa64a1cdc2f72cdb279e9343384610dde11e36d1d136b",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "触摸，碰；感动，触动；谈及，涉及",
+          "label_cn": "触摸，碰；感动，触动；简要提及、涉及",
           "label_en": "to put your hand or fingers on something; to affect someone's emotions, especially with sympathy or gratitude; to briefly mention or deal with something",
           "pos": "verb",
           "sense_ids": [
             "sense:touch:ca8bb4a1fb4e5d25",
-            "sense:touch:2f74785860575fa9"
+            "sense:touch:2f74785860575fa9",
+            "sense:touch:ca9d8a3218745d9d"
           ]
         },
         {
@@ -47,9 +48,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "触摸，接触",
-      "core_meaning_en": "to come into contact with something; the act of touching",
-      "mental_model_cn": "触摸，接触",
+      "core_meaning_cn": "触摸，碰；接触，触摸；感动，触动；少许，一点；简要提及、涉及",
+      "core_meaning_en": "to put your hand or fingers on something; the act of touching or being touched; to affect someone's emotions, especially with sympathy or gratitude; a small amount of something; to briefly mention or deal with something",
+      "mental_model_cn": "触摸，碰；接触，触摸；感动，触动；少许，一点；简要提及、涉及",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -166,6 +167,20 @@
         "sense_label_en": "a small amount of something",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "简要提及、涉及",
+        "definition_en": "to briefly mention or deal with something",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:touch:ca9d8a3218745d9d",
+        "sense_label_en": "to briefly mention or deal with something",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -188,31 +203,7 @@
     "word_id": "word:touch"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:touch:ca9d8a3218745d9d",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "谈及，涉及",
-      "definition_en": "to briefly mention or deal with something",
-      "semantic_key": "8996b3161539cc51b7d8730c676ef071aae510bf41f44f674748fdc65fadb2fa",
-      "semantic_key_history": [],
-      "legacy_aliases": [
-        "touch:l3:5"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "touch:l3:5",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-08-22T05:00:00+00:00",
-      "source_row": 14430,
-      "source_path": "content/lexical/canonical/senses/shards/o5057-5088.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -238,7 +229,7 @@
       },
       {
         "sense_id": "sense:touch:ca9d8a3218745d9d",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14430,
         "source_path": "content/lexical/canonical/senses/shards/o5057-5088.json"
@@ -327,7 +318,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5065-5072.json",
-    "source_content_hash": "13b79a15dbe63c09e31fd4ffdcb80ba798060eb1822a25abb2b348131d7063ce",
+    "source_content_hash": "565e744b037d147ea49aa64a1cdc2f72cdb279e9343384610dde11e36d1d136b",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
