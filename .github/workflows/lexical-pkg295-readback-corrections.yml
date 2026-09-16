@@ -1,0 +1,51 @@
+name: Lexical pkg295 readback corrections
+
+on:
+  push:
+    branches: [lexical/pkg295-exec]
+    paths:
+      - 'tools/lexical_pkg295_readback_corrections.py'
+      - '.github/workflows/lexical-pkg295-readback-corrections.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lexical-pkg295-readback-corrections
+  cancel-in-progress: false
+
+jobs:
+  correct:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: lexical/pkg295-exec
+          fetch-depth: 0
+      - name: Apply package-wide readback corrections
+        run: |
+          python -m py_compile tools/lexical_pkg295_readback_corrections.py
+          python tools/lexical_pkg295_readback_corrections.py
+      - name: Verify mechanical integrity
+        run: |
+          python tools/lexical_natural_owner.py audit
+          python tools/test_lexical_transport_guards.py
+          python tools/test_lexical_shard.py
+          python - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          changed=subprocess.check_output(['git','diff','--name-only','HEAD'],text=True).splitlines()
+          targets=[p for p in changed if p.startswith('content/lexical/') and p.endswith('.json') and Path(p).exists()]
+          for p in targets: json.loads(Path(p).read_text(encoding='utf-8'))
+          print('CORRECTION_JSON_PASS',len(targets))
+          PY
+      - name: Commit corrections
+        run: |
+          git config user.name Kian
+          git config user.email kianwang022@gmail.com
+          git add content/lexical
+          if ! git diff --cached --quiet; then
+            git commit -m 'lexical: close pkg295 readback materialization gaps [skip ci]'
+            git push origin HEAD:lexical/pkg295-exec
+          fi
