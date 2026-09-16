@@ -91,6 +91,11 @@
   "shared_learning_support": {
     "role": "CURRENT_SHARED_FIELDS_AND_IDENTITY_SUPPORT",
     "study_policy_owner": "learner/study-policy.json",
+    "beginner_guide_contract": "learner/BEGINNER_GUIDE_CONTRACT.md",
+    "current_guide_binding_owner": "learner/guide-bindings.json",
+    "block_preentry_content_contract": "learner/BLOCK_PREENTRY_CONTENT_CONTRACT.md",
+    "guide_resolution_rule": "For systems explicitly present in learner/guide-bindings.json, that file is the Current explanatory-Guide path resolver. Legacy system_fields.*.guide_path values in learner/shared-fields.json do not revive retired same-system Guide authority and must not override the Current binding. Systems absent from guide-bindings.json continue through their own Current/transitional system-level resolution.",
+    "block_preentry_rule": "Framework / Memory Routing / MI-G / MI-D are typed learner-support semantics only when explicitly owned by canonical Block Markdown. Missing content remains absent; learner support and Projection may not infer membership for symmetry.",
     "rule": "Files under learner/ may support Current learning policy, learning projections and stable identity joins. They are not personal learner state and must not become a second semantic owner over system.json, Block Markdown, or canonical KP Core."
   },
   "upgrade_policy": {

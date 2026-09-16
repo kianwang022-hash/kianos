@@ -1,0 +1,333 @@
+<script>
+  import {
+    startManualTranslationReconstruction,
+    saveManualWritingRevision,
+    passWritingManualReview
+  } from '../lib/englishProductiveConvergenceModel.mjs';
+
+  const onReady = (callback) => {
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', callback, { once: true });
+    else queueMicrotask(callback);
+  };
+
+  const readJson = (key, fallback = null) => {
+    try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; }
+    catch { return fallback; }
+  };
+
+  const writeJson = (key, value) => {
+    try { localStorage.setItem(key, JSON.stringify(value)); return true; }
+    catch { return false; }
+  };
+
+  const copyText = async (text) => {
+    try { await navigator.clipboard.writeText(text); return true; }
+    catch {
+      try {
+        const area = document.createElement('textarea');
+        area.value = text;
+        area.style.position = 'fixed';
+        area.style.opacity = '0';
+        document.body.appendChild(area);
+        area.select();
+        const ok = document.execCommand('copy');
+        area.remove();
+        return ok;
+      } catch { return false; }
+    }
+  };
+
+  const node = (tag, className = '', text = '') => {
+    const element = document.createElement(tag);
+    if (className) element.className = className;
+    if (text) element.textContent = text;
+    return element;
+  };
+
+  function enhanceTranslation() {
+    const root = document.querySelector('[data-translation-runtime]');
+    if (!(root instanceof HTMLElement) || root.dataset.simpleReviewReady === 'true') return;
+    root.dataset.simpleReviewReady = 'true';
+
+    const objectId = root.getAttribute('data-object-id') || '';
+    const storageKey = `kianos-translation-attempt-v2:${objectId}`;
+    let prompts = [];
+    try { prompts = JSON.parse(root.querySelector('[data-translation-prompts]')?.textContent || '[]'); } catch {}
+
+    const diagnosis = root.querySelector('[data-stage="diagnosis"]');
+    if (!(diagnosis instanceof HTMLElement)) return;
+
+    const direct = node('section', 'productiveDirectReview translationDirectReview');
+    const head = node('header');
+    head.append(
+      node('span', '', 'Review / revise'),
+      node('h2', '', '需要修就直接选句子，自己重译'),
+      node('p', '', '可以先把整套复制给 Chat 讨论；回来后不需要粘 JSON。点出真正受影响的 Segment，直接进入 Reconstruction。')
+    );
+
+    const segmentRow = node('div', 'productiveSegmentRow');
+    const selected = new Set();
+    prompts.forEach((prompt) => {
+      const id = String(prompt?.id || '');
+      if (!id) return;
+      const button = node('button', 'productiveSegmentChoice', `S${prompt?.ordinal || id}`);
+      button.type = 'button';
+      button.dataset.segmentId = id;
+      button.addEventListener('click', () => {
+        selected.has(id) ? selected.delete(id) : selected.add(id);
+        button.classList.toggle('active', selected.has(id));
+      });
+      segmentRow.appendChild(button);
+    });
+    const all = node('button', 'productiveSegmentChoice', '全部');
+    all.type = 'button';
+    all.addEventListener('click', () => {
+      const allIds = prompts.map((prompt) => String(prompt?.id || '')).filter(Boolean);
+      const shouldSelect = selected.size !== allIds.length;
+      selected.clear();
+      if (shouldSelect) allIds.forEach((id) => selected.add(id));
+      segmentRow.querySelectorAll('[data-segment-id]').forEach((button) => {
+        if (button instanceof HTMLElement) button.classList.toggle('active', shouldSelect);
+      });
+      all.classList.toggle('active', shouldSelect);
+    });
+    segmentRow.appendChild(all);
+
+    const actions = node('div', 'productiveDirectActions');
+    const chat = node('button', 'primary', '复制整套给 Chat');
+    chat.type = 'button';
+    const revise = node('button', '', '开始重译');
+    revise.type = 'button';
+    const status = node('small', 'productiveDirectStatus', '先讨论也可以，已经知道问题在哪也可以直接重译。');
+
+    chat.addEventListener('click', async () => {
+      const state = readJson(storageKey, {});
+      const source = prompts.map((prompt) => `[S${prompt.ordinal || ''}] ${prompt.sourceText || ''}`).join('\n\n');
+      const first = prompts.map((prompt) => `[S${prompt.ordinal || ''}] ${state?.firstAttempts?.[prompt.id] || '—'}`).join('\n\n');
+      const text = [
+        '请帮我复盘这套考研英语翻译。',
+        '先看整套是否已经稳定；如果有问题，只指出最重要、最上游的问题和最小修正方向。',
+        '不要替我整套重写，也不需要返回 JSON；我会回网页自己重译。',
+        '',
+        '原文：', source,
+        '',
+        '我的第一版：', first
+      ].join('\n');
+      status.textContent = await copyText(text) ? '已复制。去 Chat 直接讨论；回来后选受影响句子即可。' : '复制失败，请手动复制。';
+    });
+
+    revise.addEventListener('click', () => {
+      const ids = [...selected];
+      if (!ids.length) {
+        status.textContent = '先点至少一个真正需要重译的 Segment。';
+        return;
+      }
+      const state = readJson(storageKey, null);
+      try {
+        const next = startManualTranslationReconstruction(state, prompts, ids);
+        if (!writeJson(storageKey, next)) {
+          status.textContent = '本机状态保存失败。';
+          return;
+        }
+        location.reload();
+      } catch (error) {
+        status.textContent = error instanceof Error ? error.message : String(error);
+      }
+    });
+
+    actions.append(chat, revise, status);
+    direct.append(head, segmentRow, actions);
+    diagnosis.insertBefore(direct, diagnosis.firstChild);
+
+    /* Existing structured return remains available for evidence / transfer
+       bookkeeping, but no longer occupies the normal learner path. */
+    const returnBox = diagnosis.querySelector('.translationReturnBox');
+    const importButton = diagnosis.querySelector('[data-import-return]');
+    const importActions = importButton?.closest('.translationActions');
+    const copyButton = diagnosis.querySelector('[data-copy-chat]');
+    const copyActions = copyButton?.closest('.translationActions');
+    const referencePanel = diagnosis.querySelector('[data-reference-panel]');
+    if (returnBox || importActions || copyActions) {
+      const advanced = node('details', 'productiveAdvanced');
+      const summary = node('summary', '', '高级：结构化证据 / Transfer');
+      advanced.appendChild(summary);
+      if (copyActions) advanced.appendChild(copyActions);
+      if (returnBox) advanced.appendChild(returnBox);
+      if (importActions) advanced.appendChild(importActions);
+      if (referencePanel) advanced.appendChild(referencePanel);
+      diagnosis.appendChild(advanced);
+    }
+  }
+
+  function enhanceWriting() {
+    const root = document.querySelector('[data-writing-runtime]');
+    if (!(root instanceof HTMLElement) || root.dataset.simpleReviewReady === 'true') return;
+    root.dataset.simpleReviewReady = 'true';
+
+    let task = null;
+    try { task = JSON.parse(root.querySelector('[data-writing-task]')?.textContent || 'null'); } catch {}
+    if (!task?.id) return;
+    const storageKey = `kianos-writing-runtime-v1:${task.id}`;
+
+    const attempt = root.querySelector('[data-runtime-stage="attempt"]');
+    const essay = root.querySelector('[data-essay-draft]');
+    const plan = root.querySelector('[data-plan-draft]');
+    if (attempt instanceof HTMLElement && essay instanceof HTMLTextAreaElement) {
+      const meta = node('div', 'writingLiveMeta');
+      const count = node('span', '', '0 words');
+      const timer = node('span', '', '00:00');
+      meta.append(count, timer);
+      const field = essay.closest('.writingField');
+      field?.insertBefore(meta, essay);
+
+      const wordCount = (value) => String(value || '').trim().split(/\s+/).filter(Boolean).length;
+      const updateCount = () => { count.textContent = `${wordCount(essay.value)} words`; };
+      essay.addEventListener('input', updateCount);
+      updateCount();
+
+      const state = readJson(storageKey, {});
+      const started = Date.parse(state?.createdAt || '') || Date.now();
+      const tick = () => {
+        if (!document.body.contains(root)) return;
+        const seconds = Math.max(0, Math.floor((Date.now() - started) / 1000));
+        const m = Math.floor(seconds / 60);
+        const s = seconds % 60;
+        timer.textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+      };
+      tick();
+      setInterval(tick, 1000);
+    }
+
+    const review = root.querySelector('[data-runtime-stage="review"]');
+    if (!(review instanceof HTMLElement)) return;
+
+    const direct = node('section', 'productiveDirectReview writingDirectReview');
+    const head = node('header');
+    head.append(
+      node('span', '', 'Review / revise'),
+      node('h2', '', '稳定就走；有问题就回到作文上改'),
+      node('p', '', 'Chat 负责语义点评，网页负责保留第一版和你的当前修订。正常情况下不需要把 Chat 分析再粘回网页。')
+    );
+
+    const revisionField = node('label', 'writingField productiveRevisionField');
+    const revisionLabel = node('span', '', 'Current revision');
+    const revisionHint = node('small', '', '需要修时直接改；第一版已经锁定，不会被覆盖。');
+    const revision = document.createElement('textarea');
+    revision.rows = 16;
+    revision.placeholder = '在这里修改整篇；如果只需局部修，也可以只写受影响部分。';
+    const saved = readJson(storageKey, {});
+    revision.value = saved?.manualRevisionDraft || saved?.manualRevisions?.at?.(-1)?.text || saved?.firstDraft || '';
+    revision.addEventListener('input', () => {
+      const state = readJson(storageKey, {});
+      state.manualRevisionDraft = revision.value;
+      writeJson(storageKey, state);
+      updateRevisionMeta();
+    });
+    revisionField.append(revisionLabel, revisionHint, revision);
+
+    const meta = node('div', 'writingLiveMeta');
+    const count = node('span');
+    const updated = node('span', '', '未保存修订');
+    meta.append(count, updated);
+    revisionField.insertBefore(meta, revision);
+    const updateRevisionMeta = () => {
+      const words = String(revision.value || '').trim().split(/\s+/).filter(Boolean).length;
+      count.textContent = `${words} words`;
+    };
+    updateRevisionMeta();
+
+    const actions = node('div', 'productiveDirectActions');
+    const chat = node('button', 'primary', '复制作文给 Chat');
+    chat.type = 'button';
+    const saveRevision = node('button', '', '保存当前修订');
+    saveRevision.type = 'button';
+    const pass = node('button', '', '这篇可以了');
+    pass.type = 'button';
+    const status = node('small', 'productiveDirectStatus', '可以直接判定稳定，也可以先讨论 / 修订。');
+
+    chat.addEventListener('click', async () => {
+      const state = readJson(storageKey, {});
+      const currentEssay = revision.value || state.firstDraft || '';
+      const learnerTask = task.learnerTask || {};
+      const prompt = task.kind === 'small'
+        ? [learnerTask.role, learnerTask.audience, learnerTask.background, learnerTask.directions].filter(Boolean).join('\n')
+        : [learnerTask.visual_scenario, learnerTask.directions, learnerTask.observation_boundary].filter(Boolean).join('\n');
+      const text = [
+        '请帮我复盘这篇考研英语作文。',
+        '先判断是否已经足够稳定；如果有问题，优先指出最重要、最上游、最值得修的地方。',
+        '不要替我整篇重写，也不需要返回 JSON；我会回网页自己修改。',
+        '',
+        '题目：', prompt,
+        '',
+        '我的作文：', currentEssay
+      ].join('\n');
+      status.textContent = await copyText(text) ? '已复制。直接在 Chat 讨论；回来改这篇就行。' : '复制失败，请手动复制。';
+    });
+
+    saveRevision.addEventListener('click', () => {
+      const text = revision.value.trim();
+      if (!text) {
+        status.textContent = '当前修订为空。';
+        return;
+      }
+      try {
+        const next = saveManualWritingRevision(readJson(storageKey, null), text);
+        if (!writeJson(storageKey, next)) {
+          status.textContent = '本机状态保存失败。';
+          return;
+        }
+        updated.textContent = `已保存 · ${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+        status.textContent = '当前修订已保存；第一版保持不变。';
+      } catch (error) {
+        status.textContent = error instanceof Error ? error.message : String(error);
+      }
+    });
+
+    pass.addEventListener('click', () => {
+      try {
+        const next = passWritingManualReview(readJson(storageKey, null), revision.value);
+        if (!writeJson(storageKey, next)) {
+          status.textContent = '本机状态保存失败。';
+          return;
+        }
+        location.reload();
+      } catch (error) {
+        status.textContent = error instanceof Error ? error.message : String(error);
+      }
+    });
+
+    actions.append(chat, saveRevision, pass, status);
+    direct.append(head, revisionField, actions);
+    review.insertBefore(direct, review.firstChild);
+
+    /* Existing structured review remains an advanced compatibility/evidence
+       path; it is not the normal learner interaction. */
+    const reviewPacket = review.querySelector('[data-copy-review]')?.closest('.writingActions');
+    const returnField = review.querySelector('[data-review-return]')?.closest('.writingField');
+    const importReview = review.querySelector('[data-import-review]')?.closest('.writingActions');
+    if (reviewPacket || returnField || importReview) {
+      const advanced = node('details', 'productiveAdvanced');
+      advanced.appendChild(node('summary', '', '高级：结构化证据 / Transfer'));
+      if (reviewPacket) advanced.appendChild(reviewPacket);
+      if (returnField) advanced.appendChild(returnField);
+      if (importReview) advanced.appendChild(importReview);
+      review.appendChild(advanced);
+    }
+  }
+
+  onReady(() => {
+    enhanceTranslation();
+    enhanceWriting();
+  });
+</script>
+
+<style>
+  .productiveDirectReview{display:grid;gap:14px;padding:18px 0 20px;border-bottom:1px solid var(--study-line)}
+  .productiveDirectReview>header{display:grid;gap:4px}.productiveDirectReview>header>span{font-size:9px;font-weight:700;letter-spacing:.05em;color:var(--study-green)}
+  .productiveDirectReview>header h2{margin:0;font-size:21px;line-height:1.35}.productiveDirectReview>header p{margin:0;color:var(--study-muted);font-size:13px;line-height:1.65}
+  .productiveSegmentRow{display:flex;flex-wrap:wrap;gap:6px}.productiveSegmentChoice{padding:6px 9px;border:1px solid var(--study-line);border-radius:7px;background:#fff;color:var(--study-muted);font:inherit;font-size:11px;cursor:pointer}.productiveSegmentChoice.active{border-color:var(--study-green);background:var(--study-green-soft);color:var(--study-green);font-weight:700}
+  .productiveDirectActions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.productiveDirectActions button{padding:8px 11px;border:1px solid var(--study-line);border-radius:7px;background:#fff;color:inherit;font:inherit;font-size:12px;font-weight:700;cursor:pointer}.productiveDirectActions button.primary{border-color:var(--study-green);background:var(--study-green);color:#fff}.productiveDirectStatus{flex-basis:100%;color:var(--study-faint);font-size:10px;line-height:1.5}
+  .productiveAdvanced{margin-top:8px;padding-top:10px;border-top:1px solid var(--study-line);color:var(--study-muted)}.productiveAdvanced>summary{cursor:pointer;font-size:10px;font-weight:650}.productiveAdvanced[open]>summary{margin-bottom:10px}
+  .productiveRevisionField{display:grid;gap:6px}.productiveRevisionField textarea{width:100%;box-sizing:border-box;resize:vertical}
+  .writingLiveMeta{display:flex;justify-content:flex-end;gap:12px;color:var(--study-muted);font-size:10px;margin:2px 0 5px}
+</style>
