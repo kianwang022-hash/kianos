@@ -1,0 +1,60 @@
+name: Materialize subject presentation candidate
+on:
+  push:
+    branches: ['ui/visual-convergence-20260916']
+    paths:
+      - 'tools/visual_subjects_transfer/**'
+      - '.github/workflows/visual-subjects-materialize.yml'
+permissions:
+  contents: write
+jobs:
+  candidate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - name: Apply bounded presentation patch
+        run: |
+          python tools/visual_subjects_transfer/apply.py
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add static-web/scripts/capture-visual-stage-two.mjs static-web/src/components/PoliticsChapterPresentation.astro static-web/src/components/PoliticsChapterRuntime.astro 'static-web/src/pages/politics/[subject]/[chapter].astro' static-web/src/pages/politics/index.astro static-web/src/pages/xizong/index.astro static-web/src/styles/politics-presentation.css static-web/src/styles/xizong-presentation.css static-web/src/layouts/Base.astro tools/visual_subjects_transfer .github/workflows/visual-subjects-materialize.yml
+          git commit -m 'ui: converge Politics and Xizong cognitive workspaces on Current'
+          git push origin HEAD:${{ github.ref_name }}
+          echo "CANDIDATE_HEAD=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+          mkdir -p visual-stage-two
+          git rev-parse HEAD > visual-stage-two/commit.txt
+          git archive --format=tar.gz HEAD > visual-stage-two/inputs.tar.gz
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install runtime and screenshot tools
+        working-directory: static-web
+        run: |
+          npm install --no-audit --no-fund
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          sudo apt-get update -qq
+          sudo apt-get install -y fonts-noto-cjk
+          npx playwright install --with-deps chromium
+      - name: Build real candidate
+        working-directory: static-web
+        run: npm run build > ../visual-stage-two/build.log 2>&1
+      - name: Capture Politics and Xizong journeys
+        working-directory: static-web
+        run: node scripts/capture-visual-stage-two.mjs
+      - name: Capture preserved English and Lexical candidate
+        if: always()
+        working-directory: static-web
+        run: node scripts/capture-visual-stage-one.mjs
+      - name: Preserve exact candidate and browser output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: subject-candidate-${{ env.CANDIDATE_HEAD }}
+          path: |
+            visual-stage-two/
+            visual-evidence/stage1/
+          retention-days: 7
+          if-no-files-found: error
