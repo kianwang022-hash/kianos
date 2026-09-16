@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "5482b51d9053c2dd06cbe6d2339099aaeda13e6ac0bfc04780b7e7f7d9ee3780",
+    "content_hash": "b5e26409357b012edf44cd9fe5cd4463686f8c74d84e8cc4d2e0e36aae673892",
     "core_concept": {
       "core_clusters": [
         {
@@ -19,9 +19,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "骑；乘坐",
-      "core_meaning_en": "to travel on or in a vehicle or animal",
-      "mental_model_cn": "骑；乘坐",
+      "core_meaning_cn": "骑乘、乘车；也指一次乘坐或旅程",
+      "core_meaning_en": "to ride an animal/bicycle or travel as a passenger; also a journey/ride",
+      "mental_model_cn": "骑乘、乘车；也指一次乘坐或旅程",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -64,6 +64,34 @@
         "sense_label_en": "sit on and control an animal or bicycle",
         "sort_order": 0,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "骑；乘坐；旅程",
+        "definition_en": "a journey on an animal or in a vehicle",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:ride:6e09ffc232ca527c",
+        "sense_label_en": "a journey on an animal or in a vehicle",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "乘坐（车、船等）",
+        "definition_en": "travel in or on a vehicle",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:ride:a4e9c621e46b5bf9",
+        "sense_label_en": "travel in or on a vehicle",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -87,56 +115,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:ride:6e09ffc232ca527c",
-      "status": "merged",
-      "merged_into_sense_id": "sense:ride:453a97f561f55642",
-      "pos": "noun",
-      "definition_cn": "骑；乘坐；旅程",
-      "definition_en": "a journey on an animal or in a vehicle",
-      "semantic_key": "ab3912fd10eb029de299b8632fba2c4287961902ff20294fed9b75466884f9b3",
-      "semantic_key_history": [
-        "4484c21e09424e07645dee8be88b96e7700e7fb285a0dd4719a0e8b91894cf0a"
-      ],
-      "legacy_aliases": [
-        "ride:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "ride:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11642,
-      "source_path": "content/lexical/canonical/senses/shards/o4161-4192.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:ride:a4e9c621e46b5bf9",
-      "status": "merged",
-      "merged_into_sense_id": "sense:ride:453a97f561f55642",
-      "pos": "verb",
-      "definition_cn": "乘坐（车、船等）",
-      "definition_en": "travel in or on a vehicle",
-      "semantic_key": "cdac743fd93538a1e6ba293907026b65b4305585fcc907702b63ebb262c10a6e",
-      "semantic_key_history": [
-        "43cc185c2df44537b930f03aff952b27962dacfbe8739714a5a8345fbe4b1ba4"
-      ],
-      "legacy_aliases": [
-        "ride:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "ride:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11643,
-      "source_path": "content/lexical/canonical/senses/shards/o4161-4192.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:ride:cb904a2fd43d5c49",
       "status": "merged",
@@ -174,15 +152,15 @@
       },
       {
         "sense_id": "sense:ride:6e09ffc232ca527c",
-        "status": "merged",
-        "merged_into_sense_id": "sense:ride:453a97f561f55642",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 11642,
         "source_path": "content/lexical/canonical/senses/shards/o4161-4192.json"
       },
       {
         "sense_id": "sense:ride:a4e9c621e46b5bf9",
-        "status": "merged",
-        "merged_into_sense_id": "sense:ride:453a97f561f55642",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 11643,
         "source_path": "content/lexical/canonical/senses/shards/o4161-4192.json"
       },
@@ -277,7 +255,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4161-4168.json",
-    "source_content_hash": "5482b51d9053c2dd06cbe6d2339099aaeda13e6ac0bfc04780b7e7f7d9ee3780",
+    "source_content_hash": "b5e26409357b012edf44cd9fe5cd4463686f8c74d84e8cc4d2e0e36aae673892",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
