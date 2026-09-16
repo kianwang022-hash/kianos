@@ -11,87 +11,22 @@ const firstHref = firstSystem ? `${base}xizong/${firstSystem.systemId}/` : `${ba
 const firstLabel = firstSystem ? `${firstSystem.canonicalId} · ${firstSystem.title}` : '开始西综学习';
 const domainCount = domains.length;
 ---
-<Base title="西医综合" kicker="Xizong · Current" description="A–F 是全局定位层；真正学习仍直接进入 Current System。讲义负责连续学习，网页负责定位、Recall、压缩与修补。" active="xizong">
-  <section class="homeCurrentStrip">
-    <div>
-      <p class="pageKicker">Learning map</p>
-      <h2>{domainCount} 个顶层域，学习仍直接进 System</h2>
-      <p>A–F 用来保持全局结构，不新增必经步骤。A 因重要性与体量拆成 A1 / A2 / A3；没有 Current 学习入口的后续域只保留位置感，不提前占用注意力。</p>
-    </div>
-    <aside>
-      <strong>{domainCount} 个顶层域 · {systems.length} 个 Current System</strong>
-      <span>顶层结构 ≠ 额外课程</span>
-      <span>Continue 仍直达最近学习位置</span>
-    </aside>
-  </section>
-
+<Base title="西医综合" active="xizong" showLead={false}>
+  <header class="xzOverviewHeader"><div><p class="pageKicker">XIZONG · LEARNING WORKSPACE</p><h1>西医综合</h1><p>先建立系统，再进入学习节；原讲义、主动回忆与应用各归其位。</p></div><span>{systems.length} 个可进入的 System</span></header>
   <XizongHomeTools firstHref={firstHref} firstLabel={firstLabel} />
-
-  <section class="xzDomainGrid" aria-label="西综顶层知识域">
-    {domains.map((domain) => {
-      const domainClass = `xzDomainCard domain-${domain.domainId.toLowerCase()} ${domain.projectable ? 'ready' : 'pending'} ${domain.decomposed ? 'decomposed' : ''}`;
-      if (domain.decomposed) {
-        return <section class={domainClass} data-domain={domain.domainId}>
-          <header class="xzDomainHeader">
-            <div>
-              <span>{domain.domainId} · Macro domain</span>
-              <h2>{domain.title}</h2>
-            </div>
-            <strong>{domain.systems.length} Systems · {domain.blockCount} Blocks</strong>
-          </header>
-          <p class="xzDomainNote">{domain.note}</p>
-          <div class="xzDomainSystems">
-            {domain.systems.map((system) => {
-              const kpCount = system.blocks.reduce((sum, block) => sum + block.kpCount, 0);
-              return <a href={`${base}xizong/${system.systemId}/`} class="xzDomainSystem">
-                <span>{system.canonicalId}</span>
-                <strong>{system.title}</strong>
-                <small>{system.blocks.length} Blocks · {kpCount} KP</small>
-                <b>进入 →</b>
-              </a>;
-            })}
-          </div>
-          <footer>跨 System 压缩只在二轮 / 修补需要时调用；这里没有 A 级必修入口。</footer>
-        </section>;
-      }
-
-      if (domain.projectable) {
-        const system = domain.systems[0];
-        const kpCount = system.blocks.reduce((sum, block) => sum + block.kpCount, 0);
-        return <a class={domainClass} data-domain={domain.domainId} href={`${base}xizong/${system.systemId}/`}>
-          <header class="xzDomainHeader">
-            <div>
-              <span>{domain.domainId} · Macro domain</span>
-              <h2>{domain.title}</h2>
-            </div>
-          </header>
-          <p class="xzDomainNote">{system.title}</p>
-          <footer><span>{system.blocks.length} Blocks · {kpCount} KP</span><b>进入 System →</b></footer>
-        </a>;
-      }
-
-      return <section class={domainClass} data-domain={domain.domainId}>
-        <header class="xzDomainHeader">
-          <div>
-            <span>{domain.domainId} · Macro domain</span>
-            <h2>{domain.title}</h2>
-          </div>
-        </header>
-        <p class="xzDomainNote">保留在完整知识地图里；当前没有独立 learner-facing System 入口。</p>
-        <footer><span>后续学习域</span><b>当前不占注意力</b></footer>
-      </section>;
-    })}
-  </section>
+  <div class="xzOverviewLayout">
+    <main class="xzSystemWorkbench">
+      <header><h2>进入系统</h2><span>System → Block → 学习节</span></header>
+      {domains.filter(d=>d.projectable || d.decomposed).map(domain=><section class="xzOpenDomain" data-domain={domain.domainId}>
+        <div class="xzOpenDomainHeading"><span>{domain.domainId}</span><div><h2>{domain.title}</h2>{domain.note&&<p>{domain.note}</p>}</div></div>
+        <nav class="xzSystemRows">
+          {domain.systems.map(system=><a href={`${base}xizong/${system.systemId}/`} class="xzSystemRow"><span>{system.canonicalId}</span><div><h3>{system.title}</h3><p>{system.blocks.length} Blocks · {system.blocks.reduce((sum,block)=>sum+block.kpCount,0)} KP</p></div><b>进入系统 <i>→</i></b></a>)}
+        </nav>
+      </section>)}
+    </main>
+    <aside class="xzOverviewCompanion">
+      <section><p class="pageKicker">学习主线</p><h2>理解、回忆、应用。</h2><ol class="xzLearnerChain"><li><strong>System / Block</strong><span>建立位置与主机制</span></li><li><strong>学习节 / 原讲义</strong><span>在 iPad 连续学完整关系</span></li><li><strong>KP Recall / 闭合</strong><span>主动重建，再看完整 Core</span></li><li><strong>题目 / 最小修复</strong><span>用实际作答发现缺口</span></li></ol></section>
+      {domains.some(d=>!d.projectable&&!d.decomposed)&&<section class="xzFutureMap"><p class="pageKicker">完整知识地图</p><h2>后续学习域</h2><div>{domains.filter(d=>!d.projectable&&!d.decomposed).map(d=><div class="xzFutureRow"><b>{d.domainId}</b><span>{d.title}</span></div>)}</div><small>保留全局位置；不产生待办或学习债务。</small></section>}
+    </aside>
+  </div>
 </Base>
-
-<style>
-  .xzDomainGrid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:9px;margin-top:10px}
-  .xzDomainCard{display:grid;min-height:188px;grid-template-rows:auto 1fr auto;gap:12px;padding:18px 19px;border:1px solid var(--study-line);border-radius:10px;background:#fff;color:inherit;text-decoration:none}
-  .xzDomainCard.domain-a{grid-column:span 6}.xzDomainCard.domain-b,.xzDomainCard.domain-c{grid-column:span 3}.xzDomainCard.domain-d,.xzDomainCard.domain-e,.xzDomainCard.domain-f{grid-column:span 4}
-  .xzDomainCard.ready:not(.decomposed){transition:border-color 140ms ease,transform 140ms ease}.xzDomainCard.ready:not(.decomposed):hover{border-color:#a9c8bc;transform:translateY(-1px)}
-  .xzDomainCard.pending{background:#f8f9f8;color:#435049}.xzDomainHeader{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.xzDomainHeader>div{min-width:0}.xzDomainHeader span{color:var(--study-green);font-size:10.5px;font-weight:850;letter-spacing:.065em;text-transform:uppercase}.xzDomainHeader h2{margin:5px 0 0;font-size:23px;line-height:1.22;letter-spacing:-.025em}.xzDomainHeader>strong{color:var(--study-muted);font-size:11px;font-weight:760;white-space:nowrap}
-  .xzDomainNote{align-self:start;margin:0;color:var(--study-muted);font-size:13px;line-height:1.58}.xzDomainCard>footer{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:11px;border-top:1px solid var(--study-line);color:var(--study-faint);font-size:10.5px}.xzDomainCard>footer b{color:var(--study-green);font-size:11.5px}.xzDomainCard.pending>footer b{color:var(--study-muted)}
-  .xzDomainCard.decomposed{grid-template-rows:auto auto 1fr auto;gap:10px}.xzDomainSystems{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.xzDomainSystem{position:relative;display:grid;grid-template-rows:auto auto 1fr auto;gap:3px;min-height:118px;padding:11px 12px;border:1px solid var(--study-line);border-radius:8px;background:#fafbfa;color:inherit;text-decoration:none;transition:border-color 140ms ease,background 140ms ease}.xzDomainSystem:hover{border-color:#a9c8bc;background:#f4f8f6}.xzDomainSystem>span{color:var(--study-green);font-size:10px;font-weight:850}.xzDomainSystem>strong{font-size:15px;line-height:1.3}.xzDomainSystem>small{color:var(--study-muted);font-size:10.5px}.xzDomainSystem>b{align-self:end;color:var(--study-green);font-size:11px}.xzDomainCard.decomposed>footer{display:block}
-  @media(max-width:1080px){.xzDomainCard.domain-a{grid-column:span 12}.xzDomainCard.domain-b,.xzDomainCard.domain-c,.xzDomainCard.domain-d,.xzDomainCard.domain-e,.xzDomainCard.domain-f{grid-column:span 6}}
-  @media(max-width:720px){.xzDomainCard.domain-a,.xzDomainCard.domain-b,.xzDomainCard.domain-c,.xzDomainCard.domain-d,.xzDomainCard.domain-e,.xzDomainCard.domain-f{grid-column:span 12}.xzDomainSystems{grid-template-columns:1fr}.xzDomainHeader{display:grid}.xzDomainHeader>strong{white-space:normal}}
-</style>

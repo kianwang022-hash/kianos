@@ -1,5 +1,6 @@
 ---
 import Base from '../../../layouts/Base.astro';
+import PoliticsChapterPresentation from '../../../components/PoliticsChapterPresentation.astro';
 import PoliticsChapterRuntime from '../../../components/PoliticsChapterRuntime.astro';
 import PoliticsCognitiveWorkspace from '../../../components/PoliticsCognitiveWorkspace.astro';
 import PoliticsCognitiveWorkspaceBridge from '../../../components/PoliticsCognitiveWorkspaceBridge.astro';
@@ -30,7 +31,7 @@ const useCognitiveWorkspace = subject === 'marxism'
   sourceHash={data.sourceHash}
   objectId={data.objectId}
   active="politics"
-  showLead={!useCognitiveWorkspace}
+  showLead={false}
 >
   <PoliticsPracticeBridge chapter={data} base={base} />
 
@@ -65,4 +66,5 @@ const useCognitiveWorkspace = subject === 'marxism'
   <PoliticsRepairEnhancer chapter={data} />
   <PoliticsUnitReturnEnhancer chapter={data} />
   {['mao', 'xi', 'ethics_law'].includes(subject) && <PoliticsEvidenceEnhancer chapter={data} />}
+  {!useCognitiveWorkspace && <PoliticsChapterPresentation />}
 </Base>

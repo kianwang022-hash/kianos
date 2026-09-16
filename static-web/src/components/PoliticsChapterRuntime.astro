@@ -33,6 +33,7 @@ const guideLabel = chapter.subject === 'history'
   data-chapter={chapter.code || chapter.chapter || ''}
   data-title={chapter.title}
 >
+  <header class="politicsChapterLocation"><a href={`${base}politics/`}>{chapter.subjectMeta.label}</a><span>/</span><h1>{chapter.title}</h1><small>{units.length} 个 Natural Unit</small></header>
   <aside class="politicsRail" aria-label="本章路径">
     <a class="politicsBack" href={`${base}politics/`}>← 政治</a>
     <span>{chapter.subjectMeta.label}</span>
@@ -44,7 +45,7 @@ const guideLabel = chapter.subject === 'history'
     </nav>
   </aside>
 
-  <div class="politicsMain">
+  <div class="politicsMain" data-politics-presentation-panels>
     <section class="politicsOrientation" id="orientation">
       <p class="politicsMicro">先定位 · 不背</p>
       {o.context && <p class="politicsContext">{o.context}</p>}
@@ -63,7 +64,8 @@ const guideLabel = chapter.subject === 'history'
       const hasGuide = t.beats?.length > 0 || t.conditions?.length > 0 || t.failureCauses?.length > 0 || t.gains?.length > 0 || t.process?.length > 0 || t.turningPoint || t.program || t.hierarchy || t.relation || t.application;
       const locatorCount = unit.sourceNodes.length || unit.sourceRefCount || 0;
       return (
-        <section class="politicsUnit" id={`unit-${index + 1}`} data-politics-unit>
+        <section class="politicsUnit" id={`unit-${index + 1}`} data-politics-unit data-unit-id={unit.unitId}>
+          <div class="politicsUnitCognition">
           <header class="politicsUnitHead">
             <p class="politicsMicro">{index + 1} / {units.length} · 当前 Natural Unit</p>
             <h2>{unit.title}</h2>
@@ -73,7 +75,7 @@ const guideLabel = chapter.subject === 'history'
           </header>
 
           {hasGuide && (
-            <details class="politicsGuide">
+            <details class="politicsGuide" open>
               <summary>{guideLabel}</summary>
               <div class="politicsGuideBody">
                 {t.beats?.map((beat) => <article><b>{beat.label || beat.title || '关系'}</b>{beat.problem && <p>{beat.problem}</p>}{beat.relation && <small>{beat.relation}</small>}</article>)}
@@ -90,17 +92,19 @@ const guideLabel = chapter.subject === 'history'
             </details>
           )}
 
+          </div>
+          <aside class="politicsUnitCompanion">
           <section class="politicsSource" id={`source-${unit.unitId}`} data-politics-external-source>
             <header>
               <div><p class="politicsMicro">乘风 · 主学习面</p><h3>去 iPad / MarginNote 学原讲义</h3></div>
               <span>{locatorCount ? `${locatorCount} 个定位依据` : '按当前 Unit 定位'}</span>
             </header>
             <div class="politicsSourceHandoff">
-              <strong>这里不再复制乘风连续正文。</strong>
-              <p>保持原讲义为唯一连续学习面：在 iPad / MarginNote 完成当前 Natural Unit，学完回到这里做 20 秒闭合，再进入本单元肖1000。</p>
+              <strong>{unit.title}</strong>
+              <p>在原讲义连续学完这一单元；需要时回来做简短闭合，再进入配套题。</p>
               {unit.sourceNodes.length > 0 ? (
                 <details class="politicsSourceLocators">
-                  <summary>需要定位时展开 · {unit.sourceNodes.length} 个 source owner</summary>
+                  <summary>原讲义定位 · {unit.sourceNodes.length} 处</summary>
                   <ol>
                     {unit.sourceNodes.map((node) => (
                       <li>
@@ -156,6 +160,7 @@ const guideLabel = chapter.subject === 'history'
           </section>
 
           {t.next && <p class="politicsNextBridge">接下来：{t.next}</p>}
+          </aside>
         </section>
       );
     })}

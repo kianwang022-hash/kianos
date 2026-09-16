@@ -27,6 +27,10 @@ const cases=[
  ['politics-mao','/politics/mao/ch01/'],
  ['politics-xi','/politics/xi/ch01/'],
  ['politics-ethics','/politics/ethics_law/ch01/'],
+ ['politics-history-unit','/politics/history/ch01/#unit-1'],
+ ['politics-mao-unit','/politics/mao/ch02/#unit-2'],
+ ['politics-xi-unit','/politics/xi/ch02/#unit-1'],
+ ['politics-ethics-unit','/politics/ethics_law/ch05/#unit-1'],
  ['politics-practice','/politics/practice/'],
  ['politics-attempt','/politics/practice/','attempt'],
  ['politics-result','/politics/practice/','result'],
@@ -70,6 +74,7 @@ try{
    if(state==='recall'){
     const visibleAnswers=await p.locator('[data-kp-answer]:visible').count();
     if(visibleAnswers)report.failures.push({name,error:'Recall Core visible before Reveal'});
+    for(const selector of ['.portedStudyIdentity h2','.portedStudyKpRail button>span','.xv6PersonalDock','.portedKpRecallCard>header>span']) {if(await p.locator(selector+':visible').count())report.failures.push({name,error:'Workspace Recall leak: '+selector});}
    }
    report.pages.push({name,route,state,...metrics,fonts,errors});
    if(errors.length)report.failures.push({name,errors});
