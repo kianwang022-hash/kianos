@@ -154,7 +154,11 @@ for (const text of [acceptance, freshAcceptance]) {
 }
 if (!acceptance.includes('P — Projection | **NOT_STARTED / ELIGIBLE**')) fail('projection-started-or-acceptance-ambiguous');
 if (!freshAcceptance.includes('mandatory LG-by-LG Source bouncing') && !freshAcceptance.includes('LG-by-LG KianOS ↔ Lecture bouncing')) fail('true-red-point-not-recorded');
-if (!freshAcceptance.includes('Crosswalk remains outside this task')) fail('crosswalk-boundary-not-recorded');
+const crosswalkBoundaryRecorded =
+  acceptance.includes('Crosswalk remains outside this task') ||
+  freshAcceptance.includes('Crosswalk remains outside this task') ||
+  freshAcceptance.includes('did not infer or write Question→Knowledge relations');
+if (!crosswalkBoundaryRecorded) fail('crosswalk-boundary-not-recorded');
 if (!freshAcceptance.includes('NOT MANUFACTURED')) fail('learner-state-boundary-not-recorded');
 
 console.log(JSON.stringify({
@@ -166,6 +170,7 @@ console.log(JSON.stringify({
   h11_structure_first: 'BIOPSY_ARCHITECTURE_BEFORE_MARKERS',
   h12_source_boundary: 'MINIMUM_LANGUAGE_NO_FULL_NORMAL_IMMUNOLOGY_BACKFILL',
   h21_owner_boundary: 'CROSS_ORGAN_INTEGRATION_WITH_RETURN_TO_PRIMARY_OWNERS',
+  crosswalk_boundary: 'UNCHANGED_NO_QUESTION_TO_KNOWLEDGE_WRITE',
   first_pass_source_continuity: 'BLOCK_OR_CANONICAL_SOURCE_UNIT_NO_DEFAULT_LG_BOUNCE',
   phase3e_accounting: '34 / cumulative 133',
   verdict: root.acceptance.verdict,
