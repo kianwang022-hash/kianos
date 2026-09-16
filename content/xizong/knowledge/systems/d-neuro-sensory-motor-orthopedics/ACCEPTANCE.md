@@ -15,9 +15,9 @@ This file owns D-scoped gate truth only. It does not own medical Core, Xizong la
 | S1 — medical / first-learning Source boundary | **PASS** | Fresh 27/27 canonical Block readback; physiology + surgery Source ownership, gaps, conflicts, negative space and visual gates are explicit in Block Core and `system.json` |
 | S2 — exact official D System question membership | **UNTESTED** | separate later Source sub-boundary; not inferred from Outline placement or Block titles and does not block current K/L construction |
 | K — Knowledge | **PASS** | `system.json` + 27 canonical Block Core; 27 stable Blocks / 356 stable KPs; self-adversarial Knowledge reconstruction completed on #272 |
-| L — Learning Logic | **UNTESTED / ACTIVE NEXT** | eligible after K closure; no D Learning owner exists yet |
-| P — Projection | **UNTESTED / DOWNSTREAM-FROZEN** | no D P claim in this task |
-| R — Runtime | **UNTESTED / DOWNSTREAM-FROZEN** | no D R claim in this task |
+| L — Learning Logic | **UNTESTED / CANDIDATE READY FOR FRESH INDEPENDENT AUDIT** | repaired single Learning candidate exists; builder-side adversarial + structural accounting complete, but same builder cannot promote L |
+| P — Projection | **UNTESTED / DOWNSTREAM-FROZEN** | no D P claim before L acceptance |
+| R — Runtime | **UNTESTED / DOWNSTREAM-FROZEN** | no D R claim before L/P acceptance |
 | E — Evidence | **UNTESTED / DOWNSTREAM-FROZEN** | no D E claim in this task |
 | U — Learner Use | **NO_CLAIM** | real Kian use only; repository construction creates no learner progress |
 
@@ -113,49 +113,130 @@ The first System candidate understated the visual Source boundary by describing 
 
 ---
 
-## K construction boundary
+## L candidate evidence — not L PASS
 
-Accepted here:
+Canonical candidate:
 
-- Source / negative-space boundary;
-- 27 / 356 stable identity;
-- System mother model;
-- core variables and relations;
-- failure modes and judgment axes;
-- coarse Block families;
-- cross-System owner interfaces.
+`content/xizong/knowledge/learner/d-neuro-sensory-motor-orthopedics-learning.json`
 
-Not accepted here:
+Construction evidence:
 
-- Logic Groups;
-- learner route/readiness DAG;
-- Lecture Source-contact granularity;
-- local Recall/closure semantics;
-- progressive-compression checkpoints;
-- Content realization changes;
-- Projection / Runtime / Evidence behavior;
-- official-question membership;
-- learner state.
+- `D_PHASE0_LEARNING_CALIBRATION.md`
+- `D_PHASE1_ROUTE_DECISION.md`
+- `D_PHASE2_BLOCK_CONTROL.md`
+- `D_PHASE3A_LOGIC_GROUPS_N01_N11.md`
+- `D_PHASE3B_LOGIC_GROUPS_O01_O16.md`
+- `D_PHASE4_PROGRESSIVE_COMPRESSION.md`
+- `D_PHASE5_CROSS_SURFACE_NEGATIVE_SPACE.md`
+- `D_PHASE6A_SELF_ADVERSARIAL_L_AUDIT.md`
+- `D_PHASE6B_STRUCTURAL_ACCOUNTING.md`
+
+Current candidate shape:
+
+```text
+27 Blocks
+356 stable KPs
+128 explicit Logic Groups
+N branch 150 KP / 56 LG
+O branch 206 KP / 72 LG
+5 non-contiguous groups
+3 Source-contact classes
+5 non-gating PSRs
+1 sparse true-prerequisite DAG
+```
+
+Executed structural accounting:
+
+```text
+assigned membership             356 / 356
+missing                          0
+duplicate                        0
+out-of-range                     0
+unknown readiness nodes          0
+readiness cycles                 0
+Source-contact Block coverage   27 / 27
+```
+
+Evidence mode: **SEMANTIC_OWNER_READBACK + EXACT_MEMBERSHIP_ACCOUNTING + ALTERNATIVE_ROUTE_FALSIFICATION + CROSS_SURFACE_ATTACK + NEGATIVE_SPACE_ATTACK + SPARSE_READINESS_REPAIR**  
+Independence: **SELF**
+
+### Material L repairs before fresh audit
+
+1. **Visual handoff repair** — `VISUAL_REQUIRED` is a closure/evidence requirement, not an automatic new MarginNote trip. Several visual LGs may share one continuous natural Source unit.
+2. **Readiness repair** — the first compiled machine map still over-promoted helpful order/comparison relations into hard gates. Current `requires` is now sparse: false edges such as N10←N9, O1←N11, O6/O7←O5, O10←O7 and O14←O13 were removed; low-switching order remains only default guidance.
+
+### Why L remains UNTESTED
+
+Builder-side falsification cannot supply fresh independence. A fresh auditor still must:
+
+- independently reconstruct the expected D learner route and surface allocation before using the candidate as an answer key;
+- challenge splitting Neuro/Orthopedics vs one D learner system;
+- attack the 128 LG semantic partition, including five non-contiguous groups;
+- attack sparse readiness for both over- and under-gating;
+- re-test N11/O1 integration-primary treatment;
+- challenge Source-contact granularity and visual handoff;
+- attack external-owner duplication and negative space;
+- challenge the five PSRs and final compression model.
+
+Only after that may L become PASS / PASS_WITH_DEBT. Until then the strongest truthful statement is:
+
+> **D Learning candidate ready for fresh independent audit.**
 
 ---
 
-## Next eligible stage
+## Construction boundary
 
-**L — Learning Logic.**
+Accepted now:
 
-L must be rebuilt from Current D Knowledge + 356 stable KP Core. It must not copy the old System Guide route, B whole-LG handoff, C Block/natural-Source-unit handoff or existing Astro schema by default.
+- S1 Source boundary;
+- K System Knowledge;
+- stable 27 / 356 identity.
 
-Required L work:
+Built but awaiting independent L acceptance:
 
-1. Block-control audit and true prerequisite/readiness graph;
-2. fresh Logic-Group semantic partition of all 356 KPs;
-3. decide Source-contact granularity separately for neural physiology and orthopedic Source units;
-4. define group-specific retrieval/closure jobs;
-5. define Block Recall, partial-system reconstruction and final System reconstruction;
-6. cross-surface / negative-space audit;
-7. fresh independent L audit before promotion when available.
+- sparse readiness + default route;
+- mixed Source-contact classes;
+- exact 128 Logic Groups;
+- group-specific goal/closure;
+- visual/repair/negative-space contracts;
+- 5 PSRs and final System compression.
 
-P/R/E remain downstream-frozen until L is accepted.
+Not eligible yet:
+
+- Content realization / optimization based on the candidate;
+- Projection;
+- Runtime;
+- Evidence;
+- official D question sweep;
+- learner progress.
+
+---
+
+## Next eligible action
+
+**Fresh independent L audit only.**
+
+Audit brief:
+
+`content/xizong/knowledge/learner/D_PHASE6_FRESH_L_AUDIT_BRIEF.md`
+
+If fresh audit passes:
+
+```text
+promote single D Learning owner
+→ update Acceptance/Current
+→ enter Content Realization / Optimization
+```
+
+If it finds a material defect:
+
+```text
+reopen smallest responsible L object
+→ repair candidate
+→ repeat fresh audit
+```
+
+P/R/E remain downstream-frozen either way until the relevant upstream gate actually accepts.
 
 ---
 
@@ -164,7 +245,8 @@ P/R/E remain downstream-frozen until L is accepted.
 ### Artifact Truth
 
 - D Knowledge → `system.json` + 27 canonical Block Cores
-- legacy D System Guide → bounded transitional/reference substrate only; it does not override Current Knowledge
+- D Learning candidate → `content/xizong/knowledge/learner/d-neuro-sensory-motor-orthopedics-learning.json`
+- legacy D System Guide → bounded transitional/reference substrate only
 
 ### Acceptance Truth
 
@@ -174,4 +256,4 @@ This file.
 
 Private real learner/browser/conversation evidence only.
 
-> **K PASS does not mean Kian has learned D.**
+> **K PASS and L candidate completion do not mean Kian has learned D.**
