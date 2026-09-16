@@ -1,10 +1,7 @@
 import { recordPoliticsFirstAttempt } from './politicsUnitReturn.mjs';
 
-export const PRACTICE_KEYS = Object.freeze({
-  attempts: 'kianos-politics-attempts-v1', meta: 'kianos-politics-practice-meta-v1',
-  session: 'kianos-politics-practice-session-v1', last: 'kianos-politics-last-location-v1',
-  evidence: 'kianos-politics-evidence-v1'
-});
+import { PRACTICE_KEYS, readPoliticsSnapshot, selectPoliticsReview } from './politicsPracticeState.mjs';
+export { PRACTICE_KEYS };
 const emptyMeta = () => ({ schema: 'kianos.politics.practice_meta.v1', favorites: {}, discussion: {}, causes: {}, notes: {}, latestOutcome: {} });
 const seconds = (n) => `${Math.floor(Math.max(0, n) / 60)}:${String(Math.floor(Math.max(0, n)) % 60).padStart(2, '0')}`;
 const iso = () => new Date().toISOString();
@@ -67,13 +64,22 @@ export function initPoliticsPractice(root) {
     try { await fn(event); } catch (e) { error(e.message || '保存失败，当前操作未完成。'); }
   };
   const on = (selector, event, fn) => $$(selector).forEach((node) => node.addEventListener(event, run(fn)));
-  const eligible = () => catalog.questions.filter((q) =>
-    (controls.subject.value === 'all' || q.subject === controls.subject.value) &&
-    (controls.chapter.value === 'all' || `${q.subject}/${q.chapter}` === controls.chapter.value) &&
-    (controls.unit.value === 'all' || q.unitKey === controls.unit.value) &&
-    (controls.type.value === 'all' || q.type === controls.type.value) &&
-    (controls.mode.value !== 'wrong' || meta.latestOutcome?.[q.id] === 'WRONG') &&
-    (controls.mode.value !== 'favorite' || meta.favorites?.[q.id]));
+  const eligible = () => {
+    let reviewIds = null;
+    if (controls.mode.value === 'review') {
+      const snapshot = readPoliticsSnapshot(localStorage);
+      if (snapshot.errors.length) throw new Error('回访记录未能完整读取；请先恢复本地存储，不会按空记录开始。');
+      reviewIds = new Set(selectPoliticsReview(catalog, snapshot, new URLSearchParams(location.search).has('reviewDay') ? { filter: 'today', day: new URLSearchParams(location.search).get('reviewDay') } : { filter: 'problems' }).problemIds);
+    }
+    return catalog.questions.filter((q) =>
+      (controls.subject.value === 'all' || q.subject === controls.subject.value) &&
+      (controls.chapter.value === 'all' || `${q.subject}/${q.chapter}` === controls.chapter.value) &&
+      (controls.unit.value === 'all' || q.unitKey === controls.unit.value) &&
+      (controls.type.value === 'all' || q.type === controls.type.value) &&
+      (controls.mode.value !== 'wrong' || meta.latestOutcome?.[q.id] === 'WRONG') &&
+      (controls.mode.value !== 'favorite' || meta.favorites?.[q.id]) &&
+      (!reviewIds || reviewIds.has(q.id)));
+  };
   const options = (node, rows, label) => {
     node.replaceChildren(new Option(label, 'all'));
     rows.forEach(([value, name]) => node.add(new Option(name, value)));
@@ -313,7 +319,7 @@ export function initPoliticsPractice(root) {
     }
     const ids = pool.slice(0, Number(controls.count.value)).map((q) => q.id);
     if (!ids.length) throw new Error('当前筛选没有可开始的题目。');
-    saveSession({ schema: 'kianos.politics.practice_session.v1', runtimeVersion: 2, revision: catalog.revision, id: `politics-${crypto.randomUUID()}`, status: 'active', ids, index: 0, startedAt: iso(), results: {}, pending: null, draft: null, origin: controls.unit.value !== 'all' ? uByKey.get(controls.unit.value).href : '/politics/', scope: { subject: controls.subject.value, chapter: controls.chapter.value, unit: controls.unit.value, type: controls.type.value, mode: controls.mode.value, interaction: 'NORMAL', learnedScopeConfirmedAt: iso() } });
+    saveSession({ schema: 'kianos.politics.practice_session.v1', runtimeVersion: 2, revision: catalog.revision, id: `politics-${crypto.randomUUID()}`, status: 'active', ids, index: 0, startedAt: iso(), results: {}, pending: null, draft: null, origin: controls.mode.value === 'review' ? catalog.reviewBase.replace(/practice-review\/$/, 'review/') : (controls.unit.value !== 'all' ? uByKey.get(controls.unit.value).href : '/politics/'), scope: { subject: controls.subject.value, chapter: controls.chapter.value, unit: controls.unit.value, type: controls.type.value, mode: controls.mode.value, interaction: 'NORMAL', learnedScopeConfirmedAt: iso() } });
     clearError(); render(); $('[data-question-card]').focus({ preventScroll: true });
   };
   on('[data-start-session], [data-start-session-inline]', 'click', start);
@@ -386,6 +392,22 @@ export function initPoliticsPractice(root) {
     if (params.has('session')) {
       if (!session || params.get('session') !== session.id || params.get('question') !== question()?.id || !['active', 'paused', 'completed'].includes(session.status)) throw new Error('返回目标已过期或与当前题组不符；没有跳到其他题。');
       if (session.status === 'paused') saveSession({ ...session, status: 'active' });
+    } else if (params.get('review') === 'problems') {
+      if (session && ['active', 'paused'].includes(session.status)) throw new Error('已有未完成题组，请先从今日回访的继续入口恢复；未替换原题组。');
+      const reviewDay = params.get('reviewDay');
+      if (reviewDay && (!/^\d{4}-\d{2}-\d{2}$/.test(reviewDay) || reviewDay > new Date().toLocaleDateString('en-CA'))) throw new Error('回访日期无效；未扩大范围。');
+      controls.mode.value = 'review';
+      const reviewSubject = params.get('reviewSubject');
+      if (reviewSubject) {
+        if (!catalog.subjects.some(s => s.id === reviewSubject)) throw new Error('回访科目不存在；未替换为其他范围。');
+        controls.subject.value = reviewSubject; chapterOptions();
+      }
+      if (params.has('unit')) {
+        const u = uByKey.get(params.get('unit'));
+        if (!u) throw new Error('回访的学习单元已变化；没有替换范围。');
+        controls.subject.value = u.subject; chapterOptions();
+        controls.chapter.value = `${u.subject}/${u.chapter}`; unitOptions(); controls.unit.value = u.key;
+      }
     } else if (params.has('unit') || params.has('question')) {
       const targetQuestion = params.has('question') ? qById.get(params.get('question')) : null;
       if (params.has('question') && !targetQuestion) throw new Error((catalog.unavailable || []).some((q) => q.id === params.get('question')) ? '本题尚无可用的学习单元绑定，暂不开放练习；没有替换成其他题。' : '原题链接无效；没有替换成其他题。');
@@ -398,5 +420,9 @@ export function initPoliticsPractice(root) {
       controls.subject.value = u.subject; chapterOptions(); controls.chapter.value = `${u.subject}/${u.chapter}`; unitOptions(); controls.unit.value = u.key;
     }
     render();
+    if (params.get('review') === 'problems' && session?.status === 'completed') {
+      root.removeAttribute('data-completed'); hide('[data-session-complete]'); hide('[data-practice-setup]', false);
+      $('[data-learned-scope]').checked = false;
+    }
   } catch (e) { blocked = true; root.dataset.blocked = 'true'; error(e.message); $$('button').forEach((b) => { b.disabled = true; }); }
 }

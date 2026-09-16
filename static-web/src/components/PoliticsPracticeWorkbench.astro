@@ -1,7 +1,7 @@
 ---
 const { catalog, base = '/' } = Astro.props;
 import { publicPracticeCatalog } from '../lib/politicsPracticeView.mjs';
-const serializedCatalog = JSON.stringify(publicPracticeCatalog(catalog)).replace(/</g, '\u003c');
+const serializedCatalog = JSON.stringify(publicPracticeCatalog(catalog)).replace(/</g, '\\u003c');
 ---
 <section class="politicsWorkbench" data-politics-practice>
   <header class="politicsWorkbenchHeader">
@@ -24,12 +24,14 @@ const serializedCatalog = JSON.stringify(publicPracticeCatalog(catalog)).replace
     <button type="button" data-mode-value="random"><span>随机</span></button>
     <button type="button" data-mode-value="wrong"><span>错题</span></button>
     <button type="button" data-mode-value="favorite"><span>收藏</span></button>
+    <button type="button" data-mode-value="review"><span>回访错题与不确定</span></button>
   </nav>
   <select data-filter-mode hidden aria-hidden="true">
     <option value="practice">practice</option>
     <option value="random">random</option>
     <option value="wrong">wrong</option>
     <option value="favorite">favorite</option>
+    <option value="review">review</option>
   </select>
 
   <details class="politicsFilters" open data-practice-setup>
