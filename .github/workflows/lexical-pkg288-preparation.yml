@@ -6,6 +6,8 @@ on:
       - lexical/pkg288-exec
     paths:
       - '.github/workflows/lexical-pkg288-preparation.yml'
+      - 'tools/lexical_compile_reconciliation_package.py'
+      - 'content/lexical/semantic-reconciliation/o6375-o6874.md'
   workflow_dispatch:
 
 permissions:
@@ -58,6 +60,8 @@ jobs:
           python - <<'PY'
           import json
           p=json.load(open('content/lexical/execution/preflight/o6375-o6874.reconciliation-compile.json'))
+          assert p['production_upgrade_count']==277, p['production_upgrade_count']
+          assert p['audit_verdict_counts']=={'FLIP_TO_UPGRADE':25,'REFINE_UPGRADE':3}, p['audit_verdict_counts']
           assert p['semantic_source_owner_count']==302, p['semantic_source_owner_count']
           assert not p['identity_risks'], p['identity_risks']
           print('PKG288_ACCOUNTING_PASS', p['receipt_counts'])
