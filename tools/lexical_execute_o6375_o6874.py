@@ -158,7 +158,7 @@ def checkpoint_sources(i):
 
 def apply_checkpoint(i):
     validate_manifest(); patches=load_patches(); lo,hi,src=checkpoint_sources(i)
-    store=base.Store(); sense_touched=set(); explicit_core=set(); relation_ids=set()
+    store=base.Store(); store.extra_changed_paths=set(); sense_touched=set(); explicit_core=set(); relation_ids=set()
     for o in src:
         for op in patches[o]['ops']: apply_op(store,o,op,sense_touched,explicit_core,relation_ids)
     for o in sorted(sense_touched-explicit_core): rt.rebuild_core_from_active(store,o)
