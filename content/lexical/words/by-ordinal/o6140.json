@@ -6,13 +6,39 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "cf483c6d38e58fea4a8afe3e9789930b8ab5169e0c0645eed30918d798c2382e",
+    "constructions": [
+      {
+        "construction_id": "construction:6df67a45c215d0a104bd",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "口头诽谤某人",
+        "pattern": "slander sb",
+        "source_sense_id": "sense:slander:ae2ec1bafbfaa090"
+      }
+    ],
+    "content_hash": "299d56c2457c2034a8b0b6d1d1ed98a8ef7c8f814c27c348a4c918f63e751851",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "中伤；诽谤",
-      "core_meaning_en": "words falsely spoken that damage the reputation of another",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "中伤；诽谤",
+          "label_en": "words falsely spoken that damage the reputation of another",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:slander:cc918ab32f115905"
+          ]
+        },
+        {
+          "label_cn": "口头诽谤；发表虚假且损害名誉的口头陈述",
+          "label_en": "to make a false spoken statement that damages someone's reputation",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:slander:ae2ec1bafbfaa090"
+          ]
+        }
+      ],
+      "core_meaning_cn": "中伤；诽谤；口头诽谤；发表虚假且损害名誉的口头陈述",
+      "core_meaning_en": "words falsely spoken that damage the reputation of another; to make a false spoken statement that damages someone's reputation",
+      "mental_model_cn": "中伤；诽谤；口头诽谤；发表虚假且损害名誉的口头陈述",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -67,8 +93,23 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "口头诽谤；发表虚假且损害名誉的口头陈述",
+        "definition_en": "to make a false spoken statement that damages someone's reputation",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:slander:ae2ec1bafbfaa090",
+        "sense_label_en": "to make a false spoken statement that damages someone's reputation",
+        "sort_order": 2,
+        "transitivity": "vt"
       }
     ],
+    "usage_note": "Slander generally concerns spoken defamation; libel generally concerns written or published defamation.",
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -91,6 +132,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 16658,
+        "source_path": "content/lexical/canonical/senses/shards/o6113-6144.json"
+      },
+      {
+        "sense_id": "sense:slander:ae2ec1bafbfaa090",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 16676,
         "source_path": "content/lexical/canonical/senses/shards/o6113-6144.json"
       }
     ],
@@ -118,7 +166,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6137-6144.json",
-    "source_content_hash": "cf483c6d38e58fea4a8afe3e9789930b8ab5169e0c0645eed30918d798c2382e",
+    "source_content_hash": "299d56c2457c2034a8b0b6d1d1ed98a8ef7c8f814c27c348a4c918f63e751851",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
