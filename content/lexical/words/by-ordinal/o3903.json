@@ -8,10 +8,10 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "in question，讨论中的，有疑问的",
+        "boundary": "in question = being discussed/referred to, or subject to doubt",
         "codex_reviewed": false,
         "definition_cn": "问题，询问",
-        "definition_en": "a sentence or phrase used to ask for information",
+        "definition_en": "the person or thing being discussed or referred to; or something whose truth, validity, or quality is being doubted",
         "dimensions": {},
         "direction": "R",
         "evidence": [
@@ -28,7 +28,7 @@
         "family_sources": [],
         "label_en": null,
         "level": null,
-        "meaning_cn": "讨论中的，有疑问的",
+        "meaning_cn": "所讨论/所指的；有疑问的",
         "module": "constructions",
         "pattern": "in question",
         "pos": "noun",
@@ -71,7 +71,7 @@
         "pattern": "be out of the question"
       }
     ],
-    "content_hash": "24c44e94c479f5f3ea4befc23ad10573792dfdde84f723ccd9c79a2b75189d77",
+    "content_hash": "afbbfe8b13b0059b75336173e66292828487c954c1c3af6b05a10df79c85b0d4",
     "core_concept": {
       "core_clusters": [
         {
@@ -97,7 +97,7 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
@@ -105,7 +105,8 @@
       "construction:construction:4f67d674e48f8acd25e0",
       "construction:deep:constructions:question:636531614345db4f",
       "deep:deep:constructions:question:636531614345db4f",
-      "deep:deep:secondary_senses:question:2ca9fbdabdb1e2b9"
+      "deep:deep:secondary_senses:question:2ca9fbdabdb1e2b9",
+      "semantic-reconciliation:o3875-o4124"
     ],
     "secondary_senses": [
       {
@@ -165,7 +166,7 @@
             "legacy_source_object_ids": [
               "sense:question:b676ef4ce4815bad:collocation:1"
             ],
-            "meaning_cn": "讨论中的，有疑问的",
+            "meaning_cn": "所讨论/所指的；有疑问的",
             "phrase": "in question"
           }
         ],
@@ -213,6 +214,30 @@
         "sense_label_en": "to ask questions of; to express doubt about",
         "sort_order": 1,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:2d0fcbc12b41e6659a25",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:question:4719c29f584a7eb3:collocation:forward-o3875-o4124"
+            ],
+            "meaning_cn": "资金问题；关于资金的议题",
+            "phrase": "the question of funding"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "问题；议题；需要考虑或解决的事项",
+        "definition_en": "a matter, issue, or problem that needs to be considered, discussed, or resolved",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:question:4719c29f584a7eb3",
+        "sense_label_en": "a matter, issue, or problem that needs to be considered, discussed, or resolved",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -234,7 +259,14 @@
     "word_family": [],
     "word_id": "word:question"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "deep:semantic_contrast:query:06e0b392e0e44be3",
+      "owner_path": "content/lexical/relations/by-id/8e/8e6b49060f29c9642fa6fd103d583393d3c0cf9353e7e2e86728896f04dac597.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -243,6 +275,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10858,
+        "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json"
+      },
+      {
+        "sense_id": "sense:question:4719c29f584a7eb3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10868,
         "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json"
       },
       {
@@ -256,6 +295,7 @@
     "active_collocations": [
       "collocation:1407d96e50d641aee01d",
       "collocation:148f5fe6ed605e17d6d8",
+      "collocation:2d0fcbc12b41e6659a25",
       "collocation:9421ef88c65d0eb355c9",
       "collocation:97341ef56096ab63dc08"
     ],
@@ -280,6 +320,11 @@
       {
         "id": "collocation:148f5fe6ed605e17d6d8",
         "source_row": 1705,
+        "source_path": "content/lexical/canonical/collocations/shards/o3873-3904.json"
+      },
+      {
+        "id": "collocation:2d0fcbc12b41e6659a25",
+        "source_row": 21564,
         "source_path": "content/lexical/canonical/collocations/shards/o3873-3904.json"
       },
       {

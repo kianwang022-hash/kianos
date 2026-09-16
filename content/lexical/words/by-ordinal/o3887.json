@@ -7,22 +7,80 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "849d43d2aa6dc33f290b76d85e8c12af85b5668f6e3571901aa39aeaa82aa073",
+    "content_hash": "ec6f2e1228c32ee704a5fc7b2419e09ce5e50b692259b2999f77b3009fd8ecfb",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "有多边形底面和三角形侧面的结构",
-      "core_meaning_en": "a structure with a polygonal base and triangular sides",
-      "mental_model_cn": "有多边形底面和三角形侧面的结构",
+      "core_clusters": [
+        {
+          "label_cn": "金字塔",
+          "label_en": "a monumental pyramid, especially in ancient Egypt",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:pyramid:7bc840f77bcb5188"
+          ]
+        },
+        {
+          "label_cn": "角锥体；棱锥体",
+          "label_en": "a geometric pyramid",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:pyramid:21236deb84d956f6"
+          ]
+        }
+      ],
+      "core_meaning_cn": "金字塔；角锥体",
+      "core_meaning_en": "a pyramid-shaped monumental or geometric structure",
+      "mental_model_cn": "金字塔；角锥体",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3875-o4124"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "角锥体；棱锥体",
+        "definition_en": "a solid or structure with a polygonal base and triangular sides meeting at a point",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:pyramid:21236deb84d956f6",
+        "sense_label_en": "a solid or structure with a polygonal base and triangular sides meeting at a point",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:3cce7afcdfb8fa15cb56",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:pyramid:7bc840f77bcb5188:collocation:forward-o3875-o4124"
+            ],
+            "meaning_cn": "埃及金字塔",
+            "phrase": "Egyptian pyramids"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "金字塔",
+        "definition_en": "a monumental structure with a broad base and sloping triangular sides, especially one from ancient Egypt",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:pyramid:7bc840f77bcb5188",
+        "sense_label_en": "a monumental structure with a broad base and sloping triangular sides, especially one from ancient Egypt",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {
@@ -45,31 +103,6 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:pyramid:21236deb84d956f6",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "角锥体",
-      "definition_en": "a polyhedron having a polygonal base and triangular sides with a common vertex",
-      "semantic_key": "b06abc5457beb339e4658bab204be293f416d0b3730d29bad48ae6810e449bcb",
-      "semantic_key_history": [
-        "ae89ac05e50ac72ff3c542c834b04cfcc0ba6b50100fa5b724075e00cc2acb46"
-      ],
-      "legacy_aliases": [
-        "pyramid:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "pyramid:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10815,
-      "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:pyramid:72f946229b2a51c9",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -91,31 +124,6 @@
       ],
       "updated_at": "2026-09-09T00:00:00Z",
       "source_row": 10816,
-      "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:pyramid:7bc840f77bcb5188",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "金字塔",
-      "definition_en": "a massive monument with a square base and four triangular sides, especially in ancient Egypt",
-      "semantic_key": "e69b5f514c6a213d1238337f52c18dc128ef6d094c0d64e724a87364df9dc8c5",
-      "semantic_key_history": [
-        "34de1c0aedc81788cc0f7cc24b896b4c4326f472fefb36896c9fdf0d917ef48a"
-      ],
-      "legacy_aliases": [
-        "pyramid:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "pyramid:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10817,
       "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json",
       "reference_only": true
     },
@@ -149,7 +157,7 @@
     "senses": [
       {
         "sense_id": "sense:pyramid:21236deb84d956f6",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10815,
         "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json"
@@ -163,7 +171,7 @@
       },
       {
         "sense_id": "sense:pyramid:7bc840f77bcb5188",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10817,
         "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json"
@@ -176,12 +184,19 @@
         "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:3cce7afcdfb8fa15cb56"
+    ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:23976893aaa4d74cfc1f",
         "source_row": 2977,
+        "source_path": "content/lexical/canonical/collocations/shards/o3873-3904.json"
+      },
+      {
+        "id": "collocation:3cce7afcdfb8fa15cb56",
+        "source_row": 21554,
         "source_path": "content/lexical/canonical/collocations/shards/o3873-3904.json"
       },
       {

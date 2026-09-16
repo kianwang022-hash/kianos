@@ -49,13 +49,13 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
         <XizongHomeTools firstHref={xizongHref} firstLabel={firstSystem ? `${firstSystem.canonicalId} · ${firstSystem.title}` : '查看西综入口'} />
       </article>
       <article class="commandSubject" data-home-subject="english">
-        <header><div><span class="commandOrdinal">02</span><h2>English</h2><span class="commandAvailability">{englishReady ? '任务入口已接通' : '部分任务已开放'}</span></div><a href={`${base}english/`}>英语工作台 →</a></header>
+        <header><div><span class="commandOrdinal">02</span><h2>English</h2><span class="commandAvailability">{englishReady ? '可开始' : '部分任务已开放'}</span></div><a href={`${base}english/`}>英语工作台 →</a></header>
         <p class="commandSubjectMeta">Objective / Translation / Writing · 完成任务，问题出现时再做最小修复。</p>
         <EnglishResume />
         <nav class="commandTaskLinks" aria-label="英语任务"><a href={`${base}reading/`}>Reading A</a><a href={`${base}cloze/`}>Cloze</a><a href={`${base}reading-b/`}>Part B</a><a href={`${base}translation/`}>Translation</a><a href={`${base}writing/`}>Writing</a></nav>
       </article>
       <article class="commandSubject" data-home-subject="politics">
-        <header><div><span class="commandOrdinal">03</span><h2>政治</h2><span class="commandAvailability">{politicsSubjects.length} 科 · {politicsChapters} 章{politicsHealth.status === 'ready' ? '已接通' : '，部分开放'}</span></div><a href={`${base}politics/`}>五科总览 →</a></header>
+        <header><div><span class="commandOrdinal">03</span><h2>政治</h2><span class="commandAvailability">{politicsSubjects.length} 科 · {politicsChapters} 章{politicsHealth.status === 'ready' ? '可进入' : '，部分开放'}</span></div><a href={`${base}politics/`}>五科总览 →</a></header>
         <p class="commandSubjectMeta">乘风原讲义 → 肖1000 验证 → 有问题时精准回源。</p>
         <PoliticsHomeTools firstHref={politicsHref} firstLabel={firstChapter ? `${firstSubject.label} · ${firstChapter.title}` : '查看政治入口'} />
       </article>
@@ -66,7 +66,7 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
         <p class="pageKicker">English support</p><h2>Vocabulary</h2>
         <p>查词、继续学习，或回到已有 Repair；与英语任务共用同一套词汇内容。</p>
         <a class="commandPrimaryLink" href={`${base}vocabulary/`}>打开词汇工作台 →</a>
-        <small>{lexicalState.wordCount} Word · {lexicalState.relationCount} Relation<br />内容持续接入；不代表全目录验收或学习进度。</small>
+        <small>{lexicalState.wordCount.toLocaleString('en-US')} 词可检索 · 本地学习记录<br />查完词，回到原来的任务。</small>
       </section>
       <section class="commandSupportSection">
         <p class="pageKicker">Guides · 随时查阅</p><h2>需要时再展开模型</h2>
@@ -74,5 +74,5 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
       </section>
     </aside>
   </div>
-  <footer class="commandFoot"><span>Today / Attention：只显示各科已经产生的证据；当前政治支持今日 Handoff。</span><a href={`${base}current/`}>Current · {buildRevision.slice(0, 8)}</a></footer>
+  <footer class="commandFoot"><span>学习记录保存在这台浏览器；复盘仍由各科自己的证据决定。</span><a href={`${base}current/`}>Current · {buildRevision.slice(0, 8)}</a></footer>
 </Base>

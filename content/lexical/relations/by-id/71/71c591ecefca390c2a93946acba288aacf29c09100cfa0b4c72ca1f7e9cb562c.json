@@ -125,10 +125,60 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:quite",
+      "source_ordinal": 3910,
+      "field": "confusables",
+      "index": 1,
+      "payload": {
+        "boundary": "quite is a degree adverb meaning fairly/completely depending context; quiet means making little/no noise or calm.",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {},
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:ecdict-spelling:quiet:quite",
+            "evidence_status": "source_checked",
+            "source_locator": "quiet|quite",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/source_manifest.json",
+            "source_type": "learner_dictionary"
+          },
+          {
+            "evidence_id": "evidence:cambridge-confusable:quiet:quite",
+            "evidence_status": "source_checked",
+            "source_locator": "quiet|quite",
+            "source_path": "https://dictionary.cambridge.org/grammar/british-grammar/easily-confused-words",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:confusables:quiet:a62d52d0428c90d3",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "confusables",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": null,
+        "source_sense_id": "sense:quite:dfb9864e3a2e5118",
+        "target_sense_id": "sense:quiet:5698ba316f395aeb",
+        "target_word": "quiet",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o3875-o4124.md"
   }
 }

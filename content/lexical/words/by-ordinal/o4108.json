@@ -34,7 +34,7 @@
         ]
       }
     ],
-    "content_hash": "d57da4a3dce670b30df1f1c5a5e3400dbc2314a300b44439cb528f164b3648e3",
+    "content_hash": "5ba68dd56387455a17d1dcbcff9035b80b28dd5d83a190f180711c1866edd08e",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "放弃职位或接受不愉快之事",
@@ -43,11 +43,12 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "construction:construction:9f2ae7fa52752d7ecca8"
+      "construction:construction:9f2ae7fa52752d7ecca8",
+      "semantic-reconciliation:o3875-o4124"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -108,6 +109,20 @@
         "sense_label_en": "to give up a right, claim, or position",
         "sort_order": 1,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "使顺从，使听任",
+        "definition_en": "to make oneself accept something unpleasant that cannot be changed",
+        "governing_pattern": "vt. + oneself + to",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:resign:0957c27322fd5154",
+        "sense_label_en": "to make oneself accept something unpleasant that cannot be changed",
+        "sort_order": 2,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -130,36 +145,12 @@
     "word_id": "word:resign"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:resign:0957c27322fd5154",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "使顺从，使听任",
-      "definition_en": "to make oneself accept something unpleasant that cannot be changed",
-      "semantic_key": "2e263b89240f9dd41e18e442927abcb5d56316132c9d093539bd056dc8756c24",
-      "semantic_key_history": [],
-      "legacy_aliases": [
-        "resign:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "resign:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-08-22T05:00:00+00:00",
-      "source_row": 11467,
-      "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:resign:0957c27322fd5154",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11467,
         "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json"

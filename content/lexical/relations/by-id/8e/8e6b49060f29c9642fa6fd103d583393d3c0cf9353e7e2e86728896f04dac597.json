@@ -140,10 +140,63 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:question",
+      "source_ordinal": 3903,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "question is the broad everyday word for asking or an issue; query often means a request for information or a doubt requiring clarification.",
+        "codex_reviewed": false,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "raise a query",
+          "core_meaning": "询问与问题",
+          "exam_trap": "词性转换",
+          "register": "中性",
+          "semantic_prosody": "中性",
+          "strength": "中",
+          "syntax": "动词/名词",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:00786670-v",
+            "evidence_status": "source_checked",
+            "source_locator": "00786670-v",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:query:06e0b392e0e44be3",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": "pose a question",
+        "source_sense_id": "sense:question:1ab143a4d5ba548a",
+        "target_sense_id": "sense:query:02b9d92e0221512d",
+        "target_word": "query",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o3875-o4124.md"
   }
 }

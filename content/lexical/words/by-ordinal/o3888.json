@@ -7,19 +7,46 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "d41a6016e65f3580bbb7cc9d16e0efb780b233774c028237b0432e263a9b3399",
+    "content_hash": "69bd2e9249f6f6e2fca9f549772c71e60819edeb6ddf313fb40ab627b5cd3137",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "资格；限制",
-      "core_meaning_en": "a quality or condition that fits someone",
-      "mental_model_cn": "资格；限制",
+      "core_clusters": [
+        {
+          "label_cn": "资格；条件",
+          "label_en": "a condition for eligibility",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:qualification:7a92bc487928513d"
+          ]
+        },
+        {
+          "label_cn": "资格证书；学历；资历",
+          "label_en": "credential, training, or experience showing suitability",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:qualification:67b50a67d55d4c58"
+          ]
+        },
+        {
+          "label_cn": "限制条件；保留",
+          "label_en": "a limitation or reservation",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:qualification:0ca9d33fc2f95339"
+          ]
+        }
+      ],
+      "core_meaning_cn": "资格；资历；限定",
+      "core_meaning_en": "eligibility, credentials, or a limiting qualification",
+      "mental_model_cn": "资格；资历；限定",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3875-o4124"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -33,15 +60,6 @@
             ],
             "meaning_cn": "……的资格",
             "phrase": "qualification for + sth"
-          },
-          {
-            "collocation_id": "collocation:b27ff2d778c789d57f42",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:qualification:7a92bc487928513d:collocation:1"
-            ],
-            "meaning_cn": "专业资格",
-            "phrase": "professional qualification"
           }
         ],
         "confidence": "medium",
@@ -79,6 +97,39 @@
         "sense_label_en": "the act of modifying or changing the strength of some idea",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:b27ff2d778c789d57f42",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:qualification:7a92bc487928513d:collocation:1"
+            ],
+            "meaning_cn": "专业资格",
+            "phrase": "professional qualification"
+          },
+          {
+            "collocation_id": "collocation:e51cff395ff608647b98",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:qualification:67b50a67d55d4c58:collocation:forward-o3875-o4124"
+            ],
+            "meaning_cn": "学历；学术资历",
+            "phrase": "academic qualifications"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "资格证书；学历；资历；使人具备资格的技能或经历",
+        "definition_en": "a credential, training, examination result, skill, or experience that makes someone suitable or eligible",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:qualification:67b50a67d55d4c58",
+        "sense_label_en": "a credential, training, examination result, skill, or experience that makes someone suitable or eligible",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -112,6 +163,13 @@
         "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json"
       },
       {
+        "sense_id": "sense:qualification:67b50a67d55d4c58",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10863,
+        "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json"
+      },
+      {
         "sense_id": "sense:qualification:7a92bc487928513d",
         "status": "active",
         "merged_into_sense_id": null,
@@ -122,6 +180,7 @@
     "active_collocations": [
       "collocation:70e8af154a3a9a20f394",
       "collocation:b27ff2d778c789d57f42",
+      "collocation:e51cff395ff608647b98",
       "collocation:f3d2f76b886df11007ff"
     ],
     "facts": [],
@@ -134,6 +193,11 @@
       {
         "id": "collocation:b27ff2d778c789d57f42",
         "source_row": 15134,
+        "source_path": "content/lexical/canonical/collocations/shards/o3873-3904.json"
+      },
+      {
+        "id": "collocation:e51cff395ff608647b98",
+        "source_row": 21555,
         "source_path": "content/lexical/canonical/collocations/shards/o3873-3904.json"
       },
       {

@@ -7,36 +7,54 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "976df91ae30ebad66e14cce0471a38e29f433411f32257d29c86329cb05303c9",
+    "content_hash": "379192c74733e8466cfce3949972872669249ff8d49cc45d6e557d9547587132",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "搞糟，使陷入困境",
-          "label_en": "put in a dangerous, disadvantageous, or difficult position",
-          "pos": "verb",
+          "label_cn": "酷儿的；以 queer 自我认同的",
+          "label_en": "identity/community adjective",
+          "pos": "adjective",
           "sense_ids": [
-            "sense:queer:bd1219801f17509a"
+            "sense:queer:e59f93af60caf0e4"
           ]
         },
         {
-          "label_cn": "怪人；同性恋者（常含贬义）",
-          "label_en": "a person who is odd or homosexual (often used as a slur)",
+          "label_cn": "酷儿；以 queer 自我认同的人",
+          "label_en": "a person who self-identifies as queer",
           "pos": "noun",
           "sense_ids": [
             "sense:queer:af7a2e2821725385"
           ]
+        },
+        {
+          "label_cn": "奇怪的；古怪的（较旧）",
+          "label_en": "strange or odd (older/context-sensitive)",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:queer:a9caf508d8e055fe"
+          ]
+        },
+        {
+          "label_cn": "搞糟；使陷入困境（旧/非主干）",
+          "label_en": "spoil or put in difficulty (older/lower priority)",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:queer:bd1219801f17509a"
+          ]
         }
       ],
-      "core_meaning_cn": "奇怪的；搞糟",
-      "core_meaning_en": "strange or odd; to spoil or ruin",
-      "mental_model_cn": "奇怪的；搞糟",
+      "core_meaning_cn": "当前常见为身份/社群用法；也有较旧的“奇怪”义",
+      "core_meaning_en": "current identity/community use; older strange/odd use remains context-dependent",
+      "mental_model_cn": "当前常见为身份/社群用法；也有较旧的“奇怪”义",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3875-o4124"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -65,27 +83,69 @@
         "definition_cn": "搞糟，使陷入困境",
         "definition_en": "put in a dangerous, disadvantageous, or difficult position",
         "governing_pattern": "vt. + object",
-        "level": "L2",
+        "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:queer:bd1219801f17509a",
         "sense_label_en": "put in a dangerous, disadvantageous, or difficult position",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "Older/informal verb use; not learner-main."
       },
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "怪人；同性恋者（常含贬义）",
-        "definition_en": "a person who is odd or homosexual (often used as a slur)",
+        "definition_cn": "酷儿；以 queer 自我认同的人",
+        "definition_en": "a person who self-identifies as queer",
         "governing_pattern": "",
-        "level": "L3",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:queer:af7a2e2821725385",
-        "sense_label_en": "a person who is odd or homosexual (often used as a slur)",
+        "sense_label_en": "a person who self-identifies as queer",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "Queer is reclaimed and self-identifying for many people and communities, but it can still be offensive to some people, especially when imposed as a label."
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e5487ebb4a456892fe1e",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:queer:e59f93af60caf0e4:collocation:forward-o3875-o4124"
+            ],
+            "meaning_cn": "酷儿社群",
+            "phrase": "queer community"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "酷儿的；以 queer 自我认同的",
+        "definition_en": "relating to people or communities whose sexual orientation or gender identity falls outside traditional heterosexual or cisgender categories",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:queer:e59f93af60caf0e4",
+        "sense_label_en": "relating to people or communities whose sexual orientation or gender identity falls outside traditional heterosexual or cisgender categories",
+        "sort_order": 2,
+        "transitivity": "nonverb",
+        "usage_note": "Widely used as a reclaimed/self-identifying umbrella adjective, but it may still be offensive to some people; prefer people’s own labels where known."
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "奇怪的；古怪的（较旧或语境敏感用法）",
+        "definition_en": "strange or odd; an older or context-sensitive use",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:queer:a9caf508d8e055fe",
+        "sense_label_en": "strange or odd; an older or context-sensitive use",
+        "sort_order": 3,
+        "transitivity": "nonverb",
+        "usage_note": "Older/context-sensitive use. In current contexts queer more often has identity/community meanings; interpret by context."
       }
     ],
     "verification_summary": {
@@ -108,38 +168,12 @@
     "word_id": "word:queer"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:queer:a9caf508d8e055fe",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "奇怪的，可疑的",
-      "definition_en": "strange or odd",
-      "semantic_key": "3f841889e5255b2a0b8138a793f97518d3a1037bc1ab71bbb60c3bc99c5ed736",
-      "semantic_key_history": [
-        "3f3de1b8ad6ff8b442c44348418da62da591181d9a5cabb01bf54f291f8980b7"
-      ],
-      "legacy_aliases": [
-        "queer:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "queer:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10850,
-      "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:queer:a9caf508d8e055fe",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10850,
         "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json"
@@ -157,11 +191,19 @@
         "merged_into_sense_id": null,
         "source_row": 10852,
         "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json"
+      },
+      {
+        "sense_id": "sense:queer:e59f93af60caf0e4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10867,
+        "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json"
       }
     ],
     "active_collocations": [
       "collocation:50f16bdf8004826891e6",
-      "collocation:bb8cd30aa710b30b4d49"
+      "collocation:bb8cd30aa710b30b4d49",
+      "collocation:e5487ebb4a456892fe1e"
     ],
     "facts": [],
     "collocations": [
@@ -178,6 +220,11 @@
       {
         "id": "collocation:cad6fc9c8df221e7a96e",
         "source_row": 17135,
+        "source_path": "content/lexical/canonical/collocations/shards/o3873-3904.json"
+      },
+      {
+        "id": "collocation:e5487ebb4a456892fe1e",
+        "source_row": 21563,
         "source_path": "content/lexical/canonical/collocations/shards/o3873-3904.json"
       }
     ],
