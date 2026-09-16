@@ -6,13 +6,31 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "7c5c59236ee35064cdd56ff4aea767ddfe73c821b418a3750b12f75ef23c8c04",
+    "constructions": [
+      {
+        "construction_id": "construction:1d03cb46b882a3ce3a75",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "一笔分配的资金/一份资源配额",
+        "pattern": "an allocation of funds/resources"
+      }
+    ],
+    "content_hash": "b55efff2b4ca128d6d5ddc4a9ef339371bbb1e8e4abeb8b1671c28473f0e57ec",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "分配；配置",
-      "core_meaning_en": "the act of distributing or assigning resources according to a plan",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "分配；按计划分派金钱、资源、职责、空间等的过程；分配额；已分配给某人或某用途的一份金额、份额或资源",
+          "label_en": "the act or process of distributing or assigning money, resources, duties, space, or other items according to a plan; an amount, share, quantity, or resource that has been allocated to someone or something",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:allocation:306f2284ae86594d",
+            "sense:allocation:9204735889c9e8e2"
+          ]
+        }
+      ],
+      "core_meaning_cn": "分配；按计划分派金钱、资源、职责、空间等的过程；分配额；已分配给某人或某用途的一份金额、份额或资源",
+      "core_meaning_en": "the act or process of distributing or assigning money, resources, duties, space, or other items according to a plan; an amount, share, quantity, or resource that has been allocated to someone or something",
+      "mental_model_cn": "分配；按计划分派金钱、资源、职责、空间等的过程；分配额；已分配给某人或某用途的一份金额、份额或资源",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,8 +44,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "分配；配置",
-        "definition_en": "the act of distributing or assigning resources according to a plan",
+        "definition_cn": "分配；按计划分派金钱、资源、职责、空间等的过程",
+        "definition_en": "the act or process of distributing or assigning money, resources, duties, space, or other items according to a plan",
         "depth": "full_card",
         "domain_tag": "academic_awl",
         "frequency_tag": "academic_awl",
@@ -35,7 +53,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:allocation:306f2284ae86594d",
-        "sense_label_en": "the act of distributing or assigning resources according to a plan",
+        "sense_label_en": "the act or process of distributing or assigning money, resources, duties, space, or other items according to a plan",
         "sort_order": 0,
         "source_evidence": [
           {
@@ -53,6 +71,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "分配额；已分配给某人或某用途的一份金额、份额或资源",
+        "definition_en": "an amount, share, quantity, or resource that has been allocated to someone or something",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:allocation:9204735889c9e8e2",
+        "sense_label_en": "an amount, share, quantity, or resource that has been allocated to someone or something",
+        "sort_order": 1,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -77,6 +109,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 19268,
+        "source_path": "content/lexical/canonical/senses/shards/o7713-7744.json"
+      },
+      {
+        "sense_id": "sense:allocation:9204735889c9e8e2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 19297,
         "source_path": "content/lexical/canonical/senses/shards/o7713-7744.json"
       }
     ],
@@ -104,7 +143,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7713-7720.json",
-    "source_content_hash": "7c5c59236ee35064cdd56ff4aea767ddfe73c821b418a3750b12f75ef23c8c04",
+    "source_content_hash": "b55efff2b4ca128d6d5ddc4a9ef339371bbb1e8e4abeb8b1671c28473f0e57ec",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
