@@ -80,6 +80,7 @@ for (const visualRule of [
 
 for (const readableRule of [
   'readability wins over diagram density',
+  'TEXT_DEFAULT',
   'textFirstMap',
   'readableConcepts',
   'readableConcept',
@@ -87,7 +88,7 @@ for (const readableRule of [
   '这几个特征怎么联系',
   '人民性、实践性、发展性',
   '集中体现马克思主义的革命性',
-  'font-size:18px',
+  'font-size:19px',
   'font-size:16px'
 ]) requireText(readable, readableRule, 'purpose-first readable layer');
 
