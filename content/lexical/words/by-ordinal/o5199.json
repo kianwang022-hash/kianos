@@ -7,12 +7,23 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "d2acb441e18405fb197daa628312aa357019ec7c8efa7d1a5de25db6f0419a3f",
+    "content_hash": "9b47de8bf5afad2f5f24f35acc064797cc7261ef1fd61c545b6f4addb552c115",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "展开",
-      "core_meaning_en": "open or spread out",
-      "mental_model_cn": "展开",
+      "core_clusters": [
+        {
+          "label_cn": "展开；打开；逐渐展现；呈现；揭示、逐渐使人知道",
+          "label_en": "open or spread out from a folded state; develop or become clear gradually; to reveal or make known gradually",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:unfold:9552486e612e50f5",
+            "sense:unfold:02ec172101c1541f",
+            "sense:unfold:7f7f630b25985af7"
+          ]
+        }
+      ],
+      "core_meaning_cn": "展开；打开；逐渐展现；呈现；揭示、逐渐使人知道",
+      "core_meaning_en": "open or spread out from a folded state; develop or become clear gradually; to reveal or make known gradually",
+      "mental_model_cn": "展开；打开；逐渐展现；呈现；揭示、逐渐使人知道",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -66,15 +77,6 @@
             ],
             "meaning_cn": "故事逐渐展开",
             "phrase": "the story unfolds"
-          },
-          {
-            "collocation_id": "collocation:fe80f4d1b177e6c3ba83",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:unfold:7f7f630b25985af7:collocation:0"
-            ],
-            "meaning_cn": "披露真相",
-            "phrase": "unfold the truth"
           }
         ],
         "confidence": "medium",
@@ -88,6 +90,30 @@
         "sense_label_en": "develop or become clear gradually",
         "sort_order": 3,
         "transitivity": "I/T"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:dd28d2821da3712b0e0e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:unfold:7f7f630b25985af7:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "揭示真相",
+            "phrase": "unfold the truth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "揭示、逐渐使人知道",
+        "definition_en": "to reveal or make known gradually",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:unfold:7f7f630b25985af7",
+        "sense_label_en": "to reveal or make known gradually",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -133,29 +159,6 @@
       "source_row": 14818,
       "source_path": "content/lexical/canonical/senses/shards/o5185-5216.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:unfold:7f7f630b25985af7",
-      "status": "merged",
-      "merged_into_sense_id": "sense:unfold:02ec172101c1541f",
-      "pos": "verb",
-      "definition_cn": "披露；呈现",
-      "definition_en": "reveal or make known gradually",
-      "semantic_key": "b222cdaea46a103369870911331e4bcf5ea28ecfa39ef12e882f7e867e726104",
-      "semantic_key_history": [],
-      "legacy_aliases": [
-        "unfold:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "unfold:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-08-22T05:00:00+00:00",
-      "source_row": 14819,
-      "source_path": "content/lexical/canonical/senses/shards/o5185-5216.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -176,8 +179,8 @@
       },
       {
         "sense_id": "sense:unfold:7f7f630b25985af7",
-        "status": "merged",
-        "merged_into_sense_id": "sense:unfold:02ec172101c1541f",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 14819,
         "source_path": "content/lexical/canonical/senses/shards/o5185-5216.json"
       },
@@ -192,8 +195,8 @@
     "active_collocations": [
       "collocation:326cb1b736a29e876dec",
       "collocation:6d330dd7a54a25764065",
-      "collocation:f2d6c9d65689ef6050b7",
-      "collocation:fe80f4d1b177e6c3ba83"
+      "collocation:dd28d2821da3712b0e0e",
+      "collocation:f2d6c9d65689ef6050b7"
     ],
     "facts": [],
     "collocations": [
@@ -215,6 +218,11 @@
       {
         "id": "collocation:fe80f4d1b177e6c3ba83",
         "source_row": 21518,
+        "source_path": "content/lexical/canonical/collocations/shards/o5185-5216.json"
+      },
+      {
+        "id": "collocation:dd28d2821da3712b0e0e",
+        "source_row": 21564,
         "source_path": "content/lexical/canonical/collocations/shards/o5185-5216.json"
       }
     ],
@@ -244,7 +252,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5193-5200.json",
-    "source_content_hash": "d2acb441e18405fb197daa628312aa357019ec7c8efa7d1a5de25db6f0419a3f",
+    "source_content_hash": "9b47de8bf5afad2f5f24f35acc064797cc7261ef1fd61c545b6f4addb552c115",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -7,12 +7,21 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "6438b3e02361c29fbf47c48322b4826c89a9843395284451ba961e73959f43d2",
+    "content_hash": "13cf7e507265a81a8053749a03cc285c4a7d131f343a918f81b654e848bae3f1",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "支持",
-      "core_meaning_en": "to support or maintain",
-      "mental_model_cn": "支持",
+      "core_clusters": [
+        {
+          "label_cn": "支持；维护",
+          "label_en": "to support or defend a principle or law",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:uphold:a549d87a8a195dfb"
+          ]
+        }
+      ],
+      "core_meaning_cn": "支持；维护",
+      "core_meaning_en": "to support or defend a principle or law",
+      "mental_model_cn": "支持；维护",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +31,22 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "支持；维护",
+        "definition_en": "to support or defend a principle or law",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:uphold:a549d87a8a195dfb",
+        "sense_label_en": "to support or defend a principle or law",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {
@@ -44,31 +68,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:uphold:a549d87a8a195dfb",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "支持；维护",
-      "definition_en": "to support or defend a principle or law",
-      "semantic_key": "589aa0b5dca7ff5cb2c163784c30b8b2b5071014d6c9f7e9a7132135845f7e7e",
-      "semantic_key_history": [
-        "602c758e6ef58b24561b7ee287904f0abbd7dc70f28d74a6d07c9acdaf543c91"
-      ],
-      "legacy_aliases": [
-        "uphold:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "uphold:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14869,
-      "source_path": "content/lexical/canonical/senses/shards/o5217-5248.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:uphold:c2746083e36a59ec",
       "status": "deprecated",
@@ -99,7 +98,7 @@
     "senses": [
       {
         "sense_id": "sense:uphold:a549d87a8a195dfb",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14869,
         "source_path": "content/lexical/canonical/senses/shards/o5217-5248.json"
@@ -162,7 +161,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5217-5224.json",
-    "source_content_hash": "6438b3e02361c29fbf47c48322b4826c89a9843395284451ba961e73959f43d2",
+    "source_content_hash": "13cf7e507265a81a8053749a03cc285c4a7d131f343a918f81b654e848bae3f1",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
