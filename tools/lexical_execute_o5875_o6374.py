@@ -123,9 +123,16 @@ def apply_op(store,o,op,sense_touched,explicit_core,relation_ids):
         s=select_active(store,o,op); rt.set_sense_usage(store,o,s['sense_id'],note=op.get('note'),register=op.get('register'),level=op.get('level'),writing_safe=op.get('writing_safe'))
     elif k=='construction':
         sid=None
-        if op.get('source_sid'): sid=op['source_sid']
-        elif op.get('source_match') or op.get('source_pos'):
+        if op.get('source_sid'):
+            sid=op['source_sid']
+        elif op.get('source_match'):
             sid=select_active(store,o,{'match':op.get('source_match'),'pos':op.get('source_pos')})['sense_id']
+        elif op.get('source_pos'):
+            hits=[x for x in active(store,o) if x.get('pos')==op.get('source_pos')]
+            if len(hits)==1:
+                sid=hits[0]['sense_id']
+            elif len(hits)>1 and op.get('require_anchor'):
+                raise RuntimeError(f'CONSTRUCTION_SOURCE_AMBIGUOUS o{o:04d} op={op} hits={len(hits)}')
         rt.upsert_construction(store,o,op['pattern'],op['meaning_cn'],source_sid=sid,level=op.get('level','L2'),definition_en=op.get('definition_en'),note=op.get('note'))
     elif k=='form':
         rt.set_form_identity(store,o,AUTHORITY,op['type'],copy.deepcopy(op['boundaries']))
