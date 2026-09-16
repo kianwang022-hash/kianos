@@ -7,12 +7,22 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "551df9c623578ca94fed26a762a6b80a4b2dcb0d94aa40c2111791df9f5ba89c",
+    "content_hash": "e706ed500619ab7d389ce5fee0476d3f2f39dd5ce26ba223a7c758944bcce202",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "理解, 忧虑, 逮捕",
-      "core_meaning_en": "anticipate with dread or anxiety",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "逮捕、抓获；理解、领会（正式）",
+          "label_en": "law enforcement: to arrest or catch someone; formal: to understand or grasp something intellectually",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:apprehend:78d20776b7400e9a",
+            "sense:apprehend:0532b311ec2fb343"
+          ]
+        }
+      ],
+      "core_meaning_cn": "逮捕、抓获；理解、领会（正式）",
+      "core_meaning_en": "law enforcement: to arrest or catch someone; formal: to understand or grasp something intellectually",
+      "mental_model_cn": "逮捕、抓获；理解、领会（正式）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -31,7 +41,7 @@
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L1",
+        "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:apprehend:4e6c0fd1e11d570c",
@@ -45,7 +55,36 @@
             "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
             "source_type": "learner_dictionary"
           }
-        ]
+        ],
+        "usage_note": "Older/formal sense meaning anticipate with anxiety or dread; lower than arrest/understand in modern learner use."
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "逮捕、抓获",
+        "definition_en": "law enforcement: to arrest or catch someone",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:apprehend:78d20776b7400e9a",
+        "sense_label_en": "law enforcement: to arrest or catch someone",
+        "sort_order": 2,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "理解、领会（正式）",
+        "definition_en": "formal: to understand or grasp something intellectually",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:apprehend:0532b311ec2fb343",
+        "sense_label_en": "formal: to understand or grasp something intellectually",
+        "sort_order": 3,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -70,6 +109,20 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 17020,
+        "source_path": "content/lexical/canonical/senses/shards/o6337-6368.json"
+      },
+      {
+        "sense_id": "sense:apprehend:0532b311ec2fb343",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 17046,
+        "source_path": "content/lexical/canonical/senses/shards/o6337-6368.json"
+      },
+      {
+        "sense_id": "sense:apprehend:78d20776b7400e9a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 17047,
         "source_path": "content/lexical/canonical/senses/shards/o6337-6368.json"
       }
     ],
@@ -97,7 +150,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6353-6360.json",
-    "source_content_hash": "551df9c623578ca94fed26a762a6b80a4b2dcb0d94aa40c2111791df9f5ba89c",
+    "source_content_hash": "e706ed500619ab7d389ce5fee0476d3f2f39dd5ce26ba223a7c758944bcce202",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
