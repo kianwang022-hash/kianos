@@ -3,9 +3,7 @@ import { marked } from 'marked';
 import Base from '../../../layouts/Base.astro';
 import XizongBlockV6 from '../../../components/XizongBlockV6.astro';
 import XizongQuestionCrosswalkReverse from '../../../components/XizongQuestionCrosswalkReverse.astro';
-import XizongConnectionCues from '../../../components/XizongConnectionCues.astro';
-import XizongPrecisionVisualCues from '../../../components/XizongPrecisionVisualCues.astro';
-import XizongExtensionAssets from '../../../components/XizongExtensionAssets.astro';
+import XizongLearnerObjectBridge from '../../../components/XizongLearnerObjectBridge.astro';
 import XizongStudyEnhancer from '../../../components/XizongStudyEnhancer.astro';
 import XizongMemoryReviewV6 from '../../../components/XizongMemoryReviewV6.astro';
 import XizongBlockEvidenceGuard from '../../../components/XizongBlockEvidenceGuard.astro';
@@ -18,6 +16,9 @@ import { loadXizongPathways, pathwaysForBlock } from '../../../lib/xizongPathway
 import { loadXizongLearningCues, learningCuesForBlock } from '../../../lib/xizongLearningCues.mjs';
 import { projectBlockLearn, projectKpCore, projectVisualGate } from '../../../lib/xizongProjection.mjs';
 import { buildXizongProductionBlock } from '../../../lib/xizongProductionProjection.mjs';
+import { attachSourceVisualBundles } from '../../../lib/xizongSourceVisualAssets.mjs';
+import { extensionAssetsForBlock } from '../../../lib/xizongExtensionAssets.mjs';
+import { buildXizongLearnerObject, validateXizongLearnerObject } from '../../../lib/xizongLearnerObject.mjs';
 
 export function getStaticPaths() {
   return listProjectableXizongSystems().flatMap((system) => system.blocks.map((block) => ({
@@ -34,25 +35,35 @@ const crosswalk = loadXizongQuestionCrosswalkForBlock(canonicalBlock);
 const pathways = loadXizongPathways(system);
 const blockPathways = pathwaysForBlock(pathways, canonicalBlock.blockId);
 const learningCues = loadXizongLearningCues(system);
-const blockLearningCues = learningCuesForBlock(learningCues, canonicalBlock);
-const projection = {
+const blockLearningCues = learningCuesForBlock(learningCues, productionBlock);
+const resolvedLearningCues = {
+  ...blockLearningCues,
+  visuals: attachSourceVisualBundles(blockLearningCues.visuals || [])
+};
+const projectionBase = {
   ...productionBlock,
   pathways: blockPathways,
-  learningCues: blockLearningCues,
+  learningCues: resolvedLearningCues,
   blockLearnHtml: marked.parse(projectBlockLearn(canonicalBlock.blockLearnMarkdown), { gfm: true }),
   visualGateHtml: canonicalBlock.visualGateMarkdown ? marked.parse(projectVisualGate(canonicalBlock.visualGateMarkdown), { gfm: true }) : '',
   kpRecords: productionBlock.kpRecords.map((kp) => ({ ...kp, detailHtml: marked.parse(projectKpCore(kp.detailMarkdown), { gfm: true }) }))
 };
+const learnerObject = buildXizongLearnerObject({
+  block: projectionBase,
+  learningCues: resolvedLearningCues,
+  extensionAssets: extensionAssetsForBlock(projectionBase),
+  pathways: blockPathways
+});
+validateXizongLearnerObject(learnerObject);
+const projection = { ...projectionBase, learnerObject };
 const block = projection;
 ---
 <Base title={`${canonicalBlock.label} · ${canonicalBlock.title}`} kicker={`西医综合 · ${canonicalBlock.systemCanonicalId} · ${canonicalBlock.label}`} description={canonicalBlock.centerQuestion} sourcePath={canonicalBlock.sourcePath} sourceHash={canonicalBlock.sourceHash} objectId={canonicalBlock.objectId} active="xizong">
   <XizongLastLocation system={system} block={canonicalBlock} />
   <XizongBlockV6 block={projection} />
+  <XizongLearnerObjectBridge learnerObject={learnerObject} />
   <XizongQuestionCrosswalkReverse crosswalk={crosswalk} />
   <XizongRuntimeStageGuard system={system} block={block} />
-  <XizongConnectionCues block={projection} />
-  <XizongPrecisionVisualCues block={projection} />
-  <XizongExtensionAssets block={projection} />
   <XizongStudyEnhancer block={projection} />
   <XizongMemoryReviewV6 block={projection} />
   <XizongBlockEvidenceGuard block={projection} />
