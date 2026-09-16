@@ -18,7 +18,8 @@ Learner validation:                    U — UNTESTED
 remaining catalog:                     NONE
 ```
 
-Catalog Content execution is **COMPLETE — 7946 / 7946 owners**. Full-catalog K is **PASS — 7946 / 7946 accepted, BLOCKED 0**. Current Projection is now **PASS** for the admitted 7,946-owner generation.
+Catalog Content execution: **COMPLETE — 7946 / 7946 owners closed post-audit**.
+Full-catalog K is **PASS — 7946 / 7946 accepted, BLOCKED 0**. Current Projection is now **PASS** for the admitted 7,946-owner generation.
 
 Production/Audit, Content, Projection/Runtime/Evidence acceptance and private learner state are separate concepts. Engineering closure never manufactures learner progress.
 
