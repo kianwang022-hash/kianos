@@ -193,13 +193,28 @@ try {
   await cdp.evaluate(clickExpr('[data-kp-reveal]:not([hidden])'));
   check(await cdp.evaluate(hiddenExpr('[data-kp-recall-card]:not([hidden]) [data-kp-answer]')) === false, 'learned_kp_reveal_allowed');
   await cdp.evaluate(clickExpr('[data-kp-recall-card]:not([hidden]) [data-rating="mastered"]'));
-  await sleep(180);
   state = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(studyKey)})||'null')`);
   check(Object.keys(state?.ratings || {}).length === 1, 'first_recall_persisted');
+  const beforeAdvance = { ...state };
+  const pendingIndex = await cdp.evaluate(`(()=>{const s=JSON.parse(localStorage.getItem(${js(studyKey)})||'null');return Array.from(document.querySelectorAll('[data-kp-recall-card]')).findIndex(card=>{const id=card.getAttribute('data-kp-id');return s?.learned?.[id]&&!s?.ratings?.[id]});})()`);
+  check(pendingIndex >= 0, 'mid_group_fixture_has_pending_recall');
+  // The Current runtime advances after a 120ms feedback timer. Observe the
+  // actual persisted + visible cursor rather than assuming a 180ms host sleep
+  // is sufficient under concurrent CI load. This poll is strictly read-only.
+  let cursorSettled = false;
+  for (let probe = 0; probe < 60; probe += 1) {
+    cursorSettled = await cdp.evaluate(`(()=>{const s=JSON.parse(localStorage.getItem(${js(studyKey)})||'null');const cards=Array.from(document.querySelectorAll('[data-kp-recall-card]'));return s?.stage==='kp_recall'&&s?.kpIndex===${pendingIndex}&&cards.findIndex(card=>!card.hidden)===${pendingIndex};})()`);
+    if (cursorSettled) break;
+    await sleep(100);
+  }
+  state = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(studyKey)})||'null')`);
+  check(cursorSettled, 'rating_advances_to_real_pending_recall', JSON.stringify({ before: beforeAdvance, expectedIndex: pendingIndex, actual: state }));
   const savedIndex = state.kpIndex;
+  const savedRatings = JSON.stringify(state.ratings);
   await cdp.reload();
   state = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(studyKey)})||'null')`);
-  check(state?.stage === 'kp_recall' && state?.kpIndex === savedIndex, 'refresh_restores_mid_group_recall');
+  check(state?.stage === 'kp_recall' && state?.kpIndex === savedIndex, 'refresh_restores_mid_group_recall', JSON.stringify({ savedIndex, actual: state }));
+  check(JSON.stringify(state?.ratings) === savedRatings, 'mid_group_refresh_preserves_rating_evidence');
 
   // Finish first group Recall.
   let safety = 0;
