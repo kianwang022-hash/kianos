@@ -40,6 +40,9 @@ on:
       - 'static-web/scripts/*xizong*.mjs'
       - '.github/workflows/static-web-xizong-qa.yml'
 
+permissions:
+  contents: write
+
 concurrency:
   group: xizong-qa-${{ github.ref }}
   cancel-in-progress: true
@@ -53,10 +56,28 @@ jobs:
     steps:
       - name: Checkout Current
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.ref_name }}
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Synchronize reviewed relation manifest
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        run: node scripts/sync-xizong-question-relations-manifest.mjs --write
+      - name: Commit synchronized relation manifest
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        working-directory: ${{ github.workspace }}
+        run: |
+          if ! git diff --quiet -- content/xizong/question-relations/manifest.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add content/xizong/question-relations/manifest.json
+            git commit -m "chore(xizong): sync relation manifest"
+            git push origin HEAD:${{ github.event.pull_request.head.ref }}
+          fi
+      - name: Validate relation manifest synchronization
+        run: node scripts/sync-xizong-question-relations-manifest.mjs --check
       - name: Install dependencies
         run: npm install --no-audit --no-fund
       - name: Validate one Current owner per Block identity
@@ -67,6 +88,16 @@ jobs:
         run: node scripts/validate-xizong-question-attempts.mjs
       - name: Validate reviewed Question Crosswalk
         run: node scripts/validate-xizong-question-crosswalk.mjs
+      - name: Validate Crosswalk review queue pipeline
+        run: node scripts/validate-xizong-crosswalk-review-pipeline.mjs
+      - name: Build next Crosswalk review queue
+        run: node scripts/build-xizong-crosswalk-review-queue.mjs --limit 50 --out .qa/xizong-crosswalk-review-queue.json
+      - name: Upload next Crosswalk review queue
+        uses: actions/upload-artifact@v4
+        with:
+          name: xizong-crosswalk-review-queue
+          path: static-web/.qa/xizong-crosswalk-review-queue.json
+          if-no-files-found: error
       - name: Validate A1 learner contract
         run: node scripts/validate-xizong-learning.mjs
       - name: Validate A1 fresh Projection contracts
