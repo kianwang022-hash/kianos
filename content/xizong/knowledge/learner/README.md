@@ -14,7 +14,9 @@ Lane-level learning constitution is owned by `content/xizong/LEARNING_CONTRACT.m
 - `identity-aliases.json` — stable identity joins/aliases;
 - System-specific `*-learning.json` files may add compact learning guidance such as Logic Group goals, closure cues and Recall skeletons;
 - `BEGINNER_GUIDE_CONTRACT.md` — contract for Current System-level beginner explanation assets. These Guides explain accepted Current System / Learning / Block structure but have **no independent medical semantic authority**;
+- `guide-bindings.json` — Current path resolver for beginner explanation assets. For systems explicitly bound there, this resolver wins over stale legacy `system_fields.*.guide_path` metadata in `shared-fields.json`; it does not create medical or learning-route authority;
 - System-specific `*-guide.md` files — Current beginner-readable explanation / orientation assets where explicitly accepted. They may recover re-verified explanatory patterns from bounded historical provenance, but may not revive legacy System Guide authority, add new medical facts or become a second textbook;
+- `BLOCK_PREENTRY_CONTENT_CONTRACT.md` — typed content boundary for explicit canonical Block `Framework / Memory Routing / MI-G / MI-D`. It defines what downstream compilation may expose and forbids inferred membership or personal learner-state semantics;
 - System-specific `*-learning-cues.json` files may add **selective, non-authoritative indexes** for Precision awareness and Visual timing. They reference stable Block / Logic Group / KP identities, do not copy canonical answers, and absence from the index never means canonical content is unimportant or omitted.
 
 Current Beginner Guide set introduced by the 2026-09-17 Guide / Framework content lane:
@@ -25,6 +27,23 @@ Current Beginner Guide set introduced by the 2026-09-17 Guide / Framework conten
 - `b-digestive-metabolic-endocrine-tumor-guide.md`
 
 These four files exist because A1 / A2 / A3 / B had already completed the old System Guide authority cutover and therefore needed a new **Current explanation layer** rather than restoration of retired files. C / D / E / F remain governed by their own transitional System-level state and are not silently migrated by this list.
+
+For A1 / A2 / A3 / B, `guide-bindings.json` is now the Current explanatory-Guide resolver. A legacy `system-guides/**` value that still appears inside older shared projection metadata is **not** permission to route learning back to the retired Guide.
+
+## Block pre-entry content boundary
+
+Canonical Block Markdown may explicitly own several learner-facing content jobs before or during first learning:
+
+```text
+Framework
+Memory Routing
+  ├─ MI-G
+  └─ MI-D
+```
+
+These are content semantics, not UI cards and not personal review state. Downstream Projection / learner-object work must preserve explicit Current ownership and provenance; a missing Framework or Memory section remains missing rather than being synthesized for symmetry.
+
+`BLOCK_PREENTRY_CONTENT_CONTRACT.md` owns that extraction boundary. It does not itself recompile Projection or change Runtime.
 
 ## Evidence / receipt boundary
 
