@@ -6,13 +6,40 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "e9ccec756ef086fbb014f882d800e7195a3cac60c87e9cbf354b420363dcaf03",
+    "constructions": [
+      {
+        "construction_id": "construction:430d14e42c59a173bb8d",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "应该做……",
+        "pattern": "ought to + base verb",
+        "source_sense_id": "sense:ought:12634c92a24c5f45"
+      },
+      {
+        "construction_id": "construction:778ddaf63cb6d3d1ee11",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "不应该做……",
+        "pattern": "ought not to + base verb",
+        "source_sense_id": "sense:ought:12634c92a24c5f45"
+      }
+    ],
+    "content_hash": "4d82b48bc825e3ca8657c62c0952f53e78cd608c209b1e004a64519b98d155dd",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "应该；应当",
-      "core_meaning_en": "used to express duty, advice, or what is morally or practically right",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "应该；表示责任、建议或合宜；应该会；表示预期或可能性",
+          "label_en": "modal used with to + base verb to express duty, advice, or what is right; modal used with to + base verb to say that something is expected or probable",
+          "pos": "modal",
+          "sense_ids": [
+            "sense:ought:12634c92a24c5f45",
+            "sense:ought:c10b88118c315b5b"
+          ]
+        }
+      ],
+      "core_meaning_cn": "应该；表示责任、建议或合宜；应该会；表示预期或可能性",
+      "core_meaning_en": "modal used with to + base verb to express duty, advice, or what is right; modal used with to + base verb to say that something is expected or probable",
+      "mental_model_cn": "应该；表示责任、建议或合宜；应该会；表示预期或可能性",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -29,14 +56,14 @@
       {
         "collocations": [],
         "confidence": "auditor_approved",
-        "definition_cn": "应该；应当",
-        "definition_en": "used to express duty, advice, or what is morally or practically right",
-        "governing_pattern": "",
+        "definition_cn": "应该；表示责任、建议或合宜",
+        "definition_en": "modal used with to + base verb to express duty, advice, or what is right",
+        "governing_pattern": "ought to + base verb",
         "level": "L1",
         "needs_human_review": 0,
-        "pos": "verb",
+        "pos": "modal",
         "sense_id": "sense:ought:12634c92a24c5f45",
-        "sense_label_en": "used to express duty, advice, or what is morally or practically right",
+        "sense_label_en": "modal used with to + base verb to express duty, advice, or what is right",
         "sort_order": 0,
         "source_evidence": [
           "source-fact:ecdict:b091c15cfce5fc0f3054",
@@ -56,14 +83,14 @@
       {
         "collocations": [],
         "confidence": "auditor_approved",
-        "definition_cn": "应该会；理应",
-        "definition_en": "used to say that something is expected or probable",
-        "governing_pattern": "",
-        "level": "L2",
+        "definition_cn": "应该会；表示预期或可能性",
+        "definition_en": "modal used with to + base verb to say that something is expected or probable",
+        "governing_pattern": "ought to + base verb",
+        "level": "L1",
         "needs_human_review": 0,
-        "pos": "verb",
+        "pos": "modal",
         "sense_id": "sense:ought:c10b88118c315b5b",
-        "sense_label_en": "used to say that something is expected or probable",
+        "sense_label_en": "modal used with to + base verb to say that something is expected or probable",
         "sort_order": 1,
         "source_evidence": [
           "source-fact:ecdict:b091c15cfce5fc0f3054",
@@ -142,7 +169,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5577-5584.json",
-    "source_content_hash": "e9ccec756ef086fbb014f882d800e7195a3cac60c87e9cbf354b420363dcaf03",
+    "source_content_hash": "4d82b48bc825e3ca8657c62c0952f53e78cd608c209b1e004a64519b98d155dd",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
