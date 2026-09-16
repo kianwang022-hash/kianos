@@ -1,7 +1,7 @@
 <style is:global>
-  /* Purpose-first calibration: readability wins over diagram density. */
-  .politicsCognitiveWorkspace.directReasoningWorkspace .stageScene>h2{font-size:clamp(30px,2.35vw,38px);line-height:1.22}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .stageBridge{font-size:16px;line-height:1.6}
+  /* PURPOSE_FIRST / TEXT_DEFAULT: readable learning beats diagram density. */
+  .politicsCognitiveWorkspace.directReasoningWorkspace .stageScene>h2{font-size:clamp(31px,2.45vw,39px);line-height:1.22}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .stageBridge{font-size:16px;line-height:1.62}
   .politicsCognitiveWorkspace.directReasoningWorkspace .workspaceLocation{font-size:14px}
   .politicsCognitiveWorkspace.directReasoningWorkspace .workspaceLocation b{font-size:15px}
   .politicsCognitiveWorkspace.directReasoningWorkspace .workspaceUnitTabs button>span{font-size:12px}
@@ -9,38 +9,91 @@
   .politicsCognitiveWorkspace.directReasoningWorkspace .chapterContext>div:first-child>span{font-size:13px}
   .politicsCognitiveWorkspace.directReasoningWorkspace .chapterContext>div:first-child>strong{font-size:15px}
   .politicsCognitiveWorkspace.directReasoningWorkspace .chapterContextToggle{font-size:14px}
-
-  .politicsCognitiveWorkspace.directReasoningWorkspace .semanticMap>header strong{font-size:19px;line-height:1.45}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNode b{font-size:19px;line-height:1.36}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNode small{font-size:16px;line-height:1.5}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNodeNotes>summary{font-size:15px}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNodeNotes .semanticMapNodes b{font-size:16px}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNodeNotes .semanticMapNodes p{font-size:15px;line-height:1.55}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .relationStrip>section>span{font-size:16px}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .relationStrip b{font-size:16px}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .relationStrip i{font-size:17px}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .contextualInspector [data-inspector-state]>header>strong{font-size:19px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .contextualInspector [data-inspector-state]>header>strong{font-size:19px;line-height:1.4}
   .politicsCognitiveWorkspace.directReasoningWorkspace .inspectorBlock p strong{font-size:16px}
   .politicsCognitiveWorkspace.directReasoningWorkspace .inspectorBlock p span{font-size:15px;line-height:1.6}
   .politicsCognitiveWorkspace.directReasoningWorkspace .firstRoundExact>span{font-size:13px}
   .politicsCognitiveWorkspace.directReasoningWorkspace .firstRoundExact>p{font-size:16px;line-height:1.65}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .stageActions .primaryAction{font-size:16px}
 
-  /* S02 proves the default rule: parallel concepts are clearer as text than as a graph. */
-  .politicsCognitiveWorkspace.directReasoningWorkspace .textFirstMap{border:0;border-top:1px solid #e2e9e6;border-radius:0;padding:15px 0 9px;background:transparent}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .textFirstMap .goldenGraph,
-  .politicsCognitiveWorkspace.directReasoningWorkspace .textFirstMap .goldenCrossEdges,
-  .politicsCognitiveWorkspace.directReasoningWorkspace .textFirstMap .goldenNodeNotes{display:none!important}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .readableConcepts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:34px;row-gap:0}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .readableConcept{display:grid;grid-template-columns:minmax(92px,auto) minmax(0,1fr);gap:14px;padding:11px 0;border-bottom:1px solid #edf1ef}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .readableConcept b{color:#173f32;font-size:19px;line-height:1.45}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .readableConcept span{color:#596d66;font-size:16px;line-height:1.65}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .readableRelations{display:grid;gap:8px;margin-top:14px;padding-top:13px;border-top:1px solid #dfe7e3}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .readableRelations>span{color:#48675c;font-size:15px;font-weight:800}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .readableRelations p{margin:0;color:#314d44;font-size:17px;line-height:1.6}
+  /* S01: keep only the one spatial relation that actually reduces reconstruction cost. */
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeChainMap{padding:16px 18px 18px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeChainMap .goldenGraph,
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeChainMap .goldenCrossEdges,
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeChainMap .goldenNodeNotes,
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeChainMap>.semanticEdges{display:none!important}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeChain{display:grid;grid-template-columns:minmax(240px,.95fr) auto minmax(0,1.55fr);gap:22px;align-items:center;margin-top:4px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeSources{display:grid;gap:5px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeSource{display:grid;gap:3px;padding:8px 0 8px 12px;border-left:3px solid #b8d2c8}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeSource b{font-size:18px;line-height:1.35;color:#173f32}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeSource span{font-size:15px;line-height:1.45;color:#4e6d62}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeJoin{display:grid;justify-items:center;gap:2px;color:#5f8c7d}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeJoin span{font-size:13px;font-weight:760;white-space:nowrap}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeJoin b{font-size:28px;line-height:1;font-weight:600}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeSequence{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:center}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeStep{position:relative;display:grid;gap:4px;min-width:0;padding:9px 4px 9px 12px;border-left:3px solid #7aa995}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeStep:not(:last-child)::after{content:'→';position:absolute;right:-18px;top:50%;transform:translateY(-50%);font-size:19px;color:#6c9a8a;font-weight:760}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeStep b{font-size:18px;line-height:1.38;color:#173f32}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeStep span{font-size:14px;line-height:1.45;color:#587067}
+
+  /* The supporting class-basis reasoning wraps like prose instead of becoming a horizontal micro-diagram. */
+  .politicsCognitiveWorkspace.directReasoningWorkspace [data-unit-id="POL27-CF-MARX-C00-S01"] .relationStrip{margin-top:12px;padding-top:12px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace [data-unit-id="POL27-CF-MARX-C00-S01"] .relationStrip>section{grid-template-columns:minmax(170px,205px) minmax(0,1fr);align-items:start}
+  .politicsCognitiveWorkspace.directReasoningWorkspace [data-unit-id="POL27-CF-MARX-C00-S01"] .relationStrip>section>span{font-size:15px;line-height:1.5}
+  .politicsCognitiveWorkspace.directReasoningWorkspace [data-unit-id="POL27-CF-MARX-C00-S01"] .relationStrip>section>div{display:flex;flex-wrap:wrap;gap:5px 8px;overflow:visible;margin:0;padding:0}
+  .politicsCognitiveWorkspace.directReasoningWorkspace [data-unit-id="POL27-CF-MARX-C00-S01"] .relationStrip b{min-width:0;white-space:normal;font-size:15px;line-height:1.55;font-weight:650}
+  .politicsCognitiveWorkspace.directReasoningWorkspace [data-unit-id="POL27-CF-MARX-C00-S01"] .relationStrip i{font-size:15px;line-height:1.55}
+
+  /* S02: parallel concepts are safer and faster as large-type structured text, not a generated topology. */
+  .politicsCognitiveWorkspace.directReasoningWorkspace [data-unit-id="POL27-CF-MARX-C00-S02"] .mapDeck{grid-template-columns:minmax(0,1.2fr) minmax(330px,.8fr);gap:30px;align-items:start}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeTextMap{border:0;border-radius:0;background:transparent;padding:0;box-shadow:none}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeTextMap+.purposeTextMap{padding-left:28px;border-left:1px solid #dfe7e3}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeTextMap .goldenGraph,
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeTextMap .goldenCrossEdges,
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeTextMap .goldenNodeNotes,
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeTextMap>.semanticMapNodes,
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeTextMap>.semanticEdges{display:none!important}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeTextMap>header{padding-bottom:9px;margin-bottom:4px;border-bottom:1px solid #e5ebe8}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeTextMap>header strong{font-size:19px;line-height:1.45;color:#294b40}
+
+  .politicsCognitiveWorkspace.directReasoningWorkspace .featureNames{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:2px;border-bottom:1px solid #e8eeeb}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .featureNames b{padding:12px 8px 12px 0;font-size:19px;line-height:1.3;color:#173f32;font-weight:760}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .readableRelations{display:grid;gap:8px;margin-top:12px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .readableRelations>span{font-size:14px;color:#587067;font-weight:820}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .readableRelations p{margin:0;font-size:16px;line-height:1.55;color:#314d44}
   .politicsCognitiveWorkspace.directReasoningWorkspace .readableRelations p strong{color:#173f32}
 
+  .politicsCognitiveWorkspace.directReasoningWorkspace .valueRows{display:grid;margin-top:2px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .valueRow{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid #e8eeeb}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .valueRow b{font-size:18px;line-height:1.45;color:#173f32}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .valueRow span{font-size:16px;line-height:1.55;color:#526a61}
+
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeDetails{margin-top:10px;border:0}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeDetails>summary{cursor:pointer;list-style:none;width:max-content;font-size:14px;font-weight:720;color:#61756e}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeDetails>summary::-webkit-details-marker{display:none}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeDetails>summary::after{content:'  +';color:var(--study-green)}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeDetails[open]>summary::after{content:'  −'}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeDetails div{display:grid;gap:7px;margin-top:9px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeDetails p{display:grid;grid-template-columns:110px minmax(0,1fr);gap:10px;margin:0;font-size:15px;line-height:1.55;color:#526a61}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .purposeDetails p b{color:#294b40}
+
+  /* S02 already shows its decisive relations directly; do not duplicate them again below. */
+  .politicsCognitiveWorkspace.directReasoningWorkspace [data-unit-id="POL27-CF-MARX-C00-S02"] .relationStrip{display:none!important}
+
+  @media(max-width:1180px){
+    .politicsCognitiveWorkspace.directReasoningWorkspace .purposeChain{grid-template-columns:minmax(220px,.9fr) auto minmax(0,1.4fr);gap:16px}
+    .politicsCognitiveWorkspace.directReasoningWorkspace .purposeSequence{gap:18px}
+    .politicsCognitiveWorkspace.directReasoningWorkspace [data-unit-id="POL27-CF-MARX-C00-S02"] .mapDeck{grid-template-columns:1fr}
+    .politicsCognitiveWorkspace.directReasoningWorkspace .purposeTextMap+.purposeTextMap{padding-left:0;padding-top:18px;border-left:0;border-top:1px solid #dfe7e3}
+  }
   @media(max-width:980px){
-    .politicsCognitiveWorkspace.directReasoningWorkspace .readableConcepts{grid-template-columns:1fr}
+    .politicsCognitiveWorkspace.directReasoningWorkspace .purposeChain{grid-template-columns:1fr;gap:12px}
+    .politicsCognitiveWorkspace.directReasoningWorkspace .purposeJoin{grid-template-columns:auto auto;justify-content:start;align-items:center}
+    .politicsCognitiveWorkspace.directReasoningWorkspace .purposeJoin b{transform:rotate(90deg)}
+    .politicsCognitiveWorkspace.directReasoningWorkspace .purposeSequence{grid-template-columns:1fr;gap:12px}
+    .politicsCognitiveWorkspace.directReasoningWorkspace .purposeStep:not(:last-child)::after{content:'↓';right:auto;left:14px;top:auto;bottom:-13px;transform:none}
+    .politicsCognitiveWorkspace.directReasoningWorkspace .featureNames{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .politicsCognitiveWorkspace.directReasoningWorkspace [data-unit-id="POL27-CF-MARX-C00-S01"] .relationStrip>section{grid-template-columns:1fr}
   }
 </style>
 
@@ -49,40 +102,104 @@
     const workspace = document.querySelector('[data-politics-cognitive-workspace]');
     if (!workspace) return;
 
-    const unit = workspace.querySelector('[data-workspace-unit][data-unit-id="POL27-CF-MARX-C00-S02"]');
-    if (!unit) return;
-    unit.dataset.politicsRepresentation = 'TEXT_DEFAULT';
-
-    const panels = [...unit.querySelectorAll('[data-map-panel]')];
-    panels.forEach((panel, index) => {
-      const notes = panel.querySelector('.goldenNodeNotes .semanticMapNodes') || panel.querySelector('.semanticMapNodes');
-      if (!notes) return;
-
-      const rows = [...notes.querySelectorAll(':scope > article')].map((article) => ({
+    const rowsFor = (panel) => {
+      const source = panel.querySelector('.goldenNodeNotes .semanticMapNodes') || panel.querySelector('.semanticMapNodes');
+      if (!source) return [];
+      return [...source.querySelectorAll(':scope > article')].map((article) => ({
         label: article.querySelector('b')?.textContent?.trim() || '',
         meaning: article.querySelector('p')?.textContent?.trim() || ''
       })).filter((row) => row.label);
-      if (!rows.length) return;
+    };
 
-      const concepts = document.createElement('div');
-      concepts.className = 'readableConcepts';
-      rows.forEach((row) => {
-        const line = document.createElement('div');
-        line.className = 'readableConcept';
-        const label = document.createElement('b');
-        label.textContent = row.label;
-        const meaning = document.createElement('span');
-        meaning.textContent = row.meaning;
-        line.append(label, meaning);
-        concepts.appendChild(line);
+    const edgesFor = (panel) => {
+      const edgeWrap = panel.querySelector(':scope > .semanticEdges');
+      if (!edgeWrap) return [];
+      return [...edgeWrap.querySelectorAll(':scope > div')].map((row) => {
+        const labels = row.querySelectorAll('span');
+        return {
+          from: labels[0]?.textContent?.trim() || '',
+          relation: row.querySelector('small')?.textContent?.trim() || '',
+          to: labels[1]?.textContent?.trim() || ''
+        };
+      }).filter((edge) => edge.from && edge.to);
+    };
+
+    const s01 = workspace.querySelector('[data-workspace-unit][data-unit-id="POL27-CF-MARX-C00-S01"]');
+    const s01Panel = s01?.querySelector('[data-map-panel="0"]');
+    if (s01Panel) {
+      const rows = rowsFor(s01Panel);
+      const edges = edgesFor(s01Panel);
+      const relationFrom = (label) => edges.find((edge) => edge.from === label)?.relation || '';
+      const byLabel = new Map(rows.map((row) => [row.label, row]));
+      const sourceLabels = ['社会根源', '阶级基础 / 实践需求', '思想来源'].filter((label) => byLabel.has(label));
+      const chainLabels = ['理论创立 / 公开问世', '形成完整理论体系', '在新的实践和时代中继续发展'].filter((label) => byLabel.has(label));
+
+      const layout = document.createElement('div');
+      layout.className = 'purposeChain';
+
+      const sources = document.createElement('div');
+      sources.className = 'purposeSources';
+      sourceLabels.forEach((label) => {
+        const row = document.createElement('div');
+        row.className = 'purposeSource';
+        const title = document.createElement('b');
+        title.textContent = label;
+        const relation = document.createElement('span');
+        relation.textContent = relationFrom(label);
+        row.append(title, relation);
+        sources.appendChild(row);
       });
 
-      const header = panel.querySelector('header');
-      header?.after(concepts);
-      panel.classList.add('textFirstMap');
+      const join = document.createElement('div');
+      join.className = 'purposeJoin';
+      const joinLabel = document.createElement('span');
+      joinLabel.textContent = '共同进入';
+      const joinArrow = document.createElement('b');
+      joinArrow.textContent = '→';
+      join.append(joinLabel, joinArrow);
+
+      const sequence = document.createElement('div');
+      sequence.className = 'purposeSequence';
+      chainLabels.forEach((label) => {
+        const row = document.createElement('div');
+        row.className = 'purposeStep';
+        const title = document.createElement('b');
+        title.textContent = label;
+        const relation = document.createElement('span');
+        relation.textContent = relationFrom(label);
+        row.append(title);
+        if (relation.textContent) row.appendChild(relation);
+        sequence.appendChild(row);
+      });
+
+      layout.append(sources, join, sequence);
+      s01Panel.querySelector('header')?.after(layout);
+      s01Panel.classList.add('purposeChainMap');
+      s01.dataset.politicsRepresentation = 'SIMPLE_CHAIN_WHEN_CLEARER';
+    }
+
+    const s02 = workspace.querySelector('[data-workspace-unit][data-unit-id="POL27-CF-MARX-C00-S02"]');
+    const panels = s02 ? [...s02.querySelectorAll('[data-map-panel]')] : [];
+    if (s02) s02.dataset.politicsRepresentation = 'TEXT_DEFAULT';
+    panels.forEach((panel, index) => {
+      const rows = rowsFor(panel);
+      if (!rows.length) return;
+      panel.classList.add('purposeTextMap', 'textFirstMap');
       panel.dataset.representation = 'TEXT';
 
       if (index === 0) {
+        // Four Current basic characteristics stay peers. 革命性 is expressed below as a relation result,
+        // not misdrawn as a fifth peer or as a parent node.
+        const featureLabels = ['科学性', '人民性', '实践性', '发展性'];
+        const features = document.createElement('div');
+        features.className = 'featureNames readableConcepts';
+        featureLabels.filter((label) => rows.some((row) => row.label === label)).forEach((label) => {
+          const item = document.createElement('b');
+          item.className = 'readableConcept';
+          item.textContent = label;
+          features.appendChild(item);
+        });
+
         const relations = document.createElement('div');
         relations.className = 'readableRelations';
         const title = document.createElement('span');
@@ -91,7 +208,7 @@
         [
           ['人民性、实践性、发展性', '集中体现马克思主义的革命性。'],
           ['科学性', '为革命性提供科学基础。'],
-          ['马克思主义', '是科学性与革命性的统一。']
+          ['科学性与革命性', '高度统一。']
         ].forEach(([lead, copy]) => {
           const line = document.createElement('p');
           const strong = document.createElement('strong');
@@ -99,7 +216,38 @@
           line.append(strong, document.createTextNode(`：${copy}`));
           relations.appendChild(line);
         });
-        concepts.after(relations);
+
+        const details = document.createElement('details');
+        details.className = 'purposeDetails';
+        const summary = document.createElement('summary');
+        summary.textContent = '概念解释（需要时）';
+        const detailBody = document.createElement('div');
+        rows.filter((row) => featureLabels.includes(row.label)).forEach((row) => {
+          const line = document.createElement('p');
+          const label = document.createElement('b');
+          label.textContent = row.label;
+          const copy = document.createElement('span');
+          copy.textContent = row.meaning;
+          line.append(label, copy);
+          detailBody.appendChild(line);
+        });
+        details.append(summary, detailBody);
+
+        panel.querySelector('header')?.after(features, relations, details);
+      } else {
+        const values = document.createElement('div');
+        values.className = 'valueRows readableConcepts';
+        rows.filter((row) => row.label !== '当代价值').forEach((row) => {
+          const line = document.createElement('div');
+          line.className = 'valueRow readableConcept';
+          const label = document.createElement('b');
+          label.textContent = row.label;
+          const copy = document.createElement('span');
+          copy.textContent = row.meaning;
+          line.append(label, copy);
+          values.appendChild(line);
+        });
+        panel.querySelector('header')?.after(values);
       }
     });
   })();
