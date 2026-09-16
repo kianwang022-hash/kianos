@@ -7,7 +7,7 @@ const PORT = 4328;
 const BASE = `http://127.0.0.1:${PORT}`;
 const auditDir = path.resolve(process.cwd(), '../xizong-a2-functional-audit');
 fs.mkdirSync(auditDir, { recursive: true });
-const report = { schema: 'kianos.xizong.a2.kp_precision_post_reveal.v1', started_at: new Date().toISOString(), checks: [] };
+const report = { schema: 'kianos.xizong.a2.kp_precision_post_reveal.v2', started_at: new Date().toISOString(), checks: [] };
 const check = (condition, name, detail = '') => {
   if (!condition) throw new Error(`A2_KP_PRECISION_FAIL:${name}${detail ? `:${detail}` : ''}`);
   report.checks.push({ name, pass: true, detail });
@@ -42,6 +42,7 @@ async function resetBlock(page, route) {
   await page.reload({ waitUntil: 'domcontentloaded' });
   const root = page.locator('[data-xizong-v6-block]');
   await root.waitFor({ state: 'visible' });
+  check(await page.locator('[data-xizong-learner-object-payload]').count() === 1, `learner_object_payload_${route}`);
   return root;
 }
 
@@ -98,30 +99,34 @@ try {
   const context = await browser.newContext({ viewport: { width: 1440, height: 1050 } });
   const page = await context.newPage();
 
-  let renderedStacks = 0;
+  let renderedPrecision = 0;
   for (let n = 1; n <= 12; n += 1) {
     const route = `r${String(n).padStart(2, '0')}`;
     const root = await resetBlock(page, route);
-    renderedStacks += await root.locator('[data-kp-precision]').count();
+    check(await root.locator('[data-kp-precision]').count() === 0, `legacy_kp_precision_owner_retired_${route}`);
+    renderedPrecision += await root.locator('[data-learner-object-slot="kp_recall_post_reveal"] [data-learner-asset="precision"]').count();
   }
-  check(renderedStacks === 17, 'all_current_kp_precision_rows_reachable', String(renderedStacks));
+  check(renderedPrecision === 17, 'all_current_kp_precision_rows_reachable', String(renderedPrecision));
 
   for (const item of representatives) {
     const root = await resetBlock(page, item.route);
     const card = await reachTargetKp(root, item.kpId);
     const answer = card.locator('[data-kp-answer]');
-    const stack = card.locator(`[data-kp-precision="${item.kpId}"]`);
-    const cue = stack.locator(`[data-precision-cue-id="${item.cueId}"]`);
+    const stack = card.locator(`[data-learner-object-slot="kp_recall_post_reveal"][data-kp-id="${item.kpId}"]`);
+    const cue = stack.locator(`[data-learner-asset="precision"][data-learner-asset-id="${item.cueId}"]`);
 
-    check(await stack.count() === 1, `precision_stack_bound_${item.kpId}`);
+    check(await stack.count() === 1, `precision_post_reveal_slot_bound_${item.kpId}`);
     check(await cue.count() === 1, `precision_cue_id_bound_${item.kpId}`);
     check((await cue.textContent() || '').includes(item.cue), `precision_text_unchanged_${item.kpId}`);
     check(await answer.isHidden(), `answer_hidden_before_reveal_${item.kpId}`);
     check(await stack.isHidden(), `precision_hidden_before_reveal_${item.kpId}`);
+    check(await root.locator('[data-kp-recall-card]:not([hidden]) [data-learner-asset="precision"]:visible').count() === 0,
+      `recall_front_has_no_visible_precision_${item.kpId}`);
 
     await card.locator('[data-kp-reveal]').click();
     check(await answer.isVisible(), `answer_visible_after_reveal_${item.kpId}`);
     check(await stack.isVisible(), `precision_visible_after_reveal_${item.kpId}`);
+    check(await cue.isVisible(), `precision_cue_visible_after_reveal_${item.kpId}`);
 
     const visibleCard = root.locator('[data-kp-recall-card]:not([hidden])');
     const beforeId = await visibleCard.getAttribute('data-kp-id');
@@ -138,6 +143,7 @@ try {
   report.finished_at = new Date().toISOString();
   report.status = 'PASS';
   report.evidence_class = 'EXECUTED_BROWSER_ENGINEERING_EVIDENCE_NOT_REAL_LEARNER_U';
+  report.semantic_surface = 'kianos.xizong.learner_object.v1';
   fs.writeFileSync(path.join(auditDir, 'kp-precision-post-reveal.json'), JSON.stringify(report, null, 2));
   console.log('A2_KP_PRECISION_POST_REVEAL_PASS');
   await context.close();
