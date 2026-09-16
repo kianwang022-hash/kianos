@@ -7,15 +7,48 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "f945488ff8482b84231bad9517970d946fd4ed436f2f6bb4160e6a32913835b9",
+    "content_hash": "69ffe23a0527cda0aef0850e9a0bc845ccc5f1b2f17f41b38ede40161a87d934",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "这些",
-      "core_meaning_en": "plural of this",
-      "mental_model_cn": "这些",
+      "core_clusters": [
+        {
+          "label_cn": "这些（this的复数）",
+          "label_en": "plural form of this, referring to people or things just mentioned or easily identified",
+          "pos": "pronoun",
+          "sense_ids": [
+            "sense:these:e5c7916425e35fc6"
+          ]
+        },
+        {
+          "label_cn": "这些；置于复数名词前作限定词",
+          "label_en": "demonstrative determiner used before a plural noun",
+          "pos": "determiner",
+          "sense_ids": [
+            "sense:these:d5410d4d15bff3b7"
+          ]
+        }
+      ],
+      "core_meaning_cn": "这些（this的复数）；这些；置于复数名词前作限定词",
+      "core_meaning_en": "plural form of this, referring to people or things just mentioned or easily identified; demonstrative determiner used before a plural noun",
+      "mental_model_cn": "这些（this的复数）；这些；置于复数名词前作限定词",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o4875-o5374.md",
+      "boundaries": [
+        {
+          "condition": "standalone",
+          "note": "pronoun use",
+          "surface": "these"
+        },
+        {
+          "condition": "before plural noun",
+          "note": "determiner use",
+          "surface": "these + plural noun"
+        }
+      ],
+      "type": "demonstrative_pos_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -55,6 +88,20 @@
         "sense_label_en": "plural form of this, referring to people or things just mentioned or eas",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "这些；置于复数名词前作限定词",
+        "definition_en": "demonstrative determiner used before a plural noun",
+        "governing_pattern": "these + plural noun",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "determiner",
+        "sense_id": "sense:these:d5410d4d15bff3b7",
+        "sense_label_en": "demonstrative determiner used before a plural noun",
+        "sort_order": 1,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -85,6 +132,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14150,
+        "source_path": "content/lexical/canonical/senses/shards/o4961-4992.json"
+      },
+      {
+        "sense_id": "sense:these:d5410d4d15bff3b7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14192,
         "source_path": "content/lexical/canonical/senses/shards/o4961-4992.json"
       }
     ],
@@ -126,7 +180,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4977-4984.json",
-    "source_content_hash": "f945488ff8482b84231bad9517970d946fd4ed436f2f6bb4160e6a32913835b9",
+    "source_content_hash": "69ffe23a0527cda0aef0850e9a0bc845ccc5f1b2f17f41b38ede40161a87d934",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

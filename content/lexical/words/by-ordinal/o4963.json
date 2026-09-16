@@ -7,15 +7,40 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "56915b8c363727777a7d11b4c00b57c59122c0d1f99bfcce7edc4cd97cb321ff",
+    "content_hash": "d2ce19ebea221016c70f602700683d812173e38b7dd3aeb76e555e71c99f69a4",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "他们的",
-      "core_meaning_en": "belonging to them",
-      "mental_model_cn": "他们的",
+      "core_clusters": [
+        {
+          "label_cn": "他们的；也可指单数 they 所指一人的",
+          "label_en": "possessive determiner of they, including standard singular-they reference",
+          "pos": "determiner",
+          "sense_ids": [
+            "sense:their:c215febe63775cf3"
+          ]
+        }
+      ],
+      "core_meaning_cn": "他们的；也可指单数 they 所指一人的",
+      "core_meaning_en": "possessive determiner of they, including standard singular-they reference",
+      "mental_model_cn": "他们的；也可指单数 they 所指一人的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o4875-o5374.md",
+      "boundaries": [
+        {
+          "condition": "normal prenominal use",
+          "note": "their is normally a possessive determiner",
+          "surface": "their + noun"
+        },
+        {
+          "condition": "reference",
+          "note": "may refer to plural they or standard singular they",
+          "surface": "their"
+        }
+      ],
+      "type": "pronoun_paradigm_pos_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -36,14 +61,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "他们的",
-        "definition_en": "possessive form of they",
+        "definition_cn": "他们的；也可指单数 they 所指一人的",
+        "definition_en": "possessive determiner of they, including standard singular-they reference",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
-        "pos": "pronoun",
+        "pos": "determiner",
         "sense_id": "sense:their:c215febe63775cf3",
-        "sense_label_en": "possessive form of they",
+        "sense_label_en": "possessive determiner of they, including standard singular-they reference",
         "sort_order": 0,
         "transitivity": "nonverb"
       }
@@ -67,7 +92,14 @@
     "word_family": [],
     "word_id": "word:their"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "confusable:horizontal:6f5711efdc5cb02126fb",
+      "owner_path": "content/lexical/relations/by-id/c1/c1add86a369e96c26d982703d1abf967c2944a1d600040076a7909fb08a1d612.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -111,7 +143,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4961-4968.json",
-    "source_content_hash": "56915b8c363727777a7d11b4c00b57c59122c0d1f99bfcce7edc4cd97cb321ff",
+    "source_content_hash": "d2ce19ebea221016c70f602700683d812173e38b7dd3aeb76e555e71c99f69a4",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

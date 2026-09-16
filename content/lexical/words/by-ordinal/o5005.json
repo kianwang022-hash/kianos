@@ -7,12 +7,21 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "8f86b0592c4cdb6fde2ed2ab97a42e35640e8e3c3e161d7a71f5556b19381cbe",
+    "content_hash": "dde9f6f6bf2cb4c3313956790305b8f89ca4edc16a029866d914a2f178577ca3",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "节约；海石竹",
-      "core_meaning_en": "careful use of money; also a type of plant",
-      "mental_model_cn": "节约；海石竹",
+      "core_clusters": [
+        {
+          "label_cn": "节约，节俭",
+          "label_en": "the practice of being careful with money",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:thrift:126cc8fb9bc45e05"
+          ]
+        }
+      ],
+      "core_meaning_cn": "节约，节俭",
+      "core_meaning_en": "the practice of being careful with money",
+      "mental_model_cn": "节约，节俭",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +31,22 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "节约，节俭",
+        "definition_en": "the practice of being careful with money",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:thrift:126cc8fb9bc45e05",
+        "sense_label_en": "the practice of being careful with money",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -44,31 +68,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:thrift:126cc8fb9bc45e05",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "节约，节俭",
-      "definition_en": "the practice of being careful with money",
-      "semantic_key": "ee60d3549543fbeef8978b55f9dbffe25a814fd28fb1c2970394c90a4a190a04",
-      "semantic_key_history": [
-        "d23ada5c9549043d9e14da0a787bec2c83944c24fa6461b2444c4ff8dcc58c35"
-      ],
-      "legacy_aliases": [
-        "thrift:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "thrift:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14222,
-      "source_path": "content/lexical/canonical/senses/shards/o4993-5024.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:thrift:d04f389b07715f19",
       "status": "deprecated",
@@ -99,7 +98,7 @@
     "senses": [
       {
         "sense_id": "sense:thrift:126cc8fb9bc45e05",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14222,
         "source_path": "content/lexical/canonical/senses/shards/o4993-5024.json"
@@ -152,7 +151,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5001-5008.json",
-    "source_content_hash": "8f86b0592c4cdb6fde2ed2ab97a42e35640e8e3c3e161d7a71f5556b19381cbe",
+    "source_content_hash": "dde9f6f6bf2cb4c3313956790305b8f89ca4edc16a029866d914a2f178577ca3",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

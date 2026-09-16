@@ -6,33 +6,49 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "995d7ffbf0053e4342f21114a507dc27ddf6de80c9f17ec6f32e3508dc1c10d1",
+    "constructions": [
+      {
+        "construction_id": "construction:1d780582697f8f641055",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "（药效、感觉、影响等）逐渐消失",
+        "pattern": "wear off"
+      },
+      {
+        "construction_id": "construction:cc86561ff827139fbba1",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "磨损至不能使用；使/变得精疲力竭",
+        "pattern": "wear out"
+      }
+    ],
+    "content_hash": "74ddea42ecfc7e9cde41d505787ea502e41231ed1088c57169c1e0ab98d73c90",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "穿着，戴着；磨损，变旧；使疲乏",
-          "label_en": "to have clothing, jewelry, etc. on your body; to become thinner or damaged by continuous use; to make someone feel tired",
+          "label_cn": "穿着，戴着；磨损，变旧；使疲乏；面带；呈现（某种表情）；（效果、感觉等）逐渐消失",
+          "label_en": "to have clothing, jewelry, etc. on your body; to become thinner or damaged by continuous use; to make someone feel tired; to show or have a particular expression or appearance on the face; for an effect or feeling to gradually disappear",
           "pos": "verb",
           "sense_ids": [
             "sense:wear:dbadb33937c75ee5",
             "sense:wear:0a071116d22659ba",
-            "sense:wear:c977c8c3e31857ff"
+            "sense:wear:c977c8c3e31857ff",
+            "sense:wear:52c41ddfa5e15cde",
+            "sense:wear:0a2a6db4142d9dcb"
           ]
         },
         {
-          "label_cn": "磨损，损耗；服装",
-          "label_en": "damage caused by continuous use; clothing of a particular type",
+          "label_cn": "磨损，损耗",
+          "label_en": "damage caused by continuous use",
           "pos": "noun",
           "sense_ids": [
-            "sense:wear:1309cc2bfb495af3",
-            "sense:wear:ab5a5ae4dbb756c6"
+            "sense:wear:1309cc2bfb495af3"
           ]
         }
       ],
-      "core_meaning_cn": "穿着或磨损",
-      "core_meaning_en": "to have on the body or to become damaged by use",
-      "mental_model_cn": "穿着或磨损",
+      "core_meaning_cn": "穿着，戴着；磨损，变旧；使疲乏；磨损，损耗；面带；呈现（某种表情）；（效果、感觉等）逐渐消失",
+      "core_meaning_en": "to have clothing, jewelry, etc. on your body; to become thinner or damaged by continuous use; to make someone feel tired; damage caused by continuous use; to show or have a particular expression or appearance on the face; for an effect or feeling to gradually disappear",
+      "mental_model_cn": "穿着，戴着；磨损，变旧；使疲乏；磨损，损耗；面带；呈现（某种表情）；（效果、感觉等）逐渐消失",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -88,15 +104,6 @@
             ],
             "meaning_cn": "磨损，磨掉",
             "phrase": "wear away"
-          },
-          {
-            "collocation_id": "collocation:bafe36f155a231c629a7",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:wear:0a071116d22659ba:collocation:1"
-            ],
-            "meaning_cn": "逐渐消失",
-            "phrase": "wear off"
           }
         ],
         "confidence": "medium",
@@ -204,6 +211,30 @@
             "verification_status": "semantic_auditor_verified"
           }
         ]
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:cd6d40c44bd142c2769b",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:wear:0a2a6db4142d9dcb:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "（药效、感觉、影响等）逐渐消失",
+            "phrase": "wear off"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（效果、感觉等）逐渐消失",
+        "definition_en": "for an effect or feeling to gradually disappear",
+        "governing_pattern": "wear off",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:wear:0a2a6db4142d9dcb",
+        "sense_label_en": "for an effect or feeling to gradually disappear",
+        "sort_order": 6,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -270,13 +301,20 @@
         "merged_into_sense_id": null,
         "source_row": 15267,
         "source_path": "content/lexical/canonical/senses/shards/o5345-5376.json"
+      },
+      {
+        "sense_id": "sense:wear:0a2a6db4142d9dcb",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 15287,
+        "source_path": "content/lexical/canonical/senses/shards/o5345-5376.json"
       }
     ],
     "active_collocations": [
       "collocation:2b2b2749ad8f596b3c0e",
       "collocation:90c967f5de94b3da8bb2",
-      "collocation:bafe36f155a231c629a7",
       "collocation:c13c2f0afc5c56de45a7",
+      "collocation:cd6d40c44bd142c2769b",
       "collocation:d0b290577877eb0d5294",
       "collocation:dbcfed8708460b7f1794",
       "collocation:e3edcce726f3110336fc"
@@ -317,6 +355,11 @@
         "id": "collocation:e3edcce726f3110336fc",
         "source_row": 19298,
         "source_path": "content/lexical/canonical/collocations/shards/o5345-5376.json"
+      },
+      {
+        "id": "collocation:cd6d40c44bd142c2769b",
+        "source_row": 21602,
+        "source_path": "content/lexical/canonical/collocations/shards/o5345-5376.json"
       }
     ],
     "exam-mappings": [],
@@ -345,7 +388,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5369-5376.json",
-    "source_content_hash": "995d7ffbf0053e4342f21114a507dc27ddf6de80c9f17ec6f32e3508dc1c10d1",
+    "source_content_hash": "74ddea42ecfc7e9cde41d505787ea502e41231ed1088c57169c1e0ab98d73c90",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

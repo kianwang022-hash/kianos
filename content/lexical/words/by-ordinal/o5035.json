@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "2053cea5378dcb5d0761ce315e14cd9396c5f21342485df02940daaecb165e32",
+    "content_hash": "deca9d870cc190ca19c222e289bf5972545ea4f529eeb69da56a6500c271c326",
     "core_concept": {
       "core_clusters": [
         {
@@ -34,6 +34,22 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o4875-o5374.md",
+      "boundaries": [
+        {
+          "condition": "wheel-covering noun, AmE",
+          "note": "AmE spelling for the wheel noun",
+          "surface": "tire"
+        },
+        {
+          "condition": "wheel-covering noun, BrE",
+          "note": "BrE spelling for the wheel noun only; fatigue verbs remain tire",
+          "surface": "tyre"
+        }
+      ],
+      "type": "sense_conditioned_regional_spelling"
+    },
     "needs_delta_review": true,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -188,6 +204,26 @@
           "cloze"
         ],
         "verification_status": "verified"
+      },
+      {
+        "boundaries": [
+          "tire is the base verb/noun lexeme; tired is its adjectival/past-participle family member. Keep tyre only as the wheel-noun regional spelling boundary."
+        ],
+        "boundary": "tire is the base verb/noun lexeme; tired is its adjectival/past-participle family member. Keep tyre only as the wheel-noun regional spelling boundary.",
+        "direction": "C",
+        "learning_note": "tire is the base verb/noun lexeme; tired is its adjectival/past-participle family member. Keep tyre only as the wheel-noun regional spelling boundary.",
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "relation_id": "relation:horizontal:41d52663fd5ba0960a65",
+        "relation_scope": "lexeme",
+        "relation_type": "word_family",
+        "target_word": "tired",
+        "task_tags": [
+          "reading",
+          "writing"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true
       }
     ],
     "word_id": "word:tire"
@@ -279,11 +315,19 @@
       "ordinal": 5035,
       "word_shard": "content/lexical/canonical/words/shards/o5033-5040.json",
       "auxiliary_locator": "content/lexical/canonical/lookup/word-id/d4.json"
+    },
+    {
+      "spelling": "tyre",
+      "source": "content/lexical/canonical/lookup/spelling/ty.json",
+      "word_id": "word:tire",
+      "ordinal": 5035,
+      "word_shard": "content/lexical/canonical/words/shards/o5033-5040.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/d4.json"
     }
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5033-5040.json",
-    "source_content_hash": "2053cea5378dcb5d0761ce315e14cd9396c5f21342485df02940daaecb165e32",
+    "source_content_hash": "deca9d870cc190ca19c222e289bf5972545ea4f529eeb69da56a6500c271c326",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

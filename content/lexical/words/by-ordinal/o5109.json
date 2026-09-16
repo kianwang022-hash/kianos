@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "7e92aff6a52b5071f77169e0e75275874c2f810660ca69099477d2a8cb7a00cd",
+    "content_hash": "54dbd12088563dd2a51649e62a5c42b939a5e3e0760314e62e62c745419299b5",
     "core_concept": {
       "core_clusters": [
         {
@@ -22,21 +22,37 @@
           ]
         },
         {
-          "label_cn": "器官移植手术；迁移，移植",
-          "label_en": "an operation moving an organ from one person to another; the act of moving something to another location",
+          "label_cn": "器官移植手术；移植物；被移植的器官、组织、人或事物",
+          "label_en": "an operation moving an organ from one person to another; an organ, tissue, person, or thing that has been transplanted",
           "pos": "noun",
           "sense_ids": [
             "sense:transplant:0fcf7b6d8052541d",
-            "sense:transplant:9db2f735b9125fd2"
+            "sense:transplant:142f90cd239c4767"
           ]
         }
       ],
-      "core_meaning_cn": "移植，迁移",
-      "core_meaning_en": "move something or someone to another place",
-      "mental_model_cn": "移植，迁移",
+      "core_meaning_cn": "移植（器官）；移植（植物）；使移居，使迁移；耐移植，可移植；器官移植手术；移植物；被移植的器官、组织、人或事物",
+      "core_meaning_en": "move an organ from one body to another; move a plant to another place and reset it; move someone to a new place or situation; be able to be transplanted; an operation moving an organ from one person to another; an organ, tissue, person, or thing that has been transplanted",
+      "mental_model_cn": "移植（器官）；移植（植物）；使移居，使迁移；耐移植，可移植；器官移植手术；移植物；被移植的器官、组织、人或事物",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o4875-o5374.md",
+      "boundaries": [
+        {
+          "condition": "noun",
+          "note": "noun normally has initial stress",
+          "surface": "transplant"
+        },
+        {
+          "condition": "verb",
+          "note": "verb normally has final stress",
+          "surface": "transplant"
+        }
+      ],
+      "type": "pos_pronunciation_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -205,6 +221,20 @@
         "sense_label_en": "the act of moving something to another location",
         "sort_order": 5,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "移植物；被移植的器官、组织、人或事物",
+        "definition_en": "an organ, tissue, person, or thing that has been transplanted",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:transplant:142f90cd239c4767",
+        "sense_label_en": "an organ, tissue, person, or thing that has been transplanted",
+        "sort_order": 6,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -270,6 +300,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14544,
+        "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json"
+      },
+      {
+        "sense_id": "sense:transplant:142f90cd239c4767",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14579,
         "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json"
       }
     ],
@@ -357,7 +394,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5105-5112.json",
-    "source_content_hash": "7e92aff6a52b5071f77169e0e75275874c2f810660ca69099477d2a8cb7a00cd",
+    "source_content_hash": "54dbd12088563dd2a51649e62a5c42b939a5e3e0760314e62e62c745419299b5",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

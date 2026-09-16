@@ -7,16 +7,23 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "3c417ac1c8e099490c1edf5e3ec927f2557438fb7de48eeb1877a8a359e97918",
+    "content_hash": "bf30f49f432cd07e61a26191b645acff48433edb0caec37c4748033d82c17040",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "表示方向或朝向某地或某物；用于表示动词的间接宾语；与动词原形构成不定式",
-          "label_en": "indicating direction or movement toward a place or thing; used to indicate the indirect object of a verb; used with the base form of a verb to form the infinitive",
+          "label_cn": "表示方向或朝向某地或某物；用于表示动词的间接宾语",
+          "label_en": "indicating direction or movement toward a place or thing; used to indicate the indirect object of a verb",
           "pos": "preposition",
           "sense_ids": [
             "sense:to:d2d8d2596ca756fc",
-            "sense:to:f5a8dd52451a58e7",
+            "sense:to:f5a8dd52451a58e7"
+          ]
+        },
+        {
+          "label_cn": "不定式标记，置于动词原形前",
+          "label_en": "the infinitive marker used before the base form of a verb",
+          "pos": "particle",
+          "sense_ids": [
             "sense:to:c1a599a89e6359a2"
           ]
         },
@@ -29,12 +36,28 @@
           ]
         }
       ],
-      "core_meaning_cn": "朝向",
-      "core_meaning_en": "toward or in the direction of",
-      "mental_model_cn": "朝向",
+      "core_meaning_cn": "表示方向或朝向某地或某物；用于表示动词的间接宾语；不定式标记，置于动词原形前；向前",
+      "core_meaning_en": "indicating direction or movement toward a place or thing; used to indicate the indirect object of a verb; the infinitive marker used before the base form of a verb; in a forward direction",
+      "mental_model_cn": "表示方向或朝向某地或某物；用于表示动词的间接宾语；不定式标记，置于动词原形前；向前",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o4875-o5374.md",
+      "boundaries": [
+        {
+          "condition": "preposition",
+          "note": "prepositional to",
+          "surface": "to + noun/pronoun"
+        },
+        {
+          "condition": "infinitive marker",
+          "note": "infinitival particle/marker, not preposition",
+          "surface": "to + base verb"
+        }
+      ],
+      "type": "grammar_pos_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -103,14 +126,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "与动词原形构成不定式",
-        "definition_en": "used with the base form of a verb to form the infinitive",
+        "definition_cn": "不定式标记，置于动词原形前",
+        "definition_en": "the infinitive marker used before the base form of a verb",
         "governing_pattern": "prep. + infinitive",
         "level": "L1",
         "needs_human_review": 0,
-        "pos": "preposition",
+        "pos": "particle",
         "sense_id": "sense:to:c1a599a89e6359a2",
-        "sense_label_en": "used with the base form of a verb to form the infinitive",
+        "sense_label_en": "the infinitive marker used before the base form of a verb",
         "sort_order": 2,
         "transitivity": "nonverb"
       },
@@ -246,7 +269,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5033-5040.json",
-    "source_content_hash": "3c417ac1c8e099490c1edf5e3ec927f2557438fb7de48eeb1877a8a359e97918",
+    "source_content_hash": "bf30f49f432cd07e61a26191b645acff48433edb0caec37c4748033d82c17040",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -7,12 +7,23 @@
     "card_version": "v3",
     "confusables": [],
     "constructions": [],
-    "content_hash": "869a7ac4aa4d463c8034a4e9240638feed5b2c411e8b34ebd32f5b3d137d274f",
+    "content_hash": "4681eb7fab938cec71cfee91c6e3da219697a7a070bc415cc4be1facb204e377",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "联合；统一",
-      "core_meaning_en": "join together",
-      "mental_model_cn": "联合；统一",
+      "core_clusters": [
+        {
+          "label_cn": "联合；团结；结合；混合；使团结、使联合；把人或事物结合成整体",
+          "label_en": "to join together with others for a common purpose; to combine or mix together; to bring people or things together into one group or whole",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:unite:4b5651b009c954f9",
+            "sense:unite:fe508fc8ec7b506d",
+            "sense:unite:b31bd977d53e5366"
+          ]
+        }
+      ],
+      "core_meaning_cn": "联合；团结；结合；混合；使团结、使联合；把人或事物结合成整体",
+      "core_meaning_en": "to join together with others for a common purpose; to combine or mix together; to bring people or things together into one group or whole",
+      "mental_model_cn": "联合；团结；结合；混合；使团结、使联合；把人或事物结合成整体",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -100,6 +111,20 @@
         "sense_label_en": "to combine or mix together",
         "sort_order": 2,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "使团结、使联合；把人或事物结合成整体",
+        "definition_en": "to bring people or things together into one group or whole",
+        "governing_pattern": "vt. + object; unite people/things",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:unite:b31bd977d53e5366",
+        "sense_label_en": "to bring people or things together into one group or whole",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -129,31 +154,7 @@
       "index": 0
     }
   ],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:unite:b31bd977d53e5366",
-      "status": "merged",
-      "merged_into_sense_id": "sense:unite:4b5651b009c954f9",
-      "pos": "verb",
-      "definition_cn": "使联合；统一",
-      "definition_en": "to bring people or things together to form a single unit",
-      "semantic_key": "a89dece714b69322f7729621ded05ccfb34302b3f8736ea3944c64cf32ca099b",
-      "semantic_key_history": [],
-      "legacy_aliases": [
-        "unite:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "unite:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-08-22T05:00:00+00:00",
-      "source_row": 14836,
-      "source_path": "content/lexical/canonical/senses/shards/o5185-5216.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -165,8 +166,8 @@
       },
       {
         "sense_id": "sense:unite:b31bd977d53e5366",
-        "status": "merged",
-        "merged_into_sense_id": "sense:unite:4b5651b009c954f9",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 14836,
         "source_path": "content/lexical/canonical/senses/shards/o5185-5216.json"
       },
@@ -255,7 +256,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5201-5208.json",
-    "source_content_hash": "869a7ac4aa4d463c8034a4e9240638feed5b2c411e8b34ebd32f5b3d137d274f",
+    "source_content_hash": "4681eb7fab938cec71cfee91c6e3da219697a7a070bc415cc4be1facb204e377",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

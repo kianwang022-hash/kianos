@@ -7,15 +7,43 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "e6a83311930e27b6b4b51f4e3b8d605752faf049765876ade59c2fd2eee7ce7e",
+    "content_hash": "60305c9d5b68409a509c7d17e4ef5c427c0c17b83a590859aba5984154a2d4d1",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "戏剧表演的场所或艺术",
-      "core_meaning_en": "a place or art of dramatic performance",
-      "mental_model_cn": "戏剧表演的场所或艺术",
+      "core_clusters": [
+        {
+          "label_cn": "剧院；电影院；戏剧；戏剧艺术；战区；战场；手术室（英式英语；美式常说 operating room）",
+          "label_en": "a building where plays or movies are shown; the art of writing and producing plays; a region where military operations are in progress; BrE: an operating theatre; a room equipped for surgical operations",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:theatre:7bce641277ab5337",
+            "sense:theatre:725a776a73e9585b",
+            "sense:theatre:64272eb083fe530d",
+            "sense:theatre:5c17ac7e11f4cf83"
+          ]
+        }
+      ],
+      "core_meaning_cn": "剧院；电影院；戏剧；戏剧艺术；战区；战场；手术室（英式英语；美式常说 operating room）",
+      "core_meaning_en": "a building where plays or movies are shown; the art of writing and producing plays; a region where military operations are in progress; BrE: an operating theatre; a room equipped for surgical operations",
+      "mental_model_cn": "剧院；电影院；戏剧；戏剧艺术；战区；战场；手术室（英式英语；美式常说 operating room）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o4875-o5374.md",
+      "boundaries": [
+        {
+          "condition": "BrE spelling",
+          "note": "theatre is the standard BrE spelling",
+          "surface": "theatre"
+        },
+        {
+          "condition": "AmE spelling",
+          "note": "theater is the standard AmE spelling for the same lexeme",
+          "surface": "theater"
+        }
+      ],
+      "type": "regional_spelling_word_boundary"
+    },
     "needs_delta_review": true,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -103,6 +131,20 @@
         "sense_label_en": "a region where military operations are in progress",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "手术室（英式英语；美式常说 operating room）",
+        "definition_en": "BrE: an operating theatre; a room equipped for surgical operations",
+        "governing_pattern": "operating theatre",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:theatre:5c17ac7e11f4cf83",
+        "sense_label_en": "BrE: an operating theatre; a room equipped for surgical operations",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -147,6 +189,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14122,
+        "source_path": "content/lexical/canonical/senses/shards/o4961-4992.json"
+      },
+      {
+        "sense_id": "sense:theatre:5c17ac7e11f4cf83",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14191,
         "source_path": "content/lexical/canonical/senses/shards/o4961-4992.json"
       }
     ],
@@ -200,6 +249,14 @@
   },
   "lookup_refs": [
     {
+      "spelling": "theater",
+      "source": "content/lexical/canonical/lookup/spelling/th.json",
+      "word_id": "word:theatre",
+      "ordinal": 4961,
+      "word_shard": "content/lexical/canonical/words/shards/o4961-4968.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/05.json"
+    },
+    {
       "spelling": "theatre",
       "source": "content/lexical/canonical/lookup/spelling/th.json",
       "word_id": "word:theatre",
@@ -210,7 +267,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4961-4968.json",
-    "source_content_hash": "e6a83311930e27b6b4b51f4e3b8d605752faf049765876ade59c2fd2eee7ce7e",
+    "source_content_hash": "60305c9d5b68409a509c7d17e4ef5c427c0c17b83a590859aba5984154a2d4d1",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

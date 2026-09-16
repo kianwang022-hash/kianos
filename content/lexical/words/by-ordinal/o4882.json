@@ -7,12 +7,21 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "f3efb2abc8b7d874cf39653c71f4ed87fad39138489801f944c3e0c9375f4692",
+    "content_hash": "6920b9a7c2871179932b439674734a1e8fd0fa95ebca2d21098e1fade87ed625",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "实现目标的计划或方法",
-      "core_meaning_en": "a plan or method for achieving a goal",
-      "mental_model_cn": "实现目标的计划或方法",
+      "core_clusters": [
+        {
+          "label_cn": "策略；战术",
+          "label_en": "a specific action or plan used to achieve a goal",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:tactic:c10499482bae5c3c"
+          ]
+        }
+      ],
+      "core_meaning_cn": "策略；战术",
+      "core_meaning_en": "a specific action or plan used to achieve a goal",
+      "mental_model_cn": "策略；战术",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +31,22 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "策略；战术",
+        "definition_en": "a specific action or plan used to achieve a goal",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:tactic:c10499482bae5c3c",
+        "sense_label_en": "a specific action or plan used to achieve a goal",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -68,31 +92,6 @@
       "source_row": 13873,
       "source_path": "content/lexical/canonical/senses/shards/o4865-4896.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:tactic:c10499482bae5c3c",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "策略；战术",
-      "definition_en": "a specific action or plan used to achieve a goal",
-      "semantic_key": "c0576eb4f1eaf6a32f8dd2c9df1e6377088463f7ddc21fb289ed4fff29619638",
-      "semantic_key_history": [
-        "73571fa76bbb10b98ece75ea07c242df7185f067f129676ff2410d5c68c72ebe"
-      ],
-      "legacy_aliases": [
-        "tactic:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "tactic:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 13874,
-      "source_path": "content/lexical/canonical/senses/shards/o4865-4896.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -106,7 +105,7 @@
       },
       {
         "sense_id": "sense:tactic:c10499482bae5c3c",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 13874,
         "source_path": "content/lexical/canonical/senses/shards/o4865-4896.json"
@@ -157,7 +156,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4881-4888.json",
-    "source_content_hash": "f3efb2abc8b7d874cf39653c71f4ed87fad39138489801f944c3e0c9375f4692",
+    "source_content_hash": "6920b9a7c2871179932b439674734a1e8fd0fa95ebca2d21098e1fade87ed625",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

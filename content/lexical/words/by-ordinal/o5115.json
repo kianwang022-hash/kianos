@@ -7,21 +7,29 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "4c82319f456876451f5de5755a72156c4ae80cfd035b98f7e22b79c20890078f",
+    "content_hash": "75ab8a8d0c41d436eeda409547ea966cf0263fb2e3e36836b3f8f52ca72a9b24",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "金银财宝，财富；珍藏品，宝物集",
-          "label_en": "accumulated wealth in the form of money, jewels, or other valuables; a collection of precious things",
+          "label_cn": "金银财宝，财富",
+          "label_en": "accumulated wealth in the form of money, jewels, or other valuables",
           "pos": "noun",
           "sense_ids": [
             "sense:treasure:202fc46df84e5963"
           ]
+        },
+        {
+          "label_cn": "珍爱，珍视",
+          "label_en": "to value highly and care for something or someone",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:treasure:9085a3c812ad586e"
+          ]
         }
       ],
-      "core_meaning_cn": "珍贵之物或珍视",
-      "core_meaning_en": "valuable things or a person/thing highly valued",
-      "mental_model_cn": "珍贵之物或珍视",
+      "core_meaning_cn": "金银财宝，财富；珍爱，珍视",
+      "core_meaning_en": "accumulated wealth in the form of money, jewels, or other valuables; to value highly and care for something or someone",
+      "mental_model_cn": "金银财宝，财富；珍爱，珍视",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -64,6 +72,20 @@
         "sense_label_en": "accumulated wealth in the form of money, jewels, or other valuables",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "珍爱，珍视",
+        "definition_en": "to value highly and care for something or someone",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:treasure:9085a3c812ad586e",
+        "sense_label_en": "to value highly and care for something or someone",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -87,31 +109,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:treasure:9085a3c812ad586e",
-      "status": "merged",
-      "merged_into_sense_id": "sense:treasure:202fc46df84e5963",
-      "pos": "verb",
-      "definition_cn": "珍爱，珍视",
-      "definition_en": "to value highly and care for something or someone",
-      "semantic_key": "09fefb7569e0ce39cc02561009bcaf4bee3d7e5a03cdecc61b0d32ffd2b1c0b4",
-      "semantic_key_history": [
-        "08e9c276067faf1fcb31c28f774569980b36d5cf72e4052e003870e766c2e213"
-      ],
-      "legacy_aliases": [
-        "treasure:l1:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "treasure:l1:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14562,
-      "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:treasure:a5ccc88af76a528f",
       "status": "merged",
@@ -149,8 +146,8 @@
       },
       {
         "sense_id": "sense:treasure:9085a3c812ad586e",
-        "status": "merged",
-        "merged_into_sense_id": "sense:treasure:202fc46df84e5963",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 14562,
         "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json"
       },
@@ -230,7 +227,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5113-5120.json",
-    "source_content_hash": "4c82319f456876451f5de5755a72156c4ae80cfd035b98f7e22b79c20890078f",
+    "source_content_hash": "75ab8a8d0c41d436eeda409547ea966cf0263fb2e3e36836b3f8f52ca72a9b24",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

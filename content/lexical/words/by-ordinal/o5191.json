@@ -6,13 +6,32 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "0ea778d86a55a303bceaab5a20fbfea445d25074fbd1429ef7b0ea8cc9b853ca",
+    "constructions": [
+      {
+        "construction_id": "construction:90157fcf5aac3af30fc4",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "据我所知/我得知……；我理解为……",
+        "pattern": "I understand (that) + clause",
+        "source_sense_id": "sense:understand:c6a438e3fe4854d2"
+      }
+    ],
+    "content_hash": "f597b7d6e0de37eb81ce4c11549a7b778c5f504285da3b5d5f435b136a9630ba",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "理解；明白",
-      "core_meaning_en": "to grasp the meaning or nature of something",
-      "mental_model_cn": "理解；明白",
+      "core_clusters": [
+        {
+          "label_cn": "理解、明白；把握某事的意义、重要性或情境；据所获信息理解、得知或认为……",
+          "label_en": "to understand or grasp the meaning, significance, or situation of something; to understand, be told, or believe from information that something is the case",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:understand:38f6819244375dad",
+            "sense:understand:c6a438e3fe4854d2"
+          ]
+        }
+      ],
+      "core_meaning_cn": "理解、明白；把握某事的意义、重要性或情境；据所获信息理解、得知或认为……",
+      "core_meaning_en": "to understand or grasp the meaning, significance, or situation of something; to understand, be told, or believe from information that something is the case",
+      "mental_model_cn": "理解、明白；把握某事的意义、重要性或情境；据所获信息理解、得知或认为……",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -45,15 +64,29 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "理解；懂",
-        "definition_en": "to know the meaning of something, such as a language or idea",
+        "definition_cn": "理解、明白；把握某事的意义、重要性或情境",
+        "definition_en": "to understand or grasp the meaning, significance, or situation of something",
         "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:understand:38f6819244375dad",
-        "sense_label_en": "to know the meaning of something, such as a language or idea",
+        "sense_label_en": "to understand or grasp the meaning, significance, or situation of something",
         "sort_order": 0,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "据所获信息理解、得知或认为……",
+        "definition_en": "to understand, be told, or believe from information that something is the case",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:understand:c6a438e3fe4854d2",
+        "sense_label_en": "to understand, be told, or believe from information that something is the case",
+        "sort_order": 999,
         "transitivity": "vt"
       }
     ],
@@ -127,31 +160,6 @@
       "source_row": 14800,
       "source_path": "content/lexical/canonical/senses/shards/o5185-5216.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:understand:c6a438e3fe4854d2",
-      "status": "merged",
-      "merged_into_sense_id": "sense:understand:38f6819244375dad",
-      "pos": "verb",
-      "definition_cn": "听说；得知",
-      "definition_en": "to believe or assume something is the case because you have been told",
-      "semantic_key": "ab78f62da239aaf75553f3159ea8c2769cfabcc37fb64c818932283837574a37",
-      "semantic_key_history": [
-        "b9bceb6dd87d66f99ea35768885dc99e5e34a161be05da5a1c5e4fce546acb54"
-      ],
-      "legacy_aliases": [
-        "understand:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "understand:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14801,
-      "source_path": "content/lexical/canonical/senses/shards/o5185-5216.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -179,8 +187,8 @@
       },
       {
         "sense_id": "sense:understand:c6a438e3fe4854d2",
-        "status": "merged",
-        "merged_into_sense_id": "sense:understand:38f6819244375dad",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 14801,
         "source_path": "content/lexical/canonical/senses/shards/o5185-5216.json"
       }
@@ -244,7 +252,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5185-5192.json",
-    "source_content_hash": "0ea778d86a55a303bceaab5a20fbfea445d25074fbd1429ef7b0ea8cc9b853ca",
+    "source_content_hash": "f597b7d6e0de37eb81ce4c11549a7b778c5f504285da3b5d5f435b136a9630ba",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

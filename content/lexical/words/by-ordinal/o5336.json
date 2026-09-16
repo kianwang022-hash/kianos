@@ -6,8 +6,24 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "6690428fcc4c24ae2be68069116a538e7c3cba74e04405e461c22358a2c25912",
+    "constructions": [
+      {
+        "construction_id": "construction:672147d905fae39eb3c7",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "迫不及待想做某事；非常期待",
+        "pattern": "can't wait to do sth"
+      },
+      {
+        "construction_id": "construction:4c319d684dc3e728942f",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "等到某时再做某事",
+        "pattern": "wait to do sth",
+        "source_sense_id": "sense:wait:cd31227bad0058a6"
+      }
+    ],
+    "content_hash": "d5c9ae8c41fb793d81308d0cbaf1f332563304a7bbe6a55c3fc23f38fafcfe8c",
     "core_concept": {
       "core_clusters": [
         {
@@ -78,13 +94,13 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:b10b56ddd8143c634162",
+            "collocation_id": "collocation:df332cfe8874e7d75250",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
-              "sense:wait:cd31227bad0058a6:collocation:0"
+              "sense:wait:cd31227bad0058a6:collocation:handoff-o1625-o1874"
             ],
-            "meaning_cn": "推迟做某事",
-            "phrase": "wait to do + sth"
+            "meaning_cn": "等到某时再做某事",
+            "phrase": "wait to do sth"
           }
         ],
         "confidence": "medium",
@@ -203,7 +219,7 @@
     "active_collocations": [
       "collocation:0cfe9b5b6f57571044d2",
       "collocation:5ceda4207cce168a52c5",
-      "collocation:b10b56ddd8143c634162",
+      "collocation:df332cfe8874e7d75250",
       "collocation:ecd6db1ad96a30215f47",
       "collocation:fce46d97c1f58591d9cc"
     ],
@@ -233,6 +249,11 @@
         "id": "collocation:fce46d97c1f58591d9cc",
         "source_row": 21389,
         "source_path": "content/lexical/canonical/collocations/shards/o5313-5344.json"
+      },
+      {
+        "id": "collocation:df332cfe8874e7d75250",
+        "source_row": 21391,
+        "source_path": "content/lexical/canonical/collocations/shards/o5313-5344.json"
       }
     ],
     "exam-mappings": [],
@@ -261,7 +282,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5329-5336.json",
-    "source_content_hash": "6690428fcc4c24ae2be68069116a538e7c3cba74e04405e461c22358a2c25912",
+    "source_content_hash": "d5c9ae8c41fb793d81308d0cbaf1f332563304a7bbe6a55c3fc23f38fafcfe8c",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

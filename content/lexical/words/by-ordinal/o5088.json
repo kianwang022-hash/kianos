@@ -7,12 +7,23 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "3eccf1402688c4138e00f59d7bba9d784a52beee365d2e77682be6a63c4cdee3",
+    "content_hash": "bafc821780ee19a224395537dc3c08f6adef9e506652d8a481cabe57ff44e61e",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "交通；交易",
-      "core_meaning_en": "movement of vehicles or people, or trade",
-      "mental_model_cn": "交通；交易",
+      "core_clusters": [
+        {
+          "label_cn": "交通；通行；交通量；通信量；传输量；贸易；交易（尤指非法的）",
+          "label_en": "the movement of vehicles or people along roads, or the amount of such movement; the amount of data or messages sent over a communication system; trade, especially illegal trade",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:traffic:1f611de1b70c5c4b",
+            "sense:traffic:166231dd29465098",
+            "sense:traffic:1a2afd55650f50ac"
+          ]
+        }
+      ],
+      "core_meaning_cn": "交通；通行；交通量；通信量；传输量；贸易；交易（尤指非法的）",
+      "core_meaning_en": "the movement of vehicles or people along roads, or the amount of such movement; the amount of data or messages sent over a communication system; trade, especially illegal trade",
+      "mental_model_cn": "交通；通行；交通量；通信量；传输量；贸易；交易（尤指非法的）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +33,50 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "交通；通行；交通量",
+        "definition_en": "the movement of vehicles or people along roads, or the amount of such movement",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:traffic:1f611de1b70c5c4b",
+        "sense_label_en": "the movement of vehicles or people along roads, or the amount of such movement",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "通信量；传输量",
+        "definition_en": "the amount of data or messages sent over a communication system",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:traffic:166231dd29465098",
+        "sense_label_en": "the amount of data or messages sent over a communication system",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "贸易；交易（尤指非法的）",
+        "definition_en": "trade, especially illegal trade",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:traffic:1a2afd55650f50ac",
+        "sense_label_en": "trade, especially illegal trade",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -44,81 +98,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:traffic:166231dd29465098",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "通信量；传输量",
-      "definition_en": "the amount of data or messages sent over a communication system",
-      "semantic_key": "f43e5b1ebc1360ae39b3c7d2ecab9c4cc26f69801ffaf52b256975dfbba56e73",
-      "semantic_key_history": [
-        "9a6ceb9857c10537d98bdb1afbf7f47c4f4a74d97cd2fe50108c32d32d3d807c"
-      ],
-      "legacy_aliases": [
-        "traffic:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "traffic:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14480,
-      "source_path": "content/lexical/canonical/senses/shards/o5057-5088.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:traffic:1a2afd55650f50ac",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "贸易；交易（尤指非法的）",
-      "definition_en": "trade, especially illegal trade",
-      "semantic_key": "4d61937ce94d9edc9971605b7a406ffab5cc76f1ac41f8cf564062c0d4a8a6e1",
-      "semantic_key_history": [
-        "34456bdf2efbba7a9c2d92b6a23c0fd5558c6bc9154420c7049076eca5f33684"
-      ],
-      "legacy_aliases": [
-        "traffic:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "traffic:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14481,
-      "source_path": "content/lexical/canonical/senses/shards/o5057-5088.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:traffic:1f611de1b70c5c4b",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "交通；通行；交通量",
-      "definition_en": "the movement of vehicles or people along roads, or the amount of such movement",
-      "semantic_key": "6ae48aeffa1d1ad98565d105b56ab7dac5241a9e2c8b8658413a7d009be7817f",
-      "semantic_key_history": [
-        "8c64ffc9095fc84a55105e18f1c330d0181d9cad52d42e52dbd5e6e6f936da27"
-      ],
-      "legacy_aliases": [
-        "traffic:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "traffic:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14482,
-      "source_path": "content/lexical/canonical/senses/shards/o5057-5088.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:traffic:c476c6f82745557b",
       "status": "deprecated",
@@ -174,21 +153,21 @@
     "senses": [
       {
         "sense_id": "sense:traffic:166231dd29465098",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14480,
         "source_path": "content/lexical/canonical/senses/shards/o5057-5088.json"
       },
       {
         "sense_id": "sense:traffic:1a2afd55650f50ac",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14481,
         "source_path": "content/lexical/canonical/senses/shards/o5057-5088.json"
       },
       {
         "sense_id": "sense:traffic:1f611de1b70c5c4b",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14482,
         "source_path": "content/lexical/canonical/senses/shards/o5057-5088.json"
@@ -283,7 +262,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5081-5088.json",
-    "source_content_hash": "3eccf1402688c4138e00f59d7bba9d784a52beee365d2e77682be6a63c4cdee3",
+    "source_content_hash": "bafc821780ee19a224395537dc3c08f6adef9e506652d8a481cabe57ff44e61e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
