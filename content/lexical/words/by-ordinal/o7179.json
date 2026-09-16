@@ -6,13 +6,48 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "cc9731a739fa0248c3d4da6dcff8b5238ef31d198a7f69f7189fc9ce7b8e78e3",
+    "constructions": [
+      {
+        "construction_id": "construction:d63672c71a1be0206fd4",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "鼓起勇气/力量",
+        "pattern": "muster (up) courage/strength",
+        "source_sense_id": "sense:muster:fe002eb233a55b2e"
+      },
+      {
+        "construction_id": "construction:777ab3dcd06f40e69be7",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "争取、召集支持",
+        "pattern": "muster support",
+        "source_sense_id": "sense:muster:fe002eb233a55b2e"
+      }
+    ],
+    "content_hash": "c1b82d3814380354d64e4485a10251195b26dfde23bd1ad2cb84bcfc5cd4481b",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "召集, 集合, 应召",
-      "core_meaning_en": "gather or bring together",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "召集；聚集；鼓起勇气/力量；争取支持；召集, 集合, 应召",
+          "label_en": "to gather, summon, or bring together people, resources, courage, strength, or support; call to duty, military service, jury duty, etc",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:muster:fe002eb233a55b2e",
+            "sense:muster:3ee35af3678755e1"
+          ]
+        },
+        {
+          "label_cn": "召集, 集合, 检阅, 清单, 花名册, 样品",
+          "label_en": "a gathering of military personnel for duty",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:muster:c401c466eaf05be1"
+          ]
+        }
+      ],
+      "core_meaning_cn": "召集；聚集；鼓起勇气/力量；争取支持；召集, 集合, 检阅, 清单, 花名册, 样品；召集, 集合, 应召",
+      "core_meaning_en": "to gather, summon, or bring together people, resources, courage, strength, or support; a gathering of military personnel for duty; call to duty, military service, jury duty, etc",
+      "mental_model_cn": "召集；聚集；鼓起勇气/力量；争取支持；召集, 集合, 检阅, 清单, 花名册, 样品；召集, 集合, 应召",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,8 +61,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "召集, 集合, 应召",
-        "definition_en": "gather or bring together",
+        "definition_cn": "召集；聚集；鼓起勇气/力量；争取支持",
+        "definition_en": "to gather, summon, or bring together people, resources, courage, strength, or support",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
@@ -35,7 +70,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:muster:fe002eb233a55b2e",
-        "sense_label_en": "gather or bring together",
+        "sense_label_en": "to gather, summon, or bring together people, resources, courage, strength, or support",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -58,6 +93,7 @@
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
+        "register": "military",
         "sense_id": "sense:muster:c401c466eaf05be1",
         "sense_label_en": "a gathering of military personnel for duty",
         "sort_order": 2,
@@ -79,9 +115,10 @@
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L3",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
+        "register": "military/official",
         "sense_id": "sense:muster:3ee35af3678755e1",
         "sense_label_en": "call to duty, military service, jury duty, etc",
         "sort_order": 3,
@@ -159,7 +196,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7177-7184.json",
-    "source_content_hash": "cc9731a739fa0248c3d4da6dcff8b5238ef31d198a7f69f7189fc9ce7b8e78e3",
+    "source_content_hash": "c1b82d3814380354d64e4485a10251195b26dfde23bd1ad2cb84bcfc5cd4481b",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -6,13 +6,45 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "8904ec30a4c04e8d44a433ef8072e2493cdeacaaf111a9826ec6798440f1a6a5",
+    "constructions": [
+      {
+        "construction_id": "construction:16d1c4c49ec2935dd66b",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "虽无清晰计划仍勉强应付过去",
+        "pattern": "muddle through"
+      },
+      {
+        "construction_id": "construction:790432b5a856f323dcc5",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "把某事物弄混、弄乱",
+        "pattern": "muddle sth up"
+      }
+    ],
+    "content_hash": "29762a70f7039d1d6fda37dd19924942cb9a52935aba1b7d0350fd553711a48e",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "混合, 使微醉, 使咬字不清晰",
-      "core_meaning_en": "make into a puddle",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "混乱；杂乱；糊涂状态",
+          "label_en": "a state of confusion, disorder, or poor organization",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:muddle:07dd3d26eedbf2b0"
+          ]
+        },
+        {
+          "label_cn": "把……弄乱；混淆；糊里糊涂地处理",
+          "label_en": "to confuse, mix up, or handle something in a disorganized way",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:muddle:e1194841c66e528a"
+          ]
+        }
+      ],
+      "core_meaning_cn": "混乱；杂乱；糊涂状态；把……弄乱；混淆；糊里糊涂地处理",
+      "core_meaning_en": "a state of confusion, disorder, or poor organization; to confuse, mix up, or handle something in a disorganized way",
+      "mental_model_cn": "混乱；杂乱；糊涂状态；把……弄乱；混淆；糊里糊涂地处理",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -25,27 +57,31 @@
     "senses": [
       {
         "collocations": [],
-        "confidence": "high",
-        "definition_cn": "混合, 使微醉, 使咬字不清晰",
-        "definition_en": "make into a puddle",
-        "depth": "full_card",
-        "domain_tag": "toefl",
-        "frequency_tag": "toefl",
+        "confidence": "medium",
+        "definition_cn": "混乱；杂乱；糊涂状态",
+        "definition_en": "a state of confusion, disorder, or poor organization",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:muddle:07dd3d26eedbf2b0",
+        "sense_label_en": "a state of confusion, disorder, or poor organization",
+        "sort_order": 2,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "把……弄乱；混淆；糊里糊涂地处理",
+        "definition_en": "to confuse, mix up, or handle something in a disorganized way",
+        "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
-        "sense_id": "sense:muddle:87addf8415d25afd",
-        "sense_label_en": "make into a puddle",
-        "sort_order": 1,
-        "source_evidence": [
-          {
-            "evidence_id": "source-fact:0a39ea364b26e03fc770087e",
-            "evidence_status": "source_checked",
-            "role": "external_semantic_auditor",
-            "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
-            "source_type": "learner_dictionary"
-          }
-        ]
+        "sense_id": "sense:muddle:e1194841c66e528a",
+        "sense_label_en": "to confuse, mix up, or handle something in a disorganized way",
+        "sort_order": 3,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -62,14 +98,45 @@
     "word_id": "word:muddle"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:muddle:87addf8415d25afd",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "混合, 使微醉, 使咬字不清晰",
+      "definition_en": "make into a puddle",
+      "semantic_key": "a2185e7037b9ef486dda2439f687606d14ec1741d2ce95d08e32676080afd6ad",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 18382,
+      "source_path": "content/lexical/canonical/senses/shards/o7169-7200.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:muddle:87addf8415d25afd",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 18382,
+        "source_path": "content/lexical/canonical/senses/shards/o7169-7200.json"
+      },
+      {
+        "sense_id": "sense:muddle:07dd3d26eedbf2b0",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18429,
+        "source_path": "content/lexical/canonical/senses/shards/o7169-7200.json"
+      },
+      {
+        "sense_id": "sense:muddle:e1194841c66e528a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18430,
         "source_path": "content/lexical/canonical/senses/shards/o7169-7200.json"
       }
     ],
@@ -97,7 +164,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7169-7176.json",
-    "source_content_hash": "8904ec30a4c04e8d44a433ef8072e2493cdeacaaf111a9826ec6798440f1a6a5",
+    "source_content_hash": "29762a70f7039d1d6fda37dd19924942cb9a52935aba1b7d0350fd553711a48e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
