@@ -71,7 +71,8 @@ def main():
         if any(x['kind']=='definition_or_scope' for x in ops): unresolved.append('definition_target')
         if any(x['kind']=='form_or_lookup' for x in ops): unresolved.append('form_payload')
         kinds={x['kind'] for x in ops}
-        ready=bool(ops) and not unresolved and kinds <= {'reactivate_exact','existing_sense_target','surface_patterns'}
+        has_exact_reactivation=any(x['kind']=='reactivate_exact' for x in ops)
+        ready=has_exact_reactivation and not unresolved and kinds <= {'reactivate_exact','existing_sense_target','surface_patterns'}
         row={'ordinal':o,'word':word,'directive':directive,'operations':ops,'ready_for_exact_compile':ready,'unresolved_classes':sorted(set(unresolved)),'active_ids':sorted(active),'reference_ids':sorted(ref)}
         rows.append(row)
         key='READY' if ready else 'NEEDS_COMPILE'; stats[key]=stats.get(key,0)+1
