@@ -55,10 +55,20 @@ if (root.status !== 'FREEZE_CANDIDATE') fail(`unexpected-root-status:${root.stat
 if (root.acceptance?.independence !== 'SELF' || root.acceptance?.L_pass_claimed !== false) {
   fail('premature-acceptance-state');
 }
-const freshAuditRepairActive = root.construction_status === 'FRESH_AUDIT_REPAIRED_AWAIT_REAUDIT';
+
+// A prior in-flight CI run can have written the old Phase6A status after the fresh auditor
+// had already repaired the source-handoff contract. Detect the semantic repair itself so a
+// stale status flag cannot erase or hide fresh-audit truth on the next deterministic run.
+const freshAuditContractPresent =
+  root.surface_handoff_contract?.source_contact_unit === 'BLOCK_OR_CANONICAL_SOURCE_UNIT' &&
+  root.surface_handoff_contract?.logic_group_role === 'RETRIEVAL_AND_LOCAL_CLOSURE_UNIT_NOT_AUTOMATIC_SOURCE_CHUNK' &&
+  root.surface_handoff_contract?.lg_source_reentry_default === false &&
+  root.acceptance?.fresh_audit_repair?.status === 'REPAIRED_AWAIT_REAUDIT';
+const freshAuditRepairActive = root.construction_status === 'FRESH_AUDIT_REPAIRED_AWAIT_REAUDIT' || freshAuditContractPresent;
 if (freshAuditRepairActive) {
   if (root.surface_handoff_contract?.source_contact_unit !== 'BLOCK_OR_CANONICAL_SOURCE_UNIT') fail('fresh-source-contact-unit-lost');
   if (root.surface_handoff_contract?.lg_source_reentry_default !== false) fail('fresh-lg-bounce-guard-lost');
+  root.construction_status = 'FRESH_AUDIT_REPAIRED_AWAIT_REAUDIT';
 }
 
 const contracts = new Map();
@@ -141,6 +151,7 @@ const output = {
   pass: true,
   mode: write ? 'write' : 'check-source-availability',
   fresh_audit_repair_preserved: freshAuditRepairActive,
+  fresh_audit_contract_present: freshAuditContractPresent,
   group_contracts: contracts.size,
   candidate_groups: groupCount,
   readiness_repairs: ['H10<-H9', 'H23<-digestive-d12', 'H24<-H21'],
