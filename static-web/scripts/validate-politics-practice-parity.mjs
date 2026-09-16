@@ -65,6 +65,9 @@ for (const question of questions) {
 }
 
 const component = fs.readFileSync(componentPath, 'utf8') + fs.readFileSync(path.join(staticRoot, 'src/lib/politicsPracticeClient.mjs'), 'utf8');
+// Storage identities were extracted from the client into the shared state owner.
+// Keep the same parity tokens required, but scan the real implementation owner too.
+const requiredImplementation = component + fs.readFileSync(path.join(staticRoot, 'src/lib/politicsPracticeState.mjs'), 'utf8');
 const page = fs.readFileSync(pagePath, 'utf8');
 const requiredComponentTokens = [
   'data-filter-subject', 'data-filter-chapter', 'data-filter-unit', 'data-filter-type',
@@ -77,7 +80,7 @@ const requiredComponentTokens = [
   'data-chat-explanation', 'data-review-sources', 'data-next-question', 'data-return-unit',
   'kianos-politics-attempts-v1', 'kianos-politics-evidence-v1', 'kianos-politics-last-location-v1'
 ];
-for (const token of requiredComponentTokens) if (!component.includes(token)) fail(`component_token:${token}`);
+for (const token of requiredComponentTokens) if (!requiredImplementation.includes(token)) fail(`component_token:${token}`);
 
 const forbiddenComponentTokens = [
   'value="due"', '>D1<', '>D3<', '>D7<', '>D14<',
