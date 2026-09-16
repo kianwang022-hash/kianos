@@ -1,0 +1,108 @@
+/* Presentation-only convergence. Activate one reviewed surface family at a time.
+   Domain Runtime/Evidence remain the owners of all data attributes and state. */
+body.surfaceBody-home {
+  --study-font: system-ui, -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  font-family: var(--study-font); font-size: 17px; line-height: 1.55;
+  background: #f3f5f5; color: #23302f;
+}
+.surfaceBody-home :is(h1,h2,h3,strong,b) { font-weight: 650; }
+.surfaceBody-home .productBar { position: fixed; inset: 0 auto 0 0; width: 188px; height: 100dvh; min-height: 0; display: flex; flex-direction: column; align-items: stretch; gap: 30px; padding: 28px 16px 20px; background: #142622; color: #edf4f1; border: 0; box-shadow: none; }
+.surfaceBody-home .productBrand { color: inherit; gap: 11px; }
+.surfaceBody-home .productBrandMark { background: #dbeae5; color: #173d32; box-shadow: none; font-family: inherit; }
+.surfaceBody-home .productBrandCopy strong { font-size: 20px; }
+.surfaceBody-home .productBrandCopy small { font-size: 10px; letter-spacing: .08em; color: #aebfb9; }
+.surfaceBody-home .productNav { display: grid; gap: 7px; padding: 0; border: 0; background: transparent; border-radius: 0; }
+.surfaceBody-home .productNav a { display: block; text-align: left; padding: 10px 14px; color: #c9d7d2; font-size: 17px; font-weight: 500; border-radius: 7px; }
+.surfaceBody-home .productNav a.active { color: #fff; background: #30483f; box-shadow: none; }
+.surfaceBody-home .productNav a:hover { color: #fff; background: #263f36; }
+.surfaceBody-home .sourceDock { margin-top: auto; align-self: stretch; }
+.surfaceBody-home .sourceDock summary { background: transparent; color: #bfcec8; border-color: #3a5147; justify-content: flex-start; font-size: 13px; }
+.surfaceBody-home .sourcePopover { position: absolute; left: 0; right: auto; top: auto; bottom: 46px; color: #23302f; }
+.surfaceBody-home .productCanvas { width: auto; max-width: none; margin: 0 0 0 188px; padding: 27px 30px 20px; }
+.commandHeader { display: flex; justify-content: space-between; align-items: end; gap: 20px; padding-bottom: 21px; }
+.commandHeader h1 { margin: 4px 0 0; font-size: 32px; line-height: 1.25; letter-spacing: -.035em; }
+.commandHeader>p { margin: 0; font-size: 16px; color: #475b52; }
+.commandHeader>p span { color: #68776f; font-size: 14px; }
+.surfaceBody-home .pageKicker { font-size: 12px; font-weight: 600; letter-spacing: .06em; }
+.commandGrid { display: grid; grid-template-columns: minmax(0,1fr) minmax(260px,.35fr); gap: 22px; align-items: start; }
+.commandSubjects { background: #fff; border: 1px solid #dce3df; border-radius: 10px; overflow: hidden; }
+.commandSectionHead { display: flex; align-items: center; justify-content: space-between; padding: 15px 21px; border-bottom: 1px solid #dce3df; }
+.commandSectionHead h2 { margin: 0; font-size: 20px; }
+.commandSectionHead>span { font-size: 14px; color: #61716a; }
+.commandSubject { padding: 16px 21px; border-bottom: 1px solid #e2e8e4; }
+.commandSubject:last-child { border-bottom: 0; }
+.commandSubject>header, .commandSubject>header>div { display: flex; align-items: baseline; gap: 12px; min-width: 0; }
+.commandSubject>header { justify-content: space-between; }
+.commandSubject h2 { margin: 0; font-size: 22px; line-height: 1.25; }
+.commandOrdinal { font-size: 13px; color: #7a8881; font-variant-numeric: tabular-nums; }
+.commandAvailability { font-size: 13px; color: #65776e; }
+.commandSubject>header>a { font-size: 14px; text-decoration: none; white-space: nowrap; }
+.commandSubjectMeta { margin: 7px 0 0; color: #63736b; font-size: 15px; line-height: 1.55; }
+.commandSubject :is(.xizongHomeTools,.politicsHomeTools) { margin-top: 12px; grid-template-columns: 1fr; gap: 10px; }
+.commandSubject .xizongHomeTools>aside { display: none; } /* Already described above; remains on its subject Home. */
+.commandSubject :is(.xizongContinue,.politicsContinue) { display: grid; grid-template-columns: 80px minmax(0,1fr); gap: 3px 10px; padding: 10px 12px; border: 0; border-left: 3px solid #517666; border-radius: 0; background: #f2f6f3; }
+.commandSubject :is(.xizongContinue,.politicsContinue)>span { grid-row: 1/3; align-self: center; font-size: 13px; letter-spacing: 0; font-weight: 600; }
+.commandSubject :is(.xizongContinue,.politicsContinue)>strong { font-size: 17px; line-height: 1.4; }
+.commandSubject :is(.xizongContinue,.politicsContinue)>small { font-size: 13px; color: #63756b; line-height: 1.45; }
+.commandSubject .politicsHandoff { gap: 12px; padding: 3px 0 0; border: 0; border-radius: 0; background: transparent; align-items: center; }
+.commandSubject .politicsHandoff>div { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; }
+.commandSubject .politicsHandoff span { font-size: 12px; font-weight: 600; letter-spacing: 0; }
+.commandSubject .politicsHandoff strong { font-size: 13px; color: #62766a; font-weight: 500; }
+.commandSubject .politicsHandoff p { grid-column: 1/-1; font-size: 14px; line-height: 1.45; }
+.commandSubject .politicsHandoff button { font-size: 13px; padding: 7px 10px; border-color: #cbd7ce; font-weight: 600; }
+.commandSubject .englishResume { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 10px 12px; margin-top: 12px; border-left: 3px solid #517666; background: #f2f6f3; }
+.commandSubject .englishResume>div { display: grid; gap: 2px; }
+.commandSubject .englishResume span { font-size: 12px; color: #63756b; }
+.commandSubject .englishResume strong { font-size: 17px; }
+.commandSubject .englishResume p { margin: 0; font-size: 13px; color: #63756b; }
+.commandSubject .englishResume>a { flex-shrink: 0; font-size: 15px; text-decoration: none; }
+.commandTaskLinks { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 11px; }
+.commandTaskLinks a { font-size: 16px; text-decoration: none; }
+.commandSupport { display: grid; gap: 17px; }
+.commandSupportSection { padding: 20px; background: #fff; border: 1px solid #dce3df; border-radius: 9px; }
+.commandSupportSection h2 { margin: 6px 0 10px; font-size: 21px; line-height: 1.35; }
+.commandSupportSection p:not(.pageKicker) { margin: 0 0 15px; font-size: 16px; line-height: 1.65; color: #596c61; }
+.commandSupportSection small { display: block; margin-top: 16px; font-size: 12px; color: #758077; line-height: 1.6; }
+.commandPrimaryLink { display: block; padding: 10px 12px; background: #1c5845; color: #fff; border-radius: 6px; text-decoration: none; text-align: center; font-size: 16px; font-weight: 600; }
+.commandGuideLinks { display: grid; }
+.commandGuideLinks a { display: grid; gap: 3px; padding: 10px 0; border-bottom: 1px solid #e1e7e3; text-decoration: none; }
+.commandGuideLinks a:last-child { border: 0; padding-bottom: 0; }
+.commandGuideLinks strong { font-size: 16px; }.commandGuideLinks span { font-size: 14px; color: #63756b; }
+.commandFoot { display: flex; justify-content: space-between; gap: 16px; margin-top: 16px; font-size: 12px; color: #78857d; }
+.commandFoot a { white-space: nowrap; color: inherit; text-decoration: none; }
+.surfaceBody-home :is(a,button,summary):focus-visible { outline: 3px solid #7396bb; outline-offset: 3px; }
+@media(min-width:1000px) and (max-height:790px) {
+  .surfaceBody-home .productCanvas { padding-top: 22px; padding-bottom: 14px; }
+  .commandHeader { padding-bottom: 17px; }.commandSubject { padding-top: 13px; padding-bottom: 13px; }
+  .commandSupportSection { padding: 17px; }.commandFoot { margin-top: 12px; }
+}
+@media(max-width:1240px) and (min-width:1000px) {
+  .surfaceBody-home .productBar { width: 164px; padding-inline: 12px; }
+  .surfaceBody-home .productCanvas { margin-left: 164px; padding-inline: 22px; }
+  .commandGrid { grid-template-columns: minmax(0,1fr) 255px; gap: 16px; }
+  .commandAvailability { display: block; }.commandSubject>header>div { flex-wrap: wrap; gap: 5px 10px; }
+  .commandSubjectMeta { font-size: 15px; }
+}
+@media(max-width:999px) {
+  .surfaceBody-home .productBar { position: sticky; inset: 0 0 auto; width: 100%; height: auto; display: flex; flex-direction: row; align-items: center; gap: 15px; padding: 12px 18px; }
+  .surfaceBody-home .productNav { display: flex; overflow-x: auto; gap: 3px; margin-left: auto; }
+  .surfaceBody-home .productNav a { padding: 7px 10px; font-size: 15px; }
+  .surfaceBody-home .sourceDock { display: none; }.surfaceBody-home .productBrandCopy small { display: none; }
+  .surfaceBody-home .productCanvas { margin: 0; padding: 22px 20px; }
+  .commandHeader { align-items: start; }.commandHeader>p { max-width: 260px; }
+  .commandGrid { grid-template-columns: minmax(0,1fr); }.commandSupport { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width:600px) {
+  .surfaceBody-home .productBar { flex-wrap: wrap; gap: 10px; padding: 12px; }
+  .surfaceBody-home .productNav { width: 100%; justify-content: space-between; }
+  .surfaceBody-home .productNav a { padding: 6px 9px; font-size: 14px; }
+  .surfaceBody-home .productCanvas { padding: 20px 12px; }
+  .commandHeader { display: grid; gap: 10px; }.commandHeader h1 { font-size: 28px; }.commandHeader>p { max-width: none; }
+  .commandSectionHead,.commandSubject { padding: 16px; }.commandSubject>header { align-items: start; }
+  .commandSubject>header>div { flex-wrap: wrap; gap: 6px 10px; }.commandAvailability { flex-basis: 100%; }
+  .commandSubject>header>a { font-size: 13px; }.commandSubject h2 { font-size: 21px; }
+  .commandSubject :is(.xizongContinue,.politicsContinue) { grid-template-columns: 1fr; }
+  .commandSubject :is(.xizongContinue,.politicsContinue)>span { grid-row: auto; }
+  .commandSubject .politicsHandoff { align-items: stretch; }.commandSubject .politicsHandoff button { align-self: start; }
+  .commandSupport { grid-template-columns: 1fr; }.commandFoot { flex-direction: column; }
+}

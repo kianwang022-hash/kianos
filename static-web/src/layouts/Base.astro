@@ -3,6 +3,7 @@ import '../styles/global.css';
 import '../styles/runtime.css';
 import '../styles/xizong-dense-calm.css';
 import '../styles/english.css';
+import '../styles/visual-convergence.css';
 import VocabularyEnglishEvidenceBridge from '../components/VocabularyEnglishEvidenceBridge.astro';
 
 const {
@@ -42,6 +43,7 @@ const isEnglishRoute = englishPrefixes.some((segment) => {
 });
 const navActive = isEnglishRoute ? 'english' : active;
 const navItems = [
+  { key: 'home', label: 'Home', href: base },
   { key: 'xizong', label: '西综', href: `${base}xizong/` },
   { key: 'politics', label: '政治', href: `${base}politics/` },
   { key: 'lexical', label: 'Vocabulary', href: `${base}vocabulary/` },

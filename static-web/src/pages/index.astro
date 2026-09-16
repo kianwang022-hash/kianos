@@ -1,5 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
+import XizongHomeTools from '../components/XizongHomeTools.astro';
+import PoliticsHomeTools from '../components/PoliticsHomeTools.astro';
+import EnglishResume from '../components/EnglishResume.astro';
 import { buildRevision, inspectReadingSources } from '../lib/current.mjs';
 import { inspectLexicalSources } from '../lib/lexical.mjs';
 import { listProjectableXizongSystems } from '../lib/xizong.mjs';
@@ -25,44 +28,51 @@ const englishReady = readingReady
   && translationState.status === 'ready'
   && writingLearning.status === 'ready'
   && writingRuntime.status === 'ready';
+const firstSystem = xizongSystems[0];
+const firstSubject = politicsSubjects[0];
+const firstChapter = firstSubject?.chapters?.[0];
+const xizongHref = firstSystem ? `${base}xizong/${firstSystem.systemId}/` : `${base}xizong/`;
+const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubject.subject}/${firstChapter.code}/` : `${base}politics/`;
 ---
-<Base title="学习工作台" kicker="KianOS · Current learner runtime" description="Chat 维护 GitHub Current 内容；Astro 把它变成低摩擦学习动作。" active="home">
-  <section class="homeCurrentStrip">
-    <div>
-      <p class="pageKicker">Runtime contract</p>
-      <h2>Current 内容层 + Astro</h2>
-      <p>内容更新与 UI 功能已经分层。学习反馈先改正确的内容或互动，再由 Astro 直接投影。</p>
-    </div>
-    <aside><strong>Current connected</strong><span>build {buildRevision.slice(0, 12)}</span><span>private interaction state only when useful</span></aside>
-  </section>
+<Base title="学习工作台" active="home" showLead={false}>
+  <header class="commandHeader">
+    <div><p class="pageKicker">KianOS · 学习工作台</p><h1>从正在做的事继续。</h1></div>
+    <p>三科主线 · 词汇随用随查<br /><span>断点与证据沿用各科，不另排一张课表。</span></p>
+  </header>
 
-  <section class="homeGrid">
-    <a class="homeLane" href={`${base}xizong/`}>
-      <div><span>西医综合 · {xizongSystems.length ? 'v6 Ready' : 'Blocked'}</span><h2>System Runtime</h2></div>
-      <p>{xizongSystems.length
-        ? `${xizongSystems.length} 个 Current System · ${xizongBlocks} Blocks · ${xizongKp} KP；System → Block → Logic Group → KP。`
-        : '尚无满足 Current system owner + Logic Group gate 的系统；Runtime 保持 fail-closed。'}</p>
-      <footer><span>main@HEAD</span><b>{xizongSystems.length ? '进入 →' : '查看 →'}</b></footer>
-    </a>
-    <a class="homeLane" href={`${base}politics/`}>
-      <div><span>政治 · {politicsHealth.status === 'ready' ? 'Ready' : 'Partial'}</span><h2>Politics</h2></div>
-      <p>{politicsSubjects.length} 科 · {politicsChapters} 个 Current 学习章节；定位 → 乘风 → 小闭合 → 肖1000 → 错题最小回源。</p>
-      <footer><span>content-first</span><b>进入 →</b></footer>
-    </a>
-    <a class="homeLane" href={`${base}vocabulary/`}>
-      <div><span>LexicalOS · Ready</span><h2>Vocabulary</h2></div>
-      <p>{lexicalState.wordCount} 个 Current Word · {lexicalState.relationCount} 个 Relation Owner；Continue / Search / Repair Review → Depth Scan → Challenge。</p>
-      <footer><span>shared lexical supply</span><b>进入 →</b></footer>
-    </a>
-    <a class="homeLane" href={`${base}english/`}>
-      <div><span>English · {englishReady ? 'Ready' : 'Partial'}</span><h2>Capability Runtime</h2></div>
-      <p>Reading / Translation / Writing 三条任务能力 + Lexical shared supply；Cloze 与 Part B 作为专项 trainer，先继续真实能力，再按需回 First Learning。</p>
-      <footer><span>capability-first</span><b>进入 English →</b></footer>
-    </a>
-  </section>
+  <div class="commandGrid">
+    <section class="commandSubjects" aria-label="三科状态与 Continue">
+      <header class="commandSectionHead"><h2>Continue</h2><span>分科继续 · 自由选择</span></header>
+      <article class="commandSubject" data-home-subject="xizong">
+        <header><div><span class="commandOrdinal">01</span><h2>西医综合</h2><span class="commandAvailability">{xizongSystems.length ? `${xizongSystems.length} 个 System 已开放` : '暂未开放'}</span></div><a href={`${base}xizong/`}>知识地图 →</a></header>
+        <p class="commandSubjectMeta">{xizongBlocks} Blocks · {xizongKp} KP · 原讲义连续学习，网页负责定位、Recall 与修补。</p>
+        <XizongHomeTools firstHref={xizongHref} firstLabel={firstSystem ? `${firstSystem.canonicalId} · ${firstSystem.title}` : '查看西综入口'} />
+      </article>
+      <article class="commandSubject" data-home-subject="english">
+        <header><div><span class="commandOrdinal">02</span><h2>English</h2><span class="commandAvailability">{englishReady ? '任务入口已接通' : '部分任务已开放'}</span></div><a href={`${base}english/`}>英语工作台 →</a></header>
+        <p class="commandSubjectMeta">Objective / Translation / Writing · 完成任务，问题出现时再做最小修复。</p>
+        <EnglishResume />
+        <nav class="commandTaskLinks" aria-label="英语任务"><a href={`${base}reading/`}>Reading A</a><a href={`${base}cloze/`}>Cloze</a><a href={`${base}reading-b/`}>Part B</a><a href={`${base}translation/`}>Translation</a><a href={`${base}writing/`}>Writing</a></nav>
+      </article>
+      <article class="commandSubject" data-home-subject="politics">
+        <header><div><span class="commandOrdinal">03</span><h2>政治</h2><span class="commandAvailability">{politicsSubjects.length} 科 · {politicsChapters} 章{politicsHealth.status === 'ready' ? '已接通' : '，部分开放'}</span></div><a href={`${base}politics/`}>五科总览 →</a></header>
+        <p class="commandSubjectMeta">乘风原讲义 → 肖1000 验证 → 有问题时精准回源。</p>
+        <PoliticsHomeTools firstHref={politicsHref} firstLabel={firstChapter ? `${firstSubject.label} · ${firstChapter.title}` : '查看政治入口'} />
+      </article>
+    </section>
+
+    <aside class="commandSupport" aria-label="学习支持">
+      <section class="commandSupportSection">
+        <p class="pageKicker">English support</p><h2>Vocabulary</h2>
+        <p>查词、继续学习，或回到已有 Repair；与英语任务共用同一套词汇内容。</p>
+        <a class="commandPrimaryLink" href={`${base}vocabulary/`}>打开词汇工作台 →</a>
+        <small>{lexicalState.wordCount} Word · {lexicalState.relationCount} Relation<br />内容持续接入；不代表全目录验收或学习进度。</small>
+      </section>
+      <section class="commandSupportSection">
+        <p class="pageKicker">Guides · 随时查阅</p><h2>需要时再展开模型</h2>
+        <nav class="commandGuideLinks" aria-label="英语 Guide"><a href={`${base}objective-learn/`}><strong>Objective</strong><span>Reading / Cloze / Part B</span></a><a href={`${base}translation-learn/`}><strong>Translation</strong><span>表征 → 忠实重建 → 交付</span></a><a href={`${base}writing-learn/`}><strong>Writing</strong><span>写作模型与任务特化</span></a></nav>
+      </section>
+    </aside>
+  </div>
+  <footer class="commandFoot"><span>Today / Attention：只显示各科已经产生的证据；当前政治支持今日 Handoff。</span><a href={`${base}current/`}>Current · {buildRevision.slice(0, 8)}</a></footer>
 </Base>
-
-<style>
-  .homeGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  @media(max-width:760px){.homeGrid{grid-template-columns:1fr}}
-</style>
