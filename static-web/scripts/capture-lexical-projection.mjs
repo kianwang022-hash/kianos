@@ -6,7 +6,8 @@ import { execFileSync } from 'node:child_process';
 import { chromium } from 'playwright';
 
 // Visual projection gate only. Linux Chromium/Noto is a browser pre-gate,
-// not Mac/PingFang acceptance and not learner U evidence.
+// not Mac/PingFang acceptance and not learner U evidence. This deliberately
+// tests content-shape adaptation rather than one hand-picked rich word.
 const out = path.resolve('../visual-evidence/lexical-projection');
 const root = path.resolve('dist');
 fs.mkdirSync(out, { recursive: true });
