@@ -85,7 +85,6 @@ async function answerCloze(page, item, answers, wrongIndex = -1) {
     const formal = firstAnswer(answers.answers[id]);
     const selected = index === wrongIndex ? wrongLabel(question, formal) : formal;
     if (!selected) throw new Error(`CLOZE_ANSWER_NOT_SELECTABLE:${id}`);
-    await page.locator(`[data-cloze-jump="${index}"]`).click();
     await page.locator('[data-objective-question]').nth(index).locator(`[data-value="${selected}"]`).click();
   }
   await page.locator('[data-objective-submit]').click();
@@ -99,7 +98,6 @@ async function answerReadingA(page, reading, answers, wrongIndex = -1) {
     const formal = firstAnswer(answers.answers[id]);
     const selected = index === wrongIndex ? wrongLabel(question, formal) : formal;
     if (!selected) throw new Error(`READING_A_ANSWER_NOT_SELECTABLE:${id}`);
-    await page.locator('.portedReadingQuestionNav button').nth(index).click();
     await page.locator('[data-question]').nth(index).locator(`[data-option="${selected}"]`).click();
   }
   await page.locator('[data-reading-submit]').click();
