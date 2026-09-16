@@ -51,6 +51,8 @@ const payload = learnerObject || null;
           const gallery = el('div', 'xv6LearnerVisualGallery');
           assets.forEach((asset, index) => {
             const figure = el('figure', index === 0 && assets.length > 1 ? 'primary' : '');
+            if (asset?.sourceObjectId) figure.dataset.sourceObject = text(asset.sourceObjectId);
+            if (asset?.sourcePage) figure.dataset.sourcePage = text(asset.sourcePage);
             const link = el('a');
             link.href = asset?.src || '#';
             link.target = '_blank';
