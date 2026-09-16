@@ -6,8 +6,96 @@
   "canonical_id": "A2",
   "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
   "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
-  "notes": "Preserves reviewed R3/R6/R7/R8 bundles and adds reviewed high-value R4 asthma, R8 IPF and R11 lung-cancer source visuals. Coverage remains intentionally sparse and independently extensible.",
+  "notes": "Preserves reviewed R1/R2/R3/R6/R7/R8/R11 bundles and adds reviewed high-value R1/R2 physiology, R4 asthma, R8 IPF and R11 lung-cancer source visuals. Coverage remains intentionally sparse and independently extensible.",
   "bundles": [
+    {
+      "cue_id": "a2-r01-lg01-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df500372:pi168:crop:e9ccf5070ad3ffd7",
+          "source_page": 169,
+          "usage_role": "LUNG_VOLUMES_CAPACITIES_COMPOSITION_VISUAL",
+          "usage_label": "P169 · 肺容积/肺容量组成",
+          "alt": "生理讲义 P169：潮气量、补吸气量、补呼气量、残气量及 IC/FRC/VC/TLC 的组成图",
+          "asset_path": "a2-r01-lg01/r01-p169-lung-volumes-capacities.webp",
+          "width": 850,
+          "height": 490,
+          "source_crop_sha256": "e9ccf5070ad3ffd7401f7208e93b1494bdcd8ed839b2234086eb04b98812ed0a",
+          "derived_asset_sha256": "054e8a14b7c1fdf8184530919e6bbe27cc271c289bb8c2ff618a574bfa6dc031"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r01-lg04-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df500372:pi169:crop:1a23259512f86f28",
+          "source_page": 170,
+          "usage_role": "OBSTRUCTIVE_RESTRICTIVE_VENTILATION_COMPARISON",
+          "usage_label": "P170 · 阻塞 vs 限制通气障碍",
+          "alt": "生理讲义 P170：阻塞性与限制性通气障碍的阻力、呼吸困难、疾病和肺功能方向对照",
+          "asset_path": "a2-r01-lg04/r01-p170-obstructive-restrictive.webp",
+          "width": 950,
+          "height": 520,
+          "source_crop_sha256": "1a23259512f86f2806ddb9e01765bc295e5bc9964b30b56c12ba7432df89a949",
+          "derived_asset_sha256": "10be05eae43e112948a1ae63404a2693704804fe10abd5a41abaf374a3c1491c"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r02-lg01-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df500372:pi186:crop:528ee0d18c51df55",
+          "source_page": 187,
+          "usage_role": "RESPIRATORY_MEMBRANE_LAYER_ANATOMY",
+          "usage_label": "P187 · 呼吸膜六层结构",
+          "alt": "生理讲义 P187：从肺泡表面活性物质层到毛细血管内皮的呼吸膜六层结构图",
+          "asset_path": "a2-r02-lg01/r02-p187-respiratory-membrane.webp",
+          "width": 1100,
+          "height": 420,
+          "source_crop_sha256": "528ee0d18c51df55beae1cfd000400c815f6653fde6fcb54f748d2b9f0f2944f",
+          "derived_asset_sha256": "1f5071f702a47bd91da25068035d8b24d2f81de938c7e2699122b7fc04de9456"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r02-lg02-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df500372:pi186:crop:3304010f08b9b91c",
+          "source_page": 187,
+          "usage_role": "VAQ_APEX_BASE_GRADIENT_AND_DEAD_SPACE_SHUNT",
+          "usage_label": "P187 · VA/Q 肺尖—肺底梯度与死腔/分流方向",
+          "alt": "生理讲义 P187：正常 VA/Q、肺尖约 3.3、肺底约 0.63 及死腔样通气与肺内分流方向对照",
+          "asset_path": "a2-r02-lg02/r02-p187-vaq-gradient.webp",
+          "width": 1050,
+          "height": 930,
+          "source_crop_sha256": "3304010f08b9b91c7d20dcb6a3c531efd0a1eb23307a6e0fab60d13eb944e481",
+          "derived_asset_sha256": "291d25f84d0128d3780e4243586451ef6b7a4f5fda65e820998747a8dcff3c3a"
+        },
+        {
+          "source_object_id": "physiology:0ad07df500372:pi187:crop:06d38f3774f042ec",
+          "source_page": 188,
+          "usage_role": "DEAD_SPACE_SHUNT_ALVEOLAR_SCHEMATIC",
+          "usage_label": "P188 · 死腔样与分流样肺泡示意",
+          "alt": "生理讲义 P188：小气道通气不足与肺大泡压迫血流所对应的低 VA/Q 与高 VA/Q 肺泡示意图",
+          "asset_path": "a2-r02-lg02/r02-p188-vaq-dead-space-shunt.webp",
+          "width": 500,
+          "height": 300,
+          "source_crop_sha256": "06d38f3774f042ecded2f94a2fd891398236becb069a63b79ab942b1677e48fa",
+          "derived_asset_sha256": "482a2d730aa095fa6531b3331a243e10a924b21ba439ba7ef9981c54d3f771dc"
+        }
+      ]
+    },
     {
       "cue_id": "a2-r03-lg01-visual",
       "source_sha256": "7b41f26673fbb562519ac57bb419c2ec82a88c63b5d538a77aaff2e46428dc3f",
