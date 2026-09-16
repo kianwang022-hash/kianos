@@ -35,6 +35,7 @@ def retire_fact_all(rid: str):
         print('FACT_RETIRE_ALL',rid,'records=',len(hits),'locations=',hits)
 
 
+# Install only the transport-safe retirement behavior; semantic authority is unchanged.
 v1.retire_fact=retire_fact_all
 
 if __name__=='__main__':
