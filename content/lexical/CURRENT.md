@@ -11,6 +11,7 @@ mechanically implemented frontier:     o7946
 post-audit closed implemented region:  o0001–o7946 COMPLETE ON MAIN via PR #307
 latest closed Content stage:           #303 — o7875–o7946 CLOSED via PR #307
 active Content execution stage:        NONE
+full-catalog K acceptance:             PASS — Issue #56 latest-main revalidation
 latest semantic authority:             o7875–o7946 reconciliation
 latest semantic source union:           35 / 72 owners
 latest Form / identity closure:         PASS
@@ -20,17 +21,21 @@ remaining catalog:                     NONE
 
 Catalog Content execution: **COMPLETE — 7946 / 7946 owners closed post-audit**.
 
-Production/Audit, reconciliation, implementation, main integration and learner state are separate concepts. Only accepted integration on `main@HEAD` advances canonical Truth; engineering closure never manufactures learner progress.
+Full-catalog integrated K gate: **PASS — 7946 / 7946 Current owners accepted as SAFE_SIMPLE or DEPTH_READY; BLOCKED 0**.
+
+Production/Audit, reconciliation, implementation, main integration, acceptance and learner state are separate concepts. Only accepted integration on `main@HEAD` advances canonical Truth; engineering closure never manufactures learner progress.
 
 ## 1｜Closed authority
 
 - Production Fresh Semantic Review: **7946/7946 COMPLETE**.
 - Independent Semantic Audit: **7946/7946 COMPLETE**, zero missing intervals.
 - Mechanical post-audit implementation: **o0001–o7946 COMPLETE**.
+- Full-catalog K re-acceptance: **Issue #56 PASS** after latest-main-synchronized Phase A+B+C validation.
 - Coverage authority: `content/lexical/semantic-audit/reconciliation/CATALOG_COVERAGE_RECONCILIATION.md`.
-- Do not restart broad Production Review or Independent Audit for this catalog generation.
+- Acceptance authority: `content/lexical/ACCEPTANCE.md` plus `content/lexical/acceptance/full-catalog-k-*.json`.
+- Do not restart broad Production Review, Independent Audit or full-catalog K audit for this catalog generation without a concrete Current defect.
 
-Continuous integrated history ends with:
+Continuous integrated Content history ends with:
 
 - `o5375–o5874` → PR #254.
 - `o5875–o6374` → PR #277.
@@ -39,7 +44,15 @@ Continuous integrated history ends with:
 - `o7375–o7874` → PR #302.
 - `o7875–o7946` → PR #307.
 
-Latest durable receipt: `content/lexical/execution/o7875-o7946.package-receipt.json`.
+Latest durable Content receipt: `content/lexical/execution/o7875-o7946.package-receipt.json`.
+
+Latest K acceptance evidence includes:
+
+- `content/lexical/acceptance/full-catalog-k-conclusions.json`;
+- `content/lexical/acceptance/full-catalog-k-report.json`;
+- `content/lexical/acceptance/full-catalog-k-browser.json`;
+- `content/lexical/acceptance/full-catalog-k-materialization-corrections.json`;
+- `content/lexical/acceptance/full-catalog-k-latest-main-sync.json`.
 
 ## 2｜#303 / o7875–o7946 final-tail closure
 
@@ -103,7 +116,7 @@ frozen reconciliation
 → advance Current frontier
 ```
 
-This pipeline has now closed the complete `o0001–o7946` catalog for the current Content generation.
+This pipeline has closed the complete `o0001–o7946` catalog for the current Content generation. Issue #56 then separately validated the integrated catalog and actual learner projection without reopening semantic review.
 
 Rules that remain authoritative:
 
@@ -112,21 +125,47 @@ Rules that remain authoritative:
 - return to semantic judgment only for genuinely new ambiguity not already resolved by active authority;
 - do not maintain a competing hand-copied source list;
 - package-wide readback remains mandatory for any future bounded repair;
-- learner progress is never manufactured from engineering closure.
+- learner progress is never manufactured from engineering or acceptance closure.
+
+## 4｜#56 full-catalog K re-acceptance closure
+
+Issue #56 consumed the complete `o0001–o7946` Current Content truth as one integrated acceptance claim.
+
+Final K accounting:
+
+```text
+Current owners:                        7,946 / 7,946
+SAFE_SIMPLE:                           1,546
+DEPTH_READY:                           6,400
+BLOCKED:                                   0
+full-catalog intrinsic integrity:       PASS
+Natural Owner / transport / shard:      PASS
+learner projection fidelity:            PASS
+representative adversarial browser:     PASS
+same-owner Form boundary browser:       PASS
+Evidence / Memory + English bridge:      PASS
+Astro build:                             PASS
+```
+
+The survivor branch was synchronized with `main@00210ea389f2015fe6bb24e6ecd9398d721354ec` through merge `ce745356b4c18c0f25217c39bfa9a12a47ea9b12`. The latest-main revalidation ran on `d318964ec0985979c07ab810101b5dc5132ebc8d` as Lexical Functional First run `35160481017`; every static, build and browser step passed. The workflow then persisted the generated acceptance evidence in `40e4d45be88c08feaddf6f8cb8231655650186ad`.
+
+The three exact integration repairs were `organise@3375`, `resolve@4115` and `installment@5902`; each restored existing accepted authority rather than generating a new semantic judgment. The `form_identity.boundaries[]` learner projection compatibility gap was also closed and browser-proven.
+
+K PASS is an Artifact/Acceptance claim only. It does not manufacture learner familiarity, mastery, Memory debt, Review state or `U` evidence.
 
 ## Exact next action
 
-Content Work Cursor is **closed**. The next separately authorized Lexical stage is:
+Content Work Cursor is **closed** and the full-catalog K acceptance gate is **closed**.
 
-`main@HEAD → Issue #56 full-catalog integrated projection / integrity / K re-acceptance gate`
+There is **no new Lexical Content/K engineering stage authorized by this file**. Do not infer one from an old Issue, branch, receipt or chat. A future Content repair requires a concrete Current defect or an exact authorized dependency.
 
-#56 must consume the now-complete `o0001–o7946` Current Content truth. It is not permission to restart Production/Audit, invent Content debt, or manufacture learner progress.
+P/R/E unrestricted readiness and real learner U remain separate claims. Any next stage there must be separately authorized rather than inferred from K PASS.
 
-Do **not** reactivate a new Content execution package merely because an old Issue, branch, receipt, or chat remains visible. Any future Content repair requires a concrete Current defect or an exact dependency discovered by an authorized downstream gate.
+## 5｜Downstream / learner boundary
 
-## 4｜Downstream / learner boundary
+Issue **#56** is closed as the current-generation full-catalog integrated projection / integrity / K re-acceptance gate.
 
-Issue **#56** is now the next deferred downstream gate: full-catalog integrated projection / integrity / K re-acceptance. It remains separate from Content execution and from private learner state.
+`P`, `R` and `E` remain BLOCKED for unrestricted learner use despite their bounded Functional First proof. `U` remains UNTESTED until real private learner evidence exists.
 
 Production Review, Audit, reconciliation, implementation, validators, CI and merged PRs do not manufacture learner progress, mastery, Memory debt or `U` evidence.
 
@@ -138,13 +177,17 @@ main@HEAD
 → Independent Audit = 7946/7946 COMPLETE
 → mechanical frontier = o7946
 → o0001–o7946 post-audit closed
-→ latest closed stage = #303 / o7875–o7946 / PR #307
+→ latest closed Content stage = #303 / o7875–o7946 / PR #307
 → latest source union = 35 / 72
 → Form / identity closure = PASS
 → remote Word writes = 0/0
 → remaining catalog = NONE
 → Catalog Content execution = COMPLETE
-→ #56 = NEXT DOWNSTREAM GATE, separately authorized
+→ #56 full-catalog integrated K gate = PASS / CLOSED
+→ K = PASS
+→ P/R/E unrestricted = BLOCKED
+→ U = UNTESTED
+→ no new Content/K stage authorized
 ```
 
 Never infer a new task from an old Issue title, branch alias, Audit count, receipt, workflow, or chat history.
