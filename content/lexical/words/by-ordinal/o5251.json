@@ -7,12 +7,12 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "80a7e1368a978aae9ee1a39988a20519436b78ae32724bf3560cf7e906233967",
+    "content_hash": "304e4945346c57781e998bd19a5da082fd7ba056a3fed7f43712e72bb0186fd4",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "虚荣；空虚",
-      "core_meaning_en": "excessive pride in one's appearance or achievements; futility",
-      "mental_model_cn": "虚荣；空虚",
+      "core_meaning_cn": "虚荣、自负；过度看重自身尤其外表（徒劳/空虚义后置）",
+      "core_meaning_en": "vanity mainly excessive self-regard, especially about appearance; futility/emptiness is lower/literary",
+      "mental_model_cn": "虚荣、自负；过度看重自身尤其外表（徒劳/空虚义后置）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -23,30 +23,6 @@
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:91657fccff6a1548d5df",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:vanity:49383e67b5ba54c2:collocation:0"
-            ],
-            "meaning_cn": "人类愿望的空虚",
-            "phrase": "the vanity of human wishes"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "空虚，无价值",
-        "definition_en": "the quality of being valueless or futile",
-        "governing_pattern": "",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:vanity:49383e67b5ba54c2",
-        "sense_label_en": "the quality of being valueless or futile",
-        "sort_order": 0,
-        "transitivity": "nonverb"
-      },
       {
         "collocations": [
           {
@@ -101,7 +77,31 @@
     "word_id": "word:vanity"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:vanity:49383e67b5ba54c2",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "空虚，无价值",
+      "definition_en": "the quality of being valueless or futile",
+      "semantic_key": "816cf958b614abe1329a913c385fc35520b6500c933ebd0a57ef34f3909e6894",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "vanity:l1:1"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "vanity:l1:1",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 14947,
+      "source_path": "content/lexical/canonical/senses/shards/o5249-5280.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -113,7 +113,7 @@
       },
       {
         "sense_id": "sense:vanity:49383e67b5ba54c2",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 14947,
         "source_path": "content/lexical/canonical/senses/shards/o5249-5280.json"
@@ -121,8 +121,7 @@
     ],
     "active_collocations": [
       "collocation:3c6a5c01306aa664ce6e",
-      "collocation:8d1e2fb4640220d92962",
-      "collocation:91657fccff6a1548d5df"
+      "collocation:8d1e2fb4640220d92962"
     ],
     "facts": [],
     "collocations": [
@@ -178,7 +177,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5249-5256.json",
-    "source_content_hash": "80a7e1368a978aae9ee1a39988a20519436b78ae32724bf3560cf7e906233967",
+    "source_content_hash": "304e4945346c57781e998bd19a5da082fd7ba056a3fed7f43712e72bb0186fd4",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

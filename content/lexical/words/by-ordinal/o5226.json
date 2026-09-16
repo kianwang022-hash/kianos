@@ -25,7 +25,7 @@
         ]
       }
     ],
-    "content_hash": "fbbbd7da340d34f753d2cafe6e1806e775e764c9c65142f3d2e4034b40d0d87d",
+    "content_hash": "14d0013248b90b35c9a57bc44c82de6597f5f3120f7f2b1028768b33706d5ded",
     "core_concept": {
       "core_clusters": [
         {
@@ -37,20 +37,37 @@
           ]
         },
         {
-          "label_cn": "向上地；以上；超过",
-          "label_en": "toward a higher place or position; toward a higher amount or level",
+          "label_cn": "向上；也指向更高数量、水平或价值；向更高数量、水平或价值",
+          "label_en": "toward a higher position, amount, level, or value; toward a higher amount, level, or value",
           "pos": "adverb",
           "sense_ids": [
-            "sense:upward:f9fef89e4d525b93"
+            "sense:upward:f9fef89e4d525b93",
+            "sense:upward:0842211ba7785e28"
           ]
         }
       ],
-      "core_meaning_cn": "向上",
-      "core_meaning_en": "directed toward a higher place",
-      "mental_model_cn": "向上",
+      "core_meaning_cn": "向上的；向上；也指向更高数量、水平或价值；向更高数量、水平或价值",
+      "core_meaning_en": "directed or moving toward a higher position; toward a higher position, amount, level, or value; toward a higher amount, level, or value",
+      "mental_model_cn": "向上的；向上；也指向更高数量、水平或价值；向更高数量、水平或价值",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o4875-o5374.md",
+      "boundaries": [
+        {
+          "condition": "common form",
+          "note": "upward functions as adjective and adverb",
+          "surface": "upward"
+        },
+        {
+          "condition": "common regional adverb variant",
+          "note": "upwards is a common adverb form, especially BrE",
+          "surface": "upwards"
+        }
+      ],
+      "type": "regional_adverb_form"
+    },
     "needs_delta_review": true,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -100,15 +117,29 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "向上地",
-        "definition_en": "toward a higher place or position",
+        "definition_cn": "向上；也指向更高数量、水平或价值",
+        "definition_en": "toward a higher position, amount, level, or value",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adverb",
         "sense_id": "sense:upward:f9fef89e4d525b93",
-        "sense_label_en": "toward a higher place or position",
+        "sense_label_en": "toward a higher position, amount, level, or value",
         "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "向更高数量、水平或价值",
+        "definition_en": "toward a higher amount, level, or value",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adverb",
+        "sense_id": "sense:upward:0842211ba7785e28",
+        "sense_label_en": "toward a higher amount, level, or value",
+        "sort_order": 999,
         "transitivity": "nonverb"
       }
     ],
@@ -132,36 +163,12 @@
     "word_id": "word:upward"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:upward:0842211ba7785e28",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adverb",
-      "definition_cn": "以上；超过",
-      "definition_en": "toward a higher amount or level",
-      "semantic_key": "c3d5e8830d88b2f4f4d1899e9c48b4362e73fea25967bf2f69cb63b0d8dc598c",
-      "semantic_key_history": [],
-      "legacy_aliases": [
-        "upward:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "upward:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-08-22T05:00:00+00:00",
-      "source_row": 14888,
-      "source_path": "content/lexical/canonical/senses/shards/o5217-5248.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:upward:0842211ba7785e28",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14888,
         "source_path": "content/lexical/canonical/senses/shards/o5217-5248.json"
@@ -230,11 +237,19 @@
       "ordinal": 5226,
       "word_shard": "content/lexical/canonical/words/shards/o5225-5232.json",
       "auxiliary_locator": "content/lexical/canonical/lookup/word-id/e9.json"
+    },
+    {
+      "spelling": "upwards",
+      "source": "content/lexical/canonical/lookup/spelling/up.json",
+      "word_id": "word:upward",
+      "ordinal": 5226,
+      "word_shard": "content/lexical/canonical/words/shards/o5225-5232.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/e9.json"
     }
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5225-5232.json",
-    "source_content_hash": "fbbbd7da340d34f753d2cafe6e1806e775e764c9c65142f3d2e4034b40d0d87d",
+    "source_content_hash": "14d0013248b90b35c9a57bc44c82de6597f5f3120f7f2b1028768b33706d5ded",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
