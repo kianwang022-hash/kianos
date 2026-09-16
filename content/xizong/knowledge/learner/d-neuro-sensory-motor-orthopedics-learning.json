@@ -1,7 +1,7 @@
 {
   "schema": "kianos.xizong.system_learning_support.v2",
   "status": "CANDIDATE",
-  "construction_status": "PHASE5_SELF_ADVERSARIAL_CANDIDATE",
+  "construction_status": "PHASE6A_SELF_ADVERSARIAL_REPAIRED_CANDIDATE",
   "authority": "CHAT_APPROVED_LEARNING_CANDIDATE",
   "system_id": "neuro-sensory-motor-orthopedics",
   "canonical_id": "D",
@@ -16,7 +16,8 @@
     "content/xizong/knowledge/learner/D_PHASE3A_LOGIC_GROUPS_N01_N11.md",
     "content/xizong/knowledge/learner/D_PHASE3B_LOGIC_GROUPS_O01_O16.md",
     "content/xizong/knowledge/learner/D_PHASE4_PROGRESSIVE_COMPRESSION.md",
-    "content/xizong/knowledge/learner/D_PHASE5_CROSS_SURFACE_NEGATIVE_SPACE.md"
+    "content/xizong/knowledge/learner/D_PHASE5_CROSS_SURFACE_NEGATIVE_SPACE.md",
+    "content/xizong/knowledge/learner/D_PHASE6A_SELF_ADVERSARIAL_L_AUDIT.md"
   ],
   "role": "FIRST_PASS_ATTENTION_CONTINUITY_RETRIEVAL_CLOSURE_AND_COMPRESSION_SUPPORT_ONLY",
   "rule": "Organize the 27 stable Blocks and 356 stable KP identities for learning without changing medical meaning, filling Source gaps, adjudicating Source conflicts, duplicating neighboring Primary owners, inferring Question→Knowledge relations, or manufacturing learner progress.",
@@ -96,12 +97,41 @@
     "return_rule": "after repair, return to the interrupted D mainline; repair evidence does not erase the original observation and does not prove mastery"
   },
   "system_route": {
-    "mode": "CAUSAL_READINESS_DAG_WITH_LOW_SWITCHING_DEFAULT",
+    "mode": "SPARSE_CAUSAL_READINESS_DAG_WITH_LOW_SWITCHING_DEFAULT",
     "default_route": ["N1","N2","N3","N4","N5","N6","N7","N8","N9","N10","N11","O1","O2","O3","O4","O5","O6","O7","O8","O9","O10","O11","O12","O13","O14","O15","O16"],
     "default_is_not_hard_prerequisite_chain": true,
     "requires": {
-      "N1": [], "N2": ["N1"], "N3": ["N2"], "N4": ["N2","N3"], "N5": ["N1","N2"], "N6": ["N5"], "N7": ["N5"], "N8": ["N2","N4"], "N9": ["N2","N5"], "N10": ["N9","N2"], "N11": ["N5","N8"],
-      "O1": ["N11"], "O2": ["O1"], "O3": ["O2","N11"], "O4": ["O1","N11"], "O5": ["O1","N11"], "O6": ["O2","O5"], "O7": ["O2","O5"], "O8": ["O2","O5"], "O9": ["O1"], "O10": ["O7"], "O11": ["O5"], "O12": ["O1"], "O13": ["O1"], "O14": ["O13"], "O15": ["O1"], "O16": ["O1"]
+      "N1": [], "N2": ["N1"], "N3": ["N2"], "N4": ["N2","N3"], "N5": ["N1","N2"], "N6": ["N5"], "N7": ["N5"], "N8": ["N2"], "N9": ["N2"], "N10": ["N2"], "N11": ["N5","N8"],
+      "O1": [], "O2": [], "O3": ["O2","N11"], "O4": ["N11"], "O5": ["N11"], "O6": ["O2"], "O7": ["O2"], "O8": [], "O9": [], "O10": [], "O11": ["N11"], "O12": [], "O13": [], "O14": [], "O15": [], "O16": []
+    },
+    "benefits_from": {
+      "N1": ["membrane/electrical baseline"],
+      "N2": ["membrane Ca²⁺/AP baseline"],
+      "N3": ["cell signaling","autonomic language"],
+      "N4": ["N1"],
+      "N5": ["existing sensory examples"],
+      "N6": ["N3"],
+      "N7": ["N1"],
+      "N8": ["N4","N5","N3"],
+      "N9": ["N5"],
+      "N10": ["N9","N3","external endocrine/volume/temperature owners"],
+      "N11": ["N1","targeted O3/O4/O5 localization visuals"],
+      "O1": ["N11","N4","N5","shared orthopedic Source figures"],
+      "O2": ["O1","pathology repair","A1 perfusion/shock"],
+      "O3": ["A1 shock/perfusion","A2 ventilatory pump"],
+      "O4": ["O1","O3 acute-trauma contrast"],
+      "O5": ["O1","N1 regeneration","N4 denervation","O2 associated trauma"],
+      "O6": ["O1","O5","N11"],
+      "O7": ["O1","O5","N11"],
+      "O8": ["O1","O2","O5","O6"],
+      "O9": ["O1","O7"],
+      "O10": ["O1","O7","pathology ischemia/necrosis"],
+      "O11": ["O1","O5","O6","O9"],
+      "O12": ["O1","O4"],
+      "O13": ["O1","C common infection/source-control","pathology inflammation"],
+      "O14": ["O1","O13","C common TB","A2/R7 pulmonary-TB treatment entry"],
+      "O15": ["O1","C H17 RA","O10","O14"],
+      "O16": ["O1","O9 tumor-general","C H8 myeloma","O2","O13","O14","O15"]
     },
     "external_readiness": {
       "O13": ["C common infection/source-control language when available"],
@@ -110,7 +140,7 @@
       "O16": ["O9 tumor-general; H8 myeloma comparison when available"]
     },
     "external_missing_rule": "If an external baseline has not actually been learned, use the smallest-sufficient repair for the current D action; do not manufacture learner completion or a new hard repository dependency.",
-    "flex_rule": "A Block may move earlier when its true prerequisites are available and Source continuity benefits. N6/N7 may swap; N8 may precede N9/N10; N9/N10 do not gate N11; O4/O5/O9/O12/O13/O15/O16 may move earlier than the serial-looking default when readiness is satisfied."
+    "flex_rule": "Hard legality is intentionally sparse. N6/N7 may swap after N5; N8/N9/N10 may move once N2 and their own true prerequisites are available; N11 requires N5+N8 but not N9/N10; O1/O2 and O8/O9/O10/O12/O13/O14/O15/O16 are not hard-serialized behind the whole prior D route; O3 requires O2+N11; O4/O5 and full O11 require N11; O6/O7 require O2. The default route remains low-switching guidance only."
   },
   "first_pass_chain": [
     "System orientation in KianOS",
@@ -356,10 +386,13 @@
     "rule": "Projection may not rewrite D Learning Logic to fit a contiguous-range loader or existing page schema."
   },
   "acceptance": {
-    "evidence_mode": ["SEMANTIC_OWNER_READBACK","EXACT_356_KP_PARTITION_ACCOUNTING","ALTERNATIVE_ROUTE_FALSIFICATION","CROSS_SURFACE_ATTACK","NEGATIVE_SPACE_ATTACK","VISUAL_HANDOFF_REPAIR"],
+    "evidence_mode": ["SEMANTIC_OWNER_READBACK","EXACT_356_KP_PARTITION_ACCOUNTING","ALTERNATIVE_ROUTE_FALSIFICATION","CROSS_SURFACE_ATTACK","NEGATIVE_SPACE_ATTACK","VISUAL_HANDOFF_REPAIR","SPARSE_READINESS_REPAIR"],
     "independence": "SELF",
     "l_pass_claimed": false,
-    "verdict": "LEARNING_CANDIDATE_READY_FOR_ADVERSARIAL_AND_FRESH_INDEPENDENT_AUDIT",
-    "material_repair": "VISUAL_REQUIRED was separated from source-handoff count so visual-heavy Blocks do not recreate LG-by-LG MarginNote bouncing."
+    "verdict": "REPAIRED_LEARNING_CANDIDATE_READY_FOR_FRESH_INDEPENDENT_AUDIT",
+    "material_repairs": [
+      "VISUAL_REQUIRED was separated from source-handoff count so visual-heavy Blocks do not recreate LG-by-LG MarginNote bouncing.",
+      "Helpful ordering/comparison relations were removed from hard readiness; the machine-readable requires graph now contains only sparse true prerequisites."
+    ]
   }
 }
