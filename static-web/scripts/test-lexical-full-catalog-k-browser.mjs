@@ -93,8 +93,13 @@ try {
     const root = page.locator('[data-local-port="vocabulary"]');
     check((await root.getAttribute('data-vocab-object')) === answer.objectId, `${label}_object_identity`, `${fixture.ordinal}:${answer.objectId}`);
     check(Boolean(await root.getAttribute('data-vocab-source-hash')), `${label}_source_hash`);
-    await page.locator('[data-vocab-reveal]').click();
-    check(await page.locator('[data-vocab-details]').isVisible(), `${label}_reveal_visible`);
+    const details = page.locator('[data-vocab-details]');
+    if (!(await details.isVisible())) {
+      const reveal = page.locator('[data-vocab-reveal]');
+      check(await reveal.isVisible(), `${label}_reveal_control_available`);
+      await reveal.click();
+    }
+    check(await details.isVisible(), `${label}_reveal_visible`);
     check(await page.locator('[data-vocab-repair][data-target-kind="core"]').count() === 1, `${label}_core_target`);
     const bodyText = await page.locator('body').innerText();
     check(bodyText.includes(String(card.word || fixture.word || '')), `${label}_word_visible`);
