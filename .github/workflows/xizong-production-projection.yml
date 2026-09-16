@@ -1,0 +1,53 @@
+name: Xizong Production Semantic Projection
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'static-web/src/lib/xizongProductionProjection.mjs'
+      - 'static-web/src/lib/xizongSemanticAdapter.mjs'
+      - 'static-web/src/components/XizongBlockV6.astro'
+      - 'static-web/src/components/XizongCognitiveProjectionStage.astro'
+      - 'static-web/src/pages/xizong/**'
+      - 'static-web/scripts/validate-xizong-production-projection.mjs'
+      - 'static-web/scripts/test-xizong-production-semantic-journey.mjs'
+      - 'static-web/scripts/test-xizong-a1-browser-journey.mjs'
+      - 'static-web/package.json'
+      - 'content/xizong/projection/**'
+      - '.github/workflows/xizong-production-projection.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'static-web/src/lib/xizongProductionProjection.mjs'
+      - 'static-web/src/lib/xizongSemanticAdapter.mjs'
+      - 'static-web/src/components/XizongBlockV6.astro'
+      - 'static-web/src/components/XizongCognitiveProjectionStage.astro'
+      - 'static-web/src/pages/xizong/**'
+      - 'static-web/scripts/validate-xizong-production-projection.mjs'
+      - 'static-web/package.json'
+      - 'content/xizong/projection/**'
+      - '.github/workflows/xizong-production-projection.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: xizong-production-projection-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: static-web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-audit --no-fund
+      - name: Validate production semantic Projection
+        run: npm run validate:xizong-production
+      - name: Build Astro
+        run: npm run build
