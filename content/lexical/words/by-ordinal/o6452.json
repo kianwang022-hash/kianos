@@ -6,13 +6,38 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "5d19ac7b747b22a618a00e8c387555b454b9d05efbe13cfb42ed7c507ed8f63c",
+    "constructions": [
+      {
+        "construction_id": "construction:b9d45b1b4e0c48e384bc",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "吹嘘、夸耀某事",
+        "pattern": "brag about/of sth"
+      }
+    ],
+    "content_hash": "d94b7408f1df1c62df8c33cceacb5ae294c141e7a6b26d724f98218a3a6021bb",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "吹牛",
-      "core_meaning_en": "an instance of boastful talk",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "吹牛",
+          "label_en": "an instance of boastful talk",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:brag:e8e27231e5725190"
+          ]
+        },
+        {
+          "label_cn": "吹嘘；自夸",
+          "label_en": "to talk proudly about one's achievements, possessions, or abilities, often in an annoying way",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:brag:5d0e48ebb89095d5"
+          ]
+        }
+      ],
+      "core_meaning_cn": "吹牛；吹嘘；自夸",
+      "core_meaning_en": "an instance of boastful talk; to talk proudly about one's achievements, possessions, or abilities, often in an annoying way",
+      "mental_model_cn": "吹牛；吹嘘；自夸",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -46,6 +71,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "吹嘘；自夸",
+        "definition_en": "to talk proudly about one's achievements, possessions, or abilities, often in an annoying way",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:brag:5d0e48ebb89095d5",
+        "sense_label_en": "to talk proudly about one's achievements, possessions, or abilities, often in an annoying way",
+        "sort_order": 2,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -70,6 +109,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 17183,
+        "source_path": "content/lexical/canonical/senses/shards/o6433-6464.json"
+      },
+      {
+        "sense_id": "sense:brag:5d0e48ebb89095d5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 17213,
         "source_path": "content/lexical/canonical/senses/shards/o6433-6464.json"
       }
     ],
@@ -97,7 +143,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6449-6456.json",
-    "source_content_hash": "5d19ac7b747b22a618a00e8c387555b454b9d05efbe13cfb42ed7c507ed8f63c",
+    "source_content_hash": "d94b7408f1df1c62df8c33cceacb5ae294c141e7a6b26d724f98218a3a6021bb",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
