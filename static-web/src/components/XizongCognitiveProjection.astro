@@ -1,0 +1,150 @@
+---
+import { marked } from 'marked';
+
+const { projection } = Astro.props;
+const objects = projection?.primaryObjects || [];
+
+const roleLabels = {
+  PROBLEM: '核心问题',
+  MAP: '结构地图',
+  CHAIN: '机制 / 推理链',
+  COMPARE: '对比判别',
+  BOUNDARY: '边界',
+  EXACT: '精确点',
+  HANDOFF: '学习交接',
+  RECALL: '主动恢复',
+  CLOSURE: '闭环',
+  REFERENCE: '参考'
+};
+
+function fencedBody(value) {
+  if (typeof value !== 'string') return '';
+  const match = value.match(/(?:```|~~~)[^\n]*\n([\s\S]*?)(?:```|~~~)/);
+  return match?.[1]?.trim() || '';
+}
+
+function sequenceRows(value) {
+  const source = fencedBody(value);
+  if (!source) return [];
+  const rows = [];
+  for (const raw of source.split(/\r?\n/).map((row) => row.trim()).filter(Boolean)) {
+    if (/^[↓↑↔⇄⇆]+$/.test(raw)) {
+      rows.push({ kind: 'connector', text: raw });
+      continue;
+    }
+    const parts = raw.split(/\s*(→|⇒|⟶)\s*/).filter(Boolean);
+    if (parts.length > 1) {
+      parts.forEach((part) => rows.push({ kind: /^(→|⇒|⟶)$/.test(part) ? 'connector' : 'step', text: part }));
+    } else {
+      rows.push({ kind: 'step', text: raw });
+    }
+  }
+  return rows;
+}
+
+function formulaRows(value) {
+  const source = fencedBody(value);
+  return source ? source.split(/\r?\n/).map((row) => row.trim()).filter(Boolean) : [];
+}
+
+function networkRows(value) {
+  if (Array.isArray(value)) return value.map((row, index) => ({
+    id: String(row?.id || row?.groupId || index + 1),
+    label: String(row?.label || row?.title || row?.name || row?.id || row?.groupId || '')
+  })).filter((row) => row.label);
+  if (value && typeof value === 'object') return Object.entries(value).map(([id, row]) => ({
+    id,
+    label: String(row?.label || row?.title || id)
+  }));
+  return [];
+}
+
+const rendered = objects.map((object) => {
+  const sequence = object.geometry === 'SEQUENCE' ? sequenceRows(object.value) : [];
+  const formulas = object.geometry === 'FORMULA_STRIP' ? formulaRows(object.value) : [];
+  const network = ['NETWORK', 'TREE', 'AXES'].includes(object.geometry) ? networkRows(object.value) : [];
+  const scalar = typeof object.value === 'string' ? object.value : '';
+  return {
+    ...object,
+    label: roleLabels[object.role] || '学习结构',
+    sequence,
+    formulas,
+    network,
+    html: scalar ? marked.parse(scalar, { gfm: true }) : ''
+  };
+});
+---
+{projection && rendered.length > 0 && (
+  <section
+    class="xzCognitiveProjection"
+    data-xizong-cognitive-projection
+    data-projection-unmounted
+    data-projection-view={projection.viewName}
+    data-projection-asset={projection.assetPath}
+  >
+    <div class="xzCogObjects">
+      {rendered.map((object) => (
+        <article
+          class="xzCogObject"
+          data-cognitive-object={object.objectId}
+          data-role={object.role}
+          data-geometry={object.geometry}
+          data-answer-bearing={object.answerBearing ? 'true' : 'false'}
+        >
+          <header><span>{object.label}</span></header>
+
+          {object.sequence.length > 0 ? (
+            <div class="xzCogSequence">
+              {object.sequence.map((row) => row.kind === 'connector'
+                ? <i aria-hidden="true">{row.text}</i>
+                : <div><span>{row.text}</span></div>)}
+            </div>
+          ) : object.formulas.length > 0 ? (
+            <div class="xzCogFormulaStrip">
+              {object.formulas.map((row) => <code>{row}</code>)}
+            </div>
+          ) : object.network.length > 0 ? (
+            <div class="xzCogNetwork">
+              {object.network.map((row, index) => <div><b>{String(index + 1).padStart(2, '0')}</b><span>{row.label}</span></div>)}
+            </div>
+          ) : object.html ? (
+            <div class="xzCogText markdown" set:html={object.html}></div>
+          ) : null}
+        </article>
+      ))}
+    </div>
+  </section>
+)}
+
+<script>
+  const semanticProjection = document.querySelector('[data-xizong-cognitive-projection][data-projection-unmounted]');
+  const blockStage = document.querySelector('[data-xizong-v6-block] [data-study-stage="block_learn"]');
+  if (semanticProjection && blockStage) {
+    const reference = blockStage.querySelector('.xv6BlockOrientation') || blockStage.querySelector('.portedStudyStageAction');
+    blockStage.insertBefore(semanticProjection, reference || null);
+    semanticProjection.removeAttribute('data-projection-unmounted');
+  }
+</script>
+
+<style>
+  [data-projection-unmounted]{display:none}
+  .xzCognitiveProjection{display:grid;gap:.65rem;margin:.75rem 0 1rem}
+  .xzCogObjects{display:grid;gap:.7rem}
+  .xzCogObject{min-width:0;padding:.85rem 0;border-top:1px solid var(--study-line,var(--line,#d9dde5))}
+  .xzCogObject:first-child{border-top:0}
+  .xzCogObject>header{margin-bottom:.55rem}
+  .xzCogObject>header>span{font-size:.76rem;font-weight:800;letter-spacing:.04em}
+  .xzCogText :global(:first-child){margin-top:0}
+  .xzCogText :global(:last-child){margin-bottom:0}
+  .xzCogSequence{display:flex;align-items:stretch;gap:.45rem;overflow-x:auto;padding:.15rem 0 .25rem}
+  .xzCogSequence>div{display:flex;align-items:center;min-width:min(15rem,42vw);padding:.68rem .78rem;border:1px solid var(--study-line,var(--line,#d9dde5));border-radius:7px}
+  .xzCogSequence>div>span{font-size:.92rem;line-height:1.55}
+  .xzCogSequence>i{display:grid;place-items:center;flex:0 0 auto;min-width:1.2rem;font-style:normal;opacity:.5}
+  .xzCogFormulaStrip{display:flex;flex-wrap:wrap;gap:.45rem}
+  .xzCogFormulaStrip code{display:block;padding:.5rem .65rem;border:1px solid var(--study-line,var(--line,#d9dde5));border-radius:6px;font-size:.84rem;white-space:pre-wrap}
+  .xzCogNetwork{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border:1px solid var(--study-line,var(--line,#d9dde5));border-radius:7px;overflow:hidden}
+  .xzCogNetwork>div{display:grid;grid-template-columns:2rem minmax(0,1fr);gap:.4rem;padding:.65rem .7rem;border-right:1px solid var(--study-line,var(--line,#d9dde5));border-bottom:1px solid var(--study-line,var(--line,#d9dde5))}
+  .xzCogNetwork b{font-size:.72rem;opacity:.55}
+  .xzCogNetwork span{font-size:.86rem;line-height:1.5}
+  @media(max-width:760px){.xzCogSequence{display:grid}.xzCogSequence>div{min-width:0}.xzCogSequence>i{transform:rotate(90deg)}.xzCogNetwork{grid-template-columns:1fr}}
+</style>
