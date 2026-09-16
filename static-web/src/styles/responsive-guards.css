@@ -1,0 +1,11 @@
+/* Final responsive guards after task-native presentation styles. */
+@media (max-width:900px){
+  body#kianos-workspace.uiWordStudy .portedVocabBody[data-has-expansion=true][data-expansion-weight]{grid-template-columns:minmax(0,1fr);}
+}
+@media (max-width:680px){
+  body#kianos-workspace.uiWordStudy :is(.portedVocabRuntime,.portedVocabPreviewBar,.portedVocabStudySheet,[data-vocab-details],.portedVocabWordHeader,.portedVocabBody,.portedVocabMeaningColumn,.portedVocabEvidenceColumn,.lexicalSenseRow,.lexicalSenseMeaning,.lexicalSenseUsage){min-width:0;max-width:100%;box-sizing:border-box;}
+  body#kianos-workspace.uiWordStudy .portedVocabPreviewBar{width:100%;overflow:hidden;}
+  body#kianos-workspace.uiWordStudy .portedVocabPreviewBar>div:last-child{min-width:0;max-width:100%;justify-content:flex-end;flex-wrap:wrap;}
+  body#kianos-workspace.uiWordStudy .portedVocabPreviewBar button{padding:4px 7px;}
+  body#kianos-workspace.uiWordStudy :is(.lexicalSenseUsage li>b,.portedVocabEvidenceList>article>b,.portedVocabEvidenceList>article>p,.lexicalCoreHeadline>p,.lexicalCoreHeadline>b,.lexicalCoreHeadline>small){overflow-wrap:anywhere;}
+}
