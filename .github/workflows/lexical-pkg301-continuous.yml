@@ -1,13 +1,13 @@
-name: Lexical pkg301 continuous execution
+name: Lexical pkg303 final-tail continuous execution carrier
 
 on:
   push:
     branches:
-      - lexical/pkg301-exec
+      - lexical/pkg303-final-tail
     paths:
-      - 'tools/lexical_execute_o7375_o7874.py'
+      - 'tools/lexical_execute_o7875_o7946.py'
       - 'tools/lexical_package_runtime.py'
-      - 'content/lexical/execution/manifests/o7375-o7874/**'
+      - 'content/lexical/execution/manifests/o7875-o7946/**'
       - '.github/workflows/lexical-pkg301-continuous.yml'
   workflow_dispatch:
 
@@ -15,30 +15,30 @@ permissions:
   contents: write
 
 concurrency:
-  group: lexical-pkg301-continuous
+  group: lexical-pkg303-final-tail-continuous
   cancel-in-progress: false
 
 jobs:
   execute:
     runs-on: ubuntu-latest
     env:
-      KIANOS_BASELINE_MAIN: 0652268f73129395ec925c29e6be323ef2119624
+      KIANOS_BASELINE_MAIN: de70a99c415bb550e85866c1f48714e5c60187c4
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: lexical/pkg301-exec
+          ref: lexical/pkg303-final-tail
           fetch-depth: 0
       - name: Validate manifest
         run: |
-          python -m py_compile tools/lexical_execute_o7375_o7874.py tools/lexical_package_runtime.py
-          python tools/lexical_execute_o7375_o7874.py --validate-manifest
+          python -m py_compile tools/lexical_execute_o7875_o7946.py tools/lexical_package_runtime.py
+          python tools/lexical_execute_o7875_o7946.py --validate-manifest
       - name: Execute from durable receipts
         run: |
           set -euo pipefail
           git config user.name Kian
           git config user.email kianwang022@gmail.com
-          ranges=(7375-7424 7425-7474 7475-7524 7525-7574 7575-7624 7625-7674 7675-7724 7725-7774 7775-7824 7825-7874)
-          for i in $(seq 0 9); do
+          ranges=(7875-7924 7925-7946)
+          for i in $(seq 0 1); do
             r=${ranges[$i]}
             receipt="content/lexical/execution/receipts/o${r%-*}-o${r#*-}.json"
             if [ -f "$receipt" ]; then
@@ -46,7 +46,7 @@ jobs:
               continue
             fi
             echo "EXECUTE checkpoint=$i range=$r"
-            python tools/lexical_execute_o7375_o7874.py --checkpoint "$i"
+            python tools/lexical_execute_o7875_o7946.py --checkpoint "$i"
             python tools/test_lexical_transport_guards.py
             python tools/test_lexical_shard.py
             python - <<'PY'
@@ -59,5 +59,5 @@ jobs:
           PY
             git add content/lexical
             git commit -m "lexical: execute o${r%-*}-o${r#*-} internal receipt [skip ci]"
-            git push origin HEAD:lexical/pkg301-exec
+            git push origin HEAD:lexical/pkg303-final-tail
           done
