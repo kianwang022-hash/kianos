@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "9bb53ef1963fda65757f7897b48cbf62c066a4a0c90f62aab7f62fd54becb320",
+    "content_hash": "170936f560abf1cba69760f2f2934511a0550331e899850365452fb12d45e9c5",
     "core_concept": {
       "core_clusters": [
         {
@@ -19,18 +19,18 @@
           ]
         },
         {
-          "label_cn": "给…装电线；用金属丝捆扎；打电报",
-          "label_en": "to provide with electrical circuits or connect by wire; to send a telegram",
+          "label_cn": "给…装电线；用金属丝捆扎；电汇；电子转账（钱款）",
+          "label_en": "to provide with electrical circuits or connect by wire; to transfer money or funds electronically, especially by wire transfer",
           "pos": "verb",
           "sense_ids": [
             "sense:wire:08c3b690e9f25753",
-            "sense:wire:1a2ee7cd2d1a57fe"
+            "sense:wire:fbc14996db76467e"
           ]
         }
       ],
-      "core_meaning_cn": "金属丝；电线；用金属丝连接",
-      "core_meaning_en": "a thin metal thread; to connect or fasten with wire",
-      "mental_model_cn": "金属丝；电线；用金属丝连接",
+      "core_meaning_cn": "电线；金属丝；给…装电线；用金属丝捆扎；电汇；电子转账（钱款）",
+      "core_meaning_en": "a thin metal thread used for carrying electricity or for fastening; to provide with electrical circuits or connect by wire; to transfer money or funds electronically, especially by wire transfer",
+      "mental_model_cn": "电线；金属丝；给…装电线；用金属丝捆扎；电汇；电子转账（钱款）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -108,27 +108,17 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:ab33f57dfa7344942699",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:wire:1a2ee7cd2d1a57fe:collocation:0"
-            ],
-            "meaning_cn": "发电报",
-            "phrase": "wire a message"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
-        "definition_cn": "打电报",
-        "definition_en": "to send a telegram",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
+        "definition_cn": "电汇；电子转账（钱款）",
+        "definition_en": "to transfer money or funds electronically, especially by wire transfer",
+        "governing_pattern": "wire money/funds to sb/account",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
-        "sense_id": "sense:wire:1a2ee7cd2d1a57fe",
-        "sense_label_en": "to send a telegram",
-        "sort_order": 2,
+        "sense_id": "sense:wire:fbc14996db76467e",
+        "sense_label_en": "to transfer money or funds electronically, especially by wire transfer",
+        "sort_order": 3,
         "transitivity": "vt"
       }
     ],
@@ -152,7 +142,31 @@
     "word_id": "word:wire"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:wire:1a2ee7cd2d1a57fe",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "打电报",
+      "definition_en": "to send a telegram",
+      "semantic_key": "37046e647905036fec3d03652e9b2b3ddc38e3409b90952c069b93018a25dc79",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "wire:l3:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "wire:l3:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 15456,
+      "source_path": "content/lexical/canonical/senses/shards/o5409-5440.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -164,7 +178,7 @@
       },
       {
         "sense_id": "sense:wire:1a2ee7cd2d1a57fe",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 15456,
         "source_path": "content/lexical/canonical/senses/shards/o5409-5440.json"
@@ -175,12 +189,18 @@
         "merged_into_sense_id": null,
         "source_row": 15457,
         "source_path": "content/lexical/canonical/senses/shards/o5409-5440.json"
+      },
+      {
+        "sense_id": "sense:wire:fbc14996db76467e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 15467,
+        "source_path": "content/lexical/canonical/senses/shards/o5409-5440.json"
       }
     ],
     "active_collocations": [
       "collocation:2cc63ff6d2b9d4abe10d",
       "collocation:39042147b9559be608b8",
-      "collocation:ab33f57dfa7344942699",
       "collocation:bda002b56ea368dcb163",
       "collocation:e675a2e027302c8602ed"
     ],
@@ -248,7 +268,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5433-5440.json",
-    "source_content_hash": "9bb53ef1963fda65757f7897b48cbf62c066a4a0c90f62aab7f62fd54becb320",
+    "source_content_hash": "170936f560abf1cba69760f2f2934511a0550331e899850365452fb12d45e9c5",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

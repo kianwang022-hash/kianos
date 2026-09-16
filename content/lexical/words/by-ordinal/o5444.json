@@ -6,13 +6,32 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "183b8983aa8ed8a852447014781f77255771bb71b32f55cfe72b8537c0d65790",
+    "constructions": [
+      {
+        "construction_id": "construction:91d9ffceec0e51738b64",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "取款；撤回支持/申请/声明",
+        "pattern": "withdraw money/support/an application/a statement",
+        "source_sense_id": "sense:withdraw:adce6e22335b5c89"
+      }
+    ],
+    "content_hash": "c289e58e06729f4efc3c0cbd5abdcf6fb21fdb3bb06a6ef68e34e88869320891",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "撤回，撤退",
-      "core_meaning_en": "to pull back or remove",
-      "mental_model_cn": "撤回，撤退",
+      "core_clusters": [
+        {
+          "label_cn": "撤回、收回、取出；撤回支持/申请/声明或取款；撤退，离开",
+          "label_en": "to remove or take back something, including money, support, an application, or a statement; retreat or leave",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:withdraw:adce6e22335b5c89",
+            "sense:withdraw:513189907974584c"
+          ]
+        }
+      ],
+      "core_meaning_cn": "撤回、收回、取出；撤回支持/申请/声明或取款；撤退，离开",
+      "core_meaning_en": "to remove or take back something, including money, support, an application, or a statement; retreat or leave",
+      "mental_model_cn": "撤回、收回、取出；撤回支持/申请/声明或取款；撤退，离开",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -54,14 +73,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "撤回，取回，撤消，使撤退",
-        "definition_en": "pull back or move away or backward; remove (a commodity) from (a supply source)",
+        "definition_cn": "撤回、收回、取出；撤回支持/申请/声明或取款",
+        "definition_en": "to remove or take back something, including money, support, an application, or a statement",
         "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:withdraw:adce6e22335b5c89",
-        "sense_label_en": "pull back or move away or backward; remove (a commodity) from (a supply ",
+        "sense_label_en": "to remove or take back something, including money, support, an application, or a statement",
         "sort_order": 0,
         "transitivity": "vt"
       },
@@ -208,7 +227,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5441-5448.json",
-    "source_content_hash": "183b8983aa8ed8a852447014781f77255771bb71b32f55cfe72b8537c0d65790",
+    "source_content_hash": "c289e58e06729f4efc3c0cbd5abdcf6fb21fdb3bb06a6ef68e34e88869320891",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

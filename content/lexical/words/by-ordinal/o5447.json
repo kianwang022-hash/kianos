@@ -6,8 +6,18 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "ed1461387fafcbf07fc122af35a037ab4809c2f72b3221dff30b6ac580659aab",
+    "constructions": [
+      {
+        "construction_id": "construction:934998305a8f368fc0ea",
+        "definition_en": "to manage or endure without having something",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "没有某物也凑合/忍受过去",
+        "pattern": "go without sth",
+        "source_sense_id": "sense:without:586a65efe3ce562e"
+      }
+    ],
+    "content_hash": "50f524e070fa43d1dbfd8a36402b3fb781d417cec6336c1c8d9b6f769f2940e1",
     "core_concept": {
       "core_clusters": [
         {
@@ -17,27 +27,11 @@
           "sense_ids": [
             "sense:without:586a65efe3ce562e"
           ]
-        },
-        {
-          "label_cn": "在外面；外部",
-          "label_en": "on the outside; externally",
-          "pos": "adverb",
-          "sense_ids": [
-            "sense:without:475cc3f6203c5abc"
-          ]
-        },
-        {
-          "label_cn": "除非；如果不（旧用或方言）",
-          "label_en": "unless; if not (archaic or dialectal)",
-          "pos": "conjunction",
-          "sense_ids": [
-            "sense:without:56874a5863175a9d"
-          ]
         }
       ],
-      "core_meaning_cn": "没有或不包括",
-      "core_meaning_en": "not having or not including",
-      "mental_model_cn": "没有或不包括",
+      "core_meaning_cn": "没有；缺乏",
+      "core_meaning_en": "not having, not with, or in the absence of",
+      "mental_model_cn": "没有；缺乏",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -89,68 +83,6 @@
         "sense_label_en": "not having, not with, or in the absence of",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:50938ac0df29c604bbf6",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:without:475cc3f6203c5abc:collocation:0"
-            ],
-            "meaning_cn": "房子的外部",
-            "phrase": "the house without"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "在外面；外部",
-        "definition_en": "on the outside; externally",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "adverb",
-        "scope_state": {
-          "core_active": false,
-          "exclude_from_active_recall_summary": true,
-          "exclude_from_default_learning_surface": true,
-          "learning_surface_active": false,
-          "pending_review": false,
-          "physical_delete": false,
-          "preserve_provenance": true,
-          "preserve_stable_object_id": true,
-          "retain_for_source_pack_audit": true,
-          "scope_disposition": "SOURCE_ONLY"
-        },
-        "sense_id": "sense:without:475cc3f6203c5abc",
-        "sense_label_en": "on the outside; externally",
-        "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "除非；如果不（旧用或方言）",
-        "definition_en": "unless; if not (archaic or dialectal)",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "conjunction",
-        "scope_state": {
-          "core_active": false,
-          "exclude_from_active_recall_summary": true,
-          "exclude_from_default_learning_surface": true,
-          "learning_surface_active": false,
-          "pending_review": false,
-          "physical_delete": false,
-          "preserve_provenance": true,
-          "preserve_stable_object_id": true,
-          "retain_for_source_pack_audit": true,
-          "scope_disposition": "SOURCE_ONLY"
-        },
-        "sense_id": "sense:without:56874a5863175a9d",
-        "sense_label_en": "unless; except if",
-        "sort_order": 2,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -173,19 +105,68 @@
     "word_id": "word:without"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:without:475cc3f6203c5abc",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "adverb",
+      "definition_cn": "在外面；外部",
+      "definition_en": "on the outside; externally",
+      "semantic_key": "3410016e53eb0d7f5c59dd0589ff1c261438562262cc532251dd6e0cf7aa64cd",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "without:l2:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "without:l2:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 15482,
+      "source_path": "content/lexical/canonical/senses/shards/o5441-5472.json",
+      "reference_only": true
+    },
+    {
+      "stable_sense_id": "sense:without:56874a5863175a9d",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "conjunction",
+      "definition_cn": "除非；如果不（旧用或方言）",
+      "definition_en": "unless; if not (archaic or dialectal)",
+      "semantic_key": "c51e80e96c600adaa47a51f9b52873ca40e4e5d6a43c4921438da3f0e5a90319",
+      "semantic_key_history": [
+        "03a98183e139ad9738a15921ef1d5cc034597537f72a57e2b370c2ca797fe90a"
+      ],
+      "legacy_aliases": [
+        "without:l3:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "without:l3:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 15483,
+      "source_path": "content/lexical/canonical/senses/shards/o5441-5472.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:without:475cc3f6203c5abc",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 15482,
         "source_path": "content/lexical/canonical/senses/shards/o5441-5472.json"
       },
       {
         "sense_id": "sense:without:56874a5863175a9d",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 15483,
         "source_path": "content/lexical/canonical/senses/shards/o5441-5472.json"
@@ -201,7 +182,6 @@
     "active_collocations": [
       "collocation:0a42b17d9cb96fc8f7f6",
       "collocation:263f8c5169a9b5c7bd45",
-      "collocation:50938ac0df29c604bbf6",
       "collocation:cd36ae52be7c59fb2645"
     ],
     "facts": [],
@@ -253,7 +233,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5441-5448.json",
-    "source_content_hash": "ed1461387fafcbf07fc122af35a037ab4809c2f72b3221dff30b6ac580659aab",
+    "source_content_hash": "50f524e070fa43d1dbfd8a36402b3fb781d417cec6336c1c8d9b6f769f2940e1",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

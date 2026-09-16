@@ -7,22 +7,62 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "c0d293e06189eed400d1ad881fb8beae10be0a0a431624bf707c6c59be037d52",
+    "content_hash": "99a6cd541fcc14efb151b4e4b3c6cf0de91ed922d9893460b0791e95a3574935",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "成年女性",
+          "label_en": "an adult female person",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:woman:4aa2f1d404825a57"
+          ]
+        }
+      ],
       "core_meaning_cn": "成年女性",
-      "core_meaning_en": "adult female human",
+      "core_meaning_en": "an adult female person",
       "mental_model_cn": "成年女性",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o5375-o5874.md",
+      "boundaries": [
+        {
+          "condition": "attributive noun modifier",
+          "note": "noun modifier such as woman doctor; do not treat woman as a freely productive adjective",
+          "surface": "woman + noun"
+        },
+        {
+          "condition": "possessive partner use",
+          "note": "informal/old-fashioned and may be offensive; not neutral learner-main usage",
+          "surface": "his/her woman"
+        }
+      ],
+      "type": "noun_modifier_and_register_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "成年女性",
+        "definition_en": "an adult female person",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:woman:4aa2f1d404825a57",
+        "sense_label_en": "an adult female person",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 2,
       "deep_modules": {
@@ -70,31 +110,6 @@
       "reference_only": true
     },
     {
-      "stable_sense_id": "sense:woman:4aa2f1d404825a57",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "成年女子",
-      "definition_en": "an adult female person",
-      "semantic_key": "0214dde86d63a95ae3dd6d69e65f7d95d329fb6ec46c2bee21da73a183138443",
-      "semantic_key_history": [
-        "120fc6073f50cecde57e2cf37fdb64011c3344fe22bc502b3641704517d880e1"
-      ],
-      "legacy_aliases": [
-        "woman:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "woman:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 15495,
-      "source_path": "content/lexical/canonical/senses/shards/o5441-5472.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:woman:c47d54a404335ac8",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -131,7 +146,7 @@
       },
       {
         "sense_id": "sense:woman:4aa2f1d404825a57",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 15495,
         "source_path": "content/lexical/canonical/senses/shards/o5441-5472.json"
@@ -189,7 +204,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5449-5456.json",
-    "source_content_hash": "c0d293e06189eed400d1ad881fb8beae10be0a0a431624bf707c6c59be037d52",
+    "source_content_hash": "99a6cd541fcc14efb151b4e4b3c6cf0de91ed922d9893460b0791e95a3574935",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
