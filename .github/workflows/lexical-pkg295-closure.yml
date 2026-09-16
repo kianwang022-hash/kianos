@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/workflows/lexical-pkg295-closure.yml'
       - 'tools/lexical_verify_o6875_o7374.py'
+      - 'tools/lexical_verify_o6875_o7374_final.py'
   workflow_dispatch:
 
 permissions:
@@ -27,8 +28,8 @@ jobs:
           fetch-depth: 0
       - name: Package verification
         run: |
-          python -m py_compile tools/lexical_verify_o6875_o7374.py
-          python tools/lexical_verify_o6875_o7374.py
+          python -m py_compile tools/lexical_verify_o6875_o7374.py tools/lexical_verify_o6875_o7374_final.py
+          python tools/lexical_verify_o6875_o7374_final.py
           python tools/lexical_natural_owner.py audit
           python tools/test_lexical_transport_guards.py
           python tools/test_lexical_shard.py
@@ -50,7 +51,7 @@ jobs:
         env:
           KIANOS_ASTRO_BUILD: PASS
         run: |
-          python tools/lexical_verify_o6875_o7374.py --finalize
+          python tools/lexical_verify_o6875_o7374_final.py --finalize
           git config user.name Kian
           git config user.email kianwang022@gmail.com
           git add content/lexical/execution/o6875-o7374.package-receipt.json
