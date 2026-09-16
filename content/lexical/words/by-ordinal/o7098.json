@@ -7,15 +7,40 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "a68beec51434ffc781026d3786b93e84908be55ebfaa93eaffb2351b93aa9f8f",
+    "content_hash": "da15efcebdbb9d536bdee64bffc7c3f94d6386ee9275ff9e0b6d5b54cae06f4c",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "法律上认为正当, 使合法化",
-      "core_meaning_en": "make legal",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "使合法化；使获官方许可",
+          "label_en": "to make something lawful or officially permitted",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:legalize:6ab4979ab64c549f"
+          ]
+        }
+      ],
+      "core_meaning_cn": "使合法化；使获官方许可",
+      "core_meaning_en": "to make something lawful or officially permitted",
+      "mental_model_cn": "使合法化；使获官方许可",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o6875-o7374.md",
+      "boundaries": [
+        {
+          "condition": "common AmE spelling",
+          "note": "Common American spelling.",
+          "surface": "legalize"
+        },
+        {
+          "condition": "common BrE spelling",
+          "note": "Common British spelling of the same verb.",
+          "surface": "legalise"
+        }
+      ],
+      "type": "regional_spelling_variant"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -26,8 +51,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "法律上认为正当, 使合法化",
-        "definition_en": "make legal",
+        "definition_cn": "使合法化；使获官方许可",
+        "definition_en": "to make something lawful or officially permitted",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
@@ -35,7 +60,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:legalize:6ab4979ab64c549f",
-        "sense_label_en": "make legal",
+        "sense_label_en": "to make something lawful or officially permitted",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -87,6 +112,14 @@
   },
   "lookup_refs": [
     {
+      "spelling": "legalise",
+      "source": "content/lexical/canonical/lookup/spelling/le.json",
+      "word_id": "word:legalize",
+      "ordinal": 7098,
+      "word_shard": "content/lexical/canonical/words/shards/o7097-7104.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/b0.json"
+    },
+    {
       "spelling": "legalize",
       "source": "content/lexical/canonical/lookup/spelling/le.json",
       "word_id": "word:legalize",
@@ -97,7 +130,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7097-7104.json",
-    "source_content_hash": "a68beec51434ffc781026d3786b93e84908be55ebfaa93eaffb2351b93aa9f8f",
+    "source_content_hash": "da15efcebdbb9d536bdee64bffc7c3f94d6386ee9275ff9e0b6d5b54cae06f4c",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

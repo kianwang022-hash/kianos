@@ -6,13 +6,31 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "d37c07e080b87323e7b4a93b726d901385f3fc91e3c1899bd438ce2519ef4a6e",
+    "constructions": [
+      {
+        "construction_id": "construction:1dfb496ad1ea2c0c926e",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "大量的某人/某物",
+        "pattern": "legions of sb/sth"
+      }
+    ],
+    "content_hash": "1cab3f4ffb8d0f24a349965d22fade10d863f872a45c1d5a2b4a5b1a1880905f",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "军团, 军队, 众多的人",
-      "core_meaning_en": "association of ex-servicemen",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "军团；尤指古罗马军团；大量；众多（常见于 legions of）",
+          "label_en": "a large military unit, especially a unit of the ancient Roman army; a very large number of people or things, especially in the plural expression legions of",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:legion:bfeda7ed11885336",
+            "sense:legion:98598c2a64141c35"
+          ]
+        }
+      ],
+      "core_meaning_cn": "军团；尤指古罗马军团；大量；众多（常见于 legions of）",
+      "core_meaning_en": "a large military unit, especially a unit of the ancient Roman army; a very large number of people or things, especially in the plural expression legions of",
+      "mental_model_cn": "军团；尤指古罗马军团；大量；众多（常见于 legions of）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -31,9 +49,10 @@
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L1",
+        "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
+        "register": "institutional",
         "sense_id": "sense:legion:90d8db9d689e5f41",
         "sense_label_en": "association of ex-servicemen",
         "sort_order": 1,
@@ -50,8 +69,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "军团, 军队, 众多的人",
-        "definition_en": "a large military unit",
+        "definition_cn": "军团；尤指古罗马军团",
+        "definition_en": "a large military unit, especially a unit of the ancient Roman army",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
@@ -59,7 +78,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:legion:bfeda7ed11885336",
-        "sense_label_en": "a large military unit",
+        "sense_label_en": "a large military unit, especially a unit of the ancient Roman army",
         "sort_order": 2,
         "source_evidence": [
           {
@@ -70,6 +89,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "大量；众多（常见于 legions of）",
+        "definition_en": "a very large number of people or things, especially in the plural expression legions of",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:legion:98598c2a64141c35",
+        "sense_label_en": "a very large number of people or things, especially in the plural expression legions of",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -102,6 +135,13 @@
         "merged_into_sense_id": null,
         "source_row": 18257,
         "source_path": "content/lexical/canonical/senses/shards/o7073-7104.json"
+      },
+      {
+        "sense_id": "sense:legion:98598c2a64141c35",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18269,
+        "source_path": "content/lexical/canonical/senses/shards/o7073-7104.json"
       }
     ],
     "active_collocations": [],
@@ -128,7 +168,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7097-7104.json",
-    "source_content_hash": "d37c07e080b87323e7b4a93b726d901385f3fc91e3c1899bd438ce2519ef4a6e",
+    "source_content_hash": "1cab3f4ffb8d0f24a349965d22fade10d863f872a45c1d5a2b4a5b1a1880905f",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
