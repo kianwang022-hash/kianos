@@ -1,7 +1,7 @@
 {
   "schema": "kianos.xizong.system_learning_support.v2",
   "status": "FREEZE_CANDIDATE",
-  "construction_status": "PHASE5_SELF_AUDITED_AWAIT_FRESH_AUDITOR",
+  "construction_status": "PHASE6A_SELF_ADVERSARIAL_REPAIRED_AWAIT_FRESH_AUDITOR",
   "authority": "CHAT_APPROVED_LEARNING_CANDIDATE",
   "system_id": "hematology-immunity-infection",
   "canonical_id": "C",
@@ -93,20 +93,106 @@
   "system_route": {
     "mode": "CAUSAL_READINESS_DAG_WITH_LOW_SWITCHING_DEFAULT",
     "default_route": [
-      "hematology-h01","hematology-h02","hematology-h03","hematology-h04","hematology-h05","hematology-h06","hematology-h07","hematology-h08","hematology-h09","hematology-h10","hematology-h11","hematology-h12","hematology-h13","hematology-h14","hematology-h15","hematology-h16","hematology-h17","hematology-h18","hematology-h19","hematology-h20","hematology-h21","hematology-h22","hematology-h23","hematology-h24","hematology-h25","hematology-h26","hematology-h27"
+      "hematology-h01",
+      "hematology-h02",
+      "hematology-h03",
+      "hematology-h04",
+      "hematology-h05",
+      "hematology-h06",
+      "hematology-h07",
+      "hematology-h08",
+      "hematology-h09",
+      "hematology-h10",
+      "hematology-h11",
+      "hematology-h12",
+      "hematology-h13",
+      "hematology-h14",
+      "hematology-h15",
+      "hematology-h16",
+      "hematology-h17",
+      "hematology-h18",
+      "hematology-h19",
+      "hematology-h20",
+      "hematology-h21",
+      "hematology-h22",
+      "hematology-h23",
+      "hematology-h24",
+      "hematology-h25",
+      "hematology-h26",
+      "hematology-h27"
     ],
     "default_is_not_hard_prerequisite_chain": true,
     "flex_rule": "A Block may move earlier when its true hard prerequisites are satisfied and source continuity benefits; learner order changes no medical identity.",
     "partial_system_reconstructions": [
-      {"id":"PSR-C1_BLOOD_LOCALIZATION","non_gating":true,"after":["hematology-h01","hematology-h02","hematology-h03","hematology-h04","hematology-h05","hematology-h06"],"target":"lineage/function → production/maturation vs peripheral loss/destruction/distribution → MCV×Ret / hemostatic layer → next evidence","closure":"能在陌生贫血、全血细胞减少、溶血或出血病例中先正确路由，再命名疾病。"},
-      {"id":"PSR-C2_CLONAL_HEMATOLOGY","non_gating":true,"after":["hematology-h07","hematology-h08","hematology-h09","hematology-h10","hematology-h11"],"target":"clone → lineage/maturation → morphology/cytochemistry/immunophenotype/genetics by role → organ/tissue output → danger/prognosis","closure":"不从WBC、一个CD或一条染色体直接完成全部诊断。"},
-      {"id":"PSR-C3_IMMUNE_RHEUM","non_gating":true,"after":["hematology-h12","hematology-h13","hematology-h14","hematology-h15","hematology-h16","hematology-h17","hematology-h18","hematology-h19"],"target":"insufficient defense vs self-directed injury vs alloimmune direction → effector/target/time → syndrome/organ combination → evidence role → treatment role","closure":"抗体必须作为筛查/特异/活动/器官关联证据进入综合征模型，而不是独立病名。"},
-      {"id":"PSR-C4_INFECTION","non_gating":true,"after":["hematology-h20","hematology-h21","hematology-h22","hematology-h23","hematology-h24","hematology-h25","hematology-h26","hematology-h27"],"target":"pathogen/exposure → site/source → host → tissue reaction/spread → source control → systemic danger","closure":"能判断何时药物不能替代引流/清创/解除梗阻，并把器官特异诊疗返回真实owner。"}
+      {
+        "id": "PSR-C1_BLOOD_LOCALIZATION",
+        "non_gating": true,
+        "after": [
+          "hematology-h01",
+          "hematology-h02",
+          "hematology-h03",
+          "hematology-h04",
+          "hematology-h05",
+          "hematology-h06"
+        ],
+        "target": "lineage/function → production/maturation vs peripheral loss/destruction/distribution → MCV×Ret / hemostatic layer → next evidence",
+        "closure": "能在陌生贫血、全血细胞减少、溶血或出血病例中先正确路由，再命名疾病。"
+      },
+      {
+        "id": "PSR-C2_CLONAL_HEMATOLOGY",
+        "non_gating": true,
+        "after": [
+          "hematology-h07",
+          "hematology-h08",
+          "hematology-h09",
+          "hematology-h10",
+          "hematology-h11"
+        ],
+        "target": "clone → lineage/maturation → morphology/cytochemistry/immunophenotype/genetics by role → organ/tissue output → danger/prognosis",
+        "closure": "不从WBC、一个CD或一条染色体直接完成全部诊断。"
+      },
+      {
+        "id": "PSR-C3_IMMUNE_RHEUM",
+        "non_gating": true,
+        "after": [
+          "hematology-h12",
+          "hematology-h13",
+          "hematology-h14",
+          "hematology-h15",
+          "hematology-h16",
+          "hematology-h17",
+          "hematology-h18",
+          "hematology-h19"
+        ],
+        "target": "insufficient defense vs self-directed injury vs alloimmune direction → effector/target/time → syndrome/organ combination → evidence role → treatment role",
+        "closure": "抗体必须作为筛查/特异/活动/器官关联证据进入综合征模型，而不是独立病名。"
+      },
+      {
+        "id": "PSR-C4_INFECTION",
+        "non_gating": true,
+        "after": [
+          "hematology-h20",
+          "hematology-h21",
+          "hematology-h22",
+          "hematology-h23",
+          "hematology-h24",
+          "hematology-h25",
+          "hematology-h26",
+          "hematology-h27"
+        ],
+        "target": "pathogen/exposure → site/source → host → tissue reaction/spread → source control → systemic danger",
+        "closure": "能判断何时药物不能替代引流/清创/解除梗阻，并把器官特异诊疗返回真实owner。"
+      }
     ],
     "final_system_reconstruction": {
       "requires_real_learner_completion_of_all_blocks": true,
       "target": "production/update/readout → clonal evidence → immune direction → infection site/host/source-control → C failure modes / judgment axes",
-      "forbidden": ["recite 27 Block titles","recite 133 LG labels","import missing normal immunology/infectious-disease content","treat default route as medical ontology"]
+      "forbidden": [
+        "recite 27 Block titles",
+        "recite 133 LG labels",
+        "import missing normal immunology/infectious-disease content",
+        "treat default route as medical ontology"
+      ]
     }
   },
   "compression": {
@@ -121,32 +207,104 @@
     "rule": "Projection must later support explicit membership without changing C Learning Logic."
   },
   "acceptance": {
-    "evidence_mode": ["SEMANTIC_OWNER_READBACK","EXACT_423_KP_PARTITION_ACCOUNTING","ALTERNATIVE_ROUTE_FALSIFICATION","NEGATIVE_SPACE_ATTACK","DOWNSTREAM_SCHEMA_CONTRADICTION_DISCOVERY"],
+    "evidence_mode": [
+      "SEMANTIC_OWNER_READBACK",
+      "EXACT_423_KP_PARTITION_ACCOUNTING",
+      "ALTERNATIVE_ROUTE_FALSIFICATION",
+      "NEGATIVE_SPACE_ATTACK",
+      "DOWNSTREAM_SCHEMA_CONTRADICTION_DISCOVERY"
+    ],
     "independence": "SELF",
     "fresh_auditor_required": true,
-    "L_pass_claimed": false
+    "L_pass_claimed": false,
+    "self_adversarial_phase6a": {
+      "status": "REPAIRED_RED_POINTS_AWAIT_FRESH_AUDITOR",
+      "premodel": "content/xizong/knowledge/learner/C_PHASE6A_FRESH_STYLE_PREMODEL.md",
+      "repairs": [
+        "RESTORE_EXPLICIT_GROUP_SPECIFIC_GOAL_CLOSURE_CONTINUITY",
+        "H10_REQUIRE_H9_TO_KEEP_ACUTE_LEUKEMIA_AS_RECALL",
+        "H23_REQUIRE_DIGESTIVE_D12_TO_KEEP_TB_UC_CD_COMPARISON_AS_RECALL",
+        "H24_REQUIRE_H21_TO_KEEP_TB_GRANULOMA_COMPARISON_AS_RECALL",
+        "CORRECT_PHASE3E_34_GROUP_AND_CUMULATIVE_133_ACCOUNTING"
+      ],
+      "resolved_challenge": "H6 keeps ITP-first LG source order because Block Orientation supplies the bleeding-localization coordinate before the source contact and P197→P199 continuity would otherwise be broken."
+    }
   },
   "machine_semantics": {
     "logic_group_member_encoding": "EXPLICIT_ORDINAL_LIST",
-    "jobs_compose": "A Logic Group closure must satisfy every listed job contract in the context named by its label; group label is the local learner question.",
+    "jobs_compose": "Group-specific goal/closure/continuity_rationale are authoritative. Generic job contracts describe reusable cognitive operators only and may not substitute for a local Logic-Group closure.",
     "job_contracts": {
-      "LOCALIZATION":{"goal":"先定位故障/证据/空间/owner，再命名疾病或动作。","closure":"新情境中能给出第一定位与下一最小判别步骤。"},
-      "CAUSAL_CHAIN":{"goal":"重建上游变化→中间机制→下游表型/证据。","closure":"改变一个上游条件时能预测下游方向并解释原因。"},
-      "EVIDENCE_STACK":{"goal":"区分各证据层回答的问题及其不可替代性。","closure":"新证据组合中能说明每层增量信息并拒绝单层包办诊断。"},
-      "DISCRIMINATION":{"goal":"用决定性条件排开高频近邻而非背名单。","closure":"新情境中能指出最小判别条件并解释为何排除近邻。"},
-      "DIRECTION_TIMING":{"goal":"明确谁作用于谁、方向和时相。","closure":"能重建攻击/输入对象与时间关系，避免方向性错误。"},
-      "SYNDROME_ORGAN_MAP":{"goal":"从共同上游模型重建多器官/组织组合。","closure":"新病例中能由器官组合反推共同上游并区分损害/活动。"},
-      "SOURCE_CONTROL":{"goal":"把解剖持续源、压力/坏死/异物/梗阻与机械源控制相连。","closure":"能判断何时药物不能替代引流/清创/解除梗阻。"},
-      "URGENT_PARALLEL_ACTION":{"goal":"识别当前危险并并行推进不能互相替代的动作线。","closure":"能指出不能等待的危险出口及必须同步执行的动作。"},
-      "URGENT_RECOGNITION":{"goal":"从高/低极端或空间危险信号识别需要立即升级的状态。","closure":"能在非典型表现下仍识别危险，不被单一常见信号绑架。"},
-      "PRECISION_CLUSTER":{"goal":"只保留会改变306判断的Current Source精度。","closure":"仅在题干需要时恢复精度，并能说明其适用边界。"},
-      "VISUAL_RECOGNITION":{"goal":"把形态/图像挂回机制、空间或证据角色。","closure":"能由形态反推病理过程而非只认图名。"},
-      "BOUNDARY_RECALL":{"goal":"守住Current Source与外部owner边界。","closure":"能明确何处必须停止扩写并返回原Source/真实owner。"},
-      "CONNECTION":{"goal":"只建立必要跨owner接口，不转移Primary ownership。","closure":"能把接口接回真实owner且不复制完整模型。"},
-      "RECOGNITION":{"goal":"用组合高信号识别模式而非单点标签。","closure":"能从组合线索识别方向并指出仍需的确认层。"},
-      "DECISION_LOCALIZATION":{"goal":"按当前问题把判断落到下一检查/治疗角色/行动层。","closure":"能从状态选择下一角色或动作，并说明替代关系为何不成立。"}
+      "LOCALIZATION": {
+        "goal": "先定位故障/证据/空间/owner，再命名疾病或动作。",
+        "closure": "新情境中能给出第一定位与下一最小判别步骤。"
+      },
+      "CAUSAL_CHAIN": {
+        "goal": "重建上游变化→中间机制→下游表型/证据。",
+        "closure": "改变一个上游条件时能预测下游方向并解释原因。"
+      },
+      "EVIDENCE_STACK": {
+        "goal": "区分各证据层回答的问题及其不可替代性。",
+        "closure": "新证据组合中能说明每层增量信息并拒绝单层包办诊断。"
+      },
+      "DISCRIMINATION": {
+        "goal": "用决定性条件排开高频近邻而非背名单。",
+        "closure": "新情境中能指出最小判别条件并解释为何排除近邻。"
+      },
+      "DIRECTION_TIMING": {
+        "goal": "明确谁作用于谁、方向和时相。",
+        "closure": "能重建攻击/输入对象与时间关系，避免方向性错误。"
+      },
+      "SYNDROME_ORGAN_MAP": {
+        "goal": "从共同上游模型重建多器官/组织组合。",
+        "closure": "新病例中能由器官组合反推共同上游并区分损害/活动。"
+      },
+      "SOURCE_CONTROL": {
+        "goal": "把解剖持续源、压力/坏死/异物/梗阻与机械源控制相连。",
+        "closure": "能判断何时药物不能替代引流/清创/解除梗阻。"
+      },
+      "URGENT_PARALLEL_ACTION": {
+        "goal": "识别当前危险并并行推进不能互相替代的动作线。",
+        "closure": "能指出不能等待的危险出口及必须同步执行的动作。"
+      },
+      "URGENT_RECOGNITION": {
+        "goal": "从高/低极端或空间危险信号识别需要立即升级的状态。",
+        "closure": "能在非典型表现下仍识别危险，不被单一常见信号绑架。"
+      },
+      "PRECISION_CLUSTER": {
+        "goal": "只保留会改变306判断的Current Source精度。",
+        "closure": "仅在题干需要时恢复精度，并能说明其适用边界。"
+      },
+      "VISUAL_RECOGNITION": {
+        "goal": "把形态/图像挂回机制、空间或证据角色。",
+        "closure": "能由形态反推病理过程而非只认图名。"
+      },
+      "BOUNDARY_RECALL": {
+        "goal": "守住Current Source与外部owner边界。",
+        "closure": "能明确何处必须停止扩写并返回原Source/真实owner。"
+      },
+      "CONNECTION": {
+        "goal": "只建立必要跨owner接口，不转移Primary ownership。",
+        "closure": "能把接口接回真实owner且不复制完整模型。"
+      },
+      "RECOGNITION": {
+        "goal": "用组合高信号识别模式而非单点标签。",
+        "closure": "能从组合线索识别方向并指出仍需的确认层。"
+      },
+      "DECISION_LOCALIZATION": {
+        "goal": "按当前问题把判断落到下一检查/治疗角色/行动层。",
+        "closure": "能从状态选择下一角色或动作，并说明替代关系为何不成立。"
+      }
     },
-    "receipt_role": "construction evidence only; this JSON is the single machine Learning candidate owner"
+    "receipt_role": "construction evidence only; this JSON is the single machine Learning candidate owner",
+    "group_contract_required_fields": [
+      "kp_members",
+      "label",
+      "jobs",
+      "goal",
+      "closure",
+      "continuity_rationale",
+      "receipt_anchor"
+    ]
   },
   "storage": {
     "mode": "SHARDED_BLOCK_LEARNING_OWNER",

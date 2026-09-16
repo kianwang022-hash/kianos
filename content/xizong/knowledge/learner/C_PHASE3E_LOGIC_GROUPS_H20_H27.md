@@ -1,8 +1,8 @@
 # C Hematology · Immunity · Infection — Phase 3E Exact Logic Groups H20–H27
 
 Status: **PASS — H20–H27 exact semantic partition accepted**  
-Scope: **8 Blocks, 106 stable KPs, 35 Logic Groups**  
-Cumulative Phase-3: **27 / 27 Blocks, 423 / 423 KPs, 134 Logic Groups**  
+Scope: **8 Blocks, 106 stable KPs, 34 Logic Groups**  
+Cumulative Phase-3: **27 / 27 Blocks, 423 / 423 KPs, 133 Logic Groups**  
 Medical identity change: **NONE**  
 Complete infectious-disease backfill: **0**  
 Organ-owner duplication: **0**

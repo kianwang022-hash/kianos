@@ -1,1 +1,584 @@
-{"schema":"kianos.xizong.system_learning_support.block_shard.v2","system_id":"hematology-immunity-infection","canonical_id":"C","range":"h15-h19","authority":"CHAT_APPROVED_LEARNING_CANDIDATE","blocks":{"hematology-h15":{"title":"风湿诊断语言与治疗角色","kp_count":15,"first_pass_focus":"从综合征和器官组合进入风湿病例，再给抗体/炎症指标/药物分配正确角色。","stop_line":"不提前复制H16–H19疾病主体；SSc/肌炎/痛风仅overview识别。","recall_spine":"从主诉组成综合征 → 风湿证据四层 → 治疗四层 → bounded recognition models → 皮肤/器官线索与最终路由","readiness":{"requires":["hematology-h12"],"benefits_from":["hematology-h13","hematology-h14"],"returns_to":["hematology-h16","hematology-h17","hematology-h18","hematology-h19"]},"learner_order":["c-h15-lg01","c-h15-lg02","c-h15-lg03","c-h15-lg04","c-h15-lg05"],"logic_groups":{"c-h15-lg01":{"kp_members":[1,2,3],"label":"从主诉组成综合征，再进疾病家族","jobs":["LOCALIZATION","SYNDROME_ORGAN_MAP"],"receipt_anchor":"C-H15-LG01"},"c-h15-lg02":{"kp_members":[4,5,6],"label":"风湿证据四层：筛查、特异、活动、器官损害","jobs":["EVIDENCE_STACK","DISCRIMINATION"],"receipt_anchor":"C-H15-LG02"},"c-h15-lg03":{"kp_members":[7,8,9,10],"label":"治疗四层：症状快不等于病程被控制","jobs":["DECISION_LOCALIZATION","DISCRIMINATION"],"receipt_anchor":"C-H15-LG03"},"c-h15-lg04":{"kp_members":[11,12,13],"label":"三个 bounded recognition models：认出来，但不扩成新课程","jobs":["RECOGNITION","BOUNDARY_RECALL"],"receipt_anchor":"C-H15-LG04"},"c-h15-lg05":{"kp_members":[14,15],"label":"皮肤 / 器官线索与最终风湿路由","jobs":["SYNDROME_ORGAN_MAP","LOCALIZATION"],"receipt_anchor":"C-H15-LG05"}}},"hematology-h16":{"title":"系统性红斑狼疮与抗磷脂综合征","kp_count":21,"first_pass_focus":"把SLE拆成免疫复合物、抗细胞和APS三支，再用抗体角色和器官组合完成判断。","stop_line":"狼疮肾/产科APS/长期抗凝完整路径归外部owner或Source gap。","recall_spine":"三条损伤支路 → SLE证据角色 → APS → 病理落点 → 临床多器官模型 → 治疗/危象/危险分流","readiness":{"requires":["hematology-h12","hematology-h15"],"benefits_from":["external:a3-glomerular","external:a1-thrombosis"],"returns_to":["hematology-h17","hematology-h18","hematology-h19"]},"learner_order":["c-h16-lg01","c-h16-lg02","c-h16-lg03","c-h16-lg04","c-h16-lg05","c-h16-lg06"],"logic_groups":{"c-h16-lg01":{"kp_members":[1],"label":"三条损伤支路：免疫复合物、抗细胞、APS","jobs":["CAUSAL_CHAIN","SYNDROME_ORGAN_MAP"],"receipt_anchor":"C-H16-LG01"},"c-h16-lg02":{"kp_members":[2,3,4,5,8,9],"label":"SLE证据角色：筛查、特异、活动、器官关联","jobs":["EVIDENCE_STACK","DISCRIMINATION"],"receipt_anchor":"C-H16-LG02"},"c-h16-lg03":{"kp_members":[6,7],"label":"APS：实验室名字反直觉，但临床主轴是血栓","jobs":["DISCRIMINATION","CAUSAL_CHAIN"],"receipt_anchor":"C-H16-LG03"},"c-h16-lg04":{"kp_members":[10,11,12,13],"label":"病理落点：小体/细胞、肾、皮肤、心脾血管","jobs":["VISUAL_RECOGNITION","CAUSAL_CHAIN"],"receipt_anchor":"C-H16-LG04"},"c-h16-lg05":{"kp_members":[14,15,16,17,18],"label":"临床多器官模型：皮黏—浆膜/关节—血液—肾/神经","jobs":["SYNDROME_ORGAN_MAP","DISCRIMINATION"],"receipt_anchor":"C-H16-LG05"},"c-h16-lg06":{"kp_members":[19,20,21],"label":"治疗 / 危象 / SLE-vs-APS danger routing","jobs":["URGENT_PARALLEL_ACTION","DECISION_LOCALIZATION"],"receipt_anchor":"C-H16-LG06"}}},"hematology-h17":{"title":"类风湿关节炎","kp_count":20,"first_pass_focus":"从滑膜炎→血管翳→侵蚀建立RA病程，再接临床/影像/证据和DMARD治疗逻辑。","stop_line":"骨科重建和外部生物制剂指南不在H17。","recall_spine":"滑膜→血管翳→侵蚀 → 临床关节+关节外 → RF/ACPA+影像 → 治疗 → 两套诊断Source+SLE比较","readiness":{"requires":["hematology-h12","hematology-h15"],"benefits_from":["external:d-orthopedic-boundary"],"returns_to":["hematology-h18","hematology-h19","external:d-orthopedics"]},"learner_order":["c-h17-lg01","c-h17-lg02","c-h17-lg03","c-h17-lg04","c-h17-lg05"],"logic_groups":{"c-h17-lg01":{"kp_members":[1,2,3,4,5],"label":"滑膜 → 血管翳 → 侵蚀：RA为什么必须早控制病程","jobs":["CAUSAL_CHAIN","VISUAL_RECOGNITION","DISCRIMINATION"],"receipt_anchor":"C-H17-LG01"},"c-h17-lg02":{"kp_members":[6,7,8,9,10],"label":"临床关节 + 关节外模式：结构损害已经如何表现","jobs":["SYNDROME_ORGAN_MAP","DISCRIMINATION"],"receipt_anchor":"C-H17-LG02"},"c-h17-lg03":{"kp_members":[11,12,13,14],"label":"证据：RF / ACPA +影像；证据角色不等于病名","jobs":["EVIDENCE_STACK","DISCRIMINATION"],"receipt_anchor":"C-H17-LG03"},"c-h17-lg04":{"kp_members":[15,16,17],"label":"治疗：症状控制 + DMARD病程控制","jobs":["DECISION_LOCALIZATION","CAUSAL_CHAIN"],"receipt_anchor":"C-H17-LG04"},"c-h17-lg05":{"kp_members":[18,19,20],"label":"两套诊断 Source + SLE comparison","jobs":["DISCRIMINATION","BOUNDARY_RECALL"],"receipt_anchor":"C-H17-LG05"}}},"hematology-h18":{"title":"原发性干燥综合征","kp_count":12,"first_pass_focus":"从外分泌腺免疫浸润解释口眼干，再接腺外受累、直接证据和NHL风险。","stop_line":"不扩泛化sicca百科；外部肾/淋巴瘤处理回owner。","recall_spine":"腺体浸润→口眼分泌失败 → 系统病输出 → SSA/SSB+腺体病理/功能 → 治疗分流 → 皮肤线索边界","readiness":{"requires":["hematology-h12","hematology-h15"],"benefits_from":["hematology-h11","external:a3-rta"],"returns_to":["hematology-h19","hematology-h11"]},"learner_order":["c-h18-lg01","c-h18-lg02","c-h18-lg03","c-h18-lg04","c-h18-lg05"],"logic_groups":{"c-h18-lg01":{"kp_members":[1,2,3,4],"label":"腺体浸润 → 口眼分泌失败","jobs":["CAUSAL_CHAIN","SYNDROME_ORGAN_MAP"],"receipt_anchor":"C-H18-LG01"},"c-h18-lg02":{"kp_members":[5,6,7,8],"label":"系统病输出：关节、肾小管、皮血、淋巴瘤风险","jobs":["SYNDROME_ORGAN_MAP","DISCRIMINATION"],"receipt_anchor":"C-H18-LG02"},"c-h18-lg03":{"kp_members":[9,10],"label":"证据：SSA/SSB + 腺体病理 / 功能","jobs":["EVIDENCE_STACK"],"receipt_anchor":"C-H18-LG03"},"c-h18-lg04":{"kp_members":[11],"label":"治疗按“局部分泌失败 vs 系统器官炎症”分流","jobs":["DECISION_LOCALIZATION"],"receipt_anchor":"C-H18-LG04"},"c-h18-lg05":{"kp_members":[12],"label":"皮肤线索只是入口，不是疾病身份证","jobs":["RECOGNITION","CONNECTION"],"receipt_anchor":"C-H18-LG05"}}},"hematology-h19":{"title":"系统性血管炎与贝赫切特病","kp_count":18,"first_pass_focus":"先按血管口径+器官组合定位血管炎，再用ANCA/病理/造影校正，并建立Behçet变口径模型。","stop_line":"不扩完整血管炎指南；器官专科处理回A/D等owner。","recall_spine":"共同血管模型+口径 → ANCA/AECA/biopsy/angiography → MPA/pauci-immune+renal比较 → Behçet clinical identity → scoring boundary+treatment","readiness":{"requires":["hematology-h12","hematology-h15"],"benefits_from":["external:a3-rpgn-anca"],"returns_to":["hematology-h20"]},"learner_order":["c-h19-lg01","c-h19-lg02","c-h19-lg03","c-h19-lg04","c-h19-lg05"],"logic_groups":{"c-h19-lg01":{"kp_members":[1,2],"label":"共同血管模型 + 口径分类","jobs":["CAUSAL_CHAIN","LOCALIZATION"],"receipt_anchor":"C-H19-LG01"},"c-h19-lg02":{"kp_members":[3,4,5,6,7],"label":"证据角色：ANCA / AECA / biopsy / angiography","jobs":["EVIDENCE_STACK","DISCRIMINATION"],"receipt_anchor":"C-H19-LG02"},"c-h19-lg03":{"kp_members":[8,9,10,11,17],"label":"MPA / pauci-immune organ model + renal cross-rheum comparison","jobs":["SYNDROME_ORGAN_MAP","DISCRIMINATION","CONNECTION"],"receipt_anchor":"C-H19-LG03"},"c-h19-lg04":{"kp_members":[12,13,14,15],"label":"Behçet clinical identity: variable-caliber vessel + oral/genital/eye/skin/system clues","jobs":["SYNDROME_ORGAN_MAP","RECOGNITION"],"receipt_anchor":"C-H19-LG04"},"c-h19-lg05":{"kp_members":[16,18],"label":"Behçet scoring boundary + treatment routing","jobs":["PRECISION_CLUSTER","DECISION_LOCALIZATION"],"receipt_anchor":"C-H19-LG05"}}}}}
+{
+  "schema": "kianos.xizong.system_learning_support.block_shard.v2",
+  "system_id": "hematology-immunity-infection",
+  "canonical_id": "C",
+  "range": "h15-h19",
+  "authority": "CHAT_APPROVED_LEARNING_CANDIDATE",
+  "blocks": {
+    "hematology-h15": {
+      "title": "风湿诊断语言与治疗角色",
+      "kp_count": 15,
+      "first_pass_focus": "从综合征和器官组合进入风湿病例，再给抗体/炎症指标/药物分配正确角色。",
+      "stop_line": "不提前复制H16–H19疾病主体；SSc/肌炎/痛风仅overview识别。",
+      "recall_spine": "从主诉组成综合征 → 风湿证据四层 → 治疗四层 → bounded recognition models → 皮肤/器官线索与最终路由",
+      "readiness": {
+        "requires": [
+          "hematology-h12"
+        ],
+        "benefits_from": [
+          "hematology-h13",
+          "hematology-h14"
+        ],
+        "returns_to": [
+          "hematology-h16",
+          "hematology-h17",
+          "hematology-h18",
+          "hematology-h19"
+        ]
+      },
+      "learner_order": [
+        "c-h15-lg01",
+        "c-h15-lg02",
+        "c-h15-lg03",
+        "c-h15-lg04",
+        "c-h15-lg05"
+      ],
+      "logic_groups": {
+        "c-h15-lg01": {
+          "kp_members": [
+            1,
+            2,
+            3
+          ],
+          "label": "从主诉组成综合征，再进疾病家族",
+          "jobs": [
+            "LOCALIZATION",
+            "SYNDROME_ORGAN_MAP"
+          ],
+          "receipt_anchor": "C-H15-LG01",
+          "goal": "use joint axis + systemic-organ axis + time axis to place a case into connective-tissue, spondyloarthritis, degenerative, crystal/metabolic or infection-related families before serology.",
+          "closure": "given a joint/systemic complaint, describe the syndrome and disease-family direction without naming a disease from one antibody or one joint.",
+          "continuity_rationale": "identity, five families and three-axis entry are one routing problem."
+        },
+        "c-h15-lg02": {
+          "kp_members": [
+            4,
+            5,
+            6
+          ],
+          "label": "风湿证据四层：筛查、特异、活动、器官损害",
+          "jobs": [
+            "EVIDENCE_STACK",
+            "DISCRIMINATION"
+          ],
+          "receipt_anchor": "C-H15-LG02",
+          "goal": "assign ANA/RF, disease-specific antibodies, complement/ESR/CRP and organ tests to the question each can answer.",
+          "closure": "for a positive ANA/RF or inflammatory marker, state what it supports, what it cannot prove and which organ-specific evidence must be added before changing the disease model.",
+          "continuity_rationale": "these KPs are one evidence-role hierarchy; marker names are subordinate to role."
+        },
+        "c-h15-lg03": {
+          "kp_members": [
+            7,
+            8,
+            9,
+            10
+          ],
+          "label": "治疗四层：症状快不等于病程被控制",
+          "jobs": [
+            "DECISION_LOCALIZATION",
+            "DISCRIMINATION"
+          ],
+          "receipt_anchor": "C-H15-LG03",
+          "goal": "distinguish NSAID symptom relief, GC rapid suppression/bridge, conventional DMARD disease control and targeted/biologic disease control by role and speed.",
+          "closure": "given active symptoms and organ severity, choose the required treatment *role* and explain why quick symptomatic improvement cannot substitute for disease-modifying control.",
+          "continuity_rationale": "KP07 provides the map; KP08–10 calibrate each role and speed."
+        },
+        "c-h15-lg04": {
+          "kp_members": [
+            11,
+            12,
+            13
+          ],
+          "label": "三个 bounded recognition models：认出来，但不扩成新课程",
+          "jobs": [
+            "RECOGNITION",
+            "BOUNDARY_RECALL"
+          ],
+          "receipt_anchor": "C-H15-LG04",
+          "goal": "recognize the Current Source high-signal entries for systemic sclerosis, inflammatory myopathy/dermatomyositis and gout, then stop at the explicit overview boundary.",
+          "closure": "from a high-signal clue set (Raynaud/finger/ILD, Gottron/heliotrope/Jo-1, nocturnal first-MTP/tophus), route to the correct overview identity and state what full model is **not** owned here.",
+          "continuity_rationale": "these three are intentionally grouped as a “bounded recognition gate”: the shared learner question is whether an overview-level pattern is recognized without manufacturing three unsupported full subcourses."
+        },
+        "c-h15-lg05": {
+          "kp_members": [
+            14,
+            15
+          ],
+          "label": "皮肤 / 器官线索与最终风湿路由",
+          "jobs": [
+            "SYNDROME_ORGAN_MAP",
+            "LOCALIZATION"
+          ],
+          "receipt_anchor": "C-H15-LG05",
+          "goal": "treat skin/mucosal clues as routing evidence only, then send the case to H16–H19 using organ combination + evidence role + activity/damage layer.",
+          "closure": "solve a fresh multi-system rheumatology entry case and explain why the visible skin/antibody clue is insufficient by itself.",
+          "continuity_rationale": "KP14 supplies cross-disease visible clues; KP15 turns them into the Block exit algorithm."
+        }
+      }
+    },
+    "hematology-h16": {
+      "title": "系统性红斑狼疮与抗磷脂综合征",
+      "kp_count": 21,
+      "first_pass_focus": "把SLE拆成免疫复合物、抗细胞和APS三支，再用抗体角色和器官组合完成判断。",
+      "stop_line": "狼疮肾/产科APS/长期抗凝完整路径归外部owner或Source gap。",
+      "recall_spine": "三条损伤支路 → SLE证据角色 → APS → 病理落点 → 临床多器官模型 → 治疗/危象/危险分流",
+      "readiness": {
+        "requires": [
+          "hematology-h12",
+          "hematology-h15"
+        ],
+        "benefits_from": [
+          "external:a3-glomerular",
+          "external:a1-thrombosis"
+        ],
+        "returns_to": [
+          "hematology-h17",
+          "hematology-h18",
+          "hematology-h19"
+        ]
+      },
+      "learner_order": [
+        "c-h16-lg01",
+        "c-h16-lg02",
+        "c-h16-lg03",
+        "c-h16-lg04",
+        "c-h16-lg05",
+        "c-h16-lg06"
+      ],
+      "logic_groups": {
+        "c-h16-lg01": {
+          "kp_members": [
+            1
+          ],
+          "label": "三条损伤支路：免疫复合物、抗细胞、APS",
+          "jobs": [
+            "CAUSAL_CHAIN",
+            "SYNDROME_ORGAN_MAP"
+          ],
+          "receipt_anchor": "C-H16-LG01",
+          "goal": "establish SLE as a three-branch model before any antibody list: immune-complex multi-organ injury, direct anti-cell cytopenia and antiphospholipid thrombosis.",
+          "closure": "from an SLE manifestation, name which branch best explains it and why the same disease can express more than one immune-injury mechanism.",
+          "continuity_rationale": "singleton mother model; it must precede serology to prevent marker-first learning."
+        },
+        "c-h16-lg02": {
+          "kp_members": [
+            2,
+            3,
+            4,
+            5,
+            8,
+            9
+          ],
+          "label": "SLE证据角色：筛查、特异、活动、器官关联",
+          "jobs": [
+            "EVIDENCE_STACK",
+            "DISCRIMINATION"
+          ],
+          "receipt_anchor": "C-H16-LG02",
+          "goal": "place ANA, dsDNA, Sm, ENA, anti-cell antibodies, complement/inflammation and organ evidence into explicit roles rather than one “SLE antibody” bucket.",
+          "closure": "given a panel, identify which result screens, which is most specific, which tracks activity/kidney, which explains a blood/organ manifestation and which results do not track activity.",
+          "continuity_rationale": "these six KPs answer one evidence-role question. H16-SC01 stays visible: the conflicting historical question answer is not silently corrected."
+        },
+        "c-h16-lg03": {
+          "kp_members": [
+            6,
+            7
+          ],
+          "label": "APS：实验室名字反直觉，但临床主轴是血栓",
+          "jobs": [
+            "DISCRIMINATION",
+            "CAUSAL_CHAIN"
+          ],
+          "receipt_anchor": "C-H16-LG03",
+          "goal": "bind LA/aCL/anti-β2GPI to arterial/venous thrombosis, recurrent pregnancy loss and thrombocytopenia while rejecting the “anticoagulant name = bleeding disorder” shortcut.",
+          "closure": "from thrombosis/pregnancy/platelet evidence, identify the APS branch and state the current Source boundary around formal criteria, long-term anticoagulation and obstetric management.",
+          "continuity_rationale": "antibody identity and clinical phenotype are one APS submodel."
+        },
+        "c-h16-lg04": {
+          "kp_members": [
+            10,
+            11,
+            12,
+            13
+          ],
+          "label": "病理落点：小体/细胞、肾、皮肤、心脾血管",
+          "jobs": [
+            "VISUAL_RECOGNITION",
+            "CAUSAL_CHAIN"
+          ],
+          "receipt_anchor": "C-H16-LG04",
+          "goal": "connect immune injury to lupus body/cell, wire-loop kidney, lupus band/skin and Libman-Sacks/onion-skin spleen/fibrinoid vascular damage.",
+          "closure": "from a pathology image/description, identify the organ/pathologic anchor and reconnect it to the correct upstream SLE branch without expanding full nephrology/cardiology.",
+          "continuity_rationale": "these are the major pathology anchors that make the abstract immune model visible."
+        },
+        "c-h16-lg05": {
+          "kp_members": [
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "label": "临床多器官模型：皮黏—浆膜/关节—血液—肾/神经",
+          "jobs": [
+            "SYNDROME_ORGAN_MAP",
+            "DISCRIMINATION"
+          ],
+          "receipt_anchor": "C-H16-LG05",
+          "goal": "reconstruct the SLE clinical combination, distinguish Jaccoud from RA erosive disease, separate cytopenia mechanisms and use renal/neuro clues as high-risk exits.",
+          "closure": "from a multi-organ vignette, build the organ combination first, then use the serologic evidence stack to close the diagnosis instead of using ANA alone.",
+          "continuity_rationale": "five KPs form the clinical phenotype and diagnostic order."
+        },
+        "c-h16-lg06": {
+          "kp_members": [
+            19,
+            20,
+            21
+          ],
+          "label": "治疗 / 危象 / SLE-vs-APS danger routing",
+          "jobs": [
+            "URGENT_PARALLEL_ACTION",
+            "DECISION_LOCALIZATION"
+          ],
+          "receipt_anchor": "C-H16-LG06",
+          "goal": "distinguish background control, immunosuppressive disease treatment, lupus crisis escalation and APS thrombotic danger.",
+          "closure": "identify whether the current threat is inflammatory organ damage/crisis or thrombosis/APS and choose the Source-supported treatment role without importing external dosing/criteria.",
+          "continuity_rationale": "treatment only makes sense after the current danger branch is named."
+        }
+      }
+    },
+    "hematology-h17": {
+      "title": "类风湿关节炎",
+      "kp_count": 20,
+      "first_pass_focus": "从滑膜炎→血管翳→侵蚀建立RA病程，再接临床/影像/证据和DMARD治疗逻辑。",
+      "stop_line": "骨科重建和外部生物制剂指南不在H17。",
+      "recall_spine": "滑膜→血管翳→侵蚀 → 临床关节+关节外 → RF/ACPA+影像 → 治疗 → 两套诊断Source+SLE比较",
+      "readiness": {
+        "requires": [
+          "hematology-h12",
+          "hematology-h15"
+        ],
+        "benefits_from": [
+          "external:d-orthopedic-boundary"
+        ],
+        "returns_to": [
+          "hematology-h18",
+          "hematology-h19",
+          "external:d-orthopedics"
+        ]
+      },
+      "learner_order": [
+        "c-h17-lg01",
+        "c-h17-lg02",
+        "c-h17-lg03",
+        "c-h17-lg04",
+        "c-h17-lg05"
+      ],
+      "logic_groups": {
+        "c-h17-lg01": {
+          "kp_members": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "label": "滑膜 → 血管翳 → 侵蚀：RA为什么必须早控制病程",
+          "jobs": [
+            "CAUSAL_CHAIN",
+            "VISUAL_RECOGNITION",
+            "DISCRIMINATION"
+          ],
+          "receipt_anchor": "C-H17-LG01",
+          "goal": "connect CD4-centered immune background to proliferative synovitis, pannus, cartilage/bone destruction and rheumatoid nodule; contrast the resulting structural disease with rheumatic arthritis.",
+          "closure": "explain the irreversible structure-damage chain and use it to distinguish RA from transient/nonerosive inflammatory arthritis.",
+          "continuity_rationale": "these five KPs are the causal/pathologic foundation; treatment logic later depends on it."
+        },
+        "c-h17-lg02": {
+          "kp_members": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "label": "临床关节 + 关节外模式：结构损害已经如何表现",
+          "jobs": [
+            "SYNDROME_ORGAN_MAP",
+            "DISCRIMINATION"
+          ],
+          "receipt_anchor": "C-H17-LG02",
+          "goal": "integrate morning stiffness, symmetric wrist/MCP/PIP pattern, irreversible deformities, extra-articular disease, Felty and Caplan.",
+          "closure": "from a clinical pattern, distinguish active inflammatory symptoms, late structural damage and special systemic syndromes; preserve the 30-min vs historical 1-hour morning-stiffness Source conflict.",
+          "continuity_rationale": "these KPs answer the phenotype question after the pannus mechanism is established."
+        },
+        "c-h17-lg03": {
+          "kp_members": [
+            11,
+            12,
+            13,
+            14
+          ],
+          "label": "证据：RF / ACPA +影像；证据角色不等于病名",
+          "jobs": [
+            "EVIDENCE_STACK",
+            "DISCRIMINATION"
+          ],
+          "receipt_anchor": "C-H17-LG03",
+          "goal": "distinguish RF from anti-CCP/ACPA, demote the broad immunoglobulin pairing list to MI-D, and connect MRI early soft-tissue evidence to the X-ray structural progression.",
+          "closure": "decide what supports early RA, what is nonspecific, what images early inflammation versus accumulated damage and why seronegative RA remains possible.",
+          "continuity_rationale": "KP13 stays inside the evidence group only as a low-priority Source pairing Safety Net; it does not become RA ontology."
+        },
+        "c-h17-lg04": {
+          "kp_members": [
+            15,
+            16,
+            17
+          ],
+          "label": "治疗：症状控制 + DMARD病程控制",
+          "jobs": [
+            "DECISION_LOCALIZATION",
+            "CAUSAL_CHAIN"
+          ],
+          "receipt_anchor": "C-H17-LG04",
+          "goal": "connect irreversible pannus damage to the need for early DMARDs while keeping NSAID/GC rapid symptom/bridge roles and MTX/targeted/biologic escalation distinct.",
+          "closure": "choose the Source-supported treatment role from disease activity/organ involvement and explain why pain relief alone cannot protect joint structure.",
+          "continuity_rationale": "these three KPs are one therapy architecture, not a drug list."
+        },
+        "c-h17-lg05": {
+          "kp_members": [
+            18,
+            19,
+            20
+          ],
+          "label": "两套诊断 Source + SLE comparison",
+          "jobs": [
+            "DISCRIMINATION",
+            "BOUNDARY_RECALL"
+          ],
+          "receipt_anchor": "C-H17-LG05",
+          "goal": "preserve the internal-medicine four-dimensional diagnostic frame and historical surgery 4/7 standard as two Source contexts, then compare RA vs SLE on erosion, kidney, platelets, complement and treatment.",
+          "closure": "answer a diagnostic-standard question according to its Source context and distinguish RA from SLE without synthesizing a fake unified criterion set.",
+          "continuity_rationale": "diagnosis-context management and high-value SLE comparison are the Block exit/falsification layer."
+        }
+      }
+    },
+    "hematology-h18": {
+      "title": "原发性干燥综合征",
+      "kp_count": 12,
+      "first_pass_focus": "从外分泌腺免疫浸润解释口眼干，再接腺外受累、直接证据和NHL风险。",
+      "stop_line": "不扩泛化sicca百科；外部肾/淋巴瘤处理回owner。",
+      "recall_spine": "腺体浸润→口眼分泌失败 → 系统病输出 → SSA/SSB+腺体病理/功能 → 治疗分流 → 皮肤线索边界",
+      "readiness": {
+        "requires": [
+          "hematology-h12",
+          "hematology-h15"
+        ],
+        "benefits_from": [
+          "hematology-h11",
+          "external:a3-rta"
+        ],
+        "returns_to": [
+          "hematology-h19",
+          "hematology-h11"
+        ]
+      },
+      "learner_order": [
+        "c-h18-lg01",
+        "c-h18-lg02",
+        "c-h18-lg03",
+        "c-h18-lg04",
+        "c-h18-lg05"
+      ],
+      "logic_groups": {
+        "c-h18-lg01": {
+          "kp_members": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "label": "腺体浸润 → 口眼分泌失败",
+          "jobs": [
+            "CAUSAL_CHAIN",
+            "SYNDROME_ORGAN_MAP"
+          ],
+          "receipt_anchor": "C-H18-LG01",
+          "goal": "connect autoimmune exocrine-gland infiltration to salivary/lacrimal failure and the characteristic oral/ocular phenotype.",
+          "closure": "distinguish true glandular secretion failure from simple thirst/dehydration and explain why caries/parotid disease follow loss of saliva function.",
+          "continuity_rationale": "identity, mechanism, mouth and eye are one exocrine-failure model."
+        },
+        "c-h18-lg02": {
+          "kp_members": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "label": "系统病输出：关节、肾小管、皮血、淋巴瘤风险",
+          "jobs": [
+            "SYNDROME_ORGAN_MAP",
+            "DISCRIMINATION"
+          ],
+          "receipt_anchor": "C-H18-LG02",
+          "goal": "prove Sjögren is systemic by linking nonerosive joints, RTA/low-K/alkaline urine, purpura/cytopenia and persistent parotid/NHL-MALT warning signs.",
+          "closure": "from an extra-gland manifestation, route to the correct organ owner and distinguish Sjögren from RA/SLE/dehydration or ordinary parotid swelling.",
+          "continuity_rationale": "these are the major extra-gland outputs and downstream danger signal."
+        },
+        "c-h18-lg03": {
+          "kp_members": [
+            9,
+            10
+          ],
+          "label": "证据：SSA/SSB + 腺体病理 / 功能",
+          "jobs": [
+            "EVIDENCE_STACK"
+          ],
+          "receipt_anchor": "C-H18-LG03",
+          "goal": "combine SSA/SSB with lip-gland biopsy and salivary/tear functional tests; preserve the Source reading boundary around “highest specificity”.",
+          "closure": "state what serology supports, why lip-gland biopsy is the current gold-standard evidence and why one antibody cannot replace glandular pathology/function.",
+          "continuity_rationale": "serology and direct gland evidence answer complementary questions."
+        },
+        "c-h18-lg04": {
+          "kp_members": [
+            11
+          ],
+          "label": "治疗按“局部分泌失败 vs 系统器官炎症”分流",
+          "jobs": [
+            "DECISION_LOCALIZATION"
+          ],
+          "receipt_anchor": "C-H18-LG04",
+          "goal": "separate secretagogue/supportive treatment from GC/immunosuppression when internal organs are involved.",
+          "closure": "classify treatment role from organ involvement without expanding external biologic/dose algorithms.",
+          "continuity_rationale": "singleton treatment decision."
+        },
+        "c-h18-lg05": {
+          "kp_members": [
+            12
+          ],
+          "label": "皮肤线索只是入口，不是疾病身份证",
+          "jobs": [
+            "RECOGNITION",
+            "CONNECTION"
+          ],
+          "receipt_anchor": "C-H18-LG05",
+          "goal": "use the Source skin-lesion comparison as a cross-disease routing Safety Net while refusing to diagnose from morphology alone.",
+          "closure": "from a skin clue, name the likely owner(s) to reopen and the systemic evidence still required.",
+          "continuity_rationale": "singleton cross-System recognition Safety Net; mixing it with treatment would create an incoherent group."
+        }
+      }
+    },
+    "hematology-h19": {
+      "title": "系统性血管炎与贝赫切特病",
+      "kp_count": 18,
+      "first_pass_focus": "先按血管口径+器官组合定位血管炎，再用ANCA/病理/造影校正，并建立Behçet变口径模型。",
+      "stop_line": "不扩完整血管炎指南；器官专科处理回A/D等owner。",
+      "recall_spine": "共同血管模型+口径 → ANCA/AECA/biopsy/angiography → MPA/pauci-immune+renal比较 → Behçet clinical identity → scoring boundary+treatment",
+      "readiness": {
+        "requires": [
+          "hematology-h12",
+          "hematology-h15"
+        ],
+        "benefits_from": [
+          "external:a3-rpgn-anca"
+        ],
+        "returns_to": [
+          "hematology-h20"
+        ]
+      },
+      "learner_order": [
+        "c-h19-lg01",
+        "c-h19-lg02",
+        "c-h19-lg03",
+        "c-h19-lg04",
+        "c-h19-lg05"
+      ],
+      "logic_groups": {
+        "c-h19-lg01": {
+          "kp_members": [
+            1,
+            2
+          ],
+          "label": "共同血管模型 + 口径分类",
+          "jobs": [
+            "CAUSAL_CHAIN",
+            "LOCALIZATION"
+          ],
+          "receipt_anchor": "C-H19-LG01",
+          "goal": "connect vessel-wall inflammation to stenosis/occlusion/thrombosis/ischemia versus wall destruction/hemorrhage/aneurysm, then classify by large/medium/small/variable caliber.",
+          "closure": "from an organ event, infer the likely vessel-caliber problem before using serology.",
+          "continuity_rationale": "mechanism and caliber are the universal coordinate system for the Block."
+        },
+        "c-h19-lg02": {
+          "kp_members": [
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "label": "证据角色：ANCA / AECA / biopsy / angiography",
+          "jobs": [
+            "EVIDENCE_STACK",
+            "DISCRIMINATION"
+          ],
+          "receipt_anchor": "C-H19-LG02",
+          "goal": "separate IIF c/p patterns from PR3/MPO targets, use disease pairings as support, demote nonspecific AECA, and distinguish biopsy diagnosis from large/medium-vessel angiographic range mapping.",
+          "closure": "choose the correct evidence modality for a suspected vasculitis and state why ANCA or a negative segmental biopsy cannot independently close/exclude every case.",
+          "continuity_rationale": "all five KPs answer “what evidence is appropriate for what vessel problem?”"
+        },
+        "c-h19-lg03": {
+          "kp_members": [
+            8,
+            9,
+            10,
+            11,
+            17
+          ],
+          "label": "MPA / pauci-immune organ model + renal cross-rheum comparison",
+          "jobs": [
+            "SYNDROME_ORGAN_MAP",
+            "DISCRIMINATION",
+            "CONNECTION"
+          ],
+          "receipt_anchor": "C-H19-LG03",
+          "goal": "integrate glomerular, pulmonary, skin/mucosal and peripheral-nerve MPA patterns, Current treatment role and the crucial distinction between type-III RPGN and type-III hypersensitivity; compare renal localization across SLE/Sjögren/MPA/RA/Behçet.",
+          "closure": "solve a pulmonary-renal vignette, state why pauci-immune ANCA disease is not immune-complex hypersensitivity, and route full renal/pulmonary models back to their owners.",
+          "continuity_rationale": "KP17 belongs here because its value is to localize MPA renal disease against the other rheumatic models."
+        },
+        "c-h19-lg04": {
+          "kp_members": [
+            12,
+            13,
+            14,
+            15
+          ],
+          "label": "Behçet clinical identity: variable-caliber vessel + oral/genital/eye/skin/system clues",
+          "jobs": [
+            "SYNDROME_ORGAN_MAP",
+            "RECOGNITION"
+          ],
+          "receipt_anchor": "C-H19-LG04",
+          "goal": "connect variable-caliber arterial/venous vasculitis to recurrent painful oral/genital ulcers, eye disease, skin/thrombophlebitis, gut/joint and pathergy clues.",
+          "closure": "recognize Behçet from the *combination*, distinguish painful oral ulcers from SLE’s usually painless ulcers and avoid reducing the disease to a small-vessel category.",
+          "continuity_rationale": "vascular identity and clinical combination are one disease model."
+        },
+        "c-h19-lg05": {
+          "kp_members": [
+            16,
+            18
+          ],
+          "label": "Behçet scoring boundary + treatment routing",
+          "jobs": [
+            "PRECISION_CLUSTER",
+            "DECISION_LOCALIZATION"
+          ],
+          "receipt_anchor": "C-H19-LG05",
+          "goal": "preserve only the three Source-secure 2-point items and route therapy by internal-organ/eye vs oral ulcer vs recurrent mucocutaneous phenotype.",
+          "closure": "answer only the score precision the original Source safely supports, identify the appropriate treatment role and explicitly leave unverified score rows/modern biologics outside Current.",
+          "continuity_rationale": "scoring and treatment are the final decision layer; H19-SR01 remains open rather than being filled from memory."
+        }
+      }
+    }
+  }
+}
