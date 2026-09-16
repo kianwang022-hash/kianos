@@ -1,6 +1,6 @@
 # D Neuro · Sensory · Motor · Orthopedics — Phase 1 Route Decision
 
-Status: **PASS — causal readiness DAG + low-switching default accepted for LG construction**  
+Status: **PASS_AFTER_SELF_ADVERSARIAL_REPAIR — sparse causal readiness DAG + low-switching default**  
 Depends on: `D_PHASE0_LEARNING_CALIBRATION.md` + Current D `system.json` + N1–N11/O1–O16 medical Core  
 Learner Truth: none
 
@@ -8,11 +8,17 @@ Learner Truth: none
 
 D uses:
 
-> **CAUSAL READINESS DAG WITH A LOW-SWITCHING DEFAULT ROUTE**
+> **SPARSE CAUSAL READINESS DAG WITH A LOW-SWITCHING DEFAULT ROUTE**
 
-The readiness graph decides what must already exist in the learner model. The default route is only a low-friction path and does not turn every earlier ordinal Block into a hard prerequisite.
+The readiness graph answers only:
 
-Default first-pass route:
+> **Which earlier D model must already exist because the current Block intentionally does not teach it again?**
+
+The default route answers a different question:
+
+> **Given several legal ready Blocks, what order minimizes source/device/topic switching for Kian?**
+
+Default first-pass route remains:
 
 ```text
 N1 → N2 → N3 → N4
@@ -23,150 +29,181 @@ N1 → N2 → N3 → N4
 → O13 → O14 → O15 → O16
 ```
 
-Why a serial-looking default is still acceptable:
+This serial-looking default is **not** the legality graph and is **not** medical ontology.
 
-- it minimizes device/source/topic switching across coherent physiology and surgery clusters;
-- it preserves the strong causal chains N1→N2→N3/N4, N5→special senses, N8→N11 and O1/O2→regional trauma;
-- it lets N9/N10 consume their contiguous physiology source before N11 closes the neural branch as a localization bridge;
-- it keeps O3/O4/O5 together as spine/nerve localization applications and O6/O7 together as regional trauma;
-- it keeps infection/TB/arthritis/tumor as a late organ-structure branch without pretending they are consequences of earlier fractures;
-- true flexibility remains legal through the readiness graph below.
+It remains useful because it:
+
+- keeps contiguous physiology and surgery Source clusters together;
+- preserves strong causal chains such as N1→N2, N2→N3/N4, N5→N6/N7 and N5+N8→N11;
+- places N11 immediately before the spine/nerve-heavy orthopedic cluster even though O1/O2 themselves do not hard-require N11;
+- keeps O2 before regional fracture application;
+- keeps later destructive structural disease together for compression;
+- reduces arbitrary switching while preserving legal branch movement.
 
 ## 2｜Hard prerequisite rule
 
-A dependency is hard only when entering the Block without it would leave a missing model that the Block intentionally does not teach again.
+A dependency is **hard** only when all are true:
 
-These are **not** hard by themselves:
+1. the earlier Block owns a model the current Block relies on;
+2. the current Block intentionally does not rebuild that model;
+3. entering without it would force hidden guessing or accidental duplicate teaching;
+4. a bounded reactivation/minimal repair would not be enough to form the current Block honestly.
 
-- old file/ordinal order;
+These do **not** create a hard edge by themselves:
+
+- ordinal/file order;
+- “usually learned before”;
 - useful comparison;
-- same organ or nearby page;
+- shared anatomy;
 - a prior Block being frequently referenced;
-- a prerequisite list inherited from an older execution file when Current learning can safely reactivate/minimally repair it.
+- source continuity;
+- an old frontmatter `prerequisites` list;
+- an integration/orientation map that is helpful but not semantically necessary.
 
-External-owner knowledge is treated as:
+External-owner knowledge follows the lane rule:
 
 ```text
 already genuinely learned → Recall / reactivate
-not yet learned → smallest-sufficient Chat/source repair for the current D action
+not yet learned → smallest-sufficient owner/Chat/Source repair for the current action
 ```
 
-unless the D Block genuinely cannot form without the full external model. Learning construction does not manufacture Kian's prior learner state.
+unless a separate Current owner explicitly makes it a true prerequisite. Repository construction never assumes Kian already learned it.
 
-## 3｜Block readiness table
+## 3｜Sparse readiness table
 
-| Block | Hard requires inside D | Benefits from / reactivates | Prepares / returns to |
+| Block | Hard requires inside D | Benefits from / reactivates | Why the edge is or is not hard |
 | --- | --- | --- | --- |
-| N1 | none | membrane/electrical baseline | N2, N5, N11, O5 |
-| N2 | N1 | membrane Ca²⁺/AP baseline | N3, N5, N8, N9 |
-| N3 | N2 | cell signaling + autonomic language | N4, N8, N10 |
-| N4 | N2 + N3 | N1 AP/conduction | N8; locomotor actuator model |
-| N5 | N1 + N2 | existing general sensory examples | N6, N7, N9, N11 |
-| N6 | N5 | N3 receptor/effect discrimination; membrane baseline | visual physiology/localization |
-| N7 | N5 | N1 membrane/conduction | auditory/vestibular discrimination |
-| N8 | N2 + N4 | N3 transmitters; N5 feedback language | N11; motor-control/UMN-LMN coordinate |
-| N9 | N2 + N5 | network synchrony examples | N10 |
-| N10 | N9 + N2 | N3 autonomic/receptor language; prior endocrine/volume/temperature owners | E/F interfaces; neural state integration |
-| N11 | N5 + N8 | N1 conduction; targeted O3/O4/O5 source visuals | O1, O3, O4, O5 |
-| O1 | N11 | N4 muscle function; N5 pain/sensation; O-source common figures | every orthopedic branch |
-| O2 | O1 | pathology repair; A1 perfusion/shock | O3, O6, O7, O8; fracture complications generally |
-| O3 | O2 + N11 | A1 shock/perfusion; A2 ventilatory pump | acute spine/pelvis/cord danger model |
-| O4 | O1 + N11 | O3 acute spine contrast | chronic root/cord/cauda compression |
-| O5 | O1 + N11 | N1 regeneration; N4 denervation; O2 associated trauma | O6/O7 neuro-risk, O8 hand, O11 entrapment |
-| O6 | O2 + O5 | N11 localization | upper-limb regional trauma |
-| O7 | O2 + O5 | lower-limb load/vascular interfaces | O10 AVN; lower-limb trauma |
-| O8 | O2 + O5 | O6 hand/upper-limb context | hand function / reconstruction interface |
-| O9 | O1 | O7 knee bony-trauma context | O11/O15 comparisons |
-| O10 | O7 | pathology ischemia/necrosis | O15 secondary OA interface |
-| O11 | O5 for full-Block closure | O1; O6 shoulder; O9 knee; soft-tissue Source unit can be contacted before O5 if separately needed | chronic load + entrapment model |
-| O12 | O1 | O4 nonstructural scoliosis/root-pain contrast | developmental structure model |
-| O13 | O1 | C H20/H25 infection/source-control + pathology inflammation | O14; infection structural model |
-| O14 | O13 | C H21 TB common model + A2 pulmonary-TB treatment entry | O15/O16 differential |
-| O15 | O1 | C H17 RA Primary; O10 secondary OA; O14 spine/TB comparison | chronic joint structural coordinate |
-| O16 | O1 | O9 tumor-general gate; C H8 MM; O2/O13/O14/O15 comparisons | final pathology/structure discrimination branch |
+| N1 | none | membrane/electrical baseline | D entry substrate |
+| N2 | N1 | membrane Ca²⁺/AP baseline | synaptic release assumes neuron/AP/fiber language |
+| N3 | N2 | cell signaling + autonomic language | transmitter/receptor effects assume the synaptic layer already exists |
+| N4 | N2 + N3 | N1 AP/conduction | NMJ is a specialized synapse using ACh/N2 before muscle execution |
+| N5 | N1 + N2 | existing sensory examples | general sensation needs conduction + synaptic projection language |
+| N6 | N5 | N3 receptor/effect discrimination | special vision instantiates the general sensory model |
+| N7 | N5 | N1 membrane/conduction | special hearing instantiates the general sensory model |
+| N8 | N2 | N4 actuator; N5 feedback; N3 transmitter examples | motor-control physiology needs neural integration; full muscle/NMJ and sensory Blocks improve it but are not required to form it |
+| N9 | N2 | N5 nonspecific-projection/arousal interface | EEG/sleep is network-state physiology; the N5 arousal bridge is useful but can be reactivated minimally |
+| N10 | N2 | N9 state continuity; N3 autonomic/receptor language; endocrine/volume/temperature owners | learning/LTP and hypothalamic control need network/synapse language, not full N9 as a prerequisite |
+| N11 | N5 + N8 | N1 tract details; targeted O3/O4/O5 visuals | localization synthesizes sensory distribution + motor/reflex/UMN-LMN evidence |
+| O1 | none | N11; N4/N5; shared orthopedic Source figures | O1 is an integration/orientation coordinate, not a gate that must block entry to orthopedic medical Core |
+| O2 | none | O1; pathology repair; A1 perfusion/shock | fracture principles are a self-contained common model; O1 is useful orientation only |
+| O3 | O2 + N11 | A1 shock/perfusion; A2 ventilatory pump | acute spine/pelvis trauma applies fracture principles and requires neurologic level localization |
+| O4 | N11 | O1; O3 acute-trauma contrast | chronic root/cord/cauda compression requires the localization bridge, not prior acute trauma |
+| O5 | N11 | O1; N1 regeneration; N4 denervation; O2 associated trauma | named peripheral-nerve trauma requires the localization bridge; fracture principles are conditional context |
+| O6 | O2 | O1; O5/N11 neuro-risk maps | regional upper-limb fractures apply the common fracture model; full O5 is not required to learn local nerve risk |
+| O7 | O2 | O1; O5/N11 neuro-risk maps | regional lower-limb fractures apply the common fracture model; full O5 is not required |
+| O8 | none | O1; O2 open-injury/source-control; O5 nerve map; O6 hand/upper-limb context | hand trauma/replant is a compact tissue-priority model and can reactivate missing fracture/nerve language locally |
+| O9 | none | O1; O7 knee bony-trauma context | ligament/meniscus stability model is self-contained |
+| O10 | none | O1; O7 femoral-neck/hip blood-supply context; pathology ischemia | AVN owns its perfusion→collapse model and does not require prior fracture learning |
+| O11 | N11 for full-Block closure | O1; O5 named-nerve map; O6 shoulder; O9 knee | soft-tissue overload unit can stand alone; full Block includes root-vs-entrapment localization, for which N11 is the true prerequisite |
+| O12 | none | O1; O4 nonstructural-scoliosis/root-pain contrast | developmental deformity is a self-contained age/growth model |
+| O13 | none | O1; C H20/H25 infection/source-control; pathology inflammation | organ-specific bone/joint infection can form with bounded reactivation of common infection language |
+| O14 | none | O1; O13 pyogenic contrast; C H21 TB; A2/R7 pulmonary-TB treatment entry | TB structural model does not semantically depend on learning pyogenic infection first |
+| O15 | none | O1; C H17 RA; O10 secondary OA; O14 spine/TB comparison | OA/AS/RA structural coordinate is self-contained; prior disease Blocks are comparison value only |
+| O16 | none | O1; O9 tumor-general; C H8 MM; O2/O13/O14/O15 comparisons | bone-tumor organ model can form with bounded tumor-general reactivation; prior D diseases sharpen differential but are not prerequisites |
 
-## 4｜Material dependency repairs vs legacy/frontmatter lists
+## 4｜Self-adversarial readiness repair
 
-The Learning route intentionally corrects several inherited overstatements without changing medical Core:
+An initial Phase-1 version still carried several **helpful-order relations as hard edges**. That would have created false UI/runtime locks later.
 
-### O4 does not hard-require O3
+The following edges are now explicitly rejected:
 
-O3 = acute trauma/instability + cord injury.  
-O4 = chronic degenerative space loss compressing root/cord/cauda.
+### N8 ← N4
 
-Both consume N11, but O3's acute trauma model is a comparison benefit, not a prerequisite for understanding O4.
+N4 completes the NMJ/muscle actuator, but N8’s core learner problem is spinal/motor-control organization. N8 requires N2 neural integration; N4 is a valuable actuator interface, not a hard gate.
 
-### O5 does not hard-require O2
+### N9 ← N5
 
-Traumatic peripheral-nerve localization fundamentally needs N11 + orthopedic entry coordinate. Fracture/open-injury principles from O2 matter when combined trauma is present, but they do not define the nerve-localization model.
+N5 contributes nonspecific-projection/arousal language, but N9 itself owns the sleep/wake network-state model. N5 is reactivation value, not a hard prerequisite.
 
-The low-switching default still keeps O2 before O5.
+### N10 ← N9
 
-### O12 does not hard-require O11
+N9 and N10 are contiguous in Source and remain adjacent in the default route. Higher cortical function and hypothalamic homeostasis do not require complete EEG/sleep learning. N2 is the true shared neural-network substrate.
 
-Developmental deformity is not downstream of chronic overuse/entrapment. O11→O12 survives only as a convenient default ordering, not as causal dependency.
+### O1 ← N11
 
-### O15 does not hard-require O10/O14
+N11 makes later orthopedic neurologic localization much stronger, but O1 itself is a structure–stability–danger–evidence/function integration map. Making N11 a hard prerequisite would falsely serialize the whole orthopedic branch behind the neural branch.
 
-OA/AS/RA structural discrimination has its own Source model. AVN→secondary OA and TB→spine/joint destruction are useful contrasts. They do not create the OA/AS/RA model.
+### O2 ← O1
 
-### O16 does not hard-require all prior disease Blocks
+O1 is useful orientation. The fracture common model in O2 is self-contained and must remain independently learnable.
 
-O16's essential external baseline is tumor-general language; O13/O14/O15 are high-value differential comparators. Their absence should trigger bounded reactivation/repair, not fabricate a false prerequisite chain.
+### O6/O7 ← O5
 
-## 5｜Readiness graph
+Named nerve risk matters in regional trauma, but full traumatic peripheral-nerve learning is not necessary before learning the fracture/dislocation model. Missing local nerve detail can be reactivated minimally.
+
+### O8 ← O2/O5
+
+Hand trauma/replant is not merely “fracture + nerve injury”. It has its own tissue-viability/coverage/function logic. O2/O5 are interfaces, not gates.
+
+### O10 ← O7
+
+Femoral-neck fracture is an important AVN cause/interface, but the ischemia→necrosis→collapse model is self-contained.
+
+### O14 ← O13
+
+Pyogenic infection is a powerful comparator, not a prerequisite for TB. Retaining this edge would confuse discrimination value with causal dependency.
+
+Previously rejected edges remain rejected:
+
+- O4 ← O3;
+- O5 ← O2;
+- O12 ← O11;
+- O15 ← O10/O14;
+- O16 ← O2/O13/O14/O15.
+
+## 5｜Sparse readiness graph
 
 ```text
-N1 → N2 ───────────────┬→ N3 → N4 ─────→ N8 ──┐
- │                     │                       │
- └────────→ N5 ────────┼→ N6                  ├→ N11
-             │         ├→ N7                  │
-             └────────→ N9 → N10              │
-                                                ↓
-                                               O1
-                         ┌──────────────────────┼───────────────┐
-                         ↓                      ↓               ↓
-                        O2                     O4              O12
-                     ┌───┼────┐                 ↑
-                     ↓   ↓    ↓                 │
-                    O3  O6   O7                 │
-                         ↑    ↑                  │
-                         └─O5─┘──────────────────┘
-                           │
-                           ├→ O8
-                           └→ O11
+N1 → N2 ───────→ N3 ─────→ N4
+ │      │
+ │      ├──────────────→ N8 ─────┐
+ │      ├──────────────→ N9      │
+ │      └──────────────→ N10     │
+ └────────→ N5 ─→ N6             │
+             └──→ N7             │
+             └───────────────────┤
+                                 ↓
+                                N11
+                                 │
+                    ┌────────────┼──────────────┐
+                    ↓            ↓              ↓
+                   O3           O4             O5
+                    ↑
+                   O2 ─────────→ O6
+                    └───────────→ O7
 
-O1 → O9
-O7 → O10
-O1 + C infection baseline → O13 → O14
-O1 + RA/tumor/contrast reactivation → O15 / O16
+N11 ─→ O11 (for full Block closure)
+
+independent orthopedic entry Blocks under the default O1 orientation:
+O1, O2, O8, O9, O10, O12, O13, O14, O15, O16
 ```
 
-The graph is intentionally sparse. “Benefits from” relations are not promoted into hard edges.
+The graph deliberately looks much sparser than the default route. That is correct.
 
-## 6｜What may legally move earlier
+## 6｜Default route vs legal movement
 
-When true requirements are available and source continuity benefits, these moves are legal:
+The default route remains unchanged because low switching is valuable even when hard dependencies are sparse.
+
+Legal examples:
 
 - N6 and N7 may swap after N5.
-- N8 may begin once N2/N4 are established; N6/N7 are not prerequisites for motor control.
-- N9/N10 are a state/higher-function branch and do not gate N8 or N11. A locomotor-focused session may place N8→N11 before N9/N10, but the default keeps P366–390 physiology continuity and closes N11 last.
-- O4 may move directly after O1/N11; O3 is not a hard predecessor.
-- O5 may move before O3/O4 when peripheral-nerve continuity is the active learning goal.
-- O9 and O12 may move earlier after O1 because they do not require the fracture branch.
-- O13 may begin after O1 plus sufficient common infection/source-control language, without waiting for O2–O12.
-- O15 may begin after O1 plus sufficient RA common language; O10/O14 are comparison benefits.
-- O16 may begin once the tumor-general baseline and O1 structural coordinate exist; prior D disease Blocks improve differential compression but are not all prerequisites.
+- N8 may start after N2; N4/N5 improve integration but are not gates.
+- N9 and N10 may swap or move around N8 once N2 exists; the default keeps them together for Source continuity.
+- N11 may occur after N5+N8 even if N9/N10 remain for later.
+- O1 may be used as orthopedic orientation without requiring N11.
+- O2 may be learned independently; O3 waits for both O2+N11.
+- O4/O5 may start once N11 exists, independent of O2/O3.
+- O6/O7 require O2, not O5.
+- O8/O9/O10/O12/O13/O14/O15/O16 may enter when their own Source/external baseline is available; their late serial placement is a low-switching default only.
+- O11 soft-tissue Source unit may be contacted earlier, but full Block closure waits for N11 because root-vs-entrapment discrimination is part of the accepted Block model.
 
-The default remains stable because unnecessary shuffling costs attention and source switching.
+## 7｜Five non-gating Partial-System Reconstructions
 
-## 7｜Five non-gating partial-System reconstructions
+These are compression checkpoints, not readiness gates.
 
-These are short compression checkpoints, not new hierarchy/mastery objects and not required to unlock the next Block.
+### PSR-D1｜Signal → Sensation → Actuator
 
-### PSR-D1｜Signal → sensation → actuator
-
-After N1–N7:
+After N1–N7 are actually learned:
 
 ```text
 stimulus / command
@@ -174,14 +211,14 @@ stimulus / command
 → synapse/receptor
 → sensory transduction or NMJ
 → AP / coding / force output
-→ where can the first failure occur?
+→ first failed layer?
 ```
 
-Closure: the learner can distinguish membrane/axon, synapse/receptor, sensory transduction and muscle-execution failures rather than treating “神经异常” as one layer.
+Closure: distinguish membrane/axon, synapse/receptor, sensory transduction and muscle-execution failures without replaying Block titles.
 
-### PSR-D2｜Control → localization
+### PSR-D2｜Control → Localization
 
-After N8–N11:
+After N8–N11 are actually learned:
 
 ```text
 controller / descending system / reflex arc
@@ -190,11 +227,11 @@ controller / descending system / reflex arc
 → urgent red flag?
 ```
 
-Closure: a new weakness/numbness case is localized by evidence pattern before disease name.
+Closure: localize a new weakness/numbness case before disease name.
 
-### PSR-D3｜Trauma / stability / neurovascular danger
+### PSR-D3｜Trauma / Stability / Neurovascular danger
 
-After O1–O7:
+After O1–O7 are actually learned:
 
 ```text
 force + structure
@@ -204,35 +241,35 @@ force + structure
 → reduction/fixation/functional goal
 ```
 
-Closure: a fracture/dislocation case is not reduced to memorizing the eponym; the learner can name the immediate danger and treatment objective.
+Closure: route a trauma case by danger and function rather than eponym.
 
-### PSR-D4｜Load / perfusion / growth / local function
+### PSR-D4｜Load / Perfusion / Growth / Local function
 
-After O8–O12:
+After O8–O12 are actually learned:
 
 ```text
 local tissue / load / blood supply / growth stage
 → pain or functional loss
-→ reversible irritation vs structural failure vs ischemic collapse vs developmental fixation
+→ acute deficit vs chronic overload/entrapment vs ischemic collapse vs developmental fixation
 → evidence
 → function-preserving treatment window
 ```
 
-Closure: hand/knee/chronic-load/AVN/deformity cases are routed by tissue and mechanism rather than one generic “骨科慢性病” list.
+Closure: route focal/chronic orthopedic cases by first failed tissue and mechanism.
 
 ### PSR-D5｜Destructive structural disease
 
-After O13–O16:
+After O13–O16 are actually learned:
 
 ```text
 pyogenic / TB / degenerative-inflammatory / tumor
-→ tissue-of-origin + tempo
-→ imaging / pathology / source-control or evidence role
-→ stability / neuro/function threat
-→ owner-appropriate treatment direction
+→ tissue/site + tempo
+→ imaging / pathology / source-control evidence
+→ stability / neural / function threat
+→ correct owner / treatment direction
 ```
 
-Closure: chronic pain/destruction/lesion cases are separated by mechanism and evidence instead of a single image sign.
+Closure: separate destructive structural disease by mechanism and evidence role rather than one image sign.
 
 ## 8｜Final System reconstruction
 
@@ -240,33 +277,33 @@ Authorized only after all 27 D Blocks are actually learned in private learner st
 
 Prompt skeleton:
 
-1. Rebuild the information–control–execution–structure–feedback mother model.
-2. Given pain, numbness, weakness or functional loss, first choose neural layer vs structural layer.
-3. If neural, localize transduction/conduction/synapse-central-control/UMN-LMN/root/nerve/NMJ-muscle.
-4. If structural, localize tissue, stability, neurovascular danger, perfusion, load/growth and destructive cause.
-5. Use D failure modes/judgment axes to choose the smallest owning Block or external owner that needs reopening.
-6. Rebuild the three loops: sensory-localization, motor-feedback, structural-repair.
+1. rebuild the information–control–execution–structure–feedback mother model;
+2. given pain/numbness/weakness/deformity/function loss, choose neural vs structural first owner;
+3. if neural, localize transduction/conduction/synapse-control/UMN-LMN/cord-root-nerve/NMJ-muscle;
+4. if structural, localize tissue, stability, neurovascular danger, perfusion, load/growth and destructive cause;
+5. use D failure modes/judgment axes to reopen only the smallest owning Block/external owner;
+6. rebuild sensory-localization, motor-feedback and structural-repair loops.
 
 Forbidden:
 
 - reciting 27 Block titles as “System Recall”;
-- treating N1→O16 default order as medical ontology;
-- turning special senses into prerequisites for orthopedic disease;
+- treating default order as medical ontology;
+- turning special senses into orthopedic prerequisites;
 - importing missing complete neurology/ophthalmology/ENT content;
 - replacing real visual contact with memorized prose;
-- treating repair/engineering completion as learner mastery.
+- treating engineering/repair state as learner mastery.
 
 ## 9｜Phase-1 verdict
 
 ```text
-route mode                              CAUSAL_READINESS_DAG_WITH_LOW_SWITCHING_DEFAULT
-default route                           N1→N11 → O1→O16
-hard prerequisites                      REDUCED_TO_TRUE_MODEL_DEPENDENCIES
-O4←O3 hard dependency                   REJECT
-O5←O2 hard dependency                   REJECT
-O12←O11 hard dependency                 REJECT
-O15←O10/O14 hard dependency             REJECT
-flexible branch movement                ACCEPT
-partial-System reconstructions          5 / NON_GATING
-next stage                              27-Block control + exact 356-KP LG partition
+route mode                                  SPARSE_CAUSAL_READINESS_DAG_WITH_LOW_SWITCHING_DEFAULT
+default route                               N1→N11 → O1→O16 (unchanged as guidance)
+false hard edges found by self-audit         YES
+false hard edges repaired                    YES
+O1 as universal orthopedic hard gate         REJECT
+O5 as universal regional-trauma hard gate    REJECT
+O13→O14 hard serialization                   REJECT
+comparison benefit = prerequisite            REJECT
+partial-System reconstructions               5 / NON_GATING
+next                                          keep Phase 3 exact LG partition; repair compiled Learning candidate route map before fresh audit
 ```
