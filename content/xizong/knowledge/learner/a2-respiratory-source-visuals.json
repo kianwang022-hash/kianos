@@ -6,7 +6,7 @@
   "canonical_id": "A2",
   "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
   "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
-  "notes": "Preserves reviewed R1/R2/R3/R6/R7/R8/R11 bundles and adds reviewed high-value R1/R2 physiology, R4 asthma, R8 IPF and R11 lung-cancer source visuals. Coverage remains intentionally sparse and independently extensible.",
+  "notes": "Preserves reviewed R1/R2/R3/R6/R7/R8/R11 bundles and adds reviewed high-value R1/R2 physiology, R4 asthma, R5 pneumonia, R8 IPF, R10 pleural-fluid, R11 lung-cancer and R12 ARDS source visuals. Coverage remains intentionally sparse and independently extensible.",
   "bundles": [
     {
       "cue_id": "a2-r01-lg01-visual",
@@ -168,6 +168,25 @@
       ]
     },
     {
+      "cue_id": "a2-r05-lg02-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi40:crop:01c20136410534ae",
+          "source_page": 33,
+          "usage_role": "PNEUMONIA_SPATIAL_DISTRIBUTION_COMPOSITE",
+          "usage_label": "P33 · 肺炎病变范围与影像分布",
+          "alt": "内科讲义 P33：小叶性、融合性小叶性、间质性与大叶性肺炎的范围示意及代表性影像",
+          "asset_path": "a2-r05-lg02/r05-p33-pneumonia-spatial-distribution.webp",
+          "width": 1150,
+          "height": 490,
+          "source_crop_sha256": "01c20136410534eaedf4e2034825e1a17170613c234218459edfba310685c659",
+          "derived_asset_sha256": "311c5fff66cda88d968c7ec1e1536a0713cbfc60089a3484c329e827953349d2"
+        }
+      ]
+    },
+    {
       "cue_id": "a2-r06-lg01-visual",
       "source_sha256": "7b41f26673fbb562519ac57bb419c2ec82a88c63b5d538a77aaff2e46428dc3f",
       "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
@@ -283,6 +302,75 @@
           "height": 211,
           "source_crop_sha256": "950f038cd66ef5c7e0fcf7619974335fa4f638ffeb145eb998598aec8bd2f7ed",
           "derived_asset_sha256": "4760a18df114133aaef47a5e892c318fdd3a874edf8677ca1f51406c5b99735c"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r10-lg01-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi81:crop:e4ebc426e6ac0d06",
+          "source_page": 67,
+          "usage_role": "TRANSUDATE_EXUDATE_FORMATION_MECHANISM",
+          "usage_label": "P67 · 渗出液/漏出液形成机制",
+          "alt": "内科讲义 P67：静水压、胶体渗透压、血管通透性和淋巴回流对渗出液/漏出液形成的机制",
+          "asset_path": "a2-r10-lg01/r10-p67-transudate-exudate-mechanism.webp",
+          "width": 1150,
+          "height": 700,
+          "source_crop_sha256": "e4ebc426e6ac0d06aeae82307ed1e49a93a8ed7eedfdd34b085fe237c87e1c53",
+          "derived_asset_sha256": "d62ebaae686bcd0fbb0a450507a89081cfa019f2baa629354ee667eb93b92ef5"
+        },
+        {
+          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi82:crop:e5c1fbda7e748a5d",
+          "source_page": 68,
+          "usage_role": "LIGHT_CRITERIA_TRANSUDATE_EXUDATE_COMPARISON",
+          "usage_label": "P68 · 渗出液/漏出液定量与 Light 标准",
+          "alt": "内科讲义 P68：渗出液与漏出液的定量指标及 Light 标准对照",
+          "asset_path": "a2-r10-lg01/r10-p68-light-criteria.webp",
+          "width": 1100,
+          "height": 600,
+          "source_crop_sha256": "e5c1fbda7e748a5d730cce2de2c0893d1851b80428d04a0d0b1f17d9e75779df",
+          "derived_asset_sha256": "0910d7a5cd486bd9a0cef6210369cd3a4de7cc0ca758e4f74fd206720c2e1cbb"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r10-lg02-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi83:crop:9a3124b3776fa71c",
+          "source_page": 69,
+          "usage_role": "PLEURAL_EFFUSION_IMAGING_MEDIASTINAL_DIRECTION",
+          "usage_label": "P69 · 胸腔积液影像与纵隔方向",
+          "alt": "内科讲义 P69：胸腔积液液体占位、弧形/D 字型密度与纵隔向健侧移位的影像对照",
+          "asset_path": "a2-r10-lg02/r10-p69-pleural-effusion-imaging.webp",
+          "width": 1400,
+          "height": 1180,
+          "source_crop_sha256": "9a3124b3776fa71c0e7d5887597bb854b94d39bb25df13bb9a3e6f7bc771d9d9",
+          "derived_asset_sha256": "56274bb4f8737508d668eecd33761f522421da6636364dab087d92e30c521332"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r12-lg01-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi64:crop:a644c5bbc51f63f6",
+          "source_page": 54,
+          "usage_role": "ARDS_DUAL_INJURY_PATHOPHYSIOLOGY_FLOW",
+          "usage_label": "P54 · ARDS 双损伤病理生理流程",
+          "alt": "内科讲义 P54：肺毛细血管内皮损伤与Ⅱ型肺泡上皮损伤两条支路汇入肺水肿/肺不张、V/Q 失调和顽固性低氧",
+          "asset_path": "a2-r12-lg01/r12-p54-ards-dual-injury.webp",
+          "width": 1000,
+          "height": 800,
+          "source_crop_sha256": "a644c5bbc51f63f6fdcf2913612071977bfe1ac7a94cf6999067452dad670b49",
+          "derived_asset_sha256": "606c3819e95c494e23bda5fb52eb37c65a7dd1bfa211c016942af17570bd129a"
         }
       ]
     },
