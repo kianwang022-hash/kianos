@@ -7,12 +7,22 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "e5178f2f1fb2fa0dfb614707d5c66b55b2853e42c4672678f883303337d544df",
+    "content_hash": "7ac30cebcbfbcfa0a6547e7f361ae10fe63b2d424a019101ebe14e24cfefcecf",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "在...周围画线, 限制",
-      "core_meaning_en": "draw a line around",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "在...周围画线, 限制；限制；约束；把……限定在一定范围内",
+          "label_en": "draw a line around; to restrict, limit, or confine something within boundaries",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:circumscribe:8d26d154777c5f6b",
+            "sense:circumscribe:3da19261989df4ad"
+          ]
+        }
+      ],
+      "core_meaning_cn": "在...周围画线, 限制；限制；约束；把……限定在一定范围内",
+      "core_meaning_en": "draw a line around; to restrict, limit, or confine something within boundaries",
+      "mental_model_cn": "在...周围画线, 限制；限制；约束；把……限定在一定范围内",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -31,9 +41,10 @@
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L1",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
+        "register": "technical/geometric",
         "sense_id": "sense:circumscribe:8d26d154777c5f6b",
         "sense_label_en": "draw a line around",
         "sort_order": 1,
@@ -45,7 +56,8 @@
             "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
             "source_type": "learner_dictionary"
           }
-        ]
+        ],
+        "usage_note": "Literal/geometric drawing-around sense is secondary."
       },
       {
         "collocations": [],
@@ -55,9 +67,10 @@
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L2",
+        "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
+        "register": "geometric",
         "sense_id": "sense:circumscribe:a6b2d72f6b4c56f6",
         "sense_label_en": "to draw a geometric figure around another figure so that the two are in contact but do not intersect",
         "sort_order": 2,
@@ -69,7 +82,22 @@
             "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
             "source_type": "learner_dictionary"
           }
-        ]
+        ],
+        "usage_note": "Specialist geometry sense."
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "限制；约束；把……限定在一定范围内",
+        "definition_en": "to restrict, limit, or confine something within boundaries",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:circumscribe:3da19261989df4ad",
+        "sense_label_en": "to restrict, limit, or confine something within boundaries",
+        "sort_order": 3,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -102,6 +130,13 @@
         "merged_into_sense_id": null,
         "source_row": 17289,
         "source_path": "content/lexical/canonical/senses/shards/o6497-6528.json"
+      },
+      {
+        "sense_id": "sense:circumscribe:3da19261989df4ad",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 17325,
+        "source_path": "content/lexical/canonical/senses/shards/o6497-6528.json"
       }
     ],
     "active_collocations": [],
@@ -128,7 +163,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6505-6512.json",
-    "source_content_hash": "e5178f2f1fb2fa0dfb614707d5c66b55b2853e42c4672678f883303337d544df",
+    "source_content_hash": "7ac30cebcbfbcfa0a6547e7f361ae10fe63b2d424a019101ebe14e24cfefcecf",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

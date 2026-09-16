@@ -5,14 +5,32 @@
   "word": "censure",
   "record": {
     "card_version": "v1",
+    "confusable_note": "censure = formally express strong disapproval; censor = suppress, remove, or restrict material. They are distinct lexemes, not spelling variants.",
     "confusables": [],
     "constructions": [],
-    "content_hash": "2f1e349d3617ddf75481ef7a63cfc05339f3e2e8ce4acde0ebea87bda01a6a2f",
+    "content_hash": "bf1a7ba4784b2cef19cc002b32bc9a282c9600706de2cbf9180b0916847ff28d",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "责难",
-      "core_meaning_en": "harsh criticism or disapproval",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "责难",
+          "label_en": "harsh criticism or disapproval",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:censure:15bf85f601bb5541"
+          ]
+        },
+        {
+          "label_cn": "正式谴责；严厉批评",
+          "label_en": "to formally express strong disapproval or criticism of someone or something",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:censure:ece28b5573ef2913"
+          ]
+        }
+      ],
+      "core_meaning_cn": "责难；正式谴责；严厉批评",
+      "core_meaning_en": "harsh criticism or disapproval; to formally express strong disapproval or criticism of someone or something",
+      "mental_model_cn": "责难；正式谴责；严厉批评",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -46,6 +64,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "正式谴责；严厉批评",
+        "definition_en": "to formally express strong disapproval or criticism of someone or something",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:censure:ece28b5573ef2913",
+        "sense_label_en": "to formally express strong disapproval or criticism of someone or something",
+        "sort_order": 2,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -78,6 +110,13 @@
         "merged_into_sense_id": null,
         "source_row": 17260,
         "source_path": "content/lexical/canonical/senses/shards/o6465-6496.json"
+      },
+      {
+        "sense_id": "sense:censure:ece28b5573ef2913",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 17270,
+        "source_path": "content/lexical/canonical/senses/shards/o6465-6496.json"
       }
     ],
     "active_collocations": [],
@@ -104,7 +143,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6489-6496.json",
-    "source_content_hash": "2f1e349d3617ddf75481ef7a63cfc05339f3e2e8ce4acde0ebea87bda01a6a2f",
+    "source_content_hash": "bf1a7ba4784b2cef19cc002b32bc9a282c9600706de2cbf9180b0916847ff28d",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

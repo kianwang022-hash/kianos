@@ -7,12 +7,22 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "9e86a9d1aad1cde568a1f91080aa9ffb5dba3dfe0ad0fe767f1c8b7e42b9bc21",
+    "content_hash": "10a13cbcb6f4d8107cd9c64da982fa92890259e992da8603235d489ae413f7c1",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "使清洁, 净化, 使纯净",
-      "core_meaning_en": "clean one's body or parts thereof, as by washing",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "清洁；净化；去除污物或有害物质；比喻清除、净化（有害或不需要的事物）",
+          "label_en": "to make something clean or pure by removing dirt, unwanted material, or harmful substances; to remove something considered harmful, corrupting, or unwanted from a system, place, or process",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:cleanse:beb69f26928754f2",
+            "sense:cleanse:ef8ef4ee8f1259b4"
+          ]
+        }
+      ],
+      "core_meaning_cn": "清洁；净化；去除污物或有害物质；比喻清除、净化（有害或不需要的事物）",
+      "core_meaning_en": "to make something clean or pure by removing dirt, unwanted material, or harmful substances; to remove something considered harmful, corrupting, or unwanted from a system, place, or process",
+      "mental_model_cn": "清洁；净化；去除污物或有害物质；比喻清除、净化（有害或不需要的事物）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +32,37 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "清洁；净化；去除污物或有害物质",
+        "definition_en": "to make something clean or pure by removing dirt, unwanted material, or harmful substances",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:cleanse:beb69f26928754f2",
+        "sense_label_en": "to make something clean or pure by removing dirt, unwanted material, or harmful substances",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "比喻清除、净化（有害或不需要的事物）",
+        "definition_en": "to remove something considered harmful, corrupting, or unwanted from a system, place, or process",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:cleanse:ef8ef4ee8f1259b4",
+        "sense_label_en": "to remove something considered harmful, corrupting, or unwanted from a system, place, or process",
+        "sort_order": 1000,
+        "transitivity": "vt",
+        "usage_note": "Use carefully in contexts involving people or groups, where cleanse can carry violent or euphemistic associations."
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -55,24 +95,6 @@
       "source_row": 17297,
       "source_path": "content/lexical/canonical/senses/shards/o6497-6528.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:cleanse:beb69f26928754f2",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "使清洁, 净化, 使纯净",
-      "definition_en": "clean one's body or parts thereof, as by washing",
-      "semantic_key": "ebdac290d92c3dbdcac706084b7a9c227b1d94f4c9dec6ad4f843dfe3797dcb4",
-      "semantic_key_history": [
-        "58a9f116c7dbf2682862534cb4078972fc0835f3e6ef0fd6a89297c6dddf55e5"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 17298,
-      "source_path": "content/lexical/canonical/senses/shards/o6497-6528.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -86,9 +108,16 @@
       },
       {
         "sense_id": "sense:cleanse:beb69f26928754f2",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 17298,
+        "source_path": "content/lexical/canonical/senses/shards/o6497-6528.json"
+      },
+      {
+        "sense_id": "sense:cleanse:ef8ef4ee8f1259b4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 17326,
         "source_path": "content/lexical/canonical/senses/shards/o6497-6528.json"
       }
     ],
@@ -116,7 +145,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6513-6520.json",
-    "source_content_hash": "9e86a9d1aad1cde568a1f91080aa9ffb5dba3dfe0ad0fe767f1c8b7e42b9bc21",
+    "source_content_hash": "10a13cbcb6f4d8107cd9c64da982fa92890259e992da8603235d489ae413f7c1",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
