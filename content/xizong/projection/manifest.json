@@ -1,1 +1,163 @@
-{"schema":"kianos.xizong.cognitive_projection.manifest.v1","schema_version":"kianos.xizong.cognitive_projection.v1.2","status":"B_COMPILED_PENDING_EXECUTED_P3_VALIDATION","runtime_authority":false,"source_current_head":"731eeaa3441c976ec11f173da9d9d538014f6cc4","contract":"content/xizong/projection/PROJECTION_CONTRACT.md","projection_root":"content/xizong/projection","validation":{"validator":"content/xizong/projection/tools/validate_projection.py","validator_base":"content/xizong/projection/tools/validate_projection_v1.py","test_suite":"content/xizong/projection/tools/test_projection.py","b_test_suite":"content/xizong/projection/tools/test_projection_b.py","validator_version":"1.2.0","scope":"ASSET_BINDINGS_AND_DECLARATIVE_VISIBILITY_ONLY","evidence_mode":"P2_MATERIALIZED_PENDING_P3_EXECUTION","independence":"SELF","previous_validated_baseline":{"systems":3,"blocks":38,"assets":41,"canonical_kps":805,"validator_version":"1.1.0","projection_run_id":34796838978,"result":"PASS"},"b_compile":{"systems_added":1,"blocks_added":38,"assets_added":39,"canonical_kps_added":600,"calibration":"content/xizong/projection/B_PROJECTION_CALIBRATION.md","status":"MATERIALIZED_PENDING_EXECUTED_SHARED_VALIDATION"},"not_claimed":["browser_answer_leak_safety","Mac_visual_acceptance","runtime_adoption","learner_progress","S_K_L_P_R_E_U_promotion"]},"eligibility_accounting":{"rule":"Projection eligibility requires accepted Current Knowledge and System-specific Learning authority; scoped Acceptance Truth controls eligibility rather than stale construction-status strings.","compiled":[{"canonical_id":"A1","system_id":"circulation","status":"ELIGIBLE_COMPILED","block_count":12,"owner_root":"content/xizong/knowledge/systems/a1-circulation/"},{"canonical_id":"A2","system_id":"respiratory","status":"ELIGIBLE_COMPILED","block_count":12,"owner_root":"content/xizong/knowledge/systems/a2-respiratory/"},{"canonical_id":"A3","system_id":"urinary","status":"ELIGIBLE_COMPILED","block_count":14,"owner_root":"content/xizong/knowledge/systems/a3-urinary/"},{"canonical_id":"B","system_id":"digestive-metabolic-endocrine-tumor","status":"ELIGIBLE_COMPILED_PENDING_P3","block_count":38,"owner_root":"content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/"}],"not_eligible":[{"canonical_id":"C","scope":"hematology-immunity-infection","status":"NOT_ELIGIBLE","reason":"No accepted System-level plus System-specific Learning authority yet.","owner_root":"content/xizong/knowledge/systems/c-hematology-immunity-infection/"},{"canonical_id":"D","scope":"neuro-sensory-motor-orthopedics","status":"NOT_ELIGIBLE","reason":"No accepted System-level plus System-specific Learning authority yet.","owner_root":"content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/"},{"canonical_id":"E","scope":"reproductive-breast","status":"NOT_ELIGIBLE","reason":"No accepted System-level plus System-specific Learning authority yet.","owner_root":"content/xizong/knowledge/systems/e-reproductive-breast/"},{"canonical_id":"F","scope":"remaining-clinical","status":"NOT_ELIGIBLE","reason":"No accepted System-level plus System-specific Learning authority yet.","owner_root":"content/xizong/knowledge/systems/f-remaining-clinical/"}]},"null_policy":"Absent or unresolved Current semantics stay absent. Consumers must not synthesize missing medical relations, cues, locators or enrichment.","freshness_policy":{"SYSTEM_CORE":"RESOLVE_BINDING","MEDICAL_CORE":"STRICT_BLOB when used by DERIVED_FRAGMENT","LEARNING_SUPPORT":"RESOLVE_BINDING","SELECTIVE_CUES":"RESOLVE_BINDING","PATHWAYS":"RESOLVE_BINDING","EXTERNAL_SOURCE_CONTRACT":"STRICT_BLOB","rule":"File packaging is not semantic dependency. Structured sources revalidate exact bindings instead of causing sibling-wide stale fan-out."},"binding_policy":{"current_refs_only":true,"fuzzy_runtime_resolution":false,"optional_index_match_zero_is_legal":true,"owner_ref_does_not_copy_core":true},"coverage":{"systems":4,"blocks":76,"total_projection_assets":80,"expected":{"A1":12,"A2":12,"A3":14,"B":38},"eligible_block_accounting":{"PASS":38,"PENDING_P3":38,"REFERENCE_ONLY":0,"BLOCKED":0},"stale_accounting":{"FRESH_VALIDATED_BASELINE":38,"FRESH_PENDING_P3":38,"STALE":0,"BLOCKED":0},"rich_calibration_blocks":["circulation-b01","circulation-b07","circulation-b10","circulation-b11","respiratory-r01","urinary-b01","urinary-b05"],"b_projection_calibration_blocks":["D1","M2","D8","D15","D19","D21","G5"],"baseline_projection_blocks":69,"baseline_semantics":"Current-backed problem/focus/stop/Recall/LG map + protected views; B intentionally does not project its whole canonical Block Markdown at ORIENT."},"systems":{"circulation":{"canonical_id":"A1","system_projection":"a1-circulation/system.projection.json","block_count":12,"blocks":["a1-circulation/blocks/b01.projection.json","a1-circulation/blocks/b02.projection.json","a1-circulation/blocks/b03.projection.json","a1-circulation/blocks/b04.projection.json","a1-circulation/blocks/b05.projection.json","a1-circulation/blocks/b06.projection.json","a1-circulation/blocks/b07.projection.json","a1-circulation/blocks/b08.projection.json","a1-circulation/blocks/b09.projection.json","a1-circulation/blocks/b10.projection.json","a1-circulation/blocks/b11.projection.json","a1-circulation/blocks/b12.projection.json"]},"respiratory":{"canonical_id":"A2","system_projection":"a2-respiratory/system.projection.json","block_count":12,"blocks":["a2-respiratory/blocks/r01.projection.json","a2-respiratory/blocks/r02.projection.json","a2-respiratory/blocks/r03.projection.json","a2-respiratory/blocks/r04.projection.json","a2-respiratory/blocks/r05.projection.json","a2-respiratory/blocks/r06.projection.json","a2-respiratory/blocks/r07.projection.json","a2-respiratory/blocks/r08.projection.json","a2-respiratory/blocks/r09.projection.json","a2-respiratory/blocks/r10.projection.json","a2-respiratory/blocks/r11.projection.json","a2-respiratory/blocks/r12.projection.json"]},"urinary":{"canonical_id":"A3","system_projection":"a3-urinary/system.projection.json","block_count":14,"blocks":["a3-urinary/blocks/b01.projection.json","a3-urinary/blocks/b02.projection.json","a3-urinary/blocks/b03.projection.json","a3-urinary/blocks/b04.projection.json","a3-urinary/blocks/b05.projection.json","a3-urinary/blocks/b06.projection.json","a3-urinary/blocks/b07.projection.json","a3-urinary/blocks/b08.projection.json","a3-urinary/blocks/b09.projection.json","a3-urinary/blocks/b10.projection.json","a3-urinary/blocks/b11.projection.json","a3-urinary/blocks/b12.projection.json","a3-urinary/blocks/b13.projection.json","a3-urinary/blocks/b14.projection.json"]},"digestive-metabolic-endocrine-tumor":{"canonical_id":"B","system_projection":"b-digestive-metabolic-endocrine-tumor/system.projection.json","learning_source":"content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json","block_count":38,"blocks":["b-digestive-metabolic-endocrine-tumor/blocks/d01.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d02.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d03.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d04.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d05.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d06.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d07.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d08.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d09.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d10.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d11.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d12.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d13.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d14.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d15.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d16.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d17.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d18.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d19.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d20.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d21.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d22.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d23.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m01.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m02.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m03.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m04.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m05.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m06.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m07.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m08.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m09.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m10.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/g01.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/g02.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/g03.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/g04.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/g05.projection.json"]}},"runtime_adoption":"PENDING_SEPARATE_PRODUCT_IMPLEMENTATION","separate_runtime_blocker":"Question attempts must become append-preserved and phase-aware before multi-pass question Runtime productization."}
+{
+  "schema": "kianos.xizong.cognitive_projection.manifest.v1",
+  "schema_version": "kianos.xizong.cognitive_projection.v1.2",
+  "status": "CURRENT_RECONCILED_A1_A2_A3_B_COMPILED_C_ELIGIBLE_NOT_COMPILED",
+  "runtime_authority": false,
+  "source_current_head": "d94f538c0e69bbdb77c6061f70b57724204d1f55",
+  "contract": "content/xizong/projection/PROJECTION_CONTRACT.md",
+  "projection_root": "content/xizong/projection",
+  "validation": {
+    "validator": "content/xizong/projection/tools/validate_projection.py",
+    "validator_base": "content/xizong/projection/tools/validate_projection_v1.py",
+    "test_suite": "content/xizong/projection/tools/test_projection.py",
+    "b_test_suite": "content/xizong/projection/tools/test_projection_b.py",
+    "validator_version": "1.2.0",
+    "current_semantic_adapter": "static-web/src/lib/xizongSemanticAdapter.mjs",
+    "current_reconciliation_validator": "static-web/scripts/validate-xizong-projection-current.mjs",
+    "scope": "ASSET_BINDINGS_AND_DECLARATIVE_VISIBILITY_ONLY",
+    "evidence_mode": "COMPILED_ASSET_VALIDATION_PLUS_CURRENT_ELIGIBILITY_RECONCILIATION",
+    "independence": "SELF",
+    "previous_validated_baseline": {
+      "systems": 3,
+      "blocks": 38,
+      "assets": 41,
+      "canonical_kps": 805,
+      "validator_version": "1.1.0",
+      "projection_run_id": 34796838978,
+      "result": "PASS"
+    },
+    "b_compile": {
+      "systems_added": 1,
+      "blocks_added": 38,
+      "assets_added": 39,
+      "canonical_kps_added": 600,
+      "calibration": "content/xizong/projection/B_PROJECTION_CALIBRATION.md",
+      "status": "MATERIALIZED_AND_SHARED_ASSET_VALIDATOR_COMPATIBLE"
+    },
+    "not_claimed": [
+      "browser_answer_leak_safety",
+      "Mac_visual_acceptance",
+      "runtime_adoption",
+      "learner_progress",
+      "S_K_L_P_R_E_U_promotion"
+    ],
+    "eligibility_accounting": {
+      "rule": "Projection eligibility requires accepted Current Knowledge and System-specific Learning authority; scoped Acceptance Truth controls eligibility rather than stale construction-status strings. Eligibility does not imply compilation or P acceptance.",
+      "compiled": [
+        {"canonical_id":"A1","system_id":"circulation","status":"ELIGIBLE_COMPILED","block_count":12,"owner_root":"content/xizong/knowledge/systems/a1-circulation/"},
+        {"canonical_id":"A2","system_id":"respiratory","status":"ELIGIBLE_COMPILED","block_count":12,"owner_root":"content/xizong/knowledge/systems/a2-respiratory/"},
+        {"canonical_id":"A3","system_id":"urinary","status":"ELIGIBLE_COMPILED","block_count":14,"owner_root":"content/xizong/knowledge/systems/a3-urinary/"},
+        {"canonical_id":"B","system_id":"digestive-metabolic-endocrine-tumor","status":"ELIGIBLE_COMPILED_PENDING_FRESH_P_ACCEPTANCE","block_count":38,"owner_root":"content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/"}
+      ],
+      "eligible_not_compiled": [
+        {
+          "canonical_id": "C",
+          "system_id": "hematology-immunity-infection",
+          "status": "ELIGIBLE_NOT_COMPILED",
+          "block_count": 27,
+          "kp_count": 423,
+          "logic_group_count": 133,
+          "membership_model": "EXPLICIT_KP_MEMBERS_SUPPORTED_BY_SHARED_SEMANTIC_ADAPTER",
+          "source_contact_model": "BLOCK_OR_CANONICAL_SOURCE_UNIT_NOT_AUTOMATIC_LOGIC_GROUP",
+          "owner_root": "content/xizong/knowledge/systems/c-hematology-immunity-infection/",
+          "learning_owner": "content/xizong/knowledge/learner/c-hematology-immunity-infection-learning.json"
+        }
+      ],
+      "not_eligible": [
+        {"canonical_id":"D","scope":"neuro-sensory-motor-orthopedics","status":"NOT_ELIGIBLE","reason":"Current D Learning acceptance is not yet landed in main.","owner_root":"content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/"},
+        {"canonical_id":"E","scope":"reproductive-breast","status":"NOT_ELIGIBLE","reason":"No accepted System-level plus System-specific Learning authority yet.","owner_root":"content/xizong/knowledge/systems/e-reproductive-breast/"},
+        {"canonical_id":"F","scope":"remaining-clinical","status":"NOT_ELIGIBLE","reason":"No accepted System-level plus System-specific Learning authority yet.","owner_root":"content/xizong/knowledge/systems/f-remaining-clinical/"}
+      ]
+    },
+    "null_policy": "Absent or unresolved Current semantics stay absent. Consumers must not synthesize missing medical relations, cues, locators or enrichment.",
+    "freshness_policy": {
+      "SYSTEM_CORE": "RESOLVE_BINDING",
+      "MEDICAL_CORE": "STRICT_BLOB when used by DERIVED_FRAGMENT",
+      "LEARNING_SUPPORT": "RESOLVE_BINDING",
+      "SELECTIVE_CUES": "RESOLVE_BINDING",
+      "PATHWAYS": "RESOLVE_BINDING",
+      "EXTERNAL_SOURCE_CONTRACT": "STRICT_BLOB",
+      "rule": "File packaging is not semantic dependency. Structured sources revalidate exact bindings instead of causing sibling-wide stale fan-out."
+    },
+    "binding_policy": {
+      "current_refs_only": true,
+      "fuzzy_runtime_resolution": false,
+      "optional_index_match_zero_is_legal": true,
+      "owner_ref_does_not_copy_core": true,
+      "logic_group_membership_may_be_contiguous_or_explicit": true,
+      "source_contact_segment_must_not_be_inferred_from_logic_group": true
+    },
+    "coverage": {
+      "systems": 4,
+      "blocks": 76,
+      "total_projection_assets": 80,
+      "expected": {"A1":12,"A2":12,"A3":14,"B":38},
+      "current_eligible_systems": 5,
+      "current_eligible_blocks": 103,
+      "eligible_not_compiled_blocks": 27,
+      "eligible_block_accounting": {
+        "ASSET_VALIDATED_A_SYSTEMS": 38,
+        "B_COMPILED_PENDING_FRESH_P_ACCEPTANCE": 38,
+        "C_ELIGIBLE_NOT_COMPILED": 27
+      },
+      "stale_accounting": {
+        "FRESH_VALIDATED_BASELINE": 38,
+        "FRESH_RECONCILED_COMPILED": 38,
+        "ELIGIBLE_NOT_COMPILED": 27,
+        "STALE": 0,
+        "BLOCKED": 0
+      },
+      "rich_calibration_blocks": ["circulation-b01","circulation-b07","circulation-b10","circulation-b11","respiratory-r01","urinary-b01","urinary-b05"],
+      "b_projection_calibration_blocks": ["D1","M2","D8","D15","D19","D21","G5"],
+      "baseline_projection_blocks": 69,
+      "baseline_semantics": "Current-backed problem/focus/stop/Recall/LG map + protected views; B intentionally does not project its whole canonical Block Markdown at ORIENT. C is eligible but remains absent until a C-specific Projection compile is explicitly accepted."
+    }
+  },
+  "coverage": {
+    "systems": 4,
+    "blocks": 76,
+    "total_projection_assets": 80,
+    "expected": {"A1":12,"A2":12,"A3":14,"B":38},
+    "rich_calibration_blocks": ["circulation-b01","circulation-b07","circulation-b10","circulation-b11","respiratory-r01","urinary-b01","urinary-b05"],
+    "b_projection_calibration_blocks": ["D1","M2","D8","D15","D19","D21","G5"],
+    "baseline_projection_blocks": 69,
+    "baseline_semantics": "Compiled asset coverage ledger only; Current eligibility beyond the compiled set is tracked under validation.coverage and validation.eligibility_accounting."
+  },
+  "systems": {
+    "circulation": {
+      "canonical_id": "A1",
+      "system_projection": "a1-circulation/system.projection.json",
+      "block_count": 12,
+      "blocks": [
+        "a1-circulation/blocks/b01.projection.json","a1-circulation/blocks/b02.projection.json","a1-circulation/blocks/b03.projection.json","a1-circulation/blocks/b04.projection.json","a1-circulation/blocks/b05.projection.json","a1-circulation/blocks/b06.projection.json","a1-circulation/blocks/b07.projection.json","a1-circulation/blocks/b08.projection.json","a1-circulation/blocks/b09.projection.json","a1-circulation/blocks/b10.projection.json","a1-circulation/blocks/b11.projection.json","a1-circulation/blocks/b12.projection.json"
+      ]
+    },
+    "respiratory": {
+      "canonical_id": "A2",
+      "system_projection": "a2-respiratory/system.projection.json",
+      "block_count": 12,
+      "blocks": [
+        "a2-respiratory/blocks/r01.projection.json","a2-respiratory/blocks/r02.projection.json","a2-respiratory/blocks/r03.projection.json","a2-respiratory/blocks/r04.projection.json","a2-respiratory/blocks/r05.projection.json","a2-respiratory/blocks/r06.projection.json","a2-respiratory/blocks/r07.projection.json","a2-respiratory/blocks/r08.projection.json","a2-respiratory/blocks/r09.projection.json","a2-respiratory/blocks/r10.projection.json","a2-respiratory/blocks/r11.projection.json","a2-respiratory/blocks/r12.projection.json"
+      ]
+    },
+    "urinary": {
+      "canonical_id": "A3",
+      "system_projection": "a3-urinary/system.projection.json",
+      "block_count": 14,
+      "blocks": [
+        "a3-urinary/blocks/b01.projection.json","a3-urinary/blocks/b02.projection.json","a3-urinary/blocks/b03.projection.json","a3-urinary/blocks/b04.projection.json","a3-urinary/blocks/b05.projection.json","a3-urinary/blocks/b06.projection.json","a3-urinary/blocks/b07.projection.json","a3-urinary/blocks/b08.projection.json","a3-urinary/blocks/b09.projection.json","a3-urinary/blocks/b10.projection.json","a3-urinary/blocks/b11.projection.json","a3-urinary/blocks/b12.projection.json","a3-urinary/blocks/b13.projection.json","a3-urinary/blocks/b14.projection.json"
+      ]
+    },
+    "digestive-metabolic-endocrine-tumor": {
+      "canonical_id": "B",
+      "system_projection": "b-digestive-metabolic-endocrine-tumor/system.projection.json",
+      "learning_source": "content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json",
+      "block_count": 38,
+      "blocks": [
+        "b-digestive-metabolic-endocrine-tumor/blocks/d01.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d02.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d03.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d04.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d05.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d06.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d07.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d08.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d09.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d10.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d11.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d12.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d13.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d14.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d15.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d16.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d17.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d18.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d19.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d20.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d21.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d22.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d23.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m01.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m02.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m03.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m04.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m05.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m06.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m07.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m08.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m09.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m10.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/g01.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/g02.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/g03.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/g04.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/g05.projection.json"
+      ]
+    }
+  },
+  "runtime_adoption": "PENDING_SHARED_SEMANTIC_RENDERER",
+  "separate_runtime_blocker": "None at Projection eligibility level. Renderer adoption remains downstream and must preserve Current learning topology, protected Recall visibility, and learner-state boundaries."
+}
