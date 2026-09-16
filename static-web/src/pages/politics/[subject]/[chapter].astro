@@ -52,7 +52,7 @@ const useCognitiveWorkspace = subject === 'marxism'
   {useCognitiveWorkspace
     ? <PoliticsCognitiveWorkspace chapter={data} base={base} />
     : <PoliticsChapterRuntime chapter={data} base={base} compiled={compiled} />}
-  {useCognitiveWorkspace && <PoliticsCognitiveWorkspaceBridge />}
+  {useCognitiveWorkspace && <PoliticsCognitiveWorkspaceBridge chapter={data} />}
 
   <script is:inline>
     (() => {
