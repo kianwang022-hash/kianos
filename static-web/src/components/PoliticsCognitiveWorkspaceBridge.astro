@@ -1,66 +1,85 @@
 <style is:global>
   .politicsCognitiveWorkspace.directReasoningWorkspace{gap:8px}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .chapterContext{display:none}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .workspaceBar{grid-template-columns:minmax(220px,1fr) minmax(440px,1.55fr);min-height:56px;padding:8px 14px;box-shadow:0 5px 18px rgba(22,31,27,.035)}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .workspaceBar{grid-template-columns:minmax(260px,.9fr) minmax(520px,1.8fr);min-height:54px;padding:7px 14px;box-shadow:0 5px 18px rgba(22,31,27,.035)}
   .politicsCognitiveWorkspace.directReasoningWorkspace .workspaceState{display:none}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .workspaceUnit{grid-template-columns:minmax(0,1fr) minmax(290px,23%);min-height:calc(100vh - 190px)}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .cognitiveStage{padding:28px 34px 34px}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .contextualInspector{padding:24px 20px}
+
+  /* Chapter context stays reachable, but it must not become a second page. */
+  .politicsCognitiveWorkspace.directReasoningWorkspace .chapterContext{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:14px;min-height:44px;padding:8px 16px;border:1px solid var(--study-line);border-radius:10px;background:#fbfcfb}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .chapterContext>div:first-child{display:flex;align-items:center;gap:10px;min-width:0}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .chapterContext>div:first-child>span{flex:0 0 auto;color:var(--study-green);font-size:11px;font-weight:820;letter-spacing:.08em}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .chapterContext>div:first-child>strong{overflow:hidden;color:#28483d;font-size:13px;line-height:1.4;text-overflow:ellipsis;white-space:nowrap}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .chapterContextToggle{border:0;background:transparent;color:#54756a;cursor:pointer;font:inherit;font-size:12px;font-weight:760}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .chapterContextChain{display:none;grid-column:1/-1;gap:6px;padding:3px 0 7px 72px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .chapterContext.expanded .chapterContextChain{display:grid}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .chapterContextChain span{position:relative;padding-left:16px;color:#52665f;font-size:12.5px;line-height:1.5}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .chapterContextChain span::before{content:'→';position:absolute;left:0;color:var(--study-green);font-weight:800}
+
+  .politicsCognitiveWorkspace.directReasoningWorkspace .workspaceUnit{grid-template-columns:minmax(0,1fr) minmax(270px,22%);min-height:calc(100vh - 205px)}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .cognitiveStage{padding:24px 30px 30px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .contextualInspector{padding:22px 18px}
   .politicsCognitiveWorkspace.directReasoningWorkspace .contextualInspector [data-inspector-state]>header>span{display:none}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .contextualInspector [data-inspector-state]>header>strong{font-size:15px;line-height:1.4}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .stageScene{min-height:calc(100vh - 275px)}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .stageScene>h2{max-width:38ch;margin-bottom:18px;font-size:clamp(28px,2.25vw,35px);line-height:1.22}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .mapDeck{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(430px,100%),1fr));gap:22px;align-items:start}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .contextualInspector [data-inspector-state]>header>strong{font-size:14px;line-height:1.4}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .stageScene{min-height:calc(100vh - 292px)}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .stageScene>h2{max-width:44ch;margin:4px 0 16px;font-size:clamp(25px,2vw,31px);line-height:1.24;letter-spacing:-.015em}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .stageBridge{max-width:74ch;margin:0 0 8px;color:#65756f;font-size:13px;line-height:1.55}
+
+  /* The main map is a spatial model, not a list of edge sentences. */
+  .politicsCognitiveWorkspace.directReasoningWorkspace .mapDeck{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(390px,100%),1fr));gap:16px;align-items:start}
   .politicsCognitiveWorkspace.directReasoningWorkspace .mapTabs{display:none!important}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .semanticMap{display:grid!important;gap:12px;padding-top:14px;border-top:1px solid var(--study-line)}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .semanticMap{display:grid!important;gap:10px;padding:13px 14px 14px;border:1px solid #e5ebe8;border-radius:12px;background:#fff}
   .politicsCognitiveWorkspace.directReasoningWorkspace .semanticMap[hidden]{display:grid!important}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .semanticMap>header{display:grid;gap:3px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .semanticMap>header{display:grid;gap:2px;padding-bottom:8px;border-bottom:1px solid #edf1ef}
   .politicsCognitiveWorkspace.directReasoningWorkspace .semanticMap>header>span{display:none}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .semanticMap>header strong{font-size:16px;line-height:1.45}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .semanticMap>header strong{font-size:14px;line-height:1.4;color:#304a41}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .semanticMap.goldenized>.semanticMapNodes,
+  .politicsCognitiveWorkspace.directReasoningWorkspace .semanticMap.goldenized>.semanticEdges{display:none!important}
 
-  .politicsCognitiveWorkspace.directReasoningWorkspace .directRelationField{display:grid;grid-template-columns:1fr;gap:0;margin-top:2px;border-top:1px solid #edf0ee;border-bottom:1px solid #edf0ee}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .directRelationField>div{display:grid;grid-template-columns:minmax(92px,.85fr) 18px minmax(150px,1.35fr) 18px minmax(92px,.85fr);align-items:center;gap:7px;padding:10px 2px;border-radius:0;background:transparent}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .directRelationField>div+div{border-top:1px solid #f0f2f1}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .directRelationField span{font-size:13.5px;line-height:1.45;font-weight:760}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .directRelationField i{color:var(--study-green);font-size:14px}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .directRelationField small{color:#436b5d;font-size:12.5px;line-height:1.45;font-weight:650}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenGraph{--graph-levels:2;display:grid;grid-template-columns:repeat(var(--graph-levels),minmax(0,1fr));gap:30px;align-items:center;min-height:150px;padding:6px 2px 2px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenGraphColumn{position:relative;display:grid;gap:8px;align-content:center;min-width:0}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenGraphColumn:not(:last-child)::after{content:'→';position:absolute;right:-23px;top:50%;transform:translateY(-50%);color:#6c9a8a;font-size:18px;font-weight:800}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNode{display:grid;gap:3px;min-width:0;padding:8px 9px 8px 11px;border-left:3px solid #b8d2c8;background:#f9fbfa}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNode b{color:#173f32;font-size:13.5px;line-height:1.35}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNode p{margin:0;color:#5d6c67;font-size:11.5px;line-height:1.46}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNode small{display:block;margin-top:2px;color:#3f6d5e;font-size:10.5px;line-height:1.35;font-weight:700}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenGraphColumn:last-child .goldenNode{border-left-color:var(--study-green);background:#f4f8f6}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenCrossEdges{display:grid;gap:4px;margin-top:4px;padding-top:8px;border-top:1px dashed #dfe8e4}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenCrossEdges span{color:#4e685f;font-size:10.5px;line-height:1.4}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenCrossEdges b{color:#24483c}
 
-  .politicsCognitiveWorkspace.directReasoningWorkspace .mapNodeGlossary{margin-top:2px;border:0}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .mapNodeGlossary>summary{width:max-content;cursor:pointer;color:var(--study-muted);font-size:13px;font-weight:720;list-style:none}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .mapNodeGlossary>summary::-webkit-details-marker{display:none}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .mapNodeGlossary>summary::after{content:'  +';color:var(--study-green)}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .mapNodeGlossary[open]>summary::after{content:'  −'}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .mapNodeGlossary .semanticMapNodes{grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:10px}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .mapNodeGlossary .semanticMapNodes article{min-height:auto;padding:9px 4px 9px 12px;border:0;border-left:3px solid #c5d8d1;background:transparent}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .mapNodeGlossary .semanticMapNodes b{font-size:14.5px;line-height:1.4}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .mapNodeGlossary .semanticMapNodes p{margin:5px 0 0;color:var(--study-muted);font-size:13px;line-height:1.58}
+  /* Required reasoning stays visible, but below the main map. */
+  .politicsCognitiveWorkspace.directReasoningWorkspace .relationStrip{margin-top:12px;padding-top:10px;border-top:1px solid var(--study-line)}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .relationStrip>section{display:grid;grid-template-columns:minmax(150px,190px) minmax(0,1fr);gap:12px;align-items:center}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .relationStrip>section>span{color:#48675c;font-size:12px;font-weight:780;line-height:1.4}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .relationStrip>section>div{display:flex;align-items:center;gap:7px;overflow-x:auto;padding:2px 0}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .relationStrip b{min-width:max-content;color:#263f37;font-size:11.5px;line-height:1.4;font-weight:680}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .relationStrip i{color:#6c9a8a;font-style:normal;font-size:12px}
 
-  .politicsCognitiveWorkspace.directReasoningWorkspace .nodeDeepening{margin-top:14px;padding-top:11px;border:0;border-top:1px solid var(--study-line)}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .nodeDeepening>summary{cursor:pointer;color:#45695d;font-size:13px;font-weight:760;list-style:none}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .nodeDeepening>summary::-webkit-details-marker{display:none}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .nodeDeepening>summary::after{content:'  +';color:var(--study-green)}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .nodeDeepening[open]>summary::after{content:'  −'}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .nodeDeepening>div{display:flex;align-items:center;gap:8px;overflow:auto;margin-top:10px;padding-bottom:2px}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .nodeDeepening b{min-width:max-content;font-size:13px;line-height:1.45;font-weight:720}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .nodeDeepening i{color:var(--study-green);font-style:normal}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .stageAnchor{margin:12px 0 0;padding:8px 0 8px 11px;border-left:3px solid var(--study-green);background:transparent;color:#315247;font-size:12.5px;line-height:1.5}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .stageActions{padding-top:16px}
 
-  .politicsCognitiveWorkspace.directReasoningWorkspace .stageActions{padding-top:20px}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .inspectorPrimaryAnchor{margin:18px 0 0!important;padding:10px 0 10px 12px!important;border-left:3px solid var(--study-green)!important;border-radius:0!important;background:transparent!important;color:#315247!important;font-size:14px!important;line-height:1.58!important}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .inspectorBlock p strong{font-size:13.5px;line-height:1.45}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .inspectorBlock p span{font-size:12.5px;line-height:1.55}
-  .politicsCognitiveWorkspace.directReasoningWorkspace .inspectorDetails{font-size:13px;line-height:1.55}
+  /* Inspector is for discrimination, not a duplicate summary of the stage. */
+  .politicsCognitiveWorkspace.directReasoningWorkspace [data-inspector-state="ORIENT"] .inspectorBlock>b{display:none}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .inspectorBlock p{margin:0;padding:10px 0;border-bottom:1px solid #edf1ef}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .inspectorBlock p strong{display:block;color:#294b40;font-size:12.5px;line-height:1.4}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .inspectorBlock p span{display:block;margin-top:4px;color:#667771;font-size:11.5px;line-height:1.5}
+  .politicsCognitiveWorkspace.directReasoningWorkspace [data-inspector-state="ORIENT"]>.inspectorDetails{display:none!important}
   .politicsCognitiveWorkspace.directReasoningWorkspace .suyiNote{display:none!important}
 
-  @media(max-width:1050px){
+  @media(max-width:1180px){
+    .politicsCognitiveWorkspace.directReasoningWorkspace .workspaceUnit{grid-template-columns:minmax(0,1fr) 250px}
+    .politicsCognitiveWorkspace.directReasoningWorkspace .mapDeck{grid-template-columns:1fr}
+  }
+  @media(max-width:980px){
     .politicsCognitiveWorkspace.directReasoningWorkspace .workspaceBar{grid-template-columns:1fr}
     .politicsCognitiveWorkspace.directReasoningWorkspace .workspaceUnit{grid-template-columns:1fr;min-height:auto}
     .politicsCognitiveWorkspace.directReasoningWorkspace .stageScene{min-height:auto}
-    .politicsCognitiveWorkspace.directReasoningWorkspace .mapDeck{grid-template-columns:1fr}
+    .politicsCognitiveWorkspace.directReasoningWorkspace .chapterContext{grid-template-columns:1fr}
+    .politicsCognitiveWorkspace.directReasoningWorkspace .chapterContextChain{padding-left:0}
   }
   @media(max-width:720px){
-    .politicsCognitiveWorkspace.directReasoningWorkspace .directRelationField>div{grid-template-columns:1fr;gap:3px;padding:10px 0}
-    .politicsCognitiveWorkspace.directReasoningWorkspace .directRelationField i{display:none}
-    .politicsCognitiveWorkspace.directReasoningWorkspace .directRelationField small::before{content:'→ ';color:var(--study-green)}
+    .politicsCognitiveWorkspace.directReasoningWorkspace .goldenGraph{grid-template-columns:1fr;gap:14px}
+    .politicsCognitiveWorkspace.directReasoningWorkspace .goldenGraphColumn:not(:last-child)::after{content:'↓';right:auto;left:50%;top:auto;bottom:-16px;transform:translateX(-50%)}
+    .politicsCognitiveWorkspace.directReasoningWorkspace .relationStrip>section{grid-template-columns:1fr}
   }
 </style>
 
@@ -89,88 +108,142 @@
     } catch {}
   };
 
-  const promoteDirectRelations = (panel) => {
+  const goldenizeMap = (panel) => {
     const nodeWrap = panel.querySelector('.semanticMapNodes');
     const edgeWrap = panel.querySelector('.semanticEdges');
     const header = panel.querySelector('header');
+    if (!nodeWrap || !edgeWrap || !header || panel.classList.contains('goldenized')) return;
 
-    if (edgeWrap && header) {
-      edgeWrap.classList.add('directRelationField');
-      edgeWrap.setAttribute('data-direct-relation-field', '');
-      header.after(edgeWrap);
+    const nodeRows = [...nodeWrap.querySelectorAll(':scope > article')].map((article) => ({
+      label: article.querySelector('b')?.textContent?.trim() || '',
+      meaning: article.querySelector('p')?.textContent?.trim() || ''
+    })).filter((row) => row.label);
+    const meanings = new Map(nodeRows.map((row) => [row.label, row.meaning]));
+    const edgeRows = [...edgeWrap.querySelectorAll(':scope > div')].map((row) => {
+      const labels = row.querySelectorAll('span');
+      return {
+        from: labels[0]?.textContent?.trim() || '',
+        relation: row.querySelector('small')?.textContent?.trim() || '',
+        to: labels[1]?.textContent?.trim() || ''
+      };
+    }).filter((edge) => edge.from && edge.to);
+
+    const labels = [...new Set([...nodeRows.map((row) => row.label), ...edgeRows.flatMap((edge) => [edge.from, edge.to])])];
+    const indegree = new Map(labels.map((label) => [label, 0]));
+    const outgoing = new Map(labels.map((label) => [label, []]));
+    edgeRows.forEach((edge) => {
+      indegree.set(edge.to, (indegree.get(edge.to) || 0) + 1);
+      outgoing.get(edge.from)?.push(edge);
+    });
+
+    const queue = labels.filter((label) => (indegree.get(label) || 0) === 0);
+    const level = new Map(queue.map((label) => [label, 0]));
+    const remaining = new Map(indegree);
+    while (queue.length) {
+      const current = queue.shift();
+      const currentLevel = level.get(current) || 0;
+      for (const edge of outgoing.get(current) || []) {
+        level.set(edge.to, Math.max(level.get(edge.to) || 0, currentLevel + 1));
+        remaining.set(edge.to, (remaining.get(edge.to) || 0) - 1);
+        if ((remaining.get(edge.to) || 0) === 0) queue.push(edge.to);
+      }
+    }
+    labels.forEach((label) => { if (!level.has(label)) level.set(label, 0); });
+    const maxLevel = Math.max(0, ...level.values());
+
+    const graph = document.createElement('div');
+    graph.className = 'goldenGraph';
+    graph.style.setProperty('--graph-levels', String(maxLevel + 1));
+
+    for (let columnIndex = 0; columnIndex <= maxLevel; columnIndex += 1) {
+      const column = document.createElement('div');
+      column.className = 'goldenGraphColumn';
+      labels.filter((label) => level.get(label) === columnIndex).forEach((label) => {
+        const card = document.createElement('article');
+        card.className = 'goldenNode';
+        const title = document.createElement('b');
+        title.textContent = label;
+        card.appendChild(title);
+        const meaning = meanings.get(label);
+        if (meaning) {
+          const copy = document.createElement('p');
+          copy.textContent = meaning;
+          card.appendChild(copy);
+        }
+        const edges = outgoing.get(label) || [];
+        if (edges.length === 1) {
+          const edge = edges[0];
+          const relation = document.createElement('small');
+          const skipsLevel = (level.get(edge.to) || 0) > columnIndex + 1;
+          relation.textContent = skipsLevel ? `↗ ${edge.relation} → ${edge.to}` : `→ ${edge.relation}`;
+          card.appendChild(relation);
+        }
+        column.appendChild(card);
+      });
+      graph.appendChild(column);
     }
 
-    // The semantic edges are the primary reasoning. Node prose remains available,
-    // but it must not compete with the relation that orients the Unit.
-    if (nodeWrap && edgeWrap && !nodeWrap.closest('.mapNodeGlossary')) {
-      const glossary = document.createElement('details');
-      glossary.className = 'mapNodeGlossary';
-      const summary = document.createElement('summary');
-      summary.textContent = '节点含义';
-      glossary.append(summary, nodeWrap);
-      edgeWrap.after(glossary);
+    const crossEdges = edgeRows.filter((edge) => (level.get(edge.to) || 0) > (level.get(edge.from) || 0) + 1);
+    panel.insertBefore(graph, edgeWrap);
+    if (crossEdges.length) {
+      const cross = document.createElement('div');
+      cross.className = 'goldenCrossEdges';
+      crossEdges.forEach((edge) => {
+        const row = document.createElement('span');
+        row.innerHTML = `<b>${edge.from}</b> → ${edge.relation} → <b>${edge.to}</b>`;
+        cross.appendChild(row);
+      });
+      graph.after(cross);
     }
-
-    panel.classList.add('directReasoningMap');
-  };
-
-  const demoteRelationChain = (strip) => {
-    const section = strip.querySelector(':scope > section');
-    if (!section) return;
-    const title = section.querySelector(':scope > span')?.textContent?.trim() || '关系深化';
-    const body = section.querySelector(':scope > div');
-    if (!body) return;
-
-    const details = document.createElement('details');
-    details.className = 'nodeDeepening';
-    details.setAttribute('data-node-deepening', '');
-    const summary = document.createElement('summary');
-    summary.textContent = `再深入 · ${title}`;
-    details.append(summary, body);
-    strip.replaceWith(details);
+    panel.classList.add('goldenized');
   };
 
   if (workspace) {
     workspace.classList.add('directReasoningWorkspace');
 
-    // Real-use visual rule: core reasoning is primary content, so it is visible by default.
-    // Preserve the Map's own topology instead of coercing every Map into one generic Chain.
+    const chapterContext = workspace.querySelector('.chapterContext');
+    if (chapterContext) {
+      const firstRow = chapterContext.querySelector(':scope > div:first-child');
+      if (firstRow && chapterContext.querySelector('.chapterContextChain')) {
+        const toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'chapterContextToggle';
+        toggle.textContent = '章地图 +';
+        firstRow.appendChild(toggle);
+        toggle.addEventListener('click', () => {
+          const expanded = chapterContext.classList.toggle('expanded');
+          toggle.textContent = expanded ? '章地图 −' : '章地图 +';
+        });
+      }
+    }
+
+    // All Current maps stay simultaneously visible on the golden page. Their topology,
+    // not a repeated edge list, owns first glance.
     workspace.querySelectorAll('[data-map-deck]').forEach((deck) => {
       deck.querySelector('.mapTabs')?.remove();
       deck.querySelectorAll('[data-map-panel]').forEach((panel) => {
         panel.hidden = false;
         panel.classList.add('active');
-        promoteDirectRelations(panel);
+        goldenizeMap(panel);
       });
     });
 
-    // A relation_chain may deepen one node without becoming a third equal-weight mainline.
-    workspace.querySelectorAll('[data-stage="ORIENT"] .relationStrip').forEach(demoteRelationChain);
-
-    // Keep the Cognitive Stage lean: durable Anchor stays visible, but in the Inspector.
     workspace.querySelectorAll('[data-workspace-unit]').forEach((unit) => {
-      const anchor = unit.querySelector('[data-stage="ORIENT"] .stageAnchor');
-      const inspector = unit.querySelector('[data-inspector-state="ORIENT"]');
-      if (anchor && inspector) {
-        anchor.classList.add('inspectorPrimaryAnchor');
-        inspector.appendChild(anchor);
-      }
-
+      const inspectorTitle = unit.querySelector('[data-inspector-state="ORIENT"] header strong');
+      if (inspectorTitle) inspectorTitle.textContent = '容易混';
       const verifyTitle = unit.querySelector('[data-inspector-state="VERIFY"] header strong');
       if (verifyTitle) verifyTitle.textContent = '安静作答';
       const closeEyebrow = unit.querySelector('[data-stage="CLOSE"] .stageEyebrow');
       if (closeEyebrow) closeEyebrow.textContent = '本段收口';
     });
 
-    // Shared Functional First resume/repair enhancer can request a canonical workspace state
-    // without owning or redefining the C00 state machine.
     workspace.addEventListener('politics:resume-state', (event) => {
       const unit = event.target?.closest?.('[data-workspace-unit]');
       const state = event.detail?.state;
       if (unit && state) setWorkspaceState(unit, state);
     });
 
-    // Score-first fast path: Recall is useful, but it is not a compulsory ritual.
+    // Score-first fast path: optional close stays available without becoming a ritual.
     workspace.querySelectorAll('[data-workspace-action="learn-done"]').forEach((button) => {
       const unit = button.closest('[data-workspace-unit]');
       if (!unit) return;
@@ -197,7 +270,6 @@
 
       event.preventDefault();
       setWorkspaceState(unit, 'EXTERNAL_LEARN');
-
       const target = document.querySelector(link.getAttribute('href'));
       requestAnimationFrame(() => target?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
     });
