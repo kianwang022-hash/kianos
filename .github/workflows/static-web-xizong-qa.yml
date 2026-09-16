@@ -85,6 +85,8 @@ jobs:
         run: node scripts/sync-xizong-question-relations-manifest.mjs --check
       - name: Install dependencies
         run: npm install --no-audit --no-fund
+      - name: Validate shared Current semantic adapter
+        run: node scripts/validate-xizong-semantic-adapter.mjs
       - name: Validate one Current owner per Block identity
         run: node scripts/validate-xizong-current-owners.mjs
       - name: Validate live Learning-owner lifecycle
