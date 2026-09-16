@@ -183,6 +183,25 @@ async function historyRepairJourney(page) {
   check((await firstAttempt(page, config, questionId))?.outcome === attempt.outcome, 'history_refresh_does_not_overwrite_first_attempt');
 }
 
+async function c00GoldenScreenshots(page) {
+  await clearPoliticsState(page);
+  await page.goto(`${BASE}/politics/marxism/ch00/`, { waitUntil: 'networkidle' });
+  const workspace = page.locator('[data-politics-cognitive-workspace]');
+  await workspace.waitFor({ state: 'visible' });
+  check(await workspace.locator('.chapterContext').isVisible(), 'c00_compact_chapter_context_visible');
+
+  const s01 = workspace.locator('[data-workspace-unit]').nth(0);
+  await s01.waitFor({ state: 'visible' });
+  check((await s01.locator('.goldenGraph').count()) === 1, 'c00_s01_uses_one_spatial_graph');
+  await page.screenshot({ path: path.join(auditDir, 'marx-c00-s01-orient.png'), fullPage: false });
+
+  await workspace.locator('[data-workspace-unit-tab="1"]').click();
+  const s02 = workspace.locator('[data-workspace-unit]').nth(1);
+  await s02.waitFor({ state: 'visible' });
+  check((await s02.locator('.goldenGraph').count()) === 2, 'c00_s02_keeps_two_maps_simultaneously_visible');
+  await page.screenshot({ path: path.join(auditDir, 'marx-c00-s02-orient.png'), fullPage: false });
+}
+
 async function c00RepairResumeJourney(page) {
   await clearPoliticsState(page);
   await page.goto(`${BASE}/politics/marxism/ch00/`, { waitUntil: 'domcontentloaded' });
@@ -238,11 +257,12 @@ let browser;
 try {
   await waitForServer();
   browser = await chromium.launch({ headless: true });
-  const context = await browser.newContext();
+  const context = await browser.newContext({ viewport: { width: 1512, height: 982 } });
   const page = await context.newPage();
   await historyCleanJourney(page);
   await historyResumeJourney(page);
   await historyRepairJourney(page);
+  await c00GoldenScreenshots(page);
   await c00RepairResumeJourney(page);
   await xiShapeSmoke(page);
   await context.close();
