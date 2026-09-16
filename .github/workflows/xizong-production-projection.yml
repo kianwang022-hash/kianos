@@ -50,4 +50,20 @@ jobs:
       - name: Validate production semantic Projection
         run: npm run validate:xizong-production
       - name: Build Astro
-        run: npm run build
+        shell: bash
+        run: |
+          set +e
+          npm run build 2>&1 | tee astro-build.log
+          status=${PIPESTATUS[0]}
+          echo '### Astro build tail' >> "$GITHUB_STEP_SUMMARY"
+          echo '```text' >> "$GITHUB_STEP_SUMMARY"
+          tail -n 120 astro-build.log >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"
+      - name: Upload Astro build log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xizong-production-astro-build-log
+          path: static-web/astro-build.log
+          if-no-files-found: error
