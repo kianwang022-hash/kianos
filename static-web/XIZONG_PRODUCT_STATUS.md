@@ -1,7 +1,8 @@
 # Xizong Product / UI Status
 
 Status: **PRODUCT / INTERACTION ACCEPTED · ELIGIBLE PROJECTION V1 FROZEN · RENDERER / MAC ACCEPTANCE OPEN**  
-Execution: `CODEX_ASTRA_THREE_SUBJECT_SITE_EXECUTION.md` **v3.0+ §3–4、§7–11**  
+Current routing: `static-web/CURRENT.md` → `content/xizong/CURRENT.md` → exact System Current / Acceptance  
+Historical integrated execution documents (including the old #148-era three-subject execution prompt) are provenance only, not Current execution authority.  
 Domain router: `content/xizong/CURRENT.md`  
 Safety: `XIZONG_UI_REVIEW_PROTOCOL.md`
 

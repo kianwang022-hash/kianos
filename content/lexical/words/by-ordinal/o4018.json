@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "09be5bc6891adf2dce192a8cce14885671ce841f51d468022902692962a24169",
+    "content_hash": "ee7aa4fc289f409f13f2fd7459f11eb3acaeec9a78afbac1aa78e2884f80355b",
     "core_concept": {
       "core_clusters": [
         {
@@ -28,7 +28,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3875-o4124"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -55,6 +57,20 @@
         "sense_label_en": "to give shelter to",
         "sort_order": 0,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "避难所；庇护",
+        "definition_en": "a shelter from danger or hardship",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:refuge:8ec0d427742c5282",
+        "sense_label_en": "a shelter from danger or hardship",
+        "sort_order": 1,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -102,31 +118,6 @@
       "source_row": 11225,
       "source_path": "content/lexical/canonical/senses/shards/o4001-4032.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:refuge:8ec0d427742c5282",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "避难所；庇护",
-      "definition_en": "a shelter from danger or hardship",
-      "semantic_key": "59cab0c9571d2672cf563852bcd6c03ed6a8ad4f32cbacdcb1b3e7bf20e03514",
-      "semantic_key_history": [
-        "e19c2a9b71a73da601c460c026e4e07344a59bf0c02d1f153a54e8e011ddf069"
-      ],
-      "legacy_aliases": [
-        "refuge:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "refuge:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11227,
-      "source_path": "content/lexical/canonical/senses/shards/o4001-4032.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -147,7 +138,7 @@
       },
       {
         "sense_id": "sense:refuge:8ec0d427742c5282",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11227,
         "source_path": "content/lexical/canonical/senses/shards/o4001-4032.json"

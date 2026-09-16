@@ -7,19 +7,62 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "49a18a9bc0f85fce8f806a53154946759fc018d05c481e940ed646d69be17d21",
+    "content_hash": "6f1bc1c9cf0369ac056f9f845541433797d7e27a9c624c1037102528d3f89fa0",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "女性君主或王后；也指蜂王等",
-      "core_meaning_en": "female monarch or wife of a king; also a fertile female insect",
-      "mental_model_cn": "女性君主或王后；也指蜂王等",
+      "core_clusters": [
+        {
+          "label_cn": "女王；女君主",
+          "label_en": "a female monarch",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:queen:9e36113e1353510b"
+          ]
+        },
+        {
+          "label_cn": "王后",
+          "label_en": "the wife or widow of a king",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:queen:6c68b4dedf3c5858"
+          ]
+        },
+        {
+          "label_cn": "蜂王；蚁后",
+          "label_en": "fertile female in a social-insect colony",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:queen:80c266a48f0e5354"
+          ]
+        },
+        {
+          "label_cn": "国际象棋的后",
+          "label_en": "the queen in chess",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:queen:fe66de6d59b9640e"
+          ]
+        },
+        {
+          "label_cn": "Q牌；皇后牌",
+          "label_en": "a queen playing card",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:queen:3d8b8a7f02529648"
+          ]
+        }
+      ],
+      "core_meaning_cn": "女王/王后；蜂王；棋类或纸牌中的 queen",
+      "core_meaning_en": "female monarch/consort; insect queen; chess/card queen",
+      "mental_model_cn": "女王/王后；蜂王；棋类或纸牌中的 queen",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3875-o4124"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -94,6 +137,78 @@
         "sense_label_en": "something personified as a woman who is considered the best or most impo",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:48466fd64505d30fe7f8",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:queen:fe66de6d59b9640e:collocation:forward-o3875-o4124"
+            ],
+            "meaning_cn": "国际象棋中的后",
+            "phrase": "chess queen"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "后；皇后（国际象棋中最强的棋子）",
+        "definition_en": "the most powerful piece in chess, able to move any number of squares in any direction",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:queen:fe66de6d59b9640e",
+        "sense_label_en": "the most powerful piece in chess, able to move any number of squares in any direction",
+        "sort_order": 3,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:b1b5d9952d3bd265a78f",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:queen:3d8b8a7f02529648:collocation:forward-o3875-o4124"
+            ],
+            "meaning_cn": "红桃Q；红心皇后牌",
+            "phrase": "queen of hearts"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "Q牌；皇后牌",
+        "definition_en": "a playing card bearing the image or rank of a queen",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:queen:3d8b8a7f02529648",
+        "sense_label_en": "a playing card bearing the image or rank of a queen",
+        "sort_order": 4,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:4ee6940fdb025e9462ea",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:queen:80c266a48f0e5354:collocation:forward-o3875-o4124"
+            ],
+            "meaning_cn": "蜂王",
+            "phrase": "queen bee"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "蜂王；蚁后等群居昆虫的产卵雌体",
+        "definition_en": "the fertile egg-laying female in a colony of social insects such as bees or ants",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:queen:80c266a48f0e5354",
+        "sense_label_en": "the fertile egg-laying female in a colony of social insects such as bees or ants",
+        "sort_order": 5,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -116,33 +231,7 @@
     "word_id": "word:queen"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:queen:80c266a48f0e5354",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "蜂王；蚁后；后蚁",
-      "definition_en": "the only fertile female in a colony of social insects such as bees and ants and termites; its function is to lay eggs",
-      "semantic_key": "b2b41026ba585096f9e7db2e3201bfda4c0203d1523173a4b4c6c02661f0faef",
-      "semantic_key_history": [
-        "4ec934f61ac5c032f1b456b989ff32ff4da9c8478dfbdc6bd356d1eac502230b"
-      ],
-      "legacy_aliases": [
-        "queen:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "queen:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10848,
-      "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -150,6 +239,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10846,
+        "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json"
+      },
+      {
+        "sense_id": "sense:queen:3d8b8a7f02529648",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10866,
         "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json"
       },
       {
@@ -161,7 +257,7 @@
       },
       {
         "sense_id": "sense:queen:80c266a48f0e5354",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10848,
         "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json"
@@ -172,12 +268,22 @@
         "merged_into_sense_id": null,
         "source_row": 10849,
         "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json"
+      },
+      {
+        "sense_id": "sense:queen:fe66de6d59b9640e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10865,
+        "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json"
       }
     ],
     "active_collocations": [
       "collocation:04a5c12344c6ae098264",
       "collocation:15958a208f278cd42ff6",
-      "collocation:596ac77c731ec99a2d4e"
+      "collocation:48466fd64505d30fe7f8",
+      "collocation:4ee6940fdb025e9462ea",
+      "collocation:596ac77c731ec99a2d4e",
+      "collocation:b1b5d9952d3bd265a78f"
     ],
     "facts": [],
     "collocations": [
@@ -192,6 +298,16 @@
         "source_path": "content/lexical/canonical/collocations/shards/o3873-3904.json"
       },
       {
+        "id": "collocation:48466fd64505d30fe7f8",
+        "source_row": 21561,
+        "source_path": "content/lexical/canonical/collocations/shards/o3873-3904.json"
+      },
+      {
+        "id": "collocation:4ee6940fdb025e9462ea",
+        "source_row": 21560,
+        "source_path": "content/lexical/canonical/collocations/shards/o3873-3904.json"
+      },
+      {
         "id": "collocation:596ac77c731ec99a2d4e",
         "source_row": 7549,
         "source_path": "content/lexical/canonical/collocations/shards/o3873-3904.json"
@@ -199,6 +315,11 @@
       {
         "id": "collocation:ae7c562b3c6897981e39",
         "source_row": 14769,
+        "source_path": "content/lexical/canonical/collocations/shards/o3873-3904.json"
+      },
+      {
+        "id": "collocation:b1b5d9952d3bd265a78f",
+        "source_row": 21562,
         "source_path": "content/lexical/canonical/collocations/shards/o3873-3904.json"
       }
     ],

@@ -7,29 +7,28 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "f0aa3dbf92b302fb09d52ed67bd52ec16932a633d8df5fbe930c7cc46c543567",
+    "content_hash": "cc83af29e0fd5940d6fd01cb9e1bfd8d3f0df2c63b7a481574468b6fd20059b4",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "兔子；兔肉",
-          "label_en": "a small burrowing animal with long ears and a short tail, often kept as a pet or for food; the flesh of a rabbit eaten as food",
+          "label_cn": "兔；兔子",
+          "label_en": "the animal rabbit",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:rabbit:1871d5639d9452f5"
+          ]
+        },
+        {
+          "label_cn": "兔肉",
+          "label_en": "rabbit meat",
           "pos": "noun",
           "sense_ids": [
             "sense:rabbit:14ff55ea63455fac"
           ]
-        },
-        {
-          "label_cn": "猎兔；让...见鬼去",
-          "label_en": "to hunt rabbits; to damn or curse (used in exclamations)",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:rabbit:bd82f232ec3e5cfc",
-            "sense:rabbit:f8024da1adce5213"
-          ]
         }
       ],
       "core_meaning_cn": "兔子；兔肉",
-      "core_meaning_en": "a small burrowing mammal with long ears, or its meat",
+      "core_meaning_en": "the animal rabbit; also rabbit meat",
       "mental_model_cn": "兔子；兔肉",
       "mental_model_en": ""
     },
@@ -37,7 +36,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3875-o4124"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -112,6 +113,30 @@
         "sense_label_en": "to damn or curse (used in exclamations)",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:0444cfe32b67507b8dee",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:rabbit:1871d5639d9452f5:collocation:forward-o3875-o4124"
+            ],
+            "meaning_cn": "宠物兔/野兔",
+            "phrase": "a pet/wild rabbit"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "兔；兔子",
+        "definition_en": "a small burrowing mammal with long ears and a short tail",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:rabbit:1871d5639d9452f5",
+        "sense_label_en": "a small burrowing mammal with long ears and a short tail",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -134,33 +159,7 @@
     "word_id": "word:rabbit"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:rabbit:1871d5639d9452f5",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "兔子",
-      "definition_en": "a small burrowing animal with long ears and a short tail, often kept as a pet or for food",
-      "semantic_key": "e2518b9f1bc95d587f7378411fbcf51336aab9b594b02756b93bfb43f778eb8c",
-      "semantic_key_history": [
-        "b057dd6b005dbdcb4727ace100cb12a49f4480cafd40f39d3f9bc41cb7d66730"
-      ],
-      "legacy_aliases": [
-        "rabbit:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "rabbit:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10899,
-      "source_path": "content/lexical/canonical/senses/shards/o3905-3936.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -172,7 +171,7 @@
       },
       {
         "sense_id": "sense:rabbit:1871d5639d9452f5",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10899,
         "source_path": "content/lexical/canonical/senses/shards/o3905-3936.json"
@@ -193,12 +192,18 @@
       }
     ],
     "active_collocations": [
+      "collocation:0444cfe32b67507b8dee",
       "collocation:0d919e28d173e997abce",
       "collocation:15c07bc5f492385d83c1",
       "collocation:54d3b2feed47f1bed6ba"
     ],
     "facts": [],
     "collocations": [
+      {
+        "id": "collocation:0444cfe32b67507b8dee",
+        "source_row": 21513,
+        "source_path": "content/lexical/canonical/collocations/shards/o3905-3936.json"
+      },
       {
         "id": "collocation:0d919e28d173e997abce",
         "source_row": 1132,

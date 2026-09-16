@@ -22,7 +22,7 @@
         "pattern": "read between the lines"
       }
     ],
-    "content_hash": "be71f667642d5eeb728abfb6d1ff6d1742ce20cfb0ae82da1d779b8c84676c7f",
+    "content_hash": "a64d7b79744d1cc2e17b0cd0cf050e06aac7265721ee2cc1d208d9ac2a758116",
     "core_concept": {
       "core_clusters": [
         {
@@ -49,12 +49,13 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
       "construction:construction:67ee068270f8c7ba5979",
-      "construction:construction:8880d799ddc9e4d905b4"
+      "construction:construction:8880d799ddc9e4d905b4",
+      "semantic-reconciliation:o3875-o4124"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -120,6 +121,30 @@
         "sense_label_en": "an act of reading",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:0c97141db76a9af9b871",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:read:3e0f17eb40279685:collocation:forward-o3875-o4124"
+            ],
+            "meaning_cn": "标牌上写着……/温度计显示……",
+            "phrase": "the sign/thermometer reads ..."
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "显示；标明；写着",
+        "definition_en": "to show, state, or indicate information, as on a sign, display, or instrument",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:read:3e0f17eb40279685",
+        "sense_label_en": "to show, state, or indicate information, as on a sign, display, or instrument",
+        "sort_order": 3,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -139,12 +164,35 @@
     },
     "word": "read",
     "word_family": [],
-    "word_id": "word:read"
+    "word_id": "word:read",
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o3875-o4124.md",
+      "type": "same_owner_form_pronunciation_boundary",
+      "boundaries": [
+        {
+          "condition": "base/present tense",
+          "pronunciation": "/riːd/",
+          "note": "read in the base form and present tense"
+        },
+        {
+          "condition": "past tense/past participle",
+          "pronunciation": "/red/",
+          "note": "same spelling, different tense-conditioned pronunciation"
+        }
+      ]
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
+      {
+        "sense_id": "sense:read:3e0f17eb40279685",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11083,
+        "source_path": "content/lexical/canonical/senses/shards/o3937-3968.json"
+      },
       {
         "sense_id": "sense:read:5fc5840510c75f0e",
         "status": "active",
@@ -168,11 +216,17 @@
       }
     ],
     "active_collocations": [
+      "collocation:0c97141db76a9af9b871",
       "collocation:0cd70d36459048a44648",
       "collocation:91abb1904365042de145"
     ],
     "facts": [],
     "collocations": [
+      {
+        "id": "collocation:0c97141db76a9af9b871",
+        "source_row": 21600,
+        "source_path": "content/lexical/canonical/collocations/shards/o3937-3968.json"
+      },
       {
         "id": "collocation:0cd70d36459048a44648",
         "source_row": 1064,

@@ -7,19 +7,46 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "6a79102792402db606185af08546344be30a1d560074ef2c38c5d10eaba7003e",
+    "content_hash": "4ca1e0cbc94967669913ee775e1e26c4d7d8ad57e62d7ef335efeece62911f97",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "追求；追赶",
-      "core_meaning_en": "the act of pursuing",
-      "mental_model_cn": "追求；追赶",
+      "core_clusters": [
+        {
+          "label_cn": "追赶；追捕",
+          "label_en": "physical chase or pursuit",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:pursuit:ddcdf24e95dc52d1"
+          ]
+        },
+        {
+          "label_cn": "追求；寻求",
+          "label_en": "effort to achieve or obtain a goal",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:pursuit:f5f2de91859a5a65"
+          ]
+        },
+        {
+          "label_cn": "消遣；职业活动",
+          "label_en": "an activity or occupation",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:pursuit:3ce0a70deff159d2"
+          ]
+        }
+      ],
+      "core_meaning_cn": "追赶；追求；从事的活动",
+      "core_meaning_en": "physical pursuit, pursuit of a goal, or an activity",
+      "mental_model_cn": "追赶；追求；从事的活动",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3875-o4124"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -33,15 +60,6 @@
             ],
             "meaning_cn": "追求某物",
             "phrase": "in pursuit of + sth"
-          },
-          {
-            "collocation_id": "collocation:6d796747685b52ec0ef1",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:pursuit:ddcdf24e95dc52d1:collocation:1"
-            ],
-            "meaning_cn": "对幸福的追求",
-            "phrase": "the pursuit of happiness"
           }
         ],
         "confidence": "medium",
@@ -66,17 +84,26 @@
             ],
             "meaning_cn": "对知识的追求",
             "phrase": "the pursuit of knowledge"
+          },
+          {
+            "collocation_id": "collocation:6d796747685b52ec0ef1",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:pursuit:ddcdf24e95dc52d1:collocation:1"
+            ],
+            "meaning_cn": "对幸福的追求",
+            "phrase": "the pursuit of happiness"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "寻求；探索",
-        "definition_en": "a search for an alternative that meets cognitive criteria",
+        "definition_cn": "追求；寻求（目标、知识、幸福等）",
+        "definition_en": "the act of trying to achieve, obtain, or continue toward a goal, knowledge, happiness, or another desired end",
         "governing_pattern": "",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:pursuit:f5f2de91859a5a65",
-        "sense_label_en": "a search for an alternative that meets cognitive criteria",
+        "sense_label_en": "the act of trying to achieve, obtain, or continue toward a goal, knowledge, happiness, or another desired end",
         "sort_order": 1,
         "transitivity": "nonverb"
       },

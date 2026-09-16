@@ -6,8 +6,27 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "25d2f452fb24506fa06f5b45ac6533ab91b33e59e4da790209cb6245fceeaa51",
+    "constructions": [
+      {
+        "construction_id": "construction:c915c9700b1f59dbeccc",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "忍住不做某事；抵制做某事",
+        "pattern": "resist doing sth",
+        "definition_en": "to stop oneself from doing something",
+        "source_sense_id": "sense:resist:d7ef5f9d8602522a"
+      },
+      {
+        "construction_id": "construction:2ef13faafcc4e46108a2",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "忍不住做某事",
+        "pattern": "can't resist doing sth",
+        "definition_en": "to be unable to stop oneself from doing something",
+        "source_sense_id": "sense:resist:d7ef5f9d8602522a"
+      }
+    ],
+    "content_hash": "16ea668cd1a566a9072d6c1e5bfd6d7fd0517ddc8017a6de8a59c2e7eba1acc2",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "抵抗，抵制",
@@ -19,10 +38,41 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3875-o4124"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "抵制，拒绝服从",
+        "definition_en": "refuse to comply",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:resist:d7ef5f9d8602522a",
+        "sense_label_en": "refuse to comply",
+        "sort_order": 0,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "耐得住，承受",
+        "definition_en": "withstand the force of something",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:resist:00751880ae935c7b",
+        "sense_label_en": "withstand the force of something",
+        "sort_order": 1,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -44,31 +94,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:resist:00751880ae935c7b",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "耐得住，承受",
-      "definition_en": "withstand the force of something",
-      "semantic_key": "543f71d01f989e8d97494f371065ba77fe52b38ec605b88ae254c927b46a2d8a",
-      "semantic_key_history": [
-        "ba214d1cbf5e72de218250d13c28099ad0b82e1878395e9d651627b6d11a0201"
-      ],
-      "legacy_aliases": [
-        "resist:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "resist:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11472,
-      "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:resist:5d850fe34f215983",
       "status": "deprecated",
@@ -120,31 +145,6 @@
       "reference_only": true
     },
     {
-      "stable_sense_id": "sense:resist:d7ef5f9d8602522a",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "抵制，拒绝服从",
-      "definition_en": "refuse to comply",
-      "semantic_key": "08cd34328b2956b80191efed1460e5d5edf1a42d6b57eafeffa96ede41d884a5",
-      "semantic_key_history": [
-        "fb72bff0f8c5108f41da50b530714e24f7653017760a9450842157dc8eb40d24"
-      ],
-      "legacy_aliases": [
-        "resist:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "resist:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11475,
-      "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:resist:e91e1699ee1e502d",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -174,7 +174,7 @@
     "senses": [
       {
         "sense_id": "sense:resist:00751880ae935c7b",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11472,
         "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json"
@@ -195,7 +195,7 @@
       },
       {
         "sense_id": "sense:resist:d7ef5f9d8602522a",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11475,
         "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json"

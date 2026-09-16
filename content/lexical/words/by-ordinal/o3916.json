@@ -7,38 +7,54 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "bd2fd57d85811a1235cb4a5da64caeb64690e4119782eb98f16a95341eca5af3",
+    "content_hash": "7160d75818d59b337f03cd6a5a5b32f24d33dfb789c597f5b681a32698febfad",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "赛跑；比赛；种族；人种",
-          "label_en": "a competition in which people or animals try to be the fastest; a group of people sharing physical characteristics and ancestry",
+          "label_cn": "赛跑；比赛",
+          "label_en": "a competition of speed",
           "pos": "noun",
           "sense_ids": [
-            "sense:race:85bf965ffe0d5a87",
+            "sense:race:85bf965ffe0d5a87"
+          ]
+        },
+        {
+          "label_cn": "种族；族群类别",
+          "label_en": "a socially and historically constructed human category",
+          "pos": "noun",
+          "sense_ids": [
             "sense:race:62a1187b2b655ab0"
           ]
         },
         {
-          "label_cn": "赛跑；竞赛；使疾走；使猛转",
-          "label_en": "to compete in a race; to cause to move or go at great speed",
+          "label_cn": "人类；全人类",
+          "label_en": "humankind",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:race:466bdf13a03ae178"
+          ]
+        },
+        {
+          "label_cn": "赛跑；竞赛",
+          "label_en": "compete in a race",
           "pos": "verb",
           "sense_ids": [
-            "sense:race:24710a00c8fb5294",
-            "sense:race:4638d56de19450fc"
+            "sense:race:24710a00c8fb5294"
           ]
         }
       ],
-      "core_meaning_cn": "比赛；种族",
-      "core_meaning_en": "a competition of speed or a group of people with shared ancestry",
-      "mental_model_cn": "比赛；种族",
+      "core_meaning_cn": "比赛；种族类别；the human race = 人类",
+      "core_meaning_en": "race as competition; human social category; the human race = humankind",
+      "mental_model_cn": "比赛；种族类别；the human race = 人类",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3875-o4124"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -76,26 +92,16 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:4120d88b97ca674234c0",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:race:62a1187b2b655ab0:collocation:0"
-            ],
-            "meaning_cn": "人类",
-            "phrase": "human race"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
-        "definition_cn": "种族；人种",
-        "definition_en": "a group of people sharing physical characteristics and ancestry",
+        "definition_cn": "种族；族群类别（社会和历史形成的分类概念）",
+        "definition_en": "a socially and historically constructed category used to group people, often by perceived physical characteristics or ancestry",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:race:62a1187b2b655ab0",
-        "sense_label_en": "a group of people sharing physical characteristics and ancestry",
+        "sense_label_en": "a socially and historically constructed category used to group people, often by perceived physical characteristics or ancestry",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -146,6 +152,30 @@
         "sense_label_en": "to cause to move or go at great speed",
         "sort_order": 3,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:4120d88b97ca674234c0",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:race:62a1187b2b655ab0:collocation:0"
+            ],
+            "meaning_cn": "人类",
+            "phrase": "human race"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "人类；全人类",
+        "definition_en": "humankind; human beings collectively",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:race:466bdf13a03ae178",
+        "sense_label_en": "humankind; human beings collectively",
+        "sort_order": 4,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -183,6 +213,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10903,
+        "source_path": "content/lexical/canonical/senses/shards/o3905-3936.json"
+      },
+      {
+        "sense_id": "sense:race:466bdf13a03ae178",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10978,
         "source_path": "content/lexical/canonical/senses/shards/o3905-3936.json"
       },
       {

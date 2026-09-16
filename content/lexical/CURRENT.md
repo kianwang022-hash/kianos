@@ -7,16 +7,17 @@ Role: human Work Cursor / fresh-Chat restart. Artifact Truth, Acceptance Truth a
 ```text
 Production Fresh Semantic Review:      COMPLETE — 7946 / 7946
 Independent Semantic Audit coverage:   COMPLETE — 7946 / 7946
-mechanically implemented frontier:     o3874
-post-audit closed implemented region:  o0001–o3874 COMPLETE ON MAIN
-latest integrated forward package:     o3625–o3874 COMPLETE (PR #194)
-active forward package:                o3875–o4124 — MECHANICAL_EXECUTION_READY
-remaining catalog after active package:o4125–o7946 NOT_ACTIVATED
+mechanically implemented frontier:     o4124
+post-audit closed implemented region:  o0001–o4124 COMPLETE ON MAIN
+latest closed Content stage:           #54 — o3875–o4124 CLOSED via PR #208
+active Content execution stage:        NONE
+active execution branch:               NONE
+remaining catalog after frontier:      o4125–o7946 NOT_ACTIVATED
 ```
 
-Catalog execution: **FORWARD ACTIVE**.
+Catalog execution is **FORWARD READY**. No next bounded package is activated by this file merely because the previous package closed.
 
-Production review, Independent Audit, mechanical implementation, and post-audit closure are separate concepts. Review/Audit completion never mutates Current by itself; only bounded Sol-reconciled and mechanically verified packages advance the frontier.
+Production review, Independent Audit, Sol reconciliation, branch-local execution, main integration and learner state are separate concepts. Only accepted integration on `main@HEAD` advances the canonical mechanical frontier.
 
 ## 1｜Production + Independent Audit are closed
 
@@ -25,7 +26,7 @@ Production review, Independent Audit, mechanical implementation, and post-audit 
 - Audit coverage authority: `content/lexical/semantic-audit/reconciliation/CATALOG_COVERAGE_RECONCILIATION.md`.
 - Do not start another broad Production review or Audit for this catalog generation unless a concrete Current defect or materially changed contract requires it.
 
-## 2｜Mechanical / post-audit-closed frontier = o3874
+## 2｜Mechanical / post-audit-closed frontier = o4124
 
 Continuous closed history:
 
@@ -34,22 +35,38 @@ Continuous closed history:
 - `o3125–o3374` → PR #161.
 - `o3375–o3624` → PR #188.
 - `o3625–o3874` → PR #194 / merge `1806a603e12c33b085dc491de8b4a80134948293`.
+- `o3875–o4124` → PR #208 / merge `b65b3590d97916d8a2e0cb1780476a41a91db3b9`.
 
-Latest durable package receipt:
+Latest durable integrated package receipt:
 
-`content/lexical/execution/receipts/o3625-o3874.forward-package.json`
+`content/lexical/execution/receipts/o3875-o4124.forward-package.json`
 
-The entire region `o0001–o3874` is post-audit closed on main. Do not reopen it merely because historical branches, receipts, Issues, workflows, or Audit artifacts still exist; reopen only for a concrete Current defect.
+The entire region `o0001–o4124` is post-audit closed on main. Do not reopen it merely because historical branches, receipts, Issues, workflows, or Audit artifacts still exist; reopen only for a concrete Current defect.
 
-## 3｜Active forward package — o3875–o4124
+## 3｜Latest closed stage — #54 / o3875–o4124
 
-Semantic reconciliation is **COMPLETE** and canonical on main via PR **#197** / merge `4e92c8531c3bdbb7871fcef1f81e64bc3c070044`.
+Issue **#54** owned the single bounded Content execution stage for this package and is now complete.
 
-Authority:
+Semantic reconciliation authority:
 
 `content/lexical/semantic-reconciliation/o3875-o4124.md`
 
-Frozen accounting:
+Reconciliation was canonical on main via PR **#197** / merge `4e92c8531c3bdbb7871fcef1f81e64bc3c070044`.
+
+Execution package was accepted on main via PR **#208** / merge `b65b3590d97916d8a2e0cb1780476a41a91db3b9`.
+
+Final package state:
+
+```text
+o3875–o3924   CLOSED / receipt PASS
+o3925–o3974   CLOSED / receipt PASS
+o3975–o4024   CLOSED / receipt PASS
+o4025–o4074   CLOSED / receipt PASS
+o4075–o4124   CLOSED / receipt PASS
+package final  250 / 250 PASS / INTEGRATED ON MAIN
+```
+
+Frozen package accounting closed with:
 
 ```text
 Production UPGRADE:                       64
@@ -65,48 +82,40 @@ Exact out-of-range Word dependencies:
 
 `o1023,o1436,o1981,o2772,o3675,o3747,o4176,o5280,o5594,o5596`
 
-Identity decisions are already frozen in the authority:
+Package exit evidence included 250/250 final owner readback, exact 105-source accounting, authorized dependency envelope, frozen identity/Relation/Form closure, Natural Owner registry audit, Lexical transport/shard tests, Lexical JSON parse checks, full Astro build, and durable shard/package receipts.
 
-- `quiet↔quite`: survivor = codex-reviewed `deep:confusables:quiet:a62d52d0428c90d3`; reciprocal visibility on `quite`; retire the weaker duplicate horizontal relation.
-- `realise↔realize@o5594`: preserve both Words; reciprocal regional-spelling Relation; no cross-Word stable-sense cloning.
-- `recognise↔recognize@o5596`: same rule.
+The former survivor branch `lexical/execute-o3875-o4124-20260916` is historical transport only after PR #208 and is explicitly retired under `BRANCH_LIFECYCLE.md`. Former `optimized*` and `forward-o3875-o4124` aliases remain non-authoritative historical transport and must not be revived.
+
+Identity decisions closed in this package include:
+
+- `quiet↔quite`: preserve the codex-reviewed survivor and retire the weaker duplicate;
+- `realise↔realize@o5594`: preserve both Word owners and close reciprocal regional-spelling truth;
+- `recognise↔recognize@o5596`: same rule;
 - no Current `rein` Main Word exists; do not manufacture one for an optional reign/rein confusable.
 
-This package is now **MECHANICAL_EXECUTION_READY**. No further semantic review, Audit, or Sol interpretation is needed unless executor readback discovers a concrete contradiction with Current truth.
+## 4｜#56 remains downstream only
 
-Recommended shard boundaries:
+Issue **#56** is the deferred full-catalog integrated projection / integrity / K re-acceptance gate. It is **not** an active Content Work Cursor at frontier `o4124`.
 
-```text
-o3875–o3924   26 semantic source owners
-o3925–o3974   18 semantic source owners
-o3975–o4024   22 semantic source owners
-o4025–o4074   19 semantic source owners
-o4075–o4124   20 semantic source owners
-```
+Closing one bounded Content package does not satisfy the full-catalog K gate. #56 remains deferred until all 7,946 owners are represented by accepted integrated Current-generation truth and its own required full-catalog evidence exists.
 
 ## Exact next action
 
-**Write/run the five bounded mechanical execution shards for `o3875–o4124`.**
+Restart only from `main@HEAD` and this file.
 
-Package exit requires:
+`o4125+` remains **NOT_ACTIVATED**. Activate the next bounded Content package only through an explicit Current stage task/authority; do not infer one from the old #54 branch, old receipts, historical Audit artifacts, or #56.
 
-- 250/250 final owner readback;
-- exact 105-source accounting;
-- only the ten authorized out-of-range Word writes;
-- quiet/quite survivor Relation closure;
-- realise/realize and recognise/recognize spelling closure;
-- Natural Owner registry audit PASS;
-- Lexical transport/shard tests PASS;
-- all Lexical JSON parse PASS;
-- full Astro build PASS;
-- durable package receipt;
-- merge before activating `o4125+`.
+Do **not**:
 
-`o4125+` remains **NOT_ACTIVATED** until this package integrates.
+- reopen `o3875–o4124` without a concrete Current defect;
+- restart Production/Audit for already closed catalog coverage;
+- revive the retired survivor or optimized/forward aliases;
+- use #56 as a competing Content execution cursor;
+- manufacture learner progress from engineering closure.
 
 ## Frozen identity rule
 
-Use only `REUSE_EXISTING_STABLE`, genuine `NEW_SEMANTIC_BRANCH`, or the explicit identity decisions already frozen in the package authority. Executor must not invent split/merge semantics.
+Use only `REUSE_EXISTING_STABLE`, genuine `NEW_SEMANTIC_BRANCH`, or explicit identity decisions frozen in the relevant bounded reconciliation authority. Executor must not invent split/merge semantics.
 
 ## Learner-state boundary
 
@@ -118,10 +127,13 @@ Production review, Audit, reconciliation, implementation, validators, CI and mer
 main@HEAD
 → Production review = 7946/7946 COMPLETE
 → Independent Audit = 7946/7946 COMPLETE
-→ mechanical frontier = o3874
-→ o0001–o3874 post-audit closed on main
-→ active forward = o3875–o4124 / MECHANICAL_EXECUTION_READY
-→ o4125+ = NOT_ACTIVATED
+→ mechanical frontier = o4124
+→ o0001–o4124 post-audit closed on main
+→ latest closed Content stage = #54 / o3875–o4124 / PR #208
+→ active Content execution stage = NONE
+→ active execution branch = NONE
+→ #56 = DEFERRED full-catalog gate, not Work Cursor
+→ o4125–o7946 = NOT_ACTIVATED
 ```
 
-Never infer a new task from an old Issue title, branch name, audit count, receipt, or chat history.
+Never infer a new task from an old Issue title, branch alias, audit count, receipt, workflow, or chat history.

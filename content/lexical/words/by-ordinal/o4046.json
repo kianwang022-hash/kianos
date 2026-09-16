@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "f447a3ea6af150321630d71fee8cff002d09900607fecb7cd88a3ad3491369c6",
+    "content_hash": "a559744252f6134e3047d0b5f1351a4482365bdd5333cfa21c9cd8ffa3997ba2",
     "core_concept": {
       "core_clusters": [
         {
@@ -38,7 +38,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3875-o4124"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -129,14 +131,14 @@
         "confidence": "medium",
         "definition_cn": "接力传送",
         "definition_en": "to pass something along in stages",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "vt. + object + to + person",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:relay:ffca4f901f57541a",
         "sense_label_en": "to pass something along in stages",
         "sort_order": 3,
-        "transitivity": "vi"
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -156,7 +158,23 @@
     },
     "word": "relay",
     "word_family": [],
-    "word_id": "word:relay"
+    "word_id": "word:relay",
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o3875-o4124.md",
+      "type": "same_owner_form_pronunciation_boundary",
+      "boundaries": [
+        {
+          "condition": "noun relay",
+          "stress": "initial syllable",
+          "note": "RElay"
+        },
+        {
+          "condition": "verb relay",
+          "stress": "second syllable",
+          "note": "reLAY"
+        }
+      ]
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
