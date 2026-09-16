@@ -6,7 +6,7 @@
   "current_stage": "C2_BROAD_BASIC_COVERAGE",
   "stage_state": {
     "C0_relation_model_calibration": "PASS",
-    "C1_candidate_review_pipeline": "PASS_CANDIDATE",
+    "C1_candidate_review_pipeline": "PASS",
     "C2_broad_basic_coverage": "ACTIVE",
     "C3_selective_deep_relations": "FROZEN_BY_VALUE",
     "C4_evidence_prioritized_continuous": "WAITING_FOR_REAL_USE"
@@ -27,21 +27,34 @@
   },
   "last_growth": {
     "date": "2026-09-16",
-    "reviewed_relation_count_before": 385,
-    "reviewed_relation_count_after": 390,
+    "reviewed_relation_count_before": 390,
+    "reviewed_relation_count_after": 409,
     "added_question_ids": [
-      "xizong-official-2005-n139",
-      "xizong-official-2005-n142",
-      "xizong-official-2005-n145",
-      "xizong-official-2005-n146",
-      "xizong-official-2005-n150"
+      "xizong-official-2006-n005",
+      "xizong-official-2006-n006",
+      "xizong-official-2006-n007",
+      "xizong-official-2006-n008",
+      "xizong-official-2006-n009",
+      "xizong-official-2006-n010",
+      "xizong-official-2006-n012",
+      "xizong-official-2006-n014",
+      "xizong-official-2006-n016",
+      "xizong-official-2006-n017",
+      "xizong-official-2006-n018",
+      "xizong-official-2006-n027",
+      "xizong-official-2006-n028",
+      "xizong-official-2006-n029",
+      "xizong-official-2006-n035",
+      "xizong-official-2006-n043",
+      "xizong-official-2006-n047",
+      "xizong-official-2006-n048",
+      "xizong-official-2006-n050"
     ],
     "notes": [
-      "N139 maps to D11 KP09 gastric-cancer risk background and precursor chain.",
-      "N142 maps exactly to R9 KP12 chronic pulmonary-heart-disease cardiac-glycoside indications.",
-      "N145 maps ITP immune support evidence to H6 KP01 with the coagulation-time boundary in KP04.",
-      "N146 maps Graves clinical identity to D21 KP08.",
-      "N150 maps malignant bone-tumor evidence to O16 KP01 with the phosphatase boundary in KP04."
+      "The 2006 q001-025 relation shard was created with 11 exact Current-owner mappings.",
+      "The 2006 q026-050 shard gained eight additional exact Current-owner mappings across biochemistry, circulation, urinary and respiratory systems.",
+      "Ambiguous, source-conflicted or incompletely owned questions remain absent rather than being forced into coverage.",
+      "C1 review-queue and manifest anti-entropy checks passed in the full Xizong QA run before this cursor advance."
     ]
   },
   "learner_state": false,
