@@ -17,6 +17,8 @@ ID_CORRECTIONS = {
     "sense:sunday:03fe45c19be95669": "sense:sunday:03feaf7d6e315e9e",  # ordinary day-name noun
     "sense:sunday:f0d30625eb6f58a6": "sense:sunday:f0d5d3e00e635c61",  # adjective
     "sense:sunday:688e3f77747d56a1": "sense:sunday:688ffa49f6575e8e",  # rare verb
+    "sense:super:8c535b9a8b8f59e9": "sense:super:8c5304445a475618",  # informal adjective
+    "sense:super:4c81d3644494556c": "sense:super:4c8184c9c2f85c40",  # informal intensifying adverb
 }
 
 _original_ensure_active = engine.ensure_active
