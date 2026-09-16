@@ -6,13 +6,31 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "476f7aace19313a42fbc35a41a2539cb553fe24d43ff8889f1db074d8ad83735",
+    "constructions": [
+      {
+        "construction_id": "construction:ac0c6373325fa944b846",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "声称是/做某事；表面上自称……",
+        "pattern": "purport to be/do sth",
+        "source_sense_id": "sense:purport:511493c5511452b4"
+      }
+    ],
+    "content_hash": "1bdb6d413dfd5e6dfdbdd4bc23d8857f11388f83bb272ef38296f0f7f0bb47a1",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "意味着, 声称, 打算",
-      "core_meaning_en": "have the often specious appearance of being, intending, or claiming",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "声称；自称；表面上显示为，常含未证实意味",
+          "label_en": "to claim, profess, or appear to be or do something, often without proving that the claim is true",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:purport:511493c5511452b4"
+          ]
+        }
+      ],
+      "core_meaning_cn": "声称；自称；表面上显示为，常含未证实意味",
+      "core_meaning_en": "to claim, profess, or appear to be or do something, often without proving that the claim is true",
+      "mental_model_cn": "声称；自称；表面上显示为，常含未证实意味",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,16 +44,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "意味着, 声称, 打算",
-        "definition_en": "have the often specious appearance of being, intending, or claiming",
+        "definition_cn": "声称；自称；表面上显示为，常含未证实意味",
+        "definition_en": "to claim, profess, or appear to be or do something, often without proving that the claim is true",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L1",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:purport:511493c5511452b4",
-        "sense_label_en": "have the often specious appearance of being, intending, or claiming",
+        "sense_label_en": "to claim, profess, or appear to be or do something, often without proving that the claim is true",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -46,6 +64,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "（正式）主旨；意图；表面或实质意义",
+        "definition_en": "formal: the apparent, intended, or essential meaning or substance of something",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:purport:cb53bcbd959a5807",
+        "sense_label_en": "formal: the apparent, intended, or essential meaning or substance of something",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -70,6 +102,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 18657,
+        "source_path": "content/lexical/canonical/senses/shards/o7329-7360.json"
+      },
+      {
+        "sense_id": "sense:purport:cb53bcbd959a5807",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18709,
         "source_path": "content/lexical/canonical/senses/shards/o7329-7360.json"
       }
     ],
@@ -97,7 +136,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7337-7344.json",
-    "source_content_hash": "476f7aace19313a42fbc35a41a2539cb553fe24d43ff8889f1db074d8ad83735",
+    "source_content_hash": "1bdb6d413dfd5e6dfdbdd4bc23d8857f11388f83bb272ef38296f0f7f0bb47a1",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

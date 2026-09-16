@@ -7,12 +7,30 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "6246bbdc8442cf286db872801649deab8bc29109b4e509af899e5ac7844826d2",
+    "content_hash": "42e529ab8b4639a8ade55ae85d2b3805b84f6d7d68a96b7ccb6a0054d373120b",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "挖出, 努力挖掘",
-      "core_meaning_en": "extract (something such as stones) from or as if from a quarry",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "从采石场开采石料等",
+          "label_en": "to extract stone, rock, or other material from a quarry",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:quarry:ffa6977374665de8"
+          ]
+        },
+        {
+          "label_cn": "采石场；露天开采场；猎物；追捕目标",
+          "label_en": "an open excavation from which stone, rock, sand, or other material is extracted; an animal or person pursued or hunted; a target or prey",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:quarry:e0b9078e2aa8b088",
+            "sense:quarry:d50ec04ee2b5a967"
+          ]
+        }
+      ],
+      "core_meaning_cn": "从采石场开采石料等；采石场；露天开采场；猎物；追捕目标",
+      "core_meaning_en": "to extract stone, rock, or other material from a quarry; an open excavation from which stone, rock, sand, or other material is extracted; an animal or person pursued or hunted; a target or prey",
+      "mental_model_cn": "从采石场开采石料等；采石场；露天开采场；猎物；追捕目标",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,16 +44,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "挖出, 努力挖掘",
-        "definition_en": "extract (something such as stones) from or as if from a quarry",
+        "definition_cn": "从采石场开采石料等",
+        "definition_en": "to extract stone, rock, or other material from a quarry",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L1",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:quarry:ffa6977374665de8",
-        "sense_label_en": "extract (something such as stones) from or as if from a quarry",
+        "sense_label_en": "to extract stone, rock, or other material from a quarry",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -46,6 +64,34 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "采石场；露天开采场",
+        "definition_en": "an open excavation from which stone, rock, sand, or other material is extracted",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:quarry:e0b9078e2aa8b088",
+        "sense_label_en": "an open excavation from which stone, rock, sand, or other material is extracted",
+        "sort_order": 2,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "猎物；追捕目标",
+        "definition_en": "an animal or person pursued or hunted; a target or prey",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:quarry:d50ec04ee2b5a967",
+        "sense_label_en": "an animal or person pursued or hunted; a target or prey",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -70,6 +116,20 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 18662,
+        "source_path": "content/lexical/canonical/senses/shards/o7329-7360.json"
+      },
+      {
+        "sense_id": "sense:quarry:d50ec04ee2b5a967",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18710,
+        "source_path": "content/lexical/canonical/senses/shards/o7329-7360.json"
+      },
+      {
+        "sense_id": "sense:quarry:e0b9078e2aa8b088",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18711,
         "source_path": "content/lexical/canonical/senses/shards/o7329-7360.json"
       }
     ],
@@ -97,7 +157,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7337-7344.json",
-    "source_content_hash": "6246bbdc8442cf286db872801649deab8bc29109b4e509af899e5ac7844826d2",
+    "source_content_hash": "42e529ab8b4639a8ade55ae85d2b3805b84f6d7d68a96b7ccb6a0054d373120b",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

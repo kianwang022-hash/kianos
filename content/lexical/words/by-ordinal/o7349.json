@@ -6,13 +6,48 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "6138ed0ffc9d6fd26d5a8c01c07313da0a9a6196652884beb2d110c9f8ec2863",
+    "constructions": [
+      {
+        "construction_id": "construction:75903729a82ef0cc80fe",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "绑架/扣押某人以索取赎金",
+        "pattern": "hold sb for ransom",
+        "source_sense_id": "sense:ransom:9272075f1f915499"
+      },
+      {
+        "construction_id": "construction:fcd01a4269242aa84b78",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "索要/支付赎金",
+        "pattern": "demand/pay a ransom",
+        "source_sense_id": "sense:ransom:3341e31e064c5b29"
+      }
+    ],
+    "content_hash": "b7b6edad47b1dde54f77ee9028203a084156a4a670370c2c069dca021f2e941a",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "赎金, 赎身, 赎回",
-      "core_meaning_en": "payment for the release of someone",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "赎金；为释放被扣押者或归还财物支付的钱；绑架者索要的赎金",
+          "label_en": "payment made to secure the release of a captive person or the return of captured property; money demanded in exchange for releasing a captured or kidnapped person",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:ransom:3341e31e064c5b29",
+            "sense:ransom:9272075f1f915499"
+          ]
+        },
+        {
+          "label_cn": "付赎金赎回；赎出",
+          "label_en": "to secure the release of a person or property by paying a ransom",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:ransom:1dc9e7ca39c04850"
+          ]
+        }
+      ],
+      "core_meaning_cn": "赎金；为释放被扣押者或归还财物支付的钱；绑架者索要的赎金；付赎金赎回；赎出",
+      "core_meaning_en": "payment made to secure the release of a captive person or the return of captured property; money demanded in exchange for releasing a captured or kidnapped person; to secure the release of a person or property by paying a ransom",
+      "mental_model_cn": "赎金；为释放被扣押者或归还财物支付的钱；绑架者索要的赎金；付赎金赎回；赎出",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,8 +61,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "赎金, 赎身, 赎回",
-        "definition_en": "payment for the release of someone",
+        "definition_cn": "赎金；为释放被扣押者或归还财物支付的钱",
+        "definition_en": "payment made to secure the release of a captive person or the return of captured property",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
@@ -35,7 +70,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:ransom:3341e31e064c5b29",
-        "sense_label_en": "payment for the release of someone",
+        "sense_label_en": "payment made to secure the release of a captive person or the return of captured property",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -50,16 +85,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "赎金, 赎身, 赎回",
-        "definition_en": "money demanded for the return of a captured person",
+        "definition_cn": "绑架者索要的赎金",
+        "definition_en": "money demanded in exchange for releasing a captured or kidnapped person",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:ransom:9272075f1f915499",
-        "sense_label_en": "money demanded for the return of a captured person",
+        "sense_label_en": "money demanded in exchange for releasing a captured or kidnapped person",
         "sort_order": 2,
         "source_evidence": [
           {
@@ -94,6 +129,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "付赎金赎回；赎出",
+        "definition_en": "to secure the release of a person or property by paying a ransom",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:ransom:1dc9e7ca39c04850",
+        "sense_label_en": "to secure the release of a person or property by paying a ransom",
+        "sort_order": 4,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -133,6 +182,13 @@
         "merged_into_sense_id": null,
         "source_row": 18682,
         "source_path": "content/lexical/canonical/senses/shards/o7329-7360.json"
+      },
+      {
+        "sense_id": "sense:ransom:1dc9e7ca39c04850",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18713,
+        "source_path": "content/lexical/canonical/senses/shards/o7329-7360.json"
       }
     ],
     "active_collocations": [],
@@ -159,7 +215,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7345-7352.json",
-    "source_content_hash": "6138ed0ffc9d6fd26d5a8c01c07313da0a9a6196652884beb2d110c9f8ec2863",
+    "source_content_hash": "b7b6edad47b1dde54f77ee9028203a084156a4a670370c2c069dca021f2e941a",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

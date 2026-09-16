@@ -7,12 +7,21 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "19b4779968e6e8de8db416a9b93a0794c3d876495c0f8041ca68afe082261116",
+    "content_hash": "6ccc2879205b2ef9af0b7bf3167a689b668ff8319634a62abc6e31404427cb75",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "重述要点, 概括, 摘要",
-      "core_meaning_en": "summarize briefly",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "概括；重述；简要回顾要点",
+          "label_en": "to summarize, restate, or review the main points briefly",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:recapitulate:5f77f2ec82f758c6"
+          ]
+        }
+      ],
+      "core_meaning_cn": "概括；重述；简要回顾要点",
+      "core_meaning_en": "to summarize, restate, or review the main points briefly",
+      "mental_model_cn": "概括；重述；简要回顾要点",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,41 +35,17 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "重述要点, 概括, 摘要",
-        "definition_en": "summarize briefly",
-        "depth": "full_card",
-        "domain_tag": "toefl",
-        "frequency_tag": "toefl",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:recapitulate:5f77f2ec82f758c6",
-        "sense_label_en": "summarize briefly",
-        "sort_order": 1,
-        "source_evidence": [
-          {
-            "evidence_id": "source-fact:0ffa673c20a9d134f7e2b27d",
-            "evidence_status": "source_checked",
-            "role": "external_semantic_auditor",
-            "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
-            "source_type": "learner_dictionary"
-          }
-        ]
-      },
-      {
-        "collocations": [],
-        "confidence": "high",
-        "definition_cn": "重述要点, 概括, 摘要",
-        "definition_en": "repeat stages of evolutionary development during the embryonic phase of life",
+        "definition_cn": "概括；重述；简要回顾要点",
+        "definition_en": "to summarize, restate, or review the main points briefly",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
-        "sense_id": "sense:recapitulate:20cbae22c9c7587c",
-        "sense_label_en": "repeat stages of evolutionary development during the embryonic phase of life",
-        "sort_order": 2,
+        "sense_id": "sense:recapitulate:5f77f2ec82f758c6",
+        "sense_label_en": "to summarize, restate, or review the main points briefly",
+        "sort_order": 1,
         "source_evidence": [
           {
             "evidence_id": "source-fact:0ffa673c20a9d134f7e2b27d",
@@ -72,6 +57,7 @@
         ]
       }
     ],
+    "specialist_note": "The claim that embryos repeat evolutionary stages belongs to historical/discredited recapitulation theory and must not be presented as neutral modern biology truth.",
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -86,12 +72,29 @@
     "word_id": "word:recapitulate"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:recapitulate:20cbae22c9c7587c",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "重述要点, 概括, 摘要",
+      "definition_en": "repeat stages of evolutionary development during the embryonic phase of life",
+      "semantic_key": "7ddae708c7b9fa8139dc57ad7c03b619cfe370068404c511136fa0b27d5de67b",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 18700,
+      "source_path": "content/lexical/canonical/senses/shards/o7329-7360.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:recapitulate:20cbae22c9c7587c",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 18700,
         "source_path": "content/lexical/canonical/senses/shards/o7329-7360.json"
@@ -128,7 +131,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7353-7360.json",
-    "source_content_hash": "19b4779968e6e8de8db416a9b93a0794c3d876495c0f8041ca68afe082261116",
+    "source_content_hash": "6ccc2879205b2ef9af0b7bf3167a689b668ff8319634a62abc6e31404427cb75",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
