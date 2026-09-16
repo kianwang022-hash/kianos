@@ -1,0 +1,55 @@
+name: Xizong Golden Journey
+
+on:
+  pull_request:
+    paths:
+      - 'content/xizong/knowledge/systems/a1-circulation/**'
+      - 'content/xizong/knowledge/learner/a1-circulation-*.json'
+      - 'static-web/XIZONG_PRODUCT_STATUS.md'
+      - 'static-web/package.json'
+      - 'static-web/src/components/Xizong*.astro'
+      - 'static-web/src/lib/xizong*.mjs'
+      - 'static-web/src/pages/xizong/**'
+      - 'static-web/scripts/test-xizong-golden-journey.mjs'
+      - '.github/workflows/xizong-golden-journey.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  journey:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout Current
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install runtime
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+      - name: Validate Xizong contracts
+        working-directory: static-web
+        run: npm run validate:xizong
+      - name: Build Current site
+        working-directory: static-web
+        run: npm run build
+      - name: Install isolated browser acceptance tool
+        working-directory: static-web
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Execute representative Golden Journey
+        working-directory: static-web
+        run: npm run test:xizong-golden-journey
+      - name: Save Golden Journey evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xizong-golden-journey-${{ github.sha }}
+          path: static-web/.qa/xizong-golden-journey.json
+          if-no-files-found: warn
+          retention-days: 7
