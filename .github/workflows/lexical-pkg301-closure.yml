@@ -1,42 +1,41 @@
-name: Lexical pkg301 package closure
+name: Lexical pkg303 final-tail package closure carrier
 
-# Final exact-head revalidation after Current advance.
 on:
   push:
-    branches: [lexical/pkg301-exec]
+    branches: [lexical/pkg303-final-tail]
     paths:
       - '.github/workflows/lexical-pkg301-closure.yml'
-      - 'tools/lexical_verify_o7375_o7874.py'
+      - 'tools/lexical_verify_o7875_o7946.py'
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: lexical-pkg301-closure
+  group: lexical-pkg303-final-tail-closure
   cancel-in-progress: false
 
 jobs:
   verify:
     runs-on: ubuntu-latest
     env:
-      KIANOS_BASELINE_MAIN: 0652268f73129395ec925c29e6be323ef2119624
+      KIANOS_BASELINE_MAIN: de70a99c415bb550e85866c1f48714e5c60187c4
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: lexical/pkg301-exec
+          ref: lexical/pkg303-final-tail
           fetch-depth: 0
       - name: Package verification
         run: |
-          python -m py_compile tools/lexical_verify_o7375_o7874.py
-          python tools/lexical_verify_o7375_o7874.py
+          python -m py_compile tools/lexical_verify_o7875_o7946.py
+          python tools/lexical_verify_o7875_o7946.py
           python tools/lexical_natural_owner.py audit
           python tools/test_lexical_transport_guards.py
           python tools/test_lexical_shard.py
           python - <<'PY'
           import json, subprocess
           from pathlib import Path
-          base='0652268f73129395ec925c29e6be323ef2119624'
+          base='de70a99c415bb550e85866c1f48714e5c60187c4'
           changed=subprocess.check_output(['git','diff','--name-only',f'{base}..HEAD'],text=True).splitlines()
           targets=[p for p in changed if p.startswith('content/lexical/') and p.endswith('.json') and Path(p).exists()]
           for p in targets: json.loads(Path(p).read_text(encoding='utf-8'))
@@ -47,15 +46,15 @@ jobs:
         run: |
           npm install --no-audit --no-fund --no-package-lock
           npm run build
-      - name: Finalize durable package receipt
+      - name: Finalize durable final-tail receipt
         env:
           KIANOS_ASTRO_BUILD: PASS
         run: |
-          python tools/lexical_verify_o7375_o7874.py --finalize
+          python tools/lexical_verify_o7875_o7946.py --finalize
           git config user.name Kian
           git config user.email kianwang022@gmail.com
-          git add content/lexical/execution/o7375-o7874.package-receipt.json
+          git add content/lexical/execution/o7875-o7946.package-receipt.json
           if ! git diff --cached --quiet; then
-            git commit -m 'lexical: verify o7375-o7874 package closure [skip ci]'
-            git push origin HEAD:lexical/pkg301-exec
+            git commit -m 'lexical: verify o7875-o7946 final-tail closure [skip ci]'
+            git push origin HEAD:lexical/pkg303-final-tail
           fi
