@@ -6,13 +6,40 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "f1628ac25c94bf9078c48cbddfb3f5d391eedfe3aa3302dd87739d0212831129",
+    "constructions": [
+      {
+        "construction_id": "construction:e1d5c9fa358da9ee291e",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "从 X 起一直往后",
+        "pattern": "from X onward",
+        "source_sense_id": "sense:onward:cdf022b06b495414"
+      }
+    ],
+    "content_hash": "cf0fa4467f19fd06fe241224b5d4a550225a4fde18d32043f084bcc988f57112",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "向前；前进；在先",
-      "core_meaning_en": "forward in time or order or degree",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "向前地；继续向前；从某时起向后；在时间、顺序或程度上继续",
+          "label_en": "in a forward direction; forward in time, order, or degree",
+          "pos": "adverb",
+          "sense_ids": [
+            "sense:onward:1a7d4b82c1ef533d",
+            "sense:onward:cdf022b06b495414"
+          ]
+        },
+        {
+          "label_cn": "继续向前的；向前发展的",
+          "label_en": "continuing or moving forward in direction, time, or progress",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:onward:8a26f3534d8ebb5c"
+          ]
+        }
+      ],
+      "core_meaning_cn": "向前地；继续向前；从某时起向后；在时间、顺序或程度上继续；继续向前的；向前发展的",
+      "core_meaning_en": "in a forward direction; forward in time, order, or degree; continuing or moving forward in direction, time, or progress",
+      "mental_model_cn": "向前地；继续向前；从某时起向后；在时间、顺序或程度上继续；继续向前的；向前发展的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +49,50 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "向前地；继续向前",
+        "definition_en": "in a forward direction",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adverb",
+        "sense_id": "sense:onward:1a7d4b82c1ef533d",
+        "sense_label_en": "in a forward direction",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "从某时起向后；在时间、顺序或程度上继续",
+        "definition_en": "forward in time, order, or degree",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adverb",
+        "sense_id": "sense:onward:cdf022b06b495414",
+        "sense_label_en": "forward in time, order, or degree",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "继续向前的；向前发展的",
+        "definition_en": "continuing or moving forward in direction, time, or progress",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:onward:8a26f3534d8ebb5c",
+        "sense_label_en": "continuing or moving forward in direction, time, or progress",
+        "sort_order": 1000,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -36,59 +106,36 @@
     "word_family": [],
     "word_id": "word:onward"
   },
-  "relation_refs": [],
-  "reference_senses": [
+  "relation_refs": [
     {
-      "stable_sense_id": "sense:onward:1a7d4b82c1ef533d",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adverb",
-      "definition_cn": "向前；前进；在先",
-      "definition_en": "in a forward direction",
-      "semantic_key": "9d32c4be32a793959bf0acfc1444a436972b4d95fc1281d18eb0ff508e893812",
-      "semantic_key_history": [
-        "20b47dee2477e016e7ae888a486df7176bca209d1bc749a898f3787ce10da31d"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 16444,
-      "source_path": "content/lexical/canonical/senses/shards/o5985-6016.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:onward:cdf022b06b495414",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adverb",
-      "definition_cn": "向前；前进；在先",
-      "definition_en": "forward in time or order or degree",
-      "semantic_key": "8dfe43e393c5fa3664c8e10194437b62782a131b9394e6e932a5bdb33e3e657c",
-      "semantic_key_history": [
-        "9b0051f0776cef095ecc1f609d47265c7acb5dea2b33b7671ec9372501d5bdc3"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 16445,
-      "source_path": "content/lexical/canonical/senses/shards/o5985-6016.json",
-      "reference_only": true
+      "relation_id": "relation:horizontal:bb3bd4556fbfb88c2cfc",
+      "owner_path": "content/lexical/relations/by-id/de/de84a6d83467d1bd3e3720a90fd646f8d613cc27622ae694cd4002f69c0c53ed.json",
+      "field": "semantic_neighbors",
+      "index": 0
     }
   ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:onward:1a7d4b82c1ef533d",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 16444,
         "source_path": "content/lexical/canonical/senses/shards/o5985-6016.json"
       },
       {
         "sense_id": "sense:onward:cdf022b06b495414",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 16445,
+        "source_path": "content/lexical/canonical/senses/shards/o5985-6016.json"
+      },
+      {
+        "sense_id": "sense:onward:8a26f3534d8ebb5c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 16455,
         "source_path": "content/lexical/canonical/senses/shards/o5985-6016.json"
       }
     ],
@@ -116,7 +163,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6009-6016.json",
-    "source_content_hash": "f1628ac25c94bf9078c48cbddfb3f5d391eedfe3aa3302dd87739d0212831129",
+    "source_content_hash": "cf0fa4467f19fd06fe241224b5d4a550225a4fde18d32043f084bcc988f57112",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

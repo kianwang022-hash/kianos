@@ -7,12 +7,22 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "a86d6b59ba0b7b331161b152f80b9a45fef5636fdffc28f3f115d101291e7fba",
+    "content_hash": "f924d6662d846ff001026729082ba6f01d3595d9722003b64a9407ea29f5860e",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "使瘫痪；使麻痹",
-      "core_meaning_en": "make powerless and unable to function",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "使瘫痪；使麻痹；使身体或身体部位瘫痪、不能活动",
+          "label_en": "make powerless and unable to function; to cause a person or body part to become paralyzed and unable to move",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:paralyze:ef71ae40d0aa5e35",
+            "sense:paralyze:8572e8f6bb7b5776"
+          ]
+        }
+      ],
+      "core_meaning_cn": "使瘫痪；使麻痹；使身体或身体部位瘫痪、不能活动",
+      "core_meaning_en": "make powerless and unable to function; to cause a person or body part to become paralyzed and unable to move",
+      "mental_model_cn": "使瘫痪；使麻痹；使身体或身体部位瘫痪、不能活动",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -67,6 +77,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "使身体或身体部位瘫痪、不能活动",
+        "definition_en": "to cause a person or body part to become paralyzed and unable to move",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:paralyze:8572e8f6bb7b5776",
+        "sense_label_en": "to cause a person or body part to become paralyzed and unable to move",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -84,38 +108,19 @@
   },
   "relation_refs": [
     {
-      "relation_id": "relation:horizontal:b41f148d1862c191e288",
-      "owner_path": "content/lexical/relations/by-id/a7/a782fc359b081297bee209b270fb11f041fc1ab055a2b66bb35f99e11fba62a8.json",
+      "relation_id": "relation:horizontal:234fb7cdf574b4f0ede1",
+      "owner_path": "content/lexical/relations/by-id/59/5978b5265a46089a0922206861cdceb929b72707d86209e3e3a9b8670952ffe7.json",
       "field": "semantic_neighbors",
       "index": 0
     }
   ],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:paralyze:8572e8f6bb7b5776",
-      "status": "merged",
-      "merged_into_sense_id": "sense:paralyze:ef71ae40d0aa5e35",
-      "pos": "verb",
-      "definition_cn": "使瘫痪；使麻痹",
-      "definition_en": "cause to be paralyzed and immobile",
-      "semantic_key": "6dae0080028bc2b3d9fc23ff930047e04ad1edf8600093fd0b67f5c67c356693",
-      "semantic_key_history": [
-        "4503294fa0fd53cd81c3d8f9a3725f455cfbb045ef6eceb2e39a37200942f915"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 16463,
-      "source_path": "content/lexical/canonical/senses/shards/o6017-6048.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:paralyze:8572e8f6bb7b5776",
-        "status": "merged",
-        "merged_into_sense_id": "sense:paralyze:ef71ae40d0aa5e35",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 16463,
         "source_path": "content/lexical/canonical/senses/shards/o6017-6048.json"
       },
@@ -151,7 +156,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6017-6024.json",
-    "source_content_hash": "a86d6b59ba0b7b331161b152f80b9a45fef5636fdffc28f3f115d101291e7fba",
+    "source_content_hash": "f924d6662d846ff001026729082ba6f01d3595d9722003b64a9407ea29f5860e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

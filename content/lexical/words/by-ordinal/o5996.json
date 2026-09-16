@@ -7,12 +7,21 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "6f16abde807b466b8976e84174ada2389f80e41c916bd47fb5affa8b136adf3a",
+    "content_hash": "a4c9b9b59864b937303d0b5b15332c714bbd3a0deb0a33dc72904941419e9b6c",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "(教堂)中殿；中央广场；轮毂",
-      "core_meaning_en": "the central area of a church",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "教堂中殿；教堂中央的主要空间",
+          "label_en": "the central or main part of a church",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:nave:36720f96bf745c3a"
+          ]
+        }
+      ],
+      "core_meaning_cn": "教堂中殿；教堂中央的主要空间",
+      "core_meaning_en": "the central or main part of a church",
+      "mental_model_cn": "教堂中殿；教堂中央的主要空间",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +31,22 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "教堂中殿；教堂中央的主要空间",
+        "definition_en": "the central or main part of a church",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:nave:36720f96bf745c3a",
+        "sense_label_en": "the central or main part of a church",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -37,31 +61,12 @@
     "word_id": "word:nave"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:nave:36720f96bf745c3a",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "(教堂)中殿；中央广场；轮毂",
-      "definition_en": "the central area of a church",
-      "semantic_key": "38cf8ee54b5f63c8553a809a1a6837ae1375a103585d455ccbde35bb249be87c",
-      "semantic_key_history": [
-        "4c810c2eabc53f014ed2ff22eff26dd33620e534fcdcf70b012b772912116761"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 16423,
-      "source_path": "content/lexical/canonical/senses/shards/o5985-6016.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:nave:36720f96bf745c3a",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 16423,
         "source_path": "content/lexical/canonical/senses/shards/o5985-6016.json"
@@ -91,7 +96,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5993-6000.json",
-    "source_content_hash": "6f16abde807b466b8976e84174ada2389f80e41c916bd47fb5affa8b136adf3a",
+    "source_content_hash": "a4c9b9b59864b937303d0b5b15332c714bbd3a0deb0a33dc72904941419e9b6c",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
