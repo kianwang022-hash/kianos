@@ -1,6 +1,6 @@
 # Xizong Product / UI Status
 
-Status: **CURRENT PRODUCT ROUTER · ONE RUNTIME · SHARED SEMANTIC ADAPTER CURRENT · PROJECTION CURRENT RECONCILED · RENDERER ADOPTION NEXT**  
+Status: **CURRENT PRODUCT ROUTER · ONE RUNTIME · SHARED SEMANTIC ADAPTER CURRENT · PRODUCTION SEMANTIC RENDERER CURRENT · GOLDEN JOURNEY NEXT**  
 Domain router: `content/xizong/CURRENT.md`  
 Learning authority: `content/xizong/LEARNING_CONTRACT.md` + `content/xizong/knowledge/learner/study-policy.json`  
 Presentation authority: `static-web/PRESENTATION_CONTRACT.md`  
@@ -275,7 +275,7 @@ Current reconciliation is now explicit:
 - C explicit/non-contiguous LG membership is preserved; it is not rewritten into fake contiguous ranges;
 - B whole-LG Source contact and C Block/canonical-Source-unit contact remain different accepted execution models;
 - compiled-asset validation and Current-eligibility/topology reconciliation are separate gates, so neither can manufacture the other's claim;
-- production Block rendering still needs to consume the unified semantic / Projection objects instead of reconstructing semantics through legacy System-specific loaders.
+- production Block rendering now consumes the unified semantic / Projection objects through the shared production presenter while retaining the existing V6 Runtime and `kianos-xizong-astro-v2` learner-state store.
 
 Do not interpret `role / geometry` as learner-facing labels. The learner should see the mechanism chain, comparison, boundary or exact item itself, not `CHAIN / MATRIX / EXACT` engineering words.
 
@@ -347,7 +347,7 @@ JSON fields / Markdown headings
 
 ## 10｜Current next product sequence
 
-The authority, shared semantic adapter and Projection Current reconciliation are no longer the active blockers.
+The authority, shared semantic adapter, Projection reconciliation and production semantic renderer are no longer the active blockers.
 
 ```text
 DONE  1. Current learning/product authority consolidation
@@ -361,13 +361,18 @@ DONE  2. shared A1/A2/A3/B/C semantic adapter
 DONE  3. reconcile Projection manifest / validation with Current Learning truth
           - A1/A2/A3/B compiled
           - C eligible, deliberately not falsely compiled
-NEXT  4. update production Block renderer to consume semantic / Projection objects
-      5. representative Golden Journey
+DONE  4. update production Block renderer to consume semantic / Projection objects
+          - exact semantic LG membership reaches the learner surface
+          - natural/block Source contact uses one continuous original-Lecture handoff before LG retrieval
+          - whole-LG Source contact remains supported without forcing that topology onto other Systems
+          - compiled Projection / Attention / optional Visual-Precision support stays inside the existing V6 family
+          - existing v2 learner state and neutral Recall front are preserved
+NEXT  5. representative Golden Journey
       6. B + C compatibility acceptance
       7. only then final Xizong UI convergence
       8. later Systems / Visuals / Crosswalk continue additively
 ```
 
-For step 4, modify the existing `XizongBlockV6` production family and shared loaders. Do not create `V7`, a second Xizong Runtime or a second learner-state store.
+For step 5, validate one representative production learner journey end to end on the existing V6 Runtime: orientation / Attention → accepted Source contact → LG/KP retrieval and closure → Block Recall → completion. Do not create a second Runtime, bypass the external Lecture surface, reopen Source between natural-source LGs, or manufacture learner evidence merely to make the journey green.
 
 Real learner U remains external and path-scoped.
