@@ -1,0 +1,148 @@
+name: Visual Release Check
+on:
+  workflow_dispatch:
+  push:
+    branches: ['ui/visual-convergence-20260916']
+    paths: ['.github/workflows/visual-release-check.yml']
+permissions:
+  contents: write
+concurrency:
+  group: visual-release-check
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ui/visual-convergence-20260916
+          fetch-depth: 0
+      - name: Apply bounded reviewed cursor and test-navigation fixes
+        shell: python
+        run: |
+          from pathlib import Path
+          def replace(name, old, new):
+              p=Path(name); text=p.read_text()
+              if old in text:
+                  assert text.count(old)==1, name
+                  p.write_text(text.replace(old,new))
+              else:
+                  assert new in text, f'Unexpected Current source in {name}'
+          for filename,var in [('PoliticsChapterRuntime.astro','politicsRuntime'),('PoliticsCognitiveWorkspace.astro','runtime')]:
+              name='static-web/src/components/'+filename
+              old=f'  if ({var}) {{\n    saveJson(politicsLastKey, {{'
+              new=f'''  if ({var}) {{
+              // Entry/reload must not demote an exact cursor within this chapter.
+              const previousLocation = readJson(politicsLastKey, null);
+              const sameLocation = previousLocation?.subject === {var}.dataset.subject
+                && previousLocation?.chapter === {var}.dataset.chapter;
+              saveJson(politicsLastKey, {{
+                ...(sameLocation ? previousLocation : {{}}),'''
+              replace(name,old,new)
+              replace(name,'      href: window.location.pathname,\n      observed_at:','      href: sameLocation && previousLocation?.href ? previousLocation.href : window.location.pathname,\n      observed_at:')
+          replace('static-web/src/components/PoliticsUnitReturnEnhancer.astro',
+              "      if (current && String(current.action || '').startsWith('REPAIR') && current.unit_id === unitId) return;",
+              """      // Passive visibility in this same Unit is not explicit learner navigation.
+                if (current && current.unit_id === unitId && (
+                  String(current.action || '').startsWith('REPAIR')
+                  || ['VERIFY', 'UNIT_RETURN'].includes(String(current.action || ''))
+                )) return;""")
+          helper='''  await card.waitFor({ state: 'attached' });
+            const unitAnchor = await card.evaluate((node) => node.closest('[data-politics-unit]')?.id || '');
+            if (unitAnchor) {
+              const unit = page.locator(`[id="${unitAnchor}"]`);
+              if (!(await unit.isVisible())) {
+                await page.locator(`.politicsRail a[href="#${unitAnchor}"]`).click();
+                await unit.waitFor({ state: 'visible' });
+              }
+            }
+            await card.waitFor({ state: 'visible' });'''
+          for domain in ['xi','ethics']:
+              for kind in ['runtime','evidence']:
+                  name=f'static-web/scripts/test-politics-{domain}-{kind}.mjs'
+                  old='  const card = cardFor(page, qid);'+ ('\n  ' if kind=='runtime' else ' ')+"await card.waitFor({ state: 'visible' });"
+                  replace(name,old,'  const card = cardFor(page, qid);\n'+helper)
+          replace('static-web/scripts/test-lexical-functional-first-browser.mjs','[data-vocab-details] .portedVocabCoreSense p','[data-vocab-details] .lexicalSenseMeaning > p')
+      - name: Commit only the reviewed fixes
+        run: |
+          git config user.name 'KianOS visual worker'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add static-web/src/components/PoliticsChapterRuntime.astro static-web/src/components/PoliticsCognitiveWorkspace.astro static-web/src/components/PoliticsUnitReturnEnhancer.astro static-web/scripts/test-politics-xi-runtime.mjs static-web/scripts/test-politics-xi-evidence.mjs static-web/scripts/test-politics-ethics-runtime.mjs static-web/scripts/test-politics-ethics-evidence.mjs static-web/scripts/test-lexical-functional-first-browser.mjs
+          if ! git diff --cached --quiet; then
+            git commit -m 'fix(ui): preserve exact resume across passive pane visibility'
+            git push origin HEAD:refs/heads/ui/visual-convergence-20260916
+          fi
+          mkdir -p release-checks
+          git rev-parse HEAD > release-checks/commit.txt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            ~/.cache/ms-playwright
+          key: visual-release-node22-playwright1561-${{ hashFiles('static-web/package.json') }}
+      - name: Install and build once
+        working-directory: static-web
+        run: |
+          npm install --no-audit --no-fund
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+          sudo apt-get install -y fonts-noto-cjk
+          npm run build > ../release-checks/build.log 2>&1
+      - name: Execute all blocked and downstream journeys without hiding later failures
+        working-directory: static-web
+        shell: bash
+        run: |
+          set +e
+          for script in test-politics-functional-journey test-politics-xi-runtime test-politics-xi-evidence test-politics-ethics-runtime test-politics-ethics-evidence test-politics-mao-runtime test-politics-mao-evidence test-lexical-functional-first-browser test-xizong-a2-progressive-source-visual test-xizong-a1-browser-journey test-xizong-a1-evidence-journey test-lexical-content-shape-browser test-lexical-english-handoff-browser test-lexical-form-identity-browser test-lexical-ledger-word-projection-browser; do
+            timeout 120s node scripts/$script.mjs > ../release-checks/$script.log 2>&1
+            echo "$script $?" >> ../release-checks/status.txt
+          done
+          exit 0
+      - name: Capture current representative pages
+        if: always()
+        working-directory: static-web
+        shell: bash
+        run: |
+          set +e
+          for script in capture-visual-stage-one capture-lexical-projection capture-visual-stage-two capture-desktop-workspaces; do
+            timeout 180s node scripts/$script.mjs > ../release-checks/$script.log 2>&1
+            echo "$script $?" >> ../release-checks/status.txt
+          done
+          exit 0
+      - name: Compact diagnostics
+        if: always()
+        shell: python
+        run: |
+          import json,re
+          from pathlib import Path
+          p=Path('release-checks'); out=[]
+          for line in (p/'status.txt').read_text().splitlines():
+              name,code=line.rsplit(' ',1)
+              log=(p/(name+'.log')).read_text(errors='replace')
+              out.append({'name':name,'exit':int(code),'tail':log[-9000:] if code!='0' else log[-1000:]})
+          (p/'summary.json').write_text(json.dumps(out,ensure_ascii=False,indent=2))
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: visual-release-check-${{ github.run_id }}
+          path: |
+            release-checks/
+            visual-evidence/
+            visual-stage-two/
+            *-audit/report.json
+            static-web/.qa/*.json
+          retention-days: 7
+      - name: Final result
+        if: always()
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+          rows=json.loads(Path('release-checks/summary.json').read_text())
+          bad=[r['name'] for r in rows if r['exit']]
+          print('Still failing:',bad)
+          raise SystemExit(bool(bad))
