@@ -6,7 +6,7 @@
   "canonical_id": "A2",
   "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
   "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
-  "notes": "Preserves the reviewed A2 R3 source-visual slice. Additional System packs may land independently and may remain partial.",
+  "notes": "Preserves the reviewed A2 R3 source-visual slice and begins progressive high-value A2 expansion. Coverage remains intentionally partial and independently extensible.",
   "bundles": [
     {
       "cue_id": "a2-r03-lg01-visual",
@@ -45,6 +45,25 @@
           "width": 420,
           "height": 247,
           "derived_asset_sha256": "d4263beea13b36155da3d130c253e881a209e3786fbe91fd1f976bfcfe808c88"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r08-lg01-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi26:r033595-486982-547125-629514",
+          "source_page": 22,
+          "usage_role": "OBSTRUCTIVE_RESTRICTIVE_PULMONARY_FUNCTION_TABLE",
+          "usage_label": "P22 · 阻塞 vs 限制肺功能",
+          "alt": "内科讲义 P22：阻塞性与限制性通气功能障碍关键肺功能指标对照表",
+          "asset_path": "a2-r08-lg01/r08-p22-pft-table.webp",
+          "width": 520,
+          "height": 117,
+          "source_crop_sha256": "0d67c0dc3c357bfe87cdd795ffe5525f5f14ae50a6609678bd8b511553fa479c",
+          "derived_asset_sha256": "fcc0cf9781c0744b95bf1f8bd510f3b36b5689cbcf597b897c48246939809464"
         }
       ]
     }
