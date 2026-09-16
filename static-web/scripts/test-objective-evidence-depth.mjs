@@ -107,7 +107,6 @@ async function answerReadingA(page, reading, answers, { wrongIndices = [] } = {}
     const formal = firstAnswer(answers.answers[id]);
     const selected = wrong.has(index) ? wrongLabel(question, formal) : formal;
     if (!selected) throw new Error(`READING_A_EVIDENCE_ANSWER_NOT_SELECTABLE:${id}`);
-    await page.locator('.portedReadingQuestionNav button').nth(index).click();
     await page.locator('[data-question]').nth(index).locator(`[data-option="${selected}"]`).click();
   }
   await page.locator('[data-reading-submit]').click();
