@@ -35,8 +35,9 @@ function extractField(body, field) {
 }
 
 function extractContracts(markdown, sourceName, map) {
-  const re = /^##\s+(C-H\d{2}-LG\d{2})[｜|].*\n([\s\S]*?)(?=^##\s+C-H\d{2}-LG\d{2}[｜|]|^#\s+H\d+\b|\Z)/gm;
-  for (const match of markdown.matchAll(re)) {
+  const source = `${markdown}\n# H99 EOF\n`;
+  const re = /^##\s+(C-H\d{2}-LG\d{2})[｜|].*\n([\s\S]*?)(?=^##\s+C-H\d{2}-LG\d{2}[｜|]|^#\s+H\d+\b)/gm;
+  for (const match of source.matchAll(re)) {
     const anchor = match[1];
     const body = match[2];
     const contract = {
