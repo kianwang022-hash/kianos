@@ -43,36 +43,61 @@ async function stopServer(server) {
 const lexicalWords = new Set(listLexicalWordSummaries().map((row) => String(row.word || '').toLowerCase()).filter(Boolean));
 
 async function selectKnownWord(page, selector) {
-  const text = await page.locator(selector).first().textContent();
-  const tokens = String(text || '').match(/[A-Za-z]+(?:[-'][A-Za-z]+)*/g) || [];
-  const word = tokens.find((token) => lexicalWords.has(token.toLowerCase()));
-  if (!word) throw new Error(`NO_CURRENT_LEXICAL_TOKEN:${selector}`);
-  const selected = await page.evaluate(({ selector: targetSelector, word: targetWord }) => {
-    const root = document.querySelector(targetSelector);
+  const locator = page.locator(selector);
+  const texts = await locator.allTextContents();
+  let found = null;
+  for (const minimumLength of [3, 2]) {
+    for (let index = 0; index < texts.length && !found; index += 1) {
+      const tokens = String(texts[index] || '').match(/[A-Za-z]+(?:[-'][A-Za-z]+)*/g) || [];
+      const word = tokens.find((token) => token.length >= minimumLength && lexicalWords.has(token.toLowerCase()));
+      if (word) found = { index, word };
+    }
+    if (found) break;
+  }
+  if (!found) throw new Error(`NO_CURRENT_LEXICAL_TOKEN:${selector}`);
+
+  const selected = await page.evaluate(({ selector: targetSelector, index, word: targetWord }) => {
+    const root = document.querySelectorAll(targetSelector)[index];
     if (!(root instanceof HTMLElement)) return false;
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-    const pattern = new RegExp(`(^|[^A-Za-z])(${targetWord.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})(?=$|[^A-Za-z])`, 'i');
+    const target = targetWord.toLowerCase();
+    const isLetter = (char) => Boolean(char && /[A-Za-z]/.test(char));
     while (walker.nextNode()) {
       const node = walker.currentNode;
       const value = node.nodeValue || '';
-      const match = value.match(pattern);
-      if (!match || match.index === undefined) continue;
-      const start = match.index + match[1].length;
-      const range = document.createRange();
-      range.setStart(node, start);
-      range.setEnd(node, start + match[2].length);
-      const selection = window.getSelection();
-      selection.removeAllRanges();
-      selection.addRange(range);
-      (node.parentElement || root).dispatchEvent(new MouseEvent('mouseup', { bubbles: true, clientX: 120, clientY: 160 }));
-      return true;
+      const lower = value.toLowerCase();
+      let cursor = lower.indexOf(target);
+      while (cursor >= 0) {
+        const before = cursor > 0 ? value[cursor - 1] : '';
+        const afterIndex = cursor + targetWord.length;
+        const after = afterIndex < value.length ? value[afterIndex] : '';
+        if (!isLetter(before) && !isLetter(after)) {
+          const range = document.createRange();
+          range.setStart(node, cursor);
+          range.setEnd(node, cursor + targetWord.length);
+          const selection = window.getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          (node.parentElement || root).dispatchEvent(new MouseEvent('mouseup', { bubbles: true, clientX: 120, clientY: 160 }));
+          return true;
+        }
+        cursor = lower.indexOf(target, cursor + 1);
+      }
     }
     return false;
-  }, { selector, word });
-  check(selected, `selection_created_${selector.replace(/[^a-z]+/gi, '_')}`);
+  }, { selector, index: found.index, word: found.word });
+
+  check(selected, `selection_created_${selector.replace(/[^a-z]+/gi, '_')}`, found.word);
   await page.locator('[data-english-selection-menu]').waitFor({ state: 'visible' });
-  check(await page.locator('[data-selection-lexical]').isVisible(), `lexical_action_visible_${selector.replace(/[^a-z]+/gi, '_')}`);
-  return word;
+  check(await page.locator('[data-selection-lexical]').isVisible(), `lexical_action_visible_${selector.replace(/[^a-z]+/gi, '_')}`, found.word);
+  return found.word;
+}
+
+async function assertExactLexicalResult(page, word, name) {
+  const rows = page.locator('.lexicalWordRow');
+  check(await rows.count() > 0, `${name}_lookup_resolves_current_catalog`, word);
+  const firstWord = String(await rows.first().locator('strong').textContent() || '').trim();
+  check(firstWord.toLowerCase() === word.toLowerCase(), `${name}_exact_owner_ranks_first`, `${word} -> ${firstWord}`);
 }
 
 async function assertHome(page) {
@@ -118,7 +143,7 @@ async function assertFullLexicalRoundTrip(page) {
   await input.waitFor({ state: 'visible' });
   check((await input.inputValue()).toLowerCase() === word.toLowerCase(), 'lexical_lookup_prefills_exact_selected_word', word);
   check(await page.locator('[data-english-lexical-return]').isVisible(), 'lexical_lookup_exposes_exact_return');
-  check(await page.locator('.lexicalWordRow').count() > 0, 'lexical_lookup_resolves_current_catalog');
+  await assertExactLexicalResult(page, word, 'reading');
   await page.screenshot({ path: path.join(auditDir, 'lexical-return-1440x900.png'), fullPage: false });
   await page.locator('.lexicalWordRow').first().click();
   await page.waitForURL('**/vocabulary/*/');
@@ -137,6 +162,7 @@ async function assertSourceLookup(page, route, selector, name) {
   check((await page.locator('[data-lexical-search]').inputValue()).toLowerCase() === word.toLowerCase(), `${name}_lookup_prefills_word`);
   const meta = await page.locator('[data-english-return-meta]').textContent();
   check(String(meta || '').includes(word), `${name}_return_bar_names_lookup`);
+  await assertExactLexicalResult(page, word, name);
   await page.locator('[data-english-return-action]').click();
   await page.waitForURL(`**${route}`);
   check(new URL(page.url()).pathname.endsWith(route), `${name}_returns_exact_task`);
