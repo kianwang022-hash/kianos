@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "e914c2bf13f8c9d3ae3e80411d6502b50674193588b934af7e7da3d8b17411c4",
+    "content_hash": "27c08548dca308fe6308771c149809b69e2861a78b3707ed52abd3fccf734e2c",
     "core_concept": {
       "core_clusters": [
         {
@@ -88,15 +88,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:a2fc52148505c186e08e",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:volunteer:e5856e337f295ae6:collocation:0"
-            ],
-            "meaning_cn": "自愿做某事",
-            "phrase": "volunteer to do + sth"
-          },
-          {
             "collocation_id": "collocation:b8b5337fb164c68ef1c0",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -104,6 +95,15 @@
             ],
             "meaning_cn": "自愿帮忙",
             "phrase": "volunteer to help"
+          },
+          {
+            "collocation_id": "collocation:cce22690b68a7c3e22cf",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:volunteer:e5856e337f295ae6:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "自愿做某事",
+            "phrase": "volunteer to do sth"
           }
         ],
         "confidence": "medium",
@@ -263,8 +263,8 @@
       "collocation:660a8f3438495da565e3",
       "collocation:6c2f2c3faebc85b16527",
       "collocation:7dbf86f62815912d1714",
-      "collocation:a2fc52148505c186e08e",
       "collocation:b8b5337fb164c68ef1c0",
+      "collocation:cce22690b68a7c3e22cf",
       "collocation:faead877e10b55c1744c"
     ],
     "facts": [
@@ -303,6 +303,11 @@
       {
         "id": "collocation:faead877e10b55c1744c",
         "source_row": 21234,
+        "source_path": "content/lexical/canonical/collocations/shards/o5313-5344.json"
+      },
+      {
+        "id": "collocation:cce22690b68a7c3e22cf",
+        "source_row": 21390,
         "source_path": "content/lexical/canonical/collocations/shards/o5313-5344.json"
       }
     ],
@@ -347,7 +352,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5321-5328.json",
-    "source_content_hash": "e914c2bf13f8c9d3ae3e80411d6502b50674193588b934af7e7da3d8b17411c4",
+    "source_content_hash": "27c08548dca308fe6308771c149809b69e2861a78b3707ed52abd3fccf734e2c",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

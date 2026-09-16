@@ -7,12 +7,23 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "64709bd2abdac8730a973ef9034bd6ea1c8b13079c3529ce148f0bc482171d95",
+    "content_hash": "4c5e481941e78c39aae9c8f17d7b447c698456e4929d6dd54633fda054d3f88c",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "视力或看到的事物",
-      "core_meaning_en": "the ability to see or something seen",
-      "mental_model_cn": "视力或看到的事物",
+      "core_clusters": [
+        {
+          "label_cn": "视力，视觉；景象，景物；视野，眼界",
+          "label_en": "the ability to see; something that is seen; the range of vision",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:sight:ea7f80230e215fc2",
+            "sense:sight:975949583bb85e4b",
+            "sense:sight:dfbdac060f60554d"
+          ]
+        }
+      ],
+      "core_meaning_cn": "视力，视觉；景象，景物；视野，眼界",
+      "core_meaning_en": "the ability to see; something that is seen; the range of vision",
+      "mental_model_cn": "视力，视觉；景象，景物；视野，眼界",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +33,50 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "视力，视觉",
+        "definition_en": "the ability to see",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:sight:ea7f80230e215fc2",
+        "sense_label_en": "the ability to see",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "景象，景物",
+        "definition_en": "something that is seen",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:sight:975949583bb85e4b",
+        "sense_label_en": "something that is seen",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "视野，眼界",
+        "definition_en": "the range of vision",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:sight:dfbdac060f60554d",
+        "sense_label_en": "the range of vision",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 3,
       "deep_modules": {
@@ -42,7 +96,14 @@
     "word_family": [],
     "word_id": "word:sight"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:horizontal:39d430f2433071dacd3b",
+      "owner_path": "content/lexical/relations/by-id/2b/2b6057cb0335ef9e885489872da61776b33a89f8eebb2a1190d29d135ac1e3f4.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
   "reference_senses": [
     {
       "stable_sense_id": "sense:sight:12e206e84e7f5d65",
@@ -93,81 +154,6 @@
       "source_row": 12506,
       "source_path": "content/lexical/canonical/senses/shards/o4417-4448.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:sight:975949583bb85e4b",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "景象，景物",
-      "definition_en": "something that is seen",
-      "semantic_key": "0de63e8e1ae4d886c990de2f1f2f56ee2adc919555cbc6a14be81648f9049ca9",
-      "semantic_key_history": [
-        "a5ed2911d1b56ebed619e84b3a0e8c5d13f57f5a45ac6af6010ba3e0f5962603"
-      ],
-      "legacy_aliases": [
-        "sight:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "sight:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12507,
-      "source_path": "content/lexical/canonical/senses/shards/o4417-4448.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:sight:dfbdac060f60554d",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "视野，眼界",
-      "definition_en": "the range of vision",
-      "semantic_key": "1c2dc209caaaf74a4f150f46c8108b920841520c19e6f4b516da7bc6b435d3cf",
-      "semantic_key_history": [
-        "3b185528999e7da0bcdee152f5aacc0c967f724108eef8bdfca24439d45b0bae"
-      ],
-      "legacy_aliases": [
-        "sight:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "sight:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12508,
-      "source_path": "content/lexical/canonical/senses/shards/o4417-4448.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:sight:ea7f80230e215fc2",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "视力，视觉",
-      "definition_en": "the ability to see",
-      "semantic_key": "ec861b735ce453aae5d47343f4babfaecfd8da212a74f3b6428a2573bd4f8d50",
-      "semantic_key_history": [
-        "4c9e78ab7d42716b158bb21069bfe7c747c3a7932ce501c2ca70b6b1aaa3c682"
-      ],
-      "legacy_aliases": [
-        "sight:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "sight:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12509,
-      "source_path": "content/lexical/canonical/senses/shards/o4417-4448.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -188,21 +174,21 @@
       },
       {
         "sense_id": "sense:sight:975949583bb85e4b",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12507,
         "source_path": "content/lexical/canonical/senses/shards/o4417-4448.json"
       },
       {
         "sense_id": "sense:sight:dfbdac060f60554d",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12508,
         "source_path": "content/lexical/canonical/senses/shards/o4417-4448.json"
       },
       {
         "sense_id": "sense:sight:ea7f80230e215fc2",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12509,
         "source_path": "content/lexical/canonical/senses/shards/o4417-4448.json"
@@ -298,7 +284,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4425-4432.json",
-    "source_content_hash": "64709bd2abdac8730a973ef9034bd6ea1c8b13079c3529ce148f0bc482171d95",
+    "source_content_hash": "4c5e481941e78c39aae9c8f17d7b447c698456e4929d6dd54633fda054d3f88c",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

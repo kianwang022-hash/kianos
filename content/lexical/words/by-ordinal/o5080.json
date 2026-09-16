@@ -7,12 +7,22 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "3752dcc611284bb306a4aae7b9373f17c3d9d1893ec11b9ced7234af19f35ba4",
+    "content_hash": "1d621bd97fe8b50f04f0f40802e48edea35107e1ca31cb0bad84416dea11d0e3",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "有毒的",
-      "core_meaning_en": "poisonous",
-      "mental_model_cn": "有毒的",
+      "core_clusters": [
+        {
+          "label_cn": "有毒的；有毒害的、严重有害或不健康的（引申）",
+          "label_en": "containing or being a poison; seriously harmful, unhealthy, or damaging in a figurative sense",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:toxic:3ad08214ea58557b",
+            "sense:toxic:4f2703c7b79419c3"
+          ]
+        }
+      ],
+      "core_meaning_cn": "有毒的；有毒害的、严重有害或不健康的（引申）",
+      "core_meaning_en": "containing or being a poison; seriously harmful, unhealthy, or damaging in a figurative sense",
+      "mental_model_cn": "有毒的；有毒害的、严重有害或不健康的（引申）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -55,6 +65,20 @@
         "sense_label_en": "containing or being a poison",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "有毒害的、严重有害或不健康的（引申）",
+        "definition_en": "seriously harmful, unhealthy, or damaging in a figurative sense",
+        "governing_pattern": "toxic relationship/workplace/culture",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:toxic:4f2703c7b79419c3",
+        "sense_label_en": "seriously harmful, unhealthy, or damaging in a figurative sense",
+        "sort_order": 1,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -85,6 +109,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14454,
+        "source_path": "content/lexical/canonical/senses/shards/o5057-5088.json"
+      },
+      {
+        "sense_id": "sense:toxic:4f2703c7b79419c3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14489,
         "source_path": "content/lexical/canonical/senses/shards/o5057-5088.json"
       }
     ],
@@ -131,7 +162,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5073-5080.json",
-    "source_content_hash": "3752dcc611284bb306a4aae7b9373f17c3d9d1893ec11b9ced7234af19f35ba4",
+    "source_content_hash": "1d621bd97fe8b50f04f0f40802e48edea35107e1ca31cb0bad84416dea11d0e3",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -6,13 +6,40 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "3f2c62ba002be769d3fb5a743d04e170813f05fe68e6383541608078ac85c620",
+    "constructions": [
+      {
+        "construction_id": "construction:7d19b15d1b9a70c93c8d",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "努力、设法做某事",
+        "pattern": "try to do sth",
+        "source_sense_id": "sense:try:a22e65d4f85c5e79"
+      },
+      {
+        "construction_id": "construction:3e657e5b0f58052d566e",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "试着用某种做法，看是否有效",
+        "pattern": "try doing sth",
+        "source_sense_id": "sense:try:045fd7d7828c5296"
+      }
+    ],
+    "content_hash": "e40205826cde3bad495b7f7b635e6571850f77bd7a60f13535665bf3f15ec922",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "尝试；努力",
-      "core_meaning_en": "to make an effort to do something",
-      "mental_model_cn": "尝试；努力",
+      "core_clusters": [
+        {
+          "label_cn": "尝试；试图；试验；试用",
+          "label_en": "to make an effort to do or achieve something; to test something to see if it works or is suitable",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:try:a22e65d4f85c5e79",
+            "sense:try:045fd7d7828c5296"
+          ]
+        }
+      ],
+      "core_meaning_cn": "尝试；试图；试验；试用",
+      "core_meaning_en": "to make an effort to do or achieve something; to test something to see if it works or is suitable",
+      "mental_model_cn": "尝试；试图；试验；试用",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +49,36 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "尝试；试图",
+        "definition_en": "to make an effort to do or achieve something",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:try:a22e65d4f85c5e79",
+        "sense_label_en": "to make an effort to do or achieve something",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "试验；试用",
+        "definition_en": "to test something to see if it works or is suitable",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:try:045fd7d7828c5296",
+        "sense_label_en": "to test something to see if it works or is suitable",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {
@@ -44,31 +100,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:try:045fd7d7828c5296",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "试验；试用",
-      "definition_en": "to test something to see if it works or is suitable",
-      "semantic_key": "fe93cf77b27574f2e7e9a965b9e471b82ff2e51f11f4971efdee45e464491431",
-      "semantic_key_history": [
-        "fae9337c7bdbd6fe23714efb105605b06e04455367e8d78e9266b33a597ea9da"
-      ],
-      "legacy_aliases": [
-        "try:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "try:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14674,
-      "source_path": "content/lexical/canonical/senses/shards/o5121-5152.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:try:581247c6ff0e5713",
       "status": "deprecated",
@@ -118,38 +149,13 @@
       "source_row": 14676,
       "source_path": "content/lexical/canonical/senses/shards/o5121-5152.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:try:a22e65d4f85c5e79",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "尝试；试图",
-      "definition_en": "to make an effort to do or achieve something",
-      "semantic_key": "9d116048d823d5253f7c8c331bef6aac93a1f3f5dce4713f74d96f8a855796b8",
-      "semantic_key_history": [
-        "caaf166bb6b7e558c83ea4a4bbb0c5ba54d17942d536191fd17d4bb26f844eb8"
-      ],
-      "legacy_aliases": [
-        "try:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "try:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14677,
-      "source_path": "content/lexical/canonical/senses/shards/o5121-5152.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:try:045fd7d7828c5296",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14674,
         "source_path": "content/lexical/canonical/senses/shards/o5121-5152.json"
@@ -170,7 +176,7 @@
       },
       {
         "sense_id": "sense:try:a22e65d4f85c5e79",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14677,
         "source_path": "content/lexical/canonical/senses/shards/o5121-5152.json"
@@ -231,7 +237,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5145-5152.json",
-    "source_content_hash": "3f2c62ba002be769d3fb5a743d04e170813f05fe68e6383541608078ac85c620",
+    "source_content_hash": "e40205826cde3bad495b7f7b635e6571850f77bd7a60f13535665bf3f15ec922",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

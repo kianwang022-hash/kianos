@@ -6,13 +6,30 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "c1a748a6ce5e24ca165f134e21ce1a363291ae40326e7c6e0e792bb5c76d4e70",
+    "constructions": [
+      {
+        "construction_id": "construction:9a1d5a9739afb1ee2abe",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "因害怕、犹豫或不情愿而回避某事/做某事",
+        "pattern": "shy away from sth/doing sth"
+      }
+    ],
+    "content_hash": "12f00555de960f5cb8db90150a8ea55da42dd898c00af9c4e69ff263947a9749",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "羞怯的；惊退；乱投",
-      "core_meaning_en": "easily frightened or nervous; to throw quickly",
-      "mental_model_cn": "羞怯的；惊退；乱投",
+      "core_clusters": [
+        {
+          "label_cn": "羞怯的，怕生的",
+          "label_en": "nervous or timid in the company of other people",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:shy:5fb0d36f63e15426"
+          ]
+        }
+      ],
+      "core_meaning_cn": "羞怯的，怕生的",
+      "core_meaning_en": "nervous or timid in the company of other people",
+      "mental_model_cn": "羞怯的，怕生的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +39,22 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "羞怯的，怕生的",
+        "definition_en": "nervous or timid in the company of other people",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:shy:5fb0d36f63e15426",
+        "sense_label_en": "nervous or timid in the company of other people",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 2,
       "deep_modules": {
@@ -95,31 +127,6 @@
       "reference_only": true
     },
     {
-      "stable_sense_id": "sense:shy:5fb0d36f63e15426",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "羞怯的，怕生的",
-      "definition_en": "nervous or timid in the company of other people",
-      "semantic_key": "18a3233e249ae8e06332c52ccfd3a7435f3e3d13bb36d22ad80afd466fa2f2aa",
-      "semantic_key_history": [
-        "a2b22b29c1a304c1331c9b41fe7fc503f037783d9485a39dafcd632ed3313fd0"
-      ],
-      "legacy_aliases": [
-        "shy:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "shy:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12486,
-      "source_path": "content/lexical/canonical/senses/shards/o4417-4448.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:shy:acd71cbb3cfe578c",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -163,7 +170,7 @@
       },
       {
         "sense_id": "sense:shy:5fb0d36f63e15426",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12486,
         "source_path": "content/lexical/canonical/senses/shards/o4417-4448.json"
@@ -236,7 +243,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4417-4424.json",
-    "source_content_hash": "c1a748a6ce5e24ca165f134e21ce1a363291ae40326e7c6e0e792bb5c76d4e70",
+    "source_content_hash": "12f00555de960f5cb8db90150a8ea55da42dd898c00af9c4e69ff263947a9749",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -6,8 +6,17 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "f77b092c3ed94934adb3d5b3ffaa6f93f6c90f0a1e7ccc122b970ba61024e166",
+    "constructions": [
+      {
+        "construction_id": "construction:680efbb9f2dd39648061",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "徒劳地；未成功、未产生预期结果",
+        "pattern": "in vain",
+        "source_sense_id": "sense:vain:a006a8532dcc5c65"
+      }
+    ],
+    "content_hash": "33ec613c949f16d1c9df4ace51a65366d8dbf07a5e04b0d40e03f24d5e0060a9",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "自负或徒劳",
@@ -33,15 +42,6 @@
             ],
             "meaning_cn": "对某事自负",
             "phrase": "vain about + sth"
-          },
-          {
-            "collocation_id": "collocation:781b00922ec3093b4b3e",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:vain:b8211c4841185256:collocation:1"
-            ],
-            "meaning_cn": "徒劳地",
-            "phrase": "in vain"
           }
         ],
         "confidence": "medium",
@@ -66,6 +66,15 @@
             ],
             "meaning_cn": "徒劳的尝试",
             "phrase": "vain attempt"
+          },
+          {
+            "collocation_id": "collocation:d0402e096b7380ef1840",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:vain:a006a8532dcc5c65:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "徒劳地；没有成功",
+            "phrase": "in vain"
           }
         ],
         "confidence": "medium",
@@ -121,8 +130,8 @@
     ],
     "active_collocations": [
       "collocation:657d04e23534d5b023f9",
-      "collocation:781b00922ec3093b4b3e",
-      "collocation:c1ebf315a4b15dc3776e"
+      "collocation:c1ebf315a4b15dc3776e",
+      "collocation:d0402e096b7380ef1840"
     ],
     "facts": [],
     "collocations": [
@@ -139,6 +148,11 @@
       {
         "id": "collocation:c1ebf315a4b15dc3776e",
         "source_row": 16400,
+        "source_path": "content/lexical/canonical/collocations/shards/o5217-5248.json"
+      },
+      {
+        "id": "collocation:d0402e096b7380ef1840",
+        "source_row": 21452,
         "source_path": "content/lexical/canonical/collocations/shards/o5217-5248.json"
       }
     ],
@@ -173,7 +187,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5241-5248.json",
-    "source_content_hash": "f77b092c3ed94934adb3d5b3ffaa6f93f6c90f0a1e7ccc122b970ba61024e166",
+    "source_content_hash": "33ec613c949f16d1c9df4ace51a65366d8dbf07a5e04b0d40e03f24d5e0060a9",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -7,15 +7,48 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "377c063c91a8cc0661b853a02bdacd189726c0b842a631c9c5b2406300260959",
+    "content_hash": "0905c843348f038f13041657084648c7ee26dbaa42dafe975df122d8b37e9501",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "那些",
-      "core_meaning_en": "plural of that",
-      "mental_model_cn": "那些",
+      "core_clusters": [
+        {
+          "label_cn": "那些",
+          "label_en": "plural form of that",
+          "pos": "pronoun",
+          "sense_ids": [
+            "sense:those:9363ca26e5c25274"
+          ]
+        },
+        {
+          "label_cn": "那些；置于复数名词前作限定词",
+          "label_en": "demonstrative determiner used before a plural noun",
+          "pos": "determiner",
+          "sense_ids": [
+            "sense:those:a9e854dca6196b24"
+          ]
+        }
+      ],
+      "core_meaning_cn": "那些；那些；置于复数名词前作限定词",
+      "core_meaning_en": "plural form of that; demonstrative determiner used before a plural noun",
+      "mental_model_cn": "那些；那些；置于复数名词前作限定词",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o4875-o5374.md",
+      "boundaries": [
+        {
+          "condition": "standalone",
+          "note": "pronoun use",
+          "surface": "those"
+        },
+        {
+          "condition": "before plural noun",
+          "note": "determiner use",
+          "surface": "those + plural noun"
+        }
+      ],
+      "type": "demonstrative_pos_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -55,6 +88,20 @@
         "sense_label_en": "plural form of that",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "那些；置于复数名词前作限定词",
+        "definition_en": "demonstrative determiner used before a plural noun",
+        "governing_pattern": "those + plural noun",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "determiner",
+        "sense_id": "sense:those:a9e854dca6196b24",
+        "sense_label_en": "demonstrative determiner used before a plural noun",
+        "sort_order": 1,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -85,6 +132,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14193,
+        "source_path": "content/lexical/canonical/senses/shards/o4993-5024.json"
+      },
+      {
+        "sense_id": "sense:those:a9e854dca6196b24",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14285,
         "source_path": "content/lexical/canonical/senses/shards/o4993-5024.json"
       }
     ],
@@ -126,7 +180,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4993-5000.json",
-    "source_content_hash": "377c063c91a8cc0661b853a02bdacd189726c0b842a631c9c5b2406300260959",
+    "source_content_hash": "0905c843348f038f13041657084648c7ee26dbaa42dafe975df122d8b37e9501",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

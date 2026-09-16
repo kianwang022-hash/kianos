@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "1a9040cfe8aa759520e6f9f3c4cb0e214b56ea4d43531705fcd1a8f4d5ada817",
+    "content_hash": "4fddb5977ae9baebae85194842c7700cc1394db717e15fcdd9084aea7fa59eba",
     "core_concept": {
       "core_clusters": [
         {
@@ -26,19 +26,11 @@
           "sense_ids": [
             "sense:within:a7ebaf91c7ea5eec"
           ]
-        },
-        {
-          "label_cn": "内部；里头",
-          "label_en": "the inside or interior part of something",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:within:03eaef0489825cae"
-          ]
         }
       ],
-      "core_meaning_cn": "在…之内；内部",
-      "core_meaning_en": "inside or not beyond",
-      "mental_model_cn": "在…之内；内部",
+      "core_meaning_cn": "在…之内；在…内部；在（时间、距离、数量）范围内；不超过；在内部；在内心里",
+      "core_meaning_en": "inside (something); not beyond or outside; not exceeding or outside the limits of (a time, distance, or amount); on the inside; internally",
+      "mental_model_cn": "在…之内；在…内部；在（时间、距离、数量）范围内；不超过；在内部；在内心里",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -138,30 +130,6 @@
         "sense_label_en": "on the inside; internally",
         "sort_order": 2,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:476039f7b6155f68bd36",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:within:03eaef0489825cae:collocation:0"
-            ],
-            "meaning_cn": "建筑物内部",
-            "phrase": "the within of a building"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "内部；里头",
-        "definition_en": "the inside or interior part of something",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:within:03eaef0489825cae",
-        "sense_label_en": "the inside or interior part of something",
-        "sort_order": 3,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -184,12 +152,36 @@
     "word_id": "word:within"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:within:03eaef0489825cae",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "内部；里头",
+      "definition_en": "the inside or interior part of something",
+      "semantic_key": "e2b87c25d8b2a08da8b342cceb331465dcf279a5494774e9018c562ebafa876e",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "within:l3:4"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "within:l3:4",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 15478,
+      "source_path": "content/lexical/canonical/senses/shards/o5441-5472.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:within:03eaef0489825cae",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 15478,
         "source_path": "content/lexical/canonical/senses/shards/o5441-5472.json"
@@ -218,7 +210,6 @@
     ],
     "active_collocations": [
       "collocation:0b1aef4b3f2e0b406b9e",
-      "collocation:476039f7b6155f68bd36",
       "collocation:90abb016a169d864c647",
       "collocation:be63b4217c8fba66f7b7",
       "collocation:d6ebf184b7f7574f0965",
@@ -293,7 +284,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5441-5448.json",
-    "source_content_hash": "1a9040cfe8aa759520e6f9f3c4cb0e214b56ea4d43531705fcd1a8f4d5ada817",
+    "source_content_hash": "4fddb5977ae9baebae85194842c7700cc1394db717e15fcdd9084aea7fa59eba",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

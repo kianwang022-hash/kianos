@@ -7,12 +7,21 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "320a874cd2fbfdd6f3905a3e0fc60cf85aa3e9bb1ff2c16d6b3aa80299cf00bc",
+    "content_hash": "af9790e1335de9c4b6a48f3749e133f03f73517e726b51656e0affe8c5ad3ec4",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "可见的",
-      "core_meaning_en": "able to be seen",
-      "mental_model_cn": "可见的",
+      "core_clusters": [
+        {
+          "label_cn": "看得见的，明显的",
+          "label_en": "capable of being seen; obvious to the eye",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:visible:de3867a6e673562e"
+          ]
+        }
+      ],
+      "core_meaning_cn": "看得见的，明显的",
+      "core_meaning_en": "capable of being seen; obvious to the eye",
+      "mental_model_cn": "看得见的，明显的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +31,22 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "看得见的，明显的",
+        "definition_en": "capable of being seen; obvious to the eye",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:visible:de3867a6e673562e",
+        "sense_label_en": "capable of being seen; obvious to the eye",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -68,31 +92,6 @@
       "source_row": 15087,
       "source_path": "content/lexical/canonical/senses/shards/o5281-5312.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:visible:de3867a6e673562e",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "看得见的，明显的",
-      "definition_en": "capable of being seen; obvious to the eye",
-      "semantic_key": "a05aa9838d28bd7c17c46e69e54a499767b9ce8511f85a3221f8a2bfa5058c8a",
-      "semantic_key_history": [
-        "7ba29f3ff0b8b5fd0ba9f21cf8b22075c655631746acc6c329190cc1853110a9"
-      ],
-      "legacy_aliases": [
-        "visible:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "visible:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 15088,
-      "source_path": "content/lexical/canonical/senses/shards/o5281-5312.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -106,7 +105,7 @@
       },
       {
         "sense_id": "sense:visible:de3867a6e673562e",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 15088,
         "source_path": "content/lexical/canonical/senses/shards/o5281-5312.json"
@@ -167,7 +166,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5305-5312.json",
-    "source_content_hash": "320a874cd2fbfdd6f3905a3e0fc60cf85aa3e9bb1ff2c16d6b3aa80299cf00bc",
+    "source_content_hash": "af9790e1335de9c4b6a48f3749e133f03f73517e726b51656e0affe8c5ad3ec4",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

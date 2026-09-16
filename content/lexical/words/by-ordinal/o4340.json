@@ -6,30 +6,41 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "21f24112f57d804aa41bc7d7707936c5024e1622ca8f79898dcfb129f8b83040",
+    "constructions": [
+      {
+        "construction_id": "construction:b3e89d3ceb9693451537",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "比某人年长或级别更高",
+        "pattern": "be senior to sb",
+        "source_sense_id": "sense:senior:7502dd9002615e1b"
+      }
+    ],
+    "content_hash": "a19dc8268d7962a5df73c1b955952c3cf5fece605e54a9047356efaaad6f94e6",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "年长的，高级的，资深的",
-          "label_en": "older or higher in rank",
+          "label_cn": "年长的，高级的，资深的；（美式）毕业年级的；最高年级的",
+          "label_en": "older or higher in rank; AmE: relating to the final year of high school or college",
           "pos": "adjective",
           "sense_ids": [
-            "sense:senior:7502dd9002615e1b"
+            "sense:senior:7502dd9002615e1b",
+            "sense:senior:8f5258676ddad323"
           ]
         },
         {
-          "label_cn": "年长者，资深者",
-          "label_en": "a person who is older or higher in rank",
+          "label_cn": "年长者，资深者；（美式）高中或大学毕业年级学生",
+          "label_en": "a person who is older or higher in rank; AmE: a student in the final year of high school or college",
           "pos": "noun",
           "sense_ids": [
-            "sense:senior:57fcaa4b995e5002"
+            "sense:senior:57fcaa4b995e5002",
+            "sense:senior:12241e2e5b297489"
           ]
         }
       ],
-      "core_meaning_cn": "年长或级别高",
-      "core_meaning_en": "older or higher in rank",
-      "mental_model_cn": "年长或级别高",
+      "core_meaning_cn": "年长/级别更高；美式毕业年级学生或毕业年级的",
+      "core_meaning_en": "older/higher in rank; in AmE also a final-year student or final-year level",
+      "mental_model_cn": "年长/级别更高；美式毕业年级学生或毕业年级的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -96,6 +107,54 @@
         "sense_label_en": "a person who is older or higher in rank",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:834091ac714f236d9703",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:senior:12241e2e5b297489:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "高中/大学毕业年级学生",
+            "phrase": "a high-school/college senior"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（美式）高中或大学毕业年级学生",
+        "definition_en": "AmE: a student in the final year of high school or college",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:senior:12241e2e5b297489",
+        "sense_label_en": "AmE: a student in the final year of high school or college",
+        "sort_order": 2,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:355be931c7966c58a9b1",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:senior:8f5258676ddad323:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "毕业年级",
+            "phrase": "senior year"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（美式）毕业年级的；最高年级的",
+        "definition_en": "AmE: relating to the final year of high school or college",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:senior:8f5258676ddad323",
+        "sense_label_en": "AmE: relating to the final year of high school or college",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -134,9 +193,25 @@
         "merged_into_sense_id": null,
         "source_row": 12191,
         "source_path": "content/lexical/canonical/senses/shards/o4321-4352.json"
+      },
+      {
+        "sense_id": "sense:senior:12241e2e5b297489",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 12230,
+        "source_path": "content/lexical/canonical/senses/shards/o4321-4352.json"
+      },
+      {
+        "sense_id": "sense:senior:8f5258676ddad323",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 12231,
+        "source_path": "content/lexical/canonical/senses/shards/o4321-4352.json"
       }
     ],
     "active_collocations": [
+      "collocation:355be931c7966c58a9b1",
+      "collocation:834091ac714f236d9703",
       "collocation:9644a53ecb593249b231",
       "collocation:96a0ebeb06446333d96d",
       "collocation:e32dd36afaff6a1e9dcf"
@@ -156,6 +231,16 @@
       {
         "id": "collocation:e32dd36afaff6a1e9dcf",
         "source_row": 19229,
+        "source_path": "content/lexical/canonical/collocations/shards/o4321-4352.json"
+      },
+      {
+        "id": "collocation:355be931c7966c58a9b1",
+        "source_row": 21512,
+        "source_path": "content/lexical/canonical/collocations/shards/o4321-4352.json"
+      },
+      {
+        "id": "collocation:834091ac714f236d9703",
+        "source_row": 21514,
         "source_path": "content/lexical/canonical/collocations/shards/o4321-4352.json"
       }
     ],
@@ -195,7 +280,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4337-4344.json",
-    "source_content_hash": "21f24112f57d804aa41bc7d7707936c5024e1622ca8f79898dcfb129f8b83040",
+    "source_content_hash": "a19dc8268d7962a5df73c1b955952c3cf5fece605e54a9047356efaaad6f94e6",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

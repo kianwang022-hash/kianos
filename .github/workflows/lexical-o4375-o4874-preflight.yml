@@ -1,0 +1,51 @@
+name: Lexical o4375-o4874 identity preflight
+
+on:
+  push:
+    branches:
+      - lexical/execute-o4375-o4874-20260916
+    paths:
+      - 'tools/lexical_execute_o4375_o4874.py'
+      - '.github/workflows/lexical-o4375-o4874-preflight.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lexical-o4375-o4874-preflight
+  cancel-in-progress: false
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: lexical/execute-o4375-o4874-20260916
+          fetch-depth: 0
+      - name: Compile all 166 identity owners in one pass
+        run: |
+          python tools/lexical_execute_o4375_o4874.py --preflight content/lexical/execution/preflight/o4375-o4874.current-identities.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('content/lexical/execution/preflight/o4375-o4874.current-identities.json')
+          obj=json.loads(p.read_text(encoding='utf-8'))
+          assert obj['status']=='READ_ONLY_CURRENT_EVIDENCE'
+          assert obj['identity_owner_count']==166
+          assert obj['source_owner_count']==161
+          assert obj['remote_word_dependencies']==[1399,1846,2470,3485,4115]
+          assert len(obj['source_owners'])==161 and len(set(obj['source_owners']))==161
+          assert sum(x[2] for x in obj['internal_receipt_counts'])==161
+          print('PREFLIGHT_CONTRACT_PASS 166/166')
+          PY
+          status=$(git status --short)
+          test "$status" = "?? content/lexical/execution/preflight/o4375-o4874.current-identities.json"
+      - name: Commit read-only preflight evidence
+        run: |
+          git config user.name Kian
+          git config user.email kianwang022@gmail.com
+          git add content/lexical/execution/preflight/o4375-o4874.current-identities.json
+          git commit -m 'lexical: compile o4375-o4874 identity preflight [skip ci]'
+          git push origin HEAD:lexical/execute-o4375-o4874-20260916

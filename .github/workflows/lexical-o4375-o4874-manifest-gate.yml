@@ -1,0 +1,27 @@
+name: Lexical o4375-o4874 manifest coverage gate
+
+on:
+  push:
+    branches:
+      - lexical/execute-o4375-o4874-20260916
+    paths:
+      - 'tools/lexical_package_runtime.py'
+      - 'tools/lexical_manifest_o4375_o4874.py'
+      - 'tools/lexical_execute_o4375_o4874_v2.py'
+      - '.github/workflows/lexical-o4375-o4874-manifest-gate.yml'
+  workflow_dispatch:
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    env:
+      KIANOS_BASELINE_MAIN: 135b023633dd109403cc223a2971c36669a4a889
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: lexical/execute-o4375-o4874-20260916
+          fetch-depth: 0
+      - name: Validate exact 161-owner coverage
+        run: |
+          python tools/lexical_execute_o4375_o4874_v2.py --validate-manifest
+          python -m py_compile tools/lexical_package_runtime.py tools/lexical_manifest_o4375_o4874.py tools/lexical_execute_o4375_o4874_v2.py

@@ -7,12 +7,29 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "456affa8c5bcca081539dadf7784a07e8cfee1dfe9a89a060cd197ce8e68130a",
+    "content_hash": "2de305aa571ba0516d6d70bdde8cfca01a20ae6e84b70b078d3b28c3c30562bb",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "肩膀；肩负，用肩推",
-      "core_meaning_en": "the part of the body between the neck and the upper arm; to bear or push with the shoulder",
-      "mental_model_cn": "肩膀；肩负，用肩推",
+      "core_clusters": [
+        {
+          "label_cn": "肩膀",
+          "label_en": "the part of the body between the neck and the upper arm",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:shoulder:1e7b961898ba54c7"
+          ]
+        },
+        {
+          "label_cn": "肩负，承担",
+          "label_en": "to bear or carry on the shoulder; to take on a burden or responsibility",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:shoulder:705125e872a6516b"
+          ]
+        }
+      ],
+      "core_meaning_cn": "肩膀；肩负，承担",
+      "core_meaning_en": "the part of the body between the neck and the upper arm; to bear or carry on the shoulder; to take on a burden or responsibility",
+      "mental_model_cn": "肩膀；肩负，承担",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +39,36 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "肩膀",
+        "definition_en": "the part of the body between the neck and the upper arm",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:shoulder:1e7b961898ba54c7",
+        "sense_label_en": "the part of the body between the neck and the upper arm",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "肩负，承担",
+        "definition_en": "to bear or carry on the shoulder; to take on a burden or responsibility",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:shoulder:705125e872a6516b",
+        "sense_label_en": "to bear or carry on the shoulder; to take on a burden or responsibility",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -66,56 +112,6 @@
       ],
       "updated_at": "2026-09-09T00:00:00Z",
       "source_row": 12444,
-      "source_path": "content/lexical/canonical/senses/shards/o4385-4416.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:shoulder:1e7b961898ba54c7",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "肩膀",
-      "definition_en": "the part of the body between the neck and the upper arm",
-      "semantic_key": "d1f005fd4432773388ab9378162b3285ed25e2992b99c8bc868dda2883add98b",
-      "semantic_key_history": [
-        "304588110b5f3362d123f8c3cca8ff721b20920423507b116f35bec31e9ede0a"
-      ],
-      "legacy_aliases": [
-        "shoulder:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "shoulder:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12445,
-      "source_path": "content/lexical/canonical/senses/shards/o4385-4416.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:shoulder:705125e872a6516b",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "肩负，承担",
-      "definition_en": "to bear or carry on the shoulder; to take on a burden or responsibility",
-      "semantic_key": "de130685750a89d85cff7f0c64122fa0efa430482e49db5ebcc18c655efd439c",
-      "semantic_key_history": [
-        "6d50b32f1580ea7622f7d2b14bedf874c3b4530e0dccd25ea1ecc84f313c352f"
-      ],
-      "legacy_aliases": [
-        "shoulder:l1:5"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "shoulder:l1:5",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12446,
       "source_path": "content/lexical/canonical/senses/shards/o4385-4416.json",
       "reference_only": true
     },
@@ -206,14 +202,14 @@
       },
       {
         "sense_id": "sense:shoulder:1e7b961898ba54c7",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12445,
         "source_path": "content/lexical/canonical/senses/shards/o4385-4416.json"
       },
       {
         "sense_id": "sense:shoulder:705125e872a6516b",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12446,
         "source_path": "content/lexical/canonical/senses/shards/o4385-4416.json"
@@ -295,7 +291,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4409-4416.json",
-    "source_content_hash": "456affa8c5bcca081539dadf7784a07e8cfee1dfe9a89a060cd197ce8e68130a",
+    "source_content_hash": "2de305aa571ba0516d6d70bdde8cfca01a20ae6e84b70b078d3b28c3c30562bb",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

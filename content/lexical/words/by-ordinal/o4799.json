@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "bc4b116872abc2082fd8acaf68d66e65516f49e261aca6a9f6845de3acf2f333",
+    "content_hash": "760a4f35d14bd79513f3f3afea6b1cf603cd8fe28cac384907073ce03ff9148e",
     "core_concept": {
       "core_clusters": [
         {
@@ -33,6 +33,22 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o4375-o4874.md",
+      "boundaries": [
+        {
+          "condition": "traditional BrE spelling",
+          "note": "traditional British spelling",
+          "surface": "sulphur"
+        },
+        {
+          "condition": "current scientific/IUPAC and AmE spelling",
+          "note": "sulfur is the current IUPAC spelling and standard AmE; same lexeme",
+          "surface": "sulfur"
+        }
+      ],
+      "type": "regional_spelling_word_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -89,6 +105,7 @@
         "transitivity": "vt"
       }
     ],
+    "usage_note": "sulphur is the traditional BrE spelling; sulfur is current IUPAC/scientific spelling and standard AmE",
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -165,6 +182,14 @@
   },
   "lookup_refs": [
     {
+      "spelling": "sulfur",
+      "source": "content/lexical/canonical/lookup/spelling/su.json",
+      "word_id": "word:sulphur",
+      "ordinal": 4799,
+      "word_shard": "content/lexical/canonical/words/shards/o4793-4800.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/93.json"
+    },
+    {
       "spelling": "sulphur",
       "source": "content/lexical/canonical/lookup/spelling/su.json",
       "word_id": "word:sulphur",
@@ -175,7 +200,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4793-4800.json",
-    "source_content_hash": "bc4b116872abc2082fd8acaf68d66e65516f49e261aca6a9f6845de3acf2f333",
+    "source_content_hash": "760a4f35d14bd79513f3f3afea6b1cf603cd8fe28cac384907073ce03ff9148e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

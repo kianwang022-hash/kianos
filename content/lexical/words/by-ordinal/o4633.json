@@ -7,12 +7,29 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "292266659d59d7567db2ae16d23a52e0fcca8cfdec87144965976a0d19906b75",
+    "content_hash": "8e318511a5eba72f44e13eba7fcc33f37b4294d3284d13c10c65a62dec63779f",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "体育运动",
-      "core_meaning_en": "physical activity involving competition and skill",
-      "mental_model_cn": "体育运动",
+      "core_clusters": [
+        {
+          "label_cn": "体育运动",
+          "label_en": "an activity involving physical exertion and skill, typically competitive",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:sport:0df9e7ab00c65467"
+          ]
+        },
+        {
+          "label_cn": "炫耀；穿戴",
+          "label_en": "to wear or display something, especially in a proud way",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:sport:71e292f1a41752cb"
+          ]
+        }
+      ],
+      "core_meaning_cn": "体育运动；炫耀；穿戴",
+      "core_meaning_en": "an activity involving physical exertion and skill, typically competitive; to wear or display something, especially in a proud way",
+      "mental_model_cn": "体育运动；炫耀；穿戴",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +39,36 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "体育运动",
+        "definition_en": "an activity involving physical exertion and skill, typically competitive",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:sport:0df9e7ab00c65467",
+        "sense_label_en": "an activity involving physical exertion and skill, typically competitive",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "炫耀；穿戴",
+        "definition_en": "to wear or display something, especially in a proud way",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:sport:71e292f1a41752cb",
+        "sense_label_en": "to wear or display something, especially in a proud way",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {
@@ -66,56 +112,6 @@
       ],
       "updated_at": "2026-09-09T00:00:00Z",
       "source_row": 13118,
-      "source_path": "content/lexical/canonical/senses/shards/o4609-4640.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:sport:0df9e7ab00c65467",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "体育运动",
-      "definition_en": "an activity involving physical exertion and skill, typically competitive",
-      "semantic_key": "54dab003c302de2ea2fd39d67f9fc0b435c8bdc6ea45029c056ffd9e49bdde30",
-      "semantic_key_history": [
-        "c037bd10e576580aaa73420100c99c677b5b36def16d315670a5ea1fe85a3dfa"
-      ],
-      "legacy_aliases": [
-        "sport:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "sport:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 13119,
-      "source_path": "content/lexical/canonical/senses/shards/o4609-4640.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:sport:71e292f1a41752cb",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "炫耀；穿戴",
-      "definition_en": "to wear or display something, especially in a proud way",
-      "semantic_key": "6ea31279e8e0d290917dadc3f2a275efbe5e2c655322ec7a719243991e89886a",
-      "semantic_key_history": [
-        "8b4f5ad03a8aaffb76adcb421c3665e2ddd5795622eb2d5b682a077021068ff6"
-      ],
-      "legacy_aliases": [
-        "sport:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "sport:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 13120,
       "source_path": "content/lexical/canonical/senses/shards/o4609-4640.json",
       "reference_only": true
     },
@@ -181,14 +177,14 @@
       },
       {
         "sense_id": "sense:sport:0df9e7ab00c65467",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 13119,
         "source_path": "content/lexical/canonical/senses/shards/o4609-4640.json"
       },
       {
         "sense_id": "sense:sport:71e292f1a41752cb",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 13120,
         "source_path": "content/lexical/canonical/senses/shards/o4609-4640.json"
@@ -258,7 +254,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4633-4640.json",
-    "source_content_hash": "292266659d59d7567db2ae16d23a52e0fcca8cfdec87144965976a0d19906b75",
+    "source_content_hash": "8e318511a5eba72f44e13eba7fcc33f37b4294d3284d13c10c65a62dec63779f",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

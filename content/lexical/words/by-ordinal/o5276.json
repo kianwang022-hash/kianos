@@ -6,8 +6,17 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "5bf3bd114589d0ab3f6857fd2c91409b737ae19f47208cec312bd5aed4317950",
+    "constructions": [
+      {
+        "construction_id": "construction:93e10b8bcf33033218f2",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "精通、熟悉某领域；在某方面有丰富知识或经验",
+        "pattern": "be (well) versed in sth",
+        "usage_note": "Lexicalized participle/adjective; do not infer a productive modern verb *verse sb in*."
+      }
+    ],
+    "content_hash": "75ef2828acf6cb348a525111be203cbad7c78b5013f87b4cd0f2f4a8086b952b",
     "core_concept": {
       "core_clusters": [
         {
@@ -19,22 +28,37 @@
           ]
         },
         {
-          "label_cn": "用诗表达；把…写成诗；作诗；使熟悉；使精通",
-          "label_en": "to express in verse; to put into verse; to compose verses; to familiarize through thorough study or experience",
+          "label_cn": "用诗表达；把…写成诗；作诗",
+          "label_en": "to express in verse; to put into verse; to compose verses",
           "pos": "verb",
           "sense_ids": [
             "sense:verse:95df8b4a20015b37",
-            "sense:verse:372dc5b6e14454e8",
-            "sense:verse:3766409372fe50a5"
+            "sense:verse:372dc5b6e14454e8"
           ]
         }
       ],
-      "core_meaning_cn": "诗；韵文；作诗",
-      "core_meaning_en": "poetry or a line of poetry; to write in verse",
-      "mental_model_cn": "诗；韵文；作诗",
+      "core_meaning_cn": "诗；韵文；诗句；用诗表达；把…写成诗；作诗",
+      "core_meaning_en": "a piece of poetry; a line of metrical text; to express in verse; to put into verse; to compose verses",
+      "mental_model_cn": "诗；韵文；诗句；用诗表达；把…写成诗；作诗",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o4875-o5374.md",
+      "boundaries": [
+        {
+          "condition": "ordinary verse lexeme",
+          "note": "modern verb verse is centered on poetry/versify",
+          "surface": "verse"
+        },
+        {
+          "condition": "lexicalized participle/adjective",
+          "note": "be (well) versed in sth = knowledgeable, skilled, or experienced in sth; do not teach productive verse sb in",
+          "surface": "versed / well versed"
+        }
+      ],
+      "type": "lexicalized_participle_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -122,30 +146,6 @@
         "sense_label_en": "to compose verses",
         "sort_order": 2,
         "transitivity": "vi"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:7a293eb2b0c4612aa4fc",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:verse:3766409372fe50a5:collocation:0"
-            ],
-            "meaning_cn": "精通于",
-            "phrase": "be versed in"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "使熟悉；使精通",
-        "definition_en": "to familiarize through thorough study or experience",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:verse:3766409372fe50a5",
-        "sense_label_en": "to familiarize through thorough study or experience",
-        "sort_order": 3,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -168,7 +168,31 @@
     "word_id": "word:verse"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:verse:3766409372fe50a5",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "使熟悉；使精通",
+      "definition_en": "to familiarize through thorough study or experience",
+      "semantic_key": "bb7718a383930f2e006bd29c1410680821a4594ddbb8c96a19ea6c6372377ba6",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "verse:l3:4"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "verse:l3:4",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 15010,
+      "source_path": "content/lexical/canonical/senses/shards/o5249-5280.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -180,7 +204,7 @@
       },
       {
         "sense_id": "sense:verse:3766409372fe50a5",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 15010,
         "source_path": "content/lexical/canonical/senses/shards/o5249-5280.json"
@@ -204,7 +228,6 @@
       "collocation:23233cf1d0312062e1f0",
       "collocation:3cf8fc74055be62564de",
       "collocation:5b579d016fdb0973614c",
-      "collocation:7a293eb2b0c4612aa4fc",
       "collocation:9ee9d8a8a42fda2f9b18"
     ],
     "facts": [],
@@ -261,7 +284,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5273-5280.json",
-    "source_content_hash": "5bf3bd114589d0ab3f6857fd2c91409b737ae19f47208cec312bd5aed4317950",
+    "source_content_hash": "75ef2828acf6cb348a525111be203cbad7c78b5013f87b4cd0f2f4a8086b952b",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

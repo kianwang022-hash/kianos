@@ -1,0 +1,54 @@
+name: Lexical pkg251 continuous execution
+
+on:
+  push:
+    branches: [lexical/pkg251-exec]
+    paths:
+      - '.github/workflows/lexical-pkg251-continuous.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    env:
+      KIANOS_BASELINE_MAIN: 9e043719141bcb4a775785984f644c3f2cd66de1
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: lexical/pkg251-exec
+          fetch-depth: 0
+      - name: Validate manifest
+        run: |
+          python tools/lexical_execute_o5375_o5874.py --validate-manifest
+          python -m py_compile tools/lexical_execute_o5375_o5874.py tools/lexical_manifest_o5375_o5874.py tools/lexical_manifest_o5375_o5874_p{0,1,2,3,4,5,6,7,8,9}.py
+      - name: Execute from durable receipts
+        run: |
+          set -euo pipefail
+          git config user.name Kian
+          git config user.email kianwang022@gmail.com
+          ranges=(5375-5424 5425-5474 5475-5524 5525-5574 5575-5624 5625-5674 5675-5724 5725-5774 5775-5824 5825-5874)
+          for i in $(seq 0 9); do
+            r=${ranges[$i]}
+            receipt="content/lexical/execution/receipts/o${r%-*}-o${r#*-}.json"
+            if [ -f "$receipt" ]; then
+              echo "RESUME_SKIP checkpoint=$i range=$r"
+              continue
+            fi
+            echo "EXECUTE checkpoint=$i range=$r"
+            python tools/lexical_execute_o5375_o5874.py --checkpoint "$i"
+            python tools/test_lexical_transport_guards.py
+            python tools/test_lexical_shard.py
+            python - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          changed=subprocess.check_output(['git','diff','--name-only','HEAD'],text=True).splitlines()
+          targets=[p for p in changed if p.startswith('content/lexical/') and p.endswith('.json') and Path(p).exists()]
+          for p in targets: json.loads(Path(p).read_text(encoding='utf-8'))
+          print('CHECKPOINT_JSON_PASS',len(targets))
+          PY
+            git add content/lexical
+            git commit -m "lexical: execute o${r%-*}-o${r#*-} internal receipt [skip ci]"
+            git push origin HEAD:lexical/pkg251-exec
+          done

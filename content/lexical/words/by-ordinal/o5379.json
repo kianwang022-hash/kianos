@@ -6,13 +6,31 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "456df15feb23cf5cac33a3c0c3575c92e15f314a4bbfc2a3633792d1ebad993c",
+    "constructions": [
+      {
+        "construction_id": "construction:3ae36a8770522b4ba23b",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "在工作日；周一至周五",
+        "pattern": "on weekdays",
+        "source_sense_id": "sense:weekday:8dccd672c39251a2"
+      }
+    ],
+    "content_hash": "f3e541a25e3018b0b6e68e212d6fe50a07d7e829af5b1123c1893611fd101593",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "除周日（有时含周六）外的任何一天",
-      "core_meaning_en": "any day of the week except Sunday (and sometimes Saturday)",
-      "mental_model_cn": "除周日（有时含周六）外的任何一天",
+      "core_clusters": [
+        {
+          "label_cn": "工作日；通常为周一至周五",
+          "label_en": "a weekday: a day other than the weekend, typically Monday to Friday",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:weekday:8dccd672c39251a2"
+          ]
+        }
+      ],
+      "core_meaning_cn": "工作日；通常为周一至周五",
+      "core_meaning_en": "a weekday: a day other than the weekend, typically Monday to Friday",
+      "mental_model_cn": "工作日；通常为周一至周五",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -36,14 +54,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "工作日，平日",
-        "definition_en": "any day of the week except Sunday and often Saturday",
+        "definition_cn": "工作日；通常指周一至周五",
+        "definition_en": "a day other than the weekend, typically Monday to Friday",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:weekday:8dccd672c39251a2",
-        "sense_label_en": "any day of the week except Sunday and often Saturday",
+        "sense_label_en": "a day other than the weekend, typically Monday to Friday",
         "sort_order": 0,
         "transitivity": "nonverb"
       }
@@ -121,7 +139,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5377-5384.json",
-    "source_content_hash": "456df15feb23cf5cac33a3c0c3575c92e15f314a4bbfc2a3633792d1ebad993c",
+    "source_content_hash": "f3e541a25e3018b0b6e68e212d6fe50a07d7e829af5b1123c1893611fd101593",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

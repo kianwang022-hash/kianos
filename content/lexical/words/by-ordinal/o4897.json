@@ -6,18 +6,27 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "e38fc5a0ca14c40f224a084cdef542e538575eebec3ee41ea9044d68a18fca30",
+    "constructions": [
+      {
+        "construction_id": "construction:2fbaeb10b1448d1a97e5",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "利用、开发某种资源或潜力",
+        "pattern": "tap into sth",
+        "source_sense_id": "sense:tap:34cbe7efa4255752"
+      }
+    ],
+    "content_hash": "4791929b5604929fbd5fb3b4df2b9d52bc63c45aa7930529f3060b6f60367742",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "轻拍，轻敲；开发，利用；轻叩，轻拍",
-          "label_en": "to strike lightly with a slight sound; to make use of a resource; to strike lightly",
+          "label_cn": "轻拍，轻敲；开发，利用；窃听、截听电话或通信线路",
+          "label_en": "to strike lightly with a slight sound; to make use of a resource; to intercept or secretly monitor a phone line or communications",
           "pos": "verb",
           "sense_ids": [
             "sense:tap:cdf4e85287ae5fdf",
             "sense:tap:34cbe7efa4255752",
-            "sense:tap:cdf4e85287ae5fdf"
+            "sense:tap:da7407d4547efc13"
           ]
         },
         {
@@ -29,9 +38,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "轻拍；水龙头",
-      "core_meaning_en": "to touch lightly; a device for controlling flow",
-      "mental_model_cn": "轻拍；水龙头",
+      "core_meaning_cn": "轻拍，轻敲；水龙头；开发，利用；窃听、截听电话或通信线路",
+      "core_meaning_en": "to strike lightly with a slight sound; a device for controlling the flow of liquid from a pipe or container; to make use of a resource; to intercept or secretly monitor a phone line or communications",
+      "mental_model_cn": "轻拍，轻敲；水龙头；开发，利用；窃听、截听电话或通信线路",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -140,6 +149,20 @@
         "sense_label_en": "to make use of a resource",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "窃听、截听电话或通信线路",
+        "definition_en": "to intercept or secretly monitor a phone line or communications",
+        "governing_pattern": "tap a phone/line",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:tap:da7407d4547efc13",
+        "sense_label_en": "to intercept or secretly monitor a phone line or communications",
+        "sort_order": 3,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -215,6 +238,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 13933,
+        "source_path": "content/lexical/canonical/senses/shards/o4897-4928.json"
+      },
+      {
+        "sense_id": "sense:tap:da7407d4547efc13",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14025,
         "source_path": "content/lexical/canonical/senses/shards/o4897-4928.json"
       }
     ],
@@ -300,7 +330,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4897-4904.json",
-    "source_content_hash": "e38fc5a0ca14c40f224a084cdef542e538575eebec3ee41ea9044d68a18fca30",
+    "source_content_hash": "4791929b5604929fbd5fb3b4df2b9d52bc63c45aa7930529f3060b6f60367742",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

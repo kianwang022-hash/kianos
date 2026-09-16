@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "7b4c27523f82712f4456e08ce567289b8cacd7ac72b992643661f3800df8848d",
+    "content_hash": "e4b129280691249b02a9612d01b4e66a39c491b7bfcb11df3d722bda7b0f84bd",
     "core_concept": {
       "core_clusters": [
         {
@@ -30,9 +30,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "服务；起作用",
-      "core_meaning_en": "perform a duty or function; provide service",
-      "mental_model_cn": "服务；起作用",
+      "core_meaning_cn": "服务/供应；担任/任职；起作用；体育发球；服刑",
+      "core_meaning_en": "to provide service, function or hold a post; sports serve; serve a sentence/time",
+      "mental_model_cn": "服务/供应；担任/任职；起作用；体育发球；服刑",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -229,6 +229,54 @@
         "sense_label_en": "the act of hitting the ball to start play in tennis etc.",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:c286652e8f85fdfc1a94",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:serve:24afdf84c7efb62f:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "发球/先发球",
+            "phrase": "serve the ball / serve first"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（网球等）发球",
+        "definition_en": "to hit the ball to start play in a sport such as tennis",
+        "governing_pattern": "I/T",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:serve:24afdf84c7efb62f",
+        "sense_label_en": "to hit the ball to start play in a sport such as tennis",
+        "sort_order": 5,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:58cb41c575a509dd780f",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:serve:156b755e63d1f5cc:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "服刑",
+            "phrase": "serve a sentence / serve time"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "服（刑）；服满一段刑期",
+        "definition_en": "to spend a stated period in prison or serve a sentence",
+        "governing_pattern": "vt. + object",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:serve:156b755e63d1f5cc",
+        "sense_label_en": "to spend a stated period in prison or serve a sentence",
+        "sort_order": 6,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -288,12 +336,28 @@
         "merged_into_sense_id": null,
         "source_row": 12235,
         "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json"
+      },
+      {
+        "sense_id": "sense:serve:156b755e63d1f5cc",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 12350,
+        "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json"
+      },
+      {
+        "sense_id": "sense:serve:24afdf84c7efb62f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 12351,
+        "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json"
       }
     ],
     "active_collocations": [
       "collocation:0f82fef0bfa52b905040",
       "collocation:451daf7687001c8989d4",
+      "collocation:58cb41c575a509dd780f",
       "collocation:5b54c0a9ec8f551c3ec3",
+      "collocation:c286652e8f85fdfc1a94",
       "collocation:c62f103cefb2d47c0a0b",
       "collocation:c671220d549875780914",
       "collocation:d3e2b918cb2a2ebe554b",
@@ -347,6 +411,16 @@
         "id": "collocation:e93936e94f33abcf8359",
         "source_row": 19763,
         "source_path": "content/lexical/canonical/collocations/shards/o4353-4384.json"
+      },
+      {
+        "id": "collocation:58cb41c575a509dd780f",
+        "source_row": 21425,
+        "source_path": "content/lexical/canonical/collocations/shards/o4353-4384.json"
+      },
+      {
+        "id": "collocation:c286652e8f85fdfc1a94",
+        "source_row": 21426,
+        "source_path": "content/lexical/canonical/collocations/shards/o4353-4384.json"
       }
     ],
     "exam-mappings": [],
@@ -375,7 +449,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4353-4360.json",
-    "source_content_hash": "7b4c27523f82712f4456e08ce567289b8cacd7ac72b992643661f3800df8848d",
+    "source_content_hash": "e4b129280691249b02a9612d01b4e66a39c491b7bfcb11df3d722bda7b0f84bd",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -7,15 +7,56 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "e2f5d13dfb4ab2d991f9cc9c85dbc4623a5294478c36f3d1285380428f42aa48",
+    "content_hash": "d00ff3c4869b1832f2425114136030241d5e9d2a97433e21ec5df3b5ec1567d9",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "交谈；谈话",
-      "core_meaning_en": "to talk with someone",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "交谈；谈话",
+          "label_en": "to talk with someone",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:converse:813f4770e18552c7"
+          ]
+        },
+        {
+          "label_cn": "逆命题；相反事物",
+          "label_en": "a statement or relationship that is the reverse of another",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:converse:72d8bfc634a3525a"
+          ]
+        },
+        {
+          "label_cn": "相反的、逆向的",
+          "label_en": "reverse or opposite in order, direction, or relation",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:converse:1f100344c2dc3361"
+          ]
+        }
+      ],
+      "core_meaning_cn": "交谈；谈话；逆命题；相反事物；相反的、逆向的",
+      "core_meaning_en": "to talk with someone; a statement or relationship that is the reverse of another; reverse or opposite in order, direction, or relation",
+      "mental_model_cn": "交谈；谈话；逆命题；相反事物；相反的、逆向的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o5375-o5874.md",
+      "boundaries": [
+        {
+          "condition": "verb = talk",
+          "note": "verb has standard stress/pronunciation distinct from the reverse/opposite noun/adjective uses",
+          "surface": "converse"
+        },
+        {
+          "condition": "noun/adjective = reverse/opposite",
+          "note": "homograph with different stress in standard pronunciation",
+          "surface": "converse"
+        }
+      ],
+      "type": "homograph_stress_pos_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -224,6 +265,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "相反的、逆向的",
+        "definition_en": "reverse or opposite in order, direction, or relation",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:converse:1f100344c2dc3361",
+        "sense_label_en": "reverse or opposite in order, direction, or relation",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -256,6 +311,13 @@
         "merged_into_sense_id": null,
         "source_row": 15992,
         "source_path": "content/lexical/canonical/senses/shards/o5729-5760.json"
+      },
+      {
+        "sense_id": "sense:converse:1f100344c2dc3361",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 16039,
+        "source_path": "content/lexical/canonical/senses/shards/o5729-5760.json"
       }
     ],
     "active_collocations": [],
@@ -287,7 +349,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5729-5736.json",
-    "source_content_hash": "e2f5d13dfb4ab2d991f9cc9c85dbc4623a5294478c36f3d1285380428f42aa48",
+    "source_content_hash": "d00ff3c4869b1832f2425114136030241d5e9d2a97433e21ec5df3b5ec1567d9",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

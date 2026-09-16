@@ -6,8 +6,26 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "0256e7bb885b38dd89f6e8f155d5325d28f061b02542053d5682ac23889f495c",
+    "constructions": [
+      {
+        "construction_id": "construction:3a91e4827d3f07beed1f",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "无论什么/任何……",
+        "pattern": "whatever + noun",
+        "source_sense_id": "sense:whatever:3689fbe73143518e"
+      },
+      {
+        "construction_id": "construction:3b03ff0dad77c8ff6d39",
+        "definition_en": "no matter what; free-choice or concessive use",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "无论发生/选择什么；不管什么",
+        "pattern": "whatever + clause",
+        "source_sense_id": "sense:whatever:3689fbe73143518e"
+      }
+    ],
+    "content_hash": "bdb55f82d3b8a443f5070961bcef667cee2082aa424c53cb0517029efa580ead",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "无论什么",
@@ -16,6 +34,22 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o5375-o5874.md",
+      "boundaries": [
+        {
+          "condition": "pronoun/free-choice",
+          "note": "any thing(s) that; no matter what",
+          "surface": "whatever"
+        },
+        {
+          "condition": "determiner",
+          "note": "any/no matter which noun",
+          "surface": "whatever + noun"
+        }
+      ],
+      "type": "pos_use_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -126,7 +160,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5393-5400.json",
-    "source_content_hash": "0256e7bb885b38dd89f6e8f155d5325d28f061b02542053d5682ac23889f495c",
+    "source_content_hash": "bdb55f82d3b8a443f5070961bcef667cee2082aa424c53cb0517029efa580ead",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

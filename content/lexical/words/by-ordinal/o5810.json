@@ -7,12 +7,22 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "015069aae6e9961d56507bd8c0599bba87f5691950b9bde8b7cbb6b52d08862f",
+    "content_hash": "7663a60abbacc90e6179a1e29d7dc50e784295a8eda51a8885ded47cc54823b1",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "铁的；含铁的；亚铁的",
-      "core_meaning_en": "of or relating to or containing iron",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "含铁的、与铁有关的；亚铁的；铁(II)的（化学）",
+          "label_en": "containing, relating to, or made of iron; chemistry: relating to iron in the +2 oxidation state, iron(II)",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:ferrous:51806fc5ad4054f5",
+            "sense:ferrous:7af16d2e41ded38d"
+          ]
+        }
+      ],
+      "core_meaning_cn": "含铁的、与铁有关的；亚铁的；铁(II)的（化学）",
+      "core_meaning_en": "containing, relating to, or made of iron; chemistry: relating to iron in the +2 oxidation state, iron(II)",
+      "mental_model_cn": "含铁的、与铁有关的；亚铁的；铁(II)的（化学）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,8 +36,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "铁的；含铁的；亚铁的",
-        "definition_en": "of or relating to or containing iron",
+        "definition_cn": "含铁的、与铁有关的",
+        "definition_en": "containing, relating to, or made of iron",
         "depth": "full_card",
         "domain_tag": "cet6",
         "frequency_tag": "cet6",
@@ -35,7 +45,7 @@
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:ferrous:51806fc5ad4054f5",
-        "sense_label_en": "of or relating to or containing iron",
+        "sense_label_en": "containing, relating to, or made of iron",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -67,6 +77,23 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "亚铁的；铁(II)的（化学）",
+        "definition_en": "chemistry: relating to iron in the +2 oxidation state, iron(II)",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "register": "chemistry",
+        "sense_id": "sense:ferrous:7af16d2e41ded38d",
+        "sense_label_en": "chemistry: relating to iron in the +2 oxidation state, iron(II)",
+        "sort_order": 2,
+        "transitivity": "nonverb",
+        "usage_note": "Contrast ferric = iron(III).",
+        "writing_safe": true
       }
     ],
     "verification_summary": {
@@ -82,7 +109,14 @@
     "word_family": [],
     "word_id": "word:ferrous"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:horizontal:b764eebdaa63118543e2",
+      "owner_path": "content/lexical/relations/by-id/9d/9d70e346f8cdc960ef552538a0e45382af011276cc8538139b947e36625b5611.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -91,6 +125,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 16112,
+        "source_path": "content/lexical/canonical/senses/shards/o5793-5824.json"
+      },
+      {
+        "sense_id": "sense:ferrous:7af16d2e41ded38d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 16142,
         "source_path": "content/lexical/canonical/senses/shards/o5793-5824.json"
       }
     ],
@@ -118,7 +159,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5809-5816.json",
-    "source_content_hash": "015069aae6e9961d56507bd8c0599bba87f5691950b9bde8b7cbb6b52d08862f",
+    "source_content_hash": "7663a60abbacc90e6179a1e29d7dc50e784295a8eda51a8885ded47cc54823b1",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

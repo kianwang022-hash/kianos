@@ -55,14 +55,32 @@
         ],
         "verification_status": "verified",
         "writing_safe": true
+      },
+      {
+        "construction_id": "construction:f381d743323c3279a9e8",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "以某事威胁某人",
+        "pattern": "threaten sb with sth",
+        "source_sense_id": "sense:threaten:d7756159186b5fb1"
       }
     ],
-    "content_hash": "0d44b7ffedcd227c707f637889a66f3a1bdd3fe669ac860b32c49a7b6f4984f9",
+    "content_hash": "972a92c369161369bc58d03acc6b98b59b844a99aa00ef7bd09f44b82d9d6223",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "表达伤害意图或预示坏事",
-      "core_meaning_en": "to express an intention to harm or to be a sign of something bad",
-      "mental_model_cn": "表达伤害意图或预示坏事",
+      "core_clusters": [
+        {
+          "label_cn": "威胁、扬言伤害或造成不利后果；预示（坏事）",
+          "label_en": "to threaten or state an intention to harm or cause an adverse consequence; to be a sign that something bad is likely to happen",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:threaten:d7756159186b5fb1",
+            "sense:threaten:472a403c25ba5394"
+          ]
+        }
+      ],
+      "core_meaning_cn": "威胁、扬言伤害或造成不利后果；预示（坏事）",
+      "core_meaning_en": "to threaten or state an intention to harm or cause an adverse consequence; to be a sign that something bad is likely to happen",
+      "mental_model_cn": "威胁、扬言伤害或造成不利后果；预示（坏事）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -98,14 +116,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "威胁；恐吓",
-        "definition_en": "to say that you will cause trouble or harm if you do not get what you want",
+        "definition_cn": "威胁、扬言伤害或造成不利后果",
+        "definition_en": "to threaten or state an intention to harm or cause an adverse consequence",
         "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:threaten:d7756159186b5fb1",
-        "sense_label_en": "to say that you will cause trouble or harm if you do not get what you wa",
+        "sense_label_en": "to threaten or state an intention to harm or cause an adverse consequence",
         "sort_order": 0,
         "transitivity": "vt"
       },
@@ -150,7 +168,47 @@
       "runtime_model_calls": false
     },
     "word": "threaten",
-    "word_family": [],
+    "word_family": [
+      {
+        "boundary": "threat 名词 vs threaten 动词",
+        "codex_reviewed": false,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {},
+        "direction": "R",
+        "evidence": [
+          {
+            "evidence_id": "evidence:family:threat:threaten",
+            "evidence_status": "source_checked",
+            "source_locator": "threat|threaten",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:word_family:threat:22232fff826780fa",
+        "family_sources": [
+          "curated core-card derivative",
+          "local morphology candidate"
+        ],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "word_family",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": null,
+        "source_sense_id": "sense:threaten:d7756159186b5fb1",
+        "target_sense_id": "sense:threat:04db29ae16815ea4",
+        "target_word": "threat",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    ],
     "word_id": "word:threaten"
   },
   "relation_refs": [],
@@ -237,7 +295,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5001-5008.json",
-    "source_content_hash": "0d44b7ffedcd227c707f637889a66f3a1bdd3fe669ac860b32c49a7b6f4984f9",
+    "source_content_hash": "972a92c369161369bc58d03acc6b98b59b844a99aa00ef7bd09f44b82d9d6223",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

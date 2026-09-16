@@ -6,8 +6,17 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "31eaceb0600676a3b01fdf2cf2a50afa3d50aaf07ddba856068b2a5a07730c6d",
+    "constructions": [
+      {
+        "construction_id": "construction:a7b56df0e2f5f258b695",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "给某人以……的印象；在某人看来似乎……",
+        "pattern": "strike sb as + adj/noun",
+        "source_sense_id": "sense:strike:085ae81866d256cd"
+      }
+    ],
+    "content_hash": "82db987f292a07f20b0e8f7789f504437038f4781d340a5fb396881ce2e159bb",
     "core_concept": {
       "core_clusters": [
         {
@@ -40,8 +49,7 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "deep:deep:secondary_senses:strike:43021bf664e97379",
-      "semantic-reconciliation:o2225-o2424"
+      "deep:deep:secondary_senses:strike:43021bf664e97379"
     ],
     "secondary_senses": [
       {
@@ -260,14 +268,7 @@
     "word_family": [],
     "word_id": "word:strike"
   },
-  "relation_refs": [
-    {
-      "relation_id": "deep:semantic_contrast:hit:8499321ac1a4322c",
-      "owner_path": "content/lexical/relations/by-id/1a/1a3c52164e3f4930ec19ce64bad1adbc1df8810b0b306b6ee3214f465d90b2a1.json",
-      "field": "semantic_neighbors",
-      "index": 0
-    }
-  ],
+  "relation_refs": [],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -408,7 +409,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4737-4744.json",
-    "source_content_hash": "012f963536feed6d533d426570b255307bcc8c77dc690740296db008a193ce82",
+    "source_content_hash": "82db987f292a07f20b0e8f7789f504437038f4781d340a5fb396881ce2e159bb",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

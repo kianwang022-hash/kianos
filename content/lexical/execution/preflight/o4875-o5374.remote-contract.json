@@ -1,0 +1,14 @@
+{
+  "schema": "kianos.lexical.remote_contract.v1",
+  "package": [4875, 5374],
+  "write_allowed": [1020, 1410, 2069, 2586, 2671, 4524, 4825, 5416],
+  "read_only_anchors": {
+    "104": {"word": "affluent", "reason": "ordinary adjective target is already active; wealthy relation may re-anchor without remote Word mutation"},
+    "542": {"word": "boot", "reason": "BrE car-luggage-compartment target sense is already active; trunk uses a read-only regional target"},
+    "2635": {"word": "invest", "reason": "vest relation preserves the existing authority lineage as a reference target; no remote reactivation/write in #245"},
+    "5614": {"word": "telegram", "reason": "message noun target is already active; telegraph uses a read-only contrast target"}
+  },
+  "scanner_reference_candidates": [104, 542, 1020, 1410, 2069, 2586, 2635, 4524, 4825, 5416, 5614],
+  "write_only_dependency_not_named_inline": [2671],
+  "status": "FROZEN_FOR_EXECUTION"
+}

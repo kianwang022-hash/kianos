@@ -7,12 +7,29 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "9c0c350424a97b803c556915c5d673d491d6cd28bbb2d92f9ebe7f4abc645a5b",
+    "content_hash": "95e268a70c53c21cc245e61b7e715baf8640df8cb0f3abfca8b0486fb395b85f",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "发芽，长出",
-      "core_meaning_en": "to grow or produce new shoots or buds",
-      "mental_model_cn": "发芽，长出",
+      "core_clusters": [
+        {
+          "label_cn": "长芽，抽条",
+          "label_en": "put forth or grow sprouts or shoots",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:sprout:8d777a277c1a5939"
+          ]
+        },
+        {
+          "label_cn": "芽，萌芽",
+          "label_en": "any new growth of a plant such as a new branch or a bud",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:sprout:29fe5fd42b005f93"
+          ]
+        }
+      ],
+      "core_meaning_cn": "长芽，抽条；芽，萌芽",
+      "core_meaning_en": "put forth or grow sprouts or shoots; any new growth of a plant such as a new branch or a bud",
+      "mental_model_cn": "长芽，抽条；芽，萌芽",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +39,36 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "长芽，抽条",
+        "definition_en": "put forth or grow sprouts or shoots",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:sprout:8d777a277c1a5939",
+        "sense_label_en": "put forth or grow sprouts or shoots",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "芽，萌芽",
+        "definition_en": "any new growth of a plant such as a new branch or a bud",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:sprout:29fe5fd42b005f93",
+        "sense_label_en": "any new growth of a plant such as a new branch or a bud",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -44,56 +90,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:sprout:29fe5fd42b005f93",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "芽，萌芽",
-      "definition_en": "any new growth of a plant such as a new branch or a bud",
-      "semantic_key": "2e9731bcee4c12e173ed59f7e2b91ade246e403a61918fba91b97d9623cf81d4",
-      "semantic_key_history": [
-        "4a4f4098cf942e591accac5a4dfe7402fbd028cd4f8a1ceffe155d42288644a1"
-      ],
-      "legacy_aliases": [
-        "sprout:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "sprout:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 13149,
-      "source_path": "content/lexical/canonical/senses/shards/o4641-4672.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:sprout:8d777a277c1a5939",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "长芽，抽条",
-      "definition_en": "put forth or grow sprouts or shoots",
-      "semantic_key": "3a04e47b721a9076c3b4acc0b475363929b7c34db46112f702de271e30fb1741",
-      "semantic_key_history": [
-        "ecf0604b3420f94c56dbb5453923ed83e0c75092bd6ff1fb060f47a82e402ee8"
-      ],
-      "legacy_aliases": [
-        "sprout:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "sprout:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 13150,
-      "source_path": "content/lexical/canonical/senses/shards/o4641-4672.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:sprout:ef4d3c44820d54c8",
       "status": "deprecated",
@@ -124,14 +120,14 @@
     "senses": [
       {
         "sense_id": "sense:sprout:29fe5fd42b005f93",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 13149,
         "source_path": "content/lexical/canonical/senses/shards/o4641-4672.json"
       },
       {
         "sense_id": "sense:sprout:8d777a277c1a5939",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 13150,
         "source_path": "content/lexical/canonical/senses/shards/o4641-4672.json"
@@ -194,7 +190,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4641-4648.json",
-    "source_content_hash": "9c0c350424a97b803c556915c5d673d491d6cd28bbb2d92f9ebe7f4abc645a5b",
+    "source_content_hash": "95e268a70c53c21cc245e61b7e715baf8640df8cb0f3abfca8b0486fb395b85f",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

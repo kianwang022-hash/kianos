@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "9a6ae6973a66ca7bba85b971030add9fbe1987c7fc06322682add0210366bf8c",
+    "content_hash": "de9713991398c4b395db49e6c1a310273069b2434cd93edfbd525cce9bef990d",
     "core_concept": {
       "core_clusters": [
         {
@@ -35,6 +35,22 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o4375-o4874.md",
+      "boundaries": [
+        {
+          "condition": "singular technical/mass use",
+          "note": "technical shear = a shearing force/stress or related singular use",
+          "surface": "shear"
+        },
+        {
+          "condition": "plural cutting tool",
+          "note": "shears = large scissors/cutting tool; plural form",
+          "surface": "shears"
+        }
+      ],
+      "type": "number_sense_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -252,11 +268,19 @@
       "ordinal": 4385,
       "word_shard": "content/lexical/canonical/words/shards/o4385-4392.json",
       "auxiliary_locator": "content/lexical/canonical/lookup/word-id/3f.json"
+    },
+    {
+      "spelling": "shears",
+      "source": "content/lexical/canonical/lookup/spelling/sh.json",
+      "word_id": "word:shear",
+      "ordinal": 4385,
+      "word_shard": "content/lexical/canonical/words/shards/o4385-4392.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/3f.json"
     }
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4385-4392.json",
-    "source_content_hash": "9a6ae6973a66ca7bba85b971030add9fbe1987c7fc06322682add0210366bf8c",
+    "source_content_hash": "de9713991398c4b395db49e6c1a310273069b2434cd93edfbd525cce9bef990d",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -27,8 +27,8 @@
         "fact_id": "deep:constructions:think:8aded13f749a5459",
         "family_sources": [],
         "label_en": null,
-        "level": null,
-        "meaning_cn": "认为……",
+        "level": "L1",
+        "meaning_cn": "认为、相信……",
         "module": "constructions",
         "pattern": "think that + clause",
         "pos": "verb",
@@ -57,15 +57,41 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "b14ac0cb318bc99c567eda03ff053c0de94506e619868ff25e03d04d43ff995a",
+    "content_hash": "bed7e95e84c6324c7a5ac86bbb2ec70efd606353c21218cd805f516ef17bafdf",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "思考；认为",
-      "core_meaning_en": "to use the mind to form opinions or consider",
-      "mental_model_cn": "思考；认为",
+      "core_clusters": [
+        {
+          "label_cn": "思考；考虑；认为；以为",
+          "label_en": "to use the mind to consider something; to have an opinion or belief about something",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:think:1a92a30e99f354f1",
+            "sense:think:5f219d551ca75ebb"
+          ]
+        }
+      ],
+      "core_meaning_cn": "思考；考虑；认为；以为",
+      "core_meaning_en": "to use the mind to consider something; to have an opinion or belief about something",
+      "mental_model_cn": "思考；考虑；认为；以为",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o4875-o5374.md",
+      "boundaries": [
+        {
+          "condition": "base/present",
+          "note": "ordinary thinking/belief verb",
+          "surface": "think"
+        },
+        {
+          "condition": "past/past participle",
+          "note": "irregular inflection; thought also has independent noun meanings",
+          "surface": "thought"
+        }
+      ],
+      "type": "irregular_inflection_crossword_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -79,7 +105,36 @@
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "思考；考虑",
+        "definition_en": "to use the mind to consider something",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:think:1a92a30e99f354f1",
+        "sense_label_en": "to use the mind to consider something",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "认为；以为",
+        "definition_en": "to have an opinion or belief about something",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:think:5f219d551ca75ebb",
+        "sense_label_en": "to have an opinion or belief about something",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 2,
       "deep_modules": {
@@ -97,53 +152,6 @@
     },
     "word": "think",
     "word_family": [
-      {
-        "boundaries": [
-          "'thought' is the past tense and also a noun form of 'think'."
-        ],
-        "collocation_constraints": [
-          "Do not substitute one family member for another without changing grammar."
-        ],
-        "direction": "R",
-        "evidence": [
-          {
-            "evidence_id": "evidence:d94af14642cf4d25f7c8",
-            "evidence_status": "source_checked",
-            "evidence_text": "thought",
-            "pdf_page": null,
-            "source_locator": "entries[word=think].exchange",
-            "source_path": "academic_vocab_builder/output/vocab_5500/source_manifest.json",
-            "source_sha256": "f36be6487ffb22b2c4da60cc2aa7b7cfe3453a1fbefb0129f096588cf83ef5d6",
-            "source_type": "learner_dictionary",
-            "verified_at": "2026-08-13T23:16:58+00:00",
-            "verified_by": "local_rule+deepseek_independent_verification"
-          }
-        ],
-        "family_relation_type": "inflectional",
-        "note": "independent noun thought should be modeled separately if needed",
-        "priority": "A",
-        "publication_status": "publishable",
-        "register": "morphological relation",
-        "relation_id": "rel:v3-family:think:thought",
-        "relation_scope": "lexeme",
-        "relation_type": "inflectional",
-        "shared_meaning": "past tense/noun",
-        "source_expression": "think",
-        "source_sense_id": "sense:think:5f219d551ca75ebb",
-        "source_sentence": "",
-        "strength_difference": "not a synonym relation",
-        "syntax_constraints": [],
-        "target_expression": "thought",
-        "target_sense_id": null,
-        "target_sentence": "",
-        "task_tags": [
-          "reading",
-          "cloze",
-          "translation",
-          "writing"
-        ],
-        "verification_status": "verified"
-      },
       {
         "boundaries": [
           "thought is the irregular past/past participle of think and also an independent noun lexeme."
@@ -199,9 +207,9 @@
           }
         ],
         "source_expression": "think",
-        "source_sense_id": null,
+        "source_sense_id": "sense:think:1a92a30e99f354f1",
         "target_expression": "thought",
-        "target_sense_id": null,
+        "target_sense_id": "sense:thought:5a8144af086d508f",
         "target_sense_ids": [],
         "target_word": "thought",
         "task_tags": [
@@ -222,56 +230,6 @@
     }
   ],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:think:1a92a30e99f354f1",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "思考；考虑",
-      "definition_en": "to use the mind to consider something",
-      "semantic_key": "b08f6f7df8bb9e8375ec5c5c3ec31e99898bf35181936aa986d5595cf95d9751",
-      "semantic_key_history": [
-        "36e505edd8c48d39832d5f909f672a398fdceee100de4c935af208088855bb1d"
-      ],
-      "legacy_aliases": [
-        "think:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "think:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14171,
-      "source_path": "content/lexical/canonical/senses/shards/o4961-4992.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:think:5f219d551ca75ebb",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "认为；以为",
-      "definition_en": "to have an opinion or belief about something",
-      "semantic_key": "c60f28c719adcf4aefab26e5147a4ce504d96ae15c8af57260788c1310148eda",
-      "semantic_key_history": [
-        "5d88ea1a528153a646858724d92ceafa35b06d95da47aed6734e6a0152a63851"
-      ],
-      "legacy_aliases": [
-        "think:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "think:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14172,
-      "source_path": "content/lexical/canonical/senses/shards/o4961-4992.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:think:8ff7fce26c8f5605",
       "status": "deprecated",
@@ -327,14 +285,14 @@
     "senses": [
       {
         "sense_id": "sense:think:1a92a30e99f354f1",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14171,
         "source_path": "content/lexical/canonical/senses/shards/o4961-4992.json"
       },
       {
         "sense_id": "sense:think:5f219d551ca75ebb",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14172,
         "source_path": "content/lexical/canonical/senses/shards/o4961-4992.json"
@@ -420,7 +378,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4985-4992.json",
-    "source_content_hash": "b14ac0cb318bc99c567eda03ff053c0de94506e619868ff25e03d04d43ff995a",
+    "source_content_hash": "bed7e95e84c6324c7a5ac86bbb2ec70efd606353c21218cd805f516ef17bafdf",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

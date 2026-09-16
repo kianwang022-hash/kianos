@@ -6,8 +6,33 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "4550c616a4fada0dbc85e123d863779d425422d018e30fefeadfcb0c31d79cb9",
+    "constructions": [
+      {
+        "construction_id": "construction:8b2a3d255185536d4e0b",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "担心某人/某事",
+        "pattern": "worry about sb/sth",
+        "source_sense_id": "sense:worry:ec1ef18bee8453ba"
+      },
+      {
+        "construction_id": "construction:fadc1c5496919989f9fb",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "担心……",
+        "pattern": "worry that + clause",
+        "source_sense_id": "sense:worry:ec1ef18bee8453ba"
+      },
+      {
+        "construction_id": "construction:8dcf0a34b0343ce74779",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "使某人担心/烦恼",
+        "pattern": "worry sb",
+        "source_sense_id": "sense:worry:6d3737527210512e"
+      }
+    ],
+    "content_hash": "9f9fdc2a41e7d455f810fd4982b8e96980f82ba4bdbc6afa9ea73e2789920641",
     "core_concept": {
       "core_clusters": [
         {
@@ -16,8 +41,7 @@
           "pos": "verb",
           "sense_ids": [
             "sense:worry:ec1ef18bee8453ba",
-            "sense:worry:6d3737527210512e",
-            "sense:worry:c9e2c084cf3552fb"
+            "sense:worry:6d3737527210512e"
           ]
         },
         {
@@ -121,42 +145,6 @@
         "sense_label_en": "a strong feeling of anxiety",
         "sort_order": 2,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:29130f1c0594f75c2f40",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:worry:c9e2c084cf3552fb:collocation:0"
-            ],
-            "meaning_cn": "啃骨头",
-            "phrase": "worry a bone"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "撕咬",
-        "definition_en": "to bite or tear with the teeth (as a dog does)",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "scope_state": {
-          "core_active": false,
-          "exclude_from_active_recall_summary": true,
-          "exclude_from_default_learning_surface": true,
-          "learning_surface_active": false,
-          "pending_review": false,
-          "physical_delete": false,
-          "preserve_provenance": true,
-          "preserve_stable_object_id": true,
-          "retain_for_source_pack_audit": true,
-          "scope_disposition": "SOURCE_ONLY"
-        },
-        "sense_id": "sense:worry:c9e2c084cf3552fb",
-        "sense_label_en": "to bite or tear with the teeth (as a dog does)",
-        "sort_order": 3,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -179,7 +167,31 @@
     "word_id": "word:worry"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:worry:c9e2c084cf3552fb",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "撕咬",
+      "definition_en": "to bite or tear with the teeth (as a dog does)",
+      "semantic_key": "6559c9104d62bc92b4248f3cfdd79e8910ad7e6a1264685123199e88b1266bad",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "worry:l3:4"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "worry:l3:4",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 15539,
+      "source_path": "content/lexical/canonical/senses/shards/o5441-5472.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -198,7 +210,7 @@
       },
       {
         "sense_id": "sense:worry:c9e2c084cf3552fb",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 15539,
         "source_path": "content/lexical/canonical/senses/shards/o5441-5472.json"
@@ -212,7 +224,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:29130f1c0594f75c2f40",
       "collocation:449c22fc506e178f70b0",
       "collocation:4f4adff946b415c2e6d9",
       "collocation:92a6e93e854ecf0d3699",
@@ -278,7 +289,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5465-5472.json",
-    "source_content_hash": "4550c616a4fada0dbc85e123d863779d425422d018e30fefeadfcb0c31d79cb9",
+    "source_content_hash": "9f9fdc2a41e7d455f810fd4982b8e96980f82ba4bdbc6afa9ea73e2789920641",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

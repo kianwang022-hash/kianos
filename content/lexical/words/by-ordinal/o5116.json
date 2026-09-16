@@ -11,16 +11,36 @@
         "construction_id": "construction:f36d3aa6b2a22bcb89e6",
         "direction": "R+P",
         "level": "L1",
-        "meaning_cn": "把A视为/当作B",
-        "pattern": "treat A as B"
+        "meaning_cn": "把 A 当作/视为 B",
+        "pattern": "treat A as B",
+        "source_sense_id": "sense:treat:83e27aff478058f7"
       }
     ],
-    "content_hash": "715a35addac4a984f5ea454c76cd60a49df6bf35b9ac42f927d034f34be111e4",
+    "content_hash": "b6816ceeafa0e4a7479ae990d4e20244aae2ac62025c389742c2f399790fa502",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "对待；处理",
-      "core_meaning_en": "to handle or deal with in a certain way",
-      "mental_model_cn": "对待；处理",
+      "core_clusters": [
+        {
+          "label_cn": "对待；看待；治疗；款待；请客",
+          "label_en": "to behave toward someone in a particular way; to provide medical care for; to give someone a gift or entertainment",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:treat:83e27aff478058f7",
+            "sense:treat:f321b819a2e255a6",
+            "sense:treat:d057a05fe17e582d"
+          ]
+        },
+        {
+          "label_cn": "乐事；款待",
+          "label_en": "something that gives special pleasure",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:treat:886e33ceab2d50e6"
+          ]
+        }
+      ],
+      "core_meaning_cn": "对待；看待；治疗；乐事；款待；款待；请客",
+      "core_meaning_en": "to behave toward someone in a particular way; to provide medical care for; something that gives special pleasure; to give someone a gift or entertainment",
+      "mental_model_cn": "对待；看待；治疗；乐事；款待；款待；请客",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -32,7 +52,64 @@
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "对待；看待",
+        "definition_en": "to behave toward someone in a particular way",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:treat:83e27aff478058f7",
+        "sense_label_en": "to behave toward someone in a particular way",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "治疗",
+        "definition_en": "to provide medical care for",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:treat:f321b819a2e255a6",
+        "sense_label_en": "to provide medical care for",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "乐事；款待",
+        "definition_en": "something that gives special pleasure",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:treat:886e33ceab2d50e6",
+        "sense_label_en": "something that gives special pleasure",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "款待；请客",
+        "definition_en": "to give someone a gift or entertainment",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:treat:d057a05fe17e582d",
+        "sense_label_en": "to give someone a gift or entertainment",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -62,81 +139,6 @@
   ],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:treat:83e27aff478058f7",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "对待；看待",
-      "definition_en": "to behave toward someone in a particular way",
-      "semantic_key": "bacf3ef7c5570bfba0ac7c6f7570af9be11424f723a90d3de5c6abdedf602910",
-      "semantic_key_history": [
-        "68af3171c3a2682c45e2558e68506d61fbd0756c648388b95488dea3bbc90516"
-      ],
-      "legacy_aliases": [
-        "treat:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "treat:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14564,
-      "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:treat:886e33ceab2d50e6",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "乐事；款待",
-      "definition_en": "something that gives special pleasure",
-      "semantic_key": "6e8390b40be0f0afc3b302eb1887c228b3639852a5b5b927d9c1d2ccffa07e17",
-      "semantic_key_history": [
-        "6be54ecc6533842ead7985e201dd8a7f0d23a67a855235c358a4e277259311ce"
-      ],
-      "legacy_aliases": [
-        "treat:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "treat:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14565,
-      "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:treat:d057a05fe17e582d",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "款待；请客",
-      "definition_en": "to give someone a gift or entertainment",
-      "semantic_key": "c94cd1da648bcc384c5a356adeac6de3c62e3d050598d68e37aeb95c9ca3e442",
-      "semantic_key_history": [
-        "13c700bb5a2e933f4e7584b5584187985c543d99fe59c67151e167d84a6167fe"
-      ],
-      "legacy_aliases": [
-        "treat:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "treat:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14566,
-      "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:treat:d4e60d3081965f3f",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -160,52 +162,27 @@
       "source_row": 14567,
       "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:treat:f321b819a2e255a6",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "治疗",
-      "definition_en": "to provide medical care for",
-      "semantic_key": "55794e35aafe619b6d7dca65505bfa98d4ffd17f7b2e61567fc6a3a403fcb0f4",
-      "semantic_key_history": [
-        "5957d1fea8216e5ceca72f9fcce92ea20e4fdbd0b112c7b776c4729539cfcab3"
-      ],
-      "legacy_aliases": [
-        "treat:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "treat:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14568,
-      "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:treat:83e27aff478058f7",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14564,
         "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json"
       },
       {
         "sense_id": "sense:treat:886e33ceab2d50e6",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14565,
         "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json"
       },
       {
         "sense_id": "sense:treat:d057a05fe17e582d",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14566,
         "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json"
@@ -219,7 +196,7 @@
       },
       {
         "sense_id": "sense:treat:f321b819a2e255a6",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14568,
         "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json"
@@ -290,7 +267,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5113-5120.json",
-    "source_content_hash": "715a35addac4a984f5ea454c76cd60a49df6bf35b9ac42f927d034f34be111e4",
+    "source_content_hash": "b6816ceeafa0e4a7479ae990d4e20244aae2ac62025c389742c2f399790fa502",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

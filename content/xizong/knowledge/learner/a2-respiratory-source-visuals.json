@@ -6,7 +6,7 @@
   "canonical_id": "A2",
   "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
   "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
-  "notes": "Preserves the reviewed A2 R3 source-visual slice. Additional System packs may land independently and may remain partial.",
+  "notes": "Preserves reviewed R3/R6/R7/R8 bundles and adds reviewed high-value R4 asthma, R8 IPF and R11 lung-cancer source visuals. Coverage remains intentionally sparse and independently extensible.",
   "bundles": [
     {
       "cue_id": "a2-r03-lg01-visual",
@@ -45,6 +45,187 @@
           "width": 420,
           "height": 247,
           "derived_asset_sha256": "d4263beea13b36155da3d130c253e881a209e3786fbe91fd1f976bfcfe808c88"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r04-lg01-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi56:crop:e7e3fd25bfe65195",
+          "source_page": 47,
+          "usage_role": "ASTHMA_PATHOGENESIS_FLOW",
+          "usage_label": "P47 · 哮喘炎症—神经—高反应性",
+          "alt": "内科讲义 P47：遗传/环境因素经气道炎症、神经调节与平滑肌异常汇入气道高反应性的机制图",
+          "asset_path": "a2-r04-lg01/r04-p47-asthma-pathogenesis.webp",
+          "width": 620,
+          "height": 291,
+          "source_crop_sha256": "e7e3fd25bfe65195b26db2ddcd2cd7b64390c9299bfdda1f773aa38c2fcfff43",
+          "derived_asset_sha256": "407dae0fbb0197dcf92eb05ebdf0286561ebc6a311e00c7c8f9bbdcc6019a51f"
+        },
+        {
+          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi56:crop:d16a3089d7fac6fc",
+          "source_page": 47,
+          "usage_role": "ASTHMA_AIRWAY_NARROWING_COMPARISON",
+          "usage_label": "P47 · 正常支气管 vs 哮喘发作",
+          "alt": "内科讲义 P47：慢性炎症相关管壁肿胀、黏液分泌和支气管痉挛与正常支气管的结构对照",
+          "asset_path": "a2-r04-lg01/r04-p47-asthma-airway.webp",
+          "width": 440,
+          "height": 189,
+          "source_crop_sha256": "d16a3089d7fac6fcc554a021dcc76ad6dd585ac7afd679e47b03688dee70e21a",
+          "derived_asset_sha256": "e1349d6e70f8bf772d46e590a11bb92bcdf0c2e9e01d20bd7721380d6f3a3652"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r06-lg01-visual",
+      "source_sha256": "7b41f26673fbb562519ac57bb419c2ec82a88c63b5d538a77aaff2e46428dc3f",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "pathology:7b41f26673fbb562:pi65:crop:80558db047fe94c2",
+          "source_page": 66,
+          "usage_role": "BRONCHIECTASIS_STRUCTURE_AND_GROSS_VISUAL",
+          "usage_label": "P66 · 支扩结构破坏与永久扩张",
+          "alt": "病理讲义 P66：支气管扩张的结构破坏、肉眼图与永久扩张机制",
+          "asset_path": "a2-r06-lg01/r06-p66-bronchiectasis-structure.webp",
+          "width": 350,
+          "height": 241,
+          "source_crop_sha256": "80558db047fe94c2df017b108c9720a651f2a2fe903e71a08be94efb067970cf",
+          "derived_asset_sha256": "b4a9c6b45828246bca4d44f919e731f6aae6b8edcf9462ee78169592b1c73168"
+        },
+        {
+          "source_object_id": "pathology:7b41f26673fbb562:pi66:crop:393c7eb60e5c21f2",
+          "source_page": 67,
+          "usage_role": "BRONCHIECTASIS_VS_EMPHYSEMA_COMPARISON",
+          "usage_label": "P67 · 支扩 vs 肺气肿结构对照",
+          "alt": "病理讲义 P67：支气管扩张与肺气肿在受累部位、壁结构和扩张机制上的对照",
+          "asset_path": "a2-r06-lg01/r06-p67-bronchiectasis-vs-emphysema.webp",
+          "width": 390,
+          "height": 155,
+          "source_crop_sha256": "393c7eb60e5c21f221fd99a5398d69c9989ce2392542b96b88c0d7ff693994a7",
+          "derived_asset_sha256": "fd6e22cd78a660f54a1436361c34b0f79fb924435e93722252df817762ab3539"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r07-lg01-visual",
+      "source_sha256": "7b41f26673fbb562519ac57bb419c2ec82a88c63b5d538a77aaff2e46428dc3f",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "pathology:7b41f26673fbb562:pi109:crop:071d7e7651c879fd",
+          "source_page": 110,
+          "usage_role": "TUBERCULOUS_GRANULOMA_CELLULAR_ARCHITECTURE",
+          "usage_label": "P110 · 结核结节细胞层次",
+          "alt": "病理讲义 P110：结核结节中上皮样细胞、Langhans 巨细胞与干酪样坏死的层次关系",
+          "asset_path": "a2-r07-lg01/r07-p110-tb-granuloma.webp",
+          "width": 560,
+          "height": 235,
+          "source_crop_sha256": "071d7e7651c879fde609fa99f6c38c64a80bf58c27dec03b389009d741fcbd64",
+          "derived_asset_sha256": "ea615e222d885d63ff38d2d6420276c34c762d5ea82ca3be601a7dd8941311ec"
+        },
+        {
+          "source_object_id": "pathology:7b41f26673fbb562:pi110:crop:ab3991feb856def4",
+          "source_page": 111,
+          "usage_role": "CASEOUS_NECROSIS_GROSS_AND_HISTOLOGY_VISUAL",
+          "usage_label": "P111 · 干酪样坏死肉眼与镜下",
+          "alt": "病理讲义 P111：结核干酪样坏死的肉眼形态与镜下无结构坏死区对照",
+          "asset_path": "a2-r07-lg01/r07-p111-caseous-necrosis.webp",
+          "width": 600,
+          "height": 220,
+          "source_crop_sha256": "ab3991feb856def4f64b0e9865c3606feabf869da434319264833958edda9192",
+          "derived_asset_sha256": "5351682d7329d7e5a44eb5889efc4586172d44f145707ddadf73cee61274589b"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r07-lg02-visual",
+      "source_sha256": "7b41f26673fbb562519ac57bb419c2ec82a88c63b5d538a77aaff2e46428dc3f",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "pathology:7b41f26673fbb562:pi110:crop:11c49112414287e8",
+          "source_page": 111,
+          "usage_role": "PRIMARY_COMPLEX_ANATOMY_AND_RADIOGRAPH_VISUAL",
+          "usage_label": "P111 · 原发复合征三联征与播散",
+          "alt": "病理讲义 P111：原发复合征的肺内原发灶、淋巴管炎、肺门淋巴结结核及相关影像",
+          "asset_path": "a2-r07-lg02/r07-p111-primary-complex.webp",
+          "width": 600,
+          "height": 330,
+          "source_crop_sha256": "11c49112414287e8dd8dfa73c500955ff15ee93a84103b1418054c258953734d",
+          "derived_asset_sha256": "632899d49c14f7dc7fd08f1e6a0055f2e6d0299e623418172dd01f09defec1f7"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r08-lg01-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi26:r033595-486982-547125-629514",
+          "source_page": 22,
+          "usage_role": "OBSTRUCTIVE_RESTRICTIVE_PULMONARY_FUNCTION_TABLE",
+          "usage_label": "P22 · 阻塞 vs 限制肺功能",
+          "alt": "内科讲义 P22：阻塞性与限制性通气功能障碍关键肺功能指标对照表",
+          "asset_path": "a2-r08-lg01/r08-p22-pft-table.webp",
+          "width": 520,
+          "height": 117,
+          "source_crop_sha256": "0d67c0dc3c357bfe87cdd795ffe5525f5f14ae50a6609678bd8b511553fa479c",
+          "derived_asset_sha256": "fcc0cf9781c0744b95bf1f8bd510f3b36b5689cbcf597b897c48246939809464"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r08-lg02-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi26:crop:950f038cd66ef5c7",
+          "source_page": 22,
+          "usage_role": "IPF_HRCT_PATTERN_VISUAL",
+          "usage_label": "P22 · IPF 网格/蜂窝与牵拉支扩",
+          "alt": "内科讲义 P22：特发性肺纤维化 HRCT 的外周/胸膜下纤维化、蜂窝改变与牵拉性支气管扩张",
+          "asset_path": "a2-r08-lg02/r08-p22-ipf-hrct.webp",
+          "width": 460,
+          "height": 211,
+          "source_crop_sha256": "950f038cd66ef5c7e0fcf7619974335fa4f638ffeb145eb998598aec8bd2f7ed",
+          "derived_asset_sha256": "4760a18df114133aaef47a5e892c318fdd3a874edf8677ca1f51406c5b99735c"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r11-lg01-visual",
+      "source_sha256": "7b41f26673fbb562519ac57bb419c2ec82a88c63b5d538a77aaff2e46428dc3f",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "pathology:7b41f26673fbb562:pi76:crop:18a89da3bd2c28e6",
+          "source_page": 75,
+          "usage_role": "LUNG_CANCER_GROSS_LOCATION_TYPES",
+          "usage_label": "P75 · 中央/周围/弥漫型肺癌",
+          "alt": "病理讲义 P75：中央型、周围型和弥漫型肺癌的大体定位与标本对照",
+          "asset_path": "a2-r11-lg01/r11-p75-lung-gross-types.webp",
+          "width": 620,
+          "height": 347,
+          "source_crop_sha256": "18a89da3bd2c28e69b49cdf2fbbec3ce9046a17e98dc5f06b06c0c6c74765911",
+          "derived_asset_sha256": "045fe458b0a01dd9dd225621cb354412422e67c05637a82e67fe25e201309f2d"
+        },
+        {
+          "source_object_id": "pathology:7b41f26673fbb562:pi77:crop:366fe94125fc07a7",
+          "source_page": 76,
+          "usage_role": "SMALL_CELL_LUNG_CANCER_HISTOLOGY",
+          "usage_label": "P76 · 小细胞肺癌镜下形态",
+          "alt": "病理讲义 P76：小细胞肺癌的燕麦样小细胞、胞质少、核深染和巢状/片状排列的镜下图",
+          "asset_path": "a2-r11-lg01/r11-p76-small-cell-histology.webp",
+          "width": 400,
+          "height": 262,
+          "source_crop_sha256": "366fe94125fc07a7c58b801488db8d75621773262513e097e464883312fd081a",
+          "derived_asset_sha256": "3f1d8683474d0648a301a1b6f2b17e23a4706852c31a688a190088f1ca6ad742"
         }
       ]
     }

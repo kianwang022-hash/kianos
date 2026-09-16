@@ -7,36 +7,50 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "3d5ba9ebd23ce8919cc45c9e0a8777ef3d179e68c5f3b2035ae261f3bd5e47de",
+    "content_hash": "c1656e717090933171b428a4a263bc8f28f65af1549622065113a3154d0585f7",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "伤口，创伤（身体上的）；（感情或自尊上的）伤害；战斗中的伤员",
-          "label_en": "an injury to living tissue, especially a cut or break in the skin; a figurative injury to feelings or pride; a casualty to military personnel resulting from combat",
+          "label_cn": "伤口，创伤（身体上的）；（感情或自尊上的）伤害",
+          "label_en": "an injury to living tissue, especially a cut or break in the skin; a figurative injury to feelings or pride",
           "pos": "noun",
           "sense_ids": [
             "sense:wound:c7bba10a2bb7581a",
-            "sense:wound:3dc525d0d27a508a",
-            "sense:wound:2a53900158225923"
+            "sense:wound:3dc525d0d27a508a"
           ]
         },
         {
-          "label_cn": "使受伤，伤害（身体）；伤害（感情、自尊）；打伤，伤害（较少用）",
-          "label_en": "to injure someone, especially by cutting or breaking the skin; to hurt someone's feelings or pride; to cause injury (rarely used intransitively)",
+          "label_cn": "使受伤，伤害（身体）；伤害（感情、自尊）",
+          "label_en": "to injure someone, especially by cutting or breaking the skin; to hurt someone's feelings or pride",
           "pos": "verb",
           "sense_ids": [
             "sense:wound:94ce3c27fa935bb6",
-            "sense:wound:65fbe6f704cf5f4f",
-            "sense:wound:59cbda8dabec5dcf"
+            "sense:wound:65fbe6f704cf5f4f"
           ]
         }
       ],
-      "core_meaning_cn": "身体或感情上的伤害",
-      "core_meaning_en": "injury or damage to body or feelings",
-      "mental_model_cn": "身体或感情上的伤害",
+      "core_meaning_cn": "伤口，创伤（身体上的）；使受伤，伤害（身体）；（感情或自尊上的）伤害；伤害（感情、自尊）",
+      "core_meaning_en": "an injury to living tissue, especially a cut or break in the skin; to injure someone, especially by cutting or breaking the skin; a figurative injury to feelings or pride; to hurt someone's feelings or pride",
+      "mental_model_cn": "伤口，创伤（身体上的）；使受伤，伤害（身体）；（感情或自尊上的）伤害；伤害（感情、自尊）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o5375-o5874.md",
+      "boundaries": [
+        {
+          "condition": "injury noun/verb",
+          "note": "pronounced /wuːnd/",
+          "surface": "wound"
+        },
+        {
+          "condition": "past/past participle of wind /waɪnd/",
+          "note": "pronounced /waʊnd/; not an injury sense",
+          "surface": "wound"
+        }
+      ],
+      "type": "pronunciation_and_inflection_boundary"
+    },
     "needs_delta_review": true,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -159,44 +173,6 @@
         "sense_label_en": "to hurt someone's feelings or pride",
         "sort_order": 4,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:7924f52bb9d6abb24d74",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:wound:2a53900158225923:collocation:0"
-            ],
-            "meaning_cn": "战斗中的伤员",
-            "phrase": "battle wounds"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "战斗中的伤员",
-        "definition_en": "a casualty to military personnel resulting from combat",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:wound:2a53900158225923",
-        "sense_label_en": "a casualty to military personnel resulting from combat",
-        "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "打伤，伤害（较少用）",
-        "definition_en": "to cause injury (rarely used intransitively)",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:wound:59cbda8dabec5dcf",
-        "sense_label_en": "to cause injury (rarely used intransitively)",
-        "sort_order": 5,
-        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -224,14 +200,67 @@
       "owner_path": "content/lexical/relations/by-id/32/32048ce77d6ff00e7622b69be83a50c8a36ebc3ec9023cdacb119f537b2e0027.json",
       "field": "confusables",
       "index": 0
+    },
+    {
+      "relation_id": "relation:horizontal:4062971cef5fb6e6bbb6",
+      "owner_path": "content/lexical/relations/by-id/04/04f91decbf4b0fd025254ba6730dcfa9bb212bc4485b31f02f3688ca9fe617c7.json",
+      "field": "semantic_neighbors",
+      "index": 0
     }
   ],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:wound:2a53900158225923",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "战斗中的伤员",
+      "definition_en": "a casualty to military personnel resulting from combat",
+      "semantic_key": "a68e766067546adb1b24bdfc2b81b2fccb08afb294dc483fbe52c2082b570bc2",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "wound:l3:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "wound:l3:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 15552,
+      "source_path": "content/lexical/canonical/senses/shards/o5441-5472.json",
+      "reference_only": true
+    },
+    {
+      "stable_sense_id": "sense:wound:59cbda8dabec5dcf",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "打伤，伤害（较少用）",
+      "definition_en": "to cause injury (rarely used intransitively)",
+      "semantic_key": "ce2ed9ec5c86ed954ea61f2fd3d13721f131c43a5ceb6c2c138da6dcebc87801",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "wound:l3:6"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "wound:l3:6",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 15554,
+      "source_path": "content/lexical/canonical/senses/shards/o5441-5472.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:wound:2a53900158225923",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 15552,
         "source_path": "content/lexical/canonical/senses/shards/o5441-5472.json"
@@ -245,7 +274,7 @@
       },
       {
         "sense_id": "sense:wound:59cbda8dabec5dcf",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 15554,
         "source_path": "content/lexical/canonical/senses/shards/o5441-5472.json"
@@ -276,7 +305,6 @@
       "collocation:14c5d3e2d5c157f5995c",
       "collocation:18b4d14b30a99b8d569d",
       "collocation:36a380a237d57d13d9af",
-      "collocation:7924f52bb9d6abb24d74",
       "collocation:7e72ecd209c82486ae51",
       "collocation:e602d4a3ecc2c151e3ce",
       "collocation:e98cfd212e7badd43d02"
@@ -355,7 +383,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5465-5472.json",
-    "source_content_hash": "3d5ba9ebd23ce8919cc45c9e0a8777ef3d179e68c5f3b2035ae261f3bd5e47de",
+    "source_content_hash": "c1656e717090933171b428a4a263bc8f28f65af1549622065113a3154d0585f7",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

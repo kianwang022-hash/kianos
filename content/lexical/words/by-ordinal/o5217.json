@@ -6,8 +6,23 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "9868d5c16830edf3b6f810ed322b96230d4328a37b99e0d1db832205eecc0a3f",
+    "constructions": [
+      {
+        "construction_id": "construction:1ce712bae45eb5183634",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "多达；直到某个数量或限度",
+        "pattern": "up to + number/amount"
+      },
+      {
+        "construction_id": "construction:883e6527088bdbd395d6",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "由某人决定或负责",
+        "pattern": "be up to sb"
+      }
+    ],
+    "content_hash": "ad5506cae7cf3b19b7a5753a7e11b460036048a5bb7bc9c54d4cb4f5b37147e5",
     "core_concept": {
       "core_clusters": [
         {
@@ -27,25 +42,18 @@
           ]
         },
         {
-          "label_cn": "向上的；上涨的",
-          "label_en": "moving or directed upward",
+          "label_cn": "向上的；上涨的；上涨的、增加的；运行中的、可用的或已到时间的",
+          "label_en": "moving or directed upward; higher or increased; operating/available, or having reached a stated time/state",
           "pos": "adjective",
           "sense_ids": [
-            "sense:up:37d9b53258085266"
-          ]
-        },
-        {
-          "label_cn": "提高，增加",
-          "label_en": "increase or raise",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:up:bad5abde2f415bb9"
+            "sense:up:37d9b53258085266",
+            "sense:up:a356ab0e976cf820"
           ]
         }
       ],
-      "core_meaning_cn": "向上，提高",
-      "core_meaning_en": "toward a higher position or level",
-      "mental_model_cn": "向上，提高",
+      "core_meaning_cn": "向上；在上面；在…上面；向…的较高处；向上的；上涨的；上涨的、增加的；运行中的、可用的或已到时间的",
+      "core_meaning_en": "toward or in a higher position; to a higher place on or in; moving or directed upward; higher or increased; operating/available, or having reached a stated time/state",
+      "mental_model_cn": "向上；在上面；在…上面；向…的较高处；向上的；上涨的；上涨的、增加的；运行中的、可用的或已到时间的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -141,6 +149,20 @@
         "sense_label_en": "increase or raise",
         "sort_order": 3,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "上涨的、增加的；运行中的、可用的或已到时间的",
+        "definition_en": "higher or increased; operating/available, or having reached a stated time/state",
+        "governing_pattern": "prices/systems/time are up",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:up:a356ab0e976cf820",
+        "sense_label_en": "higher or increased; operating/available, or having reached a stated time/state",
+        "sort_order": 4,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -193,6 +215,13 @@
         "merged_into_sense_id": null,
         "source_row": 14861,
         "source_path": "content/lexical/canonical/senses/shards/o5217-5248.json"
+      },
+      {
+        "sense_id": "sense:up:a356ab0e976cf820",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14942,
+        "source_path": "content/lexical/canonical/senses/shards/o5217-5248.json"
       }
     ],
     "active_collocations": [
@@ -244,7 +273,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5217-5224.json",
-    "source_content_hash": "9868d5c16830edf3b6f810ed322b96230d4328a37b99e0d1db832205eecc0a3f",
+    "source_content_hash": "ad5506cae7cf3b19b7a5753a7e11b460036048a5bb7bc9c54d4cb4f5b37147e5",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -7,12 +7,25 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "450cee156b9a3fa5e3dffb9269191eb078ecbecb3c39a3f8890020970cf12cad",
+    "content_hash": "1f1fd913d0eaa46fc7dd561810b7aa0d37cff648204b2f0b36746b8a09f4ba21",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "主干；躯干",
-      "core_meaning_en": "main stem of a tree or main body part",
-      "mental_model_cn": "主干；躯干",
+      "core_clusters": [
+        {
+          "label_cn": "树干；躯干；大箱子；旅行箱；象鼻；汽车后备箱（美式英语；英式通常 boot）",
+          "label_en": "the main stem of a tree; the main part of the human body excluding head and limbs; a large strong box for storing or transporting things; the long nose of an elephant; AmE: the luggage compartment of a car; BrE usually boot",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:trunk:281473ba44e4536a",
+            "sense:trunk:1c6b05b2caab5648",
+            "sense:trunk:8c04097d3b935e04",
+            "sense:trunk:9d7f0fe4906c52bb",
+            "sense:trunk:637d201f8cab0832"
+          ]
+        }
+      ],
+      "core_meaning_cn": "树干；躯干；大箱子；旅行箱；象鼻；汽车后备箱（美式英语；英式通常 boot）",
+      "core_meaning_en": "the main stem of a tree; the main part of the human body excluding head and limbs; a large strong box for storing or transporting things; the long nose of an elephant; AmE: the luggage compartment of a car; BrE usually boot",
+      "mental_model_cn": "树干；躯干；大箱子；旅行箱；象鼻；汽车后备箱（美式英语；英式通常 boot）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -142,6 +155,20 @@
         "sense_label_en": "a main line of a communication or transportation system",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "汽车后备箱（美式英语；英式通常 boot）",
+        "definition_en": "AmE: the luggage compartment of a car; BrE usually boot",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:trunk:637d201f8cab0832",
+        "sense_label_en": "AmE: the luggage compartment of a car; BrE usually boot",
+        "sort_order": 5,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -163,7 +190,14 @@
     "word_family": [],
     "word_id": "word:trunk"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:horizontal:5f9cf4fabe59179782f6",
+      "owner_path": "content/lexical/relations/by-id/d2/d292542a655ced4e133afe8b92b1973af344e9d8b615a81b54efcf826a2aa188.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -200,6 +234,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14666,
+        "source_path": "content/lexical/canonical/senses/shards/o5121-5152.json"
+      },
+      {
+        "sense_id": "sense:trunk:637d201f8cab0832",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14697,
         "source_path": "content/lexical/canonical/senses/shards/o5121-5152.json"
       }
     ],
@@ -269,7 +310,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5137-5144.json",
-    "source_content_hash": "450cee156b9a3fa5e3dffb9269191eb078ecbecb3c39a3f8890020970cf12cad",
+    "source_content_hash": "1f1fd913d0eaa46fc7dd561810b7aa0d37cff648204b2f0b36746b8a09f4ba21",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

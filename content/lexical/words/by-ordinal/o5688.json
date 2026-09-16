@@ -7,15 +7,48 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "e4ac8604b0bfd76a670a5ab3d8afb822498abd767080401d69e3333dd11053cb",
+    "content_hash": "330c2581e4c85a979e255ca941f1692f1eda71ad85f6c6730c6771d02b500bbe",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "白肤碧眼金发的人",
-      "core_meaning_en": "a person with fair skin and hair",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "金发的人",
+          "label_en": "a person with blond or light-colored hair",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:blond:b3cfb28c76bd5e3a"
+          ]
+        },
+        {
+          "label_cn": "金色/浅色头发的；金发的",
+          "label_en": "having blond or light-colored hair",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:blond:a181cffba0595ad2"
+          ]
+        }
+      ],
+      "core_meaning_cn": "金发的人；金色/浅色头发的；金发的",
+      "core_meaning_en": "a person with blond or light-colored hair; having blond or light-colored hair",
+      "mental_model_cn": "金发的人；金色/浅色头发的；金发的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o5375-o5874.md",
+      "boundaries": [
+        {
+          "condition": "common adjective/noun spelling",
+          "note": "widely used; modern usage varies",
+          "surface": "blond"
+        },
+        {
+          "condition": "variant spelling, traditionally feminine noun/adjective",
+          "note": "same owner; traditional gendered convention is not a semantic split",
+          "surface": "blonde"
+        }
+      ],
+      "type": "spelling_and_traditional_gender_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -26,16 +59,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "白肤碧眼金发的人",
-        "definition_en": "a person with fair skin and hair",
+        "definition_cn": "金发的人",
+        "definition_en": "a person with blond or light-colored hair",
         "depth": "full_card",
         "domain_tag": "cet6",
         "frequency_tag": "cet6",
-        "level": "L1",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:blond:b3cfb28c76bd5e3a",
-        "sense_label_en": "a person with fair skin and hair",
+        "sense_label_en": "a person with blond or light-colored hair",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -106,16 +139,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "金发的",
-        "definition_en": "being or having light colored skin and hair and usually blue or grey eyes",
+        "definition_cn": "金色/浅色头发的；金发的",
+        "definition_en": "having blond or light-colored hair",
         "depth": "full_card",
         "domain_tag": "cet6",
         "frequency_tag": "cet6",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:blond:a181cffba0595ad2",
-        "sense_label_en": "being or having light colored skin and hair and usually blue or grey eyes",
+        "sense_label_en": "having blond or light-colored hair",
         "sort_order": 2,
         "source_evidence": [
           {
@@ -236,11 +269,19 @@
       "ordinal": 5688,
       "word_shard": "content/lexical/canonical/words/shards/o5681-5688.json",
       "auxiliary_locator": "content/lexical/canonical/lookup/word-id/79.json"
+    },
+    {
+      "spelling": "blonde",
+      "source": "content/lexical/canonical/lookup/spelling/bl.json",
+      "word_id": "word:blond",
+      "ordinal": 5688,
+      "word_shard": "content/lexical/canonical/words/shards/o5681-5688.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/79.json"
     }
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5681-5688.json",
-    "source_content_hash": "e4ac8604b0bfd76a670a5ab3d8afb822498abd767080401d69e3333dd11053cb",
+    "source_content_hash": "330c2581e4c85a979e255ca941f1692f1eda71ad85f6c6730c6771d02b500bbe",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

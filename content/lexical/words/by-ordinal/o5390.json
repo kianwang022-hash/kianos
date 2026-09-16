@@ -7,15 +7,16 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "80d7f8b895c5740ff24351346f9dd86148c902a525ecc422a28b5372c3816ff2",
+    "content_hash": "995a0d83c126ef585a7b68ced12b458de6ad8403c250c80caa273fce344c2a5b",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "西方的；西部的",
-          "label_en": "relating to the western part of the world or a region",
+          "label_cn": "西部的；向西的；地理上位于西方的；西方世界的；西方文化或政治传统的（Western）",
+          "label_en": "situated in, toward, or relating to the west or western part of a place; Western: relating to the Western world, its cultures, or political traditions",
           "pos": "adjective",
           "sense_ids": [
-            "sense:western:ae3060bb430f5326"
+            "sense:western:ae3060bb430f5326",
+            "sense:western:b24f357e15ab9076"
           ]
         },
         {
@@ -27,12 +28,28 @@
           ]
         }
       ],
-      "core_meaning_cn": "西方的；西部的",
-      "core_meaning_en": "relating to the west or the Western world",
-      "mental_model_cn": "西方的；西部的",
+      "core_meaning_cn": "西部的；向西的；地理上位于西方的；西部片；西部小说；西方世界的；西方文化或政治传统的（Western）",
+      "core_meaning_en": "situated in, toward, or relating to the west or western part of a place; a film or novel about the American West; Western: relating to the Western world, its cultures, or political traditions",
+      "mental_model_cn": "西部的；向西的；地理上位于西方的；西部片；西部小说；西方世界的；西方文化或政治传统的（Western）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o5375-o5874.md",
+      "boundaries": [
+        {
+          "condition": "direction/geography or western genre",
+          "note": "lowercase for ordinary direction/geographic use and the western film/novel noun",
+          "surface": "western"
+        },
+        {
+          "condition": "Western world/culture/politics",
+          "note": "capitalized when referring to the Western cultural or political world",
+          "surface": "Western"
+        }
+      ],
+      "type": "capitalization_sense_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -62,14 +79,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "西方的；西部的",
-        "definition_en": "relating to the western part of the world or a region",
+        "definition_cn": "西部的；向西的；地理上位于西方的",
+        "definition_en": "situated in, toward, or relating to the west or western part of a place",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:western:ae3060bb430f5326",
-        "sense_label_en": "relating to the western part of the world or a region",
+        "sense_label_en": "situated in, toward, or relating to the west or western part of a place",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -95,6 +112,20 @@
         "sense_id": "sense:western:368f938f491a531f",
         "sense_label_en": "a film or novel about the American West",
         "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "西方世界的；西方文化或政治传统的（Western）",
+        "definition_en": "Western: relating to the Western world, its cultures, or political traditions",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:western:b24f357e15ab9076",
+        "sense_label_en": "Western: relating to the Western world, its cultures, or political traditions",
+        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -133,6 +164,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 15328,
+        "source_path": "content/lexical/canonical/senses/shards/o5377-5408.json"
+      },
+      {
+        "sense_id": "sense:western:b24f357e15ab9076",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 15384,
         "source_path": "content/lexical/canonical/senses/shards/o5377-5408.json"
       }
     ],
@@ -185,7 +223,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5385-5392.json",
-    "source_content_hash": "80d7f8b895c5740ff24351346f9dd86148c902a525ecc422a28b5372c3816ff2",
+    "source_content_hash": "995a0d83c126ef585a7b68ced12b458de6ad8403c250c80caa273fce344c2a5b",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

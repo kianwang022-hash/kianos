@@ -7,12 +7,21 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "fcdddd5586adad45eb2dca2ace26dc4574e5019940c717e2cbe22bfc30e55b96",
+    "content_hash": "521580ce2a5bf5876ac9b8a21b9561d011a0a9846c3fad85c52fa868841647c0",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "除非",
-      "core_meaning_en": "except if; if not",
-      "mental_model_cn": "除非",
+      "core_clusters": [
+        {
+          "label_cn": "除非；如果不",
+          "label_en": "used to say that something will happen or be true except in the case that something else happens",
+          "pos": "conjunction",
+          "sense_ids": [
+            "sense:unless:25889dce78f755a5"
+          ]
+        }
+      ],
+      "core_meaning_cn": "除非；如果不",
+      "core_meaning_en": "used to say that something will happen or be true except in the case that something else happens",
+      "mental_model_cn": "除非；如果不",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +31,22 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "除非；如果不",
+        "definition_en": "used to say that something will happen or be true except in the case that something else happens",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "conjunction",
+        "sense_id": "sense:unless:25889dce78f755a5",
+        "sense_label_en": "used to say that something will happen or be true except in the case that something else happens",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {
@@ -44,31 +68,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:unless:25889dce78f755a5",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "conjunction",
-      "definition_cn": "除非；如果不",
-      "definition_en": "used to say that something will happen or be true except in the case that something else happens",
-      "semantic_key": "e1ec0e1bb16f8dca7404426cc9b7308adb61207eafd5d08822b0c2da9a79b9c1",
-      "semantic_key_history": [
-        "2eff6a6fd94630f9c74f9422c9ced2fd6f08dd5d9dc93befc009f7fc67ca88bc"
-      ],
-      "legacy_aliases": [
-        "unless:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "unless:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14847,
-      "source_path": "content/lexical/canonical/senses/shards/o5185-5216.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:unless:523cd2be6a435094",
       "status": "deprecated",
@@ -99,7 +98,7 @@
     "senses": [
       {
         "sense_id": "sense:unless:25889dce78f755a5",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14847,
         "source_path": "content/lexical/canonical/senses/shards/o5185-5216.json"
@@ -172,7 +171,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5209-5216.json",
-    "source_content_hash": "fcdddd5586adad45eb2dca2ace26dc4574e5019940c717e2cbe22bfc30e55b96",
+    "source_content_hash": "521580ce2a5bf5876ac9b8a21b9561d011a0a9846c3fad85c52fa868841647c0",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

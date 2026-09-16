@@ -7,15 +7,41 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "027308383abad9629930a42516a32966191743a7daab3c108b9012cf254e261c",
+    "content_hash": "b2cc4a4399154fe478894bcc95d7cb8ab57814508b21057afdee7e642a273175",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "火鸡；失败",
-      "core_meaning_en": "a large bird; a failure",
-      "mental_model_cn": "火鸡；失败",
+      "core_clusters": [
+        {
+          "label_cn": "火鸡；失败；不成功的事",
+          "label_en": "a large bird native to North America, often eaten at Thanksgiving; an event that fails badly",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:turkey:d3ee43a5827451b8",
+            "sense:turkey:ac813229ac5d50e2"
+          ]
+        }
+      ],
+      "core_meaning_cn": "火鸡；失败；不成功的事",
+      "core_meaning_en": "a large bird native to North America, often eaten at Thanksgiving; an event that fails badly",
+      "mental_model_cn": "火鸡；失败；不成功的事",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o4875-o5374.md",
+      "boundaries": [
+        {
+          "condition": "common noun",
+          "note": "bird and common-word senses are lowercase",
+          "surface": "turkey"
+        },
+        {
+          "condition": "country proper name",
+          "note": "country name is capitalized and remains a proper-name surface in the same owner",
+          "surface": "Turkey"
+        }
+      ],
+      "type": "capitalization_sense_boundary"
+    },
     "needs_delta_review": true,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -84,8 +110,8 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "土耳其",
-        "definition_en": "a country in Eurasia (Turkey)",
+        "definition_cn": "土耳其（国家名 Turkey）",
+        "definition_en": "Turkey, the country; proper-name use requires capitalization",
         "governing_pattern": "",
         "level": "L3",
         "lexical_identity_overlay": {
@@ -97,10 +123,13 @@
         },
         "needs_human_review": 0,
         "pos": "noun",
+        "register": "proper name",
         "sense_id": "sense:turkey:8cf50c329312578a",
-        "sense_label_en": "a country in Eurasia (Turkey)",
+        "sense_label_en": "Turkey, the country; proper-name use requires capitalization",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "Country use is the proper name Turkey with capitalization; lowercase turkey remains the bird/common-word surface.",
+        "writing_safe": true
       }
     ],
     "verification_summary": {
@@ -202,7 +231,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5153-5160.json",
-    "source_content_hash": "027308383abad9629930a42516a32966191743a7daab3c108b9012cf254e261c",
+    "source_content_hash": "b2cc4a4399154fe478894bcc95d7cb8ab57814508b21057afdee7e642a273175",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -7,15 +7,31 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "52e7c8f5d631c47c9cea621462445fd27fad41b5569338cea72e8ae782b213b3",
+    "content_hash": "a6955f080c05dee605e87adf048dd71b8f6892bc7d9ece1867b459ca976cac4f",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "功率单位",
-      "core_meaning_en": "a unit of power",
-      "mental_model_cn": "功率单位",
+      "core_meaning_cn": "瓦特：功率单位；Watt 人名仅作大写参考",
+      "core_meaning_en": "watt as the unit of power; Watt as a capitalized proper-name reference only",
+      "mental_model_cn": "瓦特：功率单位；Watt 人名仅作大写参考",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o4875-o5374.md",
+      "boundaries": [
+        {
+          "condition": "SI power unit",
+          "note": "lowercase common noun for the unit",
+          "surface": "watt"
+        },
+        {
+          "condition": "engineer proper name",
+          "note": "capitalized proper name; reference-only in this owner",
+          "surface": "Watt"
+        }
+      ],
+      "type": "capitalization_sense_boundary"
+    },
     "needs_delta_review": true,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -63,10 +79,13 @@
         },
         "needs_human_review": 0,
         "pos": "noun",
+        "register": "proper-name/reference",
         "sense_id": "sense:watt:bbf1d11adea25958",
         "sense_label_en": "Scottish engineer and inventor (1736-1819)",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "Proper-name reference is Watt, capitalized; keep out of lowercase learner Core.",
+        "writing_safe": false
       }
     ],
     "verification_summary": {
@@ -134,6 +153,14 @@
   },
   "lookup_refs": [
     {
+      "spelling": "Watt",
+      "source": "content/lexical/canonical/lookup/spelling/wa.json",
+      "word_id": "word:watt",
+      "ordinal": 5361,
+      "word_shard": "content/lexical/canonical/words/shards/o5361-5368.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/bf.json"
+    },
+    {
       "spelling": "watt",
       "source": "content/lexical/canonical/lookup/spelling/wa.json",
       "word_id": "word:watt",
@@ -144,7 +171,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5361-5368.json",
-    "source_content_hash": "52e7c8f5d631c47c9cea621462445fd27fad41b5569338cea72e8ae782b213b3",
+    "source_content_hash": "a6955f080c05dee605e87adf048dd71b8f6892bc7d9ece1867b459ca976cac4f",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

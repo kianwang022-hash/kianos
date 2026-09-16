@@ -6,8 +6,25 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "a2967c08c0c09c2565a4aae0e438757a26a7c4ec4f939d6b93a3bc703873a524",
+    "constructions": [
+      {
+        "construction_id": "construction:892bfadcdb2ea84cc296",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "升级到更高版本、标准或等级",
+        "pattern": "upgrade to sth",
+        "source_sense_id": "sense:upgrade:36b42025c8dd53a1"
+      },
+      {
+        "construction_id": "construction:5e84b00af9aa62e14e1c",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "从 A 升级到 B",
+        "pattern": "upgrade from A to B",
+        "source_sense_id": "sense:upgrade:36b42025c8dd53a1"
+      }
+    ],
+    "content_hash": "e50a30efb919f924a66f1be7894bf5c26fef2c6466de2bbb91e64af2d1cb2ea9",
     "core_concept": {
       "core_clusters": [
         {
@@ -19,26 +36,17 @@
           ]
         },
         {
-          "label_cn": "升级；改进；上坡",
-          "label_en": "an act of upgrading or an improved version; an upward slope",
+          "label_cn": "升级；改进",
+          "label_en": "an act of upgrading or an improved version",
           "pos": "noun",
           "sense_ids": [
-            "sense:upgrade:a02989cd5818532c",
-            "sense:upgrade:2c293c39aba25932"
-          ]
-        },
-        {
-          "label_cn": "往上",
-          "label_en": "toward a higher place",
-          "pos": "adverb",
-          "sense_ids": [
-            "sense:upgrade:b87eaeca26f258cd"
+            "sense:upgrade:a02989cd5818532c"
           ]
         }
       ],
-      "core_meaning_cn": "升级；提升",
-      "core_meaning_en": "to raise to a higher grade or standard",
-      "mental_model_cn": "升级；提升",
+      "core_meaning_cn": "使升级；提升；升级；改进",
+      "core_meaning_en": "to raise something to a higher grade or standard; an act of upgrading or an improved version",
+      "mental_model_cn": "使升级；提升；升级；改进",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -73,14 +81,14 @@
         "confidence": "medium",
         "definition_cn": "使升级；提升",
         "definition_en": "to raise something to a higher grade or standard",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T; upgrade sth; upgrade to/from",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:upgrade:36b42025c8dd53a1",
         "sense_label_en": "to raise something to a higher grade or standard",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -273,7 +281,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5217-5224.json",
-    "source_content_hash": "a2967c08c0c09c2565a4aae0e438757a26a7c4ec4f939d6b93a3bc703873a524",
+    "source_content_hash": "e50a30efb919f924a66f1be7894bf5c26fef2c6466de2bbb91e64af2d1cb2ea9",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -7,15 +7,16 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "302fc509197cf5dc48e2eee588d9ffbad6270f4776367108f6c113ac77d180de",
+    "content_hash": "7d23f52f9ef437c1dfe8f0c336eed72573d72264ba2f63d2d32d2fd6f2f625ae",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "西方，西部",
-          "label_en": "the direction opposite east, or the western part of a place",
+          "label_cn": "西方，西部；西方；西方国家或文化政治区域（the West）",
+          "label_en": "the direction opposite east, or the western part of a place; the West: Western countries or the Western cultural and geopolitical region",
           "pos": "noun",
           "sense_ids": [
-            "sense:west:8b328f67f1fb58e3"
+            "sense:west:8b328f67f1fb58e3",
+            "sense:west:2ef990c408a445a4"
           ]
         },
         {
@@ -35,12 +36,28 @@
           ]
         }
       ],
-      "core_meaning_cn": "西方，向西",
-      "core_meaning_en": "direction opposite east; western region",
-      "mental_model_cn": "西方，向西",
+      "core_meaning_cn": "西方，西部；西方的，向西的；向西；西方；西方国家或文化政治区域（the West）",
+      "core_meaning_en": "the direction opposite east, or the western part of a place; situated in or toward the west; toward the west; the West: Western countries or the Western cultural and geopolitical region",
+      "mental_model_cn": "西方，西部；西方的，向西的；向西；西方；西方国家或文化政治区域（the West）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o5375-o5874.md",
+      "boundaries": [
+        {
+          "condition": "direction/geographic part",
+          "note": "lowercase for direction or the western part of a place",
+          "surface": "west"
+        },
+        {
+          "condition": "the West / cultural-geopolitical region",
+          "note": "capitalized for the Western countries/cultural-geopolitical region",
+          "surface": "West"
+        }
+      ],
+      "type": "capitalization_sense_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -128,6 +145,20 @@
         "sense_label_en": "toward the west",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "西方；西方国家或文化政治区域（the West）",
+        "definition_en": "the West: Western countries or the Western cultural and geopolitical region",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:west:2ef990c408a445a4",
+        "sense_label_en": "the West: Western countries or the Western cultural and geopolitical region",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -172,6 +203,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 15326,
+        "source_path": "content/lexical/canonical/senses/shards/o5377-5408.json"
+      },
+      {
+        "sense_id": "sense:west:2ef990c408a445a4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 15383,
         "source_path": "content/lexical/canonical/senses/shards/o5377-5408.json"
       }
     ],
@@ -240,7 +278,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5385-5392.json",
-    "source_content_hash": "302fc509197cf5dc48e2eee588d9ffbad6270f4776367108f6c113ac77d180de",
+    "source_content_hash": "7d23f52f9ef437c1dfe8f0c336eed72573d72264ba2f63d2d32d2fd6f2f625ae",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

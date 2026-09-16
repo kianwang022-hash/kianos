@@ -6,35 +6,67 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "ae3226778105eb11be8376661caa599be2df6b19f2e7ccafb60e7072d696c446",
+    "constructions": [
+      {
+        "construction_id": "construction:d4df49e274df6a52aec1",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "把权力、财产或权利正式赋予某人/某机构",
+        "pattern": "vest sth in sb/sth",
+        "source_sense_id": "sense:vest:42bdfb60388e5198"
+      },
+      {
+        "construction_id": "construction:520c3bee47d2ed9654cb",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "权力、财产或权利归属于某人/某机构",
+        "pattern": "be vested in sb/sth",
+        "source_sense_id": "sense:vest:42bdfb60388e5198"
+      }
+    ],
+    "content_hash": "f08ca283f79d188817c78d1cbbc5edebb4006f7c2b2db7accd762053910391aa",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "背心；马甲",
-          "label_en": "a man's sleeveless garment worn underneath a coat",
+          "label_cn": "背心：美式常指马甲/无袖外衣，英式常指汗衫/背心",
+          "label_en": "vest: AmE often a waistcoat/sleeveless outer garment; BrE often an undershirt/singlet",
           "pos": "noun",
           "sense_ids": [
             "sense:vest:3eab44bd1f1f5564"
           ]
         },
         {
-          "label_cn": "授予；赋予；（财产、权利等）归属；使穿法衣",
-          "label_en": "place (authority, property, or rights) in the control of a person or group of persons; become legally vested; clothe oneself in ecclesiastical garments",
+          "label_cn": "授予；赋予；（财产、权利等）归属",
+          "label_en": "place (authority, property, or rights) in the control of a person or group of persons; become legally vested",
           "pos": "verb",
           "sense_ids": [
             "sense:vest:42bdfb60388e5198",
-            "sense:vest:609e791f07ac5a80",
-            "sense:vest:1e2d16f765f85f4e"
+            "sense:vest:609e791f07ac5a80"
           ]
         }
       ],
-      "core_meaning_cn": "背心；授予",
-      "core_meaning_en": "a garment or to grant authority/rights",
-      "mental_model_cn": "背心；授予",
+      "core_meaning_cn": "背心：美式常指马甲/无袖外衣，英式常指汗衫/背心；授予；赋予；（财产、权利等）归属",
+      "core_meaning_en": "vest: AmE often a waistcoat/sleeveless outer garment; BrE often an undershirt/singlet; place (authority, property, or rights) in the control of a person or group of persons; become legally vested",
+      "mental_model_cn": "背心：美式常指马甲/无袖外衣，英式常指汗衫/背心；授予；赋予；（财产、权利等）归属",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o4875-o5374.md",
+      "boundaries": [
+        {
+          "condition": "AmE clothing",
+          "note": "usually a waistcoat/sleeveless outer garment",
+          "surface": "vest"
+        },
+        {
+          "condition": "BrE clothing",
+          "note": "usually an undershirt/singlet",
+          "surface": "vest"
+        }
+      ],
+      "type": "regional_sense_boundary"
+    },
     "needs_delta_review": true,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -67,14 +99,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "背心；马甲",
-        "definition_en": "a man's sleeveless garment worn underneath a coat",
+        "definition_cn": "背心：美式常指马甲/无袖外衣，英式常指汗衫/背心",
+        "definition_en": "vest: AmE often a waistcoat/sleeveless outer garment; BrE often an undershirt/singlet",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:vest:3eab44bd1f1f5564",
-        "sense_label_en": "a man's sleeveless garment worn underneath a coat",
+        "sense_label_en": "vest: AmE often a waistcoat/sleeveless outer garment; BrE often an undershirt/singlet",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -281,7 +313,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5281-5288.json",
-    "source_content_hash": "ae3226778105eb11be8376661caa599be2df6b19f2e7ccafb60e7072d696c446",
+    "source_content_hash": "f08ca283f79d188817c78d1cbbc5edebb4006f7c2b2db7accd762053910391aa",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -6,8 +6,31 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "27e04b3c45f62bac823ffab94a3bd5cdaaff4beeb61d7e27cb66affdceafb748",
+    "constructions": [
+      {
+        "construction_id": "construction:2859535e5f821a04978b",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "谈论某事",
+        "pattern": "talk about sth",
+        "source_sense_id": "sense:talk:3741d7b241a55430"
+      },
+      {
+        "construction_id": "construction:5c048dd92f43231938e4",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "说服某人做某事",
+        "pattern": "talk sb into doing sth"
+      },
+      {
+        "construction_id": "construction:dc826752417c0d4cd11e",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "说服某人不要做某事",
+        "pattern": "talk sb out of doing sth"
+      }
+    ],
+    "content_hash": "e0bd13e5697abbcf998f49bddd87c872a4594cc570b4f60d0050473eeb79182d",
     "core_concept": {
       "core_clusters": [
         {
@@ -20,19 +43,18 @@
           ]
         },
         {
-          "label_cn": "谈话；交谈；演讲；讲座；闲话；谣言",
-          "label_en": "an exchange of ideas via conversation; a formal speech or lecture; idle gossip or rumor",
+          "label_cn": "谈话；交谈；演讲；讲座",
+          "label_en": "an exchange of ideas via conversation; a formal speech or lecture",
           "pos": "noun",
           "sense_ids": [
             "sense:talk:9bfbd2793d1f5200",
-            "sense:talk:97444612be425040",
-            "sense:talk:e68ba38021c55456"
+            "sense:talk:97444612be425040"
           ]
         }
       ],
-      "core_meaning_cn": "说话；谈话",
-      "core_meaning_en": "to speak or converse; a conversation or speech",
-      "mental_model_cn": "说话；谈话",
+      "core_meaning_cn": "说话；交谈；讨论；谈论；谈话；交谈；演讲；讲座",
+      "core_meaning_en": "to speak or converse with someone; to discuss something; an exchange of ideas via conversation; a formal speech or lecture",
+      "mental_model_cn": "说话；交谈；讨论；谈论；谈话；交谈；演讲；讲座",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -100,14 +122,14 @@
         "confidence": "medium",
         "definition_cn": "讨论；谈论",
         "definition_en": "to discuss something",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "vi.; usually talk about sth rather than *talk sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:talk:3741d7b241a55430",
         "sense_label_en": "to discuss something",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "vi"
       },
       {
         "collocations": [
@@ -344,7 +366,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4889-4896.json",
-    "source_content_hash": "27e04b3c45f62bac823ffab94a3bd5cdaaff4beeb61d7e27cb66affdceafb748",
+    "source_content_hash": "e0bd13e5697abbcf998f49bddd87c872a4594cc570b4f60d0050473eeb79182d",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

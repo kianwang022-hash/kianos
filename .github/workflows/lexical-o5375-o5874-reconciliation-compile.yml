@@ -1,0 +1,48 @@
+name: Lexical o5375-o5874 reconciliation compile
+
+on:
+  push:
+    branches: [lexical/pkg251-next]
+    paths:
+      - '.github/workflows/lexical-o5375-o5874-reconciliation-compile.yml'
+      - 'tools/lexical_compile_reconciliation_package.py'
+      - 'tools/lexical_compile_reconciliation_extras.py'
+
+permissions:
+  contents: write
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: lexical/pkg251-next
+      - name: Compile exact package accounting
+        run: |
+          python tools/lexical_compile_reconciliation_package.py \
+            --start 5375 --end 5874 \
+            --production content/lexical/semantic-review/o5375-o5624.md \
+            --production content/lexical/semantic-review/o5625-o5874.md \
+            --audit content/lexical/semantic-audit/o5225-o5424.audit.md \
+            --audit content/lexical/semantic-audit/o5425-o5624.audit.md \
+            --audit content/lexical/semantic-audit/o5625-o5824.audit.md \
+            --audit content/lexical/semantic-audit/o5825-o6024.audit.md \
+            --out content/lexical/execution/preflight/o5375-o5874.reconciliation-compile.json
+          python tools/lexical_compile_reconciliation_extras.py \
+            --start 5375 --end 5874 \
+            --production content/lexical/semantic-review/o5375-o5624.md \
+            --production content/lexical/semantic-review/o5625-o5874.md \
+            --audit content/lexical/semantic-audit/o5225-o5424.audit.md \
+            --audit content/lexical/semantic-audit/o5425-o5624.audit.md \
+            --audit content/lexical/semantic-audit/o5625-o5824.audit.md \
+            --audit content/lexical/semantic-audit/o5825-o6024.audit.md \
+            --out content/lexical/execution/preflight/o5375-o5874.reconciliation-extras.json
+      - name: Commit compiled inputs
+        run: |
+          git config user.name Kian
+          git config user.email kianwang022@gmail.com
+          git add content/lexical/execution/preflight/o5375-o5874.reconciliation-*.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'lexical: compile o5375-o5874 reconciliation inputs [skip ci]'
+          git push origin HEAD:lexical/pkg251-next

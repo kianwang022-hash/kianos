@@ -9,17 +9,35 @@
     "constructions": [
       {
         "construction_id": "construction:348d779a04a1f8ae9b3c",
-        "level": "L1",
+        "level": "L2",
         "meaning_cn": "剔除；淘汰；清除",
         "pattern": "weed out sb/sth"
       }
     ],
-    "content_hash": "dc944661b90f9de38ee3df596784cb226d0aaf55ceea4b36302733bd160ab260",
+    "content_hash": "bdd72b6e4c56da03a0c2fa83823c4cb205d52abf8f7d8086e8b92cbba6944e77",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "杂草或清除杂草",
-      "core_meaning_en": "unwanted plant or the act of removing it",
-      "mental_model_cn": "杂草或清除杂草",
+      "core_clusters": [
+        {
+          "label_cn": "杂草；不需要的野生植物；大麻；marijuana（非正式）",
+          "label_en": "a wild plant growing where it is not wanted, especially among crops or garden plants; informal: cannabis or marijuana",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:weed:6842a249f2fb5fd8",
+            "sense:weed:2fd67485be6df82d"
+          ]
+        },
+        {
+          "label_cn": "除草；拔除杂草",
+          "label_en": "to remove weeds from an area of ground",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:weed:fe897141451c5559"
+          ]
+        }
+      ],
+      "core_meaning_cn": "杂草；不需要的野生植物；除草；拔除杂草；大麻；marijuana（非正式）",
+      "core_meaning_en": "a wild plant growing where it is not wanted, especially among crops or garden plants; to remove weeds from an area of ground; informal: cannabis or marijuana",
+      "mental_model_cn": "杂草；不需要的野生植物；除草；拔除杂草；大麻；marijuana（非正式）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -31,7 +49,53 @@
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "杂草；不需要的野生植物",
+        "definition_en": "a wild plant growing where it is not wanted, especially among crops or garden plants",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:weed:6842a249f2fb5fd8",
+        "sense_label_en": "a wild plant growing where it is not wanted, especially among crops or garden plants",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "除草；拔除杂草",
+        "definition_en": "to remove weeds from an area of ground",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:weed:fe897141451c5559",
+        "sense_label_en": "to remove weeds from an area of ground",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "大麻；marijuana（非正式）",
+        "definition_en": "informal: cannabis or marijuana",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "register": "informal",
+        "sense_id": "sense:weed:2fd67485be6df82d",
+        "sense_label_en": "informal: cannabis or marijuana",
+        "sort_order": 1000,
+        "transitivity": "nonverb",
+        "usage_note": "Informal familiar-new sense; keep distinct from the ordinary plant/gardening senses.",
+        "writing_safe": false
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -53,31 +117,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:weed:6842a249f2fb5fd8",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "杂草，野草",
-      "definition_en": "a wild plant growing where it is not wanted, especially among crops or garden plants",
-      "semantic_key": "2254005e4b8171ce75d5e4d7ecade3b071fc62066cfa411b7585671d005e6431",
-      "semantic_key_history": [
-        "9185baa49f4158aca5c224c18d5c794669b246c67551b315a9f46543be4199bc"
-      ],
-      "legacy_aliases": [
-        "weed:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "weed:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 15287,
-      "source_path": "content/lexical/canonical/senses/shards/o5377-5408.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:weed:81214e1269b0547c",
       "status": "deprecated",
@@ -102,38 +141,13 @@
       "source_row": 15288,
       "source_path": "content/lexical/canonical/senses/shards/o5377-5408.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:weed:fe897141451c5559",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "给…除草",
-      "definition_en": "to remove weeds from an area of ground",
-      "semantic_key": "90a17591884b0e02294f42e6f108c6361dc1cbbff9efb0a336b34bfab68542f5",
-      "semantic_key_history": [
-        "81226120087e8b87f2a6e3a834e22149ac2682718f8eeeec94f36ce49c8fb86d"
-      ],
-      "legacy_aliases": [
-        "weed:l1:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "weed:l1:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 15289,
-      "source_path": "content/lexical/canonical/senses/shards/o5377-5408.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:weed:6842a249f2fb5fd8",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 15287,
         "source_path": "content/lexical/canonical/senses/shards/o5377-5408.json"
@@ -147,9 +161,16 @@
       },
       {
         "sense_id": "sense:weed:fe897141451c5559",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 15289,
+        "source_path": "content/lexical/canonical/senses/shards/o5377-5408.json"
+      },
+      {
+        "sense_id": "sense:weed:2fd67485be6df82d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 15381,
         "source_path": "content/lexical/canonical/senses/shards/o5377-5408.json"
       }
     ],
@@ -213,7 +234,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5377-5384.json",
-    "source_content_hash": "dc944661b90f9de38ee3df596784cb226d0aaf55ceea4b36302733bd160ab260",
+    "source_content_hash": "bdd72b6e4c56da03a0c2fa83823c4cb205d52abf8f7d8086e8b92cbba6944e77",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -6,16 +6,34 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "e67b1cf2628a92eb9885e74d6a3d72aed1fbb0e2c8ef1ff403bf90185e79091c",
+    "constructions": [
+      {
+        "construction_id": "construction:7b99bdcf9d52db090caa",
+        "definition_en": "also; in addition",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "也；还",
+        "pattern": "as well"
+      },
+      {
+        "construction_id": "construction:8b27a314ef05780a7e3f",
+        "definition_en": "in addition to; and also",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "除……之外还；以及",
+        "pattern": "as well as"
+      }
+    ],
+    "content_hash": "f4d689d8a5ad7564d2442895406d32b34ce49ef4bb3765310260afe71e1d6aa5",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "很好地",
-          "label_en": "in a good or satisfactory way",
+          "label_cn": "很好地；很；大大地；远远地（用于形容词、副词或比较/数量前）",
+          "label_en": "in a good or satisfactory way; used before adjectives, adverbs, comparisons, times, or amounts to mean very, fully, or by a large amount",
           "pos": "adverb",
           "sense_ids": [
-            "sense:well:a9fad0086306597e"
+            "sense:well:a9fad0086306597e",
+            "sense:well:89507d304e3ad8a7"
           ]
         },
         {
@@ -41,19 +59,11 @@
           "sense_ids": [
             "sense:well:182a97063ff85cb7"
           ]
-        },
-        {
-          "label_cn": "好啦",
-          "label_en": "used to express surprise or to introduce a remark",
-          "pos": "interjection",
-          "sense_ids": [
-            "sense:well:08d2fb2279ad56e4"
-          ]
         }
       ],
-      "core_meaning_cn": "好；井",
-      "core_meaning_en": "in a good way; a hole for water",
-      "mental_model_cn": "好；井",
+      "core_meaning_cn": "很好地；健康的；井；涌出；很；大大地；远远地（用于形容词、副词或比较/数量前）",
+      "core_meaning_en": "in a good or satisfactory way; in good health; a deep hole for water or oil; to rise up and flow out; used before adjectives, adverbs, comparisons, times, or amounts to mean very, fully, or by a large amount",
+      "mental_model_cn": "很好地；健康的；井；涌出；很；大大地；远远地（用于形容词、副词或比较/数量前）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -183,6 +193,20 @@
         "sense_label_en": "used to express surprise or to introduce a remark",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "很；大大地；远远地（用于形容词、副词或比较/数量前）",
+        "definition_en": "used before adjectives, adverbs, comparisons, times, or amounts to mean very, fully, or by a large amount",
+        "governing_pattern": "well + adjective/adverb/comparison",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adverb",
+        "sense_id": "sense:well:89507d304e3ad8a7",
+        "sense_label_en": "used before adjectives, adverbs, comparisons, times, or amounts to mean very, fully, or by a large amount",
+        "sort_order": 5,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -241,6 +265,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 15323,
+        "source_path": "content/lexical/canonical/senses/shards/o5377-5408.json"
+      },
+      {
+        "sense_id": "sense:well:89507d304e3ad8a7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 15382,
         "source_path": "content/lexical/canonical/senses/shards/o5377-5408.json"
       }
     ],
@@ -305,7 +336,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5385-5392.json",
-    "source_content_hash": "e67b1cf2628a92eb9885e74d6a3d72aed1fbb0e2c8ef1ff403bf90185e79091c",
+    "source_content_hash": "f4d689d8a5ad7564d2442895406d32b34ce49ef4bb3765310260afe71e1d6aa5",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

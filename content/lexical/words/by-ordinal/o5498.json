@@ -7,18 +7,18 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "45c45af7755db0a920cedc420fd8aa38595f6adfd11771fa65fa9d698f97a0af",
+    "content_hash": "9b028f3502654c073445e843420bc45b7a9a3279f8973f2a2fcec85003d1ccd7",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "拉链；活力；精力；邮政编码；零；无",
-          "label_en": "a fastener for locking together two toothed edges by means of a sliding tab; forceful exertion; energy or vigor; a code of letters and digits added to a postal address to aid in the sorting of mail; a quantity of no importance; zero",
+          "label_cn": "拉链；活力；精力；ZIP Code：美国邮政编码（通常5位数字，可扩展为ZIP+4）；ZIP/zip 压缩档案；.zip 文件",
+          "label_en": "a fastener for locking together two toothed edges by means of a sliding tab; forceful exertion; energy or vigor; ZIP Code: a U.S. postal code of five digits, optionally followed by four additional digits; a ZIP archive or .zip compressed computer file",
           "pos": "noun",
           "sense_ids": [
             "sense:zip:05d2d9ebd078571b",
             "sense:zip:ebf5ec783e1a52c8",
             "sense:zip:47229e0229db5741",
-            "sense:zip:8f581243255f5dd2"
+            "sense:zip:c9a9e92595813a51"
           ]
         },
         {
@@ -31,12 +31,33 @@
           ]
         }
       ],
-      "core_meaning_cn": "拉链或快速移动；也指零或邮政编码",
-      "core_meaning_en": "a fastener or fast movement; also zero or postal code",
-      "mental_model_cn": "拉链或快速移动；也指零或邮政编码",
+      "core_meaning_cn": "拉链；拉上拉链；快速移动；活力；精力；ZIP Code：美国邮政编码（通常5位数字，可扩展为ZIP+4）；ZIP/zip 压缩档案；.zip 文件",
+      "core_meaning_en": "a fastener for locking together two toothed edges by means of a sliding tab; close with a zipper; move very fast; forceful exertion; energy or vigor; ZIP Code: a U.S. postal code of five digits, optionally followed by four additional digits; a ZIP archive or .zip compressed computer file",
+      "mental_model_cn": "拉链；拉上拉链；快速移动；活力；精力；ZIP Code：美国邮政编码（通常5位数字，可扩展为ZIP+4）；ZIP/zip 压缩档案；.zip 文件",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o5375-o5874.md",
+      "boundaries": [
+        {
+          "condition": "zipper/move-fast/general common word",
+          "note": "lowercase common-word uses",
+          "surface": "zip"
+        },
+        {
+          "condition": "U.S. postal code",
+          "note": "ZIP is capitalized in ZIP Code",
+          "surface": "ZIP Code"
+        },
+        {
+          "condition": "computing archive format",
+          "note": "technical file-format surface; case varies by context",
+          "surface": ".zip / ZIP archive"
+        }
+      ],
+      "type": "capitalization_and_technical_surface_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -142,14 +163,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "邮政编码",
-        "definition_en": "a code of letters and digits added to a postal address to aid in the sorting of mail",
+        "definition_cn": "ZIP Code：美国邮政编码（通常5位数字，可扩展为ZIP+4）",
+        "definition_en": "ZIP Code: a U.S. postal code of five digits, optionally followed by four additional digits",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:zip:47229e0229db5741",
-        "sense_label_en": "a code of letters and digits added to a postal address to aid in the sor",
+        "sense_label_en": "ZIP Code: a U.S. postal code of five digits, optionally followed by four additional digits",
         "sort_order": 4,
         "transitivity": "nonverb"
       },
@@ -172,9 +193,25 @@
         "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
+        "register": "informal/regional",
         "sense_id": "sense:zip:8f581243255f5dd2",
         "sense_label_en": "a quantity of no importance; zero",
         "sort_order": 5,
+        "transitivity": "nonverb",
+        "usage_note": "Informal/regional zero/nothing use."
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "ZIP/zip 压缩档案；.zip 文件",
+        "definition_en": "a ZIP archive or .zip compressed computer file",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:zip:c9a9e92595813a51",
+        "sense_label_en": "a ZIP archive or .zip compressed computer file",
+        "sort_order": 6,
         "transitivity": "nonverb"
       }
     ],
@@ -242,6 +279,13 @@
         "merged_into_sense_id": null,
         "source_row": 15638,
         "source_path": "content/lexical/canonical/senses/shards/o5473-5504.json"
+      },
+      {
+        "sense_id": "sense:zip:c9a9e92595813a51",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 15649,
+        "source_path": "content/lexical/canonical/senses/shards/o5473-5504.json"
       }
     ],
     "active_collocations": [
@@ -300,7 +344,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5497-5504.json",
-    "source_content_hash": "45c45af7755db0a920cedc420fd8aa38595f6adfd11771fa65fa9d698f97a0af",
+    "source_content_hash": "9b028f3502654c073445e843420bc45b7a9a3279f8973f2a2fcec85003d1ccd7",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

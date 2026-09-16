@@ -6,8 +6,23 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "39a343a93598033c9625a338bf3d527166d4f912dc75116c07f5d827590c3b10",
+    "constructions": [
+      {
+        "construction_id": "construction:8438c90af90a6a4b1a02",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "如此……以至于……",
+        "pattern": "so ... that"
+      },
+      {
+        "construction_id": "construction:2797379861fa216a6ce3",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "以便；为了；从而",
+        "pattern": "so that"
+      }
+    ],
+    "content_hash": "975209881f19499b73f0efbf90b3d310b558665bdd4ba79bde8bd0d88dac6210",
     "core_concept": {
       "core_clusters": [
         {
@@ -140,7 +155,14 @@
     "word_family": [],
     "word_id": "word:so"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "deep:semantic_contrast:thus:1149b4f8e6dd22a9",
+      "owner_path": "content/lexical/relations/by-id/af/afd532ec98dcd767f6e5bdc302b4608c9d2677452fdcc842182aa8eff97d377d.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -215,7 +237,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4521-4528.json",
-    "source_content_hash": "39a343a93598033c9625a338bf3d527166d4f912dc75116c07f5d827590c3b10",
+    "source_content_hash": "975209881f19499b73f0efbf90b3d310b558665bdd4ba79bde8bd0d88dac6210",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

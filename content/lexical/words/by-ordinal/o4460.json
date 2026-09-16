@@ -7,22 +7,94 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "9f02ebf8357b97d68720c34819cedc34245df9dd9260c250e53bd2f8c8517ec4",
+    "content_hash": "8a8204a1c77c10ad33a12b2ac33850769a19aee8cb85aa1b5f9d0ee9a1eb6052",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "警报器；塞壬（女海妖）",
-      "core_meaning_en": "a loud warning device; a mythical creature that lures sailors",
-      "mental_model_cn": "警报器；塞壬（女海妖）",
+      "core_clusters": [
+        {
+          "label_cn": "警报器，汽笛；塞壬（女海妖）",
+          "label_en": "a device that makes a loud wailing sound as a warning signal; a mythical sea nymph who lured sailors to destruction",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:siren:2195ef95beae52cc",
+            "sense:siren:6ec68979175458d5"
+          ]
+        }
+      ],
+      "core_meaning_cn": "警报器，汽笛；塞壬（女海妖）",
+      "core_meaning_en": "a device that makes a loud wailing sound as a warning signal; a mythical sea nymph who lured sailors to destruction",
+      "mental_model_cn": "警报器，汽笛；塞壬（女海妖）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o4375-o4874.md",
+      "boundaries": [
+        {
+          "condition": "ordinary warning device",
+          "note": "lowercase siren commonly means an alarm/warning device",
+          "surface": "siren"
+        },
+        {
+          "condition": "mythological being / classical reference",
+          "note": "capitalization is common when referring to the mythological Sirens",
+          "surface": "Siren"
+        }
+      ],
+      "type": "capitalization_context_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "警报器，汽笛",
+        "definition_en": "a device that makes a loud wailing sound as a warning signal",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:siren:2195ef95beae52cc",
+        "sense_label_en": "a device that makes a loud wailing sound as a warning signal",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "塞壬（女海妖）",
+        "definition_en": "a mythical sea nymph who lured sailors to destruction",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:siren:6ec68979175458d5",
+        "sense_label_en": "a mythical sea nymph who lured sailors to destruction",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "妖女，迷人的美女",
+        "definition_en": "a dangerously attractive woman",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "register": "literary/dated",
+        "sense_id": "sense:siren:f51eeec675685aae",
+        "sense_label_en": "a dangerously attractive woman",
+        "sort_order": 999,
+        "transitivity": "nonverb",
+        "usage_note": "literary/dated and potentially objectifying person-label use; avoid as a neutral modern label",
+        "writing_safe": false
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -43,102 +115,26 @@
     "word_id": "word:siren"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:siren:2195ef95beae52cc",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "警报器，汽笛",
-      "definition_en": "a device that makes a loud wailing sound as a warning signal",
-      "semantic_key": "e77cdbde6c5acdec578c19d7504a97757142cf3a9e191f16f16a145913e68372",
-      "semantic_key_history": [
-        "479f935682153e62754eff36ad6e049a8f40ded9b2cc7a71fd61804d87c5bdb1"
-      ],
-      "legacy_aliases": [
-        "siren:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "siren:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12592,
-      "source_path": "content/lexical/canonical/senses/shards/o4449-4480.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:siren:6ec68979175458d5",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "塞壬（女海妖）",
-      "definition_en": "a mythical sea nymph who lured sailors to destruction",
-      "semantic_key": "a0aacd715e746eff404a6ea7cd7e01a82200ebcef5dbf4f0e39b9ea61d11045a",
-      "semantic_key_history": [
-        "ec58f86bbf3907180e7a5a2dd0e2b4a35906eab3286f1f7d2bd1cd82fef7e3df"
-      ],
-      "legacy_aliases": [
-        "siren:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "siren:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12593,
-      "source_path": "content/lexical/canonical/senses/shards/o4449-4480.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:siren:f51eeec675685aae",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "妖女，迷人的美女",
-      "definition_en": "a dangerously attractive woman",
-      "semantic_key": "95ac9a8728591b2fb472e8942c4e7e754530943656383756578b9040477f033b",
-      "semantic_key_history": [
-        "4aef42322d95ef85d28376f550449eba10898e39e9d853b975952462684809c0"
-      ],
-      "legacy_aliases": [
-        "siren:l3:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "siren:l3:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12594,
-      "source_path": "content/lexical/canonical/senses/shards/o4449-4480.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:siren:2195ef95beae52cc",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12592,
         "source_path": "content/lexical/canonical/senses/shards/o4449-4480.json"
       },
       {
         "sense_id": "sense:siren:6ec68979175458d5",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12593,
         "source_path": "content/lexical/canonical/senses/shards/o4449-4480.json"
       },
       {
         "sense_id": "sense:siren:f51eeec675685aae",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12594,
         "source_path": "content/lexical/canonical/senses/shards/o4449-4480.json"
@@ -184,7 +180,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4457-4464.json",
-    "source_content_hash": "9f02ebf8357b97d68720c34819cedc34245df9dd9260c250e53bd2f8c8517ec4",
+    "source_content_hash": "8a8204a1c77c10ad33a12b2ac33850769a19aee8cb85aa1b5f9d0ee9a1eb6052",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

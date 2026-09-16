@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "7b1b9d576ce0e2d6b8effcf873e44571b8475afc87b167ebb514fab0556425ec",
+    "content_hash": "0332fddfa1d72b2b899ae196cc123502458adc3be592ead86f00e5f8a45df262",
     "core_concept": {
       "core_clusters": [
         {
@@ -119,15 +119,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:58e6d59b97de7541cca1",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:scorn:0c914b65c3575631:collocation:0"
-            ],
-            "meaning_cn": "不屑于做某事",
-            "phrase": "scorn to do + sth"
-          },
-          {
             "collocation_id": "collocation:070b010cfd5211ba4b9a",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -135,6 +126,15 @@
             ],
             "meaning_cn": "她不屑于回答。",
             "phrase": "She scorned to reply."
+          },
+          {
+            "collocation_id": "collocation:76a374bdee7aa3b1f843",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:scorn:0c914b65c3575631:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "不屑于做某事",
+            "phrase": "scorn to do sth"
           }
         ],
         "confidence": "medium",
@@ -147,7 +147,8 @@
         "sense_id": "sense:scorn:0c914b65c3575631",
         "sense_label_en": "to refuse to do something because you think it is not good enough",
         "sort_order": 2,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "formal/literary: scorn to do sth = refuse to do because you consider it beneath you"
       }
     ],
     "verification_summary": {
@@ -197,7 +198,7 @@
     ],
     "active_collocations": [
       "collocation:070b010cfd5211ba4b9a",
-      "collocation:58e6d59b97de7541cca1",
+      "collocation:76a374bdee7aa3b1f843",
       "collocation:7a932c1fbb75ea902265",
       "collocation:a85bef64ca6e6b361bed",
       "collocation:dc503d44d7597bf76e28",
@@ -240,6 +241,11 @@
         "id": "collocation:e080a1545aea8d86de77",
         "source_row": 18986,
         "source_path": "content/lexical/canonical/collocations/shards/o4289-4320.json"
+      },
+      {
+        "id": "collocation:76a374bdee7aa3b1f843",
+        "source_row": 21623,
+        "source_path": "content/lexical/canonical/collocations/shards/o4289-4320.json"
       }
     ],
     "exam-mappings": [],
@@ -278,7 +284,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4289-4296.json",
-    "source_content_hash": "7b1b9d576ce0e2d6b8effcf873e44571b8475afc87b167ebb514fab0556425ec",
+    "source_content_hash": "0332fddfa1d72b2b899ae196cc123502458adc3be592ead86f00e5f8a45df262",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

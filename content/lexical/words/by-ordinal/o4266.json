@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "006196b9766f8dcb2e6abecd14af35426faee5e278a2d6fbfefd9c78cd1ec243",
+    "content_hash": "7383964c0e3fc5147a333983d8e8e57b9a041c3a0a51e2b3f15415cb5f3a7559",
     "core_concept": {
       "core_clusters": [
         {
@@ -20,21 +20,33 @@
           ]
         },
         {
-          "label_cn": "锯子；谚语",
-          "label_en": "a tool with a toothed blade for cutting hard materials; a wise saying",
+          "label_cn": "锯子",
+          "label_en": "a tool with a toothed blade for cutting hard materials",
           "pos": "noun",
           "sense_ids": [
-            "sense:saw:98a78fee4f00545e",
-            "sense:saw:8aec3882f4925d8b"
+            "sense:saw:98a78fee4f00545e"
           ]
         }
       ],
-      "core_meaning_cn": "锯；see的过去式",
-      "core_meaning_en": "a cutting tool; to cut with a saw; past tense of see",
-      "mental_model_cn": "锯；see的过去式",
+      "core_meaning_cn": "锯子；锯开；来回拉锯",
+      "core_meaning_en": "a saw/cutting tool; to cut with a saw; saw back and forth",
+      "mental_model_cn": "锯子；锯开；来回拉锯",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o4125-o4374.md",
+      "boundaries": [
+        {
+          "base_ordinal": 4320,
+          "base_word": "see",
+          "condition": "simple past of see",
+          "note": "saw is the simple-past form of see; do not create a saw semantic sense for this inflection",
+          "surface": "saw"
+        }
+      ],
+      "type": "inflectional_form_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -250,7 +262,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4265-4272.json",
-    "source_content_hash": "006196b9766f8dcb2e6abecd14af35426faee5e278a2d6fbfefd9c78cd1ec243",
+    "source_content_hash": "7383964c0e3fc5147a333983d8e8e57b9a041c3a0a51e2b3f15415cb5f3a7559",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

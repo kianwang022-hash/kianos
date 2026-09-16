@@ -6,8 +6,25 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "072a2cba9fcbc4a56a9d9993d1632ed162c8e08684323074dd8764ee178b3ed9",
+    "constructions": [
+      {
+        "construction_id": "construction:39821944e514c8fab4f5",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "是……还是……；无论……还是……",
+        "pattern": "whether ... or ...",
+        "source_sense_id": "sense:whether:4856fdce3c55549c"
+      },
+      {
+        "construction_id": "construction:c09162387a35713c9399",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "是否；无论是否",
+        "pattern": "whether or not",
+        "source_sense_id": "sense:whether:c9f394398b835567"
+      }
+    ],
+    "content_hash": "85637267e63673427a419ac63ea700001c020e4099cf4f84f9ecda7c4d543a66",
     "core_concept": {
       "core_clusters": [
         {
@@ -18,19 +35,11 @@
             "sense:whether:4856fdce3c55549c",
             "sense:whether:c9f394398b835567"
           ]
-        },
-        {
-          "label_cn": "两个中的哪一个",
-          "label_en": "which (of two); which one (of two)",
-          "pos": "pronoun",
-          "sense_ids": [
-            "sense:whether:b310840e25fd562a"
-          ]
         }
       ],
-      "core_meaning_cn": "是否",
-      "core_meaning_en": "expressing a choice or alternative",
-      "mental_model_cn": "是否",
+      "core_meaning_cn": "是否；是...还是；不论；不管",
+      "core_meaning_en": "used to introduce the first of two or more alternative clauses, the other(s) being connected by or; used to express a doubt or choice between alternatives",
+      "mental_model_cn": "是否；是...还是；不论；不管",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -88,20 +97,6 @@
         "sense_label_en": "used to express a doubt or choice between alternatives",
         "sort_order": 1,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "两个中的哪一个",
-        "definition_en": "which (of two); which one (of two)",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "pronoun",
-        "sense_id": "sense:whether:b310840e25fd562a",
-        "sense_label_en": "which (of two); which one (of two)",
-        "sort_order": 2,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -124,7 +119,31 @@
     "word_id": "word:whether"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:whether:b310840e25fd562a",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "pronoun",
+      "definition_cn": "两个中的哪一个",
+      "definition_en": "which (of two); which one (of two)",
+      "semantic_key": "86a86a43414053b4c63bd377219e539b26608a2506dd853b31b5a37921378340",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "whether:l3:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "whether:l3:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 15364,
+      "source_path": "content/lexical/canonical/senses/shards/o5377-5408.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -136,7 +155,7 @@
       },
       {
         "sense_id": "sense:whether:b310840e25fd562a",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 15364,
         "source_path": "content/lexical/canonical/senses/shards/o5377-5408.json"
@@ -192,7 +211,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5401-5408.json",
-    "source_content_hash": "072a2cba9fcbc4a56a9d9993d1632ed162c8e08684323074dd8764ee178b3ed9",
+    "source_content_hash": "85637267e63673427a419ac63ea700001c020e4099cf4f84f9ecda7c4d543a66",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
