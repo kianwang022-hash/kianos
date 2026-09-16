@@ -7,12 +7,21 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "83733a1d80e94b9d41f045b733fbd30577fce55a00d5bbdfb66178a0dd181351",
+    "content_hash": "5b99c86823a7e02a6b4a27f4cbe38c6341ee96be9162ebc2821c02d7f9d42dff",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "一拖, 一拉, 耳朵, 耳状物, 装腔作势, 勒索",
-      "core_meaning_en": "a projecting piece that is used to lift or support or turn something",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "费力地拖、扛或搬运笨重物品",
+          "label_en": "to carry, drag, or move something heavy or awkward with effort",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:lug:5c015e4e3cc75a76"
+          ]
+        }
+      ],
+      "core_meaning_cn": "费力地拖、扛或搬运笨重物品",
+      "core_meaning_en": "to carry, drag, or move something heavy or awkward with effort",
+      "mental_model_cn": "费力地拖、扛或搬运笨重物品",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -31,9 +40,10 @@
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L1",
+        "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
+        "register": "technical",
         "sense_id": "sense:lug:8f13d5ff70805231",
         "sense_label_en": "a projecting piece that is used to lift or support or turn something",
         "sort_order": 1,
@@ -50,40 +60,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "一拖, 一拉, 耳朵, 耳状物, 装腔作势, 勒索",
-        "definition_en": "ancient Celtic god",
+        "definition_cn": "费力地拖、扛或搬运笨重物品",
+        "definition_en": "to carry, drag, or move something heavy or awkward with effort",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:lug:06ca4538dac05aed",
-        "sense_label_en": "ancient Celtic god",
-        "sort_order": 2,
-        "source_evidence": [
-          {
-            "evidence_id": "source-fact:d71488c49cb90a89908aa686",
-            "evidence_status": "source_checked",
-            "role": "external_semantic_auditor",
-            "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
-            "source_type": "learner_dictionary"
-          }
-        ]
-      },
-      {
-        "collocations": [],
-        "confidence": "high",
-        "definition_cn": "拖, 拉",
-        "definition_en": "carry with difficulty",
-        "depth": "full_card",
-        "domain_tag": "toefl",
-        "frequency_tag": "toefl",
-        "level": "L3",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:lug:5c015e4e3cc75a76",
-        "sense_label_en": "carry with difficulty",
+        "sense_label_en": "to carry, drag, or move something heavy or awkward with effort",
         "sort_order": 3,
         "source_evidence": [
           {
@@ -110,12 +96,29 @@
     "word_id": "word:lug"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:lug:06ca4538dac05aed",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "一拖, 一拉, 耳朵, 耳状物, 装腔作势, 勒索",
+      "definition_en": "ancient Celtic god",
+      "semantic_key": "06e54ebe64e451ba31312c366b5fdc58ad1f7a3c0815b72f0be03e15baaf432a",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 18284,
+      "source_path": "content/lexical/canonical/senses/shards/o7105-7136.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:lug:06ca4538dac05aed",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 18284,
         "source_path": "content/lexical/canonical/senses/shards/o7105-7136.json"
@@ -159,7 +162,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7113-7120.json",
-    "source_content_hash": "83733a1d80e94b9d41f045b733fbd30577fce55a00d5bbdfb66178a0dd181351",
+    "source_content_hash": "5b99c86823a7e02a6b4a27f4cbe38c6341ee96be9162ebc2821c02d7f9d42dff",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

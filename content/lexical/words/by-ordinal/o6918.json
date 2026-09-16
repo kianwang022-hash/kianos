@@ -6,13 +6,39 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "d87a442bcf25b133adecaa04f21a29fc20c125c30deec6dfa41337fe8a43ca4a",
+    "constructions": [
+      {
+        "construction_id": "construction:9a4222e0d51f05deb9df",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "使某物充斥市场、造成供应过剩",
+        "pattern": "glut the market with sth",
+        "source_sense_id": "sense:glut:456050d6a2a27905"
+      }
+    ],
+    "content_hash": "37f46a79cda983fece6d2c5b9ae099a1103b576698dc2ab4b2a788f24dd9e373",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "大量, 供过于求",
-      "core_meaning_en": "the quality of being so overabundant that prices fall",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "供过于求；过量；尤指多到压低价格的供应",
+          "label_en": "an excessive supply or amount of something, especially enough to depress prices or overwhelm demand",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:glut:3aff1d67033658d0"
+          ]
+        },
+        {
+          "label_cn": "使市场供应过剩；充斥",
+          "label_en": "to supply or fill a market with more of something than can be wanted or used",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:glut:456050d6a2a27905"
+          ]
+        }
+      ],
+      "core_meaning_cn": "供过于求；过量；尤指多到压低价格的供应；使市场供应过剩；充斥",
+      "core_meaning_en": "an excessive supply or amount of something, especially enough to depress prices or overwhelm demand; to supply or fill a market with more of something than can be wanted or used",
+      "mental_model_cn": "供过于求；过量；尤指多到压低价格的供应；使市场供应过剩；充斥",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,8 +52,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "大量, 供过于求",
-        "definition_en": "the quality of being so overabundant that prices fall",
+        "definition_cn": "供过于求；过量；尤指多到压低价格的供应",
+        "definition_en": "an excessive supply or amount of something, especially enough to depress prices or overwhelm demand",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
@@ -35,7 +61,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:glut:3aff1d67033658d0",
-        "sense_label_en": "the quality of being so overabundant that prices fall",
+        "sense_label_en": "an excessive supply or amount of something, especially enough to depress prices or overwhelm demand",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -46,6 +72,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "使市场供应过剩；充斥",
+        "definition_en": "to supply or fill a market with more of something than can be wanted or used",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:glut:456050d6a2a27905",
+        "sense_label_en": "to supply or fill a market with more of something than can be wanted or used",
+        "sort_order": 2,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -70,6 +110,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 17958,
+        "source_path": "content/lexical/canonical/senses/shards/o6913-6944.json"
+      },
+      {
+        "sense_id": "sense:glut:456050d6a2a27905",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18007,
         "source_path": "content/lexical/canonical/senses/shards/o6913-6944.json"
       }
     ],
@@ -97,7 +144,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6913-6920.json",
-    "source_content_hash": "d87a442bcf25b133adecaa04f21a29fc20c125c30deec6dfa41337fe8a43ca4a",
+    "source_content_hash": "37f46a79cda983fece6d2c5b9ae099a1103b576698dc2ab4b2a788f24dd9e373",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

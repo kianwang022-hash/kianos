@@ -6,13 +6,39 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "7f5c71edd6a995f20dfc7f66abdd059fecfccb51c9905840ec82288450957635",
+    "constructions": [
+      {
+        "construction_id": "construction:c114dab6315ecab76609",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "注意、留心、重视某事",
+        "pattern": "take/pay/give heed to sth",
+        "source_sense_id": "sense:heed:e0d37c0d24d1aed5"
+      }
+    ],
+    "content_hash": "a8a2e3af5784fca4b175f4c6b11e9f97425daf02f315549886f3a4e1c326f156",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "注意, 留心",
-      "core_meaning_en": "pay close attention to; give heed to",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "注意, 留心",
+          "label_en": "pay close attention to; give heed to",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:heed:50ab0f533e605a7f"
+          ]
+        },
+        {
+          "label_cn": "注意；留心；重视",
+          "label_en": "careful attention, notice, or consideration",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:heed:e0d37c0d24d1aed5"
+          ]
+        }
+      ],
+      "core_meaning_cn": "注意, 留心；注意；留心；重视",
+      "core_meaning_en": "pay close attention to; give heed to; careful attention, notice, or consideration",
+      "mental_model_cn": "注意, 留心；注意；留心；重视",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -46,6 +72,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "注意；留心；重视",
+        "definition_en": "careful attention, notice, or consideration",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:heed:e0d37c0d24d1aed5",
+        "sense_label_en": "careful attention, notice, or consideration",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -70,6 +110,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 18011,
+        "source_path": "content/lexical/canonical/senses/shards/o6945-6976.json"
+      },
+      {
+        "sense_id": "sense:heed:e0d37c0d24d1aed5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18061,
         "source_path": "content/lexical/canonical/senses/shards/o6945-6976.json"
       }
     ],
@@ -97,7 +144,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6945-6952.json",
-    "source_content_hash": "7f5c71edd6a995f20dfc7f66abdd059fecfccb51c9905840ec82288450957635",
+    "source_content_hash": "a8a2e3af5784fca4b175f4c6b11e9f97425daf02f315549886f3a4e1c326f156",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

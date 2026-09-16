@@ -7,12 +7,30 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "5e84b7ce2681f172f4ae613cde07b4d1cd25af8316d768204cee91f9555c0cbe",
+    "content_hash": "9bc247f197ad32701d5d356cf0201a64b1d9cb31f6f8c82632183a52e71e2e20",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "洋李, 李子干, 深紫红色, 傻瓜",
-      "core_meaning_en": "dried plum",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "西梅干；干李子",
+          "label_en": "a dried plum",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:prune:32aa96881c0a5cf7"
+          ]
+        },
+        {
+          "label_cn": "修剪枝叶；剪枝；（比喻）删减、削减不必要的部分或成本",
+          "label_en": "to cut back branches, shoots, or other growth in order to shape or improve a plant; figurative: to remove unnecessary parts, costs, staff, or material",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:prune:bca6e1cee8ae2a4e",
+            "sense:prune:bbbb391175f1792e"
+          ]
+        }
+      ],
+      "core_meaning_cn": "西梅干；干李子；修剪枝叶；剪枝；（比喻）删减、削减不必要的部分或成本",
+      "core_meaning_en": "a dried plum; to cut back branches, shoots, or other growth in order to shape or improve a plant; figurative: to remove unnecessary parts, costs, staff, or material",
+      "mental_model_cn": "西梅干；干李子；修剪枝叶；剪枝；（比喻）删减、削减不必要的部分或成本",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,16 +44,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "洋李, 李子干, 深紫红色, 傻瓜",
-        "definition_en": "dried plum",
+        "definition_cn": "西梅干；干李子",
+        "definition_en": "a dried plum",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L1",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:prune:32aa96881c0a5cf7",
-        "sense_label_en": "dried plum",
+        "sense_label_en": "a dried plum",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -46,6 +64,34 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "修剪枝叶；剪枝",
+        "definition_en": "to cut back branches, shoots, or other growth in order to shape or improve a plant",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:prune:bca6e1cee8ae2a4e",
+        "sense_label_en": "to cut back branches, shoots, or other growth in order to shape or improve a plant",
+        "sort_order": 2,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "（比喻）删减、削减不必要的部分或成本",
+        "definition_en": "figurative: to remove unnecessary parts, costs, staff, or material",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:prune:bbbb391175f1792e",
+        "sense_label_en": "figurative: to remove unnecessary parts, costs, staff, or material",
+        "sort_order": 3,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -70,6 +116,20 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 18647,
+        "source_path": "content/lexical/canonical/senses/shards/o7329-7360.json"
+      },
+      {
+        "sense_id": "sense:prune:bbbb391175f1792e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18705,
+        "source_path": "content/lexical/canonical/senses/shards/o7329-7360.json"
+      },
+      {
+        "sense_id": "sense:prune:bca6e1cee8ae2a4e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18706,
         "source_path": "content/lexical/canonical/senses/shards/o7329-7360.json"
       }
     ],
@@ -97,7 +157,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7329-7336.json",
-    "source_content_hash": "5e84b7ce2681f172f4ae613cde07b4d1cd25af8316d768204cee91f9555c0cbe",
+    "source_content_hash": "9bc247f197ad32701d5d356cf0201a64b1d9cb31f6f8c82632183a52e71e2e20",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

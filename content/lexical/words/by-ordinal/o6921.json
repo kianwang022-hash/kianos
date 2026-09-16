@@ -6,13 +6,31 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "23353b820aa583d55a2df98d1beb295b382c4e34d0f3ef1bb994c77789fe0e02",
+    "constructions": [
+      {
+        "construction_id": "construction:f805a4ef0de7442ea0e7",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "努力处理、应对或理解某个难题",
+        "pattern": "grapple with sth"
+      }
+    ],
+    "content_hash": "9a8f3f736eeb1ce03e39a751a11fb9b915929411b5a50cd53a8696fb670d7a3d",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "抓住, 掌握",
-      "core_meaning_en": "to grip or seize, as in a wrestling match",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "抓住, 掌握；努力应对、处理或理解棘手问题",
+          "label_en": "to grip or seize, as in a wrestling match; to struggle to understand, solve, or deal with a difficult problem, issue, or situation",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:grapple:c958efa5048c5860",
+            "sense:grapple:4ac6218bd1778754"
+          ]
+        }
+      ],
+      "core_meaning_cn": "抓住, 掌握；努力应对、处理或理解棘手问题",
+      "core_meaning_en": "to grip or seize, as in a wrestling match; to struggle to understand, solve, or deal with a difficult problem, issue, or situation",
+      "mental_model_cn": "抓住, 掌握；努力应对、处理或理解棘手问题",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -31,7 +49,7 @@
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L1",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:grapple:c958efa5048c5860",
@@ -45,7 +63,22 @@
             "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
             "source_type": "learner_dictionary"
           }
-        ]
+        ],
+        "usage_note": "Literal branch: grip, seize, or wrestle physically."
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "努力应对、处理或理解棘手问题",
+        "definition_en": "to struggle to understand, solve, or deal with a difficult problem, issue, or situation",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:grapple:4ac6218bd1778754",
+        "sense_label_en": "to struggle to understand, solve, or deal with a difficult problem, issue, or situation",
+        "sort_order": 2,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -70,6 +103,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 17964,
+        "source_path": "content/lexical/canonical/senses/shards/o6913-6944.json"
+      },
+      {
+        "sense_id": "sense:grapple:4ac6218bd1778754",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18008,
         "source_path": "content/lexical/canonical/senses/shards/o6913-6944.json"
       }
     ],
@@ -97,7 +137,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6921-6928.json",
-    "source_content_hash": "23353b820aa583d55a2df98d1beb295b382c4e34d0f3ef1bb994c77789fe0e02",
+    "source_content_hash": "9a8f3f736eeb1ce03e39a751a11fb9b915929411b5a50cd53a8696fb670d7a3d",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

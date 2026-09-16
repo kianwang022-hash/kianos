@@ -6,13 +6,39 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "2ff0802378f8c8cc622b9a6ca5e259de0fdafc6586f41fe3dcdd65a76b5e3e98",
+    "constructions": [
+      {
+        "construction_id": "construction:009ffdfdcf0ba24bc0a9",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "直言不讳；毫不婉转地说",
+        "pattern": "not mince words"
+      }
+    ],
+    "content_hash": "6bbf4bbaca90ea3d77ce7a2187b5f06431b6ffe1ff7d1a2ca882f733f4192ef9",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "切碎, 矫揉做作地说",
-      "core_meaning_en": "make less severe or harsh",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "把话说得委婉；常用于 not mince words 表示直言不讳；把食物切碎、剁碎",
+          "label_en": "to soften or moderate one's words or expression, usually in the negative phrase not mince words; to chop or cut food into very small pieces",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:mince:44359e9acbd85f39",
+            "sense:mince:55354b0c2e2e52ca"
+          ]
+        },
+        {
+          "label_cn": "碎肉；切碎的食物",
+          "label_en": "food, especially meat, chopped into very small pieces",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:mince:34f8b8bb8bf65001"
+          ]
+        }
+      ],
+      "core_meaning_cn": "把话说得委婉；常用于 not mince words 表示直言不讳；碎肉；切碎的食物；把食物切碎、剁碎",
+      "core_meaning_en": "to soften or moderate one's words or expression, usually in the negative phrase not mince words; food, especially meat, chopped into very small pieces; to chop or cut food into very small pieces",
+      "mental_model_cn": "把话说得委婉；常用于 not mince words 表示直言不讳；碎肉；切碎的食物；把食物切碎、剁碎",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,16 +52,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "切碎, 矫揉做作地说",
-        "definition_en": "make less severe or harsh",
+        "definition_cn": "把话说得委婉；常用于 not mince words 表示直言不讳",
+        "definition_en": "to soften or moderate one's words or expression, usually in the negative phrase not mince words",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L1",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:mince:44359e9acbd85f39",
-        "sense_label_en": "make less severe or harsh",
+        "sense_label_en": "to soften or moderate one's words or expression, usually in the negative phrase not mince words",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -50,16 +76,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "切碎物",
-        "definition_en": "food chopped into small bits",
+        "definition_cn": "碎肉；切碎的食物",
+        "definition_en": "food, especially meat, chopped into very small pieces",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:mince:34f8b8bb8bf65001",
-        "sense_label_en": "food chopped into small bits",
+        "sense_label_en": "food, especially meat, chopped into very small pieces",
         "sort_order": 2,
         "source_evidence": [
           {
@@ -93,7 +119,22 @@
             "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
             "source_type": "learner_dictionary"
           }
-        ]
+        ],
+        "usage_note": "To walk in an affectedly dainty manner."
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "把食物切碎、剁碎",
+        "definition_en": "to chop or cut food into very small pieces",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:mince:55354b0c2e2e52ca",
+        "sense_label_en": "to chop or cut food into very small pieces",
+        "sort_order": 4,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -133,6 +174,13 @@
         "merged_into_sense_id": null,
         "source_row": 18359,
         "source_path": "content/lexical/canonical/senses/shards/o7137-7168.json"
+      },
+      {
+        "sense_id": "sense:mince:55354b0c2e2e52ca",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18378,
+        "source_path": "content/lexical/canonical/senses/shards/o7137-7168.json"
       }
     ],
     "active_collocations": [],
@@ -159,7 +207,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7153-7160.json",
-    "source_content_hash": "2ff0802378f8c8cc622b9a6ca5e259de0fdafc6586f41fe3dcdd65a76b5e3e98",
+    "source_content_hash": "6bbf4bbaca90ea3d77ce7a2187b5f06431b6ffe1ff7d1a2ca882f733f4192ef9",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

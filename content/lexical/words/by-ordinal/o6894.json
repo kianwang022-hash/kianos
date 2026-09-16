@@ -7,12 +7,30 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "45179ffc62eb7cd3308783241ab3035f642b9952117768557521ed1f700c6462",
+    "content_hash": "7a1c1855a969d50dfb34339505b0a48cadacaa7632f1a693b78c10d246711045",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "守备队, 驻军, 要塞",
-      "core_meaning_en": "United States abolitionist who published an anti-slavery journal (1805-1879)",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "驻军；守卫某地的部队；驻军地；驻地；有驻军的要塞或基地",
+          "label_en": "the troops stationed in a place to defend it; a fortified place, base, or town where troops are stationed",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:garrison:265b511ee123551d",
+            "sense:garrison:e34365a518f9288a"
+          ]
+        },
+        {
+          "label_cn": "驻防；派兵驻守",
+          "label_en": "to station troops in a place in order to defend it",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:garrison:bce97b995ccb5bd5"
+          ]
+        }
+      ],
+      "core_meaning_cn": "驻军；守卫某地的部队；驻防；派兵驻守；驻军地；驻地；有驻军的要塞或基地",
+      "core_meaning_en": "the troops stationed in a place to defend it; to station troops in a place in order to defend it; a fortified place, base, or town where troops are stationed",
+      "mental_model_cn": "驻军；守卫某地的部队；驻防；派兵驻守；驻军地；驻地；有驻军的要塞或基地",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +40,50 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "驻军；守卫某地的部队",
+        "definition_en": "the troops stationed in a place to defend it",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:garrison:265b511ee123551d",
+        "sense_label_en": "the troops stationed in a place to defend it",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "驻防；派兵驻守",
+        "definition_en": "to station troops in a place in order to defend it",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:garrison:bce97b995ccb5bd5",
+        "sense_label_en": "to station troops in a place in order to defend it",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "驻军地；驻地；有驻军的要塞或基地",
+        "definition_en": "a fortified place, base, or town where troops are stationed",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:garrison:e34365a518f9288a",
+        "sense_label_en": "a fortified place, base, or town where troops are stationed",
+        "sort_order": 1000,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -38,42 +99,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:garrison:265b511ee123551d",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "守备队, 驻军, 要塞",
-      "definition_en": "the troops who maintain and guard a fortified place",
-      "semantic_key": "01f17efe67353bbd3464f3b5f3e62ef49548da648808917525bd8c10566d4fcc",
-      "semantic_key_history": [
-        "444183c645dc309d97f07b2998978b3e57c54607c8c17a26ca9a189c36f746e4"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 17917,
-      "source_path": "content/lexical/canonical/senses/shards/o6881-6912.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:garrison:bce97b995ccb5bd5",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "守备, 派兵驻守",
-      "definition_en": "station (troops) in a fort or garrison",
-      "semantic_key": "7cebc6a5e59835bb4ef1968e13e2bed95df72b0a6e1757fea30b6fb800e024cd",
-      "semantic_key_history": [
-        "03f454b3216086664da8ec9702505bf52a3e0c6c655e8f3901deef71b429b648"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 17918,
-      "source_path": "content/lexical/canonical/senses/shards/o6881-6912.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:garrison:ce50ac3a52be5d6e",
       "status": "deprecated",
@@ -97,14 +122,14 @@
     "senses": [
       {
         "sense_id": "sense:garrison:265b511ee123551d",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 17917,
         "source_path": "content/lexical/canonical/senses/shards/o6881-6912.json"
       },
       {
         "sense_id": "sense:garrison:bce97b995ccb5bd5",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 17918,
         "source_path": "content/lexical/canonical/senses/shards/o6881-6912.json"
@@ -114,6 +139,13 @@
         "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 17919,
+        "source_path": "content/lexical/canonical/senses/shards/o6881-6912.json"
+      },
+      {
+        "sense_id": "sense:garrison:e34365a518f9288a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 17951,
         "source_path": "content/lexical/canonical/senses/shards/o6881-6912.json"
       }
     ],
@@ -141,7 +173,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6889-6896.json",
-    "source_content_hash": "45179ffc62eb7cd3308783241ab3035f642b9952117768557521ed1f700c6462",
+    "source_content_hash": "7a1c1855a969d50dfb34339505b0a48cadacaa7632f1a693b78c10d246711045",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

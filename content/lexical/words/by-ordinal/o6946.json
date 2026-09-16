@@ -7,12 +7,22 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "aa85284a7284c5e3c48f95051f70523a8e1d4e977cabd839fe629f372d79bcef",
+    "content_hash": "eb4eaf4de682e690e6e010d6d933fa5d78ff232ff2c38ce97077f1b1aeff6f78",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "顽固的, 任性的, 性急的, 猛烈的",
-      "core_meaning_en": "extremely exciting as if by alcohol or a narcotic",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "令人兴奋的；使人陶醉的；刺激强烈的；气味浓烈的；酒劲强的；效果强烈的",
+          "label_en": "powerfully exciting, stimulating, or intoxicating; strong and potent in smell, drink, atmosphere, or effect",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:heady:66f844fe80fa5b7f",
+            "sense:heady:f693a155adf2a29d"
+          ]
+        }
+      ],
+      "core_meaning_cn": "令人兴奋的；使人陶醉的；刺激强烈的；气味浓烈的；酒劲强的；效果强烈的",
+      "core_meaning_en": "powerfully exciting, stimulating, or intoxicating; strong and potent in smell, drink, atmosphere, or effect",
+      "mental_model_cn": "令人兴奋的；使人陶醉的；刺激强烈的；气味浓烈的；酒劲强的；效果强烈的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +32,36 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "令人兴奋的；使人陶醉的；刺激强烈的",
+        "definition_en": "powerfully exciting, stimulating, or intoxicating",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:heady:66f844fe80fa5b7f",
+        "sense_label_en": "powerfully exciting, stimulating, or intoxicating",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "气味浓烈的；酒劲强的；效果强烈的",
+        "definition_en": "strong and potent in smell, drink, atmosphere, or effect",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:heady:f693a155adf2a29d",
+        "sense_label_en": "strong and potent in smell, drink, atmosphere, or effect",
+        "sort_order": 1000,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -37,33 +76,21 @@
     "word_id": "word:heady"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:heady:66f844fe80fa5b7f",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "顽固的, 任性的, 性急的, 猛烈的",
-      "definition_en": "extremely exciting as if by alcohol or a narcotic",
-      "semantic_key": "d4c54cf1745ac83e0a63f6024bac2eaa19461758d950dc5dbc4ef1e636850a18",
-      "semantic_key_history": [
-        "0ddccc33dd584c172521a81a0bbf3a41c3d7fc548aa43d0e88147f59e7528b50"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 18008,
-      "source_path": "content/lexical/canonical/senses/shards/o6945-6976.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:heady:66f844fe80fa5b7f",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 18008,
+        "source_path": "content/lexical/canonical/senses/shards/o6945-6976.json"
+      },
+      {
+        "sense_id": "sense:heady:f693a155adf2a29d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18059,
         "source_path": "content/lexical/canonical/senses/shards/o6945-6976.json"
       }
     ],
@@ -91,7 +118,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6945-6952.json",
-    "source_content_hash": "aa85284a7284c5e3c48f95051f70523a8e1d4e977cabd839fe629f372d79bcef",
+    "source_content_hash": "eb4eaf4de682e690e6e010d6d933fa5d78ff232ff2c38ce97077f1b1aeff6f78",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

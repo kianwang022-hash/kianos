@@ -7,12 +7,21 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "10105776c53853b26663630dbf03169fe4eac2739e5ca8f9b964a3ba85087d31",
+    "content_hash": "72d9186ddc287fa684fb3221064981ce5ea3b7419d4ccbf369c31ae8d9f9654d",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "不稳定的, 不安的, 危险的",
-      "core_meaning_en": "affording no ease or reassurance",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "不稳定的；不安全的；岌岌可危的；前景不确定的",
+          "label_en": "insecure, unstable, uncertain, or dangerously likely to fail, fall, or worsen",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:precarious:43c57e14f45056bf"
+          ]
+        }
+      ],
+      "core_meaning_cn": "不稳定的；不安全的；岌岌可危的；前景不确定的",
+      "core_meaning_en": "insecure, unstable, uncertain, or dangerously likely to fail, fall, or worsen",
+      "mental_model_cn": "不稳定的；不安全的；岌岌可危的；前景不确定的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,40 +35,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "不稳定的, 不安的, 危险的",
-        "definition_en": "affording no ease or reassurance",
+        "definition_cn": "不稳定的；不安全的；岌岌可危的；前景不确定的",
+        "definition_en": "insecure, unstable, uncertain, or dangerously likely to fail, fall, or worsen",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
-        "sense_id": "sense:precarious:50c11d2b895e5e60",
-        "sense_label_en": "affording no ease or reassurance",
-        "sort_order": 1,
-        "source_evidence": [
-          {
-            "evidence_id": "source-fact:cbd73ef713727d404961ddea",
-            "evidence_status": "source_checked",
-            "role": "external_semantic_auditor",
-            "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
-            "source_type": "learner_dictionary"
-          }
-        ]
-      },
-      {
-        "collocations": [],
-        "confidence": "high",
-        "definition_cn": "不稳定的, 不安的, 危险的",
-        "definition_en": "not secure; beset with difficulties",
-        "depth": "full_card",
-        "domain_tag": "toefl",
-        "frequency_tag": "toefl",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "adjective",
         "sense_id": "sense:precarious:43c57e14f45056bf",
-        "sense_label_en": "not secure; beset with difficulties",
+        "sense_label_en": "insecure, unstable, uncertain, or dangerously likely to fail, fall, or worsen",
         "sort_order": 2,
         "source_evidence": [
           {
@@ -86,7 +71,24 @@
     "word_id": "word:precarious"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:precarious:50c11d2b895e5e60",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "adjective",
+      "definition_cn": "不稳定的, 不安的, 危险的",
+      "definition_en": "affording no ease or reassurance",
+      "semantic_key": "5f23dc7d74373c7ab7c4389d149f6e7e92eb592b5e395c739551447991bced90",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 18581,
+      "source_path": "content/lexical/canonical/senses/shards/o7265-7296.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -98,7 +100,7 @@
       },
       {
         "sense_id": "sense:precarious:50c11d2b895e5e60",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 18581,
         "source_path": "content/lexical/canonical/senses/shards/o7265-7296.json"
@@ -128,7 +130,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7289-7296.json",
-    "source_content_hash": "10105776c53853b26663630dbf03169fe4eac2739e5ca8f9b964a3ba85087d31",
+    "source_content_hash": "72d9186ddc287fa684fb3221064981ce5ea3b7419d4ccbf369c31ae8d9f9654d",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

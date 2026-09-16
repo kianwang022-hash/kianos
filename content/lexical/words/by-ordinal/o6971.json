@@ -7,15 +7,41 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "34d6607311879f03844732c9daf94c54f8c2adb21c18960248202d15f8b5014c",
+    "content_hash": "afcb69ef6e78eb4ec99cdc82cf64495589e90dda6046c0760cbabc7c53a6eda3",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "施催眠术, 使恍惚, 使着迷",
-      "core_meaning_en": "induce hypnosis in",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "对……施催眠；使进入催眠状态；（比喻）使着迷；牢牢吸引注意力",
+          "label_en": "to put someone into a state of hypnosis; figurative: to fascinate someone or hold their attention completely",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:hypnotize:c3fe0b9f3cfe5529",
+            "sense:hypnotize:a7632a2b9f978a06"
+          ]
+        }
+      ],
+      "core_meaning_cn": "对……施催眠；使进入催眠状态；（比喻）使着迷；牢牢吸引注意力",
+      "core_meaning_en": "to put someone into a state of hypnosis; figurative: to fascinate someone or hold their attention completely",
+      "mental_model_cn": "对……施催眠；使进入催眠状态；（比喻）使着迷；牢牢吸引注意力",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o6875-o7374.md",
+      "boundaries": [
+        {
+          "condition": "common AmE spelling",
+          "note": "Common American spelling.",
+          "surface": "hypnotize"
+        },
+        {
+          "condition": "common BrE spelling",
+          "note": "Common British spelling of the same verb.",
+          "surface": "hypnotise"
+        }
+      ],
+      "type": "regional_spelling_variant"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -26,8 +52,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "施催眠术, 使恍惚, 使着迷",
-        "definition_en": "induce hypnosis in",
+        "definition_cn": "对……施催眠；使进入催眠状态",
+        "definition_en": "to put someone into a state of hypnosis",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
@@ -35,7 +61,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:hypnotize:c3fe0b9f3cfe5529",
-        "sense_label_en": "induce hypnosis in",
+        "sense_label_en": "to put someone into a state of hypnosis",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -46,6 +72,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "（比喻）使着迷；牢牢吸引注意力",
+        "definition_en": "figurative: to fascinate someone or hold their attention completely",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:hypnotize:a7632a2b9f978a06",
+        "sense_label_en": "figurative: to fascinate someone or hold their attention completely",
+        "sort_order": 2,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -71,6 +111,13 @@
         "merged_into_sense_id": null,
         "source_row": 18050,
         "source_path": "content/lexical/canonical/senses/shards/o6945-6976.json"
+      },
+      {
+        "sense_id": "sense:hypnotize:a7632a2b9f978a06",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18069,
+        "source_path": "content/lexical/canonical/senses/shards/o6945-6976.json"
       }
     ],
     "active_collocations": [],
@@ -87,6 +134,14 @@
   },
   "lookup_refs": [
     {
+      "spelling": "hypnotise",
+      "source": "content/lexical/canonical/lookup/spelling/hy.json",
+      "word_id": "word:hypnotize",
+      "ordinal": 6971,
+      "word_shard": "content/lexical/canonical/words/shards/o6969-6976.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/b1.json"
+    },
+    {
       "spelling": "hypnotize",
       "source": "content/lexical/canonical/lookup/spelling/hy.json",
       "word_id": "word:hypnotize",
@@ -97,7 +152,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6969-6976.json",
-    "source_content_hash": "34d6607311879f03844732c9daf94c54f8c2adb21c18960248202d15f8b5014c",
+    "source_content_hash": "afcb69ef6e78eb4ec99cdc82cf64495589e90dda6046c0760cbabc7c53a6eda3",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

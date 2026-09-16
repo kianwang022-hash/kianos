@@ -7,12 +7,30 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "c5faf2723f203841ef3cb98a400dbdf3bd392d88ab9a14c454fb84478b299574",
+    "content_hash": "a75139a57f9d06d651c9a8465a7c1a66585358d83bf5d0a2b0ccf866c64d79e8",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "无效力的, 无效的, 无价值的",
-      "core_meaning_en": "lacking any legal or binding force",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "无效的；无法律约束力的；零的；无价值/无效力的；空的",
+          "label_en": "having no legal or binding force; invalid; having no value, effect, result, or significance; zero or void",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:null:be2af2e09ad550dc",
+            "sense:null:7d54cc9baa346653"
+          ]
+        },
+        {
+          "label_cn": "（计算机/数据）空值；无值；无对象引用",
+          "label_en": "computing/data: a marker representing no value, missing value, or no object reference",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:null:923291cacb7378be"
+          ]
+        }
+      ],
+      "core_meaning_cn": "无效的；无法律约束力的；零的；无价值/无效力的；空的；（计算机/数据）空值；无值；无对象引用",
+      "core_meaning_en": "having no legal or binding force; invalid; having no value, effect, result, or significance; zero or void; computing/data: a marker representing no value, missing value, or no object reference",
+      "mental_model_cn": "无效的；无法律约束力的；零的；无价值/无效力的；空的；（计算机/数据）空值；无值；无对象引用",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,8 +44,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "无效力的, 无效的, 无价值的",
-        "definition_en": "lacking any legal or binding force",
+        "definition_cn": "无效的；无法律约束力的",
+        "definition_en": "having no legal or binding force; invalid",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
@@ -35,7 +53,7 @@
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:null:be2af2e09ad550dc",
-        "sense_label_en": "lacking any legal or binding force",
+        "sense_label_en": "having no legal or binding force; invalid",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -46,6 +64,35 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "零的；无价值/无效力的；空的",
+        "definition_en": "having no value, effect, result, or significance; zero or void",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:null:7d54cc9baa346653",
+        "sense_label_en": "having no value, effect, result, or significance; zero or void",
+        "sort_order": 2,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "（计算机/数据）空值；无值；无对象引用",
+        "definition_en": "computing/data: a marker representing no value, missing value, or no object reference",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "register": "computing",
+        "sense_id": "sense:null:923291cacb7378be",
+        "sense_label_en": "computing/data: a marker representing no value, missing value, or no object reference",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -70,6 +117,20 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 18429,
+        "source_path": "content/lexical/canonical/senses/shards/o7201-7232.json"
+      },
+      {
+        "sense_id": "sense:null:7d54cc9baa346653",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18481,
+        "source_path": "content/lexical/canonical/senses/shards/o7201-7232.json"
+      },
+      {
+        "sense_id": "sense:null:923291cacb7378be",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18482,
         "source_path": "content/lexical/canonical/senses/shards/o7201-7232.json"
       }
     ],
@@ -97,7 +158,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7201-7208.json",
-    "source_content_hash": "c5faf2723f203841ef3cb98a400dbdf3bd392d88ab9a14c454fb84478b299574",
+    "source_content_hash": "a75139a57f9d06d651c9a8465a7c1a66585358d83bf5d0a2b0ccf866c64d79e8",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

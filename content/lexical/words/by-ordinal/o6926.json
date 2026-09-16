@@ -6,13 +6,40 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "c83f1ce76fe6bcd0d67c391b99fd083cb86cf1d223f2bb539e554a14ccf27bbc",
+    "constructions": [
+      {
+        "construction_id": "construction:2385666cb11d726825eb",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "咬紧牙关；硬着头皮忍受或坚持",
+        "pattern": "grit one's teeth",
+        "source_sense_id": "sense:grit:af1094a0718e5b1d"
+      }
+    ],
+    "content_hash": "fa51dbb5d41e754c859be7405077da977d0b20b2b8fb76024c7c6650647f3f14",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "砂砾, 粗砂石",
-      "core_meaning_en": "a hard coarse-grained siliceous sandstone",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "覆以砂砾, 咬牙切齿地说",
+          "label_en": "cover with a grit",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:grit:4dbf4b84f6e55673"
+          ]
+        },
+        {
+          "label_cn": "勇气；毅力；坚定；砂砾；细小坚硬颗粒",
+          "label_en": "courage, determination, and firmness of character in a difficult situation; small hard particles such as sand, stone, or other coarse material",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:grit:0c59e192892ca851",
+            "sense:grit:d2a48300962d86ac"
+          ]
+        }
+      ],
+      "core_meaning_cn": "覆以砂砾, 咬牙切齿地说；勇气；毅力；坚定；砂砾；细小坚硬颗粒",
+      "core_meaning_en": "cover with a grit; courage, determination, and firmness of character in a difficult situation; small hard particles such as sand, stone, or other coarse material",
+      "mental_model_cn": "覆以砂砾, 咬牙切齿地说；勇气；毅力；坚定；砂砾；细小坚硬颗粒",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -31,7 +58,7 @@
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L1",
+        "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:grit:64a488689b9556f0",
@@ -45,7 +72,8 @@
             "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
             "source_type": "learner_dictionary"
           }
-        ]
+        ],
+        "usage_note": "Geological sense: a hard coarse-grained sandstone."
       },
       {
         "collocations": [],
@@ -94,6 +122,34 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "勇气；毅力；坚定",
+        "definition_en": "courage, determination, and firmness of character in a difficult situation",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:grit:0c59e192892ca851",
+        "sense_label_en": "courage, determination, and firmness of character in a difficult situation",
+        "sort_order": 4,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "砂砾；细小坚硬颗粒",
+        "definition_en": "small hard particles such as sand, stone, or other coarse material",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:grit:d2a48300962d86ac",
+        "sense_label_en": "small hard particles such as sand, stone, or other coarse material",
+        "sort_order": 5,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -133,6 +189,20 @@
         "merged_into_sense_id": null,
         "source_row": 17977,
         "source_path": "content/lexical/canonical/senses/shards/o6913-6944.json"
+      },
+      {
+        "sense_id": "sense:grit:0c59e192892ca851",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18011,
+        "source_path": "content/lexical/canonical/senses/shards/o6913-6944.json"
+      },
+      {
+        "sense_id": "sense:grit:d2a48300962d86ac",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18012,
+        "source_path": "content/lexical/canonical/senses/shards/o6913-6944.json"
       }
     ],
     "active_collocations": [],
@@ -159,7 +229,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6921-6928.json",
-    "source_content_hash": "c83f1ce76fe6bcd0d67c391b99fd083cb86cf1d223f2bb539e554a14ccf27bbc",
+    "source_content_hash": "fa51dbb5d41e754c859be7405077da977d0b20b2b8fb76024c7c6650647f3f14",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -6,13 +6,31 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "36527f0f446f2074642935f96830176dda3945a6a9a55cc12f7bbb8951379ab8",
+    "constructions": [
+      {
+        "construction_id": "construction:f0a63549c2f8d1becedc",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "极其讨厌做某事",
+        "pattern": "loathe doing/to do sth",
+        "source_sense_id": "sense:loathe:6eddc67c51465e46"
+      }
+    ],
+    "content_hash": "76d88f407c761d946b5a19e87b15ac4dd08b0aded673f5fb6eb9bec10be0780a",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "厌恶, 憎恶",
-      "core_meaning_en": "find repugnant",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "厌恶；憎恨；极其讨厌",
+          "label_en": "to dislike someone or something intensely; to find repugnant",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:loathe:6eddc67c51465e46"
+          ]
+        }
+      ],
+      "core_meaning_cn": "厌恶；憎恨；极其讨厌",
+      "core_meaning_en": "to dislike someone or something intensely; to find repugnant",
+      "mental_model_cn": "厌恶；憎恨；极其讨厌",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,8 +44,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "厌恶, 憎恶",
-        "definition_en": "find repugnant",
+        "definition_cn": "厌恶；憎恨；极其讨厌",
+        "definition_en": "to dislike someone or something intensely; to find repugnant",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
@@ -35,7 +53,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:loathe:6eddc67c51465e46",
-        "sense_label_en": "find repugnant",
+        "sense_label_en": "to dislike someone or something intensely; to find repugnant",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -61,7 +79,14 @@
     "word_family": [],
     "word_id": "word:loathe"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "confusable:horizontal:bba9d7d96c13f839127f",
+      "owner_path": "content/lexical/relations/by-id/2f/2f58ea5b2eab657e736df2e9e1cf4b0c8d1940f394076eec697fc340fdf5112c.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -97,7 +122,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7105-7112.json",
-    "source_content_hash": "36527f0f446f2074642935f96830176dda3945a6a9a55cc12f7bbb8951379ab8",
+    "source_content_hash": "76d88f407c761d946b5a19e87b15ac4dd08b0aded673f5fb6eb9bec10be0780a",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -5,14 +5,33 @@
   "word": "lee",
   "record": {
     "card_version": "v4",
+    "case_note": "Lowercase lee is the common noun for a sheltered side/place. Biographical proper names such as Lee belong to case-sensitive reference truth and must not organize lowercase learner Core.",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "9e68b8e08c7bf0859ea03ffcfa81da54495bcf3d9c4e0f5e8266eb629ff61b64",
+    "constructions": [
+      {
+        "construction_id": "construction:0c15dd368908f1fd5b6f",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "在某物的背风处/庇护下",
+        "pattern": "in the lee of sth",
+        "source_sense_id": "sense:lee:4a707ea289ef2f59"
+      }
+    ],
+    "content_hash": "f7f92071c0c6a4f307e4a699d14e386fae5f230870b4309b44cac6e0fd0e79c0",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "背风处, 避风处, 下风处, 保护, 庇护",
-      "core_meaning_en": "United States filmmaker whose works explore the richness of black culture in America (born in 1957)",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "背风处；避风面",
+          "label_en": "the side or place sheltered from the wind",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:lee:4a707ea289ef2f59"
+          ]
+        }
+      ],
+      "core_meaning_cn": "背风处；避风面",
+      "core_meaning_en": "the side or place sheltered from the wind",
+      "mental_model_cn": "背风处；避风面",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +41,22 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "背风处；避风面",
+        "definition_en": "the side or place sheltered from the wind",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:lee:4a707ea289ef2f59",
+        "sense_label_en": "the side or place sheltered from the wind",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -115,6 +149,13 @@
         "merged_into_sense_id": null,
         "source_row": 18253,
         "source_path": "content/lexical/canonical/senses/shards/o7073-7104.json"
+      },
+      {
+        "sense_id": "sense:lee:4a707ea289ef2f59",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18268,
+        "source_path": "content/lexical/canonical/senses/shards/o7073-7104.json"
       }
     ],
     "active_collocations": [],
@@ -141,7 +182,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7097-7104.json",
-    "source_content_hash": "9e68b8e08c7bf0859ea03ffcfa81da54495bcf3d9c4e0f5e8266eb629ff61b64",
+    "source_content_hash": "f7f92071c0c6a4f307e4a699d14e386fae5f230870b4309b44cac6e0fd0e79c0",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -5,14 +5,32 @@
   "word": "lisp",
   "record": {
     "card_version": "v1",
+    "case_note": "Lowercase lisp is the speech noun/verb. Capitalized Lisp is the programming-language proper name and must remain case-bounded.",
     "confusables": [],
     "constructions": [],
-    "content_hash": "b44236a6a19bd1dad0f0fa4b7a9677180cd0453a229ded489d6ceab78d6e939e",
+    "content_hash": "d430dbd21b36ff7378c5d38e81101f9011edcca1232f9b6a94aafa457045fea1",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "口齿不清",
-      "core_meaning_en": "a speech defect that involves pronouncing `s' like voiceless `th' and `z' like voiced `th'",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "口齿不清的一种言语模式/障碍，常涉及 s、z 等咝音发音异常",
+          "label_en": "a speech pattern or difficulty involving atypical production of sibilant sounds such as s and z",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:lisp:8247a50a688c507b"
+          ]
+        },
+        {
+          "label_cn": "带着咬舌音/言语咝音障碍说话",
+          "label_en": "to speak with a lisp",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:lisp:58f18f20d9d15ffb"
+          ]
+        }
+      ],
+      "core_meaning_cn": "口齿不清的一种言语模式/障碍，常涉及 s、z 等咝音发音异常；带着咬舌音/言语咝音障碍说话",
+      "core_meaning_en": "a speech pattern or difficulty involving atypical production of sibilant sounds such as s and z; to speak with a lisp",
+      "mental_model_cn": "口齿不清的一种言语模式/障碍，常涉及 s、z 等咝音发音异常；带着咬舌音/言语咝音障碍说话",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,16 +44,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "口齿不清",
-        "definition_en": "a speech defect that involves pronouncing `s' like voiceless `th' and `z' like voiced `th'",
+        "definition_cn": "口齿不清的一种言语模式/障碍，常涉及 s、z 等咝音发音异常",
+        "definition_en": "a speech pattern or difficulty involving atypical production of sibilant sounds such as s and z",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L1",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:lisp:8247a50a688c507b",
-        "sense_label_en": "a speech defect that involves pronouncing `s' like voiceless `th' and `z' like voiced `th'",
+        "sense_label_en": "a speech pattern or difficulty involving atypical production of sibilant sounds such as s and z",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -45,7 +63,8 @@
             "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
             "source_type": "learner_dictionary"
           }
-        ]
+        ],
+        "usage_note": "Lisp patterns vary; do not define the condition as one fixed sound substitution."
       },
       {
         "collocations": [],
@@ -55,9 +74,10 @@
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L2",
+        "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
+        "register": "proper-name/computing",
         "sense_id": "sense:lisp:2534bcae98675b81",
         "sense_label_en": "a flexible procedure-oriented programing language that manipulates symbols in the form of lists",
         "sort_order": 2,
@@ -69,21 +89,22 @@
             "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
             "source_type": "learner_dictionary"
           }
-        ]
+        ],
+        "usage_note": "Capitalized Lisp is the programming-language proper name; keep it case-bounded from lowercase lisp."
       },
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "咬着舌说",
-        "definition_en": "speak with a lisp",
+        "definition_cn": "带着咬舌音/言语咝音障碍说话",
+        "definition_en": "to speak with a lisp",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L3",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:lisp:58f18f20d9d15ffb",
-        "sense_label_en": "speak with a lisp",
+        "sense_label_en": "to speak with a lisp",
         "sort_order": 3,
         "source_evidence": [
           {
@@ -159,7 +180,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7105-7112.json",
-    "source_content_hash": "b44236a6a19bd1dad0f0fa4b7a9677180cd0453a229ded489d6ceab78d6e939e",
+    "source_content_hash": "d430dbd21b36ff7378c5d38e81101f9011edcca1232f9b6a94aafa457045fea1",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

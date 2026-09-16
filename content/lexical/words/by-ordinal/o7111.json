@@ -6,13 +6,31 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "ef913d9151ad71ed74f4f3e43ffada1d0d7c18b1b21dfb9e149be73dd49d27a8",
+    "constructions": [
+      {
+        "construction_id": "construction:f4e993da2c1d33a96108",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "不情愿做某事",
+        "pattern": "be loath to do sth",
+        "source_sense_id": "sense:loath:34fc9078400953f1"
+      }
+    ],
+    "content_hash": "d9a6859f1fb6ccc425762035f3c85cef01706d4a46e68ddde4343f97c145781d",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "不情愿的, 厌恶的",
-      "core_meaning_en": "unwillingness to do something contrary to your custom",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "不情愿的；勉强的",
+          "label_en": "reluctant or unwilling to do something",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:loath:34fc9078400953f1"
+          ]
+        }
+      ],
+      "core_meaning_cn": "不情愿的；勉强的",
+      "core_meaning_en": "reluctant or unwilling to do something",
+      "mental_model_cn": "不情愿的；勉强的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,8 +44,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "不情愿的, 厌恶的",
-        "definition_en": "unwillingness to do something contrary to your custom",
+        "definition_cn": "不情愿的；勉强的",
+        "definition_en": "reluctant or unwilling to do something",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
@@ -35,7 +53,7 @@
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:loath:34fc9078400953f1",
-        "sense_label_en": "unwillingness to do something contrary to your custom",
+        "sense_label_en": "reluctant or unwilling to do something",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -61,7 +79,14 @@
     "word_family": [],
     "word_id": "word:loath"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "confusable:horizontal:bba9d7d96c13f839127f",
+      "owner_path": "content/lexical/relations/by-id/2f/2f58ea5b2eab657e736df2e9e1cf4b0c8d1940f394076eec697fc340fdf5112c.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -97,7 +122,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7105-7112.json",
-    "source_content_hash": "ef913d9151ad71ed74f4f3e43ffada1d0d7c18b1b21dfb9e149be73dd49d27a8",
+    "source_content_hash": "d9a6859f1fb6ccc425762035f3c85cef01706d4a46e68ddde4343f97c145781d",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
