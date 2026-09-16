@@ -88,15 +88,26 @@ const h6 = blocks.get('hematology-h06');
 if (!String(h6?.first_pass_focus || '').includes('先判哪层止血失效')) fail('h6-orientation-lost');
 if ((h6?.learner_order || [])[0] !== 'c-h06-lg01') fail('h6-source-continuity-order-unexpected');
 
+// H9 must preserve evidence roles, not merely contain particular Chinese wording.
 const h9 = blocks.get('hematology-h09');
-const h9Text = JSON.stringify(h9);
-for (const token of ['细胞化学','流式','遗传']) if (!h9Text.includes(token)) fail(`h9-evidence-layer-lost:${token}`);
+const h9g3 = h9?.logic_groups?.['c-h09-lg03'];
+const h9g4 = h9?.logic_groups?.['c-h09-lg04'];
+if (!Array.isArray(h9g3?.kp_members) || ![10,11,12,13,19].every((ordinal) => h9g3.kp_members.includes(ordinal))) fail('h9-first-line-evidence-membership-lost');
+if (!h9g3?.jobs?.includes('EVIDENCE_STACK')) fail('h9-first-line-evidence-role-lost');
+if (!String(h9g3?.goal || '').includes('cytochemistry') || !String(h9g3?.goal || '').includes('NAP')) fail('h9-morph-cytochemistry-NAP-role-lost');
+if (!h9g4?.jobs?.includes('EVIDENCE_STACK')) fail('h9-flow-genetic-evidence-role-lost');
+if (!String(h9g4?.goal || '').includes('immunophenotype') || !String(h9g4?.goal || '').includes('cytogenetics/fusions')) fail('h9-flow-genetic-role-lost');
+if (!String(h9g4?.closure || '').includes('lineage') || !String(h9g4?.closure || '').includes('subtype/prognosis')) fail('h9-layer-closure-lost');
 
 const h11 = blocks.get('hematology-h11');
-if (!String(h11?.first_pass_focus || '').includes('组织学')) fail('h11-structure-first-lost');
+const h11Focus = String(h11?.first_pass_focus || '');
+if (!h11Focus.includes('活检') || !h11Focus.includes('结构')) fail('h11-structure-first-lost');
+const h11g1 = h11?.logic_groups?.['c-h11-lg01'];
+if (!h11g1?.jobs?.includes('EVIDENCE_STACK') || !String(h11g1?.closure || '').includes('tissue architecture')) fail('h11-biopsy-architecture-role-lost');
 
 const h12 = blocks.get('hematology-h12');
-if (!String(h12?.stop_line || '').includes('不补完整正常免疫学')) fail('h12-normal-immunology-boundary-lost');
+const h12Stop = String(h12?.stop_line || '');
+if (!h12Stop.includes('不补') || !h12Stop.includes('免疫')) fail('h12-normal-immunology-boundary-lost');
 
 for (const blockId of ['hematology-h15','hematology-h16','hematology-h17','hematology-h18','hematology-h19']) {
   const text = JSON.stringify(blocks.get(blockId));
@@ -141,6 +152,8 @@ console.log(JSON.stringify({
   group_specific_contracts: groupCount,
   readiness_hard_edges_checked: 8,
   h6_source_continuity_challenge: 'RESOLVED',
+  h9_evidence_roles: 'MORPH_CYTOCHEMISTRY_THEN_FLOW_GENETICS',
+  h11_structure_first: 'BIOPSY_ARCHITECTURE_BEFORE_MARKERS',
   first_pass_source_continuity: 'BLOCK_OR_CANONICAL_SOURCE_UNIT_NO_DEFAULT_LG_BOUNCE',
   phase3e_accounting: '34 / cumulative 133',
   verdict: root.acceptance.verdict,
