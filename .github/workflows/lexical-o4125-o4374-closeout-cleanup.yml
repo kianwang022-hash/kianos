@@ -22,12 +22,7 @@ jobs:
         run: |
           set -euo pipefail
           if ! grep -qx 'lexical/execute-o4125-o4374-20260916' .github/retired-branches.txt; then
-            cat >> .github/retired-branches.txt <<'EOF'
-
-# 2026-09-16: o4125-o4374 package fully accepted on main via PR #228.
-# Survivor is superseded by the squash-merged package and no longer owns continuation.
-lexical/execute-o4125-o4374-20260916
-EOF
+            printf '%s\n' '' '# 2026-09-16: o4125-o4374 package fully accepted on main via PR #228.' '# Survivor is superseded by the squash-merged package and no longer owns continuation.' 'lexical/execute-o4125-o4374-20260916' >> .github/retired-branches.txt
           fi
 
           rm -f \
