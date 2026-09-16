@@ -114,6 +114,101 @@
     }
   },
   {
+    "question_id": "xizong-official-2005-n062",
+    "system_id": "respiratory",
+    "block_id": "respiratory-r03",
+    "primary_kp_id": "respiratory-r03-kp06",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2005/q051-075.json",
+      "question_truth_blob_sha": "0e561a50b436fba7aef98202a4df83ff3407aa1b",
+      "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "4a4417bc76dbd0f200e00f2f246884879d4be5c3"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "Exact R3 KP06 clinical identity: COPD is defined by persistent airflow limitation, operationalized by post-bronchodilator FEV1/FVC remaining below 70%; hyperinflation and gas-exchange failure are downstream consequences rather than the core defining feature.",
+      "old_mapping_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2005-n063",
+    "system_id": "respiratory",
+    "block_id": "respiratory-r05",
+    "primary_kp_id": "respiratory-r05-kp17",
+    "supporting_kp_ids": ["respiratory-r05-kp09"],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2005/q051-075.json",
+      "question_truth_blob_sha": "0e561a50b436fba7aef98202a4df83ff3407aa1b",
+      "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "0528936a44409ad139f85324ae37404f48769a5c"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "Exact R5 cavitation boundary: KP17 states pneumococcus usually does not necrose or form cavities while staphylococcus, Klebsiella, Pseudomonas and anaerobes are on the destructive/cavitary side; KP09 supplies the capsule/no-necrotizing-toxin mechanism.",
+      "old_mapping_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2005-n064",
+    "system_id": "respiratory",
+    "block_id": "respiratory-r05",
+    "primary_kp_id": "respiratory-r05-kp09",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2005/q051-075.json",
+      "question_truth_blob_sha": "0e561a50b436fba7aef98202a4df83ff3407aa1b",
+      "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "0528936a44409ad139f85324ae37404f48769a5c"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "Exact R5 KP09 pneumococcal pathogenesis and immunity: capsule is the key virulence mechanism and same-serotype reinfection is relatively uncommon, matching the official capsule/type-specific-immunity target.",
+      "old_mapping_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2005-n065",
+    "system_id": "respiratory",
+    "block_id": "respiratory-r05",
+    "primary_kp_id": "respiratory-r05-kp11",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2005/q051-075.json",
+      "question_truth_blob_sha": "0e561a50b436fba7aef98202a4df83ff3407aa1b",
+      "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "0528936a44409ad139f85324ae37404f48769a5c"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "Exact R5 KP11 Klebsiella model: older/aspiration-prone patient, brick-red currant-jelly sputum, lobar bulging/downward fissure displacement and honeycomb abscess/cavitation are all canonical recognition features, with the Study treatment route recorded in the same KP.",
+      "old_mapping_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2005-n066",
+    "system_id": "respiratory",
+    "block_id": "respiratory-r10",
+    "primary_kp_id": "respiratory-r10-kp14",
+    "supporting_kp_ids": ["respiratory-r10-kp15"],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2005/q051-075.json",
+      "question_truth_blob_sha": "0e561a50b436fba7aef98202a4df83ff3407aa1b",
+      "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "69546cda7aed75e8efbbb7322ea3d5749cdad607"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "Exact R10 spontaneous-pneumothorax recognition: KP14 owns sudden unilateral pleuritic chest pain followed by dyspnea, while KP15 owns the ipsilateral hyperresonance and decreased/absent breath-sound examination pattern.",
+      "old_mapping_inherited": false
+    }
+  },
+  {
     "question_id": "xizong-official-2006-n044",
     "system_id": "respiratory",
     "block_id": "respiratory-r05",
