@@ -7,12 +7,21 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "dafffbb62227aba15b36771ae0638161e3f6f7b7ac93b3ed8adf8249ddb4ad0b",
+    "content_hash": "f7870cc6ed8d24d5ba82ac43f7e7400083aac0edc1f0c4abc72fef79c71fff24",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "部落，宗族",
-      "core_meaning_en": "a social group of people, often with common ancestry or culture",
-      "mental_model_cn": "部落，宗族",
+      "core_clusters": [
+        {
+          "label_cn": "部族、社群；由亲缘、文化或共同身份联系的社会群体",
+          "label_en": "a social or community group connected by kinship, culture, or shared identity",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:tribe:0767484c58d757a5"
+          ]
+        }
+      ],
+      "core_meaning_cn": "部族、社群；由亲缘、文化或共同身份联系的社会群体",
+      "core_meaning_en": "a social or community group connected by kinship, culture, or shared identity",
+      "mental_model_cn": "部族、社群；由亲缘、文化或共同身份联系的社会群体",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +31,22 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "部族、社群；由亲缘、文化或共同身份联系的社会群体",
+        "definition_en": "a social or community group connected by kinship, culture, or shared identity",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:tribe:0767484c58d757a5",
+        "sense_label_en": "a social or community group connected by kinship, culture, or shared identity",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 2,
       "deep_modules": {
@@ -44,31 +68,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:tribe:0767484c58d757a5",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "部落，宗族",
-      "definition_en": "a social division of (usually preliterate) people",
-      "semantic_key": "c591b173fa2f25d598236e3dcfaaf5baa4369dec19bf797b2457b040d7397bb0",
-      "semantic_key_history": [
-        "854460b094bd9e3d98b625c7854d7b2a73771634d8b3cdf6cda6195271198df5"
-      ],
-      "legacy_aliases": [
-        "tribe:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "tribe:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14595,
-      "source_path": "content/lexical/canonical/senses/shards/o5121-5152.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:tribe:ec39bcb6851b58a1",
       "status": "deprecated",
@@ -124,7 +123,7 @@
     "senses": [
       {
         "sense_id": "sense:tribe:0767484c58d757a5",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14595,
         "source_path": "content/lexical/canonical/senses/shards/o5121-5152.json"
@@ -184,7 +183,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5121-5128.json",
-    "source_content_hash": "dafffbb62227aba15b36771ae0638161e3f6f7b7ac93b3ed8adf8249ddb4ad0b",
+    "source_content_hash": "f7870cc6ed8d24d5ba82ac43f7e7400083aac0edc1f0c4abc72fef79c71fff24",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
