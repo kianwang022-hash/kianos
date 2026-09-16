@@ -126,6 +126,170 @@
         "source_crop_sha256": "65a782ce48016af03fec3ef287430d225488bd06c39028940f382d14029ddc81",
         "derived_asset_sha256": "d377edf20be6e53d716de56c9229937d022097484d0203ba4d3e8ef5fdb9a0d8"
       }
+    },
+    {
+      "slot_id": "urinary-b03-lg05-nephron-segment-map",
+      "owner": {
+        "block_id": "urinary-b03",
+        "logic_group_id": "urinary-b03-lg05"
+      },
+      "cue_id": "a3-b03-lg05-visual",
+      "asset_type": "SOURCE_VISUAL",
+      "revision": 1,
+      "title": "Nephron segment spatial map",
+      "task": "先沿肾单位总图定位近端小管、髓袢各段、远端小管和集合管，再把主要利尿剂挂回真实段位。",
+      "caption": "Reviewed physiology source crop · P275",
+      "provenance": {
+        "kind": "LECTURE_SOURCE",
+        "source_locator": "生理 Lecture PDF P275",
+        "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123"
+      },
+      "display_policy": {
+        "timing": "LEARNING_MOMENT",
+        "default_state": "EXPANDED"
+      },
+      "payload": {
+        "asset_path": "a3/urinary-b03-lg05/b03-p275-nephron-segment-map.webp",
+        "width": 1050,
+        "height": 650,
+        "alt": "生理讲义 P275：肾单位各段在皮质、外髓和内髓中的空间位置，包括近端小管、髓袢、远端小管和集合管",
+        "source_crop_sha256": "181a18b1c0e1336469e8e60eddbd8e0a02951eac5195e9f09a744d1583f752df",
+        "derived_asset_sha256": "9650de6b00591179259b87a6ef63925050d270d0b3ff85bed469440ee1b4cdee"
+      }
+    },
+    {
+      "slot_id": "urinary-b03-lg05-diuretic-targets",
+      "owner": {
+        "block_id": "urinary-b03",
+        "logic_group_id": "urinary-b03-lg05"
+      },
+      "cue_id": "a3-b03-lg05-visual",
+      "asset_type": "STRUCTURED_TABLE",
+      "revision": 1,
+      "title": "Diuretic target-site comparison",
+      "task": "把主要利尿剂挂回肾单位真实段位和转运体/受体，不从药名表脱离空间位置硬背。",
+      "caption": "Reviewed physiology source table transcription · P293",
+      "provenance": {
+        "kind": "LECTURE_SOURCE",
+        "source_locator": "生理 Lecture PDF P293",
+        "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123"
+      },
+      "display_policy": {
+        "timing": "POST_REVEAL",
+        "default_state": "COLLAPSED"
+      },
+      "payload": {
+        "columns": [
+          {"key": "drug_class", "label": "利尿剂类别 / 代表药"},
+          {"key": "site", "label": "肾单位段位 / 部位"},
+          {"key": "target", "label": "转运体 / 受体 / 靶点"},
+          {"key": "mechanism_effect", "label": "核心机制 / 效应"}
+        ],
+        "rows": [
+          {
+            "drug_class": "渗透性利尿剂｜甘露醇",
+            "site": "近端小管",
+            "target": "小管腔溶质负荷",
+            "mechanism_effect": "小管液溶质浓度↑ → 水重吸收↓（渗透性利尿）"
+          },
+          {
+            "drug_class": "碳酸酐酶抑制剂｜乙酰唑胺",
+            "site": "近端小管",
+            "target": "碳酸酐酶",
+            "mechanism_effect": "抑制碳酸酐酶 → Na+、HCO3−、水重吸收↓"
+          },
+          {
+            "drug_class": "袢利尿剂｜呋塞米、依他尼酸等",
+            "site": "髓袢升支粗段",
+            "target": "Na+-K+-2Cl−（NKCC2）",
+            "mechanism_effect": "抑制 Na+-K+-2Cl− → 髓质间液渗透压明显↓ → 集合管水重吸收↓"
+          },
+          {
+            "drug_class": "噻嗪类利尿剂｜氢氯噻嗪、吲达帕胺",
+            "site": "远曲小管",
+            "target": "Na+-Cl−（NCC）",
+            "mechanism_effect": "抑制 Na+-Cl−"
+          },
+          {
+            "drug_class": "ENaC 阻滞剂｜阿米洛利、氨苯蝶啶",
+            "site": "集合管",
+            "target": "主细胞 ENaC",
+            "mechanism_effect": "抑制主细胞 ENaC"
+          },
+          {
+            "drug_class": "醛固酮受体拮抗剂｜螺内酯、依普利酮",
+            "site": "集合管",
+            "target": "主细胞醛固酮受体",
+            "mechanism_effect": "拮抗主细胞醛固酮受体"
+          },
+          {
+            "drug_class": "ADH/V2 受体拮抗剂｜托伐普坦",
+            "site": "集合管",
+            "target": "主细胞 AVP-V2 受体",
+            "mechanism_effect": "拮抗主细胞 AVP-V2 受体"
+          }
+        ]
+      }
+    },
+    {
+      "slot_id": "urinary-b04-lg03-countercurrent-system",
+      "owner": {
+        "block_id": "urinary-b04",
+        "logic_group_id": "urinary-b04-lg03"
+      },
+      "cue_id": "a3-b04-lg03-visual",
+      "asset_type": "SOURCE_VISUAL",
+      "revision": 1,
+      "title": "Countercurrent system: build, preserve and use the gradient",
+      "task": "沿降支、升支、集合管和直小血管走一次逆流系统，分别指出‘建梯度’‘保梯度’‘用梯度’。",
+      "caption": "Reviewed physiology source crop · P285",
+      "provenance": {
+        "kind": "LECTURE_SOURCE",
+        "source_locator": "生理 Lecture PDF P285",
+        "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123"
+      },
+      "display_policy": {
+        "timing": "LEARNING_MOMENT",
+        "default_state": "EXPANDED"
+      },
+      "payload": {
+        "asset_path": "a3/urinary-b04-lg03/b04-p285-countercurrent-system.webp",
+        "width": 1050,
+        "height": 780,
+        "alt": "生理讲义 P285：髓袢逆流倍增、直小血管逆流交换、髓质渗透梯度以及集合管利用梯度浓缩尿液的示意图",
+        "source_crop_sha256": "5f52a8d0a0f764d5736cfd355fd7adee0c070ebb9cefeecc610de122b613ed76",
+        "derived_asset_sha256": "c350ef3760cf1359f449ab74a0a2e46a33c666fad994f993297f751513f9b0b0"
+      }
+    },
+    {
+      "slot_id": "urinary-b04-lg04-osmolality-trajectory",
+      "owner": {
+        "block_id": "urinary-b04",
+        "logic_group_id": "urinary-b04-lg04"
+      },
+      "cue_id": "a3-b04-lg04-visual",
+      "asset_type": "SOURCE_VISUAL",
+      "revision": 1,
+      "title": "Tubular-fluid osmolality trajectory and ADH decision point",
+      "task": "沿肾单位纵向追踪管液渗透压：哪里先变浓、哪里被稀释、最终哪一段由 ADH 决定。",
+      "caption": "Reviewed physiology source crop · P287",
+      "provenance": {
+        "kind": "LECTURE_SOURCE",
+        "source_locator": "生理 Lecture PDF P287",
+        "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123"
+      },
+      "display_policy": {
+        "timing": "LEARNING_MOMENT",
+        "default_state": "EXPANDED"
+      },
+      "payload": {
+        "asset_path": "a3/urinary-b04-lg04/b04-p287-osmolality-trajectory.webp",
+        "width": 1050,
+        "height": 650,
+        "alt": "生理讲义 P287：髓袢降支细段、升支细段、升支粗段、远曲小管和集合管中的水与NaCl重吸收及管液渗透压变化",
+        "source_crop_sha256": "1b02115ad44cfcb6c4319c66d808d6bc2d679d2d3d800906f9b8384b9a51691f",
+        "derived_asset_sha256": "984cab946e0c665c33ee9d649deca1ff805d71407a29449eb8180b29a7b5e2bf"
+      }
     }
   ]
 }

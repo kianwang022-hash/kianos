@@ -146,7 +146,7 @@ const groupIds = (block?.logicGroups || []).map((group) => group.groupId);
   }
 </script>
 
-<style>
+<style is:global>
   .xizongExtensionLayer:empty { display: none; }
   .xizongExtensionCard { margin:.85rem 0; padding:.85rem 1rem; border:1px solid var(--line,#d9dde5); border-radius:14px; background:var(--soft,#f5f6f8); }
   .xizongExtensionCard header { display:flex; align-items:baseline; justify-content:space-between; gap:.75rem; }
