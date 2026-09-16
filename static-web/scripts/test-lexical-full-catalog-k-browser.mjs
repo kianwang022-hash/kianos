@@ -99,11 +99,24 @@ try {
     const bodyText = await page.locator('body').innerText();
     check(bodyText.includes(String(card.word || fixture.word || '')), `${label}_word_visible`);
     check(!bodyText.includes('undefined') && !bodyText.includes('[object Object]'), `${label}_no_raw_value_leak`);
-    const firstSenseText = String(card.senses?.[0]?.definition_cn || card.senses?.[0]?.definition_en || '').trim();
-    if (firstSenseText) check(bodyText.includes(firstSenseText), `${label}_first_active_sense_visible`);
+
+    // Projection fidelity is identity-bearing, not a requirement that every raw
+    // semantic gloss be copied verbatim into the learner UI. Core is the
+    // compressed organizing layer; each active Sense must still survive as an
+    // exact stable learner target.
+    const activeSenseIds = (card.senses || []).map((sense) => String(sense?.sense_id || '')).filter(Boolean);
+    const renderedSenseIds = await page.locator('[data-vocab-repair][data-target-kind="sense"]').evaluateAll((nodes) =>
+      nodes.map((node) => String(node.getAttribute('data-target-id') || '')).filter(Boolean)
+    );
+    check(renderedSenseIds.length === activeSenseIds.length, `${label}_active_sense_target_count`, `${renderedSenseIds.length}|${activeSenseIds.length}`);
+    for (const senseId of activeSenseIds) check(renderedSenseIds.includes(senseId), `${label}_active_sense_target_identity`, senseId);
+
+    const coreText = String(card.core_concept?.core_meaning_cn || card.core_concept?.mental_model_cn || card.core_concept?.core_meaning_en || '').trim();
+    if (coreText) check(bodyText.includes(coreText), `${label}_core_meaning_visible`, coreText);
+
     const targetKinds = await page.locator('[data-vocab-repair]').evaluateAll((nodes) => nodes.map((node) => node.getAttribute('data-target-kind')).filter(Boolean));
-    observed[label] = { ordinal: fixture.ordinal, word: card.word, objectId: answer.objectId, targetKinds };
-    return { answer, card, bodyText, targetKinds };
+    observed[label] = { ordinal: fixture.ordinal, word: card.word, objectId: answer.objectId, targetKinds, activeSenseIds, renderedSenseIds };
+    return { answer, card, bodyText, targetKinds, activeSenseIds, renderedSenseIds };
   };
 
   const safe = await inspect('safe_simple', fixtures.safe_simple);
