@@ -7,6 +7,7 @@ on:
     paths:
       - '.github/workflows/lexical-o4125-o4374-shard1.yml'
       - 'tools/lexical_apply_o4125_o4374.py'
+      - 'tools/lexical_execute_o4125_o4174.py'
 
 permissions:
   contents: write
@@ -22,7 +23,7 @@ jobs:
           ref: lexical/execute-o4125-o4374-20260916
           fetch-depth: 0
       - name: Execute frozen shard 1
-        run: python tools/lexical_apply_o4125_o4374.py --shard 1
+        run: python tools/lexical_execute_o4125_o4174.py
       - name: Transport guards
         run: python tools/test_lexical_transport_guards.py
       - name: Shard tests
