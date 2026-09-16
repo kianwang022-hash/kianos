@@ -46,7 +46,7 @@ try{
     const response=await p.goto(origin+route,{waitUntil:'networkidle'});if(!response?.ok())throw Error(`HTTP ${response?.status()}`);
     await p.evaluate(()=>document.fonts.ready);
     if(act==='word')await p.locator('[data-vocab-reveal]').click();
-    if(act==='result'||act==='wrong-result'){await p.locator('[data-learned-scope]').check();await p.locator('[data-start-session-inline]').click();await p.locator('[data-question-options] button').nth(act==='wrong-result'?1:0).click();await p.locator('[data-submit]').click();if(act==='wrong-result'&&!/答错/.test(await p.locator('[data-result-status]').innerText()))throw Error('Wrong-result probe did not reach its expected outcome');}
+    if(act==='result'||act==='wrong-result'){await p.locator('[data-learned-scope]').check();await p.locator('[data-start-session-inline]').click();await p.locator('[data-question-options] button').nth(act==='wrong-result'?1:0).click();await p.locator('[data-submit]').click();await p.locator('[data-submitted-result]').waitFor({state:'visible'});if(act==='wrong-result'&&!/答错/.test(await p.locator('[data-result-status]').innerText()))throw Error('Wrong-result probe did not reach its expected outcome');}
     if(act==='recall'||act==='reveal'){await p.locator('[data-stage-next="logic_group"]').click();await p.locator('[data-enter-group]').click();await p.locator('[data-group-lecture-done]').click();if(act==='reveal')await p.locator('[data-kp-reveal]:visible').click();}
     await p.waitForTimeout(120);
     const metrics=await observe(p);
@@ -76,6 +76,7 @@ try{
     if(act==='result'||act==='wrong-result'){
       const selected=await p.locator('[data-result-selected]').innerText(),formal=await p.locator('[data-result-answer]').innerText();
       await p.reload({waitUntil:'networkidle'});
+      await p.locator('[data-submitted-result]').waitFor({state:'visible'});
       if(!await p.locator('[data-submitted-result]').isVisible()||selected!==await p.locator('[data-result-selected]').innerText()||formal!==await p.locator('[data-result-answer]').innerText())throw Error('Submitted result did not survive refresh');
       const href=await p.locator('[data-return-unit]').getAttribute('href'),expected=new URL(href,origin);
       await p.locator('[data-return-unit]').click();await p.waitForLoadState('networkidle');
