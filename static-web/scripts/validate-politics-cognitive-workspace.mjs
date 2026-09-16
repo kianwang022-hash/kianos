@@ -14,6 +14,7 @@ const requireText = (text, needle, label) => {
 
 const component = read('src/components/PoliticsCognitiveWorkspace.astro');
 const bridge = read('src/components/PoliticsCognitiveWorkspaceBridge.astro');
+const readable = read('src/components/PoliticsCognitiveWorkspaceReadable.astro');
 const page = read('src/pages/politics/[subject]/[chapter].astro');
 const presentation = read('PRESENTATION_CONTRACT.md');
 const learning = read('../content/politics/LEARNING_CONTRACT.md');
@@ -64,23 +65,31 @@ for (const fastPath of [
   "setWorkspaceState(unit, 'VERIFY')"
 ]) requireText(bridge, fastPath, 'score-first workspace bridge');
 
-// Golden-page calibration: first glance is a spatial graph, required reasoning
-// remains visible below it, chapter context is reachable but compact, and the
-// inspector is reserved for discrimination rather than repeating the stage.
+// Golden calibration keeps diagrams only where they reduce cognitive cost.
+// S01 may keep a simple converging chain; S02 proves the text-default path.
 for (const visualRule of [
   'directReasoningWorkspace',
   'goldenGraph',
-  'goldenGraphColumn',
-  'goldenNode',
   'goldenizeMap(panel)',
-  "deck.querySelector('.mapTabs')?.remove()",
-  'panel.hidden = false',
   '章地图 +',
   '.relationStrip',
   "inspectorTitle.textContent = '容易混'",
   '.workspaceState{display:none}',
   '.suyiNote{display:none!important}'
-]) requireText(bridge, visualRule, 'golden topology workspace');
+]) requireText(bridge, visualRule, 'golden workspace shell');
+
+for (const readableRule of [
+  'readability wins over diagram density',
+  'textFirstMap',
+  'readableConcepts',
+  'readableConcept',
+  'readableRelations',
+  '这几个特征怎么联系',
+  '人民性、实践性、发展性',
+  '集中体现马克思主义的革命性',
+  'font-size:18px',
+  'font-size:16px'
+]) requireText(readable, readableRule, 'purpose-first readable layer');
 
 for (const forbiddenProjection of [
   'buildDirectReasoningFlow',
@@ -90,14 +99,13 @@ for (const forbiddenProjection of [
   if (bridge.includes(forbiddenProjection)) fail(`projection still coerces Map into generic flow: ${forbiddenProjection}`);
 }
 
-// Do not regress to the previous blanket rules that hid the chapter context or
-// mechanically folded every relation chain regardless of its learning role.
 if (bridge.includes('.chapterContext{display:none}')) fail('chapter context was hidden instead of kept as compact map entry');
 if (bridge.includes('demoteRelationChain')) fail('required relation chain was mechanically folded');
 
 requireText(page, "subject === 'marxism'", 'route calibration');
 requireText(page, "chapter === 'ch00'", 'route calibration');
 requireText(page, 'PoliticsCognitiveWorkspace', 'route calibration');
+requireText(page, 'PoliticsCognitiveWorkspaceReadable', 'route calibration');
 requireText(page, 'PoliticsChapterRuntime', 'fallback runtime');
 
 for (const rule of [
@@ -130,14 +138,14 @@ for (const unit of semanticUnits) {
 const s02 = semanticUnits.find((unit) => unit.unitId === 'POL27-CF-MARX-C00-S02');
 if (!s02) fail('C00 S02 calibration unit missing');
 if ((s02.raw.learning_semantics.framework_maps || []).length !== 2) {
-  fail('C00 S02 must preserve two distinct framework maps');
+  fail('C00 S02 must preserve two distinct framework maps in Current even when UI renders them as readable text');
 }
 
 const valueMap = (s02.raw.learning_semantics.framework_maps || []).find((map) => map.id === 'MARX-C00-S02-MAP-VALUE-01');
 if (!valueMap) fail('C00 S02 contemporary-value map missing');
 const valueEdges = valueMap.edges || [];
 if (valueEdges.length !== 3 || !valueEdges.every((edge) => edge.from === 'contemporary_value')) {
-  fail('C00 S02 contemporary-value hub topology changed');
+  fail('C00 S02 contemporary-value hub semantics changed');
 }
 
 console.log('POLITICS_COGNITIVE_WORKSPACE_PASS');
@@ -146,8 +154,9 @@ console.log(JSON.stringify({
   semanticUnits: semanticUnits.length,
   states: ['ORIENT', 'EXTERNAL_LEARN', 'RECALL', 'VERIFY', 'REPAIR', 'CLOSE'],
   scoreFirstFastPath: 'EXTERNAL_LEARN -> VERIFY; RECALL optional',
-  primaryReasoning: 'SPATIAL_TOPOLOGY_FIRST',
-  mapProjection: 'TOPOLOGY_PRESERVED_GOLDEN_GRAPH',
+  representationRule: 'PURPOSE_FIRST_TEXT_DEFAULT_VISUAL_ONLY_WHEN_CLEARER',
+  s01: 'SIMPLE_SPATIAL_CHAIN_WHEN_IT_REDUCES_RECONSTRUCTION_COST',
+  s02: 'LARGE_TYPE_STRUCTURED_TEXT_PLUS_EXPLICIT_RELATION_SENTENCES',
   secondaryDepth: 'REQUIRED_RELATION_CHAIN_VISIBLE_LOWER_WEIGHT',
   chapterContext: 'COMPACT_OPTIONAL_ENTRY',
   surface: 'MAC_LANDSCAPE_COGNITIVE_WORKSPACE'
