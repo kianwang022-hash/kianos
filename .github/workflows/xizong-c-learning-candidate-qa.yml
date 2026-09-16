@@ -7,7 +7,9 @@ on:
       - 'content/xizong/knowledge/learner/c-hematology-immunity-infection-learning/**'
       - 'content/xizong/knowledge/learner/C_PHASE*.md'
       - 'content/xizong/knowledge/systems/c-hematology-immunity-infection/**'
+      - 'static-web/scripts/repair-xizong-c-learning-phase6.mjs'
       - 'static-web/scripts/validate-xizong-c-learning.mjs'
+      - 'static-web/scripts/validate-xizong-c-learning-semantic-contracts.mjs'
       - '.github/workflows/xizong-c-learning-candidate-qa.yml'
   push:
     branches: [main]
@@ -16,11 +18,13 @@ on:
       - 'content/xizong/knowledge/learner/c-hematology-immunity-infection-learning/**'
       - 'content/xizong/knowledge/learner/C_PHASE*.md'
       - 'content/xizong/knowledge/systems/c-hematology-immunity-infection/**'
+      - 'static-web/scripts/repair-xizong-c-learning-phase6.mjs'
       - 'static-web/scripts/validate-xizong-c-learning.mjs'
+      - 'static-web/scripts/validate-xizong-c-learning-semantic-contracts.mjs'
       - '.github/workflows/xizong-c-learning-candidate-qa.yml'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   validate-c-learning-candidate:
@@ -28,9 +32,29 @@ jobs:
     steps:
       - name: Checkout Current
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.ref_name }}
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Validate C Learning candidate
+      - name: Apply deterministic Phase6 self-audit repair
+        if: github.event_name == 'pull_request'
+        run: node static-web/scripts/repair-xizong-c-learning-phase6.mjs --write
+      - name: Commit deterministic Phase6 self-audit repair
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        run: |
+          if ! git diff --quiet -- content/xizong/knowledge/learner; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add content/xizong/knowledge/learner
+            git commit -m "chore(xizong): materialize C phase6 learning contracts"
+            git push origin HEAD:${{ github.event.pull_request.head.ref }}
+          fi
+      - name: Verify Phase6 repair inputs on main
+        if: github.event_name != 'pull_request'
+        run: node static-web/scripts/repair-xizong-c-learning-phase6.mjs
+      - name: Validate C Learning candidate structure
         run: node static-web/scripts/validate-xizong-c-learning.mjs
+      - name: Validate C Learning semantic contracts
+        run: node static-web/scripts/validate-xizong-c-learning-semantic-contracts.mjs
