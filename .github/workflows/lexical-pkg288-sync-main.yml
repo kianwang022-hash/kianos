@@ -1,0 +1,32 @@
+name: Lexical pkg288 sync latest main
+
+on:
+  push:
+    branches: [lexical/pkg288-exec]
+    paths:
+      - '.github/workflows/lexical-pkg288-sync-main.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lexical-pkg288-sync-main
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: lexical/pkg288-exec
+          fetch-depth: 0
+      - name: Merge latest main
+        run: |
+          set -euo pipefail
+          git config user.name Kian
+          git config user.email kianwang022@gmail.com
+          git fetch origin main
+          git merge origin/main --no-edit
+          git push origin HEAD:lexical/pkg288-exec
