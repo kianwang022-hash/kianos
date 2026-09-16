@@ -50,6 +50,9 @@ jobs:
       - name: Capture all stage-one page families
         working-directory: static-web
         run: node scripts/capture-visual-stage-one.mjs
+      - name: Gate adaptive Lexical Depth shapes
+        working-directory: static-web
+        run: node scripts/capture-lexical-projection.mjs
       - name: Check viewport and existing Home journeys
         if: always()
         working-directory: static-web
@@ -65,5 +68,6 @@ jobs:
             visual-evidence/screens/
             visual-evidence/contract-checks.json
             visual-evidence/stage1/
+            visual-evidence/lexical-projection/
           retention-days: 7
           if-no-files-found: error
