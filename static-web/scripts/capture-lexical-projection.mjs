@@ -80,7 +80,56 @@ try {
       assert.equal(metrics.bodyHasExpansion, String(test.expectExpansion), `${test.name}: expansion gate`);
       assert.ok(metrics.documentWidth <= viewport.width + 1, `${test.name}: horizontal overflow ${metrics.documentWidth}`);
       assert.ok(metrics.documentHeight <= viewport.height + 1, `${test.name}: should fit one 1440x780 viewport, got ${metrics.documentHeight}px`);
-      assert.ok(metrics.rowHeights.every((height) => height <= 105), `${test.name}: sense row too tall ${metrics.rowHeights.join(',')}`);
+      // Kian accepted a half-step less density. A fixed 105px ceiling would
+      // reject readable content while missing clipping inside fixed-height panes.
+      // Keep the viewport/width gates; directly test reachable text, type floors,
+      // right-side cards, and detection power against a clipped-row mutation.
+      const readabilityAudit = await page.evaluate(() => {
+        const rows = [...document.querySelectorAll('.lexicalSenseRow')];
+        const saved = [...document.querySelectorAll('*')].filter(el => el.scrollTop || el.scrollLeft)
+          .map(el => [el, el.scrollTop, el.scrollLeft]);
+        const scan = () => {
+          const failures = [];
+          const leaves = [...document.querySelectorAll('.lexicalSenseMeaning > p, .lexicalSenseMeaning > strong, .lexicalSenseUsage li > b, .lexicalSenseUsage li > span, .lexicalExpansionSection article > b, .lexicalExpansionCn, .lexicalFormVariants b, .lexicalFamilyRows b')];
+          for (const el of leaves) {
+            if (!el.getClientRects().length || getComputedStyle(el).display === 'none') continue;
+            el.scrollIntoView({block:'nearest', inline:'nearest', behavior:'instant'});
+            const r=el.getBoundingClientRect();
+            if (r.left < -2 || r.right > innerWidth+2 || r.top < -2 || r.bottom > innerHeight+2) failures.push('unreachable:'+el.textContent.trim().slice(0,70));
+            for (let a=el.parentElement; a; a=a.parentElement) {
+              const cs=getComputedStyle(a), ar=a.getBoundingClientRect();
+              const clippedX=/hidden|clip|auto|scroll/.test(cs.overflowX) && (r.left < ar.left-2 || r.right > ar.right+2);
+              const clippedY=/hidden|clip|auto|scroll/.test(cs.overflowY) && (r.top < ar.top-2 || r.bottom > ar.bottom+2);
+              if (clippedX || clippedY) { failures.push('clipped:'+el.textContent.trim().slice(0,70)); break; }
+            }
+          }
+          for (const row of rows) {
+            if (row.scrollWidth > row.clientWidth+2) failures.push('row-horizontal-overflow');
+            const cn=row.querySelector('.lexicalSenseMeaning > p');
+            const en=row.querySelector('.lexicalSenseMeaning > strong');
+            if (cn && parseFloat(getComputedStyle(cn).fontSize) < 18) failures.push('chinese-type-floor');
+            if (en && parseFloat(getComputedStyle(en).fontSize) < 13.5) failures.push('english-type-floor');
+          }
+          return [...new Set(failures)];
+        };
+        const failures=scan();
+        const first=rows[0], prior=first?.getAttribute('style');
+        let clippedMutationDetected=false;
+        if (first) {
+          first.style.cssText+=';height:4px!important;max-height:4px!important;min-height:0!important;padding-block:0!important;overflow:hidden!important;';
+          clippedMutationDetected=scan().some(s => s.startsWith('clipped:'));
+          if (prior === null) first.removeAttribute('style'); else first.setAttribute('style', prior);
+        }
+        const cards=[...document.querySelectorAll('.portedVocabEvidenceColumn > .lexicalExpansionSection')];
+        const distinctCards=cards.every(el => parseFloat(getComputedStyle(el).borderTopWidth)>0 && parseFloat(getComputedStyle(el).borderRadius)>=6);
+        for (const el of document.querySelectorAll('*')) { if(el.scrollTop) el.scrollTop=0; if(el.scrollLeft) el.scrollLeft=0; }
+        saved.forEach(([el,top,left]) => {el.scrollTop=top;el.scrollLeft=left;});
+        return {failures,clippedMutationDetected,distinctCards,cardCount:cards.length};
+      });
+      assert.deepEqual(readabilityAudit.failures, [], `${test.name}: text must be readable and reachable`);
+      assert.ok(readabilityAudit.clippedMutationDetected, `${test.name}: clipping detector must catch its negative control`);
+      if (test.expectExpansion) assert.ok(readabilityAudit.distinctCards, `${test.name}: preserve accepted separate expansion cards`);
+      metrics.readabilityAudit = readabilityAudit;
       assert.ok(metrics.chineseSizes.every((size, index) => parseFloat(size) > parseFloat(metrics.englishSizes[index])), `${test.name}: Chinese must visually outrank English`);
 
       if (!test.expectExpansion) {
