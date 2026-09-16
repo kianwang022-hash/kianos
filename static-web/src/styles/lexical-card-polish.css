@@ -9,18 +9,25 @@ body#kianos-workspace.uiWordStudy .portedVocabRuntime{
   position:relative;
 }
 
-/* US / UK are useful controls, not a second navigation band. Let them float
-   into the reveal header instead of consuming their own vertical strip. */
+/* Pronunciation stays inside the word surface. Reset the older full-width
+   toolbar border as well as its geometry; a zero-height bordered bar otherwise
+   draws a line through the Core headline. */
 body#kianos-workspace.uiWordStudy .portedVocabPreviewBar{
-  position:relative;
+  position:absolute;
   z-index:6;
+  top:12px;
+  right:18px;
+  width:auto;
   min-height:0;
-  height:0;
+  height:auto;
   margin:0;
-  padding:0 14px 0 0;
+  padding:0;
+  border:0;
+  background:transparent;
+  box-shadow:none;
   overflow:visible;
   pointer-events:none;
-  transform:translateY(17px);
+  transform:none;
 }
 body#kianos-workspace.uiWordStudy .portedVocabPreviewBar>div:last-child{
   pointer-events:auto;
@@ -340,6 +347,10 @@ body#kianos-workspace.uiEnglish .clozeResult{
     gap:9px !important;
   }
   body#kianos-workspace.uiWordStudy .portedVocabPreviewBar{
+    position:static;
+    top:auto;
+    right:auto;
+    width:auto;
     height:auto;
     min-height:30px;
     transform:none;
