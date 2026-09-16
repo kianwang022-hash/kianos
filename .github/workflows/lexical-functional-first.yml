@@ -2,9 +2,9 @@ name: Lexical Functional First
 on:
   push:
     branches: [main, 'lexical/evidence-runtime-ffv-*', 'lexical/repair-evidence-current-closure-*', 'lexical/full-catalog-k-reacceptance']
-    paths: ['content/lexical/**','tools/lexical_fix_full_catalog_k_gaps.py','static-web/src/lib/lexical*.mjs','static-web/src/components/Vocabulary*.astro','static-web/src/layouts/Base.astro','static-web/src/pages/vocabulary/**','static-web/scripts/*lexical*functional-first*.mjs','static-web/scripts/verify-lexical-full-catalog-k.mjs','static-web/scripts/test-lexical-full-catalog-k-browser.mjs','static-web/scripts/validate-lexical-evidence-memory.mjs','static-web/scripts/validate-lexical-english-handoff.mjs','static-web/scripts/validate-lexical-repair-target-surfaces.mjs','static-web/scripts/test-lexical-english-handoff-browser.mjs','static-web/scripts/test-lexical-form-identity-browser.mjs','static-web/scripts/test-lexical-ledger-word-projection-browser.mjs','static-web/scripts/test-lexical-challenge-resume-browser.mjs','static-web/scripts/test-lexical-content-shape-browser.mjs','static-web/package.json','.github/workflows/lexical-functional-first.yml']
+    paths: ['content/lexical/**','tools/lexical_fix_full_catalog_k_gaps.py','tools/lexical_fix_full_catalog_projection_gaps.py','static-web/src/lib/lexical*.mjs','static-web/src/components/Vocabulary*.astro','static-web/src/layouts/Base.astro','static-web/src/pages/vocabulary/**','static-web/scripts/*lexical*functional-first*.mjs','static-web/scripts/verify-lexical-full-catalog-k.mjs','static-web/scripts/test-lexical-full-catalog-k-browser.mjs','static-web/scripts/test-lexical-full-catalog-form-boundary-browser.mjs','static-web/scripts/validate-lexical-evidence-memory.mjs','static-web/scripts/validate-lexical-english-handoff.mjs','static-web/scripts/validate-lexical-repair-target-surfaces.mjs','static-web/scripts/test-lexical-english-handoff-browser.mjs','static-web/scripts/test-lexical-form-identity-browser.mjs','static-web/scripts/test-lexical-ledger-word-projection-browser.mjs','static-web/scripts/test-lexical-challenge-resume-browser.mjs','static-web/scripts/test-lexical-content-shape-browser.mjs','static-web/package.json','.github/workflows/lexical-functional-first.yml']
   pull_request:
-    paths: ['content/lexical/**','tools/lexical_fix_full_catalog_k_gaps.py','static-web/src/lib/lexical*.mjs','static-web/src/components/Vocabulary*.astro','static-web/src/layouts/Base.astro','static-web/src/pages/vocabulary/**','static-web/scripts/*lexical*functional-first*.mjs','static-web/scripts/verify-lexical-full-catalog-k.mjs','static-web/scripts/test-lexical-full-catalog-k-browser.mjs','static-web/scripts/validate-lexical-evidence-memory.mjs','static-web/scripts/validate-lexical-english-handoff.mjs','static-web/scripts/validate-lexical-repair-target-surfaces.mjs','static-web/scripts/test-lexical-english-handoff-browser.mjs','static-web/scripts/test-lexical-form-identity-browser.mjs','static-web/scripts/test-lexical-ledger-word-projection-browser.mjs','static-web/scripts/test-lexical-challenge-resume-browser.mjs','static-web/scripts/test-lexical-content-shape-browser.mjs','static-web/package.json','.github/workflows/lexical-functional-first.yml']
+    paths: ['content/lexical/**','tools/lexical_fix_full_catalog_k_gaps.py','tools/lexical_fix_full_catalog_projection_gaps.py','static-web/src/lib/lexical*.mjs','static-web/src/components/Vocabulary*.astro','static-web/src/layouts/Base.astro','static-web/src/pages/vocabulary/**','static-web/scripts/*lexical*functional-first*.mjs','static-web/scripts/verify-lexical-full-catalog-k.mjs','static-web/scripts/test-lexical-full-catalog-k-browser.mjs','static-web/scripts/test-lexical-full-catalog-form-boundary-browser.mjs','static-web/scripts/validate-lexical-evidence-memory.mjs','static-web/scripts/validate-lexical-english-handoff.mjs','static-web/scripts/validate-lexical-repair-target-surfaces.mjs','static-web/scripts/test-lexical-english-handoff-browser.mjs','static-web/scripts/test-lexical-form-identity-browser.mjs','static-web/scripts/test-lexical-ledger-word-projection-browser.mjs','static-web/scripts/test-lexical-challenge-resume-browser.mjs','static-web/scripts/test-lexical-content-shape-browser.mjs','static-web/package.json','.github/workflows/lexical-functional-first.yml']
 permissions:
   contents: write
 concurrency:
@@ -27,6 +27,9 @@ jobs:
       - name: Materialize authorized full-catalog K readback corrections
         if: github.ref == 'refs/heads/lexical/full-catalog-k-reacceptance'
         run: python tools/lexical_fix_full_catalog_k_gaps.py
+      - name: Repair modern Form boundary learner projection
+        if: github.ref == 'refs/heads/lexical/full-catalog-k-reacceptance'
+        run: python tools/lexical_fix_full_catalog_projection_gaps.py
       - name: Verify full-catalog K intrinsic integrity and projection fidelity
         working-directory: static-web
         run: node scripts/verify-lexical-full-catalog-k.mjs
@@ -55,6 +58,9 @@ jobs:
       - name: Execute full-catalog representative learner projection proof
         working-directory: static-web
         run: node scripts/test-lexical-full-catalog-k-browser.mjs
+      - name: Execute modern same-owner Form boundary proof
+        working-directory: static-web
+        run: node scripts/test-lexical-full-catalog-form-boundary-browser.mjs
       - name: Execute isolated accepted-fixture learner journey
         working-directory: static-web
         run: node scripts/test-lexical-functional-first-browser.mjs
@@ -78,7 +84,7 @@ jobs:
         run: |
           git config user.name Kian
           git config user.email kianwang022@gmail.com
-          git add content/lexical/canonical content/lexical/words/by-ordinal/o3375.json content/lexical/words/by-ordinal/o4115.json content/lexical/words/by-ordinal/o5902.json content/lexical/acceptance/full-catalog-k-materialization-corrections.json content/lexical/acceptance/full-catalog-k-conclusions.json content/lexical/acceptance/full-catalog-k-report.json content/lexical/acceptance/full-catalog-k-browser.json
+          git add content/lexical/canonical content/lexical/words/by-ordinal/o3375.json content/lexical/words/by-ordinal/o4115.json content/lexical/words/by-ordinal/o5902.json content/lexical/acceptance/full-catalog-k-materialization-corrections.json content/lexical/acceptance/full-catalog-k-conclusions.json content/lexical/acceptance/full-catalog-k-report.json content/lexical/acceptance/full-catalog-k-browser.json static-web/src/components/VocabularyWordRuntime.astro
           if ! git diff --cached --quiet; then
             git commit -m 'lexical: preserve full-catalog K corrections and evidence [skip ci]'
             git push origin HEAD:lexical/full-catalog-k-reacceptance
