@@ -6,13 +6,40 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "1f0d758796df875d23aca172ea81669211339265624c73d537ee21a57f6980e5",
+    "constructions": [
+      {
+        "construction_id": "construction:5694bc140d95468035eb",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "用某物给食物或其他东西加配菜、装饰",
+        "pattern": "garnish sth with sth",
+        "source_sense_id": "sense:garnish:265dfd7a2e88041d"
+      }
+    ],
+    "content_hash": "5fbf922f4beb2aeb830e3146874c6de82f4b4b1497014f6c1b06cdc1c1881e3f",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "装饰, 装饰品",
-      "core_meaning_en": "something (such as parsley) added to a dish for flavor or decoration",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "装饰, 装饰品",
+          "label_en": "something (such as parsley) added to a dish for flavor or decoration; any decoration added as a trimming or adornment",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:garnish:a9804fb36a155a50",
+            "sense:garnish:1110bae896c052b1"
+          ]
+        },
+        {
+          "label_cn": "给……加配菜或装饰；点缀",
+          "label_en": "to decorate or finish food or another thing by adding an accompaniment or ornamental detail",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:garnish:265dfd7a2e88041d"
+          ]
+        }
+      ],
+      "core_meaning_cn": "装饰, 装饰品；给……加配菜或装饰；点缀",
+      "core_meaning_en": "something (such as parsley) added to a dish for flavor or decoration; any decoration added as a trimming or adornment; to decorate or finish food or another thing by adding an accompaniment or ornamental detail",
+      "mental_model_cn": "装饰, 装饰品；给……加配菜或装饰；点缀",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -70,6 +97,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "给……加配菜或装饰；点缀",
+        "definition_en": "to decorate or finish food or another thing by adding an accompaniment or ornamental detail",
+        "governing_pattern": "garnish sth with sth",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:garnish:265dfd7a2e88041d",
+        "sense_label_en": "to decorate or finish food or another thing by adding an accompaniment or ornamental detail",
+        "sort_order": 3,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -102,6 +143,13 @@
         "merged_into_sense_id": null,
         "source_row": 17916,
         "source_path": "content/lexical/canonical/senses/shards/o6881-6912.json"
+      },
+      {
+        "sense_id": "sense:garnish:265dfd7a2e88041d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 17950,
+        "source_path": "content/lexical/canonical/senses/shards/o6881-6912.json"
       }
     ],
     "active_collocations": [],
@@ -128,7 +176,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6889-6896.json",
-    "source_content_hash": "1f0d758796df875d23aca172ea81669211339265624c73d537ee21a57f6980e5",
+    "source_content_hash": "5fbf922f4beb2aeb830e3146874c6de82f4b4b1497014f6c1b06cdc1c1881e3f",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
