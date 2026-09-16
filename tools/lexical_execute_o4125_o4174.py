@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 """Exact identity resolution wrapper for Issue #215 shard o4125-o4174.
 
-This wrapper does not add semantic authority. It closes three execution-time
-identity facts proven by the Current preflight:
-- revive intransitive branch reuses sense:revive:f64dfa923a725450;
-- ride vehicle/passenger branch reuses sense:ride:a4e9c621e46b5bf9;
-- ring telephone-call noun has no stable registry branch, so the reconciled
-  genuine-NEW rule is used before moving the existing `give a ring` carrier.
+No semantic authority is added here. Every pin below is already evidenced by the
+Current preflight or frozen reconciliation. Ring's telephone-call noun is the
+only genuine NEW branch in this boundary because Current has no stable registry
+carrier for that ordinary noun use.
 """
 from __future__ import annotations
 
@@ -20,16 +18,32 @@ import lexical_apply_o4125_o4374 as pkg
 _orig_exact_sid = pkg.exact_sid
 _orig_apply_shard1 = pkg.apply_shard1
 
+PINNED = {
+    ("revive", "verb"): "sense:revive:f64dfa923a725450",
+    ("revolve", "verb"): "sense:revolve:189623b930a85018",
+    ("ride", "noun"): "sense:ride:6e09ffc232ca527c",
+    ("ride", "verb"): "sense:ride:a4e9c621e46b5bf9",
+    ("rifle", "noun"): "sense:rifle:92c8aeb8c77f5abb",
+    ("rifle", "verb"): "sense:rifle:7b179fc2eab95e7c",
+    ("riot", "noun"): "sense:riot:0932cf2c16955193",
+    ("riot", "verb"): "sense:riot:96b1061053b95551",
+}
+
 
 def exact_sid(store, word: str, **kwargs):
     pos = kwargs.get("pos")
-    if word == "revive" and pos == "verb" and kwargs.get("any_terms"):
-        sid = "sense:revive:f64dfa923a725450"
+    key = (word, pos)
+    # Only intercept semantic-fragment lookups. Exact legacy-alias calls remain
+    # under the package executor's own strict resolution.
+    if key in PINNED and kwargs.get("any_terms"):
+        sid = PINNED[key]
         if sid not in store.senses:
             raise RuntimeError(f"PINNED_STABLE_ID_MISSING {sid}")
+        if store.senses[sid].get("headword") != word or store.senses[sid].get("pos") != pos:
+            raise RuntimeError(f"PINNED_STABLE_ID_DRIFT {sid}")
         return sid
-    if word == "ride" and pos == "verb" and kwargs.get("any_terms"):
-        sid = "sense:ride:a4e9c621e46b5bf9"
+    if word == "revelation" and pos == "noun" and kwargs.get("any_terms"):
+        sid = "sense:revelation:ce739cd1286d5125"
         if sid not in store.senses:
             raise RuntimeError(f"PINNED_STABLE_ID_MISSING {sid}")
         return sid
@@ -37,8 +51,8 @@ def exact_sid(store, word: str, **kwargs):
 
 
 def apply_shard1(store):
-    # Preflight proves no historical/stable telephone-call noun exists for ring.
-    # This is therefore a genuine NEW_SEMANTIC_BRANCH, not a replacement ID.
+    # No pre-existing stable telephone-call noun exists for ring in Current.
+    # This is an explicitly authorized genuine new semantic branch.
     store.new(
         4172,
         "telephone_call_noun",
