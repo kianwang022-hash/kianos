@@ -5,19 +5,35 @@ import { fileURLToPath } from 'node:url';
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(scriptDir, '../..');
 const learnerRoot = path.join(repoRoot, 'content/xizong/knowledge/learner');
-const root = JSON.parse(fs.readFileSync(path.join(learnerRoot, 'c-hematology-immunity-infection-learning-candidate.json'), 'utf8'));
+const systemRoot = path.join(repoRoot, 'content/xizong/knowledge/systems/c-hematology-immunity-infection');
+const manifestPath = path.join(learnerRoot, 'c-hematology-immunity-infection-learning.json');
+const candidatePath = path.join(learnerRoot, 'c-hematology-immunity-infection-learning-candidate.json');
+const acceptancePath = path.join(systemRoot, 'ACCEPTANCE.md');
+const freshAcceptancePath = path.join(learnerRoot, 'C_PHASE6_FRESH_L_INDEPENDENT_ACCEPTANCE.md');
 
 function fail(message) {
   throw new Error(`C_LEARNING_SEMANTIC_CONTRACT_FAIL:${message}`);
 }
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+}
 
+if (!fs.existsSync(manifestPath)) fail('canonical-owner-missing');
+if (fs.existsSync(candidatePath)) fail('candidate-authority-leak');
+if (!fs.existsSync(acceptancePath) || !fs.existsSync(freshAcceptancePath)) fail('acceptance-evidence-missing');
+
+const root = readJson(manifestPath);
 const requiredFields = ['kp_members','label','jobs','goal','closure','continuity_rationale','receipt_anchor'];
 const declared = root.machine_semantics?.group_contract_required_fields || [];
 if (requiredFields.some((field) => !declared.includes(field))) fail(`root-required-fields:${JSON.stringify(declared)}`);
-if (root.acceptance?.independence !== 'SELF') fail(`independence:${root.acceptance?.independence}`);
-if (root.acceptance?.L_pass_claimed !== false) fail('premature-L-pass');
-if (root.projection_boundary?.status !== 'DOWNSTREAM_FROZEN_UNTIL_L_ACCEPTANCE') fail('projection-unfrozen');
-if (root.construction_status !== 'FRESH_AUDIT_REPAIRED_AWAIT_REAUDIT') fail(`construction-status:${root.construction_status}`);
+if (root.status !== 'CURRENT') fail(`status:${root.status}`);
+if (root.authority !== 'CHAT_APPROVED_LEARNING_ACCEPTANCE') fail(`authority:${root.authority}`);
+if (root.acceptance?.independence !== 'INDEPENDENT') fail(`independence:${root.acceptance?.independence}`);
+if (root.acceptance?.fresh_auditor_required !== false) fail('fresh-auditor-flag-open');
+if (root.acceptance?.L_pass_claimed !== true) fail('L-pass-not-accepted');
+if (root.acceptance?.verdict !== 'FRESH_L_PASS_AFTER_REPAIR') fail(`verdict:${root.acceptance?.verdict}`);
+if (root.acceptance?.fresh_audit_repair?.status !== 'REPAIRED_AND_REAUDITED_PASS') fail('fresh-repair-not-closed');
+if (root.projection_boundary?.status !== 'ELIGIBLE_NOT_STARTED_AFTER_L_ACCEPTANCE') fail('projection-state-not-L-only');
 
 if (root.surface_handoff_contract?.source_contact_unit !== 'BLOCK_OR_CANONICAL_SOURCE_UNIT') fail('source-contact-unit-not-block-continuous');
 if (root.surface_handoff_contract?.logic_group_role !== 'RETRIEVAL_AND_LOCAL_CLOSURE_UNIT_NOT_AUTOMATIC_SOURCE_CHUNK') fail('logic-group-promoted-to-source-chunk');
@@ -28,11 +44,12 @@ if (!handoff.includes('without reopening Lecture by default')) fail('no-bounce-c
 const firstPass = (root.first_pass_chain || []).join('\n');
 if (firstPass.includes('whole-LG original Lecture contact')) fail('stale-lg-by-lg-source-contact');
 if (!firstPass.includes('continuous Block / canonical Source-unit Lecture contact')) fail('block-source-contact-chain-missing');
+if (!String(root.compression?.memory_admission || '').includes('canonical KP existence alone creates no permanent review debt')) fail('permanent-review-debt-regression');
 
 const blocks = new Map();
 let groupCount = 0;
 for (const relativePath of root.storage?.shards || []) {
-  const shard = JSON.parse(fs.readFileSync(path.join(learnerRoot, relativePath), 'utf8'));
+  const shard = readJson(path.join(learnerRoot, relativePath));
   for (const [blockId, block] of Object.entries(shard.blocks || {})) {
     blocks.set(blockId, block);
     for (const [groupId, group] of Object.entries(block.logic_groups || {})) {
@@ -56,7 +73,7 @@ function rejectBenefit(blockId, dependency) {
   if (values.includes(dependency)) fail(`required-edge-left-soft:${blockId}<-${dependency}`);
 }
 
-// These are Current Knowledge/Core gates, not builder conveniences.
+// These edges were independently challenged and then retained because Current C Core owns them.
 requireEdge('hematology-h10', 'hematology-h09');
 rejectBenefit('hematology-h10', 'hematology-h09');
 requireEdge('hematology-h14', 'hematology-h02');
@@ -71,15 +88,36 @@ const h6 = blocks.get('hematology-h06');
 if (!String(h6?.first_pass_focus || '').includes('先判哪层止血失效')) fail('h6-orientation-lost');
 if ((h6?.learner_order || [])[0] !== 'c-h06-lg01') fail('h6-source-continuity-order-unexpected');
 
+const h9 = blocks.get('hematology-h09');
+const h9Text = JSON.stringify(h9);
+for (const token of ['细胞化学','流式','遗传']) if (!h9Text.includes(token)) fail(`h9-evidence-layer-lost:${token}`);
+
+const h11 = blocks.get('hematology-h11');
+if (!String(h11?.first_pass_focus || '').includes('组织学')) fail('h11-structure-first-lost');
+
+const h12 = blocks.get('hematology-h12');
+if (!String(h12?.stop_line || '').includes('不补完整正常免疫学')) fail('h12-normal-immunology-boundary-lost');
+
+for (const blockId of ['hematology-h15','hematology-h16','hematology-h17','hematology-h18','hematology-h19']) {
+  const text = JSON.stringify(blocks.get(blockId));
+  if (!text.includes('证据') && !text.includes('抗体')) fail(`rheum-evidence-role-model-lost:${blockId}`);
+}
+
+const h21 = blocks.get('hematology-h21');
+if (!String(h21?.stop_line || '').includes('不扩')) fail('h21-owner-boundary-lost');
+
 const h24 = blocks.get('hematology-h24');
 if (!String(h24?.first_pass_focus || '').includes('分别建立')) fail('h24-two-unit-orientation-lost');
-if (!String(h24?.logic_groups?.['c-h24-lg05']?.continuity_rationale || '').includes('no single natural disease course') &&
-    !String(h24?.logic_groups?.['c-h24-lg05']?.goal || '').includes('compress')) {
-  fail('h24-false-common-course-risk');
-}
+const h24g5 = h24?.logic_groups?.['c-h24-lg05'];
+if (!String(h24g5?.continuity_rationale || '').includes('no single natural disease course') && !String(h24g5?.goal || '').includes('compress')) fail('h24-false-common-course-risk');
+
+const h25 = blocks.get('hematology-h25');
+const h25Text = JSON.stringify(h25);
+for (const token of ['压力','坏死','源控制']) if (!h25Text.includes(token)) fail(`h25-source-control-axis-lost:${token}`);
 
 const h26 = blocks.get('hematology-h26');
 if (!String(h26?.stop_line || '').includes('SOFA/qSOFA')) fail('h26-modern-guideline-boundary-lost');
+
 const h27 = blocks.get('hematology-h27');
 if (!String(h27?.first_pass_focus || '').includes('两条紧急路径')) fail('h27-two-causal-movies-lost');
 
@@ -88,12 +126,15 @@ if (!phase3e.includes('Scope: **8 Blocks, 106 stable KPs, 34 Logic Groups**')) f
 if (!phase3e.includes('Cumulative Phase-3: **27 / 27 Blocks, 423 / 423 KPs, 133 Logic Groups**')) fail('phase3e-cumulative-accounting');
 if (/35 Logic Groups|134 Logic Groups/.test(phase3e)) fail('stale-phase3e-count');
 
-const audit = root.acceptance?.self_adversarial_phase6a;
-if (audit?.status !== 'REPAIRED_RED_POINTS_AWAIT_FRESH_AUDITOR') fail('phase6a-audit-state');
-if (!String(audit?.resolved_challenge || '').includes('H6')) fail('h6-resolved-challenge-missing');
-const freshRepair = root.acceptance?.fresh_audit_repair;
-if (freshRepair?.status !== 'REPAIRED_AWAIT_REAUDIT') fail('fresh-repair-state');
-if (!String(freshRepair?.red_point || '').includes('LG retrieval partitions')) fail('fresh-overload-red-point-missing');
+const acceptance = fs.readFileSync(acceptancePath, 'utf8');
+const freshAcceptance = fs.readFileSync(freshAcceptancePath, 'utf8');
+for (const text of [acceptance, freshAcceptance]) {
+  if (!text.includes('FRESH_L_PASS_AFTER_REPAIR')) fail('fresh-verdict-evidence-missing');
+}
+if (!acceptance.includes('P — Projection | **NOT_STARTED / ELIGIBLE**')) fail('projection-started-or-acceptance-ambiguous');
+if (!freshAcceptance.includes('mandatory LG-by-LG Source bouncing') && !freshAcceptance.includes('LG-by-LG KianOS ↔ Lecture bouncing')) fail('true-red-point-not-recorded');
+if (!freshAcceptance.includes('Crosswalk remains outside this task')) fail('crosswalk-boundary-not-recorded');
+if (!freshAcceptance.includes('NOT MANUFACTURED')) fail('learner-state-boundary-not-recorded');
 
 console.log(JSON.stringify({
   pass: true,
@@ -102,7 +143,7 @@ console.log(JSON.stringify({
   h6_source_continuity_challenge: 'RESOLVED',
   first_pass_source_continuity: 'BLOCK_OR_CANONICAL_SOURCE_UNIT_NO_DEFAULT_LG_BOUNCE',
   phase3e_accounting: '34 / cumulative 133',
-  independence: root.acceptance.independence,
-  L_pass_claimed: root.acceptance.L_pass_claimed,
-  projection_status: root.projection_boundary.status
+  verdict: root.acceptance.verdict,
+  projection_status: root.projection_boundary.status,
+  candidate_authority_leak: 0
 }, null, 2));
