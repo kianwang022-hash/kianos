@@ -7,33 +7,33 @@
     "card_version": "v3",
     "confusables": [],
     "constructions": [],
-    "content_hash": "7e25d2996a0d2d904046d95f32d11cdc32d9efab59e73b236c004f8e862b76eb",
+    "content_hash": "f050d47ce2260cc89bf5ed6e1656c321865a404f6d43b64c79195b4ee5f16f8f",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "股票；股份；库存；现货；枪托；枪柄；声望；信誉",
-          "label_en": "the capital raised by a corporation through the issue of shares; the merchandise that a shop has on hand; the handle of a handgun or the butt end of a rifle or shotgun; the reputation and popularity a person has",
+          "label_cn": "股票；股份；库存；现货；枪托；枪柄；声望；信誉；高汤；用肉、骨、蔬菜等慢煮制成的汤底",
+          "label_en": "the capital raised by a corporation through the issue of shares; the merchandise that a shop has on hand; the handle of a handgun or the butt end of a rifle or shotgun; the reputation and popularity a person has; stock: a flavorful liquid made by simmering meat, bones, vegetables, or similar ingredients",
           "pos": "noun",
           "sense_ids": [
             "sense:stock:836264a6a7d15062",
             "sense:stock:9fc83b9df0b0581b",
             "sense:stock:a142199677465c21",
-            "sense:stock:8e8c777e83f45009"
+            "sense:stock:8e8c777e83f45009",
+            "sense:stock:1915fe055832e145"
           ]
         },
         {
-          "label_cn": "进货；备有；囤积；备货",
-          "label_en": "to supply or keep a supply of goods; to accumulate a supply of something",
+          "label_cn": "进货；备有",
+          "label_en": "to supply or keep a supply of goods",
           "pos": "verb",
           "sense_ids": [
-            "sense:stock:d223478f2bcf5d91",
             "sense:stock:d223478f2bcf5d91"
           ]
         }
       ],
-      "core_meaning_cn": "储备或供应",
-      "core_meaning_en": "supply or store of goods, shares, or lineage",
-      "mental_model_cn": "储备或供应",
+      "core_meaning_cn": "股票/股份；存货；储备/库存；高汤；另有枪托等较低频义",
+      "core_meaning_en": "stock as shares/capital, inventory/supply, cooking stock, with lower-frequency specialist senses",
+      "mental_model_cn": "股票/股份；存货；储备/库存；高汤；另有枪托等较低频义",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -220,6 +220,20 @@
         "sense_label_en": "to supply or keep a supply of goods",
         "sort_order": 4,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "高汤；用肉、骨、蔬菜等慢煮制成的汤底",
+        "definition_en": "stock: a flavorful liquid made by simmering meat, bones, vegetables, or similar ingredients",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:stock:1915fe055832e145",
+        "sense_label_en": "stock: a flavorful liquid made by simmering meat, bones, vegetables, or similar ingredients",
+        "sort_order": 5,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -309,6 +323,13 @@
         "status": "merged",
         "merged_into_sense_id": "sense:stock:d223478f2bcf5d91",
         "source_row": 13388,
+        "source_path": "content/lexical/canonical/senses/shards/o4705-4736.json"
+      },
+      {
+        "sense_id": "sense:stock:1915fe055832e145",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13479,
         "source_path": "content/lexical/canonical/senses/shards/o4705-4736.json"
       }
     ],
@@ -405,7 +426,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4705-4712.json",
-    "source_content_hash": "7e25d2996a0d2d904046d95f32d11cdc32d9efab59e73b236c004f8e862b76eb",
+    "source_content_hash": "f050d47ce2260cc89bf5ed6e1656c321865a404f6d43b64c79195b4ee5f16f8f",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

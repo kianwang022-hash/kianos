@@ -6,34 +6,43 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "43dcdf988432404fb9984c2223e5420180a60e8fadfc0fbc7c9f925a95375e25",
+    "constructions": [
+      {
+        "construction_id": "construction:f44dcd5a0275a648606a",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "努力去做/听/看某事",
+        "pattern": "strain to do/hear/see sth",
+        "source_sense_id": "sense:strain:3cf52dd2675155a0"
+      }
+    ],
+    "content_hash": "eea50149993998efd0c56c9889d3471edeca2aad82869a965b190bd59a06bccc",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "紧张，焦虑；扭伤，拉伤；应变，形变；品种，品系",
-          "label_en": "(psychology) nervousness resulting from mental stress; injury to a muscle (often caused by overuse); results in swelling and pain; (physics) deformation of a physical body under the action of applied forces; a particular breed or variety of animal, plant, or microorganism",
+          "label_cn": "紧张，焦虑；扭伤，拉伤；应变，形变；品种，品系；负担、压力；对人、关系、系统或资源造成的压力",
+          "label_en": "(psychology) nervousness resulting from mental stress; injury to a muscle (often caused by overuse); results in swelling and pain; (physics) deformation of a physical body under the action of applied forces; a particular breed or variety of animal, plant, or microorganism; pressure or burden placed on a person, relationship, system, or resources",
           "pos": "noun",
           "sense_ids": [
             "sense:strain:381922e6a9cb5ccc",
             "sense:strain:ea0eda483d7e5d67",
             "sense:strain:d7b34e6135605d57",
-            "sense:strain:e394fc87031452d6"
+            "sense:strain:e394fc87031452d6",
+            "sense:strain:b8615d0551828e06"
           ]
         },
         {
-          "label_cn": "拉紧，绷紧；尽力，努力",
-          "label_en": "to exert or stretch to the limit; to make great efforts; to strive",
+          "label_cn": "拉紧，绷紧",
+          "label_en": "to exert or stretch to the limit",
           "pos": "verb",
           "sense_ids": [
-            "sense:strain:8bbe054c6558562d",
-            "sense:strain:3cf52dd2675155a0"
+            "sense:strain:8bbe054c6558562d"
           ]
         }
       ],
-      "core_meaning_cn": "拉紧；紧张；扭伤",
-      "core_meaning_en": "to stretch or exert to the limit; a state of tension or injury from overuse",
-      "mental_model_cn": "拉紧；紧张；扭伤",
+      "core_meaning_cn": "紧张，焦虑；拉紧，绷紧；扭伤，拉伤；应变，形变；品种，品系；负担、压力；对人、关系、系统或资源造成的压力",
+      "core_meaning_en": "(psychology) nervousness resulting from mental stress; to exert or stretch to the limit; injury to a muscle (often caused by overuse); results in swelling and pain; (physics) deformation of a physical body under the action of applied forces; a particular breed or variety of animal, plant, or microorganism; pressure or burden placed on a person, relationship, system, or resources",
+      "mental_model_cn": "紧张，焦虑；拉紧，绷紧；扭伤，拉伤；应变，形变；品种，品系；负担、压力；对人、关系、系统或资源造成的压力",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -196,6 +205,20 @@
         "sense_label_en": "to make great efforts; to strive",
         "sort_order": 5,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "负担、压力；对人、关系、系统或资源造成的压力",
+        "definition_en": "pressure or burden placed on a person, relationship, system, or resources",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:strain:b8615d0551828e06",
+        "sense_label_en": "pressure or burden placed on a person, relationship, system, or resources",
+        "sort_order": 6,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -261,6 +284,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 13444,
+        "source_path": "content/lexical/canonical/senses/shards/o4705-4736.json"
+      },
+      {
+        "sense_id": "sense:strain:b8615d0551828e06",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13481,
         "source_path": "content/lexical/canonical/senses/shards/o4705-4736.json"
       }
     ],
@@ -352,7 +382,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4721-4728.json",
-    "source_content_hash": "43dcdf988432404fb9984c2223e5420180a60e8fadfc0fbc7c9f925a95375e25",
+    "source_content_hash": "eea50149993998efd0c56c9889d3471edeca2aad82869a965b190bd59a06bccc",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
