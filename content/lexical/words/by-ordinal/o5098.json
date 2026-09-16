@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "8d12bbfbc922b66319cd2437c5649e1e2285f98b7dc483c0a4e09d2cbc3d591f",
+    "content_hash": "7fec250cf3b9a5a25de99cca9bd16567356417ff43ec9540a39649ffa4a2ed2b",
     "core_concept": {
       "core_clusters": [
         {
@@ -34,6 +34,27 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o4875-o5374.md",
+      "boundaries": [
+        {
+          "condition": "BrE noun",
+          "note": "BrE noun commonly has initial stress",
+          "surface": "transfer"
+        },
+        {
+          "condition": "BrE verb",
+          "note": "BrE verb commonly has final stress",
+          "surface": "transfer"
+        },
+        {
+          "condition": "AmE",
+          "note": "standard AmE commonly allows initial stress in noun and verb; do not encode a universal split",
+          "surface": "transfer"
+        }
+      ],
+      "type": "dialect_sensitive_pos_pronunciation_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -238,7 +259,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5097-5104.json",
-    "source_content_hash": "8d12bbfbc922b66319cd2437c5649e1e2285f98b7dc483c0a4e09d2cbc3d591f",
+    "source_content_hash": "7fec250cf3b9a5a25de99cca9bd16567356417ff43ec9540a39649ffa4a2ed2b",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

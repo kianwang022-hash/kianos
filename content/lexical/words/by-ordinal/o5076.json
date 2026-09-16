@@ -7,15 +7,41 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "493dce4ad7dd7d0c09ca85d6901635ae10dd4da37e23d906e7636e8ef5840872",
+    "content_hash": "47b94008f43cc60779fc71b0532bf00ed1f3c9206dae1959299862deec6872bd",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "朝向",
-      "core_meaning_en": "in the direction of",
-      "mental_model_cn": "朝向",
+      "core_clusters": [
+        {
+          "label_cn": "向，朝；对于，关于",
+          "label_en": "in the direction of; in relation to",
+          "pos": "preposition",
+          "sense_ids": [
+            "sense:toward:f0da906ff0d55e3e",
+            "sense:toward:c4b395f9558d5caa"
+          ]
+        }
+      ],
+      "core_meaning_cn": "向，朝；对于，关于",
+      "core_meaning_en": "in the direction of; in relation to",
+      "mental_model_cn": "向，朝；对于，关于",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o4875-o5374.md",
+      "boundaries": [
+        {
+          "condition": "especially AmE",
+          "note": "toward is especially common in AmE",
+          "surface": "toward"
+        },
+        {
+          "condition": "especially BrE",
+          "note": "towards is common in BrE; same lexeme",
+          "surface": "towards"
+        }
+      ],
+      "type": "regional_spelling_word_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -25,7 +51,36 @@
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "向，朝",
+        "definition_en": "in the direction of",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "preposition",
+        "sense_id": "sense:toward:f0da906ff0d55e3e",
+        "sense_label_en": "in the direction of",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "对于，关于",
+        "definition_en": "in relation to",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "preposition",
+        "sense_id": "sense:toward:c4b395f9558d5caa",
+        "sense_label_en": "in relation to",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -47,31 +102,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:toward:c4b395f9558d5caa",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "preposition",
-      "definition_cn": "对于，关于",
-      "definition_en": "in relation to",
-      "semantic_key": "0ad8f55ec3e467fdba8c3179cb1b739fc31c4463233f980a9b5994a974210d9d",
-      "semantic_key_history": [
-        "78c61b21775614daf461aa68694f93b08a5961cdeac214bcabbc45216cf04c3a"
-      ],
-      "legacy_aliases": [
-        "toward:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "toward:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14445,
-      "source_path": "content/lexical/canonical/senses/shards/o5057-5088.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:toward:e00230dea56b584a",
       "status": "deprecated",
@@ -96,38 +126,13 @@
       "source_row": 14446,
       "source_path": "content/lexical/canonical/senses/shards/o5057-5088.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:toward:f0da906ff0d55e3e",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "preposition",
-      "definition_cn": "向，朝",
-      "definition_en": "in the direction of",
-      "semantic_key": "d0362994d0655db409921b397e9f53e9008c6a0d605122911eccc40465c95791",
-      "semantic_key_history": [
-        "2e57aeea4faeddf4275663685672dbf346c80224341f4b11ab59abff09987719"
-      ],
-      "legacy_aliases": [
-        "toward:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "toward:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14447,
-      "source_path": "content/lexical/canonical/senses/shards/o5057-5088.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:toward:c4b395f9558d5caa",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14445,
         "source_path": "content/lexical/canonical/senses/shards/o5057-5088.json"
@@ -141,7 +146,7 @@
       },
       {
         "sense_id": "sense:toward:f0da906ff0d55e3e",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14447,
         "source_path": "content/lexical/canonical/senses/shards/o5057-5088.json"
@@ -198,11 +203,19 @@
       "ordinal": 5076,
       "word_shard": "content/lexical/canonical/words/shards/o5073-5080.json",
       "auxiliary_locator": "content/lexical/canonical/lookup/word-id/6d.json"
+    },
+    {
+      "spelling": "towards",
+      "source": "content/lexical/canonical/lookup/spelling/to.json",
+      "word_id": "word:toward",
+      "ordinal": 5076,
+      "word_shard": "content/lexical/canonical/words/shards/o5073-5080.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/6d.json"
     }
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5073-5080.json",
-    "source_content_hash": "493dce4ad7dd7d0c09ca85d6901635ae10dd4da37e23d906e7636e8ef5840872",
+    "source_content_hash": "47b94008f43cc60779fc71b0532bf00ed1f3c9206dae1959299862deec6872bd",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

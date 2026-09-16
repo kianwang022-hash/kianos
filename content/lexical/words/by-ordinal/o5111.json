@@ -27,7 +27,7 @@
         "fact_id": "deep:constructions:trap:0ba2d0b3e60355f1",
         "family_sources": [],
         "label_en": null,
-        "level": null,
+        "level": "L2",
         "meaning_cn": "诱使某人做某事",
         "module": "constructions",
         "pattern": "trap sb into doing sth",
@@ -57,7 +57,7 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "166ed0b82897ed52a44766fa33e93c5ca34773f759c7b0313444860dfd28cd24",
+    "content_hash": "4bdac6882d48162a21dbd784a745bbda400e1258becaf4b4da55183e651a5104",
     "core_concept": {
       "core_clusters": [
         {
@@ -71,17 +71,19 @@
           ]
         },
         {
-          "label_cn": "诱捕；捕捉；诱骗；使落入圈套；困住；使受限制",
-          "label_en": "to catch in a trap; to trick someone into doing something; to confine or hold in a place",
+          "label_cn": "诱捕；捕捉；困住；使受限制；诱骗；使落入圈套",
+          "label_en": "to catch in a trap; to confine or hold in a place; to trick someone into doing something",
           "pos": "verb",
           "sense_ids": [
-            "sense:trap:fb416ff13c205081"
+            "sense:trap:fb416ff13c205081",
+            "sense:trap:e564420b24ef5bf5",
+            "sense:trap:3fe2c8f97ac75737"
           ]
         }
       ],
-      "core_meaning_cn": "陷阱；诱捕",
-      "core_meaning_en": "a device or trick to catch something, or to catch in such",
-      "mental_model_cn": "陷阱；诱捕",
+      "core_meaning_cn": "陷阱；捕捉器；圈套；诡计；诱捕；捕捉；存水弯；U形管；困住；使受限制；诱骗；使落入圈套",
+      "core_meaning_en": "a device for catching animals or people; a trick to deceive someone; to catch in a trap; a U-shaped pipe section that prevents sewer gas; to confine or hold in a place; to trick someone into doing something",
+      "mental_model_cn": "陷阱；捕捉器；圈套；诡计；诱捕；捕捉；存水弯；U形管；困住；使受限制；诱骗；使落入圈套",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -238,6 +240,34 @@
         "sense_label_en": "a U-shaped pipe section that prevents sewer gas",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "困住；使受限制",
+        "definition_en": "to confine or hold in a place",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:trap:e564420b24ef5bf5",
+        "sense_label_en": "to confine or hold in a place",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "诱骗；使落入圈套",
+        "definition_en": "to trick someone into doing something",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:trap:3fe2c8f97ac75737",
+        "sense_label_en": "to trick someone into doing something",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -260,58 +290,7 @@
     "word_id": "word:trap"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:trap:3fe2c8f97ac75737",
-      "status": "merged",
-      "merged_into_sense_id": "sense:trap:fb416ff13c205081",
-      "pos": "verb",
-      "definition_cn": "诱骗；使落入圈套",
-      "definition_en": "to trick someone into doing something",
-      "semantic_key": "00c5881946dbee20fb83c3bc72f0becc095e114ac6830c2c65566042592e8296",
-      "semantic_key_history": [
-        "34aeb6ee12c4b91040a825791ff64d680d5cbebb1b260b45a88c5785c3ac2f4f"
-      ],
-      "legacy_aliases": [
-        "trap:l2:5"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "trap:l2:5",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14548,
-      "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:trap:e564420b24ef5bf5",
-      "status": "merged",
-      "merged_into_sense_id": "sense:trap:fb416ff13c205081",
-      "pos": "verb",
-      "definition_cn": "困住；使受限制",
-      "definition_en": "to confine or hold in a place",
-      "semantic_key": "e27680bce10722edfcd9da50122a4d7e4c266d7aeae1ce686f5d02c439950dc0",
-      "semantic_key_history": [
-        "d21a4488031cf458140420d59cdd3397f04bcf4504ae366568d1bcd738e323b9"
-      ],
-      "legacy_aliases": [
-        "trap:l3:6"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "trap:l3:6",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14551,
-      "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -323,8 +302,8 @@
       },
       {
         "sense_id": "sense:trap:3fe2c8f97ac75737",
-        "status": "merged",
-        "merged_into_sense_id": "sense:trap:fb416ff13c205081",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 14548,
         "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json"
       },
@@ -344,8 +323,8 @@
       },
       {
         "sense_id": "sense:trap:e564420b24ef5bf5",
-        "status": "merged",
-        "merged_into_sense_id": "sense:trap:fb416ff13c205081",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 14551,
         "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json"
       },
@@ -438,7 +417,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5105-5112.json",
-    "source_content_hash": "166ed0b82897ed52a44766fa33e93c5ca34773f759c7b0313444860dfd28cd24",
+    "source_content_hash": "4bdac6882d48162a21dbd784a745bbda400e1258becaf4b4da55183e651a5104",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
