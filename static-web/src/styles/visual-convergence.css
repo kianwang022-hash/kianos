@@ -121,3 +121,9 @@ body.surfaceBody-home .commandGrid .commandSubject .englishResume>a { flex-shrin
   .commandSupportSection { padding-top: 14px; padding-bottom: 14px; }
   .commandGuideLinks a { padding-top: 8px; padding-bottom: 8px; }
 }
+
+/* Added Home navigation must not squeeze long labels into equal-width cells. */
+@media(max-width:760px) {
+  .productBar .productNav { overflow-x: auto; justify-content: flex-start; }
+  .productBar .productNavItem { flex: 0 0 auto; min-width: max-content; }
+}

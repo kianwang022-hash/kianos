@@ -46,10 +46,10 @@ async function capture(name, url, viewport = { width: 1536, height: 864 }, act) 
     const metrics = await page.evaluate(() => {
       const rect = selector => [...document.querySelectorAll(selector)].filter(e => e.getClientRects().length).slice(0, 20).map(e => {
         const r = e.getBoundingClientRect(); const s = getComputedStyle(e);
-        return { selector, text: e.textContent.trim().slice(0, 90), x: r.x, y: r.y, width: r.width, height: r.height, bottom: r.bottom, font: s.fontFamily, size: s.fontSize, weight: s.fontWeight, overflowY: s.overflowY };
+        return { selector, text: e.textContent.trim().slice(0, 90), x: r.x, y: r.y, width: r.width, height: r.height, bottom: r.bottom, scrollWidth: e.scrollWidth, clientWidth: e.clientWidth, font: s.fontFamily, size: s.fontSize, weight: s.fontWeight, overflowY: s.overflowY };
       });
       return { url: location.pathname, viewport: { width: innerWidth, height: innerHeight }, scroll: { width: document.documentElement.scrollWidth, height: document.documentElement.scrollHeight }, bodyFont: getComputedStyle(document.body).fontFamily, bodySize: getComputedStyle(document.body).fontSize,
-        visible: ['.productBar','.productCanvas','.homeGrid','.homeLane','.homeCurrentStrip','.commandHeader','.commandSubjects','.commandSubject','.commandFoot','.englishResume','.englishCapabilityLayout','.englishCapabilityGroup','.englishFirstLearning','.portedReadingWorkspace','.portedReadingColumns','.portedReadingPassage','.portedReadingQuestions','.readingWorkspace','.readingPassage','.readingQuestionPane','h1'].flatMap(rect),
+        visible: ['.productBar','.productNavItem','.productCanvas','.homeGrid','.homeLane','.homeCurrentStrip','.commandHeader','.commandSubjects','.commandSubject','.commandFoot','.englishResume','.englishCapabilityLayout','.englishCapabilityGroup','.englishFirstLearning','.portedReadingWorkspace','.portedReadingColumns','.portedReadingPassage','.portedReadingQuestions','.readingWorkspace','.readingPassage','.readingQuestionPane','h1'].flatMap(rect),
         localStorageKeys: Object.keys(localStorage).sort() };
     });
     const cdp = await context.newCDPSession(page);
@@ -69,6 +69,7 @@ async function capture(name, url, viewport = { width: 1536, height: 864 }, act) 
     if (metrics.scroll.height > viewport.height + 3 && metrics.scroll.height < 6000) await page.screenshot({ path: path.join(out, `${name}-full.png`), fullPage: true });
     report.pages.push({ name, ...metrics, platformFonts: platformFonts.fonts, errors });
     if (errors.length) report.failures.push({ name, errors });
+    if (metrics.visible.some(box => box.selector === '.productNavItem' && box.scrollWidth > box.clientWidth + 1)) report.failures.push({ name, error: 'Navigation label overflows its control' });
     if (metrics.scroll.width > viewport.width + 1) report.failures.push({ name, error: 'Horizontal page overflow' });
     if (url === '/' && viewport.width >= 1280) {
       if (metrics.scroll.height > viewport.height + 1) report.failures.push({ name, error: 'Desktop Home is not a single viewport', height: metrics.scroll.height });
