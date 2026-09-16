@@ -109,6 +109,10 @@ jobs:
         run: node scripts/validate-xizong-source-visuals.mjs
       - name: Build Astro
         run: npm run build
+      - name: Install isolated browser acceptance tool
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
       - name: Execute progressive Source Visual browser journey
         run: node scripts/test-xizong-a2-progressive-source-visual.mjs
       - name: Upload progressive Source Visual evidence
