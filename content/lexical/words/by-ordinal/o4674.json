@@ -7,12 +7,23 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "fe2aa47d7669cb653d4faac643e1f0806ee8d3211a3ce3da1321a050a67c8657",
+    "content_hash": "49c4df83d405665ab4b112117f78958e6d8cba4e236a2bc5a21df152c9bf901e",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "因缺乏食物而受苦或死亡",
-      "core_meaning_en": "to suffer or die from lack of food",
-      "mental_model_cn": "因缺乏食物而受苦或死亡",
+      "core_clusters": [
+        {
+          "label_cn": "挨饿；饿死；非常饥饿；使挨饿；使饿死",
+          "label_en": "to suffer or die because you do not have enough food; to be very hungry; to make someone suffer or die by not giving them food",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:starve:58636bd6b6675d40",
+            "sense:starve:265dec8cac215bba",
+            "sense:starve:9e3e807fc9c95d19"
+          ]
+        }
+      ],
+      "core_meaning_cn": "挨饿；饿死；非常饥饿；使挨饿；使饿死",
+      "core_meaning_en": "to suffer or die because you do not have enough food; to be very hungry; to make someone suffer or die by not giving them food",
+      "mental_model_cn": "挨饿；饿死；非常饥饿；使挨饿；使饿死",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -98,6 +109,20 @@
         "sense_label_en": "to be very hungry",
         "sort_order": 2,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "使挨饿；使饿死",
+        "definition_en": "to make someone suffer or die by not giving them food",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:starve:9e3e807fc9c95d19",
+        "sense_label_en": "to make someone suffer or die by not giving them food",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -120,31 +145,7 @@
     "word_id": "word:starve"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:starve:9e3e807fc9c95d19",
-      "status": "merged",
-      "merged_into_sense_id": "sense:starve:58636bd6b6675d40",
-      "pos": "verb",
-      "definition_cn": "使挨饿；使饿死",
-      "definition_en": "to make someone suffer or die by not giving them food",
-      "semantic_key": "138bc2775bfbe0948607ed267770be6c2330a04a6e11099ff20dbc6ec414df18",
-      "semantic_key_history": [],
-      "legacy_aliases": [
-        "starve:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "starve:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-08-22T05:00:00+00:00",
-      "source_row": 13271,
-      "source_path": "content/lexical/canonical/senses/shards/o4673-4704.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -163,8 +164,8 @@
       },
       {
         "sense_id": "sense:starve:9e3e807fc9c95d19",
-        "status": "merged",
-        "merged_into_sense_id": "sense:starve:58636bd6b6675d40",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 13271,
         "source_path": "content/lexical/canonical/senses/shards/o4673-4704.json"
       }
@@ -235,7 +236,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4673-4680.json",
-    "source_content_hash": "fe2aa47d7669cb653d4faac643e1f0806ee8d3211a3ce3da1321a050a67c8657",
+    "source_content_hash": "49c4df83d405665ab4b112117f78958e6d8cba4e236a2bc5a21df152c9bf901e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

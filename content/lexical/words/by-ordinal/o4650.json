@@ -7,21 +7,29 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "15da3a04b589943649f08a177ca74a5cda85415e34b69ed95e9b2f40e9818af1",
+    "content_hash": "e29ddd85979e2cf73ee3575d9ff0a5c32a806bb8572367c8088ebd6b787ff779",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "整齐的堆，叠；大量，许多；（计算机）堆栈",
-          "label_en": "an orderly pile; a large quantity or number; a storage area in a computer for temporary data",
+          "label_cn": "整齐的堆，叠",
+          "label_en": "an orderly pile",
           "pos": "noun",
           "sense_ids": [
             "sense:stack:9aa1b6105705572b"
           ]
+        },
+        {
+          "label_cn": "把...堆起来，叠放",
+          "label_en": "arrange in stacks",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:stack:2c897538a17a551c"
+          ]
         }
       ],
-      "core_meaning_cn": "堆叠，堆积",
-      "core_meaning_en": "an orderly pile or to arrange in a pile",
-      "mental_model_cn": "堆叠，堆积",
+      "core_meaning_cn": "整齐的堆，叠；把...堆起来，叠放",
+      "core_meaning_en": "an orderly pile; arrange in stacks",
+      "mental_model_cn": "整齐的堆，叠；把...堆起来，叠放",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -55,6 +63,20 @@
         "sense_label_en": "an orderly pile",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "把...堆起来，叠放",
+        "definition_en": "arrange in stacks",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:stack:2c897538a17a551c",
+        "sense_label_en": "arrange in stacks",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -100,31 +122,6 @@
       ],
       "updated_at": "2026-09-09T00:00:00Z",
       "source_row": 13183,
-      "source_path": "content/lexical/canonical/senses/shards/o4641-4672.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:stack:2c897538a17a551c",
-      "status": "merged",
-      "merged_into_sense_id": "sense:stack:9aa1b6105705572b",
-      "pos": "verb",
-      "definition_cn": "把...堆起来，叠放",
-      "definition_en": "arrange in stacks",
-      "semantic_key": "235552d05b76f83881cfdf165c3cf4acf76dd552f5d0c08203d05a402a0772e8",
-      "semantic_key_history": [
-        "f19797983af71dbb95066f63a36cfc60c347a3a6ffcd546dc02e17899f17a0dc"
-      ],
-      "legacy_aliases": [
-        "stack:l1:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "stack:l1:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 13184,
       "source_path": "content/lexical/canonical/senses/shards/o4641-4672.json",
       "reference_only": true
     },
@@ -215,8 +212,8 @@
       },
       {
         "sense_id": "sense:stack:2c897538a17a551c",
-        "status": "merged",
-        "merged_into_sense_id": "sense:stack:9aa1b6105705572b",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 13184,
         "source_path": "content/lexical/canonical/senses/shards/o4641-4672.json"
       },
@@ -321,7 +318,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4649-4656.json",
-    "source_content_hash": "15da3a04b589943649f08a177ca74a5cda85415e34b69ed95e9b2f40e9818af1",
+    "source_content_hash": "e29ddd85979e2cf73ee3575d9ff0a5c32a806bb8572367c8088ebd6b787ff779",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
