@@ -40,20 +40,19 @@ def production_blocks(path:Path):
     return out
 
 def owner_marker(line:str):
-    return re.match(r'^\s*(?:-\s+\*\*|-\s+|\|\s*)o(\d{4})\b',line)
+    # Audit packs use several exact owner-row spellings, including:
+    # - **o4376 shame**, - o4376 ..., - `o4629 sponge`, and table rows.
+    return re.match(r'^\s*(?:-\s+(?:\*\*|`)?|\|\s*`?)o(\d{4})\b',line)
 
 def audit_hits(path:Path,ordinal:int):
     lines=path.read_text(encoding='utf-8').splitlines(); key=f'o{ordinal:04d}'; hits=[]
     for i,line in enumerate(lines):
         if key not in line: continue
         marker=owner_marker(line)
-        # Only exact owner rows/bullets are semantic instructions. Broad provenance,
-        # scope lists and neighboring-owner paragraphs are deliberately ignored.
         if not marker or int(marker.group(1))!=ordinal: continue
         ctx=[line]; j=i+1
         while j<len(lines):
             if owner_marker(lines[j]) or lines[j].startswith('## ') or lines[j].startswith('### '): break
-            # Preserve genuinely indented continuation lines only.
             if lines[j].startswith('  ') and lines[j].strip(): ctx.append(lines[j])
             elif lines[j].strip(): break
             j+=1
