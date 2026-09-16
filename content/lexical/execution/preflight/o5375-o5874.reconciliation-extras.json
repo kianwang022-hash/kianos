@@ -1,0 +1,239 @@
+{
+  "schema": "kianos.lexical.reconciliation_extras.v1",
+  "package": [
+    5375,
+    5874
+  ],
+  "production_identity_escalations": [
+    {
+      "ordinal": 5505,
+      "word": "airplane",
+      "source": "content/lexical/semantic-review/o5375-o5624.md",
+      "remote_refs": [
+        98
+      ],
+      "excerpt": "- Current lookup has separate `aeroplane@o0098`. Add a regional-equivalent relation `airplane` (especially AmE) ↔ `aeroplane` (especially BrE) and **ESCALATE_IDENTITY** rather than silently merging or creating another duplicate."
+    },
+    {
+      "ordinal": 5526,
+      "word": "disk",
+      "source": "content/lexical/semantic-review/o5375-o5624.md",
+      "remote_refs": [
+        1405
+      ],
+      "excerpt": "- Current lookup has separate `disc@o1405`. Add a sense-bounded `disk ↔ disc` Form/identity reconciliation: `disk` is standard in computing/magnetic-storage contexts and common AmE generally, while `disc` is conventional for optical discs and common in BrE/anatomical contexts. **ESCALATE_IDENTITY**; do not whole-word merge blindly."
+    },
+    {
+      "ordinal": 5529,
+      "word": "enroll",
+      "source": "content/lexical/semantic-review/o5375-o5624.md",
+      "remote_refs": [
+        1669
+      ],
+      "excerpt": "- Current lookup has separate `enrol@o1669`. Treat `enroll`/`enrol` as regional spelling identity (AmE usually `enroll`, BrE often `enrol`) and **ESCALATE_IDENTITY** rather than duplicating meaning."
+    },
+    {
+      "ordinal": 5532,
+      "word": "fertilizer",
+      "source": "content/lexical/semantic-review/o5375-o5624.md",
+      "remote_refs": [
+        1907
+      ],
+      "excerpt": "- Current lookup has separate `fertiliser@o1907`. Treat `fertilizer`/`fertiliser` as regional spelling identity and **ESCALATE_IDENTITY**; preserve the single semantic fertilizer branch."
+    },
+    {
+      "ordinal": 5553,
+      "word": "inquire",
+      "source": "content/lexical/semantic-review/o5375-o5624.md",
+      "remote_refs": [
+        1666
+      ],
+      "excerpt": "- Current lookup has separate `enquire@o1666`. Add regional/style boundary and **ESCALATE_IDENTITY**: `inquire` is standard in AmE; BrE uses both, with `enquire` common for ordinary asking and `inquire` often formal/official. Add `inquire about` and `inquire into`."
+    },
+    {
+      "ordinal": 5554,
+      "word": "inquiry",
+      "source": "content/lexical/semantic-review/o5375-o5624.md",
+      "remote_refs": [
+        1667
+      ],
+      "excerpt": "- Current lookup has separate `enquiry@o1667`. Add the corresponding regional/style identity boundary and **ESCALATE_IDENTITY**; keep ordinary request-for-information vs official-investigation senses, with `inquiry into sth` explicit."
+    },
+    {
+      "ordinal": 5560,
+      "word": "kilometer",
+      "source": "content/lexical/semantic-review/o5375-o5624.md",
+      "remote_refs": [
+        2708
+      ],
+      "excerpt": "- Current lookup has separate `kilometre@o2708`. Treat `kilometer`/`kilometre` as AmE/BrE spelling identity and **ESCALATE_IDENTITY**; same unit, no semantic duplication."
+    },
+    {
+      "ordinal": 5564,
+      "word": "liter",
+      "source": "content/lexical/semantic-review/o5375-o5624.md",
+      "remote_refs": [
+        2855
+      ],
+      "excerpt": "- Current lookup has separate `litre@o2855`. Treat `liter`/`litre` as AmE/BrE spelling identity and **ESCALATE_IDENTITY**; same metric unit."
+    },
+    {
+      "ordinal": 5576,
+      "word": "organize",
+      "source": "content/lexical/semantic-review/o5375-o5624.md",
+      "remote_refs": [
+        3375
+      ],
+      "excerpt": "- Current lookup has separate `organise@o3375`. Treat `organize`/`organise` as regional spelling identity and **ESCALATE_IDENTITY**; this must reconcile with the already-known `organise ↔ organize@o5576` implementation escalation, not create duplicate semantics."
+    },
+    {
+      "ordinal": 5578,
+      "word": "outskirt",
+      "source": "content/lexical/semantic-review/o5375-o5624.md",
+      "remote_refs": [
+        3406
+      ],
+      "excerpt": "- Current lookup has separate `outskirts@o3406`, while ordinary learner usage is overwhelmingly plural. **ESCALATE_IDENTITY/number ownership** so `the outskirts` + `on the outskirts of` is primary and singular `outskirt` does not compete as an equal semantic owner."
+    },
+    {
+      "ordinal": 5594,
+      "word": "realize",
+      "source": "content/lexical/semantic-review/o5375-o5624.md",
+      "remote_refs": [
+        3962
+      ],
+      "excerpt": "- Current lookup has separate `realise@o3962`: **ESCALATE_IDENTITY** for regional spelling. Also add finance/business `realize assets/a profit` = convert assets into money / obtain a monetary return, distinct from 'become aware' and 'make real'."
+    },
+    {
+      "ordinal": 5596,
+      "word": "recognize",
+      "source": "content/lexical/semantic-review/o5375-o5624.md",
+      "remote_refs": [
+        3988
+      ],
+      "excerpt": "- Current lookup has separate `recognise@o3988`: **ESCALATE_IDENTITY** for regional spelling. Add high-value grammar `recognize A as B` and `recognize that + clause` under the existing acknowledge/identify branches."
+    },
+    {
+      "ordinal": 5654,
+      "word": "analogue",
+      "source": "content/lexical/semantic-review/o5625-o5874.md",
+      "remote_refs": [
+        186
+      ],
+      "excerpt": "Current lookup has separate owners `analog@o0186` and `analogue@o5654`. Treat this as regional spelling/identity reconciliation (`ESCALATE_IDENTITY`), not a same-owner blind alias; preserve the noun analogue and analog/analogue technical adjective boundaries."
+    },
+    {
+      "ordinal": 5739,
+      "word": "cozy",
+      "source": "content/lexical/semantic-review/o5625-o5874.md",
+      "remote_refs": [
+        1111
+      ],
+      "excerpt": "Current lookup has separate `cosy@o1111` and `cozy@o5739` owners. Treat them as regional spelling/identity reconciliation (`ESCALATE_IDENTITY`), not two independent meanings or a blind same-owner alias."
+    },
+    {
+      "ordinal": 5840,
+      "word": "glamour",
+      "source": "content/lexical/semantic-review/o5625-o5874.md",
+      "remote_refs": [
+        2140
+      ],
+      "excerpt": "Current lookup has separate `glamor@o2140` and `glamour@o5840` owners. Treat this as regional spelling/identity reconciliation (`ESCALATE_IDENTITY`), preserving one semantic concept rather than independently evolving duplicates."
+    }
+  ],
+  "production_identity_escalation_count": 15,
+  "all_out_of_range_references_by_source": {
+    "content/lexical/semantic-review/o5375-o5624.md": [
+      98,
+      1405,
+      1666,
+      1667,
+      1669,
+      1907,
+      2708,
+      2855,
+      3375,
+      3406,
+      3575,
+      3931,
+      3962,
+      3988
+    ],
+    "content/lexical/semantic-review/o5625-o5874.md": [
+      186,
+      1111,
+      2140
+    ],
+    "content/lexical/semantic-audit/o5225-o5424.audit.md": [
+      104,
+      2635
+    ],
+    "content/lexical/semantic-audit/o5425-o5624.audit.md": [
+      4168,
+      4300,
+      4413,
+      5339
+    ],
+    "content/lexical/semantic-audit/o5625-o5824.audit.md": [
+      186,
+      1111
+    ],
+    "content/lexical/semantic-audit/o5825-o6024.audit.md": [
+      2140,
+      2567,
+      2967,
+      3063,
+      3472,
+      5902,
+      5960,
+      5977,
+      5999,
+      6000,
+      6001,
+      6010,
+      6011,
+      6023,
+      7182
+    ]
+  },
+  "all_out_of_range_references": [
+    98,
+    104,
+    186,
+    1111,
+    1405,
+    1666,
+    1667,
+    1669,
+    1907,
+    2140,
+    2567,
+    2635,
+    2708,
+    2855,
+    2967,
+    3063,
+    3375,
+    3406,
+    3472,
+    3575,
+    3931,
+    3962,
+    3988,
+    4168,
+    4300,
+    4413,
+    5339,
+    5902,
+    5960,
+    5977,
+    5999,
+    6000,
+    6001,
+    6010,
+    6011,
+    6023,
+    7182
+  ],
+  "status": "COMPILED_FOR_SOL_RECONCILIATION"
+}
