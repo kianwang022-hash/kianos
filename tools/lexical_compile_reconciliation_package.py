@@ -2,7 +2,8 @@
 """Compile one bounded Lexical Sol-reconciliation package from accepted handoffs.
 
 Accounting/transport only. Supports both accepted Production bullet formats:
-`- oNNNN **word**` and `- `oNNNN word` — ...`.
+`- oNNNN **word**` and `- `oNNNN word` — ...`, plus both backticked and
+plain verdict cells in accepted Audit tables.
 """
 from __future__ import annotations
 import argparse, json, re
@@ -27,7 +28,8 @@ def production_upgrades(text:str,start:int,end:int)->set[int]:
 
 def audit_verdicts(text:str,start:int,end:int)->dict[int,str]:
     out={}
-    inline=re.compile(r'(?m)^-\s+`?o(\d{4})\b[^\n]*?`(FLIP_TO_UPGRADE|FLIP_TO_NO_CHANGE|REFINE_UPGRADE|IDENTITY_RISK)`')
+    verdict=r'(FLIP_TO_UPGRADE|FLIP_TO_NO_CHANGE|REFINE_UPGRADE|IDENTITY_RISK)'
+    inline=re.compile(r'(?m)^-\s+`?o(\d{4})\b[^\n]*?`?'+verdict+r'`?')
     for m in inline.finditer(text):
         o=int(m.group(1))
         if start<=o<=end: out[o]=m.group(2)
@@ -35,10 +37,12 @@ def audit_verdicts(text:str,start:int,end:int)->dict[int,str]:
     for hm in heading.finditer(text):
         o=int(hm.group(1))
         if not(start<=o<=end): continue
-        vm=re.search(r'audit verdict:\s*(FLIP_TO_UPGRADE|FLIP_TO_NO_CHANGE|REFINE_UPGRADE|IDENTITY_RISK)',hm.group(0))
+        vm=re.search(r'audit verdict:\s*`?'+verdict+r'`?',hm.group(0))
         if vm: out[o]=vm.group(1)
-    # New audit table format: | `o5827` `forsake` | `FLIP_TO_UPGRADE` | ...
-    table=re.compile(r'(?m)^\|\s*`o(\d{4})`[^\n]*?\|\s*`(FLIP_TO_UPGRADE|FLIP_TO_NO_CHANGE|REFINE_UPGRADE|IDENTITY_RISK)`\s*\|')
+    # Accepted table forms include both:
+    # | `o5827` `forsake` | `FLIP_TO_UPGRADE` | ...
+    # | `o6027` | peck | NO_CHANGE | FLIP_TO_UPGRADE | ...
+    table=re.compile(r'(?m)^\|\s*`?o(\d{4})`?[^\n]*?\|\s*`?'+verdict+r'`?\s*\|')
     for m in table.finditer(text):
         o=int(m.group(1))
         if start<=o<=end: out[o]=m.group(2)
