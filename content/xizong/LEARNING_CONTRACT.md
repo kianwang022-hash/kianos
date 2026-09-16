@@ -386,3 +386,157 @@ A single content defect, runtime bug, bad mapping, UI friction or question error
 The durable direction is:
 
 > **medical truth first → causal learning continuity → source-faithful study → selective checkpoint/evidence → active reconstruction → evidence-driven repair → progressively thinner mastery.**
+
+---
+
+## 12｜Locked learner-facing flow and capability closure
+
+Status: **CURRENT FROZEN FLOW — change only by explicit Kian decision or real learner evidence that reopens L-level semantics.**
+
+This section closes the learner-facing ambiguities that previously allowed different Chats / Runtime iterations to reconstruct different workflows from the same owners. If older wording in this file is less specific about learner-facing sequencing, this section supplies the binding clarification; it does not replace System-specific Source-contact granularity or medical truth.
+
+### 12.1 One stable learner flow
+
+```text
+optional Guide for first-time understanding
+→ System Framework
+→ Block Framework
+→ continuous original-Lecture Source contact at the accepted System-specific granularity
+→ lightweight TTSX checkpoint only at a real reviewed boundary when bound questions exist
+→ return to the learned model
+→ Logic Group local target
+→ KP Learn
+→ KP Recall
+→ Logic Group closure
+→ Block Recall
+→ Block Complete
+→ after the whole System is actually learned: System Recall
+→ official System question sweep
+→ smallest-sufficient Repair / exact Return
+→ later Memory / Precision / marked review / second-pass reuse
+```
+
+The optional Guide and the formal Framework are different learner objects:
+
+- **Guide** is a small, skippable first-learning entrance. It may use more explanatory prose to explain why the System / Block is organized this way, why the major causal model matters, how the Blocks depend on each other, or which intuitive mistakes to avoid. Guide is not a recurring gate and must not become a second Lecture.
+- **System Framework** is the thin recurring system model: mother model / main chain, failure structure, judgment axes, key variables / relations and Block route. It should be Projection-first, not a page of prose questions.
+- **Block Framework** is the thin recurring local model: mechanism chain, comparison geometry, formula strip, boundaries and local route. It should also be Projection-first, not a page of prose questions.
+
+Historical prose may be used only as bounded provenance when migrating a missing Guide explanation layer; it never silently outranks Current System / Learning owners.
+
+### 12.2 Logic Group is lightweight
+
+A Logic Group is not a large independent learner page.
+
+Learner-facing LG behavior is:
+
+- show the current LG name and one short local target / problem;
+- immediately continue into the owning KP Learn surfaces;
+- show genuine LG-level Visual / Connection / Reserve support only when useful;
+- after the KP sequence, perform one brief local closure;
+- do not require an extra "enter this LG" ceremony or large completion screen.
+
+Source contact still follows the accepted System-specific natural segment. LG must never force an extra MarginNote trip merely because it exists as a retrieval unit.
+
+### 12.3 KP Learn and KP Recall are deliberately different
+
+**KP Learn** is a post-Source consolidation / structured-learning surface inside KianOS, not a replacement for the original Lecture.
+
+Default KP Learn surface:
+
+- show KP title and the canonical ultra-compressed `主提示`;
+- show the complete canonical Core **expanded by default**; no Reveal action is required for normal Learn;
+- show exact Lecture Source locator and Outline locator compactly at the top-right of the KP workspace;
+- use a dynamic auxiliary area for genuinely useful Visual / structured table / Precision / boundary / comparison / connection support;
+- when a useful Visual exists, give it real Mac-wide space rather than reducing it to a count or tiny inspector;
+- show concrete current Precision items directly when available; do not replace them with only `Precision × N` or another click-to-discover count;
+- Learn has no 1/2/3/4 Recall rating.
+
+`主提示` is an ultra-compressed retrieval trigger, normally keyword-first and structure/count/chain/contrast oriented. It is not a prose-question worksheet and must not leak the answer merely to sound conversational.
+
+**KP Recall** reuses the same compact prompt but starts answer-protected:
+
+- Core and every answer-bearing Visual / Precision / Extension / tooltip are hidden on the clean front;
+- `Space` reveals the Core in place and may restore stage-safe post-Reveal support;
+- Recall then records the learner rating / evidence;
+- Recall protection applies to the whole workspace, not only the center card.
+
+### 12.4 Learner layout invariants
+
+On normal Mac-wide Block learning:
+
+- the left Logic Map is narrow but comfortably readable; it exists only for location / lightweight navigation and must not become a second content column;
+- the primary learning region consumes most of the screen;
+- the auxiliary region is dynamic rather than a permanently tiny inspector: it may widen for a valuable Visual / table and shrink or disappear when no support is useful;
+- Source / Outline locators belong with the current KP identity, normally top-right, rather than consuming the auxiliary support area;
+- if no useful auxiliary asset exists, return that space to the Core;
+- avoid full-page card stacks and unnecessary vertical travel; long Core may scroll inside the stable learner workspace when useful.
+
+### 12.5 Precision Memory, Weak Memory, Marked and Repair are distinct
+
+Precision is an exactness attribute, but formally learned high-value current-owner Precision also needs a durable learner-facing review home.
+
+The learner-facing Memory / Review workspace therefore distinguishes:
+
+```text
+Precision
+= numbers / thresholds / drugs / classifications / times / markers / operations / exact pairings
+= admitted after the owning material has been formally learned and the item is current-owner Precision
+= may be repeatedly browsed / recalled even when the surrounding KP is conceptually understood
+= first-pass instability does not block the mechanism mainline
+= stable items may fall in priority but remain available in the all-Precision pool
+
+Weak
+= Core / KP / question material with real unstable Recall or Wrong / Uncertain evidence
+= evidence-driven, not created merely because an item is precise
+
+Marked
+= learner-selected local fragments of Prompt / Core worth seeing again
+= does not by itself mean the KP is weak, Wrong or Uncertain
+
+Repair
+= bounded tasks returned from Chat / official questions / discriminating checks
+= repair evidence does not overwrite the original observation or prove mastery
+```
+
+Reserve / Connection remains an inline Attention / future-return semantic. It does **not** deserve a separate top-level learner tab merely because a backend queue can represent it.
+
+### 12.6 Personal Prompt override and fragment marking are first-class learner state
+
+Kian may disagree with the generated/canonical Prompt wording or feel that only one small part of a KP is not yet familiar.
+
+Runtime must therefore support private learner state for:
+
+- **personal Prompt override** — Kian may edit the learner-facing Prompt used in Learn / Recall; the canonical Prompt remains preserved and restorable, and the private override never mutates canonical medical Core;
+- **fragment marking / highlighting** — Kian may mark exact text fragments inside the Prompt or Core for later attention;
+- marking is a learner-selected review signal, not an automatic weakness diagnosis;
+- Marked fragments may be surfaced in later lightweight review and must be included in Chat handoff / learning packets when relevant.
+
+A useful Chat handoff for a KP may therefore include the canonical Prompt, personal Prompt override, marked Prompt/Core fragments, Recall evidence, relevant Precision state and learner note/evidence context. This lets Chat distinguish "the KP is weak" from "the KP is mostly fine but this exact point is not yet familiar."
+
+A generic blank note box is not the primary representation of this need. The preferred interaction is annotation anchored to the actual Prompt / Core object, plus optional short notes only where they add value.
+
+### 12.7 Auxiliary capabilities do not become parallel products
+
+- Visual / Extension stays conditional and embeds into the owning learning moment.
+- TTSX remains a lightweight source-bound checkpoint; it is not a second question runtime.
+- reviewed Question Crosswalk remains a query / routing capability and must not occupy the normal first-pass mainline as a large persistent panel.
+- progress, evidence versioning, source hashes, repair inboxes and persistence guards remain background capabilities; they should not become learner-facing workflow dashboards.
+- official questions remain one reusable question product across passes, not separate first/second-pass apps.
+
+### 12.8 Non-drift rule for future Chats and implementations
+
+Future Xizong Chats must not reconstruct a different learner model from old screenshots, historical Guides, stale PR discussions, current DOM quirks or implementation convenience.
+
+For learner-flow questions, the required interpretation order is:
+
+```text
+content/xizong/CURRENT.md
+→ this LEARNING_CONTRACT.md, especially §12 when learner-facing flow/capabilities are material
+→ study-policy.json for machine execution detail
+→ exact System-specific Learning owner for local Source-contact / LG differences
+→ Product / Projection contracts for presentation and rendering
+→ Runtime only as implementation evidence
+```
+
+If Product / Runtime currently lacks one of the capabilities above, that is an implementation / projection closure defect, not permission to silently redefine the learner flow. If a future real-use finding suggests the flow itself should change, reopen this contract explicitly rather than creating a second unofficial variant.
