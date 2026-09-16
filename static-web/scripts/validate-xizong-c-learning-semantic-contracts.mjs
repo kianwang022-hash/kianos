@@ -120,8 +120,12 @@ for (const blockId of ['hematology-h15','hematology-h16','hematology-h17','hemat
   if (!text.includes('证据') && !text.includes('抗体')) fail(`rheum-evidence-role-model-lost:${blockId}`);
 }
 
+// H21 must stay an integration/routing owner instead of becoming a second organ-specific TB course.
 const h21 = blocks.get('hematology-h21');
-if (!String(h21?.stop_line || '').includes('不扩')) fail('h21-owner-boundary-lost');
+const h21g3 = h21?.logic_groups?.['c-h21-lg03'];
+if (!String(h21?.first_pass_focus || '').includes('跨器官') || !String(h21?.stop_line || '').includes('不重复')) fail('h21-owner-boundary-lost');
+if (!h21g3?.jobs?.includes('BOUNDARY_RECALL')) fail('h21-owner-return-job-lost');
+if (!String(h21g3?.goal || '').includes('canonical owner') || !String(h21g3?.closure || '').includes('Primary owner')) fail('h21-owner-return-closure-lost');
 
 const h24 = blocks.get('hematology-h24');
 if (!String(h24?.first_pass_focus || '').includes('分别建立')) fail('h24-two-unit-orientation-lost');
@@ -161,6 +165,7 @@ console.log(JSON.stringify({
   h9_evidence_roles: 'MORPH_CYTOCHEMISTRY_THEN_FLOW_GENETICS',
   h11_structure_first: 'BIOPSY_ARCHITECTURE_BEFORE_MARKERS',
   h12_source_boundary: 'MINIMUM_LANGUAGE_NO_FULL_NORMAL_IMMUNOLOGY_BACKFILL',
+  h21_owner_boundary: 'CROSS_ORGAN_INTEGRATION_WITH_RETURN_TO_PRIMARY_OWNERS',
   first_pass_source_continuity: 'BLOCK_OR_CANONICAL_SOURCE_UNIT_NO_DEFAULT_LG_BOUNCE',
   phase3e_accounting: '34 / cumulative 133',
   verdict: root.acceptance.verdict,
