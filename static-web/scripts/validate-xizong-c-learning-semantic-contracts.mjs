@@ -105,9 +105,15 @@ if (!h11Focus.includes('活检') || !h11Focus.includes('结构')) fail('h11-stru
 const h11g1 = h11?.logic_groups?.['c-h11-lg01'];
 if (!h11g1?.jobs?.includes('EVIDENCE_STACK') || !String(h11g1?.closure || '').includes('tissue architecture')) fail('h11-biopsy-architecture-role-lost');
 
+// H12 boundary is semantic: bounded interfaces + explicit unsupported normal-immunology stop lines.
 const h12 = blocks.get('hematology-h12');
+const h12g1 = h12?.logic_groups?.['c-h12-lg01'];
+const h12g4 = h12?.logic_groups?.['c-h12-lg04'];
 const h12Stop = String(h12?.stop_line || '');
-if (!h12Stop.includes('不补') || !h12Stop.includes('免疫')) fail('h12-normal-immunology-boundary-lost');
+if (!h12Stop.includes('补体') || !h12Stop.includes('APC') || !h12Stop.includes('细胞因子') || !h12Stop.includes('淋巴细胞发育')) fail('h12-normal-immunology-boundary-lost');
+if (!h12g1?.jobs?.includes('BOUNDARY_RECALL') || !h12g4?.jobs?.includes('BOUNDARY_RECALL')) fail('h12-boundary-recall-role-lost');
+if (!String(h12g1?.closure || '').includes('outside Current Source')) fail('h12-minimum-language-source-boundary-lost');
+if (!String(h12g4?.closure || '').includes('unsupported tolerance-loss mechanisms')) fail('h12-tolerance-gap-boundary-lost');
 
 for (const blockId of ['hematology-h15','hematology-h16','hematology-h17','hematology-h18','hematology-h19']) {
   const text = JSON.stringify(blocks.get(blockId));
@@ -154,6 +160,7 @@ console.log(JSON.stringify({
   h6_source_continuity_challenge: 'RESOLVED',
   h9_evidence_roles: 'MORPH_CYTOCHEMISTRY_THEN_FLOW_GENETICS',
   h11_structure_first: 'BIOPSY_ARCHITECTURE_BEFORE_MARKERS',
+  h12_source_boundary: 'MINIMUM_LANGUAGE_NO_FULL_NORMAL_IMMUNOLOGY_BACKFILL',
   first_pass_source_continuity: 'BLOCK_OR_CANONICAL_SOURCE_UNIT_NO_DEFAULT_LG_BOUNCE',
   phase3e_accounting: '34 / cumulative 133',
   verdict: root.acceptance.verdict,
