@@ -7,37 +7,46 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "bb82002088a650533a5e8132939f0847cd8c9798c27bc9d603fb07cf7531ee2d",
+    "content_hash": "2608d12d430c25822b33de5a43be9d4cee149bf8244f0d23db20d9cf852193c9",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "队列，长队；辫子",
-          "label_en": "a line of people or vehicles waiting for something; a braid of hair at the back of the head",
+          "label_cn": "队列；长队",
+          "label_en": "a line of people or vehicles waiting",
           "pos": "noun",
           "sense_ids": [
-            "sense:queue:e44024e301e45403",
-            "sense:queue:74e5193a14955ea9"
+            "sense:queue:e44024e301e45403"
           ]
         },
         {
-          "label_cn": "排队；将...排入队列",
-          "label_en": "to wait in a line of people or vehicles; to arrange or store data in a queue",
+          "label_cn": "排队；列队等候",
+          "label_en": "wait or form a line",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:queue:cebf61132cdc5f87"
+          ]
+        },
+        {
+          "label_cn": "将数据排入队列",
+          "label_en": "arrange or store data in a queue",
           "pos": "verb",
           "sense_ids": [
             "sense:queue:8061e3485b8457d5"
           ]
         }
       ],
-      "core_meaning_cn": "队列，排队",
-      "core_meaning_en": "a line of people or things waiting, or to form such a line",
-      "mental_model_cn": "队列，排队",
+      "core_meaning_cn": "队列；排队；计算中的队列",
+      "core_meaning_en": "a queue/line; to queue; also a computing queue",
+      "mental_model_cn": "队列；排队；计算中的队列",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3875-o4124"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -121,6 +130,30 @@
         "sense_label_en": "to arrange or store data in a queue",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:f0ac5a14e3049695c89a",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:queue:cebf61132cdc5f87:collocation:forward-o3875-o4124"
+            ],
+            "meaning_cn": "排队；排队等候某物",
+            "phrase": "queue up / queue for sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "排队；列队等候",
+        "definition_en": "to wait or form a line of people or vehicles",
+        "governing_pattern": "vi. + up / for",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:queue:cebf61132cdc5f87",
+        "sense_label_en": "to wait or form a line of people or vehicles",
+        "sort_order": 3,
+        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -143,33 +176,7 @@
     "word_id": "word:queue"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:queue:cebf61132cdc5f87",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "排队",
-      "definition_en": "to wait in a line of people or vehicles",
-      "semantic_key": "0aa1d33af9a9251ca960ee4af6da2fdf2d891b391489a739403043143ebf1779",
-      "semantic_key_history": [
-        "02ae44fcfe01846091660af8d20303f26502a12f46cc9e1a1f68262eb2777de7"
-      ],
-      "legacy_aliases": [
-        "queue:l1:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "queue:l1:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10863,
-      "source_path": "content/lexical/canonical/senses/shards/o3905-3936.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -188,7 +195,7 @@
       },
       {
         "sense_id": "sense:queue:cebf61132cdc5f87",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10863,
         "source_path": "content/lexical/canonical/senses/shards/o3905-3936.json"
@@ -205,7 +212,8 @@
       "collocation:0a8c939146bf47c9a8bd",
       "collocation:833145a59cd939b1af2f",
       "collocation:96f71564cff2b01c49b7",
-      "collocation:ec5deee06f0096918135"
+      "collocation:ec5deee06f0096918135",
+      "collocation:f0ac5a14e3049695c89a"
     ],
     "facts": [],
     "collocations": [
@@ -237,6 +245,11 @@
       {
         "id": "collocation:ec5deee06f0096918135",
         "source_row": 20031,
+        "source_path": "content/lexical/canonical/collocations/shards/o3905-3936.json"
+      },
+      {
+        "id": "collocation:f0ac5a14e3049695c89a",
+        "source_row": 21511,
         "source_path": "content/lexical/canonical/collocations/shards/o3905-3936.json"
       }
     ],
