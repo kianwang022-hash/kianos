@@ -9,6 +9,7 @@ The active model is intentionally small:
 - `content/` owns shared editable learning content.
 - `static-web/` owns learner-facing UI and interaction.
 - learner state stays outside shared content and is local-only.
+- `EXAM_ORCHESTRATOR_CONTRACT.md` owns cross-subject exam scheduling, hard Gates, capacity arbitration, score-closure, and material-refresh timing; it does not replace subject-local learning or learner truth.
 - `kianwang022-hash/kianos-legacy` is recovery/reference only and is never a normal input.
 
 ## Run locally
