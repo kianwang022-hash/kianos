@@ -1,0 +1,947 @@
+{
+  "schema": "kianos.lexical.full_catalog_k_browser.v1",
+  "issue": 56,
+  "status": "PASS",
+  "fixtures": {
+    "safe_simple": {
+      "ordinal": 3,
+      "word_id": "word:abdomen",
+      "word": "abdomen"
+    },
+    "rich_polysemous": {
+      "ordinal": 1,
+      "word_id": "word:a",
+      "word": "a"
+    },
+    "familiar_new": {
+      "ordinal": 1,
+      "word_id": "word:a",
+      "word": "a"
+    },
+    "reference_only": {
+      "ordinal": 2,
+      "word_id": "word:abandon",
+      "word": "abandon"
+    },
+    "construction_heavy": {
+      "ordinal": 1,
+      "word_id": "word:a",
+      "word": "a"
+    },
+    "same_owner_form": {
+      "ordinal": 16,
+      "word_id": "word:absent",
+      "word": "absent"
+    },
+    "relation_owned": {
+      "ordinal": 26,
+      "word_id": "word:accent",
+      "word": "accent"
+    },
+    "register_sensitivity": {
+      "ordinal": 1528,
+      "word_id": "word:dumb",
+      "word": "dumb"
+    },
+    "distinct_owner_spelling": [
+      {
+        "ordinal": 7671,
+        "word_id": "word:vigor",
+        "word": "vigor"
+      },
+      {
+        "ordinal": 6240,
+        "word_id": "word:vigour",
+        "word": "vigour"
+      }
+    ]
+  },
+  "observed": {
+    "safe_simple": {
+      "ordinal": 3,
+      "word": "abdomen",
+      "objectId": "word:abdomen",
+      "targetKinds": [
+        "core",
+        "sense"
+      ],
+      "activeSenseIds": [
+        "sense:abdomen:2b80b7c77fe65925"
+      ],
+      "renderedSenseIds": [
+        "sense:abdomen:2b80b7c77fe65925"
+      ]
+    },
+    "rich_polysemous": {
+      "ordinal": 1,
+      "word": "a",
+      "objectId": "word:a",
+      "targetKinds": [
+        "core",
+        "sense",
+        "sense",
+        "sense",
+        "construction",
+        "construction",
+        "construction",
+        "construction"
+      ],
+      "activeSenseIds": [
+        "sense:a:c33114436c8951d1",
+        "sense:a:2bce36ff092d64e2",
+        "sense:a:1d8b259b88fddfd1"
+      ],
+      "renderedSenseIds": [
+        "sense:a:c33114436c8951d1",
+        "sense:a:2bce36ff092d64e2",
+        "sense:a:1d8b259b88fddfd1"
+      ]
+    },
+    "familiar_new": {
+      "ordinal": 1,
+      "word": "a",
+      "objectId": "word:a",
+      "targetKinds": [
+        "core",
+        "sense",
+        "sense",
+        "sense",
+        "construction",
+        "construction",
+        "construction",
+        "construction"
+      ],
+      "activeSenseIds": [
+        "sense:a:c33114436c8951d1",
+        "sense:a:2bce36ff092d64e2",
+        "sense:a:1d8b259b88fddfd1"
+      ],
+      "renderedSenseIds": [
+        "sense:a:c33114436c8951d1",
+        "sense:a:2bce36ff092d64e2",
+        "sense:a:1d8b259b88fddfd1"
+      ]
+    },
+    "construction_heavy": {
+      "ordinal": 1,
+      "word": "a",
+      "objectId": "word:a",
+      "targetKinds": [
+        "core",
+        "sense",
+        "sense",
+        "sense",
+        "construction",
+        "construction",
+        "construction",
+        "construction"
+      ],
+      "activeSenseIds": [
+        "sense:a:c33114436c8951d1",
+        "sense:a:2bce36ff092d64e2",
+        "sense:a:1d8b259b88fddfd1"
+      ],
+      "renderedSenseIds": [
+        "sense:a:c33114436c8951d1",
+        "sense:a:2bce36ff092d64e2",
+        "sense:a:1d8b259b88fddfd1"
+      ]
+    },
+    "relation_owned": {
+      "ordinal": 26,
+      "word": "accent",
+      "objectId": "word:accent",
+      "targetKinds": [
+        "core",
+        "sense",
+        "collocation",
+        "sense",
+        "sense",
+        "sense",
+        "collocation",
+        "construction",
+        "relation"
+      ],
+      "activeSenseIds": [
+        "sense:accent:db6cfea9045c504f",
+        "sense:accent:7fe3c4bee4745ad0",
+        "sense:accent:9eece5d7e6595bee",
+        "sense:accent:01f93f5864f4cdfc"
+      ],
+      "renderedSenseIds": [
+        "sense:accent:db6cfea9045c504f",
+        "sense:accent:7fe3c4bee4745ad0",
+        "sense:accent:9eece5d7e6595bee",
+        "sense:accent:01f93f5864f4cdfc"
+      ]
+    },
+    "register_sensitivity": {
+      "ordinal": 1528,
+      "word": "dumb",
+      "objectId": "word:dumb",
+      "targetKinds": [
+        "core",
+        "sense",
+        "sense",
+        "collocation",
+        "sense"
+      ],
+      "activeSenseIds": [
+        "sense:dumb:6fe0e3635fd058d1",
+        "sense:dumb:1a56f8ba22db5f4e",
+        "sense:dumb:68185678120b549f"
+      ],
+      "renderedSenseIds": [
+        "sense:dumb:6fe0e3635fd058d1",
+        "sense:dumb:1a56f8ba22db5f4e",
+        "sense:dumb:68185678120b549f"
+      ]
+    },
+    "same_owner_form": {
+      "ordinal": 16,
+      "word": "absent",
+      "objectId": "word:absent",
+      "targetKinds": [
+        "core",
+        "sense",
+        "collocation",
+        "sense",
+        "sense",
+        "collocation",
+        "construction",
+        "construction",
+        "form_identity"
+      ],
+      "activeSenseIds": [
+        "sense:absent:72efeeec5e5456f8",
+        "sense:absent:77745d8f06ba57ba",
+        "sense:absent:20bcab510bdd5c1a"
+      ],
+      "renderedSenseIds": [
+        "sense:absent:72efeeec5e5456f8",
+        "sense:absent:77745d8f06ba57ba",
+        "sense:absent:20bcab510bdd5c1a"
+      ]
+    },
+    "reference_only": {
+      "ordinal": 2,
+      "word": "abandon",
+      "objectId": "word:abandon",
+      "targetKinds": [
+        "core",
+        "sense",
+        "collocation",
+        "sense",
+        "collocation"
+      ],
+      "activeSenseIds": [
+        "sense:abandon:237479b583c9599b",
+        "sense:abandon:7318523e97f85e71"
+      ],
+      "renderedSenseIds": [
+        "sense:abandon:237479b583c9599b",
+        "sense:abandon:7318523e97f85e71"
+      ]
+    },
+    "distinct_owner_left": {
+      "ordinal": 7671,
+      "word": "vigor",
+      "objectId": "word:vigor",
+      "targetKinds": [
+        "core",
+        "sense",
+        "relation"
+      ],
+      "activeSenseIds": [
+        "sense:vigor:214f6c73ea075780"
+      ],
+      "renderedSenseIds": [
+        "sense:vigor:214f6c73ea075780"
+      ]
+    },
+    "distinct_owner_right": {
+      "ordinal": 6240,
+      "word": "vigour",
+      "objectId": "word:vigour",
+      "targetKinds": [
+        "core",
+        "sense",
+        "sense",
+        "relation"
+      ],
+      "activeSenseIds": [
+        "sense:vigour:f58c4ae0bd275863",
+        "sense:vigour:40e4f00b16475236"
+      ],
+      "renderedSenseIds": [
+        "sense:vigour:f58c4ae0bd275863",
+        "sense:vigour:40e4f00b16475236"
+      ]
+    }
+  },
+  "checks": [
+    {
+      "ok": true,
+      "name": "fixture_present",
+      "detail": "safe_simple"
+    },
+    {
+      "ok": true,
+      "name": "fixture_present",
+      "detail": "rich_polysemous"
+    },
+    {
+      "ok": true,
+      "name": "fixture_present",
+      "detail": "familiar_new"
+    },
+    {
+      "ok": true,
+      "name": "fixture_present",
+      "detail": "construction_heavy"
+    },
+    {
+      "ok": true,
+      "name": "fixture_present",
+      "detail": "relation_owned"
+    },
+    {
+      "ok": true,
+      "name": "fixture_present",
+      "detail": "register_sensitivity"
+    },
+    {
+      "ok": true,
+      "name": "fixture_present",
+      "detail": "same_owner_form"
+    },
+    {
+      "ok": true,
+      "name": "fixture_present",
+      "detail": "reference_only"
+    },
+    {
+      "ok": true,
+      "name": "fixture_present",
+      "detail": "distinct_owner_spelling"
+    },
+    {
+      "ok": true,
+      "name": "safe_simple_object_identity",
+      "detail": "3:word:abdomen"
+    },
+    {
+      "ok": true,
+      "name": "safe_simple_source_hash",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "safe_simple_reveal_control_available",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "safe_simple_reveal_visible",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "safe_simple_core_target",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "safe_simple_word_visible",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "safe_simple_no_raw_value_leak",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "safe_simple_active_sense_target_count",
+      "detail": "1|1"
+    },
+    {
+      "ok": true,
+      "name": "safe_simple_active_sense_target_identity",
+      "detail": "sense:abdomen:2b80b7c77fe65925"
+    },
+    {
+      "ok": true,
+      "name": "safe_simple_core_meaning_visible",
+      "detail": "腹部"
+    },
+    {
+      "ok": true,
+      "name": "safe_simple_has_active_sense_target",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "rich_polysemous_object_identity",
+      "detail": "1:word:a"
+    },
+    {
+      "ok": true,
+      "name": "rich_polysemous_source_hash",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "rich_polysemous_reveal_control_available",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "rich_polysemous_reveal_visible",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "rich_polysemous_core_target",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "rich_polysemous_word_visible",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "rich_polysemous_no_raw_value_leak",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "rich_polysemous_active_sense_target_count",
+      "detail": "3|3"
+    },
+    {
+      "ok": true,
+      "name": "rich_polysemous_active_sense_target_identity",
+      "detail": "sense:a:c33114436c8951d1"
+    },
+    {
+      "ok": true,
+      "name": "rich_polysemous_active_sense_target_identity",
+      "detail": "sense:a:2bce36ff092d64e2"
+    },
+    {
+      "ok": true,
+      "name": "rich_polysemous_active_sense_target_identity",
+      "detail": "sense:a:1d8b259b88fddfd1"
+    },
+    {
+      "ok": true,
+      "name": "rich_polysemous_core_meaning_visible",
+      "detail": "把一个对象作为“非特指的一个/一类成员”引入；也可表示每一单位或数量中的“一”"
+    },
+    {
+      "ok": true,
+      "name": "rich_polysemous_multi_sense_targets",
+      "detail": "[\"core\",\"sense\",\"sense\",\"sense\",\"construction\",\"construction\",\"construction\",\"construction\"]"
+    },
+    {
+      "ok": true,
+      "name": "familiar_new_object_identity",
+      "detail": "1:word:a"
+    },
+    {
+      "ok": true,
+      "name": "familiar_new_source_hash",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "familiar_new_reveal_visible",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "familiar_new_core_target",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "familiar_new_word_visible",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "familiar_new_no_raw_value_leak",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "familiar_new_active_sense_target_count",
+      "detail": "3|3"
+    },
+    {
+      "ok": true,
+      "name": "familiar_new_active_sense_target_identity",
+      "detail": "sense:a:c33114436c8951d1"
+    },
+    {
+      "ok": true,
+      "name": "familiar_new_active_sense_target_identity",
+      "detail": "sense:a:2bce36ff092d64e2"
+    },
+    {
+      "ok": true,
+      "name": "familiar_new_active_sense_target_identity",
+      "detail": "sense:a:1d8b259b88fddfd1"
+    },
+    {
+      "ok": true,
+      "name": "familiar_new_core_meaning_visible",
+      "detail": "把一个对象作为“非特指的一个/一类成员”引入；也可表示每一单位或数量中的“一”"
+    },
+    {
+      "ok": true,
+      "name": "familiar_new_multiple_sense_targets",
+      "detail": "[\"core\",\"sense\",\"sense\",\"sense\",\"construction\",\"construction\",\"construction\",\"construction\"]"
+    },
+    {
+      "ok": true,
+      "name": "construction_heavy_object_identity",
+      "detail": "1:word:a"
+    },
+    {
+      "ok": true,
+      "name": "construction_heavy_source_hash",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "construction_heavy_reveal_visible",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "construction_heavy_core_target",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "construction_heavy_word_visible",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "construction_heavy_no_raw_value_leak",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "construction_heavy_active_sense_target_count",
+      "detail": "3|3"
+    },
+    {
+      "ok": true,
+      "name": "construction_heavy_active_sense_target_identity",
+      "detail": "sense:a:c33114436c8951d1"
+    },
+    {
+      "ok": true,
+      "name": "construction_heavy_active_sense_target_identity",
+      "detail": "sense:a:2bce36ff092d64e2"
+    },
+    {
+      "ok": true,
+      "name": "construction_heavy_active_sense_target_identity",
+      "detail": "sense:a:1d8b259b88fddfd1"
+    },
+    {
+      "ok": true,
+      "name": "construction_heavy_core_meaning_visible",
+      "detail": "把一个对象作为“非特指的一个/一类成员”引入；也可表示每一单位或数量中的“一”"
+    },
+    {
+      "ok": true,
+      "name": "construction_target_projected",
+      "detail": "[\"core\",\"sense\",\"sense\",\"sense\",\"construction\",\"construction\",\"construction\",\"construction\"]"
+    },
+    {
+      "ok": true,
+      "name": "relation_owned_object_identity",
+      "detail": "26:word:accent"
+    },
+    {
+      "ok": true,
+      "name": "relation_owned_source_hash",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "relation_owned_reveal_control_available",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "relation_owned_reveal_visible",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "relation_owned_core_target",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "relation_owned_word_visible",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "relation_owned_no_raw_value_leak",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "relation_owned_active_sense_target_count",
+      "detail": "4|4"
+    },
+    {
+      "ok": true,
+      "name": "relation_owned_active_sense_target_identity",
+      "detail": "sense:accent:db6cfea9045c504f"
+    },
+    {
+      "ok": true,
+      "name": "relation_owned_active_sense_target_identity",
+      "detail": "sense:accent:7fe3c4bee4745ad0"
+    },
+    {
+      "ok": true,
+      "name": "relation_owned_active_sense_target_identity",
+      "detail": "sense:accent:9eece5d7e6595bee"
+    },
+    {
+      "ok": true,
+      "name": "relation_owned_active_sense_target_identity",
+      "detail": "sense:accent:01f93f5864f4cdfc"
+    },
+    {
+      "ok": true,
+      "name": "relation_owned_core_meaning_visible",
+      "detail": "口音或重音"
+    },
+    {
+      "ok": true,
+      "name": "important_relation_target_projected",
+      "detail": "[\"core\",\"sense\",\"collocation\",\"sense\",\"sense\",\"sense\",\"collocation\",\"construction\",\"relation\"]"
+    },
+    {
+      "ok": true,
+      "name": "register_sensitivity_object_identity",
+      "detail": "1528:word:dumb"
+    },
+    {
+      "ok": true,
+      "name": "register_sensitivity_source_hash",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "register_sensitivity_reveal_control_available",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "register_sensitivity_reveal_visible",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "register_sensitivity_core_target",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "register_sensitivity_word_visible",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "register_sensitivity_no_raw_value_leak",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "register_sensitivity_active_sense_target_count",
+      "detail": "3|3"
+    },
+    {
+      "ok": true,
+      "name": "register_sensitivity_active_sense_target_identity",
+      "detail": "sense:dumb:6fe0e3635fd058d1"
+    },
+    {
+      "ok": true,
+      "name": "register_sensitivity_active_sense_target_identity",
+      "detail": "sense:dumb:1a56f8ba22db5f4e"
+    },
+    {
+      "ok": true,
+      "name": "register_sensitivity_active_sense_target_identity",
+      "detail": "sense:dumb:68185678120b549f"
+    },
+    {
+      "ok": true,
+      "name": "register_sensitivity_core_meaning_visible",
+      "detail": "愚蠢、笨的；暂时沉默的"
+    },
+    {
+      "ok": true,
+      "name": "register_semantic_content_visible",
+      "detail": "stupid or foolish"
+    },
+    {
+      "ok": true,
+      "name": "same_owner_form_object_identity",
+      "detail": "16:word:absent"
+    },
+    {
+      "ok": true,
+      "name": "same_owner_form_source_hash",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "same_owner_form_reveal_control_available",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "same_owner_form_reveal_visible",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "same_owner_form_core_target",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "same_owner_form_word_visible",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "same_owner_form_no_raw_value_leak",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "same_owner_form_active_sense_target_count",
+      "detail": "3|3"
+    },
+    {
+      "ok": true,
+      "name": "same_owner_form_active_sense_target_identity",
+      "detail": "sense:absent:72efeeec5e5456f8"
+    },
+    {
+      "ok": true,
+      "name": "same_owner_form_active_sense_target_identity",
+      "detail": "sense:absent:77745d8f06ba57ba"
+    },
+    {
+      "ok": true,
+      "name": "same_owner_form_active_sense_target_identity",
+      "detail": "sense:absent:20bcab510bdd5c1a"
+    },
+    {
+      "ok": true,
+      "name": "same_owner_form_core_meaning_visible",
+      "detail": "核心是“人不在该在的位置/注意力不在当前对象上”"
+    },
+    {
+      "ok": true,
+      "name": "same_owner_form_target_projected",
+      "detail": "[\"core\",\"sense\",\"collocation\",\"sense\",\"sense\",\"collocation\",\"construction\",\"construction\",\"form_identity\"]"
+    },
+    {
+      "ok": true,
+      "name": "reference_only_object_identity",
+      "detail": "2:word:abandon"
+    },
+    {
+      "ok": true,
+      "name": "reference_only_source_hash",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "reference_only_reveal_control_available",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "reference_only_reveal_visible",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "reference_only_core_target",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "reference_only_word_visible",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "reference_only_no_raw_value_leak",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "reference_only_active_sense_target_count",
+      "detail": "2|2"
+    },
+    {
+      "ok": true,
+      "name": "reference_only_active_sense_target_identity",
+      "detail": "sense:abandon:237479b583c9599b"
+    },
+    {
+      "ok": true,
+      "name": "reference_only_active_sense_target_identity",
+      "detail": "sense:abandon:7318523e97f85e71"
+    },
+    {
+      "ok": true,
+      "name": "reference_only_core_meaning_visible",
+      "detail": "彻底撤回原本的陪伴、占有、计划或投入"
+    },
+    {
+      "ok": true,
+      "name": "reference_only_not_crowding_study",
+      "detail": "放任，无拘束"
+    },
+    {
+      "ok": true,
+      "name": "distinct_owner_left_object_identity",
+      "detail": "7671:word:vigor"
+    },
+    {
+      "ok": true,
+      "name": "distinct_owner_left_source_hash",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "distinct_owner_left_reveal_control_available",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "distinct_owner_left_reveal_visible",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "distinct_owner_left_core_target",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "distinct_owner_left_word_visible",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "distinct_owner_left_no_raw_value_leak",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "distinct_owner_left_active_sense_target_count",
+      "detail": "1|1"
+    },
+    {
+      "ok": true,
+      "name": "distinct_owner_left_active_sense_target_identity",
+      "detail": "sense:vigor:214f6c73ea075780"
+    },
+    {
+      "ok": true,
+      "name": "distinct_owner_left_core_meaning_visible",
+      "detail": "活力；精力；体力或精神上的力量与生命力"
+    },
+    {
+      "ok": true,
+      "name": "distinct_owner_right_object_identity",
+      "detail": "6240:word:vigour"
+    },
+    {
+      "ok": true,
+      "name": "distinct_owner_right_source_hash",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "distinct_owner_right_reveal_control_available",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "distinct_owner_right_reveal_visible",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "distinct_owner_right_core_target",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "distinct_owner_right_word_visible",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "distinct_owner_right_no_raw_value_leak",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "distinct_owner_right_active_sense_target_count",
+      "detail": "2|2"
+    },
+    {
+      "ok": true,
+      "name": "distinct_owner_right_active_sense_target_identity",
+      "detail": "sense:vigour:f58c4ae0bd275863"
+    },
+    {
+      "ok": true,
+      "name": "distinct_owner_right_active_sense_target_identity",
+      "detail": "sense:vigour:40e4f00b16475236"
+    },
+    {
+      "ok": true,
+      "name": "distinct_owner_right_core_meaning_visible",
+      "detail": "精力；活力；力量"
+    },
+    {
+      "ok": true,
+      "name": "distinct_owner_identity_preserved",
+      "detail": "word:vigor|word:vigour"
+    },
+    {
+      "ok": true,
+      "name": "no_browser_page_errors",
+      "detail": "[]"
+    }
+  ],
+  "content_acceptance_delta": 0,
+  "persistent_real_learner_state_mutation": 0,
+  "claim": "representative Current owners across full-catalog risk families render accepted Natural Owner truth through the actual vocabulary learner projection"
+}
