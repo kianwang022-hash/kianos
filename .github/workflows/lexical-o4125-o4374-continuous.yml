@@ -9,6 +9,7 @@ on:
       - 'tools/lexical_relation_primitives.py'
       - 'tools/lexical_execute_o4275_o4324_v2.py'
       - 'tools/lexical_execute_o4325_o4374.py'
+      - 'tools/lexical_execute_o4325_o4374_v2.py'
       - 'tools/lexical_verify_o4125_o4374.py'
   workflow_dispatch:
 
@@ -35,7 +36,10 @@ jobs:
           test -f content/lexical/execution/receipts/o4125-o4174.json
           test -f content/lexical/execution/receipts/o4175-o4224.json
           test -f content/lexical/execution/receipts/o4225-o4274.json
-          echo 'RESUME_FRONTIER_CONFIRMED 150/250'
+          closed=150
+          if [ -f content/lexical/execution/receipts/o4275-o4324.json ]; then closed=200; fi
+          if [ -f content/lexical/execution/receipts/o4325-o4374.json ]; then closed=250; fi
+          echo "RESUME_FRONTIER_CONFIRMED ${closed}/250"
 
       - name: Resume boundary 4
         run: |
@@ -67,7 +71,7 @@ jobs:
             echo 'BOUNDARY5_ALREADY_PASS'
             exit 0
           fi
-          python tools/lexical_execute_o4325_o4374.py
+          python tools/lexical_execute_o4325_o4374_v2.py
           python tools/test_lexical_transport_guards.py
           python tools/test_lexical_shard.py
           python - <<'PY'
