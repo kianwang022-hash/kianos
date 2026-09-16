@@ -38,35 +38,43 @@ async function blockResumeAndEvidenceJourney(page) {
   const kpCount = await recallCards.count();
   check(kpCount > 0, 'r01_recall_inventory_present', String(kpCount));
   check(await root.locator('[data-kp-learn-card]').count() === 0, 'legacy_per_kp_web_learn_surface_absent');
+  check(await root.locator('[data-study-stage="kp_learn"]').count() === 0, 'natural_source_has_no_per_group_lecture_stage');
 
-  await root.locator('[data-stage-next="logic_group"]').click();
-  await root.locator('[data-enter-group]').click();
   const studyKey = 'kianos-xizong-astro-v2:xizong:respiratory-r01';
+  await root.locator('[data-stage-next="logic_group"]').click();
+  await root.locator('[data-study-stage="source_contact"]').waitFor({ state: 'visible' });
   let state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
-  check(state?.stage === 'kp_learn', 'enters_group_lecture_stage');
+  check(state?.stage === 'source_contact' && state?.sourceContactDone === false, 'block_orientation_enters_continuous_source_contact');
+  check(Object.keys(state?.ratings || {}).length === 0, 'source_contact_does_not_manufacture_recall_evidence');
   const savedGroup = state.groupIndex;
   const savedIndex = state.kpIndex;
 
   await page.reload({ waitUntil: 'domcontentloaded' });
+  await root.locator('[data-study-stage="source_contact"]').waitFor({ state: 'visible' });
   state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
-  check(state?.stage === 'kp_learn' && state?.groupIndex === savedGroup && state?.kpIndex === savedIndex, 'refresh_restores_group_lecture_stage');
+  check(state?.stage === 'source_contact' && state?.groupIndex === savedGroup && state?.kpIndex === savedIndex, 'refresh_restores_continuous_source_contact');
 
   await root.locator('[data-stage-target="kp_recall"]').click();
   await page.waitForTimeout(80);
   state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
-  check(state?.stage === 'kp_learn', 'premature_recall_stage_blocked');
+  check(state?.stage === 'source_contact', 'premature_recall_stage_blocked_before_source_contact');
   check(Object.keys(state?.ratings || {}).length === 0, 'premature_recall_cannot_manufacture_evidence');
 
-  await root.locator('[data-group-lecture-done]').click();
-  await page.waitForTimeout(80);
+  await root.locator('[data-source-contact-done]').click();
+  await root.locator('[data-study-stage="logic_group"]').waitFor({ state: 'visible' });
   state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
   const learnedIds = Object.entries(state?.learned || {}).filter(([, learned]) => Boolean(learned)).map(([id]) => id);
-  check(state?.stage === 'kp_recall', 'group_lecture_enters_recall');
-  check(learnedIds.length > 0, 'group_learning_contact_persisted', String(learnedIds.length));
+  check(state?.sourceContactDone === true && state?.stage === 'logic_group', 'continuous_source_contact_persists_and_returns_to_groups');
+  check(learnedIds.length === kpCount, 'block_source_contact_marks_current_block_contact_only', `${learnedIds.length}/${kpCount}`);
+
+  await root.locator('[data-enter-group]').click();
+  await root.locator('[data-study-stage="kp_recall"]').waitFor({ state: 'visible' });
+  state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
+  check(state?.stage === 'kp_recall', 'logic_group_enters_recall_without_source_reopen');
 
   const recall = root.locator('[data-kp-recall-card]:not([hidden])');
   const attemptedKp = await recall.getAttribute('data-kp-id');
-  check(Boolean(attemptedKp) && state?.learned?.[attemptedKp] === true, 'visible_recall_belongs_to_learned_group');
+  check(Boolean(attemptedKp) && state?.learned?.[attemptedKp] === true, 'visible_recall_belongs_to_source_contacted_block');
   await recall.locator('[data-kp-reveal]').click();
   await recall.locator('[data-rating="mastered"]').click();
   await page.waitForTimeout(160);
@@ -77,7 +85,7 @@ async function blockResumeAndEvidenceJourney(page) {
   await page.evaluate(({ key, kpIds }) => {
     const learned = Object.fromEntries(kpIds.map((id) => [id, true]));
     const ratings = Object.fromEntries(kpIds.map((id) => [id, 'mastered']));
-    localStorage.setItem(key, JSON.stringify({ stage: 'block_complete', groupIndex: 0, kpIndex: 0, learned, ratings, blockRecallDone: false, completed: false }));
+    localStorage.setItem(key, JSON.stringify({ stage: 'block_complete', groupIndex: 0, kpIndex: 0, sourceContactDone: true, learned, ratings, blockRecallDone: false, completed: false }));
   }, { key: studyKey, kpIds: allKpIds });
   await page.reload({ waitUntil: 'domcontentloaded' });
   const complete = root.locator('[data-block-complete]');
@@ -206,7 +214,7 @@ async function systemQuestionRepairJourney(page) {
     const question = await currentPayloadQuestion();
     if (!question) throw new Error(`A2_CURRENT_QUESTION_NOT_RESOLVED:${await exit.locator('[data-question-meta]').textContent()}`);
     const letters = String(question.correctAnswer || '').toUpperCase().match(/[A-Z]/g) || [];
-    for (const letter of letters) await exit.locator(`[data-question-options] [data-option=\"${letter}\"]`).click();
+    for (const letter of letters) await exit.locator(`[data-question-options] [data-option="${letter}"]`).click();
     await exit.locator('[data-submit-answer]').click();
     await exit.locator('[data-mark-stable]').click();
     return question;

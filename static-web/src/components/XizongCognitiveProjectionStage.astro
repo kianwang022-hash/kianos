@@ -1,0 +1,39 @@
+---
+const { projection = null } = Astro.props;
+const stageObjects = projection?.stageObjects || [];
+const referenceObjects = projection?.referenceObjects || [];
+---
+{projection?.compiled && (stageObjects.length > 0 || referenceObjects.length > 0) && (
+  <section class="xv6CognitiveProjection" data-xizong-cognitive-projection data-projection-asset={projection.assetPath || ''}>
+    <div class="xv6ProjectionStage">
+      {stageObjects.map((object) => (
+        <article
+          class:list={['xv6ProjectionObject', `geometry-${String(object.geometry || '').toLowerCase()}`]}
+          data-projection-object={object.objectId}
+          data-projection-role={object.role}
+          data-projection-geometry={object.geometry}
+          data-answer-bearing={String(Boolean(object.answerBearing))}
+        >
+          {object.items?.length > 0
+            ? <div class="xv6ProjectionItems">{object.items.map((item) => <span>{item.label}</span>)}</div>
+            : <div class="markdown" set:html={object.html}></div>}
+        </article>
+      ))}
+    </div>
+    {referenceObjects.length > 0 && (
+      <div class="xv6ProjectionReferences">
+        {referenceObjects.map((object) => (
+          <details data-projection-reference={object.objectId}>
+            <summary>需要时看 Current Block 定位</summary>
+            <p>{object.referenceMessage || '完整 Current Core 保留为参考；当前主线不在网页重复阅读。'}</p>
+            {object.referenceSourcePath && <code>{object.referenceSourcePath}</code>}
+          </details>
+        ))}
+      </div>
+    )}
+  </section>
+)}
+
+<style>
+  .xv6CognitiveProjection{display:grid;gap:12px;margin:12px 0 18px}.xv6ProjectionStage{display:grid;gap:10px}.xv6ProjectionObject{min-width:0;padding:0 0 10px;border-bottom:1px solid var(--study-line,var(--line,#d9dde5))}.xv6ProjectionObject:last-child{border-bottom:0}.xv6ProjectionObject .markdown>:first-child{margin-top:0}.xv6ProjectionObject .markdown>:last-child{margin-bottom:0}.xv6ProjectionObject.geometry-sequence .markdown pre,.xv6ProjectionObject.geometry-formula_strip .markdown pre{margin:0;padding:13px 15px;border:1px solid var(--study-line,var(--line,#d9dde5));border-radius:12px;background:var(--study-surface-muted,var(--soft,#f5f6f8));font-size:.94rem;line-height:1.75;white-space:pre-wrap}.xv6ProjectionObject.geometry-formula_strip .markdown pre{font-size:1rem;font-weight:700}.xv6ProjectionItems{display:flex;flex-wrap:wrap;gap:6px}.xv6ProjectionItems span{padding:4px 7px;border-radius:7px;background:var(--study-surface-muted,var(--soft,#f5f6f8));font-size:.82rem}.xv6ProjectionReferences details{padding:8px 0;border-top:1px dashed var(--study-line,var(--line,#d9dde5))}.xv6ProjectionReferences summary{cursor:pointer;font-size:.85rem;font-weight:700}.xv6ProjectionReferences p{margin:8px 0 4px;font-size:.86rem;line-height:1.6;opacity:.75}.xv6ProjectionReferences code{font-size:.72rem;opacity:.62;white-space:normal}@media(min-width:1100px){.xv6ProjectionStage{grid-template-columns:minmax(0,1fr)}.xv6ProjectionObject.geometry-formula_strip{max-width:56rem}}
+</style>
