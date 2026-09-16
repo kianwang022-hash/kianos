@@ -7,22 +7,73 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "85e29229eb6e8be0939c85963a67e04c4b91a51b1bb34e35330febe781672c58",
+    "content_hash": "0f7fbac69e67df1633cedccb153d1d0d8b87415faadc4a90a9d594de814efebb",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "剪刀",
-      "core_meaning_en": "a cutting tool with two crossed blades",
-      "mental_model_cn": "剪刀",
+      "core_meaning_cn": "剪刀；形式上作复数，常用 a pair of scissors 计数",
+      "core_meaning_en": "scissors, grammatically plural and commonly counted as a pair of scissors",
+      "mental_model_cn": "剪刀；形式上作复数，常用 a pair of scissors 计数",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o4125-o4374.md",
+      "boundaries": [
+        {
+          "condition": "ordinary plural noun",
+          "grammar": "scissors are ...",
+          "note": "count with a pair: a pair of scissors",
+          "surface": "scissors"
+        }
+      ],
+      "type": "plural_noun_counting_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:7341f8bdbddefb3c6766",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:scissors:d4a58d85829e5136:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "一把剪刀",
+            "phrase": "a pair of scissors"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "剪刀",
+        "definition_en": "a cutting instrument with two blades pivoted together",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:scissors:d4a58d85829e5136",
+        "sense_label_en": "a cutting instrument with two blades pivoted together",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "剪刀式动作（摔跤或体操）",
+        "definition_en": "a wrestling hold or gymnastic movement resembling scissors",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:scissors:5c81493d01cf5f87",
+        "sense_label_en": "a wrestling hold or gymnastic movement resembling scissors",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 2,
       "deep_modules": {
@@ -43,76 +94,27 @@
     "word_id": "word:scissors"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:scissors:5c81493d01cf5f87",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "剪刀式动作（摔跤或体操）",
-      "definition_en": "a wrestling hold or gymnastic movement resembling scissors",
-      "semantic_key": "fc78341256a06af2d77ece25296bb5983b96babda89b898994aaa84c1345fe68",
-      "semantic_key_history": [
-        "2a7c5e64ede00a6747d4d6da7ca63da9c84e0b8c1eec828fda753e282311afc2"
-      ],
-      "legacy_aliases": [
-        "scissors:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "scissors:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12030,
-      "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:scissors:d4a58d85829e5136",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "剪刀",
-      "definition_en": "a cutting instrument with two blades pivoted together",
-      "semantic_key": "3835b9314f2012f0ed841bdd1df950d23f16d5535eadc693d2bb07eaf7ae3ea1",
-      "semantic_key_history": [
-        "3687222d02fd27d1d23318f0a8860b81cfe3e558169161bc56a59fd78ecb4aa1"
-      ],
-      "legacy_aliases": [
-        "scissors:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "scissors:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12031,
-      "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:scissors:5c81493d01cf5f87",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12030,
         "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json"
       },
       {
         "sense_id": "sense:scissors:d4a58d85829e5136",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12031,
         "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:7341f8bdbddefb3c6766"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -128,6 +130,11 @@
       {
         "id": "collocation:e0d1a85d6c64ed9956b5",
         "source_row": 19010,
+        "source_path": "content/lexical/canonical/collocations/shards/o4289-4320.json"
+      },
+      {
+        "id": "collocation:7341f8bdbddefb3c6766",
+        "source_row": 21622,
         "source_path": "content/lexical/canonical/collocations/shards/o4289-4320.json"
       }
     ],
@@ -162,7 +169,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4289-4296.json",
-    "source_content_hash": "85e29229eb6e8be0939c85963a67e04c4b91a51b1bb34e35330febe781672c58",
+    "source_content_hash": "0f7fbac69e67df1633cedccb153d1d0d8b87415faadc4a90a9d594de814efebb",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -1,0 +1,143 @@
+name: Xizong Crosswalk Fast QA
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'content/xizong/question-relations/**'
+      - 'static-web/scripts/apply-xizong-crosswalk-reviewed-batches.mjs'
+      - 'static-web/scripts/sync-xizong-question-relations-manifest.mjs'
+      - 'static-web/scripts/validate-xizong-question-crosswalk.mjs'
+      - 'static-web/scripts/validate-xizong-crosswalk-review-pipeline.mjs'
+      - 'static-web/scripts/validate-xizong-crosswalk-throughput.mjs'
+      - 'static-web/scripts/build-xizong-crosswalk-review-queue.mjs'
+      - 'static-web/scripts/build-xizong-kp-lookup-index.mjs'
+      - '.github/workflows/xizong-crosswalk-fast-qa.yml'
+  pull_request:
+    paths:
+      - 'content/xizong/question-relations/**'
+      - 'static-web/scripts/apply-xizong-crosswalk-reviewed-batches.mjs'
+      - 'static-web/scripts/sync-xizong-question-relations-manifest.mjs'
+      - 'static-web/scripts/validate-xizong-question-crosswalk.mjs'
+      - 'static-web/scripts/validate-xizong-crosswalk-review-pipeline.mjs'
+      - 'static-web/scripts/validate-xizong-crosswalk-throughput.mjs'
+      - 'static-web/scripts/build-xizong-crosswalk-review-queue.mjs'
+      - 'static-web/scripts/build-xizong-kp-lookup-index.mjs'
+      - '.github/workflows/xizong-crosswalk-fast-qa.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: xizong-crosswalk-fast-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  crosswalk-fast-qa:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: static-web
+    steps:
+      - name: Checkout Current
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.ref_name }}
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate single-pass throughput materializer
+        run: node scripts/validate-xizong-crosswalk-throughput.mjs
+      - name: Materialize pending reviewed Crosswalk batches
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        run: node scripts/apply-xizong-crosswalk-reviewed-batches.mjs
+      - name: Synchronize reviewed relation manifest
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        run: node scripts/sync-xizong-question-relations-manifest.mjs --write
+      - name: Commit materialized Crosswalk truth and cursor
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        working-directory: ${{ github.workspace }}
+        run: |
+          if ! git diff --quiet -- content/xizong/question-relations; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A content/xizong/question-relations
+            git commit -m "chore(xizong): materialize reviewed Crosswalk batch"
+            git push origin HEAD:${{ github.event.pull_request.head.ref }}
+          fi
+      - name: Determine periodic full-regression gate
+        id: cadence
+        run: |
+          if [ "${{ github.event_name }}" != "pull_request" ]; then
+            echo "full_regression=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          node - <<'NODE' >> "$GITHUB_OUTPUT"
+          const fs = require('fs');
+          const c = JSON.parse(fs.readFileSync('../content/xizong/question-relations/continuation.json', 'utf8')).last_growth;
+          const before = Number(c?.reviewed_relation_count_before || 0);
+          const after = Number(c?.reviewed_relation_count_after || before);
+          const full = Math.floor(after / 50) > Math.floor(before / 50);
+          console.log(`full_regression=${full}`);
+          console.log(`before=${before}`);
+          console.log(`after=${after}`);
+          NODE
+      - name: Validate relation manifest synchronization
+        run: node scripts/sync-xizong-question-relations-manifest.mjs --check
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Validate reviewed Question Crosswalk
+        run: node scripts/validate-xizong-question-crosswalk.mjs
+      - name: Validate Crosswalk review queue pipeline
+        run: node scripts/validate-xizong-crosswalk-review-pipeline.mjs
+      - name: Build larger next-review queue
+        run: node scripts/build-xizong-crosswalk-review-queue.mjs --limit 100 --out .qa/xizong-crosswalk-review-queue.json
+      - name: Build derived KP lookup index
+        run: node scripts/build-xizong-kp-lookup-index.mjs --out .qa/xizong-kp-lookup-index.json
+      - name: Upload Crosswalk review support
+        uses: actions/upload-artifact@v4
+        with:
+          name: xizong-crosswalk-review-support
+          path: |
+            static-web/.qa/xizong-crosswalk-review-queue.json
+            static-web/.qa/xizong-kp-lookup-index.json
+          if-no-files-found: error
+      - name: Build Astro
+        run: npm run build
+      - name: Periodic full Xizong contract regression
+        if: steps.cadence.outputs.full_regression == 'true'
+        run: |
+          node scripts/validate-xizong-current-owners.mjs
+          node scripts/validate-xizong-learning-owner-lifecycle.mjs
+          node scripts/validate-xizong-question-attempts.mjs
+          node scripts/validate-xizong-learning.mjs
+          node scripts/validate-xizong-a1-projection.mjs
+          node scripts/validate-xizong-a1-evidence.mjs
+          A3_SOURCE_PHASE=owner node scripts/validate-xizong-a3-source.mjs
+          A3_SOURCE_PHASE=truth node scripts/validate-xizong-a3-source.mjs
+          A3_SOURCE_PHASE=boundary node scripts/validate-xizong-a3-source.mjs
+          node scripts/validate-xizong-b-knowledge.mjs
+          node scripts/validate-xizong-a2-runtime.mjs
+          node scripts/validate-xizong-a2-repair-return.mjs
+          node scripts/validate-xizong-a2-evidence.mjs
+          node scripts/validate-xizong-repair-inbox.mjs
+          node scripts/validate-xizong-a3-runtime.mjs
+          node scripts/validate-xizong-a3-evidence.mjs
+          node scripts/validate-xizong-source-visuals.mjs
+      - name: Periodic browser Runtime journey
+        if: steps.cadence.outputs.full_regression == 'true'
+        run: node scripts/test-xizong-a1-browser-journey.mjs
+      - name: Periodic browser Evidence journey
+        if: steps.cadence.outputs.full_regression == 'true'
+        run: node scripts/test-xizong-a1-evidence-journey.mjs
+      - name: Upload periodic browser evidence
+        if: always() && steps.cadence.outputs.full_regression == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: xizong-crosswalk-periodic-browser-evidence
+          path: |
+            static-web/.qa/xizong-a1-browser-runtime.json
+            static-web/.qa/xizong-a1-browser-evidence.json
+          if-no-files-found: warn

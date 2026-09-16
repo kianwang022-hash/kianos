@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "f4c159432a9f7a9ceea9e3690291418d3a74e3f2cd7ebc70319283292c1977e9",
+    "content_hash": "daa89183bc7b9815cd1b2eeba2fde369d564b27e075cb1baea130c775832b75d",
     "core_concept": {
       "core_clusters": [
         {
@@ -20,19 +20,11 @@
             "sense:shaft:ef20ebd91fcc5c7b",
             "sense:shaft:c99d0f2414b75fe8"
           ]
-        },
-        {
-          "label_cn": "给...装杆；或（俚语）不公平对待",
-          "label_en": "to fit with a shaft, or to treat unfairly (slang)",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:shaft:8c68fc2e02025abd"
-          ]
         }
       ],
-      "core_meaning_cn": "长而窄的部分或通道，或杆、棒",
-      "core_meaning_en": "a long, narrow part or passage, or a rod or pole",
-      "mental_model_cn": "长而窄的部分或通道，或杆、棒",
+      "core_meaning_cn": "长杆/轴/柄；垂直井道等狭长结构",
+      "core_meaning_en": "a long rod/shaft or narrow vertical passage; low-frequency verb extensions remain separate",
+      "mental_model_cn": "长杆/轴/柄；垂直井道等狭长结构",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -130,17 +122,51 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:e6b9fb7212dea761c906",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:shaft:01f384e2a347c835:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "给工具装柄/杆",
+            "phrase": "shaft a tool/implement"
+          }
+        ],
         "confidence": "medium",
-        "definition_cn": "给...装杆；或（俚语）不公平对待",
-        "definition_en": "to fit with a shaft, or to treat unfairly (slang)",
+        "definition_cn": "给……装杆、轴或柄",
+        "definition_en": "to fit something with a shaft, axle, or handle",
         "governing_pattern": "vt. + object",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
-        "sense_id": "sense:shaft:8c68fc2e02025abd",
-        "sense_label_en": "to fit with a shaft, or to treat unfairly (slang)",
+        "sense_id": "sense:shaft:01f384e2a347c835",
+        "sense_label_en": "to fit something with a shaft, axle, or handle",
         "sort_order": 4,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:501ec99d3400aea15311",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:shaft:5949b02f004424f7:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "被坑、被不公平对待",
+            "phrase": "get/be shafted"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（非正式/俚语）不公平对待、坑害",
+        "definition_en": "informal/slang: to treat someone unfairly or cheat them",
+        "governing_pattern": "vt. + object",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:shaft:5949b02f004424f7",
+        "sense_label_en": "informal/slang: to treat someone unfairly or cheat them",
+        "sort_order": 5,
         "transitivity": "vt"
       }
     ],
@@ -164,7 +190,36 @@
     "word_id": "word:shaft"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:shaft:8c68fc2e02025abd",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "给...装杆；或（俚语）不公平对待",
+      "definition_en": "to fit with a shaft, or to treat unfairly (slang)",
+      "semantic_key": "df683e1b87f4fdc88f8ada0ba162152c750725e3aab73a6a82770ae75f818cda",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "shaft:l3:5"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "shaft:l3:5",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 12300,
+      "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json",
+      "reference_only": true,
+      "split_into_sense_ids": [
+        "sense:shaft:01f384e2a347c835",
+        "sense:shaft:5949b02f004424f7"
+      ],
+      "split_authority": "content/lexical/semantic-reconciliation/o4125-o4374.md"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -176,7 +231,7 @@
       },
       {
         "sense_id": "sense:shaft:8c68fc2e02025abd",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 12300,
         "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json"
@@ -201,12 +256,28 @@
         "merged_into_sense_id": null,
         "source_row": 12303,
         "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json"
+      },
+      {
+        "sense_id": "sense:shaft:01f384e2a347c835",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 12353,
+        "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json"
+      },
+      {
+        "sense_id": "sense:shaft:5949b02f004424f7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 12354,
+        "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json"
       }
     ],
     "active_collocations": [
       "collocation:4a60f84dcd0c8969e907",
+      "collocation:501ec99d3400aea15311",
       "collocation:60f2c855ac37057f58b5",
-      "collocation:a30d1e009012f009df39"
+      "collocation:a30d1e009012f009df39",
+      "collocation:e6b9fb7212dea761c906"
     ],
     "facts": [],
     "collocations": [
@@ -223,6 +294,16 @@
       {
         "id": "collocation:a30d1e009012f009df39",
         "source_row": 13846,
+        "source_path": "content/lexical/canonical/collocations/shards/o4353-4384.json"
+      },
+      {
+        "id": "collocation:501ec99d3400aea15311",
+        "source_row": 21424,
+        "source_path": "content/lexical/canonical/collocations/shards/o4353-4384.json"
+      },
+      {
+        "id": "collocation:e6b9fb7212dea761c906",
+        "source_row": 21427,
         "source_path": "content/lexical/canonical/collocations/shards/o4353-4384.json"
       }
     ],
@@ -257,7 +338,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4369-4376.json",
-    "source_content_hash": "f4c159432a9f7a9ceea9e3690291418d3a74e3f2cd7ebc70319283292c1977e9",
+    "source_content_hash": "daa89183bc7b9815cd1b2eeba2fde369d564b27e075cb1baea130c775832b75d",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

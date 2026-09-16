@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "2f4a708d97c4943ca86b1687b830abf36bea92c060217f04578b91530d4d9791",
+    "content_hash": "94cd05a647200021898b24969540d586158dc989d1d2b3605c59486394a6ccb4",
     "core_concept": {
       "core_clusters": [
         {
@@ -18,19 +18,11 @@
             "sense:rubber:17d70951af8b51f9",
             "sense:rubber:fdfd6788b8845c23"
           ]
-        },
-        {
-          "label_cn": "涂橡胶于",
-          "label_en": "to coat or make with rubber",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:rubber:ae123dae94d05d96"
-          ]
         }
       ],
-      "core_meaning_cn": "弹性材料或橡皮",
-      "core_meaning_en": "an elastic material or an eraser",
-      "mental_model_cn": "弹性材料或橡皮",
+      "core_meaning_cn": "橡胶；英式英语 rubber 还常指橡皮擦",
+      "core_meaning_en": "rubber material; in BrE rubber commonly also means an eraser",
+      "mental_model_cn": "橡胶；英式英语 rubber 还常指橡皮擦",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -91,6 +83,13 @@
         "definition_en": "a piece of rubber used for erasing pencil marks",
         "governing_pattern": "",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "regional_register_boundary",
+          "note": "BrE rubber commonly means eraser; AmE neutral term is eraser",
+          "paired_form": "eraser",
+          "surface_lemma": "rubber"
+        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:rubber:fdfd6788b8845c23",
@@ -111,6 +110,27 @@
         "sense_label_en": "to coat or make with rubber",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "避孕套（美式非正式）",
+        "definition_en": "a condom (informal American English)",
+        "governing_pattern": "",
+        "level": "L3",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "regional_register_boundary",
+          "note": "AmE informal rubber can mean condom; keep this low with a register warning",
+          "paired_form": "condom",
+          "surface_lemma": "rubber"
+        },
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:rubber:361f33dd0c0ed8f2",
+        "sense_label_en": "a condom (informal American English)",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -155,6 +175,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11826,
+        "source_path": "content/lexical/canonical/senses/shards/o4193-4224.json"
+      },
+      {
+        "sense_id": "sense:rubber:361f33dd0c0ed8f2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11861,
         "source_path": "content/lexical/canonical/senses/shards/o4193-4224.json"
       }
     ],
@@ -212,7 +239,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4209-4216.json",
-    "source_content_hash": "2f4a708d97c4943ca86b1687b830abf36bea92c060217f04578b91530d4d9791",
+    "source_content_hash": "94cd05a647200021898b24969540d586158dc989d1d2b3605c59486394a6ccb4",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

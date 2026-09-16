@@ -6,8 +6,23 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "b17cd3429f38ec017ca58c5b9332fe6aa6c012d885abc83602f70910f83e498e",
+    "constructions": [
+      {
+        "construction_id": "construction:60c8efd76aad5b8cce7a",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "以某事为中心；围绕某事展开",
+        "pattern": "revolve around sth"
+      },
+      {
+        "construction_id": "construction:aec70404a6ffd4de5716",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "使某物旋转，例如 revolve a wheel",
+        "pattern": "revolve sth"
+      }
+    ],
+    "content_hash": "ef00c8a6102b1d6c3cb0780b6100bc71040a8859cca24dc8529d2bfe90a934f6",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "旋转，围绕",
@@ -80,6 +95,20 @@
         "sense_label_en": "to think about carefully",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "使旋转",
+        "definition_en": "to cause to turn around",
+        "governing_pattern": "vt. + object",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:revolve:189623b930a85018",
+        "sense_label_en": "to cause to turn around",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -102,37 +131,13 @@
     "word_id": "word:revolve"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:revolve:189623b930a85018",
-      "status": "merged",
-      "merged_into_sense_id": "sense:revolve:3e070bfd6cec51c6",
-      "pos": "verb",
-      "definition_cn": "使旋转",
-      "definition_en": "to cause to turn around",
-      "semantic_key": "4074dbffb293b7e54312eed401cb71d97b02f729078dda9334a0a47ab2537caf",
-      "semantic_key_history": [],
-      "legacy_aliases": [
-        "revolve:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "revolve:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-08-22T05:00:00+00:00",
-      "source_row": 11610,
-      "source_path": "content/lexical/canonical/senses/shards/o4129-4160.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:revolve:189623b930a85018",
-        "status": "merged",
-        "merged_into_sense_id": "sense:revolve:3e070bfd6cec51c6",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 11610,
         "source_path": "content/lexical/canonical/senses/shards/o4129-4160.json"
       },
@@ -200,7 +205,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4153-4160.json",
-    "source_content_hash": "b17cd3429f38ec017ca58c5b9332fe6aa6c012d885abc83602f70910f83e498e",
+    "source_content_hash": "ef00c8a6102b1d6c3cb0780b6100bc71040a8859cca24dc8529d2bfe90a934f6",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -7,12 +7,12 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "31c6bde2a066279ec2dcdd1463fe097b9f290f748e95dd58d8303d219dfbe4f9",
+    "content_hash": "6ece42a8a3e5d0a3324c3f52b41f77760814951c853e27093e973828c667c673",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "挽救；保存；节省",
-      "core_meaning_en": "to rescue, keep, or store for later; to avoid spending",
-      "mental_model_cn": "挽救；保存；节省",
+      "core_meaning_cn": "挽救；保存/存储；节省",
+      "core_meaning_en": "to rescue; keep/store for later (including files); spend less or save resources",
+      "mental_model_cn": "挽救；保存/存储；节省",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +22,92 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "解救，挽救",
+        "definition_en": "to bring into safety; rescue",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:save:2c47128a77b65fb7",
+        "sense_label_en": "to bring into safety; rescue",
+        "sort_order": 0,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "保存；留存；存储以备后用",
+        "definition_en": "to keep or store something for future or special use, including saving a file or document",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:save:e939ac81a52d53b0",
+        "sense_label_en": "to keep or store something for future or special use, including saving a file or document",
+        "sort_order": 1,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "节省，节约",
+        "definition_en": "to spend less; buy at a reduced price",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:save:7909005b256c545e",
+        "sense_label_en": "to spend less; buy at a reduced price",
+        "sort_order": 2,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "储蓄，攒钱",
+        "definition_en": "to reserve money or resources for future use",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:save:c59344e664655138",
+        "sense_label_en": "to reserve money or resources for future use",
+        "sort_order": 3,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "救球",
+        "definition_en": "the act of preventing the opposition from scoring",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:save:4585e8a9464c5f32",
+        "sense_label_en": "the act of preventing the opposition from scoring",
+        "sort_order": 4,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "除...之外",
+        "definition_en": "except; other than",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "preposition",
+        "sense_id": "sense:save:dc163a0600195d0f",
+        "sense_label_en": "except; other than",
+        "sort_order": 5,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -43,198 +128,47 @@
     "word_id": "word:save"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:save:2c47128a77b65fb7",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "解救，挽救",
-      "definition_en": "to bring into safety; rescue",
-      "semantic_key": "3d288bf12d744f2328aaee9697f0124a69b7866797d450c9e1c203bb55249540",
-      "semantic_key_history": [
-        "3d799b3062bf08294ca9a9e2f66fd71e800e215052e3e9d22727cde5f92e40c8"
-      ],
-      "legacy_aliases": [
-        "save:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "save:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11952,
-      "source_path": "content/lexical/canonical/senses/shards/o4257-4288.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:save:4585e8a9464c5f32",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "救球",
-      "definition_en": "the act of preventing the opposition from scoring",
-      "semantic_key": "cceaea60de8ae49bf7b0a10e09f59765f0a57664fb8157df63e469f163418f46",
-      "semantic_key_history": [
-        "dd53ef55f02a4e75de08c8f1ad206988bddfac0652385d83f57331b6c7dbaf24"
-      ],
-      "legacy_aliases": [
-        "save:l2:5"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "save:l2:5",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11953,
-      "source_path": "content/lexical/canonical/senses/shards/o4257-4288.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:save:7909005b256c545e",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "节省，节约",
-      "definition_en": "to spend less; buy at a reduced price",
-      "semantic_key": "9d209789e40a40018d9d2c8afe5d1959512c9952195f90f6fa89eda92d87dbbd",
-      "semantic_key_history": [
-        "c857bcf4576b0dbf5eda5c332c507c8d7c684087f2e6dd5e5ebd4831898a634e"
-      ],
-      "legacy_aliases": [
-        "save:l1:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "save:l1:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11954,
-      "source_path": "content/lexical/canonical/senses/shards/o4257-4288.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:save:c59344e664655138",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "储蓄，攒钱",
-      "definition_en": "to reserve money or resources for future use",
-      "semantic_key": "890db38dce6cfb55483953f53edc376db083e849046fc86f6fe42f8abc94fe66",
-      "semantic_key_history": [
-        "cb17adf960ffb3a5bcd309162b0158ac0557413834fc10c342495e049ce049ed"
-      ],
-      "legacy_aliases": [
-        "save:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "save:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11955,
-      "source_path": "content/lexical/canonical/senses/shards/o4257-4288.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:save:dc163a0600195d0f",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "preposition",
-      "definition_cn": "除...之外",
-      "definition_en": "except; other than",
-      "semantic_key": "a552a76195488d286fb51075c138c08ec4f01ea055ea5eee2619110dc885d9be",
-      "semantic_key_history": [
-        "60cc5fbe919eb3ed7be3064355c87cb899fee08a1837cdfe608220982a59bc83"
-      ],
-      "legacy_aliases": [
-        "save:l3:6"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "save:l3:6",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11956,
-      "source_path": "content/lexical/canonical/senses/shards/o4257-4288.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:save:e939ac81a52d53b0",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "保存，储蓄",
-      "definition_en": "to keep and reserve for personal or special use",
-      "semantic_key": "1bd2ca288b1f80a80bc00c346fa6a0cebdfea4ddf0b56993d24da7ac0d537b91",
-      "semantic_key_history": [
-        "fbcbc116e7db1274a49c534029bd1c012f8a0923bf7ffbf9b6410f21ea25ea71"
-      ],
-      "legacy_aliases": [
-        "save:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "save:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11957,
-      "source_path": "content/lexical/canonical/senses/shards/o4257-4288.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:save:2c47128a77b65fb7",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11952,
         "source_path": "content/lexical/canonical/senses/shards/o4257-4288.json"
       },
       {
         "sense_id": "sense:save:4585e8a9464c5f32",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11953,
         "source_path": "content/lexical/canonical/senses/shards/o4257-4288.json"
       },
       {
         "sense_id": "sense:save:7909005b256c545e",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11954,
         "source_path": "content/lexical/canonical/senses/shards/o4257-4288.json"
       },
       {
         "sense_id": "sense:save:c59344e664655138",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11955,
         "source_path": "content/lexical/canonical/senses/shards/o4257-4288.json"
       },
       {
         "sense_id": "sense:save:dc163a0600195d0f",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11956,
         "source_path": "content/lexical/canonical/senses/shards/o4257-4288.json"
       },
       {
         "sense_id": "sense:save:e939ac81a52d53b0",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11957,
         "source_path": "content/lexical/canonical/senses/shards/o4257-4288.json"
@@ -320,7 +254,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4257-4264.json",
-    "source_content_hash": "31c6bde2a066279ec2dcdd1463fe097b9f290f748e95dd58d8303d219dfbe4f9",
+    "source_content_hash": "6ece42a8a3e5d0a3324c3f52b41f77760814951c853e27093e973828c667c673",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

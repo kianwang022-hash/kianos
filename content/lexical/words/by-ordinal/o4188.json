@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "fcbd3d6a982d17d000615b451508d706c3a41fbeaa491e91c936a4df1ee53c07",
+    "content_hash": "851f662d4721e1fd6a816f4af04f562eb24b3d90ddda7d4e4a42c9c20fc1bd4e",
     "core_concept": {
       "core_clusters": [
         {
@@ -26,13 +26,14 @@
           "label_en": "to move something gently back and forth; to move back and forth or from side to side",
           "pos": "verb",
           "sense_ids": [
-            "sense:rock:26faa6f3b96f5a00"
+            "sense:rock:26faa6f3b96f5a00",
+            "sense:rock:d39a99bb96d3588c"
           ]
         }
       ],
-      "core_meaning_cn": "岩石；摇动",
-      "core_meaning_en": "hard mineral material; to move back and forth",
-      "mental_model_cn": "岩石；摇动",
+      "core_meaning_cn": "岩石；摇动或来回摇摆；摇滚乐等常见义",
+      "core_meaning_en": "rock/mineral material; transitive or intransitive rocking; common music/person extensions",
+      "mental_model_cn": "岩石；摇动或来回摇摆；摇滚乐等常见义",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -171,6 +172,20 @@
         "sense_label_en": "a style of popular music with a strong beat",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "摇摆；晃动",
+        "definition_en": "to move back and forth or from side to side",
+        "governing_pattern": "vi.",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:rock:d39a99bb96d3588c",
+        "sense_label_en": "to move back and forth or from side to side",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -193,33 +208,7 @@
     "word_id": "word:rock"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:rock:d39a99bb96d3588c",
-      "status": "merged",
-      "merged_into_sense_id": "sense:rock:26faa6f3b96f5a00",
-      "pos": "verb",
-      "definition_cn": "摇摆；晃动",
-      "definition_en": "to move back and forth or from side to side",
-      "semantic_key": "34620f647e4e6c451c0b17b4be755e0f04a43bce88e8d1e00be8c4c247cddd70",
-      "semantic_key_history": [
-        "cbc6b4f0056632be842113ae646b67182759d7e8fa5fbfcff1f03d89e675bfe4"
-      ],
-      "legacy_aliases": [
-        "rock:l2:6"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "rock:l2:6",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11729,
-      "source_path": "content/lexical/canonical/senses/shards/o4161-4192.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -259,8 +248,8 @@
       },
       {
         "sense_id": "sense:rock:d39a99bb96d3588c",
-        "status": "merged",
-        "merged_into_sense_id": "sense:rock:26faa6f3b96f5a00",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 11729,
         "source_path": "content/lexical/canonical/senses/shards/o4161-4192.json"
       }
@@ -347,7 +336,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4185-4192.json",
-    "source_content_hash": "fcbd3d6a982d17d000615b451508d706c3a41fbeaa491e91c936a4df1ee53c07",
+    "source_content_hash": "851f662d4721e1fd6a816f4af04f562eb24b3d90ddda7d4e4a42c9c20fc1bd4e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
