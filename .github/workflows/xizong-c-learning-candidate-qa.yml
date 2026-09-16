@@ -1,0 +1,36 @@
+name: Xizong C Learning Candidate QA
+
+on:
+  pull_request:
+    paths:
+      - 'content/xizong/knowledge/learner/c-hematology-immunity-infection-learning.json'
+      - 'content/xizong/knowledge/learner/c-hematology-immunity-infection-learning/**'
+      - 'content/xizong/knowledge/learner/C_PHASE*.md'
+      - 'content/xizong/knowledge/systems/c-hematology-immunity-infection/**'
+      - 'static-web/scripts/validate-xizong-c-learning.mjs'
+      - '.github/workflows/xizong-c-learning-candidate-qa.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'content/xizong/knowledge/learner/c-hematology-immunity-infection-learning.json'
+      - 'content/xizong/knowledge/learner/c-hematology-immunity-infection-learning/**'
+      - 'content/xizong/knowledge/learner/C_PHASE*.md'
+      - 'content/xizong/knowledge/systems/c-hematology-immunity-infection/**'
+      - 'static-web/scripts/validate-xizong-c-learning.mjs'
+      - '.github/workflows/xizong-c-learning-candidate-qa.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-c-learning-candidate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Current
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate C Learning candidate
+        run: node static-web/scripts/validate-xizong-c-learning.mjs
