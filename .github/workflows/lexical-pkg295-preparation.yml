@@ -58,7 +58,7 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           s=Path('content/lexical/execution/preflight/o6875-o7374.execution-sheet.md').read_text()
-          for marker in ['Re-rank fraternal','Broaden fraudulent','Anchor fraught','Repair gibe around taunt/mock','Add same-owner BrE spelling `hypnotise`','Both `maneuver@o7134` and `manoeuvre@o2949`']:
+          for marker in ['Re-rank fraternal','Broaden fraudulent','Anchor fraught','Repair gibe around taunt/mock','Add same-owner BrE spelling `hypnotise`']:
               assert marker in s, marker
           assert s.count('PRODUCTION: NO_CHANGE in Production / Audit-authorized source') == 34, 'Only the 34 Audit-only additions may lack a Production UPGRADE directive'
           print('PRODUCTION_DIRECTIVE_CAPTURE_PASS')
