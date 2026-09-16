@@ -17,6 +17,7 @@ import { loadXizongQuestionCrosswalkForBlock } from '../../../lib/xizongQuestion
 import { loadXizongPathways, pathwaysForBlock } from '../../../lib/xizongPathways.mjs';
 import { loadXizongLearningCues, learningCuesForBlock } from '../../../lib/xizongLearningCues.mjs';
 import { projectBlockLearn, projectKpCore, projectVisualGate } from '../../../lib/xizongProjection.mjs';
+import { buildXizongProductionBlock } from '../../../lib/xizongProductionProjection.mjs';
 
 export function getStaticPaths() {
   return listProjectableXizongSystems().flatMap((system) => system.blocks.map((block) => ({
@@ -26,27 +27,28 @@ export function getStaticPaths() {
 }
 
 const { systemId, blockSlug } = Astro.props;
-const block = loadXizongBlock(systemId, blockSlug);
+const canonicalBlock = loadXizongBlock(systemId, blockSlug);
 const system = loadXizongSystem(systemId);
-const crosswalk = loadXizongQuestionCrosswalkForBlock(block);
+const productionBlock = buildXizongProductionBlock(canonicalBlock);
+const crosswalk = loadXizongQuestionCrosswalkForBlock(canonicalBlock);
 const pathways = loadXizongPathways(system);
-const blockPathways = pathwaysForBlock(pathways, block.blockId);
+const blockPathways = pathwaysForBlock(pathways, canonicalBlock.blockId);
 const learningCues = loadXizongLearningCues(system);
-const blockLearningCues = learningCuesForBlock(learningCues, block);
+const blockLearningCues = learningCuesForBlock(learningCues, canonicalBlock);
 const projection = {
-  ...block,
+  ...productionBlock,
   pathways: blockPathways,
   learningCues: blockLearningCues,
-  blockLearnHtml: marked.parse(projectBlockLearn(block.blockLearnMarkdown), { gfm: true }),
-  visualGateHtml: block.visualGateMarkdown ? marked.parse(projectVisualGate(block.visualGateMarkdown), { gfm: true }) : '',
-  kpRecords: block.kpRecords.map((kp) => ({ ...kp, detailHtml: marked.parse(projectKpCore(kp.detailMarkdown), { gfm: true }) }))
+  blockLearnHtml: marked.parse(projectBlockLearn(canonicalBlock.blockLearnMarkdown), { gfm: true }),
+  visualGateHtml: canonicalBlock.visualGateMarkdown ? marked.parse(projectVisualGate(canonicalBlock.visualGateMarkdown), { gfm: true }) : '',
+  kpRecords: productionBlock.kpRecords.map((kp) => ({ ...kp, detailHtml: marked.parse(projectKpCore(kp.detailMarkdown), { gfm: true }) }))
 };
 ---
-<Base title={`${block.label} · ${block.title}`} kicker={`西医综合 · ${block.systemCanonicalId} · ${block.label}`} description={block.centerQuestion} sourcePath={block.sourcePath} sourceHash={block.sourceHash} objectId={block.objectId} active="xizong">
-  <XizongLastLocation system={system} block={block} />
+<Base title={`${canonicalBlock.label} · ${canonicalBlock.title}`} kicker={`西医综合 · ${canonicalBlock.systemCanonicalId} · ${canonicalBlock.label}`} description={canonicalBlock.centerQuestion} sourcePath={canonicalBlock.sourcePath} sourceHash={canonicalBlock.sourceHash} objectId={canonicalBlock.objectId} active="xizong">
+  <XizongLastLocation system={system} block={canonicalBlock} />
   <XizongBlockV6 block={projection} />
   <XizongQuestionCrosswalkReverse crosswalk={crosswalk} />
-  <XizongRuntimeStageGuard system={system} block={block} />
+  <XizongRuntimeStageGuard system={system} block={projection} />
   <XizongConnectionCues block={projection} />
   <XizongPrecisionVisualCues block={projection} />
   <XizongExtensionAssets block={projection} />
