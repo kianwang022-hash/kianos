@@ -155,8 +155,9 @@ Surface roles are therefore:
 Hard rules:
 
 - KianOS must not silently become a second primary Lecture reader merely because it can render source text or KP detail.
-- A normal first-pass path is **KianOS orientation / attention cue → continuous original Lecture in MarginNote → optional KianOS checkpoint at a real Source boundary → retrieval / closure at the accepted return point**.
-- The accepted System-specific Learning owner controls Source-contact granularity. Runtime must not impose a per-LG source trip when the accepted route uses a larger natural Source unit.
+- During normal first learning, KianOS remains on the relevant **KP Learn companion workspace while the original Lecture is read continuously on iPad / MarginNote**. There is no mandatory separate blank Source-handoff page between Framework and KP Learn.
+- The accepted System-specific Learning owner still controls Source-contact granularity. A Source-contact segment may span several KP / LG objects; keeping KianOS on KP Learn surfaces does not redefine or fragment that Source boundary.
+- The learner may advance through the relevant KP Learn surfaces as the continuous Lecture reaches them, without extra completion ceremonies or device-bounce steps.
 - Lecture-attached TTSX stay on the original Lecture/MarginNote surface and are completed there, including answer checking, all options and question-side expansions.
 - KianOS may surface the **TTSX checkpoint** when a reviewed natural subsection boundary is reached: show that the real bound questions are now due, allow a low-friction completion confirmation, and optionally let Kian select particular questions worth retaining and leave a short note / reason.
 - The TTSX checkpoint does **not** require Kian to re-answer the questions in KianOS and does not automatically create a full Question Attempt. It records only the minimal checkpoint / learner-selected evidence justified by the interaction.
@@ -180,16 +181,17 @@ The abstract first-pass chain is:
 
 ```text
 System / Block orientation
-→ continuous original-Lecture Source contact at accepted granularity
+→ enter the relevant KP Learn companion surface
+→ read the original Lecture continuously on iPad / MarginNote at the accepted Source-contact granularity while KianOS stays on the owning KP Learn workspace(s)
 → when a real natural subsection closes: TTSX checkpoint if a reviewed binding exists
      ├─ questions are completed in Lecture / MarginNote
      ├─ read answer + all options + question-side expansions
      └─ KianOS optionally records selected question / note / W-U evidence
-→ continue Source contact or return at the accepted retrieval point
-→ active KP retrieval inside the learned model
+→ active KP Recall after the owning material has actually been learned
 → Logic Group closure
 → Block Recall
 → Block Complete
+→ release that Block's reusable Core / Precision / Marked Memory assets
 → after the System has actually been learned: System Recall
 → official System question sweep in KianOS
 → Wrong / Uncertain smallest sufficient repair
@@ -278,7 +280,11 @@ KianOS may know many backend semantics, but the learner-facing attention project
 
 Attention projection is not a second curriculum and not a workflow-state dump. Backend labels such as `MI-G`, `MI-D`, `CURRENT_CORE`, `RESERVE_LEARNING`, `CONNECTION_HOOK`, `DEFERRED`, Projection roles or geometry should normally be translated into natural learner-facing actions rather than exposed as engineering metadata.
 
-Memory / review admission is selective. It should be driven by meaningful evidence such as unstable formally learned Core, high-value Precision, Recall weakness, Wrong / Uncertain evidence, learner-selected useful TTSX expansion, or explicit learner need.
+The distinction between **Memory asset availability** and **scheduled review debt** is binding:
+
+- once a Block reaches real Block Complete, its reusable learner cards are released into the persistent Memory library;
+- release means "available for long-term browse / recall / scheduling", not "every released card is immediately due today";
+- scheduling remains selective and evidence/priority driven, so Block completion must not create an artificial wall of mandatory same-day debt.
 
 Later learning should become **thinner, not longer**:
 
@@ -386,3 +392,202 @@ A single content defect, runtime bug, bad mapping, UI friction or question error
 The durable direction is:
 
 > **medical truth first → causal learning continuity → source-faithful study → selective checkpoint/evidence → active reconstruction → evidence-driven repair → progressively thinner mastery.**
+
+---
+
+## 12｜Locked learner-facing flow and capability closure
+
+Status: **CURRENT FROZEN FLOW — change only by explicit Kian decision or real learner evidence that reopens L-level semantics.**
+
+This section closes the learner-facing ambiguities that previously allowed different Chats / Runtime iterations to reconstruct different workflows from the same owners. If older wording in this file is less specific about learner-facing sequencing, this section supplies the binding clarification; it does not replace System-specific Source-contact granularity or medical truth.
+
+### 12.1 One stable learner flow
+
+```text
+optional Guide for first-time understanding
+→ System Framework
+→ Block Framework
+→ enter the relevant KP Learn companion surface
+→ continuous original-Lecture learning on iPad / MarginNote while KianOS stays on the owning KP Learn workspace(s)
+→ lightweight TTSX checkpoint only at a real reviewed boundary when bound questions exist
+→ KP Recall after the owning material has actually been learned
+→ Logic Group closure
+→ Block Recall
+→ Block Complete
+→ automatically release that Block's Core Memory cards + current-owner Precision Memory + Marked fragments into persistent Memory
+→ after the whole System is actually learned: System Recall
+→ official System question sweep
+→ smallest-sufficient Repair / exact Return
+→ rolling Memory / Precision / marked review / second-pass reuse
+```
+
+The optional Guide and the formal Framework are different learner objects:
+
+- **Guide** is a small, skippable first-learning entrance. It may use more explanatory prose to explain why the System / Block is organized this way, why the major causal model matters, how the Blocks depend on each other, or which intuitive mistakes to avoid. Guide is not a recurring gate, is not shown automatically as a blocking screen, and must not become a second Lecture.
+- **System Framework** is the thin recurring system model: mother model / main chain, failure structure, judgment axes, key variables / relations and Block route. It should be Projection-first, not a page of prose questions.
+- **Block Framework** is the thin recurring local model: mechanism chain, comparison geometry, formula strip, boundaries and local route. It should also be Projection-first, not a page of prose questions. A small persistent return affordance may remain available while studying the Block, but the Framework does not occupy the normal KP workspace after orientation.
+
+Historical prose may be used only as bounded provenance when migrating a missing Guide explanation layer; it never silently outranks Current System / Learning owners.
+
+### 12.2 Logic Group is lightweight
+
+A Logic Group is not a large independent learner page.
+
+Learner-facing LG behavior is:
+
+- show the current LG name and one short local target / problem;
+- immediately continue into the owning KP Learn surfaces;
+- show genuine LG-level Visual / Connection / Reserve support only when useful;
+- after the KP sequence, perform one brief local closure;
+- do not require an extra "enter this LG" ceremony or large completion screen.
+
+Source contact still follows the accepted System-specific natural segment. LG must never force an extra MarginNote trip merely because it exists as a retrieval unit.
+
+### 12.3 KP Learn is the low-interaction Lecture companion; KP Recall is answer-protected
+
+**KP Learn** is the Mac companion surface used **while** Kian reads the original Lecture continuously on iPad / MarginNote. It is not a post-Source handoff page and it is not a replacement Lecture reader.
+
+Default KP Learn surface:
+
+- show KP title and the canonical ultra-compressed `主提示`;
+- show the complete canonical Core **expanded by default**; no Reveal action is required for normal Learn;
+- show exact Lecture Source locator and Outline locator compactly at the top-right of the KP workspace;
+- use a dynamic auxiliary area for genuinely useful Visual / structured table / Precision / boundary / comparison / connection support;
+- when a useful Visual exists, give it real Mac-wide space rather than reducing it to a count or tiny inspector;
+- show concrete current Precision items directly when available; do not replace them with only `Precision × N` or another click-to-discover count;
+- Learn has no 1/2/3/4 Recall rating;
+- normal Lecture study should require very little Mac interaction: the learner stays in the KP Learn workspace and advances only as the source genuinely moves to the next owning KP / object.
+
+`主提示` is an ultra-compressed retrieval trigger, normally keyword-first and structure/count/chain/contrast oriented. It is not a prose-question worksheet and must not leak the answer merely to sound conversational.
+
+**KP Recall** reuses the same compact prompt but starts answer-protected:
+
+- Core and every answer-bearing Visual / Precision / Extension / tooltip are hidden on the clean front;
+- `Space` reveals the Core in place and may restore stage-safe post-Reveal support;
+- Recall then records the learner rating / evidence;
+- Recall protection applies to the whole workspace, not only the center card.
+
+### 12.4 Learner layout invariants
+
+On normal Mac-wide Block learning:
+
+- the left Logic Map is narrow but comfortably readable; it exists only for location / lightweight navigation and must not become a second content column;
+- the primary learning region consumes most of the screen;
+- the auxiliary region is dynamic rather than a permanently tiny inspector: it may widen for a valuable Visual / table and shrink or disappear when no support is useful;
+- Source / Outline locators belong with the current KP identity, normally top-right, rather than consuming the auxiliary support area;
+- if no useful auxiliary asset exists, return that space to the Core;
+- avoid full-page card stacks and unnecessary vertical travel; long Core may scroll inside the stable learner workspace when useful.
+
+### 12.5 Block-complete Memory release and Memory families
+
+**Block Complete is the normal release gate for reusable Block memory assets.** Release is idempotent: revisiting or re-completing a Block must not create duplicate cards.
+
+At real Block Complete, the Runtime should automatically release:
+
+```text
+Core Memory
+= one reusable memory card for every unique canonical KP in the completed Block
+= front uses the learner's personal Prompt override when present, otherwise the canonical Prompt
+= back uses the canonical Core plus stage-safe personal annotation context
+= every released card stays available for later browse / recall even when it is not currently scheduled as due
+
+Precision Memory
+= every valid current-owner Precision item owned by the completed Block
+= numbers / thresholds / drugs / classifications / times / markers / operations / exact pairings
+= released regardless of whether the surrounding KP was conceptually weak
+= may be repeatedly browsed or actively recalled; first-pass instability never blocks Block completion
+= stable items may fall in scheduling priority but remain available in the all-Precision pool
+
+Marked
+= learner-selected Prompt / Core fragments anchored to their exact owning KP
+= released with the completed Block and remains available as a lightweight re-read / review view
+= does not by itself mean the KP is weak, Wrong or Uncertain
+```
+
+`Weak` is primarily an **evidence/priority view over existing Core / Precision cards**, not a second duplicate card corpus:
+
+- unstable Recall, Wrong / Uncertain or later contradictory evidence raises review priority;
+- a Core card can be both ordinary Core Memory and currently Weak without being copied twice;
+- a Precision item can likewise be stable or weak without changing its identity.
+
+`Repair` remains a separate bounded task queue returned from Chat / official questions / discriminating checks. Repair evidence does not overwrite the original observation or prove mastery.
+
+Important distinction:
+
+> **Memory release ≠ immediate due debt.**
+
+Completing a 30-KP Block may release 30 Core cards plus its Precision and Marked assets into the persistent Memory library, but the rolling scheduler decides what actually appears in the current review queue. Kian may always enter `All Core`, `All Precision`, a specific System / Block, or `Marked` and browse/review them manually.
+
+Reserve / Connection remains an inline Attention / future-return semantic. It does **not** deserve a separate top-level learner tab merely because a backend queue can represent it.
+
+### 12.6 Memory learner surface
+
+The normal Memory surface should stay simple and should not multiply independent products.
+
+Preferred top-level learner views are:
+
+```text
+Today
+= the rolling scheduled queue across eligible Core / Precision / marked / weak material
+
+Core
+= all Block-released KP memory cards; filterable by System / Block and weakness state
+
+Precision
+= all released exact-memory items; supports both low-friction browse and active Recall
+
+Marked
+= learner-selected Prompt / Core fragments with owning context
+
+Repair
+= bounded active repair tasks only
+```
+
+`Weak` should normally be a filter / priority state available inside Today/Core/Precision rather than a separate duplicated library.
+
+Core Memory interaction should normally reuse the familiar Prompt → `Space` Reveal → rating pattern. Precision should support two natural uses:
+
+- **Browse** — exact item/answer visible for low-friction "没事看看" repetition;
+- **Recall** — answer-protected exactness cue → `Space` Reveal → rating/evidence.
+
+Marked is primarily for quick re-reading of learner-selected fragments in context; it need not manufacture a recall question or rating for every highlight.
+
+### 12.7 Personal Prompt override and fragment marking are first-class learner state
+
+Kian may disagree with the generated/canonical Prompt wording or feel that only one small part of a KP is not yet familiar.
+
+Runtime must therefore support private learner state for:
+
+- **personal Prompt override** — Kian may edit the learner-facing Prompt used in Learn / Recall / Core Memory; the canonical Prompt remains preserved and restorable, and the private override never mutates canonical medical Core;
+- **fragment marking / highlighting** — Kian may mark exact text fragments inside the Prompt or Core for later attention;
+- marking is a learner-selected review signal, not an automatic weakness diagnosis;
+- Marked fragments may be surfaced in later lightweight review and must be included in Chat handoff / learning packets when relevant.
+
+A useful Chat handoff for a KP may therefore include the canonical Prompt, personal Prompt override, marked Prompt/Core fragments, Recall evidence, relevant Precision state and learner note/evidence context. This lets Chat distinguish "the KP is weak" from "the KP is mostly fine but this exact point is not yet familiar."
+
+A generic blank note box is not the primary representation of this need. The preferred interaction is annotation anchored to the actual Prompt / Core object, plus optional short notes only where they add value.
+
+### 12.8 Auxiliary capabilities do not become parallel products
+
+- Visual / Extension stays conditional and embeds into the owning learning moment.
+- TTSX remains a lightweight source-bound checkpoint; it is not a second question runtime.
+- reviewed Question Crosswalk remains a query / routing capability and must not occupy the normal first-pass mainline as a large persistent panel.
+- progress, evidence versioning, source hashes, repair inboxes and persistence guards remain background capabilities; they should not become learner-facing workflow dashboards.
+- official questions remain one reusable question product across passes, not separate first/second-pass apps.
+
+### 12.9 Non-drift rule for future Chats and implementations
+
+Future Xizong Chats must not reconstruct a different learner model from old screenshots, historical Guides, stale PR discussions, current DOM quirks or implementation convenience.
+
+For learner-flow questions, the required interpretation order is:
+
+```text
+content/xizong/CURRENT.md
+→ this LEARNING_CONTRACT.md, especially §12 when learner-facing flow/capabilities are material
+→ study-policy.json for machine execution detail
+→ exact System-specific Learning owner for local Source-contact / LG differences
+→ Product / Projection contracts for presentation and rendering
+→ Runtime only as implementation evidence
+```
+
+If Product / Runtime currently lacks one of the capabilities above, that is an implementation / projection closure defect, not permission to silently redefine the learner flow. If a future real-use finding suggests the flow itself should change, reopen this contract explicitly rather than creating a second unofficial variant.
