@@ -1,0 +1,103 @@
+/* Final Lexical visual polish — presentation only.
+   Keep the adaptive projection from lexical-presentation.css, but make the
+   Important Expansion lane read as distinct learner cards and ease density
+   slightly on Mac-wide study surfaces. */
+
+body#kianos-workspace.uiWordStudy .portedVocabEvidenceColumn{
+  display:grid;
+  align-content:start;
+  gap:10px;
+  padding:12px;
+  border-left:1px solid #d9e3dc;
+  background:#f3f7f4;
+  box-sizing:border-box;
+}
+
+body#kianos-workspace.uiWordStudy .lexicalExpansionSection{
+  position:relative;
+  padding:13px 16px 14px;
+  border:1px solid #d9e4dc;
+  border-radius:9px;
+  background:#fff;
+  box-shadow:0 1px 2px rgba(34,60,54,.035);
+}
+
+body#kianos-workspace.uiWordStudy .lexicalExpansionSection>header{
+  margin:0 0 10px;
+  padding-bottom:8px;
+  border-bottom:1px solid #e5ebe6;
+}
+
+body#kianos-workspace.uiWordStudy .lexicalExpansionSection>header>span{
+  color:#2e5640;
+}
+
+/* A rich construction set should use the horizontal Mac canvas instead of
+   spending one full vertical line per phrase. */
+body#kianos-workspace.uiWordStudy .lexicalConstructionSection .portedVocabEvidenceList{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  column-gap:14px;
+}
+body#kianos-workspace.uiWordStudy .lexicalConstructionSection .portedVocabEvidenceList>article:nth-child(2){
+  border-top:0;
+}
+
+/* Ease the main learning rows by half a step while giving usage more width,
+   so the page breathes without turning back into a sparse document. */
+body#kianos-workspace.uiWordStudy .lexicalSenseRow{
+  grid-template-columns:60px minmax(205px,.70fr) minmax(340px,1.30fr);
+  column-gap:20px;
+  padding:14px 22px 15px;
+}
+body#kianos-workspace.uiWordStudy .lexicalSenseMeaning>strong{
+  margin-top:4px;
+  line-height:1.5;
+}
+body#kianos-workspace.uiWordStudy .lexicalSenseUsage{
+  gap:6px 18px;
+}
+body#kianos-workspace.uiWordStudy .lexicalSenseUsage li{
+  padding-top:3px;
+  padding-bottom:5px;
+}
+body#kianos-workspace.uiWordStudy .portedVocabEvidenceList>article{
+  padding-top:10px;
+  padding-bottom:11px;
+}
+
+/* When the structured stress/POS variants are already visible, repeating a
+   prose sentence such as “As a verb, stress shifts…” adds noise. */
+body#kianos-workspace.uiWordStudy .lexicalFormSection:has(.lexicalFormVariants) .lexicalFormBoundary{
+  display:none;
+}
+
+/* Depth should not expose catalog/audit rationale as if it were study copy.
+   The related word itself remains visible; richer family teaching can live in
+   Explore when a learner-facing explanation exists. */
+body#kianos-workspace.uiWordStudy .lexicalFamilyRows span{
+  display:none;
+}
+
+@media(max-width:1180px){
+  body#kianos-workspace.uiWordStudy .lexicalSenseRow{
+    grid-template-columns:56px minmax(205px,.78fr) minmax(255px,1.22fr);
+    column-gap:16px;
+    padding:13px 17px 14px;
+  }
+}
+
+@media(max-width:900px){
+  body#kianos-workspace.uiWordStudy .portedVocabEvidenceColumn{
+    padding:10px;
+    gap:9px;
+  }
+}
+
+@media(max-width:680px){
+  body#kianos-workspace.uiWordStudy .lexicalConstructionSection .portedVocabEvidenceList{
+    grid-template-columns:1fr;
+  }
+  body#kianos-workspace.uiWordStudy .lexicalConstructionSection .portedVocabEvidenceList>article:nth-child(2){
+    border-top:1px solid #e4eae3;
+  }
+}
