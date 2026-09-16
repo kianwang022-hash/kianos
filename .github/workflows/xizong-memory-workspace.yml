@@ -1,0 +1,35 @@
+name: Xizong Memory Workspace
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'static-web/XIZONG_MEMORY_PRODUCT.md'
+      - 'static-web/src/lib/xizongMemory*.mjs'
+      - 'static-web/src/components/XizongMemoryWorkspace.astro'
+      - 'static-web/src/pages/xizong/memory/**'
+      - 'static-web/scripts/validate-xizong-memory-workspace.mjs'
+      - '.github/workflows/xizong-memory-workspace.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  memory-workspace:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: static-web
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Validate Memory model and surface contract
+        run: node scripts/validate-xizong-memory-workspace.mjs
+      - name: Build Astro
+        run: npm run build
