@@ -1,12 +1,13 @@
 name: Lexical pkg288 continuous execution
 
-# Resume marker 2: L3-only Core pins including debauch are now frozen.
+# Resume marker 3: Unicode alias shards can be created from exact canonical locators.
 on:
   push:
     branches:
       - lexical/pkg288-exec
     paths:
       - 'tools/lexical_execute_o6375_o6874.py'
+      - 'tools/lexical_package_runtime.py'
       - 'content/lexical/execution/manifests/o6375-o6874/**'
       - '.github/workflows/lexical-pkg288-continuous.yml'
   workflow_dispatch:
@@ -30,7 +31,7 @@ jobs:
           fetch-depth: 0
       - name: Validate manifest
         run: |
-          python -m py_compile tools/lexical_execute_o6375_o6874.py
+          python -m py_compile tools/lexical_execute_o6375_o6874.py tools/lexical_package_runtime.py
           python tools/lexical_execute_o6375_o6874.py --validate-manifest
       - name: Execute from durable receipts
         run: |
