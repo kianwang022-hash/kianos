@@ -6,13 +6,31 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "74fffdde9f7323ef5b7dfc9b6d6c45dabf71e97dfcc2b02bc42bf2e6f72520a5",
+    "constructions": [
+      {
+        "construction_id": "construction:bb9dbd521fd24f080495",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "使某人/某物被遗忘、成为历史或落入某种命运",
+        "pattern": "consign sb/sth to oblivion/history/a fate"
+      }
+    ],
+    "content_hash": "b4eb35ccbee22bbacaac52f978c83309a4e13b8360efa12334352c1728c306de",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "交付, 储蓄, 委托, 寄存",
-      "core_meaning_en": "commit forever; commit irrevocably",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "交付；托付；把人或物交给某人/某地处理或保管；发送、托运（货物等）",
+          "label_en": "to deliver or entrust a person or thing to another person, place, or authority for care, custody, sale, or handling; to send goods or other items to a destination or recipient",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:consign:fa73f38d9339531b",
+            "sense:consign:cc7a2651dd505762"
+          ]
+        }
+      ],
+      "core_meaning_cn": "交付；托付；把人或物交给某人/某地处理或保管；发送、托运（货物等）",
+      "core_meaning_en": "to deliver or entrust a person or thing to another person, place, or authority for care, custody, sale, or handling; to send goods or other items to a destination or recipient",
+      "mental_model_cn": "交付；托付；把人或物交给某人/某地处理或保管；发送、托运（货物等）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +40,36 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "交付；托付；把人或物交给某人/某地处理或保管",
+        "definition_en": "to deliver or entrust a person or thing to another person, place, or authority for care, custody, sale, or handling",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:consign:fa73f38d9339531b",
+        "sense_label_en": "to deliver or entrust a person or thing to another person, place, or authority for care, custody, sale, or handling",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "发送、托运（货物等）",
+        "definition_en": "to send goods or other items to a destination or recipient",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:consign:cc7a2651dd505762",
+        "sense_label_en": "to send goods or other items to a destination or recipient",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -38,24 +85,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:consign:cc7a2651dd505762",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "交付, 储蓄, 委托, 寄存",
-      "definition_en": "send to an address",
-      "semantic_key": "b74f57ea370563f5fde134140d2141747f142cb3410b64e0981bddd696c22e32",
-      "semantic_key_history": [
-        "957df7302fff8e8a9f048a9f8d1f2713942f2ba3cebe0537aee78894ca3cad6d"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 17378,
-      "source_path": "content/lexical/canonical/senses/shards/o6561-6592.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:consign:d8312c96f5745572",
       "status": "deprecated",
@@ -73,31 +102,13 @@
       "source_row": 17379,
       "source_path": "content/lexical/canonical/senses/shards/o6561-6592.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:consign:fa73f38d9339531b",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "交付, 储蓄, 委托, 寄存",
-      "definition_en": "give over to another for care or safekeeping",
-      "semantic_key": "8e0c8d012897a221a55ace2dc7b0d01a300123db7878fe4ec5b7eeae2307db34",
-      "semantic_key_history": [
-        "0481965cac46a5f4686f055668451ac704c8678eaeb6670f1e47d7d8b760ef12"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 17380,
-      "source_path": "content/lexical/canonical/senses/shards/o6561-6592.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:consign:cc7a2651dd505762",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 17378,
         "source_path": "content/lexical/canonical/senses/shards/o6561-6592.json"
@@ -111,7 +122,7 @@
       },
       {
         "sense_id": "sense:consign:fa73f38d9339531b",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 17380,
         "source_path": "content/lexical/canonical/senses/shards/o6561-6592.json"
@@ -141,7 +152,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6561-6568.json",
-    "source_content_hash": "74fffdde9f7323ef5b7dfc9b6d6c45dabf71e97dfcc2b02bc42bf2e6f72520a5",
+    "source_content_hash": "b4eb35ccbee22bbacaac52f978c83309a4e13b8360efa12334352c1728c306de",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

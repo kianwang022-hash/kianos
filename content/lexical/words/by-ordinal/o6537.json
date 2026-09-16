@@ -7,12 +7,22 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "5e926e585491bfba672840c2e2284cbdc52ed8fffd040ff0845dbe399317fdb2",
+    "content_hash": "3aa5cfee6c9f53b829097b971ed4b96bd60440cccfb4a1ae1917e83fdb59340c",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "补充的, 补足的",
-      "core_meaning_en": "of words or propositions so related that each is the negation of the other",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "补充的, 补足的；互补的；相辅相成的",
+          "label_en": "of words or propositions so related that each is the negation of the other; combining well with something because each supplies qualities or parts that the other lacks",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:complementary:82c8de68563155e3",
+            "sense:complementary:316b955145ac2926"
+          ]
+        }
+      ],
+      "core_meaning_cn": "补充的, 补足的；互补的；相辅相成的",
+      "core_meaning_en": "of words or propositions so related that each is the negation of the other; combining well with something because each supplies qualities or parts that the other lacks",
+      "mental_model_cn": "补充的, 补足的；互补的；相辅相成的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -46,6 +56,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "互补的；相辅相成的",
+        "definition_en": "combining well with something because each supplies qualities or parts that the other lacks",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:complementary:316b955145ac2926",
+        "sense_label_en": "combining well with something because each supplies qualities or parts that the other lacks",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -61,7 +85,14 @@
     "word_family": [],
     "word_id": "word:complementary"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:horizontal:4815ad3dd8082fdd7fdc",
+      "owner_path": "content/lexical/relations/by-id/65/65fcf1c2bb9f49ad51407fcc326881bf5a5a46dd886c17c36f91cbd57090808f.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -70,6 +101,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 17332,
+        "source_path": "content/lexical/canonical/senses/shards/o6529-6560.json"
+      },
+      {
+        "sense_id": "sense:complementary:316b955145ac2926",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 17372,
         "source_path": "content/lexical/canonical/senses/shards/o6529-6560.json"
       }
     ],
@@ -102,7 +140,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6537-6544.json",
-    "source_content_hash": "5e926e585491bfba672840c2e2284cbdc52ed8fffd040ff0845dbe399317fdb2",
+    "source_content_hash": "3aa5cfee6c9f53b829097b971ed4b96bd60440cccfb4a1ae1917e83fdb59340c",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

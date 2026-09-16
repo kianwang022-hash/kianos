@@ -6,13 +6,38 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "d7d2eb9484233abf981048c19372f22d17eae2ab2eedc0d34e8ab38ea922cd6d",
+    "constructions": [
+      {
+        "construction_id": "construction:ea1d8c3b6e30c890d8d8",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "同意某人/某观点",
+        "pattern": "concur with sb/sth"
+      },
+      {
+        "construction_id": "construction:54a496ac6f9d2d3f90d9",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "一致认为……",
+        "pattern": "concur that ..."
+      }
+    ],
+    "content_hash": "ab6cb11fe8ddbf53bc68d1129dab765c7ca1e1b1b77331b69ee20d214758e636",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "同意, 一致, 同时发生",
-      "core_meaning_en": "happen simultaneously",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "同意, 一致, 同时发生；同意；意见一致",
+          "label_en": "happen simultaneously; to agree or share the same opinion",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:concur:82049c464e9c5b83",
+            "sense:concur:f25232bd62ea57b0"
+          ]
+        }
+      ],
+      "core_meaning_cn": "同意, 一致, 同时发生；同意；意见一致",
+      "core_meaning_en": "happen simultaneously; to agree or share the same opinion",
+      "mental_model_cn": "同意, 一致, 同时发生；同意；意见一致",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -31,9 +56,10 @@
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L1",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
+        "register": "formal",
         "sense_id": "sense:concur:82049c464e9c5b83",
         "sense_label_en": "happen simultaneously",
         "sort_order": 1,
@@ -45,7 +71,22 @@
             "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
             "source_type": "learner_dictionary"
           }
-        ]
+        ],
+        "usage_note": "Formal sense: happen at the same time."
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "同意；意见一致",
+        "definition_en": "to agree or share the same opinion",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:concur:f25232bd62ea57b0",
+        "sense_label_en": "to agree or share the same opinion",
+        "sort_order": 2,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -70,6 +111,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 17352,
+        "source_path": "content/lexical/canonical/senses/shards/o6529-6560.json"
+      },
+      {
+        "sense_id": "sense:concur:f25232bd62ea57b0",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 17374,
         "source_path": "content/lexical/canonical/senses/shards/o6529-6560.json"
       }
     ],
@@ -97,7 +145,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6545-6552.json",
-    "source_content_hash": "d7d2eb9484233abf981048c19372f22d17eae2ab2eedc0d34e8ab38ea922cd6d",
+    "source_content_hash": "ab6cb11fe8ddbf53bc68d1129dab765c7ca1e1b1b77331b69ee20d214758e636",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
