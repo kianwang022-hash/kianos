@@ -137,7 +137,7 @@ function selectStructureAfterAnchor(text, selector) {
     return lines.slice(0, end + 1).join('\n').trim();
   }
 
-  if (type === 'MARKDOWN_TABLE') {
+  if (type === 'TABLE' || type === 'MARKDOWN_TABLE') {
     const output = [];
     for (const line of lines) {
       if (!line.trim().startsWith('|')) break;
