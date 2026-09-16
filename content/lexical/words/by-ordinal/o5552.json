@@ -6,8 +6,17 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "a25014e4716dcf2077952d234864e12455b83a881c1c667c77d51e46190d5c47",
+    "constructions": [
+      {
+        "construction_id": "construction:5a73aa3cc163badbbde9",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "因坏事/可耻之事而臭名昭著",
+        "pattern": "infamous for sth",
+        "source_sense_id": "sense:infamous:895b7ccacf2252ac"
+      }
+    ],
+    "content_hash": "9c9cdc802acec452b1d7b94be5778fc4c30f188a315eda39d6ad639e4f700b80",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "臭名昭著的；声名狼藉的",
@@ -60,7 +69,14 @@
     "word_family": [],
     "word_id": "word:infamous"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:horizontal:10fc61c9ab97cdce0241",
+      "owner_path": "content/lexical/relations/by-id/13/138ff8a026644f8a454ec1209eba073b0a2c0b7c9f1ce119f48474d15cb921c7.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -96,7 +112,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5545-5552.json",
-    "source_content_hash": "a25014e4716dcf2077952d234864e12455b83a881c1c667c77d51e46190d5c47",
+    "source_content_hash": "9c9cdc802acec452b1d7b94be5778fc4c30f188a315eda39d6ad639e4f700b80",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -9,15 +9,15 @@
     "constructions": [
       {
         "construction_id": "construction:aeroplane:handoff-a023e1f356dc2859",
-        "pattern": "aeroplane / airplane",
-        "meaning_cn": "英式 aeroplane；美式 airplane",
         "definition_en": "regional spelling variants for an aircraft",
         "level": "L1",
+        "meaning_cn": "英式 aeroplane；美式 airplane",
+        "pattern": "aeroplane / airplane",
         "pos": "phrase",
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "9651ac365091ae9c1e79a02180423adb31a90ea5be36a54a02bff4d54f482765",
+    "content_hash": "982dab192803984aad9362c6abfd508fee3a6dea5a190e9ec7fdcdc09ed95fbb",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "飞机",
@@ -87,16 +87,23 @@
     "word": "aeroplane",
     "word_family": [
       {
-        "form_boundary": true,
-        "pattern": "aeroplane / airplane",
-        "meaning_cn": "英式 aeroplane；美式 airplane",
         "definition_en": "regional spelling variants",
+        "form_boundary": true,
+        "meaning_cn": "英式 aeroplane；美式 airplane",
+        "pattern": "aeroplane / airplane",
         "source": "semantic-review-handoff-v1"
       }
     ],
     "word_id": "word:aeroplane"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:horizontal:125da2d4b9eaa72d11d3",
+      "owner_path": "content/lexical/relations/by-id/3a/3a882b63e8129fc285e09503f2708c98cace3c2903bcddca457816512f70b517.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -156,7 +163,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0097-0104.json",
-    "source_content_hash": "9651ac365091ae9c1e79a02180423adb31a90ea5be36a54a02bff4d54f482765",
+    "source_content_hash": "982dab192803984aad9362c6abfd508fee3a6dea5a190e9ec7fdcdc09ed95fbb",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -6,8 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "20b5e1525fd8c5d8f54a2c75d6f90ff45776c9e1cfd0bcea5b07c94b2e80bd9d",
+    "constructions": [
+      {
+        "construction_id": "construction:a5e815ef66b210240d90",
+        "definition_en": "to be aware of or understand a situation or trick",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "察觉、了解某事；看穿某种情况或把戏",
+        "pattern": "be wise to sth",
+        "source_sense_id": "sense:wise:29bcf85be2f9562d"
+      }
+    ],
+    "content_hash": "55ea454eac0544a23c4d58605ef888db85832a4a172a76ea6b2225ddef7af84b",
     "core_concept": {
       "core_clusters": [
         {
@@ -17,19 +27,11 @@
           "sense_ids": [
             "sense:wise:29bcf85be2f9562d"
           ]
-        },
-        {
-          "label_cn": "方法，方式",
-          "label_en": "a way of doing or being",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:wise:013a81a81e4a5bfa"
-          ]
         }
       ],
-      "core_meaning_cn": "明智的",
-      "core_meaning_en": "having or showing good judgment",
-      "mental_model_cn": "明智的",
+      "core_meaning_cn": "明智的，有智慧的",
+      "core_meaning_en": "having or prompted by wisdom or discernment",
+      "mental_model_cn": "明智的，有智慧的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -72,30 +74,6 @@
         "sense_label_en": "having or prompted by wisdom or discernment",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:64ead51c9fe57a952d87",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:wise:013a81a81e4a5bfa:collocation:0"
-            ],
-            "meaning_cn": "这样",
-            "phrase": "in this wise"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "方法，方式",
-        "definition_en": "a way of doing or being",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:wise:013a81a81e4a5bfa",
-        "sense_label_en": "a way of doing or being",
-        "sort_order": 1,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -118,12 +96,36 @@
     "word_id": "word:wise"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:wise:013a81a81e4a5bfa",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "方法，方式",
+      "definition_en": "a way of doing or being",
+      "semantic_key": "9730922aebb2c7cd4e4c6e21d05e4058526f099845221cec3f55418cf92f4ae1",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "wise:l2:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "wise:l2:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 15461,
+      "source_path": "content/lexical/canonical/senses/shards/o5409-5440.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:wise:013a81a81e4a5bfa",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 15461,
         "source_path": "content/lexical/canonical/senses/shards/o5409-5440.json"
@@ -137,7 +139,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:64ead51c9fe57a952d87",
       "collocation:a4c21f3da4bafdb0e712",
       "collocation:b9586d1cfcfa1c692222"
     ],
@@ -195,7 +196,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5433-5440.json",
-    "source_content_hash": "20b5e1525fd8c5d8f54a2c75d6f90ff45776c9e1cfd0bcea5b07c94b2e80bd9d",
+    "source_content_hash": "55ea454eac0544a23c4d58605ef888db85832a4a172a76ea6b2225ddef7af84b",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

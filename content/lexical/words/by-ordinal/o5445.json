@@ -6,13 +6,31 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "4d1eb0caa34e905e817808bb3bda3624861c4d3be43da7b60417f99e6e4b7be9",
+    "constructions": [
+      {
+        "construction_id": "construction:85f3c1f5b13d16ebddbc",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "拒绝给予/隐瞒某人某物（如信息、付款、同意）",
+        "pattern": "withhold sth from sb",
+        "source_sense_id": "sense:withhold:2a887bde8bbf5f21"
+      }
+    ],
+    "content_hash": "b7af3754e5d1797d3951ed70785c6c87a0333e26841e90dbc528b172473ebb32",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "扣留，拒绝给予",
-      "core_meaning_en": "to hold back or refuse to give",
-      "mental_model_cn": "扣留，拒绝给予",
+      "core_clusters": [
+        {
+          "label_cn": "拒绝给予，扣留",
+          "label_en": "to refuse to give or hand over something",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:withhold:2a887bde8bbf5f21"
+          ]
+        }
+      ],
+      "core_meaning_cn": "拒绝给予，扣留",
+      "core_meaning_en": "to refuse to give or hand over something",
+      "mental_model_cn": "拒绝给予，扣留",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -64,30 +82,6 @@
         "sense_label_en": "to refuse to give or hand over something",
         "sort_order": 0,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:f844f450b508d5212e52",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:withhold:d2ce6e9d283b5ef1:collocation:0"
-            ],
-            "meaning_cn": "忍住不做某事",
-            "phrase": "withhold from + doing sth"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "克制，忍住",
-        "definition_en": "to refrain from doing something",
-        "governing_pattern": "vi. + from",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:withhold:d2ce6e9d283b5ef1",
-        "sense_label_en": "to refrain from doing something",
-        "sort_order": 1,
-        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -110,7 +104,31 @@
     "word_id": "word:withhold"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:withhold:d2ce6e9d283b5ef1",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "克制，忍住",
+      "definition_en": "to refrain from doing something",
+      "semantic_key": "39d5f22db6a21d8f1f368c84d43a4c772e695a72189c629f4ad62102d78d0fc8",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "withhold:l2:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "withhold:l2:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 15477,
+      "source_path": "content/lexical/canonical/senses/shards/o5441-5472.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -122,7 +140,7 @@
       },
       {
         "sense_id": "sense:withhold:d2ce6e9d283b5ef1",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 15477,
         "source_path": "content/lexical/canonical/senses/shards/o5441-5472.json"
@@ -131,8 +149,7 @@
     "active_collocations": [
       "collocation:006c75b3f4bdb5add51c",
       "collocation:77ef0ed7c536c74c1e56",
-      "collocation:ec72ca02dd90b4af7947",
-      "collocation:f844f450b508d5212e52"
+      "collocation:ec72ca02dd90b4af7947"
     ],
     "facts": [],
     "collocations": [
@@ -188,7 +205,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5441-5448.json",
-    "source_content_hash": "4d1eb0caa34e905e817808bb3bda3624861c4d3be43da7b60417f99e6e4b7be9",
+    "source_content_hash": "b7af3754e5d1797d3951ed70785c6c87a0333e26841e90dbc528b172473ebb32",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

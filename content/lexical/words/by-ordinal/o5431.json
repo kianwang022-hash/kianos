@@ -11,19 +11,59 @@
         "construction_id": "construction:3e7172546d954a06c437",
         "direction": "R+P",
         "level": "L1",
-        "meaning_cn": "最终处于；最终做了…",
+        "meaning_cn": "最终处于；最终做了……",
         "pattern": "wind up doing/in/with sth"
       }
     ],
-    "content_hash": "1314060a3897812b85ea15fcc4705e224e3db3b13b8c56144ec72dfbe2527f49",
+    "content_hash": "9d70c07d4ac67fdfcd3f3fcba4974bdb42133432d7219da109f283de04e540fe",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "流动的空气，或缠绕/弯曲",
-      "core_meaning_en": "moving air, or to twist/turn around",
-      "mental_model_cn": "流动的空气，或缠绕/弯曲",
+      "core_clusters": [
+        {
+          "label_cn": "风；自然流动的空气",
+          "label_en": "air moving naturally, especially outdoors",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:wind:eb5d8230fadf5b8b"
+          ]
+        },
+        {
+          "label_cn": "缠绕、卷绕；把某物绕在另一物上；蜿蜒、曲折前进；给钟表等上发条",
+          "label_en": "to twist or coil something around something else; to follow a twisting or curving course; to tighten or turn the spring of a clock, watch, or mechanism",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:wind:af50828cee0d596a",
+            "sense:wind:03e0e5a3dfb15a24",
+            "sense:wind:07f376699e4e590b"
+          ]
+        }
+      ],
+      "core_meaning_cn": "风；自然流动的空气；缠绕、卷绕；把某物绕在另一物上；蜿蜒、曲折前进；给钟表等上发条",
+      "core_meaning_en": "air moving naturally, especially outdoors; to twist or coil something around something else; to follow a twisting or curving course; to tighten or turn the spring of a clock, watch, or mechanism",
+      "mental_model_cn": "风；自然流动的空气；缠绕、卷绕；把某物绕在另一物上；蜿蜒、曲折前进；给钟表等上发条",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o5375-o5874.md",
+      "boundaries": [
+        {
+          "condition": "noun moving air",
+          "note": "pronounced /wɪnd/",
+          "surface": "wind"
+        },
+        {
+          "condition": "verb turn/twist/coil or follow a winding course",
+          "note": "pronounced /waɪnd/",
+          "surface": "wind"
+        },
+        {
+          "condition": "past/past participle of wind /waɪnd/",
+          "note": "pronounced /waʊnd/; distinct from injury wound /wuːnd/",
+          "surface": "wound"
+        }
+      ],
+      "type": "heteronym_pronunciation_and_inflection"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -82,7 +122,79 @@
       }
     ],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "风；自然流动的空气",
+        "definition_en": "air moving naturally, especially outdoors",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:wind:eb5d8230fadf5b8b",
+        "sense_label_en": "air moving naturally, especially outdoors",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "缠绕、卷绕；把某物绕在另一物上",
+        "definition_en": "to twist or coil something around something else",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:wind:af50828cee0d596a",
+        "sense_label_en": "to twist or coil something around something else",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "蜿蜒、曲折前进",
+        "definition_en": "to follow a twisting or curving course",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:wind:03e0e5a3dfb15a24",
+        "sense_label_en": "to follow a twisting or curving course",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "给钟表等上发条",
+        "definition_en": "to tighten or turn the spring of a clock, watch, or mechanism",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:wind:07f376699e4e590b",
+        "sense_label_en": "to tighten or turn the spring of a clock, watch, or mechanism",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "气息；呼吸",
+        "definition_en": "breath or the ability to breathe",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:wind:f9c9edd3fe0e5a50",
+        "sense_label_en": "breath or the ability to breathe",
+        "sort_order": 999,
+        "transitivity": "nonverb",
+        "usage_note": "Breath/ability-to-breathe sense; secondary."
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -108,84 +220,15 @@
       "owner_path": "content/lexical/relations/by-id/a2/a2e98d915c27be4f7ab995d5f173884504ddf629aa4c442368ff7b0d17db156a.json",
       "field": "confusables",
       "index": 0
+    },
+    {
+      "relation_id": "relation:horizontal:4062971cef5fb6e6bbb6",
+      "owner_path": "content/lexical/relations/by-id/04/04f91decbf4b0fd025254ba6730dcfa9bb212bc4485b31f02f3688ca9fe617c7.json",
+      "field": "semantic_neighbors",
+      "index": 0
     }
   ],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:wind:03e0e5a3dfb15a24",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "蜿蜒；迂回",
-      "definition_en": "to follow a twisting or curving course",
-      "semantic_key": "8efad86ce9c67ccfff0c476d0703838d5f2cd0724a751d2f892726ebb8effd02",
-      "semantic_key_history": [
-        "a0e2d1ee74e2b7852f14e10288464038a1ad0ea3b231ba74dae0ca1710d61371"
-      ],
-      "legacy_aliases": [
-        "wind:l2:5"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "wind:l2:5",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 15430,
-      "source_path": "content/lexical/canonical/senses/shards/o5409-5440.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:wind:07f376699e4e590b",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "上发条",
-      "definition_en": "to tighten the spring of a clock or watch",
-      "semantic_key": "e3d4f676dc7b9a9cad58472580660a9dd89ebfd2174451ab6682d3dc43e5e9e8",
-      "semantic_key_history": [
-        "5b63bb0339391624b262cfdfbe651f6491ee5e1e3aa8f60750677d1dbdcc8198"
-      ],
-      "legacy_aliases": [
-        "wind:l2:6"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "wind:l2:6",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 15431,
-      "source_path": "content/lexical/canonical/senses/shards/o5409-5440.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:wind:af50828cee0d596a",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "缠绕；卷绕",
-      "definition_en": "to twist or coil something around",
-      "semantic_key": "ae12fdf9b3d44b3f1273c53884174323866440c9119ba259617836bd0a3373a2",
-      "semantic_key_history": [
-        "eebbec541783f1c724736ae309a22ef8311050a2676786e953061d4cd943c832"
-      ],
-      "legacy_aliases": [
-        "wind:l1:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "wind:l1:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 15432,
-      "source_path": "content/lexical/canonical/senses/shards/o5409-5440.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:wind:c4f9e743e46b5ed1",
       "status": "deprecated",
@@ -210,77 +253,27 @@
       "source_row": 15433,
       "source_path": "content/lexical/canonical/senses/shards/o5409-5440.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:wind:eb5d8230fadf5b8b",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "风",
-      "definition_en": "air moving naturally, especially outdoors",
-      "semantic_key": "41b1888beb8d2c6b51569050a8b7a16ce66429bbd4760c62109e942713e0ef3b",
-      "semantic_key_history": [
-        "c66783feab0eedfbdabda1825cde25722c44563d44657ec2c2c3509653f82b87"
-      ],
-      "legacy_aliases": [
-        "wind:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "wind:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 15434,
-      "source_path": "content/lexical/canonical/senses/shards/o5409-5440.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:wind:f9c9edd3fe0e5a50",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "气息；呼吸",
-      "definition_en": "breath or the ability to breathe",
-      "semantic_key": "26b91374ae41f4d33c9bc3a268a0a03aad46ed2a8478f1436e9741d46355b918",
-      "semantic_key_history": [
-        "ab66da31bc1615db1147954d64cd58967456b5e4d86ca02c79f1bd71d46f440f"
-      ],
-      "legacy_aliases": [
-        "wind:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "wind:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 15435,
-      "source_path": "content/lexical/canonical/senses/shards/o5409-5440.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:wind:03e0e5a3dfb15a24",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 15430,
         "source_path": "content/lexical/canonical/senses/shards/o5409-5440.json"
       },
       {
         "sense_id": "sense:wind:07f376699e4e590b",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 15431,
         "source_path": "content/lexical/canonical/senses/shards/o5409-5440.json"
       },
       {
         "sense_id": "sense:wind:af50828cee0d596a",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 15432,
         "source_path": "content/lexical/canonical/senses/shards/o5409-5440.json"
@@ -294,14 +287,14 @@
       },
       {
         "sense_id": "sense:wind:eb5d8230fadf5b8b",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 15434,
         "source_path": "content/lexical/canonical/senses/shards/o5409-5440.json"
       },
       {
         "sense_id": "sense:wind:f9c9edd3fe0e5a50",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 15435,
         "source_path": "content/lexical/canonical/senses/shards/o5409-5440.json"
@@ -383,7 +376,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5425-5432.json",
-    "source_content_hash": "1314060a3897812b85ea15fcc4705e224e3db3b13b8c56144ec72dfbe2527f49",
+    "source_content_hash": "9d70c07d4ac67fdfcd3f3fcba4974bdb42133432d7219da109f283de04e540fe",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

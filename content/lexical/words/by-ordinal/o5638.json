@@ -7,15 +7,49 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "5c7fb3b9a0ffc7ba57c602ef1a5e30d4210eb494a83570c5e1735f544e34a7f2",
+    "content_hash": "440529829db7dde4c493f025ffa0758451ff24e825f288d21db1d07f407f1b32",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "X射线；X光片",
-      "core_meaning_en": "high-energy electromagnetic radiation used especially for medical imaging, or an image made using it",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "X射线；用于成像等的高能电磁辐射；X光片；用X射线形成的影像",
+          "label_en": "high-energy electromagnetic radiation used especially for imaging and analysis; an image made using X-rays",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:x-ray:0e18aa4a14eb5e85",
+            "sense:x-ray:d90df8fce6b669a6"
+          ]
+        },
+        {
+          "label_cn": "用X射线检查；照X光",
+          "label_en": "to examine or photograph something using X-rays",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:x-ray:02d5ba36684d545e"
+          ]
+        }
+      ],
+      "core_meaning_cn": "X射线；用于成像等的高能电磁辐射；用X射线检查；照X光；X光片；用X射线形成的影像",
+      "core_meaning_en": "high-energy electromagnetic radiation used especially for imaging and analysis; to examine or photograph something using X-rays; an image made using X-rays",
+      "mental_model_cn": "X射线；用于成像等的高能电磁辐射；用X射线检查；照X光；X光片；用X射线形成的影像",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o5375-o5874.md",
+      "boundaries": [
+        {
+          "condition": "common capitalized technical surface",
+          "note": "common capitalization for radiation/image/derived verb",
+          "surface": "X-ray"
+        },
+        {
+          "condition": "valid lowercase style variant",
+          "note": "valid casing variant; do not enforce a false single-casing rule",
+          "surface": "x-ray"
+        }
+      ],
+      "type": "casing_and_sense_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -29,14 +63,14 @@
       {
         "collocations": [],
         "confidence": "auditor_approved",
-        "definition_cn": "X射线；X光片",
-        "definition_en": "high-energy electromagnetic radiation used especially for medical imaging, or an image made using it",
+        "definition_cn": "X射线；用于成像等的高能电磁辐射",
+        "definition_en": "high-energy electromagnetic radiation used especially for imaging and analysis",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:x-ray:0e18aa4a14eb5e85",
-        "sense_label_en": "high-energy electromagnetic radiation used especially for medical imaging, or an image made using it",
+        "sense_label_en": "high-energy electromagnetic radiation used especially for imaging and analysis",
         "sort_order": 0,
         "source_evidence": [
           "source-fact:ecdict:8e292af14b5c15bd63de",
@@ -77,6 +111,20 @@
           "source-fact:wiktionary-wiktextract:b3377f26427a33ad2c75"
         ],
         "transitivity": null
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "X光片；用X射线形成的影像",
+        "definition_en": "an image made using X-rays",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:x-ray:d90df8fce6b669a6",
+        "sense_label_en": "an image made using X-rays",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -109,6 +157,13 @@
         "merged_into_sense_id": null,
         "source_row": 15832,
         "source_path": "content/lexical/canonical/senses/shards/o5633-5664.json"
+      },
+      {
+        "sense_id": "sense:x-ray:d90df8fce6b669a6",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 15882,
+        "source_path": "content/lexical/canonical/senses/shards/o5633-5664.json"
       }
     ],
     "active_collocations": [],
@@ -135,7 +190,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5633-5640.json",
-    "source_content_hash": "5c7fb3b9a0ffc7ba57c602ef1a5e30d4210eb494a83570c5e1735f544e34a7f2",
+    "source_content_hash": "440529829db7dde4c493f025ffa0758451ff24e825f288d21db1d07f407f1b32",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

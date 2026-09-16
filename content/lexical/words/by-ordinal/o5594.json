@@ -7,12 +7,23 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "bba5b84f827d8b0f20e2c1843fae42aa18406258f56d3e5a33febdc7ee01b8f3",
+    "content_hash": "4a7b7c4a88d9b889cf96b6363b0136b8bc825cb2ad538023bc9c0ce2e4d4acb1",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "意识到；认识到",
-      "core_meaning_en": "to become aware of or understand a fact or situation",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "意识到；认识到；实现；使成为现实；变现资产；实现/获得利润或货币回报",
+          "label_en": "to become aware of or understand a fact or situation; to make something hoped for or imagined become real; to achieve; finance/business: to convert assets into money or obtain a monetary return or profit",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:realize:d602938847db554f",
+            "sense:realize:54329c4f435a52a8",
+            "sense:realize:ad3e27674564d616"
+          ]
+        }
+      ],
+      "core_meaning_cn": "意识到；认识到；实现；使成为现实；变现资产；实现/获得利润或货币回报",
+      "core_meaning_en": "to become aware of or understand a fact or situation; to make something hoped for or imagined become real; to achieve; finance/business: to convert assets into money or obtain a monetary return or profit",
+      "mental_model_cn": "意识到；认识到；实现；使成为现实；变现资产；实现/获得利润或货币回报",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -21,8 +32,7 @@
     "record_type": "word_card_bundle",
     "review_signature": [
       "sense:sense:realize:d602938847db554f",
-      "sense:sense:realize:54329c4f435a52a8",
-      "semantic-reconciliation:o3875-o4124"
+      "sense:sense:realize:54329c4f435a52a8"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -98,6 +108,20 @@
           "source-fact:wiktionary-wiktextract:f272804f826c107b7ec1"
         ],
         "transitivity": null
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "变现资产；实现/获得利润或货币回报",
+        "definition_en": "finance/business: to convert assets into money or obtain a monetary return or profit",
+        "governing_pattern": "realize assets/a profit",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:realize:ad3e27674564d616",
+        "sense_label_en": "finance/business: to convert assets into money or obtain a monetary return or profit",
+        "sort_order": 2,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -115,8 +139,8 @@
   },
   "relation_refs": [
     {
-      "relation_id": "relation:horizontal:a15c33da2cb2e3a98a4b",
-      "owner_path": "content/lexical/relations/by-id/fb/fb21a11cbeea870189b1d110c19c7a9b6591dadcbae437f46ec2c68dd53e9e57.json",
+      "relation_id": "relation:horizontal:1f2773431ce7095402d8",
+      "owner_path": "content/lexical/relations/by-id/1e/1e3b8146bbe90b03b4297af7d9c3394e8092f16d9ab055c38174f73ebd3615b9.json",
       "field": "semantic_neighbors",
       "index": 0
     }
@@ -136,6 +160,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 15770,
+        "source_path": "content/lexical/canonical/senses/shards/o5569-5600.json"
+      },
+      {
+        "sense_id": "sense:realize:ad3e27674564d616",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 15780,
         "source_path": "content/lexical/canonical/senses/shards/o5569-5600.json"
       }
     ],
@@ -168,7 +199,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5593-5600.json",
-    "source_content_hash": "3ec407dfda70efc65a913af384b170e1450aef703351abe8bf5464f47cc5d6e7",
+    "source_content_hash": "4a7b7c4a88d9b889cf96b6363b0136b8bc825cb2ad538023bc9c0ce2e4d4acb1",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

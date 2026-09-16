@@ -7,15 +7,49 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "a544a1297aefbe8136d09a2fed83a37eb8092950c84c8bb3f3885887fc9dad58",
+    "content_hash": "bcad8dc858aec4acfc3d5b4ceccda1e0a1d99cea2de574b0819c890c65ffff0e",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "北极的；极寒的",
-      "core_meaning_en": "relating to the North Pole or the region around it; extremely cold",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "北极的；与北极地区有关的（Arctic）；极寒的、严寒的（arctic）",
+          "label_en": "Arctic: relating to the North Pole or the region around it; arctic: extremely cold",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:arctic:c6a0e5fe87705bdc",
+            "sense:arctic:9b759142b92931cf"
+          ]
+        },
+        {
+          "label_cn": "北极地区",
+          "label_en": "the region around the North Pole",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:arctic:2751624634495423"
+          ]
+        }
+      ],
+      "core_meaning_cn": "北极的；与北极地区有关的（Arctic）；北极地区；极寒的、严寒的（arctic）",
+      "core_meaning_en": "Arctic: relating to the North Pole or the region around it; the region around the North Pole; arctic: extremely cold",
+      "mental_model_cn": "北极的；与北极地区有关的（Arctic）；北极地区；极寒的、严寒的（arctic）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o5375-o5874.md",
+      "boundaries": [
+        {
+          "condition": "North Polar region/geographic adjective",
+          "note": "capitalized proper geographic use",
+          "surface": "Arctic"
+        },
+        {
+          "condition": "extended common adjective",
+          "note": "lowercase when meaning extremely cold",
+          "surface": "arctic"
+        }
+      ],
+      "type": "capitalization_sense_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -26,8 +60,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "北极的；极寒的",
-        "definition_en": "relating to the North Pole or the region around it; extremely cold",
+        "definition_cn": "北极的；与北极地区有关的（Arctic）",
+        "definition_en": "Arctic: relating to the North Pole or the region around it",
         "depth": "full_card",
         "domain_tag": "cet6",
         "frequency_tag": "cet6",
@@ -35,7 +69,7 @@
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:arctic:c6a0e5fe87705bdc",
-        "sense_label_en": "relating to the North Pole or the region around it; extremely cold",
+        "sense_label_en": "Arctic: relating to the North Pole or the region around it",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -210,6 +244,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "极寒的、严寒的（arctic）",
+        "definition_en": "arctic: extremely cold",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:arctic:9b759142b92931cf",
+        "sense_label_en": "arctic: extremely cold",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -242,6 +290,13 @@
         "merged_into_sense_id": null,
         "source_row": 15867,
         "source_path": "content/lexical/canonical/senses/shards/o5633-5664.json"
+      },
+      {
+        "sense_id": "sense:arctic:9b759142b92931cf",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 15878,
+        "source_path": "content/lexical/canonical/senses/shards/o5633-5664.json"
       }
     ],
     "active_collocations": [],
@@ -268,7 +323,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5657-5664.json",
-    "source_content_hash": "a544a1297aefbe8136d09a2fed83a37eb8092950c84c8bb3f3885887fc9dad58",
+    "source_content_hash": "bcad8dc858aec4acfc3d5b4ceccda1e0a1d99cea2de574b0819c890c65ffff0e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
