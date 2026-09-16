@@ -7,11 +7,21 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "354fb17de2770306658de568eacd96b50a1e988a317b72d028e6823f44b2d318",
+    "content_hash": "6fef585710800b57c9ce89796e407bd4b0ddac9d70dc5d551aa5629934456fc9",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "解决（问题、困难等）；决心；决定",
+          "label_en": "to find a solution to a problem or difficulty; to make a firm decision to do something",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:resolve:4028746977a356ee",
+            "sense:resolve:ed4cfc3470ef52c6"
+          ]
+        }
+      ],
       "core_meaning_cn": "解决；决心",
-      "core_meaning_en": "to find a solution or make a firm decision",
+      "core_meaning_en": "to solve a problem or make a firm decision",
       "mental_model_cn": "解决；决心",
       "mental_model_en": ""
     },
@@ -22,7 +32,36 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "解决（问题、困难等）",
+        "definition_en": "to find a solution to a problem or difficulty",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:resolve:4028746977a356ee",
+        "sense_label_en": "to find a solution to a problem or difficulty",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "决心；决定",
+        "definition_en": "to make a firm decision to do something",
+        "governing_pattern": "resolve to do sth",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:resolve:ed4cfc3470ef52c6",
+        "sense_label_en": "to make a firm decision to do something",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {
@@ -51,31 +90,6 @@
     }
   ],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:resolve:4028746977a356ee",
-      "status": "active",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "解决（问题、困难等）",
-      "definition_en": "to find a solution to a problem or difficulty",
-      "semantic_key": "f8c94298f22d05b721892fd21970fa764c41254392833c13e188d2d3780f7754",
-      "semantic_key_history": [
-        "19a5624463b5022872dc3a6230ae6b600b88e25d043fb8c79466f0d84e297215"
-      ],
-      "legacy_aliases": [
-        "resolve:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "resolve:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-16T00:20:00Z",
-      "source_row": 11489,
-      "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:resolve:54d5370538b55b85",
       "status": "deprecated",
@@ -148,31 +162,6 @@
       ],
       "updated_at": "2026-09-09T00:00:00Z",
       "source_row": 11492,
-      "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:resolve:ed4cfc3470ef52c6",
-      "status": "active",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "决心；决定",
-      "definition_en": "to make a firm decision to do something",
-      "semantic_key": "c562c20361c50e1125b02a69722891fc0c63ed49b679e675d07b294067f8e11a",
-      "semantic_key_history": [
-        "b5b139e30259cd5ed81c4a8a266934241f9cbed014e0bf76638f57f618dbbe12"
-      ],
-      "legacy_aliases": [
-        "resolve:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "resolve:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-16T00:20:00Z",
-      "source_row": 11493,
       "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json",
       "reference_only": true
     }
@@ -290,7 +279,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4113-4120.json",
-    "source_content_hash": "354fb17de2770306658de568eacd96b50a1e988a317b72d028e6823f44b2d318",
+    "source_content_hash": "6fef585710800b57c9ce89796e407bd4b0ddac9d70dc5d551aa5629934456fc9",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
