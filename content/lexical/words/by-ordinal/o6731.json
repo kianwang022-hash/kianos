@@ -6,8 +6,17 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "78752140b4cc4898a7abf6545ac021e00007dd4361b95dfd828e948cf506c8bb",
+    "constructions": [
+      {
+        "construction_id": "construction:0ae96e8b8707743d0d41",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "在……方面节省、节约",
+        "pattern": "economize on sth",
+        "source_sense_id": "sense:economize:8f2a796be4b9583d"
+      }
+    ],
+    "content_hash": "91a951c515b757bc3903ed3b377d2392bf002277030f1f87987ac6b11b128c0c",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "节约, 节省, 有效地利用",
@@ -16,6 +25,22 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o6375-o6874.md",
+      "boundaries": [
+        {
+          "condition": "common AmE spelling",
+          "note": "American spelling.",
+          "surface": "economize"
+        },
+        {
+          "condition": "common BrE spelling",
+          "note": "British spelling of the same verb.",
+          "surface": "economise"
+        }
+      ],
+      "type": "regional_spelling_variant"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -118,6 +143,14 @@
   },
   "lookup_refs": [
     {
+      "spelling": "economise",
+      "source": "content/lexical/canonical/lookup/spelling/ec.json",
+      "word_id": "word:economize",
+      "ordinal": 6731,
+      "word_shard": "content/lexical/canonical/words/shards/o6729-6736.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/0c.json"
+    },
+    {
       "spelling": "economize",
       "source": "content/lexical/canonical/lookup/spelling/ec.json",
       "word_id": "word:economize",
@@ -128,7 +161,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6729-6736.json",
-    "source_content_hash": "78752140b4cc4898a7abf6545ac021e00007dd4361b95dfd828e948cf506c8bb",
+    "source_content_hash": "91a951c515b757bc3903ed3b377d2392bf002277030f1f87987ac6b11b128c0c",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
