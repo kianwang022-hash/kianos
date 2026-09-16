@@ -7,15 +7,40 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "1f92fd9e25686c97ddf3223cbd043bbeb39407e876b035d82fc5969481486007",
+    "content_hash": "57b80a539b4fe6a54dc0fcb997927bc48997994d418b42e43c718f8bd1174388",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "补助；资助；贿赂",
-      "core_meaning_en": "support through subsidies",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "资助；补贴；通过补助金或公共资金给予经济支持",
+          "label_en": "to support a person, organization, activity, or product financially through a subsidy or public funding",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:subsidize:2ab756f430a7516f"
+          ]
+        }
+      ],
+      "core_meaning_cn": "资助；补贴；通过补助金或公共资金给予经济支持",
+      "core_meaning_en": "to support a person, organization, activity, or product financially through a subsidy or public funding",
+      "mental_model_cn": "资助；补贴；通过补助金或公共资金给予经济支持",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o7875-o7946.md",
+      "boundaries": [
+        {
+          "condition": "common AmE spelling",
+          "note": "Common American spelling.",
+          "surface": "subsidize"
+        },
+        {
+          "condition": "common BrE spelling",
+          "note": "Common British spelling of the same verb.",
+          "surface": "subsidise"
+        }
+      ],
+      "type": "regional_spelling_variant"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -26,8 +51,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "补助；资助；贿赂",
-        "definition_en": "support through subsidies",
+        "definition_cn": "资助；补贴；通过补助金或公共资金给予经济支持",
+        "definition_en": "to support a person, organization, activity, or product financially through a subsidy or public funding",
         "depth": "full_card",
         "domain_tag": "academic_awl",
         "frequency_tag": "academic_awl",
@@ -35,7 +60,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:subsidize:2ab756f430a7516f",
-        "sense_label_en": "support through subsidies",
+        "sense_label_en": "to support a person, organization, activity, or product financially through a subsidy or public funding",
         "sort_order": 0,
         "source_evidence": [
           {
@@ -94,6 +119,14 @@
   },
   "lookup_refs": [
     {
+      "spelling": "subsidise",
+      "source": "content/lexical/canonical/lookup/spelling/su.json",
+      "word_id": "word:subsidize",
+      "ordinal": 7916,
+      "word_shard": "content/lexical/canonical/words/shards/o7913-7920.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/29.json"
+    },
+    {
       "spelling": "subsidize",
       "source": "content/lexical/canonical/lookup/spelling/su.json",
       "word_id": "word:subsidize",
@@ -104,7 +137,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7913-7920.json",
-    "source_content_hash": "1f92fd9e25686c97ddf3223cbd043bbeb39407e876b035d82fc5969481486007",
+    "source_content_hash": "57b80a539b4fe6a54dc0fcb997927bc48997994d418b42e43c718f8bd1174388",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

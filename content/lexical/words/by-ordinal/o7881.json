@@ -7,15 +7,41 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "3775b7c80625d69ae14364b5704a626a7819b1911c264407fd344a6c59486026",
+    "content_hash": "bce2b076900d81697e51a78b6a3a64849190ec2d5c0f56af2b21c1a5954e5039",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "使合理化；为……找合理理由",
-      "core_meaning_en": "to justify or explain something by giving apparently logical reasons",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "使合理化；用貌似合乎逻辑的理由为行为、信念或决定辩解；对系统、流程或企业进行合理化重组或精简，以提高效率",
+          "label_en": "to justify an action, belief, or decision by giving apparently logical reasons, sometimes hiding the real motive; to reorganize or simplify a system, process, or business to make it more efficient or logical",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:rationalize:c70f315f5b11513b",
+            "sense:rationalize:878e797df4bebad3"
+          ]
+        }
+      ],
+      "core_meaning_cn": "使合理化；用貌似合乎逻辑的理由为行为、信念或决定辩解；对系统、流程或企业进行合理化重组或精简，以提高效率",
+      "core_meaning_en": "to justify an action, belief, or decision by giving apparently logical reasons, sometimes hiding the real motive; to reorganize or simplify a system, process, or business to make it more efficient or logical",
+      "mental_model_cn": "使合理化；用貌似合乎逻辑的理由为行为、信念或决定辩解；对系统、流程或企业进行合理化重组或精简，以提高效率",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o7875-o7946.md",
+      "boundaries": [
+        {
+          "condition": "common AmE spelling",
+          "note": "Common American spelling.",
+          "surface": "rationalize"
+        },
+        {
+          "condition": "common BrE spelling",
+          "note": "Common British spelling of the same verb.",
+          "surface": "rationalise"
+        }
+      ],
+      "type": "regional_spelling_variant"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -26,8 +52,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "使合理化；为……找合理理由",
-        "definition_en": "to justify or explain something by giving apparently logical reasons",
+        "definition_cn": "使合理化；用貌似合乎逻辑的理由为行为、信念或决定辩解",
+        "definition_en": "to justify an action, belief, or decision by giving apparently logical reasons, sometimes hiding the real motive",
         "depth": "full_card",
         "domain_tag": "academic_awl",
         "frequency_tag": "academic_awl",
@@ -35,7 +61,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:rationalize:c70f315f5b11513b",
-        "sense_label_en": "to justify or explain something by giving apparently logical reasons",
+        "sense_label_en": "to justify an action, belief, or decision by giving apparently logical reasons, sometimes hiding the real motive",
         "sort_order": 0,
         "source_evidence": [
           {
@@ -53,6 +79,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "对系统、流程或企业进行合理化重组或精简，以提高效率",
+        "definition_en": "to reorganize or simplify a system, process, or business to make it more efficient or logical",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:rationalize:878e797df4bebad3",
+        "sense_label_en": "to reorganize or simplify a system, process, or business to make it more efficient or logical",
+        "sort_order": 1,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -78,6 +118,13 @@
         "merged_into_sense_id": null,
         "source_row": 19433,
         "source_path": "content/lexical/canonical/senses/shards/o7873-7904.json"
+      },
+      {
+        "sense_id": "sense:rationalize:878e797df4bebad3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 19460,
+        "source_path": "content/lexical/canonical/senses/shards/o7873-7904.json"
       }
     ],
     "active_collocations": [],
@@ -94,6 +141,14 @@
   },
   "lookup_refs": [
     {
+      "spelling": "rationalise",
+      "source": "content/lexical/canonical/lookup/spelling/ra.json",
+      "word_id": "word:rationalize",
+      "ordinal": 7881,
+      "word_shard": "content/lexical/canonical/words/shards/o7881-7888.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/68.json"
+    },
+    {
       "spelling": "rationalize",
       "source": "content/lexical/canonical/lookup/spelling/ra.json",
       "word_id": "word:rationalize",
@@ -104,7 +159,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7881-7888.json",
-    "source_content_hash": "3775b7c80625d69ae14364b5704a626a7819b1911c264407fd344a6c59486026",
+    "source_content_hash": "bce2b076900d81697e51a78b6a3a64849190ec2d5c0f56af2b21c1a5954e5039",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
