@@ -7,15 +7,41 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "0b5eb0e2a351530590b16a9f4f1c9eea1a66d292ee74a9272c1a7e167f4b0234",
+    "content_hash": "87cb7603fecf51ae07fb5d529d50458947675e2ab42e7646d292b01ddc97037f",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "戏剧化地表现；改编成戏剧",
-      "core_meaning_en": "to represent or present something in dramatic form",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "把……改编成戏剧；以戏剧形式呈现；（比喻）夸大、戏剧化；使事情显得比实际更严重、更刺激或更情绪化",
+          "label_en": "to represent, adapt, or present something in dramatic form; figurative: to make an event, problem, or situation seem more dramatic, serious, emotional, or exciting than it really is",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:dramatize:411e432e6c6551e7",
+            "sense:dramatize:7ccff04fa86691d3"
+          ]
+        }
+      ],
+      "core_meaning_cn": "把……改编成戏剧；以戏剧形式呈现；（比喻）夸大、戏剧化；使事情显得比实际更严重、更刺激或更情绪化",
+      "core_meaning_en": "to represent, adapt, or present something in dramatic form; figurative: to make an event, problem, or situation seem more dramatic, serious, emotional, or exciting than it really is",
+      "mental_model_cn": "把……改编成戏剧；以戏剧形式呈现；（比喻）夸大、戏剧化；使事情显得比实际更严重、更刺激或更情绪化",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o7375-o7874.md",
+      "boundaries": [
+        {
+          "condition": "common AmE spelling",
+          "note": "Common American spelling.",
+          "surface": "dramatize"
+        },
+        {
+          "condition": "common BrE spelling",
+          "note": "Common British spelling of the same verb.",
+          "surface": "dramatise"
+        }
+      ],
+      "type": "regional_spelling_variant"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -26,8 +52,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "戏剧化地表现；改编成戏剧",
-        "definition_en": "to represent or present something in dramatic form",
+        "definition_cn": "把……改编成戏剧；以戏剧形式呈现",
+        "definition_en": "to represent, adapt, or present something in dramatic form",
         "depth": "full_card",
         "domain_tag": "academic_awl",
         "frequency_tag": "academic_awl",
@@ -35,7 +61,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:dramatize:411e432e6c6551e7",
-        "sense_label_en": "to represent or present something in dramatic form",
+        "sense_label_en": "to represent, adapt, or present something in dramatic form",
         "sort_order": 0,
         "source_evidence": [
           {
@@ -53,6 +79,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "（比喻）夸大、戏剧化；使事情显得比实际更严重、更刺激或更情绪化",
+        "definition_en": "figurative: to make an event, problem, or situation seem more dramatic, serious, emotional, or exciting than it really is",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:dramatize:7ccff04fa86691d3",
+        "sense_label_en": "figurative: to make an event, problem, or situation seem more dramatic, serious, emotional, or exciting than it really is",
+        "sort_order": 1,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -78,6 +118,13 @@
         "merged_into_sense_id": null,
         "source_row": 19328,
         "source_path": "content/lexical/canonical/senses/shards/o7745-7776.json"
+      },
+      {
+        "sense_id": "sense:dramatize:7ccff04fa86691d3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 19337,
+        "source_path": "content/lexical/canonical/senses/shards/o7745-7776.json"
       }
     ],
     "active_collocations": [],
@@ -94,6 +141,14 @@
   },
   "lookup_refs": [
     {
+      "spelling": "dramatise",
+      "source": "content/lexical/canonical/lookup/spelling/dr.json",
+      "word_id": "word:dramatize",
+      "ordinal": 7776,
+      "word_shard": "content/lexical/canonical/words/shards/o7769-7776.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/47.json"
+    },
+    {
       "spelling": "dramatize",
       "source": "content/lexical/canonical/lookup/spelling/dr.json",
       "word_id": "word:dramatize",
@@ -104,7 +159,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7769-7776.json",
-    "source_content_hash": "0b5eb0e2a351530590b16a9f4f1c9eea1a66d292ee74a9272c1a7e167f4b0234",
+    "source_content_hash": "87cb7603fecf51ae07fb5d529d50458947675e2ab42e7646d292b01ddc97037f",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
