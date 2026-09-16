@@ -55,7 +55,7 @@ try{
  await page.goto(url+'/politics/review/');await page.locator('[data-review-question]').first().waitFor();assert.equal(await page.locator('[data-review-question]').count(),2);await geometry(page);await shot(page,'politics-review-populated');
  await page.click('[data-review-filter="today"]');assert.equal(await page.locator('[data-review-question]').count(),2);await shot(page,'politics-review-today');await page.click('[data-review-filter="all"]');
  assert.deepEqual(await state(page,K.attempts),firstStore);check('Native wrong + meaningful uncertain appear once in Review; visit does not clear first evidence');
- await page.click('[data-review-start]');await page.locator('[data-practice-setup]').waitFor({state:'visible'});assert.equal(await page.locator('[data-available-count]').innerText(),'2');await page.check('[data-learned-scope]');await page.click('[data-start-session]');
+ await page.click('[data-review-start]');await page.locator('[data-practice-setup]').waitFor({state:'visible'});await page.waitForFunction(()=>document.querySelector('[data-available-count]')?.textContent==='2');assert.equal(await page.locator('[data-available-count]').innerText(),'2');await page.check('[data-learned-scope]');await page.click('[data-start-session]');
  let ss=await state(page,K.session);assert.equal(ss.scope.mode,'review');assert.equal(ss.ids.length,2);assert.equal(ss.origin,'/politics/review/');await shot(page,'politics-review-attempt');
  for(let i=0;i<2;i++){
   ss=await state(page,K.session);const q=qById.get(ss.ids[ss.index]);for(const a of q.answer)await page.click(`[data-option="${a}"]`);await page.click('[data-submit]');await page.locator('[data-submitted-result]').waitFor({state:'visible'});
