@@ -1,5 +1,6 @@
 name: Lexical pkg303 final-tail package closure carrier
 
+# Exact latest-main revalidation after syncing main@66a03a84c3e8583e0a5b978efacd9fa9986f4218.
 on:
   push:
     branches: [lexical/pkg303-final-tail]
@@ -19,7 +20,7 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     env:
-      KIANOS_BASELINE_MAIN: de70a99c415bb550e85866c1f48714e5c60187c4
+      KIANOS_BASELINE_MAIN: 66a03a84c3e8583e0a5b978efacd9fa9986f4218
     steps:
       - uses: actions/checkout@v4
         with:
@@ -35,7 +36,7 @@ jobs:
           python - <<'PY'
           import json, subprocess
           from pathlib import Path
-          base='de70a99c415bb550e85866c1f48714e5c60187c4'
+          base='66a03a84c3e8583e0a5b978efacd9fa9986f4218'
           changed=subprocess.check_output(['git','diff','--name-only',f'{base}..HEAD'],text=True).splitlines()
           targets=[p for p in changed if p.startswith('content/lexical/') and p.endswith('.json') and Path(p).exists()]
           for p in targets: json.loads(Path(p).read_text(encoding='utf-8'))
