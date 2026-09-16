@@ -133,12 +133,12 @@ const recallPatterns = [...new Set(patternPrompts)].slice(0, 5);
         </aside>
       </header>
 
-      <div class="portedVocabBody" data-vocab-body>
+      <div class="portedVocabBody" data-vocab-body data-has-relations={relationRows.length > 0 ? "true" : "false"}>
         <main class="portedVocabMeaningColumn">
           <section class="portedVocabCoreSense" data-vocab-target-row>
             <header>
               <span>CORE / WORD FEEL</span>
-              <small>mental compression</small>
+              <small>核心语义</small>
               <button type="button" data-vocab-repair data-target-kind="core" data-target-id="" data-target-locator="record.core_concept" data-target-label={`${core.core_meaning_cn || core.mental_model_cn || core.core_meaning_en || card.word}`} aria-pressed="false">+</button>
             </header>
             <div>
@@ -149,14 +149,14 @@ const recallPatterns = [...new Set(patternPrompts)].slice(0, 5);
 
           <div class="portedVocabSenseList" data-vocab-repair-list>
             {senses.map((sense, index) => (
-              <section data-vocab-target-row>
+              <section class="lexicalSenseRow" data-vocab-target-row>
                 <header>
                   <span>{posCode(sense.pos)}</span>
                   <button type="button" data-vocab-repair data-target-kind="sense" data-target-id={sense.sense_id || ''} data-target-locator={`record.senses[${index}]`} data-target-label={`${sense.definition_cn || sense.definition_en || card.word}`} aria-pressed="false">+</button>
                 </header>
-                <div>
-                  <p>{sense.definition_cn || '—'}</p>
+                <div class="lexicalSenseMeaning">
                   <strong>{sense.definition_en || '—'}</strong>
+                  <p>{sense.definition_cn || '—'}</p>
                   {sense.lexical_identity_overlay && (
                     <article class="portedVocabIdentityOverlay" data-vocab-target-row>
                       <small>FORM / IDENTITY</small>
@@ -164,8 +164,9 @@ const recallPatterns = [...new Set(patternPrompts)].slice(0, 5);
                       <button type="button" data-vocab-repair data-target-kind="form_identity" data-target-id="" data-target-locator={`record.senses[${index}].lexical_identity_overlay`} data-target-label={identityOverlayText(sense.lexical_identity_overlay)} aria-pressed="false">+</button>
                     </article>
                   )}
+                </div>
                   {fixedCollocationsWithIndex(sense).length > 0 && (
-                    <ul>
+                    <ul class="lexicalSenseUsage">
                       {fixedCollocationsWithIndex(sense).map(({ item, index: collocationIndex }) => (
                         <li data-vocab-target-row>
                           <b>{item.phrase}</b><span>{item.meaning_cn}</span>
@@ -174,29 +175,25 @@ const recallPatterns = [...new Set(patternPrompts)].slice(0, 5);
                       ))}
                     </ul>
                   )}
-                </div>
               </section>
             ))}
 
             {secondarySenseRows.map(({ branch, index }) => (
-              <section data-vocab-target-row>
+              <section class="lexicalSenseRow" data-vocab-target-row>
                 <header>
                   <span>{posCode(branch.pos)}+</span>
                   <button type="button" data-vocab-repair data-target-kind="secondary_sense" data-target-id={branch.fact_id || branch.source_sense_id || ''} data-target-locator={`record.secondary_senses[${index}]`} data-target-label={`${branch.definition_cn || branch.meaning_cn || branch.definition_en || branch.label_en || card.word}`} aria-pressed="false">+</button>
                 </header>
-                <div>
-                  <p>{branch.definition_cn || branch.meaning_cn || '—'}</p>
+                <div class="lexicalSenseMeaning">
                   <strong>{branch.definition_en || branch.label_en || '—'}</strong>
-                  {(branch.pattern || branch.boundary) && <code>{branch.pattern || branch.boundary}</code>}
+                  <p>{branch.definition_cn || branch.meaning_cn || '—'}</p>
                 </div>
+                {(branch.pattern || branch.boundary) && <div class="lexicalSenseUsage"><code>{branch.pattern || branch.boundary}</code></div>}
               </section>
             ))}
           </div>
-        </main>
-
-        <aside class="portedVocabEvidenceColumn">
-          {constructionRows.length > 0 && <section>
-            <header><span>Constructions</span><small>Current verified</small></header>
+          {constructionRows.length > 0 && <section class="lexicalConstructionSection">
+            <header><span>Constructions</span><small>构式与固定表达</small></header>
             <div class="portedVocabEvidenceList">
               {constructionRows.map(({ construction: item, index }) => (
                 <article data-vocab-target-row>
@@ -207,9 +204,13 @@ const recallPatterns = [...new Set(patternPrompts)].slice(0, 5);
               ))}
             </div>
           </section>}
+        </main>
+
+        <aside class="portedVocabEvidenceColumn">
+
 
           {relationRows.length > 0 && <section>
-            <header><span>Contrast / Confusable</span><small>Relation owner</small></header>
+            <header><span>Contrast / Confusable</span><small>区别与边界</small></header>
             <div class="portedVocabEvidenceList">
               {relationRows.map(({ relation, locator }) => (
                 <article data-vocab-target-row>
@@ -226,7 +227,7 @@ const recallPatterns = [...new Set(patternPrompts)].slice(0, 5);
           </section>}
 
           <section class="portedVocabLocalNote">
-            <header><span>Repair</span><small>local-only until exported</small></header>
+            <header><span>Repair</span><small>本词具体分支</small></header>
             <p data-vocab-repair-summary>当前没有加入 Repair 的分支。</p>
             <button type="button" data-vocab-copy-packet>Copy Return Packet</button>
           </section>

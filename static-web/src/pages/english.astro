@@ -12,114 +12,55 @@ const translation = inspectTranslationSources();
 const writingLearning = loadWritingLearningProjection();
 const writingRuntime = inspectWritingSyntheticTasks();
 
-const statusLabel = (status) => status === 'ready' ? 'Ready' : status === 'invalid' ? 'Blocked' : 'Partial';
+const statusLabel = (status) => status === 'ready' ? '可进入' : status === 'invalid' ? '暂不可用' : '部分开放';
 ---
-<Base
-  title="English"
-  kicker="English · Performance Runtime"
-  description="English 的三个得分通道是 Objective / Translation / Writing。LexicalOS 是独立一级板块，通过最小 handoff 为 English 供能。"
-  objectId="english:performance-home"
-  active="english"
->
+<Base title="English" active="english" showLead={false} objectId="english:performance-home">
   <section class="englishHub" data-english-hub data-base={base}>
+    <nav class="englishTaskTabs" aria-label="English task families">
+      <a class="active" href={`${base}english/`} aria-current="page">Overview</a>
+      <a href={`${base}reading/`}>Reading A</a><a href={`${base}cloze/`}>Cloze</a>
+      <a href={`${base}reading-b/`}>Part B</a><a href={`${base}translation/`}>Translation</a>
+      <a href={`${base}writing/`}>Writing</a>
+    </nav>
     <header class="englishOverview">
-      <div>
-        <span>Target · English I 80–85+</span>
-        <h2>先把分拿到，再决定什么值得复盘。</h2>
-        <p>主线是新任务上的稳定表现。一次失误只有在会影响未来正确率、速度或稳定性时，才值得升级成更深 repair。</p>
-      </div>
-      <aside>
-        <span>Score map</span>
-        <strong>60 · 10 · 30</strong>
-        <small>Objective · Translation · Writing</small>
-      </aside>
+      <div><span>ENGLISH OS · PERFORMANCE WORKSPACE</span><h1>读懂，写清，稳定完成。</h1><p>从完整任务开始；有具体问题，再回到最小修复。</p></div>
+      <aside><span>English I · Target</span><strong>80–85<span>+</span></strong><small>Objective 60 · Translation 10 · Writing 30</small></aside>
     </header>
-
-    <EnglishResume />
-
     <div class="englishCapabilityLayout">
       <main class="englishCapabilityMap">
-        <header>
-          <div><span>Performance map</span><h2>三条 English scoring lanes</h2></div>
-          <p>得分通道、语义 owner 和页面结构不是同一件事。Cloze / Reading A / Part B 保留各自认知对象，不因同属 Objective 就被揉成一种题。</p>
-        </header>
-
+        <EnglishResume />
+        <header class="englishWorkbenchHeading"><h2>选择本次任务</h2><span>Perform → Review / Exit</span></header>
         <section class="englishCapabilityGroup" data-capability="objective">
-          <div class="englishCapabilityLead">
-            <span>01 · Objective · 60 pts</span>
-            <h3>三种不同任务，共用一条很薄的判断内核</h3>
-            <p>represent → demand → candidates → decisive evidence / constraints → adjudicate → execute</p>
-          </div>
+          <div class="englishCapabilityLead"><span>01 · OBJECTIVE</span><h2>阅读与判断</h2><p>整篇材料、完整题组；让证据决定选择。</p></div>
           <div class="englishCapabilityRoutes">
-            <a href={`${base}reading/`}>
-              <span>40 pts</span><strong>Reading A</strong><small>{statusLabel(objectiveSource.status)} source · evidence adjudication</small>
-            </a>
-            <a href={`${base}cloze/`}>
-              <span>10 pts</span><strong>Cloze</strong><small>{statusLabel(objectiveSource.status)} source · slot best fit</small>
-            </a>
-            <a href={`${base}reading-b/`}>
-              <span>10 pts</span><strong>Part B</strong><small>{statusLabel(objectiveSource.status)} source · discourse reconstruction</small>
-            </a>
+            <a href={`${base}reading/`}><span>40 <small>pts</small></span><div><strong>Reading A</strong><small>文章与整组题目 · 证据裁决</small></div><b>→</b></a>
+            <a href={`${base}cloze/`}><span>10 <small>pts</small></span><div><strong>Cloze</strong><small>完整语境 · 逐空辨别</small></div><b>→</b></a>
+            <a href={`${base}reading-b/`}><span>10 <small>pts</small></span><div><strong>Part B</strong><small>材料、候选与全局关系</small></div><b>→</b></a>
           </div>
+          <small class="englishAvailability">{statusLabel(objectiveSource.status)}</small>
         </section>
-
         <section class="englishCapabilityGroup" data-capability="translation">
-          <div class="englishCapabilityLead">
-            <span>02 · Translation · 10 pts</span>
-            <h3>把英文意义与关系保住，再重建成自然中文</h3>
-            <p>representation → reconstruction under fidelity → timed delivery</p>
-          </div>
-          <div class="englishCapabilityRoutes one">
-            <a href={`${base}translation/`}>
-              <span>{statusLabel(translation.status)}</span><strong>Translation Runtime</strong><small>{translation.ready} ready · {translation.total} total</small>
-            </a>
-          </div>
+          <div class="englishCapabilityLead"><span>02 · TRANSLATION</span><h2>忠实重建</h2><p>保留英文意义与关系，形成自然中文。</p></div>
+          <div class="englishCapabilityRoutes"><a href={`${base}translation/`}><span>10 <small>pts</small></span><div><strong>Translation</strong><small>原文与自己的完整译文同时可见</small></div><b>→</b></a></div>
+          <small class="englishAvailability">{statusLabel(translation.status)}</small>
         </section>
-
         <section class="englishCapabilityGroup" data-capability="writing">
-          <div class="englishCapabilityLead">
-            <span>03 · Writing · 30 pts</span>
-            <h3>从任务约束主动生成可得分输出</h3>
-            <p>task → content → organization → realization → control → timed delivery</p>
-          </div>
-          <div class="englishCapabilityRoutes one">
-            <a href={`${base}writing/`}>
-              <span>{statusLabel(writingRuntime.status)}</span><strong>Writing Runtime</strong><small>{writingRuntime.ready} synthetic tasks · learning {writingLearning.status}</small>
-            </a>
-          </div>
+          <div class="englishCapabilityLead"><span>03 · WRITING</span><h2>从任务到成文</h2><p>Small / Big 两种任务，保留自己的第一版。</p></div>
+          <div class="englishCapabilityRoutes"><a href={`${base}writing/`}><span>30 <small>pts</small></span><div><strong>Writing</strong><small>先规划或直接写 · 完整表达</small></div><b>→</b></a></div>
+          <small class="englishAvailability">{statusLabel(writingRuntime.status)}</small>
         </section>
       </main>
-
       <aside class="englishContextRail">
-        <section class="englishContextCard lexicalSupply">
-          <span>Independent supply lane</span>
-          <strong>LexicalOS</strong>
-          <p>词汇不是 English 的“第 4 条能力”。遇到真实 sense / construction / confusable 瓶颈时最小跳转，修完回原任务。</p>
-          <a href={`${base}vocabulary/`}>进入 Vocabulary →</a>
+        <section class="englishGuideWorkbench">
+          <header><span>GUIDES</span><h2>需要时，回到模型。</h2><p>首次建立框架，或针对当前问题查阅。</p></header>
+          <nav class="englishGuideLinks" aria-label="English Guides">
+            <a href={`${base}objective-learn/`}><strong>Objective</strong><span>Reading · Cloze · Part B</span><b>↗</b></a>
+            <a href={`${base}translation-learn/`}><strong>Translation</strong><span>表征 → 忠实重建 → 交付</span><b>↗</b></a>
+            <a href={`${base}writing-learn/`}><strong>Writing</strong><span>六个基本能力 · Small / Big</span><b>↗</b></a>
+          </nav>
         </section>
-
-        <section class="englishContextCard">
-          <span>Runtime rule</span>
-          <strong>Perform → Triage → Exit / Repair</strong>
-          <p>稳定就走；偶发且已理解的错不制造债。只有 recurring / high-cost / ambiguous failure 才升级深复盘。</p>
-        </section>
-
-        <section class="englishContextCard">
-          <span>Review budget</span>
-          <strong>复盘必须比错误更值钱</strong>
-          <p>错因标签、证据片段、repair check、transfer state 都是工具，不是每题必须完成的流程。</p>
-        </section>
-
-        <details class="englishFirstLearning">
-          <summary>First Learning / targeted intervention</summary>
-          <div>
-            <a href={`${base}objective-learn/`}><strong>Objective</strong><span>Reading A / Cloze / Part B · 真实表现暴露缺口时调用</span></a>
-            <a href={`${base}translation-learn/`}><strong>Translation</strong><span>representation / fidelity / reconstruction / execution</span></a>
-            <a href={`${base}writing-learn/`}><strong>Writing</strong><span>task / content / organization / realization / control / delivery</span></a>
-          </div>
-        </details>
+        <section class="englishLexicalCompanion"><span>LEXICAL COMPANION</span><h2>卡在一个词？</h2><p>查具体词义、结构或辨析，再回到原任务。</p><a href={`${base}vocabulary/`}>打开 Vocabulary <b>→</b></a></section>
       </aside>
     </div>
   </section>
 </Base>
-

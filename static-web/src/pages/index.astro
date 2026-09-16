@@ -36,27 +36,27 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
 ---
 <Base title="学习工作台" active="home" showLead={false}>
   <header class="commandHeader">
-    <div><p class="pageKicker">KianOS · 学习工作台</p><h1>从正在做的事继续。</h1></div>
-    <p>三科主线 · 词汇随用随查<br /><span>断点与证据沿用各科，不另排一张课表。</span></p>
+    <div><p class="pageKicker">YOUR LEARNING WORKSPACE</p><h1>学习工作台</h1><p class="commandSubtitle">选一条主线，回到正在做的事。</p></div>
+    <div class="commandScope"><span>当前可进入</span><strong>{xizongSystems.length} Systems <i>／</i> English <i>／</i> {politicsSubjects.length} 科政治</strong></div>
   </header>
 
   <div class="commandGrid">
     <section class="commandSubjects" aria-label="三科状态与 Continue">
-      <header class="commandSectionHead"><h2>Continue</h2><span>分科继续 · 自由选择</span></header>
+      <header class="commandSectionHead"><h2>Continue</h2><span>回到最近位置，或自由选择任务</span></header>
       <article class="commandSubject" data-home-subject="xizong">
         <header><div><span class="commandOrdinal">01</span><h2>西医综合</h2><span class="commandAvailability">{xizongSystems.length ? `${xizongSystems.length} 个 System 已开放` : '暂未开放'}</span></div><a href={`${base}xizong/`}>知识地图 →</a></header>
-        <p class="commandSubjectMeta">{xizongBlocks} Blocks · {xizongKp} KP · 原讲义连续学习，网页负责定位、Recall 与修补。</p>
+        <p class="commandSubjectMeta">原讲义连续学习 · 框架定位 · 主动 Recall</p>
         <XizongHomeTools firstHref={xizongHref} firstLabel={firstSystem ? `${firstSystem.canonicalId} · ${firstSystem.title}` : '查看西综入口'} />
       </article>
       <article class="commandSubject" data-home-subject="english">
         <header><div><span class="commandOrdinal">02</span><h2>English</h2><span class="commandAvailability">{englishReady ? '可开始' : '部分任务已开放'}</span></div><a href={`${base}english/`}>英语工作台 →</a></header>
-        <p class="commandSubjectMeta">Objective / Translation / Writing · 完成任务，问题出现时再做最小修复。</p>
+        <p class="commandSubjectMeta">完整任务优先 · 阅读、翻译与写作</p>
         <EnglishResume />
         <nav class="commandTaskLinks" aria-label="英语任务"><a href={`${base}reading/`}>Reading A</a><a href={`${base}cloze/`}>Cloze</a><a href={`${base}reading-b/`}>Part B</a><a href={`${base}translation/`}>Translation</a><a href={`${base}writing/`}>Writing</a></nav>
       </article>
       <article class="commandSubject" data-home-subject="politics">
         <header><div><span class="commandOrdinal">03</span><h2>政治</h2><span class="commandAvailability">{politicsSubjects.length} 科 · {politicsChapters} 章{politicsHealth.status === 'ready' ? '可进入' : '，部分开放'}</span></div><a href={`${base}politics/`}>五科总览 →</a></header>
-        <p class="commandSubjectMeta">乘风原讲义 → 肖1000 验证 → 有问题时精准回源。</p>
+        <p class="commandSubjectMeta">乘风原讲义 → 肖1000 验证 → 精准回源</p>
         <PoliticsHomeTools firstHref={politicsHref} firstLabel={firstChapter ? `${firstSubject.label} · ${firstChapter.title}` : '查看政治入口'} />
       </article>
     </section>
@@ -64,15 +64,15 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
     <aside class="commandSupport" aria-label="学习支持">
       <section class="commandSupportSection">
         <p class="pageKicker">English support</p><h2>Vocabulary</h2>
-        <p>查词、继续学习，或回到已有 Repair；与英语任务共用同一套词汇内容。</p>
+        <p>词义、结构、辨析。查清楚，再回原任务。</p>
         <a class="commandPrimaryLink" href={`${base}vocabulary/`}>打开词汇工作台 →</a>
-        <small>{lexicalState.wordCount.toLocaleString('en-US')} 词可检索 · 本地学习记录<br />查完词，回到原来的任务。</small>
+        <small>{lexicalState.wordCount.toLocaleString('en-US')} 词 · Continue / Search / Repair</small>
       </section>
       <section class="commandSupportSection">
-        <p class="pageKicker">Guides · 随时查阅</p><h2>需要时再展开模型</h2>
+        <p class="pageKicker">GUIDES</p><h2>随时回到模型</h2>
         <nav class="commandGuideLinks" aria-label="英语 Guide"><a href={`${base}objective-learn/`}><strong>Objective</strong><span>Reading / Cloze / Part B</span></a><a href={`${base}translation-learn/`}><strong>Translation</strong><span>表征 → 忠实重建 → 交付</span></a><a href={`${base}writing-learn/`}><strong>Writing</strong><span>写作模型与任务特化</span></a></nav>
       </section>
     </aside>
   </div>
-  <footer class="commandFoot"><span>学习记录保存在这台浏览器；复盘仍由各科自己的证据决定。</span><a href={`${base}current/`}>Current · {buildRevision.slice(0, 8)}</a></footer>
+  <footer class="commandFoot"><span>本机学习记录 · 保留各科断点</span><a href={`${base}current/`}>Current · {buildRevision.slice(0, 8)}</a></footer>
 </Base>
