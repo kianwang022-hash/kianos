@@ -1,0 +1,66 @@
+name: Visual Convergence Evidence
+
+on:
+  push:
+    branches: ['ui/visual-convergence-20260916']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: visual-convergence-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Preserve exact tracked implementation inputs
+        run: |
+          mkdir -p visual-evidence
+          git rev-parse HEAD > visual-evidence/commit.txt
+          git ls-tree -r HEAD > visual-evidence/tracked-tree.txt
+          python3 - <<'PY'
+          import subprocess, tarfile
+          from pathlib import Path
+          paths = subprocess.check_output(['git', 'ls-files', '-z']).decode().split('\0')
+          with tarfile.open('visual-evidence/inputs.tar.gz', 'w:gz') as archive:
+              for name in paths:
+                  if name and Path(name).is_file() and Path(name).suffix.lower() not in {'.pdf', '.zip', '.mp4', '.mov', '.usdz', '.ifc'}:
+                      archive.add(name, recursive=False)
+          PY
+      - name: Install Current runtime and browser tooling
+        working-directory: static-web
+        run: |
+          npm install --no-audit --no-fund
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+      - name: Preserve reproducible local runtime
+        run: tar -czf visual-evidence/runtime.tar.gz static-web/node_modules
+      - name: Build exact-head Current site
+        working-directory: static-web
+        run: npm run build > ../visual-evidence/build.log 2>&1
+      - name: Preserve built Current site
+        run: tar -czf visual-evidence/site.tar.gz static-web/dist
+      - name: Run bounded presentation evidence when available
+        working-directory: static-web
+        run: |
+          if [ -f scripts/test-visual-convergence.mjs ]; then
+            sudo apt-get update -qq
+            sudo apt-get install -y fonts-noto-cjk
+            npx playwright install --with-deps chromium
+            node scripts/test-visual-convergence.mjs
+          fi
+      - name: Upload exact-head evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-convergence-${{ github.sha }}
+          path: visual-evidence/
+          retention-days: 7
+          if-no-files-found: error
