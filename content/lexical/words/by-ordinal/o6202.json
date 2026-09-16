@@ -7,12 +7,21 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "678017117dd4a4aabc959e4621c8e0e5f5e363c5db6aded5b0992efc06aedc71",
+    "content_hash": "aed6dca552733a9ffd74c4f5286755eee27c9036566335428355a5015f514aa0",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "零售商；工匠",
-      "core_meaning_en": "a merchant who owns or manages a shop",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "技工；从事熟练手艺或行业工作的人员",
+          "label_en": "a skilled worker in a trade or craft",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:tradesman:b17597008cae6beb"
+          ]
+        }
+      ],
+      "core_meaning_cn": "技工；从事熟练手艺或行业工作的人员",
+      "core_meaning_en": "a skilled worker in a trade or craft",
+      "mental_model_cn": "技工；从事熟练手艺或行业工作的人员",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -31,9 +40,10 @@
         "depth": "full_card",
         "domain_tag": "cet6",
         "frequency_tag": "cet6",
-        "level": "L1",
+        "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
+        "register": "dated/regional",
         "sense_id": "sense:tradesman:29eed67777125b94",
         "sense_label_en": "a merchant who owns or manages a shop",
         "sort_order": 1,
@@ -66,7 +76,23 @@
             "source_path": "external_semantic_auditor://cet6/1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf",
             "source_type": "learner_dictionary"
           }
-        ]
+        ],
+        "usage_note": "Older shopkeeper/merchant use is dated or regional; not the modern learner-main sense."
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "技工；从事熟练手艺或行业工作的人员",
+        "definition_en": "a skilled worker in a trade or craft",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:tradesman:b17597008cae6beb",
+        "sense_label_en": "a skilled worker in a trade or craft",
+        "sort_order": 2,
+        "transitivity": "nonverb",
+        "usage_note": "Gender-neutral tradesperson is often preferable where sex is irrelevant."
       }
     ],
     "verification_summary": {
@@ -91,6 +117,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 16763,
+        "source_path": "content/lexical/canonical/senses/shards/o6177-6208.json"
+      },
+      {
+        "sense_id": "sense:tradesman:b17597008cae6beb",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 16780,
         "source_path": "content/lexical/canonical/senses/shards/o6177-6208.json"
       }
     ],
@@ -118,7 +151,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6201-6208.json",
-    "source_content_hash": "678017117dd4a4aabc959e4621c8e0e5f5e363c5db6aded5b0992efc06aedc71",
+    "source_content_hash": "aed6dca552733a9ffd74c4f5286755eee27c9036566335428355a5015f514aa0",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

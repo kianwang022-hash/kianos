@@ -7,15 +7,41 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "170473afd13a95637d3c22f8ee29d1b54e44a7d837b8e32169fcb2cdd42aeed1",
+    "content_hash": "c5a726a38361881872910e0668c07d9032faa919c1e4ddbf9cadf70e789534dd",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "综合；合成",
-      "core_meaning_en": "combine so as to form a more complex, product",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "综合、合成；把要素、观点或组成部分结合成整体；（化学、生物）合成某物",
+          "label_en": "to combine elements, ideas, or components into a coherent or more complex whole; to produce a substance by chemical or biological synthesis",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:synthesize:b2914a646f5b5e9b",
+            "sense:synthesize:abf1ccf8ba53529b"
+          ]
+        }
+      ],
+      "core_meaning_cn": "综合、合成；把要素、观点或组成部分结合成整体；（化学、生物）合成某物",
+      "core_meaning_en": "to combine elements, ideas, or components into a coherent or more complex whole; to produce a substance by chemical or biological synthesis",
+      "mental_model_cn": "综合、合成；把要素、观点或组成部分结合成整体；（化学、生物）合成某物",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o5875-o6374.md",
+      "boundaries": [
+        {
+          "condition": "American English and common international spelling",
+          "note": "-ize spelling",
+          "surface": "synthesize"
+        },
+        {
+          "condition": "British English variant",
+          "note": "BrE -ise spelling",
+          "surface": "synthesise"
+        }
+      ],
+      "type": "regional_spelling_same_owner"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -26,8 +52,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "综合；合成",
-        "definition_en": "combine so as to form a more complex, product",
+        "definition_cn": "综合、合成；把要素、观点或组成部分结合成整体",
+        "definition_en": "to combine elements, ideas, or components into a coherent or more complex whole",
         "depth": "full_card",
         "domain_tag": "cet6",
         "frequency_tag": "cet6",
@@ -35,7 +61,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:synthesize:b2914a646f5b5e9b",
-        "sense_label_en": "combine so as to form a more complex, product",
+        "sense_label_en": "to combine elements, ideas, or components into a coherent or more complex whole",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -78,8 +104,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "综合；合成",
-        "definition_en": "combine and form a synthesis",
+        "definition_cn": "（化学、生物）合成某物",
+        "definition_en": "to produce a substance by chemical or biological synthesis",
         "depth": "full_card",
         "domain_tag": "cet6",
         "frequency_tag": "cet6",
@@ -87,7 +113,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:synthesize:abf1ccf8ba53529b",
-        "sense_label_en": "combine and form a synthesis",
+        "sense_label_en": "to produce a substance by chemical or biological synthesis",
         "sort_order": 2,
         "source_evidence": [
           {
@@ -174,6 +200,14 @@
   },
   "lookup_refs": [
     {
+      "spelling": "synthesise",
+      "source": "content/lexical/canonical/lookup/spelling/sy.json",
+      "word_id": "word:synthesize",
+      "ordinal": 6179,
+      "word_shard": "content/lexical/canonical/words/shards/o6177-6184.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/a6.json"
+    },
+    {
       "spelling": "synthesize",
       "source": "content/lexical/canonical/lookup/spelling/sy.json",
       "word_id": "word:synthesize",
@@ -184,7 +218,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6177-6184.json",
-    "source_content_hash": "170473afd13a95637d3c22f8ee29d1b54e44a7d837b8e32169fcb2cdd42aeed1",
+    "source_content_hash": "c5a726a38361881872910e0668c07d9032faa919c1e4ddbf9cadf70e789534dd",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
