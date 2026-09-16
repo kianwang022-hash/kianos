@@ -7,15 +7,40 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "8551a5646ac3dd619aae24b83c001997413cc13dee5fd0a0d555203b1d8c4b3e",
+    "content_hash": "e1540741549f3f4b6ca2c1fe64522afe1c107e5f286c64deacdc592b03caedd5",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "第三人称复数代词",
-      "core_meaning_en": "third person plural pronoun",
-      "mental_model_cn": "第三人称复数代词",
+      "core_clusters": [
+        {
+          "label_cn": "他们/她们/它们；也可指性别未知、无关或使用 they 的单个人",
+          "label_en": "pronoun for plural referents and standard singular they for one person whose gender is unknown, irrelevant, or who uses they",
+          "pos": "pronoun",
+          "sense_ids": [
+            "sense:they:39532d424cb55953"
+          ]
+        }
+      ],
+      "core_meaning_cn": "他们/她们/它们；也可指性别未知、无关或使用 they 的单个人",
+      "core_meaning_en": "pronoun for plural referents and standard singular they for one person whose gender is unknown, irrelevant, or who uses they",
+      "mental_model_cn": "他们/她们/它们；也可指性别未知、无关或使用 they 的单个人",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o4875-o5374.md",
+      "boundaries": [
+        {
+          "condition": "plural reference",
+          "note": "plural pronoun",
+          "surface": "they"
+        },
+        {
+          "condition": "one person",
+          "note": "standard singular they",
+          "surface": "they"
+        }
+      ],
+      "type": "singular_they_paradigm"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -45,14 +70,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "他们；她们；它们",
-        "definition_en": "used to refer to two or more people or things previously mentioned",
+        "definition_cn": "他们/她们/它们；也可指性别未知、无关或使用 they 的单个人",
+        "definition_en": "pronoun for plural referents and standard singular they for one person whose gender is unknown, irrelevant, or who uses they",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "pronoun",
         "sense_id": "sense:they:39532d424cb55953",
-        "sense_label_en": "used to refer to two or more people or things previously mentioned",
+        "sense_label_en": "pronoun for plural referents and standard singular they for one person whose gender is unknown, irrelevant, or who uses they",
         "sort_order": 0,
         "transitivity": "nonverb"
       }
@@ -131,7 +156,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4977-4984.json",
-    "source_content_hash": "8551a5646ac3dd619aae24b83c001997413cc13dee5fd0a0d555203b1d8c4b3e",
+    "source_content_hash": "e1540741549f3f4b6ca2c1fe64522afe1c107e5f286c64deacdc592b03caedd5",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

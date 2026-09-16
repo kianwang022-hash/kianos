@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "205c6aee318f304b15972526cbd60dcfe43847c55b6d786ce9f50d5d04e58fd9",
+    "content_hash": "e4c7f126dfd83ab0ebd8bc240ebd6b70d6bb65cd677901a03257571b93d48ed8",
     "core_concept": {
       "core_clusters": [
         {
@@ -184,48 +184,69 @@
     "word_family": [
       {
         "boundaries": [
-          "thought is the past tense/past participle of think"
+          "thought is the irregular past/past participle of think and also an independent noun lexeme."
         ],
-        "collocation_constraints": [
-          "Do not substitute one family member for another without changing grammar."
-        ],
-        "direction": "R",
+        "codex_reviewed": false,
+        "direction": "C",
         "evidence": [
           {
-            "evidence_id": "evidence:aa84cb7520c06360fd66",
+            "evidence_id": "horizontal:horizontal:054",
             "evidence_status": "source_checked",
-            "evidence_text": "think",
-            "pdf_page": null,
-            "source_locator": "entries[word=thought].exchange",
-            "source_path": "academic_vocab_builder/output/vocab_5500/source_manifest.json",
-            "source_sha256": "f36be6487ffb22b2c4da60cc2aa7b7cfe3453a1fbefb0129f096588cf83ef5d6",
-            "source_type": "learner_dictionary",
-            "verified_at": "2026-08-13T23:16:58+00:00",
-            "verified_by": "local_rule+deepseek_independent_verification"
+            "source_locator": "horizontal:054",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
           }
         ],
-        "family_relation_type": "inflectional",
+        "learning_note": "thought is the irregular past/past participle of think and also an independent noun lexeme.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "think",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [],
+            "word_id": "word:think"
+          }
+        ],
         "priority": "A",
         "publication_status": "publishable",
-        "register": "morphological relation",
-        "relation_id": "rel:v3-family:thought:think",
+        "relation_id": "relation:horizontal:5a161f25cb2d93e234c4",
+        "relation_note": "thought is the irregular past/past participle of think and also an independent noun lexeme.",
         "relation_scope": "lexeme",
-        "relation_type": "derivational_family",
-        "shared_meaning": "base verb",
-        "source_expression": "thought",
-        "source_sense_id": "sense:thought:5a8144af086d508f",
-        "source_sentence": "",
-        "strength_difference": "not a synonym relation",
-        "syntax_constraints": [],
-        "target_expression": "think",
-        "target_sense_id": null,
-        "target_sentence": "",
-        "task_tags": [
-          "reading",
-          "cloze",
-          "translation"
+        "relation_type": "inflection_plus_independent_lexeme",
+        "sense_ids": [],
+        "shared_meaning": "thought is the irregular past/past participle of think and also an independent noun lexeme.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "think",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [],
+                "word_id": "word:think"
+              }
+            ],
+            "learner_note": "thought is the irregular past/past participle of think and also an independent noun lexeme.",
+            "relation_targets": [
+              "thought"
+            ],
+            "relation_type": "inflection_plus_independent_lexeme"
+          }
         ],
-        "verification_status": "verified"
+        "source_expression": "think",
+        "source_sense_id": "sense:thought:5a8144af086d508f",
+        "target_expression": "thought",
+        "target_sense_id": "sense:think:1a92a30e99f354f1",
+        "target_sense_ids": [],
+        "target_word": "think",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
       }
     ],
     "word_id": "word:thought"
@@ -336,7 +357,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4993-5000.json",
-    "source_content_hash": "205c6aee318f304b15972526cbd60dcfe43847c55b6d786ce9f50d5d04e58fd9",
+    "source_content_hash": "e4c7f126dfd83ab0ebd8bc240ebd6b70d6bb65cd677901a03257571b93d48ed8",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
