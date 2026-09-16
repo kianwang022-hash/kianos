@@ -7,12 +7,21 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "fdc74dbb931b5a5bc16fb3248387597b18532e2c535eeca6c0aa29a12e8070e9",
+    "content_hash": "39f220de3d3d4fdb589acac010bd31b296a2db7321760fbfea3c191d32eb7eea",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "口红；唇膏",
-      "core_meaning_en": "makeup that is used to color the lips",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "口红；涂在嘴唇上着色的化妆品",
+          "label_en": "a cosmetic applied to the lips to add color",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:lipstick:ef029b10eded51e4"
+          ]
+        }
+      ],
+      "core_meaning_cn": "口红；涂在嘴唇上着色的化妆品",
+      "core_meaning_en": "a cosmetic applied to the lips to add color",
+      "mental_model_cn": "口红；涂在嘴唇上着色的化妆品",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +31,37 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "口红；涂在嘴唇上着色的化妆品",
+        "definition_en": "a cosmetic applied to the lips to add color",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:lipstick:ef029b10eded51e4",
+        "sense_label_en": "a cosmetic applied to the lips to add color",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "口红",
+        "definition_en": "form by tracing with lipstick",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:lipstick:5ea8e27c7c1c5aa0",
+        "sense_label_en": "form by tracing with lipstick",
+        "sort_order": 999,
+        "transitivity": "vt",
+        "usage_note": "Lower/reference verb use; the ordinary learner-main meaning is the cosmetic noun."
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -37,56 +76,19 @@
     "word_id": "word:lipstick"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:lipstick:5ea8e27c7c1c5aa0",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "口红",
-      "definition_en": "form by tracing with lipstick",
-      "semantic_key": "3b5f60b3252f9fb6635b3bc59eae8f7ff3e9e831a7a95dbef639237e81099a29",
-      "semantic_key_history": [
-        "dcb55efeaf101b102cb55c44b7fc4eedb155a7a954fec6ed54ba7dd86d05ea16"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 16328,
-      "source_path": "content/lexical/canonical/senses/shards/o5921-5952.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:lipstick:ef029b10eded51e4",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "口红；唇膏",
-      "definition_en": "makeup that is used to color the lips",
-      "semantic_key": "305255f905a1ffed47c14df6becea57bc00e7a254ce1e714c1138943df53f397",
-      "semantic_key_history": [
-        "db0dd68f12556f3aae8bdc87a98bc9a9b89fdb3f37ae65cdd63bc9c017dad2cf"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 16329,
-      "source_path": "content/lexical/canonical/senses/shards/o5921-5952.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:lipstick:5ea8e27c7c1c5aa0",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 16328,
         "source_path": "content/lexical/canonical/senses/shards/o5921-5952.json"
       },
       {
         "sense_id": "sense:lipstick:ef029b10eded51e4",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 16329,
         "source_path": "content/lexical/canonical/senses/shards/o5921-5952.json"
@@ -116,7 +118,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5937-5944.json",
-    "source_content_hash": "fdc74dbb931b5a5bc16fb3248387597b18532e2c535eeca6c0aa29a12e8070e9",
+    "source_content_hash": "39f220de3d3d4fdb589acac010bd31b296a2db7321760fbfea3c191d32eb7eea",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

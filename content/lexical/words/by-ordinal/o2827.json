@@ -11,14 +11,11 @@
         "construction_id": "construction:f2c8a46727afccc2238b",
         "direction": "R+P",
         "level": "L1",
-        "meaning_cn": "阐明；使……更清楚",
-        "pattern": "shed/cast light on sth",
-        "definition_en": "to clarify, explain, or make something easier to understand",
-        "boundary": "figurative light = a perspective/clarification that makes a matter easier to understand",
-        "source_sense_id": "sense:light:dcb430d6f8285e3a"
+        "meaning_cn": "阐明；使…更清楚",
+        "pattern": "shed/cast light on sth"
       }
     ],
-    "content_hash": "4f39e0bcb05f0702ca07fb5dc02d16305886b445ea5a9c72d6a90b4f3c72a591",
+    "content_hash": "bc265bd082e8fd575212a846de1ff82f05cfeec2e76fb40f289e11a137e73520",
     "core_concept": {
       "core_clusters": [
         {
@@ -59,8 +56,7 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "construction:construction:f2c8a46727afccc2238b",
-      "semantic-reconciliation:o2825-o3024"
+      "construction:construction:f2c8a46727afccc2238b"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -125,6 +121,30 @@
       {
         "collocations": [
           {
+            "collocation_id": "collocation:79bdf742b4ad289727c5",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:light:1301b9960cc051c9:collocation:0"
+            ],
+            "meaning_cn": "点火",
+            "phrase": "light a fire"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "点燃，照亮",
+        "definition_en": "to cause to start burning; ignite",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:light:1301b9960cc051c9",
+        "sense_label_en": "to cause to start burning; ignite",
+        "sort_order": 4,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
             "collocation_id": "collocation:32c0da83e180df211669",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
@@ -173,30 +193,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:79bdf742b4ad289727c5",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:light:1301b9960cc051c9:collocation:0"
-            ],
-            "meaning_cn": "点火",
-            "phrase": "light a fire"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "点燃，照亮",
-        "definition_en": "to cause to start burning; ignite",
-        "governing_pattern": "vt. + object",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:light:1301b9960cc051c9",
-        "sense_label_en": "to cause to start burning; ignite",
-        "sort_order": 4,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
             "collocation_id": "collocation:b80f15e73bb04a47575c",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
@@ -238,7 +234,14 @@
     "word_family": [],
     "word_id": "word:light"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:horizontal:4f4dfc3a2c0ed31d937f",
+      "owner_path": "content/lexical/relations/by-id/4b/4b4d613672a13334eeda80d50c6ab4d680f4f684f005b5f76dc2a2ae9b4c3428.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -374,7 +377,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2825-2832.json",
-    "source_content_hash": "b6d75c639d8ab04f186e255e33cd4897fad77baff84ba505715a6c4b907398d0",
+    "source_content_hash": "bc265bd082e8fd575212a846de1ff82f05cfeec2e76fb40f289e11a137e73520",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

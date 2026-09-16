@@ -6,13 +6,39 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "64036d60fa9582ec3d3f047bf16734ca3388cee461cacd65f57c35d685711e25",
+    "constructions": [
+      {
+        "construction_id": "construction:2c109da1954ea6f6b44e",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "对……感到惊叹",
+        "pattern": "marvel at sth",
+        "source_sense_id": "sense:marvel:df04fdbe01f75025"
+      }
+    ],
+    "content_hash": "7d1fa87bdcc59e6fefa0330eb2194c609b15a33fa584322c7cb8f29723f06496",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "惊异于",
-      "core_meaning_en": "express astonishment or surprise about something",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "惊异于",
+          "label_en": "express astonishment or surprise about something",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:marvel:df04fdbe01f75025"
+          ]
+        },
+        {
+          "label_cn": "奇迹般的人或事物；令人惊叹之物",
+          "label_en": "a person or thing that causes great wonder or admiration",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:marvel:64d226d5e588aeb1"
+          ]
+        }
+      ],
+      "core_meaning_cn": "惊异于；奇迹般的人或事物；令人惊叹之物",
+      "core_meaning_en": "express astonishment or surprise about something; a person or thing that causes great wonder or admiration",
+      "mental_model_cn": "惊异于；奇迹般的人或事物；令人惊叹之物",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -109,6 +135,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "奇迹般的人或事物；令人惊叹之物",
+        "definition_en": "a person or thing that causes great wonder or admiration",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:marvel:64d226d5e588aeb1",
+        "sense_label_en": "a person or thing that causes great wonder or admiration",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -133,6 +173,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 16360,
+        "source_path": "content/lexical/canonical/senses/shards/o5953-5984.json"
+      },
+      {
+        "sense_id": "sense:marvel:64d226d5e588aeb1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 16406,
         "source_path": "content/lexical/canonical/senses/shards/o5953-5984.json"
       }
     ],
@@ -160,7 +207,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5953-5960.json",
-    "source_content_hash": "64036d60fa9582ec3d3f047bf16734ca3388cee461cacd65f57c35d685711e25",
+    "source_content_hash": "7d1fa87bdcc59e6fefa0330eb2194c609b15a33fa584322c7cb8f29723f06496",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

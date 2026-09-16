@@ -6,13 +6,32 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "096897efe78bea087b16a7ae4b060ca86125a38678dcf1b5275cc132a3051291",
+    "constructions": [
+      {
+        "construction_id": "construction:87a372d7ae083bca46df",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "沉思、仔细思考……",
+        "pattern": "meditate on/upon sth",
+        "source_sense_id": "sense:meditate:2494d908a69f59cb"
+      }
+    ],
+    "content_hash": "5947354610dcac87f9613a956a0618616e6c0a715d471a79dfd3635a748952cc",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "想；考虑；计划",
-      "core_meaning_en": "reflect deeply on a subject",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "深思；认真思考；冥想；进行精神或心智上的静修",
+          "label_en": "to think or reflect deeply and carefully; to engage in meditation as a spiritual or mental practice",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:meditate:2494d908a69f59cb",
+            "sense:meditate:e887ff9e2d6a5777"
+          ]
+        }
+      ],
+      "core_meaning_cn": "深思；认真思考；冥想；进行精神或心智上的静修",
+      "core_meaning_en": "to think or reflect deeply and carefully; to engage in meditation as a spiritual or mental practice",
+      "mental_model_cn": "深思；认真思考；冥想；进行精神或心智上的静修",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +41,36 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "深思；认真思考",
+        "definition_en": "to think or reflect deeply and carefully",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:meditate:2494d908a69f59cb",
+        "sense_label_en": "to think or reflect deeply and carefully",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "冥想；进行精神或心智上的静修",
+        "definition_en": "to engage in meditation as a spiritual or mental practice",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:meditate:e887ff9e2d6a5777",
+        "sense_label_en": "to engage in meditation as a spiritual or mental practice",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -37,56 +85,19 @@
     "word_id": "word:meditate"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:meditate:2494d908a69f59cb",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "想；考虑；计划",
-      "definition_en": "reflect deeply on a subject",
-      "semantic_key": "a1b4688b71c724b5e4e1e98028d1b1c201de0e06ef615f5785196a2bfc5c558d",
-      "semantic_key_history": [
-        "ba3ecd88aaf777036c4c905f927ee505feaddd0d1808570cada2f924e961a154"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 16370,
-      "source_path": "content/lexical/canonical/senses/shards/o5953-5984.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:meditate:e887ff9e2d6a5777",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "想；考虑；计划",
-      "definition_en": "think intently and at length, as for spiritual purposes",
-      "semantic_key": "e5ff345cce0aad08470bb1891ed045f2e534093978e0690f08f17c4bfe56918f",
-      "semantic_key_history": [
-        "529e4dca236fa2acf7b4842b2bdededc55fff325fb4c65b2e1d0e5eeb285e0c3"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 16371,
-      "source_path": "content/lexical/canonical/senses/shards/o5953-5984.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:meditate:2494d908a69f59cb",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 16370,
         "source_path": "content/lexical/canonical/senses/shards/o5953-5984.json"
       },
       {
         "sense_id": "sense:meditate:e887ff9e2d6a5777",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 16371,
         "source_path": "content/lexical/canonical/senses/shards/o5953-5984.json"
@@ -116,7 +127,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5961-5968.json",
-    "source_content_hash": "096897efe78bea087b16a7ae4b060ca86125a38678dcf1b5275cc132a3051291",
+    "source_content_hash": "5947354610dcac87f9613a956a0618616e6c0a715d471a79dfd3635a748952cc",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
