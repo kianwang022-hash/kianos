@@ -26,7 +26,7 @@ const cases=[
  ['politics-home','/politics/'],['politics-history','/politics/history/ch01/#unit-1'],
  ['politics-mao','/politics/mao/ch02/#unit-2'],['politics-xi','/politics/xi/ch02/#unit-1'],
  ['politics-ethics','/politics/ethics_law/ch05/#unit-1'],['politics-marxism','/politics/marxism/ch00/'],
- ['politics-result','/politics/practice/','result'],
+ ['politics-result','/politics/practice/','result'],['politics-result-wrong','/politics/practice/','wrong-result'],
  ['xizong-system','/xizong/circulation/'],['xizong-block','/xizong/circulation/b01/'],
  ['xizong-recall','/xizong/circulation/b01/','recall'],['xizong-reveal','/xizong/circulation/b01/','reveal']
 ];
@@ -46,10 +46,19 @@ try{
     const response=await p.goto(origin+route,{waitUntil:'networkidle'});if(!response?.ok())throw Error(`HTTP ${response?.status()}`);
     await p.evaluate(()=>document.fonts.ready);
     if(act==='word')await p.locator('[data-vocab-reveal]').click();
-    if(act==='result'){await p.locator('[data-learned-scope]').check();await p.locator('[data-start-session-inline]').click();await p.locator('[data-question-options] button').first().click();await p.locator('[data-submit]').click();}
+    if(act==='result'||act==='wrong-result'){await p.locator('[data-learned-scope]').check();await p.locator('[data-start-session-inline]').click();await p.locator('[data-question-options] button').nth(act==='wrong-result'?1:0).click();await p.locator('[data-submit]').click();if(act==='wrong-result'&&!/答错/.test(await p.locator('[data-result-status]').innerText()))throw Error('Wrong-result probe did not reach its expected outcome');}
     if(act==='recall'||act==='reveal'){await p.locator('[data-stage-next="logic_group"]').click();await p.locator('[data-enter-group]').click();await p.locator('[data-group-lecture-done]').click();if(act==='reveal')await p.locator('[data-kp-reveal]:visible').click();}
     await p.waitForTimeout(120);
     const metrics=await observe(p);
+    // A control inside the viewport can still be cut off by a scrolling pane.
+    // Check clipping ancestors, not just the document bottom.
+    const clippedControls=await p.evaluate(()=>[...document.querySelectorAll('[data-kp-reveal],[data-rating],.politicsReviewActions button,.politicsReviewActions a')].filter(e=>e.getClientRects().length).flatMap(e=>{
+      const r=e.getBoundingClientRect(),issues=[];
+      if(r.top<0||r.bottom>innerHeight+1)issues.push('viewport');
+      for(let a=e.parentElement;a;a=a.parentElement){const s=getComputedStyle(a),q=a.getBoundingClientRect();if(/^(auto|scroll|hidden|clip)$/.test(s.overflowY)&&(r.top<q.top-1||r.bottom>q.bottom+1))issues.push(a.className);}
+      return issues.length?[{text:e.textContent.trim(),clippedBy:issues}]:[];
+    }));
+    if(clippedControls.length)report.failures.push({name:label,error:'Primary action clipped',clippedControls});
     if(metrics.documentWidth>viewport.width+1)report.failures.push({name:label,error:'Page width overflow'});
     if(metrics.documentHeight>viewport.height+1)report.failures.push({name:label,error:'Desktop document exceeds viewport'});
     if(parseFloat(metrics.bodyFont)<17)report.failures.push({name:label,error:'Base type shrunk'});
@@ -63,7 +72,18 @@ try{
     await p.screenshot({path:path.join(out,label+'.png')});
     // Verify that overflowing primary panes are genuinely scrollable, not cut off.
     const scrolling=await p.evaluate(selectors=>[...document.querySelectorAll(selectors)].filter(e=>e.getClientRects().length&&e.scrollHeight>e.clientHeight+3&&['auto','scroll'].includes(getComputedStyle(e).overflowY)).map(e=>{const before=e.scrollTop;e.scrollTop=e.scrollHeight;const moved=e.scrollTop>before;e.scrollTop=before;return {class:e.className,moved};}),panes);
-    report.pages.push({name:label,route,viewport,...metrics,fonts,scrolling,errors});
+    let journey=null;
+    if(act==='result'||act==='wrong-result'){
+      const selected=await p.locator('[data-result-selected]').innerText(),formal=await p.locator('[data-result-answer]').innerText();
+      await p.reload({waitUntil:'networkidle'});
+      if(!await p.locator('[data-submitted-result]').isVisible()||selected!==await p.locator('[data-result-selected]').innerText()||formal!==await p.locator('[data-result-answer]').innerText())throw Error('Submitted result did not survive refresh');
+      const href=await p.locator('[data-return-unit]').getAttribute('href'),expected=new URL(href,origin);
+      await p.locator('[data-return-unit]').click();await p.waitForLoadState('networkidle');
+      const returned=new URL(p.url());
+      if(returned.pathname!==expected.pathname||returned.hash!==expected.hash)throw Error('Return did not restore its exact Unit');
+      journey={submittedRefresh:true,exactReturn:expected.pathname+expected.search+expected.hash};
+    }
+    report.pages.push({name:label,route,viewport,...metrics,fonts,scrolling,journey,errors});
     if(errors.length)report.failures.push({name:label,errors});
    }catch(e){report.failures.push({name:label,error:String(e)});}finally{await ctx.close();}
   }
