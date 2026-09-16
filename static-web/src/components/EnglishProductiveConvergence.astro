@@ -1,4 +1,10 @@
 <script>
+  import {
+    startManualTranslationReconstruction,
+    saveManualWritingRevision,
+    passWritingManualReview
+  } from '../lib/englishProductiveConvergenceModel.mjs';
+
   const onReady = (callback) => {
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', callback, { once: true });
     else queueMicrotask(callback);
@@ -117,24 +123,16 @@
         return;
       }
       const state = readJson(storageKey, null);
-      if (!state || !state.firstAttempts) {
-        status.textContent = '当前第一版状态不存在，无法进入 Reconstruction。';
-        return;
+      try {
+        const next = startManualTranslationReconstruction(state, prompts, ids);
+        if (!writeJson(storageKey, next)) {
+          status.textContent = '本机状态保存失败。';
+          return;
+        }
+        location.reload();
+      } catch (error) {
+        status.textContent = error instanceof Error ? error.message : String(error);
       }
-      state.stage = 'reconstruct';
-      state.decision = 'REPAIR_NEEDED';
-      state.chatReturn = null;
-      state.affectedSegments = ids;
-      state.pendingTransferCandidate = null;
-      state.referenceRevealed = false;
-      state.completeReferenceOpen = false;
-      state.reconstructDrafts ||= {};
-      ids.forEach((id) => { if (!(id in state.reconstructDrafts)) state.reconstructDrafts[id] = ''; });
-      if (!writeJson(storageKey, state)) {
-        status.textContent = '本机状态保存失败。';
-        return;
-      }
-      location.reload();
     });
 
     actions.append(chat, revise, status);
@@ -272,41 +270,30 @@
         status.textContent = '当前修订为空。';
         return;
       }
-      const state = readJson(storageKey, {});
-      state.manualRevisions ||= [];
-      state.manualRevisions.push({ text, at: new Date().toISOString() });
-      state.manualRevisionDraft = text;
-      state.draftEssay = text;
-      state.updatedAt = new Date().toISOString();
-      if (!writeJson(storageKey, state)) {
-        status.textContent = '本机状态保存失败。';
-        return;
+      try {
+        const next = saveManualWritingRevision(readJson(storageKey, null), text);
+        if (!writeJson(storageKey, next)) {
+          status.textContent = '本机状态保存失败。';
+          return;
+        }
+        updated.textContent = `已保存 · ${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+        status.textContent = '当前修订已保存；第一版保持不变。';
+      } catch (error) {
+        status.textContent = error instanceof Error ? error.message : String(error);
       }
-      updated.textContent = `已保存 · ${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
-      status.textContent = '当前修订已保存；第一版保持不变。';
     });
 
     pass.addEventListener('click', () => {
-      const state = readJson(storageKey, null);
-      if (!state?.firstDraft) {
-        status.textContent = '第一版不存在，无法结束这篇。';
-        return;
+      try {
+        const next = passWritingManualReview(readJson(storageKey, null), revision.value);
+        if (!writeJson(storageKey, next)) {
+          status.textContent = '本机状态保存失败。';
+          return;
+        }
+        location.reload();
+      } catch (error) {
+        status.textContent = error instanceof Error ? error.message : String(error);
       }
-      if (revision.value.trim() && revision.value.trim() !== state.firstDraft) {
-        state.manualRevisions ||= [];
-        const last = state.manualRevisions[state.manualRevisions.length - 1]?.text || '';
-        if (last !== revision.value.trim()) state.manualRevisions.push({ text: revision.value.trim(), at: new Date().toISOString() });
-        state.manualRevisionDraft = revision.value.trim();
-        state.draftEssay = revision.value.trim();
-      }
-      state.state = 'PASS_ACCEPTABLE';
-      state.completedAt = new Date().toISOString();
-      state.updatedAt = state.completedAt;
-      if (!writeJson(storageKey, state)) {
-        status.textContent = '本机状态保存失败。';
-        return;
-      }
-      location.reload();
     });
 
     actions.append(chat, saveRevision, pass, status);
