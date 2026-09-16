@@ -7,12 +7,22 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "d69b1a5c484605f87e11015675f7652e59c5f60163feaeac0d886f07f68edfd3",
+    "content_hash": "582f266e6091fcd67ccd4bbab13bdbd40c469e562a2ddcc9f73d82611ef8df05",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "信托, 确认, 归结于, 委派",
-      "core_meaning_en": "grant credentials to",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "正式认可、认证某机构或人员；把成就、说法等归于某人",
+          "label_en": "to officially recognize or certify an institution, program, or person; to attribute an achievement, statement, or quality to someone or something",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:accredit:8b40986c45be535e",
+            "sense:accredit:643a1ac9f6fd5e16"
+          ]
+        }
+      ],
+      "core_meaning_cn": "正式认可、认证某机构或人员；把成就、说法等归于某人",
+      "core_meaning_en": "to officially recognize or certify an institution, program, or person; to attribute an achievement, statement, or quality to someone or something",
+      "mental_model_cn": "正式认可、认证某机构或人员；把成就、说法等归于某人",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +32,50 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "正式认可、认证某机构或人员",
+        "definition_en": "to officially recognize or certify an institution, program, or person",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:accredit:8b40986c45be535e",
+        "sense_label_en": "to officially recognize or certify an institution, program, or person",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "把成就、说法等归于某人",
+        "definition_en": "to attribute an achievement, statement, or quality to someone or something",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:accredit:643a1ac9f6fd5e16",
+        "sense_label_en": "to attribute an achievement, statement, or quality to someone or something",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "正式派驻并授予外交凭证",
+        "definition_en": "diplomatic: to authorize or send an envoy with official credentials",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:accredit:998005cd5a11541b",
+        "sense_label_en": "diplomatic: to authorize or send an envoy with official credentials",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -37,81 +90,26 @@
     "word_id": "word:accredit"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:accredit:643a1ac9f6fd5e16",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "信托, 确认, 归结于, 委派",
-      "definition_en": "ascribe an achievement to",
-      "semantic_key": "993d1e925ae1d6c0c622ffec78c7e3ab42a5d8f939c06c9fffd36d47d2d7cb1b",
-      "semantic_key_history": [
-        "415df0d258999195bdd62b4cf1211d66c92466d6c02282362061cd06917b8f89"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 16912,
-      "source_path": "content/lexical/canonical/senses/shards/o6273-6304.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:accredit:8b40986c45be535e",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "信托, 确认, 归结于, 委派",
-      "definition_en": "grant credentials to",
-      "semantic_key": "05021d413df0ad101c346d2d4fe821421f16457c80c2582e4ea285bd6cf90299",
-      "semantic_key_history": [
-        "a84da428aa1ac99b38040d58b0ea54c9024155007a5786baaaa0dd5648e28e0c"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 16913,
-      "source_path": "content/lexical/canonical/senses/shards/o6273-6304.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:accredit:998005cd5a11541b",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "信托, 确认, 归结于, 委派",
-      "definition_en": "provide or send (envoys or embassadors) with official credentials",
-      "semantic_key": "7c36c787d6eb0ebe0a829a167ba1c1ef26a8548138c8cb95fbe406fe1403abe5",
-      "semantic_key_history": [
-        "5f17899b41bd58dc9cf799542f87c244f617af37d8e54726971eccb76d915142"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 16914,
-      "source_path": "content/lexical/canonical/senses/shards/o6273-6304.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:accredit:643a1ac9f6fd5e16",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 16912,
         "source_path": "content/lexical/canonical/senses/shards/o6273-6304.json"
       },
       {
         "sense_id": "sense:accredit:8b40986c45be535e",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 16913,
         "source_path": "content/lexical/canonical/senses/shards/o6273-6304.json"
       },
       {
         "sense_id": "sense:accredit:998005cd5a11541b",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 16914,
         "source_path": "content/lexical/canonical/senses/shards/o6273-6304.json"
@@ -141,7 +139,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6289-6296.json",
-    "source_content_hash": "d69b1a5c484605f87e11015675f7652e59c5f60163feaeac0d886f07f68edfd3",
+    "source_content_hash": "582f266e6091fcd67ccd4bbab13bdbd40c469e562a2ddcc9f73d82611ef8df05",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
