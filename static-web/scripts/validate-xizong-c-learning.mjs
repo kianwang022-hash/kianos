@@ -4,7 +4,7 @@ import path from 'node:path';
 const repoRoot = path.resolve(process.cwd(), process.cwd().endsWith('static-web') ? '..' : '.');
 const learnerRoot = path.join(repoRoot, 'content/xizong/knowledge/learner');
 const systemRoot = path.join(repoRoot, 'content/xizong/knowledge/systems/c-hematology-immunity-infection');
-const manifestPath = path.join(learnerRoot, 'c-hematology-immunity-infection-learning.json');
+const manifestPath = path.join(learnerRoot, 'c-hematology-immunity-infection-learning-candidate.json');
 const systemPath = path.join(systemRoot, 'system.json');
 const blocksDir = path.join(systemRoot, 'blocks');
 
@@ -105,7 +105,6 @@ for (const relativePath of shardPaths) {
       }
       if (!group.label || !Array.isArray(group.jobs) || group.jobs.length < 1) fail(`group-learning-contract:${groupId}`);
       for (const job of group.jobs) if (!knownJobs.has(job)) fail(`unknown-job:${groupId}:${job}`);
-      const expectedAnchor = groupId.toUpperCase().replace(/^C-H/, 'C-H').replace('-LG', '-LG');
       if (!/^C-H\d{2}-LG\d{2}$/.test(group.receipt_anchor || '')) fail(`receipt-anchor-format:${groupId}:${group.receipt_anchor}`);
       if (receiptAnchors.has(group.receipt_anchor)) fail(`duplicate-receipt-anchor:${group.receipt_anchor}`);
       receiptAnchors.add(group.receipt_anchor);
