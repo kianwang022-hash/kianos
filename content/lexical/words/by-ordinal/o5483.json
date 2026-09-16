@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "4749ba26660f51016e65c486da8fb3a32fbe8e0e07068d14f2bf1ac2dc325a54",
+    "content_hash": "6949994de168ab372115d343a9e62d343767b460caad03fb91ebeab7f9ade37d",
     "core_concept": {
       "core_clusters": [
         {
@@ -25,19 +25,11 @@
           "sense_ids": [
             "sense:yearly:acbc28041dc6582d"
           ]
-        },
-        {
-          "label_cn": "年刊，年鉴",
-          "label_en": "a reference book published once a year",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:yearly:b4f07b3ca0dc5403"
-          ]
         }
       ],
-      "core_meaning_cn": "每年一次的",
-      "core_meaning_en": "occurring or done once a year",
-      "mental_model_cn": "每年一次的",
+      "core_meaning_cn": "每年的，一年一度的；每年，一年一次",
+      "core_meaning_en": "occurring or payable every year; once a year",
+      "mental_model_cn": "每年的，一年一度的；每年，一年一次",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -95,30 +87,6 @@
         "sense_label_en": "once a year",
         "sort_order": 1,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:6661d37a9976f8aa2a86",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:yearly:b4f07b3ca0dc5403:collocation:0"
-            ],
-            "meaning_cn": "协会的年刊",
-            "phrase": "a yearly of the society"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "年刊，年鉴",
-        "definition_en": "a reference book published once a year",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:yearly:b4f07b3ca0dc5403",
-        "sense_label_en": "a reference book published once a year",
-        "sort_order": 2,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -141,7 +109,31 @@
     "word_id": "word:yearly"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:yearly:b4f07b3ca0dc5403",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "年刊，年鉴",
+      "definition_en": "a reference book published once a year",
+      "semantic_key": "4cae9d5f3c28b1122dfa3cdf67743891f3084f66b87e1223c8ede0555c61a7a3",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "yearly:l2:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "yearly:l2:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 15597,
+      "source_path": "content/lexical/canonical/senses/shards/o5473-5504.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -160,7 +152,7 @@
       },
       {
         "sense_id": "sense:yearly:b4f07b3ca0dc5403",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 15597,
         "source_path": "content/lexical/canonical/senses/shards/o5473-5504.json"
@@ -168,7 +160,6 @@
     ],
     "active_collocations": [
       "collocation:3e18c37d4740dc617e3f",
-      "collocation:6661d37a9976f8aa2a86",
       "collocation:c795f5d62f6128515b54"
     ],
     "facts": [],
@@ -220,7 +211,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5481-5488.json",
-    "source_content_hash": "4749ba26660f51016e65c486da8fb3a32fbe8e0e07068d14f2bf1ac2dc325a54",
+    "source_content_hash": "6949994de168ab372115d343a9e62d343767b460caad03fb91ebeab7f9ade37d",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -6,18 +6,26 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "ec28fa4f557a74c984a938e3f207ff5e0c474e9440dfde8c57cd7847a4c96496",
+    "constructions": [
+      {
+        "construction_id": "construction:541c9ceee344575596a9",
+        "definition_en": "to aim at or focus attention or effort on someone or something",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "瞄准；把注意力/努力集中在某人或某事上",
+        "pattern": "zero in on sb/sth"
+      }
+    ],
+    "content_hash": "30bcd39dec4185e807aa7294ccdf3a82b430db5cf59a00cc0d29c905b0796cfd",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "数字零；数学上的零元素；刻度上的零点；起点；枪炮的归零瞄准",
-          "label_en": "the number 0; a mathematical element that when added to another number yields the same number; the point on a scale from which positive or negative numerical quantities can be measured; the sight setting that will cause a projectile to hit the center of the target with no wind blowing",
+          "label_cn": "数字零；数学上的零元素；刻度上的零点；起点",
+          "label_en": "the number 0; a mathematical element that when added to another number yields the same number; the point on a scale from which positive or negative numerical quantities can be measured",
           "pos": "noun",
           "sense_ids": [
             "sense:zero:e9cb7d72514b576c",
-            "sense:zero:89a12e23da8650be",
-            "sense:zero:f86aa49d7feb50cf"
+            "sense:zero:89a12e23da8650be"
           ]
         },
         {
@@ -29,9 +37,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "零；调零",
-      "core_meaning_en": "the number 0; to adjust to zero",
-      "mental_model_cn": "零；调零",
+      "core_meaning_cn": "数字零；数学上的零元素；将（仪器）调零；刻度上的零点；起点",
+      "core_meaning_en": "the number 0; a mathematical element that when added to another number yields the same number; adjust (an instrument or device) to zero value; the point on a scale from which positive or negative numerical quantities can be measured",
+      "mental_model_cn": "数字零；数学上的零元素；将（仪器）调零；刻度上的零点；起点",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -112,20 +120,6 @@
         "sense_label_en": "the point on a scale from which positive or negative numerical quantitie",
         "sort_order": 1,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "枪炮的归零瞄准",
-        "definition_en": "the sight setting that will cause a projectile to hit the center of the target with no wind blowing",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:zero:f86aa49d7feb50cf",
-        "sense_label_en": "the sight setting that will cause a projectile to hit the center of the ",
-        "sort_order": 2,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -148,7 +142,31 @@
     "word_id": "word:zero"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:zero:f86aa49d7feb50cf",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "枪炮的归零瞄准",
+      "definition_en": "the sight setting that will cause a projectile to hit the center of the target with no wind blowing",
+      "semantic_key": "9061514405d662a194180fae1bc9a426705f60591f9f937e1ad641797b32c6be",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "zero:l3:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "zero:l3:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 15632,
+      "source_path": "content/lexical/canonical/senses/shards/o5473-5504.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -174,7 +192,7 @@
       },
       {
         "sense_id": "sense:zero:f86aa49d7feb50cf",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 15632,
         "source_path": "content/lexical/canonical/senses/shards/o5473-5504.json"
@@ -224,7 +242,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5497-5504.json",
-    "source_content_hash": "ec28fa4f557a74c984a938e3f207ff5e0c474e9440dfde8c57cd7847a4c96496",
+    "source_content_hash": "30bcd39dec4185e807aa7294ccdf3a82b430db5cf59a00cc0d29c905b0796cfd",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
