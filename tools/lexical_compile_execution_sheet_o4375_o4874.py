@@ -39,33 +39,42 @@ def production_blocks(path:Path):
         out[o]={'word':word,'instructions':buf}; i=j
     return out
 
+def owner_marker(line:str):
+    return re.match(r'^\s*(?:-\s+\*\*|-\s+|\|\s*)o(\d{4})\b',line)
+
 def audit_hits(path:Path,ordinal:int):
     lines=path.read_text(encoding='utf-8').splitlines(); key=f'o{ordinal:04d}'; hits=[]
     for i,line in enumerate(lines):
         if key not in line: continue
-        # Ignore broad scope/provenance lines and NO_CHANGE lists unless they contain a verdict row.
-        low=line.lower()
-        if ('scope' in low or 'production handoff' in low or 'owner-read' in low) and 'flip_' not in low and 'refine_' not in low and 'identity_risk' not in low: continue
-        if line.count('`o')>=4 and 'flip_' not in low and 'refine_' not in low and 'identity_risk' not in low: continue
-        ctx=[line]
-        for j in range(i+1,min(len(lines),i+4)):
-            if lines[j].startswith('| o') or re.match(r'^- o\d{4}',lines[j]): break
-            if lines[j].strip() and not lines[j].startswith('#'): ctx.append(lines[j])
+        marker=owner_marker(line)
+        # Only exact owner rows/bullets are semantic instructions. Broad provenance,
+        # scope lists and neighboring-owner paragraphs are deliberately ignored.
+        if not marker or int(marker.group(1))!=ordinal: continue
+        ctx=[line]; j=i+1
+        while j<len(lines):
+            if owner_marker(lines[j]) or lines[j].startswith('## ') or lines[j].startswith('### '): break
+            # Preserve genuinely indented continuation lines only.
+            if lines[j].startswith('  ') and lines[j].strip(): ctx.append(lines[j])
+            elif lines[j].strip(): break
+            j+=1
         text=clean(' '.join(ctx))
         if text and text not in hits: hits.append(text)
-    return hits[:4]
+    return hits[:3]
 
 def rec_hits(text:str,ordinal:int):
-    key=f'o{ordinal:04d}'; lines=text.splitlines(); hits=[]
+    lines=text.splitlines(); hits=[]
     for i,line in enumerate(lines):
-        if key not in line: continue
-        ctx=[line]
-        for j in range(i+1,min(len(lines),i+5)):
-            if re.match(r'^- `?o\d{4}',lines[j]) or lines[j].startswith('### '): break
-            if lines[j].strip(): ctx.append(lines[j])
+        marker=owner_marker(line)
+        if not marker or int(marker.group(1))!=ordinal: continue
+        ctx=[line]; j=i+1
+        while j<len(lines):
+            if owner_marker(lines[j]) or lines[j].startswith('### ') or lines[j].startswith('## '): break
+            if lines[j].startswith('  ') and lines[j].strip(): ctx.append(lines[j])
+            elif lines[j].strip(): break
+            j+=1
         t=clean(' '.join(ctx))
         if t and t not in hits: hits.append(t)
-    return hits[:3]
+    return hits[:2]
 
 def sense_line(row):
     sid=row.get('sense_id') or row.get('stable_sense_id') or '?'; st=row.get('status','active'); pos=row.get('pos','?'); en=clean(str(row.get('definition_en','')))
@@ -84,11 +93,10 @@ def main():
         out.append('PRODUCTION: '+(' | '.join(pb['instructions']) if pb and pb['instructions'] else 'NO_CHANGE in Production / Audit-authorized source'))
         ah=[]
         for p in AUD: ah.extend(audit_hits(p,o))
-        # De-dupe noisy repeats.
         seen=[]
         for x in ah:
             if x not in seen: seen.append(x)
-        out.append('AUDIT: '+(' || '.join(seen[:5]) if seen else 'no additional audit refinement extracted'))
+        out.append('AUDIT: '+(' || '.join(seen[:3]) if seen else 'no additional audit refinement extracted'))
         rh=rec_hits(rectext,o)
         if rh: out.append('RECONCILIATION: '+' || '.join(rh))
         active=' ; '.join(sense_line(x) for x in row.get('active',[])) or '(none)'
