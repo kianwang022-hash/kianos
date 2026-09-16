@@ -1,42 +1,691 @@
 {
-  "schema":"kianos.lexical.execution_manifest_chunk.v1",
-  "package":[6375,6874],
-  "range":[6375,6424],
-  "patches":[
-    {"ordinal":6375,"ops":[{"kind":"rewrite","sid":"sense:assail:5feda8ce902f5821","en":"to attack someone violently, criticize them forcefully, or overwhelm them with persistent questions, doubts, smells, problems, or other pressures","cn":"猛攻；猛烈抨击；（问题、疑虑、气味等）不断侵扰、袭来","level":"L1"}]},
-    {"ordinal":6376,"ops":[{"kind":"new","branch":"ordinary_collection_group","pos":"noun","en":"a collection or group of people or things brought together","cn":"集合；聚集在一起的一群人或一批事物","level":"L1"}]},
-    {"ordinal":6378,"ops":[{"kind":"rewrite","sid":"sense:assorted:928fafe4e65d570d","en":"of various kinds or types; mixed","cn":"各种各样的；混合的","level":"L1"},{"kind":"demote","sid":"sense:assorted:4e9742ff9e085982"}]},
-    {"ordinal":6379,"ops":[{"kind":"reactivate","sid":"sense:assuage:e1526af9082e5c5d","en":"to make an unpleasant feeling, pain, fear, hunger, concern, or other discomfort less intense","cn":"缓和、减轻（痛苦、恐惧、饥饿、忧虑等）","level":"L1"},{"kind":"construction","pattern":"assuage fears/anxiety/guilt/hunger","meaning_cn":"缓解恐惧、焦虑、内疚或饥饿","source_sid":"sense:assuage:e1526af9082e5c5d","level":"L1"}]},
-    {"ordinal":6380,"ops":[{"kind":"rewrite","sid":"sense:astound:8fb1fba6a41859b0","en":"to surprise or amaze someone greatly","cn":"使震惊；使大为惊讶","level":"L1"}]},
-    {"ordinal":6382,"ops":[{"kind":"new","branch":"state_protection_refuge","pos":"noun","en":"protection or refuge granted by a state, especially to someone fleeing persecution or danger; political asylum","cn":"庇护；尤指国家给予受迫害或面临危险者的政治庇护","level":"L1"},{"kind":"usage","sid":"sense:asylum:68418d86f41e5637","level":"L2","note":"General shelter or refuge is the broader organizing idea."},{"kind":"usage","sid":"sense:asylum:33ec0090a7765fb5","level":"L3","register":"dated/historical","writing_safe":false,"note":"Mental asylum is a historical/dated expression, not a neutral modern clinical label."}]},
-    {"ordinal":6384,"ops":[{"kind":"rewrite","sid":"sense:audacious:c5db568034d45e4f","en":"boldly daring, sometimes to a shocking, rude, or convention-defying degree","cn":"大胆的；敢作敢为的；有时大胆到令人震惊或冒犯","level":"L1"}]},
-    {"ordinal":6386,"ops":[{"kind":"rewrite","sid":"sense:auditor:fb8ac2a6719e52d6","en":"a person who independently examines accounts, records, systems, controls, or compliance","cn":"审计人员；检查账目、记录、系统、控制或合规情况的人","level":"L1"},{"kind":"usage","sid":"sense:auditor:a16d700be6095aa9","level":"L2","note":"Also a student who attends a course without taking it for credit."}]},
-    {"ordinal":6387,"ops":[{"kind":"new","branch":"figurative_atmosphere_quality","pos":"noun","en":"a distinctive atmosphere, feeling, or quality that seems to surround a person, place, or thing","cn":"气氛；气质；仿佛环绕某人、某地或某物的独特感觉","level":"L1"},{"kind":"usage","sid":"sense:aura:698789d1c3c3503b","level":"L2","note":"Medical aura: a sensory warning that can precede migraine or seizure."},{"kind":"usage","sid":"sense:aura:eb183b394f35521d","level":"L3","note":"Halo/iconographic sense is secondary."}]},
-    {"ordinal":6388,"ops":[{"kind":"rewrite","sid":"sense:auspices:e3ca30d45d7d594a","en":"support, sponsorship, approval, guidance, or authority provided by a person or organization","cn":"支持、赞助、认可、指导或权威","level":"L1"},{"kind":"construction","pattern":"under the auspices of sb/sth","meaning_cn":"在……的支持、赞助或主持下","source_sid":"sense:auspices:e3ca30d45d7d594a","level":"L1"}]},
-    {"ordinal":6390,"ops":[{"kind":"rewrite","sid":"sense:austerity:ade3763c06655bfc","en":"strict simplicity, self-denial, or avoidance of unnecessary comfort and luxury","cn":"节制；简朴；严格克制享乐","level":"L1"},{"kind":"new","branch":"economic_austerity_policy","pos":"noun","en":"a policy of reducing public spending or consumption, especially to control debt or budget deficits","cn":"经济紧缩政策；尤指为控制债务或赤字而削减公共支出","level":"L1"}]},
-    {"ordinal":6391,"ops":[{"kind":"form","type":"regional_spelling_variant","boundaries":[{"surface":"authorize","condition":"common AmE spelling","note":"Authorize is the common American spelling."},{"surface":"authorise","condition":"common BrE spelling","note":"Authorise is the common British spelling of the same verb."}],"aliases":["authorise"]},{"kind":"construction","pattern":"authorize sb to do sth","meaning_cn":"授权某人做某事","source_sid":"sense:authorize:0f78e38a297f5907","level":"L1"},{"kind":"construction","pattern":"authorize sth","meaning_cn":"批准、授权某事","source_sid":"sense:authorize:0f78e38a297f5907","level":"L1"}]},
-    {"ordinal":6392,"ops":[{"kind":"rewrite","sid":"sense:autocrat:30ff83df15b758d0","en":"a ruler or other person who holds and exercises absolute or largely unchecked power","cn":"独裁者；掌握并行使绝对或几乎不受制约权力的人","level":"L1"}]},
-    {"ordinal":6393,"ops":[{"kind":"core","en":"independent, self-governing, or self-operating without external control","cn":"自主的；自治的；可独立运作而不受外部控制的"},{"kind":"new","branch":"technical_self_operating","pos":"adjective","en":"able to operate or function independently without direct external control","cn":"能自主运行的；无需直接外部控制即可工作的","level":"L2"}]},
-    {"ordinal":6394,"ops":[{"kind":"demote","sid":"sense:avarice:a1e4fa45d07a5307"},{"kind":"rewrite","sid":"sense:avarice:d5ee8fe27b7b5c65","en":"extreme greed for money, wealth, or possessions","cn":"贪婪；对金钱、财富或财物的极端欲望","level":"L1"}]},
-    {"ordinal":6396,"ops":[{"kind":"rewrite","sid":"sense:averse:c6c863af0d755877","en":"strongly unwilling or opposed to something","cn":"反对的；不愿意的；厌恶的","level":"L1"},{"kind":"construction","pattern":"be averse to sth/doing sth","meaning_cn":"反对、不愿或厌恶某事/做某事","source_sid":"sense:averse:c6c863af0d755877","level":"L1"}]},
-    {"ordinal":6397,"ops":[{"kind":"new","branch":"strong_dislike_reluctance","pos":"noun","en":"a strong dislike of, opposition to, or reluctance toward something","cn":"厌恶；反感；强烈不愿","level":"L1"},{"kind":"construction","pattern":"an aversion to sth/doing sth","meaning_cn":"对某事/做某事的厌恶或强烈不愿","level":"L1"},{"kind":"usage","sid":"sense:aversion:3f7f8987e7425705","level":"L3","note":"Literal turning-away sense is uncommon and secondary."}]},
-    {"ordinal":6399,"ops":[{"kind":"rewrite","sid":"sense:avouch:49f86f910c6356e5","en":"formal or literary: to assert, affirm, or acknowledge something openly and confidently","cn":"（正式/文学）断言；明确承认或保证","level":"L3","register":"formal/literary"}]},
-    {"ordinal":6401,"ops":[{"kind":"rewrite","sid":"sense:backbite:478860e7ea1453e8","en":"to speak maliciously or unfairly about someone who is absent","cn":"背后说坏话；背后恶意中伤","level":"L3","register":"old-fashioned"}]},
-    {"ordinal":6402,"ops":[{"kind":"rewrite","sid":"sense:badger:c346c5ed6cbf5122","en":"to repeatedly pester, pressure, or urge someone until they act or respond","cn":"不断纠缠、催促或施压","level":"L1"},{"kind":"construction","pattern":"badger sb into doing sth","meaning_cn":"不断纠缠/施压使某人做某事","source_sid":"sense:badger:c346c5ed6cbf5122","level":"L1"}]},
-    {"ordinal":6403,"ops":[{"kind":"new","branch":"hesitate_refuse_obstacle_verb","pos":"verb","en":"to hesitate, refuse, or stop short when faced with a demand, difficulty, or risk","cn":"犹豫；拒绝；遇到要求、困难或风险时退缩","level":"L1"},{"kind":"new","branch":"obstacle_hindrance_noun","pos":"noun","en":"an obstacle or hindrance that prevents progress","cn":"障碍；阻碍","level":"L2"}]},
-    {"ordinal":6404,"ops":[{"kind":"reactivate","sid":"sense:balmy:9aa8b7aac9205843","en":"mild, pleasantly warm, and comfortable, especially of weather or air","cn":"温和宜人的；尤指天气或空气温暖舒适的","level":"L1"},{"kind":"reactivate","sid":"sense:balmy:04d1d7e2438f59a5","en":"informal and dated: slightly crazy or eccentric","cn":"（非正式、旧式）有点疯狂或古怪的","level":"L3","register":"dated/informal","writing_safe":false}]},
-    {"ordinal":6405,"ops":[{"kind":"new","branch":"figurative_remove_thought_feeling","pos":"verb","en":"to make an unwanted thought, fear, doubt, or feeling go away","cn":"消除、驱散（恐惧、疑虑、念头等）","level":"L2"}]},
-    {"ordinal":6406,"ops":[{"kind":"rewrite","sid":"sense:barter:f08b8ad5bb2b57f6","en":"the exchange of goods or services directly for other goods or services without using money","cn":"以物易物；不用货币直接交换商品或服务","level":"L1"},{"kind":"construction","pattern":"barter sth for sth","meaning_cn":"用某物交换某物","source_sid":"sense:barter:a64d0e16d63a562c","level":"L1"},{"kind":"construction","pattern":"barter with sb","meaning_cn":"与某人进行物物交换","source_sid":"sense:barter:a64d0e16d63a562c","level":"L2"}]},
-    {"ordinal":6407,"ops":[{"kind":"rewrite","sid":"sense:bashful:f821a36a44405021","en":"shy and self-conscious, especially in social situations","cn":"害羞的；腼腆的；不自在的","level":"L1"},{"kind":"demote","sid":"sense:bashful:9b25fd6e397a5bf5"}]},
-    {"ordinal":6408,"ops":[{"kind":"rewrite","sid":"sense:bask:cd9a6b858c485e35","en":"to relax and enjoy pleasant warmth or sunshine","cn":"晒太阳；享受温暖","level":"L1"},{"kind":"construction","pattern":"bask in sth","meaning_cn":"沉浸、陶醉于（赞誉、荣耀、关注等）","source_sid":"sense:bask:cd9a6b858c485e35","definition_en":"to enjoy a pleasant situation such as praise, glory, or attention","level":"L2"}]},
-    {"ordinal":6410,"ops":[{"kind":"construction","pattern":"with bated breath","meaning_cn":"屏息地；紧张或期待地等待","source_sid":"sense:bate:8417eeba76f65bb2","definition_en":"while waiting anxiously or excitedly for what will happen","level":"L1"},{"kind":"form","type":"lexicalized_phrase_form","boundaries":[{"surface":"bated","condition":"in the fixed phrase with bated breath","note":"Bated is historically/formally tied to bate = restrain or lessen; it is not a new Word owner."}],"aliases":["bated"]}]},
-    {"ordinal":6411,"ops":[{"kind":"new","branch":"hit_repeatedly_verb","pos":"verb","en":"to hit or strike someone or something repeatedly and forcefully","cn":"连续猛击；反复重击","level":"L1"}]},
-    {"ordinal":6412,"ops":[{"kind":"rewrite","sid":"sense:becoming:24542bc6172354b7","en":"attractive, flattering, or suitable for a particular person or situation","cn":"合适的；相称的；衬人的","level":"L1"},{"kind":"usage","sid":"sense:becoming:0c4d7515161e59a9","level":"L3","register":"formal","note":"Formal propriety: appropriate according to custom or social expectations."}]},
-    {"ordinal":6415,"ops":[{"kind":"rewrite","sid":"sense:begrudge:010f19aaff3b5027","en":"to resent giving or allowing something, or to feel resentful envy toward someone for having it","cn":"不情愿给；嫉妒、眼红某人拥有某物","level":"L1"},{"kind":"construction","pattern":"begrudge sb sth","meaning_cn":"嫉妒/不情愿让某人拥有某物","source_sid":"sense:begrudge:010f19aaff3b5027","level":"L1"},{"kind":"construction","pattern":"begrudge doing sth","meaning_cn":"不情愿做某事","source_sid":"sense:begrudge:010f19aaff3b5027","level":"L2"}]},
-    {"ordinal":6416,"ops":[{"kind":"reactivate","sid":"sense:belie:82ac1ac4e382518f","en":"to give a false impression of something or fail to show its true nature","cn":"掩饰真相；给人以错误印象","level":"L1"},{"kind":"reactivate","sid":"sense:belie:1d3be0c935c75039","en":"to contradict or show that a statement, expectation, or appearance is false","cn":"与……矛盾；证明……不真实","level":"L2"}]},
-    {"ordinal":6418,"ops":[{"kind":"new","branch":"hostile_aggressive_common","pos":"adjective","en":"hostile, aggressive, and ready to argue or fight","cn":"好斗的；敌对的；挑衅的","level":"L1"},{"kind":"usage","sid":"sense:belligerent:d23477214e15593c","level":"L2","note":"Formal international-law sense: engaged in war or belonging to a warring party."}]},
-    {"ordinal":6419,"ops":[{"kind":"reactivate","sid":"sense:bellow:4b473fcb65fc5384","en":"to shout or roar in a very loud, deep voice or sound","cn":"吼叫；咆哮；大声喊","level":"L1"},{"kind":"reactivate","sid":"sense:bellow:b2beb36fa5655720","en":"a very loud, deep shout or roar","cn":"吼叫声；咆哮声","level":"L2"}]},
-    {"ordinal":6422,"ops":[{"kind":"rewrite","sid":"sense:bent:96552923f78951b5","en":"a natural inclination, tendency, or talent for a particular activity or way of thinking","cn":"倾向；爱好；天赋","level":"L1"},{"kind":"construction","pattern":"be bent on doing sth","meaning_cn":"执意、决意做某事","level":"L1"},{"kind":"usage","sid":"sense:bent:8571e4ac58a65ea2","level":"L3","note":"Specialist grass sense is lower priority."}]},
-    {"ordinal":6424,"ops":[{"kind":"rewrite","sid":"sense:bereave:715757c5dde85380","en":"to cause someone to lose a close relative or loved one through death","cn":"使丧失亲人；使丧亲","level":"L1"},{"kind":"construction","pattern":"be bereaved of sb","meaning_cn":"因死亡而失去某位亲人","source_sid":"sense:bereave:715757c5dde85380","level":"L2"}]}
+  "schema": "kianos.lexical.execution_manifest_chunk.v1",
+  "package": [
+    6375,
+    6874
+  ],
+  "range": [
+    6375,
+    6424
+  ],
+  "patches": [
+    {
+      "ordinal": 6375,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:assail:5feda8ce902f5821",
+          "en": "to attack someone violently, criticize them forcefully, or overwhelm them with persistent questions, doubts, smells, problems, or other pressures",
+          "cn": "猛攻；猛烈抨击；（问题、疑虑、气味等）不断侵扰、袭来",
+          "level": "L1"
+        }
+      ]
+    },
+    {
+      "ordinal": 6376,
+      "ops": [
+        {
+          "kind": "new",
+          "branch": "ordinary_collection_group",
+          "pos": "noun",
+          "en": "a collection or group of people or things brought together",
+          "cn": "集合；聚集在一起的一群人或一批事物",
+          "level": "L1"
+        }
+      ]
+    },
+    {
+      "ordinal": 6378,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:assorted:928fafe4e65d570d",
+          "en": "of various kinds or types; mixed",
+          "cn": "各种各样的；混合的",
+          "level": "L1"
+        },
+        {
+          "kind": "demote",
+          "sid": "sense:assorted:4e9742ff9e085982"
+        }
+      ]
+    },
+    {
+      "ordinal": 6379,
+      "ops": [
+        {
+          "kind": "reactivate",
+          "sid": "sense:assuage:e1526af9082e5c5d",
+          "en": "to make an unpleasant feeling, pain, fear, hunger, concern, or other discomfort less intense",
+          "cn": "缓和、减轻（痛苦、恐惧、饥饿、忧虑等）",
+          "level": "L1"
+        },
+        {
+          "kind": "construction",
+          "pattern": "assuage fears/anxiety/guilt/hunger",
+          "meaning_cn": "缓解恐惧、焦虑、内疚或饥饿",
+          "source_sid": "sense:assuage:e1526af9082e5c5d",
+          "level": "L1"
+        }
+      ]
+    },
+    {
+      "ordinal": 6380,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:astound:8fb1fba6a41859b0",
+          "en": "to surprise or amaze someone greatly",
+          "cn": "使震惊；使大为惊讶",
+          "level": "L1"
+        }
+      ]
+    },
+    {
+      "ordinal": 6382,
+      "ops": [
+        {
+          "kind": "new",
+          "branch": "state_protection_refuge",
+          "pos": "noun",
+          "en": "protection or refuge granted by a state, especially to someone fleeing persecution or danger; political asylum",
+          "cn": "庇护；尤指国家给予受迫害或面临危险者的政治庇护",
+          "level": "L1"
+        },
+        {
+          "kind": "usage",
+          "sid": "sense:asylum:68418d86f41e5637",
+          "level": "L2",
+          "note": "General shelter or refuge is the broader organizing idea."
+        },
+        {
+          "kind": "usage",
+          "sid": "sense:asylum:33ec0090a7765fb5",
+          "level": "L3",
+          "register": "dated/historical",
+          "writing_safe": false,
+          "note": "Mental asylum is a historical/dated expression, not a neutral modern clinical label."
+        }
+      ]
+    },
+    {
+      "ordinal": 6384,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:audacious:c5db568034d45e4f",
+          "en": "boldly daring, sometimes to a shocking, rude, or convention-defying degree",
+          "cn": "大胆的；敢作敢为的；有时大胆到令人震惊或冒犯",
+          "level": "L1"
+        }
+      ]
+    },
+    {
+      "ordinal": 6386,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:auditor:fb8ac2a6719e52d6",
+          "en": "a person who independently examines accounts, records, systems, controls, or compliance",
+          "cn": "审计人员；检查账目、记录、系统、控制或合规情况的人",
+          "level": "L1"
+        },
+        {
+          "kind": "usage",
+          "sid": "sense:auditor:a16d700be6095aa9",
+          "level": "L2",
+          "note": "Also a student who attends a course without taking it for credit."
+        }
+      ]
+    },
+    {
+      "ordinal": 6387,
+      "ops": [
+        {
+          "kind": "new",
+          "branch": "figurative_atmosphere_quality",
+          "pos": "noun",
+          "en": "a distinctive atmosphere, feeling, or quality that seems to surround a person, place, or thing",
+          "cn": "气氛；气质；仿佛环绕某人、某地或某物的独特感觉",
+          "level": "L1"
+        },
+        {
+          "kind": "usage",
+          "sid": "sense:aura:698789d1c3c3503b",
+          "level": "L2",
+          "note": "Medical aura: a sensory warning that can precede migraine or seizure."
+        },
+        {
+          "kind": "usage",
+          "sid": "sense:aura:eb183b394f35521d",
+          "level": "L3",
+          "note": "Halo/iconographic sense is secondary."
+        }
+      ]
+    },
+    {
+      "ordinal": 6388,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:auspices:e3ca30d45d7d594a",
+          "en": "support, sponsorship, approval, guidance, or authority provided by a person or organization",
+          "cn": "支持、赞助、认可、指导或权威",
+          "level": "L1"
+        },
+        {
+          "kind": "construction",
+          "pattern": "under the auspices of sb/sth",
+          "meaning_cn": "在……的支持、赞助或主持下",
+          "source_sid": "sense:auspices:e3ca30d45d7d594a",
+          "level": "L1"
+        }
+      ]
+    },
+    {
+      "ordinal": 6390,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:austerity:ade3763c06655bfc",
+          "en": "strict simplicity, self-denial, or avoidance of unnecessary comfort and luxury",
+          "cn": "节制；简朴；严格克制享乐",
+          "level": "L1"
+        },
+        {
+          "kind": "new",
+          "branch": "economic_austerity_policy",
+          "pos": "noun",
+          "en": "a policy of reducing public spending or consumption, especially to control debt or budget deficits",
+          "cn": "经济紧缩政策；尤指为控制债务或赤字而削减公共支出",
+          "level": "L1"
+        }
+      ]
+    },
+    {
+      "ordinal": 6391,
+      "ops": [
+        {
+          "kind": "form",
+          "type": "regional_spelling_variant",
+          "boundaries": [
+            {
+              "surface": "authorize",
+              "condition": "common AmE spelling",
+              "note": "Authorize is the common American spelling."
+            },
+            {
+              "surface": "authorise",
+              "condition": "common BrE spelling",
+              "note": "Authorise is the common British spelling of the same verb."
+            }
+          ],
+          "aliases": [
+            "authorise"
+          ]
+        },
+        {
+          "kind": "construction",
+          "pattern": "authorize sb to do sth",
+          "meaning_cn": "授权某人做某事",
+          "source_sid": "sense:authorize:0f78e38a297f5907",
+          "level": "L1"
+        },
+        {
+          "kind": "construction",
+          "pattern": "authorize sth",
+          "meaning_cn": "批准、授权某事",
+          "source_sid": "sense:authorize:0f78e38a297f5907",
+          "level": "L1"
+        }
+      ]
+    },
+    {
+      "ordinal": 6392,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:autocrat:30ff83df15b758d0",
+          "en": "a ruler or other person who holds and exercises absolute or largely unchecked power",
+          "cn": "独裁者；掌握并行使绝对或几乎不受制约权力的人",
+          "level": "L1"
+        }
+      ]
+    },
+    {
+      "ordinal": 6393,
+      "ops": [
+        {
+          "kind": "core",
+          "en": "independent, self-governing, or self-operating without external control",
+          "cn": "自主的；自治的；可独立运作而不受外部控制的"
+        },
+        {
+          "kind": "new",
+          "branch": "technical_self_operating",
+          "pos": "adjective",
+          "en": "able to operate or function independently without direct external control",
+          "cn": "能自主运行的；无需直接外部控制即可工作的",
+          "level": "L2"
+        }
+      ]
+    },
+    {
+      "ordinal": 6394,
+      "ops": [
+        {
+          "kind": "demote",
+          "sid": "sense:avarice:a1e4fa45d07a5307"
+        },
+        {
+          "kind": "rewrite",
+          "sid": "sense:avarice:d5ee8fe27b7b5c65",
+          "en": "extreme greed for money, wealth, or possessions",
+          "cn": "贪婪；对金钱、财富或财物的极端欲望",
+          "level": "L1"
+        }
+      ]
+    },
+    {
+      "ordinal": 6396,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:averse:c6c863af0d755877",
+          "en": "strongly unwilling or opposed to something",
+          "cn": "反对的；不愿意的；厌恶的",
+          "level": "L1"
+        },
+        {
+          "kind": "construction",
+          "pattern": "be averse to sth/doing sth",
+          "meaning_cn": "反对、不愿或厌恶某事/做某事",
+          "source_sid": "sense:averse:c6c863af0d755877",
+          "level": "L1"
+        }
+      ]
+    },
+    {
+      "ordinal": 6397,
+      "ops": [
+        {
+          "kind": "new",
+          "branch": "strong_dislike_reluctance",
+          "pos": "noun",
+          "en": "a strong dislike of, opposition to, or reluctance toward something",
+          "cn": "厌恶；反感；强烈不愿",
+          "level": "L1"
+        },
+        {
+          "kind": "construction",
+          "pattern": "an aversion to sth/doing sth",
+          "meaning_cn": "对某事/做某事的厌恶或强烈不愿",
+          "level": "L1"
+        },
+        {
+          "kind": "usage",
+          "sid": "sense:aversion:3f7f8987e7425705",
+          "level": "L3",
+          "note": "Literal turning-away sense is uncommon and secondary."
+        }
+      ]
+    },
+    {
+      "ordinal": 6399,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:avouch:49f86f910c6356e5",
+          "en": "formal or literary: to assert, affirm, or acknowledge something openly and confidently",
+          "cn": "（正式/文学）断言；明确承认或保证",
+          "level": "L3",
+          "register": "formal/literary"
+        },
+        {
+          "kind": "core",
+          "en": "to assert, affirm, or acknowledge something openly and confidently; formal/literary",
+          "cn": "（正式/文学）断言；明确承认或保证"
+        }
+      ]
+    },
+    {
+      "ordinal": 6401,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:backbite:478860e7ea1453e8",
+          "en": "to speak maliciously or unfairly about someone who is absent",
+          "cn": "背后说坏话；背后恶意中伤",
+          "level": "L3",
+          "register": "old-fashioned"
+        },
+        {
+          "kind": "core",
+          "en": "to speak maliciously or unfairly about someone who is absent; old-fashioned",
+          "cn": "（旧式）在背后恶意或不公地说某人坏话"
+        }
+      ]
+    },
+    {
+      "ordinal": 6402,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:badger:c346c5ed6cbf5122",
+          "en": "to repeatedly pester, pressure, or urge someone until they act or respond",
+          "cn": "不断纠缠、催促或施压",
+          "level": "L1"
+        },
+        {
+          "kind": "construction",
+          "pattern": "badger sb into doing sth",
+          "meaning_cn": "不断纠缠/施压使某人做某事",
+          "source_sid": "sense:badger:c346c5ed6cbf5122",
+          "level": "L1"
+        }
+      ]
+    },
+    {
+      "ordinal": 6403,
+      "ops": [
+        {
+          "kind": "new",
+          "branch": "hesitate_refuse_obstacle_verb",
+          "pos": "verb",
+          "en": "to hesitate, refuse, or stop short when faced with a demand, difficulty, or risk",
+          "cn": "犹豫；拒绝；遇到要求、困难或风险时退缩",
+          "level": "L1"
+        },
+        {
+          "kind": "new",
+          "branch": "obstacle_hindrance_noun",
+          "pos": "noun",
+          "en": "an obstacle or hindrance that prevents progress",
+          "cn": "障碍；阻碍",
+          "level": "L2"
+        }
+      ]
+    },
+    {
+      "ordinal": 6404,
+      "ops": [
+        {
+          "kind": "reactivate",
+          "sid": "sense:balmy:9aa8b7aac9205843",
+          "en": "mild, pleasantly warm, and comfortable, especially of weather or air",
+          "cn": "温和宜人的；尤指天气或空气温暖舒适的",
+          "level": "L1"
+        },
+        {
+          "kind": "reactivate",
+          "sid": "sense:balmy:04d1d7e2438f59a5",
+          "en": "informal and dated: slightly crazy or eccentric",
+          "cn": "（非正式、旧式）有点疯狂或古怪的",
+          "level": "L3",
+          "register": "dated/informal",
+          "writing_safe": false
+        }
+      ]
+    },
+    {
+      "ordinal": 6405,
+      "ops": [
+        {
+          "kind": "new",
+          "branch": "figurative_remove_thought_feeling",
+          "pos": "verb",
+          "en": "to make an unwanted thought, fear, doubt, or feeling go away",
+          "cn": "消除、驱散（恐惧、疑虑、念头等）",
+          "level": "L2"
+        }
+      ]
+    },
+    {
+      "ordinal": 6406,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:barter:f08b8ad5bb2b57f6",
+          "en": "the exchange of goods or services directly for other goods or services without using money",
+          "cn": "以物易物；不用货币直接交换商品或服务",
+          "level": "L1"
+        },
+        {
+          "kind": "construction",
+          "pattern": "barter sth for sth",
+          "meaning_cn": "用某物交换某物",
+          "source_sid": "sense:barter:a64d0e16d63a562c",
+          "level": "L1"
+        },
+        {
+          "kind": "construction",
+          "pattern": "barter with sb",
+          "meaning_cn": "与某人进行物物交换",
+          "source_sid": "sense:barter:a64d0e16d63a562c",
+          "level": "L2"
+        }
+      ]
+    },
+    {
+      "ordinal": 6407,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:bashful:f821a36a44405021",
+          "en": "shy and self-conscious, especially in social situations",
+          "cn": "害羞的；腼腆的；不自在的",
+          "level": "L1"
+        },
+        {
+          "kind": "demote",
+          "sid": "sense:bashful:9b25fd6e397a5bf5"
+        }
+      ]
+    },
+    {
+      "ordinal": 6408,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:bask:cd9a6b858c485e35",
+          "en": "to relax and enjoy pleasant warmth or sunshine",
+          "cn": "晒太阳；享受温暖",
+          "level": "L1"
+        },
+        {
+          "kind": "construction",
+          "pattern": "bask in sth",
+          "meaning_cn": "沉浸、陶醉于（赞誉、荣耀、关注等）",
+          "source_sid": "sense:bask:cd9a6b858c485e35",
+          "definition_en": "to enjoy a pleasant situation such as praise, glory, or attention",
+          "level": "L2"
+        }
+      ]
+    },
+    {
+      "ordinal": 6410,
+      "ops": [
+        {
+          "kind": "construction",
+          "pattern": "with bated breath",
+          "meaning_cn": "屏息地；紧张或期待地等待",
+          "source_sid": "sense:bate:8417eeba76f65bb2",
+          "definition_en": "while waiting anxiously or excitedly for what will happen",
+          "level": "L1"
+        },
+        {
+          "kind": "form",
+          "type": "lexicalized_phrase_form",
+          "boundaries": [
+            {
+              "surface": "bated",
+              "condition": "in the fixed phrase with bated breath",
+              "note": "Bated is historically/formally tied to bate = restrain or lessen; it is not a new Word owner."
+            }
+          ],
+          "aliases": [
+            "bated"
+          ]
+        }
+      ]
+    },
+    {
+      "ordinal": 6411,
+      "ops": [
+        {
+          "kind": "new",
+          "branch": "hit_repeatedly_verb",
+          "pos": "verb",
+          "en": "to hit or strike someone or something repeatedly and forcefully",
+          "cn": "连续猛击；反复重击",
+          "level": "L1"
+        }
+      ]
+    },
+    {
+      "ordinal": 6412,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:becoming:24542bc6172354b7",
+          "en": "attractive, flattering, or suitable for a particular person or situation",
+          "cn": "合适的；相称的；衬人的",
+          "level": "L1"
+        },
+        {
+          "kind": "usage",
+          "sid": "sense:becoming:0c4d7515161e59a9",
+          "level": "L3",
+          "register": "formal",
+          "note": "Formal propriety: appropriate according to custom or social expectations."
+        }
+      ]
+    },
+    {
+      "ordinal": 6415,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:begrudge:010f19aaff3b5027",
+          "en": "to resent giving or allowing something, or to feel resentful envy toward someone for having it",
+          "cn": "不情愿给；嫉妒、眼红某人拥有某物",
+          "level": "L1"
+        },
+        {
+          "kind": "construction",
+          "pattern": "begrudge sb sth",
+          "meaning_cn": "嫉妒/不情愿让某人拥有某物",
+          "source_sid": "sense:begrudge:010f19aaff3b5027",
+          "level": "L1"
+        },
+        {
+          "kind": "construction",
+          "pattern": "begrudge doing sth",
+          "meaning_cn": "不情愿做某事",
+          "source_sid": "sense:begrudge:010f19aaff3b5027",
+          "level": "L2"
+        }
+      ]
+    },
+    {
+      "ordinal": 6416,
+      "ops": [
+        {
+          "kind": "reactivate",
+          "sid": "sense:belie:82ac1ac4e382518f",
+          "en": "to give a false impression of something or fail to show its true nature",
+          "cn": "掩饰真相；给人以错误印象",
+          "level": "L1"
+        },
+        {
+          "kind": "reactivate",
+          "sid": "sense:belie:1d3be0c935c75039",
+          "en": "to contradict or show that a statement, expectation, or appearance is false",
+          "cn": "与……矛盾；证明……不真实",
+          "level": "L2"
+        }
+      ]
+    },
+    {
+      "ordinal": 6418,
+      "ops": [
+        {
+          "kind": "new",
+          "branch": "hostile_aggressive_common",
+          "pos": "adjective",
+          "en": "hostile, aggressive, and ready to argue or fight",
+          "cn": "好斗的；敌对的；挑衅的",
+          "level": "L1"
+        },
+        {
+          "kind": "usage",
+          "sid": "sense:belligerent:d23477214e15593c",
+          "level": "L2",
+          "note": "Formal international-law sense: engaged in war or belonging to a warring party."
+        }
+      ]
+    },
+    {
+      "ordinal": 6419,
+      "ops": [
+        {
+          "kind": "reactivate",
+          "sid": "sense:bellow:4b473fcb65fc5384",
+          "en": "to shout or roar in a very loud, deep voice or sound",
+          "cn": "吼叫；咆哮；大声喊",
+          "level": "L1"
+        },
+        {
+          "kind": "reactivate",
+          "sid": "sense:bellow:b2beb36fa5655720",
+          "en": "a very loud, deep shout or roar",
+          "cn": "吼叫声；咆哮声",
+          "level": "L2"
+        }
+      ]
+    },
+    {
+      "ordinal": 6422,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:bent:96552923f78951b5",
+          "en": "a natural inclination, tendency, or talent for a particular activity or way of thinking",
+          "cn": "倾向；爱好；天赋",
+          "level": "L1"
+        },
+        {
+          "kind": "construction",
+          "pattern": "be bent on doing sth",
+          "meaning_cn": "执意、决意做某事",
+          "level": "L1"
+        },
+        {
+          "kind": "usage",
+          "sid": "sense:bent:8571e4ac58a65ea2",
+          "level": "L3",
+          "note": "Specialist grass sense is lower priority."
+        }
+      ]
+    },
+    {
+      "ordinal": 6424,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:bereave:715757c5dde85380",
+          "en": "to cause someone to lose a close relative or loved one through death",
+          "cn": "使丧失亲人；使丧亲",
+          "level": "L1"
+        },
+        {
+          "kind": "construction",
+          "pattern": "be bereaved of sb",
+          "meaning_cn": "因死亡而失去某位亲人",
+          "source_sid": "sense:bereave:715757c5dde85380",
+          "level": "L2"
+        }
+      ]
+    }
   ]
 }

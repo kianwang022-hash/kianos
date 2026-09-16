@@ -1,31 +1,518 @@
 {
-  "schema":"kianos.lexical.execution_manifest_chunk.v1",
-  "package":[6375,6874],
-  "range":[6575,6624],
-  "patches":[
-    {"ordinal":6576,"ops":[{"kind":"rewrite","sid":"sense:contravene:b27dd7accc2956e3","en":"to violate, conflict with, or go against a law, rule, agreement, or principle","cn":"违反；违背（法律、规则、协议或原则）","level":"L1"},{"kind":"demote","sid":"sense:contravene:1fc3b7e0fbdd5c3c"}]},
-    {"ordinal":6578,"ops":[{"kind":"rewrite","sid":"sense:controvert:8972e5bc4b2152b4","en":"formal: to deny, dispute, or argue against a claim, statement, or proposition","cn":"（正式）否认、反驳或争辩某一主张","level":"L2","register":"formal"}]},
-    {"ordinal":6579,"ops":[{"kind":"core","en":"a group of ships or vehicles traveling together, often for protection, and the act or verb of escorting them","cn":"车队、船队；常为保护而结队同行，也可指护送"},{"kind":"rewrite","sid":"sense:convoy:77f518fc52165a37","en":"a group of land vehicles traveling together, often for protection or coordination","cn":"车队；结队同行的陆上车辆","level":"L1"},{"kind":"rewrite","sid":"sense:convoy:32a27a10d1455f44","en":"a group of ships traveling together, often with an escort for protection","cn":"船队；常有护航力量保护的结队船只","level":"L1"},{"kind":"new","branch":"escort_accompany_verb","pos":"verb","en":"to accompany or escort a person, ship, vehicle, or group during travel for protection or safe arrival","cn":"护送；护航；陪同行进以确保安全到达","level":"L1"}]},
-    {"ordinal":6580,"ops":[{"kind":"new","branch":"marine_colonial_animal","pos":"noun","en":"a small marine colonial animal that secretes a hard skeleton, many species of which build reefs","cn":"珊瑚虫；能分泌坚硬骨骼并可形成珊瑚礁的海洋群体动物","level":"L1"},{"kind":"rewrite","sid":"sense:coral:de47aafb7d815453","en":"the hard calcareous skeleton or material formed by coral animals, sometimes used ornamentally","cn":"珊瑚骨骼或珊瑚质材料；有时用于装饰","level":"L2"},{"kind":"usage","sid":"sense:coral:161743bcb85d593b","level":"L2","note":"Also a deep pink to reddish-orange color."},{"kind":"usage","sid":"sense:coral:fa0def7962a35bcc","level":"L3","register":"culinary","note":"Specialist culinary sense: lobster roe used as garnish/coloring."}]},
-    {"ordinal":6581,"ops":[{"kind":"rewrite","sid":"sense:corpulent:f7269dfcd7245b6e","en":"formal, dated, and often disapproving: very fat","cn":"（正式、旧式且常带贬义）肥胖的","level":"L3","register":"formal/dated/disapproving","writing_safe":false}]},
-    {"ordinal":6584,"ops":[{"kind":"new","branch":"material_corroding_adjective","pos":"adjective","en":"capable of corroding, eating away, or chemically damaging material","cn":"腐蚀性的；能腐蚀或化学损伤材料的","level":"L1"},{"kind":"usage","sid":"sense:corrosive:ac99fa2c47f450ff","level":"L1","note":"A corrosive is a substance that can corrode or chemically destroy material or tissue."},{"kind":"rewrite","sid":"sense:corrosive:e1f1df38b29b51d6","en":"figurative: gradually damaging, destructive, or bitingly sarcastic","cn":"比喻具有侵蚀性、破坏性或尖刻讽刺意味的","level":"L2"}]},
-    {"ordinal":6586,"ops":[{"kind":"new","branch":"fraudulently_imitate_verb","pos":"verb","en":"to make or imitate something fraudulently so that it appears genuine","cn":"伪造；仿造以冒充真品","level":"L1"},{"kind":"rewrite","sid":"sense:counterfeit:bdd6ef12e37b5db0","en":"made in imitation of something genuine with intent to deceive; fake","cn":"伪造的；假冒的","level":"L1"},{"kind":"rewrite","sid":"sense:counterfeit:5d9d20a58fee5fc4","en":"a fake copy represented as genuine","cn":"伪造品；假货","level":"L2"}]},
-    {"ordinal":6587,"ops":[{"kind":"rewrite","sid":"sense:covetous:8a7f82b8966a5d04","en":"having a strong or greedy desire for possessions, advantages, or things belonging to other people","cn":"贪求的；觊觎他人财物或优势的","level":"L2","register":"formal"}]},
-    {"ordinal":6589,"ops":[{"kind":"new","branch":"us_regional_ethnic_slur","pos":"noun","en":"offensive and regional U.S. use: a disparaging ethnic or racial label for a white person, especially a poor rural white person in parts of the South","cn":"（美国部分地区，冒犯/贬义）针对白人的族群或种族侮辱语，尤指贫困农村白人","level":"L3","register":"offensive/regional","writing_safe":false}]},
-    {"ordinal":6593,"ops":[{"kind":"new","branch":"fold_wrinkle_line_noun","pos":"noun","en":"a line, fold, or wrinkle in fabric, paper, skin, or another surface","cn":"折痕；皱纹；褶痕","level":"L1"}]},
-    {"ordinal":6594,"ops":[{"kind":"rewrite","sid":"sense:credentials:574514bf319e59d0","en":"qualifications, achievements, certificates, or documents that prove a person's identity, ability, authority, or suitability","cn":"资历；资格证明；用于证明身份、能力、权限或适任性的证件/材料","level":"L1"},{"kind":"new","branch":"digital_login_credentials","pos":"noun","en":"information such as a username, password, token, or certificate used to authenticate access to a digital system","cn":"登录凭据；用于数字系统身份验证的用户名、密码、令牌或证书等","level":"L2"},{"kind":"record_note","field":"number_note","value":"credentials is commonly used in the plural for qualifications or authentication information."}]},
-    {"ordinal":6598,"ops":[{"kind":"new","branch":"deep_red_adjective","pos":"adjective","en":"deep, vivid, or dark red","cn":"深红色的；鲜红或暗红的","level":"L1"},{"kind":"usage","sid":"sense:crimson:de03154f0d735044","level":"L2","note":"Also describes a face reddened by emotion or exertion."},{"kind":"usage","sid":"sense:crimson:efdd43c742fa508f","level":"L3","register":"literary","note":"Literary extension associated with bloodshed or violence."}]},
-    {"ordinal":6602,"ops":[{"kind":"new","branch":"highest_final_point_result","pos":"noun","en":"the highest, final, or most important point or result of a process or period of work","cn":"高潮；顶点；某一过程或长期努力的最终结果","level":"L1"},{"kind":"construction","pattern":"the culmination of sth","meaning_cn":"……的高潮、顶点或最终成果","level":"L1"},{"kind":"usage","sid":"sense:culmination:5e52e726a1c05ff1","level":"L3","register":"astronomy","note":"Astronomical culmination is a specialist sense."}]},
-    {"ordinal":6604,"ops":[{"kind":"rewrite","sid":"sense:cult:5a284ccf1ac75047","en":"a religious or social system centered on distinctive beliefs, practices, or intense devotion","cn":"以特定信仰、实践或强烈崇奉为中心的宗教或社会体系","level":"L2","usage_note":"The label cult is often pejorative or contested when applied to living groups."},{"kind":"rewrite","sid":"sense:cult:5e087271987e5f3f","en":"the followers of a religious or social movement centered on distinctive beliefs or intense devotion","cn":"某种宗教或社会运动的追随群体","level":"L2","usage_note":"The label can be pejorative or contested."},{"kind":"demote","sid":"sense:cult:ab06cd8a7f2a526b"},{"kind":"new","branch":"intense_niche_admiration","pos":"noun","en":"intense or devoted admiration from a relatively small group, especially in expressions such as cult film, cult following, or cult status","cn":"小众而狂热的崇拜、追捧；常见于 cult film/following/status","level":"L1"},{"kind":"construction","pattern":"cult film/following/status","meaning_cn":"邪典/小众经典电影；狂热追随群体；小众经典地位","level":"L1"}]},
-    {"ordinal":6606,"ops":[{"kind":"rewrite","sid":"sense:curator:597cde375112590a","en":"a person who selects, organizes, interprets, manages, and cares for a collection, exhibition, archive, or curated body of content","cn":"策展人；负责挑选、组织、解读、管理和维护藏品、展览、档案或内容的人","level":"L1"}]},
-    {"ordinal":6609,"ops":[{"kind":"rewrite","sid":"sense:custodian:7f8aaaaca6bf5249","en":"a person or organization responsible for the care, protection, custody, or safekeeping of a building, property, records, assets, or another person","cn":"保管人；监护/看护或负责财产、记录、资产安全保管的人或机构","level":"L1"}]},
-    {"ordinal":6610,"ops":[{"kind":"new","branch":"sharply_hurtful_critical_adjective","pos":"adjective","en":"sharply hurtful, critical, or sarcastic in tone","cn":"尖刻伤人的；严厉批评或讽刺的","level":"L1"},{"kind":"usage","sid":"sense:cutting:2db1c879247f5bda","level":"L2","note":"Noun: a piece cut from a larger whole."},{"kind":"usage","sid":"sense:cutting:f23862a54ebd58fa","level":"L2","register":"botanical","note":"Plant cutting used for propagation."},{"kind":"usage","sid":"sense:cutting:0fb9f056ba53577f","level":"L3","note":"Dilution-related noun use is not generic learner Core."}]},
-    {"ordinal":6611,"ops":[{"kind":"rewrite","sid":"sense:cyclone:f4973084409f5863","en":"a large-scale rotating low-pressure weather system in which air circulates inward around a center","cn":"气旋；围绕低压中心旋转并向内流动的大尺度天气系统","level":"L1"},{"kind":"rewrite","sid":"sense:cyclone:cc63d976066e5233","en":"a rotating storm system; tropical cyclones can be extremely violent","cn":"旋转风暴系统；热带气旋可能非常猛烈","level":"L2"}]},
-    {"ordinal":6613,"ops":[{"kind":"new","branch":"figurative_offer_inducement","pos":"verb","en":"to offer or promise something attractive in order to persuade or influence someone","cn":"以诱人的事物作为条件来诱使、说服某人","level":"L2"},{"kind":"construction","pattern":"dangle sth before/in front of sb","meaning_cn":"把某种诱人的条件摆在某人面前以影响其决定","level":"L1"}]},
-    {"ordinal":6619,"ops":[{"kind":"reactivate","sid":"sense:daze:3bb1a060a5ff51e4","en":"a state of stunned, confused, or unclear awareness","cn":"茫然；发懵；受震惊后的混乱状态","level":"L1"},{"kind":"new","branch":"stun_confuse_temporarily_verb","pos":"verb","en":"to stun or confuse someone temporarily so that they cannot think clearly","cn":"使发懵；使暂时神志不清或思维混乱","level":"L1"}]},
-    {"ordinal":6621,"ops":[{"kind":"rewrite","sid":"sense:debauch:8bddd69b2d635412","en":"dated or literary: to corrupt someone or lead them into excessive sensual or self-indulgent behavior","cn":"（旧式/文学）使堕落；诱使沉溺于过度享乐","level":"L3","register":"dated/literary"},{"kind":"rewrite","sid":"sense:debauch:107af078e4fc555e","en":"dated or literary: a period or bout of excessive drinking, sensual pleasure, or self-indulgence","cn":"（旧式/文学）纵酒或纵欲式的过度享乐","level":"L3","register":"dated/literary"}]},
-    {"ordinal":6622,"ops":[{"kind":"rewrite","sid":"sense:debris:3aa46ac701195c05","en":"scattered fragments, remains, or rubbish left after destruction, construction, storms, accidents, or natural processes","cn":"碎片；残骸；废墟；由破坏、施工、风暴、事故或自然过程留下的散落物","level":"L1"},{"kind":"record_note","field":"number_note","value":"debris is normally uncountable in standard English."}]},
-    {"ordinal":6623,"ops":[{"kind":"rewrite","sid":"sense:decadent:430a123643e9564e","en":"characterized by excessive luxury or self-indulgence, or by perceived moral, artistic, or cultural decline","cn":"奢靡放纵的；被认为道德、艺术或文化衰落的","level":"L1"},{"kind":"usage","sid":"sense:decadent:79488d0ca2195e8e","level":"L3","note":"Noun use for a decadent person is uncommon and lower priority."}]},
-    {"ordinal":6624,"ops":[{"kind":"rewrite","sid":"sense:deceitful:ef3d483c10235c9b","en":"likely or intended to deceive; dishonest or misleading, of a person, statement, action, or behavior","cn":"欺骗性的；不诚实、误导人的；可形容人、言语或行为","level":"L1"}]}
+  "schema": "kianos.lexical.execution_manifest_chunk.v1",
+  "package": [
+    6375,
+    6874
+  ],
+  "range": [
+    6575,
+    6624
+  ],
+  "patches": [
+    {
+      "ordinal": 6576,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:contravene:b27dd7accc2956e3",
+          "en": "to violate, conflict with, or go against a law, rule, agreement, or principle",
+          "cn": "违反；违背（法律、规则、协议或原则）",
+          "level": "L1"
+        },
+        {
+          "kind": "demote",
+          "sid": "sense:contravene:1fc3b7e0fbdd5c3c"
+        }
+      ]
+    },
+    {
+      "ordinal": 6578,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:controvert:8972e5bc4b2152b4",
+          "en": "formal: to deny, dispute, or argue against a claim, statement, or proposition",
+          "cn": "（正式）否认、反驳或争辩某一主张",
+          "level": "L2",
+          "register": "formal"
+        }
+      ]
+    },
+    {
+      "ordinal": 6579,
+      "ops": [
+        {
+          "kind": "core",
+          "en": "a group of ships or vehicles traveling together, often for protection, and the act or verb of escorting them",
+          "cn": "车队、船队；常为保护而结队同行，也可指护送"
+        },
+        {
+          "kind": "rewrite",
+          "sid": "sense:convoy:77f518fc52165a37",
+          "en": "a group of land vehicles traveling together, often for protection or coordination",
+          "cn": "车队；结队同行的陆上车辆",
+          "level": "L1"
+        },
+        {
+          "kind": "rewrite",
+          "sid": "sense:convoy:32a27a10d1455f44",
+          "en": "a group of ships traveling together, often with an escort for protection",
+          "cn": "船队；常有护航力量保护的结队船只",
+          "level": "L1"
+        },
+        {
+          "kind": "new",
+          "branch": "escort_accompany_verb",
+          "pos": "verb",
+          "en": "to accompany or escort a person, ship, vehicle, or group during travel for protection or safe arrival",
+          "cn": "护送；护航；陪同行进以确保安全到达",
+          "level": "L1"
+        }
+      ]
+    },
+    {
+      "ordinal": 6580,
+      "ops": [
+        {
+          "kind": "new",
+          "branch": "marine_colonial_animal",
+          "pos": "noun",
+          "en": "a small marine colonial animal that secretes a hard skeleton, many species of which build reefs",
+          "cn": "珊瑚虫；能分泌坚硬骨骼并可形成珊瑚礁的海洋群体动物",
+          "level": "L1"
+        },
+        {
+          "kind": "rewrite",
+          "sid": "sense:coral:de47aafb7d815453",
+          "en": "the hard calcareous skeleton or material formed by coral animals, sometimes used ornamentally",
+          "cn": "珊瑚骨骼或珊瑚质材料；有时用于装饰",
+          "level": "L2"
+        },
+        {
+          "kind": "usage",
+          "sid": "sense:coral:161743bcb85d593b",
+          "level": "L2",
+          "note": "Also a deep pink to reddish-orange color."
+        },
+        {
+          "kind": "usage",
+          "sid": "sense:coral:fa0def7962a35bcc",
+          "level": "L3",
+          "register": "culinary",
+          "note": "Specialist culinary sense: lobster roe used as garnish/coloring."
+        }
+      ]
+    },
+    {
+      "ordinal": 6581,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:corpulent:f7269dfcd7245b6e",
+          "en": "formal, dated, and often disapproving: very fat",
+          "cn": "（正式、旧式且常带贬义）肥胖的",
+          "level": "L3",
+          "register": "formal/dated/disapproving",
+          "writing_safe": false
+        },
+        {
+          "kind": "core",
+          "en": "very fat; formal, dated, and often disapproving",
+          "cn": "（正式、旧式且常带贬义）非常肥胖的"
+        }
+      ]
+    },
+    {
+      "ordinal": 6584,
+      "ops": [
+        {
+          "kind": "new",
+          "branch": "material_corroding_adjective",
+          "pos": "adjective",
+          "en": "capable of corroding, eating away, or chemically damaging material",
+          "cn": "腐蚀性的；能腐蚀或化学损伤材料的",
+          "level": "L1"
+        },
+        {
+          "kind": "usage",
+          "sid": "sense:corrosive:ac99fa2c47f450ff",
+          "level": "L1",
+          "note": "A corrosive is a substance that can corrode or chemically destroy material or tissue."
+        },
+        {
+          "kind": "rewrite",
+          "sid": "sense:corrosive:e1f1df38b29b51d6",
+          "en": "figurative: gradually damaging, destructive, or bitingly sarcastic",
+          "cn": "比喻具有侵蚀性、破坏性或尖刻讽刺意味的",
+          "level": "L2"
+        }
+      ]
+    },
+    {
+      "ordinal": 6586,
+      "ops": [
+        {
+          "kind": "new",
+          "branch": "fraudulently_imitate_verb",
+          "pos": "verb",
+          "en": "to make or imitate something fraudulently so that it appears genuine",
+          "cn": "伪造；仿造以冒充真品",
+          "level": "L1"
+        },
+        {
+          "kind": "rewrite",
+          "sid": "sense:counterfeit:bdd6ef12e37b5db0",
+          "en": "made in imitation of something genuine with intent to deceive; fake",
+          "cn": "伪造的；假冒的",
+          "level": "L1"
+        },
+        {
+          "kind": "rewrite",
+          "sid": "sense:counterfeit:5d9d20a58fee5fc4",
+          "en": "a fake copy represented as genuine",
+          "cn": "伪造品；假货",
+          "level": "L2"
+        }
+      ]
+    },
+    {
+      "ordinal": 6587,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:covetous:8a7f82b8966a5d04",
+          "en": "having a strong or greedy desire for possessions, advantages, or things belonging to other people",
+          "cn": "贪求的；觊觎他人财物或优势的",
+          "level": "L2",
+          "register": "formal"
+        }
+      ]
+    },
+    {
+      "ordinal": 6589,
+      "ops": [
+        {
+          "kind": "new",
+          "branch": "us_regional_ethnic_slur",
+          "pos": "noun",
+          "en": "offensive and regional U.S. use: a disparaging ethnic or racial label for a white person, especially a poor rural white person in parts of the South",
+          "cn": "（美国部分地区，冒犯/贬义）针对白人的族群或种族侮辱语，尤指贫困农村白人",
+          "level": "L3",
+          "register": "offensive/regional",
+          "writing_safe": false
+        }
+      ]
+    },
+    {
+      "ordinal": 6593,
+      "ops": [
+        {
+          "kind": "new",
+          "branch": "fold_wrinkle_line_noun",
+          "pos": "noun",
+          "en": "a line, fold, or wrinkle in fabric, paper, skin, or another surface",
+          "cn": "折痕；皱纹；褶痕",
+          "level": "L1"
+        }
+      ]
+    },
+    {
+      "ordinal": 6594,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:credentials:574514bf319e59d0",
+          "en": "qualifications, achievements, certificates, or documents that prove a person's identity, ability, authority, or suitability",
+          "cn": "资历；资格证明；用于证明身份、能力、权限或适任性的证件/材料",
+          "level": "L1"
+        },
+        {
+          "kind": "new",
+          "branch": "digital_login_credentials",
+          "pos": "noun",
+          "en": "information such as a username, password, token, or certificate used to authenticate access to a digital system",
+          "cn": "登录凭据；用于数字系统身份验证的用户名、密码、令牌或证书等",
+          "level": "L2"
+        },
+        {
+          "kind": "record_note",
+          "field": "number_note",
+          "value": "credentials is commonly used in the plural for qualifications or authentication information."
+        }
+      ]
+    },
+    {
+      "ordinal": 6598,
+      "ops": [
+        {
+          "kind": "new",
+          "branch": "deep_red_adjective",
+          "pos": "adjective",
+          "en": "deep, vivid, or dark red",
+          "cn": "深红色的；鲜红或暗红的",
+          "level": "L1"
+        },
+        {
+          "kind": "usage",
+          "sid": "sense:crimson:de03154f0d735044",
+          "level": "L2",
+          "note": "Also describes a face reddened by emotion or exertion."
+        },
+        {
+          "kind": "usage",
+          "sid": "sense:crimson:efdd43c742fa508f",
+          "level": "L3",
+          "register": "literary",
+          "note": "Literary extension associated with bloodshed or violence."
+        }
+      ]
+    },
+    {
+      "ordinal": 6602,
+      "ops": [
+        {
+          "kind": "new",
+          "branch": "highest_final_point_result",
+          "pos": "noun",
+          "en": "the highest, final, or most important point or result of a process or period of work",
+          "cn": "高潮；顶点；某一过程或长期努力的最终结果",
+          "level": "L1"
+        },
+        {
+          "kind": "construction",
+          "pattern": "the culmination of sth",
+          "meaning_cn": "……的高潮、顶点或最终成果",
+          "level": "L1"
+        },
+        {
+          "kind": "usage",
+          "sid": "sense:culmination:5e52e726a1c05ff1",
+          "level": "L3",
+          "register": "astronomy",
+          "note": "Astronomical culmination is a specialist sense."
+        }
+      ]
+    },
+    {
+      "ordinal": 6604,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:cult:5a284ccf1ac75047",
+          "en": "a religious or social system centered on distinctive beliefs, practices, or intense devotion",
+          "cn": "以特定信仰、实践或强烈崇奉为中心的宗教或社会体系",
+          "level": "L2",
+          "usage_note": "The label cult is often pejorative or contested when applied to living groups."
+        },
+        {
+          "kind": "rewrite",
+          "sid": "sense:cult:5e087271987e5f3f",
+          "en": "the followers of a religious or social movement centered on distinctive beliefs or intense devotion",
+          "cn": "某种宗教或社会运动的追随群体",
+          "level": "L2",
+          "usage_note": "The label can be pejorative or contested."
+        },
+        {
+          "kind": "demote",
+          "sid": "sense:cult:ab06cd8a7f2a526b"
+        },
+        {
+          "kind": "new",
+          "branch": "intense_niche_admiration",
+          "pos": "noun",
+          "en": "intense or devoted admiration from a relatively small group, especially in expressions such as cult film, cult following, or cult status",
+          "cn": "小众而狂热的崇拜、追捧；常见于 cult film/following/status",
+          "level": "L1"
+        },
+        {
+          "kind": "construction",
+          "pattern": "cult film/following/status",
+          "meaning_cn": "邪典/小众经典电影；狂热追随群体；小众经典地位",
+          "level": "L1"
+        }
+      ]
+    },
+    {
+      "ordinal": 6606,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:curator:597cde375112590a",
+          "en": "a person who selects, organizes, interprets, manages, and cares for a collection, exhibition, archive, or curated body of content",
+          "cn": "策展人；负责挑选、组织、解读、管理和维护藏品、展览、档案或内容的人",
+          "level": "L1"
+        }
+      ]
+    },
+    {
+      "ordinal": 6609,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:custodian:7f8aaaaca6bf5249",
+          "en": "a person or organization responsible for the care, protection, custody, or safekeeping of a building, property, records, assets, or another person",
+          "cn": "保管人；监护/看护或负责财产、记录、资产安全保管的人或机构",
+          "level": "L1"
+        }
+      ]
+    },
+    {
+      "ordinal": 6610,
+      "ops": [
+        {
+          "kind": "new",
+          "branch": "sharply_hurtful_critical_adjective",
+          "pos": "adjective",
+          "en": "sharply hurtful, critical, or sarcastic in tone",
+          "cn": "尖刻伤人的；严厉批评或讽刺的",
+          "level": "L1"
+        },
+        {
+          "kind": "usage",
+          "sid": "sense:cutting:2db1c879247f5bda",
+          "level": "L2",
+          "note": "Noun: a piece cut from a larger whole."
+        },
+        {
+          "kind": "usage",
+          "sid": "sense:cutting:f23862a54ebd58fa",
+          "level": "L2",
+          "register": "botanical",
+          "note": "Plant cutting used for propagation."
+        },
+        {
+          "kind": "usage",
+          "sid": "sense:cutting:0fb9f056ba53577f",
+          "level": "L3",
+          "note": "Dilution-related noun use is not generic learner Core."
+        }
+      ]
+    },
+    {
+      "ordinal": 6611,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:cyclone:f4973084409f5863",
+          "en": "a large-scale rotating low-pressure weather system in which air circulates inward around a center",
+          "cn": "气旋；围绕低压中心旋转并向内流动的大尺度天气系统",
+          "level": "L1"
+        },
+        {
+          "kind": "rewrite",
+          "sid": "sense:cyclone:cc63d976066e5233",
+          "en": "a rotating storm system; tropical cyclones can be extremely violent",
+          "cn": "旋转风暴系统；热带气旋可能非常猛烈",
+          "level": "L2"
+        }
+      ]
+    },
+    {
+      "ordinal": 6613,
+      "ops": [
+        {
+          "kind": "new",
+          "branch": "figurative_offer_inducement",
+          "pos": "verb",
+          "en": "to offer or promise something attractive in order to persuade or influence someone",
+          "cn": "以诱人的事物作为条件来诱使、说服某人",
+          "level": "L2"
+        },
+        {
+          "kind": "construction",
+          "pattern": "dangle sth before/in front of sb",
+          "meaning_cn": "把某种诱人的条件摆在某人面前以影响其决定",
+          "level": "L1"
+        }
+      ]
+    },
+    {
+      "ordinal": 6619,
+      "ops": [
+        {
+          "kind": "reactivate",
+          "sid": "sense:daze:3bb1a060a5ff51e4",
+          "en": "a state of stunned, confused, or unclear awareness",
+          "cn": "茫然；发懵；受震惊后的混乱状态",
+          "level": "L1"
+        },
+        {
+          "kind": "new",
+          "branch": "stun_confuse_temporarily_verb",
+          "pos": "verb",
+          "en": "to stun or confuse someone temporarily so that they cannot think clearly",
+          "cn": "使发懵；使暂时神志不清或思维混乱",
+          "level": "L1"
+        }
+      ]
+    },
+    {
+      "ordinal": 6621,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:debauch:8bddd69b2d635412",
+          "en": "dated or literary: to corrupt someone or lead them into excessive sensual or self-indulgent behavior",
+          "cn": "（旧式/文学）使堕落；诱使沉溺于过度享乐",
+          "level": "L3",
+          "register": "dated/literary"
+        },
+        {
+          "kind": "rewrite",
+          "sid": "sense:debauch:107af078e4fc555e",
+          "en": "dated or literary: a period or bout of excessive drinking, sensual pleasure, or self-indulgence",
+          "cn": "（旧式/文学）纵酒或纵欲式的过度享乐",
+          "level": "L3",
+          "register": "dated/literary"
+        }
+      ]
+    },
+    {
+      "ordinal": 6622,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:debris:3aa46ac701195c05",
+          "en": "scattered fragments, remains, or rubbish left after destruction, construction, storms, accidents, or natural processes",
+          "cn": "碎片；残骸；废墟；由破坏、施工、风暴、事故或自然过程留下的散落物",
+          "level": "L1"
+        },
+        {
+          "kind": "record_note",
+          "field": "number_note",
+          "value": "debris is normally uncountable in standard English."
+        }
+      ]
+    },
+    {
+      "ordinal": 6623,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:decadent:430a123643e9564e",
+          "en": "characterized by excessive luxury or self-indulgence, or by perceived moral, artistic, or cultural decline",
+          "cn": "奢靡放纵的；被认为道德、艺术或文化衰落的",
+          "level": "L1"
+        },
+        {
+          "kind": "usage",
+          "sid": "sense:decadent:79488d0ca2195e8e",
+          "level": "L3",
+          "note": "Noun use for a decadent person is uncommon and lower priority."
+        }
+      ]
+    },
+    {
+      "ordinal": 6624,
+      "ops": [
+        {
+          "kind": "rewrite",
+          "sid": "sense:deceitful:ef3d483c10235c9b",
+          "en": "likely or intended to deceive; dishonest or misleading, of a person, statement, action, or behavior",
+          "cn": "欺骗性的；不诚实、误导人的；可形容人、言语或行为",
+          "level": "L1"
+        }
+      ]
+    }
   ]
 }
