@@ -44,10 +44,37 @@ function systemIdentity(raw) {
   };
 }
 
-function directBlockRoute(raw) {
-  return (Array.isArray(raw?.block_route) ? raw.block_route : [])
-    .filter((row) => row && !Array.isArray(row?.blocks) && row?.id)
-    .map((row) => ({ ...row, id: String(row.id) }));
+function normalizeRouteRow(value) {
+  if (typeof value === 'string' && value.trim()) return { id: value.trim() };
+  if (value && typeof value === 'object' && !Array.isArray(value) && value.id) {
+    return { ...value, id: String(value.id) };
+  }
+  return null;
+}
+
+function flattenGroupedRoute(rows) {
+  const route = [];
+  for (const row of Array.isArray(rows) ? rows : []) {
+    if (!Array.isArray(row?.blocks)) continue;
+    for (const block of row.blocks) {
+      const normalized = normalizeRouteRow(block);
+      if (normalized) route.push(normalized);
+    }
+  }
+  return route;
+}
+
+function systemBlockRoute(raw) {
+  const direct = (Array.isArray(raw?.block_route) ? raw.block_route : [])
+    .filter((row) => row && !Array.isArray(row?.blocks))
+    .map(normalizeRouteRow)
+    .filter(Boolean);
+  const grouped = flattenGroupedRoute(raw?.block_route);
+  const familyFallback = flattenGroupedRoute(raw?.block_families);
+  const route = direct.length ? direct : (grouped.length ? grouped : familyFallback);
+  const ids = route.map((row) => row.id);
+  if (new Set(ids).size !== ids.length) fail('SYSTEM_BLOCK_ROUTE_DUPLICATE', ids.join(','));
+  return route;
 }
 
 function systemDirectories() {
@@ -67,7 +94,7 @@ function findSystemRecord(systemId) {
     if (identity.systemId !== systemId) continue;
     if (!identity.canonicalId || !identity.title) fail('SYSTEM_IDENTITY_INVALID', systemId);
     if (!isChatApproved(raw?.semantic_authority)) fail('SYSTEM_AUTHORITY_INVALID', systemId);
-    const route = directBlockRoute(raw);
+    const route = systemBlockRoute(raw);
     if (!route.length) fail('SYSTEM_BLOCK_ROUTE_MISSING', systemId);
     return { dirName, sourcePath, raw, identity, route };
   }
@@ -485,8 +512,8 @@ function buildSemanticBlock(record, learningOwner, routeRow, cueOwner, sourceVis
 
   return {
     blockId,
-    label: String(routeRow?.label || blockId),
-    title: String(routeRow?.title || blockId),
+    label: String(routeRow?.label || blockSupport?.label || blockSupport?.title || blockId),
+    title: String(routeRow?.title || blockSupport?.title || blockId),
     kpCount,
     logicGroups,
     sourceContact,
