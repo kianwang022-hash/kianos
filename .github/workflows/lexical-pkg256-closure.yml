@@ -1,6 +1,11 @@
 name: Lexical pkg256 package closure
 
 on:
+  push:
+    branches: [lexical/pkg256-exec]
+    paths:
+      - '.github/workflows/lexical-pkg256-closure.yml'
+      - 'tools/lexical_verify_o5875_o6374.py'
   workflow_dispatch:
 
 permissions:
