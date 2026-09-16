@@ -103,12 +103,22 @@
         "pattern": "be supposed to do/be"
       }
     ],
-    "content_hash": "3626d4af20357d8c1e9228c25565a5c3592ed7098b23ec92aec3c15c221fc206",
+    "content_hash": "a35a0acaf5cec974208407c9a97095ce43869c72797ebafea4915bc488dc5724",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "认为或假设某事为真",
-      "core_meaning_en": "to think or assume something is true",
-      "mental_model_cn": "认为或假设某事为真",
+      "core_clusters": [
+        {
+          "label_cn": "认为；猜想；假设；设想",
+          "label_en": "to think that something is likely true; to imagine or pretend that something is true for the sake of argument",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:suppose:45d1373fdfae5328",
+            "sense:suppose:96cc73303f245e81"
+          ]
+        }
+      ],
+      "core_meaning_cn": "认为；猜想；假设；设想",
+      "core_meaning_en": "to think that something is likely true; to imagine or pretend that something is true for the sake of argument",
+      "mental_model_cn": "认为；猜想；假设；设想",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -157,6 +167,20 @@
         "sense_label_en": "to think that something is likely true",
         "sort_order": 0,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "假设；设想",
+        "definition_en": "to imagine or pretend that something is true for the sake of argument",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:suppose:96cc73303f245e81",
+        "sense_label_en": "to imagine or pretend that something is true for the sake of argument",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -204,31 +228,6 @@
       "source_row": 13709,
       "source_path": "content/lexical/canonical/senses/shards/o4801-4832.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:suppose:96cc73303f245e81",
-      "status": "merged",
-      "merged_into_sense_id": "sense:suppose:45d1373fdfae5328",
-      "pos": "verb",
-      "definition_cn": "假设；设想",
-      "definition_en": "to imagine or pretend that something is true for the sake of argument",
-      "semantic_key": "357ee4aeddd503387e04daa9d6d01ecb3e62adcb1ce787847e160215e849cb38",
-      "semantic_key_history": [
-        "f6bfbd1e5223e45688e6a63a6e5e61c6297cde385fbafd4d06bee15be5edb5a7"
-      ],
-      "legacy_aliases": [
-        "suppose:l3:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "suppose:l3:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 13711,
-      "source_path": "content/lexical/canonical/senses/shards/o4801-4832.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -249,8 +248,8 @@
       },
       {
         "sense_id": "sense:suppose:96cc73303f245e81",
-        "status": "merged",
-        "merged_into_sense_id": "sense:suppose:45d1373fdfae5328",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 13711,
         "source_path": "content/lexical/canonical/senses/shards/o4801-4832.json"
       }
@@ -339,7 +338,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4825-4832.json",
-    "source_content_hash": "3626d4af20357d8c1e9228c25565a5c3592ed7098b23ec92aec3c15c221fc206",
+    "source_content_hash": "a35a0acaf5cec974208407c9a97095ce43869c72797ebafea4915bc488dc5724",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
