@@ -6,13 +6,33 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "bb336d3b084413f607836678c070687a2e7a2c04e0d6d398e78db4eed519153e",
+    "constructions": [
+      {
+        "construction_id": "construction:6c215311f8e6d256dddd",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "使 A 充满 B；把 B 注入 A",
+        "pattern": "infuse A with B",
+        "source_sense_id": "sense:infuse:6ac9de92a76c7b45"
+      }
+    ],
+    "content_hash": "5fbb4dad1325a15cbca2b66250eef42970c0a4defd8810c97096a988a1cbbe2e",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "注入, 使充满, 泡制, 鼓舞",
-      "core_meaning_en": "undergo the process of infusion",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "使充满；使弥漫某种品质、情感或气氛；浸泡、浸渍以萃取味道或成分；（医学）输注；静脉输入液体或药物",
+          "label_en": "to fill or pervade someone or something with a quality, feeling, idea, or atmosphere; to steep food, herbs, tea, or another substance in liquid so that flavor or properties pass into the liquid; medical: to introduce fluid, medicine, or another substance gradually into the body, especially through a vein",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:infuse:6ac9de92a76c7b45",
+            "sense:infuse:a1a4c6ede88c595a",
+            "sense:infuse:2dd63186bff05467"
+          ]
+        }
+      ],
+      "core_meaning_cn": "使充满；使弥漫某种品质、情感或气氛；浸泡、浸渍以萃取味道或成分；（医学）输注；静脉输入液体或药物",
+      "core_meaning_en": "to fill or pervade someone or something with a quality, feeling, idea, or atmosphere; to steep food, herbs, tea, or another substance in liquid so that flavor or properties pass into the liquid; medical: to introduce fluid, medicine, or another substance gradually into the body, especially through a vein",
+      "mental_model_cn": "使充满；使弥漫某种品质、情感或气氛；浸泡、浸渍以萃取味道或成分；（医学）输注；静脉输入液体或药物",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +42,64 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "使充满；使弥漫某种品质、情感或气氛",
+        "definition_en": "to fill or pervade someone or something with a quality, feeling, idea, or atmosphere",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:infuse:6ac9de92a76c7b45",
+        "sense_label_en": "to fill or pervade someone or something with a quality, feeling, idea, or atmosphere",
+        "sort_order": 0,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "浸泡、浸渍以萃取味道或成分",
+        "definition_en": "to steep food, herbs, tea, or another substance in liquid so that flavor or properties pass into the liquid",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:infuse:a1a4c6ede88c595a",
+        "sense_label_en": "to steep food, herbs, tea, or another substance in liquid so that flavor or properties pass into the liquid",
+        "sort_order": 1,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "（医学）输注；静脉输入液体或药物",
+        "definition_en": "medical: to introduce fluid, medicine, or another substance gradually into the body, especially through a vein",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:infuse:2dd63186bff05467",
+        "sense_label_en": "medical: to introduce fluid, medicine, or another substance gradually into the body, especially through a vein",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "被浸泡、浸提或输注",
+        "definition_en": "to undergo infusion or steeping",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:infuse:0b37f639227c584e",
+        "sense_label_en": "to undergo infusion or steeping",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -37,58 +114,35 @@
     "word_id": "word:infuse"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:infuse:0b37f639227c584e",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "注入, 使充满, 泡制, 鼓舞",
-      "definition_en": "undergo the process of infusion",
-      "semantic_key": "ceac6afb6b3d7476ab1540213f0dca472a2a76800fafcecc630e718cc9bd73a8",
-      "semantic_key_history": [
-        "e9e9acc4440ccba8cac772769796bc65d41b55dea6085f8261fc956e0231c9bf"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 18151,
-      "source_path": "content/lexical/canonical/senses/shards/o7009-7040.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:infuse:2dd63186bff05467",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "注入, 使充满, 泡制, 鼓舞",
-      "definition_en": "introduce into the body through a vein, for therapeutic purposes",
-      "semantic_key": "d44b2a784bcb6d4dde2f8c6c76d28ec58638e5e83e70da9b7790de4a5b46e79b",
-      "semantic_key_history": [
-        "47bc10bf9e6cecaf29d95c58fe1a28517c647aca173955a7b7cb955517bbdfa6"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 18152,
-      "source_path": "content/lexical/canonical/senses/shards/o7009-7040.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:infuse:0b37f639227c584e",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 18151,
         "source_path": "content/lexical/canonical/senses/shards/o7009-7040.json"
       },
       {
         "sense_id": "sense:infuse:2dd63186bff05467",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 18152,
+        "source_path": "content/lexical/canonical/senses/shards/o7009-7040.json"
+      },
+      {
+        "sense_id": "sense:infuse:6ac9de92a76c7b45",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18162,
+        "source_path": "content/lexical/canonical/senses/shards/o7009-7040.json"
+      },
+      {
+        "sense_id": "sense:infuse:a1a4c6ede88c595a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18163,
         "source_path": "content/lexical/canonical/senses/shards/o7009-7040.json"
       }
     ],
@@ -116,7 +170,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7033-7040.json",
-    "source_content_hash": "bb336d3b084413f607836678c070687a2e7a2c04e0d6d398e78db4eed519153e",
+    "source_content_hash": "5fbb4dad1325a15cbca2b66250eef42970c0a4defd8810c97096a988a1cbbe2e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

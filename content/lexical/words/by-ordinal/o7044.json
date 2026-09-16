@@ -6,13 +6,39 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "e138c2c08600047191be2ba1845ed4a03c1610d24136386aced68a0872aa2bf4",
+    "constructions": [
+      {
+        "construction_id": "construction:e4b525524c036e330749",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "暗示……；含沙射影地说……",
+        "pattern": "insinuate (that) ..."
+      },
+      {
+        "construction_id": "construction:e8260853a8362cca7cb7",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "设法悄悄进入某处/某群体并取得位置",
+        "pattern": "insinuate oneself into sth",
+        "source_sense_id": "sense:insinuate:d1fafa143d2d5aad"
+      }
+    ],
+    "content_hash": "46161798cff4346ade1a2aa9f489cf0ed4d1197b6309cc67725039e2bf0415fb",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "巴结, 暗示, 使滋长",
-      "core_meaning_en": "introduce or insert (oneself) in a subtle manner",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "设法悄悄进入；逐渐取得位置或影响；暗示；含沙射影地表示，常指不愉快或批评性的事",
+          "label_en": "to introduce or insert oneself subtly or gradually into a place, group, or situation; to suggest or imply something indirectly, often something unpleasant or critical",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:insinuate:d1fafa143d2d5aad",
+            "sense:insinuate:9244a0db7a32624e"
+          ]
+        }
+      ],
+      "core_meaning_cn": "设法悄悄进入；逐渐取得位置或影响；暗示；含沙射影地表示，常指不愉快或批评性的事",
+      "core_meaning_en": "to introduce or insert oneself subtly or gradually into a place, group, or situation; to suggest or imply something indirectly, often something unpleasant or critical",
+      "mental_model_cn": "设法悄悄进入；逐渐取得位置或影响；暗示；含沙射影地表示，常指不愉快或批评性的事",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,16 +52,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "巴结, 暗示, 使滋长",
-        "definition_en": "introduce or insert (oneself) in a subtle manner",
+        "definition_cn": "设法悄悄进入；逐渐取得位置或影响",
+        "definition_en": "to introduce or insert oneself subtly or gradually into a place, group, or situation",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L1",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:insinuate:d1fafa143d2d5aad",
-        "sense_label_en": "introduce or insert (oneself) in a subtle manner",
+        "sense_label_en": "to introduce or insert oneself subtly or gradually into a place, group, or situation",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -46,6 +72,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "暗示；含沙射影地表示，常指不愉快或批评性的事",
+        "definition_en": "to suggest or imply something indirectly, often something unpleasant or critical",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:insinuate:9244a0db7a32624e",
+        "sense_label_en": "to suggest or imply something indirectly, often something unpleasant or critical",
+        "sort_order": 2,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -70,6 +110,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 18161,
+        "source_path": "content/lexical/canonical/senses/shards/o7041-7072.json"
+      },
+      {
+        "sense_id": "sense:insinuate:9244a0db7a32624e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18204,
         "source_path": "content/lexical/canonical/senses/shards/o7041-7072.json"
       }
     ],
@@ -97,7 +144,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7041-7048.json",
-    "source_content_hash": "e138c2c08600047191be2ba1845ed4a03c1610d24136386aced68a0872aa2bf4",
+    "source_content_hash": "46161798cff4346ade1a2aa9f489cf0ed4d1197b6309cc67725039e2bf0415fb",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

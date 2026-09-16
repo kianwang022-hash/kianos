@@ -6,13 +6,31 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "00f24dee1bc9bd38edbae86f2e870a9108e888543eadcc6c264c9fb54c734445",
+    "constructions": [
+      {
+        "construction_id": "construction:fcd9643a7be9098fb10d",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "被大量某物淹没、应接不暇",
+        "pattern": "be inundated with sth"
+      }
+    ],
+    "content_hash": "5294f9f3e51552987bcc122235ff1ab9976ee676fb23a2f80956f1368224bc87",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "浸水, 泛滥, 淹没, 使充满",
-      "core_meaning_en": "fill or cover completely, usually with water",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "淹没；洪水泛滥覆盖；（比喻）以大量邮件、请求、工作或信息等压倒、淹没",
+          "label_en": "to flood or cover completely, especially with water; figurative: to overwhelm someone or something with a very large amount of messages, requests, work, information, or other input",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:inundate:3b8cae6d7188534f",
+            "sense:inundate:9118e5cf7cc0bd2a"
+          ]
+        }
+      ],
+      "core_meaning_cn": "淹没；洪水泛滥覆盖；（比喻）以大量邮件、请求、工作或信息等压倒、淹没",
+      "core_meaning_en": "to flood or cover completely, especially with water; figurative: to overwhelm someone or something with a very large amount of messages, requests, work, information, or other input",
+      "mental_model_cn": "淹没；洪水泛滥覆盖；（比喻）以大量邮件、请求、工作或信息等压倒、淹没",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,8 +44,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "浸水, 泛滥, 淹没, 使充满",
-        "definition_en": "fill or cover completely, usually with water",
+        "definition_cn": "淹没；洪水泛滥覆盖",
+        "definition_en": "to flood or cover completely, especially with water",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
@@ -35,7 +53,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:inundate:3b8cae6d7188534f",
-        "sense_label_en": "fill or cover completely, usually with water",
+        "sense_label_en": "to flood or cover completely, especially with water",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -46,6 +64,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "（比喻）以大量邮件、请求、工作或信息等压倒、淹没",
+        "definition_en": "figurative: to overwhelm someone or something with a very large amount of messages, requests, work, information, or other input",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:inundate:9118e5cf7cc0bd2a",
+        "sense_label_en": "figurative: to overwhelm someone or something with a very large amount of messages, requests, work, information, or other input",
+        "sort_order": 2,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -70,6 +102,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 18182,
+        "source_path": "content/lexical/canonical/senses/shards/o7041-7072.json"
+      },
+      {
+        "sense_id": "sense:inundate:9118e5cf7cc0bd2a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18205,
         "source_path": "content/lexical/canonical/senses/shards/o7041-7072.json"
       }
     ],
@@ -97,7 +136,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7057-7064.json",
-    "source_content_hash": "00f24dee1bc9bd38edbae86f2e870a9108e888543eadcc6c264c9fb54c734445",
+    "source_content_hash": "5294f9f3e51552987bcc122235ff1ab9976ee676fb23a2f80956f1368224bc87",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
