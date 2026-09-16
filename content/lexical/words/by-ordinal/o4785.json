@@ -6,8 +6,30 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "631e1dc0d2d595c727ec62eff7d45d03152e3edff3479b55c17e2794c12414fa",
+    "constructions": [
+      {
+        "construction_id": "construction:cf810b39bc8cb3b3669d",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "例如；诸如",
+        "pattern": "such as"
+      },
+      {
+        "construction_id": "construction:5432f5e29cf8eaffe009",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "如此……以至于……",
+        "pattern": "such ... that"
+      },
+      {
+        "construction_id": "construction:8a5d406804d13bcf5cff",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "严格说来；以这种身份/性质",
+        "pattern": "as such"
+      }
+    ],
+    "content_hash": "32b2a07a14ac4218d06eb94649a2230249ee51641b98582f3c845fe070ae4cf9",
     "core_concept": {
       "core_clusters": [
         {
@@ -25,11 +47,19 @@
           "sense_ids": [
             "sense:such:314e0bbd585e5c8c"
           ]
+        },
+        {
+          "label_cn": "这样的；上述种类的",
+          "label_en": "of the kind or type just mentioned or indicated",
+          "pos": "determiner",
+          "sense_ids": [
+            "sense:such:157889391fc0dd74"
+          ]
         }
       ],
-      "core_meaning_cn": "这样的，如此的",
-      "core_meaning_en": "of that kind or degree",
-      "mental_model_cn": "这样的，如此的",
+      "core_meaning_cn": "如此的，这样的；如此地；这样的；上述种类的",
+      "core_meaning_en": "of so extreme a degree or extent; to so extreme a degree; of the kind or type just mentioned or indicated",
+      "mental_model_cn": "如此的，这样的；如此地；这样的；上述种类的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -96,6 +126,20 @@
         "sense_label_en": "to so extreme a degree",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "这样的；上述种类的",
+        "definition_en": "of the kind or type just mentioned or indicated",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "determiner",
+        "sense_id": "sense:such:157889391fc0dd74",
+        "sense_label_en": "of the kind or type just mentioned or indicated",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -133,6 +177,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 13615,
+        "source_path": "content/lexical/canonical/senses/shards/o4769-4800.json"
+      },
+      {
+        "sense_id": "sense:such:157889391fc0dd74",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13652,
         "source_path": "content/lexical/canonical/senses/shards/o4769-4800.json"
       }
     ],
@@ -185,7 +236,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4785-4792.json",
-    "source_content_hash": "631e1dc0d2d595c727ec62eff7d45d03152e3edff3479b55c17e2794c12414fa",
+    "source_content_hash": "32b2a07a14ac4218d06eb94649a2230249ee51641b98582f3c845fe070ae4cf9",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
