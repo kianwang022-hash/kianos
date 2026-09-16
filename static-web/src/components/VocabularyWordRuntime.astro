@@ -217,7 +217,7 @@ const recallPatterns = [...new Set(patternPrompts)].slice(0, 5);
                   <b>{relation.target_expression || relation.target_word || relation.module || 'contrast'}</b>
                   {relation.boundary && <p>{relation.boundary}</p>}
                   {relation.shared_core && <p>{relation.shared_core}</p>}
-                  {Object.values(relation.difference_axes || relation.dimensions || {}).map((value) => <p>{String(value)}</p>)}
+                  <dl class="lexicalRelationDimensions">{Object.entries(relation.difference_axes || relation.dimensions || {}).map(([key, value]) => <div><dt>{({certainty:'确定度',collocation:'搭配',core_meaning:'意义差别',exam_trap:'辨析重点',register:'语域',semantic_prosody:'语义色彩',strength:'强度',syntax:'语法',writing_safety:'写作使用'} as Record<string,string>)[key] || key.replaceAll('_',' ')}</dt><dd>{String(value)}</dd></div>)}</dl>
                   {(relation.boundaries || []).map((boundary) => <p>{boundary}</p>)}
                   {relation.learning_note && <p>{relation.learning_note}</p>}
                   <button type="button" data-vocab-repair data-target-kind="relation" data-target-id={relation.fact_id || relation.relation_id || ''} data-target-locator={locator} data-target-label={`${relation.target_expression || relation.target_word || relation.module || card.word}`} aria-pressed="false">+</button>
