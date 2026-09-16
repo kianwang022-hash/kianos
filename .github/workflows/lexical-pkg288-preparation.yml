@@ -7,6 +7,7 @@ on:
     paths:
       - '.github/workflows/lexical-pkg288-preparation.yml'
       - 'tools/lexical_compile_reconciliation_package.py'
+      - 'tools/lexical_prepare_execution_package_v2.py'
       - 'content/lexical/semantic-reconciliation/o6375-o6874.md'
   workflow_dispatch:
 
@@ -46,7 +47,7 @@ jobs:
             --out content/lexical/execution/preflight/o6375-o6874.reconciliation-extras.json
       - name: Compile Current identity evidence
         run: |
-          python tools/lexical_prepare_execution_package.py \
+          python tools/lexical_prepare_execution_package_v2.py \
             --accounting content/lexical/execution/preflight/o6375-o6874.reconciliation-compile.json \
             --reconciliation content/lexical/semantic-reconciliation/o6375-o6874.md \
             --issue 288 \
