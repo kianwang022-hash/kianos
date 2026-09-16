@@ -73,6 +73,13 @@ async function clearEnglishResumeFixtures(page) {
   });
 }
 
+async function openAdvancedReview(page) {
+  const advanced = page.locator('[data-runtime-stage="review"] details.productiveAdvanced');
+  await advanced.waitFor({ state: 'visible' });
+  if (!(await advanced.getAttribute('open'))) await advanced.locator('summary').click();
+  await page.locator('[data-review-return]').waitFor({ state: 'visible' });
+}
+
 function reviewPass(taskId) {
   return {
     schema: 'kianos.english.writing.review-return.v1',
@@ -131,12 +138,12 @@ async function cleanPassJourney(browser, task) {
     check(Boolean(record?.firstDraft), 'clean_first_draft_is_preserved');
     check(await page.locator('[data-writing-evidence-panel]').isHidden(), 'review_pending_has_no_transfer_attention');
 
-    await page.locator('[data-review-return]').fill(JSON.stringify(reviewPass(task.id)));
-    await page.locator('[data-import-review]').click();
+    // Normal learner path: stable work exits directly without a JSON round-trip.
+    await page.getByRole('button', { name: '这篇可以了', exact: true }).click();
     await page.locator('[data-runtime-stage="passed"]').waitFor({ state: 'visible' });
 
     record = await readWritingRecord(page, task.id);
-    check(record?.state === 'PASS_ACCEPTABLE', 'semantic_pass_is_real_exit');
+    check(record?.state === 'PASS_ACCEPTABLE', 'direct_semantic_pass_is_real_exit');
     check(record?.transferCandidate === null, 'semantic_pass_manufactures_no_transfer_debt');
     check(await page.locator('[data-writing-evidence-panel]').isHidden(), 'passed_work_has_no_transfer_panel_without_natural_evidence');
 
@@ -165,6 +172,8 @@ async function repairReturnJourney(browser, task) {
     await page.locator('[data-lock-first]').click();
     await page.locator('[data-runtime-stage="review"]').waitFor({ state: 'visible' });
 
+    // Structured return remains supported, but it is intentionally an advanced evidence path.
+    await openAdvancedReview(page);
     await page.locator('[data-review-return]').fill(JSON.stringify(reviewRepair(task.id)));
     await page.locator('[data-import-review]').click();
     await page.locator('[data-runtime-stage="repair"]').waitFor({ state: 'visible' });
