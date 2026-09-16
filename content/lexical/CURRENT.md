@@ -20,7 +20,6 @@ remaining catalog:                     NONE
 ```
 
 Catalog Content execution: **COMPLETE — 7946 / 7946 owners closed post-audit**.
-
 Full-catalog integrated K gate: **PASS — 7946 / 7946 Current owners accepted as SAFE_SIMPLE or DEPTH_READY; BLOCKED 0**.
 
 Production/Audit, reconciliation, implementation, main integration, acceptance and learner state are separate concepts. Only accepted integration on `main@HEAD` advances canonical Truth; engineering closure never manufactures learner progress.
@@ -35,33 +34,15 @@ Production/Audit, reconciliation, implementation, main integration, acceptance a
 - Acceptance authority: `content/lexical/ACCEPTANCE.md` plus `content/lexical/acceptance/full-catalog-k-*.json`.
 - Do not restart broad Production Review, Independent Audit or full-catalog K audit for this catalog generation without a concrete Current defect.
 
-Continuous integrated Content history ends with:
-
-- `o5375–o5874` → PR #254.
-- `o5875–o6374` → PR #277.
-- `o6375–o6874` → PR #293.
-- `o6875–o7374` → PR #296.
-- `o7375–o7874` → PR #302.
-- `o7875–o7946` → PR #307.
+Continuous integrated Content history: `o5375–o5874` → PR #254; `o5875–o6374` → #277; `o6375–o6874` → #293; `o6875–o7374` → #296; `o7375–o7874` → #302; `o7875–o7946` → #307.
 
 Latest durable Content receipt: `content/lexical/execution/o7875-o7946.package-receipt.json`.
 
-Latest K acceptance evidence includes:
-
-- `content/lexical/acceptance/full-catalog-k-conclusions.json`;
-- `content/lexical/acceptance/full-catalog-k-report.json`;
-- `content/lexical/acceptance/full-catalog-k-browser.json`;
-- `content/lexical/acceptance/full-catalog-k-materialization-corrections.json`;
-- `content/lexical/acceptance/full-catalog-k-latest-main-sync.json`.
+Latest K evidence: `full-catalog-k-conclusions.json`, `full-catalog-k-report.json`, `full-catalog-k-browser.json`, `full-catalog-k-materialization-corrections.json`, and `full-catalog-k-latest-main-sync.json` under `content/lexical/acceptance/`.
 
 ## 2｜#303 / o7875–o7946 final-tail closure
 
-Canonical semantic authority: `content/lexical/semantic-reconciliation/o7875-o7946.md`.
-
-Accepted source handoffs:
-
-- Production: `content/lexical/semantic-review/o7875-o7946.md`.
-- Audit: `content/lexical/semantic-audit/o7875-o7946.audit.md`.
+Canonical semantic authority: `content/lexical/semantic-reconciliation/o7875-o7946.md`. Accepted source handoffs: Production `content/lexical/semantic-review/o7875-o7946.md`; Audit `content/lexical/semantic-audit/o7875-o7946.audit.md`.
 
 Final accounting:
 
@@ -88,15 +69,9 @@ The eight same-owner BrE Form controls are `rationalization/rationalisation`, `r
 
 `utilise@o5235` remains a distinct stable **verb** owner and stayed read-only. `utilisation` belongs to noun `utilization@o7939`; no cross-owner lookup theft or remote Word mutation occurred.
 
-The five Independent Audit false-passes were materialized without reopening semantic review:
+The five Independent Audit false-passes were materialized without reopening semantic review: `reinforcement` (bounded countable reinforcements), `rejection` (transplant/tissue/organ immune rejection), `respondent` (formal/legal responding party), `revision` (BrE exam-study plus revised-version/change branches), and `suspension` (hanging/support, vehicle suspension, dispersed-particle fluid branches).
 
-- `reinforcement` — bounded countable reinforcements branch for additional personnel/material/resources;
-- `rejection` — domain-bounded transplant/tissue/organ immune rejection;
-- `respondent` — formal/legal responding-party branch;
-- `revision` — BrE exam-study plus countable revised-version/change branches;
-- `suspension` — bounded hanging/support, vehicle suspension, and dispersed-particle fluid branches.
-
-The final package was revalidated after syncing latest `main` containing the unrelated Xizong #300 integration. Package readback and full Astro build passed again on that synchronized head. Temporary workflow carriers were restored to their exact canonical pkg301 versions before PR #307.
+The final package was revalidated after syncing latest `main` containing unrelated Xizong #300 integration. Package readback and full Astro build passed; temporary workflow carriers were restored to their canonical pkg301 versions before PR #307.
 
 ## 3｜Execution contract now closed
 
@@ -116,22 +91,19 @@ frozen reconciliation
 → advance Current frontier
 ```
 
-This pipeline has closed the complete `o0001–o7946` catalog for the current Content generation. Issue #56 then separately validated the integrated catalog and actual learner projection without reopening semantic review.
+This pipeline closed the complete `o0001–o7946` catalog for the current Content generation. Issue #56 then separately validated the integrated catalog and actual learner projection without reopening semantic review.
 
 Rules that remain authoritative:
-
 - do not reopen an accepted owner without a concrete Current defect or exact downstream dependency;
 - engineering/schema/hash/Git/CI defects stay executor-owned;
 - return to semantic judgment only for genuinely new ambiguity not already resolved by active authority;
 - do not maintain a competing hand-copied source list;
-- package-wide readback remains mandatory for any future bounded repair;
+- package-wide readback remains mandatory for future bounded repair;
 - learner progress is never manufactured from engineering or acceptance closure.
 
 ## 4｜#56 full-catalog K re-acceptance closure
 
 Issue #56 consumed the complete `o0001–o7946` Current Content truth as one integrated acceptance claim.
-
-Final K accounting:
 
 ```text
 Current owners:                        7,946 / 7,946
@@ -147,7 +119,7 @@ Evidence / Memory + English bridge:      PASS
 Astro build:                             PASS
 ```
 
-The survivor branch was synchronized with `main@00210ea389f2015fe6bb24e6ecd9398d721354ec` through merge `ce745356b4c18c0f25217c39bfa9a12a47ea9b12`. The latest-main revalidation ran on `d318964ec0985979c07ab810101b5dc5132ebc8d` as Lexical Functional First run `35160481017`; every static, build and browser step passed. The workflow then persisted the generated acceptance evidence in `40e4d45be88c08feaddf6f8cb8231655650186ad`.
+The survivor branch was synchronized with `main@00210ea389f2015fe6bb24e6ecd9398d721354ec` through merge `ce745356b4c18c0f25217c39bfa9a12a47ea9b12`. Latest-main revalidation ran on `d318964ec0985979c07ab810101b5dc5132ebc8d` as Lexical Functional First run `35160481017`; every static, build and browser step passed. Generated acceptance evidence was then persisted in `40e4d45be88c08feaddf6f8cb8231655650186ad`.
 
 The three exact integration repairs were `organise@3375`, `resolve@4115` and `installment@5902`; each restored existing accepted authority rather than generating a new semantic judgment. The `form_identity.boundaries[]` learner projection compatibility gap was also closed and browser-proven.
 
@@ -155,17 +127,13 @@ K PASS is an Artifact/Acceptance claim only. It does not manufacture learner fam
 
 ## Exact next action
 
-Content Work Cursor is **closed** and the full-catalog K acceptance gate is **closed**.
+Content Work Cursor and the full-catalog K acceptance gate are **closed**. There is **no new Lexical Content/K engineering stage authorized by this file**; future Content repair requires a concrete Current defect or exact authorized dependency.
 
-There is **no new Lexical Content/K engineering stage authorized by this file**. Do not infer one from an old Issue, branch, receipt or chat. A future Content repair requires a concrete Current defect or an exact authorized dependency.
-
-P/R/E unrestricted readiness and real learner U remain separate claims. Any next stage there must be separately authorized rather than inferred from K PASS.
+P/R/E unrestricted readiness and real learner U remain separate claims and require separate authorization/evidence.
 
 ## 5｜Downstream / learner boundary
 
-Issue **#56** is closed as the current-generation full-catalog integrated projection / integrity / K re-acceptance gate.
-
-`P`, `R` and `E` remain BLOCKED for unrestricted learner use despite their bounded Functional First proof. `U` remains UNTESTED until real private learner evidence exists.
+Issue **#56** is closed as the current-generation full-catalog integrated projection / integrity / K re-acceptance gate. `P`, `R` and `E` remain BLOCKED for unrestricted learner use despite bounded Functional First proof; `U` remains UNTESTED until real private learner evidence exists.
 
 Production Review, Audit, reconciliation, implementation, validators, CI and merged PRs do not manufacture learner progress, mastery, Memory debt or `U` evidence.
 
