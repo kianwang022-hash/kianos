@@ -1,7 +1,7 @@
 # Xizong Guide / Framework Content Exit Audit — 2026-09-17
 
 Status: **CURRENT AUDIT RECEIPT · CONTENT / PROJECTION BOUNDARY ONLY**  
-Base audited: `main@f62ced438c958806d032ec06d4024008872910d8`  
+Initial base audited: `main@f62ced438c958806d032ec06d4024008872910d8`  
 Systems in scope: **A1 / A2 / A3 / B**  
 Runtime / DOM changes: **NONE in this lane**
 
@@ -9,76 +9,69 @@ Runtime / DOM changes: **NONE in this lane**
 
 This audit answers one narrow question:
 
-> Current Block / System content已经拥有的 Beginner Guide、Framework、MI-G、MI-D、Memory Routing，进入 Cognitive Projection / shared semantic adapter 时，到底有没有稳定出口？
+> Current System / Block content已经拥有的 Beginner Guide、Framework、MI-G、MI-D、Memory Routing，是否有清楚、不会回退到旧 authority 的内容出口，并且进入 Projection / shared semantic adapter 时能否稳定存活？
 
 It does **not** judge final UI quality and does not authorize Runtime implementation.
 
 ---
 
-## 2｜Reference owners inspected
+## 2｜Owners inspected
 
 Current content / learning:
 
-- `content/xizong/knowledge/systems/a1-circulation/system.json`
-- `content/xizong/knowledge/systems/a2-respiratory/system.json`
-- `content/xizong/knowledge/systems/a3-urinary/system.json`
-- `content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/system.json`
-- corresponding System `*-learning.json`
-- representative canonical Block Markdown, including A1 B1 with explicit `总 Framework` + `Memory Routing / MI-G / MI-D`
+- A1 / A2 / A3 / B Current `system.json`;
+- corresponding System `*-learning.json`;
+- canonical Block Markdown;
+- `content/xizong/knowledge/learner/shared-fields.json`;
+- `content/xizong/knowledge/manifest.json`.
 
 Projection / adapter:
 
-- `content/xizong/projection/PROJECTION_CONTRACT.md`
-- A1 B1 calibration Projection
-- A1 B2 baseline Projection
-- A2 R2 baseline Projection
-- A3 B2 baseline Projection
-- B D2 baseline Projection
-- `static-web/src/lib/xizongSemanticAdapter.mjs`
+- `content/xizong/projection/PROJECTION_CONTRACT.md`;
+- A1 B1 calibration Projection;
+- representative A1 / A2 / A3 baseline Block Projections;
+- representative B baseline Projection;
+- `static-web/src/lib/xizongSemanticAdapter.mjs`.
 
-This is an **exit audit**, not a claim that every one of the 76 compiled Blocks contains identical Framework / Memory sections. Absence must remain absence; no placeholder content may be invented for symmetry.
+Historical provenance was bounded to the last full pre-retirement System Guide for A1 / A2 / A3 / B and used only to recover re-verified explanation patterns.
+
+This is an **exit audit**, not a claim that every compiled Block contains identical Framework / Memory sections. Absence must remain absence; no placeholder content may be invented for symmetry.
 
 ---
 
-## 3｜Top-line result
+## 3｜Final top-line result
 
-| Content job | Current content can own it? | Current Projection exit | Verdict |
+| Content job | Current content state | Shared / Projection exit | Final lane result |
 |---|---|---|---|
-| System Beginner Guide explanation | Yes — now restored as separate Current learner-support assets | Existing `SYSTEM_GUIDE` binds terse `system.json` fields only; new explanation asset not yet consumed | **CONTENT RESTORED · PROJECTION NOT YET ADOPTED** |
-| Block Framework | Yes — explicit in canonical Block content where present | rich calibration Blocks may bind explicitly; baseline is inconsistent / opaque | **PARTIAL / UNSTABLE EXIT** |
-| MI-G | Yes — explicit Block Memory Routing where present | no named Projection support key / shared adapter field | **EATEN AT SHARED EXIT** |
-| MI-D | Yes — explicit Block Memory Routing where present | no named Projection support key; adapter `canDefer` is currently empty | **EATEN AT SHARED EXIT** |
-| Memory Routing | Yes — Block-owned routing semantics where present | no first-class binding / object / normalized adapter field | **EATEN AT SHARED EXIT** |
-| Recall spine | Yes — System-specific learning owner | explicit `learning_support.recall_spine`; normalized in adapter | **SURVIVES** |
-| Logic Groups / closure | Yes — System-specific learning owner | explicit support + normalized adapter | **SURVIVES** |
-| Precision / Visual / Extension | Selective optional Current support | adapter has explicit optional channels | **SURVIVES WHEN CURRENT-OWNED** |
+| System Beginner Guide explanation | Restored for A1 / A2 / A3 / B | Current Projection does not yet consume prose Guide asset | **CONTENT CLOSED · RUNTIME ADOPTION PENDING** |
+| Current Guide path resolution | `guide-bindings.json` is explicit Current resolver | old `shared-fields.system_fields.*.guide_path` can no longer win for migrated systems | **CLOSED** |
+| Block Framework | Explicit canonical content where present | calibration can preserve it; baseline shared exit inconsistent | **CONTENT CONTRACT CLOSED · PROJECTION PENDING** |
+| MI-G | Explicit canonical content where present | no named shared-adapter field today | **CONTENT CONTRACT CLOSED · PROJECTION PENDING** |
+| MI-D | Explicit canonical content where present | no named shared-adapter field today | **CONTENT CONTRACT CLOSED · PROJECTION PENDING** |
+| Memory Routing | Explicit canonical content where present | no first-class normalized object today | **CONTENT CONTRACT CLOSED · PROJECTION PENDING** |
+| Recall spine | System learning owner | normalized today | **SURVIVES** |
+| Logic Groups / closure | System learning owner | normalized today | **SURVIVES** |
+| Precision / Visual / Extension | selective Current support | explicit optional channels exist | **SURVIVES WHEN CURRENT-OWNED** |
 
----
-
-## 4｜System Beginner Guide gap
-
-### Before this lane
-
-A1 / A2 / A3 / B old `system-guides/` files were correctly retired so they could not compete with Current System / Learning owners.
-
-The side effect was that their useful **beginner explanation layer** disappeared together with the old authority.
-
-Current System Projection already has a `SYSTEM_GUIDE` view, but that view directly binds structured fields such as:
+The important distinction is now explicit:
 
 ```text
-mission
-mental_model.spine / parallel_controls
-core_variables / core_relations
-failure_modes
-judgment_axes
-block_route
+content ownership / resolution
+≠
+Projection adoption
+≠
+Runtime rendering
 ```
 
-Those fields are valid Current semantics, but they are intentionally compressed. They do not by themselves answer “why this model is cognitively useful” or “how a first-time learner should enter it”.
+This lane closes the first layer only.
 
-### Content remediation in this branch
+---
 
-Added:
+## 4｜System Beginner Guide closure
+
+A1 / A2 / A3 / B retired their old `system-guides/` authority correctly, but useful beginner explanation disappeared with it.
+
+This branch restores the explanation layer as Current learner support:
 
 - `knowledge/learner/BEGINNER_GUIDE_CONTRACT.md`
 - `knowledge/learner/a1-circulation-guide.md`
@@ -86,185 +79,99 @@ Added:
 - `knowledge/learner/a3-urinary-guide.md`
 - `knowledge/learner/b-digestive-metabolic-endocrine-tumor-guide.md`
 
-These are **derived explanation assets with no independent medical authority**. They use Current owners first and bounded last-pre-retirement Guide provenance only for re-verified explanation patterns.
+These assets explain accepted Current structure. They do not own medical Core, Source cadence, Block/KP identity or personal learner state.
 
-### Projection verdict
+### Hidden resolver defect found during continuation
 
-`SYSTEM_GUIDE` is therefore no longer missing a content candidate, but current materialized SystemProjection assets do **not yet bind the new Beginner Guide explanation assets**.
+`knowledge/learner/shared-fields.json` still contains legacy `system_fields.*.guide_path` values pointing to retired `system-guides/**` files for the migrated systems.
 
-This lane deliberately does not recompile / adopt Runtime.
+The current shared semantic adapter does not presently read `guide_path`, so this was not a demonstrated Runtime bug. It **was** a real Current metadata-resolution hazard: a future consumer could incorrectly route A1 / A2 / A3 / B back to retired Guide paths.
+
+### Resolution
+
+Added:
+
+- `knowledge/learner/guide-bindings.json`
+
+and registered it in:
+
+- `knowledge/manifest.json`
+- `knowledge/learner/README.md`
+- `knowledge/learner/BEGINNER_GUIDE_CONTRACT.md`
+
+Current resolution is now:
+
+```text
+A1 / A2 / A3 / B
+→ guide-bindings.json
+→ learner/*-guide.md
+```
+
+For those explicitly migrated systems, a legacy `shared-fields.system_fields.*.guide_path` value is historical projection metadata and **MUST NOT** override the Current binding.
+
+C / D / E / F are intentionally not rebound by symmetry; they retain their own Current / transitional resolution.
+
+This avoids rewriting a large mixed-purpose `shared-fields.json` merely to erase historical provenance while still closing the Current resolver ambiguity.
 
 ---
 
-## 5｜Block Framework exit
+## 5｜Block Framework evidence and gap
 
-### Current content
-
-Canonical Block Markdown can own explicit pre-learning structure such as:
+Canonical Block Markdown can explicitly own answer-bearing pre-entry maps such as:
 
 - center question;
 - mechanism spine;
 - formula / variable language;
 - `总 Framework`;
-- decision coordinate / comparison structure;
-- Block→next-Block handoff.
+- comparison coordinate / decision structure.
 
-A1 B1 is a clear Current example: the Block owns a mechanism spine, formula language, explicit `总 Framework`, and later Memory Routing.
+Representative Current evidence was verified across all four migrated systems:
 
-### Projection evidence
+- A1 first Block: explicit `总 Framework`;
+- A2 first Block: explicit `总 Framework`;
+- A3 first Block: explicit `总 Framework` plus a `kianos:framework` marker;
+- B `D1`: explicit `总 Framework`.
 
-#### Rich calibration case
+Projection evidence remains asymmetric:
 
-A1 B1 explicitly materializes:
+- A1 B1 calibration explicitly preserves Framework;
+- representative ordinary A1 / A2 / A3 baseline assets do not expose a named Framework object;
+- representative B baseline is even thinner and lacks the generic Guide object seen in A-system baselines;
+- `xizongSemanticAdapter.mjs` does not read canonical Block Markdown or normalize Framework.
 
-```text
-problem
-mechanism spine
-formula language
-framework
-```
+Verdict:
 
-and exposes all of them in `BLOCK_ORIENT`.
+> Framework is real Current content, but generic Projection / adapter survival is not yet guaranteed.
 
-This proves the Projection grammar **can** preserve Framework when compiled deliberately.
+Content extraction semantics are now owned by:
 
-#### A1 / A2 / A3 baseline cases
+- `knowledge/learner/BLOCK_PREENTRY_CONTENT_CONTRACT.md`
 
-Ordinary baseline assets typically contain:
-
-```text
-problem
-CANONICAL_GUIDE owner ref
-recall spine
-logic map
-```
-
-but they do not name a `FRAMEWORK` binding or medical-core source selector for the Framework.
-
-That is weaker than the calibration representation: even if another resolver can recover some Guide text, the Framework's distinct cognitive job is not guaranteed as a structured Projection object.
-
-#### B baseline case
-
-Representative B baseline (`D2`) contains only:
-
-```text
-problem
-recall spine
-logic map
-```
-
-There is no `CANONICAL_GUIDE` object and no Framework binding in `BLOCK_ORIENT`.
-
-### Shared adapter evidence
-
-`xizongSemanticAdapter.mjs` currently builds each Block from:
-
-```text
-system route
-learning first_pass_focus
-stop_line
-recall_spine
-logic_groups
-Precision / Visual cues
-Extension refs
-optional shared minimalModel
-```
-
-It does **not** load canonical Block Markdown or normalize a Framework field.
-
-### Verdict
-
-> **Framework is not globally absent, but it has no stable shared exit.**
-
-Calibration Blocks can preserve it; ordinary baseline / shared adapter paths do not guarantee it.
-
-Future content compile should bind an explicit Framework object **only when Current Block content owns one**. Do not synthesize one merely to make all Blocks symmetrical.
+A downstream compiler must preserve explicit Framework and preserve absence when none exists.
 
 ---
 
-## 6｜MI-G exit
+## 6｜MI-G / MI-D / Memory Routing evidence and gap
 
-### Current meaning
+Representative canonical Blocks from A1 / A2 / A3 / B contain explicit Memory Routing structure.
 
-Per `BEGINNER_GUIDE_CONTRACT.md`, MI-G is Current-owned **gating memory**: an explicit exact / compact item whose absence would obstruct continued understanding or retrieval.
-
-### Current evidence
-
-A1 B1 currently has an explicit `Memory Routing` section with a named `MI-G` list.
-
-### Projection / adapter state
-
-Baseline `learning_support` currently exposes only:
+The semantic distinction is:
 
 ```text
-first_pass_focus
-stop_line
-recall_spine
-logic_groups
+MI-G
+= explicit gating memory
+= missing / unstable → blocks continued understanding or retrieval
+
+MI-D
+= explicit deferrable exact memory
+= still retain, but may leave the immediate mechanism gate
+
+Memory Routing
+= Block-owned G/D content decision
+≠ learner review schedule
 ```
 
-The shared adapter's `attention.carryNow` currently derives from:
-
-```text
-CURRENT_PROBLEM
-optional MINIMAL_MODEL
-```
-
-It does not ingest `MI-G`.
-
-### Verdict
-
-> **MI-G exists in Current Block content where explicitly authored, but is eaten before the shared Projection / semantic-adapter exit.**
-
-Future projection semantics should expose MI-G as **Current-owned carry-now / gating content**, not infer it from “important looking” KP text.
-
----
-
-## 7｜MI-D exit
-
-### Current meaning
-
-MI-D is Current-owned **deferrable exact memory**: it still requires precise retention, but may leave the immediate mechanism gate and enter later memory handling.
-
-### Projection / adapter state
-
-There is no named MI-D binding in baseline Projection.
-
-The shared adapter currently returns:
-
-```text
-attention.canDefer = []
-```
-
-regardless of Block-owned MI-D sections.
-
-### Verdict
-
-> **MI-D is currently eaten at the shared exit.**
-
-This is not merely a missing UI label. The semantic adapter has no Current-owned input from which `canDefer` can be truthfully populated.
-
-Future implementation must not auto-classify every Precision item, threshold, list or number as MI-D. Only Current explicit routing may populate it.
-
----
-
-## 8｜Memory Routing exit
-
-### Current meaning
-
-Memory Routing is content semantics:
-
-```text
-which explicitly owned items gate continued learning now
-vs
-which explicitly owned items can move to deferred exact-memory handling
-```
-
-It is not personal review schedule, rating, due date, history or browser state.
-
-### Current Projection state
-
-No baseline BlockProjection currently has a first-class:
+Current baseline Projection / shared adapter has no first-class:
 
 ```text
 memory_routing
@@ -272,96 +179,135 @@ mi_g
 mi_d
 ```
 
-binding / object / support key.
+input or normalized output.
 
-The shared semantic adapter likewise has no parser or normalized owner for this content.
+The adapter's generic `attention.canDefer` therefore cannot truthfully recover Block-owned MI-D today, and its carry-now path cannot truthfully recover explicit MI-G merely from existing learning fields.
 
-### Verdict
+Verdict:
 
-> **Memory Routing is currently content-owned but Projection-unaddressed.**
+> The semantic loss occurs **before** UI rendering. Adding labels/cards alone cannot fix it.
 
-That is the upstream reason MI-G / MI-D cannot survive into a generic learner object today.
+The new `BLOCK_PREENTRY_CONTENT_CONTRACT.md` defines the content-side handoff without implementing the parser.
 
 ---
 
-## 9｜What this lane changes vs deliberately does not change
+## 7｜Current content-side contract
 
-### Changed now
+For downstream asset closure, the stable jobs are now:
 
-- restored Current Beginner Guide explanation content for A1 / A2 / A3 / B;
-- defined a hard no-authority Beginner Guide contract;
-- recorded bounded historical provenance rather than reviving old Guide files;
-- made Framework / MI-G / MI-D / Memory Routing exit losses explicit and machine-team actionable.
+```text
+block_preentry
+  framework
+    present / absent
+    owner_path
+    anchor
+    content_or_ref
 
-### Not changed now
+  memory_routing
+    present / absent
+    owner_path
+    anchor
+    mi_g[]
+    mi_d[]
+```
 
-- no Block Runtime behavior;
+Hard rules:
+
+1. canonical Block Markdown remains medical owner;
+2. explicit marker / semantic heading may be resolved;
+3. ambiguous prose fails closed;
+4. no inference from importance, typography, exam yield or “looks like Precision”;
+5. missing Framework / MI-G / MI-D / Memory Routing remains absent;
+6. output must retain canonical provenance;
+7. no Weak / due / interval / rating / personal-history state enters this content contract.
+
+---
+
+## 8｜What this lane changed
+
+### Current content assets
+
+- restored A1 Beginner Guide;
+- restored A2 Beginner Guide;
+- restored A3 Beginner Guide;
+- restored B Beginner Guide;
+- defined Beginner Guide authority / provenance contract;
+- added Current machine-readable Guide path bindings;
+- defined Block pre-entry Framework / Memory Routing content contract;
+- registered the new Current support owners in the knowledge manifest;
+- documented the hidden legacy `guide_path` precedence defect and closed it through explicit Current resolution.
+
+### Deliberately unchanged
+
+- no `static-web` Runtime behavior;
 - no DOM / component / CSS;
-- no learner state / scheduler / Evidence semantics;
-- no source-contact cadence;
+- no learner state or scheduler;
+- no Source-contact cadence;
 - no mass rewrite of canonical Block Core;
-- no automatic extraction or inference of MI-G / MI-D;
-- no Projection recompile / manifest mutation merely to make this audit green.
+- no inference / auto-authoring of MI-G or MI-D;
+- no Projection recompile;
+- no claim that all Blocks contain all pre-entry jobs.
 
 ---
 
-## 10｜Required handoff for a later Projection / learner-object lane
+## 9｜Required handoff to asset-closure / learner-object lane
 
-A later content-to-Projection implementation should satisfy these rules:
+The downstream lane should implement, not redefine, these semantics:
+
+### Guide
+
+```text
+guide-bindings.json resolves a Current Guide
+→ expose it as System explanation support
+→ system.json / learning / Block Core remain authority
+```
 
 ### Framework
 
 ```text
-Current explicit Framework exists
-→ bind as first-class answer-bearing orientation object
+explicit Current Framework exists
+→ first-class answer-bearing orientation object
 
-Current explicit Framework absent
-→ do not manufacture one
+absent
+→ no placeholder
 ```
 
 ### MI-G
 
 ```text
-Current explicit MI-G exists
-→ expose as named gating / carry-now support
-→ preserve exact owner identity / provenance
+explicit Current MI-G exists
+→ named gating / carry-now support
+→ preserve owner provenance
 ```
 
 ### MI-D
 
 ```text
-Current explicit MI-D exists
-→ expose as named deferrable exact-memory support
-→ may feed canDefer semantics
-→ must not itself create personal review schedule
+explicit Current MI-D exists
+→ named deferrable exact-memory support
+→ may feed canDefer
+→ does not itself schedule review
 ```
 
 ### Memory Routing
 
 ```text
-Current explicit routing exists
-→ preserve G/D distinction as content semantics
-→ Runtime may consume it later
+explicit Current routing exists
+→ preserve G / D split
 
-No Current routing
-→ null / absent, never inference
-```
-
-### Beginner Guide
-
-```text
-Current System Beginner Guide exists
-→ eligible as SYSTEM_GUIDE explanation layer
-→ must remain subordinate to system.json / learning / Block Core
+absent
+→ null / absent
 ```
 
 ---
 
-## 11｜Audit conclusion
+## 10｜Conclusion
 
-The historical problem is now separated into two distinct defects:
+The original “Guide / Framework 缺口” is now decomposed cleanly:
 
-1. **System-level explanation content gap** — A1 / A2 / A3 / B lost useful first-pass explanation when legacy Guide authority was retired. This branch restores that content correctly under Current learner support.
-2. **Block pre-asset exit gap** — Framework / MI-G / MI-D / Memory Routing can already exist in Current Block content, but the shared Projection / semantic-adapter path does not preserve them consistently.
+1. **Beginner explanation gap** — content restored for A1 / A2 / A3 / B.
+2. **Guide resolver gap** — explicit Current binding added; migrated systems cannot resolve back to retired Guides through stale metadata.
+3. **Block pre-entry semantic gap** — Framework / MI-G / MI-D / Memory Routing now have an explicit content contract and provenance boundary.
+4. **Projection / Runtime adoption gap** — still open by design and belongs to the separate asset-closure / Runtime implementation lane.
 
-The second defect should not be “fixed” by adding more UI cards. It requires a later content-resolution / Projection compile step that consumes explicit Current owners without inventing new truth.
+So this lane no longer needs to solve the problem by adding more prose or more UI. Its remaining useful work is content verification / coverage, while implementation should consume these contracts elsewhere.
