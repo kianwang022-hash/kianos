@@ -5,14 +5,24 @@
   "word": "vandal",
   "record": {
     "card_version": "v1",
+    "case_note": "Lowercase vandal is the ordinary common noun. Capitalized Vandal is the historical ethnonym for a Germanic people and remains case-bounded historical reference truth.",
     "confusables": [],
     "constructions": [],
-    "content_hash": "ab58367cde68d73c3c5ee1ea602e0de8d2d6af6dbd4961cff1b3e28276cac250",
+    "content_hash": "50e169f01512e93fa8fed6ac125e819029ac8a9fae8e92046402f600a290820e",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "蓄意破坏者",
-      "core_meaning_en": "someone who willfully destroys or defaces property",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "故意破坏财物者；蓄意毁坏、污损公共或私人财产的人",
+          "label_en": "a person who deliberately damages, destroys, or defaces property",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:vandal:69189c1c188f53c0"
+          ]
+        }
+      ],
+      "core_meaning_cn": "故意破坏财物者；蓄意毁坏、污损公共或私人财产的人",
+      "core_meaning_en": "a person who deliberately damages, destroys, or defaces property",
+      "mental_model_cn": "故意破坏财物者；蓄意毁坏、污损公共或私人财产的人",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,8 +36,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "蓄意破坏者",
-        "definition_en": "someone who willfully destroys or defaces property",
+        "definition_cn": "故意破坏财物者；蓄意毁坏、污损公共或私人财产的人",
+        "definition_en": "a person who deliberately damages, destroys, or defaces property",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
@@ -35,32 +45,8 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:vandal:69189c1c188f53c0",
-        "sense_label_en": "someone who willfully destroys or defaces property",
+        "sense_label_en": "a person who deliberately damages, destroys, or defaces property",
         "sort_order": 1,
-        "source_evidence": [
-          {
-            "evidence_id": "source-fact:01a55d128c13df6b3dcf1a55",
-            "evidence_status": "source_checked",
-            "role": "external_semantic_auditor",
-            "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
-            "source_type": "learner_dictionary"
-          }
-        ]
-      },
-      {
-        "collocations": [],
-        "confidence": "high",
-        "definition_cn": "蓄意破坏者",
-        "definition_en": "a member of the Germanic people who overran Gaul and Spain and North Africa and sacked Rome in 455",
-        "depth": "full_card",
-        "domain_tag": "toefl",
-        "frequency_tag": "toefl",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:vandal:8998ea65b025533c",
-        "sense_label_en": "a member of the Germanic people who overran Gaul and Spain and North Africa and sacked Rome in 455",
-        "sort_order": 2,
         "source_evidence": [
           {
             "evidence_id": "source-fact:01a55d128c13df6b3dcf1a55",
@@ -86,7 +72,24 @@
     "word_id": "word:vandal"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:vandal:8998ea65b025533c",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "蓄意破坏者",
+      "definition_en": "a member of the Germanic people who overran Gaul and Spain and North Africa and sacked Rome in 455",
+      "semantic_key": "0bf639aafa3598eb76fcd2a0ed303a60735ab159a5e60c5163e130a4c3c5a459",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 19182,
+      "source_path": "content/lexical/canonical/senses/shards/o7649-7680.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -98,7 +101,7 @@
       },
       {
         "sense_id": "sense:vandal:8998ea65b025533c",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 19182,
         "source_path": "content/lexical/canonical/senses/shards/o7649-7680.json"
@@ -128,7 +131,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7649-7656.json",
-    "source_content_hash": "ab58367cde68d73c3c5ee1ea602e0de8d2d6af6dbd4961cff1b3e28276cac250",
+    "source_content_hash": "50e169f01512e93fa8fed6ac125e819029ac8a9fae8e92046402f600a290820e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

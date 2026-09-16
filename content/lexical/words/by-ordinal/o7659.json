@@ -4,15 +4,26 @@
   "word_id": "word:venom",
   "word": "venom",
   "record": {
+    "accuracy_note": "Spiders and scorpions are arachnids, not insects; venom is defined by delivery mechanism rather than an insect-only taxonomy.",
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "11de6961a757a2bd6460121c73f6c631e2c5fc36037fd3486e2aefbc2dc9f858",
+    "content_hash": "0f12d6620fbc89a27534da73f5c23cedeb951f191be46c88b607db295f216c7f",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "毒液, 恶意",
-      "core_meaning_en": "toxin secreted by animals; secreted by certain snakes and poisonous insects (e.g., spiders and scorpions)",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "毒液；某些动物产生并通过咬、蜇、毒牙、毒刺等装置注入其他生物体的有毒物质；（比喻）恶毒；强烈的恶意、怨恨或敌意",
+          "label_en": "a toxic substance produced by certain animals and delivered into another organism by a bite, sting, fang, spine, or similar apparatus; figurative: extreme malice, spite, or hostility expressed toward someone",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:venom:9a4f202ffb025d87",
+            "sense:venom:729048d6bf38a81c"
+          ]
+        }
+      ],
+      "core_meaning_cn": "毒液；某些动物产生并通过咬、蜇、毒牙、毒刺等装置注入其他生物体的有毒物质；（比喻）恶毒；强烈的恶意、怨恨或敌意",
+      "core_meaning_en": "a toxic substance produced by certain animals and delivered into another organism by a bite, sting, fang, spine, or similar apparatus; figurative: extreme malice, spite, or hostility expressed toward someone",
+      "mental_model_cn": "毒液；某些动物产生并通过咬、蜇、毒牙、毒刺等装置注入其他生物体的有毒物质；（比喻）恶毒；强烈的恶意、怨恨或敌意",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,8 +37,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "毒液, 恶意",
-        "definition_en": "toxin secreted by animals; secreted by certain snakes and poisonous insects (e.g., spiders and scorpions)",
+        "definition_cn": "毒液；某些动物产生并通过咬、蜇、毒牙、毒刺等装置注入其他生物体的有毒物质",
+        "definition_en": "a toxic substance produced by certain animals and delivered into another organism by a bite, sting, fang, spine, or similar apparatus",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
@@ -35,7 +46,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:venom:9a4f202ffb025d87",
-        "sense_label_en": "toxin secreted by animals; secreted by certain snakes and poisonous insects (e.g., spiders and scorpions)",
+        "sense_label_en": "a toxic substance produced by certain animals and delivered into another organism by a bite, sting, fang, spine, or similar apparatus",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -46,6 +57,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "（比喻）恶毒；强烈的恶意、怨恨或敌意",
+        "definition_en": "figurative: extreme malice, spite, or hostility expressed toward someone",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:venom:729048d6bf38a81c",
+        "sense_label_en": "figurative: extreme malice, spite, or hostility expressed toward someone",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -70,6 +95,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 19193,
+        "source_path": "content/lexical/canonical/senses/shards/o7649-7680.json"
+      },
+      {
+        "sense_id": "sense:venom:729048d6bf38a81c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 19227,
         "source_path": "content/lexical/canonical/senses/shards/o7649-7680.json"
       }
     ],
@@ -97,7 +129,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7657-7664.json",
-    "source_content_hash": "11de6961a757a2bd6460121c73f6c631e2c5fc36037fd3486e2aefbc2dc9f858",
+    "source_content_hash": "0f12d6620fbc89a27534da73f5c23cedeb951f191be46c88b607db295f216c7f",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
