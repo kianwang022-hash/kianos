@@ -5,10 +5,10 @@
   "word": "moron",
   "record": {
     "card_version": "v1",
-    "case_note": "Capitalized/accented Morón is a geographic proper name and belongs to case-sensitive reference truth, not lowercase moron learner Core.",
+    "case_note": "Lowercase moron is the common derogatory noun. Capitalized/accented Morón is a geographic proper name and remains case-bounded reference truth.",
     "confusables": [],
     "constructions": [],
-    "content_hash": "da80af9f15b0aa30fba06bb1affaf3bee390c3260cf7cf2cb3b2c566be6b5618",
+    "content_hash": "fe9a48222f4a2c019537d8f61930d4e625c3a64699bfb71da4d377ab14efc3f8",
     "core_concept": {
       "core_clusters": [
         {
@@ -16,7 +16,7 @@
           "label_en": "derogatory/offensive: an insulting term for a person regarded as very stupid",
           "pos": "noun",
           "sense_ids": [
-            "sense:moron:852386ad2d915dc7"
+            "sense:moron:47bf03a4b1722813"
           ]
         }
       ],
@@ -35,29 +35,20 @@
     "senses": [
       {
         "collocations": [],
-        "confidence": "high",
+        "confidence": "medium",
         "definition_cn": "（贬义/冒犯）蠢货；侮辱性地指被认为很愚蠢的人",
         "definition_en": "derogatory/offensive: an insulting term for a person regarded as very stupid",
-        "depth": "full_card",
-        "domain_tag": "toefl",
-        "frequency_tag": "toefl",
+        "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "register": "derogatory/offensive",
-        "sense_id": "sense:moron:852386ad2d915dc7",
+        "sense_id": "sense:moron:47bf03a4b1722813",
         "sense_label_en": "derogatory/offensive: an insulting term for a person regarded as very stupid",
-        "sort_order": 1,
-        "source_evidence": [
-          {
-            "evidence_id": "source-fact:0a9ed87396abe69a0faa6933",
-            "evidence_status": "source_checked",
-            "role": "external_semantic_auditor",
-            "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "usage_note": "Do not use as neutral clinical terminology; historical IQ-classification use is obsolete."
+        "sort_order": 0,
+        "transitivity": "nonverb",
+        "usage_note": "Do not use as neutral clinical terminology; historical IQ-classification use is obsolete.",
+        "writing_safe": false
       }
     ],
     "verification_summary": {
@@ -74,14 +65,38 @@
     "word_id": "word:moron"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:moron:852386ad2d915dc7",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "莫龙市；阿根廷布宜诺斯艾利斯以西的一座城市",
+      "definition_en": "Morón, a city in Argentina to the west of Buenos Aires",
+      "semantic_key": "1f729074f5df23f363402abc1f8ed98db1b8796365e0ad02627213626ba9ec40",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 18377,
+      "source_path": "content/lexical/canonical/senses/shards/o7169-7200.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:moron:852386ad2d915dc7",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 18377,
+        "source_path": "content/lexical/canonical/senses/shards/o7169-7200.json"
+      },
+      {
+        "sense_id": "sense:moron:47bf03a4b1722813",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18437,
         "source_path": "content/lexical/canonical/senses/shards/o7169-7200.json"
       }
     ],
@@ -109,7 +124,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7169-7176.json",
-    "source_content_hash": "da80af9f15b0aa30fba06bb1affaf3bee390c3260cf7cf2cb3b2c566be6b5618",
+    "source_content_hash": "fe9a48222f4a2c019537d8f61930d4e625c3a64699bfb71da4d377ab14efc3f8",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
