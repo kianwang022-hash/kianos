@@ -1,0 +1,60 @@
+---
+const { objectId = '', sourceHash = '' } = Astro.props;
+---
+<script define:vars={{ objectId, sourceHash }}>
+  import { XIZONG_MEMORY_STORAGE_KEY } from '../lib/xizongMemoryModel.mjs';
+  import {
+    releaseCompletedBlockToMemory,
+    xizongStudyStorageKey
+  } from '../lib/xizongMemoryAutoRelease.mjs';
+
+  const root = document.querySelector('[data-xizong-v6-block]');
+  const payloadNode = document.querySelector('[data-xizong-learner-object-payload]');
+
+  const parseJson = (value, fallback = null) => {
+    try { return JSON.parse(value || 'null') ?? fallback; } catch { return fallback; }
+  };
+
+  let learnerObject = parseJson(payloadNode?.textContent, null);
+  let studyKey = '';
+  try { studyKey = xizongStudyStorageKey(objectId || root?.getAttribute('data-study-object') || ''); } catch {}
+
+  const attemptRelease = () => {
+    if (!root || !learnerObject || !studyKey) return;
+    const studyState = parseJson(localStorage.getItem(studyKey), {});
+    const memoryState = parseJson(localStorage.getItem(XIZONG_MEMORY_STORAGE_KEY), null);
+    let result;
+    try {
+      result = releaseCompletedBlockToMemory(memoryState, learnerObject, studyState, { sourceHash });
+    } catch (error) {
+      console.error(error);
+      return;
+    }
+    if (!result?.released) return;
+    try {
+      localStorage.setItem(XIZONG_MEMORY_STORAGE_KEY, JSON.stringify(result.state));
+      window.dispatchEvent(new CustomEvent('kianos:xizong-memory-release', {
+        detail: {
+          schema: result.schema,
+          blockId: result.blockId,
+          coreCount: result.coreCardIds?.length || 0,
+          precisionCount: result.precisionCardIds?.length || 0,
+          attentionCount: result.attentionCardIds?.length || 0
+        }
+      }));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // Handles a Block that was completed before this bridge existed or before a reload.
+  attemptRelease();
+
+  // BlockV6 owns the completion write. This bridge listens after that interaction and
+  // consumes the persisted result; it does not redefine canComplete or mutate Block state.
+  root?.addEventListener('click', (event) => {
+    const target = event.target instanceof Element ? event.target : null;
+    if (!target?.closest('[data-block-complete]')) return;
+    queueMicrotask(attemptRelease);
+  });
+</script>
