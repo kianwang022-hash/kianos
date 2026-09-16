@@ -3,21 +3,18 @@ import { marked } from 'marked';
 import Base from '../../../layouts/Base.astro';
 import XizongBlockV6 from '../../../components/XizongBlockV6.astro';
 import XizongQuestionCrosswalkReverse from '../../../components/XizongQuestionCrosswalkReverse.astro';
-import XizongConnectionCues from '../../../components/XizongConnectionCues.astro';
-import XizongPrecisionVisualCues from '../../../components/XizongPrecisionVisualCues.astro';
-import XizongExtensionAssets from '../../../components/XizongExtensionAssets.astro';
+import XizongLearnerObjectBridge from '../../../components/XizongLearnerObjectBridge.astro';
 import XizongStudyEnhancer from '../../../components/XizongStudyEnhancer.astro';
 import XizongMemoryReviewV6 from '../../../components/XizongMemoryReviewV6.astro';
 import XizongBlockEvidenceGuard from '../../../components/XizongBlockEvidenceGuard.astro';
 import XizongRepairInboxBridge from '../../../components/XizongRepairInboxBridge.astro';
 import XizongLastLocation from '../../../components/XizongLastLocation.astro';
 import XizongRuntimeStageGuard from '../../../components/XizongRuntimeStageGuard.astro';
-import { listProjectableXizongSystems, loadXizongBlock, loadXizongSystem } from '../../../lib/xizong.mjs';
+import { listProjectableXizongSystems, loadXizongBlock } from '../../../lib/xizong.mjs';
 import { loadXizongQuestionCrosswalkForBlock } from '../../../lib/xizongQuestionCrosswalk.mjs';
-import { loadXizongPathways, pathwaysForBlock } from '../../../lib/xizongPathways.mjs';
-import { loadXizongLearningCues, learningCuesForBlock } from '../../../lib/xizongLearningCues.mjs';
 import { projectBlockLearn, projectKpCore, projectVisualGate } from '../../../lib/xizongProjection.mjs';
-import { buildXizongProductionBlock } from '../../../lib/xizongProductionProjection.mjs';
+import { resolveXizongLearnerProjection } from '../../../lib/xizongLearnerProjection.mjs';
+import { attachSourceVisualBundles } from '../../../lib/xizongSourceVisualAssets.mjs';
 
 export function getStaticPaths() {
   return listProjectableXizongSystems().flatMap((system) => system.blocks.map((block) => ({
@@ -28,31 +25,34 @@ export function getStaticPaths() {
 
 const { systemId, blockSlug } = Astro.props;
 const canonicalBlock = loadXizongBlock(systemId, blockSlug);
-const system = loadXizongSystem(systemId);
-const productionBlock = buildXizongProductionBlock(canonicalBlock);
 const crosswalk = loadXizongQuestionCrosswalkForBlock(canonicalBlock);
-const pathways = loadXizongPathways(system);
-const blockPathways = pathwaysForBlock(pathways, canonicalBlock.blockId);
-const learningCues = loadXizongLearningCues(system);
-const blockLearningCues = learningCuesForBlock(learningCues, canonicalBlock);
+const resolved = resolveXizongLearnerProjection(canonicalBlock, {
+  attachVisualBundles: attachSourceVisualBundles,
+  enrichBlock: (productionBlock) => ({
+    ...productionBlock,
+    blockLearnHtml: marked.parse(projectBlockLearn(canonicalBlock.blockLearnMarkdown), { gfm: true }),
+    visualGateHtml: canonicalBlock.visualGateMarkdown ? marked.parse(projectVisualGate(canonicalBlock.visualGateMarkdown), { gfm: true }) : '',
+    kpRecords: productionBlock.kpRecords.map((kp) => ({
+      ...kp,
+      detailHtml: marked.parse(projectKpCore(kp.detailMarkdown), { gfm: true })
+    }))
+  })
+});
+const { system, learnerObject } = resolved;
 const projection = {
-  ...productionBlock,
-  pathways: blockPathways,
-  learningCues: blockLearningCues,
-  blockLearnHtml: marked.parse(projectBlockLearn(canonicalBlock.blockLearnMarkdown), { gfm: true }),
-  visualGateHtml: canonicalBlock.visualGateMarkdown ? marked.parse(projectVisualGate(canonicalBlock.visualGateMarkdown), { gfm: true }) : '',
-  kpRecords: productionBlock.kpRecords.map((kp) => ({ ...kp, detailHtml: marked.parse(projectKpCore(kp.detailMarkdown), { gfm: true }) }))
+  ...resolved.block,
+  pathways: resolved.pathways,
+  learningCues: resolved.learningCues,
+  learnerObject
 };
 const block = projection;
 ---
 <Base title={`${canonicalBlock.label} · ${canonicalBlock.title}`} kicker={`西医综合 · ${canonicalBlock.systemCanonicalId} · ${canonicalBlock.label}`} description={canonicalBlock.centerQuestion} sourcePath={canonicalBlock.sourcePath} sourceHash={canonicalBlock.sourceHash} objectId={canonicalBlock.objectId} active="xizong">
   <XizongLastLocation system={system} block={canonicalBlock} />
   <XizongBlockV6 block={projection} />
+  <XizongLearnerObjectBridge learnerObject={learnerObject} />
   <XizongQuestionCrosswalkReverse crosswalk={crosswalk} />
   <XizongRuntimeStageGuard system={system} block={block} />
-  <XizongConnectionCues block={projection} />
-  <XizongPrecisionVisualCues block={projection} />
-  <XizongExtensionAssets block={projection} />
   <XizongStudyEnhancer block={projection} />
   <XizongMemoryReviewV6 block={projection} />
   <XizongBlockEvidenceGuard block={projection} />

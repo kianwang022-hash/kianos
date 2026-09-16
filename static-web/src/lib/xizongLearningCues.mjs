@@ -28,8 +28,12 @@ export function loadXizongLearningCues(system) {
   }
 
   const blockIds = new Set((system.blocks || []).map((block) => block.blockId));
-  for (const row of [...(raw.precision_index || []), ...(raw.visual_bindings || [])]) {
+  const cueRows = [...(raw.precision_index || []), ...(raw.visual_bindings || [])];
+  const cueIds = new Set();
+  for (const row of cueRows) {
     if (!row?.id) throw new Error(`CURRENT_XIZONG_LEARNING_CUE_ID_MISSING:${systemId}`);
+    if (cueIds.has(row.id)) throw new Error(`CURRENT_XIZONG_LEARNING_CUE_ID_DUPLICATE:${row.id}`);
+    cueIds.add(row.id);
     if (!blockIds.has(row?.anchor?.block_id)) {
       throw new Error(`CURRENT_XIZONG_LEARNING_CUE_BLOCK_UNKNOWN:${row?.id || systemId}`);
     }
@@ -51,6 +55,14 @@ export function learningCuesForBlock(cues, block) {
 
   const kpIds = new Set((block.kpRecords || []).map((kp) => kp.kpId));
   const groupIds = new Set((block.logicGroups || []).map((group) => group.groupId));
+  const groupForKp = new Map();
+  for (const group of block.logicGroups || []) {
+    for (const kpId of group.kpIds || []) {
+      if (groupForKp.has(kpId)) throw new Error(`CURRENT_XIZONG_LEARNING_CUE_KP_MULTI_GROUP:${kpId}`);
+      groupForKp.set(kpId, group.groupId);
+    }
+  }
+
   const rows = [
     ...(cues.precisionIndex || []).filter((row) => row?.anchor?.block_id === block.blockId),
     ...(cues.visualBindings || []).filter((row) => row?.anchor?.block_id === block.blockId)
@@ -61,6 +73,9 @@ export function learningCuesForBlock(cues, block) {
     const groupId = row?.anchor?.logic_group_id;
     if (kpId && !kpIds.has(kpId)) throw new Error(`CURRENT_XIZONG_LEARNING_CUE_KP_UNKNOWN:${row.id}:${kpId}`);
     if (groupId && !groupIds.has(groupId)) throw new Error(`CURRENT_XIZONG_LEARNING_CUE_GROUP_UNKNOWN:${row.id}:${groupId}`);
+    if (kpId && groupId && groupForKp.get(kpId) !== groupId) {
+      throw new Error(`CURRENT_XIZONG_LEARNING_CUE_ANCHOR_INCONSISTENT:${row.id}:${kpId}:${groupId}`);
+    }
   }
 
   return {

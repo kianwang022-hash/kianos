@@ -60,7 +60,10 @@ const page = read('static-web/src/pages/xizong/[system]/[block].astro');
 const blockUi = read('static-web/src/components/XizongBlockV6.astro');
 const stageUi = read('static-web/src/components/XizongCognitiveProjectionStage.astro');
 const productionLib = read('static-web/src/lib/xizongProductionProjection.mjs');
-assert(page.includes('buildXizongProductionBlock'), 'page:bypasses-production-presenter');
+const learnerProjectionLib = read('static-web/src/lib/xizongLearnerProjection.mjs');
+assert(page.includes('resolveXizongLearnerProjection'), 'page:bypasses-unified-learner-projection');
+assert(!page.includes('buildXizongProductionBlock'), 'page:reintroduced-direct-production-assembly');
+assert(learnerProjectionLib.includes('buildXizongProductionBlock'), 'learner-projection:bypasses-production-presenter');
 assert(page.includes('<XizongBlockV6 block={projection} />'), 'page:not-using-existing-v6-family');
 assert(blockUi.includes('data-source-contact-mode'), 'renderer:source-contact-mode-not-declared');
 assert(blockUi.includes("data-study-stage=\"source_contact\""), 'renderer:no-natural-source-contact-stage');
@@ -83,5 +86,6 @@ console.log([
   `B-D1 source=${semanticBD1.sourceContact.mode}`,
   `C-H1 explicit=${cLg.kpOrdinals.join(',')}`,
   'Runtime=V6 shared store only',
+  'Composition=Production -> LearnerProjection -> V6',
   'U=NOT_TESTED_BY_THIS_SCRIPT'
 ].join(' | '));
