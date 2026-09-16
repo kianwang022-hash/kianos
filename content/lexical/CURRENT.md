@@ -9,14 +9,15 @@ Production Fresh Semantic Review:      COMPLETE — 7946 / 7946
 Independent Semantic Audit coverage:   COMPLETE — 7946 / 7946
 mechanically implemented frontier:     o3874
 post-audit closed implemented region:  o0001–o3874 COMPLETE ON MAIN
-latest integrated forward package:     o3625–o3874 COMPLETE (PR #194)
-active forward package:                o3875–o4124 — MECHANICAL_EXECUTION_READY
+active Content stage task:             #54 — o3875–o4124 package closure
+active execution branch:               lexical/execute-o3875-o4124-20260916
+branch-local mechanical progress:      150 / 250 owners CLOSED — 3 / 5 shards
 remaining catalog after active package:o4125–o7946 NOT_ACTIVATED
 ```
 
 Catalog execution: **FORWARD ACTIVE**.
 
-Production review, Independent Audit, mechanical implementation, and post-audit closure are separate concepts. Review/Audit completion never mutates Current by itself; only bounded Sol-reconciled and mechanically verified packages advance the frontier.
+Production review, Independent Audit, Sol reconciliation, branch-local execution, main integration and learner state are separate concepts. Branch-local progress does not advance the canonical frontier until the complete package passes final verification and merges to main.
 
 ## 1｜Production + Independent Audit are closed
 
@@ -35,13 +36,15 @@ Continuous closed history:
 - `o3375–o3624` → PR #188.
 - `o3625–o3874` → PR #194 / merge `1806a603e12c33b085dc491de8b4a80134948293`.
 
-Latest durable package receipt:
+Latest durable integrated package receipt:
 
 `content/lexical/execution/receipts/o3625-o3874.forward-package.json`
 
 The entire region `o0001–o3874` is post-audit closed on main. Do not reopen it merely because historical branches, receipts, Issues, workflows, or Audit artifacts still exist; reopen only for a concrete Current defect.
 
-## 3｜Active forward package — o3875–o4124
+## 3｜One merged active stage task — #54 / o3875–o4124
+
+There is exactly **one active Content execution stage task** for this package: Issue **#54**.
 
 Semantic reconciliation is **COMPLETE** and canonical on main via PR **#197** / merge `4e92c8531c3bdbb7871fcef1f81e64bc3c070044`.
 
@@ -49,7 +52,30 @@ Authority:
 
 `content/lexical/semantic-reconciliation/o3875-o4124.md`
 
-Frozen accounting:
+Single survivor execution branch:
+
+`lexical/execute-o3875-o4124-20260916`
+
+Current branch checkpoint:
+
+`fa4a2c418e3b1812680b81ad339da8d5997dfb59`
+
+Branch-local progress:
+
+```text
+o3875–o3924   CLOSED / receipt PASS
+o3925–o3974   CLOSED / receipt PASS
+o3975–o4024   CLOSED / receipt PASS
+o4025–o4074   ACTIVE NEXT
+o4075–o4124   PENDING AFTER SHARD 4
+package final  PENDING
+```
+
+So the active package is **150 / 250 owners mechanically closed branch-local**. Main remains `o3874` until package final integration.
+
+Former `optimized*` execution branches/workflows are duplicate transport aliases only. They do not own a second task, second semantic truth, or second completion path. Fresh Chats and parallel Chats must converge on #54 + the survivor branch above rather than starting independent shard/package tasks.
+
+Frozen package accounting:
 
 ```text
 Production UPGRADE:                       64
@@ -65,36 +91,32 @@ Exact out-of-range Word dependencies:
 
 `o1023,o1436,o1981,o2772,o3675,o3747,o4176,o5280,o5594,o5596`
 
-Identity decisions are already frozen in the authority:
+Identity decisions are already frozen in the authority, including:
 
-- `quiet↔quite`: survivor = codex-reviewed `deep:confusables:quiet:a62d52d0428c90d3`; reciprocal visibility on `quite`; retire the weaker duplicate horizontal relation.
-- `realise↔realize@o5594`: preserve both Words; reciprocal regional-spelling Relation; no cross-Word stable-sense cloning.
-- `recognise↔recognize@o5596`: same rule.
+- `quiet↔quite`: preserve the codex-reviewed survivor and retire the weaker duplicate;
+- `realise↔realize@o5594`: preserve both Word owners and close reciprocal regional-spelling truth;
+- `recognise↔recognize@o5596`: same rule;
 - no Current `rein` Main Word exists; do not manufacture one for an optional reign/rein confusable.
-
-This package is now **MECHANICAL_EXECUTION_READY**. No further semantic review, Audit, or Sol interpretation is needed unless executor readback discovers a concrete contradiction with Current truth.
-
-Recommended shard boundaries:
-
-```text
-o3875–o3924   26 semantic source owners
-o3925–o3974   18 semantic source owners
-o3975–o4024   22 semantic source owners
-o4025–o4074   19 semantic source owners
-o4075–o4124   20 semantic source owners
-```
 
 ## Exact next action
 
-**Write/run the five bounded mechanical execution shards for `o3875–o4124`.**
+Continue only from the survivor branch checkpoint above:
+
+`resolve narrow executor-only blocker(s) if any → finish o4025–o4074 → finish o4075–o4124 → 250/250 package readback → Natural Owner/registry + transport/shard/JSON + full Astro build → durable package receipt → merge main → advance frontier to o4124`
+
+Do **not**:
+
+- restart Shards 1–3;
+- open another package execution branch;
+- split the same package into parallel Chat-owned stage tasks;
+- reopen Production/Audit/Sol unless executor readback finds a genuine contradiction not already resolved by the frozen authority.
 
 Package exit requires:
 
 - 250/250 final owner readback;
 - exact 105-source accounting;
-- only the ten authorized out-of-range Word writes;
-- quiet/quite survivor Relation closure;
-- realise/realize and recognise/recognize spelling closure;
+- no out-of-range Word writes except the ten authorized dependencies;
+- identity/Relation/Form closure from the frozen authority;
 - Natural Owner registry audit PASS;
 - Lexical transport/shard tests PASS;
 - all Lexical JSON parse PASS;
@@ -120,8 +142,11 @@ main@HEAD
 → Independent Audit = 7946/7946 COMPLETE
 → mechanical frontier = o3874
 → o0001–o3874 post-audit closed on main
-→ active forward = o3875–o4124 / MECHANICAL_EXECUTION_READY
+→ single active Content stage = #54 / o3875–o4124
+→ survivor branch = lexical/execute-o3875-o4124-20260916 @ fa4a2c41…
+→ branch-local progress = 150/250 / 3-of-5 shards CLOSED
+→ next = o4025–o4074, then o4075–o4124, then package final merge
 → o4125+ = NOT_ACTIVATED
 ```
 
-Never infer a new task from an old Issue title, branch name, audit count, receipt, or chat history.
+Never infer a new task from an old Issue title, branch alias, audit count, receipt, workflow, or chat history.
