@@ -2,8 +2,8 @@
 """Compile one bounded Lexical Sol-reconciliation package from accepted handoffs.
 
 Accounting/transport only. Supports both accepted Production bullet formats:
-`- oNNNN **word**` and `- `oNNNN word` — ...`, plus both backticked and
-plain verdict cells in accepted Audit tables.
+`- oNNNN **word**` and `- `oNNNN word` — ...`, plus accepted Audit
+inline, table, plain-heading, and backticked-owner-heading verdict records.
 """
 from __future__ import annotations
 import argparse, json, re
@@ -33,7 +33,10 @@ def audit_verdicts(text:str,start:int,end:int)->dict[int,str]:
     for m in inline.finditer(text):
         o=int(m.group(1))
         if start<=o<=end: out[o]=m.group(2)
-    heading=re.compile(r'(?ms)^###\s+o(\d{4})\b.*?(?=^###\s+o\d{4}\b|^##\s+|\Z)')
+    # Accepted owner records appear both as `### oNNNN word` and
+    # `### `oNNNN word``.  The previous parser accepted only the former and
+    # silently missed Delta-only records in audits such as o6425-o6624.
+    heading=re.compile(r'(?ms)^###\s+`?o(\d{4})\b.*?(?=^###\s+`?o\d{4}\b|^##\s+|\Z)')
     for hm in heading.finditer(text):
         o=int(hm.group(1))
         if not(start<=o<=end): continue
