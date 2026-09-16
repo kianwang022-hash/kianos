@@ -7,12 +7,21 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "482fe469f8d23316ec02b27465dd26814845396b6e429362d19b8e36f19e78b3",
+    "content_hash": "ec39254c4510fd681bad2825cc61f0076f4ec72d95ae466848d931f4ef5fff9f",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "使困惑, 使仓皇失措, 打乱(计划等)",
-      "core_meaning_en": "cause to feel embarrassment",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "使不安、困惑、尴尬或失去镇定",
+          "label_en": "to make someone uneasy, confused, embarrassed, or lose confidence or composure",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:disconcert:65a3f227e2305d28"
+          ]
+        }
+      ],
+      "core_meaning_cn": "使不安、困惑、尴尬或失去镇定",
+      "core_meaning_en": "to make someone uneasy, confused, embarrassed, or lose confidence or composure",
+      "mental_model_cn": "使不安、困惑、尴尬或失去镇定",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,40 +35,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "使困惑, 使仓皇失措, 打乱(计划等)",
-        "definition_en": "cause to feel embarrassment",
+        "definition_cn": "使不安、困惑、尴尬或失去镇定",
+        "definition_en": "to make someone uneasy, confused, embarrassed, or lose confidence or composure",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
-        "sense_id": "sense:disconcert:ce5b31e2f3ce519d",
-        "sense_label_en": "cause to feel embarrassment",
-        "sort_order": 1,
-        "source_evidence": [
-          {
-            "evidence_id": "source-fact:a754d714142c08b95f98e150",
-            "evidence_status": "source_checked",
-            "role": "external_semantic_auditor",
-            "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
-            "source_type": "learner_dictionary"
-          }
-        ]
-      },
-      {
-        "collocations": [],
-        "confidence": "high",
-        "definition_cn": "使困惑, 使仓皇失措, 打乱(计划等)",
-        "definition_en": "cause to lose one's composure",
-        "depth": "full_card",
-        "domain_tag": "toefl",
-        "frequency_tag": "toefl",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
         "sense_id": "sense:disconcert:65a3f227e2305d28",
-        "sense_label_en": "cause to lose one's composure",
+        "sense_label_en": "to make someone uneasy, confused, embarrassed, or lose confidence or composure",
         "sort_order": 2,
         "source_evidence": [
           {
@@ -86,7 +71,24 @@
     "word_id": "word:disconcert"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:disconcert:ce5b31e2f3ce519d",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "使困惑, 使仓皇失措, 打乱(计划等)",
+      "definition_en": "cause to feel embarrassment",
+      "semantic_key": "227c256e539ddcfca96874bdd35f53cb0a4ead488ea2b23044902ed9dc848bfd",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 17581,
+      "source_path": "content/lexical/canonical/senses/shards/o6689-6720.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -98,7 +100,7 @@
       },
       {
         "sense_id": "sense:disconcert:ce5b31e2f3ce519d",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 17581,
         "source_path": "content/lexical/canonical/senses/shards/o6689-6720.json"
@@ -128,7 +130,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6689-6696.json",
-    "source_content_hash": "482fe469f8d23316ec02b27465dd26814845396b6e429362d19b8e36f19e78b3",
+    "source_content_hash": "ec39254c4510fd681bad2825cc61f0076f4ec72d95ae466848d931f4ef5fff9f",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

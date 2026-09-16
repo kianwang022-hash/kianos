@@ -6,13 +6,38 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "7501a6a24147f3f979221a03590aadff1242a8246791c00468563ac1b5c96f67",
+    "constructions": [
+      {
+        "construction_id": "construction:ff5a2dadf9ef8e5356e4",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "埋头苦干；长期做乏味工作",
+        "pattern": "drudge away"
+      }
+    ],
+    "content_hash": "f4077b8a2ec5c6f7a24a6402aa29ac8343cad2cb007f893c7b877a271cc45ee5",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "做苦工的人",
-      "core_meaning_en": "a laborer who is obliged to do menial work",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "做苦工或单调卑微工作的人",
+          "label_en": "a person who does hard, dull, or menial work",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:drudge:1b2076d0a427578d"
+          ]
+        },
+        {
+          "label_cn": "苦干；长时间做单调、卑微或乏味的工作",
+          "label_en": "to work hard for a long time at dull, menial, or tedious tasks",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:drudge:7b5d36a5314cdf8a"
+          ]
+        }
+      ],
+      "core_meaning_cn": "做苦工或单调卑微工作的人；苦干；长时间做单调、卑微或乏味的工作",
+      "core_meaning_en": "a person who does hard, dull, or menial work; to work hard for a long time at dull, menial, or tedious tasks",
+      "mental_model_cn": "做苦工或单调卑微工作的人；苦干；长时间做单调、卑微或乏味的工作",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,16 +51,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "做苦工的人",
-        "definition_en": "a laborer who is obliged to do menial work",
+        "definition_cn": "做苦工或单调卑微工作的人",
+        "definition_en": "a person who does hard, dull, or menial work",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L1",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:drudge:1b2076d0a427578d",
-        "sense_label_en": "a laborer who is obliged to do menial work",
+        "sense_label_en": "a person who does hard, dull, or menial work",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -46,6 +71,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "苦干；长时间做单调、卑微或乏味的工作",
+        "definition_en": "to work hard for a long time at dull, menial, or tedious tasks",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:drudge:7b5d36a5314cdf8a",
+        "sense_label_en": "to work hard for a long time at dull, menial, or tedious tasks",
+        "sort_order": 2,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -70,6 +109,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 17640,
+        "source_path": "content/lexical/canonical/senses/shards/o6721-6752.json"
+      },
+      {
+        "sense_id": "sense:drudge:7b5d36a5314cdf8a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 17684,
         "source_path": "content/lexical/canonical/senses/shards/o6721-6752.json"
       }
     ],
@@ -97,7 +143,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6721-6728.json",
-    "source_content_hash": "7501a6a24147f3f979221a03590aadff1242a8246791c00468563ac1b5c96f67",
+    "source_content_hash": "f4077b8a2ec5c6f7a24a6402aa29ac8343cad2cb007f893c7b877a271cc45ee5",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
