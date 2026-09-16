@@ -7,16 +7,16 @@ Role: human Work Cursor / fresh-Chat restart. Artifact Truth, Acceptance Truth a
 ```text
 Production Fresh Semantic Review:      COMPLETE — 7946 / 7946
 Independent Semantic Audit coverage:   COMPLETE — 7946 / 7946
-mechanically implemented frontier:     o4124
-post-audit closed implemented region:  o0001–o4124 COMPLETE ON MAIN
-latest closed Content stage:           #54 — o3875–o4124 CLOSED via PR #208
-active Content execution stage:        #215 — o4125–o4374 package closure
-active execution branch:               lexical/execute-o4125-o4374-20260916
-branch-local mechanical progress:      0 / 250 owners — 0 / 5 receipt boundaries
-remaining catalog after active package:o4375–o7946 NOT_ACTIVATED
+mechanically implemented frontier:     o4374
+post-audit closed implemented region:  o0001–o4374 COMPLETE ON MAIN
+latest closed Content stage:           #215 — o4125–o4374 CLOSED via PR #228
+active Content execution stage:        NONE
+active execution branch:               NONE
+branch-local mechanical progress:      N/A
+remaining catalog:                     o4375–o7946 NOT_ACTIVATED
 ```
 
-Catalog execution: **FORWARD ACTIVE**.
+Catalog execution: **FORWARD READY**.
 
 Production review, Independent Audit, Sol reconciliation, branch-local execution, main integration and learner state are separate concepts. Only accepted integration on `main@HEAD` advances the canonical mechanical frontier.
 
@@ -25,9 +25,9 @@ Production review, Independent Audit, Sol reconciliation, branch-local execution
 - Production Fresh Semantic Review: **7946 / 7946 COMPLETE**.
 - Independent Semantic Audit: **7946 / 7946 COMPLETE**, zero missing intervals.
 - Audit coverage authority: `content/lexical/semantic-audit/reconciliation/CATALOG_COVERAGE_RECONCILIATION.md`.
-- Do not restart broad Production Review or Independent Audit for this catalog generation. The active package already has frozen Sol reconciliation.
+- Do not restart broad Production Review or Independent Audit for this catalog generation.
 
-## 2｜Mechanical / post-audit-closed frontier = o4124
+## 2｜Mechanical / post-audit-closed frontier = o4374
 
 Continuous closed history:
 
@@ -37,93 +37,92 @@ Continuous closed history:
 - `o3375–o3624` → PR #188.
 - `o3625–o3874` → PR #194 / merge `1806a603e12c33b085dc491de8b4a80134948293`.
 - `o3875–o4124` → PR #208 / merge `b65b3590d97916d8a2e0cb1780476a41a91db3b9`.
+- `o4125–o4374` → PR #228 / merge `04207abc64a43254aac9b3539008335c2c18d37b`.
 
 Latest durable integrated package receipt:
 
-`content/lexical/execution/receipts/o3875-o4124.forward-package.json`
+`content/lexical/execution/o4125-o4374.package-receipt.json`
 
-The region `o0001–o4124` is post-audit closed on main. Do not reopen it without a concrete Current defect or an exact dependency named by an active reconciliation authority.
+The region `o0001–o4374` is post-audit closed on main. Do not reopen it without a concrete Current defect or an exact dependency named by a future active reconciliation authority.
 
-## 3｜Single active stage — #215 / o4125–o4374
+## 3｜Latest closed package — #215 / o4125–o4374
 
-There is exactly **one active Content execution stage task** for this package: Issue **#215**.
+Issue **#215** is closed package history, not an active work cursor.
 
 Canonical semantic reconciliation:
 
 `content/lexical/semantic-reconciliation/o4125-o4374.md`
 
-Reconciliation is complete on main via PR **#214** / merge `e3889bc4bf899427ba69beeef8eb6c7c7799055b`.
+Package acceptance:
 
-Single survivor execution branch:
+- semantic source-owner union: **81 / 81 exact**;
+- owner execution/readback: **250 / 250**;
+- only authorized remote Word write: `o6139 skeptical`, for reciprocal `sceptical↔skeptical` spelling identity visibility;
+- frozen identity/Form closure: `row`, `sceptical↔skeptical`, `saw→see`, `shaft` **PASS**;
+- Natural Owner registry audit **PASS**;
+- transport guards **PASS**;
+- Lexical shard tests **PASS**;
+- changed JSON parse **PASS**;
+- full Astro build **PASS**;
+- durable package receipt present on main.
 
-`lexical/execute-o4125-o4374-20260916`
+The five 50-owner boundaries were **transport / rollback / receipt boundaries only**. They were never semantic-review boundaries.
 
-Initial branch checkpoint is the activated Current main integration point; no semantic owner has been mechanically written yet.
+## 4｜Execution runtime rule — continuous / resumable package runner
 
-Branch-local progress:
+For future bounded packages, do not make the Chat manually operate each 50-owner boundary.
 
-```text
-o4125–o4174   NEXT / 18 semantic source owners
-o4175–o4224   pending / 17 semantic source owners
-o4225–o4274   pending / 14 semantic source owners
-o4275–o4324   pending / 16 semantic source owners + o6139 dependency
-o4325–o4374   pending / 16 semantic source owners
-package final 0 / 250 mechanically closed
-```
-
-The five 50-owner boundaries are **transport / rollback / receipt boundaries only**. They are not semantic-review boundaries. Execute the package continuously; do not re-audit at each boundary.
-
-Frozen package accounting:
+Default production execution model:
 
 ```text
-scope owners:                              250
-Production UPGRADE:                         56
-Audit non-PASS in package:                  30
-Production/Audit overlap:                    5
-Audit additions beyond Production:          25
-unique semantic source-owner union:          81
-terminal semantic BLOCKED after Sol:          0
-authorized out-of-range Word dependencies:   1
+frozen Sol reconciliation
+→ compile exact package execution authority once
+→ one continuous/resumable package runner
+→ internal 50-owner receipt / rollback checkpoints
+→ package-wide exact source accounting
+→ identity/Form/Relation closure
+→ Natural Owner + transport/shard/JSON verification
+→ full Astro build
+→ durable package receipt
+→ package PR → main
 ```
 
-Exact authorized remote Word dependency:
+Rules:
 
-`o6139 skeptical` — reciprocal regional-spelling identity visibility with `sceptical@o4281` only.
+- 50-owner boundaries are internal transport checkpoints, not Chat work boundaries and not semantic-review boundaries.
+- Existing PASS receipts must be resumed/skipped, never replayed merely because a later mechanical step fails.
+- CI/schema/hash/Git/materialization/readback defects stay executor-owned and should be solved with reusable mechanical primitives where possible.
+- Chat returns to semantic judgment only for a genuinely new ambiguity outside the frozen reconciliation.
+- Front-end status should normally expose package activation, meaningful blocker if any, and final closure — not every checkout/test/receipt transition.
 
-No other out-of-range Word write is authorized. `saw@o4266 → see@o4320` is in-package Form/Relation work.
-
-### Frozen identity decisions
-
-- `row@o4209`: preserve `sense:row:288f9aa2bbed532c` as line noun; unmerge/reactivate rowing `sense:row:95b218aabf4c5b9f` and quarrel `sense:row:2250c8db5d4355be`; encode `/roʊ/` vs `/raʊ/` Form/pronunciation truth.
-- `sceptical@o4281 ↔ skeptical@o6139`: preserve both frozen Word owners and local stable senses; close reciprocal regional-spelling Relation/Form truth; never clone a stable sense ID across Words.
-- `shaft@o4372`: retire polluted composite `sense:shaft:8c68fc2e02025abd` as split-parent and mint two genuine verb branches for fit/provide-with-shaft vs informal treat-unfairly.
-
-Executor must not invent new split/merge semantics beyond the reconciliation.
+This runtime rule is a throughput rule only; it does not weaken fail-closed identity, receipt, rollback, provenance or verification requirements.
 
 ## Exact next action
 
-Continue only from `main@HEAD → this Current → #215 → content/lexical/semantic-reconciliation/o4125-o4374.md`.
+There is no active Content package after #215 closeout.
 
-`build/reuse fail-closed package executor → execute o4125–o4374 continuously with five receipt boundaries → 250/250 package readback → exact 81-source accounting → Natural Owner/registry + transport/shard/JSON + full Astro build → durable package receipt → merge main → advance frontier o4124 → o4374`
+Next bounded catalog region is:
+
+`o4375–o4624 — NOT_ACTIVATED`
+
+Before any mechanical write there, establish its Current package authority from the already-complete Production Review + Independent Audit, perform/freeze the bounded Sol reconciliation, then activate exactly one survivor branch and run it with the continuous/resumable model above.
 
 Do **not**:
 
-- reopen `o0001–o4124` without a concrete Current defect or exact authorized dependency;
+- reopen `o0001–o4374` without a concrete Current defect or exact authorized dependency;
 - restart Production/Audit;
-- create a second execution branch for this package;
-- split the same package into parallel Chat-owned stage tasks;
 - treat 50-owner receipt boundaries as new semantic reviews;
-- activate `o4375+` before this package integrates;
+- activate overlapping package branches;
 - use #56 as a competing Content Work Cursor;
 - manufacture learner progress from engineering closure.
 
-## 4｜#56 remains downstream only
+## 5｜#56 remains downstream only
 
-Issue **#56** remains the deferred full-catalog integrated projection / integrity / K re-acceptance gate. It is not the current Content Work Cursor and does not become active merely because one more bounded package is executing.
+Issue **#56** remains the deferred full-catalog integrated projection / integrity / K re-acceptance gate. It is not a Content Work Cursor and does not become active merely because another bounded package closed.
 
 ## Frozen identity rule
 
-Use only `REUSE_EXISTING_STABLE`, genuine `NEW_SEMANTIC_BRANCH` where explicitly justified by the reconciliation, or the exact identity decisions frozen there. Any genuinely new semantic ambiguity not already resolved returns narrowly to Sol; engineering/schema/hash/Git/CI blockers remain executor-owned.
+Use only `REUSE_EXISTING_STABLE`, genuine `NEW_SEMANTIC_BRANCH` where explicitly justified by the active reconciliation, or exact identity decisions frozen there. Any genuinely new semantic ambiguity not already resolved returns narrowly to Sol; engineering/schema/hash/Git/CI blockers remain executor-owned.
 
 ## Learner-state boundary
 
@@ -135,16 +134,14 @@ Production Review, Audit, reconciliation, implementation, validators, CI and mer
 main@HEAD
 → Production review = 7946/7946 COMPLETE
 → Independent Audit = 7946/7946 COMPLETE
-→ mechanical frontier = o4124
-→ o0001–o4124 post-audit closed on main
-→ active Content stage = #215 / o4125–o4374
-→ semantic authority = content/lexical/semantic-reconciliation/o4125-o4374.md
-→ survivor = lexical/execute-o4125-o4374-20260916
-→ progress = 0/250 / 0-of-5 receipt boundaries
-→ exact source union = 81
-→ exact remote Word dependency = o6139 only
+→ mechanical frontier = o4374
+→ o0001–o4374 post-audit closed on main
+→ latest closed Content stage = #215 / o4125–o4374 / PR #228
+→ durable receipt = content/lexical/execution/o4125-o4374.package-receipt.json
+→ active Content stage = NONE
+→ next bounded region = o4375–o4624 NOT_ACTIVATED
+→ execution runtime = continuous/resumable package runner; 50-owner boundaries are internal receipts only
 → #56 = DEFERRED full-catalog gate, not Work Cursor
-→ o4375–o7946 = NOT_ACTIVATED
 ```
 
 Never infer a new task from an old Issue title, branch alias, Audit count, receipt, workflow, or chat history.

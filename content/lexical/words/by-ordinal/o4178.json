@@ -7,15 +7,16 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "355746879255bdbca52b16f0079266f871ebee2bb9afb59b143ff514be1ec2d7",
+    "content_hash": "194c2774a69ccb1a6d1bc438682bfc33b4c52961a941793eb720807a9a998e5f",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "仪式；典礼；宗教仪式",
-          "label_en": "a religious or solemn ceremony consisting of a series of actions performed according to a prescribed order",
+          "label_cn": "仪式；典礼；宗教仪式；日常固定做法；惯例",
+          "label_en": "a religious or solemn ceremony consisting of a series of actions performed according to a prescribed order; a habitual or repeated practice, often done regularly",
           "pos": "noun",
           "sense_ids": [
-            "sense:ritual:16b94650ef4c523d"
+            "sense:ritual:16b94650ef4c523d",
+            "sense:ritual:8b3586fa164f73d8"
           ]
         },
         {
@@ -27,9 +28,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "仪式；典礼",
-      "core_meaning_en": "a religious or solemn ceremony consisting of a series of actions performed according to a prescribed order",
-      "mental_model_cn": "仪式；典礼",
+      "core_meaning_cn": "仪式；也可指日常反复进行的固定习惯",
+      "core_meaning_en": "a formal ceremony or a habitual repeated practice",
+      "mental_model_cn": "仪式；也可指日常反复进行的固定习惯",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -96,6 +97,30 @@
         "sense_label_en": "relating to or done as a ritual",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:16b423de8fc7c50d6e30",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:ritual:8b3586fa164f73d8:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "晨间/日常固定习惯",
+            "phrase": "a morning/daily ritual"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "日常固定做法；惯例",
+        "definition_en": "a habitual or repeated practice, often done regularly",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:ritual:8b3586fa164f73d8",
+        "sense_label_en": "a habitual or repeated practice, often done regularly",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -134,10 +159,18 @@
         "merged_into_sense_id": null,
         "source_row": 11700,
         "source_path": "content/lexical/canonical/senses/shards/o4161-4192.json"
+      },
+      {
+        "sense_id": "sense:ritual:8b3586fa164f73d8",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11743,
+        "source_path": "content/lexical/canonical/senses/shards/o4161-4192.json"
       }
     ],
     "active_collocations": [
       "collocation:15ca388ea5350006490e",
+      "collocation:16b423de8fc7c50d6e30",
       "collocation:37c5dc69b327878aae36",
       "collocation:962703e33a0daa24535c"
     ],
@@ -156,6 +189,11 @@
       {
         "id": "collocation:962703e33a0daa24535c",
         "source_row": 12779,
+        "source_path": "content/lexical/canonical/collocations/shards/o4161-4192.json"
+      },
+      {
+        "id": "collocation:16b423de8fc7c50d6e30",
+        "source_row": 21591,
         "source_path": "content/lexical/canonical/collocations/shards/o4161-4192.json"
       }
     ],
@@ -185,7 +223,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4177-4184.json",
-    "source_content_hash": "355746879255bdbca52b16f0079266f871ebee2bb9afb59b143ff514be1ec2d7",
+    "source_content_hash": "194c2774a69ccb1a6d1bc438682bfc33b4c52961a941793eb720807a9a998e5f",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

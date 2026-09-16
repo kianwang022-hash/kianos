@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "a94d66789480d05f1a197f6e4fb46c880b0eae607324cfb5ac1ba74af8a92bb5",
+    "constructions": [
+      {
+        "construction_id": "construction:6b9bafd9587a3dba3bb0",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "从昏迷、虚弱或低迷状态中恢复",
+        "pattern": "revive from sth"
+      }
+    ],
+    "content_hash": "4f078c9b3d22c6661cb17cd789eb1eddf6a4c204031367eaf81d1b7e6e74e701",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "恢复；复兴",
@@ -80,6 +88,20 @@
         "sense_label_en": "to make something popular or successful again",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "苏醒；恢复",
+        "definition_en": "to become conscious or healthy again",
+        "governing_pattern": "vi. + from",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:revive:f64dfa923a725450",
+        "sense_label_en": "to become conscious or healthy again",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -102,31 +124,7 @@
     "word_id": "word:revive"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:revive:f64dfa923a725450",
-      "status": "merged",
-      "merged_into_sense_id": "sense:revive:ec72f594f51a59ce",
-      "pos": "verb",
-      "definition_cn": "苏醒；恢复",
-      "definition_en": "to become conscious or healthy again",
-      "semantic_key": "e5e53c91cb01bfd7d726267411d2596475b2c26b4f084973f6a1483007a45a4c",
-      "semantic_key_history": [],
-      "legacy_aliases": [
-        "revive:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "revive:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-08-22T05:00:00+00:00",
-      "source_row": 11598,
-      "source_path": "content/lexical/canonical/senses/shards/o4129-4160.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -145,8 +143,8 @@
       },
       {
         "sense_id": "sense:revive:f64dfa923a725450",
-        "status": "merged",
-        "merged_into_sense_id": "sense:revive:ec72f594f51a59ce",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 11598,
         "source_path": "content/lexical/canonical/senses/shards/o4129-4160.json"
       }
@@ -205,7 +203,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4145-4152.json",
-    "source_content_hash": "a94d66789480d05f1a197f6e4fb46c880b0eae607324cfb5ac1ba74af8a92bb5",
+    "source_content_hash": "4f078c9b3d22c6661cb17cd789eb1eddf6a4c204031367eaf81d1b7e6e74e701",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

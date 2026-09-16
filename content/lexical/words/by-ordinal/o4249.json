@@ -7,30 +7,29 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "fad2c485ad3bcddfe7a0ce7ce4094a0c291aff802a53de550fe608507b5c8858",
+    "content_hash": "0df31e73d2d2f58c9e59b11740968a64a6f665845f715c65b6d196213a787cdc",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "沙，沙子；沙滩",
-          "label_en": "a loose material consisting of grains of rock or coral; a beach or area of sand",
+          "label_cn": "沙，沙子",
+          "label_en": "a loose material consisting of grains of rock or coral",
           "pos": "noun",
           "sense_ids": [
-            "sense:sand:817ec23ea1fe5976",
-            "sense:sand:f1f86c615d265cc0"
+            "sense:sand:817ec23ea1fe5976"
           ]
         },
         {
-          "label_cn": "撒沙，以沙掩盖",
-          "label_en": "to sprinkle or cover with sand",
+          "label_cn": "用砂纸或磨料打磨、磨光",
+          "label_en": "to smooth or clean a surface with sandpaper or another abrasive",
           "pos": "verb",
           "sense_ids": [
-            "sense:sand:afdca1379a1051f1"
+            "sense:sand:305bd1d81a6bb3d7"
           ]
         }
       ],
-      "core_meaning_cn": "沙子",
-      "core_meaning_en": "loose granular material from rock erosion",
-      "mental_model_cn": "沙子",
+      "core_meaning_cn": "沙、沙子；用砂纸或磨料打磨",
+      "core_meaning_en": "sand; to smooth a surface with sandpaper or another abrasive",
+      "mental_model_cn": "沙、沙子；用砂纸或磨料打磨",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -112,6 +111,30 @@
         "sense_label_en": "to sprinkle or cover with sand",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:54f9ea3f826c8bbfc51d",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:sand:305bd1d81a6bb3d7:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "用砂纸打磨木材/表面",
+            "phrase": "sand the wood/surface"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "用砂纸或磨料打磨、磨光",
+        "definition_en": "to smooth or clean a surface with sandpaper or another abrasive",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:sand:305bd1d81a6bb3d7",
+        "sense_label_en": "to smooth or clean a surface with sandpaper or another abrasive",
+        "sort_order": 3,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -157,9 +180,17 @@
         "merged_into_sense_id": null,
         "source_row": 11923,
         "source_path": "content/lexical/canonical/senses/shards/o4225-4256.json"
+      },
+      {
+        "sense_id": "sense:sand:305bd1d81a6bb3d7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11937,
+        "source_path": "content/lexical/canonical/senses/shards/o4225-4256.json"
       }
     ],
     "active_collocations": [
+      "collocation:54f9ea3f826c8bbfc51d",
       "collocation:a88f5084d7fc8318d1d3",
       "collocation:afd7615e097875cff0a1",
       "collocation:bda571a86f572bc7d0b1"
@@ -179,6 +210,11 @@
       {
         "id": "collocation:bda571a86f572bc7d0b1",
         "source_row": 16052,
+        "source_path": "content/lexical/canonical/collocations/shards/o4225-4256.json"
+      },
+      {
+        "id": "collocation:54f9ea3f826c8bbfc51d",
+        "source_row": 21610,
         "source_path": "content/lexical/canonical/collocations/shards/o4225-4256.json"
       }
     ],
@@ -218,7 +254,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4249-4256.json",
-    "source_content_hash": "fad2c485ad3bcddfe7a0ce7ce4094a0c291aff802a53de550fe608507b5c8858",
+    "source_content_hash": "0df31e73d2d2f58c9e59b11740968a64a6f665845f715c65b6d196213a787cdc",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
