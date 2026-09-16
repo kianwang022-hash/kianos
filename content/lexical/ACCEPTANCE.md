@@ -6,7 +6,7 @@ Role: lane Acceptance Truth. Standard: root `LEARNING_ACCEPTANCE.md`. Work Curso
 
 ```text
 S  PASS
-K  BLOCKED — full catalog
+K  PASS — full catalog
 L  PASS — learner-controlled vNext learning logic
 P  BLOCKED — unrestricted learner use; bounded Functional First PASS
 R  BLOCKED — unrestricted learner use; bounded Functional First PASS
@@ -14,9 +14,9 @@ E  BLOCKED — unrestricted learner use; bounded Functional First PASS
 U  UNTESTED
 ```
 
-Allowed claim: Source/Natural Owner boundaries, the vNext Learning Contract and Evidence/Memory Contract are preserved. PR #174 is integrated on `main` and supplies a bounded Functional First proof for the current Repair / Challenge / Evidence runtime. That scoped proof does **not** grant unrestricted P/R/E readiness, full-catalog K, or real learner U.
+Allowed claim: Source/Natural Owner boundaries, full-catalog K content quality and learner projection fidelity, the vNext Learning Contract, and the Evidence/Memory Contract are accepted for the current catalog generation. PR #174 remains the bounded Functional First proof for the current Repair / Challenge / Evidence runtime. Full-catalog K PASS does **not** grant unrestricted P/R/E readiness or real learner U.
 
-This Runtime acceptance update does not reconcile the independent Content/K work cursor. Content execution and catalog frontier remain owned by `CURRENT.md` and their own acceptance evidence.
+Content execution and catalog frontier remain owned by `CURRENT.md`; private learner state remains separate from Artifact and Acceptance Truth.
 
 ## S — preserved PASS
 
@@ -24,23 +24,41 @@ This Runtime acceptance update does not reconcile the independent Content/K work
 
 Historical assets can be bounded provenance, sentinels or salvage candidates, not an alternative Current or an answer key. No source boundary is changed by this reconciliation.
 
-## K — full-catalog BLOCKED
+## K — full-catalog PASS
 
-Preserved accepted contiguous evidence on main:
+Issue #56 closed the full-catalog integrated projection / integrity / K re-acceptance gate against the complete current-generation catalog.
+
+Final accounting:
 
 ```text
-Gold calibration          PASS (separate calibration evidence)
-Batch01 o0001–o0012       PASS
-Batch02 o0013–o0024       PASS
-contiguous coverage       24 / 7,946
-remaining contiguous gap  7,922
+Current owners                         7,946 / 7,946
+SAFE_SIMPLE                            1,546
+DEPTH_READY                            6,400
+BLOCKED                                    0
+zero-active-sense owners                   0
+Natural Owner / transport / shard      PASS
+full-catalog intrinsic integrity         PASS
+full-catalog learner projection          PASS
+representative adversarial browser       PASS
+same-owner Form boundary browser         PASS
+Astro build                               PASS
 ```
 
-Catalog execution state is intentionally not re-adjudicated by this Runtime-only acceptance update. Use `CURRENT.md` for the current mechanical/content work cursor rather than inferring it from this bounded Runtime closure.
+Durable #56 evidence is under `content/lexical/acceptance/`:
 
-K exit requires every Main Word to receive a current-generation quality conclusion under `CONTENT_ASSET_CONTRACT.md`, no unresolved semantic/ownership gap, coherent Relation/Form ownership and final integrated readback. Accepted quality is SAFE_SIMPLE or DEPTH_READY, independent of NO_CHANGE/UPGRADED. BLOCKED stays visible and does not count as accepted. Important Core, active senses, familiar-new branches, first-class Expansion, construction/phraseology, contrast, form/register and hierarchy must be trustworthy.
+- `full-catalog-k-conclusions.json` — exactly one terminal current-generation K-quality conclusion per owner;
+- `full-catalog-k-report.json` — 7,946/7,946 intrinsic and static projection readback, with zero BLOCKED;
+- `full-catalog-k-browser.json` — representative real-browser projection proof across sparse/simple, rich/polysemous, familiar-new, construction-heavy, Relation/confusable, register/sensitivity, same-owner Form, distinct-owner spelling and reference-only risk families;
+- `full-catalog-k-materialization-corrections.json` — bounded correction provenance for the three accepted-authority integration gaps;
+- `full-catalog-k-latest-main-sync.json` — latest-main synchronization and final Phase A+B+C revalidation evidence.
 
-Field existence, schema/build success, receipt presence and historical coverage cannot grant K. Content coverage, learner traversal and demonstrated transfer are separate facts. 7,946 accepted content owners would not mean 7,946 mandatory Depth encounters or review objects.
+The latest-main revalidation synchronized the survivor branch with `main@00210ea389f2015fe6bb24e6ecd9398d721354ec`, then reran the complete Lexical Functional First gate on `d318964ec0985979c07ab810101b5dc5132ebc8d`; run `35160481017` passed every static, build and browser step. The post-run evidence materialization commit is `40e4d45be88c08feaddf6f8cb8231655650186ad`.
+
+The three bounded materialization repairs (`organise@3375`, `resolve@4115`, `installment@5902`) restore already-accepted authority and do not reopen semantic review. The modern `form_identity.boundaries[]` compatibility path is projected without collapsing same-owner and distinct-owner spelling identity.
+
+K PASS means the current 7,946-owner catalog is accepted as a trustworthy learning asset and survives the actual learner projection path. It does **not** mean every owner requires Depth, every optional module exists on every word, every word has been learned, or any private mastery/review state exists.
+
+Field existence, schema/build success, receipt presence and historical coverage were not sufficient by themselves to grant K; the gate required full-catalog current-generation quality conclusions plus integrated readback and browser evidence.
 
 ## L — preserved PASS
 
@@ -48,7 +66,7 @@ Field existence, schema/build success, receipt presence and historical coverage 
 
 Unknown/Fuzzy can open whole-card Depth now but cannot manufacture future whole-card Repair. A whole-card revisit may leave zero targets. Explicit local `+` or meaningful target-level failure normally earns Repair. Challenge is narrow; real-context evidence is valuable when target/demand matched. Coverage is the long-run mainline; no fixed quota or overdue wall is canonical. Astro executes; Chat adapts strategy; Kian retains agency.
 
-L PASS does not mean every future content object already exists or that real learner U has been observed.
+L PASS does not mean real learner U has been observed.
 
 ## Evidence / Memory specification — DESIGN SPECIFIED + bounded implementation proven
 
@@ -68,6 +86,8 @@ Observed on the final PR head before merge:
 - `LexicalOS Current Runtime` run #835 — PASS;
 - `Lexical Shard Tools` run #230 — PASS;
 - cross-site regression workflows for Writing, Translation, Politics, Xizong and Objective Learner Journey — PASS.
+
+Issue #56 additionally reran the full Lexical Functional First chain after latest-main synchronization; run `35160481017` passed the full-catalog K verifier, Natural Owner/transport/shard checks, Repair target surfaces, Evidence/Memory, English bridge, Astro build and all representative browser journeys.
 
 The Functional First workflow exercised the current browser/runtime paths, not only static validators:
 
@@ -108,7 +128,7 @@ This proof is intentionally compatible with progressive content growth. Missing 
 
 ## P / R / E — still BLOCKED for unrestricted use
 
-The bounded proof above establishes that the current architecture and representative real browser paths work. It does not establish that every future/current catalog object has final content quality, every content type has been populated, or every unrestricted learner path has been exercised.
+The bounded proof above establishes that the current architecture and representative real browser paths work. Full-catalog K PASS establishes current catalog content/projection quality, but it does not establish every unrestricted future learner path or every future content type.
 
 Therefore:
 
@@ -116,19 +136,19 @@ Therefore:
 - `R` remains BLOCKED for **unrestricted learner use** even though the bounded runtime proof passes;
 - `E` remains BLOCKED for **unrestricted learner use** even though the bounded evidence proof passes.
 
-Do not collapse these scoped PASS results into full-catalog readiness. Conversely, do not describe the Runtime as “only designed” or “not implemented”: the bounded implementation is now integrated and browser-proven on Current.
+Do not collapse K PASS or these scoped PASS results into unrestricted P/R/E readiness. Conversely, do not describe the Runtime as “only designed” or “not implemented”: the bounded implementation is integrated and browser-proven on Current.
 
 ## U — UNTESTED
 
 Only real private learner evidence establishes study, familiarity, repair or transfer. No engineering cursor requires Kian to pretend he has already learned the module.
 
-The next evidence class after this engineering closure is real learner use. Synthetic/browser journeys must not be promoted into U.
+The next evidence class after engineering/content acceptance is real learner use. Synthetic/browser journeys must not be promoted into U.
 
 ## Execution / history evidence boundary
 
-`CONTENT_EXECUTION.md` and `tools/lexical_shard.py` govern mechanical content I/O separately from this Runtime closure. Synthetic tool tests and real-owner transport pilots are engineering evidence only; they do not supply fresh lexical semantic conclusions.
+`CONTENT_EXECUTION.md` and `tools/lexical_shard.py` govern mechanical content I/O separately from Runtime and acceptance closure. Synthetic tool tests and real-owner transport pilots are engineering evidence only; they do not supply fresh lexical semantic conclusions.
 
-PR #86 is historical provenance only. PR #174 is the integrated bounded Runtime closure. Neither PR is semantic authority for Word/Relation content.
+PR #86 is historical provenance only. PR #174 is the integrated bounded Runtime closure. Issue #56 is the current-generation full-catalog K re-acceptance gate. None of them is a replacement semantic authority for Word/Relation content.
 
 ## Owners
 
