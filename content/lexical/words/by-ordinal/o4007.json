@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "e48d1c3cec215fedcc1ae685da19a588394f0e56390f670ad18a315b3255535d",
+    "content_hash": "155066f3431b624972b51b605e28d6cdc189db85181f71da933b705844eceee6",
     "core_concept": {
       "core_clusters": [
         {
@@ -28,7 +28,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3875-o4124"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -54,6 +56,34 @@
         "sense_id": "sense:reed:b0d4806fe2525540",
         "sense_label_en": "a person who is weak or delicate",
         "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "芦苇",
+        "definition_en": "a tall plant that grows in or near water, with hollow stems",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:reed:fd496bab87045c33",
+        "sense_label_en": "a tall plant that grows in or near water, with hollow stems",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "簧片，簧舌",
+        "definition_en": "a thin piece of material in a musical instrument that vibrates to produce sound",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:reed:ede0b66c905c584a",
+        "sense_label_en": "a thin piece of material in a musical instrument that vibrates to produce sound",
+        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -102,56 +132,6 @@
       "source_row": 11188,
       "source_path": "content/lexical/canonical/senses/shards/o4001-4032.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:reed:ede0b66c905c584a",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "簧片，簧舌",
-      "definition_en": "a thin piece of material in a musical instrument that vibrates to produce sound",
-      "semantic_key": "f634f69fd7b141e57f31b579ac2b01da87fc3383c0fd17e36d314c97f5a32bd5",
-      "semantic_key_history": [
-        "9fb138eacffd15803a416c5bc44c6c468515b8a837daa0f077ade16d0d77caa8"
-      ],
-      "legacy_aliases": [
-        "reed:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "reed:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11190,
-      "source_path": "content/lexical/canonical/senses/shards/o4001-4032.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:reed:fd496bab87045c33",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "芦苇",
-      "definition_en": "a tall plant that grows in or near water, with hollow stems",
-      "semantic_key": "b3f57ddbc6514ef494f0f8fb10a9b8ac07251442d6d85c6c5a1d190fc845624d",
-      "semantic_key_history": [
-        "f6e3e2cd3f56ca501cc59012b58f8fe78ff0cc513f91ded61c5ca4e07d93e513"
-      ],
-      "legacy_aliases": [
-        "reed:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "reed:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11191,
-      "source_path": "content/lexical/canonical/senses/shards/o4001-4032.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -172,14 +152,14 @@
       },
       {
         "sense_id": "sense:reed:ede0b66c905c584a",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11190,
         "source_path": "content/lexical/canonical/senses/shards/o4001-4032.json"
       },
       {
         "sense_id": "sense:reed:fd496bab87045c33",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11191,
         "source_path": "content/lexical/canonical/senses/shards/o4001-4032.json"

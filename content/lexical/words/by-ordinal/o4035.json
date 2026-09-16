@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "e1301abb2f51fa95e441f1b090f63d0c3a4195ea7b314825cd62064acbcb9690",
+    "content_hash": "602b039b645394b7e07fb6dea065045cad130f2f548fdf7d36250f072f732598",
     "core_concept": {
       "core_clusters": [
         {
@@ -28,7 +28,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3875-o4124"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -64,6 +66,34 @@
         "sense_label_en": "the period during which a monarch rules",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "统治；为王",
+        "definition_en": "to rule as a monarch",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:reign:bb069fece4e253c9",
+        "sense_label_en": "to rule as a monarch",
+        "sort_order": 1,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "盛行；占优势",
+        "definition_en": "to be the most powerful or noticeable feature of a situation",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:reign:ad7790a66d225608",
+        "sense_label_en": "to be the most powerful or noticeable feature of a situation",
+        "sort_order": 2,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -111,56 +141,6 @@
       "source_row": 11271,
       "source_path": "content/lexical/canonical/senses/shards/o4033-4064.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:reign:ad7790a66d225608",
-      "status": "merged",
-      "merged_into_sense_id": "sense:reign:56a2298fa3a951db",
-      "pos": "verb",
-      "definition_cn": "盛行；占优势",
-      "definition_en": "to be the most powerful or noticeable feature of a situation",
-      "semantic_key": "f6a83327afa9d68f9c3beea231e97af0e7f5ac9451e7d33a3d3e907385d39773",
-      "semantic_key_history": [
-        "8e05f4f3bbcdbeb62bab956b5b3718957293d4666dce1212abf56c844e54452d"
-      ],
-      "legacy_aliases": [
-        "reign:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "reign:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11272,
-      "source_path": "content/lexical/canonical/senses/shards/o4033-4064.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:reign:bb069fece4e253c9",
-      "status": "merged",
-      "merged_into_sense_id": "sense:reign:56a2298fa3a951db",
-      "pos": "verb",
-      "definition_cn": "统治；为王",
-      "definition_en": "to rule as a monarch",
-      "semantic_key": "def1dd0df436281a9e07fd0f14f830ac28480644d84e71e86894554d75baf771",
-      "semantic_key_history": [
-        "a54107e390f7ebec7a0e133139069aa322676eb70c1cac8cfea394cb7c23b165"
-      ],
-      "legacy_aliases": [
-        "reign:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "reign:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11273,
-      "source_path": "content/lexical/canonical/senses/shards/o4033-4064.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -181,15 +161,15 @@
       },
       {
         "sense_id": "sense:reign:ad7790a66d225608",
-        "status": "merged",
-        "merged_into_sense_id": "sense:reign:56a2298fa3a951db",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 11272,
         "source_path": "content/lexical/canonical/senses/shards/o4033-4064.json"
       },
       {
         "sense_id": "sense:reign:bb069fece4e253c9",
-        "status": "merged",
-        "merged_into_sense_id": "sense:reign:56a2298fa3a951db",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 11273,
         "source_path": "content/lexical/canonical/senses/shards/o4033-4064.json"
       }

@@ -67,7 +67,7 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "e918bd168b8b6e1f2fe71356ea304400adcdfe43238df4b6a9b62cd562afd4ef",
+    "content_hash": "fe84922c30741968c53ca5135e518e349c3cf4d0402f1cf5ddc4e744dbe72068",
     "core_concept": {
       "core_clusters": [
         {
@@ -90,7 +90,8 @@
     "record_type": "word_card_bundle",
     "review_signature": [
       "construction:deep:constructions:reply:b69344f1c610d35c",
-      "deep:deep:constructions:reply:b69344f1c610d35c"
+      "deep:deep:constructions:reply:b69344f1c610d35c",
+      "semantic-reconciliation:o3875-o4124"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -127,6 +128,30 @@
         "sense_label_en": "something said or written as an answer",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:9fa719f63485704ba329",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:reply:904238cd08f95aeb:collocation:forward-o3875-o4124"
+            ],
+            "meaning_cn": "回复某人/某事",
+            "phrase": "reply to sb/sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "回答，答复",
+        "definition_en": "to say or write something as an answer",
+        "governing_pattern": "vi. + to / clause",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:reply:904238cd08f95aeb",
+        "sense_label_en": "to say or write something as an answer",
+        "sort_order": 1,
+        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -150,31 +175,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:reply:904238cd08f95aeb",
-      "status": "merged",
-      "merged_into_sense_id": "sense:reply:07a438103dc052b2",
-      "pos": "verb",
-      "definition_cn": "回答，答复",
-      "definition_en": "to say or write something as an answer",
-      "semantic_key": "f54717d3caa73270a36386f8768dfce119596f087c4a02a4e8de9e7f2d166de1",
-      "semantic_key_history": [
-        "14cba45b197e17f43868c0e6d56a6c3fdae79cc85cb909313ed0f990f256567d"
-      ],
-      "legacy_aliases": [
-        "reply:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "reply:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11406,
-      "source_path": "content/lexical/canonical/senses/shards/o4065-4096.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:reply:b00f0f58bece58b9",
       "status": "merged",
@@ -212,8 +212,8 @@
       },
       {
         "sense_id": "sense:reply:904238cd08f95aeb",
-        "status": "merged",
-        "merged_into_sense_id": "sense:reply:07a438103dc052b2",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 11406,
         "source_path": "content/lexical/canonical/senses/shards/o4065-4096.json"
       },
@@ -227,6 +227,7 @@
     ],
     "active_collocations": [
       "collocation:40287010bead2dd89dd8",
+      "collocation:9fa719f63485704ba329",
       "collocation:a4545e398e40b1edb061"
     ],
     "facts": [
@@ -250,6 +251,11 @@
       {
         "id": "collocation:8cbab16cffdee6e8df84",
         "source_row": 11940,
+        "source_path": "content/lexical/canonical/collocations/shards/o4065-4096.json"
+      },
+      {
+        "id": "collocation:9fa719f63485704ba329",
+        "source_row": 21600,
         "source_path": "content/lexical/canonical/collocations/shards/o4065-4096.json"
       },
       {

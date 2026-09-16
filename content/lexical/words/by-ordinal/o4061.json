@@ -35,7 +35,7 @@
         "priority": "A",
         "publication_status": "publishable",
         "shared_definition": null,
-        "source_sense_id": "sense:remark:805f56534db5595f",
+        "source_sense_id": "sense:remark:ef776ae04ac451b6",
         "target_sense_id": null,
         "target_word": null,
         "task_tags": [
@@ -84,7 +84,7 @@
         "priority": "A",
         "publication_status": "publishable",
         "shared_definition": null,
-        "source_sense_id": "sense:remark:805f56534db5595f",
+        "source_sense_id": "sense:remark:ef776ae04ac451b6",
         "target_sense_id": null,
         "target_word": null,
         "task_tags": [
@@ -95,7 +95,7 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "922eac686a688c2420271fe4fb10e9349ad18ff5f2d471cb6774e46642546b53",
+    "content_hash": "63fb29a250b3a57084d28bd24483264abda4fec322bc61b6584d24b1d715c952",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "评论；注意",
@@ -113,11 +113,41 @@
       "deep:deep:constructions:remark:2ec88f9ff943d5b1",
       "deep:deep:constructions:remark:dfa4f6ccd8458abe",
       "deep:deep:word_family:remark:74aec3e1bd6f51fe",
-      "relation:deep:word_family:remark:74aec3e1bd6f51fe"
+      "relation:deep:word_family:remark:74aec3e1bd6f51fe",
+      "semantic-reconciliation:o3875-o4124"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "评论，言论",
+        "definition_en": "a statement expressing an opinion or information",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:remark:cd5888bfedd554dc",
+        "sense_label_en": "a statement expressing an opinion or information",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "评论，说",
+        "definition_en": "to say or write a comment",
+        "governing_pattern": "vi. + on/upon",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:remark:ef776ae04ac451b6",
+        "sense_label_en": "to say or write a comment",
+        "sort_order": 1,
+        "transitivity": "vi"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -229,31 +259,6 @@
       "reference_only": true
     },
     {
-      "stable_sense_id": "sense:remark:cd5888bfedd554dc",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "评论，言论",
-      "definition_en": "a statement expressing an opinion or information",
-      "semantic_key": "a1d0addca3dad25628c45683b7f5f7f5f6965dcd99d11c2ac41be372cbf50600",
-      "semantic_key_history": [
-        "99fa6c7c921f23d9c35bf0453aab12a361a67ff44729d55db753557353ad54f3"
-      ],
-      "legacy_aliases": [
-        "remark:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "remark:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11343,
-      "source_path": "content/lexical/canonical/senses/shards/o4033-4064.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:remark:e5ab76d17a025fe8",
       "status": "merged",
       "merged_into_sense_id": "sense:remark:cd5888bfedd554dc",
@@ -277,31 +282,6 @@
       "source_row": 11344,
       "source_path": "content/lexical/canonical/senses/shards/o4033-4064.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:remark:ef776ae04ac451b6",
-      "status": "merged",
-      "merged_into_sense_id": "sense:remark:cd5888bfedd554dc",
-      "pos": "verb",
-      "definition_cn": "评论，说",
-      "definition_en": "to say or write a comment",
-      "semantic_key": "d6b0d6cbba105f314983a289e2e4c03ae2f6d37ced6138e2b31e813c09eda0b0",
-      "semantic_key_history": [
-        "5d7571c82b6cb4bcc6ac5ef8f407135c336996fe3f87e8ffece2abacc1444fae"
-      ],
-      "legacy_aliases": [
-        "remark:l1:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "remark:l1:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11345,
-      "source_path": "content/lexical/canonical/senses/shards/o4033-4064.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -322,7 +302,7 @@
       },
       {
         "sense_id": "sense:remark:cd5888bfedd554dc",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11343,
         "source_path": "content/lexical/canonical/senses/shards/o4033-4064.json"
@@ -336,8 +316,8 @@
       },
       {
         "sense_id": "sense:remark:ef776ae04ac451b6",
-        "status": "merged",
-        "merged_into_sense_id": "sense:remark:cd5888bfedd554dc",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 11345,
         "source_path": "content/lexical/canonical/senses/shards/o4033-4064.json"
       }

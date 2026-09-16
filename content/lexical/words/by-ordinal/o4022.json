@@ -57,7 +57,7 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "5c6adfebc0612a84cde84001e6e61ef99227d02ea18aa753023a8c37283358e4",
+    "content_hash": "c5cac3df6213a4cb5e839ac0741858fd9e6cb3263603d17ef5e31dde2e69c4a3",
     "core_concept": {
       "core_clusters": [
         {
@@ -90,7 +90,8 @@
     "review_signature": [
       "construction:deep:constructions:refuse:8b4ed1046cf4aaef",
       "deep:deep:constructions:refuse:8b4ed1046cf4aaef",
-      "relation:horizontal:12f6b527103478ac54d2"
+      "relation:horizontal:12f6b527103478ac54d2",
+      "semantic-reconciliation:o3875-o4124"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -160,6 +161,20 @@
         "sense_label_en": "thrown away as worthless",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "废物，垃圾",
+        "definition_en": "waste material",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:refuse:5655724779c9509a",
+        "sense_label_en": "waste material",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -179,7 +194,23 @@
     },
     "word": "refuse",
     "word_family": [],
-    "word_id": "word:refuse"
+    "word_id": "word:refuse",
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o3875-o4124.md",
+      "type": "same_owner_form_pronunciation_boundary",
+      "boundaries": [
+        {
+          "condition": "verb refuse",
+          "pronunciation": "/rɪˈfjuːz/",
+          "note": "decline/reject"
+        },
+        {
+          "condition": "noun refuse",
+          "pronunciation": "/ˈrefjuːs/",
+          "note": "waste/rubbish"
+        }
+      ]
+    }
   },
   "relation_refs": [
     {
@@ -212,31 +243,6 @@
       "source_row": 11233,
       "source_path": "content/lexical/canonical/senses/shards/o4001-4032.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:refuse:5655724779c9509a",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "废物，垃圾",
-      "definition_en": "waste material",
-      "semantic_key": "6c146e25df33ec6dc69f076a45bc24c3ac808338de41de4f111050f166038f12",
-      "semantic_key_history": [
-        "1cf58ed2f354d37e858c14e90c02b1a87f1bbcf3303e14fb4a9659f65cb79139"
-      ],
-      "legacy_aliases": [
-        "refuse:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "refuse:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11236,
-      "source_path": "content/lexical/canonical/senses/shards/o4001-4032.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -264,7 +270,7 @@
       },
       {
         "sense_id": "sense:refuse:5655724779c9509a",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11236,
         "source_path": "content/lexical/canonical/senses/shards/o4001-4032.json"

@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "f7b947b439620867b923cdddd8596ce69df07ecac9ef08b262fc5280a54324b5",
+    "content_hash": "8de56b17a01d00d6df366237e5ad696056c6463a24e66ee13e4c2c1ff38e7753",
     "core_concept": {
       "core_clusters": [
         {
@@ -38,7 +38,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3875-o4124"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -137,6 +139,20 @@
         "sense_label_en": "music composed for dancing a reel",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "卷；绕",
+        "definition_en": "to wind onto a reel",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:reel:5640856fa8565f7c",
+        "sense_label_en": "to wind onto a reel",
+        "sort_order": 4,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -160,31 +176,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:reel:5640856fa8565f7c",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "卷；绕",
-      "definition_en": "to wind onto a reel",
-      "semantic_key": "52800641d95fe94ae024aa0fb9275178473411b1ca9ea63476e7cb9370662889",
-      "semantic_key_history": [
-        "b016627f4b6337fac195622693946ae76da3fb67fdd6a818ca896fae0432584d"
-      ],
-      "legacy_aliases": [
-        "reel:l1:5"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "reel:l1:5",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11194,
-      "source_path": "content/lexical/canonical/senses/shards/o4001-4032.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:reel:f55d4d6d2464502f",
       "status": "deprecated",
@@ -229,7 +220,7 @@
       },
       {
         "sense_id": "sense:reel:5640856fa8565f7c",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11194,
         "source_path": "content/lexical/canonical/senses/shards/o4001-4032.json"

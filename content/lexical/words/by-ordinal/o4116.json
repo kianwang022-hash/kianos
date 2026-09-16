@@ -6,8 +6,18 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "e5ae8f55e543be637f79a7844957e7e070039a9c921c9d8c05cf05e7b4794114",
+    "constructions": [
+      {
+        "construction_id": "construction:1950609c290c999b36d0",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "诉诸；求助于某事",
+        "pattern": "resort to sth",
+        "definition_en": "to turn to something, often as a last option",
+        "source_sense_id": "sense:resort:b7b95371e8575ee7"
+      }
+    ],
+    "content_hash": "26faee01466d6323a4e5cac484a909bd3c7e482ec40e87ef92b08cbcaa6f5d90",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "求助或休闲的场所或手段",
@@ -20,7 +30,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "deep:deep:secondary_senses:resort:f22ac0b06b5afb97"
+      "deep:deep:secondary_senses:resort:f22ac0b06b5afb97",
+      "semantic-reconciliation:o3875-o4124"
     ],
     "secondary_senses": [
       {
@@ -62,7 +73,36 @@
       }
     ],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "度假胜地",
+        "definition_en": "a place where people go for holidays or recreation",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:resort:378a2a6d62915611",
+        "sense_label_en": "a place where people go for holidays or recreation",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "诉诸，求助于",
+        "definition_en": "to turn to something for help or as a last option",
+        "governing_pattern": "vi. + to",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:resort:b7b95371e8575ee7",
+        "sense_label_en": "to turn to something for help or as a last option",
+        "sort_order": 1,
+        "transitivity": "vi"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {
@@ -85,31 +125,6 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:resort:378a2a6d62915611",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "度假胜地",
-      "definition_en": "a place where people go for holidays or recreation",
-      "semantic_key": "0c8e22ecd47fe5722d8e0fb64c7a84502be32bf1e852a63ab49ca44dbbf6d483",
-      "semantic_key_history": [
-        "48e2a9eda6c03ccbf9b2387d23211eea17556c8633b4bc819b4ccc3a2493c50c"
-      ],
-      "legacy_aliases": [
-        "resort:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "resort:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11494,
-      "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:resort:4440ec16f5015ea4",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -131,31 +146,6 @@
       ],
       "updated_at": "2026-09-09T00:00:00Z",
       "source_row": 11495,
-      "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:resort:b7b95371e8575ee7",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "诉诸，求助于",
-      "definition_en": "to turn to something for help or as a last option",
-      "semantic_key": "42c28ddf74795855ac0a87375fb839d6540f82a84600e11d8431f9a786f87d35",
-      "semantic_key_history": [
-        "c6d9a35e86ce3bbf1bb7b6eba9417dee9c358361f9aaeb07a61fcda9181da773"
-      ],
-      "legacy_aliases": [
-        "resort:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "resort:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11496,
       "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json",
       "reference_only": true
     },
@@ -189,7 +179,7 @@
     "senses": [
       {
         "sense_id": "sense:resort:378a2a6d62915611",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11494,
         "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json"
@@ -203,7 +193,7 @@
       },
       {
         "sense_id": "sense:resort:b7b95371e8575ee7",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11496,
         "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json"

@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "aeb56a00f5b925525ed9150ce8250e5689903a42174debaab81c20e1d50ebbcf",
+    "content_hash": "f4f0d747308e27c26dad7f34d0379a85ee7e3c0d3ea8ff7b82c02ca6c760b5bf",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "衰退",
@@ -19,7 +19,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3875-o4124"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -35,6 +37,20 @@
         "sense_id": "sense:recession:19fba8338d3a5b23",
         "sense_label_en": "the act of withdrawing or going back",
         "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "经济衰退",
+        "definition_en": "a period of economic decline",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:recession:6ea70bd1dc775541",
+        "sense_label_en": "a period of economic decline",
+        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -58,33 +74,7 @@
     "word_id": "word:recession"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:recession:6ea70bd1dc775541",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "经济衰退",
-      "definition_en": "a period of economic decline",
-      "semantic_key": "f40465d187e947a18b42f8d79a9ddfbfc2c59b48a88842ac567b6d809a82f166",
-      "semantic_key_history": [
-        "95a3a087878aa743543c373085d7ffe37566e39daa9cfa4b3a600633dc32aea9"
-      ],
-      "legacy_aliases": [
-        "recession:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "recession:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11112,
-      "source_path": "content/lexical/canonical/senses/shards/o3969-4000.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -96,7 +86,7 @@
       },
       {
         "sense_id": "sense:recession:6ea70bd1dc775541",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11112,
         "source_path": "content/lexical/canonical/senses/shards/o3969-4000.json"

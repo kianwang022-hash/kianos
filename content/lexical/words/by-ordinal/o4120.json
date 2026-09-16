@@ -106,7 +106,7 @@
         "writing_safe": false
       }
     ],
-    "content_hash": "924f9486a3b80babd0c915936e40a74c06e701c47e849e26bc5b61636c014473",
+    "content_hash": "1f188731012ead7e1a424c5fe83bc68025da8ce22fd37eb093c4e34c2dbde662",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "回应",
@@ -122,11 +122,27 @@
       "construction:deep:constructions:respond:bf5122317fe42806",
       "construction:deep:constructions:respond:f8ba6338841b2032",
       "deep:deep:constructions:respond:bf5122317fe42806",
-      "deep:deep:constructions:respond:f8ba6338841b2032"
+      "deep:deep:constructions:respond:f8ba6338841b2032",
+      "semantic-reconciliation:o3875-o4124"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "回答；回应",
+        "definition_en": "to say or do something as a reaction to something that has been said or done",
+        "governing_pattern": "vi. + to",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:respond:cba033438d535e3c",
+        "sense_label_en": "to say or do something as a reaction to something that has been said or done",
+        "sort_order": 0,
+        "transitivity": "vi"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 3,
       "deep_modules": {
@@ -146,7 +162,14 @@
     "word_family": [],
     "word_id": "word:respond"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "deep:semantic_contrast:react:404dc4e3debc1ded",
+      "owner_path": "content/lexical/relations/by-id/1e/1e3d342d4523a65a9d967dc81ae9405c4274d5deb1f39d58aa42c6b5a2b0fc3a.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [
     {
       "stable_sense_id": "sense:respond:2a68e2f069d95ddf",
@@ -170,31 +193,6 @@
       ],
       "updated_at": "2026-09-09T00:00:00Z",
       "source_row": 11505,
-      "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:respond:cba033438d535e3c",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "回答；回应",
-      "definition_en": "to say or do something as a reaction to something that has been said or done",
-      "semantic_key": "39f8a750f5a9d84a9e0bf96c59c1dcf37378b262c5d84b55eb5f2e7cec7131d1",
-      "semantic_key_history": [
-        "8c2f5eee8c5d45bb13afffb9a9c04d910eaaf5b4bfd473e5d7d6c504ce9289bc"
-      ],
-      "legacy_aliases": [
-        "respond:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "respond:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11506,
       "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json",
       "reference_only": true
     },
@@ -235,7 +233,7 @@
       },
       {
         "sense_id": "sense:respond:cba033438d535e3c",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11506,
         "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json"
