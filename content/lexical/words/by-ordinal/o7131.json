@@ -5,14 +5,32 @@
   "word": "malign",
   "record": {
     "card_version": "v1",
+    "confusable_note": "malign can be a verb meaning defame or an adjective meaning harmful/evil; malignant is a separate adjective, especially common in medicine for cancerous disease.",
     "confusables": [],
     "constructions": [],
-    "content_hash": "936006053ece911426289bfa4d9173054af66700d79e322394099d2e3aa1c537",
+    "content_hash": "8d17e2006f16514ce70099321bd3f3574ac0639adfd5b82ab083d9abbaa8b8d0",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "有害的, 恶性的, 有恶意的",
-      "core_meaning_en": "evil or harmful in nature or influence",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "有害的；恶毒的；恶性的",
+          "label_en": "harmful, evil, or malevolent in nature or influence",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:malign:c1b2577cdfa35e91"
+          ]
+        },
+        {
+          "label_cn": "诽谤；恶意中伤；说有害或不实的话",
+          "label_en": "to speak about someone in a harmful, unfair, or false way; to defame",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:malign:9c60df349831f267"
+          ]
+        }
+      ],
+      "core_meaning_cn": "有害的；恶毒的；恶性的；诽谤；恶意中伤；说有害或不实的话",
+      "core_meaning_en": "harmful, evil, or malevolent in nature or influence; to speak about someone in a harmful, unfair, or false way; to defame",
+      "mental_model_cn": "有害的；恶毒的；恶性的；诽谤；恶意中伤；说有害或不实的话",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,16 +44,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "有害的, 恶性的, 有恶意的",
-        "definition_en": "evil or harmful in nature or influence",
+        "definition_cn": "有害的；恶毒的；恶性的",
+        "definition_en": "harmful, evil, or malevolent in nature or influence",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L1",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:malign:c1b2577cdfa35e91",
-        "sense_label_en": "evil or harmful in nature or influence",
+        "sense_label_en": "harmful, evil, or malevolent in nature or influence",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -46,6 +64,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "诽谤；恶意中伤；说有害或不实的话",
+        "definition_en": "to speak about someone in a harmful, unfair, or false way; to defame",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:malign:9c60df349831f267",
+        "sense_label_en": "to speak about someone in a harmful, unfair, or false way; to defame",
+        "sort_order": 2,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -70,6 +102,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 18310,
+        "source_path": "content/lexical/canonical/senses/shards/o7105-7136.json"
+      },
+      {
+        "sense_id": "sense:malign:9c60df349831f267",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18333,
         "source_path": "content/lexical/canonical/senses/shards/o7105-7136.json"
       }
     ],
@@ -97,7 +136,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7129-7136.json",
-    "source_content_hash": "936006053ece911426289bfa4d9173054af66700d79e322394099d2e3aa1c537",
+    "source_content_hash": "8d17e2006f16514ce70099321bd3f3574ac0639adfd5b82ab083d9abbaa8b8d0",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
