@@ -6,13 +6,30 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "d08dcf381143bda517ce532fd043f971da288fc015621387cfa9f7b829f26733",
+    "constructions": [
+      {
+        "construction_id": "construction:05cffb57e66fd4c9b38c",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "对某事/做某事的厌恶或强烈不愿",
+        "pattern": "an aversion to sth/doing sth"
+      }
+    ],
+    "content_hash": "a074716d01256267997f7a4ad5751503bed9c9fb90fd3c13d71cb01301d0cc33",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "厌恶, 讨厌的事, 讨厌的人",
-      "core_meaning_en": "the act of turning yourself (or your gaze) away",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "厌恶；反感；强烈不愿",
+          "label_en": "a strong dislike of, opposition to, or reluctance toward something",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:aversion:a564c6a7be1fe2ac"
+          ]
+        }
+      ],
+      "core_meaning_cn": "厌恶；反感；强烈不愿",
+      "core_meaning_en": "a strong dislike of, opposition to, or reluctance toward something",
+      "mental_model_cn": "厌恶；反感；强烈不愿",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -31,7 +48,7 @@
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L1",
+        "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:aversion:3f7f8987e7425705",
@@ -45,7 +62,22 @@
             "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
             "source_type": "learner_dictionary"
           }
-        ]
+        ],
+        "usage_note": "Literal turning-away sense is uncommon and secondary."
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "厌恶；反感；强烈不愿",
+        "definition_en": "a strong dislike of, opposition to, or reluctance toward something",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:aversion:a564c6a7be1fe2ac",
+        "sense_label_en": "a strong dislike of, opposition to, or reluctance toward something",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -70,6 +102,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 17089,
+        "source_path": "content/lexical/canonical/senses/shards/o6369-6400.json"
+      },
+      {
+        "sense_id": "sense:aversion:a564c6a7be1fe2ac",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 17100,
         "source_path": "content/lexical/canonical/senses/shards/o6369-6400.json"
       }
     ],
@@ -97,7 +136,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6393-6400.json",
-    "source_content_hash": "d08dcf381143bda517ce532fd043f971da288fc015621387cfa9f7b829f26733",
+    "source_content_hash": "a074716d01256267997f7a4ad5751503bed9c9fb90fd3c13d71cb01301d0cc33",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

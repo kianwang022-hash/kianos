@@ -6,8 +6,25 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "33b65fea5a6f6bd0069eee6463a2aacf387a3cd842aab3fe31e4dc27abbcc244",
+    "constructions": [
+      {
+        "construction_id": "construction:3eba7ddbc05300e052a5",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "授权某人做某事",
+        "pattern": "authorize sb to do sth",
+        "source_sense_id": "sense:authorize:0f78e38a297f5907"
+      },
+      {
+        "construction_id": "construction:0debaf5f1c9e1cd23b39",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "批准、授权某事",
+        "pattern": "authorize sth",
+        "source_sense_id": "sense:authorize:0f78e38a297f5907"
+      }
+    ],
+    "content_hash": "f4f363db904c1532e5827e6c931293f39f718aeff2fcde781030afda9f3d2920",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "授权, 批准, 委托",
@@ -16,6 +33,22 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o6375-o6874.md",
+      "boundaries": [
+        {
+          "condition": "common AmE spelling",
+          "note": "Authorize is the common American spelling.",
+          "surface": "authorize"
+        },
+        {
+          "condition": "common BrE spelling",
+          "note": "Authorise is the common British spelling of the same verb.",
+          "surface": "authorise"
+        }
+      ],
+      "type": "regional_spelling_variant"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -87,6 +120,14 @@
   },
   "lookup_refs": [
     {
+      "spelling": "authorise",
+      "source": "content/lexical/canonical/lookup/spelling/au.json",
+      "word_id": "word:authorize",
+      "ordinal": 6391,
+      "word_shard": "content/lexical/canonical/words/shards/o6385-6392.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/c3.json"
+    },
+    {
       "spelling": "authorize",
       "source": "content/lexical/canonical/lookup/spelling/au.json",
       "word_id": "word:authorize",
@@ -97,7 +138,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6385-6392.json",
-    "source_content_hash": "33b65fea5a6f6bd0069eee6463a2aacf387a3cd842aab3fe31e4dc27abbcc244",
+    "source_content_hash": "f4f363db904c1532e5827e6c931293f39f718aeff2fcde781030afda9f3d2920",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
