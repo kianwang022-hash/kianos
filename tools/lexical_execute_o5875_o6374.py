@@ -80,7 +80,6 @@ def ensure_relation(store,o,op,relation_ids):
     t=int(op.get('target_ordinal') or find_word_ordinal(store,op['target_word']))
     target_word=word(store,t)
     field=op.get('field','semantic_neighbors')
-    # Reuse an existing unique embedded relation when one exists on either side.
     candidates=[]
     for so,tw in ((o,target_word),(t,word(store,o))):
         for fld in ('semantic_neighbors','confusables'):
@@ -140,11 +139,11 @@ def apply_op(store,o,op,sense_touched,explicit_core,relation_ids):
 
 def validate_manifest():
     src=source_set(); patches=load_patches(); keys=set(patches)
-    if len(src)!=241: raise RuntimeError(f'SOURCE_COUNT_DRIFT {len(src)}')
+    if len(src)!=257: raise RuntimeError(f'SOURCE_COUNT_DRIFT {len(src)}')
     if keys!=src: raise RuntimeError(f'MANIFEST_COVERAGE_DRIFT missing={sorted(src-keys)} extra={sorted(keys-src)}')
     for o,row in patches.items():
         if not row.get('ops'): raise RuntimeError(f'EMPTY_PATCH o{o:04d}')
-    return {'sources':241,'patches':len(keys),'manifest_files':len(list(MANIFEST_DIR.glob("*.json")))}
+    return {'sources':257,'patches':len(keys),'manifest_files':len(list(MANIFEST_DIR.glob("*.json")))}
 
 def checkpoint_sources(i):
     lo=5875+50*i; hi=lo+49; return lo,hi,tuple(sorted(o for o in source_set() if lo<=o<=hi))
@@ -166,7 +165,6 @@ def apply_checkpoint(i):
         if rid in relations: natural_owner.dump_json(natural_owner.relation_owner_path(rid),relations[rid])
     out_remote=sorted(o for o in changed if not(PACKAGE[0]<=o<=PACKAGE[1]))
     if set(out_remote)-REMOTE_ALLOWED: raise RuntimeError(f'UNAUTHORIZED_REMOTE_WORD_WRITE {out_remote}')
-    # Byte guard every genuine non-source package owner in this 50-owner interval.
     bad=[]
     for o in range(lo,hi+1):
         if o in source_set(): continue
