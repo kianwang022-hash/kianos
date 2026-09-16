@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
   pull_request:
     paths:
+      - 'content/xizong/CURRENT.md'
       - 'content/xizong/LEARNER_OBJECT_CONTRACT.md'
       - 'static-web/package.json'
       - 'static-web/src/lib/xizongLearnerObject.mjs'
@@ -16,6 +17,7 @@ on:
       - 'static-web/src/components/XizongLearnerObjectBridge.astro'
       - 'static-web/src/pages/xizong/[system]/[block].astro'
       - 'static-web/scripts/validate-xizong-learner-object.mjs'
+      - 'static-web/scripts/validate-xizong-production-projection.mjs'
       - '.github/workflows/xizong-asset-closure.yml'
 
 permissions:
@@ -38,5 +40,7 @@ jobs:
         run: npm install --no-audit --no-fund
       - name: Validate unified learner object
         run: npm run validate:xizong-learner-object
+      - name: Validate production composition path
+        run: npm run validate:xizong-production
       - name: Build Astro
         run: npm run build
