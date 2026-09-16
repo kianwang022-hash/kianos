@@ -7,10 +7,10 @@ const labels = {cause:'起因',cause_layers:'原因层次',process:'发展过程
   <div class="compiledPrimary">
     {projection.primary.map(item => <article class={`compiledObject role-${item.role}`}>
       {labels[item.role] && <h3>{labels[item.role]}</h3>}
-      <Value value={item.value} />
+      <Value value={item.value} emphasizeLabels={['current_structure', 'current_owned_structure', 'identity_hierarchy'].includes(item.role)} />
     </article>)}
   </div>
-  {projection.secondary.length > 0 && <div class="compiledSecondary">{projection.secondary.map(item => <article class={`compiledObject role-${item.role}`}><h3>{labels[item.role] || '进一步判断'}</h3><Value value={item.value} /></article>)}</div>}
+  {projection.secondary.length > 0 && <div class="compiledSecondary">{projection.secondary.map(item => <article class={`compiledObject role-${item.role}`}><h3>{labels[item.role] || '进一步判断'}</h3><Value value={item.value} emphasizeLabels={['current_structure', 'current_owned_structure', 'identity_hierarchy'].includes(item.role)} /></article>)}</div>}
   {projection.boundaries.length > 0 && <aside class="compiledBoundaries"><h3>分清边界</h3>{projection.boundaries.map(value => <Value value={value} />)}</aside>}
   {projection.takeaway.length > 0 && <section class="compiledTakeaway"><h3>这一段带走</h3>{projection.takeaway.map(value => <Value value={value} />)}</section>}
   {projection.exact.length > 0 && <section class="compiledExact"><h3>精确表述</h3>{projection.exact.map(value => <Value value={value} />)}</section>}
