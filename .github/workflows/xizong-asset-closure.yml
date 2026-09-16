@@ -1,0 +1,35 @@
+name: Xizong Asset Closure
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'content/xizong/LEARNER_OBJECT_CONTRACT.md'
+      - 'static-web/src/lib/xizongLearnerObject.mjs'
+      - 'static-web/src/components/XizongLearnerObjectBridge.astro'
+      - 'static-web/src/pages/xizong/[system]/[block].astro'
+      - 'static-web/scripts/validate-xizong-learner-object.mjs'
+      - '.github/workflows/xizong-asset-closure.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  learner-object-closure:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: static-web
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Validate unified learner object
+        run: node scripts/validate-xizong-learner-object.mjs
+      - name: Build Astro
+        run: npm run build
