@@ -81,7 +81,8 @@ try {
   check(Object.keys(state?.ratings || {}).length === 0, 'source_contact_is_not_recall_mastery');
   check(state?.completed !== true, 'source_contact_is_not_block_completion');
 
-  let ratedTotal = 0;
+  const ratedKpIds = new Set();
+  let ratingActions = 0;
   let fuzzyKpId = '';
   for (let groupIndex = 0; groupIndex < groupCount; groupIndex += 1) {
     check(await visibleStage() === 'logic_group', 'logic_group_orientation_reached', `${groupIndex + 1}/${groupCount}`);
@@ -97,10 +98,11 @@ try {
       check(Boolean(kpId), 'visible_recall_card_has_real_kp', kpId || '');
       const reveal = card.locator('[data-kp-reveal]:visible');
       if (await reveal.count()) await reveal.click();
-      const rating = fuzzyKpId ? 'known' : 'fuzzy';
+      const rating = !fuzzyKpId ? 'fuzzy' : kpId === fuzzyKpId ? 'fuzzy' : 'known';
       await card.locator(`[data-rating="${rating}"]`).click();
       if (!fuzzyKpId) fuzzyKpId = kpId || '';
-      ratedTotal += 1;
+      ratedKpIds.add(kpId || '');
+      ratingActions += 1;
       await page.waitForTimeout(170);
     }
     check(safety <= totalKp + 5, 'recall_loop_terminated', `${groupIndex + 1}/${groupCount}`);
@@ -113,7 +115,7 @@ try {
 
   check(await visibleStage() === 'block_recall', 'all_logic_groups_flow_into_block_recall');
   state = await readState();
-  check(ratedTotal === totalKp, 'every_kp_received_real_recall_evidence', `${ratedTotal}/${totalKp}`);
+  check(ratedKpIds.size === totalKp, 'every_unique_kp_received_real_recall_evidence', `${ratedKpIds.size}/${totalKp};actions=${ratingActions}`);
   check(Object.keys(state?.ratings || {}).length === totalKp, 'all_recall_ratings_persisted', `${Object.keys(state?.ratings || {}).length}/${totalKp}`);
   check(state?.ratings?.[fuzzyKpId] === 'fuzzy', 'journey_preserves_nonmastered_first_pass_evidence', fuzzyKpId);
   check(state?.blockRecallDone !== true, 'block_recall_not_precompleted');
@@ -149,10 +151,12 @@ try {
   report.source_contact_mode = await root.getAttribute('data-source-contact-mode');
   report.logic_groups = groupCount;
   report.total_kp = totalKp;
+  report.unique_rated_kp = ratedKpIds.size;
+  report.rating_actions = ratingActions;
   report.fuzzy_kp = fuzzyKpId;
   fs.mkdirSync(path.dirname(reportPath), { recursive: true });
   fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);
-  console.log(`XIZONG_GOLDEN_JOURNEY PASS | groups=${groupCount} | KP=${totalKp} | fuzzy=${fuzzyKpId} | checks=${report.checks.length}`);
+  console.log(`XIZONG_GOLDEN_JOURNEY PASS | groups=${groupCount} | KP=${totalKp} | retrieval-actions=${ratingActions} | fuzzy=${fuzzyKpId} | checks=${report.checks.length}`);
 } catch (error) {
   report.completed_at = new Date().toISOString();
   report.status = 'FAIL';
