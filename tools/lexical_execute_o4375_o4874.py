@@ -95,7 +95,7 @@ def preflight(output: Path) -> None:
     }
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"PREFLIGHT_PASS identity_owners={len(owners)} sources={len(SOURCE_OWNERS)} remotes={len(REMOTE_WORDS)} output={output.relative_to(ROOT)}")
+    print(f"PREFLIGHT_PASS identity_owners={len(owners)} sources={len(SOURCE_OWNERS)} remotes={len(REMOTE_WORDS)} output={output}")
 
 
 def main() -> None:
