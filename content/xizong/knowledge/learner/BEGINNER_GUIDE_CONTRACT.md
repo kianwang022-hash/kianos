@@ -4,7 +4,8 @@ Status: **CURRENT**
 Scope: `content/xizong/knowledge/learner/*-guide.md`  
 Parent authority: `content/xizong/LEARNING_CONTRACT.md`  
 Medical truth owners: Current `content/xizong/knowledge/systems/**/system.json` + canonical Block Markdown  
-Learning-route owners: Current System-specific `*-learning.json` + `study-policy.json`
+Learning-route owners: Current System-specific `*-learning.json` + `study-policy.json`  
+Current Guide path resolver: `content/xizong/knowledge/learner/guide-bindings.json`
 
 ## 1｜Why this layer exists
 
@@ -64,6 +65,23 @@ Minimum inputs:
 4. `content/xizong/LEARNING_CONTRACT.md` and `study-policy.json` for shared learning semantics.
 
 A Beginner Guide must not become the owner of those inputs merely because it explains them more fluently.
+
+### Current path resolution
+
+`guide-bindings.json` is the Current explanatory-Guide path resolver for systems explicitly listed there.
+
+For A1 / A2 / A3 / B:
+
+```text
+guide-bindings.json
+→ Current learner/*-guide.md
+```
+
+wins over any historical `system_fields.*.guide_path` value that still appears in older shared projection metadata.
+
+That precedence only resolves **which explanation asset is Current**. It does not elevate the Guide above `system.json`, Block Core or accepted learning owners.
+
+Systems not explicitly migrated in `guide-bindings.json` must follow their own Current / transitional System-level resolution. Do not infer a symmetric migration for C / D / E / F.
 
 ## 4｜Bounded historical provenance rule
 
@@ -131,6 +149,8 @@ System Beginner Guide
 
 Do **not** reinterpret this as “one Source trip per Logic Group”. Source-contact granularity stays with the accepted System learning owner and `LEARNING_CONTRACT.md`.
 
+Explicit Block pre-entry extraction and typing are governed by `BLOCK_PREENTRY_CONTENT_CONTRACT.md`; the Beginner Guide may explain those jobs but does not own their membership.
+
 ## 7｜Framework and Memory Routing are distinct content jobs
 
 ### Framework
@@ -155,11 +175,15 @@ Memory Routing is the Current content decision that routes explicit items betwee
 
 Projection / Runtime may consume these semantics later, but they may not invent them.
 
+The normative extraction boundary for these four jobs is `BLOCK_PREENTRY_CONTENT_CONTRACT.md`.
+
 ## 8｜Projection boundary
 
 A Beginner Guide is eligible for future `SYSTEM_GUIDE` projection consumption, but adding this content asset alone does **not** claim Runtime adoption.
 
 Likewise, a Block Framework / MI-G / MI-D / Memory Routing section existing in canonical content does not mean current Projection already exposes it. Projection exit must be audited separately and fail closed when the Current owner has no explicit asset.
+
+`guide-bindings.json` is content-path resolution only; it does not itself modify `SYSTEM_GUIDE` Projection or the Astro semantic adapter.
 
 ## 9｜Acceptance rule
 
