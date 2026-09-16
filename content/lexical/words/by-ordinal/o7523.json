@@ -7,15 +7,48 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "16e16b59e27bb67daaabe5681c6f21ce9c9ced94ecd5580d69d2892898ec1eaf",
+    "content_hash": "ae32c83aebd80c2592601ce76547a5b1d0c20af244993631c328de2a552f1d23",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "止住, 止血",
-      "core_meaning_en": "stop the flow of a liquid",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "止住；阻止血液或其他液体流出",
+          "label_en": "to stop or check the flow of blood or another liquid",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:staunch:6ac6a4c48dd256e6"
+          ]
+        },
+        {
+          "label_cn": "忠诚坚定的；可靠的；坚定支持某人或信念的",
+          "label_en": "loyal, firm, dependable, and strongly committed in support or belief",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:staunch:25653bc36ebc5667"
+          ]
+        }
+      ],
+      "core_meaning_cn": "止住；阻止血液或其他液体流出；忠诚坚定的；可靠的；坚定支持某人或信念的",
+      "core_meaning_en": "to stop or check the flow of blood or another liquid; loyal, firm, dependable, and strongly committed in support or belief",
+      "mental_model_cn": "止住；阻止血液或其他液体流出；忠诚坚定的；可靠的；坚定支持某人或信念的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o7375-o7874.md",
+      "boundaries": [
+        {
+          "condition": "ordinary adjective and accepted verb spelling",
+          "note": "Staunch is the ordinary adjective meaning loyal/firm and can also spell the flow-stopping verb.",
+          "surface": "staunch"
+        },
+        {
+          "condition": "flow-stopping verb only",
+          "note": "Stanch is a spelling variant of the verb meaning stop a flow; it is not a variant of the loyal adjective.",
+          "surface": "stanch"
+        }
+      ],
+      "type": "bounded_spelling_variant"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -26,16 +59,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "止住, 止血",
-        "definition_en": "stop the flow of a liquid",
+        "definition_cn": "止住；阻止血液或其他液体流出",
+        "definition_en": "to stop or check the flow of blood or another liquid",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L1",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:staunch:6ac6a4c48dd256e6",
-        "sense_label_en": "stop the flow of a liquid",
+        "sense_label_en": "to stop or check the flow of blood or another liquid",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -50,16 +83,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "坚固的, 坚强的, 忠实的, 忠诚的, 不透水的",
-        "definition_en": "firm and dependable especially in loyalty",
+        "definition_cn": "忠诚坚定的；可靠的；坚定支持某人或信念的",
+        "definition_en": "loyal, firm, dependable, and strongly committed in support or belief",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:staunch:25653bc36ebc5667",
-        "sense_label_en": "firm and dependable especially in loyalty",
+        "sense_label_en": "loyal, firm, dependable, and strongly committed in support or belief",
         "sort_order": 2,
         "source_evidence": [
           {
@@ -118,6 +151,14 @@
   },
   "lookup_refs": [
     {
+      "spelling": "stanch",
+      "source": "content/lexical/canonical/lookup/spelling/st.json",
+      "word_id": "word:staunch",
+      "ordinal": 7523,
+      "word_shard": "content/lexical/canonical/words/shards/o7521-7528.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/c9.json"
+    },
+    {
       "spelling": "staunch",
       "source": "content/lexical/canonical/lookup/spelling/st.json",
       "word_id": "word:staunch",
@@ -128,7 +169,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7521-7528.json",
-    "source_content_hash": "16e16b59e27bb67daaabe5681c6f21ce9c9ced94ecd5580d69d2892898ec1eaf",
+    "source_content_hash": "ae32c83aebd80c2592601ce76547a5b1d0c20af244993631c328de2a552f1d23",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

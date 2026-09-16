@@ -6,13 +6,40 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "eb970bc8f0bed8654377d0b8aad740945214afccbde40e29aa83bbe161eba1fe",
+    "constructions": [
+      {
+        "construction_id": "construction:7b9771437c92e1d7faaa",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "一点……也没有；毫无……",
+        "pattern": "not a shred of sth",
+        "source_sense_id": "sense:shred:948516d99da350b1"
+      }
+    ],
+    "content_hash": "e8881c37e7470c9cac12411f7ab2ae70600323fb2a441ed600f1f24189261c67",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "碎布条, 细片, 少量",
-      "core_meaning_en": "a tiny or scarcely detectable amount",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "（比喻）一点；一丝；极少量；碎条；碎片；从某物上撕下或切下的细条、小片",
+          "label_en": "figurative: a very small amount or trace of something; a thin strip, torn piece, or small fragment cut or ripped from something",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:shred:948516d99da350b1",
+            "sense:shred:d3eda7fc93e7a44f"
+          ]
+        },
+        {
+          "label_cn": "撕碎；切成细条或小碎片",
+          "label_en": "to tear or cut something into thin strips or small fragments",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:shred:4a80b5f9e472501a"
+          ]
+        }
+      ],
+      "core_meaning_cn": "（比喻）一点；一丝；极少量；撕碎；切成细条或小碎片；碎条；碎片；从某物上撕下或切下的细条、小片",
+      "core_meaning_en": "figurative: a very small amount or trace of something; to tear or cut something into thin strips or small fragments; a thin strip, torn piece, or small fragment cut or ripped from something",
+      "mental_model_cn": "（比喻）一点；一丝；极少量；撕碎；切成细条或小碎片；碎条；碎片；从某物上撕下或切下的细条、小片",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,16 +53,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "碎布条, 细片, 少量",
-        "definition_en": "a tiny or scarcely detectable amount",
+        "definition_cn": "（比喻）一点；一丝；极少量",
+        "definition_en": "figurative: a very small amount or trace of something",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L1",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:shred:948516d99da350b1",
-        "sense_label_en": "a tiny or scarcely detectable amount",
+        "sense_label_en": "figurative: a very small amount or trace of something",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -50,16 +77,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "撕碎",
-        "definition_en": "tear into shreds",
+        "definition_cn": "撕碎；切成细条或小碎片",
+        "definition_en": "to tear or cut something into thin strips or small fragments",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:shred:4a80b5f9e472501a",
-        "sense_label_en": "tear into shreds",
+        "sense_label_en": "to tear or cut something into thin strips or small fragments",
         "sort_order": 2,
         "source_evidence": [
           {
@@ -70,6 +97,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "碎条；碎片；从某物上撕下或切下的细条、小片",
+        "definition_en": "a thin strip, torn piece, or small fragment cut or ripped from something",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:shred:d3eda7fc93e7a44f",
+        "sense_label_en": "a thin strip, torn piece, or small fragment cut or ripped from something",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -102,6 +143,13 @@
         "merged_into_sense_id": null,
         "source_row": 18889,
         "source_path": "content/lexical/canonical/senses/shards/o7457-7488.json"
+      },
+      {
+        "sense_id": "sense:shred:d3eda7fc93e7a44f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18921,
+        "source_path": "content/lexical/canonical/senses/shards/o7457-7488.json"
       }
     ],
     "active_collocations": [],
@@ -128,7 +176,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7465-7472.json",
-    "source_content_hash": "eb970bc8f0bed8654377d0b8aad740945214afccbde40e29aa83bbe161eba1fe",
+    "source_content_hash": "e8881c37e7470c9cac12411f7ab2ae70600323fb2a441ed600f1f24189261c67",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

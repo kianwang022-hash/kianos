@@ -6,16 +6,50 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "abcf58ebe2a665593b3e9aed2f89557900f7efb82ab81eaa8c79444785b29dda",
+    "constructions": [
+      {
+        "construction_id": "construction:f04d207de5ec68affd29",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "假设……；对某事提出假说或暂时性解释",
+        "pattern": "hypothesize that ... / about sth",
+        "source_sense_id": "sense:hypothesize:653bb6a8b65f57a2"
+      }
+    ],
+    "content_hash": "0bb8347288d0b25f3362184cba7571a47c44f2eeaee97a6ef8f5d59fe54991a3",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "提出假设；假定",
-      "core_meaning_en": "to suppose or believe something on uncertain or tentative grounds",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "提出假设；形成或陈述可供讨论、检验的暂时性解释",
+          "label_en": "to form, propose, or state a hypothesis or tentative explanation that can be considered or tested",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:hypothesize:653bb6a8b65f57a2"
+          ]
+        }
+      ],
+      "core_meaning_cn": "提出假设；形成或陈述可供讨论、检验的暂时性解释",
+      "core_meaning_en": "to form, propose, or state a hypothesis or tentative explanation that can be considered or tested",
+      "mental_model_cn": "提出假设；形成或陈述可供讨论、检验的暂时性解释",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o7375-o7874.md",
+      "boundaries": [
+        {
+          "condition": "common AmE spelling",
+          "note": "Common American spelling.",
+          "surface": "hypothesize"
+        },
+        {
+          "condition": "common BrE spelling",
+          "note": "Common British spelling of the same verb.",
+          "surface": "hypothesise"
+        }
+      ],
+      "type": "regional_spelling_variant"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -26,8 +60,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "提出假设；假定",
-        "definition_en": "to suppose or believe something on uncertain or tentative grounds",
+        "definition_cn": "提出假设；形成或陈述可供讨论、检验的暂时性解释",
+        "definition_en": "to form, propose, or state a hypothesis or tentative explanation that can be considered or tested",
         "depth": "full_card",
         "domain_tag": "academic_awl",
         "frequency_tag": "academic_awl",
@@ -35,7 +69,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:hypothesize:653bb6a8b65f57a2",
-        "sense_label_en": "to suppose or believe something on uncertain or tentative grounds",
+        "sense_label_en": "to form, propose, or state a hypothesis or tentative explanation that can be considered or tested",
         "sort_order": 0,
         "source_evidence": [
           {
@@ -94,6 +128,14 @@
   },
   "lookup_refs": [
     {
+      "spelling": "hypothesise",
+      "source": "content/lexical/canonical/lookup/spelling/hy.json",
+      "word_id": "word:hypothesize",
+      "ordinal": 7795,
+      "word_shard": "content/lexical/canonical/words/shards/o7793-7800.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/ef.json"
+    },
+    {
       "spelling": "hypothesize",
       "source": "content/lexical/canonical/lookup/spelling/hy.json",
       "word_id": "word:hypothesize",
@@ -104,7 +146,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7793-7800.json",
-    "source_content_hash": "abcf58ebe2a665593b3e9aed2f89557900f7efb82ab81eaa8c79444785b29dda",
+    "source_content_hash": "0bb8347288d0b25f3362184cba7571a47c44f2eeaee97a6ef8f5d59fe54991a3",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

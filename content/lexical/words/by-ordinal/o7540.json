@@ -7,12 +7,21 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "58f098f0d5952f22ea2de76afc5df7c0452134b34663d5160b9a4acbcd45a648",
+    "content_hash": "c7cec94a5868c32c5eee36ced51cfb4eb6e2b9b84f34b9ac5144790ff26c32de",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "有帮助的, 有用的, 奉承的",
-      "core_meaning_en": "compliant and obedient to authority",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "卑躬屈膝的；过分顺从、甘愿服从或服务于他人利益的",
+          "label_en": "excessively willing to obey, serve, or submit to another person or to another's interests",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:subservient:08486b0fd9b1508e"
+          ]
+        }
+      ],
+      "core_meaning_cn": "卑躬屈膝的；过分顺从、甘愿服从或服务于他人利益的",
+      "core_meaning_en": "excessively willing to obey, serve, or submit to another person or to another's interests",
+      "mental_model_cn": "卑躬屈膝的；过分顺从、甘愿服从或服务于他人利益的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +31,24 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "卑躬屈膝的；过分顺从、甘愿服从或服务于他人利益的",
+        "definition_en": "excessively willing to obey, serve, or submit to another person or to another's interests",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "register": "negative",
+        "sense_id": "sense:subservient:08486b0fd9b1508e",
+        "sense_label_en": "excessively willing to obey, serve, or submit to another person or to another's interests",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
+    "usage_note": "subservient is normally negative: subordinate, servile, or excessively obedient rather than neutrally cooperative.",
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -37,31 +63,12 @@
     "word_id": "word:subservient"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:subservient:08486b0fd9b1508e",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "有帮助的, 有用的, 奉承的",
-      "definition_en": "compliant and obedient to authority",
-      "semantic_key": "5927e0fb4c82afa1f011ff467d0c100159014d7c5977852772e97a9f279b25e5",
-      "semantic_key_history": [
-        "e1df40085ff51a7803eab2fa763a22b00164759f1cc1effd2239ce8dca6fcb94"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 19012,
-      "source_path": "content/lexical/canonical/senses/shards/o7521-7552.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:subservient:08486b0fd9b1508e",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 19012,
         "source_path": "content/lexical/canonical/senses/shards/o7521-7552.json"
@@ -91,7 +98,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7537-7544.json",
-    "source_content_hash": "58f098f0d5952f22ea2de76afc5df7c0452134b34663d5160b9a4acbcd45a648",
+    "source_content_hash": "c7cec94a5868c32c5eee36ced51cfb4eb6e2b9b84f34b9ac5144790ff26c32de",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

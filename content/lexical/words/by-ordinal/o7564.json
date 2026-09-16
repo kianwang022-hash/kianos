@@ -7,15 +7,42 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "ea37aadcfb2d72cde18a69b4c01f039e22d2a6d11d3da83bfdae8513a16f6536",
+    "content_hash": "bd108f918bcc0b6f1df95e30964ae93f2b9cb290adb676bf9e315cd9786e92ff",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "使同步, 使合拍",
-      "core_meaning_en": "make synchronous and adjust in time or manner",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "使同步；使多个事物同时发生、运动或以相同节奏运行；使同步, 使合拍；同步发生；协调一致地同时进行",
+          "label_en": "to make two or more things happen, move, or operate at the same time or rate; make (motion picture sound) exactly simultaneous with the action; to happen at the same time or in a coordinated way",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:synchronize:56ad2504472a55a1",
+            "sense:synchronize:9bf17887464d55e6",
+            "sense:synchronize:9b2810f0eaee5727"
+          ]
+        }
+      ],
+      "core_meaning_cn": "使同步；使多个事物同时发生、运动或以相同节奏运行；使同步, 使合拍；同步发生；协调一致地同时进行",
+      "core_meaning_en": "to make two or more things happen, move, or operate at the same time or rate; make (motion picture sound) exactly simultaneous with the action; to happen at the same time or in a coordinated way",
+      "mental_model_cn": "使同步；使多个事物同时发生、运动或以相同节奏运行；使同步, 使合拍；同步发生；协调一致地同时进行",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o7375-o7874.md",
+      "boundaries": [
+        {
+          "condition": "common AmE spelling",
+          "note": "Common American spelling.",
+          "surface": "synchronize"
+        },
+        {
+          "condition": "common BrE spelling",
+          "note": "Common British spelling of the same verb.",
+          "surface": "synchronise"
+        }
+      ],
+      "type": "regional_spelling_variant"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -26,8 +53,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "使同步, 使合拍",
-        "definition_en": "make synchronous and adjust in time or manner",
+        "definition_cn": "使同步；使多个事物同时发生、运动或以相同节奏运行",
+        "definition_en": "to make two or more things happen, move, or operate at the same time or rate",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
@@ -35,7 +62,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:synchronize:56ad2504472a55a1",
-        "sense_label_en": "make synchronous and adjust in time or manner",
+        "sense_label_en": "to make two or more things happen, move, or operate at the same time or rate",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -58,6 +85,7 @@
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
+        "register": "film/media",
         "sense_id": "sense:synchronize:9bf17887464d55e6",
         "sense_label_en": "make (motion picture sound) exactly simultaneous with the action",
         "sort_order": 2,
@@ -74,16 +102,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "使同步, 使合拍",
-        "definition_en": "happen at the same time",
+        "definition_cn": "同步发生；协调一致地同时进行",
+        "definition_en": "to happen at the same time or in a coordinated way",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L3",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:synchronize:9b2810f0eaee5727",
-        "sense_label_en": "happen at the same time",
+        "sense_label_en": "to happen at the same time or in a coordinated way",
         "sort_order": 3,
         "source_evidence": [
           {
@@ -149,6 +177,14 @@
   },
   "lookup_refs": [
     {
+      "spelling": "synchronise",
+      "source": "content/lexical/canonical/lookup/spelling/sy.json",
+      "word_id": "word:synchronize",
+      "ordinal": 7564,
+      "word_shard": "content/lexical/canonical/words/shards/o7561-7568.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/e8.json"
+    },
+    {
       "spelling": "synchronize",
       "source": "content/lexical/canonical/lookup/spelling/sy.json",
       "word_id": "word:synchronize",
@@ -159,7 +195,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7561-7568.json",
-    "source_content_hash": "ea37aadcfb2d72cde18a69b4c01f039e22d2a6d11d3da83bfdae8513a16f6536",
+    "source_content_hash": "bd108f918bcc0b6f1df95e30964ae93f2b9cb290adb676bf9e315cd9786e92ff",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

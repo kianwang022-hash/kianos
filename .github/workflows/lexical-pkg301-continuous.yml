@@ -1,0 +1,63 @@
+name: Lexical pkg301 continuous execution
+
+on:
+  push:
+    branches:
+      - lexical/pkg301-exec
+    paths:
+      - 'tools/lexical_execute_o7375_o7874.py'
+      - 'tools/lexical_package_runtime.py'
+      - 'content/lexical/execution/manifests/o7375-o7874/**'
+      - '.github/workflows/lexical-pkg301-continuous.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lexical-pkg301-continuous
+  cancel-in-progress: false
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    env:
+      KIANOS_BASELINE_MAIN: 0652268f73129395ec925c29e6be323ef2119624
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: lexical/pkg301-exec
+          fetch-depth: 0
+      - name: Validate manifest
+        run: |
+          python -m py_compile tools/lexical_execute_o7375_o7874.py tools/lexical_package_runtime.py
+          python tools/lexical_execute_o7375_o7874.py --validate-manifest
+      - name: Execute from durable receipts
+        run: |
+          set -euo pipefail
+          git config user.name Kian
+          git config user.email kianwang022@gmail.com
+          ranges=(7375-7424 7425-7474 7475-7524 7525-7574 7575-7624 7625-7674 7675-7724 7725-7774 7775-7824 7825-7874)
+          for i in $(seq 0 9); do
+            r=${ranges[$i]}
+            receipt="content/lexical/execution/receipts/o${r%-*}-o${r#*-}.json"
+            if [ -f "$receipt" ]; then
+              echo "RESUME_SKIP checkpoint=$i range=$r"
+              continue
+            fi
+            echo "EXECUTE checkpoint=$i range=$r"
+            python tools/lexical_execute_o7375_o7874.py --checkpoint "$i"
+            python tools/test_lexical_transport_guards.py
+            python tools/test_lexical_shard.py
+            python - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          changed=subprocess.check_output(['git','diff','--name-only','HEAD'],text=True).splitlines()
+          targets=[p for p in changed if p.startswith('content/lexical/') and p.endswith('.json') and Path(p).exists()]
+          for p in targets: json.loads(Path(p).read_text(encoding='utf-8'))
+          print('CHECKPOINT_JSON_PASS',len(targets))
+          PY
+            git add content/lexical
+            git commit -m "lexical: execute o${r%-*}-o${r#*-} internal receipt [skip ci]"
+            git push origin HEAD:lexical/pkg301-exec
+          done

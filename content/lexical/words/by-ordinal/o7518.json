@@ -6,13 +6,39 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "57cecb6c6e68b13aa458ab2d76d7b0a2ecf2727a5fb531f06463013db8a35fda",
+    "constructions": [
+      {
+        "construction_id": "construction:2f1f46fd1408c423ecea",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "勉强通过、险胜或擦边成功",
+        "pattern": "squeak through/by"
+      }
+    ],
+    "content_hash": "7d62e74faaedc0b4040924c3f45bb85d84041369d6eaa8d0914e39be569c7472",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "吱吱声, 侥幸",
-      "core_meaning_en": "a short high-pitched noise",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "吱的一声；短促尖细的高音",
+          "label_en": "a short, sharp, high-pitched sound",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:squeak:03c8b0e895c05a4a"
+          ]
+        },
+        {
+          "label_cn": "发出吱吱的尖细短声；（非正式）勉强成功、通过或脱险",
+          "label_en": "to make a short, sharp, high-pitched sound; informal: to succeed, pass, or get through only narrowly",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:squeak:8b9c8fb2eb4f07f4",
+            "sense:squeak:9d78fae464b3a422"
+          ]
+        }
+      ],
+      "core_meaning_cn": "吱的一声；短促尖细的高音；发出吱吱的尖细短声；（非正式）勉强成功、通过或脱险",
+      "core_meaning_en": "a short, sharp, high-pitched sound; to make a short, sharp, high-pitched sound; informal: to succeed, pass, or get through only narrowly",
+      "mental_model_cn": "吱的一声；短促尖细的高音；发出吱吱的尖细短声；（非正式）勉强成功、通过或脱险",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,8 +52,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "吱吱声, 侥幸",
-        "definition_en": "a short high-pitched noise",
+        "definition_cn": "吱的一声；短促尖细的高音",
+        "definition_en": "a short, sharp, high-pitched sound",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
@@ -35,7 +61,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:squeak:03c8b0e895c05a4a",
-        "sense_label_en": "a short high-pitched noise",
+        "sense_label_en": "a short, sharp, high-pitched sound",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -46,6 +72,34 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "发出吱吱的尖细短声",
+        "definition_en": "to make a short, sharp, high-pitched sound",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:squeak:8b9c8fb2eb4f07f4",
+        "sense_label_en": "to make a short, sharp, high-pitched sound",
+        "sort_order": 2,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "（非正式）勉强成功、通过或脱险",
+        "definition_en": "informal: to succeed, pass, or get through only narrowly",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:squeak:9d78fae464b3a422",
+        "sense_label_en": "informal: to succeed, pass, or get through only narrowly",
+        "sort_order": 3,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -70,6 +124,20 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 18973,
+        "source_path": "content/lexical/canonical/senses/shards/o7489-7520.json"
+      },
+      {
+        "sense_id": "sense:squeak:8b9c8fb2eb4f07f4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18992,
+        "source_path": "content/lexical/canonical/senses/shards/o7489-7520.json"
+      },
+      {
+        "sense_id": "sense:squeak:9d78fae464b3a422",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18993,
         "source_path": "content/lexical/canonical/senses/shards/o7489-7520.json"
       }
     ],
@@ -97,7 +165,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7513-7520.json",
-    "source_content_hash": "57cecb6c6e68b13aa458ab2d76d7b0a2ecf2727a5fb531f06463013db8a35fda",
+    "source_content_hash": "7d62e74faaedc0b4040924c3f45bb85d84041369d6eaa8d0914e39be569c7472",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

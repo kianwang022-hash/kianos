@@ -6,13 +6,31 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "341243289d2d228f2e6c9887f7286d2bea08c452bca4be438ab8b774cf31838c",
+    "constructions": [
+      {
+        "construction_id": "construction:cb467daba7cd152c2c72",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "反复、深入地思考某事",
+        "pattern": "ruminate on/over sth"
+      }
+    ],
+    "content_hash": "3ac324c11d74aa7317c5949767295c6bda42a31e832b4b3dfb1ceb54329ef59f",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "反刍, 沉思",
-      "core_meaning_en": "chew the cuds",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "反刍, 沉思；反复思考；深思；沉思",
+          "label_en": "chew the cuds; to think deeply, carefully, or repeatedly about something",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:ruminate:eaaa03c5dffb5e03",
+            "sense:ruminate:a3fb1203fcc1af34"
+          ]
+        }
+      ],
+      "core_meaning_cn": "反刍, 沉思；反复思考；深思；沉思",
+      "core_meaning_en": "chew the cuds; to think deeply, carefully, or repeatedly about something",
+      "mental_model_cn": "反刍, 沉思；反复思考；深思；沉思",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -31,9 +49,10 @@
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L1",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
+        "register": "zoology",
         "sense_id": "sense:ruminate:eaaa03c5dffb5e03",
         "sense_label_en": "chew the cuds",
         "sort_order": 1,
@@ -45,7 +64,22 @@
             "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
             "source_type": "learner_dictionary"
           }
-        ]
+        ],
+        "usage_note": "Literal zoological sense: chew cud."
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "反复思考；深思；沉思",
+        "definition_en": "to think deeply, carefully, or repeatedly about something",
+        "governing_pattern": "ruminate on/over sth",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:ruminate:a3fb1203fcc1af34",
+        "sense_label_en": "to think deeply, carefully, or repeatedly about something",
+        "sort_order": 2,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -70,6 +104,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 18798,
+        "source_path": "content/lexical/canonical/senses/shards/o7393-7424.json"
+      },
+      {
+        "sense_id": "sense:ruminate:a3fb1203fcc1af34",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18817,
         "source_path": "content/lexical/canonical/senses/shards/o7393-7424.json"
       }
     ],
@@ -97,7 +138,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7409-7416.json",
-    "source_content_hash": "341243289d2d228f2e6c9887f7286d2bea08c452bca4be438ab8b774cf31838c",
+    "source_content_hash": "3ac324c11d74aa7317c5949767295c6bda42a31e832b4b3dfb1ceb54329ef59f",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
