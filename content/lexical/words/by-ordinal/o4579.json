@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "b359d3decae73ab0be511de53e76e2f882cb970810daf7ebcbd707da998f1021",
+    "content_hash": "77339e14e7824110fffe1803b3b856337a4abb335cc32782709d48d43fe2954e",
     "core_concept": {
       "core_clusters": [
         {
@@ -18,19 +18,11 @@
             "sense:southern:829761d3aabb51e2",
             "sense:southern:f98d6a7ef1f15f11"
           ]
-        },
-        {
-          "label_cn": "南方人",
-          "label_en": "a person from the south",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:southern:48552008eb4b5802"
-          ]
         }
       ],
-      "core_meaning_cn": "南方的",
-      "core_meaning_en": "relating to or coming from the south",
-      "mental_model_cn": "南方的",
+      "core_meaning_cn": "南方的；来自南方的；美国南部的",
+      "core_meaning_en": "situated in or coming from regions of the south; in or characteristic of a region of the United States south of (approximately) the Mason-Dixon line",
+      "mental_model_cn": "南方的；来自南方的；美国南部的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -88,30 +80,6 @@
         "sense_label_en": "in or characteristic of a region of the United States south of (approxim",
         "sort_order": 1,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:6d1e50a7d3ea54551b3e",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:southern:48552008eb4b5802:collocation:0"
-            ],
-            "meaning_cn": "一个土生土长的南方人",
-            "phrase": "a southern by birth"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "南方人",
-        "definition_en": "a person from the south",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:southern:48552008eb4b5802",
-        "sense_label_en": "a person from the south",
-        "sort_order": 2,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -134,12 +102,36 @@
     "word_id": "word:southern"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:southern:48552008eb4b5802",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "南方人",
+      "definition_en": "a person from the south",
+      "semantic_key": "1c9e7f2cf4c691ea574d23cf11cd6f338aa5e8d41cd81debbd5b479dc69581b6",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "southern:l3:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "southern:l3:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 12950,
+      "source_path": "content/lexical/canonical/senses/shards/o4577-4608.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:southern:48552008eb4b5802",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 12950,
         "source_path": "content/lexical/canonical/senses/shards/o4577-4608.json"
@@ -160,7 +152,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:6d1e50a7d3ea54551b3e",
       "collocation:7d68d564ee29040e3c85",
       "collocation:af2b4fbda231aaa59270"
     ],
@@ -218,7 +209,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4577-4584.json",
-    "source_content_hash": "b359d3decae73ab0be511de53e76e2f882cb970810daf7ebcbd707da998f1021",
+    "source_content_hash": "77339e14e7824110fffe1803b3b856337a4abb335cc32782709d48d43fe2954e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

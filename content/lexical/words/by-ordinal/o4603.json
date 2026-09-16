@@ -6,13 +6,31 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "066fdb8fdd62d6aec161440e9c956f1eebe6fe69af9bc26142dc669504fc1e86",
+    "constructions": [
+      {
+        "construction_id": "construction:7ee0c5f4e304404a091f",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "出丑、惹人注目而显得可笑",
+        "pattern": "make a spectacle of oneself"
+      }
+    ],
+    "content_hash": "ff9c278d8752709f51bb753beff980b410447913a859704eb0438356d34ded01",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "引人注目的景象或展示",
-      "core_meaning_en": "a notable or impressive sight or display",
-      "mental_model_cn": "引人注目的景象或展示",
+      "core_clusters": [
+        {
+          "label_cn": "景象，奇观；公开展示，盛大场面",
+          "label_en": "something or someone seen, especially a notable or unusual sight; an elaborate and remarkable display on a lavish scale",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:spectacle:49d476acae385584",
+            "sense:spectacle:99ee4e6d9bc753e0"
+          ]
+        }
+      ],
+      "core_meaning_cn": "景象，奇观；公开展示，盛大场面",
+      "core_meaning_en": "something or someone seen, especially a notable or unusual sight; an elaborate and remarkable display on a lavish scale",
+      "mental_model_cn": "景象，奇观；公开展示，盛大场面",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -74,30 +92,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:7dcee6be3ad94b2888e6",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:spectacle:4dc311c6788751a7:collocation:0"
-            ],
-            "meaning_cn": "出洋相，当众出丑",
-            "phrase": "make a spectacle of oneself"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "出丑，丢人现眼",
-        "definition_en": "a blunder that makes you look ridiculous; used in the phrase 'make a spectacle of' yourself",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:spectacle:4dc311c6788751a7",
-        "sense_label_en": "a blunder that makes you look ridiculous; used in the phrase 'make a spe",
-        "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
             "collocation_id": "collocation:1c30ae7fecc8c7b10e04",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -140,7 +134,31 @@
     "word_id": "word:spectacle"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:spectacle:4dc311c6788751a7",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "出丑，丢人现眼",
+      "definition_en": "a blunder that makes you look ridiculous; used in the phrase 'make a spectacle of' yourself",
+      "semantic_key": "5a17127b1f5f79f0561ce0f3aacfe9a039c609009f8572b8590e98a5bca2f7d2",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "spectacle:l2:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "spectacle:l2:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 13020,
+      "source_path": "content/lexical/canonical/senses/shards/o4577-4608.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -159,7 +177,7 @@
       },
       {
         "sense_id": "sense:spectacle:4dc311c6788751a7",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 13020,
         "source_path": "content/lexical/canonical/senses/shards/o4577-4608.json"
@@ -174,7 +192,6 @@
     ],
     "active_collocations": [
       "collocation:1c30ae7fecc8c7b10e04",
-      "collocation:7dcee6be3ad94b2888e6",
       "collocation:7ec1d0685c4f825bbcfa",
       "collocation:a4d4928e02fd4a4cd105"
     ],
@@ -237,7 +254,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4601-4608.json",
-    "source_content_hash": "066fdb8fdd62d6aec161440e9c956f1eebe6fe69af9bc26142dc669504fc1e86",
+    "source_content_hash": "ff9c278d8752709f51bb753beff980b410447913a859704eb0438356d34ded01",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
