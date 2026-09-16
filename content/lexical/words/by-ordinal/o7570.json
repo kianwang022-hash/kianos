@@ -6,13 +6,39 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "c55188856bbb23add7da56000847fc7005747fe63fe7b35d4ee25939c749b3fe",
+    "constructions": [
+      {
+        "construction_id": "construction:9e25a6b35d9a7c8827ce",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "与某事相符、吻合、一致",
+        "pattern": "tally with sth"
+      }
+    ],
+    "content_hash": "1b8b0e22f495b54674e3168f232868ad074883b3b1ce06e69377f772a2d299ce",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "记录, 点数, 计算, 加标签于, 使符合",
-      "core_meaning_en": "keep score, as in games",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "计数；记分；累计总数；相符；一致；与……吻合",
+          "label_en": "to count, record, or keep a running score or total; to agree, correspond, or match with something",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:tally:4f5bd744947b591e",
+            "sense:tally:3781f383346149a4"
+          ]
+        },
+        {
+          "label_cn": "总数；计数；得分；记录的数量",
+          "label_en": "a count, total, score, or recorded number",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:tally:32e788b7e0db85e8"
+          ]
+        }
+      ],
+      "core_meaning_cn": "计数；记分；累计总数；总数；计数；得分；记录的数量；相符；一致；与……吻合",
+      "core_meaning_en": "to count, record, or keep a running score or total; a count, total, score, or recorded number; to agree, correspond, or match with something",
+      "mental_model_cn": "计数；记分；累计总数；总数；计数；得分；记录的数量；相符；一致；与……吻合",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,8 +52,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "记录, 点数, 计算, 加标签于, 使符合",
-        "definition_en": "keep score, as in games",
+        "definition_cn": "计数；记分；累计总数",
+        "definition_en": "to count, record, or keep a running score or total",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
@@ -35,7 +61,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:tally:4f5bd744947b591e",
-        "sense_label_en": "keep score, as in games",
+        "sense_label_en": "to count, record, or keep a running score or total",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -46,6 +72,34 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "总数；计数；得分；记录的数量",
+        "definition_en": "a count, total, score, or recorded number",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:tally:32e788b7e0db85e8",
+        "sense_label_en": "a count, total, score, or recorded number",
+        "sort_order": 2,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "相符；一致；与……吻合",
+        "definition_en": "to agree, correspond, or match with something",
+        "governing_pattern": "tally with sth",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:tally:3781f383346149a4",
+        "sense_label_en": "to agree, correspond, or match with something",
+        "sort_order": 3,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -70,6 +124,20 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 19055,
+        "source_path": "content/lexical/canonical/senses/shards/o7553-7584.json"
+      },
+      {
+        "sense_id": "sense:tally:32e788b7e0db85e8",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 19085,
+        "source_path": "content/lexical/canonical/senses/shards/o7553-7584.json"
+      },
+      {
+        "sense_id": "sense:tally:3781f383346149a4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 19086,
         "source_path": "content/lexical/canonical/senses/shards/o7553-7584.json"
       }
     ],
@@ -97,7 +165,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7569-7576.json",
-    "source_content_hash": "c55188856bbb23add7da56000847fc7005747fe63fe7b35d4ee25939c749b3fe",
+    "source_content_hash": "1b8b0e22f495b54674e3168f232868ad074883b3b1ce06e69377f772a2d299ce",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
