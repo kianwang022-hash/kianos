@@ -40,8 +40,8 @@ jobs:
           assert sum(x[2] for x in obj['internal_receipt_counts'])==161
           print('PREFLIGHT_CONTRACT_PASS 166/166')
           PY
-          changed=$(git diff --name-only)
-          test "$changed" = "content/lexical/execution/preflight/o4375-o4874.current-identities.json"
+          status=$(git status --short)
+          test "$status" = "?? content/lexical/execution/preflight/o4375-o4874.current-identities.json"
       - name: Commit read-only preflight evidence
         run: |
           git config user.name Kian
