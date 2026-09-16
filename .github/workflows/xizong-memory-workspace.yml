@@ -7,9 +7,13 @@ on:
       - 'static-web/XIZONG_MEMORY_PRODUCT.md'
       - 'static-web/src/lib/xizongMemory*.mjs'
       - 'static-web/src/components/XizongMemoryWorkspace.astro'
+      - 'static-web/src/components/XizongMemoryReleaseBridge.astro'
       - 'static-web/src/pages/xizong/memory/**'
+      - 'static-web/src/pages/xizong/[system]/[block].astro'
       - 'static-web/scripts/validate-xizong-memory-workspace.mjs'
+      - 'static-web/scripts/validate-xizong-memory-auto-release.mjs'
       - 'static-web/scripts/test-xizong-memory-workspace-browser.mjs'
+      - 'static-web/scripts/test-xizong-memory-auto-release-browser.mjs'
       - '.github/workflows/xizong-memory-workspace.yml'
 
 permissions:
@@ -32,6 +36,8 @@ jobs:
         run: npm install --no-audit --no-fund
       - name: Validate Memory model and surface contract
         run: node scripts/validate-xizong-memory-workspace.mjs
+      - name: Validate Block Complete Memory release contract
+        run: node scripts/validate-xizong-memory-auto-release.mjs
       - name: Build Astro
         run: npm run build
       - name: Install isolated browser acceptance tool
@@ -40,6 +46,8 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Execute Memory browser journey
         run: node scripts/test-xizong-memory-workspace-browser.mjs
+      - name: Execute Block Complete Memory release journey
+        run: node scripts/test-xizong-memory-auto-release-browser.mjs
       - name: Upload Memory browser evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -48,4 +56,5 @@ jobs:
           path: |
             static-web/.qa/xizong-memory-workspace-browser.json
             static-web/.qa/xizong-memory-workspace.png
+            static-web/.qa/xizong-memory-auto-release-browser.json
           if-no-files-found: warn
