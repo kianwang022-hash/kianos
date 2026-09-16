@@ -23,7 +23,23 @@ jobs:
           ref: lexical/execute-o4125-o4374-20260916
           fetch-depth: 0
       - name: Execute frozen shard 1
-        run: python tools/lexical_execute_o4125_o4174.py
+        id: execute
+        shell: bash
+        run: |
+          set +e
+          python tools/lexical_execute_o4125_o4174.py > /tmp/shard1.log 2>&1
+          code=$?
+          cat /tmp/shard1.log
+          if [ "$code" -ne 0 ]; then
+            mkdir -p content/lexical/execution/diagnostics
+            cp /tmp/shard1.log content/lexical/execution/diagnostics/o4125-o4174.failure.txt
+            git config user.name Kian
+            git config user.email kianwang022@gmail.com
+            git add content/lexical/execution/diagnostics/o4125-o4174.failure.txt
+            git commit -m 'lexical: capture o4125-o4174 executor failure' || true
+            git push origin HEAD:lexical/execute-o4125-o4374-20260916 || true
+            exit "$code"
+          fi
       - name: Transport guards
         run: python tools/test_lexical_transport_guards.py
       - name: Shard tests
