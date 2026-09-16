@@ -16,6 +16,10 @@ import {
   setRepairTasks,
   selectMemoryView
 } from '../src/lib/xizongMemoryModel.mjs';
+import {
+  XIZONG_MEMORY_RELEASE_SCHEMA,
+  buildXizongMemoryReleaseDescriptorFromLearnerObject
+} from '../src/lib/xizongMemoryRelease.mjs';
 
 function assert(condition, message) {
   if (!condition) throw new Error(`CURRENT_XIZONG_MEMORY_VALIDATION:${message}`);
@@ -115,6 +119,101 @@ state = setRepairTasks(state, [{
 assert(selectMemoryView(state, 'REPAIR').items.length === 1, 'repair-queue');
 assert(Object.keys(state.cards).length === 3, 'repair-created-duplicate-card');
 
+// Cross-lane contract: final Memory release consumes the already-resolved learner object.
+// It must not become a second cue/Projection resolver.
+const learnerObjectFixture = {
+  schema: 'kianos.xizong.learner_object.v1',
+  objectType: 'BLOCK',
+  identity: {
+    systemId: 'respiratory',
+    canonicalId: 'A2',
+    blockId: 'respiratory-r01',
+    blockLabel: 'R1',
+    title: '呼吸生理'
+  },
+  kps: [
+    {
+      identity: {
+        logicGroupId: 'respiratory-r01-lg01', groupLabel: '容量与流速',
+        kpId: 'respiratory-r01-kp01', displayId: 'KP1', title: '肺容积'
+      },
+      prompt: { canonical: '容积 / 容量 → 组合关系' },
+      core: { markdown: 'KP1 canonical markdown', html: '<p>KP1 canonical Core</p>' },
+      source: { locator: 'P10–11' },
+      outline: { locator: 'Outline 1' },
+      precision: [{
+        id: 'a2-r01-kp01-precision',
+        kind: 'PRECISION',
+        anchor: { block_id: 'respiratory-r01', kp_id: 'respiratory-r01-kp01' },
+        cue: 'KP1 exact target',
+        sourceLocator: 'P10'
+      }]
+    },
+    {
+      identity: {
+        logicGroupId: 'respiratory-r01-lg01', groupLabel: '容量与流速',
+        kpId: 'respiratory-r01-kp02', displayId: 'KP2', title: '时间肺活量'
+      },
+      prompt: { canonical: 'FEV → 一秒率' },
+      core: { markdown: 'KP2 canonical markdown', html: '<p>KP2 canonical Core</p>' },
+      source: { locator: 'P11–12' },
+      outline: { locator: 'Outline 2' },
+      precision: []
+    }
+  ],
+  logicGroups: [
+    {
+      identity: { logicGroupId: 'respiratory-r01-lg01', label: '容量与流速' },
+      kpIds: ['respiratory-r01-kp01', 'respiratory-r01-kp02'],
+      precision: [{
+        id: 'a2-r01-lg01-precision',
+        kind: 'PRECISION',
+        anchor: { block_id: 'respiratory-r01', logic_group_id: 'respiratory-r01-lg01' },
+        cue: 'LG exact target',
+        sourceLocator: 'P10–12'
+      }]
+    }
+  ]
+};
+const learnerDescriptor = buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObjectFixture, {
+  sourceHash: 'learner-object-source-v1',
+  recallRatings: {
+    'respiratory-r01-kp01': 'fuzzy',
+    'respiratory-r01-kp02': 'known'
+  },
+  promptOverrides: { 'respiratory-r01-kp01': '私有 Prompt fixture' },
+  markedFragments: [{
+    id: 'mark:pre-release',
+    cardId: 'core:respiratory-r01-kp01',
+    kpId: 'respiratory-r01-kp01',
+    surface: 'CORE',
+    text: '只标这一小段'
+  }]
+});
+assert(learnerDescriptor.schema === XIZONG_MEMORY_RELEASE_SCHEMA, 'learner-release-schema');
+assert(learnerDescriptor.coreCards.length === 2, 'learner-release-core-count');
+assert(learnerDescriptor.coreCards.map((card) => card.id).join('|') === 'core:respiratory-r01-kp01|core:respiratory-r01-kp02', 'learner-release-core-identities');
+assert(learnerDescriptor.coreCards[0].promptCanonical === '容积 / 容量 → 组合关系', 'learner-release-prompt-drift');
+assert(learnerDescriptor.coreCards[0].coreHtml === '<p>KP1 canonical Core</p>', 'learner-release-core-drift');
+assert(learnerDescriptor.precisionCards.length === 2, 'learner-release-precision-count');
+assert(new Set(learnerDescriptor.precisionCards.map((card) => card.id)).size === 2, 'learner-release-precision-duplicate');
+const kpPrecisionRelease = learnerDescriptor.precisionCards.find((card) => card.id === 'precision:a2-r01-kp01-precision');
+const lgPrecisionRelease = learnerDescriptor.precisionCards.find((card) => card.id === 'precision:a2-r01-lg01-precision');
+assert(kpPrecisionRelease?.kpId === 'respiratory-r01-kp01', 'learner-release-kp-precision-owner');
+assert(kpPrecisionRelease?.ownerContextHtml === '<p>KP1 canonical Core</p>', 'learner-release-kp-precision-context');
+assert(kpPrecisionRelease?.answerResolution === 'OWNER_CONTEXT_ONLY' && !kpPrecisionRelease?.answerHtml, 'learner-release-kp-precision-no-invention');
+assert(lgPrecisionRelease?.kpId === '' && lgPrecisionRelease?.logicGroupId === 'respiratory-r01-lg01', 'learner-release-lg-precision-owner');
+assert(lgPrecisionRelease?.ownerContextHtml.includes('KP1 canonical Core') && lgPrecisionRelease?.ownerContextHtml.includes('KP2 canonical Core'), 'learner-release-lg-context-coverage');
+assert(lgPrecisionRelease?.answerResolution === 'OWNER_CONTEXT_ONLY' && !lgPrecisionRelease?.answerHtml, 'learner-release-lg-precision-no-invention');
+assert(learnerDescriptor.attentionSignals.length === 1 && learnerDescriptor.attentionSignals[0].cardId === 'core:respiratory-r01-kp01', 'learner-release-attention-selectivity');
+assert(learnerDescriptor.promptOverrides['respiratory-r01-kp01'] === '私有 Prompt fixture', 'learner-release-prompt-override-pass-through');
+assert(learnerDescriptor.markedFragments.length === 1 && learnerDescriptor.markedFragments[0].text === '只标这一小段', 'learner-release-mark-pass-through');
+let invalidLearnerFailed = false;
+try {
+  buildXizongMemoryReleaseDescriptorFromLearnerObject({ ...learnerObjectFixture, schema: 'wrong.schema' });
+} catch { invalidLearnerFailed = true; }
+assert(invalidLearnerFailed, 'learner-release-invalid-schema-must-fail');
+
 // Surface contract: one independent route, exactly five named top-level views.
 const componentPath = path.resolve(process.cwd(), 'src/components/XizongMemoryWorkspace.astro');
 const pagePath = path.resolve(process.cwd(), 'src/pages/xizong/memory/index.astro');
@@ -134,6 +233,11 @@ console.log(JSON.stringify({
   released_blocks: summary.releasedBlocks,
   cards: Object.keys(state.cards).length,
   evidence_preserved: state.evidence.length,
+  learner_object_release: {
+    core: learnerDescriptor.coreCards.length,
+    precision: learnerDescriptor.precisionCards.length,
+    attention_signals: learnerDescriptor.attentionSignals.length
+  },
   top_views: ['Today', 'Core', 'Precision', 'Marked', 'Repair'],
   block_complete_bridge: 'NOT_IN_PHASE_1'
 }, null, 2));
