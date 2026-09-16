@@ -96,9 +96,10 @@ async function assertGuides(page) {
     ['writing-learn/', 'Task / Genre']
   ]) {
     await page.goto(`${BASE}/${route}`, { waitUntil: 'domcontentloaded' });
-    const body = await page.locator('main').innerText();
+    const canvas = page.locator('main.productCanvas');
+    const body = await canvas.innerText();
     check(body.includes(marker), `guide_density_marker_${route.replace(/\W/g, '_')}`);
-    check((await page.locator('main').boundingBox())?.width > 900, `guide_uses_mac_width_${route.replace(/\W/g, '_')}`);
+    check((await canvas.boundingBox())?.width > 900, `guide_uses_mac_width_${route.replace(/\W/g, '_')}`);
   }
   await page.goto(`${BASE}/objective-learn/`, { waitUntil: 'domcontentloaded' });
   await page.screenshot({ path: path.join(auditDir, 'objective-guide-1440x900.png'), fullPage: false });
