@@ -240,10 +240,14 @@ def apply_shard4(s):
     set_form(s,4038,[{"condition":"noun reject","stress":"initial syllable","note":"REject"},{"condition":"verb reject","stress":"second syllable","note":"reJECT"}]); s.reactivate(4039,"sense:rejoice:76c92581ed645f79",level="L1")
     relate_conn=s.active_sense(4040,"sense:relate:72303290accf5db5")
     if relate_conn is None: raise RuntimeError("RELATE_CONNECTION_IDENTITY_NOT_ACTIVE")
-    for r in list(s.owner(4040).get("relation_refs",[])):
-        if r.get("field")=="word_family": reanchor_relation_source(s,4040,r["relation_id"],relate_conn["sense_id"])
+    relate_family=[x for x in s.rec(4040).get("word_family",[]) if x.get("target_word")=="relation"]
+    if len(relate_family)!=1: raise RuntimeError(f"RELATE_LOCAL_FAMILY_SOURCE:GOT_{len(relate_family)}")
+    relate_family[0]["source_sense_id"]=relate_conn["sense_id"]; s.mark(4040)
     s.reactivate(4041,"sense:relation:5fb74025eff45adb",level="L1")
-    for o in (4043,4048): rid=relation_ref_to_word(s,o,"relate","word_family"); reanchor_relation_target(s,o,rid,relate_conn["sense_id"])
+    for o in (4043,4048):
+        local_family=[x for x in s.rec(o).get("word_family",[]) if x.get("target_word")=="relate"]
+        if len(local_family)!=1: raise RuntimeError(f"RELATE_LOCAL_FAMILY_TARGET:o{o:04d}:GOT_{len(local_family)}")
+        local_family[0]["target_sense_id"]=relate_conn["sense_id"]; s.mark(o)
     s.reactivate(4045,"sense:relax:8db048cacbbd5e9e",level="L1",pattern="vt. + object",pos="verb",transitivity="vt"); set_form(s,4046,[{"condition":"noun relay","stress":"initial syllable","note":"RElay"},{"condition":"verb relay","stress":"second syllable","note":"reLAY"}])
     relay=s.active_sense(4046,"sense:relay:ffca4f901f57541a")
     if relay is None: raise RuntimeError("RELAY_PASS_ALONG_IDENTITY_NOT_ACTIVE")
@@ -293,7 +297,9 @@ def apply_shard5(s):
     reserve_owner=read_owner(4104)
     booking_sid="sense:reserve:ce0182c14b8d5895"
     if not any(x.get("sense_id")==booking_sid for x in reserve_owner["record"].get("senses",[])): raise RuntimeError("RESERVE_BOOKING_IDENTITY_NOT_ACTIVE")
-    rid=relation_ref_to_word(s,4103,"reserve"); reanchor_relation_target(s,4103,rid,booking_sid)
+    booking_family=[x for x in s.rec(4103).get("word_family",[]) if x.get("target_word")=="reserve"]
+    if len(booking_family)!=1: raise RuntimeError(f"RESERVATION_LOCAL_FAMILY_TARGET:GOT_{len(booking_family)}")
+    booking_family[0]["target_sense_id"]=booking_sid; s.mark(4103)
     refs=s.owner(4105).get("reference_senses",[]); water=[r for r in refs if r.get("pos")=="noun" and any(k in norm(r.get("definition_en")) for k in ("water","lake","storage"))]; supply=[r for r in refs if r.get("pos")=="noun" and any(k in norm(r.get("definition_en")) for k in ("supply","store","reserve"))]; disease=[r for r in refs if r.get("pos")=="noun" and any(k in norm(r.get("definition_en")) for k in ("disease","infection","pathogen"))]
     if len(water)==1: s.reactivate(4105,water[0]["stable_sense_id"],level="L1")
     else: raise RuntimeError("RESERVOIR_WATER_IDENTITY_MISSING")
