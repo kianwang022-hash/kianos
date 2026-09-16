@@ -1,0 +1,92 @@
+/* Current product consumers: no task geometry or learner state hidden to fit. */
+body#kianos-workspace .examToday {padding:22px 24px;color:#263e39;background:#fff;}
+body#kianos-workspace .examTodayHead{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+body#kianos-workspace .examTodayHead h2{font-size:22px;margin:4px 0;letter-spacing:-.025em;font-weight:650;}
+body#kianos-workspace .examQuiet{border:0;background:transparent;color:#376655;font:inherit;font-size:14px;font-weight:550;padding:6px 0;cursor:pointer;text-align:left;}
+body#kianos-workspace .examCapacity{font-size:14px;line-height:1.6;color:#5c7069;margin:10px 0 15px;}
+body#kianos-workspace .examAllocation{display:grid;border-top:1px solid #e1e9e4;border-bottom:1px solid #e1e9e4;}
+body#kianos-workspace .examSubjectAllocation{display:grid;grid-template-columns:45px 1fr auto;gap:8px;align-items:center;padding:13px 0;border-bottom:1px solid #edf1ee;}
+body#kianos-workspace .examSubjectAllocation:last-child{border:0;}
+body#kianos-workspace .examSubjectAllocation strong{font-size:17px;font-weight:600;}
+body#kianos-workspace .examSubjectAllocation span{font-size:14px;color:#5a7269;}
+body#kianos-workspace .examSubjectAllocation b{font-size:23px;font-weight:600;letter-spacing:-.025em;color:#215740;}
+body#kianos-workspace .examNext{display:grid;gap:6px;margin:17px 0;}
+body#kianos-workspace .examNext>span{font-size:12px;color:#597769;}
+body#kianos-workspace .examNext>a{font-size:17px;font-weight:600;line-height:1.55;color:#205d48;text-decoration:none;}
+body#kianos-workspace .examAttention{border-left:3px solid #b59350;padding:3px 0 3px 13px;background:transparent;}
+body#kianos-workspace .examAttention p,.examMaterial p{font-size:15px;line-height:1.55;margin:0;}
+body#kianos-workspace .examTodayFoot{display:flex;justify-content:space-between;gap:14px;margin-top:12px;}
+body#kianos-workspace .examMaterial{margin-top:10px;padding-top:12px;border-top:1px solid #e4ebe6;color:#566c64;}
+body#kianos-workspace .examSupportLinks{padding:16px 24px!important;display:grid;gap:12px;}
+body#kianos-workspace .examSupportLinks>a{font-size:18px;color:#265945;font-weight:600;text-decoration:none;}
+body#kianos-workspace .examSupportLinks nav{display:flex;flex-wrap:wrap;gap:6px 14px;}
+body#kianos-workspace .examSupportLinks nav a{font-size:13px;color:#536d65;text-decoration:none;}
+body#kianos-workspace .examError{font-size:15px;line-height:1.6;color:#94372f;background:#fff1ed;border:1px solid #e4b9b0;padding:12px;}
+body#kianos-workspace .examGate{max-width:50%;}
+body#kianos-workspace .examGate strong{font-size:18px;font-weight:600;line-height:1.55;}
+body#kianos-workspace .examDialog{border:1px solid #dae5de;border-radius:16px;max-width:560px;width:calc(100% - 32px);max-height:calc(100dvh - 48px);padding:28px;background:#fff;color:#293c35;box-shadow:0 20px 80px #102d3233;font:inherit;overflow:auto;}
+body#kianos-workspace .examDialog::backdrop{background:#142d2866;backdrop-filter:blur(3px);}
+body#kianos-workspace .examDialog header{display:flex;align-items:center;justify-content:space-between;gap:16px;}
+body#kianos-workspace .examDialog h2{font-size:24px;font-weight:650;margin:0;}
+body#kianos-workspace .examDialog h3{font-size:19px;margin:20px 0 6px;}
+body#kianos-workspace .examDialog p{font-size:16px;line-height:1.65;color:#52665d;}
+body#kianos-workspace .examDialog [data-close]{border:0;background:transparent;color:#456455;font-size:27px;cursor:pointer;}
+body#kianos-workspace .examDialog label{display:grid;gap:10px;font-size:17px;margin:20px 0;}
+body#kianos-workspace .examDialog input:not([type=checkbox]),body#kianos-workspace .examDialog select{font:inherit;font-size:17px;border:1px solid #bccdc3;border-radius:7px;padding:10px 12px;background:#fff;color:inherit;min-width:0;}
+body#kianos-workspace .examDialog label.examCheck{display:flex;align-items:center;gap:9px;font-size:15px;}
+body#kianos-workspace .examTimeInput{display:flex;align-items:center;gap:12px;}
+body#kianos-workspace .examTimeInput input{width:140px;}
+body#kianos-workspace .examPrimary{display:inline-flex;align-items:center;justify-content:center;background:#286b53;color:#fff;border:1px solid #286b53;border-radius:8px;padding:11px 16px;font:inherit;font-size:16px;font-weight:600;text-decoration:none;cursor:pointer;}
+body#kianos-workspace .examRecordedFields label{grid-template-columns:50px 1fr 46px;align-items:center;}
+body#kianos-workspace .examAdvanced{border-top:1px solid #dbe5df;margin-top:22px;padding-top:17px;}
+body#kianos-workspace .examAdvanced summary{font-size:16px;color:#315d49;cursor:pointer;}
+body#kianos-workspace .examAdvanced pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f5f2;padding:14px;font:inherit;font-size:14px;}
+body#kianos-workspace .examDialog [role=alert]{color:#94372f;}
+body#kianos-workspace .politicsOverviewActions{display:flex;align-items:center;gap:20px;}
+body#kianos-workspace .politicsReviewEntry{color:#286047;font-size:17px;font-weight:600;text-decoration:none;}
+body#kianos-workspace .politicsReviewPage{max-width:none;margin:0 auto;color:#263e37;font-size:17px;}
+body#kianos-workspace .reviewPageHeader{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 28px;}
+body#kianos-workspace .reviewPageHeader h1{font-size:31px;letter-spacing:-.025em;margin:6px 0 10px;font-weight:650;}
+body#kianos-workspace .reviewPageHeader p{font-size:17px;line-height:1.6;margin:0;color:#587065;}
+body#kianos-workspace .reviewPageHeader a{font-size:15px;color:#315e4b;text-decoration:none;}
+body#kianos-workspace .reviewNavigation{display:flex;gap:30px;padding:0 28px;border-bottom:1px solid #d8e3dc;}
+body#kianos-workspace .reviewNavigation a{padding:13px 3px;font-size:17px;color:#547066;text-decoration:none;}
+body#kianos-workspace .reviewNavigation a[aria-current]{color:#245c44;border-bottom:3px solid #367056;font-weight:650;}
+body#kianos-workspace .reviewResume{margin:22px 28px 0;padding:16px 20px;border:1px solid #ceded3;border-radius:10px;background:#f1f6f3;display:flex;justify-content:space-between;align-items:center;gap:24px;}
+body#kianos-workspace .reviewResume>div{display:grid;gap:6px;}
+body#kianos-workspace .reviewResume span{font-size:13px;color:#587465;}
+body#kianos-workspace .reviewResume strong{font-size:20px;font-weight:650;}
+body#kianos-workspace .reviewResume p{margin:0;font-size:15px;color:#607469;}
+body#kianos-workspace .reviewActionStrip{display:flex;align-items:center;gap:22px;margin:24px 28px 0;padding-bottom:16px;border-bottom:1px solid #dde7e0;}
+body#kianos-workspace .reviewActionStrip nav{display:flex;gap:5px;margin-right:auto;}
+body#kianos-workspace .reviewActionStrip nav button{padding:10px 17px;border:0;border-radius:6px;font:inherit;font-size:16px;background:transparent;color:#547363;cursor:pointer;}
+body#kianos-workspace .reviewActionStrip nav button[aria-pressed=true]{background:#e5f0e9;color:#205d40;font-weight:650;}
+body#kianos-workspace .reviewActionStrip select{font:inherit;font-size:15px;padding:9px 12px;color:#335942;border:1px solid #cddbd1;border-radius:6px;background:#fff;}
+body#kianos-workspace .reviewMainAction{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:20px 28px;padding:16px 0;}
+body#kianos-workspace .reviewMainAction h2{font-size:23px;font-weight:650;margin:0 0 8px;}
+body#kianos-workspace .reviewMainAction p{font-size:16px;color:#5d7369;margin:0;line-height:1.6;}
+body#kianos-workspace .reviewEmpty{padding:30px 28px;margin:0;font-size:18px;line-height:1.6;}
+body#kianos-workspace .reviewGroups{margin:0 28px;display:grid;gap:18px;}
+body#kianos-workspace .reviewGroup{border:1px solid #d5e0d8;border-radius:10px;background:#fff;overflow:hidden;}
+body#kianos-workspace .reviewGroup>header{padding:18px 22px;background:#f6f8f5;display:flex;justify-content:space-between;align-items:center;gap:24px;}
+body#kianos-workspace .reviewGroup>header span{font-size:13px;color:#607467;}
+body#kianos-workspace .reviewGroup h2{font-size:21px;font-weight:650;margin:6px 0 0;}
+body#kianos-workspace .reviewGroup nav{display:flex;gap:22px;flex-shrink:0;}
+body#kianos-workspace .reviewGroup a{font-size:15px;color:#286048;text-decoration:none;}
+body#kianos-workspace .reviewQuestionRow{display:grid;grid-template-columns:105px 1fr 126px;gap:22px;align-items:center;padding:16px 22px;border-top:1px solid #e3ebe5;}
+body#kianos-workspace .reviewQuestionIdentity{display:grid;gap:5px;}
+body#kianos-workspace .reviewQuestionIdentity strong{font-size:18px;font-weight:600;}
+body#kianos-workspace .reviewQuestionIdentity span{font-size:13px;color:#718074;}
+body#kianos-workspace .reviewSignals{display:flex;gap:16px;font-size:16px;color:#775931;}
+body#kianos-workspace .reviewQuestionDetail p{margin:6px 0;font-size:16px;line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere;}
+body#kianos-workspace .reviewQuestionDetail small{font-size:13px;color:#66796c;}
+body#kianos-workspace .reviewFoot{display:flex;gap:24px;align-items:center;justify-content:space-between;margin:24px 28px;padding-top:18px;border-top:1px solid #dce4dd;}
+body#kianos-workspace .reviewFoot p{font-size:14px;color:#63796b;margin:0;line-height:1.65;}
+body#kianos-workspace .reviewFoot a{flex-shrink:0;color:#2a674b;font-size:16px;text-decoration:none;}
+body#kianos-workspace :is(.examToday,.examDialog,.politicsReviewPage) [hidden]{display:none!important;}
+body#kianos-workspace :is(.examToday,.examDialog,.politicsReviewPage) :focus-visible{outline:2px solid #376c57;outline-offset:3px;}
+body#kianos-workspace :is(.examToday,.examDialog,.politicsReviewPage) button:disabled{opacity:.5;cursor:not-allowed;}
+@media(min-width:1101px){body#kianos-workspace.surfaceBody-home .commandGrid{grid-template-columns:minmax(0,1fr) 350px;}}
+@media(min-width:1000px) and (max-height:790px){body#kianos-workspace .examToday{padding:17px 21px;}body#kianos-workspace .examSubjectAllocation{padding:10px 0;}body#kianos-workspace .examSupportLinks{padding:13px 21px!important;}}
+@media(max-width:1100px){body#kianos-workspace .commandGrid{grid-template-columns:1fr;}body#kianos-workspace .examGate{max-width:none;}body#kianos-workspace .examAllocation{grid-template-columns:repeat(3,1fr);gap:20px;}body#kianos-workspace .reviewGroup>header{align-items:flex-start;flex-direction:column;}}
+@media(max-width:700px){body#kianos-workspace .examAllocation{grid-template-columns:1fr;gap:0;}body#kianos-workspace .reviewPageHeader{align-items:flex-start;flex-direction:column;padding:20px 16px;}body#kianos-workspace .reviewNavigation{padding-inline:16px;}body#kianos-workspace .reviewActionStrip{margin-inline:16px;flex-wrap:wrap;gap:12px;}body#kianos-workspace .reviewActionStrip nav{width:100%;}body#kianos-workspace :is(.reviewResume,.reviewMainAction){margin-inline:16px;align-items:stretch;flex-direction:column;}body#kianos-workspace .reviewGroups{margin-inline:16px;}body#kianos-workspace .reviewQuestionRow{grid-template-columns:75px minmax(0,1fr);gap:14px;}body#kianos-workspace .reviewQuestionRow>a{grid-column:2;}body#kianos-workspace .reviewFoot{margin-inline:16px;align-items:flex-start;flex-direction:column;}body#kianos-workspace .reviewGroup nav{flex-wrap:wrap;}}

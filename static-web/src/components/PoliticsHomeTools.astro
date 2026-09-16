@@ -1,16 +1,20 @@
 ---
+import { politicsProductCatalog } from '../lib/productCatalog.mjs';
+const base = import.meta.env.BASE_URL;
+const catalog = politicsProductCatalog(base);
 const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
 ---
-<section class="politicsHomeTools" data-politics-home-tools>
+<section class="politicsHomeTools" data-politics-home-tools data-base={base}>
+  <script type="application/json" data-politics-home-catalog set:html={JSON.stringify(catalog).replace(/</g, '\\u003c')} />
   <a class="politicsContinue" data-politics-continue href={firstHref}>
     <span>Continue</span>
     <strong data-politics-continue-title>{firstLabel}</strong>
-    <small data-politics-continue-meta>从 Current 章节入口开始；之后自动回到最近打开的章节。</small>
+    <small data-politics-continue-meta>先选学习单元；之后回到原题、原学习位置。</small>
   </a>
   <section class="politicsHandoff">
     <div>
-      <span>Daily handoff</span>
-      <strong>Wrong / Uncertain</strong>
+      <span>回访与讨论</span>
+      <a class="politicsReviewEntry" data-politics-review-entry href={`${base}politics/review/`}>今日回访 →</a>
       <p data-politics-handoff-summary>今天还没有需要带回 Chat 的政治证据。</p>
     </div>
     <button type="button" data-politics-copy-handoff>Copy Today's Handoff</button>
@@ -18,8 +22,14 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
 </section>
 
 <script>
+  import { readPoliticsSnapshot, selectPoliticsReview, resolvePoliticsContinue } from '../lib/politicsPracticeState.mjs';
   const root = document.querySelector('[data-politics-home-tools]');
   if (root instanceof HTMLElement) {
+    const catalog = JSON.parse(root.querySelector('[data-politics-home-catalog]').textContent);
+    root.querySelector('[data-politics-home-catalog]').remove();
+    const base = root.dataset.base || '/';
+    const firstHref = root.querySelector('[data-politics-continue]')?.getAttribute('href');
+    const firstTitle = root.querySelector('[data-politics-continue-title]')?.textContent;
     const lastKey = 'kianos-politics-last-location-v1';
     const evidenceKey = 'kianos-politics-evidence-v1';
     const localStudyDay = () => new Date().toLocaleDateString('en-CA');
@@ -27,15 +37,14 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
       try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; } catch { return fallback; }
     };
 
-    const last = readJson(lastKey, null);
-    const continueLink = root.querySelector('[data-politics-continue]');
-    if (last?.href && continueLink instanceof HTMLAnchorElement) {
-      continueLink.href = last.href;
-      const title = root.querySelector('[data-politics-continue-title]');
-      const meta = root.querySelector('[data-politics-continue-meta]');
-      if (title) title.textContent = last.title || `${last.subject || ''} ${last.chapter || ''}`.trim() || '继续政治学习';
-      if (meta) meta.textContent = `${last.subject || 'Politics'} · ${last.chapter || ''} · 最近打开`;
-    }
+    const renderContinue = () => {
+      const snapshot = readPoliticsSnapshot(localStorage);
+      const target = snapshot.errors.length ? null : resolvePoliticsContinue(catalog, snapshot, base);
+      const link = root.querySelector('[data-politics-continue]');
+      if (link instanceof HTMLAnchorElement) link.href = target?.href || firstHref;
+      root.querySelector('[data-politics-continue-title]').textContent = target?.title || firstTitle;
+      root.querySelector('[data-politics-continue-meta]').textContent = snapshot.errors.length ? '记录未能完整读取，先核对存储。' : target?.detail || '先选学习单元；之后准确回到原位置。';
+    };
 
     const todayEvents = () => {
       const events = readJson(evidenceKey, []);
@@ -74,7 +83,15 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
       window.setTimeout(() => { button.textContent = "Copy Today's Handoff"; }, 1200);
     });
 
-    renderSummary();
+    const update = () => {
+      renderContinue(); renderSummary();
+      const snapshot = readPoliticsSnapshot(localStorage);
+      const review = selectPoliticsReview(catalog, snapshot);
+      const link = root.querySelector('[data-politics-review-entry]');
+      link.textContent = snapshot.errors.length ? '核对回访记录 →' : review.items.length ? `今日回访 · ${review.items.length} 题 →` : '回访与讨论 →';
+      // The active Review view is separate from immutable today's evidence export.
+    };
+    update(); addEventListener('storage', update); addEventListener('focus', update);
   }
 </script>
 

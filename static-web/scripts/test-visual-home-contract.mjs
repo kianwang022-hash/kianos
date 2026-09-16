@@ -13,8 +13,7 @@ const script = source.split('<script>')[1].split('</script>')[0];
 assert.equal(hash(script), '9b96ae9923ed5d096b36c0866f5cdbdf35a704f1e222223b163030a9cc657dac');
 checks.push('English resolver exact body: original priorities/eligibility/sorting/storage; only mount selector changed');
 for (const [file, expected] of Object.entries({
-  'XizongHomeTools.astro': 'bbb2283f60189ace413c1bf50ec450ad4fe21b6264ebebebd38bfe0d88ab3ab5',
-  'PoliticsHomeTools.astro': '6b9e1391f48b20048585cc573b9f8d80b1a7f49a6b1b0dab55530c86707895fb'
+  'XizongHomeTools.astro': 'bbb2283f60189ace413c1bf50ec450ad4fe21b6264ebebebd38bfe0d88ab3ab5'
 })) {
   assert.equal(hash(fs.readFileSync(`src/components/${file}`)), expected);
   checks.push(`${file}: identical native component reused, no new reducer`);
@@ -61,6 +60,8 @@ const readingWins = project({ [keys.reading]: last, [`kianos-reading-attempt-v1:
 assert.equal(readingWins.href, `/reading/${id}/`); checks.push('Priority beats recency: native 100 before 96');
 const tied = project({ [keys.translation]: { id: 'synthetic-translation', stage: 'RECONSTRUCT', updatedAt: '2026-09-16T00:00:00Z' }, [keys.writing]: { id: 'synthetic-writing', state: 'REPAIR_NEEDED', updatedAt: '2026-09-16T01:00:00Z' } });
 assert.equal(tied.href, '/writing/synthetic-writing/'); checks.push('Equal priority: native recency tie-break retained');
+// Politics Home is now intentionally owned by #116; its read-only exact-Resume
+// and first-attempt boundaries are exercised by test-product-closure-model/browser.
 const out = path.resolve('../visual-evidence'); fs.mkdirSync(out, { recursive: true });
 fs.writeFileSync(path.join(out, 'contract-checks.json'), JSON.stringify({ schema: 'kianos.visual-home.zero-semantic-diff.v1', status: 'PASS', checks, learnerValidation: 'UNTESTED', screenshotAcceptance: 'SEPARATE_HUMAN_GATE' }, null, 2));
 console.log(`Home presentation contract: ${checks.length} checks passed; U remains UNTESTED.`);

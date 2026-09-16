@@ -1,4 +1,4 @@
-import { PRACTICE_KEYS } from './politicsPracticeClient.mjs';
+import { PRACTICE_KEYS } from './politicsPracticeState.mjs';
 
 export function installPoliticsPracticeBridge() {
   const node = document.querySelector('[data-practice-bridge-config]');
@@ -26,6 +26,24 @@ export function installPoliticsPracticeBridge() {
     const config = configs.find((c) => c.expected_question_ids.includes(id));
     if (!config || session?.runtimeVersion !== 2 || params.get('practiceSession') !== session.id || session.ids?.[session.index] !== id || !['active', 'paused'].includes(session.status)) throw new Error('返回目标已过期；原题组未被替换，请回工作台核对。');
     link.href = `${base}politics/practice/?session=${encodeURIComponent(session.id)}&question=${encodeURIComponent(id)}`;
+    // The exact source handoff is now the learner's real current location.
+    // Persist it in the existing last-location identity so Home/Review Continue
+    // returns here instead of dragging an active learner back to the Workbench.
+    const exactSourceHref = location.pathname + location.search + location.hash;
+    try {
+      localStorage.setItem(PRACTICE_KEYS.last, JSON.stringify({
+        subject: config.subject,
+        chapter: config.chapter,
+        title: config.title,
+        unit_id: config.runtime_unit_id,
+        question_id: id,
+        action: 'REPAIR_SOURCE',
+        href: exactSourceHref,
+        observed_at: new Date().toISOString()
+      }));
+    } catch {
+      panel.querySelector('[data-practice-return-error]').textContent = '继续位置未保存；原题组仍保留。';
+    }
     // A valid Workbench repair return must expose its exact source, even when
     // the chapter's cognitive workspace previously showed another unit/state.
     const source = document.getElementById(config.source_anchor);
