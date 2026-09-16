@@ -7,12 +7,30 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "7663ac7bf9b55cb7ab74964a268e7f2fb0244e7c4414c180b1a2680e3c19b4d5",
+    "content_hash": "a980b546dc5ff700f15d3367e61adfb1e629b870d842167a858924aad805465a",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "焊接",
-      "core_meaning_en": "to join pieces of metal by heating them until they fuse or by applying pressure",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "焊接；用热、压力或两者结合把可焊材料连接在一起；使紧密结合、团结成整体",
+          "label_en": "to join weldable materials, especially metals but also thermoplastics and others, by heat, pressure, or both; figurative: to unite people, groups, or things into a cohesive whole",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:weld:e207077a5a5859c2",
+            "sense:weld:a8957d3f75196325"
+          ]
+        },
+        {
+          "label_cn": "焊缝；焊接处",
+          "label_en": "a joint made by welding",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:weld:3f6555f2225a5b34"
+          ]
+        }
+      ],
+      "core_meaning_cn": "焊接；用热、压力或两者结合把可焊材料连接在一起；焊缝；焊接处；使紧密结合、团结成整体",
+      "core_meaning_en": "to join weldable materials, especially metals but also thermoplastics and others, by heat, pressure, or both; a joint made by welding; figurative: to unite people, groups, or things into a cohesive whole",
+      "mental_model_cn": "焊接；用热、压力或两者结合把可焊材料连接在一起；焊缝；焊接处；使紧密结合、团结成整体",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -29,14 +47,14 @@
       {
         "collocations": [],
         "confidence": "auditor_approved",
-        "definition_cn": "焊接",
-        "definition_en": "to join pieces of metal by heating them until they fuse or by applying pressure",
+        "definition_cn": "焊接；用热、压力或两者结合把可焊材料连接在一起",
+        "definition_en": "to join weldable materials, especially metals but also thermoplastics and others, by heat, pressure, or both",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:weld:e207077a5a5859c2",
-        "sense_label_en": "to join pieces of metal by heating them until they fuse or by applying pressure",
+        "sense_label_en": "to join weldable materials, especially metals but also thermoplastics and others, by heat, pressure, or both",
         "sort_order": 0,
         "source_evidence": [
           "source-fact:ecdict:240040b94f398a32703d",
@@ -77,6 +95,20 @@
           "source-fact:wiktionary-wiktextract:ccb21a5dfc0e9c7bbb63"
         ],
         "transitivity": null
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "使紧密结合、团结成整体",
+        "definition_en": "figurative: to unite people, groups, or things into a cohesive whole",
+        "governing_pattern": "weld people/groups/things together",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:weld:a8957d3f75196325",
+        "sense_label_en": "figurative: to unite people, groups, or things into a cohesive whole",
+        "sort_order": 2,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -109,6 +141,13 @@
         "merged_into_sense_id": null,
         "source_row": 15824,
         "source_path": "content/lexical/canonical/senses/shards/o5601-5632.json"
+      },
+      {
+        "sense_id": "sense:weld:a8957d3f75196325",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 15827,
+        "source_path": "content/lexical/canonical/senses/shards/o5601-5632.json"
       }
     ],
     "active_collocations": [],
@@ -140,7 +179,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5625-5632.json",
-    "source_content_hash": "7663ac7bf9b55cb7ab74964a268e7f2fb0244e7c4414c180b1a2680e3c19b4d5",
+    "source_content_hash": "a980b546dc5ff700f15d3367e61adfb1e629b870d842167a858924aad805465a",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
