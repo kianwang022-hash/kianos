@@ -7,12 +7,22 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "0dc6ce21c698add4a7999baeff894bf7df72ec3aaef781d752a11e5a134f6a82",
+    "content_hash": "ea315f4e51f6fa0df77ab37341e95301a42910dff487f16409bfea2b41d8055c",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "浸没；潜入水中",
-      "core_meaning_en": "put or go under water",
-      "mental_model_cn": "浸没；潜入水中",
+      "core_clusters": [
+        {
+          "label_cn": "使浸没；淹没；潜入水中",
+          "label_en": "put something completely under water or another liquid; go below the surface of water",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:submerge:8913f23b13015472",
+            "sense:submerge:45606f066d1d5f9a"
+          ]
+        }
+      ],
+      "core_meaning_cn": "使浸没；淹没；潜入水中",
+      "core_meaning_en": "put something completely under water or another liquid; go below the surface of water",
+      "mental_model_cn": "使浸没；淹没；潜入水中",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -73,6 +83,20 @@
         "sense_label_en": "put something completely under water or another liquid",
         "sort_order": 0,
         "transitivity": "I/T"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "潜入水中",
+        "definition_en": "go below the surface of water",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:submerge:45606f066d1d5f9a",
+        "sense_label_en": "go below the surface of water",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -95,37 +119,13 @@
     "word_id": "word:submerge"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:submerge:45606f066d1d5f9a",
-      "status": "merged",
-      "merged_into_sense_id": "sense:submerge:8913f23b13015472",
-      "pos": "verb",
-      "definition_cn": "潜入水中",
-      "definition_en": "go below the surface of water",
-      "semantic_key": "50a1ca11bffb81e3a3f5301abedffb578ed1f7fb858b67d777bd7dc7ec933264",
-      "semantic_key_history": [],
-      "legacy_aliases": [
-        "submerge:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "submerge:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-08-22T05:00:00+00:00",
-      "source_row": 13571,
-      "source_path": "content/lexical/canonical/senses/shards/o4737-4768.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:submerge:45606f066d1d5f9a",
-        "status": "merged",
-        "merged_into_sense_id": "sense:submerge:8913f23b13015472",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 13571,
         "source_path": "content/lexical/canonical/senses/shards/o4737-4768.json"
       },
@@ -197,7 +197,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4761-4768.json",
-    "source_content_hash": "0dc6ce21c698add4a7999baeff894bf7df72ec3aaef781d752a11e5a134f6a82",
+    "source_content_hash": "ea315f4e51f6fa0df77ab37341e95301a42910dff487f16409bfea2b41d8055c",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

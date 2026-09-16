@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "255a3672172287c2b94178089dbda43ea4c8a3d5338c44a48410273015377cec",
+    "content_hash": "ba906b36f406d0ffa6274d526f8c1f8ca04edf0a459a0005ffd251b5002d8c39",
     "core_concept": {
       "core_clusters": [
         {
@@ -21,18 +21,19 @@
           ]
         },
         {
-          "label_cn": "流动，涌出；飘扬，招展",
-          "label_en": "to flow or move continuously; to extend, wave or float outward, as if in the wind",
+          "label_cn": "流动，涌出；飘扬，招展；通过互联网连续传输或播放音频/视频",
+          "label_en": "to flow or move continuously; to extend, wave or float outward, as if in the wind; to transmit or play audio or video continuously over the internet",
           "pos": "verb",
           "sense_ids": [
             "sense:stream:625aa0d445f257ab",
-            "sense:stream:b6ff77ffa27f5a65"
+            "sense:stream:b6ff77ffa27f5a65",
+            "sense:stream:8b3d9a6feca0e86a"
           ]
         }
       ],
-      "core_meaning_cn": "连续流动的水或其他物质",
-      "core_meaning_en": "a continuous flow of water or other substance",
-      "mental_model_cn": "连续流动的水或其他物质",
+      "core_meaning_cn": "天然水流，小河；流动，涌出；趋势，潮流；连续流动之物，如人流、车流；飘扬，招展；通过互联网连续传输或播放音频/视频",
+      "core_meaning_en": "a natural body of running water flowing on or under the earth; to flow or move continuously; dominant course (suggestive of running water) of successive events or ideas; something that resembles a flowing stream in moving continuously; to extend, wave or float outward, as if in the wind; to transmit or play audio or video continuously over the internet",
+      "mental_model_cn": "天然水流，小河；流动，涌出；趋势，潮流；连续流动之物，如人流、车流；飘扬，招展；通过互联网连续传输或播放音频/视频",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -162,6 +163,20 @@
         "sense_label_en": "to extend, wave or float outward, as if in the wind",
         "sort_order": 4,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "通过互联网连续传输或播放音频/视频",
+        "definition_en": "to transmit or play audio or video continuously over the internet",
+        "governing_pattern": "I/T",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:stream:8b3d9a6feca0e86a",
+        "sense_label_en": "to transmit or play audio or video continuously over the internet",
+        "sort_order": 5,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -183,7 +198,14 @@
     "word_family": [],
     "word_id": "word:stream"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "deep:semantic_contrast:swarm:1d9268a077d9a031",
+      "owner_path": "content/lexical/relations/by-id/5e/5e4d1c160db8bc5904fdcc34c008818ba83043b331d6b350a42488a55b96d5d6.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -220,6 +242,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 13467,
+        "source_path": "content/lexical/canonical/senses/shards/o4705-4736.json"
+      },
+      {
+        "sense_id": "sense:stream:8b3d9a6feca0e86a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13482,
         "source_path": "content/lexical/canonical/senses/shards/o4705-4736.json"
       }
     ],
@@ -294,7 +323,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4729-4736.json",
-    "source_content_hash": "255a3672172287c2b94178089dbda43ea4c8a3d5338c44a48410273015377cec",
+    "source_content_hash": "ba906b36f406d0ffa6274d526f8c1f8ca04edf0a459a0005ffd251b5002d8c39",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
