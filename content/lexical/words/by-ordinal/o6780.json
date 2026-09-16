@@ -7,12 +7,21 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "33ca6b87c51d5e2dc163c123928f21d7431173b486f1663b8c2dd5cb842065e9",
+    "content_hash": "b4b1cb5848feeb5fd3c2335d4375a50ae85fb74366fabb916042c5b38cb2367e",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "逐出, 赶出, 驱逐",
-      "core_meaning_en": "expel or eject without recourse to legal process",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "依法驱逐租户或占用者；更广义指把某人赶出某地",
+          "label_en": "to legally force a tenant or occupant to leave a property, or more generally to expel someone from a place",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:evict:a652f53011c45e33"
+          ]
+        }
+      ],
+      "core_meaning_cn": "依法驱逐租户或占用者；更广义指把某人赶出某地",
+      "core_meaning_en": "to legally force a tenant or occupant to leave a property, or more generally to expel someone from a place",
+      "mental_model_cn": "依法驱逐租户或占用者；更广义指把某人赶出某地",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +31,22 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "依法驱逐租户或占用者；更广义指把某人赶出某地",
+        "definition_en": "to legally force a tenant or occupant to leave a property, or more generally to expel someone from a place",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:evict:a652f53011c45e33",
+        "sense_label_en": "to legally force a tenant or occupant to leave a property, or more generally to expel someone from a place",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -55,24 +79,6 @@
       "source_row": 17723,
       "source_path": "content/lexical/canonical/senses/shards/o6753-6784.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:evict:a652f53011c45e33",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "逐出, 赶出, 驱逐",
-      "definition_en": "expel from one's property or force to move out by a legal process",
-      "semantic_key": "a1312d6280c20a4e31ee47567f6d437e6da97eb6107fe0b9aaa315214b16a172",
-      "semantic_key_history": [
-        "847008872db2088f6da1a2ebabce802cd9cc4195b8b1866e70166f0c63e5ff47"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 17724,
-      "source_path": "content/lexical/canonical/senses/shards/o6753-6784.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -86,7 +92,7 @@
       },
       {
         "sense_id": "sense:evict:a652f53011c45e33",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 17724,
         "source_path": "content/lexical/canonical/senses/shards/o6753-6784.json"
@@ -116,7 +122,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6777-6784.json",
-    "source_content_hash": "33ca6b87c51d5e2dc163c123928f21d7431173b486f1663b8c2dd5cb842065e9",
+    "source_content_hash": "b4b1cb5848feeb5fd3c2335d4375a50ae85fb74366fabb916042c5b38cb2367e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

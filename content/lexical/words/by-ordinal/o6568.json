@@ -6,13 +6,39 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "119e3bbdfa6bdb1e160ea1bc3e934b0cfe48e285600ed1a39d7deff7425e8c99",
+    "constructions": [
+      {
+        "construction_id": "construction:a23b608776341c18f25d",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "各种情况/事件共同作用导致某事发生",
+        "pattern": "circumstances/events conspire to do sth"
+      },
+      {
+        "construction_id": "construction:c99e74005cf9597934b2",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "各种因素共同对……不利",
+        "pattern": "conspire against sb/sth"
+      }
+    ],
+    "content_hash": "85f9c21b5c7ddc7c998e279ec9a5598e5288ac16f1779acc28127106b27fe2cd",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "阴谋, 协力, 共谋",
-      "core_meaning_en": "engage in plotting or enter into a conspiracy, swear together",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "阴谋, 协力, 共谋；（事件、环境、条件）共同作用而造成某结果，常指不利结果",
+          "label_en": "engage in plotting or enter into a conspiracy, swear together; act in unison or agreement and in secret towards a deceitful or illegal purpose; of events, circumstances, or conditions: to combine so as to cause a result, often one that frustrates a plan or works against someone",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:conspire:c56723b6780b5ee2",
+            "sense:conspire:47750ddbffd552a3",
+            "sense:conspire:487b517a8018d757"
+          ]
+        }
+      ],
+      "core_meaning_cn": "阴谋, 协力, 共谋；（事件、环境、条件）共同作用而造成某结果，常指不利结果",
+      "core_meaning_en": "engage in plotting or enter into a conspiracy, swear together; act in unison or agreement and in secret towards a deceitful or illegal purpose; of events, circumstances, or conditions: to combine so as to cause a result, often one that frustrates a plan or works against someone",
+      "mental_model_cn": "阴谋, 协力, 共谋；（事件、环境、条件）共同作用而造成某结果，常指不利结果",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -70,6 +96,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "（事件、环境、条件）共同作用而造成某结果，常指不利结果",
+        "definition_en": "of events, circumstances, or conditions: to combine so as to cause a result, often one that frustrates a plan or works against someone",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:conspire:487b517a8018d757",
+        "sense_label_en": "of events, circumstances, or conditions: to combine so as to cause a result, often one that frustrates a plan or works against someone",
+        "sort_order": 3,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -102,6 +142,13 @@
         "merged_into_sense_id": null,
         "source_row": 17384,
         "source_path": "content/lexical/canonical/senses/shards/o6561-6592.json"
+      },
+      {
+        "sense_id": "sense:conspire:487b517a8018d757",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 17429,
+        "source_path": "content/lexical/canonical/senses/shards/o6561-6592.json"
       }
     ],
     "active_collocations": [],
@@ -128,7 +175,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6561-6568.json",
-    "source_content_hash": "119e3bbdfa6bdb1e160ea1bc3e934b0cfe48e285600ed1a39d7deff7425e8c99",
+    "source_content_hash": "85f9c21b5c7ddc7c998e279ec9a5598e5288ac16f1779acc28127106b27fe2cd",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

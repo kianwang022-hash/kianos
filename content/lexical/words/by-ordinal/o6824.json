@@ -7,15 +7,40 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "17d107e1fa7578476b47ebfbcf6da348a2428edacd9509ac96e7824c3f548f59",
+    "content_hash": "e2f9a7afdae23c29f78d8031f8a870d8301b01106e9fad5f54875dac5fac33c6",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "热情, 热心, 炽热",
-      "core_meaning_en": "the state of being emotionally aroused and worked up",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "热情；激情；强烈的感情",
+          "label_en": "intense passion, enthusiasm, or strong feeling",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:fervor:c8cc7f6ea7ef55ec"
+          ]
+        }
+      ],
+      "core_meaning_cn": "热情；激情；强烈的感情",
+      "core_meaning_en": "intense passion, enthusiasm, or strong feeling",
+      "mental_model_cn": "热情；激情；强烈的感情",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o6375-o6874.md",
+      "boundaries": [
+        {
+          "condition": "common AmE spelling",
+          "note": "American spelling.",
+          "surface": "fervor"
+        },
+        {
+          "condition": "common BrE spelling",
+          "note": "British spelling of the same noun.",
+          "surface": "fervour"
+        }
+      ],
+      "type": "regional_spelling_variant"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -26,40 +51,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "热情, 热心, 炽热",
-        "definition_en": "the state of being emotionally aroused and worked up",
+        "definition_cn": "热情；激情；强烈的感情",
+        "definition_en": "intense passion, enthusiasm, or strong feeling",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
-        "sense_id": "sense:fervor:656fbdd9a0615fa8",
-        "sense_label_en": "the state of being emotionally aroused and worked up",
-        "sort_order": 1,
-        "source_evidence": [
-          {
-            "evidence_id": "source-fact:1839f8e086e77afa469fef05",
-            "evidence_status": "source_checked",
-            "role": "external_semantic_auditor",
-            "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
-            "source_type": "learner_dictionary"
-          }
-        ]
-      },
-      {
-        "collocations": [],
-        "confidence": "high",
-        "definition_cn": "热情, 热心, 炽热",
-        "definition_en": "feelings of great warmth and intensity",
-        "depth": "full_card",
-        "domain_tag": "toefl",
-        "frequency_tag": "toefl",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
         "sense_id": "sense:fervor:c8cc7f6ea7ef55ec",
-        "sense_label_en": "feelings of great warmth and intensity",
+        "sense_label_en": "intense passion, enthusiasm, or strong feeling",
         "sort_order": 2,
         "source_evidence": [
           {
@@ -86,12 +87,29 @@
     "word_id": "word:fervor"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:fervor:656fbdd9a0615fa8",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "热情, 热心, 炽热",
+      "definition_en": "the state of being emotionally aroused and worked up",
+      "semantic_key": "73190483d59161f4a77033e8ea3669cc6970b6e016a1eaab4e311d34b18c5ebc",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 17796,
+      "source_path": "content/lexical/canonical/senses/shards/o6817-6848.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:fervor:656fbdd9a0615fa8",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 17796,
         "source_path": "content/lexical/canonical/senses/shards/o6817-6848.json"
@@ -124,11 +142,19 @@
       "ordinal": 6824,
       "word_shard": "content/lexical/canonical/words/shards/o6817-6824.json",
       "auxiliary_locator": "content/lexical/canonical/lookup/word-id/48.json"
+    },
+    {
+      "spelling": "fervour",
+      "source": "content/lexical/canonical/lookup/spelling/fe.json",
+      "word_id": "word:fervor",
+      "ordinal": 6824,
+      "word_shard": "content/lexical/canonical/words/shards/o6817-6824.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/48.json"
     }
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6817-6824.json",
-    "source_content_hash": "17d107e1fa7578476b47ebfbcf6da348a2428edacd9509ac96e7824c3f548f59",
+    "source_content_hash": "e2f9a7afdae23c29f78d8031f8a870d8301b01106e9fad5f54875dac5fac33c6",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

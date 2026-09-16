@@ -6,13 +6,39 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "3401c49be734711a55b07c83108bf885b876d0ffe6292bace0bd8263081fcb51",
+    "constructions": [
+      {
+        "construction_id": "construction:15536719b757a3e7468f",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "争取帮助/支持",
+        "pattern": "enlist help/support"
+      },
+      {
+        "construction_id": "construction:d432dfbbd3f35aed460f",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "争取某人参加某项事业/项目",
+        "pattern": "enlist sb in a cause/project"
+      }
+    ],
+    "content_hash": "bf85a277efa284f155cf7ed29eaacd21848a0e3eb840b7aa742561ff8b30ccb9",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "征募, 参与, 谋取",
-      "core_meaning_en": "engage somebody to enter the army",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "征募, 参与, 谋取；争取、获得某人的帮助、支持或参与",
+          "label_en": "engage somebody to enter the army; join the military; to obtain or secure someone's help, support, or participation",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:enlist:c8d254a20e2a5e79",
+            "sense:enlist:9e11c64e3e0a5543",
+            "sense:enlist:2e12e82ef40f91e1"
+          ]
+        }
+      ],
+      "core_meaning_cn": "征募, 参与, 谋取；争取、获得某人的帮助、支持或参与",
+      "core_meaning_en": "engage somebody to enter the army; join the military; to obtain or secure someone's help, support, or participation",
+      "mental_model_cn": "征募, 参与, 谋取；争取、获得某人的帮助、支持或参与",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -31,7 +57,7 @@
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L1",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:enlist:c8d254a20e2a5e79",
@@ -45,7 +71,8 @@
             "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
             "source_type": "learner_dictionary"
           }
-        ]
+        ],
+        "usage_note": "Recruit someone into military service."
       },
       {
         "collocations": [],
@@ -55,7 +82,7 @@
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:enlist:9e11c64e3e0a5543",
@@ -69,7 +96,22 @@
             "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
             "source_type": "learner_dictionary"
           }
-        ]
+        ],
+        "usage_note": "Join military service."
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "争取、获得某人的帮助、支持或参与",
+        "definition_en": "to obtain or secure someone's help, support, or participation",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:enlist:2e12e82ef40f91e1",
+        "sense_label_en": "to obtain or secure someone's help, support, or participation",
+        "sort_order": 3,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -102,6 +144,13 @@
         "merged_into_sense_id": null,
         "source_row": 17696,
         "source_path": "content/lexical/canonical/senses/shards/o6753-6784.json"
+      },
+      {
+        "sense_id": "sense:enlist:2e12e82ef40f91e1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 17733,
+        "source_path": "content/lexical/canonical/senses/shards/o6753-6784.json"
       }
     ],
     "active_collocations": [],
@@ -128,7 +177,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6753-6760.json",
-    "source_content_hash": "3401c49be734711a55b07c83108bf885b876d0ffe6292bace0bd8263081fcb51",
+    "source_content_hash": "bf85a277efa284f155cf7ed29eaacd21848a0e3eb840b7aa742561ff8b30ccb9",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

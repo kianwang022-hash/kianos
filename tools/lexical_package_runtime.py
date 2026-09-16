@@ -55,10 +55,10 @@ def add_lookup_alias(store, ordinal: int, alias: str) -> Path:
         raise RuntimeError(f"LOOKUP_ALIAS_INVALID o{ordinal:04d} {alias!r}")
     canonical_path = LOOKUP / f"{word[:2].lower()}.json"
     alias_path = LOOKUP / f"{alias[:2].lower()}.json"
-    if not canonical_path.exists() or not alias_path.exists():
-        raise RuntimeError(f"LOOKUP_SHARD_MISSING o{ordinal:04d} {word}->{alias}")
+    if not canonical_path.exists():
+        raise RuntimeError(f"CANONICAL_LOOKUP_SHARD_MISSING o{ordinal:04d} {word}")
     canonical = load(canonical_path)
-    alias_data = canonical if alias_path == canonical_path else load(alias_path)
+    alias_data = canonical if alias_path == canonical_path else (load(alias_path) if alias_path.exists() else {})
     candidates = [copy.deepcopy(x) for x in canonical.get(word, []) if x.get("word_id") == wid and x.get("ordinal") == ordinal]
     if len(candidates) != 1:
         raise RuntimeError(f"CANONICAL_LOOKUP_NOT_UNIQUE o{ordinal:04d} {word} hits={len(candidates)}")

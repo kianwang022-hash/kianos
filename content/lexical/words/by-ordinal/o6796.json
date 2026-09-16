@@ -6,13 +6,31 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "21f913eef11b026caf9857b8b08f58b9777aa95b68f292f93edce126761e7636",
+    "constructions": [
+      {
+        "construction_id": "construction:60bc11bc51875a71974b",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "详细阐述……",
+        "pattern": "expound on/upon sth",
+        "source_sense_id": "sense:expound:a817fe0df9eb593e"
+      }
+    ],
+    "content_hash": "c25b3f5a978d844012f73841f335417a60de392ff033f807ef1c687849f2c9d7",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "详细说明, 解释",
-      "core_meaning_en": "add details, as to an account or idea; clarify the meaning of and discourse in a learned way, usually in writing",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "详细阐述、解释某个观点、理论或论证",
+          "label_en": "to explain, present, or develop an idea, theory, or argument in detail",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:expound:a817fe0df9eb593e"
+          ]
+        }
+      ],
+      "core_meaning_cn": "详细阐述、解释某个观点、理论或论证",
+      "core_meaning_en": "to explain, present, or develop an idea, theory, or argument in detail",
+      "mental_model_cn": "详细阐述、解释某个观点、理论或论证",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,8 +44,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "详细说明, 解释",
-        "definition_en": "add details, as to an account or idea; clarify the meaning of and discourse in a learned way, usually in writing",
+        "definition_cn": "详细阐述、解释某个观点、理论或论证",
+        "definition_en": "to explain, present, or develop an idea, theory, or argument in detail",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
@@ -35,32 +53,8 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:expound:a817fe0df9eb593e",
-        "sense_label_en": "add details, as to an account or idea; clarify the meaning of and discourse in a learned way, usually in writing",
+        "sense_label_en": "to explain, present, or develop an idea, theory, or argument in detail",
         "sort_order": 1,
-        "source_evidence": [
-          {
-            "evidence_id": "source-fact:74a97484eb16c2ac82698508",
-            "evidence_status": "source_checked",
-            "role": "external_semantic_auditor",
-            "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
-            "source_type": "learner_dictionary"
-          }
-        ]
-      },
-      {
-        "collocations": [],
-        "confidence": "high",
-        "definition_cn": "详细说明, 解释",
-        "definition_en": "state",
-        "depth": "full_card",
-        "domain_tag": "toefl",
-        "frequency_tag": "toefl",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:expound:714370e26bbc53ee",
-        "sense_label_en": "state",
-        "sort_order": 2,
         "source_evidence": [
           {
             "evidence_id": "source-fact:74a97484eb16c2ac82698508",
@@ -86,12 +80,29 @@
     "word_id": "word:expound"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:expound:714370e26bbc53ee",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "详细说明, 解释",
+      "definition_en": "state",
+      "semantic_key": "c678655f681f2c01719338db7854ff6e389aa01a3d132bcc025ec5b66d457a39",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 17752,
+      "source_path": "content/lexical/canonical/senses/shards/o6785-6816.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:expound:714370e26bbc53ee",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 17752,
         "source_path": "content/lexical/canonical/senses/shards/o6785-6816.json"
@@ -128,7 +139,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6793-6800.json",
-    "source_content_hash": "21f913eef11b026caf9857b8b08f58b9777aa95b68f292f93edce126761e7636",
+    "source_content_hash": "c25b3f5a978d844012f73841f335417a60de392ff033f807ef1c687849f2c9d7",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

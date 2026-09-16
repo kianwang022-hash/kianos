@@ -6,13 +6,31 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "ee678f2a0df48250c32ad354a8904425be92d384691312a878258879dd8700c0",
+    "constructions": [
+      {
+        "construction_id": "construction:a171aab569af1031afd6",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "受到问题或困难的持续困扰",
+        "pattern": "be beset by/with problems/difficulties",
+        "source_sense_id": "sense:beset:623e4a2e49775805"
+      }
+    ],
+    "content_hash": "c5768de30cd90118c7a95392256883d2de9429c79b107b06cf11f903039d4c12",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "围绕, 使苦恼, 镶嵌",
-      "core_meaning_en": "assail or attack on all sides: \"The zebra was beset by leopards\"",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "不断困扰、袭击；包围",
+          "label_en": "to trouble or attack persistently, or to surround on all sides",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:beset:623e4a2e49775805"
+          ]
+        }
+      ],
+      "core_meaning_cn": "不断困扰、袭击；包围",
+      "core_meaning_en": "to trouble or attack persistently, or to surround on all sides",
+      "mental_model_cn": "不断困扰、袭击；包围",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +40,22 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "不断困扰、袭击；包围",
+        "definition_en": "to trouble or attack persistently, or to surround on all sides",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:beset:623e4a2e49775805",
+        "sense_label_en": "to trouble or attack persistently, or to surround on all sides",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -37,31 +70,12 @@
     "word_id": "word:beset"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:beset:623e4a2e49775805",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "围绕, 使苦恼, 镶嵌",
-      "definition_en": "assail or attack on all sides: \"The zebra was beset by leopards\"",
-      "semantic_key": "d0b2363ca1961481611c37fc6d90d6b1f5fa930276a43a370d867793a4f7a965",
-      "semantic_key_history": [
-        "58b9eb319883186e8c8095a854af05b75798c2efb6324dfc86b2e9b7c34c30c6"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 17140,
-      "source_path": "content/lexical/canonical/senses/shards/o6401-6432.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:beset:623e4a2e49775805",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 17140,
         "source_path": "content/lexical/canonical/senses/shards/o6401-6432.json"
@@ -91,7 +105,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6425-6432.json",
-    "source_content_hash": "ee678f2a0df48250c32ad354a8904425be92d384691312a878258879dd8700c0",
+    "source_content_hash": "c5768de30cd90118c7a95392256883d2de9429c79b107b06cf11f903039d4c12",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

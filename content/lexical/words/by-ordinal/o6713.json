@@ -6,13 +6,38 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "7efec07f6f4a925a55751c765eb3013bec2c3184f096780696ad40217584594f",
+    "constructions": [
+      {
+        "construction_id": "construction:22712a93417fc165549f",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "一点一点地分发某物",
+        "pattern": "dole out sth / dole sth out"
+      }
+    ],
+    "content_hash": "382f72922a7f0e7e1958afafe444b982f138b8de7cc7227260ad35deb2ef444a",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "救济品, 失业救济金",
-      "core_meaning_en": "a share of money or food or clothing that has been charitably given",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "（英式英语）失业救济金或国家福利金",
+          "label_en": "British English: state unemployment or welfare benefit",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:dole:584b97f12afa55c5"
+          ]
+        },
+        {
+          "label_cn": "少量分发；一点一点地发放",
+          "label_en": "to distribute something in small amounts or portions",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:dole:4fc78fb1752b3033"
+          ]
+        }
+      ],
+      "core_meaning_cn": "（英式英语）失业救济金或国家福利金；少量分发；一点一点地发放",
+      "core_meaning_en": "British English: state unemployment or welfare benefit; to distribute something in small amounts or portions",
+      "mental_model_cn": "（英式英语）失业救济金或国家福利金；少量分发；一点一点地发放",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -31,7 +56,7 @@
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L1",
+        "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:dole:0c92132117d25341",
@@ -45,21 +70,23 @@
             "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
             "source_type": "learner_dictionary"
           }
-        ]
+        ],
+        "usage_note": "Older noun for a charitable share or handout."
       },
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "救济品, 失业救济金",
-        "definition_en": "money received from the state",
+        "definition_cn": "（英式英语）失业救济金或国家福利金",
+        "definition_en": "British English: state unemployment or welfare benefit",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
+        "register": "BrE",
         "sense_id": "sense:dole:584b97f12afa55c5",
-        "sense_label_en": "money received from the state",
+        "sense_label_en": "British English: state unemployment or welfare benefit",
         "sort_order": 2,
         "source_evidence": [
           {
@@ -70,6 +97,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "少量分发；一点一点地发放",
+        "definition_en": "to distribute something in small amounts or portions",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:dole:4fc78fb1752b3033",
+        "sense_label_en": "to distribute something in small amounts or portions",
+        "sort_order": 3,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -102,6 +143,13 @@
         "merged_into_sense_id": null,
         "source_row": 17621,
         "source_path": "content/lexical/canonical/senses/shards/o6689-6720.json"
+      },
+      {
+        "sense_id": "sense:dole:4fc78fb1752b3033",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 17634,
+        "source_path": "content/lexical/canonical/senses/shards/o6689-6720.json"
       }
     ],
     "active_collocations": [],
@@ -128,7 +176,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6713-6720.json",
-    "source_content_hash": "7efec07f6f4a925a55751c765eb3013bec2c3184f096780696ad40217584594f",
+    "source_content_hash": "382f72922a7f0e7e1958afafe444b982f138b8de7cc7227260ad35deb2ef444a",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

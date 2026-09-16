@@ -6,13 +6,32 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "f25345a3ac4f35e66614374269371eb1040bf339eb047ed3274d9099a48ac22d",
+    "constructions": [
+      {
+        "construction_id": "construction:2342e05e34c78440cc6a",
+        "definition_en": "to bring an image, memory, idea, or situation vividly to mind or create it imaginatively",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "使某个形象、记忆、想法等浮现；想象出",
+        "pattern": "conjure sth up / conjure up sth",
+        "source_sense_id": "sense:conjure:7c2ef89debd45f2b"
+      }
+    ],
+    "content_hash": "461846e59eb565e4148cd63991b29cb9970dec635b0ff2a44616ee144bbb8a38",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "念咒文召唤, 变戏法, 想象",
-      "core_meaning_en": "summon into action or bring into existence, often as if by magic",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "用魔法召唤；仿佛凭空变出",
+          "label_en": "to summon or produce something as if by magic",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:conjure:7c2ef89debd45f2b"
+          ]
+        }
+      ],
+      "core_meaning_cn": "用魔法召唤；仿佛凭空变出",
+      "core_meaning_en": "to summon or produce something as if by magic",
+      "mental_model_cn": "用魔法召唤；仿佛凭空变出",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,8 +45,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "念咒文召唤, 变戏法, 想象",
-        "definition_en": "summon into action or bring into existence, often as if by magic",
+        "definition_cn": "用魔法召唤；仿佛凭空变出",
+        "definition_en": "to summon or produce something as if by magic",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
@@ -35,7 +54,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:conjure:7c2ef89debd45f2b",
-        "sense_label_en": "summon into action or bring into existence, often as if by magic",
+        "sense_label_en": "to summon or produce something as if by magic",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -55,9 +74,10 @@
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L2",
+        "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
+        "register": "archaic/formal",
         "sense_id": "sense:conjure:a4490cc362645f4f",
         "sense_label_en": "ask for or request earnestly",
         "sort_order": 2,
@@ -69,31 +89,8 @@
             "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
             "source_type": "learner_dictionary"
           }
-        ]
-      },
-      {
-        "collocations": [],
-        "confidence": "high",
-        "definition_cn": "念咒文召唤, 变戏法, 想象",
-        "definition_en": "engage in plotting or enter into a conspiracy, swear together",
-        "depth": "full_card",
-        "domain_tag": "toefl",
-        "frequency_tag": "toefl",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:conjure:9a335956099b59b2",
-        "sense_label_en": "engage in plotting or enter into a conspiracy, swear together",
-        "sort_order": 3,
-        "source_evidence": [
-          {
-            "evidence_id": "source-fact:4ce54666afef15b27c80dedc",
-            "evidence_status": "source_checked",
-            "role": "external_semantic_auditor",
-            "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
-            "source_type": "learner_dictionary"
-          }
-        ]
+        ],
+        "usage_note": "Older sense meaning entreat/request earnestly is not learner-main."
       }
     ],
     "verification_summary": {
@@ -110,7 +107,24 @@
     "word_id": "word:conjure"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:conjure:9a335956099b59b2",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "念咒文召唤, 变戏法, 想象",
+      "definition_en": "engage in plotting or enter into a conspiracy, swear together",
+      "semantic_key": "723ddcfa3784cb11ea2bd8956e89b38dbf63fb0cf650372266ed51bee68336bb",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 17374,
+      "source_path": "content/lexical/canonical/senses/shards/o6561-6592.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -122,7 +136,7 @@
       },
       {
         "sense_id": "sense:conjure:9a335956099b59b2",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 17374,
         "source_path": "content/lexical/canonical/senses/shards/o6561-6592.json"
@@ -159,7 +173,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6561-6568.json",
-    "source_content_hash": "f25345a3ac4f35e66614374269371eb1040bf339eb047ed3274d9099a48ac22d",
+    "source_content_hash": "461846e59eb565e4148cd63991b29cb9970dec635b0ff2a44616ee144bbb8a38",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

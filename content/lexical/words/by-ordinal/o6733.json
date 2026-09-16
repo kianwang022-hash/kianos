@@ -6,13 +6,31 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "b83d3449715081c74395a085a4504cf2a98e922762e939b54a1bcafc661bce64",
+    "constructions": [
+      {
+        "construction_id": "construction:1d3fcee7653b4842dc1c",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "使自己不引人注意；谦退、不出风头",
+        "pattern": "efface oneself",
+        "source_sense_id": "sense:efface:9dbeedfe82835d4d"
+      }
+    ],
+    "content_hash": "709794957144f5c8499c4264cefd3bd7b2828e353b4dbf4e48b18958c29b69dc",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "抹去, 消除, 忘却",
-      "core_meaning_en": "make inconspicuous",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "抹去、擦除；使不显眼；使自己退居幕后",
+          "label_en": "to erase, remove, or make a mark, memory, feature, or oneself less visible or conspicuous",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:efface:9dbeedfe82835d4d"
+          ]
+        }
+      ],
+      "core_meaning_cn": "抹去、擦除；使不显眼；使自己退居幕后",
+      "core_meaning_en": "to erase, remove, or make a mark, memory, feature, or oneself less visible or conspicuous",
+      "mental_model_cn": "抹去、擦除；使不显眼；使自己退居幕后",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +40,22 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "抹去、擦除；使不显眼；使自己退居幕后",
+        "definition_en": "to erase, remove, or make a mark, memory, feature, or oneself less visible or conspicuous",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:efface:9dbeedfe82835d4d",
+        "sense_label_en": "to erase, remove, or make a mark, memory, feature, or oneself less visible or conspicuous",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -37,31 +70,12 @@
     "word_id": "word:efface"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:efface:9dbeedfe82835d4d",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "抹去, 消除, 忘却",
-      "definition_en": "make inconspicuous",
-      "semantic_key": "608de8d7a3a6491989f26f6080b167f688cabe5e3024d469d8ce9b99273e13cb",
-      "semantic_key_history": [
-        "14aa4c21b4bbef794dbcb65a478d04484a10569321d23b89da1edce6d6001347"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 17652,
-      "source_path": "content/lexical/canonical/senses/shards/o6721-6752.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:efface:9dbeedfe82835d4d",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 17652,
         "source_path": "content/lexical/canonical/senses/shards/o6721-6752.json"
@@ -91,7 +105,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6729-6736.json",
-    "source_content_hash": "b83d3449715081c74395a085a4504cf2a98e922762e939b54a1bcafc661bce64",
+    "source_content_hash": "709794957144f5c8499c4264cefd3bd7b2828e353b4dbf4e48b18958c29b69dc",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

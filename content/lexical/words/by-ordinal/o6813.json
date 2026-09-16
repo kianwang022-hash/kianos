@@ -7,12 +7,21 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "2c31cae8c4ddeb5069d6b1b9d05d9f4aeb2cac1f4a83fe364399fb1f4223a9a1",
+    "content_hash": "79e0c9fce6aa2a0a8896b1405e03557e01e639bbea6f413e175ae3ba44f94ce3",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "易错的, 可能犯错的",
-      "core_meaning_en": "likely to fail or make errors",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "可能犯错的；并非绝对可靠或不会失败的",
+          "label_en": "capable of making mistakes, being wrong, or failing",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:fallible:ca9dcce636125bed"
+          ]
+        }
+      ],
+      "core_meaning_cn": "可能犯错的；并非绝对可靠或不会失败的",
+      "core_meaning_en": "capable of making mistakes, being wrong, or failing",
+      "mental_model_cn": "可能犯错的；并非绝对可靠或不会失败的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +31,22 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "可能犯错的；并非绝对可靠或不会失败的",
+        "definition_en": "capable of making mistakes, being wrong, or failing",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:fallible:ca9dcce636125bed",
+        "sense_label_en": "capable of making mistakes, being wrong, or failing",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -55,24 +79,6 @@
       "source_row": 17776,
       "source_path": "content/lexical/canonical/senses/shards/o6785-6816.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:fallible:ca9dcce636125bed",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "易错的, 可能犯错的",
-      "definition_en": "likely to fail or make errors",
-      "semantic_key": "8542dad90cd9c2d7fbcc9bec0cd52397447bf6ed94082637252b57cabb2acfa3",
-      "semantic_key_history": [
-        "864e2fff034c78551e2b296a0951a2be912b85d32a3960157f36fb38d972d6ae"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 17777,
-      "source_path": "content/lexical/canonical/senses/shards/o6785-6816.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -86,7 +92,7 @@
       },
       {
         "sense_id": "sense:fallible:ca9dcce636125bed",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 17777,
         "source_path": "content/lexical/canonical/senses/shards/o6785-6816.json"
@@ -116,7 +122,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6809-6816.json",
-    "source_content_hash": "2c31cae8c4ddeb5069d6b1b9d05d9f4aeb2cac1f4a83fe364399fb1f4223a9a1",
+    "source_content_hash": "79e0c9fce6aa2a0a8896b1405e03557e01e639bbea6f413e175ae3ba44f94ce3",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

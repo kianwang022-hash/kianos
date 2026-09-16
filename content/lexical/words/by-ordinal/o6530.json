@@ -7,15 +7,42 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "e8c09a21ea89700062ba9a5e5eedf8103ce962d1485c8cbac552ee9aec133c4b",
+    "content_hash": "70674b47dd6e14eeab3dcd52f2e9e9da14311ee3874afc7e239646e3b6ba496a",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "开拓殖民地",
-      "core_meaning_en": "settle as a colony; of countries in the developing world",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "对某地或人群建立殖民统治；建立殖民地；移民定居；（生物/生态）定殖；在栖息地、体表或机体部位建立种群",
+          "label_en": "to establish colonial control over a territory or people; to establish or settle a colony in a place; to establish and grow a population in a habitat, surface, or part of an organism",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:colonize:e8028e55071959f3",
+            "sense:colonize:5c776f49385353c7",
+            "sense:colonize:620d02402b90c1c8"
+          ]
+        }
+      ],
+      "core_meaning_cn": "对某地或人群建立殖民统治；建立殖民地；移民定居；（生物/生态）定殖；在栖息地、体表或机体部位建立种群",
+      "core_meaning_en": "to establish colonial control over a territory or people; to establish or settle a colony in a place; to establish and grow a population in a habitat, surface, or part of an organism",
+      "mental_model_cn": "对某地或人群建立殖民统治；建立殖民地；移民定居；（生物/生态）定殖；在栖息地、体表或机体部位建立种群",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o6375-o6874.md",
+      "boundaries": [
+        {
+          "condition": "common AmE spelling",
+          "note": "American spelling.",
+          "surface": "colonize"
+        },
+        {
+          "condition": "common BrE spelling",
+          "note": "British spelling of the same verb.",
+          "surface": "colonise"
+        }
+      ],
+      "type": "regional_spelling_variant"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -26,8 +53,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "开拓殖民地",
-        "definition_en": "settle as a colony; of countries in the developing world",
+        "definition_cn": "对某地或人群建立殖民统治",
+        "definition_en": "to establish colonial control over a territory or people",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
@@ -35,7 +62,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:colonize:e8028e55071959f3",
-        "sense_label_en": "settle as a colony; of countries in the developing world",
+        "sense_label_en": "to establish colonial control over a territory or people",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -50,16 +77,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "开拓殖民地",
-        "definition_en": "settle as colonists or establish a colony (in)",
+        "definition_cn": "建立殖民地；移民定居",
+        "definition_en": "to establish or settle a colony in a place",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:colonize:5c776f49385353c7",
-        "sense_label_en": "settle as colonists or establish a colony (in)",
+        "sense_label_en": "to establish or settle a colony in a place",
         "sort_order": 2,
         "source_evidence": [
           {
@@ -70,6 +97,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "（生物/生态）定殖；在栖息地、体表或机体部位建立种群",
+        "definition_en": "to establish and grow a population in a habitat, surface, or part of an organism",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:colonize:620d02402b90c1c8",
+        "sense_label_en": "to establish and grow a population in a habitat, surface, or part of an organism",
+        "sort_order": 3,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -102,6 +143,13 @@
         "merged_into_sense_id": null,
         "source_row": 17324,
         "source_path": "content/lexical/canonical/senses/shards/o6529-6560.json"
+      },
+      {
+        "sense_id": "sense:colonize:620d02402b90c1c8",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 17371,
+        "source_path": "content/lexical/canonical/senses/shards/o6529-6560.json"
       }
     ],
     "active_collocations": [],
@@ -118,6 +166,14 @@
   },
   "lookup_refs": [
     {
+      "spelling": "colonise",
+      "source": "content/lexical/canonical/lookup/spelling/co.json",
+      "word_id": "word:colonize",
+      "ordinal": 6530,
+      "word_shard": "content/lexical/canonical/words/shards/o6529-6536.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/83.json"
+    },
+    {
       "spelling": "colonize",
       "source": "content/lexical/canonical/lookup/spelling/co.json",
       "word_id": "word:colonize",
@@ -128,7 +184,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6529-6536.json",
-    "source_content_hash": "e8c09a21ea89700062ba9a5e5eedf8103ce962d1485c8cbac552ee9aec133c4b",
+    "source_content_hash": "70674b47dd6e14eeab3dcd52f2e9e9da14311ee3874afc7e239646e3b6ba496a",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
