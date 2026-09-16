@@ -6,13 +6,39 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "5bd0eb78b870b170a5a9622fd73e181dca69d052d6e0d200573f70659736ab21",
+    "constructions": [
+      {
+        "construction_id": "construction:225c29131c9466608759",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "用大量……淹没、轰炸某人/某物",
+        "pattern": "deluge sb/sth with sth",
+        "source_sense_id": "sense:deluge:665613526e4b5ba3"
+      }
+    ],
+    "content_hash": "395d0d73d0db4edec4ce2734868813aa2d1032f2e35fb9f15bc25495c46f9afe",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "使泛滥",
-      "core_meaning_en": "fill quickly beyond capacity; as with a liquid",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "淹没；使充斥大量事物",
+          "label_en": "to overwhelm or flood someone or something with a very large quantity",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:deluge:665613526e4b5ba3"
+          ]
+        },
+        {
+          "label_cn": "洪水；大量涌来的事物",
+          "label_en": "a severe flood, or figuratively an overwhelming quantity of something arriving at once",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:deluge:2bcc2a56b9e99a6c"
+          ]
+        }
+      ],
+      "core_meaning_cn": "淹没；使充斥大量事物；洪水；大量涌来的事物",
+      "core_meaning_en": "to overwhelm or flood someone or something with a very large quantity; a severe flood, or figuratively an overwhelming quantity of something arriving at once",
+      "mental_model_cn": "淹没；使充斥大量事物；洪水；大量涌来的事物",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,16 +52,16 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "使泛滥",
-        "definition_en": "fill quickly beyond capacity; as with a liquid",
+        "definition_cn": "淹没；使充斥大量事物",
+        "definition_en": "to overwhelm or flood someone or something with a very large quantity",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
-        "level": "L1",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:deluge:665613526e4b5ba3",
-        "sense_label_en": "fill quickly beyond capacity; as with a liquid",
+        "sense_label_en": "to overwhelm or flood someone or something with a very large quantity",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -46,6 +72,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "洪水；大量涌来的事物",
+        "definition_en": "a severe flood, or figuratively an overwhelming quantity of something arriving at once",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:deluge:2bcc2a56b9e99a6c",
+        "sense_label_en": "a severe flood, or figuratively an overwhelming quantity of something arriving at once",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -70,6 +110,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 17508,
+        "source_path": "content/lexical/canonical/senses/shards/o6625-6656.json"
+      },
+      {
+        "sense_id": "sense:deluge:2bcc2a56b9e99a6c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 17529,
         "source_path": "content/lexical/canonical/senses/shards/o6625-6656.json"
       }
     ],
@@ -97,7 +144,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6641-6648.json",
-    "source_content_hash": "5bd0eb78b870b170a5a9622fd73e181dca69d052d6e0d200573f70659736ab21",
+    "source_content_hash": "395d0d73d0db4edec4ce2734868813aa2d1032f2e35fb9f15bc25495c46f9afe",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
