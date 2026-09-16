@@ -1,0 +1,74 @@
+{
+  "schema": "kianos.xizong.source_visual_bundles.v1",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED",
+  "system_id": "circulation",
+  "canonical_id": "A1",
+  "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
+  "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
+  "notes": "First reviewed A1 Source Visual slice. Adds only source-faithful pathology visuals for rheumatic heart disease and atherosclerotic plaque; missing A1 visuals remain legal and nonblocking.",
+  "bundles": [
+    {
+      "cue_id": "a1-b05-lg07-visual",
+      "source_sha256": "8d294c90a34724d4c70bf6231dd63ce0548e17f9528503d0953078d7d84e1329",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "pathology:8d294c90a34724d4:pi43:r340659-571318-824176-744267",
+          "source_page": 44,
+          "usage_role": "ATHEROSCLEROTIC_PLAQUE_STRUCTURE_VISUAL",
+          "usage_label": "P44 · 粥样斑块结构",
+          "alt": "病理讲义 P44：动脉粥样硬化斑块中纤维帽、胆固醇结晶与坏死/脂质核心原图",
+          "asset_path": "a1-b05-lg07/p44-plaque-structure.webp",
+          "width": 520,
+          "height": 263,
+          "source_crop_sha256": "1c3908f6e63004cf7217ddaeccd3f3c9526971ed8f7294b0ab3635fd8cada88f",
+          "derived_asset_sha256": "0464da58fd673592339f7b02c20a6e1a9742d3cbe9b568f1e55be8c9cbbe6624"
+        },
+        {
+          "source_object_id": "pathology:8d294c90a34724d4:pi44:r038462-046638-939560-641275",
+          "source_page": 45,
+          "usage_role": "ATHEROSCLEROTIC_PLAQUE_COMPLICATIONS_VISUAL",
+          "usage_label": "P45 · 斑块继发改变",
+          "alt": "病理讲义 P45：斑块内出血、纤维帽破裂、动脉瘤、钙化与血栓等继发改变原图",
+          "asset_path": "a1-b05-lg07/p45-plaque-complications.webp",
+          "width": 520,
+          "height": 485,
+          "source_crop_sha256": "a0a5a778e5cb66c8f258645fad794b43de30728f49cc63b30ed9badcf9756f36",
+          "derived_asset_sha256": "a5b8e85bef0e5fabb3d8cd13f7f065a5315ba41a690bc61e57a28846fbfbc455"
+        }
+      ]
+    },
+    {
+      "cue_id": "a1-b07-lg02-visual",
+      "source_sha256": "8d294c90a34724d4c70bf6231dd63ce0548e17f9528503d0953078d7d84e1329",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "pathology:8d294c90a34724d4:pi34:r043956-489701-824176-893898",
+          "source_page": 35,
+          "usage_role": "ASCHOFF_BODY_HISTOLOGY_VISUAL",
+          "usage_label": "P35 · Aschoff 小体",
+          "alt": "病理讲义 P35：风湿性心肌炎 Aschoff 小体组织学原图",
+          "asset_path": "a1-b07-lg02/p35-aschoff.webp",
+          "width": 520,
+          "height": 381,
+          "source_crop_sha256": "836c173bf4e5920dd51a05e551b3ddad532971254eb7dc10949372aefbd8796c",
+          "derived_asset_sha256": "e47cb3fce000c99749e5b8a7e4b5e97484e6a742a01b6cb6b5e83c1580e90051"
+        },
+        {
+          "source_object_id": "pathology:8d294c90a34724d4:pi35:r505495-641275-912088-897785",
+          "source_page": 36,
+          "usage_role": "RHEUMATIC_VALVE_GROSS_VISUAL",
+          "usage_label": "P36 · 慢性风湿瓣膜变形",
+          "alt": "病理讲义 P36：慢性风湿性心内膜炎所致二尖瓣增厚、纤维化与变形肉眼原图",
+          "asset_path": "a1-b07-lg02/p36-rheumatic-valve.webp",
+          "width": 520,
+          "height": 464,
+          "source_crop_sha256": "f4cfc49a04052804414dfe027bfdf3282fed3428e058c53e85806434d4899b1a",
+          "derived_asset_sha256": "60ca5084c4c19ce2c838c3b25dc78d8a3f2c997ffab8a89bb3735574f4c2d70a"
+        }
+      ]
+    }
+  ]
+}
