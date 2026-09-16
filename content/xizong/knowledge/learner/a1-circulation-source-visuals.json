@@ -6,7 +6,7 @@
   "canonical_id": "A1",
   "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
   "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
-  "notes": "First reviewed A1 Source Visual slice, byte-locked to reviewed source-faithful pathology crops for rheumatic heart disease and atherosclerotic plaque, now extended with reviewed physiology crops for cardiac-cycle PV mechanics, PV-loop perturbations and microcirculation fluid return; missing A1 visuals remain legal and nonblocking.",
+  "notes": "First reviewed A1 Source Visual slice, byte-locked to reviewed source-faithful pathology crops for rheumatic heart disease and atherosclerotic plaque, now extended with reviewed physiology crops for cardiac-cycle PV mechanics, PV-loop perturbations, microcirculation fluid return and electrophysiology; missing A1 visuals remain legal and nonblocking.",
   "bundles": [
     {
       "cue_id": "a1-b05-lg07-visual",
@@ -124,6 +124,82 @@
           "height": 1650,
           "source_crop_sha256": "323db6d1e6bb1ee8248dc8c6633b690bc6c1a9878030f2beade527b841b0267d",
           "derived_asset_sha256": "c13399ded506d5c75112409c3719da84257dcbb3abb1ecdfe95596b127d5cc88"
+        }
+      ]
+    },
+    {
+      "cue_id": "a1-b03-lg01-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df500372:pi137:crop:4bd4954fb5b8f697",
+          "source_page": 138,
+          "usage_role": "FAST_SLOW_WORKING_PACEMAKER_CLASSIFICATION",
+          "usage_label": "P138 · 快/慢反应与工作/自律细胞分类",
+          "alt": "生理讲义 P138：快反应与慢反应、工作细胞与自律细胞两轴分类表，含心房肌、心室肌、窦房结、房室结和浦肯野的归类及 0 期、4 期特征",
+          "asset_path": "a1-b03-lg01/b03-p138-response-cell-classification.webp",
+          "width": 1150,
+          "height": 730,
+          "source_crop_sha256": "4bd4954fb5b8f697c38d4e2cdff4a99e8b7c01935e7907f84ff2166a8a37722b",
+          "derived_asset_sha256": "78e1e9c94dc2a1b3cf1041a67797980b53c3a8a7cf8d0b98e57bccc33481a78f"
+        }
+      ]
+    },
+    {
+      "cue_id": "a1-b03-lg02-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df500372:pi138:crop:5a306732d515ae63",
+          "source_page": 139,
+          "usage_role": "WORKING_MYOCYTE_ACTION_POTENTIAL_PHASES",
+          "usage_label": "P139 · 工作心肌 0–4 期动作电位",
+          "alt": "生理讲义 P139：工作心肌动作电位 0–4 期曲线及主要离子流、平台期标注",
+          "asset_path": "a1-b03-lg02/b03-p139-working-myocyte-action-potential.webp",
+          "width": 1150,
+          "height": 1250,
+          "source_crop_sha256": "5a306732d515ae6379c16af22ae94e7d6bd3b16a246494d09bc7f370bdb54960",
+          "derived_asset_sha256": "ac727acfdbbd4bc6309fa9f886d3b55e9b188a328bca1384ad52035eda903056"
+        }
+      ]
+    },
+    {
+      "cue_id": "a1-b03-lg03-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df500372:pi139:crop:73df77c86ac609ff",
+          "source_page": 140,
+          "usage_role": "PACEMAKER_ACTION_POTENTIAL_PHASE_4_AUTOMATIC_DEPOLARIZATION",
+          "usage_label": "P140 · 窦房结起搏细胞动作电位",
+          "alt": "生理讲义 P140：窦房结 P 细胞动作电位曲线，含 4 期自动去极化、阈值区、0 期钙电流和无稳定静息电位特征",
+          "asset_path": "a1-b03-lg03/b03-p140-pacemaker-action-potential.webp",
+          "width": 1150,
+          "height": 650,
+          "source_crop_sha256": "73df77c86ac609ff647dea40018509ee0560ddb854b9d5190d6c5bd6e5c77fbe",
+          "derived_asset_sha256": "786c65f19f7d3ec0547a5bf7a69f56e74690b398f05edfe5d76506ad8f0340b0"
+        }
+      ]
+    },
+    {
+      "cue_id": "a1-b03-lg04-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df500372:pi142:crop:bb42d73393707c12",
+          "source_page": 143,
+          "usage_role": "CARDIAC_REFRACTORY_PERIOD_EXCITABILITY_TIMELINE",
+          "usage_label": "P143 · 不应期与兴奋性时间轴",
+          "alt": "生理讲义 P143：心室肌动作电位与绝对不应期、有效不应期、局部反应期、相对不应期及超常期时间轴关系图",
+          "asset_path": "a1-b03-lg04/b03-p143-refractory-excitability-timeline.webp",
+          "width": 1150,
+          "height": 1050,
+          "source_crop_sha256": "bb42d73393707c12e4dd2eeff4413397f64ab18ddf53d16923e0990083750648",
+          "derived_asset_sha256": "fdf58282fae592e689a48fd9476d0491f340015f04b9938277034f72ac665f7d"
         }
       ]
     }
