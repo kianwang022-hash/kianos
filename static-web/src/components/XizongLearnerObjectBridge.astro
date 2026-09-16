@@ -1,0 +1,188 @@
+---
+const { learnerObject } = Astro.props;
+const payload = learnerObject || null;
+---
+{payload && (
+  <script type="application/json" data-xizong-learner-object-payload set:html={JSON.stringify(payload)}></script>
+)}
+
+<script>
+  const root = document.querySelector('[data-xizong-v6-block]');
+  const payloadNode = document.querySelector('[data-xizong-learner-object-payload]');
+  if (root && payloadNode) {
+    let learner = null;
+    try { learner = JSON.parse(payloadNode.textContent || 'null'); } catch {}
+    if (learner?.schema === 'kianos.xizong.learner_object.v1') {
+      const text = (value) => String(value || '');
+      const el = (tag, className = '', value = '') => {
+        const node = document.createElement(tag);
+        if (className) node.className = className;
+        if (value) node.append(document.createTextNode(text(value)));
+        return node;
+      };
+
+      const renderPrecision = (row) => {
+        const card = el('div', 'xv6LearnerAsset precision');
+        card.dataset.learnerAsset = 'precision';
+        card.dataset.learnerAssetId = text(row?.id);
+        card.append(el('span', 'xv6LearnerAssetLabel', '以后要精确'));
+        card.append(el('p', '', row?.cue || row?.task));
+        return card;
+      };
+
+      const renderConnection = (row) => {
+        const card = el('div', `xv6LearnerAsset connection ${row?.reserveLearning ? 'reserve' : row?.direction || ''}`);
+        card.dataset.learnerAsset = 'connection';
+        card.dataset.learnerAssetId = text(row?.id);
+        const label = row?.reserveLearning ? '先留个印象' : row?.direction === 'incoming' ? '你之前见过' : '后面会接';
+        card.append(el('span', 'xv6LearnerAssetLabel', label));
+        card.append(el('p', '', row?.cue));
+        return card;
+      };
+
+      const renderVisual = (row) => {
+        const card = el('div', 'xv6LearnerAsset visual');
+        card.dataset.learnerAsset = 'visual';
+        card.dataset.learnerAssetId = text(row?.id);
+        card.append(el('span', 'xv6LearnerAssetLabel', `看原图${row?.sourceLocator ? ` · ${row.sourceLocator}` : ''}`));
+        if (row?.task || row?.cue) card.append(el('p', '', row?.task || row?.cue));
+        const assets = Array.isArray(row?.sourceVisualBundle?.assets) ? row.sourceVisualBundle.assets : [];
+        if (assets.length) {
+          const gallery = el('div', 'xv6LearnerVisualGallery');
+          assets.forEach((asset, index) => {
+            const figure = el('figure', index === 0 && assets.length > 1 ? 'primary' : '');
+            const link = el('a');
+            link.href = asset?.src || '#';
+            link.target = '_blank';
+            link.rel = 'noreferrer';
+            const image = el('img');
+            image.src = asset?.src || '';
+            image.alt = asset?.alt || asset?.usageLabel || '原讲义裁图';
+            image.loading = 'lazy';
+            image.decoding = 'async';
+            if (asset?.width) image.width = Number(asset.width);
+            if (asset?.height) image.height = Number(asset.height);
+            link.append(image);
+            figure.append(link);
+            if (asset?.usageLabel || asset?.sourcePage) figure.append(el('figcaption', '', asset?.usageLabel || `P${asset.sourcePage}`));
+            gallery.append(figure);
+          });
+          card.append(gallery);
+        }
+        return card;
+      };
+
+      const renderTable = (asset) => {
+        const wrap = el('div', 'xv6LearnerTableWrap');
+        const table = el('table', 'xv6LearnerTable');
+        const columns = Array.isArray(asset?.payload?.columns) ? asset.payload.columns : [];
+        const rows = Array.isArray(asset?.payload?.rows) ? asset.payload.rows : [];
+        const thead = el('thead');
+        const tr = el('tr');
+        columns.forEach((column) => tr.append(el('th', '', column?.label)));
+        thead.append(tr);
+        table.append(thead);
+        const tbody = el('tbody');
+        rows.forEach((row) => {
+          const line = el('tr', row?.emphasis ? 'emphasis' : '');
+          columns.forEach((column) => line.append(el('td', '', row?.[column?.key])));
+          tbody.append(line);
+        });
+        table.append(tbody);
+        wrap.append(table);
+        return wrap;
+      };
+
+      const renderExtensionCard = (asset) => {
+        const card = el('article', 'xv6LearnerAsset extension');
+        card.dataset.learnerAsset = 'extension';
+        card.dataset.learnerAssetId = text(asset?.id);
+        card.append(el('span', 'xv6LearnerAssetLabel', text(asset?.assetType).replaceAll('_', ' ')));
+        if (asset?.title) card.append(el('h4', '', asset.title));
+        if (asset?.task) card.append(el('p', '', asset.task));
+        if (asset?.assetType === 'STRUCTURED_TABLE') card.append(renderTable(asset));
+        else if (asset?.src) {
+          const img = el('img', 'xv6LearnerExtensionImage');
+          img.src = asset.src;
+          img.alt = asset?.payload?.alt || asset?.title || '学习扩展图';
+          img.loading = 'lazy';
+          card.append(img);
+        }
+        if (asset?.caption) card.append(el('small', '', asset.caption));
+        return card;
+      };
+
+      const renderExtension = (asset) => {
+        if (asset?.displayPolicy?.timing !== 'REFERENCE_ONLY') return renderExtensionCard(asset);
+        const details = el('details', 'xv6LearnerReference');
+        details.append(el('summary', '', asset?.title || '参考'));
+        details.append(renderExtensionCard(asset));
+        return details;
+      };
+
+      const renderSlot = (slot, { includeCore = false } = {}) => {
+        const host = el('div', 'xv6LearnerObjectSurface');
+        if (includeCore && slot?.core?.html) {
+          const core = el('div', 'markdown xv6LearnerResolvedCore');
+          core.innerHTML = slot.core.html;
+          host.append(core);
+        }
+        (slot?.connection || []).forEach((row) => host.append(renderConnection(row)));
+        (slot?.visual || []).forEach((row) => host.append(renderVisual(row)));
+        (slot?.precision || []).forEach((row) => host.append(renderPrecision(row)));
+        (slot?.extension || []).forEach((row) => host.append(renderExtension(row)));
+        return host;
+      };
+
+      // One compatibility bridge owns all legacy DOM placement until the Block workspace
+      // exposes first-class semantic slots. Individual asset families no longer query/mutate DOM.
+      const orientation = root.querySelector('.xv6BlockOrientation');
+      (learner.slots?.blockOrientation || []).forEach((asset) => orientation?.append(renderExtension(asset)));
+
+      const preHost = el('div', 'xv6LearnerObjectGroupSurface');
+      preHost.dataset.learnerObjectSlot = 'logic_group_prelearn';
+      root.querySelector('[data-study-stage="logic_group"] .xv6LogicTarget')?.insertAdjacentElement('afterend', preHost);
+      const postHost = el('div', 'xv6LearnerObjectGroupSurface');
+      postHost.dataset.learnerObjectSlot = 'logic_group_postlearn';
+      root.querySelector('[data-study-stage="group_close"] .xv6GroupClosure')?.insertAdjacentElement('afterend', postHost);
+
+      const groupIds = Array.isArray(learner.logicGroups) ? learner.logicGroups.map((group) => group?.identity?.logicGroupId) : [];
+      const activeGroupIndex = () => {
+        const counter = root.querySelector('[data-logic-counter]')?.textContent || '';
+        const match = counter.match(/(\d+)\s*\//);
+        return Math.max(0, Number(match?.[1] || 1) - 1);
+      };
+      const renderGroup = () => {
+        const groupId = groupIds[activeGroupIndex()] || '';
+        preHost.replaceChildren(...renderSlot(learner.slots?.logicGroupPrelearn?.[groupId] || {}).childNodes);
+        postHost.replaceChildren(...renderSlot(learner.slots?.logicGroupPostlearn?.[groupId] || {}).childNodes);
+      };
+      const counter = root.querySelector('[data-logic-counter]');
+      if (counter) new MutationObserver(renderGroup).observe(counter, { childList: true, subtree: true, characterData: true });
+      renderGroup();
+
+      root.querySelectorAll('[data-kp-recall-card][data-kp-id]').forEach((card) => {
+        const kpId = card.getAttribute('data-kp-id') || '';
+        const answer = card.querySelector('[data-kp-answer]');
+        const slot = learner.slots?.kpRecallPostReveal?.[kpId];
+        if (!answer || !slot) return;
+        const host = renderSlot({ ...slot, core: null });
+        host.dataset.learnerObjectSlot = 'kp_recall_post_reveal';
+        host.dataset.kpId = kpId;
+        answer.append(host);
+      });
+    }
+  }
+</script>
+
+<style is:global>
+  .xv6LearnerObjectSurface,.xv6LearnerObjectGroupSurface{display:grid;gap:.55rem;margin:.65rem 0}
+  .xv6LearnerObjectSurface:empty,.xv6LearnerObjectGroupSurface:empty{display:none}
+  .xv6LearnerAsset{display:grid;grid-template-columns:112px minmax(0,1fr);gap:.55rem;align-items:start;padding:.48rem 0;border-top:1px solid var(--line,#d9dde5)}
+  .xv6LearnerAsset:first-child{border-top:0}.xv6LearnerAssetLabel{font-size:.72rem;font-weight:800;opacity:.68}.xv6LearnerAsset p{margin:0;font-size:.86rem;line-height:1.55}
+  .xv6LearnerAsset.visual,.xv6LearnerAsset.extension,.xv6LearnerAsset.connection.reserve{padding:.65rem .72rem;border:1px solid var(--line,#d9dde5);border-radius:10px;background:var(--soft,#f5f6f8)}
+  .xv6LearnerAsset.visual,.xv6LearnerAsset.extension{grid-template-columns:1fr}.xv6LearnerAsset.extension h4{margin:0;font-size:.96rem}.xv6LearnerAsset.extension small{opacity:.65;line-height:1.45}
+  .xv6LearnerVisualGallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}.xv6LearnerVisualGallery figure{margin:0;border:1px solid var(--line,#d9dde5);border-radius:9px;overflow:hidden;background:#fff}.xv6LearnerVisualGallery figure.primary{grid-column:1/-1}.xv6LearnerVisualGallery img{display:block;width:100%;height:auto;max-height:380px;object-fit:contain}.xv6LearnerVisualGallery figure.primary img{max-height:520px}.xv6LearnerVisualGallery figcaption{padding:.4rem .5rem;border-top:1px solid var(--line,#d9dde5);font-size:.72rem;font-weight:700;opacity:.7}
+  .xv6LearnerExtensionImage{display:block;max-width:100%;height:auto;border-radius:8px}.xv6LearnerTableWrap{overflow:auto}.xv6LearnerTable{width:100%;min-width:32rem;border-collapse:collapse;font-size:.84rem}.xv6LearnerTable th,.xv6LearnerTable td{padding:.45rem .55rem;border:1px solid var(--line,#d9dde5);text-align:left;vertical-align:top}.xv6LearnerTable tr.emphasis td{font-weight:700}.xv6LearnerReference summary{cursor:pointer;font-weight:700}
+  @media(max-width:720px){.xv6LearnerAsset{grid-template-columns:1fr;gap:.2rem}.xv6LearnerVisualGallery{grid-template-columns:1fr}.xv6LearnerVisualGallery figure.primary{grid-column:auto}.xv6LearnerVisualGallery img,.xv6LearnerVisualGallery figure.primary img{max-height:none}}
+</style>
