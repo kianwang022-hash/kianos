@@ -1,36 +1,118 @@
 # Xizong Product / UI Status
 
-Status: **PRODUCT / INTERACTION ACCEPTED · ELIGIBLE PROJECTION V1 FROZEN · RENDERER / MAC ACCEPTANCE OPEN**  
-Current routing: `static-web/CURRENT.md` → `content/xizong/CURRENT.md` → exact System Current / Acceptance  
-Historical integrated execution documents (including the old #148-era three-subject execution prompt) are provenance only, not Current execution authority.  
+Status: **CURRENT PRODUCT ROUTER · ONE RUNTIME · PROJECTION / DISPLAY RECONCILIATION ACTIVE**  
 Domain router: `content/xizong/CURRENT.md`  
-Safety: `XIZONG_UI_REVIEW_PROTOCOL.md`
+Learning authority: `content/xizong/LEARNING_CONTRACT.md` + `content/xizong/knowledge/learner/study-policy.json`  
+Presentation authority: `static-web/PRESENTATION_CONTRACT.md`  
+Safety / review: `XIZONG_UI_REVIEW_PROTOCOL.md`
 
-## 当前范围与边界
+Historical integrated execution prompts, old Frozen web contracts, old Issue checklists and PR summaries are provenance only. They may explain how Current was reached but do not override the Current owners above.
 
-此轮核对的 eligible Projection 是 A1/A2/A3：3 System +38 Block，805 KP identities/396 bindings；原 v1 receipt 记录86 mutation/control测试。它们是既有资产验证证据，**不等于这轮浏览器/视觉/U 验收**。当前范围持续由 local Current/Acceptance 与 manifest 决定，B–F 未获允许的不为站点对称提前加入。
+---
 
-已闭合的 Learning/Runtime 是 UI 优化 baseline。读取 `content/xizong/LEARNING_CONTRACT.md`、`knowledge/learner/study-policy.json` 和精确 owner，不能因“反仪式”取消真实正式接触/主动 Recall/completion 条件。
+## 1｜Current product model in one view
 
-共享平台 baseline 已按一条生产 Runtime 收口；后续全科内容工程属于对稳定 capability slots 的持续填充，不得以“内容还会继续增长”为理由重开并行 Runtime、并行 Evidence 或并行 Visual authority。
+Xizong is one learning product and one learner Runtime. Visual, Extension, TTSX checkpoints, Recall, official questions, second pass and Repair are conditional capabilities inside the same learning system; they are not parallel apps or curricula.
 
-## 完整产品 family，不仅 Guide
+The current first-pass model is:
 
-System Guide → Block orientation → LG orientation → 原讲义整 LG 连续学习 → 一次真实返回 → KP Recall Front/Reveal → LG closure → Block Recall → Block Complete → selective After Learn；System 实际学完后还有 System Recall/题目sweep/修复/题后重建。
+```text
+System / Block orientation
+→ Attention Projection: what matters now / later / only if needed
+→ continuous original Lecture in iPad / MarginNote at accepted Source-contact granularity
+→ optional Visual Gate / Extension when the current object genuinely benefits from it
+→ natural Lecture subsection boundary
+     └─ if reviewed TTSX binding exists:
+        KianOS shows a lightweight checkpoint
+        → Kian completes TTSX in the Lecture / MarginNote itself
+        → reads answer + all options + question-side explanation / expansion
+        → KianOS confirms completion and may optionally retain selected question(s) / short note
+→ continue Source or return at the accepted retrieval point
+→ KP retrieval / LG closure
+→ Block Recall
+→ Block Complete
+→ after the System is actually learned: System Recall
+→ official System question sweep in KianOS
+→ W/U smallest-sufficient Repair / exact Return
+→ short post-question reconstruction
+```
 
-保留原文件：
+Hard distinctions:
 
-- `XIZONG_PRODUCT_BRIEF.md`
-- `XIZONG_HOME_DESIGN.md`
-- `XIZONG_SYSTEM_GUIDE_DESIGN.md`
-- `XIZONG_BLOCK_WORKSPACE_DESIGN.md`
-- `XIZONG_SYSTEM_COMPLETION_DESIGN.md`
+```text
+Logic Group
+= retrieval / local-closure unit
 
-旧阶段标题不能把已接受设计重开；System sweep 的 phase-aware multi-pass Question Attempt 已在现有 Runtime 内落地。尚未实现的全卷 runtime，以及未来把同一 attempt 语义接入整卷场景，仍是真实待核对项，不能用文档冻结冒充完成。
+Source-contact segment
+= continuous original-Lecture execution unit
 
-## Canonical Current Runtime｜禁止并行第二套版本
+Lecture-attached TTSX
+= local first-pass probe completed in the original Lecture surface
 
-西综只允许一条生产学习 Runtime。当前生产路由的唯一实现组合是：
+Official System questions
+= KianOS Question Runtime evidence after the System model exists
+```
+
+Do not force these into one unit because the current component tree happens to be simpler that way.
+
+---
+
+## 2｜Learner-facing information architecture
+
+The Block workspace should follow three information lanes:
+
+```text
+LEFT
+Position / Logic Map
+"Where am I?"
+
+CENTER
+Primary Cognitive Path
+"What am I actually learning / recalling / doing now?"
+
+RIGHT
+Attention Projection
+"How much attention should the other relevant information receive now?"
+```
+
+### Left — Position
+
+Use for Block/LG location and lightweight navigation. It is not a second content column and should not expand into engineering metadata.
+
+### Center — Primary Cognitive Path
+
+This is the dominant workspace. Depending on the current learner state it may show:
+
+- Block / current causal problem;
+- current Source-contact instruction / exact source;
+- an actually useful cognitive Projection object;
+- a Visual Gate / Extension when required;
+- a TTSX checkpoint at a real Source boundary;
+- Recall Front / Reveal / closure;
+- official Question Runtime after the System reaches that stage.
+
+Only the current main action should dominate.
+
+### Right — Attention Projection
+
+The right rail is **not primarily a workflow checklist**. Its main job is to spend Kian's attention for him.
+
+Learner-facing groups should be natural-language forms of:
+
+- **本轮带走** — important current material that should survive this pass;
+- **按需辅助** — Visual / table / Source / Precision support only when useful now;
+- **可以后置** — low-coupling precision / lists / details that must not block the main mechanism;
+- **后面再学 / 串联** — a future owner or connection to notice without expanding now.
+
+Backend labels such as `MI-G`, `MI-D`, `CURRENT_CORE`, `RESERVE_LEARNING`, `CONNECTION_HOOK`, `DEFERRED`, Projection roles and geometry are machine semantics. They should normally be translated into the learner-facing result rather than printed as taxonomy badges.
+
+Block / Lecture / Recall / Complete progress may appear lightly, but it must not consume the entire right rail and displace Attention Projection.
+
+---
+
+## 3｜Canonical Current Runtime｜no parallel V7 / second runtime
+
+The production routing remains one Runtime family:
 
 ```text
 /xizong/
@@ -46,95 +128,233 @@ System Guide → Block orientation → LG orientation → 原讲义整 LG 连续
 /xizong/[system]/[block]/
 → XizongBlockV6
 → XizongMemoryReviewV6
-→ Block Evidence / Stage / Repair / cue support
+→ Block Evidence / Stage / Repair / cue / enrichment support
 ```
 
-`V6` 是当前实现文件名留下的历史后缀，**不是第六套同时有效的学习模型**。不得在旁边新增 `V7`、`SecondPassV1/V2` 或另一套 Review/Attempt Runtime。等当前活动视觉/产品分支稳定后，如确有维护收益，可做一次无语义变化的中性命名迁移；迁移完成后旧名字必须退役，而不是长期双轨。
+`V6` is a historical implementation suffix, not a sixth live learner model. Do not create `V7`, a separate `SecondPassRuntime`, a Visual runtime, a TTSX runtime or another Evidence store to solve current integration problems.
 
-浏览器 localStorage key 中的 `v1/v2` 仅表示**存储 schema / migration identity**。它们不得被解释成多套 learner model；在没有显式迁移和旧数据处理方案前也不得因“去版本号”直接删除。
+When Current Learning semantics expose a mismatch in the component, fix the shared semantic adapter / Runtime / renderer rather than preserving an obsolete component assumption.
 
-一轮、二轮、后期复习属于**同一学习模型和同一 Runtime 的 study phase / task condition**，不是三个产品。正式 Learning 语义仍由 `LEARNING_CONTRACT.md` + `study-policy.json` 一次拥有；页面只执行这些语义。
+---
 
-### Multi-pass Question Attempt｜Current 兼容状态
+## 4｜TTSX / Lecture-attached question checkpoint
 
-同一个稳定 `question_id` 可以在一轮、二轮、后期或未来整卷中产生多次独立尝试。当前 System sweep 的 Evidence 约束为：
+Lecture-attached TTSX is **not a duplicate KianOS question-taking surface**.
+
+Ownership:
+
+```text
+Lecture / MarginNote owns
+- answering the TTSX
+- answer checking
+- all options
+- source-local explanation
+- question-side expansion / supplements
+
+KianOS owns
+- Boundary / Binding release bookkeeping
+- lightweight "this group is due" checkpoint
+- completion confirmation
+- optional question picker
+- optional short reason / note
+- routing selected W/U / expansion / confusion / connection / precision evidence later
+```
+
+Core rule:
+
+```text
+Boundary = WHEN
+reviewed Binding = WHICH
+```
+
+No binding means no invented release. KianOS must not fall back to the official question corpus by similarity or proximity.
+
+Default learner interaction should be minimal:
+
+```text
+TTSX · N questions
+在讲义原位置完成，并看全部选项 / 题旁拓展
+
+[已完成]
+
+[选择值得留下的题]   [没有，继续]
+```
+
+Selecting a question does not immediately mutate canonical Knowledge. A retained note may later be classified as personal note, Memory/Precision, Connection, Repair evidence, Chat debrief or a reviewed Core candidate.
+
+---
+
+## 5｜Official Question Runtime / multi-pass / Crosswalk
+
+Official questions use the existing shared Question Runtime and append-preserved attempt history.
 
 ```text
 stable question identity
-├─ results        = mutable current-round progress only
-└─ attemptHistory = append-preserved Question Attempt evidence
+├─ current-round progress
+└─ attemptHistory
      ├─ FIRST_PASS
      ├─ SECOND_PASS
      └─ LATE_REVIEW
 ```
 
-首次尝试不得被后续答题、Repair 或状态更新覆盖；当前 session 的 `results` / progress 是可变工作态，不再充当历史 Evidence 的唯一真相。下一轮只重置当前 `results`，历史 `attemptHistory` 保持 append-preserved；legacy `results` 迁移使用显式 `BOOTSTRAP_EXISTING_RESULT` provenance，不冒充新的 learner attempt。同一 question 在同一 round 的重复写入 fail closed。
+FIRST_PASS official sweep, SECOND_PASS and later review are phases / task conditions of the same question product.
 
-二轮复用继续由现有 `XizongSystemExitRuntime` / System Evidence 链承担，没有创建第二个二轮题目 Runtime。A2 浏览器验收已执行真实路径：一轮同题 Uncertain → W/U Repair → 完成当前轮 → 同一 Runtime 开启 SECOND_PASS → 同题重新作答 Stable；第一条 attempt 保持不变，第二条 attempt 独立追加。Repair 继续作为 `REPAIR_ONLY` 证据解释，不改写原始 Question Attempt，也不自动推断 mastery。
+Current second-pass behavior already includes targeted re-entry from previous Wrong / Uncertain / repaired-not-fresh-verified evidence; Stable work does not need mandatory full repetition, while explicit full re-sweep may remain an opt-in mode.
 
-已有 System Recall 的 `PRE_QUESTION / MID_SWEEP / POST_QUESTION` 表示**一次题目流程内部的位置**；跨学习轮次使用正交的 `FIRST_PASS / SECOND_PASS / LATE_REVIEW` study-phase 语义，两种 phase 不共用一个字段。结果可见性、Mark、提示/援助、题目/内容版本等已知条件仍应随 attempt 保留；未来整卷接入继续沿用这一模型，而不是新建平行 authority。
+The reviewed Question↔Knowledge interface is also a current capability:
 
-### Reviewed Question ↔ Knowledge Crosswalk｜Current capability
+- canonical positive truth is only explicit `REVIEWED` Question→Knowledge relation;
+- reverse Block/KP→Questions lookup is derived from the same relation owner;
+- missing mapping is legal and does not block practice;
+- Runtime must not infer a relation from title, disease name, page adjacency, Block membership or model intuition.
 
-题目到知识、知识到题目的接口已经进入同一生产 Runtime，但**关系内容本身仍允许增量增长**。
+Crosswalk content may continue to grow without changing the product skeleton.
 
-唯一允许进入 learner projection 的关系是 canonical owner 中显式 `REVIEWED` 的 Question→Knowledge relation；Runtime 不根据题干、疾病名或相邻 KP 自动猜 mapping。Question→Knowledge consumer 与 Block/KP→Questions reverse lookup 都从**同一份 canonical relation**现场解析/派生，reverse lookup 不持有第二份 mapping 状态。
+---
 
-缺 mapping 是合法状态：题目仍可完成正常 Question Attempt / Evidence 流程，只是不展示知识回链；relation 指向未通过当前 Projection gate 的对象时 fail closed，不为了“看起来完整”放宽安全边界。未来新增 reviewed relation 后，现有 System sweep / SECOND_PASS / Block reverse lookup 自动获得能力，不需要重做 Runtime 或页面骨架。
+## 6｜Visual / Precision / Extension
 
-Crosswalk 只负责 reviewed relation 的消费与返回入口，不改变 Question Attempt、Repair、mastery、Block completion 或 Evidence authority。
+Visual is conditional support in the main learning chain, not a separate completion program.
 
-### Visual / Precision capability｜Current 兼容状态
-
-Visual / Precision 现在是同一生产 Runtime 的**可选 enrichment capability**，不是 A2 特例，也不是第二套内容权威。正式边界见 `XIZONG_VISUAL_PRECISION_CAPABILITY.md`。
-
-稳定结构是：
+Use this conceptual ladder:
 
 ```text
-shared renderer / runtime capability
-        ↑
-stable cue / anchor / Source Object binding
-        ↑
-independently upgradable content packs
+Visual Truth
+original Lecture / PDF / reviewed source
+        ↓
+Visual Gate
+"does this learner object genuinely require seeing a visual?"
+        ↓
+Extension Slot (optional)
+"is there a persistent web asset that materially improves repeat use?"
+        ↓
+Attention / Projection timing
+"should Kian see it now, after Reveal, or only on demand?"
 ```
 
-A2 已接受的 R3 source-visual slice 继续保留，但元数据由 Current content pack 提供；共享 bridge 按 `*-source-visuals.json` 泛化发现，不再为每个疾病 / Block / KP 手写 import。没有 content pack、只有部分 content pack、或以后补更多图片，都必须继续使用同一 renderer。
+The generic Extension Asset layer is Current and supports:
 
-Visual 是稀疏高价值增强，不做“全讲义截图搬家”；Precision 是精确数字、阈值、分型边界、药物/时间配对等选择性 exactness 支撑。两者都不能进入 clean Recall front 造成答案泄漏。Source visual 仍只是在合适学习时机提供 micro-task / precise source support，不替代 iPad / MarginNote 原讲义连续学习。
+- `SOURCE_VISUAL`;
+- `STRUCTURED_TABLE`;
+- `SUMMARY_VISUAL`.
 
-A2 browser acceptance 已执行真实 R3 source-visual 路径与 KP Precision post-Reveal 路径；缺失 enrichment 合法，不造 placeholder，不构造假 completeness。
+Existing legacy `*-source-visuals.json` packs remain compatible; they are not the preferred reason to keep building a system-wide screenshot catalog.
 
-Source Visual content pack 另有独立 CI integrity guard：检查 manifest ↔ Current learning-cues identity、真实 reviewed Visual cue、唯一 cue ownership、安全 asset path、Source Object/page/accessibility metadata 与 derived asset SHA。该 validator 只保护 provenance / binding integrity，**不成为 renderer 的第二份 Visual authority，也不把内容覆盖率升级成 learner completion gate**。
+Hard rule:
 
-### Progressive availability｜工程未完成不能伪装成 learner 未完成
+> **Visual Gate ≠ required web asset ≠ screenshot backlog ≠ learner completion.**
 
-内容/工程 availability 与 learner progress、Evidence、Repair、先修依赖正交。
+Future Visual / Extension content should usually be added or improved because actual learning shows repeated value, a visual-recognition need, a spatial/mechanistic need, or a superior reviewed MarginNote/user summary exists. Do not bulk-produce an entire System merely for visual coverage symmetry.
 
-当前共享规则：
+Precision remains orthogonal to Visual. High-value exactness may be current or deferred based on learning timing; it is not automatically a large UI component.
+
+Current formal Extension ownership / replacement rules live in `content/xizong/EXTENSION_ASSET_CONTRACT.md`; capability boundaries live in `XIZONG_VISUAL_PRECISION_CAPABILITY.md`.
+
+---
+
+## 7｜Projection / semantic presentation
+
+Projection exists between learning/content semantics and final Astro layout:
 
 ```text
-capability/content 不存在或尚未开放
-≠ learner prerequisite 未完成
-≠ learner failure
+Current medical / learning owners
+→ shared semantic adapter
+→ cognitive / semantic presentation objects
+→ shared renderer
+→ learner UI
+```
+
+Projection may decide semantic role, cognitive geometry and stage-safe visibility. It may not invent medical truth, learner state, question relations or Source locators.
+
+Current durable role / geometry ideas remain useful, but historical Projection assets and manifest status are not allowed to overrule newer accepted Learning owners.
+
+Known Current reconciliation facts:
+
+- A1 / A2 / A3 / B already have compiled Projection assets;
+- C now has accepted Knowledge + Learning and is eligible for Projection, including explicit / non-contiguous LG membership;
+- the old Projection manifest still contains stale C eligibility / runtime-adoption status and must be reconciled before the next P promotion;
+- production Block rendering historically bypassed much of the rich Projection layer; active Projection→Astro work must consume the unified semantic adapter rather than duplicate legacy System-specific loaders;
+- System-specific Source-contact semantics must survive: B and C need not use identical Source-contact granularity simply to share one renderer.
+
+Do not interpret `role / geometry` as learner-facing labels. The learner should see the mechanism chain, comparison, boundary or exact item itself, not `CHAIN / MATRIX / EXACT` engineering words.
+
+---
+
+## 8｜Content / System availability
+
+Knowledge inventory and product readiness are different dimensions.
+
+The lane has a broad canonical Knowledge base; individual Systems may be at different K/L/P/R/E stages. Progressive availability remains legal:
+
+```text
+engineering/content not yet available
+≠ learner prerequisite failed
 ≠ learner debt
+≠ permission to fake placeholder content
 ```
 
-未来 System、Question、Crosswalk relation、Visual、Precision、Repair/Challenge 等能力可以逐步填充稳定 slot。已开放的 Learn / Recall / Question / Repair 路径不能因为旁支能力 `COMING` / partial 而被阻塞；completion denominator 只计算当前真实 admitted learner obligations。
+A1/A2/A3 have accepted engineering learner paths through Evidence for their named scopes; B/C have accepted modern K/L owners but still require downstream Projection/product reconciliation; later Systems continue their own content/learning acceptance work independently.
 
-产品层冻结的是 **learner journey + capability slots**，不是未来所有内容。后续全科内容工程可以持续把新 System、题目、reviewed relation、Visual / Precision 接进现有接口，而不重建 Runtime 或重新设计页面骨架。
+Do not wait for every System, every Visual, every Crosswalk relation or every future Extension before improving the shared learner product. Conversely, do not claim a later System is ready merely because the shared renderer exists.
 
-## 展示与 Guide 最新明确要求
+---
 
-`content/xizong/projection/PROJECTION_CONTRACT.md` + manifest + `V1_FREEZE_RECONCILIATION_RECEIPT.md` 管资产。一个 Block 可有多个认知对象；KP Reveal 仍须完整 canonical Core。7 rich calibration Blocks 以外的 baseline 引用不是“所有内容已图形化”的证明。
+## 9｜Presentation / visual direction
 
-改 reusable role/geometry/结构化正文 renderer，不按题名/疾病/KP 手工做页面。合法内容变化重验/编译，真正新类型只处理其影响；程序全量coverage，视觉按代表类型/状态/长内容抽验，不逐个805KP签字。
+Current Mac-wide direction remains:
 
-System Guide 是首次建立体系与后续重新定位的持久参考，稳定低摩擦入口/精确返回；非每次必经页、非 read-complete 证据。完整认知密度可滚动，不削成摘要。Block/LG/KP/Memory/Reserve 等逻辑内容也按合法状态承载，不只优化顶层 Guide。
+- useful density, not tiny text;
+- continuous workspace, not endless independent cards;
+- large readable learner text;
+- low decorative chrome;
+- real horizontal space usage;
+- task-native geometry;
+- no engineering terminology on the learner surface;
+- no second Lecture reader in Astro;
+- neutral Recall fronts are workspace-wide, including side rails / visuals / precision / tooltips.
 
-## 保护与执行
+A System / Block / LG / KP / Visual / question is not entitled to a separate card just because it exists as a data object.
 
-neutral front 是整个 workspace 的权限，不仅主卡片；Core/标题/源图/Precision/dock 不得侧漏。A2 enrichment 时机与 source ownership 不因共用组件而丢失；没有的 sidecar 不造。
+The Presentation Contract remains binding:
 
-Fast 与 Hidden 独立；西综 Mark 可稍后回看，不等于 Politics Uncertain 必须停留。holdout 保留；precise repair 只用 reviewed relation。Guide/查阅不得覆盖 first evidence/Resume。
+```text
+Learning Logic
+→ content semantics
+→ cognitive state
+→ semantic presentation objects
+→ spatial representation
+→ Astro
+```
 
-活动 UI PR 以 static-web Current/#113 为准；不修改独立 B Learning 或医学 Core。浏览器、独立审查、合法落库完成以后才可声明当前 eligible family `SUBJECT_CLOSED_FOR_HOME`；U 仍真实使用。旧状态原文在 `design-archive/2026-09-14/XIZONG_STATUS_BEFORE_V3.md`。
+Not:
+
+```text
+JSON fields / Markdown headings
+→ cards / sections / buttons
+→ page
+```
+
+---
+
+## 10｜Current next product sequence
+
+Do not continue broad UI polish or bulk Visual production before the shared semantics are reconciled.
+
+```text
+1. Current learning/product authority consolidation
+2. shared A1/A2/A3/B/C semantic adapter
+   - Logic Group identity/membership
+   - Source-contact segment
+   - retrieval point
+   - TTSX boundary/binding checkpoint
+   - Attention items
+   - Visual Gate / Extension refs
+3. reconcile Projection manifest / compiler with Current Learning truth
+4. update production Block renderer to consume semantic objects
+5. representative Golden Journey
+6. B + C compatibility acceptance
+7. only then final Xizong UI convergence
+8. later Systems / Visuals / Crosswalk continue additively
+```
+
+Real learner U remains external and path-scoped.

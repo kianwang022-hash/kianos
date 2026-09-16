@@ -23,13 +23,14 @@
   },
   "stage_contract": {
     "FIRST_PASS": {
-      "primary_goal": "建立完整知识模型，完成 Lecture 全量接触，并把当前核心推进到 UNDERSTOOD + RECALLABLE；当前 owner 下的重要 Precision 开始进入精确记忆；用 System 全量题暴露知识缺口。",
+      "primary_goal": "建立完整知识模型，完成 Lecture 全量接触，并把当前核心推进到 UNDERSTOOD + RECALLABLE；当前 owner 下的重要 Precision 开始进入精确记忆；在真实自然小节闭合时完成已绑定的 Lecture-attached TTSX；用 System 全量题暴露知识缺口。",
       "target_mastery": ["UNDERSTOOD", "RECALLABLE"],
       "precision_target": "重要当前-owner Precision 必须被识别并开始记忆，但第一次不稳定不得无限阻塞主线。",
-      "not_the_goal": ["要求所有 Precision 第一次即稳定", "把复杂病例训练做成主任务", "为了串联而顺藤摸瓜学完整个未来 Block"],
+      "not_the_goal": ["要求所有 Precision 第一次即稳定", "把复杂病例训练做成主任务", "为了串联而顺藤摸瓜学完整个未来 Block", "把 Lecture-attached TTSX 搬成第二个网页题库"],
       "required_gates": [
         "每个 canonical KP 完成正式学习接触，并至少进行一次主动 Recall",
         "每个 Logic Group 能回答这一组解决什么问题，并完成一次结构闭合",
+        "到达真实 natural subsection closure 且存在 reviewed TTSX binding 时，在 Lecture / MarginNote 原位置完成对应配套题、全部选项与题旁拓展；KianOS 只做低摩擦 checkpoint / 可选留痕",
         "每个 Block 完成一次 Block Recall，能把 KP 压回局部模型",
         "每个 System 在题目前先完成一次 System Recall",
         "System 全量题完成覆盖性 sweep；正确且理由清楚快速通过，Wrong / Uncertain 必须留下并回链修补",
@@ -41,7 +42,7 @@
       "primary_goal": "把知识模型转换为解题能力：Precision 稳定、鉴别边界、干扰项、条件变化、跨 Block/跨 System 调用与病例推理。",
       "target_mastery": ["APPLICABLE"],
       "precision_target": "高价值 Precision 推进到 REQUIRED_STABLE。",
-      "question_role": "同一道真题再次使用时重点分析决定性条件、干扰项为何错、条件改变后答案如何变化，而不是只重复答案。",
+      "question_role": "同一道正式题再次使用时重点分析决定性条件、干扰项为何错、条件改变后答案如何变化，而不是只重复答案。",
       "case_role": "病例应用在此轮深度强化，从第一故障→变量→后果→证据→鉴别→治疗。"
     },
     "LATE_REVIEW": {
@@ -71,11 +72,11 @@
   },
   "memory_admission": {
     "rule": "Memory 只收值得占用未来复习时间的内容，不等于今天见过的全部内容。",
-    "admit": ["已经正式学过且需要重复检索才能稳定的 Core", "当前 owner 下需要精确掌握的 Precision", "Recall 不稳项", "Wrong / Uncertain 暴露项", "learner 主动要求后续复习的内容"],
-    "reject": ["仅作为路牌的 Connection Hook", "尚未正式理解的后续大知识", "低价值补充", "已自然稳定且没有继续复习收益的事实"]
+    "admit": ["已经正式学过且需要重复检索才能稳定的 Core", "当前 owner 下需要精确掌握的 Precision", "Recall 不稳项", "Wrong / Uncertain 暴露项", "learner 主动选择保留的高价值 TTSX 题旁拓展或备注", "learner 主动要求后续复习的内容"],
+    "reject": ["仅作为路牌的 Connection Hook", "尚未正式理解的后续大知识", "低价值补充", "已自然稳定且没有继续复习收益的事实", "仅因为做过 TTSX 而产生的机械复习债"]
   },
   "evidence_interpretation": {
-    "separation": "Observed performance / self-rating is evidence, not root-cause diagnosis, learner-state certainty or an automatic next action.",
+    "separation": "Observed performance / self-rating / learner-selected TTSX note is evidence or attention signal, not root-cause diagnosis, learner-state certainty or an automatic next action.",
     "weak_signal_rule": "Wrong / Uncertain / unknown / fuzzy means the current evidence is insufficient or unstable under that task; do not automatically infer that the medical knowledge model is missing.",
     "positive_signal_rule": "Correct / known / mastered self-rating supports only the observed task and conditions; do not silently promote it to delayed recall, application, transfer or stable mastery.",
     "diagnosis_rule": "Only diagnose when plausible causes would lead to materially different next actions. If the same low-cost reversible action fits the plausible causes, skip explicit diagnosis and take that action.",
@@ -87,13 +88,39 @@
   },
   "lecture_runtime_contract": {
     "lecture": "首次学习必须完整接触的原始教学材料：解释顺序、原图、表格、例子、题旁拓展与讲义配套题。",
-    "kianos": "负责框架、注意力边界、机制定位、串联调度、主动 Recall、压缩与后续复习；不得变成第二本需要与 Lecture 重复通读的长讲义。",
-    "first_pass_rule": "Lecture-first。KianOS 告诉 learner 现在抓什么、哪些先不展开、以后在哪里收回，并在学习后把知识从脑中叫出来。"
+    "source_contact_unit": "Source-contact segment / natural Lecture subsection 是连续原讲义学习的执行单位，不是第五层 canonical hierarchy，也不自动等于 Logic Group。具体粒度由 System-specific Learning owner 决定。",
+    "kianos": "负责框架、注意力边界、机制定位、Source-contact / return guidance、TTSX checkpoint、串联调度、主动 Recall、压缩与后续复习；不得变成第二本需要与 Lecture 重复通读的长讲义。",
+    "first_pass_rule": "Lecture-first。KianOS 告诉 learner 现在抓什么、哪些先不展开、何时到达真实 Source boundary、是否有真实绑定 TTSX、以后在哪里收回，并在学习后把知识从脑中叫出来。"
+  },
+  "lecture_attached_ttsx": {
+    "role": "FIRST_PASS_LOCAL_LECTURE_PROBE",
+    "surface_owner": "IPAD_MARGINNOTE_ORIGINAL_LECTURE",
+    "kianos_role": "BOUNDARY_RELEASE_CHECKPOINT_AND_OPTIONAL_NOTE_CAPTURE",
+    "release_rule": "Boundary 决定 WHEN；reviewed Lecture Question Binding 决定 WHICH。无真实 binding 时 fail closed，不从 official corpus 猜题。",
+    "states": {
+      "RELEASE_NOW": "当前真实 Lecture natural subsection 已闭合且存在 reviewed binding；提示 learner 在讲义原位置完成这些题、看答案、全部选项与题旁拓展。",
+      "PENDING": "当前只学习到父小节中途；保存 release_at，暂不释放整组题。",
+      "NO_RELEASE": "只是 Recall / Apply 已学内容，不重新制造 Lecture-attached TTSX 动作。"
+    },
+    "learner_interaction": {
+      "default": "显示轻量 TTSX checkpoint；完成后可以直接继续，不要求逐题录入答案。",
+      "optional_selection": "允许 learner 选择一个或多个值得留下的题，并写极短备注。",
+      "optional_reasons": ["WRONG", "UNCERTAIN", "QUESTION_SIDE_EXPANSION", "CONFUSABLE", "CONNECTION", "PRECISION", "OTHER_NOTE"],
+      "question_content": "题干、作答、答案、全部选项、题旁解析与题旁拓展仍在 Lecture / MarginNote 原位置完成和阅读。"
+    },
+    "evidence_semantics": {
+      "default_attempt": "NONE",
+      "rule": "TTSX checkpoint 默认不是完整 KianOS Question Attempt；只记录必要的 boundary completion 与 learner 主动选择留下的 evidence / note。",
+      "no_debt_rule": "做过且无 useful delta 的 TTSX 不制造永久 Question Review / Memory 债。",
+      "routing": "选中的 Wrong / Uncertain / 拓展 / 易混 / 串联 / Precision 可进入最小 Repair、Memory、Connection、Chat debrief 或 reviewed canonical candidate；不得直接改写 medical Core 或 mastery。"
+    },
+    "return_rule": "checkpoint 处理后回到被打断的 Source/KP 主线，不启动独立 TTSX curriculum。"
   },
   "question_reuse": {
-    "principle": "真题不是一次性资产；同一道题在不同轮次承担不同任务。",
+    "scope": "OFFICIAL_KIANOS_QUESTION_RUNTIME_ONLY; Lecture-attached TTSX is governed by lecture_attached_ttsx and is not silently promoted into this attempt model.",
+    "principle": "正式题不是一次性资产；同一道题在不同轮次承担不同任务。",
     "first_pass": "按 System 做覆盖性全量 sweep，主要作为知识覆盖探针：会不会、错在哪里、哪个 KP/边界没建立。",
-    "second_pass": "重复使用真题做解题突破：决定性条件、干扰项、条件变化、鉴别、病例与跨系统调用。",
+    "second_pass": "重复使用正式题做解题突破：决定性条件、干扰项、条件变化、鉴别、病例与跨系统调用。",
     "second_pass_execution": {
       "default_queue": ["PREVIOUS_WRONG", "PREVIOUS_UNCERTAIN", "REPAIRED_NOT_FRESH_VERIFIED"],
       "queue_rule": "默认二轮队列只收一轮 Wrong、Uncertain，以及已经 Repair 但尚无后续 fresh attempt 验证的题；队列应从既有 Evidence 派生，不另造第二套 learner truth。",
@@ -112,11 +139,23 @@
     }
   },
   "compression_ladder": {
-    "LEARN": "主提示 + 当前机制 + 必要边界 + Lecture 接触；需要时才显示 Reserve / Hook / Precision / Visual。",
+    "LEARN": "主提示 + 当前机制 + 必要边界 + Lecture 接触；需要时才显示 Reserve / Hook / Precision / Visual / TTSX checkpoint。",
     "RECALL": "去掉正文提示，只保留非泄题 Active Prompt → 自己恢复 → Reveal → 评分。",
     "BLOCK_SYSTEM_RECALL": "把多个 KP 压回一个模型，不重复测全部 KP。",
     "SECOND_PASS_REVIEW": "机制骨架 + 易混边界 + Precision + Wrong/Uncertain。",
     "LATE_REVIEW": "一句主链 + 少量高价值边界/Precision；内容应越学越薄。"
+  },
+  "attention_projection": {
+    "role": "LEARNER_FACING_ATTENTION_BUDGET_NOT_WORKFLOW_RAIL",
+    "primary_path": "中间主区只承载当前真正要理解、Source-contact、Recall 或完成的主动作。",
+    "right_rail": {
+      "CURRENT_TAKEAWAY": "本轮必须带走但不需要另开主任务的关键内容。",
+      "ON_DEMAND_SUPPORT": "当前确实需要时再看的 Visual / Table / Precision / Source support。",
+      "DEFERRED_MEMORY": "可以后置、不阻塞当前机制理解的低耦合精确记忆或名单。",
+      "FUTURE_CONNECTION": "现在只知道关系存在、以后在正式 owner 再展开的串联/路标。"
+    },
+    "translation_rule": "后台 semantic / routing 标签可以复杂；learner-facing 使用自然学习语言，不直接暴露 MI-G / MI-D / CURRENT_CORE / RESERVE_LEARNING / CONNECTION_HOOK / DEFERRED / Projection role / geometry 等工程 taxonomy。",
+    "workflow_rule": "Block/LG/Lecture/Recall/Complete 等进度可以轻量出现，但不得占用整条右 rail 并取代 Attention Projection。"
   },
   "lossless_scheduling": {
     "rule": "信息可以延迟，但不能失踪。隐藏和后置必须来自学习时机优化，而不是删除知识。",
@@ -131,9 +170,10 @@
   },
   "learner_surface": {
     "rule": "后台可以复杂，学习页面必须简单。",
-    "always_prioritize": ["现在学什么", "当前机制", "主提示", "前后推进"],
-    "show_only_when_relevant": ["Precision", "Visual Gate", "Reserve", "后续串联", "Lecture/配套题入口"],
-    "keep_out_of_primary_surface": ["semantic owner", "routing", "coverage gate", "canonical", "audit", "migration", "mastery level code", "backend status taxonomy"],
-    "learning_boundary_rule": "前台不展示工程化 Learning Boundary 字段；通过主提示、当前 Core 和轻量“后面再展开”提示自然表达本轮到此为止。"
+    "always_prioritize": ["现在学什么", "当前机制", "主提示", "当前 Source / return 动作", "前后推进"],
+    "show_only_when_relevant": ["Precision", "Visual Gate", "Extension", "Reserve", "后续串联", "TTSX checkpoint", "Lecture/配套题入口"],
+    "keep_out_of_primary_surface": ["semantic owner", "routing", "coverage gate", "canonical", "audit", "migration", "mastery level code", "backend status taxonomy", "Projection role/geometry names"],
+    "learning_boundary_rule": "前台不展示工程化 Learning Boundary 字段；通过主提示、当前 Core、Source checkpoint 和轻量‘后面再展开’提示自然表达本轮到此为止。",
+    "layout_rule": "左侧负责位置/Logic Map；中间负责 Primary Cognitive Path；右侧优先负责 Attention Projection，而不是工程 workflow rail。"
   }
 }
