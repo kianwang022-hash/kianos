@@ -9,6 +9,7 @@ on:
       - 'tools/lexical_manifest_o4375_o4874.py'
       - 'tools/lexical_execute_o4375_o4874_v2.py'
       - 'tools/lexical_execute_o4375_o4874_v3.py'
+      - 'tools/lexical_execute_o4375_o4874_v4.py'
       - 'tools/lexical_verify_o4375_o4874.py'
       - '.github/workflows/lexical-o4375-o4874-continuous.yml'
   workflow_dispatch:
@@ -33,8 +34,8 @@ jobs:
 
       - name: Validate whole-package manifest
         run: |
-          python tools/lexical_execute_o4375_o4874_v3.py --validate-manifest
-          python -m py_compile tools/lexical_package_runtime.py tools/lexical_manifest_o4375_o4874.py tools/lexical_execute_o4375_o4874_v2.py tools/lexical_execute_o4375_o4874_v3.py tools/lexical_verify_o4375_o4874.py
+          python tools/lexical_execute_o4375_o4874_v4.py --validate-manifest
+          python -m py_compile tools/lexical_package_runtime.py tools/lexical_manifest_o4375_o4874.py tools/lexical_execute_o4375_o4874_v2.py tools/lexical_execute_o4375_o4874_v3.py tools/lexical_execute_o4375_o4874_v4.py tools/lexical_verify_o4375_o4874.py
 
       - name: Execute 500-owner package continuously
         run: |
@@ -50,7 +51,7 @@ jobs:
               continue
             fi
             echo "EXECUTE checkpoint=$i range=$r"
-            python tools/lexical_execute_o4375_o4874_v3.py --checkpoint "$i"
+            python tools/lexical_execute_o4375_o4874_v4.py --checkpoint "$i"
             python tools/test_lexical_transport_guards.py
             python tools/test_lexical_shard.py
             python - <<'PY'
