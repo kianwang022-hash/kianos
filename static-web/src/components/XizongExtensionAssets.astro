@@ -1,0 +1,169 @@
+---
+import { extensionAssetsForBlock } from '../lib/xizongExtensionAssets.mjs';
+
+const { block } = Astro.props;
+const assets = extensionAssetsForBlock(block);
+const clientAssets = assets.map((asset) => ({
+  slot_id: asset.slot_id,
+  owner: asset.owner,
+  cue_id: asset.cue_id || null,
+  asset_type: asset.asset_type,
+  revision: asset.revision,
+  title: asset.title,
+  task: asset.task || '',
+  caption: asset.caption || '',
+  provenance: asset.provenance,
+  display_policy: asset.display_policy,
+  payload: asset.payload,
+  src: asset.src || ''
+}));
+const groupIds = (block?.logicGroups || []).map((group) => group.groupId);
+---
+<div class="xizongExtensionLayer" data-xizong-extension-assets data-extension-block={block?.blockId || ''} aria-live="polite"></div>
+
+<script define:vars={{ extensionAssets: clientAssets, extensionGroupIds: groupIds }}>
+  const extensionHost = document.querySelector('[data-xizong-extension-assets]');
+  const blockRoot = document.querySelector('[data-xizong-v6-block]');
+
+  if (extensionHost && blockRoot && Array.isArray(extensionAssets) && extensionAssets.length) {
+    const groupIds = Array.isArray(extensionGroupIds) ? extensionGroupIds : [];
+    const assets = extensionAssets;
+    const text = (value) => String(value || '');
+    const byOwner = (owner, key, value) => owner?.[key] === value;
+
+    const addText = (parent, tag, className, value) => {
+      if (!value) return null;
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      node.append(document.createTextNode(text(value)));
+      parent.append(node);
+      return node;
+    };
+
+    const renderTable = (parent, payload) => {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'xizongExtensionTableWrap';
+      const table = document.createElement('table');
+      table.className = 'xizongExtensionTable';
+      const head = document.createElement('thead');
+      const headRow = document.createElement('tr');
+      (payload.columns || []).forEach((column) => addText(headRow, 'th', '', column.label));
+      head.append(headRow);
+      table.append(head);
+      const body = document.createElement('tbody');
+      (payload.rows || []).forEach((row) => {
+        const tr = document.createElement('tr');
+        if (row.emphasis) tr.classList.add('emphasis');
+        (payload.columns || []).forEach((column) => addText(tr, 'td', '', row[column.key]));
+        body.append(tr);
+      });
+      table.append(body);
+      wrapper.append(table);
+      parent.append(wrapper);
+    };
+
+    const renderVisual = (parent, asset) => {
+      const figure = document.createElement('figure');
+      figure.className = 'xizongExtensionFigure';
+      const image = document.createElement('img');
+      image.src = text(asset.src);
+      image.width = Number(asset.payload?.width || 0);
+      image.height = Number(asset.payload?.height || 0);
+      image.alt = text(asset.payload?.alt);
+      image.loading = 'lazy';
+      figure.append(image);
+      parent.append(figure);
+    };
+
+    const renderCard = (asset) => {
+      const card = document.createElement('article');
+      card.className = `xizongExtensionCard xizongExtensionCard--${text(asset.asset_type).toLowerCase()}`;
+      card.dataset.xizongExtension = 'true';
+      card.dataset.xizongExtensionSlot = text(asset.slot_id);
+      const heading = document.createElement('header');
+      addText(heading, 'span', 'xizongExtensionType', text(asset.asset_type).replaceAll('_', ' '));
+      addText(heading, 'h4', '', asset.title);
+      card.append(heading);
+      addText(card, 'p', 'xizongExtensionTask', asset.task);
+      if (asset.asset_type === 'STRUCTURED_TABLE') renderTable(card, asset.payload || {});
+      else renderVisual(card, asset);
+      addText(card, 'p', 'xizongExtensionCaption', asset.caption);
+      if (asset.provenance?.source_locator) addText(card, 'small', 'xizongExtensionProvenance', asset.provenance.source_locator);
+      return card;
+    };
+
+    const mount = (target, asset) => {
+      if (!target) return;
+      if (asset.display_policy?.timing === 'REFERENCE_ONLY') {
+        const details = document.createElement('details');
+        details.className = 'xizongExtensionReference';
+        addText(details, 'summary', '', asset.title);
+        details.append(renderCard(asset));
+        target.append(details);
+      } else {
+        target.append(renderCard(asset));
+      }
+    };
+
+    const orientationAssets = assets.filter((asset) => !asset.owner?.logic_group_id && !asset.owner?.kp_id);
+    const orientationTarget = blockRoot.querySelector('.xv6BlockOrientation');
+    orientationAssets.forEach((asset) => mount(orientationTarget, asset));
+
+    assets.filter((asset) => asset.owner?.kp_id).forEach((asset) => {
+      const card = [...blockRoot.querySelectorAll('[data-kp-recall-card]')]
+        .find((candidate) => byOwner({ kp_id: candidate.getAttribute('data-kp-id') }, 'kp_id', asset.owner.kp_id));
+      const answer = card?.querySelector('[data-kp-answer]');
+      if (!answer) return;
+      mount(answer, asset);
+    });
+
+    const groupTarget = document.createElement('div');
+    groupTarget.className = 'xizongExtensionGroupSurface';
+    groupTarget.dataset.xizongExtensionTiming = 'logic_group';
+    blockRoot.querySelector('[data-study-stage="logic_group"]')?.append(groupTarget);
+    const closeTarget = document.createElement('div');
+    closeTarget.className = 'xizongExtensionGroupSurface';
+    closeTarget.dataset.xizongExtensionTiming = 'group_close';
+    blockRoot.querySelector('[data-study-stage="group_close"]')?.append(closeTarget);
+
+    const activeGroupId = () => {
+      const active = [...blockRoot.querySelectorAll('[data-group-target]')].find((button) => button.classList.contains('active'));
+      const index = active ? [...blockRoot.querySelectorAll('[data-group-target]')].indexOf(active) : 0;
+      return groupIds[index] || '';
+    };
+    const renderGroupSurfaces = () => {
+      const groupId = activeGroupId();
+      groupTarget.replaceChildren();
+      closeTarget.replaceChildren();
+      assets.filter((asset) => asset.owner?.logic_group_id === groupId && asset.display_policy?.timing !== 'POST_REVEAL')
+        .forEach((asset) => mount(groupTarget, asset));
+      assets.filter((asset) => asset.owner?.logic_group_id === groupId && asset.display_policy?.timing === 'POST_REVEAL')
+        .forEach((asset) => mount(closeTarget, asset));
+    };
+
+    renderGroupSurfaces();
+    new MutationObserver(renderGroupSurfaces).observe(blockRoot, { subtree: true, attributes: true, attributeFilter: ['class', 'data-logic-counter'] });
+  }
+</script>
+
+<style>
+  .xizongExtensionLayer:empty { display: none; }
+  .xizongExtensionCard { margin:.85rem 0; padding:.85rem 1rem; border:1px solid var(--line,#d9dde5); border-radius:14px; background:var(--soft,#f5f6f8); }
+  .xizongExtensionCard header { display:flex; align-items:baseline; justify-content:space-between; gap:.75rem; }
+  .xizongExtensionCard h4 { margin:0; font-size:1rem; line-height:1.5; }
+  .xizongExtensionType,.xizongExtensionProvenance { font-size:.72rem; letter-spacing:.05em; opacity:.62; }
+  .xizongExtensionTask,.xizongExtensionCaption { margin:.5rem 0 0; line-height:1.6; }
+  .xizongExtensionCaption,.xizongExtensionProvenance { display:block; margin-top:.55rem; }
+  .xizongExtensionTableWrap { overflow-x:auto; margin-top:.7rem; }
+  .xizongExtensionTable { width:100%; min-width:34rem; border-collapse:collapse; font-size:.88rem; }
+  .xizongExtensionTable th,.xizongExtensionTable td { padding:.5rem .6rem; border:1px solid var(--line,#d9dde5); text-align:left; vertical-align:top; line-height:1.5; }
+  .xizongExtensionTable th { background:var(--panel,#fff); font-weight:700; }
+  .xizongExtensionTable tr.emphasis td { font-weight:700; }
+  .xizongExtensionFigure { margin:.7rem 0 0; }
+  .xizongExtensionFigure img { display:block; max-width:100%; height:auto; border-radius:10px; }
+  .xizongExtensionReference { margin:.7rem 0; }
+  .xizongExtensionReference summary { cursor:pointer; font-weight:700; }
+  .xizongExtensionReference .xizongExtensionCard { margin-left:.25rem; }
+  .xizongExtensionGroupSurface:empty { display:none; }
+  @media (max-width:720px) { .xizongExtensionCard header { align-items:flex-start; flex-direction:column; gap:.15rem; } }
+</style>

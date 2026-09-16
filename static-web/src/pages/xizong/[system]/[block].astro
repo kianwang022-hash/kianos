@@ -5,6 +5,7 @@ import XizongBlockV6 from '../../../components/XizongBlockV6.astro';
 import XizongQuestionCrosswalkReverse from '../../../components/XizongQuestionCrosswalkReverse.astro';
 import XizongConnectionCues from '../../../components/XizongConnectionCues.astro';
 import XizongPrecisionVisualCues from '../../../components/XizongPrecisionVisualCues.astro';
+import XizongExtensionAssets from '../../../components/XizongExtensionAssets.astro';
 import XizongStudyEnhancer from '../../../components/XizongStudyEnhancer.astro';
 import XizongMemoryReviewV6 from '../../../components/XizongMemoryReviewV6.astro';
 import XizongBlockEvidenceGuard from '../../../components/XizongBlockEvidenceGuard.astro';
@@ -48,6 +49,7 @@ const projection = {
   <XizongRuntimeStageGuard system={system} block={block} />
   <XizongConnectionCues block={projection} />
   <XizongPrecisionVisualCues block={projection} />
+  <XizongExtensionAssets block={projection} />
   <XizongStudyEnhancer block={projection} />
   <XizongMemoryReviewV6 block={projection} />
   <XizongBlockEvidenceGuard block={projection} />
