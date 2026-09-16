@@ -7,21 +7,29 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "1556804f0ecc02509d03c318e121a94f06137b6072c27263a9061391523f3ca3",
+    "content_hash": "5ce2db90d217df706c58c670826db1d2b28c76a7273f0935d64ed376b9713ee2",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "沉默；无声；寂静；无声",
-          "label_en": "the state of being silent (as when no one is speaking); the absence of sound",
+          "label_cn": "沉默；无声",
+          "label_en": "the state of being silent (as when no one is speaking)",
           "pos": "noun",
           "sense_ids": [
             "sense:silence:c8d7128a4cca5d1b"
           ]
+        },
+        {
+          "label_cn": "使缄默；压制",
+          "label_en": "keep from expression, for example by threats or pressure",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:silence:dd90c5dd07b158f7"
+          ]
         }
       ],
-      "core_meaning_cn": "沉默；使沉默",
-      "core_meaning_en": "the state of being silent or to make silent",
-      "mental_model_cn": "沉默；使沉默",
+      "core_meaning_cn": "沉默；无声；使缄默；压制",
+      "core_meaning_en": "the state of being silent (as when no one is speaking); keep from expression, for example by threats or pressure",
+      "mental_model_cn": "沉默；无声；使缄默；压制",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -64,6 +72,20 @@
         "sense_label_en": "the state of being silent (as when no one is speaking)",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "使缄默；压制",
+        "definition_en": "keep from expression, for example by threats or pressure",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:silence:dd90c5dd07b158f7",
+        "sense_label_en": "keep from expression, for example by threats or pressure",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -111,31 +133,6 @@
       "source_row": 12533,
       "source_path": "content/lexical/canonical/senses/shards/o4417-4448.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:silence:dd90c5dd07b158f7",
-      "status": "merged",
-      "merged_into_sense_id": "sense:silence:c8d7128a4cca5d1b",
-      "pos": "verb",
-      "definition_cn": "使缄默；压制",
-      "definition_en": "keep from expression, for example by threats or pressure",
-      "semantic_key": "343b72e5025915945e6de39d736eb6757099c3154fcfcc79c08795102d7621ca",
-      "semantic_key_history": [
-        "0fd9aefd11e7858d66165edddde38cfd1abd79df3da77054ec3272cd8f9922f6"
-      ],
-      "legacy_aliases": [
-        "silence:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "silence:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12534,
-      "source_path": "content/lexical/canonical/senses/shards/o4417-4448.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -156,8 +153,8 @@
       },
       {
         "sense_id": "sense:silence:dd90c5dd07b158f7",
-        "status": "merged",
-        "merged_into_sense_id": "sense:silence:c8d7128a4cca5d1b",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 12534,
         "source_path": "content/lexical/canonical/senses/shards/o4417-4448.json"
       }
@@ -230,7 +227,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4433-4440.json",
-    "source_content_hash": "1556804f0ecc02509d03c318e121a94f06137b6072c27263a9061391523f3ca3",
+    "source_content_hash": "5ce2db90d217df706c58c670826db1d2b28c76a7273f0935d64ed376b9713ee2",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

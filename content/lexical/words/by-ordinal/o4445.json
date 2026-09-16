@@ -7,12 +7,22 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "46580326ce6aaeb387215c27a1252a4ca4e78e3b37afa0d67d00c56fe8d3c5a9",
+    "content_hash": "11e996794741e5c5ec1213484d7a8dbaaaf30db1538636dc4e2be79801e1250c",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "不复杂，简单",
-      "core_meaning_en": "not complex or complicated",
-      "mental_model_cn": "不复杂，简单",
+      "core_clusters": [
+        {
+          "label_cn": "简单的；不复杂的；单纯的；易懂的",
+          "label_en": "having few parts; not complex or complicated; not complicated; easy to understand",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:simple:d86e87041a415cef",
+            "sense:simple:04b557c7900651b8"
+          ]
+        }
+      ],
+      "core_meaning_cn": "简单的；不复杂的；单纯的；易懂的",
+      "core_meaning_en": "having few parts; not complex or complicated; not complicated; easy to understand",
+      "mental_model_cn": "简单的；不复杂的；单纯的；易懂的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -25,7 +35,36 @@
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "简单的；不复杂的",
+        "definition_en": "having few parts; not complex or complicated",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:simple:d86e87041a415cef",
+        "sense_label_en": "having few parts; not complex or complicated",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "单纯的；易懂的",
+        "definition_en": "not complicated; easy to understand",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:simple:04b557c7900651b8",
+        "sense_label_en": "not complicated; easy to understand",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -87,31 +126,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:simple:04b557c7900651b8",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "单纯的；易懂的",
-      "definition_en": "not complicated; easy to understand",
-      "semantic_key": "a408a6870a347da55cb692f44f673b936db5521b25c910671b32d5ae4fa91b52",
-      "semantic_key_history": [
-        "9400bce9eb553348a2582ed133b87083d6de6dcc4942fbdde5bb955f8b5e2e1c"
-      ],
-      "legacy_aliases": [
-        "simple:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "simple:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12550,
-      "source_path": "content/lexical/canonical/senses/shards/o4417-4448.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:simple:1c7aeddc2aec59b0",
       "status": "deprecated",
@@ -186,38 +200,13 @@
       "source_row": 12553,
       "source_path": "content/lexical/canonical/senses/shards/o4417-4448.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:simple:d86e87041a415cef",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "简单的；不复杂的",
-      "definition_en": "having few parts; not complex or complicated",
-      "semantic_key": "6b1e1904d0a728ff03d1821fb2f819b53a974b86ee0533f022831e5a9b833396",
-      "semantic_key_history": [
-        "9d4d38ecfb212ce42b6b4f13c907ab87b302daf25617910fa460d4b84599d4b9"
-      ],
-      "legacy_aliases": [
-        "simple:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "simple:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12554,
-      "source_path": "content/lexical/canonical/senses/shards/o4417-4448.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:simple:04b557c7900651b8",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12550,
         "source_path": "content/lexical/canonical/senses/shards/o4417-4448.json"
@@ -245,7 +234,7 @@
       },
       {
         "sense_id": "sense:simple:d86e87041a415cef",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12554,
         "source_path": "content/lexical/canonical/senses/shards/o4417-4448.json"
@@ -312,7 +301,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4441-4448.json",
-    "source_content_hash": "46580326ce6aaeb387215c27a1252a4ca4e78e3b37afa0d67d00c56fe8d3c5a9",
+    "source_content_hash": "11e996794741e5c5ec1213484d7a8dbaaaf30db1538636dc4e2be79801e1250c",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
