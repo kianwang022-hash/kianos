@@ -1,0 +1,38 @@
+name: Lexical survivor exact reign patch
+
+on:
+  push:
+    branches:
+      - lexical/execute-o3875-o4124-20260916
+    paths:
+      - content/lexical/execution/o4035.REIGN_EXACT_PATCH
+
+permissions:
+  contents: write
+
+jobs:
+  patch-executor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pin frozen reign stable identities
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('tools/lexical_apply_forward_o3875_o4124_remaining.py')
+          t=p.read_text()
+          old='''    refs=s.owner(4035).get("reference_senses",[]); rule=[r for r in refs if r.get("pos")=="verb" and any(k in norm(r.get("definition_en")) for k in ("rule as","monarch","sovereign"))]; dom=[r for r in refs if r.get("pos")=="verb" and any(k in norm(r.get("definition_en")) for k in ("dominat","prevail","supreme"))]\n    if len(rule)==1: s.reactivate(4035,rule[0]["stable_sense_id"],level="L1",pos="verb")\n    elif not any("monarch" in text_of(x) or "rule as" in text_of(x) for x in s.active(4035)): raise RuntimeError("REIGN_RULE_IDENTITY_MISSING")\n    if len(dom)==1: s.reactivate(4035,dom[0]["stable_sense_id"],level="L2",pos="verb")\n    elif not any("dominat" in text_of(x) or "prevail" in text_of(x) for x in s.active(4035)): raise RuntimeError("REIGN_DOMINATE_IDENTITY_MISSING")'''
+          new='''    s.reactivate(4035,"sense:reign:bb069fece4e253c9",level="L1",pos="verb")\n    s.reactivate(4035,"sense:reign:ad7790a66d225608",level="L2",pos="verb")'''
+          if old not in t:
+              raise SystemExit('REIGN_PATCH_ANCHOR_MISSING')
+          p.write_text(t.replace(old,new,1))
+          PY
+          python -m py_compile tools/lexical_apply_forward_o3875_o4124_remaining.py
+          git config user.name "Kian"
+          git config user.email "kianwang022@gmail.com"
+          git add tools/lexical_apply_forward_o3875_o4124_remaining.py
+          git diff --cached --quiet && { echo REIGN_PATCH_ALREADY_PRESENT; exit 0; }
+          git commit -m "lexical: pin reign stable identities"
+          git push origin HEAD:lexical/execute-o3875-o4124-20260916
