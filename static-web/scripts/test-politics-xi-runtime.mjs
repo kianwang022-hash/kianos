@@ -49,6 +49,15 @@ async function findConfig(page, minQuestions = 1) {
 const cardFor = (page, qid) => page.locator(`[data-politics-question][data-question-id="${qid}"]`);
 async function answer(page, qid, mode = 'correct') {
   const card = cardFor(page, qid);
+  await card.waitFor({ state: 'attached' });
+  const unitAnchor = await card.evaluate((node) => node.closest('[data-politics-unit]')?.id || '');
+  if (unitAnchor) {
+    const unit = page.locator(`[id="${unitAnchor}"]`);
+    if (!(await unit.isVisible())) {
+      await page.locator(`.politicsRail a[href="#${unitAnchor}"]`).click();
+      await unit.waitFor({ state: 'visible' });
+    }
+  }
   await card.waitFor({ state: 'visible' });
   const correct = String(await card.getAttribute('data-answer') || '');
   const labels = await card.locator('[data-politics-option]').evaluateAll((els) => els.map((el) => el.getAttribute('data-politics-option') || ''));

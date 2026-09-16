@@ -196,11 +196,16 @@ const guideLabel = chapter.subject === 'history'
   };
 
   if (politicsRuntime) {
+    // Entry/reload must not demote an exact cursor within this chapter.
+    const previousLocation = readJson(politicsLastKey, null);
+    const sameLocation = previousLocation?.subject === politicsRuntime.dataset.subject
+      && previousLocation?.chapter === politicsRuntime.dataset.chapter;
     saveJson(politicsLastKey, {
+      ...(sameLocation ? previousLocation : {}),
       subject: politicsRuntime.getAttribute('data-subject') || '',
       chapter: politicsRuntime.getAttribute('data-chapter') || '',
       title: politicsRuntime.getAttribute('data-title') || '',
-      href: window.location.pathname,
+      href: sameLocation && previousLocation?.href ? previousLocation.href : window.location.pathname,
       observed_at: new Date().toISOString()
     });
   }
