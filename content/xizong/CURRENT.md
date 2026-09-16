@@ -43,11 +43,12 @@ Use for medical Core, Source boundary, System model, Block/KP identity, content 
 
 ```text
 LEARNING_CONTRACT.md
+→ LEARNER_OBJECT_CONTRACT.md when learner-facing asset consumption / projection boundary is material
 → knowledge/learner/study-policy.json
 → exact System-specific *-learning.json when material
 ```
 
-Use for learner order, Logic Groups, Source-contact granularity, TTSX, Recall/completion, Attention Projection, Memory/Precision timing and phase linkage.
+Use for learner order, Logic Groups, Source-contact granularity, TTSX, Recall/completion, Attention Projection, Memory/Precision timing and phase linkage. `LEARNER_OBJECT_CONTRACT.md` does not override Learning; it defines how already-owned Prompt/Core/Source/Outline and reviewed enrichment are assembled once for learner-facing runtime consumption.
 
 Current reminders only:
 
@@ -63,22 +64,24 @@ Current reminders only:
 ```text
 static-web/XIZONG_PRODUCT_STATUS.md
 → static-web/PRESENTATION_CONTRACT.md
+→ LEARNER_OBJECT_CONTRACT.md when renderer consumption / KP Learn-Recall asset placement is material
 → projection/PROJECTION_CONTRACT.md when P semantics are material
 → exact Runtime/component only after semantic owners are understood
 ```
 
-Do not infer learning semantics from the current DOM or CSS. Product / UI work must preserve the locked learner-facing flow in `LEARNING_CONTRACT.md` §12; a current Runtime mismatch is an implementation defect, not a new Learning rule.
+Do not infer learning semantics from the current DOM or CSS. Product / UI work must preserve the locked learner-facing flow in `LEARNING_CONTRACT.md` §12 and the resolved ownership boundary in `LEARNER_OBJECT_CONTRACT.md`; a current Runtime mismatch is an implementation defect, not a new Learning rule.
 
 ### Visual / Precision / Extension
 
 ```text
 LEARNING_CONTRACT.md
+→ LEARNER_OBJECT_CONTRACT.md
 → static-web/XIZONG_VISUAL_PRECISION_CAPABILITY.md
 → EXTENSION_ASSET_CONTRACT.md
-→ exact cue / extension / source-visual owner
+→ exact cue / extension / source-visual / pathway owner
 ```
 
-Sparse coverage is intentional; missing Extension content is not learner debt or a reason for system-wide screenshot production.
+Sparse coverage is intentional; missing Extension content is not learner debt or a reason for system-wide screenshot production. Precision / Visual / Extension / Connection are enrichment families inside the resolved learner object; they do not become parallel DOM owners.
 
 ### Questions / explanations / Crosswalk / second pass
 
@@ -139,6 +142,7 @@ A real defect reopens only the earliest responsible owner and its dependent chai
 - Knowledge map → `knowledge/manifest.json`
 - medical Core → `knowledge/systems/**`
 - lane Learning → `LEARNING_CONTRACT.md`
+- learner-object runtime aggregation / consumption boundary → `LEARNER_OBJECT_CONTRACT.md`
 - shared execution policy → `knowledge/learner/study-policy.json`
 - System learning support → `knowledge/learner/`
 - Extension contract / assets → `EXTENSION_ASSET_CONTRACT.md` + `knowledge/learner/*-extensions.json`
