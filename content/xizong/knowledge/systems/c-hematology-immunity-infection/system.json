@@ -1,0 +1,353 @@
+{
+  "schema": "kianos.xizong.system.v1",
+  "status": "FREEZE_CANDIDATE",
+  "semantic_authority": "CHAT_APPROVED_KNOWLEDGE_CANDIDATE",
+  "system_id": "hematology-immunity-infection",
+  "canonical_id": "C",
+  "title": "血液·免疫·感染",
+  "identity": {
+    "block_count": 27,
+    "canonical_kp_count": 423,
+    "stable_block_ids": [
+      "hematology-h01",
+      "hematology-h02",
+      "hematology-h03",
+      "hematology-h04",
+      "hematology-h05",
+      "hematology-h06",
+      "hematology-h07",
+      "hematology-h08",
+      "hematology-h09",
+      "hematology-h10",
+      "hematology-h11",
+      "hematology-h12",
+      "hematology-h13",
+      "hematology-h14",
+      "hematology-h15",
+      "hematology-h16",
+      "hematology-h17",
+      "hematology-h18",
+      "hematology-h19",
+      "hematology-h20",
+      "hematology-h21",
+      "hematology-h22",
+      "hematology-h23",
+      "hematology-h24",
+      "hematology-h25",
+      "hematology-h26",
+      "hematology-h27"
+    ],
+    "block_identity_change": false,
+    "kp_identity_change": false,
+    "kp_split_merge_renumber": false,
+    "legacy_system_id_variants": [
+      "hematology_immunity_infection"
+    ],
+    "rule": "H1–H27 remain the stable Block identities and the 423 embedded canonical KP identities remain unchanged. This System owner only compresses and routes existing Current medical Core; it does not split, merge, renumber, or semantically replace any Block/KP."
+  },
+  "ownership": {
+    "system_level_owner": "system.json",
+    "transition_owner": "content/xizong/knowledge/system-guides/西综血液_免疫_感染_System_Guide_v1_完整导学_认知依赖与学习顺序.md",
+    "medical_core_owner": "H1–H27 canonical Block Markdown under this directory",
+    "logic_index_role": "NOT_YET_ACCEPTED_AT_K_CANDIDATE_STAGE",
+    "question_truth_owner": "content/xizong/questions/",
+    "question_relation_owner": "content/xizong/question-relations/",
+    "rule": "System Knowledge owns the cross-Block medical model, boundaries and interfaces only. Block Markdown remains the medical Core. Logic Groups and learner order belong to a later Learning stage and must not be inferred from this file. Question Truth and reviewed Question→Knowledge relations remain separate owners."
+  },
+  "source_boundary": {
+    "supported_current_scope": [
+      "normal blood-cell production, peripheral-blood interpretation, blood groups and transfusion interfaces supported by physiology/surgery sources",
+      "internal-medicine hematology including anemia, marrow failure, bleeding disorders and clonal hematologic disease",
+      "source-supported minimum immune language, hypersensitivity/tolerance, immunodeficiency/HIV and transplantation pathology",
+      "internal-medicine rheumatology including SLE/APS, RA, primary Sjögren syndrome and systemic vasculitis/Behçet disease",
+      "pathology-supported selected infectious-disease patterns plus surgical local infection, source control, sepsis, tetanus and gas gangrene"
+    ],
+    "explicit_absences": [
+      "no independent complete normal-immunology Study Lecture",
+      "no complete internal-medicine infectious-disease Lecture",
+      "no source authority for a complete complement cascade, cytokine network, vaccine curriculum, antimicrobial/antiviral/antifungal curriculum or full HIV-treatment curriculum",
+      "no authority to replace organ-specific infection owners with a second C-system diagnostic/treatment curriculum"
+    ],
+    "block_source_status_rule": "Explicit source conflicts, source boundaries, reading boundaries, ownership boundaries, historical-terminology boundaries and visual-source gaps recorded by canonical Block owners remain live constraints. System compression cannot silently resolve or erase them.",
+    "rule": "Build only the minimum System model actually supported by Current sources and canonical Block Core. Missing source scope stays missing rather than being filled from generic medical priors."
+  },
+  "scope_boundary": {
+    "current": "C Hematology / Immunity / Infection System only",
+    "owned_here": [
+      "hematopoiesis and the shared CBC/Ret/peripheral-smear/bone-marrow diagnostic language",
+      "blood-group compatibility, crossmatch and component-transfusion decision interfaces",
+      "anemia localization, marrow failure, hemolysis and bleeding-disorder models assigned to H Blocks",
+      "clonal hematopoiesis and hematologic malignancy evidence layers assigned to H7–H11",
+      "the minimum source-supported immune/tolerance/deficiency/alloimmune language needed by Current pathology and internal-medicine disease models",
+      "rheumatologic disease localization and the Current SLE/APS, RA, Sjögren and vasculitis/Behçet models",
+      "shared infection pathology, host-defense boundary, localization/spread, source-control and sepsis models assigned to H20–H27"
+    ],
+    "not_owned_here": [
+      "normal hemostasis as a second Primary; its full first-learning owner remains Circulation and C only recalls/applies it",
+      "complete RBC metabolism, iron/B12/folate one-carbon metabolism, heme/bilirubin, nucleotide metabolism or tumor-molecular foundation already owned by B/biochemistry/O9",
+      "complete pulmonary, urinary, digestive, cardiac, neurologic, orthopedic or reproductive organ-infection diagnosis/treatment models",
+      "complete normal immunology beyond the minimum Source-supported language",
+      "complete clinical infectious-disease medicine, vaccine policy or antimicrobial/antiviral treatment curriculum",
+      "full neurologic/orthopedic/reproductive consequences that belong to downstream owning Systems"
+    ],
+    "rule": "Cross-System material is an explicit interface, Recall or application boundary; it never transfers the neighboring medical owner into C."
+  },
+  "mission": "把血细胞生产与更新、外周血读数、免疫识别与效应、耐受与反应终止、克隆秩序以及感染局限/源控制压缩成一个可反向定位的系统：先判断异常发生在生产、成熟、外周破坏/丢失、止血、克隆控制、免疫耐受/防御，还是感染局限失败，再用形态、实验室、免疫/遗传、病理和病原证据定位第一故障与当前危险。",
+  "mental_model": {
+    "mother_model": "骨髓持续生产并成熟各系血细胞 → 外周血把细胞与血浆成分送到全身并形成可观测读数 → 免疫系统区分自身、病原、异常克隆与同种异体 → 效应反应清除威胁并与止血/炎症协同 → 耐受与负反馈限制附带损伤 → 局部解剖与源控制决定感染能否被局限 → 克隆控制维持正常分化与增殖边界；任一环失效都会在 CBC/Ret/骨髓、形态、凝血、免疫/遗传、病理或病原证据中留下可逆向定位的信号。",
+    "spine": [
+      "骨髓工厂：干/祖细胞分化、成熟、释放与反馈调节",
+      "循环产品：RBC/WBC/Plt与血浆成分执行携氧、防御、止血和运输",
+      "诊断观察层：CBC、Ret、外周涂片、骨髓穿刺/活检及功能性实验",
+      "识别层：自身/非自身、病原、异常克隆与同种异体识别",
+      "效应层：吞噬、抗体、T细胞、炎症和止血等Source支持的效应语言",
+      "耐受与刹车：避免自身攻击、持续放大、出血/血栓失衡及慢性损伤",
+      "感染战场：病原、宿主免疫、局部坏死/脓腔/异物/梗阻与源控制",
+      "克隆秩序：正常分化与增殖受控，异常克隆不应占据骨髓、血液和淋巴组织"
+    ],
+    "loops": [
+      "生产—更新：干/祖细胞 → 分化成熟 → 外周释放 → 执行功能 → 衰老/清除/丢失 → 反馈调节新生",
+      "威胁—应答：病原/异物/异常细胞 → 识别 → Source支持的效应反应 → 清除/控制 → 终止或记忆接口",
+      "损伤—限制：炎症与止血保护宿主 → 过强时造成组织损伤/微循环问题 → 耐受、负反馈与源控制限制反应 → 修复或慢性化"
+    ]
+  },
+  "core_variables": [
+    "Hb",
+    "RBC",
+    "Hct",
+    "MCV",
+    "MCH",
+    "MCHC",
+    "Ret",
+    "WBC differential",
+    "ANC",
+    "Plt",
+    "bone marrow cellularity",
+    "lineage",
+    "maturation",
+    "blast",
+    "SI",
+    "SF",
+    "TIBC",
+    "TS",
+    "sTfR",
+    "bilirubin",
+    "LDH",
+    "haptoglobin",
+    "urine hemoglobin",
+    "PT",
+    "APTT",
+    "TT",
+    "Fbg",
+    "FDP",
+    "D-dimer",
+    "M protein",
+    "immunoglobulin",
+    "morphology",
+    "cytochemistry",
+    "immunophenotype",
+    "genetics",
+    "ANA",
+    "anti-dsDNA",
+    "anti-Sm",
+    "SSA",
+    "SSB",
+    "ANCA",
+    "RF",
+    "anti-CCP",
+    "complement",
+    "ESR",
+    "CRP",
+    "CD4",
+    "CD8",
+    "pathogen",
+    "source",
+    "culture",
+    "local infection",
+    "bacteremia",
+    "sepsis",
+    "organ dysfunction"
+  ],
+  "core_relations": [
+    "a blood-count abnormality must first be localized across production/maturation/release versus peripheral loss/destruction/distribution before a disease label is selected",
+    "MCV describes red-cell size while Ret reports marrow response; the pair separates morphology from production response and prevents anemia from becoming one undifferentiated list",
+    "CBC quantity, cell morphology/function and marrow structure are different evidence layers and must not be treated as interchangeable",
+    "bleeding is localized by platelet/vascular versus coagulation-factor versus consumption-fibrinolysis patterns; normal hemostasis itself remains a Circulation recall input",
+    "clonal hematologic disease requires lineage/maturation plus morphology/cytochemistry/immunophenotype/genetic evidence rather than one count or one marker in isolation",
+    "immune pathology is localized by whether defense is insufficient, self-tolerance is lost, or alloimmune direction is wrong; the Source only supports a minimum shared immune language, not a complete immunology curriculum",
+    "rheumatologic diagnosis starts from syndrome and organ combination, then uses antibodies/complement/inflammation/pathology according to their evidence role rather than treating a positive antibody as the diagnosis",
+    "infection outcome depends jointly on pathogen, host defense and local anatomy; necrosis, abscess, foreign body or obstruction can make antimicrobial exposure insufficient without source control",
+    "within Current C, severe infection is tracked when infection becomes systemic/uncontrolled and perfusion or organ-function threat emerges; H26 historical Source terminology stays explicit and no modern sepsis definition or scoring system is silently substituted",
+    "organ-specific infections remain with their organ System owners; C contributes shared pathogen–tissue-response, dissemination, immune-host and source-control language"
+  ],
+  "failure_modes": [
+    [
+      "FM1",
+      "生产不足",
+      "骨髓或造血刺激不足，导致一个或多个血细胞系产量不足"
+    ],
+    [
+      "FM2",
+      "无效成熟",
+      "细胞形成但成熟/功能异常，甚至在骨髓内死亡，外周有效产出不足"
+    ],
+    [
+      "FM3",
+      "外周丢失或破坏过多",
+      "出血、溶血、免疫破坏或脾相关清除使外周细胞减少"
+    ],
+    [
+      "FM4",
+      "细胞质量或功能异常",
+      "细胞数量可不低但膜、酶、珠蛋白、白细胞杀菌或血小板功能异常"
+    ],
+    [
+      "FM5",
+      "止血失衡",
+      "血小板/凝血/纤溶失衡导致出血、血栓或DIC样消耗"
+    ],
+    [
+      "FM6",
+      "克隆性扩张或分化停滞",
+      "异常克隆占据造血/淋巴空间或阻断正常分化，形成MDS、白血病、淋巴瘤或浆细胞病等"
+    ],
+    [
+      "FM7",
+      "自身耐受丢失",
+      "免疫效应错误指向自身抗原/组织，造成多系统炎症与器官损伤"
+    ],
+    [
+      "FM8",
+      "免疫防御不足",
+      "T/B细胞、粒细胞或整体免疫储备不足，使机会性感染/特定肿瘤风险增加"
+    ],
+    [
+      "FM9",
+      "感染无法局限或源控制失败",
+      "病原毒力、宿主脆弱和局部坏死/脓腔/异物/梗阻使局部感染扩散并可进入脓毒症"
+    ],
+    [
+      "FM10",
+      "同种免疫方向错误",
+      "供受者之间的抗原/免疫活性细胞方向错误导致输血不相容、移植排斥或GVHD等"
+    ]
+  ],
+  "judgment_axes": [
+    "生产不足 vs 无效成熟 vs 外周丢失/破坏 vs 分布异常",
+    "数量异常 vs 形态/功能异常",
+    "外周血证据 vs 骨髓细胞层证据 vs 骨髓结构层证据",
+    "贫血的MCV坐标 vs Ret反应坐标",
+    "血小板/血管性出血 vs 凝血因子性出血 vs DIC/纤溶消耗",
+    "非克隆性反应 vs 克隆性增殖；成熟细胞增多 vs 原始/分化停滞",
+    "形态 vs 细胞化学 vs 免疫表型 vs 遗传学证据角色",
+    "自身免疫过强/错向 vs 免疫缺陷不足",
+    "排斥反应：受者攻击移植物 vs GVHD：移植物免疫细胞攻击宿主",
+    "局部感染/可源控制 vs 播散/菌血症 vs 脓毒症/器官功能障碍",
+    "共同感染病理语言 vs 器官特异诊疗 owner",
+    "Source-supported immune/infection language vs 当前无Source支持的完整免疫/感染课程"
+  ],
+  "block_families": [
+    {
+      "id": "C-F1",
+      "label": "共同血液诊断与输血底座",
+      "blocks": [
+        "hematology-h01",
+        "hematology-h02"
+      ],
+      "role": "建立血细胞生命史、CBC/Ret/骨髓读数和同种输入方向语言"
+    },
+    {
+      "id": "C-F2",
+      "label": "贫血与止血异常",
+      "blocks": [
+        "hematology-h03",
+        "hematology-h04",
+        "hematology-h05",
+        "hematology-h06"
+      ],
+      "role": "从贫血坐标推进到骨髓衰竭、溶血与出血定位；正常止血只作Recall输入"
+    },
+    {
+      "id": "C-F3",
+      "label": "克隆性造血与血液肿瘤",
+      "blocks": [
+        "hematology-h07",
+        "hematology-h08",
+        "hematology-h09",
+        "hematology-h10",
+        "hematology-h11"
+      ],
+      "role": "用统一克隆/分化/证据层解释MDS、MM、急性白血病、CML与淋巴瘤"
+    },
+    {
+      "id": "C-F4",
+      "label": "最低免疫与同种免疫语言",
+      "blocks": [
+        "hematology-h12",
+        "hematology-h13",
+        "hematology-h14"
+      ],
+      "role": "建立Source支持的超敏/耐受、免疫缺陷/HIV和移植排斥/GVHD最低共同语言"
+    },
+    {
+      "id": "C-F5",
+      "label": "风湿免疫疾病",
+      "blocks": [
+        "hematology-h15",
+        "hematology-h16",
+        "hematology-h17",
+        "hematology-h18",
+        "hematology-h19"
+      ],
+      "role": "先建立风湿证据/治疗角色，再进入SLE/APS、RA、Sjögren和血管炎/Behçet"
+    },
+    {
+      "id": "C-F6",
+      "label": "感染病理、源控制与系统失控",
+      "blocks": [
+        "hematology-h20",
+        "hematology-h21",
+        "hematology-h22",
+        "hematology-h23",
+        "hematology-h24",
+        "hematology-h25",
+        "hematology-h26",
+        "hematology-h27"
+      ],
+      "role": "保留共同感染病理、跨器官整合、局部源控制和脓毒症，不复制器官System完整感染诊疗"
+    }
+  ],
+  "external_interfaces": {
+    "inputs": [
+      "A1 Circulation: normal hemostasis, thrombosis/DIC consequences, perfusion/shock and infective-endocarditis interfaces",
+      "A2 Respiratory: Hb/SaO2/CaO2 oxygen-delivery boundary, pulmonary TB/opportunistic-infection interfaces and respiratory failure",
+      "A3 Urinary: EPO/renal anemia, CKD bleeding, myeloma kidney, autoimmune/vasculitic renal injury and AKI interfaces",
+      "B Digestive/Metabolic/Endocrine/Tumor: iron/B12/folate absorption, RBC metabolism, one-carbon/heme-bilirubin/nucleotide/tumor-molecular language, liver coagulation and abdominal infection interfaces",
+      "O9 Tumor General: tumor/clonal common language where canonical Blocks explicitly call that gate"
+    ],
+    "outputs": [
+      "D Neuro/Sensory/Motor/Orthopedics: CNS-infection pathology entry, B12 neurologic injury, vasculitic neuropathy, myeloma bone disease, RA joint destruction and infection interfaces",
+      "E Reproductive/Breast: ABO/Rh, APS/pregnancy-loss interface, HIV/STI and maternal-fetal alloimmune/transfusion interfaces",
+      "all Systems: CBC/Ret/marrow interpretation, anemia/bleeding/infection entry coordinates, autoimmunity/immunodeficiency coordinate, clonal evidence layers, infection severity/source-control/sepsis judgment"
+    ],
+    "rule": "Interfaces name what is recalled/applied across owners. They do not authorize fine external Block/KP mappings unless a separate reviewed Current owner provides them."
+  },
+  "construction_boundary": {
+    "stage": "TRUTH_KNOWLEDGE_BOUNDARY",
+    "accepted_here": [
+      "C scope and negative space",
+      "27 stable Block / 423 stable KP identity",
+      "System mother model, core variables, relations, failure modes and judgment axes",
+      "coarse Block families and cross-System ownership interfaces"
+    ],
+    "not_accepted_here": [
+      "Logic Group decomposition",
+      "learner order or readiness DAG",
+      "first-pass surface choreography beyond inherited lane constitution",
+      "Projection/UI fields",
+      "Runtime/evidence behavior",
+      "official-question membership or inferred Question→Knowledge mapping"
+    ],
+    "next_stage_if_this_candidate_is_accepted": "Learning Logic for C, using canonical Block/KP Core and this System model without copying the old Guide route by default."
+  }
+}
