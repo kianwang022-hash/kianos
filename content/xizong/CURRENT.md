@@ -1,9 +1,9 @@
 # Xizong Current
 
-Role: Xizong lane Work Cursor + independently continued System router  
+Role: Xizong lane Work Cursor + Current task router  
 Parent: root `CURRENT.md`
 
-This file does not own medical Core, lane learning semantics, scoped Acceptance Truth, product semantics or Kian's learner progress.
+This file owns routing only. It does not own medical Core, lane learning semantics, scoped Acceptance Truth, product semantics or Kian's learner progress.
 
 ---
 
@@ -11,233 +11,164 @@ This file does not own medical Core, lane learning semantics, scoped Acceptance 
 
 **Active lane-level scope:** none — router-only baseline  
 **Blocker:** none at lane-routing level  
-**Next action:** route work to the narrowest Current owner for the actual task. Do not appoint one System as Xizong's global active child merely because it was worked on most recently.
-
-Current independently continued Systems:
+**Next action:** route work to the narrowest Current owner for the actual task.
 
 | Scope | Work Cursor | Acceptance Truth |
 | --- | --- | --- |
-| A1 Circulation | `content/xizong/knowledge/systems/a1-circulation/CURRENT.md` | `content/xizong/knowledge/systems/a1-circulation/ACCEPTANCE.md` |
-| A2 Respiratory | `content/xizong/knowledge/systems/a2-respiratory/CURRENT.md` | `content/xizong/knowledge/systems/a2-respiratory/ACCEPTANCE.md` |
-| A3 Urinary | `content/xizong/knowledge/systems/a3-urinary/CURRENT.md` | `content/xizong/knowledge/systems/a3-urinary/ACCEPTANCE.md` |
-| B Digestive / Metabolic / Endocrine / Tumor | `content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/CURRENT.md` | `content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/ACCEPTANCE.md` |
-| C Hematology / Immunity / Infection | `content/xizong/knowledge/systems/c-hematology-immunity-infection/CURRENT.md` | `content/xizong/knowledge/systems/c-hematology-immunity-infection/ACCEPTANCE.md` |
+| A1 Circulation | `knowledge/systems/a1-circulation/CURRENT.md` | `knowledge/systems/a1-circulation/ACCEPTANCE.md` |
+| A2 Respiratory | `knowledge/systems/a2-respiratory/CURRENT.md` | `knowledge/systems/a2-respiratory/ACCEPTANCE.md` |
+| A3 Urinary | `knowledge/systems/a3-urinary/CURRENT.md` | `knowledge/systems/a3-urinary/ACCEPTANCE.md` |
+| B Digestive / Metabolic / Endocrine / Tumor | `knowledge/systems/b-digestive-metabolic-endocrine-tumor/CURRENT.md` | `knowledge/systems/b-digestive-metabolic-endocrine-tumor/ACCEPTANCE.md` |
+| C Hematology / Immunity / Infection | `knowledge/systems/c-hematology-immunity-infection/CURRENT.md` | `knowledge/systems/c-hematology-immunity-infection/ACCEPTANCE.md` |
 
-A1/A2/A3/B/C current stages and gate claims belong only to those local owners. Do not copy their detailed state back into this lane router.
-
-These Systems may be worked on concurrently when their current tasks are independent. If a shared Xizong owner/runtime creates a real dependency, name that dependency explicitly and coordinate only the affected scopes.
-
-Hard scheduling boundary:
-
-```text
-System hierarchy
-= ownership / learning-domain structure
-
-System construction dependency
-= whether one System's current artifact/decision is required by another
-
-Kian learner order
-= the sequence Kian should actually study
-```
-
-These are not automatically the same.
+System hierarchy, construction dependency and Kian learner order are not automatically the same.
 
 ---
 
-## Task-class routing｜Fresh Chat must use this before history
+## Fresh-Chat task router｜use before history
 
-A fresh Chat must first decide **what kind of Xizong task this is**. Historical Frozen files, old Issues, PR summaries and prior Chats are provenance only unless the Current owner explicitly points to them.
+Historical Frozen files, old Issues, PR summaries and prior Chats are provenance only unless a Current owner explicitly points to them.
 
 ### Medical / content truth
 
 ```text
-content/xizong/knowledge/manifest.json
+knowledge/manifest.json
 → exact System / Block canonical owner
 → local CURRENT / ACCEPTANCE when applicable
 ```
 
-Use for medical Core, System model, Block/KP identity, Source boundary, content repair or new System construction.
+Use for medical Core, Source boundary, System model, Block/KP identity, content repair or new System construction.
 
 ### Learning / cognition / first-pass flow
 
 ```text
-content/xizong/LEARNING_CONTRACT.md
-→ content/xizong/knowledge/learner/study-policy.json
+LEARNING_CONTRACT.md
+→ knowledge/learner/study-policy.json
 → exact System-specific *-learning.json when material
 ```
 
-Use for learner order, Logic Group semantics, Source-contact granularity, TTSX role, Recall/completion, Attention Projection, Memory/Precision timing, second-pass learning goals or phase linkage.
+Use for learner order, Logic Groups, Source-contact granularity, TTSX, Recall/completion, Attention Projection, Memory/Precision timing and phase linkage.
 
-Current lane-level invariants include:
+Current reminders only:
 
-- original Lecture / MarginNote remains external-primary for continuous first-pass Source learning;
-- Logic Group is a retrieval / local-closure unit and is not automatically a Source-contact segment;
-- Lecture-attached TTSX is completed in the original Lecture / MarginNote surface; KianOS provides Boundary/Binding release, completion checkpoint and optional selected-question/note capture rather than a duplicate first-pass question workspace;
-- `Boundary = WHEN`, reviewed question binding = `WHICH`;
-- Visual / Extension is conditional support inside the same learning chain, not an independent curriculum.
+- original Lecture / MarginNote is external-primary for continuous first-pass Source learning;
+- Logic Group = retrieval/local-closure unit, not automatically a Source-contact segment;
+- Lecture-attached TTSX is done in the original Lecture/MarginNote; KianOS only owns Boundary/Binding release, completion checkpoint and optional selected-question/note capture;
+- `Boundary = WHEN`; reviewed binding = `WHICH`;
+- Visual / Extension is conditional support, not a parallel curriculum.
 
-These are routing reminders only; the full semantics remain in the Learning owners above.
-
-### Product / display / UI / Projection
+### Product / UI / Projection
 
 ```text
 static-web/XIZONG_PRODUCT_STATUS.md
 → static-web/PRESENTATION_CONTRACT.md
-→ content/xizong/projection/PROJECTION_CONTRACT.md when Projection semantics are material
+→ projection/PROJECTION_CONTRACT.md when P semantics are material
 → exact Runtime/component only after semantic owners are understood
 ```
-
-Use for Block/System workspace behavior, learner-facing information hierarchy, Attention Projection, Projection→Astro consumption, renderer or visual acceptance.
 
 Do not infer learning semantics from the current DOM or CSS.
 
 ### Visual / Precision / Extension
 
 ```text
-content/xizong/LEARNING_CONTRACT.md
+LEARNING_CONTRACT.md
 → static-web/XIZONG_VISUAL_PRECISION_CAPABILITY.md
-→ content/xizong/EXTENSION_ASSET_CONTRACT.md
+→ EXTENSION_ASSET_CONTRACT.md
 → exact cue / extension / source-visual owner
 ```
 
-Use for Visual Gate, Source Visual, structured tables, reviewed MarginNote/user summary assets and replacement of existing visual slots.
+Sparse coverage is intentional; missing Extension content is not learner debt or a reason for system-wide screenshot production.
 
-Sparse coverage is intentional. Missing Extension content is not learner debt and must not trigger system-wide screenshot production for symmetry.
-
-### Questions / explanations / Crosswalk / second-pass question product
+### Questions / explanations / Crosswalk / second pass
 
 ```text
-content/xizong/questions/
-content/xizong/explanations/
-content/xizong/question-relations/
-content/xizong/knowledge/learner/study-policy.json
+questions/
+explanations/
+question-relations/
+knowledge/learner/study-policy.json
 → current shared Question Runtime under static-web/
 ```
 
-Keep these distinctions:
+Keep distinct:
 
 - Lecture-attached TTSX = first-pass local Lecture probe/checkpoint;
-- official System question sweep = first-pass coverage evidence after System Recall;
-- SECOND_PASS = targeted discrimination / precision / application on the same official Question Runtime;
-- reviewed Question→Knowledge relation is optional precise routing; missing relation must fail closed without blocking practice.
+- official System sweep = first-pass coverage evidence after System Recall;
+- SECOND_PASS = targeted discrimination / precision / application in the same official Question Runtime;
+- reviewed Question→Knowledge relation = optional precise routing; missing relation does not block practice.
 
-Do not use stale issue checkboxes as Current capability truth.
+Do not use stale Issue checkboxes as capability truth.
 
 ---
 
-## Independent re-acceptance directive｜anti-cocoon
+## Independent re-acceptance｜anti-cocoon
 
-When Kian asks to **重新验收 / fresh acceptance / independent audit**, use this directive for the requested System. It does not add an eighth gate or automatically revoke existing PASS claims.
+When Kian asks for **重新验收 / fresh acceptance / independent audit**, old `CURRENT` / `ACCEPTANCE` / PR summaries / green validators are claims and prior evidence, not the first-pass answer key.
 
-**Anti-anchoring:** old scoped `CURRENT.md` / `ACCEPTANCE.md` / PR summaries / green validators are claims and prior evidence, not the first-pass answer key. A fresh auditor should first inspect actual Source/Core/learning/runtime owners plus inherited contracts, form a provisional S–E verdict, expected model/route, negative-space check and strongest failure hypotheses, and only then read the old Acceptance to reconcile deltas. A builder Chat remains `SELF` evidence even if it later reviews its own work critically.
+Fresh auditor sequence:
 
-For every re-accepted gate, name the evidence rather than reporting a naked PASS:
+```text
+actual Source / Core / Learning / Runtime owners
+→ provisional S–E model + strongest failure hypotheses
+→ negative-space challenge
+→ only then old scoped Acceptance for reconciliation
+```
+
+Evidence labels:
 
 ```text
 Evidence mode: STRUCTURAL / EXECUTED / ADVERSARIAL / REAL_USE / TRANSFER
-Independence:  SELF / FRESH_AUDITOR / AUTHORITATIVE_EXTERNAL / REAL_USER
+Independence: SELF / FRESH_AUDITOR / AUTHORITATIVE_EXTERNAL / REAL_USER
 ```
 
-`REAL_USE` / `TRANSFER` cannot be simulated and remain U / later real-evidence territory. If a material R/E claim has only `SELF + STRUCTURAL` evidence, independent re-acceptance is incomplete.
+Minimum challenge floor:
 
-Minimum falsification floor:
-
-- **S/K:** independently challenge provenance/completeness and inspect **negative space**; do not derive completeness only from current counts, hashes, KP taxonomy or question mappings.
-- **L:** generate at least one plausible alternative learner route/surface allocation and challenge why the accepted route is better for Kian.
-- **P:** inspect material learner-facing behavior/rendering where practical; source-string presence alone is structural evidence.
-- **R:** execute material state transitions under realistic browser/private state.
-- **E:** adversarially test overwrite/stale state, repeated evidence, root-cause vs cascade debt, repair≠mastery, holdout/fresh protection and return/handoff; critical validators should prove detection power with a targeted negative/mutation case.
+- **S/K:** provenance/completeness + negative space;
+- **L:** at least one plausible alternative learner route/surface allocation;
+- **P:** material learner-facing rendering where practical;
+- **R:** realistic browser/private-state transitions;
+- **E:** overwrite/stale/repeat/repair≠mastery/holdout/fresh-protection + at least one negative/mutation check;
 - **U:** real Kian use only.
 
-Xizong-specific challenge focus: independently reconstruct the expected medical/concept map; look for Source + Question Truth blind spots shared by current taxonomy; challenge System→Block→Logic Group→KP causality versus teacher/file/question order; re-test `iPad / MarginNote original Lecture = external-primary` versus accidental second-textbook behavior in Astro; black-box Recall/completion/holdout/W-U repair/version-invalidation paths.
-
-Required re-audit output per gate:
-
-```text
-previous claim → independent provisional verdict
-Evidence mode + Independence
-strongest falsification attempted
-material delta / blocker / debt
-```
-
-If a real defect appears, reopen only the earliest responsible gate/object and freeze only its dependent chain. Do not create a second permanent acceptance system.
-
----
-
-## Systems that are not first-class governance scopes yet
-
-The medical hierarchy contains additional Systems, Blocks and KPs, but hierarchy alone does not justify a local `CURRENT / ACCEPTANCE` pair.
-
-Create a future System sub-lane only when:
-
-- workers routinely enter/continue it independently;
-- it owns a distinct Work Cursor or acceptance boundary;
-- local routing materially lowers normal read cost or ambiguity;
-- the new owner replaces duplication rather than adding another summary.
-
-Until then, those Systems remain canonical medical/learning objects under the lane without extra governance files.
-
-Do not create System-level `LEARNING_CONTRACT.md` files merely for symmetry. Lane cognition remains owned by `content/xizong/LEARNING_CONTRACT.md`; System-specific learner order/closure remains in justified `*-learning.json` support.
-
-Learner order in those owners does not automatically serialize engineering/construction work across Systems.
+A real defect reopens only the earliest responsible owner and its dependent chain.
 
 ---
 
 ## Stable lane owners
 
-### Artifact / learning owners
+- Knowledge map → `knowledge/manifest.json`
+- medical Core → `knowledge/systems/**`
+- lane Learning → `LEARNING_CONTRACT.md`
+- shared execution policy → `knowledge/learner/study-policy.json`
+- System learning support → `knowledge/learner/`
+- Extension contract / assets → `EXTENSION_ASSET_CONTRACT.md` + `knowledge/learner/*-extensions.json`
+- questions / explanations / reviewed relations → dedicated Xizong roots
+- product/status router → `static-web/XIZONG_PRODUCT_STATUS.md`
+- learner Runtime → Xizong surfaces under `static-web/`
+- lane-wide Acceptance → `ACCEPTANCE.md`
+- learner truth → private learner/browser/conversation state only
 
-- knowledge owner map → `content/xizong/knowledge/manifest.json`
-- canonical medical Core → `content/xizong/knowledge/systems/**`
-- lane learning constitution → `content/xizong/LEARNING_CONTRACT.md`
-- detailed shared learning policy → `content/xizong/knowledge/learner/study-policy.json`
-- System-specific learning support → `content/xizong/knowledge/learner/`
-- formal Extension assets → `content/xizong/EXTENSION_ASSET_CONTRACT.md` + `content/xizong/knowledge/learner/*-extensions.json`
-- official questions / explanations / reviewed relations → dedicated Xizong roots
-- learner product/status router → `static-web/XIZONG_PRODUCT_STATUS.md`
-- learner runtime → Xizong surfaces under `static-web/`
-
-### Lane Acceptance
-
-`content/xizong/ACCEPTANCE.md` owns only genuine Xizong-wide integration/readiness claims. System readiness belongs to each local Acceptance owner.
-
-A lane-wide integration claim may depend on multiple Systems, but that does not turn the parent lane into a serial scheduler for child construction.
-
-### Learner Truth
-
-Private learner/browser/conversation evidence only. System readiness or lane Work state cannot manufacture Kian's study progress or next learner action.
+Do not create System-level Learning contracts or duplicate parent status merely for symmetry.
 
 ---
 
-## Fresh-Chat routing
+## Ordinary continuation
 
-Known A1/A2/A3/B/C — ordinary System continuation:
+System work:
 
 ```text
 requested System CURRENT
 → requested System ACCEPTANCE
-→ exact owner required by its earliest unresolved gate
+→ exact earliest unresolved owner
 → work
 ```
 
-Known A1/A2/A3/B/C — independent re-acceptance:
-
-```text
-Xizong CURRENT anti-cocoon directive
-→ target actual owners + inherited contracts
-→ provisional S–E challenge verdict
-→ only then old scoped ACCEPTANCE for reconciliation
-```
-
-Lane-level learning/product/capability request:
+Lane-level learning/product/capability work:
 
 ```text
 Xizong CURRENT
-→ Task-class routing above
-→ exact Current lane owner(s)
+→ Fresh-Chat task router above
+→ exact Current owner(s)
 → work
 ```
 
-Multiple System Chats may use these local paths concurrently. Each System advances only its own earliest unresolved eligible stage/gate along its real dependency chain.
-
-Do not read retired continuation/acceptance snapshots, unrelated Systems, history, legacy repositories or prior Chats by default.
+Multiple System Chats may proceed concurrently when their write sets and dependencies are independent. Do not read retired snapshots, unrelated Systems, migration history, legacy repositories or prior Chats by default.
