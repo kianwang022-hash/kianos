@@ -10,6 +10,7 @@ on:
       - 'static-web/scripts/sync-xizong-question-relations-manifest.mjs'
       - 'static-web/scripts/validate-xizong-question-crosswalk.mjs'
       - 'static-web/scripts/validate-xizong-crosswalk-review-pipeline.mjs'
+      - 'static-web/scripts/validate-xizong-crosswalk-throughput.mjs'
       - 'static-web/scripts/build-xizong-crosswalk-review-queue.mjs'
       - 'static-web/scripts/build-xizong-kp-lookup-index.mjs'
       - '.github/workflows/xizong-crosswalk-fast-qa.yml'
@@ -20,6 +21,7 @@ on:
       - 'static-web/scripts/sync-xizong-question-relations-manifest.mjs'
       - 'static-web/scripts/validate-xizong-question-crosswalk.mjs'
       - 'static-web/scripts/validate-xizong-crosswalk-review-pipeline.mjs'
+      - 'static-web/scripts/validate-xizong-crosswalk-throughput.mjs'
       - 'static-web/scripts/build-xizong-crosswalk-review-queue.mjs'
       - 'static-web/scripts/build-xizong-kp-lookup-index.mjs'
       - '.github/workflows/xizong-crosswalk-fast-qa.yml'
@@ -46,6 +48,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Validate single-pass throughput materializer
+        run: node scripts/validate-xizong-crosswalk-throughput.mjs
       - name: Materialize pending reviewed Crosswalk batches
         if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
         run: node scripts/apply-xizong-crosswalk-reviewed-batches.mjs
