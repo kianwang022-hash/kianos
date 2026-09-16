@@ -6,7 +6,7 @@
   "canonical_id": "A1",
   "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
   "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
-  "notes": "First reviewed A1 Source Visual slice, byte-locked to reviewed source-faithful pathology crops for rheumatic heart disease and atherosclerotic plaque; missing A1 visuals remain legal and nonblocking.",
+  "notes": "First reviewed A1 Source Visual slice, byte-locked to reviewed source-faithful pathology crops for rheumatic heart disease and atherosclerotic plaque, now extended with reviewed physiology crops for cardiac-cycle PV mechanics, PV-loop perturbations and microcirculation fluid return; missing A1 visuals remain legal and nonblocking.",
   "bundles": [
     {
       "cue_id": "a1-b05-lg07-visual",
@@ -67,6 +67,63 @@
           "height": 324,
           "source_crop_sha256": "f4cfc49a04052804414dfe027bfdf3282fed3428e058c53e85806434d4899b1a",
           "derived_asset_sha256": "58be3c470e324bd129b6b6939d8e0d2422f648681a5aaab349e2961aed6a3cfa"
+        }
+      ]
+    },
+    {
+      "cue_id": "a1-b01-lg01-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df500372:pi111:crop:ce651879562c12c6",
+          "source_page": 112,
+          "usage_role": "CARDIAC_CYCLE_PRESSURE_VOLUME_LOOP",
+          "usage_label": "P112 · 心动周期压力—容积环",
+          "alt": "生理讲义 P112：心室压力—容积环的等容舒张、快速充盈、减慢充盈、等容收缩和射血转换",
+          "asset_path": "a1-b01-lg01/b01-p112-cardiac-cycle-pv-loop.webp",
+          "width": 1100,
+          "height": 1300,
+          "source_crop_sha256": "ce651879562c12c64a38069623f3c57c1065cb7962955c57587186335122b3a9",
+          "derived_asset_sha256": "156c1b09e1cf744d5cce745ebfd574b6328347affdaaf577263e49ae86e2609a"
+        }
+      ]
+    },
+    {
+      "cue_id": "a1-b01-lg04-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df500372:pi118:crop:9673192f23b96f7c",
+          "source_page": 119,
+          "usage_role": "PV_LOOP_PRELOAD_AFTERLOAD_CONTRACTILITY_COMPLIANCE_COMPARISON",
+          "usage_label": "P119 · 前负荷/后负荷/收缩性/顺应性 PV 环",
+          "alt": "生理讲义 P119：前负荷、后负荷、收缩性和顺应性改变对左心室压力—容积环的方向与宽度影响",
+          "asset_path": "a1-b01-lg04/b01-p119-pv-loop-perturbations.webp",
+          "width": 1300,
+          "height": 1600,
+          "source_crop_sha256": "9673192f23b96f7c201891f878c36c4f7dc7e470416cc6f63a1e45dba87313ab",
+          "derived_asset_sha256": "a1ce2aae2a5d23ed883ea8199ebad37d0f5c0dffcd8925c123890ba8c3af42ad"
+        }
+      ]
+    },
+    {
+      "cue_id": "a1-b01-lg06-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df500372:pi130:crop:323db6d1e6bb1ee8",
+          "source_page": 131,
+          "usage_role": "MICROCIRCULATION_STARLING_FLUID_RETURN",
+          "usage_label": "P131 · 微循环—组织液—淋巴回流",
+          "alt": "生理讲义 P131：小动脉、真毛细血管和小静脉微循环与滤出、回吸收、组织液形成及淋巴回流关系",
+          "asset_path": "a1-b01-lg06/b01-p131-microcirculation-starling-fluid-return.webp",
+          "width": 1300,
+          "height": 1650,
+          "source_crop_sha256": "323db6d1e6bb1ee8248dc8c6633b690bc6c1a9878030f2beade527b841b0267d",
+          "derived_asset_sha256": "c13399ded506d5c75112409c3719da84257dcbb3abb1ecdfe95596b127d5cc88"
         }
       ]
     }
