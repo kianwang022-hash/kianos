@@ -1,7 +1,9 @@
 ---
 const { objectId = '', sourceHash = '' } = Astro.props;
 ---
-<script define:vars={{ objectId, sourceHash }}>
+<span hidden data-xizong-memory-release-bridge data-object-id={objectId} data-source-hash={sourceHash}></span>
+
+<script>
   import { XIZONG_MEMORY_STORAGE_KEY } from '../lib/xizongMemoryModel.mjs';
   import {
     releaseCompletedBlockToMemory,
@@ -10,14 +12,17 @@ const { objectId = '', sourceHash = '' } = Astro.props;
 
   const root = document.querySelector('[data-xizong-v6-block]');
   const payloadNode = document.querySelector('[data-xizong-learner-object-payload]');
+  const bridgeNode = document.querySelector('[data-xizong-memory-release-bridge]');
 
   const parseJson = (value, fallback = null) => {
     try { return JSON.parse(value || 'null') ?? fallback; } catch { return fallback; }
   };
 
-  let learnerObject = parseJson(payloadNode?.textContent, null);
+  const learnerObject = parseJson(payloadNode?.textContent, null);
+  const objectId = bridgeNode?.getAttribute('data-object-id') || root?.getAttribute('data-study-object') || '';
+  const sourceHash = bridgeNode?.getAttribute('data-source-hash') || '';
   let studyKey = '';
-  try { studyKey = xizongStudyStorageKey(objectId || root?.getAttribute('data-study-object') || ''); } catch {}
+  try { studyKey = xizongStudyStorageKey(objectId); } catch {}
 
   const attemptRelease = () => {
     if (!root || !learnerObject || !studyKey) return;
