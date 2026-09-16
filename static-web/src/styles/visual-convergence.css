@@ -1,129 +1,155 @@
-/* Presentation-only convergence. Activate one reviewed surface family at a time.
-   Domain Runtime/Evidence remain the owners of all data attributes and state. */
-body.surfaceBody-home {
-  --study-font: system-ui, -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
-  font-family: var(--study-font); font-size: 17px; line-height: 1.55;
-  background: #f3f5f5; color: #23302f;
+/* Stage one: presentation only. Visibility owned by Runtime always wins. */
+.productNavIcon { display:none; }
+.uiStageOne {
+  --study-font: system-ui,-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC","Segoe UI",sans-serif;
+  --study-ink:#23332f; --study-muted:#5c6d66; --study-faint:#77857f;
+  --study-line:#dce3df; --study-green:#286857; --study-green-soft:#edf5f1;
+  --study-radius:10px; --study-shadow:none;
+  font-family:var(--study-font); font-size:17px; line-height:1.6;
+  background:#f2f5f3; color:var(--study-ink);
 }
-.surfaceBody-home :is(h1,h2,h3,strong,b) { font-weight: 650; }
-.surfaceBody-home .productBar { position: fixed; inset: 0 auto 0 0; width: 188px; height: 100dvh; min-height: 0; display: flex; flex-direction: column; align-items: stretch; gap: 30px; padding: 28px 16px 20px; background: #142622; color: #edf4f1; border: 0; box-shadow: none; }
-.surfaceBody-home .productBrand { color: inherit; gap: 11px; }
-.surfaceBody-home .productBrandMark { background: #dbeae5; color: #173d32; box-shadow: none; font-family: inherit; }
-.surfaceBody-home .productBrandCopy strong { font-size: 20px; }
-.surfaceBody-home .productBrandCopy small { font-size: 10px; letter-spacing: .08em; color: #aebfb9; }
-.surfaceBody-home .productNav { display: grid; gap: 7px; padding: 0; border: 0; background: transparent; border-radius: 0; }
-.surfaceBody-home .productNav a { display: block; text-align: left; padding: 10px 14px; color: #c9d7d2; font-size: 17px; font-weight: 500; border-radius: 7px; }
-.surfaceBody-home .productNav a.active { color: #fff; background: #30483f; box-shadow: none; }
-.surfaceBody-home .productNav a:hover { color: #fff; background: #263f36; }
-.surfaceBody-home .sourceDock { margin-top: auto; align-self: stretch; }
-.surfaceBody-home .sourceDock summary { background: transparent; color: #bfcec8; border-color: #3a5147; justify-content: flex-start; font-size: 13px; }
-.surfaceBody-home .sourcePopover { position: absolute; left: 0; right: auto; top: auto; bottom: 46px; color: #23302f; }
-.surfaceBody-home .productCanvas { width: auto; max-width: none; margin: 0 0 0 188px; padding: 27px 30px 20px; }
-.commandHeader { display: flex; justify-content: space-between; align-items: end; gap: 20px; padding-bottom: 21px; }
-.commandHeader h1 { margin: 4px 0 0; font-size: 32px; line-height: 1.25; letter-spacing: -.035em; }
-.commandHeader>p { margin: 0; font-size: 16px; color: #475b52; }
-.commandHeader>p span { color: #68776f; font-size: 14px; }
-.surfaceBody-home .pageKicker { font-size: 12px; font-weight: 600; letter-spacing: .06em; }
-.commandGrid { display: grid; grid-template-columns: minmax(0,1fr) minmax(260px,.35fr); gap: 22px; align-items: start; }
-.commandSubjects { background: #fff; border: 1px solid #dce3df; border-radius: 10px; overflow: hidden; }
-.commandSectionHead { display: flex; align-items: center; justify-content: space-between; padding: 15px 21px; border-bottom: 1px solid #dce3df; }
-.commandSectionHead h2 { margin: 0; font-size: 20px; }
-.commandSectionHead>span { font-size: 14px; color: #61716a; }
-body.surfaceBody-home .commandGrid .commandSubject { padding: 16px 21px; border-bottom: 1px solid #e2e8e4; }
-body.surfaceBody-home .commandGrid .commandSubject:last-child { border-bottom: 0; }
-body.surfaceBody-home .commandGrid .commandSubject>header, body.surfaceBody-home .commandGrid .commandSubject>header>div { display: flex; align-items: baseline; gap: 12px; min-width: 0; }
-body.surfaceBody-home .commandGrid .commandSubject>header { justify-content: space-between; }
-body.surfaceBody-home .commandGrid .commandSubject h2 { margin: 0; font-size: 22px; line-height: 1.25; }
-.commandOrdinal { font-size: 13px; color: #7a8881; font-variant-numeric: tabular-nums; }
-.commandAvailability { font-size: 13px; color: #65776e; }
-body.surfaceBody-home .commandGrid .commandSubject>header>a { font-size: 14px; text-decoration: none; white-space: nowrap; }
-.commandSubjectMeta { margin: 7px 0 0; color: #63736b; font-size: 15px; line-height: 1.55; }
-body.surfaceBody-home .commandGrid .commandSubject :is(.xizongHomeTools,.politicsHomeTools) { margin-top: 12px; grid-template-columns: 1fr; gap: 10px; }
-body.surfaceBody-home .commandGrid .commandSubject .xizongHomeTools>aside { display: none; } /* Already described above; remains on its subject Home. */
-body.surfaceBody-home .commandGrid .commandSubject :is(.xizongContinue,.politicsContinue) { display: grid; grid-template-columns: minmax(0,1fr); gap: 3px; padding: 8px 12px; border: 0; border-left: 3px solid #517666; border-radius: 0; background: #f2f6f3; }
-body.surfaceBody-home .commandGrid .commandSubject :is(.xizongContinue,.politicsContinue)>span { display: none; font-size: 13px; letter-spacing: 0; font-weight: 600; }
-body.surfaceBody-home .commandGrid .commandSubject :is(.xizongContinue,.politicsContinue)>strong { font-size: 17px; line-height: 1.4; }
-body.surfaceBody-home .commandGrid .commandSubject :is(.xizongContinue,.politicsContinue)>small { font-size: 13px; color: #63756b; line-height: 1.45; }
-body.surfaceBody-home .commandGrid .commandSubject .politicsHandoff { gap: 12px; padding: 3px 0 0; border: 0; border-radius: 0; background: transparent; align-items: center; }
-body.surfaceBody-home .commandGrid .commandSubject .politicsHandoff>div { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; }
-body.surfaceBody-home .commandGrid .commandSubject .politicsHandoff span { font-size: 12px; font-weight: 600; letter-spacing: 0; }
-body.surfaceBody-home .commandGrid .commandSubject .politicsHandoff strong { font-size: 13px; color: #62766a; font-weight: 500; }
-body.surfaceBody-home .commandGrid .commandSubject .politicsHandoff p { grid-column: 1/-1; font-size: 14px; line-height: 1.45; }
-body.surfaceBody-home .commandGrid .commandSubject .politicsHandoff button { font-size: 13px; padding: 7px 10px; border-color: #cbd7ce; font-weight: 600; }
-body.surfaceBody-home .commandGrid .commandSubject .englishResume { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 10px 12px; margin-top: 12px; border-left: 3px solid #517666; background: #f2f6f3; }
-body.surfaceBody-home .commandGrid .commandSubject .englishResume>div { display: grid; gap: 2px; }
-body.surfaceBody-home .commandGrid .commandSubject .englishResume span { display: none; }
-body.surfaceBody-home .commandGrid .commandSubject .englishResume strong { font-size: 17px; }
-body.surfaceBody-home .commandGrid .commandSubject .englishResume small { font-size: 13px; color: #63756b; }
-body.surfaceBody-home .commandGrid .commandSubject .englishResume>a { flex-shrink: 0; font-size: 15px; text-decoration: none; }
-.commandTaskLinks { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 11px; }
-.commandTaskLinks a { font-size: 16px; text-decoration: none; }
-.commandSupport { display: grid; gap: 17px; }
-.commandSupportSection { padding: 20px; background: #fff; border: 1px solid #dce3df; border-radius: 9px; }
-.commandSupportSection h2 { margin: 6px 0 10px; font-size: 21px; line-height: 1.35; }
-.commandSupportSection p:not(.pageKicker) { margin: 0 0 15px; font-size: 17px; line-height: 1.65; color: #596c61; }
-.commandSupportSection small { display: block; margin-top: 16px; font-size: 12px; color: #758077; line-height: 1.6; }
-.commandPrimaryLink { display: block; padding: 10px 12px; background: #1c5845; color: #fff; border-radius: 6px; text-decoration: none; text-align: center; font-size: 16px; font-weight: 600; }
-.commandGuideLinks { display: grid; }
-.commandGuideLinks a { display: grid; gap: 3px; padding: 10px 0; border-bottom: 1px solid #e1e7e3; text-decoration: none; }
-.commandGuideLinks a:last-child { border: 0; padding-bottom: 0; }
-.commandGuideLinks strong { font-size: 16px; }.commandGuideLinks span { font-size: 14px; color: #63756b; }
-.commandFoot { display: flex; justify-content: space-between; gap: 16px; margin-top: 16px; font-size: 12px; color: #78857d; }
-.commandFoot a { white-space: nowrap; color: inherit; text-decoration: none; }
-.surfaceBody-home :is(a,button,summary):focus-visible { outline: 3px solid #7396bb; outline-offset: 3px; }
+.uiStageOne :is(h1,h2,h3,h4,strong,b) { font-weight:650; }
+.uiStageOne :is(button,input,select,textarea) { font-family:var(--study-font); }
+.uiStageOne :is(a,button,input,select,textarea,summary):focus-visible { outline:3px solid #7196b7;outline-offset:3px; }
+.uiStageOne button { cursor:pointer; }
+.uiStageOne button:disabled { cursor:not-allowed;opacity:.48; }
+.uiStageOne .productBar { min-height:58px; padding:0 24px; border:0; background:#172c28;color:#e8f0ec;box-shadow:none;backdrop-filter:none; }
+.uiStageOne .productBrand { gap:11px; }
+.uiStageOne .productBrandMark { width:32px;height:32px;border-radius:8px;background:#e4eee8;color:#284a3d;box-shadow:none;font-size:18px;font-weight:650; }
+.uiStageOne .productBrandCopy strong { font-size:19px;letter-spacing:-.035em; }
+.uiStageOne .productBrandCopy small { color:#93a59e;font-size:10px;letter-spacing:.04em;font-weight:450;text-transform:none; }
+.uiStageOne .productNav { border:0;background:none;gap:5px; }
+.uiStageOne .productNavItem { display:flex;gap:10px;align-items:center;justify-content:center;min-width:auto;padding:8px 12px;border-radius:6px;color:#bfd0c8;font-size:14px;font-weight:500;box-shadow:none; }
+.uiStageOne .productNavIcon { display:block;flex:0 0 auto; }
+.uiStageOne .productNavItem:hover { background:#293f38;color:#fff; }
+.uiStageOne .productNavItem.active { background:#344e43;color:#fff;box-shadow:none; }
+.uiStageOne .sourceDock>summary { padding:5px 8px;background:transparent;color:#aabdb3;border-color:#40554c;font-size:11px;font-weight:500; }
+.uiStageOne .sourcePopover { color:#243b30; }
+.uiStageOne .productCanvas { width:calc(100% - 40px);max-width:none;padding:22px 0 40px; }
+.uiStageOne .pageLead { gap:16px;grid-template-columns:1fr;margin:0 0 20px;padding:0 0 18px; }
+.uiStageOne .pageLead h1 { font-size:32px;line-height:1.2;letter-spacing:-.035em; }
+.uiStageOne .pageKicker { font-size:11px;letter-spacing:.085em;font-weight:650; }
+.uiStageOne .pageDescription { max-width:none;font-size:15px;line-height:1.7; }
+.uiStageOne a { text-underline-offset:4px; }
+@media(min-width:1000px) {
+ .uiHub .productBar { position:fixed;inset:0 auto 0 0;z-index:60;width:204px;min-height:100dvh;display:flex;flex-direction:column;align-items:stretch;gap:38px;padding:30px 16px 20px; }
+ .uiHub .productBrand { padding:0 5px; }
+ .uiHub .productBrandCopy small { margin-top:5px; }
+ .uiHub .productNav { display:flex;flex-direction:column;padding:0;gap:7px;margin:0; }
+ .uiHub .productNavItem { justify-content:flex-start;min-height:46px;padding:11px 16px;font-size:16px; }
+ .uiHub .productNavItem.active { box-shadow:inset 2px 0 #acc9b9; }
+ .uiHub .sourceDock { margin-top:auto;align-self:flex-start;margin-left:10px; }
+ .uiHub .sourcePopover { left:0;right:auto;top:auto;bottom:calc(100% + 12px); }
+ .uiHub .productCanvas { width:auto;max-width:none;margin:0 0 0 204px;padding:28px 28px 18px; }
+}
+/* Home is one ruled workbench, not a stack of entry cards. */
+.commandHeader { display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 0 22px; }
+.commandHeader h1 { margin:5px 0 0;font-size:32px;line-height:1.25;letter-spacing:-.045em; }
+.commandSubtitle { margin:5px 0 0;color:var(--study-muted);font-size:16px; }
+.commandScope { display:grid;gap:7px;text-align:right; }
+.commandScope>span { color:var(--study-faint);font-size:12px; }
+.commandScope strong { color:#486458;font-size:14px;font-weight:500; }
+.commandScope i { font-style:normal;padding:0 9px;color:#acb7b0; }
+.commandGrid { display:grid;grid-template-columns:minmax(0,1fr) 302px;gap:0;border:1px solid var(--study-line);border-radius:10px;background:white;overflow:clip; }
+.commandSubjects { min-width:0; }
+.commandSectionHead { display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 24px;border-bottom:1px solid var(--study-line); }
+.commandSectionHead h2 { margin:0;font-size:20px;letter-spacing:-.025em; }
+.commandSectionHead>span { color:var(--study-faint);font-size:12px; }
+.commandSubject { padding:16px 24px;border-bottom:1px solid var(--study-line); }
+.commandSubject:last-child { border:0; }
+.commandSubject>header { display:flex;align-items:center;justify-content:space-between;gap:14px; }
+.commandSubject>header>div { display:flex;align-items:center;gap:12px;min-width:0; }
+.commandSubject h2 { margin:0;font-size:21px;line-height:1.35;letter-spacing:-.03em; }
+.commandOrdinal { color:#85978a;font-size:12px;font-weight:500; }
+.commandAvailability { font-size:12px;color:#76867a; }
+.commandSubject>header>a { color:#426758;font-size:13px;text-decoration:none;white-space:nowrap; }
+.commandSubjectMeta { margin:6px 0 0 28px;font-size:15px;color:#68786e; }
+.commandSubject .xizongHomeTools,.commandSubject .politicsHomeTools { display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px; }
+.commandSubject .xizongHomeTools>aside { display:none; }
+.commandSubject :is(.xizongContinue,.politicsContinue) { position:relative;display:grid;grid-template-columns:1fr;gap:2px;padding:10px 40px 10px 14px;border:0;border-radius:5px;background:#f1f6f3;text-decoration:none; }
+.commandSubject :is(.xizongContinue,.politicsContinue)>span { display:none; }
+.commandSubject :is(.xizongContinue,.politicsContinue)>strong { font-size:17px;line-height:1.45;font-weight:600; }
+.commandSubject :is(.xizongContinue,.politicsContinue)>small { color:#708176;font-size:12px;line-height:1.5; }
+.commandSubject :is(.xizongContinue,.politicsContinue)::after { content:'→';position:absolute;right:15px;top:50%;transform:translateY(-50%);color:#46775b;font-size:20px; }
+.commandSubject :is(.xizongContinue,.politicsContinue):hover { background:#e8f1eb; }
+.commandSubject .englishResume { margin:12px 0 0;padding:10px 14px;border:0;border-radius:5px;background:#f0f4f9;box-shadow:none; }
+.commandSubject .englishResume>div>span { display:none; }
+.commandSubject .englishResume strong { font-size:17px; }
+.commandSubject .englishResume small { font-size:12px; }
+.commandSubject .englishResume a { padding:5px 0 5px 16px;background:none;border:0;color:#3e6490;font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap; }
+.commandTaskLinks { display:flex;align-items:center;flex-wrap:wrap;gap:4px 18px;margin:12px 0 0 28px; }
+.commandTaskLinks a { color:#385e7a;text-decoration:none;font-size:16px; }
+.commandTaskLinks a:hover { text-decoration:underline; }
+.commandSubject .politicsHandoff { display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0;border:0;background:none;border-radius:0; }
+.commandSubject .politicsHandoff>div { display:grid;grid-template-columns:auto 1fr;gap:2px 10px; }
+.commandSubject .politicsHandoff span { font-size:10px;font-weight:600;letter-spacing:.04em; }
+.commandSubject .politicsHandoff strong { font-size:11px;font-weight:450;color:#819184; }
+.commandSubject .politicsHandoff p { grid-column:1/-1;font-size:12px;line-height:1.6; }
+.commandSubject .politicsHandoff button { padding:7px 9px;font-size:11px;font-weight:500;border:1px solid var(--study-line);border-radius:6px; }
+.commandSupport { display:grid;align-content:start;gap:0;min-width:0;border-left:1px solid var(--study-line);background:#fafcfb; }
+.commandSupportSection { padding:24px;border:0;border-radius:0;background:transparent; }
+.commandSupportSection+section { border-top:1px solid var(--study-line); }
+.commandSupportSection h2 { margin:7px 0 8px;font-size:21px;line-height:1.35;letter-spacing:-.02em; }
+.commandSupportSection>p:not(.pageKicker) { margin:0 0 16px;font-size:15px;line-height:1.7;color:#65796b; }
+.commandPrimaryLink { display:flex;align-items:center;justify-content:center;min-height:41px;padding:8px 12px;background:#315f4d;color:white;border-radius:6px;font-size:14px;font-weight:550;text-decoration:none; }
+.commandPrimaryLink:hover { background:#274d3e; }
+.commandSupportSection>small { display:block;margin-top:12px;color:#819084;font-size:11px; }
+.commandGuideLinks { display:grid;margin-top:16px; }
+.commandGuideLinks a { display:grid;gap:3px;padding:12px 0;border-bottom:1px solid var(--study-line);text-decoration:none; }
+.commandGuideLinks a:last-child { border:0; }
+.commandGuideLinks a strong { font-size:16px;font-weight:550; }
+.commandGuideLinks a span { color:#7a8b7e;font-size:12px; }
+.commandFoot { display:flex;justify-content:space-between;gap:16px;margin-top:15px;color:#91a092;font-size:11px; }
+.commandFoot a { color:inherit;text-decoration:none; }
 @media(min-width:1000px) and (max-height:790px) {
-  .surfaceBody-home .productCanvas { padding-top: 22px; padding-bottom: 12px; }
-  .commandHeader { padding-bottom: 17px; }body.surfaceBody-home .commandGrid .commandSubject { padding-top: 13px; padding-bottom: 13px; }
-  .commandSupportSection { padding: 17px; }.commandFoot { margin-top: 10px; }
+ .uiHub.surfaceBody-home .productCanvas { padding-top:20px;padding-bottom:12px; }
+ .commandHeader { padding-bottom:16px; }
+ .commandSectionHead { padding-block:12px; }
+ .commandSubject { padding-block:12px; }
+ .commandSubject .xizongHomeTools,.commandSubject .politicsHomeTools { margin-top:9px;gap:8px; }
+ .commandSupportSection { padding:20px; }
 }
-@media(max-width:1240px) and (min-width:1000px) {
-  .surfaceBody-home .productBar { width: 164px; padding-inline: 12px; }
-  .surfaceBody-home .productCanvas { margin-left: 164px; padding-inline: 22px; }
-  .commandGrid { grid-template-columns: minmax(0,1fr) 255px; gap: 16px; }
-  .commandAvailability { display: block; }body.surfaceBody-home .commandGrid .commandSubject>header>div { flex-wrap: wrap; gap: 5px 10px; }
-  .commandSubjectMeta { font-size: 15px; }
+@media(min-width:1000px) and (max-height:740px) {
+ .uiHub.surfaceBody-home .productCanvas { padding-top:16px; }
+ .commandHeader { padding-bottom:12px; }
+ .commandHeader h1 { font-size:30px; }
+ .commandSubtitle { margin-top:3px; }
+ .commandSectionHead { padding-block:10px; }
+ .commandSubject { padding-block:10px; }
+ .commandSubjectMeta { margin-top:4px; }
+ .commandSubject :is(.xizongContinue,.politicsContinue) { padding-block:7px; }
+ .commandTaskLinks { margin-top:8px; }
+ .commandFoot { margin-top:10px; }
+}
+@media(min-width:1000px) and (max-width:1300px) {
+ .uiHub .productBar { width:182px;padding-inline:12px; }
+ .uiHub .productCanvas { margin-left:182px;padding-inline:22px; }
+ .commandGrid { grid-template-columns:minmax(0,1fr) 250px; }
+ .commandSubject,.commandSectionHead { padding-inline:20px; }
+ .commandAvailability { font-size:11px; }
+ .commandSubject>header>div { gap:8px; }
+ .commandScope strong { font-size:12px; }
 }
 @media(max-width:999px) {
-  .surfaceBody-home .productBar { position: sticky; inset: 0 0 auto; width: 100%; height: auto; display: flex; flex-direction: row; align-items: center; gap: 15px; padding: 12px 18px; }
-  .surfaceBody-home .productNav { display: flex; overflow-x: auto; gap: 3px; margin-left: auto; }
-  .surfaceBody-home .productNav a { padding: 7px 10px; font-size: 15px; }
-  .surfaceBody-home .sourceDock { display: none; }.surfaceBody-home .productBrandCopy small { display: none; }
-  .surfaceBody-home .productCanvas { margin: 0; padding: 22px 20px; }
-  .commandHeader { align-items: start; }.commandHeader>p { max-width: 260px; }
-  .commandGrid { grid-template-columns: minmax(0,1fr); }.commandSupport { grid-template-columns: 1fr 1fr; }
+ .uiStageOne .productBar { display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding:10px 16px; }
+ .uiStageOne .productNav { min-width:0;overflow-x:auto; }
+ .uiStageOne .productNavItem { flex:0 0 auto;white-space:nowrap; }
+ .uiStageOne .sourceDock { display:none; }
+ .uiStageOne .productCanvas { width:calc(100% - 28px);margin:0 auto;padding-top:22px; }
+ .commandGrid { grid-template-columns:1fr; }
+ .commandSupport { grid-template-columns:1fr 1fr;border-left:0;border-top:1px solid var(--study-line); }
+ .commandSupportSection+section { border-top:0;border-left:1px solid var(--study-line); }
+ .commandScope { display:none; }
 }
-@media(max-width:600px) {
-  .surfaceBody-home .productBar { flex-wrap: wrap; gap: 10px; padding: 12px; }
-  .surfaceBody-home .productNav { width: 100%; justify-content: space-between; }
-  .surfaceBody-home .productNav a { padding: 6px 9px; font-size: 14px; }
-  .surfaceBody-home .productCanvas { padding: 20px 12px; }
-  .commandHeader { display: grid; gap: 10px; }.commandHeader h1 { font-size: 28px; }.commandHeader>p { max-width: none; }
-  .commandSectionHead,body.surfaceBody-home .commandGrid .commandSubject { padding: 16px; }body.surfaceBody-home .commandGrid .commandSubject>header { align-items: start; }
-  body.surfaceBody-home .commandGrid .commandSubject>header>div { flex-wrap: wrap; gap: 6px 10px; }.commandAvailability { flex-basis: 100%; }
-  body.surfaceBody-home .commandGrid .commandSubject>header>a { font-size: 13px; }body.surfaceBody-home .commandGrid .commandSubject h2 { font-size: 21px; }
-  body.surfaceBody-home .commandGrid .commandSubject :is(.xizongContinue,.politicsContinue) { grid-template-columns: 1fr; }
-  body.surfaceBody-home .commandGrid .commandSubject :is(.xizongContinue,.politicsContinue)>span { grid-row: auto; }
-  body.surfaceBody-home .commandGrid .commandSubject .politicsHandoff { align-items: stretch; }body.surfaceBody-home .commandGrid .commandSubject .politicsHandoff button { align-self: start; }
-  .commandSupport { grid-template-columns: 1fr; }.commandFoot { flex-direction: column; }
-}
-
-/* Short Mac desktop: remove repeated chrome/spacing, never shrink task type. */
-@media(min-width:1000px) and (max-height:750px) {
-  .surfaceBody-home .productCanvas { padding-top: 16px; padding-bottom: 10px; }
-  .commandHeader { padding-bottom: 12px; }
-  .commandSectionHead { padding-top: 10px; padding-bottom: 10px; }
-  body.surfaceBody-home .commandGrid .commandSubject { padding-top: 10px; padding-bottom: 10px; }
-  .commandSubjectMeta { margin-top: 6px; }
-  body.surfaceBody-home .commandGrid .commandSubject :is(.xizongHomeTools,.politicsHomeTools) { margin-top: 9px; gap: 8px; }
-  body.surfaceBody-home .commandGrid .commandSubject :is(.xizongContinue,.politicsContinue) { padding-top: 7px; padding-bottom: 7px; }
-  body.surfaceBody-home .commandGrid .commandSubject .englishResume { margin-top: 9px; padding-top: 8px; padding-bottom: 8px; }
-  .commandSupport { gap: 12px; }
-  .commandSupportSection { padding-top: 14px; padding-bottom: 14px; }
-  .commandGuideLinks a { padding-top: 8px; padding-bottom: 8px; }
-}
-
-/* Added Home navigation must not squeeze long labels into equal-width cells. */
-@media(max-width:760px) {
-  .productBar .productNav { overflow-x: auto; justify-content: flex-start; }
-  .productBar .productNavItem { flex: 0 0 auto; min-width: max-content; }
+@media(max-width:620px) {
+ .uiStageOne .productNav { width:100%;justify-content:flex-start;padding:0; }
+ .uiStageOne .productNavItem { padding:8px 10px;font-size:13px; }
+ .uiStageOne .productNavIcon { width:16px;height:16px; }
+ .commandSectionHead,.commandSubject { padding:16px; }
+ .commandSectionHead>span { display:none; }
+ .commandSubject>header>div { flex-wrap:wrap;gap:6px 10px; }
+ .commandSubjectMeta,.commandTaskLinks { margin-left:0; }
+ .commandSupport { grid-template-columns:1fr; }
+ .commandSupportSection+section { border-left:0;border-top:1px solid var(--study-line); }
+ .commandFoot { flex-direction:column;gap:5px; }
 }
