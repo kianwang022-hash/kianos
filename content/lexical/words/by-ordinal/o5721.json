@@ -7,12 +7,30 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "76fd17ca9e61792947c647e185a0827fde5d548ac27c88084e94f684764c2394",
+    "content_hash": "9c16430c751eb9a51f3281caa67e4713427f8310315c66d6ab113e48ae53bd9f",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "小丑；乡下人",
-      "core_meaning_en": "a rude or vulgar fool",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "小丑；乡下人；小丑；马戏团或表演中的滑稽演员",
+          "label_en": "a rude or vulgar fool; a clown: a comic performer, especially in a circus or entertainment",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:clown:36be9049cca35b40",
+            "sense:clown:bfea5194bfcb3816"
+          ]
+        },
+        {
+          "label_cn": "小丑；乡下人",
+          "label_en": "act as or like a clown",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:clown:42753239c22d5a1e"
+          ]
+        }
+      ],
+      "core_meaning_cn": "小丑；乡下人；小丑；马戏团或表演中的滑稽演员",
+      "core_meaning_en": "a rude or vulgar fool; act as or like a clown; a clown: a comic performer, especially in a circus or entertainment",
+      "mental_model_cn": "小丑；乡下人；小丑；马戏团或表演中的滑稽演员",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -31,9 +49,10 @@
         "depth": "full_card",
         "domain_tag": "cet6",
         "frequency_tag": "cet6",
-        "level": "L1",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
+        "register": "informal/insulting",
         "sense_id": "sense:clown:36be9049cca35b40",
         "sense_label_en": "a rude or vulgar fool",
         "sort_order": 1,
@@ -101,7 +120,8 @@
             "source_path": "external_semantic_auditor://cet6/1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf",
             "source_type": "learner_dictionary"
           }
-        ]
+        ],
+        "usage_note": "Insulting person-use meaning a fool; not the literal Core."
       },
       {
         "collocations": [],
@@ -182,6 +202,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "小丑；马戏团或表演中的滑稽演员",
+        "definition_en": "a clown: a comic performer, especially in a circus or entertainment",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:clown:bfea5194bfcb3816",
+        "sense_label_en": "a clown: a comic performer, especially in a circus or entertainment",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -214,6 +248,13 @@
         "merged_into_sense_id": null,
         "source_row": 15973,
         "source_path": "content/lexical/canonical/senses/shards/o5697-5728.json"
+      },
+      {
+        "sense_id": "sense:clown:bfea5194bfcb3816",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 15989,
+        "source_path": "content/lexical/canonical/senses/shards/o5697-5728.json"
       }
     ],
     "active_collocations": [],
@@ -240,7 +281,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5721-5728.json",
-    "source_content_hash": "76fd17ca9e61792947c647e185a0827fde5d548ac27c88084e94f684764c2394",
+    "source_content_hash": "9c16430c751eb9a51f3281caa67e4713427f8310315c66d6ab113e48ae53bd9f",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
