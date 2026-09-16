@@ -119,7 +119,8 @@ const currentManifests = currentFiles.map((fileName) => ({
 const current = validateExtensionManifests(currentManifests, { context: createCurrentExtensionOwnerContext() });
 check(currentFiles.length >= 1, 'Current extension registry convention is missing');
 check(allXizongExtensionAssets().length === current.assets.length, 'runtime loader and validator asset counts diverge');
-check(current.assets.length === 0, 'Issue #274 must not add a medical learner asset');
+const infrastructureRegistry = currentManifests.find((item) => item.fileName === 'xizong-extensions.json');
+check(!infrastructureRegistry || infrastructureRegistry.raw.assets.length === 0, 'infrastructure registry must remain content-free');
 
 const renderer = fs.readFileSync(rendererPath, 'utf8');
 for (const marker of ['data-kp-answer', 'POST_REVEAL', 'xizongExtensionTable', 'data-study-stage="logic_group"', 'data-study-stage="group_close"']) {
