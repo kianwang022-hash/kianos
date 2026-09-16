@@ -6,35 +6,53 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "8a796b47d36efbe1fc072ee8198c1fa92b78a19858bc37fb4ef2186e10cb6fa4",
+    "constructions": [
+      {
+        "construction_id": "construction:8e769265ce1b148d3d8b",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "照亮；引申为阐明、揭示某事",
+        "pattern": "shine a light on sth",
+        "source_sense_id": "sense:shine:9cdc08f8c32c5349"
+      }
+    ],
+    "content_hash": "a1e93d34f7ffc1720c50caf2b84ff499faa4bdcb9266bc9b77cb55fc345b59c4",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "发光；照耀；出众；表现突出；把…照向",
-          "label_en": "to produce or reflect light; to be very good at something; to point a light in a particular direction",
+          "label_cn": "发光；照耀；出众；表现突出；把…照向；擦亮、把……擦得有光泽",
+          "label_en": "to produce or reflect light; to be very good at something; to point a light in a particular direction; to polish or rub something until it becomes bright or shiny",
           "pos": "verb",
           "sense_ids": [
             "sense:shine:d46e59f3f1755ca6",
             "sense:shine:29b881970cf65dd1",
-            "sense:shine:9cdc08f8c32c5349"
-          ]
-        },
-        {
-          "label_cn": "光泽；光亮",
-          "label_en": "brightness from reflected light",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:shine:400618c970c75de5"
+            "sense:shine:9cdc08f8c32c5349",
+            "sense:shine:2e6aa4e6cba87329"
           ]
         }
       ],
-      "core_meaning_cn": "发光；照耀；出众",
-      "core_meaning_en": "to give out light; to be bright or excellent",
-      "mental_model_cn": "发光；照耀；出众",
+      "core_meaning_cn": "发光；照耀；出众；表现突出；把…照向；擦亮、把……擦得有光泽",
+      "core_meaning_en": "to produce or reflect light; to be very good at something; to point a light in a particular direction; to polish or rub something until it becomes bright or shiny",
+      "mental_model_cn": "发光；照耀；出众；表现突出；把…照向；擦亮、把……擦得有光泽",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o4375-o4874.md",
+      "boundaries": [
+        {
+          "condition": "past/past participle of light-emission sense",
+          "note": "shone is common for intransitive light-emission uses",
+          "surface": "shone"
+        },
+        {
+          "condition": "past/past participle, especially transitive polish use; also AmE variation",
+          "note": "shined is common for polishing and occurs more broadly especially in AmE",
+          "surface": "shined"
+        }
+      ],
+      "type": "inflectional_variant_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -155,6 +173,20 @@
         "sense_label_en": "brightness from reflected light",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "擦亮、把……擦得有光泽",
+        "definition_en": "to polish or rub something until it becomes bright or shiny",
+        "governing_pattern": "vt. + object",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:shine:2e6aa4e6cba87329",
+        "sense_label_en": "to polish or rub something until it becomes bright or shiny",
+        "sort_order": 4,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -206,6 +238,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12389,
+        "source_path": "content/lexical/canonical/senses/shards/o4385-4416.json"
+      },
+      {
+        "sense_id": "sense:shine:2e6aa4e6cba87329",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 12467,
         "source_path": "content/lexical/canonical/senses/shards/o4385-4416.json"
       }
     ],
@@ -276,7 +315,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4393-4400.json",
-    "source_content_hash": "8a796b47d36efbe1fc072ee8198c1fa92b78a19858bc37fb4ef2186e10cb6fa4",
+    "source_content_hash": "a1e93d34f7ffc1720c50caf2b84ff499faa4bdcb9266bc9b77cb55fc345b59c4",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -7,12 +7,29 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "f3ffe99901f269cb944bdfa664ef8c2d0f199a55ce2900455a0ce108b2f80740",
+    "content_hash": "db5250b8b38a65b86ebbec02d69d1ccd48e4aa6a171e8205856721d35e0b3e5e",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "颤抖",
-      "core_meaning_en": "to shake slightly, especially from cold or fear",
-      "mental_model_cn": "颤抖",
+      "core_clusters": [
+        {
+          "label_cn": "因寒冷等而颤抖",
+          "label_en": "shake, as from cold",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:shiver:d52acf2b5dfa58c8"
+          ]
+        },
+        {
+          "label_cn": "颤抖，战栗",
+          "label_en": "a trembling movement",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:shiver:bebf5381fc1b5c33"
+          ]
+        }
+      ],
+      "core_meaning_cn": "因寒冷等而颤抖；颤抖，战栗",
+      "core_meaning_en": "shake, as from cold; a trembling movement",
+      "mental_model_cn": "因寒冷等而颤抖；颤抖，战栗",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -25,7 +42,36 @@
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "因寒冷等而颤抖",
+        "definition_en": "shake, as from cold",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:shiver:d52acf2b5dfa58c8",
+        "sense_label_en": "shake, as from cold",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "颤抖，战栗",
+        "definition_en": "a trembling movement",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:shiver:bebf5381fc1b5c33",
+        "sense_label_en": "a trembling movement",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 2,
       "deep_modules": {
@@ -78,56 +124,6 @@
       "source_row": 12396,
       "source_path": "content/lexical/canonical/senses/shards/o4385-4416.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:shiver:bebf5381fc1b5c33",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "颤抖，战栗",
-      "definition_en": "a trembling movement",
-      "semantic_key": "de9e5d366d6aa1c3b1a125728e08b8fdce4f4788135ce02b399c96b0119531d3",
-      "semantic_key_history": [
-        "2611653f1ccefef0d00bb5f0da5a968654223b78312e5d85ca008764d8d27d98"
-      ],
-      "legacy_aliases": [
-        "shiver:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "shiver:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12397,
-      "source_path": "content/lexical/canonical/senses/shards/o4385-4416.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:shiver:d52acf2b5dfa58c8",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "因寒冷等而颤抖",
-      "definition_en": "shake, as from cold",
-      "semantic_key": "fe7fd05b53efee00b822f34a411135cbdc223540f12a4f3793dbbb52a8ea299a",
-      "semantic_key_history": [
-        "ac71b82dc770ea3d1cde1f61fc8c2e4057aabd29a5b1a91263380f0f172b3b27"
-      ],
-      "legacy_aliases": [
-        "shiver:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "shiver:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12398,
-      "source_path": "content/lexical/canonical/senses/shards/o4385-4416.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -141,14 +137,14 @@
       },
       {
         "sense_id": "sense:shiver:bebf5381fc1b5c33",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12397,
         "source_path": "content/lexical/canonical/senses/shards/o4385-4416.json"
       },
       {
         "sense_id": "sense:shiver:d52acf2b5dfa58c8",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12398,
         "source_path": "content/lexical/canonical/senses/shards/o4385-4416.json"
@@ -220,7 +216,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4393-4400.json",
-    "source_content_hash": "f3ffe99901f269cb944bdfa664ef8c2d0f199a55ce2900455a0ce108b2f80740",
+    "source_content_hash": "db5250b8b38a65b86ebbec02d69d1ccd48e4aa6a171e8205856721d35e0b3e5e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
