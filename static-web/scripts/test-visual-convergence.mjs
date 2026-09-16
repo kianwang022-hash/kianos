@@ -71,6 +71,7 @@ async function capture(name, url, viewport = { width: 1536, height: 864 }, act) 
     if (errors.length) report.failures.push({ name, errors });
     if (metrics.scroll.width > viewport.width + 1) report.failures.push({ name, error: 'Horizontal page overflow' });
     if (url === '/' && viewport.width >= 1280) {
+      if (metrics.scroll.height > viewport.height + 1) report.failures.push({ name, error: 'Desktop Home is not a single viewport', height: metrics.scroll.height });
       const core = metrics.visible.filter(box => box.selector === '.commandSubject');
       if (core.some(box => box.bottom > viewport.height)) report.failures.push({ name, error: 'Home core below viewport', bottom: Math.max(...core.map(box => box.bottom)) });
     }
