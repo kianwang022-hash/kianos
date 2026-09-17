@@ -69,6 +69,9 @@ jobs:
       - name: Verify five-subject purpose-first batch matrix
         working-directory: static-web
         run: node scripts/test-politics-purpose-first-batch-matrix.mjs
+      - name: Verify explicit content-to-surface mapping in browser
+        working-directory: static-web
+        run: node scripts/test-politics-explicit-surface-browser.mjs
       - name: Execute Mao Runtime journeys
         working-directory: static-web
         run: node scripts/test-politics-mao-runtime.mjs
