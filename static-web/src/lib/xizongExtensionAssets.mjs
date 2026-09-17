@@ -91,31 +91,33 @@ function validateOwner(asset, context, detail) {
   validateString(owner.block_id, 'OWNER_BLOCK_MISSING', detail);
   const hasGroup = owner.logic_group_id !== undefined;
   const hasKp = owner.kp_id !== undefined;
-  if (hasGroup && hasKp) fail('OWNER_ANCHOR_AMBIGUOUS', detail);
-  if (!hasGroup && !hasKp) {
-    const block = context.blocks.get(owner.block_id);
-    if (!block) fail('OWNER_BLOCK_UNKNOWN', `${detail}:${owner.block_id}`);
-    return { block, kind: 'block' };
-  }
 
   const block = context.blocks.get(owner.block_id);
   if (!block) fail('OWNER_BLOCK_UNKNOWN', `${detail}:${owner.block_id}`);
+  if (!hasGroup && !hasKp) return { block, kind: 'block' };
+
   const loadedBlock = context.loadedBlocks.get(owner.block_id) || loadXizongBlock(block.systemId, owner.block_id);
   context.loadedBlocks.set(owner.block_id, loadedBlock);
 
+  let logicGroup = null;
   if (hasGroup) {
     validateString(owner.logic_group_id, 'OWNER_LOGIC_GROUP_MISSING', detail);
-    if (!(loadedBlock.logicGroups || []).some((group) => group.groupId === owner.logic_group_id)) {
-      fail('OWNER_LOGIC_GROUP_UNKNOWN', `${detail}:${owner.logic_group_id}`);
-    }
-    return { block, loadedBlock, kind: 'logic_group' };
+    logicGroup = (loadedBlock.logicGroups || []).find((group) => group.groupId === owner.logic_group_id) || null;
+    if (!logicGroup) fail('OWNER_LOGIC_GROUP_UNKNOWN', `${detail}:${owner.logic_group_id}`);
   }
 
-  validateString(owner.kp_id, 'OWNER_KP_MISSING', detail);
-  if (!(loadedBlock.kpRecords || []).some((kp) => kp.kpId === owner.kp_id)) {
-    fail('OWNER_KP_UNKNOWN', `${detail}:${owner.kp_id}`);
+  if (hasKp) {
+    validateString(owner.kp_id, 'OWNER_KP_MISSING', detail);
+    if (!(loadedBlock.kpRecords || []).some((kp) => kp.kpId === owner.kp_id)) {
+      fail('OWNER_KP_UNKNOWN', `${detail}:${owner.kp_id}`);
+    }
+    if (logicGroup && !(logicGroup.kpIds || []).includes(owner.kp_id)) {
+      fail('OWNER_KP_OUTSIDE_LOGIC_GROUP', `${detail}:${owner.logic_group_id}:${owner.kp_id}`);
+    }
+    return { block, loadedBlock, logicGroup, kind: 'kp' };
   }
-  return { block, loadedBlock, kind: 'kp' };
+
+  return { block, loadedBlock, logicGroup, kind: 'logic_group' };
 }
 
 function cueForOwner(asset, ownerInfo, context, detail) {
@@ -129,10 +131,10 @@ function cueForOwner(asset, ownerInfo, context, detail) {
   if (!cue) fail('CUE_UNKNOWN', `${detail}:${asset.cue_id}`);
   const anchor = cue.anchor || {};
   if (anchor.block_id !== asset.owner.block_id) fail('CUE_OWNER_MISMATCH', `${detail}:${asset.cue_id}`);
-  if (asset.owner.logic_group_id !== undefined && anchor.logic_group_id !== asset.owner.logic_group_id) {
+  if (asset.owner.logic_group_id !== undefined && anchor.logic_group_id !== undefined && anchor.logic_group_id !== asset.owner.logic_group_id) {
     fail('CUE_OWNER_MISMATCH', `${detail}:${asset.cue_id}`);
   }
-  if (asset.owner.kp_id !== undefined && anchor.kp_id !== asset.owner.kp_id) {
+  if (asset.owner.kp_id !== undefined && anchor.kp_id !== undefined && anchor.kp_id !== asset.owner.kp_id) {
     fail('CUE_OWNER_MISMATCH', `${detail}:${asset.cue_id}`);
   }
   return cue;
