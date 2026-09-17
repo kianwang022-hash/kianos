@@ -153,17 +153,21 @@ try {
 
   await root.locator('[data-toggle-outline]').click();
   await page.waitForFunction(() => document.querySelector('[data-study-layout]')?.classList.contains('outline-collapsed'));
+  await sleep(220);
   const leftCollapsed = await geometry(root);
   check(leftCollapsed.left <= 2, 'outline_collapse_releases_left_column', JSON.stringify(leftCollapsed));
   await root.locator('[data-toggle-outline]').click();
   await page.waitForFunction(() => !document.querySelector('[data-study-layout]')?.classList.contains('outline-collapsed'));
+  await sleep(220);
 
   await root.locator('[data-toggle-chain]').click();
   await page.waitForFunction(() => document.querySelector('[data-study-layout]')?.classList.contains('chain-collapsed'));
+  await sleep(220);
   const rightCollapsed = await geometry(root);
   check(rightCollapsed.right <= 2, 'aux_collapse_releases_right_column', JSON.stringify(rightCollapsed));
   await root.locator('[data-toggle-chain]').click();
   await page.waitForFunction(() => !document.querySelector('[data-study-layout]')?.classList.contains('chain-collapsed'));
+  await sleep(220);
   await setAuxWeight(page, root, 'none');
 
   await root.locator('[data-stage-next="logic_group"]').click();
