@@ -1,0 +1,69 @@
+---
+import { buildMissionControlSnapshot } from '../lib/missionControl.mjs';
+
+const base = import.meta.env.BASE_URL;
+const snapshot = buildMissionControlSnapshot();
+
+function laneState(lane) {
+  const blocker = String(lane.blocker || '').trim().toLowerCase();
+  if (blocker && blocker !== 'none') return { label: '有阻塞', tone: 'blocked' };
+  const active = String(lane.active || '').trim().toLowerCase();
+  if (!active || active === 'none' || active.includes('router-only')) return { label: '工程已收口', tone: 'quiet' };
+  return { label: '建设中', tone: 'active' };
+}
+
+const lanes = snapshot.lanes.map((lane) => ({ ...lane, state: laneState(lane) }));
+const activeCount = lanes.filter((lane) => lane.state.tone === 'active').length;
+const blockedCount = lanes.filter((lane) => lane.state.tone === 'blocked').length;
+---
+<section class="homeMission" aria-label="KianOS 系统进度">
+  <header class="homeMissionHead">
+    <div>
+      <span class="pageKicker">SYSTEM</span>
+      <h2>系统进度</h2>
+    </div>
+    <a href={`${base}current/`}>完整进度 →</a>
+  </header>
+
+  <p class="homeMissionSummary">
+    {blockedCount ? `${blockedCount} 个范围有阻塞` : '当前无系统级阻塞'}
+    <span aria-hidden="true">·</span>
+    {activeCount ? `${activeCount} 个范围仍在建设` : '工程已收口'}
+  </p>
+
+  <div class="homeMissionLanes">
+    {lanes.map((lane) => (
+      <div class={`homeMissionLane is-${lane.state.tone}`}>
+        <strong>{lane.label}</strong>
+        <span>{lane.state.label}</span>
+      </div>
+    ))}
+  </div>
+
+  <div class="homeMissionNext">
+    <span>后台下一步</span>
+    <p>{snapshot.project.next || '没有新的系统建设任务。'}</p>
+  </div>
+</section>
+
+<style>
+  .homeMission{padding:18px 24px;border-top:1px solid #e1e9e4;background:#fafcfb;color:#263e39}
+  .homeMissionHead{display:flex;align-items:end;justify-content:space-between;gap:14px}
+  .homeMissionHead h2{margin:3px 0 0;font-size:19px;line-height:1.2;font-weight:650;letter-spacing:-.02em}
+  .homeMissionHead a{color:#315f4c;text-decoration:none;font-size:13px;font-weight:600;white-space:nowrap}
+  .homeMissionSummary{display:flex;align-items:center;gap:7px;margin:11px 0 12px;color:#607269;font-size:13px;line-height:1.45}
+  .homeMissionSummary span{color:#a2aea8}
+  .homeMissionLanes{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #e5ebe7;border-bottom:1px solid #e5ebe7}
+  .homeMissionLane{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0;padding:9px 0;font-size:13px}
+  .homeMissionLane:nth-child(odd){padding-right:12px;border-right:1px solid #edf1ee}
+  .homeMissionLane:nth-child(even){padding-left:12px}
+  .homeMissionLane:nth-child(n+3){border-top:1px solid #edf1ee}
+  .homeMissionLane strong{font-weight:620;white-space:nowrap}
+  .homeMissionLane span{color:#65776e;text-align:right}
+  .homeMissionLane.is-active span{color:#7a6131}
+  .homeMissionLane.is-blocked span{color:#94372f;font-weight:650}
+  .homeMissionNext{display:grid;gap:4px;padding-top:12px}
+  .homeMissionNext>span{font-size:11px;color:#718178}
+  .homeMissionNext p{margin:0;color:#50675d;font-size:13px;line-height:1.55}
+  @media(max-width:700px){.homeMissionLanes{grid-template-columns:1fr}.homeMissionLane:nth-child(n){padding:9px 0;border-right:0}.homeMissionLane:nth-child(n+2){border-top:1px solid #edf1ee}}
+</style>
