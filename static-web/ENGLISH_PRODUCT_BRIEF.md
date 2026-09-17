@@ -427,12 +427,101 @@ Chat may explain or deepen the same targeted issue directly when that is lower f
 
 ---
 
-## Next unresolved English surface
+## English Home / Resume / navigation — accepted direction
 
-`English Home / Resume / navigation / return behavior`
+English Home is the **dense English workbench**, not a marketing overview and not a second scheduler.
 
-When discussing this final English family surface, first report:
-1. what the current English Home/Resume already does;
-2. what current Logic requires Home/Resume to mean;
-3. what is preserved vs removed/demoted;
-4. the Mac-wide target sketch and cross-surface return behavior.
+It should answer, in the first viewport:
+
+1. where English currently is in the exam phase;
+2. what exact unfinished object can be resumed now;
+3. what today's English work choices are;
+4. whether there is meaningful review / repair waiting;
+5. what the next important gate is.
+
+### Preserve
+
+- one meaningful Resume / Continue entry that restores the exact unfinished object when one exists;
+- direct access to Vocabulary, Reading A, External Reading, true-paper work and Review when they are available in the current phase;
+- current phase / Gate context derived from the accepted scheduler/orchestrator owner rather than re-authored locally;
+- review counts / problem state derived from real evidence, not fake completion cards;
+- First Learning / Guide access as a secondary support route, not the normal task path;
+- existing learner state and cross-surface return semantics.
+
+### Dense Mac-wide Home
+
+Use the first viewport for real work, not large empty hero copy.
+
+Target structure:
+
+```text
+┌──────────────┬──────────────────────────────────────────────────────────────┐
+│ global rail  │ English · current phase / nearest Gate                    │
+│ K ⇄ collapse │──────────────────────────────────────────────────────────────│
+│              │ Continue / Resume — exact unfinished object                │
+│              │──────────────────────────────────────┬───────────────────────│
+│              │ Today's English work                 │ Review / Gate / Guide │
+│              │ Vocabulary                           │ compact useful rail   │
+│              │ Reading A / true paper               │                       │
+│              │ External Reading                     │                       │
+│              │ other phase-valid work               │                       │
+│              │──────────────────────────────────────┴───────────────────────│
+│              │ Weekly structure / recent practice / next useful context    │
+└──────────────┴──────────────────────────────────────────────────────────────┘
+```
+
+- No large `85+` target block or oversized software headline should consume first-viewport area when that space can show actionable study information.
+- Phase / Gate is useful context but should be compact, not the dominant visual object.
+- Useful rows may be dense and vertically compact as long as the typography remains readable.
+- Prefer one continuous workbench with thin rules / aligned columns over a pile of large rounded cards.
+- A sparse Home with tiny helper text is a hard failure even if it looks visually clean.
+
+### Navigation rule
+
+English inherits the shared collapsible KianOS left rail.
+
+- `K` toggles compact icon-only vs expanded icon+label global navigation and remembers the user's state.
+- Do **not** keep a second full-width English top navigation when it repeats destinations already exposed by the Home workbench or global rail.
+- `Today / Vocabulary / true paper / External / Review` should normally appear as direct workbench destinations / task rows, not as a second persistent navigation system plus repeated rows below.
+- A top strip may exist only for a genuinely local mode/filter that cannot be expressed more clearly in the workbench itself.
+- On focused exam/Guide pages, local navigation may exist for the current object, but should not recreate English Home or the global menu.
+
+### Typography / hierarchy
+
+English Home follows the shared UI floor but should not aim at the floor:
+
+- primary work/task titles should be visually obvious at a glance;
+- normal helper / status copy should generally sit around the shared 16px secondary level;
+- learner-facing explanatory copy should generally sit around 17–18px;
+- no 10–13px gray metadata scattered through large empty areas;
+- hierarchy should come from type size/weight, alignment and spacing before card chrome.
+
+### Resume priority
+
+If an unfinished English object exists, Resume is the most important action on Home.
+
+If nothing is unfinished, Home may promote the most relevant current-phase task, but must not manufacture a fake `Continue` or fake progress state.
+
+### Review / Guide rail
+
+The secondary rail may show only information that changes what Kian does now:
+
+- meaningful pending review;
+- nearest Gate / phase transition;
+- a small Guide entry when the current task genuinely needs model refresh;
+- Lexical companion entry when useful.
+
+Do not use the rail as an engineering/status dashboard or duplicate the main task list.
+
+### Acceptance
+
+English Home is not accepted from build success alone. Review a real Mac-wide screenshot and reject it when:
+
+- the first viewport is visibly under-filled despite available useful information;
+- navigation is duplicated;
+- visible learner text falls below the shared floor;
+- typography feels like an engineering/admin console;
+- hierarchy depends mainly on rounded cards rather than information structure;
+- Resume / today's actual work is visually weaker than decorative phase/target information.
+
+This section closes the previous `Next unresolved English surface` marker. Future English Home changes should refine implementation against this accepted direction rather than reopen the whole English product model.
