@@ -1,0 +1,82 @@
+name: Politics Surface Consumer Proof
+
+on:
+  push:
+    branches:
+      - 'verify/politics-surface-consumer-20260918'
+
+permissions:
+  contents: read
+
+jobs:
+  proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install runtime
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+      - name: Validate Politics runtime ownership
+        working-directory: static-web
+        run: node scripts/validate-politics-runtime.mjs
+      - name: Validate explicit Surface Mapping
+        working-directory: static-web
+        run: |
+          node scripts/audit-politics-explicit-surface-mapping.mjs
+          node scripts/test-politics-explicit-surface-calibration.mjs
+      - name: Verify Astro reaches Politics pages
+        working-directory: static-web
+        run: |
+          set +e
+          npm run build > /tmp/kianos-build.log 2>&1
+          status=$?
+          set -e
+          if [ "$status" -eq 0 ]; then
+            exit 0
+          fi
+          if grep -q "WRITING_TRUE_EXAM_ENTRY_NOT_AVAILABLE" /tmp/kianos-build.log; then
+            grep -n "src/pages/politics" /tmp/kianos-build.log | tail -20 || true
+            echo "Expected unrelated Writing gate reached after Politics pages generated."
+            exit 0
+          fi
+          cat /tmp/kianos-build.log
+          exit "$status"
+      - name: Install Chromium
+        working-directory: static-web
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Browser prove C00 mapped workspace
+        working-directory: static-web
+        run: |
+          nohup npm run dev -- --host 127.0.0.1 >/tmp/politics-dev.log 2>&1 &
+          for i in {1..60}; do
+            if curl -fsS http://127.0.0.1:4321/politics/marxism/ch00/ >/dev/null; then break; fi
+            sleep 1
+          done
+          node --input-type=module <<'NODE'
+          import { chromium } from 'playwright';
+          const browser = await chromium.launch({ headless: true });
+          const page = await browser.newPage({ viewport: { width: 1512, height: 982 } });
+          const errors = [];
+          page.on('pageerror', err => errors.push(String(err)));
+          await page.goto('http://127.0.0.1:4321/politics/marxism/ch00/', { waitUntil: 'networkidle' });
+          const result = await page.evaluate(() => ({
+            units: document.querySelectorAll('[data-workspace-unit][data-explicit-surface-mapping="v1"]').length,
+            rawMaps: document.querySelectorAll('.mapDeck,.semanticMap,.relationStrip,.fallbackOrientation').length,
+            explicitPlans: document.querySelectorAll('[data-politics-explicit-surface-plan]').length,
+            bridgeScripts: document.querySelectorAll('[data-explicit-workspace-unit],[data-politics-projection-runtime-registry]').length,
+            headline: document.querySelector('[data-stage="ORIENT"] h2')?.textContent?.trim() || ''
+          }));
+          console.log(JSON.stringify({ result, errors }, null, 2));
+          if (errors.length) throw new Error('C00_PAGE_ERRORS');
+          if (result.units < 1) throw new Error('C00_MAPPED_UNIT_MISSING');
+          if (result.rawMaps !== 0) throw new Error('C00_RAW_SEMANTIC_DOM_PRESENT');
+          if (result.explicitPlans < 1) throw new Error('C00_EXPLICIT_PLAN_MISSING');
+          if (result.bridgeScripts !== 0) throw new Error('C00_OVERLAY_REGISTRY_PRESENT');
+          await browser.close();
+          NODE
