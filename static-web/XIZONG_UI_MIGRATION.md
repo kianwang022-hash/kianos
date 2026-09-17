@@ -1,6 +1,6 @@
 # Xizong UI Architecture Migration
 
-Status: **ACTIVE MIGRATION · Slice 1 candidate implemented, acceptance pending**  
+Status: **ACTIVE MIGRATION · Slice 1 ACCEPTED / CUT OVER ON MAIN · Slice 2 ACTIVE**  
 Scope: Xizong learner-facing presentation implementation only  
 Parent authority: `content/xizong/CURRENT.md` + `PRESENTATION_CONTRACT.md` + `UI_STYLE_BRIEF.md` + `PROJECT_MANAGEMENT_CONTRACT.md`
 
@@ -52,7 +52,7 @@ Shared Base Shell / global rail are explicitly out of scope until the parallel E
 
 ## Slice 1 — System Workspace single visual owner
 
-**State:** IMPLEMENTED CANDIDATE · targeted CI/browser acceptance still required
+**State:** **ACCEPTED / CUT OVER ON MAIN via PR #368**
 
 ### OLD
 
@@ -65,7 +65,7 @@ System Workspace behavior was Current after PR #339, but presentation responsibi
 
 The learner effect could be acceptable while ownership was not.
 
-### NEW CANDIDATE
+### NEW CURRENT
 
 Current route:
 
@@ -87,32 +87,35 @@ Implementation boundary:
 
 The old System selector block inside broad `xizong-presentation.css` is now **inactive dead migration code**, not an active visual owner. Its physical removal is tracked under final legacy cleanup because that broad file still owns other not-yet-migrated Xizong surfaces.
 
+### ACCEPTANCE EVIDENCE
+
+PR #368 was promoted only after all triggered gates passed on the accepted head:
+
+- Xizong System Workspace — PASS;
+- Xizong Representation Gate — PASS;
+- Xizong Production Semantic Projection — PASS;
+- Xizong Representative Workspace — PASS;
+- Static Web Xizong QA — PASS;
+- Xizong Golden Journey — PASS;
+- Xizong A2 Functional First Journey — PASS.
+
+Representative browser evidence additionally confirmed A1/A2/A3 System Current namespace, purpose-first representation, Block selection, Failure behavior, no dependency auto-graph, Mac-wide three-region geometry and a 15px visible learner-text floor.
+
+Three stale validation consumers that still named `XizongSystemV6.astro` were migrated to the Current owner during acceptance rather than restoring a compatibility V6 path:
+
+- `validate-xizong-representation-gate.mjs`;
+- `validate-xizong-learning.mjs`;
+- `validate-xizong-a1-projection.mjs`.
+
 ### MACHINE GUARDS
 
 - `scripts/validate-xizong-system-style-ownership.mjs` fails if the route/component regains CSS ownership, legacy `xv6*` class tokens return to the Current component, `!important` recovery appears, or the retired V6 component returns;
 - `scripts/test-xizong-system-workspace.mjs` checks A1/A2/A3 Current namespace, purpose-first representation, 15px visible-text floor, three-region geometry, Block selection, Failure behavior and no generated dependency graph;
 - `.github/workflows/xizong-system-workspace.yml` provides targeted build + browser acceptance for this surface.
 
-### SUCCESS TEST
+### CLOSED CUTOVER
 
-Representative A1/A2/A3 System pages preserve:
-
-- purpose-first framework composition;
-- ordered System spine behavior;
-- Block selection + Enter behavior;
-- Failure focus behavior;
-- dependency no-auto-graph behavior;
-- readable learner text floor;
-- stable Mac-wide three-region workspace;
-- no System Recall leak into normal first-pass System Framework.
-
-### CUTOVER CONDITION
-
-Targeted ownership validation, Astro build and representative browser acceptance all pass on the candidate PR without relying on retired System DOM/classes/component/page style owners.
-
-### DELETE CONDITION
-
-Already deleted from the active runtime:
+Already removed from the active runtime:
 
 - `XizongSystemV6.astro`;
 - component-local System style block;
@@ -125,32 +128,54 @@ Remaining physical dead-code deletion:
 
 ### ROLLBACK / FAIL-CLOSED
 
-If semantic/runtime behavior changes or representative System browser acceptance regresses, do not restore a compatibility override stack. Repair or revert the new isolated System surface before promotion.
+A future System defect must be repaired at the Current owner. Do not restore a compatibility V6 component, duplicate route CSS or second System visual stylesheet.
 
 ---
 
 ## Slice 2 — Home + Memory ownership convergence
 
-**State:** NEXT after Slice 1 acceptance
+**State:** **ACTIVE**
 
 ### OLD
 
 Home styles currently live inside broad `xizong-presentation.css`. Memory has substantial component-local styling. Draft PR #351 proposes an additional `xizong-peripheral-workspaces.css` override layer.
 
-### NEW
+### BOUNDED #351 TRIAGE
 
-- preserve useful product changes from #351 only where still justified, especially an explicit standalone Memory entry from Xizong Home;
+PR #351 is evidence/candidate material, not a package to merge wholesale.
+
+Preserve where still justified:
+
+- an explicit standalone Memory entry from Xizong Home;
+- the useful browser/type-floor acceptance intent for Home and Memory.
+
+Do **not** inherit:
+
+- `xizong-peripheral-workspaces.css` as a permanent second visual owner;
+- inline Home `style="font-size:16px"` recovery patches;
+- the System-route duplicate Recall-dialog click fallback unless Slice 3 produces a real Runtime defect that requires repair at the actual Runtime owner.
+
+The Home/Memory work must be rebuilt against Current main, not stacked on #351's override architecture.
+
+### NEW TARGET
+
 - Home presentation receives one clear Xizong Home owner;
 - Memory presentation receives one clear Memory owner;
-- do not land `xizong-peripheral-workspaces.css` as a permanent second owner.
+- Home exposes meaningful Continue/System work plus explicit standalone Memory access;
+- Memory keeps `Today | Core | Precision | Marked | Repair` and existing learner/evidence semantics;
+- no permanent `peripheral` mega-stylesheet or page-inline visual fixes.
 
 ### SUCCESS TEST
 
 Home remains a dense learner workbench with meaningful Continue/System entry and explicit Memory access. Memory preserves `Today | Core | Precision | Marked | Repair`, current keyboard/evidence behavior and readable Mac-wide geometry.
 
-### DELETE CONDITION
+### CUTOVER / DELETE CONDITION
 
-After accepted cutover, remove the superseded Home/Memory rules from active runtime ownership and component inline style blocks. Broad-file dead selectors may then be physically removed in the bounded cleanup slice.
+After accepted cutover:
+
+- Home and Memory Current routes consume their intended owners only;
+- superseded active Home/Memory rules and component inline style owners are removed;
+- unreachable broad-file selectors are eligible for bounded physical deletion in the later cleanup slice.
 
 ---
 
