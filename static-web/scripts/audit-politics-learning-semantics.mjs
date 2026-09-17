@@ -114,10 +114,49 @@ function validateFramework(map, errors, label) {
     if (!nonEmptyString(node?.meaning)) fail(errors, label, `framework node ${node.id} meaning missing`);
     if (!list(node?.source_evidence).length) fail(errors, label, `framework node ${node.id} source_evidence missing`);
   }
-  for (const edge of list(map.edges)) {
+  const edges = list(map.edges);
+  for (const edge of edges) {
     if (!nodeIds.has(edge?.from)) fail(errors, label, `framework edge from unknown node ${edge?.from || '<missing>'} in ${map.id || 'framework map'}`);
     if (!nodeIds.has(edge?.to)) fail(errors, label, `framework edge to unknown node ${edge?.to || '<missing>'} in ${map.id || 'framework map'}`);
     if (!nonEmptyString(edge?.relation)) fail(errors, label, `framework edge ${edge?.from || '?'}→${edge?.to || '?'} relation missing`);
+  }
+
+  if (Object.prototype.hasOwnProperty.call(map, 'collective_relations') && !Array.isArray(map.collective_relations)) {
+    fail(errors, label, `${map.id || 'framework map'} collective_relations must be an array`);
+  }
+
+  const collectiveIds = new Set();
+  for (const relation of list(map.collective_relations)) {
+    const relationId = relation?.id;
+    if (!nonEmptyString(relationId)) {
+      fail(errors, label, `${map.id || 'framework map'} collective relation id missing`);
+      continue;
+    }
+    if (collectiveIds.has(relationId)) fail(errors, label, `duplicate collective relation id ${relationId} in ${map.id || 'framework map'}`);
+    collectiveIds.add(relationId);
+
+    const members = list(relation?.member_ids);
+    if (members.length < 2) fail(errors, label, `${relationId} requires at least 2 member_ids`);
+    if (new Set(members).size !== members.length) fail(errors, label, `${relationId} member_ids must be unique`);
+    for (const memberId of members) {
+      if (!nodeIds.has(memberId)) fail(errors, label, `${relationId} member_id ${memberId || '<missing>'} is not a framework node`);
+    }
+
+    if (!nonEmptyString(relation?.target_id) || !nodeIds.has(relation.target_id)) {
+      fail(errors, label, `${relationId} target_id must reference a framework node`);
+    }
+    if (members.includes(relation?.target_id)) fail(errors, label, `${relationId} target_id cannot also be a member`);
+    if (!nonEmptyString(relation?.relation)) fail(errors, label, `${relationId} relation missing`);
+    if (!nonEmptyString(relation?.text)) fail(errors, label, `${relationId} learner-readable text missing`);
+    if (!list(relation?.source_evidence).length) fail(errors, label, `${relationId} source_evidence missing`);
+
+    // Once Content explicitly owns a collective relation, keeping per-member
+    // binary edges to the same target would reintroduce the forbidden atomization.
+    for (const edge of edges) {
+      if (members.includes(edge?.from) && edge?.to === relation?.target_id) {
+        fail(errors, label, `${relationId} is atomized again as binary edge ${edge.from}→${edge.to}`);
+      }
+    }
   }
 }
 
