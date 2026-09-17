@@ -1,0 +1,329 @@
+/* Politics Natural Unit visual convergence.
+   Presentation only: Surface Mapping, Runtime, Evidence, Repair and Return stay upstream-owned. */
+
+body#kianos-workspace.surfaceBody-politics .productCanvas:has(.politicsStudy) {
+  padding-top: 12px;
+}
+
+/* One calm workspace frame; remove the nested-dashboard feeling inside it. */
+body#kianos-workspace.surfaceBody-politics .politicsStudy {
+  grid-template-columns: 184px minmax(0, 1fr);
+  border-color: #dce5df;
+  border-radius: 10px;
+  box-shadow: 0 1px 0 rgba(24, 61, 48, .02);
+}
+
+body#kianos-workspace.surfaceBody-politics .politicsChapterLocation {
+  gap: 12px;
+  padding: 14px 22px;
+  background: #fff;
+}
+body#kianos-workspace.surfaceBody-politics .politicsChapterLocation > a {
+  font-size: 16px;
+}
+body#kianos-workspace.surfaceBody-politics .politicsChapterLocation h1 {
+  font-size: 22px;
+  font-weight: 560;
+}
+body#kianos-workspace.surfaceBody-politics .politicsChapterLocation small {
+  font-size: 15px;
+  color: #789083;
+}
+
+/* Chapter rail is context, not a second dashboard. */
+body#kianos-workspace.surfaceBody-politics .politicsRail {
+  padding: 22px 10px 28px;
+  background: #fafcf9;
+}
+body#kianos-workspace.surfaceBody-politics .politicsRail > span {
+  padding: 0 10px;
+  font-size: 15px;
+  color: #5d806d;
+}
+body#kianos-workspace.surfaceBody-politics .politicsRail > strong {
+  padding: 2px 10px 0;
+  font-size: 17px;
+  line-height: 1.55;
+  font-weight: 560;
+}
+body#kianos-workspace.surfaceBody-politics .politicsRail nav {
+  gap: 1px;
+  margin-top: 22px;
+}
+body#kianos-workspace.surfaceBody-politics .politicsRail nav a {
+  padding: 10px 10px 10px 12px;
+  border-radius: 0;
+  font-size: 16px;
+  line-height: 1.62;
+}
+body#kianos-workspace.surfaceBody-politics .politicsRail nav a.active {
+  background: transparent;
+  box-shadow: inset 3px 0 #6c9b7d;
+  color: #255f42;
+}
+
+body#kianos-workspace.surfaceBody-politics .politicsMain {
+  background: #fff;
+}
+
+/* The current Natural Unit is the visual centre of gravity. */
+body#kianos-workspace.surfaceBody-politics .politicsUnit {
+  grid-template-columns: minmax(0, 1fr) 276px;
+  min-height: 0;
+}
+body#kianos-workspace.surfaceBody-politics .politicsUnitCognition {
+  padding: 32px 38px 42px;
+}
+body#kianos-workspace.surfaceBody-politics .politicsUnitCompanion {
+  padding: 28px 22px 34px;
+  background: #fbfcfa;
+  border-left-color: #e2e9e4;
+}
+body#kianos-workspace.surfaceBody-politics .politicsMicro {
+  font-size: 15px;
+  line-height: 1.55;
+  letter-spacing: .045em;
+}
+body#kianos-workspace.surfaceBody-politics .politicsUnitHead h2 {
+  margin: 8px 0 18px;
+  font-size: clamp(28px, 2.05vw, 32px);
+  line-height: 1.45;
+  font-weight: 570;
+}
+body#kianos-workspace.surfaceBody-politics .politicsQuestion {
+  padding: 0 0 20px;
+  border-bottom-color: #dfe7e1;
+}
+body#kianos-workspace.surfaceBody-politics .politicsQuestion span {
+  margin-bottom: 7px;
+  font-size: 15px;
+  line-height: 1.55;
+}
+body#kianos-workspace.surfaceBody-politics .politicsQuestion strong {
+  font-size: 22px;
+  line-height: 1.65;
+  font-weight: 560;
+}
+
+/* Explicit mapped cognition should read like one editorial object, not a card pile. */
+body#kianos-workspace.surfaceBody-politics .politicsUnitCognition .politicsExplicitSurfacePlan {
+  gap: 22px;
+  margin-top: 18px;
+}
+body#kianos-workspace.surfaceBody-politics .politicsUnitCognition .explicitGroup {
+  gap: 12px;
+}
+body#kianos-workspace.surfaceBody-politics .politicsUnitCognition .explicitGroup > header {
+  padding-bottom: 9px;
+}
+body#kianos-workspace.surfaceBody-politics .politicsUnitCognition .explicitGroup > header strong {
+  font-size: 18px;
+  font-weight: 560;
+}
+body#kianos-workspace.surfaceBody-politics .politicsUnitCognition :is(.explicitParallel article,.explicitStatements article,.sequenceItem) {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+body#kianos-workspace.surfaceBody-politics .politicsUnitCognition :is(.explicitParallel p,.explicitStatements p,.sequenceItem p,.explicitParallel li,.explicitStatements li,.sequenceItem li,.explicitCompare p,.explicitTimeline span) {
+  font-size: 17px;
+  line-height: 1.68;
+}
+
+/* Chengfeng companion stays present, but loses nested-card chrome. */
+body#kianos-workspace.surfaceBody-politics .politicsUnitCompanion .politicsSource {
+  margin: 0 0 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+body#kianos-workspace.surfaceBody-politics .politicsUnitCompanion .politicsSource > header {
+  margin: 0 0 14px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+body#kianos-workspace.surfaceBody-politics .politicsUnitCompanion .politicsSource > header h3 {
+  margin-top: 3px;
+  font-size: 19px;
+  line-height: 1.55;
+  font-weight: 570;
+}
+body#kianos-workspace.surfaceBody-politics .politicsUnitCompanion .politicsSource > header > span {
+  margin-top: 5px;
+  font-size: 15px;
+}
+body#kianos-workspace.surfaceBody-politics .politicsSourceHandoff > strong {
+  font-size: 17px;
+  font-weight: 560;
+}
+body#kianos-workspace.surfaceBody-politics .politicsSourceHandoff > p {
+  margin: 10px 0;
+  font-size: 16px;
+  line-height: 1.72;
+}
+body#kianos-workspace.surfaceBody-politics .politicsSourceLocators {
+  border-block: 1px solid #e1e9e3;
+}
+body#kianos-workspace.surfaceBody-politics .politicsSourceLocators summary {
+  padding: 12px 0;
+  font-size: 15px;
+}
+body#kianos-workspace.surfaceBody-politics .politicsSourceLocators li {
+  font-size: 15px;
+}
+body#kianos-workspace.surfaceBody-politics .politicsSourceLocators code {
+  font-size: 13px;
+}
+body#kianos-workspace.surfaceBody-politics .politicsUnitCompanion [data-practice-unit-entry] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 10px 0;
+  border: 0;
+  border-radius: 0;
+  border-top: 1px solid #dfe8e1;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 550;
+}
+body#kianos-workspace.surfaceBody-politics .politicsUnitCompanion .politicsClosure {
+  margin-top: 8px;
+  border-color: #dfe8e1;
+}
+body#kianos-workspace.surfaceBody-politics .politicsClosure > summary {
+  font-size: 16px;
+}
+body#kianos-workspace.surfaceBody-politics .politicsClosure :is(p,li) {
+  font-size: 16px;
+  line-height: 1.72;
+}
+
+/* Xiao1000 is verification inside the Unit, not a competing app-within-the-page. */
+body#kianos-workspace.surfaceBody-politics .politicsUnitCognition .politicsQuiz {
+  margin-top: 34px;
+  padding-top: 22px;
+  border: 0;
+  border-top: 1px solid #dfe7e1;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+body#kianos-workspace.surfaceBody-politics .politicsUnitCognition .politicsQuiz > header {
+  margin: 0 0 16px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+body#kianos-workspace.surfaceBody-politics .politicsUnitCognition .politicsQuiz > header h3 {
+  margin-top: 3px;
+  font-size: 20px;
+  font-weight: 560;
+}
+body#kianos-workspace.surfaceBody-politics .politicsUnitCognition .politicsQuiz > header > span {
+  font-size: 15px;
+}
+body#kianos-workspace.surfaceBody-politics .politicsUnitCognition .politicsQ {
+  padding: 22px 0 0;
+  border: 0;
+  border-top: 1px solid #e4ebe6;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+body#kianos-workspace.surfaceBody-politics .politicsUnitCognition .politicsQ h4 {
+  margin: 18px 0 20px;
+  font-size: 18px;
+  line-height: 1.75;
+  font-weight: 500;
+}
+body#kianos-workspace.surfaceBody-politics .politicsUnitCognition .politicsOptions {
+  gap: 10px 12px;
+}
+body#kianos-workspace.surfaceBody-politics .politicsUnitCognition .politicsOptions button {
+  min-height: 0;
+  padding: 11px 13px;
+  border-color: #dbe4de;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: none;
+  font-size: 16px;
+  line-height: 1.62;
+}
+body#kianos-workspace.surfaceBody-politics .politicsUnitCognition .politicsActions {
+  margin-top: 12px;
+}
+
+/* Keep Mac-wide geometry useful without letting the companion squeeze cognition. */
+@media (max-width: 1180px) {
+  body#kianos-workspace.surfaceBody-politics .politicsStudy {
+    grid-template-columns: 168px minmax(0, 1fr);
+  }
+  body#kianos-workspace.surfaceBody-politics .politicsUnit {
+    grid-template-columns: minmax(0, 1fr) 252px;
+  }
+  body#kianos-workspace.surfaceBody-politics .politicsUnitCognition {
+    padding-inline: 28px;
+  }
+  body#kianos-workspace.surfaceBody-politics .politicsUnitCompanion {
+    padding-inline: 18px;
+  }
+}
+
+@media (max-width: 900px) {
+  body#kianos-workspace.surfaceBody-politics .politicsStudy {
+    grid-template-columns: 1fr;
+  }
+  body#kianos-workspace.surfaceBody-politics .politicsRail {
+    position: static;
+    grid-row: auto;
+    max-height: none;
+    border-bottom: 1px solid var(--study-line);
+  }
+  body#kianos-workspace.surfaceBody-politics .politicsRail nav {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    margin-top: 12px;
+    padding-bottom: 2px;
+  }
+  body#kianos-workspace.surfaceBody-politics .politicsRail nav a {
+    flex: 0 0 auto;
+    max-width: 260px;
+  }
+  body#kianos-workspace.surfaceBody-politics .politicsMain {
+    border-left: 0;
+  }
+  body#kianos-workspace.surfaceBody-politics .politicsUnit {
+    grid-template-columns: 1fr;
+  }
+  body#kianos-workspace.surfaceBody-politics .politicsUnitCompanion {
+    border-top: 1px solid var(--study-line);
+    border-left: 0;
+  }
+}
+
+@media (max-width: 620px) {
+  body#kianos-workspace.surfaceBody-politics .politicsChapterLocation {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding-inline: 16px;
+  }
+  body#kianos-workspace.surfaceBody-politics .politicsChapterLocation h1 {
+    flex-basis: 100%;
+    font-size: 21px;
+  }
+  body#kianos-workspace.surfaceBody-politics .politicsUnitCognition,
+  body#kianos-workspace.surfaceBody-politics .politicsUnitCompanion {
+    padding-inline: 18px;
+  }
+  body#kianos-workspace.surfaceBody-politics .politicsUnitHead h2 {
+    font-size: 26px;
+  }
+  body#kianos-workspace.surfaceBody-politics .politicsUnitCognition .politicsOptions {
+    grid-template-columns: 1fr;
+  }
+}
