@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import crypto from 'node:crypto';
 import { marked } from 'marked';
 import Base from '../layouts/Base.astro';
+import '../styles/english-objective-guide.css';
 
 const sourcePath = 'content/english/modules/objective-learning.md';
 const sourceUrl = new URL(`../../../${sourcePath}`, import.meta.url);
@@ -96,26 +97,3 @@ const base = import.meta.env.BASE_URL;
     </div>
   </section>
 </Base>
-
-<style>
-  .objectiveLearnShell{max-width:86rem;margin:0 auto;display:grid;grid-template-columns:16rem minmax(0,1fr);gap:16px;align-items:start}
-  .objectiveLearnNav{position:sticky;top:76px;max-height:calc(100vh - 92px);overflow:auto;display:grid;gap:6px;padding:12px;border:1px solid var(--study-line);border-radius:14px;background:#fff;box-shadow:var(--study-shadow)}
-  .objectiveLearnNav>a{display:grid;gap:2px;padding:9px 10px;border-radius:9px;color:inherit;text-decoration:none}.objectiveLearnNav>a:hover{background:var(--study-green-soft)}
-  .objectiveLearnNav>a strong{font-size:12px}.objectiveLearnNav>a span{color:var(--study-muted);font-size:9px;line-height:1.45}
-  .objectiveLearnNav details{border-top:1px solid var(--study-line);padding-top:5px}.objectiveLearnNav details:first-of-type{border-top:0;padding-top:0}
-  .objectiveLearnNav summary{cursor:pointer;padding:7px 9px;border-radius:8px;font-size:11px;font-weight:850;color:#23372f}.objectiveLearnNav summary:hover{background:var(--study-green-soft)}
-  .objectiveLearnNav details>a{display:block;padding:5px 10px 5px 18px;border-radius:7px;color:var(--study-muted);font-size:9.5px;text-decoration:none;line-height:1.35}.objectiveLearnNav details>a:hover{background:var(--study-green-soft);color:#1d352a}
-  .objectiveLearnPractice{display:flex;gap:6px;flex-wrap:wrap;padding:10px 11px 2px;border-top:1px solid var(--study-line);margin-top:4px}.objectiveLearnPractice>span{width:100%;color:var(--study-faint);font-size:9px}.objectiveLearnPractice a{font-size:10px;font-weight:800;color:var(--study-green);text-decoration:none}
-  .objectiveLearnMain{min-width:0;display:grid;gap:10px}.objectiveFastTrack{display:grid;gap:10px;padding:16px 18px;border:1px solid var(--study-line);border-radius:14px;background:var(--study-green-soft)}
-  .objectiveFastTrack>div:first-child{display:grid;gap:3px}.objectiveFastTrack span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.objectiveFastTrack strong{font-size:16px}.objectiveFastTrack p{margin:0;color:#33463e;font-size:12px;line-height:1.75}
-  .objectiveFastTrackRules{display:flex;gap:7px;flex-wrap:wrap}.objectiveFastTrackRules b{padding:5px 8px;border:1px solid var(--study-line);border-radius:999px;background:#fff;font-size:9px;color:#2d4138}
-  .objectiveLearnContent{min-width:0;padding:30px 36px;border:1px solid var(--study-line);border-radius:16px;background:#fff;box-shadow:var(--study-shadow)}
-  .markdownBody :global(h1){margin:3.2rem 0 1rem;padding-top:.4rem;font-size:28px;line-height:1.28;letter-spacing:-.02em}.markdownBody :global(h1:first-of-type){margin-top:0}
-  .markdownBody :global(h2){margin:2.35rem 0 .75rem;font-size:20px;line-height:1.35}.markdownBody :global(h3){margin:1.55rem 0 .55rem;font-size:15px}
-  .markdownBody :global(p),.markdownBody :global(li){font-size:13.5px;line-height:1.86;color:#26352f}.markdownBody :global(p){margin:.65rem 0}.markdownBody :global(ul),.markdownBody :global(ol){padding-left:1.4rem}
-  .markdownBody :global(blockquote){margin:1rem 0;padding:10px 14px;border-left:3px solid var(--study-green);background:var(--study-green-soft);border-radius:0 9px 9px 0;color:#1e3129}.markdownBody :global(blockquote p){margin:.25rem 0;color:inherit}.markdownBody :global(strong){color:#16251f}
-  .markdownBody :global(pre){overflow:auto;margin:1rem 0;padding:14px 16px;border:1px solid var(--study-line);border-radius:11px;background:#f7f9f7;font-size:12px;line-height:1.6}.markdownBody :global(code){font-size:.92em}.markdownBody :global(hr){border:0;border-top:1px solid var(--study-line);margin:2.5rem 0}
-  .markdownBody :global(a[id]){display:block;position:relative;top:-88px;visibility:hidden}
-  @media(max-width:960px){.objectiveLearnShell{grid-template-columns:1fr}.objectiveLearnNav{position:static;max-height:none;grid-template-columns:repeat(2,minmax(0,1fr))}.objectiveLearnNav details{border:1px solid var(--study-line);border-radius:9px;padding:3px}.objectiveLearnPractice{grid-column:1/-1}.objectiveLearnContent{padding:22px 18px}}
-  @media(max-width:560px){.objectiveLearnNav{grid-template-columns:1fr}.objectiveLearnContent{padding:18px 14px}.markdownBody :global(h1){font-size:23px}.markdownBody :global(h2){font-size:18px}.markdownBody :global(p),.markdownBody :global(li){font-size:13px;line-height:1.78}.objectiveFastTrackRules{display:grid}.objectiveFastTrackRules b{width:max-content}}
-</style>
