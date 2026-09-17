@@ -1,0 +1,279 @@
+/* Objective Guide is a long-form learning document, not a card dashboard.
+   This route-scoped file is its single visual owner. */
+body#kianos-workspace.uiEnglish .objectiveLearnShell{
+  width:100%;
+  max-width:92rem;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:250px minmax(0,1fr);
+  gap:34px;
+  align-items:start;
+}
+
+body#kianos-workspace.uiEnglish .objectiveLearnNav{
+  position:sticky;
+  top:76px;
+  max-height:calc(100vh - 94px);
+  overflow:auto;
+  display:grid;
+  gap:7px;
+  padding:8px 24px 20px 0;
+  border:0;
+  border-right:1px solid #d9e0dc;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  scrollbar-width:thin;
+}
+body#kianos-workspace.uiEnglish .objectiveLearnNav>a{
+  display:grid;
+  gap:4px;
+  padding:9px 8px 9px 0;
+  border-radius:0;
+  color:inherit;
+  text-decoration:none;
+}
+body#kianos-workspace.uiEnglish .objectiveLearnNav>a:hover{
+  color:#1f5c48;
+  background:transparent;
+}
+body#kianos-workspace.uiEnglish .objectiveLearnNav>a strong{
+  font-size:16px;
+  line-height:1.4;
+  font-weight:700;
+}
+body#kianos-workspace.uiEnglish .objectiveLearnNav>a span{
+  color:#748179;
+  font-size:14.5px;
+  line-height:1.5;
+}
+body#kianos-workspace.uiEnglish .objectiveLearnNav details{
+  border-top:1px solid #e0e5e2;
+  padding-top:7px;
+}
+body#kianos-workspace.uiEnglish .objectiveLearnNav details:first-of-type{
+  border-top:0;
+  padding-top:0;
+}
+body#kianos-workspace.uiEnglish .objectiveLearnNav summary{
+  cursor:pointer;
+  padding:8px 0;
+  border-radius:0;
+  font-size:15.5px;
+  line-height:1.45;
+  font-weight:700;
+  color:#2b4037;
+}
+body#kianos-workspace.uiEnglish .objectiveLearnNav summary:hover{
+  color:#1f5c48;
+  background:transparent;
+}
+body#kianos-workspace.uiEnglish .objectiveLearnNav details>a{
+  display:block;
+  padding:6px 0 6px 15px;
+  border-radius:0;
+  color:#61736a;
+  font-size:15px;
+  line-height:1.45;
+  text-decoration:none;
+}
+body#kianos-workspace.uiEnglish .objectiveLearnNav details>a:hover{
+  color:#244f3f;
+  background:transparent;
+}
+body#kianos-workspace.uiEnglish .objectiveLearnPractice{
+  display:flex;
+  gap:10px 16px;
+  flex-wrap:wrap;
+  padding:14px 0 0;
+  border-top:1px solid #dfe5e1;
+  margin-top:5px;
+}
+body#kianos-workspace.uiEnglish .objectiveLearnPractice>span{
+  width:100%;
+  color:#7d8982;
+  font-size:14px;
+  line-height:1.4;
+}
+body#kianos-workspace.uiEnglish .objectiveLearnPractice a{
+  font-size:15px;
+  line-height:1.45;
+  font-weight:650;
+  color:#2f6652;
+  text-decoration:none;
+}
+
+body#kianos-workspace.uiEnglish .objectiveLearnMain{
+  min-width:0;
+  display:grid;
+  gap:28px;
+}
+body#kianos-workspace.uiEnglish .objectiveFastTrack{
+  display:grid;
+  grid-template-columns:minmax(190px,.55fr) minmax(0,1.45fr);
+  gap:14px 34px;
+  padding:20px 0 22px;
+  border:0;
+  border-top:1px solid #dbe2de;
+  border-bottom:1px solid #dbe2de;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+}
+body#kianos-workspace.uiEnglish .objectiveFastTrack>div:first-child{
+  display:grid;
+  align-content:start;
+  gap:7px;
+}
+body#kianos-workspace.uiEnglish .objectiveFastTrack span{
+  color:#4e735f;
+  font-size:13.5px;
+  line-height:1.45;
+  font-weight:700;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+body#kianos-workspace.uiEnglish .objectiveFastTrack strong{
+  font-size:20px;
+  line-height:1.45;
+  font-weight:650;
+  color:#26382f;
+}
+body#kianos-workspace.uiEnglish .objectiveFastTrack p{
+  margin:0;
+  color:#46594f;
+  font-size:17px;
+  line-height:1.75;
+}
+body#kianos-workspace.uiEnglish .objectiveFastTrackRules{
+  grid-column:1/-1;
+  display:flex;
+  gap:12px 28px;
+  flex-wrap:wrap;
+  padding-top:13px;
+  border-top:1px solid #e1e6e3;
+}
+body#kianos-workspace.uiEnglish .objectiveFastTrackRules b{
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  font-size:15.5px;
+  line-height:1.45;
+  font-weight:650;
+  color:#40564b;
+}
+
+body#kianos-workspace.uiEnglish .objectiveLearnContent{
+  min-width:0;
+  width:100%;
+  max-width:66rem;
+  padding:0 0 64px;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+}
+body#kianos-workspace.uiEnglish .objectiveLearnContent.markdownBody :global(h1){
+  margin:3.6rem 0 1.1rem;
+  padding-top:.35rem;
+  font-size:32px;
+  line-height:1.28;
+  letter-spacing:-.025em;
+  font-weight:700;
+  color:#23342d;
+}
+body#kianos-workspace.uiEnglish .objectiveLearnContent.markdownBody :global(h1:first-of-type){margin-top:0;}
+body#kianos-workspace.uiEnglish .objectiveLearnContent.markdownBody :global(h2){
+  margin:2.65rem 0 .9rem;
+  font-size:25px;
+  line-height:1.35;
+  letter-spacing:-.015em;
+  font-weight:700;
+  color:#273b32;
+}
+body#kianos-workspace.uiEnglish .objectiveLearnContent.markdownBody :global(h3){
+  margin:1.85rem 0 .65rem;
+  font-size:20px;
+  line-height:1.4;
+  font-weight:700;
+  color:#2e4238;
+}
+body#kianos-workspace.uiEnglish .objectiveLearnContent.markdownBody :global(p),
+body#kianos-workspace.uiEnglish .objectiveLearnContent.markdownBody :global(li){
+  font-size:18px;
+  line-height:1.82;
+  color:#2f4038;
+}
+body#kianos-workspace.uiEnglish .objectiveLearnContent.markdownBody :global(p){margin:.75rem 0;}
+body#kianos-workspace.uiEnglish .objectiveLearnContent.markdownBody :global(ul),
+body#kianos-workspace.uiEnglish .objectiveLearnContent.markdownBody :global(ol){
+  padding-left:1.55rem;
+  margin:.8rem 0 1.1rem;
+}
+body#kianos-workspace.uiEnglish .objectiveLearnContent.markdownBody :global(li+li){margin-top:.35rem;}
+body#kianos-workspace.uiEnglish .objectiveLearnContent.markdownBody :global(blockquote){
+  margin:1.3rem 0;
+  padding:13px 18px;
+  border:0;
+  border-left:3px solid #5f8a75;
+  border-radius:0;
+  background:#eef3f0;
+  color:#26382f;
+}
+body#kianos-workspace.uiEnglish .objectiveLearnContent.markdownBody :global(blockquote p){
+  margin:.25rem 0;
+  color:inherit;
+  font-size:17.5px;
+}
+body#kianos-workspace.uiEnglish .objectiveLearnContent.markdownBody :global(strong){color:#1f3028;}
+body#kianos-workspace.uiEnglish .objectiveLearnContent.markdownBody :global(pre){
+  overflow:auto;
+  margin:1.2rem 0;
+  padding:16px 18px;
+  border:1px solid #dce3df;
+  border-radius:4px;
+  background:#f7f9f7;
+  font-size:16px;
+  line-height:1.65;
+}
+body#kianos-workspace.uiEnglish .objectiveLearnContent.markdownBody :global(code){font-size:.94em;}
+body#kianos-workspace.uiEnglish .objectiveLearnContent.markdownBody :global(hr){
+  border:0;
+  border-top:1px solid #dce2de;
+  margin:3rem 0;
+}
+body#kianos-workspace.uiEnglish .objectiveLearnContent.markdownBody :global(a[id]){
+  display:block;
+  position:relative;
+  top:-88px;
+  visibility:hidden;
+}
+
+@media(max-width:1020px){
+  body#kianos-workspace.uiEnglish .objectiveLearnShell{grid-template-columns:1fr;gap:24px;}
+  body#kianos-workspace.uiEnglish .objectiveLearnNav{
+    position:static;
+    max-height:none;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:10px 20px;
+    padding:0 0 18px;
+    border-right:0;
+    border-bottom:1px solid #d9e0dc;
+  }
+  body#kianos-workspace.uiEnglish .objectiveLearnNav>a,
+  body#kianos-workspace.uiEnglish .objectiveLearnNav details{min-width:0;}
+  body#kianos-workspace.uiEnglish .objectiveLearnPractice{grid-column:1/-1;}
+  body#kianos-workspace.uiEnglish .objectiveFastTrack{grid-template-columns:1fr;gap:12px;}
+  body#kianos-workspace.uiEnglish .objectiveFastTrackRules{grid-column:1;}
+  body#kianos-workspace.uiEnglish .objectiveLearnContent{max-width:none;}
+}
+@media(max-width:680px){
+  body#kianos-workspace.uiEnglish .objectiveLearnNav{grid-template-columns:1fr;}
+  body#kianos-workspace.uiEnglish .objectiveLearnContent.markdownBody :global(h1){font-size:28px;}
+  body#kianos-workspace.uiEnglish .objectiveLearnContent.markdownBody :global(h2){font-size:23px;}
+  body#kianos-workspace.uiEnglish .objectiveLearnContent.markdownBody :global(h3){font-size:19px;}
+  body#kianos-workspace.uiEnglish .objectiveLearnContent.markdownBody :global(p),
+  body#kianos-workspace.uiEnglish .objectiveLearnContent.markdownBody :global(li){font-size:17px;line-height:1.78;}
+  body#kianos-workspace.uiEnglish .objectiveFastTrackRules{display:grid;gap:8px;}
+}
