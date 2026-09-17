@@ -283,9 +283,9 @@ function snapshot() {
     const expectedHash = String(manifest?.source_identity?.question_bank_sha256 || '');
     const actualHash = sha256(bankText);
     if (manifest?.status !== 'CURRENT_READY') issues.push('MANIFEST_NOT_CURRENT_READY');
-    if (manifest?.runtime_contract?.legacy_fallback !== false) issues.push('MANIFEST_LEGACY_FALLBACK_NOT_DISABLED');
-    if (manifest?.owners?.question_bank !== SOURCE.questionBank) issues.push('MANIFEST_QUESTION_BANK_OWNER_MISMATCH');
-    if (manifest?.owners?.translation_contract !== SOURCE.contract) issues.push('MANIFEST_TRANSLATION_OWNER_MISMATCH');
+    if (manifest?.runtime_boundary?.legacy_fallback !== false) issues.push('MANIFEST_LEGACY_FALLBACK_NOT_DISABLED');
+    if (manifest?.source?.question_bank !== SOURCE.questionBank) issues.push('MANIFEST_QUESTION_BANK_OWNER_MISMATCH');
+    if (manifest?.knowledge_and_learning_content?.translation !== SOURCE.contract) issues.push('MANIFEST_TRANSLATION_OWNER_MISMATCH');
     if (!expectedHash) issues.push('MANIFEST_QUESTION_BANK_HASH_MISSING');
     if (expectedHash && expectedHash !== actualHash) issues.push('QUESTION_BANK_HASH_MISMATCH');
     if (issues.length) {
