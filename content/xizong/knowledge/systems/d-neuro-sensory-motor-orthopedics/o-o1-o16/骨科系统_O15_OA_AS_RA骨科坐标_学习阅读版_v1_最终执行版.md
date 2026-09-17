@@ -12,19 +12,13 @@ order: 15
 status: FINAL_EXECUTION
 study_refs:
   - source_id: surgery-ai-lecture | label: 外科学讲义_AI阅读版｜5.5 非化脓性关节炎 P172–P176 | action: primary
-  - source_id: hematology-h17 | label: H17｜类风湿关节炎免疫与内科主体 | action: recall_prerequisite
-  - source_id: orthopedics-o10 | label: O10｜股骨头坏死与继发性OA接口 | action: recall_apply
-  - source_id: orthopedics-o14 | label: O14｜骨关节结核与脊柱影像鉴别 | action: recall_compare
+  - source_id: hematology-h17 | label: H17｜类风湿关节炎免疫与内科主体 | action: recall_benefit
+  - source_id: orthopedics-o10 | label: O10｜股骨头坏死与继发性OA接口 | action: recall_apply_benefit
+  - source_id: orthopedics-o14 | label: O14｜骨关节结核与脊柱影像鉴别 | action: recall_compare_benefit
 outline_units:
   - SUR-U035
 outline_primary_count: 11
 kp_count: 12
-prerequisites:
-  - hematology-h17
-  - orthopedics-o10
-  - orthopedics-o14
-next_blocks:
-  - orthopedics-o16
 visual_gates:
   - surgery-p172-oa-cartilage-space-osteophyte
   - surgery-p172-heberden-bouchard-square-hand
@@ -41,7 +35,6 @@ source_conflicts:
   - O15-SC01-RA_MORNING_STIFFNESS_THRESHOLD_INTERNAL_30_MIN_VS_SURGERY_60_MIN
 first_pass_question_probe: READY_PENDING_BINDING
 system_final_batch: true
-parent_final_gate_status: BLOCKED_MISSING_O1_O5
 ---
 
 # O15｜OA、AS与RA骨科坐标
@@ -49,10 +42,12 @@ parent_final_gate_status: BLOCKED_MISSING_O1_O5
 > **中心问题**：面对慢性关节痛，怎样先从软骨、骶髂关节与附着点或滑膜这个始发组织区分 OA、AS、RA，再结合年龄、分布、影像和功能目标判断？
 >
 
-> **FIRST PASS 固定流程**  
-> `Framework → 对应外科 Lecture / 原图 → Framework Reconstruction → KP Active Recall → Outline optional / low-pressure → TTSX Lecture-attached Questions → Block Complete`
+> **FIRST PASS｜WHOLE_BLOCK_SOURCE**  
+> `KianOS bounded orientation / attention → 一次连续完成外科 Lecture P172–176 与原图 → 返回 KianOS → O15 全部 LG retrieval + closure → Block Recall`
 >
-> RA 的免疫机制、系统表现和完整内科治疗已经归 H17。本文件只建立其骨科结构、畸形、影像与 OA / AS 比较坐标，不重复 RA 全文。
+> H17、O10、O14 都是 benefit / bounded reactivation，不是 O15 hard prerequisite。若 RA 免疫主体、AVN 继发 OA 或结核鉴别尚未形成，只补当前比较所需的最小接口，不阻塞 O15 Primary Source。
+>
+> RA 的免疫机制、系统表现和完整内科治疗仍归 H17。本文件只建立其骨科结构、畸形、影像与 OA / AS 比较坐标，不重复 RA 全文。KP Detailed Expansion 用于 retrieval 后核对、解释、repair 与 reference，不默认要求连续二次通读。
 
 # 1｜Framework｜先找“始发组织”，再看关节分布和力线结果
 
@@ -67,7 +62,7 @@ AS：骶髂关节起始的附着点炎
 → 骶髂融合 + 竹节椎
 → 中轴僵硬、驼背和功能受限
 
-RA：滑膜炎起始（Recall H17）
+RA：滑膜炎起始（可 Recall H17）
 → 对称小关节破坏
 → 晚期不可逆畸形
 → 骨科关注结构与功能重建
@@ -87,9 +82,9 @@ RA：滑膜炎起始（Recall H17）
 | 原发/继发 OA 的骨科模型 | **Primary Learn** | O15 |
 | AS 的骨科结构、影像、检查与治疗层级 | **Primary Learn** | O15 |
 | OA vs RA、AS vs RA 比较 | **Primary Integration** | O15 |
-| RA 免疫病理、诊断标准、系统表现与完整药物 | Recall | H17 |
-| AVN IV期等继发OA入口 | Recall / Apply | O10 |
-| 结核脊柱破坏与间隙 | Recall / Compare | O14 |
+| RA 免疫病理、诊断标准、系统表现与完整药物 | Benefit / Recall | H17 已形成时复用；未形成只补比较所需最小 RA 坐标 |
+| AVN IV期等继发OA入口 | Benefit / Recall-Apply | O10 已形成时调用；未形成不阻塞 O15 |
+| 结核脊柱破坏与间隙 | Benefit / Recall-Compare | O14 已形成时调用；未形成只补必要空间对照 |
 | 完整现代生物制剂、康复处方、关节置换技术 | Source Boundary | 当前 Source 不支持扩写 |
 
 ### SOURCE_CONFLICT / 待核对｜RA晨僵门槛
@@ -295,7 +290,7 @@ AS 的当前 Study 电影：
 
 ### Detailed Expansion
 
-Recall H17：
+若 H17 已形成，可直接 Recall：
 
 - 病变始于滑膜；
 - 典型腕、MCP、PIP；
@@ -304,7 +299,7 @@ Recall H17：
 - DIP最少见；
 - 晚期尺侧偏斜、天鹅颈、纽扣花，且不可逆。
 
-O15 只把这些信息放入骨科结构和功能比较。RF、CCP、系统表现、DMARDs完整方案继续回 H17。
+若 H17 尚未形成，只用上述最小结构坐标完成 O15 比较；RF、CCP、系统表现、DMARDs完整方案仍回 H17，O15 不把它们扩成新 Primary。
 
 **Routing**：CONNECTION + RECALL + CONFUSABLE + MI-G
 
