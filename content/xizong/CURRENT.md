@@ -9,9 +9,9 @@ This file owns routing only. It does not own medical Core, lane Learning semanti
 
 ## Lane Work Cursor
 
-**Active lane-level scope:** Xizong learner-facing UI convergence in the current Chat  
+**Active lane-level scope:** Xizong learner-facing UI architecture migration in the current Chat  
 **Blocker:** none in Xizong itself; shared Base Shell / collapsible global `K` rail is currently owned by the parallel English UI Chat and must be consumed from `main`, not reimplemented here  
-**Next action:** audit and converge Xizong-owned learner surfaces only. Do not edit shared Base Shell / global rail / duplicate global navigation in this lane. When English lands the shared Shell on `main`, resync Xizong work and adapt local Xizong geometry to that accepted shared capability.
+**Next action:** execute `static-web/XIZONG_UI_MIGRATION.md` **Slice 2 — Home + Memory ownership convergence** from current `main`. PR #368 has closed the System single-owner cutover. Treat draft PR #351 only as bounded candidate evidence: preserve justified product behavior such as explicit standalone Memory access, but do not merge its `xizong-peripheral-workspaces.css`, inline visual patches, or duplicate System Runtime fallback wholesale.
 
 ### UI ownership boundary for the current parallel program
 
@@ -92,6 +92,7 @@ Important Current boundaries:
 
 ```text
 static-web/XIZONG_PRODUCT_STATUS.md
+→ static-web/XIZONG_UI_MIGRATION.md when the UI migration is active
 → static-web/PRESENTATION_CONTRACT.md
 → static-web/UI_STYLE_BRIEF.md for shared visual rules
 → LEARNER_OBJECT_CONTRACT.md when learner-object placement matters
@@ -163,6 +164,7 @@ A real defect reopens only the earliest responsible owner and its dependent chai
 - Extension → `EXTENSION_ASSET_CONTRACT.md` + `knowledge/learner/*-extensions.json`
 - questions / explanations / reviewed relations → dedicated Xizong roots
 - product/status router → `static-web/XIZONG_PRODUCT_STATUS.md`
+- active UI migration ledger → `static-web/XIZONG_UI_MIGRATION.md`
 - learner Runtime → Xizong surfaces under `static-web/`
 - lane-wide Acceptance → `ACCEPTANCE.md`
 - learner truth → private learner/browser/conversation state only
@@ -195,7 +197,7 @@ Lane-level UI/product work:
 
 ```text
 Xizong CURRENT
-→ XIZONG_PRODUCT_STATUS + PRESENTATION_CONTRACT + UI_STYLE_BRIEF
+→ XIZONG_PRODUCT_STATUS + XIZONG_UI_MIGRATION + PRESENTATION_CONTRACT + UI_STYLE_BRIEF
 → exact Xizong-owned surface
 → work
 ```
