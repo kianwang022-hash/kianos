@@ -1,0 +1,77 @@
+---
+import PoliticsExplicitSurfacePlan from './PoliticsExplicitSurfacePlan.astro';
+const { compiled = null } = Astro.props;
+const rows = compiled instanceof Map
+  ? [...compiled.values()].filter((row) => row?.surfacePlan?.states?.ORIENT?.length)
+  : [];
+---
+
+{rows.map((row) => (
+  <>
+    <template data-explicit-workspace-unit={row.unitId} data-explicit-workspace-state="ORIENT">
+      <PoliticsExplicitSurfacePlan groups={row.surfacePlan.states.ORIENT} />
+    </template>
+    {row.surfacePlan.states.EXTERNAL_LEARN?.length > 0 && (
+      <template data-explicit-workspace-unit={row.unitId} data-explicit-workspace-state="EXTERNAL_LEARN">
+        <PoliticsExplicitSurfacePlan groups={row.surfacePlan.states.EXTERNAL_LEARN} />
+      </template>
+    )}
+    {row.surfacePlan.states.CLOSE?.length > 0 && (
+      <template data-explicit-workspace-unit={row.unitId} data-explicit-workspace-state="CLOSE">
+        <PoliticsExplicitSurfacePlan groups={row.surfacePlan.states.CLOSE} />
+      </template>
+    )}
+    {row.surfacePlan.states.CONTINUE?.length > 0 && (
+      <template data-explicit-workspace-unit={row.unitId} data-explicit-workspace-state="CONTINUE">
+        <PoliticsExplicitSurfacePlan groups={row.surfacePlan.states.CONTINUE} />
+      </template>
+    )}
+  </>
+))}
+
+<script is:inline>
+  (() => {
+    const workspace = document.querySelector('[data-politics-cognitive-workspace]');
+    if (!workspace) return;
+
+    const clonePlan = (unitId, state) => {
+      const template = document.querySelector(`template[data-explicit-workspace-unit="${CSS.escape(unitId)}"][data-explicit-workspace-state="${state}"]`);
+      return template instanceof HTMLTemplateElement ? template.content.cloneNode(true) : null;
+    };
+
+    workspace.querySelectorAll('[data-workspace-unit][data-unit-id]').forEach((unit) => {
+      const unitId = unit.getAttribute('data-unit-id');
+      if (!unitId) return;
+
+      const orient = unit.querySelector('[data-stage="ORIENT"]');
+      const orientPlan = clonePlan(unitId, 'ORIENT');
+      if (orient && orientPlan) {
+        orient.querySelectorAll('.mapDeck,.relationStrip,.stageAnchor,.fallbackOrientation,.purposeChain,.purposeTextMap').forEach((node) => node.remove());
+        const old = orient.querySelector('[data-politics-explicit-surface-plan]');
+        old?.remove();
+        const actions = orient.querySelector('.stageActions');
+        actions?.before(orientPlan);
+        unit.setAttribute('data-politics-representation', 'EXPLICIT_SURFACE_MAPPING');
+        unit.setAttribute('data-explicit-surface-mapping', 'v1');
+      }
+
+      const external = unit.querySelector('[data-stage="EXTERNAL_LEARN"]');
+      const externalPlan = clonePlan(unitId, 'EXTERNAL_LEARN');
+      if (external && externalPlan) {
+        external.querySelectorAll('.externalFocus,.compactMap').forEach((node) => node.remove());
+        const actions = external.querySelector('.stageActions');
+        actions?.before(externalPlan);
+      }
+
+      const close = unit.querySelector('[data-stage="CLOSE"]');
+      const closePlan = clonePlan(unitId, 'CLOSE');
+      const continuePlan = clonePlan(unitId, 'CONTINUE');
+      if (close && (closePlan || continuePlan)) {
+        close.querySelectorAll('.closeAnchors,.nextBridge').forEach((node) => node.remove());
+        const actions = close.querySelector('.stageActions');
+        if (closePlan) actions?.before(closePlan);
+        if (continuePlan) actions?.before(continuePlan);
+      }
+    });
+  })();
+</script>
