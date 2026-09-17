@@ -51,6 +51,19 @@ async function visibleTextBelowFloor(locator, floorPx = 15) {
   }, floorPx);
 }
 
+async function checkStateConsumption(unit, ids, prefix) {
+  check((await unit.getAttribute('data-explicit-surface-runtime')) === 'v1', `${prefix}_standard_runtime_uses_explicit_states`);
+  check((await unit.locator(`.politicsSource [data-surface-group="${ids.handoff}"]`).count()) === 1, `${prefix}_external_learn_consumed`);
+  check((await unit.locator(`.politicsClosure [data-surface-group="${ids.close}"]`).count()) === 1, `${prefix}_close_consumed`);
+  check((await unit.locator(`.politicsClosure [data-surface-group="${ids.continue}"]`).count()) === 1, `${prefix}_continue_consumed`);
+  check((await unit.locator('.politicsFirstRoundCarry,[data-current-handoff]').count()) === 0, `${prefix}_legacy_state_payload_absent`);
+  const repairs = unit.locator('.politicsRepair');
+  const repairCount = await repairs.count();
+  if (repairCount > 0) {
+    check((await unit.locator(`.politicsRepair [data-surface-group="${ids.repair}"]`).count()) === repairCount, `${prefix}_repair_consumed`, String(repairCount));
+  }
+}
+
 const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
   cwd: process.cwd(),
   stdio: ['ignore', 'pipe', 'pipe'],
@@ -71,6 +84,12 @@ try {
   const s01Compiled = s01.locator('[data-compiled-unit="POL27-CF-MARX-C01-S01"]');
   await s01Compiled.waitFor({ state: 'visible' });
   check((await s01Compiled.getAttribute('data-explicit-surface-mapping')) === 'v1', 's01_uses_explicit_surface_mapping');
+  await checkStateConsumption(s01, {
+    handoff: 'marx-c01-s01-handoff',
+    close: 'marx-c01-s01-close',
+    repair: 'marx-c01-s01-repair',
+    continue: 'marx-c01-s01-next'
+  }, 's01');
 
   const s01Axes = s01Compiled.locator('[data-surface-group="marx-c01-s01-axes"]');
   await s01Axes.waitFor({ state: 'visible' });
@@ -100,6 +119,12 @@ try {
   const s02Compiled = s02.locator('[data-compiled-unit="POL27-CF-MARX-C01-S02"]');
   await s02Compiled.waitFor({ state: 'visible' });
   check((await s02Compiled.getAttribute('data-explicit-surface-mapping')) === 'v1', 's02_uses_explicit_surface_mapping');
+  await checkStateConsumption(s02, {
+    handoff: 'marx-c01-s02-handoff',
+    close: 'marx-c01-s02-close',
+    repair: 'marx-c01-s02-repair',
+    continue: 'marx-c01-s02-next'
+  }, 's02');
 
   const s02Chain = s02Compiled.locator('[data-surface-group="marx-c01-s02-world-chain"]');
   await s02Chain.waitFor({ state: 'visible' });
@@ -132,7 +157,7 @@ try {
 } finally {
   await mkdir(auditDir, { recursive: true });
   await writeFile(new URL('marx-c01-purpose-first.json', auditDir), JSON.stringify({
-    schema: 'kianos.politics.marx_c01_explicit_surface.v3',
+    schema: 'kianos.politics.marx_c01_explicit_surface.v4',
     checks,
     failure,
     status: failure ? 'FAIL' : 'PASS'
