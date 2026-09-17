@@ -60,6 +60,9 @@ jobs:
       - name: Execute Politics Functional First journeys
         working-directory: static-web
         run: node scripts/test-politics-functional-journey.mjs
+      - name: Verify Politics Home readability
+        working-directory: static-web
+        run: node scripts/test-politics-home-readability.mjs
       - name: Verify purpose-first Politics Golden UI
         working-directory: static-web
         run: node scripts/test-politics-golden-purpose-first.mjs
