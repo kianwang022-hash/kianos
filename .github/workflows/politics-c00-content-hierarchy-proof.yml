@@ -1,0 +1,46 @@
+name: Politics C00 Content Hierarchy Proof
+
+on:
+  push:
+    branches:
+      - 'verify/politics-c00-content-hierarchy-20260918'
+
+permissions:
+  contents: read
+
+jobs:
+  proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install runtime
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+
+      - name: Audit Learning Semantics
+        working-directory: static-web
+        run: node scripts/audit-politics-learning-semantics.mjs
+
+      - name: Audit Content Hierarchy
+        working-directory: static-web
+        run: node scripts/audit-politics-content-hierarchy.mjs
+
+      - name: Audit Marxism Content
+        working-directory: static-web
+        run: node scripts/audit-politics-marxism-content.mjs
+
+      - name: Validate Projection Assets
+        working-directory: static-web
+        run: |
+          node scripts/validate-politics-cognitive-projection-assets.mjs
+          node scripts/audit-politics-explicit-surface-mapping.mjs
+          node scripts/test-politics-explicit-surface-calibration.mjs
+          node scripts/test-politics-compiled-presentation.mjs
+
+      - name: Validate C00 Workspace contract
+        working-directory: static-web
+        run: node scripts/validate-politics-cognitive-workspace.mjs
