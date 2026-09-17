@@ -174,6 +174,7 @@ Crosswalk may grow independently without another UI redesign.
 | Unified learner object | **CURRENT** | Prompt + Core + Source + Outline + Precision + Visual + Extension + Connection resolved once |
 | Purpose-first Representation Gate | **CURRENT** | geometry/asset presence never mandates a graph/component; ambiguous layout falls back to safer representation |
 | One-screen Block workspace | **CURRENT via #331** | `Logic Map | KP Learn/Recall | dynamic auxiliary`; local scrolling; readable density |
+| System Workspace single-owner architecture | **CURRENT via #368** | `XizongSystemWorkspace` + isolated `xzSystem*` namespace + `xizong-system-workspace.css`; retired V6 component removed; shared Shell untouched |
 | KP Learn companion | **CURRENT** | Mac Prompt + full Core + locators while original Lecture remains continuous on iPad/MarginNote |
 | Dynamic auxiliary rail | **CURRENT** | rich reviewed Visual/table expands; light Precision/Connection shrinks; empty support returns space to Core |
 | Recall-front protection | **CURRENT** | answer-bearing Core/Visual/Precision/Extension hidden before Reveal |
@@ -186,9 +187,10 @@ Crosswalk may grow independently without another UI redesign.
 | Representative A1/A2/A3/B/C Block browser matrix | **CURRENT regression gate** | proves shared-shell compatibility, not later-System Acceptance |
 | Real learner U | **UNTESTED unless Kian actually studies** | CI/browser fixtures never create learner truth |
 
-Current Block integration baseline: **PR #331 merged to main**.
+Current Block integration baseline: **PR #331 merged to main**.  
+Current System architecture baseline: **PR #368 merged to main**.
 
-The next website/product task after #331 is **System Workspace convergence**, not another Block rewrite. Shared engineering should otherwise reopen only for a concrete Current defect or a new System integration requirement.
+The active website/product migration is now **Home + Memory ownership convergence** under `XIZONG_UI_MIGRATION.md`. Shared engineering should otherwise reopen only for a concrete Current defect or a new System integration requirement.
 
 ---
 
@@ -220,9 +222,14 @@ DONE  Block Framework + Representation Gate
 DONE  one-screen Block Workspace (#331)
 DONE  Block Complete → standalone Memory release
 DONE  A1/A2/A3/B/C representative Block browser matrix
-NEXT  System Workspace convergence
-LATER Xizong Home / Memory / System Exit / Question workspace consistency + real-use acceptance
+DONE  System Workspace single-owner cutover (#368)
+ACTIVE Home + Memory ownership convergence
+NEXT  System Exit / Question ownership convergence
+LATER bounded legacy CSS cleanup + shared Shell adoption after English lands it on main
+LATER real-use acceptance
 ```
+
+The current Xizong UI migration must not implement the shared Base Shell / collapsible global `K` rail; that remains the parallel English UI lane's write scope until its accepted implementation lands on `main`.
 
 ## Content mainline
 
