@@ -111,6 +111,11 @@ try {
     const repairPanels = unit.locator('.politicsRepair');
     const repairCount = await repairPanels.count();
     if (repairCount > 0 && (projection.surfacePlan.states.REPAIR || []).length > 0) {
+      check(
+        (await unit.locator('.politicsRepair[data-explicit-repair-surface="v1"]').count()) === repairCount,
+        `${sample.label}_every_repair_drawer_has_explicit_owner`,
+        String(repairCount)
+      );
       for (const group of projection.surfacePlan.states.REPAIR) {
         check(
           (await unit.locator(`.politicsRepair [data-surface-group="${group.id}"]`).count()) === repairCount,
@@ -118,6 +123,7 @@ try {
           String(repairCount)
         );
       }
+      check((await unit.locator('.politicsRepair .politicsPreciseRepair').count()) === 0, `${sample.label}_legacy_precise_repair_not_learner_visible`);
     }
 
     check((await unit.locator('[data-purpose-first-geometry],.purposeChain,.purposeTextMap').count()) === 0, `${sample.label}_legacy_geometry_absent`);
@@ -147,7 +153,7 @@ try {
 } finally {
   await mkdir(auditDir, { recursive: true });
   await writeFile(new URL('purpose-first-batch-matrix.json', auditDir), JSON.stringify({
-    schema: 'kianos.politics.explicit_surface_batch_matrix.v3',
+    schema: 'kianos.politics.explicit_surface_batch_matrix.v4',
     samples,
     checks,
     failure,
