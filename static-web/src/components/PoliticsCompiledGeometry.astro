@@ -1,17 +1,182 @@
 ---
 import Value from './PoliticsProjectionValue.astro';
 const { projection } = Astro.props;
-const labels = {cause:'起因',cause_layers:'原因层次',process:'发展过程',turning_point:'转折',evaluation:'评价',historical_gain:'历史成果',failure_causes:'失败原因',failure_lesson:'教训',program:'主张与方案',mechanism:'作用机制',before:'前提',historical_meaning:'历史意义',core_contradiction:'核心矛盾',from_previous:'承上',historical_position:'历史位置',conditions:'形成条件',teaching_relations:'关键关系',identity_hierarchy:'体系身份',role_summary:'这一层回答什么',concept_identity:'概念与性质',application_rule:'情境判断',current_relation:'主关系',theory_response:'理论回应',parallel_theory_responses:'不同问题的回应'};
+const labels = {
+  cause:'起因',cause_layers:'原因层次',process:'发展过程',turning_point:'转折',evaluation:'评价',historical_gain:'历史成果',
+  failure_causes:'失败原因',failure_lesson:'教训',program:'主张与方案',mechanism:'作用机制',before:'前提',
+  historical_meaning:'历史意义',core_contradiction:'核心矛盾',from_previous:'承上',historical_position:'历史位置',conditions:'形成条件',
+  teaching_relations:'关键关系',identity_hierarchy:'体系身份',role_summary:'这一层回答什么',concept_identity:'概念与性质',
+  application_rule:'情境判断',current_relation:'主关系',theory_response:'理论回应',parallel_theory_responses:'不同问题的回应',
+  current_structure:'当前结构',current_owned_structure:'当前结构',role_matrix:'角色定位',boundary_matrix:'边界对照',
+  stage_story:'阶段主线',timeline:'时间线',causal_chain:'因果主线'
+};
+const kind = projection?.representation?.kind || 'STRUCTURED_TEXT';
+const kindClass = `representation-${String(kind).toLowerCase().replace(/_/g,'-')}`;
+const simultaneous = projection?.representation?.simultaneous === true;
+const emphasize = role => ['current_structure','current_owned_structure','identity_hierarchy','role_matrix','boundary_matrix'].includes(role);
 ---
-{projection && <section class="politicsCompiledGeometry" data-compiled-shape={projection.shape} data-compiled-unit={projection.unitId}>
-  <div class="compiledPrimary">
-    {projection.primary.map(item => <article class={`compiledObject role-${item.role}`}>
+{projection && <section
+  class={`politicsCompiledGeometry ${kindClass}`}
+  data-compiled-shape={projection.shape}
+  data-compiled-unit={projection.unitId}
+  data-representation-kind={kind}
+  data-simultaneous={simultaneous ? 'true' : 'false'}
+>
+  <div class="compiledPrimary" data-cognition-primary>
+    {projection.primary.map((item, index) => <article class={`compiledObject role-${item.role}`} data-cognition-role={item.role} data-cognition-index={index}>
       {labels[item.role] && <h3>{labels[item.role]}</h3>}
-      <Value value={item.value} emphasizeLabels={['current_structure', 'current_owned_structure', 'identity_hierarchy'].includes(item.role)} />
+      <Value value={item.value} emphasizeLabels={emphasize(item.role)} />
     </article>)}
   </div>
-  {projection.secondary.length > 0 && <div class="compiledSecondary">{projection.secondary.map(item => <article class={`compiledObject role-${item.role}`}><h3>{labels[item.role] || '进一步判断'}</h3><Value value={item.value} emphasizeLabels={['current_structure', 'current_owned_structure', 'identity_hierarchy'].includes(item.role)} /></article>)}</div>}
-  {projection.boundaries.length > 0 && <aside class="compiledBoundaries"><h3>分清边界</h3>{projection.boundaries.map(value => <Value value={value} />)}</aside>}
-  {projection.takeaway.length > 0 && <section class="compiledTakeaway"><h3>这一段带走</h3>{projection.takeaway.map(value => <Value value={value} />)}</section>}
-  {projection.exact.length > 0 && <section class="compiledExact"><h3>精确表述</h3>{projection.exact.map(value => <Value value={value} />)}</section>}
+
+  {projection.secondary.length > 0 && <div class="compiledSecondary" data-cognition-secondary>
+    {projection.secondary.map(item => <article class={`compiledObject role-${item.role}`} data-cognition-role={item.role}>
+      <h3>{labels[item.role] || '进一步判断'}</h3>
+      <Value value={item.value} emphasizeLabels={emphasize(item.role)} />
+    </article>)}
+  </div>}
+
+  {projection.boundaries.length > 0 && <aside class="compiledBoundaries" data-cognition-boundaries>
+    <h3>分清边界</h3>
+    {projection.boundaries.map(value => <Value value={value} />)}
+  </aside>}
+
+  {projection.takeaway.length > 0 && <section class="compiledTakeaway" data-cognition-takeaway>
+    <h3>这一段带走</h3>
+    {projection.takeaway.map(value => <Value value={value} />)}
+  </section>}
+
+  {projection.exact.length > 0 && <section class="compiledExact" data-cognition-exact>
+    <h3>本轮需要精确</h3>
+    {projection.exact.map(value => <Value value={value} />)}
+  </section>}
 </section>}
+
+<style is:global>
+  /* Projection decides content; Representation Gate only grants a bounded spatial
+     grammar. STRUCTURED_TEXT remains the hard fallback. */
+  body#kianos-workspace.surfaceBody-politics .politicsCompiledGeometry{
+    --cognition-gap:22px;
+    display:grid;
+    gap:20px;
+    margin-top:20px;
+  }
+  body#kianos-workspace.surfaceBody-politics .politicsCompiledGeometry .compiledPrimary,
+  body#kianos-workspace.surfaceBody-politics .politicsCompiledGeometry .compiledSecondary{
+    min-width:0;
+  }
+  body#kianos-workspace.surfaceBody-politics .politicsCompiledGeometry .compiledObject{
+    min-width:0;
+  }
+
+  /* Safe text fallback: use width for parallel Current-owned roles without
+     manufacturing arrows / graphs / causal order. */
+  body#kianos-workspace.surfaceBody-politics .representation-structured-text .compiledPrimary{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:0 var(--cognition-gap);
+  }
+  body#kianos-workspace.surfaceBody-politics .representation-structured-text .compiledPrimary>.compiledObject:only-child,
+  body#kianos-workspace.surfaceBody-politics .representation-structured-text .compiledPrimary>.role-process,
+  body#kianos-workspace.surfaceBody-politics .representation-structured-text .compiledPrimary>.role-teaching_relations,
+  body#kianos-workspace.surfaceBody-politics .representation-structured-text .compiledPrimary>.role-current_structure,
+  body#kianos-workspace.surfaceBody-politics .representation-structured-text .compiledPrimary>.role-current_owned_structure{
+    grid-column:1/-1;
+  }
+  body#kianos-workspace.surfaceBody-politics .politicsCompiledGeometry[data-simultaneous="true"] .compiledPrimary{
+    align-items:start;
+  }
+
+  /* Comparison is the strongest generally useful Mac-wide geometry: Current
+     comparison axes stay visible together, but no relation is added. */
+  body#kianos-workspace.surfaceBody-politics .representation-compare .compiledPrimary{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:0;
+    border-block:1px solid #dce7de;
+  }
+  body#kianos-workspace.surfaceBody-politics .representation-compare .compiledPrimary>.compiledObject{
+    padding:18px 22px;
+    border-right:1px solid #dce7de;
+  }
+  body#kianos-workspace.surfaceBody-politics .representation-compare .compiledPrimary>.compiledObject:last-child{
+    border-right:0;
+  }
+
+  /* Hierarchy is expressed as a visible role stack, not a decorative org chart. */
+  body#kianos-workspace.surfaceBody-politics .representation-hierarchy .compiledPrimary{
+    display:grid;
+    gap:0;
+    border-block:1px solid #dce7de;
+  }
+  body#kianos-workspace.surfaceBody-politics .representation-hierarchy .compiledPrimary>.compiledObject{
+    display:grid;
+    grid-template-columns:minmax(140px,180px) minmax(0,1fr);
+    gap:24px;
+    align-items:start;
+    padding:17px 0;
+    border-bottom:1px solid #e5ece7;
+  }
+  body#kianos-workspace.surfaceBody-politics .representation-hierarchy .compiledPrimary>.compiledObject:last-child{border-bottom:0;}
+  body#kianos-workspace.surfaceBody-politics .representation-hierarchy .compiledPrimary>.compiledObject>h3{margin:3px 0 0;}
+
+  /* Timeline is allowed only by the gate. Keep it readable and semantic rather
+     than turning it into decorative dots/illustration. */
+  body#kianos-workspace.surfaceBody-politics .representation-timeline .compiledPrimary{
+    display:grid;
+    grid-auto-flow:column;
+    grid-auto-columns:minmax(220px,1fr);
+    gap:0;
+    overflow-x:auto;
+    border-block:1px solid #dce7de;
+  }
+  body#kianos-workspace.surfaceBody-politics .representation-timeline .compiledPrimary>.compiledObject{
+    position:relative;
+    padding:19px 24px;
+    border-right:1px solid #dce7de;
+  }
+  body#kianos-workspace.surfaceBody-politics .representation-timeline .compiledPrimary>.compiledObject:last-child{border-right:0;}
+
+  /* SIMPLE_CHAIN requires Current-explicit representation fidelity. */
+  body#kianos-workspace.surfaceBody-politics .representation-simple-chain .compiledPrimary{
+    display:flex;
+    gap:0;
+    align-items:stretch;
+    overflow-x:auto;
+    border-block:1px solid #dce7de;
+  }
+  body#kianos-workspace.surfaceBody-politics .representation-simple-chain .compiledPrimary>.compiledObject{
+    position:relative;
+    flex:1 0 min(280px,42%);
+    padding:18px 32px 18px 18px;
+  }
+  body#kianos-workspace.surfaceBody-politics .representation-simple-chain .compiledPrimary>.compiledObject:not(:last-child)::after{
+    content:'→';position:absolute;right:8px;top:50%;transform:translateY(-50%);color:#789582;font-size:20px;
+  }
+
+  /* Subject grammar remains role-based even under STRUCTURED_TEXT fallback. */
+  body#kianos-workspace.surfaceBody-politics .subject-history .politicsCompiledGeometry .role-cause,
+  body#kianos-workspace.surfaceBody-politics .subject-history .politicsCompiledGeometry .role-cause_layers,
+  body#kianos-workspace.surfaceBody-politics .subject-history .politicsCompiledGeometry .role-turning_point,
+  body#kianos-workspace.surfaceBody-politics .subject-history .politicsCompiledGeometry .role-evaluation{
+    align-self:stretch;
+  }
+  body#kianos-workspace.surfaceBody-politics .subject-mao .politicsCompiledGeometry :is(.role-theory_response,.role-parallel_theory_responses,.role-current_relation),
+  body#kianos-workspace.surfaceBody-politics .subject-ethics_law .politicsCompiledGeometry :is(.role-concept_identity,.role-application_rule),
+  body#kianos-workspace.surfaceBody-politics .subject-xi .politicsCompiledGeometry :is(.role-identity_hierarchy,.role-role_summary){
+    align-self:stretch;
+  }
+
+  @media(max-width:900px){
+    body#kianos-workspace.surfaceBody-politics .representation-structured-text .compiledPrimary,
+    body#kianos-workspace.surfaceBody-politics .representation-compare .compiledPrimary{
+      grid-template-columns:1fr;
+    }
+    body#kianos-workspace.surfaceBody-politics .representation-compare .compiledPrimary>.compiledObject{
+      border-right:0;border-bottom:1px solid #dce7de;
+    }
+    body#kianos-workspace.surfaceBody-politics .representation-hierarchy .compiledPrimary>.compiledObject{
+      grid-template-columns:1fr;gap:8px;
+    }
+  }
+</style>
