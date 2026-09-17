@@ -88,6 +88,18 @@ normal content        regular-to-medium
 secondary             quieter, but still readable and solid
 ```
 
+### Width / glyph proportion
+
+Kian explicitly rejects type that reads as narrow, condensed or horizontally squeezed on learner-facing surfaces.
+
+Shared defaults:
+
+- do not use condensed / narrow font faces as the normal Chinese learner-facing voice;
+- do not create artificial density by horizontal glyph compression, `font-stretch: condensed`, `transform: scaleX(...)`, or similar tricks;
+- Chinese body and focal text should feel naturally proportioned and visually open, with comfortable character width and spacing;
+- when a system-font fallback renders noticeably narrow on the target Mac/Chrome surface, treat the rendered screenshot as a visual failure and choose a more suitable normal-width stack/weight rather than compensating with extra tracking alone;
+- density must come from layout and information architecture, not squeezed glyphs.
+
 ### Typeface roles
 
 Shared chrome and Chinese/UI copy should favor a clean system-sans stack with strong CJK rendering and enough weight/contrast for sustained use.
@@ -425,6 +437,8 @@ Hard rules:
 - UI-only work should not wait on unrelated domain/lane test suites; run the smallest relevant regression set unless shared runtime/semantics actually changed.
 - During active visual calibration, screenshots are the primary review artifact; GitHub history should receive the accepted coherent result, not every intermediate experiment.
 - Content/Truth changes keep their normal canonical GitHub path; this fast lane applies only to bounded visual implementation that does not change Learning/Runtime/Evidence semantics.
+- **Unapproved visual experiments must stay out of the formal implementation branch.** Use a temporary preview branch / local preview surface for screenshot generation; after Kian accepts the screenshot, promote only the accepted visual delta into the formal branch.
+- The default review artifact for an active visual round is a real Chromium screenshot produced by the implementation/preview lane itself; do not make Kian capture routine screenshots locally.
 
 ---
 
