@@ -15,6 +15,32 @@ For any mature Xizong surface discussion, `XIZONG_UI_REVIEW_PROTOCOL.md` is a ma
 
 The detailed surface owners in §6 now own accepted composition/interaction decisions. They must not be treated as still-undiscussed merely because an earlier version of this brief said so. Product acceptance, Projection validation, implementation acceptance and real Mac visual acceptance remain separate.
 
+## Naming lock｜Guide ≠ Framework
+
+Learner-facing terminology is now explicit:
+
+```text
+Guide / Beginner Guide
+= skippable, beginner-readable explanatory text
+= helps Kian understand why the System / Block is organized this way
+= may accelerate first-pass comprehension
+= must not become a second Lecture
+
+System Framework
+= recurring structured System-level cognitive model / canvas
+= mechanism / variables / failure structure / judgment axes / Block route
+
+Block Framework
+= recurring structured Block-level cognitive map
+= makes the upcoming Core / Lecture navigable
+```
+
+Hard naming rule:
+
+> **Guide means explanation; Framework means structure.**
+
+Do not call a System cognitive canvas, mechanism map, relation model or Block cognitive map a learner-facing `Guide`. The historical file path `XIZONG_SYSTEM_GUIDE_DESIGN.md` is retained only for compatibility; that file now owns the **System Framework** surface, not the Beginner Guide text asset.
+
 ---
 
 # 0｜Optimization-first operating rule
@@ -255,7 +281,7 @@ Mac-wide Xizong should prefer:
 - local scrolling / long surfaces when semantic density genuinely requires it;
 - typography, alignment, spatial grouping and relation drawing before card piles.
 
-Do not pursue `one viewport` as a goal when it would thin a genuine high-density Guide.
+Do not pursue `one viewport` as a goal when it would thin a genuine high-density Framework or a useful explanatory Guide.
 
 Accepted density rule:
 
@@ -307,7 +333,7 @@ The responsibilities below remain shared product boundaries. Exact accepted surf
 | Surface | Detailed product owner |
 | --- | --- |
 | Xizong Home | `static-web/XIZONG_HOME_DESIGN.md` |
-| System Guide | `static-web/XIZONG_SYSTEM_GUIDE_DESIGN.md` |
+| System Framework / Cognitive Canvas | `static-web/XIZONG_SYSTEM_GUIDE_DESIGN.md` |
 | Block / Logic Group / handoff / KP Recall / Block Recall / After Learn | `static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md` |
 | System Recall / question interaction / hidden results / review | `static-web/XIZONG_SYSTEM_COMPLETION_DESIGN.md` |
 
@@ -327,7 +353,7 @@ Do not foreground engineering counts, repository readiness, fake progress or per
 
 The accepted Mac Home composition and conditional attention region are owned by `XIZONG_HOME_DESIGN.md`.
 
-## B｜System Guide / Orientation
+## B｜System Framework / Orientation
 
 Responsibilities:
 
@@ -338,7 +364,7 @@ understand the Current System-level model
 → choose a Block
 ```
 
-System Guide is a learner-facing Guide, not a chapter catalogue and not a thin poster. It may be high-density and extend beyond one viewport.
+System Framework is the recurring structured orientation surface, not a chapter catalogue and not a prose course. It may be high-density and extend beyond one viewport. The separate Beginner Guide remains a skippable explanatory text entrance used only when it materially accelerates first-pass understanding.
 
 System Recall / System Exit stays later-stage and must not compete with first-pass orientation before learner eligibility.
 
