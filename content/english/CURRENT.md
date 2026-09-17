@@ -9,19 +9,13 @@ This file does not duplicate English content, scoped Acceptance Truth, or learne
 
 ## Lane Work Cursor
 
-**Active lane-level scope:** none — Functional First integration and the 2026-09-17 learner Source Truth repair are closed.  
+**Active lane-level scope:** none — Functional First integration is closed.  
 **Module engineering state:** Objective / Translation / Writing each have `S/K/L/P/R/E PASS`.  
-**Learner state:** each module `U` remains real-use-only / `UNTESTED`; the defect report below is a real product signal, not a blanket U PASS.  
-**Blocker:** none known for English Functional First use after the Source Truth repair.  
-**Next action:** stop engineering expansion. Normal learner use may continue when scheduled. A real learner-use defect may reopen only the earliest responsible existing owner.
+**Learner state:** each module `U` remains real-use-only / `UNTESTED`.  
+**Blocker:** none known for English Functional First use.  
+**Next action:** stop engineering expansion. Normal learner use may begin when scheduled. A real learner-use defect may reopen only the earliest responsible existing owner.
 
 English is back to router-only baseline.
-
----
-
-## Learner Source Truth repair｜2026-09-17
-
-Real learner use exposed garbled / duplicated exam presentation because Current learner pages projected raw `question_bank / reading_corpus` while bypassing the already-current `global_source_truth` overlay. The repaired shared adapter now routes Reading A / Cloze / Reading B / Translation / protected true-exam Writing learner-facing source text, prompt/options, shared pools and source images through `content/english/source/global_source_truth.v1.json`; stable identity, answers, current translation references and analysis remain with their Current canonical owners. The retired `4173` runtime was bounded recovery evidence only; there is no legacy fallback. PR #353 pre-documentation head `9ed043e086d68e11f34a0648c171825175b70dd2` passed Objective `35184065083`, Translation `35184065149`, Writing `35184065042`, and English Family Coherence `35184065160`. This closes the source/projection defect without promoting learner mastery or module U.
 
 ---
 
