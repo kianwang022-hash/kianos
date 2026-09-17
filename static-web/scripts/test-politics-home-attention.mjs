@@ -140,13 +140,28 @@ try {
   assert.match(await page.locator('.politicsOverviewActions a[href$="politics/review/"]').innerText(), /回访/);
   console.log('PASS stable correction clears Home Handoff without erasing Review access');
 
-  await page.evaluate(({ key }) => localStorage.setItem(key, '{'), { key: K.attempts });
-  await page.reload({ waitUntil: 'networkidle' });
-  await handoff.waitFor({ state: 'visible' });
-  assert.equal(await tools.getAttribute('data-has-handoff'), 'error');
-  assert.match(await page.locator('[data-politics-handoff-summary]').innerText(), /未能完整读取/);
-  assert.equal(await copy.isVisible(), false);
-  assert.match(await page.locator('[data-politics-continue-meta]').innerText(), /未能完整读取/);
+  const corruptContext = await browser.newContext({
+    viewport: { width: 1440, height: 900 },
+    timezoneId: 'Asia/Shanghai',
+    storageState: {
+      cookies: [],
+      origins: [{ origin: BASE, localStorage: [{ name: K.attempts, value: '{' }] }]
+    }
+  });
+  const corruptPage = await corruptContext.newPage();
+  const corruptPageErrors = [];
+  corruptPage.on('pageerror', (error) => corruptPageErrors.push(error.message));
+  await corruptPage.goto(`${BASE}/politics/`, { waitUntil: 'networkidle' });
+  const corruptTools = corruptPage.locator('[data-politics-home-tools]');
+  const corruptHandoff = corruptPage.locator('[data-politics-handoff]');
+  const corruptCopy = corruptPage.locator('[data-politics-copy-handoff]');
+  await corruptHandoff.waitFor({ state: 'visible' });
+  assert.equal(await corruptTools.getAttribute('data-has-handoff'), 'error');
+  assert.match(await corruptPage.locator('[data-politics-handoff-summary]').innerText(), /未能完整读取/);
+  assert.equal(await corruptCopy.isVisible(), false);
+  assert.match(await corruptPage.locator('[data-politics-continue-meta]').innerText(), /未能完整读取/);
+  assert.deepEqual(corruptPageErrors, []);
+  await corruptContext.close();
   console.log('PASS corrupt storage fails closed instead of presenting fake zero attention');
 
   await page.setViewportSize({ width: 390, height: 844 });
