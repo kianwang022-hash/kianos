@@ -1,31 +1,19 @@
 ---
-import PoliticsCompiledGeometry from './PoliticsCompiledGeometry.astro';
-const { chapter, base = '/', compiled = null } = Astro.props;
+import PoliticsExplicitSurfacePlan from './PoliticsExplicitSurfacePlan.astro';
+import Value from './PoliticsProjectionValue.astro';
 
-function uniqueNodes(nodes = []) {
-  const seen = new Set();
-  return nodes.filter((node) => {
-    const key = String(node?.id || node?.title || '').trim();
-    if (!key || seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
+const { chapter, base = '/', compiled = null, chapterContext = null } = Astro.props;
+
+const units = (chapter.units || [])
+  .map((unit) => {
+    const projection = compiled instanceof Map ? compiled.get(unit.unitId) : null;
+    return projection ? { unit, projection, states: projection.surfacePlan?.states || {} } : null;
+  })
+  .filter(Boolean);
+
+if (!units.length) {
+  throw new Error(`POLITICS_MAPPED_CHAPTER_EMPTY:${chapter.subject}:${chapter.code || chapter.chapter || ''}`);
 }
-
-const units = (chapter.units || []).map((unit) => ({ ...unit, sourceNodes: uniqueNodes(unit.sourceNodes) }));
-const o = chapter.orientation || {};
-const c = chapter.compression || {};
-const rawCompression = chapter.raw?.chapter_compression || {};
-const compressionSummary = String(rawCompression.stage_shift || rawCompression.double_judgment || '');
-const guideLabel = chapter.subject === 'history'
-  ? '先看这段历史怎么转'
-  : chapter.subject === 'mao'
-    ? '先看这个中国问题怎么被回答'
-    : chapter.subject === 'xi'
-      ? '先看这句话在体系里是什么身份'
-      : chapter.subject === 'ethics_law'
-        ? '先分清边界和情境'
-        : '先看这段关系怎么推';
 ---
 <section
   class={`politicsStudy subject-${chapter.subject}`}
@@ -34,152 +22,125 @@ const guideLabel = chapter.subject === 'history'
   data-chapter={chapter.code || chapter.chapter || ''}
   data-title={chapter.title}
 >
-  <header class="politicsChapterLocation"><a href={`${base}politics/`}>{chapter.subjectMeta.label}</a><span>/</span><h1>{chapter.title}</h1><small>{units.length} 个 Natural Unit</small></header>
+  <header class="politicsChapterLocation">
+    <a href={`${base}politics/`}>{chapter.subjectMeta.label}</a>
+    <span>/</span>
+    <h1>{chapter.title}</h1>
+    <small>{units.length} 个 PASS Natural Unit</small>
+  </header>
+
   <aside class="politicsRail" aria-label="本章路径">
     <a class="politicsBack" href={`${base}politics/`}>← 政治</a>
     <span>{chapter.subjectMeta.label}</span>
     <strong>{chapter.subjectMeta.shape}</strong>
     <nav>
-      <a href="#orientation">先定位</a>
-      {units.map((unit, index) => <a href={`#unit-${index + 1}`}>{index + 1}. {unit.title}</a>)}
-      <a href="#chapter-close">整章收口</a>
+      {chapterContext && <a href="#orientation">先定位</a>}
+      {units.map((row, index) => <a href={`#unit-${index + 1}`}>{index + 1}. {row.unit.title}</a>)}
+      {chapterContext?.chapterGeometries?.length > 0 && <a href="#chapter-close">整章收口</a>}
     </nav>
   </aside>
 
   <div class="politicsMain" data-politics-presentation-panels>
-    <section class="politicsOrientation" id="orientation">
-      <p class="politicsMicro">先定位 · 不背</p>
-      {o.context && <p class="politicsContext">{o.context}</p>}
-      <h2>{o.question || chapter.title}</h2>
-      {o.answer && <p class="politicsLead">{o.answer}</p>}
-      {o.chain?.length > 0 && (
-        <div class="politicsChain">
-          {o.chain.map((item, index) => <div><span>{index + 1}</span><p>{item}</p></div>)}
-        </div>
-      )}
-      {o.attention && <aside class="politicsAttention">这一章先抓：{o.attention}</aside>}
-    </section>
+    {chapterContext && (
+      <section class="politicsOrientation" id="orientation" data-projection-chapter-context>
+        <p class="politicsMicro">先定位 · Projection</p>
+        <h2>{chapterContext.currentProblem || chapterContext.location || chapter.title}</h2>
+        {chapterContext.stageContext?.map((row) => <Value value={row.value} />)}
+      </section>
+    )}
 
-    {units.map((unit, index) => {
-      const t = unit.teaching || {};
-      const projection = compiled?.get(unit.unitId) || null;
-      const currentProblem = projection ? projection.problem : t.question;
-      const nextBridge = projection ? projection.next : t.next;
-      const answerInGeometry = projection?.primary.some(item => item.value === t.answer);
-      const hasGuide = t.beats?.length > 0 || t.conditions?.length > 0 || t.failureCauses?.length > 0 || t.gains?.length > 0 || t.process?.length > 0 || t.turningPoint || t.program || t.hierarchy || t.relation || t.application;
-      const locatorCount = unit.sourceNodes.length || unit.sourceRefCount || 0;
+    {units.map((row, index) => {
+      const { unit, projection, states } = row;
       return (
-        <section class="politicsUnit" id={`unit-${index + 1}`} data-politics-unit data-unit-id={unit.unitId}>
+        <section
+          class="politicsUnit"
+          id={`unit-${index + 1}`}
+          data-politics-unit
+          data-unit-id={unit.unitId}
+          data-explicit-surface-mapping="v1"
+        >
           <div class="politicsUnitCognition">
-          <header class="politicsUnitHead">
-            <p class="politicsMicro">{index + 1} / {units.length} · 当前 Natural Unit</p>
-            <h2>{unit.title}</h2>
-            {t.bridge && <p class="politicsBridge">{t.bridge}</p>}
-            {currentProblem && <div class="politicsQuestion"><span>这一段真正要解决</span><strong>{currentProblem}</strong></div>}
-            {t.answer && !answerInGeometry && <p class="politicsAnswer">{t.answer}</p>}
-          </header>
-
-          {projection && <PoliticsCompiledGeometry projection={projection} />}
-          {!projection && hasGuide && (
-            <details class="politicsGuide" open>
-              <summary>{guideLabel}</summary>
-              <div class="politicsGuideBody">
-                {t.beats?.map((beat) => <article><b>{beat.label || beat.title || '关系'}</b>{beat.problem && <p>{beat.problem}</p>}{beat.relation && <small>{beat.relation}</small>}</article>)}
-                {t.conditions?.length > 0 && <article><b>为什么会出现</b><ul>{t.conditions.map((item) => <li>{item}</li>)}</ul></article>}
-                {t.program && <article><b>提出了什么</b><p>{t.program}</p></article>}
-                {t.relation && <article><b>这段和前后是什么关系</b><p>{t.relation}</p></article>}
-                {t.process?.length > 0 && <article><b>怎么发展</b><ol>{t.process.map((item) => <li>{item}</li>)}</ol></article>}
-                {t.turningPoint && <article><b>转折</b><p>{t.turningPoint}</p></article>}
-                {t.failureCauses?.length > 0 && <article><b>失败 / 教训</b><ul>{t.failureCauses.map((item) => <li>{item}</li>)}</ul></article>}
-                {t.gains?.length > 0 && <article><b>改变了什么</b><ul>{t.gains.map((item) => <li>{item}</li>)}</ul></article>}
-                {t.hierarchy && <article><b>这句话在体系里的身份</b>{Object.entries(t.hierarchy).map(([key, value]) => <p><span>{key}</span> {String(value)}</p>)}</article>}
-                {t.application && <article class="politicsApplication"><b>放进题目里怎么判断</b><p>{t.application}</p></article>}
-              </div>
-            </details>
-          )}
-
-          <section class="politicsQuiz" data-politics-quiz>
-            <header><div><p class="politicsMicro">肖1000 · Astro 验证</p><h3>原讲义学完再做</h3></div><span>{unit.questions.length ? `${unit.questions.length} 题` : unit.questionRefCount ? '题目待解析' : '本段无题'}</span></header>
-            {unit.questions.length > 0 ? (
-              <div class="politicsQuizDeck">
-                {unit.questions.map((q, qIndex) => <article
-                  class={`politicsQ ${qIndex === 0 ? 'active' : ''}`}
-                  data-politics-question
-                  data-question-id={q.id}
-                  data-unit-id={unit.unitId}
-                  data-answer={q.answer}
-                  data-index={qIndex}
-                >
-                  <div class="politicsQMeta"><span>{qIndex + 1} / {unit.questions.length}</span><code>{q.id}</code></div>
-                  <h4>{q.stem}</h4>
-                  <div class="politicsOptions">{q.options.map((opt) => <button type="button" data-politics-option={opt.label}><b>{opt.label}</b><span>{opt.text}</span></button>)}</div>
-                  <div class="politicsActions"><button type="button" data-politics-uncertain>△ 不确定</button><button type="button" class="primary" data-politics-submit>提交</button></div>
-                  <div class="politicsResult" data-politics-result hidden></div>
-                  <div class="politicsRepair" data-politics-repair hidden>
-                    <p class="politicsMicro">只修最小缺口</p>
-                    {t.boundaries?.length > 0 ? <ul>{t.boundaries.slice(0,3).map((item) => <li>{item}</li>)}</ul> : <p>回到刚才这段，重新确认决定性关系。</p>}
-                    <a href={`#source-${unit.unitId}`}>回到乘风原讲义定位 ↑</a>
-                  </div>
-                  {q.explanation && <details class="politicsExplain"><summary>需要时再看解析</summary><p>{q.explanation}</p></details>}
-                  <button type="button" class="politicsNextQ" data-politics-next hidden>下一题 →</button>
-                </article>)}
-              </div>
-            ) : unit.questionRefCount > 0 ? (
-              <div class="politicsBlocked"><strong>题目源当前没有可靠解析出来。</strong><p>不猜题干和答案；乘风原讲义学习不受影响。</p></div>
-            ) : null}
-          </section>
-
-          </div>
-          <aside class="politicsUnitCompanion">
-          <section class="politicsSource" id={`source-${unit.unitId}`} data-politics-external-source>
-            <header>
-              <div><p class="politicsMicro">乘风 · 主学习面</p><h3>去 iPad / MarginNote 学原讲义</h3></div>
-              <span>{locatorCount ? `${locatorCount} 个定位依据` : '按当前 Unit 定位'}</span>
-            </header>
-            <div class="politicsSourceHandoff">
-              <strong>{unit.title}</strong>
-              <p>在原讲义连续学完这一单元；需要时回来做简短闭合，再进入配套题。</p>
-              {unit.sourceNodes.length > 0 ? (
-                <details class="politicsSourceLocators">
-                  <summary>原讲义定位 · {unit.sourceNodes.length} 处</summary>
-                  <ol>
-                    {unit.sourceNodes.map((node) => (
-                      <li>
-                        <div>{node.title && node.title !== node.id ? <strong>{node.title}</strong> : <span>乘风 source owner</span>}</div>
-                        <code>{node.id}</code>
-                      </li>
-                    ))}
-                  </ol>
-                </details>
-              ) : (
-                <p class="politicsSourceFallback">当前没有可直接展示的 source owner 定位信息；按本页 Natural Unit 标题回原讲义继续，不用网页正文替代。</p>
+            <header class="politicsUnitHead">
+              <p class="politicsMicro">{index + 1} / {units.length} · 当前 Natural Unit</p>
+              <h2>{unit.title}</h2>
+              {projection.problem && (
+                <div class="politicsQuestion">
+                  <span>这一段真正要解决</span>
+                  <strong>{projection.problem}</strong>
+                </div>
               )}
-            </div>
-          </section>
+            </header>
 
-          <details class="politicsClosure">
-            <summary>学完了 · 20 秒闭合</summary>
-            <div>
-              <p>{t.closure || t.question || '闭卷说出刚才这段最核心的关系。'}</p>
-              {t.boundaries?.length > 0 && <ul>{t.boundaries.map((item) => <li>{item}</li>)}</ul>}
-            </div>
-          </details>
+            <PoliticsExplicitSurfacePlan groups={states.ORIENT || []} />
 
+            <section class="politicsQuiz" data-politics-quiz>
+              <header>
+                <div><p class="politicsMicro">肖1000 · Astro 验证</p><h3>原讲义学完再做</h3></div>
+                <span>{unit.questions.length ? `${unit.questions.length} 题` : unit.questionRefCount ? '题目待解析' : '本段无题'}</span>
+              </header>
+              {unit.questions.length > 0 ? (
+                <div class="politicsQuizDeck">
+                  {unit.questions.map((q, qIndex) => (
+                    <article
+                      class={`politicsQ ${qIndex === 0 ? 'active' : ''}`}
+                      data-politics-question
+                      data-question-id={q.id}
+                      data-unit-id={unit.unitId}
+                      data-answer={q.answer}
+                      data-index={qIndex}
+                    >
+                      <div class="politicsQMeta"><span>{qIndex + 1} / {unit.questions.length}</span><code>{q.id}</code></div>
+                      <h4>{q.stem}</h4>
+                      <div class="politicsOptions">
+                        {q.options.map((opt) => <button type="button" data-politics-option={opt.label}><b>{opt.label}</b><span>{opt.text}</span></button>)}
+                      </div>
+                      <div class="politicsActions">
+                        <button type="button" data-politics-uncertain>△ 不确定</button>
+                        <button type="button" class="primary" data-politics-submit>提交</button>
+                      </div>
+                      <div class="politicsResult" data-politics-result hidden></div>
+                      <div class="politicsRepair" data-politics-repair hidden>
+                        <p class="politicsMicro">只修最小缺口</p>
+                        <a href={`#source-${unit.unitId}`}>回到乘风原讲义定位 ↑</a>
+                      </div>
+                      {q.explanation && <details class="politicsExplain"><summary>需要时再看解析</summary><p>{q.explanation}</p></details>}
+                      <button type="button" class="politicsNextQ" data-politics-next hidden>下一题 →</button>
+                    </article>
+                  ))}
+                </div>
+              ) : unit.questionRefCount > 0 ? (
+                <div class="politicsBlocked"><strong>题目源当前没有可靠解析出来。</strong><p>不猜题干和答案；乘风原讲义学习不受影响。</p></div>
+              ) : null}
+            </section>
+          </div>
 
-          {nextBridge && <p class="politicsNextBridge">接下来：{nextBridge}</p>}
+          <aside class="politicsUnitCompanion">
+            <section class="politicsSource" id={`source-${unit.unitId}`} data-politics-external-source>
+              <header>
+                <div><p class="politicsMicro">乘风 · 主学习面</p><h3>去 iPad / MarginNote 学原讲义</h3></div>
+              </header>
+              <div class="politicsSourceHandoff">
+                <PoliticsExplicitSurfacePlan groups={states.EXTERNAL_LEARN || []} />
+              </div>
+            </section>
+
+            {(states.CLOSE?.length || 0) > 0 && (
+              <details class="politicsClosure">
+                <summary>学完了 · 短闭合</summary>
+                <div><PoliticsExplicitSurfacePlan groups={states.CLOSE || []} /></div>
+              </details>
+            )}
           </aside>
         </section>
       );
     })}
 
-    <section class="politicsChapterClose" id="chapter-close">
-      <p class="politicsMicro">整章收口</p>
-      <h2>把这一章重新压回一条主线</h2>
-      {compressionSummary && <p class="politicsCompressionSummary">{compressionSummary}</p>}
-      {c.chain?.length > 0 && <div class="politicsFinalChain">{c.chain.map((item) => <span>{item}</span>)}</div>}
-      {c.boundaries?.length > 0 && <ul>{c.boundaries.map((item) => <li>{item}</li>)}</ul>}
-      {c.prompt && <p class="politicsReviewPrompt">{c.prompt}</p>}
-    </section>
+    {chapterContext?.chapterGeometries?.length > 0 && (
+      <section class="politicsChapterClose" id="chapter-close">
+        <p class="politicsMicro">整章收口 · Projection</p>
+        {chapterContext.chapterGeometries.map((row) => <Value value={row.value} />)}
+      </section>
+    )}
   </div>
 </section>
 
