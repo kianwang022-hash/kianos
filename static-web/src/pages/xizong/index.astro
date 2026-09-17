@@ -7,69 +7,94 @@ import '../../styles/xizong-home-workspace.css';
 const base = import.meta.env.BASE_URL;
 const domains = listXizongMacroDomainProjection();
 const systems = domains.flatMap((domain) => domain.systems);
-const futureDomains = domains.filter((domain) => !domain.projectable && !domain.decomposed);
 const firstSystem = systems[0];
 const firstHref = firstSystem ? `${base}xizong/${firstSystem.systemId}/` : `${base}xizong/`;
 const firstLabel = firstSystem ? `${firstSystem.canonicalId} · ${firstSystem.title}` : '开始西综学习';
+const resumeIndex = systems.map((system) => ({
+  systemId: system.systemId,
+  canonicalId: system.canonicalId,
+  title: system.title,
+  blocks: system.blocks.map((block) => ({
+    blockId: block.blockId,
+    slug: block.slug,
+    label: block.label,
+    title: block.title,
+    kpCount: block.kpCount
+  }))
+}));
+const systemIdentity = (system) => {
+  const spine = Array.isArray(system?.mentalModel?.spine) ? system.mentalModel.spine : [];
+  return spine.slice(0, 3).join(' · ') || system.mission || '';
+};
 ---
+
 <Base title="西医综合" active="xizong" showLead={false}>
   <section class="xzHome" data-xizong-home-workspace>
     <header class="xzHomeHeader">
-      <div>
-        <p class="pageKicker">XIZONG · LEARNING WORKSPACE</p>
-        <h1>西医综合</h1>
-        <p>先建立系统，再进入学习节；原讲义、主动回忆与应用各归其位。</p>
-      </div>
-      <span>{systems.length} 个可进入的 System</span>
+      <h1>西医综合</h1>
+      <p>机制理解 · 主动重建 · 真题应用</p>
     </header>
 
-    <XizongHomeTools firstHref={firstHref} firstLabel={firstLabel} />
+    <XizongHomeTools firstHref={firstHref} firstLabel={firstLabel} resumeIndex={resumeIndex} />
 
-    <div class="xzHomeWorkspace">
-      <main class="xzHomeSystems">
-        <header><h2>进入系统</h2><span>System → Block → 学习节</span></header>
-        {domains.filter((domain) => domain.projectable || domain.decomposed).map((domain) =>
-          <section class="xzHomeDomain" data-domain={domain.domainId}>
-            <div class="xzHomeDomainHeading">
-              <span>{domain.domainId}</span>
-              <div><h2>{domain.title}</h2>{domain.note && <p>{domain.note}</p>}</div>
-            </div>
-            <nav class="xzHomeSystemRows">
-              {domain.systems.map((system) =>
-                <a href={`${base}xizong/${system.systemId}/`} class="xzHomeSystemRow">
-                  <span>{system.canonicalId}</span>
-                  <div><h3>{system.title}</h3><p>{system.blocks.length} Blocks · {system.blocks.reduce((sum, block) => sum + block.kpCount, 0)} KP</p></div>
-                  <b>进入系统 <i>→</i></b>
-                </a>)}
-            </nav>
-          </section>)}
-      </main>
+    <section class="xzHomeSection xzHomeCurrentSystems">
+      <header class="xzHomeSectionHead">
+        <span>CURRENT SYSTEMS</span>
+      </header>
+      <nav class="xzHomeSystemGrid" aria-label="Current Xizong Systems">
+        {systems.map((system) => (
+          <a
+            href={`${base}xizong/${system.systemId}/`}
+            class="xzHomeSystemEntry"
+            data-xizong-system-entry={system.systemId}
+          >
+            <span class="xzHomeSystemCode">{system.canonicalId}</span>
+            <h2>{system.title}</h2>
+            <p>{systemIdentity(system)}</p>
+            <b data-xizong-system-action>进入系统 →</b>
+          </a>
+        ))}
+      </nav>
+    </section>
 
-      <aside class="xzHomeCompanion">
-        <section>
-          <p class="pageKicker">学习主线</p>
-          <h2>理解、回忆、应用。</h2>
-          <ol class="xzHomeLearningChain">
-            <li><strong>System / Block</strong><span>建立位置与主机制</span></li>
-            <li><strong>学习节 / 原讲义</strong><span>在 iPad 连续学完整关系</span></li>
-            <li><strong>KP Recall / 闭合</strong><span>主动重建，再看完整 Core</span></li>
-            <li><strong>题目 / 最小修复</strong><span>用实际作答发现缺口</span></li>
-          </ol>
-        </section>
-      </aside>
-    </div>
+    <section class="xzHomeSection xzHomeAttention" data-xizong-home-attention hidden>
+      <header class="xzHomeSectionHead">
+        <span>NEEDS ATTENTION</span>
+      </header>
+      <div class="xzHomeAttentionGrid">
+        <a href={`${base}xizong/memory/`} data-xizong-attention-memory hidden>
+          <span>Memory</span>
+          <strong><b data-xizong-attention-memory-count>0</b> 个当前需要回收</strong>
+          <em>进入 Memory →</em>
+        </a>
+        <a href={`${base}xizong/memory/`} data-xizong-attention-marked hidden>
+          <span>Marked</span>
+          <strong><b data-xizong-attention-marked-count>0</b> 个主动标记</strong>
+          <em>查看 Marked →</em>
+        </a>
+        <a href={`${base}xizong/memory/`} data-xizong-attention-repair hidden>
+          <span>Repair</span>
+          <strong><b data-xizong-attention-repair-count>0</b> 个待返回任务</strong>
+          <em>继续 Repair →</em>
+        </a>
+      </div>
+    </section>
 
-    {futureDomains.length > 0 &&
-      <section class="xzHomeFutureBand">
-        <header>
-          <p class="pageKicker">完整知识地图</p>
-          <h2>后续学习域</h2>
-          <small>保留全局位置；不产生待办或学习债务。</small>
-        </header>
-        <div class="xzHomeFutureGrid">
-          {futureDomains.map((domain) =>
-            <div class="xzHomeFutureItem"><b>{domain.domainId}</b><span>{domain.title}</span></div>)}
-        </div>
-      </section>}
+    <section class="xzHomeSection xzHomeKnowledgeMap">
+      <header class="xzHomeSectionHead">
+        <span>KNOWLEDGE MAP</span>
+      </header>
+      <div class="xzHomeKnowledgeGrid">
+        {domains.map((domain) => (
+          <div class:list={['xzHomeKnowledgeItem', domain.projectable && 'is-current']} data-domain={domain.domainId}>
+            <b>{domain.domainId}</b>
+            <span>{domain.title}</span>
+            {domain.systems.length > 0 && (
+              <small>{domain.systems.map((system) => `${system.canonicalId} ${system.title}`).join(' · ')}</small>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
   </section>
 </Base>
