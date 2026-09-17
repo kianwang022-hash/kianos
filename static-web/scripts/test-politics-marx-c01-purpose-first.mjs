@@ -25,7 +25,7 @@ async function waitForServer() {
   throw new Error('POLITICS_C01_PREVIEW_SERVER_NOT_READY');
 }
 
-async function visibleTextBelowFloor(locator, floorPx = 15) {
+async function visibleTextBelowFloor(locator, floorPx = 16) {
   return locator.evaluate((root, floor) => {
     const offenders = [];
     const seen = new Set();
@@ -81,8 +81,8 @@ try {
   const s01HandoffText = (await s01Handoff.innerText()).replace(/\s+/g, ' ');
   check(s01HandoffText.includes('第一节 哲学及其基本问题'), 's01_current_locator_visible');
   check(s01HandoffText.includes('思维和存在是什么关系'), 's01_current_look_for_visible');
-  const s01Tiny = await visibleTextBelowFloor(page.locator('body'), 15);
-  check(s01Tiny.length === 0, 's01_page_visible_text_floor_15px', JSON.stringify(s01Tiny));
+  const s01Tiny = await visibleTextBelowFloor(page.locator('body'), 16);
+  check(s01Tiny.length === 0, 's01_page_visible_text_floor_16px', JSON.stringify(s01Tiny));
   await page.screenshot({ path: new URL('marx-c01-s01-purpose-first.png', auditDir).pathname, fullPage: true });
 
   await page.goto(`${BASE}/politics/marxism/ch01/#unit-2`, { waitUntil: 'networkidle' });
@@ -103,8 +103,8 @@ try {
   await closureNode.waitFor({ state: 'attached' });
   const closure = String(await closureNode.textContent()).replace(/\s+/g, ' ').trim();
   check(closure.includes('不要背一串定义'), 's02_current_closure_reaches_runtime', closure);
-  const s02Tiny = await visibleTextBelowFloor(page.locator('body'), 15);
-  check(s02Tiny.length === 0, 's02_page_visible_text_floor_15px', JSON.stringify(s02Tiny));
+  const s02Tiny = await visibleTextBelowFloor(page.locator('body'), 16);
+  check(s02Tiny.length === 0, 's02_page_visible_text_floor_16px', JSON.stringify(s02Tiny));
   await page.screenshot({ path: new URL('marx-c01-s02-purpose-first.png', auditDir).pathname, fullPage: true });
 
   await context.close();
