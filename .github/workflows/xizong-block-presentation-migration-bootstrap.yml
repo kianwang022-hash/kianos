@@ -30,6 +30,19 @@ jobs:
           node-version: '22'
       - name: Execute one-shot ownership cutover
         run: node static-web/scripts/migrate-xizong-block-presentation.mjs
+      - name: Normalize generated text
+        run: |
+          python - <<'PY'
+          import pathlib, subprocess
+          names = subprocess.check_output(['git', 'diff', '--name-only'], text=True).splitlines()
+          for name in names:
+              path = pathlib.Path(name)
+              if not path.is_file():
+                  continue
+              text = path.read_text()
+              clean = '\n'.join(line.rstrip() for line in text.splitlines()).rstrip() + '\n'
+              path.write_text(clean)
+          PY
       - name: Validate generated diff shape
         run: |
           git diff --check
