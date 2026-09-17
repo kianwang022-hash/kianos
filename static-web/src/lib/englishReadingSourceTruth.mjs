@@ -8,6 +8,7 @@ import { projectReadingSourceTruth } from './englishSourceTruth.mjs';
 
 export const listReadingSets = baseListReadingSets;
 export { loadReadingAnswersById, loadReadingReviewById };
+export { inspectReadingSources } from './current.mjs';
 
 export function loadReadingById(id) {
   const base = baseLoadReadingById(id);

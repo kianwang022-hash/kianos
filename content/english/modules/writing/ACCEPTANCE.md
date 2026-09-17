@@ -8,6 +8,9 @@ This file owns current **Acceptance Truth** for Writing. It does not own content
 
 ---
 
+> **Architecture-v2 interpretation:** the S/K/L/P/R/E labels below are preserved as historical Acceptance dimensions only. They do not define Current architecture layers or canonical owners. Current ownership remains Rule / Model → Content / Visual / Engineering; this file owns Acceptance Truth only.
+
+
 ## Gate status
 
 | Gate | Status | Current evidence / boundary |

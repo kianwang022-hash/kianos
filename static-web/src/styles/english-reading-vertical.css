@@ -1,0 +1,446 @@
+/* English Reading A vertical slice — route-scoped visual migration.
+   Preserve the accepted whole-task geometry and existing runtime/evidence semantics.
+   Current preference floor: default-visible learner text >= 15px; normal UI ~16px+.
+*/
+
+body#kianos-workspace.uiEnglish .surface-reading {
+  width: calc(100% - 28px);
+  max-width: none;
+  padding-top: 10px;
+  padding-bottom: 22px;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingSession {
+  gap: 10px;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingSessionHeader {
+  position: static;
+  grid-template-columns: minmax(130px, auto) minmax(280px, 1fr) auto;
+  min-height: 56px;
+  gap: 14px;
+  padding: 5px 4px 9px;
+  border: 0;
+  border-bottom: 1px solid #d9e0e6;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingSessionHeader > a {
+  min-height: 38px;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #556b80;
+  font-size: 15px;
+  font-weight: 650;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingHeaderCenter {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  justify-content: stretch;
+  gap: 12px;
+  min-width: 0;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingHeaderCenter > span {
+  color: #496f92;
+  font-size: 15px;
+  font-weight: 720;
+  letter-spacing: .02em;
+  text-transform: none;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingHeaderCenter > b {
+  min-width: 0;
+  overflow: hidden;
+  color: #1f3040;
+  font-size: 17px;
+  font-weight: 680;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingHeaderCenter > small {
+  color: #667789;
+  font-size: 15px;
+  font-weight: 560;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingHeaderActions {
+  gap: 7px !important;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingHeaderActions button {
+  min-width: 0;
+  height: 34px;
+  padding: 0 7px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #71808e;
+  font-size: 15px;
+  font-weight: 600;
+  box-shadow: none;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingHeaderActions button:hover:not(:disabled) {
+  background: #f3f5f7;
+  color: #34495d;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingHeaderActions button[data-reading-prev],
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingHeaderActions button[data-reading-next] {
+  display: none;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingHeaderActions button[data-reading-continuous][aria-pressed="true"] {
+  background: #eef3f7;
+  color: #355a78;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingHeaderActions button[data-reading-reset] {
+  color: #8a949f;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingHeaderActions .submit {
+  height: 34px;
+  padding: 0 13px;
+  border: 1px solid #284b68 !important;
+  border-radius: 6px;
+  background: #284b68 !important;
+  color: #fff !important;
+  font-weight: 680;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingQuestionNav {
+  display: none;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingQuestionNav button {
+  width: 46px;
+  height: 34px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: #667789;
+  font-size: 15px;
+  font-weight: 650;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingQuestionNav button.active {
+  border-color: #ccdae6;
+  background: #edf3f8;
+  color: #2f5f89;
+  box-shadow: none;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingColumns {
+  grid-template-columns: minmax(0, 1.12fr) minmax(430px, .88fr);
+  gap: 0;
+  height: calc(100dvh - 158px);
+  min-height: 620px;
+  overflow: hidden;
+  border: 1px solid #d9e0e6;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(29, 43, 58, .035);
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingPassage {
+  padding: 30px 48px 72px;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+  scrollbar-gutter: stable;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingPassage > header {
+  display: none;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingAnnotate {
+  top: 0;
+  gap: 6px;
+  margin: -10px 0 22px;
+  padding: 6px 0 9px;
+  border-bottom: 1px solid #f0f2f4;
+  background: rgba(255, 255, 255, .97);
+  box-shadow: none;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingAnnotate > span,
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingAnnotate small {
+  color: #788694;
+  font-size: 15px;
+  font-weight: 560;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingAnnotate button {
+  min-height: 30px;
+  padding: 4px 7px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: #6f7d89;
+  font-size: 15px;
+  font-weight: 580;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingPassage p {
+  max-width: 43em;
+  margin: 0 auto 1.14em;
+  color: #202a34;
+  font-family: var(--english-reading-font);
+  font-size: clamp(20px, 1.24vw, 21px);
+  font-weight: 400;
+  line-height: 1.76;
+  letter-spacing: .002em;
+  text-wrap: pretty;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingQuestions {
+  display: block;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 0;
+  border-left: 1px solid #dfe5ea;
+  border-radius: 0;
+  background: #fff;
+  scrollbar-gutter: stable;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingQuestion {
+  min-height: 0;
+  padding: 27px 28px 30px;
+  border: 0;
+  border-bottom: 1px solid #edf0f3;
+  background: #fff;
+  scroll-margin-top: 12px;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingQuestion:last-of-type {
+  border-bottom: 0;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingQuestion.is-current {
+  background: #fcfcfd;
+  box-shadow: none;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingQuestion > header {
+  margin-bottom: 11px;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingQuestion > header > span {
+  color: #79838d;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: .01em;
+  text-transform: none;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingQuestion > p {
+  margin: 0 0 15px;
+  color: #243442;
+  font-family: var(--english-ui-font);
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.56;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedUncertain {
+  min-height: 28px;
+  padding: 3px 6px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: #8a949d;
+  font-size: 15px;
+  font-weight: 580;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedUncertain.active {
+  background: #fff7e3;
+  color: #7b5b20;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingOptions {
+  gap: 0;
+  border-top: 1px solid #edf0f2;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingOptions button {
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 10px;
+  width: 100%;
+  padding: 11px 5px;
+  border: 0;
+  border-bottom: 1px solid #edf0f2;
+  border-radius: 0;
+  background: transparent;
+  color: #344352;
+  text-align: left;
+  box-shadow: none;
+  transition: background .12s ease, color .12s ease;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingOptions button:hover:not(:disabled) {
+  background: #f7f9fa;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingOptions button b {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #687582;
+  font-family: var(--english-ui-font);
+  font-size: 15px;
+  font-weight: 680;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingOptions button span {
+  color: #354452;
+  font-family: var(--english-ui-font);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingOptions button.selected {
+  background: #f2f6f9;
+  box-shadow: none;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingOptions button.selected b {
+  background: #355f80;
+  color: #fff;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingQuestionFooter {
+  position: sticky;
+  bottom: 0;
+  padding: 10px 14px;
+  border-top: 1px solid #e3e8ed;
+  background: rgba(248, 250, 252, .97);
+  backdrop-filter: blur(10px);
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingQuestionFooter span,
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingQuestionFooter strong {
+  color: #647587;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingResultBar {
+  gap: 18px;
+  padding: 11px 14px;
+  border: 1px solid #d6e0e8;
+  border-radius: 10px;
+  background: #f7fafc;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingResultBar :is(span, b, small) {
+  font-size: 15px;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingResultBar strong {
+  font-size: 19px;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading :is(.portedReadingRepair, .portedReadingAftercare, .portedSecondPass, .portedReadingHistory) {
+  font-size: 15px;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading :is(.portedReadingRepair, .portedReadingAftercare, .portedSecondPass, .portedReadingHistory) :is(button, summary, small, span, strong, p, li) {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+body#kianos-workspace.uiEnglish .surface-reading .portedReadingSource {
+  display: none;
+}
+
+@media (max-width: 1180px) {
+  body#kianos-workspace.uiEnglish .surface-reading .portedReadingColumns {
+    grid-template-columns: minmax(0, 1.06fr) minmax(400px, .94fr);
+  }
+
+  body#kianos-workspace.uiEnglish .surface-reading .portedReadingHeaderCenter {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+
+  body#kianos-workspace.uiEnglish .surface-reading .portedReadingHeaderCenter > small:last-child {
+    display: none;
+  }
+}
+
+@media (max-width: 980px) {
+  body#kianos-workspace.uiEnglish .surface-reading .portedReadingColumns {
+    height: auto;
+    min-height: 0;
+    grid-template-columns: 1fr;
+  }
+
+  body#kianos-workspace.uiEnglish .surface-reading .portedReadingPassage,
+  body#kianos-workspace.uiEnglish .surface-reading .portedReadingQuestions {
+    max-height: none;
+    overflow: visible;
+  }
+
+  body#kianos-workspace.uiEnglish .surface-reading .portedReadingQuestions {
+    border-left: 0;
+    border-top: 1px solid #dfe5ea;
+  }
+
+  body#kianos-workspace.uiEnglish .surface-reading .portedReadingPassage {
+    padding: 24px 28px 44px;
+  }
+}
+
+@media (max-width: 760px) {
+  body#kianos-workspace.uiEnglish .surface-reading {
+    width: calc(100% - 16px);
+  }
+
+  body#kianos-workspace.uiEnglish .surface-reading .portedReadingSessionHeader {
+    grid-template-columns: auto 1fr;
+    gap: 8px;
+  }
+
+  body#kianos-workspace.uiEnglish .surface-reading .portedReadingHeaderCenter {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    justify-content: start;
+  }
+
+  body#kianos-workspace.uiEnglish .surface-reading .portedReadingHeaderActions {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  body#kianos-workspace.uiEnglish .surface-reading .portedReadingPassage {
+    padding: 20px 18px 38px;
+  }
+
+  body#kianos-workspace.uiEnglish .surface-reading .portedReadingPassage p {
+    font-size: 19px;
+    line-height: 1.72;
+  }
+
+  body#kianos-workspace.uiEnglish .surface-reading .portedReadingQuestion {
+    padding: 20px 17px 23px;
+  }
+}

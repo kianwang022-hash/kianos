@@ -28,6 +28,35 @@ Do not reopen English learning architecture for styling convenience.
 
 ---
 
+## Architecture v2 owner map
+
+```text
+RULE / MODEL
+→ content/english/LEARNING_CONTRACT.md
+
+CONTENT
+→ content/english/manifest.json
+→ exact Objective / Translation / Writing canonical owners
+→ content/lexical/ for Lexical backend truth
+
+VISUAL
+→ static-web/PRESENTATION_CONTRACT.md
+→ static-web/ENGLISH_PRODUCT_BRIEF.md
+→ exact English/task visual owner
+
+ENGINEERING
+→ SYSTEM_CONTRACT.md
+→ English SourceTruth adapters / task Runtime / renderer under static-web/
+
+WEBSITE
+→ consumes the three responsibilities above; never becomes a second Content owner
+
+CONTROL
+→ this CURRENT + exact child CURRENT; reads state and routes work only
+```
+
+Historical `S/K/L/P/R/E` labels may remain inside Acceptance/CURRENT evidence summaries. They are **acceptance dimensions, not Architecture-v2 layers or owners**.
+
 ## Learner product placement
 
 ```text

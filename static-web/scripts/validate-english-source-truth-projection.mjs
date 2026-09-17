@@ -30,10 +30,83 @@ const repoRoot = path.resolve(scriptDir, '../..');
 const bank = JSON.parse(fs.readFileSync(path.join(repoRoot, 'content/english/source/question_bank.v1.json'), 'utf8'));
 const allSets = Array.isArray(bank.passage_or_sets) ? bank.passage_or_sets : [];
 
+
+const learnerRouteBoundaries = [
+  {
+    path: 'static-web/src/pages/english.astro',
+    required: ['englishReadingSourceTruth.mjs', 'englishTranslationSourceTruth.mjs'],
+    forbidden: ["../lib/current.mjs", "englishTranslation.mjs"]
+  },
+  {
+    path: 'static-web/src/pages/reading.astro',
+    required: ['englishReadingSourceTruth.mjs'],
+    forbidden: ["../lib/current.mjs", "englishReading.mjs"]
+  },
+  {
+    path: 'static-web/src/pages/reading/[id].astro',
+    required: ['englishReadingSourceTruth.mjs'],
+    forbidden: ['englishReading.mjs']
+  },
+  {
+    path: 'static-web/src/pages/cloze.astro',
+    required: ['englishObjectiveSourceTruth.mjs'],
+    forbidden: ['englishObjective.mjs']
+  },
+  {
+    path: 'static-web/src/pages/cloze/[id].astro',
+    required: ['englishObjectiveSourceTruth.mjs'],
+    forbidden: ['englishObjective.mjs']
+  },
+  {
+    path: 'static-web/src/pages/reading-b.astro',
+    required: ['englishObjectiveSourceTruth.mjs'],
+    forbidden: ['englishObjective.mjs']
+  },
+  {
+    path: 'static-web/src/pages/reading-b/[id].astro',
+    required: ['englishObjectiveSourceTruth.mjs'],
+    forbidden: ['englishObjective.mjs']
+  },
+  {
+    path: 'static-web/src/pages/translation.astro',
+    required: ['englishTranslationSourceTruth.mjs'],
+    forbidden: ['englishTranslation.mjs']
+  },
+  {
+    path: 'static-web/src/pages/translation/[id].astro',
+    required: ['englishTranslationSourceTruth.mjs'],
+    forbidden: ['englishTranslation.mjs']
+  },
+  {
+    path: 'static-web/src/pages/writing.astro',
+    required: ['englishWritingRuntimeSourceTruth.mjs'],
+    forbidden: ['englishWritingRuntimeTask.mjs']
+  },
+  {
+    path: 'static-web/src/pages/writing/[id].astro',
+    required: ['englishWritingRuntimeSourceTruth.mjs'],
+    forbidden: ['englishWritingRuntimeTask.mjs']
+  }
+];
+
 const checks = [];
 const pass = (name, detail = '') => checks.push({ name, pass: true, detail });
 const fail = (name, detail = '') => checks.push({ name, pass: false, detail });
 const assert = (condition, name, detail = '') => condition ? pass(name, detail) : fail(name, detail);
+
+for (const boundary of learnerRouteBoundaries) {
+  const source = fs.readFileSync(path.join(repoRoot, boundary.path), 'utf8');
+  const missingRequired = boundary.required.filter((token) => !source.includes(token));
+  const forbiddenHits = boundary.forbidden.filter((token) => source.includes(token));
+  assert(
+    missingRequired.length === 0 && forbiddenHits.length === 0,
+    `learner_route_uses_source_truth_boundary:${boundary.path}`,
+    [
+      missingRequired.length ? `missing=${missingRequired.join('|')}` : '',
+      forbiddenHits.length ? `forbidden=${forbiddenHits.join('|')}` : ''
+    ].filter(Boolean).join(';')
+  );
+}
 
 const truth = inspectEnglishSourceTruth();
 assert(truth.status === 'ready', 'global_source_truth_ready', JSON.stringify(truth));

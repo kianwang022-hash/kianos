@@ -1,10 +1,11 @@
 # English Learner Surface Closure
 
-Status: ACTIVE IMPLEMENTATION CLOSURE  
-Branch: `english-asset-surface-closure-20260917`  
-Semantic authority: `content/english/LEARNING_CONTRACT.md` + scoped module owners  
-Product authority: `static-web/ENGLISH_PRODUCT_BRIEF.md` + `static-web/ENGLISH_GUIDE_DESIGN.md`  
-Preference authority: `static-web/KIAN_UI_PREFERENCES.md`
+Status: **RETIRED — historical implementation matrix only**  
+Current control owner: `content/english/CURRENT.md` + `static-web/CURRENT.md`  
+Current Rule / Model: `content/english/LEARNING_CONTRACT.md`  
+Current Visual authority: `static-web/PRESENTATION_CONTRACT.md` + `static-web/ENGLISH_PRODUCT_BRIEF.md`  
+
+> Do not resume the old closure branch or treat the states below as Current architecture. Keep this file only as bounded historical evidence for accepted surface details.
 
 This file is an implementation/outlet matrix only. It MUST NOT change English learning logic, evidence semantics, Resume priority, task ownership, protected-material boundaries, or learner truth.
 

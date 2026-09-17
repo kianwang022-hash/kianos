@@ -14,11 +14,8 @@ function requireAny(label, text, needles) {
 
 try {
   const manifest = JSON.parse(read('../../content/english/manifest.json'));
-  if (manifest?.owners?.objective_learning !== 'content/english/modules/objective-learning.md') {
-    issues.push('manifest: objective_learning owner missing or incorrect');
-  }
-  if (manifest?.readiness?.objective_learning_present !== true) {
-    issues.push('manifest: objective_learning_present is not true');
+  if (manifest?.knowledge_and_learning_content?.objective_core_model !== 'content/english/modules/objective-learning.md') {
+    issues.push('manifest: objective_core_model owner missing or incorrect');
   }
 } catch (error) {
   issues.push(`manifest: ${error instanceof Error ? error.message : String(error)}`);
