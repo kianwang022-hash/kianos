@@ -1,10 +1,15 @@
 import { spawn } from 'node:child_process';
+import { mkdir, writeFile } from 'node:fs/promises';
 import { chromium } from 'playwright';
 
 const PORT = 4326;
 const BASE = `http://127.0.0.1:${PORT}`;
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const auditDir = new URL('../../politics-functional-audit/', import.meta.url);
+const checks = [];
+let failure = null;
 const check = (condition, name, detail = '') => {
+  checks.push({ name, pass: Boolean(condition), detail });
   if (!condition) throw new Error(`POLITICS_GOLDEN_PURPOSE_FAIL:${name}${detail ? `:${detail}` : ''}`);
   console.log(`PASS ${name}${detail ? ` · ${detail}` : ''}`);
 };
@@ -83,7 +88,18 @@ try {
 
   await context.close();
   console.log('POLITICS_GOLDEN_PURPOSE_FIRST_PASS');
+} catch (error) {
+  failure = error instanceof Error ? error.message : String(error);
+  throw error;
 } finally {
+  await mkdir(auditDir, { recursive: true });
+  await writeFile(new URL('golden-purpose.json', auditDir), JSON.stringify({
+    schema: 'kianos.politics.golden_purpose_first.v1',
+    checks,
+    failure,
+    status: failure ? 'FAIL' : 'PASS'
+  }, null, 2));
+
   await browser?.close().catch(() => {});
   if (process.platform !== 'win32' && server.pid) {
     try { process.kill(-server.pid, 'SIGTERM'); } catch {}
