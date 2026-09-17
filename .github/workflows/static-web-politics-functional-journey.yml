@@ -60,6 +60,9 @@ jobs:
       - name: Verify purpose-first Politics Golden UI
         working-directory: static-web
         run: node scripts/test-politics-golden-purpose-first.mjs
+      - name: Verify Marx C01 purpose-first pilot
+        working-directory: static-web
+        run: node scripts/test-politics-marx-c01-purpose-first.mjs
       - name: Execute Mao Runtime journeys
         working-directory: static-web
         run: node scripts/test-politics-mao-runtime.mjs

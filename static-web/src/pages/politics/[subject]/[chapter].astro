@@ -7,6 +7,8 @@ import PoliticsCognitiveWorkspace from '../../../components/PoliticsCognitiveWor
 import PoliticsCognitiveWorkspaceBridge from '../../../components/PoliticsCognitiveWorkspaceBridge.astro';
 import PoliticsCognitiveWorkspaceReadable from '../../../components/PoliticsCognitiveWorkspaceReadable.astro';
 import PoliticsVisibleTypeFloor from '../../../components/PoliticsVisibleTypeFloor.astro';
+import PoliticsProjectionRuntimeOutlet from '../../../components/PoliticsProjectionRuntimeOutlet.astro';
+import PoliticsPurposeFirstPilotReadable from '../../../components/PoliticsPurposeFirstPilotReadable.astro';
 import PoliticsRepairEnhancer from '../../../components/PoliticsRepairEnhancer.astro';
 import PoliticsUnitReturnEnhancer from '../../../components/PoliticsUnitReturnEnhancer.astro';
 import PoliticsPracticeBridge from '../../../components/PoliticsPracticeBridge.astro';
@@ -26,6 +28,7 @@ const compiled = loadPoliticsCompiledPresentation(subject, chapter);
 const useCognitiveWorkspace = subject === 'marxism'
   && chapter === 'ch00'
   && data.units.some((unit) => unit?.raw?.learning_semantics?.schema === 'kianos.politics.learning_semantics.v1');
+const usePurposeFirstPilot = subject === 'marxism' && chapter === 'ch01';
 ---
 <style is:global>
   /* Golden C00 calibration: the learner-facing orientation question must read as a real headline. */
@@ -64,6 +67,8 @@ const useCognitiveWorkspace = subject === 'marxism'
   {useCognitiveWorkspace && <PoliticsCognitiveWorkspaceBridge chapter={data} />}
   {useCognitiveWorkspace && <PoliticsCognitiveWorkspaceReadable />}
   {useCognitiveWorkspace && <PoliticsVisibleTypeFloor />}
+  {usePurposeFirstPilot && <PoliticsProjectionRuntimeOutlet compiled={compiled} />}
+  {usePurposeFirstPilot && <PoliticsPurposeFirstPilotReadable />}
 
   <script is:inline>
     (() => {

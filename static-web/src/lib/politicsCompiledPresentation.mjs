@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
+import { resolvePoliticsUnitRepresentation } from './politicsRepresentationGate.mjs';
 
 // Read-only consumer of the accepted Projection selector manifest. It selects
 // exact Current values; it never compiles new knowledge or changes unit identity.
@@ -10,6 +11,7 @@ const read = p => JSON.parse(fs.readFileSync(path.join(root, p), 'utf8'));
 const manifest = read(`${projectionRoot}/manifest.json`);
 const cache = new Map();
 const present = value => value != null && value !== '' && (!Array.isArray(value) || value.length > 0);
+const flattenPresent = values => values.flatMap(value => Array.isArray(value) ? value : [value]).filter(present);
 
 export function resolvePoliticsPresentationRef(ref, chapter, unit) {
   if (!ref) return null;
@@ -50,22 +52,39 @@ export function loadPoliticsCompiledPresentation(subject, code) {
   const rawUnits = source.units || source.unit_projections || (source.unit ? [source.unit] : []);
   const rawById = new Map(rawUnits.map(unit => [unit.natural_unit_id, unit]));
   const units = new Map();
+  const purposeFirstPilot = directory === 'marxism' && code === 'ch01';
   for (const selected of projection.units || []) {
     if (selected.projection_disposition !== 'PASS') continue;
     const rawUnit = rawById.get(selected.unit_id);
     if (!rawUnit) throw new Error(`POLITICS_PROJECTION_UNIT_MISSING:${selected.unit_id}`);
     const resolve = ref => resolvePoliticsPresentationRef(ref, source, rawUnit);
     const objects = entries => (entries || []).map(entry => ({ role: entry.role, value: resolve(entry.content) })).filter(entry => present(entry.value));
+    const selectedValues = entries => {
+      const values = (entries || []).map(resolve).filter(present);
+      return purposeFirstPilot ? flattenPresent(values) : values;
+    };
+    const handoff = selected.chengfeng_handoff || null;
     units.set(selected.unit_id, {
       unitId: selected.unit_id,
       shape: selected.projection_shape,
+      representation: resolvePoliticsUnitRepresentation(selected, { stage: 'ORIENT' }),
+      purposeFirstPilot,
       problem: resolve(selected.current_problem),
       primary: objects(selected.primary_geometry),
       secondary: objects(selected.secondary_reasoning),
-      boundaries: (selected.boundaries || []).map(resolve).filter(present),
-      exact: (selected.first_round_exact || []).map(resolve).filter(present),
-      takeaway: (selected.takeaway || []).map(resolve).filter(present),
+      boundaries: selectedValues(selected.boundaries),
+      exact: selectedValues(selected.first_round_exact),
+      takeaway: selectedValues(selected.takeaway),
       next: resolve(selected.next_bridge),
+      handoff: handoff ? {
+        surface: handoff.surface || null,
+        sourceOwnerIds: Array.isArray(handoff.source_owner_ids) ? handoff.source_owner_ids : [],
+        locator: resolve(handoff.source_locator),
+        lookFor: purposeFirstPilot
+          ? flattenPresent((handoff.look_for || []).map(resolve))
+          : (handoff.look_for || []).map(resolve).filter(present)
+      } : null,
+      closure: resolve(selected.optional_closure)
     });
   }
   cache.set(file, units);
