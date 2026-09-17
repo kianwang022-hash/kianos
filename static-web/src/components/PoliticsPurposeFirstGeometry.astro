@@ -1,0 +1,81 @@
+---
+const { projection } = Astro.props;
+
+function asList(value) {
+  return Array.isArray(value) ? value : (value == null ? [] : [value]);
+}
+
+function teachingRows(objects = []) {
+  return objects.flatMap((object) => asList(object?.value).map((value, index) => {
+    if (typeof value === 'string' || typeof value === 'number') {
+      return {
+        key: `${object?.role || 'row'}-${index}`,
+        label: '',
+        problem: '',
+        relation: String(value)
+      };
+    }
+    return {
+      key: String(value?.id || value?.label || value?.title || `${object?.role || 'row'}-${index}`),
+      label: String(value?.label || value?.title || value?.name || ''),
+      problem: String(value?.problem || ''),
+      relation: String(value?.relation || value?.text || value?.meaning || '')
+    };
+  })).filter((row) => row.label || row.problem || row.relation);
+}
+
+const representation = projection?.representation || { kind: 'STRUCTURED_TEXT' };
+const rows = teachingRows(projection?.primary || []);
+const secondary = teachingRows(projection?.secondary || []);
+const kind = representation.kind || 'STRUCTURED_TEXT';
+---
+
+{projection && (
+  <section
+    class={`politicsPurposeFirstGeometry kind-${kind.toLowerCase()}`}
+    data-purpose-first-geometry
+    data-representation={kind}
+    data-projection-unit={projection.unitId}
+  >
+    {kind === 'COMPARE' ? (
+      <div class="purposeCompare" data-purpose-compare>
+        {rows.map((row) => (
+          <section class="purposeCompareAxis" data-purpose-row={row.key}>
+            {row.label && <h3>{row.label}</h3>}
+            {row.problem && <p class="purposePrompt">{row.problem}</p>}
+            {row.relation && <p class="purposeRelation">{row.relation}</p>}
+          </section>
+        ))}
+      </div>
+    ) : (
+      <div class="purposeTextSequence" data-purpose-structured-text>
+        {rows.map((row, index) => (
+          <section class="purposeTextRow" data-purpose-row={row.key}>
+            <span class="purposeIndex">{String(index + 1).padStart(2, '0')}</span>
+            <div>
+              {row.label && <h3>{row.label}</h3>}
+              {row.problem && <p class="purposePrompt">{row.problem}</p>}
+              {row.relation && <p class="purposeRelation">{row.relation}</p>}
+            </div>
+          </section>
+        ))}
+      </div>
+    )}
+
+    {secondary.length > 0 && (
+      <section class="purposeSecondary">
+        <h3>进一步判断</h3>
+        {secondary.map((row) => (
+          <div class="purposeSecondaryRow">
+            {row.label && <strong>{row.label}</strong>}
+            {row.relation && <p>{row.relation}</p>}
+          </div>
+        ))}
+      </section>
+    )}
+  </section>
+)}
+
+<style>
+  .politicsPurposeFirstGeometry{display:grid;gap:18px;min-width:0}.purposeCompare{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:0;border-top:1px solid var(--study-line);border-bottom:1px solid var(--study-line)}.purposeCompareAxis{display:grid;align-content:start;gap:8px;padding:18px 22px 20px 0}.purposeCompareAxis+.purposeCompareAxis{padding-left:24px;border-left:1px solid var(--study-line)}.purposeCompareAxis h3,.purposeTextRow h3{margin:0;color:#173f32;font-size:21px;line-height:1.4}.purposePrompt{margin:0;color:#597067;font-size:16px;line-height:1.62}.purposeRelation{margin:0;color:#29483d;font-size:17px;line-height:1.68}.purposeTextSequence{display:grid;border-top:1px solid var(--study-line)}.purposeTextRow{display:grid;grid-template-columns:42px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid #e8eeeb}.purposeTextRow>div{display:grid;gap:5px}.purposeIndex{padding-top:3px;color:#6b8a7f;font-size:15px;font-weight:760}.purposeSecondary{display:grid;gap:10px;padding-top:14px;border-top:1px solid var(--study-line)}.purposeSecondary>h3{margin:0;color:#38584d;font-size:18px}.purposeSecondaryRow{display:grid;grid-template-columns:minmax(160px,.32fr) minmax(0,1fr);gap:16px}.purposeSecondaryRow strong{font-size:16px}.purposeSecondaryRow p{margin:0;font-size:16px;line-height:1.62;color:#526a61}@media(max-width:1050px){.purposeCompare{grid-template-columns:1fr}.purposeCompareAxis+.purposeCompareAxis{padding-left:0;border-left:0;border-top:1px solid var(--study-line)}.purposeSecondaryRow{grid-template-columns:1fr}}
+</style>
