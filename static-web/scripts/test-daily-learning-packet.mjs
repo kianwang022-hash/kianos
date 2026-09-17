@@ -1,0 +1,93 @@
+import assert from 'node:assert/strict';
+import {
+  STUDY_TIMER_STATE_KEY,
+  STUDY_TIMER_LEDGER_KEY,
+  STUDY_TIMER_SCHEMA
+} from '../src/lib/studyTimer.mjs';
+import { buildDailyLearningPacket, attachDailySubjectPacket } from '../src/lib/dailyLearningPacket.mjs';
+
+class MemoryStorage {
+  constructor(entries = {}) { this.map = new Map(Object.entries(entries)); }
+  getItem(key) { return this.map.has(key) ? this.map.get(key) : null; }
+  setItem(key, value) { this.map.set(key, String(value)); }
+}
+
+const t0 = Date.parse('2026-09-17T00:00:00Z'); // 08:00 Asia/Shanghai
+const storage = new MemoryStorage({
+  [STUDY_TIMER_STATE_KEY]: JSON.stringify({
+    schema: STUDY_TIMER_SCHEMA,
+    running: false,
+    manualPaused: true,
+    subject: 'english',
+    context: { subject: 'english', route: 'reading/', detailKey: 'reading-a', detailLabel: 'Reading A' },
+    segmentStartedAt: null,
+    lastSeenAt: t0,
+    revision: 2,
+    updatedAt: t0
+  }),
+  [STUDY_TIMER_LEDGER_KEY]: JSON.stringify({
+    schema: STUDY_TIMER_SCHEMA,
+    sessions: [
+      {
+        id: 'xz-1', subject: 'xizong',
+        context: { subject: 'xizong', route: 'xizong/a1/', detailKey: 'A1/B03', detailLabel: 'A1 B03' },
+        startedAt: t0, endedAt: t0 + 60 * 60 * 1000, source: 'timer'
+      },
+      {
+        id: 'en-1', subject: 'english',
+        context: { subject: 'english', route: 'reading/', detailKey: 'reading-a', detailLabel: 'Reading A' },
+        startedAt: t0 + 60 * 60 * 1000, endedAt: t0 + 90 * 60 * 1000, source: 'timer'
+      }
+    ]
+  })
+});
+
+const plan = {
+  schema: 'kianos.exam-plan.read-model.v1',
+  day: '2026-09-17',
+  phase: { id: 'A', label: 'First-Round Closure', outsideCycle: false },
+  gate: { date: '2026-09-27', label: 'First-Round Gate', daysRemaining: 10 },
+  capacity: { dayMinutes: 600, actualMinutes: 90, remainingMinutes: 510, unallocatedMinutes: 0 },
+  next: { subject: 'xizong', href: '/kianos/xizong/a1/', title: '继续 A1' },
+  attention: null,
+  time: { usesTimer: true },
+  subjects: {
+    xizong: { subject: 'xizong', targetMinutes: 360, actualMinutes: 60, remainingMinutes: 300 },
+    politics: { subject: 'politics', targetMinutes: 90, actualMinutes: 0, remainingMinutes: 90 },
+    english: { subject: 'english', targetMinutes: 150, actualMinutes: 30, remainingMinutes: 120 }
+  }
+};
+
+const politicsEvidence = {
+  schema: 'kianos.politics.return_packet.v1',
+  study_day: '2026-09-17',
+  events: [{ question_id: 'P1', outcome: 'UNCERTAIN' }]
+};
+
+const packet = buildDailyLearningPacket({
+  storage,
+  day: '2026-09-17',
+  now: t0 + 2 * 60 * 60 * 1000,
+  plan,
+  subjectPackets: { politics: politicsEvidence }
+});
+
+assert.equal(packet.schema, 'kianos.daily-learning-packet.v1');
+assert.equal(packet.study_day, '2026-09-17');
+assert.equal(packet.total_minutes, 90);
+assert.equal(packet.subjects.xizong.time.minutes, 60);
+assert.equal(packet.subjects.english.time.minutes, 30);
+assert.equal(packet.subjects.politics.time.minutes, 0);
+assert.equal(packet.subjects.xizong.time.details[0].detail, 'A1/B03');
+assert.equal(packet.subjects.xizong.plan.remainingMinutes, 300);
+assert.deepEqual(packet.subjects.politics.evidence, politicsEvidence);
+assert.equal(packet.subjects.xizong.evidence, null);
+assert.equal(packet.schedule.capacity.remainingMinutes, 510);
+
+const withXizong = attachDailySubjectPacket(packet, 'xizong', { schema: 'xizong.daily.v1', completed_blocks: ['B03'] });
+assert.equal(withXizong.subjects.xizong.evidence.completed_blocks[0], 'B03');
+assert.equal(packet.subjects.xizong.evidence, null, 'attach must not mutate the original packet');
+assert.throws(() => attachDailySubjectPacket(packet, 'lexical', {}), /Unsupported subject/);
+assert.throws(() => buildDailyLearningPacket({ storage, day: '2026-09-17', now: t0, plan: { ...plan, day: '2026-09-18' } }), /day mismatch/);
+
+console.log('PASS daily learning packet: time + plan + opaque subject evidence');
