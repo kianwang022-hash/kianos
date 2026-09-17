@@ -29,104 +29,6 @@
   padding-bottom: 54px;
 }
 
-/* Xizong landing: denser, readable, no decorative whitespace. */
-.surface-xizong .homeCurrentStrip {
-  gap: 22px;
-  padding: 19px 22px;
-  border-radius: var(--xz-panel-radius);
-  box-shadow: none;
-}
-.surface-xizong .homeCurrentStrip h2 { font-size: clamp(24px,2.15vw,31px); }
-.surface-xizong .homeCurrentStrip p:not(.pageKicker) { max-width: 84ch; font-size: 14.5px; line-height: 1.58; }
-.surface-xizong .homeCurrentStrip aside strong { font-size: 13px; }
-.surface-xizong .homeCurrentStrip aside span { font-size: 10.5px; }
-.surface-xizong .homeGrid { gap: 9px; margin-top: 10px; }
-.surface-xizong .homeLane {
-  min-height: 188px;
-  gap: 14px;
-  padding: 18px 19px;
-  border-radius: 10px;
-  box-shadow: none;
-}
-.surface-xizong .homeLane h2 { font-size: 24px; }
-.surface-xizong .homeLane > p { font-size: 14px; line-height: 1.58; }
-.surface-xizong .homeLane footer span { font-size: 10.5px; }
-.surface-xizong .homeLane footer b { font-size: 12.5px; }
-
-/* System workspace: persistent structure | semantic work | context. */
-.surface-xizong .xv6SystemShell {
-  grid-template-columns: var(--xz-rail) minmax(0,1fr) var(--xz-context);
-  gap: 10px;
-}
-.surface-xizong .xv6SystemRail,
-.surface-xizong .xv6SystemContext {
-  top: 62px;
-  max-height: calc(100vh - 72px);
-  border-radius: var(--xz-panel-radius);
-  box-shadow: none;
-}
-.surface-xizong .xv6SystemRail header { padding: 14px 14px 12px; }
-.surface-xizong .xv6SystemRail header span,
-.surface-xizong .xv6SystemContext > section > span,
-.surface-xizong .xv6Panel header span { font-size: 10.5px; letter-spacing: .065em; }
-.surface-xizong .xv6SystemRail header strong { font-size: 18px; }
-.surface-xizong .xv6SystemRail header small { font-size: 10.5px; }
-.surface-xizong .xv6SystemRail nav { padding: 6px 0; }
-.surface-xizong .xv6SystemRail nav a {
-  grid-template-columns: 35px minmax(0,1fr) auto;
-  min-height: 49px;
-  gap: 3px 8px;
-  padding: 7px 10px;
-}
-.surface-xizong .xv6SystemRail nav a b { font-size: 11.5px; }
-.surface-xizong .xv6SystemRail nav a span { font-size: 12.5px; font-weight: 700; }
-.surface-xizong .xv6SystemRail nav a small { font-size: 9.5px; }
-.surface-xizong .xv6SystemRail footer { padding: 10px 11px; font-size: 9.5px; }
-
-.surface-xizong .xv6SystemMain { gap: 8px; }
-.surface-xizong .xv6SystemHeroDense,
-.surface-xizong .xv6Panel,
-.surface-xizong .xv6Dependency {
-  border-radius: var(--xz-panel-radius);
-  box-shadow: none;
-}
-.surface-xizong .xv6SystemHeroDense {
-  grid-template-columns: minmax(190px,.48fr) minmax(0,1.52fr);
-  gap: 20px;
-  padding: 15px 18px;
-}
-.surface-xizong .xv6SystemHeroDense span { font-size: 10.5px; }
-.surface-xizong .xv6SystemHeroDense h2 { font-size: 30px; letter-spacing: -.025em; }
-.surface-xizong .xv6SystemHeroDense p { max-width: 78ch; font-size: 14.5px; line-height: 1.62; }
-.surface-xizong .xv6Panel { padding: 15px 18px; }
-.surface-xizong .xv6Panel h3 { margin-top: 3px; font-size: 19px; }
-.surface-xizong .xv6Mother { max-width: 92ch; font-size: 15.5px; line-height: 1.68; }
-.surface-xizong .xv6Spine { gap: 6px; }
-.surface-xizong .xv6Spine li { min-height: 48px; padding: 8px 9px; }
-.surface-xizong .xv6Spine li b { font-size: 10.5px; }
-.surface-xizong .xv6Spine li span { font-size: 13px; line-height: 1.42; }
-.surface-xizong .xv6Parallel span,
-.surface-xizong .xv6Chips span,
-.surface-xizong .xv6Relations code { font-size: 11.5px; }
-.surface-xizong .xv6FailureGrid button { border-radius: 8px; }
-.surface-xizong .xv6FailureGrid button b { font-size: 10.5px; }
-.surface-xizong .xv6FailureGrid h4 { font-size: 14px; }
-.surface-xizong .xv6FailureGrid p { font-size: 12px; line-height: 1.5; }
-.surface-xizong .xv6FailureRun { border-radius: 9px; }
-.surface-xizong .xv6FailureRun > span { font-size: 10px; }
-.surface-xizong .xv6FailureRun strong { font-size: 15px; }
-.surface-xizong .xv6FailureRun p { font-size: 13px; line-height: 1.58; }
-
-.surface-xizong .xv6SystemContext > section { padding: 15px 16px; }
-.surface-xizong .xv6SelectedBlock b { font-size: 12px; }
-.surface-xizong .xv6SelectedBlock h3 { font-size: 19px; line-height: 1.28; }
-.surface-xizong .xv6SelectedBlock p { font-size: 11.5px; }
-.surface-xizong .xv6SelectedBlock button { min-height: 38px; font-size: 12px; }
-.surface-xizong .xv6RecallCompact h3 { font-size: 16px; }
-.surface-xizong .xv6RecallCompact blockquote,
-.surface-xizong .xv6RecallCompact li,
-.surface-xizong .xv6SystemKeys p { font-size: 11.5px; line-height: 1.55; }
-
 /* Block workspace: preserve free navigation, make rails readable and content calm. */
 .surface-xizong .portedStudyRuntime {
   border-radius: var(--xz-panel-radius);
@@ -281,61 +183,15 @@
 .surface-xizong .xv6ChatPacketIntro p,
 .surface-xizong .portedReviewImport small { font-size: 11px; line-height: 1.5; }
 
-/* System Exit: preserve 3-step overview on landscape, make question work readable. */
-.surface-xizong .xizongLaterStage { border-radius: var(--xz-panel-radius); }
-.surface-xizong .xizongLaterStage > summary { padding: 13px 15px; }
-.surface-xizong .xizongLaterStage > summary span { font-size: 10.5px; }
-.surface-xizong .xizongLaterStage > summary strong { font-size: 14px; }
-.surface-xizong .xizongLaterStage > summary small { font-size: 10.5px; }
-.surface-xizong .xse { gap: 9px; }
-.surface-xizong .xseHero,
-.surface-xizong .xseCard,
-.surface-xizong .xseWorkspace { border-radius: 10px; }
-.surface-xizong .xseHero { padding: 17px 19px; }
-.surface-xizong .xseHero span,
-.surface-xizong .xseEyebrow,
-.surface-xizong .xseRecallDialog span,
-.surface-xizong .xseDone > span { font-size: 10.5px; }
-.surface-xizong .xseHero h2 { font-size: 25px; }
-.surface-xizong .xseHero p,
-.surface-xizong .xseCard p { font-size: 13.5px; line-height: 1.62; }
-.surface-xizong .xseSteps { gap: 8px; }
-.surface-xizong .xseCard { padding: 15px; }
-.surface-xizong .xseCard h3 { font-size: 18px; }
-.surface-xizong .xseStatusRow strong { font-size: 12px; line-height: 1.45; }
-.surface-xizong .xse button { padding: 8px 11px; font-size: 12px; }
-.surface-xizong .xseCard small { font-size: 10.5px; line-height: 1.45; }
-.surface-xizong .xseHoldoutCurrent,
-.surface-xizong .xseHoldoutEditor input { font-size: 12px; }
-.surface-xizong .xseSweepStats span { font-size: 11px; }
-.surface-xizong .xseWorkspace { padding: 18px 20px; }
-.surface-xizong .xseWorkspaceHead span { font-size: 11px; }
-.surface-xizong .xseWorkspaceHead h3 { font-size: 19px; }
-.surface-xizong .xseStem { max-width: 82ch; font-size: 18px; line-height: 1.68; }
-.surface-xizong .xseOption { grid-template-columns: 30px minmax(0,1fr); padding: 11px 13px !important; font-size: 15.5px; line-height: 1.55; }
-.surface-xizong .xseRepair p { font-size: 12.5px; line-height: 1.58; }
-.surface-xizong .xseRecallDialog { width: min(860px,calc(100vw - 34px)); }
-.surface-xizong .xseRecallFront > p { font-size: 21px; }
-.surface-xizong .xseRecallInstruction { font-size: 13px; }
-.surface-xizong .xseRecallReveal ol,
-.surface-xizong .xseRecallReveal ul { font-size: 13px; line-height: 1.62; }
-
 /* Mac/desktop gets framed context. Smaller surfaces retain existing compact behavior. */
-@media (min-width: 1500px) {
-  .surface-xizong .homeGrid { grid-template-columns: repeat(4,minmax(0,1fr)); }
-}
-
 @media (max-width: 1240px) {
   .surfaceBody-xizong { --xz-rail: 228px; --xz-context: 270px; --xz-reading: 820px; }
-  .surface-xizong .xv6SystemShell { grid-template-columns: 218px minmax(0,1fr) 266px; }
   .surface-xizong .portedStudyLayout { grid-template-columns: 218px minmax(0,1fr) 252px; }
   .surface-xizong .portedStudyLayout.outline-collapsed { grid-template-columns: 0 minmax(0,1fr) 252px; }
   .surface-xizong .portedStudyLayout.chain-collapsed { grid-template-columns: 218px minmax(0,1fr) 0; }
 }
 
 @media (max-width: 1040px) {
-  .surface-xizong .xv6SystemShell { grid-template-columns: 210px minmax(0,1fr); }
-  .surface-xizong .xv6SystemContext { position: static; grid-column: 1 / -1; max-height: none; }
   .surface-xizong .portedStudyLayout { grid-template-columns: 210px minmax(0,1fr); }
   .surface-xizong .portedStudyChain { display: none; }
   .surface-xizong .portedStudyLayout.outline-collapsed,
@@ -348,16 +204,12 @@
 @media (max-width: 760px) {
   .surfaceBody-xizong .productBar { min-height: 58px; }
   .surface-xizong { width: min(100% - 16px,1720px); }
-  .surface-xizong .xv6SystemShell,
   .surface-xizong .portedStudyLayout,
   .surface-xizong .portedPrecisionShell,
   .surface-xizong .portedReviewWorkspace { grid-template-columns: 1fr; }
-  .surface-xizong .xv6SystemRail,
-  .surface-xizong .xv6SystemContext { position: static; max-height: none; }
   .surface-xizong .portedStudyOutline { border-right: 0; border-bottom: 1px solid var(--study-line); }
   .surface-xizong .portedStudyChain { display: none; }
   .surface-xizong .portedStudyArticle { padding-inline: 20px; }
   .surface-xizong .portedKpCards { padding: 9px; }
   .surface-xizong .portedRecallRating > div { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  .surface-xizong .homeGrid { grid-template-columns: 1fr; }
 }
