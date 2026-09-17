@@ -1,5 +1,6 @@
 ---
 const { firstHref, firstLabel = '开始西综学习' } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
 <section class="xizongHomeTools" data-xizong-home-tools>
   <a class="xizongContinue" data-xizong-continue href={firstHref}>
@@ -11,6 +12,11 @@ const { firstHref, firstLabel = '开始西综学习' } = Astro.props;
     <span>How it works</span>
     <strong>讲义连续学习，KianOS 负责框架、Recall 与修补</strong>
     <p>平时沿学习主线走；只有不稳、Wrong / Uncertain 或需要回 Chat 深挖时，复习与修补入口才出现。</p>
+    <a class="xizongMemoryEntry" data-xizong-memory-entry href={`${base}xizong/memory/`}>
+      <span>Memory</span>
+      <strong>打开长期滚动复习库</strong>
+      <small>Today · Core · Precision · Marked · Repair</small>
+    </a>
   </aside>
 </section>
 
