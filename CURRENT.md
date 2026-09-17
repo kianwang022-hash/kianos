@@ -9,10 +9,10 @@
 
 ## Root Work Cursor
 
-**Active scope:** Project management stabilization — Exam Orchestrator de-dup  
-**Current stage:** remove hand-copied schedule/target constants from web runtime; consume a contract-bound machine projection instead  
+**Active scope:** Project management stabilization  
+**Current stage:** whole-site delivery COMPLETE; Mission Control read model COMPLETE; Orchestrator runtime de-dup COMPLETE  
 **Blocker:** none  
-**Next action:** validate that contract targets/phase dates and runtime projection cannot drift, preserve existing scheduler behavior, then close this slice before expanding Mission Control into Home.
+**Next action:** project only the essential Mission Control summary into Home, keeping daily learning/Continue dominant and leaving deeper project detail on `/current/`.
 
 Top-level governance is accepted and remains frozen. This is implementation of `PROJECT_MANAGEMENT_CONTRACT.md`, not a new root architecture.
 
