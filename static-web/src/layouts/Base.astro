@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import '../styles/shared-visual-foundation.css';
 import '../styles/runtime.css';
 import '../styles/xizong-dense-calm.css';
 import '../styles/english.css';
@@ -23,13 +24,12 @@ import EnglishProductiveConvergence from '../components/EnglishProductiveConverg
 import EnglishLexicalLookupBridge from '../components/EnglishLexicalLookupBridge.astro';
 import StudyTimerDock from '../components/StudyTimerDock.astro';
 import {
-  englishNavigation,
   globalNavigation,
   isEnglishFamily,
   isEnglishRuntime,
   localRoute,
-  resolveEnglishActive,
-  resolveGlobalActive
+  resolveGlobalActive,
+  subjectShell
 } from '../lib/sharedNavigation.mjs';
 
 const {
@@ -49,9 +49,8 @@ const localPath = localRoute(pathname, base);
 const englishFamily = isEnglishFamily(localPath);
 const englishRuntime = isEnglishRuntime(localPath);
 const navActive = resolveGlobalActive(localPath, active);
-const englishActive = resolveEnglishActive(localPath);
 const navItems = globalNavigation(base);
-const englishNavItems = englishNavigation(base);
+const subjectNav = subjectShell(localPath, base);
 const isHub = ['', 'english', 'vocabulary', 'politics', 'xizong'].includes(localPath);
 const isWordStudy = /^vocabulary\/\d+$/.test(localPath);
 const isVocabularyRoute = localPath === 'vocabulary' || localPath.startsWith('vocabulary/');
@@ -105,11 +104,11 @@ const currentStatusUrl = `${base}__kianos-current.json`;
       </aside>
 
       <div class="kianosShellMain">
-        {englishFamily && (
-          <header class="kianosSubjectBar" data-kianos-subject-bar="english">
-            <div class="kianosSubjectIdentity">English</div>
-            <nav class="kianosSubjectNav" aria-label="English 内部导航">
-              {englishNavItems.map((item) => <a class={englishActive === item.key ? 'active' : ''} href={item.href} aria-current={englishActive === item.key ? 'page' : undefined}>{item.label}</a>)}
+        {subjectNav && (
+          <header class="kianosSubjectBar" data-kianos-subject-bar={subjectNav.key}>
+            <div class="kianosSubjectIdentity">{subjectNav.label}</div>
+            <nav class="kianosSubjectNav" aria-label={`${subjectNav.label} 内部导航`}>
+              {subjectNav.items.map((item) => <a class={subjectNav.active === item.key ? 'active' : ''} href={item.href} aria-current={subjectNav.active === item.key ? 'page' : undefined}>{item.label}</a>)}
             </nav>
           </header>
         )}
