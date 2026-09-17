@@ -32,7 +32,7 @@ async function waitForServer() {
   throw new Error('POLITICS_BATCH_PREVIEW_SERVER_NOT_READY');
 }
 
-async function visibleTextBelowFloor(page, floorPx = 15) {
+async function visibleTextBelowFloor(page, floorPx = 16) {
   return page.locator('body').evaluate((root, floor) => {
     const offenders = [];
     const seen = new Set();
@@ -89,8 +89,8 @@ try {
     check((await geometry.locator('svg,canvas').count()) === 0, `${sample.label}_no_auto_diagram`);
     const text = (await geometry.innerText()).replace(/\s+/g, ' ').trim();
     check(text.length >= 8, `${sample.label}_learner_content_visible`, text.slice(0, 80));
-    const tiny = await visibleTextBelowFloor(page, 15);
-    check(tiny.length === 0, `${sample.label}_visible_text_floor_15px`, JSON.stringify(tiny));
+    const tiny = await visibleTextBelowFloor(page, 16);
+    check(tiny.length === 0, `${sample.label}_visible_text_floor_16px`, JSON.stringify(tiny));
     await page.screenshot({ path: new URL(`purpose-first-${sample.label}.png`, auditDir).pathname, fullPage: false });
   }
 
