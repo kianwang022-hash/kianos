@@ -6,16 +6,22 @@ on:
       - '.github/workflows/shared-study-timer.yml'
       - 'static-web/src/lib/studyTimer.mjs'
       - 'static-web/src/lib/studyTimerClient.mjs'
+      - 'static-web/src/lib/examStudyTime.mjs'
+      - 'static-web/src/lib/examOrchestratorClient.mjs'
       - 'static-web/src/layouts/Base.astro'
       - 'static-web/scripts/test-study-timer.mjs'
+      - 'static-web/scripts/test-exam-study-time.mjs'
       - 'static-web/package.json'
   push:
     paths:
       - '.github/workflows/shared-study-timer.yml'
       - 'static-web/src/lib/studyTimer.mjs'
       - 'static-web/src/lib/studyTimerClient.mjs'
+      - 'static-web/src/lib/examStudyTime.mjs'
+      - 'static-web/src/lib/examOrchestratorClient.mjs'
       - 'static-web/src/layouts/Base.astro'
       - 'static-web/scripts/test-study-timer.mjs'
+      - 'static-web/scripts/test-exam-study-time.mjs'
       - 'static-web/package.json'
 
 permissions:
