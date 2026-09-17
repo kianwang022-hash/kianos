@@ -25,6 +25,32 @@ async function waitForServer() {
   throw new Error('POLITICS_GOLDEN_PREVIEW_SERVER_NOT_READY');
 }
 
+async function visibleLearnerTextBelowFloor(locator, floorPx = 15) {
+  return locator.evaluate((root, floor) => {
+    const offenders = [];
+    const seen = new Set();
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    while (walker.nextNode()) {
+      const text = String(walker.currentNode.textContent || '').replace(/\s+/g, ' ').trim();
+      if (!text || !/[A-Za-z0-9\u3400-\u9FFF]/.test(text)) continue;
+      const element = walker.currentNode.parentElement;
+      if (!element) continue;
+      const closedDetails = element.closest('details:not([open])');
+      if (closedDetails && !element.closest('summary')) continue;
+      const style = getComputedStyle(element);
+      if (style.display === 'none' || style.visibility === 'hidden' || Number(style.opacity) === 0) continue;
+      if (!element.getClientRects().length) continue;
+      const size = Number.parseFloat(style.fontSize);
+      if (!Number.isFinite(size) || size >= floor) continue;
+      const key = `${element.tagName}.${element.className || ''}:${size}:${text}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      offenders.push({ tag: element.tagName, className: String(element.className || ''), size, text: text.slice(0, 90) });
+    }
+    return offenders.slice(0, 40);
+  }, floorPx);
+}
+
 const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
   cwd: process.cwd(),
   stdio: ['ignore', 'pipe', 'pipe'],
@@ -39,6 +65,7 @@ try {
   const page = await context.newPage();
   await page.goto(`${BASE}/politics/marxism/ch00/`, { waitUntil: 'networkidle' });
 
+  const body = page.locator('body');
   const workspace = page.locator('[data-politics-cognitive-workspace]');
   await workspace.waitFor({ state: 'visible' });
 
@@ -48,6 +75,8 @@ try {
   check(await s01.locator('.purposeChain').isVisible(), 's01_simple_chain_visible');
   const s01TitleSize = Number.parseFloat(await s01.locator('[data-stage="ORIENT"] > h2').evaluate((node) => getComputedStyle(node).fontSize));
   check(s01TitleSize >= 30, 's01_main_title_readable', `${s01TitleSize}px`);
+  const s01TinyText = await visibleLearnerTextBelowFloor(body, 15);
+  check(s01TinyText.length === 0, 's01_page_visible_text_floor_15px', JSON.stringify(s01TinyText));
 
   await workspace.locator('[data-workspace-unit-tab="1"]').click();
   const s02 = workspace.locator('[data-workspace-unit][data-unit-id="POL27-CF-MARX-C00-S02"]');
@@ -85,6 +114,8 @@ try {
   check(peerSize >= 18, 's02_peer_type_readable', `${peerSize}px`);
   check(relationSize >= 16, 's02_relation_type_readable', `${relationSize}px`);
   check(exactSize >= 16, 's02_exact_type_readable', `${exactSize}px`);
+  const s02TinyText = await visibleLearnerTextBelowFloor(body, 15);
+  check(s02TinyText.length === 0, 's02_page_visible_text_floor_15px', JSON.stringify(s02TinyText));
 
   await context.close();
   console.log('POLITICS_GOLDEN_PURPOSE_FIRST_PASS');
