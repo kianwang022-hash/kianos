@@ -95,7 +95,7 @@ const protectedAux = resolveXizongLearnerAssetRepresentation({
   kind: 'VISUAL',
   sourceVisualBundle: { assets: [{ src: '/fixture.webp' }] }
 }, { stage: 'KP_RECALL_FRONT' });
-check(protectedAux.visible === false, 'auxiliary_assets_hidden_on_recall_front');
+check(protectedAux.visible === true, 'kp_recall_front_keeps_auxiliary_assets_visible');
 
 const plan = composeXizongFrameworkRepresentation(a1b1.objects || []);
 check(plan.componentEntitlement === false, 'framework_objects_do_not_entitle_one_component_each');
@@ -183,7 +183,7 @@ console.log(JSON.stringify({
     framework: 'GATE_DRIVEN_COMPOSED_SURFACE',
     systemFramework: 'PURPOSE_FIRST_GATE_DRIVEN_WORKSPACE',
     auxiliary: 'GATE_DRIVEN_DYNAMIC_SUPPORT',
-    recallFront: 'WORKSPACE_WIDE_PROTECTED'
+    recallFront: 'CORE_ONLY_PROTECTED'
   },
   hardFallback: 'STRUCTURED_TEXT'
 }, null, 2));
