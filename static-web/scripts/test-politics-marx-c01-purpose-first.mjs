@@ -10,7 +10,7 @@ const checks = [];
 let failure = null;
 const check = (condition, name, detail = '') => {
   checks.push({ name, pass: Boolean(condition), detail });
-  if (!condition) throw new Error(`POLITICS_C01_PURPOSE_FAIL:${name}${detail ? `:${detail}` : ''}`);
+  if (!condition) throw new Error(`POLITICS_C01_SURFACE_FAIL:${name}${detail ? `:${detail}` : ''}`);
   console.log(`PASS ${name}${detail ? ` · ${detail}` : ''}`);
 };
 
@@ -25,7 +25,7 @@ async function waitForServer() {
   throw new Error('POLITICS_C01_PREVIEW_SERVER_NOT_READY');
 }
 
-async function visibleTextBelowFloor(locator, floorPx = 16) {
+async function visibleTextBelowFloor(locator, floorPx = 15) {
   return locator.evaluate((root, floor) => {
     const offenders = [];
     const seen = new Set();
@@ -66,56 +66,65 @@ try {
   await mkdir(auditDir, { recursive: true });
 
   await page.goto(`${BASE}/politics/marxism/ch01/#unit-1`, { waitUntil: 'networkidle' });
-  const s01 = page.locator('[data-politics-unit][data-unit-id="POL27-CF-MARX-C01-S01"]');
+  const s01 = page.locator('[data-workspace-unit][data-unit-id="POL27-CF-MARX-C01-S01"]');
   await s01.waitFor({ state: 'visible' });
-  const s01Geometry = s01.locator('[data-purpose-first-geometry]');
-  await s01Geometry.waitFor({ state: 'visible' });
-  check((await s01Geometry.getAttribute('data-representation')) === 'COMPARE', 's01_uses_safe_compare');
-  check(await s01Geometry.locator('[data-purpose-compare]').isVisible(), 's01_compare_is_visible');
-  const s01Text = (await s01Geometry.innerText()).replace(/\s+/g, ' ');
-  check(s01Text.includes('哲学基本问题的两条轴'), 's01_keeps_first_axis');
-  check(s01Text.includes('辩证法与形而上学'), 's01_keeps_second_axis');
-  check((await s01Geometry.locator('i').count()) === 0, 's01_compare_does_not_invent_arrows');
-  const s01Handoff = s01.locator('[data-current-handoff]');
-  await s01Handoff.waitFor({ state: 'visible' });
-  const s01HandoffText = (await s01Handoff.innerText()).replace(/\s+/g, ' ');
-  check(s01HandoffText.includes('第一节 哲学及其基本问题'), 's01_current_locator_visible');
-  check(s01HandoffText.includes('思维和存在是什么关系'), 's01_current_look_for_visible');
-  const s01Tiny = await visibleTextBelowFloor(page.locator('body'), 16);
-  check(s01Tiny.length === 0, 's01_page_visible_text_floor_16px', JSON.stringify(s01Tiny));
-  await page.screenshot({ path: new URL('marx-c01-s01-purpose-first.png', auditDir).pathname, fullPage: true });
+  check((await s01.getAttribute('data-explicit-surface-mapping')) === 'v1', 's01_uses_explicit_surface_mapping');
+
+  const s01Axes = s01.locator('[data-surface-group="marx-c01-s01-axes"]');
+  await s01Axes.waitFor({ state: 'visible' });
+  check((await s01Axes.getAttribute('data-surface-primitive')) === 'PARALLEL_SET', 's01_axes_are_parallel');
+  check((await s01Axes.locator('.explicitParallel > article').count()) === 2, 's01_keeps_two_owned_axis_groups');
+  check((await s01Axes.locator('.sequenceTransition').count()) === 0, 's01_parallel_axes_have_no_invented_arrows');
+  const s01AxesText = (await s01Axes.innerText()).replace(/\s+/g, ' ');
+  check(s01AxesText.includes('哲学基本问题的两条轴'), 's01_keeps_first_axis');
+  check(s01AxesText.includes('辩证法与形而上学'), 's01_keeps_second_axis');
+  check(s01AxesText.includes('两条轴回答不同问题'), 's01_axis_relation_text_visible');
+
+  const s01Boundary = s01.locator('[data-surface-group="marx-c01-s01-boundary"]');
+  await s01Boundary.waitFor({ state: 'visible' });
+  check((await s01Boundary.getAttribute('data-surface-primitive')) === 'STATEMENT', 's01_boundary_is_statement');
+  const s01BoundaryText = (await s01Boundary.innerText()).replace(/\s+/g, ' ');
+  check(s01BoundaryText.includes('三组判断不要串轴'), 's01_boundary_visible');
+  check((await s01.locator('[data-purpose-first-geometry], .purposeChain, .purposeTextMap').count()) === 0, 's01_legacy_geometry_absent');
+  const s01Tiny = await visibleTextBelowFloor(s01, 15);
+  check(s01Tiny.length === 0, 's01_learner_text_floor_15px', JSON.stringify(s01Tiny));
+  await page.screenshot({ path: new URL('marx-c01-s01-explicit-surface.png', auditDir).pathname, fullPage: true });
 
   await page.goto(`${BASE}/politics/marxism/ch01/#unit-2`, { waitUntil: 'networkidle' });
-  const s02 = page.locator('[data-politics-unit][data-unit-id="POL27-CF-MARX-C01-S02"]');
+  const s02 = page.locator('[data-workspace-unit][data-unit-id="POL27-CF-MARX-C01-S02"]');
   await s02.waitFor({ state: 'visible' });
-  const s02Geometry = s02.locator('[data-purpose-first-geometry]');
-  await s02Geometry.waitFor({ state: 'visible' });
-  check((await s02Geometry.getAttribute('data-representation')) === 'STRUCTURED_TEXT', 's02_defaults_to_structured_text');
-  check(await s02Geometry.locator('[data-purpose-structured-text]').isVisible(), 's02_structured_text_visible');
-  const s02Rows = s02Geometry.locator('[data-purpose-row]');
-  check((await s02Rows.count()) === 9, 's02_keeps_nine_current_beats', String(await s02Rows.count()));
-  const s02Text = (await s02Geometry.innerText()).replace(/\s+/g, ' ');
+  check((await s02.getAttribute('data-explicit-surface-mapping')) === 'v1', 's02_uses_explicit_surface_mapping');
+
+  const s02Chain = s02.locator('[data-surface-group="marx-c01-s02-world-chain"]');
+  await s02Chain.waitFor({ state: 'visible' });
+  check((await s02Chain.getAttribute('data-surface-primitive')) === 'DIRECTED_SEQUENCE', 's02_world_model_is_directed_sequence');
+  check((await s02Chain.locator('.sequenceItem').count()) === 9, 's02_keeps_nine_current_beats', String(await s02Chain.locator('.sequenceItem').count()));
+  check((await s02Chain.locator('.sequenceTransition').count()) === 8, 's02_has_exact_eight_owned_transitions');
+  const s02Text = (await s02Chain.innerText()).replace(/\s+/g, ' ');
   check(s02Text.includes('物质范畴'), 's02_keeps_material_category');
   check(s02Text.includes('人工智能边界'), 's02_keeps_ai_boundary_beat');
   check(s02Text.includes('世界的物质统一性'), 's02_keeps_material_unity');
-  check((await s02Geometry.locator('i').count()) === 0, 's02_long_chain_does_not_auto_draw_arrows');
-  const closureNode = s02.locator('[data-current-closure]');
-  await closureNode.waitFor({ state: 'attached' });
-  const closure = String(await closureNode.textContent()).replace(/\s+/g, ' ').trim();
-  check(closure.includes('不要背一串定义'), 's02_current_closure_reaches_runtime', closure);
-  const s02Tiny = await visibleTextBelowFloor(page.locator('body'), 16);
-  check(s02Tiny.length === 0, 's02_page_visible_text_floor_16px', JSON.stringify(s02Tiny));
-  await page.screenshot({ path: new URL('marx-c01-s02-purpose-first.png', auditDir).pathname, fullPage: true });
+  check(s02Text.includes('物质决定意识'), 's02_node_relation_text_visible');
+
+  const s02Boundaries = s02.locator('[data-surface-group="marx-c01-s02-boundaries"]');
+  await s02Boundaries.waitFor({ state: 'visible' });
+  check((await s02Boundaries.getAttribute('data-surface-primitive')) === 'PARALLEL_SET', 's02_boundaries_are_parallel');
+  check((await s02Boundaries.locator('.explicitParallel > article').count()) === 4, 's02_keeps_four_current_boundaries');
+  check((await s02Boundaries.locator('.sequenceTransition').count()) === 0, 's02_boundaries_have_no_invented_direction');
+  check((await s02.locator('[data-purpose-first-geometry], .purposeChain, .purposeTextMap').count()) === 0, 's02_legacy_geometry_absent');
+  const s02Tiny = await visibleTextBelowFloor(s02, 15);
+  check(s02Tiny.length === 0, 's02_learner_text_floor_15px', JSON.stringify(s02Tiny));
+  await page.screenshot({ path: new URL('marx-c01-s02-explicit-surface.png', auditDir).pathname, fullPage: true });
 
   await context.close();
-  console.log('POLITICS_MARX_C01_PURPOSE_FIRST_PASS');
+  console.log('POLITICS_MARX_C01_EXPLICIT_SURFACE_PASS');
 } catch (error) {
   failure = error instanceof Error ? error.message : String(error);
   throw error;
 } finally {
   await mkdir(auditDir, { recursive: true });
   await writeFile(new URL('marx-c01-purpose-first.json', auditDir), JSON.stringify({
-    schema: 'kianos.politics.marx_c01_purpose_first.v1',
+    schema: 'kianos.politics.marx_c01_explicit_surface.v2',
     checks,
     failure,
     status: failure ? 'FAIL' : 'PASS'
