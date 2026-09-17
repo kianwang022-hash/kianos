@@ -137,5 +137,279 @@ function itemChildren(item) {
 </div>
 
 <style>
-  .politicsExplicitSurfacePlan{display:grid;gap:18px;min-width:0}.explicitGroup{display:grid;gap:10px;min-width:0}.explicitGroup>header{padding-bottom:7px;border-bottom:1px solid var(--study-line)}.explicitGroup>header strong{font-size:18px;line-height:1.45;color:#294b40}.zone-support{padding-top:4px}.zone-support>header strong{color:#587067;font-size:16px}.explicitParallel{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}.explicitParallel article,.explicitStatements article{display:grid;gap:5px;padding:9px 0 9px 12px;border-left:3px solid #bfd3cb}.explicitParallel b,.explicitStatements b,.sequenceItem b{font-size:18px;line-height:1.4;color:#173f32}.explicitParallel p,.explicitStatements p,.sequenceItem p{margin:0;font-size:16px;line-height:1.62;color:#4f675e}.explicitParallel ul,.explicitStatements ul,.sequenceItem ul{display:flex;flex-wrap:wrap;gap:7px 12px;margin:2px 0 0;padding:0;list-style:none}.explicitParallel li,.explicitStatements li,.sequenceItem li{font-size:16px;line-height:1.55;color:#405f54}.explicitSequence{display:flex;align-items:stretch;gap:12px;min-width:0}.sequenceItem{flex:1 1 0;display:grid;align-content:start;gap:5px;padding:10px 0 10px 12px;border-left:3px solid #7aa995}.sequenceTransition{flex:0 0 80px;display:grid;align-content:center;justify-items:center;gap:3px;color:#658d7f}.sequenceTransition span{font-size:16px;line-height:1.45;text-align:center}.sequenceTransition i{font-style:normal;font-size:20px;font-weight:760}.explicitCompare{display:grid;gap:10px}.explicitCompare article{padding:10px 0;border-bottom:1px solid #e7eeea}.compareSides{display:grid;grid-template-columns:1fr 1fr;gap:12px}.compareSides b{font-size:17px;color:#24483c}.explicitCompare p{margin:7px 0 0;font-size:16px;line-height:1.62;color:#536a61}.explicitHierarchy{display:grid;gap:8px}.explicitHierarchy article{display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;margin-left:calc(var(--level) * 12px);padding:9px 0;border-bottom:1px solid #e7eeea}.explicitHierarchy article>span{font-size:15px;font-weight:760;color:#527166}.explicitHierarchy article>div{display:grid;gap:5px}.explicitHierarchy p{margin:0;font-size:17px;line-height:1.6;color:#29483d}.explicitTimeline{display:grid;gap:8px;margin:0;padding:0;list-style:none}.explicitTimeline li{display:grid;grid-template-columns:130px minmax(0,1fr);gap:14px;padding:8px 0;border-bottom:1px solid #e7eeea}.explicitTimeline b{font-size:16px;color:#24483c}.explicitTimeline li>div{display:grid;gap:4px}.explicitTimeline span{font-size:16px;line-height:1.6;color:#536a61}.edgeStatement{display:flex;flex-wrap:wrap;align-items:baseline;gap:7px}.edgeStatement strong{font-size:17px}.edgeStatement span{font-size:16px;color:#587067}.surfaceLocator{font-weight:700;color:#2d5b49!important}@media(max-width:980px){.explicitSequence{display:grid}.sequenceTransition{min-height:30px;grid-template-columns:auto auto;justify-content:start}.sequenceTransition i{transform:rotate(90deg)}.compareSides{grid-template-columns:1fr}.explicitHierarchy article,.explicitTimeline li{grid-template-columns:1fr}.explicitHierarchy article{margin-left:0}}
+  .politicsExplicitSurfacePlan {
+    display: grid;
+    gap: 24px;
+    min-width: 0;
+  }
+
+  .explicitGroup {
+    display: grid;
+    gap: 14px;
+    min-width: 0;
+  }
+
+  .explicitGroup > header {
+    padding-bottom: 9px;
+    border-bottom: 1px solid var(--study-line);
+  }
+
+  .explicitGroup > header strong {
+    color: #294b40;
+    font-size: 19px;
+    font-weight: 650;
+    line-height: 1.5;
+  }
+
+  .zone-support {
+    padding-top: 2px;
+  }
+
+  .zone-support > header strong {
+    color: #587067;
+    font-size: 17px;
+    font-weight: 600;
+  }
+
+  .explicitParallel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px 26px;
+  }
+
+  .explicitParallel article,
+  .explicitStatements article {
+    display: grid;
+    gap: 7px;
+    min-width: 0;
+    padding: 10px 0 11px 15px;
+    border-left: 3px solid #b7cec4;
+  }
+
+  .explicitParallel b,
+  .explicitStatements b,
+  .sequenceItem b {
+    color: #173f32;
+    font-size: 18px;
+    font-weight: 650;
+    line-height: 1.5;
+  }
+
+  .explicitParallel p,
+  .explicitStatements p,
+  .sequenceItem p {
+    margin: 0;
+    color: #4b645a;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.75;
+  }
+
+  .explicitParallel ul,
+  .explicitStatements ul,
+  .sequenceItem ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin: 3px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .explicitParallel li,
+  .explicitStatements li,
+  .sequenceItem li {
+    color: #405f54;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.65;
+  }
+
+  .explicitSequence {
+    display: flex;
+    align-items: stretch;
+    gap: 14px;
+    min-width: 0;
+  }
+
+  .sequenceItem {
+    display: grid;
+    flex: 1 1 0;
+    align-content: start;
+    gap: 7px;
+    min-width: 0;
+    padding: 11px 0 12px 15px;
+    border-left: 3px solid #78a590;
+  }
+
+  .sequenceTransition {
+    display: grid;
+    flex: 0 0 104px;
+    align-content: center;
+    justify-items: center;
+    gap: 7px;
+    color: #547d6e;
+  }
+
+  .sequenceTransition span {
+    font-size: 16px;
+    font-weight: 550;
+    line-height: 1.55;
+    text-align: center;
+  }
+
+  .sequenceTransition i {
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  .explicitCompare {
+    display: grid;
+    gap: 0;
+  }
+
+  .explicitCompare article {
+    padding: 14px 0 15px;
+    border-bottom: 1px solid #e2ebe6;
+  }
+
+  .compareSides {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .compareSides b {
+    color: #24483c;
+    font-size: 18px;
+    font-weight: 650;
+    line-height: 1.55;
+  }
+
+  .explicitCompare p {
+    margin: 8px 0 0;
+    color: #536a61;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.7;
+  }
+
+  .explicitHierarchy {
+    display: grid;
+    gap: 0;
+  }
+
+  .explicitHierarchy article {
+    display: grid;
+    grid-template-columns: minmax(120px, .38fr) minmax(0, 1.62fr);
+    gap: 20px;
+    margin-left: calc(var(--level) * 14px);
+    padding: 13px 0;
+    border-bottom: 1px solid #e2ebe6;
+  }
+
+  .explicitHierarchy article > span {
+    color: #527166;
+    font-size: 16px;
+    font-weight: 650;
+    line-height: 1.55;
+  }
+
+  .explicitHierarchy article > div {
+    display: grid;
+    gap: 6px;
+  }
+
+  .explicitHierarchy p {
+    margin: 0;
+    color: #29483d;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.7;
+  }
+
+  .explicitTimeline {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .explicitTimeline li {
+    display: grid;
+    grid-template-columns: minmax(150px, .45fr) minmax(0, 1.55fr);
+    gap: 22px;
+    padding: 13px 0;
+    border-bottom: 1px solid #e2ebe6;
+  }
+
+  .explicitTimeline b {
+    color: #24483c;
+    font-size: 17px;
+    font-weight: 650;
+    line-height: 1.55;
+  }
+
+  .explicitTimeline li > div {
+    display: grid;
+    gap: 5px;
+  }
+
+  .explicitTimeline span {
+    color: #536a61;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.7;
+  }
+
+  .edgeStatement {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 9px;
+  }
+
+  .edgeStatement strong {
+    font-size: 18px;
+    font-weight: 650;
+  }
+
+  .edgeStatement span {
+    color: #587067;
+    font-size: 17px;
+    font-weight: 550;
+  }
+
+  .surfaceLocator {
+    color: #2d5b49 !important;
+    font-weight: 650 !important;
+  }
+
+  @media (max-width: 980px) {
+    .explicitSequence {
+      display: grid;
+    }
+
+    .sequenceTransition {
+      grid-template-columns: auto auto;
+      min-height: 36px;
+      justify-content: start;
+    }
+
+    .sequenceTransition i {
+      transform: rotate(90deg);
+    }
+
+    .compareSides,
+    .explicitHierarchy article,
+    .explicitTimeline li {
+      grid-template-columns: 1fr;
+    }
+
+    .explicitHierarchy article {
+      margin-left: 0;
+    }
+  }
 </style>
