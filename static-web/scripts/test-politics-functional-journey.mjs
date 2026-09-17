@@ -192,13 +192,15 @@ async function c00GoldenScreenshots(page) {
 
   const s01 = workspace.locator('[data-workspace-unit]').nth(0);
   await s01.waitFor({ state: 'visible' });
-  check((await s01.locator('.goldenGraph').count()) === 1, 'c00_s01_uses_one_spatial_graph');
+  check((await s01.getAttribute('data-politics-representation')) === 'SIMPLE_CHAIN_WHEN_CLEARER', 'c00_s01_simple_chain_exception_visible');
+  check(await s01.locator('.purposeChain').isVisible(), 'c00_s01_purpose_chain_visible');
   await page.screenshot({ path: path.join(auditDir, 'marx-c00-s01-orient.png'), fullPage: false });
 
   await workspace.locator('[data-workspace-unit-tab="1"]').click();
   const s02 = workspace.locator('[data-workspace-unit]').nth(1);
   await s02.waitFor({ state: 'visible' });
-  check((await s02.locator('.goldenGraph').count()) === 2, 'c00_s02_keeps_two_maps_simultaneously_visible');
+  check((await s02.getAttribute('data-politics-representation')) === 'TEXT_DEFAULT', 'c00_s02_text_default_visible');
+  check((await s02.locator('.purposeTextMap').count()) === 2, 'c00_s02_two_readable_text_maps_visible');
   await page.screenshot({ path: path.join(auditDir, 'marx-c00-s02-orient.png'), fullPage: false });
 }
 
