@@ -392,14 +392,18 @@ const payload = learnerObject || null;
           representationStage = 'GROUP_CLOSURE';
           title = '收口辅助';
           slot = learner.slots?.logicGroupPostlearn?.[groupId] || {};
-        } else if (stage === 'kp_recall' && recallAnswerVisible()) {
-          const kpId = activeRecallKpId();
-          slotName = 'kp_recall_post_reveal';
-          representationStage = 'KP_RECALL_REVEAL';
-          title = 'Reveal 后辅助';
-          slot = { ...(learner.slots?.kpRecallPostReveal?.[kpId] || {}), core: null };
         } else if (stage === 'kp_recall') {
-          representationStage = 'KP_RECALL_FRONT';
+          const kpId = activeRecallKpId();
+          const kp = kpById.get(kpId);
+          const groupId = kp?.identity?.logicGroupId || groupIds[activeGroupIndex()] || '';
+          slotName = 'kp_recall_aux';
+          representationStage = recallAnswerVisible() ? 'KP_RECALL_REVEAL' : 'KP_RECALL_FRONT';
+          title = kp ? `${kp.identity.displayId} · 当前辅助` : '当前辅助';
+          slot = mergeSlots(
+            learner.slots?.logicGroupPrelearn?.[groupId] || {},
+            learner.slots?.kpLearnAux?.[kpId] || {},
+            { ...(learner.slots?.kpRecallPostReveal?.[kpId] || {}), core: null }
+          );
         }
         const rendered = renderSlot(slot, { stage: representationStage });
         auxHost.dataset.learnerObjectSlot = slotName;
