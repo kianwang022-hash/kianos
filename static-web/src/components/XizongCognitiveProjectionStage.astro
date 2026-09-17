@@ -58,36 +58,3 @@ const hasFramework = projection?.compiled && (plan.objectCount > 0 || referenceO
     </div>
   </details>
 )}
-
-<style>
-  .xv6CognitiveProjection{margin:10px 0 14px;border:1px solid var(--study-line,var(--line,#d9dde5));border-radius:10px;background:var(--paper,#fff);overflow:hidden}
-  .xv6FrameworkEntrySummary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;cursor:pointer;list-style:none;background:var(--study-surface-muted,var(--soft,#f5f6f8))}
-  .xv6FrameworkEntrySummary::-webkit-details-marker{display:none}
-  .xv6FrameworkEntrySummary>div{display:grid;gap:2px;min-width:0}
-  .xv6FrameworkEntrySummary span{font-size:.72rem;font-weight:800;letter-spacing:.06em;color:var(--study-green,#286c57);text-transform:uppercase}
-  .xv6FrameworkEntrySummary strong{font-size:.92rem;line-height:1.45}
-  .xv6FrameworkEntrySummary small{flex-shrink:0;font-size:.75rem;opacity:.58}
-  .xv6FrameworkEntry[open]>.xv6FrameworkEntrySummary{border-bottom:1px solid var(--study-line,var(--line,#d9dde5))}
-  .xv6FrameworkEntryBody{display:grid;gap:0;padding:2px 14px 12px}
-  .xv6FrameworkRegion{display:grid;grid-template-columns:96px minmax(0,1fr);gap:16px;padding:13px 0;border-bottom:1px solid var(--study-line,var(--line,#d9dde5))}
-  .xv6FrameworkRegion:last-of-type{border-bottom:0}
-  .xv6FrameworkRegion>header{padding-top:2px;color:var(--study-green,#286c57);font-size:.76rem;font-weight:800;letter-spacing:.03em}
-  .xv6FrameworkRegionBody{display:grid;gap:10px;min-width:0}
-  .xv6ProjectionObject{min-width:0}
-  .xv6ProjectionObject+.xv6ProjectionObject{padding-top:10px;border-top:1px dashed var(--study-line,var(--line,#d9dde5))}
-  .xv6ProjectionObject .markdown>:first-child{margin-top:0}
-  .xv6ProjectionObject .markdown>:last-child{margin-bottom:0}
-  .xv6ProjectionObject.representation-structured_text .markdown{font-size:.94rem;line-height:1.7}
-  .xv6ProjectionObject.representation-simple_chain .markdown pre{margin:0;padding:10px 0;border:0;background:transparent;color:inherit;font:650 .96rem/1.75 var(--study-font,inherit);white-space:pre-wrap}
-  .xv6ProjectionObject.representation-formula_strip .markdown pre{margin:0;padding:10px 12px;border-left:3px solid var(--study-green,#286c57);background:var(--study-surface-muted,var(--soft,#f5f6f8));font-size:1rem;line-height:1.7;font-weight:700;white-space:pre-wrap}
-  .xv6ProjectionObject.representation-structured_table .markdown table{width:100%;border-collapse:collapse;font-size:.9rem}
-  .xv6ProjectionObject.representation-structured_table .markdown th,.xv6ProjectionObject.representation-structured_table .markdown td{padding:7px 9px;border:1px solid var(--study-line,var(--line,#d9dde5));text-align:left;vertical-align:top}
-  .xv6ProjectionItems{display:flex;flex-wrap:wrap;gap:7px}
-  .xv6ProjectionItems span{padding:3px 0 3px 9px;border-left:2px solid #b9d0c7;font-size:.88rem;line-height:1.45}
-  .xv6ProjectionReferences{padding-top:4px}
-  .xv6ProjectionReferences details{padding:8px 0;border-top:1px dashed var(--study-line,var(--line,#d9dde5))}
-  .xv6ProjectionReferences summary{cursor:pointer;font-size:.85rem;font-weight:700}
-  .xv6ProjectionReferences p{margin:8px 0 4px;font-size:.86rem;line-height:1.6;opacity:.75}
-  .xv6ProjectionReferences code{font-size:.72rem;opacity:.62;white-space:normal}
-  @media(max-width:760px){.xv6FrameworkRegion{grid-template-columns:1fr;gap:6px}.xv6FrameworkRegion>header{padding-top:0}}
-</style>

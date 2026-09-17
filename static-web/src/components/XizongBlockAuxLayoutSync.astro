@@ -8,18 +8,8 @@
 
   if (root instanceof HTMLElement && layout instanceof HTMLElement) {
     const apply = () => {
-      const outlineCollapsed = layout.classList.contains('outline-collapsed');
-      const chainCollapsed = layout.classList.contains('chain-collapsed');
-      const left = outlineCollapsed ? '0px' : '174px';
       const weight = root.dataset.auxWeight || 'none';
-      const right = chainCollapsed
-        ? '0px'
-        : weight === 'rich'
-          ? 'minmax(400px,38%)'
-          : weight === 'light'
-            ? '280px'
-            : '208px';
-      layout.style.setProperty('grid-template-columns', `${left} minmax(0,1fr) ${right}`, 'important');
+      layout.dataset.auxWeight = ['none', 'light', 'rich'].includes(weight) ? weight : 'none';
     };
 
     root.addEventListener('kianos:xizong-aux-change', (event) => {
