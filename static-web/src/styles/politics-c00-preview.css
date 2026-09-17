@@ -267,6 +267,7 @@ body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace[data-subj
   margin-top:0;
   padding-top:16px;
   border-top:1px solid #e4eae6;
+  background:transparent;
 }
 
 body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace[data-subject="marxism"][data-chapter="ch00"] .explicitGroup.zone-support>header {
@@ -389,6 +390,9 @@ body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace[data-subj
 }
 
 body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace[data-subject="marxism"][data-chapter="ch00"] .stageActions {
+  position:static;
+  bottom:auto;
+  z-index:auto;
   display:flex;
   align-items:center;
   justify-content:flex-start;
