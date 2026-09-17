@@ -1,0 +1,131 @@
+{
+  "schema": "kianos.xizong.extension_assets.v1",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED_SUBORDINATE",
+  "system_id": "respiratory",
+  "canonical_id": "A2",
+  "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
+  "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
+  "assets": [
+    {
+      "slot_id": "respiratory-r01-lg04-ventilation-pattern-comparison",
+      "owner": {
+        "block_id": "respiratory-r01",
+        "logic_group_id": "respiratory-r01-lg04"
+      },
+      "cue_id": "a2-r01-lg04-visual",
+      "asset_type": "STRUCTURED_TABLE",
+      "revision": 1,
+      "title": "Obstructive vs restrictive ventilation pattern",
+      "task": "只比较阻塞 vs 限制的阻力、呼吸困难、流速/容量和关键肺功能方向，不把一张表机械等同于疾病诊断。",
+      "caption": "Reviewed physiology comparison · P170",
+      "provenance": {
+        "kind": "LECTURE_SOURCE",
+        "source_locator": "生理 Lecture PDF P170",
+        "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123"
+      },
+      "display_policy": {
+        "timing": "REFERENCE_ONLY",
+        "default_state": "COLLAPSED"
+      },
+      "payload": {
+        "columns": [
+          {"key": "axis", "label": "共同轴"},
+          {"key": "obstructive", "label": "阻塞性通气障碍"},
+          {"key": "restrictive", "label": "限制性通气障碍"}
+        ],
+        "rows": [
+          {"axis": "主要负担", "obstructive": "气道阻塞，非弹性阻力↑", "restrictive": "弹性阻力↑或胸膜空间限制，肺扩张受限"},
+          {"axis": "主要困难", "obstructive": "呼气性呼吸困难", "restrictive": "吸气性呼吸困难"},
+          {"axis": "主要问题", "obstructive": "流速↓为主", "restrictive": "容积↓为主"},
+          {"axis": "FEV1/FVC", "obstructive": "↓", "restrictive": "按本节生理口径：基本不变"},
+          {"axis": "FEV1", "obstructive": "↓", "restrictive": "↓"},
+          {"axis": "FVC", "obstructive": "正常或↓；下降程度通常小于 FEV1", "restrictive": "↓"},
+          {"axis": "RV、FRC", "obstructive": "↑", "restrictive": "↓"},
+          {"axis": "TLC", "obstructive": "可↑", "restrictive": "↓"},
+          {"axis": "典型例子", "obstructive": "COPD / 肺气肿、支气管哮喘", "restrictive": "肺纤维化、胸膜病变"}
+        ]
+      }
+    },
+    {
+      "slot_id": "respiratory-r10-lg01-effusion-mechanism-comparison",
+      "owner": {
+        "block_id": "respiratory-r10",
+        "logic_group_id": "respiratory-r10-lg01"
+      },
+      "cue_id": "a2-r10-lg01-visual",
+      "asset_type": "STRUCTURED_TABLE",
+      "revision": 1,
+      "title": "Pleural-effusion formation mechanisms",
+      "task": "先按胸膜液体动力学定位：静水压、胶体渗透压、通透性还是淋巴回流，再判断漏出 / 渗出方向。",
+      "caption": "Reviewed internal-medicine source comparison · P67",
+      "provenance": {
+        "kind": "LECTURE_SOURCE",
+        "source_locator": "内科 Lecture PDF P67",
+        "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939"
+      },
+      "display_policy": {
+        "timing": "REFERENCE_ONLY",
+        "default_state": "COLLAPSED"
+      },
+      "payload": {
+        "columns": [
+          {"key": "mechanism", "label": "动力学变化"},
+          {"key": "effect", "label": "胸膜腔效应"},
+          {"key": "orientation", "label": "胸水方向"}
+        ],
+        "rows": [
+          {"mechanism": "胸膜毛细血管静水压↑", "effect": "液体滤出驱动力↑", "orientation": "漏出性胸水"},
+          {"mechanism": "血浆胶体渗透压↓", "effect": "液体回吸驱动力↓", "orientation": "漏出性胸水"},
+          {"mechanism": "胸膜毛细血管通透性↑", "effect": "蛋白、细胞和液体进入胸膜腔↑", "orientation": "渗出性胸水"},
+          {"mechanism": "胸膜局部淋巴引流受阻", "effect": "胸膜液清除↓", "orientation": "渗出性胸水"}
+        ]
+      }
+    },
+    {
+      "slot_id": "respiratory-r10-lg01-light-criteria",
+      "owner": {
+        "block_id": "respiratory-r10",
+        "logic_group_id": "respiratory-r10-lg01"
+      },
+      "cue_id": "a2-r10-lg01-visual",
+      "asset_type": "STRUCTURED_TABLE",
+      "revision": 1,
+      "title": "Pleural-fluid quantitative comparison and Light criteria",
+      "task": "先看渗出 / 漏出的定量方向，再用 Light 三条做正式判定；任一满足即判渗出液。",
+      "caption": "Reviewed internal-medicine source table · P68",
+      "provenance": {
+        "kind": "LECTURE_SOURCE",
+        "source_locator": "内科 Lecture PDF P68",
+        "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939"
+      },
+      "display_policy": {
+        "timing": "REFERENCE_ONLY",
+        "default_state": "COLLAPSED"
+      },
+      "payload": {
+        "columns": [
+          {"key": "section", "label": "分区"},
+          {"key": "axis", "label": "指标 / 标准"},
+          {"key": "exudate", "label": "渗出液 / 阳性阈值"},
+          {"key": "transudate", "label": "漏出液"},
+          {"key": "decision", "label": "判定说明"}
+        ],
+        "rows": [
+          {"section": "定量对照", "axis": "比重", "exudate": ">1.018", "transudate": "<1.018", "decision": ""},
+          {"section": "定量对照", "axis": "外观", "exudate": "混浊，可凝固", "transudate": "清亮，不凝固", "decision": ""},
+          {"section": "定量对照", "axis": "蛋白", "exudate": ">30 g/L；Rivalta+", "transudate": "<30 g/L；Rivalta−", "decision": ""},
+          {"section": "定量对照", "axis": "葡萄糖", "exudate": "<3.3 mmol/L", "transudate": "与血糖相近", "decision": ""},
+          {"section": "定量对照", "axis": "细胞", "exudate": ">500×10⁶/L", "transudate": "多<100×10⁶/L", "decision": ""},
+          {"section": "定量对照", "axis": "胸水 / 血清蛋白", "exudate": ">0.5", "transudate": "<0.5", "decision": ""},
+          {"section": "定量对照", "axis": "胸水 / 血清 LDH", "exudate": ">0.6", "transudate": "<0.6", "decision": ""},
+          {"section": "定量对照", "axis": "血清−胸水白蛋白梯度", "exudate": "<12", "transudate": "≥12", "decision": ""},
+          {"section": "定量对照", "axis": "肿瘤细胞 / 细菌", "exudate": "可有", "transudate": "无", "decision": ""},
+          {"section": "Light 标准", "axis": "胸水 / 血清蛋白", "exudate": ">0.5", "transudate": "—", "decision": "三条任一满足即判渗出液；三条均不满足才支持漏出液"},
+          {"section": "Light 标准", "axis": "胸水 / 血清 LDH", "exudate": ">0.6", "transudate": "—", "decision": "三条任一满足即判渗出液；三条均不满足才支持漏出液"},
+          {"section": "Light 标准", "axis": "胸水 LDH", "exudate": ">血清 LDH 正常上限的 2/3", "transudate": "—", "decision": "三条任一满足即判渗出液；三条均不满足才支持漏出液"}
+        ]
+      }
+    }
+  ]
+}
