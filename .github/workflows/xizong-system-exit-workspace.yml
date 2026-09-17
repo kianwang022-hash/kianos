@@ -11,6 +11,7 @@ on:
       - 'static-web/src/styles/xizong-system-exit-workspace.css'
       - 'static-web/scripts/validate-xizong-system-exit-style-ownership.mjs'
       - 'static-web/scripts/test-xizong-system-exit-workspace.mjs'
+      - 'static-web/scripts/debug-xizong-system-exit-runtime.mjs'
       - '.github/workflows/xizong-system-exit-workspace.yml'
   push:
     branches: [main]
@@ -22,6 +23,7 @@ on:
       - 'static-web/src/styles/xizong-system-exit-workspace.css'
       - 'static-web/scripts/validate-xizong-system-exit-style-ownership.mjs'
       - 'static-web/scripts/test-xizong-system-exit-workspace.mjs'
+      - 'static-web/scripts/debug-xizong-system-exit-runtime.mjs'
       - '.github/workflows/xizong-system-exit-workspace.yml'
 
 permissions:
@@ -58,6 +60,8 @@ jobs:
         run: |
           npm install --no-save --no-audit --no-fund playwright@1.56.1
           npx playwright install --with-deps chromium
+      - name: Capture System Exit runtime diagnostics
+        run: node scripts/debug-xizong-system-exit-runtime.mjs
       - name: Execute System Exit browser acceptance
         run: node scripts/test-xizong-system-exit-workspace.mjs
       - name: Upload System Exit browser evidence
@@ -69,4 +73,5 @@ jobs:
             static-web/.qa/xizong-system-exit-workspace.json
             static-web/.qa/xizong-system-exit-question.png
             static-web/.qa/xizong-system-exit-recall.png
+            static-web/.qa/xizong-system-exit-runtime-debug.json
           if-no-files-found: warn
