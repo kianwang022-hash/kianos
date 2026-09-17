@@ -31,7 +31,7 @@ static-web/CURRENT.md
 | English | Objective / Translation / Writing are frozen through S–E; learner U is real use only. | Preserve complete task context, first artifacts, exact Return/Resume and task-native geometry. Fix concrete defects; do not redesign learning for styling. |
 | Lexical | Bounded Repair / Challenge / Evidence closure is integrated via #174 / #191. This does not imply full-catalog or unrestricted acceptance. | `content/lexical/CURRENT.md` + `ACCEPTANCE.md`. Content continues independently of stable-interface UI. No missing optional slot may create learner debt. |
 | Politics | Five-subject Learning is closed through E. Xiao1000 Workbench was fresh-reconciled to main via #183; #117 is historical. | **#116** + `POLITICS_PRODUCT_STATUS.md` own remaining product capabilities, including review-entry completeness, NU/source/repair/exact Return consistency and Mac acceptance. #210 landed the visual release slice, not a new Politics Runtime. |
-| Xizong | One phase-aware Runtime consumes independently growing System, Source Visual, Precision and reviewed Crosswalk assets. | `content/xizong/CURRENT.md`, exact System owners and `XIZONG_PRODUCT_STATUS.md`. Content growth does not require recurring renderer redesign. |
+| Xizong | One phase-aware Runtime consumes independently growing System, Source Visual, Precision and reviewed Crosswalk assets. | `content/xizong/CURRENT.md`, exact System owners, `XIZONG_PRODUCT_STATUS.md`, and **`XIZONG_REPRESENTATION_GATE.md`**. Projection role/geometry or learner-asset existence does not itself entitle a diagram/component; representation must minimize learning cost without inventing medical semantics. |
 | Global Home | Cross-subject decisions belong to **`EXAM_ORCHESTRATOR_CONTRACT.md`**. | **#224** owns the orchestration consumer/runtime and complete Today / Attention integration. Native subject Continue alone is not full orchestration closure. |
 
 ## Global Home / Orchestrator
@@ -51,6 +51,7 @@ Desktop Home remains a **single-viewport command center**. Core status / Continu
 - Lexical: Chinese meaning first, English calibration second; sense-bound usage occupies the other half of each sense row. Important Expansion appears only with real content, using separate right-side cards and slightly relaxed spacing. No audit rationale, empty optional modules or standalone pronunciation band.
 - Politics: original Chengfeng learning stays on iPad/MarginNote; Astro is orientation / cognition / verification / repair. Submitted Xiao review preserves learner-result vs explanation/source/Return zones.
 - Xizong: System → Block → Logic Group → original Lecture handoff → Recall / closure, using the existing Runtime. Neutral Recall permission is workspace-wide; surrounding UI must not leak an answer.
+- Xizong representation is **purpose-first, not geometry-first**: readable structured text is the safe fallback; explicit simple chains, tables, formula strips and reviewed source visuals are used when they lower cognitive cost. Generic graph layout must never infer hierarchy, causality, centrality or prerequisite order from Projection topology merely to make a visual.
 
 Use the persistent `/KianOS/UI Reference Set/<Subject>/` and Kian's latest feedback as visual grammar, never as authority to restore retired learning logic.
 
