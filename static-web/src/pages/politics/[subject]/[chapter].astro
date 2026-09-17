@@ -36,12 +36,6 @@ const useExplicitCognitiveMapping = useCognitiveWorkspace
   && [...compiled.values()].every((row) => row?.surfacePlan?.states?.ORIENT?.length > 0);
 const usePurposeFirstRuntime = !useCognitiveWorkspace && Boolean(compiled?.size);
 ---
-<style is:global>
-  /* Golden C00 calibration: the learner-facing orientation question must read as a real headline. */
-  .politicsCognitiveWorkspace.directReasoningWorkspace[data-subject="marxism"][data-chapter="ch00"] [data-stage="ORIENT"] > h2 {
-    font-size: clamp(32px, 2.45vw, 39px) !important;
-  }
-</style>
 
 <Base
   title={data.title}
