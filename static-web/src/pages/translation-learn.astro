@@ -37,7 +37,10 @@ async function renderChunk(key) {
   return source ? await marked.parse(source, { gfm: true, breaks: false }) : '';
 }
 
-const introHtml = await marked.parse(intro, { gfm: true, breaks: false });
+// The canonical intro ends with a thematic break before section A. The page already
+// owns that transition through its section rule + translation path strip, so render
+// the intro without duplicating the same separator on the learner surface.
+const introHtml = await marked.parse(intro.replace(/\n---\s*$/u, ''), { gfm: true, breaks: false });
 const coreSections = await Promise.all(coreKeys.map(async (key) => ({ key, html: await renderChunk(key) })));
 const diagnosticSections = await Promise.all(diagnosticKeys.map(async (key) => ({ key, html: await renderChunk(key) })));
 const runtimeSections = await Promise.all(runtimeKeys.map(async (key) => ({ key, html: await renderChunk(key) })));
