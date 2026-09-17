@@ -78,11 +78,30 @@ try {
     check(await page.evaluate((key) => localStorage.getItem(key) === null, readingAKey), 'raw_external_id_does_not_collide_with_reading_a_storage');
     check(await page.evaluate((key) => Boolean(localStorage.getItem(key)), externalKey), 'external_attempt_uses_isolated_runtime_id');
 
+    const examContinuousKey = 'kianos-reading-continuous-session-v1';
+    const examContinuousSentinel = {
+      version: 1,
+      active: true,
+      reviewing: false,
+      startedAt: '2026-09-17T00:00:00.000Z',
+      items: [{ id: 'reading-a-sentinel', score: 3, total: 5, problemCount: 2 }],
+      reviewIds: ['reading-a-sentinel'],
+      reviewIndex: 0,
+      lastSummary: null
+    };
+    await page.evaluate(({ key, value }) => localStorage.setItem(key, JSON.stringify(value)), {
+      key: examContinuousKey,
+      value: examContinuousSentinel
+    });
+
     await page.locator('[data-reading-submit]').click();
     await page.locator('[data-reading-result]').waitFor({ state: 'visible' });
     check((await page.locator('[data-reading-score]').textContent()) === '1 / 2', 'submit_loads_answer_projection_and_scores');
     check(await q1.locator('[data-reading-repair]').isVisible(), 'wrong_or_uncertain_enters_shared_repair');
     check((await q1.locator('[data-reading-formal-answer]').textContent()) === 'A', 'formal_answer_reveals_only_after_submit');
+
+    const examSessionAfter = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), examContinuousKey);
+    check(JSON.stringify(examSessionAfter) === JSON.stringify(examContinuousSentinel), 'external_submit_preserves_reading_a_continuous_session');
 
     await page.screenshot({ path: path.join(auditDir, 'external-reading-1440x900.png'), fullPage: false });
     await context.close();
