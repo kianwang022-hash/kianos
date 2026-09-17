@@ -1,0 +1,45 @@
+name: Shared Study Timer
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/shared-study-timer.yml'
+      - 'static-web/src/lib/studyTimer.mjs'
+      - 'static-web/src/lib/studyTimerClient.mjs'
+      - 'static-web/src/layouts/Base.astro'
+      - 'static-web/scripts/test-study-timer.mjs'
+      - 'static-web/package.json'
+  push:
+    paths:
+      - '.github/workflows/shared-study-timer.yml'
+      - 'static-web/src/lib/studyTimer.mjs'
+      - 'static-web/src/lib/studyTimerClient.mjs'
+      - 'static-web/src/layouts/Base.astro'
+      - 'static-web/scripts/test-study-timer.mjs'
+      - 'static-web/package.json'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: shared-study-timer-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  timer-logic-and-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install learner site dependencies
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+      - name: Test shared study timer logic
+        working-directory: static-web
+        run: npm run test:study-timer
+      - name: Build learner site
+        working-directory: static-web
+        run: npm run build
