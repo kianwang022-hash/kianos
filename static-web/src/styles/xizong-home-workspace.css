@@ -22,7 +22,9 @@ body#kianos-workspace.surfaceBody-xizong .xzHomeHeader {
   align-items:end;
   padding:8px 2px 2px;
 }
-body#kianos-workspace.surfaceBody-xizong .xzHomeHeader .pageKicker {
+body#kianos-workspace.surfaceBody-xizong .xzHomeHeader .pageKicker,
+body#kianos-workspace.surfaceBody-xizong .xzHomeCompanion .pageKicker,
+body#kianos-workspace.surfaceBody-xizong .xzHomeFutureBand .pageKicker {
   margin:0 0 5px;
   color:var(--xz-home-green);
   font-size:15px;
@@ -239,15 +241,6 @@ body#kianos-workspace.surfaceBody-xizong .xzHomeCompanion {
 body#kianos-workspace.surfaceBody-xizong .xzHomeCompanion>section {
   padding:21px 22px;
 }
-body#kianos-workspace.surfaceBody-xizong .xzHomeCompanion>section+section {
-  border-top:1px solid var(--xz-home-line);
-}
-body#kianos-workspace.surfaceBody-xizong .xzHomeCompanion .pageKicker {
-  margin:0;
-  color:var(--xz-home-green);
-  font-size:15px;
-  font-weight:800;
-}
 body#kianos-workspace.surfaceBody-xizong .xzHomeCompanion h2 {
   margin:5px 0 14px;
   font-size:20px;
@@ -285,26 +278,56 @@ body#kianos-workspace.surfaceBody-xizong .xzHomeLearningChain span {
   font-size:15px;
   line-height:1.5;
 }
-body#kianos-workspace.surfaceBody-xizong .xzHomeFutureRow {
+
+/* Future domains are global orientation, so they sit in a compact horizontal band
+   rather than stretching the current-task companion rail and leaving dead space. */
+body#kianos-workspace.surfaceBody-xizong .xzHomeFutureBand {
   display:grid;
-  grid-template-columns:24px minmax(0,1fr);
-  gap:10px;
-  padding:9px 0;
-  border-bottom:1px solid #e2eae5;
-  color:var(--xz-home-muted);
-  font-size:15px;
-  line-height:1.5;
+  grid-template-columns:210px minmax(0,1fr);
+  gap:0;
+  overflow:hidden;
+  border:1px solid var(--xz-home-line);
+  border-radius:10px;
+  background:#fff;
 }
-body#kianos-workspace.surfaceBody-xizong .xzHomeFutureRow>b {
-  color:#759484;
-  font-size:15px;
+body#kianos-workspace.surfaceBody-xizong .xzHomeFutureBand>header {
+  padding:16px 18px;
+  border-right:1px solid var(--xz-home-line);
+  background:#f7faf8;
 }
-body#kianos-workspace.surfaceBody-xizong .xzHomeFutureMap>small {
+body#kianos-workspace.surfaceBody-xizong .xzHomeFutureBand h2 {
+  margin:3px 0 5px;
+  font-size:19px;
+  line-height:1.35;
+}
+body#kianos-workspace.surfaceBody-xizong .xzHomeFutureBand small {
   display:block;
-  margin-top:12px;
   color:var(--xz-home-muted);
   font-size:15px;
-  line-height:1.55;
+  line-height:1.45;
+}
+body#kianos-workspace.surfaceBody-xizong .xzHomeFutureGrid {
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+}
+body#kianos-workspace.surfaceBody-xizong .xzHomeFutureItem {
+  display:grid;
+  gap:5px;
+  align-content:center;
+  min-width:0;
+  min-height:88px;
+  padding:13px 15px;
+  border-left:1px solid var(--xz-home-line);
+}
+body#kianos-workspace.surfaceBody-xizong .xzHomeFutureItem:first-child { border-left:0; }
+body#kianos-workspace.surfaceBody-xizong .xzHomeFutureItem>b {
+  color:#6f927f;
+  font-size:15px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzHomeFutureItem>span {
+  color:var(--xz-home-muted);
+  font-size:15px;
+  line-height:1.4;
 }
 
 @media (max-width:1080px) {
@@ -319,12 +342,22 @@ body#kianos-workspace.surfaceBody-xizong .xzHomeFutureMap>small {
   body#kianos-workspace.surfaceBody-xizong .xzHomeWorkspace {
     grid-template-columns:minmax(0,1fr) 280px;
   }
+  body#kianos-workspace.surfaceBody-xizong .xzHomeFutureBand {
+    grid-template-columns:190px minmax(0,1fr);
+  }
+  body#kianos-workspace.surfaceBody-xizong .xzHomeFutureGrid {
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+  body#kianos-workspace.surfaceBody-xizong .xzHomeFutureItem:nth-child(n+4) {
+    border-top:1px solid var(--xz-home-line);
+  }
 }
 
 @media (max-width:760px) {
   body#kianos-workspace.surfaceBody-xizong .xzHomeHeader,
   body#kianos-workspace.surfaceBody-xizong .xzHomeActionBar,
-  body#kianos-workspace.surfaceBody-xizong .xzHomeWorkspace {
+  body#kianos-workspace.surfaceBody-xizong .xzHomeWorkspace,
+  body#kianos-workspace.surfaceBody-xizong .xzHomeFutureBand {
     grid-template-columns:1fr;
   }
   body#kianos-workspace.surfaceBody-xizong .xzHomeHeader>span { white-space:normal; }
@@ -341,5 +374,15 @@ body#kianos-workspace.surfaceBody-xizong .xzHomeFutureMap>small {
   }
   body#kianos-workspace.surfaceBody-xizong .xzHomeSystemRow>b {
     grid-column:2;
+  }
+  body#kianos-workspace.surfaceBody-xizong .xzHomeFutureBand>header {
+    border-right:0;
+    border-bottom:1px solid var(--xz-home-line);
+  }
+  body#kianos-workspace.surfaceBody-xizong .xzHomeFutureGrid {
+    grid-template-columns:1fr 1fr;
+  }
+  body#kianos-workspace.surfaceBody-xizong .xzHomeFutureItem {
+    border-top:1px solid var(--xz-home-line);
   }
 }
