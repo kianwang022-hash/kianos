@@ -1,6 +1,6 @@
 ---
 import '../../styles/product-closure.css';
-import Base from '../../layouts/Base.astro';
+import PoliticsLayout from '../../layouts/PoliticsLayout.astro';
 import PoliticsHomeTools from '../../components/PoliticsHomeTools.astro';
 import { listPoliticsSubjectsCurrent, politicsCurrentHealth } from '../../lib/politicsCurrent.mjs';
 
@@ -13,7 +13,7 @@ const firstChapter = firstSubject?.chapters?.[0];
 const firstHref = firstSubject && firstChapter ? `${base}politics/${firstSubject.subject}/${firstChapter.code}/` : `${base}politics/`;
 const firstLabel = firstChapter ? `${firstSubject.label} · ${firstChapter.title}` : '开始政治学习';
 ---
-<Base title="政治" active="politics" showLead={false}>
+<PoliticsLayout title="政治" active="politics" showLead={false}>
   <header class="politicsOverviewHeader">
     <div><p class="pageKicker">POLITICS · STUDY WORKSPACE</p><h1>政治</h1><p>带着结构进入原讲义，用题目验证，再回到真正的缺口。</p></div>
     <nav class="politicsOverviewActions"><a class="politicsPracticeEntry" href={`${base}politics/practice/`}>进入肖1000 <span>→</span></a><a href={`${base}politics/review/`}>今日回访 →</a></nav>
@@ -32,7 +32,7 @@ const firstLabel = firstChapter ? `${firstSubject.label} · ${firstChapter.title
     </section>)}
   </section>
   <p class="politicsOverviewFoot">连续学习在 iPad / MarginNote 原讲义；这里保留框架、验证和准确返回。</p>
-</Base>
+</PoliticsLayout>
 <script>
   // View selection only. No progress, scheduler, completion, or Resume writes.
   const workbench=document.querySelector('[data-politics-subject-workbench]');
