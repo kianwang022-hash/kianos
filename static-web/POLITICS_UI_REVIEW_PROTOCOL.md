@@ -1,186 +1,167 @@
-# Politics UI Review Protocol — closed-projection optimization first
+# Politics UI Review Protocol — explicit Surface Mapping first
 
 Status: **CURRENT DESIGN / IMPLEMENTATION SAFETY PROTOCOL**  
-Scope: learner-facing Politics UI implementation / Projection optimization  
+Scope: learner-facing Politics UI implementation / product optimization  
 Learning authority: `content/politics/LEARNING_CONTRACT.md`  
 Interaction authority: `content/politics/INTERACTION_CONTRACT.md`  
+Representation authority: `content/politics/SURFACE_MAPPING_CONTRACT.md`  
 Product status: `static-web/POLITICS_PRODUCT_STATUS.md`  
-Detailed accepted UI decisions: `static-web/POLITICS_PRODUCT_BRIEF.md` + five subject design files  
-Derived Projection ledger: `content/politics/projection/manifest.json`
+Capability ledger: `static-web/POLITICS_LEGACY_FUNCTION_PARITY.md`
 
-This file does not own Politics knowledge, Current Content, Learning Logic, Runtime semantics, Evidence semantics, learner progress, or new UI design. It owns one narrower rule:
+This protocol does not own Politics knowledge, Learning Logic, Question Truth, Runtime semantics, Evidence semantics, learner progress, or new semantic design.
 
-> **Politics UI productization starts from the already-closed Current → Projection → Runtime / Evidence / Repair / Return loop. Optimize the accepted Projection; do not redesign it from raw Content.**
+Its hard rule is:
 
----
+> **Politics UI starts from the resolved explicit Surface Mapping. The renderer may optimize presentation, but it may not rediscover or invent Politics semantics from Projection shape names, raw fields, old geometry metadata, or DOM structure.**
 
-# 1｜Hard rule: accepted Projection is the product baseline
-
-Politics is not a blank-slate Projection project.
-
-Current state:
+## 1 | Accepted product chain
 
 ```text
 Current Politics Content / Learning Logic
-        ↓
-accepted subject-specific Projection semantics
-        ↓
-53 compiled chapter Projection owners
-        ↓
-160 Current Natural Unit owners accounted
-        ↓
-existing Runtime / Evidence / Repair / Return
-        ↓
-Mac-wide UI implementation / optimization
+→ Projection selects exact Current owners / refs
+→ explicit Surface Mapping owns learner composition
+→ resolved surfacePlan.states[state]
+→ existing Runtime / Evidence / Repair / Return
+→ bounded Mac-wide UI implementation
 ```
 
 Not:
 
 ```text
-raw chapter JSON
-→ UI / Codex invents a new cognitive shape
-→ reconnect Runtime afterward
+raw chapter JSON / projection_shape / representation.kind
+→ renderer guesses cognitive geometry
+→ learner relation appears
 ```
 
-All five Politics subjects are already accepted through `S/K/L/P/R/E`; `U` remains learner-only. Normal UI implementation therefore does **not** reopen Learning / Projection / Runtime / Evidence merely because a cleaner layout can be imagined.
+All five Politics subjects are already accepted through `S/K/L/P/R/E`; `U` remains learner-only. A normal UI change does not reopen those gates.
 
-A reopen requires fresh contradictory evidence and must identify the earliest responsible owner/gate.
+## 2 | Whole learner loop before local optimization
 
----
-
-# 2｜Whole learner loop before local UI optimization
-
-Before changing a local Politics learner surface, reconstruct the relevant live loop far enough to understand what comes before and after it.
-
-Shared first-round loop:
+Before changing a Politics learner surface, reconstruct the relevant live loop:
 
 ```text
 Politics Home / meaningful Continue
 → subject / chapter / current Natural Unit orientation
-→ Chengfeng continuous study on original iPad / MarginNote surface
-→ return / optional close or checkpoint
-→ Xiao1000 clean verification in Astro
+→ Chengfeng continuous study on original iPad / MarginNote
+→ return / optional close
+→ Xiao1000 clean verification
 → stable correct → continue cheaply
    OR Wrong / meaningful Uncertain
    → smallest sufficient repair
-   → owning Chengfeng source and/or Chat when appropriate
-   → exact return to interrupted question / Unit path
-→ next question / Natural Unit / meaningful Resume
+   → owning source / Chat when earned
+   → exact Return
+→ next question / Unit / meaningful Resume
 ```
 
-Later phases may add selective Memory, compression, analysis-output practice and Mock transfer when their owning phase makes them relevant.
+Do not optimize one panel in isolation if the change can break source ownership, Natural Unit identity, clean-attempt protection, Evidence, Repair provenance, Return, or private learner state.
 
-Do not optimize a local page in isolation if the change can break:
+## 3 | Representation ownership
 
-- Chengfeng surface ownership;
-- Natural Unit identity / position;
-- clean-attempt answer protection;
-- stable-correct fast path;
-- Wrong / Uncertain admission;
-- repair provenance;
-- Return Packet semantics;
-- question identity / Workbench behavior;
-- later Memory / analysis-output timing;
-- private learner-state boundaries.
+For mapped PASS owners, Surface Mapping owns:
 
----
+- which objects appear together;
+- semantic relation type;
+- learner-visible relation text when it is part of knowledge;
+- primary / companion / support / handoff / repair / closure grouping;
+- learner payload for `ORIENT / EXTERNAL_LEARN / CLOSE / REPAIR / CONTINUE`.
 
-# 3｜Required four-way UI / Projection audit
+Accepted primitives:
 
-Before proposing or implementing a material Politics UI change, classify the existing learner-facing element as one of:
+```text
+STATEMENT
+PARALLEL_SET
+RELATION_SET
+DIRECTED_SEQUENCE
+TIMELINE
+COMPARE
+HIERARCHY
+```
 
-## `KEEP`
+Directed transition modes:
 
-The existing Projection / Runtime behavior already expresses the accepted cognition or interaction and must survive materially unchanged.
+```text
+LABELED_RELATION → visible relation text is owned content
+ORDER_ONLY       → direction/order only; UI invents no connector prose
+```
 
-Typical examples:
+Runtime / UI owns only timing, trigger, interaction shell, responsive arrangement, typography, spacing, alignment, borders, colors and other visual implementation.
 
-- Chengfeng continuous-learning handoff to iPad / MarginNote;
-- one Natural Unit owning the main cognitive stage at a time;
-- clean Xiao1000 attempt without answer leakage;
-- stable correct → cheap continue;
-- Wrong / Uncertain → bounded repair;
-- Return to the interrupted Unit / question;
-- first-attempt evidence preservation;
-- accepted historical Politics Workbench information architecture and interaction burden.
+### Forbidden downstream reconstruction
 
-## `OPTIMIZE`
+Once an owner has explicit mapping, Runtime/UI must not repopulate learner payload from:
 
-The semantic object and learner behavior are correct, but Mac-wide geometry, density, typography, hierarchy, simultaneous visibility, interaction cost or visual polish can improve.
+- `projection_shape`;
+- `representation.kind`;
+- generic `Map / Chain / topology / edges` metadata;
+- raw teaching fields;
+- legacy hierarchy / handoff / closure objects;
+- rendered DOM;
+- field names that merely sound causal, hierarchical or chronological.
 
-Examples:
+If a mapped surface is semantically insufficient, reopen the earliest responsible Surface Mapping owner. Do not patch meaning into the renderer.
 
-- use wide horizontal geometry for truly parallel relations;
-- reduce narrow article-column carryover;
-- keep decisive first-round structure visible without unnecessary reveal controls;
-- demote chrome while keeping the same action/state semantics;
-- modernize the preserved Politics Workbench visually without adding learner steps.
+## 4 | Four-way UI audit
 
-`OPTIMIZE` must not mutate Politics Content, learning order, state gating, evidence meaning or source ownership.
+Before a material UI change, classify the existing learner-facing element as one of:
 
-## `RESTORE_FROM_PROJECTION`
+### `KEEP`
 
-The compiled Cognitive Projection owner already contains an accepted learner-facing semantic object, but the current UI drops it, over-compresses it, hides it behind unnecessary interaction, or falls back to a lossy generic adapter.
+Behavior and semantic payload are already correct and must survive materially unchanged.
+
+Typical examples: Chengfeng handoff, one active Natural Unit, clean Xiao1000 attempt, stable-correct fast path, Wrong/Uncertain repair admission, exact Return and first-attempt preservation.
+
+### `OPTIMIZE`
+
+Mapped payload and behavior are fixed; visual treatment can improve with zero semantic diff.
+
+Allowed examples:
+
+- wider layout for a mapped `PARALLEL_SET`;
+- clearer hierarchy for mapped `HIERARCHY`;
+- better spacing around mapped `RELATION_SET`;
+- responsive stacking for a mapped `DIRECTED_SEQUENCE`;
+- stronger readable treatment for mapped relation text;
+- demoting chrome without moving or hiding owned learner content.
+
+`OPTIMIZE` may not change relation type, grouping, state payload, learning order, evidence meaning or source ownership.
+
+### `RESTORE_FROM_SURFACE_MAPPING`
+
+The resolved Surface Mapping already owns learner content, but the UI drops it, hides it unnecessarily, duplicates it, or replaces it with legacy payload.
 
 Restoration source:
 
 ```text
-content/politics/projection/manifest.json
-→ corresponding subject/chapter *.projection.json
-→ referenced Current field(s)
+content/politics/projection/<subject>/<chapter>.projection.json
+→ exact surface_mapping owner
+→ resolved surfacePlan.states[state]
 ```
 
-The UI must restore the **compiled Projection disposition**, not re-read raw Current and invent a new shape.
+The renderer restores that resolved plan exactly; it does not reinterpret raw Projection geometry.
 
-Examples include restoring an accepted:
+Historical text using `RESTORE_FROM_PROJECTION` should now be read narrowly as this case only. It does **not** authorize shape inference from Projection metadata.
 
-- History cause layer / evaluation / turning-point geometry;
-- Marxism topology / reasoning chain / simultaneous multi-map visibility;
-- Mao role / theory-response geometry;
-- Xi hierarchy / identity / fixed-formulation boundary;
-- Ethics-Law evaluation anchor / concept-boundary / scene matrix;
-- `REFERENCE_ONLY` disposition that must remain non-teaching payload;
-- `first_round_exact` boundary that must remain Current-owned only.
+### `DEMOTE`
 
-## `DEMOTE`
+A legitimate element should not compete with the current learner action: engineering metadata, counts, deep provenance, implementation state labels, repeated architecture explanation, or later-phase material shown too early.
 
-The surface exposes something legitimate but it should not compete with the current cognitive action.
+Demotion changes prominence/timing only. It may not demote owned relation text or other mapped learner content into decorative microcopy.
 
-Examples:
+## 5 | Protected behaviors
 
-- source / engineering metadata;
-- chapter/unit counts as learner chrome;
-- Runtime state labels that are implementation detail;
-- deep provenance;
-- later precision/reference material shown too early;
-- repeated explanation of Suyi / Chengfeng / Xiao1000 architecture;
-- stable/correct review information that creates unnecessary process burden.
-
-Demotion changes prominence/timing, not ownership or capability.
-
----
-
-# 4｜Politics-specific protected behaviors
-
-The following are not redesign targets during normal UI implementation.
-
-## 4.1 Surface ownership
+### Surface ownership
 
 ```text
 Suyi       framework / orientation / exactness cross-check input
 Chengfeng  continuous first-round mainline on original iPad / MarginNote
 Xiao1000   verification / transfer evidence in Astro
-KianOS     orientation / selective projection / verification / repair companion
+KianOS     orientation / selective cognition / verification / repair companion
 Chat       adaptive semantic repair when earned
 ```
 
-`Source ownership ≠ Surface ownership.`
+`Source ownership ≠ Surface ownership.` Astro must not become a second continuous Chengfeng reader.
 
-Astro must not become a second continuous Chengfeng reader because Projection assets are richer now.
-
-## 4.2 Cognitive state chain
-
-Preserve:
+### State chain
 
 ```text
 ORIENT
@@ -191,157 +172,82 @@ ORIENT
 → Wrong / Uncertain → REPAIR → VERIFY or CONTINUE
 ```
 
-These states may share one continuous workspace; they are not permission to manufacture extra pages or mandatory confirmations.
+Mapped state payload comes from the resolved Surface Mapping. State timing and trigger remain Runtime concerns.
 
-## 4.3 Projection authority
+### Repair single writer
 
-Compiled Projection assets are the accepted learner-facing representation layer.
+Mapped `REPAIR` is the only learner-content writer for repair payload. Question/Evidence logic decides when Repair opens; it may not author a second explanation.
 
-Hard UI consumer rules:
+### Xiao1000 Workbench
 
-- consume `content/politics/projection/**` for cognitive shape;
-- resolve only the Current refs explicitly carried by the Projection owner;
-- null / empty means do not synthesize a missing teaching value;
-- selector scope must not be widened;
-- `first_round_exact` may only render accepted Current-owned first-round exact objects;
-- `REFERENCE_ONLY` must not become an independent learner teaching Unit;
-- Chengfeng handoff remains `IPAD_MARGINNOTE`;
-- unsupported / stale Projection must fail closed rather than falling back to raw-Current shape inference.
+The accepted Workbench remains protected. UI work may modernize appearance and exact Current binding but must not add a new mandatory diagnosis/structure ritual, leak answers before submission, overwrite first-attempt evidence, or break exact Return.
 
-The durable validator `static-web/scripts/validate-politics-cognitive-projection-assets.mjs` protects these bindings in Politics QA.
+## 6 | Subject differences without renderer inference
 
-## 4.4 Xiao1000 Workbench
+The five subjects should not collapse into one generic visual template. But subject-specific expression now emerges from **owned mapped primitives and content**, not from a renderer table keyed by subject or `projection_shape`.
 
-The accepted historical Politics Workbench is a protected interaction/reference asset, not a Cognitive Projection redesign target.
+Examples:
 
-Preserve materially:
+- Marxism may resolve to relation sets, directed reasoning sequences, comparisons or parallel conditions;
+- History may resolve to timelines, hierarchy, directed order or parallel causal factors;
+- Mao may resolve to theory-response relations, statements, comparisons or ordered development;
+- Xi may resolve to hierarchy, identity statements, parallel requirements or strategic order;
+- Ethics-Law may resolve to comparisons, concept boundaries, relation sets or situational statements.
 
-- clean full-width question attempt;
-- 2×2 Mac options when appropriate;
-- Normal / Fast behavior;
-- Uncertain / favorite / mark;
-- no correctness leak before submission;
-- submitted result left summary/evidence + right knowledge/source review composition;
-- `一句话带走`, answer delta, optional cause/note, refined explanation/source/original Xiao explanation where legally available;
-- Next / Return behavior;
-- zero new mandatory `结构 / 易混 / diagnosis` process.
+These are outcomes of exact mappings. They are not permissions for the UI to guess a shape from subject identity.
 
-Allowed work is visual modernization and exact Current binding, not learner-process expansion.
+## 7 | Required read path
 
----
-
-# 5｜Subject-specific geometry must survive optimization
-
-Shared shell does not authorize shared cognitive shape.
-
-Politics UI implementation must preserve each compiled subject grammar:
+For ordinary Politics UI implementation/review:
 
 ```text
-Marxism
-relation / topology / reasoning / mechanism / boundary
-
-History
-stage / chronology / parallel cause / causal chain / turning point / evaluation
-
-Mao
-historical problem / theory response / role / position / sequence boundary
-
-Xi
-hierarchy / role / identity / goal / principle / path / exact-boundary distinction
-
-Ethics-Law
-concept identity / normative boundary / evaluation / situational application
+1. content/politics/CURRENT.md
+2. content/politics/SURFACE_MAPPING_CONTRACT.md
+3. static-web/POLITICS_PRODUCT_STATUS.md
+4. this POLITICS_UI_REVIEW_PROTOCOL.md
+5. content/politics/LEARNING_CONTRACT.md
+6. content/politics/INTERACTION_CONTRACT.md
+7. exact chapter Projection owner
+8. exact mapped state(s) / resolved surfacePlan
+9. existing Runtime / Evidence / Repair / Return implementation touched
+10. relevant visual preference / presentation rules
 ```
 
-Do not convert them into one generic card grid, one universal vertical chain, or one article template.
+Do not start from raw chapter JSON or Legacy archaeology.
 
-Mac-wide optimization should increase **simultaneously useful relation visibility**, not simply add panels or text.
+## 8 | Global-impact check
 
----
-
-# 6｜Required read path before local implementation / review
-
-For ordinary Politics UI implementation or review, use the smallest complete Current path:
-
-```text
-1. `content/politics/CURRENT.md`
-2. `static-web/POLITICS_PRODUCT_STATUS.md`
-3. this `POLITICS_UI_REVIEW_PROTOCOL.md`
-4. `content/politics/LEARNING_CONTRACT.md`
-5. `content/politics/INTERACTION_CONTRACT.md`
-6. relevant accepted subject design file
-7. `content/politics/projection/manifest.json`
-8. exact chapter `*.projection.json`
-9. only the Current field refs selected by that Projection owner
-10. existing Runtime / Evidence / Repair / Return implementation touched by the change
-```
-
-For the Xiao1000 Workbench, also read the accepted historical Workbench reference named in `POLITICS_PRODUCT_BRIEF.md`; do not use Legacy outside that bounded role.
-
-Do not start from raw chapter JSON alone and do not ask Codex to rediscover the subject grammar.
-
----
-
-# 7｜Global-impact check before accepting a local UI change
-
-Before accepting a Politics UI recommendation or implementation, explicitly check internally:
+Before accepting a local change, check internally:
 
 ```text
 Learning Logic impact              none / named
-Projection semantic impact         none / named
-Projection asset binding impact    none / named
+Surface Mapping impact             none / named
+Mapped-state payload impact        none / named
 Runtime gating impact              none / named
 Evidence impact                    none / named
 Repair / Return impact             none / named
-Chengfeng surface-ownership impact none / named
+Chengfeng surface impact           none / named
 Xiao1000 clean-attempt impact      none / named
-Workbench interaction impact       none / named
-Memory / later-phase impact        none / named
+Private learner-state impact       none / named
 ```
 
-If a non-trivial impact appears, resolve it before calling the UI change a harmless optimization.
+If a non-trivial semantic impact appears, stop treating the task as visual optimization and reopen the correct upstream owner.
 
-A visually attractive screenshot is not sufficient acceptance evidence.
-
----
-
-# 8｜Discussion / implementation order
-
-For each Politics learner surface:
+## 9 | Acceptance order
 
 ```text
-A. whole-flow position
-B. existing accepted behavior / Projection asset
-C. KEEP / OPTIMIZE / RESTORE_FROM_PROJECTION / DEMOTE audit
-D. Mac-wide implementation / visual recommendation
-E. upstream + downstream safety check
-F. browser screenshot / real geometry review
-G. zero-semantic-diff acceptance
+A. locate the surface in the whole learner loop
+B. identify exact mapped owner/state
+C. KEEP / OPTIMIZE / RESTORE_FROM_SURFACE_MAPPING / DEMOTE
+D. implement bounded visual/product change
+E. verify upstream/downstream behavior
+F. run representative browser journey
+G. review real Mac-wide / responsive geometry
+H. accept only with zero semantic diff
 ```
 
-Do not lead with a replacement mockup before A–C are understood.
+A good-looking screenshot is not sufficient evidence.
 
----
+## 10 | Compact rule
 
-# 9｜Reopen threshold
-
-Normal Politics UI work must not reopen S/K/L/P/R/E.
-
-A redesign/reopen is justified only when fresh evidence can state:
-
-```text
-what accepted semantic / learner behavior is wrong
-→ which Current / Projection / Runtime owner is responsible
-→ which earliest gate must reopen
-→ why KEEP / OPTIMIZE / RESTORE_FROM_PROJECTION / DEMOTE is insufficient
-```
-
-Without that evidence, continue as Projection optimization.
-
-Real learner validation remains `U`; repository state, screenshots, CI and simulated journeys cannot manufacture it.
-
----
-
-# 10｜Compact rule
-
-> **政治 UI 不是重新设计 Projection；它是在已经闭合的 Current → Projection → Runtime/Evidence 链上做 Mac-wide 产品化。先看完整闭环，再做局部优化；先消费已编译 Projection，再谈布局；任何漂亮都不能以重新猜语义、破坏 Surface Ownership、Question Evidence 或 Return 为代价。**
+> **政治 UI 只消费已经解析好的 Surface Mapping：关系是什么、哪些内容一起出现、关系文字是否直接可见、每个 state 展示什么，都在 UI 之前决定。UI 可以让它更清楚、更宽、更顺眼，但不能重新猜。**
