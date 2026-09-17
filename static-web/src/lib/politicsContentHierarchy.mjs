@@ -7,6 +7,11 @@ export const POLITICS_CONTENT_TIERS = Object.freeze([
 ]);
 
 const TIER_SET = new Set(POLITICS_CONTENT_TIERS);
+const EARLY_TIERS = new Set(['H1_ORIENTATION_CORE', 'H2_FIRST_ROUND_CARRY', 'H3_SUPPORTING_UNDERSTANDING']);
+const PROVENANCE_KEYS = new Set([
+  'id', 'source_evidence', 'source_refs', 'source_owner_ids', 'natural_unit_id',
+  'schema', 'status', 'content_stage_only', 'audit', 'learning_priority', 'learner_tier'
+]);
 const present = value => value != null && value !== '' && (!Array.isArray(value) || value.length > 0);
 const asItems = value => Array.isArray(value) ? value : (present(value) ? [value] : []);
 
@@ -29,15 +34,71 @@ function precisionDefaultTier(value) {
   }
 }
 
-function push(bucket, tier, kind, value, meta = {}) {
+function assertTierGuard(kind, value, tier) {
+  if (kind === 'problem' && tier !== 'H1_ORIENTATION_CORE') {
+    throw new Error('POLITICS_CONTENT_HIERARCHY_PROBLEM_MUST_BE_H1');
+  }
+  if (kind === 'exact') {
+    const priority = value?.learning_priority;
+    if (priority === 'FIRST_ROUND_EXACT' && tier !== 'H2_FIRST_ROUND_CARRY') {
+      throw new Error(`POLITICS_CONTENT_HIERARCHY_FIRST_ROUND_EXACT_MUST_BE_H2:${value?.id || '<unknown>'}`);
+    }
+    if (['REFERENCE_OR_QUESTION_TRIGGERED', 'REPAIR_ONLY'].includes(priority) && EARLY_TIERS.has(tier)) {
+      throw new Error(`POLITICS_CONTENT_HIERARCHY_REPAIR_EXACT_PROMOTED:${value?.id || '<unknown>'}`);
+    }
+  }
+}
+
+function stripProvenance(value) {
+  if (Array.isArray(value)) return value.map(stripProvenance).filter(item => item !== undefined);
+  if (!value || typeof value !== 'object') return value;
+  const out = {};
+  for (const [key, child] of Object.entries(value)) {
+    if (PROVENANCE_KEYS.has(key)) continue;
+    const clean = stripProvenance(child);
+    if (clean !== undefined) out[key] = clean;
+  }
+  return out;
+}
+
+function extractProvenance(value) {
+  if (Array.isArray(value)) {
+    const rows = value.map(extractProvenance).filter(present);
+    return rows.length ? rows : null;
+  }
+  if (!value || typeof value !== 'object') return null;
+  const out = {};
+  for (const [key, child] of Object.entries(value)) {
+    if (PROVENANCE_KEYS.has(key)) {
+      if (present(child)) out[key] = child;
+      continue;
+    }
+    const nested = extractProvenance(child);
+    if (present(nested)) out[key] = nested;
+  }
+  return Object.keys(out).length ? out : null;
+}
+
+function pushRaw(bucket, tier, kind, value, meta = {}) {
   if (!present(value)) return;
   bucket[tier].push({ kind, value, ...meta });
+}
+
+function pushLearner(bucket, tier, kind, rawValue, meta = {}) {
+  if (!present(rawValue)) return;
+  assertTierGuard(kind, rawValue, tier);
+  const learnerValue = stripProvenance(rawValue);
+  if (present(learnerValue)) bucket[tier].push({ kind, value: learnerValue, ...meta });
+  const provenance = extractProvenance(rawValue);
+  if (present(provenance)) {
+    bucket.H5_REPAIR_REFERENCE.push({ kind: 'provenance', forKind: kind, value: provenance, ...meta });
+  }
 }
 
 function routeValues(bucket, kind, values, defaultTier, meta = {}) {
   for (const value of asItems(values)) {
     const tier = explicitTier(value) || (typeof defaultTier === 'function' ? defaultTier(value) : defaultTier);
-    push(bucket, tier, kind, value, meta);
+    pushLearner(bucket, tier, kind, value, meta);
   }
 }
 
@@ -45,7 +106,7 @@ function routeObjects(bucket, kind, objects, defaultTier) {
   for (const object of objects || []) {
     for (const value of asItems(object?.value)) {
       const tier = explicitTier(value) || defaultTier;
-      push(bucket, tier, kind, value, { role: object?.role || null });
+      pushLearner(bucket, tier, kind, value, { role: object?.role || null });
     }
   }
 }
@@ -65,8 +126,7 @@ export function buildPoliticsContentHierarchy({
 
   if (present(problem)) {
     const tier = explicitTier(problem) || 'H1_ORIENTATION_CORE';
-    if (tier !== 'H1_ORIENTATION_CORE') throw new Error('POLITICS_CONTENT_HIERARCHY_PROBLEM_MUST_BE_H1');
-    push(buckets, tier, 'problem', problem);
+    pushLearner(buckets, tier, 'problem', problem);
   }
 
   routeObjects(buckets, 'primary', primary, 'H1_ORIENTATION_CORE');
@@ -77,25 +137,38 @@ export function buildPoliticsContentHierarchy({
 
   if (handoff) {
     const visibleHandoff = {
-      surface: handoff.surface || null,
       locator: handoff.locator || null,
       lookFor: Array.isArray(handoff.lookFor) ? handoff.lookFor : []
     };
     if (present(visibleHandoff.locator) || visibleHandoff.lookFor.length) {
-      push(buckets, 'H1_ORIENTATION_CORE', 'handoff', visibleHandoff);
+      pushRaw(buckets, 'H1_ORIENTATION_CORE', 'handoff', visibleHandoff);
     }
-    if (Array.isArray(handoff.sourceOwnerIds) && handoff.sourceOwnerIds.length) {
-      push(buckets, 'H5_REPAIR_REFERENCE', 'source_owner_ids', [...handoff.sourceOwnerIds]);
+    const handoffMeta = {
+      surface: handoff.surface || null,
+      sourceOwnerIds: Array.isArray(handoff.sourceOwnerIds) ? handoff.sourceOwnerIds : []
+    };
+    if (present(handoffMeta.surface) || handoffMeta.sourceOwnerIds.length) {
+      pushRaw(buckets, 'H5_REPAIR_REFERENCE', 'handoff_provenance', handoffMeta);
     }
   }
 
-  if (present(closure)) push(buckets, 'H4_ON_DEMAND', 'closure', closure);
-  if (present(next)) push(buckets, 'H4_ON_DEMAND', 'next', next);
+  if (present(closure)) pushLearner(buckets, 'H4_ON_DEMAND', 'closure', closure);
+  if (present(next)) pushLearner(buckets, 'H4_ON_DEMAND', 'next', next);
 
   return {
     schema: 'kianos.politics.content_hierarchy.resolved.v1',
     tiers: buckets
   };
+}
+
+function containsForbiddenLearnerKey(value) {
+  if (Array.isArray(value)) return value.some(containsForbiddenLearnerKey);
+  if (!value || typeof value !== 'object') return false;
+  for (const [key, child] of Object.entries(value)) {
+    if (PROVENANCE_KEYS.has(key)) return true;
+    if (containsForbiddenLearnerKey(child)) return true;
+  }
+  return false;
 }
 
 export function validatePoliticsContentHierarchy(hierarchy) {
@@ -107,9 +180,12 @@ export function validatePoliticsContentHierarchy(hierarchy) {
   }
   const h1 = hierarchy.tiers.H1_ORIENTATION_CORE;
   if (!h1.some(item => item.kind === 'problem')) throw new Error('POLITICS_CONTENT_HIERARCHY_H1_PROBLEM_MISSING');
-  for (const item of hierarchy.tiers.H2_FIRST_ROUND_CARRY) {
-    if (item.kind === 'exact' && item.value?.learning_priority && item.value.learning_priority !== 'FIRST_ROUND_EXACT') {
-      throw new Error(`POLITICS_CONTENT_HIERARCHY_NON_FIRST_ROUND_EXACT_IN_H2:${item.value?.id || '<unknown>'}`);
+
+  for (const tier of POLITICS_CONTENT_TIERS.slice(0, 4)) {
+    for (const item of hierarchy.tiers[tier]) {
+      if (containsForbiddenLearnerKey(item.value)) {
+        throw new Error(`POLITICS_CONTENT_HIERARCHY_PROVENANCE_LEAK:${tier}:${item.kind}`);
+      }
     }
   }
   return true;
