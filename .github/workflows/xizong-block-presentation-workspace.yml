@@ -1,0 +1,95 @@
+name: Xizong Block Presentation Workspace
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'static-web/src/pages/xizong/[system]/[block].astro'
+      - 'static-web/src/styles/xizong-block-workspace.css'
+      - 'static-web/src/styles/xizong-dense-calm.css'
+      - 'static-web/src/styles/xizong-presentation.css'
+      - 'static-web/src/styles/viewport-workspaces.css'
+      - 'static-web/src/styles/site-visual-tuning.css'
+      - 'static-web/src/components/XizongBlockV6.astro'
+      - 'static-web/src/components/XizongCognitiveProjectionStage.astro'
+      - 'static-web/src/components/XizongLearnerObjectBridge.astro'
+      - 'static-web/src/components/XizongBlockWorkspaceShell.astro'
+      - 'static-web/src/components/XizongBlockAuxLayoutSync.astro'
+      - 'static-web/src/components/XizongStudyEnhancer.astro'
+      - 'static-web/src/components/XizongVisibleTypeFloor.astro'
+      - 'static-web/scripts/validate-xizong-block-style-ownership.mjs'
+      - 'static-web/scripts/test-xizong-block-presentation-workspace.mjs'
+      - '.github/workflows/xizong-block-presentation-workspace.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'static-web/src/pages/xizong/[system]/[block].astro'
+      - 'static-web/src/styles/xizong-block-workspace.css'
+      - 'static-web/src/styles/xizong-dense-calm.css'
+      - 'static-web/src/styles/xizong-presentation.css'
+      - 'static-web/src/styles/viewport-workspaces.css'
+      - 'static-web/src/styles/site-visual-tuning.css'
+      - 'static-web/src/components/XizongBlockV6.astro'
+      - 'static-web/src/components/XizongCognitiveProjectionStage.astro'
+      - 'static-web/src/components/XizongLearnerObjectBridge.astro'
+      - 'static-web/src/components/XizongBlockWorkspaceShell.astro'
+      - 'static-web/src/components/XizongBlockAuxLayoutSync.astro'
+      - 'static-web/src/components/XizongStudyEnhancer.astro'
+      - 'static-web/src/components/XizongVisibleTypeFloor.astro'
+      - 'static-web/scripts/validate-xizong-block-style-ownership.mjs'
+      - 'static-web/scripts/test-xizong-block-presentation-workspace.mjs'
+      - '.github/workflows/xizong-block-presentation-workspace.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: xizong-block-presentation-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  block-presentation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    defaults:
+      run:
+        working-directory: static-web
+    steps:
+      - name: Checkout Current candidate
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Validate single Block visual owner
+        run: node scripts/validate-xizong-block-style-ownership.mjs
+      - name: Validate Xizong semantic contracts
+        run: npm run validate:xizong
+      - name: Build Astro
+        run: npm run build
+      - name: Install browser acceptance tool
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Execute Block presentation acceptance
+        run: node scripts/test-xizong-block-presentation-workspace.mjs
+      - name: Execute representative A1 A2 A3 B C workspace regression
+        run: node scripts/test-xizong-representative-workspace.mjs
+      - name: Execute visible type-floor regression
+        run: node scripts/test-xizong-visible-type-floor.mjs
+      - name: Upload Block presentation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xizong-block-presentation-${{ github.sha }}
+          path: |
+            static-web/.qa/xizong-block-presentation-workspace.json
+            static-web/.qa/xizong-block-presentation-front.png
+            static-web/.qa/xizong-block-presentation-recall.png
+            static-web/.qa/xizong-block-presentation-failure.png
+            static-web/.qa/xizong-representative-workspace.json
+            static-web/.qa/xizong-visible-type-floor.json
+          if-no-files-found: warn
+          retention-days: 14
