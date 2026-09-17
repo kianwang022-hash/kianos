@@ -1,0 +1,131 @@
+---
+import Base from '../../../layouts/Base.astro';
+import XizongBlockV6 from '../../../components/XizongBlockV6.astro';
+import XizongLearnerObjectBridge from '../../../components/XizongLearnerObjectBridge.astro';
+import XizongBlockWorkspaceShell from '../../../components/XizongBlockWorkspaceShell.astro';
+import XizongBlockAuxLayoutSync from '../../../components/XizongBlockAuxLayoutSync.astro';
+import XizongVisibleTypeFloor from '../../../components/XizongVisibleTypeFloor.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { lane: 'b' }, props: { lane: 'B' } },
+    { params: { lane: 'c' }, props: { lane: 'C' } }
+  ];
+}
+
+const { lane } = Astro.props;
+const isB = lane === 'B';
+const systemId = isB ? 'digestive-metabolic-endocrine-tumor' : 'hematology-immunity-infection';
+const systemTitle = isB ? '消化·物质代谢·内分泌·肿瘤' : '血液·免疫·感染';
+const blockLabel = isB ? 'B topology fixture' : 'C topology fixture';
+const sourceContact = isB
+  ? {
+      mode: 'WHOLE_LOGIC_GROUP',
+      logicGroupIsAutomaticSourceChunk: true,
+      authorityRef: 'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json#surface_handoff_contract'
+    }
+  : {
+      mode: 'BLOCK_OR_CANONICAL_SOURCE_UNIT',
+      logicGroupIsAutomaticSourceChunk: false,
+      authorityRef: 'content/xizong/knowledge/learner/c-hematology-immunity-infection-learning.json#surface_handoff_contract'
+    };
+
+const kps = [
+  {
+    kpId: `qa-${lane.toLowerCase()}-kp01`, displayId: 'KP01', title: '代表 KP 1',
+    prompt: '先恢复这一节的第一个核心关系。', sourceLocator: 'QA topology fixture · Source unit A', outlineLocator: 'QA · 1',
+    detailHtml: '<p>这是非 learner-authority 的浏览器拓扑夹具，只用于验证 Workspace 交互兼容。</p>',
+    groupId: `qa-${lane.toLowerCase()}-lg01`, groupLabel: '学习节 1'
+  },
+  {
+    kpId: `qa-${lane.toLowerCase()}-kp02`, displayId: 'KP02', title: '代表 KP 2',
+    prompt: '再恢复同一学习节里的第二个关系。', sourceLocator: 'QA topology fixture · Source unit A', outlineLocator: 'QA · 2',
+    detailHtml: '<p>正式医学 Core、Projection 与 learner-ready 状态仍由各自 Current owner 决定。</p>',
+    groupId: `qa-${lane.toLowerCase()}-lg01`, groupLabel: '学习节 1'
+  },
+  {
+    kpId: `qa-${lane.toLowerCase()}-kp03`, displayId: 'KP03', title: '代表 KP 3',
+    prompt: '进入下一学习节后恢复新的局部关系。', sourceLocator: 'QA topology fixture · Source unit B', outlineLocator: 'QA · 3',
+    detailHtml: '<p>这个夹具不提升 B/C 的 Projection gate，也不创建正式 learner route。</p>',
+    groupId: `qa-${lane.toLowerCase()}-lg02`, groupLabel: '学习节 2'
+  }
+];
+
+const logicGroups = [
+  {
+    groupId: `qa-${lane.toLowerCase()}-lg01`, label: '学习节 1', goal: '验证第一学习节的 Source/Recall 切换。',
+    closure: '能在不改变 Current Source-contact 粒度的前提下完成 Recall。',
+    kpIds: kps.slice(0, 2).map((kp) => kp.kpId), kpCount: 2
+  },
+  {
+    groupId: `qa-${lane.toLowerCase()}-lg02`, label: '学习节 2', goal: '验证继续下一学习节时仍服从同一拓扑。',
+    closure: 'Workspace 不把不同 System 强行压成 A 系统的 Source-contact 方式。',
+    kpIds: [kps[2].kpId], kpCount: 1
+  }
+];
+
+const block = {
+  objectId: `xizong:qa:${lane.toLowerCase()}-topology`,
+  label: blockLabel,
+  title: `${lane} accepted-L topology browser harness`,
+  systemId,
+  systemTitle,
+  systemCanonicalId: lane,
+  centerQuestion: '同一 Block Workspace 能否服从该 System 已接受的 Source-contact / Recall topology？',
+  firstPassFocus: '只验证已接受 Learning topology 与共享 Workspace 的兼容，不声明 Projection acceptance。',
+  recallSpine: 'orientation → accepted Source contact → Recall → LG closure',
+  kpRecords: kps,
+  logicGroups,
+  sourceContact,
+  attention: {
+    currentProblem: '保持 System-specific Source contact 粒度，同时复用同一 Workspace。',
+    minimalModel: isB
+      ? 'B：整学习节连续读原讲义 → 一次返回 Recall。'
+      : 'C：Block/自然 Source 单元连续读 → 返回后按 LG Recall，不因 LG 自动重开 Source。',
+    carryNow: [], supportOnDemand: []
+  },
+  learningCues: { visuals: [] },
+  cognitiveProjection: null,
+  blockLearnHtml: '',
+  visualGateHtml: '',
+  ttsx: { checkpoints: [] },
+  semanticAdapterSchema: 'kianos.xizong.qa_topology_fixture.v1'
+};
+
+const learnerObject = {
+  schema: 'kianos.xizong.learner_object.v1',
+  objectId: block.objectId,
+  identity: {
+    systemId,
+    canonicalSystemId: lane,
+    blockId: `qa-${lane.toLowerCase()}-topology`,
+    title: block.title
+  },
+  kps: kps.map((kp) => ({
+    identity: { kpId: kp.kpId, displayId: kp.displayId, title: kp.title },
+    prompt: { canonical: kp.prompt },
+    source: { locator: kp.sourceLocator },
+    outline: { locator: kp.outlineLocator },
+    core: { html: kp.detailHtml }
+  })),
+  logicGroups: logicGroups.map((group) => ({
+    identity: { logicGroupId: group.groupId, label: group.label },
+    kpIds: group.kpIds
+  })),
+  slots: {
+    blockOrientation: [],
+    kpLearnAux: Object.fromEntries(kps.map((kp) => [kp.kpId, {}])),
+    logicGroupPrelearn: Object.fromEntries(logicGroups.map((group) => [group.groupId, {}])),
+    logicGroupPostlearn: Object.fromEntries(logicGroups.map((group) => [group.groupId, {}])),
+    kpRecallPostReveal: Object.fromEntries(kps.map((kp) => [kp.kpId, {}]))
+  }
+};
+---
+<Base title={`${lane} topology QA`} kicker="Xizong · QA only" description="Non-authority browser topology harness" sourcePath={sourceContact.authorityRef} sourceHash="qa-only" objectId={block.objectId} active="xizong">
+  <span hidden data-xizong-qa-topology-fixture data-lane={lane} data-authority-ref={sourceContact.authorityRef}></span>
+  <XizongBlockV6 block={block} />
+  <XizongLearnerObjectBridge learnerObject={learnerObject} />
+  <XizongBlockWorkspaceShell />
+  <XizongBlockAuxLayoutSync />
+  <XizongVisibleTypeFloor />
+</Base>
