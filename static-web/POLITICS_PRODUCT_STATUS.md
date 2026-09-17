@@ -1,68 +1,166 @@
 # Politics Product / UI Status
 
-Status: **LEARNING CLOSED THROUGH E · XIAO1000 WORKBENCH CURRENT ON MAIN · BROADER PRODUCT / MAC ACCEPTANCE OPEN**  
-Execution: `CODEX_ASTRA_THREE_SUBJECT_SITE_EXECUTION.md` **v3.0+ §6、§8–11**  
-Work router: `content/politics/CURRENT.md` / `static-web/CURRENT.md`  
-Safety: `POLITICS_UI_REVIEW_PROTOCOL.md`  
-Parity capability owner: `POLITICS_LEGACY_FUNCTION_PARITY.md` / #116
+Status: **LEARNING CLOSED THROUGH E · EXPLICIT SURFACE MAPPING CURRENT ON MAIN · XIAO1000 WORKBENCH CURRENT · BROADER PRODUCT / MAC ACCEPTANCE OPEN**  
+Work router: `content/politics/CURRENT.md`  
+Representation authority: `content/politics/SURFACE_MAPPING_CONTRACT.md`  
+Safety / review: `static-web/POLITICS_UI_REVIEW_PROTOCOL.md`  
+Capability ledger: `static-web/POLITICS_LEGACY_FUNCTION_PARITY.md` / Issue #116
 
-## 当前事实
+## Current truth
 
-五科 S/K/L/P/R/E PASS，U UNTESTED。Projection manifest 已有53 chapter、160NU（151 PASS、9 REFERENCE_ONLY、0 BLOCKED）；这是资产层事实，不是每页视觉验收。
+Five Politics subjects remain `S/K/L/P/R/E PASS; U UNTESTED`.
 
-肖1000 Workbench 已由 #183 fresh-reconcile 到最新 Current 并落入 main（`890415ee273ec7baa1f010fbfc180fc18b7005d2`）。旧 #117 / `politics-legacy-parity-migration` 只保留为历史实现/浏览器证据，不再是 Current implementation owner。Workbench 已有 Current-data parity、synthetic journey、formal Current-data browser journey 与 merge-ref cross-subject CI；这仍不代表整个五科 UI 已完成。其余 Home / 五科认知 workspace / source handoff / repair-return 继续由 #116 统一收口。
-
-#115 的内容promotion 已经由 #124 完成。`content/politics/derived/xiao1000-learner-explanations/` 的1148 records 是 Current-derived 数据，后续任务是 exact-ID consumer/浏览器，不重做1148条语义迁移。
-
-Marxism C00 已完成第一轮 Golden cognitive-workspace 校准：S01 只保留真正降低重建成本的简单链；S02 明确采用 text-default，不把并列特征强画成拓扑；默认可见 learner text 已有 Mac 15px floor / 16px+ learner-copy browser gate。Golden 校准只证明表达规则，不等于允许向160个 NU 直接复制页面模板。
-
-## 最新 learner-facing 决定
-
-Legacy 工作台交互/信息架构 + Current Question Truth/ownership/Evidence/Return + takeaway/chat_explanation。
-
-**肖1000原解析不展示、不进入 learner-facing 序列化、不作为缺失解析 fallback。** `xiao_reference` 仅可留在源资产 provenance。Current/Chengfeng 的有依据来源与原始题面图片是不同能力，不一起删除。
-
-题后左区：结果→一句话带走→learner/formal answer delta→可选cause/note；右区：AI精炼解析→Current/Chengfeng来源→Next/exact Return。Clean attempt 全宽题干与合适时2×2选项，不新造常驻review栏/题目地图/结构或易混仪式。
-
-此决定覆盖旧 Product Brief/旧P11中 learner-facing原解析的要求；这些旧文字只能作为历史，不能与新要求并行执行。
-
-## 不变的完整 learner loop
-
-Orientation/current NU → 原始 Chengfeng iPad/MarginNote 连续学习 → optional轻闭合 → first-ready Xiao1000 → 稳定正确便宜继续 / Wrong或有意义Uncertain最小修复 → owning source/Chat → exact Return/Continue。
-
-Optional close 不取消内容学习前置。Suyi 被吸收不另开课；不要新设 Politics Guide 追求对称。五科分别表达关系机制、历史阶段因果、问题理论位置、身份层级、概念规范情境；一个通用卡片模板不合格。
-
-## 渲染与执行
-
-读取精确 chapter Projection 与它选中的 Current refs；null不补，REFERENCE_ONLY不升教学，first_round_exact不扩大。使用复用renderer/五科adapter，不逐章节手工重画；全量机器binding/coverage，异质代表浏览器/截图。
-
-### Purpose-first Representation Gate
-
-表达方式从 learner 目的倒推，不从 Projection 字段名倒推。Current `Map` / `edges` / `topology` 只说明知识存在结构，**不自动授予 graph UI**。
-
-默认规则：
+PR #352 is merged on `main` and closes the learner-facing representation boundary for all Current Politics Projection owners:
 
 ```text
-STRUCTURED_TEXT = hard fallback
-
-明确时间顺序 / timeline   → TIMELINE 可用
-明确比较轴 / matrix       → COMPARE 可用
-明确真实上下层级           → HIERARCHY 可用
-普通 chain / map / network → 仍先用 STRUCTURED_TEXT
+53 chapter Projection owners      ACCOUNTED
+160 Current Natural Unit owners   ACCOUNTED
+151 PASS owners                   EXPLICITLY MAPPED
+9 REFERENCE_ONLY owners           NON-TEACHING
+Projection BLOCKED                0
+Mapped learner states             ORIENT / EXTERNAL_LEARN / CLOSE / REPAIR / CONTINUE
+Whole-lane mapping audit          PASS
+Five-subject relation fidelity    PASS
+Browser acceptance                PASS
 ```
 
-`SIMPLE_CHAIN` 只允许在 Current 明确表达语义且经过当前 learner-facing review 时升级；仅仅因为 Projection 名字里出现 `CHAIN` 不够。`simultaneous_visibility=true` 只要求相关内容同时可获得，不要求同时画多张图。Projection object / field 的存在也不产生“一对象一卡片/一图”的 component entitlement。
+The accepted learner representation chain is now:
 
-这条规则的目的不是减少结构，而是阻止视觉布局自行创造因果、上下级、汇聚关系或重要性。必要关系仍需完整、清晰、大字号呈现；不确定时退回结构化文字。
+```text
+Current knowledge / absorbed Suyi
+→ accepted Learning semantics
+→ Projection selects exact Current owners/refs
+→ explicit Surface Mapping owns learner composition
+→ resolved surfacePlan.states[state]
+→ faithful Runtime / UI rendering
+```
 
-实际 source/Projection/learner contract 与 `PRESENTATION_CONTRACT.md` 继续最高负责各自语义。Codex 不再需要去 Legacy 自己判定迁移政策；现行能力账本已给出 disposition，遗留路径只作provenance。
+Projection asset existence, Projection shape names, raw field names, old Map/Chain/topology metadata, and rendered DOM no longer grant UI permission to invent learner relations.
 
-正常优化使用 KEEP/OPTIMIZE/RESTORE_FROM_PROJECTION/DEMOTE。不得变成第二讲义、第二scheduler或新增学习债务。first-attempt/persistence/exact-return/daily有用handoff不回退。
+Historical downstream PR #336 is closed as **superseded**. Its useful Phase-A intent was absorbed by #352, while its old `projection_shape / representation.kind → geometry` consumer path must not be revived.
 
-## 验收出口
+## Xiao1000 Workbench
 
-运行 Current Projection/Politics QA、Representation Gate、相关行为负控制和 master P-J1–8；五科认知与工作台是不同验收family。保护态、保存失败、刷新、跨源返回、长文本和Mac主视口都需真实证据。无新runtime/browser测试的文档更新不能标UI PASS。
+The Current Workbench remains on `main` from #183. It keeps the accepted Question Truth / first-attempt Evidence / Repair / Return contract and is not reopened by #352.
 
-Workbench 已落 main 不自动关闭 #116。能力账本全部有 disposition、remaining product families 有实际证据、独立review及必要Kian视觉接受后，才可声明 Politics product/UI 范围闭合；学习U不能由测试制造。
+Current learner-facing decisions remain:
 
-定稿前的完整状态/旧规则在 `design-archive/2026-09-14/POLITICS_STATUS_BEFORE_V3.md`；正常施工不读旧阶段指令。
+- clean attempt first;
+- no learner-facing old Xiao original explanation / `xiao_reference` fallback;
+- submitted left: result → takeaway → learner/formal delta → optional cause/note;
+- submitted right: refined explanation → Current/Chengfeng sources → Next / exact Return;
+- no due scheduler, no duplicate Chengfeng reader, no guessed ownership, no first-attempt overwrite.
+
+## Frozen learner loop
+
+```text
+Politics Home / meaningful Continue
+→ subject / chapter / current Natural Unit orientation
+→ Chengfeng continuous study on original iPad / MarginNote
+→ return / optional light close
+→ Xiao1000 verification
+→ stable correct → continue cheaply
+   OR Wrong / meaningful Uncertain
+   → smallest sufficient repair
+   → owning source / Chat when earned
+   → exact Return
+→ next question / Unit / meaningful Resume
+```
+
+KianOS remains orientation / selective cognition / verification / repair companion. Chengfeng remains the continuous first-round source-learning surface.
+
+## Explicit Surface Mapping consumer rule
+
+For every mapped PASS owner, learner payload must come from the resolved Surface Mapping state.
+
+Accepted primitives:
+
+```text
+STATEMENT
+PARALLEL_SET
+RELATION_SET
+DIRECTED_SEQUENCE
+TIMELINE
+COMPARE
+HIERARCHY
+```
+
+Directed transitions are explicit:
+
+```text
+LABELED_RELATION → Projection/Surface Mapping owns learner-visible connector text
+ORDER_ONLY       → direction/order only; UI must not invent connector prose
+```
+
+Surface Mapping owns:
+
+- which knowledge appears together;
+- relation type;
+- learner-visible relation text when that text is knowledge;
+- primary / companion / support / handoff / repair / closure grouping;
+- learner payload for each mapped state.
+
+Runtime / UI may own:
+
+- timing and triggers;
+- interaction shell;
+- responsive layout;
+- typography, spacing, alignment, borders and visual styling.
+
+Runtime / UI may **not** repopulate mapped-state payload from legacy hierarchy, handoff, closure, raw teaching fields, Projection shape names, `representation.kind`, or DOM inference.
+
+Mapped Repair has one learner-content writer: resolved `REPAIR`. Evidence / question logic decides when Repair opens, not what Repair teaches.
+
+## Compatibility boundary
+
+`politicsRepresentationGate.mjs` and legacy compiled representation metadata may remain as conservative compatibility/fallback infrastructure, but they are **not** Current semantic authority for mapped PASS learner surfaces.
+
+Do not create a new UI implementation that branches on `projection_shape` or `representation.kind` to decide whether content is a chain, comparison, hierarchy, timeline, graph, topology, or relation set.
+
+If a mapped owner lacks the learner surface needed by the product, reopen the earliest responsible Surface Mapping owner rather than letting the renderer infer a replacement.
+
+## Remaining Issue #116 product families
+
+The remaining product/UI work is downstream presentation and integration only:
+
+1. **Politics Home / meaningful Continue** — real Resume and useful attention without engineering dashboard or invented mastery.
+2. **Five-subject cognition workspaces** — consume explicit mapped primitives/states faithfully; subject differences emerge from owned mappings, not renderer guesswork.
+3. **Natural Unit / Chengfeng handoff** — iPad/MarginNote remains primary; Astro shows only mapped orientation/handoff/return companion content.
+4. **Source / Repair / exact Return consistency** — preserve current Evidence and smallest-repair semantics.
+5. **Mac-wide visual convergence** — typography, density, spacing, responsive fallback and screenshot acceptance over fixed semantic payload.
+
+Broad semantic redesign is frozen unless fresh contradictory evidence identifies an upstream owner that must reopen.
+
+## Implementation order
+
+For a local Politics UI slice:
+
+```text
+content/politics/CURRENT.md
+→ SURFACE_MAPPING_CONTRACT.md
+→ exact chapter Projection + surface_mapping owner
+→ resolved mapped state(s)
+→ existing Runtime / Evidence / Repair / Return behavior
+→ bounded visual/product implementation
+→ browser + screenshot review
+→ zero-semantic-diff acceptance
+```
+
+Do not start from raw chapter JSON or historical Legacy code. Historical assets are provenance only unless a Current owner explicitly points to them.
+
+## Acceptance exit
+
+Required before closing Issue #116:
+
+- all applicable capability-ledger rows retain an honest disposition;
+- mapped Politics cognition surfaces consume resolved Surface Mapping only;
+- `REFERENCE_ONLY` remains non-teaching;
+- Chengfeng surface ownership is preserved;
+- Question Truth / first-attempt Evidence / Repair / Return do not regress;
+- representative browser journeys cover heterogeneous five-subject primitives and state transitions;
+- long text / narrow fallback / Mac-wide screenshots are reviewed;
+- no visible relation text is silently demoted or replaced by UI-authored arrows/prose;
+- independent engineering review passes;
+- learner `U` remains real Kian use only.
+
+Workbench completion alone does not close Politics product/UI. Conversely, remaining visual/product work does not reopen already-accepted Politics Learning semantics.
