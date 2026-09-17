@@ -26,7 +26,7 @@ if (!units.length) {
     <a href={`${base}politics/`}>{chapter.subjectMeta.label}</a>
     <span>/</span>
     <h1>{chapter.title}</h1>
-    <small>{units.length} 个 PASS Natural Unit</small>
+    <small>{units.length} 个 Natural Unit</small>
   </header>
 
   <aside class="politicsRail" aria-label="本章路径">
@@ -43,7 +43,7 @@ if (!units.length) {
   <div class="politicsMain" data-politics-presentation-panels>
     {chapterContext && (
       <section class="politicsOrientation" id="orientation" data-projection-chapter-context>
-        <p class="politicsMicro">先定位 · Projection</p>
+        <p class="politicsMicro">先定位 · 不背</p>
         <h2>{chapterContext.currentProblem || chapterContext.location || chapter.title}</h2>
         {chapterContext.stageContext?.map((row) => <Value value={row.value} />)}
       </section>
@@ -137,7 +137,7 @@ if (!units.length) {
 
     {chapterContext?.chapterGeometries?.length > 0 && (
       <section class="politicsChapterClose" id="chapter-close">
-        <p class="politicsMicro">整章收口 · Projection</p>
+        <p class="politicsMicro">整章收口</p>
         {chapterContext.chapterGeometries.map((row) => <Value value={row.value} />)}
       </section>
     )}
