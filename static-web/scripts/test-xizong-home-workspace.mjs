@@ -59,6 +59,8 @@ try {
   check(await memory.count() === 1, 'standalone_memory_entry_present');
   check((await memory.getAttribute('href') || '').includes('/xizong/memory/'), 'standalone_memory_entry_target');
   check(await root.locator('.xzHomeSystemRow').count() > 0, 'system_rows_present');
+  check(await root.locator('.xzHomeFutureBand').count() === 1, 'future_domains_use_horizontal_band');
+  check(await root.locator('.xzHomeCompanion .xzHomeFutureBand').count() === 0, 'future_domains_do_not_stretch_companion');
 
   const type = await scanTypeFloor(root);
   check(type.failures.length === 0, 'visible_type_floor_15', JSON.stringify(type));
@@ -68,11 +70,20 @@ try {
     const systems = node.querySelector('.xzHomeSystems')?.getBoundingClientRect();
     const companion = node.querySelector('.xzHomeCompanion')?.getBoundingClientRect();
     const action = node.querySelector('.xzHomeActionBar')?.getBoundingClientRect();
-    return { workspace: workspace?.width || 0, systems: systems?.width || 0, companion: companion?.width || 0, action: action?.width || 0 };
+    const future = node.querySelector('.xzHomeFutureBand')?.getBoundingClientRect();
+    return {
+      workspace: workspace?.width || 0,
+      systems: systems?.width || 0,
+      companion: companion?.width || 0,
+      action: action?.width || 0,
+      workspaceBottom: workspace?.bottom || 0,
+      futureTop: future?.top || 0
+    };
   });
   check(geometry.workspace > 900, 'home_uses_mac_width', JSON.stringify(geometry));
   check(geometry.systems > geometry.companion * 2, 'system_workbench_is_dominant', JSON.stringify(geometry));
   check(geometry.companion >= 290, 'companion_is_readable', JSON.stringify(geometry));
+  check(geometry.futureTop >= geometry.workspaceBottom, 'future_band_follows_current_workspace', JSON.stringify(geometry));
 
   await page.evaluate(() => localStorage.setItem('kianos-xizong-last-location-v1', JSON.stringify({ href:'/xizong/circulation/b01/', systemCanonical:'A1', systemId:'circulation', blockLabel:'B1', blockTitle:'循环总论' })));
   await page.reload({ waitUntil: 'domcontentloaded' });
