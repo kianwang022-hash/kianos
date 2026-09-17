@@ -6,9 +6,10 @@ Acceptance truth: scoped System `CURRENT.md / ACCEPTANCE.md`
 Learning authority: `content/xizong/LEARNING_CONTRACT.md` + `content/xizong/knowledge/learner/study-policy.json`  
 Presentation authority: `static-web/PRESENTATION_CONTRACT.md` + `static-web/XIZONG_REPRESENTATION_GATE.md`  
 Projection authority: `content/xizong/projection/PROJECTION_CONTRACT.md`  
+Shared Platform authority: root `AUTHORITY_INHERITANCE_CONTRACT.md` + `AUTHORITY_OWNERSHIP.json`  
 Safety / review: `XIZONG_UI_REVIEW_PROTOCOL.md`
 
-> This file is the **single low-friction progress/status view** for Xizong content assets and shared product engineering. It summarizes Current owners; it never creates Acceptance Truth, medical truth, learner state, question membership, Visual coverage or readiness.
+> This file is the single low-friction progress/status view for Xizong content assets and product engineering. It summarizes Current owners; it never creates Acceptance Truth, medical truth, learner state, question membership, Visual coverage or readiness.
 >
 > If this summary conflicts with a scoped `CURRENT.md`, `ACCEPTANCE.md`, canonical asset or contract, the scoped owner wins.
 
@@ -170,14 +171,16 @@ Crosswalk may grow independently without another UI redesign.
 
 | Capability | Current state | Boundary |
 | --- | --- | --- |
+| Shared Base Shell / global K rail | **CURRENT via #367 · external Xizong ownership** | Xizong consumes the registered Shared Platform owner from `main`; it does not fork rail/navigation behavior |
 | Shared semantic adapter | **CURRENT** | A1/A2/A3/B/C; preserves heterogeneous LG and Source-contact semantics |
 | Unified learner object | **CURRENT** | Prompt + Core + Source + Outline + Precision + Visual + Extension + Connection resolved once |
 | Purpose-first Representation Gate | **CURRENT** | geometry/asset presence never mandates a graph/component; ambiguous layout falls back to safer representation |
-| One-screen Block workspace | **CURRENT via #331** | `Logic Map | KP Learn/Recall | dynamic auxiliary`; local scrolling; readable density |
-| System Workspace single-owner architecture | **CURRENT via #368** | `XizongSystemWorkspace` + isolated `xzSystem*` namespace + `xizong-system-workspace.css`; retired V6 component removed; shared Shell untouched |
-| Home single-owner workbench | **CURRENT via #370** | isolated `xzHome*` namespace + `xizong-home-workspace.css`; explicit standalone Memory entry; future domains demoted to horizontal orientation band |
-| Standalone Memory single-owner architecture | **CURRENT via #371** | exact existing Memory markup/Runtime + `xizong-memory-workspace.css`; 15px visible-text floor; three-region workbench; auto-release/evidence semantics unchanged |
-| System Exit / official Question single-owner architecture | **CURRENT via #374** | `xzExitStage` + `xizong-system-exit-workspace.css`; component-local styles retired; Recall/holdout/Question/W-U/SECOND_PASS/Crosswalk/Repair Runtime semantics preserved |
+| One-screen Block workspace | **CURRENT via #331** | `Logic Map | KP Learn/Recall | dynamic auxiliary`; behavior is accepted, presentation ownership still needs an explicit audit |
+| System Workspace single-owner architecture | **CURRENT via #368** | `XizongSystemWorkspace` + isolated `xzSystem*` namespace + `xizong-system-workspace.css` |
+| Home single-owner workbench | **CURRENT via #370** | isolated `xzHome*` namespace + `xizong-home-workspace.css`; explicit standalone Memory entry |
+| Standalone Memory single-owner architecture | **CURRENT via #371** | exact existing Memory markup/Runtime + `xizong-memory-workspace.css`; 15px floor; auto-release/evidence unchanged |
+| System Exit / official Question architecture | **CURRENT via #374** | `xzExitStage` + `xizong-system-exit-workspace.css`; Recall/Question/W-U/SECOND_PASS/Crosswalk/Repair Runtime preserved |
+| Closed-surface legacy cleanup | **CURRENT via #376 / #377 / #379** | broad presentation debt, `.xizongLaterStage`, and hidden dense-calm Home/System/Exit owners physically removed; Block rules intentionally preserved |
 | KP Learn companion | **CURRENT** | Mac Prompt + full Core + locators while original Lecture remains continuous on iPad/MarginNote |
 | Dynamic auxiliary rail | **CURRENT** | rich reviewed Visual/table expands; light Precision/Connection shrinks; empty support returns space to Core |
 | Recall-front protection | **CURRENT** | answer-bearing Core/Visual/Precision/Extension hidden before Reveal |
@@ -186,16 +189,24 @@ Crosswalk may grow independently without another UI redesign.
 | Block Complete → Memory | **CURRENT** | idempotent release of Core/current-owner Precision + private Prompt/Marked state |
 | Shared official Question Runtime | **CURRENT capability** | usable only where honest System question scope / scoped Acceptance permits it |
 | Repair / evidence guards | **CURRENT shared capability** | shared capability never auto-promotes B/C scoped R/E |
-| Representative A1/A2/A3/B/C Block browser matrix | **CURRENT regression gate** | proves shared-shell compatibility, not later-System Acceptance |
+| Representative A1/A2/A3/B/C Block browser matrix | **CURRENT regression gate** | proves shared implementation compatibility, not later-System Acceptance |
 | Real learner U | **UNTESTED unless Kian actually studies** | CI/browser fixtures never create learner truth |
 
-Current Block integration baseline: **PR #331 merged to main**.  
-Current System architecture baseline: **PR #368 merged to main**.  
-Current Home architecture baseline: **PR #370 merged to main**.  
-Current Memory architecture baseline: **PR #371 merged to main**.  
-Current System Exit / official Question architecture baseline: **PR #374 merged to main**.
+Current engineering baselines:
 
-The active website/product migration is now **bounded legacy cleanup + gated shared Shell adoption (Slice 4)** under `XIZONG_UI_MIGRATION.md`. Shared Shell / collapsible global `K` rail remains owned by the parallel English UI lane until its accepted implementation is present on `main`; Xizong must consume it rather than fork it.
+```text
+Shared Shell                         #367
+Block one-screen integration         #331
+System single-owner                  #368
+Home single-owner                    #370
+Memory single-owner                  #371
+System Exit / Question single-owner  #374
+Broad closed-surface cleanup         #376
+Later-stage residue cleanup          #377
+Dense-calm hidden-owner cleanup      #379
+```
+
+The UI migration is now in **remaining ownership-graph audit** under `XIZONG_UI_MIGRATION.md`. Home / System / Memory / System Exit are closed architecture surfaces unless a concrete Current defect or real learner-U finding reopens them. The audit must determine the next bounded Xizong presentation responsibility rather than assuming one from symmetry.
 
 ---
 
@@ -209,7 +220,8 @@ Do **not** create:
 - a separate Visual runtime;
 - a separate TTSX runtime;
 - a second Evidence store;
-- a due-wall / overdue scheduler that overrides learner agency.
+- a due-wall / overdue scheduler that overrides learner agency;
+- a Xizong-specific copy of Shared Shell / global navigation.
 
 TTSX remains source-local in MarginNote; KianOS owns reviewed release bookkeeping and lightweight completion, not duplicate answering.
 
@@ -224,19 +236,19 @@ Official questions remain one shared Question Runtime with preserved attempt his
 ```text
 DONE  shared semantic adapter / learner object
 DONE  Block Framework + Representation Gate
-DONE  one-screen Block Workspace (#331)
+DONE  one-screen Block Workspace behavior (#331)
 DONE  Block Complete → standalone Memory release
 DONE  A1/A2/A3/B/C representative Block browser matrix
+DONE  accepted Shared Shell consumed from main (#367)
 DONE  System Workspace single-owner cutover (#368)
 DONE  Home single-owner cutover (#370)
 DONE  Memory single-owner cutover (#371)
-DONE  System Exit / official Question single-owner cutover (#374)
-ACTIVE bounded legacy CSS cleanup for already-isolated surfaces
-GATED shared Shell adoption after English-owned implementation is accepted on main
-LATER real-use acceptance
+DONE  System Exit / official Question cutover (#374)
+DONE  closed-surface CSS cleanup (#376 / #377 / #379)
+ACTIVE remaining Xizong presentation ownership-graph audit
+NEXT  one bounded implementation slice only if that audit proves a real competing owner
+LATER real learner-U acceptance
 ```
-
-The current Xizong UI migration must not implement the shared Base Shell / collapsible global `K` rail; that remains the parallel English UI lane's write scope until its accepted implementation lands on `main`.
 
 ## Content mainline
 
@@ -268,8 +280,9 @@ Update this file only after a material change such as:
 - official System question scope changes;
 - a material Visual/Extension program is admitted;
 - a shared engineering capability lands on main;
-- the website/product mainline moves to a new workspace.
+- the website/product mainline moves to a new workspace;
+- a presentation ownership migration materially closes or reopens a learner surface.
 
-Do not update for every PR, CI rerun, individual visual crop, Crosswalk batch or learner session.
+Do not update for every CI rerun, individual visual crop, Crosswalk batch or learner session.
 
 > **Status summarizes Truth; Status never creates Truth.**
