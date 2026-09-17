@@ -5,8 +5,9 @@ import { resolvePoliticsUnitRepresentation } from './politicsRepresentationGate.
 import { buildPoliticsContentHierarchy, validatePoliticsContentHierarchy } from './politicsContentHierarchy.mjs';
 import { resolvePoliticsSurfaceMapping } from './politicsSurfaceMapping.mjs';
 
-// Read-only consumer of the accepted Projection selector manifest. It selects
-// exact Current values; it never compiles new knowledge or changes unit identity.
+// Read-only consumer of accepted Politics Projection owners. It resolves exact
+// Current references into learner presentation data; renderers never inspect raw
+// learning_semantics to reconstruct a second semantic composition.
 const root = process.env.KIANOS_REPO_ROOT ? path.resolve(process.env.KIANOS_REPO_ROOT) : path.resolve(process.cwd(), '..');
 const projectionRoot = 'content/politics/projection';
 const read = p => JSON.parse(fs.readFileSync(path.join(root, p), 'utf8'));
@@ -26,7 +27,7 @@ export function resolvePoliticsPresentationRef(ref, chapter, unit) {
   if (ref.match) {
     if (!Array.isArray(value)) throw new Error('POLITICS_PROJECTION_MATCH_EXPECTS_ARRAY');
     value = value.filter(item => Object.entries(ref.match).every(([k, v]) => item?.[k] === v));
-    if (value.length !== 1) throw new Error(`POLITICS_PROJECTION_MATCH_NOT_EXACT:${unit?.natural_unit_id}:${ref.field}`);
+    if (value.length !== 1) throw new Error(`POLITICS_PROJECTION_MATCH_NOT_EXACT:${unit?.natural_unit_id || '<chapter>'}:${ref.field}`);
   }
   if (ref.ids) {
     if (!Array.isArray(value)) throw new Error('POLITICS_PROJECTION_IDS_EXPECT_ARRAY');
@@ -39,36 +40,66 @@ export function resolvePoliticsPresentationRef(ref, chapter, unit) {
   return present(value) ? value : null;
 }
 
-export function loadPoliticsCompiledPresentation(subject, code) {
+function resolveChapterContext(projection, source) {
+  const owner = projection?.chapter_context;
+  if (!owner || typeof owner !== 'object') return null;
+  const resolve = ref => resolvePoliticsPresentationRef(ref, source, null);
+  const resolveGeometry = row => {
+    if (!row?.content) return null;
+    const value = resolve(row.content);
+    return present(value) ? { shape: row.shape || null, value } : null;
+  };
+  return {
+    location: resolve(owner.location),
+    currentProblem: resolve(owner.current_problem),
+    stageContext: (owner.stage_context || []).map(resolveGeometry).filter(Boolean),
+    chapterGeometries: (owner.chapter_geometries || []).map(resolveGeometry).filter(Boolean)
+  };
+}
+
+function loadPoliticsCompiledBundle(subject, code) {
   const directory = subject === 'ethics_law' ? 'ethics-law' : subject;
   const file = `${directory}/${code}.projection.json`;
   if (!manifest.subjects[directory]?.files.includes(file)) return null;
   if (cache.has(file)) return cache.get(file);
+
   const projection = read(`${projectionRoot}/${file}`);
   const sourcePath = projection.source?.path;
-  if (sourcePath !== `content/politics/learning/${directory}/${code}.json`) throw new Error('POLITICS_PROJECTION_SOURCE_PATH_MISMATCH');
+  if (sourcePath !== `content/politics/learning/${directory}/${code}.json`) {
+    throw new Error('POLITICS_PROJECTION_SOURCE_PATH_MISMATCH');
+  }
+
   const bytes = fs.readFileSync(path.join(root, sourcePath));
   const sha = createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex');
   if (sha !== projection.source.blob_sha) throw new Error(`POLITICS_PROJECTION_SOURCE_REVISION_MISMATCH:${file}`);
+
   const source = JSON.parse(bytes.toString('utf8'));
   const rawUnits = source.units || source.unit_projections || (source.unit ? [source.unit] : []);
   const rawById = new Map(rawUnits.map(unit => [unit.natural_unit_id, unit]));
   const units = new Map();
+
   for (const selected of projection.units || []) {
     if (selected.projection_disposition !== 'PASS') continue;
     const rawUnit = rawById.get(selected.unit_id);
     if (!rawUnit) throw new Error(`POLITICS_PROJECTION_UNIT_MISSING:${selected.unit_id}`);
+
     const resolve = ref => resolvePoliticsPresentationRef(ref, source, rawUnit);
-    const objects = entries => (entries || []).map(entry => ({ role: entry.role, value: resolve(entry.content) })).filter(entry => present(entry.value));
+    const objects = entries => (entries || [])
+      .map(entry => ({ role: entry.role, value: resolve(entry.content) }))
+      .filter(entry => present(entry.value));
     const selectedValues = entries => flattenPresent((entries || []).map(resolve));
     const handoff = selected.chengfeng_handoff || null;
+    const surfacePlan = resolvePoliticsSurfaceMapping(selected.surface_mapping, source, rawUnit);
+
+    if (!surfacePlan?.states?.ORIENT?.length) {
+      throw new Error(`POLITICS_PASS_SURFACE_PLAN_ORIENT_MISSING:${selected.unit_id}`);
+    }
+
     const resolved = {
       unitId: selected.unit_id,
       shape: selected.projection_shape,
       representation: resolvePoliticsUnitRepresentation(selected, { stage: 'ORIENT' }),
       purposeFirst: true,
-      // Compatibility marker for the already accepted C01 browser slice. It is
-      // no longer the rollout gate; all PASS units now use purpose-first.
       purposeFirstPilot: directory === 'marxism' && code === 'ch01',
       problem: resolve(selected.current_problem),
       primary: objects(selected.primary_geometry),
@@ -84,12 +115,28 @@ export function loadPoliticsCompiledPresentation(subject, code) {
         lookFor: selectedValues(handoff.look_for)
       } : null,
       closure: resolve(selected.optional_closure),
-      surfacePlan: resolvePoliticsSurfaceMapping(selected.surface_mapping, source, rawUnit)
+      surfacePlan
     };
+
+    // Compatibility data remains derived from Projection, never from renderer
+    // inference. Current learner surfaces consume surfacePlan directly.
     resolved.hierarchy = buildPoliticsContentHierarchy(resolved);
     validatePoliticsContentHierarchy(resolved.hierarchy);
     units.set(selected.unit_id, resolved);
   }
-  cache.set(file, units);
-  return units;
+
+  const bundle = {
+    units,
+    chapterContext: resolveChapterContext(projection, source)
+  };
+  cache.set(file, bundle);
+  return bundle;
+}
+
+export function loadPoliticsCompiledPresentation(subject, code) {
+  return loadPoliticsCompiledBundle(subject, code)?.units || null;
+}
+
+export function loadPoliticsCompiledChapterContext(subject, code) {
+  return loadPoliticsCompiledBundle(subject, code)?.chapterContext || null;
 }
