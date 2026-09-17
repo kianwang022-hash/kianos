@@ -234,7 +234,99 @@ Cross-surface handoff should preserve object/position identity and avoid duplica
 
 ---
 
-## 6｜Legacy / history firewall
+## 6｜Private learner data and Chat handoff
+
+KianOS has two fundamentally different data classes:
+
+```text
+canonical shared Artifact / Content / code
+→ GitHub Current
+
+private learner state / evidence
+→ learner-local private storage
+```
+
+The public canonical repository must never become the normal store for Kian's real learner history.
+
+### 6.1 Four persistence levels
+
+```text
+A. Ephemeral interaction state
+   current tab / disclosure / drag position / temporary draft UI
+   → browser-local only
+
+B. Private learner evidence
+   attempts / Wrong / Uncertain / Recall evidence / timer ledger / repair state
+   → private learner-local store
+
+C. Portable handoff packet
+   bounded evidence selected for Chat or another approved surface
+   → generated from B; transport only
+
+D. Durable learner checkpoint
+   compact daily / periodic recovery snapshot derived from private evidence
+   → private local durable store; optional future private backup
+```
+
+Do not promote A into durable history merely because it can be persisted. Do not copy all of B into Chat merely because it exists.
+
+### 6.2 Unified Chat bridge
+
+The shared platform already owns `kianos.daily-learning-packet.v1` as the cross-subject envelope for time + schedule + optional subject-owned evidence.
+
+The intended round trip is:
+
+```text
+subject-owned private evidence
++ shared study time / current plan
+→ subject packet(s)
+→ Daily Learning Packet envelope
+→ Chat
+
+Chat
+→ diagnosis / adaptive decision / bounded repair
+→ typed domain Return Packet(s)
+→ exact validator / importer
+→ private learner state
+→ exact Return to interrupted task
+```
+
+Shared code may compose packets but must not reinterpret subject evidence. Each subject remains responsible for the semantics of its own Return/import.
+
+Handoff should be **selective**:
+- ordinary stable work does not need Chat export;
+- unresolved / repeated / high-value evidence may be escalated;
+- one daily summary may combine useful cross-subject context without dumping raw browser state;
+- Chat output becomes durable only when imported through an accepted typed Return path.
+
+Do not use free-form Chat transcript text as the learner database.
+
+### 6.3 Public GitHub boundary
+
+This public repository may contain:
+
+- packet schemas / contracts;
+- validators / importers / exporters;
+- synthetic fixtures;
+- redacted example packets;
+- code for local persistence / recovery.
+
+It must not contain real Kian learner data such as:
+
+- answer/attempt history;
+- timer/session history;
+- Wrong / Uncertain events;
+- personal notes;
+- real Daily Learning Packets;
+- Chat Return Packets;
+- raw Chat transcripts;
+- private learner checkpoints.
+
+If cloud backup / cross-device learner-state sync is later desired, use a **separate private store/repository or encrypted sync target**. Do not mix private learner state into canonical `main`.
+
+---
+
+## 7｜Legacy / history firewall
 
 Historical implementations may supply evidence for a bounded recovery, but they are not Current runtime authority.
 
@@ -258,7 +350,7 @@ No current learner runtime may depend on an old repo/path/branch/localhost as hi
 
 ---
 
-## 7｜Sharing test
+## 8｜Sharing test
 
 Before adding shared Engineering, ask:
 
