@@ -41,6 +41,30 @@ const questionSweep = loadXizongSystemQuestionSweep(system);
   <XizongRuntimeStageGuard system={system} />
 </Base>
 
+<script>
+  // Presentation/integration fallback only. XizongSystemExitRuntime remains the
+  // owner of Recall state, reveal/completion, holdout and official-question flow.
+  // If its direct button listener already opened the dialog, this is a no-op.
+  document.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+    const button = target.closest('[data-xizong-system-exit] [data-start-recall]');
+    if (!(button instanceof HTMLElement)) return;
+    const root = button.closest('[data-xizong-system-exit]');
+    const dialog = root?.querySelector('[data-recall-dialog]');
+    if (!(dialog instanceof HTMLDialogElement) || dialog.open) return;
+    const front = dialog.querySelector('[data-recall-front]');
+    const reveal = dialog.querySelector('[data-recall-reveal]');
+    if (front instanceof HTMLElement) front.hidden = false;
+    if (reveal instanceof HTMLElement) reveal.hidden = true;
+    try {
+      dialog.showModal();
+    } catch {
+      dialog.setAttribute('open', '');
+    }
+  });
+</script>
+
 <style is:global>
   /* System Recall belongs after the System has actually been learned. The full
      recall surface remains available inside the later System Exit workspace. */
