@@ -11,6 +11,9 @@ const OBJECT_ROOT = `${EXTERNAL_ROOT}/objects`;
 const MANIFEST_PATH = `${EXTERNAL_ROOT}/manifest.json`;
 const SCHEMA_ID = 'kianos.english.external_reading_object.v1';
 const RUNTIME_PREFIX = 'external--';
+const SOURCE_KINDS = new Set(['TPO_READING', 'IELTS_READING', 'PERIODICAL_READING', 'OTHER_READING']);
+const EXPOSURE_STATES = new Set(['UNSEEN_HOLDOUT', 'PRACTICE_POOL', 'EXPOSED']);
+const ROLES = new Set(['FRESH_INPUT', 'UNSEEN_DIAGNOSTIC', 'TRANSFER_TEST', 'ORDINARY_PRACTICE']);
 
 function absolute(relativePath) {
   return path.join(repoRoot, relativePath);
@@ -47,15 +50,30 @@ function validateObject(value, sourcePath) {
   };
   if (!value || typeof value !== 'object') fail('not_object');
   if (value.schema !== SCHEMA_ID) fail(`schema:${String(value.schema || '')}`);
-  if (!String(value.object_id || '').trim()) fail('object_id');
-  if (String(value.object_id).startsWith(RUNTIME_PREFIX)) fail('object_id_reserved_prefix');
+
+  const objectId = String(value.object_id || '').trim();
+  if (!objectId) fail('object_id');
+  if (objectId.startsWith(RUNTIME_PREFIX)) fail('object_id_reserved_prefix');
+
   if (!value.source || typeof value.source !== 'object') fail('source');
-  if (!String(value.source.kind || '').trim()) fail('source.kind');
+  const sourceKind = String(value.source.kind || '').trim();
+  if (!SOURCE_KINDS.has(sourceKind)) fail(`source.kind:${sourceKind || 'missing'}`);
   if (!String(value.source.source_id || '').trim()) fail('source.source_id');
+
+  const exposureState = String(value.exposure_state || '').trim();
+  if (!EXPOSURE_STATES.has(exposureState)) fail(`exposure_state:${exposureState || 'missing'}`);
+  if (value.role !== undefined && value.role !== null && !ROLES.has(String(value.role))) {
+    fail(`role:${String(value.role)}`);
+  }
+
   const paragraphs = Array.isArray(value.content?.paragraphs) ? value.content.paragraphs : [];
   if (!paragraphs.length) fail('content.paragraphs');
+  const paragraphIds = new Set();
   paragraphs.forEach((paragraph, index) => {
-    if (!String(paragraph?.id || '').trim()) fail(`paragraph.${index}.id`);
+    const id = String(paragraph?.id || '').trim();
+    if (!id) fail(`paragraph.${index}.id`);
+    if (paragraphIds.has(id)) fail(`paragraph_duplicate:${id}`);
+    paragraphIds.add(id);
     if (!String(paragraph?.text || '').trim()) fail(`paragraph.${index}.text`);
   });
 
@@ -70,9 +88,13 @@ function validateObject(value, sourcePath) {
     if (!question.options || typeof question.options !== 'object' || Array.isArray(question.options)) {
       fail(`question.${id}.options`);
     }
-    const labels = Object.keys(question.options);
+    const labels = Object.keys(question.options).map(String);
     if (labels.length < 2) fail(`question.${id}.options_count`);
-    if (!normalizeAnswer(question.answer).length) fail(`question.${id}.answer`);
+    if (labels.some((label) => !String(question.options[label] || '').trim())) fail(`question.${id}.option_text`);
+    const answers = normalizeAnswer(question.answer);
+    if (!answers.length) fail(`question.${id}.answer`);
+    const invalidAnswer = answers.find((answer) => !labels.includes(answer));
+    if (invalidAnswer) fail(`question.${id}.answer_not_in_options:${invalidAnswer}`);
   });
 
   return value;
@@ -101,7 +123,17 @@ function runtimeId(objectId) {
 }
 
 function listEntries() {
-  return objectFiles().map((sourcePath) => readObject(sourcePath));
+  const entries = objectFiles().map((sourcePath) => readObject(sourcePath));
+  const ownerById = new Map();
+  entries.forEach((entry) => {
+    const id = String(entry.value.object_id);
+    const existing = ownerById.get(id);
+    if (existing) {
+      throw new Error(`CURRENT_EXTERNAL_READING_DUPLICATE_OBJECT:${id}:${existing}:${entry.sourcePath}`);
+    }
+    ownerById.set(id, entry.sourcePath);
+  });
+  return entries;
 }
 
 export function listExternalReadingObjects() {
@@ -138,9 +170,6 @@ export function loadExternalReadingById(objectId) {
       text: String(paragraph.text)
     })),
     questions: questions.map(({ answer, ...question }) => ({ ...question })),
-    // Reading A owns its continuous-session route contract under /reading/.
-    // External mode deliberately stays single-object in this first slice so
-    // no cross-family navigation path is manufactured by the shared runtime.
     navigation: {
       position: index + 1,
       total: entries.length,
