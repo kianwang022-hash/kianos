@@ -9,10 +9,10 @@
 
 ## Root Work Cursor
 
-**Active scope:** Project management stabilization  
-**Current stage:** whole-site delivery COMPLETE; Mission Control read model COMPLETE; Orchestrator runtime de-dup COMPLETE  
+**Active scope:** Project management stabilization — Home summary  
+**Current stage:** 把总控制台的必要信息接到 Home；详细状态仍留在 `/current/`  
 **Blocker:** none  
-**Next action:** project only the essential Mission Control summary into Home, keeping daily learning/Continue dominant and leaving deeper project detail on `/current/`.
+**Next action:** 验收 Home 简明系统状态；通过后进入共享 UI 基础收口，并先用 Lexical 做一个小范围真实证明，不同时迁移四科。
 
 Top-level governance is accepted and remains frozen. This is implementation of `PROJECT_MANAGEMENT_CONTRACT.md`, not a new root architecture.
 
