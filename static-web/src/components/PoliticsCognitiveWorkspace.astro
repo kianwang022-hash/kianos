@@ -189,9 +189,14 @@ if (!units.length) {
     );
   })}
 
-  <section class="chapterCloseCompact" id="chapter-close">
-    {chapterContext?.chapterGeometries?.map((row) => <Value value={row.value} />)}
-  </section>
+  {chapterContext?.chapterGeometries?.length > 0 && (
+    <details class="chapterCloseCompact" id="chapter-close">
+      <summary>整章收口</summary>
+      <div class="chapterCloseBody">
+        {chapterContext.chapterGeometries.map((row) => <Value value={row.value} />)}
+      </div>
+    </details>
+  )}
 </section>
 
 <script is:inline>
