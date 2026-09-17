@@ -343,5 +343,6 @@ console.log([
   `Questions=${sweep.questionCount}`,
   `HoldoutTestYear=${testYear} excluded=${heldCount}`,
   'Journeys=canonical-order,clean,weak,chat-return,holdout,W/U,persistence,bootstrap-idempotency,attempt-history,error',
+  `CognitiveRoutes=${cognitiveRouteCount}`,
   'U=NOT_TESTED_BY_THIS_SCRIPT'
 ].join(' | '));
