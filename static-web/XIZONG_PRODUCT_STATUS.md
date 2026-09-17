@@ -177,6 +177,7 @@ Crosswalk may grow independently without another UI redesign.
 | System Workspace single-owner architecture | **CURRENT via #368** | `XizongSystemWorkspace` + isolated `xzSystem*` namespace + `xizong-system-workspace.css`; retired V6 component removed; shared Shell untouched |
 | Home single-owner workbench | **CURRENT via #370** | isolated `xzHome*` namespace + `xizong-home-workspace.css`; explicit standalone Memory entry; future domains demoted to horizontal orientation band |
 | Standalone Memory single-owner architecture | **CURRENT via #371** | exact existing Memory markup/Runtime + `xizong-memory-workspace.css`; 15px visible-text floor; three-region workbench; auto-release/evidence semantics unchanged |
+| System Exit / official Question single-owner architecture | **CURRENT via #374** | `xzExitStage` + `xizong-system-exit-workspace.css`; component-local styles retired; Recall/holdout/Question/W-U/SECOND_PASS/Crosswalk/Repair Runtime semantics preserved |
 | KP Learn companion | **CURRENT** | Mac Prompt + full Core + locators while original Lecture remains continuous on iPad/MarginNote |
 | Dynamic auxiliary rail | **CURRENT** | rich reviewed Visual/table expands; light Precision/Connection shrinks; empty support returns space to Core |
 | Recall-front protection | **CURRENT** | answer-bearing Core/Visual/Precision/Extension hidden before Reveal |
@@ -191,9 +192,10 @@ Crosswalk may grow independently without another UI redesign.
 Current Block integration baseline: **PR #331 merged to main**.  
 Current System architecture baseline: **PR #368 merged to main**.  
 Current Home architecture baseline: **PR #370 merged to main**.  
-Current Memory architecture baseline: **PR #371 merged to main**.
+Current Memory architecture baseline: **PR #371 merged to main**.  
+Current System Exit / official Question architecture baseline: **PR #374 merged to main**.
 
-The active website/product migration is now **System Exit / official Question ownership convergence (Slice 3)** under `XIZONG_UI_MIGRATION.md`. Shared engineering should otherwise reopen only for a concrete Current defect or a new System integration requirement.
+The active website/product migration is now **bounded legacy cleanup + gated shared Shell adoption (Slice 4)** under `XIZONG_UI_MIGRATION.md`. Shared Shell / collapsible global `K` rail remains owned by the parallel English UI lane until its accepted implementation is present on `main`; Xizong must consume it rather than fork it.
 
 ---
 
@@ -228,8 +230,9 @@ DONE  A1/A2/A3/B/C representative Block browser matrix
 DONE  System Workspace single-owner cutover (#368)
 DONE  Home single-owner cutover (#370)
 DONE  Memory single-owner cutover (#371)
-ACTIVE System Exit / official Question ownership convergence
-LATER bounded legacy CSS cleanup + shared Shell adoption after English lands it on main
+DONE  System Exit / official Question single-owner cutover (#374)
+ACTIVE bounded legacy CSS cleanup for already-isolated surfaces
+GATED shared Shell adoption after English-owned implementation is accepted on main
 LATER real-use acceptance
 ```
 
