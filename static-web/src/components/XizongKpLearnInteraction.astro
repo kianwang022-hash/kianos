@@ -287,22 +287,19 @@
         detail.className = 'xzLogicGroupDetail';
         detail.dataset.logicGroupDetail = groupId;
 
-        const isProtectedRecall = stageName() === 'kp_recall' && !recallRevealed();
-        if (!isProtectedRecall) {
-          if (group.goal) {
-            const goal = document.createElement('p');
-            goal.className = 'xzLogicGroupGoal';
-            goal.innerHTML = `<b>这一节解决</b><span></span>`;
-            goal.querySelector('span').textContent = group.goal;
-            detail.append(goal);
-          }
-          if (group.closure) {
-            const closure = document.createElement('p');
-            closure.className = 'xzLogicGroupClosure';
-            closure.innerHTML = `<b>学完能做到</b><span></span>`;
-            closure.querySelector('span').textContent = group.closure;
-            detail.append(closure);
-          }
+        if (group.goal) {
+          const goal = document.createElement('p');
+          goal.className = 'xzLogicGroupGoal';
+          goal.innerHTML = `<b>这一节解决</b><span></span>`;
+          goal.querySelector('span').textContent = group.goal;
+          detail.append(goal);
+        }
+        if (group.closure) {
+          const closure = document.createElement('p');
+          closure.className = 'xzLogicGroupClosure';
+          closure.innerHTML = `<b>学完能做到</b><span></span>`;
+          closure.querySelector('span').textContent = group.closure;
+          detail.append(closure);
         }
 
         const kpList = document.createElement('div');
@@ -319,11 +316,9 @@
           code.textContent = item?.identity?.displayId || id;
           row.append(code);
 
-          if (!isProtectedRecall) {
-            const title = document.createElement('span');
-            title.textContent = item?.identity?.title || '';
-            row.append(title);
-          }
+          const title = document.createElement('span');
+          title.textContent = item?.identity?.title || '';
+          row.append(title);
 
           const state = document.createElement('em');
           state.textContent = study.ratings?.[id]
@@ -550,6 +545,8 @@
           card.classList.add('xzKpUnifiedCard', 'xzKpRecallCard');
 
           const header = card.querySelector(':scope > header');
+          const titleNode = header?.querySelector(':scope > h3');
+          if (titleNode) titleNode.textContent = [kp?.identity?.displayId, kp?.identity?.title].filter(Boolean).join(' · ');
           const prompt = header?.querySelector(':scope > p');
           if (prompt instanceof HTMLElement) {
             prompt.dataset.kpLearnPromptCopy = '';
