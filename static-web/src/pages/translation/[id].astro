@@ -7,7 +7,7 @@ import TranslationReferenceLoader from '../../components/TranslationReferenceLoa
 import {
   listTranslationSets,
   loadTranslationById
-} from '../../lib/englishTranslation.mjs';
+} from '../../lib/englishTranslationSourceTruth.mjs';
 
 export function getStaticPaths() {
   return listTranslationSets().map((item) => ({
@@ -31,7 +31,7 @@ const referenceUrl = `${base}translation-reference/${encodeURIComponent(translat
   title={translation.title}
   kicker="English · Translation Current"
   description="Clean production first; delayed reference comparison; focused repair; learner reconstruction."
-  sourcePath={translation.sourcePaths.questions}
+  sourcePath={translation.sourcePaths.sourceTruth || translation.sourcePaths.questions}
   sourceHash={translation.sourceHashes.renderedObject}
   objectId={translation.objectId}
   active="home"

@@ -12,7 +12,7 @@ import ObjectiveTransferClaims from '../../components/ObjectiveTransferClaims.as
 import ReadingPassageHandoff from '../../components/ReadingPassageHandoff.astro';
 import ReadingSessionHandoff from '../../components/ReadingSessionHandoff.astro';
 import ReadingLastLocation from '../../components/ReadingLastLocation.astro';
-import { listReadingSets, loadReadingById } from '../../lib/englishReading.mjs';
+import { listReadingSets, loadReadingById } from '../../lib/englishReadingSourceTruth.mjs';
 
 export function getStaticPaths() {
   return listReadingSets().map((item) => ({
@@ -28,7 +28,7 @@ const reading = loadReadingById(readingId);
   title={reading.title}
   kicker="English · Current"
   description=""
-  sourcePath={reading.sourcePaths.passage}
+  sourcePath={reading.sourcePaths.sourceTruth || reading.sourcePaths.passage}
   sourceHash={reading.sourceHashes.renderedObject}
   objectId={reading.objectId}
   active="reading"

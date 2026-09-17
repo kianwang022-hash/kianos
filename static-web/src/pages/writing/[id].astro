@@ -4,7 +4,7 @@ import WritingWorkspace from '../../components/WritingWorkspace.astro';
 import WritingEvidencePanel from '../../components/WritingEvidencePanel.astro';
 import WritingProtectedExamGate from '../../components/WritingProtectedExamGate.astro';
 import { listWritingSyntheticTasks } from '../../lib/englishWritingSynthetic.mjs';
-import { listWritingRuntimeTasks, loadWritingRuntimeTask } from '../../lib/englishWritingRuntimeTask.mjs';
+import { listWritingRuntimeTasks, loadWritingRuntimeTask } from '../../lib/englishWritingRuntimeSourceTruth.mjs';
 
 export function getStaticPaths() {
   return listWritingRuntimeTasks().map((task) => ({

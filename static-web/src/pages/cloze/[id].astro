@@ -5,7 +5,7 @@ import ObjectiveAnswerGate from '../../components/ObjectiveAnswerGate.astro';
 import ObjectiveHandoff from '../../components/ObjectiveHandoff.astro';
 import ObjectiveTransferClaims from '../../components/ObjectiveTransferClaims.astro';
 import ObjectiveNavigator from '../../components/ObjectiveNavigator.astro';
-import { listClozeSets, loadClozeById } from '../../lib/englishObjective.mjs';
+import { listClozeSets, loadClozeById } from '../../lib/englishObjectiveSourceTruth.mjs';
 
 export function getStaticPaths() {
   return listClozeSets().map((item) => ({
@@ -20,7 +20,7 @@ const item = loadClozeById(Astro.props.objectId);
   title={item.title}
   kicker="English · Cloze"
   description="Slot Demand → Constraints → Candidate Contrast → Best Fit"
-  sourcePath={item.sourcePaths.questions}
+  sourcePath={item.sourcePaths.sourceTruth || item.sourcePaths.questions}
   sourceHash={item.sourceHashes.renderedObject}
   objectId={item.objectId}
   active="cloze"
