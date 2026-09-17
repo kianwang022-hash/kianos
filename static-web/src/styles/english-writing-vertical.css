@@ -506,6 +506,104 @@ body#kianos-workspace.uiEnglish .writingActions small.isBad {
   color: #9a4b38;
 }
 
+/* Shared Productive Convergence remains the behavior owner; Writing owns only
+   its route-level presentation. */
+body#kianos-workspace.uiEnglish .writingRuntime .writingLiveMeta {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0;
+  margin: 2px 0 7px;
+  color: #71808a;
+  font-size: 15px;
+  font-weight: 520;
+  line-height: 1.45;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntime .writingLiveMeta span + span::before {
+  content: "·";
+  margin: 0 10px;
+  color: #a0a9af;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntime .productiveDirectReview {
+  display: grid;
+  gap: 16px;
+  padding: 22px 0 24px;
+  border-bottom: 1px solid #e7ebee;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntime .productiveDirectReview > header {
+  display: grid;
+  gap: 5px;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntime .productiveDirectReview > header > span {
+  color: #647887;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: 0;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntime .productiveDirectReview > header h2 {
+  margin: 0;
+  color: #2c3c47;
+  font-size: 22px;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntime .productiveDirectReview > header p {
+  margin: 0;
+  color: #66737d;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntime .productiveDirectActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntime .productiveDirectActions button {
+  min-height: 34px;
+  padding: 0 11px;
+  border: 1px solid #d8e0e5;
+  border-radius: 6px;
+  background: #fff;
+  color: #596a77;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntime .productiveDirectActions button.primary {
+  border-color: #294e65;
+  background: #294e65;
+  color: #fff;
+  font-weight: 680;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntime .productiveDirectStatus {
+  flex-basis: 100%;
+  color: #74808a;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntime .productiveAdvanced {
+  margin-top: 10px;
+  padding-top: 12px;
+  border-top: 1px solid #e7ebee;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntime .productiveAdvanced > summary {
+  color: #687782;
+  font-size: 15px;
+  font-weight: 600;
+}
+
 /* Frozen evidence and later review states stay in the same document rhythm. */
 body#kianos-workspace.uiEnglish .writingFrozen {
   padding-block: 18px;
