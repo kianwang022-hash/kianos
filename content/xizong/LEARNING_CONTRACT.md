@@ -138,6 +138,39 @@ Retrieval / local-closure unit inside a Block. It groups KPs that must be unders
 
 A Logic Group is **not automatically a Source-contact segment**.
 
+A Logic Group owns more than membership when the internal relation materially helps understanding. Its System-specific Learning owner may explicitly provide a `cognitive_route` that answers:
+
+> **Why are these KPs in one group, and what cognitive relation lets them jointly solve the group problem?**
+
+The route is Learning structure, not new medical truth. It may organize already-canonical KPs as a:
+
+- `CHAIN` — meaningful sequence / progression;
+- `BRANCH` — one model splitting into parallel subproblems and optionally reconverging;
+- `COMPARE` — paired or multi-way discrimination;
+- `COORDINATE` — several independent axes used together;
+- `SYNTHESIS` — one or more inputs compressed into an integrating object;
+- `MIXED` — a reviewed combination when none of the simpler shapes is faithful.
+
+Hard rules:
+
+```text
+ordered kpIds
+≠ causal chain
+≠ dependency graph
+≠ comparison structure
+≠ cognitive route
+```
+
+Therefore:
+
+- the UI / Projection may **not** infer arrows or relation semantics from KP numbering, title similarity or page order;
+- every route node must resolve to one or more canonical KPs in the owning Logic Group;
+- every route edge must be explicitly reviewed and supported by Current Core / Learning semantics;
+- route labels explain cognitive role/relationship and must not introduce independent medical claims;
+- trivial single-KP groups may omit the route entirely;
+- absence of a route is valid and must fail closed to a simple member list;
+- the route is answer-bearing orientation by default, so protected Recall fronts must not expose its answer-bearing labels/edges unless a separately reviewed neutral projection exists.
+
 ### KP
 
 Stable canonical Knowledge identity. A KP is not automatically the learner interaction unit and does not dictate learner order.
