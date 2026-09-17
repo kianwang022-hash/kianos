@@ -25,6 +25,8 @@ Explicit preferences may guide product decisions directly when they do not confl
 - iPad is an important companion learning device, especially for continuous source / lecture reading such as MarginNote.
 - Cross-device design should assign each device the job it is best at instead of duplicating the same continuous content on both screens.
 - Responsive narrow layouts should remain usable, but they are not the main design origin.
+- When the primary learner object is vertically scrollable, **protect vertical working height**. Do not stack persistent headers, method bars, status strips and tool rows above/below the main content merely because they fit. Prefer moving persistent navigation, context and auxiliary tools into left/right space when Mac width can carry them.
+- Side regions are conditional workspace, not decoration: they should earn their width with useful current-task information and collapse/return space to the main learner object when empty or low-value.
 
 ---
 
@@ -36,6 +38,7 @@ Kian consistently prefers:
 - clear frameworks and visible structure;
 - larger, comfortably readable type;
 - **substantial Regular/Medium typography with visible weight rather than thin/light rendering**;
+- **Chinese UI typography with a broad, full-bodied, stable glyph feel** rather than narrow/condensed/squeezed proportions;
 - stronger contrast;
 - **high useful information density when the screen has room for it**;
 - low-friction interaction;
@@ -50,6 +53,7 @@ Kian dislikes:
 
 - tiny text that makes sustained reading tiring;
 - **thin / light / weak-looking type, especially when combined with gray low-contrast text**;
+- **narrow / condensed / squeezed-looking Chinese glyphs**, including Chinese headings made visually thinner by aggressive negative letter-spacing;
 - using smallness or light font weight as the primary way to mark secondary information;
 - pages that are too empty and waste large amounts of space;
 - interfaces that hide useful structure behind excessive whitespace;
@@ -74,6 +78,8 @@ These are taste constraints, not instructions to clone Apple, Raycast, Arc, the 
 - If an engineering ID, provenance/status label, debug field or other datum is not worth comfortable reading, it should not remain permanently visible merely because there is room for it.
 - Density problems should be solved first by removing duplicate chrome, using Mac width better, grouping related content, or local scrolling — **not by shrinking learner text**.
 - Real browser acceptance should inspect the smallest default-visible learner text **and its rendered weight/contrast**, not only headlines and body paragraphs.
+- For Chinese UI, acceptance also inspects the **actual rendered typeface and glyph proportion**. A nominal CSS weight such as 700/760 does not pass if fallback rendering still looks narrow, lanky or under-bodied.
+- Negative tracking on Chinese learner-facing headings/labels is disallowed by default. Use normal tracking unless a real screenshot proves a specific exception improves readability without squeezing the glyph body.
 
 ### Screen space must earn its keep
 

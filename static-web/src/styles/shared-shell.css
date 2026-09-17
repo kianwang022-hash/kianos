@@ -111,7 +111,7 @@ body#kianos-workspace[data-kianos-rail="compact"] { --kianos-rail-width: var(--k
 .kianosRailItem:hover { background: var(--kianos-rail-hover); color: #f4f7f5; }
 .kianosRailItem.active { background: var(--kianos-rail-active); color: var(--kianos-rail-accent); font-weight: var(--study-weight-title); }
 .kianosRailIcon { justify-self: center; width: 21px; height: 21px; stroke-width: 1.8; }
-.kianosRailLabel { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.kianosRailLabel { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; letter-spacing: 0; }
 
 .kianosRailFooter { position: relative; display: grid; gap: 8px; }
 .kianosCurrentDock { position: relative; }
@@ -175,7 +175,8 @@ body#kianos-workspace[data-kianos-rail="compact"] { --kianos-rail-width: var(--k
   color: var(--study-ink);
   font-size: var(--study-type-secondary);
   font-weight: var(--study-weight-title);
-  letter-spacing: -.015em;
+  /* Chinese subject identity must stay broad/full-bodied; do not squeeze it with negative tracking. */
+  letter-spacing: 0;
   white-space: nowrap;
 }
 .kianosSubjectNav {

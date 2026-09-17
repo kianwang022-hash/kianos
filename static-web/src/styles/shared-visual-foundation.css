@@ -52,9 +52,11 @@
   --study-space-5: 20px;
   --study-space-6: 24px;
 
-  /* CJK-first stack keeps Chinese UI optically solid on Mac and CI screenshots. */
-  --study-font-cjk: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
-  --study-font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Noto Sans CJK SC", "Segoe UI", sans-serif;
+  /* CJK-first is a visual requirement, not only a fallback preference.
+     Keep a dedicated Chinese family ahead of generic system UI fonts so learner
+     chrome does not collapse into a narrow/condensed-looking fallback. */
+  --study-font-cjk: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", "Source Han Sans SC", sans-serif;
+  --study-font: var(--study-font-cjk);
   --study-serif: "Iowan Old Style", Charter, "Palatino Linotype", Palatino, Georgia, "Noto Serif CJK SC", serif;
   --study-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
@@ -71,7 +73,7 @@ body {
   font-weight: var(--study-weight-body);
   line-height: var(--study-leading-body);
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: auto;
 }
 
 button,
