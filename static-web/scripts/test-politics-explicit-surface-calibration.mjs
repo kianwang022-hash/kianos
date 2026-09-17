@@ -28,6 +28,10 @@ pass((origins?.transitions || []).length === 0, 'marx_s01_origins_have_no_invent
 pass(development?.primitive === 'DIRECTED_SEQUENCE', 'marx_s01_development_is_directed');
 pass(development?.items?.map((item) => item.id).join('|') === 'creation|theory_system|development', 'marx_s01_development_members_exact');
 pass(development?.transitions?.length === 2, 'marx_s01_development_transitions_exact', String(development?.transitions?.length || 0));
+pass(
+  development?.transitions?.map((item) => item.relation).join('|') === '形成相互联系的理论体系|理论体系不是封闭终点',
+  'marx_s01_development_relation_text_exact'
+);
 
 const marxS02 = unit(marx, 'POL27-CF-MARX-C00-S02');
 const characteristics = group(marxS02, 'ORIENT', 's02-four-characteristics');
@@ -38,8 +42,24 @@ pass(characteristics?.items?.map((item) => item.id).join('|') === 'scientificity
 pass(revolutionaryRelations?.primitive === 'RELATION_SET', 'marx_s02_revolution_relations_are_relation_set');
 pass(revolutionaryRelations?.items?.length === 3, 'marx_s02_revolution_relation_count_exact', String(revolutionaryRelations?.items?.length || 0));
 pass((revolutionaryRelations?.transitions || []).length === 0, 'marx_s02_relation_set_has_no_sequence');
+pass(revolutionaryRelations?.items?.every((item) => item.from_label && item.relation && item.to_label), 'marx_s02_revolution_relation_text_owned');
 pass(scienceRevolutionRelations?.primitive === 'RELATION_SET', 'marx_s02_science_revolution_is_relation_set');
 pass(scienceRevolutionRelations?.items?.length === 2, 'marx_s02_science_revolution_relation_count_exact', String(scienceRevolutionRelations?.items?.length || 0));
+pass(scienceRevolutionRelations?.items?.every((item) => item.from_label && item.relation && item.to_label), 'marx_s02_science_revolution_relation_text_owned');
+
+const marxC01 = chapter('marxism', 'ch01');
+const marxC01S01 = unit(marxC01, 'POL27-CF-MARX-C01-S01');
+const marxC01Axes = group(marxC01S01, 'ORIENT', 'marx-c01-s01-axes');
+pass(marxC01Axes?.primitive === 'PARALLEL_SET', 'marx_c01_s01_axes_stay_parallel');
+pass(marxC01Axes?.items?.length === 2, 'marx_c01_s01_axis_count_exact', String(marxC01Axes?.items?.length || 0));
+pass(marxC01Axes?.items?.every((item) => item.label && item.problem && item.relation), 'marx_c01_s01_problem_and_relation_text_owned');
+
+const marxC01S02 = unit(marxC01, 'POL27-CF-MARX-C01-S02');
+const marxC01World = group(marxC01S02, 'ORIENT', 'marx-c01-s02-world-chain');
+pass(marxC01World?.primitive === 'DIRECTED_SEQUENCE', 'marx_c01_s02_world_model_is_directed');
+pass(marxC01World?.items?.length === 9, 'marx_c01_s02_world_model_keeps_nine_beats', String(marxC01World?.items?.length || 0));
+pass(marxC01World?.transitions?.length === 8, 'marx_c01_s02_world_model_transition_count_exact', String(marxC01World?.transitions?.length || 0));
+pass(marxC01World?.items?.every((item) => item.label && item.problem && item.relation), 'marx_c01_s02_problem_and_relation_text_owned');
 
 const history = chapter('history', 'ch01');
 const historyS01 = unit(history, 'POL27-CF-HISTORY-C01-S01');
