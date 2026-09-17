@@ -229,3 +229,16 @@ Never defend an inferred preference against explicit user correction.
 - `static-web/UI_STYLE_BRIEF.md` turns those preferences plus product constraints into a shared visual language.
 - lane `*_PRODUCT_BRIEF.md` files own task-specific product choices.
 - domain Learning / Interaction contracts remain semantic authority and outrank taste when a real conflict exists.
+
+Codex must not reinterpret this file as permission to change learning semantics.
+
+---
+
+## 10｜Update rule
+
+Update this file when Kian explicitly states a durable UI / interaction preference or explicitly rejects one.
+
+- Preserve the distinction between explicit preference and inference.
+- Do not silently promote one successful mockup into a universal rule.
+- Do not infer a global preference from one task-specific decision unless Kian explicitly generalizes it.
+- When a later explicit preference conflicts with an older one, update the Current preference rather than carrying both as equal truth.
