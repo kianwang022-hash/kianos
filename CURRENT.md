@@ -3,7 +3,7 @@
 **Repository:** `kianwang022-hash/kianos`  
 **Role:** root Work Cursor + scope router
 
-`CURRENT.md` is a navigation/control surface, not a Truth owner and not a project history.
+`CURRENT.md` is a navigation/control surface, not a Truth owner and not project history.
 
 ---
 
@@ -12,76 +12,26 @@
 **Active scope:** none — router-only baseline  
 **Current stage:** accepted top-level governance baseline  
 **Blocker:** none  
-**Next action:** route future work to the narrowest known lane / sub-lane `CURRENT.md`. Open a root integration/governance scope only when a real cross-lane requirement, owner conflict, dependency conflict, or architecture failure requires it.
+**Next action:** route work to the narrowest known lane / sub-lane Current. Open root integration only for a real cross-lane requirement, owner/dependency conflict, or demonstrated management/architecture failure.
 
-### Accepted top-level baseline
+Top-level governance is accepted and should remain stable. Normal implementation friction does not justify redesigning the root architecture.
 
-KianOS now uses:
-
-- `Project Definition → Architecture → Operating Cycle`;
-- Three Truths + One Cursor;
-- federated Root / Lane / justified Sub-lane Current ownership;
-- single-owner + inherited-rule boundaries;
-- current-only restart paths with roughly 2–4 precise reads after scope resolution;
-- continuation only when a proven narrow machine/process responsibility exists;
-- dependency-driven concurrency at any justified scope depth;
-- hierarchy for ownership/routing, not scheduling;
-- earliest-unresolved-stage containment only along the affected dependency chain;
-- explicit separation of governance hierarchy, construction dependency, and learner order;
-- a federated **multi-surface learner model** in which Learning Logic assigns material surface ownership and `static-web/` is the common KianOS-owned execution layer rather than the presumptive primary surface for every learner action;
-- explicit separation of Source ownership, Surface ownership, render availability, and runtime capability;
-- lightweight anti-entropy protection;
-- strict separation between engineering readiness and Kian's real learner progress;
-- **cross-subject exam orchestration as a first-class top-level product dimension** owned by `EXAM_ORCHESTRATOR_CONTRACT.md`, distinct from but consuming the three subject lanes.
-
-Top-level governance should now remain stable. Do not keep expanding it merely because more sophisticated infrastructure is possible.
-
-### Lower-level upgrade sequence
-
-Lower-level work proceeds as separate bounded scopes:
-
-```text
-known lane / sub-lane
-→ local CURRENT
-→ local ACCEPTANCE + exact Artifact owner(s)
-→ identify real dependency chain
-→ advance only the earliest unresolved eligible construction / acceptance stage on that chain
-→ implement / accept / real learner use
-```
-
-Independent scopes may run this sequence concurrently, including siblings under the same parent lane.
-
-Do not aggregate all lane upgrades into a root mega-migration. Shared infrastructure changes only when multiple real lane-level needs prove a common requirement or real learner evidence exposes a root invariant gap.
-
-### Root out-of-scope by default
-
-- no additional governance abstraction without a new root requirement;
-- no domain content/source semantic rewrite under root governance authority;
-- no private learner-state mutation from engineering state;
-- no broad sibling-lane repair by convenience;
-- no serialization of independent child scopes by parent routing;
-- no reopening accepted domain cognition merely to simplify governance;
-- no automatic migration of learner actions into `static-web/` merely because a component can render or execute them;
-- no CI/runner/platform expansion without a demonstrated execution need.
+For cross-lane project-management, delivery, Mission Control, migration discipline, reading discipline, or implementation-scope work, use `PROJECT_MANAGEMENT_CONTRACT.md`.
 
 ---
 
-## Authority
-
-Highest-level owners:
+## Root authority
 
 - project requirements / invariants → `PROJECT_DEFINITION.md`
 - project architecture → `ARCHITECTURE.md`
-- worker operating rules → `AGENTS.md`
+- worker entry / operating rules → `AGENTS.md`
+- cross-lane project-management execution → `PROJECT_MANAGEMENT_CONTRACT.md`
 - governance acceptance → `GOVERNANCE_ACCEPTANCE.md`
-
-Repository-wide learning/platform standards:
-
-- formal learning-asset construction order, including material Surface Ownership at Learning Logic → `LEARNING_ASSET_STANDARD.md`
-- S/K/L/P/R/E/U readiness, including cross-surface acceptance → `LEARNING_ACCEPTANCE.md`
-- shared mature learner-surface capabilities + cross-KianOS Surface Ownership boundary → `SYSTEM_CONTRACT.md`
-- cross-subject exam scheduling / phase Gates / capacity arbitration / score closure / material-refresh timing → `EXAM_ORCHESTRATOR_CONTRACT.md`
-- temporary branch lifecycle → `BRANCH_LIFECYCLE.md`
+- learning-asset construction order → `LEARNING_ASSET_STANDARD.md`
+- S/K/L/P/R/E/U readiness → `LEARNING_ACCEPTANCE.md`
+- shared learner-surface capabilities → `SYSTEM_CONTRACT.md`
+- cross-subject exam scheduling / phase Gates / material timing → `EXAM_ORCHESTRATOR_CONTRACT.md`
+- branch lifecycle → `BRANCH_LIFECYCLE.md`
 - intentionally postponed work → `DEFERRED.md`
 
 These owners are referenced, not copied into lane Current files.
@@ -102,128 +52,70 @@ Known target scope may go directly to its local Current once governance is under
 
 Parent lanes are routers/owners, not global child queues. Independent child scopes may progress concurrently unless a real dependency links them.
 
-### Mandatory whole-exam / three-subject status rule
+---
 
-When Kian asks any whole-exam question such as:
+## Whole-exam / three-subject status rule
 
-- “三科整体进度如何”；
-- “整个考研系统是不是差不多了”；
-- “还有什么没做”；
-- “Home / 三科调度现在到哪了”；
-- “今天 / 本周三科怎么分配”；
-- “什么时候可以停止工程开始正式学”；
+When Kian asks about the whole exam system, overall progress, remaining work, Home scheduling, today's/this week's allocation, or when engineering can stop, do **not** answer from subject lanes alone.
 
-**do not answer from the three subject lanes alone.**
-
-The minimum Current-first read is:
+Minimum read:
 
 ```text
 EXAM_ORCHESTRATOR_CONTRACT.md
-+
-Xizong CURRENT / status
-+
-English CURRENT
-+
-Politics CURRENT
-(+ Lexical CURRENT when English vocabulary/product readiness is material)
++ Xizong CURRENT/status
++ English CURRENT
++ Politics CURRENT
+(+ Lexical CURRENT when vocabulary/product readiness matters)
 ```
 
-If the question is about product / website closure, also inspect the Current Home / Orchestrator implementation or product evidence under `static-web/` before making a closure claim.
+If the question is about product / website closure, also inspect Current Home / Orchestrator implementation or product evidence under `static-web/`.
 
-Required reporting model:
+Report separately:
 
 ```text
 Subject readiness
-= Xizong + English + Politics (+ Lexical support where material)
-
-Cross-subject readiness
-= Exam Orchestrator / Home scheduling + phase/Gate/capacity behavior
-
-Whole exam-system readiness
-= subject readiness + cross-subject readiness
+Cross-subject / Home readiness
+Whole-system readiness = both
 ```
-
-The Exam Orchestrator is **not a fourth exam subject**, but it is a **fourth mandatory top-level status dimension** for whole-system progress and closure questions.
 
 Hard rule:
 
-> **Never say the three-subject / whole exam system is “basically finished” without explicitly accounting for Home / Exam Orchestrator.**
+> **Never call the whole exam system “basically finished” without accounting for Home / Exam Orchestrator.**
 
-Subject-local engineering PASS does not imply cross-subject scheduling is complete, and Home readiness does not imply any subject has been learned.
+Subject engineering PASS does not imply learner progress or cross-subject scheduling closure.
 
 ---
 
-## Scheduling boundary
+## Compact routing rules
 
-Use this distinction everywhere:
+For a known scope:
 
 ```text
-Governance hierarchy
-= ownership / routing / inheritance
-
-Construction dependency
-= what must be settled before this work can proceed correctly
-
-Learner order
-= what sequence Kian should actually experience
-```
-
-Compact rule:
-
-> **Scope 按依赖并行；Stage / Gate 沿真实依赖串行。**
-
-`UNTESTED` does not mean every unresolved gate is active. The local `CURRENT.md` identifies the earliest unresolved eligible gate; later dependent gates remain frozen until eligible.
-
----
-
-## Three Truths boundary
-
-For any scope, keep separate:
-
-- **Artifact Truth** — what canonical source/content/runtime/product assets actually exist;
-- **Acceptance Truth** — what quality/readiness has actually been demonstrated;
-- **Learner Truth** — what Kian has actually learned/done;
-- **Work Cursor** — what the worker should do next.
-
-Hard rule:
-
-> **Artifact Truth ≠ Acceptance Truth ≠ Learner Truth; this Current cannot manufacture any of them.**
-
-Surface ownership is orthogonal to those Truth/Cursor owners: it tells the learner **where a cognitive action occurs**, not who owns its semantic truth or readiness evidence.
-
----
-
-## Fresh-Chat routing
-
-When the target scope is known:
-
-```text
-target scope CURRENT
+target CURRENT
 → exact required owner(s)
 → work
 ```
 
-For whole-exam / cross-subject questions:
+For cross-layer/root integration work:
 
 ```text
-EXAM_ORCHESTRATOR_CONTRACT.md
-→ exact subject CURRENT/status owners needed for the question
-→ Current Home / Orchestrator product evidence when implementation state matters
-→ answer / work
+root CURRENT
+→ PROJECT_MANAGEMENT_CONTRACT.md
+→ exact affected authority chain only
+→ work
 ```
 
-A `continuation.*` file is not a mandatory layer. Read it only when the local Current names it as a required owner and it still has a proven narrow machine/process responsibility.
+Normal target is roughly 2–4 precise reads after scope resolution. Whole-exam status is the deliberate exception because it spans the Orchestrator plus multiple subject owners.
 
-Normal target: **roughly 2–4 precise reads after scope resolution**; whole-exam status is the explicit exception because it intentionally spans the Orchestrator plus multiple subject owners.
+Do not use historical repositories, retired branches, migration records, old Issues, or prior Chats as normal Current fallback.
 
-Do not search repository history, legacy repositories, retired branches, migration records, or unrelated lanes as normal fallback.
+Keep these distinctions everywhere:
 
----
+```text
+Artifact Truth ≠ Acceptance Truth ≠ Learner Truth ≠ Work Cursor
+Hierarchy = ownership/routing
+Dependency = scheduling
+Learner order = learner experience sequence
+```
 
-## Current-only boundary
-
-Normal work uses current canonical authority.
-
-History may be inspected only for an explicit bounded recovery / rollback / historical comparison / migration task. Once an accepted recovery result exists in Current authority, normal operation returns to current-only reasoning.
-
-This file should remain small. Root progress history belongs in Git history / explicit evidence owners, not here.
+This file should remain small. Progress history belongs in Git history / exact evidence owners, not here.

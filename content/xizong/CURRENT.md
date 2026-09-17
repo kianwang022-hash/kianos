@@ -1,9 +1,9 @@
 # Xizong Current
 
-Role: Xizong lane Work Cursor + Current task router  
+Role: Xizong lane Work Cursor + task router  
 Parent: root `CURRENT.md`
 
-This file owns routing only. It does not own medical Core, lane learning semantics, scoped Acceptance Truth, product semantics or Kian's learner progress.
+This file owns routing only. It does not own medical Core, lane Learning semantics, scoped Acceptance Truth, product semantics, or Kian's learner progress.
 
 ---
 
@@ -13,7 +13,7 @@ This file owns routing only. It does not own medical Core, lane learning semanti
 **Blocker:** none at lane-routing level  
 **Next action:** route work to the narrowest Current owner for the actual task.
 
-Durable multi-lane content production coordination lives in `CONTENT_MAINLINE.md`. Read it after this file whenever the task is to continue the overall Xizong content program across medical construction, Questions or Visual / Extension work. `CONTENT_MAINLINE.md` coordinates priority and dependencies only; exact scoped owners remain authoritative.
+For overall Xizong content-program coordination, read `CONTENT_MAINLINE.md` after this file. It coordinates priorities/dependencies only; exact scoped owners remain authoritative.
 
 | Scope | Work Cursor | Acceptance Truth |
 | --- | --- | --- |
@@ -23,15 +23,15 @@ Durable multi-lane content production coordination lives in `CONTENT_MAINLINE.md
 | B Digestive / Metabolic / Endocrine / Tumor | `knowledge/systems/b-digestive-metabolic-endocrine-tumor/CURRENT.md` | `knowledge/systems/b-digestive-metabolic-endocrine-tumor/ACCEPTANCE.md` |
 | C Hematology / Immunity / Infection | `knowledge/systems/c-hematology-immunity-infection/CURRENT.md` | `knowledge/systems/c-hematology-immunity-infection/ACCEPTANCE.md` |
 
-System hierarchy, construction dependency and Kian learner order are not automatically the same.
+System hierarchy, construction dependency, and Kian learner order are not automatically the same.
 
 ---
 
-## Fresh-Chat task router｜use before history
+## Fresh-Chat router
 
 Historical Frozen files, old Issues, PR summaries and prior Chats are provenance only unless a Current owner explicitly points to them.
 
-### Program-level content continuation
+### Overall content program
 
 ```text
 CURRENT.md
@@ -40,7 +40,7 @@ CURRENT.md
 → exact scoped CURRENT / ACCEPTANCE / canonical asset
 ```
 
-Use this route when Kian asks to continue the overall content program, choose the next parallel lane, resume Question/Crosswalk production, resume Visual/Extension production, or coordinate D/E/F construction. Do not reconstruct the program from prompts or prior Chat memory.
+Use for choosing/resuming parallel medical construction, Questions/Crosswalk, Visual/Extension, or later D/E/F work.
 
 ### Medical / content truth
 
@@ -50,39 +50,36 @@ knowledge/manifest.json
 → local CURRENT / ACCEPTANCE when applicable
 ```
 
-Use for medical Core, Source boundary, System model, Block/KP identity, content repair or new System construction.
+Use for Source boundary, System model, Block/KP identity, content repair, or new System construction.
 
 ### Learning / cognition / first-pass flow
 
 ```text
 LEARNING_CONTRACT.md
-→ LEARNER_OBJECT_CONTRACT.md when learner-facing asset consumption / projection boundary is material
+→ LEARNER_OBJECT_CONTRACT.md when learner-object consumption matters
 → knowledge/learner/study-policy.json
 → exact System-specific *-learning.json when material
 ```
 
-Use for learner order, Logic Groups, Source-contact granularity, TTSX, Recall/completion, Attention Projection, Memory/Precision timing and phase linkage. `LEARNER_OBJECT_CONTRACT.md` does not override Learning; it defines how already-owned Prompt/Core/Source/Outline and reviewed enrichment are assembled once for learner-facing runtime consumption.
+Important Current boundaries:
 
-Current reminders only:
-
-- `LEARNING_CONTRACT.md` §12 is the **locked learner-facing flow / capability closure** for fresh Chats and implementations; do not reconstruct an alternative learner model from Runtime, historical Guides, stale screenshots or prior Chat memory;
+- `LEARNING_CONTRACT.md` §12 owns the locked learner-facing flow;
 - original Lecture / MarginNote is external-primary for continuous first-pass Source learning;
-- Logic Group = retrieval/local-closure unit, not automatically a Source-contact segment;
-- Lecture-attached TTSX is done in the original Lecture/MarginNote; KianOS only owns Boundary/Binding release, completion checkpoint and optional selected-question/note capture;
-- `Boundary = WHEN`; reviewed binding = `WHICH`;
-- Visual / Extension is conditional support, not a parallel curriculum.
+- Logic Group is a retrieval/local-closure unit, not automatically a Source-contact segment;
+- Lecture-attached TTSX is performed in the original Lecture/MarginNote; KianOS owns release/checkpoint/selected capture only;
+- Visual / Precision / Extension / Connection are conditional support, not parallel curricula.
 
 ### Product / UI / Projection
 
 ```text
 static-web/XIZONG_PRODUCT_STATUS.md
 → static-web/PRESENTATION_CONTRACT.md
-→ LEARNER_OBJECT_CONTRACT.md when renderer consumption / KP Learn-Recall asset placement is material
-→ projection/PROJECTION_CONTRACT.md when P semantics are material
+→ LEARNER_OBJECT_CONTRACT.md when learner-object placement matters
+→ projection/PROJECTION_CONTRACT.md when Projection semantics matter
 → exact Runtime/component only after semantic owners are understood
 ```
 
-Do not infer learning semantics from the current DOM or CSS. Product / UI work must preserve the locked learner-facing flow in `LEARNING_CONTRACT.md` §12 and the resolved ownership boundary in `LEARNER_OBJECT_CONTRACT.md`; a current Runtime mismatch is an implementation defect, not a new Learning rule.
+Do not infer Learning semantics from current DOM/CSS. A Runtime mismatch is an implementation defect, not a new Learning rule.
 
 ### Visual / Precision / Extension
 
@@ -94,72 +91,54 @@ LEARNING_CONTRACT.md
 → exact cue / extension / source-visual / pathway owner
 ```
 
-Sparse coverage is intentional; missing Extension content is not learner debt or a reason for system-wide screenshot production. Precision / Visual / Extension / Connection are enrichment families inside the resolved learner object; they do not become parallel DOM owners.
+Sparse coverage is intentional; missing enrichment is not learner debt.
 
-### Questions / explanations / Crosswalk / second pass
+### Questions / explanations / second pass
 
 ```text
 questions/
 explanations/
 question-relations/
 knowledge/learner/study-policy.json
-→ current shared Question Runtime under static-web/
+→ shared Xizong Question Runtime under static-web/
 ```
 
 Keep distinct:
 
 - Lecture-attached TTSX = first-pass local Lecture probe/checkpoint;
 - official System sweep = first-pass coverage evidence after System Recall;
-- SECOND_PASS = targeted discrimination / precision / application in the same official Question Runtime;
+- SECOND_PASS = targeted discrimination / precision / application;
 - reviewed Question→Knowledge relation = optional precise routing; missing relation does not block practice.
-
-Do not use stale Issue checkboxes as capability truth.
 
 ---
 
-## Independent re-acceptance｜anti-cocoon
+## Fresh independent re-acceptance
 
-When Kian asks for **重新验收 / fresh acceptance / independent audit**, old `CURRENT` / `ACCEPTANCE` / PR summaries / green validators are claims and prior evidence, not the first-pass answer key.
+When Kian requests a fresh/independent audit, do not use old Current/Acceptance/PR summaries as the first-pass answer key.
 
-Fresh auditor sequence:
+Compact order:
 
 ```text
 actual Source / Core / Learning / Runtime owners
-→ provisional S–E model + strongest failure hypotheses
-→ negative-space challenge
-→ only then old scoped Acceptance for reconciliation
+→ independent provisional model + strongest failure hypotheses
+→ negative-space / adversarial challenge
+→ old scoped Acceptance only for reconciliation
 ```
 
-Evidence labels:
-
-```text
-Evidence mode: STRUCTURAL / EXECUTED / ADVERSARIAL / REAL_USE / TRANSFER
-Independence: SELF / FRESH_AUDITOR / AUTHORITATIVE_EXTERNAL / REAL_USER
-```
-
-Minimum challenge floor:
-
-- **S/K:** provenance/completeness + negative space;
-- **L:** at least one plausible alternative learner route/surface allocation;
-- **P:** material learner-facing rendering where practical;
-- **R:** realistic browser/private-state transitions;
-- **E:** overwrite/stale/repeat/repair≠mastery/holdout/fresh-protection + at least one negative/mutation check;
-- **U:** real Kian use only.
-
-A real defect reopens only the earliest responsible owner and its dependent chain.
+A real defect reopens only the earliest responsible owner and its dependent chain. U still requires real Kian use.
 
 ---
 
 ## Stable lane owners
 
-- program-level content coordination → `CONTENT_MAINLINE.md`
+- program coordination → `CONTENT_MAINLINE.md`
 - Knowledge map → `knowledge/manifest.json`
 - medical Core → `knowledge/systems/**`
 - lane Learning → `LEARNING_CONTRACT.md`
-- learner-object runtime aggregation / consumption boundary → `LEARNER_OBJECT_CONTRACT.md`
+- learner-object aggregation / consumption boundary → `LEARNER_OBJECT_CONTRACT.md`
 - shared execution policy → `knowledge/learner/study-policy.json`
 - System learning support → `knowledge/learner/`
-- Extension contract / assets → `EXTENSION_ASSET_CONTRACT.md` + `knowledge/learner/*-extensions.json`
+- Extension → `EXTENSION_ASSET_CONTRACT.md` + `knowledge/learner/*-extensions.json`
 - questions / explanations / reviewed relations → dedicated Xizong roots
 - product/status router → `static-web/XIZONG_PRODUCT_STATUS.md`
 - learner Runtime → Xizong surfaces under `static-web/`
@@ -190,13 +169,12 @@ Xizong CURRENT
 → work
 ```
 
-Lane-level learning/product/capability work:
+Lane-level learning/product work:
 
 ```text
 Xizong CURRENT
-→ Fresh-Chat task router above
+→ router above
 → exact Current owner(s)
 → work
 ```
-
-Multiple System Chats may proceed concurrently when their write sets and dependencies are independent. Do not read retired snapshots, unrelated Systems, migration history, legacy repositories or prior Chats by default.
+Multiple System Chats may proceed concurrently when write sets and dependencies are independent. Do not read retired snapshots, unrelated Systems, migration history, legacy repositories, or prior Chats by default.
