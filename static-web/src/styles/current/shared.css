@@ -1,0 +1,75 @@
+/* Current shared learner-facing visual foundation.
+   This file owns only cross-subject product chrome and tokens. Subject-native
+   geometry stays in the subject owner. */
+
+:root {
+  --study-canvas: #f7f7f5;
+  --study-surface: #ffffff;
+  --study-surface-muted: #f4f5f3;
+  --study-ink: #202421;
+  --study-muted: #626963;
+  --study-faint: #858b86;
+  --study-line: #e1e4e1;
+  --study-line-strong: #cbd1cc;
+  --study-green: #2f6b52;
+  --study-green-2: #4d7d69;
+  --study-green-soft: #edf3ef;
+  --study-radius: 9px;
+  --study-radius-small: 6px;
+  --study-shadow: none;
+  --study-font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Noto Sans CJK SC", "Segoe UI", sans-serif;
+  --study-serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, "Times New Roman", serif;
+}
+
+html,
+body {
+  background: var(--study-canvas);
+}
+
+body#kianos-workspace {
+  color: var(--study-ink);
+  font-family: var(--study-font);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body#kianos-workspace .productBar {
+  border-bottom-color: var(--study-line);
+  background: rgba(251, 251, 250, .96);
+  box-shadow: none;
+}
+
+body#kianos-workspace .productBrandMark {
+  border-radius: 7px;
+  box-shadow: none;
+}
+
+body#kianos-workspace .productNav {
+  border-color: transparent;
+  background: transparent;
+}
+
+body#kianos-workspace .productNavItem {
+  border-radius: 6px;
+  font-weight: 650;
+}
+
+body#kianos-workspace .productNavItem.active {
+  background: var(--study-green-soft);
+  box-shadow: none;
+}
+
+body#kianos-workspace :is(button, a, summary, input, textarea, select):focus-visible {
+  outline: 2px solid #4d7d69;
+  outline-offset: 3px;
+}
+
+body#kianos-workspace :is(button, input, select, textarea) {
+  box-shadow: none;
+}
+
+/* A card is a semantic boundary, not the default decoration. Shared surfaces
+   keep quiet borders and do not add ornamental shadows. */
+body#kianos-workspace :is(.homeCurrentStrip, .homeLane, .sourcePopover) {
+  box-shadow: none;
+}
