@@ -1,121 +1,171 @@
 # Xizong Home — accepted surface design
 
-Status: **ACTIVE SURFACE DESIGN — MAC HOME COMPOSITION ACCEPTED**  
+Status: **ACTIVE SURFACE DESIGN — MAC-WIDE L3 ACCEPTED 2026-09-18**  
 Parent: `static-web/XIZONG_PRODUCT_BRIEF.md`  
 Review safety: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`
 
-This file records the accepted learner-facing Xizong Home product design only. It does not change medical Content, learner state, Runtime, Evidence, or System eligibility.
+This file records the accepted learner-facing Xizong Home design only. It does not change medical Content, learner state, Runtime, Evidence, or System eligibility.
 
 ## 1｜Home responsibility
 
-Home answers three learner questions:
+Home answers four learner questions:
 
 ```text
 1. 我现在接着学什么？
 2. 我想自由进入哪个 Current System？
 3. 有没有真实需要我处理的问题？
+4. 我在 A–F 全局知识地图的哪里？
 ```
 
-It is not a repository dashboard, curriculum explanation page, or giant macro-domain card wall.
+It is not a repository dashboard, curriculum explainer, statistics page, or macro-domain card wall.
 
 ## 2｜Mac-wide composition — ACCEPTED
 
-Primary order:
+Mac wide landscape is the design origin.
+
+Primary vertical order:
 
 ```text
-Continue
+Header
+→ Continue
 → Current Systems
 → conditional Needs Attention
-→ compact global Knowledge Map
+→ compact A–F Knowledge Map
 ```
 
-Recommended wide layout:
+Accepted geometry:
 
 ```text
-┌──────────────────────────────────────────────────────────────────────────────┐
-│ Xizong                                                        学习 / 真题*   │
-├──────────────────────────────────────────────────────────────────────────────┤
-│ CONTINUE                                                                     │
-│ A1 · 循环系统                                                                │
-│ B7 · …                                                                       │
-│ LG06 · …                          current learner stage / local progress      │
-│                                                        继续 →                │
-├──────────────────────────────────────┬───────────────────────────────────────┤
-│ CURRENT SYSTEMS                      │ NEEDS ATTENTION                       │
-│ A1 循环系统                          │ only when real evidence exists        │
-│ A2 呼吸系统                          │ Memory / Marked / Chat repair etc.    │
-│ A3 泌尿系统                          │                                       │
-├──────────────────────────────────────┴───────────────────────────────────────┤
-│ KNOWLEDGE MAP  A · B · C · D · E · F                                       │
-└──────────────────────────────────────────────────────────────────────────────┘
+西医综合        机制理解 · 主动重建 · 真题应用
+────────────────────────────────────────────────────────────────
+
+CONTINUE
+
+A1 · 循环系统                                  KP LEARN
+B07 · 当前 Block                               当前真实 learner stage
+当前主要学习对象                               继续学习 →
+
+────────────────────────────────────────────────────────────────
+CURRENT SYSTEMS
+
+A1 循环系统          A2 呼吸系统          A3 泌尿系统
+Current-derived      Current-derived      Current-derived
+System identity      System identity      System identity
+
+────────────────────────────────────────────────────────────────
+NEEDS ATTENTION              ← only when real learner state exists
+
+Memory ...          Marked ...          Repair ...
+
+────────────────────────────────────────────────────────────────
+KNOWLEDGE MAP
+
+A 心肺肾      B 消化·代谢·内分泌·肿瘤      C 血液·免疫·感染
+D 神经·感觉·运动·骨科                       E 生殖·乳腺      F 其余临床整合
 ```
 
-If `Needs Attention` is empty, remove that region and let Current Systems expand. Do not render a congratulatory empty-state card.
+This is one continuous editorial workbench. Do not turn the four regions into equal rounded cards.
 
-`* 真题` refers to the accepted future Xizong-wide practice owner; whole-paper runtime must not be presented as already implemented before its own Runtime is built and accepted.
+## 3｜Density rule — ACCEPTED
 
-## 3｜Continue — ACCEPTED
+The Home must use Mac width and should not create a hero-sized empty Continue region.
 
-`Continue` is the dominant Home object.
+Target behavior:
 
-Use existing browser-local last-location state plus the relevant Block local state to translate the saved location into useful learner language where available, e.g.:
+- Header is compact.
+- Continue is visually dominant through typography, not excessive height.
+- Current Systems should remain visible in the first viewport on normal Mac-wide use.
+- When Needs Attention is absent, it consumes zero space.
+- The Knowledge Map should normally begin within or close to the first viewport rather than being pushed far below by decorative whitespace.
+- No persistent region may exist merely to make the page feel spacious.
+
+Hard rule:
+
+> **Useful density first; whitespace groups information but is not a visual goal.**
+
+## 4｜Continue — ACCEPTED
+
+`Continue` is the dominant Home object and restores the latest learner worksite.
+
+Use existing browser-local last-location state plus exact local Block state where available.
+
+It may translate real state into learner language such as:
 
 ```text
-A1 · 循环系统
-B7 · …
-LG06 · …
-本节 Recall · 3 / 5
+KP LEARN
+KP RECALL
+LOGIC GROUP
+LG CLOSURE
+BLOCK RECALL
+BLOCK COMPLETE
+SYSTEM GUIDE
 ```
 
-The click still returns to the existing System/Block route; the owning Runtime resumes the real stage. Home does not invent progress or mutate learner state.
+The Home must fail closed when detail is unavailable. It must not invent an LG/KP position, percentage, mastery state, or fake progress merely to fill the composition.
 
-Do not reduce Continue to only a repository-style label such as `12 Blocks · 312 KP`.
-
-Visual direction:
-
-- strong typography and alignment rather than a giant rounded card;
-- meaningful local stage / progress when supported by real state;
-- one obvious `继续 →` action;
-- no fake percentage progress inferred from engineering readiness.
-
-## 4｜Current Systems — ACCEPTED
-
-Current learner-facing Systems should be direct Home entries rather than being buried inside large macro-domain cards.
-
-For the currently projectable A Systems, show:
+Visual hierarchy:
 
 ```text
-A1  循环系统
-A2  呼吸系统
-A3  泌尿系统
+current System / Block location
+→ current learner object
+→ current stage / reliable position
+→ one obvious continue action
 ```
 
-Each row/region may include a very short Current-derived cognitive identity, for example a compressed System spine / mission cue supported by that System's Current owner.
+Do not foreground:
 
-The identity is orientation, not an AI-authored slogan. Do not invent medical relations for visual symmetry.
+- percentage progress;
+- total hours;
+- repository readiness;
+- S/K/L/P/R/E/U;
+- Block/KP counts as achievement metrics;
+- generic study statistics.
 
-Block/KP counts may remain secondary metadata but should not dominate System choice.
+Continue is a resume surface, not an analytics surface.
 
-## 5｜Needs Attention — ACCEPTED
+## 5｜Current Systems — ACCEPTED
 
-Only real learner evidence may populate this region.
+Current learner-facing Systems are direct horizontal Home entries.
 
-Possible entries include, where the corresponding Current Runtime actually owns them:
+Only Systems that are honestly Current/projectable may become direct entries. Do not create fake disabled course cards for future domains.
 
-- Memory items;
-- learner-marked questions;
-- imported Chat repair plans / repair inbox items;
-- other genuine pending repair/return states.
+Each entry prioritizes:
 
-Do not derive attention debt from a merely non-perfect first Recall if the learning contract does not make it a blocking task.
+```text
+canonical System ID
++ readable title
++ short Current-derived cognitive identity
++ entry/current status
+```
 
-Do not display backend S/K/L/P/R/E/U, source hashes, build status, or engineering readiness as learner attention.
+A short identity may reuse Current System spine/mission material. Do not invent a slogan for visual symmetry.
 
-## 6｜Global A–F Knowledge Map — ACCEPTED
+Presentation:
 
-Preserve the macro-domain taxonomy as a compact global-position layer.
+- use one horizontal Mac index;
+- typography, alignment and thin dividers before boxes;
+- current System may receive a restrained positional emphasis;
+- no System card wall;
+- no large Block/KP counters as the primary choice signal.
 
-It should communicate location such as:
+## 6｜Needs Attention — ACCEPTED
+
+Needs Attention appears only when real private learner state creates meaningful work.
+
+Current eligible families include, when their owning Runtime actually has state:
+
+- Memory / Today items;
+- learner-requested Marked review;
+- active Repair tasks;
+- another explicitly owned pending return state.
+
+The whole region disappears when empty.
+
+Do not show congratulatory empty states and do not infer learner debt from engineering data.
+
+## 7｜A–F Knowledge Map — ACCEPTED
+
+The map is a compact global-position layer:
 
 ```text
 A 心肺肾
@@ -126,60 +176,61 @@ E 生殖·乳腺
 F 其余临床整合
 ```
 
-The map is not an additional mandatory learning layer.
+A may additionally show its Current child Systems A1 / A2 / A3 when available.
 
-Domains without a current learner-facing System should remain low-prominence map positions rather than consuming large Home cards or pretending to be actionable courses.
+The map is not:
 
-## 7｜Demotions from current Home
+- another mandatory learning step;
+- six large course cards;
+- a claim that every domain already has a learner-facing Runtime.
 
-Demote from the primary repeated-use surface:
+## 8｜Removed from repeated-use Home
 
-- permanent `How it works` explanation;
-- `Macro domain` / repository-style labels;
-- large cards for non-actionable pending domains;
-- Block/KP counts as primary decision information;
-- method copy that is useful once but repetitive on every daily visit.
+Demote/remove from the normal Home:
 
-Onboarding / help may still expose learning-method guidance when wanted.
+- permanent `How it works`;
+- permanent large Memory product promotion;
+- learning-method explanation repeated every visit;
+- repository-style counts/status;
+- large cards for future/non-actionable domains;
+- fixed companion/right explanation rail.
 
-## 8｜Mac visual direction
+Help/onboarding may explain the learning method elsewhere when needed.
 
-Home must follow Dense Calm:
+## 9｜Visual direction
 
-- minimal but not empty;
-- use most of the Mac width intentionally;
-- rely on typography, rows, dividers, alignment and real learner state rather than card piles;
-- Continue carries the strongest visual weight;
-- Current Systems are simultaneously scannable;
-- conditional attention content uses horizontal space only when it exists;
-- compact A–F map provides a complete global frame without overwhelming the main task.
+Home inherits Shared Visual and Kian's current calibration:
 
-## 9｜Audit disposition
+- Mac-wide first;
+- Chinese typography wide, solid and optically substantial;
+- no negative tracking used to squeeze Chinese;
+- high useful information density;
+- strong hierarchy;
+- continuous editorial workspace;
+- restrained color;
+- thin rules/alignment before containers;
+- no SaaS/dashboard/card-wall feel;
+- normal visible learner text comfortably above the minimum floor.
 
-### KEEP
+## 10｜Implementation / acceptance
 
-- meaningful Continue;
-- free entry to any Current System;
-- A–F global position;
-- browser-local last-location state.
+Implementation may consume existing:
 
-### OPTIMIZE
+- last-location state;
+- Block-local learner state;
+- Memory learner state;
+- Current System owner data.
 
-- translate Continue to the real learner stage where Current local state supports it;
-- direct Current System entry;
-- Mac horizontal composition;
-- conditional Needs Attention.
+Home does not own those semantics.
 
-### DEMOTE
+Acceptance path:
 
-- permanent method explainer;
-- pending macro-domain card wall;
-- engineering-like counts/chrome as primary Home information.
+```text
+accepted L3
+→ bounded Home implementation
+→ targeted build/runtime check
+→ real Mac-wide screenshot
+→ Kian Human Gate
+```
 
-### RESTORE_FROM_CURRENT
-
-- short learner-facing System identities derived from each System's own Current model rather than only displaying names/counts.
-
-## 10｜Implementation boundary
-
-Do not implement yet. Final UI implementation follows the broader Xizong surface freeze and must be reviewed in real Mac-wide screenshots before acceptance.
+Do not reopen Home responsibilities during implementation unless a real Rule/Content/Runtime conflict is found.
