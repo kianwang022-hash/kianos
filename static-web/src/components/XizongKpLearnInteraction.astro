@@ -40,8 +40,14 @@
       const stageName = () => [...root.querySelectorAll('[data-study-stage]')]
         .find((node) => !node.hasAttribute('hidden'))?.getAttribute('data-study-stage') || '';
 
-      const activeFrame = () => root.querySelector('.xv6KpLearnCompanion[data-kp-id]');
-      const activeKpId = () => activeFrame()?.getAttribute('data-kp-id') || '';
+      const activeLearnFrame = () => root.querySelector('.xv6KpLearnCompanion[data-kp-id]');
+      const activeRecallCard = () => root.querySelector('[data-kp-recall-card]:not([hidden])');
+      const activeUnifiedCard = () => stageName() === 'kp_recall' ? activeRecallCard() : activeLearnFrame();
+      const activeKpId = () => activeUnifiedCard()?.getAttribute('data-kp-id') || '';
+      const recallRevealed = () => {
+        const answer = activeRecallCard()?.querySelector('[data-kp-answer]');
+        return Boolean(answer && !answer.hasAttribute('hidden'));
+      };
 
       const syncRecallPrompts = () => {
         const memory = readMemory();
@@ -94,7 +100,7 @@
         if (!('highlights' in CSS) || typeof Highlight === 'undefined') return;
         CSS.highlights.delete('xizong-important');
         CSS.highlights.delete('xizong-weak');
-        const frame = activeFrame();
+        const frame = activeUnifiedCard();
         if (!(frame instanceof HTMLElement)) return;
         const kpId = frame.getAttribute('data-kp-id') || '';
         const marks = currentMarks(kpId);
@@ -102,7 +108,7 @@
         marks.forEach((mark) => {
           const container = mark.surface === 'PROMPT'
             ? frame.querySelector('[data-kp-learn-prompt-copy]')
-            : frame.querySelector('[data-learner-kp-core]');
+            : frame.querySelector('[data-kp-learn-core]');
           const range = rangeForQuote(container, String(mark.text || ''));
           if (range && ranges[mark.kind]) ranges[mark.kind].push(range);
         });
@@ -145,7 +151,7 @@
         }
         window.getSelection()?.removeAllRanges();
         hideMarkMenu();
-        enhanceCurrentFrame();
+        refreshUnifiedSurface();
       };
 
       markMenu.querySelectorAll('[data-xizong-mark-kind]').forEach((button) => {
@@ -153,7 +159,7 @@
       });
 
       const showMarkMenuFromSelection = () => {
-        const frame = activeFrame();
+        const frame = activeUnifiedCard();
         const selection = window.getSelection();
         if (!(frame instanceof HTMLElement) || !selection || selection.rangeCount === 0 || selection.isCollapsed) {
           hideMarkMenu();
@@ -169,7 +175,7 @@
           ? range.commonAncestorContainer
           : range.commonAncestorContainer.parentElement;
         const prompt = common?.closest?.('[data-kp-learn-prompt-copy]');
-        const core = common?.closest?.('[data-learner-kp-core]');
+        const core = common?.closest?.('[data-kp-learn-core]');
         if (!prompt && !core) {
           hideMarkMenu();
           return;
@@ -193,7 +199,7 @@
       document.addEventListener('mousedown', (event) => {
         const target = event.target instanceof Element ? event.target : null;
         if (target?.closest('[data-xizong-mark-menu]')) return;
-        if (!target?.closest('.xv6KpLearnCompanion')) hideMarkMenu();
+        if (!target?.closest('.xzKpUnifiedCard')) hideMarkMenu();
       });
 
       const downloadPacket = () => {
@@ -260,29 +266,75 @@
         window.setTimeout(() => URL.revokeObjectURL(url), 500);
       };
 
-      const syncRoadmap = () => {
-        root.querySelectorAll('.xzGroupKpRoadmap').forEach((node) => node.remove());
-        const frame = activeFrame();
-        if (!(frame instanceof HTMLElement)) return;
-        const kpId = frame.getAttribute('data-kp-id') || '';
-        const kp = kpById.get(kpId);
-        const groupId = kp?.identity?.logicGroupId || '';
-        const group = groupById.get(groupId);
+      const syncLogicMap = () => {
+        root.querySelectorAll('.xzLogicGroupDetail').forEach((node) => node.remove());
+        const study = readStudy();
+        const card = activeUnifiedCard();
+        const cardKpId = card?.getAttribute('data-kp-id') || '';
+        const fallbackGroup = (learner.logicGroups || [])[Math.max(0, Number(study.groupIndex || 0))] || null;
+        const kp = kpById.get(cardKpId);
+        const groupId = kp?.identity?.logicGroupId || fallbackGroup?.identity?.logicGroupId || '';
+        const group = groupById.get(groupId) || fallbackGroup;
+        if (!group) return;
         const groupIndex = (learner.logicGroups || []).findIndex((row) => row?.identity?.logicGroupId === groupId);
         const button = root.querySelector(`[data-group-target="${groupIndex}"]`);
-        if (!(button instanceof HTMLElement) || !group) return;
-        const study = readStudy();
-        const roadmap = document.createElement('div');
-        roadmap.className = 'xzGroupKpRoadmap';
+        if (!(button instanceof HTMLElement)) return;
+
+        const detail = document.createElement('section');
+        detail.className = 'xzLogicGroupDetail';
+        detail.dataset.logicGroupDetail = groupId;
+
+        const isProtectedRecall = stageName() === 'kp_recall' && !recallRevealed();
+        if (!isProtectedRecall) {
+          if (group.goal) {
+            const goal = document.createElement('p');
+            goal.className = 'xzLogicGroupGoal';
+            goal.innerHTML = `<b>这一节解决</b><span></span>`;
+            goal.querySelector('span').textContent = group.goal;
+            detail.append(goal);
+          }
+          if (group.closure) {
+            const closure = document.createElement('p');
+            closure.className = 'xzLogicGroupClosure';
+            closure.innerHTML = `<b>学完能做到</b><span></span>`;
+            closure.querySelector('span').textContent = group.closure;
+            detail.append(closure);
+          }
+        }
+
+        const kpList = document.createElement('div');
+        kpList.className = 'xzLogicGroupKps';
         (group.kpIds || []).forEach((id) => {
           const item = kpById.get(id);
-          const row = document.createElement('span');
-          row.textContent = item?.identity?.displayId || id;
-          row.classList.toggle('current', id === kpId);
+          const row = document.createElement('div');
+          row.className = 'xzLogicGroupKp';
+          row.classList.toggle('current', id === cardKpId);
           row.classList.toggle('learned', Boolean(study.learned?.[id]));
-          roadmap.append(row);
+          row.classList.toggle('recalled', Boolean(study.ratings?.[id]));
+
+          const code = document.createElement('b');
+          code.textContent = item?.identity?.displayId || id;
+          row.append(code);
+
+          if (!isProtectedRecall) {
+            const title = document.createElement('span');
+            title.textContent = item?.identity?.title || '';
+            row.append(title);
+          }
+
+          const state = document.createElement('em');
+          state.textContent = study.ratings?.[id]
+            ? '已 Recall'
+            : study.learned?.[id]
+              ? '已学'
+              : id === cardKpId
+                ? '当前'
+                : '';
+          row.append(state);
+          kpList.append(row);
         });
-        button.insertAdjacentElement('afterend', roadmap);
+        detail.append(kpList);
+        button.insertAdjacentElement('afterend', detail);
       };
 
       const renderPromptEditor = (frame, kpId, promptNode, canonicalPrompt) => {
@@ -327,7 +379,7 @@
       };
 
       const enhanceCurrentFrame = () => {
-        const frame = activeFrame();
+        const frame = activeLearnFrame();
         if (!(frame instanceof HTMLElement)) return;
         const kpId = frame.getAttribute('data-kp-id') || '';
         const kp = kpById.get(kpId);
@@ -375,8 +427,12 @@
           renderPromptEditor(frame, kpId, prompt, kp.prompt?.canonical || '');
         }
 
+        frame.classList.add('xzKpUnifiedCard');
         const core = frame.querySelector('[data-learner-kp-core]');
-        if (core instanceof HTMLElement) core.dataset.kpLearnCore = '';
+        if (core instanceof HTMLElement) {
+          core.dataset.kpLearnCore = '';
+          core.dataset.kpLearnCore = '';
+        }
 
         let actions = frame.querySelector('.xzKpLearnActions');
         if (!(actions instanceof HTMLElement)) {
@@ -408,14 +464,14 @@
           });
         }
 
-        syncRoadmap();
+        syncLogicMap();
         applyHighlights();
       };
 
       const advanceLearn = () => {
         const stage = stageName();
         if (!['source_contact', 'kp_learn'].includes(stage)) return false;
-        const frame = activeFrame();
+        const frame = activeLearnFrame();
         if (!(frame instanceof HTMLElement)) return false;
         const kpId = frame.getAttribute('data-kp-id') || '';
         if (!kpId) return false;
@@ -481,16 +537,99 @@
         event.stopImmediatePropagation();
       }, true);
 
-      const observer = new MutationObserver(() => {
-        queueMicrotask(() => {
-          enhanceCurrentFrame();
-          syncRecallPrompts();
+      const enhanceRecallCards = () => {
+        const memory = readMemory();
+        root.querySelectorAll('[data-kp-recall-card][data-kp-id]').forEach((card) => {
+          if (!(card instanceof HTMLElement)) return;
+          const kpId = card.getAttribute('data-kp-id') || '';
+          const kp = kpById.get(kpId);
+          if (!kp) return;
+          card.classList.add('xzKpUnifiedCard', 'xzKpRecallCard');
+
+          const header = card.querySelector(':scope > header');
+          const prompt = header?.querySelector(':scope > p');
+          if (prompt instanceof HTMLElement) {
+            prompt.dataset.kpLearnPromptCopy = '';
+            prompt.textContent = memory.promptOverrides?.[kpId] || kp.prompt?.canonical || '';
+          }
+
+          const answer = card.querySelector('[data-kp-answer]');
+          if (answer instanceof HTMLElement) answer.dataset.kpLearnCore = '';
+
+          const revealed = Boolean(answer && !answer.hasAttribute('hidden'));
+          card.classList.toggle('is-revealed', revealed);
+          card.classList.toggle('is-front', !revealed);
+
+          if (header instanceof HTMLElement && !header.querySelector('.xzKpRecallMode')) {
+            const mode = document.createElement('span');
+            mode.className = 'xzKpRecallMode';
+            mode.textContent = 'KP RECALL';
+            header.prepend(mode);
+          }
+
+          if (header instanceof HTMLElement && !header.querySelector('[data-recall-prompt-edit]')) {
+            const edit = document.createElement('button');
+            edit.type = 'button';
+            edit.dataset.recallPromptEdit = '';
+            edit.className = 'xzRecallPromptEdit';
+            edit.textContent = '编辑主提示';
+            header.append(edit);
+
+            const editor = document.createElement('div');
+            editor.className = 'xzKpPromptEditor xzRecallPromptEditor';
+            editor.hidden = true;
+            editor.innerHTML = `
+              <textarea rows="2" data-kp-prompt-input></textarea>
+              <div>
+                <button type="button" data-kp-prompt-save>保存</button>
+                <button type="button" data-kp-prompt-reset>恢复默认</button>
+                <button type="button" data-kp-prompt-cancel>取消</button>
+              </div>
+            `;
+            header.insertAdjacentElement('afterend', editor);
+            const input = editor.querySelector('[data-kp-prompt-input]');
+            edit.addEventListener('click', () => {
+              const state = readMemory();
+              if (input instanceof HTMLTextAreaElement) input.value = state.promptOverrides?.[kpId] || kp.prompt?.canonical || '';
+              editor.hidden = false;
+              input?.focus();
+            });
+            editor.querySelector('[data-kp-prompt-cancel]')?.addEventListener('click', () => { editor.hidden = true; });
+            editor.querySelector('[data-kp-prompt-save]')?.addEventListener('click', () => {
+              const value = input instanceof HTMLTextAreaElement ? input.value : '';
+              writeMemory(setPersonalPrompt(readMemory(), kpId, value));
+              editor.hidden = true;
+              refreshUnifiedSurface();
+            });
+            editor.querySelector('[data-kp-prompt-reset]')?.addEventListener('click', () => {
+              writeMemory(setPersonalPrompt(readMemory(), kpId, ''));
+              editor.hidden = true;
+              refreshUnifiedSurface();
+            });
+          }
         });
+      };
+
+      const refreshUnifiedSurface = () => {
+        enhanceCurrentFrame();
+        enhanceRecallCards();
+        syncRecallPrompts();
+        syncLogicMap();
+        applyHighlights();
+      };
+
+      root.addEventListener('click', (event) => {
+        const target = event.target instanceof Element ? event.target : null;
+        if (!target?.closest('[data-kp-reveal],[data-rating]')) return;
+        queueMicrotask(refreshUnifiedSurface);
+      });
+
+      const observer = new MutationObserver(() => {
+        queueMicrotask(refreshUnifiedSurface);
       });
       observer.observe(root, { subtree: true, childList: true, attributes: true, attributeFilter: ['hidden'] });
 
-      enhanceCurrentFrame();
-      syncRecallPrompts();
+      refreshUnifiedSurface();
     }
   }
 </script>
