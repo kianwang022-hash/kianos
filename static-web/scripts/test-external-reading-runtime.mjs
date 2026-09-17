@@ -3,10 +3,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
+import astroConfig from '../astro.config.mjs';
 
 const auditDir = path.resolve('audit/external-reading-runtime');
 fs.mkdirSync(auditDir, { recursive: true });
-const BASE = 'http://127.0.0.1:4321/kianos';
+const configuredBase = String(astroConfig.base || '/');
+const previewBase = configuredBase === '/' ? '' : `/${configuredBase.replace(/^\/+|\/+$/g, '')}`;
+const BASE = `http://127.0.0.1:4321${previewBase}`;
 const OBJECT_ID = 'synthetic-external-runtime';
 const RUNTIME_ID = `external--${OBJECT_ID}`;
 const report = { startedAt: new Date().toISOString(), checks: [] };
