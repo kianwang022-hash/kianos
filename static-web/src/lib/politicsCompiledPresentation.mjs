@@ -59,6 +59,10 @@ export function loadPoliticsCompiledPresentation(subject, code) {
     if (!rawUnit) throw new Error(`POLITICS_PROJECTION_UNIT_MISSING:${selected.unit_id}`);
     const resolve = ref => resolvePoliticsPresentationRef(ref, source, rawUnit);
     const objects = entries => (entries || []).map(entry => ({ role: entry.role, value: resolve(entry.content) })).filter(entry => present(entry.value));
+    const selectedValues = entries => {
+      const values = (entries || []).map(resolve).filter(present);
+      return purposeFirstPilot ? flattenPresent(values) : values;
+    };
     const handoff = selected.chengfeng_handoff || null;
     units.set(selected.unit_id, {
       unitId: selected.unit_id,
@@ -68,15 +72,17 @@ export function loadPoliticsCompiledPresentation(subject, code) {
       problem: resolve(selected.current_problem),
       primary: objects(selected.primary_geometry),
       secondary: objects(selected.secondary_reasoning),
-      boundaries: flattenPresent((selected.boundaries || []).map(resolve)),
-      exact: flattenPresent((selected.first_round_exact || []).map(resolve)),
-      takeaway: flattenPresent((selected.takeaway || []).map(resolve)),
+      boundaries: selectedValues(selected.boundaries),
+      exact: selectedValues(selected.first_round_exact),
+      takeaway: selectedValues(selected.takeaway),
       next: resolve(selected.next_bridge),
       handoff: handoff ? {
         surface: handoff.surface || null,
         sourceOwnerIds: Array.isArray(handoff.source_owner_ids) ? handoff.source_owner_ids : [],
         locator: resolve(handoff.source_locator),
-        lookFor: flattenPresent((handoff.look_for || []).map(resolve))
+        lookFor: purposeFirstPilot
+          ? flattenPresent((handoff.look_for || []).map(resolve))
+          : (handoff.look_for || []).map(resolve).filter(present)
       } : null,
       closure: resolve(selected.optional_closure)
     });
