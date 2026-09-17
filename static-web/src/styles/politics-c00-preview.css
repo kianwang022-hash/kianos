@@ -544,3 +544,97 @@ body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace[data-subj
   gap:10px;
   padding:4px 0 14px;
 }
+
+body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace[data-subject="marxism"][data-chapter="ch00"] .workspaceUnit {
+  grid-template-columns:minmax(0,1fr) 270px;
+  grid-template-rows:auto minmax(0,1fr);
+  grid-template-areas:
+    "question question"
+    "main inspector";
+}
+
+body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace[data-subject="marxism"][data-chapter="ch00"] .unitQuestionHeader {
+  grid-area:question;
+  min-width:0;
+  padding:24px 4px 22px;
+  border-bottom:1px solid var(--study-line);
+}
+
+body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace[data-subject="marxism"][data-chapter="ch00"] .unitQuestionHeader .stageEyebrow {
+  margin-bottom:7px;
+}
+
+body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace[data-subject="marxism"][data-chapter="ch00"] .unitQuestionHeader h2 {
+  max-width:47ch;
+  margin:0;
+  color:#203a2f;
+  font-family:var(--study-font-cjk);
+  font-size:clamp(30px,1.9vw,34px);
+  font-weight:640;
+  line-height:1.36;
+  letter-spacing:.005em;
+}
+
+body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace[data-subject="marxism"][data-chapter="ch00"] .cognitiveStage {
+  grid-area:main;
+  padding:26px 34px 38px 4px;
+}
+
+body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace[data-subject="marxism"][data-chapter="ch00"] .contextualInspector {
+  grid-area:inspector;
+  padding:28px 4px 38px 24px;
+}
+
+body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace[data-subject="marxism"][data-chapter="ch00"] .orientSupport {
+  margin-top:24px;
+  padding-top:14px;
+  border-top:1px solid #e4eae6;
+}
+
+body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace[data-subject="marxism"][data-chapter="ch00"] .orientSupport>summary {
+  cursor:pointer;
+  list-style:none;
+  color:#61746a;
+  font-size:16px;
+  font-weight:600;
+}
+
+body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace[data-subject="marxism"][data-chapter="ch00"] .orientSupport>summary::-webkit-details-marker {
+  display:none;
+}
+
+body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace[data-subject="marxism"][data-chapter="ch00"] .orientSupport>summary::after {
+  content:' +';
+  color:#829289;
+}
+
+body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace[data-subject="marxism"][data-chapter="ch00"] .orientSupport[open]>summary::after {
+  content:' −';
+}
+
+body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace[data-subject="marxism"][data-chapter="ch00"] .orientSupport .politicsExplicitSurfacePlan {
+  margin-top:14px;
+}
+
+body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace[data-subject="marxism"][data-chapter="ch00"] .chapterContextExpanded {
+  display:grid;
+  gap:12px;
+}
+
+body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace[data-subject="marxism"][data-chapter="ch00"] .chapterContextProblem {
+  margin:0;
+  color:#40594d;
+  font-size:16px;
+  line-height:1.62;
+  font-weight:550;
+}
+
+@media (max-width:1050px) {
+  body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace[data-subject="marxism"][data-chapter="ch00"] .workspaceUnit {
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "question"
+      "main"
+      "inspector";
+  }
+}
