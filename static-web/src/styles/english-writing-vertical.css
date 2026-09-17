@@ -130,6 +130,7 @@ body#kianos-workspace.uiEnglish .writingWork {
 
 body#kianos-workspace.uiEnglish .writingPrompt {
   position: static;
+  align-self: stretch;
   display: block;
   padding: 28px 36px 56px !important;
   overflow-y: auto;
@@ -207,6 +208,13 @@ body#kianos-workspace.uiEnglish .writingVisualScenario {
   text-wrap: pretty;
 }
 
+body#kianos-workspace.uiEnglish .writingVisualScenario {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
 body#kianos-workspace.uiEnglish .writingPromptBody blockquote {
   margin: 18px 0;
   padding: 13px 0 13px 16px;
@@ -224,7 +232,9 @@ body#kianos-workspace.uiEnglish .writingPromptBody blockquote {
 body#kianos-workspace.uiEnglish .writingFacts {
   margin: 20px 0;
   padding: 14px 0;
+  border: 0;
   border-block: 1px solid #e7ebed;
+  border-radius: 0;
   background: transparent;
 }
 
