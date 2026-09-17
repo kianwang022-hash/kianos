@@ -33,27 +33,29 @@ async function waitForServer() {
   throw new Error('POLITICS_BATCH_PREVIEW_SERVER_NOT_READY');
 }
 
-async function visibleTextBelowFloor(page, floorPx = 16) {
-  return page.locator('body').evaluate((root, floor) => {
+async function visibleTextBelowFloor(roots, floorPx = 16) {
+  return roots.evaluateAll((surfaceRoots, floor) => {
     const offenders = [];
     const seen = new Set();
-    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-    while (walker.nextNode()) {
-      const text = String(walker.currentNode.textContent || '').replace(/\s+/g, ' ').trim();
-      if (!text || !/[A-Za-z0-9\u3400-\u9FFF]/.test(text)) continue;
-      const element = walker.currentNode.parentElement;
-      if (!element) continue;
-      const closedDetails = element.closest('details:not([open])');
-      if (closedDetails && !element.closest('summary')) continue;
-      const style = getComputedStyle(element);
-      if (style.display === 'none' || style.visibility === 'hidden' || Number(style.opacity) === 0) continue;
-      if (!element.getClientRects().length) continue;
-      const size = Number.parseFloat(style.fontSize);
-      if (!Number.isFinite(size) || size >= floor) continue;
-      const key = `${element.tagName}.${element.className || ''}:${size}:${text}`;
-      if (seen.has(key)) continue;
-      seen.add(key);
-      offenders.push({ tag: element.tagName, className: String(element.className || ''), size, text: text.slice(0, 90) });
+    for (const root of surfaceRoots) {
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+      while (walker.nextNode()) {
+        const text = String(walker.currentNode.textContent || '').replace(/\s+/g, ' ').trim();
+        if (!text || !/[A-Za-z0-9\u3400-\u9FFF]/.test(text)) continue;
+        const element = walker.currentNode.parentElement;
+        if (!element) continue;
+        const closedDetails = element.closest('details:not([open])');
+        if (closedDetails && !element.closest('summary')) continue;
+        const style = getComputedStyle(element);
+        if (style.display === 'none' || style.visibility === 'hidden' || Number(style.opacity) === 0) continue;
+        if (!element.getClientRects().length) continue;
+        const size = Number.parseFloat(style.fontSize);
+        if (!Number.isFinite(size) || size >= floor) continue;
+        const key = `${element.tagName}.${element.className || ''}:${size}:${text}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        offenders.push({ tag: element.tagName, className: String(element.className || ''), size, text: text.slice(0, 90) });
+      }
     }
     return offenders.slice(0, 40);
   }, floorPx);
@@ -135,8 +137,10 @@ try {
       check(visibleDemoted.length === 0, `${sample.label}_legacy_unselected_copy_stays_quiet`, JSON.stringify(visibleDemoted));
     }
 
-    const tiny = await visibleTextBelowFloor(page, 16);
-    check(tiny.length === 0, `${sample.label}_visible_text_floor_16px`, JSON.stringify(tiny));
+    const mappedSurfaces = unit.locator('[data-politics-explicit-surface-plan]');
+    check((await mappedSurfaces.count()) > 0, `${sample.label}_mapped_surface_present`);
+    const tiny = await visibleTextBelowFloor(mappedSurfaces, 16);
+    check(tiny.length === 0, `${sample.label}_mapped_visible_text_floor_16px`, JSON.stringify(tiny));
     const bodySamples = unit.locator('[data-politics-explicit-surface-plan] p,[data-politics-explicit-surface-plan] li,[data-politics-explicit-surface-plan] .sequenceTransition span');
     if (await bodySamples.count()) {
       const sizes = await bodySamples.evaluateAll((nodes) => nodes.filter((node) => node.getClientRects().length > 0).map((node) => Number.parseFloat(getComputedStyle(node).fontSize)));
