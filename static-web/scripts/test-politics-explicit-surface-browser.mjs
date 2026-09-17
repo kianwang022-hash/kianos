@@ -33,6 +33,23 @@ async function goto(page, pathname) {
   check(Boolean(response?.ok()), `page_ok:${pathname}`, String(response?.status() || 'no-response'));
 }
 
+async function checkStandardRuntime(page, expectedUnits, prefix) {
+  check(
+    (await page.locator('[data-politics-unit][data-explicit-surface-runtime="v1"]').count()) === expectedUnits,
+    `${prefix}_all_units_consume_explicit_states`,
+    String(await page.locator('[data-politics-unit][data-explicit-surface-runtime="v1"]').count())
+  );
+  check(
+    (await page.locator('[data-politics-unit] .politicsSource [data-politics-explicit-surface-plan]').count()) >= expectedUnits,
+    `${prefix}_external_learn_plans_present`
+  );
+  check(
+    (await page.locator('[data-politics-unit] .politicsClosure [data-politics-explicit-surface-plan]').count()) >= expectedUnits,
+    `${prefix}_close_or_continue_plans_present`
+  );
+  check((await page.locator('[data-politics-unit] [data-current-handoff]').count()) === 0, `${prefix}_legacy_handoff_payload_absent`);
+}
+
 const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
   cwd: process.cwd(),
   stdio: ['ignore', 'pipe', 'pipe'],
@@ -72,11 +89,13 @@ try {
   check((await page.locator('[data-workspace-unit][data-explicit-surface-mapping="v1"]').count()) === 2, 'marx_c00_two_units_explicitly_mapped');
   await page.screenshot({ path: path.join(auditDir, 'explicit-surface-marx-c00.png'), fullPage: false });
 
-  // History: real causal direction remains directed.
+  // History: real causal direction remains directed and all standard runtime
+  // learner states are supplied by the explicit plan.
   await goto(page, '/politics/history/ch01/');
   const historyDirected = page.locator('[data-surface-group="h-c01-s01-cause-to-turn"]');
   check((await historyDirected.getAttribute('data-surface-primitive')) === 'DIRECTED_SEQUENCE', 'history_real_cause_to_turn_remains_directed');
   check((await page.locator('[data-compiled-unit][data-explicit-surface-mapping="v1"]').count()) === 4, 'history_ch01_all_pass_units_use_explicit_plan');
+  await checkStandardRuntime(page, 4, 'history_ch01');
   await page.screenshot({ path: path.join(auditDir, 'explicit-surface-history-c01.png'), fullPage: false });
 
   // Mao: two combinations stay peers, not a fabricated sequence.
@@ -85,6 +104,7 @@ try {
   check((await maoPair.getAttribute('data-surface-primitive')) === 'PARALLEL_SET', 'mao_two_combinations_parallel');
   check((await maoPair.locator('.sequenceTransition').count()) === 0, 'mao_two_combinations_have_no_invented_arrows');
   check((await page.locator('[data-compiled-unit][data-explicit-surface-mapping="v1"]').count()) === 1, 'mao_c00_uses_explicit_plan');
+  await checkStandardRuntime(page, 1, 'mao_c00');
   await page.screenshot({ path: path.join(auditDir, 'explicit-surface-mao-c00.png'), fullPage: false });
 
   // Ethics/Law: the three core-value levels remain the three Current-owned groups.
@@ -93,6 +113,7 @@ try {
   check((await ethicsLevels.getAttribute('data-surface-primitive')) === 'PARALLEL_SET', 'ethics_three_core_value_levels_parallel');
   check((await ethicsLevels.locator('.explicitParallel > article').count()) === 3, 'ethics_exact_three_owned_groups_visible');
   check((await page.locator('[data-compiled-unit][data-explicit-surface-mapping="v1"]').count()) === 3, 'ethics_c04_all_pass_units_use_explicit_plan');
+  await checkStandardRuntime(page, 3, 'ethics_c04');
   await page.screenshot({ path: path.join(auditDir, 'explicit-surface-ethics-c04.png'), fullPage: false });
 
   // Xi: feature sets and true stage sequence are separately owned in the same chapter.
@@ -104,6 +125,7 @@ try {
   check((await xiStrategy.getAttribute('data-surface-primitive')) === 'DIRECTED_SEQUENCE', 'xi_real_strategy_stages_are_directed');
   check((await xiStrategy.locator('.sequenceTransition').count()) === 1, 'xi_strategy_has_exact_one_transition');
   check((await page.locator('[data-compiled-unit][data-explicit-surface-mapping="v1"]').count()) === 7, 'xi_c02_all_pass_units_use_explicit_plan');
+  await checkStandardRuntime(page, 7, 'xi_c02');
   await page.screenshot({ path: path.join(auditDir, 'explicit-surface-xi-c02.png'), fullPage: false });
 
   await context.close();
@@ -114,7 +136,7 @@ try {
 } finally {
   await mkdir(auditDir, { recursive: true });
   await writeFile(path.join(auditDir, 'explicit-surface-browser.json'), JSON.stringify({
-    schema: 'kianos.politics.explicit_surface_browser_acceptance.v1',
+    schema: 'kianos.politics.explicit_surface_browser_acceptance.v2',
     checks,
     failure,
     status: failure ? 'FAIL' : 'PASS'
