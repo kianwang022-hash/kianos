@@ -59,7 +59,7 @@ Preserve semantically:
 - Logic Group navigation;
 - Logic Group continuous-Lecture model;
 - one return after the whole Logic Group;
-- neutral KP Recall front and answer gating;
+- same-card KP Recall with Core-only reveal gating;
 - KP Recall evidence semantics;
 - Logic Group closure;
 - Block Recall and completion gate;
