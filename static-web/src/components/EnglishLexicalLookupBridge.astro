@@ -28,7 +28,10 @@ const base = import.meta.env.BASE_URL;
     const sourceSelectors = [
       '[data-local-port="reading"] [data-reading-passage]',
       '[data-objective-root][data-objective-task="cloze"] [data-objective-material]',
-      '[data-translation-runtime] [data-translation-source-text]'
+      '[data-objective-root][data-objective-task="reading_b"] [data-objective-material]',
+      '[data-objective-root][data-objective-task="reading_b"] [data-objective-candidate]',
+      '[data-translation-runtime] [data-translation-source-text]',
+      '[data-writing-runtime] .writingPromptBody'
     ];
     let activeSelection = null;
 
@@ -60,10 +63,22 @@ const base = import.meta.env.BASE_URL;
         objectId: cloze.getAttribute('data-objective-object') || '',
         sourceRoot
       };
+      const readingB = sourceRoot.closest('[data-objective-root][data-objective-task="reading_b"]');
+      if (readingB instanceof HTMLElement) return {
+        task: 'Part B',
+        objectId: readingB.getAttribute('data-objective-object') || '',
+        sourceRoot
+      };
       const translation = sourceRoot.closest('[data-translation-runtime]');
       if (translation instanceof HTMLElement) return {
         task: 'Translation',
         objectId: translation.getAttribute('data-object-id') || '',
+        sourceRoot
+      };
+      const writing = sourceRoot.closest('[data-writing-runtime]');
+      if (writing instanceof HTMLElement) return {
+        task: 'Writing',
+        objectId: writing.getAttribute('data-task-id') || '',
         sourceRoot
       };
       return null;
@@ -102,7 +117,7 @@ const base = import.meta.env.BASE_URL;
       const route = routeContext(sourceRoot);
       if (!route) { hideMenu(); return; }
       const rect = range.getBoundingClientRect();
-      const localContext = range.startContainer.parentElement?.closest('p,blockquote,.translationSegment,[data-objective-material-block]');
+      const localContext = range.startContainer.parentElement?.closest('p,blockquote,li,.translationSegment,[data-objective-material-block],[data-objective-candidate],.writingPromptBody');
       activeSelection = {
         text,
         word: exactToken(text) ? text : '',
