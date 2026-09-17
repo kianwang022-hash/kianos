@@ -1,0 +1,104 @@
+name: Home Workbench QA
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/home-workbench-qa.yml'
+      - 'static-web/HOME_PRODUCT_BRIEF.md'
+      - 'static-web/HOME_SUBJECT_PROJECTION_CONTRACT.md'
+      - 'static-web/src/pages/index.astro'
+      - 'static-web/src/components/HomeSubjectProjection.astro'
+      - 'static-web/src/components/ExamOrchestratorHome.astro'
+      - 'static-web/src/lib/homeSubjectIdentity.mjs'
+      - 'static-web/src/lib/homeSubjectProjection.mjs'
+      - 'static-web/src/lib/xizongHomeProjection.mjs'
+      - 'static-web/src/lib/politicsHomeProjection.mjs'
+      - 'static-web/src/lib/homeResumeClient.mjs'
+      - 'static-web/src/lib/xizongHomeResumeClient.mjs'
+      - 'static-web/src/lib/politicsHomeResumeClient.mjs'
+      - 'static-web/src/lib/homeSchedulerProjection.mjs'
+      - 'static-web/src/lib/homeSchedulerClient.mjs'
+      - 'static-web/src/lib/sharedNavigation.mjs'
+      - 'static-web/src/lib/examDemand.mjs'
+      - 'static-web/src/lib/politicsPracticeState.mjs'
+      - 'static-web/src/lib/examOrchestrator.mjs'
+      - 'static-web/src/lib/examOrchestratorClient.mjs'
+      - 'static-web/src/layouts/Base.astro'
+      - 'static-web/src/styles/home-workbench.css'
+      - 'static-web/src/styles/shared-shell.css'
+      - 'static-web/scripts/validate-home-subject-projection.mjs'
+      - 'static-web/scripts/validate-home-native-boundary.mjs'
+      - 'static-web/scripts/test-home-workbench-browser.mjs'
+      - 'static-web/package.json'
+  push:
+    paths:
+      - '.github/workflows/home-workbench-qa.yml'
+      - 'static-web/HOME_PRODUCT_BRIEF.md'
+      - 'static-web/HOME_SUBJECT_PROJECTION_CONTRACT.md'
+      - 'static-web/src/pages/index.astro'
+      - 'static-web/src/components/HomeSubjectProjection.astro'
+      - 'static-web/src/components/ExamOrchestratorHome.astro'
+      - 'static-web/src/lib/homeSubjectIdentity.mjs'
+      - 'static-web/src/lib/homeSubjectProjection.mjs'
+      - 'static-web/src/lib/xizongHomeProjection.mjs'
+      - 'static-web/src/lib/politicsHomeProjection.mjs'
+      - 'static-web/src/lib/homeResumeClient.mjs'
+      - 'static-web/src/lib/xizongHomeResumeClient.mjs'
+      - 'static-web/src/lib/politicsHomeResumeClient.mjs'
+      - 'static-web/src/lib/homeSchedulerProjection.mjs'
+      - 'static-web/src/lib/homeSchedulerClient.mjs'
+      - 'static-web/src/lib/sharedNavigation.mjs'
+      - 'static-web/src/lib/examDemand.mjs'
+      - 'static-web/src/lib/politicsPracticeState.mjs'
+      - 'static-web/src/lib/examOrchestrator.mjs'
+      - 'static-web/src/lib/examOrchestratorClient.mjs'
+      - 'static-web/src/layouts/Base.astro'
+      - 'static-web/src/styles/home-workbench.css'
+      - 'static-web/src/styles/shared-shell.css'
+      - 'static-web/scripts/validate-home-subject-projection.mjs'
+      - 'static-web/scripts/validate-home-native-boundary.mjs'
+      - 'static-web/scripts/test-home-workbench-browser.mjs'
+      - 'static-web/package.json'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: home-workbench-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  home-contract-build-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install learner site dependencies
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+      - name: Validate Home three-subject projection and native boundary
+        working-directory: static-web
+        run: npm run validate:home
+      - name: Build learner site
+        working-directory: static-web
+        run: npm run build
+      - name: Install Home browser acceptance tool
+        working-directory: static-web
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Execute Home browser acceptance
+        working-directory: static-web
+        run: node scripts/test-home-workbench-browser.mjs
+      - name: Upload Home browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: home-workbench-browser
+          path: |
+            static-web/.qa/home-workbench-browser.json
+            static-web/.qa/home-workbench-wide.png
+          if-no-files-found: warn

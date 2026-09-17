@@ -1,0 +1,65 @@
+---
+const { subject } = Astro.props;
+const resume = subject.resume || {};
+const displayLabel = subject.id === 'xizong' ? '西综' : subject.label;
+const fallbackTitle = resume.fallbackLabel || (subject.id === 'english' ? '打开 English 工作台' : `打开${displayLabel}`);
+const fallbackMeta = subject.id === 'english'
+  ? 'English · 从当前任务入口继续'
+  : subject.id === 'politics'
+    ? '政治 · 进入当前学习位置'
+    : '西综 · 进入当前学习位置';
+const resumePayload = resume.payload
+  ? JSON.stringify(resume.payload).replace(/</g, '\\u003c')
+  : null;
+
+const linkCompat = subject.id === 'xizong'
+  ? { 'data-xizong-continue': '' }
+  : subject.id === 'politics'
+    ? { 'data-politics-continue': '' }
+    : { 'data-english-resume-link': '' };
+const titleCompat = subject.id === 'xizong'
+  ? { 'data-xizong-continue-title': '' }
+  : subject.id === 'politics'
+    ? { 'data-politics-continue-title': '' }
+    : { 'data-english-resume-title': '' };
+---
+<article
+  class="homeSubjectRow"
+  data-home-subject={subject.id}
+  data-home-resume-subject={subject.id}
+  data-subject-href={subject.href}
+  data-fallback-href={resume.fallbackHref || subject.href}
+  data-fallback-title={fallbackTitle}
+  data-fallback-meta={fallbackMeta}
+>
+  {resumePayload && <script type="application/json" data-home-resume-payload set:html={resumePayload} />}
+
+  <div class="homeSubjectIdentity">
+    <span class="homeSubjectOrdinal">{subject.ordinal}</span>
+    <div>
+      <h2>{displayLabel}</h2>
+      <span class="homeSubjectRole" data-home-role>等待调度</span>
+    </div>
+  </div>
+
+  <section class="homeSubjectTask">
+    <strong data-home-resume-title {...titleCompat}>{fallbackTitle}</strong>
+    <small data-home-resume-meta>{fallbackMeta}</small>
+    <p class="homeResumeAttention" data-home-resume-attention hidden></p>
+  </section>
+
+  <div class="homeSubjectTime" aria-label={`${displayLabel} 今日学习时间`}>
+    <span class="homeSubjectTimeLabel">今日</span>
+    <div class="homeTimeNumbers">
+      <strong data-home-actual>0m</strong>
+      <span><i>/</i> <b data-home-target>—</b></span>
+      <em>剩余 <b data-home-remaining>—</b></em>
+    </div>
+    <div class="homeProgressTrack" aria-hidden="true"><i data-home-progress></i></div>
+    <small data-home-status>等待今日安排</small>
+  </div>
+
+  <a class="homeSubjectContinue" data-home-resume-link href={resume.fallbackHref || subject.href} {...linkCompat}>
+    <span>继续</span><b aria-hidden="true">→</b>
+  </a>
+</article>

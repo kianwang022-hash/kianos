@@ -1,18 +1,18 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { loadWritingLearningProjection, WRITING_LEARNING_SOURCE } from '../src/lib/englishWritingLearning.mjs';
+import { buildHomeSubjectProjections } from '../src/lib/homeSubjectProjection.mjs';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT
   ? path.resolve(process.env.KIANOS_REPO_ROOT)
   : path.resolve(process.cwd(), '..');
 const pagePath = path.join(repoRoot, 'static-web/src/pages/writing-learn.astro');
-const homePath = path.join(repoRoot, 'static-web/src/pages/index.astro');
 const englishHubPath = path.join(repoRoot, 'static-web/src/pages/english.astro');
 const referencePath = path.join(repoRoot, 'content/english/modules/writing/learning.reference.md');
 const page = fs.readFileSync(pagePath, 'utf8');
-const home = fs.readFileSync(homePath, 'utf8');
 const englishHub = fs.readFileSync(englishHubPath, 'utf8');
 const projection = loadWritingLearningProjection();
+const homeSubjects = buildHomeSubjectProjections('/');
 const failures = [];
 
 function requireCheck(condition, code) {
@@ -81,7 +81,8 @@ function firstLearningContext(markup) {
     /首次建立框架[^<]*针对当前问题查阅/.test(markup)
   );
 }
-requireCheck(home.includes('href={`${base}english/`}'), 'HOME_ENGLISH_ENTRY_MISSING');
+const homeEnglish = homeSubjects.find((subject) => subject.id === 'english');
+requireCheck(homeEnglish?.href === '/english/', 'HOME_ENGLISH_ENTRY_MISSING');
 requireCheck(englishHub.includes("import { loadWritingLearningProjection } from '../lib/englishWritingLearning.mjs';"), 'ENGLISH_HUB_NOT_BOUND_TO_WRITING_PROJECTION');
 requireCheck(writingLaneDiscoverable(englishHub), 'WRITING_SCORE_LANE_NOT_DISCOVERABLE');
 requireCheck(englishHub.includes('href={`${base}writing-learn/`}'), 'WRITING_FIRST_LEARNING_NOT_DISCOVERABLE');

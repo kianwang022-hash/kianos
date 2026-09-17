@@ -1,0 +1,809 @@
+body#kianos-workspace.surfaceBody-home {
+  background: #f1f2ef;
+}
+
+body#kianos-workspace.surfaceBody-home .kianosShellMain {
+  background: #f1f2ef;
+}
+
+body#kianos-workspace.surfaceBody-home .productCanvas {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 22px 26px 28px;
+  overflow: auto;
+}
+
+body#kianos-workspace.surfaceBody-home .homeWorkbench {
+  display: grid;
+  gap: 0;
+  min-height: calc(100dvh - 50px);
+  padding: 28px 32px 34px;
+  border: 1px solid #dde2de;
+  border-radius: 18px;
+  background: #fff;
+  color: #202925;
+  box-shadow: 0 18px 46px rgba(29, 38, 34, .045);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Noto Sans CJK SC", "Segoe UI", sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Command header                                                             */
+/* -------------------------------------------------------------------------- */
+
+body#kianos-workspace.surfaceBody-home .homeCommandHead {
+  display: grid;
+  gap: 15px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e1e5e2;
+}
+
+body#kianos-workspace.surfaceBody-home .homeCommandMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  color: #7a847f;
+  font-size: 15px;
+  line-height: 1.3;
+  letter-spacing: .045em;
+}
+
+body#kianos-workspace.surfaceBody-home .homeCommandMeta > span {
+  color: #1f5d47;
+  font-weight: 780;
+  letter-spacing: .07em;
+}
+
+body#kianos-workspace.surfaceBody-home .homeCommandMeta time {
+  letter-spacing: 0;
+}
+
+body#kianos-workspace.surfaceBody-home .homeCommandLine {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 38px;
+}
+
+body#kianos-workspace.surfaceBody-home .homePhaseSummary {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  min-width: 0;
+}
+
+body#kianos-workspace.surfaceBody-home .homePhaseSummary strong {
+  color: #1c2722;
+  font-size: 27px;
+  line-height: 1.16;
+  font-weight: 690;
+  letter-spacing: -.035em;
+}
+
+body#kianos-workspace.surfaceBody-home .homePhaseSummary span {
+  color: #6d7872;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+body#kianos-workspace.surfaceBody-home .homeCapacitySummary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(92px, auto));
+  margin: 0;
+  padding: 9px 2px;
+  border: 1px solid #e1e5e2;
+  border-radius: 11px;
+  background: #f8f9f7;
+}
+
+body#kianos-workspace.surfaceBody-home .homeCapacitySummary > div {
+  display: grid;
+  gap: 3px;
+  min-width: 100px;
+  padding: 0 16px;
+  border-left: 1px solid #e2e6e3;
+}
+
+body#kianos-workspace.surfaceBody-home .homeCapacitySummary > div:first-child {
+  border-left: 0;
+}
+
+body#kianos-workspace.surfaceBody-home .homeCapacitySummary dt,
+body#kianos-workspace.surfaceBody-home .homeCapacitySummary dd {
+  margin: 0;
+}
+
+body#kianos-workspace.surfaceBody-home .homeCapacitySummary dt {
+  color: #7a8580;
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+body#kianos-workspace.surfaceBody-home .homeCapacitySummary dd {
+  color: #25312c;
+  font-size: 21px;
+  line-height: 1.22;
+  font-weight: 710;
+  letter-spacing: -.02em;
+}
+
+body#kianos-workspace.surfaceBody-home .homeCapacitySummary > div:last-child dd {
+  color: #176247;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Today                                                                      */
+/* -------------------------------------------------------------------------- */
+
+body#kianos-workspace.surfaceBody-home .homeToday {
+  display: grid;
+  min-width: 0;
+  padding-top: 28px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeTodayHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 30px;
+  padding: 0 2px 18px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeTodayHead > div:first-child {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  min-width: 0;
+}
+
+body#kianos-workspace.surfaceBody-home .homeTodayHead h1 {
+  margin: 0;
+  color: #1c2521;
+  font-size: 31px;
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -.04em;
+}
+
+body#kianos-workspace.surfaceBody-home .homeTodayHead p {
+  margin: 0;
+  color: #747f79;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Next command                                                               */
+/* -------------------------------------------------------------------------- */
+
+body#kianos-workspace.surfaceBody-home .homeNextStrip {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  min-height: 62px;
+  margin-bottom: 10px;
+  padding: 0 18px;
+  border: 1px solid #174c3a;
+  border-radius: 12px;
+  background: #1f5541;
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(26, 70, 52, .10);
+}
+
+body#kianos-workspace.surfaceBody-home .homeNextStrip > span {
+  color: rgba(255,255,255,.68);
+  font-size: 15px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+body#kianos-workspace.surfaceBody-home .homeNextStrip > a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-width: 0;
+  color: #fff;
+  text-decoration: none;
+}
+
+body#kianos-workspace.surfaceBody-home .homeNextStrip strong {
+  min-width: 0;
+  font-size: 19px;
+  line-height: 1.35;
+  font-weight: 680;
+  letter-spacing: -.015em;
+  overflow-wrap: anywhere;
+}
+
+body#kianos-workspace.surfaceBody-home .homeNextStrip b {
+  font-size: 22px;
+  font-weight: 500;
+  transition: transform 130ms ease;
+}
+
+body#kianos-workspace.surfaceBody-home .homeNextStrip > a:is(:hover, :focus-visible) b {
+  transform: translateX(4px);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Subject work rows                                                          */
+/* -------------------------------------------------------------------------- */
+
+body#kianos-workspace.surfaceBody-home .homeSubjectList {
+  display: grid;
+  min-width: 0;
+  border-top: 1px solid #e3e7e4;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSubjectRow {
+  position: relative;
+  display: grid;
+  grid-template-columns: 152px minmax(300px, 1fr) minmax(250px, 300px) 74px;
+  align-items: center;
+  gap: 30px;
+  min-width: 0;
+  min-height: 126px;
+  padding: 22px 8px 22px 16px;
+  border-left: 3px solid transparent;
+  border-bottom: 1px solid #e3e7e4;
+  background: #fff;
+  transition: background-color 130ms ease, border-color 130ms ease;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSubjectRow:hover {
+  background: #fafbf9;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSubjectRow[data-home-next] {
+  border-left-color: #2b775a;
+  background: #f7faf8;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSubjectIdentity {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+  min-width: 0;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSubjectOrdinal {
+  padding-top: 3px;
+  color: #9aa29e;
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSubjectIdentity > div {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSubjectIdentity h2 {
+  margin: 0;
+  color: #1e2a24;
+  font-size: 22px;
+  line-height: 1.15;
+  font-weight: 710;
+  letter-spacing: -.03em;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSubjectRole {
+  color: #65736c;
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSubjectRow[data-home-next] .homeSubjectRole {
+  color: #27644d;
+  font-weight: 650;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSubjectTask {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSubjectTask > strong {
+  min-width: 0;
+  color: #1d2823;
+  font-size: 20px;
+  line-height: 1.32;
+  font-weight: 690;
+  letter-spacing: -.015em;
+  overflow-wrap: anywhere;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSubjectTask > small {
+  min-width: 0;
+  color: #728078;
+  font-size: 15px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+body#kianos-workspace.surfaceBody-home .homeResumeAttention {
+  margin: 3px 0 0;
+  color: #7a6031;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSubjectTime {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSubjectTimeLabel {
+  color: #818b86;
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+body#kianos-workspace.surfaceBody-home .homeTimeNumbers {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  min-width: 0;
+}
+
+body#kianos-workspace.surfaceBody-home .homeTimeNumbers > strong {
+  color: #1d3028;
+  font-size: 24px;
+  line-height: 1.08;
+  font-weight: 720;
+  letter-spacing: -.03em;
+  white-space: nowrap;
+}
+
+body#kianos-workspace.surfaceBody-home .homeTimeNumbers > span {
+  color: #78837d;
+  font-size: 16px;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+body#kianos-workspace.surfaceBody-home .homeTimeNumbers > span i {
+  color: #adb4b0;
+  font-style: normal;
+}
+
+body#kianos-workspace.surfaceBody-home .homeTimeNumbers > span b {
+  color: #596861;
+  font-weight: 640;
+}
+
+body#kianos-workspace.surfaceBody-home .homeTimeNumbers > em {
+  margin-left: auto;
+  color: #7e8983;
+  font-size: 15px;
+  line-height: 1.3;
+  font-style: normal;
+  white-space: nowrap;
+}
+
+body#kianos-workspace.surfaceBody-home .homeTimeNumbers > em b {
+  color: #52655c;
+  font-weight: 650;
+}
+
+body#kianos-workspace.surfaceBody-home .homeProgressTrack {
+  height: 2px;
+  overflow: hidden;
+  background: #e5e9e6;
+}
+
+body#kianos-workspace.surfaceBody-home .homeProgressTrack i {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: #33745a;
+  transition: width 180ms ease;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSubjectTime > small {
+  color: #75817b;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSubjectTime > small:empty {
+  display: none;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSubjectContinue {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+  color: #1f5f46;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 680;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSubjectContinue b {
+  font-size: 19px;
+  font-weight: 500;
+  transition: transform 120ms ease;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSubjectContinue:is(:hover, :focus-visible) {
+  color: #123f2f;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSubjectContinue:is(:hover, :focus-visible) b {
+  transform: translateX(3px);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Attention                                                                  */
+/* -------------------------------------------------------------------------- */
+
+body#kianos-workspace.surfaceBody-home .homePlanAttention {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-left: 3px solid #a37b35;
+  background: #fbf9f3;
+}
+
+body#kianos-workspace.surfaceBody-home .homePlanAttention[hidden] {
+  display: none;
+}
+
+body#kianos-workspace.surfaceBody-home .homePlanAttention p {
+  margin: 0;
+  color: #645a43;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+body#kianos-workspace.surfaceBody-home .homePlanAttention button {
+  border: 0;
+  padding: 3px 0;
+  background: transparent;
+  color: #405f50;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 650;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+body#kianos-workspace.surfaceBody-home .homePlanAttention button:is(:hover, :focus-visible) {
+  color: #214b39;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Scheduler controls                                                         */
+/* -------------------------------------------------------------------------- */
+
+body#kianos-workspace.surfaceBody-home .homeSchedulerRuntime .examToday {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSchedulerRuntime .examTodayHead,
+body#kianos-workspace.surfaceBody-home .homeSchedulerRuntime .examTodayFoot {
+  display: contents;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSchedulerRuntime .examTodayHead > div,
+body#kianos-workspace.surfaceBody-home .homeSchedulerRuntime :is(.examCapacity, .examAllocation, .examNext, .examAttention) {
+  display: none !important;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSchedulerRuntime .examQuiet {
+  border: 0;
+  border-left: 1px solid #dfe4e1;
+  padding: 2px 12px;
+  background: transparent;
+  color: #65736c;
+  font: inherit;
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 590;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSchedulerRuntime .examQuiet:first-of-type {
+  border-left: 0;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSchedulerRuntime .examQuiet:is(:hover, :focus-visible) {
+  color: #1f5943;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSchedulerRuntime .examError:not([hidden]),
+body#kianos-workspace.surfaceBody-home .homeSchedulerRuntime .examMaterial:not([hidden]) {
+  flex-basis: 100%;
+  margin: 8px 0 0;
+  padding: 8px 0 0;
+  border-top: 1px solid #e2e6e3;
+  color: #765048;
+  font-size: 15px;
+  line-height: 1.45;
+  text-align: right;
+}
+
+body#kianos-workspace.surfaceBody-home .homeSchedulerRuntime .examMaterial p {
+  margin: 0 0 4px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Orchestrator dialogs                                                       */
+/* -------------------------------------------------------------------------- */
+
+body#kianos-workspace.surfaceBody-home .examDialog {
+  width: min(600px, calc(100% - 32px));
+  max-height: calc(100dvh - 48px);
+  padding: 26px;
+  overflow: auto;
+  border: 1px solid #d8dfda;
+  border-radius: 15px;
+  background: #fff;
+  color: #23302a;
+  box-shadow: 0 28px 80px rgba(20, 35, 29, .18);
+  font: inherit;
+}
+
+body#kianos-workspace.surfaceBody-home .examDialog::backdrop {
+  background: rgba(19, 29, 25, .34);
+  backdrop-filter: blur(3px);
+}
+
+body#kianos-workspace.surfaceBody-home .examDialog header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+body#kianos-workspace.surfaceBody-home .examDialog h2 {
+  margin: 0;
+  color: #1e2924;
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -.03em;
+}
+
+body#kianos-workspace.surfaceBody-home .examDialog h3 {
+  margin: 20px 0 6px;
+  font-size: 19px;
+  line-height: 1.3;
+}
+
+body#kianos-workspace.surfaceBody-home .examDialog p,
+body#kianos-workspace.surfaceBody-home .examDialog label,
+body#kianos-workspace.surfaceBody-home .examDialog input,
+body#kianos-workspace.surfaceBody-home .examDialog select,
+body#kianos-workspace.surfaceBody-home .examAdvanced summary {
+  font-size: 16px;
+}
+
+body#kianos-workspace.surfaceBody-home .examDialog p {
+  color: #5d6963;
+  line-height: 1.6;
+}
+
+body#kianos-workspace.surfaceBody-home .examDialog [data-close] {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: #5d6b64;
+  font-size: 27px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+body#kianos-workspace.surfaceBody-home .examDialog label {
+  display: grid;
+  gap: 8px;
+  margin: 17px 0;
+  color: #344740;
+  line-height: 1.45;
+}
+
+body#kianos-workspace.surfaceBody-home .examDialog input:not([type='checkbox']),
+body#kianos-workspace.surfaceBody-home .examDialog select {
+  min-width: 0;
+  padding: 10px 11px;
+  border: 1px solid #bdc9c2;
+  border-radius: 8px;
+  background: #fff;
+  color: #23332c;
+  font: inherit;
+}
+
+body#kianos-workspace.surfaceBody-home .examTimeInput {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 9px;
+}
+
+body#kianos-workspace.surfaceBody-home .examCheck {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+}
+
+body#kianos-workspace.surfaceBody-home .examRecordedFields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+body#kianos-workspace.surfaceBody-home .examPrimary {
+  border: 1px solid #1f5a43;
+  border-radius: 8px;
+  padding: 10px 15px;
+  background: #1f5a43;
+  color: #fff;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+body#kianos-workspace.surfaceBody-home .examAdvanced {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #e1e5e2;
+}
+
+body#kianos-workspace.surfaceBody-home .examDialog pre {
+  overflow: auto;
+  padding: 12px;
+  background: #f6f7f5;
+  color: #42534b;
+  font-size: 15px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Responsive                                                                 */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 1180px) {
+  body#kianos-workspace.surfaceBody-home .productCanvas {
+    padding: 16px 18px 24px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeWorkbench {
+    padding: 24px 24px 30px;
+    border-radius: 15px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeSubjectRow {
+    grid-template-columns: 130px minmax(250px, 1fr) minmax(215px, 250px) 66px;
+    gap: 20px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeCapacitySummary > div {
+    min-width: 86px;
+    padding-inline: 12px;
+  }
+}
+
+@media (max-width: 920px) {
+  body#kianos-workspace.surfaceBody-home .homeCommandLine,
+  body#kianos-workspace.surfaceBody-home .homeTodayHead {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeTodayHead > div:first-child {
+    display: grid;
+    gap: 7px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeSchedulerRuntime .examToday {
+    justify-content: flex-start;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeCapacitySummary {
+    width: min(100%, 420px);
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeSubjectRow {
+    grid-template-columns: 120px minmax(0, 1fr) auto;
+    align-items: start;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeSubjectTime {
+    grid-column: 2;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeSubjectContinue {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    align-self: center;
+  }
+}
+
+@media (max-width: 700px) {
+  body#kianos-workspace.surfaceBody-home .productCanvas {
+    padding: 10px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeWorkbench {
+    min-height: calc(100dvh - 20px);
+    padding: 20px 16px 26px;
+    border-radius: 12px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeCommandLine {
+    gap: 18px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeCapacitySummary {
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeCapacitySummary > div {
+    min-width: 0;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeNextStrip {
+    grid-template-columns: 64px minmax(0, 1fr);
+    min-height: 58px;
+    padding-inline: 14px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeSubjectRow {
+    grid-template-columns: 1fr auto;
+    gap: 14px 18px;
+    padding-left: 10px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeSubjectIdentity,
+  body#kianos-workspace.surfaceBody-home .homeSubjectTask,
+  body#kianos-workspace.surfaceBody-home .homeSubjectTime {
+    grid-column: 1;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeSubjectContinue {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+  }
+
+  body#kianos-workspace.surfaceBody-home .examRecordedFields {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body#kianos-workspace.surfaceBody-home .homeSubjectRow,
+  body#kianos-workspace.surfaceBody-home .homeNextStrip b,
+  body#kianos-workspace.surfaceBody-home .homeSubjectContinue b,
+  body#kianos-workspace.surfaceBody-home .homeProgressTrack i {
+    transition: none;
+  }
+}
