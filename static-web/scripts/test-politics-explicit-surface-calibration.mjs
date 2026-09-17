@@ -31,8 +31,15 @@ pass(development?.transitions?.length === 2, 'marx_s01_development_transitions_e
 
 const marxS02 = unit(marx, 'POL27-CF-MARX-C00-S02');
 const characteristics = group(marxS02, 'ORIENT', 's02-four-characteristics');
+const revolutionaryRelations = group(marxS02, 'ORIENT', 's02-relation-people-practice-development');
+const scienceRevolutionRelations = group(marxS02, 'ORIENT', 's02-relation-science-revolution');
 pass(characteristics?.primitive === 'PARALLEL_SET', 'marx_s02_four_characteristics_are_peers');
 pass(characteristics?.items?.map((item) => item.id).join('|') === 'scientificity|people_nature|practicality|development_quality', 'marx_s02_peer_members_exact');
+pass(revolutionaryRelations?.primitive === 'RELATION_SET', 'marx_s02_revolution_relations_are_relation_set');
+pass(revolutionaryRelations?.items?.length === 3, 'marx_s02_revolution_relation_count_exact', String(revolutionaryRelations?.items?.length || 0));
+pass((revolutionaryRelations?.transitions || []).length === 0, 'marx_s02_relation_set_has_no_sequence');
+pass(scienceRevolutionRelations?.primitive === 'RELATION_SET', 'marx_s02_science_revolution_is_relation_set');
+pass(scienceRevolutionRelations?.items?.length === 2, 'marx_s02_science_revolution_relation_count_exact', String(scienceRevolutionRelations?.items?.length || 0));
 
 const history = chapter('history', 'ch01');
 const historyS01 = unit(history, 'POL27-CF-HISTORY-C01-S01');
