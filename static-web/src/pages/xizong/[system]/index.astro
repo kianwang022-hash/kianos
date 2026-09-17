@@ -11,6 +11,7 @@ import { listProjectableXizongSystems, loadXizongSystem } from '../../../lib/xiz
 import { loadXizongPathways } from '../../../lib/xizongPathways.mjs';
 import { loadXizongSystemQuestionSweep } from '../../../lib/xizongQuestions.mjs';
 import '../../../styles/xizong-system-workspace.css';
+import '../../../styles/xizong-peripheral-workspaces.css';
 
 export function getStaticPaths() {
   return listProjectableXizongSystems().map((system) => ({ params: { system: system.systemId }, props: { systemId: system.systemId } }));
