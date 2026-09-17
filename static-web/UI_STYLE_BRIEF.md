@@ -1,11 +1,13 @@
 # KianOS UI Style Brief
 
-Status: **CURRENT SHARED VISUAL DIRECTION — EXPLICIT KIAN CALIBRATION 2026-09-17**  
+Status: **CURRENT SHARED VISUAL DIRECTION — EXPLICIT KIAN CALIBRATION 2026-09-18**  
 Scope: learner-facing `static-web/`  
 Preference owner: `KIAN_UI_PREFERENCES.md`  
 Semantic parent: `PRESENTATION_CONTRACT.md` + exact domain Product/Learning/Interaction owners
 
 This file turns Kian's durable UI preferences into **shared visual rules**. It does not own subject cognition, learning semantics, question truth, learner state or task-specific geometry.
+
+These are **site-wide defaults** for Home, English, Xizong, Politics, Lexical and shared shell surfaces. A lane may vary them only when its real task/learning geometry requires a different treatment; local preference alone is not a reason to fork the shared visual language.
 
 ---
 
@@ -19,7 +21,7 @@ Primary visual reference qualities:
 
 - Mac-wide desktop first;
 - substantial useful information per viewport;
-- stable, comfortable typography;
+- stable, comfortable typography with visible visual weight;
 - strong hierarchy and alignment;
 - restrained color;
 - low chrome;
@@ -33,6 +35,7 @@ Avoid:
 - sparse pages with tiny text;
 - generic card dashboards;
 - thin gray engineering metadata;
+- thin/light typography used to manufacture sophistication;
 - every section wrapped in a rounded white panel;
 - decorative gradients / excessive shadows;
 - mobile layouts stretched across desktop width;
@@ -41,6 +44,8 @@ Avoid:
 ---
 
 ## 2｜Typography is a primary design system
+
+Typography is not final polish. It is one of the first layout systems and must establish hierarchy before boxes, decoration or color do the work.
 
 ### Hard readability floor
 
@@ -51,9 +56,37 @@ On the primary Mac-wide learner surface:
 - body copy, explanations, relationships, task instructions and learning prose should usually be **17–18px+**;
 - major content titles scale upward from the real hierarchy, not from a desire to create visual drama.
 
-`metadata`, `secondary`, `quiet`, `helper`, or `caption` must not automatically mean tiny. De-prioritize with placement, tone, weight and grouping before reducing size.
+`metadata`, `secondary`, `quiet`, `helper`, or `caption` must not automatically mean tiny. De-prioritize with placement, tone, grouping and spacing before reducing size.
 
 If a datum is not worth comfortably reading, hide it, defer it, or move it into an on-demand detail surface.
+
+### Weight / optical solidity
+
+Kian explicitly rejects learner-facing typography that feels thin, weak, pale or visually underpowered.
+
+Shared default direction:
+
+- do **not** use Thin / ExtraLight / Light as the normal learner-facing voice;
+- ordinary learner-facing body/UI text should normally render with a **Regular-to-Medium optical weight**, commonly around CSS `500` when the chosen font supports it well;
+- important task labels, current object names and high-value controls should usually sit around **550–650**;
+- primary titles / subject names / focal actions should usually sit around **650–750**;
+- very heavy display weight is not a substitute for hierarchy and should remain selective;
+- exact numeric values may vary by typeface because equal CSS numbers do not produce equal visual weight, but the rendered result must feel stable and substantial rather than thin.
+
+Hard rule:
+
+> **Secondary does not mean thin.**
+
+Lower priority first through position, tone, grouping, spacing and selective contrast. Do not make useful learner text small + light + gray at the same time.
+
+A normal learner-facing screen should have a clear optical weight ladder:
+
+```text
+primary / focal       strong
+important content     medium-to-strong
+normal content        regular-to-medium
+secondary             quieter, but still readable and solid
+```
 
 ### Typeface roles
 
@@ -63,7 +96,7 @@ English content does **not** have to inherit UI sans merely for consistency. Whe
 
 Current durable direction:
 
-- Chinese explanation / controls / navigation → clean system sans;
+- Chinese explanation / controls / navigation → clean system sans with substantial Regular/Medium rendering;
 - Lexical English word heads / definitions / phraseology / lexical prose → editorial serif is preferred, using the legacy `4173` feel as positive visual evidence;
 - long exam passages may preserve their own reading typography when task-native and readable;
 - do not force one font family onto every subject/surface.
@@ -100,7 +133,25 @@ Use horizontal space deliberately: side-by-side context, comparison, full task s
 
 ---
 
-## 4｜Hierarchy before containers
+## 4｜Composition and hierarchy before components
+
+A learner-facing page must first establish **visual composition**, not merely place all available backend fields into styled components.
+
+Before implementation, identify:
+
+```text
+primary learner action / focal object
+→ secondary supporting objects
+→ reading / scanning path
+→ major column or spatial geometry
+→ only then component/container treatment
+```
+
+Hard rule:
+
+> **Do not design by `data exists → make a component/card for it`.**
+
+For a normal screen, one object/action should usually have clear focal priority. Other information may remain visible and dense, but should not compete at equal visual strength.
 
 Organize content in this order:
 
@@ -115,6 +166,20 @@ typography
 ```
 
 Cards are not the default organizational primitive.
+
+### Dashboard-smell guard
+
+Unless the task semantics genuinely require them, avoid combining several of these patterns on one learner surface:
+
+- giant rounded white page container floating on a gray background;
+- KPI/stat tiles as primary composition;
+- full-width colored command banner;
+- several equal-weight rows that read like database records;
+- progress bars used merely because progress data exists;
+- repeated rounded cards for ordinary text/content;
+- excessive pale gray/green surfaces that flatten contrast.
+
+When these patterns appear together, treat the result as a **SaaS/admin dashboard smell** and redesign the composition before adding more polish.
 
 ### Card / border / shadow policy
 
@@ -133,6 +198,8 @@ Use a neutral base with restrained accent.
 
 - body text should remain dark enough for sustained reading;
 - secondary text may be quieter but not washed out;
+- do not combine light font weight with pale text color for normal useful information;
+- the principal black/gray hierarchy should remain decisive enough that the page does not feel covered by a gray veil;
 - green is a shared KianOS structural/accent family, not a paint bucket for every border, heading and background;
 - blue or other local accents may remain when they carry a real task-native meaning, such as current selection;
 - state meaning must not rely on color alone;
@@ -149,8 +216,9 @@ KianOS should look related across subjects without forcing every task into one l
 
 Shared across subjects:
 
-- type scale philosophy;
+- type scale and weight philosophy;
 - contrast quality;
+- composition-first hierarchy;
 - spacing rhythm;
 - control quality;
 - focus / keyboard states;
@@ -205,7 +273,7 @@ Legacy `4173` is positive interaction evidence for the collapsible rail behavior
 
 ## 7｜Home / Hub / Search surfaces
 
-Home-like surfaces are **workbenches**, not marketing pages.
+Home-like surfaces are **workbenches**, not marketing pages or analytics dashboards.
 
 They should prioritize:
 
@@ -215,9 +283,13 @@ They should prioritize:
 - useful status / next action when it belongs there;
 - optional Guide / companion tools without dominating the main work.
 
-Avoid giant hero copy, decorative whitespace, method-explanation walls, duplicated navigation, generic dashboard cards and tiny labels scattered across empty panels.
+Avoid giant hero copy, decorative whitespace, method-explanation walls, duplicated navigation, generic dashboard cards, KPI-first composition, full-width decorative status banners and tiny labels scattered across empty panels.
 
 A Home surface should make good use of the first viewport and let the learner understand what can be done next without reading software documentation.
+
+The primary next action should normally be established through **position + type + hierarchy**, not by turning it into an oversized colored dashboard banner.
+
+Subject rows/sections should read as **real learning workstreams**, not as database records with equal-weight metric columns.
 
 ---
 
@@ -287,15 +359,36 @@ For meaningful learner-facing visual changes:
 1. render a real representative Mac-wide page;
 2. inspect the real screenshot;
 3. check the smallest default-visible learner text;
-4. check effective information density and wasted space;
-5. check whether the page feels like learning/content rather than software/debug UI;
-6. verify the task-native geometry and functionality remain intact;
-7. fix obvious visual defects;
-8. stop when the bounded surface is genuinely good enough — do not enter endless polish.
+4. check font **weight**, not only font size;
+5. check effective information density and wasted space;
+6. check focal priority / visual scan path;
+7. check for SaaS/admin/dashboard smell;
+8. check whether the page feels like learning/content rather than software/debug UI;
+9. verify the task-native geometry and functionality remain intact;
+10. fix obvious visual defects;
+11. stop when the bounded surface is genuinely good enough — do not enter endless polish.
 
 When Kian is actively calibrating taste, show representative screenshots before promoting the result into a shared rule.
 
 A local page may be accepted without implying all subjects should copy its layout.
+
+### Four independent gates
+
+A learner-facing UI change must be tracked as four separate acceptance dimensions:
+
+```text
+Functional Gate  = behavior / runtime still works
+Structural Gate  = visual ownership and implementation are coherent
+Visual Gate      = composition, typography, hierarchy and finish are genuinely good
+Human Gate       = Kian accepts the real representative surface for regular use
+```
+
+Hard rules:
+
+- Functional PASS does not imply Visual PASS.
+- Clean CSS / single-owner PASS does not imply Visual PASS.
+- CI/build/browser mechanics do not substitute for screenshot inspection.
+- A materially taste-driven surface does not reach final acceptance while the Human Gate is failed.
 
 ### Single visual owner
 
@@ -314,6 +407,7 @@ Default workflow:
 
 ```text
 agree target + preserve list
+→ establish focal hierarchy / composition before component polish
 → make one coherent visual round in the local/temporary implementation surface
 → local build/browser check
 → capture representative screenshots
