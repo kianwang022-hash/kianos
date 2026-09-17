@@ -28,7 +28,7 @@ const compiled = loadPoliticsCompiledPresentation(subject, chapter);
 const useCognitiveWorkspace = subject === 'marxism'
   && chapter === 'ch00'
   && data.units.some((unit) => unit?.raw?.learning_semantics?.schema === 'kianos.politics.learning_semantics.v1');
-const usePurposeFirstPilot = subject === 'marxism' && chapter === 'ch01';
+const usePurposeFirstRuntime = !useCognitiveWorkspace && Boolean(compiled?.size);
 ---
 <style is:global>
   /* Golden C00 calibration: the learner-facing orientation question must read as a real headline. */
@@ -67,8 +67,8 @@ const usePurposeFirstPilot = subject === 'marxism' && chapter === 'ch01';
   {useCognitiveWorkspace && <PoliticsCognitiveWorkspaceBridge chapter={data} />}
   {useCognitiveWorkspace && <PoliticsCognitiveWorkspaceReadable />}
   {useCognitiveWorkspace && <PoliticsVisibleTypeFloor />}
-  {usePurposeFirstPilot && <PoliticsProjectionRuntimeOutlet compiled={compiled} />}
-  {usePurposeFirstPilot && <PoliticsPurposeFirstPilotReadable />}
+  {usePurposeFirstRuntime && <PoliticsProjectionRuntimeOutlet compiled={compiled} />}
+  {usePurposeFirstRuntime && <PoliticsPurposeFirstPilotReadable />}
 
   <script is:inline>
     (() => {
