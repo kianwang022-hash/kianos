@@ -1,12 +1,16 @@
 import { SUBJECTS } from './examOrchestrator.mjs';
 import { aggregateStudyTime, buildStudyTimerReviewCandidates } from './studyTimer.mjs';
+import { readPendingStudyTimerReviews } from './studyTimerReview.mjs';
 
 const sum = (values) => values.reduce((total, value) => total + value, 0);
 
 export function buildExamStudyTimeOverlay(storage, profile, day, now = Date.now()) {
   const baseProfile = structuredClone(profile);
   const timer = aggregateStudyTime(storage, { day, now });
-  const reviewCandidates = buildStudyTimerReviewCandidates(storage, now);
+  const reviewCandidates = [
+    ...readPendingStudyTimerReviews(storage),
+    ...buildStudyTimerReviewCandidates(storage, now)
+  ];
   const manualBySubject = Object.fromEntries(SUBJECTS.map((subject) => [subject,
     sum(baseProfile.observations
       .filter((observation) => observation.day === day && observation.subject === subject)
