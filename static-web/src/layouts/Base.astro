@@ -16,9 +16,19 @@ import '../styles/english-productive-convergence.css';
 import '../styles/english-family-coherence.css';
 import '../styles/english-workbench-polish.css';
 import '../styles/english-workbench-qa-fixes.css';
+import '../styles/shared-shell.css';
 import VocabularyEnglishEvidenceBridge from '../components/VocabularyEnglishEvidenceBridge.astro';
 import EnglishProductiveConvergence from '../components/EnglishProductiveConvergence.astro';
 import EnglishLexicalLookupBridge from '../components/EnglishLexicalLookupBridge.astro';
+import {
+  englishNavigation,
+  globalNavigation,
+  isEnglishFamily,
+  isEnglishRuntime,
+  localRoute,
+  resolveEnglishActive,
+  resolveGlobalActive
+} from '../lib/sharedNavigation.mjs';
 
 const {
   title,
@@ -33,49 +43,18 @@ const {
 
 const base = import.meta.env.BASE_URL;
 const pathname = Astro.url.pathname;
-// English is one learner-facing capability lane. Task-specific routes keep
-// their own workspaces but inherit the shared English navigation/context shell.
-const englishPrefixes = [
-  'english',
-  'reading',
-  'reading-answer',
-  'reading-review',
-  'reading-b',
-  'reading-b-answer',
-  'cloze',
-  'cloze-answer',
-  'objective-learn',
-  'translation',
-  'translation-learn',
-  'translation-reference',
-  'writing',
-  'writing-learn'
-];
-const isEnglishRoute = englishPrefixes.some((segment) => {
-  const route = `${base}${segment}`.replace(/\/+/g, '/');
-  return pathname === route || pathname === `${route}/` || pathname.startsWith(`${route}/`);
-});
-const navActive = isEnglishRoute ? 'english' : active;
-const localPath = pathname.slice(base.length).replace(/^\/+|\/+$/g, '');
+const localPath = localRoute(pathname, base);
+const englishFamily = isEnglishFamily(localPath);
+const englishRuntime = isEnglishRuntime(localPath);
+const navActive = resolveGlobalActive(localPath, active);
+const englishActive = resolveEnglishActive(localPath);
+const navItems = globalNavigation(base);
+const englishNavItems = englishNavigation(base);
 const isHub = ['', 'english', 'vocabulary', 'politics', 'xizong'].includes(localPath);
 const isWordStudy = /^vocabulary\/\d+$/.test(localPath);
 const isVocabularyRoute = localPath === 'vocabulary' || localPath.startsWith('vocabulary/');
-const stageOne = isEnglishRoute || ['lexical', 'politics', 'xizong'].includes(active) || localPath === '';
+const stageOne = englishFamily || ['lexical', 'politics', 'xizong'].includes(active) || localPath === '';
 const currentStatusUrl = `${base}__kianos-current.json`;
-const navIcons = {
-  home: 'M3 10 12 3l9 7M5 9v11h5v-6h4v6h5V9',
-  xizong: 'M12 3v18M3 12h18M6 6l12 12M6 18 18 6',
-  politics: 'M4 20h16M6 17V8m6 9V8m6 9V8M3 6l9-3 9 3H3Z',
-  lexical: 'M5 4h13a2 2 0 0 1 2 2v15H7a3 3 0 0 1-3-3V5a1 1 0 0 1 1-1ZM4 17h16M8 8h8M8 11h6',
-  english: 'M4 5h7a4 4 0 0 1 4 4v11a4 4 0 0 0-4-3H4V5Zm11 4a4 4 0 0 1 4-4h2v12h-2a4 4 0 0 0-4 3'
-};
-const navItems = [
-  { key: 'home', label: 'Home', href: base },
-  { key: 'xizong', label: '西综', href: `${base}xizong/` },
-  { key: 'politics', label: '政治', href: `${base}politics/` },
-  { key: 'lexical', label: 'Vocabulary', href: `${base}vocabulary/` },
-  { key: 'english', label: 'English', href: `${base}english/` }
-];
 ---
 <!doctype html>
 <html lang="zh-CN">
@@ -86,54 +65,93 @@ const navItems = [
     <title>{title} · KianOS</title>
     <style is:global>
       [hidden] { display: none !important; }
-      /* Xizong learning surfaces stay learner-facing. Provenance remains in
-         canonical owners/validators instead of occupying the study chrome. */
       body.surfaceBody-xizong .sourceDock,
       body.surfaceBody-xizong .portedSourceFoot { display: none !important; }
     </style>
   </head>
-  <body id="kianos-workspace" data-current-status-url={currentStatusUrl} class={`surfaceBody-${active}${stageOne ? ' uiStageOne' : ''}${isHub ? ' uiHub' : ''}${isWordStudy ? ' uiWordStudy' : ''}${isEnglishRoute ? ' uiEnglish' : ''}`}>
-    <header class="productBar">
-      <a class="productBrand" href={base} aria-label="KianOS Home">
-        <span class="productBrandMark">K</span>
-        <span class="productBrandCopy"><strong>KianOS</strong><small>Personal workspace</small></span>
-      </a>
-      <nav class="productNav" aria-label="学习模块">
-        {navItems.map((item) => <a class={`productNavItem ${navActive === item.key ? 'active' : ''}`} href={item.href} aria-current={navActive === item.key ? 'page' : undefined}><svg class="productNavIcon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={navIcons[item.key]} /></svg><span>{item.label}</span></a>)}
-      </nav>
-      <details class="sourceDock">
-        <summary><span class="sourcePulse"></span>Current</summary>
-        <div class="sourcePopover">
-          <span>Canonical projection</span>
-          {objectId && <strong>{objectId}</strong>}
-          {sourcePath && <code>{sourcePath}</code>}
-          {sourceHash && <code title={sourceHash}>sha256:{String(sourceHash).slice(0, 16)}</code>}
-          <small>canonical read-only · learner state browser-local</small>
-          <a href={`${base}current/`} style="margin-top:.35rem;color:inherit;font-weight:800;text-decoration:none;">System Current →</a>
-        </div>
-      </details>
-    </header>
-    <main class={`productCanvas surface-${active}${isEnglishRoute ? ' englishCanvas' : ''}`}>
-      {showLead && (
-        <section class="pageLead">
-          <p class="pageKicker">{kicker}</p>
-          <div><h1>{title}</h1>{description && <p class="pageDescription">{description}</p>}</div>
-        </section>
-      )}
-      <slot />
-      {isEnglishRoute && <EnglishProductiveConvergence />}
-      {isEnglishRoute && <VocabularyEnglishEvidenceBridge />}
-      {(isEnglishRoute || isVocabularyRoute) && <EnglishLexicalLookupBridge />}
-    </main>
+  <body id="kianos-workspace" data-current-status-url={currentStatusUrl} data-kianos-rail="expanded" class={`surfaceBody-${active}${stageOne ? ' uiStageOne' : ''}${isHub ? ' uiHub' : ''}${isWordStudy ? ' uiWordStudy' : ''}${englishRuntime ? ' uiEnglish' : ''}${englishFamily ? ' uiEnglishFamily' : ''}`}>
+    <div class="kianosShellFrame">
+      <aside class="kianosGlobalRail" data-kianos-global-rail aria-label="KianOS 全局导航">
+        <button type="button" class="kianosRailToggle" data-kianos-rail-toggle aria-expanded="true" aria-label="展开或收起全局导航">
+          <span class="kianosRailMark">K</span>
+          <span class="kianosRailBrandCopy"><strong>KianOS</strong><span>Personal workspace</span></span>
+        </button>
+        <nav class="kianosRailNav" aria-label="一级学习模块">
+          {navItems.map((item) => (
+            <a class={`kianosRailItem ${navActive === item.key ? 'active' : ''}`} href={item.href} aria-current={navActive === item.key ? 'page' : undefined} title={item.label}>
+              <svg class="kianosRailIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={item.icon} /></svg>
+              <span class="kianosRailLabel">{item.label}</span>
+            </a>
+          ))}
+        </nav>
+        <footer class="kianosRailFooter">
+          <details class="kianosCurrentDock">
+            <summary title="Current">
+              <span class="kianosCurrentPulse" aria-hidden="true"></span>
+              <span class="kianosCurrentLabel">Current</span>
+            </summary>
+            <div class="kianosCurrentPopover">
+              <span>Canonical projection</span>
+              {objectId && <strong>{objectId}</strong>}
+              {sourcePath && <code>{sourcePath}</code>}
+              {sourceHash && <code title={sourceHash}>sha256:{String(sourceHash).slice(0, 16)}</code>}
+              <small>canonical read-only · learner state browser-local</small>
+              <a href={`${base}current/`}>System Current →</a>
+            </div>
+          </details>
+        </footer>
+      </aside>
+
+      <div class="kianosShellMain">
+        {englishFamily && (
+          <header class="kianosSubjectBar" data-kianos-subject-bar="english">
+            <div class="kianosSubjectIdentity">English</div>
+            <nav class="kianosSubjectNav" aria-label="English 内部导航">
+              {englishNavItems.map((item) => <a class={englishActive === item.key ? 'active' : ''} href={item.href} aria-current={englishActive === item.key ? 'page' : undefined}>{item.label}</a>)}
+            </nav>
+          </header>
+        )}
+
+        <main class={`productCanvas surface-${active}${englishRuntime ? ' englishCanvas' : ''}`}>
+          {showLead && (
+            <section class="pageLead">
+              <p class="pageKicker">{kicker}</p>
+              <div><h1>{title}</h1>{description && <p class="pageDescription">{description}</p>}</div>
+            </section>
+          )}
+          <slot />
+          {englishRuntime && <EnglishProductiveConvergence />}
+          {englishRuntime && <VocabularyEnglishEvidenceBridge />}
+          {(englishRuntime || isVocabularyRoute) && <EnglishLexicalLookupBridge />}
+        </main>
+      </div>
+    </div>
   </body>
 </html>
 <script>
-  /*
-   * The dedicated Mac Current mirror writes a tiny localhost-only status file.
-   * Polling it makes an already-open learner page follow a newly synced main SHA
-   * even when the changed canonical asset lives outside Astro/Vite's watch graph.
-   * Normal branch previews/deployments simply receive a 404 and do nothing.
-   */
+  (() => {
+    const body = document.body;
+    const toggle = document.querySelector('[data-kianos-rail-toggle]');
+    if (!(toggle instanceof HTMLButtonElement)) return;
+    const key = 'kianos-global-rail-expanded-v1';
+    const apply = (expanded) => {
+      body.dataset.kianosRail = expanded ? 'expanded' : 'compact';
+      toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      toggle.title = expanded ? '收起全局导航' : '展开全局导航';
+    };
+    let expanded = !window.matchMedia('(max-width: 1180px)').matches;
+    try {
+      const saved = localStorage.getItem(key);
+      if (saved === '1' || saved === '0') expanded = saved === '1';
+    } catch {}
+    apply(expanded);
+    toggle.addEventListener('click', () => {
+      expanded = body.dataset.kianosRail !== 'expanded';
+      apply(expanded);
+      try { localStorage.setItem(key, expanded ? '1' : '0'); } catch {}
+    });
+  })();
+
   (() => {
     if (!['127.0.0.1', 'localhost'].includes(window.location.hostname)) return;
     const url = document.body?.dataset.currentStatusUrl;
@@ -141,7 +159,6 @@ const navItems = [
 
     let baselineSha = null;
     let reloading = false;
-
     const pollCurrent = async () => {
       if (reloading) return;
       try {
@@ -157,9 +174,7 @@ const navItems = [
           reloading = true;
           window.location.reload();
         }
-      } catch {
-        // A short restart/network gap should leave the last usable page intact.
-      }
+      } catch {}
     };
 
     void pollCurrent();
