@@ -39,22 +39,3 @@ const questionSweep = loadXizongSystemQuestionSweep(system);
   )}
   <XizongRuntimeStageGuard system={system} />
 </Base>
-
-<style is:global>
-  /* System Recall belongs after the System has actually been learned. The full
-     recall surface remains available inside the later System Exit workspace. */
-  .xv6SystemContext .xv6RecallCompact{display:none}
-  .xv6SystemContext .xv6SystemKeys p:last-child{display:none}
-
-  .xizongLaterStage{margin-top:14px;border:1px solid var(--study-line,#d9dde5);border-radius:14px;background:#fff;overflow:hidden}
-  .xizongLaterStage>summary{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:6px 14px;align-items:center;padding:12px 15px;cursor:pointer;list-style:none}
-  .xizongLaterStage>summary::-webkit-details-marker{display:none}
-  .xizongLaterStage>summary::before{content:'›';grid-row:1 / span 2;color:var(--study-green,#286c57);font-size:18px;font-weight:900;transition:transform .15s ease}
-  .xizongLaterStage[open]>summary::before{transform:rotate(90deg)}
-  .xizongLaterStage>summary span{color:var(--study-green,#286c57);font-size:15px;font-weight:850;letter-spacing:.02em}
-  .xizongLaterStage>summary strong{font-size:16px}
-  .xizongLaterStage>summary small{grid-column:3;color:var(--study-muted,#6d7873);font-size:15px}
-  .xizongLaterStage[open]>summary{border-bottom:1px solid var(--study-line,#d9dde5);background:#f7faf8}
-  .xizongLaterStage>.xse{margin:12px}
-  @media(max-width:760px){.xizongLaterStage>summary{grid-template-columns:auto minmax(0,1fr)}.xizongLaterStage>summary small{grid-column:2}}
-</style>
