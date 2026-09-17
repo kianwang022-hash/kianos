@@ -56,6 +56,15 @@ Kian dislikes:
 
 These are taste constraints, not instructions to clone Apple, Raycast, Arc, or any named product.
 
+### Visible text carries a reading obligation
+
+- If a learner-facing surface chooses to show text by default, Kian will treat that text as something worth reading or identifying. **Visible therefore implies readable.**
+- On the primary Mac-wide learning surface, default-visible learner text should normally have a **15px minimum floor**; body copy, explanations, relationships and task instructions should generally be **16px or larger**.
+- Do not use 9–13px text as a way to say “this is secondary.” Lower visual priority through position, tone, weight, grouping, spacing, or by deferring/hiding genuinely nonessential information.
+- If an engineering ID, provenance/status label, debug field or other datum is not worth comfortable reading, it should not remain permanently visible merely because there is room for it.
+- Density problems should be solved first by removing duplicate chrome, using Mac width better, grouping related content, or local scrolling — **not by shrinking learner text**.
+- Real browser acceptance should inspect the smallest default-visible learner text, not only headlines and body paragraphs.
+
 ### Preserve semantic density in intrinsically dense learning surfaces
 
 - Do **not** simplify, thin out, or split apart a high-density learning asset merely to make a Guide, mockup, diagram, or one-screen composition look cleaner.
