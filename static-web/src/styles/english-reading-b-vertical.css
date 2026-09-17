@@ -1,0 +1,528 @@
+/* English Part B vertical slice — route-scoped Visual owner.
+   Preserve complete materials/candidate inventory + complete placement/order map.
+   Mac-wide default-visible learner text floor: >= 15px.
+*/
+
+body#kianos-workspace.uiEnglish .readingBRuntime {
+  width: 100%;
+  max-width: none;
+  gap: 9px;
+}
+
+/* Quiet task strip: task/material should dominate software chrome. */
+body#kianos-workspace.uiEnglish .readingBHeader {
+  position: static;
+  min-height: 54px;
+  padding: 6px 4px 10px !important;
+  border: 0;
+  border-bottom: 1px solid #d9e0e4;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+body#kianos-workspace.uiEnglish .readingBHeader > div {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  min-width: 0;
+}
+
+body#kianos-workspace.uiEnglish .readingBHeader > div > span {
+  flex: 0 0 auto;
+  color: #587487;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+body#kianos-workspace.uiEnglish .readingBHeader h2 {
+  min-width: 0;
+  margin: 0 !important;
+  overflow: hidden;
+  color: #24323d;
+  font-size: 18px !important;
+  font-weight: 650;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body#kianos-workspace.uiEnglish .readingBHeader small {
+  color: #78858f;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+body#kianos-workspace.uiEnglish .readingBHeader aside {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  color: #6e7b85;
+  text-align: right;
+}
+
+body#kianos-workspace.uiEnglish .readingBHeader aside strong,
+body#kianos-workspace.uiEnglish .readingBHeader aside span {
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+body#kianos-workspace.uiEnglish .readingBHeader aside strong {
+  color: #344a5b;
+  font-weight: 680;
+}
+
+/* Current product intentionally keeps directions out of the primary task chrome. */
+body#kianos-workspace.uiEnglish .readingBDirections {
+  display: none !important;
+}
+
+/* Shared two-column task geometry. */
+body#kianos-workspace.uiEnglish :is(.readingBLayout, .readingBOrderingLayout) {
+  grid-template-columns: minmax(0, 1.04fr) minmax(500px, .96fr);
+  gap: 0;
+  height: calc(100dvh - 164px);
+  min-height: 620px;
+  overflow: hidden;
+  border: 1px solid #d9e0e4;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(29, 43, 58, .035);
+}
+
+body#kianos-workspace.uiEnglish :is(.readingBMaterial, .readingBOrderingCandidates, .readingBMap) {
+  min-width: 0;
+  min-height: 0;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+  box-shadow: none;
+}
+
+/* Matching-family source material. */
+body#kianos-workspace.uiEnglish .readingBMaterial {
+  position: static;
+  max-height: none;
+  padding: 28px 42px 64px !important;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+
+body#kianos-workspace.uiEnglish .readingBMaterial header,
+body#kianos-workspace.uiEnglish .readingBCandidates header,
+body#kianos-workspace.uiEnglish .readingBPositions > header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: -4px 0 18px;
+  padding: 9px 0 10px;
+  border-bottom: 1px solid #eef1f2;
+}
+
+body#kianos-workspace.uiEnglish .readingBMaterial header {
+  position: sticky;
+  top: -28px;
+  z-index: 2;
+  background: rgba(255, 255, 255, .97);
+}
+
+body#kianos-workspace.uiEnglish :is(.readingBMaterial header, .readingBCandidates header, .readingBPositions > header) :is(span, strong) {
+  color: #78858e;
+  font-size: 15px;
+  font-weight: 580;
+  letter-spacing: 0;
+}
+
+body#kianos-workspace.uiEnglish .readingBMaterial > p,
+body#kianos-workspace.uiEnglish .readingBMaterial [data-objective-material-block] {
+  margin: 0 0 1.08em;
+  color: #202a32;
+  font-family: var(--english-reading-font);
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.78;
+  letter-spacing: .002em;
+  white-space: pre-wrap;
+  text-wrap: pretty;
+}
+
+/* Right workbench: candidate pool + complete map as one continuous object. */
+body#kianos-workspace.uiEnglish .readingBMap {
+  display: grid;
+  grid-template-rows: minmax(0, .9fr) minmax(0, 1.1fr) auto auto;
+  gap: 0;
+  padding: 0 !important;
+  overflow: hidden;
+  border-left: 1px solid #dfe4e7;
+}
+
+body#kianos-workspace.uiEnglish .readingBCandidates {
+  min-height: 0;
+  padding: 18px 18px 0;
+  overflow: hidden;
+  border: 0;
+  border-bottom: 1px solid #e8ecef;
+  background: #fff;
+}
+
+body#kianos-workspace.uiEnglish .readingBCandidates > div {
+  display: grid;
+  gap: 0;
+  max-height: none;
+  height: calc(100% - 44px);
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+
+body#kianos-workspace.uiEnglish .readingBCandidates p {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: start;
+  margin: 0;
+  padding: 11px 2px;
+  border: 0;
+  border-bottom: 1px solid #edf0f2;
+  border-radius: 0;
+  background: transparent;
+  color: #293844;
+  font-size: 16px;
+  line-height: 1.58;
+}
+
+body#kianos-workspace.uiEnglish .readingBCandidates p:last-child {
+  border-bottom: 0;
+}
+
+body#kianos-workspace.uiEnglish .readingBCandidates p.used {
+  background: #f7fafb;
+}
+
+body#kianos-workspace.uiEnglish .readingBCandidates p.fixed {
+  background: #f5f6f4;
+}
+
+body#kianos-workspace.uiEnglish .readingBCandidates p.duplicate {
+  background: #fff4f1;
+}
+
+body#kianos-workspace.uiEnglish .readingBCandidates b {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border-radius: 50%;
+  color: #496b85;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+body#kianos-workspace.uiEnglish .readingBCandidates p.used b {
+  background: #355f78;
+  color: #fff;
+}
+
+body#kianos-workspace.uiEnglish .readingBCandidates small {
+  align-self: start;
+  color: #7a8790;
+  font-size: 15px;
+  font-weight: 520;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* Complete placement map: rows, not cards. */
+body#kianos-workspace.uiEnglish .readingBPositions {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 18px 0;
+  overflow: hidden;
+}
+
+body#kianos-workspace.uiEnglish .readingBPositionList,
+body#kianos-workspace.uiEnglish .readingBOrderSkeleton {
+  display: grid;
+  gap: 0;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+
+body#kianos-workspace.uiEnglish .readingBPosition {
+  display: grid;
+  gap: 8px;
+  padding: 11px 0;
+  border: 0;
+  border-bottom: 1px solid #edf0f2;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+body#kianos-workspace.uiEnglish .readingBPosition:last-child {
+  border-bottom: 0;
+}
+
+body#kianos-workspace.uiEnglish .readingBPosition.result-correct {
+  background: #f4f8f5;
+}
+
+body#kianos-workspace.uiEnglish .readingBPosition.result-wrong,
+body#kianos-workspace.uiEnglish .readingBPosition.constraint-wrong {
+  background: #fff5f2;
+}
+
+body#kianos-workspace.uiEnglish .readingBPositionHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+}
+
+body#kianos-workspace.uiEnglish .readingBPositionHead strong {
+  color: #31414e;
+  font-size: 16px;
+  font-weight: 680;
+}
+
+body#kianos-workspace.uiEnglish .readingBPositionHead button {
+  min-height: 28px;
+  padding: 3px 6px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: #8a949c;
+  font-size: 15px;
+  font-weight: 560;
+}
+
+body#kianos-workspace.uiEnglish .readingBPositionHead button:hover:not(:disabled) {
+  background: #f4f6f7;
+  color: #4f606d;
+}
+
+body#kianos-workspace.uiEnglish .readingBPositionHead button.active {
+  background: #fff7e4;
+  color: #79591f;
+}
+
+body#kianos-workspace.uiEnglish .readingBPosition select {
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 10px;
+  border: 1px solid #dce2e6;
+  border-radius: 6px;
+  background: #fff;
+  color: #263641;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: none;
+}
+
+body#kianos-workspace.uiEnglish .readingBPosition select:focus {
+  border-color: #7f9bad;
+  outline: 3px solid rgba(60, 101, 127, .08);
+}
+
+body#kianos-workspace.uiEnglish .readingBFormal {
+  margin: 0;
+  color: #6d7a83;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+/* Ordering: candidate paragraphs are a reading list; fixed slots are quiet locks. */
+body#kianos-workspace.uiEnglish .readingBOrderingCandidates {
+  position: static;
+  max-height: none;
+  padding: 18px 18px 56px !important;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+
+body#kianos-workspace.uiEnglish .readingBOrderingCandidates > div {
+  height: auto;
+  max-height: none;
+  overflow: visible;
+}
+
+body#kianos-workspace.uiEnglish .readingBOrderingCandidates .readingBCandidates,
+body#kianos-workspace.uiEnglish .readingBOrderingCandidates {
+  border-right: 0;
+}
+
+body#kianos-workspace.uiEnglish .readingBOrderingLayout > .readingBOrderingCandidates {
+  border-right: 0;
+}
+
+body#kianos-workspace.uiEnglish .readingBOrderingLayout > .readingBMap {
+  grid-template-rows: minmax(0, 1fr) auto auto;
+}
+
+body#kianos-workspace.uiEnglish .readingBOrderingMap .readingBPositions {
+  padding-top: 18px;
+}
+
+body#kianos-workspace.uiEnglish .readingBOrderSlot {
+  border-left: 0;
+}
+
+body#kianos-workspace.uiEnglish .readingBFixedSlot {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  border: 0;
+  border-bottom: 1px solid #edf0f2;
+  border-radius: 0;
+  background: #f6f7f5;
+}
+
+body#kianos-workspace.uiEnglish .readingBFixedSlot small {
+  color: #7b8780;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+body#kianos-workspace.uiEnglish .readingBFixedSlot strong {
+  color: #355f78;
+  font-size: 18px;
+  font-weight: 720;
+}
+
+/* Constraint + submit remain visible but do not become a dashboard footer. */
+body#kianos-workspace.uiEnglish .readingBConstraint {
+  margin: 0 18px;
+  padding: 10px 0;
+  border-top: 1px solid #edf0f2;
+  border-radius: 0;
+  background: transparent;
+  color: #6e7b84;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+body#kianos-workspace.uiEnglish .readingBConstraint.warning {
+  color: #82503d;
+  background: transparent;
+}
+
+body#kianos-workspace.uiEnglish .readingBSubmitRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 18px;
+  border-top: 1px solid #e5eaed;
+  background: rgba(255, 255, 255, .98);
+}
+
+body#kianos-workspace.uiEnglish .readingBSubmitRow span {
+  color: #6d7a84;
+  font-size: 15px;
+  font-weight: 520;
+}
+
+body#kianos-workspace.uiEnglish .readingBSubmitRow button {
+  min-height: 34px;
+  padding: 0 14px;
+  border: 1px solid #294e65;
+  border-radius: 6px;
+  background: #294e65;
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 680;
+  box-shadow: none;
+}
+
+body#kianos-workspace.uiEnglish .readingBSubmitRow button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+body#kianos-workspace.uiEnglish .readingBResult {
+  margin: 0;
+  padding: 11px 18px;
+  border-radius: 0;
+  background: #f3f7f5;
+}
+
+body#kianos-workspace.uiEnglish .readingBResult strong,
+body#kianos-workspace.uiEnglish .readingBResult span {
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+@media (max-width: 1180px) {
+  body#kianos-workspace.uiEnglish :is(.readingBLayout, .readingBOrderingLayout) {
+    grid-template-columns: minmax(0, 1fr) minmax(460px, 1fr);
+  }
+
+  body#kianos-workspace.uiEnglish .readingBMaterial {
+    padding-inline: 30px !important;
+  }
+}
+
+@media (max-width: 980px) {
+  body#kianos-workspace.uiEnglish :is(.readingBLayout, .readingBOrderingLayout) {
+    height: auto;
+    min-height: 0;
+    grid-template-columns: 1fr;
+    overflow: visible;
+  }
+
+  body#kianos-workspace.uiEnglish :is(.readingBMaterial, .readingBOrderingCandidates, .readingBMap) {
+    max-height: none;
+    overflow: visible;
+  }
+
+  body#kianos-workspace.uiEnglish .readingBMap {
+    border-left: 0;
+    border-top: 1px solid #dfe4e7;
+  }
+
+  body#kianos-workspace.uiEnglish :is(.readingBCandidates > div, .readingBPositionList, .readingBOrderSkeleton) {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 760px) {
+  body#kianos-workspace.uiEnglish .readingBHeader {
+    display: grid;
+    gap: 5px;
+  }
+
+  body#kianos-workspace.uiEnglish .readingBHeader aside {
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  body#kianos-workspace.uiEnglish .readingBMaterial {
+    padding: 22px 18px 38px !important;
+  }
+
+  body#kianos-workspace.uiEnglish .readingBCandidates,
+  body#kianos-workspace.uiEnglish .readingBPositions,
+  body#kianos-workspace.uiEnglish .readingBOrderingCandidates {
+    padding-inline: 12px !important;
+  }
+
+  body#kianos-workspace.uiEnglish .readingBCandidates p {
+    grid-template-columns: 28px minmax(0, 1fr);
+  }
+
+  body#kianos-workspace.uiEnglish .readingBCandidates small {
+    grid-column: 2;
+  }
+}
