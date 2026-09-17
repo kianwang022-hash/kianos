@@ -8,6 +8,7 @@ on:
       - 'static-web/src/lib/xizong*.mjs'
       - 'static-web/src/pages/xizong/**'
       - 'static-web/scripts/test-xizong-representative-workspace.mjs'
+      - 'static-web/scripts/test-xizong-visible-type-floor.mjs'
       - '.github/workflows/xizong-representative-workspace.yml'
   workflow_dispatch:
 
@@ -42,10 +43,15 @@ jobs:
       - name: Execute A1 A2 A3 B C representative Workspace acceptance
         working-directory: static-web
         run: node scripts/test-xizong-representative-workspace.mjs
+      - name: Execute visible learner type-floor acceptance
+        working-directory: static-web
+        run: node scripts/test-xizong-visible-type-floor.mjs
       - name: Upload representative Workspace evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: xizong-representative-workspace-${{ github.sha }}
-          path: static-web/.qa/xizong-representative-workspace.json
+          path: |
+            static-web/.qa/xizong-representative-workspace.json
+            static-web/.qa/xizong-visible-type-floor.json
           retention-days: 14
