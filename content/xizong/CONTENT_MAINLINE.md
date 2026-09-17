@@ -101,6 +101,27 @@ Do not copy D topology into E for symmetry.
 
 F remains later than D/E unless exam priority or a real dependency justifies reprioritization.
 
+## Cross-System Learning structure repair — ACTIVE BOUNDED TASK
+
+UI review exposed one real Learning-content gap: current Logic Groups own `goal + closure + ordered kpIds`, but many do not explicitly own the **internal cognitive relation among those KPs**.
+
+This is not a fourth durable Content lane. It is a bounded repair under the existing Learning layer.
+
+Current task:
+
+```text
+Rule / machine policy
+→ explicit optional Logic Group cognitive_route
+→ A2 R1 semantic calibration
+→ structural + fresh Core readback
+→ batch stable Current Systems only after calibration holds
+→ Projection / UI adoption later
+```
+
+Active calibration: PR **#412** / `work/xizong-lg-cognitive-route-20260918`.
+
+Hard boundary: ordered KP membership never implies arrows. Missing route remains legal and Projection/UI must fail closed to a plain member list rather than infer relations.
+
 ---
 
 # 3｜Lane B — Questions
