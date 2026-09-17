@@ -110,10 +110,24 @@ function selectLevels(value, group) {
   });
 }
 
+function selectItemIndices(value, group) {
+  const owner = oneObject(value, `POLITICS_SURFACE_ITEMS:${group.id}`);
+  const rows = Array.isArray(owner.items) ? owner.items : [];
+  return group.select_item_indices.map((index, position) => {
+    const item = rows[index];
+    if (!present(item)) throw new Error(`POLITICS_SURFACE_ITEM_INDEX_MISSING:${group.id}:${index}`);
+    const id = Array.isArray(group.item_ids) && group.item_ids[position]
+      ? group.item_ids[position]
+      : `${group.id}-${index + 1}`;
+    return projectFields(item, group.item_fields, id);
+  });
+}
+
 function normalize(value, group, prefix = group.id) {
   if (Array.isArray(group.select_node_ids)) return selectNodes(value, group);
   if (Array.isArray(group.select_step_ids)) return selectSteps(value, group);
   if (Array.isArray(group.select_edge_pairs)) return selectEdges(value, group);
+  if (Array.isArray(group.select_item_indices)) return selectItemIndices(value, group);
   if (Array.isArray(group.levels)) return selectLevels(value, group);
 
   const values = Array.isArray(value) ? value : [value];
@@ -133,7 +147,7 @@ function resolveGroup(group, chapter, unit) {
       if (!source?.id || !source?.ref) throw new Error(`POLITICS_SURFACE_NAMED_SOURCE_INVALID:${group.id}`);
       const value = resolvePoliticsSurfaceRef(source.ref, chapter, unit);
       if (!present(value)) throw new Error(`POLITICS_SURFACE_NAMED_SOURCE_EMPTY:${group.id}:${source.id}`);
-      const local = normalize(value, { ...group, id: source.id, source: undefined, sources: undefined, levels: undefined, select_node_ids: undefined, select_step_ids: undefined, select_edge_pairs: undefined }, source.id);
+      const local = normalize(value, { ...group, id: source.id, source: undefined, sources: undefined, levels: undefined, select_node_ids: undefined, select_step_ids: undefined, select_edge_pairs: undefined, select_item_indices: undefined, item_ids: undefined }, source.id);
       items.push(...local);
     }
   } else {
