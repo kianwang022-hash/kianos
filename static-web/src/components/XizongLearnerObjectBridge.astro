@@ -37,8 +37,15 @@ const payload = learnerObject || null;
         const card = el('div', 'xv6LearnerAsset precision');
         card.dataset.learnerAsset = 'precision';
         card.dataset.learnerAssetId = text(row?.id);
-        card.append(el('span', 'xv6LearnerAssetLabel', '精确记忆'));
-        card.append(el('p', '', row?.cue || row?.task));
+        const exact = text(row?.answerHtml || row?.answer_html);
+        card.dataset.precisionResolution = exact ? 'EXACT' : 'CUE_ONLY';
+        card.append(el('span', 'xv6LearnerAssetLabel', exact ? '精确内容' : '精确记忆提示'));
+        if (row?.cue || row?.task) card.append(el('p', '', row?.cue || row?.task));
+        if (exact) {
+          const answer = el('div', 'markdown xv6LearnerPrecisionExact');
+          answer.innerHTML = exact;
+          card.append(answer);
+        }
         return card;
       };
 
