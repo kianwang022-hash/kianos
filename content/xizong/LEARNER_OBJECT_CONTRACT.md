@@ -129,8 +129,26 @@ A Block learner object contains:
 Each Logic Group object contains:
 
 - identity / goal / closure / ordered KP ids;
+- optional reviewed `cognitiveRoute` copied from the System-specific Learning owner when present;
 - group-owned Precision / Visual / Extension;
 - `connection.incoming[]` and `connection.outgoing[]` derived only from reviewed Pathway authority.
+
+`cognitiveRoute` is a read-only learner projection of Learning structure:
+
+```text
+shape
+organizingQuestion
+nodes[] = id + learner-facing label + canonical kpIds[]
+edges[] = from + to + reviewed relation kind/label
+```
+
+Hard boundary:
+
+- the learner-object resolver may validate and normalize the route, but must not invent it;
+- KP order alone never becomes an edge;
+- absent route remains absent;
+- route nodes may group multiple KPs, but when a route exists every owning Logic Group KP must resolve exactly once;
+- route is answer-bearing orientation by default and must not leak onto KP Recall Front / Block Recall Front merely because it exists in the learner object.
 
 A renderer should therefore ask the learner object for the active owner rather than recomputing ownership from current DOM text or `MutationObserver`-visible counters.
 
