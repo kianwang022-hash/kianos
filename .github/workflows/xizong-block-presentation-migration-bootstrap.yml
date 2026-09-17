@@ -1,0 +1,62 @@
+name: Xizong Block Presentation Migration Bootstrap
+
+on:
+  push:
+    branches:
+      - work/xizong-block-single-owner-20260917
+    paths:
+      - 'static-web/scripts/migrate-xizong-block-presentation.mjs'
+      - '.github/workflows/xizong-block-presentation-migration-bootstrap.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: xizong-block-presentation-migration-bootstrap
+  cancel-in-progress: true
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout migration branch
+        uses: actions/checkout@v4
+        with:
+          ref: work/xizong-block-single-owner-20260917
+          fetch-depth: 0
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Execute one-shot ownership cutover
+        run: node static-web/scripts/migrate-xizong-block-presentation.mjs
+      - name: Validate generated diff shape
+        run: |
+          git diff --check
+          test -f static-web/src/styles/xizong-block-workspace.css
+          ! grep -R "!important" static-web/src/styles/xizong-block-workspace.css
+          ! grep -R "style.setProperty('grid-template-columns'" static-web/src/components/XizongBlockAuxLayoutSync.astro
+      - name: Commit generated cutover
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            static-web/src/styles/xizong-block-workspace.css \
+            static-web/src/styles/xizong-dense-calm.css \
+            static-web/src/styles/xizong-presentation.css \
+            static-web/src/styles/viewport-workspaces.css \
+            static-web/src/styles/site-visual-tuning.css \
+            static-web/src/pages/xizong/'[system]'/'[block]'.astro \
+            static-web/src/components/XizongBlockV6.astro \
+            static-web/src/components/XizongCognitiveProjectionStage.astro \
+            static-web/src/components/XizongLearnerObjectBridge.astro \
+            static-web/src/components/XizongBlockWorkspaceShell.astro \
+            static-web/src/components/XizongStudyEnhancer.astro \
+            static-web/src/components/XizongVisibleTypeFloor.astro \
+            static-web/src/components/XizongBlockAuxLayoutSync.astro
+          if git diff --cached --quiet; then
+            echo "No generated cutover diff"
+            exit 0
+          fi
+          git commit -m "refactor(xizong): converge Block presentation owner"
+          git push origin HEAD:work/xizong-block-single-owner-20260917
