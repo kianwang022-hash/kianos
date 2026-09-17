@@ -1,70 +1,286 @@
 # KianOS UI Style Brief
 
-Status: **CURRENT SHARED VISUAL DIRECTION — BOUNDED IMPLEMENTATION CALIBRATION**  
-Scope: learner-facing static-web  
+Status: **CURRENT SHARED VISUAL DIRECTION — EXPLICIT KIAN CALIBRATION 2026-09-17**  
+Scope: learner-facing `static-web/`  
 Preference owner: `KIAN_UI_PREFERENCES.md`  
-Execution: `CODEX_ASTRA_THREE_SUBJECT_SITE_EXECUTION.md` v3.0+  
-Semantic parent: `PRESENTATION_CONTRACT.md` + domain Product/Learning/Interaction owners
+Semantic parent: `PRESENTATION_CONTRACT.md` + exact domain Product/Learning/Interaction owners
+
+This file turns Kian's durable UI preferences into **shared visual rules**. It does not own subject cognition, learning semantics, question truth, learner state or task-specific geometry.
+
+---
 
 ## 1｜目标气质
 
-**专业知识工作台的内容组织 + 现代桌面产品的完成度。** 这不是“学术/现代”的数字比例，也不是对某品牌的复制。内容、模型、题目、写作是主角；导航和软件自身退后。
+KianOS should feel like a **high-density, mature desktop learning workspace with editorial reading quality**.
 
-设计原点是 Mac 横屏：中高有用信息密度、低混乱、足够大且有对比的字、明显层级、稳定阅读节奏。横向面积用于同时有用的上下文，不用于更多 badge/dashboard。窄窗口可靠降级，不反过来规定桌面布局。
+The software should recede behind the task/content. The visual result should be calm, intentional and information-rich — not empty, tiny, engineering-heavy, or built from a pile of generic cards.
 
-避免 tiny learner text、巨型 Hero/空白、默认卡片堆、每段圆角框、装饰渐变/高饱和多色、工程状态、假进度和游戏化学习债务。
+Primary visual reference qualities:
 
-## 2｜自主选择与边界
+- Mac-wide desktop first;
+- substantial useful information per viewport;
+- stable, comfortable typography;
+- strong hierarchy and alignment;
+- restrained color;
+- low chrome;
+- little wasted space;
+- subject-native learning geometry;
+- editorial/knowledge-tool feel rather than SaaS/admin/documentation-site feel.
 
-当前字体/色值不是必须先让 Kian 逐项审批的 blocker。Astra 可在代表任务上建立一次一致的 font stack/字号/spacing/neutral-accent/control tokens，再跨科复用；不能每页一套，也不能借此推翻已接受的成熟构图。
+Avoid:
 
-优先现有可用、合法字体与系统栈；先解决正文和题目读得舒服。具体字号/行距/列宽由真实长内容、Mac viewport 与浏览器结果决定，不以 8–10px 主内容换“高密度”，也不放大标题制造“高级感”。
+- giant empty hero stages;
+- sparse pages with tiny text;
+- generic card dashboards;
+- thin gray engineering metadata;
+- every section wrapped in a rounded white panel;
+- decorative gradients / excessive shadows;
+- mobile layouts stretched across desktop width;
+- exposing backend/debug status simply because the data exists.
 
-### Learner-visible type floor
+---
 
-只要学习界面选择把一段文字默认显示出来，就等于告诉 Kian：**这值得读取或识别。** 因此不能用 tiny type 来表示“次要”。次要信息应通过位置、颜色、字重、分组和是否默认显示来降权，而不是通过增加辨认成本来降权。
+## 2｜Typography is a primary design system
 
-- Mac 主学习界面中，默认可见、需要 learner 读取/识别的文字，**原则上不得低于 15px**。
-- 正文、解释、关系说明、题目辅助说明通常应 **≥16px**；主要标题按真实层级继续更大。
-- 只有纯装饰符号或明确无需读取的视觉符号可以低于该 floor；工程 ID、debug/status、内部 provenance 若不值得读，应隐藏或按需展开，而不是以 9–12px 常驻。
-- `metadata`、`secondary`、`quiet` 不等于 `tiny`。视觉降权不能以显著增加阅读注意力消耗为代价。
-- 一屏密度不足时，优先减少重复 chrome、合并布局、使用横向空间或局部滚动；不要先缩字。
-- 真实浏览器验收应主动检查 visible learner text 是否跌破 floor，而不是只检查主标题和正文。
+### Hard readability floor
 
-偏克制的 neutral base + 一个协调 accent family，状态还有文字/形状辅助，不仅靠颜色。作答前 selected 只表示我的选择，不能使用暗示正确的样式。对错/Uncertain/保存失败各有清楚、克制的区别。
+On the primary Mac-wide learner surface:
 
-普通 polish 自主；大幅更换整体风格或结构按 master L3。Professional 不等于陈旧后台，modern 不等于卡片墙。
+- **15px is the hard lower bound for normal default-visible learner text. It is not the target size.**
+- normal secondary/navigation/control text should usually be **16px+**;
+- body copy, explanations, relationships, task instructions and learning prose should usually be **17–18px+**;
+- major content titles scale upward from the real hierarchy, not from a desire to create visual drama.
 
-## 3｜组织优先级
+`metadata`, `secondary`, `quiet`, `helper`, or `caption` must not automatically mean tiny. De-prioritize with placement, tone, weight and grouping before reducing size.
 
-先用 typography → alignment → rhythm/indentation/grouping → thin rules/subtle backgrounds；确有语义/交互边界才用 card/border。阴影只为真实浮层，圆角克制一致。
+If a datum is not worth comfortably reading, hide it, defer it, or move it into an on-demand detail surface.
 
-重要模型和第一轮有用内容直接可见；不得为“干净”移进一串 accordion。深层参考、非当前时机内容与受保护答案按领域规则显示，不为填满页面而补空 category。
+### Typeface roles
 
-Guide 可有密度、有长内容、可滚动；不是一屏摘要。英文长阅读行长受控，考试选项保留纸面扫描感，写作输入像 authoring workspace 而非后台表单。
+Shared chrome and Chinese/UI copy should favor a clean system-sans stack with strong CJK rendering and enough weight/contrast for sustained use.
 
-## 4｜控件与反馈
+English content does **not** have to inherit UI sans merely for consistency. Where the task is truly lexical/editorial reading, a serif English layer is explicitly allowed and preferred when it improves reading character.
 
-主/次/quiet action 区别明确但不夸张。Focus/keyboard focus 可见；pointer 与键盘同语义；输入框、select、contenteditable、中文输入法组合输入优先于学习快捷键。快捷提示可发现但不长期占大面积。
+Current durable direction:
 
-保留滚动/选中/任务位置，稳定路径不跳布局。Save/loading/disabled/error/fail-closed 状态清楚且可恢复；不能为 Fast 吞掉保存失败，也不能让退出静默丢草稿。破坏性 reset 仍保留必要安全边界，不套用“少确认”。
+- Chinese explanation / controls / navigation → clean system sans;
+- Lexical English word heads / definitions / phraseology / lexical prose → editorial serif is preferred, using the legacy `4173` feel as positive visual evidence;
+- long exam passages may preserve their own reading typography when task-native and readable;
+- do not force one font family onto every subject/surface.
 
-## 5｜Motion
+No external font dependency is required to satisfy this direction; use robust available stacks first.
 
-允许服务状态理解的细腻 hover/focus/选择、局部展开、submit/reveal、必要 linked-object 定位；不延迟下一题，不抢滚动或焦点。
+---
 
-禁止 spring/bounce、页面飞入、大面积滑动、逐卡 stagger、滚动炫技与纯表演动画。Respect reduced motion。内容加载后尽量不跳布局，反馈不能漏出尚未允许的答案。
+## 3｜Density and screen-space rule
 
-## 6｜统一语言，不统一模板
+A large Mac viewport must earn its area.
 
-三科共享排版/间距/控件/焦点/错误和返回质量；Reading 全文+全题、Cloze 全20行、Part B 全图、Translation 源文+输出、Writing prompt+authoring、西综/政治认知模型各守原生几何。
+### Effective information density
 
-Home：meaningful Continue、稳定科目/任务入口、安静的 Guide/工具；不是方法说明墙、全部章节目录或工程 dashboard。Guide 的低摩擦入口遵守 master §4，不能只是被折叠隐藏的帮助链接。
+Every persistent region should do at least one of these:
 
-## 7｜主题范围与验收
+1. show information worth seeing now;
+2. support the current learner action;
+3. provide a high-value control or return path.
 
-新 dark-mode 工程不作为本轮前置或目标；已存在的有效主题/可访问性不删除。实际用到的主题均保持基本可读性。
+Large empty regions, decorative spacing, duplicate headings and software self-description do not count as useful density.
 
-实现 → 实际浏览器 → 代表截图/互动自查 → 修明显缺陷 → 复测。不是满足固定几轮就合格，也不无止境美化。截图覆盖 Mac 主场景、问题/保护态、长内容与窄窗。有限机器测试不能替代真实视觉审查；Kian 尚未接受的结构 alternative 不推广。
+### Hard anti-pattern
 
-本文件不改变 Learning、Content、Evidence、几何保护或 learner U。旧视觉简报原文存 `design-archive/2026-09-14/UI_STYLE_BEFORE_V3.md`，其“先审批所有 tokens 才能开工”阶段要求已退出执行。
+> **Low density + small text is unacceptable.**
+
+If the page is sparse, use the available screen better and keep text comfortably readable. Do not create an empty page and then make the few visible words 10–14px.
+
+When a surface is genuinely dense, modest size reduction may be considered for non-body text, but never below the readability floor just to keep a composition intact.
+
+Whitespace is a tool for grouping and scanning, not an aesthetic target. A deliberately open recall/reveal stage is allowed only when the cognitive action benefits from it, and should not be larger than that purpose requires.
+
+Use horizontal space deliberately: side-by-side context, comparison, full task sets, stable local navigation and information rails are preferred over unused margins.
+
+---
+
+## 4｜Hierarchy before containers
+
+Organize content in this order:
+
+```text
+typography
+→ alignment
+→ column geometry
+→ spacing / indentation
+→ thin rules
+→ subtle background zones
+→ borders/cards only when a real semantic or interactive boundary exists
+```
+
+Cards are not the default organizational primitive.
+
+### Card / border / shadow policy
+
+- continuous learning content should usually read as one editorial surface;
+- use thin dividers and alignment before wrapping each object in a rounded card;
+- rounded containers are appropriate for real controls, answer options, focused interaction areas, small bounded widgets, popovers and temporary tools;
+- shadows are reserved mainly for genuine floating layers / overlays;
+- large rounded white boxes with shadow should not be used merely to make ordinary text look like a component;
+- one page should not become a stack of visually unrelated panels unless the learner task truly consists of separate objects.
+
+---
+
+## 5｜Color and contrast
+
+Use a neutral base with restrained accent.
+
+- body text should remain dark enough for sustained reading;
+- secondary text may be quieter but not washed out;
+- green is a shared KianOS structural/accent family, not a paint bucket for every border, heading and background;
+- blue or other local accents may remain when they carry a real task-native meaning, such as current selection;
+- state meaning must not rely on color alone;
+- before submit, selected means only `my current choice`, never `correct`;
+- Wrong / meaningful Uncertain / failure / saved states should be distinct but visually restrained.
+
+Do not use pale-on-pale styling to manufacture sophistication.
+
+---
+
+## 6｜Shared language, different native surfaces
+
+KianOS should look related across subjects without forcing every task into one layout.
+
+Shared across subjects:
+
+- type scale philosophy;
+- contrast quality;
+- spacing rhythm;
+- control quality;
+- focus / keyboard states;
+- return / handoff quality;
+- border / radius / shadow restraint;
+- density discipline;
+- real screenshot acceptance.
+
+Task-specific geometry stays with its owner.
+
+Examples:
+
+- Reading A → passage + full question set, both independently scrollable;
+- Cloze → full passage + all 20 items together;
+- Part B → complete material / candidate / placement context;
+- Translation task → source + authored translation simultaneously visible;
+- Writing task → prompt + dominant authoring workspace;
+- Objective / Translation Guide → high-density long-form learning document with local navigation;
+- Writing Guide → interactive generation/primitive workspace, not forced into long-form document geometry;
+- Lexical → vocabulary-specific editorial typography and sense/usage structure;
+- Politics / Xizong → their own cognition-safe structures and source/runtime boundaries.
+
+Do not generalize one successful page into a universal template.
+
+---
+
+## 7｜Home / Hub / Search surfaces
+
+Home-like surfaces are **workbenches**, not marketing pages.
+
+They should prioritize:
+
+- meaningful Continue / Resume;
+- current task choices;
+- high-value subject or tool entry;
+- useful status / next action when it belongs there;
+- optional Guide / companion tools without dominating the main work.
+
+Avoid giant hero copy, decorative whitespace, method-explanation walls, duplicated navigation, generic dashboard cards and tiny labels scattered across empty panels.
+
+A Home surface should make good use of the first viewport and let the learner understand what can be done next without reading software documentation.
+
+---
+
+## 8｜Guide / First-Learning surfaces
+
+A Guide is allowed to be long, dense and scrollable.
+
+- default-visible useful content should be readable and substantial;
+- local navigation is welcome when it reduces search cost;
+- important first-round structure should not be hidden behind repeated accordions merely to make the page look clean;
+- genuinely deep/reference/later-phase content may remain collapsed when domain authority says it is secondary;
+- Guide presentation must not delete semantic detail just to fit one screen;
+- use editorial rhythm, headings, side navigation and thin rules before cards.
+
+The user should feel they are reading/learning, not inspecting an internal design system.
+
+---
+
+## 9｜Exam / Perform surfaces
+
+Exam-like workspaces preserve whole-task geometry and useful simultaneous context.
+
+Scrolling is acceptable when it matches the real task. Do not split a native whole object into a wizard because components are easier to implement that way.
+
+After submit, Wrong/Uncertain may reveal more information in place while preserving the original task context.
+
+Do not shrink question/body text to fit more chrome around the task.
+
+---
+
+## 10｜Interaction quality
+
+Controls should feel predictable, low-friction and desktop-native.
+
+- primary / secondary / quiet actions should be visually distinct without being loud;
+- focus states must be visible;
+- pointer and keyboard should preserve the same meaning;
+- Chinese IME input must outrank learning shortcuts while composing;
+- stable work should not jump layout unexpectedly;
+- save/loading/error/disabled states should be clear and recoverable;
+- destructive reset may keep necessary confirmation boundaries;
+- important structure should be visible by default when Mac width can carry it comfortably.
+
+---
+
+## 11｜Motion
+
+Allow subtle motion only when it helps state understanding:
+
+- hover/focus;
+- local expand/collapse;
+- submit/reveal;
+- useful linked-object focus.
+
+Avoid spring/bounce, large page entrances, staggered card choreography, scroll spectacle and animation that delays the next learning action.
+
+Respect reduced motion and avoid post-load layout jumps.
+
+---
+
+## 12｜Visual acceptance
+
+`build PASS` is not visual acceptance.
+
+For meaningful learner-facing visual changes:
+
+1. render a real representative Mac-wide page;
+2. inspect the real screenshot;
+3. check the smallest default-visible learner text;
+4. check effective information density and wasted space;
+5. check whether the page feels like learning/content rather than software/debug UI;
+6. verify the task-native geometry and functionality remain intact;
+7. fix obvious visual defects;
+8. stop when the bounded surface is genuinely good enough — do not enter endless polish.
+
+When Kian is actively calibrating taste, show representative screenshots before promoting the result into a shared rule.
+
+A local page may be accepted without implying all subjects should copy its layout.
+
+---
+
+## 13｜Authority boundary
+
+- `KIAN_UI_PREFERENCES.md` owns explicit personal UI/taste evidence.
+- this file owns the **shared visual language derived from those preferences**.
+- lane Product Briefs / exact surface owners own task-specific visual decisions.
+- `PRESENTATION_CONTRACT.md` owns cognition → safe representation boundaries.
+- domain Learning / Interaction / Runtime / Evidence owners outrank visual taste when a true semantic conflict exists.
+
+This file must not create a second Learning Truth, task workflow, learner state or content owner.
+
+Old visual references and legacy screenshots are evidence only. They may inspire typography/density/interaction quality but cannot restore retired semantics or runtime behavior.
