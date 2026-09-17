@@ -70,9 +70,15 @@ async function validateForm(page, item, browserName) {
 
   check((await page.locator('[data-objective-root]').getAttribute('data-reading-b-task-form')) === item.context.taskForm, `${prefix}_task_form`);
   check((await page.locator('[data-objective-root]').getAttribute('data-reading-b-candidate-policy')) === 'single_use', `${prefix}_single_use`);
-  await page.locator('[data-objective-instruction]').waitFor({ state: 'visible' });
-  const directionText = (await page.locator('[data-objective-instruction] p').textContent())?.replace(/\s+/g, ' ').trim() || '';
-  check(directionText.includes(String(item.context.directions).slice(0, 32)), `${prefix}_directions`);
+
+  // Current keeps the exact source directions in the projection for provenance,
+  // but the learner-facing workspace no longer spends a full-width card on
+  // boilerplate exam instructions. Task form + candidate policy own the compact UI.
+  const instruction = page.locator('[data-objective-instruction]');
+  check(await instruction.count() === 1, `${prefix}_directions_preserved_in_projection`);
+  const directionText = (await instruction.locator('p').textContent())?.replace(/\s+/g, ' ').trim() || '';
+  check(directionText.includes(String(item.context.directions).slice(0, 32)), `${prefix}_directions_source_exact`);
+  check(await instruction.isHidden(), `${prefix}_verbose_directions_not_learner_facing`);
 
   const candidateRows = page.locator('[data-objective-candidate]');
   check(await candidateRows.count() === item.candidates.length, `${prefix}_candidate_count`);
