@@ -1,19 +1,32 @@
-# Xizong System Guide — accepted design direction
+# Xizong System Framework — accepted design direction
 
 Status: **ACTIVE SURFACE DESIGN — RESPONSIBILITY / MAC-WIDE GEOMETRY ACCEPTED, FINAL VISUAL TOKENS + SCREENSHOT ACCEPTANCE PENDING**  
 Parent: `static-web/XIZONG_PRODUCT_BRIEF.md`  
 Review safety: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`  
 Shared evolvability requirement: root `PROJECT_DEFINITION.md` R10 + `ARCHITECTURE.md` §7.1
 
-This file records the accepted learner-facing System Guide direction. It does not change medical Content, Learning Logic, learner order, Evidence semantics, learner progress, or S/K/L/P/R/E/U claims.
+This file records the accepted learner-facing System Framework direction. It does not change medical Content, Learning Logic, learner order, Evidence semantics, learner progress, or S/K/L/P/R/E/U claims.
+
+**Compatibility note:** the filename remains `XIZONG_SYSTEM_GUIDE_DESIGN.md` to avoid broad path churn. Its owned learner surface is now named **System Framework**. The separate **Beginner Guide** is the skippable explanatory text asset under `content/xizong/knowledge/learner/*-guide.md`.
+
+Naming boundary:
+
+```text
+Beginner Guide = explain in readable prose
+System Framework = show the structured System model
+Block Framework = show the structured Block model
+```
+
+A Framework may use spatial relations, coordinates, comparison or failure geometry only when Current owns them. It must not rewrite the Beginner Guide into a diagram, and the Beginner Guide must not become a second Framework owner.
 
 ## 1｜Role in the learner loop
 
-System Guide remains first-pass **orientation**, not Recall, not a chapter catalogue, and not a second Lecture.
+System Framework remains first-pass **orientation**, not Recall, not a chapter catalogue, and not a second Lecture.
 
 ```text
 Xizong Home / Continue
-→ System Guide
+→ optional Beginner Guide when genuinely useful
+→ System Framework
 → understand the System-level model / coordinates / failure logic
 → choose a Block
 → Block Workspace
@@ -207,7 +220,7 @@ Where the existing renderer flattens Current relation structure into chips, pane
 
 ## 9｜Content-evolution / multi-pass compatibility — ACCEPTED CONSTRAINT
 
-System Guide must satisfy root Content Evolvability requirements.
+System Framework must satisfy root Content Evolvability requirements.
 
 Normal medical/content evolution should be absorbed through Current / Projection assets rather than topic-specific page rewrites.
 
@@ -227,7 +240,7 @@ Optional enrichment remains optional: one System may have reviewed pathway/failu
 The System's canonical cognition should remain reusable across learner stages/passes:
 
 ```text
-ORIENT      → full System Guide
+ORIENT      → full System Framework
 RECALL      → protected / compressed System reconstruction
 SECOND_PASS → thinner application/discrimination/precision/case projection when later assets exist
 LATE        → highly compressed skeleton / high-value boundaries when later assets exist
