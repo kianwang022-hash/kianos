@@ -8,6 +8,9 @@ This file does not own Objective cognition/content, acceptance evidence, or lear
 
 ---
 
+> **Architecture-v2 note:** `S/K/L/P/R/E` and headings such as Projection / Runtime / Evidence below are retained only as Acceptance-history dimensions. They are not current architecture layers. Current work routes through Rule / Model → Content / Visual / Engineering, with this file acting only as Control.
+
+
 ## Work Cursor
 
 **Active / earliest unresolved stage:** `U — Learner Validation`  
