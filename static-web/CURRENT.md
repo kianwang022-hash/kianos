@@ -14,6 +14,8 @@ Shared Visual / Shell landed
 → Xizong + Politics learner surfaces active
 → representative browser proof
 → Human Gate
+→ UI Closure / CSS ownership consolidation
+→ final regression
 → launch
 ```
 
@@ -31,6 +33,73 @@ Architecture-level website blocker: **none**.
 | Lexical learner surface | **STEADY under English** | `content/lexical/CURRENT.md` when a concrete defect exists |
 
 Do not revive historical UI migrations merely because old branches/PRs still exist.
+
+---
+
+## Queued closure lane
+
+### UI Closure / CSS ownership consolidation — **WAITING FOR SUBJECT HUMAN GATES**
+
+This is the next website-wide engineering mainline after the active Xizong and Politics material visuals are accepted.
+
+Start condition:
+
+```text
+Xizong material UI Human Gate closed
++
+Politics material UI Human Gate closed
++
+accepted Surface Blueprints recorded
+→ activate UI Closure
+```
+
+Purpose:
+
+```text
+accepted learner surfaces
+→ inventory actual CSS / style writers
+→ assign every still-needed rule to one real owner
+→ consolidate shared / subject / task layers
+→ remove superseded polish / convergence / QA patch layers
+→ preserve accepted Surface Blueprints exactly
+→ real-browser regression
+→ launch
+```
+
+Hard boundaries:
+
+- **not a redesign program**;
+- do not change Content / Learning / Surface Mapping to make CSS cleanup easier;
+- do not mass-delete historical CSS before proving which rules are still live;
+- move surviving rules to the narrow correct owner first, then delete superseded files/imports;
+- preserve current Runtime/Evidence behavior;
+- every material visual delta discovered during cleanup returns through screenshot + Kian Human Gate.
+
+Target ownership after closure:
+
+```text
+Base
+→ global foundation
+→ Shared Visual
+→ Shared Shell
+→ truly-global runtime only
+
+Subject entry
+→ subject-wide presentation only
+
+Task / surface
+→ task-specific geometry and interaction presentation
+```
+
+Closure is complete only when:
+
+1. accepted Surface Blueprints still match real-browser output;
+2. Base no longer imports subject/task polish layers merely for historical convenience;
+3. duplicate / overridden / superseded CSS writers are removed or intentionally retained with one clear owner;
+4. representative English / Politics / Xizong / Lexical surfaces pass browser regression;
+5. future shared visual edits no longer require CSS archaeology across historical convergence/patch files.
+
+Exact cleanup inventory should be created **when this lane activates**, from the post-Human-Gate codebase. Do not freeze today's CSS file list as future Truth.
 
 ---
 

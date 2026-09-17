@@ -66,6 +66,74 @@ Hard rule:
 
 > **Accepted design is reused, not re-derived.**
 
+### What an Accepted Surface Blueprint must preserve
+
+A Surface Blueprint is a **code-independent layout/design asset**. It records the accepted page composition so later CSS cleanup, component refactors, renderer replacement or framework migration do not force design rediscovery.
+
+A Blueprint should preserve only durable layout intent:
+
+```text
+Surface / learner action
+Primary viewport / environment
+
+Focal object
+→ what visually dominates
+
+Regions
+→ which persistent / conditional spatial roles exist
+
+Geometry
+→ meaningful column/region relationships or approximate ratios
+→ only when the ratio is part of the accepted design
+
+First-view invariants
+→ what must be simultaneously visible before scrolling
+
+Scroll ownership
+→ which region owns vertical / local scrolling
+→ what may remain sticky
+
+Conditional regions
+→ when a rail / inspector / repair / context area appears or disappears
+
+Responsive fallback
+→ how the composition degrades on narrower screens
+
+Must preserve
+→ information architecture / geometry that later implementation cleanup may not change
+
+May vary
+→ incidental implementation details that may change without reopening design
+
+Human-Gate evidence
+→ accepted real-browser screenshot(s), when available
+```
+
+A Blueprint must **not** duplicate:
+
+- canonical Content text, facts, KP / Natural Unit payloads or semantic relations;
+- Projection / Surface Mapping semantic payloads;
+- CSS selectors, component names or implementation file paths as design Truth;
+- incidental pixel values such as one padding, border radius or temporary sticky offset unless that value itself is the durable shared token;
+- historical design discussion once the accepted composition is clear.
+
+Useful approximate proportions such as `passage ≈ 55% / questions ≈ 45%` may be recorded when they express accepted geometry. Incidental CSS such as `gap: 28px` normally stays Engineering-only.
+
+### Screenshot relationship
+
+```text
+Accepted Surface Blueprint
+= design intent / geometry Truth
+
+Human-Gate screenshot
+= visual acceptance evidence
+
+Astro / CSS / JS
+= current implementation
+```
+
+A screenshot does not replace the Blueprint. The Blueprint allows the same accepted design to survive implementation rewrites; screenshots calibrate whether the implementation still looks right.
+
 ---
 
 ## 3｜Content structure is not page structure
