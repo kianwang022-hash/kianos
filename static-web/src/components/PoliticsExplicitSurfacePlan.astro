@@ -60,8 +60,10 @@ function itemChildren(item) {
                   {itemChildren(item).length > 0 && <ul>{itemChildren(item).map((line) => <li>{line}</li>)}</ul>}
                 </article>
                 {next && transition && (
-                  <div class="sequenceTransition" aria-label={transition.relation || '下一步'}>
-                    {transition.relation && <span data-surface-field="relation">{transition.relation}</span>}
+                  <div class="sequenceTransition" data-transition-mode={transition.relation_mode}>
+                    {transition.relation_mode === 'LABELED_RELATION' && transition.relation && (
+                      <span data-surface-field="relation">{transition.relation}</span>
+                    )}
                     <i aria-hidden="true">→</i>
                   </div>
                 )}
