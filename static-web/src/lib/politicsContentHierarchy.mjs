@@ -9,8 +9,8 @@ export const POLITICS_CONTENT_TIERS = Object.freeze([
 const TIER_SET = new Set(POLITICS_CONTENT_TIERS);
 const EARLY_TIERS = new Set(['H1_ORIENTATION_CORE', 'H2_FIRST_ROUND_CARRY', 'H3_SUPPORTING_UNDERSTANDING']);
 const PROVENANCE_KEYS = new Set([
-  'id', 'source_evidence', 'source_refs', 'source_owner_ids', 'natural_unit_id',
-  'schema', 'status', 'content_stage_only', 'audit', 'learning_priority', 'learner_tier'
+  'id', 'source_evidence', 'source_ref', 'source_refs', 'source_owner_ids', 'natural_unit_id',
+  'schema', 'status', 'content_stage_only', 'audit', 'learning_priority', 'learning_rule', 'learner_tier'
 ]);
 const present = value => value != null && value !== '' && (!Array.isArray(value) || value.length > 0);
 const asItems = value => Array.isArray(value) ? value : (present(value) ? [value] : []);
@@ -23,28 +23,20 @@ function explicitTier(value) {
   return tier;
 }
 
-function precisionDefaultTier(value) {
-  switch (value?.learning_priority) {
-    case 'FIRST_ROUND_EXACT': return 'H2_FIRST_ROUND_CARRY';
-    case 'PRECISION_NOT_ORIENTATION':
-    case 'LATER_PRECISION': return 'H4_ON_DEMAND';
-    case 'REFERENCE_OR_QUESTION_TRIGGERED':
-    case 'REPAIR_ONLY': return 'H5_REPAIR_REFERENCE';
-    default: return 'H5_REPAIR_REFERENCE';
-  }
-}
-
 function assertTierGuard(kind, value, tier) {
   if (kind === 'problem' && tier !== 'H1_ORIENTATION_CORE') {
     throw new Error('POLITICS_CONTENT_HIERARCHY_PROBLEM_MUST_BE_H1');
   }
   if (kind === 'exact') {
-    const priority = value?.learning_priority;
-    if (priority === 'FIRST_ROUND_EXACT' && tier !== 'H2_FIRST_ROUND_CARRY') {
-      throw new Error(`POLITICS_CONTENT_HIERARCHY_FIRST_ROUND_EXACT_MUST_BE_H2:${value?.id || '<unknown>'}`);
+    // `exact` reaches this function only after the accepted Projection has
+    // selected it through `first_round_exact`. That selector is the Current
+    // first-round decision across subject-specific content schemas; do not
+    // re-derive it from one Marxism-only metadata shape here.
+    if (tier !== 'H2_FIRST_ROUND_CARRY') {
+      throw new Error(`POLITICS_CONTENT_HIERARCHY_SELECTED_EXACT_MUST_BE_H2:${value?.id || value?.name || '<unknown>'}`);
     }
-    if (['REFERENCE_OR_QUESTION_TRIGGERED', 'REPAIR_ONLY'].includes(priority) && EARLY_TIERS.has(tier)) {
-      throw new Error(`POLITICS_CONTENT_HIERARCHY_REPAIR_EXACT_PROMOTED:${value?.id || '<unknown>'}`);
+    if (['REFERENCE_OR_QUESTION_TRIGGERED', 'REPAIR_ONLY'].includes(value?.learning_priority)) {
+      throw new Error(`POLITICS_CONTENT_HIERARCHY_REPAIR_EXACT_SELECTED_FIRST_ROUND:${value?.id || value?.name || '<unknown>'}`);
     }
   }
 }
@@ -97,7 +89,7 @@ function pushLearner(bucket, tier, kind, rawValue, meta = {}) {
 
 function routeValues(bucket, kind, values, defaultTier, meta = {}) {
   for (const value of asItems(values)) {
-    const tier = explicitTier(value) || (typeof defaultTier === 'function' ? defaultTier(value) : defaultTier);
+    const tier = explicitTier(value) || defaultTier;
     pushLearner(bucket, tier, kind, value, meta);
   }
 }
@@ -131,7 +123,7 @@ export function buildPoliticsContentHierarchy({
 
   routeObjects(buckets, 'primary', primary, 'H1_ORIENTATION_CORE');
   routeValues(buckets, 'boundary', boundaries, 'H2_FIRST_ROUND_CARRY');
-  routeValues(buckets, 'exact', exact, precisionDefaultTier);
+  routeValues(buckets, 'exact', exact, 'H2_FIRST_ROUND_CARRY');
   routeValues(buckets, 'takeaway', takeaway, 'H2_FIRST_ROUND_CARRY');
   routeObjects(buckets, 'secondary', secondary, 'H3_SUPPORTING_UNDERSTANDING');
 
