@@ -79,6 +79,48 @@ const diagnostics = politicsRuntimeDiagnostics();
 if (diagnostics.sourceRegistryRows < 1000) fail(`source registry unexpectedly small: ${diagnostics.sourceRegistryRows}`);
 if (diagnostics.questionRows < 1000) fail(`question database unexpectedly small: ${diagnostics.questionRows}`);
 
+
+
+// Surface Mapping consumer guard.
+// Learner renderers may consume resolved Projection / SurfacePlan and Question Truth,
+// but must never reconstruct Politics learner semantics from raw teaching/content fields.
+const cognitiveWorkspaceUrl = new URL('../src/components/PoliticsCognitiveWorkspace.astro', import.meta.url);
+const cognitiveWorkspaceSource = fs.readFileSync(cognitiveWorkspaceUrl, 'utf8');
+const chapterPageUrl = new URL('../src/pages/politics/[subject]/[chapter].astro', import.meta.url);
+const chapterPageSource = fs.readFileSync(chapterPageUrl, 'utf8');
+const repairEnhancerUrl = new URL('../src/components/PoliticsRepairEnhancer.astro', import.meta.url);
+const repairEnhancerSource = fs.readFileSync(repairEnhancerUrl, 'utf8');
+const unitReturnUrl = new URL('../src/components/PoliticsUnitReturnEnhancer.astro', import.meta.url);
+const unitReturnSource = fs.readFileSync(unitReturnUrl, 'utf8');
+const compiledPresentationUrl = new URL('../src/lib/politicsCompiledPresentation.mjs', import.meta.url);
+const compiledPresentationSource = fs.readFileSync(compiledPresentationUrl, 'utf8');
+
+const semanticInferenceGuards = [
+  ['generic runtime reads unit.teaching', chapterRuntimeSource, /unit\.teaching|const\s+t\s*=\s*unit\.teaching/],
+  ['generic runtime reads chapter.orientation', chapterRuntimeSource, /chapter\.orientation/],
+  ['generic runtime reads chapter.compression', chapterRuntimeSource, /chapter\.compression|chapter\.raw\?\.chapter_compression/],
+  ['generic runtime reconstructs raw teaching boundary', chapterRuntimeSource, /t\.boundaries|t\.answer|t\.bridge|t\.closure|t\.next/],
+  ['C00 workspace reads raw learning_semantics', cognitiveWorkspaceSource, /learning_semantics|framework_maps|relation_chains|recall_seed|source_handoff/],
+  ['chapter page mounts legacy semantic bridge', chapterPageSource, /PoliticsCognitiveWorkspaceBridge|PoliticsCognitiveWorkspaceReadable/],
+  ['chapter page mounts DOM semantic replacement', chapterPageSource, /PoliticsCognitiveWorkspaceExplicitSurface|PoliticsProjectionRuntimeOutlet/],
+  ['chapter page mounts legacy semantic behavior overlay', chapterPageSource, /PoliticsCognitiveWorkspaceExplicitBehavior/],
+  ['repair enhancer carries legacy learner repair payload', repairEnhancerSource, /data-politics-repair-payload|politicsPreciseRepair/]
+];
+for (const [label, source, pattern] of semanticInferenceGuards) {
+  if (pattern.test(source)) fail(`surface mapping consumer regression: ${label}`);
+}
+
+const requiredMappedConsumers = [
+  ['generic runtime', chapterRuntimeSource, /PoliticsExplicitSurfacePlan/],
+  ['C00 workspace', cognitiveWorkspaceSource, /PoliticsExplicitSurfacePlan/],
+  ['repair', repairEnhancerSource, /surfacePlan\.states\.REPAIR/],
+  ['continue', unitReturnSource, /surfacePlan\.states\.CONTINUE/],
+  ['compiled chapter context', compiledPresentationSource, /loadPoliticsCompiledChapterContext/]
+];
+for (const [label, source, pattern] of requiredMappedConsumers) {
+  if (!pattern.test(source)) fail(`surface mapping consumer missing: ${label}`);
+}
+
 // Surface Ownership regression guard.
 // Chengfeng source text remains resolved in Current for provenance/repair, but first-round
 // Politics projection must not turn Astro into a competing continuous lecture reader.
