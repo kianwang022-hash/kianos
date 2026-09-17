@@ -12,6 +12,13 @@ body#kianos-workspace {
   --kianos-shell-line: #dde2de;
   --kianos-shell-ink: #25302b;
   --kianos-shell-muted: #68736e;
+  --kianos-rail-bg: #151a17;
+  --kianos-rail-hover: #202823;
+  --kianos-rail-active: #29372f;
+  --kianos-rail-line: #2a332e;
+  --kianos-rail-ink: #f2f5f3;
+  --kianos-rail-muted: #9aa69f;
+  --kianos-rail-accent: #a9c9b8;
 }
 
 body#kianos-workspace[data-kianos-rail="compact"] { --kianos-rail-width: var(--kianos-rail-compact); }
@@ -32,9 +39,9 @@ body#kianos-workspace[data-kianos-rail="compact"] { --kianos-rail-width: var(--k
   width: var(--kianos-rail-width);
   height: 100dvh;
   padding: 14px 10px 12px;
-  border-right: 1px solid var(--kianos-shell-line);
-  background: rgba(251, 251, 250, .97);
-  backdrop-filter: blur(16px) saturate(120%);
+  border-right: 1px solid var(--kianos-rail-line);
+  background: var(--kianos-rail-bg);
+  box-shadow: inset -1px 0 rgba(255, 255, 255, .025);
   transition: width 160ms ease;
 }
 
@@ -48,15 +55,18 @@ body#kianos-workspace[data-kianos-rail="compact"] { --kianos-rail-width: var(--k
   border: 0;
   border-radius: 10px;
   background: transparent;
-  color: var(--kianos-shell-ink);
+  color: var(--kianos-rail-ink);
   cursor: pointer;
   text-align: left;
 }
-.kianosRailToggle:hover { background: var(--kianos-shell-hover); }
+.kianosRailToggle:hover { background: var(--kianos-rail-hover); }
 .kianosRailToggle:focus-visible,
 .kianosRailItem:focus-visible,
-.kianosSubjectNav a:focus-visible,
 .kianosCurrentDock > summary:focus-visible {
+  outline: 3px solid rgba(169, 201, 184, .26);
+  outline-offset: 2px;
+}
+.kianosSubjectNav a:focus-visible {
   outline: 3px solid rgba(23, 107, 79, .18);
   outline-offset: 2px;
 }
@@ -66,16 +76,17 @@ body#kianos-workspace[data-kianos-rail="compact"] { --kianos-rail-width: var(--k
   width: 38px;
   height: 38px;
   place-items: center;
+  border: 1px solid rgba(255, 255, 255, .12);
   border-radius: 10px;
-  background: var(--study-green);
-  color: #fff;
+  background: #eef2ef;
+  color: #17201b;
   font-size: 17px;
   font-weight: 850;
   letter-spacing: -.03em;
 }
 .kianosRailBrandCopy { display: grid; min-width: 0; gap: 1px; padding-left: 2px; line-height: 1.25; }
-.kianosRailBrandCopy strong { font-size: 16px; font-weight: 780; letter-spacing: -.02em; }
-.kianosRailBrandCopy span { color: var(--kianos-shell-muted); font-size: 15px; }
+.kianosRailBrandCopy strong { color: var(--kianos-rail-ink); font-size: 16px; font-weight: 780; letter-spacing: -.02em; }
+.kianosRailBrandCopy span { color: var(--kianos-rail-muted); font-size: 15px; }
 
 .kianosRailNav { display: grid; align-content: start; gap: 5px; margin-top: 22px; }
 .kianosRailItem {
@@ -84,15 +95,15 @@ body#kianos-workspace[data-kianos-rail="compact"] { --kianos-rail-width: var(--k
   align-items: center;
   min-height: 46px;
   border-radius: 9px;
-  color: #4d5b54;
+  color: #b1bbb5;
   font-size: 16px;
   font-weight: 650;
   line-height: 1;
   text-decoration: none;
   transition: background 120ms ease, color 120ms ease;
 }
-.kianosRailItem:hover { background: var(--kianos-shell-hover); color: #20352c; }
-.kianosRailItem.active { background: var(--kianos-shell-active); color: var(--study-green); font-weight: 760; }
+.kianosRailItem:hover { background: var(--kianos-rail-hover); color: #f1f5f2; }
+.kianosRailItem.active { background: var(--kianos-rail-active); color: var(--kianos-rail-accent); font-weight: 760; }
 .kianosRailIcon { justify-self: center; width: 20px; height: 20px; }
 .kianosRailLabel { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
@@ -104,15 +115,15 @@ body#kianos-workspace[data-kianos-rail="compact"] { --kianos-rail-width: var(--k
   align-items: center;
   min-height: 46px;
   border-radius: 9px;
-  color: var(--kianos-shell-muted);
+  color: var(--kianos-rail-muted);
   cursor: pointer;
   font-size: 15px;
   font-weight: 650;
   list-style: none;
 }
 .kianosCurrentDock > summary::-webkit-details-marker { display: none; }
-.kianosCurrentDock > summary:hover { background: var(--kianos-shell-hover); color: var(--kianos-shell-ink); }
-.kianosCurrentPulse { justify-self: center; width: 9px; height: 9px; border-radius: 50%; background: #2b8c69; box-shadow: 0 0 0 4px rgba(43, 140, 105, .12); }
+.kianosCurrentDock > summary:hover { background: var(--kianos-rail-hover); color: var(--kianos-rail-ink); }
+.kianosCurrentPulse { justify-self: center; width: 9px; height: 9px; border-radius: 50%; background: #79b397; box-shadow: 0 0 0 4px rgba(121, 179, 151, .12); }
 .kianosCurrentPopover {
   position: absolute;
   z-index: 100;
@@ -125,6 +136,7 @@ body#kianos-workspace[data-kianos-rail="compact"] { --kianos-rail-width: var(--k
   border: 1px solid var(--kianos-shell-line);
   border-radius: 12px;
   background: #fff;
+  color: var(--kianos-shell-ink);
   box-shadow: 0 18px 50px rgba(20, 35, 29, .12);
 }
 .kianosCurrentPopover > span { color: var(--study-green); font-size: 15px; font-weight: 760; }
