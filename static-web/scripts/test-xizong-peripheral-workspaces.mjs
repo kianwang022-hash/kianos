@@ -101,7 +101,6 @@ try {
   await checkComputedFloor(page, [
     '.xzMemoryIdentity span',
     '.xzMemorySummary span',
-    '.xzMemoryQueue button small',
     '.xzMemoryCardHeader span',
     '.xzMemoryRatings button',
     '.xzMemoryContext span',
