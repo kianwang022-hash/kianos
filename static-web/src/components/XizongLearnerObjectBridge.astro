@@ -37,7 +37,7 @@ const payload = learnerObject || null;
         const card = el('div', 'xv6LearnerAsset precision');
         card.dataset.learnerAsset = 'precision';
         card.dataset.learnerAssetId = text(row?.id);
-        card.append(el('span', 'xv6LearnerAssetLabel', '第一轮记准'));
+        card.append(el('span', 'xv6LearnerAssetLabel', '精确记忆'));
         card.append(el('p', '', row?.cue || row?.task));
         return card;
       };
@@ -157,7 +157,8 @@ const payload = learnerObject || null;
         else if (family === 'visual') {
           node = representation.kind === 'SOURCE_VISUAL' ? renderVisual(row) : renderTextSupport(row, family);
         } else if (family === 'extension') {
-          node = ['SOURCE_VISUAL', 'REVIEWED_VISUAL', 'STRUCTURED_TABLE'].includes(representation.kind)
+          if (row?.displayPolicy?.timing === 'REFERENCE_ONLY') node = renderExtension(row);
+          else node = ['SOURCE_VISUAL', 'REVIEWED_VISUAL', 'STRUCTURED_TABLE'].includes(representation.kind)
             ? renderExtension(row)
             : renderTextSupport(row, family);
         }
