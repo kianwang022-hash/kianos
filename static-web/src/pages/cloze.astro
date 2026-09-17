@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import ObjectiveHome from '../components/ObjectiveHome.astro';
-import { inspectObjectiveTask, listClozeSets } from '../lib/englishObjective.mjs';
+import { inspectObjectiveTask, listClozeSets } from '../lib/englishObjectiveSourceTruth.mjs';
 
 const sourceState = inspectObjectiveTask('cloze');
 const sets = sourceState.status === 'ready' ? listClozeSets() : [];
@@ -14,7 +14,7 @@ const pendingDescription = sourceState.status === 'invalid'
   title="Cloze"
   kicker={sourceState.status === 'ready' ? 'English · Objective' : 'English · Current gate'}
   description={sourceState.status === 'ready' ? 'Slot Constraint → Best Fit. 一篇完形是最小训练与复盘单位。' : pendingDescription}
-  sourcePath="content/english/modules/cloze.md"
+  sourcePath="content/english/manifest.json"
   objectId="english:cloze-home"
   active="cloze"
 >

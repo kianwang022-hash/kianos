@@ -1,8 +1,11 @@
-# English Objective Runtime v2
+# English Objective Runtime v2 — RETIRED COMPATIBILITY NOTE
 
-**Status:** RE-ACCEPTED LOGIC CANDIDATE  
-**Scope:** shared objective-task runtime for Cloze, Reading A, and Part B.  
-**Parent authority:** `content/english/LEARNING_CONTRACT.md`.
+**Status:** RETIRED AS AUTHORITY  
+**Current Rule / Model:** `content/english/LEARNING_CONTRACT.md` + exact task Content owners  
+**Current Engineering:** `SYSTEM_CONTRACT.md` + exact `static-web/` runtime/renderer owner  
+**Historical scope:** shared objective-task runtime notes for Cloze, Reading A, and Part B.  
+
+> This file remains only for bounded historical compatibility. Do not use it as a Current owner, continuation router, or place for new rules. The body below records the pre-Architecture-v2 runtime model.
 
 This owner defines only cross-task runtime semantics. Cloze, Reading A, and Part B keep their own task cognition.
 

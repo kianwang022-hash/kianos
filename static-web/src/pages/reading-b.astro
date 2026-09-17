@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import ObjectiveHome from '../components/ObjectiveHome.astro';
-import { inspectObjectiveTask, listReadingBSets } from '../lib/englishObjective.mjs';
+import { inspectObjectiveTask, listReadingBSets } from '../lib/englishObjectiveSourceTruth.mjs';
 
 const sourceState = inspectObjectiveTask('reading_b');
 const sets = sourceState.status === 'ready' ? listReadingBSets() : [];
@@ -14,7 +14,7 @@ const pendingDescription = sourceState.status === 'invalid'
   title="Reading B"
   kicker={sourceState.status === 'ready' ? 'English · Objective' : 'English · Current gate'}
   description={sourceState.status === 'ready' ? 'Discourse Skeleton → Required Role → Candidate Fit → Global Reconciliation.' : pendingDescription}
-  sourcePath="content/english/modules/reading-b.md"
+  sourcePath="content/english/manifest.json"
   objectId="english:reading-b-home"
   active="reading_b"
 >

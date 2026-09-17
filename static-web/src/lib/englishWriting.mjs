@@ -413,9 +413,9 @@ function snapshot() {
     const actualHash = sha256(bankText);
     const ownerChecks = {
       manifestCurrentReady: manifest?.status === 'CURRENT_READY',
-      manifestLegacyFallbackDisabled: manifest?.runtime_contract?.legacy_fallback === false,
-      manifestQuestionBankOwnerExact: manifest?.owners?.question_bank === SOURCE.questionBank,
-      manifestWritingOwnerExact: manifest?.owners?.writing_contract === SOURCE.contract,
+      manifestLegacyFallbackDisabled: manifest?.runtime_boundary?.legacy_fallback === false,
+      manifestQuestionBankOwnerExact: manifest?.source?.question_bank === SOURCE.questionBank,
+      manifestWritingOwnerExact: manifest?.knowledge_and_learning_content?.writing === SOURCE.contract,
       provenanceQuestionBankOwnerExact: provenance?.source_materialization?.question_bank?.owner_path === SOURCE.questionBank,
       manifestHashMatchesBytes: Boolean(expectedManifestHash) && expectedManifestHash === actualHash,
       provenanceHashMatchesBytes: Boolean(expectedProvenanceHash) && expectedProvenanceHash === actualHash,

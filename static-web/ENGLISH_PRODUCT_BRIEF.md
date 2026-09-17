@@ -1,10 +1,11 @@
-# English Product Brief — discussion freeze
+# English Visual / Surface Blueprint
 
-Status: ACTIVE DISCUSSION BRIEF  
-Parent cursor: `static-web/CURRENT.md`  
-Scope: learner-visible English family product decisions only.  
+Status: **CURRENT — ACCEPTED ENGLISH VISUAL / SURFACE BLUEPRINT OWNER**  
+Parent Visual authority: `static-web/PRESENTATION_CONTRACT.md`  
+Control router: `content/english/CURRENT.md` + `static-web/CURRENT.md`  
+Scope: learner-visible English family composition, task geometry and presentation decisions only.  
 
-This file is a temporary durable product-discussion owner while Kian and Sol review the complete English family surface-by-surface. It does not change English learning/evidence semantics. After the full English family is accepted, reconcile the accepted decisions into the final Current/Codex handoff and retire any superseded wording.
+This file owns the accepted English subject/task Visual blueprint under Architecture v2. It consumes approved Rule / Model and canonical Content, and constrains Engineering presentation without changing English learning semantics, Content truth, Runtime behavior, Evidence meaning or learner progress. Accepted task geometry is reused rather than re-derived unless Kian explicitly reopens it or upstream Rule / Model materially changes the task.
 
 ## Shared boundary
 
@@ -21,7 +22,7 @@ This file is a temporary durable product-discussion owner while Kian and Sol rev
 
 Preserve existing whole-passage clean attempt, local state/trajectory/Uncertain, timer, continuous-practice behavior, answer gating, optional problem review and whole-passage Chat escalation.
 
-Change learner projection from `Passage + one visible current question` to:
+Change learner presentation from `Passage + one visible current question` to:
 
 ```text
 Mac landscape
@@ -74,9 +75,9 @@ Keep the existing Cloze semantics/runtime:
 - submitted result keeps whole-passage score/formal answers;
 - optional `整篇给 Chat` deep review remains problem-only and retains passage, time, Wrong/Uncertain, all-blank outcome map and answer trajectories.
 
-### Projection correction: full exam-paper layout on Mac
+### Visual correction: full exam-paper layout on Mac
 
-The previous projection assumption `complete passage + one visible active blank decision surface` is intentionally replaced for learner presentation. This is a Projection change only; Cloze learning/evidence logic stays unchanged.
+The previous presentation assumption `complete passage + one visible active blank decision surface` is intentionally replaced for the learner surface. This is a Visual / presentation change only; Cloze learning/evidence logic stays unchanged.
 
 Kian's required Mac-wide model is the natural **exam-paper typesetting**:
 
@@ -171,7 +172,7 @@ Preserve:
 - whole-set score / formal map after submit;
 - optional whole-set Chat escalation with task form, directions, candidate inventory, ordering skeleton/fixed givens, time, Wrong/Uncertain and complete learner map.
 
-### Mac-wide projection
+### Mac-wide presentation
 
 Keep the information architecture; optimize presentation only.
 
@@ -241,7 +242,7 @@ Translation keeps its Current learning/runtime semantics:
 - local history/reset/previous-next set behavior remains available but secondary;
 - pending transfer/evidence state stays silent on normal clean work.
 
-### Mac-wide projection
+### Mac-wide presentation
 
 Keep the correct existing spatial skeleton, but remove state-machine dominance:
 
@@ -305,7 +306,7 @@ Writing keeps its Current learning/runtime semantics:
 - protected true-exam material remains protected from engineering/testing consumption;
 - local history/reset/Resume semantics remain available but secondary.
 
-### Mac-wide projection
+### Mac-wide presentation
 
 Use the screen primarily as a writing workspace:
 
@@ -400,7 +401,7 @@ Targeted intervention must preserve origin context. A learner who entered from `
 
 The same applies to a Translation segment or Writing task. Cross-surface learning support earns its cost only when return is cheap and precise.
 
-### Mac-wide projection
+### Mac-wide presentation
 
 A targeted node may use a narrow local navigation rail plus one dominant content stage:
 

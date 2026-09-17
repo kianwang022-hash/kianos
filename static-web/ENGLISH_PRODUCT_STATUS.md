@@ -1,10 +1,11 @@
 # English Product / UI Status
 
-Status: **FUNCTIONAL / SEMANTIC CLOSURE THROUGH E · FINAL VISUAL CONVERGENCE DEFERRED**  
-Role: English productization status/router, not Learning/Evidence owner  
-Program: `static-web/CURRENT.md` / #113  
-Domain: `content/english/CURRENT.md` / `LEARNING_CONTRACT.md` / `PROJECTION_CONTRACT.md`  
-Detailed product reference: `ENGLISH_PRODUCT_BRIEF.md`
+Status: **RETIRED — historical implementation snapshot only**  
+Current control owner: `content/english/CURRENT.md` + `static-web/CURRENT.md`  
+Current Rule / Model: `content/english/LEARNING_CONTRACT.md`  
+Current Visual authority: `PRESENTATION_CONTRACT.md` + `ENGLISH_PRODUCT_BRIEF.md`  
+
+> Do not use this file as a continuation router. It records pre-Architecture-v2 implementation history and may use retired Projection/Runtime-era terminology.
 
 ## Current facts
 

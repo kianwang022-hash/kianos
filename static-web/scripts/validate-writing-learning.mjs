@@ -82,7 +82,10 @@ function firstLearningContext(markup) {
   );
 }
 requireCheck(home.includes('href={`${base}english/`}'), 'HOME_ENGLISH_ENTRY_MISSING');
-requireCheck(englishHub.includes("import { loadWritingLearningProjection } from '../lib/englishWritingLearning.mjs';"), 'ENGLISH_HUB_NOT_BOUND_TO_WRITING_PROJECTION');
+// Architecture v2: English Home is a routing surface. It must expose Writing and
+// its Guide, but must not import/own the Writing learning projection merely to
+// prove discoverability.
+requireCheck(!englishHub.includes("loadWritingLearningProjection"), 'ENGLISH_HUB_SHOULD_NOT_OWN_WRITING_PROJECTION');
 requireCheck(writingLaneDiscoverable(englishHub), 'WRITING_SCORE_LANE_NOT_DISCOVERABLE');
 requireCheck(englishHub.includes('href={`${base}writing-learn/`}'), 'WRITING_FIRST_LEARNING_NOT_DISCOVERABLE');
 requireCheck(firstLearningContext(englishHub), 'TARGETED_FIRST_LEARNING_CONTEXT_MISSING');

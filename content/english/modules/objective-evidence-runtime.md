@@ -1,8 +1,11 @@
-# English Objective Evidence / Transfer Runtime v2
+# English Objective Evidence / Transfer Runtime v2 — RETIRED COMPATIBILITY NOTE
 
-**Status:** RE-ACCEPTED LOGIC CANDIDATE  
-**Scope:** optional deep-review evidence and backend transfer semantics for Cloze, Reading A, and Part B.  
-**Parent authority:** `content/english/modules/objective-runtime.md`.
+**Status:** RETIRED AS AUTHORITY  
+**Current Rule / Model:** `content/english/LEARNING_CONTRACT.md` + exact task Content owners  
+**Current Engineering:** `SYSTEM_CONTRACT.md` + exact `static-web/` runtime/renderer owner  
+**Historical scope:** optional deep-review evidence and transfer implementation notes.  
+
+> This file remains only for bounded historical compatibility. Do not use it as a Current owner, continuation router, or place for new rules. The body below records the pre-Architecture-v2 runtime model.
 
 ## 1. Core rule
 
