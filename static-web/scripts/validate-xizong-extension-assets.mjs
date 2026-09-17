@@ -36,8 +36,11 @@ const fixtureBlock = {
 };
 const fixtureLoadedBlock = {
   ...fixtureBlock,
-  logicGroups: [{ groupId: 'fixture-b01-lg01' }],
-  kpRecords: [{ kpId: 'fixture-b01-kp01' }]
+  logicGroups: [
+    { groupId: 'fixture-b01-lg01', kpIds: ['fixture-b01-kp01'] },
+    { groupId: 'fixture-b01-lg02', kpIds: ['fixture-b01-kp02'] }
+  ],
+  kpRecords: [{ kpId: 'fixture-b01-kp01' }, { kpId: 'fixture-b01-kp02' }]
 };
 const fixtureContext = {
   systemsById: new Map([['fixture', { systemId: 'fixture', canonicalId: 'F1' }]]),
@@ -60,6 +63,17 @@ const tableAsset = {
   }
 };
 
+const compositeOwnerAsset = {
+  ...tableAsset,
+  slot_id: 'fixture-table-kp-owned',
+  owner: {
+    block_id: fixtureBlock.blockId,
+    logic_group_id: 'fixture-b01-lg01',
+    kp_id: 'fixture-b01-kp01'
+  },
+  display_policy: { timing: 'POST_REVEAL', default_state: 'COLLAPSED' }
+};
+
 const imageAsset = {
   slot_id: 'fixture-image',
   owner: { block_id: fixtureBlock.blockId, logic_group_id: 'fixture-b01-lg01' },
@@ -79,6 +93,16 @@ const imageAsset = {
 };
 
 validateExtensionAsset(tableAsset, { context: fixtureContext, detail: 'fixture:valid-table' });
+validateExtensionAsset(compositeOwnerAsset, { context: fixtureContext, detail: 'fixture:valid-composite-owner' });
+expectFailure('KP outside declared Logic Group', 'OWNER_KP_OUTSIDE_LOGIC_GROUP', () => validateExtensionAsset({
+  ...compositeOwnerAsset,
+  slot_id: 'fixture-table-kp-outside-group',
+  owner: {
+    block_id: fixtureBlock.blockId,
+    logic_group_id: 'fixture-b01-lg01',
+    kp_id: 'fixture-b01-kp02'
+  }
+}, { context: fixtureContext, detail: 'fixture:bad-composite-owner' }));
 expectFailure('duplicate active slot', 'SLOT_DUPLICATE', () => validateExtensionManifests([
   { fileName: 'one', raw: { schema: EXTENSION_SCHEMA, status: 'CURRENT', authority: 'CHAT_APPROVED', assets: [tableAsset] } },
   { fileName: 'two', raw: { schema: EXTENSION_SCHEMA, status: 'CURRENT', authority: 'CHAT_APPROVED', assets: [{ ...tableAsset }] } }
@@ -123,7 +147,15 @@ const infrastructureRegistry = currentManifests.find((item) => item.fileName ===
 check(!infrastructureRegistry || infrastructureRegistry.raw.assets.length === 0, 'infrastructure registry must remain content-free');
 
 const renderer = fs.readFileSync(rendererPath, 'utf8');
-for (const marker of ['data-kp-answer', 'POST_REVEAL', 'xizongExtensionTable', 'data-study-stage="logic_group"', 'data-study-stage="group_close"']) {
+for (const marker of [
+  'data-kp-answer',
+  'POST_REVEAL',
+  'xizongExtensionTable',
+  'data-study-stage="logic_group"',
+  'data-study-stage="group_close"',
+  "default_state === 'COLLAPSED'",
+  '!asset.owner?.kp_id'
+]) {
   check(renderer.includes(marker), `generic renderer contract marker missing: ${marker}`);
 }
 
@@ -139,9 +171,11 @@ console.log(JSON.stringify({
   manifests: currentFiles.length,
   active_assets: current.assets.length,
   renderer: 'GENERIC_OWNER_AND_TIMING_SURFACES',
+  owner_contract: 'BLOCK_PLUS_OPTIONAL_LG_PLUS_OPTIONAL_CANONICAL_KP_WITH_MEMBERSHIP_CHECK',
   mutations: {
     duplicate_slot: 'REJECTED',
     bad_owner: 'REJECTED',
+    kp_outside_logic_group: 'REJECTED',
     malformed_table: 'REJECTED',
     bad_image_hash: 'REJECTED',
     unsafe_display_timing: 'REJECTED'
