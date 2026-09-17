@@ -47,7 +47,8 @@ try {
   const page = await context.newPage();
 
   // Marx C00 is the original failure case. It must consume an upstream plan,
-  // not reconstruct topology from rendered nodes/edges.
+  // not reconstruct topology from rendered nodes/edges. Owned relation text
+  // must survive as learner-visible content, not connector-only metadata.
   await goto(page, '/politics/marxism/ch00/');
   const origin = page.locator('[data-surface-group="s01-origin-conditions"]');
   const development = page.locator('[data-surface-group="s01-development-sequence"]');
@@ -56,6 +57,17 @@ try {
   check((await origin.locator('.sequenceTransition').count()) === 0, 'marx_parallel_group_has_no_arrows');
   check((await development.getAttribute('data-surface-primitive')) === 'DIRECTED_SEQUENCE', 'marx_development_is_directed_sequence');
   check((await development.locator('.sequenceTransition').count()) === 2, 'marx_development_has_exact_two_transitions');
+  check((await development.locator('.sequenceTransition [data-surface-field="relation"]').count()) === 2, 'marx_development_has_two_visible_relation_labels');
+  const developmentText = (await development.innerText()).replace(/\s+/g, ' ');
+  check(developmentText.includes('形成相互联系的理论体系'), 'marx_development_first_relation_text_visible');
+  check(developmentText.includes('理论体系不是封闭终点'), 'marx_development_second_relation_text_visible');
+
+  const relationSet = page.locator('[data-surface-group="s02-relation-people-practice-development"]');
+  await relationSet.waitFor({ state: 'visible' });
+  check((await relationSet.getAttribute('data-surface-primitive')) === 'RELATION_SET', 'marx_relation_set_stays_relation_set');
+  check((await relationSet.locator('[data-surface-field="relation"]').count()) === 3, 'marx_relation_set_keeps_three_visible_relation_labels');
+  check((await relationSet.locator('.sequenceTransition').count()) === 0, 'marx_relation_set_has_no_sequence_arrows');
+
   check((await page.locator('.goldenGraph').count()) === 0, 'marx_legacy_topology_graph_absent');
   check((await page.locator('[data-workspace-unit][data-explicit-surface-mapping="v1"]').count()) === 2, 'marx_c00_two_units_explicitly_mapped');
   await page.screenshot({ path: path.join(auditDir, 'explicit-surface-marx-c00.png'), fullPage: false });
