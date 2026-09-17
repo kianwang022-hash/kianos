@@ -1,544 +1,361 @@
 # KianOS Learning Asset Standard
 
-This document defines **how formal learning assets are designed and rebuilt** inside KianOS.
+Status: **CURRENT**  
+Role: repository-wide standard for building formal learning assets
 
-It is deliberately separate from `LEARNING_ACCEPTANCE.md`.
+This document answers:
 
-- `LEARNING_ASSET_STANDARD.md` answers: **How should we build the learning asset?**
-- `LEARNING_ACCEPTANCE.md` answers: **What evidence permits us to say it is ready?**
-- domain `LEARNING_CONTRACT.md` files answer: **How should this particular learner form this particular capability?**
+> **How should a learning asset be built from raw material into something Kian can actually learn and use?**
 
-Do not collapse these into one framework.
+It is deliberately separate from:
 
----
+- `ARCHITECTURE.md` — permanent KianOS responsibilities;
+- domain `LEARNING_CONTRACT.md` — how a particular capability should be learned;
+- `LEARNING_ACCEPTANCE.md` — what evidence permits a readiness claim.
 
-# 1｜Governing direction
-
-Formal learning assets follow this causal construction order:
-
-```text
-Truth / Knowledge Boundary
-→ Learning Logic
-→ Content Realization / Optimization
-→ Projection / Interaction
-→ Runtime Loop
-→ Evidence / Acceptance
-```
-
-This order exists to prevent a recurring failure mode:
-
-```text
-materials exist
-→ write lots of content
-→ build a page
-→ add buttons
-→ build passes
-→ declare completion
-```
-
-Engineering progress is downstream evidence. It cannot settle an upstream learning question.
-
-The governing questions are always:
-
-> **How does this capability actually form in the learner?**
->
-> **Where should each important learner action actually occur when surface choice materially changes that formation or friction?**
-
-Tools, files, page layouts, question banks, taxonomies, runtime components, devices, and applications are selected only after the relevant upstream learning need is understood.
-
-This causal order applies **within the dependency chain of the declared learning scope**. It is not a repository-wide queue and does not serialize independent sibling scopes.
+Do not use engineering progress, page existence or build success to settle an upstream Source / Knowledge / Learning question.
 
 ---
 
-# 2｜Hard stage-gate rule
+# 1｜Causal construction order
 
-## 2.1 One active construction stage per dependency chain by default
-
-For a formal learning-asset rebuild, only the earliest unresolved construction stage **on that scope's current dependency chain** is ACTIVE by default.
-
-Affected downstream stages are **FROZEN_PENDING_UPSTREAM**.
-
-Example:
+Default construction direction:
 
 ```text
-Truth / Knowledge Boundary   ACTIVE
-Learning Logic              FROZEN_PENDING_UPSTREAM
-Content                     FROZEN_PENDING_UPSTREAM
-Projection / Interaction    FROZEN_PENDING_UPSTREAM
-Runtime Loop                FROZEN_PENDING_UPSTREAM
-Evidence / Acceptance       FROZEN_PENDING_UPSTREAM
+SOURCE
+reliable raw material / provenance / question truth
+        ↓
+KNOWLEDGE RECONSTRUCTION
+AI turns Source into coherent learner-worthy Knowledge
+        ↓
+LEARNING LOGIC
+how this learner should form / retrieve / apply the capability
+        ↓
+CONTENT REALIZATION
+materialize the approved Knowledge + Learning decisions
+        ↓
+PRESENTATION / INTERACTION when needed
+how the accepted meaning should appear at the current learner state
+        ↓
+ENGINEERING / RUNTIME
+make the approved behavior executable
+        ↓
+EVIDENCE / ACCEPTANCE
+prove only what the evidence actually supports
 ```
 
-This is a work-order rule for one dependency chain, not a claim that downstream files do not exist and not a parent-level single-thread scheduler.
+This is a causal order **inside one real dependency chain**.
 
-Independent scopes may each have their own active stage concurrently:
-
-```text
-Politics / Marxism   K-or-Content chain ACTIVE
-Politics / History   P-or-Acceptance chain ACTIVE
-Xizong / A2          K chain ACTIVE
-English / Writing    E chain ACTIVE
-```
-
-Those scopes sharing a parent does not make them one chain.
-
-Existing downstream assets may remain in Current while upstream work is reopened, but they must not be treated as requirements that force the upstream answer.
-
-## 2.2 No downstream-by-convenience
-
-While an upstream stage is unresolved **for the same dependency chain**, do not “also” optimize the next dependent stage merely because:
-
-- the page already exists;
-- a component is easy to edit;
-- a runtime contract already has a field for it;
-- a question bank or taxonomy suggests a structure;
-- a build can validate it;
-- the UI would look cleaner if the content conformed to it.
-
-A broken Knowledge asset is not repaired by better Projection. A wrong Learning Logic is not repaired by more Runtime.
-
-This prohibition does not block unrelated sibling work with no dependency on the unresolved decision.
-
-## 2.3 Existing downstream implementation does not constrain upstream truth
-
-When Knowledge or Learning is reopened:
-
-- UI fields are not semantic requirements;
-- runtime enums are not domain ontology;
-- existing card layouts are not content schemas;
-- generated questions are not semantic owners;
-- review schedulers do not determine what deserves learning;
-- current implementation effort is a sunk cost, not evidence that the model is correct;
-- an existing reader/viewer/component does not own the learner action merely because it can render the source.
-
-If correct upstream work requires later P/R/E changes, those changes happen **after** the upstream stage is accepted for that dependency chain.
-
-## 2.4 Downstream defects cause bounded upstream rollback, not parallel layer repair
-
-A Projection, Runtime, Evidence, or learner-use defect may reveal an upstream problem.
-
-When that happens:
-
-1. identify the earliest stage that actually explains the defect;
-2. mark that stage REOPENED for the affected scope/chain;
-3. freeze only affected downstream development;
-4. repair and accept the reopened stage;
-5. then re-walk the affected downstream stages in order.
-
-Do not repair all touched layers at once merely because they are causally connected.
-
-Do not freeze independent sibling scopes unless the same upstream owner/decision actually governs them.
+It is not a repository-wide waterfall. Independent scopes may progress concurrently when they do not depend on one another.
 
 ---
 
-# 3｜Stage 0 — Truth / Knowledge Boundary
+# 2｜Stage 0 — Source boundary
 
-Goal:
+Question:
 
-> **Determine what is true, what the capability/knowledge actually consists of, what belongs in scope, and what must not be taught.**
+> **What reliable material are we allowed to learn from?**
 
-Typical questions:
+Resolve, when relevant:
 
-- What is Source Truth?
-- What is Current semantic/content authority?
-- What is factual/source material versus Chat teaching reconstruction?
-- What are the real concepts, mechanisms, relations, boundaries, or abilities?
-- Which distinctions are genuine and which are duplicated taxonomy?
-- Which important pieces are missing?
-- Which material is obsolete, low-value, wrong, or merely reference-level?
-- What must remain protected/unseen?
-- What should be routed to another owner rather than copied?
+- authoritative source / provenance;
+- stable object identity;
+- exact question / prompt / answer truth;
+- source coverage and gaps;
+- protected unseen material;
+- what is factual source versus later AI teaching reconstruction;
+- what must remain unavailable rather than guessed.
 
-### Stage-0 outputs
+Hard rules:
 
-The output should be a trustworthy knowledge/capability model and source boundary, not a polished learner page.
+- missing Source is not repaired by UI or model intuition;
+- historical material is not automatic Current authority;
+- official wording / answer / mapping must not be fabricated;
+- Source ownership does not itself decide learner order or learner surface.
 
-Depending on the lane, this may be:
-
-- source ownership / provenance boundary;
-- canonical concept or skill structure;
-- Natural Owner semantic audit;
-- mechanism/relation model;
-- question-source coverage map;
-- explicit exclusions and unresolved gaps.
-
-### Stage-0 prohibition
-
-Do not design learner-facing UI around unresolved knowledge.
-
-Do not use the existence of a current runtime schema to decide what the domain truth must contain.
+Output: a trustworthy Source boundary sufficient for Knowledge work.
 
 ---
 
-# 4｜Stage 1 — Learning Logic
+# 3｜Stage 1 — Knowledge Reconstruction
 
-Goal:
+Question:
 
-> **Determine how this learner should actually form the target capability from the learner's real starting point.**
+> **Has AI transformed reliable Source into genuinely high-quality Knowledge, rather than merely copying or reorganizing the source?**
 
-This stage answers questions such as:
+This is the core KianOS AI-learning value.
 
-- What does the learner already know?
-- What is the natural learner-facing unit?
-- What must be continuous rather than fragmented?
-- What may safely be skipped?
-- What is prerequisite versus later enrichment?
-- What is the causal learning order?
-- When should retrieval/output first occur?
-- When should official/fresh tasks enter?
-- What constitutes a natural local closure?
-- What does stable success look like?
-- After failure, where should the learner return?
-- What should static Current teach and what should adaptive Chat decide?
-- For each important cognitive action, what is the primary learning surface when location materially changes cognition or friction?
-- Which surfaces are companion/reference/runtime-only rather than primary?
-- What cross-surface handoff is required, and what substitution must be forbidden?
+A good Knowledge asset should:
 
-A question bank must not determine learning order merely because questions are easy to count.
+- identify the real concepts / capabilities / mechanisms / relations;
+- make decisive distinctions explicit;
+- preserve source truth while reorganizing it for understanding;
+- separate exact retention from broad conceptual understanding when useful;
+- expose hidden branches, boundaries or failure points that matter to the learner;
+- route truth to the correct canonical owner rather than duplicating it;
+- demote valid but low-value reference material without deleting it;
+- remain coherent if the current webpage disappears.
 
-A teacher/source order must not be inherited automatically when learner cognition requires another order.
-
-A technically capable surface must not inherit a learning action merely because it can render the source or already has a component for it.
-
-### Stage-1 output
-
-A domain-specific learning contract or equivalent durable learning-path decision.
-
-The learning logic must be able to stand independently of a particular UI implementation.
-
-### Surface ownership is Learning Logic
-
-Surface choice belongs here whenever changing the device/application/environment changes the actual learner behavior, continuity, attention, evidence, or switching cost.
-
-Hard invariant:
+Hard rules:
 
 ```text
-Source ownership ≠ Surface ownership.
-Content availability ≠ Render entitlement.
-Runtime capability ≠ Learning-surface authority.
+source order ≠ canonical Knowledge order
+teacher chapter structure ≠ Knowledge ontology
+question taxonomy ≠ Knowledge ontology
+page/component structure ≠ Knowledge ontology
 ```
 
-The relevant Learning Contract should identify the primary surface for material actions, or explicitly state that an action is surface-agnostic. It may also define companion surfaces, forbidden substitution, and handoff rules.
+Domain-specific Knowledge quality belongs in the domain's Rule / Content owner.
 
 Examples:
 
-- an original lecture may remain the primary continuous-learning surface while KianOS supplies orientation, checkpoints, verification, repair routing, and evidence capture;
-- an interactive Lexical Challenge may legitimately be Astro-primary because the interaction itself is part of the target cognition;
-- a fresh external Reading task may remain protected in its task surface while KianOS receives only the evidence needed for later diagnosis.
+- Xizong → mechanism / causal model / boundaries / precision / cross-system relation;
+- Politics → concept relation / historical logic / hierarchy / boundary / source-grounded exactness;
+- English → transferable task decision models / Representation / execution rules;
+- Lexical → Core / senses / familiar-new branches / constructions / phraseology / confusables.
 
-Do not turn device preference into a universal rule. The owner is the **cognitive action**, and the correct surface is domain/path-specific.
-
-### Learner order is not construction scheduling
-
-An approved learner sequence such as `A → B → C` means the learner path should consume those assets in that order when relevant.
-
-It does **not** automatically mean the artifacts for B and C cannot be built in parallel with A.
-
-Construction is serialized only when B's correct construction actually depends on an unresolved artifact/decision from A.
+Output: trustworthy canonical Knowledge / capability assets.
 
 ---
 
-# 5｜Stage 2 — Content Realization / Optimization
+# 4｜Stage 2 — Learning Logic
 
-Goal:
+Question:
 
-> **Realize the approved truth through the approved learning logic.**
+> **How should Kian actually form this capability from his real starting point?**
 
-Content is now organized for learning rather than for archival completeness.
+Decide only what materially changes learning:
 
-Possible content forms include:
+- natural learner-facing unit;
+- prerequisite versus enrichment;
+- continuous versus fragmented learning;
+- when retrieval/output first becomes useful;
+- when fresh / official tasks should enter;
+- what stable success looks like;
+- what should happen after failure;
+- what static assets teach versus what Chat adapts;
+- which surface owns each material learner action when surface choice changes continuity or cognition.
+
+Hard distinction:
+
+```text
+Source ownership ≠ surface ownership
+Runtime capability ≠ learner-surface authority
+learner order ≠ construction scheduling
+```
+
+Output: domain Learning Contract or equivalent durable learner-path decision.
+
+---
+
+# 5｜Stage 3 — Content Realization
+
+Question:
+
+> **Have the accepted Knowledge and Learning decisions been materialized into usable canonical learning assets?**
+
+Possible forms include:
 
 - orientation;
-- core explanation;
+- Core explanation;
 - mechanism / relation chain;
-- bridge;
-- boundary;
+- comparison / boundary;
+- exact object;
 - example;
 - learner-worthy expansion;
 - compression / mental model;
 - repair guidance;
-- reference-only material outside the main path.
+- reference-only material.
 
-The rule is:
+Rule:
 
 > **Content-rich, learning-selective.**
 
-Do not maximize length, metadata, sense count, question count, or apparent completeness.
+Do not maximize length, metadata, question count, sense count, or apparent completeness.
 
-The content must contain everything required by the Learning Logic while excluding material that creates cognitive noise without meaningful learning value.
+### Website-disappearance test
 
-### Page-disappearance test
+Before downstream presentation work, ask:
 
-Before entering Projection, ask:
+> **If the current website disappeared, would this learning asset still be correct, coherent and useful?**
 
-> **If the webpage disappeared, would the learning asset itself still be correct, coherent, and sufficient for its intended role?**
+If no, Content is not closed.
 
-If not, Content is not closed.
-
----
-
-# 6｜Stage 3 — Projection / Interaction
-
-Goal:
-
-> **At this exact moment in the learning path, what should the learner see and what decision/action should be easy on the surface that actually owns this action?**
-
-Content structure is not page structure.
-
-Projection decides:
-
-- what is foregrounded now;
-- what is progressively disclosed;
-- what is folded into reference/explore;
-- what is hidden before a clean attempt;
-- what can be skipped quickly;
-- where attention should land;
-- which learner actions deserve controls;
-- how much interaction is necessary to preserve evidence without turning learning into UI work;
-- what bounded companion information is useful when the primary learning action occurs on another surface;
-- how the learner sees the next cross-surface handoff without maintaining two competing mainlines.
-
-### Projection rule
-
-**Content-rich, display-precise, surface-faithful.**
-
-A rich backend asset may project to a very small learner surface when that is cognitively correct.
-
-If another surface owns the current cognitive action, KianOS Projection should normally provide only the approved companion role—such as orientation, locator, checkpoint, attempt, repair cue, or return—not silently duplicate the primary source/task into a second course.
-
-### Interaction quality test
-
-Every learner-facing element must earn its place by doing at least one of:
-
-1. improving retrieval/encoding without leaking the answer;
-2. exposing a meaningful hidden gap;
-3. reducing friction in a real learner decision;
-4. producing a cleaner verification/repair judgment;
-5. preserving evidence that changes the next action;
-6. making an approved cross-surface handoff clearer without taking over the other surface's learner action.
-
-Otherwise remove or demote it.
+Output: canonical Content that can be consumed by any valid future surface.
 
 ---
 
-# 7｜Stage 4 — Runtime Loop
+# 6｜Stage 4 — Presentation / Interaction, only when needed
 
-Goal:
+Presentation is **not automatically a new semantic asset layer**.
 
-> **Make the approved learning behavior executable end to end.**
-
-A runtime loop is domain-specific. Shared platform capabilities do not imply one common cognitive loop or one universal primary surface.
-
-A typical shape may be:
+If an existing renderer can consume the canonical Content directly without losing learning meaning:
 
 ```text
-Learn
-→ natural closure
-→ Attempt / Verify
-→ stable correct → continue
-→ wrong / uncertain
-→ diagnose first meaningful failure
-→ smallest sufficient repair
-→ return
-→ later transfer
+Canonical Content
+→ renderer
 ```
 
-Two KianOS-wide runtime principles are mandatory:
+That is sufficient.
+
+A derived presentation / projection is justified when learner state materially changes what should be visible or interactive, for example:
+
+```text
+same Knowledge
+├─ Learn: full explanation
+├─ Recall: answer-bearing content hidden
+├─ Repair: failed relation foregrounded
+└─ Review: compressed form
+```
+
+Then:
+
+```text
+Canonical Content
+→ derived presentation
+→ renderer
+```
+
+Hard rules:
+
+- derived presentation is not a second Knowledge owner;
+- it may hide / foreground / reorder approved meaning, not invent it;
+- missing semantics stay missing rather than being guessed;
+- accepted Surface Blueprints should be reused rather than redesigned every implementation cycle;
+- page geometry belongs to Visual owners, not Content.
+
+Output: the smallest representation needed for the approved learner action.
+
+---
+
+# 7｜Stage 5 — Engineering / Runtime
+
+Question:
+
+> **Can the approved Rule + Content + Visual behavior actually run end to end?**
+
+Engineering may include:
+
+- loaders / adapters;
+- renderer/workspace;
+- Runtime/state;
+- clean attempt / Submit / Recall / Reveal;
+- persistence;
+- Return/Handoff;
+- answer gating;
+- navigation / keyboard;
+- Current sync;
+- browser validation.
+
+Hard principles:
 
 > **Stable correct work must be able to pass fast.**
 
 > **Repair only the smallest thing that actually failed.**
 
-For a multi-surface path, Runtime must also make the approved handoff executable: preserve enough object/position identity to leave one surface, act on another, and return without reconstructing the workflow manually.
+Engineering must not invent Learning Logic, Knowledge or Content merely because implementation is easier that way.
 
-Runtime must not manufacture ritual review, diagnosis, reconstruction debt, or surface switching simply because a component supports those states.
+When two data sources share the same learner task semantics, prefer one Runtime / renderer rather than duplicate products.
 
-A written contract is not enough. The learner must be able to execute the path.
+Output: executable learner behavior.
 
 ---
 
-# 8｜Stage 5 — Evidence / Acceptance
+# 8｜Stage 6 — Evidence / Acceptance
 
-Goal:
+Question:
 
-> **Preserve the evidence that matters and make only the readiness claim that evidence supports.**
+> **What has actually been demonstrated?**
 
-At this stage use `LEARNING_ACCEPTANCE.md` and its S/K/L/P/R/E/U gates.
+Use `LEARNING_ACCEPTANCE.md` for S/K/L/P/R/E/U readiness claims.
 
-Do not confuse the construction stages in this document with the acceptance gates.
-
-The two systems answer different questions:
+Construction stage and acceptance gate are different concepts:
 
 ```text
-Learning Asset Standard
-= how the asset should be built
+this standard
+= how to build
 
 S / K / L / P / R / E / U
-= what has actually been demonstrated about the asset
+= what evidence proves
 ```
 
-Evidence should reflect the cognition of the lane, not engineering convenience.
+Never infer learner mastery from:
 
-Strong real transfer evidence outranks weaker repeated artificial confirmation when the domain contract says so.
+- accepted Content;
+- Runtime capability;
+- CI / build;
+- screenshots;
+- synthetic journeys;
+- engineering Current.
 
-User Validation remains real-user evidence and cannot be simulated by Chat, CI, screenshots, or build success.
-
----
-
-# 9｜Stage transition protocol
-
-A stage may advance only when all of the following are true for the current scope and dependency chain:
-
-1. the current-stage question is explicitly answered;
-2. known blockers at that stage are resolved or explicitly fail-closed;
-3. the durable owner/output for that stage exists in Current when one is required;
-4. the result has been audited against the stage's actual goal;
-5. the next dependent stage will not need to guess an unresolved upstream decision.
-
-Then record the next stage as ACTIVE for that chain and keep later dependent stages frozen.
-
-Do not advance because:
-
-- implementation momentum is high;
-- many files already exist;
-- a branch is old;
-- a build is green;
-- the learner is waiting to test;
-- downstream rework would be inconvenient.
-
-Do not use another scope's unresolved stage as a reason to block this transition unless this scope actually depends on it.
+Only real learner use creates U evidence.
 
 ---
 
-# 10｜Handling partially mature existing modules
+# 9｜Dependency rule
 
-KianOS already contains modules with substantial downstream implementation.
+Within one dependency chain, downstream work waits for the earliest unresolved upstream decision.
 
-When a serious upstream defect is found, do **not** delete mature downstream work by default.
+Example:
 
-Instead:
+```text
+Source unresolved
+→ Knowledge / Learning / Presentation / Runtime cannot guess
+
+Knowledge reopened
+→ affected downstream work freezes
+→ correct Knowledge first
+→ then revalidate dependent layers
+```
+
+But this does **not** freeze independent siblings.
+
+Hierarchy is ownership. Dependency is scheduling.
+
+---
+
+# 10｜Existing mature downstream work
+
+When an upstream defect is found, do not delete mature downstream work by default.
+
+Use:
 
 ```text
 reopen earliest responsible stage
-→ freeze affected downstream stages
-→ preserve downstream implementation as provisional
+→ freeze only affected downstream chain
+→ preserve existing downstream implementation as provisional
 → repair upstream
-→ revalidate each affected downstream stage in order
-→ retain, modify, or retire downstream pieces based on the accepted upstream result
+→ revalidate downstream in order
+→ retain / modify / retire based on the accepted result
 ```
 
-This prevents both sunk-cost lock-in and needless rewrites.
-
-A frozen downstream asset may be perfectly reusable later. It simply has no authority to decide the active upstream question.
-
-The freeze is dependency-bounded. Unaffected sibling scopes remain eligible to continue.
+Do not preserve a wrong upstream model merely because downstream implementation was expensive.
 
 ---
 
-# 11｜Scope, dependency and batching
+# 11｜Fresh-Chat construction test
 
-Stage gates apply to the **declared learning scope**, not necessarily an entire subject at once.
-
-A scope may be:
-
-- one Xizong System;
-- one Politics Natural Unit or independently continued subject;
-- one Reading passage path;
-- one Translation task model;
-- one Writing cold-start mechanism;
-- one bounded Lexical semantic batch;
-- an entire lane when the evidence truly supports it.
-
-## 11.1 Three orders must stay separate
-
-Always distinguish:
+For a known learning-asset scope, a fresh Chat should be able to answer quickly:
 
 ```text
-Governance hierarchy
-= who owns / routes / inherits
-
-Construction dependency
-= what must be settled before this artifact can be built correctly
-
-Learner order
-= what sequence Kian should actually experience
+What is the Source?
+What is the canonical Knowledge owner?
+What K-quality rule applies?
+What Learning Logic applies?
+What exact stage is unresolved?
+What downstream work is frozen?
 ```
 
-These may coincide, but they must never be assumed identical.
-
-Examples:
-
-- Politics subjects can be constructed in parallel while remaining separate learner tracks;
-- Xizong Systems can be independently accepted in parallel even if the eventual learner plan schedules them sequentially;
-- two Blocks can be built concurrently while one remains a learner prerequisite for the other;
-- a shared runtime migration may create a temporary real dependency across several children and therefore require bounded coordination.
-
-## 11.2 Batching
-
-Batching exists to control review load, not to bypass dependency order.
-
-Within one dependent batch, finish the active stage before beginning its downstream work.
-
-Independent batches may progress concurrently when their semantic decisions and write sets do not depend on one another.
-
-Do not use tiny batches when the actual work is deterministic and bulk-safe; do not use giant batches when semantic judgment is still being calibrated.
+If this requires broad repository archaeology, the ownership/routing design is defective.
 
 ---
 
-# 12｜Relationship to domain contracts
+# 12｜Change rule
 
-This standard does not replace domain learning contracts.
+Do not add another construction stage merely because a new file type or implementation technique appears.
 
-Examples:
+A durable stage/owner is justified only when it represents a genuinely different responsibility that cannot be expressed clearly by the existing model.
 
-- LexicalOS may keep Depth Scan → selective Repair → Challenge → Return Packet;
-- Politics may keep Orientation → continuous learning → short closure → Xiao1000 verification → minimal repair;
-- Xizong may keep System / Block / KP logic;
-- Reading, Translation, Writing, and Cloze may retain their own natural learner units and failure loops.
+KianOS should converge toward:
 
-The standard governs **construction order along real dependencies**, including the rule that material surface ownership is settled in Learning Logic before Projection/Runtime.
-
-The domain contract governs **domain cognition, learner behavior, and path-specific surface ownership**.
-
-`SYSTEM_CONTRACT.md` governs **shared platform capabilities and the cross-KianOS surface boundary**.
-
-`LEARNING_ACCEPTANCE.md` governs **readiness evidence**.
-
-These layers should reinforce one another without becoming substitutes for one another.
-
----
-
-# 13｜Compact operating rule
-
-Before doing substantial work on any formal learning asset, state internally:
-
-```text
-Declared scope: <scope>
-Active construction stage: <stage>
-Real upstream dependency for this stage: <owner/decision or none>
-Upstream accepted for this dependency chain: <yes/no>
-Affected downstream state: FROZEN / eligible
-Independent sibling scopes: untouched / may continue concurrently
-Current-stage exit condition: <concrete condition>
-```
-
-When surface choice materially affects the path, also resolve before Projection:
-
-```text
-Primary surface for each material learner action: <surface or surface-agnostic>
-Companion surface(s): <if any>
-Forbidden substitution: <if any>
-Cross-surface handoff: <if any>
-```
-
-Then work only on the active stage of that dependency chain unless new evidence forces an upstream rollback.
-
-The durable KianOS principles are:
-
-> **Start from the learning need, not from the available tool.**
-
-> **Assign surface ownership from cognition before implementation capability.**
-
-> **Resolve the upstream learning question before optimizing its downstream representation.**
-
-> **Independent scopes may progress in parallel; dependent stages progress in causal order.**
+> **reliable Source → excellent AI Knowledge → correct Learning Logic → durable Content → minimal necessary presentation → reusable Engineering → evidence-based revision.**
