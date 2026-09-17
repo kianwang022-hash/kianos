@@ -63,6 +63,7 @@ try {
   browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({ viewport: { width: 1512, height: 982 } });
   const page = await context.newPage();
+  await mkdir(auditDir, { recursive: true });
 
   await page.goto(`${BASE}/politics/marxism/ch01/#unit-1`, { waitUntil: 'networkidle' });
   const s01 = page.locator('[data-politics-unit][data-unit-id="POL27-CF-MARX-C01-S01"]');
@@ -98,8 +99,10 @@ try {
   check(s02Text.includes('人工智能边界'), 's02_keeps_ai_boundary_beat');
   check(s02Text.includes('世界的物质统一性'), 's02_keeps_material_unity');
   check((await s02Geometry.locator('i').count()) === 0, 's02_long_chain_does_not_auto_draw_arrows');
-  const closure = (await s02.locator('.politicsClosure > div > p').innerText()).replace(/\s+/g, ' ');
-  check(closure.includes('不要背一串定义'), 's02_current_closure_reaches_runtime');
+  const closureNode = s02.locator('[data-current-closure]');
+  await closureNode.waitFor({ state: 'attached' });
+  const closure = String(await closureNode.textContent()).replace(/\s+/g, ' ').trim();
+  check(closure.includes('不要背一串定义'), 's02_current_closure_reaches_runtime', closure);
   const s02Tiny = await visibleTextBelowFloor(page.locator('body'), 15);
   check(s02Tiny.length === 0, 's02_page_visible_text_floor_15px', JSON.stringify(s02Tiny));
   await page.screenshot({ path: new URL('marx-c01-s02-purpose-first.png', auditDir).pathname, fullPage: true });
