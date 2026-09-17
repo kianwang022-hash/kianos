@@ -9,10 +9,10 @@
 
 ## Root Work Cursor
 
-**Active scope:** Project management stabilization  
-**Current stage:** whole-site delivery COMPLETE; Mission Control + Home summary COMPLETE; Orchestrator runtime de-dup COMPLETE  
+**Active scope:** Project management stabilization — Lexical UI proof  
+**Current stage:** 只用 Lexical 验证共享 UI 收口方法；不迁移其他科目  
 **Blocker:** none  
-**Next action:** 收口共享 UI 基础规则，并先只用 Lexical 做一个小范围真实证明：解决字体、对齐、卡片廉价感和 CSS 多层覆盖；验收通过后再决定是否推广到其他科目。
+**Next action:** 对 `a / abandon / abroad` 做 Mac 宽屏真实截图验收；必须同时满足字体层级、三列对齐、去卡片化、稀疏词不撑巨大空白、Lexical 样式单一 owner，并保持现有 Runtime 功能回归通过。验收通过后再决定是否推广。
 
 Top-level governance is accepted and remains frozen. This is implementation of `PROJECT_MANAGEMENT_CONTRACT.md`, not a new root architecture.
 
