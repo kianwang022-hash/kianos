@@ -28,19 +28,6 @@ jobs:
       - name: Install site dependencies
         working-directory: static-web
         run: npm install --no-audit --no-fund
-      - name: Build learner site
-        working-directory: static-web
-        run: |
-          mkdir -p .qa
-          set -o pipefail
-          npm run build 2>&1 | tee .qa/home-build.log
-      - name: Upload build diagnostics
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: home-build-diagnostics
-          path: static-web/.qa/home-build.log
-          if-no-files-found: warn
       - name: Install browser
         working-directory: static-web
         run: |
