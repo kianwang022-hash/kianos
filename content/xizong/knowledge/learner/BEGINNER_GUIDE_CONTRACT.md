@@ -20,6 +20,15 @@ Current System semantics
 → beginner-readable explanation
 ```
 
+Naming is intentionally strict:
+
+```text
+Guide = explanatory prose that accelerates first-pass understanding
+Framework = structured System / Block cognitive model
+```
+
+A Guide may explain a Framework, but it is not itself the Framework and does not own the Framework's medical relations.
+
 It answers questions such as:
 
 - 这个系统到底在维持什么？
