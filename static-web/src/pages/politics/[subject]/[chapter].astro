@@ -7,6 +7,7 @@ import PoliticsCognitiveWorkspace from '../../../components/PoliticsCognitiveWor
 import PoliticsCognitiveWorkspaceBridge from '../../../components/PoliticsCognitiveWorkspaceBridge.astro';
 import PoliticsCognitiveWorkspaceReadable from '../../../components/PoliticsCognitiveWorkspaceReadable.astro';
 import PoliticsVisibleTypeFloor from '../../../components/PoliticsVisibleTypeFloor.astro';
+import PoliticsProjectionOutletBridge from '../../../components/PoliticsProjectionOutletBridge.astro';
 import PoliticsRepairEnhancer from '../../../components/PoliticsRepairEnhancer.astro';
 import PoliticsUnitReturnEnhancer from '../../../components/PoliticsUnitReturnEnhancer.astro';
 import PoliticsPracticeBridge from '../../../components/PoliticsPracticeBridge.astro';
@@ -61,6 +62,7 @@ const useCognitiveWorkspace = subject === 'marxism'
   {useCognitiveWorkspace
     ? <PoliticsCognitiveWorkspace chapter={data} base={base} />
     : <PoliticsChapterRuntime chapter={data} base={base} compiled={compiled} />}
+  {!useCognitiveWorkspace && <PoliticsProjectionOutletBridge compiled={compiled} />}
   {useCognitiveWorkspace && <PoliticsCognitiveWorkspaceBridge chapter={data} />}
   {useCognitiveWorkspace && <PoliticsCognitiveWorkspaceReadable />}
   {useCognitiveWorkspace && <PoliticsVisibleTypeFloor />}
