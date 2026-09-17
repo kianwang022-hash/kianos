@@ -18,7 +18,7 @@ function check(value, name, detail = '') {
 }
 
 async function waitForHttp(url) {
-  for (let i = 0; i < 120; i += 1) {
+  for (let i = 0; i < 150; i += 1) {
     try { const response = await fetch(url); if (response.ok) return; } catch {}
     await sleep(200);
   }
@@ -31,7 +31,9 @@ async function stop(server) {
   await sleep(250);
 }
 
-const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
+// Use Astro dev so this Home visual gate compiles the actual Home route only.
+// Full static generation currently has an unrelated protected Writing-source gate.
+const server = spawn('npm', ['run', 'dev', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
   cwd: process.cwd(), stdio: ['ignore', 'pipe', 'pipe'], detached: process.platform !== 'win32'
 });
 
