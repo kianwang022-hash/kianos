@@ -1,6 +1,6 @@
 # Xizong UI Architecture Migration
 
-Status: **ACTIVE MIGRATION · Slice 1 ACCEPTED / CUT OVER ON MAIN · Slice 2 ACTIVE**  
+Status: **ACTIVE MIGRATION · Slice 1 ACCEPTED · Slice 2A HOME ACCEPTED · Slice 2B MEMORY ACTIVE**  
 Scope: Xizong learner-facing presentation implementation only  
 Parent authority: `content/xizong/CURRENT.md` + `PRESENTATION_CONTRACT.md` + `UI_STYLE_BRIEF.md` + `PROJECT_MANAGEMENT_CONTRACT.md`
 
@@ -132,56 +132,129 @@ A future System defect must be repaired at the Current owner. Do not restore a c
 
 ---
 
-## Slice 2 — Home + Memory ownership convergence
+## Slice 2A — Home single visual owner
 
-**State:** **ACTIVE**
+**State:** **ACCEPTED / CUT OVER ON MAIN via PR #370**
 
 ### OLD
 
-Home styles currently live inside broad `xizong-presentation.css`. Memory has substantial component-local styling. Draft PR #351 proposes an additional `xizong-peripheral-workspaces.css` override layer.
+Home presentation was split between broad `xizong-presentation.css` (`xzOverview*`, `xzSystemWorkbench`, `xzOpenDomain`, etc.) and component-local tiny-font CSS in `XizongHomeTools.astro`. Standalone Memory was not a first-class Home action.
 
-### BOUNDED #351 TRIAGE
+### NEW CURRENT
 
-PR #351 is evidence/candidate material, not a package to merge wholesale.
+Current Home now uses:
 
-Preserve where still justified:
+```text
+xizong/index.astro
+→ XizongHomeTools.astro
+→ xizong-home-workspace.css
+```
 
-- an explicit standalone Memory entry from Xizong Home;
-- the useful browser/type-floor acceptance intent for Home and Memory.
+- Current DOM uses isolated `xzHome*` classes;
+- `XizongHomeTools.astro` owns Continue/Memory behavior and markup only;
+- `xizong-home-workspace.css` is the Home visual owner;
+- Home exposes explicit standalone Memory access;
+- A1/A2/A3 current System work remains dominant;
+- the current learning chain is the bounded companion;
+- B–F future-domain orientation is a horizontal band after the current workspace, not a tall companion rail.
 
-Do **not** inherit:
+### VISUAL ACCEPTANCE
 
-- `xizong-peripheral-workspaces.css` as a permanent second visual owner;
-- inline Home `style="font-size:16px"` recovery patches;
-- the System-route duplicate Recall-dialog click fallback unless Slice 3 produces a real Runtime defect that requires repair at the actual Runtime owner.
+The first browser-valid candidate was **rejected visually**: future B–F domains stretched the right rail and left a large dead region under A3. The layout was changed structurally rather than repaired with spacing overrides.
 
-The Home/Memory work must be rebuilt against Current main, not stacked on #351's override architecture.
+The accepted second candidate was manually screenshot-reviewed and then promoted after all triggered gates passed. Representative Home geometry at the acceptance viewport:
+
+- Home workspace width: `1188px`;
+- current Systems main region: `876px`;
+- companion: `310px`;
+- visible learner-text floor: `15px`;
+- future band begins immediately after the current workspace.
+
+### ACCEPTANCE EVIDENCE
+
+PR #370 was promoted only after all triggered gates passed on the accepted head:
+
+- Xizong Home Workspace — PASS;
+- Xizong Representation Gate — PASS;
+- Xizong Production Semantic Projection — PASS;
+- Xizong Representative Workspace — PASS;
+- Static Web Xizong QA — PASS;
+- Xizong Golden Journey — PASS;
+- Xizong A2 Functional First Journey — PASS.
+
+Targeted Home acceptance additionally guards:
+
+- one Home visual owner;
+- no route/component `<style>` ownership;
+- no retired Home class namespace in Current DOM;
+- no `!important` recovery;
+- explicit standalone Memory route;
+- last-location Continue restoration;
+- 15px visible type floor;
+- current workspace dominance;
+- future-domain horizontal placement outside the companion.
+
+### CLOSED CUTOVER
+
+Removed from active Home runtime ownership:
+
+- component-local Home tool CSS;
+- Current DOM dependency on old `xzOverview* / xizongHomeTools / xizongContinue` presentation classes.
+
+Old Home selectors inside broad `xizong-presentation.css` are now unreachable dead migration code and remain queued for bounded physical cleanup after adjacent responsibilities are separated.
+
+---
+
+## Slice 2B — Memory single-owner readability migration
+
+**State:** **ACTIVE**
+
+### CURRENT ARCHITECTURE FACT
+
+Memory is different from old Home/System: broad `xizong-presentation.css` does not currently own `xzMemory*`, so Memory is not suffering from an active two-stylesheet cascade.
+
+Its problem is that its **single component-local visual owner is itself legacy**. `XizongMemoryWorkspace.astro` still contains a large inline `<style>` block with many default-visible learner labels and controls at roughly `8–13px`, far below the Current shared 15px floor.
+
+Examples include queue metadata, tabs, toolbar text, card labels/meta, reveal/rating controls, Repair labels and context rail copy.
 
 ### NEW TARGET
 
-- Home presentation receives one clear Xizong Home owner;
-- Memory presentation receives one clear Memory owner;
-- Home exposes meaningful Continue/System work plus explicit standalone Memory access;
-- Memory keeps `Today | Core | Precision | Marked | Repair` and existing learner/evidence semantics;
-- no permanent `peripheral` mega-stylesheet or page-inline visual fixes.
+Preserve all Memory Runtime semantics while moving presentation into one explicit Memory surface owner:
+
+```text
+xizong/memory/index.astro
+→ XizongMemoryWorkspace.astro      markup + runtime only
+→ xizong-memory-workspace.css      presentation only
+```
+
+Hard boundaries:
+
+- preserve `Today | Core | Precision | Marked | Repair`;
+- preserve localStorage keys/state shape, learner ratings, Marked/Repair behavior, Prompt editing, reveal gating and keyboard behavior;
+- preserve Memory/Evidence semantics exactly;
+- do not create `memory-polish.css`, `peripheral-workspaces.css`, route-inline fixes or `!important` recovery;
+- 15px is the visible learner-text floor, not the target body size;
+- use Mac width to preserve readable queue/stage/context geometry rather than compensating with tiny text.
 
 ### SUCCESS TEST
 
-Home remains a dense learner workbench with meaningful Continue/System entry and explicit Memory access. Memory preserves `Today | Core | Precision | Marked | Repair`, current keyboard/evidence behavior and readable Mac-wide geometry.
+- one explicit Memory visual owner;
+- no component/route visual `<style>` block after cutover;
+- `Today | Core | Precision | Marked | Repair` remains available;
+- real browser journey proves queue navigation, reveal, rating and at least one Marked/Repair path still function;
+- visible learner text is never below 15px on the representative Mac surface;
+- main Memory cognitive stage remains dominant and rails stay readable;
+- screenshot review confirms high density without tiny admin-style chrome.
 
 ### CUTOVER / DELETE CONDITION
 
-After accepted cutover:
-
-- Home and Memory Current routes consume their intended owners only;
-- superseded active Home/Memory rules and component inline style owners are removed;
-- unreachable broad-file selectors are eligible for bounded physical deletion in the later cleanup slice.
+The component-local legacy style block is removed in the same accepted slice. Do not leave an inactive second Memory owner behind merely because the external stylesheet wins.
 
 ---
 
 ## Slice 3 — System Exit / official Question ownership convergence
 
-**State:** AFTER Slice 2 unless a concrete dependency changes scheduling
+**State:** AFTER Slice 2B unless a concrete dependency changes scheduling
 
 ### OLD
 
