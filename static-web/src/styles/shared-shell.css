@@ -166,6 +166,61 @@ body#kianos-workspace[data-kianos-rail="compact"] { --kianos-rail-width: var(--k
 
 .kianosShellMain > .productCanvas { width: min(1480px, calc(100% - 36px)); }
 
+/*
+ * The pre-shell desktop workspace contract treated productCanvas as a direct
+ * body child. The shared rail adds one structural wrapper, so preserve that
+ * outer viewport contract here rather than making subject lanes compensate for
+ * Shell DOM ancestry. Inner Xizong/Politics/English geometry remains lane-owned.
+ */
+@media (min-width: 1101px) and (min-height: 680px) {
+  body#kianos-workspace.uiStageOne .kianosShellFrame {
+    flex: 1 1 auto;
+    width: 100%;
+    height: 100dvh;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  body#kianos-workspace.uiStageOne .kianosShellMain {
+    display: flex;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  body#kianos-workspace.uiStageOne .kianosShellMain > .kianosSubjectBar {
+    position: relative;
+    top: auto;
+    flex: 0 0 54px;
+    min-height: 54px;
+  }
+
+  body#kianos-workspace.uiStageOne .kianosShellMain > .productCanvas {
+    display: flex;
+    flex: 1 1 auto;
+    min-height: 0;
+    width: calc(100% - 32px);
+    max-width: none;
+    margin: 0 auto;
+    padding: 12px 0;
+    flex-direction: column;
+    overflow: auto;
+  }
+
+  body#kianos-workspace.uiStageOne .kianosShellMain > .productCanvas > * {
+    flex-shrink: 0;
+  }
+
+  body#kianos-workspace.uiHub .kianosShellMain > .productCanvas {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 20px 24px 12px;
+  }
+}
+
 body#kianos-workspace[data-kianos-rail="compact"] .kianosRailToggle,
 body#kianos-workspace[data-kianos-rail="compact"] .kianosRailItem,
 body#kianos-workspace[data-kianos-rail="compact"] .kianosCurrentDock > summary {
