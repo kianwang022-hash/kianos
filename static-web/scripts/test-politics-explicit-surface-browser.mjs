@@ -74,7 +74,9 @@ try {
   check((await origin.locator('.sequenceTransition').count()) === 0, 'marx_parallel_group_has_no_arrows');
   check((await development.getAttribute('data-surface-primitive')) === 'DIRECTED_SEQUENCE', 'marx_development_is_directed_sequence');
   check((await development.locator('.sequenceTransition').count()) === 2, 'marx_development_has_exact_two_transitions');
+  check((await development.locator('.sequenceTransition[data-transition-mode="LABELED_RELATION"]').count()) === 2, 'marx_development_transitions_are_labeled_relations');
   check((await development.locator('.sequenceTransition [data-surface-field="relation"]').count()) === 2, 'marx_development_has_two_visible_relation_labels');
+  check((await development.locator('.sequenceTransition[aria-label]').count()) === 0, 'marx_renderer_does_not_duplicate_or_invent_transition_aria_text');
   const developmentText = (await development.innerText()).replace(/\s+/g, ' ');
   check(developmentText.includes('形成相互联系的理论体系'), 'marx_development_first_relation_text_visible');
   check(developmentText.includes('理论体系不是封闭终点'), 'marx_development_second_relation_text_visible');
@@ -89,11 +91,15 @@ try {
   check((await page.locator('[data-workspace-unit][data-explicit-surface-mapping="v1"]').count()) === 2, 'marx_c00_two_units_explicitly_mapped');
   await page.screenshot({ path: path.join(auditDir, 'explicit-surface-marx-c00.png'), fullPage: false });
 
-  // History: real causal direction remains directed and all standard runtime
-  // learner states are supplied by the explicit plan.
+  // History: real causal direction remains directed. This transition deliberately
+  // owns order/direction only, so the renderer must not synthesize connector text.
   await goto(page, '/politics/history/ch01/');
   const historyDirected = page.locator('[data-surface-group="h-c01-s01-cause-to-turn"]');
   check((await historyDirected.getAttribute('data-surface-primitive')) === 'DIRECTED_SEQUENCE', 'history_real_cause_to_turn_remains_directed');
+  check((await historyDirected.locator('.sequenceTransition').count()) === 1, 'history_cause_to_turn_has_one_owned_transition');
+  check((await historyDirected.locator('.sequenceTransition[data-transition-mode="ORDER_ONLY"]').count()) === 1, 'history_cause_to_turn_is_order_only');
+  check((await historyDirected.locator('.sequenceTransition [data-surface-field="relation"]').count()) === 0, 'history_order_only_has_no_relation_label');
+  check((await historyDirected.locator('.sequenceTransition[aria-label]').count()) === 0, 'history_order_only_has_no_ui_authored_connector_text');
   check((await page.locator('[data-compiled-unit][data-explicit-surface-mapping="v1"]').count()) === 4, 'history_ch01_all_pass_units_use_explicit_plan');
   await checkStandardRuntime(page, 4, 'history_ch01');
   await page.screenshot({ path: path.join(auditDir, 'explicit-surface-history-c01.png'), fullPage: false });
@@ -124,6 +130,8 @@ try {
   check((await xiFeatures.locator('.sequenceTransition').count()) === 0, 'xi_features_have_no_invented_direction');
   check((await xiStrategy.getAttribute('data-surface-primitive')) === 'DIRECTED_SEQUENCE', 'xi_real_strategy_stages_are_directed');
   check((await xiStrategy.locator('.sequenceTransition').count()) === 1, 'xi_strategy_has_exact_one_transition');
+  check((await xiStrategy.locator('.sequenceTransition[data-transition-mode="ORDER_ONLY"]').count()) === 1, 'xi_strategy_transition_is_explicit_order_only');
+  check((await xiStrategy.locator('.sequenceTransition[aria-label]').count()) === 0, 'xi_order_only_has_no_ui_authored_connector_text');
   check((await page.locator('[data-compiled-unit][data-explicit-surface-mapping="v1"]').count()) === 7, 'xi_c02_all_pass_units_use_explicit_plan');
   await checkStandardRuntime(page, 7, 'xi_c02');
   await page.screenshot({ path: path.join(auditDir, 'explicit-surface-xi-c02.png'), fullPage: false });
@@ -136,7 +144,7 @@ try {
 } finally {
   await mkdir(auditDir, { recursive: true });
   await writeFile(path.join(auditDir, 'explicit-surface-browser.json'), JSON.stringify({
-    schema: 'kianos.politics.explicit_surface_browser_acceptance.v2',
+    schema: 'kianos.politics.explicit_surface_browser_acceptance.v3',
     checks,
     failure,
     status: failure ? 'FAIL' : 'PASS'
