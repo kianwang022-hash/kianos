@@ -16,12 +16,15 @@ const intervalMs = Math.max(3000, Number(process.env.KIANOS_SYNC_INTERVAL_MS || 
 const host = process.env.KIANOS_HOST || '127.0.0.1';
 const port = String(process.env.KIANOS_PORT || '4321');
 const npmBin = process.env.KIANOS_NPM_BIN || 'npm';
+const oneShot = process.env.KIANOS_SYNC_ONCE === '1';
+const skipAstro = process.env.KIANOS_SKIP_ASTRO === '1';
 
 let astro = null;
 let stopping = false;
 let syncing = false;
 let lastNetworkError = '';
 let lastKnownSha = '';
+let lastSyncHealthy = true;
 
 const stamp = () => new Date().toISOString();
 const log = (message) => console.log(`[${stamp()}] ${message}`);
@@ -60,7 +63,7 @@ async function npmInstall() {
 }
 
 function startAstro() {
-  if (stopping || astro) return;
+  if (skipAstro || stopping || astro) return;
   if (!fs.existsSync(astroBin)) {
     throw new Error(`Astro binary missing at ${astroBin}; run npm install in static-web.`);
   }
@@ -118,6 +121,7 @@ async function syncOnce({ initial = false } = {}) {
     lastNetworkError = '';
 
     if (local === remote) {
+      lastSyncHealthy = true;
       writeStatus('synced', local);
       if (initial) log(`Current mirror already matches main ${local.slice(0, 8)}`);
       return false;
@@ -149,11 +153,13 @@ async function syncOnce({ initial = false } = {}) {
      * so a canonical change outside Astro's normal watch graph cannot leave an
      * already-open learner page showing stale DOM.
      */
+    lastSyncHealthy = true;
     writeStatus('synced', fetched, { changed_paths: changedPaths.length });
     log(`synced ${changedPaths.length} changed path(s); Current is ${fetched.slice(0, 8)}`);
     startAstro();
     return true;
   } catch (error) {
+    lastSyncHealthy = false;
     const message = error?.message || String(error);
     if (message !== lastNetworkError) {
       warn(`sync check failed: ${message}`);
@@ -193,7 +199,12 @@ try {
 } catch {}
 writeStatus('starting', lastKnownSha);
 await syncOnce({ initial: true });
+
+if (oneShot) {
+  log(`one-shot Current sync ${lastSyncHealthy ? 'PASS' : 'FAIL'}`);
+  process.exit(lastSyncHealthy ? 0 : 1);
+}
+
 startAstro();
 log(`watching origin/main every ${Math.round(intervalMs / 1000)}s; all subjects/content sync as one repository`);
-
 setInterval(() => void syncOnce(), intervalMs);
