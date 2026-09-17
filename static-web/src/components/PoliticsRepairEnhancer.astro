@@ -1,11 +1,17 @@
 ---
-const { chapter } = Astro.props;
+import PoliticsExplicitSurfacePlan from './PoliticsExplicitSurfacePlan.astro';
+
+const { chapter, compiled = null } = Astro.props;
 
 const repairs = (chapter?.units || []).flatMap((unit) =>
   (unit.questions || [])
     .filter((question) => question?.repair)
     .map((question) => ({ questionId: question.id, repair: question.repair }))
 );
+
+const explicitRepairRows = compiled instanceof Map
+  ? [...compiled.values()].filter((row) => row?.surfacePlan?.states?.REPAIR?.length > 0)
+  : [];
 
 function hitLabel(hit) {
   if (!hit) return '';
@@ -31,6 +37,18 @@ const handoffMap = Object.fromEntries(repairs.map(({ questionId, repair }) => [q
 }]));
 const handoffJson = JSON.stringify(handoffMap).replace(/</g, '\\u003c');
 ---
+
+{explicitRepairRows.length > 0 && (
+  <div hidden data-politics-explicit-repair-registry>
+    {explicitRepairRows.map((row) => (
+      <section data-explicit-repair-unit={row.unitId}>
+        <template data-explicit-repair-template>
+          <PoliticsExplicitSurfacePlan groups={row.surfacePlan.states.REPAIR} />
+        </template>
+      </section>
+    ))}
+  </div>
+)}
 
 {repairs.map(({ questionId, repair }) => (
   <section class="politicsPreciseRepair" data-politics-repair-payload={questionId} hidden>
@@ -61,20 +79,48 @@ const handoffJson = JSON.stringify(handoffMap).replace(/</g, '\\u003c');
 {repairs.length > 0 && <script type="application/json" id="politics-repair-handoff-map" set:html={handoffJson}></script>}
 
 <script is:inline>
-  document.querySelectorAll('[data-politics-repair-payload]').forEach((payload) => {
-    const questionId = payload.getAttribute('data-politics-repair-payload');
-    const card = [...document.querySelectorAll('[data-politics-question]')]
-      .find((row) => row.getAttribute('data-question-id') === questionId);
-    const drawer = card?.querySelector('[data-politics-repair]');
-    if (!drawer) return;
-    drawer.querySelector(':scope > ul')?.setAttribute('hidden', '');
-    const generic = [...drawer.children].find((child) => child.tagName === 'P' && !child.classList.contains('politicsMicro'));
-    generic?.setAttribute('hidden', '');
-    const sourceLink = drawer.querySelector('a');
-    if (sourceLink) drawer.insertBefore(payload, sourceLink);
-    else drawer.appendChild(payload);
-    payload.hidden = false;
-  });
+  (() => {
+    const registry = document.querySelector('[data-politics-explicit-repair-registry]');
+
+    // REPAIR timing stays question-triggered, but every mapped question drawer
+    // consumes one resolved Surface Mapping payload. The legacy question.repair
+    // object remains evidence metadata only and cannot become parallel teaching.
+    document.querySelectorAll('[data-politics-unit]').forEach((unit) => {
+      const unitId = unit.getAttribute('data-unit-id') || '';
+      if (!unitId || !registry) return;
+      const entry = registry.querySelector(`[data-explicit-repair-unit="${CSS.escape(unitId)}"]`);
+      const template = entry?.querySelector('template[data-explicit-repair-template]');
+      if (!(template instanceof HTMLTemplateElement)) return;
+
+      unit.querySelectorAll('[data-politics-repair]').forEach((drawer) => {
+        drawer.querySelectorAll(
+          ':scope > ul,:scope > p:not(.politicsMicro),:scope > .politicsPreciseRepair,:scope > [data-politics-explicit-surface-plan]'
+        ).forEach((node) => node.remove());
+        const plan = template.content.cloneNode(true);
+        const sourceLink = drawer.querySelector('a');
+        if (sourceLink) sourceLink.before(plan);
+        else drawer.append(plan);
+        drawer.setAttribute('data-explicit-repair-surface', 'v1');
+      });
+    });
+
+    // Legacy visual repair is fallback-only for an unmapped owner. Current PASS
+    // owners with explicit REPAIR mapping are intentionally skipped here.
+    document.querySelectorAll('[data-politics-repair-payload]').forEach((payload) => {
+      const questionId = payload.getAttribute('data-politics-repair-payload');
+      const card = [...document.querySelectorAll('[data-politics-question]')]
+        .find((row) => row.getAttribute('data-question-id') === questionId);
+      const drawer = card?.querySelector('[data-politics-repair]');
+      if (!drawer || drawer.getAttribute('data-explicit-repair-surface') === 'v1') return;
+      drawer.querySelector(':scope > ul')?.setAttribute('hidden', '');
+      const generic = [...drawer.children].find((child) => child.tagName === 'P' && !child.classList.contains('politicsMicro'));
+      generic?.setAttribute('hidden', '');
+      const sourceLink = drawer.querySelector('a');
+      if (sourceLink) drawer.insertBefore(payload, sourceLink);
+      else drawer.appendChild(payload);
+      payload.hidden = false;
+    });
+  })();
 
   const payloadNode = document.getElementById('politics-repair-handoff-map');
   let repairMap = {};
