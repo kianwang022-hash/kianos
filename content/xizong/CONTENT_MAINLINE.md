@@ -4,36 +4,26 @@ Status: **CURRENT PROGRAM COORDINATION · DURABLE CHAT-RECOVERY OWNER**
 Parent router: `content/xizong/CURRENT.md`  
 Human status view: `static-web/XIZONG_PRODUCT_STATUS.md`
 
-This file exists so long-running Xizong content work does **not depend on Chat memory**.
+This file exists so long-running Xizong content work does **not depend on Chat memory**. It owns program-level coordination only: what lane is active, what may run in parallel, dependencies, and the next durable restart point. Exact scoped `CURRENT.md` / `ACCEPTANCE.md` / canonical owners always win.
 
-It owns only the **program-level coordination** of the active content-production lanes: what is active, what may run in parallel, what depends on what, and where a fresh Chat must resume. It does **not** own medical truth, scoped Acceptance, learner state, Question Truth, Crosswalk truth, Extension truth, or UI semantics.
-
-If this file conflicts with an exact scoped owner, the scoped owner wins.
-
----
-
-## 0｜Fresh-Chat restart
-
-For any content-production Chat, start here:
+## Fresh-Chat restart
 
 ```text
 main@HEAD
 → content/xizong/CURRENT.md
 → content/xizong/CONTENT_MAINLINE.md
-→ exact lane owner below
+→ exact lane owner
 → exact scoped CURRENT / ACCEPTANCE / canonical asset
 → work
 ```
 
-Do not reconstruct the program from old Chats, old prompts, stale Issues, branch names, or PR summaries.
-
-The only purpose of a Chat prompt is to select a lane. The lane state itself must be recoverable from GitHub.
+Old Chats, prompts, Issue titles and branch names are provenance, not Current truth.
 
 ---
 
-# 1｜Current content program in one view
+# 1｜Durable content lanes
 
-Xizong content production currently has **three durable lanes**.
+Xizong content production has three long-running lanes:
 
 ```text
 A. MAIN MEDICAL CONTENT
@@ -41,130 +31,93 @@ A. MAIN MEDICAL CONTENT
    Source / Knowledge / Learning / Content realization
 
 B. QUESTIONS
-   exact System official-question scope where unresolved
+   exact official System question scope where unresolved
    + progressive Question → Knowledge Crosswalk
 
 C. VISUAL / EXTENSION
-   sparse high-value Source Visual / Structured Table / Summary Visual
-   attached only to stable accepted owners
+   sparse high-value SOURCE_VISUAL / STRUCTURED_TABLE / SUMMARY_VISUAL
 ```
 
-These are independent work streams when their write sets and semantic dependencies do not overlap.
-
-Precision, Guide/Framework and Projection are **not separate fourth/fifth/sixth content programs**:
-
-- Precision is admitted from real exact-memory content while the medical owner is being built or reviewed;
-- Guide / Framework follows accepted Learning / Projection semantics;
-- Projection begins only after the relevant content / Learning truth is stable enough to project safely.
+Precision, Guide/Framework and Projection are downstream/content-attached capabilities, not extra independent catalog-completion programs.
 
 ---
 
 # 2｜Lane A — Main medical content
 
-## Current priority
+## D｜Neuro / Sensory / Motor / Orthopedics — ACTIVE PRIORITY
 
-### D｜Neuro / Sensory / Motor / Orthopedics
+Upstream candidate owner: PR #284 / `work/xizong-d-content-20260916`.
 
-Current restart owner:
-
-- candidate work: PR #284 / `work/xizong-d-content-20260916`;
-- Fresh Independent L Audit is the current semantic gate;
-- candidate scale: 27 Blocks / 356 KP / 128 LG;
-- Content Realization / Optimization remains frozen until fresh L acceptance passes.
-
-Required sequence:
+Current accepted candidate state:
 
 ```text
-Fresh Independent L Audit
-→ PASS
-→ Content Realization / Optimization
-→ scoped P / Projection
-→ high-value Visual / Extension realization
+S1 Source boundary                     PASS
+S2 exact official-question membership  UNTESTED / separate later boundary
+K  Knowledge                           PASS
+L  Learning Logic                      PASS_AFTER_REPAIR
+Content Realization / Optimization     ACTIVE
+P / R / E                              downstream-frozen
+U                                      no claim
+```
+
+Stable candidate identity remains 27 Blocks / 356 KP / 128 LG.
+
+Fresh independent L is **no longer the active gate**. Phase 6 found and repaired readiness/prerequisite defects, then fresh re-acceptance passed. The active medical-content branch is:
+
+`work/xizong-d-content-realization-20260917`
+
+Current Content stage is Phase 7 realization/cleanup. It is removing stale learner-route wrappers, realizing accepted readiness/source-unit roles, and auditing LG/Block content sufficiency without broad medical-Core rewriting.
+
+Important boundary:
+
+> Active realization candidate ≠ Content PASS.
+
+Required sequence now:
+
+```text
+finish D Content Realization / Optimization
+→ fresh Content acceptance / readback
+→ only then scoped P / Projection
+→ high-value D Visual / Extension realization
 → Runtime / downstream acceptance
 ```
 
-Do not skip the independent L gate merely because the candidate validates structurally or because the shared renderer can display it.
+Do not start formal D Projection/Runtime or promote candidate Visual debt merely because shared infrastructure already exists.
 
-If the fresh audit returns `REVISION_REQUIRED`, repair the earliest responsible D owner and repeat fresh acceptance before advancing.
+## E｜Reproductive / Breast — PARALLEL GROUNDWORK
 
-### E｜Reproductive / Breast
-
-E may run **in parallel with D audit / D realization** because it starts earlier in the dependency chain.
-
-Current role:
+E may proceed independently while D realization runs:
 
 ```text
 bounded Source reconstruction / audit
 → Knowledge construction / audit
 → independent K acceptance
-→ only then Learning construction
+→ Learning construction
 ```
 
-Do not copy D Learning topology into E merely for symmetry.
+Do not copy D topology into E for symmetry.
 
-### F｜Remaining Clinical
+## F｜Remaining Clinical — LATER
 
-F remains later than D / E by default.
-
-Advance F only when:
-
-- D/E capacity frees up; or
-- exam priority / a real upstream dependency justifies reprioritization.
-
-Do not start broad F work merely to keep all Systems visually symmetrical.
-
-## Lane A restart rule
-
-A fresh medical-content Chat must read:
-
-```text
-content/xizong/CURRENT.md
-→ this file
-→ exact System CURRENT / ACCEPTANCE if present
-→ exact Source / Knowledge / Learning owners
-```
-
-The mainline decides **which System / stage is next**. The System owner decides **what is true inside that System**.
+F remains later than D/E unless exam priority or a real dependency justifies reprioritization.
 
 ---
 
 # 3｜Lane B — Questions
 
-Questions contain two distinct programs and they must not be collapsed.
+Keep two truths separate.
 
 ## B1｜Exact official System question scope
 
-Question Truth exists independently of System membership.
-
-Where exact System sweep membership is not accepted, close that scope as its own bounded semantic task.
-
-Current high-value unresolved scope includes:
-
-- B exact official-question membership;
-- later D S2 exact official-question membership after D content boundary is stable enough;
-- C / E / F only when their scoped owners are ready to support an honest claim.
-
-System membership does **not** imply Block/KP mapping.
+High-value unresolved bounded work currently includes B exact System membership and later D S2 once the D boundary is stable enough. System membership does not imply Block/KP mapping.
 
 ## B2｜Question → Knowledge Crosswalk
 
-Durable owner:
+Durable owner: `content/xizong/question-relations/`  
+Stage: `C2_BROAD_BASIC_COVERAGE`  
+Batch cursor: `content/xizong/question-relations/continuation.json`
 
-`content/xizong/question-relations/`
-
-Current program stage:
-
-`C2_BROAD_BASIC_COVERAGE`
-
-Canonical work cursor:
-
-`content/xizong/question-relations/continuation.json`
-
-Canonical positive mapping truth:
-
-> only explicit `REVIEWED` rows under `content/xizong/question-relations/`.
-
-Fresh-Chat restart:
+Restart:
 
 ```text
 question-relations/README.md
@@ -175,269 +128,103 @@ question-relations/README.md
 → next evidence-driven review packet
 ```
 
-Rules:
-
-- no linear ordinal frontier;
-- no inferred target from title/page/System membership/model prior;
-- missing mapping is legal;
-- exact Current owner review is required;
-- normal accepted batch size is quality-first, commonly 25–40 relations;
-- candidate packets may be larger;
-- relation-only batches use the accepted materializer + Crosswalk fast QA lane;
-- a Crosswalk batch does **not** require UI redevelopment.
-
-This mainline should **not** be updated for every ordinary Crosswalk batch. `continuation.json` owns batch-level continuation. Update this file only if the Crosswalk stage / policy materially changes.
+Rules remain: REVIEWED rows only are positive mapping truth; no linear frontier; no inferred target; missing mapping is legal; exact Current owner review is required. Ordinary batch progress belongs to `continuation.json`, not this file.
 
 ---
 
 # 4｜Lane C — Visual / Extension
 
-Durable semantic contract:
+Authority: `content/xizong/EXTENSION_ASSET_CONTRACT.md`  
+Representation: `static-web/XIZONG_REPRESENTATION_GATE.md`
 
-`content/xizong/EXTENSION_ASSET_CONTRACT.md`
-
-Representation policy:
-
-`static-web/XIZONG_REPRESENTATION_GATE.md`
-
-Visual / Extension is a **continuous selective program**, not a coverage program.
-
-Formal asset families:
-
-- `SOURCE_VISUAL`;
-- `STRUCTURED_TABLE`;
-- `SUMMARY_VISUAL`.
-
-Core rule:
+This is a selective value program, not a coverage program.
 
 ```text
 stable accepted medical owner
 → Visual Gate
-→ if high value: formal Extension slot
-→ Representation Gate decides if/how it appears now
+→ high-value formal Extension slot if warranted
+→ Representation Gate decides if/how it appears
 ```
 
-Never:
+A1/A2/A3: additive repair/replacement only.  
+B/C: selective high-value assets only.  
+D: expected Visual-heavy, but formal assets follow stable/accepted D content owners; current candidate/source debt may be preserved without promotion.  
+E/F: stable owner first, formal Visual second.
 
-```text
-Projection has MAP / TREE / NETWORK
-→ therefore draw a diagram
-```
-
-And never:
-
-```text
-Lecture has a figure
-→ therefore screenshot it into KianOS
-```
-
-## Current system direction
-
-### A1 / A2 / A3
-
-Already have sparse reviewed Visual / Extension assets.
-
-Default work is only:
-
-- concrete repair;
-- clearly superior slot replacement;
-- new high-value asset earned by real learning friction.
-
-No bulk coverage program.
-
-### B / C
-
-Add assets only where:
-
-- the Current medical owner is stable;
-- Visual cognition materially lowers reconstruction cost;
-- provenance and stable owner / slot can be established.
-
-No System-wide screenshot quota.
-
-### D
-
-D is expected to be Visual-heavy, especially:
-
-- neuroanatomy;
-- tract / root / named nerve localization;
-- visual pathway / field defects;
-- spinal tracts;
-- imaging;
-- orthopedic force / displacement / fracture morphology.
-
-But D formal assets must follow accepted D content / Learning truth. Before acceptance, Visual work may preserve explicit candidate/source debt; it must not silently promote candidate material to Current formal Extension truth.
-
-### E / F
-
-Same rule: stable owner first, formal Visual second.
-
-## Visual restart rule
-
-A fresh Visual Chat reads:
-
-```text
-content/xizong/CURRENT.md
-→ this file
-→ EXTENSION_ASSET_CONTRACT.md
-→ XIZONG_REPRESENTATION_GATE.md
-→ target System CURRENT / ACCEPTANCE
-→ existing Extension / Source Visual registries
-→ exact Source / owner
-```
-
-Then select the next **highest-value** small batch. There is no percentage-complete target.
+No percentage-complete target exists.
 
 ---
 
-# 5｜Precision / Guide / Projection routing
-
-These should not become separate drifting programs.
-
-## Precision
-
-Precision belongs to exact-memory semantics already owned by the medical content.
-
-When content review identifies values / thresholds / drugs / timing / classification / other exact material:
+# 5｜Default concurrency
 
 ```text
-medical owner establishes truth
-→ learner object exposes Precision
-→ Memory makes it available after the accepted learning stage
-```
+Medical:
+D Content Realization / acceptance
++ E Source / Knowledge groundwork
 
-Do not create Precision merely to populate the right rail.
-
-## Guide / Framework
-
-Guide / Framework follows accepted System / Block Learning and Projection semantics.
-
-Do not write a second Lecture or create Guide content before the underlying owner is stable.
-
-## Projection
-
-Projection begins only when accepted semantics are sufficient.
-
-Projection describes cognition; Representation decides presentation. Do not rewrite medical truth to make rendering convenient.
-
----
-
-# 6｜Concurrency rules
-
-The durable default parallelism is:
-
-```text
-Medical lane:
-D Fresh L / D realization
-+ E S/K groundwork
-
-Question lane:
+Questions:
 Crosswalk C2 batches
-+ bounded System question-scope tasks where needed
++ bounded official System-scope tasks
 
-Visual lane:
-small high-value reviewed batches
+Visual:
+small high-value reviewed batches on already-stable owners
 ```
 
-Safe parallelism requires independent write sets and no unresolved semantic dependency.
+Parallel work is safe only with independent write sets and no unresolved semantic dependency. When `main` moves, sync/rebuild the small batch; never force an old long-lived branch over newer Current truth.
 
-Examples:
+---
 
-- D Fresh L Audit and E Source audit may run concurrently;
-- Crosswalk A/B/C review batches may run while D is audited;
-- A1/A2/A3 additive Visual work may run while D content is built;
-- D formal Visual realization must wait for the relevant D owner to be stable enough;
-- a Question mapping must wait for a stable exact Current owner if the intended target is still candidate-only.
+# 6｜Relation to website / engineering mainline
 
-When main advances during a batch, synchronize / rebuild the small batch. Never force an older long-lived branch over newer Current work.
+Website engineering is separate under `static-web/` and `XIZONG_PRODUCT_STATUS.md`.
+
+Current website sequence after #331 is System Workspace convergence; content lanes do not wait for it. Conversely, shared renderer availability never promotes unaccepted medical content.
 
 ---
 
 # 7｜Definition of “continue”
 
-For a fresh Chat, “continue the Xizong content mainline” means:
+“Continue Xizong content mainline” means:
 
-1. read latest `main@HEAD`;
-2. read `content/xizong/CURRENT.md`;
-3. read this file;
-4. choose the highest-priority unblocked lane / stage;
-5. read that lane's exact owner;
-6. execute one bounded batch or stage;
-7. merge accepted work;
-8. update the exact owner / cursor;
-9. update this file **only if the program-level stage or dependency changed**.
+1. read latest main;
+2. read `CURRENT.md` and this file;
+3. choose the highest-priority unblocked lane;
+4. read its exact owner;
+5. execute one bounded stage/batch;
+6. merge accepted work;
+7. update the exact lane cursor;
+8. update this file only when a program-level stage/dependency changes.
 
-Do not treat old prompts as the continuation owner.
-
----
-
-# 8｜Update policy for this file
-
-Update `CONTENT_MAINLINE.md` only when one of these changes materially:
-
-- D / E / F moves to a new S/K/L/P/R/E or realization stage;
-- the priority order among D/E/F changes;
-- a new System becomes the main construction target;
-- a Question program stage changes;
-- a new bounded System question-scope task becomes materially active / closes;
-- Visual / Extension policy or System-level Visual readiness materially changes;
-- a new durable content-production lane is admitted or retired.
-
-Do **not** update it for:
-
-- every Crosswalk batch;
-- every individual image crop;
-- every PR number;
-- every CI rerun;
-- every learner session;
-- ordinary additive asset counts.
-
-Those belong to their exact lane owners / Git history.
+Do not update this file for each Crosswalk batch, image crop, CI rerun, PR number or learner session.
 
 ---
 
-# 9｜Relation to website / engineering mainline
-
-Website / Runtime engineering is a separate shared-product mainline under `static-web/` and `XIZONG_PRODUCT_STATUS.md`.
-
-Content work should not wait for unrelated UI convergence.
-
-Conversely, shared engineering availability does not promote unaccepted medical content.
-
-Reopen shared engineering from a content lane only when:
-
-- an accepted new System exposes a real shared-shell incompatibility; or
-- a Current content asset cannot be consumed without violating an existing contract.
-
----
-
-# 10｜Current snapshot
-
-At this snapshot the intended program is:
+# 8｜Current snapshot
 
 ```text
 MAIN MEDICAL CONTENT
-D Fresh Independent L Audit
-→ D Content Realization / Optimization
-→ D downstream P / high-value Visual / Runtime acceptance
+D L PASS_AFTER_REPAIR
+→ D Content Realization / Optimization ACTIVE
+→ Content acceptance
+→ D P / high-value Visual / Runtime downstream
 
-PARALLEL MEDICAL GROUNDWORK
+PARALLEL MEDICAL
 E Source + Knowledge
 → K acceptance
-→ Learning construction
+→ Learning
 
 LATER
-F bounded Source + Knowledge
+F Source + Knowledge
 
 QUESTIONS
-B exact official-question scope where unaccepted
+B exact official-question scope where unresolved
 + Crosswalk C2 continuous reviewed batches
 
 VISUAL
 continuous sparse high-value Extension batches
-A1/A2/A3 = additive only
-B/C = selective only
-D = Visual-heavy after stable accepted owners
+A1/A2/A3 additive only
+B/C selective
+D Visual-heavy only after stable accepted content owners
 ```
 
-This snapshot coordinates work. It does not override any exact scoped Current / Acceptance owner.
+This file coordinates work; it does not override scoped Current / Acceptance truth.
