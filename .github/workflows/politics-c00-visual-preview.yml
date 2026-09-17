@@ -69,6 +69,21 @@ jobs:
               plans:document.querySelectorAll('[data-politics-explicit-surface-plan]').length,
               rawSemanticDom:document.querySelectorAll('.mapDeck,.semanticMap,.relationStrip,.fallbackOrientation').length,
               headline:el?.textContent?.trim()||'',
+              orientChildren:[...document.querySelector('[data-workspace-unit]:not([hidden]) [data-stage="ORIENT"]')?.children||[]].map(node=>({
+                tag:node.tagName,
+                cls:node.className||'',
+                text:(node.textContent||'').trim().slice(0,80),
+                rect:node.getBoundingClientRect().toJSON?.()||null,
+                display:getComputedStyle(node).display,
+                visibility:getComputedStyle(node).visibility
+              })),
+              visiblePlans:[...document.querySelectorAll('[data-politics-explicit-surface-plan]')].filter(node=>{
+                const s=getComputedStyle(node);const r=node.getBoundingClientRect();
+                return s.display!=='none'&&s.visibility!=='hidden'&&r.width>0&&r.height>0;
+              }).map(node=>({
+                rect:node.getBoundingClientRect().toJSON?.()||null,
+                groups:[...node.querySelectorAll('[data-surface-group]')].map(g=>g.getAttribute('data-surface-group'))
+              })),
               headlineStyle:style?{
                 fontFamily:style.fontFamily,
                 fontSize:style.fontSize,
