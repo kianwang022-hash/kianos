@@ -1,0 +1,107 @@
+<script is:inline>
+  (() => {
+    const workspace = document.querySelector('[data-politics-cognitive-workspace]');
+    if (!workspace) return;
+    workspace.classList.add('directReasoningWorkspace', 'explicitSurfaceWorkspace');
+
+    const setWorkspaceState = (unit, state) => {
+      if (!unit) return;
+      const visibleStage = state === 'REPAIR' ? 'VERIFY' : state;
+      unit.dataset.state = state;
+      unit.querySelectorAll('[data-stage]').forEach((scene) => {
+        scene.hidden = scene.getAttribute('data-stage') !== visibleStage;
+      });
+      unit.querySelectorAll('[data-inspector-state]').forEach((panel) => {
+        panel.hidden = panel.getAttribute('data-inspector-state') !== state;
+      });
+      try {
+        const key = `kianos-politics-workspace-v1:${workspace.dataset.subject || ''}:${workspace.dataset.chapter || ''}`;
+        const saved = JSON.parse(localStorage.getItem(key) || '{}');
+        const states = { ...(saved.states || {}), [unit.dataset.unitId || '']: state };
+        localStorage.setItem(key, JSON.stringify({ ...saved, states, observed_at: new Date().toISOString() }));
+      } catch {}
+    };
+
+    const chapterContext = workspace.querySelector('.chapterContext');
+    if (chapterContext) {
+      const firstRow = chapterContext.querySelector(':scope > div:first-child');
+      const chain = chapterContext.querySelector('.chapterContextChain');
+      if (firstRow && chain && !firstRow.querySelector('.chapterContextToggle')) {
+        const toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'chapterContextToggle';
+        toggle.textContent = '章地图 +';
+        firstRow.appendChild(toggle);
+        toggle.addEventListener('click', () => {
+          const expanded = chapterContext.classList.toggle('expanded');
+          toggle.textContent = expanded ? '章地图 −' : '章地图 +';
+        });
+      }
+    }
+
+    // Optional close remains optional. The base workspace owns the state machine;
+    // this enhancer only changes the learner choice, never content composition.
+    workspace.querySelectorAll('[data-workspace-action="learn-done"]').forEach((button) => {
+      const unit = button.closest('[data-workspace-unit]');
+      if (!unit) return;
+      button.setAttribute('data-workspace-action', 'learn-fastpath');
+      button.textContent = '直接进入肖1000 →';
+
+      const recallButton = document.createElement('button');
+      recallButton.type = 'button';
+      recallButton.className = 'secondaryAction';
+      recallButton.setAttribute('data-workspace-score-recall', 'optional');
+      recallButton.textContent = '20 秒闭卷收口（可选）';
+      button.before(recallButton);
+
+      recallButton.addEventListener('click', () => setWorkspaceState(unit, 'RECALL'));
+      button.addEventListener('click', () => setWorkspaceState(unit, 'VERIFY'));
+    });
+
+    workspace.addEventListener('politics:resume-state', (event) => {
+      const unit = event.target?.closest?.('[data-workspace-unit]');
+      const state = event.detail?.state;
+      if (unit && state) setWorkspaceState(unit, state);
+    });
+
+    workspace.addEventListener('click', (event) => {
+      const link = event.target?.closest?.('a[href^="#source-"]');
+      if (!link || !workspace.contains(link)) return;
+      const unit = link.closest('[data-workspace-unit]');
+      if (!unit) return;
+      event.preventDefault();
+      setWorkspaceState(unit, 'EXTERNAL_LEARN');
+      requestAnimationFrame(() => unit.querySelector('[data-stage="EXTERNAL_LEARN"]')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
+    });
+  })();
+</script>
+
+<style is:global>
+  .politicsCognitiveWorkspace.explicitSurfaceWorkspace{gap:8px}
+  .politicsCognitiveWorkspace.explicitSurfaceWorkspace .workspaceBar{grid-template-columns:minmax(260px,.9fr) minmax(520px,1.8fr);min-height:54px;padding:7px 14px;box-shadow:0 5px 18px rgba(22,31,27,.035)}
+  .politicsCognitiveWorkspace.explicitSurfaceWorkspace .workspaceState{display:none}
+  .politicsCognitiveWorkspace.explicitSurfaceWorkspace .workspaceLocation>a,
+  .politicsCognitiveWorkspace.explicitSurfaceWorkspace .workspaceLocation>span,
+  .politicsCognitiveWorkspace.explicitSurfaceWorkspace .workspaceLocation>strong{flex:0 0 auto;white-space:nowrap}
+  .politicsCognitiveWorkspace.explicitSurfaceWorkspace .workspaceLocation>b{flex:1 1 auto;min-width:0}
+  .politicsCognitiveWorkspace.explicitSurfaceWorkspace .chapterContext{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:14px;min-height:44px;padding:8px 16px;border:1px solid var(--study-line);border-radius:10px;background:#fbfcfb}
+  .politicsCognitiveWorkspace.explicitSurfaceWorkspace .chapterContext>div:first-child{display:flex;align-items:center;gap:10px;min-width:0}
+  .politicsCognitiveWorkspace.explicitSurfaceWorkspace .chapterContextChain{display:none;grid-column:1/-1;gap:6px;padding:3px 0 7px 72px}
+  .politicsCognitiveWorkspace.explicitSurfaceWorkspace .chapterContext.expanded .chapterContextChain{display:grid}
+  .politicsCognitiveWorkspace.explicitSurfaceWorkspace .chapterContextToggle{border:0;background:transparent;color:#54756a;cursor:pointer;font:inherit;font-size:14px;font-weight:760}
+  .politicsCognitiveWorkspace.explicitSurfaceWorkspace .workspaceUnit{grid-template-columns:minmax(0,1fr) minmax(270px,22%);min-height:calc(100vh - 205px)}
+  .politicsCognitiveWorkspace.explicitSurfaceWorkspace .cognitiveStage{padding:24px 30px 30px}
+  .politicsCognitiveWorkspace.explicitSurfaceWorkspace .contextualInspector{padding:22px 18px}
+  .politicsCognitiveWorkspace.explicitSurfaceWorkspace .stageScene{min-height:calc(100vh - 292px)}
+  .politicsCognitiveWorkspace.explicitSurfaceWorkspace .stageScene>h2{max-width:44ch;margin:4px 0 16px;font-size:clamp(31px,2.45vw,39px);line-height:1.22;letter-spacing:-.015em}
+  .politicsCognitiveWorkspace.explicitSurfaceWorkspace .stageBridge{max-width:74ch;margin:0 0 8px;color:#65756f;font-size:16px;line-height:1.62}
+  .politicsCognitiveWorkspace.explicitSurfaceWorkspace [data-stage="ORIENT"] .stageAnchor{display:none!important}
+  .politicsCognitiveWorkspace.explicitSurfaceWorkspace .stageActions{padding-top:16px}
+  @media(max-width:980px){
+    .politicsCognitiveWorkspace.explicitSurfaceWorkspace .workspaceBar{grid-template-columns:1fr}
+    .politicsCognitiveWorkspace.explicitSurfaceWorkspace .workspaceUnit{grid-template-columns:1fr;min-height:auto}
+    .politicsCognitiveWorkspace.explicitSurfaceWorkspace .stageScene{min-height:auto}
+    .politicsCognitiveWorkspace.explicitSurfaceWorkspace .chapterContext{grid-template-columns:1fr}
+    .politicsCognitiveWorkspace.explicitSurfaceWorkspace .chapterContextChain{padding-left:0}
+  }
+</style>
