@@ -186,7 +186,16 @@ function resolveGroup(group, chapter, unit) {
     if (!ids.has(transition.from) || !ids.has(transition.to)) {
       throw new Error(`POLITICS_SURFACE_TRANSITION_TARGET_MISSING:${group.id}:${transition.from}->${transition.to}`);
     }
-    return { from: transition.from, to: transition.to, relation: transition.relation || null };
+    const ownsRelation = Object.prototype.hasOwnProperty.call(transition, 'relation');
+    if (ownsRelation && (typeof transition.relation !== 'string' || !transition.relation.trim())) {
+      throw new Error(`POLITICS_SURFACE_TRANSITION_RELATION_EMPTY:${group.id}:${transition.from}->${transition.to}`);
+    }
+    return {
+      from: transition.from,
+      to: transition.to,
+      relation_mode: ownsRelation ? 'LABELED_RELATION' : 'ORDER_ONLY',
+      relation: ownsRelation ? transition.relation.trim() : null
+    };
   }) : [];
 
   return {
