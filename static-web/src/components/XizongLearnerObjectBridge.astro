@@ -7,6 +7,8 @@ const payload = learnerObject || null;
 )}
 
 <script>
+  import { resolveXizongLearnerAssetRepresentation } from '../lib/xizongRepresentationGate.mjs';
+
   const root = document.querySelector('[data-xizong-v6-block]');
   const payloadNode = document.querySelector('[data-xizong-learner-object-payload]');
   if (root && payloadNode) {
@@ -14,6 +16,7 @@ const payload = learnerObject || null;
     try { learner = JSON.parse(payloadNode.textContent || 'null'); } catch {}
     if (learner?.schema === 'kianos.xizong.learner_object.v1') {
       root.classList.add('xv6LearnerObjectActive');
+      root.dataset.representationGate = 'kianos.xizong.representation.v1';
       const text = (value) => String(value || '');
       const array = (value) => Array.isArray(value) ? value : [];
       const el = (tag, className = '', value = '') => {
@@ -22,12 +25,19 @@ const payload = learnerObject || null;
         if (value) node.append(document.createTextNode(text(value)));
         return node;
       };
+      const decorateRepresentation = (node, representation) => {
+        if (!(node instanceof HTMLElement) || !representation) return node;
+        node.dataset.representationKind = text(representation.kind);
+        node.dataset.representationReason = text(representation.reason);
+        node.classList.add(`representation-${text(representation.kind).toLowerCase()}`);
+        return node;
+      };
 
       const renderPrecision = (row) => {
         const card = el('div', 'xv6LearnerAsset precision');
         card.dataset.learnerAsset = 'precision';
         card.dataset.learnerAssetId = text(row?.id);
-        card.append(el('span', 'xv6LearnerAssetLabel', '以后要精确'));
+        card.append(el('span', 'xv6LearnerAssetLabel', '第一轮记准'));
         card.append(el('p', '', row?.cue || row?.task));
         return card;
       };
@@ -39,6 +49,19 @@ const payload = learnerObject || null;
         const label = row?.reserveLearning ? '先留个印象' : row?.direction === 'incoming' ? '你之前见过' : '后面会接';
         card.append(el('span', 'xv6LearnerAssetLabel', label));
         card.append(el('p', '', row?.cue));
+        return card;
+      };
+
+      const renderTextSupport = (row, family) => {
+        const card = el('div', `xv6LearnerAsset support support-${family}`);
+        card.dataset.learnerAsset = family;
+        card.dataset.learnerAssetId = text(row?.id);
+        const label = family === 'visual'
+          ? `看原图${row?.sourceLocator ? ` · ${row.sourceLocator}` : ''}`
+          : text(row?.title || row?.assetType || '按需辅助').replaceAll('_', ' ');
+        card.append(el('span', 'xv6LearnerAssetLabel', label));
+        const copy = row?.task || row?.cue || row?.caption;
+        if (copy) card.append(el('p', '', copy));
         return card;
       };
 
@@ -125,20 +148,48 @@ const payload = learnerObject || null;
         return details;
       };
 
-      const renderSlot = (slot = {}) => {
+      const renderResolvedAsset = (row, family, stage) => {
+        const representation = resolveXizongLearnerAssetRepresentation(row, { stage });
+        if (!representation.visible) return null;
+        let node = null;
+        if (family === 'precision') node = renderPrecision(row);
+        else if (family === 'connection') node = renderConnection(row);
+        else if (family === 'visual') {
+          node = representation.kind === 'SOURCE_VISUAL' ? renderVisual(row) : renderTextSupport(row, family);
+        } else if (family === 'extension') {
+          node = ['SOURCE_VISUAL', 'REVIEWED_VISUAL', 'STRUCTURED_TABLE'].includes(representation.kind)
+            ? renderExtension(row)
+            : renderTextSupport(row, family);
+        }
+        return node ? decorateRepresentation(node, representation) : null;
+      };
+
+      const renderSlot = (slot = {}, { stage = 'LEARN' } = {}) => {
         const host = el('div', 'xv6LearnerObjectSurface');
-        array(slot?.connection).forEach((row) => host.append(renderConnection(row)));
-        array(slot?.visual).forEach((row) => host.append(renderVisual(row)));
-        array(slot?.precision).forEach((row) => host.append(renderPrecision(row)));
-        array(slot?.extension).forEach((row) => host.append(renderExtension(row)));
+        for (const [family, rows] of [
+          ['connection', array(slot?.connection)],
+          ['visual', array(slot?.visual)],
+          ['precision', array(slot?.precision)],
+          ['extension', array(slot?.extension)]
+        ]) {
+          rows.forEach((row) => {
+            const node = renderResolvedAsset(row, family, stage);
+            if (node) host.append(node);
+          });
+        }
         return host;
       };
 
-      const slotWeight = (slot = {}) => {
-        const extensions = array(slot?.extension);
-        const richExtension = extensions.some((row) => ['STRUCTURED_TABLE', 'SOURCE_VISUAL', 'SUMMARY_VISUAL'].includes(text(row?.assetType)) || Boolean(row?.src));
-        if (array(slot?.visual).length || richExtension) return 'rich';
-        if (array(slot?.precision).length || array(slot?.connection).length || extensions.length) return 'light';
+      const resolvedSlotWeight = (slot = {}, stage = 'LEARN') => {
+        const representations = [];
+        for (const rows of [array(slot?.connection), array(slot?.visual), array(slot?.precision), array(slot?.extension)]) {
+          rows.forEach((row) => {
+            const representation = resolveXizongLearnerAssetRepresentation(row, { stage });
+            if (representation.visible) representations.push(representation.kind);
+          });
+        }
+        if (representations.some((kind) => ['SOURCE_VISUAL', 'REVIEWED_VISUAL', 'STRUCTURED_TABLE'].includes(kind))) return 'rich';
+        if (representations.length) return 'light';
         return 'none';
       };
 
@@ -279,46 +330,56 @@ const payload = learnerObject || null;
         if (!(auxSurface instanceof HTMLElement) || !(auxHost instanceof HTMLElement)) return;
         const stage = activeStage();
         let slotName = 'none';
+        let representationStage = 'LEARN';
         let title = '当前辅助';
         let slot = {};
         if (stage === 'block_learn') {
           slotName = 'block_orientation';
+          representationStage = 'BLOCK_ORIENT';
           title = 'Block 辅助';
           slot = { extension: array(learner.slots?.blockOrientation) };
         } else if (stage === 'source_contact') {
           const kp = sourceCompanionKp();
           slotName = 'kp_learn_aux';
+          representationStage = 'KP_LEARN';
           title = kp ? `${kp.identity.displayId} · 学习辅助` : 'KP Learn 辅助';
           slot = learner.slots?.kpLearnAux?.[kp?.identity?.kpId] || {};
         } else if (stage === 'kp_learn') {
           const kp = groupCompanionKp();
           slotName = 'kp_learn_aux';
+          representationStage = 'KP_LEARN';
           title = kp ? `${kp.identity.displayId} · 学习辅助` : 'KP Learn 辅助';
           slot = learner.slots?.kpLearnAux?.[kp?.identity?.kpId] || {};
         } else if (stage === 'logic_group') {
           const groupId = groupIds[activeGroupIndex()] || '';
           slotName = 'logic_group_prelearn';
+          representationStage = 'LOGIC_GROUP_ORIENT';
           title = '学习节辅助';
           slot = learner.slots?.logicGroupPrelearn?.[groupId] || {};
         } else if (stage === 'group_close') {
           const groupId = groupIds[activeGroupIndex()] || '';
           slotName = 'logic_group_postlearn';
+          representationStage = 'GROUP_CLOSURE';
           title = '收口辅助';
           slot = learner.slots?.logicGroupPostlearn?.[groupId] || {};
         } else if (stage === 'kp_recall' && recallAnswerVisible()) {
           const kpId = activeRecallKpId();
           slotName = 'kp_recall_post_reveal';
+          representationStage = 'KP_RECALL_REVEAL';
           title = 'Reveal 后辅助';
           slot = { ...(learner.slots?.kpRecallPostReveal?.[kpId] || {}), core: null };
+        } else if (stage === 'kp_recall') {
+          representationStage = 'KP_RECALL_FRONT';
         }
-        const rendered = renderSlot(slot);
+        const rendered = renderSlot(slot, { stage: representationStage });
         auxHost.dataset.learnerObjectSlot = slotName;
+        auxHost.dataset.representationStage = representationStage;
         auxHost.replaceChildren(...rendered.childNodes);
-        const weight = slotWeight(slot);
+        const weight = resolvedSlotWeight(slot, representationStage);
         root.dataset.auxWeight = weight;
         auxSurface.hidden = auxHost.childElementCount === 0;
         if (auxTitle) auxTitle.textContent = title;
-        root.dispatchEvent(new CustomEvent('kianos:xizong-aux-change', { detail: { slot: slotName, weight } }));
+        root.dispatchEvent(new CustomEvent('kianos:xizong-aux-change', { detail: { slot: slotName, weight, representationStage } }));
       };
 
       const rerender = () => { renderCompanions(); renderAux(); };
@@ -352,7 +413,10 @@ const payload = learnerObject || null;
   .xv6LearnerObjectSurface{display:grid;gap:.55rem;margin:0}.xv6LearnerObjectSurface:empty{display:none}
   .xv6LearnerAsset{display:grid;grid-template-columns:112px minmax(0,1fr);gap:.55rem;align-items:start;padding:.48rem 0;border-top:1px solid var(--line,#d9dde5)}
   .xv6LearnerAsset:first-child{border-top:0}.xv6LearnerAssetLabel{font-size:.72rem;font-weight:800;opacity:.68}.xv6LearnerAsset p{margin:0;font-size:.86rem;line-height:1.55}
-  .xv6LearnerAsset.visual,.xv6LearnerAsset.extension,.xv6LearnerAsset.connection.reserve{padding:.65rem .72rem;border:1px solid var(--line,#d9dde5);border-radius:10px;background:var(--soft,#f5f6f8)}
+  .xv6LearnerAsset.support{grid-template-columns:104px minmax(0,1fr);padding:.55rem 0;border-top:1px solid var(--line,#d9dde5);background:transparent}
+  .xv6LearnerAsset.precision{grid-template-columns:104px minmax(0,1fr);padding:.58rem 0;border-top:1px solid var(--line,#d9dde5);background:transparent}
+  .xv6LearnerAsset.connection{grid-template-columns:104px minmax(0,1fr);padding:.5rem 0;border-top:1px solid var(--line,#d9dde5);background:transparent}
+  .xv6LearnerAsset.visual,.xv6LearnerAsset.extension.representation-source_visual,.xv6LearnerAsset.extension.representation-reviewed_visual,.xv6LearnerAsset.extension.representation-structured_table{padding:.65rem .72rem;border:1px solid var(--line,#d9dde5);border-radius:10px;background:var(--soft,#f5f6f8)}
   .xv6LearnerAsset.visual,.xv6LearnerAsset.extension{grid-template-columns:1fr}.xv6LearnerAsset.extension h4{margin:0;font-size:.96rem}.xv6LearnerAsset.extension small{opacity:.65;line-height:1.45}
   .xv6LearnerVisualGallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}.xv6LearnerVisualGallery figure{margin:0;border:1px solid var(--line,#d9dde5);border-radius:9px;overflow:hidden;background:#fff}.xv6LearnerVisualGallery figure.primary{grid-column:1/-1}.xv6LearnerVisualGallery img{display:block;width:100%;height:auto;max-height:380px;object-fit:contain}.xv6LearnerVisualGallery figure.primary img{max-height:520px}.xv6LearnerVisualGallery figcaption{padding:.4rem .5rem;border-top:1px solid var(--line,#d9dde5);font-size:.72rem;font-weight:700;opacity:.7}
   .xv6LearnerExtensionImage{display:block;max-width:100%;height:auto;border-radius:8px}.xv6LearnerTableWrap{overflow:auto}.xv6LearnerTable{width:100%;min-width:32rem;border-collapse:collapse;font-size:.84rem}.xv6LearnerTable th,.xv6LearnerTable td{padding:.45rem .55rem;border:1px solid var(--line,#d9dde5);text-align:left;vertical-align:top}.xv6LearnerTable tr.emphasis td{font-weight:700}.xv6LearnerReference summary{cursor:pointer;font-weight:700}
