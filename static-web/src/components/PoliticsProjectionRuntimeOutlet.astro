@@ -30,9 +30,6 @@ const h2Groups = (row) => {
               {states.CLOSE?.length > 0 && (
                 <template data-explicit-runtime-state="CLOSE"><PoliticsExplicitSurfacePlan groups={states.CLOSE} /></template>
               )}
-              {states.REPAIR?.length > 0 && (
-                <template data-explicit-runtime-state="REPAIR"><PoliticsExplicitSurfacePlan groups={states.REPAIR} /></template>
-              )}
               {states.CONTINUE?.length > 0 && (
                 <template data-explicit-runtime-state="CONTINUE"><PoliticsExplicitSurfacePlan groups={states.CONTINUE} /></template>
               )}
@@ -116,17 +113,9 @@ const h2Groups = (row) => {
         }
         unit.querySelector('.politicsNextBridge')?.remove();
 
-        // REPAIR remains question-triggered by the existing runtime, but its
-        // repair payload is the exact Projection-owned Surface Mapping content.
-        unit.querySelectorAll('.politicsRepair').forEach((repairPanel) => {
-          const repairPlan = clonePlan('REPAIR');
-          if (!repairPlan) return;
-          repairPanel.querySelectorAll(':scope > ul,:scope > p:not(.politicsMicro),:scope > [data-politics-explicit-surface-plan]').forEach((node) => node.remove());
-          const returnLink = repairPanel.querySelector('a');
-          if (returnLink) returnLink.before(repairPlan);
-          else repairPanel.append(repairPlan);
-        });
-
+        // REPAIR has a separate question-triggered runtime. It consumes the same
+        // resolved surfacePlan, but PoliticsRepairEnhancer is its sole writer so
+        // every question drawer receives exactly one learner payload.
         return;
       }
 
