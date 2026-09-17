@@ -31,6 +31,8 @@ let passCount = 0;
 let referenceOnlyCount = 0;
 let blockedCount = 0;
 let mappedPassCount = 0;
+let labeledRelationTransitionCount = 0;
+let orderOnlyTransitionCount = 0;
 
 function fail(code, detail) {
   errors.push(`${code}:${detail}`);
@@ -60,8 +62,19 @@ function validateResolvedGroup(group, prefix) {
     for (let index = 0; index < group.items.length - 1; index += 1) {
       const from = group.items[index]?.id;
       const to = group.items[index + 1]?.id;
-      if (!group.transitions.some((row) => row.from === from && row.to === to)) {
+      const transition = group.transitions.find((row) => row.from === from && row.to === to);
+      if (!transition) {
         fail('DIRECTED_SEQUENCE_NON_ADJACENT_MAPPING', `${prefix}:${from}->${to}`);
+        continue;
+      }
+      if (transition.relation_mode === 'LABELED_RELATION') {
+        if (typeof transition.relation !== 'string' || !transition.relation.trim()) {
+          fail('DIRECTED_SEQUENCE_LABELED_RELATION_EMPTY', `${prefix}:${from}->${to}`);
+        }
+      } else if (transition.relation_mode === 'ORDER_ONLY') {
+        if (transition.relation != null) fail('DIRECTED_SEQUENCE_ORDER_ONLY_HAS_RELATION', `${prefix}:${from}->${to}`);
+      } else {
+        fail('DIRECTED_SEQUENCE_TRANSITION_MODE_INVALID', `${prefix}:${from}->${to}:${transition.relation_mode || '<missing>'}`);
       }
     }
   }
@@ -113,6 +126,28 @@ function validateMapping(unit, file, source, rawUnit) {
       }
       if (group.primitive === 'DIRECTED_SEQUENCE' && (!Array.isArray(group.transitions) || group.transitions.length === 0)) {
         fail('DIRECTED_SEQUENCE_WITHOUT_TRANSITIONS', prefix);
+      }
+      if (group.primitive === 'DIRECTED_SEQUENCE' && Array.isArray(group.transitions)) {
+        for (const [transitionIndex, transition] of group.transitions.entries()) {
+          const transitionPrefix = `${prefix}:transition[${transitionIndex}]`;
+          if (!transition || typeof transition !== 'object' || Array.isArray(transition)) {
+            fail('DIRECTED_SEQUENCE_TRANSITION_NOT_OBJECT', transitionPrefix);
+            continue;
+          }
+          if (typeof transition.from !== 'string' || !transition.from || typeof transition.to !== 'string' || !transition.to) {
+            fail('DIRECTED_SEQUENCE_TRANSITION_ENDPOINT_MISSING', transitionPrefix);
+          }
+          const ownsRelation = Object.prototype.hasOwnProperty.call(transition, 'relation');
+          if (ownsRelation) {
+            if (typeof transition.relation !== 'string' || !transition.relation.trim()) {
+              fail('DIRECTED_SEQUENCE_TRANSITION_RELATION_EMPTY', transitionPrefix);
+            } else {
+              labeledRelationTransitionCount += 1;
+            }
+          } else {
+            orderOnlyTransitionCount += 1;
+          }
+        }
       }
       if (['PARALLEL_SET', 'RELATION_SET', 'STATEMENT'].includes(group.primitive) && Array.isArray(group.transitions) && group.transitions.length) {
         fail(`${group.primitive}_HAS_TRANSITIONS`, prefix);
@@ -171,7 +206,7 @@ if (blockedCount !== 0) fail('BLOCKED_ACCOUNTING_MISMATCH', `${blockedCount}`);
 if (!allowPartial && mappedPassCount !== passCount) fail('FULL_MAPPING_INCOMPLETE', `${mappedPassCount}/${passCount}`);
 
 const report = {
-  schema: 'kianos.politics.explicit_surface_mapping_audit.v2',
+  schema: 'kianos.politics.explicit_surface_mapping_audit.v3',
   mode: allowPartial ? 'PARTIAL_DEVELOPMENT' : 'STRICT_ACCEPTANCE',
   chapters: chapterCount,
   owners: ownerCount,
@@ -180,6 +215,8 @@ const report = {
   blocked: blockedCount,
   mapped_pass: mappedPassCount,
   unmapped_pass: passCount - mappedPassCount,
+  labeled_relation_transitions: labeledRelationTransitionCount,
+  order_only_transitions: orderOnlyTransitionCount,
   missing,
   errors,
   rows
