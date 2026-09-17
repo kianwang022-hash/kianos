@@ -3,6 +3,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { resolvePoliticsUnitRepresentation } from './politicsRepresentationGate.mjs';
 import { buildPoliticsContentHierarchy, validatePoliticsContentHierarchy } from './politicsContentHierarchy.mjs';
+import { resolvePoliticsSurfaceMapping } from './politicsSurfaceMapping.mjs';
 
 // Read-only consumer of the accepted Projection selector manifest. It selects
 // exact Current values; it never compiles new knowledge or changes unit identity.
@@ -82,7 +83,8 @@ export function loadPoliticsCompiledPresentation(subject, code) {
         locator: resolve(handoff.source_locator),
         lookFor: selectedValues(handoff.look_for)
       } : null,
-      closure: resolve(selected.optional_closure)
+      closure: resolve(selected.optional_closure),
+      surfacePlan: resolvePoliticsSurfaceMapping(selected.surface_mapping, source, rawUnit)
     };
     resolved.hierarchy = buildPoliticsContentHierarchy(resolved);
     validatePoliticsContentHierarchy(resolved.hierarchy);
