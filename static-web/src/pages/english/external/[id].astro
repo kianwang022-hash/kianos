@@ -1,0 +1,43 @@
+---
+import Base from '../../../layouts/Base.astro';
+import '../../../styles/reading.css';
+import '../../../styles/reading-interaction.css';
+import '../../../styles/reading-repair.css';
+import '../../../styles/reading-navigation.css';
+import SharedReadingWorkspace from '../../../components/SharedReadingWorkspace.astro';
+import ReadingAnswerGate from '../../../components/ReadingAnswerGate.astro';
+import {
+  listExternalReadingObjects,
+  loadExternalReadingById
+} from '../../../lib/englishExternalReading.mjs';
+
+export function getStaticPaths() {
+  return listExternalReadingObjects()
+    .filter((item) => item.questionCount > 0)
+    .map((item) => ({
+      params: { id: item.id },
+      props: { externalId: item.id }
+    }));
+}
+
+const base = import.meta.env.BASE_URL;
+const { externalId } = Astro.props;
+const reading = loadExternalReadingById(externalId);
+---
+<Base
+  title={reading.title}
+  kicker="English · External Reading"
+  description=""
+  sourcePath={reading.sourcePaths.passage}
+  sourceHash={reading.sourceHashes.renderedObject}
+  objectId={reading.sourceObjectId}
+  active="english"
+>
+  <SharedReadingWorkspace
+    reading={reading}
+    mode="external"
+    label="External Reading"
+    backHref={`${base}english/external/`}
+  />
+  <ReadingAnswerGate />
+</Base>
