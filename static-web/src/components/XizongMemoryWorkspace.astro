@@ -1,23 +1,39 @@
 ---
-const base = import.meta.env.BASE_URL;
+import {
+  XIZONG_MEMORY_STORAGE_KEY,
+  normalizeXizongMemoryState,
+  memorySummary,
+  selectMemoryView,
+  weakWeightForCard,
+  resolvedCorePrompt,
+  setPersonalPrompt,
+  addMarkedFragment,
+  removeMarkedFragment,
+  requestMemoryReview,
+  appendMemoryEvidence
+} from '../lib/xizongMemoryModel.mjs';
 ---
-<section class="xzMemory" data-xizong-memory-workspace>
+<section class="xzMemory" data-xizong-memory-workspace data-memory-storage-key={XIZONG_MEMORY_STORAGE_KEY}>
   <header class="xzMemoryHeader">
     <div class="xzMemoryIdentity">
-      <a href={`${base}xizong/`}>‹ 西综</a>
-      <div><span>MEMORY · ROLLING REVIEW</span><h1>Memory</h1><p>长期库一直在；Today 只收真正值得现在回收的东西。</p></div>
+      <a href={`${import.meta.env.BASE_URL}xizong/`}>← 西综</a>
+      <div>
+        <span>Standalone Memory</span>
+        <h1>滚动复习工作区</h1>
+        <p>不是一次性 Block 页的尾巴；这里承接已完成 Block 的长期复习。</p>
+      </div>
     </div>
     <div class="xzMemorySummary" aria-label="Memory summary">
-      <span><b data-memory-summary-today>0</b> Today</span>
-      <span><b data-memory-summary-core>0</b> Core</span>
-      <span><b data-memory-summary-precision>0</b> Precision</span>
-      <span><b data-memory-summary-marked>0</b> Marked</span>
-      <span><b data-memory-summary-repair>0</b> Repair</span>
+      <span><b data-memory-summary="today">0</b>Today</span>
+      <span><b data-memory-summary="core">0</b>Core</span>
+      <span><b data-memory-summary="precision">0</b>Precision</span>
+      <span><b data-memory-summary="marked">0</b>Marked</span>
+      <span><b data-memory-summary="repair">0</b>Repair</span>
     </div>
   </header>
 
   <nav class="xzMemoryTabs" aria-label="Memory views">
-    <button type="button" class="active" data-memory-view="TODAY">Today</button>
+    <button type="button" data-memory-view="TODAY" class="active">Today</button>
     <button type="button" data-memory-view="CORE">Core</button>
     <button type="button" data-memory-view="PRECISION">Precision</button>
     <button type="button" data-memory-view="MARKED">Marked</button>
@@ -27,13 +43,13 @@ const base = import.meta.env.BASE_URL;
   <div class="xzMemoryToolbar">
     <div>
       <strong data-memory-view-title>Today</strong>
-      <span data-memory-view-note>按当前 evidence 滚动排队，不把整个已释放库变成今日债务。</span>
+      <span data-memory-view-note>由真实不稳证据、内容变更或主动请求进入；没有 due wall。</span>
     </div>
+    <label class="xzMemoryWeakFilter"><input type="checkbox" data-memory-weak-only /> 只看弱项</label>
     <div class="xzMemoryPrecisionMode" data-memory-precision-mode hidden>
       <button type="button" class="active" data-precision-mode="BROWSE">Browse</button>
-      <button type="button" data-precision-mode="RECALL">Recall</button>
+      <button type="button" data-precision-mode="TEST">Test</button>
     </div>
-    <label class="xzMemoryWeakFilter"><input type="checkbox" data-memory-weak-only /> 只看 Weak</label>
   </div>
 
   <div class="xzMemoryLayout">
@@ -44,72 +60,83 @@ const base = import.meta.env.BASE_URL;
 
     <main class="xzMemoryStage">
       <section class="xzMemoryEmpty" data-memory-empty>
-        <span>Memory 还没有已释放内容</span>
-        <h2>先学，不制造假复习。</h2>
-        <p>Core / Precision 会在真实 Block Complete 后进入长期库；“进入库”不等于“今天必须复习”。当前阶段先把 Memory 产品本身独立出来，Block 释放桥接最后再接。</p>
+        <span>Memory is evidence-triggered</span>
+        <h2>现在没有需要滚动复习的内容。</h2>
+        <p>完成 Block 只会把 Core / 当前 Precision 释放进 Memory library；只有真实不稳、内容变更、主动请求或明确 Repair 才进入 Today。</p>
       </section>
 
       <article class="xzMemoryCard" data-memory-card hidden>
         <header class="xzMemoryCardHeader">
-          <div><span data-memory-card-family>Core</span><h2 data-memory-card-title></h2><p data-memory-card-context></p></div>
-          <div class="xzMemoryCardMeta"><b data-memory-card-weak></b><span data-memory-card-position></span></div>
+          <div>
+            <span data-memory-card-family>Core</span>
+            <h2 data-memory-card-title></h2>
+            <p data-memory-card-context></p>
+          </div>
+          <div class="xzMemoryCardMeta">
+            <span data-memory-card-weight></span>
+            <b data-memory-card-resolution></b>
+          </div>
         </header>
 
-        <section class="xzMemoryPrompt" data-memory-prompt-wrap>
-          <header><span>Prompt</span><div><button type="button" data-memory-prompt-edit>改 Prompt</button><button type="button" data-memory-prompt-reset>恢复 canonical</button></div></header>
-          <p data-memory-prompt data-mark-surface="PROMPT"></p>
+        <section class="xzMemoryPrompt" data-mark-surface="PROMPT">
+          <header><span>Prompt</span><button type="button" data-memory-prompt-edit>改主动提示</button></header>
+          <p data-memory-prompt></p>
           <div class="xzMemoryPromptEditor" data-memory-prompt-editor hidden>
             <textarea rows="3" data-memory-prompt-input></textarea>
-            <div><button type="button" data-memory-prompt-cancel>取消</button><button type="button" class="primary" data-memory-prompt-save>保存私有 Prompt</button></div>
+            <div><button type="button" data-memory-prompt-reset>恢复 canonical</button><button type="button" data-memory-prompt-cancel>取消</button><button type="button" class="primary" data-memory-prompt-save>保存</button></div>
           </div>
         </section>
 
         <section class="xzMemoryPrecisionCue" data-memory-precision-cue hidden>
-          <span>Exact target</span><p data-memory-precision-text></p>
-          <small data-memory-precision-resolution></small>
+          <span>Precision cue</span>
+          <p data-memory-precision-cue-text></p>
+          <small data-memory-source-locator></small>
         </section>
 
         <div class="xzMemoryRevealGate" data-memory-reveal-gate>
-          <strong>先从脑中恢复。</strong>
-          <span>Space</span>
-          <button type="button" class="primary" data-memory-reveal>Reveal</button>
+          <strong>先主动恢复</strong>
+          <button type="button" class="primary" data-memory-reveal>Reveal <span>Space</span></button>
         </div>
+        <div class="xzMemoryAnswer" data-memory-answer data-mark-surface="CORE" hidden></div>
 
-        <section class="xzMemoryAnswer markdown" data-memory-answer data-mark-surface="CORE" hidden></section>
-
-        <footer class="xzMemoryRatings" data-memory-ratings hidden>
-          <div><span>这次恢复</span><small>只记录这次 evidence，不覆盖过去。</small></div>
+        <div class="xzMemoryRatings" data-memory-ratings hidden>
+          <div><span>这次真实回忆</span><small>只写 evidence，不伪造 mastery。</small></div>
           <div>
-            <button type="button" data-memory-rating="unknown">1 · 没记住</button>
-            <button type="button" data-memory-rating="fuzzy">2 · 模糊</button>
-            <button type="button" data-memory-rating="known">3 · 会了</button>
-            <button type="button" data-memory-rating="mastered">4 · 稳定</button>
+            <button type="button" data-memory-rating="unknown">Unknown</button>
+            <button type="button" data-memory-rating="fuzzy">Fuzzy</button>
+            <button type="button" data-memory-rating="known">Known</button>
+            <button type="button" data-memory-rating="mastered">Mastered</button>
           </div>
-        </footer>
-
-        <div class="xzMemoryCardActions" data-memory-core-actions>
-          <button type="button" data-memory-mark-selection>标记选中片段</button>
-          <button type="button" data-memory-review-request>加入 Today</button>
         </div>
+        <footer class="xzMemoryCardActions">
+          <button type="button" data-memory-review-request>加入 Today</button>
+          <button type="button" data-memory-mark-selection>标记所选片段</button>
+        </footer>
       </article>
 
       <article class="xzMemoryMarkedCard" data-memory-marked-card hidden>
-        <header><span>Marked fragment</span><h2 data-marked-title></h2><p data-marked-context></p></header>
+        <header>
+          <div><span>Marked fragment</span><h2 data-marked-title></h2><p data-marked-context></p></div>
+        </header>
         <blockquote data-marked-text></blockquote>
-        <footer><span data-marked-surface></span><button type="button" data-marked-remove>移除标记</button></footer>
+        <footer><span data-marked-surface></span><button type="button" data-marked-remove>移除</button></footer>
       </article>
 
       <article class="xzMemoryRepairCard" data-memory-repair-card hidden>
-        <header><span>Repair · bounded task</span><h2 data-repair-title></h2><p data-repair-context></p></header>
-        <dl><div><dt>为什么回来</dt><dd data-repair-reason></dd></div><div><dt>只修什么</dt><dd data-repair-action></dd></div></dl>
-        <small>Repair 是专项任务，不复制 Core / Precision，也不把修完自动写成 mastery。</small>
+        <header><div><span>Targeted Repair</span><h2 data-repair-title></h2><p data-repair-context></p></div></header>
+        <dl>
+          <div><dt>为什么回来</dt><dd data-repair-reason></dd></div>
+          <div><dt>最小修补动作</dt><dd data-repair-action></dd></div>
+        </dl>
+        <small>Repair 由当前 evidence / Chat / 题目回链进入；不是固定周期墙。</small>
       </article>
     </main>
 
     <aside class="xzMemoryContext">
-      <section><span>Current rule</span><strong data-memory-rule-title>Evidence-driven Today</strong><p data-memory-rule-text>Weak 是权重，不是复制卡；稳定内容仍留在长期库里。</p></section>
-      <section><span>Keyboard</span><dl><div><dt>Space</dt><dd>Reveal</dd></div><div><dt>← / →</dt><dd>上一项 / 下一项</dd></div></dl></section>
-      <section class="xzMemoryMarkHint" data-memory-mark-hint><span>Marked</span><p>在 Prompt / Core 中选中文字，再点“标记选中片段”。它只表示你想以后再看这一小段。</p></section>
+      <section><span>Current item</span><strong data-memory-context-title>—</strong><p data-memory-context-meta>—</p></section>
+      <section><span>Evidence</span><dl><div><dt>Weak weight</dt><dd data-memory-context-weight>—</dd></div><div><dt>Last rating</dt><dd data-memory-context-rating>—</dd></div></dl></section>
+      <section><span>Rule</span><p>Release ≠ Today。Memory 只在真实不稳、主动请求、内容变更或 Repair 证据出现时打断主线。</p></section>
+      <section><span>Keys</span><p>Space Reveal · ←/→ 切换当前队列。</p></section>
     </aside>
   </div>
 </section>
@@ -118,19 +145,21 @@ const base = import.meta.env.BASE_URL;
   import {
     XIZONG_MEMORY_STORAGE_KEY,
     normalizeXizongMemoryState,
-    selectMemoryView,
     memorySummary,
+    selectMemoryView,
+    weakWeightForCard,
     resolvedCorePrompt,
-    appendMemoryEvidence,
     setPersonalPrompt,
     addMarkedFragment,
     removeMarkedFragment,
     requestMemoryReview,
-    weakWeightForCard
+    appendMemoryEvidence
   } from '../lib/xizongMemoryModel.mjs';
 
   const root = document.querySelector('[data-xizong-memory-workspace]');
   if (root instanceof HTMLElement) {
+    const q = (selector) => root.querySelector(selector);
+    const qa = (selector) => [...root.querySelectorAll(selector)];
     const read = () => {
       try { return normalizeXizongMemoryState(JSON.parse(localStorage.getItem(XIZONG_MEMORY_STORAGE_KEY) || 'null')); }
       catch { return normalizeXizongMemoryState(null); }
@@ -138,85 +167,97 @@ const base = import.meta.env.BASE_URL;
     let state = read();
     let view = 'TODAY';
     let precisionMode = 'BROWSE';
-    let index = 0;
-    let currentItems = [];
-    let revealed = false;
     let weakOnly = false;
-
-    const save = () => {
-      try { localStorage.setItem(XIZONG_MEMORY_STORAGE_KEY, JSON.stringify(state)); } catch {}
-    };
-    const q = (selector) => root.querySelector(selector);
-    const qa = (selector) => [...root.querySelectorAll(selector)];
-    const setText = (selector, value) => { const node = q(selector); if (node) node.textContent = String(value ?? ''); };
-    const tabs = qa('[data-memory-view]');
-    const precisionButtons = qa('[data-precision-mode]');
-    const queue = q('[data-memory-queue]');
-    const card = q('[data-memory-card]');
-    const markedCard = q('[data-memory-marked-card]');
-    const repairCard = q('[data-memory-repair-card]');
-    const empty = q('[data-memory-empty]');
-    const answer = q('[data-memory-answer]');
-    const revealGate = q('[data-memory-reveal-gate]');
-    const ratings = q('[data-memory-ratings]');
-    const promptWrap = q('[data-memory-prompt-wrap]');
-    const precisionCue = q('[data-memory-precision-cue]');
-    const coreActions = q('[data-memory-core-actions]');
+    let currentItems = [];
+    let index = 0;
+    let revealed = false;
 
     const viewNotes = {
-      TODAY: ['Today', '按当前 evidence 滚动排队，不把整个已释放库变成今日债务。'],
-      CORE: ['Core', '所有已释放 KP Core；Weak 只是状态，不会复制一份卡。'],
-      PRECISION: ['Precision', '全部已释放精确记忆项；Browse 可直接看，Recall 先遮答案。'],
-      MARKED: ['Marked', '你亲自标出的 Prompt / Core 小片段；主要用于低摩擦重看。'],
-      REPAIR: ['Repair', '只放有明确来源的专项修补任务；完成修补不等于自动 mastery。']
+      TODAY: ['Today', '由真实不稳证据、内容变更或主动请求进入；没有 due wall。'],
+      CORE: ['Core library', '已完成 Block 的正式 Core 记忆对象。'],
+      PRECISION: ['Precision library', '独立浏览或 Test；不偷塞进 Recall front。'],
+      MARKED: ['Marked fragments', '只保留你显式标出的 Prompt / Core 片段。'],
+      REPAIR: ['Repair queue', '由 Chat / Question / 当前 evidence 指定的最小修补任务。']
     };
+
+    const save = () => localStorage.setItem(XIZONG_MEMORY_STORAGE_KEY, JSON.stringify(state));
+    const setText = (selector, value) => { const node = q(selector); if (node) node.textContent = String(value ?? ''); };
+    const lastEvidence = (cardId) => [...state.evidence].reverse().find((row) => row?.cardId === cardId) || null;
+    const cardLabel = (item) => [item.displayId, item.title || item.cue || item.kpId].filter(Boolean).join(' · ');
+    const cardContext = (item) => [item.canonicalId, item.blockLabel, item.blockTitle, item.groupLabel].filter(Boolean).join(' · ');
 
     const syncSummary = () => {
       const summary = memorySummary(state);
-      setText('[data-memory-summary-today]', summary.today);
-      setText('[data-memory-summary-core]', summary.core);
-      setText('[data-memory-summary-precision]', summary.precision);
-      setText('[data-memory-summary-marked]', summary.marked);
-      setText('[data-memory-summary-repair]', summary.repair);
+      Object.entries(summary).forEach(([key, value]) => setText(`[data-memory-summary="${key}"]`, value));
     };
 
-    const selectedItem = () => currentItems[Math.max(0, Math.min(currentItems.length - 1, index))] || null;
-    const cardLabel = (item) => item.family === 'PRECISION' ? (item.title || item.cue || item.id) : `${item.displayId || item.kpId || ''}${item.title ? `｜${item.title}` : ''}`;
-    const cardContext = (item) => [item.canonicalId, item.blockLabel, item.groupLabel].filter(Boolean).join(' · ');
+    const tabs = qa('[data-memory-view]');
+    const precisionButtons = qa('[data-precision-mode]');
+    const queue = q('[data-memory-queue]');
+    const empty = q('[data-memory-empty]');
+    const card = q('[data-memory-card]');
+    const markedCard = q('[data-memory-marked-card]');
+    const repairCard = q('[data-memory-repair-card]');
+    const answer = q('[data-memory-answer]');
+    const revealGate = q('[data-memory-reveal-gate]');
+    const ratings = q('[data-memory-ratings]');
 
-    const effectiveAnswerHtml = (item) => {
-      if (item.family === 'CORE') return item.coreHtml || '';
-      if (item.answerHtml) return item.answerHtml;
-      return item.ownerContextHtml || '<p>这个 Precision cue 尚未物化出安全的独立答案；请回 Current owning Core / Source。</p>';
+    const selectedItem = () => currentItems[index] || null;
+    const contextFor = (item) => {
+      if (!item) {
+        setText('[data-memory-context-title]', '—');
+        setText('[data-memory-context-meta]', '—');
+        setText('[data-memory-context-weight]', '—');
+        setText('[data-memory-context-rating]', '—');
+        return;
+      }
+      const owner = item.cardId ? state.cards[item.cardId] : item;
+      const weightId = item.cardId || item.id;
+      setText('[data-memory-context-title]', item.text || item.title || cardLabel(owner || item));
+      setText('[data-memory-context-meta]', cardContext(owner || item) || item.origin || item.surface || '—');
+      setText('[data-memory-context-weight]', weightId && state.cards[weightId] ? weakWeightForCard(state, weightId) : '—');
+      setText('[data-memory-context-rating]', weightId ? (lastEvidence(weightId)?.rating || '—') : '—');
+    };
+
+    const renderHtml = (target, html) => {
+      if (!target) return;
+      target.replaceChildren();
+      if (!html) return;
+      const template = document.createElement('template');
+      template.innerHTML = html;
+      target.append(template.content.cloneNode(true));
     };
 
     const showCard = (item) => {
       if (!item) return;
-      if (card) card.hidden = false;
       if (markedCard) markedCard.hidden = true;
       if (repairCard) repairCard.hidden = true;
+      if (card) card.hidden = false;
       if (empty) empty.hidden = true;
-      setText('[data-memory-card-family]', item.family === 'PRECISION' ? 'Precision Memory' : 'Core Memory');
+      setText('[data-memory-card-family]', item.family === 'PRECISION' ? 'Precision' : 'Core');
       setText('[data-memory-card-title]', cardLabel(item));
       setText('[data-memory-card-context]', cardContext(item));
-      const weak = weakWeightForCard(state, item.id);
-      setText('[data-memory-card-weak]', weak >= 1 ? `Weak ${weak}` : weak > 0 ? `Signal ${weak}` : '');
-      setText('[data-memory-card-position]', `${index + 1} / ${currentItems.length}`);
-
-      const isPrecision = item.family === 'PRECISION';
-      if (promptWrap) promptWrap.hidden = isPrecision;
-      if (precisionCue) precisionCue.hidden = !isPrecision;
-      if (coreActions) coreActions.hidden = isPrecision;
-      if (!isPrecision) setText('[data-memory-prompt]', resolvedCorePrompt(state, item) || '先主动恢复这一 KP 的核心结构。');
-      else {
-        setText('[data-memory-precision-text]', item.cue || item.title || '恢复这个精确项。');
-        setText('[data-memory-precision-resolution]', item.answerResolution === 'EXACT_CURRENT_OWNER'
-          ? '已绑定 Current 精确答案。'
-          : '当前 cue 只声明“哪里要精确”；下方使用 owning Core context，不从正文猜取阈值。');
+      setText('[data-memory-card-weight]', `Weak ${weakWeightForCard(state, item.id)}`);
+      setText('[data-memory-card-resolution]', item.answerResolution || '');
+      const prompt = q('[data-memory-prompt]');
+      const promptSection = q('.xzMemoryPrompt');
+      const precisionCue = q('[data-memory-precision-cue]');
+      const editor = q('[data-memory-prompt-editor]');
+      if (editor) editor.hidden = true;
+      if (item.family === 'PRECISION') {
+        if (promptSection) promptSection.hidden = true;
+        if (precisionCue) precisionCue.hidden = false;
+        setText('[data-memory-precision-cue-text]', item.cue);
+        setText('[data-memory-source-locator]', item.sourceLocator || '');
+        renderHtml(answer, item.answerHtml || item.ownerContextHtml || '');
+      } else {
+        if (promptSection) promptSection.hidden = false;
+        if (precisionCue) precisionCue.hidden = true;
+        if (prompt) prompt.textContent = resolvedCorePrompt(state, item);
+        renderHtml(answer, item.coreHtml || '');
       }
-
-      if (answer) answer.innerHTML = effectiveAnswerHtml(item);
-      const browse = isPrecision && view === 'PRECISION' && precisionMode === 'BROWSE';
+      contextFor(item);
+      const browse = item.family === 'PRECISION' && view === 'PRECISION' && precisionMode === 'BROWSE';
       revealed = browse;
       if (answer) answer.hidden = !revealed;
       if (revealGate) revealGate.hidden = browse;
@@ -284,6 +325,7 @@ const base = import.meta.env.BASE_URL;
         if (markedCard) markedCard.hidden = true;
         if (repairCard) repairCard.hidden = true;
         if (empty) empty.hidden = false;
+        contextFor(null);
         return;
       }
       const result = selectMemoryView(state, view);
@@ -434,23 +476,3 @@ const base = import.meta.env.BASE_URL;
     rebuild();
   }
 </script>
-
-<style>
-  .xzMemory{height:calc(100vh - 74px);min-height:650px;display:grid;grid-template-rows:auto auto auto minmax(0,1fr);gap:0;background:var(--study-bg,#f2f5f2);border:1px solid var(--study-line,#d9e0dc);border-radius:14px;overflow:hidden}
-  .xzMemoryHeader{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:15px 18px;background:#fff;border-bottom:1px solid var(--study-line,#d9e0dc)}
-  .xzMemoryIdentity{display:flex;align-items:flex-start;gap:15px}.xzMemoryIdentity>a{color:var(--study-green,#286c57);text-decoration:none;font-weight:750;padding-top:4px}.xzMemoryIdentity span,.xzMemoryContext span,.xzMemoryPrecisionCue>span,.xzMemoryMarkedCard header>span,.xzMemoryRepairCard header>span{font-size:10px;font-weight:850;letter-spacing:.08em;color:var(--study-green,#286c57)}
-  .xzMemoryIdentity h1{margin:1px 0 2px;font-size:25px}.xzMemoryIdentity p{margin:0;color:var(--study-muted,#66736d);font-size:12px}.xzMemorySummary{display:flex;gap:13px}.xzMemorySummary span{display:grid;gap:1px;text-align:center;font-size:9px;color:var(--study-muted,#66736d)}.xzMemorySummary b{font-size:16px;color:var(--study-ink,#15201b)}
-  .xzMemoryTabs{display:flex;gap:3px;padding:7px 12px;background:#fff;border-bottom:1px solid var(--study-line,#d9e0dc)}.xzMemoryTabs button,.xzMemoryPrecisionMode button{border:0;background:transparent;padding:7px 12px;border-radius:7px;font-weight:750;color:var(--study-muted,#66736d);cursor:pointer}.xzMemoryTabs button.active,.xzMemoryPrecisionMode button.active{background:#eaf2ed;color:var(--study-green,#286c57)}
-  .xzMemoryToolbar{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:8px 14px;background:#f8faf8;border-bottom:1px solid var(--study-line,#d9e0dc)}.xzMemoryToolbar>div:first-child{display:flex;align-items:baseline;gap:10px}.xzMemoryToolbar strong{font-size:13px}.xzMemoryToolbar span,.xzMemoryWeakFilter{font-size:10px;color:var(--study-muted,#66736d)}.xzMemoryPrecisionMode{display:flex;margin-left:auto}.xzMemoryWeakFilter{display:flex;gap:5px;align-items:center}
-  .xzMemoryLayout{display:grid;grid-template-columns:250px minmax(0,1fr) 205px;min-height:0}.xzMemoryQueue,.xzMemoryContext{min-height:0;background:#fff}.xzMemoryQueue{border-right:1px solid var(--study-line,#d9e0dc);display:grid;grid-template-rows:auto minmax(0,1fr)}.xzMemoryQueue>header{display:flex;justify-content:space-between;padding:10px 12px;border-bottom:1px solid var(--study-line,#d9e0dc);font-size:10px;color:var(--study-muted,#66736d)}.xzMemoryQueue>div{overflow:auto;padding:6px}.xzMemoryQueue button{width:100%;display:grid;grid-template-columns:36px minmax(0,1fr);column-gap:7px;row-gap:2px;text-align:left;padding:8px;border:0;border-radius:8px;background:transparent;cursor:pointer;color:inherit}.xzMemoryQueue button:hover,.xzMemoryQueue button.active{background:#eef4f0}.xzMemoryQueue button>b{grid-row:1/3;font-size:10px;color:var(--study-green,#286c57)}.xzMemoryQueue button>span{font-size:11px;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.xzMemoryQueue button>small{font-size:8px;color:var(--study-muted,#66736d);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .xzMemoryStage{min-width:0;min-height:0;overflow:auto;padding:16px 18px}.xzMemoryEmpty{height:100%;min-height:300px;display:grid;place-content:center;max-width:620px;margin:auto;text-align:center}.xzMemoryEmpty>span{font-size:10px;font-weight:800;color:var(--study-green,#286c57)}.xzMemoryEmpty h2{margin:5px 0;font-size:24px}.xzMemoryEmpty p{margin:0;color:var(--study-muted,#66736d);line-height:1.65;font-size:13px}
-  .xzMemoryCard,.xzMemoryMarkedCard,.xzMemoryRepairCard{max-width:850px;margin:0 auto;background:#fff;border:1px solid var(--study-line,#d9e0dc);border-radius:12px;overflow:hidden}.xzMemoryCardHeader,.xzMemoryMarkedCard header,.xzMemoryRepairCard header{display:flex;justify-content:space-between;gap:15px;padding:15px 17px;border-bottom:1px solid var(--study-line,#d9e0dc)}.xzMemoryCardHeader span{font-size:9px;font-weight:850;color:var(--study-green,#286c57)}.xzMemoryCardHeader h2,.xzMemoryMarkedCard h2,.xzMemoryRepairCard h2{margin:3px 0;font-size:20px;line-height:1.35}.xzMemoryCardHeader p,.xzMemoryMarkedCard header p,.xzMemoryRepairCard header p{margin:0;color:var(--study-muted,#66736d);font-size:10px}.xzMemoryCardMeta{display:flex;flex-direction:column;align-items:flex-end;gap:4px;white-space:nowrap;font-size:9px;color:var(--study-muted,#66736d)}.xzMemoryCardMeta b{color:#8b5b2f}
-  .xzMemoryPrompt,.xzMemoryPrecisionCue{padding:14px 17px;border-bottom:1px solid var(--study-line,#d9e0dc)}.xzMemoryPrompt>header{display:flex;justify-content:space-between;align-items:center}.xzMemoryPrompt>header>span{font-size:9px;font-weight:850;color:var(--study-green,#286c57)}.xzMemoryPrompt>header button,.xzMemoryCardActions button,.xzMemoryMarkedCard button{border:0;background:transparent;font-size:9px;color:var(--study-muted,#66736d);cursor:pointer}.xzMemoryPrompt>p,.xzMemoryPrecisionCue>p{font-size:16px;line-height:1.58;margin:7px 0 0;font-weight:650}.xzMemoryPrecisionCue small{display:block;margin-top:7px;color:var(--study-muted,#66736d);font-size:9px;line-height:1.5}.xzMemoryPromptEditor{display:grid;gap:6px;margin-top:8px}.xzMemoryPromptEditor textarea{width:100%;resize:vertical;border:1px solid var(--study-line,#d9e0dc);border-radius:8px;padding:9px;font:inherit}.xzMemoryPromptEditor>div{display:flex;justify-content:flex-end;gap:5px}.xzMemoryPromptEditor button,.xzMemoryRevealGate button,.xzMemoryRatings button{border:1px solid var(--study-line,#d9e0dc);background:#fff;border-radius:7px;padding:7px 10px;cursor:pointer}.xzMemoryPromptEditor button.primary,.xzMemoryRevealGate button.primary{background:var(--study-green,#286c57);color:#fff;border-color:var(--study-green,#286c57)}
-  .xzMemoryRevealGate{display:flex;align-items:center;justify-content:center;gap:10px;padding:26px 16px;background:#fbfcfb;border-bottom:1px solid var(--study-line,#d9e0dc)}.xzMemoryRevealGate strong{font-size:13px}.xzMemoryRevealGate span{font-size:9px;padding:3px 6px;border:1px solid var(--study-line,#d9e0dc);border-radius:5px;color:var(--study-muted,#66736d)}
-  .xzMemoryAnswer{padding:17px 20px;font-size:14px;line-height:1.7;border-bottom:1px solid var(--study-line,#d9e0dc)}.xzMemoryRatings{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 14px;border-bottom:1px solid var(--study-line,#d9e0dc)}.xzMemoryRatings>div:first-child{display:grid}.xzMemoryRatings span{font-size:10px;font-weight:800}.xzMemoryRatings small{font-size:8px;color:var(--study-muted,#66736d)}.xzMemoryRatings>div:last-child{display:flex;gap:5px}.xzMemoryRatings button{font-size:9px}.xzMemoryCardActions{display:flex;justify-content:flex-end;gap:8px;padding:8px 12px}
-  .xzMemoryMarkedCard blockquote{margin:0;padding:28px 26px;font-size:20px;line-height:1.65}.xzMemoryMarkedCard footer{display:flex;justify-content:space-between;align-items:center;padding:9px 14px;border-top:1px solid var(--study-line,#d9e0dc);font-size:9px;color:var(--study-muted,#66736d)}
-  .xzMemoryRepairCard dl{display:grid;gap:0;margin:0}.xzMemoryRepairCard dl>div{display:grid;grid-template-columns:120px 1fr;gap:12px;padding:14px 17px;border-bottom:1px solid var(--study-line,#d9e0dc)}.xzMemoryRepairCard dt{font-size:10px;font-weight:800;color:var(--study-muted,#66736d)}.xzMemoryRepairCard dd{margin:0;font-size:14px;line-height:1.6}.xzMemoryRepairCard>small{display:block;padding:10px 17px;color:var(--study-muted,#66736d);font-size:9px}
-  .xzMemoryContext{border-left:1px solid var(--study-line,#d9e0dc);padding:10px;overflow:auto}.xzMemoryContext section{padding:10px 8px;border-bottom:1px solid var(--study-line,#d9e0dc)}.xzMemoryContext strong{display:block;margin:4px 0;font-size:12px}.xzMemoryContext p{margin:0;font-size:10px;line-height:1.6;color:var(--study-muted,#66736d)}.xzMemoryContext dl{display:grid;gap:4px}.xzMemoryContext dl>div{display:flex;justify-content:space-between;font-size:10px}.xzMemoryContext dt{font-weight:750}.xzMemoryContext dd{margin:0;color:var(--study-muted,#66736d)}
-  @media(max-width:1000px){.xzMemory{height:auto;min-height:720px}.xzMemoryLayout{grid-template-columns:220px minmax(0,1fr)}.xzMemoryContext{display:none}.xzMemorySummary{display:none}}
-  @media(max-width:720px){.xzMemory{height:auto}.xzMemoryHeader{align-items:flex-start}.xzMemoryLayout{grid-template-columns:1fr}.xzMemoryQueue{border-right:0;border-bottom:1px solid var(--study-line,#d9e0dc);max-height:220px}.xzMemoryStage{min-height:460px}.xzMemoryToolbar>div:first-child span{display:none}.xzMemoryRatings{align-items:flex-start;flex-direction:column}.xzMemoryRatings>div:last-child{flex-wrap:wrap}}
-</style>
