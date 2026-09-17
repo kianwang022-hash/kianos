@@ -41,6 +41,6 @@ jobs:
           node scripts/test-politics-explicit-surface-calibration.mjs
           node scripts/test-politics-compiled-presentation.mjs
 
-      - name: Validate C00 Workspace contract
+      - name: Audit global Politics primary density
         working-directory: static-web
-        run: node scripts/validate-politics-cognitive-workspace.mjs
+        run: node scripts/audit-politics-primary-density-temp.mjs
