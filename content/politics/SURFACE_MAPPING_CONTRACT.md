@@ -123,7 +123,23 @@ Use this for patterns such as several properties independently contributing to a
 ### `DIRECTED_SEQUENCE`
 A direction/order is part of the intended cognition. Each transition must be explicitly owned. Use for causal/process/reasoning sequences only when direction is educationally material.
 
-When a transition owns a `relation` label, that label is part of the learner claim itself. `A → B` and `A → relation → B` are not interchangeable representations unless Current explicitly says the relation label is unnecessary.
+A transition has exactly two accepted semantic forms:
+
+```json
+{"from":"A","to":"B"}
+```
+
+This is **ORDER_ONLY**: Projection owns the direction/order, and deliberately owns **no separate connector sentence**. The renderer may show directional chrome for that owned order, but it must not invent words such as “下一步”, “导致”, “因此” or any other relation label.
+
+```json
+{"from":"A","to":"B","relation":"形成相互联系的理论体系"}
+```
+
+This is **LABELED_RELATION**: the `relation` string is learner content and must remain visibly attached to that transition.
+
+The two forms are a tagged semantic union by shape. A missing `relation` on an explicit `{from,to}` transition is therefore not UI inference; it is an explicit Projection choice that the transition carries order/direction only. Conversely, once the `relation` property exists it must be a non-empty string. Empty or whitespace relation values are invalid because they would blur “owned text” and “no text”.
+
+`A → B` and `A → relation → B` are not interchangeable. The renderer receives the resolved transition mode and may not upgrade ORDER_ONLY into a labeled relation or demote LABELED_RELATION into an unlabeled arrow.
 
 ### `TIMELINE`
 Chronological order is the intended cognition. Dates/stages must be Current-owned.
@@ -263,7 +279,8 @@ Acceptance requires:
 9. Xiao1000 Question Truth / Evidence / exact Return / first attempt remain unchanged;
 10. Chengfeng remains the original continuous learning mainline;
 11. every owned learner-facing relation label remains explicitly visible with its related objects and is not reduced to decorative connector metadata;
-12. every mapped learner state is consumed exclusively from the resolved Surface Mapping; mixed explicit/legacy learner payloads are forbidden.
+12. every mapped learner state is consumed exclusively from the resolved Surface Mapping; mixed explicit/legacy learner payloads are forbidden;
+13. every DIRECTED_SEQUENCE transition resolves as either ORDER_ONLY or LABELED_RELATION; UI may render the declared direction but may never synthesize connector wording for ORDER_ONLY.
 
 Until this acceptance closes, broad Politics learner-surface productization must not claim semantic mapping closure.
 
@@ -281,6 +298,7 @@ UI implementation may not:
 - decide content meaning;
 - hide or omit an owned learner-facing relation label;
 - replace an owned relation with an unlabeled decorative arrow;
+- invent a relation label for an ORDER_ONLY transition;
 - demote a first-class learner relation into incidental annotation;
 - source a mapped learner-state payload from a legacy semantic channel.
 
