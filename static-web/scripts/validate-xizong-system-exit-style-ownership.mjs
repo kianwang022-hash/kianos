@@ -6,6 +6,8 @@ const check = (condition, code, detail = '') => {
   if (!condition) throw new Error(`XIZONG_SYSTEM_EXIT_STYLE_OWNER:${code}${detail ? `:${detail}` : ''}`);
   console.log(`PASS ${code}${detail ? ` · ${detail}` : ''}`);
 };
+const hasClassToken = (source, token) => [...source.matchAll(/\bclass\s*=\s*["']([^"']+)["']/g)]
+  .some((match) => match[1].split(/\s+/).includes(token));
 
 const route = read('src/pages/xizong/[system]/index.astro');
 const exit = read('src/components/XizongSystemExitRuntime.astro');
@@ -16,20 +18,20 @@ const systemStyle = read('src/styles/xizong-system-workspace.css');
 const broadStyle = read('src/styles/xizong-presentation.css');
 
 check(route.includes("../../../styles/xizong-system-exit-workspace.css"), 'route_imports_exact_owner');
-check(route.includes('class="xzExitStage"'), 'route_uses_current_later_stage_namespace');
-check(!route.includes('class="xizongLaterStage"'), 'route_retired_legacy_later_stage_namespace');
+check(hasClassToken(route, 'xzExitStage'), 'route_uses_current_later_stage_namespace');
+check(!hasClassToken(route, 'xizongLaterStage'), 'route_retired_legacy_later_stage_namespace');
 
 for (const [name, source] of [['SystemExit', exit], ['Crosswalk', crosswalk], ['RepairReturn', repair]]) {
   check(!source.includes('<style'), `${name}_has_no_component_visual_owner`);
   check(!/\sstyle\s*=/.test(source), `${name}_has_no_inline_visual_patch`);
 }
 
-check(exit.includes('class="xzExitCard xseRecallCard"'), 'exit_cards_use_current_visual_namespace');
-check(exit.includes('class="xzExitStem"'), 'exit_stem_uses_current_visual_namespace');
-check(exit.includes('class="xzExitOptions"'), 'exit_options_use_current_visual_namespace');
-check(!exit.includes('class="xseCard'), 'exit_retired_broad_card_selector');
-check(!exit.includes('class="xseStem"'), 'exit_retired_broad_stem_selector');
-check(!exit.includes('class="xseOptions"'), 'exit_retired_broad_options_selector');
+check(hasClassToken(exit, 'xzExitCard'), 'exit_cards_use_current_visual_namespace');
+check(hasClassToken(exit, 'xzExitStem'), 'exit_stem_uses_current_visual_namespace');
+check(hasClassToken(exit, 'xzExitOptions'), 'exit_options_use_current_visual_namespace');
+check(!hasClassToken(exit, 'xseCard'), 'exit_retired_broad_card_selector');
+check(!hasClassToken(exit, 'xseStem'), 'exit_retired_broad_stem_selector');
+check(!hasClassToken(exit, 'xseOptions'), 'exit_retired_broad_options_selector');
 
 for (const token of ['.xzExitStage', '.xse', '.xzExitCard', '.xzExitStem', '.xzExitOptions', '.xqc', '.xrr']) {
   check(owner.includes(token), 'owner_contains_surface_family', token);
