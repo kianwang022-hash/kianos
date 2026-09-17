@@ -5,6 +5,10 @@ import {
   loadPoliticsCompiledPresentation,
   resolvePoliticsPresentationRef
 } from '../src/lib/politicsCompiledPresentation.mjs';
+import {
+  resolvePoliticsChapterGeometry,
+  resolvePoliticsUnitRepresentation
+} from '../src/lib/politicsRepresentationGate.mjs';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT
   ? path.resolve(process.env.KIANOS_REPO_ROOT)
@@ -23,6 +27,8 @@ const report = {
   exact_items: 0,
   chapter_stage_objects: 0,
   chapter_geometries: 0,
+  representation_kinds: {},
+  external_representation_kinds: {},
   subjects: {}
 };
 
@@ -31,6 +37,10 @@ const codeFor = file => path.basename(file, '.projection.json');
 const resolveList = (refs, source, unit) => (refs || [])
   .map(ref => resolvePoliticsPresentationRef(ref, source, unit))
   .filter(value => value != null && value !== '' && (!Array.isArray(value) || value.length > 0));
+const countKind = (bucket, representation) => {
+  const kind = String(representation?.kind || 'MISSING');
+  bucket[kind] = Number(bucket[kind] || 0) + 1;
+};
 
 for (const [directory, subjectManifest] of Object.entries(manifest.subjects || {})) {
   const subject = normalizeSubject(directory);
@@ -39,7 +49,8 @@ for (const [directory, subjectManifest] of Object.entries(manifest.subjects || {
     pass_units: 0,
     reference_only_units: 0,
     handoffs: 0,
-    optional_closures: 0
+    optional_closures: 0,
+    representation_kinds: {}
   };
 
   for (const file of subjectManifest.files || []) {
@@ -70,8 +81,16 @@ for (const [directory, subjectManifest] of Object.entries(manifest.subjects || {
     const chapterResolve = ref => resolvePoliticsPresentationRef(ref, source, null);
     assert.deepEqual(compiled.chapterContext?.location, chapterResolve(chapter.location), `chapter location mismatch: ${file}`);
     assert.deepEqual(compiled.chapterContext?.problem, chapterResolve(chapter.current_problem), `chapter problem mismatch: ${file}`);
-    const expectedStage = (chapter.stage_context || []).map(entry => ({ shape: entry.shape, value: chapterResolve(entry.content) })).filter(entry => entry.value != null && entry.value !== '');
-    const expectedGeometries = (chapter.chapter_geometries || []).map(entry => ({ shape: entry.shape, value: chapterResolve(entry.content) })).filter(entry => entry.value != null && entry.value !== '');
+    const expectedStage = (chapter.stage_context || []).map(entry => ({
+      shape: entry.shape,
+      value: chapterResolve(entry.content),
+      representation: resolvePoliticsChapterGeometry(entry, { stage: 'ORIENT' })
+    })).filter(entry => entry.value != null && entry.value !== '');
+    const expectedGeometries = (chapter.chapter_geometries || []).map(entry => ({
+      shape: entry.shape,
+      value: chapterResolve(entry.content),
+      representation: resolvePoliticsChapterGeometry(entry, { stage: 'ORIENT' })
+    })).filter(entry => entry.value != null && entry.value !== '');
     assert.deepEqual(compiled.chapterContext?.stage, expectedStage, `chapter stage context mismatch: ${file}`);
     assert.deepEqual(compiled.chapterContext?.geometries, expectedGeometries, `chapter geometry mismatch: ${file}`);
 
@@ -83,6 +102,16 @@ for (const [directory, subjectManifest] of Object.entries(manifest.subjects || {
       assert.equal(resolved.unitId, selected.unit_id, `unit id mismatch: ${selected.unit_id}`);
       assert.equal(resolved.disposition, 'PASS', `unit disposition mismatch: ${selected.unit_id}`);
       assert.equal(resolved.shape, selected.projection_shape, `unit shape mismatch: ${selected.unit_id}`);
+
+      const expectedRepresentation = resolvePoliticsUnitRepresentation(selected, { stage: 'ORIENT' });
+      const expectedExternalRepresentation = resolvePoliticsUnitRepresentation(selected, { stage: 'EXTERNAL_LEARN' });
+      assert.deepEqual(resolved.representation, expectedRepresentation, `representation mismatch: ${selected.unit_id}`);
+      assert.deepEqual(resolved.externalRepresentation, expectedExternalRepresentation, `external representation mismatch: ${selected.unit_id}`);
+      assert.ok(resolved.representation?.kind, `representation kind missing: ${selected.unit_id}`);
+      assert.ok(resolved.externalRepresentation?.kind, `external representation kind missing: ${selected.unit_id}`);
+      countKind(report.representation_kinds, resolved.representation);
+      countKind(report.external_representation_kinds, resolved.externalRepresentation);
+      countKind(subjectReport.representation_kinds, resolved.representation);
 
       const resolve = ref => resolvePoliticsPresentationRef(ref, source, rawUnit);
       assert.deepEqual(resolved.problem, resolve(selected.current_problem), `problem mismatch: ${selected.unit_id}`);
@@ -142,8 +171,19 @@ assert.equal(report.chapters, 53, 'expected 53 Current compiled Politics chapter
 assert.equal(report.pass_units, 151, 'expected 151 PASS Projection units');
 assert.equal(report.reference_only_units, 9, 'expected 9 REFERENCE_ONLY Projection owners');
 assert.equal(report.pass_units + report.reference_only_units, 160, 'expected 160 accounted Current Projection owners');
+assert.equal(
+  Object.values(report.representation_kinds).reduce((sum, count) => sum + count, 0),
+  report.pass_units,
+  'every PASS unit must have one ORIENT representation decision'
+);
+assert.equal(
+  Object.values(report.external_representation_kinds).reduce((sum, count) => sum + count, 0),
+  report.pass_units,
+  'every PASS unit must have one EXTERNAL_LEARN representation decision'
+);
 
 const qaDir = path.join(process.cwd(), '.qa');
 fs.mkdirSync(qaDir, { recursive: true });
 fs.writeFileSync(path.join(qaDir, 'politics-surface-closure.json'), JSON.stringify(report, null, 2));
 console.log(`POLITICS_SURFACE_CLOSURE_PASS chapters=${report.chapters} pass=${report.pass_units} reference_only=${report.reference_only_units} handoffs=${report.handoffs} closures=${report.optional_closures}`);
+console.log(`POLITICS_REPRESENTATION_KINDS ${JSON.stringify(report.representation_kinds)}`);
