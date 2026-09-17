@@ -48,6 +48,7 @@ Kian consistently prefers:
 
 Kian dislikes:
 
+- narrow / condensed-looking learner typography or CJK text that feels horizontally squeezed; Chinese learner-facing type should feel naturally proportioned, open and comfortable rather than compressed to manufacture density;
 - tiny text that makes sustained reading tiring;
 - **thin / light / weak-looking type, especially when combined with gray low-contrast text**;
 - using smallness or light font weight as the primary way to mark secondary information;
@@ -192,6 +193,7 @@ When discussing a KianOS UI surface with Kian:
 9. Aesthetics are part of acceptance; `build PASS` is not enough. Review real screenshots.
 10. When visual taste is being calibrated, show Kian representative screenshots and discuss them before promoting a local success into a shared style rule.
 11. For a learner-facing visual change, establish the **focal hierarchy / composition first**, then component/card treatment; do not build the screen by styling every available data field independently.
+12. During active visual calibration, use a **visual fast preview lane**: make temporary UI-only changes, render real Chromium screenshots, let Kian review those screenshots, and only then promote the accepted visual delta into the formal implementation branch. Kian should not have to capture local screenshots for routine visual review.
 
 ---
 
