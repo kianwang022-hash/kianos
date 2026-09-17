@@ -56,6 +56,26 @@ function assertIdentity(item, family) {
   assert(Boolean(unitHash), `${family}_source_truth_hash`, item?.objectId || item?.id || '');
 }
 
+function assertNoAnswerLeak(projectedQuestions, family, objectId) {
+  const forbidden = ['answer', 'formal_answer', 'correct_answer', 'analysis', 'explanation', 'rationale'];
+  const leaks = [];
+  for (const question of projectedQuestions || []) {
+    const id = String(question?.id || question?.question_id || 'unknown');
+    for (const key of forbidden) {
+      if (Object.prototype.hasOwnProperty.call(question || {}, key)) leaks.push(`${id}:${key}`);
+    }
+    const options = question?.options;
+    const rows = Array.isArray(options) ? options : options && typeof options === 'object' ? Object.values(options) : [];
+    rows.forEach((option, index) => {
+      if (!option || typeof option !== 'object') return;
+      for (const key of ['answer', 'formal_answer', 'correct_answer', 'is_correct', 'correct', 'analysis', 'explanation', 'rationale']) {
+        if (Object.prototype.hasOwnProperty.call(option, key)) leaks.push(`${id}:option${index}:${key}`);
+      }
+    });
+  }
+  assert(leaks.length === 0, `${family}_no_answer_leak_before_gate`, `${objectId}:${leaks.slice(0, 8).join('|')}`);
+}
+
 function assertQuestionOverlay(projectedQuestions, unit, family, objectId, projectedField = 'prompt') {
   const overlays = unit?.question_overlays || {};
   const overlayIds = Object.keys(overlays);
@@ -83,6 +103,7 @@ for (const id of samples(listReadingSets())) {
   const blocks = sourceTruthBlocks(unit, 'p');
   if (blocks.length) assert(item.paragraphs?.[0]?.text === blocks[0].text, 'reading_a_first_block_exact', id);
   assertQuestionOverlay(item.questions, unit, 'reading_a', id);
+  assertNoAnswerLeak(item.questions, 'reading_a', id);
 }
 
 for (const id of samples(listClozeSets())) {
@@ -92,6 +113,7 @@ for (const id of samples(listClozeSets())) {
   const blocks = sourceTruthBlocks(unit, 'm');
   if (blocks.length) assert(item.material?.[0]?.text === blocks[0].text, 'cloze_first_block_exact', id);
   assertQuestionOverlay(item.questions, unit, 'cloze', id);
+  assertNoAnswerLeak(item.questions, 'cloze', id);
 }
 
 for (const id of samples(listReadingBSets())) {
@@ -101,6 +123,7 @@ for (const id of samples(listReadingBSets())) {
   const blocks = sourceTruthBlocks(unit, 'm');
   if (blocks.length) assert(item.material?.[0]?.text === blocks[0].text, 'reading_b_first_block_exact', id);
   assertQuestionOverlay(item.questions, unit, 'reading_b', id);
+  assertNoAnswerLeak(item.questions, 'reading_b', id);
   if (unit.shared_option_pool && Object.keys(unit.shared_option_pool).length) {
     assert(item.candidates?.length === Object.keys(unit.shared_option_pool).length, 'reading_b_shared_pool_cardinality', id);
   }
@@ -113,6 +136,7 @@ for (const id of samples(listTranslationSets())) {
   const blocks = sourceTruthBlocks(unit, 'm');
   if (blocks.length) assert(item.material?.[0]?.text === blocks[0].text, 'translation_first_block_exact', id);
   assertQuestionOverlay(item.prompts, unit, 'translation', id, 'sourceText');
+  assertNoAnswerLeak(item.prompts, 'translation', id);
 }
 
 const writing = getFirstProtectedTrueExamTask();
@@ -122,6 +146,7 @@ if (writing?.sourceKind === 'exam') {
   const blocks = sourceTruthBlocks(unit, 'm');
   if (blocks.length) assert(writing.officialEvidence?.material?.[0]?.text === blocks[0].text, 'writing_first_block_exact', writing.id);
   assertQuestionOverlay(writing.officialEvidence?.prompt, unit, 'writing', writing.id, 'promptText');
+  assertNoAnswerLeak(writing.officialEvidence?.prompt, 'writing', writing.id);
 } else {
   fail('writing_true_exam_source_truth_available', 'No protected true-exam task');
 }
