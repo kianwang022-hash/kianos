@@ -10,6 +10,13 @@ on:
       - 'static-web/src/pages/politics/**'
       - 'static-web/src/styles/politics-presentation.css'
       - '.github/workflows/politics-ui-visual-evidence.yml'
+  pull_request:
+    paths:
+      - 'static-web/src/components/Politics*.astro'
+      - 'static-web/src/layouts/PoliticsLayout.astro'
+      - 'static-web/src/pages/politics/**'
+      - 'static-web/src/styles/politics-presentation.css'
+      - '.github/workflows/politics-ui-visual-evidence.yml'
 
 permissions:
   contents: read
