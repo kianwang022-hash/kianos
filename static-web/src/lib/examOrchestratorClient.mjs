@@ -1,5 +1,7 @@
 import { EXAM_PROFILE_KEY, SUBJECTS, TARGETS, emptyExamProfile, validateExamProfile, buildExamPlan, examDay, formatMinutes } from './examOrchestrator.mjs';
 import { readExamDemand, safeProductHref } from './examDemand.mjs';
+import { buildExamStudyTimeOverlay } from './examStudyTime.mjs';
+import { buildExamPlanReadModel } from './examPlanReadModel.mjs';
 import { readPoliticsSnapshot, resolvePoliticsContinue } from './politicsPracticeState.mjs';
 const names = { xizong: '西综', english: '英语', politics: '政治' };
 export function initExamHome(root) {
@@ -7,7 +9,7 @@ export function initExamHome(root) {
   const $ = s => root.querySelector(s), $$ = s => [...root.querySelectorAll(s)];
   const catalog = JSON.parse($('[data-exam-catalog]').textContent);
   $('[data-exam-catalog]').remove();
-  let bytes = null, profile = emptyExamProfile(), plan, readable = true, pendingImport = null;
+  let bytes = null, profile = emptyExamProfile(), plan, readable = true, pendingImport = null, timeOverlay = null;
   const day = () => examDay();
   const error = message => { const el = $('[data-exam-error]'); el.hidden = !message; el.textContent = message || ''; };
   function load() {
@@ -28,6 +30,12 @@ export function initExamHome(root) {
       ? { href: node.getAttribute('href'), title: document.querySelector(titleSelector)?.textContent?.trim() || label }
       : { href: fallback, title: label };
   };
+  function publishPlanReadModel() {
+    const model = buildExamPlanReadModel(plan, { timeOverlay, readable });
+    root.__kianosExamPlanReadModel = model;
+    root.dispatchEvent(new CustomEvent('kianos:exam-plan-read-model', { detail: model, bubbles: true }));
+    return model;
+  }
   function render() {
     const native = {
       xizong: nativeLink('[data-xizong-continue]', '[data-xizong-continue-title]', `${catalog.base}xizong/`, '选择西综学习位置'),
@@ -36,7 +44,10 @@ export function initExamHome(root) {
         || nativeLink('[data-politics-continue]', '[data-politics-continue-title]', `${catalog.base}politics/`, '选择政治学习位置')
     };
     const demand = readExamDemand(localStorage, catalog, native);
-    plan = buildExamPlan({ day: day(), profile: readable ? profile : emptyExamProfile(), demands: demand.demands });
+    const sourceProfile = readable ? profile : emptyExamProfile();
+    timeOverlay = buildExamStudyTimeOverlay(localStorage, sourceProfile, day(), Date.now());
+    plan = buildExamPlan({ day: day(), profile: timeOverlay.profile, demands: demand.demands });
+    root.dataset.studyTimeSource = timeOverlay.usesTimer ? 'timer' : 'manual';
     const gate = document.querySelector('[data-exam-gate]');
     const phase = document.querySelector('[data-exam-phase]');
     if (gate) gate.textContent = plan.gate ? `${plan.gate.date.slice(5).replace('-', '/')} ${plan.gate.label} · ${plan.gate.daysRemaining === 0 ? '今天' : `还有 ${plan.gate.daysRemaining} 天`}` : '本轮考试已结束';
@@ -60,6 +71,7 @@ export function initExamHome(root) {
     const reminder = $('[data-exam-reminder]'); reminder.hidden = !plan.reminder || !readable;
     if (plan.reminder) reminder.querySelector('p').textContent = plan.reminder.label;
     root.dataset.ready = 'true';
+    publishPlanReadModel();
   }
   const open = name => { const dialog = $(`[data-exam-${name}-dialog]`); if (!dialog.open) dialog.showModal(); };
   function settings() {
@@ -71,14 +83,15 @@ export function initExamHome(root) {
   function why() {
     const target = $('[data-exam-reasons]'); target.replaceChildren();
     const p = text => { const node = document.createElement('p'); node.textContent = text; target.append(node); };
-    p('分配的是接下来可用的时间，不是掌握程度。没有个人证据时，先守住英语与政治的连续性，余量主推西综。');
-    p(plan.horizonKnown ? '已按未来七天可用时间分摊最低安排；不会把过去缺的小时累加成欠账。' : '尚无完整未来七天容量，先按今天安排；之后的容量仍留空。');
-    if (plan.provisional) p('当前已过最初阶段，但还没有新的三科最低安排，暂用起步先验；并非已经完成重新估分。');
+    if (plan.phase.id === 'A') p('分配的是接下来可用的时间，不是掌握程度。第一阶段先守住英语与政治连续性，余量主推西综。');
+    else p('分配的是接下来可用的时间，不是掌握程度。进入后续阶段后不再沿用第一阶段固定时长；已有工作量、回访与分数证据优先，其余容量只做临时保连续。');
+    p(plan.horizonKnown ? '已按未来七天可用时间分摊当前最低安排；不会把过去缺的小时累加成欠账。' : '尚无完整未来七天容量，先按今天安排；之后的容量仍留空。');
+    if (plan.provisional) p('当前阶段还没有新的三科最低安排；先按已有工作量、回访和分数证据分配，其余容量只做临时保连续，不代表新的固定比例。');
     for (const r of plan.rows) {
       const title = document.createElement('h3'); title.textContent = names[r.subject]; target.append(title);
       p(r.why.length ? r.why.join(' ') : '没有足够证据推算剩余工作量；沿本科已开放主线继续。');
       const observed = plan.confirmedWeek.find(x => x.subject === r.subject)?.minutes || 0;
-      if (observed) p(`最近七天本人确认的有效时间：${formatMinutes(observed)}；时间不等于完成或掌握。`);
+      if (observed) p(`最近七天有效学习时间记录：${formatMinutes(observed)}；时间不等于完成或掌握。`);
       if (r.required !== null) p(`当前已报工作量需要日均约 ${formatMinutes(Math.ceil(r.required / 5) * 5)}，这里只是容量估计。`);
     }
     if (!plan.scores.length) p('尚无有依据的分数区间；不会由刷题数或单次正确率编造估分。');
@@ -136,9 +149,13 @@ export function initExamHome(root) {
     try { if (!pendingImport) return; persist(pendingImport); pendingImport = null; $('[data-exam-import-confirm]').hidden = true; $('[data-exam-why-dialog]').close(); }
     catch (e) { const el = $('[data-import-error]'); el.hidden = false; el.textContent = e.message; }
   });
+  const refreshFromExternalTime = () => {
+    if (!$$('dialog').some(d => d.open)) render();
+  };
+  window.addEventListener('kianos:study-timer-change', refreshFromExternalTime);
   window.addEventListener('storage', () => { if ($$('dialog').some(d => d.open)) { error('另一页面的记录已改变；当前编辑未覆盖它。关闭窗口并刷新后再改。'); return; } load(); render(); });
   window.addEventListener('focus', () => { if (!$$('dialog').some(d => d.open)) { load(); render(); } });
   load(); render();
-  // Read the native English Resume after its own module hydrates; never duplicate its priority rules.
+  // Read subject Resume surfaces after their own modules hydrate; never duplicate their priority rules.
   setTimeout(render, 250);
 }

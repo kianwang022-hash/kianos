@@ -112,7 +112,12 @@ export function buildExamPlan({ day = examDay(), profile = emptyExamProfile(), d
   const horizon = Array.from({ length: 7 }, (_, i) => capacityFor(nextDay(day, i)));
   const horizonKnown = horizon.every(finite);
   const horizonTotal = horizonKnown ? sum(horizon) : null;
-  const floorSeed = p.floorMinutes || { xizong: 0, english: 120, politics: 90 };
+  // The 120m English / 90m Politics floor is an explicit Phase-A seed only.
+  // Later phases must not silently inherit it; without a new explicit floor, elastic
+  // capacity is driven by workload/review/score evidence and otherwise remains provisional.
+  const floorSeed = p.floorMinutes || (phase.id === 'A'
+    ? { xizong: 0, english: 120, politics: 90 }
+    : { xizong: 0, english: 0, politics: 0 });
   const reports = Object.fromEntries(SUBJECTS.map(s => [s, p.reports.filter(r => r.subject === s && r.day <= day && r.validThrough >= day).sort((a, b) => b.day.localeCompare(a.day))[0] || null]));
   const maintenance = p.maintenanceByDay[day];
   const rows = SUBJECTS.map((subject, i) => {
@@ -151,7 +156,9 @@ export function buildExamPlan({ day = examDay(), profile = emptyExamProfile(), d
           const rank = { high: 2, medium: 1, low: 0 };
           return rank[b.report.recoverability] - rank[a.report.recoverability] || a.minutes - b.minutes;
         });
-        const fallback = ['A', 'B'].includes(phase.id) ? available.find(r => r.subject === 'xizong') : [...available].sort((a, b) => a.minutes - b.minutes)[0];
+        const fallback = phase.id === 'A'
+          ? available.find(r => r.subject === 'xizong')
+          : [...available].sort((a, b) => a.minutes - b.minutes)[0];
         const target = urgent[0] || review[0] || score[0] || fallback || available[0];
         target.minutes += 5; remaining -= 5;
       }
@@ -159,7 +166,7 @@ export function buildExamPlan({ day = examDay(), profile = emptyExamProfile(), d
       for (const r of rows) {
         // Review occupies the subject's allocation; it is never added on top.
         r.reviewMinutes = Math.min(r.minutes, coarse(r.nativeReview));
-        r.status = shortage ? '时间偏紧' : r.required !== null && r.required > r.minutes + 5 ? '需要加速' : r.report ? '按证据推进' : ['A', 'B'].includes(phase.id) ? '按阶段起步' : '暂用保连续安排';
+        r.status = shortage ? '时间偏紧' : r.required !== null && r.required > r.minutes + 5 ? '需要加速' : r.report ? '按证据推进' : phase.id === 'A' ? '按阶段起步' : '暂用保连续安排';
         if (r.required !== null) r.why.push(`已提供的剩余工作约 ${Math.round(r.report.remainingMinutes / 60)} 小时，对应 ${r.report.gateDate}。`);
         if (r.reviewMinutes) r.why.push('回访包含在本科学习时间内，不额外叠加。');
         if (r.gap > 0) r.why.push(`所提供分数区间尚低于目标；${r.report.note}`);
@@ -188,6 +195,6 @@ export function buildExamPlan({ day = examDay(), profile = emptyExamProfile(), d
   return { day, phase, gate: gate ? { ...gate, daysRemaining: dayDistance(day, gate.date) } : null,
     rows, capacity, dayCapacity, doneTotal, unallocated, attention, continue: sortedRows[0]?.continue || null,
     scores, totalBand, confirmedWeek, horizonKnown, horizonTotal,
-    provisional: p.floorMinutes === null && !['A', 'B'].includes(phase.id),
+    provisional: p.floorMinutes === null && phase.id !== 'A',
     reminder: REFRESH_WINDOWS.find(w => day >= w.start && day <= w.end && !p.reminders[w.id]) || null };
 }

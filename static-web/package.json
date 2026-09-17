@@ -8,6 +8,8 @@
     "preview": "astro preview",
     "current:serve": "node scripts/kianos-current-sync.mjs",
     "current:install": "bash scripts/install-current-macos.sh",
+    "test:study-timer": "node scripts/test-study-timer.mjs && node scripts/test-exam-study-time.mjs && node scripts/test-study-timer-review.mjs && node scripts/test-exam-phase-floors.mjs && node scripts/test-study-timer-dock.mjs && node scripts/test-exam-plan-read-model.mjs && node scripts/test-exam-plan-publish.mjs && node scripts/test-daily-learning-packet.mjs",
+    "qa:study-timer": "npm run test:study-timer && npm run build",
     "validate:english-source-truth": "node scripts/validate-english-source-truth-projection.mjs",
     "validate:reading": "npm run validate:english-source-truth && node scripts/validate-reading-runtime.mjs",
     "validate:objective": "npm run validate:english-source-truth && node scripts/audit-reading-b-source.mjs && node scripts/validate-objective-runtime.mjs && node scripts/validate-objective-learning.mjs && node scripts/validate-reading-b-projection.mjs",

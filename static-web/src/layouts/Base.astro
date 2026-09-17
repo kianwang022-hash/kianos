@@ -17,9 +17,11 @@ import '../styles/english-family-coherence.css';
 import '../styles/english-workbench-polish.css';
 import '../styles/english-workbench-qa-fixes.css';
 import '../styles/shared-shell.css';
+import '../styles/study-timer.css';
 import VocabularyEnglishEvidenceBridge from '../components/VocabularyEnglishEvidenceBridge.astro';
 import EnglishProductiveConvergence from '../components/EnglishProductiveConvergence.astro';
 import EnglishLexicalLookupBridge from '../components/EnglishLexicalLookupBridge.astro';
+import StudyTimerDock from '../components/StudyTimerDock.astro';
 import {
   englishNavigation,
   globalNavigation,
@@ -126,6 +128,7 @@ const currentStatusUrl = `${base}__kianos-current.json`;
         </main>
       </div>
     </div>
+    <StudyTimerDock />
   </body>
 </html>
 <script>
@@ -183,4 +186,11 @@ const currentStatusUrl = `${base}__kianos-current.json`;
       if (document.visibilityState === 'visible') void pollCurrent();
     });
   })();
+</script>
+<script>
+  import { initStudyTimerRuntime } from '../lib/studyTimerClient.mjs';
+  import { initStudyTimerDock } from '../lib/studyTimerDockClient.mjs';
+  const timer = initStudyTimerRuntime();
+  const dock = document.querySelector('[data-study-timer-dock]');
+  if (dock instanceof HTMLElement) initStudyTimerDock(dock, timer);
 </script>
