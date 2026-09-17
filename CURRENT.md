@@ -1,57 +1,75 @@
 # KianOS Root Current
 
 **Role:** Control Tower + root engineering router  
-**Rule:** this file reports current work only. It is not project history, semantic Truth, Acceptance Truth or learner progress.
-
----
-
-## Current outcome
-
-**Today:** land the KianOS learner website as a stable, visually accepted, directly usable shell for continuously growing canonical Content.
-
-The permanent top-level architecture is now:
-
-```text
-RULE / MODEL
-CONTENT
-VISUAL
-ENGINEERING
-CONTROL
-```
-
-Website is a learner execution surface, not a second Content owner.
-
-Cross-cutting guards:
-
-```text
-Source Truth
-Learner Truth
-Acceptance Truth
-```
-
-`S/K/L/P/R/E/U` is acceptance language, not another architecture stack.
+**Rule:** reports current work only; not semantic Truth, Acceptance Truth or learner progress.
 
 ---
 
 ## Current stage
 
-**Shared Visual + Shared Shell:** LANDED on `main` via #389 and passed Kian's direction-level Human Gate.  
-**Current launch stage:** Home + accepted subject/task blueprints inheriting the shared foundation.  
-**Root blocker:** none.
+Permanent architecture:
 
-Do not reopen the architecture unless a real use defect proves one of the five responsibility boundaries wrong.
+```text
+RULE / MODEL
+→ CONTENT
+→ VISUAL
+→ ENGINEERING
+→ CONTROL
+```
+
+Shared Visual + Shared Shell are landed.  
+Home is now Human-Gate accepted and merged via **#390** (`main@4a8aa0c5`).
+
+The launch has moved into **three subject UI vertical slices in parallel**.
 
 ---
 
-## Five-layer status
+## Parallel UI lanes
 
-| Responsibility | Current state | Next relevant action |
-| --- | --- | --- |
-| **Rule / Model** | top-level architecture aligned; English/Lexical/Xizong rules cleaned; Politics already strong | change only from real semantic need |
-| **Content** | Source/Knowledge ownership clear across English, Politics, Lexical and Xizong | continue domain content work independently; do not make launch wait for unfinished D/E/F etc. |
-| **Visual** | shared foundation + shell landed; Presentation contract now freezes accepted blueprints | apply existing accepted task/surface blueprints; no redesign by default |
-| **Engineering** | repo-wide Current sync, shared navigation, major runtimes exist; engineering boundary now explicit | converge only launch-visible implementation debt; broad CSS cleanup is later unless blocking |
-| **Control** | this file is the compact root status/router | keep current, small and decision-relevant |
+All three lanes start from the same accepted Home/shared baseline `4a8aa0c5`.
+
+| Lane | Branch | Owns | Must not change |
+| --- | --- | --- | --- |
+| Xizong UI | `work/ui-xizong-vertical-20260918` | Xizong subject/task presentation + narrow runtime wiring | Shared Visual, Shared Shell, Home, other subjects |
+| Politics UI | `work/ui-politics-vertical-20260918` | Politics Natural Unit / question / review presentation + narrow wiring | Shared Visual, Shared Shell, Home, other subjects |
+| English UI | `work/ui-english-vertical-20260918` | English task-family presentation + narrow wiring | Shared Visual, Shared Shell, Home, other subjects |
+
+Lexical remains an English learner-product child. Its backend canonical root may stay independent; learner-facing global navigation must not promote it into a fourth subject.
+
+---
+
+## Required vertical-slice method
+
+Every subject UI lane follows:
+
+```text
+RULE
+→ CONTENT
+→ accepted VISUAL baseline
+→ ENGINEERING
+→ real-browser screenshot
+→ Human Gate
+```
+
+Default visual decision is **KEEP / MIGRATE**, not REDESIGN.
+
+A new Chat may redesign an accepted surface only when:
+- Kian explicitly rejects it; or
+- upstream Rule/Content materially changed and the old geometry is now wrong.
+
+---
+
+## Frozen shared visual baseline
+
+- #389 Shared Visual + Shared Shell remain the shared L1/L2 authority.
+- #390 Home is the accepted Home L3 baseline.
+- Kian's direct screenshot feedback outranks assistant visual inference.
+- Mac-wide first; high useful information density; no generic SaaS/dashboard/card-pile drift.
+- Default-visible learner text must remain comfortably readable and substantial.
+- Chinese/CJK typography must feel **wide, solid, full and optically substantial**; narrow/condensed-looking, thin or compressed CJK rendering is a Visual FAIL.
+- Do not use negative letter-spacing to squeeze Chinese titles/body copy.
+
+Shared writers are frozen during subject parallel work. Subject lanes must not add new global Base CSS imports or reinterpret the shared shell.
 
 ---
 
@@ -71,84 +89,22 @@ Home
    └─ External Reading
 ```
 
-Lexical retains an independent backend owner root (`content/lexical/`) because its canonical asset scale and semantics justify it, but it is an **English learner-product function**, not a fourth subject.
+---
+
+## Subject targets
+
+### Xizong
+Preserve accepted System / Block / KP / Recall learning geometry. Use original lecture/iPad source flow where Learning Rule says it is primary. UI work must not turn Logic Group into medical truth or invent new Knowledge.
+
+### Politics
+Preserve Natural Unit and Source/Knowledge hierarchy. Chengfeng continuous study remains the original lecture/MarginNote flow; Astro is not a replacement continuous reader.
+
+### English
+Preserve native whole-task geometry: Reading passage + full question set, Cloze full passage + 20 items, Part B global reconciliation, Translation source + authored translation, Writing prompt + dominant writing surface. External Reading reuses the Reading task family rather than creating a second runtime.
 
 ---
 
-## Normal change paths
-
-### Content
-
-```text
-Kian + Chat
-→ exact canonical Content owner
-→ edit
-→ main
-→ repository-wide Current mirror sync
-→ existing renderer consumes new Current
-```
-
-Routine Content change must not require duplicate page edits.
-
-### Visual
-
-```text
-global visual change → shared visual owner
-subject-wide visual change → subject owner
-accepted task geometry → existing frozen Surface Blueprint
-```
-
-A new Chat does not get permission to redesign an accepted surface.
-
-### Engineering
-
-```text
-approved learner behavior
-→ narrow renderer/runtime owner
-→ targeted validation
-```
-
-Shared Base should converge toward shared-only CSS/runtime. Subject/task CSS belongs at the narrowest subject/task boundary rather than accumulating globally.
-
----
-
-## Current launch candidates
-
-Open PRs are candidates/evidence, not automatic merge obligations.
-
-### Home #387
-
-- contains useful Home read-model/function work;
-- current branch is behind newer `main` and not mergeable as-is;
-- old visual Human Gate was not passed;
-- **action:** replay/reconcile only the useful Home behavior onto current shared foundation, then review the real first viewport.
-
-### Politics #386
-
-- preserves useful Natural Unit geometry/convergence evidence;
-- built before current shared visual foundation and is not mergeable as-is;
-- **action:** reuse accepted geometry under current Visual; do not let its old CSS redefine shared style.
-
-### Xizong #385
-
-- useful single-owner Block-presentation cleanup;
-- not a prerequisite for launch unless a real learner-visible defect proves the current competing CSS owners are blocking the accepted Block surface;
-- **action:** defer broad ownership cleanup unless needed for the launch-visible Block path.
-
-### English External Reading #373
-
-- runtime idea is correct: External objects normalize into the existing Reading task family; no second Reading runtime;
-- current branch is old/non-mergeable as-is;
-- inventory UI is not an independent design project;
-- **action:** later replay the shared-runtime/data-source value onto current `main`; External uses the same accepted Reading blueprint.
-
----
-
-## Known Engineering debt that is NOT a new architecture problem
-
-Current `Base.astro` still globally imports many historical subject/polish/convergence styles.
-
-Target architecture is already fixed:
+## Engineering boundary
 
 ```text
 Base
@@ -161,78 +117,26 @@ task workspace
 → task-specific geometry/interaction
 ```
 
-Do not add new subject-specific global Base imports. Consolidate existing ones only in bounded slices with browser proof; do not turn launch day into broad CSS archaeology unless the cascade causes a visible blocker.
+Do not turn launch into broad CSS archaeology. Consolidate historical overrides only when they visibly block the accepted subject surface.
 
----
-
-## Launch acceptance
-
-Launch closes when the real learner site satisfies all of these:
-
-### Visual
-- Home first viewport accepted by Kian;
-- shared typography/weight/contrast/spacing remains accepted;
-- representative mature English / Politics / Xizong / Lexical surfaces retain their accepted task geometry;
-- no obvious generic dashboard/card-pile regression;
-- no obvious required narrow-screen overflow.
-
-### Functional
-- global rail + subject strip work;
-- Home Continue/Resume paths work;
-- representative mature learner paths open and execute normally;
-- Reading / Question / Recall / Translation / Writing / Lexical behaviors remain intact where applicable;
-- Timer does not block task interaction.
-
-### Delivery
+UI iteration fast lane:
 
 ```text
-main changes
-→ dedicated Current mirror reaches exact main
-→ Astro serves it
-→ browser sees the change without manual Git sync
+local/branch implementation
+→ real browser screenshot
+→ visual correction as one batch
+→ Kian Human Gate
+→ targeted CI once
+→ merge
 ```
 
-### Change cost
-- a global typography change resolves upstream;
-- subject geometry stays local;
-- canonical Content stays direct-editable;
-- compatible new content objects use existing renderers/runtime rather than new pages.
-
-### Human Gate
-Material learner-facing Visual is accepted by Kian in the real browser. CI/build alone cannot close launch.
+Do not run full GitHub CI after every cosmetic adjustment.
 
 ---
 
-## Hard freeze until launch
+## Control reporting
 
-Do not:
-
-- add new architecture layers / Contracts / registries for completeness;
-- reopen accepted learning logic for visual convenience;
-- redesign already accepted surface blueprints without explicit Kian direction;
-- make unfinished Xizong content or optional enrichment a website-launch blocker;
-- merge stale branches merely because much work exists in them;
-- spend launch time on broad cleanup that does not change learner experience or launch safety.
-
----
-
-## Router
-
-| Scope | Engineering Work Cursor |
-| --- | --- |
-| Xizong | `content/xizong/CURRENT.md` |
-| English | `content/english/CURRENT.md` |
-| Politics | `content/politics/CURRENT.md` |
-| Lexical backend | `content/lexical/CURRENT.md` |
-| Cross-subject scheduling | `EXAM_ORCHESTRATOR_CONTRACT.md` |
-
-A bare `继续英语 / 继续政治 / 继续循环` is a learner request unless the current Chat is clearly in BUILD / UI / CONTROL work.
-
----
-
-## Control reporting format
-
-For root launch work, report only:
+For launch work report only:
 
 ```text
 Stage
@@ -246,16 +150,14 @@ Hide branch/SHA/CI detail unless it changes the decision.
 
 ---
 
-## Root operating rule
+## Hard freeze until launch
 
-```text
-Kian intent
-→ exact owner
-→ smallest correct change
-→ representative proof
-→ Human Gate when visual
-→ land
-→ stop
-```
+Do not:
+- add new architecture layers/contracts for completeness;
+- reopen accepted Learning Logic for visual convenience;
+- redesign accepted visual baselines by default;
+- let one subject lane edit shared shell/global visual ownership;
+- expose engineering/debug state as learner content;
+- block launch on unfinished optional content enrichment.
 
-**Optimization target: a finished learning website that is cheap to keep filling with better Content.**
+**Optimization target:** a finished learning website that is cheap to keep filling with better Content.
