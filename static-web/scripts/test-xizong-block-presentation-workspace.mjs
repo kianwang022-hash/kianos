@@ -117,6 +117,11 @@ try {
   browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({ viewport: { width: 1440, height: 1100 } });
   page = await context.newPage();
+  await page.route('**/__kianos-current.json**', (route) => route.fulfill({
+    status: 200,
+    contentType: 'application/json',
+    body: JSON.stringify({ state: 'unavailable' })
+  }));
   page.on('pageerror', (error) => report.page_errors.push(String(error?.stack || error)));
   page.on('console', (message) => { if (message.type() === 'error') report.console_errors.push(message.text()); });
 
