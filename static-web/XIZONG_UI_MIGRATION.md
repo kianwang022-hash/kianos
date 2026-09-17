@@ -1,6 +1,6 @@
 # Xizong UI Architecture Migration
 
-Status: **ACTIVE MIGRATION · System / Home / Memory / System Exit CUT OVER · Slice 4 ACTIVE**  
+Status: **ACTIVE MIGRATION · major learner surfaces CUT OVER · Slice 4B ACTIVE**  
 Scope: Xizong learner-facing presentation implementation only  
 Parent authority: `content/xizong/CURRENT.md` + `PRESENTATION_CONTRACT.md` + `UI_STYLE_BRIEF.md` + `PROJECT_MANAGEMENT_CONTRACT.md`
 
@@ -37,7 +37,7 @@ read Current owner + real Runtime
 → isolate one surface responsibility
 → cut DOM/style ownership to one Current owner
 → run targeted static + browser acceptance
-→ inspect screenshot, not only CI
+→ inspect screenshot when geometry changes
 → run broad regressions
 → merge exact accepted head
 → update Current cursor
@@ -70,8 +70,6 @@ Closed facts:
 - A1/A2/A3 browser acceptance proved purpose-first representation, Block selection, Failure behavior, no dependency auto-graph, Mac-wide three-region geometry and 15px visible type floor;
 - all triggered broad gates passed before merge.
 
-Unreachable historical System selectors still inside broad `xizong-presentation.css` are dead migration code, not active owners. Physical deletion is reserved for the bounded cleanup slice after adjacent responsibilities are isolated.
-
 ---
 
 ## Closed Slice 2A — Home
@@ -96,8 +94,6 @@ Closed facts:
 - the first browser-valid layout was rejected after screenshot inspection because it created dead main-area space; the structural layout was revised and re-tested;
 - accepted representative geometry: `876px` current-System main region + `310px` companion; visible type floor `15px`;
 - all triggered broad gates passed before merge.
-
-Old Home selectors in broad `xizong-presentation.css` are now unreachable dead migration code and remain queued for bounded cleanup.
 
 ---
 
@@ -165,39 +161,55 @@ Closed facts:
 
 System Exit / official Question is therefore closed as an architecture slice. Reopen only for a concrete Current Runtime/presentation defect or real learner-U finding; do not add another visual owner.
 
-Unreachable historical later-stage selectors still physically present in broad Xizong styles are cleanup debt only and move to Slice 4.
+---
+
+## Closed Slice 4A — broad closed-surface legacy cleanup
+
+**ACCEPTED / CUT OVER via PR #376 · merge `8e6dfa66`**
+
+Acceptance question:
+
+> Can unreachable Home / retired System Framework / broad System Exit rules be physically removed from `xizong-presentation.css` while preserving Current Block presentation and all accepted learner Runtime behavior?
+
+Closed facts:
+
+- removed `135` lines of unreachable closed-surface presentation debt from broad `xizong-presentation.css`;
+- physically removed retired Home families such as `xzOverview*`, `xzSystemWorkbench`, `xzOpenDomain*`, `xzSystemRow*`, `xizongHomeTools` and `xizongContinue`;
+- physically removed retired System Framework `xv6System*` / old mother-spine-failure/dependency presentation families after `xzSystem*` had become the Current owner;
+- physically removed old broad System Exit presentation families such as `xseCard`, `xseStem`, `xseOptions`, `xseRecall`, `xseNav`, `xseActions`, `xseToolbar` and `xizongRepairInbox`;
+- Current Block presentation in the same broad file was intentionally preserved; Block ownership was not silently migrated;
+- existing Home, System and System Exit ownership validators now require the retired families to remain physically absent rather than merely unreachable;
+- broad presentation CSS was added to the existing Representative, Golden, A2 Functional First and System Exit workflow path filters so future edits cannot bypass those browser regressions;
+- exact accepted head passed Home Workspace, System Workspace, System Exit Workspace, Representative Workspace, Golden Journey, A2 Functional First Journey and Static Web Xizong QA;
+- no Runtime / Learning / Question / Evidence / shared Shell semantics changed.
+
+The remaining known later-stage presentation residue is no longer in broad `xizong-presentation.css`; it is the pre-#374 `.xizongLaterStage` family still physically present inside `xizong-system-workspace.css`.
 
 ---
 
-## Active Slice 4 — Bounded legacy cleanup + gated shared Shell adoption
+## Active Slice 4B — bounded later-stage residue cleanup
 
 **STATE: ACTIVE**
 
-This slice is cleanup/integration only. It must not reopen the accepted System/Home/Memory/System Exit architectures merely because old selectors still exist elsewhere.
+This batch has one acceptance question:
 
-### First action — prove deadness before deletion
+> Can the obsolete `.xizongLaterStage` family be physically removed from `xizong-system-workspace.css` now that Current System Exit uses `xzExitStage` + `xizong-system-exit-workspace.css`, without touching any `xzSystem*` System Framework rule?
 
-Audit broad legacy Xizong selectors against Current DOM for the already-isolated surfaces:
+### Required audit
 
-- System Framework (`xzSystem*` owner already Current);
-- Home (`xzHome*` owner already Current);
-- standalone Memory (`xizong-memory-workspace.css` owner already Current);
-- System Exit / official Question (`xzExit*` + `xizong-system-exit-workspace.css` owner already Current).
+Prove against Current route/component DOM that:
 
-Classify each legacy rule as:
+- current later-stage route root is `xzExitStage`, not `xizongLaterStage`;
+- `xizong-system-exit-workspace.css` owns the current outer stage / Recall / Question / Crosswalk / Repair geometry;
+- `.xizongLaterStage>.xse` and responsive `.xizongLaterStage>summary` rules are unreachable;
+- every `xzSystem*` rule in `xizong-system-workspace.css` remains current and stays untouched;
+- no behavior selector or data attribute is being deleted merely because its old presentation ancestor is dead.
 
-```text
-UNREACHABLE CLOSED-SURFACE DEBT    delete in bounded groups
-STILL-CURRENT BLOCK RULE           preserve
-SHARED / CROSS-SURFACE RULE        preserve unless a Current owner replaces it
-AMBIGUOUS                           do not delete until reachability is proven
-```
-
-Primary cleanup targets may include dead selectors in broad `xizong-presentation.css` and legacy child selectors in `xizong-system-workspace.css`, but file name alone is never evidence that a rule is dead.
+If those conditions hold, delete only the dead `.xizongLaterStage` rule family and advance `validate-xizong-system-exit-style-ownership.mjs` so `xizongLaterStage` must be physically absent from the System workspace stylesheet as well as the DOM.
 
 ### Block boundary
 
-Block has a Current one-screen workspace but has not been admitted into this migration merely for symmetry. Do not delete Block rules because adjacent surfaces now have isolated owners. A Block presentation ownership decision must be explicit and independently accepted.
+Block has a Current one-screen workspace but has not been admitted into this migration merely for symmetry. Do not delete or relocate Block presentation rules because adjacent surfaces are clean. A Block presentation ownership decision must be explicit and independently accepted.
 
 ### Shared Shell gate
 
@@ -209,7 +221,7 @@ if accepted shared Shell is on main
   → adapt only Xizong-local geometry where necessary
 else
   → do not reimplement or locally patch the Shell
-  → continue only the bounded dead-selector cleanup that is independently safe
+  → continue only bounded cleanup that is independently safe
 ```
 
 A shared-shell defect found from Xizong must be routed back to the shared-shell owner rather than fixed with a Xizong fork.
@@ -218,17 +230,16 @@ A shared-shell defect found from Xizong must be routed back to the shared-shell 
 
 At minimum:
 
-- every deleted selector has a demonstrated no-Current-DOM reachability basis;
-- no new visual owner or compatibility stylesheet appears;
+- all deleted later-stage selectors are proven unreachable;
+- no `xzSystem*` Current System Framework presentation changes;
+- no new visual owner or compatibility stylesheet;
 - no Runtime / Learning / Question / Evidence semantics change;
-- Block/current shared rules remain intact unless separately admitted and proven;
-- targeted owner validators remain green;
-- Astro build remains green;
-- representative A1/A2/A3 browser journeys remain green;
-- System Exit dedicated browser acceptance remains green;
-- screenshots are inspected if geometry changes at all;
-- broad Xizong regressions are green on the exact accepted head;
-- shared Shell is consumed only from accepted `main`, never reconstructed here.
+- System and System Exit ownership validators green;
+- Astro build green;
+- System Workspace + System Exit real Chromium gates green;
+- representative/broad regressions green if triggered;
+- screenshots inspected only if any Current geometry changes;
+- exact accepted head `behind_by=0` before merge.
 
 Migration closes only when competing active paths are gone **and** dead migration code is either physically removed or explicitly retained for a named still-current owner.
 
