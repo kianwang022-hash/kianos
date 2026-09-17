@@ -17,6 +17,7 @@ PORT="${KIANOS_PORT:-4321}"
 GIT_BIN="$(command -v git || true)"
 NODE_BIN="$(command -v node || true)"
 NPM_BIN="$(command -v npm || true)"
+LSOF_BIN="$(command -v lsof || true)"
 
 for pair in "git:$GIT_BIN" "node:$NODE_BIN" "npm:$NPM_BIN"; do
   name="${pair%%:*}"
@@ -28,6 +29,33 @@ for pair in "git:$GIT_BIN" "node:$NODE_BIN" "npm:$NPM_BIN"; do
 done
 
 mkdir -p "$HOME/Library/LaunchAgents" "$LOG_DIR"
+DOMAIN="gui/$(id -u)"
+
+# Stop an older managed Current mirror before touching its port or files.
+launchctl bootout "$DOMAIN/$LABEL" >/dev/null 2>&1 || true
+
+# Kian previously used ad-hoc Astro localhost servers. Reclaim the stable Current
+# origin only when the listener is clearly a KianOS Astro process; never kill an
+# unrelated process just because it occupies the requested port.
+if [[ -n "$LSOF_BIN" ]]; then
+  EXISTING_PIDS="$($LSOF_BIN -nP -tiTCP:"$PORT" -sTCP:LISTEN 2>/dev/null || true)"
+  if [[ -n "$EXISTING_PIDS" ]]; then
+    for pid in $EXISTING_PIDS; do
+      command_line="$(ps -p "$pid" -o command= 2>/dev/null || true)"
+      lower_command="$(printf '%s' "$command_line" | tr '[:upper:]' '[:lower:]')"
+      if [[ "$lower_command" == *astro* && "$lower_command" == *kianos* ]]; then
+        echo "Stopping old KianOS Astro listener on :$PORT (pid $pid)"
+        kill "$pid" >/dev/null 2>&1 || true
+      else
+        echo "Port $PORT is already used by another process:" >&2
+        echo "  pid $pid  $command_line" >&2
+        echo "Refusing to kill it. Set KIANOS_PORT to another stable port and rerun." >&2
+        exit 2
+      fi
+    done
+    sleep 1
+  fi
+fi
 
 if [[ ! -e "$MIRROR_DIR" ]]; then
   echo "Cloning dedicated Current mirror → $MIRROR_DIR"
@@ -94,8 +122,6 @@ cat > "$PLIST" <<EOF
 </plist>
 EOF
 
-DOMAIN="gui/$(id -u)"
-launchctl bootout "$DOMAIN/$LABEL" >/dev/null 2>&1 || true
 launchctl bootstrap "$DOMAIN" "$PLIST"
 launchctl kickstart -k "$DOMAIN/$LABEL"
 
