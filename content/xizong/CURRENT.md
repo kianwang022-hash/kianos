@@ -9,9 +9,28 @@ This file owns routing only. It does not own medical Core, lane Learning semanti
 
 ## Lane Work Cursor
 
-**Active lane-level scope:** none — router-only baseline  
-**Blocker:** none at lane-routing level  
-**Next action:** route work to the narrowest Current owner for the actual task.
+**Active lane-level scope:** Xizong learner-facing UI convergence in the current Chat  
+**Blocker:** none in Xizong itself; shared Base Shell / collapsible global `K` rail is currently owned by the parallel English UI Chat and must be consumed from `main`, not reimplemented here  
+**Next action:** audit and converge Xizong-owned learner surfaces only. Do not edit shared Base Shell / global rail / duplicate global navigation in this lane. When English lands the shared Shell on `main`, resync Xizong work and adapt local Xizong geometry to that accepted shared capability.
+
+### UI ownership boundary for the current parallel program
+
+This Xizong UI lane owns only Xizong-specific learner surfaces and Xizong-native geometry.
+
+It may change, when justified:
+
+- Xizong Home / System / Block / Recall / Memory / Question / System Exit presentation;
+- Xizong-specific density, typography, hierarchy and local navigation under the shared UI rules;
+- exact Xizong route/component/style owner where the responsibility is genuinely local.
+
+It must **not** independently change or fork:
+
+- shared Base Shell;
+- global `K` rail / expand-collapse behavior;
+- shared global-navigation destinations;
+- shared UI tokens/primitives when the needed change is not Xizong-specific.
+
+If Xizong reveals a real shared-shell defect, route it to the current shared-shell owner, let that change land on `main`, then continue from the updated main.
 
 For overall Xizong content-program coordination, read `CONTENT_MAINLINE.md` after this file. It coordinates priorities/dependencies only; exact scoped owners remain authoritative.
 
@@ -74,10 +93,13 @@ Important Current boundaries:
 ```text
 static-web/XIZONG_PRODUCT_STATUS.md
 → static-web/PRESENTATION_CONTRACT.md
+→ static-web/UI_STYLE_BRIEF.md for shared visual rules
 → LEARNER_OBJECT_CONTRACT.md when learner-object placement matters
 → projection/PROJECTION_CONTRACT.md when Projection semantics matter
-→ exact Runtime/component only after semantic owners are understood
+→ exact Xizong Runtime/component/style owner only after semantic owners are understood
 ```
+
+For the current parallel UI program, shared Base Shell / global `K` rail implementation is not a Xizong write target; consume it from `main` after the shared-shell owner lands it.
 
 Do not infer Learning semantics from current DOM/CSS. A Runtime mismatch is an implementation defect, not a new Learning rule.
 
@@ -169,12 +191,13 @@ Xizong CURRENT
 → work
 ```
 
-Lane-level learning/product work:
+Lane-level UI/product work:
 
 ```text
 Xizong CURRENT
-→ router above
-→ exact Current owner(s)
+→ XIZONG_PRODUCT_STATUS + PRESENTATION_CONTRACT + UI_STYLE_BRIEF
+→ exact Xizong-owned surface
 → work
 ```
+
 Multiple System Chats may proceed concurrently when write sets and dependencies are independent. Do not read retired snapshots, unrelated Systems, migration history, legacy repositories, or prior Chats by default.
