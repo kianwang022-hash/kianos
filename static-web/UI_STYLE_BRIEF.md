@@ -88,6 +88,18 @@ normal content        regular-to-medium
 secondary             quieter, but still readable and solid
 ```
 
+### CJK width / proportion
+
+Chinese learner-facing typography must feel **broad, full-bodied and stable**. This is a rendered visual requirement, not a numeric-font-weight rule.
+
+Hard rules:
+
+- do not accept a narrow/condensed-looking CJK fallback merely because `font-size` and `font-weight` pass;
+- shared Chinese UI should resolve through the CJK-first family stack before generic system UI fonts;
+- do not use negative letter-spacing on Chinese headings/labels as a default compression technique;
+- actual browser screenshots must verify glyph body/proportion as well as size, weight and contrast;
+- if a CI/browser environment cannot render an adequately full CJK face, that screenshot is not valid Visual evidence for typography acceptance.
+
 ### Typeface roles
 
 Shared chrome and Chinese/UI copy should favor a clean system-sans stack with strong CJK rendering and enough weight/contrast for sustained use.
@@ -130,6 +142,29 @@ When a surface is genuinely dense, modest size reduction may be considered for n
 Whitespace is a tool for grouping and scanning, not an aesthetic target. A deliberately open recall/reveal stage is allowed only when the cognitive action benefits from it, and should not be larger than that purpose requires.
 
 Use horizontal space deliberately: side-by-side context, comparison, full task sets, stable local navigation and information rails are preferred over unused margins.
+
+### Protect vertical working height on Mac
+
+When the main learner object naturally scrolls vertically, vertical viewport height is the scarce resource.
+
+Prefer:
+
+```text
+left/right persistent context
++ dominant vertically scrolling learner surface
++ optional side tools only when useful
+```
+
+over:
+
+```text
+stacked persistent headers
++ method/status/action strips
++ a compressed main learner viewport
++ persistent bottom chrome
+```
+
+A top subject bar may remain shared navigation, but page-local chrome should not keep consuming vertical height. Move durable context/navigation/tooling laterally when that improves the main task, and return the space when the side region has no useful content.
 
 ---
 
@@ -359,7 +394,7 @@ For meaningful learner-facing visual changes:
 1. render a real representative Mac-wide page;
 2. inspect the real screenshot;
 3. check the smallest default-visible learner text;
-4. check font **weight**, not only font size;
+4. check font **weight and actual rendered family/glyph proportion**, not only font size;
 5. check effective information density and wasted space;
 6. check focal priority / visual scan path;
 7. check for SaaS/admin/dashboard smell;
