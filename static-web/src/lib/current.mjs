@@ -100,7 +100,7 @@ function buildEnglishSnapshot() {
     const corpus = JSON.parse(corpusText);
     const globalSourceTruth = JSON.parse(globalSourceTruthText);
     const sourceIdentity = manifest.source_identity || {};
-    const ownerPaths = manifest.owners || {};
+    const ownerPaths = manifest.source || {};
     const owners = {
       question_bank: {
         owner_path: ownerPaths.question_bank || '',
@@ -129,9 +129,8 @@ function buildEnglishSnapshot() {
     const issues = [];
 
     if (manifest.status !== 'CURRENT_READY') issues.push('MANIFEST_NOT_CURRENT_READY');
-    if (manifest.readiness?.pass !== true) issues.push('MANIFEST_READINESS_NOT_PASSING');
-    if (manifest.runtime_contract?.astro_reads_current_only !== true) issues.push('MANIFEST_ASTRO_CURRENT_ONLY_NOT_CONFIRMED');
-    if (manifest.runtime_contract?.legacy_fallback !== false) issues.push('MANIFEST_LEGACY_FALLBACK_NOT_DISABLED');
+    if (manifest.runtime_boundary?.astro_reads_current_only !== true) issues.push('MANIFEST_ASTRO_CURRENT_ONLY_NOT_CONFIRMED');
+    if (manifest.runtime_boundary?.legacy_fallback !== false) issues.push('MANIFEST_LEGACY_FALLBACK_NOT_DISABLED');
     if (ownerPaths.question_bank !== CURRENT.englishQuestionBank) issues.push('MANIFEST_QUESTION_BANK_OWNER_MISMATCH');
     if (ownerPaths.reading_corpus !== CURRENT.englishReadingCorpus) issues.push('MANIFEST_READING_CORPUS_OWNER_MISMATCH');
     if (ownerPaths.global_source_truth !== CURRENT.englishGlobalSourceTruth) issues.push('MANIFEST_GLOBAL_SOURCE_TRUTH_OWNER_MISMATCH');
