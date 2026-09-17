@@ -1,36 +1,34 @@
+import orchestratorCurrent from '../../../EXAM_ORCHESTRATOR_CURRENT.json';
+
 // Cross-subject planning only. EXAM_ORCHESTRATOR_CONTRACT.md owns the policy.
+// EXAM_ORCHESTRATOR_CURRENT.json is a checked derived projection for runtime use,
+// not a second semantic owner.
 // No subject state writer, completion predicate, answer key or mastery ledger.
 export const EXAM_PROFILE_KEY = 'kianos-exam-orchestrator-v1';
 export const SUBJECTS = ['xizong', 'english', 'politics'];
-export const TARGETS = Object.freeze({ xizong: 270, english: 85, politics: 70, total: 425 });
-export const GATES = Object.freeze([
-  { date: '2026-09-27', label: '一轮收口', kind: 'phase' },
-  { date: '2026-10-21', label: '首次正式估分', kind: 'score' },
-  { date: '2026-11-15', label: '第二次估分与调整', kind: 'score' },
-  { date: '2026-12-05', label: '冲刺范围收口', kind: 'score' },
-  { date: '2026-12-20', label: '考试', kind: 'exam' }
-]);
-const PHASES = [
-  { id: 'A', start: '2026-09-16', end: '2026-09-27', label: '一轮收口', roles: ['主推', '保连续', '推进'] },
-  { id: 'B', start: '2026-09-28', end: '2026-10-20', label: '形成分数', roles: ['题目与修补', '完整任务', '一轮推进'] },
-  { id: 'C', start: '2026-10-21', end: '2026-11-15', label: '查缺与巩固', roles: ['按缺口补强', '保持输出', '二轮压缩'] },
-  { id: 'D', start: '2026-11-16', end: '2026-12-04', label: '模拟与输出', roles: ['病例与整卷', '完整输出', '模拟与记忆'] },
-  { id: 'E', start: '2026-12-05', end: '2026-12-20', label: '考前冲刺', roles: ['压缩回忆', '稳定执行', '冲刺转化'] }
-];
-export const REFRESH_WINDOWS = Object.freeze([
-  { id: 'sep', start: '2026-09-26', end: '2026-09-30', label: '准备本年生化／近十年真题资料，进入下一阶段时只补有用变化。' },
-  { id: 'oct', start: '2026-10-20', end: '2026-10-24', label: '准备西综下一阶段更新、政治记忆与时政资料；收到新版后再核对。' },
-  { id: 'case', start: '2026-11-01', end: '2026-11-05', label: '按去年节奏，病例分析／狂背进入补充窗口；不是再开一门课。' },
-  { id: 'mock', start: '2026-11-27', end: '2026-12-01', label: '准备四套卷／外部模拟与肖八等资料；新题先保留未见状态。' },
-  { id: 'sprint', start: '2026-12-04', end: '2026-12-08', label: '核对政治冲刺／肖四资料，只保留考前还能用上的内容。' },
-  { id: 'five', start: '2026-12-16', end: '2026-12-18', label: '留意最终五小时资料；收到后只提取有用增量，不按历史日期假定已发布。' }
-]);
+
+if (orchestratorCurrent?.schema !== 'kianos.exam-orchestrator.current.v1'
+  || orchestratorCurrent?.authority !== 'DERIVED_PROJECTION'
+  || orchestratorCurrent?.source !== 'EXAM_ORCHESTRATOR_CONTRACT.md') {
+  throw new Error('Exam Orchestrator Current projection is invalid or has lost its contract binding.');
+}
+
+const freezeRows = rows => Object.freeze((rows || []).map(row => Object.freeze({
+  ...row,
+  ...(Array.isArray(row.roles) ? { roles: Object.freeze([...row.roles]) } : {})
+})));
+
+export const TARGETS = Object.freeze({ ...orchestratorCurrent.targets });
+export const GATES = freezeRows(orchestratorCurrent.gates);
+const PHASES = freezeRows(orchestratorCurrent.phases);
+export const REFRESH_WINDOWS = freezeRows(orchestratorCurrent.refresh_windows);
+
 const obj = value => value && typeof value === 'object' && !Array.isArray(value);
 const finite = value => typeof value === 'number' && Number.isFinite(value);
 export const validDay = day => typeof day === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(day) && !Number.isNaN(Date.parse(`${day}T00:00:00Z`)) && new Date(`${day}T00:00:00Z`).toISOString().slice(0, 10) === day;
 export const dayDistance = (a, b) => Math.round((Date.parse(`${b}T00:00:00Z`) - Date.parse(`${a}T00:00:00Z`)) / 86400000);
 export const nextDay = (day, n = 1) => new Date(Date.parse(`${day}T00:00:00Z`) + n * 86400000).toISOString().slice(0, 10);
-export const examDay = (now = new Date()) => new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).format(now);
+export const examDay = (now = new Date()) => new Intl.DateTimeFormat('en-CA', { timeZone: orchestratorCurrent.timezone, year: 'numeric', month: '2-digit', day: '2-digit' }).format(now);
 export const formatMinutes = value => value === null ? '待设置' : value === 0 ? '休息' : `${Math.floor(value / 60) ? `${Math.floor(value / 60)}h` : ''}${value % 60 ? `${value % 60}m` : ''}`;
 export function emptyExamProfile() { return { schema: 'kianos.exam.orchestrator.v1', defaultDailyMinutes: null,
   capacityByDay: {}, maintenanceByDay: {}, floorMinutes: null, observations: [], reports: [], gateReports: [], reminders: {} }; }
