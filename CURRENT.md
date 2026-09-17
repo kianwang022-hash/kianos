@@ -9,12 +9,12 @@
 
 ## Root Work Cursor
 
-**Active scope:** Project management stabilization  
-**Current stage:** whole-site delivery、Mission Control / Home、Orchestrator 去重、Lexical UI 小范围证明均已完成  
+**Active scope:** Project management stabilization — English Objective Guide visual proof  
+**Current stage:** Lexical UI proof 已收口；English 经只读债务 / 并行冲突盘点后，只对 Objective Guide 做下一轮小范围 screenshot-driven visual convergence  
 **Blocker:** none  
-**Next action:** 先关闭已被新方案替代的旧混合 PR #355；然后只读检查其余页面的真实 UI 债务和并行分支冲突，选择下一科做同样的小范围收口。不得因为 Lexical 成功就一次性迁移四科。
+**Next action:** 用现有 English Family Coherence 对 Objective Guide 做 1440×900 实图验收，同时锁住正文 ≥17px、目录 ≥16px、去卡片化、无横向溢出和单一 route visual owner；只有实图与既有 English 功能回归均通过后才允许合并。Translation / Writing Guide 与 Reading / Cloze / Part B / Translation / Writing 工作区本轮冻结。
 
-Lexical UI proof evidence:
+Lexical UI proof evidence remains accepted on `main` through PR #361:
 
 - `a / abandon / abroad` 1536×900 real screenshots reviewed;
 - English lexical typography = serif, Chinese / UI = sans;
