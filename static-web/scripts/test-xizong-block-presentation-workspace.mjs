@@ -98,6 +98,7 @@ async function setAuxWeight(page, root, weight) {
     const layout = node?.querySelector('[data-study-layout]');
     return node?.dataset.auxWeight === nextWeight && layout?.dataset.auxWeight === nextWeight;
   }, weight);
+  await sleep(220);
   return geometry(root);
 }
 
