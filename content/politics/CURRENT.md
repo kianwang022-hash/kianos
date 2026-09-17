@@ -3,17 +3,13 @@
 Role: Politics lane Work Cursor + subject router  
 Parent: root `CURRENT.md`
 
-This file is a compact cursor. It does not own Source Truth, subject Acceptance detail, teaching content, learner progress, or the full UI implementation contract.
-
----
+This compact cursor does not own Source Truth, subject Acceptance detail, teaching content, learner progress, or the full UI implementation contract.
 
 ## Lane Work Cursor
 
 **Learning-engineering scope:** none — all five Politics subjects are closed through Evidence.  
 **Learning blocker:** none.  
 **Learning next action:** real Kian learner use; do not manufacture new semantic engineering without a concrete defect.
-
-Frozen learner loop:
 
 ```text
 Orientation / current Natural Unit
@@ -27,99 +23,102 @@ Orientation / current Natural Unit
 
 All five subjects remain `S/K/L/P/R/E PASS; U UNTESTED`.
 
----
+## Explicit Surface Mapping Closure
+
+PR #352 reopened only the earliest responsible Politics representation layer after a real learner-facing defect. Subject Learning Truth remains closed.
+
+```text
+53 chapter Projection owners      ACCOUNTED
+160 Current Natural Unit owners   ACCOUNTED
+151 PASS owners                   EXPLICITLY MAPPED
+9 REFERENCE_ONLY owners           NON-TEACHING
+Projection BLOCKED                0
+Mapped states                     ORIENT / EXTERNAL_LEARN / CLOSE / REPAIR / CONTINUE
+Whole-lane audit                  PASS
+Five-subject relation fidelity    PASS
+Browser acceptance                PASS
+```
+
+```text
+Current knowledge / absorbed Suyi
+→ accepted learning semantics
+→ learner attention hierarchy
+→ explicit Surface Mapping
+→ resolved learner surface plan
+→ faithful Runtime / UI rendering
+```
+
+Surface Mapping owns knowledge grouping, semantic relation type, learner-visible relation text when it is knowledge, semantic zones, and each mapped state's learner payload.
+
+Runtime / UI owns timing, triggers, interaction shell, responsive layout, typography, spacing, alignment and styling. It must not infer learner semantics from Projection shape names, field names, raw teaching fields, legacy DOM, or rendered geometry.
+
+```text
+LABELED_RELATION → Projection owns visible connector text
+ORDER_ONLY       → Projection owns direction/order only; UI invents no connector prose
+```
+
+Mapped Repair has one learner-content writer: resolved `REPAIR`. Evidence decides when Repair opens, not what Repair teaches.
+
+Canonical owner: `SURFACE_MAPPING_CONTRACT.md`.
 
 ## Product / UI Cursor
 
-**Current product task:** `Politics Projection Optimization / Mac-wide Productization Implementation`.
-
-Current state:
+**Current rule:** downstream Politics UI may consume accepted Surface Mapping; it may not recreate Politics semantics in the renderer.
 
 ```text
-UI / product design            FROZEN
-Projection asset compilation   COMPLETE
-53 chapter Projection owners   ACCOUNTED
-160 Current NU owners          ACCOUNTED
-151 PASS / 9 REFERENCE_ONLY    ACCEPTED
-Projection BLOCKED             0
-Xiao1000 learner explanations  PROMOTED — 1148 Current-derived records
-UI implementation              IN PROGRESS — Draft PR #117
-Current bounded slice          Xiao1000 Workbench functional parity
-Learner validation / U         UNTESTED
+Broad Politics UI redesign       FROZEN unless separately authorized
+Projection assets                COMPILED
+Explicit Surface Mapping         ACCEPTED in PR #352
+151 PASS / 9 REFERENCE_ONLY      ACCEPTED
+Xiao1000 Question Truth          UNCHANGED
+Runtime / Evidence / Repair      PRESERVED
+Learner validation / U           UNTESTED
 ```
-
-Current implementation surface:
-
-- Issue #116 owns the full Politics Legacy functional-parity contract;
-- Draft PR #117 is the active overlapping `static-web/**` production slice;
-- the former #115 content-promotion dependency is now closed: the authenticated 1148-record `takeaway + chat_explanation` layer lives at `content/politics/derived/xiao1000-learner-explanations/`;
-- remaining #115 work is downstream exact-ID consumer / browser acceptance only; it does not reopen Politics Learning/Projection or alter Current Xiao1000 Question Truth;
-- full parity, real Mac acceptance and learner `U` are **not** claimed yet.
-
-Hard product chain:
 
 ```text
 Current Content / Learning Logic
-→ accepted compiled Projection
+→ accepted Projection + explicit Surface Mapping
 → existing Runtime / Evidence / Repair / Return
-→ Mac-wide UI optimization / implementation
-→ real browser screenshots
-→ same-slice review / iteration
+→ bounded UI implementation
+→ browser screenshot + same-slice review
 → zero-semantic-diff acceptance
 ```
 
-Normal UI work does **not** reopen S/K/L/P/R/E.
+Normal UI work does not reopen S/K/L/P/R/E. A semantic reopen requires fresh contradictory evidence identifying the earliest responsible owner.
 
-Before changing a local Politics surface:
+Before changing a learner surface:
 
 ```text
 whole learner loop
-→ existing accepted behavior + compiled Projection owner
-→ KEEP / OPTIMIZE / RESTORE_FROM_PROJECTION / DEMOTE
-→ bounded implementation
-→ Mac screenshot + upstream/downstream safety review
+→ exact Surface Mapping owner / state
+→ accepted Runtime / Evidence behavior
+→ bounded visual implementation
+→ browser acceptance
 ```
 
-A redesign/reopen requires fresh contradictory evidence identifying the earliest responsible owner/gate.
+## Productization Read / Handoff
 
----
+1. `CURRENT.md`
+2. `SURFACE_MAPPING_CONTRACT.md`
+3. `LEARNING_CONTRACT.md` + `INTERACTION_CONTRACT.md`
+4. exact chapter `projection/**.projection.json`
+5. `static-web/PRESENTATION_CONTRACT.md` + UI/style preferences
+6. touched Runtime / Evidence / Repair / Return owner
+7. same-slice browser acceptance
 
-## Productization Read / Handoff Path
-
-For Politics UI work, route through:
-
-1. `static-web/POLITICS_PRODUCT_STATUS.md` — full task contract, implementation sequence, acceptance matrix, frozen/open boundary;
-2. `static-web/POLITICS_UI_REVIEW_PROTOCOL.md` — whole-flow / optimization-first review method;
-3. `content/politics/LEARNING_CONTRACT.md` + `INTERACTION_CONTRACT.md`;
-4. `static-web/PRESENTATION_CONTRACT.md` + Kian UI/style preferences;
-5. relevant accepted subject design file;
-6. `content/politics/projection/manifest.json` + exact chapter `*.projection.json`;
-7. only Current refs explicitly selected by that Projection owner;
-8. touched Runtime / Evidence / Repair / Return implementation.
-
-Codex must not rediscover subject grammar from raw chapter JSON or use Legacy archaeology as implementation input except for the bounded historical Workbench reference explicitly authorized by the parity contract.
-
----
+Do not rediscover subject grammar from raw chapter JSON or Legacy archaeology.
 
 ## Subject Router
 
 | Scope | Work Cursor | Acceptance Truth |
 | --- | --- | --- |
-| Marxism | `content/politics/learning/marxism/CURRENT.md` | `content/politics/learning/marxism/ACCEPTANCE.md` |
-| History | `content/politics/learning/history/CURRENT.md` | `content/politics/learning/history/ACCEPTANCE.md` |
-| Mao | `content/politics/learning/mao/CURRENT.md` | `content/politics/learning/mao/ACCEPTANCE.md` |
-| Xi | `content/politics/learning/xi/CURRENT.md` | `content/politics/learning/xi/ACCEPTANCE.md` |
-| Ethics-Law | `content/politics/learning/ethics-law/CURRENT.md` | `content/politics/learning/ethics-law/ACCEPTANCE.md` |
+| Marxism | `learning/marxism/CURRENT.md` | `learning/marxism/ACCEPTANCE.md` |
+| History | `learning/history/CURRENT.md` | `learning/history/ACCEPTANCE.md` |
+| Mao | `learning/mao/CURRENT.md` | `learning/mao/ACCEPTANCE.md` |
+| Xi | `learning/xi/CURRENT.md` | `learning/xi/ACCEPTANCE.md` |
+| Ethics-Law | `learning/ethics-law/CURRENT.md` | `learning/ethics-law/ACCEPTANCE.md` |
 
-```text
-Marxism    S/K/L/P/R/E PASS; U UNTESTED
-History    S/K/L/P/R/E PASS; U UNTESTED
-Mao        S/K/L/P/R/E PASS; U UNTESTED
-Xi         S/K/L/P/R/E PASS; U UNTESTED
-Ethics-Law S/K/L/P/R/E PASS; U UNTESTED
-```
-
----
+All five: `S/K/L/P/R/E PASS; U UNTESTED`.
 
 ## Hard Boundaries
 
@@ -131,40 +130,32 @@ KianOS     orientation / selective Projection / verification / repair companion
 Chat       adaptive semantic repair when earned
 ```
 
-- `Source ownership ≠ Surface ownership`;
-- engineering readiness ≠ learner progress;
-- compiled Projection is the UI representation input; null/empty is not permission to synthesize content;
-- `REFERENCE_ONLY` stays non-teaching payload;
-- `first_round_exact` stays Current-owned;
-- stable correct stays cheap; Wrong/Uncertain opens only the smallest useful repair;
-- first-attempt Evidence is durable and Return semantics must survive UI optimization;
-- Politics Workbench interaction burden is protected; visual modernization must not create a new diagnosis/repair ritual.
-
----
+- `Source ownership ≠ Surface ownership`.
+- Engineering readiness ≠ learner progress.
+- Resolved Surface Mapping is the learner representation input; null/empty is not permission to synthesize content.
+- `REFERENCE_ONLY` stays non-teaching.
+- `first_round_exact` stays Current-owned.
+- Stable correct stays cheap; Wrong/Uncertain opens the smallest useful repair.
+- First-attempt Evidence and Return semantics survive UI optimization.
 
 ## Truth Owners
 
-- Politics integration Acceptance → `content/politics/ACCEPTANCE.md` + local subject `ACCEPTANCE.md`;
-- UI/product task state → `static-web/POLITICS_PRODUCT_STATUS.md`;
-- UI optimization safety method → `static-web/POLITICS_UI_REVIEW_PROTOCOL.md`;
-- full Legacy functional-parity migration contract → Issue #116 + `static-web/POLITICS_LEGACY_FUNCTION_PARITY.md`;
-- derived Projection ledger → `content/politics/projection/manifest.json`;
-- derived Xiao1000 learner explanation owner → `content/politics/derived/xiao1000-learner-explanations/manifest.json`;
-- learner truth / U → real Kian use only.
-
----
+- lane Acceptance → `ACCEPTANCE.md` + local subject `ACCEPTANCE.md`
+- explicit representation → `SURFACE_MAPPING_CONTRACT.md`
+- Projection ledger → `projection/manifest.json`
+- learner Runtime → Politics `static-web/` surfaces consuming resolved mappings
+- Xiao1000 learner explanations → `derived/xiao1000-learner-explanations/manifest.json`
+- learner truth / U → real Kian use only
 
 ## Fresh-Chat Routing
 
 ```text
 Politics CURRENT
-→ learning engineering already closed through E
-→ UI design frozen + Projection assets compiled
-→ Xiao1000 learner explanation content promoted; runtime consumer/browser acceptance remains downstream
-→ active implementation: Draft PR #117 under Issue #116
-→ semantic work: prefer real learner use unless a concrete defect reopens an owner
-→ UI work: Product Status → UI Review Protocol → contracts/design → exact Projection owner → touched Runtime/Evidence
-→ continue same bounded PR when write-set overlaps
-→ Mac screenshot review → zero-semantic-diff closure
-→ after accepted rollout: STOP engineering by default → real Kian use
+→ subject engineering closed through E
+→ explicit Surface Mapping accepted for all 151 PASS owners
+→ UI consumes resolved plans; UI does not author semantic relations
+→ preserve Runtime / Evidence / Repair / Return
+→ semantic work only on concrete reopen evidence
+→ UI work: exact owner/state → bounded implementation → browser acceptance
+→ after accepted rollout: STOP semantic engineering by default → real Kian use
 ```

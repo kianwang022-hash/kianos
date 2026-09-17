@@ -192,15 +192,26 @@ async function c00GoldenScreenshots(page) {
 
   const s01 = workspace.locator('[data-workspace-unit]').nth(0);
   await s01.waitFor({ state: 'visible' });
-  check((await s01.getAttribute('data-politics-representation')) === 'SIMPLE_CHAIN_WHEN_CLEARER', 'c00_s01_simple_chain_exception_visible');
-  check(await s01.locator('.purposeChain').isVisible(), 'c00_s01_purpose_chain_visible');
+  check((await s01.getAttribute('data-explicit-surface-mapping')) === 'v1', 'c00_s01_uses_explicit_surface_mapping');
+  const origin = s01.locator('[data-surface-group="s01-origin-conditions"]');
+  const development = s01.locator('[data-surface-group="s01-development-sequence"]');
+  await origin.waitFor({ state: 'visible' });
+  check((await origin.getAttribute('data-surface-primitive')) === 'PARALLEL_SET', 'c00_s01_origin_conditions_stay_parallel');
+  check((await origin.locator('.sequenceTransition').count()) === 0, 'c00_s01_parallel_conditions_have_no_arrows');
+  check((await development.getAttribute('data-surface-primitive')) === 'DIRECTED_SEQUENCE', 'c00_s01_development_is_directed');
+  check((await development.locator('.sequenceTransition').count()) === 2, 'c00_s01_development_has_exact_two_transitions');
   await page.screenshot({ path: path.join(auditDir, 'marx-c00-s01-orient.png'), fullPage: false });
 
   await workspace.locator('[data-workspace-unit-tab="1"]').click();
   const s02 = workspace.locator('[data-workspace-unit]').nth(1);
   await s02.waitFor({ state: 'visible' });
-  check((await s02.getAttribute('data-politics-representation')) === 'TEXT_DEFAULT', 'c00_s02_text_default_visible');
-  check((await s02.locator('.purposeTextMap').count()) === 2, 'c00_s02_two_readable_text_maps_visible');
+  check((await s02.getAttribute('data-explicit-surface-mapping')) === 'v1', 'c00_s02_uses_explicit_surface_mapping');
+  const characteristics = s02.locator('[data-surface-group="s02-four-characteristics"]');
+  const relations = s02.locator('[data-surface-group="s02-relation-people-practice-development"]');
+  await characteristics.waitFor({ state: 'visible' });
+  check((await characteristics.getAttribute('data-surface-primitive')) === 'PARALLEL_SET', 'c00_s02_characteristics_stay_parallel');
+  check((await relations.getAttribute('data-surface-primitive')) === 'RELATION_SET', 'c00_s02_relations_stay_relation_set');
+  check((await workspace.locator('.goldenGraph').count()) === 0, 'c00_legacy_topology_graph_absent');
   await page.screenshot({ path: path.join(auditDir, 'marx-c00-s02-orient.png'), fullPage: false });
 }
 

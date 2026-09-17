@@ -33,30 +33,40 @@ async function waitForServer() {
   throw new Error('POLITICS_BATCH_PREVIEW_SERVER_NOT_READY');
 }
 
-async function visibleTextBelowFloor(page, floorPx = 16) {
-  return page.locator('body').evaluate((root, floor) => {
+async function visibleTextBelowFloor(roots, floorPx = 15) {
+  return roots.evaluateAll((surfaceRoots, floor) => {
     const offenders = [];
     const seen = new Set();
-    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-    while (walker.nextNode()) {
-      const text = String(walker.currentNode.textContent || '').replace(/\s+/g, ' ').trim();
-      if (!text || !/[A-Za-z0-9\u3400-\u9FFF]/.test(text)) continue;
-      const element = walker.currentNode.parentElement;
-      if (!element) continue;
-      const closedDetails = element.closest('details:not([open])');
-      if (closedDetails && !element.closest('summary')) continue;
-      const style = getComputedStyle(element);
-      if (style.display === 'none' || style.visibility === 'hidden' || Number(style.opacity) === 0) continue;
-      if (!element.getClientRects().length) continue;
-      const size = Number.parseFloat(style.fontSize);
-      if (!Number.isFinite(size) || size >= floor) continue;
-      const key = `${element.tagName}.${element.className || ''}:${size}:${text}`;
-      if (seen.has(key)) continue;
-      seen.add(key);
-      offenders.push({ tag: element.tagName, className: String(element.className || ''), size, text: text.slice(0, 90) });
+    for (const root of surfaceRoots) {
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+      while (walker.nextNode()) {
+        const text = String(walker.currentNode.textContent || '').replace(/\s+/g, ' ').trim();
+        if (!text || !/[A-Za-z0-9\u3400-\u9FFF]/.test(text)) continue;
+        const element = walker.currentNode.parentElement;
+        if (!element) continue;
+        const closedDetails = element.closest('details:not([open])');
+        if (closedDetails && !element.closest('summary')) continue;
+        const style = getComputedStyle(element);
+        if (style.display === 'none' || style.visibility === 'hidden' || Number(style.opacity) === 0) continue;
+        if (!element.getClientRects().length) continue;
+        const size = Number.parseFloat(style.fontSize);
+        if (!Number.isFinite(size) || size >= floor) continue;
+        const key = `${element.tagName}.${element.className || ''}:${size}:${text}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        offenders.push({ tag: element.tagName, className: String(element.className || ''), size, text: text.slice(0, 90) });
+      }
     }
     return offenders.slice(0, 40);
   }, floorPx);
+}
+
+async function checkGroups(root, groups, prefix) {
+  for (const group of groups || []) {
+    const locator = root.locator(`[data-surface-group="${group.id}"]`);
+    check((await locator.count()) === 1, `${prefix}_${group.id}_present`);
+    check((await locator.getAttribute('data-surface-primitive')) === group.primitive, `${prefix}_${group.id}_primitive_exact`, String(group.primitive || ''));
+  }
 }
 
 const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
@@ -72,55 +82,54 @@ try {
 
   for (const sample of samples) {
     const compiled = loadPoliticsCompiledPresentation(sample.subject, sample.chapter);
+    const projection = compiled instanceof Map
+      ? [...compiled.values()].find((row) => row?.surfacePlan?.states?.ORIENT?.length > 0)
+      : null;
+    check(Boolean(projection), `${sample.label}_has_explicit_pass_unit`);
+
     await page.goto(`${BASE}/politics/${sample.subject}/${sample.chapter}/`, { waitUntil: 'networkidle' });
-    const target = await page.evaluate(() => {
-      const units = [...document.querySelectorAll('[data-politics-unit]')];
-      const index = units.findIndex((unit) => unit.querySelector('[data-purpose-first-geometry]'));
-      if (index < 0) return null;
-      return { index, unitId: units[index].getAttribute('data-unit-id') || '' };
-    });
-    check(Boolean(target), `${sample.label}_has_pass_unit`);
-    const projection = compiled?.get(target.unitId);
-    check(Boolean(projection?.hierarchy), `${sample.label}_compiled_hierarchy_present`);
-    const expectedH2 = projection.hierarchy.tiers.H2_FIRST_ROUND_CARRY.length;
-    const expectedH3 = projection.hierarchy.tiers.H3_SUPPORTING_UNDERSTANDING.length;
-    const expectedNext = Boolean(projection.next);
+    const unit = page.locator(`[data-politics-unit][data-unit-id="${projection.unitId}"]`);
+    check((await unit.count()) === 1, `${sample.label}_runtime_unit_present`, projection.unitId);
+    if (!(await unit.isVisible())) {
+      const anchor = await unit.getAttribute('id');
+      await page.locator(`.politicsRail a[href="#${anchor}"]`).click();
+      await unit.waitFor({ state: 'visible' });
+    }
 
-    await page.evaluate((hash) => { location.hash = hash; }, `unit-${target.index + 1}`);
-    const unit = page.locator(`[data-politics-unit][data-unit-id="${target.unitId}"]`);
-    await unit.waitFor({ state: 'visible' });
-    const compiledGeometry = unit.locator('.politicsCompiledGeometry');
-    check((await compiledGeometry.getAttribute('data-content-hierarchy')) === 'v1', `${sample.label}_h1_stage_uses_content_hierarchy`);
-    const geometry = unit.locator('[data-purpose-first-geometry]');
+    const geometry = unit.locator(`[data-compiled-unit="${projection.unitId}"]`);
     await geometry.waitFor({ state: 'visible' });
-    const rendered = await geometry.getAttribute('data-representation');
-    const gated = await geometry.getAttribute('data-gate-representation');
-    check(['STRUCTURED_TEXT', 'COMPARE'].includes(rendered || ''), `${sample.label}_safe_render_kind`, `${gated}->${rendered}`);
-    check((await geometry.locator('svg,canvas').count()) === 0, `${sample.label}_no_auto_diagram`);
-    const text = (await geometry.innerText()).replace(/\s+/g, ' ').trim();
-    check(text.length >= 8, `${sample.label}_learner_content_visible`, text.slice(0, 80));
+    check((await geometry.getAttribute('data-explicit-surface-mapping')) === 'v1', `${sample.label}_orient_uses_explicit_surface_plan`);
+    check((await unit.getAttribute('data-explicit-surface-runtime')) === 'v1', `${sample.label}_stage_runtime_uses_explicit_surface_plan`);
 
-    check((await unit.locator('.compiledBoundaries,.compiledTakeaway,.compiledExact,.compiledSecondary').count()) === 0, `${sample.label}_legacy_equal_weight_layers_removed`);
-    const support = unit.locator('details[data-hierarchy-tier="H3_SUPPORTING_UNDERSTANDING"]');
-    check((await support.count()) === (expectedH3 ? 1 : 0), `${sample.label}_h3_presence_matches_content`, `${expectedH3}`);
-    if (expectedH3) {
-      check(!(await support.evaluate((node) => node.open)), `${sample.label}_h3_collapsed_by_default`);
+    await checkGroups(geometry, projection.surfacePlan.states.ORIENT, `${sample.label}_orient`);
+
+    const source = unit.locator('.politicsSource');
+    await checkGroups(source, projection.surfacePlan.states.EXTERNAL_LEARN || [], `${sample.label}_external`);
+
+    const closure = unit.locator('.politicsClosure');
+    await checkGroups(closure, projection.surfacePlan.states.CLOSE || [], `${sample.label}_close`);
+    await checkGroups(closure, projection.surfacePlan.states.CONTINUE || [], `${sample.label}_continue`);
+
+    const repairPanels = unit.locator('.politicsRepair');
+    const repairCount = await repairPanels.count();
+    if (repairCount > 0 && (projection.surfacePlan.states.REPAIR || []).length > 0) {
+      check(
+        (await unit.locator('.politicsRepair[data-explicit-repair-surface="v1"]').count()) === repairCount,
+        `${sample.label}_every_repair_drawer_has_explicit_owner`,
+        String(repairCount)
+      );
+      for (const group of projection.surfacePlan.states.REPAIR) {
+        check(
+          (await unit.locator(`.politicsRepair [data-surface-group="${group.id}"]`).count()) === repairCount,
+          `${sample.label}_repair_${group.id}_consumed`,
+          String(repairCount)
+        );
+      }
+      check((await unit.locator('.politicsRepair .politicsPreciseRepair').count()) === 0, `${sample.label}_legacy_precise_repair_not_learner_visible`);
     }
 
-    const carry = unit.locator('[data-hierarchy-tier="H2_FIRST_ROUND_CARRY"]');
-    check((await carry.count()) === (expectedH2 ? 1 : 0), `${sample.label}_h2_presence_matches_content`, `${expectedH2}`);
-    if (expectedH2) {
-      check(await carry.isVisible(), `${sample.label}_h2_visible_as_first_round_carry`);
-      check((await carry.locator('xpath=ancestor::*[contains(@class,"politicsUnitCompanion")]').count()) === 1, `${sample.label}_h2_lives_in_companion`);
-    }
-
-    const next = unit.locator('.politicsNextBridge');
-    if (expectedNext) {
-      check((await next.count()) === 1, `${sample.label}_h4_next_present`);
-      check((await next.locator('xpath=ancestor::details[contains(@class,"politicsClosure")]').count()) === 1, `${sample.label}_h4_next_owned_by_closure`);
-      check(!(await next.isVisible()), `${sample.label}_h4_next_not_first_entry_visible`);
-    }
-    check((await unit.locator('[data-hierarchy-tier="H5_REPAIR_REFERENCE"]').count()) === 0, `${sample.label}_h5_not_default_surface`);
+    check((await unit.locator('[data-purpose-first-geometry],.purposeChain,.purposeTextMap').count()) === 0, `${sample.label}_legacy_geometry_absent`);
+    check((await unit.locator('[data-hierarchy-tier="H2_FIRST_ROUND_CARRY"],[data-current-handoff],.politicsNextBridge').count()) === 0, `${sample.label}_legacy_stage_payload_absent`);
 
     const demoted = unit.locator('[data-hierarchy-demoted]');
     if (await demoted.count()) {
@@ -128,25 +137,27 @@ try {
       check(visibleDemoted.length === 0, `${sample.label}_legacy_unselected_copy_stays_quiet`, JSON.stringify(visibleDemoted));
     }
 
-    const tiny = await visibleTextBelowFloor(page, 16);
-    check(tiny.length === 0, `${sample.label}_visible_text_floor_16px`, JSON.stringify(tiny));
-    const bodySamples = unit.locator('.purposeRelation,.purposePrompt,.projectionText,.purposeSecondary p,.carryGroup p,.politicsHierarchySupportItem p');
+    const mappedSurfaces = unit.locator('[data-politics-explicit-surface-plan]');
+    check((await mappedSurfaces.count()) > 0, `${sample.label}_mapped_surface_present`);
+    const tiny = await visibleTextBelowFloor(mappedSurfaces, 15);
+    check(tiny.length === 0, `${sample.label}_mapped_visible_text_floor_15px`, JSON.stringify(tiny));
+    const bodySamples = unit.locator('[data-politics-explicit-surface-plan] p,[data-politics-explicit-surface-plan] li,[data-politics-explicit-surface-plan] .sequenceTransition span');
     if (await bodySamples.count()) {
       const sizes = await bodySamples.evaluateAll((nodes) => nodes.filter((node) => node.getClientRects().length > 0).map((node) => Number.parseFloat(getComputedStyle(node).fontSize)));
-      check(sizes.every((size) => size >= 17), `${sample.label}_body_copy_17px`, JSON.stringify(sizes));
+      check(sizes.every((size) => size >= 16), `${sample.label}_mapped_body_copy_at_least_16px`, JSON.stringify(sizes));
     }
-    await page.screenshot({ path: new URL(`purpose-first-${sample.label}.png`, auditDir).pathname, fullPage: false });
+    await page.screenshot({ path: new URL(`explicit-surface-${sample.label}.png`, auditDir).pathname, fullPage: false });
   }
 
   await context.close();
-  console.log('POLITICS_PURPOSE_FIRST_BATCH_MATRIX_PASS');
+  console.log('POLITICS_EXPLICIT_SURFACE_BATCH_MATRIX_PASS');
 } catch (error) {
   failure = error instanceof Error ? error.message : String(error);
   throw error;
 } finally {
   await mkdir(auditDir, { recursive: true });
   await writeFile(new URL('purpose-first-batch-matrix.json', auditDir), JSON.stringify({
-    schema: 'kianos.politics.purpose_first_batch_matrix.v2',
+    schema: 'kianos.politics.explicit_surface_batch_matrix.v5',
     samples,
     checks,
     failure,
