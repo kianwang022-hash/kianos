@@ -10,9 +10,15 @@ import {
   setStudyTimerContext,
   touchStudyTimer
 } from './studyTimer.mjs';
+import {
+  STUDY_TIMER_REVIEW_KEY,
+  captureStudyTimerRuntimeGap,
+  readPendingStudyTimerReviews,
+  resolveStudyTimerReview
+} from './studyTimerReview.mjs';
 
 const CHANGE_EVENT = 'kianos:study-timer-change';
-const STORAGE_KEYS = new Set(['kianos-study-timer-state-v2', 'kianos-study-timer-ledger-v2']);
+const STORAGE_KEYS = new Set(['kianos-study-timer-state-v2', 'kianos-study-timer-ledger-v2', STUDY_TIMER_REVIEW_KEY]);
 
 function emit(detail = {}) {
   window.dispatchEvent(new CustomEvent(CHANGE_EVENT, { detail }));
@@ -26,7 +32,14 @@ export function initStudyTimerRuntime({ base = import.meta.env.BASE_URL } = {}) 
   if (typeof window === 'undefined' || !window.localStorage) return null;
   const storage = window.localStorage;
 
+  const captureGap = (reason = 'runtime-gap') => {
+    const review = captureStudyTimerRuntimeGap(storage, Date.now());
+    if (review) emit({ reason, review });
+    return review;
+  };
+
   const applyRouteContext = (source = 'route') => {
+    captureGap(`${source}-gap-check`);
     const context = currentContext(base);
     if (!context) return readStudyTimerState(storage);
     const state = setStudyTimerContext(storage, context, Date.now(), { source });
@@ -47,10 +60,11 @@ export function initStudyTimerRuntime({ base = import.meta.env.BASE_URL } = {}) 
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible' && document.hasFocus()) applyRouteContext('visible-focus');
     // Intentionally no auto-pause when hidden: MarginNote / iPad study remains part of
-    // the current subject until Kian manually pauses or switches subject.
+    // the current subject while the runtime stays alive.
   });
 
   const heartbeat = window.setInterval(() => {
+    captureGap('heartbeat-gap-check');
     const state = touchStudyTimer(storage, Date.now());
     emit({ reason: 'heartbeat', state });
   }, 60_000);
@@ -59,10 +73,30 @@ export function initStudyTimerRuntime({ base = import.meta.env.BASE_URL } = {}) 
     if (event.key && STORAGE_KEYS.has(event.key)) emit({ reason: 'storage' });
   });
 
+  const read = (now = Date.now()) => {
+    const model = buildStudyTimerReadModel(storage, now);
+    return {
+      ...model,
+      reviewCandidates: [...readPendingStudyTimerReviews(storage), ...model.reviewCandidates]
+    };
+  };
+
+  const packet = (options = {}) => {
+    const result = buildDailyStudyTimePacket(storage, options);
+    return {
+      ...result,
+      timer: {
+        ...result.timer,
+        review_candidates: [...readPendingStudyTimerReviews(storage), ...(result.timer?.review_candidates || [])]
+      }
+    };
+  };
+
   const api = {
-    read: (now = Date.now()) => buildStudyTimerReadModel(storage, now),
-    packet: (options = {}) => buildDailyStudyTimePacket(storage, options),
+    read,
+    packet,
     pause: (now = Date.now()) => {
+      captureStudyTimerRuntimeGap(storage, now);
       const state = pauseStudyTimer(storage, now);
       emit({ reason: 'manual-pause', state });
       return state;
@@ -73,6 +107,7 @@ export function initStudyTimerRuntime({ base = import.meta.env.BASE_URL } = {}) 
       return state;
     },
     switchSubject: (subject, now = Date.now()) => {
+      captureStudyTimerRuntimeGap(storage, now);
       const routeContext = currentContext(base);
       const context = routeContext?.subject === subject
         ? routeContext
@@ -93,6 +128,11 @@ export function initStudyTimerRuntime({ base = import.meta.env.BASE_URL } = {}) 
       const session = editStudySession(storage, sessionId, patch);
       emit({ reason: 'session-correction', session });
       return session;
+    },
+    resolveReview: (reviewId, resolution) => {
+      const review = resolveStudyTimerReview(storage, reviewId, resolution);
+      emit({ reason: 'review-resolution', review });
+      return review;
     },
     refreshContext: () => applyRouteContext('manual-refresh-context'),
     destroy: () => {
