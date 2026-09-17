@@ -1,0 +1,50 @@
+name: Home Approved UI
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/home-approved-ui.yml'
+      - 'static-web/src/pages/index.astro'
+      - 'static-web/src/styles/home-approved.css'
+      - 'static-web/scripts/capture-home-approved-ui.mjs'
+      - 'static-web/src/components/ExamOrchestratorHome.astro'
+      - 'static-web/src/components/XizongHomeTools.astro'
+      - 'static-web/src/components/PoliticsHomeTools.astro'
+      - 'static-web/src/components/EnglishResume.astro'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install site dependencies
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+      - name: Build learner site
+        working-directory: static-web
+        run: npm run build
+      - name: Install browser
+        working-directory: static-web
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Capture approved Home candidate
+        working-directory: static-web
+        run: node scripts/capture-home-approved-ui.mjs
+      - name: Upload Home screenshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: home-approved-ui
+          path: |
+            static-web/.qa/home-approved-wide.png
+            static-web/.qa/home-approved-browser.json
+          if-no-files-found: warn
