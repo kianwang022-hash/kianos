@@ -9,7 +9,7 @@ const auditDir = path.resolve(process.cwd(), '.qa');
 fs.mkdirSync(auditDir, { recursive: true });
 const reportPath = path.join(auditDir, 'xizong-representative-workspace.json');
 const report = {
-  schema: 'kianos.xizong.representative_workspace.v1',
+  schema: 'kianos.xizong.representative_workspace.v2',
   started_at: new Date().toISOString(),
   evidence_class: 'EXECUTED_BROWSER_ENGINEERING_EVIDENCE_NOT_REAL_LEARNER_U',
   representatives: [],
@@ -22,11 +22,19 @@ const check = (condition, name, detail = '') => {
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const representatives = [
-  { lane: 'A1', system: 'circulation', block: 'b02' },
-  { lane: 'A2', system: 'respiratory', block: 'r08' },
-  { lane: 'A3', system: 'urinary', block: 'b01' },
-  { lane: 'B', system: 'digestive-metabolic-endocrine-tumor', block: 'b01' },
-  { lane: 'C', system: 'hematology-immunity-infection', block: 'b01' }
+  { lane: 'A1', route: '/xizong/circulation/b02/', evidenceRole: 'CURRENT_PROJECTED_ROUTE' },
+  { lane: 'A2', route: '/xizong/respiratory/r08/', evidenceRole: 'CURRENT_PROJECTED_ROUTE' },
+  { lane: 'A3', route: '/xizong/urinary/b01/', evidenceRole: 'CURRENT_PROJECTED_ROUTE' },
+  {
+    lane: 'B', route: '/qa/xizong-workspace/b/', evidenceRole: 'QA_TOPOLOGY_COMPATIBILITY_ONLY',
+    expectedEntryStage: 'logic_group',
+    authorityRef: 'b-digestive-metabolic-endocrine-tumor-learning.json#surface_handoff_contract'
+  },
+  {
+    lane: 'C', route: '/qa/xizong-workspace/c/', evidenceRole: 'QA_TOPOLOGY_COMPATIBILITY_ONLY',
+    expectedEntryStage: 'source_contact',
+    authorityRef: 'c-hematology-immunity-infection-learning.json#surface_handoff_contract'
+  }
 ];
 
 async function waitForServer() {
@@ -41,8 +49,7 @@ async function waitForServer() {
 }
 
 async function resetRoute(page, item) {
-  const route = `/xizong/${item.system}/${item.block}/`;
-  await page.goto(`${BASE}${route}`, { waitUntil: 'domcontentloaded' });
+  await page.goto(`${BASE}${item.route}`, { waitUntil: 'domcontentloaded' });
   await page.evaluate(() => {
     for (const key of Object.keys(localStorage)) if (key.includes('xizong')) localStorage.removeItem(key);
     sessionStorage.clear();
@@ -51,7 +58,7 @@ async function resetRoute(page, item) {
   const root = page.locator('[data-xizong-v6-block]');
   await root.waitFor({ state: 'visible' });
   await page.waitForFunction(() => document.querySelector('[data-xizong-v6-block]')?.classList.contains('xv6BlockWorkspaceShell'));
-  return { root, route };
+  return root;
 }
 
 async function activeStage(root) {
@@ -70,13 +77,15 @@ async function waitForStageChange(page, root, previous) {
   return activeStage(root);
 }
 
-async function advanceToRecall(page, root, lane) {
+async function advanceToRecall(page, root, item) {
+  const { lane } = item;
   let stage = await activeStage(root);
   check(stage === 'block_learn', `${lane}_starts_at_block_learn`, stage);
 
   await root.locator('[data-stage-next="logic_group"]').click();
   stage = await waitForStageChange(page, root, 'block_learn');
   check(['source_contact', 'logic_group', 'kp_learn'].includes(stage), `${lane}_current_topology_is_supported`, stage);
+  if (item.expectedEntryStage) check(stage === item.expectedEntryStage, `${lane}_accepted_topology_entry_stage`, stage);
 
   if (stage === 'source_contact') {
     const companion = root.locator('[data-learner-kp-companion="source_contact"]');
@@ -121,9 +130,9 @@ try {
   const page = await context.newPage();
 
   for (const item of representatives) {
-    const { root, route } = await resetRoute(page, item);
+    const root = await resetRoute(page, item);
     const payloadNode = page.locator('[data-xizong-learner-object-payload]');
-    check(await payloadNode.count() === 1, `${item.lane}_learner_object_payload_unique`, route);
+    check(await payloadNode.count() === 1, `${item.lane}_learner_object_payload_unique`, item.route);
     const learner = JSON.parse((await payloadNode.textContent()) || '{}');
     check(learner?.schema === 'kianos.xizong.learner_object.v1', `${item.lane}_learner_object_schema`, learner?.schema || '');
     check(Array.isArray(learner?.kps) && learner.kps.length > 0, `${item.lane}_learner_object_has_kps`, String(learner?.kps?.length || 0));
@@ -131,14 +140,25 @@ try {
 
     check((await root.getAttribute('data-representation-gate')) === 'kianos.xizong.representation.v1', `${item.lane}_representation_gate_active`);
     check(await root.locator('[data-xizong-aux-surface]').count() === 1, `${item.lane}_dynamic_aux_surface_unique`);
-    const framework = root.locator('[data-xizong-cognitive-projection]');
-    check(await framework.count() === 1, `${item.lane}_human_framework_unique`);
-    check(!(await framework.first().evaluate((node) => node.hasAttribute('open'))), `${item.lane}_framework_compact_by_default`);
-    check(await page.locator('[data-xizong-legacy-crosswalk-bridge]').evaluate((node) => node.hasAttribute('hidden')), `${item.lane}_crosswalk_query_only`);
-    check(await page.locator('.xv6MemoryReview').count() === 0, `${item.lane}_legacy_after_learn_absent`);
-    check(await page.locator('[data-xizong-memory-release-bridge]').evaluate((node) => node.hasAttribute('hidden')), `${item.lane}_standalone_memory_release_bridge_hidden`);
     check(await root.locator('[data-xizong-group-visuals]').count() === 0, `${item.lane}_legacy_visual_owner_absent`);
     check(await root.locator('[data-kp-precision]').count() === 0, `${item.lane}_legacy_precision_owner_absent`);
+
+    if (item.evidenceRole === 'CURRENT_PROJECTED_ROUTE') {
+      const framework = root.locator('[data-xizong-cognitive-projection]');
+      check(await framework.count() === 1, `${item.lane}_human_framework_unique`);
+      check(!(await framework.first().evaluate((node) => node.hasAttribute('open'))), `${item.lane}_framework_compact_by_default`);
+      check(await page.locator('[data-xizong-legacy-crosswalk-bridge]').evaluate((node) => node.hasAttribute('hidden')), `${item.lane}_crosswalk_query_only`);
+      check(await page.locator('.xv6MemoryReview').count() === 0, `${item.lane}_legacy_after_learn_absent`);
+      check(await page.locator('[data-xizong-memory-release-bridge]').evaluate((node) => node.hasAttribute('hidden')), `${item.lane}_standalone_memory_release_bridge_hidden`);
+    } else {
+      const fixture = page.locator('[data-xizong-qa-topology-fixture]');
+      check(await fixture.count() === 1, `${item.lane}_qa_fixture_explicitly_marked`);
+      check((await fixture.getAttribute('data-lane')) === item.lane, `${item.lane}_qa_fixture_lane_bound`);
+      check((await fixture.getAttribute('data-authority-ref') || '').includes(item.authorityRef), `${item.lane}_qa_fixture_learning_authority_bound`);
+      check(item.route.startsWith('/qa/'), `${item.lane}_qa_fixture_not_published_as_learner_route`, item.route);
+      check(await page.locator('[data-xizong-legacy-crosswalk-bridge]').count() === 0, `${item.lane}_qa_fixture_does_not_fake_crosswalk_owner`);
+      check(await page.locator('[data-xizong-memory-release-bridge]').count() === 0, `${item.lane}_qa_fixture_does_not_fake_memory_release`);
+    }
 
     const geometry = await root.evaluate((node) => {
       const left = node.querySelector('.portedStudyOutline')?.getBoundingClientRect().width || 0;
@@ -158,7 +178,7 @@ try {
     check(geometry.bottom <= geometry.viewport + 2, `${item.lane}_workspace_fits_viewport`, JSON.stringify(geometry));
     check(geometry.pageScrollHeight <= geometry.pageClientHeight + 4, `${item.lane}_no_outer_endless_scroll`, JSON.stringify(geometry));
 
-    await advanceToRecall(page, root, item.lane);
+    await advanceToRecall(page, root, item);
     await root.locator('[data-kp-recall-card]:not([hidden])').waitFor({ state: 'visible' });
     await page.waitForFunction(() => document.querySelector('[data-xizong-v6-block]')?.getAttribute('data-aux-weight') === 'none');
     check(await root.locator('[data-kp-recall-card]:not([hidden]) [data-kp-answer]:visible').count() === 0, `${item.lane}_recall_front_answer_hidden`);
@@ -171,16 +191,17 @@ try {
 
     report.representatives.push({
       lane: item.lane,
-      route,
+      route: item.route,
+      evidence_role: item.evidenceRole,
       kp_count: learner.kps.length,
       logic_group_count: learner.logicGroups.length,
-      entry_topology: learner?.learningTopology?.kind || learner?.topology?.kind || null,
       status: 'PASS'
     });
   }
 
   report.finished_at = new Date().toISOString();
   report.status = 'PASS';
+  report.acceptance_note = 'B/C rows are QA topology compatibility evidence only; they do not claim Projection acceptance or learner readiness.';
   fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
   console.log('XIZONG_REPRESENTATIVE_WORKSPACE_PASS');
   await context.close();
