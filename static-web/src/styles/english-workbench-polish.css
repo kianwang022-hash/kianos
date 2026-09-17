@@ -1,0 +1,516 @@
+/* English visual convergence — presentation only.
+   Current learning/runtime/evidence semantics remain owned by their existing modules. */
+
+body#kianos-workspace.uiEnglish {
+  --english-ui-font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+  --english-reading-font: "Iowan Old Style", Charter, "Palatino Linotype", Palatino, Georgia, serif;
+  --study-font: var(--english-ui-font);
+  --study-canvas: #f6f7f9;
+  --study-surface: #ffffff;
+  --study-surface-muted: #f8fafc;
+  --study-ink: #1b2733;
+  --study-muted: #647384;
+  --study-faint: #8793a0;
+  --study-line: #e1e6eb;
+  --study-line-strong: #ccd5de;
+  --study-green: #356a9a;
+  --study-green-2: #557fa8;
+  --study-green-soft: #edf3f8;
+  --study-shadow: 0 12px 34px rgba(29, 43, 58, .055);
+  background: var(--study-canvas);
+  color: var(--study-ink);
+  font-family: var(--english-ui-font);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Product chrome: quieter, smaller, closer to a native study app. */
+body#kianos-workspace.uiEnglish .productBar {
+  min-height: 58px;
+  padding: 0 22px;
+  border-bottom-color: #e4e8ed;
+  background: rgba(250, 251, 252, .94);
+  box-shadow: 0 1px 0 rgba(20, 32, 44, .02);
+  backdrop-filter: blur(18px) saturate(145%);
+}
+body#kianos-workspace.uiEnglish .productBrandMark {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: #315f89;
+  box-shadow: none;
+}
+body#kianos-workspace.uiEnglish .productBrandCopy strong { font-size: 14px; font-weight: 720; }
+body#kianos-workspace.uiEnglish .productBrandCopy small { color: #929ba5; font-size: 8px; letter-spacing: .08em; }
+body#kianos-workspace.uiEnglish .productNav {
+  gap: 2px;
+  padding: 3px;
+  border-color: #e2e7ec;
+  border-radius: 9px;
+  background: #f3f5f7;
+}
+body#kianos-workspace.uiEnglish .productNavItem {
+  min-width: 88px;
+  padding: 6px 11px;
+  border-radius: 7px;
+  color: #657383;
+  font-size: 12px;
+  font-weight: 650;
+}
+body#kianos-workspace.uiEnglish .productNavItem.active {
+  color: #315f89;
+  box-shadow: 0 1px 3px rgba(31, 47, 64, .07);
+}
+body#kianos-workspace.uiEnglish .sourceDock>summary {
+  min-height: 32px;
+  border-color: #dde3e9;
+  border-radius: 8px;
+  color: #6c7884;
+  font-size: 10px;
+}
+body#kianos-workspace.uiEnglish .englishCanvas {
+  width: calc(100% - 28px);
+  max-width: none;
+  padding-top: 10px;
+  padding-bottom: 26px;
+}
+
+/* English hub: same information, less dashboard/card feeling. */
+body#kianos-workspace.uiEnglish .englishOverview { padding-top: 10px; padding-bottom: 16px; }
+body#kianos-workspace.uiEnglish .englishOverview h1 {
+  color: #1b2a39;
+  font-size: clamp(30px, 3vw, 39px);
+  font-weight: 680;
+  letter-spacing: -.035em;
+}
+body#kianos-workspace.uiEnglish .englishOverview p { color: #718092; font-size: 14px; line-height: 1.65; }
+body#kianos-workspace.uiEnglish .englishCapabilityLayout {
+  border-color: #dde3e9;
+  border-radius: 14px;
+  box-shadow: var(--study-shadow);
+}
+body#kianos-workspace.uiEnglish .englishCapabilityGroup { padding-top: 18px; padding-bottom: 24px; }
+body#kianos-workspace.uiEnglish .englishCapabilityLead h2,
+body#kianos-workspace.uiEnglish .englishCapabilityRoutes>a strong { color: #24384c; font-weight: 660; }
+body#kianos-workspace.uiEnglish .englishCapabilityRoutes>a:hover { background: #fbfcfd; }
+body#kianos-workspace.uiEnglish .englishCapabilityRoutes>a:hover strong { text-decoration: none; color: #315f89; }
+
+/* Shared runtime header: one compact information strip instead of another hero card. */
+body#kianos-workspace.uiEnglish :is(.portedReadingSession,.clozeRuntime,.readingBRuntime,.translationRuntime,.writingRuntime) { gap: 7px; }
+body#kianos-workspace.uiEnglish :is(.portedReadingSessionHeader,.clozeRuntimeHeader,.readingBHeader,.translationHeader,.writingRuntimeHeader) {
+  position: static;
+  min-height: 52px;
+  padding: 7px 4px 11px;
+  border: 0;
+  border-bottom: 1px solid #dde3e9;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+body#kianos-workspace.uiEnglish :is(.portedReadingSessionHeader,.clozeRuntimeHeader,.readingBHeader,.translationHeader,.writingRuntimeHeader) :is(h1,h2) {
+  margin: 0;
+  color: #1d2d3d;
+  font-size: 20px;
+  font-weight: 670;
+  letter-spacing: -.025em;
+}
+body#kianos-workspace.uiEnglish :is(.portedReadingSessionHeader,.clozeRuntimeHeader,.readingBHeader,.translationHeader,.writingRuntimeHeader)>div>span,
+body#kianos-workspace.uiEnglish .portedReadingHeaderCenter>span {
+  color: #5d7894;
+  font-size: 9px;
+  font-weight: 720;
+  letter-spacing: .075em;
+  text-transform: uppercase;
+}
+body#kianos-workspace.uiEnglish :is(.portedReadingSessionHeader,.translationHeader,.writingRuntimeHeader)>a {
+  border: 0;
+  background: transparent;
+  color: #667789;
+  font-size: 11px;
+  font-weight: 620;
+  text-decoration: none;
+}
+body#kianos-workspace.uiEnglish :is(.portedReadingHeaderActions,.translationHeader nav,.writingRuntimeHeader nav) :is(button,a,span) {
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 620;
+}
+
+/* Reading A — article first, controls second. */
+body#kianos-workspace.uiEnglish .portedReadingQuestionNav {
+  gap: 4px;
+  padding: 0 0 7px;
+  border: 0;
+  border-bottom: 1px solid #e2e7ec;
+  border-radius: 0;
+  background: transparent;
+}
+body#kianos-workspace.uiEnglish .portedReadingQuestionNav button {
+  width: 38px;
+  height: 30px;
+  border: 0;
+  border-radius: 6px;
+  color: #778494;
+  font-size: 11px;
+  font-weight: 650;
+}
+body#kianos-workspace.uiEnglish .portedReadingQuestionNav button.active {
+  border: 0;
+  background: #eaf1f7;
+  color: #315f89;
+  box-shadow: none;
+}
+body#kianos-workspace.uiEnglish .portedReadingColumns {
+  grid-template-columns: minmax(0, 1.18fr) minmax(430px, .82fr);
+  gap: 0;
+  height: calc(100dvh - 164px);
+  min-height: 620px;
+  overflow: hidden;
+  border: 1px solid #dce2e8;
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 14px 36px rgba(32, 46, 61, .045);
+}
+body#kianos-workspace.uiEnglish .portedReadingPassage {
+  padding: 22px 42px 70px;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+  scrollbar-gutter: stable;
+}
+body#kianos-workspace.uiEnglish .portedReadingPassage>header { display: none; }
+body#kianos-workspace.uiEnglish .portedReadingAnnotate {
+  top: 0;
+  margin: -8px -10px 18px;
+  padding: 6px 8px;
+  border-bottom-color: #edf0f3;
+  background: rgba(255,255,255,.94);
+  box-shadow: none;
+}
+body#kianos-workspace.uiEnglish .portedReadingAnnotate>span { color: #83909d; font-size: 8px; letter-spacing: .06em; }
+body#kianos-workspace.uiEnglish .portedReadingAnnotate button {
+  min-height: 25px;
+  padding: 3px 7px;
+  border-color: #e1e6eb;
+  border-radius: 6px;
+  color: #68788a;
+  font-size: 9px;
+  background: #fff;
+}
+body#kianos-workspace.uiEnglish .portedReadingAnnotate small { color: #97a1ab; font-size: 9px; }
+body#kianos-workspace.uiEnglish .portedReadingPassage p {
+  max-width: 43em;
+  margin: 0 auto 1.12em;
+  color: #202a34;
+  font-family: var(--english-reading-font);
+  font-size: clamp(18px, 1.28vw, 20px);
+  font-weight: 400;
+  line-height: 1.78;
+  letter-spacing: .003em;
+  text-wrap: pretty;
+  hanging-punctuation: first last;
+}
+body#kianos-workspace.uiEnglish .portedReadingQuestions {
+  display: block;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 0;
+  border-left: 1px solid #e1e6eb;
+  border-radius: 0;
+  background: #fff;
+  scrollbar-gutter: stable;
+}
+body#kianos-workspace.uiEnglish .portedReadingQuestion {
+  min-height: 0;
+  padding: 21px 24px 23px;
+  border-bottom: 1px solid #edf0f3;
+  background: #fff;
+  scroll-margin-top: 12px;
+}
+body#kianos-workspace.uiEnglish .portedReadingQuestion:last-of-type { border-bottom: 0; }
+body#kianos-workspace.uiEnglish .portedReadingQuestion.is-current {
+  background: #fbfcfe;
+  box-shadow: inset 2px 0 #5a83aa;
+}
+body#kianos-workspace.uiEnglish .portedReadingQuestion>header { margin-bottom: 10px; }
+body#kianos-workspace.uiEnglish .portedReadingQuestion>header>span { color: #6684a2; font-size: 9px; font-weight: 720; letter-spacing: .07em; }
+body#kianos-workspace.uiEnglish .portedReadingQuestion>p {
+  margin: 0 0 13px;
+  color: #253444;
+  font-family: var(--english-ui-font);
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.52;
+}
+body#kianos-workspace.uiEnglish .portedUncertain {
+  padding: 4px 7px;
+  border-color: #e0e5ea;
+  border-radius: 6px;
+  color: #87929d;
+  font-size: 8px;
+  background: #fff;
+}
+body#kianos-workspace.uiEnglish .portedReadingOptions { gap: 6px; }
+body#kianos-workspace.uiEnglish .portedReadingOptions button {
+  grid-template-columns: 27px minmax(0, 1fr);
+  gap: 9px;
+  padding: 9px 10px;
+  border: 1px solid #e1e6eb;
+  border-radius: 8px;
+  background: #fff;
+  color: #3a4856;
+  box-shadow: none;
+  transition: border-color .12s ease, background .12s ease, transform .12s ease;
+}
+body#kianos-workspace.uiEnglish .portedReadingOptions button:hover { border-color: #bfcbd6; background: #fbfcfd; }
+body#kianos-workspace.uiEnglish .portedReadingOptions button b {
+  width: 25px;
+  height: 25px;
+  border: 1px solid #e0e6eb;
+  border-radius: 6px;
+  background: #f6f8fa;
+  color: #6c7d8e;
+  font-family: var(--english-ui-font);
+  font-size: 11px;
+  font-weight: 700;
+}
+body#kianos-workspace.uiEnglish .portedReadingOptions button span {
+  color: #3a4652;
+  font-family: var(--english-ui-font);
+  font-size: 15px;
+  line-height: 1.5;
+}
+body#kianos-workspace.uiEnglish .portedReadingOptions button.selected {
+  border-color: #7f9fbd;
+  background: #edf4fa;
+  box-shadow: inset 2px 0 #557fa8;
+}
+body#kianos-workspace.uiEnglish .portedReadingQuestionFooter {
+  position: sticky;
+  bottom: 0;
+  padding: 8px 12px;
+  border-top-color: #e5e9ed;
+  background: rgba(248,250,252,.96);
+  backdrop-filter: blur(10px);
+}
+body#kianos-workspace.uiEnglish .portedReadingHistory,
+body#kianos-workspace.uiEnglish .portedReadingSource { margin-top: 1px; border-color: #e3e8ed; background: transparent; }
+
+/* Cloze — paper on the left, compact answer matrix on the right. */
+body#kianos-workspace.uiEnglish .clozeLayout {
+  grid-template-columns: minmax(0, 1.04fr) minmax(500px, .96fr);
+  gap: 0;
+  height: calc(100dvh - 126px);
+  min-height: 620px;
+  overflow: hidden;
+  border: 1px solid #dce2e8;
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 14px 36px rgba(32,46,61,.045);
+}
+body#kianos-workspace.uiEnglish .clozePassage,
+body#kianos-workspace.uiEnglish .clozeDecision {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+body#kianos-workspace.uiEnglish .clozePassage {
+  padding: 30px 40px 60px;
+  background: #fff;
+}
+body#kianos-workspace.uiEnglish .clozePassage header { background: #fff; }
+body#kianos-workspace.uiEnglish .clozePassage p {
+  color: #222d37;
+  font-family: var(--english-reading-font);
+  font-size: 18.5px;
+  line-height: 1.8;
+}
+body#kianos-workspace.uiEnglish .clozeDecision { border-left: 1px solid #e1e6eb; background: #fff; }
+body#kianos-workspace.uiEnglish .clozeDecisionTop { border-bottom-color: #e7ebef; background: rgba(255,255,255,.96); }
+body#kianos-workspace.uiEnglish .clozeQuestion { border-bottom-color: #edf0f3; }
+body#kianos-workspace.uiEnglish .clozeOptions button { border-radius: 7px; }
+body#kianos-workspace.uiEnglish .clozeOptions button:hover { background: #f8fafc; border-color: #d9e0e6; }
+
+/* Reading B — remove the redundant directions card; task geometry already carries the rule. */
+body#kianos-workspace.uiEnglish .readingBDirections { display: none !important; }
+body#kianos-workspace.uiEnglish :is(.readingBLayout,.readingBOrderingLayout) {
+  gap: 0;
+  min-height: 620px;
+  height: calc(100dvh - 126px);
+  overflow: hidden;
+  border: 1px solid #dce2e8;
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 14px 36px rgba(32,46,61,.045);
+}
+body#kianos-workspace.uiEnglish :is(.readingBMaterial,.readingBCandidates,.readingBMap) {
+  border-radius: 0;
+  box-shadow: none;
+}
+body#kianos-workspace.uiEnglish .readingBMaterial {
+  padding: 26px 34px 56px;
+  border: 0;
+  background: #fff;
+}
+body#kianos-workspace.uiEnglish .readingBMaterial>p,
+body#kianos-workspace.uiEnglish .readingBMaterial [data-objective-material-block] {
+  color: #222d37;
+  font-family: var(--english-reading-font);
+  font-size: 18px;
+  line-height: 1.78;
+}
+body#kianos-workspace.uiEnglish .readingBMap { border-left: 1px solid #e1e6eb; background: #fff; }
+body#kianos-workspace.uiEnglish .readingBCandidates { border-color: #e6eaee; background: #fbfcfd; }
+body#kianos-workspace.uiEnglish .readingBCandidates p { border-color: #e7ebef; background: #fff; }
+
+/* Translation — calm source pane + writing pane, not stacked dashboard cards. */
+body#kianos-workspace.uiEnglish .translationColumns {
+  grid-template-columns: minmax(0, .96fr) minmax(520px, 1.04fr);
+  gap: 0;
+  min-height: 640px;
+  height: calc(100dvh - 126px);
+  overflow: hidden;
+  border: 1px solid #dce2e8;
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 14px 36px rgba(32,46,61,.045);
+}
+body#kianos-workspace.uiEnglish .translationSource,
+body#kianos-workspace.uiEnglish .translationWork {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+body#kianos-workspace.uiEnglish .translationSource {
+  padding: 28px 34px 54px;
+  background: #fbfcfd;
+}
+body#kianos-workspace.uiEnglish .translationWork {
+  overflow-y: auto;
+  border-left: 1px solid #e1e6eb;
+  background: #fff;
+}
+body#kianos-workspace.uiEnglish :is(.translationSourceBody>p,.translationSegment>p) {
+  color: #27313b;
+  font-family: var(--english-reading-font);
+  font-size: 18px;
+  line-height: 1.76;
+}
+body#kianos-workspace.uiEnglish .translationStage {
+  border-color: #e4e8ec;
+  border-radius: 10px;
+  box-shadow: none;
+}
+body#kianos-workspace.uiEnglish .translationStage>header h2 { color: #263747; font-weight: 650; }
+body#kianos-workspace.uiEnglish .translationAnswerCard textarea,
+body#kianos-workspace.uiEnglish .translationReturnBox textarea {
+  border-color: #dce3e9;
+  border-radius: 8px;
+  background: #fff;
+  color: #27333e;
+  font-family: var(--english-reading-font);
+  font-size: 17px;
+  line-height: 1.7;
+}
+body#kianos-workspace.uiEnglish .translationAnswerCard textarea:focus,
+body#kianos-workspace.uiEnglish .translationReturnBox textarea:focus {
+  border-color: #7e9eba;
+  outline: 3px solid rgba(79,122,162,.10);
+}
+
+/* Writing — prompt/reference surface left, real editor right. */
+body#kianos-workspace.uiEnglish .writingRuntimeColumns {
+  grid-template-columns: minmax(0, .78fr) minmax(560px, 1.22fr);
+  gap: 0;
+  min-height: 660px;
+  height: calc(100dvh - 126px);
+  overflow: hidden;
+  border: 1px solid #dce2e8;
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 14px 36px rgba(32,46,61,.045);
+}
+body#kianos-workspace.uiEnglish .writingPrompt,
+body#kianos-workspace.uiEnglish .writingWork {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+body#kianos-workspace.uiEnglish .writingPrompt {
+  padding: 28px 32px 52px;
+  background: #fbfcfd;
+}
+body#kianos-workspace.uiEnglish .writingWork {
+  overflow-y: auto;
+  border-left: 1px solid #e1e6eb;
+  background: #fff;
+}
+body#kianos-workspace.uiEnglish .writingPromptBody :is(p,blockquote,li,dd) {
+  color: #2a3540;
+  font-family: var(--english-reading-font);
+  font-size: 17px;
+  line-height: 1.72;
+}
+body#kianos-workspace.uiEnglish .writingPromptBody blockquote {
+  border-left: 3px solid #8aa5bf;
+  background: #f3f7fa;
+}
+body#kianos-workspace.uiEnglish .writingStage {
+  border-color: #e4e8ec;
+  border-radius: 10px;
+  box-shadow: none;
+}
+body#kianos-workspace.uiEnglish .writingField textarea {
+  border-color: #dce3e9;
+  border-radius: 8px;
+  background: #fff;
+  color: #27333e;
+  font-family: var(--english-reading-font);
+  font-size: 17px;
+  line-height: 1.72;
+}
+body#kianos-workspace.uiEnglish .writingField textarea:focus {
+  border-color: #7e9eba;
+  outline: 3px solid rgba(79,122,162,.10);
+}
+body#kianos-workspace.uiEnglish :is(.translationActions,.writingActions) .primary {
+  border-color: #315f89;
+  background: #315f89;
+  color: #fff;
+  box-shadow: none;
+}
+body#kianos-workspace.uiEnglish :is(.translationProvenance,.writingProvenance,.portedReadingSource) summary {
+  color: #8b96a1;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+@media (max-width: 1180px) {
+  body#kianos-workspace.uiEnglish .portedReadingColumns { grid-template-columns: minmax(0, 1.08fr) minmax(390px, .92fr); }
+  body#kianos-workspace.uiEnglish .translationColumns { grid-template-columns: .9fr 1.1fr; }
+  body#kianos-workspace.uiEnglish .writingRuntimeColumns { grid-template-columns: .72fr 1.28fr; }
+}
+
+@media (max-width: 980px) {
+  body#kianos-workspace.uiEnglish .productNavItem { min-width: 72px; }
+  body#kianos-workspace.uiEnglish :is(.portedReadingColumns,.clozeLayout,.readingBLayout,.readingBOrderingLayout,.translationColumns,.writingRuntimeColumns) {
+    height: auto;
+    min-height: 0;
+    grid-template-columns: 1fr;
+  }
+  body#kianos-workspace.uiEnglish :is(.portedReadingQuestions,.clozeDecision,.readingBMap,.translationWork,.writingWork) { border-left: 0; border-top: 1px solid #e1e6eb; }
+  body#kianos-workspace.uiEnglish .portedReadingPassage { padding: 24px 28px 44px; }
+  body#kianos-workspace.uiEnglish .portedReadingPassage p { max-width: 48em; }
+}
+
+@media (max-width: 720px) {
+  body#kianos-workspace.uiEnglish .productBar { min-height: 54px; padding: 0 12px; }
+  body#kianos-workspace.uiEnglish .productBrandCopy small { display: none; }
+  body#kianos-workspace.uiEnglish .productNav { overflow-x: auto; }
+  body#kianos-workspace.uiEnglish .productNavItem { min-width: auto; padding-inline: 9px; }
+  body#kianos-workspace.uiEnglish .englishCanvas { width: calc(100% - 16px); padding-top: 8px; }
+  body#kianos-workspace.uiEnglish .portedReadingPassage { padding: 20px 18px 38px; }
+  body#kianos-workspace.uiEnglish .portedReadingPassage p { font-size: 18px; line-height: 1.72; }
+  body#kianos-workspace.uiEnglish :is(.translationSource,.writingPrompt) { padding: 22px 18px 36px; }
+}
