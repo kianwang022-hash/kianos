@@ -175,12 +175,13 @@ Crosswalk may grow independently without another UI redesign.
 | Purpose-first Representation Gate | **CURRENT** | geometry/asset presence never mandates a graph/component; ambiguous layout falls back to safer representation |
 | One-screen Block workspace | **CURRENT via #331** | `Logic Map | KP Learn/Recall | dynamic auxiliary`; local scrolling; readable density |
 | System Workspace single-owner architecture | **CURRENT via #368** | `XizongSystemWorkspace` + isolated `xzSystem*` namespace + `xizong-system-workspace.css`; retired V6 component removed; shared Shell untouched |
+| Home single-owner workbench | **CURRENT via #370** | isolated `xzHome*` namespace + `xizong-home-workspace.css`; explicit standalone Memory entry; future domains demoted to horizontal orientation band |
 | KP Learn companion | **CURRENT** | Mac Prompt + full Core + locators while original Lecture remains continuous on iPad/MarginNote |
 | Dynamic auxiliary rail | **CURRENT** | rich reviewed Visual/table expands; light Precision/Connection shrinks; empty support returns space to Core |
 | Recall-front protection | **CURRENT** | answer-bearing Core/Visual/Precision/Extension hidden before Reveal |
 | Block Framework composition | **CURRENT** | multiple Projection objects compose one learner Framework; one object does not imply one card |
 | Crosswalk normal placement | **CURRENT** | query-only / hidden in normal first-pass Block workspace |
-| Standalone Memory | **CURRENT** | `Today | Core | Precision | Marked | Repair` |
+| Standalone Memory | **CURRENT functionality / visual migration ACTIVE** | `Today | Core | Precision | Marked | Repair`; Runtime/evidence semantics preserved while its legacy tiny-text visual owner is being replaced |
 | Block Complete → Memory | **CURRENT** | idempotent release of Core/current-owner Precision + private Prompt/Marked state |
 | Shared official Question Runtime | **CURRENT capability** | usable only where honest System question scope / scoped Acceptance permits it |
 | Repair / evidence guards | **CURRENT shared capability** | shared capability never auto-promotes B/C scoped R/E |
@@ -188,9 +189,10 @@ Crosswalk may grow independently without another UI redesign.
 | Real learner U | **UNTESTED unless Kian actually studies** | CI/browser fixtures never create learner truth |
 
 Current Block integration baseline: **PR #331 merged to main**.  
-Current System architecture baseline: **PR #368 merged to main**.
+Current System architecture baseline: **PR #368 merged to main**.  
+Current Home architecture baseline: **PR #370 merged to main**.
 
-The active website/product migration is now **Home + Memory ownership convergence** under `XIZONG_UI_MIGRATION.md`. Shared engineering should otherwise reopen only for a concrete Current defect or a new System integration requirement.
+The active website/product migration is now **Memory single-owner readability migration (Slice 2B)** under `XIZONG_UI_MIGRATION.md`. Shared engineering should otherwise reopen only for a concrete Current defect or a new System integration requirement.
 
 ---
 
@@ -223,7 +225,8 @@ DONE  one-screen Block Workspace (#331)
 DONE  Block Complete → standalone Memory release
 DONE  A1/A2/A3/B/C representative Block browser matrix
 DONE  System Workspace single-owner cutover (#368)
-ACTIVE Home + Memory ownership convergence
+DONE  Home single-owner cutover (#370)
+ACTIVE Memory single-owner readability migration
 NEXT  System Exit / Question ownership convergence
 LATER bounded legacy CSS cleanup + shared Shell adoption after English lands it on main
 LATER real-use acceptance
