@@ -43,11 +43,15 @@ const fontSizes = [...owner.matchAll(/font-size\s*:\s*(\d+(?:\.\d+)?)px/g)].map(
 check(fontSizes.length > 0, 'owner_has_explicit_type_scale');
 check(fontSizes.every((size) => size >= 15), 'owner_type_floor_15', `min=${Math.min(...fontSizes)}`);
 
-// Old owners may physically remain until the bounded cleanup slice, but must be unreachable.
+// Current Exit namespace belongs only to the dedicated owner. The broad presentation
+// debt is now physically gone; the older system-workspace later-stage selector is
+// tracked separately for the next bounded cleanup batch.
 check(!systemStyle.includes('.xzExitStage'), 'first_pass_system_style_cannot_own_current_exit_namespace');
 check(!broadStyle.includes('.xzExitStage') && !broadStyle.includes('.xzExitCard') && !broadStyle.includes('.xzExitStem') && !broadStyle.includes('.xzExitOptions'), 'broad_presentation_cannot_own_current_exit_namespace');
-check(systemStyle.includes('.xizongLaterStage'), 'legacy_system_exit_css_is_explicit_dead_cleanup_debt');
-check(broadStyle.includes('.xseCard') && broadStyle.includes('.xseStem') && broadStyle.includes('.xseOptions button'), 'legacy_broad_exit_css_is_explicit_dead_cleanup_debt');
+check(systemStyle.includes('.xizongLaterStage'), 'legacy_system_workspace_exit_css_remains_named_cleanup_debt');
+for (const token of ['.xseCard', '.xseStem', '.xseOptions', '.xseRecall', '.xseNav', '.xseActions', '.xseToolbar', '.xizongRepairInbox']) {
+  check(!broadStyle.includes(token), 'legacy_broad_exit_css_physically_removed', token);
+}
 
 // Runtime semantics must remain owned by the original components.
 for (const token of [
@@ -69,6 +73,7 @@ console.log(JSON.stringify({
   presentation_owner: 'src/styles/xizong-system-exit-workspace.css',
   route_namespace: 'xzExitStage',
   runtime_owners: ['XizongSystemExitRuntime', 'XizongQuestionCrosswalkConsumer', 'XizongSystemRepairReturn'],
-  dead_cleanup_namespaces: ['xizongLaterStage', 'xseCard', 'xseStem', 'xseOptions'],
+  broad_legacy_exit_css: 'physically removed',
+  remaining_cleanup_namespaces: ['xizongLaterStage'],
   visible_type_floor_px: 15
 }, null, 2));
