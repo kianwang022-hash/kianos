@@ -1,7 +1,8 @@
 ---
 import Value from './PoliticsProjectionValue.astro';
+import PoliticsExplicitSurfacePlan from './PoliticsExplicitSurfacePlan.astro';
 const { compiled = null } = Astro.props;
-const rows = compiled ? [...compiled.values()].filter((row) => row?.purposeFirst || row?.purposeFirstPilot) : [];
+const rows = compiled ? [...compiled.values()].filter((row) => row?.surfacePlan?.states?.ORIENT?.length || row?.purposeFirst || row?.purposeFirstPilot) : [];
 const h2Groups = (row) => {
   const items = row?.hierarchy?.tiers?.H2_FIRST_ROUND_CARRY || [];
   return {
@@ -15,28 +16,49 @@ const h2Groups = (row) => {
 {rows.length > 0 && (
   <div hidden data-politics-projection-runtime-registry>
     {rows.map((row) => {
+      const states = row?.surfacePlan?.states || null;
+      const explicit = Boolean(states?.ORIENT?.length);
       const h2 = h2Groups(row);
       const hasH2 = h2.takeaway.length || h2.boundary.length || h2.exact.length;
       return (
-        <section data-projection-outlet-unit={row.unitId}>
-          {row.handoff?.locator && <p data-projection-locator>{row.handoff.locator}</p>}
-          {row.handoff?.lookFor?.map((item) => <p data-projection-look-for>{item}</p>)}
-          {row.closure && <p data-projection-closure>{row.closure}</p>}
-          {hasH2 && <aside class="politicsFirstRoundCarry" data-hierarchy-tier="H2_FIRST_ROUND_CARRY" data-projection-carry-template>
-            <header><strong>第一轮带走</strong></header>
-            {h2.takeaway.length > 0 && <section class="carryGroup carryTakeaway">
-              <span>主结论</span>
-              {h2.takeaway.map((item) => <Value value={item.value} />)}
-            </section>}
-            {h2.boundary.length > 0 && <section class="carryGroup carryBoundary">
-              <span>分清</span>
-              {h2.boundary.map((item) => <Value value={item.value} />)}
-            </section>}
-            {h2.exact.length > 0 && <section class="carryGroup carryExact">
-              <span>记准</span>
-              {h2.exact.map((item) => <Value value={item.value} />)}
-            </section>}
-          </aside>}
+        <section data-projection-outlet-unit={row.unitId} data-explicit-runtime-owner={explicit ? 'v1' : undefined}>
+          {explicit ? (
+            <>
+              {states.EXTERNAL_LEARN?.length > 0 && (
+                <template data-explicit-runtime-state="EXTERNAL_LEARN"><PoliticsExplicitSurfacePlan groups={states.EXTERNAL_LEARN} /></template>
+              )}
+              {states.CLOSE?.length > 0 && (
+                <template data-explicit-runtime-state="CLOSE"><PoliticsExplicitSurfacePlan groups={states.CLOSE} /></template>
+              )}
+              {states.REPAIR?.length > 0 && (
+                <template data-explicit-runtime-state="REPAIR"><PoliticsExplicitSurfacePlan groups={states.REPAIR} /></template>
+              )}
+              {states.CONTINUE?.length > 0 && (
+                <template data-explicit-runtime-state="CONTINUE"><PoliticsExplicitSurfacePlan groups={states.CONTINUE} /></template>
+              )}
+            </>
+          ) : (
+            <>
+              {row.handoff?.locator && <p data-projection-locator>{row.handoff.locator}</p>}
+              {row.handoff?.lookFor?.map((item) => <p data-projection-look-for>{item}</p>)}
+              {row.closure && <p data-projection-closure>{row.closure}</p>}
+              {hasH2 && <aside class="politicsFirstRoundCarry" data-hierarchy-tier="H2_FIRST_ROUND_CARRY" data-projection-carry-template>
+                <header><strong>第一轮带走</strong></header>
+                {h2.takeaway.length > 0 && <section class="carryGroup carryTakeaway">
+                  <span>主结论</span>
+                  {h2.takeaway.map((item) => <Value value={item.value} />)}
+                </section>}
+                {h2.boundary.length > 0 && <section class="carryGroup carryBoundary">
+                  <span>分清</span>
+                  {h2.boundary.map((item) => <Value value={item.value} />)}
+                </section>}
+                {h2.exact.length > 0 && <section class="carryGroup carryExact">
+                  <span>记准</span>
+                  {h2.exact.map((item) => <Value value={item.value} />)}
+                </section>}
+              </aside>}
+            </>
+          )}
         </section>
       );
     })}
@@ -47,20 +69,69 @@ const h2Groups = (row) => {
   (() => {
     const registry = document.querySelector('[data-politics-projection-runtime-registry]');
     if (!registry) return;
+
     registry.querySelectorAll('[data-projection-outlet-unit]').forEach((entry) => {
       const unitId = entry.getAttribute('data-projection-outlet-unit');
       if (!unitId) return;
       const unit = document.querySelector(`[data-politics-unit][data-unit-id="${CSS.escape(unitId)}"]`);
       if (!unit) return;
 
-      // Hierarchy owns default attention. Legacy answer/bridge prose may remain
-      // in the runtime DOM for compatibility, but does not get default learner
-      // attention unless Current Projection selected it into H1-H4.
+      // Projection/Surface Mapping owns default learner attention. Legacy answer
+      // and bridge prose may remain in the server DOM for compatibility, but
+      // may not become a parallel source of learner content.
       unit.querySelectorAll('.politicsAnswer,.politicsBridge').forEach((node) => {
         node.hidden = true;
         node.setAttribute('data-hierarchy-demoted', '');
       });
 
+      const explicit = entry.getAttribute('data-explicit-runtime-owner') === 'v1';
+      if (explicit) {
+        const clonePlan = (state) => {
+          const template = entry.querySelector(`template[data-explicit-runtime-state="${state}"]`);
+          return template instanceof HTMLTemplateElement ? template.content.cloneNode(true) : null;
+        };
+
+        unit.setAttribute('data-explicit-surface-runtime', 'v1');
+
+        // EXTERNAL_LEARN: keep source-navigation chrome/locators, but the actual
+        // learner handoff content comes only from the declared Surface Mapping.
+        const source = unit.querySelector('[data-politics-external-source]');
+        const handoff = source?.querySelector('.politicsSourceHandoff');
+        const externalPlan = clonePlan('EXTERNAL_LEARN');
+        if (handoff && externalPlan) {
+          handoff.querySelectorAll('[data-politics-explicit-surface-plan],[data-current-handoff]').forEach((node) => node.remove());
+          handoff.prepend(externalPlan);
+        }
+
+        // CLOSE + CONTINUE are state-owned and stay behind the existing collapsed
+        // close interaction. UI keeps the interaction shell; it does not choose
+        // which knowledge is shown at either stage.
+        const closureBox = unit.querySelector('.politicsClosure > div');
+        const closePlan = clonePlan('CLOSE');
+        const continuePlan = clonePlan('CONTINUE');
+        if (closureBox && (closePlan || continuePlan)) {
+          closureBox.replaceChildren();
+          if (closePlan) closureBox.append(closePlan);
+          if (continuePlan) closureBox.append(continuePlan);
+        }
+        unit.querySelector('.politicsNextBridge')?.remove();
+
+        // REPAIR remains question-triggered by the existing runtime, but its
+        // repair payload is the exact Projection-owned Surface Mapping content.
+        unit.querySelectorAll('.politicsRepair').forEach((repairPanel) => {
+          const repairPlan = clonePlan('REPAIR');
+          if (!repairPlan) return;
+          repairPanel.querySelectorAll(':scope > ul,:scope > p:not(.politicsMicro),:scope > [data-politics-explicit-surface-plan]').forEach((node) => node.remove());
+          const returnLink = repairPanel.querySelector('a');
+          if (returnLink) returnLink.before(repairPlan);
+          else repairPanel.append(repairPlan);
+        });
+
+        return;
+      }
+
+      // Legacy fallback for any future/partial owner without explicit mapping.
+      // It is not used by the current 151 PASS-owner acceptance set.
       const companion = unit.querySelector('.politicsUnitCompanion');
       const source = unit.querySelector('[data-politics-external-source]');
       const carry = entry.querySelector('[data-projection-carry-template]');
@@ -116,9 +187,6 @@ const h2Groups = (row) => {
         closureText.textContent = closure;
       }
 
-      // H4 next-bridge becomes timely at Close/Continue, not during first-entry
-      // Orientation. Keep the existing node/semantics, but move it under the
-      // already-collapsed closure surface.
       const next = unit.querySelector('.politicsNextBridge');
       if (next && closureBox) {
         next.setAttribute('data-hierarchy-tier', 'H4_ON_DEMAND');
