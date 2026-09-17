@@ -11,6 +11,13 @@ export const ENGLISH_SOURCE_TRUTH = Object.freeze({
   global: 'content/english/source/global_source_truth.v1.json'
 });
 
+const FORBIDDEN_ATTEMPT_KEYS = new Set([
+  'answer', 'answers', 'formal_answer', 'correct_answer', 'analysis', 'explanation', 'rationale',
+  'solution', 'reference', 'reference_answer', 'sample_answer', 'model_answer', 'template_answer',
+  'canonical_evidence_sets', 'option_diagnosis', 'analysis_verification_status', 'taxonomy',
+  'qa_state', 'seal_state', 'chat_source_decision_binding'
+]);
+
 function absolute(relativePath) {
   return path.join(repoRoot, relativePath);
 }
@@ -47,6 +54,18 @@ function cleanWhitespace(value) {
     .replace(/[ \t]+\n/g, '\n')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
+}
+
+function learnerSafeClone(value) {
+  if (value === null || value === undefined) return value;
+  if (Array.isArray(value)) return value.map(learnerSafeClone);
+  if (typeof value !== 'object') return value;
+  const out = {};
+  for (const [key, child] of Object.entries(value)) {
+    if (FORBIDDEN_ATTEMPT_KEYS.has(String(key).toLowerCase())) continue;
+    out[key] = learnerSafeClone(child);
+  }
+  return out;
 }
 
 let cache;
@@ -138,11 +157,12 @@ export function sourceTruthBlocks(unit, prefix = 'm') {
 export function overlayQuestion(question, unit) {
   const id = String(question?.id || question?.question_id || '');
   const replacement = unit?.question_overlays?.[id] || {};
-  return {
-    ...question,
+  const projected = {
+    ...learnerSafeClone(question),
     ...(replacement.prompt ? { prompt: replacement.prompt } : {}),
-    ...(replacement.options ? { options: replacement.options } : {})
+    ...(replacement.options ? { options: learnerSafeClone(replacement.options) } : {})
   };
+  return learnerSafeClone(projected);
 }
 
 function sourceIdentity(unit) {
@@ -252,10 +272,10 @@ export function projectTranslationSourceTruth(translation) {
   const unit = sourceTruthFor(translation?.objectId);
   const prompts = (translation?.prompts || []).map((prompt) => {
     const replacement = unit?.question_overlays?.[String(prompt?.id || '')] || {};
-    return {
+    return learnerSafeClone({
       ...prompt,
       ...(replacement.prompt ? { sourceText: replacement.prompt } : {})
-    };
+    });
   });
   const material = sourceTruthBlocks(unit, 'm');
   const context = {
@@ -301,22 +321,22 @@ export function projectWritingRuntimeSourceTruth(task) {
   const originalEvidence = task.officialEvidence || {};
   const prompts = (originalEvidence.prompt || []).map((prompt) => {
     const replacement = unit?.question_overlays?.[String(prompt?.id || '')] || {};
-    return {
+    return learnerSafeClone({
       ...prompt,
       ...(replacement.prompt ? { promptText: replacement.prompt } : {})
-    };
+    });
   });
   const material = sourceTruthBlocks(unit, 'm');
   const context = {
     ...(originalEvidence.context || {}),
     ...(Array.isArray(unit?.images) && unit.images.length ? { images: unit.images } : {})
   };
-  const officialEvidence = {
+  const officialEvidence = learnerSafeClone({
     ...originalEvidence,
     prompt: prompts,
     ...(material.length ? { material } : {}),
     context
-  };
+  });
   const officialPrompt = promptTextFor(prompts);
   const materials = materialTexts(officialEvidence.material);
   const contexts = contextTexts(context);
