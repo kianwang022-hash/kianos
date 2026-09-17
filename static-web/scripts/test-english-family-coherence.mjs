@@ -131,6 +131,36 @@ async function assertGuides(page) {
   await page.screenshot({ path: path.join(auditDir, 'objective-guide-1440x900.png'), fullPage: false });
 }
 
+async function assertVocabularyFamily(page) {
+  await page.goto(`${BASE}/vocabulary/`, { waitUntil: 'domcontentloaded' });
+  check(await page.locator('[data-lexical-home]').isVisible(), 'vocabulary_home_visible');
+  const home = page.locator('[data-lexical-home]');
+  const homeBox = await home.boundingBox();
+  check(Boolean(homeBox && homeBox.width > 1000), 'vocabulary_home_uses_mac_width', String(homeBox?.width || 0));
+  check(await page.locator('[data-lexical-tab="study"]').isVisible(), 'vocabulary_study_mode_visible');
+  check(await page.locator('[data-lexical-tab="search"]').isVisible(), 'vocabulary_search_mode_visible');
+  check(await page.locator('[data-lexical-tab="review"]').isVisible(), 'vocabulary_repair_mode_visible');
+  check(await page.locator('[data-lexical-tab="challenge"]').isVisible(), 'vocabulary_challenge_mode_visible');
+  await page.screenshot({ path: path.join(auditDir, 'vocabulary-home-1440x900.png'), fullPage: false });
+
+  const representative = listLexicalWordSummaries().find((row) =>
+    Number(row.senseCount || 0) >= 2 &&
+    (Number(row.promptCount || 0) + Number(row.relationCount || 0)) >= 1
+  ) || listLexicalWordSummaries()[0];
+  check(Boolean(representative?.ordinal), 'vocabulary_word_fixture_available');
+
+  await page.goto(`${BASE}/vocabulary/${representative.ordinal}/`, { waitUntil: 'domcontentloaded' });
+  const runtime = page.locator('[data-local-port="vocabulary"]');
+  check(await runtime.isVisible(), 'vocabulary_word_runtime_visible', String(representative?.word || ''));
+  check(await page.locator('[data-vocab-front]').isVisible(), 'vocabulary_recall_front_visible');
+  await page.screenshot({ path: path.join(auditDir, 'vocabulary-word-front-1440x900.png'), fullPage: false });
+
+  await page.locator('[data-vocab-reveal]').click();
+  await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
+  check(await page.locator('[data-vocab-repair]').count() > 0, 'vocabulary_depth_exposes_exact_repair_targets');
+  await page.screenshot({ path: path.join(auditDir, 'vocabulary-word-depth-1440x900.png'), fullPage: false });
+}
+
 async function assertFullLexicalRoundTrip(page) {
   const readingId = listReadingSets()[0]?.id;
   check(Boolean(readingId), 'reading_fixture_available');
@@ -242,6 +272,7 @@ try {
     const page = await context.newPage();
     await assertHome(page);
     await assertGuides(page);
+    await assertVocabularyFamily(page);
     await assertFullLexicalRoundTrip(page);
 
     const clozeId = listClozeSets()[0]?.id;
