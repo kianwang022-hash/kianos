@@ -57,6 +57,34 @@ It may own:
 
 Owned relation text is **content, not connector chrome**. If a relation label explains why or how one learner object relates to another, that label is a first-class learner claim. The renderer may reflow or stack it responsively, but it may not hide it behind hover, replace it with an unlabeled arrow, collapse it into incidental annotation, or omit it.
 
+### State consumption is exclusive
+
+Once a PASS owner has a resolved `surface_mapping`, every learner-facing payload for a mapped learner state must come from `surfacePlan.states[state]`.
+
+Runtime may still own the interaction shell around that payload — for example when a source handoff becomes reachable, when a closure panel expands, or when Wrong / Uncertain opens repair — but it may not repopulate that state from parallel semantic channels such as:
+- legacy `projection.hierarchy` payloads;
+- legacy `handoff`, `closure` or `next` fields;
+- raw teaching fields;
+- inferred field names;
+- rendered DOM structure.
+
+A mixed migration is a contract failure. In particular, this is not allowed:
+
+```text
+ORIENT          → explicit surface mapping
+EXTERNAL_LEARN  → legacy handoff reconstruction
+CLOSE           → legacy hierarchy / closure reconstruction
+REPAIR          → raw teaching boundaries
+CONTINUE        → legacy next bridge
+```
+
+The accepted model is:
+
+```text
+state timing / trigger / responsive shell → Runtime / UI
+state learner payload                     → resolved Surface Mapping only
+```
+
 It must not own:
 - pixel dimensions;
 - columns or CSS grid definitions;
@@ -234,7 +262,8 @@ Acceptance requires:
 8. representative browser acceptance covers all five subjects and heterogeneous primitives;
 9. Xiao1000 Question Truth / Evidence / exact Return / first attempt remain unchanged;
 10. Chengfeng remains the original continuous learning mainline;
-11. every owned learner-facing relation label remains explicitly visible with its related objects and is not reduced to decorative connector metadata.
+11. every owned learner-facing relation label remains explicitly visible with its related objects and is not reduced to decorative connector metadata;
+12. every mapped learner state is consumed exclusively from the resolved Surface Mapping; mixed explicit/legacy learner payloads are forbidden.
 
 Until this acceptance closes, broad Politics learner-surface productization must not claim semantic mapping closure.
 
@@ -252,6 +281,7 @@ UI implementation may not:
 - decide content meaning;
 - hide or omit an owned learner-facing relation label;
 - replace an owned relation with an unlabeled decorative arrow;
-- demote a first-class learner relation into incidental annotation.
+- demote a first-class learner relation into incidental annotation;
+- source a mapped learner-state payload from a legacy semantic channel.
 
 > **The renderer receives a learner surface plan. It does not author one.**
