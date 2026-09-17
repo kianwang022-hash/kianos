@@ -29,7 +29,7 @@ function clone(value) {
 }
 
 export function emptyLexicalLedger() {
-  return { schema: LEXICAL_LEDGER_SCHEMA, events: [], conflicts: [] };
+  return { schema: LEXICAL_LEDGER_SCHEMA, events: [], conflicts: [], identity_lineage: {} };
 }
 
 export function normalizeLexicalLedger(value) {
@@ -37,7 +37,10 @@ export function normalizeLexicalLedger(value) {
   return {
     schema: LEXICAL_LEDGER_SCHEMA,
     events: Array.isArray(value.events) ? clone(value.events) : [],
-    conflicts: Array.isArray(value.conflicts) ? clone(value.conflicts) : []
+    conflicts: Array.isArray(value.conflicts) ? clone(value.conflicts) : [],
+    identity_lineage: value.identity_lineage && typeof value.identity_lineage === 'object' && !Array.isArray(value.identity_lineage)
+      ? clone(value.identity_lineage)
+      : {}
   };
 }
 
@@ -51,6 +54,114 @@ export function lexicalTargetKey(event) {
   const revision = String(event?.target_revision || '');
   if (locator && revision) return `${wordId}|${kind}|loc:${locator}@${revision}`;
   return null;
+}
+
+function lineageKey(wordId, kind, targetId) {
+  if (!wordId || !kind || !targetId) return null;
+  return `${wordId}|${kind}|id:${targetId}`;
+}
+
+export function reconcileEvidenceIdentity(ledgerInput, lineageEntries = []) {
+  const ledger = normalizeLexicalLedger(ledgerInput);
+  const statuses = [];
+  for (const raw of Array.isArray(lineageEntries) ? lineageEntries : []) {
+    const wordId = String(raw?.word_id || '');
+    const kind = String(raw?.target_kind || 'sense');
+    const fromTargetId = String(raw?.from_target_id || '');
+    const status = String(raw?.status || '').toLowerCase();
+    const toTargetId = raw?.to_target_id ? String(raw.to_target_id) : null;
+    const fromKey = lineageKey(wordId, kind, fromTargetId);
+    if (!fromKey || status === 'active') continue;
+
+    let resolution;
+    if (status === 'merged' && toTargetId && toTargetId !== fromTargetId) {
+      resolution = {
+        resolution: 'REMAP',
+        source: 'current_identity_refs',
+        lifecycle_status: status,
+        word_id: wordId,
+        target_kind: kind,
+        from_target_id: fromTargetId,
+        to_target_id: toTargetId,
+        target_key: lineageKey(wordId, kind, toTargetId)
+      };
+    } else {
+      resolution = {
+        resolution: 'FROZEN',
+        source: 'current_identity_refs',
+        lifecycle_status: status || 'unknown',
+        word_id: wordId,
+        target_kind: kind,
+        from_target_id: fromTargetId,
+        to_target_id: null,
+        target_key: null,
+        reason: status === 'merged' ? 'MERGED_WITHOUT_VALID_SUCCESSOR' : 'NO_EXPLICIT_CURRENT_SUCCESSOR'
+      };
+    }
+
+    const existing = ledger.identity_lineage[fromKey];
+    if (existing && stableJson(existing) !== stableJson(resolution)) {
+      ledger.identity_lineage[fromKey] = {
+        resolution: 'FROZEN',
+        source: 'current_identity_refs',
+        lifecycle_status: 'conflict',
+        word_id: wordId,
+        target_kind: kind,
+        from_target_id: fromTargetId,
+        to_target_id: null,
+        target_key: null,
+        reason: 'LINEAGE_CONFLICT'
+      };
+      statuses.push('LINEAGE_CONFLICT_FROZEN');
+      continue;
+    }
+    ledger.identity_lineage[fromKey] = resolution;
+    statuses.push(resolution.resolution === 'REMAP' ? 'LINEAGE_REMAP_REGISTERED' : 'LINEAGE_FROZEN_REGISTERED');
+  }
+  return { ledger, statuses };
+}
+
+function resolvedTargetIdentity(ledgerInput, event) {
+  const ledger = normalizeLexicalLedger(ledgerInput);
+  const rawKey = lexicalTargetKey(event);
+  if (!rawKey) return null;
+  let key = rawKey;
+  let targetId = event?.target_id ? String(event.target_id) : null;
+  let targetLocator = event?.target_locator ? String(event.target_locator) : null;
+  let targetRevision = event?.target_revision ? String(event.target_revision) : null;
+  const visited = new Set();
+
+  while (ledger.identity_lineage[key]) {
+    if (visited.has(key)) {
+      return { key: rawKey, raw_key: rawKey, frozen: true, reason: 'LINEAGE_CYCLE' };
+    }
+    visited.add(key);
+    const resolution = ledger.identity_lineage[key];
+    if (resolution?.resolution !== 'REMAP' || !resolution?.target_key || !resolution?.to_target_id) {
+      return {
+        key: rawKey,
+        raw_key: rawKey,
+        frozen: true,
+        reason: resolution?.reason || 'IDENTITY_FROZEN',
+        lineage: clone(resolution)
+      };
+    }
+    key = String(resolution.target_key);
+    targetId = String(resolution.to_target_id);
+    targetLocator = null;
+    targetRevision = null;
+  }
+
+  return {
+    key,
+    raw_key: rawKey,
+    frozen: false,
+    word_id: String(event?.word_id || ''),
+    target_kind: String(event?.target_kind || ''),
+    target_id: targetId,
+    target_locator: targetLocator,
+    target_revision: targetRevision
+  };
 }
 
 function eventPayload(event) {
@@ -151,11 +262,15 @@ function millis(value) {
   return Number.isFinite(n) ? n : Number.NEGATIVE_INFINITY;
 }
 
-function correctionMatches(correction, original) {
+function correctionMatches(correction, original, ledger) {
   if (!correction || !original || correction.word_id !== original.word_id) return false;
-  const correctionKey = lexicalTargetKey(correction);
-  const originalKey = lexicalTargetKey(original);
-  if (!correctionKey || correctionKey !== originalKey) return false;
+  const correctionRawKey = lexicalTargetKey(correction);
+  const originalRawKey = lexicalTargetKey(original);
+  const correctionIdentity = resolvedTargetIdentity(ledger, correction);
+  const originalIdentity = resolvedTargetIdentity(ledger, original);
+  const sameTarget = Boolean(correctionRawKey && originalRawKey && correctionRawKey === originalRawKey)
+    || Boolean(correctionIdentity && originalIdentity && !correctionIdentity.frozen && !originalIdentity.frozen && correctionIdentity.key === originalIdentity.key);
+  if (!sameTarget) return false;
   if (correction.challenge_id && original.challenge_id && correction.challenge_id !== original.challenge_id) return false;
   return true;
 }
@@ -167,7 +282,7 @@ function sortedEffectiveEvents(ledgerInput) {
   for (const event of ledger.events) {
     if (!['QUESTION_ISSUE', 'SEMANTIC_ISSUE'].includes(event.outcome) || !event.corrects_event_id) continue;
     const original = byId.get(String(event.corrects_event_id));
-    if (correctionMatches(event, original)) voided.add(String(event.corrects_event_id));
+    if (correctionMatches(event, original, ledger)) voided.add(String(event.corrects_event_id));
   }
   return ledger.events
     .filter((event) => !voided.has(String(event.event_id || '')))
@@ -208,22 +323,24 @@ export function qualifiesForDormancy(event, requiredDemand = null) {
 }
 
 export function deriveRepairStates(ledgerInput) {
-  const events = sortedEffectiveEvents(ledgerInput);
+  const ledger = normalizeLexicalLedger(ledgerInput);
+  const events = sortedEffectiveEvents(ledger);
   const states = new Map();
   const slowContexts = new Map();
 
   for (const event of events) {
-    const key = lexicalTargetKey(event);
-    if (!key || !repairOutcomes.has(event.outcome)) continue;
+    const identity = resolvedTargetIdentity(ledger, event);
+    if (!identity || identity.frozen || !repairOutcomes.has(event.outcome)) continue;
+    const key = identity.key;
     const state = states.get(key) || {
       key,
-      word_id: event.word_id,
+      word_id: identity.word_id,
       ordinal: Number(event.ordinal || 0),
       word: event.word || null,
-      target_kind: event.target_kind,
-      target_id: event.target_id || null,
-      target_locator: event.target_locator || null,
-      target_revision: event.target_revision || null,
+      target_kind: identity.target_kind,
+      target_id: identity.target_id || null,
+      target_locator: identity.target_locator || null,
+      target_revision: identity.target_revision || null,
       state: 'NONE',
       required_demand: null,
       activated_at: null,
@@ -284,9 +401,10 @@ export function compileRepairTargets(ledgerInput) {
 }
 
 export function repairStateForEvent(ledgerInput, event) {
-  const key = lexicalTargetKey(event);
-  if (!key) return null;
-  return deriveRepairStates(ledgerInput)[key] || null;
+  const ledger = normalizeLexicalLedger(ledgerInput);
+  const identity = resolvedTargetIdentity(ledger, event);
+  if (!identity || identity.frozen) return null;
+  return deriveRepairStates(ledger)[identity.key] || null;
 }
 
 export function exportReturnEvents(ledgerInput, studyDay, toLocalDay = (iso) => String(iso || '').slice(0, 10)) {
