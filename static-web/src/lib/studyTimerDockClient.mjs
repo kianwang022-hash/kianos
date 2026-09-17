@@ -188,8 +188,9 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
   window.addEventListener('resize', onResize);
   window.addEventListener('storage', onStorage);
 
-  restorePosition();
   render();
+  restorePosition();
+  window.requestAnimationFrame(clampCurrentPosition);
   const tick = window.setInterval(render, 1000);
 
   return {
