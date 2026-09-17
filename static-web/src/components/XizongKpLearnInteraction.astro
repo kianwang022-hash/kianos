@@ -507,7 +507,7 @@
         if (target instanceof HTMLElement && target.closest('input,textarea,select,button,a,[contenteditable="true"]')) return;
         const stage = stageName();
         if (!['source_contact', 'kp_learn'].includes(stage)) return;
-        const frame = activeFrame();
+        const frame = activeLearnFrame();
         if (!(frame instanceof HTMLElement)) return;
 
         if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
