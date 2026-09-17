@@ -43,12 +43,11 @@ const fontSizes = [...owner.matchAll(/font-size\s*:\s*(\d+(?:\.\d+)?)px/g)].map(
 check(fontSizes.length > 0, 'owner_has_explicit_type_scale');
 check(fontSizes.every((size) => size >= 15), 'owner_type_floor_15', `min=${Math.min(...fontSizes)}`);
 
-// Current Exit namespace belongs only to the dedicated owner. The broad presentation
-// debt is now physically gone; the older system-workspace later-stage selector is
-// tracked separately for the next bounded cleanup batch.
+// Current Exit presentation belongs only to the dedicated owner. Closed-surface
+// legacy selectors must now be physically absent from both broad and System styles.
 check(!systemStyle.includes('.xzExitStage'), 'first_pass_system_style_cannot_own_current_exit_namespace');
+check(!systemStyle.includes('.xizongLaterStage'), 'retired_system_workspace_exit_css_physically_removed');
 check(!broadStyle.includes('.xzExitStage') && !broadStyle.includes('.xzExitCard') && !broadStyle.includes('.xzExitStem') && !broadStyle.includes('.xzExitOptions'), 'broad_presentation_cannot_own_current_exit_namespace');
-check(systemStyle.includes('.xizongLaterStage'), 'legacy_system_workspace_exit_css_remains_named_cleanup_debt');
 for (const token of ['.xseCard', '.xseStem', '.xseOptions', '.xseRecall', '.xseNav', '.xseActions', '.xseToolbar', '.xizongRepairInbox']) {
   check(!broadStyle.includes(token), 'legacy_broad_exit_css_physically_removed', token);
 }
@@ -74,6 +73,7 @@ console.log(JSON.stringify({
   route_namespace: 'xzExitStage',
   runtime_owners: ['XizongSystemExitRuntime', 'XizongQuestionCrosswalkConsumer', 'XizongSystemRepairReturn'],
   broad_legacy_exit_css: 'physically removed',
-  remaining_cleanup_namespaces: ['xizongLaterStage'],
+  system_workspace_legacy_exit_css: 'physically removed',
+  remaining_cleanup_namespaces: [],
   visible_type_floor_px: 15
 }, null, 2));
