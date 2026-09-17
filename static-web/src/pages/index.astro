@@ -1,13 +1,12 @@
 ---
 import '../styles/product-closure.css';
+import '../styles/home-approved.css';
 import ExamOrchestratorHome from '../components/ExamOrchestratorHome.astro';
-import MissionControlHome from '../components/MissionControlHome.astro';
 import Base from '../layouts/Base.astro';
 import XizongHomeTools from '../components/XizongHomeTools.astro';
 import PoliticsHomeTools from '../components/PoliticsHomeTools.astro';
 import EnglishResume from '../components/EnglishResume.astro';
-import { buildRevision, inspectReadingSources } from '../lib/current.mjs';
-import { inspectLexicalSources } from '../lib/lexical.mjs';
+import { inspectReadingSources } from '../lib/current.mjs';
 import { listProjectableXizongSystems } from '../lib/xizong.mjs';
 import { listPoliticsSubjectsCurrent, politicsCurrentHealth } from '../lib/politicsCurrent.mjs';
 import { loadWritingLearningProjection } from '../lib/englishWritingLearning.mjs';
@@ -18,7 +17,6 @@ const base = import.meta.env.BASE_URL;
 const xizongSystems = listProjectableXizongSystems();
 const xizongBlocks = xizongSystems.reduce((sum, system) => sum + system.blocks.length, 0);
 const xizongKp = xizongSystems.reduce((sum, system) => sum + system.blocks.reduce((blockSum, block) => blockSum + block.kpCount, 0), 0);
-const lexicalState = inspectLexicalSources();
 const readingState = inspectReadingSources();
 const readingReady = readingState.status === 'ready';
 const translationState = inspectTranslationSources();
@@ -39,26 +37,55 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
 ---
 <Base title="学习工作台" active="home" showLead={false}>
   <header class="commandHeader">
-    <div><p class="pageKicker" data-exam-phase>一轮收口 · 总目标 425+</p><h1>学习工作台</h1><p class="commandSubtitle">选一条主线，回到正在做的事。</p></div>
-    <div class="commandScope examGate"><span>下个关键节点</span><strong data-exam-gate>按本轮时间线定位</strong></div>
+    <div>
+      <p class="pageKicker" data-exam-phase>一轮收口 · 总目标 425+</p>
+      <h1>学习工作台</h1>
+      <p class="commandSubtitle">选一条主线，回到正在做的事。</p>
+    </div>
+    <div class="commandScope examGate">
+      <span>下个关键节点</span>
+      <strong data-exam-gate>按本轮时间线定位</strong>
+    </div>
   </header>
 
   <div class="commandGrid">
-    <section class="commandSubjects" aria-label="三科状态与 Continue">
-      <header class="commandSectionHead"><h2>Continue</h2><span>回到最近位置，或自由选择任务</span></header>
+    <section class="commandSubjects" id="home-continue" aria-label="三科状态与 Continue">
+      <header class="commandSectionHead">
+        <h2>Continue</h2>
+        <span>回到最近位置，或自由选择任务</span>
+      </header>
+
       <article class="commandSubject" data-home-subject="xizong">
-        <header><div><span class="commandOrdinal">01</span><h2>西医综合</h2><span class="commandAvailability">{xizongSystems.length ? `${xizongSystems.length} 个 System 已开放` : '暂未开放'}</span></div><a href={`${base}xizong/`}>知识地图 →</a></header>
+        <header>
+          <div><span class="commandOrdinal">01</span><h2>西医综合</h2><span class="commandAvailability">{xizongSystems.length ? `${xizongSystems.length} 个 System 已开放` : '暂未开放'}</span></div>
+          <a href={`${base}xizong/`}>知识地图 →</a>
+        </header>
         <p class="commandSubjectMeta">原讲义连续学习 · 框架定位 · 主动 Recall</p>
         <XizongHomeTools firstHref={xizongHref} firstLabel={firstSystem ? `${firstSystem.canonicalId} · ${firstSystem.title}` : '查看西综入口'} />
       </article>
+
       <article class="commandSubject" data-home-subject="english">
-        <header><div><span class="commandOrdinal">02</span><h2>English</h2><span class="commandAvailability">{englishReady ? '可开始' : '部分任务已开放'}</span></div><a href={`${base}english/`}>英语工作台 →</a></header>
+        <header>
+          <div><span class="commandOrdinal">02</span><h2>English</h2><span class="commandAvailability">{englishReady ? '可开始' : '部分任务已开放'}</span></div>
+          <a href={`${base}english/`}>英语工作台 →</a>
+        </header>
         <p class="commandSubjectMeta">完整任务优先 · 阅读、翻译与写作</p>
         <EnglishResume />
-        <nav class="commandTaskLinks" aria-label="英语任务"><a href={`${base}reading/`}>Reading A</a><a href={`${base}cloze/`}>Cloze</a><a href={`${base}reading-b/`}>Part B</a><a href={`${base}translation/`}>Translation</a><a href={`${base}writing/`}>Writing</a></nav>
+        <nav class="commandTaskLinks" aria-label="英语任务">
+          <a href={`${base}reading/`}>Reading A</a>
+          <a href={`${base}cloze/`}>Cloze</a>
+          <a href={`${base}reading-b/`}>Part B</a>
+          <a href={`${base}translation/`}>Translation</a>
+          <a href={`${base}writing/`}>Writing</a>
+          <a href={`${base}vocabulary/`}>Vocabulary</a>
+        </nav>
       </article>
+
       <article class="commandSubject" data-home-subject="politics">
-        <header><div><span class="commandOrdinal">03</span><h2>政治</h2><span class="commandAvailability">{politicsSubjects.length} 科 · {politicsChapters} 章{politicsHealth.status === 'ready' ? '可进入' : '，部分开放'}</span></div><a href={`${base}politics/`}>五科总览 →</a></header>
+        <header>
+          <div><span class="commandOrdinal">03</span><h2>政治</h2><span class="commandAvailability">{politicsSubjects.length} 科 · {politicsChapters} 章{politicsHealth.status === 'ready' ? '可进入' : '，部分开放'}</span></div>
+          <a href={`${base}politics/`}>五科总览 →</a>
+        </header>
         <p class="commandSubjectMeta">乘风原讲义 → 肖1000 验证 → 精准回源</p>
         <PoliticsHomeTools firstHref={politicsHref} firstLabel={firstChapter ? `${firstSubject.label} · ${firstChapter.title}` : '查看政治入口'} />
       </article>
@@ -66,9 +93,20 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
 
     <aside class="commandSupport examSupport" aria-label="今日安排与学习支持">
       <ExamOrchestratorHome />
-      <MissionControlHome />
-      <section class="commandSupportSection examSupportLinks"><a href={`${base}vocabulary/`}>Vocabulary →</a><nav aria-label="英语 Guide"><a href={`${base}objective-learn/`}>Objective Guide</a><a href={`${base}translation-learn/`}>Translation Guide</a><a href={`${base}writing-learn/`}>Writing Guide</a></nav></section>
+
+      <section class="homeSystemOverview" aria-label="学习系统状态">
+        <header>
+          <div><span class="homeSystemKicker">SYSTEM</span><h2>系统进度</h2></div>
+          <a href={`${base}current/`}>系统状态 →</a>
+        </header>
+        <p class="homeSystemSummary">三科入口都从各自 Current 读取；这里不把工程完成度当成学习进度。</p>
+        <div class="homeSystemRows">
+          <a href={`${base}xizong/`}><strong>西综</strong><span>{xizongSystems.length} Systems · {xizongBlocks} Blocks · {xizongKp} KP</span><b>→</b></a>
+          <a href={`${base}english/`}><strong>English</strong><span>{englishReady ? '核心任务可开始' : '部分任务已开放'} · Vocabulary</span><b>→</b></a>
+          <a href={`${base}politics/`}><strong>政治</strong><span>{politicsSubjects.length} 科 · {politicsChapters} 章</span><b>→</b></a>
+        </div>
+        <p class="homeSystemNote">学习断点仍由各科 Runtime 保存；Home 只负责汇总和入口。</p>
+      </section>
     </aside>
   </div>
-  <footer class="commandFoot"><span>本机学习记录 · 保留各科断点</span><a href={`${base}current/`}>Current · {buildRevision.slice(0, 8)}</a></footer>
 </Base>
