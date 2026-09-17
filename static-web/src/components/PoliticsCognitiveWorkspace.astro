@@ -12,7 +12,8 @@ const units = (chapter.units || [])
     return {
       unit,
       projection,
-      orientMain: (states.ORIENT || []).filter((group) => ['PRIMARY', 'SUPPORT'].includes(group.zone)),
+      orientPrimary: (states.ORIENT || []).filter((group) => group.zone === 'PRIMARY'),
+      orientSupport: (states.ORIENT || []).filter((group) => group.zone === 'SUPPORT'),
       orientCompanion: (states.ORIENT || []).filter((group) => group.zone === 'COMPANION'),
       external: states.EXTERNAL_LEARN || [],
       close: states.CLOSE || []
@@ -58,14 +59,19 @@ if (!units.length) {
   {chapterContext && (
     <section class="chapterContext" data-projection-chapter-context>
       <div class="chapterContextSummary">
-        <span>章节定位</span>
-        <strong>{chapterContext.currentProblem || chapterContext.location || chapter.title}</strong>
+        <span>章位置</span>
+        <strong>{chapterContext.location || chapter.title}</strong>
       </div>
-      {chapterContext.stageContext?.length > 0 && (
+      {(chapterContext.currentProblem || chapterContext.stageContext?.length > 0) && (
         <details class="chapterContextDetails">
           <summary>展开整章位置</summary>
-          <div class="chapterContextChain">
-            {chapterContext.stageContext.map((row) => <Value value={row.value} />)}
+          <div class="chapterContextExpanded">
+            {chapterContext.currentProblem && <p class="chapterContextProblem">{chapterContext.currentProblem}</p>}
+            {chapterContext.stageContext?.length > 0 && (
+              <div class="chapterContextChain">
+                {chapterContext.stageContext.map((row) => <Value value={row.value} />)}
+              </div>
+            )}
           </div>
         </details>
       )}
@@ -85,11 +91,20 @@ if (!units.length) {
         data-explicit-surface-mapping="v1"
         hidden={unitIndex !== 0}
       >
+        <header class="unitQuestionHeader">
+          <p class="stageEyebrow">先定位 · 不背</p>
+          {projection.problem && <h2>{projection.problem}</h2>}
+        </header>
+
         <main class="cognitiveStage" data-cognitive-stage>
           <section class="stageScene" data-stage="ORIENT">
-            <p class="stageEyebrow">先定位 · 不背</p>
-            {projection.problem && <h2>{projection.problem}</h2>}
-            <PoliticsExplicitSurfacePlan groups={row.orientMain} />
+            <PoliticsExplicitSurfacePlan groups={row.orientPrimary} />
+            {row.orientSupport.length > 0 && (
+              <details class="orientSupport">
+                <summary>进一步理解</summary>
+                <PoliticsExplicitSurfacePlan groups={row.orientSupport} />
+              </details>
+            )}
             <div class="stageActions">
               <button type="button" class="primaryAction" data-workspace-action="start-learn">去 iPad / MarginNote 学乘风 →</button>
             </div>
