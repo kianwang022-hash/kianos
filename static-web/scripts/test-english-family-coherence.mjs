@@ -156,6 +156,9 @@ async function assertFullLexicalRoundTrip(page) {
 
 async function assertSourceLookup(page, route, selector, name) {
   await page.goto(`${BASE}${route}`, { waitUntil: 'domcontentloaded' });
+  if (name === 'cloze') {
+    await page.screenshot({ path: path.join(auditDir, 'cloze-1440x900.png'), fullPage: false });
+  }
   const word = await selectKnownWord(page, selector);
   await page.locator('[data-selection-lexical]').click();
   await page.waitForURL('**/vocabulary/?from=english&lookup=*');
