@@ -8,29 +8,45 @@ import XizongSystemEvidenceGuard from '../../../components/XizongSystemEvidenceG
 import XizongLastLocation from '../../../components/XizongLastLocation.astro';
 import XizongRuntimeStageGuard from '../../../components/XizongRuntimeStageGuard.astro';
 import { listProjectableXizongSystems, loadXizongSystem } from '../../../lib/xizong.mjs';
+import { loadXizongBeginnerGuide } from '../../../lib/xizongGuide.mjs';
 import { loadXizongPathways } from '../../../lib/xizongPathways.mjs';
 import { loadXizongSystemQuestionSweep } from '../../../lib/xizongQuestions.mjs';
 import '../../../styles/xizong-system-workspace.css';
 import '../../../styles/xizong-system-exit-workspace.css';
 
 export function getStaticPaths() {
-  return listProjectableXizongSystems().map((system) => ({ params: { system: system.systemId }, props: { systemId: system.systemId } }));
+  return listProjectableXizongSystems().map((system) => ({
+    params: { system: system.systemId },
+    props: { systemId: system.systemId }
+  }));
 }
 
 const { systemId } = Astro.props;
 const system = loadXizongSystem(systemId);
+const guide = loadXizongBeginnerGuide(system);
 const pathways = loadXizongPathways(system);
 const questionSweep = loadXizongSystemQuestionSweep(system);
 ---
-<Base title={system.title} kicker={`西医综合 · ${system.canonicalId} · System Learn`} description={system.mission} sourcePath={system.sourcePath} sourceHash={system.sourceHash} objectId={`xizong:${system.systemId}`} active="xizong" showLead={false}>
+
+<Base
+  title={system.title}
+  kicker={`西医综合 · ${system.canonicalId} · System Learn`}
+  description={system.mission}
+  sourcePath={system.sourcePath}
+  sourceHash={system.sourceHash}
+  objectId={`xizong:${system.systemId}`}
+  active="xizong"
+  showLead={false}
+>
   <XizongLastLocation system={system} />
-  <XizongSystemWorkspace system={system} pathways={pathways} />
+  <XizongSystemWorkspace system={system} pathways={pathways} guide={guide} />
+
   {questionSweep && (
-    <details class="xzExitStage" data-xizong-later-stage="system-exit">
+    <details class="xzExitStage" data-xizong-later-stage="system-exit" hidden>
       <summary>
         <span>后面阶段 · System Exit</span>
-        <strong>学完整个系统后，再做 System Recall + 系统真题</strong>
-        <small>{questionSweep.questionCount} 道系统真题已准备好；现在不用占注意力。</small>
+        <strong>System Recall + 系统真题</strong>
+        <small>只有整个 System 真实完成后才出现。</small>
       </summary>
       <XizongSystemExitRuntime system={system} sweep={questionSweep} />
       <XizongQuestionCrosswalkConsumer system={system} />
@@ -38,5 +54,6 @@ const questionSweep = loadXizongSystemQuestionSweep(system);
       <XizongSystemEvidenceGuard system={system} sweep={questionSweep} />
     </details>
   )}
+
   <XizongRuntimeStageGuard system={system} />
 </Base>
