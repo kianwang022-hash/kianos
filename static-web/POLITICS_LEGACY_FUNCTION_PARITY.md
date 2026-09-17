@@ -1,9 +1,10 @@
 # Politics Legacy Useful-function Parity｜Current-facing capability contract
 
-Status: **CURRENT CONTRACT · XIAO1000 WORKBENCH IMPLEMENTED ON MAIN · REMAINING PRODUCT PARITY OPEN**  
-Scope: **#116**；Workbench Current landing: **#183 / `890415ee273ec7baa1f010fbfc180fc18b7005d2`**  
+Status: **CURRENT CONTRACT · XIAO1000 WORKBENCH + EXPLICIT SURFACE MAPPING ON MAIN · REMAINING PRODUCT PARITY OPEN**  
+Scope: **#116**；Workbench Current landing: **#183 / `890415ee273ec7baa1f010fbfc180fc18b7005d2`**；representation closure: **#352**  
 Program router: `static-web/CURRENT.md` / #113  
-Semantic authority: Politics Learning / Interaction / Content / Question Truth / Evidence owners
+Semantic authority: Politics Learning / Interaction / Content / Question Truth / Evidence owners  
+Representation authority: `content/politics/SURFACE_MAPPING_CONTRACT.md`
 
 ## 0｜已经完成的边界裁决
 
@@ -12,6 +13,26 @@ Kian 要求：保留 Legacy 刷题体验；**原肖1000解析不展示**。后�
 #124 已完成 #115 learner-explanation promotion；只消费 `content/politics/derived/xiao1000-learner-explanations/` 的 Current stable question_id 绑定。缺失/stale不 OCR fallback、不模糊匹配、不重生成。
 
 Historical PR #117 的 still-unique Workbench 功能已 fresh-reconcile 到最新 Current，并由 #183 落 main。#117 现在只保留旧实现/截图/浏览器证据，不再是 Runtime 或产品 owner。
+
+PR #352 已关闭 learner-facing representation ownership：151/151 PASS owners 有 explicit Surface Mapping，9/9 REFERENCE_ONLY 保持 non-teaching。Historical downstream PR #336 已因这次上游收口而关闭为 superseded；它的旧 `projection_shape / representation.kind → learner geometry` 路径不得恢复。
+
+对于本账本中的 N1 / N4 / cognition 相关“恢复”语义，当前唯一合法解释是：
+
+```text
+exact Projection owner / Current refs
+→ explicit surface_mapping
+→ resolved surfacePlan.states[state]
+→ faithful learner surface
+```
+
+不是：
+
+```text
+projection_shape / field name / old Map-Chain-topology metadata
+→ renderer guesses relation / geometry
+```
+
+Mapped PASS state payload、relation type、learner-visible relation text、grouping、Repair payload 都由 Surface Mapping 在 UI 之前决定。Runtime / UI 只负责 state trigger、interaction shell 与视觉实现。
 
 Legacy 下列路径是此前行为提取的证据，不是后续待重新考古的任务清单：`runtime/frontend/src/learning/PoliticsWorkbench.jsx`、`.css`、`PoliticsCurrentRules.js`、`runtime/backend/app/learning_politics/service.py`（kianos-legacy）。实际实现输入为本 Current contract + Current data/runtime；发现未解决历史细节交给 Chat/owner 有界处理，不把旧代码/localhost接进新站。
 
@@ -26,10 +47,10 @@ Legacy 下列路径是此前行为提取的证据，不是后续待重新考古�
 | H1 | Home有意义Continue/last location，五科自由入口 | REQUIRED_CURRENT；真实状态，不是最近随便打开的页面 |
 | H2 | 有价值的今日Wrong/Uncertain、未完repair与精简Chat包 | CURRENT_EQUIVALENT；有内容才显示，不造due debt |
 | H3 | subject/chapter/NU浏览与快速跳转 | REQUIRED_CURRENT；不限制成wizard |
-| N1 | current NU问题/下一步、Chengfeng locator/look-for、外部连续学习与返回 | REQUIRED_CURRENT；Source ownership不等于surface ownership，不复制讲义 |
+| N1 | current NU问题/下一步、Chengfeng locator/look-for、外部连续学习与返回 | REQUIRED_CURRENT；learner payload消费 resolved Surface Mapping；Source ownership不等于surface ownership，不复制讲义 |
 | N2 | first-ready题目、cross-Unit deferral、明确owner边界 | REQUIRED_CURRENT；optional close不允许题目提前释放 |
 | N3 | 旧 mandatory Lecture→短Recall→Xiao gate | SUPERSEDED；Current optional轻闭合，仍保留真实学习前置 |
-| N4 | NU Recall/precision/后续compression资产 | PHASE_OWNED；不因取消旧gate一起删除，也不自动变第一轮常驻流程 |
+| N4 | NU Recall/precision/后续compression资产 | PHASE_OWNED；mapped first-round/close payload 只能来自 Surface Mapping；不因取消旧gate一起删除，也不自动变第一轮常驻流程 |
 | W1 | Continue active session / Resume / exact deep link | REQUIRED_CURRENT；恢复准确题组/当前题，不偷换未解析目标 |
 | W2 | 科目、章节、NU、题型、session长度（5/10/20/40或等价能力） | REQUIRED_CURRENT；安静setup，开刷后不占主舞台 |
 | W3 | 可选知识点过滤 | CONDITIONAL_ASSET；只有reviewed Current mapping时精确启用，不能猜 |
@@ -49,7 +70,7 @@ Legacy 下列路径是此前行为提取的证据，不是后续待重新考古�
 | R6 | autosave/可见保存状态/退出与导航不静默丢失 | REQUIRED_CURRENT；storage失败不能伪装成功推进 |
 | R7 | Next / Return到owning NU或原始practice入口 | REQUIRED_CURRENT；repair后能回这一题；未知或stale target fail closed |
 | E1 | first-attempt不可变、question/session/NU identity、revision/repair另存 | REQUIRED_CURRENT；修对不覆盖首答，不产生假mastery |
-| E2 | Current event-local repair provenance、reviewed Question→Unit/node、inbox/return bridge | CURRENT_EQUIVALENT；复用成熟Current组件/semantics，不回植Legacy state code |
+| E2 | Current event-local repair provenance、reviewed Question→Unit/node、inbox/return bridge | CURRENT_EQUIVALENT；复用成熟Current组件/semantics，不回植Legacy state code；mapped Repair learner payload 只有一个 Surface Mapping writer |
 | E3 | start、progress、refresh/back/Resume、complete→origin | REQUIRED_CURRENT；不重复首答，不丢note/signals，不把完成题组当学会 |
 | A1 | session result：数量、准确率、耗时/错因 | REQUIRED_CURRENT as secondary practice result；不能成为学习掌握率 |
 | A2 | unique answered、first/total accuracy、chapter/subject coverage、active wrong | CURRENT_EQUIVALENT / secondary capability；真实attempt来源，非Home dashboard，不静默失去已有可用能力 |
@@ -88,8 +109,10 @@ Workbench 不再是迁移 blocker。#116 继续收口：
 - conditional assets 在真实 owner / 权限存在时才显示；
 - Mac-wide visual convergence 与真实截图验收。
 
+五科 cognition 的“subject-native”含义已经更新：差异必须来自 exact Surface Mapping primitive / grouping / relation text / state payload，不得从 subject 名称、`projection_shape`、`representation.kind` 或 raw field 名称重新推导。
+
 完整 #116 closure 要求所有适用能力有明确 disposition，required/current-equivalent 有 Current 实现/等价证据，conditional/phase-owned 边界诚实，superseded 不回归。未关闭关键 blocker 不报 full parity。
 
 Relevant QA/build + representative Mac journeys/screenshots + independent review + Kian 必要视觉接受 → 才关闭 #116。工程测试不制造 learner U。
 
-原完整历史 contract 保留在 `design-archive/2026-09-14/POLITICS_PARITY_BEFORE_V3.md`。正常执行只读本 Current contract，不再走旧 M0 考古 / #115 / #117 迁移流程。
+原完整历史 contract 保留在 `design-archive/2026-09-14/POLITICS_PARITY_BEFORE_V3.md`。正常执行只读本 Current contract，不再走旧 M0 考古 / #115 / #117 / #336 迁移流程。
