@@ -71,6 +71,8 @@ const system = loadXizongSystem('circulation');
 const sweep = loadXizongSystemQuestionSweep(system);
 check(system?.canonicalId === 'A1', 'fixture_a1_system');
 check(sweep?.questions?.length === 376, 'fixture_a1_question_truth', String(sweep?.questions?.length || 0));
+const completedBlockIds = (system?.blocks || []).map((block) => String(block?.blockId || '')).filter(Boolean);
+check(completedBlockIds.length > 0, 'fixture_system_blocks_present', String(completedBlockIds.length));
 const holdoutYear = Number(sweep.years[0]);
 const eligible = sweep.questions.filter((question) => Number(question.year) !== holdoutYear);
 check(eligible.length > 2, 'fixture_non_holdout_questions');
@@ -133,11 +135,22 @@ try {
   const sweepKey = 'kianos:xizong:system-question-sweep:circulation:v1';
 
   await page.goto(url, { waitUntil: 'networkidle' });
-  await page.evaluate(() => {
+  await page.evaluate((blockIds) => {
     for (const key of Object.keys(localStorage)) if (key.includes('xizong')) localStorage.removeItem(key);
     sessionStorage.clear();
-  });
+    for (const blockId of blockIds) {
+      localStorage.setItem(`kianos-xizong-astro-v2:xizong:${blockId}`, JSON.stringify({ completed: true }));
+    }
+  }, completedBlockIds);
   await page.reload({ waitUntil: 'networkidle' });
+  const seededBlockCount = await page.evaluate((blockIds) => blockIds.filter((blockId) => {
+    try {
+      return Boolean(JSON.parse(localStorage.getItem(`kianos-xizong-astro-v2:xizong:${blockId}`) || 'null')?.completed);
+    } catch {
+      return false;
+    }
+  }).length, completedBlockIds);
+  check(seededBlockCount === completedBlockIds.length, 'system_exit_prerequisite_block_completion_seeded', `${seededBlockCount}/${completedBlockIds.length}`);
 
   const stage = page.locator('[data-xizong-later-stage="system-exit"]');
   check(await stage.count() === 1, 'later_stage_mounted');
