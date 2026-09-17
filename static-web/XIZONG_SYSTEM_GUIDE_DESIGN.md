@@ -1,6 +1,6 @@
 # Xizong System Framework — accepted design direction
 
-Status: **ACTIVE SURFACE DESIGN — RESPONSIBILITY / MAC-WIDE GEOMETRY ACCEPTED, FINAL VISUAL TOKENS + SCREENSHOT ACCEPTANCE PENDING**  
+Status: **MAC-WIDE L3 HUMAN-GATE ACCEPTED 2026-09-18 — TARGETED CI / MERGE PENDING**  
 Parent: `static-web/XIZONG_PRODUCT_BRIEF.md`  
 Review safety: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`  
 Shared evolvability requirement: root `PROJECT_DEFINITION.md` R10 + `ARCHITECTURE.md` §7.1
@@ -18,6 +18,42 @@ Block Framework = show the structured Block model
 ```
 
 A Framework may use spatial relations, coordinates, comparison or failure geometry only when Current owns them. It must not rewrite the Beginner Guide into a diagram, and the Beginner Guide must not become a second Framework owner.
+
+## 0.5｜2026-09-18 accepted Mac-wide L3
+
+The accepted learner-facing System workbench is:
+
+```text
+compact System identity / mission        GUIDE | FRAMEWORK
+────────────────────────────────────────────────────────────
+BLOCK ROUTE | dominant Guide or System Framework
+            | + conditional Context only when selected
+```
+
+Accepted interaction/composition decisions:
+
+- Mac wide landscape is the design origin.
+- Beginner Guide and System Framework are two views of the same System workbench, but remain semantically distinct:
+  - Guide = explanatory prose;
+  - Framework = structured cognitive model.
+- Block Route remains persistently visible because it materially carries System position and free navigation.
+- KP / Outline counts are not primary Route information.
+- There is **no permanent right inspector**.
+- Selected Block duplicate panel, permanent help and keyboard instructions are removed from repeated-use System UI.
+- Failure selection may temporarily open a bounded Context region; closing it returns the width to the main cognitive stage.
+- System Exit / System Recall / official questions remain hidden until real learner eligibility.
+- Guide prose is loaded from the Current Guide resolver and may change through Content without page-layout rewrites.
+- Framework consumes Current System semantics and must remain usable across materially different Systems such as A1/A2/A3 without System-name conditionals.
+- Chinese learner typography follows the shared broad/full-bodied CJK baseline; page-local negative tracking is not used.
+- Long Guide content may scroll inside the main cognitive stage. One-viewport closure is not a goal.
+
+Human Gate evidence for this L3 used materially different views:
+
+- A1 Beginner Guide;
+- A1 System Framework;
+- A2 System Framework.
+
+Kian accepted the direction before targeted CI. Content wording remains independently editable through its canonical GitHub owners and does not require reopening this visual L3 unless the presentation contract itself changes.
 
 ## 1｜Role in the learner loop
 
