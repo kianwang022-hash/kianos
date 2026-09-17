@@ -12,6 +12,7 @@ const fail = message => errors.push(message);
 const validDay = day => typeof day === 'string'
   && /^\d{4}-\d{2}-\d{2}$/.test(day)
   && !Number.isNaN(Date.parse(`${day}T00:00:00Z`));
+const previousDay = day => new Date(Date.parse(`${day}T00:00:00Z`) - 86400000).toISOString().slice(0, 10);
 
 if (current.schema !== 'kianos.exam-orchestrator.current.v1') fail('schema mismatch');
 if (current.authority !== 'DERIVED_PROJECTION') fail('projection must declare DERIVED_PROJECTION');
@@ -42,11 +43,25 @@ if ((current.targets?.xizong || 0) + (current.targets?.english || 0) + (current.
 }
 
 const phaseMatches = [...contract.matchAll(/^## Phase ([A-E])｜(\d{4}-\d{2}-\d{2}) → (\d{4}-\d{2}-\d{2})$/gm)];
-const contractPhases = new Map(phaseMatches.map(match => [match[1], { start: match[2], end: match[3] }]));
-for (const phase of current.phases || []) {
+const contractPhaseList = phaseMatches.map(match => ({ id: match[1], start: match[2], end: match[3] }));
+const contractPhases = new Map(contractPhaseList.map(phase => [phase.id, phase]));
+for (let index = 0; index < (current.phases || []).length; index += 1) {
+  const phase = current.phases[index];
   const expected = contractPhases.get(phase.id);
-  if (!expected) fail(`phase ${phase.id} missing from contract`);
-  else if (expected.start !== phase.start || expected.end !== phase.end) fail(`phase ${phase.id} date mismatch`);
+  const nextContract = contractPhaseList[index + 1];
+  if (!expected) {
+    fail(`phase ${phase.id} missing from contract`);
+  } else {
+    // When a contract Gate day is both the prior phase endpoint and the next
+    // phase start, the daily runtime gives that calendar day to the new phase.
+    // This keeps one active phase per day while preserving the Gate date.
+    const expectedRuntimeEnd = nextContract && expected.end === nextContract.start
+      ? previousDay(nextContract.start)
+      : expected.end;
+    if (expected.start !== phase.start || expectedRuntimeEnd !== phase.end) {
+      fail(`phase ${phase.id} date mismatch: runtime=${phase.start}..${phase.end} contract-derived=${expected.start}..${expectedRuntimeEnd}`);
+    }
+  }
   if (!validDay(phase.start) || !validDay(phase.end) || phase.start > phase.end) fail(`phase ${phase.id} has invalid dates`);
   if (!Array.isArray(phase.roles) || phase.roles.length !== 3) fail(`phase ${phase.id} roles invalid`);
 }
