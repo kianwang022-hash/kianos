@@ -12,7 +12,7 @@ function primaryText(item) {
 }
 
 function itemLabel(item) {
-  return item?.label || item?.left || item?.from_label || '';
+  return item?.label || item?.role || item?.name || item?.left || item?.from_label || '';
 }
 ---
 
@@ -75,14 +75,14 @@ function itemLabel(item) {
         <div class="explicitHierarchy">
           {group.items.map((item, index) => (
             <article style={`--level:${index}`}>
-              {item.label && <span>{item.label}</span>}
+              {itemLabel(item) && <span>{itemLabel(item)}</span>}
               <p>{item.text || primaryText(item)}</p>
             </article>
           ))}
         </div>
       ) : group.primitive === 'TIMELINE' ? (
         <ol class="explicitTimeline">
-          {group.items.map((item) => <li>{item.label && <b>{item.label}</b>}<span>{primaryText(item)}</span></li>)}
+          {group.items.map((item) => <li>{itemLabel(item) && <b>{itemLabel(item)}</b>}<span>{primaryText(item)}</span></li>)}
         </ol>
       ) : (
         <div class="explicitStatements">
