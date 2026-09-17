@@ -297,6 +297,41 @@ When Kian is actively calibrating taste, show representative screenshots before 
 
 A local page may be accepted without implying all subjects should copy its layout.
 
+### Single visual owner
+
+A learner-facing surface must have **one active visual owner for each presentation responsibility**.
+
+- Do not control the same surface through a page-local style block plus lane CSS plus `*-polish.css` plus `*-qa-fixes.css` plus later `!important` recovery.
+- Preferred structure is: shared shell/tokens + one clear lane/surface stylesheet + only genuine state/responsive rules owned inside that same layer.
+- If changing a font, spacing rule, rail width or card treatment requires tracing several override files, treat that as an ownership defect and consolidate before further polish.
+- Temporary compatibility CSS must have a deletion condition; it must not become a permanent second visual owner.
+
+### UI-only fast lane
+
+Pure visual work should be fast to iterate and heavy only at final acceptance.
+
+Default workflow:
+
+```text
+agree target + preserve list
+→ make one coherent visual round in the local/temporary implementation surface
+→ local build/browser check
+→ capture representative screenshots
+→ Kian reviews the real surface
+→ revise as a batch if needed
+→ only after visual acceptance, push one coherent GitHub PR
+→ run targeted CI/regression once
+→ merge
+```
+
+Hard rules:
+
+- Do not trigger remote CI after every font/spacing/whitespace micro-adjustment.
+- Do not split one visual round into many tiny GitHub commits merely because the connector can write one file at a time.
+- UI-only work should not wait on unrelated domain/lane test suites; run the smallest relevant regression set unless shared runtime/semantics actually changed.
+- During active visual calibration, screenshots are the primary review artifact; GitHub history should receive the accepted coherent result, not every intermediate experiment.
+- Content/Truth changes keep their normal canonical GitHub path; this fast lane applies only to bounded visual implementation that does not change Learning/Runtime/Evidence semantics.
+
 ---
 
 ## 13｜Authority boundary
