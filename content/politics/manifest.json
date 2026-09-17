@@ -1,27 +1,90 @@
 {
-  "schema": "kianos.politics.current_manifest.v2",
+  "schema": "kianos.politics.current_manifest.v3",
   "status": "CURRENT_ACTIVE",
   "owner_path": "content/politics/",
-  "semantic_authority": "CHAT",
+  "semantic_authority": "CURRENT_MAIN_HEAD_ONLY",
   "provenance": "content/politics/provenance.json",
-  "learning_contract": "content/politics/LEARNING_CONTRACT.md",
-  "interaction_contract": "content/politics/INTERACTION_CONTRACT.md",
-  "learning_manifest": "content/politics/learning/manifest.json",
-  "product_model": "SOURCE_TRUTH_TO_CHAT_JUDGMENT_TO_GITHUB_CURRENT_TO_ASTRO_INTERACTION",
-  "source_roles": {
-    "chengfeng": {"role": "CONTINUOUS_FIRST_ROUND_MAINLINE", "structure_owner": "content/politics/source/politics_unified_regions.v1.jsonl", "node_owner": "content/politics/source/source_node_registry.v2.jsonl"},
-    "suyi": {"role": "CHAT_FRAMEWORK_REFERENCE", "learner_required": false, "representation": "suyi_refs on canonical regions + source nodes in source_node_registry", "policy": "ABSORB_USEFUL_MINDMAP_STRUCTURE_INTO_CHAT_APPROVED_LEARNING_PROJECTIONS_NO_SECOND_MAINLINE"},
-    "xiao1000": {"role": "VALIDATION_AND_TRANSFER_EVIDENCE", "question_owner": "content/politics/source/xiao_2027_questions.jsonl", "relation_owner": "content/politics/source/question_knowledge_links.jsonl", "asset_owner": "content/politics/source/xiao_2027_question_assets.json", "explanation_provenance": "content/politics/source/xiao_2027_explanation_provenance.v1.json"}
+  "rule_owners": {
+    "learning": "content/politics/LEARNING_CONTRACT.md",
+    "interaction": "content/politics/INTERACTION_CONTRACT.md",
+    "knowledge_semantics": "content/politics/CONTENT_SEMANTICS_CONTRACT.md",
+    "attention_hierarchy": "content/politics/CONTENT_HIERARCHY_CONTRACT.md"
   },
-  "sources": {
-    "questions": {"path": "content/politics/source/xiao_2027_questions.jsonl", "sha256": "67cdd96c6fe53eb8b5e879c9e9ed487f58cea60c648e53cd720bd8a2fda9e40d", "training_ready_records": 1148, "reference_only_material_records": 24},
-    "question_knowledge_links": {"path": "content/politics/source/question_knowledge_links.jsonl", "sha256": "b0e6a21cf682f6aad4974cbf27cf23c787e1acfb5549d78e3981c55fa93a6e1a", "records": 1148},
-    "question_assets": {"path": "content/politics/source/xiao_2027_question_assets.json", "sha256": "8995be1e40fe9a75fae46693dc0179ac6d27bb6255464387cae85fe1bd62aef1", "records": 1148},
-    "explanation_provenance": {"path": "content/politics/source/xiao_2027_explanation_provenance.v1.json", "sha256": "f42582cf21e44f2c9bb19c01988e45b5c27e431f45a728ee2ed335ba2c55e899", "records": 1148},
-    "regions": {"path": "content/politics/source/politics_unified_regions.v1.jsonl", "sha256": "2e2cfa21d189fce984f97bcaea714875e51309ccef4522e42d0d5847e5ca2054", "records": 160, "role": "CANONICAL_CONTINUOUS_NATURAL_UNIT_REGISTRY"},
-    "source_nodes": {"path": "content/politics/source/source_node_registry.v2.jsonl", "sha256": "0675bb9378d23cb50de483abe093bc71196e8a5955b8945bf728f76637d2dc38", "records": 19528, "role": "CANONICAL_SOURCE_NODE_REGISTRY"}
+  "source": {
+    "chengfeng": {
+      "role": "CONTINUOUS_FIRST_ROUND_MAINLINE",
+      "structure_owner": "content/politics/source/politics_unified_regions.v1.jsonl",
+      "node_owner": "content/politics/source/source_node_registry.v2.jsonl"
+    },
+    "suyi": {
+      "role": "CHAT_FRAMEWORK_REFERENCE",
+      "learner_required": false,
+      "representation": "suyi_refs on canonical regions + source nodes in source_node_registry",
+      "policy": "ABSORB_USEFUL_STRUCTURE_INTO_CHAT_APPROVED_KNOWLEDGE_AND_LEARNING_CONTENT_NO_SECOND_MAINLINE"
+    },
+    "xiao1000": {
+      "role": "VALIDATION_AND_TRANSFER_EVIDENCE",
+      "question_owner": "content/politics/source/xiao_2027_questions.jsonl",
+      "relation_owner": "content/politics/source/question_knowledge_links.jsonl",
+      "asset_owner": "content/politics/source/xiao_2027_question_assets.json",
+      "explanation_provenance": "content/politics/source/xiao_2027_explanation_provenance.v1.json"
+    }
   },
-  "derived_assets": {
+  "source_inventory": {
+    "questions": {
+      "path": "content/politics/source/xiao_2027_questions.jsonl",
+      "sha256": "67cdd96c6fe53eb8b5e879c9e9ed487f58cea60c648e53cd720bd8a2fda9e40d",
+      "training_ready_records": 1148,
+      "reference_only_material_records": 24
+    },
+    "question_knowledge_links": {
+      "path": "content/politics/source/question_knowledge_links.jsonl",
+      "sha256": "b0e6a21cf682f6aad4974cbf27cf23c787e1acfb5549d78e3981c55fa93a6e1a",
+      "records": 1148
+    },
+    "question_assets": {
+      "path": "content/politics/source/xiao_2027_question_assets.json",
+      "sha256": "8995be1e40fe9a75fae46693dc0179ac6d27bb6255464387cae85fe1bd62aef1",
+      "records": 1148
+    },
+    "explanation_provenance": {
+      "path": "content/politics/source/xiao_2027_explanation_provenance.v1.json",
+      "sha256": "f42582cf21e44f2c9bb19c01988e45b5c27e431f45a728ee2ed335ba2c55e899",
+      "records": 1148
+    },
+    "regions": {
+      "path": "content/politics/source/politics_unified_regions.v1.jsonl",
+      "sha256": "2e2cfa21d189fce984f97bcaea714875e51309ccef4522e42d0d5847e5ca2054",
+      "records": 160,
+      "role": "CANONICAL_CONTINUOUS_NATURAL_UNIT_REGISTRY"
+    },
+    "source_nodes": {
+      "path": "content/politics/source/source_node_registry.v2.jsonl",
+      "sha256": "0675bb9378d23cb50de483abe093bc71196e8a5955b8945bf728f76637d2dc38",
+      "records": 19528,
+      "role": "CANONICAL_SOURCE_NODE_REGISTRY"
+    }
+  },
+  "knowledge_and_learning_content": {
+    "owner_root": "content/politics/learning/",
+    "authority": "CHAT_APPROVED_KNOWLEDGE_AND_LEARNING_CONTENT",
+    "subject_status": {
+      "marxism": "SOURCE_KNOWLEDGE_CONTENT_CLOSED_C00_TO_C08",
+      "history": "SOURCE_KNOWLEDGE_CONTENT_CLOSED_C01_TO_C10_WITH_SUBJECT_MAP",
+      "mao": "SOURCE_KNOWLEDGE_CONTENT_CLOSED_C00_TO_C08_WITH_SUBJECT_MAP",
+      "xi": "SOURCE_KNOWLEDGE_CONTENT_CLOSED_C00_TO_C17_WITH_SUBJECT_MAP",
+      "ethics_law": "SOURCE_KNOWLEDGE_CONTENT_CLOSED_C00_TO_C06_WITH_SUBJECT_MAP"
+    },
+    "rules": [
+      "Chengfeng Natural Unit identity and order remain canonical.",
+      "Suyi is background framework reference, not a second learner course.",
+      "Xiao1000 never determines first-round learning order.",
+      "AI learning assets add source-grounded orientation, relations, boundaries, bridges, compression and repair guidance without copying the Chengfeng lecture into a second textbook.",
+      "Astro renders accepted Current content and must not hard-code political knowledge.",
+      "Each Politics subject keeps its own cognitive shape."
+    ]
+  },
+  "derived_content": {
     "xiao1000_learner_explanations": {
       "role": "DERIVED_LEARNER_FACING_POST_SUBMISSION_EXPLANATION",
       "manifest": "content/politics/derived/xiao1000-learner-explanations/manifest.json",
@@ -32,31 +95,14 @@
       "question_truth_owner": "content/politics/source/xiao_2027_questions.jsonl"
     }
   },
-  "learning": {
-    "owner_root": "content/politics/learning/",
-    "authority": "CHAT_APPROVED_TEACHING_PROJECTION",
-    "subject_status": {
-      "marxism": "SOURCE_KNOWLEDGE_CONTENT_CLOSED_C00_TO_C08",
-      "history": "SOURCE_KNOWLEDGE_CONTENT_CLOSED_C01_TO_C10_WITH_SUBJECT_MAP",
-      "mao": "SOURCE_KNOWLEDGE_CONTENT_CLOSED_C00_TO_C08_WITH_SUBJECT_MAP",
-      "xi": "SOURCE_KNOWLEDGE_CONTENT_CLOSED_C00_TO_C17_WITH_SUBJECT_MAP",
-      "ethics_law": "SOURCE_KNOWLEDGE_CONTENT_CLOSED_C00_TO_C06_WITH_SUBJECT_MAP"
-    },
-    "rules": [
-      "Chengfeng Natural Unit identity and order remain canonical.",
-      "Suyi is consumed as background framework reference rather than a separate learner course.",
-      "Xiao1000 never determines first-round learning order.",
-      "Learning assets add orientation, bridges, compression, and repair guidance without duplicating the Chengfeng source.",
-      "Astro should render Current learning semantics rather than hard-code political knowledge.",
-      "Only the top-level learning loop is shared across Politics subjects; each subject keeps its own teaching shape."
-    ]
-  },
-  "astro": {
-    "entry": "static-web/src/pages/politics/index.astro",
-    "generic_chapter_route": "static-web/src/pages/politics/[subject]/[chapter].astro",
-    "chapter_runtime": "static-web/src/components/PoliticsChapterRuntime.astro",
-    "current_loader": "static-web/src/lib/politicsCurrent.mjs",
-    "shared_loop": "ORIENTATION_TO_CHENGFENG_TO_SHORT_CLOSURE_TO_XIAO1000_TO_MINIMAL_REPAIR"
+  "transitional_non_content_owners": {
+    "rule": "Presentation and runtime implementation are downstream of Content. They may remain referenced here for compatibility/status routing but are not semantic Content owners.",
+    "surface_mapping": "content/politics/SURFACE_MAPPING_CONTRACT.md",
+    "projection_root": "content/politics/projection/",
+    "astro_entry": "static-web/src/pages/politics/index.astro",
+    "astro_chapter_route": "static-web/src/pages/politics/[subject]/[chapter].astro",
+    "astro_runtime": "static-web/src/components/PoliticsChapterRuntime.astro",
+    "astro_loader": "static-web/src/lib/politicsCurrent.mjs"
   },
   "readiness": {
     "source_materialized": true,
@@ -64,24 +110,11 @@
     "xiao1000_learner_explanations_promoted": true,
     "continuous_natural_unit_registry_verified": true,
     "learning_contract_current": true,
-    "all_subject_content_projection_complete": true,
+    "all_subject_knowledge_and_learning_content_complete": true,
     "marxism_source_knowledge_content_closed": true,
-    "marxism_current_owner": "content/politics/learning/marxism/CURRENT.md",
-    "marxism_acceptance_owner": "content/politics/learning/marxism/ACCEPTANCE.md",
     "history_source_knowledge_content_closed": true,
-    "history_current_owner": "content/politics/learning/history/CURRENT.md",
-    "history_acceptance_owner": "content/politics/learning/history/ACCEPTANCE.md",
     "mao_source_knowledge_content_closed": true,
-    "mao_current_owner": "content/politics/learning/mao/CURRENT.md",
-    "mao_acceptance_owner": "content/politics/learning/mao/ACCEPTANCE.md",
     "xi_source_knowledge_content_closed": true,
-    "xi_current_owner": "content/politics/learning/xi/CURRENT.md",
-    "xi_acceptance_owner": "content/politics/learning/xi/ACCEPTANCE.md",
-    "ethics_law_source_knowledge_content_closed": true,
-    "ethics_law_current_owner": "content/politics/learning/ethics-law/CURRENT.md",
-    "ethics_law_acceptance_owner": "content/politics/learning/ethics-law/ACCEPTANCE.md",
-    "interaction_contract_current": true,
-    "astro_politics_projection": true,
-    "next_lane": "SEE content/politics/CURRENT.md + ACCEPTANCE.md"
+    "ethics_law_source_knowledge_content_closed": true
   }
 }
