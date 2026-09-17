@@ -165,7 +165,29 @@ try {
   console.log('PASS corrupt storage fails closed instead of presenting fake zero attention');
 
   await page.setViewportSize({ width: 390, height: 844 });
-  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+  const mobileOverflow = await page.evaluate(() => {
+    const viewportWidth = innerWidth;
+    const documentScrollWidth = document.documentElement.scrollWidth;
+    const bodyScrollWidth = document.body.scrollWidth;
+    const offenders = [...document.querySelectorAll('body *')]
+      .map((node) => {
+        const rect = node.getBoundingClientRect();
+        const classes = node instanceof HTMLElement ? [...node.classList].slice(0, 4).join('.') : '';
+        return {
+          selector: `${node.tagName.toLowerCase()}${node.id ? `#${node.id}` : ''}${classes ? `.${classes}` : ''}`,
+          left: Math.round(rect.left * 10) / 10,
+          right: Math.round(rect.right * 10) / 10,
+          width: Math.round(rect.width * 10) / 10,
+          text: String(node.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 100)
+        };
+      })
+      .filter((row) => row.width > 0 && (row.right > viewportWidth + 0.5 || row.left < -0.5))
+      .sort((a, b) => Math.max(b.right - viewportWidth, -b.left) - Math.max(a.right - viewportWidth, -a.left))
+      .slice(0, 20);
+    return { viewportWidth, documentScrollWidth, bodyScrollWidth, offenders };
+  });
+  console.log(`MOBILE_OVERFLOW_DIAGNOSTIC ${JSON.stringify(mobileOverflow)}`);
+  assert.equal(mobileOverflow.documentScrollWidth <= mobileOverflow.viewportWidth, true);
   assert.deepEqual(pageErrors, []);
   console.log('POLITICS_HOME_ATTENTION_PASS');
   await context.close();
