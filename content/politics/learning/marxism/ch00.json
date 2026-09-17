@@ -354,7 +354,7 @@
       "region_id": "POL27-REGION-MARX-C00-S02",
       "title": "第二节 马克思主义的基本特征和当代价值",
       "from_previous": "上一节解决马克思主义从哪里来、怎样发展；现在转向它作为一套完整理论具有什么性质。",
-      "core_problem": "四个基本特征怎样组成一个整体，为什么马克思主义今天仍有价值但又不能被当成现成方案？",
+      "core_problem": "马克思主义的基本特征为什么要作为一个整体理解，而不是把几个固定词语各自背下来？",
       "teaching_beats": [
         {
           "label": "基本特征",
@@ -449,29 +449,32 @@
             ],
             "edges": [
               {
-                "from": "people_nature",
-                "to": "revolutionary_character",
-                "relation": "集中体现为"
-              },
-              {
-                "from": "practicality",
-                "to": "revolutionary_character",
-                "relation": "集中体现为"
-              },
-              {
-                "from": "development_quality",
-                "to": "revolutionary_character",
-                "relation": "集中体现为"
-              },
-              {
                 "from": "scientificity",
-                "to": "revolutionary_character",
-                "relation": "提供科学基础"
+                "to": "science_revolution_unity",
+                "relation": "为革命性提供科学基础"
               },
               {
                 "from": "revolutionary_character",
                 "to": "science_revolution_unity",
                 "relation": "与科学性高度统一"
+              }
+            ],
+            "collective_relations": [
+              {
+                "id": "MARX-C00-S02-COLLECTIVE-REVOLUTION-01",
+                "member_ids": [
+                  "people_nature",
+                  "practicality",
+                  "development_quality"
+                ],
+                "relation": "集中体现为",
+                "target_id": "revolutionary_character",
+                "text": "人民性、实践性和发展性集中体现为革命性。",
+                "source_evidence": [
+                  "POL27-CF-MARX-C00-K05",
+                  "POL27-SY-MARX-P008-B073",
+                  "POL27-SY-MARX-P008-B085"
+                ]
               }
             ]
           },
@@ -603,8 +606,7 @@
         "anchors": [
           {
             "id": "MARX-C00-S02-ANCHOR-01",
-            "text": "人民性、实践性和发展性集中体现为革命性；革命性以科学性为基础，并与科学性高度统一。",
-            "learner_tier": "H1_ORIENTATION_CORE"
+            "text": "四个基本特征不是平铺清单：人民性、实践性、发展性集中体现为革命性，革命性以科学性为基础，最终收束为科学性与革命性的统一。"
           },
           {
             "id": "MARX-C00-S02-ANCHOR-02",
