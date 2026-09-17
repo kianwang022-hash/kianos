@@ -1,0 +1,53 @@
+name: Politics Collective Relation Proof
+
+on:
+  push:
+    branches:
+      - 'verify/politics-collective-relation-20260918'
+
+permissions:
+  contents: read
+
+jobs:
+  proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install runtime
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+
+      - name: Audit Politics learning semantics
+        working-directory: static-web
+        run: node scripts/audit-politics-learning-semantics.mjs
+
+      - name: Audit Politics content hierarchy
+        working-directory: static-web
+        run: node scripts/audit-politics-content-hierarchy.mjs
+
+      - name: Audit Marxism content
+        working-directory: static-web
+        run: node scripts/audit-politics-marxism-content.mjs
+
+      - name: Prove C00 collective relation is not atomized
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const raw=JSON.parse(fs.readFileSync('content/politics/learning/marxism/ch00.json','utf8'));
+          const unit=raw.unit_projections.find(u=>u.natural_unit_id==='POL27-CF-MARX-C00-S02');
+          const map=unit.learning_semantics.framework_maps.find(m=>m.id==='MARX-C00-S02-MAP-CHARACTER-01');
+          const relation=(map.collective_relations||[]).find(r=>r.id==='MARX-C00-S02-COLLECTIVE-REVOLUTION-01');
+          if(!relation) throw new Error('COLLECTIVE_RELATION_MISSING');
+          const expected=['people_nature','practicality','development_quality'];
+          if(relation.member_ids.join('|')!==expected.join('|')) throw new Error('COLLECTIVE_MEMBERS_CHANGED');
+          if(relation.relation!=='集中体现为') throw new Error('COLLECTIVE_PREDICATE_CHANGED');
+          if(relation.target_id!=='revolutionary_character') throw new Error('COLLECTIVE_TARGET_CHANGED');
+          const atomized=(map.edges||[]).filter(e=>expected.includes(e.from)&&e.to==='revolutionary_character');
+          if(atomized.length) throw new Error('COLLECTIVE_RELATION_REATOMIZED');
+          console.log('POLITICS_C00_COLLECTIVE_RELATION_PASS');
+          console.log(JSON.stringify({collective_relation:relation, atomized_edges:atomized.length},null,2));
+          NODE
