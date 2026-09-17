@@ -1,0 +1,48 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { listExternalReadingObjects } from '../../../lib/englishExternalReading.mjs';
+
+const base = import.meta.env.BASE_URL;
+const items = listExternalReadingObjects();
+---
+<Base
+  title="External Reading"
+  kicker="English · External Reading"
+  description="Chat 写入 GitHub 的外刊 / 外部阅读材料会从这里自动发现；有完整题目的对象直接进入共享 Reading workspace。"
+  active="english"
+>
+  <section class="englishExternalIndex" data-external-reading-index>
+    <header>
+      <span>Fresh input · shared Reading runtime</span>
+      <strong>{items.length} materialized object{items.length === 1 ? '' : 's'}</strong>
+    </header>
+
+    {items.length ? (
+      <div class="englishExternalList">
+        {items.map((item) => (
+          <article data-external-object={item.id}>
+            <div>
+              <span>{item.publication || item.sourceKind}</span>
+              <h2>{item.title}</h2>
+              <p>{item.questionCount ? `${item.questionCount} questions · ${item.exposureState}` : `reading only · ${item.exposureState}`}</p>
+            </div>
+            {item.questionCount ? (
+              <a href={`${base}english/external/${encodeURIComponent(item.id)}/`}>开始 →</a>
+            ) : (
+              <span class="englishExternalPending">本轮暂不生成假题</span>
+            )}
+          </article>
+        ))}
+      </div>
+    ) : (
+      <div class="englishExternalEmpty">
+        <strong>目前没有 materialized External Reading object。</strong>
+        <p>把一个符合 `content/english/external/schema.json` 的 JSON 写入 `content/english/external/objects/`；进入 `main` 后，现有 Current 自动同步会让它出现在这里，不需要再改前端。</p>
+      </div>
+    )}
+  </section>
+</Base>
+
+<style>
+  .englishExternalIndex{display:grid;gap:18px;max-width:1180px;width:100%;margin:0 auto}.englishExternalIndex>header{display:flex;justify-content:space-between;gap:24px;align-items:end;padding:4px 0 15px;border-bottom:1px solid var(--study-line)}.englishExternalIndex>header span{font-size:15px;color:var(--study-green);font-weight:750}.englishExternalIndex>header strong{font-size:16px;color:var(--study-muted)}.englishExternalList{display:grid}.englishExternalList article{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:18px 2px;border-bottom:1px solid var(--study-line)}.englishExternalList article>div{min-width:0}.englishExternalList article span,.englishExternalList article p{font-size:16px;color:var(--study-muted)}.englishExternalList h2{margin:4px 0 6px;font-size:21px;line-height:1.4}.englishExternalList p{margin:0}.englishExternalList a{flex:0 0 auto;color:var(--study-green);font-size:16px;font-weight:750;text-decoration:none}.englishExternalPending{flex:0 0 auto}.englishExternalEmpty{padding:28px 0;border-bottom:1px solid var(--study-line)}.englishExternalEmpty strong{font-size:19px}.englishExternalEmpty p{max-width:850px;margin:9px 0 0;font-size:17px;line-height:1.7;color:var(--study-muted)}
+</style>
