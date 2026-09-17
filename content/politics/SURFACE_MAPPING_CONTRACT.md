@@ -42,7 +42,7 @@ If the mapping is absent, the learner surface fails closed to a plain truthful s
 
 ---
 
-## 2 | Mapping owns semantic position, not CSS
+## 2 | Mapping owns semantic display, not CSS
 
 `surface_mapping` belongs to each accepted PASS Natural Unit inside its Projection owner.
 
@@ -52,7 +52,10 @@ It may own:
 - representation primitive: `STATEMENT`, `PARALLEL_SET`, `RELATION_SET`, `DIRECTED_SEQUENCE`, `COMPARE`, `HIERARCHY`, `TIMELINE`;
 - exact selected refs/items;
 - explicit relation labels / direction when the knowledge owns them;
-- grouping boundaries and learner-facing group title.
+- grouping boundaries and learner-facing group title;
+- semantic visibility: which owned labels / relations must remain learner-visible together in the same surface group.
+
+Owned relation text is **content, not connector chrome**. If a relation label explains why or how one learner object relates to another, that label is a first-class learner claim. The renderer may reflow or stack it responsively, but it may not hide it behind hover, replace it with an unlabeled arrow, collapse it into incidental annotation, or omit it.
 
 It must not own:
 - pixel dimensions;
@@ -64,7 +67,7 @@ It must not own:
 
 Test:
 
-> If Astro were replaced tomorrow, would this mapping still say exactly what belongs together, what relation the learner should see, and when it should appear?
+> If Astro were replaced tomorrow, would this mapping still say exactly what belongs together, what relation the learner should see, which relation text must remain visible, and when it should appear?
 
 If yes, it belongs here.
 
@@ -91,6 +94,8 @@ Use this for patterns such as several properties independently contributing to a
 
 ### `DIRECTED_SEQUENCE`
 A direction/order is part of the intended cognition. Each transition must be explicitly owned. Use for causal/process/reasoning sequences only when direction is educationally material.
+
+When a transition owns a `relation` label, that label is part of the learner claim itself. `A → B` and `A → relation → B` are not interchangeable representations unless Current explicitly says the relation label is unnecessary.
 
 ### `TIMELINE`
 Chronological order is the intended cognition. Dates/stages must be Current-owned.
@@ -166,7 +171,7 @@ Example:
 }
 ```
 
-The exact wire schema may evolve during the bounded migration, but the ownership rule may not weaken: **grouping, relation type, selected members and direction are explicit before Astro.**
+The exact wire schema may evolve during the bounded migration, but the ownership rule may not weaken: **grouping, relation type, selected members, learner-visible relation text and direction are explicit before Astro.**
 
 ---
 
@@ -228,7 +233,8 @@ Acceptance requires:
 7. parallel conditions/features remain parallel unless Current owns a stronger relation;
 8. representative browser acceptance covers all five subjects and heterogeneous primitives;
 9. Xiao1000 Question Truth / Evidence / exact Return / first attempt remain unchanged;
-10. Chengfeng remains the original continuous learning mainline.
+10. Chengfeng remains the original continuous learning mainline;
+11. every owned learner-facing relation label remains explicitly visible with its related objects and is not reduced to decorative connector metadata.
 
 Until this acceptance closes, broad Politics learner-surface productization must not claim semantic mapping closure.
 
@@ -239,9 +245,13 @@ Until this acceptance closes, broad Politics learner-surface productization must
 UI implementation may:
 - render the declared primitive;
 - choose responsive stacking;
-- apply typography/spacing;
+- apply typography/spacing without changing semantic prominence;
 - preserve interaction state.
 
-UI implementation may not decide content meaning.
+UI implementation may not:
+- decide content meaning;
+- hide or omit an owned learner-facing relation label;
+- replace an owned relation with an unlabeled decorative arrow;
+- demote a first-class learner relation into incidental annotation.
 
 > **The renderer receives a learner surface plan. It does not author one.**
