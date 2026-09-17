@@ -4,6 +4,7 @@ import Base from '../../../layouts/Base.astro';
 import XizongBlockV6 from '../../../components/XizongBlockV6.astro';
 import XizongBlockWorkspaceShell from '../../../components/XizongBlockWorkspaceShell.astro';
 import XizongBlockAuxLayoutSync from '../../../components/XizongBlockAuxLayoutSync.astro';
+import XizongVisibleTypeFloor from '../../../components/XizongVisibleTypeFloor.astro';
 import XizongQuestionCrosswalkReverse from '../../../components/XizongQuestionCrosswalkReverse.astro';
 import XizongLearnerObjectBridge from '../../../components/XizongLearnerObjectBridge.astro';
 import XizongMemoryReleaseBridge from '../../../components/XizongMemoryReleaseBridge.astro';
@@ -56,6 +57,7 @@ const block = projection;
   <XizongLearnerObjectBridge learnerObject={learnerObject} />
   <XizongBlockWorkspaceShell />
   <XizongBlockAuxLayoutSync />
+  <XizongVisibleTypeFloor />
   <XizongMemoryReleaseBridge learnerObject={learnerObject} objectId={canonicalBlock.objectId} sourceHash={canonicalBlock.sourceHash} />
   <!-- Crosswalk remains a canonical read-only/query capability, but it no longer occupies
        first-pass Block workspace UI. Deep-link anchors remain mounted for reviewed backlinks. -->
