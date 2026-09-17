@@ -29,8 +29,14 @@ if (!errors.length) {
   if (!route.includes('class="xzHome"')) fail('Home route must expose Current xzHome root');
   if (/<style(?:\s|>)/i.test(route)) fail('Home route must not own visual CSS');
   if (/<style(?:\s|>)/i.test(tools)) fail('XizongHomeTools must not own visual CSS');
-  if (!tools.includes('class="xzHomeActionBar"')) fail('Home tools must use Current namespace');
-  if (!tools.includes('data-xizong-memory-entry')) fail('Home must expose explicit standalone Memory entry');
+
+  if (!tools.includes('class="xzHomeSection xzHomeContinueBand"')) fail('Home Continue must use Current xzHome namespace');
+  if (!route.includes('class="xzHomeSection xzHomeCurrentSystems"')) fail('Home must expose Current Systems workbench');
+  if (!route.includes('data-xizong-home-attention hidden')) fail('Needs Attention must be conditional by default');
+  if (!route.includes('class="xzHomeSection xzHomeKnowledgeMap"')) fail('Home must expose compact A-F Knowledge Map');
+  if (tools.includes('data-xizong-memory-entry')) fail('Home must not restore retired permanent standalone Memory promotion');
+  if (/How it works/i.test(route + tools)) fail('Home must not restore permanent method explainer');
+
   if (/\b(?:xzOverview|xzSystemWorkbench|xzOpenDomain|xzSystemRows|xzSystemRow|xzOverviewCompanion|xizongHomeTools|xizongContinue)\b/.test(route + tools)) {
     fail('Current Home still exposes retired Home class namespace');
   }
@@ -55,5 +61,6 @@ console.log(JSON.stringify({
   helper_component_css: 'none',
   current_namespace: 'xzHome*',
   retired_home_css: 'physically absent from broad presentation and dense calm',
-  memory_entry: 'explicit'
+  repeated_use_home: ['continue', 'current_systems', 'conditional_attention', 'knowledge_map'],
+  permanent_memory_promotion: false
 }, null, 2));
