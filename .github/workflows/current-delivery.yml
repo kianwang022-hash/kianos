@@ -1,0 +1,112 @@
+name: Current Delivery
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/current-delivery.yml'
+      - 'static-web/LOCAL_CURRENT_SYNC.md'
+      - 'static-web/package.json'
+      - 'static-web/scripts/install-current-macos.sh'
+      - 'static-web/scripts/kianos-current-sync.mjs'
+      - 'static-web/src/layouts/Base.astro'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/current-delivery.yml'
+      - 'static-web/LOCAL_CURRENT_SYNC.md'
+      - 'static-web/package.json'
+      - 'static-web/scripts/install-current-macos.sh'
+      - 'static-web/scripts/kianos-current-sync.mjs'
+      - 'static-web/src/layouts/Base.astro'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: current-delivery-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify-current-mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Syntax check supervisor and installer
+        run: |
+          node --check static-web/scripts/kianos-current-sync.mjs
+          bash -n static-web/scripts/install-current-macos.sh
+          node -e "JSON.parse(require('fs').readFileSync('static-web/package.json','utf8'))"
+
+      - name: Prove destructive sync fails closed outside Current mirror
+        shell: bash
+        run: |
+          set +e
+          node static-web/scripts/kianos-current-sync.mjs > /tmp/current-unsafe.out 2>&1
+          code=$?
+          set -e
+          cat /tmp/current-unsafe.out
+          test "$code" -eq 2
+          grep -q 'Refusing destructive main sync outside a dedicated Current mirror' /tmp/current-unsafe.out
+
+      - name: Prove macOS installer fails closed on non-macOS runner
+        shell: bash
+        run: |
+          set +e
+          bash static-web/scripts/install-current-macos.sh > /tmp/current-installer.out 2>&1
+          code=$?
+          set -e
+          cat /tmp/current-installer.out
+          test "$code" -eq 2
+          grep -q 'targets macOS' /tmp/current-installer.out
+
+      - name: Integration — remote main advances and mirror follows exactly
+        shell: bash
+        run: |
+          set -euo pipefail
+          root="$RUNNER_TEMP/kianos-current-delivery"
+          remote="$root/remote.git"
+          mirror="$root/mirror"
+          upstream="$root/upstream"
+          rm -rf "$root"
+          mkdir -p "$root"
+
+          git init --bare "$remote"
+          git --git-dir="$remote" symbolic-ref HEAD refs/heads/main
+          git push "$remote" HEAD:refs/heads/main
+
+          git clone --branch main "$remote" "$mirror"
+          touch "$mirror/.git/kianos-current-mirror"
+
+          git clone --branch main "$remote" "$upstream"
+          git -C "$upstream" config user.name 'Current Delivery Test'
+          git -C "$upstream" config user.email 'current-delivery@example.invalid'
+          printf 'advanced\n' > "$upstream/current-delivery-fixture.txt"
+          git -C "$upstream" add current-delivery-fixture.txt
+          git -C "$upstream" commit -m 'test: advance remote main'
+          git -C "$upstream" push origin main
+
+          (
+            cd "$mirror"
+            KIANOS_SYNC_ONCE=1 KIANOS_SKIP_ASTRO=1 node static-web/scripts/kianos-current-sync.mjs
+          )
+
+          expected="$(git --git-dir="$remote" rev-parse refs/heads/main)"
+          actual="$(git -C "$mirror" rev-parse HEAD)"
+          test "$actual" = "$expected"
+          test -f "$mirror/current-delivery-fixture.txt"
+
+          node - "$mirror/static-web/public/__kianos-current.json" "$expected" <<'NODE'
+          const fs = require('fs');
+          const [statusPath, expected] = process.argv.slice(2);
+          const status = JSON.parse(fs.readFileSync(statusPath, 'utf8'));
+          if (status.state !== 'synced') throw new Error(`state=${status.state}`);
+          if (status.sha !== expected) throw new Error(`sha=${status.sha} expected=${expected}`);
+          NODE
