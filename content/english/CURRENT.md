@@ -9,13 +9,26 @@ This file does not duplicate English content, scoped Acceptance Truth, or learne
 
 ## Lane Work Cursor
 
-**Active lane-level scope:** none — Functional First integration is closed.  
-**Module engineering state:** Objective / Translation / Writing each have `S/K/L/P/R/E PASS`.  
-**Learner state:** each module `U` remains real-use-only / `UNTESTED`.  
-**Blocker:** none known for English Functional First use.  
-**Next action:** stop engineering expansion. Normal learner use may begin when scheduled. A real learner-use defect may reopen only the earliest responsible existing owner.
+**Active lane-level scope:** English UI architecture + legacy `4173` visual convergence, with temporary ownership of the shared Base Shell / collapsible `K` global rail implementation  
+**Module engineering state:** Objective / Translation / Writing remain `S/K/L/P/R/E PASS`; this UI lane must keep semantic diff = zero  
+**Learner state:** each module `U` remains real-use-only / `UNTESTED`  
+**Blocker:** none known for UI iteration; shared-shell changes must land through this lane rather than being independently reimplemented by Xizong / Politics / Lexical  
+**Next action:** converge English learner surfaces against `static-web/KIAN_UI_PREFERENCES.md`, `static-web/UI_STYLE_BRIEF.md`, and `static-web/ENGLISH_PRODUCT_BRIEF.md`; implement the shared left `K` rail / Base Shell once, then let other lanes consume it from `main`.
 
-English is back to router-only baseline.
+### Temporary shared-shell assignment
+
+During the current parallel UI program, the English UI Chat is the **single implementation writer** for:
+
+- shared Base Shell;
+- collapsible / persistent global `K` rail;
+- global-navigation de-duplication;
+- shared shell width / chrome behavior required by that rail.
+
+This is a temporary implementation responsibility, not English semantic ownership. Do not put English-specific cognition or module behavior into the shared shell.
+
+Other lanes may review the shared shell, but they should not independently patch or fork it. If a real cross-lane shell defect is found, fix it here / in the shared owner, land it on `main`, then let subject branches resync.
+
+English module Learning / Runtime / Evidence semantics remain frozen unless a real learner-use defect reopens the earliest responsible canonical owner.
 
 ---
 
@@ -149,9 +162,17 @@ Engineering readiness never implies Kian has studied or attempted a module.
 
 ```text
 English CURRENT
+→ for current UI work, read static-web/KIAN_UI_PREFERENCES.md + static-web/UI_STYLE_BRIEF.md + static-web/ENGLISH_PRODUCT_BRIEF.md
+→ then exact English surface owner / shared shell owner
+```
+
+For semantic work instead:
+
+```text
+English CURRENT
 → choose Objective / Translation / Writing
 → scoped CURRENT
 → scoped ACCEPTANCE / exact owner only when needed
 ```
 
-Visual/interactions after FFV route to Codex under the frozen semantic boundary rather than reopening English learning architecture.
+Visual/interactions after FFV route to the accepted UI owners under the frozen semantic boundary rather than reopening English learning architecture.
