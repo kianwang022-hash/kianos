@@ -394,50 +394,6 @@ body#kianos-workspace.surfaceBody-xizong .xzSystemDependency li {
 }
 body#kianos-workspace.surfaceBody-xizong .xzSystemWorkspace .portedSourceFoot :is(summary,code) { font-size:15px; }
 
-/* Later System Exit remains subordinate until its dedicated migration slice. */
-body#kianos-workspace.surfaceBody-xizong .xizongLaterStage {
-  margin-top:14px;
-  border:1px solid var(--study-line,#d9dde5);
-  border-radius:14px;
-  background:#fff;
-  overflow:hidden;
-}
-body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>summary {
-  display:grid;
-  grid-template-columns:auto minmax(0,1fr) auto;
-  gap:6px 14px;
-  align-items:center;
-  padding:12px 15px;
-  cursor:pointer;
-  list-style:none;
-}
-body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>summary::-webkit-details-marker { display:none; }
-body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>summary::before {
-  content:'›';
-  grid-row:1 / span 2;
-  color:var(--study-green,#286c57);
-  font-size:18px;
-  font-weight:900;
-  transition:transform .15s ease;
-}
-body#kianos-workspace.surfaceBody-xizong .xizongLaterStage[open]>summary::before { transform:rotate(90deg); }
-body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>summary span {
-  color:var(--study-green,#286c57);
-  font-size:15px;
-  font-weight:850;
-}
-body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>summary strong { font-size:16px; }
-body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>summary small {
-  grid-column:3;
-  color:var(--study-muted,#6d7873);
-  font-size:15px;
-}
-body#kianos-workspace.surfaceBody-xizong .xizongLaterStage[open]>summary {
-  border-bottom:1px solid var(--study-line,#d9dde5);
-  background:#f7faf8;
-}
-body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>.xse { margin:12px; }
-
 @media (min-width:1101px) and (min-height:680px) {
   body#kianos-workspace.surfaceBody-xizong .xzSystemWorkspace {
     height:calc(100vh - 82px);
@@ -518,6 +474,4 @@ body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>.xse { margin:12px; }
   }
   body#kianos-workspace.surfaceBody-xizong .xzSystemHero { gap:10px; }
   body#kianos-workspace.surfaceBody-xizong .xzSystemHero h1 { font-size:25px; }
-  body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>summary { grid-template-columns:auto minmax(0,1fr); }
-  body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>summary small { grid-column:2; }
 }
