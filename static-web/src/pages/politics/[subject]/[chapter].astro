@@ -8,6 +8,7 @@ import PoliticsCognitiveWorkspaceBridge from '../../../components/PoliticsCognit
 import PoliticsCognitiveWorkspaceReadable from '../../../components/PoliticsCognitiveWorkspaceReadable.astro';
 import PoliticsCognitiveWorkspaceExplicitSurface from '../../../components/PoliticsCognitiveWorkspaceExplicitSurface.astro';
 import PoliticsCognitiveWorkspaceExplicitBehavior from '../../../components/PoliticsCognitiveWorkspaceExplicitBehavior.astro';
+import PoliticsVisibleTypeFloor from '../../../components/PoliticsVisibleTypeFloor.astro';
 import PoliticsProjectionRuntimeOutlet from '../../../components/PoliticsProjectionRuntimeOutlet.astro';
 import PoliticsPurposeFirstPilotReadable from '../../../components/PoliticsPurposeFirstPilotReadable.astro';
 import PoliticsRepairEnhancer from '../../../components/PoliticsRepairEnhancer.astro';
@@ -35,6 +36,13 @@ const useExplicitCognitiveMapping = useCognitiveWorkspace
   && [...compiled.values()].every((row) => row?.surfacePlan?.states?.ORIENT?.length > 0);
 const usePurposeFirstRuntime = !useCognitiveWorkspace && Boolean(compiled?.size);
 ---
+<style is:global>
+  /* Golden C00 calibration: the learner-facing orientation question must read as a real headline. */
+  .politicsCognitiveWorkspace.directReasoningWorkspace[data-subject="marxism"][data-chapter="ch00"] [data-stage="ORIENT"] > h2 {
+    font-size: clamp(32px, 2.45vw, 39px) !important;
+  }
+</style>
+
 <PoliticsLayout
   title={data.title}
   kicker={`${data.subjectMeta.label} · ${data.subjectMeta.shape}`}
@@ -66,6 +74,7 @@ const usePurposeFirstRuntime = !useCognitiveWorkspace && Boolean(compiled?.size)
   {useCognitiveWorkspace && !useExplicitCognitiveMapping && <PoliticsCognitiveWorkspaceReadable />}
   {useExplicitCognitiveMapping && <PoliticsCognitiveWorkspaceExplicitSurface compiled={compiled} />}
   {useExplicitCognitiveMapping && <PoliticsCognitiveWorkspaceExplicitBehavior />}
+  {useCognitiveWorkspace && <PoliticsVisibleTypeFloor />}
   {usePurposeFirstRuntime && <PoliticsProjectionRuntimeOutlet compiled={compiled} />}
   {usePurposeFirstRuntime && <PoliticsPurposeFirstPilotReadable />}
 
