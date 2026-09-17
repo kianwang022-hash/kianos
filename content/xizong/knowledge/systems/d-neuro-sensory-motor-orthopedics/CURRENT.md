@@ -11,18 +11,18 @@ This file does not own medical Core, Xizong lane learning semantics, Acceptance 
 ## Current Work Cursor
 
 **Scope:** D — Neuro / Sensory / Motor / Orthopedics  
-**Current accepted construction stage:** Source / Knowledge Boundary closed  
-**L state:** **REPAIRED_CANDIDATE — AWAITING_FRESH_INDEPENDENT_REAUDIT**  
-**Earliest eligible next action:** **new fresh independent L re-audit of the repaired readiness DAG**  
-**Parallel Source boundary:** exact official D System question membership remains **UNTESTED** and will gate the later trusted official-question sweep only  
-**Blocker to L promotion:** builder repair is complete, but SELF evidence cannot promote L; a new independent auditor must accept the repaired hard/soft readiness semantics
+**Accepted construction stages:** **Source / Knowledge + Learning Logic closed**  
+**L state:** **PASS_AFTER_READINESS_REPAIR**  
+**Earliest eligible next construction stage:** **Content Realization / Optimization**  
+**Parallel Source boundary:** exact official D System question membership remains **UNTESTED** and gates the later trusted official-question sweep only  
+**Current blocker:** none at L; Content has not yet been realized/optimized under the accepted Learning owner
 
 ```text
 S1 medical / first-learning Source boundary = PASS
 S2 exact official-question membership        = UNTESTED / parallel later boundary
 K Knowledge                                  = PASS
-L Learning Logic                             = REPAIRED_CANDIDATE / AWAITING_FRESH_REAUDIT
-Content Realization / Optimization           = downstream-frozen
+L Learning Logic                             = PASS_AFTER_REPAIR
+Content Realization / Optimization           = ELIGIBLE / NEXT
 P Projection                                  = downstream-frozen
 R Runtime                                     = downstream-frozen
 E Evidence                                    = downstream-frozen
@@ -31,40 +31,46 @@ U Learner Use                                 = no repository claim
 
 Construction issue: GitHub `#272`.
 
-Canonical L candidate:
+---
+
+## Canonical owners
+
+Knowledge:
+
+`content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/system.json`
+
+Medical Core:
+
+- N1–N11 canonical Block Markdown under `n-n1-n11/`;
+- O1–O16 canonical Block Markdown under `o-o1-o16/`.
+
+Accepted Learning:
 
 `content/xizong/knowledge/learner/d-neuro-sensory-motor-orthopedics-learning.json`
 
-Fresh independent audit that reopened L:
+Fresh independent L evidence:
 
-`content/xizong/knowledge/learner/D_PHASE6C_FRESH_INDEPENDENT_L_AUDIT.md`
+`content/xizong/knowledge/learner/D_PHASE6E_FRESH_INDEPENDENT_L_REACCEPTANCE.md`
 
-Builder repair brief:
+Acceptance Truth:
 
-`content/xizong/knowledge/learner/D_PHASE6D_READINESS_DAG_REPAIR_BRIEF.md`
-
-Completed builder repair receipt:
-
-`content/xizong/knowledge/learner/D_PHASE6D_READINESS_DAG_REPAIR_RECEIPT.md`
-
-**Next action:** a new auditor must independently attack the repaired hard DAG for both over- and under-gating, especially N11 readiness and O11 partial independence. Do not re-open accepted Source/Knowledge, LG topology, Source-contact, Visual or compression objects unless the new audit exposes a direct contradiction. Do not enter Content / Projection / Runtime / Evidence before L is independently accepted.
+`content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/ACCEPTANCE.md`
 
 ---
 
-## Frozen Knowledge substrate
+## Stable accepted substrate
 
-Unless fresh contradictory medical/Source evidence reopens S/K:
+Unless new contradictory Source/medical evidence reopens an upstream owner:
 
-- System Knowledge owner → `system.json`;
 - 27 canonical Blocks = N1–N11 + O1–O16;
 - 356 stable KP identities = neural 150 + orthopedics 206;
+- 128 accepted Logic Groups = neural 56 + orthopedics 72;
 - no Block/KP split, merge or renumbering;
-- legacy `system_id` variants `neuro-msk` and `neuro_sensory_motor_orthopedics` are aliases only;
-- old same-System Guide remains bounded transitional/reference substrate and does not own Current learner route;
-- Block-level Source gaps/conflicts/visual gates remain live and cannot be erased by System/Learning compression;
+- legacy System IDs remain aliases only;
+- Block-level Source gaps/conflicts/visual gates remain live and cannot be erased by Learning or Content compression;
 - Question Truth and reviewed Question→Knowledge relations remain separate owners.
 
-Accepted System model remains:
+Accepted System coordinate:
 
 ```text
 sensory transduction / coding
@@ -77,198 +83,155 @@ sensory transduction / coding
 → sensory feedback
 ```
 
-Trauma, compression, ischemia, overload, infection, immune inflammation, developmental abnormality and tumor remain parallel structural/neural failure branches. This model does not force one serial learner route.
+Trauma, compression, ischemia, overload, infection, immune inflammation, developmental abnormality and tumor remain parallel failure branches rather than one serial disease chain.
 
 ---
 
-## Phase 6C fresh L audit result
+## Accepted Learning decision
 
-Fresh audit evidence mode:
-
-**SEMANTIC_OWNER_READBACK + ADVERSARIAL + EXACT_ACCOUNTING_READBACK**  
-Independence: **FRESH_AUDITOR**
-
-The auditor independently reconstructed D learning shapes and Source-contact expectations before reading the candidate.
-
-### Passed semantic areas
+### Surface ownership
 
 ```text
-Source-contact classes / continuity          PASS
-N11 + O1 integration-primary treatment       PASS
-128 LG semantic topology                     PASS
-356 KP exact-once accounting                  PASS
-non-contiguous LG justification               PASS
-Visual-required vs Source-trip separation     PASS
-negative space / Source conflict preservation PASS
-five non-gating PSRs + final compression      PASS
+iPad / MarginNote original Lecture
+= continuous Primary Source learning + original visuals
+
+KianOS
+= orientation + attention boundary + Source-contact guidance
+  + active retrieval + LG closure + compression
+
+Chat
+= adaptive explanation + discrimination + smallest-sufficient repair
 ```
 
-No broad D content rebuild was authorized by this audit.
+KianOS must not become a second primary Lecture reader.
 
-### Material failure that triggered Phase 6D
+### Source-contact
 
-The pre-repair candidate promoted several useful/reordered relations into hard legality and under-gated N11.
-
-Representative false-hard findings were:
-
-- N5/N6/N7 source chronology proved that N5-first is a useful learner reordering, not a causal gate for vision/hearing;
-- N9 did not require complete N2 to form EEG/sleep/wake cognition;
-- N4 owned a complete NMJ/muscle Primary Source and was not legally dependent on later N2/N3 Source sections;
-- O2-first was a useful common-fracture reordering, while original regional O3/O6/O7 Source remained independently learnable;
-- O11's chronic soft-tissue LGs were independent of N11, so a whole-Block N11 gate was too coarse.
-
-Under-gating was:
+Accepted classes:
 
 ```text
-N11 targeted retrieval = N1 + N5 + N8
-pre-repair hard requires = N5 + N8
+WHOLE_BLOCK_SOURCE
+NATURAL_SOURCE_UNITS
+INTEGRATION_PRIMARY
 ```
 
-The Phase 6D repair was therefore bounded to readiness semantics only.
+N11 and O1 are integration-primary.
+
+Hard invariant:
+
+> `Logic Group ≠ Source-contact unit`.
+
+Visual-required cognition may close only after real original-Source visual contact when spatial fidelity is essential, but Visual does not create one Source handoff per LG.
+
+### Hard readiness
+
+Accepted machine legality is intentionally sparse:
+
+```text
+N1 ─┐
+N5 ─┼→ N11 → O3
+N8 ─┘       → O4
+             → O5
+```
+
+All other inside-D ordering is default-route / `benefits_from` guidance rather than hard Block legality.
+
+O11 has no whole-Block N11 gate. N11 is reactivated only for the O11-LG05 root-vs-named-nerve entrapment discrimination.
+
+### Compression
+
+```text
+356 KP
+→ 128 LG
+→ 27 Block Recall
+→ 5 optional/non-gating PSRs
+→ final D System reconstruction after real learner completion
+```
+
+The five PSRs are compression opportunities, not mandatory hierarchy or review debt.
 
 ---
 
-## Phase 6D repaired readiness candidate
+## Why L is accepted
 
-Builder evidence mode:
+Phase 6C fresh independent audit found one real material defect: over/under-gated `system_route.requires`.
 
-**OWNER_READBACK + EDGE_DELETE_TEST + DETERMINISTIC_DAG_ACCOUNTING**  
-Independence: **SELF**
-
-The repair follows `D_PHASE6D_READINESS_DAG_REPAIR_BRIEF.md` and is recorded in `D_PHASE6D_READINESS_DAG_REPAIR_RECEIPT.md`.
-
-### Repaired hard graph
+Phase 6D builder repair was bounded to:
 
 ```text
-N1 + N5 + N8 → N11
-
-N11 → O3
-N11 → O4
-N11 → O5
+requires
++ directly coupled benefits_from / flex_rule consistency
 ```
 
-Machine accounting:
+It demoted fifteen false-hard edges, added N1 to N11 true readiness, removed the whole-Block O11 gate, and left LG/Source-contact/Visual/compression semantics unchanged.
 
-```text
-nodes                     27
-hard edges                 6
-unknown prerequisite       0
-self edge                  0
-cycle                      0
-```
+Phase 6E fresh independent re-audit then re-tested:
 
-Fifteen false-hard edges were removed and demoted into `benefits_from` / default guidance where useful; one missing hard edge, `N1 → N11`, was added.
+- all six retained hard edges;
+- all fifteen demoted edges for possible under-gating;
+- N11 = N1 + N5 + N8 readiness;
+- O3/O4/O5 dependence on the N11 localization bridge;
+- O11 partial independence;
+- default-route flexibility;
+- repair-diff regression into previously accepted L areas.
 
-O11 no longer has a whole-Block N11 gate. N11 is retained only as bounded reactivation benefit for the root-vs-named-nerve entrapment closure in `O11-LG05`.
+No remaining material L defect was found.
 
-The low-switching `default_route` remains unchanged.
+Evidence:
 
-### Objects explicitly unchanged by the repair
-
-```text
-27 Block / 356 KP medical identity
-128 Logic Groups and membership
-LG jobs / goals / closures
-Source-contact mode and Source units
-Visual contract
-negative-space rules
-five PSRs
-final System reconstruction
-```
-
-The repaired candidate is still **candidate**, not accepted Learning authority.
+`D_PHASE6E_FRESH_INDEPENDENT_L_REACCEPTANCE.md`
 
 ---
 
-## Fresh re-audit boundary
+## Next stage — Content Realization / Optimization
 
-Earliest responsible Learning object remains:
+This is now the only newly eligible dependent construction stage.
 
-```text
-content/xizong/knowledge/learner/d-neuro-sensory-motor-orthopedics-learning.json
-  → system_route.requires
-  → directly coupled benefits_from / flex_rule consistency
-```
+The next builder should answer:
 
-Fresh auditor must re-test at minimum:
+> Given accepted D Source/Knowledge and accepted Learning Logic, is the existing learner content actually realized at the correct density, ordering and teaching role for every Block/LG, or does it still contain old second-textbook / duplicate / weak-compression / mistimed-content structure?
 
-```text
-hard DAG over-gating + under-gating
-N11 requires N1 + N5 + N8
-O11 whole-Block independence + LG05-only N11 reactivation
-default-route flexibility remains guidance, not legality
-no regression to Source-contact continuity / LG topology / Visual / compression
-```
-
-Keep frozen unless directly contradicted by that audit:
-
-- 27 Block / 356 KP medical identity;
-- 128 Logic Groups and membership;
-- LG jobs/goals/closures;
-- Source-contact mode per Block;
-- Visual contract;
-- negative-space rules;
-- five PSRs;
-- final System reconstruction.
-
-Builder self-review cannot promote L.
-
----
-
-## Current re-audit entrypoint
-
-Use:
+Recommended entry:
 
 ```text
 D CURRENT
 → D ACCEPTANCE
-→ D_PHASE6C_FRESH_INDEPENDENT_L_AUDIT.md
-→ D_PHASE6D_READINESS_DAG_REPAIR_BRIEF.md
-→ D_PHASE6D_READINESS_DAG_REPAIR_RECEIPT.md
-→ repaired d-neuro-sensory-motor-orthopedics-learning.json
-→ NEW FRESH INDEPENDENT L RE-AUDIT
+→ accepted D Learning owner
+→ exact canonical Block Core being optimized
+→ Content Realization / Optimization
 ```
 
-Do not enter Content / Projection / Runtime / Evidence before the repaired L candidate is independently accepted.
+Builder rules:
+
+- do not redesign `requires`, LG membership, Source-contact classes, Visual semantics or PSRs;
+- do not infer page/UI structure;
+- preserve Lecture-first external-primary ownership;
+- optimize content to be rich enough for cognition but selective enough not to duplicate the Lecture;
+- keep Source gaps/conflicts explicit rather than filling them from medical prior;
+- keep P/R/E frozen until Content is independently closed.
+
+A clean new builder branch may be named:
+
+`work/xizong-d-content-realization-20260917`
 
 ---
 
-## Truth references
+## Negative space
 
-### Artifact Truth
+Do not use Content realization to backfill:
 
-- D Knowledge → `content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/system.json`
-- D medical Core → N1–N11 + O1–O16 canonical Block Markdown under this directory
-- lane Learning constitution → `content/xizong/LEARNING_CONTRACT.md`
-- shared policy → `content/xizong/knowledge/learner/study-policy.json`
-- D Learning candidate → `content/xizong/knowledge/learner/d-neuro-sensory-motor-orthopedics-learning.json`
-- fresh independent L audit → `content/xizong/knowledge/learner/D_PHASE6C_FRESH_INDEPENDENT_L_AUDIT.md`
-- repair brief → `content/xizong/knowledge/learner/D_PHASE6D_READINESS_DAG_REPAIR_BRIEF.md`
-- repair receipt → `content/xizong/knowledge/learner/D_PHASE6D_READINESS_DAG_REPAIR_RECEIPT.md`
-
-### Acceptance Truth
-
-`content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/ACCEPTANCE.md`
-
-### Learner Truth
-
-Private real learner/browser/conversation evidence only.
+- full clinical neurology;
+- ophthalmology / ENT disease curricula;
+- rehabilitation / sports medicine / prosthetics;
+- external modern orthopedic or antimicrobial/TB/oncology guidelines;
+- neighboring Primary owners such as RA immune medicine, common infection/TB, calcium/PTH/VitD, B12, myeloma or tumor-general;
+- O12 clubfoot while Source remains absent;
+- official question membership by inference.
 
 ---
 
-## Fresh-chat continuation
+## Learner Truth boundary
 
-Next audit lane:
+Repository acceptance means the D asset is ready to proceed to Content construction under accepted semantics.
 
-```text
-D CURRENT
-→ D ACCEPTANCE
-→ Phase 6C failure receipt
-→ Phase 6D repair brief + repair receipt
-→ repaired candidate
-→ independently reconstruct expected readiness
-→ adversarial delete/add-edge testing
-→ fresh L verdict
-```
-
-Do not treat Phase 6D SELF evidence as L acceptance. Do not enter Content / Projection / Runtime / Evidence unless the new independent audit promotes L.
+It does **not** mean Kian has learned, recalled, completed or mastered any D Block.
