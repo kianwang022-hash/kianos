@@ -31,7 +31,8 @@ KianOS now uses:
 - a federated **multi-surface learner model** in which Learning Logic assigns material surface ownership and `static-web/` is the common KianOS-owned execution layer rather than the presumptive primary surface for every learner action;
 - explicit separation of Source ownership, Surface ownership, render availability, and runtime capability;
 - lightweight anti-entropy protection;
-- strict separation between engineering readiness and Kian's real learner progress.
+- strict separation between engineering readiness and Kian's real learner progress;
+- **cross-subject exam orchestration as a first-class top-level product dimension** owned by `EXAM_ORCHESTRATOR_CONTRACT.md`, distinct from but consuming the three subject lanes.
 
 Top-level governance should now remain stable. Do not keep expanding it merely because more sophisticated infrastructure is possible.
 
@@ -79,6 +80,7 @@ Repository-wide learning/platform standards:
 - formal learning-asset construction order, including material Surface Ownership at Learning Logic → `LEARNING_ASSET_STANDARD.md`
 - S/K/L/P/R/E/U readiness, including cross-surface acceptance → `LEARNING_ACCEPTANCE.md`
 - shared mature learner-surface capabilities + cross-KianOS Surface Ownership boundary → `SYSTEM_CONTRACT.md`
+- cross-subject exam scheduling / phase Gates / capacity arbitration / score closure / material-refresh timing → `EXAM_ORCHESTRATOR_CONTRACT.md`
 - temporary branch lifecycle → `BRANCH_LIFECYCLE.md`
 - intentionally postponed work → `DEFERRED.md`
 
@@ -94,10 +96,60 @@ These owners are referenced, not copied into lane Current files.
 | English | `content/english/CURRENT.md` |
 | LexicalOS | `content/lexical/CURRENT.md` |
 | Politics | `content/politics/CURRENT.md` |
+| Cross-subject Exam Orchestrator / Home scheduling | `EXAM_ORCHESTRATOR_CONTRACT.md` |
 
 Known target scope may go directly to its local Current once governance is understood. Root Current is not a mandatory ritual read for ordinary lane continuation.
 
 Parent lanes are routers/owners, not global child queues. Independent child scopes may progress concurrently unless a real dependency links them.
+
+### Mandatory whole-exam / three-subject status rule
+
+When Kian asks any whole-exam question such as:
+
+- “三科整体进度如何”；
+- “整个考研系统是不是差不多了”；
+- “还有什么没做”；
+- “Home / 三科调度现在到哪了”；
+- “今天 / 本周三科怎么分配”；
+- “什么时候可以停止工程开始正式学”；
+
+**do not answer from the three subject lanes alone.**
+
+The minimum Current-first read is:
+
+```text
+EXAM_ORCHESTRATOR_CONTRACT.md
++
+Xizong CURRENT / status
++
+English CURRENT
++
+Politics CURRENT
+(+ Lexical CURRENT when English vocabulary/product readiness is material)
+```
+
+If the question is about product / website closure, also inspect the Current Home / Orchestrator implementation or product evidence under `static-web/` before making a closure claim.
+
+Required reporting model:
+
+```text
+Subject readiness
+= Xizong + English + Politics (+ Lexical support where material)
+
+Cross-subject readiness
+= Exam Orchestrator / Home scheduling + phase/Gate/capacity behavior
+
+Whole exam-system readiness
+= subject readiness + cross-subject readiness
+```
+
+The Exam Orchestrator is **not a fourth exam subject**, but it is a **fourth mandatory top-level status dimension** for whole-system progress and closure questions.
+
+Hard rule:
+
+> **Never say the three-subject / whole exam system is “basically finished” without explicitly accounting for Home / Exam Orchestrator.**
+
+Subject-local engineering PASS does not imply cross-subject scheduling is complete, and Home readiness does not imply any subject has been learned.
 
 ---
 
@@ -151,9 +203,18 @@ target scope CURRENT
 → work
 ```
 
+For whole-exam / cross-subject questions:
+
+```text
+EXAM_ORCHESTRATOR_CONTRACT.md
+→ exact subject CURRENT/status owners needed for the question
+→ Current Home / Orchestrator product evidence when implementation state matters
+→ answer / work
+```
+
 A `continuation.*` file is not a mandatory layer. Read it only when the local Current names it as a required owner and it still has a proven narrow machine/process responsibility.
 
-Normal target: **roughly 2–4 precise reads after scope resolution**.
+Normal target: **roughly 2–4 precise reads after scope resolution**; whole-exam status is the explicit exception because it intentionally spans the Orchestrator plus multiple subject owners.
 
 Do not search repository history, legacy repositories, retired branches, migration records, or unrelated lanes as normal fallback.
 
