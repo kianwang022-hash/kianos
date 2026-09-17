@@ -11,6 +11,7 @@ const repoRoot = path.resolve(scriptDir, '../..');
 const webRoot = path.join(repoRoot, 'static-web');
 const markerPath = path.join(repoRoot, '.git', 'kianos-current-mirror');
 const astroBin = path.join(webRoot, 'node_modules', '.bin', 'astro');
+const statusPath = path.join(webRoot, 'public', '__kianos-current.json');
 const intervalMs = Math.max(3000, Number(process.env.KIANOS_SYNC_INTERVAL_MS || 8000));
 const host = process.env.KIANOS_HOST || '127.0.0.1';
 const port = String(process.env.KIANOS_PORT || '4321');
@@ -20,6 +21,7 @@ let astro = null;
 let stopping = false;
 let syncing = false;
 let lastNetworkError = '';
+let lastKnownSha = '';
 
 const stamp = () => new Date().toISOString();
 const log = (message) => console.log(`[${stamp()}] ${message}`);
@@ -28,6 +30,20 @@ const warn = (message) => console.error(`[${stamp()}] ${message}`);
 async function git(args) {
   const { stdout } = await execFileAsync('git', args, { cwd: repoRoot, maxBuffer: 16 * 1024 * 1024 });
   return String(stdout || '').trim();
+}
+
+function writeStatus(state, sha = lastKnownSha, extra = {}) {
+  try {
+    fs.mkdirSync(path.dirname(statusPath), { recursive: true });
+    fs.writeFileSync(statusPath, `${JSON.stringify({
+      state,
+      sha: String(sha || ''),
+      updated_at: stamp(),
+      ...extra
+    })}\n`, 'utf8');
+  } catch (error) {
+    warn(`could not write local Current status: ${error?.message || error}`);
+  }
 }
 
 async function npmInstall() {
@@ -94,15 +110,20 @@ async function syncOnce({ initial = false } = {}) {
   syncing = true;
   try {
     const local = await git(['rev-parse', 'HEAD']);
+    lastKnownSha = local;
+    writeStatus('checking', local);
+
     const remote = await remoteMainSha();
     if (!remote) throw new Error('origin/main did not return a SHA');
     lastNetworkError = '';
 
     if (local === remote) {
+      writeStatus('synced', local);
       if (initial) log(`Current mirror already matches main ${local.slice(0, 8)}`);
       return false;
     }
 
+    writeStatus('updating', local, { target_sha: remote });
     log(`main advanced ${local.slice(0, 8)} → ${remote.slice(0, 8)}; syncing whole repository`);
     await git(['fetch', 'origin', 'main', '--prune']);
     const fetched = await git(['rev-parse', 'origin/main']);
@@ -112,6 +133,7 @@ async function syncOnce({ initial = false } = {}) {
     await stopAstro();
     await git(['checkout', '-B', 'main', 'origin/main']);
     await git(['reset', '--hard', 'origin/main']);
+    lastKnownSha = fetched;
 
     if (changedPaths.some((file) => [
       'static-web/package.json',
@@ -121,6 +143,13 @@ async function syncOnce({ initial = false } = {}) {
       await npmInstall();
     }
 
+    /*
+     * The status file lives under public/ only inside the disposable mirror.
+     * The browser polls it on localhost and reloads when the synced SHA changes,
+     * so a canonical change outside Astro's normal watch graph cannot leave an
+     * already-open learner page showing stale DOM.
+     */
+    writeStatus('synced', fetched, { changed_paths: changedPaths.length });
     log(`synced ${changedPaths.length} changed path(s); Current is ${fetched.slice(0, 8)}`);
     startAstro();
     return true;
@@ -130,6 +159,7 @@ async function syncOnce({ initial = false } = {}) {
       warn(`sync check failed: ${message}`);
       lastNetworkError = message;
     }
+    writeStatus('degraded', lastKnownSha);
     if (!astro && !stopping) {
       try { startAstro(); } catch (startError) { warn(startError.stack || startError.message); }
     }
@@ -142,6 +172,7 @@ async function syncOnce({ initial = false } = {}) {
 async function shutdown(signal) {
   if (stopping) return;
   stopping = true;
+  writeStatus('stopping', lastKnownSha);
   log(`received ${signal}; stopping Current site`);
   await stopAstro();
   process.exit(0);
@@ -157,6 +188,10 @@ if (!fs.existsSync(markerPath) && process.env.KIANOS_ALLOW_UNSAFE_SYNC !== '1') 
 process.on('SIGINT', () => void shutdown('SIGINT'));
 process.on('SIGTERM', () => void shutdown('SIGTERM'));
 
+try {
+  lastKnownSha = await git(['rev-parse', 'HEAD']);
+} catch {}
+writeStatus('starting', lastKnownSha);
 await syncOnce({ initial: true });
 startAstro();
 log(`watching origin/main every ${Math.round(intervalMs / 1000)}s; all subjects/content sync as one repository`);
