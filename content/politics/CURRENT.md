@@ -11,9 +11,22 @@ A bare `继续政治 / 继续马原 / 继续史纲` is a learner request unless 
 
 ## Current state
 
-Politics learning engineering is closed through the current scoped `S/K/L/P/R/E` evidence for all five subjects. Real learner `U` remains real-use-only.
+Politics learner-surface review has reopened **Rule / Content** before further UI work.
 
-There is no current reason to reopen Politics semantic engineering without a concrete defect.
+A concrete C00 defect proved that one collective relation had been atomized into several binary edges for graph convenience. Because the SurfacePlan renderer faithfully exposed that upstream defect, Politics UI is now intentionally paused until learner-facing Content has been re-closed across all five subjects.
+
+Current program order:
+
+```text
+Rule / Content semantics
+→ all 151 PASS Natural Units Content review / repair
+→ Content Hierarchy closure
+→ Projection / Surface Mapping regeneration / repair
+→ representative semantic acceptance
+→ only then resume Visual / UI
+```
+
+Real learner `U` remains real-use-only. Previous S/K/L/P/R/E evidence remains historical acceptance evidence, but it does not override a newly discovered upstream Content defect.
 
 The stable learner loop remains:
 
@@ -65,6 +78,56 @@ Chat       adaptive semantic repair when earned
 - first-attempt Evidence and exact Return survive visual optimization;
 - `REFERENCE_ONLY` content remains non-teaching;
 - a missing/empty derived presentation is never permission for UI to synthesize Knowledge.
+
+---
+
+## Active program｜Politics Content Closure before UI
+
+### Why UI is paused
+
+The current renderer is not authorized to repair semantic defects. A repeated learner-facing relation in Marxism C00 exposed an upstream Rule/Content problem rather than a CSS problem.
+
+Hard dependency:
+
+> **Politics Visual / UI must not resume until all learner-facing canonical Content for the 151 PASS Natural Units has passed the current semantic-fidelity and hierarchy rules, and downstream Projection / Surface Mapping has been rebuilt from that corrected Content.**
+
+### Work order
+
+1. **Rule foundation**
+   - relation arity / collective-relation fidelity;
+   - learner-attention hierarchy remains Content-owned;
+   - validators prevent known structural regressions without guessing semantics.
+
+2. **Five-subject Content review**
+   - Marxism;
+   - History;
+   - Mao;
+   - Xi;
+   - Ethics-Law.
+
+   For every PASS Natural Unit, review at minimum:
+   - semantic relation fidelity to Source / reviewed Knowledge;
+   - no collective/n-ary relation atomized for graph convenience;
+   - no duplicated learner claim created by semantic encoding;
+   - H1/H2/H3/H4/H5 attention ownership is correct;
+   - rich object detail does not automatically become first-view content;
+   - boundaries / anchors / precision / handoff roles remain correctly scoped;
+   - REFERENCE_ONLY remains non-teaching.
+
+3. **Projection / Surface Mapping**
+   - only after the corresponding canonical Content is accepted;
+   - regenerate / repair mapping from corrected Content;
+   - no renderer-side semantic repair or inference.
+
+4. **Visual / UI**
+   - remains frozen during Content closure;
+   - screenshot-first Preview resumes only after the full Politics Content + Mapping closure is accepted.
+
+### Current first repair
+
+PR #411 establishes the missing Rule/Content relation-fidelity guard using Marxism C00-S02 as the concrete defect/proof case.
+
+It is a foundation repair, **not permission to resume UI after C00 alone**.
 
 ---
 
