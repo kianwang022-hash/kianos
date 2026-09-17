@@ -623,14 +623,14 @@
 
       root.addEventListener('click', (event) => {
         const target = event.target instanceof Element ? event.target : null;
-        if (!target?.closest('[data-kp-reveal],[data-rating]')) return;
+        if (!target?.closest('[data-kp-reveal],[data-rating],[data-companion-prev],[data-companion-next],[data-group-target]')) return;
         queueMicrotask(refreshUnifiedSurface);
       });
 
       const observer = new MutationObserver(() => {
         queueMicrotask(refreshUnifiedSurface);
       });
-      observer.observe(root, { subtree: true, childList: true, attributes: true, attributeFilter: ['hidden'] });
+      observer.observe(root, { subtree: true, attributes: true, attributeFilter: ['hidden'] });
 
       refreshUnifiedSurface();
     }
