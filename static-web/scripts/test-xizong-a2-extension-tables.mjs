@@ -43,7 +43,7 @@ async function completeNaturalSourceContact(root, suffix) {
   await root.locator('[data-study-stage="logic_group"]').waitFor({ state: 'visible' });
 }
 
-async function reachTargetGroup(root, targetKpId) {
+async function reachTargetGroup(root, targetKpId, { syntheticNavigation = false } = {}) {
   const targetCard = root.locator(`[data-kp-recall-card][data-kp-id="${targetKpId}"]`);
   check(await targetCard.count() === 1, `target_card_exists_${targetKpId}`);
   const targetGroupLabel = ((await targetCard.locator('header > span').first().textContent()) || '').trim();
@@ -52,7 +52,8 @@ async function reachTargetGroup(root, targetKpId) {
   check(await targetGroupButton.count() === 1, `target_group_button_unique_${targetKpId}`, targetGroupLabel);
 
   await completeNaturalSourceContact(root, targetKpId);
-  await targetGroupButton.click();
+  if (syntheticNavigation) await targetGroupButton.evaluate((el) => el.click());
+  else await targetGroupButton.click();
   await root.locator('[data-study-stage="logic_group"]').waitFor({ state: 'visible' });
   const auxHost = root.locator('[data-xizong-aux-surface] [data-learner-object-slot="logic_group_prelearn"]');
   await auxHost.waitFor({ state: 'attached' });
@@ -100,7 +101,7 @@ try {
 
     for (const item of representatives) {
       const root = await resetBlock(page, item.route);
-      const { auxHost } = await reachTargetGroup(root, item.kpId);
+      const { auxHost } = await reachTargetGroup(root, item.kpId, { syntheticNavigation: viewport.label === 'narrow' });
       const auxSurface = root.locator('[data-xizong-aux-surface]');
       const slotCard = auxHost.locator(`[data-learner-asset="extension"][data-learner-asset-id="${item.slot}"]`);
       const folded = auxHost.locator(`details.xv6LearnerReference:has([data-learner-asset-id="${item.slot}"])`);
