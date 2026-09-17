@@ -10,6 +10,7 @@ const EXTERNAL_ROOT = 'content/english/external';
 const OBJECT_ROOT = `${EXTERNAL_ROOT}/objects`;
 const MANIFEST_PATH = `${EXTERNAL_ROOT}/manifest.json`;
 const SCHEMA_ID = 'kianos.english.external_reading_object.v1';
+const RUNTIME_PREFIX = 'external--';
 
 function absolute(relativePath) {
   return path.join(repoRoot, relativePath);
@@ -47,6 +48,7 @@ function validateObject(value, sourcePath) {
   if (!value || typeof value !== 'object') fail('not_object');
   if (value.schema !== SCHEMA_ID) fail(`schema:${String(value.schema || '')}`);
   if (!String(value.object_id || '').trim()) fail('object_id');
+  if (String(value.object_id).startsWith(RUNTIME_PREFIX)) fail('object_id_reserved_prefix');
   if (!value.source || typeof value.source !== 'object') fail('source');
   if (!String(value.source.kind || '').trim()) fail('source.kind');
   if (!String(value.source.source_id || '').trim()) fail('source.source_id');
@@ -94,6 +96,10 @@ function titleFor(value) {
   return String(value.content?.title || value.source?.title || value.source?.source_id || value.object_id);
 }
 
+function runtimeId(objectId) {
+  return `${RUNTIME_PREFIX}${objectId}`;
+}
+
 function listEntries() {
   return objectFiles().map((sourcePath) => readObject(sourcePath));
 }
@@ -101,6 +107,7 @@ function listEntries() {
 export function listExternalReadingObjects() {
   return listEntries().map(({ value }, index, all) => ({
     id: value.object_id,
+    runtimeId: runtimeId(value.object_id),
     title: titleFor(value),
     sourceKind: value.source.kind,
     publication: value.source.publication || null,
@@ -121,7 +128,8 @@ export function loadExternalReadingById(objectId) {
   const questions = Array.isArray(value.questions) ? value.questions : [];
 
   return {
-    objectId: value.object_id,
+    objectId: runtimeId(value.object_id),
+    sourceObjectId: value.object_id,
     title: titleFor(value),
     paperId: value.source.publication || value.source.kind,
     section: 'external_reading',
@@ -130,11 +138,14 @@ export function loadExternalReadingById(objectId) {
       text: String(paragraph.text)
     })),
     questions: questions.map(({ answer, ...question }) => ({ ...question })),
+    // Reading A owns its continuous-session route contract under /reading/.
+    // External mode deliberately stays single-object in this first slice so
+    // no cross-family navigation path is manufactured by the shared runtime.
     navigation: {
       position: index + 1,
       total: entries.length,
-      previousId: index > 0 ? entries[index - 1].value.object_id : null,
-      nextId: index < entries.length - 1 ? entries[index + 1].value.object_id : null
+      previousId: null,
+      nextId: null
     },
     sourcePaths: {
       passage: sourcePath,
@@ -168,7 +179,7 @@ export function loadExternalReadingAnswersById(objectId) {
   });
   return {
     schema: 'kianos.english.external_reading_answers.v1',
-    objectId: entry.value.object_id,
+    objectId: runtimeId(entry.value.object_id),
     answers
   };
 }
