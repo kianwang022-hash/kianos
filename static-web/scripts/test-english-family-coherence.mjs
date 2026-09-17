@@ -3,7 +3,7 @@ import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
 import { listReadingSets } from '../src/lib/englishReading.mjs';
-import { listClozeSets } from '../src/lib/englishObjective.mjs';
+import { listClozeSets, listReadingBSets, loadReadingBById } from '../src/lib/englishObjective.mjs';
 import { listTranslationSets } from '../src/lib/englishTranslation.mjs';
 import { listLexicalWordSummaries } from '../src/lib/lexical.mjs';
 
@@ -154,6 +154,24 @@ async function assertFullLexicalRoundTrip(page) {
   check(await page.locator('[data-english-lexical-return]').isHidden(), 'return_context_clears_after_restoration');
 }
 
+async function assertReadingBVisual(page) {
+  const summaries = listReadingBSets();
+  const projected = summaries.map((row) => {
+    try { return loadReadingBById(row.id); } catch { return null; }
+  }).filter(Boolean);
+  const matching = projected.find((item) => String(item?.context?.taskForm || '') !== 'ordering') || projected[0] || null;
+  const ordering = projected.find((item) => String(item?.context?.taskForm || '') === 'ordering') || null;
+
+  check(Boolean(matching?.objectId), 'reading_b_matching_fixture_available');
+  await page.goto(`${BASE}/reading-b/${encodeURIComponent(matching.objectId)}/`, { waitUntil: 'domcontentloaded' });
+  await page.screenshot({ path: path.join(auditDir, 'reading-b-1440x900.png'), fullPage: false });
+
+  if (ordering?.objectId) {
+    await page.goto(`${BASE}/reading-b/${encodeURIComponent(ordering.objectId)}/`, { waitUntil: 'domcontentloaded' });
+    await page.screenshot({ path: path.join(auditDir, 'reading-b-ordering-1440x900.png'), fullPage: false });
+  }
+}
+
 async function assertSourceLookup(page, route, selector, name) {
   await page.goto(`${BASE}${route}`, { waitUntil: 'domcontentloaded' });
   if (name === 'cloze') {
@@ -191,6 +209,8 @@ try {
     const clozeId = listClozeSets()[0]?.id;
     check(Boolean(clozeId), 'cloze_fixture_available');
     await assertSourceLookup(page, `/cloze/${encodeURIComponent(clozeId)}/`, '[data-objective-material] [data-objective-material-block]', 'cloze');
+
+    await assertReadingBVisual(page);
 
     const translationId = listTranslationSets()[0]?.id;
     check(Boolean(translationId), 'translation_fixture_available');
