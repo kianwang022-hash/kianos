@@ -1,225 +1,236 @@
 # KianOS System Contract
 
-This document owns two questions:
+Status: **CURRENT**  
+Role: shared Engineering capability + cross-surface boundary
 
-> **What minimum platform capabilities should a mature first-class learner surface provide across KianOS?**
+This document answers two questions:
+
+> **What shared capabilities should mature KianOS learner surfaces provide when needed?**
 >
-> **What cross-KianOS boundary prevents a technically capable surface from silently taking ownership of a learning action?**
+> **What must Engineering never take ownership of merely because it can implement it?**
 
-It does not define domain cognition, formal learning-asset construction order, S/K/L/P/R/E/U acceptance criteria, branch workflow, or lane progress.
+It does not own domain Knowledge, Learning Logic, visual composition, learner progress or acceptance claims.
 
-- construction order → `LEARNING_ASSET_STANDARD.md`
-- acceptance/readiness → `LEARNING_ACCEPTANCE.md`
-- shared static-web projection grammar → `static-web/PRESENTATION_CONTRACT.md`
-- repository/lane routing → `AGENTS.md` + `CURRENT.md`
-- branch/concurrency → `BRANCH_LIFECYCLE.md`
+Upstream:
+- architecture → `ARCHITECTURE.md`
+- learning-asset construction → `LEARNING_ASSET_STANDARD.md`
+- domain cognition → each domain `LEARNING_CONTRACT.md`
+- visual/presentation → `static-web/PRESENTATION_CONTRACT.md`
+- acceptance → `LEARNING_ACCEPTANCE.md`
 
-## 1. Federated platform model
+---
 
-KianOS is one system with multiple domain lanes and independently entered sub-lanes.
+## 1｜Engineering serves approved learner behavior
 
-```text
-root Current
-→ lane Current
-→ first-class sub-lane Current when useful
-→ natural owners
-→ learner surface
-```
-
-Shared platform capability does not imply shared cognition or identical UI.
-
-A lane may differ in:
-
-- natural learning unit;
-- first-learning order;
-- error taxonomy;
-- evidence granularity;
-- repair logic;
-- scheduler/review behavior;
-- transfer semantics;
-- UI layout.
-
-A mature implementation from one lane may be an engineering reference. It is never an upstream semantic requirement for another lane.
-
-### 1.1 Multi-surface learner reality
-
-A learner journey may span more than one device, application, or environment, for example:
-
-- Chat for adaptive orientation, diagnosis, or semantic repair;
-- `static-web/` for KianOS-owned navigation, checkpoints, attempts, evidence capture, return, or other approved interactions;
-- an original lecture/PDF/reader/notebook surface for continuous source study;
-- an external task environment for fresh Reading, media, physical practice, or real-world transfer.
-
-These are **learning surfaces**, not governance scopes. They do not automatically become semantic owners merely because content can be rendered there.
+`static-web/` is KianOS's shared learner execution layer. It is not automatically the primary learning surface for every action.
 
 Hard invariant:
 
 ```text
-Source ownership ≠ Surface ownership.
-Content availability ≠ Render entitlement.
-Runtime capability ≠ Learning-surface authority.
+Source ownership ≠ surface ownership.
+Content availability ≠ render entitlement.
+Runtime capability ≠ Learning authority.
 ```
 
-For every important learner action whose location materially changes cognition or friction, the relevant domain Learning Contract must determine one of the following before Projection/Runtime is allowed to decide it:
+The applicable Learning Contract decides what the learner should do and, when material, where that action belongs. Engineering makes that behavior executable.
 
-- the primary surface;
-- that the action is genuinely surface-agnostic;
-- the companion/reference surfaces that may assist;
-- any forbidden substitution;
-- the handoff needed between surfaces.
+Engineering must not:
 
-Do not infer surface ownership from the existence of an Astro component, repository field, source loader, or historical implementation.
+- invent domain semantics;
+- become a second Content owner;
+- reinterpret Learning Logic to fit an existing component;
+- manufacture learner progress from repository state;
+- read Legacy/history as semantic fallback;
+- turn optional capability into mandatory ritual;
+- duplicate an external-primary learning experience merely because its source can be loaded;
+- create two competing primary surfaces for one cognitive action.
 
-## 2. Shared learner-surface baseline
+---
 
-A mature first-class learner lane or independently entered sub-lane should provide the capabilities below when they are genuinely needed by that surface.
+## 2｜Shared mature capabilities
 
-A surface is responsible only for the learner actions assigned to it by the applicable Learning Contract. A capability listed below is not permission for one surface to absorb an action owned elsewhere.
+A learner surface should expose only the capabilities its approved path actually needs.
 
 ### Current
+Resolve from explicit Current/canonical owners and fail closed on missing or invalid dependencies.
 
-The surface resolves from explicit Current owners and fails closed on missing/invalid dependencies.
-
-It must not silently use historical, legacy, stale, guessed, or compatibility content as semantic fallback.
-
-### Continue
-
-The learner can resume without reconstructing the product's execution position manually.
-
-Keep two states separate:
-
-- shared construction/work position → repository Work Cursor / `CURRENT.md`;
-- personal learning position/progress → private learner state.
-
-The shared Work Cursor must never be used as proof of personal learner progress.
-
-A retained machine-only `continuation.*` file, if one is ever genuinely required, is an implementation detail named by Current—not the cross-KianOS Continue contract and not a second Work Cursor.
+### Continue / Resume
+Resume the highest-value unfinished learner action without confusing repository Work Cursor with private learner progress.
 
 ### Navigate / Explore
+Reach Current learner objects with low friction through domain-appropriate navigation, search, map or index.
 
-The learner can reach the relevant Current object with low friction using a domain-appropriate map, index, search, navigator, or equivalent.
-
-Do not force every lane into one navigation component.
+### Attempt / Verify / Challenge
+Support the domain's real verification object: official question, whole passage, generated challenge, reconstruction, writing task, etc.
 
 ### Repair / Review
-
-The surface can expose material that actually needs repair/review without manufacturing debt from stable correct work.
-
-Stable correct work should be able to pass quickly.
-
-### Verify / Challenge / Transfer
-
-The surface has an appropriate way to test whether the intended capability works.
-
-The mechanism may be official questions, generated challenges, closure tasks, reconstruction, fresh transfer, or another domain-appropriate form.
-
-Verification follows the domain contract, not a shared card template.
+Stable correct work exits quickly. Wrong/meaningful Uncertain opens only the smallest useful repair justified by evidence.
 
 ### Return / Handoff
+Preserve enough object identity and learner evidence to leave a surface and return without reconstructing the workflow manually.
 
-Meaningful learner evidence can return to Chat in a compact form sufficient to change the next action.
-
-A handoff should preserve enough identity/evidence to determine:
-
-- which learner object/task was involved;
-- what failed, remained uncertain, or was marked for repair;
-- what judgment/repair is now required.
-
-Private learner evidence remains private and is not committed into shared Current.
-
-When the approved learner path crosses surfaces, Runtime should also preserve enough position/identity for the learner to return to the correct external or KianOS-owned surface without reconstructing the workflow manually.
-
-### Deferred
-
-Intentionally postponed work with real future value uses the repository-wide Deferred Queue defined in `DEFERRED.md` and GitHub Issue #5.
-
-Active work position is not Deferred.
+### Timer / interaction persistence
+Capture only state that improves execution or later learner decisions. Persistence is not semantic authority.
 
 ### Validation
+Use source/schema/runtime/browser/build validation appropriate to the failure risk. Green Engineering does not equal learning acceptance.
 
-The surface has validation appropriate to the risks it can introduce.
+---
 
-This may include source identity/hash checks, schema checks, deterministic hydration, targeted runtime tests, build checks, browser journeys, and real learner use.
+## 3｜Reuse task behavior when cognition is actually shared
 
-A green build is evidence, not learning acceptance by itself.
+Shared runtime is justified when the learner is making the same kind of decision.
 
-## 3. Capability inheritance
+Example:
 
-A domain-level home satisfying a capability does not automatically satisfy it for every independently entered child surface.
+```text
+Reading A data ───────┐
+External Reading data ├→ one Reading Workspace / answer gate / attempt behavior
+compatible reading ───┘
+```
+
+Different data sources do not justify duplicate Runtime or duplicate UI.
+
+Conversely, similar-looking pages do not justify one Runtime when their cognitive object differs.
+
+---
+
+## 4｜Shared high-frequency input grammar
+
+Frequent actions should become predictable muscle memory. Exact shortcuts belong to Engineering, not Visual.
+
+General rules:
+
+- focused text inputs/editors suspend global learning shortcuts;
+- active semantic object owns ambiguous keys;
+- shortcuts must remain discoverable but visually subordinate;
+- do not add modifier-key rituals merely to resolve state conflicts;
+- wrong/meaningful Uncertain must never auto-skip merely for speed.
+
+### Recall / KP / Core Memory
+
+```text
+Space      Reveal / hide answer or model
+1          没掌握
+2          模糊
+3          基本稳定 / 熟练
+4          掌握
+Enter      commit selected judgment + continue
+← / →      previous / next when applicable
+```
+
+If no explicit lower score was selected and the surface permits fast pass, `Enter` may act as mastered/pass + next.
+
+`1–4` is interaction shorthand, not a universal mastery ontology.
+
+### Standard A–D question
+
+```text
+1 / 2 / 3 / 4  = A / B / C / D
+Enter           = confirm / submit when required
+```
+
+Normal single choice selects then confirms. Multiple choice toggles then confirms.
+
+Fast mode may submit a single-choice answer immediately, but a wrong/meaningful Uncertain result stays on the item for bounded repair. Multiple choice still requires confirmation.
+
+### Lexical whole-card routing
+
+```text
+1  Unknown  → Depth
+2  Fuzzy    → Depth
+3  Known    → Fast Pass
+4  Mastered → Fast Pass
+```
+
+This routes the current whole word. It does not create future Repair debt by itself.
+
+### Lexical Depth
+
+```text
+Space      Recall → Reveal; then continue when no nested control owns Space
+↑ / ↓      move local target focus
+→ / +      add exact local object to Repair
+←          undo/remove local Repair admission
+S          pronunciation
+```
+
+### Spatial Challenge exception
+
+When the visible option geometry itself is the interaction:
+
+```text
+← / ↑ / → / ↓  answer matching visible spatial option
+Q              report question defect
+Space / Enter  continue after feedback / reconstruction
+```
+
+If the Challenge is ordinary A–D, use the standard question grammar instead.
+
+### Conflict resolution
+
+```text
+Recall / KP active          → Recall grammar
+A–D Question active         → Question grammar
+Lexical Depth active        → Depth grammar
+Spatial Challenge active    → spatial grammar
+text/editor focused         → typing wins
+```
+
+---
+
+## 5｜Multi-surface paths
+
+A learner path may cross Chat, KianOS web, MarginNote/PDF, or another environment.
+
+When another surface owns the cognitive action, KianOS may provide only the approved companion role: orientation, locator, checkpoint, attempt, evidence capture, repair routing, Resume or Return.
 
 Examples:
 
-- English Reading, Translation, Writing, Cloze, or Reading B may require their own executable Continue/Repair/Return paths.
-- Xizong Systems may share runtime infrastructure while retaining System/Block/KP cognition.
-- LexicalOS may use word/relation Natural Owners and generated Challenge without becoming a template for Politics.
-- Politics may use Natural Units and Xiao1000 verification without inheriting English evidence granularity.
+- Xizong / Politics continuous source study may remain iPad/MarginNote-primary;
+- Writing composition stays in the writing workspace while semantic coaching may happen in Chat;
+- English task lexical failure may detour into Lexical and then return to the exact originating task.
 
-Surface ownership is inherited only when the upstream contract actually defines a shared learner action. An external-primary action remains external-primary until a Learning Contract explicitly changes it; a shared platform primitive cannot silently override that decision.
+Cross-surface handoff should preserve object/position identity and avoid duplicated mainlines.
 
-When a sub-lane becomes independently entered and independently continued, give it its own Current entrypoint only when that reduces reads and ambiguity. Do not create hierarchy for hierarchy's sake.
+---
 
-## 4. Shared-runtime boundary
+## 6｜Legacy / history firewall
 
-`static-web/` is the common **KianOS-owned learner execution layer**. It is not the presumptive primary surface for every learning action.
+Historical implementations may supply evidence for a bounded recovery, but they are not Current runtime authority.
 
-Shared components/utilities are appropriate when the **learner decision** is genuinely shared, for example generic navigation primitives or handoff transport.
-
-Shared runtime must not:
-
-- invent domain semantics;
-- become a second content owner;
-- force one lane's error model onto another;
-- infer personal learner progress from repository state;
-- read historical/legacy material as fallback;
-- turn optional platform capability into mandatory learner ritual;
-- duplicate an external-primary learning experience merely because the source is loadable;
-- convert a source/reference viewer into the primary learning surface without explicit Learning-Logic authority;
-- make the learner maintain two competing primary surfaces for the same cognitive action.
-
-When an external surface is primary, `static-web/` may still provide the approved companion behavior—orientation, locator, checkpoint, attempt, evidence capture, repair routing, Continue, Return/Handoff, or another bounded action—without becoming a substitute course/reader.
-
-### 4.1 Shared projection grammar
-
-`static-web/PRESENTATION_CONTRACT.md` owns the shared **representation and interaction grammar** for the KianOS web surface after cognition and surface ownership have already been approved upstream.
-
-It defines the default Mac / wide-landscape workspace model, cognitive-state foregrounding, semantic presentation roles, progressive disclosure, and Dense Calm interaction baseline.
-
-It must not decide domain semantics or override a domain Learning Contract. A Politics `Map`, Xizong mechanism `Chain`, English Reading task surface, and Lexical contrast may use different concrete representations while inheriting the same rule:
+Safe direction:
 
 ```text
-current cognitive state
-+ semantic role
-+ approved surface ownership
-→ learner-facing representation
+Legacy/history
+→ bounded human/Chat reconciliation
+→ promoted Current asset or Current-facing behavior rule
+→ Engineering implementation
 ```
 
-The primary KianOS web design origin is the learner's real Mac landscape workspace. Narrower-window responsive behavior is a required fallback, not permission to design the main surface as a vertically stretched mobile/document page.
+Never:
 
-## 5. Surface maturity rule
+```text
+Current missing
+→ silently fall back to Legacy
+```
 
-The shared baseline is a maturity contract, not permission to jump ahead in construction.
+No current learner runtime may depend on an old repo/path/branch/localhost as hidden semantic fallback.
 
-Whether a surface is allowed to implement Projection/Runtime/Evidence yet is governed by `LEARNING_ASSET_STANDARD.md`.
+---
 
-Whether the implemented surface is ready to claim PASS is governed by `LEARNING_ACCEPTANCE.md`.
+## 7｜Sharing test
 
-This document only defines the cross-KianOS capabilities and surface boundaries a mature surface should eventually expose when they are relevant.
+Before adding shared Engineering, ask:
 
-## 6. Design test
+> **Is the learner making the same decision, with the same evidence meaning and interaction semantics?**
 
-Before adding a shared platform abstraction, ask:
+If yes, sharing may lower change cost.
 
-> **Is the learner making the same kind of decision across these lanes?**
+If no, keep domain behavior separate.
 
-- yes → sharing may reduce friction;
-- no → keep the implementation/domain logic separate.
+Before moving a learning action to another surface, ask:
 
-Before moving a learner action onto a different surface, also ask:
+> **Did upstream Learning Logic authorize that surface, or is implementation capability being mistaken for learner need?**
 
-> **Did the Learning Contract authorize this surface to own that cognitive action, or is implementation capability being mistaken for learner need?**
-
-Before choosing a learner-facing component/layout, also ask:
-
-> **What cognitive state and semantic role is being represented, and would the representation still be correct if the current component library did not exist?**
-
-KianOS should converge on common infrastructure only where cognition is actually common, and should centralize learner actions only where surface ownership is actually justified.
+Engineering is successful when approved learning behavior becomes fast, stable and cheap to change—not when the number of shared abstractions grows.
