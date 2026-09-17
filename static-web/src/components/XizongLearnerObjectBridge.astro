@@ -401,8 +401,7 @@ const payload = learnerObject || null;
           title = kp ? `${kp.identity.displayId} · 当前辅助` : '当前辅助';
           slot = mergeSlots(
             learner.slots?.logicGroupPrelearn?.[groupId] || {},
-            learner.slots?.kpLearnAux?.[kpId] || {},
-            { ...(learner.slots?.kpRecallPostReveal?.[kpId] || {}), core: null }
+            learner.slots?.kpRecallContext?.[kpId] || learner.slots?.kpLearnAux?.[kpId] || {}
           );
         }
         const rendered = renderSlot(slot, { stage: representationStage });
