@@ -4,25 +4,25 @@ Role: independently continued Xizong System Work Cursor + restart entry
 Parent: `content/xizong/CURRENT.md`  
 Acceptance owner: `content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/ACCEPTANCE.md`
 
-This file does not own medical Core, Xizong lane learning semantics, Acceptance Truth, Projection truth or Kian's learner progress.
+This file owns Work Cursor only. It does not own medical Core, accepted Learning semantics, Acceptance Truth, Projection truth or Kian's learner progress.
 
 ---
 
 ## Current Work Cursor
 
 **Scope:** D — Neuro / Sensory / Motor / Orthopedics  
-**Accepted construction stages:** **Source / Knowledge + Learning Logic closed**  
-**L state:** **PASS_AFTER_READINESS_REPAIR**  
-**Earliest eligible next construction stage:** **Content Realization / Optimization**  
-**Parallel Source boundary:** exact official D System question membership remains **UNTESTED** and gates the later trusted official-question sweep only  
-**Current blocker:** none at L; Content has not yet been realized/optimized under the accepted Learning owner
+**Accepted upstream:** **S1 + K + L closed**  
+**Active construction stage:** **Content Realization / Optimization**  
+**Content state:** **PHASE7A ROLE MODEL BUILT / CONTENT NOT CLOSED**  
+**Earliest eligible next action:** **Phase 7B — canonical Block wrapper / authority cleanup**  
+**Parallel Source boundary:** exact official D System question membership remains **UNTESTED** and gates the later trusted official-question sweep only
 
 ```text
 S1 medical / first-learning Source boundary = PASS
 S2 exact official-question membership        = UNTESTED / parallel later boundary
 K Knowledge                                  = PASS
 L Learning Logic                             = PASS_AFTER_REPAIR
-Content Realization / Optimization           = ELIGIBLE / NEXT
+Content Realization / Optimization           = ACTIVE / NOT_CLOSED
 P Projection                                  = downstream-frozen
 R Runtime                                     = downstream-frozen
 E Evidence                                    = downstream-frozen
@@ -48,84 +48,31 @@ Accepted Learning:
 
 `content/xizong/knowledge/learner/d-neuro-sensory-motor-orthopedics-learning.json`
 
+Current Content candidate:
+
+`content/xizong/knowledge/learner/d-neuro-sensory-motor-orthopedics-content.json`
+
+Phase-7A audit:
+
+`content/xizong/knowledge/learner/D_PHASE7A_CONTENT_ROLE_AUDIT.md`
+
 Fresh independent L evidence:
 
 `content/xizong/knowledge/learner/D_PHASE6E_FRESH_INDEPENDENT_L_REACCEPTANCE.md`
 
-Acceptance Truth:
-
-`content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/ACCEPTANCE.md`
-
 ---
 
-## Stable accepted substrate
+## Frozen upstream truth
 
-Unless new contradictory Source/medical evidence reopens an upstream owner:
+Unless contradictory Source/medical evidence genuinely reopens an earlier owner:
 
 - 27 canonical Blocks = N1–N11 + O1–O16;
 - 356 stable KP identities = neural 150 + orthopedics 206;
 - 128 accepted Logic Groups = neural 56 + orthopedics 72;
 - no Block/KP split, merge or renumbering;
-- legacy System IDs remain aliases only;
-- Block-level Source gaps/conflicts/visual gates remain live and cannot be erased by Learning or Content compression;
-- Question Truth and reviewed Question→Knowledge relations remain separate owners.
-
-Accepted System coordinate:
-
-```text
-sensory transduction / coding
-→ neural conduction
-→ synaptic / receptor integration
-→ central state + control
-→ descending command
-→ NMJ / skeletal-muscle force
-→ musculoskeletal plant
-→ sensory feedback
-```
-
-Trauma, compression, ischemia, overload, infection, immune inflammation, developmental abnormality and tumor remain parallel failure branches rather than one serial disease chain.
-
----
-
-## Accepted Learning decision
-
-### Surface ownership
-
-```text
-iPad / MarginNote original Lecture
-= continuous Primary Source learning + original visuals
-
-KianOS
-= orientation + attention boundary + Source-contact guidance
-  + active retrieval + LG closure + compression
-
-Chat
-= adaptive explanation + discrimination + smallest-sufficient repair
-```
-
-KianOS must not become a second primary Lecture reader.
-
-### Source-contact
-
-Accepted classes:
-
-```text
-WHOLE_BLOCK_SOURCE
-NATURAL_SOURCE_UNITS
-INTEGRATION_PRIMARY
-```
-
-N11 and O1 are integration-primary.
-
-Hard invariant:
-
-> `Logic Group ≠ Source-contact unit`.
-
-Visual-required cognition may close only after real original-Source visual contact when spatial fidelity is essential, but Visual does not create one Source handoff per LG.
-
-### Hard readiness
-
-Accepted machine legality is intentionally sparse:
+- accepted Source-contact classes remain `WHOLE_BLOCK_SOURCE / NATURAL_SOURCE_UNITS / INTEGRATION_PRIMARY`;
+- N11 + O1 remain integration-primary;
+- accepted hard readiness remains:
 
 ```text
 N1 ─┐
@@ -134,85 +81,94 @@ N8 ─┘       → O4
              → O5
 ```
 
-All other inside-D ordering is default-route / `benefits_from` guidance rather than hard Block legality.
+- all other D ordering remains default-route / `benefits_from` guidance;
+- O11 has no whole-Block N11 gate;
+- Visual-required cognition does not create one Source trip per LG;
+- five PSRs remain optional/non-gating compression;
+- Source gaps/conflicts and external-owner negative space remain live.
 
-O11 has no whole-Block N11 gate. N11 is reactivated only for the O11-LG05 root-vs-named-nerve entrapment discrimination.
-
-### Compression
-
-```text
-356 KP
-→ 128 LG
-→ 27 Block Recall
-→ 5 optional/non-gating PSRs
-→ final D System reconstruction after real learner completion
-```
-
-The five PSRs are compression opportunities, not mandatory hierarchy or review debt.
+Content work may realize these decisions but may not redesign them.
 
 ---
 
-## Why L is accepted
+## Phase 7A result
 
-Phase 6C fresh independent audit found one real material defect: over/under-gated `system_route.requires`.
+The existing D Block Markdown already contains substantial usable Stage-2 material:
 
-Phase 6D builder repair was bounded to:
+- center problem / minimum map;
+- Block Framework;
+- canonical KP prompts and medical Core;
+- Source locators;
+- ownership / negative-space boundaries;
+- visual gates;
+- precision / confusable / connection support in many Blocks.
+
+Therefore a broad rewrite of 356 KP Core is **not justified**.
+
+The real Content defect is role/timing drift:
+
+1. many canonical Block frontmatters still carry old `prerequisites / next_blocks`, creating a stale second learner route;
+2. one generic `FIRST PASS` prose pattern is copied across Blocks despite three different accepted Source-contact modes;
+3. several intros phrase default-route benefits as though prior Blocks are already completed;
+4. the learner role of long `Detailed Expansion` prose is not explicit enough — it is canonical Core/check/repair/reference, not a compulsory second Lecture read.
+
+Phase 7A therefore created a Content candidate that separates:
 
 ```text
-requires
-+ directly coupled benefits_from / flex_rule consistency
+ORIENTATION
+SOURCE_CONTACT
+RETRIEVAL
+CORE_CHECK
+BOUNDARY
+COMPRESSION
 ```
 
-It demoted fifteen false-hard edges, added N1 to N11 true readiness, removed the whole-Block O11 gate, and left LG/Source-contact/Visual/compression semantics unchanged.
-
-Phase 6E fresh independent re-audit then re-tested:
-
-- all six retained hard edges;
-- all fifteen demoted edges for possible under-gating;
-- N11 = N1 + N5 + N8 readiness;
-- O3/O4/O5 dependence on the N11 localization bridge;
-- O11 partial independence;
-- default-route flexibility;
-- repair-diff regression into previously accepted L areas.
-
-No remaining material L defect was found.
-
-Evidence:
-
-`D_PHASE6E_FRESH_INDEPENDENT_L_REACCEPTANCE.md`
+and compiles accepted natural Source units into Content-level LG release groups without duplicating medical facts.
 
 ---
 
-## Next stage — Content Realization / Optimization
+## Active Phase 7B — wrapper / authority cleanup
 
-This is now the only newly eligible dependent construction stage.
-
-The next builder should answer:
-
-> Given accepted D Source/Knowledge and accepted Learning Logic, is the existing learner content actually realized at the correct density, ordering and teaching role for every Block/LG, or does it still contain old second-textbook / duplicate / weak-compression / mistimed-content structure?
-
-Recommended entry:
+Earliest Content defect to repair:
 
 ```text
-D CURRENT
-→ D ACCEPTANCE
-→ accepted D Learning owner
-→ exact canonical Block Core being optimized
-→ Content Realization / Optimization
+canonical D Block wrappers
+→ stale prerequisites / next_blocks
+→ stale literal FIRST PASS role copy
+→ wording that assumes non-hard benefits_from owners are already learned
 ```
 
-Builder rules:
+Rules:
 
-- do not redesign `requires`, LG membership, Source-contact classes, Visual semantics or PSRs;
-- do not infer page/UI structure;
-- preserve Lecture-first external-primary ownership;
-- optimize content to be rich enough for cognition but selective enough not to duplicate the Lecture;
-- keep Source gaps/conflicts explicit rather than filling them from medical prior;
-- keep P/R/E frozen until Content is independently closed.
+- accepted Learning owner remains the sole D learner-route/readiness authority;
+- do not change KP medical truth while cleaning wrapper semantics;
+- `WHOLE_BLOCK_SOURCE`, `NATURAL_SOURCE_UNITS` and `INTEGRATION_PRIMARY` must have distinct Content role wording;
+- N11/O1 must not manufacture a new continuous Primary Lecture pass;
+- benefits-from owners are `可调用 / 可复用 / 缺失时局部 reactivation`, not hard completion assumptions;
+- do not infer UI or runtime behavior.
 
-A clean new builder branch may be named:
+After wrapper cleanup:
 
-`work/xizong-d-content-realization-20260917`
+```text
+Phase 7C — N1–N11 LG-by-LG content sufficiency/density audit
+→ Phase 7D — O1–O16 LG-by-LG content sufficiency/density audit
+→ Phase 7E — fresh independent Content closure audit
+```
+
+---
+
+## Content close requirements
+
+Content remains open until:
+
+- stale Block route metadata no longer competes with accepted Learning;
+- Source-contact role copy is accurate per Block;
+- every accepted LG has sufficient Core + retrieval/closure support;
+- full Core is available without becoming mandatory continuous KianOS reading;
+- Source gaps/conflicts remain explicit;
+- original Lecture remains primary for genuine new Source learning;
+- Page-disappearance test passes;
+- no Projection/UI decisions have been smuggled into Content.
 
 ---
 
@@ -232,6 +188,4 @@ Do not use Content realization to backfill:
 
 ## Learner Truth boundary
 
-Repository acceptance means the D asset is ready to proceed to Content construction under accepted semantics.
-
-It does **not** mean Kian has learned, recalled, completed or mastered any D Block.
+Repository Content construction does not mean Kian has learned, recalled, completed or mastered any D Block.
