@@ -1,6 +1,6 @@
 # Xizong UI Architecture Migration
 
-Status: **ACTIVE MIGRATION · System / Home / Memory CUT OVER · Slice 3 ACTIVE**  
+Status: **ACTIVE MIGRATION · System / Home / Memory / System Exit CUT OVER · Slice 4 ACTIVE**  
 Scope: Xizong learner-facing presentation implementation only  
 Parent authority: `content/xizong/CURRENT.md` + `PRESENTATION_CONTRACT.md` + `UI_STYLE_BRIEF.md` + `PROJECT_MANAGEMENT_CONTRACT.md`
 
@@ -132,96 +132,103 @@ Memory is therefore closed as an architecture slice. Reopen only for a concrete 
 
 ---
 
-## Active Slice 3 — System Exit / official Question
+## Closed Slice 3 — System Exit / official Question
+
+**ACCEPTED / CUT OVER via PR #374 · merge `0354db9c`**
+
+Current chain:
+
+```text
+xizong/[system]/index.astro
+→ XizongSystemExitRuntime.astro        markup + exact existing Runtime
+→ XizongQuestionCrosswalkConsumer.astro
+→ XizongSystemRepairReturn.astro
+→ xizong-system-exit-workspace.css     single later-stage presentation owner
+```
+
+Closed facts:
+
+- Current later-stage route uses isolated outer namespace `xzExitStage`;
+- broad legacy interception points were cut away with Current-only `xzExitCard`, `xzExitStem` and `xzExitOptions` classes while behavior selectors such as `.xseQuestion`, `.xseOption` and `data-*` remained intact;
+- component-local `<style>` owners were removed from System Exit, reviewed Crosswalk and Repair Return;
+- no route-level duplicate Recall fallback, second peripheral stylesheet or `!important` recovery layer was admitted;
+- accepted `XizongSystemExitRuntime.astro` script semantics were unchanged by the presentation migration;
+- Recall / holdout / FIRST_PASS / SECOND_PASS / W/U / exact reviewed Crosswalk / legal missing mapping / Repair Return storage and evidence contracts remained intact;
+- the first browser-gate failure was traced to an invalid test fixture that attempted System Recall before all Blocks were completed; the product's existing `XizongRuntimeStageGuard` correctly blocked it, so the fixture was repaired instead of weakening Runtime semantics;
+- real Chromium acceptance then proved the legal flow from completed-System prerequisite → System Recall → whole-paper holdout → official Question → Wrong/Repair → targeted SECOND_PASS → reviewed exact Crosswalk and missing-mapping fallback;
+- A1 Current Question Truth remained `376` qids in the gate;
+- visible learner type floor = `15px` in every tested Recall / Question / Answer / Crosswalk / Repair state;
+- accepted representative later-stage geometry = `1256px` stage / `1254px` exit root / `1226px` three-step region;
+- clean-head Recall and Question screenshots were manually inspected before merge;
+- Static Web Xizong QA, Representation Gate, Production Semantic Projection, Golden Journey, A2 Functional First Journey, Representative Workspace and the dedicated System Exit Workspace gate all passed on the exact accepted head;
+- PR diff returned to the intended 8-file scope after temporary diagnostics were removed.
+
+System Exit / official Question is therefore closed as an architecture slice. Reopen only for a concrete Current Runtime/presentation defect or real learner-U finding; do not add another visual owner.
+
+Unreachable historical later-stage selectors still physically present in broad Xizong styles are cleanup debt only and move to Slice 4.
+
+---
+
+## Active Slice 4 — Bounded legacy cleanup + gated shared Shell adoption
 
 **STATE: ACTIVE**
 
-### Purpose
+This slice is cleanup/integration only. It must not reopen the accepted System/Home/Memory/System Exit architectures merely because old selectors still exist elsewhere.
 
-Converge the later-stage learner surface without changing the already-accepted execution chain:
+### First action — prove deadness before deletion
 
-```text
-System learned
-→ System Recall
-→ official System question sweep
-→ W/U evidence
-→ smallest-sufficient Repair / exact Return
-```
+Audit broad legacy Xizong selectors against Current DOM for the already-isolated surfaces:
 
-### First action: ownership audit, not polish
+- System Framework (`xzSystem*` owner already Current);
+- Home (`xzHome*` owner already Current);
+- standalone Memory (`xizong-memory-workspace.css` owner already Current);
+- System Exit / official Question (`xzExit*` + `xizong-system-exit-workspace.css` owner already Current).
 
-Before writing CSS, identify the Current ownership graph for:
-
-- `XizongSystemExitRuntime.astro`;
-- System route composition/wiring;
-- official Question workspace markup;
-- broad `xizong-presentation.css` / other Xizong styles that currently match the later-stage DOM;
-- component-local or route-local style blocks;
-- existing browser/contract validators that consume the later-stage surface.
-
-Classify each current responsibility as:
+Classify each legacy rule as:
 
 ```text
-SEMANTIC / RUNTIME OWNER        preserve
-CURRENT VISUAL OWNER            migrate or retain explicitly
-LEGACY COMPETING OWNER          cut over / retire
-DEAD SELECTOR                   queue for bounded cleanup
-TEST CONSUMER                   migrate with owner if needed
+UNREACHABLE CLOSED-SURFACE DEBT    delete in bounded groups
+STILL-CURRENT BLOCK RULE           preserve
+SHARED / CROSS-SURFACE RULE        preserve unless a Current owner replaces it
+AMBIGUOUS                           do not delete until reachability is proven
 ```
 
-### Hard boundaries
+Primary cleanup targets may include dead selectors in broad `xizong-presentation.css` and legacy child selectors in `xizong-system-workspace.css`, but file name alone is never evidence that a rule is dead.
 
-Preserve exactly:
+### Block boundary
 
-- System Recall state/reveal/completion;
-- holdout behavior;
-- Question Truth and exact System membership boundaries;
-- FIRST_PASS / SECOND_PASS / LATE_REVIEW attempt history;
-- reviewed Crosswalk behavior and legal missing mapping;
-- Wrong / Uncertain repair routing;
-- Evidence / Repair / Return semantics;
-- no learner-U claim from CI.
+Block has a Current one-screen workspace but has not been admitted into this migration merely for symmetry. Do not delete Block rules because adjacent surfaces now have isolated owners. A Block presentation ownership decision must be explicit and independently accepted.
 
-Do not inherit from draft PR #351 by default:
+### Shared Shell gate
 
-- `xizong-peripheral-workspaces.css` as a second visual owner;
-- route-level duplicate Recall-dialog click fallback;
-- inline typography recovery.
+Shared Base Shell / collapsible global `K` rail remain owned by the parallel English UI lane.
 
-The #351 fallback may return only if a fresh browser journey proves a real defect in the actual Runtime owner; repair that owner rather than keeping duplicate route behavior.
+```text
+if accepted shared Shell is on main
+  → consume it
+  → adapt only Xizong-local geometry where necessary
+else
+  → do not reimplement or locally patch the Shell
+  → continue only the bounded dead-selector cleanup that is independently safe
+```
 
-### Target architecture
-
-One explicit later-stage presentation owner. Exact filename/component boundary must be chosen only after the ownership audit proves where the Current responsibility actually belongs.
+A shared-shell defect found from Xizong must be routed back to the shared-shell owner rather than fixed with a Xizong fork.
 
 ### Acceptance requirements
 
 At minimum:
 
-- static single-owner / no-cascade-recovery gate;
-- Astro build;
-- real A1 System Recall journey;
-- real official-question entry and answer persistence;
-- reviewed relation + missing relation behavior preserved;
-- W/U repair/return behavior preserved;
-- second-pass behavior preserved where already Current;
-- 15px visible type floor across Recall + Question states;
-- representative Mac geometry;
-- screenshot inspection before merge;
-- broad Xizong regressions green on the accepted exact head.
-
----
-
-## Later Slice 4 — Bounded legacy cleanup + shared Shell adoption
-
-Only after active surfaces are isolated:
-
-- identify broad `xizong-presentation.css` selectors no Current DOM can reach;
-- physically delete obsolete System/Home/later-stage compatibility code in bounded groups;
-- preserve Block rules until Block receives an explicit ownership decision rather than deleting them for symmetry;
-- resync from `main` after English-owned shared Base Shell / collapsible global `K` rail lands;
-- adapt only Xizong-local geometry needed to coexist with that accepted shared Shell;
-- never reimplement the global rail inside Xizong.
+- every deleted selector has a demonstrated no-Current-DOM reachability basis;
+- no new visual owner or compatibility stylesheet appears;
+- no Runtime / Learning / Question / Evidence semantics change;
+- Block/current shared rules remain intact unless separately admitted and proven;
+- targeted owner validators remain green;
+- Astro build remains green;
+- representative A1/A2/A3 browser journeys remain green;
+- System Exit dedicated browser acceptance remains green;
+- screenshots are inspected if geometry changes at all;
+- broad Xizong regressions are green on the exact accepted head;
+- shared Shell is consumed only from accepted `main`, never reconstructed here.
 
 Migration closes only when competing active paths are gone **and** dead migration code is either physically removed or explicitly retained for a named still-current owner.
 
