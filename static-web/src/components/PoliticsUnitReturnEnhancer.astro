@@ -1,9 +1,25 @@
 ---
 import { buildPoliticsUnitReturnConfigs } from '../lib/politicsUnitReturn.mjs';
+import PoliticsExplicitSurfacePlan from './PoliticsExplicitSurfacePlan.astro';
 
-const { chapter } = Astro.props;
+const { chapter, compiled = null } = Astro.props;
 const configs = buildPoliticsUnitReturnConfigs(chapter);
+const continueRows = compiled instanceof Map
+  ? [...compiled.values()].filter((row) => row?.surfacePlan?.states?.CONTINUE?.length > 0)
+  : [];
 ---
+{continueRows.length > 0 && (
+  <div hidden data-politics-continue-registry>
+    {continueRows.map((row) => (
+      <section data-politics-continue-unit={row.unitId}>
+        <template data-politics-continue-template>
+          <PoliticsExplicitSurfacePlan groups={row.surfacePlan.states.CONTINUE} />
+        </template>
+      </section>
+    ))}
+  </div>
+)}
+
 {configs.map((config) => (
   <span
     hidden
@@ -18,6 +34,7 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
   const attemptKey = 'kianos-politics-attempts-v1';
   const lastKey = 'kianos-politics-last-location-v1';
   const runtime = document.querySelector('[data-politics-runtime]');
+  const continueRegistry = document.querySelector('[data-politics-continue-registry]');
   const localStudyDay = () => new Date().toLocaleDateString('en-CA');
   const readJson = (key, fallback) => {
     try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; } catch { return fallback; }
@@ -89,6 +106,15 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
     if (className) node.className = className;
     if (text) node.textContent = text;
     return node;
+  };
+
+  const cloneContinuePlan = (config) => {
+    if (!continueRegistry) return null;
+    const unitId = String(config.runtime_unit_id || config.natural_unit_id || '');
+    if (!unitId) return null;
+    const entry = continueRegistry.querySelector(`[data-politics-continue-unit="${CSS.escape(unitId)}"]`);
+    const template = entry?.querySelector('template[data-politics-continue-template]');
+    return template instanceof HTMLTemplateElement ? template.content.cloneNode(true) : null;
   };
 
   const returnIdFor = (config) => `politics-unit-return-${String(config.natural_unit_id || '').replace(/[^a-zA-Z0-9_-]/g, '-')}`;
@@ -199,7 +225,15 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
       target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
-    section.append(micro, title, summary, nodeList, guard, continueButton);
+    section.append(micro, title, summary, nodeList, guard);
+    const mappedContinue = cloneContinuePlan(config);
+    if (mappedContinue) {
+      const surface = make('div', 'politicsMappedContinue');
+      surface.setAttribute('data-unit-return-continue-surface', 'v1');
+      surface.append(mappedContinue);
+      section.append(surface);
+    }
+    section.append(continueButton);
     quiz.insertAdjacentElement('afterend', section);
     return section;
   };
