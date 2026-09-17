@@ -57,14 +57,17 @@ if (!units.length) {
 
   {chapterContext && (
     <section class="chapterContext" data-projection-chapter-context>
-      <div>
+      <div class="chapterContextSummary">
         <span>章节定位</span>
         <strong>{chapterContext.currentProblem || chapterContext.location || chapter.title}</strong>
       </div>
       {chapterContext.stageContext?.length > 0 && (
-        <div class="chapterContextChain">
-          {chapterContext.stageContext.map((row) => <Value value={row.value} />)}
-        </div>
+        <details class="chapterContextDetails">
+          <summary>展开整章位置</summary>
+          <div class="chapterContextChain">
+            {chapterContext.stageContext.map((row) => <Value value={row.value} />)}
+          </div>
+        </details>
       )}
     </section>
   )}
