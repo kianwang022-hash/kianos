@@ -9,20 +9,15 @@
 
 ## Root Work Cursor
 
-**Active scope:** Project management stabilization — English Objective Guide visual proof  
-**Current stage:** Lexical UI proof 已收口；English 经只读债务 / 并行冲突盘点后，只对 Objective Guide 做下一轮小范围 screenshot-driven visual convergence  
+**Active scope:** Project management stabilization — English Translation Guide visual proof  
+**Current stage:** Lexical UI proof 与 English Objective Guide visual proof 已进入 `main`；当前只对 Translation Guide 做同类债务的独立 screenshot-driven convergence  
 **Blocker:** none  
-**Next action:** 用现有 English Family Coherence 对 Objective Guide 做 1440×900 实图验收，同时锁住正文 ≥17px、目录 ≥16px、去卡片化、无横向溢出和单一 route visual owner；只有实图与既有 English 功能回归均通过后才允许合并。Translation / Writing Guide 与 Reading / Cloze / Part B / Translation / Writing 工作区本轮冻结。
+**Next action:** 用现有 English Family Coherence 对 Translation Guide 做 1440×900 实图验收；锁住正文 ≥17px、导航/主链 ≥16px、单一 route visual owner、Represent → Reconstruct → Deliver 主链可见、reference reservoir 默认折叠、Runtime 入口保留、无横向溢出。只有实图与 Translation / English 功能回归均通过后才允许合并。Writing Guide 本轮冻结，后续按其交互式学习器结构独立设计。
 
-Lexical UI proof evidence remains accepted on `main` through PR #361:
+Accepted visual proofs on `main`:
 
-- `a / abandon / abroad` 1536×900 real screenshots reviewed;
-- English lexical typography = serif, Chinese / UI = sans;
-- Sense rows = continuous editorial rows, not cards;
-- Expansion = quiet continuous rail, not stacked cards;
-- sparse words use natural height instead of a fake full-viewport white container;
-- Lexical visual styling has one active owner;
-- Lexical Current Runtime + Functional First browser journeys remain PASS.
+- Lexical PR #361: `a / abandon / abroad` 1536×900 real screenshots reviewed; Sense rows are editorial rows, Expansion is a quiet rail, sparse words use natural height, one active Lexical visual owner, Runtime + Functional First remain PASS.
+- English Objective Guide PR #362: 1440×900 real screenshot reviewed; long-form editorial geometry, navigation ≥16px, learner body ≥17px, no rounded/shadow card shell, one route visual owner, English Family Coherence + Objective Learner Journey remain PASS.
 
 Top-level governance is accepted and remains frozen. This is implementation of `PROJECT_MANAGEMENT_CONTRACT.md`, not a new root architecture.
 
