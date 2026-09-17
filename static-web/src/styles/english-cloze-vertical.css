@@ -1,0 +1,464 @@
+/* English Cloze vertical slice — route-scoped Visual owner.
+   Preserve whole-passage / 20-row attempt semantics and runtime behavior.
+   Mac-wide default-visible text floor: >= 15px.
+*/
+
+body#kianos-workspace.uiEnglish .surface-cloze {
+  width: calc(100% - 28px);
+  max-width: none;
+  padding-top: 10px;
+  padding-bottom: 22px;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeRuntime {
+  width: 100%;
+  max-width: none;
+  gap: 9px;
+}
+
+/* One quiet task strip. The paper, not the software chrome, is primary. */
+body#kianos-workspace.uiEnglish .surface-cloze .clozeRuntimeHeader {
+  position: static;
+  min-height: 54px;
+  padding: 6px 4px 10px !important;
+  border: 0;
+  border-bottom: 1px solid #d9e0e4;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeRuntimeHeader > div:first-child {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  min-width: 0;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeRuntimeHeader > div:first-child > span {
+  flex: 0 0 auto;
+  color: #587487;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeRuntimeHeader h2 {
+  min-width: 0;
+  margin: 0 !important;
+  overflow: hidden;
+  color: #24323d;
+  font-size: 18px !important;
+  font-weight: 650;
+  line-height: 1.35 !important;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeRuntimeHeader small {
+  display: none;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeProgress {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  color: #6d7a85;
+  text-align: right;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeProgress strong,
+body#kianos-workspace.uiEnglish .surface-cloze .clozeProgress span {
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeProgress strong {
+  color: #344a5b;
+  font-weight: 680;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeProgress span {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Accepted geometry: complete passage left + complete 20-row sheet right. */
+body#kianos-workspace.uiEnglish .surface-cloze .clozeLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.03fr) minmax(520px, .97fr);
+  gap: 0;
+  height: calc(100dvh - 164px);
+  min-height: 620px;
+  overflow: hidden;
+  border: 1px solid #d9e0e4;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(29, 43, 58, .035);
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozePassage,
+body#kianos-workspace.uiEnglish .surface-cloze .clozeDecision {
+  min-width: 0;
+  min-height: 0;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+  box-shadow: none;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozePassage {
+  padding: 28px 42px 64px !important;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozePassage header {
+  position: sticky;
+  top: -28px;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: -4px 0 20px;
+  padding: 9px 0 10px;
+  border-bottom: 1px solid #eef1f2;
+  background: rgba(255, 255, 255, .97);
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozePassage header span,
+body#kianos-workspace.uiEnglish .surface-cloze .clozePassage header strong {
+  color: #78858e;
+  font-size: 15px;
+  font-weight: 580;
+  letter-spacing: 0;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozePassage p {
+  margin: 0 0 1.08em;
+  color: #202a32;
+  font-family: var(--english-reading-font);
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.78;
+  letter-spacing: .002em;
+  text-wrap: pretty;
+}
+
+/* Right pane behaves like one exam answer sheet, not twenty mini cards. */
+body#kianos-workspace.uiEnglish .surface-cloze .clozeDecision {
+  display: grid !important;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+  overflow: hidden;
+  border-left: 1px solid #dfe4e7;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeDecisionTop {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 16px !important;
+  border-bottom: 1px solid #e8ecef;
+  background: rgba(255, 255, 255, .97);
+  backdrop-filter: blur(10px);
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeDecisionTop > div {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeDecisionTop span,
+body#kianos-workspace.uiEnglish .surface-cloze .clozeDecisionTop strong {
+  font-size: 15px !important;
+  line-height: 1.4;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeDecisionTop span {
+  color: #74818b;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeDecisionTop strong {
+  color: #3b4c59;
+  font-weight: 650;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeDecisionTop button {
+  min-height: 30px;
+  padding: 4px 7px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: #8a949c;
+  font-size: 15px;
+  font-weight: 580;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeDecisionTop button:hover:not(:disabled) {
+  background: #f5f7f8;
+  color: #4e606d;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeDecisionTop button.active {
+  background: #fff7e4;
+  color: #7a5a20;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeQuestions {
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeQuestion {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 8px 12px;
+  align-items: center;
+  min-height: 52px;
+  padding: 8px 16px !important;
+  border-bottom: 1px solid #edf0f2;
+  background: #fff;
+  box-shadow: none;
+  scroll-margin: 10px;
+  transition: background .12s ease;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeQuestion.is-current {
+  background: #fbfcfc;
+  box-shadow: none;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeQuestion > p:first-child {
+  margin: 0 !important;
+  color: #687782;
+  font-size: 15px !important;
+  font-weight: 650;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeOptions {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  min-width: 0;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeOptions button {
+  display: grid;
+  grid-template-columns: 23px minmax(0, 1fr);
+  gap: 7px;
+  align-items: center;
+  min-width: 0;
+  min-height: 36px;
+  padding: 7px 9px;
+  border: 0;
+  border-left: 1px solid #eef1f3;
+  border-radius: 0;
+  background: transparent;
+  color: #34434e;
+  font: inherit;
+  text-align: left;
+  box-shadow: none;
+  cursor: pointer;
+  transition: background .12s ease, color .12s ease;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeOptions button:first-child {
+  border-left: 0;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeOptions button:hover:not(:disabled) {
+  border-color: #eef1f3;
+  background: #f7f9fa;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeOptions button b {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  border-radius: 50%;
+  background: transparent;
+  color: #697783;
+  font-size: 15px;
+  font-weight: 680;
+  line-height: 1;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeOptions button span {
+  min-width: 0;
+  color: #35434e;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.42;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeOptions button.selected {
+  border-color: #eef1f3;
+  background: #f1f5f7;
+  box-shadow: none;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeOptions button.selected b {
+  background: #355f78;
+  color: #fff;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeOptions button.result-correct {
+  outline: 1px solid #7ea08d;
+  outline-offset: -1px;
+  background: #f2f7f4;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeOptions button.result-wrong {
+  background: #fbf2f0;
+  color: #7d514b;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeFormal {
+  grid-column: 2;
+  margin: 2px 0 0;
+  color: #6e7b84;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeNav {
+  display: none !important;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeSubmitRow {
+  position: sticky;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding: 9px 16px;
+  border-top: 1px solid #e5eaed;
+  background: rgba(255, 255, 255, .98);
+  backdrop-filter: blur(10px);
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeSubmitRow span {
+  color: #6d7a84;
+  font-size: 15px;
+  font-weight: 520;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeSubmit {
+  min-height: 34px;
+  padding: 0 14px;
+  border: 1px solid #294e65;
+  border-radius: 6px;
+  background: #294e65;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 680;
+  box-shadow: none;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeResult {
+  margin: 0;
+  padding: 11px 16px;
+  border-radius: 0;
+  background: #f3f7f5;
+}
+
+body#kianos-workspace.uiEnglish .surface-cloze .clozeResult strong,
+body#kianos-workspace.uiEnglish .surface-cloze .clozeResult span {
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+@media (max-width: 1180px) {
+  body#kianos-workspace.uiEnglish .surface-cloze .clozeLayout {
+    grid-template-columns: minmax(0, 1fr) minmax(470px, 1fr);
+  }
+
+  body#kianos-workspace.uiEnglish .surface-cloze .clozePassage {
+    padding-inline: 30px !important;
+  }
+}
+
+@media (max-width: 980px) {
+  body#kianos-workspace.uiEnglish .surface-cloze .clozeLayout {
+    height: auto;
+    min-height: 0;
+    grid-template-columns: 1fr;
+    overflow: visible;
+  }
+
+  body#kianos-workspace.uiEnglish .surface-cloze .clozePassage,
+  body#kianos-workspace.uiEnglish .surface-cloze .clozeDecision {
+    max-height: none;
+    overflow: visible;
+  }
+
+  body#kianos-workspace.uiEnglish .surface-cloze .clozeDecision {
+    border-left: 0;
+    border-top: 1px solid #dfe4e7;
+  }
+
+  body#kianos-workspace.uiEnglish .surface-cloze .clozePassage header,
+  body#kianos-workspace.uiEnglish .surface-cloze .clozeDecisionTop,
+  body#kianos-workspace.uiEnglish .surface-cloze .clozeSubmitRow {
+    position: static;
+  }
+
+  body#kianos-workspace.uiEnglish .surface-cloze .clozeQuestions {
+    overflow: visible;
+  }
+}
+
+@media (max-width: 760px) {
+  body#kianos-workspace.uiEnglish .surface-cloze {
+    width: calc(100% - 16px);
+  }
+
+  body#kianos-workspace.uiEnglish .surface-cloze .clozeRuntimeHeader {
+    display: grid;
+    gap: 5px;
+  }
+
+  body#kianos-workspace.uiEnglish .surface-cloze .clozeProgress {
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  body#kianos-workspace.uiEnglish .surface-cloze .clozePassage {
+    padding: 22px 18px 38px !important;
+  }
+
+  body#kianos-workspace.uiEnglish .surface-cloze .clozeQuestion {
+    grid-template-columns: 1fr;
+    padding: 11px 12px !important;
+  }
+
+  body#kianos-workspace.uiEnglish .surface-cloze .clozeOptions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body#kianos-workspace.uiEnglish .surface-cloze .clozeOptions button {
+    border-left: 0;
+    border-top: 1px solid #eef1f3;
+  }
+
+  body#kianos-workspace.uiEnglish .surface-cloze .clozeFormal {
+    grid-column: 1;
+  }
+}
