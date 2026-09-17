@@ -1,0 +1,72 @@
+name: External Reading Runtime
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/english/external/**'
+      - 'static-web/src/lib/englishExternalReading.mjs'
+      - 'static-web/src/components/SharedReadingWorkspace.astro'
+      - 'static-web/src/components/ReadingWorkspace.astro'
+      - 'static-web/src/components/ReadingAnswerGate.astro'
+      - 'static-web/src/pages/english/external/**'
+      - 'static-web/src/pages/reading-answer/**'
+      - 'static-web/src/lib/sharedNavigation.mjs'
+      - 'static-web/scripts/test-external-reading-runtime.mjs'
+      - 'static-web/scripts/fixtures/external-reading-synthetic.json'
+      - '.github/workflows/static-web-external-reading-runtime.yml'
+  pull_request:
+    paths:
+      - 'content/english/external/**'
+      - 'static-web/src/lib/englishExternalReading.mjs'
+      - 'static-web/src/components/SharedReadingWorkspace.astro'
+      - 'static-web/src/components/ReadingWorkspace.astro'
+      - 'static-web/src/components/ReadingAnswerGate.astro'
+      - 'static-web/src/pages/english/external/**'
+      - 'static-web/src/pages/reading-answer/**'
+      - 'static-web/src/lib/sharedNavigation.mjs'
+      - 'static-web/scripts/test-external-reading-runtime.mjs'
+      - 'static-web/scripts/fixtures/external-reading-synthetic.json'
+      - '.github/workflows/static-web-external-reading-runtime.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: external-reading-runtime-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  browser-acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Materialize synthetic External fixture in CI workspace only
+        run: |
+          cp static-web/scripts/fixtures/external-reading-synthetic.json content/english/external/objects/synthetic-external-runtime.json
+      - name: Install runtime
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+      - name: Build Current site with auto-discovered External object
+        working-directory: static-web
+        run: npm run build
+      - name: Install isolated browser acceptance tool
+        working-directory: static-web
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Execute External Reading shared-runtime journey
+        working-directory: static-web
+        run: node scripts/test-external-reading-runtime.mjs
+      - name: Preserve runtime evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: external-reading-runtime-${{ github.sha }}
+          path: static-web/audit/external-reading-runtime/
+          retention-days: 14
