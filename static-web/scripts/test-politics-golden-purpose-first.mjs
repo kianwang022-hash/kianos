@@ -61,7 +61,11 @@ try {
   const hiddenGraphs = await s02.locator('.goldenGraph').evaluateAll((nodes) => nodes.every((node) => getComputedStyle(node).display === 'none' || node.getClientRects().length === 0));
   check(hiddenGraphs, 's02_generated_graphs_do_not_own_first_view');
 
-  const valueLabels = await s02.locator('.valueRow > b').allTextContents();
+  // Scope to the purpose-first value block. Generic runtime also owns unrelated
+  // `.valueRow` classes, so a broad selector can accidentally assert on old DOM.
+  const valueBlock = s02.locator('.purposeTextMap .valueRows').last();
+  await valueBlock.waitFor({ state: 'visible' });
+  const valueLabels = await valueBlock.locator(':scope > .valueRow > b').allTextContents();
   check(JSON.stringify(valueLabels) === JSON.stringify(['认识工具', '行动指南', '科学真理']), 's02_contemporary_value_is_readable_text', JSON.stringify(valueLabels));
 
   const exactText = (await s02.locator('.firstRoundExact').innerText()).replace(/\s+/g, ' ');
