@@ -21,6 +21,7 @@ on:
       - 'static-web/scripts/test-exam-study-time.mjs'
       - 'static-web/scripts/test-exam-phase-floors.mjs'
       - 'static-web/scripts/test-study-timer-dock.mjs'
+      - 'static-web/scripts/test-study-timer-dock-browser.mjs'
       - 'static-web/scripts/test-exam-plan-read-model.mjs'
       - 'static-web/scripts/test-exam-plan-publish.mjs'
       - 'static-web/scripts/test-daily-learning-packet.mjs'
@@ -45,6 +46,7 @@ on:
       - 'static-web/scripts/test-exam-study-time.mjs'
       - 'static-web/scripts/test-exam-phase-floors.mjs'
       - 'static-web/scripts/test-study-timer-dock.mjs'
+      - 'static-web/scripts/test-study-timer-dock-browser.mjs'
       - 'static-web/scripts/test-exam-plan-read-model.mjs'
       - 'static-web/scripts/test-exam-plan-publish.mjs'
       - 'static-web/scripts/test-daily-learning-packet.mjs'
@@ -60,7 +62,7 @@ concurrency:
 jobs:
   timer-logic-and-build:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -75,3 +77,18 @@ jobs:
       - name: Build learner site
         working-directory: static-web
         run: npm run build
+      - name: Install isolated browser acceptance tool
+        working-directory: static-web
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Verify nonblocking timer dock in browser
+        working-directory: static-web
+        run: node scripts/test-study-timer-dock-browser.mjs
+      - name: Save timer UI evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: study-timer-ui-${{ github.sha }}
+          path: study-timer-ui-audit/
+          retention-days: 7
