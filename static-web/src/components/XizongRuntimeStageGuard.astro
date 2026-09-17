@@ -112,6 +112,13 @@ const blockIds = (system?.blocks || []).map((row) => row.blockId).filter(Boolean
     }, true);
   } else if (blockIds.length) {
     const root = document.querySelector('[data-xizong-system-exit]');
+    const laterStage = document.querySelector('[data-xizong-later-stage="system-exit"]');
+    const completedBlocks = () => blockIds.filter((id) => Boolean(readBlockState(id)?.completed));
+
+    if (laterStage instanceof HTMLElement) {
+      laterStage.hidden = completedBlocks().length < blockIds.length;
+    }
+
     root?.addEventListener('click', (event) => {
       const target = event.target instanceof Element ? event.target : null;
       if (!target) return;
@@ -122,7 +129,7 @@ const blockIds = (system?.blocks || []).map((row) => row.blockId).filter(Boolean
       const startingSweep = Boolean(target.closest('[data-start-sweep]'));
       if (!startingRecall && !revealingRecall && !completingRecall && !startingSweep) return;
 
-      const completed = blockIds.filter((id) => Boolean(readBlockState(id)?.completed));
+      const completed = completedBlocks();
       if (completed.length < blockIds.length) {
         stop(event);
         const status = root.querySelector('[data-recall-status]');

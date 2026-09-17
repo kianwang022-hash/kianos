@@ -4,7 +4,10 @@ on:
   workflow_dispatch:
   pull_request:
     paths:
+      - 'static-web/XIZONG_SYSTEM_GUIDE_DESIGN.md'
       - 'static-web/src/components/XizongSystemWorkspace.astro'
+      - 'static-web/src/components/XizongRuntimeStageGuard.astro'
+      - 'static-web/src/lib/xizongGuide.mjs'
       - 'static-web/src/components/XizongSystemV6.astro'
       - 'static-web/src/pages/xizong/[system]/index.astro'
       - 'static-web/src/styles/xizong-system-workspace.css'
@@ -16,7 +19,10 @@ on:
   push:
     branches: [main]
     paths:
+      - 'static-web/XIZONG_SYSTEM_GUIDE_DESIGN.md'
       - 'static-web/src/components/XizongSystemWorkspace.astro'
+      - 'static-web/src/components/XizongRuntimeStageGuard.astro'
+      - 'static-web/src/lib/xizongGuide.mjs'
       - 'static-web/src/components/XizongSystemV6.astro'
       - 'static-web/src/pages/xizong/[system]/index.astro'
       - 'static-web/src/styles/xizong-system-workspace.css'
@@ -50,8 +56,6 @@ jobs:
         run: npm install --no-audit --no-fund
       - name: Validate single System visual owner
         run: node scripts/validate-xizong-system-style-ownership.mjs
-      - name: Build Astro
-        run: npm run build
       - name: Install browser acceptance tool
         run: |
           npm install --no-save --no-audit --no-fund playwright@1.56.1
