@@ -1,0 +1,43 @@
+<aside class="studyTimerDock" data-study-timer-dock data-expanded="false" hidden aria-label="全局学习计时器">
+  <div class="studyTimerCompact">
+    <div class="studyTimerDragArea" data-study-timer-drag-handle title="拖动计时器">
+      <span class="studyTimerDot" data-study-timer-dot aria-hidden="true"></span>
+      <strong data-study-timer-subject>未开始</strong>
+      <span class="studyTimerElapsed" data-study-timer-elapsed>00:00:00</span>
+    </div>
+    <button type="button" class="studyTimerPauseButton" data-study-timer-pause>暂停</button>
+    <button type="button" class="studyTimerExpandButton" data-study-timer-expand aria-expanded="false" aria-label="展开今日计时">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+    </button>
+  </div>
+
+  <div class="studyTimerExpanded" data-study-timer-expanded hidden>
+    <div class="studyTimerExpandedHead">
+      <div>
+        <span>Today</span>
+        <strong data-study-timer-day>今日学习</strong>
+      </div>
+      <b data-study-timer-total>0m</b>
+    </div>
+
+    <div class="studyTimerTodayRows" aria-label="今日分科计时">
+      <div class="studyTimerTodayRow"><span>西综</span><strong data-study-timer-total-xizong>0m</strong></div>
+      <div class="studyTimerTodayRow"><span>政治</span><strong data-study-timer-total-politics>0m</strong></div>
+      <div class="studyTimerTodayRow"><span>English</span><strong data-study-timer-total-english>0m</strong></div>
+    </div>
+
+    <div class="studyTimerPending" data-study-timer-pending hidden>
+      <span class="studyTimerPendingMark" aria-hidden="true"></span>
+      <div><strong data-study-timer-pending-title>有学习时间待确认</strong><span>暂不计入 Home 今日安排</span></div>
+    </div>
+
+    <div class="studyTimerActions">
+      <div class="studyTimerSubjectSwitch" aria-label="切换计时科目">
+        <button type="button" data-study-timer-switch="xizong">西综</button>
+        <button type="button" data-study-timer-switch="politics">政治</button>
+        <button type="button" data-study-timer-switch="english">English</button>
+      </div>
+      <button type="button" class="studyTimerResetButton" data-study-timer-reset-position>重置位置</button>
+    </div>
+  </div>
+</aside>
