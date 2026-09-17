@@ -1,0 +1,72 @@
+name: Xizong System Exit Workspace
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'static-web/src/components/XizongSystemExitRuntime.astro'
+      - 'static-web/src/components/XizongQuestionCrosswalkConsumer.astro'
+      - 'static-web/src/components/XizongSystemRepairReturn.astro'
+      - 'static-web/src/pages/xizong/[system]/index.astro'
+      - 'static-web/src/styles/xizong-system-exit-workspace.css'
+      - 'static-web/scripts/validate-xizong-system-exit-style-ownership.mjs'
+      - 'static-web/scripts/test-xizong-system-exit-workspace.mjs'
+      - '.github/workflows/xizong-system-exit-workspace.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'static-web/src/components/XizongSystemExitRuntime.astro'
+      - 'static-web/src/components/XizongQuestionCrosswalkConsumer.astro'
+      - 'static-web/src/components/XizongSystemRepairReturn.astro'
+      - 'static-web/src/pages/xizong/[system]/index.astro'
+      - 'static-web/src/styles/xizong-system-exit-workspace.css'
+      - 'static-web/scripts/validate-xizong-system-exit-style-ownership.mjs'
+      - 'static-web/scripts/test-xizong-system-exit-workspace.mjs'
+      - '.github/workflows/xizong-system-exit-workspace.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: xizong-system-exit-workspace-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  system-exit-workspace:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: static-web
+    steps:
+      - name: Checkout Current candidate
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Validate System Exit single visual owner
+        run: node scripts/validate-xizong-system-exit-style-ownership.mjs
+      - name: Validate Question attempt semantics
+        run: node scripts/validate-xizong-question-attempts.mjs
+      - name: Validate reviewed Question Crosswalk contract
+        run: node scripts/validate-xizong-question-crosswalk.mjs
+      - name: Build Astro
+        run: npm run build
+      - name: Install browser acceptance tool
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Execute System Exit browser acceptance
+        run: node scripts/test-xizong-system-exit-workspace.mjs
+      - name: Upload System Exit browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xizong-system-exit-workspace
+          path: |
+            static-web/.qa/xizong-system-exit-workspace.json
+            static-web/.qa/xizong-system-exit-question.png
+            static-web/.qa/xizong-system-exit-recall.png
+          if-no-files-found: warn
