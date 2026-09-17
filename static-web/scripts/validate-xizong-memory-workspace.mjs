@@ -65,14 +65,12 @@ assert(summary.core === 2 && summary.precision === 1, 'release-card-count');
 assert(summary.today === 0, 'release-must-not-create-today-debt');
 assert(todayMemoryQueue(state).length === 0, 'today-empty-after-release');
 
-// Idempotent second release must not duplicate cards or evidence.
 state = releaseBlockMemory(state, release, '2026-09-17T09:00:00Z');
 summary = memorySummary(state);
 assert(Object.keys(state.cards).length === 3, 'idempotent-card-identity');
 assert(state.evidence.length === 0, 'idempotent-no-evidence');
 assert(summary.today === 0, 'idempotent-no-debt');
 
-// Private Prompt must override learner-facing front without touching canonical Prompt.
 state = setPersonalPrompt(state, 'respiratory-r01-kp01', '我自己的提示');
 const core = state.cards['core:respiratory-r01-kp01'];
 assert(core.promptCanonical === '容积 / 容量 → 组合关系', 'canonical-prompt-mutated');
@@ -80,7 +78,6 @@ assert(resolvedCorePrompt(state, core) === '我自己的提示', 'prompt-overrid
 state = setPersonalPrompt(state, 'respiratory-r01-kp01', '');
 assert(resolvedCorePrompt(state, core) === core.promptCanonical, 'prompt-reset-failed');
 
-// Marked is an anchored fragment, not another Core card and not auto-weak.
 state = addMarkedFragment(state, {
   id: 'mark:test',
   cardId: core.id,
@@ -94,8 +91,6 @@ assert(!isWeakMemoryCard(state, core.id), 'mark-must-not-imply-weak');
 state = removeMarkedFragment(state, 'mark:test');
 assert(memorySummary(state).marked === 0, 'mark-remove');
 
-// Weak evidence raises Today priority; later stable evidence can remove the rolling signal
-// without deleting the permanent card or overwriting the first observation.
 state = appendMemoryEvidence(state, { cardId: core.id, rating: 'unknown', origin: 'CORE_MEMORY_RECALL' }, '2026-09-17T11:00:00Z');
 assert(isWeakMemoryCard(state, core.id), 'unknown-not-weak');
 assert(todayMemoryQueue(state).some((row) => row.id === core.id), 'unknown-not-in-today');
@@ -107,20 +102,16 @@ assert(state.evidence[0].rating === 'unknown', 'original-observation-lost');
 assert(!todayMemoryQueue(state).some((row) => row.id === core.id), 'stable-evidence-did-not-clear-today-priority');
 assert(state.cards[core.id], 'stable-evidence-deleted-card');
 
-// Precision card can exist honestly with owner context only; isolated exact answer must not be fabricated.
 const precision = state.cards['precision:a2-r01-kp01-precision'];
 assert(precision.answerResolution === 'OWNER_CONTEXT_ONLY', 'precision-resolution');
 assert(!precision.answerHtml && precision.ownerContextHtml.includes('owner context'), 'precision-fallback-context');
 
-// Repair is a separate bounded task queue and must reuse card identity when linked.
 state = setRepairTasks(state, [{
   id: 'repair:test', cardId: core.id, title: '只修一个机制断点', reason: 'Chat discriminating check', action: '重新运行局部链条', priority: 'high'
 }]);
 assert(selectMemoryView(state, 'REPAIR').items.length === 1, 'repair-queue');
 assert(Object.keys(state.cards).length === 3, 'repair-created-duplicate-card');
 
-// Cross-lane contract: final Memory release consumes the already-resolved learner object.
-// It must not become a second cue/Projection resolver.
 const learnerObjectFixture = {
   schema: 'kianos.xizong.learner_object.v1',
   objectType: 'BLOCK',
@@ -214,17 +205,24 @@ try {
 } catch { invalidLearnerFailed = true; }
 assert(invalidLearnerFailed, 'learner-release-invalid-schema-must-fail');
 
-// Surface contract: one independent route, exactly five named top-level views.
 const componentPath = path.resolve(process.cwd(), 'src/components/XizongMemoryWorkspace.astro');
 const pagePath = path.resolve(process.cwd(), 'src/pages/xizong/memory/index.astro');
+const stylePath = path.resolve(process.cwd(), 'src/styles/xizong-memory-workspace.css');
 const component = fs.readFileSync(componentPath, 'utf8');
 const page = fs.readFileSync(pagePath, 'utf8');
+const style = fs.readFileSync(stylePath, 'utf8');
 for (const view of ['TODAY', 'CORE', 'PRECISION', 'MARKED', 'REPAIR']) {
-  assert(component.includes(`data-memory-view="${view}"`), `view-missing:${view}`);
+  assert(component.includes(`data-memory-view=\"${view}\"`), `view-missing:${view}`);
 }
-assert(component.includes('data-precision-mode="BROWSE"') && component.includes('data-precision-mode="RECALL"'), 'precision-modes');
+assert(component.includes('data-precision-mode=\"BROWSE\"') && component.includes('data-precision-mode=\"RECALL\"'), 'precision-modes');
 assert(component.includes('data-memory-prompt-edit') && component.includes('data-memory-mark-selection'), 'personal-annotation-controls');
 assert(page.includes('XizongMemoryWorkspace'), 'memory-route');
+assert(page.includes("../../../styles/xizong-memory-workspace.css"), 'memory-style-owner-not-imported');
+assert(!component.includes('<style'), 'memory-component-regained-visual-owner');
+assert(!component.includes('style='), 'memory-component-inline-style-regression');
+assert(!page.includes('<style'), 'memory-route-regained-visual-owner');
+assert(!style.includes('!important'), 'memory-style-cascade-recovery-forbidden');
+assert(style.includes('.xzMemory') && style.includes('.xzMemoryLayout') && style.includes('.xzMemoryStage'), 'memory-style-owner-incomplete');
 assert(!component.includes('data-xizong-v6-block'), 'memory-must-not-own-block-runtime');
 
 console.log(JSON.stringify({
@@ -239,5 +237,7 @@ console.log(JSON.stringify({
     attention_signals: learnerDescriptor.attentionSignals.length
   },
   top_views: ['Today', 'Core', 'Precision', 'Marked', 'Repair'],
-  block_complete_bridge: 'NOT_IN_PHASE_1'
+  presentation_owner: 'src/styles/xizong-memory-workspace.css',
+  runtime_owner: 'src/components/XizongMemoryWorkspace.astro',
+  block_complete_bridge: 'UNCHANGED'
 }, null, 2));
