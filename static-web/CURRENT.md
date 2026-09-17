@@ -103,6 +103,52 @@ Exact cleanup inventory should be created **when this lane activates**, from the
 
 ---
 
+## Queued platform lane
+
+### Learner Data / Chat Handoff Closure — **QUEUED**
+
+Existing pieces already exist: Shared Study Timer, Daily Learning Packet composition, subject Return/Handoff packets, and GitHub→Mac Current sync. The missing work is integration, not a new packet ecosystem.
+
+Activation:
+
+```text
+subject learner surfaces stable enough for final handoff controls
+→ inventory existing packet producers / importers
+→ unify one cross-subject Chat export entry
+→ close typed Return/import paths
+→ add private local durable checkpoints
+→ recovery / migration proof
+```
+
+Target flow:
+
+```text
+browser-local evidence
+→ subject-owned packet
+→ kianos.daily-learning-packet.v1
+→ Chat
+→ typed Return Packet(s)
+→ validated subject import
+→ private learner state
+→ exact Resume / Return
+```
+
+Required closure:
+
+1. one shared **Daily Learning Packet** composition path; no second universal packet format;
+2. each subject exports only evidence it owns;
+3. Chat escalation stays optional / evidence-driven, not a daily ritual;
+4. typed Return packets are validated before mutating learner state;
+5. local durable recovery writes only compact useful checkpoints, not every UI event;
+6. persistent learner files live outside the disposable Git Current mirror;
+7. real learner data never enters the public `kianos` repo;
+8. browser reset / Current sync / Astro restart cannot erase the durable checkpoint layer;
+9. a manual export remains possible so learner data is never trapped in one runtime.
+
+This lane may proceed in parallel with CSS Closure where write sets are independent. Do not block current subject UI Human Gates on it unless a handoff control itself is part of the surface being accepted.
+
+---
+
 ## Website boundary
 
 ```text
