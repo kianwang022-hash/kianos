@@ -28,6 +28,7 @@ pass((origins?.transitions || []).length === 0, 'marx_s01_origins_have_no_invent
 pass(development?.primitive === 'DIRECTED_SEQUENCE', 'marx_s01_development_is_directed');
 pass(development?.items?.map((item) => item.id).join('|') === 'creation|theory_system|development', 'marx_s01_development_members_exact');
 pass(development?.transitions?.length === 2, 'marx_s01_development_transitions_exact', String(development?.transitions?.length || 0));
+pass(development?.transitions?.every((item) => item.relation_mode === 'LABELED_RELATION'), 'marx_s01_development_transitions_labeled');
 pass(
   development?.transitions?.map((item) => item.relation).join('|') === '形成相互联系的理论体系|理论体系不是封闭终点',
   'marx_s01_development_relation_text_exact'
@@ -59,6 +60,7 @@ const marxC01World = group(marxC01S02, 'ORIENT', 'marx-c01-s02-world-chain');
 pass(marxC01World?.primitive === 'DIRECTED_SEQUENCE', 'marx_c01_s02_world_model_is_directed');
 pass(marxC01World?.items?.length === 9, 'marx_c01_s02_world_model_keeps_nine_beats', String(marxC01World?.items?.length || 0));
 pass(marxC01World?.transitions?.length === 8, 'marx_c01_s02_world_model_transition_count_exact', String(marxC01World?.transitions?.length || 0));
+pass(marxC01World?.transitions?.every((item) => item.relation_mode === 'ORDER_ONLY' && item.relation == null), 'marx_c01_s02_transitions_are_order_only');
 pass(marxC01World?.items?.every((item) => item.label && item.problem && item.relation), 'marx_c01_s02_problem_and_relation_text_owned');
 
 const history = chapter('history', 'ch01');
@@ -66,6 +68,8 @@ const historyS01 = unit(history, 'POL27-CF-HISTORY-C01-S01');
 const historyTurn = group(historyS01, 'ORIENT', 'h-c01-s01-cause-to-turn');
 pass(historyTurn?.primitive === 'DIRECTED_SEQUENCE', 'history_c01_s01_cause_to_turn_is_directed');
 pass(historyTurn?.items?.map((item) => item.id).join('|') === 'cause|turning_point', 'history_c01_s01_members_exact');
+pass(historyTurn?.transitions?.length === 1, 'history_c01_s01_transition_count_exact');
+pass(historyTurn?.transitions?.[0]?.relation_mode === 'ORDER_ONLY' && historyTurn?.transitions?.[0]?.relation == null, 'history_c01_s01_transition_is_order_only');
 const historyS04 = unit(history, 'POL27-CF-HISTORY-C01-S04');
 const causeHierarchy = group(historyS04, 'ORIENT', 'h-c01-s04-causes');
 pass(causeHierarchy?.primitive === 'HIERARCHY', 'history_c01_s04_cause_layers_are_hierarchy');
