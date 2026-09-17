@@ -62,6 +62,9 @@ jobs:
       - name: Verify Politics Home meaningful attention
         working-directory: static-web
         run: node scripts/test-politics-home-attention.mjs
+      - name: Verify Natural Unit visual convergence
+        working-directory: static-web
+        run: node scripts/test-politics-natural-unit-visual-convergence.mjs
       - name: Execute Politics Functional First journeys
         working-directory: static-web
         run: node scripts/test-politics-functional-journey.mjs
@@ -74,9 +77,6 @@ jobs:
       - name: Verify five-subject explicit surface matrix
         working-directory: static-web
         run: node scripts/test-politics-purpose-first-batch-matrix.mjs
-      - name: Verify Natural Unit visual convergence
-        working-directory: static-web
-        run: node scripts/test-politics-natural-unit-visual-convergence.mjs
       - name: Verify explicit content-to-surface mapping in browser
         working-directory: static-web
         run: node scripts/test-politics-explicit-surface-browser.mjs
