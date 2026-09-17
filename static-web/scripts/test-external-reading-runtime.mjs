@@ -34,6 +34,11 @@ async function stopServer(server) {
   }
 }
 
+const adapterSource = fs.readFileSync(path.resolve('src/components/SharedReadingWorkspace.astro'), 'utf8');
+check(!adapterSource.includes('kianos-reading-continuous-session-v1'), 'adapter_has_no_reading_a_private_continuous_key');
+check(!adapterSource.includes('localStorage'), 'adapter_has_no_foreign_runtime_storage_patch');
+check(!adapterSource.includes('querySelector'), 'adapter_has_no_post_render_dom_patch');
+
 const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4321'], {
   cwd: process.cwd(),
   stdio: ['ignore', 'pipe', 'pipe'],
@@ -59,7 +64,9 @@ try {
     const root = page.locator('[data-local-port="reading"]');
     check(await root.count() === 1, 'uses_shared_reading_workspace');
     check(await root.getAttribute('data-reading-object') === RUNTIME_ID, 'external_runtime_id_isolated');
+    check(await root.getAttribute('data-reading-continuous-enabled') === 'false', 'owner_disables_continuous_session_for_external');
     check((await page.locator('.portedReadingHeaderCenter > span').textContent()) === 'External Reading', 'external_runtime_label');
+    check((await page.locator('.portedReadingSessionHeader > a').textContent()) === '‹ External Reading', 'external_back_label_owned_by_workspace_parameters');
     check(await page.locator('[data-reading-passage] p').count() === 2, 'passage_paragraphs_render');
     check(await page.locator('[data-question]').count() === 2, 'full_question_set_renders');
     check(await page.locator('[data-reading-continuous]').isHidden(), 'exam_continuous_session_not_reused');
