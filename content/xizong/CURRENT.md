@@ -177,5 +177,4 @@ Xizong CURRENT
 → exact Current owner(s)
 → work
 ```
-
 Multiple System Chats may proceed concurrently when write sets and dependencies are independent. Do not read retired snapshots, unrelated Systems, migration history, legacy repositories, or prior Chats by default.
