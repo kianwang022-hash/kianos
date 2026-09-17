@@ -1,42 +1,36 @@
 ---
-const { chapter, base = '/' } = Astro.props;
+import PoliticsExplicitSurfacePlan from './PoliticsExplicitSurfacePlan.astro';
+import Value from './PoliticsProjectionValue.astro';
 
-function asList(value) {
-  return Array.isArray(value) ? value : (value == null ? [] : [value]);
+const { chapter, base = '/', compiled = null, chapterContext = null } = Astro.props;
+
+const units = (chapter.units || [])
+  .map((unit) => {
+    const projection = compiled instanceof Map ? compiled.get(unit.unitId) : null;
+    if (!projection) return null;
+    const states = projection.surfacePlan?.states || {};
+    return {
+      unit,
+      projection,
+      orientMain: (states.ORIENT || []).filter((group) => ['PRIMARY', 'SUPPORT'].includes(group.zone)),
+      orientCompanion: (states.ORIENT || []).filter((group) => group.zone === 'COMPANION'),
+      external: states.EXTERNAL_LEARN || [],
+      close: states.CLOSE || []
+    };
+  })
+  .filter(Boolean);
+
+if (!units.length) {
+  throw new Error(`POLITICS_MAPPED_WORKSPACE_EMPTY:${chapter.subject}:${chapter.chapter || chapter.code || ''}`);
 }
-
-function uniqueNodes(nodes = []) {
-  const seen = new Set();
-  return nodes.filter((node) => {
-    const key = String(node?.id || node?.title || '').trim();
-    if (!key || seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
-}
-
-function mapsFor(semantics = {}) {
-  if (Array.isArray(semantics?.framework_maps)) return semantics.framework_maps;
-  return semantics?.framework_map ? [semantics.framework_map] : [];
-}
-
-const units = (chapter.units || []).map((unit) => ({
-  ...unit,
-  sourceNodes: uniqueNodes(unit.sourceNodes),
-  semantics: unit?.raw?.learning_semantics || null
-}));
-const o = chapter.orientation || {};
-const c = chapter.compression || {};
-const rawCompression = chapter.raw?.chapter_compression || {};
-const compressionSummary = String(rawCompression.stage_shift || rawCompression.double_judgment || '');
 ---
 
 <section
-  class="politicsCognitiveWorkspace"
+  class="politicsCognitiveWorkspace directReasoningWorkspace explicitSurfaceWorkspace"
   data-politics-runtime
   data-politics-cognitive-workspace
   data-subject={chapter.subject}
-  data-chapter={chapter.chapter || ''}
+  data-chapter={chapter.chapter || chapter.code || ''}
   data-title={chapter.title}
 >
   <header class="workspaceBar">
@@ -48,10 +42,10 @@ const compressionSummary = String(rawCompression.stage_shift || rawCompression.d
       <b>{chapter.title}</b>
     </div>
     <nav class="workspaceUnitTabs" aria-label="Natural Unit">
-      {units.map((unit, index) => (
+      {units.map((row, index) => (
         <button type="button" class={index === 0 ? 'active' : ''} data-workspace-unit-tab={index}>
           <span>{String(index + 1).padStart(2, '0')}</span>
-          <b>{unit.title}</b>
+          <b>{row.unit.title}</b>
         </button>
       ))}
     </nav>
@@ -61,32 +55,22 @@ const compressionSummary = String(rawCompression.stage_shift || rawCompression.d
     </div>
   </header>
 
-  <section class="chapterContext">
-    <div>
-      <span>导论定位</span>
-      <strong>{o.question || chapter.title}</strong>
-    </div>
-    {o.chain?.length > 0 && (
-      <div class="chapterContextChain">
-        {o.chain.map((item) => <span>{item}</span>)}
+  {chapterContext && (
+    <section class="chapterContext" data-projection-chapter-context>
+      <div>
+        <span>章节定位</span>
+        <strong>{chapterContext.currentProblem || chapterContext.location || chapter.title}</strong>
       </div>
-    )}
-  </section>
+      {chapterContext.stageContext?.length > 0 && (
+        <div class="chapterContextChain">
+          {chapterContext.stageContext.map((row) => <Value value={row.value} />)}
+        </div>
+      )}
+    </section>
+  )}
 
-  {units.map((unit, unitIndex) => {
-    const t = unit.teaching || {};
-    const semantics = unit.semantics || {};
-    const maps = mapsFor(semantics);
-    const chains = asList(semantics?.relation_chains);
-    const boundaries = asList(semantics?.boundaries);
-    const anchors = asList(semantics?.anchors);
-    const precision = asList(semantics?.precision_objects);
-    const handoff = semantics?.source_handoff || {};
-    const recall = semantics?.recall_seed || null;
-    const locatorCount = unit.sourceNodes.length || unit.sourceRefCount || 0;
-    const suyiRows = asList(semantics?.suyi_dispositions);
-    const absorbedSuyi = suyiRows.filter((row) => row?.disposition === 'ABSORBED').length;
-
+  {units.map((row, unitIndex) => {
+    const { unit, projection } = row;
     return (
       <article
         class={`workspaceUnit ${unitIndex === 0 ? 'active' : ''}`}
@@ -95,136 +79,44 @@ const compressionSummary = String(rawCompression.stage_shift || rawCompression.d
         data-unit-index={unitIndex}
         data-unit-id={unit.unitId}
         data-state="ORIENT"
+        data-explicit-surface-mapping="v1"
         hidden={unitIndex !== 0}
       >
         <main class="cognitiveStage" data-cognitive-stage>
           <section class="stageScene" data-stage="ORIENT">
             <p class="stageEyebrow">先定位 · 不背</p>
-            {t.bridge && <p class="stageBridge">{t.bridge}</p>}
-            <h2>{semantics?.problem?.text || t.question || unit.title}</h2>
-
-            {maps.length > 0 ? (
-              <div class="mapDeck" data-map-deck>
-                {maps.length > 1 && (
-                  <div class="mapTabs" role="tablist" aria-label="认知地图">
-                    {maps.map((map, mapIndex) => (
-                      <button type="button" class={mapIndex === 0 ? 'active' : ''} data-map-tab={mapIndex}>{map.title}</button>
-                    ))}
-                  </div>
-                )}
-                {maps.map((map, mapIndex) => (
-                  <section class={`semanticMap ${mapIndex === 0 ? 'active' : ''}`} data-map-panel={mapIndex} hidden={mapIndex !== 0}>
-                    <header><span>MAP {String(mapIndex + 1).padStart(2, '0')}</span><strong>{map.title}</strong></header>
-                    <div class="semanticMapNodes">
-                      {asList(map.nodes).map((node) => (
-                        <article>
-                          <b>{node.label}</b>
-                          <p>{node.meaning}</p>
-                        </article>
-                      ))}
-                    </div>
-                    {asList(map.edges).length > 0 && (
-                      <div class="semanticEdges">
-                        {asList(map.edges).map((edge) => (
-                          <div>
-                            <span>{asList(map.nodes).find((node) => node.id === edge.from)?.label || edge.from}</span>
-                            <i>→</i>
-                            <small>{edge.relation}</small>
-                            <i>→</i>
-                            <span>{asList(map.nodes).find((node) => node.id === edge.to)?.label || edge.to}</span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </section>
-                ))}
-              </div>
-            ) : (
-              <div class="fallbackOrientation">
-                {t.answer && <p>{t.answer}</p>}
-                {t.beats?.length > 0 && <div>{t.beats.map((beat) => <span>{beat.label || beat.title}</span>)}</div>}
-              </div>
-            )}
-
-            {chains.length > 0 && (
-              <div class="relationStrip">
-                {chains.slice(0, 1).map((chain) => (
-                  <section>
-                    <span>{chain.title}</span>
-                    <div>{asList(chain.steps).map((step, index) => <><b>{step.text}</b>{index < chain.steps.length - 1 && <i>→</i>}</>)}</div>
-                  </section>
-                ))}
-              </div>
-            )}
-
-            {anchors.length > 0 && <p class="stageAnchor">{anchors[0].text}</p>}
-
+            {projection.problem && <h2>{projection.problem}</h2>}
+            <PoliticsExplicitSurfacePlan groups={row.orientMain} />
             <div class="stageActions">
               <button type="button" class="primaryAction" data-workspace-action="start-learn">去 iPad / MarginNote 学乘风 →</button>
-              {maps.length > 0 && <span>先带着结构进入原讲义，不在 Astro 重读第二遍教材。</span>}
+              <span>当前结构来自已解析 Surface Mapping；网页不重组政治语义。</span>
             </div>
           </section>
 
-          <section class="stageScene" data-stage="EXTERNAL_LEARN" hidden>
+          <section class="stageScene" data-stage="EXTERNAL_LEARN" id={`source-${unit.unitId}`} hidden>
             <p class="stageEyebrow">乘风 · 主学习面在 iPad</p>
             <h2>{unit.title}</h2>
-            <p class="externalLead">Astro 此时只做认知伴随：保留位置、结构和要找的关系，不复制乘风连续正文。</p>
-
-            <div class="externalFocus">
-              <div>
-                <span>原讲义定位</span>
-                <strong>{handoff.locator || `乘风 · ${unit.title}`}</strong>
-              </div>
-              <div>
-                <span>这次进去找什么</span>
-                <ul>{asList(handoff.look_for).slice(0, 4).map((item) => <li>{item}</li>)}</ul>
-              </div>
-            </div>
-
-            {maps.length > 0 && (
-              <div class="compactMap">
-                <span>桌边地图</span>
-                <div>{asList(maps[0]?.nodes).map((node, index) => <><b>{node.label}</b>{index < maps[0].nodes.length - 1 && <i>·</i>}</>)}</div>
-              </div>
-            )}
-
+            <PoliticsExplicitSurfacePlan groups={row.external} />
             <div class="stageActions splitActions">
               <button type="button" class="secondaryAction" data-workspace-action="back-orient">← 回看定位</button>
-              <button type="button" class="primaryAction" data-workspace-action="learn-done">我学完这一 Unit 了 →</button>
+              <button type="button" class="secondaryAction" data-workspace-action="learn-close">20 秒闭合（可选）</button>
+              <button type="button" class="primaryAction" data-workspace-action="learn-fastpath">直接进入肖1000 →</button>
             </div>
           </section>
 
-          <section class="stageScene recallScene" data-stage="RECALL" hidden>
-            <p class="stageEyebrow">20 秒闭卷收口</p>
-            <h2>{recall?.prompt || t.closure || t.question || '闭卷重建这一段最核心的关系。'}</h2>
-
-            <div class="recallBlank" data-recall-blank>
-              <span>先别看答案</span>
-              <div class="blankNodes">
-                {Array.from({ length: Math.max(3, maps[0]?.nodes?.length || 4) }).map((_, index) => <i>{index + 1}</i>)}
-              </div>
-              <p>在脑中把节点和箭头重新搭起来；卡住再揭示结构，不用追求逐字复述。</p>
-            </div>
-
-            <section class="recallReveal" data-recall-reveal hidden>
-              <span>结构核对</span>
-              {recall?.expected_relations?.length > 0
-                ? <div>{recall.expected_relations.map((item) => <b>{item}</b>)}</div>
-                : maps.length > 0
-                  ? <div>{asList(maps[0]?.edges).map((edge) => <b>{edge.from} → {edge.to}</b>)}</div>
-                  : <p>{t.answer}</p>}
-            </section>
-
-            <div class="stageActions recallActions">
-              <button type="button" class="secondaryAction" data-workspace-action="recall-source">我断了，回乘风</button>
-              <button type="button" class="secondaryAction" data-workspace-action="recall-reveal">显示结构核对</button>
-              <button type="button" class="primaryAction" data-workspace-action="recall-pass">能重建，进入肖1000 →</button>
+          <section class="stageScene closeScene" data-stage="CLOSE" hidden>
+            <p class="stageEyebrow">Unit Close</p>
+            <h2>{unit.title} · 收口</h2>
+            <PoliticsExplicitSurfacePlan groups={row.close} />
+            <div class="stageActions splitActions">
+              <button type="button" class="secondaryAction" data-workspace-action="close-source">← 回乘风</button>
+              <button type="button" class="primaryAction" data-workspace-action="close-verify">进入肖1000 →</button>
             </div>
           </section>
 
           <section class="stageScene verifyScene" data-stage="VERIFY" hidden>
             <header class="verifyHeader">
-              <div><p class="stageEyebrow">肖1000 · 当前 first-ready</p><h2>干净作答，不提前看框架。</h2></div>
+              <div><p class="stageEyebrow">肖1000 · Clean attempt</p><h2>干净作答，不提前看框架。</h2></div>
               <span>{unit.questions.length ? `${unit.questions.length} 题` : unit.questionRefCount ? '题目待解析' : '本段无题'}</span>
             </header>
 
@@ -249,7 +141,6 @@ const compressionSummary = String(rawCompression.stage_shift || rawCompression.d
                       <div class="politicsResult" data-politics-result hidden></div>
                       <div class="politicsRepair" data-politics-repair hidden>
                         <p class="politicsMicro">只修最小缺口</p>
-                        {t.boundaries?.length > 0 ? <ul>{t.boundaries.slice(0, 3).map((item) => <li>{item}</li>)}</ul> : <p>回到刚才这段，重新确认决定性关系。</p>}
                         <a href={`#source-${unit.unitId}`}>回到乘风原讲义定位 ↑</a>
                       </div>
                       {q.explanation && <details class="politicsExplain"><summary>需要时再看解析</summary><p>{q.explanation}</p></details>}
@@ -260,284 +151,249 @@ const compressionSummary = String(rawCompression.stage_shift || rawCompression.d
               ) : unit.questionRefCount > 0 ? (
                 <div class="politicsBlocked"><strong>题目源当前没有可靠解析出来。</strong><p>不猜题干和答案；乘风原讲义学习不受影响。</p></div>
               ) : (
-                <div class="politicsBlocked"><strong>当前 Unit 没有 first-ready 题。</strong><p>直接进入 Unit Close，不制造空验证。</p><button type="button" data-workspace-action="verify-empty-close">进入收口 →</button></div>
+                <div class="politicsBlocked"><strong>当前 Unit 没有 first-ready 题。</strong><p>不制造空验证。</p></div>
               )}
             </section>
-          </section>
-
-          <section class="stageScene closeScene" data-stage="CLOSE" hidden>
-            <p class="stageEyebrow">Unit Close</p>
-            <h2>{unit.title} · 收口</h2>
-            {anchors.length > 0 && <div class="closeAnchors">{anchors.map((anchor) => <strong>{anchor.text}</strong>)}</div>}
-            {t.next && <p class="nextBridge">接下来：{t.next}</p>}
-
-            {unitIndex === units.length - 1 && (
-              <section class="chapterCloseCompact" id="chapter-close">
-                <span>导论压缩</span>
-                {compressionSummary && <p>{compressionSummary}</p>}
-                {c.chain?.length > 0 && <div>{c.chain.map((item, index) => <><b>{item}</b>{index < c.chain.length - 1 && <i>→</i>}</>)}</div>}
-                {c.prompt && <blockquote>{c.prompt}</blockquote>}
-              </section>
-            )}
-
-            <div class="stageActions">
-              {unitIndex < units.length - 1
-                ? <button type="button" class="primaryAction" data-workspace-action="next-unit">进入下一 Unit →</button>
-                : <a class="primaryAction linkAction" href={`${base}politics/marxism/ch01/`}>进入第一章 →</a>}
-            </div>
           </section>
         </main>
 
         <aside class="contextualInspector" data-contextual-inspector>
           <section data-inspector-state="ORIENT">
-            <header><span>INSPECTOR</span><strong>结构提示</strong></header>
-            {boundaries.length > 0 && (
-              <div class="inspectorBlock">
-                <b>先别混</b>
-                {boundaries.slice(0, 3).map((item) => <p><strong>{item.left} ≠ {item.right}</strong><span>{item.distinction}</span></p>)}
-              </div>
-            )}
-            {precision.length > 0 && (
-              <details class="inspectorDetails">
-                <summary>Exact · 后置精确记忆</summary>
-                {precision.map((item) => <p>{item.fact}</p>)}
-              </details>
-            )}
-            {suyiRows.length > 0 && <p class="suyiNote">苏一结构已消费：{absorbedSuyi} 个关系/框架 delta 被吸收；不会另开第二条课程。</p>}
+            {row.orientCompanion.length > 0
+              ? <PoliticsExplicitSurfacePlan groups={row.orientCompanion} />
+              : <p class="explicitQuietCompanion">当前没有需要同时占用注意力的补充。</p>}
           </section>
 
-          <section data-inspector-state="EXTERNAL_LEARN" hidden id={`source-${unit.unitId}`}>
-            <header><span>IPAD HANDOFF</span><strong>乘风定位</strong></header>
-            <p class="locatorText">{handoff.locator || unit.title}</p>
-            {asList(handoff.look_for).length > 0 && <ul>{asList(handoff.look_for).map((item) => <li>{item}</li>)}</ul>}
-            <details class="inspectorDetails sourceOwners">
-              <summary>{locatorCount ? `${locatorCount} 个 source owner` : '定位依据'}</summary>
-              {unit.sourceNodes.length > 0 ? unit.sourceNodes.map((node) => <code>{node.id}</code>) : <p>按当前 Natural Unit 标题回原讲义。</p>}
-            </details>
+          <section data-inspector-state="EXTERNAL_LEARN" hidden>
+            <header><span>IPAD HANDOFF</span><strong>原讲义主学习面</strong></header>
+            <p>连续学习在 iPad / MarginNote；这里仅保留 Surface Mapping 指定的定位与 look-for。</p>
           </section>
 
-          <section data-inspector-state="RECALL" hidden>
-            <header><span>RECALL</span><strong>先输出，再核对</strong></header>
-            <p>这里故意保持安静。先重建关系；只有主动点“显示结构核对”才揭示模型。</p>
-            {anchors.length > 0 && <details class="inspectorDetails"><summary>真的卡住再看 Anchor</summary>{anchors.map((item) => <p>{item.text}</p>)}</details>}
+          <section data-inspector-state="CLOSE" hidden>
+            <header><span>CLOSE</span><strong>短闭合</strong></header>
+            <p>这里只消费当前 CLOSE Surface Mapping，不额外生成总结。</p>
           </section>
 
           <section data-inspector-state="VERIFY" hidden>
             <header><span>VERIFY</span><strong>Clean attempt</strong></header>
-            <p>答题时不展示 Map、Exact 或答案提示。正确就快走；Wrong / Uncertain 才打开 Repair。</p>
+            <p>答题前不展示框架、边界或答案提示。</p>
           </section>
 
           <section data-inspector-state="REPAIR" hidden>
             <header><span>REPAIR</span><strong>只修最小缺口</strong></header>
             <div data-workspace-repair-slot></div>
           </section>
-
-          <section data-inspector-state="CLOSE" hidden>
-            <header><span>CLOSE</span><strong>本 Unit 留下什么</strong></header>
-            {anchors.length > 0 ? anchors.map((item) => <p class="closeInspectorAnchor">{item.text}</p>) : <p>{t.closure || '保留这段最核心的关系。'}</p>}
-          </section>
         </aside>
       </article>
     );
   })}
+
+  <section class="chapterCloseCompact" id="chapter-close">
+    {chapterContext?.chapterGeometries?.map((row) => <Value value={row.value} />)}
+  </section>
 </section>
 
 <script is:inline>
-  const runtime = document.querySelector('[data-politics-cognitive-workspace]');
-  const politicsLastKey = 'kianos-politics-last-location-v1';
-  const politicsEvidenceKey = 'kianos-politics-evidence-v1';
-  const cursorKey = runtime ? `kianos-politics-workspace-v1:${runtime.dataset.subject || ''}:${runtime.dataset.chapter || ''}` : '';
-  const localStudyDay = () => new Date().toLocaleDateString('en-CA');
-  const readJson = (key, fallback) => {
-    try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; } catch { return fallback; }
-  };
-  const saveJson = (key, value) => {
-    try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
-  };
+  (() => {
+    const runtime = document.querySelector('[data-politics-cognitive-workspace]');
+    if (!runtime) return;
 
-  if (runtime) {
-    // Entry/reload must not demote an exact cursor within this chapter.
-    const previousLocation = readJson(politicsLastKey, null);
-    const sameLocation = previousLocation?.subject === runtime.dataset.subject
-      && previousLocation?.chapter === runtime.dataset.chapter;
-    saveJson(politicsLastKey, {
-      ...(sameLocation ? previousLocation : {}),
-      subject: runtime.dataset.subject || '',
-      chapter: runtime.dataset.chapter || '',
-      title: runtime.dataset.title || '',
-      href: sameLocation && previousLocation?.href ? previousLocation.href : window.location.pathname,
-      observed_at: new Date().toISOString()
-    });
-  }
+    const lastKey = 'kianos-politics-last-location-v1';
+    const evidenceKey = 'kianos-politics-evidence-v1';
+    const cursorKey = `kianos-politics-workspace-v1:${runtime.dataset.subject || ''}:${runtime.dataset.chapter || ''}`;
+    const units = [...runtime.querySelectorAll('[data-workspace-unit]')];
+    const tabs = [...runtime.querySelectorAll('[data-workspace-unit-tab]')];
+    const stateLabel = runtime.querySelector('[data-workspace-state-label]');
+    const localStudyDay = () => new Date().toLocaleDateString('en-CA');
 
-  const units = runtime ? [...runtime.querySelectorAll('[data-workspace-unit]')] : [];
-  const tabs = runtime ? [...runtime.querySelectorAll('[data-workspace-unit-tab]')] : [];
-  const stateLabel = runtime?.querySelector('[data-workspace-state-label]');
-  const cursor = cursorKey ? readJson(cursorKey, { activeUnit: 0, states: {} }) : { activeUnit: 0, states: {} };
+    const readJson = (key, fallback) => {
+      try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; } catch { return fallback; }
+    };
+    const saveJson = (key, value) => {
+      try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch { return false; }
+    };
 
-  const persistCursor = () => {
-    if (!cursorKey) return;
-    const activeUnit = Math.max(0, units.findIndex((unit) => !unit.hidden));
-    const states = Object.fromEntries(units.map((unit) => [unit.dataset.unitId || '', unit.dataset.state || 'ORIENT']));
-    saveJson(cursorKey, { activeUnit, states, observed_at: new Date().toISOString() });
-  };
+    const stateToStage = (state) => state === 'REPAIR' ? 'VERIFY' : state;
+    const persistCursor = () => {
+      const activeUnit = Math.max(0, units.findIndex((unit) => !unit.hidden));
+      const states = Object.fromEntries(units.map((unit) => [unit.dataset.unitId || '', unit.dataset.state || 'ORIENT']));
+      saveJson(cursorKey, { activeUnit, states, observed_at: new Date().toISOString() });
+    };
 
-  const stageForState = (state) => state === 'REPAIR' ? 'VERIFY' : state;
-  const syncUnitState = (unit, nextState) => {
-    if (!unit) return;
-    const state = String(nextState || 'ORIENT');
-    unit.dataset.state = state;
-    unit.querySelectorAll('[data-stage]').forEach((scene) => {
-      scene.hidden = scene.getAttribute('data-stage') !== stageForState(state);
-    });
-    unit.querySelectorAll('[data-inspector-state]').forEach((panel) => {
-      panel.hidden = panel.getAttribute('data-inspector-state') !== state;
-    });
-    if (stateLabel && !unit.hidden) stateLabel.textContent = state;
-    persistCursor();
-  };
+    const saveLocation = (unit, state, questionId = '') => {
+      const previous = readJson(lastKey, {});
+      saveJson(lastKey, {
+        ...previous,
+        subject: runtime.dataset.subject || '',
+        chapter: runtime.dataset.chapter || '',
+        title: runtime.dataset.title || '',
+        href: window.location.pathname,
+        unit_id: unit?.dataset.unitId || previous.unit_id || '',
+        action: state,
+        question_id: questionId,
+        observed_at: new Date().toISOString()
+      });
+    };
 
-  const setActiveUnit = (index) => {
-    const safe = Math.max(0, Math.min(units.length - 1, Number(index) || 0));
-    units.forEach((unit, i) => { unit.hidden = i !== safe; unit.classList.toggle('active', i === safe); });
-    tabs.forEach((tab, i) => tab.classList.toggle('active', i === safe));
-    const active = units[safe];
-    if (active) syncUnitState(active, active.dataset.state || 'ORIENT');
-    persistCursor();
-  };
-
-  units.forEach((unit) => {
-    const stored = cursor?.states?.[unit.dataset.unitId || ''];
-    if (stored) unit.dataset.state = stored;
-
-    unit.querySelectorAll('[data-map-deck]').forEach((deck) => {
-      const mapTabs = [...deck.querySelectorAll('[data-map-tab]')];
-      const panels = [...deck.querySelectorAll('[data-map-panel]')];
-      mapTabs.forEach((tab) => tab.addEventListener('click', () => {
-        const index = Number(tab.getAttribute('data-map-tab') || 0);
-        mapTabs.forEach((candidate, i) => candidate.classList.toggle('active', i === index));
-        panels.forEach((panel, i) => { panel.hidden = i !== index; panel.classList.toggle('active', i === index); });
-      }));
-    });
-
-    unit.querySelectorAll('[data-workspace-action]').forEach((button) => button.addEventListener('click', () => {
-      const action = button.getAttribute('data-workspace-action');
-      if (action === 'start-learn') syncUnitState(unit, 'EXTERNAL_LEARN');
-      if (action === 'back-orient') syncUnitState(unit, 'ORIENT');
-      if (action === 'learn-done') syncUnitState(unit, 'RECALL');
-      if (action === 'recall-source') syncUnitState(unit, 'EXTERNAL_LEARN');
-      if (action === 'recall-reveal') {
-        const reveal = unit.querySelector('[data-recall-reveal]');
-        if (reveal) reveal.hidden = false;
+    const syncUnitState = (unit, nextState, persist = true) => {
+      if (!unit) return;
+      const state = String(nextState || 'ORIENT');
+      const stage = stateToStage(state);
+      unit.dataset.state = state;
+      unit.querySelectorAll('[data-stage]').forEach((scene) => {
+        scene.hidden = scene.getAttribute('data-stage') !== stage;
+      });
+      unit.querySelectorAll('[data-inspector-state]').forEach((panel) => {
+        panel.hidden = panel.getAttribute('data-inspector-state') !== state;
+      });
+      if (!unit.hidden && stateLabel) stateLabel.textContent = state;
+      if (persist) {
+        persistCursor();
+        saveLocation(unit, state);
       }
-      if (action === 'recall-pass') syncUnitState(unit, 'VERIFY');
-      if (action === 'verify-empty-close') syncUnitState(unit, 'CLOSE');
-      if (action === 'next-unit') setActiveUnit(Number(unit.dataset.unitIndex || 0) + 1);
+    };
+
+    const setActiveUnit = (index, persist = true) => {
+      const safe = Math.max(0, Math.min(units.length - 1, Number(index) || 0));
+      units.forEach((unit, i) => {
+        unit.hidden = i !== safe;
+        unit.classList.toggle('active', i === safe);
+      });
+      tabs.forEach((tab, i) => tab.classList.toggle('active', i === safe));
+      const active = units[safe];
+      syncUnitState(active, active?.dataset.state || 'ORIENT', false);
+      if (persist) {
+        persistCursor();
+        saveLocation(active, active?.dataset.state || 'ORIENT');
+      }
+    };
+
+    const saved = readJson(cursorKey, { activeUnit: 0, states: {} });
+    units.forEach((unit) => {
+      const stored = saved?.states?.[unit.dataset.unitId || ''];
+      if (stored) unit.dataset.state = stored;
+    });
+    setActiveUnit(saved?.activeUnit || 0, false);
+
+    tabs.forEach((tab) => tab.addEventListener('click', () => {
+      setActiveUnit(Number(tab.getAttribute('data-workspace-unit-tab') || 0));
     }));
-  });
 
-  tabs.forEach((tab) => tab.addEventListener('click', () => setActiveUnit(Number(tab.dataset.workspaceUnitTab || 0))));
-
-  const recordPoliticsEvidence = (card, outcome, selected, correctAnswer) => {
-    if (!runtime || !card) return;
-    const events = readJson(politicsEvidenceKey, []);
-    const next = Array.isArray(events) ? events : [];
-    next.push({
-      subject: runtime.dataset.subject || '',
-      chapter: runtime.dataset.chapter || '',
-      chapter_title: runtime.dataset.title || '',
-      unit_id: card.getAttribute('data-unit-id') || '',
-      question_id: card.getAttribute('data-question-id') || '',
-      source: 'xiao1000',
-      outcome,
-      selected,
-      correct_answer: correctAnswer,
-      study_day: localStudyDay(),
-      observed_at: new Date().toISOString()
+    runtime.querySelectorAll('[data-workspace-action]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const unit = button.closest('[data-workspace-unit]');
+        const action = button.getAttribute('data-workspace-action');
+        if (action === 'start-learn') syncUnitState(unit, 'EXTERNAL_LEARN');
+        if (action === 'back-orient') syncUnitState(unit, 'ORIENT');
+        if (action === 'learn-close') syncUnitState(unit, 'CLOSE');
+        if (action === 'learn-fastpath') syncUnitState(unit, 'VERIFY');
+        if (action === 'close-source') syncUnitState(unit, 'EXTERNAL_LEARN');
+        if (action === 'close-verify') syncUnitState(unit, 'VERIFY');
+      });
     });
-    saveJson(politicsEvidenceKey, next.slice(-500));
-  };
 
-  runtime?.querySelectorAll('[data-politics-quiz]').forEach((quiz) => {
-    const unit = quiz.closest('[data-workspace-unit]');
-    const cards = [...quiz.querySelectorAll('[data-politics-question]')];
-    const show = (index) => cards.forEach((card, i) => card.classList.toggle('active', i === index));
+    runtime.addEventListener('politics:resume-state', (event) => {
+      const unit = event.target?.closest?.('[data-workspace-unit]');
+      const state = event.detail?.state;
+      if (unit && state) syncUnitState(unit, state);
+    });
 
-    cards.forEach((card, index) => {
-      const selected = new Set();
-      const answer = String(card.dataset.answer || '').split('').sort().join('');
-      const result = card.querySelector('[data-politics-result]');
-      const repair = card.querySelector('[data-politics-repair]');
-      const submit = card.querySelector('[data-politics-submit]');
-      const next = card.querySelector('[data-politics-next]');
-      const uncertain = card.querySelector('[data-politics-uncertain]');
+    runtime.addEventListener('click', (event) => {
+      const link = event.target?.closest?.('a[href^="#source-"]');
+      if (!link || !runtime.contains(link)) return;
+      const unit = link.closest('[data-workspace-unit]');
+      if (!unit) return;
+      event.preventDefault();
+      syncUnitState(unit, 'EXTERNAL_LEARN');
+    });
 
-      card.querySelectorAll('[data-politics-option]').forEach((button) => button.addEventListener('click', () => {
-        const label = button.dataset.politicsOption;
-        if (selected.has(label)) selected.delete(label); else selected.add(label);
-        button.classList.toggle('selected', selected.has(label));
-      }));
+    const recordEvidence = (card, outcome, selected, correctAnswer) => {
+      const events = readJson(evidenceKey, []);
+      const next = Array.isArray(events) ? events : [];
+      next.push({
+        subject: runtime.dataset.subject || '',
+        chapter: runtime.dataset.chapter || '',
+        chapter_title: runtime.dataset.title || '',
+        unit_id: card.getAttribute('data-unit-id') || '',
+        question_id: card.getAttribute('data-question-id') || '',
+        source: 'xiao1000',
+        outcome,
+        selected,
+        correct_answer: correctAnswer,
+        study_day: localStudyDay(),
+        observed_at: new Date().toISOString()
+      });
+      saveJson(evidenceKey, next.slice(-500));
+    };
 
-      uncertain?.addEventListener('click', () => uncertain.classList.toggle('active'));
+    runtime.querySelectorAll('[data-politics-quiz]').forEach((quiz) => {
+      const cards = [...quiz.querySelectorAll('[data-politics-question]')];
+      const show = (index) => cards.forEach((card, i) => card.classList.toggle('active', i === index));
 
-      submit?.addEventListener('click', () => {
-        const choice = [...selected].sort().join('');
-        if (!choice) return;
-        const correct = choice === answer;
-        const wasUncertain = Boolean(uncertain?.classList.contains('active'));
-        const needsRepair = !correct || wasUncertain;
+      cards.forEach((card, index) => {
+        const selected = new Set();
+        const answer = String(card.getAttribute('data-answer') || '').split('').sort().join('');
+        const result = card.querySelector('[data-politics-result]');
+        const repair = card.querySelector('[data-politics-repair]');
+        const submit = card.querySelector('[data-politics-submit]');
+        const next = card.querySelector('[data-politics-next]');
+        const uncertain = card.querySelector('[data-politics-uncertain]');
+        const unit = card.closest('[data-workspace-unit]');
 
-        result.hidden = false;
-        result.className = `politicsResult ${correct && !wasUncertain ? 'correct' : wasUncertain && correct ? 'uncertain' : 'wrong'}`;
-        result.textContent = correct
-          ? wasUncertain ? '△ 答对了，但你不确定。先补最小缺口，再继续。' : '✓ 对，继续。'
-          : `你的答案 ${choice} · 正确答案 ${answer}`;
-
-        if (repair) {
-          repair.hidden = !needsRepair;
-          if (needsRepair) {
-            const slot = unit?.querySelector('[data-workspace-repair-slot]');
-            if (slot) slot.appendChild(repair);
-          }
-        }
-
-        if (needsRepair) {
-          recordPoliticsEvidence(card, correct ? 'UNCERTAIN' : 'WRONG', choice, answer);
-          syncUnitState(unit, 'REPAIR');
-          if (next) next.textContent = index < cards.length - 1 ? '修完继续下一题 →' : '修完进入 Unit Close →';
-        }
-
-        if (next) next.hidden = false;
         card.querySelectorAll('[data-politics-option]').forEach((button) => {
-          button.disabled = true;
-          if (answer.includes(button.dataset.politicsOption)) button.classList.add('answer');
+          button.addEventListener('click', () => {
+            const label = button.getAttribute('data-politics-option') || '';
+            if (selected.has(label)) selected.delete(label); else selected.add(label);
+            button.classList.toggle('selected', selected.has(label));
+          });
         });
-        if (uncertain) uncertain.disabled = true;
-        if (submit) submit.disabled = true;
-      });
 
-      next?.addEventListener('click', () => {
-        repair?.setAttribute('hidden', '');
-        if (index < cards.length - 1) {
-          show(index + 1);
-          syncUnitState(unit, 'VERIFY');
-        } else {
-          syncUnitState(unit, 'CLOSE');
-        }
+        uncertain?.addEventListener('click', () => uncertain.classList.toggle('active'));
+
+        submit?.addEventListener('click', () => {
+          const choice = [...selected].sort().join('');
+          if (!choice) return;
+          const correct = choice === answer;
+          const wasUncertain = Boolean(uncertain?.classList.contains('active'));
+          const needsRepair = !correct || wasUncertain;
+
+          result.hidden = false;
+          result.className = `politicsResult ${correct && !wasUncertain ? 'correct' : wasUncertain && correct ? 'uncertain' : 'wrong'}`;
+          result.textContent = correct
+            ? wasUncertain ? '△ 答对了，但你不确定。先补最小缺口，再继续。' : '✓ 对，继续。'
+            : `你的答案 ${choice} · 正确答案 ${answer}`;
+
+          repair.hidden = !needsRepair;
+          next.hidden = false;
+
+          if (needsRepair) {
+            recordEvidence(card, correct ? 'UNCERTAIN' : 'WRONG', choice, answer);
+            const slot = unit?.querySelector('[data-workspace-repair-slot]');
+            if (slot && repair) slot.appendChild(repair);
+            syncUnitState(unit, 'REPAIR');
+            saveLocation(unit, 'REPAIR', card.getAttribute('data-question-id') || '');
+          }
+
+          card.querySelectorAll('[data-politics-option]').forEach((button) => {
+            button.disabled = true;
+            if (answer.includes(button.getAttribute('data-politics-option') || '')) button.classList.add('answer');
+          });
+          if (uncertain) uncertain.disabled = true;
+          submit.disabled = true;
+        });
+
+        next?.addEventListener('click', () => {
+          if (index < cards.length - 1) {
+            show(index + 1);
+            cards[index + 1].scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            next.textContent = '这一组完成 ✓';
+            next.disabled = true;
+          }
+        });
       });
     });
-  });
-
-  document.addEventListener('click', (event) => {
-    const button = event.target?.closest?.('[data-unit-return-continue]');
-    if (!button || !runtime?.contains(button)) return;
-    const current = button.closest('[data-workspace-unit]');
-    const index = units.indexOf(current);
-    if (index >= 0 && index < units.length - 1) setActiveUnit(index + 1);
-    else if (current) syncUnitState(current, 'CLOSE');
-  }, true);
-
-  setActiveUnit(Number(cursor?.activeUnit || 0));
+  })();
 </script>
 
 <style>
