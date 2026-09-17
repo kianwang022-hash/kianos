@@ -1,46 +1,93 @@
-# KianOS Static-Web Presentation Contract
+# KianOS Presentation Contract
 
-Status: CURRENT
+Status: **CURRENT**  
+Role: shared learner-facing Visual / Presentation authority
 
-This file owns the shared **projection grammar** for `static-web/` learner surfaces.
+This file answers one question:
+
+> **Given approved Rule + Content and an approved learner action, how should KianOS present it clearly without inventing semantics or redesigning accepted task geometry?**
 
 It is downstream of:
 
-- `LEARNING_ASSET_STANDARD.md` for construction order;
-- `SYSTEM_CONTRACT.md` for shared learner-surface capabilities and surface boundaries;
-- each domain `LEARNING_CONTRACT.md` for cognition, learner order, and surface ownership;
-- domain interaction/presentation contracts for lane-specific semantic shapes.
+- `ARCHITECTURE.md` — five durable responsibilities;
+- domain `LEARNING_CONTRACT.md` — cognition, learner order and surface ownership;
+- canonical Content — what the knowledge/task actually means;
+- `KIAN_UI_PREFERENCES.md` — Kian's durable personal visual preferences;
+- `UI_STYLE_BRIEF.md` — shared visual language.
 
-It does **not** own domain knowledge, source truth, learner progress, question answers, or one universal page layout.
-
-Its job is narrower:
-
-> **Given an approved cognitive action, approved content semantics, and approved surface ownership, how should KianOS turn them into a learner-facing workspace without collapsing back into a document renderer or component pile?**
+Engineering behavior such as shortcuts, persistence, answer gating and Runtime belongs to `SYSTEM_CONTRACT.md` and implementation owners.
 
 ---
 
-## 1｜Projection starts from cognition, not components
-
-The shared projection chain is:
+## 1｜Visual has three levels
 
 ```text
-Learning Logic
-→ Content semantics
-→ current cognitive state
-→ semantic presentation object(s)
-→ spatial / interaction representation
-→ Astro component implementation
+Shared Visual
+→ site-wide typography / weight / palette / spacing / radius / elevation / shared controls
+
+Subject Visual
+→ English / Politics / Xizong domain-native visual language where cognition genuinely differs
+
+Accepted Surface Blueprint
+→ stable learner-task geometry already accepted by Kian
 ```
+
+These levels inherit downward.
+
+A local surface may specialize shared Visual when its task genuinely requires it. It may not fork global visual language merely because a new Chat or component author prefers another style.
+
+---
+
+## 2｜Accepted Surface Blueprints are durable design assets
+
+Once Kian accepts a learner-facing task layout, that geometry is frozen unless:
+
+1. Kian explicitly asks for a redesign; or
+2. upstream Learning Logic materially changes the task itself.
+
+The following do **not** reopen design by themselves:
+
+- Shared Shell changes;
+- CSS ownership cleanup;
+- typography-token refactors;
+- a new implementation Chat;
+- moving files/components;
+- broad "visual convergence";
+- replacing one renderer implementation with another.
+
+Allowed maintenance after acceptance:
+
+- inherit newer shared typography / contrast / spacing tokens;
+- responsive / overflow fixes;
+- accessibility fixes;
+- implementation cleanup that preserves the accepted information architecture and interaction geometry.
+
+Hard rule:
+
+> **Accepted design is reused, not re-derived.**
+
+---
+
+## 3｜Content structure is not page structure
 
 Forbidden shortcut:
 
 ```text
-JSON fields / Markdown headings
-→ cards / sections / buttons
-→ page
+field exists
+→ create card
+→ repeat until every field is visible
 ```
 
-Hard rule:
+Instead:
+
+```text
+approved learner action
++ accepted semantic shape
++ current state
+→ representation
+```
+
+Hard distinctions:
 
 ```text
 Content structure ≠ page structure.
@@ -48,417 +95,206 @@ Semantic object ≠ UI component.
 Component availability ≠ representation choice.
 ```
 
-A component may implement a semantic role. It must not define the role merely because it already exists.
+Visual may choose hierarchy, grouping, layout, disclosure and emphasis.
+Visual may not decide what the knowledge means, what a question tests or what the learner must learn.
 
 ---
 
-## 2｜Primary environment: Mac landscape workspace
+## 4｜Mac-wide is the primary design origin
 
-The primary KianOS web learning environment is **Mac / wide landscape desktop** unless a domain contract explicitly assigns the active cognitive action elsewhere.
+Primary learner environment is Mac / wide landscape unless upstream Learning Logic assigns the active action elsewhere.
 
-Responsive behavior for narrower windows remains required, but it is a degradation path, not the design origin for the main learner workspace.
+Use desktop width to show simultaneously useful relationships, not to stretch a narrow document or add more dashboard chrome.
 
-Therefore the default projection model should exploit horizontal space rather than stretching a mobile/document flow across a large screen.
+Preferred wide-screen uses include:
 
-Core spatial principle:
+- passage + full question set;
+- source + learner reconstruction;
+- prompt/material + dominant writing area;
+- relation / compare / hierarchy structures that genuinely benefit from parallel visibility;
+- stable local navigation beside the main cognitive region.
 
-> **Space expresses simultaneous relationships; state transitions express learning sequence.**
-
-Do not encode the whole learner sequence mainly as vertical scroll depth when the same workspace can change state more clearly.
-
-The default wide-workspace roles are:
-
-1. **Location / State Bar** — thin context: lane / subject / unit / current cognitive state / minimal progress.
-2. **Cognitive Stage** — dominant central region for the one thing the learner should think or do now.
-3. **Contextual Inspector** — secondary right-side region for bounded framework detail, source locator, exact fact, evidence, or repair that is useful *now*.
-4. **Navigation Rail** — conditional, not mandatory. Show only when broader navigation materially helps; collapse when a breadcrumb/location bar is enough.
-
-These are spatial roles, not mandatory component names or fixed pixel columns.
+Narrow responsiveness remains required, but it is a fallback—not the design origin.
 
 ---
 
-## 3｜One dominant cognitive task
+## 5｜One focal cognitive task
 
-At any learner-visible moment, the surface should make one dominant cognitive task obvious.
+A screen may contain rich information, but one learner action/object should have obvious focal priority.
 
-Typical states include:
+Examples:
 
-- `ORIENT` — understand where this unit sits and what problem matters;
-- `LEARN` / `EXTERNAL_LEARN` — perform the approved first-learning action on its owning surface;
-- `RECALL` / `CLOSE` — reconstruct or close the natural unit;
-- `VERIFY` — attempt the current first-ready question/task cleanly;
-- `REPAIR` — fix the smallest meaningful failure;
-- `CONTINUE` — resume / move to the next approved learner action;
-- later `REVIEW` / `TRANSFER` when the domain contract requires them.
+- orient to the current model;
+- read/learn on the approved surface;
+- recall;
+- answer the current task;
+- write;
+- repair one real failure;
+- continue/return.
 
-A domain does not need every state and may name additional states. The invariant is not the enum; it is **one clear foregrounded cognitive action**.
+Do not give Orientation, Recall, questions, repair, review debt, navigation and engineering metadata equal visual weight merely because they all exist.
 
-Do not make Orientation, source reading, Recall, questions, repair, review debt, and navigation compete at equal visual weight on one long page.
-
----
-
-## 4｜Semantic presentation grammar
-
-KianOS should represent *knowledge shape* before choosing a visual component.
-
-The following shared semantic roles are available where the domain content actually contains them:
-
-### `Problem`
-The central question the learner is trying to resolve now.
-
-Use as a strong cognitive anchor, not merely a section title.
-
-### `Map`
-A hierarchy / topology / system-position model.
-
-Use when the learner benefits from seeing where concepts sit relative to the whole.
-
-### `Chain`
-A causal, mechanistic, procedural, historical, or reasoning sequence.
-
-Use when order and transition matter more than categorical grouping.
-
-### `Compare`
-A discrimination object for two or more confusable concepts, mechanisms, roles, or choices.
-
-### `Boundary`
-An explicit inclusion / exclusion / `A ≠ B` / scope edge that prevents a predictable misconception.
-
-### `Anchor`
-A small number of high-value learner takeaways or organizing relations.
-
-Do not label everything important; an Anchor must remain scarce enough to guide attention.
-
-### `Exact`
-A precision object whose cognition is exact retention rather than broad reconstruction: number, threshold, identity, fixed formulation, timeline point, marker, procedure, etc.
-
-Do not visually merge Exact retention with mechanism understanding.
-
-### `Handoff / Locator`
-A cross-surface instruction preserving position and next action without duplicating the other surface's primary learning experience.
-
-### `Recall`
-A retrieval object whose answer/model is hidden until an attempt or reveal condition is satisfied.
-
-### `Question / Task`
-A clean attempt surface for the currently approved verification task.
-
-### `Repair`
-A learner-visible correction targeted to the first meaningful failure. Its internal representation should match the failure shape: a broken relation may reopen a `Chain`; a confusion may open `Compare` / `Boundary`; an exact miss may open `Exact`; a whole-model failure may reopen `Map` or route back to the primary source.
-
-### `Closure`
-A compact end-state showing what was established, what remains unstable, and the next approved action.
-
-### `Reference`
-Useful material that should remain available without competing with the current cognitive task.
-
-These are semantic roles, not a requirement to instantiate one component for every role or to use all roles in every lane.
-
-A domain may define additional roles when its cognition genuinely differs.
+Dense does not mean flat.
 
 ---
 
-## 5｜Progressive disclosure and stateful reuse
+## 6｜Safe representation vocabulary
 
-A rich Current asset may project to very little information at first.
+When Current semantics support them, Visual may use a small stable vocabulary:
 
-Default rules:
+- **Problem** — the current question/problem;
+- **Map / Hierarchy** — genuine topology or parent/child structure;
+- **Chain / Timeline** — genuine ordered causal/process/historical sequence;
+- **Compare** — parallel discrimination;
+- **Boundary** — explicit scope / inclusion / exclusion distinction;
+- **Anchor** — scarce organizing takeaway;
+- **Exact** — precision object requiring exact retention;
+- **Locator / Handoff** — position + next action across surfaces;
+- **Recall** — answer-protected retrieval object;
+- **Question / Task** — clean attempt object;
+- **Repair** — smallest representation needed to fix the actual failure;
+- **Reference** — valid material available without competing with the main task.
 
-- first show only what the current cognitive state needs;
-- protect clean attempts from answer/model leakage;
-- stable correct work should continue with minimal friction;
-- wrong / uncertain evidence may reveal only the smallest sufficient repair;
-- source metadata and deep reference stay demoted unless needed;
-- secondary controls appear when their decision becomes relevant, not merely because the feature exists.
+These are representation roles, not mandatory component classes.
 
-Prefer **stateful reuse** of a semantic object over duplicating content across stages.
+### Representation safety
+
+Text is the safe default when structured text communicates the relation clearly.
+
+Use diagrams/arrows only when the relation is explicit and visualization materially lowers reconstruction cost.
+
+Do not let layout invent:
+
+- hierarchy;
+- causality;
+- sequence;
+- dependency;
+- grouping;
+- importance
+
+that Current does not actually claim.
+
+When uncertain, choose readable structured text over a clever diagram.
+
+---
+
+## 7｜Stateful presentation is optional and derived
+
+The same canonical Content may appear differently when learner state genuinely changes what should be visible.
 
 Example:
 
 ```text
-Map during ORIENT
-→ complete relation scaffold
-
-same Map during RECALL
-→ selected nodes hidden
-
-same Map during REPAIR
-→ failed edge highlighted
-
-same Map during CLOSURE
-→ stable / unstable relation summarized
+Learn   → full accepted explanation
+Recall  → answer-bearing material hidden
+Repair  → failed relation foregrounded
+Review  → compressed representation
 ```
 
-The underlying semantic owner remains one asset; visibility and interaction change with learner state.
+This does **not** create a second semantic owner.
+
+Presentation/Projection is derived and may be omitted entirely when the renderer can safely consume canonical Content directly.
+
+```text
+simple case:   Content → renderer
+stateful case: Content → derived presentation → renderer
+```
+
+Projection must never invent missing Content merely to satisfy a visual template.
 
 ---
 
-## 6｜External-primary mode
+## 8｜External-primary actions use companion presentation
 
-When another surface owns the active learning action, the KianOS web workspace enters companion mode rather than trying to remain equally dominant.
+When MarginNote, Chat or another approved surface owns the current cognitive action, KianOS web becomes a companion rather than a competing second course.
 
-The Cognitive Stage may show only the approved companion semantics, for example:
+Useful companion presentation may include:
 
-- current problem;
-- a compact map / bridge / relation anchor;
-- what to look for;
+- current problem / position;
+- small relation scaffold;
 - source locator;
-- one explicit handoff action;
-- return / checkpoint control.
+- what to look for;
+- checkpoint;
+- return action.
 
-It must not render a competing continuous source merely to keep the learner inside Astro.
-
-The contextual inspector may preserve bounded framework/support information, but it must not become a hidden second textbook.
-
----
-
-## 7｜Wide-screen interaction grammar
-
-For the primary Mac landscape surface:
-
-- favor spatial comparison for simultaneously relevant information;
-- favor in-place state transition for sequential learning actions;
-- use side-by-side representation for meaningful contrasts when it improves discrimination;
-- allow chains/maps to use horizontal room rather than forcing them into stacked cards;
-- let a clean `Question` occupy a large stable region while the Inspector remains quiet;
-- after a Wrong/Uncertain attempt, the Inspector may become the bounded `Repair` surface without forcing an unnecessary page change;
-- collapse global navigation when it does not help the current task.
-
-Do not treat browser width as permission to add more dashboards, counters, badges, or permanent sidebars.
-
-Horizontal space exists to clarify cognition, not to maximize visible widgets.
+Do not reproduce continuous source material just to keep the learner inside Astro.
 
 ---
 
-## 7A｜High-frequency input grammar
+## 9｜Dense Calm visual standard
 
-KianOS should develop **stable muscle memory by semantic surface type**. Do not make every subject invent its own keyboard language, and do not force one global key meaning across genuinely different cognitive objects.
+Shared visual direction is owned in detail by `UI_STYLE_BRIEF.md` and `KIAN_UI_PREFERENCES.md`.
 
-General rules:
+The durable summary is:
 
-- frequent learner actions should be reachable without pointer travel or confirmation ceremony;
-- shortcuts must be visibly discoverable on the active surface, but the hint stays subordinate;
-- `input`, `textarea`, `select`, editable text and other focused authoring controls suspend global learning shortcuts;
-- a focused spatial interaction may temporarily own arrow keys; on exit, the enclosing surface regains them;
-- a clean correct action should not require a second confirmation unless the task itself is multi-select or otherwise ambiguous;
-- Wrong / meaningful Uncertain should interrupt auto-advance and open the smallest useful Repair / explanation surface;
-- visual feedback may be brief; it must not become a modal checkpoint.
+> **High useful information density + comfortable typography + strong hierarchy + restrained decoration + low fatigue.**
 
-### Recall / KP / memory surface
-
-Default shared grammar:
+Prefer, in order:
 
 ```text
-Space      Reveal / hide the answer or model
-1          1 · 没掌握
-2          2 · 模糊
-3          3 · 熟练 / 基本稳定
-4          4 · 掌握
-Enter      commit the selected score and continue
-← / →      previous / next Recall or KP
+typography
+→ alignment
+→ geometry
+→ spacing / indentation
+→ thin rules / subtle zones
+→ containers only when a real semantic or interactive boundary exists
 ```
 
-Low-friction stable path:
+Avoid generic dashboard composition, repeated rounded cards, tiny/light gray text, decorative empty space and engineering metadata competing with learner content.
 
-- if no lower score has been explicitly selected and the current Recall/KP is eligible for a clean pass, `Enter` may act as **Mastered / pass + next**;
-- if `1–4` was explicitly selected, `Enter` commits that learner judgment and advances;
-- Reveal is optional when the learner already knows the answer confidently; the applicable domain Evidence contract still owns what that learner action means.
-
-This input grammar does not create a universal numeric mastery model. `1–4` is learner interaction shorthand; domain Evidence/Memory semantics remain authoritative.
-
-### Standard question surface
-
-For ordinary exam-like A–D questions:
-
-```text
-1 / 2 / 3 / 4  = A / B / C / D
-Enter           = confirm / submit when confirmation is required
-```
-
-Normal mode:
-
-- single choice: `1–4` or click selects; `Enter` confirms;
-- multiple choice: `1–4` toggles A–D; `Enter` confirms.
-
-Fast mode:
-
-- single choice: the first valid `1–4` keypress or option click **submits immediately**;
-- stable correct → brief subordinate feedback → next question without another Enter;
-- Wrong or meaningful Uncertain → stay on the question and open the bounded explanation / Repair surface;
-- multiple choice still requires `Enter`, because selection is not complete until the learner says it is complete.
-
-Fast mode must never turn a wrong answer into a blink-and-skip interaction merely to maximize throughput.
-
-### Lexical whole-card routing
-
-LexicalOS uses the same increasing-familiarity numeric direction, but this is **card routing**, not Recall scoring:
-
-```text
-1  Unknown  → Depth
-2  Fuzzy    → Depth
-3  Known    → Fast Pass / Next
-4  Mastered → Fast Pass / Next
-```
-
-The card-level judgment controls whether the whole lexical object deserves Depth **now**. It must not by itself create future Repair debt.
-
-This aligns with `content/lexical/LEARNING_CONTRACT.md`: Known/Mastered should be near-instant pass paths; Unknown/Fuzzy may open rich Depth; local instability is admitted separately.
-
-### Lexical Depth
-
-The current proven low-friction vocabulary grammar is retained as the direction for productization:
-
-```text
-Space      Recall → Reveal; after Reveal, when no nested control owns Space, continue / Next
-↑ / ↓      move the local target focus
-→ / +      add the focused exact local object to Repair
-←          undo / remove that local Repair admission
-S          pronunciation
-```
-
-`+` remains exact-object admission: sense / secondary sense / construction / collocation / phrase / relation / boundary / other learner-worthy local object. It must not silently promote the whole word into Repair.
-
-### Lexical Challenge spatial exception
-
-Lexical vNext may use a spatial forced-choice surface when spatial placement itself reduces decision friction:
-
-```text
-← / ↑ / → / ↓  answer the visible spatial option directly
-Q              report a question defect
-Space / Enter  continue after scored feedback or enter the required reconstruction
-```
-
-This is an explicit semantic exception, not permission for arbitrary key drift. It is valid only when the active Challenge visibly presents options in the matching spatial positions and does not masquerade as an A–D exam question.
-
-If a Lexical Challenge is rendered as ordinary A–D choices, it should use the standard question grammar instead.
-
-### Conflict rule
-
-Shortcut ownership follows the **active semantic object**:
-
-```text
-Recall / KP active          → Recall grammar
-A–D Question active         → Question grammar
-Lexical Depth target active → Depth grammar
-Spatial Challenge active    → spatial Challenge grammar
-text field focused          → typing wins; learning shortcuts suspended
-```
-
-Do not solve conflicts by adding modifier-key rituals. Resolve them through clear active state and visible affordance.
+Visible text must be worth reading and comfortable to read.
 
 ---
 
-## 7B｜Legacy reference firewall
+## 10｜Domain/task geometry remains native
 
-Legacy may contain valuable interaction or recoverable content, but it is **not an implementation source that Codex is expected to interpret**.
-
-Ownership rule:
-
-```text
-raw Legacy
-→ Chat/Sol bounded archaeology + reconciliation
-→ Current-facing interaction brief OR promoted Current asset
-→ Codex implementation
-```
-
-Never:
-
-```text
-Codex
-→ roam old repos / old localhost / historical branches
-→ infer which old behavior or owner is still valid
-→ wire learner UI directly to historical assets
-```
-
-Chat/Sol owns the migration boundary because it has the project-context responsibility needed to distinguish useful interaction from obsolete authority.
-
-For a useful legacy **interaction**:
-
-1. inspect the exact legacy implementation/tests;
-2. extract the behavior worth preserving;
-3. reconcile it against Current Learning / Interaction / Evidence contracts;
-4. express the result as a clean Current-facing Product Brief or contract addition;
-5. Codex implements that brief against Current runtime/data.
-
-For useful legacy **content/data**:
-
-1. recover exact identity / bytes / provenance;
-2. reconcile against the correct Current canonical owner;
-3. deliberately promote/materialize through that owner;
-4. only the promoted Current asset may become learner-facing input.
-
-Hard firewall:
-
-1. learner-facing Current runtime must not depend on a legacy repository path, historical branch, old localhost path, or historical generated asset as a hidden fallback;
-2. legacy scheduler/due logic, mastery semantics, routes, owner hierarchies or state machines do not return merely because an old UI used them;
-3. no `Current missing → silently show old asset` behavior is allowed;
-4. historical paths are allowed in governance/provenance/tests, not as learner-runtime APIs;
-5. once useful behavior/content is reconciled into Current, Current becomes the durable source;
-6. any compatibility migration must be one-way, explicit, testable and semantically bounded;
-7. if legacy reconciliation is unresolved, implementation stops **before Codex Handoff** rather than asking Codex to guess.
-
-The purpose of consulting Legacy is to preserve proven good interaction without reopening historical architecture or asset drift.
-
----
-
-## 8｜Dense Calm visual behavior
-
-The KianOS work/content surface should optimize for long, high-frequency cognitive work:
-
-- comfortable readable type; do not achieve elegance through persistently tiny text;
-- medium-to-high useful information density without crowding;
-- strong hierarchy and relation visibility;
-- restrained decoration and low visual noise;
-- whitespace used for grouping/rhythm, not as a substitute for structure;
-- state feedback clear but visually subordinate to the learner task;
-- color used primarily for meaning/state, not decorative variety;
-- prefer alignment, typography, indentation, connection, and spatial grouping before wrapping every object in a card;
-- cards/borders should represent a real interaction or semantic boundary, not become the default unit of layout.
-
-The target is not generic minimalism. It is **Dense Calm: rich information, obvious structure, low fatigue**.
-
----
-
-## 9｜Domain variation is mandatory where cognition differs
-
-Shared presentation grammar must not force identical pages across lanes.
+Shared Visual does not make all subjects look structurally identical.
 
 Examples:
 
-- Politics may project conceptual relation maps, historical stage strips, hierarchy, boundaries, and Xiao1000 attempts;
-- Xizong may project mechanism chains, Block/System relations, clinical discrimination, Visual Gates, and precision objects;
-- English may project task-first workbook surfaces where source material / prompt / learner output dominate and coaching remains conditional;
-- LexicalOS may center sense competition, construction, contrast, and transfer challenge.
+- English exam tasks preserve whole-task geometry;
+- Politics Natural Units preserve subject-native relation/history/hierarchy shapes;
+- Xizong preserves System / Block / KP / Recall / Question cognitive geometry;
+- Lexical, as an English learner-product function, preserves its word / Depth / Challenge geometry.
 
-What is shared is the contract:
+A shared task type should reuse the same blueprint/runtime when semantics are the same. Different data sources do not justify a duplicate surface.
+
+Example:
 
 ```text
-current cognitive state
-+ semantic role
-+ surface ownership
-→ representation
+Reading A ───────┐
+External Reading ├→ same Reading blueprint
+compatible task ─┘
 ```
-
-The domain determines the actual cognition and shape.
 
 ---
 
-## 10｜Projection acceptance test
+## 11｜Visual acceptance
 
-Before a learner-facing KianOS web path may claim mature Projection quality, verify at minimum:
+A learner-facing Visual change is not accepted because CSS compiles or a screenshot exists.
 
-1. the current cognitive task is obvious without reading the entire page;
-2. the primary surface for that action matches the applicable Learning Contract;
-3. the main Mac landscape composition uses space to clarify relationships rather than merely widening a document column;
-4. the page does not expose all future states at equal visual weight;
-5. clean attempts are protected from answer/model leakage;
-6. stable correct work can pass quickly;
-7. Wrong/Uncertain opens the smallest useful representation for repair;
-8. external-primary learning is accompanied, not duplicated;
-9. meaningful framework/relation content is visually represented rather than buried in undifferentiated prose when a structural representation is justified;
-10. typography and density support sustained work without tiny-text / giant-whitespace pseudo-minimalism;
-11. global navigation and status chrome do not dominate the Cognitive Stage;
-12. the same domain semantics would remain correct if the specific Astro components were replaced;
-13. any legacy-derived behavior/data has crossed the Chat-owned Migration Gate and is now expressed through Current-facing authority rather than a raw historical dependency.
+Check at minimum:
 
-A screenshot, pretty component set, or successful build cannot by itself satisfy this contract. Real learner U remains governed by `LEARNING_ACCEPTANCE.md`.
+1. the focal learner action is obvious;
+2. accepted surface geometry has not drifted unintentionally;
+3. Mac-wide space is used for useful information/relationships;
+4. typography is comfortably readable and optically substantial;
+5. hierarchy works before borders/cards do the work;
+6. no semantic relation is invented by layout;
+7. learner-facing chrome does not dominate the task;
+8. narrow fallback has no obvious overflow/layout failure;
+9. Kian reviews the real browser result when the visual change is material.
+
+Human Gate remains required for material learner-facing visual changes.
+
+---
+
+## 12｜Change rule
+
+Change Shared Visual once upstream when the desired effect is site-wide.
+
+Change Subject Visual only for a real domain-wide need.
+
+Change an Accepted Surface Blueprint only when Kian explicitly reopens it or upstream Learning Logic changes.
+
+Do not redesign a surface to solve an implementation ownership problem.
