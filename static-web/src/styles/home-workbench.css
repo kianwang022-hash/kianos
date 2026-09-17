@@ -1,0 +1,541 @@
+/* L3 Global Home visual owner.
+   Learner-facing composition only; Orchestrator / Mission Control / subject semantics stay in their canonical owners. */
+
+body#kianos-workspace.surfaceBody-home {
+  font-family: var(--study-font-cjk);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--study-space-5);
+  margin-bottom: var(--study-space-3);
+  padding: 18px 22px;
+  border: 1px solid var(--study-line);
+  border-radius: var(--study-radius);
+  background: var(--study-surface);
+  box-shadow: var(--study-shadow);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3HeaderCopy {
+  min-width: 0;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Header .pageKicker,
+body#kianos-workspace.surfaceBody-home .homeL3Support .pageKicker {
+  margin: 0;
+  color: var(--study-green);
+  font-size: var(--study-type-meta);
+  font-weight: var(--study-weight-shell);
+  letter-spacing: .075em;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Header h1 {
+  margin: 3px 0 0;
+  color: var(--study-ink);
+  font-size: 34px;
+  font-weight: var(--study-weight-title);
+  line-height: 1.12;
+  letter-spacing: -.04em;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subtitle {
+  margin: 5px 0 0;
+  color: var(--study-muted);
+  font-size: var(--study-type-body);
+  font-weight: var(--study-weight-body);
+  line-height: 1.45;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Gate {
+  display: grid;
+  min-width: 250px;
+  gap: 3px;
+  padding: 11px 15px;
+  border-radius: var(--study-radius-medium);
+  background: var(--study-surface-muted);
+  text-align: right;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Gate span {
+  color: var(--study-muted);
+  font-size: var(--study-type-meta);
+  font-weight: var(--study-weight-shell);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Gate strong {
+  color: var(--study-ink);
+  font-size: 19px;
+  font-weight: var(--study-weight-title);
+  line-height: 1.35;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 370px;
+  gap: var(--study-space-3);
+  min-height: 0;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subjects,
+body#kianos-workspace.surfaceBody-home .homeL3Support {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--study-line);
+  border-radius: var(--study-radius);
+  background: var(--study-surface);
+  box-shadow: var(--study-shadow);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3SectionHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--study-space-4);
+  padding: 13px 20px;
+  border-bottom: 1px solid var(--study-line);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3SectionHead h2 {
+  margin: 0;
+  color: var(--study-ink);
+  font-size: 24px;
+  font-weight: var(--study-weight-title);
+  line-height: 1.25;
+  letter-spacing: -.025em;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3SectionHead span {
+  color: var(--study-muted);
+  font-size: 16px;
+  font-weight: var(--study-weight-body);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject {
+  padding: 14px 20px 15px;
+  border-bottom: 1px solid var(--study-line);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject:last-child {
+  border-bottom: 0;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3SubjectHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--study-space-4);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3SubjectIdentity {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 11px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Ordinal {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--study-green-soft);
+  color: var(--study-green);
+  font-size: 15px;
+  font-weight: var(--study-weight-title);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3SubjectTitle {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject h2 {
+  margin: 0;
+  color: var(--study-ink);
+  font-size: var(--study-type-task);
+  font-weight: var(--study-weight-title);
+  line-height: 1.25;
+  letter-spacing: -.025em;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Availability {
+  color: var(--study-muted);
+  font-size: 16px;
+  font-weight: var(--study-weight-shell);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3OverviewLink {
+  flex: 0 0 auto;
+  color: var(--study-green);
+  font-size: 16px;
+  font-weight: var(--study-weight-shell);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3OverviewLink:hover {
+  text-decoration: underline;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Meta {
+  margin: 4px 0 0 41px;
+  color: var(--study-muted);
+  font-size: 17px;
+  font-weight: var(--study-weight-body);
+  line-height: 1.45;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3ActionSurface {
+  margin-top: 10px;
+}
+
+/* Xizong Home actions: show Continue + Memory, hide explanatory method chrome. */
+body#kianos-workspace.surfaceBody-home .homeL3Subject .xzHomeActionBar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(230px, .42fr);
+  gap: 9px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .xzHomeMethod {
+  display: none;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject :is(.xzHomeContinue, .xzHomeMemory, .politicsContinue) {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+  padding: 10px 42px 10px 14px;
+  border: 0;
+  border-radius: var(--study-radius-small);
+  background: var(--study-surface-muted);
+  color: var(--study-ink);
+  text-decoration: none;
+  box-shadow: none;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject :is(.xzHomeContinue, .xzHomeMemory, .politicsContinue):hover {
+  background: var(--study-green-soft);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject :is(.xzHomeContinue, .xzHomeMemory, .politicsContinue) > span {
+  color: var(--study-green);
+  font-size: 15px;
+  font-weight: var(--study-weight-shell);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject :is(.xzHomeContinue, .xzHomeMemory, .politicsContinue) > strong {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--study-ink);
+  font-size: 19px;
+  font-weight: var(--study-weight-title);
+  line-height: 1.32;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject :is(.xzHomeContinue, .xzHomeMemory, .politicsContinue) > small {
+  color: var(--study-muted);
+  font-size: 16px;
+  font-weight: var(--study-weight-body);
+  line-height: 1.42;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject :is(.xzHomeContinue, .politicsContinue)::after {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  color: var(--study-green);
+  font-size: 22px;
+  font-weight: var(--study-weight-shell);
+  content: '→';
+  transform: translateY(-50%);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .xzHomeMemory b {
+  display: none;
+}
+
+/* Politics may reveal a real handoff; keep it local and readable when it exists. */
+body#kianos-workspace.surfaceBody-home .homeL3Subject .politicsHomeTools {
+  display: grid;
+  gap: 9px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .politicsHandoff {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: var(--study-radius-small);
+  background: #faf7ef;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .politicsHandoff[hidden] {
+  display: none;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .politicsHandoff span,
+body#kianos-workspace.surfaceBody-home .homeL3Subject .politicsHandoff strong,
+body#kianos-workspace.surfaceBody-home .homeL3Subject .politicsHandoff p,
+body#kianos-workspace.surfaceBody-home .homeL3Subject .politicsHandoff a,
+body#kianos-workspace.surfaceBody-home .homeL3Subject .politicsHandoff button {
+  font-size: 16px;
+  font-weight: var(--study-weight-body);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .politicsHandoff p {
+  margin: 2px 0 0;
+  color: var(--study-muted);
+  line-height: 1.42;
+}
+
+/* English Resume remains semantic owner; Home owns only its workbench treatment. */
+body#kianos-workspace.surfaceBody-home .homeL3Subject .englishResume {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 0;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: var(--study-radius-small);
+  background: #f1f5f7;
+  box-shadow: none;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .englishResume[hidden] {
+  display: none;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .englishResume > div {
+  display: grid;
+  min-width: 0;
+  gap: 1px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .englishResume > div > span {
+  display: none;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .englishResume strong {
+  overflow: hidden;
+  color: var(--study-ink);
+  font-size: 19px;
+  font-weight: var(--study-weight-title);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .englishResume small {
+  color: var(--study-muted);
+  font-size: 16px;
+  font-weight: var(--study-weight-body);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .englishResume a {
+  flex: 0 0 auto;
+  padding: 7px 0 7px 14px;
+  border: 0;
+  background: transparent;
+  color: #345f82;
+  font-size: 17px;
+  font-weight: var(--study-weight-shell);
+  text-decoration: none;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3TaskLinks {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px 16px;
+  margin: 8px 0 0 41px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3TaskLinks a {
+  color: #3f637d;
+  font-size: 16px;
+  font-weight: var(--study-weight-shell);
+  text-decoration: none;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3TaskLinks a:hover {
+  text-decoration: underline;
+}
+
+/* Right rail: one continuous support panel, not a pile of dashboard cards. */
+body#kianos-workspace.surfaceBody-home .homeL3Support {
+  align-self: start;
+  background: var(--study-surface);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examToday {
+  padding: 18px 20px;
+  background: transparent;
+  color: var(--study-ink);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examTodayHead h2 {
+  margin: 2px 0 0;
+  font-size: 23px;
+  font-weight: var(--study-weight-title);
+  letter-spacing: -.025em;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examQuiet {
+  color: var(--study-green);
+  font-size: 16px;
+  font-weight: var(--study-weight-shell);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examCapacity {
+  margin: 8px 0 12px;
+  color: var(--study-muted);
+  font-size: 16px;
+  font-weight: var(--study-weight-body);
+  line-height: 1.48;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examSubjectAllocation {
+  grid-template-columns: 46px 1fr auto;
+  padding: 10px 0;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examSubjectAllocation strong {
+  font-size: 17px;
+  font-weight: var(--study-weight-title);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examSubjectAllocation span {
+  color: var(--study-muted);
+  font-size: 16px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examSubjectAllocation b {
+  color: var(--study-green);
+  font-size: 20px;
+  font-weight: var(--study-weight-title);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examNext {
+  margin: 13px 0;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examNext > span {
+  color: var(--study-muted);
+  font-size: 15px;
+  font-weight: var(--study-weight-shell);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examNext > a {
+  color: var(--study-green);
+  font-size: 18px;
+  font-weight: var(--study-weight-title);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examAttention p,
+body#kianos-workspace.surfaceBody-home .homeL3Support .examMaterial p {
+  font-size: 16px;
+  line-height: 1.48;
+}
+
+/* Mission Control stays visible but subordinate to actual study. */
+body#kianos-workspace.surfaceBody-home .homeL3Support .homeMission {
+  padding: 16px 20px;
+  border-top: 1px solid var(--study-line);
+  background: transparent;
+  color: var(--study-ink);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .homeMissionHead h2 {
+  margin: 2px 0 0;
+  font-size: 21px;
+  font-weight: var(--study-weight-title);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .homeMissionHead a,
+body#kianos-workspace.surfaceBody-home .homeL3Support .homeMissionSummary,
+body#kianos-workspace.surfaceBody-home .homeL3Support .homeMissionLane,
+body#kianos-workspace.surfaceBody-home .homeL3Support .homeMissionNext p {
+  font-size: 16px;
+  font-weight: var(--study-weight-body);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .homeMissionLane strong {
+  font-weight: var(--study-weight-shell);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .homeMissionNext > span {
+  color: var(--study-muted);
+  font-size: 15px;
+  font-weight: var(--study-weight-shell);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3SupportLinks {
+  display: grid;
+  gap: 10px;
+  padding: 15px 20px 17px;
+  border-top: 1px solid var(--study-line);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3SupportLinks > a {
+  color: var(--study-green);
+  font-size: 18px;
+  font-weight: var(--study-weight-title);
+  text-decoration: none;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3SupportLinks nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 13px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3SupportLinks nav a {
+  color: var(--study-muted);
+  font-size: 16px;
+  font-weight: var(--study-weight-shell);
+  text-decoration: none;
+}
+
+@media (min-width: 1101px) and (max-height: 820px) {
+  body#kianos-workspace.surfaceBody-home .homeL3Header { padding-block: 14px; }
+  body#kianos-workspace.surfaceBody-home .homeL3Subject { padding-block: 11px; }
+  body#kianos-workspace.surfaceBody-home .homeL3ActionSurface { margin-top: 8px; }
+  body#kianos-workspace.surfaceBody-home .homeL3Support .examToday { padding-block: 15px; }
+  body#kianos-workspace.surfaceBody-home .homeL3Support .homeMission { padding-block: 13px; }
+}
+
+@media (max-width: 1180px) {
+  body#kianos-workspace.surfaceBody-home .homeL3Grid { grid-template-columns: minmax(0, 1fr) 330px; }
+  body#kianos-workspace.surfaceBody-home .homeL3Subject .xzHomeActionBar { grid-template-columns: 1fr; }
+  body#kianos-workspace.surfaceBody-home .homeL3Subject .xzHomeMemory { display: none; }
+}
+
+@media (max-width: 900px) {
+  body#kianos-workspace.surfaceBody-home .homeL3Header { align-items: flex-start; flex-direction: column; }
+  body#kianos-workspace.surfaceBody-home .homeL3Gate { width: 100%; min-width: 0; text-align: left; }
+  body#kianos-workspace.surfaceBody-home .homeL3Grid { grid-template-columns: 1fr; }
+  body#kianos-workspace.surfaceBody-home .homeL3Support { align-self: stretch; }
+}
+
+@media (max-width: 620px) {
+  body#kianos-workspace.surfaceBody-home .homeL3Header { padding: 15px; border-radius: var(--study-radius-medium); }
+  body#kianos-workspace.surfaceBody-home .homeL3Header h1 { font-size: 30px; }
+  body#kianos-workspace.surfaceBody-home .homeL3SectionHead,
+  body#kianos-workspace.surfaceBody-home .homeL3Subject { padding-inline: 15px; }
+  body#kianos-workspace.surfaceBody-home .homeL3SectionHead { align-items: flex-start; flex-direction: column; gap: 3px; }
+  body#kianos-workspace.surfaceBody-home .homeL3SubjectHead { align-items: flex-start; flex-direction: column; }
+  body#kianos-workspace.surfaceBody-home .homeL3Meta,
+  body#kianos-workspace.surfaceBody-home .homeL3TaskLinks { margin-left: 0; }
+}
