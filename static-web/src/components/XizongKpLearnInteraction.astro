@@ -40,7 +40,10 @@
       const stageName = () => [...root.querySelectorAll('[data-study-stage]')]
         .find((node) => !node.hasAttribute('hidden'))?.getAttribute('data-study-stage') || '';
 
-      const activeLearnFrame = () => root.querySelector('.xv6KpLearnCompanion[data-kp-id]');
+      const activeLearnFrame = () => {
+        const stage = [...root.querySelectorAll('[data-study-stage]')].find((node) => !node.hasAttribute('hidden'));
+        return stage?.querySelector('.xv6KpLearnCompanion[data-kp-id]') || null;
+      };
       const activeRecallCard = () => root.querySelector('[data-kp-recall-card]:not([hidden])');
       const activeUnifiedCard = () => stageName() === 'kp_recall' ? activeRecallCard() : activeLearnFrame();
       const activeKpId = () => activeUnifiedCard()?.getAttribute('data-kp-id') || '';
