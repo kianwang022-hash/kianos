@@ -12,16 +12,16 @@ This file does not own medical Core, Xizong lane learning semantics, Acceptance 
 
 **Scope:** D — Neuro / Sensory / Motor / Orthopedics  
 **Current accepted construction stage:** Source / Knowledge Boundary closed  
-**L state:** **REOPENED — READINESS_DAG_REVISION_REQUIRED**  
-**Earliest eligible next action:** **bounded builder repair of `system_route.requires` only**  
+**L state:** **REPAIRED_CANDIDATE — AWAITING_FRESH_INDEPENDENT_REAUDIT**  
+**Earliest eligible next action:** **new fresh independent L re-audit of the repaired readiness DAG**  
 **Parallel Source boundary:** exact official D System question membership remains **UNTESTED** and will gate the later trusted official-question sweep only  
-**Blocker to L promotion:** fresh independent audit found hard/soft readiness misclassification
+**Blocker to L promotion:** builder repair is complete, but SELF evidence cannot promote L; a new independent auditor must accept the repaired hard/soft readiness semantics
 
 ```text
 S1 medical / first-learning Source boundary = PASS
 S2 exact official-question membership        = UNTESTED / parallel later boundary
 K Knowledge                                  = PASS
-L Learning Logic                             = BLOCKED / REVISION_REQUIRED
+L Learning Logic                             = REPAIRED_CANDIDATE / AWAITING_FRESH_REAUDIT
 Content Realization / Optimization           = downstream-frozen
 P Projection                                  = downstream-frozen
 R Runtime                                     = downstream-frozen
@@ -35,7 +35,7 @@ Canonical L candidate:
 
 `content/xizong/knowledge/learner/d-neuro-sensory-motor-orthopedics-learning.json`
 
-Fresh independent audit:
+Fresh independent audit that reopened L:
 
 `content/xizong/knowledge/learner/D_PHASE6C_FRESH_INDEPENDENT_L_AUDIT.md`
 
@@ -43,7 +43,11 @@ Builder repair brief:
 
 `content/xizong/knowledge/learner/D_PHASE6D_READINESS_DAG_REPAIR_BRIEF.md`
 
-**Next action:** repair only the machine-readable hard readiness and directly coupled `benefits_from / flex_rule` semantics. Do not reopen accepted Source/Knowledge, LG topology, Source-contact, Visual or compression objects unless the repair exposes a direct contradiction. After repair, rerun deterministic accounting and hand the candidate to a new fresh independent L auditor.
+Completed builder repair receipt:
+
+`content/xizong/knowledge/learner/D_PHASE6D_READINESS_DAG_REPAIR_RECEIPT.md`
+
+**Next action:** a new auditor must independently attack the repaired hard DAG for both over- and under-gating, especially N11 readiness and O11 partial independence. Do not re-open accepted Source/Knowledge, LG topology, Source-contact, Visual or compression objects unless the new audit exposes a direct contradiction. Do not enter Content / Projection / Runtime / Evidence before L is independently accepted.
 
 ---
 
@@ -77,7 +81,7 @@ Trauma, compression, ischemia, overload, infection, immune inflammation, develop
 
 ---
 
-## Fresh L audit result
+## Phase 6C fresh L audit result
 
 Fresh audit evidence mode:
 
@@ -99,45 +103,104 @@ negative space / Source conflict preservation PASS
 five non-gating PSRs + final compression      PASS
 ```
 
-No broad D content rebuild is authorized by this audit.
+No broad D content rebuild was authorized by this audit.
 
-### Material failure — `system_route.requires`
+### Material failure that triggered Phase 6D
 
-The current candidate still promotes several useful/reordered relations into hard legality.
+The pre-repair candidate promoted several useful/reordered relations into hard legality and under-gated N11.
 
-Representative false-hard findings:
+Representative false-hard findings were:
 
-- N5/N6/N7 source chronology proves that N5-first is a useful learner reordering, not a causal gate for vision/hearing;
-- N9 does not require complete N2 to form EEG/sleep/wake cognition;
-- N4 owns a complete NMJ/muscle Primary Source and is not legally dependent on later N2/N3 Source sections;
-- O2-first is a useful common-fracture reordering, but original regional O3/O6/O7 Source exists before the O2 overview and remains independently learnable;
-- O11's chronic soft-tissue LGs are independent of N11, so a whole-Block N11 gate is too coarse.
+- N5/N6/N7 source chronology proved that N5-first is a useful learner reordering, not a causal gate for vision/hearing;
+- N9 did not require complete N2 to form EEG/sleep/wake cognition;
+- N4 owned a complete NMJ/muscle Primary Source and was not legally dependent on later N2/N3 Source sections;
+- O2-first was a useful common-fracture reordering, while original regional O3/O6/O7 Source remained independently learnable;
+- O11's chronic soft-tissue LGs were independent of N11, so a whole-Block N11 gate was too coarse.
 
-Under-gating also exists:
+Under-gating was:
 
 ```text
-N11 is INTEGRATION_PRIMARY
-candidate targeted retrieval = N1 + N5 + N8
-current hard requires         = N5 + N8
+N11 targeted retrieval = N1 + N5 + N8
+pre-repair hard requires = N5 + N8
 ```
 
-N1 must be part of N11 hard readiness unless the ownership model itself is deliberately redesigned and independently re-audited.
-
-Full edge-level repair instructions live in `D_PHASE6D_READINESS_DAG_REPAIR_BRIEF.md`.
+The Phase 6D repair was therefore bounded to readiness semantics only.
 
 ---
 
-## Bounded repair boundary
+## Phase 6D repaired readiness candidate
 
-Earliest responsible Learning object:
+Builder evidence mode:
+
+**OWNER_READBACK + EDGE_DELETE_TEST + DETERMINISTIC_DAG_ACCOUNTING**  
+Independence: **SELF**
+
+The repair follows `D_PHASE6D_READINESS_DAG_REPAIR_BRIEF.md` and is recorded in `D_PHASE6D_READINESS_DAG_REPAIR_RECEIPT.md`.
+
+### Repaired hard graph
+
+```text
+N1 + N5 + N8 → N11
+
+N11 → O3
+N11 → O4
+N11 → O5
+```
+
+Machine accounting:
+
+```text
+nodes                     27
+hard edges                 6
+unknown prerequisite       0
+self edge                  0
+cycle                      0
+```
+
+Fifteen false-hard edges were removed and demoted into `benefits_from` / default guidance where useful; one missing hard edge, `N1 → N11`, was added.
+
+O11 no longer has a whole-Block N11 gate. N11 is retained only as bounded reactivation benefit for the root-vs-named-nerve entrapment closure in `O11-LG05`.
+
+The low-switching `default_route` remains unchanged.
+
+### Objects explicitly unchanged by the repair
+
+```text
+27 Block / 356 KP medical identity
+128 Logic Groups and membership
+LG jobs / goals / closures
+Source-contact mode and Source units
+Visual contract
+negative-space rules
+five PSRs
+final System reconstruction
+```
+
+The repaired candidate is still **candidate**, not accepted Learning authority.
+
+---
+
+## Fresh re-audit boundary
+
+Earliest responsible Learning object remains:
 
 ```text
 content/xizong/knowledge/learner/d-neuro-sensory-motor-orthopedics-learning.json
   → system_route.requires
-  → coupled benefits_from / flex_rule consistency
+  → directly coupled benefits_from / flex_rule consistency
 ```
 
-Keep frozen unless directly contradicted by the repair:
+Fresh auditor must re-test at minimum:
+
+```text
+hard DAG over-gating + under-gating
+N11 requires N1 + N5 + N8
+O11 whole-Block independence + LG05-only N11 reactivation
+default-route flexibility remains guidance, not legality
+no regression to Source-contact continuity / LG topology / Visual / compression
+```
+
+Keep frozen unless directly contradicted by that audit:
 
 - 27 Block / 356 KP medical identity;
 - 128 Logic Groups and membership;
@@ -148,37 +211,25 @@ Keep frozen unless directly contradicted by the repair:
 - five PSRs;
 - final System reconstruction.
 
-The current candidate remains **candidate**, not accepted Learning authority.
+Builder self-review cannot promote L.
 
 ---
 
-## Repair entrypoint
+## Current re-audit entrypoint
 
 Use:
 
-`content/xizong/knowledge/learner/D_PHASE6D_READINESS_DAG_REPAIR_BRIEF.md`
-
-Minimum known direction:
-
 ```text
-false-hard edges → benefits_from / default guidance
-N11 hard readiness → include N1 + N5 + N8
-O11 whole-Block N11 gate → remove; keep local entrapment reactivation semantics
+D CURRENT
+→ D ACCEPTANCE
+→ D_PHASE6C_FRESH_INDEPENDENT_L_AUDIT.md
+→ D_PHASE6D_READINESS_DAG_REPAIR_BRIEF.md
+→ D_PHASE6D_READINESS_DAG_REPAIR_RECEIPT.md
+→ repaired d-neuro-sensory-motor-orthopedics-learning.json
+→ NEW FRESH INDEPENDENT L RE-AUDIT
 ```
 
-The low-switching default route may remain unchanged if the builder confirms no new contradiction.
-
-Required builder exit:
-
-```text
-repaired candidate
-+ updated DAG accounting
-+ explicit edge-by-edge delete test receipt
-+ no opportunistic LG/Source/Visual/compression redesign
-→ FRESH RE-AUDIT REQUIRED
-```
-
-Builder self-review cannot promote L.
+Do not enter Content / Projection / Runtime / Evidence before the repaired L candidate is independently accepted.
 
 ---
 
@@ -193,6 +244,7 @@ Builder self-review cannot promote L.
 - D Learning candidate → `content/xizong/knowledge/learner/d-neuro-sensory-motor-orthopedics-learning.json`
 - fresh independent L audit → `content/xizong/knowledge/learner/D_PHASE6C_FRESH_INDEPENDENT_L_AUDIT.md`
 - repair brief → `content/xizong/knowledge/learner/D_PHASE6D_READINESS_DAG_REPAIR_BRIEF.md`
+- repair receipt → `content/xizong/knowledge/learner/D_PHASE6D_READINESS_DAG_REPAIR_RECEIPT.md`
 
 ### Acceptance Truth
 
@@ -206,16 +258,17 @@ Private real learner/browser/conversation evidence only.
 
 ## Fresh-chat continuation
 
-Next builder lane:
+Next audit lane:
 
 ```text
 D CURRENT
 → D ACCEPTANCE
-→ D_PHASE6C_FRESH_INDEPENDENT_L_AUDIT.md
-→ D_PHASE6D_READINESS_DAG_REPAIR_BRIEF.md
-→ repair only readiness DAG
-→ self-accounting
-→ new fresh independent L re-audit
+→ Phase 6C failure receipt
+→ Phase 6D repair brief + repair receipt
+→ repaired candidate
+→ independently reconstruct expected readiness
+→ adversarial delete/add-edge testing
+→ fresh L verdict
 ```
 
-Do not enter Content / Projection / Runtime / Evidence before the repaired L candidate is independently accepted.
+Do not treat Phase 6D SELF evidence as L acceptance. Do not enter Content / Projection / Runtime / Evidence unless the new independent audit promotes L.
