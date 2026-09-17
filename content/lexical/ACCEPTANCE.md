@@ -10,11 +10,11 @@ K  PASS — full catalog
 L  PASS — learner-controlled vNext learning logic
 P  PASS — Current 7,946-owner generation
 R  PASS_WITH_DEBT — Current executable learner loop
-E  BLOCKED — fresh Current re-acceptance active
+E  PASS — Current evidence model and identity evolution
 U  UNTESTED
 ```
 
-Allowed claim: Source/Natural Owner boundaries, full-catalog K quality, Current learner projection and the Current executable Lexical learning loop are learner-ready for the audited generation. R has one named non-blocking product debt; E is now the active downstream acceptance gate. Real learner U remains separate.
+Allowed claim: Source/Natural Owner boundaries, full-catalog K quality, Current learner projection, Current executable Runtime, and Current Evidence semantics are learner-ready for the audited generation. R retains one named non-blocking product debt. Real learner U remains separate and untested.
 
 Artifact Truth, Acceptance Truth and private Learner Truth remain separate. No engineering/browser evidence creates familiarity, mastery, Coverage progress, Repair debt or U.
 
@@ -40,7 +40,7 @@ same-owner Form boundary browser         PASS
 Astro build                               PASS
 ```
 
-Durable evidence lives under `content/lexical/acceptance/full-catalog-k-*.json`. K PASS means the current 7,946-owner catalog is a trustworthy learning asset; it does not mean every owner requires Depth or has been learned.
+Durable K evidence lives under `content/lexical/acceptance/full-catalog-k-*.json`. K PASS means the current catalog is a trustworthy learning asset; it does not mean every owner requires Depth or has been learned.
 
 ## L — preserved PASS
 
@@ -62,7 +62,7 @@ Unknown/Fuzzy may open Depth now but cannot manufacture future whole-card Repair
 
 Fresh re-acceptance authority: Issue #323 and `content/lexical/acceptance/PRE_CURRENT_REACCEPTANCE_AUDIT_20260917.md`.
 
-P was re-judged against the current admitted generation rather than hypothetical future content. Current learner projection provides Study / Continue, Search, Repair and Challenge; Mastered/Known/Fuzzy/Unknown routing; non-leaking Recall → Reveal; Core / senses / secondary senses; constructions / fixed collocations; Relation/confusable; Form/identity; exact local `+`; sparse/rich adaptive shapes; keyboard traversal and Coverage continuation.
+Current learner projection provides Study / Continue, Search, Repair and Challenge; Mastered/Known/Fuzzy/Unknown routing; non-leaking Recall → Reveal; Core / senses / secondary senses; constructions / fixed collocations; Relation/confusable; Form/identity; exact local `+`; sparse/rich adaptive shapes; keyboard traversal and Coverage continuation.
 
 Final P closure PR #324 landed after latest-main synchronization. Its final head passed Governance, Shard Tools, Current Runtime and Lexical Functional First run `35164291800`, including full-catalog projection verification and every representative browser journey.
 
@@ -72,50 +72,47 @@ No known Current projection defect changes the learner path, leaks protected ans
 
 Fresh re-acceptance authority: Issue #323 and `content/lexical/acceptance/R_CURRENT_REACCEPTANCE_AUDIT_20260917.md`.
 
-Current Runtime already executes the material learning loop:
+Current Runtime executes Coverage, Fast Pass/Depth, exact local Repair, shared-ledger projection, Challenge, Return, exact English handoff and refresh/resume without a due wall or mandatory Repair-clearing gate. PR #326 landed after exact-head Runtime / Functional First validation.
 
-- Home defaults to Study / Continue; Search, Repair and Challenge are separate optional modes;
-- Coverage cursor persists independently of Repair eligibility;
-- Known/Mastered Fast Pass and Fuzzy/Unknown Depth routing execute directly;
-- exact local `+` admits target-level Repair rather than whole-card debt;
-- one shared evidence ledger/reducer owns Repair projection;
-- Home and Word-page Repair reflect the same ACTIVE targets;
-- manual clear is dormancy/agency rather than mastery;
-- Challenge imports an explicit selected packet, supports answer/repair/reconstruction/continue, and resumes exact packet progress after refresh;
-- meaningful Return evidence is exportable;
-- exact English → Lexical evidence can activate/dormancy the same target;
-- unrelated target evidence does not clear another target;
-- no due/overdue wall or mandatory all-Repair-before-Coverage rule exists.
+Named non-blocking debt:
 
-### Named non-blocking debt
+> The Repair tab exposes the full ACTIVE inventory rather than a first-class “recommended small current subset + why now” view.
 
-The Repair tab currently exposes the full ACTIVE inventory rather than a first-class “recommended small current subset + why now” view.
+This does not block R: Repair is optional, Coverage stays available, no due semantics exist, and Chat can already compile an explicit bounded Challenge packet. This debt must not be “fixed” with a calendar scheduler, fixed quota, overdue wall or mandatory clearing rule.
 
-This does **not** block R because:
+## E — Current-generation PASS
 
-1. Repair is an optional tab, not the default session;
-2. Coverage can continue without clearing ACTIVE targets;
-3. the UI has no due semantics or mandatory Repair gate;
-4. Challenge consumes an explicit packet, so Chat can already compile a small useful subset from fresh evidence/capacity;
-5. the Learning Contract explicitly assigns adaptive selection/diagnosis to Chat rather than requiring a fixed Astro scheduler.
+Fresh re-acceptance authority: Issue #323 and `content/lexical/acceptance/E_CURRENT_REACCEPTANCE_AUDIT_20260917.md`.
 
-Therefore this is product/UX debt only. It must not be “fixed” by inventing a calendar scheduler, fixed quota, overdue wall or mandatory clearing rule.
+The integrated Evidence model already preserves exact target identity, replay idempotency, event-ID conflict quarantine, occurrence ordering, card-routing / Repair separation, qualified English/Challenge attribution, demand-matched dormancy, reconstruction limits, question/semantic correction and recomputation, precise dormancy/reactivation, and no calendar-generated debt.
 
-`R = PASS_WITH_DEBT` means the intended Current executable learner journey works correctly; the named debt may improve convenience but does not alter the claimed learning behavior.
+Fresh Current attack found and repaired one real identity-evolution blocker. Current Word owners already contain lifecycle truth in `identity_refs.senses`; for example `abnormal@7` records:
 
-## E — BLOCKED / fresh Current re-acceptance active
+- `sense:abnormal:3271d9f4317951c3` as `merged` into active `sense:abnormal:98807d28524a5607`;
+- `sense:abnormal:eb663cac3ad15b02` as `deprecated` with no successor.
 
-`EVIDENCE_MEMORY_CONTRACT.md` owns event semantics. The integrated reducer already proves stable exact target keys, idempotent replay, event-ID conflict quarantine, occurrence ordering, card-routing / Repair separation, qualified attribution, demand-matched dormancy, reconstruction limits, correction/recomputation, dormancy/reactivation and no calendar-generated debt.
+Current Evidence now follows these rules:
 
-The fresh E attack must now resolve one concrete Current risk rather than preserving the old bounded label by inertia:
+- historical learner events remain immutable history;
+- explicit `merged → successor` lineage folds derived Repair state onto the exact Current successor;
+- deprecated/no-successor identity is frozen and creates no actionable Repair debt;
+- conflicting or cyclic lineage fails closed rather than guessing;
+- correction/recomputation may cross an explicit merge when both identities resolve to the same Current target;
+- Home and direct Word entry reconcile identity before projecting Repair, so users do not need to visit Home first.
 
-> Canonical sense lifecycle records already contain `active`, `deprecated`, `merged` and explicit `merged_into_sense_id`. Persisted evidence targeting an older stable sense must either follow an explicit valid Current lineage or fail closed/quarantine. It must never silently attach to a neighboring/current sense by array position or spelling, and it must not remain as invisible actionable debt with no Current learner target.
+No parallel semantic owner was invented: lineage comes from the existing Current Word owner and is stored in the private ledger only as identity-projection metadata, not as learner evidence.
 
-No E PASS is implied until this identity-evolution path is explicitly verified and, if necessary, repaired.
+On PR #327 repair head `9c12c5e8d57410dca5e373640448cbe248c827d9`:
 
-## Bounded Functional First proof — preserved PASS
+- LexicalOS Current Runtime run `35165384491` — PASS, including 7,946 Current hydration and Astro build;
+- Lexical Functional First run `35165384498` — PASS full chain;
+- new real-owner identity-lineage reducer gate — PASS;
+- new real-browser identity-lineage journey — PASS;
+- all prior full-catalog, Form, accepted-fixture, English handoff, ledger projection, Challenge resume and sparse/rich gates — PASS.
 
-Existing browser/runtime evidence remains valid: non-leaking Recall, Fast Pass, local Repair, shared reducer projection, Challenge resume, exact English handoff, form identity, sparse/rich content shapes, correction/recomputation and evidence-qualified dormancy are all implemented on Current surfaces.
+Therefore no known Current Evidence defect now loses, guesses, misattributes or invisibly preserves actionable learner debt across the admitted identity lifecycle.
+
+Future newly admitted lifecycle shapes require their own bounded evidence when introduced; hypothetical future shapes do not retroactively block this Current E claim.
 
 ## U — UNTESTED
 
@@ -123,7 +120,7 @@ Only real private learner use can establish U. Browser journeys and synthetic fi
 
 The strongest current learner-facing claim is:
 
-> **LexicalOS Current Projection and Runtime are learner-ready; Evidence identity evolution is the active engineering acceptance gate; real learner U remains untested.**
+> **LexicalOS Current Artifact / Learning / Projection / Runtime / Evidence chain is engineering-ready for learner use; real learner U is the remaining untested evidence class.**
 
 ## Owners
 

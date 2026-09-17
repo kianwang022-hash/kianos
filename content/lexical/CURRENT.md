@@ -13,13 +13,14 @@ active Content execution stage:        NONE
 full-catalog K acceptance:             PASS — Issue #56
 Projection acceptance:                 PASS — Issue #323
 Runtime acceptance:                    PASS_WITH_DEBT — Issue #323
-active downstream acceptance gate:     E — Evidence, Issue #323
+Evidence acceptance:                   PASS — Issue #323
+active Lexical engineering gate:       NONE
 Learner validation:                    U — UNTESTED
 remaining catalog:                     NONE
 ```
 
 Catalog Content execution: **COMPLETE — 7946 / 7946 owners closed post-audit**.
-Full-catalog K is **PASS — 7946 / 7946 accepted, BLOCKED 0**. Current Projection is **PASS** and Current Runtime is **PASS_WITH_DEBT** for the admitted generation.
+Full-catalog K is **PASS — 7946 / 7946 accepted, BLOCKED 0**. Current Projection is **PASS**, Runtime is **PASS_WITH_DEBT**, and Evidence is **PASS** for the admitted generation.
 
 Production/Audit, Content, Projection/Runtime/Evidence acceptance and private learner state are separate concepts. Engineering closure never manufactures learner progress.
 
@@ -37,7 +38,7 @@ Do not restart broad Production Review, Independent Audit, Content execution or 
 
 ## 2｜#323 P/R/E Current re-acceptance
 
-Issue **#323** is the active downstream acceptance chain:
+Issue **#323** reconciles the dependency chain:
 
 `P → R → E → U`
 
@@ -45,38 +46,41 @@ Issue **#323** is the active downstream acceptance chain:
 
 Fresh audit: `content/lexical/acceptance/PRE_CURRENT_REACCEPTANCE_AUDIT_20260917.md`.
 
-P was re-judged against the current admitted generation rather than hypothetical future content. Final P closure PR #324 landed after latest-main synchronization and passed Governance, Shard Tools, Current Runtime and full Functional First browser validation.
-
-Current learner projection preserves Study/Continue, Search, Repair, Challenge, Recall→Reveal, Fast Pass/Depth routing, exact local `+`, sparse/rich shapes, Relation/Form identity and Coverage continuation without a known projection blocker.
+PR #324 accepted the Current 7,946-owner Projection after latest-main synchronization and exact-head Governance / Runtime / Functional First validation. Current learner projection preserves Study/Continue, Search, Repair, Challenge, Recall→Reveal, Fast Pass/Depth routing, exact local `+`, sparse/rich shapes, Relation/Form identity and Coverage continuation without a known projection blocker.
 
 ### R — CLOSED / PASS_WITH_DEBT
 
 Fresh audit: `content/lexical/acceptance/R_CURRENT_REACCEPTANCE_AUDIT_20260917.md`.
 
-Current Runtime already executes Coverage, Fast Pass/Depth, exact local Repair, shared-ledger projection, Challenge, Return, English handoff and resume without a due wall or forced Repair-clearing gate.
-
-Fresh attack found no blocking executable-path defect. The Repair tab does expose all ACTIVE targets, but it is an optional inventory surface rather than a mandatory session queue; Home still defaults to Study/Continue and Chat can compile a bounded Challenge packet from any useful subset.
+PR #326 established that Current Runtime already executes Coverage, Fast Pass/Depth, exact local Repair, shared-ledger projection, Challenge, Return, English handoff and resume without a due wall or forced Repair-clearing gate.
 
 Named non-blocking debt:
 
 > No first-class “recommended small Repair subset + why now” presentation exists yet.
 
-This is optional product/UX debt only. It must not be replaced with calendar scheduling, fixed quotas or an overdue wall.
+The Repair tab is an optional ACTIVE inventory, not a mandatory due queue. Chat can already compile a bounded Challenge subset. Do not replace this debt with calendar scheduling, fixed quotas or an overdue wall.
 
-### E — ACTIVE
+### E — CLOSED / PASS
 
-Freshly re-audit Current evidence semantics, concentrating on identity evolution rather than re-testing already-proven basic reducer behavior.
+Fresh audit: `content/lexical/acceptance/E_CURRENT_REACCEPTANCE_AUDIT_20260917.md`.
 
-Current reducer already proves exact target keys, idempotent replay, conflict quarantine, occurrence ordering, qualified attribution, demand matching, correction/recomputation, dormancy/reactivation and no calendar-generated debt.
+Fresh attack found a real identity-evolution defect and repaired it rather than merely changing the label.
 
-Concrete active attack:
+Real Current fixture `abnormal@7` proves both lifecycle cases already exist in Word-owner authority:
 
-- canonical sense registry contains lifecycle states such as `active`, `deprecated`, `merged` and `merged_into_sense_id`;
-- persisted evidence may refer to an older stable sense ID;
-- Current Evidence must either resolve explicit valid lineage or fail closed/quarantine/freeze;
-- it must not guess by spelling/index, and it must not leave invisible actionable Repair debt attached to a target that no longer exists in the Current learner projection.
+- old sense `sense:abnormal:3271d9f4317951c3` explicitly `merged` into active `sense:abnormal:98807d28524a5607`;
+- old sense `sense:abnormal:eb663cac3ad15b02` is `deprecated` with no successor.
 
-Use real registry lifecycle data in the acceptance test. Do not invent a parallel identity owner.
+Current Evidence now projects owner-owned identity lineage into the private ledger before Repair derivation:
+
+- explicit merge follows the exact successor;
+- deprecated/no-successor freezes and creates no actionable Repair;
+- conflicts/cycles fail closed;
+- historical learner events are not rewritten;
+- correction/recomputation can resolve across an explicit merge;
+- direct Word entry and Home use the same reconciliation semantics.
+
+On repair head `9c12c5e8d57410dca5e373640448cbe248c827d9`, Current Runtime run `35165384491` and Functional First run `35165384498` passed, including the new static and real-browser identity-lineage gates plus every existing Lexical regression journey.
 
 ### U — UNTESTED
 
@@ -84,11 +88,11 @@ Only real private learner use can establish U. Browser/synthetic acceptance does
 
 ## Exact next action
 
-**Issue #323 / E — Current Evidence identity-evolution acceptance.**
+The shared Lexical P/R/E engineering acceptance cursor is **closed pending final #327 integration/readback**. No new Lexical Content/K/P/R/E engineering stage is authorized by this file.
 
-Build the smallest durable test around real Current/registry lifecycle cases, beginning with an actual merged sense such as the canonical `abnormal` merge. Determine whether current evidence is safely resolved or safely frozen. If a real blocker exists, repair the evidence layer only; do not reopen Content semantics.
+After #327 lands and main readback confirms P PASS / R PASS_WITH_DEBT / E PASS, close Issue #323. The remaining evidence class is real learner `U`, which begins only through actual private study/use rather than an engineering acceptance project.
 
-After E is reconciled, Issue #323 can close while U remains a separate real-learner gate.
+Future concrete defects may reopen the smallest owning layer. Do not invent work from historical BLOCKED wording, old branches or hypothetical future content types.
 
 ## Restart boundary
 
@@ -100,8 +104,9 @@ main@HEAD
 → K = PASS
 → P = PASS
 → R = PASS_WITH_DEBT
-→ #323 E = ACTIVE
+→ E = PASS
 → U = UNTESTED
+→ no active Lexical engineering gate
 ```
 
 Never infer a new task from an old Issue title, branch alias, historical audit count or prior Chat narrative. Continue Current.

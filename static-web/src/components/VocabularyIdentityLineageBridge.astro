@@ -1,0 +1,59 @@
+---
+const { lineage = [] } = Astro.props;
+const payload = JSON.stringify(Array.isArray(lineage) ? lineage : []).replace(/</g, '\\u003c');
+---
+<div data-vocab-identity-lineage-bridge hidden>
+  <script type="application/json" data-vocab-identity-lineage set:html={payload}></script>
+</div>
+<script is:inline>
+  (() => {
+    const bridge = document.querySelector('[data-vocab-identity-lineage-bridge]');
+    if (!(bridge instanceof HTMLElement)) return;
+    let lineage = [];
+    try { lineage = JSON.parse(bridge.querySelector('[data-vocab-identity-lineage]')?.textContent || '[]'); } catch {}
+    if (!Array.isArray(lineage) || !lineage.length) return;
+
+    const storageKey = 'kianos-lexical-evidence-ledger-v2';
+    let ledger;
+    try { ledger = JSON.parse(localStorage.getItem(storageKey) || 'null'); } catch { ledger = null; }
+    if (!ledger || ledger.schema !== 'kianos.lexical.evidence_ledger.v2') {
+      ledger = { schema: 'kianos.lexical.evidence_ledger.v2', events: [], conflicts: [], identity_lineage: {} };
+    }
+    if (!ledger.identity_lineage || typeof ledger.identity_lineage !== 'object' || Array.isArray(ledger.identity_lineage)) {
+      ledger.identity_lineage = {};
+    }
+
+    for (const raw of lineage) {
+      const wordId = String(raw?.word_id || '');
+      const kind = String(raw?.target_kind || 'sense');
+      const fromTargetId = String(raw?.from_target_id || '');
+      const status = String(raw?.status || '').toLowerCase();
+      const toTargetId = raw?.to_target_id ? String(raw.to_target_id) : null;
+      if (!wordId || !kind || !fromTargetId || status === 'active') continue;
+      const fromKey = `${wordId}|${kind}|id:${fromTargetId}`;
+      const candidate = status === 'merged' && toTargetId && toTargetId !== fromTargetId
+        ? {
+            resolution: 'REMAP', source: 'current_identity_refs', lifecycle_status: status,
+            word_id: wordId, target_kind: kind, from_target_id: fromTargetId,
+            to_target_id: toTargetId, target_key: `${wordId}|${kind}|id:${toTargetId}`
+          }
+        : {
+            resolution: 'FROZEN', source: 'current_identity_refs', lifecycle_status: status || 'unknown',
+            word_id: wordId, target_kind: kind, from_target_id: fromTargetId,
+            to_target_id: null, target_key: null,
+            reason: status === 'merged' ? 'MERGED_WITHOUT_VALID_SUCCESSOR' : 'NO_EXPLICIT_CURRENT_SUCCESSOR'
+          };
+      const existing = ledger.identity_lineage[fromKey];
+      if (existing && JSON.stringify(existing) !== JSON.stringify(candidate)) {
+        ledger.identity_lineage[fromKey] = {
+          resolution: 'FROZEN', source: 'current_identity_refs', lifecycle_status: 'conflict',
+          word_id: wordId, target_kind: kind, from_target_id: fromTargetId,
+          to_target_id: null, target_key: null, reason: 'LINEAGE_CONFLICT'
+        };
+      } else {
+        ledger.identity_lineage[fromKey] = candidate;
+      }
+    }
+    try { localStorage.setItem(storageKey, JSON.stringify(ledger)); } catch {}
+  })();
+</script>

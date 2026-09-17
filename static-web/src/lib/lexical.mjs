@@ -71,6 +71,19 @@ function wordOwnerPath(wordManifest, ordinal) {
   return template.replace('{ordinal:04d}', String(ordinal).padStart(4, '0'));
 }
 
+function senseLineageForOwner(owner) {
+  const refs = Array.isArray(owner?.identity_refs?.senses) ? owner.identity_refs.senses : [];
+  return refs
+    .filter((ref) => ref?.sense_id && String(ref.status || '').toLowerCase() !== 'active')
+    .map((ref) => ({
+      word_id: owner.word_id,
+      target_kind: 'sense',
+      from_target_id: String(ref.sense_id),
+      status: String(ref.status || 'unknown').toLowerCase(),
+      to_target_id: ref.merged_into_sense_id ? String(ref.merged_into_sense_id) : null
+    }));
+}
+
 function hydrateRelations(owner, record) {
   const refs = Array.isArray(owner?.relation_refs) ? [...owner.relation_refs] : [];
   const relationPaths = new Set();
@@ -154,7 +167,8 @@ export function listLexicalWordSummaries() {
       coreEn: record.core_concept?.core_meaning_en || '',
       senseCount: senses.length,
       promptCount: constructions.length + fixedPatternCount,
-      relationCount
+      relationCount,
+      senseLineage: senseLineageForOwner(owner)
     };
   });
 }
@@ -183,6 +197,7 @@ export function loadLexicalWordByOrdinal(ordinal) {
   const record = clone(owner.record);
   const relationPaths = hydrateRelations(owner, record);
   const sourceHash = sha256(stableJson({ owner: record, relationPaths }));
+  const senseLineage = senseLineageForOwner(owner);
 
   return {
     objectId: owner.word_id,
@@ -191,6 +206,7 @@ export function loadLexicalWordByOrdinal(ordinal) {
     sourcePath,
     sourceHash,
     relationPaths,
+    senseLineage,
     shardEntries: [{
       objectId: owner.word_id,
       ordinal,
