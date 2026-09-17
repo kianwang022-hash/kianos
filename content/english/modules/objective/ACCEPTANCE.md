@@ -8,6 +8,9 @@ This file owns current **Acceptance Truth** for the Objective learner-facing sco
 
 ---
 
+> **Architecture-v2 interpretation:** the S/K/L/P/R/E labels below are preserved as historical Acceptance dimensions only. They do not define Current architecture layers or canonical owners. Current ownership remains Rule / Model → Content / Visual / Engineering; this file owns Acceptance Truth only.
+
+
 ## Gate status
 
 | Gate | Status | Current evidence / boundary |
@@ -187,11 +190,12 @@ S PASS
 **Artifact Truth**
 
 - shared learning owner → `content/english/modules/objective-learning.md`
-- runtime semantics → `content/english/modules/objective-runtime.md`
-- evidence semantics → `content/english/modules/objective-evidence-runtime.md`
-- task contracts → `reading-a.md`, `cloze.md`, `reading-b.md`
+- shared Rule / Model → `content/english/LEARNING_CONTRACT.md`
+- shared learning Content → `content/english/modules/objective-learning.md`
+- task Content → `reading-a.md`, `cloze.md`, `reading-b.md`
 - Current source → `content/english/source/`
-- learner runtime / validators → Objective/Reading/Cloze surfaces under `static-web/`
+- Current Engineering → `SYSTEM_CONTRACT.md` + Objective/Reading/Cloze runtime, adapters and validators under `static-web/`
+- historical accepted runtime/evidence snapshots → `content/english/modules/objective-runtime.md`, `objective-evidence-runtime.md` (retired compatibility notes; not Current owners)
 
 **Acceptance Truth** → this file.  
 **Learner Truth** → private learner/runtime state only.
