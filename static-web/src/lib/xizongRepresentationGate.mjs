@@ -26,6 +26,21 @@ function array(value) {
   return Array.isArray(value) ? value : [];
 }
 
+function representation(kind, reason) {
+  return {
+    schema: XIZONG_REPRESENTATION_SCHEMA,
+    kind,
+    visible: true,
+    reason
+  };
+}
+
+export function splitXizongExplicitChain(value) {
+  const raw = text(value);
+  if (!raw.includes('→')) return raw ? [raw] : [];
+  return raw.split('→').map((item) => text(item)).filter(Boolean);
+}
+
 function explicitRepresentation(object) {
   const kind = upper(object?.presentation?.representation || object?.representation_hint);
   if (!KIND_SET.has(kind)) return null;
@@ -219,5 +234,77 @@ export function composeXizongFrameworkRepresentation(objects, { stage = 'BLOCK_O
     // A renderer may compose adjacent objects into one learner surface. This plan
     // deliberately does not declare one component per object.
     componentEntitlement: false
+  };
+}
+
+// System Framework consumes canonical System semantics directly. The gate chooses
+// only learner representation; it does not infer new medical relations or reorder
+// Current-owned arrays. Explicit ordered arrays/chains stay simple chains, explicit
+// formulas stay formula strips, while judgment axes and dependency DAGs stay text.
+export function composeXizongSystemFrameworkRepresentation(system) {
+  const spineItems = array(system?.mentalModel?.spine).map(text).filter(Boolean);
+  const parallelItems = array(system?.mentalModel?.parallelControls).map(text).filter(Boolean);
+  const variableRows = array(system?.coreVariables).map((item) => ({
+    id: text(typeof item === 'string' ? '' : item?.id),
+    label: text(typeof item === 'string' ? item : item?.label || item?.id),
+    role: text(typeof item === 'string' ? '' : item?.role)
+  })).filter((item) => item.label);
+  const formulaRows = array(system?.coreRelations).map((item) => text(typeof item === 'string' ? item : item?.formula || item?.relation || item?.label)).filter(Boolean);
+  const judgmentRows = array(system?.judgmentAxes).map(text).filter(Boolean);
+  const dependencyRows = array(system?.dependencyDag).map(text).filter(Boolean);
+  const failures = array(system?.failureModes).map((mode) => {
+    const chain = text(mode?.chain);
+    const chainItems = splitXizongExplicitChain(chain);
+    return {
+      id: text(mode?.id),
+      label: text(mode?.label || mode?.id),
+      chain,
+      chainItems,
+      representation: chainItems.length >= 2
+        ? representation('SIMPLE_CHAIN', 'CURRENT_EXPLICIT_FAILURE_CHAIN')
+        : representation('STRUCTURED_TEXT', 'CURRENT_FAILURE_TEXT')
+    };
+  });
+
+  return {
+    schema: XIZONG_REPRESENTATION_SCHEMA,
+    kind: 'SYSTEM_FRAMEWORK_PLAN',
+    componentEntitlement: false,
+    graphEntitlement: false,
+    mission: {
+      text: text(system?.mission),
+      representation: representation('STRUCTURED_TEXT', 'CURRENT_SYSTEM_MISSION')
+    },
+    motherModel: {
+      text: text(system?.mentalModel?.motherModel),
+      representation: representation('STRUCTURED_TEXT', 'CURRENT_MOTHER_MODEL')
+    },
+    spine: {
+      items: spineItems,
+      representation: spineItems.length >= 2
+        ? representation('SIMPLE_CHAIN', 'CURRENT_ORDERED_SYSTEM_SPINE')
+        : representation('STRUCTURED_TEXT', 'CURRENT_SYSTEM_SPINE_TEXT')
+    },
+    parallelControls: {
+      items: parallelItems,
+      representation: representation('STRUCTURED_TEXT', 'CURRENT_PARALLEL_CONTROLS')
+    },
+    variables: {
+      rows: variableRows,
+      representation: representation('STRUCTURED_TABLE', 'CURRENT_VARIABLE_LABEL_ROLE_TABLE')
+    },
+    formulas: formulaRows.map((formula) => ({
+      formula,
+      representation: representation('FORMULA_STRIP', 'CURRENT_EXPLICIT_CORE_RELATION')
+    })),
+    judgmentAxes: {
+      items: judgmentRows,
+      representation: representation('STRUCTURED_TEXT', 'SAFE_JUDGMENT_AXIS_TEXT')
+    },
+    failures,
+    dependencies: {
+      items: dependencyRows,
+      representation: representation('STRUCTURED_TEXT', 'SAFE_DEPENDENCY_TEXT_NO_GRAPH')
+    }
   };
 }

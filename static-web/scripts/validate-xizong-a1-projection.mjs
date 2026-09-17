@@ -36,7 +36,15 @@ assert(guard.includes("target.closest('[data-reveal-recall]')"), 'A1_P_EARLY_SYS
 // P4 — System Exit is explicitly later-stage; first-learning System surface stays orientation-first.
 assert(systemPage.includes('后面阶段 · System Exit'), 'A1_P_SYSTEM_EXIT_NOT_LATER_STAGE');
 assert(systemPage.includes('学完整个系统后，再做 System Recall + 系统真题'), 'A1_P_SYSTEM_EXIT_TIMING_COPY_MISSING');
-assert(system.includes('Mother Model') && system.includes('Failure Modes') && system.includes('Selected Block'), 'A1_P_SYSTEM_ORIENTATION_INCOMPLETE');
+assert(
+  system.includes('data-system-framework-plan="purpose-first"') &&
+    system.includes('data-representation-gate={framework.schema}') &&
+    system.includes('data-system-section="mother"') &&
+    system.includes('data-system-section="failure"') &&
+    system.includes('data-selected-title') &&
+    system.includes('进入这个 Block'),
+  'A1_P_SYSTEM_ORIENTATION_INCOMPLETE'
+);
 
 // P5 — governance/provenance metadata stays out of Xizong learner chrome.
 assert(base.includes('body.surfaceBody-xizong .sourceDock'), 'A1_P_GOVERNANCE_DOCK_NOT_HIDDEN');

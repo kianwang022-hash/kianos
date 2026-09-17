@@ -10,6 +10,7 @@ on:
       - 'static-web/src/pages/qa/xizong-workspace/**'
       - 'static-web/scripts/test-xizong-representative-workspace.mjs'
       - 'static-web/scripts/test-xizong-visible-type-floor.mjs'
+      - 'static-web/scripts/test-xizong-system-workspace.mjs'
       - '.github/workflows/xizong-representative-workspace.yml'
   workflow_dispatch:
 
@@ -19,7 +20,7 @@ permissions:
 jobs:
   representative-workspace:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 14
     steps:
       - name: Checkout Current
         uses: actions/checkout@v4
@@ -41,9 +42,12 @@ jobs:
         run: |
           npm install --no-save --no-audit --no-fund playwright@1.56.1
           npx playwright install --with-deps chromium
-      - name: Execute A1 A2 A3 B C representative Workspace acceptance
+      - name: Execute A1 A2 A3 B C representative Block Workspace acceptance
         working-directory: static-web
         run: node scripts/test-xizong-representative-workspace.mjs
+      - name: Execute A1 A2 A3 purpose-first System Workspace acceptance
+        working-directory: static-web
+        run: node scripts/test-xizong-system-workspace.mjs
       - name: Execute visible learner type-floor acceptance
         working-directory: static-web
         run: node scripts/test-xizong-visible-type-floor.mjs
@@ -54,5 +58,9 @@ jobs:
           name: xizong-representative-workspace-${{ github.sha }}
           path: |
             static-web/.qa/xizong-representative-workspace.json
+            static-web/.qa/xizong-system-workspace.json
+            static-web/.qa/xizong-system-a1.png
+            static-web/.qa/xizong-system-a2.png
+            static-web/.qa/xizong-system-a3.png
             static-web/.qa/xizong-visible-type-floor.json
           retention-days: 14
