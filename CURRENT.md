@@ -1,140 +1,106 @@
 # KianOS Root Current
 
 **Repository:** `kianwang022-hash/kianos`  
-**Role:** root Work Cursor + scope router
+**Role:** root engineering router + Control Tower entry
 
-`CURRENT.md` is a navigation/control surface, not a Truth owner and not project history.
+`CURRENT.md` is not project history, learner progress, or a second Truth database.
 
 ---
 
 ## Root Work Cursor
 
-**Active scope:** Parallel learner-facing convergence under the accepted shared UI rules  
-**Current stage:** the 4173-style shared Shell is on `main`; durable shared ownership is now explicit, while lane work proceeds independently by owner  
-**Blocker:** none at root; a shared implementation path may still have only one active writer at a time  
-**Next action:** run the current parallel assignments below. Each lane edits only its owned surface. Shared-owner changes route through `AUTHORITY_INHERITANCE_CONTRACT.md` + `AUTHORITY_OWNERSHIP.json` rather than becoming a subject-local fork.
+**Active root-level program:** learner-facing UI rebuild from the shared visual foundation downward  
+**Current stage:** `L1 — Shared Visual Foundation`  
+**Blocker:** none at root  
+**Next:** establish and prove the smallest shared visual foundation before reopening Shared Shell / Home / subject visual finalization.
 
-### Current parallel assignment
+Current UI build order:
 
-| Lane | Current responsibility | Shared-shell rule |
-| --- | --- | --- |
-| English | **English UI architecture + legacy `4173` visual convergence**; this Chat is also the **current writer** for shared Shell changes when cross-lane Shell work is required | Shared Shell is a **Shared Platform authority**, not English semantic ownership. English may modify the registered shared implementation owner during this assignment, then land it on `main` for all lanes to consume. |
-| Xizong | **Xizong learner-facing UI convergence** in the current Chat | Xizong consumes the shared owner from `main`; it must not independently recreate or fork the global `K` rail / Base Shell. |
-| Politics | Continue **explicit content → learner-surface mapping** (#352 / current Politics mapping lane) | Do not start broad Politics UI redesign until the mapping owner is stable enough for downstream consumption. |
-| Lexical | No new broad parallel UI rewrite while current convergence is active | Preserve accepted Lexical visual proof; consume Shared Platform owners without reopening Lexical semantics. |
+```text
+L1 Shared Visual Foundation
+→ L2 Shared Shell
+→ L3 Home / cross-product surfaces
+→ L4 Subject visual language
+→ L5 Surface families
+→ L6 page/state exceptions
+```
 
-Hard coordination rule:
+Hard rule:
 
-> **Shared Platform has durable owners; each shared implementation path has at most one current writer. Subject surfaces may refine locally but may not create a competing shared Truth.**
+> **A lower UI layer may not redefine an unresolved higher-layer visual decision. Human visual acceptance is required before treating a layer as visually closed.**
 
-If a subject needs a change to Shared Shell / global nav / shared UI primitives, do not patch it locally. Route the shared change to the current writer, land it on `main`, then rebase/sync the subject work and continue.
-
-Top-level governance is accepted and remains frozen. `AUTHORITY_INHERITANCE_CONTRACT.md` makes the existing architecture rule executable: lower scopes may refine higher scopes, never contradict or duplicate them.
+This UI program does **not** freeze independent content/learning construction. Xizong D/E/F and other real domain work may continue from their own Current owners when they do not depend on the UI layer being rebuilt.
 
 ---
 
-## Root authority
+## User-intent boundary
 
-- project requirements / invariants → `PROJECT_DEFINITION.md`
-- project architecture → `ARCHITECTURE.md`
-- authority inheritance / anti-drift → `AUTHORITY_INHERITANCE_CONTRACT.md`
-- machine-readable owner topology → `AUTHORITY_OWNERSHIP.json`
-- worker entry / operating rules → `AGENTS.md`
-- cross-lane project-management execution → `PROJECT_MANAGEMENT_CONTRACT.md`
-- governance acceptance → `GOVERNANCE_ACCEPTANCE.md`
-- learning-asset construction order → `LEARNING_ASSET_STANDARD.md`
-- S/K/L/P/R/E/U readiness → `LEARNING_ACCEPTANCE.md`
-- shared learner-surface capabilities → `SYSTEM_CONTRACT.md`
-- cross-subject exam scheduling / phase Gates / material timing → `EXAM_ORCHESTRATOR_CONTRACT.md`
-- branch lifecycle → `BRANCH_LIFECYCLE.md`
-- intentionally postponed work → `DEFERRED.md`
+Root routing follows `AGENTS.md`.
 
-`EXAM_ORCHESTRATOR_CURRENT.json` is a checked machine projection of the Orchestrator contract for runtime consumption; it is not a competing authority.
+A bare learner continuation such as `继续英语 / 继续政治 / 继续循环` defaults to **learning use**, not this engineering cursor.
 
-These owners are referenced, not copied into lane Current files.
+Enter root/lane engineering Current only when the request is actually BUILD / UI / CONTROL.
 
 ---
 
 ## Lane entrypoints
 
-| Scope | Work Cursor entry |
+| Scope | Engineering Work Cursor |
 | --- | --- |
 | Xizong | `content/xizong/CURRENT.md` |
 | English | `content/english/CURRENT.md` |
-| LexicalOS | `content/lexical/CURRENT.md` |
 | Politics | `content/politics/CURRENT.md` |
-| Cross-subject Exam Orchestrator / Home scheduling | `EXAM_ORCHESTRATOR_CONTRACT.md` |
+| LexicalOS | `content/lexical/CURRENT.md` |
+| Cross-subject scheduling | `EXAM_ORCHESTRATOR_CONTRACT.md` |
 
-Known target scope may go directly to its local Current once governance is understood. Root Current is not a mandatory ritual read for ordinary lane continuation.
+Known engineering scope may go directly to its local Current. Root Current is not a mandatory read.
 
-Parent lanes are routers/owners, not global child queues. Independent child scopes may progress concurrently unless a real dependency links them.
-
----
-
-## Whole-exam / three-subject status rule
-
-When Kian asks about the whole exam system, overall progress, remaining work, Home scheduling, today's/this week's allocation, or when engineering can stop, do **not** answer from subject lanes alone.
-
-Minimum read:
-
-```text
-EXAM_ORCHESTRATOR_CONTRACT.md
-+ Xizong CURRENT/status
-+ English CURRENT
-+ Politics CURRENT
-(+ Lexical CURRENT when vocabulary/product readiness matters)
-```
-
-If the question is about product / website closure, also inspect Current Home / Orchestrator implementation or product evidence under `static-web/`.
-
-Report separately:
-
-```text
-Subject readiness
-Cross-subject / Home readiness
-Whole-system readiness = both
-```
-
-Hard rule:
-
-> **Never call the whole exam system “basically finished” without accounting for Home / Exam Orchestrator.**
-
-Subject engineering PASS does not imply learner progress or cross-subject scheduling closure.
+Learner continuation resolves from real learner/runtime state and the relevant domain learning owner; it does not inherit a lane's engineering Work Cursor by default.
 
 ---
 
-## Compact routing rules
+## Control Tower reporting
 
-For a known scope:
+When Kian asks for overall or cross-subject status, report each relevant scope using:
 
 ```text
-target CURRENT
-→ exact required owner(s)
+Stage
+Next
+Blocker
+Owner
+Human Gate (when relevant)
+```
+
+Read only the lane/orchestrator owners required for the question. Do not expose CI/branch/SHA detail unless it changes the decision.
+
+For whole-exam learning allocation, include `EXAM_ORCHESTRATOR_CONTRACT.md` and the relevant subject state. Engineering readiness must remain separate from learner progress.
+
+---
+
+## Root authority — ordinary view
+
+Normal workers need only know these entry responsibilities:
+
+- project purpose / success → `PROJECT_DEFINITION.md`
+- structural ownership / Truth separation → `ARCHITECTURE.md`
+- worker entry / intent / read discipline → `AGENTS.md`
+- cross-lane execution / change-cost discipline → `PROJECT_MANAGEMENT_CONTRACT.md`
+
+Specialized registries, branch mechanics, consistency validators and machine projections are backend implementation infrastructure. Read them only when the current task actually touches their responsibility.
+
+Shared implementation ownership is registered in `AUTHORITY_OWNERSHIP.json`; use it only when a task touches a shared owner.
+
+---
+
+## Root operating rule
+
+```text
+Kian intent
+→ narrow scope
+→ minimum owner set
 → work
 ```
 
-For cross-layer/root integration work:
+Do not use prior Chats, old Issues, retired branches or migration history as normal Current fallback.
 
-```text
-root CURRENT
-→ AUTHORITY_INHERITANCE_CONTRACT.md + AUTHORITY_OWNERSHIP.json when ownership/derivation/sync is involved
-→ PROJECT_MANAGEMENT_CONTRACT.md when cross-lane execution is involved
-→ exact affected authority chain only
-→ work
-```
-
-Normal target is roughly 2–4 precise reads after scope resolution. Whole-exam status is the deliberate exception because it spans the Orchestrator plus multiple subject owners.
-
-Do not use historical repositories, retired branches, migration records, old Issues, or prior Chats as normal Current fallback.
-
-Keep these distinctions everywhere:
-
-```text
-Artifact Truth ≠ Acceptance Truth ≠ Learner Truth ≠ Work Cursor ≠ Derived Read Model
-Hierarchy = ownership/routing
-Dependency = scheduling
-Learner order = learner experience sequence
-Current writer ≠ durable authority owner
-```
-
-This file should remain small. Progress history belongs in Git history / exact evidence owners, not here.
+Do not add a new governance layer to solve ordinary execution friction; simplify the existing narrow owner first.
