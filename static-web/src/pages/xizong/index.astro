@@ -7,6 +7,7 @@ import '../../styles/xizong-home-workspace.css';
 const base = import.meta.env.BASE_URL;
 const domains = listXizongMacroDomainProjection();
 const systems = domains.flatMap((domain) => domain.systems);
+const futureDomains = domains.filter((domain) => !domain.projectable && !domain.decomposed);
 const firstSystem = systems[0];
 const firstHref = firstSystem ? `${base}xizong/${firstSystem.systemId}/` : `${base}xizong/`;
 const firstLabel = firstSystem ? `${firstSystem.canonicalId} · ${firstSystem.title}` : '开始西综学习';
@@ -55,15 +56,20 @@ const firstLabel = firstSystem ? `${firstSystem.canonicalId} · ${firstSystem.ti
             <li><strong>题目 / 最小修复</strong><span>用实际作答发现缺口</span></li>
           </ol>
         </section>
-        {domains.some((domain) => !domain.projectable && !domain.decomposed) &&
-          <section class="xzHomeFutureMap">
-            <p class="pageKicker">完整知识地图</p>
-            <h2>后续学习域</h2>
-            <div>{domains.filter((domain) => !domain.projectable && !domain.decomposed).map((domain) =>
-              <div class="xzHomeFutureRow"><b>{domain.domainId}</b><span>{domain.title}</span></div>)}</div>
-            <small>保留全局位置；不产生待办或学习债务。</small>
-          </section>}
       </aside>
     </div>
+
+    {futureDomains.length > 0 &&
+      <section class="xzHomeFutureBand">
+        <header>
+          <p class="pageKicker">完整知识地图</p>
+          <h2>后续学习域</h2>
+          <small>保留全局位置；不产生待办或学习债务。</small>
+        </header>
+        <div class="xzHomeFutureGrid">
+          {futureDomains.map((domain) =>
+            <div class="xzHomeFutureItem"><b>{domain.domainId}</b><span>{domain.title}</span></div>)}
+        </div>
+      </section>}
   </section>
 </Base>
