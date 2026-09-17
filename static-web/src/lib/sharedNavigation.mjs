@@ -26,6 +26,7 @@ export function englishNavigation(base = '/') {
     { key: 'part-b', label: 'Part B', href: `${base}reading-b/`, match: ['reading-b', 'reading-b-answer'] },
     { key: 'translation', label: 'Translation', href: `${base}translation/`, match: ['translation', 'translation-reference', 'translation-learn'] },
     { key: 'writing', label: 'Writing', href: `${base}writing/`, match: ['writing', 'writing-learn'] },
+    { key: 'external', label: 'External Reading', href: `${base}english/external/`, match: [] },
     { key: 'vocabulary', label: 'Vocabulary', href: `${base}vocabulary/`, match: ['vocabulary'] }
   ];
 }
@@ -55,6 +56,7 @@ export function resolveGlobalActive(localPath = '', active = 'home') {
 }
 
 export function resolveEnglishActive(localPath = '') {
+  if (localPath === 'english/external' || localPath.startsWith('english/external/')) return 'external';
   const segment = topSegment(localPath);
   return englishNavigation('/').find((entry) => entry.match.includes(segment))?.key || 'overview';
 }
