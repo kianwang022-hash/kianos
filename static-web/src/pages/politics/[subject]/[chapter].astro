@@ -4,8 +4,6 @@ import { loadPoliticsCompiledPresentation } from '../../../lib/politicsCompiledP
 import PoliticsChapterPresentation from '../../../components/PoliticsChapterPresentation.astro';
 import PoliticsChapterRuntime from '../../../components/PoliticsChapterRuntime.astro';
 import PoliticsCognitiveWorkspace from '../../../components/PoliticsCognitiveWorkspace.astro';
-import PoliticsCognitiveWorkspaceBridge from '../../../components/PoliticsCognitiveWorkspaceBridge.astro';
-import PoliticsCognitiveWorkspaceReadable from '../../../components/PoliticsCognitiveWorkspaceReadable.astro';
 import PoliticsCognitiveWorkspaceExplicitSurface from '../../../components/PoliticsCognitiveWorkspaceExplicitSurface.astro';
 import PoliticsCognitiveWorkspaceExplicitBehavior from '../../../components/PoliticsCognitiveWorkspaceExplicitBehavior.astro';
 import PoliticsVisibleTypeFloor from '../../../components/PoliticsVisibleTypeFloor.astro';
@@ -30,11 +28,15 @@ const compiled = loadPoliticsCompiledPresentation(subject, chapter);
 const useCognitiveWorkspace = subject === 'marxism'
   && chapter === 'ch00'
   && data.units.some((unit) => unit?.raw?.learning_semantics?.schema === 'kianos.politics.learning_semantics.v1');
+const compiledRows = compiled instanceof Map ? [...compiled.values()] : [];
 const useExplicitCognitiveMapping = useCognitiveWorkspace
-  && compiled instanceof Map
-  && [...compiled.values()].length > 0
-  && [...compiled.values()].every((row) => row?.surfacePlan?.states?.ORIENT?.length > 0);
+  && compiledRows.length > 0
+  && compiledRows.every((row) => row?.surfacePlan?.states?.ORIENT?.length > 0);
 const usePurposeFirstRuntime = !useCognitiveWorkspace && Boolean(compiled?.size);
+
+if (useCognitiveWorkspace && !useExplicitCognitiveMapping) {
+  throw new Error(`POLITICS_EXPLICIT_SURFACE_MAPPING_REQUIRED:${subject}:${chapter}`);
+}
 ---
 
 <Base
@@ -64,8 +66,6 @@ const usePurposeFirstRuntime = !useCognitiveWorkspace && Boolean(compiled?.size)
   {useCognitiveWorkspace
     ? <PoliticsCognitiveWorkspace chapter={data} base={base} />
     : <PoliticsChapterRuntime chapter={data} base={base} compiled={compiled} />}
-  {useCognitiveWorkspace && !useExplicitCognitiveMapping && <PoliticsCognitiveWorkspaceBridge chapter={data} />}
-  {useCognitiveWorkspace && !useExplicitCognitiveMapping && <PoliticsCognitiveWorkspaceReadable />}
   {useExplicitCognitiveMapping && <PoliticsCognitiveWorkspaceExplicitSurface compiled={compiled} />}
   {useExplicitCognitiveMapping && <PoliticsCognitiveWorkspaceExplicitBehavior />}
   {useCognitiveWorkspace && <PoliticsVisibleTypeFloor />}
