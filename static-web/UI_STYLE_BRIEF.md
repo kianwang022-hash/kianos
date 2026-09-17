@@ -177,6 +177,32 @@ Do not generalize one successful page into a universal template.
 
 ---
 
+## 6.1｜Global shell and navigation
+
+The shared desktop shell should behave like a mature workspace, not like repeated page-level navigation.
+
+### Collapsible global rail
+
+- When a persistent global navigation shell is present on Mac, the default shared form is a **left rail**.
+- The KianOS / `K` control toggles the rail between:
+  - compact icon-only mode for maximum task width;
+  - expanded icon + label mode for orientation and browsing.
+- The last chosen rail state should persist across normal navigation instead of resetting on every page.
+- Collapsing the rail changes only shell width / chrome. It must not reset learner state, task state, scroll position, answers, timers or current object.
+- Pages that already need a local learning/navigation rail may keep the global rail compact so two side rails do not waste Mac width.
+
+### One global navigation, not two
+
+- A global destination should appear in **one primary global-navigation surface**.
+- Do not repeat the same-level destinations in both the left rail and a full-width top navigation bar.
+- A top strip is allowed only when it is genuinely local to the current surface: task mode, local tabs, filters, phase/view switch, or context controls.
+- Page-local navigation may organize the current object or subject, but it must not recreate the whole KianOS global menu.
+- If a second navigation row does not change the current task/context more specifically than the global rail, it is duplicate chrome and should be removed.
+
+Legacy `4173` is positive interaction evidence for the collapsible rail behavior and dense desktop navigation feel; it is not semantic/runtime authority.
+
+---
+
 ## 7｜Home / Hub / Search surfaces
 
 Home-like surfaces are **workbenches**, not marketing pages.
