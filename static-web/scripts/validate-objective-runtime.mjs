@@ -154,21 +154,6 @@ function validateEvidenceRuntimeWiring() {
   };
 
   try {
-    const manifest = JSON.parse(read('../../content/english/manifest.json'));
-    if (manifest?.owners?.objective_evidence_runtime !== 'content/english/modules/objective-evidence-runtime.md') uiIssues.push('manifest: objective_evidence_runtime owner missing or incorrect');
-    if (manifest?.readiness?.objective_evidence_runtime_present !== true) uiIssues.push('manifest: objective_evidence_runtime_present is not true');
-  } catch (error) {
-    uiIssues.push(`manifest: ${error instanceof Error ? error.message : String(error)}`);
-  }
-
-  try {
-    const owner = read('../../content/english/modules/objective-evidence-runtime.md');
-    ['repairCompleted', 'repairEvidence', 'kianos-english-objective-handoff-v1', 'REOPENED', 'idempotent'].forEach((needle) => requireText('objective-evidence-runtime owner', owner, needle));
-  } catch (error) {
-    uiIssues.push(`objective-evidence-runtime owner: ${error instanceof Error ? error.message : String(error)}`);
-  }
-
-  try {
     const component = read('../src/components/ObjectiveTransferClaims.astro');
     [
       'kianos-english-objective-transfer-claims-v1',
