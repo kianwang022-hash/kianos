@@ -1,27 +1,25 @@
 # Xizong UI Architecture Migration
 
-Status: **ACTIVE MIGRATION · Slice 1 ACCEPTED · Slice 2A HOME ACCEPTED · Slice 2B MEMORY ACTIVE**  
+Status: **ACTIVE MIGRATION · System / Home / Memory CUT OVER · Slice 3 ACTIVE**  
 Scope: Xizong learner-facing presentation implementation only  
 Parent authority: `content/xizong/CURRENT.md` + `PRESENTATION_CONTRACT.md` + `UI_STYLE_BRIEF.md` + `PROJECT_MANAGEMENT_CONTRACT.md`
 
-This file is a migration ledger, not a new Product/Learning/Runtime/Acceptance truth owner.
+This file is a migration ledger / work router. It does not own medical truth, Learning semantics, Runtime semantics, Question Truth, Acceptance Truth, Evidence, Repair semantics, or learner state.
 
 ## Goal
 
-Move Xizong learner surfaces from accumulated legacy presentation ownership into the Current UI architecture without changing medical truth, learning semantics, learner state, Memory semantics, Question truth, Evidence or Repair behavior.
-
-Target architecture:
+Move Xizong learner surfaces from accumulated legacy presentation ownership into a Current architecture with one active visual owner per responsibility:
 
 ```text
-shared Base Shell / global K rail      <- owned outside Xizong; consume from main
+shared Base Shell / global K rail      <- external Xizong ownership; consume from main
             ↓
 shared tokens / presentation grammar
             ↓
-Xizong subject shell primitives
+Xizong subject primitives
             ↓
 exact surface owner
   Home
-  System
+  System Framework
   Block
   Memory
   System Exit / Question
@@ -29,45 +27,32 @@ exact surface owner
 
 Hard invariant:
 
-> One active visual owner per presentation responsibility. No permanent cascade stack of legacy lane CSS + new surface CSS + page inline patch + component inline patch.
+> One active visual owner per presentation responsibility. Do not solve a migration by stacking legacy CSS + new surface CSS + page patch + component patch.
 
 ## Migration method
 
-Follow small vertical replacement slices:
-
 ```text
-observe existing Current behavior
+read Current owner + real Runtime
 → preserve semantic/runtime behavior
-→ move one surface to its intended owner
-→ prove representative browser behavior
-→ cut over that responsibility
-→ remove the superseded path from the active runtime
-→ physically delete dead compatibility/legacy code when its containing owner can be safely cleaned
-→ only then expand or close the migration
+→ isolate one surface responsibility
+→ cut DOM/style ownership to one Current owner
+→ run targeted static + browser acceptance
+→ inspect screenshot, not only CI
+→ run broad regressions
+→ merge exact accepted head
+→ update Current cursor
+→ only then move to the next slice
 ```
 
-Shared Base Shell / global rail are explicitly out of scope until the parallel English-owned shared-shell change lands on `main`.
+Shared Base Shell / collapsible global `K` rail remain outside this lane until the parallel English-owned implementation lands on `main`.
 
 ---
 
-## Slice 1 — System Workspace single visual owner
+## Closed Slice 1 — System Framework
 
-**State:** **ACCEPTED / CUT OVER ON MAIN via PR #368**
+**ACCEPTED / CUT OVER via PR #368 · merge `64231e8c`**
 
-### OLD
-
-System Workspace behavior was Current after PR #339, but presentation responsibility was split across:
-
-- `static-web/src/styles/xizong-presentation.css` legacy System rules;
-- `static-web/src/styles/xizong-system-workspace.css` convergence overrides;
-- `static-web/src/components/XizongSystemV6.astro` component-local `<style>`;
-- `static-web/src/pages/xizong/[system]/index.astro` page-global style patch.
-
-The learner effect could be acceptable while ownership was not.
-
-### NEW CURRENT
-
-Current route:
+Current chain:
 
 ```text
 xizong/[system]/index.astro
@@ -75,74 +60,25 @@ xizong/[system]/index.astro
 → xizong-system-workspace.css
 ```
 
-Implementation boundary:
+Closed facts:
 
-- `XizongSystemWorkspace.astro` owns semantic markup + interaction only;
-- the route owns composition + later-stage wiring only;
-- `xizong-system-workspace.css` owns first-pass System presentation;
-- Current DOM uses an `xzSystem*` namespace;
-- retired `xv6System*` / related legacy selectors therefore cannot match the Current System DOM;
-- `XizongSystemV6.astro` is deleted;
-- route/component visual `<style>` blocks are deleted.
+- retired `XizongSystemV6.astro` deleted;
+- Current DOM uses isolated `xzSystem*` namespace;
+- component owns markup + interaction, route owns composition/later-stage wiring, stylesheet owns System Framework presentation;
+- component/route visual `<style>` paths removed;
+- stale validators that named V6 were migrated to Current owner instead of restoring compatibility;
+- A1/A2/A3 browser acceptance proved purpose-first representation, Block selection, Failure behavior, no dependency auto-graph, Mac-wide three-region geometry and 15px visible type floor;
+- all triggered broad gates passed before merge.
 
-The old System selector block inside broad `xizong-presentation.css` is now **inactive dead migration code**, not an active visual owner. Its physical removal is tracked under final legacy cleanup because that broad file still owns other not-yet-migrated Xizong surfaces.
-
-### ACCEPTANCE EVIDENCE
-
-PR #368 was promoted only after all triggered gates passed on the accepted head:
-
-- Xizong System Workspace — PASS;
-- Xizong Representation Gate — PASS;
-- Xizong Production Semantic Projection — PASS;
-- Xizong Representative Workspace — PASS;
-- Static Web Xizong QA — PASS;
-- Xizong Golden Journey — PASS;
-- Xizong A2 Functional First Journey — PASS.
-
-Representative browser evidence additionally confirmed A1/A2/A3 System Current namespace, purpose-first representation, Block selection, Failure behavior, no dependency auto-graph, Mac-wide three-region geometry and a 15px visible learner-text floor.
-
-Three stale validation consumers that still named `XizongSystemV6.astro` were migrated to the Current owner during acceptance rather than restoring a compatibility V6 path:
-
-- `validate-xizong-representation-gate.mjs`;
-- `validate-xizong-learning.mjs`;
-- `validate-xizong-a1-projection.mjs`.
-
-### MACHINE GUARDS
-
-- `scripts/validate-xizong-system-style-ownership.mjs` fails if the route/component regains CSS ownership, legacy `xv6*` class tokens return to the Current component, `!important` recovery appears, or the retired V6 component returns;
-- `scripts/test-xizong-system-workspace.mjs` checks A1/A2/A3 Current namespace, purpose-first representation, 15px visible-text floor, three-region geometry, Block selection, Failure behavior and no generated dependency graph;
-- `.github/workflows/xizong-system-workspace.yml` provides targeted build + browser acceptance for this surface.
-
-### CLOSED CUTOVER
-
-Already removed from the active runtime:
-
-- `XizongSystemV6.astro`;
-- component-local System style block;
-- page-local System style block;
-- Current DOM dependency on `xv6System*` selectors.
-
-Remaining physical dead-code deletion:
-
-- remove the unreachable historical System selectors from `xizong-presentation.css` during the bounded legacy-cleanup slice after adjacent owners are separated, so editing that broad file cannot accidentally damage Home/Block/other still-current rules.
-
-### ROLLBACK / FAIL-CLOSED
-
-A future System defect must be repaired at the Current owner. Do not restore a compatibility V6 component, duplicate route CSS or second System visual stylesheet.
+Unreachable historical System selectors still inside broad `xizong-presentation.css` are dead migration code, not active owners. Physical deletion is reserved for the bounded cleanup slice after adjacent responsibilities are isolated.
 
 ---
 
-## Slice 2A — Home single visual owner
+## Closed Slice 2A — Home
 
-**State:** **ACCEPTED / CUT OVER ON MAIN via PR #370**
+**ACCEPTED / CUT OVER via PR #370 · merge `2782505e`**
 
-### OLD
-
-Home presentation was split between broad `xizong-presentation.css` (`xzOverview*`, `xzSystemWorkbench`, `xzOpenDomain`, etc.) and component-local tiny-font CSS in `XizongHomeTools.astro`. Standalone Memory was not a first-class Home action.
-
-### NEW CURRENT
-
-Current Home now uses:
+Current chain:
 
 ```text
 xizong/index.astro
@@ -150,143 +86,145 @@ xizong/index.astro
 → xizong-home-workspace.css
 ```
 
-- Current DOM uses isolated `xzHome*` classes;
-- `XizongHomeTools.astro` owns Continue/Memory behavior and markup only;
-- `xizong-home-workspace.css` is the Home visual owner;
-- Home exposes explicit standalone Memory access;
+Closed facts:
+
+- Current Home uses isolated `xzHome*` namespace;
+- `XizongHomeTools.astro` has behavior/markup responsibility only;
+- explicit standalone Memory entry is Current;
 - A1/A2/A3 current System work remains dominant;
-- the current learning chain is the bounded companion;
-- B–F future-domain orientation is a horizontal band after the current workspace, not a tall companion rail.
+- B–F global orientation moved to a horizontal band below the current workspace rather than stretching the companion rail;
+- the first browser-valid layout was rejected after screenshot inspection because it created dead main-area space; the structural layout was revised and re-tested;
+- accepted representative geometry: `876px` current-System main region + `310px` companion; visible type floor `15px`;
+- all triggered broad gates passed before merge.
 
-### VISUAL ACCEPTANCE
-
-The first browser-valid candidate was **rejected visually**: future B–F domains stretched the right rail and left a large dead region under A3. The layout was changed structurally rather than repaired with spacing overrides.
-
-The accepted second candidate was manually screenshot-reviewed and then promoted after all triggered gates passed. Representative Home geometry at the acceptance viewport:
-
-- Home workspace width: `1188px`;
-- current Systems main region: `876px`;
-- companion: `310px`;
-- visible learner-text floor: `15px`;
-- future band begins immediately after the current workspace.
-
-### ACCEPTANCE EVIDENCE
-
-PR #370 was promoted only after all triggered gates passed on the accepted head:
-
-- Xizong Home Workspace — PASS;
-- Xizong Representation Gate — PASS;
-- Xizong Production Semantic Projection — PASS;
-- Xizong Representative Workspace — PASS;
-- Static Web Xizong QA — PASS;
-- Xizong Golden Journey — PASS;
-- Xizong A2 Functional First Journey — PASS.
-
-Targeted Home acceptance additionally guards:
-
-- one Home visual owner;
-- no route/component `<style>` ownership;
-- no retired Home class namespace in Current DOM;
-- no `!important` recovery;
-- explicit standalone Memory route;
-- last-location Continue restoration;
-- 15px visible type floor;
-- current workspace dominance;
-- future-domain horizontal placement outside the companion.
-
-### CLOSED CUTOVER
-
-Removed from active Home runtime ownership:
-
-- component-local Home tool CSS;
-- Current DOM dependency on old `xzOverview* / xizongHomeTools / xizongContinue` presentation classes.
-
-Old Home selectors inside broad `xizong-presentation.css` are now unreachable dead migration code and remain queued for bounded physical cleanup after adjacent responsibilities are separated.
+Old Home selectors in broad `xizong-presentation.css` are now unreachable dead migration code and remain queued for bounded cleanup.
 
 ---
 
-## Slice 2B — Memory single-owner readability migration
+## Closed Slice 2B — Standalone Memory
 
-**State:** **ACTIVE**
+**ACCEPTED / CUT OVER via PR #371 · merge `c8bb673c`**
 
-### CURRENT ARCHITECTURE FACT
-
-Memory is different from old Home/System: broad `xizong-presentation.css` does not currently own `xzMemory*`, so Memory is not suffering from an active two-stylesheet cascade.
-
-Its problem is that its **single component-local visual owner is itself legacy**. `XizongMemoryWorkspace.astro` still contains a large inline `<style>` block with many default-visible learner labels and controls at roughly `8–13px`, far below the Current shared 15px floor.
-
-Examples include queue metadata, tabs, toolbar text, card labels/meta, reveal/rating controls, Repair labels and context rail copy.
-
-### NEW TARGET
-
-Preserve all Memory Runtime semantics while moving presentation into one explicit Memory surface owner:
+Current chain:
 
 ```text
 xizong/memory/index.astro
-→ XizongMemoryWorkspace.astro      markup + runtime only
-→ xizong-memory-workspace.css      presentation only
+→ XizongMemoryWorkspace.astro          markup + exact existing Runtime
+→ xizong-memory-workspace.css          presentation only
 ```
 
-Hard boundaries:
+Closed facts:
 
-- preserve `Today | Core | Precision | Marked | Repair`;
-- preserve localStorage keys/state shape, learner ratings, Marked/Repair behavior, Prompt editing, reveal gating and keyboard behavior;
-- preserve Memory/Evidence semantics exactly;
-- do not create `memory-polish.css`, `peripheral-workspaces.css`, route-inline fixes or `!important` recovery;
-- 15px is the visible learner-text floor, not the target body size;
-- use Mac width to preserve readable queue/stage/context geometry rather than compensating with tiny text.
+- the original component-local Memory `<style>` owner was removed;
+- route explicitly loads the single Memory stylesheet;
+- no second `memory-polish.css`, peripheral override layer, route style patch, or `!important` recovery exists;
+- Current Memory markup + Runtime were preserved exactly; the accepted component diff only removes the old `<style>` block;
+- an early candidate accidentally changed markup / Runtime-adjacent selectors and was explicitly rejected/reverted before acceptance;
+- `Today | Core | Precision | Marked | Repair`, Precision Browse/Recall, Prompt override/reset, Marked fragments, Repair tasks, reveal/rating/keyboard behavior, localStorage state, evidence append semantics and Block Complete auto-release remain Current behavior;
+- Memory single-owner validator is wired into the existing Memory workflow rather than creating a parallel QA system;
+- real Chromium acceptance covered Empty / Today / Core / Core Reveal / Precision Browse / Precision Recall / Marked / Repair;
+- visible learner type floor = `15px` in every tested state;
+- accepted representative geometry = `1480px` root / `286px` queue / `932px` dominant stage / `260px` context;
+- Block Complete → Memory auto-release browser journey remained green;
+- all seven triggered Xizong gates passed before merge.
 
-### SUCCESS TEST
-
-- one explicit Memory visual owner;
-- no component/route visual `<style>` block after cutover;
-- `Today | Core | Precision | Marked | Repair` remains available;
-- real browser journey proves queue navigation, reveal, rating and at least one Marked/Repair path still function;
-- visible learner text is never below 15px on the representative Mac surface;
-- main Memory cognitive stage remains dominant and rails stay readable;
-- screenshot review confirms high density without tiny admin-style chrome.
-
-### CUTOVER / DELETE CONDITION
-
-The component-local legacy style block is removed in the same accepted slice. Do not leave an inactive second Memory owner behind merely because the external stylesheet wins.
+Memory is therefore closed as an architecture slice. Reopen only for a concrete Current defect or real learner-U finding; do not add a second visual owner.
 
 ---
 
-## Slice 3 — System Exit / official Question ownership convergence
+## Active Slice 3 — System Exit / official Question
 
-**State:** AFTER Slice 2B unless a concrete dependency changes scheduling
+**STATE: ACTIVE**
 
-### OLD
+### Purpose
 
-Later-stage System Exit / Question presentation remains mixed with broad Xizong presentation/runtime component styling; #351 attempts to improve readability through another override layer.
+Converge the later-stage learner surface without changing the already-accepted execution chain:
 
-### NEW
+```text
+System learned
+→ System Recall
+→ official System question sweep
+→ W/U evidence
+→ smallest-sufficient Repair / exact Return
+```
 
-One explicit later-stage surface owner, preserving the existing System Recall → official System sweep → Repair/Return semantics and exact question/runtime truth.
+### First action: ownership audit, not polish
 
-### SUCCESS TEST
+Before writing CSS, identify the Current ownership graph for:
 
-Readable System Recall and official-question workspace with no change to Question Truth, Crosswalk, attempt history, Repair or Evidence semantics.
+- `XizongSystemExitRuntime.astro`;
+- System route composition/wiring;
+- official Question workspace markup;
+- broad `xizong-presentation.css` / other Xizong styles that currently match the later-stage DOM;
+- component-local or route-local style blocks;
+- existing browser/contract validators that consume the later-stage surface.
 
-### DELETE CONDITION
+Classify each current responsibility as:
 
-Remove superseded later-stage presentation ownership after representative real-system browser acceptance passes.
+```text
+SEMANTIC / RUNTIME OWNER        preserve
+CURRENT VISUAL OWNER            migrate or retain explicitly
+LEGACY COMPETING OWNER          cut over / retire
+DEAD SELECTOR                   queue for bounded cleanup
+TEST CONSUMER                   migrate with owner if needed
+```
+
+### Hard boundaries
+
+Preserve exactly:
+
+- System Recall state/reveal/completion;
+- holdout behavior;
+- Question Truth and exact System membership boundaries;
+- FIRST_PASS / SECOND_PASS / LATE_REVIEW attempt history;
+- reviewed Crosswalk behavior and legal missing mapping;
+- Wrong / Uncertain repair routing;
+- Evidence / Repair / Return semantics;
+- no learner-U claim from CI.
+
+Do not inherit from draft PR #351 by default:
+
+- `xizong-peripheral-workspaces.css` as a second visual owner;
+- route-level duplicate Recall-dialog click fallback;
+- inline typography recovery.
+
+The #351 fallback may return only if a fresh browser journey proves a real defect in the actual Runtime owner; repair that owner rather than keeping duplicate route behavior.
+
+### Target architecture
+
+One explicit later-stage presentation owner. Exact filename/component boundary must be chosen only after the ownership audit proves where the Current responsibility actually belongs.
+
+### Acceptance requirements
+
+At minimum:
+
+- static single-owner / no-cascade-recovery gate;
+- Astro build;
+- real A1 System Recall journey;
+- real official-question entry and answer persistence;
+- reviewed relation + missing relation behavior preserved;
+- W/U repair/return behavior preserved;
+- second-pass behavior preserved where already Current;
+- 15px visible type floor across Recall + Question states;
+- representative Mac geometry;
+- screenshot inspection before merge;
+- broad Xizong regressions green on the accepted exact head.
 
 ---
 
-## Slice 4 — Legacy cleanup + shared Shell adoption
+## Later Slice 4 — Bounded legacy cleanup + shared Shell adoption
 
-Only after migrated surfaces are stable:
+Only after active surfaces are isolated:
 
-- identify broad `xizong-presentation.css` selectors that no Current DOM can reach;
-- physically delete obsolete System/Home/Memory/later-stage compatibility and legacy paths in bounded groups;
-- preserve Block rules until Block receives its own migration/ownership decision rather than deleting them for symmetry;
-- resync from `main` after the English-owned shared Base Shell / collapsible global K rail lands;
+- identify broad `xizong-presentation.css` selectors no Current DOM can reach;
+- physically delete obsolete System/Home/later-stage compatibility code in bounded groups;
+- preserve Block rules until Block receives an explicit ownership decision rather than deleting them for symmetry;
+- resync from `main` after English-owned shared Base Shell / collapsible global `K` rail lands;
 - adapt only Xizong-local geometry needed to coexist with that accepted shared Shell;
 - never reimplement the global rail inside Xizong.
 
-Migration is complete only when old and new paths no longer compete for responsibility **and** unreachable migration code has been physically removed or explicitly retained for a named still-current owner.
+Migration closes only when competing active paths are gone **and** dead migration code is either physically removed or explicitly retained for a named still-current owner.
 
 ## PR discipline
 
-Each implementation PR answers one acceptance question. Do not mix the shared-shell program, Xizong semantic changes, content changes, or unrelated lane work into this migration.
+Each implementation PR answers one acceptance question. Do not mix shared-shell work, Xizong semantic changes, content changes, unrelated lane work, or multiple presentation slices into the same PR.
