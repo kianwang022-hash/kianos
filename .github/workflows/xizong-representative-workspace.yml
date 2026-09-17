@@ -8,9 +8,11 @@ on:
       - 'static-web/src/lib/xizong*.mjs'
       - 'static-web/src/pages/xizong/**'
       - 'static-web/src/pages/qa/xizong-workspace/**'
+      - 'static-web/src/styles/xizong-*.css'
       - 'static-web/scripts/test-xizong-representative-workspace.mjs'
       - 'static-web/scripts/test-xizong-visible-type-floor.mjs'
       - 'static-web/scripts/test-xizong-system-workspace.mjs'
+      - 'static-web/scripts/test-xizong-peripheral-workspaces.mjs'
       - '.github/workflows/xizong-representative-workspace.yml'
   workflow_dispatch:
 
@@ -20,7 +22,7 @@ permissions:
 jobs:
   representative-workspace:
     runs-on: ubuntu-latest
-    timeout-minutes: 14
+    timeout-minutes: 16
     steps:
       - name: Checkout Current
         uses: actions/checkout@v4
@@ -51,6 +53,9 @@ jobs:
       - name: Execute visible learner type-floor acceptance
         working-directory: static-web
         run: node scripts/test-xizong-visible-type-floor.mjs
+      - name: Execute Home Memory System Exit Question peripheral acceptance
+        working-directory: static-web
+        run: node scripts/test-xizong-peripheral-workspaces.mjs
       - name: Upload representative Workspace evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -63,4 +68,5 @@ jobs:
             static-web/.qa/xizong-system-a2.png
             static-web/.qa/xizong-system-a3.png
             static-web/.qa/xizong-visible-type-floor.json
+            static-web/.qa/xizong-peripheral-workspaces.json
           retention-days: 14
