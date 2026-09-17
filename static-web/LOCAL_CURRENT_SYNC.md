@@ -80,6 +80,37 @@ Logs live under:
 ~/Library/Logs/KianOS/current.err.log
 ```
 
+## Persistent learner-data root
+
+The disposable Current mirror and private learner data must never share lifecycle.
+
+```text
+~/KianOS-current
+= disposable read-only mirror of public GitHub Current
+
+~/Library/Application Support/KianOS/
+= private durable learner-data root on Kian's Mac
+```
+
+The learner-data root is **not** part of the Git worktree and must never be hard-reset when GitHub Current advances.
+
+The expected durable local shape is intentionally small:
+
+```text
+learner-data/
+├─ checkpoints/   compact daily / periodic recovery snapshots
+├─ handoff/
+│  ├─ outbox/     packets explicitly exported for Chat
+│  └─ returns/    validated Chat/domain return packets when locally retained
+└─ backups/       optional local export snapshots
+```
+
+High-frequency browser state may remain in browser storage when that is the cheapest correct owner. The filesystem root exists for information that is worth recovering across browser resets / migrations; it is not a requirement to mirror every localStorage key.
+
+Actual learner data must not be committed to the public `kianos` repository. Repository files may define schemas and synthetic fixtures only.
+
+---
+
 ## Safety / truth boundary
 
 - GitHub `main` remains the durable shared Artifact/Current source for this delivery path.
