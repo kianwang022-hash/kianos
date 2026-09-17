@@ -23,10 +23,10 @@ Architecture-level website blocker: **none**.
 
 ## Active lanes
 
-| Lane | State | Continue from |
+| Lane | State | Active ref / continue from |
 | --- | --- | --- |
-| Xizong UI | **ACTIVE** | `content/xizong/CURRENT.md` → accepted Xizong surface owner → current UI branch |
-| Politics UI | **ACTIVE** | `content/politics/CURRENT.md` → accepted Surface Mapping / surface owner → current UI branch |
+| Xizong UI | **ACTIVE** | `work/ui-xizong-vertical-20260918` → `content/xizong/CURRENT.md` → exact accepted surface owner |
+| Politics UI | **ACTIVE** | formal `#395` / `work/ui-politics-vertical-20260918`; preview `#397` stays isolated until Human Gate |
 | English UI | **LANDED** | `content/english/CURRENT.md` |
 | Lexical learner surface | **STEADY under English** | `content/lexical/CURRENT.md` when a concrete defect exists |
 
