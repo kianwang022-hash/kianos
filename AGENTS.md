@@ -156,6 +156,8 @@ For genuine governance / architecture work, also read:
 - `ARCHITECTURE.md`;
 - only the root Standard / Contract relevant to the proposed change.
 
+For cross-lane project-management / delivery / Mission Control / migration-discipline / implementation-scope work, read `PROJECT_MANAGEMENT_CONTRACT.md` as the single execution-management owner. Do not invent a parallel management model in Chat or duplicate its rules into lane files.
+
 ## 3.4 Continuation is not a mandatory layer
 
 Do **not** assume every lane continuation file must be read.
@@ -226,6 +228,7 @@ Repository-wide owners include:
 
 - `PROJECT_DEFINITION.md` — project purpose, requirements, invariants, non-goals, success tests;
 - `ARCHITECTURE.md` — owner hierarchy, Three Truths + One Cursor, Current/continuation/dependency/concurrency structure;
+- `PROJECT_MANAGEMENT_CONTRACT.md` — cross-lane project management, durable Chat-to-GitHub decisions, Mission Control read-model rules, change classes, reading discipline, migration discipline, effect-based completion, and plain-language reporting;
 - `LEARNING_ASSET_STANDARD.md` — formal learning-asset construction order;
 - `LEARNING_ACCEPTANCE.md` — S/K/L/P/R/E/U readiness standard;
 - `SYSTEM_CONTRACT.md` — shared mature learner-surface capabilities;
@@ -344,6 +347,16 @@ Learner Truth boundary
 learner order vs construction dependency when relevant
 exact intended write-set
 branch base/current SHA
+```
+
+For cross-layer / platform / root-integration work, additionally apply `PROJECT_MANAGEMENT_CONTRACT.md`:
+
+```text
+change class
+Impact Cone
+Authority Spine
+compressed Context Pack
+success / cutover / delete / rollback conditions when relevant
 ```
 
 Then do the smallest correct work.
