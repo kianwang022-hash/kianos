@@ -102,7 +102,7 @@ const semanticInferenceGuards = [
   ['generic runtime reads unit.teaching', chapterRuntimeSource, /unit\.teaching|const\s+t\s*=\s*unit\.teaching/],
   ['generic runtime reads chapter.orientation', chapterRuntimeSource, /chapter\.orientation/],
   ['generic runtime reads chapter.compression', chapterRuntimeSource, /chapter\.compression|chapter\.raw\?\.chapter_compression/],
-  ['generic runtime reconstructs raw teaching boundary', chapterRuntimeSource, /t\.boundaries|t\.answer|t\.bridge|t\.closure|t\.next/],
+  ['generic runtime reconstructs raw teaching boundary', chapterRuntimeSource, /\bt\.(?:boundaries|answer|bridge|closure|next)\b/],
   ['C00 workspace reads raw learning_semantics', cognitiveWorkspaceSource, /learning_semantics|framework_maps|relation_chains|recall_seed|source_handoff/],
   ['chapter page mounts legacy semantic bridge', chapterPageSource, /PoliticsCognitiveWorkspaceBridge|PoliticsCognitiveWorkspaceReadable/],
   ['chapter page mounts DOM semantic replacement', chapterPageSource, /PoliticsCognitiveWorkspaceExplicitSurface|PoliticsProjectionRuntimeOutlet/],
