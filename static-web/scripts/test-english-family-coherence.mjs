@@ -237,6 +237,20 @@ async function assertWritingVisual(page) {
   }
 }
 
+async function assertLexicalRoundTrip(page, route, selector, name) {
+  await page.goto(`${BASE}${route}`, { waitUntil: 'domcontentloaded' });
+  const word = await selectKnownWord(page, selector);
+  await page.locator('[data-selection-lexical]').click();
+  await page.waitForURL('**/vocabulary/?from=english&lookup=*');
+  check((await page.locator('[data-lexical-search]').inputValue()).toLowerCase() === word.toLowerCase(), `${name}_lookup_prefills_word`);
+  await assertExactLexicalResult(page, word, name);
+  const meta = String(await page.locator('[data-english-return-meta]').textContent() || '');
+  check(meta.includes(word), `${name}_return_bar_names_lookup`, meta);
+  await page.locator('[data-english-return-action]').click();
+  await page.waitForURL(`**${route}`);
+  check(new URL(page.url()).pathname.endsWith(route), `${name}_returns_exact_task`, page.url());
+}
+
 async function assertSourceLookup(page, route, selector, name) {
   await page.goto(`${BASE}${route}`, { waitUntil: 'domcontentloaded' });
   if (name === 'cloze') {
@@ -281,11 +295,34 @@ try {
 
     await assertReadingBVisual(page);
 
+    const partBSummaries = listReadingBSets();
+    const partBProjected = partBSummaries.map((row) => {
+      try { return loadReadingBById(row.id); } catch { return null; }
+    }).filter(Boolean);
+    const partBLookup = partBProjected.find((item) => String(item?.context?.taskForm || '') !== 'ordering') || partBProjected[0] || null;
+    check(Boolean(partBLookup?.objectId), 'part_b_lexical_fixture_available');
+    await assertLexicalRoundTrip(
+      page,
+      `/reading-b/${encodeURIComponent(partBLookup.objectId)}/`,
+      '[data-objective-material] [data-objective-material-block], [data-objective-candidate] span',
+      'part_b'
+    );
+
     const translationId = listTranslationSets()[0]?.id;
     check(Boolean(translationId), 'translation_fixture_available');
     await assertSourceLookup(page, `/translation/${encodeURIComponent(translationId)}/`, '[data-translation-source-text] p', 'translation');
 
     await assertWritingVisual(page);
+
+    const writingLexical = listWritingRuntimeTasks().find((item) => String(item?.sourceKind || '') === 'synthetic') || null;
+    check(Boolean(writingLexical?.id), 'writing_lexical_fixture_available');
+    await assertLexicalRoundTrip(
+      page,
+      `/writing/${encodeURIComponent(writingLexical.id)}/`,
+      '.writingPromptBody p, .writingPromptBody blockquote, .writingPromptFacts li',
+      'writing_prompt'
+    );
+
     await context.close();
   } finally {
     await browser.close().catch(() => {});
