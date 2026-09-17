@@ -1,0 +1,70 @@
+---
+const { compiled = null } = Astro.props;
+const rows = compiled ? [...compiled.values()].filter((row) => row?.purposeFirstPilot) : [];
+---
+
+{rows.length > 0 && (
+  <div hidden data-politics-projection-runtime-registry>
+    {rows.map((row) => (
+      <section data-projection-outlet-unit={row.unitId}>
+        {row.handoff?.locator && <p data-projection-locator>{row.handoff.locator}</p>}
+        {row.handoff?.lookFor?.map((item) => <p data-projection-look-for>{item}</p>)}
+        {row.closure && <p data-projection-closure>{row.closure}</p>}
+      </section>
+    ))}
+  </div>
+)}
+
+<script is:inline>
+  (() => {
+    const registry = document.querySelector('[data-politics-projection-runtime-registry]');
+    if (!registry) return;
+    registry.querySelectorAll('[data-projection-outlet-unit]').forEach((entry) => {
+      const unitId = entry.getAttribute('data-projection-outlet-unit');
+      if (!unitId) return;
+      const unit = document.querySelector(`[data-politics-unit][data-unit-id="${CSS.escape(unitId)}"]`);
+      if (!unit) return;
+
+      const locator = entry.querySelector('[data-projection-locator]')?.textContent?.trim();
+      const lookFor = [...entry.querySelectorAll('[data-projection-look-for]')]
+        .map((node) => node.textContent?.trim())
+        .filter(Boolean);
+      const closure = entry.querySelector('[data-projection-closure]')?.textContent?.trim();
+
+      const source = unit.querySelector('[data-politics-external-source]');
+      const handoff = source?.querySelector('.politicsSourceHandoff');
+      if (handoff && (locator || lookFor.length)) {
+        let block = handoff.querySelector('[data-current-handoff]');
+        if (!block) {
+          block = document.createElement('div');
+          block.setAttribute('data-current-handoff', '');
+          handoff.prepend(block);
+        }
+        block.replaceChildren();
+        if (locator) {
+          const label = document.createElement('strong');
+          label.textContent = '原讲义定位';
+          const value = document.createElement('p');
+          value.textContent = locator;
+          block.append(label, value);
+        }
+        if (lookFor.length) {
+          const label = document.createElement('strong');
+          label.textContent = '这次进去找什么';
+          const list = document.createElement('ul');
+          lookFor.forEach((text) => {
+            const li = document.createElement('li');
+            li.textContent = text;
+            list.appendChild(li);
+          });
+          block.append(label, list);
+        }
+      }
+
+      if (closure) {
+        const closureText = unit.querySelector('.politicsClosure > div > p');
+        if (closureText) closureText.textContent = closure;
+      }
+    });
+  })();
+</script>
