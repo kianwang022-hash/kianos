@@ -1,4 +1,4 @@
-import orchestratorCurrent from '../../../EXAM_ORCHESTRATOR_CURRENT.json';
+import orchestratorCurrent from '../../../EXAM_ORCHESTRATOR_CURRENT.json' with { type: 'json' };
 
 // Cross-subject planning only. EXAM_ORCHESTRATOR_CONTRACT.md owns the policy.
 // EXAM_ORCHESTRATOR_CURRENT.json is a checked derived projection for runtime use,
