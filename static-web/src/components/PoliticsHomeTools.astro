@@ -4,76 +4,94 @@ const base = import.meta.env.BASE_URL;
 const catalog = politicsProductCatalog(base);
 const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
 ---
-<section class="politicsHomeTools" data-politics-home-tools data-base={base}>
+<section class="politicsHomeTools" data-politics-home-tools data-base={base} data-has-handoff="false">
   <script type="application/json" data-politics-home-catalog set:html={JSON.stringify(catalog).replace(/</g, '\\u003c')} />
   <a class="politicsContinue" data-politics-continue href={firstHref}>
     <span>Continue</span>
     <strong data-politics-continue-title>{firstLabel}</strong>
     <small data-politics-continue-meta>先选学习单元；之后回到原题、原学习位置。</small>
   </a>
-  <section class="politicsHandoff">
+  <section class="politicsHandoff" data-politics-handoff hidden>
     <div>
-      <span>回访与讨论</span>
+      <span>需要带回 Chat</span>
       <a class="politicsReviewEntry" data-politics-review-entry href={`${base}politics/review/`}>今日回访 →</a>
       <p data-politics-handoff-summary>今天还没有需要带回 Chat 的政治证据。</p>
     </div>
-    <button type="button" data-politics-copy-handoff>Copy Today's Handoff</button>
+    <button type="button" data-politics-copy-handoff hidden>Copy Today's Handoff</button>
   </section>
 </section>
 
 <script>
-  import { readPoliticsSnapshot, selectPoliticsReview, resolvePoliticsContinue } from '../lib/politicsPracticeState.mjs';
+  import { politicsReviewPacket, readPoliticsSnapshot, selectPoliticsReview, resolvePoliticsContinue } from '../lib/politicsPracticeState.mjs';
   const root = document.querySelector('[data-politics-home-tools]');
   if (root instanceof HTMLElement) {
-    const catalog = JSON.parse(root.querySelector('[data-politics-home-catalog]').textContent);
-    root.querySelector('[data-politics-home-catalog]').remove();
+    const catalogNode = root.querySelector('[data-politics-home-catalog]');
+    const catalog = JSON.parse(catalogNode?.textContent || '{}');
+    catalogNode?.remove();
     const base = root.dataset.base || '/';
-    const firstHref = root.querySelector('[data-politics-continue]')?.getAttribute('href');
-    const firstTitle = root.querySelector('[data-politics-continue-title]')?.textContent;
-    const lastKey = 'kianos-politics-last-location-v1';
-    const evidenceKey = 'kianos-politics-evidence-v1';
+    const firstHref = root.querySelector('[data-politics-continue]')?.getAttribute('href') || `${base}politics/`;
+    const firstTitle = root.querySelector('[data-politics-continue-title]')?.textContent || '开始政治学习';
     const localStudyDay = () => new Date().toLocaleDateString('en-CA');
-    const readJson = (key, fallback) => {
-      try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; } catch { return fallback; }
-    };
 
-    const renderContinue = () => {
-      const snapshot = readPoliticsSnapshot(localStorage);
+    const renderContinue = (snapshot) => {
       const target = snapshot.errors.length ? null : resolvePoliticsContinue(catalog, snapshot, base);
       const link = root.querySelector('[data-politics-continue]');
       if (link instanceof HTMLAnchorElement) link.href = target?.href || firstHref;
-      root.querySelector('[data-politics-continue-title]').textContent = target?.title || firstTitle;
-      root.querySelector('[data-politics-continue-meta]').textContent = snapshot.errors.length ? '记录未能完整读取，先核对存储。' : target?.detail || '先选学习单元；之后准确回到原位置。';
+      const title = root.querySelector('[data-politics-continue-title]');
+      const meta = root.querySelector('[data-politics-continue-meta]');
+      if (title) title.textContent = target?.title || firstTitle;
+      if (meta) meta.textContent = snapshot.errors.length ? '记录未能完整读取，先核对存储。' : target?.detail || '先选学习单元；之后准确回到原位置。';
     };
 
-    const todayEvents = () => {
-      const events = readJson(evidenceKey, []);
-      const day = localStudyDay();
-      return Array.isArray(events) ? events.filter((event) => event?.study_day === day) : [];
-    };
+    const actionableItems = (review) => review.items.filter((item) => item.needsReview);
 
-    const buildPacket = () => ({
-      schema: 'kianos.politics.return_packet.v1',
-      study_day: localStudyDay(),
-      exported_at: new Date().toISOString(),
-      last_location: readJson(lastKey, null),
-      events: todayEvents()
-    });
-
-    const renderSummary = () => {
+    const renderHandoff = (snapshot, todayReview) => {
+      const handoff = root.querySelector('[data-politics-handoff]');
       const summary = root.querySelector('[data-politics-handoff-summary]');
-      if (!summary) return;
-      const events = todayEvents();
-      const wrong = events.filter((event) => event.outcome === 'WRONG').length;
-      const uncertain = events.filter((event) => event.outcome === 'UNCERTAIN').length;
-      summary.textContent = events.length
-        ? `今天 ${events.length} 条需要处理 · ${wrong} Wrong · ${uncertain} Uncertain。`
-        : '今天还没有需要带回 Chat 的政治证据。';
+      const button = root.querySelector('[data-politics-copy-handoff]');
+      if (!(handoff instanceof HTMLElement) || !(button instanceof HTMLButtonElement) || !summary) return;
+
+      if (snapshot.errors.length) {
+        root.dataset.hasHandoff = 'error';
+        handoff.hidden = false;
+        button.hidden = true;
+        summary.textContent = '回访记录未能完整读取，当前不生成 Handoff；先进入回访核对。';
+        return;
+      }
+
+      const items = actionableItems(todayReview);
+      if (!items.length) {
+        root.dataset.hasHandoff = 'false';
+        handoff.hidden = true;
+        button.hidden = true;
+        return;
+      }
+
+      const wrong = items.filter((item) => item.outcome === 'WRONG').length;
+      const uncertain = items.filter((item) => item.outcome === 'UNCERTAIN').length;
+      root.dataset.hasHandoff = 'true';
+      handoff.hidden = false;
+      button.hidden = false;
+      summary.textContent = `今天 ${items.length} 条需要处理 · ${wrong} Wrong · ${uncertain} Uncertain。`;
+    };
+
+    const buildActionablePacket = (snapshot, todayReview) => {
+      const ids = new Set(actionableItems(todayReview).map((item) => item.id));
+      const packet = politicsReviewPacket(catalog, snapshot, { day: localStudyDay(), filter: 'today' });
+      return {
+        ...packet,
+        events: packet.events.filter((event) => ids.has(event?.question_id)),
+        review_context: packet.review_context.filter((item) => ids.has(item?.question_id))
+      };
     };
 
     root.querySelector('[data-politics-copy-handoff]')?.addEventListener('click', async (event) => {
       const button = event.currentTarget;
-      const text = JSON.stringify(buildPacket(), null, 2);
+      if (!(button instanceof HTMLButtonElement)) return;
+      const snapshot = readPoliticsSnapshot(localStorage);
+      const todayReview = selectPoliticsReview(catalog, snapshot, { day: localStudyDay(), filter: 'today' });
+      if (snapshot.errors.length || actionableItems(todayReview).length === 0) return;
+      const text = JSON.stringify(buildActionablePacket(snapshot, todayReview), null, 2);
       try {
         await navigator.clipboard.writeText(text);
         button.textContent = 'Copied';
@@ -84,18 +102,26 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
     });
 
     const update = () => {
-      renderContinue(); renderSummary();
       const snapshot = readPoliticsSnapshot(localStorage);
-      const review = selectPoliticsReview(catalog, snapshot);
+      const allReview = selectPoliticsReview(catalog, snapshot);
+      const todayReview = selectPoliticsReview(catalog, snapshot, { day: localStudyDay(), filter: 'today' });
+      renderContinue(snapshot);
+      renderHandoff(snapshot, todayReview);
       const link = root.querySelector('[data-politics-review-entry]');
-      link.textContent = snapshot.errors.length ? '核对回访记录 →' : review.items.length ? `今日回访 · ${review.items.length} 题 →` : '回访与讨论 →';
-      // The active Review view is separate from immutable today's evidence export.
+      if (link) link.textContent = snapshot.errors.length ? '核对回访记录 →' : allReview.items.length ? `今日回访 · ${allReview.items.length} 题 →` : '回访与讨论 →';
     };
     update(); addEventListener('storage', update); addEventListener('focus', update);
   }
 </script>
 
-<style>
-  .politicsHomeTools{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;margin-top:12px}.politicsContinue,.politicsHandoff{padding:18px 20px;border:1px solid var(--study-line);border-radius:14px;background:#fff;color:inherit}.politicsContinue{display:grid;gap:4px;text-decoration:none}.politicsContinue>span,.politicsHandoff span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.politicsContinue strong,.politicsHandoff strong{font-size:18px}.politicsContinue small{color:var(--study-faint);line-height:1.5}.politicsHandoff{display:flex;align-items:center;justify-content:space-between;gap:16px}.politicsHandoff>div{display:grid;gap:4px}.politicsHandoff p{margin:0;color:var(--study-muted);font-size:12px;line-height:1.55}.politicsHandoff button{padding:9px 12px;border:1px solid currentColor;border-radius:9px;background:#fff;color:inherit;font:inherit;font-size:12px;font-weight:760;cursor:pointer;white-space:nowrap}
-  @media(max-width:760px){.politicsHomeTools{grid-template-columns:1fr}.politicsHandoff{align-items:stretch;flex-direction:column}.politicsHandoff button{white-space:normal}}
+<style is:global>
+  body#kianos-workspace.surfaceBody-politics [data-politics-home-tools][data-has-handoff="false"]{grid-template-columns:minmax(0,1fr)}
+  body#kianos-workspace.surfaceBody-politics [data-politics-home-tools] .politicsHandoff[hidden]{display:none}
+  body#kianos-workspace.surfaceBody-politics [data-politics-home-tools] .politicsContinue>small{font-size:16px;line-height:1.65}
+  body#kianos-workspace.surfaceBody-politics [data-politics-home-tools] .politicsHandoff p{font-size:16px;line-height:1.65}
+  body#kianos-workspace.surfaceBody-politics [data-politics-home-tools] .politicsReviewEntry{font-size:15px;line-height:1.5;color:#356c50;text-decoration:none}
+  body#kianos-workspace.surfaceBody-politics [data-politics-home-tools] .politicsReviewEntry:hover{text-decoration:underline}
+  body#kianos-workspace.surfaceBody-politics [data-politics-home-tools] .politicsHandoff button{font-size:14px;line-height:1.4}
+  body#kianos-workspace.surfaceBody-politics [data-politics-home-tools][data-has-handoff="error"] .politicsHandoff{background:#fbfaf4}
+  @media(max-width:760px){body#kianos-workspace.surfaceBody-politics [data-politics-home-tools]{grid-template-columns:1fr}}
 </style>
