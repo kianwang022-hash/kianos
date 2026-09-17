@@ -1,0 +1,50 @@
+{
+  "schema": "kianos.authority_ownership.v1",
+  "contract": "AUTHORITY_INHERITANCE_CONTRACT.md",
+  "durable_authorities": {
+    "project_definition": "PROJECT_DEFINITION.md",
+    "project_architecture": "ARCHITECTURE.md",
+    "authority_inheritance": "AUTHORITY_INHERITANCE_CONTRACT.md",
+    "shared_platform_capabilities": "SYSTEM_CONTRACT.md",
+    "exam_orchestrator_policy": "EXAM_ORCHESTRATOR_CONTRACT.md",
+    "project_management": "PROJECT_MANAGEMENT_CONTRACT.md",
+    "branch_lifecycle": "BRANCH_LIFECYCLE.md",
+    "root_work_cursor": "CURRENT.md"
+  },
+  "lane_work_cursors": {
+    "english": "content/english/CURRENT.md",
+    "xizong": "content/xizong/CURRENT.md",
+    "politics": "content/politics/CURRENT.md",
+    "lexical": "content/lexical/CURRENT.md"
+  },
+  "shared_platform": {
+    "shell_markup_owner": "static-web/src/layouts/Base.astro",
+    "navigation_owner": "static-web/src/lib/sharedNavigation.mjs",
+    "shell_style_owner": "static-web/src/styles/shared-shell.css",
+    "exam_orchestrator_runtime_owner": "static-web/src/lib/examOrchestrator.mjs",
+    "current_sync_mutation_owner": "static-web/scripts/kianos-current-sync.mjs",
+    "current_sync_bootstrap_installer": "static-web/scripts/install-current-macos.sh",
+    "current_delivery_workflow": ".github/workflows/current-delivery.yml"
+  },
+  "derived_projections": {
+    "exam_orchestrator_current": {
+      "path": "EXAM_ORCHESTRATOR_CURRENT.json",
+      "source": "EXAM_ORCHESTRATOR_CONTRACT.md",
+      "authority": "DERIVED_PROJECTION"
+    }
+  },
+  "conditional_boundaries": {
+    "home_projection_contract": "static-web/HOME_SUBJECT_PROJECTION_CONTRACT.md",
+    "external_reading_product_brief": "static-web/EXTERNAL_READING_PRODUCT_BRIEF.md"
+  },
+  "conditional_capabilities": {
+    "study_timer": {
+      "trigger": "static-web/src/lib/studyTimer.mjs",
+      "owners": {
+        "runtime": "static-web/src/lib/studyTimer.mjs",
+        "dock": "static-web/src/components/StudyTimerDock.astro",
+        "style": "static-web/src/styles/study-timer.css"
+      }
+    }
+  }
+}
