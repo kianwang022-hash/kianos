@@ -1,9 +1,11 @@
 ---
-import Base from '../../../layouts/Base.astro';
+import PoliticsLayout from '../../../layouts/PoliticsLayout.astro';
 import { loadPoliticsCompiledPresentation } from '../../../lib/politicsCompiledPresentation.mjs';
 import PoliticsChapterPresentation from '../../../components/PoliticsChapterPresentation.astro';
 import PoliticsChapterRuntime from '../../../components/PoliticsChapterRuntime.astro';
 import PoliticsCognitiveWorkspace from '../../../components/PoliticsCognitiveWorkspace.astro';
+import PoliticsCognitiveWorkspaceBridge from '../../../components/PoliticsCognitiveWorkspaceBridge.astro';
+import PoliticsCognitiveWorkspaceReadable from '../../../components/PoliticsCognitiveWorkspaceReadable.astro';
 import PoliticsCognitiveWorkspaceExplicitSurface from '../../../components/PoliticsCognitiveWorkspaceExplicitSurface.astro';
 import PoliticsCognitiveWorkspaceExplicitBehavior from '../../../components/PoliticsCognitiveWorkspaceExplicitBehavior.astro';
 import PoliticsVisibleTypeFloor from '../../../components/PoliticsVisibleTypeFloor.astro';
@@ -28,22 +30,20 @@ const compiled = loadPoliticsCompiledPresentation(subject, chapter);
 const useCognitiveWorkspace = subject === 'marxism'
   && chapter === 'ch00'
   && data.units.some((unit) => unit?.raw?.learning_semantics?.schema === 'kianos.politics.learning_semantics.v1');
-const compiledRows = compiled instanceof Map ? [...compiled.values()] : [];
-const allCompiledRowsMapped = compiledRows.every((row) => row?.surfacePlan?.states?.ORIENT?.length > 0);
 const useExplicitCognitiveMapping = useCognitiveWorkspace
-  && compiledRows.length > 0
-  && allCompiledRowsMapped;
-const usePurposeFirstRuntime = !useCognitiveWorkspace && compiledRows.length > 0;
-
-if (compiledRows.length > 0 && !allCompiledRowsMapped) {
-  throw new Error(`POLITICS_EXPLICIT_SURFACE_MAPPING_REQUIRED:${subject}:${chapter}`);
-}
-if (useCognitiveWorkspace && !useExplicitCognitiveMapping) {
-  throw new Error(`POLITICS_EXPLICIT_SURFACE_MAPPING_REQUIRED:${subject}:${chapter}`);
-}
+  && compiled instanceof Map
+  && [...compiled.values()].length > 0
+  && [...compiled.values()].every((row) => row?.surfacePlan?.states?.ORIENT?.length > 0);
+const usePurposeFirstRuntime = !useCognitiveWorkspace && Boolean(compiled?.size);
 ---
+<style is:global>
+  /* Golden C00 calibration: the learner-facing orientation question must read as a real headline. */
+  .politicsCognitiveWorkspace.directReasoningWorkspace[data-subject="marxism"][data-chapter="ch00"] [data-stage="ORIENT"] > h2 {
+    font-size: clamp(32px, 2.45vw, 39px) !important;
+  }
+</style>
 
-<Base
+<PoliticsLayout
   title={data.title}
   kicker={`${data.subjectMeta.label} · ${data.subjectMeta.shape}`}
   description={data.subjectMeta.description}
@@ -70,6 +70,8 @@ if (useCognitiveWorkspace && !useExplicitCognitiveMapping) {
   {useCognitiveWorkspace
     ? <PoliticsCognitiveWorkspace chapter={data} base={base} />
     : <PoliticsChapterRuntime chapter={data} base={base} compiled={compiled} />}
+  {useCognitiveWorkspace && !useExplicitCognitiveMapping && <PoliticsCognitiveWorkspaceBridge chapter={data} />}
+  {useCognitiveWorkspace && !useExplicitCognitiveMapping && <PoliticsCognitiveWorkspaceReadable />}
   {useExplicitCognitiveMapping && <PoliticsCognitiveWorkspaceExplicitSurface compiled={compiled} />}
   {useExplicitCognitiveMapping && <PoliticsCognitiveWorkspaceExplicitBehavior />}
   {useCognitiveWorkspace && <PoliticsVisibleTypeFloor />}
@@ -91,4 +93,4 @@ if (useCognitiveWorkspace && !useExplicitCognitiveMapping) {
   <PoliticsUnitReturnEnhancer chapter={data} />
   {['mao', 'xi', 'ethics_law'].includes(subject) && <PoliticsEvidenceEnhancer chapter={data} />}
   {!useCognitiveWorkspace && <PoliticsChapterPresentation />}
-</Base>
+</PoliticsLayout>
