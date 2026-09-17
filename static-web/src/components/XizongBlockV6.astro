@@ -366,7 +366,8 @@ const ttsx = block?.ttsx || { checkpoints: [] };
       const validStages = ['block_learn', 'source_contact', 'logic_group', 'kp_learn', 'kp_recall', 'group_close', 'block_recall', 'block_complete'];
       if (!validStages.includes(state.stage)) state.stage = 'block_learn';
       if (!sourcePerGroup && state.stage === 'kp_learn') state.stage = state.sourceContactDone ? 'kp_recall' : 'source_contact';
-      if (sourcePerGroup && state.stage === 'source_contact') state.stage = 'logic_group';
+      if (sourcePerGroup && state.stage === 'source_contact') state.stage = 'kp_learn';
+      if (state.stage === 'logic_group') state.stage = sourcePerGroup ? 'kp_learn' : (state.sourceContactDone ? 'kp_recall' : 'source_contact');
       const group = currentGroup();
       if (state.stage === 'group_close' && (group?.kpIds || []).some((id) => !state.ratings?.[id])) {
         state.kpIndex = firstUnrecalledIndexForGroup(group);
@@ -380,12 +381,12 @@ const ttsx = block?.ttsx || { checkpoints: [] };
       let stage = requested || 'block_learn';
       if (!sourcePerGroup && stage === 'kp_learn') stage = state.sourceContactDone ? 'kp_recall' : 'source_contact';
       if (!sourcePerGroup && stage === 'kp_recall' && !state.sourceContactDone) stage = 'source_contact';
-      if (sourcePerGroup && stage === 'source_contact') stage = 'logic_group';
+      if (sourcePerGroup && stage === 'source_contact') stage = 'kp_learn';
+      if (stage === 'logic_group') stage = sourcePerGroup ? 'kp_learn' : (state.sourceContactDone ? 'kp_recall' : 'source_contact');
       state.stage = stage;
       stages.forEach((panel) => { panel.hidden = panel.getAttribute('data-study-stage') !== state.stage; });
-      const kpMode = state.stage === 'kp_recall';
-      if (kpRail) kpRail.hidden = !kpMode;
-      if (groupRail) groupRail.hidden = kpMode;
+      if (kpRail) kpRail.hidden = true;
+      if (groupRail) groupRail.hidden = false;
       root.querySelectorAll('[data-chain-step]').forEach((item) => item.classList.toggle('viewing', item.getAttribute('data-chain-step') === state.stage));
       if (contextLabel) contextLabel.textContent = `西医综合 · ${blockLabel} · ${stageLabel[state.stage] || 'Learn'}`;
       save(); syncState();
@@ -409,7 +410,7 @@ const ttsx = block?.ttsx || { checkpoints: [] };
       state.learned = Object.fromEntries(kpData.map((kp) => [kp.kpId, true]));
       state.groupIndex = 0;
       state.kpIndex = firstIndexForGroup(groups[0]);
-      save(); setStage('logic_group');
+      save(); setStage('kp_recall');
     });
 
     root.querySelector('[data-enter-group]')?.addEventListener('click', () => {
@@ -429,8 +430,23 @@ const ttsx = block?.ttsx || { checkpoints: [] };
       state.kpIndex = firstUnrecalledIndexForGroup(group);
       save(); setStage('kp_recall');
     });
-    groupRailButtons.forEach((button, index) => button.addEventListener('click', () => { state.groupIndex = index; const group = currentGroup(); if (group) state.kpIndex = firstIndexForGroup(group); save(); switchTab('learn'); setStage('logic_group'); }));
-    root.querySelectorAll('[data-outline-open]').forEach((button) => button.addEventListener('click', () => { state.groupIndex = Number(button.getAttribute('data-outline-open') || 0); const group = currentGroup(); if (group) state.kpIndex = firstIndexForGroup(group); save(); switchTab('learn'); setStage('logic_group'); }));
+    const stageForSelectedGroup = () => sourcePerGroup ? 'kp_learn' : (state.sourceContactDone ? 'kp_recall' : 'source_contact');
+    groupRailButtons.forEach((button, index) => button.addEventListener('click', () => {
+      state.groupIndex = index;
+      const group = currentGroup();
+      if (group) state.kpIndex = firstIndexForGroup(group);
+      save();
+      switchTab('learn');
+      setStage(stageForSelectedGroup());
+    }));
+    root.querySelectorAll('[data-outline-open]').forEach((button) => button.addEventListener('click', () => {
+      state.groupIndex = Number(button.getAttribute('data-outline-open') || 0);
+      const group = currentGroup();
+      if (group) state.kpIndex = firstIndexForGroup(group);
+      save();
+      switchTab('learn');
+      setStage(stageForSelectedGroup());
+    }));
 
     const stepRecall = (delta) => {
       const ids = currentGroup()?.kpIds || [];
@@ -475,7 +491,7 @@ const ttsx = block?.ttsx || { checkpoints: [] };
         state.groupIndex += 1;
         const group = currentGroup();
         if (group) state.kpIndex = firstIndexForGroup(group);
-        save(); setStage('logic_group');
+        save(); setStage(stageForSelectedGroup());
       } else {
         save(); setStage('block_recall');
       }
