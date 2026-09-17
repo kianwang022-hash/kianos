@@ -81,6 +81,9 @@ if (diagnostics.questionRows < 1000) fail(`question database unexpectedly small:
 
 
 
+const chapterRuntimeUrl = new URL('../src/components/PoliticsChapterRuntime.astro', import.meta.url);
+const chapterRuntimeSource = fs.readFileSync(chapterRuntimeUrl, 'utf8');
+
 // Surface Mapping consumer guard.
 // Learner renderers may consume resolved Projection / SurfacePlan and Question Truth,
 // but must never reconstruct Politics learner semantics from raw teaching/content fields.
@@ -124,8 +127,6 @@ for (const [label, source, pattern] of requiredMappedConsumers) {
 // Surface Ownership regression guard.
 // Chengfeng source text remains resolved in Current for provenance/repair, but first-round
 // Politics projection must not turn Astro into a competing continuous lecture reader.
-const chapterRuntimeUrl = new URL('../src/components/PoliticsChapterRuntime.astro', import.meta.url);
-const chapterRuntimeSource = fs.readFileSync(chapterRuntimeUrl, 'utf8');
 const forbiddenProjectionPatterns = [
   ['continuous Chengfeng text render', /node\.text/],
   ['legacy source-flow reader', /politicsSourceFlow/],
