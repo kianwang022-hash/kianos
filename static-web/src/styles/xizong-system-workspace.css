@@ -1,6 +1,6 @@
-/* Purpose-first System Workspace convergence.
-   This page-scoped layer intentionally outranks the older System rules in
-   xizong-presentation.css without changing shared Block or Home presentation. */
+/* Xizong System Workspace — sole Current visual owner for the first-pass System surface.
+   Semantic markup/interaction stay in XizongSystemV6.astro; page composition stays in the route.
+   Legacy xizong-presentation System rules are migration debt and must not be extended. */
 
 body#kianos-workspace.surfaceBody-xizong .xv6SystemShell.xv6SystemWorkspace {
   width:100%;
@@ -33,11 +33,23 @@ body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemContext {
   align-content:start;
 }
 
-/* The accepted System workspace has a real learner-visible 15px floor.  The
-   extra System-shell specificity is deliberate: legacy presentation rules used
-   body-scoped selectors and otherwise silently won the cascade. */
 body#kianos-workspace.surfaceBody-xizong .xv6SystemShell.xv6SystemWorkspace :is(p,li,td,th,figcaption,span,small,b,strong,em,label,button,summary,code) {
   font-size:max(15px,1em);
+}
+
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace :is(
+  .xv6SystemRail header>span,
+  .xv6SystemContext>section>span,
+  .xv6FrameworkHeading>span,
+  .xv6SystemCoordinates article header>span,
+  .xv6SectionLabel,
+  .xv6SystemHeroDense>div>span,
+  .xv6FailureRun>span
+) {
+  color:var(--study-green,#286c57);
+  font-size:15px;
+  font-weight:820;
+  letter-spacing:.02em;
 }
 
 body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail header {
@@ -50,6 +62,9 @@ body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail head
   margin:0;
   font-size:17px;
   line-height:1.35;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail header>small {
+  color:var(--study-muted,#6d7873);
 }
 body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail nav {
   display:grid;
@@ -102,15 +117,21 @@ body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemMain {
   background:transparent;
   border:0;
 }
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemHeroDense,
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemFramework,
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemCoordinates,
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureWorkspace,
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Dependency {
+  border:1px solid var(--study-line,#d9dde5);
+  border-radius:13px;
+  background:#fff;
+}
 body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemHeroDense {
   display:grid;
   grid-template-columns:minmax(200px,.62fr) minmax(0,1.38fr);
   gap:20px;
   align-items:center;
   padding:16px 19px;
-  border:1px solid var(--study-line,#d9dde5);
-  border-radius:13px;
-  background:#fff;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemHeroDense h1 {
   margin:3px 0 0;
@@ -124,6 +145,15 @@ body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemHeroDense
   font-size:16px;
   line-height:1.65;
 }
+
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemFramework {
+  padding:18px 20px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace :is(.xv6FrameworkHeading h2,.xv6SystemCoordinates h2) {
+  margin:4px 0 0;
+  font-size:21px;
+  line-height:1.35;
+}
 body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Mother {
   margin:12px 0 14px;
   padding:0;
@@ -133,9 +163,17 @@ body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Mother {
   line-height:1.72;
   color:inherit;
 }
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FrameworkBlock {
+  padding-top:13px;
+  border-top:1px solid var(--study-line,#d9dde5);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6ParallelBlock {
+  display:grid;
+  gap:7px;
+  margin-top:13px;
+}
 
-/* Projection says this is an explicit SEQUENCE, so render one actual chain.
-   Do not let the legacy 3-column grid turn sequence into ambiguous geometry. */
+/* The spine is an explicit ordered sequence. */
 body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine {
   display:flex;
   grid-template-columns:none;
@@ -163,6 +201,7 @@ body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li {
   border-radius:0;
   background:#f7faf8;
   box-shadow:none;
+  transition:opacity .12s,border-color .12s,background .12s;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li:first-child { border-radius:9px 0 0 9px; }
 body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li:last-child {
@@ -209,6 +248,72 @@ body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Parallel span {
   line-height:1.4;
 }
 
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemCoordinates {
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  overflow:hidden;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemCoordinates article {
+  padding:17px 19px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemCoordinates article+article {
+  border-left:1px solid var(--study-line,#d9dde5);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6VariableTable {
+  display:grid;
+  gap:0;
+  margin-top:11px;
+  border-top:1px solid #e4e9e6;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6VariableRow {
+  display:grid;
+  grid-template-columns:minmax(120px,.8fr) minmax(0,1.2fr);
+  gap:12px;
+  padding:8px 0;
+  border-bottom:1px solid #edf0ee;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6VariableRow strong { font-size:16px; }
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6VariableRow span {
+  color:var(--study-muted,#5f6d67);
+  font-size:15px;
+  line-height:1.45;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FormulaList {
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FormulaList code {
+  padding:7px 10px;
+  border-radius:7px;
+  background:#edf6f2;
+  color:#244c40;
+  font-size:16px;
+  font-weight:750;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6AxesBlock ul {
+  display:grid;
+  gap:7px;
+  margin:12px 0 0;
+  padding:0;
+  list-style:none;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6AxesBlock li {
+  padding:8px 10px;
+  border-left:3px solid #b8d4c8;
+  background:#f7faf8;
+  font-size:16px;
+  line-height:1.5;
+}
+
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureWorkspace { padding:18px 20px; }
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureLayout {
+  display:grid;
+  grid-template-columns:minmax(220px,.75fr) minmax(0,1.25fr);
+  gap:12px;
+  margin-top:13px;
+}
 body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureGrid {
   display:grid;
   grid-template-columns:1fr;
@@ -236,6 +341,13 @@ body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureGrid but
   background:#f0f7f4;
   box-shadow:none;
 }
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureGrid button>b {
+  color:var(--study-green,#286c57);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureGrid button>span {
+  font-weight:720;
+  line-height:1.4;
+}
 body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureRun {
   display:grid;
   align-content:start;
@@ -250,6 +362,16 @@ body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureRun {
 }
 body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureRun>strong { font-size:19px;line-height:1.35; }
 body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureRun>p { margin:0;font-size:16px;line-height:1.65; }
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureRun>div {
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureRun>div span {
+  padding:5px 8px;
+  border-radius:7px;
+  background:#fff;
+}
 
 body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemContext>section {
   padding:14px;
@@ -282,12 +404,85 @@ body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SelectedBlock b
   font-size:16px;
   font-weight:800;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Dependency {
-  padding:13px 16px;
-  border:1px solid var(--study-line,#d9dde5);
-  border-radius:13px;
-  background:#fff;
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace :is(.xv6SystemGuide p,.xv6SystemKeys p) {
+  margin:7px 0 0;
+  color:var(--study-muted,#5f6d67);
+  font-size:15px;
+  line-height:1.55;
 }
+
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Dependency { padding:13px 16px; }
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Dependency summary {
+  cursor:pointer;
+  font-size:16px;
+  font-weight:780;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Dependency p {
+  margin:10px 0 8px;
+  color:var(--study-muted,#5f6d67);
+  font-size:16px;
+  line-height:1.6;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Dependency ul {
+  display:grid;
+  gap:6px;
+  margin:0;
+  padding-left:21px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Dependency li {
+  font-size:16px;
+  line-height:1.5;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .portedSourceFoot :is(summary,code) { font-size:15px; }
+
+/* First-pass System Framework never leaks later System Recall. */
+body#kianos-workspace.surfaceBody-xizong .xv6SystemContext .xv6RecallCompact { display:none; }
+body#kianos-workspace.surfaceBody-xizong .xv6SystemContext .xv6SystemKeys p:last-child { display:none; }
+
+/* Later stage remains visually subordinate on the System route until its own migration slice. */
+body#kianos-workspace.surfaceBody-xizong .xizongLaterStage {
+  margin-top:14px;
+  border:1px solid var(--study-line,#d9dde5);
+  border-radius:14px;
+  background:#fff;
+  overflow:hidden;
+}
+body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>summary {
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  gap:6px 14px;
+  align-items:center;
+  padding:12px 15px;
+  cursor:pointer;
+  list-style:none;
+}
+body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>summary::-webkit-details-marker { display:none; }
+body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>summary::before {
+  content:'›';
+  grid-row:1 / span 2;
+  color:var(--study-green,#286c57);
+  font-size:18px;
+  font-weight:900;
+  transition:transform .15s ease;
+}
+body#kianos-workspace.surfaceBody-xizong .xizongLaterStage[open]>summary::before { transform:rotate(90deg); }
+body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>summary span {
+  color:var(--study-green,#286c57);
+  font-size:15px;
+  font-weight:850;
+  letter-spacing:.02em;
+}
+body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>summary strong { font-size:16px; }
+body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>summary small {
+  grid-column:3;
+  color:var(--study-muted,#6d7873);
+  font-size:15px;
+}
+body#kianos-workspace.surfaceBody-xizong .xizongLaterStage[open]>summary {
+  border-bottom:1px solid var(--study-line,#d9dde5);
+  background:#f7faf8;
+}
+body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>.xse { margin:12px; }
 
 @media (min-width:1101px) and (min-height:680px) {
   body#kianos-workspace.surfaceBody-xizong .xv6SystemShell.xv6SystemWorkspace {
@@ -320,6 +515,15 @@ body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Dependency {
     max-height:none;
     grid-template-columns:1fr 1fr 1fr;
   }
+  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemContext>section {
+    border-right:1px solid var(--study-line,#d9dde5);
+    border-bottom:0;
+  }
+  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemCoordinates { grid-template-columns:1fr; }
+  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemCoordinates article+article {
+    border-left:0;
+    border-top:1px solid var(--study-line,#d9dde5);
+  }
 }
 
 @media (max-width:760px) {
@@ -331,6 +535,15 @@ body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Dependency {
     height:auto;
     margin-bottom:10px;
   }
+  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail nav { grid-template-columns:1fr 1fr; }
+  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace :is(.xv6SystemHeroDense,.xv6SystemContext,.xv6FailureLayout) {
+    display:grid;
+    grid-template-columns:1fr;
+  }
+  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemContext>section {
+    border-right:0;
+    border-bottom:1px solid var(--study-line,#d9dde5);
+  }
   body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine { display:grid;gap:6px;overflow:visible; }
   body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li,
   body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li:first-child,
@@ -340,4 +553,8 @@ body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Dependency {
     border-radius:8px;
   }
   body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li:not(:last-child)::after { content:'↓';right:10px; }
+  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemHeroDense { gap:10px; }
+  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemHeroDense h1 { font-size:25px; }
+  body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>summary { grid-template-columns:auto minmax(0,1fr); }
+  body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>summary small { grid-column:2; }
 }
