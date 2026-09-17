@@ -9,14 +9,12 @@
 
 ## Root Work Cursor
 
-**Active scope:** none — router-only baseline  
-**Current stage:** accepted top-level governance baseline  
+**Active scope:** Project management stabilization — Mission Control read model  
+**Current stage:** read-only Mission Control compiler + user-facing `/current/` projection  
 **Blocker:** none  
-**Next action:** route work to the narrowest known lane / sub-lane Current. Open root integration only for a real cross-lane requirement, owner/dependency conflict, or demonstrated management/architecture failure.
+**Next action:** accept this slice, then project only the essential Mission Control summary into Home. Separately remove duplicated exact exam schedule/update constants before expanding task/watch automation.
 
-Top-level governance is accepted and should remain stable. Normal implementation friction does not justify redesigning the root architecture.
-
-For cross-lane project-management, delivery, Mission Control, migration discipline, reading discipline, or implementation-scope work, use `PROJECT_MANAGEMENT_CONTRACT.md`.
+Top-level governance is accepted and remains frozen. This is implementation of `PROJECT_MANAGEMENT_CONTRACT.md`, not a new root architecture.
 
 ---
 
