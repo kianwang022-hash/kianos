@@ -36,34 +36,47 @@ Kian consistently prefers:
 - clear frameworks and visible structure;
 - larger, comfortably readable type;
 - stronger contrast;
-- medium/high useful information density;
+- **high useful information density when the screen has room for it**;
 - low-friction interaction;
 - visually calm pages that still contain enough information;
 - polished desktop-product feel rather than study-app decoration;
 - Apple-like interaction quality / predictability;
-- Raycast-level restraint is broadly acceptable.
+- Raycast-level restraint is broadly acceptable;
+- typography that feels stable, editorial and comfortable for sustained reading rather than thin, generic engineering/admin UI;
+- in Lexical and other true English lexical-reading contexts, the older `4173` / legacy site's stronger serif/editorial English treatment is a positive visual reference, while Chinese explanation and UI chrome may remain sans-serif.
 
 Kian dislikes:
 
 - tiny text that makes sustained reading tiring;
 - pages that are too empty and waste large amounts of space;
 - interfaces that hide useful structure behind excessive whitespace;
+- **low-density pages that still shrink visible text instead of using the available screen**;
 - card/panel piles;
 - visually loud, flashy, highly saturated Arc-like treatment;
 - decorative color for its own sake;
 - excessive animation / novelty;
-- engineering/debug/status information competing with learner content.
+- engineering/debug/status information competing with learner content;
+- visual treatment that feels like an internal documentation site, low-code dashboard, generic SaaS admin page, or cheap component library.
 
-These are taste constraints, not instructions to clone Apple, Raycast, Arc, or any named product.
+These are taste constraints, not instructions to clone Apple, Raycast, Arc, the legacy site, or any named product. Legacy screenshots are visual evidence for typography/density/taste, not authority to restore retired semantics or runtime behavior.
 
 ### Visible text carries a reading obligation
 
-- If a learner-facing surface chooses to show text by default, Kian will treat that text as something worth reading or identifying. **Visible therefore implies readable.**
-- On the primary Mac-wide learning surface, default-visible learner text should normally have a **16px minimum floor**; body copy, explanations, relationships and task instructions should generally be **17px or larger**.
-- Do not use 9–15px text as a way to say “this is secondary.” Lower visual priority through position, tone, weight, grouping, spacing, or by deferring/hiding genuinely nonessential information.
+- If a learner-facing surface chooses to show text by default, Kian will treat that text as something worth reading or identifying. **Visible therefore implies readable and useful.**
+- On the primary Mac-wide learning surface, **15px is a hard lower bound for normal default-visible learner text, not a target size**. Normal secondary/navigation text should usually be around **16px or larger**; body copy, explanations, relationships and task instructions should generally be **17–18px or larger** when space permits.
+- Do not use tiny type as a way to say “this is secondary.” Lower visual priority through position, tone, weight, grouping, spacing, or by deferring/hiding genuinely nonessential information.
 - If an engineering ID, provenance/status label, debug field or other datum is not worth comfortable reading, it should not remain permanently visible merely because there is room for it.
 - Density problems should be solved first by removing duplicate chrome, using Mac width better, grouping related content, or local scrolling — **not by shrinking learner text**.
 - Real browser acceptance should inspect the smallest default-visible learner text, not only headlines and body paragraphs.
+
+### Screen space must earn its keep
+
+- Kian strongly prefers a Mac-wide viewport to show **substantial useful information per screen**. A large desktop canvas should not behave like a sparse mobile composition stretched outward.
+- Every persistent region should either carry information worth seeing now, support the current action, or provide a high-value control. Empty structure, decorative chrome and oversized spacing do not count as useful density.
+- **Low information density never justifies small text.** If a page is sparse, text should remain comfortably readable and the layout should use the available space better rather than appearing both empty and tiny.
+- Whitespace is valid when it improves grouping, scanning, or when the cognitive action genuinely benefits from an uncluttered stage. It is not a visual goal by itself, and it should not consume large parts of the viewport without a learner-facing reason.
+- High density is acceptable and preferred when hierarchy, alignment and reading rhythm remain clear. When a surface truly becomes dense, modest type reduction may be considered, but never below the readable floor merely to preserve a composition.
+- Default-visible content should be biased toward **effective learner information**, not software self-description.
 
 ### Preserve semantic density in intrinsically dense learning surfaces
 
@@ -171,6 +184,7 @@ When discussing a KianOS UI surface with Kian:
 7. Once a decision is accepted, write it to GitHub so later Chats/Codex do not reconstruct it from conversation history.
 8. Finish the relevant family / subject product discussion before handing implementation to Codex.
 9. Aesthetics are part of acceptance; `build PASS` is not enough. Review real screenshots.
+10. When visual taste is being calibrated, show Kian representative screenshots and discuss them before promoting a local success into a shared style rule.
 
 ---
 
@@ -186,15 +200,19 @@ The learner-facing site should feel:
 - calm;
 - efficient;
 - intentional;
+- information-rich without being disorderly;
 - coherent across subjects;
 - aesthetically polished enough to enjoy daily use;
-- structurally rich without feeling busy.
+- structurally rich without feeling busy;
+- closer to a refined editorial/knowledge workspace than to an engineering dashboard.
 
 It should not feel like:
 
 - an engineering console;
 - a component demo;
 - a course-management dashboard;
+- a generic SaaS admin/product dashboard;
+- a documentation site with tiny gray metadata;
 - a gamified study app;
 - a mobile app stretched across a Mac;
 - several disconnected Gold pages with no shared Home / navigation / return model.
