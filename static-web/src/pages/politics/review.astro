@@ -1,11 +1,11 @@
 ---
-import Base from '../../layouts/Base.astro';
+import PoliticsLayout from '../../layouts/PoliticsLayout.astro';
 import { politicsProductCatalog } from '../../lib/productCatalog.mjs';
 import '../../styles/product-closure.css';
 const base = import.meta.env.BASE_URL;
 const catalog = politicsProductCatalog(base);
 ---
-<Base title="政治 · 今日回访" active="politics" showLead={false}>
+<PoliticsLayout title="政治 · 今日回访" active="politics" showLead={false}>
   <section class="politicsReviewPage" data-politics-review data-base={base}>
     <script type="application/json" data-review-catalog set:html={JSON.stringify(catalog).replace(/</g, '\\u003c')} />
     <header class="reviewPageHeader"><div><p class="pageKicker">POLITICS · REVIEW</p><h1>今日回访</h1><p>只处理已经暴露的问题。回源、再试，然后回到主线。</p></div><a href={`${base}politics/`}>回五科总览 →</a></header>
@@ -18,7 +18,7 @@ const catalog = politicsProductCatalog(base);
     <div class="reviewGroups" data-review-groups></div>
     <footer class="reviewFoot"><p>同一道题的修正不覆盖首答，也不代表长期掌握。没有到期债务；稳定内容不强制重做。</p><a href={`${base}politics/`}>继续学新的内容 →</a></footer>
   </section>
-</Base>
+</PoliticsLayout>
 <script>
   import { initPoliticsReview } from '../../lib/politicsReviewClient.mjs';
   initPoliticsReview(document.querySelector('[data-politics-review]'));
