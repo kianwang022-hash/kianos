@@ -176,7 +176,7 @@ async function assertFullLexicalRoundTrip(page) {
   check(await page.locator('[data-english-lexical-return]').isVisible(), 'lexical_lookup_exposes_exact_return');
   await assertExactLexicalResult(page, word, 'reading');
   await page.screenshot({ path: path.join(auditDir, 'lexical-return-1440x900.png'), fullPage: false });
-  await page.locator('.lexicalWordRow').first().click();
+  await page.locator('[data-lexical-search-results] .lexicalWordRow').first().click();
   await page.waitForURL('**/vocabulary/*/');
   check(await page.locator('[data-english-lexical-return]').isVisible(), 'lexical_depth_keeps_return_context');
   await page.locator('[data-english-return-action]').click();
@@ -251,6 +251,32 @@ async function assertLexicalRoundTrip(page, route, selector, name) {
   check(new URL(page.url()).pathname.endsWith(route), `${name}_returns_exact_task`, page.url());
 }
 
+async function assertExtendedLexicalRoundTrips(page) {
+  const readingB = listReadingBSets()
+    .map((row) => { try { return loadReadingBById(row.id); } catch { return null; } })
+    .filter(Boolean)
+    .find((item) => item?.objectId && item?.material?.length) || null;
+  if (readingB?.objectId) {
+    await assertSourceLookup(
+      page,
+      `/reading-b/${encodeURIComponent(readingB.objectId)}/`,
+      '[data-objective-root][data-objective-task="reading_b"] [data-objective-material] [data-objective-material-block]',
+      'part_b'
+    );
+  }
+
+  const writingTask = listWritingRuntimeTasks()
+    .find((item) => String(item?.sourceKind || '') === 'synthetic' && item?.id) || null;
+  if (writingTask?.id) {
+    await assertSourceLookup(
+      page,
+      `/writing/${encodeURIComponent(writingTask.id)}/`,
+      '[data-writing-runtime] .writingPromptBody',
+      'writing'
+    );
+  }
+}
+
 async function assertSourceLookup(page, route, selector, name) {
   await page.goto(`${BASE}${route}`, { waitUntil: 'domcontentloaded' });
   if (name === 'cloze') {
@@ -312,6 +338,7 @@ try {
     check(Boolean(translationId), 'translation_fixture_available');
     await assertSourceLookup(page, `/translation/${encodeURIComponent(translationId)}/`, '[data-translation-source-text] p', 'translation');
 
+    await assertExtendedLexicalRoundTrips(page);
     await assertWritingVisual(page);
 
     const writingLexical = listWritingRuntimeTasks().find((item) => String(item?.sourceKind || '') === 'synthetic') || null;
