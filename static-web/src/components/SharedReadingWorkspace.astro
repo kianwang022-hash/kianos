@@ -12,59 +12,13 @@ const external = mode === 'external';
 <div
   data-shared-reading-workspace
   data-reading-mode={mode}
-  data-reading-back-href={backHref}
-  data-reading-label={label}
 >
-  <ReadingWorkspace reading={reading} />
+  <ReadingWorkspace
+    reading={reading}
+    surfaceLabel={label}
+    backHref={backHref}
+    backLabel={external ? '‹ External Reading' : '‹ Practice'}
+    continuousSession={!external}
+    reviewPacketLabel={`${label} review`}
+  />
 </div>
-
-{external && (
-  <script>
-    const adapter = document.querySelector('[data-shared-reading-workspace][data-reading-mode="external"]');
-    const root = adapter?.querySelector('[data-local-port="reading"]');
-    if (adapter instanceof HTMLElement && root instanceof HTMLElement) {
-      const header = root.querySelector('.portedReadingSessionHeader');
-      const back = header?.querySelector(':scope > a');
-      const label = header?.querySelector('.portedReadingHeaderCenter > span');
-      if (back instanceof HTMLAnchorElement) {
-        back.href = adapter.dataset.readingBackHref || back.href;
-        back.textContent = '‹ External Reading';
-      }
-      if (label) label.textContent = adapter.dataset.readingLabel || 'External Reading';
-
-      // External objects share the Reading interaction engine, but must not
-      // mutate or inherit the true-exam multi-passage continuous session.
-      const continuous = root.querySelector('[data-reading-continuous]');
-      if (continuous instanceof HTMLElement) continuous.hidden = true;
-
-      const examContinuousKey = 'kianos-reading-continuous-session-v1';
-      root.addEventListener('click', (event) => {
-        const target = event.target instanceof Element ? event.target : null;
-        if (!target?.closest('[data-reading-submit]')) return;
-        if (root.getAttribute('data-reading-answers-ready') !== 'true') return;
-
-        let original = null;
-        try {
-          original = localStorage.getItem(examContinuousKey);
-          localStorage.setItem(examContinuousKey, JSON.stringify({
-            version: 1,
-            active: false,
-            reviewing: false,
-            startedAt: '',
-            items: [],
-            reviewIds: [],
-            reviewIndex: 0,
-            lastSummary: null
-          }));
-        } catch {}
-
-        queueMicrotask(() => {
-          try {
-            if (original === null) localStorage.removeItem(examContinuousKey);
-            else localStorage.setItem(examContinuousKey, original);
-          } catch {}
-        });
-      }, true);
-    }
-  </script>
-)}
