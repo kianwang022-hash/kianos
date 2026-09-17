@@ -8,11 +8,13 @@ on:
       - 'static-web/src/lib/studyTimerClient.mjs'
       - 'static-web/src/lib/studyTimerReview.mjs'
       - 'static-web/src/lib/examStudyTime.mjs'
+      - 'static-web/src/lib/examOrchestrator.mjs'
       - 'static-web/src/lib/examOrchestratorClient.mjs'
       - 'static-web/src/layouts/Base.astro'
       - 'static-web/scripts/test-study-timer.mjs'
       - 'static-web/scripts/test-study-timer-review.mjs'
       - 'static-web/scripts/test-exam-study-time.mjs'
+      - 'static-web/scripts/test-exam-phase-floors.mjs'
       - 'static-web/package.json'
   push:
     paths:
@@ -21,11 +23,13 @@ on:
       - 'static-web/src/lib/studyTimerClient.mjs'
       - 'static-web/src/lib/studyTimerReview.mjs'
       - 'static-web/src/lib/examStudyTime.mjs'
+      - 'static-web/src/lib/examOrchestrator.mjs'
       - 'static-web/src/lib/examOrchestratorClient.mjs'
       - 'static-web/src/layouts/Base.astro'
       - 'static-web/scripts/test-study-timer.mjs'
       - 'static-web/scripts/test-study-timer-review.mjs'
       - 'static-web/scripts/test-exam-study-time.mjs'
+      - 'static-web/scripts/test-exam-phase-floors.mjs'
       - 'static-web/package.json'
 
 permissions:
@@ -47,7 +51,7 @@ jobs:
       - name: Install learner site dependencies
         working-directory: static-web
         run: npm install --no-audit --no-fund
-      - name: Test shared study timer logic
+      - name: Test shared study timer and scheduler logic
         working-directory: static-web
         run: npm run test:study-timer
       - name: Build learner site
