@@ -136,7 +136,7 @@ check(systemPlan.failures.some((row) => row.representation.kind === 'SIMPLE_CHAI
 // rediscovering presentation from raw Projection geometry / asset presence.
 const frameworkComponent = fs.readFileSync(path.join(process.cwd(), 'src/components/XizongCognitiveProjectionStage.astro'), 'utf8');
 const learnerBridge = fs.readFileSync(path.join(process.cwd(), 'src/components/XizongLearnerObjectBridge.astro'), 'utf8');
-const systemComponent = fs.readFileSync(path.join(process.cwd(), 'src/components/XizongSystemV6.astro'), 'utf8');
+const systemComponent = fs.readFileSync(path.join(process.cwd(), 'src/components/XizongSystemWorkspace.astro'), 'utf8');
 const blockPage = fs.readFileSync(path.join(process.cwd(), 'src/pages/xizong/[system]/[block].astro'), 'utf8');
 
 check(frameworkComponent.includes('composeXizongFrameworkRepresentation'), 'block_framework_consumes_representation_gate');
@@ -156,6 +156,8 @@ check(systemComponent.includes('composeXizongSystemFrameworkRepresentation'), 's
 check(systemComponent.includes('data-system-framework-plan="purpose-first"'), 'system_workspace_marks_purpose_first_plan');
 check(systemComponent.includes('data-representation-kind={framework.spine.representation.kind}'), 'system_spine_uses_resolved_representation');
 check(systemComponent.includes('data-representation-kind={framework.dependencies.representation.kind}'), 'system_dependencies_use_resolved_safe_representation');
+check(systemComponent.includes('class="xzSystemWorkspace"'), 'system_workspace_uses_current_namespace');
+check(!systemComponent.includes('xv6System'), 'system_workspace_retired_legacy_namespace');
 check(!systemComponent.includes('Block 依赖图'), 'system_dependency_graph_label_retired');
 check(!systemComponent.includes('geometry-'), 'system_workspace_does_not_style_from_geometry_taxonomy');
 

@@ -7,7 +7,7 @@ const read = (rel) => fs.readFileSync(path.join(webRoot, rel), 'utf8');
 const block = read('src/components/XizongBlockV6.astro');
 const guard = read('src/components/XizongRuntimeStageGuard.astro');
 const systemPage = read('src/pages/xizong/[system]/index.astro');
-const system = read('src/components/XizongSystemV6.astro');
+const system = read('src/components/XizongSystemWorkspace.astro');
 const base = read('src/layouts/Base.astro');
 
 function assert(condition, code) {
@@ -42,7 +42,9 @@ assert(
     system.includes('data-system-section="mother"') &&
     system.includes('data-system-section="failure"') &&
     system.includes('data-selected-title') &&
-    system.includes('进入这个 Block'),
+    system.includes('进入这个 Block') &&
+    system.includes('class="xzSystemWorkspace"') &&
+    !system.includes('xv6System'),
   'A1_P_SYSTEM_ORIENTATION_INCOMPLETE'
 );
 
@@ -53,4 +55,4 @@ assert(base.includes('body.surfaceBody-xizong .portedSourceFoot'), 'A1_P_SOURCE_
 // P6 — Projection does not invent Question→KP bindings in the Block learner surface.
 assert(!block.includes('questionToKp') && !block.includes('question_to_kp'), 'A1_P_INFERRED_QUESTION_KP_SURFACE');
 
-console.log('A1 Projection PASS | LogicGroupLecture=continuous | RecallReveal=guarded | SystemExit=later | GovernanceChrome=hidden');
+console.log('A1 Projection PASS | LogicGroupLecture=continuous | RecallReveal=guarded | SystemWorkspace=current-single-owner | SystemExit=later | GovernanceChrome=hidden');

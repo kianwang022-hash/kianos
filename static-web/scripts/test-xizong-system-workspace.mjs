@@ -9,7 +9,7 @@ const auditDir = path.resolve(process.cwd(), '.qa');
 fs.mkdirSync(auditDir, { recursive: true });
 const reportPath = path.join(auditDir, 'xizong-system-workspace.json');
 const report = {
-  schema: 'kianos.xizong.system_workspace.v1',
+  schema: 'kianos.xizong.system_workspace.v2',
   started_at: new Date().toISOString(),
   evidence_class: 'EXECUTED_BROWSER_ENGINEERING_EVIDENCE_NOT_REAL_LEARNER_U',
   systems: [],
@@ -80,6 +80,8 @@ try {
 
     const root = page.locator('[data-xizong-system]');
     await root.waitFor({ state: 'visible' });
+    check(await root.evaluate((node) => node.classList.contains('xzSystemWorkspace')), `${item.lane}_current_system_namespace`);
+    check(await root.evaluate((node) => ![...node.querySelectorAll('*')].some((el) => [...el.classList].some((name) => name.startsWith('xv6System')))), `${item.lane}_legacy_system_namespace_absent`);
     check((await root.getAttribute('data-representation-gate')) === 'kianos.xizong.representation.v1', `${item.lane}_representation_gate_active`);
     check((await root.getAttribute('data-system-framework-plan')) === 'purpose-first', `${item.lane}_purpose_first_system_plan`);
     check(await root.locator('[data-representation-kind="SIMPLE_CHAIN"]').count() >= 1, `${item.lane}_explicit_system_spine_is_simple_chain`);
@@ -87,9 +89,9 @@ try {
     check(await root.locator('[data-system-section="recall"]:visible').count() === 0, `${item.lane}_system_recall_not_in_first_pass_workspace`);
 
     const geometry = await root.evaluate((node) => {
-      const left = node.querySelector('.xv6SystemRail')?.getBoundingClientRect();
-      const main = node.querySelector('.xv6SystemMain')?.getBoundingClientRect();
-      const right = node.querySelector('.xv6SystemContext')?.getBoundingClientRect();
+      const left = node.querySelector('.xzSystemRouteRail')?.getBoundingClientRect();
+      const main = node.querySelector('.xzSystemMain')?.getBoundingClientRect();
+      const right = node.querySelector('.xzSystemContext')?.getBoundingClientRect();
       const rect = node.getBoundingClientRect();
       return {
         left: left?.width || 0,
@@ -122,7 +124,7 @@ try {
     check(failureTitle && failureTitle !== '选择一个 Failure', `${item.lane}_failure_focus_updates_title`, failureTitle);
     check(failureChain && !failureChain.startsWith('只看它'), `${item.lane}_failure_focus_uses_current_chain_or_fail_closed_text`, failureChain);
 
-    const dependency = root.locator('.xv6Dependency');
+    const dependency = root.locator('.xzSystemDependency');
     if (await dependency.count()) {
       await dependency.locator('summary').click();
       check(await dependency.locator('li').count() > 0, `${item.lane}_dependency_stays_structured_text`);

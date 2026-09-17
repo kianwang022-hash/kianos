@@ -1,22 +1,24 @@
-/* Purpose-first System Workspace convergence.
-   This page-scoped layer intentionally outranks the older System rules in
-   xizong-presentation.css without changing shared Block or Home presentation. */
+/* Xizong System Workspace — Current visual owner.
+   The Current System surface uses the xzSystem* namespace so retired xv6System*
+   rules in xizong-presentation.css cannot participate in its cascade.
+   Shared Base Shell / global K rail remain external ownership. */
 
-body#kianos-workspace.surfaceBody-xizong .xv6SystemShell.xv6SystemWorkspace {
+body#kianos-workspace.surfaceBody-xizong .xzSystemWorkspace {
   width:100%;
   max-width:none;
   display:grid;
   grid-template-columns:214px minmax(0,1fr) 300px;
   gap:12px;
   align-items:start;
-  background:transparent;
-  border:0;
-  border-radius:0;
-  overflow:visible;
+  color:var(--study-ink,#253b37);
 }
 
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail,
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemContext {
+body#kianos-workspace.surfaceBody-xizong .xzSystemWorkspace :is(p,li,td,th,figcaption,span,small,b,strong,em,label,button,summary,code) {
+  font-size:max(15px,1em);
+}
+
+body#kianos-workspace.surfaceBody-xizong .xzSystemRouteRail,
+body#kianos-workspace.surfaceBody-xizong .xzSystemContext {
   position:sticky;
   top:58px;
   max-height:calc(100vh - 76px);
@@ -27,149 +29,158 @@ body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemContext {
   box-shadow:none;
 }
 
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemContext {
-  min-width:290px;
-  display:grid;
-  align-content:start;
-}
-
-/* The accepted System workspace has a real learner-visible 15px floor.  The
-   extra System-shell specificity is deliberate: legacy presentation rules used
-   body-scoped selectors and otherwise silently won the cascade. */
-body#kianos-workspace.surfaceBody-xizong .xv6SystemShell.xv6SystemWorkspace :is(p,li,td,th,figcaption,span,small,b,strong,em,label,button,summary,code) {
-  font-size:max(15px,1em);
-}
-
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail header {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRouteRail header {
   display:grid;
   gap:5px;
   padding:14px 13px;
   border-bottom:1px solid var(--study-line,#d9dde5);
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail header>strong {
-  margin:0;
+body#kianos-workspace.surfaceBody-xizong .xzSystemRouteRail header>span,
+body#kianos-workspace.surfaceBody-xizong .xzSystemContext>section>span,
+body#kianos-workspace.surfaceBody-xizong .xzSystemSectionHeading>span,
+body#kianos-workspace.surfaceBody-xizong .xzSystemCoordinates article header>span,
+body#kianos-workspace.surfaceBody-xizong .xzSystemSectionLabel,
+body#kianos-workspace.surfaceBody-xizong .xzSystemHero>div>span,
+body#kianos-workspace.surfaceBody-xizong .xzSystemFailureRun>span {
+  color:var(--study-green,#286c57);
+  font-size:15px;
+  font-weight:800;
+  letter-spacing:.02em;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemRouteRail header>strong {
   font-size:17px;
   line-height:1.35;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail nav {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRouteRail header>small {
+  color:var(--study-muted,#6d7873);
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemRouteRail nav {
   display:grid;
   padding:5px 0;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail nav a {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRouteRail nav a {
   display:grid;
   grid-template-columns:36px minmax(0,1fr);
   gap:2px 8px;
   align-items:center;
   min-height:54px;
   padding:8px 10px;
-  border:0;
   border-left:3px solid transparent;
-  border-radius:0;
   color:inherit;
   text-decoration:none;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail nav a>b {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRouteRail nav a>b {
   grid-row:1 / span 2;
   color:var(--study-green,#286c57);
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail nav a>span {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRouteRail nav a>span {
   overflow:hidden;
-  font-weight:720;
+  font-weight:700;
   line-height:1.35;
   text-overflow:ellipsis;
   white-space:nowrap;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail nav a>small {
-  grid-column:auto;
+body#kianos-workspace.surfaceBody-xizong .xzSystemRouteRail nav a>small {
   color:var(--study-muted,#6d7873);
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail nav a:hover,
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail nav a.selected {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRouteRail nav a:hover,
+body#kianos-workspace.surfaceBody-xizong .xzSystemRouteRail nav a.selected {
   border-left-color:var(--study-green,#286c57);
   background:#f0f7f4;
-  box-shadow:none;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail footer {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRouteRail footer {
   padding:10px 12px;
   border-top:1px solid var(--study-line,#d9dde5);
   color:var(--study-muted,#6d7873);
 }
 
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemMain {
+body#kianos-workspace.surfaceBody-xizong .xzSystemMain {
+  min-width:0;
   display:grid;
   gap:10px;
-  min-width:0;
-  background:transparent;
-  border:0;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemHeroDense {
+body#kianos-workspace.surfaceBody-xizong :is(
+  .xzSystemHero,
+  .xzSystemFramework,
+  .xzSystemCoordinates,
+  .xzSystemFailureWorkspace,
+  .xzSystemDependency
+) {
+  border:1px solid var(--study-line,#d9dde5);
+  border-radius:13px;
+  background:#fff;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemHero {
   display:grid;
   grid-template-columns:minmax(200px,.62fr) minmax(0,1.38fr);
   gap:20px;
   align-items:center;
   padding:16px 19px;
-  border:1px solid var(--study-line,#d9dde5);
-  border-radius:13px;
-  background:#fff;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemHeroDense h1 {
+body#kianos-workspace.surfaceBody-xizong .xzSystemHero h1 {
   margin:3px 0 0;
   font-size:28px;
   line-height:1.25;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemHeroDense p {
+body#kianos-workspace.surfaceBody-xizong .xzSystemHero p {
   margin:0;
-  max-width:none;
   color:var(--study-muted,#5f6d67);
   font-size:16px;
   line-height:1.65;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Mother {
+
+body#kianos-workspace.surfaceBody-xizong .xzSystemFramework,
+body#kianos-workspace.surfaceBody-xizong .xzSystemFailureWorkspace {
+  padding:18px 20px;
+}
+body#kianos-workspace.surfaceBody-xizong :is(.xzSystemSectionHeading h2,.xzSystemCoordinates h2) {
+  margin:4px 0 0;
+  font-size:21px;
+  line-height:1.35;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemMother {
   margin:12px 0 14px;
-  padding:0;
-  max-width:none;
-  border:0;
   font-size:17px;
   line-height:1.72;
-  color:inherit;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemFrameworkBlock {
+  padding-top:13px;
+  border-top:1px solid var(--study-line,#d9dde5);
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemParallelBlock {
+  display:grid;
+  gap:7px;
+  margin-top:13px;
 }
 
-/* Projection says this is an explicit SEQUENCE, so render one actual chain.
-   Do not let the legacy 3-column grid turn sequence into ambiguous geometry. */
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine {
+body#kianos-workspace.surfaceBody-xizong .xzSystemSpine {
   display:flex;
-  grid-template-columns:none;
   gap:0;
   align-items:stretch;
   list-style:none;
   padding:0;
   margin:9px 0 0;
-  border:0;
-  border-radius:0;
   overflow:auto;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li {
+body#kianos-workspace.surfaceBody-xizong .xzSystemSpine li {
   position:relative;
   display:flex;
   flex:1 1 0;
-  flex-direction:row;
   min-width:145px;
-  min-height:0;
   gap:8px;
   align-items:flex-start;
   padding:11px 24px 11px 11px;
   border:1px solid #e4e9e6;
   border-right:0;
-  border-radius:0;
   background:#f7faf8;
-  box-shadow:none;
+  transition:opacity .12s,border-color .12s,background .12s;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li:first-child { border-radius:9px 0 0 9px; }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li:last-child {
+body#kianos-workspace.surfaceBody-xizong .xzSystemSpine li:first-child { border-radius:9px 0 0 9px; }
+body#kianos-workspace.surfaceBody-xizong .xzSystemSpine li:last-child {
   border-right:1px solid #e4e9e6;
   border-radius:0 9px 9px 0;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li::after {
+body#kianos-workspace.surfaceBody-xizong .xzSystemSpine li:not(:last-child)::after {
   content:'→';
   position:absolute;
   right:6px;
@@ -179,43 +190,96 @@ body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li::after
   font-size:17px;
   font-weight:800;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li:last-child::after { content:''; }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li b { color:var(--study-green,#286c57); }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li span {
+body#kianos-workspace.surfaceBody-xizong .xzSystemSpine li b { color:var(--study-green,#286c57); }
+body#kianos-workspace.surfaceBody-xizong .xzSystemSpine li span {
   font-size:16px;
   font-weight:700;
   line-height:1.45;
-  color:inherit;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li.mechanism-active {
+body#kianos-workspace.surfaceBody-xizong .xzSystemSpine li.mechanism-active {
   border-color:var(--study-green,#286c57);
   background:#edf7f2;
-  box-shadow:none;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li.mechanism-dim { opacity:.32; }
+body#kianos-workspace.surfaceBody-xizong .xzSystemSpine li.mechanism-dim { opacity:.32; }
 
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Parallel {
+body#kianos-workspace.surfaceBody-xizong .xzSystemParallel {
   display:flex;
   gap:7px;
   flex-wrap:wrap;
-  margin-top:0;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Parallel span {
+body#kianos-workspace.surfaceBody-xizong .xzSystemParallel span {
   padding:6px 9px;
-  border:0;
   border-radius:7px;
   background:#f4f7f5;
-  color:inherit;
-  line-height:1.4;
 }
 
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureGrid {
+body#kianos-workspace.surfaceBody-xizong .xzSystemCoordinates {
   display:grid;
-  grid-template-columns:1fr;
+  grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  overflow:hidden;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemCoordinates article { padding:17px 19px; }
+body#kianos-workspace.surfaceBody-xizong .xzSystemCoordinates article+article {
+  border-left:1px solid var(--study-line,#d9dde5);
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemVariableTable {
+  display:grid;
+  margin-top:11px;
+  border-top:1px solid #e4e9e6;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemVariableRow {
+  display:grid;
+  grid-template-columns:minmax(120px,.8fr) minmax(0,1.2fr);
+  gap:12px;
+  padding:8px 0;
+  border-bottom:1px solid #edf0ee;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemVariableRow strong { font-size:16px; }
+body#kianos-workspace.surfaceBody-xizong .xzSystemVariableRow span {
+  color:var(--study-muted,#5f6d67);
+  line-height:1.45;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemFormulaList {
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemFormulaList code {
+  padding:7px 10px;
+  border-radius:7px;
+  background:#edf6f2;
+  color:#244c40;
+  font-size:16px;
+  font-weight:750;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemAxes ul {
+  display:grid;
+  gap:7px;
+  margin:12px 0 0;
+  padding:0;
+  list-style:none;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemAxes li {
+  padding:8px 10px;
+  border-left:3px solid #b8d4c8;
+  background:#f7faf8;
+  font-size:16px;
+  line-height:1.5;
+}
+
+body#kianos-workspace.surfaceBody-xizong .xzSystemFailureLayout {
+  display:grid;
+  grid-template-columns:minmax(220px,.75fr) minmax(0,1.25fr);
+  gap:12px;
+  margin-top:13px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemFailureGrid {
+  display:grid;
   align-content:start;
   gap:6px;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureGrid button {
+body#kianos-workspace.surfaceBody-xizong .xzSystemFailureGrid button {
   display:grid;
   grid-template-columns:38px minmax(0,1fr);
   gap:8px;
@@ -227,54 +291,77 @@ body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureGrid but
   background:#fff;
   color:inherit;
   text-align:left;
-  box-shadow:none;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureGrid button:nth-child(2n) { border-left:1px solid var(--study-line,#d9dde5); }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureGrid button:hover,
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureGrid button.active {
+body#kianos-workspace.surfaceBody-xizong .xzSystemFailureGrid button:hover,
+body#kianos-workspace.surfaceBody-xizong .xzSystemFailureGrid button.active {
   border-color:var(--study-green,#286c57);
   background:#f0f7f4;
-  box-shadow:none;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureRun {
+body#kianos-workspace.surfaceBody-xizong .xzSystemFailureGrid button>b { color:var(--study-green,#286c57); }
+body#kianos-workspace.surfaceBody-xizong .xzSystemFailureGrid button>span {
+  font-weight:700;
+  line-height:1.4;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemFailureRun {
   display:grid;
   align-content:start;
   gap:7px;
   min-height:150px;
-  margin-top:0;
   padding:14px 16px;
-  border:0;
   border-left:3px solid var(--study-green,#286c57);
-  border-radius:0;
   background:#f7faf8;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureRun>strong { font-size:19px;line-height:1.35; }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureRun>p { margin:0;font-size:16px;line-height:1.65; }
+body#kianos-workspace.surfaceBody-xizong .xzSystemFailureRun>strong {
+  font-size:19px;
+  line-height:1.35;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemFailureRun>p {
+  margin:0;
+  font-size:16px;
+  line-height:1.65;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemFailureRun>div {
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemFailureRun>div span {
+  padding:5px 8px;
+  border-radius:7px;
+  background:#fff;
+}
 
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemContext>section {
+body#kianos-workspace.surfaceBody-xizong .xzSystemContext {
+  min-width:290px;
+  display:grid;
+  align-content:start;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemContext>section {
   padding:14px;
   border-bottom:1px solid var(--study-line,#d9dde5);
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SelectedBlock b {
+body#kianos-workspace.surfaceBody-xizong .xzSystemSelectedBlock b {
   display:block;
   margin:7px 0 0;
   color:var(--study-green,#286c57);
   font-size:16px;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SelectedBlock h2 {
+body#kianos-workspace.surfaceBody-xizong .xzSystemSelectedBlock h2 {
   margin:5px 0;
   font-size:21px;
   line-height:1.3;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SelectedBlock p {
-  margin:0 0 12px;
+body#kianos-workspace.surfaceBody-xizong .xzSystemSelectedBlock p,
+body#kianos-workspace.surfaceBody-xizong :is(.xzSystemGuide p,.xzSystemKeys p) {
+  margin:7px 0 0;
   color:var(--study-muted,#5f6d67);
   font-size:15px;
+  line-height:1.55;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SelectedBlock button {
+body#kianos-workspace.surfaceBody-xizong .xzSystemSelectedBlock button {
   width:100%;
   min-height:42px;
-  padding:0;
+  margin-top:12px;
   border:1px solid var(--study-green,#286c57);
   border-radius:8px;
   background:var(--study-green,#286c57);
@@ -282,28 +369,90 @@ body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SelectedBlock b
   font-size:16px;
   font-weight:800;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Dependency {
-  padding:13px 16px;
-  border:1px solid var(--study-line,#d9dde5);
-  border-radius:13px;
-  background:#fff;
+
+body#kianos-workspace.surfaceBody-xizong .xzSystemDependency { padding:13px 16px; }
+body#kianos-workspace.surfaceBody-xizong .xzSystemDependency summary {
+  cursor:pointer;
+  font-size:16px;
+  font-weight:780;
 }
+body#kianos-workspace.surfaceBody-xizong .xzSystemDependency p {
+  margin:10px 0 8px;
+  color:var(--study-muted,#5f6d67);
+  font-size:16px;
+  line-height:1.6;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemDependency ul {
+  display:grid;
+  gap:6px;
+  margin:0;
+  padding-left:21px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemDependency li {
+  font-size:16px;
+  line-height:1.5;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemWorkspace .portedSourceFoot :is(summary,code) { font-size:15px; }
+
+/* Later System Exit remains subordinate until its dedicated migration slice. */
+body#kianos-workspace.surfaceBody-xizong .xizongLaterStage {
+  margin-top:14px;
+  border:1px solid var(--study-line,#d9dde5);
+  border-radius:14px;
+  background:#fff;
+  overflow:hidden;
+}
+body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>summary {
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  gap:6px 14px;
+  align-items:center;
+  padding:12px 15px;
+  cursor:pointer;
+  list-style:none;
+}
+body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>summary::-webkit-details-marker { display:none; }
+body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>summary::before {
+  content:'›';
+  grid-row:1 / span 2;
+  color:var(--study-green,#286c57);
+  font-size:18px;
+  font-weight:900;
+  transition:transform .15s ease;
+}
+body#kianos-workspace.surfaceBody-xizong .xizongLaterStage[open]>summary::before { transform:rotate(90deg); }
+body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>summary span {
+  color:var(--study-green,#286c57);
+  font-size:15px;
+  font-weight:850;
+}
+body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>summary strong { font-size:16px; }
+body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>summary small {
+  grid-column:3;
+  color:var(--study-muted,#6d7873);
+  font-size:15px;
+}
+body#kianos-workspace.surfaceBody-xizong .xizongLaterStage[open]>summary {
+  border-bottom:1px solid var(--study-line,#d9dde5);
+  background:#f7faf8;
+}
+body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>.xse { margin:12px; }
 
 @media (min-width:1101px) and (min-height:680px) {
-  body#kianos-workspace.surfaceBody-xizong .xv6SystemShell.xv6SystemWorkspace {
+  body#kianos-workspace.surfaceBody-xizong .xzSystemWorkspace {
     height:calc(100vh - 82px);
     min-height:620px;
     align-items:stretch;
   }
-  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail,
-  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemContext {
+  body#kianos-workspace.surfaceBody-xizong .xzSystemRouteRail,
+  body#kianos-workspace.surfaceBody-xizong .xzSystemContext {
     position:static;
     top:auto;
     max-height:none;
     height:100%;
     overflow:auto;
   }
-  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemMain {
+  body#kianos-workspace.surfaceBody-xizong .xzSystemMain {
     height:100%;
     overflow:auto;
     overscroll-behavior:contain;
@@ -312,32 +461,63 @@ body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Dependency {
 }
 
 @media (max-width:1100px) {
-  body#kianos-workspace.surfaceBody-xizong .xv6SystemShell.xv6SystemWorkspace { grid-template-columns:210px minmax(0,1fr); }
-  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemContext {
+  body#kianos-workspace.surfaceBody-xizong .xzSystemWorkspace { grid-template-columns:210px minmax(0,1fr); }
+  body#kianos-workspace.surfaceBody-xizong .xzSystemContext {
     min-width:0;
     position:static;
     grid-column:1/-1;
     max-height:none;
     grid-template-columns:1fr 1fr 1fr;
   }
+  body#kianos-workspace.surfaceBody-xizong .xzSystemContext>section {
+    border-right:1px solid var(--study-line,#d9dde5);
+    border-bottom:0;
+  }
+  body#kianos-workspace.surfaceBody-xizong .xzSystemCoordinates { grid-template-columns:1fr; }
+  body#kianos-workspace.surfaceBody-xizong .xzSystemCoordinates article+article {
+    border-left:0;
+    border-top:1px solid var(--study-line,#d9dde5);
+  }
 }
 
 @media (max-width:760px) {
-  body#kianos-workspace.surfaceBody-xizong .xv6SystemShell.xv6SystemWorkspace { display:block; }
-  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail,
-  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemContext {
+  body#kianos-workspace.surfaceBody-xizong .xzSystemWorkspace { display:block; }
+  body#kianos-workspace.surfaceBody-xizong .xzSystemRouteRail,
+  body#kianos-workspace.surfaceBody-xizong .xzSystemContext {
     position:static;
     max-height:none;
     height:auto;
     margin-bottom:10px;
   }
-  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine { display:grid;gap:6px;overflow:visible; }
-  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li,
-  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li:first-child,
-  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li:last-child {
+  body#kianos-workspace.surfaceBody-xizong .xzSystemRouteRail nav {
+    grid-template-columns:1fr 1fr;
+  }
+  body#kianos-workspace.surfaceBody-xizong :is(.xzSystemHero,.xzSystemContext,.xzSystemFailureLayout) {
+    display:grid;
+    grid-template-columns:1fr;
+  }
+  body#kianos-workspace.surfaceBody-xizong .xzSystemContext>section {
+    border-right:0;
+    border-bottom:1px solid var(--study-line,#d9dde5);
+  }
+  body#kianos-workspace.surfaceBody-xizong .xzSystemSpine {
+    display:grid;
+    gap:6px;
+    overflow:visible;
+  }
+  body#kianos-workspace.surfaceBody-xizong .xzSystemSpine li,
+  body#kianos-workspace.surfaceBody-xizong .xzSystemSpine li:first-child,
+  body#kianos-workspace.surfaceBody-xizong .xzSystemSpine li:last-child {
     min-width:0;
     border:1px solid #e4e9e6;
     border-radius:8px;
   }
-  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li:not(:last-child)::after { content:'↓';right:10px; }
+  body#kianos-workspace.surfaceBody-xizong .xzSystemSpine li:not(:last-child)::after {
+    content:'↓';
+    right:10px;
+  }
+  body#kianos-workspace.surfaceBody-xizong .xzSystemHero { gap:10px; }
+  body#kianos-workspace.surfaceBody-xizong .xzSystemHero h1 { font-size:25px; }
+  body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>summary { grid-template-columns:auto minmax(0,1fr); }
+  body#kianos-workspace.surfaceBody-xizong .xizongLaterStage>summary small { grid-column:2; }
 }
