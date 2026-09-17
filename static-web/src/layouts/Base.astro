@@ -45,6 +45,7 @@ const isHub = ['', 'english', 'vocabulary', 'politics', 'xizong'].includes(local
 const isWordStudy = /^vocabulary\/\d+$/.test(localPath);
 const isVocabularyRoute = localPath === 'vocabulary' || localPath.startsWith('vocabulary/');
 const stageOne = isEnglishRoute || ['lexical', 'politics', 'xizong'].includes(active) || localPath === '';
+const currentStatusUrl = `${base}__kianos-current.json`;
 const navIcons = {
   home: 'M3 10 12 3l9 7M5 9v11h5v-6h4v6h5V9',
   xizong: 'M12 3v18M3 12h18M6 6l12 12M6 18 18 6',
@@ -75,7 +76,7 @@ const navItems = [
       body.surfaceBody-xizong .portedSourceFoot { display: none !important; }
     </style>
   </head>
-  <body id="kianos-workspace" class={`surfaceBody-${active}${stageOne ? ' uiStageOne' : ''}${isHub ? ' uiHub' : ''}${isWordStudy ? ' uiWordStudy' : ''}${isEnglishRoute ? ' uiEnglish' : ''}`}>
+  <body id="kianos-workspace" data-current-status-url={currentStatusUrl} class={`surfaceBody-${active}${stageOne ? ' uiStageOne' : ''}${isHub ? ' uiHub' : ''}${isWordStudy ? ' uiWordStudy' : ''}${isEnglishRoute ? ' uiEnglish' : ''}`}>
     <header class="productBar">
       <a class="productBrand" href={base} aria-label="KianOS Home">
         <span class="productBrandMark">K</span>
@@ -110,3 +111,45 @@ const navItems = [
     </main>
   </body>
 </html>
+<script>
+  /*
+   * The dedicated Mac Current mirror writes a tiny localhost-only status file.
+   * Polling it makes an already-open learner page follow a newly synced main SHA
+   * even when the changed canonical asset lives outside Astro/Vite's watch graph.
+   * Normal branch previews/deployments simply receive a 404 and do nothing.
+   */
+  (() => {
+    if (!['127.0.0.1', 'localhost'].includes(window.location.hostname)) return;
+    const url = document.body?.dataset.currentStatusUrl;
+    if (!url) return;
+
+    let baselineSha = null;
+    let reloading = false;
+
+    const pollCurrent = async () => {
+      if (reloading) return;
+      try {
+        const response = await fetch(`${url}?t=${Date.now()}`, { cache: 'no-store' });
+        if (!response.ok) return;
+        const status = await response.json();
+        if (status?.state !== 'synced' || typeof status?.sha !== 'string' || !status.sha) return;
+        if (baselineSha === null) {
+          baselineSha = status.sha;
+          return;
+        }
+        if (status.sha !== baselineSha) {
+          reloading = true;
+          window.location.reload();
+        }
+      } catch {
+        // A short restart/network gap should leave the last usable page intact.
+      }
+    };
+
+    void pollCurrent();
+    window.setInterval(() => void pollCurrent(), 3000);
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') void pollCurrent();
+    });
+  })();
+</script>
