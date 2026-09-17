@@ -7,7 +7,7 @@ const PORT = 4329;
 const BASE = `http://127.0.0.1:${PORT}`;
 const auditDir = path.resolve(process.cwd(), '../xizong-a2-functional-audit');
 fs.mkdirSync(auditDir, { recursive: true });
-const report = { schema: 'kianos.xizong.a2.extension_tables_browser.v1', started_at: new Date().toISOString(), checks: [] };
+const report = { schema: 'kianos.xizong.a2.extension_tables_browser.v2', started_at: new Date().toISOString(), checks: [] };
 const check = (condition, name, detail = '') => {
   if (!condition) throw new Error(`A2_EXTENSION_TABLE_FAIL:${name}${detail ? `:${detail}` : ''}`);
   report.checks.push({ name, pass: true, detail });
@@ -31,6 +31,7 @@ async function resetBlock(page, route) {
   await page.reload({ waitUntil: 'domcontentloaded' });
   const root = page.locator('[data-xizong-v6-block]');
   await root.waitFor({ state: 'visible' });
+  check(await page.locator('[data-xizong-learner-object-payload]').count() === 1, `learner_object_present_${route}`);
   return root;
 }
 
@@ -42,23 +43,20 @@ async function completeNaturalSourceContact(root, suffix) {
   await root.locator('[data-study-stage="logic_group"]').waitFor({ state: 'visible' });
 }
 
-async function reachTargetKp(root, targetId) {
-  const targetCard = root.locator(`[data-kp-recall-card][data-kp-id="${targetId}"]`);
-  check(await targetCard.count() === 1, `target_card_exists_${targetId}`);
-  const targetIndex = Number(await targetCard.getAttribute('data-kp-recall-card'));
+async function reachTargetGroup(root, targetKpId) {
+  const targetCard = root.locator(`[data-kp-recall-card][data-kp-id="${targetKpId}"]`);
+  check(await targetCard.count() === 1, `target_card_exists_${targetKpId}`);
   const targetGroupLabel = ((await targetCard.locator('header > span').first().textContent()) || '').trim();
-  check(Boolean(targetGroupLabel), `target_group_label_present_${targetId}`);
+  check(Boolean(targetGroupLabel), `target_group_label_present_${targetKpId}`);
   const targetGroupButton = root.locator('[data-group-target]').filter({ hasText: targetGroupLabel });
-  check(await targetGroupButton.count() === 1, `target_group_button_unique_${targetId}`, targetGroupLabel);
+  check(await targetGroupButton.count() === 1, `target_group_button_unique_${targetKpId}`, targetGroupLabel);
 
-  await completeNaturalSourceContact(root, targetId);
+  await completeNaturalSourceContact(root, targetKpId);
   await targetGroupButton.click();
   await root.locator('[data-study-stage="logic_group"]').waitFor({ state: 'visible' });
-  await root.locator('[data-enter-group]').click();
-  await root.locator('[data-study-stage="kp_recall"]').waitFor({ state: 'visible' });
-  await root.locator(`[data-kp-target="${targetIndex}"]`).evaluate((el) => el.click());
-  check(await targetCard.isVisible(), `target_card_visible_${targetId}`);
-  return targetCard;
+  const auxHost = root.locator('[data-xizong-aux-surface] [data-learner-object-slot="logic_group_prelearn"]');
+  await auxHost.waitFor({ state: 'visible' });
+  return { targetCard, auxHost };
 }
 
 const representatives = [
@@ -66,18 +64,21 @@ const representatives = [
     route: 'r01',
     kpId: 'respiratory-r01-kp15',
     slot: 'respiratory-r01-lg04-ventilation-pattern-comparison',
+    retiredImage: 'r01-p170-obstructive-restrictive.webp',
     expected: ['阻塞性通气障碍', '限制性通气障碍', 'FEV1/FVC']
   },
   {
     route: 'r10',
     kpId: 'respiratory-r10-kp03',
     slot: 'respiratory-r10-lg01-effusion-mechanism-comparison',
+    retiredImage: 'r10-p67-transudate-exudate-mechanism.webp',
     expected: ['静水压', '胶体渗透压', '渗出性胸水']
   },
   {
     route: 'r10',
     kpId: 'respiratory-r10-kp04',
     slot: 'respiratory-r10-lg01-light-criteria',
+    retiredImage: 'r10-p68-light-criteria.webp',
     expected: ['Light 标准', '>0.5', '>0.6']
   }
 ];
@@ -99,34 +100,28 @@ try {
 
     for (const item of representatives) {
       const root = await resetBlock(page, item.route);
-      const card = await reachTargetKp(root, item.kpId);
-      const answer = card.locator('[data-kp-answer]');
-      const slotCard = root.locator(`[data-xizong-extension-slot="${item.slot}"]`);
-      const folded = root.locator(`[data-xizong-extension-fold="${item.slot}"]`);
+      const { auxHost } = await reachTargetGroup(root, item.kpId);
+      const slotCard = auxHost.locator(`[data-learner-asset="extension"][data-learner-asset-id="${item.slot}"]`);
+      const folded = auxHost.locator(`details.xv6LearnerReference:has([data-learner-asset-id="${item.slot}"])`);
 
-      check(await slotCard.count() === 1, `single_dom_instance_${viewport.label}_${item.slot}`, String(await slotCard.count()));
-      check(await answer.isHidden(), `answer_hidden_before_reveal_${viewport.label}_${item.kpId}`);
-      check(!(await slotCard.isVisible()), `extension_hidden_on_recall_front_${viewport.label}_${item.slot}`);
-      check(await root.locator('[data-study-stage="group_close"] [data-xizong-extension-slot]').count() === 0,
-        `kp_owned_asset_not_duplicated_on_group_close_${viewport.label}_${item.slot}`);
-
-      await card.locator('[data-kp-reveal]').click();
-      check(await answer.isVisible(), `answer_visible_after_reveal_${viewport.label}_${item.kpId}`);
-      check(await folded.count() === 1, `collapsed_wrapper_present_${viewport.label}_${item.slot}`);
+      check(await slotCard.count() === 1, `single_learner_object_instance_${viewport.label}_${item.slot}`, String(await slotCard.count()));
+      check(await folded.count() === 1, `reference_wrapper_present_${viewport.label}_${item.slot}`);
       check(!(await folded.getAttribute('open')), `collapsed_by_default_${viewport.label}_${item.slot}`);
-      check(!(await slotCard.isVisible()), `table_body_stays_folded_after_reveal_${viewport.label}_${item.slot}`);
+      check(!(await slotCard.isVisible()), `table_body_folded_${viewport.label}_${item.slot}`);
+      check(await page.locator(`img[src*="${item.retiredImage}"]`).count() === 0,
+        `retired_screenshot_not_served_${viewport.label}_${item.slot}`);
 
       await folded.locator('summary').click();
       check(await slotCard.isVisible(), `extension_visible_after_open_${viewport.label}_${item.slot}`);
-      const table = slotCard.locator('table.xizongExtensionTable');
+      const table = slotCard.locator('table.xv6LearnerTable');
       check(await table.count() === 1, `native_table_present_${viewport.label}_${item.slot}`);
       const text = (await slotCard.textContent()) || '';
       for (const expected of item.expected) check(text.includes(expected), `expected_text_${viewport.label}_${item.slot}`, expected);
 
       if (viewport.label === 'narrow') {
         const layout = await page.evaluate((slot) => {
-          const cardNode = document.querySelector(`[data-xizong-extension-slot="${slot}"]`);
-          const wrap = cardNode?.querySelector('.xizongExtensionTableWrap');
+          const cardNode = document.querySelector(`[data-learner-asset="extension"][data-learner-asset-id="${slot}"]`);
+          const wrap = cardNode?.querySelector('.xv6LearnerTableWrap');
           return {
             bodyScrollWidth: document.documentElement.scrollWidth,
             viewportWidth: window.innerWidth,
@@ -138,6 +133,15 @@ try {
         check(layout.wrapperClientWidth > 0 && layout.wrapperScrollWidth >= layout.wrapperClientWidth,
           `table_overflow_contained_${item.slot}`, JSON.stringify(layout));
       }
+
+      await folded.locator('summary').click();
+      await root.locator('[data-enter-group]').click();
+      await root.locator('[data-study-stage="kp_recall"]').waitFor({ state: 'visible' });
+      const recallAux = root.locator('[data-xizong-aux-surface] [data-learner-object-slot]');
+      check((await recallAux.getAttribute('data-representation-stage')) === 'KP_RECALL_FRONT',
+        `recall_front_stage_${viewport.label}_${item.slot}`);
+      check(await root.locator(`[data-learner-asset="extension"][data-learner-asset-id="${item.slot}"]`).count() === 0,
+        `extension_absent_from_clean_recall_${viewport.label}_${item.slot}`);
     }
 
     await context.close();
@@ -146,6 +150,7 @@ try {
   report.finished_at = new Date().toISOString();
   report.status = 'PASS';
   report.evidence_class = 'EXECUTED_BROWSER_ENGINEERING_EVIDENCE_NOT_REAL_LEARNER_U';
+  report.semantic_surface = 'kianos.xizong.learner_object.v1';
   report.viewports = ['1440x1050', '390x844'];
   fs.writeFileSync(path.join(auditDir, 'extension-structured-tables.json'), JSON.stringify(report, null, 2));
   console.log('A2_EXTENSION_TABLE_BROWSER_PASS');
