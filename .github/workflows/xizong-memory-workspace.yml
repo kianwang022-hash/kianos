@@ -10,6 +10,8 @@ on:
       - 'static-web/src/components/XizongMemoryReleaseBridge.astro'
       - 'static-web/src/pages/xizong/memory/**'
       - 'static-web/src/pages/xizong/[system]/[block].astro'
+      - 'static-web/src/styles/xizong-memory-workspace.css'
+      - 'static-web/scripts/validate-xizong-memory-style-ownership.mjs'
       - 'static-web/scripts/validate-xizong-memory-workspace.mjs'
       - 'static-web/scripts/validate-xizong-memory-auto-release.mjs'
       - 'static-web/scripts/test-xizong-memory-workspace-browser.mjs'
@@ -34,6 +36,8 @@ jobs:
           node-version: '22'
       - name: Install dependencies
         run: npm install --no-audit --no-fund
+      - name: Validate Memory single visual owner
+        run: node scripts/validate-xizong-memory-style-ownership.mjs
       - name: Validate Memory model and surface contract
         run: node scripts/validate-xizong-memory-workspace.mjs
       - name: Validate Block Complete Memory release contract

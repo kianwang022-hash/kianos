@@ -1,0 +1,557 @@
+/* Xizong Memory — sole Current visual owner for the standalone Memory surface.
+   Runtime/state/evidence semantics remain in XizongMemoryWorkspace.astro. */
+
+body#kianos-workspace.surfaceBody-xizong .xzMemory {
+  --xz-memory-line:var(--study-line,#d9e0dc);
+  --xz-memory-muted:var(--study-muted,#66736d);
+  --xz-memory-green:var(--study-green,#286c57);
+  height:calc(100vh - 74px);
+  min-height:650px;
+  display:grid;
+  grid-template-rows:auto auto auto minmax(0,1fr);
+  gap:0;
+  background:var(--study-bg,#f2f5f2);
+  border:1px solid var(--xz-memory-line);
+  border-radius:12px;
+  overflow:hidden;
+  color:var(--study-ink,#15201b);
+}
+
+body#kianos-workspace.surfaceBody-xizong .xzMemory :is(p,li,td,th,figcaption,span,small,b,strong,em,label,button,summary,code,dt,dd,a) {
+  font-size:max(15px,1em);
+}
+
+body#kianos-workspace.surfaceBody-xizong .xzMemoryHeader {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding:16px 20px;
+  background:#fff;
+  border-bottom:1px solid var(--xz-memory-line);
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryIdentity {
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+  min-width:0;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryIdentity>a {
+  flex:none;
+  padding-top:5px;
+  color:var(--xz-memory-green);
+  text-decoration:none;
+  font-size:16px;
+  font-weight:750;
+}
+body#kianos-workspace.surfaceBody-xizong :is(
+  .xzMemoryIdentity span,
+  .xzMemoryContext section>span,
+  .xzMemoryPrecisionCue>span,
+  .xzMemoryMarkedCard header>span,
+  .xzMemoryRepairCard header>span,
+  .xzMemoryPrompt>header>span,
+  .xzMemoryCardHeader span
+) {
+  color:var(--xz-memory-green);
+  font-size:15px;
+  font-weight:800;
+  letter-spacing:.035em;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryIdentity h1 {
+  margin:1px 0 3px;
+  font-size:28px;
+  line-height:1.2;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryIdentity p {
+  margin:0;
+  color:var(--xz-memory-muted);
+  font-size:16px;
+  line-height:1.45;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemorySummary {
+  display:flex;
+  gap:18px;
+  flex:none;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemorySummary span {
+  display:grid;
+  gap:2px;
+  min-width:54px;
+  text-align:center;
+  color:var(--xz-memory-muted);
+  font-size:15px;
+  line-height:1.25;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemorySummary b {
+  color:var(--study-ink,#15201b);
+  font-size:20px;
+  line-height:1.1;
+}
+
+body#kianos-workspace.surfaceBody-xizong .xzMemoryTabs {
+  display:flex;
+  gap:4px;
+  padding:7px 14px;
+  background:#fff;
+  border-bottom:1px solid var(--xz-memory-line);
+}
+body#kianos-workspace.surfaceBody-xizong :is(.xzMemoryTabs button,.xzMemoryPrecisionMode button) {
+  min-height:36px;
+  border:0;
+  border-radius:7px;
+  background:transparent;
+  padding:7px 13px;
+  color:var(--xz-memory-muted);
+  font-size:15px;
+  font-weight:750;
+  cursor:pointer;
+}
+body#kianos-workspace.surfaceBody-xizong :is(.xzMemoryTabs button,.xzMemoryPrecisionMode button):hover,
+body#kianos-workspace.surfaceBody-xizong :is(.xzMemoryTabs button,.xzMemoryPrecisionMode button).active {
+  background:#eaf2ed;
+  color:var(--xz-memory-green);
+}
+
+body#kianos-workspace.surfaceBody-xizong .xzMemoryToolbar {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  min-height:48px;
+  padding:8px 16px;
+  background:#f8faf8;
+  border-bottom:1px solid var(--xz-memory-line);
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryToolbar>div:first-child {
+  display:flex;
+  align-items:baseline;
+  min-width:0;
+  gap:12px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryToolbar strong {
+  font-size:17px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryToolbar span,
+body#kianos-workspace.surfaceBody-xizong .xzMemoryWeakFilter {
+  color:var(--xz-memory-muted);
+  font-size:15px;
+  line-height:1.4;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryToolbar span {
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryPrecisionMode {
+  display:flex;
+  margin-left:auto;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryWeakFilter {
+  display:flex;
+  gap:7px;
+  align-items:center;
+  white-space:nowrap;
+}
+
+body#kianos-workspace.surfaceBody-xizong .xzMemoryLayout {
+  display:grid;
+  grid-template-columns:286px minmax(0,1fr) 260px;
+  min-height:0;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryQueue,
+body#kianos-workspace.surfaceBody-xizong .xzMemoryContext {
+  min-height:0;
+  background:#fff;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryQueue {
+  display:grid;
+  grid-template-rows:auto minmax(0,1fr);
+  border-right:1px solid var(--xz-memory-line);
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryQueue>header {
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:11px 13px;
+  border-bottom:1px solid var(--xz-memory-line);
+  color:var(--xz-memory-muted);
+  font-size:15px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryQueue>header b {
+  color:var(--study-ink,#15201b);
+  font-size:16px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryQueue>div {
+  overflow:auto;
+  padding:6px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryQueue button {
+  width:100%;
+  display:grid;
+  grid-template-columns:42px minmax(0,1fr);
+  column-gap:9px;
+  row-gap:3px;
+  text-align:left;
+  padding:10px 9px;
+  border:0;
+  border-radius:7px;
+  background:transparent;
+  color:inherit;
+  cursor:pointer;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryQueue button:hover,
+body#kianos-workspace.surfaceBody-xizong .xzMemoryQueue button.active {
+  background:#eef4f0;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryQueue button>b {
+  grid-row:1/3;
+  color:var(--xz-memory-green);
+  font-size:15px;
+  line-height:1.4;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryQueue button>span {
+  overflow:hidden;
+  font-size:15px;
+  font-weight:650;
+  line-height:1.4;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryQueue button>small {
+  overflow:hidden;
+  color:var(--xz-memory-muted);
+  font-size:15px;
+  line-height:1.35;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+body#kianos-workspace.surfaceBody-xizong .xzMemoryStage {
+  min-width:0;
+  min-height:0;
+  overflow:auto;
+  padding:18px 20px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryEmpty {
+  height:100%;
+  min-height:300px;
+  display:grid;
+  place-content:center;
+  max-width:660px;
+  margin:auto;
+  text-align:center;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryEmpty>span {
+  color:var(--xz-memory-green);
+  font-size:15px;
+  font-weight:800;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryEmpty h2 {
+  margin:6px 0;
+  font-size:25px;
+  line-height:1.3;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryEmpty p {
+  margin:0;
+  color:var(--xz-memory-muted);
+  font-size:16px;
+  line-height:1.65;
+}
+
+body#kianos-workspace.surfaceBody-xizong :is(.xzMemoryCard,.xzMemoryMarkedCard,.xzMemoryRepairCard) {
+  max-width:900px;
+  margin:0 auto;
+  overflow:hidden;
+  border:1px solid var(--xz-memory-line);
+  border-radius:11px;
+  background:#fff;
+}
+body#kianos-workspace.surfaceBody-xizong :is(.xzMemoryCardHeader,.xzMemoryMarkedCard header,.xzMemoryRepairCard header) {
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  padding:16px 18px;
+  border-bottom:1px solid var(--xz-memory-line);
+}
+body#kianos-workspace.surfaceBody-xizong :is(.xzMemoryCardHeader h2,.xzMemoryMarkedCard h2,.xzMemoryRepairCard h2) {
+  margin:4px 0;
+  font-size:22px;
+  line-height:1.35;
+}
+body#kianos-workspace.surfaceBody-xizong :is(.xzMemoryCardHeader p,.xzMemoryMarkedCard header p,.xzMemoryRepairCard header p) {
+  margin:0;
+  color:var(--xz-memory-muted);
+  font-size:15px;
+  line-height:1.45;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryCardMeta {
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:4px;
+  color:var(--xz-memory-muted);
+  font-size:15px;
+  white-space:nowrap;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryCardMeta b {
+  color:#8b5b2f;
+  font-size:15px;
+}
+
+body#kianos-workspace.surfaceBody-xizong :is(.xzMemoryPrompt,.xzMemoryPrecisionCue) {
+  padding:15px 18px;
+  border-bottom:1px solid var(--xz-memory-line);
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryPrompt>header {
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:center;
+}
+body#kianos-workspace.surfaceBody-xizong :is(.xzMemoryPrompt>header button,.xzMemoryCardActions button,.xzMemoryMarkedCard button) {
+  min-height:34px;
+  border:0;
+  border-radius:6px;
+  background:transparent;
+  padding:6px 9px;
+  color:var(--xz-memory-muted);
+  font-size:15px;
+  cursor:pointer;
+}
+body#kianos-workspace.surfaceBody-xizong :is(.xzMemoryPrompt>header button,.xzMemoryCardActions button,.xzMemoryMarkedCard button):hover {
+  background:#f1f5f2;
+  color:var(--study-ink,#15201b);
+}
+body#kianos-workspace.surfaceBody-xizong :is(.xzMemoryPrompt>p,.xzMemoryPrecisionCue>p) {
+  margin:8px 0 0;
+  font-size:18px;
+  font-weight:650;
+  line-height:1.6;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryPrecisionCue small {
+  display:block;
+  margin-top:8px;
+  color:var(--xz-memory-muted);
+  font-size:15px;
+  line-height:1.5;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryPromptEditor {
+  display:grid;
+  gap:8px;
+  margin-top:9px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryPromptEditor textarea {
+  width:100%;
+  resize:vertical;
+  border:1px solid var(--xz-memory-line);
+  border-radius:8px;
+  padding:10px;
+  font:inherit;
+  font-size:16px;
+  line-height:1.5;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryPromptEditor>div {
+  display:flex;
+  justify-content:flex-end;
+  gap:7px;
+}
+body#kianos-workspace.surfaceBody-xizong :is(.xzMemoryPromptEditor button,.xzMemoryRevealGate button,.xzMemoryRatings button) {
+  min-height:36px;
+  border:1px solid var(--xz-memory-line);
+  border-radius:7px;
+  background:#fff;
+  padding:7px 11px;
+  font-size:15px;
+  cursor:pointer;
+}
+body#kianos-workspace.surfaceBody-xizong :is(.xzMemoryPromptEditor button.primary,.xzMemoryRevealGate button.primary) {
+  border-color:var(--xz-memory-green);
+  background:var(--xz-memory-green);
+  color:#fff;
+}
+
+body#kianos-workspace.surfaceBody-xizong .xzMemoryRevealGate {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:26px 18px;
+  background:#fbfcfb;
+  border-bottom:1px solid var(--xz-memory-line);
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryRevealGate strong {
+  font-size:17px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryRevealGate span {
+  padding:4px 7px;
+  border:1px solid var(--xz-memory-line);
+  border-radius:5px;
+  color:var(--xz-memory-muted);
+  font-size:15px;
+}
+
+body#kianos-workspace.surfaceBody-xizong .xzMemoryAnswer {
+  padding:18px 21px;
+  border-bottom:1px solid var(--xz-memory-line);
+  font-size:17px;
+  line-height:1.72;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryRatings {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:11px 15px;
+  border-bottom:1px solid var(--xz-memory-line);
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryRatings>div:first-child {
+  display:grid;
+  gap:2px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryRatings span {
+  font-size:15px;
+  font-weight:800;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryRatings small {
+  color:var(--xz-memory-muted);
+  font-size:15px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryRatings>div:last-child {
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryRatings button:hover {
+  border-color:#a9bcb1;
+  background:#f4f7f5;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryCardActions {
+  display:flex;
+  justify-content:flex-end;
+  gap:8px;
+  padding:9px 13px;
+}
+
+body#kianos-workspace.surfaceBody-xizong .xzMemoryMarkedCard blockquote {
+  margin:0;
+  padding:28px 26px;
+  font-size:20px;
+  line-height:1.65;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryMarkedCard footer {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:10px 15px;
+  border-top:1px solid var(--xz-memory-line);
+  color:var(--xz-memory-muted);
+  font-size:15px;
+}
+
+body#kianos-workspace.surfaceBody-xizong .xzMemoryRepairCard dl {
+  display:grid;
+  gap:0;
+  margin:0;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryRepairCard dl>div {
+  display:grid;
+  grid-template-columns:130px minmax(0,1fr);
+  gap:14px;
+  padding:15px 18px;
+  border-bottom:1px solid var(--xz-memory-line);
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryRepairCard dt {
+  color:var(--xz-memory-muted);
+  font-size:15px;
+  font-weight:800;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryRepairCard dd {
+  margin:0;
+  font-size:16px;
+  line-height:1.6;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryRepairCard>small {
+  display:block;
+  padding:11px 18px;
+  color:var(--xz-memory-muted);
+  font-size:15px;
+  line-height:1.5;
+}
+
+body#kianos-workspace.surfaceBody-xizong .xzMemoryContext {
+  overflow:auto;
+  padding:10px;
+  border-left:1px solid var(--xz-memory-line);
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryContext section {
+  padding:11px 9px;
+  border-bottom:1px solid var(--xz-memory-line);
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryContext strong {
+  display:block;
+  margin:5px 0;
+  font-size:16px;
+  line-height:1.4;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryContext p {
+  margin:0;
+  color:var(--xz-memory-muted);
+  font-size:15px;
+  line-height:1.55;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryContext dl {
+  display:grid;
+  gap:6px;
+  margin:8px 0 0;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryContext dl>div {
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  font-size:15px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryContext dt {
+  font-size:15px;
+  font-weight:750;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryContext dd {
+  margin:0;
+  color:var(--xz-memory-muted);
+  font-size:15px;
+  text-align:right;
+}
+
+@media(max-width:1100px) {
+  body#kianos-workspace.surfaceBody-xizong .xzMemory {
+    height:auto;
+    min-height:720px;
+  }
+  body#kianos-workspace.surfaceBody-xizong .xzMemoryLayout {
+    grid-template-columns:250px minmax(0,1fr);
+  }
+  body#kianos-workspace.surfaceBody-xizong .xzMemoryContext,
+  body#kianos-workspace.surfaceBody-xizong .xzMemorySummary {
+    display:none;
+  }
+}
+
+@media(max-width:720px) {
+  body#kianos-workspace.surfaceBody-xizong .xzMemory { height:auto; }
+  body#kianos-workspace.surfaceBody-xizong .xzMemoryHeader { align-items:flex-start; }
+  body#kianos-workspace.surfaceBody-xizong .xzMemoryLayout { grid-template-columns:1fr; }
+  body#kianos-workspace.surfaceBody-xizong .xzMemoryQueue {
+    max-height:240px;
+    border-right:0;
+    border-bottom:1px solid var(--xz-memory-line);
+  }
+  body#kianos-workspace.surfaceBody-xizong .xzMemoryStage { min-height:460px; }
+  body#kianos-workspace.surfaceBody-xizong .xzMemoryToolbar>div:first-child span { display:none; }
+  body#kianos-workspace.surfaceBody-xizong .xzMemoryRatings {
+    align-items:flex-start;
+    flex-direction:column;
+  }
+  body#kianos-workspace.surfaceBody-xizong .xzMemoryRatings>div:last-child { justify-content:flex-start; }
+}
