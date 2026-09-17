@@ -89,7 +89,7 @@ const usePurposeFirstRuntime = !useCognitiveWorkspace && Boolean(compiled?.size)
     })();
   </script>
 
-  <PoliticsRepairEnhancer chapter={data} />
+  <PoliticsRepairEnhancer chapter={data} compiled={compiled} />
   <PoliticsUnitReturnEnhancer chapter={data} />
   {['mao', 'xi', 'ethics_law'].includes(subject) && <PoliticsEvidenceEnhancer chapter={data} />}
   {!useCognitiveWorkspace && <PoliticsChapterPresentation />}
