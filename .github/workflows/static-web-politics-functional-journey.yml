@@ -9,6 +9,7 @@ on:
       - 'static-web/src/components/Politics*.astro'
       - 'static-web/src/lib/politics*.mjs'
       - 'static-web/src/pages/politics/**'
+      - 'static-web/src/styles/politics-*.css'
       - 'static-web/scripts/*politics*.mjs'
       - '.github/workflows/static-web-politics-functional-journey.yml'
   pull_request:
@@ -18,6 +19,7 @@ on:
       - 'static-web/src/components/Politics*.astro'
       - 'static-web/src/lib/politics*.mjs'
       - 'static-web/src/pages/politics/**'
+      - 'static-web/src/styles/politics-*.css'
       - 'static-web/scripts/*politics*.mjs'
       - '.github/workflows/static-web-politics-functional-journey.yml'
   workflow_dispatch:
@@ -72,6 +74,9 @@ jobs:
       - name: Verify five-subject explicit surface matrix
         working-directory: static-web
         run: node scripts/test-politics-purpose-first-batch-matrix.mjs
+      - name: Verify Natural Unit visual convergence
+        working-directory: static-web
+        run: node scripts/test-politics-natural-unit-visual-convergence.mjs
       - name: Verify explicit content-to-surface mapping in browser
         working-directory: static-web
         run: node scripts/test-politics-explicit-surface-browser.mjs
@@ -90,6 +95,13 @@ jobs:
         with:
           name: politics-functional-journey-${{ github.sha }}
           path: politics-functional-audit/
+          retention-days: 7
+      - name: Save Natural Unit visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: politics-natural-unit-visual-${{ github.sha }}
+          path: politics-natural-unit-visual-audit/
           retention-days: 7
       - name: Save Mao Runtime evidence
         if: always()
