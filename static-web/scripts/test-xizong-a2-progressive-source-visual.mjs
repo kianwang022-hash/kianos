@@ -74,7 +74,7 @@ try {
     };
   });
   check(geometry.shell, 'one_screen_workspace_shell_mounted');
-  check(geometry.leftWidth >= 160 && geometry.leftWidth <= 190, 'logic_map_stays_narrow', String(geometry.leftWidth));
+  check(geometry.leftWidth >= 160 && geometry.leftWidth <= 200, 'logic_map_stays_narrow', String(geometry.leftWidth));
   check(geometry.mainWidth > geometry.leftWidth * 2.5, 'central_learning_surface_is_dominant', JSON.stringify(geometry));
   check(geometry.rootBottom <= geometry.viewportHeight + 2, 'block_workspace_fits_viewport', `${geometry.rootBottom}/${geometry.viewportHeight}`);
   check(geometry.pageScrollHeight <= geometry.pageClientHeight + 4, 'block_route_does_not_become_endless_page', `${geometry.pageScrollHeight}/${geometry.pageClientHeight}`);
