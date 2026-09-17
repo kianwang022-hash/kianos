@@ -10,7 +10,15 @@ export const listReadingSets = baseListReadingSets;
 export { loadReadingAnswersById, loadReadingReviewById };
 
 export function loadReadingById(id) {
-  return projectReadingSourceTruth(baseLoadReadingById(id));
+  const base = baseLoadReadingById(id);
+  const projected = projectReadingSourceTruth(base);
+  // Reading A already has paragraph-level structure in reading_corpus.v1.json.
+  // Source Truth corrects learner-facing prompt/options, but must not flatten the
+  // verified paragraph geometry back into one source_text block.
+  return {
+    ...projected,
+    paragraphs: base.paragraphs
+  };
 }
 
 export function loadDefaultReading() {

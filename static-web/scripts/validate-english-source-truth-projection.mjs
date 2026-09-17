@@ -10,6 +10,7 @@ import {
   listReadingSets,
   loadReadingById
 } from '../src/lib/englishReadingSourceTruth.mjs';
+import { loadReadingById as loadBaseReadingById } from '../src/lib/englishReading.mjs';
 import {
   listClozeSets,
   loadClozeById,
@@ -98,10 +99,14 @@ function assertQuestionOverlay(projectedQuestions, unit, family, objectId, proje
 
 for (const id of samples(listReadingSets())) {
   const item = loadReadingById(id);
+  const base = loadBaseReadingById(id);
   const unit = sourceTruthFor(id);
   assertIdentity(item, 'reading_a');
-  const blocks = sourceTruthBlocks(unit, 'p');
-  if (blocks.length) assert(item.paragraphs?.[0]?.text === blocks[0].text, 'reading_a_first_block_exact', id);
+  assert(
+    JSON.stringify(item.paragraphs || []) === JSON.stringify(base.paragraphs || []),
+    'reading_a_structured_paragraph_geometry_preserved',
+    `${id}:paragraphs=${item.paragraphs?.length || 0}`
+  );
   assertQuestionOverlay(item.questions, unit, 'reading_a', id);
   assertNoAnswerLeak(item.questions, 'reading_a', id);
 }
