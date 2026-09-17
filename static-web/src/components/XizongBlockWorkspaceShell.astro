@@ -5,8 +5,11 @@
 <script>
   const root = document.querySelector('[data-xizong-v6-block]');
   const rail = root?.querySelector('.portedStudyChain');
+  const layout = root?.querySelector('[data-study-layout]');
+  const logicMap = root?.querySelector('.portedStudyOutline');
+  const contextRow = root?.querySelector('.portedStudyContextRow');
 
-  if (root instanceof HTMLElement && rail instanceof HTMLElement) {
+  if (root instanceof HTMLElement && rail instanceof HTMLElement && layout instanceof HTMLElement) {
     root.classList.add('xv6BlockWorkspaceShell');
     rail.dataset.xizongAuxRail = '';
     if (!root.dataset.auxWeight) root.dataset.auxWeight = 'none';
@@ -19,5 +22,38 @@
     const observer = new MutationObserver(syncStage);
     stages.forEach((stage) => observer.observe(stage, { attributes: true, attributeFilter: ['hidden'] }));
     syncStage();
+
+    const objectId = root.getAttribute('data-study-object') || 'xizong:unknown';
+    const storageKey = `kianos-xizong-layout:${objectId}:outline`;
+    let collapsed = false;
+    try { collapsed = sessionStorage.getItem(storageKey) === 'true'; } catch {}
+    layout.classList.toggle('outline-collapsed', collapsed);
+
+    let toggle = root.querySelector('[data-logic-map-toggle]');
+    if (!(toggle instanceof HTMLButtonElement)) {
+      toggle = document.createElement('button');
+      toggle.type = 'button';
+      toggle.dataset.logicMapToggle = '';
+      toggle.className = 'xzLogicMapToggle';
+      if (contextRow instanceof HTMLElement) contextRow.insertAdjacentElement('afterbegin', toggle);
+    }
+
+    const syncToggle = () => {
+      const hidden = layout.classList.contains('outline-collapsed');
+      toggle.textContent = hidden ? '展开 Logic Map' : '收起 Logic Map';
+      toggle.setAttribute('aria-expanded', hidden ? 'false' : 'true');
+      toggle.title = hidden ? '展开左侧 Logic Map' : '收起左侧 Logic Map';
+      if (logicMap instanceof HTMLElement) logicMap.setAttribute('aria-hidden', hidden ? 'true' : 'false');
+    };
+
+    toggle?.addEventListener('click', () => {
+      const next = !layout.classList.contains('outline-collapsed');
+      layout.classList.toggle('outline-collapsed', next);
+      try { sessionStorage.setItem(storageKey, String(next)); } catch {}
+      syncToggle();
+    });
+
+    new MutationObserver(syncToggle).observe(layout, { attributes: true, attributeFilter: ['class'] });
+    syncToggle();
   }
 </script>
