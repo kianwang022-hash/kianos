@@ -1,0 +1,121 @@
+name: Politics UI Visual Evidence
+
+on:
+  pull_request:
+    paths:
+      - 'static-web/src/components/Politics*.astro'
+      - 'static-web/src/layouts/PoliticsLayout.astro'
+      - 'static-web/src/pages/politics/**'
+      - 'static-web/src/styles/politics-presentation.css'
+      - '.github/workflows/politics-ui-visual-evidence.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: politics-ui-visual-evidence-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  screenshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install runtime
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+
+      - name: Install Chromium
+        working-directory: static-web
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Start Politics dev surface
+        working-directory: static-web
+        run: |
+          nohup npm run dev -- --host 127.0.0.1 > /tmp/kianos-politics-dev.log 2>&1 &
+          echo $! > /tmp/kianos-politics-dev.pid
+          for i in {1..60}; do
+            if curl -fsS http://127.0.0.1:4321/politics/marxism/ch00/ >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/kianos-politics-dev.log
+          exit 1
+
+      - name: Capture C00 Mac-wide visual evidence
+        working-directory: static-web
+        run: |
+          mkdir -p ../politics-ui-visual-evidence
+          node --input-type=module <<'NODE'
+          import { chromium } from 'playwright';
+          import fs from 'node:fs';
+
+          const browser = await chromium.launch({ headless: true });
+          const page = await browser.newPage({
+            viewport: { width: 1512, height: 982 },
+            deviceScaleFactor: 1
+          });
+
+          const consoleErrors = [];
+          page.on('console', msg => {
+            if (msg.type() === 'error') consoleErrors.push(msg.text());
+          });
+          page.on('pageerror', err => consoleErrors.push(String(err)));
+
+          await page.goto('http://127.0.0.1:4321/politics/marxism/ch00/', {
+            waitUntil: 'networkidle'
+          });
+          await page.locator('[data-politics-cognitive-workspace]').waitFor();
+
+          await page.screenshot({
+            path: '../politics-ui-visual-evidence/marx-c00-s01-orient.png',
+            fullPage: false
+          });
+
+          const tabs = page.locator('[data-workspace-unit-tab]');
+          if (await tabs.count() > 1) {
+            await tabs.nth(1).click();
+            await page.waitForTimeout(300);
+            await page.screenshot({
+              path: '../politics-ui-visual-evidence/marx-c00-s02-orient.png',
+              fullPage: false
+            });
+          }
+
+          const metrics = await page.evaluate(() => ({
+            href: location.href,
+            title: document.title,
+            bodyWidth: document.body.scrollWidth,
+            viewportWidth: window.innerWidth,
+            bodyHeight: document.body.scrollHeight,
+            viewportHeight: window.innerHeight,
+            workspace: document.querySelector('[data-politics-cognitive-workspace]')?.getBoundingClientRect().toJSON?.() ?? null,
+            headline: document.querySelector('[data-stage="ORIENT"] h2')?.textContent?.trim() ?? null
+          }));
+
+          fs.writeFileSync(
+            '../politics-ui-visual-evidence/metrics.json',
+            JSON.stringify({ metrics, consoleErrors }, null, 2)
+          );
+
+          await browser.close();
+          NODE
+
+      - name: Upload visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: politics-ui-visual-evidence-${{ github.sha }}
+          path: politics-ui-visual-evidence/
+          retention-days: 7
