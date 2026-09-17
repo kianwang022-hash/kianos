@@ -162,7 +162,7 @@ const ttsx = block?.ttsx || { checkpoints: [] };
           <div class="portedKpCards">
             {kps.map((kp, index) => <article class="portedKpRecallCard" data-kp-recall-card={index} data-kp-id={kp.kpId} hidden={index !== 0}>
               <header><span>{kp.groupLabel}</span><h3>{kp.displayId}</h3>{kp.prompt && <p>{kp.prompt}</p>}</header>
-              <div class="portedRecallPrompt"><strong>先主动恢复，不看答案型标题。</strong><button type="button" data-kp-reveal>Reveal Core</button></div>
+              <div class="portedRecallPrompt"><strong>先主动恢复；Core 暂时隐藏。</strong><button type="button" data-kp-reveal>Reveal Core</button></div>
               <div class="portedRecallAnswer" data-kp-answer hidden>
                 <h4>{kp.title}</h4>
                 <div class="markdown" set:html={kp.detailHtml}></div>
