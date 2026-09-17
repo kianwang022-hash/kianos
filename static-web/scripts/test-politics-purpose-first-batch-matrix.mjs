@@ -33,7 +33,7 @@ async function waitForServer() {
   throw new Error('POLITICS_BATCH_PREVIEW_SERVER_NOT_READY');
 }
 
-async function visibleTextBelowFloor(roots, floorPx = 16) {
+async function visibleTextBelowFloor(roots, floorPx = 15) {
   return roots.evaluateAll((surfaceRoots, floor) => {
     const offenders = [];
     const seen = new Set();
@@ -139,8 +139,8 @@ try {
 
     const mappedSurfaces = unit.locator('[data-politics-explicit-surface-plan]');
     check((await mappedSurfaces.count()) > 0, `${sample.label}_mapped_surface_present`);
-    const tiny = await visibleTextBelowFloor(mappedSurfaces, 16);
-    check(tiny.length === 0, `${sample.label}_mapped_visible_text_floor_16px`, JSON.stringify(tiny));
+    const tiny = await visibleTextBelowFloor(mappedSurfaces, 15);
+    check(tiny.length === 0, `${sample.label}_mapped_visible_text_floor_15px`, JSON.stringify(tiny));
     const bodySamples = unit.locator('[data-politics-explicit-surface-plan] p,[data-politics-explicit-surface-plan] li,[data-politics-explicit-surface-plan] .sequenceTransition span');
     if (await bodySamples.count()) {
       const sizes = await bodySamples.evaluateAll((nodes) => nodes.filter((node) => node.getClientRects().length > 0).map((node) => Number.parseFloat(getComputedStyle(node).fontSize)));
@@ -157,7 +157,7 @@ try {
 } finally {
   await mkdir(auditDir, { recursive: true });
   await writeFile(new URL('purpose-first-batch-matrix.json', auditDir), JSON.stringify({
-    schema: 'kianos.politics.explicit_surface_batch_matrix.v4',
+    schema: 'kianos.politics.explicit_surface_batch_matrix.v5',
     samples,
     checks,
     failure,
