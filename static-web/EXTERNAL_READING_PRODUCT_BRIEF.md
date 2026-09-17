@@ -35,15 +35,23 @@ No frontend source edit is required when a new valid object is added.
 
 Do **not** copy Reading A into a second runtime.
 
-The existing `ReadingWorkspace` remains the interaction owner. External Reading may parameterize only surface identity and routing concerns required to reuse that runtime safely, such as:
+The existing `ReadingWorkspace` remains the interaction owner. External Reading may parameterize only surface identity, routing, and capabilities explicitly exposed by that owner for safe reuse, such as:
 
 - runtime namespace / localStorage key prefix;
 - route prefix for next/review navigation;
 - header label and return destination;
 - answer endpoint prefix;
+- continuous-session participation (`Reading A = enabled`, `External = disabled`);
+- review packet surface identity;
 - optional external source provenance.
 
 Reading A behavior must remain unchanged after extraction.
+
+Hard ownership rule:
+
+> The External adapter passes owner-supported parameters. It does not rewrite ReadingWorkspace DOM after render, read/write Reading A private continuous-session storage, or temporarily patch foreign Runtime state around Submit.
+
+If External needs a behavior difference that is legitimately part of shared Reading execution, add a narrow capability at `ReadingWorkspace` first and consume it from the adapter.
 
 ## Clean-attempt and answer boundary
 
@@ -54,7 +62,8 @@ For External objects with questions:
 - learner can answer, change answers, mark Uncertain, use keyboard navigation and local History;
 - Submit loads the answer payload through a separate answer endpoint;
 - Wrong / meaningful Uncertain can reveal repair context after submission;
-- External attempts use their own storage namespace and never collide with Reading A attempts.
+- External attempts use their own storage namespace and never collide with Reading A attempts;
+- External does not join, mutate, suspend, or restore Reading A's multi-passage continuous session.
 
 Questionless periodical objects remain allowed by the canonical schema, but they are not part of this first runtime slice. The first slice lists them as reading-only / not-yet-performable rather than inventing fake questions.
 
@@ -91,4 +100,5 @@ Before merge:
 3. browser acceptance proves passage + full questions + Uncertain + Submit + Wrong/review on the shared workspace;
 4. clean-attempt HTML does not contain formal answers;
 5. adding another valid object file requires no route/code edit;
-6. subject top bar exposes External Reading without restoring duplicate global navigation.
+6. subject top bar exposes External Reading without restoring duplicate global navigation;
+7. External adapter contains no Reading A private continuous-session key or post-render Runtime patch; the ReadingWorkspace owner itself enforces the disabled capability.
