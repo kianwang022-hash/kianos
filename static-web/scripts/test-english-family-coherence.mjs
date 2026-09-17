@@ -112,6 +112,7 @@ async function assertHome(page) {
   check(layout.y < 300, 'english_home_workbench_enters_first_viewport', String(layout.y));
   check(map.width > rail.width * 2, 'english_home_tasks_dominate_guides_rail', `${map.width}/${rail.width}`);
   check(await page.locator('.englishGuideLinks a').count() === 3, 'english_home_keeps_three_optional_guides');
+  check(await page.locator('[data-kianos-subject-bar="english"]').count() === 0, 'english_has_no_duplicate_subject_bar');
   await page.screenshot({ path: path.join(auditDir, 'english-home-1440x900.png'), fullPage: false });
 }
 
@@ -141,6 +142,7 @@ async function assertVocabularyFamily(page) {
   check(await page.locator('[data-lexical-tab="search"]').isVisible(), 'vocabulary_search_mode_visible');
   check(await page.locator('[data-lexical-tab="review"]').isVisible(), 'vocabulary_repair_mode_visible');
   check(await page.locator('[data-lexical-tab="challenge"]').isVisible(), 'vocabulary_challenge_mode_visible');
+  check(await page.locator('[data-kianos-subject-bar="english"]').count() === 0, 'vocabulary_has_no_duplicate_subject_bar');
   await page.screenshot({ path: path.join(auditDir, 'vocabulary-home-1440x900.png'), fullPage: false });
 
   const representative = listLexicalWordSummaries().find((row) =>
