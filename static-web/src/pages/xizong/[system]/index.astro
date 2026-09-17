@@ -20,7 +20,7 @@ const system = loadXizongSystem(systemId);
 const pathways = loadXizongPathways(system);
 const questionSweep = loadXizongSystemQuestionSweep(system);
 ---
-<Base title={system.title} kicker={`西医综合 · ${system.canonicalId} · System Learn`} description={system.mission} sourcePath={system.sourcePath} sourceHash={system.sourceHash} objectId={`xizong:${system.systemId}`} active="xizong">
+<Base title={system.title} kicker={`西医综合 · ${system.canonicalId} · System Learn`} description={system.mission} sourcePath={system.sourcePath} sourceHash={system.sourceHash} objectId={`xizong:${system.systemId}`} active="xizong" showLead={false}>
   <XizongLastLocation system={system} />
   <XizongSystemV6 system={system} pathways={pathways} />
   {questionSweep && (
@@ -50,9 +50,9 @@ const questionSweep = loadXizongSystemQuestionSweep(system);
   .xizongLaterStage>summary::-webkit-details-marker{display:none}
   .xizongLaterStage>summary::before{content:'›';grid-row:1 / span 2;color:var(--study-green,#286c57);font-size:18px;font-weight:900;transition:transform .15s ease}
   .xizongLaterStage[open]>summary::before{transform:rotate(90deg)}
-  .xizongLaterStage>summary span{color:var(--study-green,#286c57);font-size:9px;font-weight:850;letter-spacing:.07em}
-  .xizongLaterStage>summary strong{font-size:13px}
-  .xizongLaterStage>summary small{grid-column:3;color:var(--study-muted,#6d7873);font-size:9px}
+  .xizongLaterStage>summary span{color:var(--study-green,#286c57);font-size:15px;font-weight:850;letter-spacing:.02em}
+  .xizongLaterStage>summary strong{font-size:16px}
+  .xizongLaterStage>summary small{grid-column:3;color:var(--study-muted,#6d7873);font-size:15px}
   .xizongLaterStage[open]>summary{border-bottom:1px solid var(--study-line,#d9dde5);background:#f7faf8}
   .xizongLaterStage>.xse{margin:12px}
   @media(max-width:760px){.xizongLaterStage>summary{grid-template-columns:auto minmax(0,1fr)}.xizongLaterStage>summary small{grid-column:2}}
