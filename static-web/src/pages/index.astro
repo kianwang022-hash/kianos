@@ -1,6 +1,7 @@
 ---
 import '../styles/product-closure.css';
 import ExamOrchestratorHome from '../components/ExamOrchestratorHome.astro';
+import MissionControlHome from '../components/MissionControlHome.astro';
 import Base from '../layouts/Base.astro';
 import XizongHomeTools from '../components/XizongHomeTools.astro';
 import PoliticsHomeTools from '../components/PoliticsHomeTools.astro';
@@ -65,6 +66,7 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
 
     <aside class="commandSupport examSupport" aria-label="今日安排与学习支持">
       <ExamOrchestratorHome />
+      <MissionControlHome />
       <section class="commandSupportSection examSupportLinks"><a href={`${base}vocabulary/`}>Vocabulary →</a><nav aria-label="英语 Guide"><a href={`${base}objective-learn/`}>Objective Guide</a><a href={`${base}translation-learn/`}>Translation Guide</a><a href={`${base}writing-learn/`}>Writing Guide</a></nav></section>
     </aside>
   </div>
