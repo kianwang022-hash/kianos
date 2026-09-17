@@ -26,6 +26,13 @@ const useCognitiveWorkspace = subject === 'marxism'
   && chapter === 'ch00'
   && data.units.some((unit) => unit?.raw?.learning_semantics?.schema === 'kianos.politics.learning_semantics.v1');
 ---
+<style is:global>
+  /* Golden C00 calibration: the learner-facing orientation question must read as a real headline. */
+  .politicsCognitiveWorkspace.directReasoningWorkspace[data-subject="marxism"][data-chapter="ch00"] [data-stage="ORIENT"] > h2 {
+    font-size: clamp(32px, 2.45vw, 39px) !important;
+  }
+</style>
+
 <Base
   title={data.title}
   kicker={`${data.subjectMeta.label} · ${data.subjectMeta.shape}`}
