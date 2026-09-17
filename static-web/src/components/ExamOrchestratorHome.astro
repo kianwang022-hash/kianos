@@ -5,13 +5,13 @@ const catalog = examProductCatalog(base);
 ---
 <section class="examToday" data-exam-home>
   <script type="application/json" data-exam-catalog set:html={JSON.stringify(catalog).replace(/</g, '\\u003c')} />
-  <header class="examTodayHead"><div><span class="pageKicker">TODAY</span><h2>今天的安排</h2></div><button class="examQuiet" data-exam-settings>设置时间</button></header>
+  <header class="examTodayHead"><div><span class="pageKicker">TODAY</span><h2>今天的安排</h2></div><button class="examQuiet" data-exam-settings>可用时间</button></header>
   <p class="examCapacity" data-exam-capacity>按真实可用时间安排，不补昨天的欠账。</p>
   <div class="examAllocation" data-exam-allocations aria-live="polite"></div>
   <div class="examNext"><span data-exam-next-label>下一步</span><a data-exam-next href={`${base}xizong/`}>进入学习 →</a></div>
   <section class="examAttention" data-exam-attention hidden><p data-exam-attention-text></p><button data-exam-attention-action class="examQuiet"></button></section>
   <p class="examError" data-exam-error role="alert" hidden></p>
-  <footer class="examTodayFoot"><button class="examQuiet" data-exam-why>为什么这样安排</button><button class="examQuiet" data-exam-record>记已学时间</button></footer>
+  <footer class="examTodayFoot"><button class="examQuiet" data-exam-why>安排依据</button><button class="examQuiet" data-exam-record>补录时间</button></footer>
   <section class="examMaterial" data-exam-reminder hidden><p></p><button class="examQuiet" data-exam-reminder-dismiss>记住了</button></section>
 
   <dialog class="examDialog" data-exam-settings-dialog aria-labelledby="exam-settings-title">
@@ -26,8 +26,8 @@ const catalog = examProductCatalog(base);
     </form>
   </dialog>
   <dialog class="examDialog" data-exam-record-dialog aria-labelledby="exam-record-title">
-    <form data-exam-record-form><header><h2 id="exam-record-title">今天已学多久</h2><button type="button" data-close aria-label="关闭">×</button></header>
-      <p>可选校准。按今天累计有效分钟填写，会更新剩余安排，不会把时间当成掌握。</p>
+    <form data-exam-record-form><header><h2 id="exam-record-title">补录今天学习时间</h2><button type="button" data-close aria-label="关闭">×</button></header>
+      <p>Timer 会自动记录；这里仅用于补录网页外学习或修正遗漏。按今天累计有效分钟填写，会更新剩余安排，但不会把时间当成掌握。</p>
       <div class="examRecordedFields">{[['xizong','西综'],['english','英语'],['politics','政治']].map(([id,label]) => <label>{label}<input type="number" min="0" max="1440" step="1" data-studied={id} required />分钟</label>)}</div>
       <p data-form-error role="alert" hidden></p><button class="examPrimary" type="submit">确认今天累计时间</button>
     </form>
