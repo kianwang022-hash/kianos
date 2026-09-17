@@ -5,7 +5,7 @@ on:
     branches:
       - work/xizong-block-single-owner-20260917
     paths:
-      - 'static-web/scripts/migrate-xizong-block-presentation.mjs'
+      - 'static-web/scripts/migrate-xizong-block-presentation-v2.mjs'
       - '.github/workflows/xizong-block-presentation-migration-bootstrap.yml'
 
 permissions:
@@ -28,8 +28,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Execute one-shot ownership cutover
-        run: node static-web/scripts/migrate-xizong-block-presentation.mjs
+      - name: Execute hardened one-shot ownership cutover
+        run: node static-web/scripts/migrate-xizong-block-presentation-v2.mjs
       - name: Normalize generated text
         run: |
           python - <<'PY'
@@ -49,6 +49,9 @@ jobs:
           test -f static-web/src/styles/xizong-block-workspace.css
           ! grep -R "!important" static-web/src/styles/xizong-block-workspace.css
           ! grep -R "style.setProperty('grid-template-columns'" static-web/src/components/XizongBlockAuxLayoutSync.astro
+          ! grep -R "\.portedStudyChain\|\.portedOutlineSectionList" static-web/src/styles/xizong-presentation.css
+          ! grep -R "\.portedStudyChain" static-web/src/styles/xizong-dense-calm.css
+          ! grep -R "\.portedStudyChain" static-web/src/styles/site-visual-tuning.css
       - name: Commit generated cutover
         run: |
           git config user.name "github-actions[bot]"
