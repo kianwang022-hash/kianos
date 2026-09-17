@@ -4,6 +4,7 @@ import path from 'node:path';
 
 import { loadPoliticsChapterCurrent } from '../src/lib/politicsCurrent.mjs';
 import { enrichPoliticsChapterCurrent } from '../src/lib/politicsRepairMemory.mjs';
+import { PRACTICE_KEYS } from '../src/lib/politicsPracticeState.mjs';
 import {
   buildPoliticsUnitReturnConfigs,
   evaluatePoliticsUnitReturn,
@@ -127,8 +128,10 @@ assert.ok(enhancerSource.includes("kianos-politics-attempts-v1"), 'Unit Return m
 assert.ok(!enhancerSource.includes("kianos-politics-evidence-v1"), 'Unit Return enhancer must not manufacture durable review debt');
 assert.ok(enhancerSource.includes("if (!saveJson(attemptKey, recorded.store))"), 'private attempt persistence failure must fail closed before Unit Return advances');
 assert.ok(enhancerSource.includes("data-politics-attempt-persistence-error"), 'persistence failure must be visible rather than silently discarded');
-assert.ok(homeToolsSource.includes("kianos-politics-evidence-v1"), 'daily handoff must continue reading durable Wrong/Uncertain evidence');
-assert.ok(!homeToolsSource.includes("kianos-politics-attempts-v1"), 'private clean-attempt snapshot must not leak into the daily Chat handoff');
+assert.equal(PRACTICE_KEYS.evidence, 'kianos-politics-evidence-v1', 'durable daily evidence storage identity must remain owned by Politics practice state');
+assert.ok(homeToolsSource.includes("readPoliticsSnapshot"), 'Home handoff must read learner state through the shared Politics snapshot owner');
+assert.ok(homeToolsSource.includes("politicsReviewPacket"), 'Home handoff must use the shared review packet projection instead of reading raw evidence directly');
+assert.ok(!homeToolsSource.includes("kianos-politics-attempts-v1"), 'private clean-attempt storage identity must not be re-declared by the Home handoff');
 
 console.log(JSON.stringify({
   status: 'PASS',
