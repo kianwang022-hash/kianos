@@ -175,9 +175,9 @@ const relationRows = framework.formulas;
     outlineCount: block.outlineCount
   })))}></script>
   <script type="application/json" data-failure-payload set:html={JSON.stringify(Object.fromEntries(system.failureModes.map((mode) => [mode.id, {
+    ...(failureViews[mode.id] || {}),
     label: mode.label,
-    chain: mode.chain || '',
-    ...(failureViews[mode.id] || {})
+    chain: mode.chain || failureViews[mode.id]?.chain || ''
   }])))}></script>
 </section>
 
