@@ -1,0 +1,51 @@
+name: Xizong A1 Structured Extension
+
+on:
+  pull_request:
+    paths:
+      - 'content/xizong/knowledge/learner/a1-circulation-extensions.json'
+      - 'content/xizong/knowledge/learner/a1-circulation-source-visuals.json'
+      - 'static-web/src/assets/xizong/source-visuals/a1-b03-lg01/**'
+      - 'static-web/scripts/test-xizong-a1-extension-table.mjs'
+      - '.github/workflows/xizong-a1-extension-table.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    defaults:
+      run:
+        working-directory: static-web
+    steps:
+      - name: Checkout Current
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install runtime
+        run: npm install --no-audit --no-fund
+      - name: Validate generic Extension registry
+        run: node scripts/validate-xizong-extension-assets.mjs
+      - name: Validate legacy Source Visual registry
+        run: node scripts/validate-xizong-source-visuals.mjs
+      - name: Build Current site
+        run: npm run build
+      - name: Install isolated browser acceptance tool
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Execute A1 structured Extension acceptance
+        run: node scripts/test-xizong-a1-extension-table.mjs
+      - name: Upload A1 structured Extension evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xizong-a1-extension-table-${{ github.sha }}
+          path: static-web/.qa/xizong-a1-extension-table.json
+          if-no-files-found: warn
+          retention-days: 7
