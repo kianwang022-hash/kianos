@@ -20,6 +20,17 @@ Semantic parent: `PRESENTATION_CONTRACT.md` + domain Product/Learning/Interactio
 
 优先现有可用、合法字体与系统栈；先解决正文和题目读得舒服。具体字号/行距/列宽由真实长内容、Mac viewport 与浏览器结果决定，不以 8–10px 主内容换“高密度”，也不放大标题制造“高级感”。
 
+### Learner-visible type floor
+
+只要学习界面选择把一段文字默认显示出来，就等于告诉 Kian：**这值得读取或识别。** 因此不能用 tiny type 来表示“次要”。次要信息应通过位置、颜色、字重、分组和是否默认显示来降权，而不是通过增加辨认成本来降权。
+
+- Mac 主学习界面中，默认可见、需要 learner 读取/识别的文字，**原则上不得低于 15px**。
+- 正文、解释、关系说明、题目辅助说明通常应 **≥16px**；主要标题按真实层级继续更大。
+- 只有纯装饰符号或明确无需读取的视觉符号可以低于该 floor；工程 ID、debug/status、内部 provenance 若不值得读，应隐藏或按需展开，而不是以 9–12px 常驻。
+- `metadata`、`secondary`、`quiet` 不等于 `tiny`。视觉降权不能以显著增加阅读注意力消耗为代价。
+- 一屏密度不足时，优先减少重复 chrome、合并布局、使用横向空间或局部滚动；不要先缩字。
+- 真实浏览器验收应主动检查 visible learner text 是否跌破 floor，而不是只检查主标题和正文。
+
 偏克制的 neutral base + 一个协调 accent family，状态还有文字/形状辅助，不仅靠颜色。作答前 selected 只表示我的选择，不能使用暗示正确的样式。对错/Uncertain/保存失败各有清楚、克制的区别。
 
 普通 polish 自主；大幅更换整体风格或结构按 master L3。Professional 不等于陈旧后台，modern 不等于卡片墙。
