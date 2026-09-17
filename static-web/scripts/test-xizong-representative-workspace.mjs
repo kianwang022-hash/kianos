@@ -133,10 +133,10 @@ try {
     check(await root.locator('[data-xizong-aux-surface]').count() === 1, `${item.lane}_dynamic_aux_surface_unique`);
     const framework = root.locator('[data-xizong-cognitive-projection]');
     check(await framework.count() === 1, `${item.lane}_human_framework_unique`);
-    check(!(await framework.first().getAttribute('open')), `${item.lane}_framework_compact_by_default`);
-    check(Boolean(await page.locator('[data-xizong-legacy-crosswalk-bridge]').getAttribute('hidden')), `${item.lane}_crosswalk_query_only`);
+    check(!(await framework.first().evaluate((node) => node.hasAttribute('open'))), `${item.lane}_framework_compact_by_default`);
+    check(await page.locator('[data-xizong-legacy-crosswalk-bridge]').evaluate((node) => node.hasAttribute('hidden')), `${item.lane}_crosswalk_query_only`);
     check(await page.locator('.xv6MemoryReview').count() === 0, `${item.lane}_legacy_after_learn_absent`);
-    check(Boolean(await page.locator('[data-xizong-memory-release-bridge]').getAttribute('hidden')), `${item.lane}_standalone_memory_release_bridge_hidden`);
+    check(await page.locator('[data-xizong-memory-release-bridge]').evaluate((node) => node.hasAttribute('hidden')), `${item.lane}_standalone_memory_release_bridge_hidden`);
     check(await root.locator('[data-xizong-group-visuals]').count() === 0, `${item.lane}_legacy_visual_owner_absent`);
     check(await root.locator('[data-kp-precision]').count() === 0, `${item.lane}_legacy_precision_owner_absent`);
 
