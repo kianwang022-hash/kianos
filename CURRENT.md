@@ -121,7 +121,52 @@ root Control
 
 This prevents Root from becoming stale every time a bounded batch advances. Exact task progress remains live in its canonical cursor; Control discovers it on demand.
 
+### Creating tasks through Control
+
+A command such as:
+
+```text
+创建一个西综任务：……
+把这个放进后续任务
+新增一个 Politics UI task：……
+```
+
+is a persistence request, not a conversational note.
+
+Control must:
+
+```text
+resolve scope
+→ choose existing exact CURRENT / program Mainline owner
+→ write the task there
+→ verify the write
+→ report the created task + owner
+```
+
+The task is not durable until the repository write succeeds. If it cannot be written, report **not created**.
+
+Do not require Kian to specify the file. Do not create a parallel Todo registry when the existing Current/Mainline hierarchy can own the task.
+
+### Sync safety
+
+```text
+task creation
+→ owner write succeeds
+→ task becomes discoverable
+
+task execution result
++
+exact CURRENT / cursor update
+→ same active branch / PR
+→ accepted together
+→ merge together
+```
+
+If a Mainline names an active branch/PR, Control reads that task's exact cursor from the named ref. `main` remains the accepted baseline, but must not overwrite an in-flight task's newer explicit cursor during status/continuation.
+
 ---
+
+
 
 ## Content improvement stream
 

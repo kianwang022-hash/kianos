@@ -186,14 +186,23 @@ Current website sequence after #331 is System Workspace convergence; content lan
 
 “Continue Xizong content mainline” means:
 
-1. read latest main;
-2. read `CURRENT.md` and this file;
-3. choose the highest-priority unblocked lane;
-4. read its exact owner;
+1. read latest main and this program owner;
+2. choose the highest-priority unblocked lane;
+3. if this file names an active branch/PR, read the exact task cursor from that ref;
+4. read the exact owner;
 5. execute one bounded stage/batch;
-6. merge accepted work;
-7. update the exact lane cursor;
-8. update this file only when a program-level stage/dependency changes.
+6. update the task result **and exact lane cursor in the same branch/PR**;
+7. merge accepted work and cursor together;
+8. update this file only when a program-level stage/dependency/active-task set changes.
+
+“Create a Xizong content task” means:
+
+1. resolve whether it belongs to an existing lane or changes the program task set;
+2. write it immediately into the narrow exact CURRENT/cursor or this Mainline;
+3. verify the repository write;
+4. only then report the task as created.
+
+A task mentioned only in Chat is not a durable Xizong task.
 
 Do not update this file for each Crosswalk batch, image crop, CI rerun, PR number or learner session.
 
