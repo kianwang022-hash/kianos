@@ -7,6 +7,9 @@ This file does not own Writing content, acceptance evidence, or learner progress
 
 ---
 
+> **Architecture-v2 note:** `S/K/L/P/R/E` and headings such as Projection / Runtime / Evidence below are retained only as Acceptance-history dimensions. They are not current architecture layers. Current work routes through Rule / Model → Content / Visual / Engineering, with this file acting only as Control.
+
+
 ## Work Cursor
 
 **Scope:** English Writing  
