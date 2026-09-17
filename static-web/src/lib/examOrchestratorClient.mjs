@@ -75,9 +75,10 @@ export function initExamHome(root) {
   function why() {
     const target = $('[data-exam-reasons]'); target.replaceChildren();
     const p = text => { const node = document.createElement('p'); node.textContent = text; target.append(node); };
-    p('分配的是接下来可用的时间，不是掌握程度。没有个人证据时，先守住英语与政治的连续性，余量主推西综。');
-    p(plan.horizonKnown ? '已按未来七天可用时间分摊最低安排；不会把过去缺的小时累加成欠账。' : '尚无完整未来七天容量，先按今天安排；之后的容量仍留空。');
-    if (plan.provisional) p('当前已过最初阶段，但还没有新的三科最低安排，暂用起步先验；并非已经完成重新估分。');
+    if (plan.phase.id === 'A') p('分配的是接下来可用的时间，不是掌握程度。第一阶段先守住英语与政治连续性，余量主推西综。');
+    else p('分配的是接下来可用的时间，不是掌握程度。进入后续阶段后不再沿用第一阶段固定时长；已有工作量、回访与分数证据优先，其余容量只做临时保连续。');
+    p(plan.horizonKnown ? '已按未来七天可用时间分摊当前最低安排；不会把过去缺的小时累加成欠账。' : '尚无完整未来七天容量，先按今天安排；之后的容量仍留空。');
+    if (plan.provisional) p('当前阶段还没有新的三科最低安排；先按已有工作量、回访和分数证据分配，其余容量只做临时保连续，不代表新的固定比例。');
     for (const r of plan.rows) {
       const title = document.createElement('h3'); title.textContent = names[r.subject]; target.append(title);
       p(r.why.length ? r.why.join(' ') : '没有足够证据推算剩余工作量；沿本科已开放主线继续。');
