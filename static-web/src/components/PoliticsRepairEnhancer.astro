@@ -50,32 +50,6 @@ const handoffJson = JSON.stringify(handoffMap).replace(/</g, '\\u003c');
   </div>
 )}
 
-{repairs.map(({ questionId, repair }) => (
-  <section class="politicsPreciseRepair" data-politics-repair-payload={questionId} hidden>
-    {repair.tested_node && <div class="repairLine"><span>测到的节点</span><strong>{repair.tested_node}</strong></div>}
-    {repair.reasoning && <div class="repairBlock"><b>这一题真正怎么判断</b><p>{repair.reasoning}</p></div>}
-
-    {repair.current_unit_hits?.length > 0 && (
-      <div class="repairBlock repairHits current">
-        <b>当前 Unit</b>
-        <ul>{repair.current_unit_hits.map((hit) => <li>{hitLabel(hit)}</li>)}</ul>
-      </div>
-    )}
-
-    {repair.cross_unit_hits?.length > 0 && (
-      <details class="repairHits cross">
-        <summary>同题还碰到了别的 Unit · {repair.cross_unit_hits.length}</summary>
-        <ul>{repair.cross_unit_hits.map((hit) => <li>{hitLabel(hit)}</li>)}</ul>
-      </details>
-    )}
-
-    {repair.traps?.length > 0 && <div class="repairBlock"><b>干扰项为什么不对路</b><ul>{repair.traps.map((item) => <li>{item}</li>)}</ul></div>}
-    {repair.lecture_return && <div class="repairBlock lectureReturn"><b>只回这一刀</b><p>{repair.lecture_return}</p></div>}
-    {repair.transfer && <div class="repairBlock transfer"><b>下次怎么迁移</b><p>{repair.transfer}</p></div>}
-    <p class="precisionDecision">Precision：{repair.precision_candidate ? String(repair.precision_candidate) : '不入'}</p>
-  </section>
-))}
-
 {repairs.length > 0 && <script type="application/json" id="politics-repair-handoff-map" set:html={handoffJson}></script>}
 
 <script is:inline>
@@ -104,22 +78,6 @@ const handoffJson = JSON.stringify(handoffMap).replace(/</g, '\\u003c');
       });
     });
 
-    // Legacy visual repair is fallback-only for an unmapped owner. Current PASS
-    // owners with explicit REPAIR mapping are intentionally skipped here.
-    document.querySelectorAll('[data-politics-repair-payload]').forEach((payload) => {
-      const questionId = payload.getAttribute('data-politics-repair-payload');
-      const card = [...document.querySelectorAll('[data-politics-question]')]
-        .find((row) => row.getAttribute('data-question-id') === questionId);
-      const drawer = card?.querySelector('[data-politics-repair]');
-      if (!drawer || drawer.getAttribute('data-explicit-repair-surface') === 'v1') return;
-      drawer.querySelector(':scope > ul')?.setAttribute('hidden', '');
-      const generic = [...drawer.children].find((child) => child.tagName === 'P' && !child.classList.contains('politicsMicro'));
-      generic?.setAttribute('hidden', '');
-      const sourceLink = drawer.querySelector('a');
-      if (sourceLink) drawer.insertBefore(payload, sourceLink);
-      else drawer.appendChild(payload);
-      payload.hidden = false;
-    });
   })();
 
   const payloadNode = document.getElementById('politics-repair-handoff-map');
@@ -153,11 +111,3 @@ const handoffJson = JSON.stringify(handoffMap).replace(/</g, '\\u003c');
   });
 </script>
 
-<style>
-  .politicsPreciseRepair{display:grid;gap:12px;margin:12px 0;padding:14px;border:1px solid var(--study-line);border-radius:12px;background:rgba(255,255,255,.72)}
-  .repairLine{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}.repairLine span,.precisionDecision{font-size:.78rem;color:var(--study-muted)}.repairLine strong{font-size:.95rem}
-  .repairBlock{display:grid;gap:6px}.repairBlock b,.repairHits b{font-size:.82rem}.repairBlock p,.repairBlock ul,.repairHits ul{margin:0}.repairBlock p,.repairBlock li,.repairHits li{line-height:1.65}
-  .repairHits.current{padding:10px 12px;border-left:3px solid var(--study-green);background:rgba(33,128,93,.05)}
-  .repairHits.cross{padding:8px 10px;border:1px dashed var(--study-line);border-radius:10px}.repairHits.cross summary{cursor:pointer;font-size:.82rem;color:var(--study-muted)}
-  .lectureReturn{padding:10px 12px;background:rgba(0,0,0,.025);border-radius:10px}.transfer{padding-top:2px}.precisionDecision{margin:0}
-</style>
