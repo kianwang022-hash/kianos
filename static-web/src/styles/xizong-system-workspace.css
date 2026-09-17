@@ -1,0 +1,343 @@
+/* Purpose-first System Workspace convergence.
+   This page-scoped layer intentionally outranks the older System rules in
+   xizong-presentation.css without changing shared Block or Home presentation. */
+
+body#kianos-workspace.surfaceBody-xizong .xv6SystemShell.xv6SystemWorkspace {
+  width:100%;
+  max-width:none;
+  display:grid;
+  grid-template-columns:214px minmax(0,1fr) 300px;
+  gap:12px;
+  align-items:start;
+  background:transparent;
+  border:0;
+  border-radius:0;
+  overflow:visible;
+}
+
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail,
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemContext {
+  position:sticky;
+  top:58px;
+  max-height:calc(100vh - 76px);
+  overflow:auto;
+  border:1px solid var(--study-line,#d9dde5);
+  border-radius:13px;
+  background:#fff;
+  box-shadow:none;
+}
+
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemContext {
+  min-width:290px;
+  display:grid;
+  align-content:start;
+}
+
+/* The accepted System workspace has a real learner-visible 15px floor.  The
+   extra System-shell specificity is deliberate: legacy presentation rules used
+   body-scoped selectors and otherwise silently won the cascade. */
+body#kianos-workspace.surfaceBody-xizong .xv6SystemShell.xv6SystemWorkspace :is(p,li,td,th,figcaption,span,small,b,strong,em,label,button,summary,code) {
+  font-size:max(15px,1em);
+}
+
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail header {
+  display:grid;
+  gap:5px;
+  padding:14px 13px;
+  border-bottom:1px solid var(--study-line,#d9dde5);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail header>strong {
+  margin:0;
+  font-size:17px;
+  line-height:1.35;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail nav {
+  display:grid;
+  padding:5px 0;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail nav a {
+  display:grid;
+  grid-template-columns:36px minmax(0,1fr);
+  gap:2px 8px;
+  align-items:center;
+  min-height:54px;
+  padding:8px 10px;
+  border:0;
+  border-left:3px solid transparent;
+  border-radius:0;
+  color:inherit;
+  text-decoration:none;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail nav a>b {
+  grid-row:1 / span 2;
+  color:var(--study-green,#286c57);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail nav a>span {
+  overflow:hidden;
+  font-weight:720;
+  line-height:1.35;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail nav a>small {
+  grid-column:auto;
+  color:var(--study-muted,#6d7873);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail nav a:hover,
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail nav a.selected {
+  border-left-color:var(--study-green,#286c57);
+  background:#f0f7f4;
+  box-shadow:none;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail footer {
+  padding:10px 12px;
+  border-top:1px solid var(--study-line,#d9dde5);
+  color:var(--study-muted,#6d7873);
+}
+
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemMain {
+  display:grid;
+  gap:10px;
+  min-width:0;
+  background:transparent;
+  border:0;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemHeroDense {
+  display:grid;
+  grid-template-columns:minmax(200px,.62fr) minmax(0,1.38fr);
+  gap:20px;
+  align-items:center;
+  padding:16px 19px;
+  border:1px solid var(--study-line,#d9dde5);
+  border-radius:13px;
+  background:#fff;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemHeroDense h1 {
+  margin:3px 0 0;
+  font-size:28px;
+  line-height:1.25;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemHeroDense p {
+  margin:0;
+  max-width:none;
+  color:var(--study-muted,#5f6d67);
+  font-size:16px;
+  line-height:1.65;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Mother {
+  margin:12px 0 14px;
+  padding:0;
+  max-width:none;
+  border:0;
+  font-size:17px;
+  line-height:1.72;
+  color:inherit;
+}
+
+/* Projection says this is an explicit SEQUENCE, so render one actual chain.
+   Do not let the legacy 3-column grid turn sequence into ambiguous geometry. */
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine {
+  display:flex;
+  grid-template-columns:none;
+  gap:0;
+  align-items:stretch;
+  list-style:none;
+  padding:0;
+  margin:9px 0 0;
+  border:0;
+  border-radius:0;
+  overflow:auto;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li {
+  position:relative;
+  display:flex;
+  flex:1 1 0;
+  flex-direction:row;
+  min-width:145px;
+  min-height:0;
+  gap:8px;
+  align-items:flex-start;
+  padding:11px 24px 11px 11px;
+  border:1px solid #e4e9e6;
+  border-right:0;
+  border-radius:0;
+  background:#f7faf8;
+  box-shadow:none;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li:first-child { border-radius:9px 0 0 9px; }
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li:last-child {
+  border-right:1px solid #e4e9e6;
+  border-radius:0 9px 9px 0;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li::after {
+  content:'→';
+  position:absolute;
+  right:6px;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--study-green,#286c57);
+  font-size:17px;
+  font-weight:800;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li:last-child::after { content:''; }
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li b { color:var(--study-green,#286c57); }
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li span {
+  font-size:16px;
+  font-weight:700;
+  line-height:1.45;
+  color:inherit;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li.mechanism-active {
+  border-color:var(--study-green,#286c57);
+  background:#edf7f2;
+  box-shadow:none;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li.mechanism-dim { opacity:.32; }
+
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Parallel {
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-top:0;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Parallel span {
+  padding:6px 9px;
+  border:0;
+  border-radius:7px;
+  background:#f4f7f5;
+  color:inherit;
+  line-height:1.4;
+}
+
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureGrid {
+  display:grid;
+  grid-template-columns:1fr;
+  align-content:start;
+  gap:6px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureGrid button {
+  display:grid;
+  grid-template-columns:38px minmax(0,1fr);
+  gap:8px;
+  align-items:center;
+  min-height:44px;
+  padding:8px 10px;
+  border:1px solid var(--study-line,#d9dde5);
+  border-radius:8px;
+  background:#fff;
+  color:inherit;
+  text-align:left;
+  box-shadow:none;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureGrid button:nth-child(2n) { border-left:1px solid var(--study-line,#d9dde5); }
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureGrid button:hover,
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureGrid button.active {
+  border-color:var(--study-green,#286c57);
+  background:#f0f7f4;
+  box-shadow:none;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureRun {
+  display:grid;
+  align-content:start;
+  gap:7px;
+  min-height:150px;
+  margin-top:0;
+  padding:14px 16px;
+  border:0;
+  border-left:3px solid var(--study-green,#286c57);
+  border-radius:0;
+  background:#f7faf8;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureRun>strong { font-size:19px;line-height:1.35; }
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6FailureRun>p { margin:0;font-size:16px;line-height:1.65; }
+
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemContext>section {
+  padding:14px;
+  border-bottom:1px solid var(--study-line,#d9dde5);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SelectedBlock b {
+  display:block;
+  margin:7px 0 0;
+  color:var(--study-green,#286c57);
+  font-size:16px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SelectedBlock h2 {
+  margin:5px 0;
+  font-size:21px;
+  line-height:1.3;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SelectedBlock p {
+  margin:0 0 12px;
+  color:var(--study-muted,#5f6d67);
+  font-size:15px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SelectedBlock button {
+  width:100%;
+  min-height:42px;
+  padding:0;
+  border:1px solid var(--study-green,#286c57);
+  border-radius:8px;
+  background:var(--study-green,#286c57);
+  color:#fff;
+  font-size:16px;
+  font-weight:800;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Dependency {
+  padding:13px 16px;
+  border:1px solid var(--study-line,#d9dde5);
+  border-radius:13px;
+  background:#fff;
+}
+
+@media (min-width:1101px) and (min-height:680px) {
+  body#kianos-workspace.surfaceBody-xizong .xv6SystemShell.xv6SystemWorkspace {
+    height:calc(100vh - 82px);
+    min-height:620px;
+    align-items:stretch;
+  }
+  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail,
+  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemContext {
+    position:static;
+    top:auto;
+    max-height:none;
+    height:100%;
+    overflow:auto;
+  }
+  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemMain {
+    height:100%;
+    overflow:auto;
+    overscroll-behavior:contain;
+    padding-right:2px;
+  }
+}
+
+@media (max-width:1100px) {
+  body#kianos-workspace.surfaceBody-xizong .xv6SystemShell.xv6SystemWorkspace { grid-template-columns:210px minmax(0,1fr); }
+  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemContext {
+    min-width:0;
+    position:static;
+    grid-column:1/-1;
+    max-height:none;
+    grid-template-columns:1fr 1fr 1fr;
+  }
+}
+
+@media (max-width:760px) {
+  body#kianos-workspace.surfaceBody-xizong .xv6SystemShell.xv6SystemWorkspace { display:block; }
+  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemRail,
+  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6SystemContext {
+    position:static;
+    max-height:none;
+    height:auto;
+    margin-bottom:10px;
+  }
+  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine { display:grid;gap:6px;overflow:visible; }
+  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li,
+  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li:first-child,
+  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li:last-child {
+    min-width:0;
+    border:1px solid #e4e9e6;
+    border-radius:8px;
+  }
+  body#kianos-workspace.surfaceBody-xizong .xv6SystemWorkspace .xv6Spine li:not(:last-child)::after { content:'↓';right:10px; }
+}
