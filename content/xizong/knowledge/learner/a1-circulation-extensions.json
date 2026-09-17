@@ -1,0 +1,50 @@
+{
+  "schema": "kianos.xizong.extension_assets.v1",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED_SUBORDINATE",
+  "system_id": "circulation",
+  "canonical_id": "A1",
+  "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
+  "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
+  "assets": [
+    {
+      "slot_id": "circulation-b03-lg01-response-cell-classification",
+      "owner": {
+        "block_id": "circulation-b03",
+        "logic_group_id": "circulation-b03-lg01"
+      },
+      "cue_id": "a1-b03-lg01-visual",
+      "asset_type": "STRUCTURED_TABLE",
+      "revision": 1,
+      "title": "Cardiac response-cell classification",
+      "task": "用‘快/慢反应’与‘工作/自律’两条轴给心房肌、心室肌、窦房结、房室结和浦肯野归类，并指出各类 0 期主要电流与 4 期是否自动去极化；不要把这一页当成传导系统解剖图。",
+      "caption": "Reviewed physiology comparison · P138",
+      "provenance": {
+        "kind": "LECTURE_SOURCE",
+        "source_locator": "生理 Lecture PDF P138",
+        "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123"
+      },
+      "display_policy": {
+        "timing": "REFERENCE_ONLY",
+        "default_state": "COLLAPSED"
+      },
+      "payload": {
+        "columns": [
+          {"key": "axis", "label": "分类轴"},
+          {"key": "type", "label": "类型"},
+          {"key": "cells", "label": "代表细胞"},
+          {"key": "phase0", "label": "0期主要电流"},
+          {"key": "phase0_trait", "label": "0期特点"},
+          {"key": "phase4", "label": "4期"},
+          {"key": "role", "label": "主要任务 / 传导"}
+        ],
+        "rows": [
+          {"axis": "0期反应轴", "type": "快反应", "cells": "心房肌、心室肌、浦肯野", "phase0": "快钠通道 INa", "phase0_trait": "速度快、幅度大", "phase4": "—", "role": "传导快"},
+          {"axis": "0期反应轴", "type": "慢反应", "cells": "窦房结、房室结", "phase0": "ICa-L", "phase0_trait": "速度慢、幅度小", "phase4": "—", "role": "传导慢"},
+          {"axis": "4期功能轴", "type": "工作细胞", "cells": "心房肌、心室肌", "phase0": "—", "phase0_trait": "—", "phase4": "稳定静息，无自动去极化", "role": "收缩"},
+          {"axis": "4期功能轴", "type": "自律细胞", "cells": "窦房结、房室结、浦肯野", "phase0": "—", "phase0_trait": "—", "phase4": "自动去极化", "role": "起搏 / 传导"}
+        ]
+      }
+    }
+  ]
+}
