@@ -13,6 +13,8 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
   class="writingRuntime"
   data-writing-runtime
   data-task-id={task.id}
+  data-task-kind={task.kind}
+  data-source-kind={task.sourceKind}
   data-title={task.title}
   data-base={base}
 >
@@ -31,41 +33,32 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
 
   <div class="writingRuntimeColumns">
     <article class="writingPrompt">
-      <header><span>Prompt stays visible</span><h2>Task</h2></header>
+      <header>
+        <span>{task.sourceKind === 'exam' ? 'Original prompt' : 'Synthetic prompt'}</span>
+        <h2>{task.kind === 'small' ? 'Small Writing' : 'Big Writing'}</h2>
+      </header>
       <div class="writingPromptBody">
         {task.kind === 'small' ? (
           <>
-            <dl>
-              <div><dt>Role</dt><dd>{task.learnerTask.role}</dd></div>
-              <div><dt>Audience</dt><dd>{task.learnerTask.audience}</dd></div>
-            </dl>
-            <p>{task.learnerTask.background}</p>
+            {task.sourceKind !== 'exam' && task.learnerTask.background && <p>{task.learnerTask.background}</p>}
             <blockquote>{task.learnerTask.directions}</blockquote>
-            {Array.isArray(task.learnerTask.facts) && (
-              <section class="writingFacts">
-                <strong>Given facts</strong>
-                <ul>{task.learnerTask.facts.map((fact) => <li>{fact}</li>)}</ul>
-              </section>
+            {Array.isArray(task.learnerTask.facts) && task.learnerTask.facts.length > 0 && (
+              <ul class="writingPromptFacts">{task.learnerTask.facts.map((fact) => <li>{fact}</li>)}</ul>
             )}
-            {task.learnerTask.register_hint && <p class="writingBoundary"><strong>Register:</strong> {task.learnerTask.register_hint}</p>}
           </>
         ) : (
           <>
-            <p class="writingVisualScenario">{task.learnerTask.visual_scenario}</p>
+            {task.learnerTask.visual_scenario && <p class="writingVisualScenario">{task.learnerTask.visual_scenario}</p>}
             <blockquote>{task.learnerTask.directions}</blockquote>
-            {task.learnerTask.observation_boundary && <p class="writingBoundary"><strong>Observation boundary:</strong> {task.learnerTask.observation_boundary}</p>}
           </>
         )}
       </div>
       <div class="writingPromptMeta">
-        <span>Target · {task.targetWords} words</span>
-        <span>No model answer in clean runtime</span>
-        <span>Protected true exam · not consumed</span>
+        <span>{task.targetWords} words</span>
       </div>
       <details class="writingProvenance">
-        <summary>Runtime provenance</summary>
+        <summary>Source</summary>
         <code>{task.sourcePath}</code>
-        <code>synthetic-owner:{task.sourceHash?.slice(0, 12)}</code>
         <code>{task.id}</code>
       </details>
     </article>
@@ -73,31 +66,31 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
     <section class="writingWork">
       <section class="writingStage" data-runtime-stage="attempt">
         <header>
-          <span>01 · Clean Attempt</span>
-          <h2>先生成，再评价</h2>
-          <p>正式 learner-facing 单位是一整篇。先留下 first meaningful planning/content evidence，再锁定第一版；页面不做假评分，也不提前给范文。</p>
+          <span>Writing</span>
+          <h2>Your Essay</h2>
+          <p>直接写即可；只有你真的需要时才展开一个简短 Plan。第一版完成后会保留，后续修改不会覆盖它。</p>
         </header>
 
-        <div class="writingPlanMode">
-          <label><input type="radio" name="writing-plan-mode" value="planned" data-plan-mode checked /> <span><strong>Compact plan</strong><small>用自己的 Task/Core Message、content atoms、信息顺序。</small></span></label>
-          <label><input type="radio" name="writing-plan-mode" value="direct" data-plan-mode /> <span><strong>Direct mode</strong><small>已经能直接生成时，不为了系统强行制造“计划”。</small></span></label>
+        <div class="writingPlanMode" aria-label="Writing approach">
+          <label><input type="radio" name="writing-plan-mode" value="direct" data-plan-mode checked /> <span><strong>Direct writing</strong><small>直接开始写。</small></span></label>
+          <label><input type="radio" name="writing-plan-mode" value="planned" data-plan-mode /> <span><strong>Optional plan</strong><small>需要时先写几行提纲。</small></span></label>
         </div>
 
-        <label class="writingField" data-plan-field>
-          <span>First meaningful plan / content</span>
+        <label class="writingField" data-plan-field hidden>
+          <span>Optional plan</span>
           <small>{task.planningPrompt}</small>
-          <textarea rows="7" data-plan-draft placeholder="写你真正会用的短计划，不写完整模板。"></textarea>
+          <textarea rows="4" data-plan-draft placeholder="只写你真正会用的几行提纲。"></textarea>
         </label>
 
-        <label class="writingField">
-          <span>First draft · complete essay</span>
+        <label class="writingField writingEssayField">
+          <span>Essay</span>
           <small>{task.draftPrompt}</small>
-          <textarea rows="18" data-essay-draft placeholder="在这里完成第一版整篇作文…"></textarea>
+          <textarea rows="18" data-essay-draft placeholder="在这里完成这篇作文…"></textarea>
         </label>
 
         <div class="writingActions">
-          <button type="button" class="primary" data-lock-first>锁定 first evidence →</button>
-          <small data-attempt-status>锁定后 first plan / first draft 不再被后续修改覆盖。</small>
+          <button type="button" class="primary" data-lock-first>完成第一版 →</button>
+          <small data-attempt-status>完成后会保留第一版；后续修订不会覆盖它。</small>
         </div>
       </section>
 

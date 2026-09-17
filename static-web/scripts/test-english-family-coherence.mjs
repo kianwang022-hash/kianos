@@ -5,6 +5,7 @@ import { chromium } from 'playwright';
 import { listReadingSets } from '../src/lib/englishReading.mjs';
 import { listClozeSets, listReadingBSets, loadReadingBById } from '../src/lib/englishObjective.mjs';
 import { listTranslationSets } from '../src/lib/englishTranslation.mjs';
+import { listWritingRuntimeTasks } from '../src/lib/englishWritingRuntimeSourceTruth.mjs';
 import { listLexicalWordSummaries } from '../src/lib/lexical.mjs';
 
 const BASE = 'http://127.0.0.1:4321';
@@ -172,6 +173,40 @@ async function assertReadingBVisual(page) {
   }
 }
 
+async function assertWritingVisual(page) {
+  const tasks = listWritingRuntimeTasks().filter((item) => String(item?.sourceKind || '') === 'synthetic');
+  const small = tasks.find((item) => String(item?.kind || '') === 'small') || null;
+  const big = tasks.find((item) => String(item?.kind || '') === 'big') || null;
+  check(Boolean(small?.id), 'writing_small_fixture_available');
+  check(Boolean(big?.id), 'writing_big_fixture_available');
+
+  for (const [task, name] of [[small, 'writing-small'], [big, 'writing-big']]) {
+    if (!task?.id) continue;
+    await page.goto(`${BASE}/writing/${encodeURIComponent(task.id)}/`, { waitUntil: 'domcontentloaded' });
+    check(await page.locator('[data-writing-runtime]').isVisible(), `${name}_runtime_visible`);
+
+    const prompt = page.locator('.writingPrompt');
+    const work = page.locator('.writingWork');
+    const promptBox = await prompt.boundingBox();
+    const workBox = await work.boundingBox();
+    check(Boolean(promptBox && workBox), `${name}_geometry_exists`);
+    check(workBox.width > promptBox.width, `${name}_essay_dominates_prompt`, `${promptBox.width}/${workBox.width}`);
+    if (task.kind === 'small') {
+      check(workBox.width > promptBox.width * 1.9, 'writing_small_authoring_ratio', `${promptBox.width}/${workBox.width}`);
+    } else {
+      check(workBox.width > promptBox.width * 1.45, 'writing_big_authoring_ratio', `${promptBox.width}/${workBox.width}`);
+    }
+
+    const promptText = String(await prompt.innerText() || '');
+    check(promptText.includes(String(task?.learnerTask?.directions || '').trim()), `${name}_shows_source_prompt_directly`);
+    check(await prompt.locator('dl').count() === 0, `${name}_does_not_project_role_audience_form`);
+    check(await page.locator('input[data-plan-mode][value="direct"]').isChecked(), `${name}_direct_mode_is_default`);
+    check(await page.locator('[data-plan-field]').isHidden(), `${name}_optional_plan_hidden_by_default`);
+
+    await page.screenshot({ path: path.join(auditDir, `${name}-1440x900.png`), fullPage: false });
+  }
+}
+
 async function assertSourceLookup(page, route, selector, name) {
   await page.goto(`${BASE}${route}`, { waitUntil: 'domcontentloaded' });
   if (name === 'cloze') {
@@ -218,6 +253,8 @@ try {
     const translationId = listTranslationSets()[0]?.id;
     check(Boolean(translationId), 'translation_fixture_available');
     await assertSourceLookup(page, `/translation/${encodeURIComponent(translationId)}/`, '[data-translation-source-text] p', 'translation');
+
+    await assertWritingVisual(page);
     await context.close();
   } finally {
     await browser.close().catch(() => {});
