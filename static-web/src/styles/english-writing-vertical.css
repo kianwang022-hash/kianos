@@ -45,11 +45,17 @@ body#kianos-workspace.uiEnglish .writingRuntimeHeader > a:hover {
 
 body#kianos-workspace.uiEnglish .writingRuntimeHeader > div {
   display: grid;
+  grid-template-columns: minmax(0,1fr) auto;
+  grid-template-areas:
+    "eyebrow meta"
+    "title title";
   min-width: 0;
-  gap: 1px;
+  column-gap: 14px;
+  row-gap: 2px;
 }
 
 body#kianos-workspace.uiEnglish .writingRuntimeHeader > div > span {
+  grid-area: eyebrow;
   color: #5d7485;
   font-size: 15px;
   font-weight: 650;
@@ -58,6 +64,7 @@ body#kianos-workspace.uiEnglish .writingRuntimeHeader > div > span {
 }
 
 body#kianos-workspace.uiEnglish .writingRuntimeHeader h1 {
+  grid-area: title;
   min-width: 0;
   margin: 0;
   overflow: hidden;
@@ -71,6 +78,8 @@ body#kianos-workspace.uiEnglish .writingRuntimeHeader h1 {
 
 body#kianos-workspace.uiEnglish .writingRuntimeHeader small,
 body#kianos-workspace.uiEnglish .writingRuntimeHeader small b {
+  grid-area: meta;
+  align-self: center;
   color: #74818b;
   font-size: 15px;
   font-weight: 520;
@@ -436,6 +445,11 @@ body#kianos-workspace.uiEnglish .writingField textarea {
   box-shadow: none;
 }
 
+body#kianos-workspace.uiEnglish .writingField textarea[data-plan-draft] {
+  height: 108px;
+  min-height: 108px;
+}
+
 body#kianos-workspace.uiEnglish .writingField textarea[data-essay-draft] {
   min-height: 330px;
 }
@@ -738,6 +752,14 @@ body#kianos-workspace.uiEnglish .writingExamLocked p {
 @media (max-width: 980px) {
   body#kianos-workspace.uiEnglish .writingRuntimeHeader {
     grid-template-columns: 1fr;
+  }
+
+  body#kianos-workspace.uiEnglish .writingRuntimeHeader > div {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "eyebrow"
+      "title"
+      "meta";
   }
 
   body#kianos-workspace.uiEnglish .writingRuntimeHeader nav {
