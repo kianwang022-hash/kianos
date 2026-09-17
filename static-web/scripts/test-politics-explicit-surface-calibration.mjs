@@ -24,9 +24,11 @@ const origins = group(marxS01, 'ORIENT', 's01-origin-conditions');
 const development = group(marxS01, 'ORIENT', 's01-development-sequence');
 pass(origins?.primitive === 'PARALLEL_SET', 'marx_s01_origins_are_parallel');
 pass(origins?.items?.map((item) => item.id).join('|') === 'social_root|class_basis|thought_source', 'marx_s01_origin_members_exact');
+pass(origins?.items?.every((item) => item.label && !('meaning' in item)), 'marx_s01_origin_h1_is_skeleton_only');
 pass((origins?.transitions || []).length === 0, 'marx_s01_origins_have_no_invented_direction');
 pass(development?.primitive === 'DIRECTED_SEQUENCE', 'marx_s01_development_is_directed');
 pass(development?.items?.map((item) => item.id).join('|') === 'creation|theory_system|development', 'marx_s01_development_members_exact');
+pass(development?.items?.every((item) => item.label && !('meaning' in item)), 'marx_s01_development_h1_is_skeleton_only');
 pass(development?.transitions?.length === 2, 'marx_s01_development_transitions_exact', String(development?.transitions?.length || 0));
 pass(development?.transitions?.every((item) => item.relation_mode === 'LABELED_RELATION'), 'marx_s01_development_transitions_labeled');
 pass(
@@ -36,17 +38,22 @@ pass(
 
 const marxS02 = unit(marx, 'POL27-CF-MARX-C00-S02');
 const characteristics = group(marxS02, 'ORIENT', 's02-four-characteristics');
-const revolutionaryRelations = group(marxS02, 'ORIENT', 's02-relation-people-practice-development');
-const scienceRevolutionRelations = group(marxS02, 'ORIENT', 's02-relation-science-revolution');
+const organizingRelation = group(marxS02, 'ORIENT', 's02-characteristics-organizing-relation');
+const contemporaryValue = group(marxS02, 'ORIENT', 's02-contemporary-value');
 pass(characteristics?.primitive === 'PARALLEL_SET', 'marx_s02_four_characteristics_are_peers');
 pass(characteristics?.items?.map((item) => item.id).join('|') === 'scientificity|people_nature|practicality|development_quality', 'marx_s02_peer_members_exact');
-pass(revolutionaryRelations?.primitive === 'RELATION_SET', 'marx_s02_revolution_relations_are_relation_set');
-pass(revolutionaryRelations?.items?.length === 3, 'marx_s02_revolution_relation_count_exact', String(revolutionaryRelations?.items?.length || 0));
-pass((revolutionaryRelations?.transitions || []).length === 0, 'marx_s02_relation_set_has_no_sequence');
-pass(revolutionaryRelations?.items?.every((item) => item.from_label && item.relation && item.to_label), 'marx_s02_revolution_relation_text_owned');
-pass(scienceRevolutionRelations?.primitive === 'RELATION_SET', 'marx_s02_science_revolution_is_relation_set');
-pass(scienceRevolutionRelations?.items?.length === 2, 'marx_s02_science_revolution_relation_count_exact', String(scienceRevolutionRelations?.items?.length || 0));
-pass(scienceRevolutionRelations?.items?.every((item) => item.from_label && item.relation && item.to_label), 'marx_s02_science_revolution_relation_text_owned');
+pass(characteristics?.items?.every((item) => item.label && !('meaning' in item)), 'marx_s02_characteristics_h1_is_skeleton_only');
+pass(organizingRelation?.primitive === 'STATEMENT', 'marx_s02_organizing_relation_is_one_owned_statement');
+pass(organizingRelation?.items?.length === 1, 'marx_s02_organizing_relation_count_exact', String(organizingRelation?.items?.length || 0));
+pass(
+  organizingRelation?.items?.[0]?.text === '人民性、实践性和发展性集中体现为革命性；革命性以科学性为基础，并与科学性高度统一。',
+  'marx_s02_organizing_relation_text_exact'
+);
+pass(contemporaryValue?.primitive === 'PARALLEL_SET', 'marx_s02_contemporary_value_roles_are_peers');
+pass(contemporaryValue?.items?.map((item) => item.id).join('|') === 'world_tool|china_guide|human_progress', 'marx_s02_contemporary_value_members_exact');
+pass(contemporaryValue?.items?.every((item) => item.label && !('meaning' in item)), 'marx_s02_contemporary_value_h1_is_skeleton_only');
+pass(!group(marxS02, 'ORIENT', 's02-relation-people-practice-development'), 'marx_s02_retired_relation_group_absent');
+pass(!group(marxS02, 'ORIENT', 's02-relation-science-revolution'), 'marx_s02_retired_science_relation_group_absent');
 
 const marxC01 = chapter('marxism', 'ch01');
 const marxC01S01 = unit(marxC01, 'POL27-CF-MARX-C01-S01');
