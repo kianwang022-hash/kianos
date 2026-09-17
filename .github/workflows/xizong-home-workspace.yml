@@ -1,0 +1,65 @@
+name: Xizong Home Workspace
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'static-web/src/pages/xizong/index.astro'
+      - 'static-web/src/components/XizongHomeTools.astro'
+      - 'static-web/src/styles/xizong-home-workspace.css'
+      - 'static-web/src/styles/xizong-presentation.css'
+      - 'static-web/scripts/test-xizong-home-workspace.mjs'
+      - 'static-web/scripts/validate-xizong-home-style-ownership.mjs'
+      - '.github/workflows/xizong-home-workspace.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'static-web/src/pages/xizong/index.astro'
+      - 'static-web/src/components/XizongHomeTools.astro'
+      - 'static-web/src/styles/xizong-home-workspace.css'
+      - 'static-web/src/styles/xizong-presentation.css'
+      - 'static-web/scripts/test-xizong-home-workspace.mjs'
+      - 'static-web/scripts/validate-xizong-home-style-ownership.mjs'
+      - '.github/workflows/xizong-home-workspace.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: xizong-home-workspace-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  home-workspace:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: static-web
+    steps:
+      - name: Checkout Current candidate
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Validate single Home visual owner
+        run: node scripts/validate-xizong-home-style-ownership.mjs
+      - name: Build Astro
+        run: npm run build
+      - name: Install browser acceptance tool
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Execute Home workspace browser acceptance
+        run: node scripts/test-xizong-home-workspace.mjs
+      - name: Upload Home workspace evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xizong-home-workspace
+          path: |
+            static-web/.qa/xizong-home-workspace.json
+            static-web/.qa/xizong-home.png
+          if-no-files-found: warn
