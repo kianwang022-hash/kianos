@@ -1,179 +1,229 @@
 ---
 import { composeXizongSystemFrameworkRepresentation } from '../lib/xizongRepresentationGate.mjs';
 
-const { system, pathways } = Astro.props;
+const { system, pathways, guide = null } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const framework = composeXizongSystemFrameworkRepresentation(system);
-const totalKp = system.blocks.reduce((sum, block) => sum + block.kpCount, 0);
-const firstBlock = system.blocks[0];
 const failureViews = pathways?.systemFailureViews || {};
 const variableRows = framework.variables.rows;
 const relationRows = framework.formulas;
+const guideSections = guide?.sections || [];
+const hasGuide = guideSections.length > 0;
+const hasVariableRoles = variableRows.some((row) => row.role);
+const axisRows = framework.judgmentAxes.items.map((item, index) => {
+  const raw = String(item || '').trim();
+  const pair = raw.includes('↔')
+    ? raw.split('↔').map((value) => value.trim()).filter(Boolean)
+    : /\s+vs\s+/i.test(raw)
+      ? raw.split(/\s+vs\s+/i).map((value) => value.trim()).filter(Boolean)
+      : [];
+  return {
+    id: `axis-${index + 1}`,
+    raw,
+    left: pair.length === 2 ? pair[0] : '',
+    right: pair.length === 2 ? pair[1] : '',
+    paired: pair.length === 2
+  };
+});
 ---
+
 <section
   class="xzSystemWorkspace"
   data-xizong-system={system.systemId}
   data-representation-gate={framework.schema}
   data-system-framework-plan="purpose-first"
+  data-system-default-view={hasGuide ? 'guide' : 'framework'}
 >
-  <aside class="xzSystemRouteRail" aria-label="System Block route">
-    <header>
-      <span>System Route</span>
-      <strong>{system.canonicalId} · {system.title}</strong>
-      <small>{system.blocks.length} Blocks · {totalKp} KP</small>
-    </header>
-    <nav aria-label="Block route">
-      {system.blocks.map((block, index) => <a
-        href={`${base}xizong/${system.systemId}/${block.slug}/`}
-        data-system-block={index}
-        class={index === 0 ? 'selected' : ''}
-      >
-        <b>{block.label}</b>
-        <span>{block.title}</span>
-        <small>{block.kpCount} KP</small>
-      </a>)}
-    </nav>
-    <footer>↑ ↓ 选择 · Enter 进入</footer>
-  </aside>
-
-  <main class="xzSystemMain">
-    <header class="xzSystemHero">
-      <div>
-        <span>{system.canonicalId} · System Framework</span>
-        <h1>{system.title}</h1>
-      </div>
+  <header class="xzSystemTopbar">
+    <div class="xzSystemIdentity">
+      <span>{system.canonicalId} · SYSTEM</span>
+      <h1>{system.title}</h1>
       <p data-representation-kind={framework.mission.representation.kind}>{framework.mission.text}</p>
-    </header>
+    </div>
+    <nav class="xzSystemViewTabs" aria-label="System view">
+      {hasGuide && <button type="button" data-system-view-button="guide" aria-pressed="true">GUIDE</button>}
+      <button type="button" data-system-view-button="framework" aria-pressed={hasGuide ? 'false' : 'true'}>FRAMEWORK</button>
+    </nav>
+  </header>
 
-    <section class="xzSystemFramework" data-system-section="mother">
-      <header class="xzSystemSectionHeading">
-        <span>先抓主模型</span>
-        <h2>这个系统在维持什么？</h2>
+  <div class="xzSystemBody" data-system-body>
+    <aside class="xzSystemRouteRail" aria-label="System Block route">
+      <header>
+        <span>BLOCK ROUTE</span>
+        <strong>{system.canonicalId} · {system.title}</strong>
       </header>
+      <nav aria-label="Block route">
+        {system.blocks.map((block, index) => (
+          <a
+            href={`${base}xizong/${system.systemId}/${block.slug}/`}
+            data-system-block={index}
+            class={index === 0 ? 'selected' : ''}
+          >
+            <b>{block.label}</b>
+            <span>{block.title}</span>
+          </a>
+        ))}
+      </nav>
+    </aside>
 
-      {framework.motherModel.text && (
-        <p class="xzSystemMother" data-representation-kind={framework.motherModel.representation.kind}>
-          {framework.motherModel.text}
-        </p>
-      )}
-
-      {framework.spine.items.length > 0 && (
-        <div class="xzSystemFrameworkBlock" data-representation-kind={framework.spine.representation.kind}>
-          <span class="xzSystemSectionLabel">主骨架</span>
-          <ol class="xzSystemSpine" data-system-spine>
-            {framework.spine.items.map((item, index) => <li data-spine-node={index + 1}>
-              <b>{String(index + 1).padStart(2, '0')}</b>
-              <span>{item}</span>
-            </li>)}
-          </ol>
-        </div>
-      )}
-
-      {framework.parallelControls.items.length > 0 && (
-        <div class="xzSystemParallelBlock" data-representation-kind={framework.parallelControls.representation.kind}>
-          <span class="xzSystemSectionLabel">并行调节</span>
-          <div class="xzSystemParallel">{framework.parallelControls.items.map((item) => <span>{item}</span>)}</div>
-        </div>
-      )}
-    </section>
-
-    <section class="xzSystemCoordinates">
-      <article class="xzSystemLanguage">
-        <header>
-          <span>最小变量语言</span>
-          <h2>先用这些量描述系统</h2>
-        </header>
-        {variableRows.length > 0 && (
-          <div class="xzSystemVariableTable" data-representation-kind={framework.variables.representation.kind}>
-            {variableRows.map((item) => <div class="xzSystemVariableRow">
-              <strong>{item.label}</strong>
-              {item.role && <span>{item.role}</span>}
-            </div>)}
+    <main class="xzSystemStage">
+      {hasGuide && (
+        <section class="xzSystemGuideView" data-system-view="guide">
+          <div class="xzSystemGuideLead">
+            <span>BEGINNER GUIDE</span>
+            <strong>第一次进入这个 System 时，用它把整张地图真正看懂。</strong>
+            <p>Guide 只负责解释与定位；医学事实仍来自 Current System / Block owner。</p>
           </div>
+          <div class="xzSystemGuideFlow">
+            {guideSections.map((section) => (
+              <article
+                class:list={[
+                  'xzSystemGuideSection',
+                  `role-${String(section.role || 'EXPLANATION').toLowerCase()}`
+                ]}
+                data-guide-role={section.role}
+              >
+                <header>
+                  <h2>{section.title}</h2>
+                </header>
+                <div class="xzSystemGuideMarkdown markdown" set:html={section.html}></div>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <section class="xzSystemFrameworkView" data-system-view="framework" hidden={hasGuide}>
+        <section class="xzSystemCanvas" data-system-section="mother">
+          <header class="xzSystemSectionHeading">
+            <span>SYSTEM MODEL</span>
+            <h2>这个系统怎样运行？</h2>
+          </header>
+
+          {framework.motherModel.text && (
+            <p class="xzSystemMother" data-representation-kind={framework.motherModel.representation.kind}>
+              {framework.motherModel.text}
+            </p>
+          )}
+
+          {framework.spine.items.length > 0 && (
+            <div class="xzSystemSpineBlock" data-representation-kind={framework.spine.representation.kind}>
+              <ol class="xzSystemSpine" data-system-spine>
+                {framework.spine.items.map((item, index) => (
+                  <li data-spine-node={index + 1}>
+                    <b>{String(index + 1).padStart(2, '0')}</b>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          )}
+
+          {framework.parallelControls.items.length > 0 && (
+            <div class="xzSystemParallelBlock" data-representation-kind={framework.parallelControls.representation.kind}>
+              <span>并行控制</span>
+              <div class="xzSystemParallel">
+                {framework.parallelControls.items.map((item) => <p>{item}</p>)}
+              </div>
+            </div>
+          )}
+        </section>
+
+        {(variableRows.length > 0 || relationRows.length > 0 || axisRows.length > 0) && (
+          <section class="xzSystemLanguageAxes">
+            <article class="xzSystemLanguage">
+              <header class="xzSystemSectionHeading">
+                <span>SYSTEM LANGUAGE</span>
+                <h2>描述这个系统时，用哪些变量和关系？</h2>
+              </header>
+
+              {variableRows.length > 0 && hasVariableRoles && (
+                <div class="xzSystemVariableTable" data-representation-kind={framework.variables.representation.kind}>
+                  {variableRows.map((item) => (
+                    <div class="xzSystemVariableRow">
+                      <strong>{[item.id, item.label].filter(Boolean).join(' · ')}</strong>
+                      <span>{item.role}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {variableRows.length > 0 && !hasVariableRoles && (
+                <div class="xzSystemVariableFlow" data-representation-kind={framework.variables.representation.kind}>
+                  {variableRows.map((item) => <span>{item.label}</span>)}
+                </div>
+              )}
+
+              {relationRows.length > 0 && (
+                <div class="xzSystemFormulaStrip">
+                  {relationRows.map((item) => (
+                    <span data-representation-kind={item.representation.kind}>{item.formula}</span>
+                  ))}
+                </div>
+              )}
+            </article>
+
+            {axisRows.length > 0 && (
+              <article class="xzSystemAxes" data-representation-kind={framework.judgmentAxes.representation.kind}>
+                <header class="xzSystemSectionHeading">
+                  <span>JUDGMENT AXES</span>
+                  <h2>遇到病例，先沿哪些轴定位？</h2>
+                </header>
+                <div class="xzSystemAxisList">
+                  {axisRows.map((axis) => axis.paired ? (
+                    <div class="xzSystemAxis paired">
+                      <span>{axis.left}</span>
+                      <i aria-hidden="true"></i>
+                      <span>{axis.right}</span>
+                    </div>
+                  ) : (
+                    <div class="xzSystemAxis single"><span>{axis.raw}</span></div>
+                  ))}
+                </div>
+              </article>
+            )}
+          </section>
         )}
-        {relationRows.length > 0 && (
-          <div class="xzSystemFormulaList">
-            {relationRows.map((item) => <code data-representation-kind={item.representation.kind}>{item.formula}</code>)}
-          </div>
+
+        {framework.failures.length > 0 && (
+          <section class="xzSystemFailureMap" data-system-section="failure">
+            <header class="xzSystemSectionHeading">
+              <span>FAILURE MAP</span>
+              <h2>第一故障可能从哪里开始？</h2>
+            </header>
+            <div class="xzSystemFailureStrip">
+              {framework.failures.map((mode, index) => (
+                <button type="button" data-failure-id={mode.id}>
+                  <b>F{index + 1}</b>
+                  <span>{mode.label}</span>
+                </button>
+              ))}
+            </div>
+          </section>
         )}
-      </article>
 
-      <article class="xzSystemAxes" data-representation-kind={framework.judgmentAxes.representation.kind}>
-        <header>
-          <span>病例判断坐标</span>
-          <h2>遇到病例先沿这些轴定位</h2>
-        </header>
-        <ul>{framework.judgmentAxes.items.map((item) => <li>{item}</li>)}</ul>
-      </article>
-    </section>
-
-    {framework.failures.length > 0 && (
-      <section class="xzSystemFailureWorkspace" data-system-section="failure">
-        <header class="xzSystemSectionHeading">
-          <span>Failure Explorer</span>
-          <h2>一次只看一种失败怎样破坏主链</h2>
-        </header>
-        <div class="xzSystemFailureLayout">
-          <div class="xzSystemFailureGrid">
-            {framework.failures.map((mode, index) => <button type="button" data-failure-id={mode.id}>
-              <b>F{index + 1}</b>
-              <span>{mode.label}</span>
-            </button>)}
-          </div>
-          <div class="xzSystemFailureRun" data-failure-run data-representation-kind="STRUCTURED_TEXT">
-            <span>当前机制</span>
-            <strong data-failure-run-title>选择一个 Failure</strong>
-            <p data-failure-run-chain>只看它首先影响哪一段，以及随后怎样传下去。</p>
-            <div data-failure-run-vars></div>
-          </div>
-        </div>
+        {framework.dependencies.items.length > 0 && (
+          <details class="xzSystemDependency" data-representation-kind={framework.dependencies.representation.kind}>
+            <summary>按需看 Current 明确拥有的依赖关系</summary>
+            <ul>{framework.dependencies.items.map((item) => <li>{item}</li>)}</ul>
+          </details>
+        )}
       </section>
-    )}
+    </main>
 
-    {framework.dependencies.items.length > 0 && (
-      <details class="xzSystemDependency" data-representation-kind={framework.dependencies.representation.kind}>
-        <summary>按需看学习依赖</summary>
-        <p>这里只保留 Current 明确写出的依赖关系；不自动画层级图，也不据此制造新的强制顺序。</p>
-        <ul>{framework.dependencies.items.map((item) => <li>{item}</li>)}</ul>
-      </details>
-    )}
+    <aside class="xzSystemContext" data-system-context hidden>
+      <header>
+        <div>
+          <span>FAILURE CONTEXT</span>
+          <strong data-failure-run-title>—</strong>
+        </div>
+        <button type="button" data-close-system-context aria-label="关闭 Failure Context">×</button>
+      </header>
+      <p data-failure-run-chain></p>
+      <div data-failure-run-vars></div>
+    </aside>
+  </div>
 
-    <details class="portedSourceFoot">
-      <summary>Source</summary>
-      <code>{system.sourcePath}</code>
-      <code>sha256:{String(system.sourceHash).slice(0, 16)}</code>
-      {pathways?.sourcePath && <code>{pathways.sourcePath}</code>}
-    </details>
-  </main>
-
-  <aside class="xzSystemContext">
-    <section class="xzSystemSelectedBlock">
-      <span>当前 Block</span>
-      <b data-selected-label>{firstBlock?.label}</b>
-      <h2 data-selected-title>{firstBlock?.title}</h2>
-      <p data-selected-meta>{firstBlock ? `${firstBlock.kpCount} KP${firstBlock.outlineCount > 0 ? ` · Outline ${firstBlock.outlineCount}` : ''}` : ''}</p>
-      <button type="button" data-open-selected>进入这个 Block</button>
-    </section>
-
-    <section class="xzSystemGuide">
-      <span>怎么用这一页</span>
-      <p>先恢复主骨架与判断坐标，再从左侧进入当前 Block。Failure 只用来定位“哪里先坏”，不需要一次展开全部。</p>
-    </section>
-
-    <section class="xzSystemKeys">
-      <span>快捷键</span>
-      <p>↑ ↓ 选择 Block</p>
-      <p>Enter 进入</p>
-      <p>M 主模型 · F Failure</p>
-    </section>
-  </aside>
-
-  <script type="application/json" data-system-block-payload set:html={JSON.stringify(system.blocks.map((block) => ({
-    label: block.label,
-    title: block.title,
-    kpCount: block.kpCount,
-    outlineCount: block.outlineCount
-  })))}></script>
   <script type="application/json" data-failure-payload set:html={JSON.stringify(Object.fromEntries(system.failureModes.map((mode) => [mode.id, {
     ...(failureViews[mode.id] || {}),
     label: mode.label,
@@ -183,42 +233,75 @@ const relationRows = framework.formulas;
 
 <script>
   const root = document.querySelector('[data-xizong-system]');
-  if (root) {
+  if (root instanceof HTMLElement) {
     const systemId = root.getAttribute('data-xizong-system') || 'system';
+    const defaultView = root.getAttribute('data-system-default-view') || 'framework';
+    const body = root.querySelector('[data-system-body]');
+    const viewButtons = [...root.querySelectorAll('[data-system-view-button]')];
+    const views = [...root.querySelectorAll('[data-system-view]')];
     const links = [...root.querySelectorAll('[data-system-block]')];
-    let blocks = [];
-    let failures = {};
-    try { blocks = JSON.parse(root.querySelector('[data-system-block-payload]')?.textContent || '[]'); } catch {}
-    try { failures = JSON.parse(root.querySelector('[data-failure-payload]')?.textContent || '{}'); } catch {}
-    let selected = 0;
-    try { selected = Number(sessionStorage.getItem(`kianos-xizong-system-selection:${systemId}`) || 0); } catch {}
-    selected = Math.max(0, Math.min(links.length - 1, selected));
-
-    const label = root.querySelector('[data-selected-label]');
-    const title = root.querySelector('[data-selected-title]');
-    const meta = root.querySelector('[data-selected-meta]');
-    const open = root.querySelector('[data-open-selected]');
+    const context = root.querySelector('[data-system-context]');
+    const contextClose = root.querySelector('[data-close-system-context]');
     const spineNodes = [...root.querySelectorAll('[data-spine-node]')];
     const failureButtons = [...root.querySelectorAll('[data-failure-id]')];
     const failureTitle = root.querySelector('[data-failure-run-title]');
     const failureChain = root.querySelector('[data-failure-run-chain]');
     const failureVars = root.querySelector('[data-failure-run-vars]');
+    let failures = {};
+    try { failures = JSON.parse(root.querySelector('[data-failure-payload]')?.textContent || '{}'); } catch {}
+
+    let selected = 0;
+    try { selected = Number(sessionStorage.getItem(`kianos-xizong-system-selection:${systemId}`) || 0); } catch {}
+    selected = Math.max(0, Math.min(links.length - 1, selected));
 
     const renderSelection = (scroll = true) => {
       links.forEach((link, index) => link.classList.toggle('selected', index === selected));
-      const block = blocks[selected];
-      if (block) {
-        if (label) label.textContent = block.label || '';
-        if (title) title.textContent = block.title || '';
-        if (meta) meta.textContent = `${block.kpCount || 0} KP${Number(block.outlineCount) > 0 ? ` · Outline ${block.outlineCount}` : ''}`;
-      }
       if (scroll) links[selected]?.scrollIntoView({ block: 'nearest' });
       try { sessionStorage.setItem(`kianos-xizong-system-selection:${systemId}`, String(selected)); } catch {}
     };
 
+    const closeContext = () => {
+      if (context instanceof HTMLElement) context.hidden = true;
+      if (body instanceof HTMLElement) body.classList.remove('context-open');
+      failureButtons.forEach((button) => button.classList.remove('active'));
+      spineNodes.forEach((node) => {
+        node.classList.remove('mechanism-active');
+        node.classList.remove('mechanism-dim');
+      });
+    };
+
+    const setView = (name) => {
+      const target = views.some((view) => view.getAttribute('data-system-view') === name) ? name : defaultView;
+      views.forEach((view) => { view.hidden = view.getAttribute('data-system-view') !== target; });
+      viewButtons.forEach((button) => {
+        const active = button.getAttribute('data-system-view-button') === target;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+      if (target !== 'framework') closeContext();
+      try { localStorage.setItem(`kianos:xizong:system-view:${systemId}`, target); } catch {}
+    };
+
+    let initialView = defaultView;
+    try {
+      const saved = localStorage.getItem(`kianos:xizong:system-view:${systemId}`);
+      if (saved) initialView = saved;
+    } catch {}
+    setView(initialView);
+
+    viewButtons.forEach((button) => button.addEventListener('click', () => {
+      setView(button.getAttribute('data-system-view-button') || defaultView);
+    }));
+
+    links.forEach((link, index) => {
+      link.addEventListener('focus', () => { selected = index; renderSelection(false); });
+      link.addEventListener('mouseenter', () => { selected = index; renderSelection(false); });
+    });
+
     const runFailure = (id) => {
       const view = failures[id];
       if (!view) return;
+
       const focus = new Set((view.focus_nodes || []).map(Number));
       spineNodes.forEach((node) => {
         const active = focus.has(Number(node.getAttribute('data-spine-node') || 0));
@@ -226,6 +309,7 @@ const relationRows = framework.formulas;
         node.classList.toggle('mechanism-dim', focus.size > 0 && !active);
       });
       failureButtons.forEach((button) => button.classList.toggle('active', button.getAttribute('data-failure-id') === id));
+
       if (failureTitle) failureTitle.textContent = view.label || id;
       if (failureChain) failureChain.textContent = view.chain || 'Current 只定义了 Failure 身份；这里不补猜额外链条。';
       if (failureVars) {
@@ -241,24 +325,33 @@ const relationRows = framework.formulas;
           failureVars.appendChild(span);
         }
       }
+
+      if (context instanceof HTMLElement) context.hidden = false;
+      if (body instanceof HTMLElement) body.classList.add('context-open');
     };
 
-    links.forEach((link, index) => {
-      link.addEventListener('focus', () => { selected = index; renderSelection(false); });
-      link.addEventListener('mouseenter', () => { selected = index; renderSelection(false); });
-    });
     failureButtons.forEach((button) => button.addEventListener('click', () => runFailure(button.getAttribute('data-failure-id') || '')));
-    open?.addEventListener('click', () => links[selected]?.click());
+    contextClose?.addEventListener('click', closeContext);
 
     document.addEventListener('keydown', (event) => {
       const target = event.target;
       if (target instanceof HTMLElement && target.closest('input,textarea,select,button,[contenteditable="true"]')) return;
-      if (event.key === 'ArrowUp') { event.preventDefault(); selected = Math.max(0, selected - 1); renderSelection(); return; }
-      if (event.key === 'ArrowDown') { event.preventDefault(); selected = Math.min(links.length - 1, selected + 1); renderSelection(); return; }
-      if (event.key === 'Enter') { event.preventDefault(); links[selected]?.click(); return; }
-      const key = event.key.toLowerCase();
-      if (key === 'm') root.querySelector('[data-system-section="mother"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      if (key === 'f') root.querySelector('[data-system-section="failure"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        selected = Math.max(0, selected - 1);
+        renderSelection();
+        return;
+      }
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        selected = Math.min(links.length - 1, selected + 1);
+        renderSelection();
+        return;
+      }
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        links[selected]?.click();
+      }
     });
 
     renderSelection(false);
