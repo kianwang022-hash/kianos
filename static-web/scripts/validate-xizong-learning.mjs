@@ -180,7 +180,7 @@ const blockUi = read('static-web/src/components/XizongBlockV6.astro');
 const enhancerUi = read('static-web/src/components/XizongStudyEnhancer.astro');
 const memoryUi = read('static-web/src/components/XizongMemoryReviewV6.astro');
 const systemPage = read('static-web/src/pages/xizong/[system]/index.astro');
-const systemUi = read('static-web/src/components/XizongSystemV6.astro');
+const systemUi = read('static-web/src/components/XizongSystemWorkspace.astro');
 const exitUi = read('static-web/src/components/XizongSystemExitRuntime.astro');
 
 has(xizongLib, 'function blockOpeningOrientation(markdown)', 'generic-opening-fallback-missing');
@@ -207,6 +207,8 @@ matches(exitUi, /startSweep\.disabled\s*=\s*!\(recallState\.completedAt\s*&&\s*h
 
 matches(systemUi, /outlineCount\s*>\s*0\s*\?/, 'outline-absence-not-conditionally-projected');
 lacks(systemUi, /Outline\s*\$\{?0\}?/, 'literal-outline-zero');
+has(systemUi, 'class="xzSystemWorkspace"', 'current-system-workspace-namespace-missing');
+lacks(systemUi, /xv6System/, 'retired-system-workspace-namespace-returned');
 
 has(blockUi, 'data-kp-answer hidden', 'recall-answer-not-hidden');
 has(blockUi, 'data-kp-reveal', 'recall-reveal-missing');
