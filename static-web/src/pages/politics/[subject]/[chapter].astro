@@ -29,11 +29,15 @@ const useCognitiveWorkspace = subject === 'marxism'
   && chapter === 'ch00'
   && data.units.some((unit) => unit?.raw?.learning_semantics?.schema === 'kianos.politics.learning_semantics.v1');
 const compiledRows = compiled instanceof Map ? [...compiled.values()] : [];
+const allCompiledRowsMapped = compiledRows.every((row) => row?.surfacePlan?.states?.ORIENT?.length > 0);
 const useExplicitCognitiveMapping = useCognitiveWorkspace
   && compiledRows.length > 0
-  && compiledRows.every((row) => row?.surfacePlan?.states?.ORIENT?.length > 0);
-const usePurposeFirstRuntime = !useCognitiveWorkspace && Boolean(compiled?.size);
+  && allCompiledRowsMapped;
+const usePurposeFirstRuntime = !useCognitiveWorkspace && compiledRows.length > 0;
 
+if (compiledRows.length > 0 && !allCompiledRowsMapped) {
+  throw new Error(`POLITICS_EXPLICIT_SURFACE_MAPPING_REQUIRED:${subject}:${chapter}`);
+}
 if (useCognitiveWorkspace && !useExplicitCognitiveMapping) {
   throw new Error(`POLITICS_EXPLICIT_SURFACE_MAPPING_REQUIRED:${subject}:${chapter}`);
 }
