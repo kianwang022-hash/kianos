@@ -76,7 +76,7 @@ export function createInitialWritingRecord(task, history = [], now) {
     taskKind: task.kind,
     sourceKind: sourceKindOf(task),
     state: WRITING_STATES.ATTEMPT,
-    planMode: 'planned',
+    planMode: 'direct',
     draftPlan: '',
     draftEssay: '',
     firstPlan: '',
@@ -108,7 +108,7 @@ export function normalizeWritingRecord(task, saved = null, now) {
     repairHistory: Array.isArray(saved?.repairHistory) ? saved.repairHistory : []
   };
   if (!Object.values(WRITING_STATES).includes(next.state)) next.state = WRITING_STATES.ATTEMPT;
-  if (!['planned', 'direct'].includes(next.planMode)) next.planMode = 'planned';
+  if (!['planned', 'direct'].includes(next.planMode)) next.planMode = 'direct';
   if (!nonEmpty(next.firstDraft) && next.state !== WRITING_STATES.ATTEMPT) {
     return createInitialWritingRecord(task, preservedHistory, now);
   }
