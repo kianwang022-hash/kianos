@@ -63,6 +63,7 @@ try {
   const page = await context.newPage();
   await page.goto(`${BASE}/politics/marxism/ch00/`, { waitUntil: 'networkidle' });
 
+  const body = page.locator('body');
   const workspace = page.locator('[data-politics-cognitive-workspace]');
   await workspace.waitFor({ state: 'visible' });
 
@@ -72,8 +73,8 @@ try {
   check(await s01.locator('.purposeChain').isVisible(), 's01_simple_chain_visible');
   const s01TitleSize = Number.parseFloat(await s01.locator('[data-stage="ORIENT"] > h2').evaluate((node) => getComputedStyle(node).fontSize));
   check(s01TitleSize >= 30, 's01_main_title_readable', `${s01TitleSize}px`);
-  const s01TinyText = await visibleLearnerTextBelowFloor(workspace, 15);
-  check(s01TinyText.length === 0, 's01_visible_learner_text_floor_15px', JSON.stringify(s01TinyText));
+  const s01TinyText = await visibleLearnerTextBelowFloor(body, 15);
+  check(s01TinyText.length === 0, 's01_page_visible_text_floor_15px', JSON.stringify(s01TinyText));
 
   await workspace.locator('[data-workspace-unit-tab="1"]').click();
   const s02 = workspace.locator('[data-workspace-unit][data-unit-id="POL27-CF-MARX-C00-S02"]');
@@ -111,8 +112,8 @@ try {
   check(peerSize >= 18, 's02_peer_type_readable', `${peerSize}px`);
   check(relationSize >= 16, 's02_relation_type_readable', `${relationSize}px`);
   check(exactSize >= 16, 's02_exact_type_readable', `${exactSize}px`);
-  const s02TinyText = await visibleLearnerTextBelowFloor(workspace, 15);
-  check(s02TinyText.length === 0, 's02_visible_learner_text_floor_15px', JSON.stringify(s02TinyText));
+  const s02TinyText = await visibleLearnerTextBelowFloor(body, 15);
+  check(s02TinyText.length === 0, 's02_page_visible_text_floor_15px', JSON.stringify(s02TinyText));
 
   await context.close();
   console.log('POLITICS_GOLDEN_PURPOSE_FIRST_PASS');
