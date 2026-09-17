@@ -1,0 +1,85 @@
+name: English Family Coherence
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/english/**'
+      - 'content/lexical/**'
+      - 'static-web/src/layouts/Base.astro'
+      - 'static-web/src/pages/english.astro'
+      - 'static-web/src/pages/objective-learn.astro'
+      - 'static-web/src/pages/translation-learn.astro'
+      - 'static-web/src/pages/writing-learn.astro'
+      - 'static-web/src/pages/reading/**'
+      - 'static-web/src/pages/cloze/**'
+      - 'static-web/src/pages/translation/**'
+      - 'static-web/src/pages/vocabulary/**'
+      - 'static-web/src/components/English*.astro'
+      - 'static-web/src/components/Reading*.astro'
+      - 'static-web/src/components/Cloze*.astro'
+      - 'static-web/src/components/Translation*.astro'
+      - 'static-web/src/components/Vocabulary*.astro'
+      - 'static-web/src/styles/english*.css'
+      - 'static-web/scripts/test-english-family-coherence.mjs'
+      - '.github/workflows/static-web-english-family-coherence.yml'
+  pull_request:
+    paths:
+      - 'content/english/**'
+      - 'content/lexical/**'
+      - 'static-web/src/layouts/Base.astro'
+      - 'static-web/src/pages/english.astro'
+      - 'static-web/src/pages/objective-learn.astro'
+      - 'static-web/src/pages/translation-learn.astro'
+      - 'static-web/src/pages/writing-learn.astro'
+      - 'static-web/src/pages/reading/**'
+      - 'static-web/src/pages/cloze/**'
+      - 'static-web/src/pages/translation/**'
+      - 'static-web/src/pages/vocabulary/**'
+      - 'static-web/src/components/English*.astro'
+      - 'static-web/src/components/Reading*.astro'
+      - 'static-web/src/components/Cloze*.astro'
+      - 'static-web/src/components/Translation*.astro'
+      - 'static-web/src/components/Vocabulary*.astro'
+      - 'static-web/src/styles/english*.css'
+      - 'static-web/scripts/test-english-family-coherence.mjs'
+      - '.github/workflows/static-web-english-family-coherence.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: english-family-coherence-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  browser-acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install runtime
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+      - name: Build Current site
+        working-directory: static-web
+        run: npm run build
+      - name: Install isolated browser acceptance tool
+        working-directory: static-web
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Execute English family coherence journey
+        working-directory: static-web
+        run: node scripts/test-english-family-coherence.mjs
+      - name: Preserve fresh screenshots and report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: english-family-coherence-${{ github.sha }}
+          path: english-family-audit/
+          retention-days: 14
