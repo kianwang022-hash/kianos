@@ -9,10 +9,10 @@
 
 ## Root Work Cursor
 
-**Active scope:** Project management stabilization  
-**Current stage:** Mission Control read model COMPLETE; next bounded integration issue identified  
+**Active scope:** Project management stabilization — Exam Orchestrator de-dup  
+**Current stage:** remove hand-copied schedule/target constants from web runtime; consume a contract-bound machine projection instead  
 **Blocker:** none  
-**Next action:** remove the duplicated exact exam phase / Gate / material-refresh schedule from web runtime so it has one canonical owner before Mission Control is expanded into Home or richer task/watch automation.
+**Next action:** validate that contract targets/phase dates and runtime projection cannot drift, preserve existing scheduler behavior, then close this slice before expanding Mission Control into Home.
 
 Top-level governance is accepted and remains frozen. This is implementation of `PROJECT_MANAGEMENT_CONTRACT.md`, not a new root architecture.
 
@@ -31,6 +31,8 @@ Top-level governance is accepted and remains frozen. This is implementation of `
 - cross-subject exam scheduling / phase Gates / material timing → `EXAM_ORCHESTRATOR_CONTRACT.md`
 - branch lifecycle → `BRANCH_LIFECYCLE.md`
 - intentionally postponed work → `DEFERRED.md`
+
+`EXAM_ORCHESTRATOR_CURRENT.json` is a checked machine projection of the Orchestrator contract for runtime consumption; it is not a competing authority.
 
 These owners are referenced, not copied into lane Current files.
 
