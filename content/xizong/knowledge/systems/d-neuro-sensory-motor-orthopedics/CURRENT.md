@@ -13,8 +13,8 @@ This file owns Work Cursor only. It does not own medical Core, accepted Learning
 **Scope:** D — Neuro / Sensory / Motor / Orthopedics  
 **Accepted upstream:** **S1 + K + L closed**  
 **Active construction stage:** **Content Realization / Optimization**  
-**Content state:** **PHASE7A ROLE MODEL BUILT / CONTENT NOT CLOSED**  
-**Earliest eligible next action:** **Phase 7B — canonical Block wrapper / authority cleanup**  
+**Content state:** **PHASE 7B WRAPPER / AUTHORITY CLEANUP CLOSED · CONTENT NOT CLOSED**  
+**Earliest eligible next action:** **Phase 7C — N1–N11 LG-by-LG content sufficiency + density audit**  
 **Parallel Source boundary:** exact official D System question membership remains **UNTESTED** and gates the later trusted official-question sweep only
 
 ```text
@@ -52,9 +52,11 @@ Current Content candidate:
 
 `content/xizong/knowledge/learner/d-neuro-sensory-motor-orthopedics-content.json`
 
-Phase-7A audit:
+Content realization evidence:
 
-`content/xizong/knowledge/learner/D_PHASE7A_CONTENT_ROLE_AUDIT.md`
+- `content/xizong/knowledge/learner/D_PHASE7A_CONTENT_ROLE_AUDIT.md`
+- `content/xizong/knowledge/learner/D_PHASE7B_BLOCK_WRAPPER_CLEANUP_SPEC.md`
+- `content/xizong/knowledge/learner/D_PHASE7B_BLOCK_WRAPPER_CLEANUP_EXECUTION.md`
 
 Fresh independent L evidence:
 
@@ -105,14 +107,7 @@ The existing D Block Markdown already contains substantial usable Stage-2 materi
 
 Therefore a broad rewrite of 356 KP Core is **not justified**.
 
-The real Content defect is role/timing drift:
-
-1. many canonical Block frontmatters still carry old `prerequisites / next_blocks`, creating a stale second learner route;
-2. one generic `FIRST PASS` prose pattern is copied across Blocks despite three different accepted Source-contact modes;
-3. several intros phrase default-route benefits as though prior Blocks are already completed;
-4. the learner role of long `Detailed Expansion` prose is not explicit enough — it is canonical Core/check/repair/reference, not a compulsory second Lecture read.
-
-Phase 7A therefore created a Content candidate that separates:
+The real Content defect was role/timing drift. Phase 7A therefore created a Content candidate that separates:
 
 ```text
 ORIENTATION
@@ -127,31 +122,66 @@ and compiles accepted natural Source units into Content-level LG release groups 
 
 ---
 
-## Active Phase 7B — wrapper / authority cleanup
+## Phase 7B result — CLOSED
 
-Earliest Content defect to repair:
+All **27 / 27** canonical D Block wrappers were cleaned in place:
 
 ```text
-canonical D Block wrappers
-→ stale prerequisites / next_blocks
-→ stale literal FIRST PASS role copy
-→ wording that assumes non-hard benefits_from owners are already learned
+N1–N11 = 11 / 11
+O1–O16 = 16 / 16
 ```
 
-Rules:
+Closed defects:
 
-- accepted Learning owner remains the sole D learner-route/readiness authority;
-- do not change KP medical truth while cleaning wrapper semantics;
-- `WHOLE_BLOCK_SOURCE`, `NATURAL_SOURCE_UNITS` and `INTEGRATION_PRIMARY` must have distinct Content role wording;
-- N11/O1 must not manufacture a new continuous Primary Lecture pass;
-- benefits-from owners are `可调用 / 可复用 / 缺失时局部 reactivation`, not hard completion assumptions;
-- do not infer UI or runtime behavior.
+1. stale Block-frontmatter `prerequisites / next_blocks` no longer competes with accepted Learning;
+2. generic one-size-fits-all FIRST PASS wording has been replaced by the accepted Source-contact mode for each Block;
+3. non-hard prior owners are expressed as `可调用 / benefits_from / bounded local reactivation`, not assumed learner completion;
+4. N11/O1 no longer manufacture a new continuous Primary Lecture pass;
+5. Natural Source Units release their intended LG groups without LG-by-LG Source bouncing;
+6. Detailed Expansion remains canonical Core / check / repair / reference, not compulsory continuous KianOS reading;
+7. repository construction state is not treated as Kian learner progress.
 
-After wrapper cleanup:
+Phase-7B compare from baseline `c064aea5f09eed52f9a27484026580b6b794ba39` showed **27 commits / 27 changed canonical Block files** with wrapper-scale changes only. No broad KP medical-Core rewrite was introduced.
+
+Formal execution receipt:
+
+`content/xizong/knowledge/learner/D_PHASE7B_BLOCK_WRAPPER_CLEANUP_EXECUTION.md`
+
+---
+
+## Active Phase 7C — neural LG content sufficiency / density audit
+
+Earliest Content question now becomes:
+
+> Does every accepted N1–N11 Logic Group have enough canonical learner-facing Core, retrieval cue and closure support to form the intended model after Source contact, without forcing a second Lecture read?
+
+Phase 7C must inspect the actual neural canonical owners LG-by-LG and classify concrete defects rather than broadly rewrite prose.
+
+For every accepted neural LG, test at least:
 
 ```text
-Phase 7C — N1–N11 LG-by-LG content sufficiency/density audit
-→ Phase 7D — O1–O16 LG-by-LG content sufficiency/density audit
+1. model identity / causal job is clear;
+2. KP set is sufficient for that job;
+3. active-recall cues do not leak the answer excessively;
+4. Detailed Expansion is sufficient for check / repair but not compulsory exposition;
+5. confusable / precision / boundary content is present where genuinely needed;
+6. visual dependence remains a Source / Visual Gate, not silently text-simulated;
+7. Source gaps/conflicts remain explicit;
+8. closure can be achieved without unrelated prior-Block completion assumptions.
+```
+
+Possible outcomes per LG / Block:
+
+- `PASS_NO_CHANGE`;
+- `TARGETED_CONTENT_REPAIR` in the natural canonical owner;
+- `BLOCKED_BY_SOURCE_GAP` only where the accepted Source boundary truly lacks support.
+
+Phase 7C must not reopen accepted Learning topology merely because prose could be stylistically improved.
+
+After neural Content sufficiency closes:
+
+```text
+Phase 7D — O1–O16 LG-by-LG content sufficiency/density audit
 → Phase 7E — fresh independent Content closure audit
 ```
 
@@ -161,14 +191,14 @@ Phase 7C — N1–N11 LG-by-LG content sufficiency/density audit
 
 Content remains open until:
 
-- stale Block route metadata no longer competes with accepted Learning;
-- Source-contact role copy is accurate per Block;
 - every accepted LG has sufficient Core + retrieval/closure support;
 - full Core is available without becoming mandatory continuous KianOS reading;
 - Source gaps/conflicts remain explicit;
 - original Lecture remains primary for genuine new Source learning;
 - Page-disappearance test passes;
 - no Projection/UI decisions have been smuggled into Content.
+
+Phase 7B has already closed the wrapper-route / first-pass-role portion of this list.
 
 ---
 
