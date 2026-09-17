@@ -62,8 +62,16 @@ const rows = compiled ? [...compiled.values()].filter((row) => row?.purposeFirst
       }
 
       if (closure) {
-        const closureText = unit.querySelector('.politicsClosure > div > p');
-        if (closureText) closureText.textContent = closure;
+        const closureBox = unit.querySelector('.politicsClosure > div');
+        if (closureBox) {
+          let closureText = closureBox.querySelector('[data-current-closure]') || closureBox.querySelector('p');
+          if (!closureText) {
+            closureText = document.createElement('p');
+            closureBox.prepend(closureText);
+          }
+          closureText.setAttribute('data-current-closure', '');
+          closureText.textContent = closure;
+        }
       }
     });
   })();
