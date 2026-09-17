@@ -9,10 +9,10 @@
 
 ## Root Work Cursor
 
-**Active scope:** Project management stabilization — Mission Control read model  
-**Current stage:** read-only Mission Control compiler + user-facing `/current/` projection  
+**Active scope:** Project management stabilization  
+**Current stage:** Mission Control read model COMPLETE; next bounded integration issue identified  
 **Blocker:** none  
-**Next action:** accept this slice, then project only the essential Mission Control summary into Home. Separately remove duplicated exact exam schedule/update constants before expanding task/watch automation.
+**Next action:** remove the duplicated exact exam phase / Gate / material-refresh schedule from web runtime so it has one canonical owner before Mission Control is expanded into Home or richer task/watch automation.
 
 Top-level governance is accepted and remains frozen. This is implementation of `PROJECT_MANAGEMENT_CONTRACT.md`, not a new root architecture.
 
