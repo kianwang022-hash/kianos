@@ -35,6 +35,7 @@ Kian consistently prefers:
 - restrained, simple, logical interfaces;
 - clear frameworks and visible structure;
 - larger, comfortably readable type;
+- **substantial Regular/Medium typography with visible weight rather than thin/light rendering**;
 - stronger contrast;
 - **high useful information density when the screen has room for it**;
 - low-friction interaction;
@@ -48,6 +49,8 @@ Kian consistently prefers:
 Kian dislikes:
 
 - tiny text that makes sustained reading tiring;
+- **thin / light / weak-looking type, especially when combined with gray low-contrast text**;
+- using smallness or light font weight as the primary way to mark secondary information;
 - pages that are too empty and waste large amounts of space;
 - interfaces that hide useful structure behind excessive whitespace;
 - **low-density pages that still shrink visible text instead of using the available screen**;
@@ -58,16 +61,19 @@ Kian dislikes:
 - engineering/debug/status information competing with learner content;
 - visual treatment that feels like an internal documentation site, low-code dashboard, generic SaaS admin page, or cheap component library.
 
+These are **shared site-wide taste defaults**, not Home-only preferences. Subject/surface-specific presentation may vary when its actual learning/task geometry requires it, but should not silently revert to thin typography, weak contrast, generic dashboard composition or card-heavy styling.
+
 These are taste constraints, not instructions to clone Apple, Raycast, Arc, the legacy site, or any named product. Legacy screenshots are visual evidence for typography/density/taste, not authority to restore retired semantics or runtime behavior.
 
 ### Visible text carries a reading obligation
 
 - If a learner-facing surface chooses to show text by default, Kian will treat that text as something worth reading or identifying. **Visible therefore implies readable and useful.**
 - On the primary Mac-wide learning surface, **15px is a hard lower bound for normal default-visible learner text, not a target size**. Normal secondary/navigation text should usually be around **16px or larger**; body copy, explanations, relationships and task instructions should generally be **17–18px or larger** when space permits.
-- Do not use tiny type as a way to say “this is secondary.” Lower visual priority through position, tone, weight, grouping, spacing, or by deferring/hiding genuinely nonessential information.
+- Normal learner-facing typography should feel optically solid: Regular/Medium is the default voice; Light/Thin should not dominate ordinary learner text.
+- Do not use tiny or thin type as a way to say “this is secondary.” Lower visual priority through position, tone, grouping, spacing, or by deferring/hiding genuinely nonessential information.
 - If an engineering ID, provenance/status label, debug field or other datum is not worth comfortable reading, it should not remain permanently visible merely because there is room for it.
 - Density problems should be solved first by removing duplicate chrome, using Mac width better, grouping related content, or local scrolling — **not by shrinking learner text**.
-- Real browser acceptance should inspect the smallest default-visible learner text, not only headlines and body paragraphs.
+- Real browser acceptance should inspect the smallest default-visible learner text **and its rendered weight/contrast**, not only headlines and body paragraphs.
 
 ### Screen space must earn its keep
 
@@ -185,6 +191,7 @@ When discussing a KianOS UI surface with Kian:
 8. Finish the relevant family / subject product discussion before handing implementation to Codex.
 9. Aesthetics are part of acceptance; `build PASS` is not enough. Review real screenshots.
 10. When visual taste is being calibrated, show Kian representative screenshots and discuss them before promoting a local success into a shared style rule.
+11. For a learner-facing visual change, establish the **focal hierarchy / composition first**, then component/card treatment; do not build the screen by styling every available data field independently.
 
 ---
 
@@ -268,4 +275,5 @@ Update this file when Kian explicitly states a durable UI / interaction preferen
 - Preserve the distinction between explicit preference and inference.
 - Do not silently promote one successful mockup into a universal rule.
 - Do not infer a global preference from one task-specific decision unless Kian explicitly generalizes it.
+- When Kian explicitly states that a visual preference is **common/shared across the site**, record it here as a shared default and let `UI_STYLE_BRIEF.md` own the implementation rule.
 - When a later explicit preference conflicts with an older one, update the Current preference rather than carrying both as equal truth.
