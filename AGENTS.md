@@ -126,13 +126,51 @@ root CURRENT
 → owns cross-program visibility and routing only
 ```
 
+### Task creation is persistent
+
+When Kian explicitly asks to create / add / queue a project task, the task does not exist merely because Chat acknowledged it.
+
+```text
+create task request
+→ resolve the narrow program / lane owner
+→ write the task into the existing program mainline / exact CURRENT owner
+→ commit it
+→ only then report “created”
+```
+
+Use the narrowest existing owner that can represent the task. Do not create a new task registry, issue type or governance layer merely to store it.
+
+Typical routing:
+
+```text
+new task inside an existing active lane
+→ exact lane CURRENT / cursor
+
+new queued task that changes a program's active/next task set
+→ program mainline / orchestrator
+
+cross-program task or priority that genuinely changes the whole project
+→ root CURRENT in addition to the exact/program owner
+```
+
+Do not create a GitHub Issue by default just because something is called a task. Use the existing Current/Mainline owner unless Issue tracking has a separate real purpose or Kian asks for an Issue.
+
+If persistence fails, say the task was **not created**. Never claim a durable task from Chat memory alone.
+
+### Task result / cursor atomicity
+
 When work advances:
 
-1. update the **exact task owner** first;
-2. update its program mainline only when the lane stage / priority / dependency materially changes;
-3. update root `CURRENT.md` only when the cross-program snapshot materially changes.
+1. update the **task artifact/result and its exact CURRENT/cursor in the same active branch / PR**;
+2. do not claim the stage complete if the result changed but the cursor still points to the old next action;
+3. update the program mainline only when lane stage / priority / dependency materially changes;
+4. update root `CURRENT.md` only when the cross-program snapshot materially changes.
 
-Therefore a fresh control request should **read through the owner chain**, not trust a stale copied Root summary when a child cursor has moved.
+If a program mainline names an active branch / PR for the selected task, read the exact task cursor from that active ref. Do not silently fall back to `main`.
+
+If the active ref is missing or its expected cursor cannot be resolved, fail closed and report **task cursor unresolved** instead of reconstructing progress from Chat history.
+
+Therefore a fresh control request should **read through the owner chain and active ref when one is named**, not trust a stale copied Root summary when a child cursor has moved.
 
 Normal target after scope resolution:
 
