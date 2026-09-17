@@ -33,6 +33,15 @@ async function goto(page, pathname) {
   check(Boolean(response?.ok()), `page_ok:${pathname}`, String(response?.status() || 'no-response'));
 }
 
+async function activateUnit(page, index, prefix) {
+  const tab = page.locator(`[data-workspace-unit-tab="${index}"]`);
+  check((await tab.count()) === 1, `${prefix}_unit_tab_present`, String(await tab.count()));
+  await tab.click();
+  const unit = page.locator(`[data-workspace-unit][data-unit-index="${index}"]`);
+  await unit.waitFor({ state: 'visible' });
+  check((await unit.getAttribute('data-state')) === 'ORIENT', `${prefix}_unit_opens_in_orient`);
+}
+
 async function checkStandardRuntime(page, expectedUnits, prefix) {
   check(
     (await page.locator('[data-politics-unit][data-explicit-surface-runtime="v1"]').count()) === expectedUnits,
@@ -81,6 +90,9 @@ try {
   check(developmentText.includes('形成相互联系的理论体系'), 'marx_development_first_relation_text_visible');
   check(developmentText.includes('理论体系不是封闭终点'), 'marx_development_second_relation_text_visible');
 
+  // S02 is a separate Natural Unit. Its Surface Mapping must be tested after
+  // entering that unit, not by treating intentionally hidden DOM as visible learner content.
+  await activateUnit(page, 1, 'marx_c00_s02');
   const relationSet = page.locator('[data-surface-group="s02-relation-people-practice-development"]');
   await relationSet.waitFor({ state: 'visible' });
   check((await relationSet.getAttribute('data-surface-primitive')) === 'RELATION_SET', 'marx_relation_set_stays_relation_set');
@@ -95,6 +107,7 @@ try {
   // owns order/direction only, so the renderer must not synthesize connector text.
   await goto(page, '/politics/history/ch01/');
   const historyDirected = page.locator('[data-surface-group="h-c01-s01-cause-to-turn"]');
+  await historyDirected.waitFor({ state: 'visible' });
   check((await historyDirected.getAttribute('data-surface-primitive')) === 'DIRECTED_SEQUENCE', 'history_real_cause_to_turn_remains_directed');
   check((await historyDirected.locator('.sequenceTransition').count()) === 1, 'history_cause_to_turn_has_one_owned_transition');
   check((await historyDirected.locator('.sequenceTransition[data-transition-mode="ORDER_ONLY"]').count()) === 1, 'history_cause_to_turn_is_order_only');
@@ -107,6 +120,7 @@ try {
   // Mao: two combinations stay peers, not a fabricated sequence.
   await goto(page, '/politics/mao/ch00/');
   const maoPair = page.locator('[data-surface-group="mao-c00-two-combinations"]');
+  await maoPair.waitFor({ state: 'visible' });
   check((await maoPair.getAttribute('data-surface-primitive')) === 'PARALLEL_SET', 'mao_two_combinations_parallel');
   check((await maoPair.locator('.sequenceTransition').count()) === 0, 'mao_two_combinations_have_no_invented_arrows');
   check((await page.locator('[data-compiled-unit][data-explicit-surface-mapping="v1"]').count()) === 1, 'mao_c00_uses_explicit_plan');
@@ -116,6 +130,7 @@ try {
   // Ethics/Law: the three core-value levels remain the three Current-owned groups.
   await goto(page, '/politics/ethics_law/ch04/');
   const ethicsLevels = page.locator('[data-surface-group="ethics-c04-s01-three-levels"]');
+  await ethicsLevels.waitFor({ state: 'visible' });
   check((await ethicsLevels.getAttribute('data-surface-primitive')) === 'PARALLEL_SET', 'ethics_three_core_value_levels_parallel');
   check((await ethicsLevels.locator('.explicitParallel > article').count()) === 3, 'ethics_exact_three_owned_groups_visible');
   check((await page.locator('[data-compiled-unit][data-explicit-surface-mapping="v1"]').count()) === 3, 'ethics_c04_all_pass_units_use_explicit_plan');
@@ -123,15 +138,21 @@ try {
   await page.screenshot({ path: path.join(auditDir, 'explicit-surface-ethics-c04.png'), fullPage: false });
 
   // Xi: feature sets and true stage sequence are separately owned in the same chapter.
+  // S01 is the initial Natural Unit, while K05 is unit index 2; verify each only
+  // when that unit is actually learner-visible.
   await goto(page, '/politics/xi/ch02/');
-  const xiFeatures = page.locator('[data-surface-group="xi-c02-k05-features"]');
   const xiStrategy = page.locator('[data-surface-group="xi-c02-s01-strategy"]');
-  check((await xiFeatures.getAttribute('data-surface-primitive')) === 'PARALLEL_SET', 'xi_modernization_features_are_parallel');
-  check((await xiFeatures.locator('.sequenceTransition').count()) === 0, 'xi_features_have_no_invented_direction');
+  await xiStrategy.waitFor({ state: 'visible' });
   check((await xiStrategy.getAttribute('data-surface-primitive')) === 'DIRECTED_SEQUENCE', 'xi_real_strategy_stages_are_directed');
   check((await xiStrategy.locator('.sequenceTransition').count()) === 1, 'xi_strategy_has_exact_one_transition');
   check((await xiStrategy.locator('.sequenceTransition[data-transition-mode="ORDER_ONLY"]').count()) === 1, 'xi_strategy_transition_is_explicit_order_only');
   check((await xiStrategy.locator('.sequenceTransition[aria-label]').count()) === 0, 'xi_order_only_has_no_ui_authored_connector_text');
+
+  await activateUnit(page, 2, 'xi_c02_k05');
+  const xiFeatures = page.locator('[data-surface-group="xi-c02-k05-features"]');
+  await xiFeatures.waitFor({ state: 'visible' });
+  check((await xiFeatures.getAttribute('data-surface-primitive')) === 'PARALLEL_SET', 'xi_modernization_features_are_parallel');
+  check((await xiFeatures.locator('.sequenceTransition').count()) === 0, 'xi_features_have_no_invented_direction');
   check((await page.locator('[data-compiled-unit][data-explicit-surface-mapping="v1"]').count()) === 7, 'xi_c02_all_pass_units_use_explicit_plan');
   await checkStandardRuntime(page, 7, 'xi_c02');
   await page.screenshot({ path: path.join(auditDir, 'explicit-surface-xi-c02.png'), fullPage: false });
