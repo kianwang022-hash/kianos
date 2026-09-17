@@ -871,3 +871,179 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6ProgressMin
     overflow: visible;
   }
 }
+
+
+/* Logic Map now carries LG purpose + KP position, not inferred topology. */
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzLogicMapToggle {
+  min-height: 30px;
+  padding: 4px 8px;
+  border: 1px solid var(--xz-block-line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--xz-block-muted);
+  font-size: 15px;
+  font-weight: 650;
+  cursor: pointer;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzLogicMapToggle:hover {
+  color: var(--study-ink,#20342c);
+  background: var(--xz-block-soft);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzLogicGroupDetail {
+  display: grid;
+  gap: 8px;
+  padding: 10px 11px 12px 43px;
+  border-bottom: 1px solid var(--xz-block-line);
+  background: #f2f6f3;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzLogicGroupDetail > p {
+  margin: 0;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzLogicGroupDetail > p b {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--xz-block-green);
+  font-size: 15px;
+  font-weight: 800;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzLogicGroupDetail > p span {
+  color: #45594f;
+  font-size: 15px;
+  line-height: 1.5;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzLogicGroupKps {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid rgba(197,208,201,.8);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzLogicGroupKp {
+  display: grid;
+  grid-template-columns: 48px minmax(0,1fr) auto;
+  gap: 6px;
+  align-items: start;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(215,223,218,.7);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzLogicGroupKp > b {
+  color: var(--xz-block-muted);
+  font-size: 15px;
+  font-weight: 800;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzLogicGroupKp > span {
+  font-size: 15px;
+  font-weight: 620;
+  line-height: 1.42;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzLogicGroupKp > em {
+  color: var(--xz-block-muted);
+  font-size: 15px;
+  font-style: normal;
+  white-space: nowrap;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzLogicGroupKp.current > b,
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzLogicGroupKp.current > span {
+  color: var(--xz-block-green);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzLogicGroupKp.learned > em,
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzLogicGroupKp.recalled > em {
+  color: #4f7968;
+}
+
+/* Recalled and learned states share one KP card grammar; Recall only changes visibility. */
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpUnifiedCard {
+  background: #fff;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpRecallCard {
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpRecallCard > header {
+  position: relative;
+  display: grid;
+  gap: 5px;
+  padding: 15px 22px 14px;
+  border-bottom: 1px solid var(--xz-block-line);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpRecallCard > header > .xzKpRecallMode {
+  color: var(--xz-block-green);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: .04em;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpRecallCard > header > span:not(.xzKpRecallMode) {
+  color: var(--xz-block-muted);
+  font-size: 15px;
+  font-weight: 650;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpRecallCard > header > h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 730;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpRecallCard > header > p {
+  margin: 7px 92px 0 0;
+  font-size: 19px;
+  font-weight: 650;
+  line-height: 1.68;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzRecallPromptEdit {
+  position: absolute;
+  right: 20px;
+  bottom: 14px;
+  border: 0;
+  background: transparent;
+  color: var(--xz-block-green);
+  font-size: 15px;
+  font-weight: 700;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzRecallPromptEditor {
+  margin: 0;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpRecallCard .portedRecallPrompt {
+  min-height: 48px;
+  padding: 11px 22px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpRecallCard .portedRecallAnswer {
+  padding: 18px 24px 24px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpRecallCard .portedRecallAnswer > h4 {
+  margin: 0 0 12px;
+  font-size: 22px;
+  font-weight: 730;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpRecallCard .portedRecallRating {
+  min-height: 52px;
+  padding: 9px 18px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpRecallCard.is-front .portedRecallAnswer,
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpRecallCard.is-front .portedRecallRating {
+  display: none;
+}
+
+/* The old standalone Logic Group orientation stage is compatibility-only. */
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell [data-study-stage="logic_group"] {
+  display: none !important;
+}
+
+/* The source/LG footer no longer competes with the per-KP Enter action. */
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell [data-study-stage="kp_learn"].xv6LearnerCompanionStage > footer {
+  display: none;
+}
+
+/* Collapsed Logic Map returns width to the KP card. */
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyLayout.outline-collapsed {
+  grid-template-columns: 0 minmax(0,1fr) 0;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-aux-weight="light"] .portedStudyLayout.outline-collapsed {
+  grid-template-columns: 0 minmax(0,1fr) 280px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-aux-weight="rich"] .portedStudyLayout.outline-collapsed {
+  grid-template-columns: 0 minmax(0,1fr) minmax(380px,36%);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyLayout.outline-collapsed .portedStudyOutline {
+  overflow: hidden;
+  border-right: 0;
+}
