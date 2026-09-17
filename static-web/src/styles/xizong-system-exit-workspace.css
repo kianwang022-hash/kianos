@@ -1,0 +1,399 @@
+/* Xizong System Exit / official Question — sole Current visual owner.
+   Runtime/state semantics stay in the existing components. Shared Base Shell stays external. */
+
+body#kianos-workspace.surfaceBody-xizong .xzExitStage {
+  --xz-exit-line:var(--study-line,#dce5e1);
+  --xz-exit-muted:var(--study-muted,#5d726b);
+  --xz-exit-green:var(--study-green,#326c63);
+  margin-top:14px;
+  overflow:hidden;
+  border:1px solid var(--xz-exit-line);
+  border-radius:10px;
+  background:#fff;
+  color:var(--study-ink,#253b37);
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage>summary {
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  gap:6px 14px;
+  align-items:center;
+  padding:14px 18px;
+  cursor:pointer;
+  list-style:none;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage>summary::-webkit-details-marker { display:none; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage>summary::before {
+  content:'›';
+  grid-row:1 / span 2;
+  color:var(--xz-exit-green);
+  font-size:20px;
+  font-weight:800;
+  transition:transform .15s ease;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage[open]>summary::before { transform:rotate(90deg); }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage>summary span {
+  color:var(--xz-exit-green);
+  font-size:15px;
+  font-weight:800;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage>summary strong { font-size:17px;line-height:1.45; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage>summary small {
+  grid-column:3;
+  color:var(--xz-exit-muted);
+  font-size:15px;
+  line-height:1.45;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage[open]>summary {
+  border-bottom:1px solid var(--xz-exit-line);
+  background:#f7faf8;
+}
+
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xse {
+  display:grid;
+  gap:14px;
+  padding:14px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHero,
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseWorkspace {
+  border:1px solid var(--xz-exit-line);
+  border-radius:10px;
+  background:#fff;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHero {
+  display:grid;
+  grid-template-columns:minmax(270px,.75fr) minmax(0,1.25fr);
+  gap:24px;
+  align-items:center;
+  padding:18px 20px;
+  background:#f8fbf9;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage :is(.xseHero>div>span,.xseEyebrow,.xseRecallDialog span,.xseDone>span) {
+  color:var(--xz-exit-green);
+  font-size:15px;
+  font-weight:800;
+  letter-spacing:.025em;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHero h2 { margin:4px 0 0;font-size:25px;line-height:1.35; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage :is(.xseHero p,.xzExitCard p) {
+  margin:0;
+  color:var(--xz-exit-muted);
+  font-size:16px;
+  line-height:1.65;
+}
+
+/* One continuous three-step board instead of three floating cards. */
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseSteps {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  overflow:hidden;
+  border:1px solid var(--xz-exit-line);
+  border-radius:10px;
+  background:#fff;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xzExitCard {
+  display:grid;
+  grid-template-columns:38px minmax(0,1fr);
+  gap:12px;
+  min-width:0;
+  padding:18px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xzExitCard+.xzExitCard { border-left:1px solid var(--xz-exit-line); }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseStepNo {
+  display:grid;
+  place-items:center;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:#eaf3ee;
+  color:var(--xz-exit-green);
+  font-size:16px;
+  font-weight:800;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseCardBody { display:grid;gap:9px;align-content:start;min-width:0; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xzExitCard h3 { margin:0;font-size:18px;line-height:1.45; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage :is(.xseStatusRow,.xseSweepActions,.xseSubmitRow,.xseJudge) {
+  display:flex;
+  gap:9px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseStatusRow strong { flex:1 1 150px;font-size:15px;line-height:1.45; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xse button,
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrr button,
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrr a {
+  border:1px solid #2f715d;
+  border-radius:7px;
+  background:#326c63;
+  color:#fff;
+  padding:9px 12px;
+  font:750 15px/1.25 var(--study-font,system-ui);
+  text-decoration:none;
+  cursor:pointer;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage :is(.xse button,.xrr button):hover { filter:brightness(.97); }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage :is(.xse button,.xrr button):disabled { opacity:.42;cursor:not-allowed; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage :is(.xse button.secondary,.xse button.xseTextButton,.xrr button.secondary) {
+  background:#fff;
+  color:var(--xz-exit-green);
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xse button.xseTextButton {
+  border-color:#cbded5;
+  padding:8px 10px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHoldoutCurrent {
+  padding:9px 11px;
+  border-radius:7px;
+  background:#f3f7f5;
+  font-size:15px;
+  font-weight:700;
+  line-height:1.45;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHoldoutEditor {
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  gap:8px;
+  align-items:center;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHoldoutEditor label { font-size:15px;font-weight:750; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHoldoutEditor input {
+  min-width:0;
+  border:1px solid #cad8d1;
+  border-radius:7px;
+  padding:9px 10px;
+  font:500 15px/1.3 var(--study-font,system-ui);
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xzExitCard small { color:var(--xz-exit-muted);font-size:15px;line-height:1.45; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseSweepStats { display:flex;gap:7px;flex-wrap:wrap; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseSweepStats span {
+  padding:5px 8px;
+  border-radius:999px;
+  background:#f1f5f3;
+  font-size:15px;
+}
+
+/* Official Question workspace owns the visual center once entered. */
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseWorkspace { padding:18px 20px; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseWorkspaceHead {
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  align-items:start;
+  border-bottom:1px solid var(--xz-exit-line);
+  padding-bottom:13px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseWorkspaceHead span { color:var(--xz-exit-muted);font-size:15px; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseWorkspaceHead h3 { margin:3px 0 0;font-size:19px; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseQuestion { padding:19px 0 5px; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xzExitStem {
+  max-width:78ch;
+  margin:0 0 16px;
+  font-size:21px;
+  line-height:1.75;
+  font-weight:650;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xzExitOptions { display:grid;gap:8px; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xse button.xseOption {
+  display:grid;
+  grid-template-columns:30px minmax(0,1fr);
+  gap:10px;
+  align-items:start;
+  width:100%;
+  padding:12px 14px;
+  border-color:#d1ddd7;
+  border-radius:7px;
+  background:#fff;
+  color:#253b37;
+  text-align:left;
+  font-size:17px;
+  line-height:1.65;
+  font-weight:500;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xse button.xseOption b { color:var(--xz-exit-green);font-size:17px; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xse button.xseOption.selected { background:#edf5f2;border-color:#739c8c; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xse button.xseOption.correct { background:#eef7f1;border-color:#7aa48f; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xse button.xseOption.wrong { background:#fff2f0;border-color:#d79a92; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseSubmitRow { justify-content:space-between;margin-top:13px; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseSubmitRow small { color:var(--xz-exit-muted);font-size:15px; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseAnswer { margin-top:13px;padding-top:13px;border-top:1px solid var(--xz-exit-line); }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseAnswerTop { display:flex;gap:16px;align-items:center;flex-wrap:wrap;font-size:16px; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseAnswerTop strong { color:var(--xz-exit-green);font-size:16px; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseAnswerTop strong.isWrong { color:#a4473d; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseSecondPassReview {
+  display:grid;
+  gap:8px;
+  margin-top:12px;
+  padding:13px 14px;
+  border:1px solid #d5e2dc;
+  border-radius:8px;
+  background:#f5f9f7;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseSecondPassReview>span { color:var(--xz-exit-green);font-size:15px;font-weight:800; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseSecondPassReview>strong { font-size:16px;line-height:1.55; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseSecondPassReview :is(p,details,summary,li) { font-size:15px;line-height:1.55; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseSecondPassReview p { margin:0;color:var(--xz-exit-muted); }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseSecondPassReview summary { cursor:pointer;color:var(--xz-exit-green);font-weight:750; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseSecondPassReview ul { margin:6px 0 0;padding-left:22px;display:grid;gap:5px; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRepair {
+  margin-top:12px;
+  padding:13px 14px;
+  border-radius:8px;
+  background:#faf8f3;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRepair :is(p,summary) { font-size:15px;line-height:1.55; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRepair p { margin:4px 0; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRepair summary { cursor:pointer;color:#5c665f;font-weight:750; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseJudge { margin-top:12px; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseDone { padding:20px 0 7px; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseDone h3 { margin:5px 0 7px;font-size:20px; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseDone p { max-width:760px;color:var(--xz-exit-muted);font-size:16px;line-height:1.65; }
+
+/* Recall dialog stays a focused modal, but shares the same typographic floor. */
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallDialog {
+  width:min(820px,calc(100vw - 28px));
+  max-height:calc(100vh - 36px);
+  border:0;
+  border-radius:12px;
+  padding:0;
+  box-shadow:0 20px 80px rgba(20,35,29,.28);
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallDialog::backdrop { background:rgba(20,29,25,.72);backdrop-filter:blur(3px); }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseDialogShell { padding:20px; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseDialogShell>header {
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  align-items:start;
+  border-bottom:1px solid var(--xz-exit-line);
+  padding-bottom:12px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseDialogShell>header h2 { margin:3px 0 0;font-size:24px; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseDialogShell>header button { width:34px;height:34px;padding:0;font-size:20px; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallFront { display:grid;gap:17px;padding:24px 0 5px; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallFront>p { margin:0;font-size:21px;line-height:1.7;font-weight:650; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallInstruction {
+  display:grid;
+  gap:5px;
+  padding:14px;
+  border-radius:8px;
+  background:#f2f6f4;
+  font-size:16px;
+  line-height:1.6;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallReveal { display:grid;gap:13px;padding:18px 0 5px; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallReveal>div { padding:12px 14px;border-radius:8px;background:#f6f8f7; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallReveal :is(ol,ul,li,b) { font-size:16px;line-height:1.6; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallReveal :is(ol,ul) { margin:8px 0 0;padding-left:24px; }
+
+/* Reviewed Crosswalk is a conditional evidence strip, not another card product. */
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xqc {
+  margin:0 14px 14px;
+  padding:12px 14px;
+  border:1px solid var(--xz-exit-line);
+  border-radius:8px;
+  background:#f8fbf9;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:8px 16px;
+  align-items:center;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xqc>div { display:grid;gap:3px; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xqc span { font-size:15px;font-weight:800;color:var(--xz-exit-green); }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xqc strong { font-size:16px; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xqc a {
+  justify-self:end;
+  padding:8px 10px;
+  border:1px solid currentColor;
+  border-radius:7px;
+  color:var(--xz-exit-green);
+  font-size:15px;
+  font-weight:750;
+  text-decoration:none;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xqc a:hover { text-decoration:underline; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xqc p { grid-column:1/-1;margin:0;color:var(--xz-exit-muted);font-size:15px;line-height:1.55; }
+
+/* Repair Return is subordinate to the question evidence, but remains fully readable. */
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrr {
+  margin:0 14px 14px;
+  overflow:hidden;
+  border:1px solid var(--xz-exit-line);
+  border-radius:8px;
+  background:#fff;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrr>summary {
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  gap:5px 13px;
+  align-items:center;
+  padding:13px 14px;
+  cursor:pointer;
+  list-style:none;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrr>summary::-webkit-details-marker { display:none; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrr>summary span { color:var(--xz-exit-green);font-size:15px;font-weight:800; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrr>summary strong { font-size:16px;line-height:1.45; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrr>summary small { color:var(--xz-exit-muted);font-size:15px;line-height:1.45; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrrBody { display:grid;gap:11px;padding:14px;border-top:1px solid var(--xz-exit-line); }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrrBody>p,
+body#kianos-workspace.surfaceBody-xizong .xzExitStage :is(.xrrApplyRow small,.xrrList small) {
+  margin:0;
+  color:var(--xz-exit-muted);
+  font-size:15px;
+  line-height:1.55;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage :is(.xrrActions,.xrrApplyRow) { display:flex;gap:9px;align-items:center;flex-wrap:wrap; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrr label { display:grid;gap:6px; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrr label span { font-size:15px;font-weight:750; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrr textarea {
+  width:100%;
+  box-sizing:border-box;
+  padding:10px;
+  border:1px solid var(--xz-exit-line);
+  border-radius:7px;
+  background:#fff;
+  font:15px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;
+  resize:vertical;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrrList { display:grid;gap:8px; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrrList article {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:6px 11px;
+  padding:11px;
+  border:1px solid var(--xz-exit-line);
+  border-radius:7px;
+  background:#f8faf9;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrrList article>div { display:flex;gap:8px;align-items:center; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrrList article>div span {
+  padding:3px 7px;
+  border-radius:999px;
+  background:#eaf3ee;
+  color:var(--xz-exit-green);
+  font-size:15px;
+  font-weight:800;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrrList article p { grid-column:1/-1;margin:0;font-size:15px;line-height:1.5; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrrList article a { justify-self:end; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrr script { display:none; }
+
+@media (max-width:1050px) {
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseSteps { grid-template-columns:1fr; }
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xzExitCard+.xzExitCard { border-left:0;border-top:1px solid var(--xz-exit-line); }
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHero { grid-template-columns:1fr; }
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHoldoutEditor { grid-template-columns:1fr; }
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHoldoutEditor button { justify-self:start; }
+}
+@media (max-width:760px) {
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage>summary,
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrr>summary { grid-template-columns:1fr; }
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage>summary::before { display:none; }
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage>summary small { grid-column:auto; }
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xqc { grid-template-columns:1fr; }
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xqc a { justify-self:start; }
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrrList article { grid-template-columns:1fr; }
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrrList article a { justify-self:start; }
+}
+
+/* Stronger than component layout selectors, without !important. */
+body#kianos-workspace.surfaceBody-xizong .xzExitStage [hidden] { display:none; }

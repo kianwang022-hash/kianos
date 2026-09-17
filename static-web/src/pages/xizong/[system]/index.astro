@@ -11,6 +11,7 @@ import { listProjectableXizongSystems, loadXizongSystem } from '../../../lib/xiz
 import { loadXizongPathways } from '../../../lib/xizongPathways.mjs';
 import { loadXizongSystemQuestionSweep } from '../../../lib/xizongQuestions.mjs';
 import '../../../styles/xizong-system-workspace.css';
+import '../../../styles/xizong-system-exit-workspace.css';
 
 export function getStaticPaths() {
   return listProjectableXizongSystems().map((system) => ({ params: { system: system.systemId }, props: { systemId: system.systemId } }));
@@ -25,7 +26,7 @@ const questionSweep = loadXizongSystemQuestionSweep(system);
   <XizongLastLocation system={system} />
   <XizongSystemWorkspace system={system} pathways={pathways} />
   {questionSweep && (
-    <details class="xizongLaterStage" data-xizong-later-stage="system-exit">
+    <details class="xzExitStage" data-xizong-later-stage="system-exit">
       <summary>
         <span>后面阶段 · System Exit</span>
         <strong>学完整个系统后，再做 System Recall + 系统真题</strong>
