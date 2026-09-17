@@ -26,8 +26,8 @@ const domainCount = domains.length;
       </section>)}
     </main>
     <aside class="xzOverviewCompanion">
-      <section><p class="pageKicker">学习主线</p><h2>理解、回忆、应用。</h2><ol class="xzLearnerChain"><li><strong>System / Block</strong><span>建立位置与主机制</span></li><li><strong>学习节 / 原讲义</strong><span>在 iPad 连续学完整关系</span></li><li><strong>KP Recall / 闭合</strong><span>主动重建，再看完整 Core</span></li><li><strong>题目 / 最小修复</strong><span>用实际作答发现缺口</span></li></ol></section>
-      {domains.some(d=>!d.projectable&&!d.decomposed)&&<section class="xzFutureMap"><p class="pageKicker">完整知识地图</p><h2>后续学习域</h2><div>{domains.filter(d=>!d.projectable&&!d.decomposed).map(d=><div class="xzFutureRow"><b>{d.domainId}</b><span>{d.title}</span></div>)}</div><small>保留全局位置；不产生待办或学习债务。</small></section>}
+      <section><p class="pageKicker" style="font-size:16px">学习主线</p><h2>理解、回忆、应用。</h2><ol class="xzLearnerChain"><li><strong>System / Block</strong><span>建立位置与主机制</span></li><li><strong>学习节 / 原讲义</strong><span>在 iPad 连续学完整关系</span></li><li><strong>KP Recall / 闭合</strong><span>主动重建，再看完整 Core</span></li><li><strong>题目 / 最小修复</strong><span>用实际作答发现缺口</span></li></ol></section>
+      {domains.some(d=>!d.projectable&&!d.decomposed)&&<section class="xzFutureMap"><p class="pageKicker" style="font-size:16px">完整知识地图</p><h2>后续学习域</h2><div>{domains.filter(d=>!d.projectable&&!d.decomposed).map(d=><div class="xzFutureRow"><b>{d.domainId}</b><span>{d.title}</span></div>)}</div><small>保留全局位置；不产生待办或学习债务。</small></section>}
     </aside>
   </div>
 </Base>
