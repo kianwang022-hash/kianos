@@ -1,7 +1,9 @@
 name: Politics UI Visual Evidence
 
 on:
-  pull_request:
+  push:
+    branches:
+      - 'preview/politics-c00-visual-20260918'
     paths:
       - 'static-web/src/components/Politics*.astro'
       - 'static-web/src/layouts/PoliticsLayout.astro'
@@ -13,7 +15,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: politics-ui-visual-evidence-${{ github.event.pull_request.number }}
+  group: politics-ui-visual-evidence-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -32,6 +34,12 @@ jobs:
       - name: Install runtime
         working-directory: static-web
         run: npm install --no-audit --no-fund
+
+      - name: Install normal-width CJK font
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk
+          fc-match "Noto Sans CJK SC"
 
       - name: Install Chromium
         working-directory: static-web
@@ -101,7 +109,23 @@ jobs:
             bodyHeight: document.body.scrollHeight,
             viewportHeight: window.innerHeight,
             workspace: document.querySelector('[data-politics-cognitive-workspace]')?.getBoundingClientRect().toJSON?.() ?? null,
-            headline: document.querySelector('[data-stage="ORIENT"] h2')?.textContent?.trim() ?? null
+            workspaceBar: document.querySelector('.workspaceBar')?.getBoundingClientRect().toJSON?.() ?? null,
+            workspaceLocation: document.querySelector('.workspaceLocation')?.getBoundingClientRect().toJSON?.() ?? null,
+            workspaceTabs: document.querySelector('.workspaceUnitTabs')?.getBoundingClientRect().toJSON?.() ?? null,
+            chapterContext: document.querySelector('.chapterContext')?.getBoundingClientRect().toJSON?.() ?? null,
+            headline: document.querySelector('[data-stage="ORIENT"] h2')?.textContent?.trim() ?? null,
+            headlineStyle: (() => {
+              const el = document.querySelector('[data-stage="ORIENT"] h2');
+              if (!el) return null;
+              const style = getComputedStyle(el);
+              return {
+                fontFamily: style.fontFamily,
+                fontSize: style.fontSize,
+                fontWeight: style.fontWeight,
+                letterSpacing: style.letterSpacing,
+                lineHeight: style.lineHeight
+              };
+            })()
           }));
 
           fs.writeFileSync(
