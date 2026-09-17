@@ -1,0 +1,42 @@
+---
+import ReadingWorkspace from './ReadingWorkspace.astro';
+
+const {
+  reading,
+  mode = 'reading-a',
+  backHref = import.meta.env.BASE_URL,
+  label = 'Reading A'
+} = Astro.props;
+const external = mode === 'external';
+---
+<div
+  data-shared-reading-workspace
+  data-reading-mode={mode}
+  data-reading-back-href={backHref}
+  data-reading-label={label}
+>
+  <ReadingWorkspace reading={reading} />
+</div>
+
+{external && (
+  <script>
+    const adapter = document.querySelector('[data-shared-reading-workspace][data-reading-mode="external"]');
+    const root = adapter?.querySelector('[data-local-port="reading"]');
+    if (adapter instanceof HTMLElement && root instanceof HTMLElement) {
+      const header = root.querySelector('.portedReadingSessionHeader');
+      const back = header?.querySelector(':scope > a');
+      const label = header?.querySelector('.portedReadingHeaderCenter > span');
+      if (back instanceof HTMLAnchorElement) {
+        back.href = adapter.dataset.readingBackHref || back.href;
+        back.textContent = '‹ External Reading';
+      }
+      if (label) label.textContent = adapter.dataset.readingLabel || 'External Reading';
+
+      // External objects share the Reading interaction engine but do not join
+      // the true-exam multi-passage continuous-session state. A dedicated
+      // External continuous session can be added only if real use needs it.
+      const continuous = root.querySelector('[data-reading-continuous]');
+      if (continuous instanceof HTMLElement) continuous.hidden = true;
+    }
+  </script>
+)}
