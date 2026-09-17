@@ -9,12 +9,13 @@ const componentPath = path.join(src, 'components', 'XizongSystemWorkspace.astro'
 const retiredComponentPath = path.join(src, 'components', 'XizongSystemV6.astro');
 const ownerPath = path.join(src, 'styles', 'xizong-system-workspace.css');
 const legacyLanePath = path.join(src, 'styles', 'xizong-presentation.css');
+const denseCalmPath = path.join(src, 'styles', 'xizong-dense-calm.css');
 const errors = [];
 
 const read = (file) => fs.readFileSync(file, 'utf8');
 const fail = (message) => errors.push(message);
 
-for (const file of [routePath, componentPath, ownerPath, legacyLanePath]) {
+for (const file of [routePath, componentPath, ownerPath, legacyLanePath, denseCalmPath]) {
   if (!fs.existsSync(file)) fail(`required file missing: ${path.relative(webRoot, file)}`);
 }
 
@@ -23,6 +24,7 @@ if (!errors.length) {
   const component = read(componentPath);
   const owner = read(ownerPath);
   const legacy = read(legacyLanePath);
+  const denseCalm = read(denseCalmPath);
 
   if (!route.includes("import XizongSystemWorkspace from '../../../components/XizongSystemWorkspace.astro';")) {
     fail('System route must consume XizongSystemWorkspace.astro');
@@ -43,6 +45,12 @@ if (!errors.length) {
   if (retiredSystemSelector.test(legacy)) {
     fail('retired System Framework selectors must be physically absent from broad xizong-presentation.css');
   }
+  if (/\.xzSystem(?:\b|[A-Z])/.test(denseCalm)) {
+    fail('xizong-dense-calm.css must not own Current xzSystem namespace');
+  }
+  if (retiredSystemSelector.test(denseCalm)) {
+    fail('retired System Framework selectors must be physically absent from xizong-dense-calm.css');
+  }
 }
 
 if (fs.existsSync(retiredComponentPath)) fail('retired XizongSystemV6.astro still exists');
@@ -59,5 +67,5 @@ console.log(JSON.stringify({
   route_css: 'none',
   component_css: 'none',
   retired_component: 'XizongSystemV6.astro',
-  legacy_css_status: 'retired System Framework selectors physically absent from broad presentation'
+  legacy_css_status: 'retired System Framework selectors physically absent from broad presentation and dense calm'
 }, null, 2));
