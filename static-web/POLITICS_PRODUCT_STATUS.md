@@ -14,6 +14,8 @@ Parity capability owner: `POLITICS_LEGACY_FUNCTION_PARITY.md` / #116
 
 #115 的内容promotion 已经由 #124 完成。`content/politics/derived/xiao1000-learner-explanations/` 的1148 records 是 Current-derived 数据，后续任务是 exact-ID consumer/浏览器，不重做1148条语义迁移。
 
+Marxism C00 已完成第一轮 Golden cognitive-workspace 校准：S01 只保留真正降低重建成本的简单链；S02 明确采用 text-default，不把并列特征强画成拓扑；默认可见 learner text 已有 Mac 15px floor / 16px+ learner-copy browser gate。Golden 校准只证明表达规则，不等于允许向160个 NU 直接复制页面模板。
+
 ## 最新 learner-facing 决定
 
 Legacy 工作台交互/信息架构 + Current Question Truth/ownership/Evidence/Return + takeaway/chat_explanation。
@@ -34,13 +36,32 @@ Optional close 不取消内容学习前置。Suyi 被吸收不另开课；不要
 
 读取精确 chapter Projection 与它选中的 Current refs；null不补，REFERENCE_ONLY不升教学，first_round_exact不扩大。使用复用renderer/五科adapter，不逐章节手工重画；全量机器binding/coverage，异质代表浏览器/截图。
 
+### Purpose-first Representation Gate
+
+表达方式从 learner 目的倒推，不从 Projection 字段名倒推。Current `Map` / `edges` / `topology` 只说明知识存在结构，**不自动授予 graph UI**。
+
+默认规则：
+
+```text
+STRUCTURED_TEXT = hard fallback
+
+明确时间顺序 / timeline   → TIMELINE 可用
+明确比较轴 / matrix       → COMPARE 可用
+明确真实上下层级           → HIERARCHY 可用
+普通 chain / map / network → 仍先用 STRUCTURED_TEXT
+```
+
+`SIMPLE_CHAIN` 只允许在 Current 明确表达语义且经过当前 learner-facing review 时升级；仅仅因为 Projection 名字里出现 `CHAIN` 不够。`simultaneous_visibility=true` 只要求相关内容同时可获得，不要求同时画多张图。Projection object / field 的存在也不产生“一对象一卡片/一图”的 component entitlement。
+
+这条规则的目的不是减少结构，而是阻止视觉布局自行创造因果、上下级、汇聚关系或重要性。必要关系仍需完整、清晰、大字号呈现；不确定时退回结构化文字。
+
 实际 source/Projection/learner contract 与 `PRESENTATION_CONTRACT.md` 继续最高负责各自语义。Codex 不再需要去 Legacy 自己判定迁移政策；现行能力账本已给出 disposition，遗留路径只作provenance。
 
 正常优化使用 KEEP/OPTIMIZE/RESTORE_FROM_PROJECTION/DEMOTE。不得变成第二讲义、第二scheduler或新增学习债务。first-attempt/persistence/exact-return/daily有用handoff不回退。
 
 ## 验收出口
 
-运行 Current Projection/Politics QA、相关行为负控制和 master P-J1–8；五科认知与工作台是不同验收family。保护态、保存失败、刷新、跨源返回、长文本和Mac主视口都需真实证据。无新runtime/browser测试的文档更新不能标UI PASS。
+运行 Current Projection/Politics QA、Representation Gate、相关行为负控制和 master P-J1–8；五科认知与工作台是不同验收family。保护态、保存失败、刷新、跨源返回、长文本和Mac主视口都需真实证据。无新runtime/browser测试的文档更新不能标UI PASS。
 
 Workbench 已落 main 不自动关闭 #116。能力账本全部有 disposition、remaining product families 有实际证据、独立review及必要Kian视觉接受后，才可声明 Politics product/UI 范围闭合；学习U不能由测试制造。
 
