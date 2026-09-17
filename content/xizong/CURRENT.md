@@ -11,7 +11,7 @@ This file owns routing only. It does not own medical Core, lane Learning semanti
 
 **Active lane-level scope:** Xizong learner-facing UI architecture migration in the current Chat  
 **Blocker:** none in Xizong itself; shared Base Shell / collapsible global `K` rail is currently owned by the parallel English UI Chat and must be consumed from `main`, not reimplemented here  
-**Next action:** execute `static-web/XIZONG_UI_MIGRATION.md` **Slice 2 — Home + Memory ownership convergence** from current `main`. PR #368 has closed the System single-owner cutover. Treat draft PR #351 only as bounded candidate evidence: preserve justified product behavior such as explicit standalone Memory access, but do not merge its `xizong-peripheral-workspaces.css`, inline visual patches, or duplicate System Runtime fallback wholesale.
+**Next action:** execute `static-web/XIZONG_UI_MIGRATION.md` **Slice 2B — Memory single-owner readability migration** from current `main`. PR #368 has closed the System cutover and PR #370 has closed the Home cutover with explicit standalone Memory access. Preserve Memory Runtime / localStorage / Evidence semantics; replace its legacy tiny-text presentation inside the single intended Memory visual owner rather than adding a second polish/override layer.
 
 ### UI ownership boundary for the current parallel program
 
