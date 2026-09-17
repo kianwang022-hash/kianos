@@ -1,6 +1,13 @@
 ---
-const { reading } = Astro.props;
 const base = import.meta.env.BASE_URL;
+const {
+  reading,
+  surfaceLabel = 'Reading A',
+  backHref = base,
+  backLabel = '‹ Practice',
+  continuousSession = true,
+  reviewPacketLabel = `${surfaceLabel} review`
+} = Astro.props;
 const questions = reading.questions || [];
 const navigation = reading.navigation || {};
 const questionId = (question, index) => String(question.id || question.question_id || `q${question.ordinal || index + 1}`);
@@ -11,17 +18,19 @@ const questionId = (question, index) => String(question.id || question.question_
   data-reading-object={reading.objectId}
   data-reading-base={base}
   data-reading-next-id={navigation.nextId || ''}
+  data-reading-continuous-enabled={continuousSession ? 'true' : 'false'}
+  data-reading-review-packet-label={reviewPacketLabel}
 >
   <header class="portedReadingSessionHeader">
-    <a href={base}>‹ Practice</a>
+    <a href={backHref}>{backLabel}</a>
     <div class="portedReadingHeaderCenter">
-      <span>Reading A</span>
+      <span>{surfaceLabel}</span>
       <b>{reading.title}</b>
       <small data-reading-progress>Q1 / {questions.length}</small>
       <small data-reading-timer>00:00</small>
     </div>
     <div class="portedReadingHeaderActions">
-      <button type="button" data-reading-continuous aria-pressed="false">连续练</button>
+      <button type="button" data-reading-continuous aria-pressed="false" hidden={!continuousSession}>连续练</button>
       <button type="button" data-reading-prev aria-label="上一题">‹</button>
       <button type="button" data-reading-next aria-label="下一题">›</button>
       <button type="button" class="submit" data-reading-submit>Submit</button>
@@ -148,6 +157,8 @@ const questionId = (question, index) => String(question.id || question.question_
     const readingKey = root.getAttribute('data-reading-object') || 'reading';
     const basePath = root.getAttribute('data-reading-base') || '/';
     const nextReadingId = root.getAttribute('data-reading-next-id') || '';
+    const continuousEnabled = root.getAttribute('data-reading-continuous-enabled') !== 'false';
+    const reviewPacketLabel = root.getAttribute('data-reading-review-packet-label') || 'Reading A review';
     const storageKey = `kianos-reading-attempt-v1:${readingKey}`;
     const continuousKey = 'kianos-reading-continuous-session-v1';
     const navButtons = [...root.querySelectorAll('.portedReadingQuestionNav button')];
@@ -189,11 +200,15 @@ const questionId = (question, index) => String(question.id || question.question_
       reviewIndex: Number.isFinite(Number(value.reviewIndex)) ? Number(value.reviewIndex) : 0,
       lastSummary: value.lastSummary || null
     });
-    const readSession = () => normalizeSession(readJson(continuousKey, {}));
-    const writeSession = (value) => writeJson(continuousKey, normalizeSession(value));
+    const emptySession = () => normalizeSession({});
+    const readSession = () => continuousEnabled ? normalizeSession(readJson(continuousKey, {})) : emptySession();
+    const writeSession = (value) => {
+      if (!continuousEnabled) return;
+      writeJson(continuousKey, normalizeSession(value));
+    };
     const hrefForReading = (id) => `${basePath}reading/${encodeURIComponent(id)}/`;
     const setReviewUnlockedFor = (id, unlocked) => {
-      if (!id) return;
+      if (!id || !continuousEnabled) return;
       const key = `kianos-reading-attempt-v1:${id}`;
       const attempt = readJson(key, null);
       if (!attempt || !attempt.submitted) return;
@@ -337,28 +352,34 @@ const questionId = (question, index) => String(question.id || question.question_
       const itemCount = session.items.length;
 
       if (continuous) {
-        continuous.setAttribute('aria-pressed', String(session.active));
-        continuous.classList.toggle('active', session.active);
-        continuous.textContent = session.active ? `连续练 · ${itemCount}` : '连续练';
-        continuous.hidden = session.reviewing;
-        continuous.disabled = Boolean(state.submitted || (session.active && itemCount > 0));
+        if (!continuousEnabled) {
+          continuous.hidden = true;
+          continuous.disabled = true;
+          continuous.setAttribute('aria-pressed', 'false');
+        } else {
+          continuous.setAttribute('aria-pressed', String(session.active));
+          continuous.classList.toggle('active', session.active);
+          continuous.textContent = session.active ? `连续练 · ${itemCount}` : '连续练';
+          continuous.hidden = session.reviewing;
+          continuous.disabled = Boolean(state.submitted || (session.active && itemCount > 0));
+        }
       }
 
-      if (sessionActions) sessionActions.hidden = !(deferred || inReviewSession);
+      if (sessionActions) sessionActions.hidden = !continuousEnabled || !(deferred || inReviewSession);
       if (continueSession) {
-        continueSession.hidden = !deferred || !session.active || !nextReadingId;
+        continueSession.hidden = !continuousEnabled || !deferred || !session.active || !nextReadingId;
         continueSession.textContent = nextReadingId ? '下一篇 →' : '已到最后一篇';
       }
       if (reviewSession) {
-        reviewSession.hidden = !deferred || !session.active;
+        reviewSession.hidden = !continuousEnabled || !deferred || !session.active;
         reviewSession.textContent = session.reviewIds.length ? '结束并统一复盘' : '结束连续训练';
       }
 
       if (nextReview || finishReview) {
         const currentReviewIndex = session.reviewIds.indexOf(readingKey);
-        const hasNextReview = inReviewSession && currentReviewIndex >= 0 && currentReviewIndex < session.reviewIds.length - 1;
+        const hasNextReview = continuousEnabled && inReviewSession && currentReviewIndex >= 0 && currentReviewIndex < session.reviewIds.length - 1;
         if (nextReview) nextReview.hidden = !hasNextReview;
-        if (finishReview) finishReview.hidden = !inReviewSession || hasNextReview;
+        if (finishReview) finishReview.hidden = !continuousEnabled || !inReviewSession || hasNextReview;
       }
     };
 
@@ -463,7 +484,7 @@ const questionId = (question, index) => String(question.id || question.question_
     next?.addEventListener('click', () => setCurrent(state.currentIndex + 1, true));
 
     continuous?.addEventListener('click', () => {
-      if (state.submitted) return;
+      if (!continuousEnabled || state.submitted) return;
       const session = readSession();
       if (session.active && session.items.length > 0) return;
       if (session.active) {
@@ -553,7 +574,7 @@ const questionId = (question, index) => String(question.id || question.question_
       state.history = [attempt, ...(state.history || [])].slice(0, 8);
 
       const session = readSession();
-      if (session.active) {
+      if (continuousEnabled && session.active) {
         const currentItem = {
           id: readingKey,
           score,
@@ -575,12 +596,14 @@ const questionId = (question, index) => String(question.id || question.question_
     });
 
     continueSession?.addEventListener('click', () => {
+      if (!continuousEnabled) return;
       const session = readSession();
       if (!session.active || !nextReadingId) return;
       window.location.href = hrefForReading(nextReadingId);
     });
 
     reviewSession?.addEventListener('click', () => {
+      if (!continuousEnabled) return;
       const session = readSession();
       if (!session.active) return;
       const aggregate = aggregateSession(session);
@@ -605,6 +628,7 @@ const questionId = (question, index) => String(question.id || question.question_
     });
 
     nextReview?.addEventListener('click', () => {
+      if (!continuousEnabled) return;
       const session = readSession();
       if (!session.reviewing) return;
       const index = session.reviewIds.indexOf(readingKey);
@@ -616,6 +640,7 @@ const questionId = (question, index) => String(question.id || question.question_
     });
 
     finishReview?.addEventListener('click', () => {
+      if (!continuousEnabled) return;
       const session = readSession();
       if (!session.reviewing) return;
       const aggregate = aggregateSession(session);
@@ -719,7 +744,7 @@ const questionId = (question, index) => String(question.id || question.question_
           .join('\n');
         const trajectory = (state.trajectory?.[id] || []).map((step) => step.answer).join(' → ') || '—';
         const packet = [
-          'Reading A review',
+          reviewPacketLabel,
           `Object: ${readingKey}`,
           `Question: Q${ordinal(question)} (${id})`,
           `Prompt: ${prompt}`,
