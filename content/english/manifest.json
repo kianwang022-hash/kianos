@@ -1,18 +1,10 @@
 {
-  "schema": "kianos.english.content.owner_manifest.v2",
+  "schema": "kianos.english.content.owner_manifest.v3",
   "status": "CURRENT_READY",
   "owner_path": "content/english/",
   "semantic_authority": "CURRENT_MAIN_HEAD_ONLY",
-  "owners": {
-    "learning_contract": "content/english/LEARNING_CONTRACT.md",
-    "objective_learning": "content/english/modules/objective-learning.md",
-    "objective_runtime": "content/english/modules/objective-runtime.md",
-    "objective_evidence_runtime": "content/english/modules/objective-evidence-runtime.md",
-    "cloze_contract": "content/english/modules/cloze.md",
-    "reading_a_contract": "content/english/modules/reading-a.md",
-    "reading_b_contract": "content/english/modules/reading-b.md",
-    "translation_contract": "content/english/modules/translation/learning.md",
-    "writing_contract": "content/english/modules/writing/learning.md",
+  "architecture_note": "English learner product includes Vocabulary/Lexical as a child function. Lexical keeps independent backend canonical ownership under content/lexical because its asset scale and semantics justify it.",
+  "source": {
     "provenance": "content/english/provenance.json",
     "question_bank": "content/english/source/question_bank.v1.json",
     "reading_corpus": "content/english/source/reading_corpus.v1.json",
@@ -21,6 +13,22 @@
     "external_manifest": "content/english/external/manifest.json",
     "external_object_schema": "content/english/external/schema.json"
   },
+  "knowledge_and_learning_content": {
+    "lane_rule": "content/english/LEARNING_CONTRACT.md",
+    "objective_core_model": "content/english/modules/objective-learning.md",
+    "cloze": "content/english/modules/cloze.md",
+    "reading_a": "content/english/modules/reading-a.md",
+    "part_b": "content/english/modules/reading-b.md",
+    "translation": "content/english/modules/translation/learning.md",
+    "writing": "content/english/modules/writing/learning.md"
+  },
+  "transitional_non_content_owners": {
+    "rule": "These files are retained temporarily for compatibility but do not belong to the Content responsibility. They must be consumed as Presentation/Engineering rules and may be relocated when those layers are audited. They are not Knowledge owners.",
+    "presentation": "content/english/PROJECTION_CONTRACT.md",
+    "engineering_runtime": "content/english/modules/objective-runtime.md",
+    "engineering_evidence_runtime": "content/english/modules/objective-evidence-runtime.md"
+  },
+  "knowledge_rule": "English Knowledge is a transferable capability model, not a teacher-note archive. Accepted Knowledge should explain the decision object, decisive evidence/constraints, reusable representation or production structure, meaningful failure boundaries, and executable rules that survive new material. Teacher chapter order and page layout are not Knowledge ontology.",
   "source_identity": {
     "question_bank_sha256": "406fe860626539acc9a433a3bcfb48be29f683674b32d432ac87b60272df814e",
     "reading_corpus_sha256": "97d3204e7b6141652a3ed196914f74236e13ca24ef03de692f4b969d1a839f4a",
@@ -36,32 +44,12 @@
     "reading_passage_count": 110,
     "reading_question_count": 540
   },
-  "readiness": {
-    "source_bytes_materialized": true,
-    "source_hashes_verified": true,
-    "stable_identity_inventory_verified": true,
-    "full_exam_coverage_verified": true,
-    "reading_evidence_verified": true,
-    "reading_b_layout_present": true,
-    "learning_contract_present": true,
-    "objective_learning_present": true,
-    "objective_runtime_present": true,
-    "objective_evidence_runtime_present": true,
-    "cloze_contract_present": true,
-    "reading_a_contract_present": true,
-    "reading_b_contract_present": true,
-    "translation_contract_present": true,
-    "writing_contract_present": true,
-    "external_inventory_present": true,
-    "external_object_schema_present": true,
-    "pass": true
-  },
-  "runtime_contract": {
+  "runtime_boundary": {
     "astro_reads_current_only": true,
     "legacy_fallback": false,
-    "runtime_may_transform_representation": true,
-    "runtime_may_invent_or_repair_semantics": false,
+    "engineering_may_adapt_representation": true,
+    "engineering_may_invent_or_repair_semantics": false,
     "private_interaction_state_is_shared_current": false
   },
-  "provenance_rule": "Migration, recovery, repair, historical projection, and hash-audit evidence belongs in provenance.json or Git history and is not part of the normal Current runtime manifest."
+  "provenance_rule": "Migration, recovery, repair, historical projection, and hash-audit evidence belongs in provenance.json or Git history and is not normal learner Content."
 }
