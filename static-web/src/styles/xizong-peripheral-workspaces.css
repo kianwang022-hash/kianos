@@ -6,7 +6,8 @@ body#kianos-workspace.surfaceBody-xizong .xzOverviewHeader .pageKicker,
 body#kianos-workspace.surfaceBody-xizong .xzOverviewHeader>span,
 body#kianos-workspace.surfaceBody-xizong .xzSystemWorkbench>header>span,
 body#kianos-workspace.surfaceBody-xizong .xzOverviewCompanion .pageKicker,
-body#kianos-workspace.surfaceBody-xizong .xzFutureMap>small { font-size:15px; }
+body#kianos-workspace.surfaceBody-xizong .xzFutureMap>small,
+body#kianos-workspace.surfaceBody-xizong .xzFutureRow>b { font-size:15px; }
 body#kianos-workspace.surfaceBody-xizong .xzOverviewHeader p:not(.pageKicker),
 body#kianos-workspace.surfaceBody-xizong .xzOpenDomainHeading p,
 body#kianos-workspace.surfaceBody-xizong .xzSystemRow p,
@@ -26,9 +27,9 @@ body#kianos-workspace.surfaceBody-xizong .xizongMemoryEntry:hover strong { color
 
 /* ---------- Memory ---------- */
 body#kianos-workspace.surfaceBody-xizong .xzMemory { min-height:650px; }
-body#kianos-workspace.surfaceBody-xizong .xzMemory :is(span,small,label,button,summary,code,kbd,em) { font-size:15px; }
-body#kianos-workspace.surfaceBody-xizong .xzMemory :is(p,li,td,th,blockquote) { font-size:16px;line-height:1.65; }
-body#kianos-workspace.surfaceBody-xizong .xzMemory :is(b,strong) { font-size:15px; }
+body#kianos-workspace.surfaceBody-xizong .xzMemory :is(span,small,label,button,summary,code,kbd,em,b,strong) { font-size:15px; }
+body#kianos-workspace.surfaceBody-xizong .xzMemory :is(p,li,td,th,blockquote,dt,dd) { font-size:16px;line-height:1.65; }
+body#kianos-workspace.surfaceBody-xizong .xzMemory :is(input,textarea,select) { font-size:16px;line-height:1.5; }
 body#kianos-workspace.surfaceBody-xizong .xzMemoryIdentity h1 { font-size:28px; }
 body#kianos-workspace.surfaceBody-xizong .xzMemoryIdentity p { font-size:16px;line-height:1.55; }
 body#kianos-workspace.surfaceBody-xizong .xzMemorySummary b { font-size:19px; }
@@ -51,9 +52,9 @@ body#kianos-workspace.surfaceBody-xizong .xzMemoryAnswer,
 body#kianos-workspace.surfaceBody-xizong .xzMemoryPrecisionCue p { font-size:17px;line-height:1.72; }
 
 /* ---------- System Exit / official Question workspace ---------- */
-body#kianos-workspace.surfaceBody-xizong .xse :is(span,small,label,button,summary,code,kbd,em) { font-size:15px; }
-body#kianos-workspace.surfaceBody-xizong .xse :is(p,li,td,th) { font-size:16px;line-height:1.65; }
-body#kianos-workspace.surfaceBody-xizong .xse :is(b,strong) { font-size:15px; }
+body#kianos-workspace.surfaceBody-xizong .xse :is(span,small,label,button,summary,code,kbd,em,b,strong) { font-size:15px; }
+body#kianos-workspace.surfaceBody-xizong .xse :is(p,li,td,th,dt,dd) { font-size:16px;line-height:1.65; }
+body#kianos-workspace.surfaceBody-xizong .xse :is(input,textarea,select) { font-size:16px;line-height:1.5; }
 body#kianos-workspace.surfaceBody-xizong .xseHero h2 { font-size:24px; }
 body#kianos-workspace.surfaceBody-xizong .xseCard h3,
 body#kianos-workspace.surfaceBody-xizong .xseWorkspaceHead h3 { font-size:19px;line-height:1.4; }
