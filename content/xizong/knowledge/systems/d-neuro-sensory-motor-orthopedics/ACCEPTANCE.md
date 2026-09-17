@@ -16,7 +16,7 @@ This file owns D-scoped readiness truth only. It does not own medical Core, lear
 | S2 — exact official D System question membership | **UNTESTED** | separate later Source sub-boundary; gates trusted official-question sweep only |
 | K — Knowledge | **PASS** | `system.json` + 27 canonical Block Core; 27 Blocks / 356 stable KPs |
 | L — Learning Logic | **PASS_AFTER_REPAIR** | Phase 6C fresh defect → Phase 6D bounded repair → Phase 6E fresh independent PASS |
-| Content Realization / Optimization | **ACTIVE / NOT_CLOSED** | Phase 7A Content-role candidate built; wrapper-route and LG sufficiency work remains |
+| Content Realization / Optimization | **ACTIVE / NOT_CLOSED** | Phase 7A role model built; **Phase 7B 27/27 canonical wrapper cleanup PASS**; LG sufficiency/density + fresh Content closure remain |
 | P — Projection | **UNTESTED / DOWNSTREAM-FROZEN** | not eligible before Content closure |
 | R — Runtime | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | E — Evidence | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
@@ -81,9 +81,11 @@ Canonical Stage-2 candidate:
 
 `content/xizong/knowledge/learner/d-neuro-sensory-motor-orthopedics-content.json`
 
-Phase-7A evidence:
+Phase evidence:
 
-`content/xizong/knowledge/learner/D_PHASE7A_CONTENT_ROLE_AUDIT.md`
+- `content/xizong/knowledge/learner/D_PHASE7A_CONTENT_ROLE_AUDIT.md`
+- `content/xizong/knowledge/learner/D_PHASE7B_BLOCK_WRAPPER_CLEANUP_SPEC.md`
+- `content/xizong/knowledge/learner/D_PHASE7B_BLOCK_WRAPPER_CLEANUP_EXECUTION.md`
 
 Status:
 
@@ -91,6 +93,7 @@ Status:
 Content-role model                 BUILT
 natural Source-unit → LG mapping  BUILT
 integration-primary realization   BUILT
+27-Block wrapper cleanup          PASS / CLOSED
 canonical Core duplication        FORBIDDEN / NOT DONE
 Content PASS                       NOT CLAIMED
 ```
@@ -112,55 +115,7 @@ It references canonical KP Core rather than copying a second medical truth.
 
 ## Phase 7A material findings
 
-### 1｜Stale learner-route metadata remains inside canonical Block wrappers
-
-Representative D Block Markdown still carries old frontmatter `prerequisites / next_blocks` from before Phase-6 readiness repair.
-
-Examples include old serial relations in N2/N3/N4/N5/N6/N7/N8/N9 and O1 that are no longer hard learner legality.
-
-Acceptance interpretation:
-
-```text
-accepted Learning owner system_route.requires
-= sole D hard readiness authority
-
-Block frontmatter prerequisites / next_blocks
-= legacy non-authoritative Content debt
-```
-
-This debt must be removed or rewritten before Content can PASS.
-
-### 2｜Current FIRST PASS prose is too uniform for accepted Source-contact modes
-
-Existing wrapper copy commonly assumes one literal pattern:
-
-```text
-Framework → Lecture → Reconstruction → KP Recall → ...
-```
-
-But accepted D Learning distinguishes:
-
-- `WHOLE_BLOCK_SOURCE`;
-- `NATURAL_SOURCE_UNITS`;
-- `INTEGRATION_PRIMARY`.
-
-N11/O1 in particular must not manufacture a new continuous Primary Lecture pass.
-
-### 3｜Some prose converts default-route benefit into learner-state assumption
-
-Statements like `N1–N3已经建立...` or `N5已建立...` are acceptable only as default-route shorthand, not as hard prerequisite or learner-progress truth.
-
-Content closure requires wording that distinguishes:
-
-```text
-true hard dependency
-vs
-可调用 / benefits_from / local reactivation
-```
-
-### 4｜Broad medical-Core rewrite is not justified
-
-Existing Block Markdown already provides substantial valid Stage-2 material:
+Phase 7A established that broad medical-Core rewrite was **not justified**. Existing Block Markdown already supplies substantial Stage-2 material:
 
 - center problem / minimum map;
 - Framework;
@@ -170,13 +125,73 @@ Existing Block Markdown already provides substantial valid Stage-2 material:
 - visual gates;
 - many precision/confusable/connection cues.
 
-Therefore Content optimization should repair role/timing and only rewrite individual KP Core when a specific content-quality defect is found.
+The real first defect layer was role/timing drift: stale route metadata, generic FIRST PASS prose and prior-learning assumptions.
+
+---
+
+## Phase 7B acceptance — PASS / CLOSED
+
+Execution evidence:
+
+`content/xizong/knowledge/learner/D_PHASE7B_BLOCK_WRAPPER_CLEANUP_EXECUTION.md`
+
+### Scope accounting
+
+```text
+N1–N11 canonical wrappers = 11 / 11 cleaned
+O1–O16 canonical wrappers = 16 / 16 cleaned
+Total                      = 27 / 27
+```
+
+Compare from Phase-7B baseline `c064aea5f09eed52f9a27484026580b6b794ba39` to the completed batch showed:
+
+```text
+27 commits
+27 changed canonical Block files
+per-file change size = wrapper-scale only (12–39 changed lines)
+```
+
+### Closed defects
+
+1. canonical D Block wrappers no longer advertise a competing prerequisite / next-Block route;
+2. first-pass role copy now matches accepted `WHOLE_BLOCK_SOURCE / NATURAL_SOURCE_UNITS / INTEGRATION_PRIMARY` semantics;
+3. benefits-from owners are expressed as reusable context / bounded local reactivation rather than learner-state assumptions;
+4. N11/O1 do not manufacture a new continuous Primary Lecture pass;
+5. Natural Source Units release intended LG groups without LG-by-LG Source bouncing;
+6. canonical Detailed Expansion is framed as Core check / repair / reference rather than compulsory continuous first-pass exposition;
+7. Outline is a Coverage Safety Net, not a quantity gate;
+8. repository construction state is not converted into learner completion/mastery truth.
+
+### Hard-readiness preservation
+
+Phase 7B did not redesign Learning. The only hard readiness remains:
+
+```text
+N1 + N5 + N8 → N11
+N11 → O3 / O4 / O5
+```
+
+Useful relations such as N1→N2, N5→N6/N7, O2→O6/O7, and N11→O11 remain available only as benefit / reactivation where relevant.
+
+### Medical-Core preservation
+
+Phase 7B did not intentionally alter:
+
+- Block identity/order;
+- KP identity/number/order;
+- 356-KP medical truth;
+- 128 accepted LG membership;
+- visual gates;
+- explicit Source gaps/conflicts;
+- negative-space ownership.
+
+The small per-file diff footprint is consistent with wrapper/authority repair rather than broad Core reconstruction.
 
 ---
 
 ## Natural Source-unit Content realization
 
-The Stage-2 candidate compiles accepted Source units into LG release groups for:
+The Stage-2 candidate and cleaned wrappers now realize accepted Source units for:
 
 ```text
 N4 N5 N6 N7 N8 N10
@@ -187,11 +202,16 @@ This does not change LG membership or Source-contact truth. It answers the Conte
 
 > after which accepted continuous Source unit is which accepted retrieval/closure content naturally ready?
 
-Examples:
+Representative realized splits:
 
 - N6 optics/near response → LG01–02;
 - N6 retina/transduction/visual phenomena → LG03–05;
 - N6 visual pathway/field → LG06;
+- N8 spinal reflex/tone → LG01–04;
+- N8 basal ganglia/cerebellum → LG05;
+- N8 cortex/descending/UMN-LMN → LG06;
+- N10 higher cortical function → LG01–03;
+- N10 hypothalamus → LG04–06;
 - O11 soft-tissue unit → LG01–04;
 - O11 nerve-compression unit → LG05 with N11 bounded reactivation only;
 - O16 general coordinate/evidence → LG01 + LG07;
@@ -200,32 +220,43 @@ Examples:
 
 ---
 
+## Active Content acceptance work — Phase 7C
+
+Content remains **NOT_CLOSED**. The earliest unresolved semantic question is now neural LG sufficiency / density.
+
+For every accepted N1–N11 LG, Phase 7C must test:
+
+1. whether the LG has a clear learner model / causal job;
+2. whether its canonical KP set is sufficient for that job;
+3. whether prompts support active recall without excessive answer leakage;
+4. whether Detailed Expansion is sufficient for check / repair while remaining optional during fluent recall;
+5. whether exact-memory / confusable / boundary material is present where genuinely needed;
+6. whether visual cognition remains correctly delegated to Source / Visual Gate;
+7. whether Source gaps/conflicts remain explicit;
+8. whether LG closure can occur without unrelated prior-Block completion assumptions.
+
+Phase 7C may make targeted Core repairs only where a concrete content defect is demonstrated. It must not broadly rewrite accepted Core or reopen Learning topology for stylistic reasons.
+
+After Phase 7C:
+
+```text
+Phase 7D — O1–O16 LG-by-LG content sufficiency/density audit
+→ Phase 7E — fresh independent Content closure audit
+```
+
+---
+
 ## Content close requirements
 
 Content remains **NOT_CLOSED** until all are demonstrated:
 
-1. canonical D Block wrappers no longer advertise a competing prerequisite/next route;
-2. first-pass role copy matches each Block's accepted Source-contact class;
-3. benefits-from language is not mistaken for hard learner-state truth;
-4. every accepted LG has sufficient canonical Core + retrieval/closure support;
-5. full KP Core remains available but is not treated as compulsory continuous KianOS reading;
-6. Source gaps/conflicts remain explicit and unresolved where appropriate;
-7. original Lecture remains primary for genuine new Source learning;
-8. Page-disappearance test passes;
-9. Content assets do not choose UI geometry, disclosure widgets, runtime states or evidence semantics.
-
----
-
-## Current Content work order
-
-```text
-Phase 7B — 27-Block wrapper / authority cleanup
-→ Phase 7C — N1–N11 LG-by-LG content sufficiency + density audit
-→ Phase 7D — O1–O16 LG-by-LG content sufficiency + density audit
-→ Phase 7E — fresh independent Content closure audit
-```
-
-These are construction batches only, not learner hierarchy.
+1. wrapper authority / route semantics remain clean — **Phase 7B PASS**;
+2. every accepted LG has sufficient canonical Core + retrieval/closure support;
+3. full KP Core remains available but is not treated as compulsory continuous KianOS reading;
+4. Source gaps/conflicts remain explicit and unresolved where appropriate;
+5. original Lecture remains primary for genuine new Source learning;
+6. Page-disappearance test passes;
+7. Content assets do not choose UI geometry, disclosure widgets, runtime states or evidence semantics.
 
 ---
 
