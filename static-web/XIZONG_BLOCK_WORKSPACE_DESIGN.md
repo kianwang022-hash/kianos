@@ -185,13 +185,14 @@ KP Recall remains a two-state learner interaction inside the owning Logic Group:
 
 ```text
 A. Recall Front
-   KP identity + neutral Active Prompt only
+   same KP card / same title / same Active Prompt / same useful Context
+   + canonical Core hidden
    → learner reconstructs from memory
    → Reveal
 
 B. Recall Reveal
-   Current KP title + complete canonical Core
-   + relevant Current context only
+   same KP card / same Context
+   + complete canonical Core visible
    → 1 / 2 / 3 / 4 evidence
    → next unrecalled KP in the same Logic Group
 ```
@@ -200,24 +201,24 @@ B. Recall Reveal
 
 Hard rule:
 
-> **Neutral-front protection applies to the whole workspace, not only the main Recall card.**
+> **KP Recall protects the canonical Core, not the whole workspace.**
 
 Before Reveal:
 
-- show current Block / Logic Group position and KP ID;
-- show the Current neutral prompt / `主提示` when it is non-answer-leaking;
-- do not show the answer-type KP title, canonical Core, Precision answer cue, answer-revealing Visual cue, or other contextual content that leaks the formal answer;
-- the left Logic Map remains visible; the current Logic Group may expand to show KP IDs / state only;
-- do not expose answer-type titles through a side dock, breadcrumb, inspector, tooltip or shortcut chrome.
+- keep the same KP identity/title and Active Prompt visible;
+- keep the same Logic Map visible, including current LG goal / closure and real KP titles/states;
+- keep Current-owned Source / Outline / Precision / Visual / Connection Context visible when useful;
+- hide the complete canonical KP Core;
+- Reveal opens that same Core in place.
 
-A Current implementation risk was identified: the main Recall card correctly hides `kp.title` until Reveal, while the existing `XizongStudyEnhancer` dock can render `KPxx · title` during Recall. Productization must remove this cross-surface leakage and the Projection validator should cover the whole workspace neutral front rather than only the main card.
+This is intentionally different from Block/System Recall. KP Recall is a lightweight retrieval check inside an already learned local object, so the product does not spend extra interaction cost pretending the surrounding context disappeared.
 
 ### 9.2 Recall Reveal
 
 After legitimate Reveal:
 
-- show the Current KP title;
-- render the complete canonical Current Core without semantic thinning or AI summarization;
+- keep the Current KP title and surrounding Context in place;
+- reveal the complete canonical Current Core without semantic thinning or AI summarization;
 - preserve useful Current internal structure such as chains, tables, formulas, contrasts and headings;
 - Mac-wide Projection may improve spatial organization, typography and relation visibility without rewriting medical content;
 - relevant KP-level source locator / Visual / Precision may enter the conditional Context region only when Current owns them;
