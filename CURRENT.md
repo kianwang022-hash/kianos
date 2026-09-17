@@ -17,24 +17,162 @@ RULE / MODEL
 → CONTROL
 ```
 
-Shared Visual + Shared Shell are landed.  
-Home is now Human-Gate accepted and merged via **#390** (`main@4a8aa0c5`).
+Control now tracks **two long-running program streams in parallel**:
 
-The launch has moved into **three subject UI vertical slices in parallel**.
+```text
+A. WEBSITE / UI LAUNCH
+B. CONTENT IMPROVEMENT PROGRAM
+```
+
+Neither stream is subordinate to the other. Content may continue improving while mature learner surfaces launch; UI may launch without waiting for optional future Content enrichment.
+
+Shared Visual + Shared Shell are landed. Home is Human-Gate accepted. English Architecture-v2 / UI vertical is landed through #394. Politics and Xizong UI remain active learner-surface work.
 
 ---
 
-## Parallel UI lanes
+## Website / UI launch stream
 
-All three lanes start from the same accepted Home/shared baseline `4a8aa0c5`.
-
-| Lane | Branch | Owns | Must not change |
+| Lane | Current state | Owns | Must not change |
 | --- | --- | --- | --- |
-| Xizong UI | `work/ui-xizong-vertical-20260918` | Xizong subject/task presentation + narrow runtime wiring | Shared Visual, Shared Shell, Home, other subjects |
-| Politics UI | `work/ui-politics-vertical-20260918` | Politics Natural Unit / question / review presentation + narrow wiring | Shared Visual, Shared Shell, Home, other subjects |
-| English UI | `work/ui-english-vertical-20260918` | English task-family presentation + narrow wiring | Shared Visual, Shared Shell, Home, other subjects |
+| Xizong UI | **ACTIVE** · `work/ui-xizong-vertical-20260918` | Xizong subject/task presentation + narrow runtime wiring | Shared Visual, Shared Shell, other subjects, medical semantics |
+| Politics UI | **ACTIVE** · formal #395 + preview #397 | Politics Natural Unit / question / review presentation + narrow wiring | Politics Content/Learning/Surface-Mapping semantics, Shared Shell, other subjects |
+| English UI | **LANDED** · #394 | accepted English task geometry + SourceTruth boundary | Shared Shell, other subjects, English Learning semantics |
 
 Lexical remains an English learner-product child. Its backend canonical root may stay independent; learner-facing global navigation must not promote it into a fourth subject.
+
+### UI Human-Gate rule
+
+Material visual work follows:
+
+```text
+implementation / preview
+→ real browser screenshot
+→ Kian Human Gate
+→ targeted CI
+→ merge
+```
+
+An unapproved screenshot is not a visual PASS. CI green alone never authorizes merge of a material learner-facing visual change.
+
+---
+
+## Unified control entrypoint / task dispatcher
+
+Root `CURRENT.md` is the one entrypoint for project-control requests, but **not** the owner of every exact task.
+
+Natural language is enough:
+
+```text
+看看西综主线
+看看西综现在有哪些任务
+看看政治 UI
+英语现在做到哪
+```
+
+Control resolves the relevant owner chain and returns the current active task set.
+
+For Xizong Content, the normal dispatch path is:
+
+```text
+root CURRENT
+→ content/xizong/CURRENT.md
+→ content/xizong/CONTENT_MAINLINE.md
+→ exact active task owner(s)
+
+Examples of exact owners:
+D Content              → D scoped CURRENT
+Question Crosswalk     → question-relations/continuation.json
+Visual / Extension     → exact reviewed batch/asset owner when active
+```
+
+After Control presents tasks, a follow-up such as:
+
+```text
+开始第一个
+开始 D
+继续 Crosswalk
+```
+
+means:
+
+```text
+selected task
+→ re-read its exact Current/cursor
+→ load only the minimum required upstream authority
+→ start work immediately
+```
+
+No file-name or mode selection should be pushed back onto Kian.
+
+### Scheduling/update rule
+
+The dispatcher is **read-through**, not a manually duplicated task database.
+
+```text
+exact task owner
+= exact cursor / next action
+
+program mainline
+= active lanes / priority / dependency
+
+root Control
+= global discovery / routing / high-level snapshot
+```
+
+This prevents Root from becoming stale every time a bounded batch advances. Exact task progress remains live in its canonical cursor; Control discovers it on demand.
+
+---
+
+## Content improvement stream
+
+Root Control must summarize durable **program-level Content progress**, not only website work.
+
+It does not duplicate every batch or local audit. Exact Content truth and exact work cursors remain in their own owners. Root Control reads those owners and keeps only the current stage / meaningful progress / next durable gate.
+
+### Bound content feeds
+
+```text
+Xizong
+→ content/xizong/CONTENT_MAINLINE.md
+→ exact active System CURRENT when a System has an active stage
+→ content/xizong/question-relations/continuation.json for Crosswalk cursor
+
+English
+→ content/english/CURRENT.md
+
+Politics
+→ content/politics/CURRENT.md
+
+Lexical backend
+→ content/lexical/CURRENT.md
+```
+
+### Current Content snapshot
+
+| Content lane | Current progress | Next durable step |
+| --- | --- | --- |
+| **Xizong D · Neuro / Sensory / Motor / Orthopedics** | **Content Realization ACTIVE**. Upstream `S1 / K / L` closed. 27/27 Block wrapper cleanup closed. Neural sufficiency **56/56 LG PASS**. | **Phase 7D:** audit O1–O16 / **72 orthopedic LGs**, then Phase 7E fresh independent Content closure. P/R/E remain frozen until Content closes. |
+| **Xizong E · Reproductive / Breast** | Parallel Source / Knowledge groundwork is permitted by the mainline; no program-level accepted K/L closure is claimed here. | Source reconstruction/audit → Knowledge construction → independent K acceptance → Learning. |
+| **Xizong F · Remaining Clinical** | Later lane. | Starts after D/E priority unless a real exam/dependency reason reprioritizes it. |
+| **Xizong Question→Knowledge Crosswalk** | **C2 broad basic coverage ACTIVE**. Latest durable cursor: **727 REVIEWED relations**; no linear frontier. | Next evidence-driven review packet, default bounded batch 50. |
+| **Xizong Visual / Extension** | Continuous selective high-value program; deliberately no percentage-complete target. | Small reviewed batches only where a stable owner and real learner value justify them. |
+| **Lexical Content** | **7,946 / 7,946 COMPLETE** + independent semantic audit **7,946 / 7,946 COMPLETE**. | No broad Content rebuild; real learner use, then reopen only exact defects. |
+| **English Content** | Objective / Translation / Writing canonical Content accepted for current scope. | No broad Content program; change exact task owner only for concrete semantic defects. |
+| **Politics Content** | Five-subject semantic engineering closed through current scoped S/K/L/P/R/E. | No broad semantic program; reopen smallest owner only on concrete defect. |
+
+### Content-Control update rule
+
+Update this root snapshot when a **program-level stage changes**, for example:
+
+- D moves from Phase 7D → Content closure → Projection;
+- E passes K and enters Learning;
+- Crosswalk reaches a meaningful durable count/stage transition;
+- a whole-catalog Content program opens/closes;
+- a new System becomes the active medical-content priority.
+
+Do **not** update Root Current for each 50-item batch, one Block edit, one image crop, or one local CI rerun.
+
+This keeps Control useful without turning it into a duplicate Content database.
 
 ---
 
@@ -136,7 +274,7 @@ Do not run full GitHub CI after every cosmetic adjustment.
 
 ## Control reporting
 
-For launch work report only:
+For UI / launch work report:
 
 ```text
 Stage
@@ -146,11 +284,21 @@ Next
 Human Gate
 ```
 
-Hide branch/SHA/CI detail unless it changes the decision.
+For Content work report:
+
+```text
+Program / System
+Current stage
+Meaningful progress
+Next durable gate
+Real blocker
+```
+
+For a whole-project status request, show **both streams**. Hide branch/SHA/CI detail unless it changes the decision.
 
 ---
 
-## Hard freeze until launch
+## Hard boundaries
 
 Do not:
 - add new architecture layers/contracts for completeness;
@@ -158,6 +306,8 @@ Do not:
 - redesign accepted visual baselines by default;
 - let one subject lane edit shared shell/global visual ownership;
 - expose engineering/debug state as learner content;
-- block launch on unfinished optional content enrichment.
+- block website launch on unfinished optional Content enrichment;
+- freeze a valid Content program merely because UI launch work is active;
+- infer Content completion from UI/Runtime readiness or learner progress from repository state.
 
-**Optimization target:** a finished learning website that is cheap to keep filling with better Content.
+**Optimization target:** a finished learning website **and** a continuously improving canonical Content system, with Control making both visible without duplicating their exact owners.
