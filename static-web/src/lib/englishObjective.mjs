@@ -385,7 +385,7 @@ function snapshot(taskName) {
     let readingBLayoutHash = '';
 
     if (taskName === 'reading_b') {
-      if (manifest?.owners?.reading_b_layout !== SOURCE.readingBLayout || manifest?.readiness?.reading_b_layout_present !== true) {
+      if (manifest?.source?.reading_b_layout !== SOURCE.readingBLayout || !fs.existsSync(absolute(SOURCE.readingBLayout))) {
         throw new Error('READING_B_LAYOUT_OWNER_NOT_READY');
       }
       const layoutText = readText(SOURCE.readingBLayout);
