@@ -8,6 +8,7 @@ const check = (condition, code, detail = '') => {
 };
 const hasClassToken = (source, token) => [...source.matchAll(/\bclass\s*=\s*["']([^"']+)["']/g)]
   .some((match) => match[1].split(/\s+/).includes(token));
+const stripCssComments = (source) => source.replace(/\/\*[\s\S]*?\*\//g, '');
 
 const route = read('src/pages/xizong/[system]/index.astro');
 const exit = read('src/components/XizongSystemExitRuntime.astro');
@@ -36,7 +37,7 @@ check(!hasClassToken(exit, 'xseOptions'), 'exit_retired_broad_options_selector')
 for (const token of ['.xzExitStage', '.xse', '.xzExitCard', '.xzExitStem', '.xzExitOptions', '.xqc', '.xrr']) {
   check(owner.includes(token), 'owner_contains_surface_family', token);
 }
-check(!owner.includes('!important'), 'owner_has_no_cascade_recovery');
+check(!/!\s*important\b/i.test(stripCssComments(owner)), 'owner_has_no_cascade_recovery');
 
 const fontSizes = [...owner.matchAll(/font-size\s*:\s*(\d+(?:\.\d+)?)px/g)].map((match) => Number(match[1]));
 check(fontSizes.length > 0, 'owner_has_explicit_type_scale');
