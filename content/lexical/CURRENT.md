@@ -1,113 +1,108 @@
 # LexicalOS Current
 
-Role: human Work Cursor / fresh-Chat restart. Artifact Truth, Acceptance Truth and private Learner Truth are separate.
+Role: **Lexical backend engineering Work Cursor / fresh-Chat router**
 
-## Current truth
+Learner-facing Vocabulary / Lexical belongs under **English**. This file exists separately because Lexical has a large independent canonical asset set and specialized semantics.
+
+It does not own learner progress, English product navigation, or detailed Acceptance evidence.
+
+A bare `继续词汇 / 继续 Lexical` is a learner request unless the active conversation is clearly BUILD / UI / CONTROL work.
+
+---
+
+## Current state
 
 ```text
-Production Fresh Semantic Review:      COMPLETE — 7946 / 7946
-Independent Semantic Audit coverage:   COMPLETE — 7946 / 7946
-mechanically implemented frontier:     o7946
-post-audit closed implemented region:  o0001–o7946 COMPLETE ON MAIN via PR #307
-active Content execution stage:        NONE
-full-catalog K acceptance:             PASS — Issue #56
-Projection acceptance:                 PASS — Issue #323 / PR #324
-Runtime acceptance:                    PASS_WITH_DEBT — Issue #323 / PR #326
-Evidence acceptance:                   PASS — Issue #323 / PR #327
-active Lexical engineering gate:       NONE
-Learner validation:                    U — UNTESTED
-remaining catalog:                     NONE
+Catalog / Content             7946 / 7946 COMPLETE
+Independent semantic audit    7946 / 7946 COMPLETE
+K — Knowledge                 PASS
+P — Presentation              PASS
+R — Runtime                   PASS_WITH_DEBT
+E — Evidence                  PASS
+U — real learner validation   UNTESTED
+Active Lexical engineering gate  NONE
 ```
 
-Catalog Content execution: **COMPLETE — 7946 / 7946 owners closed post-audit**.
-Full-catalog K is **PASS — 7946 / 7946 accepted, BLOCKED 0**. Current Projection is **PASS**, Runtime is **PASS_WITH_DEBT**, and Evidence is **PASS** for the admitted generation.
+There is no current reason to restart broad Production Review, full-catalog Content construction, K audit or P/R/E closure without a concrete Current defect.
 
-Production/Audit, Content, Projection/Runtime/Evidence acceptance and private learner state are separate concepts. Engineering closure never manufactures learner progress.
+Detailed proof remains in scoped Acceptance / reconciliation assets rather than this cursor.
 
-## 1｜Closed Content / K authority
+---
 
-- Production Fresh Semantic Review: **7946/7946 COMPLETE**.
-- Independent Semantic Audit: **7946/7946 COMPLETE**.
-- Mechanical post-audit implementation: **o0001–o7946 COMPLETE**.
-- Final Content stage: **#303 / o7875–o7946 / PR #307**.
-- Full-catalog K re-acceptance: **Issue #56 PASS / CLOSED**.
-- Coverage authority: `content/lexical/semantic-audit/reconciliation/CATALOG_COVERAGE_RECONCILIATION.md`.
-- K evidence: `content/lexical/acceptance/full-catalog-k-*.json`.
+## Stable owners
 
-Do not restart broad Production Review, Independent Audit, Content execution or full-catalog K without a concrete Current defect.
+- Lexical Rule / Model → `LEARNING_CONTRACT.md`
+- canonical word/content assets → `canonical/`
+- Knowledge-quality contract → `CONTENT_ASSET_CONTRACT.md`
+- catalog / coverage reconciliation → existing reconciliation owners
+- scoped Acceptance evidence → `ACCEPTANCE.md` and `acceptance/`
+- learner-facing Visual → shared Presentation authority + accepted Lexical surface blueprint
+- shared Engineering behavior → root `SYSTEM_CONTRACT.md`
+- Lexical implementation → exact current `static-web/` owner
+- learner truth → private learner/browser/conversation state only
 
-## 2｜#323 P/R/E Current re-acceptance — CLOSED
+Backend ownership independence does not make Lexical a fourth learner-facing subject.
 
-Issue **#323** is closed after main readback. The dependency chain was reconciled in order:
+---
 
-`P → R → E → U`
+## Remaining Runtime debt
 
-### P — PASS
+One named non-blocking convenience debt remains:
 
-Fresh audit: `content/lexical/acceptance/PRE_CURRENT_REACCEPTANCE_AUDIT_20260917.md`.
+> no first-class "recommended small Repair subset + why now" presentation.
 
-PR #324 accepted the Current 7,946-owner Projection after latest-main synchronization and exact-head Governance / Runtime / Functional First validation. Current learner projection preserves Study/Continue, Search, Repair, Challenge, Recall→Reveal, Fast Pass/Depth routing, exact local `+`, sparse/rich shapes, Relation/Form identity and Coverage continuation without a known projection blocker.
+This is not a study prerequisite and must not become a fixed scheduler, overdue wall or mandatory Repair-clearing queue.
 
-### R — PASS_WITH_DEBT
+Improve it only if real learner use shows clear value.
 
-Fresh audit: `content/lexical/acceptance/R_CURRENT_REACCEPTANCE_AUDIT_20260917.md`.
+---
 
-PR #326 established that Current Runtime already executes Coverage, Fast Pass/Depth, exact local Repair, shared-ledger projection, Challenge, Return, English handoff and resume without a due wall or forced Repair-clearing gate.
+## Normal routing
 
-Named non-blocking debt:
+### Content / Knowledge
 
-> No first-class “recommended small Repair subset + why now” presentation exists yet.
+```text
+exact lexical canonical owner
+→ Knowledge-quality contract when needed
+→ scoped Acceptance only when the claim matters
+→ work
+```
 
-The Repair tab is an optional ACTIVE inventory, not a mandatory due queue. Chat can already compile a bounded Challenge subset. Do not replace this debt with calendar scheduling, fixed quotas or an overdue wall.
+### Visual
 
-### E — PASS
+```text
+shared Presentation authority
+→ accepted Lexical blueprint
+→ exact surface owner
+→ representative browser proof
+```
 
-Fresh audit: `content/lexical/acceptance/E_CURRENT_REACCEPTANCE_AUDIT_20260917.md`.
+### Runtime / Evidence
 
-Fresh attack found a real identity-evolution defect and repaired it rather than merely changing the label.
+```text
+SYSTEM_CONTRACT.md
+→ exact Lexical runtime/evidence owner
+→ targeted proof
+```
 
-Real Current fixture `abnormal@7` proves both lifecycle cases already exist in Word-owner authority:
+Do not restart a broad P/R/E program for a narrow real-use defect.
 
-- old sense `sense:abnormal:3271d9f4317951c3` explicitly `merged` into active `sense:abnormal:98807d28524a5607`;
-- old sense `sense:abnormal:eb663cac3ad15b02` is `deprecated` with no successor.
+---
 
-Current Evidence now projects owner-owned identity lineage into the private ledger before Repair derivation:
+## Fresh-Chat rule
 
-- explicit merge follows the exact successor;
-- deprecated/no-successor freezes and creates no actionable Repair;
-- conflicts/cycles fail closed;
-- historical learner events are not rewritten;
-- correction/recomputation can resolve across an explicit merge;
-- direct Word entry and Home use the same reconciliation semantics.
+Known Lexical engineering work should normally reach effective work after roughly 2–3 precise reads.
 
-PR #327 was synchronized with latest main through PR #330. On final synchronized head `a741fd31122363565ca9f4614f5bea7f30db7f50`, Governance #660, Shard Tools #318, Current Runtime #1058 and Functional First #292 / run `35165973203` all passed, including both new identity-lineage gates and every existing Lexical regression journey. PR #327 then merged to main as `d2424495bd2cd17711a3cf14c8e52c408eb70e2e`.
+For learner continuation, do not start from this engineering cursor. Resume from actual Lexical learner/runtime state inside the English learner product.
 
-### U — UNTESTED
+Historical Issues, PRs, audit counts and branch aliases are evidence only.
 
-Only real private learner use can establish U. Browser/synthetic acceptance does not count as learner validation.
+---
 
 ## Exact next action
 
-The shared Lexical Content/K/P/R/E engineering acceptance cursor is **closed**. There is **no active Lexical engineering gate** and this file authorizes no new Content/K/P/R/E project.
+**Real learner use.**
 
-The remaining evidence class is real learner `U`: actual private study/use may reveal friction, weak transfer, or concrete defects. Such evidence should reopen only the smallest owning layer rather than restarting a broad acceptance program.
+If real study reveals friction, weak transfer or a concrete defect, reopen only the smallest responsible Rule / Content / Visual / Engineering owner.
 
-The named R convenience debt (“recommended small Repair subset + why now”) may be improved later if real use shows it is valuable, but it is not a prerequisite for study and must not become a fixed scheduler or overdue wall.
-
-## Restart boundary
-
-```text
-main@HEAD
-→ Production = 7946/7946 COMPLETE
-→ Independent Audit = 7946/7946 COMPLETE
-→ Content = COMPLETE
-→ K = PASS
-→ P = PASS
-→ R = PASS_WITH_DEBT
-→ E = PASS
-→ #323 = CLOSED
-→ U = UNTESTED
-→ no active Lexical engineering gate
-```
-
-Never infer a new task from an old Issue title, branch alias, historical audit count or prior Chat narrative. Continue Current.
+Do not manufacture a new engineering project merely because `U` is still untested.
