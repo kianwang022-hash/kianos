@@ -16,7 +16,8 @@ Chat / GitHub change
 → dedicated Mac Current mirror detects the new main SHA
 → the whole repository updates atomically to origin/main
 → Astro restarts against that exact Current
-→ localhost presents the new Current
+→ the already-open localhost page detects the new SHA and reloads
+→ learner sees the new Current
 ```
 
 This is a whole-repository contract. It is not Lexical-only. Changes under Xizong, English, Politics, Lexical, shared Runtime, shared UI, manifests and other canonical content all travel through the same mirror.
@@ -43,13 +44,18 @@ This prevents a GitHub update from destroying local development changes and remo
 3. fetches and hard-resets the dedicated mirror when main advances;
 4. refreshes npm dependencies only when package inputs changed;
 5. restarts Astro so canonical files outside `static-web/src/` cannot remain stale through an HMR/watch-boundary miss;
-6. keeps the site running through transient network failures.
+6. writes the exact local Current SHA to `static-web/public/__kianos-current.json` inside the disposable mirror;
+7. the shared Base polls that localhost-only status and reloads an already-open page when the synced SHA changes;
+8. transient network failure keeps the last successfully synced site usable.
 
-Default check interval: **8 seconds**.
+Default main check interval: **8 seconds**.  
+Default browser Current check interval: **3 seconds**.
+
+The status file is local delivery state, not a canonical repository owner and not learner Evidence.
 
 ## macOS install
 
-From any trusted checkout of this repo:
+From any trusted checkout of this repo, once:
 
 ```bash
 cd static-web
@@ -62,7 +68,10 @@ The installer:
 - installs `static-web` dependencies;
 - creates `~/Library/LaunchAgents/com.kianos.current-mirror.plist`;
 - starts a persistent background supervisor;
-- opens `http://127.0.0.1:4321/`.
+- keeps the stable learner origin at `http://127.0.0.1:4321/` by default;
+- if that port is occupied by a clearly identifiable old **KianOS Astro** process, stops that stale listener before installing Current;
+- refuses to kill unrelated processes merely because they use the same port;
+- opens the Current site after installation.
 
 Logs live under:
 
@@ -78,9 +87,10 @@ Logs live under:
 - Browser-local learner state remains browser-local unless its own Evidence contract says otherwise.
 - Network failure keeps the last successfully synced Current available; it must not silently invent a newer state.
 - A branch or PR preview is a separate development surface and must not overwrite the Current mirror.
+- The supervisor has a tested fail-closed marker guard; normal development checkouts are never hard-reset by this mechanism.
 
 ## Product expectation
 
-For normal learning, Kian should not need to run `git pull`, choose a branch, resolve a worktree state, or restart Astro after Chat lands an accepted update on main.
+For normal learning, Kian should not need to run `git pull`, choose a branch, resolve a worktree state, restart Astro, or manually refresh the browser after Chat lands an accepted update on main.
 
 Manual Git remains an engineering activity, not a learner workflow.
