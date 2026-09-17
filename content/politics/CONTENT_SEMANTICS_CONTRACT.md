@@ -94,6 +94,61 @@ Each node should state:
 
 Edges describe semantic relations, not screen coordinates.
 
+#### Relation fidelity / arity
+
+A framework relation must preserve the **semantic arity owned by Source / reviewed Knowledge**.
+
+`edges[]` are **binary relation claims only**. One edge means the accepted Content really owns:
+
+```text
+one source node → one relation → one target node
+```
+
+Hard rule:
+
+> **Do not atomize one collective / n-ary source relation into several binary edges merely because a graph schema or renderer is easier to implement.**
+
+For a relation such as:
+
+```text
+A + B + C collectively → R → X
+```
+
+the Current map must use one `collective_relations[]` object:
+
+```json
+{
+  "id": "stable-relation-id",
+  "member_ids": ["A", "B", "C"],
+  "relation": "R",
+  "target_id": "X",
+  "text": "A、B、C … X。",
+  "source_evidence": ["..."]
+}
+```
+
+Semantics:
+
+- `member_ids` are jointly involved in **one** relation claim;
+- `target_id` is the shared target of that collective claim;
+- `relation` is the relation predicate, not a UI connector;
+- `text` is the learner-readable complete claim;
+- `source_evidence` grounds the collective relation directly.
+
+A `collective_relations[]` object is not permission for Projection/UI to expand it back into one edge per member. If a future surface needs a diagram, the downstream mapping must preserve the collective object as one semantic relation.
+
+If Current cannot represent a source relation without changing its arity, use one truthful source-grounded `Anchor` / statement temporarily rather than inventing a lossier graph.
+
+This rule does **not** mean that several binary edges sharing one target are invalid. They are valid when Source/Knowledge truly owns them as independent binary relations. The forbidden move is specifically:
+
+```text
+collective source claim
+→ implementation-convenient atomization
+→ several stronger/different binary claims
+```
+
+Mechanical validators can prove structural integrity, but semantic equivalence to Source still requires the bounded Content audit.
+
 Calibration note: the first S01 draft used singular `framework_map`. S02 exposed that this was overfit; Current calibration now uses `framework_maps[]`.
 
 ### `relation_chains`
