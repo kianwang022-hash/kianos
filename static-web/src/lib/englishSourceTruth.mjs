@@ -89,7 +89,7 @@ function snapshot() {
     const issues = [];
 
     if (manifest?.status !== 'CURRENT_READY') issues.push('MANIFEST_NOT_CURRENT_READY');
-    if (manifest?.owners?.global_source_truth !== ENGLISH_SOURCE_TRUTH.global) issues.push('MANIFEST_GLOBAL_SOURCE_TRUTH_OWNER_MISMATCH');
+    if (manifest?.source?.global_source_truth !== ENGLISH_SOURCE_TRUTH.global) issues.push('MANIFEST_GLOBAL_SOURCE_TRUTH_OWNER_MISMATCH');
     if (!expectedHash) issues.push('MANIFEST_GLOBAL_SOURCE_TRUTH_HASH_MISSING');
     if (expectedHash && expectedHash !== actualHash) issues.push('GLOBAL_SOURCE_TRUTH_HASH_MISMATCH');
     if (global?.status !== 'SOURCE_READY') issues.push(`GLOBAL_SOURCE_TRUTH_NOT_READY:${global?.status || 'missing'}`);
