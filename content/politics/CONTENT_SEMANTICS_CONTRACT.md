@@ -8,13 +8,16 @@ Upstream:
 - `content/politics/LEARNING_CONTRACT.md`
 - `content/politics/INTERACTION_CONTRACT.md`
 
+Sibling Content authority:
+- `content/politics/CONTENT_HIERARCHY_CONTRACT.md` — learner attention tier / progressive-disclosure ownership for accepted semantic objects.
+
 Downstream:
 - `static-web/PRESENTATION_CONTRACT.md`
 - Astro components / layout / state implementation
 
 Core rule:
 
-> **Content should describe what the learner needs to understand, distinguish, retain, reconstruct, and locate. It must not decide pixels, columns, cards, colors, or component names.**
+> **Content should describe what the learner needs to understand, distinguish, retain, reconstruct, locate, and when it deserves learner attention. It must not decide pixels, columns, cards, colors, or component names.**
 
 ---
 
@@ -38,11 +41,12 @@ The intended chain is:
 Learning Logic
 → Current teaching content
 → learning_semantics
+→ Content Hierarchy
 → Presentation grammar
 → Astro implementation
 ```
 
-`learning_semantics` is therefore **Content**, not UI.
+`learning_semantics` and its learner-attention priority are therefore **Content**, not UI.
 
 ---
 
@@ -143,6 +147,30 @@ Every `ABSORBED` Suyi source must actually contribute to a semantic object. Suyi
 ### `audit`
 Path to the bounded human-readable delta/content audit supporting the calibration or closure.
 
+### 3.1 `learner_tier` override
+
+Most semantic objects inherit their learner-attention tier from `CONTENT_HIERARCHY_CONTRACT.md`; **manual tagging is not required by default**.
+
+A genuine semantic exception may add:
+
+```json
+{
+  "learner_tier": "H2_FIRST_ROUND_CARRY"
+}
+```
+
+Allowed values:
+- `H1_ORIENTATION_CORE`
+- `H2_FIRST_ROUND_CARRY`
+- `H3_SUPPORTING_UNDERSTANDING`
+- `H4_ON_DEMAND`
+- `H5_REPAIR_REFERENCE`
+
+`learner_tier` describes learner attention priority, not layout.
+It cannot request cards, columns, diagrams, colors, size, or placement.
+
+The defaults and hard promotion/demotion guards are owned by `CONTENT_HIERARCHY_CONTRACT.md`.
+
 ---
 
 ## 4｜Evidence discipline
@@ -155,6 +183,7 @@ Content semantics must remain source-grounded.
 - OCR fragments must not be silently repaired into new claims when their meaning is uncertain.
 - A useful Suyi relation may be absorbed even when its underlying facts are already Chengfeng-owned; this is representation/value delta, not duplicate knowledge ownership.
 - Reference/precision detail stays demoted unless the Learning Logic or question evidence makes it first-ready.
+- A semantic object being valid does not mean all of its internal detail shares the same learner tier; relation skeleton, explanatory meaning, and provenance may belong to different tiers.
 
 ---
 
@@ -180,11 +209,12 @@ Allowed:
 - learner distinction;
 - source handoff identity;
 - precision priority;
+- learner attention tier;
 - reconstruction target.
 
 Test:
 
-> **If Astro were replaced tomorrow, would this content model still describe the correct learner cognition?**
+> **If Astro were replaced tomorrow, would this content model still describe the correct learner cognition and attention priority?**
 
 If no, the object probably belongs downstream in Projection/UI.
 
@@ -199,8 +229,8 @@ Rollout order:
 1. choose one representative Natural Unit;
 2. close its Suyi/content delta;
 3. encode `learning_semantics` additively without breaking existing runtime fields;
-4. run `audit-politics-learning-semantics.mjs` plus existing Politics QA/build;
-5. inspect whether the semantic model can support a good Mac-landscape projection without inventing missing knowledge;
+4. run `audit-politics-learning-semantics.mjs` plus the Content Hierarchy audit and existing Politics QA/build;
+5. inspect whether the semantic model can support a good Mac-landscape projection without inventing missing knowledge or equalizing all valid detail;
 6. test at least one materially different cognitive shape before freezing the schema for wider rollout;
 7. only then expand by subject-specific batches.
 
@@ -226,4 +256,4 @@ The shared schema does not require every subject to become a concept map.
 - Xi may emphasize hierarchy / role / confusable formulation boundary.
 - Ethics/Law may emphasize concept boundary + normative/situational judgment.
 
-The Content contract standardizes provenance and semantic explicitness, not one cognition shape.
+The Content contract standardizes provenance, semantic explicitness, and learner priority — not one cognition shape.
