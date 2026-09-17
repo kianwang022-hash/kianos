@@ -1,0 +1,75 @@
+---
+const { block } = Astro.props;
+const kps = block?.kpRecords || [];
+---
+<span
+  hidden
+  data-xizong-recall-evidence-bridge
+  data-study-object={block?.objectId || ''}
+  data-study-source-hash={block?.sourceHash || ''}
+></span>
+<script type="application/json" data-xizong-recall-evidence-kps set:html={JSON.stringify(kps.map((kp) => kp.kpId))}></script>
+
+<script>
+  const root = document.querySelector('[data-xizong-v6-block]');
+  const bridge = document.querySelector('[data-xizong-recall-evidence-bridge]');
+  const kpPayload = document.querySelector('[data-xizong-recall-evidence-kps]');
+
+  if (root && bridge && kpPayload) {
+    const objectId = bridge.getAttribute('data-study-object') || root.getAttribute('data-study-object') || 'xizong:unknown';
+    const stateKey = `kianos-xizong-astro-v2:${objectId}`;
+    const evidenceKey = `kianos-xizong-memory-review-v2:${objectId}`;
+    let kpIds = [];
+    try { kpIds = JSON.parse(kpPayload.textContent || '[]'); } catch {}
+    const kpSet = new Set(Array.isArray(kpIds) ? kpIds : []);
+
+    const readJson = (key, fallback = {}) => {
+      try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; } catch { return fallback; }
+    };
+    const readEvidence = () => ({
+      memory: {}, memoryIndex: 0, reviewPlan: [], reviewIndex: 0, reviewRatings: {},
+      evidenceHistory: [], lastRecallRatings: {},
+      ...readJson(evidenceKey, {})
+    });
+    const saveEvidence = (value) => { try { localStorage.setItem(evidenceKey, JSON.stringify(value)); } catch {} };
+    const appendRecall = (kpId, rating, evidenceOrigin) => {
+      if (!kpSet.has(kpId) || !rating) return;
+      const ext = readEvidence();
+      ext.evidenceHistory = [
+        ...(Array.isArray(ext.evidenceHistory) ? ext.evidenceHistory : []),
+        { at: new Date().toISOString(), type: 'KP_RECALL', kp_id: kpId, rating, evidence_origin: evidenceOrigin }
+      ].slice(-400);
+      ext.lastRecallRatings = { ...(ext.lastRecallRatings || {}), [kpId]: rating };
+      saveEvidence(ext);
+    };
+
+    // Preserve accepted evidence when an existing Block state predates this bridge.
+    const study = readJson(stateKey, {});
+    const existing = readEvidence();
+    const bootstrapped = { ...(existing.lastRecallRatings || {}) };
+    Object.entries(study.ratings || {}).forEach(([kpId, rating]) => {
+      if (!kpSet.has(kpId) || bootstrapped[kpId]) return;
+      existing.evidenceHistory = [
+        ...(Array.isArray(existing.evidenceHistory) ? existing.evidenceHistory : []),
+        { at: new Date().toISOString(), type: 'KP_RECALL', kp_id: kpId, rating, evidence_origin: 'BOOTSTRAP_EXISTING_STATE' }
+      ].slice(-400);
+      bootstrapped[kpId] = rating;
+    });
+    existing.lastRecallRatings = bootstrapped;
+    saveEvidence(existing);
+
+    // BlockV6 owns rating/state. This bridge only appends the observation so repeated
+    // Recall attempts are preserved without keeping the retired After Learn UI mounted.
+    root.addEventListener('click', (event) => {
+      const target = event.target instanceof Element ? event.target : null;
+      const ratingButton = target?.closest('[data-rating]');
+      if (!ratingButton) return;
+      const card = ratingButton.closest('[data-kp-id]');
+      const kpId = card?.getAttribute('data-kp-id') || '';
+      const rating = ratingButton.getAttribute('data-rating') || '';
+      const currentStudy = readJson(stateKey, {});
+      if (!kpId || !rating || !currentStudy?.learned?.[kpId]) return;
+      appendRecall(kpId, rating, 'USER_RECALL_ATTEMPT');
+    });
+  }
+</script>

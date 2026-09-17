@@ -7,7 +7,7 @@ const PORT = 4328;
 const BASE = `http://127.0.0.1:${PORT}`;
 const auditDir = path.resolve(process.cwd(), '../xizong-a2-functional-audit');
 fs.mkdirSync(auditDir, { recursive: true });
-const report = { schema: 'kianos.xizong.a2.kp_precision_post_reveal.v2', started_at: new Date().toISOString(), checks: [] };
+const report = { schema: 'kianos.xizong.a2.kp_precision_post_reveal.v3', started_at: new Date().toISOString(), checks: [] };
 const check = (condition, name, detail = '') => {
   if (!condition) throw new Error(`A2_KP_PRECISION_FAIL:${name}${detail ? `:${detail}` : ''}`);
   report.checks.push({ name, pass: true, detail });
@@ -44,6 +44,11 @@ async function resetBlock(page, route) {
   await root.waitFor({ state: 'visible' });
   check(await page.locator('[data-xizong-learner-object-payload]').count() === 1, `learner_object_payload_${route}`);
   return root;
+}
+
+async function readLearnerObject(page) {
+  const raw = await page.locator('[data-xizong-learner-object-payload]').textContent();
+  return JSON.parse(raw || '{}');
 }
 
 async function completeNaturalSourceContact(root, suffix) {
@@ -99,33 +104,41 @@ try {
   const context = await browser.newContext({ viewport: { width: 1440, height: 1050 } });
   const page = await context.newPage();
 
-  let renderedPrecision = 0;
+  let learnerPrecision = 0;
   for (let n = 1; n <= 12; n += 1) {
     const route = `r${String(n).padStart(2, '0')}`;
     const root = await resetBlock(page, route);
     check(await root.locator('[data-kp-precision]').count() === 0, `legacy_kp_precision_owner_retired_${route}`);
-    renderedPrecision += await root.locator('[data-learner-object-slot="kp_recall_post_reveal"] [data-learner-asset="precision"]').count();
+    const learner = await readLearnerObject(page);
+    const slots = Object.values(learner?.slots?.kpRecallPostReveal || {});
+    learnerPrecision += slots.reduce((sum, slot) => sum + (Array.isArray(slot?.precision) ? slot.precision.length : 0), 0);
+    check(await root.locator('[data-xizong-aux-surface] [data-learner-object-slot="kp_recall_post_reveal"]').count() === 0,
+      `post_reveal_slot_not_preinstantiated_${route}`);
   }
-  check(renderedPrecision === 17, 'all_current_kp_precision_rows_reachable', String(renderedPrecision));
+  check(learnerPrecision === 17, 'all_current_kp_precision_rows_present_in_learner_object', String(learnerPrecision));
 
   for (const item of representatives) {
     const root = await resetBlock(page, item.route);
     const card = await reachTargetKp(root, item.kpId);
     const answer = card.locator('[data-kp-answer]');
-    const stack = card.locator(`[data-learner-object-slot="kp_recall_post_reveal"][data-kp-id="${item.kpId}"]`);
-    const cue = stack.locator(`[data-learner-asset="precision"][data-learner-asset-id="${item.cueId}"]`);
+    const auxHost = root.locator('[data-xizong-aux-surface] [data-learner-object-slot]');
 
-    check(await stack.count() === 1, `precision_post_reveal_slot_bound_${item.kpId}`);
-    check(await cue.count() === 1, `precision_cue_id_bound_${item.kpId}`);
-    check((await cue.textContent() || '').includes(item.cue), `precision_text_unchanged_${item.kpId}`);
     check(await answer.isHidden(), `answer_hidden_before_reveal_${item.kpId}`);
-    check(await stack.isHidden(), `precision_hidden_before_reveal_${item.kpId}`);
+    check((await auxHost.getAttribute('data-learner-object-slot')) !== 'kp_recall_post_reveal',
+      `precision_slot_absent_before_reveal_${item.kpId}`);
+    check(await root.locator('[data-xizong-aux-surface] [data-learner-asset="precision"]').count() === 0,
+      `precision_not_instantiated_before_reveal_${item.kpId}`);
     check(await root.locator('[data-kp-recall-card]:not([hidden]) [data-learner-asset="precision"]:visible').count() === 0,
       `recall_front_has_no_visible_precision_${item.kpId}`);
 
     await card.locator('[data-kp-reveal]').click();
+    const stack = root.locator('[data-xizong-aux-surface] [data-learner-object-slot="kp_recall_post_reveal"]');
+    await stack.waitFor({ state: 'visible' });
+    const cue = stack.locator(`[data-learner-asset="precision"][data-learner-asset-id="${item.cueId}"]`);
     check(await answer.isVisible(), `answer_visible_after_reveal_${item.kpId}`);
-    check(await stack.isVisible(), `precision_visible_after_reveal_${item.kpId}`);
+    check(await stack.count() === 1, `precision_post_reveal_slot_bound_${item.kpId}`);
+    check(await cue.count() === 1, `precision_cue_id_bound_${item.kpId}`);
+    check((await cue.textContent() || '').includes(item.cue), `precision_text_unchanged_${item.kpId}`);
     check(await cue.isVisible(), `precision_cue_visible_after_reveal_${item.kpId}`);
 
     const visibleCard = root.locator('[data-kp-recall-card]:not([hidden])');
@@ -137,7 +150,8 @@ try {
       afterId = await visibleCard.getAttribute('data-kp-id');
     }
     check(afterId && afterId !== beforeId, `moved_to_another_kp_${item.kpId}`, `${beforeId}->${afterId}`);
-    check(await stack.isHidden(), `previous_precision_hidden_after_kp_move_${item.kpId}`);
+    check(await root.locator(`[data-learner-asset="precision"][data-learner-asset-id="${item.cueId}"]`).count() === 0,
+      `previous_precision_removed_after_kp_move_${item.kpId}`);
   }
 
   report.finished_at = new Date().toISOString();

@@ -8,7 +8,7 @@ const BASE = `http://127.0.0.1:${PORT}`;
 const auditDir = path.resolve(process.cwd(), '.qa');
 fs.mkdirSync(auditDir, { recursive: true });
 const reportPath = path.join(auditDir, 'xizong-a2-progressive-source-visual.json');
-const report = { schema: 'kianos.xizong.a2.progressive_source_visual.v2', started_at: new Date().toISOString(), checks: [] };
+const report = { schema: 'kianos.xizong.a2.progressive_source_visual.v3', started_at: new Date().toISOString(), checks: [] };
 const check = (condition, name, detail = '') => {
   if (!condition) throw new Error(`A2_PROGRESSIVE_SOURCE_VISUAL_FAIL:${name}${detail ? `:${detail}` : ''}`);
   report.checks.push({ name, pass: true, detail });
@@ -45,28 +45,84 @@ try {
 
   const root = page.locator('[data-xizong-v6-block]');
   await root.waitFor({ state: 'visible' });
+  await page.waitForFunction(() => document.querySelector('[data-xizong-v6-block]')?.classList.contains('xv6BlockWorkspaceShell'));
   const visualRoot = root.locator('[data-learner-asset="visual"][data-learner-asset-id="a2-r08-lg01-visual"]');
   check(await page.locator('[data-xizong-learner-object-payload]').count() === 1, 'unified_learner_object_payload_present');
   check(await root.locator('[data-xizong-group-visuals]').count() === 0, 'legacy_group_visual_dom_owner_retired');
 
-  // Current A2 Source truth is one continuous original-Lecture contact before
-  // Logic Group retrieval. A Logic-Group visual keeps its accepted moment at
-  // the group entrance, so it must not surface before Source contact is done.
+  const geometry = await root.evaluate((node) => {
+    const left = node.querySelector('.portedStudyOutline');
+    const main = node.querySelector('.portedStudyMain');
+    const right = node.querySelector('.portedStudyChain');
+    const framework = node.querySelector('[data-xizong-cognitive-projection]');
+    const scroller = document.scrollingElement;
+    const rect = node.getBoundingClientRect();
+    return {
+      shell: node.classList.contains('xv6BlockWorkspaceShell'),
+      leftWidth: left?.getBoundingClientRect().width || 0,
+      mainWidth: main?.getBoundingClientRect().width || 0,
+      rightWidth: right?.getBoundingClientRect().width || 0,
+      rootBottom: rect.bottom,
+      viewportHeight: window.innerHeight,
+      pageScrollHeight: scroller?.scrollHeight || 0,
+      pageClientHeight: scroller?.clientHeight || 0,
+      frameworkCount: framework ? 1 : 0,
+      frameworkOpen: framework?.hasAttribute('open') || false,
+      crosswalkBridgeHidden: Boolean(document.querySelector('[data-xizong-legacy-crosswalk-bridge]')?.hidden),
+      legacyMemoryUiCount: document.querySelectorAll('.xv6MemoryReview').length,
+      recallEvidenceBridgeHidden: Boolean(document.querySelector('[data-xizong-recall-evidence-bridge]')?.hidden)
+    };
+  });
+  check(geometry.shell, 'one_screen_workspace_shell_mounted');
+  check(geometry.leftWidth >= 160 && geometry.leftWidth <= 200, 'logic_map_stays_narrow', String(geometry.leftWidth));
+  check(geometry.mainWidth > geometry.leftWidth * 2.5, 'central_learning_surface_is_dominant', JSON.stringify(geometry));
+  check(geometry.rootBottom <= geometry.viewportHeight + 2, 'block_workspace_fits_viewport', `${geometry.rootBottom}/${geometry.viewportHeight}`);
+  check(geometry.pageScrollHeight <= geometry.pageClientHeight + 4, 'block_route_does_not_become_endless_page', `${geometry.pageScrollHeight}/${geometry.pageClientHeight}`);
+  check(geometry.frameworkCount === 1 && geometry.frameworkOpen === false, 'block_framework_is_compact_entry_by_default');
+  check(geometry.crosswalkBridgeHidden, 'crosswalk_exits_visible_first_pass_workspace');
+  check(geometry.legacyMemoryUiCount === 0 && geometry.recallEvidenceBridgeHidden, 'legacy_after_learn_ui_is_replaced_by_evidence_only_bridge');
+
+  // Current Learning: the Source-contact state is no longer a blank handoff page.
+  // It carries the learner-object KP Learn companion while Lecture stays continuous on iPad/MarginNote.
   await root.locator('[data-stage-next="logic_group"]').click();
   await root.locator('[data-study-stage="source_contact"]').waitFor({ state: 'visible' });
-  check(await visualRoot.isHidden(), 'logic_group_visual_not_shown_during_continuous_source_contact');
+  const companion = root.locator('[data-learner-kp-companion="source_contact"]');
+  await companion.waitFor({ state: 'visible' });
+  check(await companion.locator('[data-learner-kp-core]').count() === 1, 'source_contact_hosts_full_kp_learn_core');
+  check(await companion.getByText('Source ·', { exact: false }).count() > 0, 'kp_learn_companion_preserves_source_locator');
+  check(await root.locator('[data-study-stage="source_contact"] .xv6LectureFirst').isHidden(), 'blank_source_handoff_body_is_retired');
+  check(await visualRoot.count() === 0, 'logic_group_visual_not_shown_during_continuous_source_contact');
 
   await root.locator('[data-source-contact-done]').click();
   await root.locator('[data-study-stage="logic_group"]').waitFor({ state: 'visible' });
   await visualRoot.waitFor({ state: 'visible' });
   check(await visualRoot.locator('xpath=ancestor::*[@data-learner-object-slot="logic_group_prelearn"]').count() === 1,
     'logic_group_visual_uses_prelearn_semantic_slot');
+  check(await visualRoot.locator('xpath=ancestor::*[@data-xizong-aux-surface]').count() === 1,
+    'logic_group_visual_renders_in_dynamic_auxiliary_region');
+  await page.waitForFunction(() => document.querySelector('[data-xizong-v6-block]')?.getAttribute('data-aux-weight') === 'rich');
+  await page.waitForFunction(() => {
+    const node = document.querySelector('[data-xizong-v6-block]');
+    const main = node?.querySelector('.portedStudyMain')?.getBoundingClientRect().width || 0;
+    const right = node?.querySelector('.portedStudyChain')?.getBoundingClientRect().width || 0;
+    const ratio = right / Math.max(1, main + right);
+    return ratio >= 0.35 && ratio <= 0.50;
+  });
+
+  const expandedGeometry = await root.evaluate((node) => {
+    const main = node.querySelector('.portedStudyMain')?.getBoundingClientRect().width || 0;
+    const right = node.querySelector('.portedStudyChain')?.getBoundingClientRect().width || 0;
+    return { main, right, ratio: right / Math.max(1, main + right), auxWeight: node.getAttribute('data-aux-weight') || '' };
+  });
+  check(expandedGeometry.auxWeight === 'rich', 'rich_semantic_asset_controls_auxiliary_width');
+  check(expandedGeometry.ratio >= 0.35 && expandedGeometry.ratio <= 0.50, 'visual_auxiliary_expands_to_content_driven_share', JSON.stringify(expandedGeometry));
+  const auxOverflow = await page.locator('[data-xizong-aux-surface] .xv6LearnerAuxBody').evaluate((node) => getComputedStyle(node).overflowY);
+  check(['auto', 'scroll'].includes(auxOverflow), 'visual_auxiliary_has_local_scroll_path', auxOverflow);
+
   const figures = visualRoot.locator('.xv6LearnerVisualGallery figure');
   check(await figures.count() === 1, 'new_partial_content_bundle_renders_without_runtime_change', String(await figures.count()));
-
   const caption = await figures.locator('figcaption').textContent() || '';
   check(caption.includes('P22'), 'reviewed_source_page_is_exact', caption);
-
   const visualText = await visualRoot.textContent() || '';
   check(visualText.includes('内科 Lecture PDF P22'), 'existing_cue_locator_preserved');
   check(visualText.includes('容量、比值和 DLCO 三条轴'), 'existing_cue_micro_task_preserved');
@@ -80,13 +136,32 @@ try {
   const response = await page.request.get(new URL(src, BASE).toString());
   check(response.ok(), 'asset_http_ok', `${response.status()}:${src}`);
 
-  // Entering the group now goes directly to neutral Recall: no Lecture reopen.
+  // Recall front stays workspace-wide neutral; answer-bearing auxiliary content returns only after Reveal.
   await root.locator('[data-enter-group]').click();
   await root.locator('[data-study-stage="kp_recall"]').waitFor({ state: 'visible' });
-  check(await root.locator('[data-study-stage="kp_learn"]').count() === 0, 'natural_source_group_does_not_reopen_lecture');
-  check(await visualRoot.isHidden(), 'source_visual_hidden_during_recall_front');
-  check(await root.locator('[data-study-stage="kp_recall"] [data-learner-asset="visual"]').count() === 0, 'recall_front_contains_no_source_visual');
+  check(await root.locator('[data-study-stage="kp_learn"]').count() === 0, 'natural_source_group_does_not_reopen_group_source_stage');
+  check(await visualRoot.count() === 0, 'group_visual_hidden_during_recall_front');
+  check(await root.locator('[data-study-stage="kp_recall"] [data-learner-asset]').count() === 0, 'recall_front_contains_no_auxiliary_answer_payload');
   check(await root.locator('[data-kp-recall-card]:not([hidden]) [data-kp-answer]').isHidden(), 'recall_answer_remains_hidden_before_reveal');
+  await page.waitForFunction(() => document.querySelector('[data-xizong-v6-block]')?.getAttribute('data-aux-weight') === 'none');
+  await page.waitForFunction(() => {
+    const right = document.querySelector('[data-xizong-v6-block] .portedStudyChain')?.getBoundingClientRect().width || 0;
+    return right >= 190 && right <= 230;
+  });
+  const compactRecallWidth = await root.locator('.portedStudyChain').evaluate((node) => node.getBoundingClientRect().width);
+  check(compactRecallWidth >= 190 && compactRecallWidth <= 230, 'auxiliary_rail_returns_space_to_core_on_clean_recall_front', String(compactRecallWidth));
+
+  await root.locator('[data-kp-recall-card]:not([hidden]) [data-kp-reveal]').click();
+  const answerOverflow = await root.locator('[data-kp-recall-card]:not([hidden]) [data-kp-answer]').evaluate((node) => getComputedStyle(node).overflowY);
+  check(['auto', 'scroll'].includes(answerOverflow), 'kp_core_has_local_scroll_path_after_reveal', answerOverflow);
+  const recallGeometry = await root.evaluate((node) => ({
+    bottom: node.getBoundingClientRect().bottom,
+    viewport: window.innerHeight,
+    pageScrollHeight: document.scrollingElement?.scrollHeight || 0,
+    pageClientHeight: document.scrollingElement?.clientHeight || 0
+  }));
+  check(recallGeometry.bottom <= recallGeometry.viewport + 2, 'recall_workspace_stays_inside_viewport', JSON.stringify(recallGeometry));
+  check(recallGeometry.pageScrollHeight <= recallGeometry.pageClientHeight + 4, 'revealed_core_does_not_restore_outer_page_scroll', JSON.stringify(recallGeometry));
 
   report.finished_at = new Date().toISOString();
   report.status = 'PASS';

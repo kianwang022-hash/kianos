@@ -7,17 +7,29 @@ const payload = learnerObject || null;
 )}
 
 <script>
+  import { resolveXizongLearnerAssetRepresentation } from '../lib/xizongRepresentationGate.mjs';
+
   const root = document.querySelector('[data-xizong-v6-block]');
   const payloadNode = document.querySelector('[data-xizong-learner-object-payload]');
   if (root && payloadNode) {
     let learner = null;
     try { learner = JSON.parse(payloadNode.textContent || 'null'); } catch {}
     if (learner?.schema === 'kianos.xizong.learner_object.v1') {
+      root.classList.add('xv6LearnerObjectActive');
+      root.dataset.representationGate = 'kianos.xizong.representation.v1';
       const text = (value) => String(value || '');
+      const array = (value) => Array.isArray(value) ? value : [];
       const el = (tag, className = '', value = '') => {
         const node = document.createElement(tag);
         if (className) node.className = className;
         if (value) node.append(document.createTextNode(text(value)));
+        return node;
+      };
+      const decorateRepresentation = (node, representation) => {
+        if (!(node instanceof HTMLElement) || !representation) return node;
+        node.dataset.representationKind = text(representation.kind);
+        node.dataset.representationReason = text(representation.reason);
+        node.classList.add(`representation-${text(representation.kind).toLowerCase()}`);
         return node;
       };
 
@@ -25,7 +37,7 @@ const payload = learnerObject || null;
         const card = el('div', 'xv6LearnerAsset precision');
         card.dataset.learnerAsset = 'precision';
         card.dataset.learnerAssetId = text(row?.id);
-        card.append(el('span', 'xv6LearnerAssetLabel', '以后要精确'));
+        card.append(el('span', 'xv6LearnerAssetLabel', '精确记忆'));
         card.append(el('p', '', row?.cue || row?.task));
         return card;
       };
@@ -40,13 +52,26 @@ const payload = learnerObject || null;
         return card;
       };
 
+      const renderTextSupport = (row, family) => {
+        const card = el('div', `xv6LearnerAsset support support-${family}`);
+        card.dataset.learnerAsset = family;
+        card.dataset.learnerAssetId = text(row?.id);
+        const label = family === 'visual'
+          ? `看原图${row?.sourceLocator ? ` · ${row.sourceLocator}` : ''}`
+          : text(row?.title || row?.assetType || '按需辅助').replaceAll('_', ' ');
+        card.append(el('span', 'xv6LearnerAssetLabel', label));
+        const copy = row?.task || row?.cue || row?.caption;
+        if (copy) card.append(el('p', '', copy));
+        return card;
+      };
+
       const renderVisual = (row) => {
         const card = el('div', 'xv6LearnerAsset visual');
         card.dataset.learnerAsset = 'visual';
         card.dataset.learnerAssetId = text(row?.id);
         card.append(el('span', 'xv6LearnerAssetLabel', `看原图${row?.sourceLocator ? ` · ${row.sourceLocator}` : ''}`));
         if (row?.task || row?.cue) card.append(el('p', '', row?.task || row?.cue));
-        const assets = Array.isArray(row?.sourceVisualBundle?.assets) ? row.sourceVisualBundle.assets : [];
+        const assets = array(row?.sourceVisualBundle?.assets);
         if (assets.length) {
           const gallery = el('div', 'xv6LearnerVisualGallery');
           assets.forEach((asset, index) => {
@@ -77,8 +102,8 @@ const payload = learnerObject || null;
       const renderTable = (asset) => {
         const wrap = el('div', 'xv6LearnerTableWrap');
         const table = el('table', 'xv6LearnerTable');
-        const columns = Array.isArray(asset?.payload?.columns) ? asset.payload.columns : [];
-        const rows = Array.isArray(asset?.payload?.rows) ? asset.payload.rows : [];
+        const columns = array(asset?.payload?.columns);
+        const rows = array(asset?.payload?.rows);
         const thead = el('thead');
         const tr = el('tr');
         columns.forEach((column) => tr.append(el('th', '', column?.label)));
@@ -99,6 +124,7 @@ const payload = learnerObject || null;
         const card = el('article', 'xv6LearnerAsset extension');
         card.dataset.learnerAsset = 'extension';
         card.dataset.learnerAssetId = text(asset?.id);
+        card.dataset.extensionType = text(asset?.assetType);
         card.append(el('span', 'xv6LearnerAssetLabel', text(asset?.assetType).replaceAll('_', ' ')));
         if (asset?.title) card.append(el('h4', '', asset.title));
         if (asset?.task) card.append(el('p', '', asset.task));
@@ -122,85 +148,281 @@ const payload = learnerObject || null;
         return details;
       };
 
-      const renderSlot = (slot, { includeCore = false } = {}) => {
-        const host = el('div', 'xv6LearnerObjectSurface');
-        if (includeCore && slot?.core?.html) {
-          const core = el('div', 'markdown xv6LearnerResolvedCore');
-          core.innerHTML = slot.core.html;
-          host.append(core);
+      const renderResolvedAsset = (row, family, stage) => {
+        const representation = resolveXizongLearnerAssetRepresentation(row, { stage });
+        if (!representation.visible) return null;
+        let node = null;
+        if (family === 'precision') node = renderPrecision(row);
+        else if (family === 'connection') node = renderConnection(row);
+        else if (family === 'visual') {
+          node = representation.kind === 'SOURCE_VISUAL' ? renderVisual(row) : renderTextSupport(row, family);
+        } else if (family === 'extension') {
+          if (row?.displayPolicy?.timing === 'REFERENCE_ONLY') node = renderExtension(row);
+          else node = ['SOURCE_VISUAL', 'REVIEWED_VISUAL', 'STRUCTURED_TABLE'].includes(representation.kind)
+            ? renderExtension(row)
+            : renderTextSupport(row, family);
         }
-        (slot?.connection || []).forEach((row) => host.append(renderConnection(row)));
-        (slot?.visual || []).forEach((row) => host.append(renderVisual(row)));
-        (slot?.precision || []).forEach((row) => host.append(renderPrecision(row)));
-        (slot?.extension || []).forEach((row) => host.append(renderExtension(row)));
+        return node ? decorateRepresentation(node, representation) : null;
+      };
+
+      const renderSlot = (slot = {}, { stage = 'LEARN' } = {}) => {
+        const host = el('div', 'xv6LearnerObjectSurface');
+        for (const [family, rows] of [
+          ['connection', array(slot?.connection)],
+          ['visual', array(slot?.visual)],
+          ['precision', array(slot?.precision)],
+          ['extension', array(slot?.extension)]
+        ]) {
+          rows.forEach((row) => {
+            const node = renderResolvedAsset(row, family, stage);
+            if (node) host.append(node);
+          });
+        }
         return host;
       };
 
-      // One compatibility bridge owns all legacy DOM placement until the Block workspace
-      // exposes first-class semantic slots. Individual asset families no longer query/mutate DOM.
-      const blockOrientationAssets = learner.slots?.blockOrientation || [];
-      if (blockOrientationAssets.length) {
-        const legacyOrientation = root.querySelector('.xv6BlockOrientation');
-        if (legacyOrientation) {
-          blockOrientationAssets.forEach((asset) => legacyOrientation.append(renderExtension(asset)));
-        } else {
-          const blockLearnStage = root.querySelector('[data-study-stage="block_learn"]');
-          const footer = blockLearnStage?.querySelector('.portedStudyStageAction');
-          if (!blockLearnStage || !footer) {
-            console.error(`CURRENT_XIZONG_BLOCK_EXTENSION_SLOT_MISSING:${learner?.identity?.blockId || ''}`);
-          } else {
-            const orientationHost = el('div', 'xv6LearnerObjectGroupSurface');
-            orientationHost.dataset.learnerObjectSlot = 'block_orientation';
-            blockOrientationAssets.forEach((asset) => orientationHost.append(renderExtension(asset)));
-            footer.insertAdjacentElement('beforebegin', orientationHost);
-          }
+      const resolvedSlotWeight = (slot = {}, stage = 'LEARN') => {
+        const representations = [];
+        for (const rows of [array(slot?.connection), array(slot?.visual), array(slot?.precision), array(slot?.extension)]) {
+          rows.forEach((row) => {
+            const representation = resolveXizongLearnerAssetRepresentation(row, { stage });
+            if (representation.visible) representations.push(representation.kind);
+          });
         }
+        if (representations.some((kind) => ['SOURCE_VISUAL', 'REVIEWED_VISUAL', 'STRUCTURED_TABLE'].includes(kind))) return 'rich';
+        if (representations.length) return 'light';
+        return 'none';
+      };
+
+      const rail = root.querySelector('.portedStudyChain');
+      const railHeader = rail?.querySelector(':scope > header');
+      let auxSurface = rail?.querySelector('[data-xizong-aux-surface]');
+      if (rail && !(auxSurface instanceof HTMLElement)) {
+        auxSurface = el('section', 'xv6LearnerAuxSurface');
+        auxSurface.dataset.xizongAuxSurface = '';
+        const header = el('header');
+        header.append(el('span', '', 'Assist'));
+        const title = el('strong', '', '当前辅助');
+        title.dataset.xizongAuxTitle = '';
+        header.append(title);
+        const body = el('div', 'xv6LearnerAuxBody');
+        const activeHost = el('div', 'xv6LearnerAuxHost');
+        activeHost.dataset.learnerObjectSlot = 'none';
+        body.append(activeHost);
+        auxSurface.append(header, body);
+        if (railHeader instanceof HTMLElement) railHeader.insertAdjacentElement('afterend', auxSurface);
+        else rail.prepend(auxSurface);
       }
+      const auxHost = auxSurface?.querySelector('[data-learner-object-slot]');
+      const auxTitle = auxSurface?.querySelector('[data-xizong-aux-title]');
 
-      const preHost = el('div', 'xv6LearnerObjectGroupSurface');
-      preHost.dataset.learnerObjectSlot = 'logic_group_prelearn';
-      root.querySelector('[data-study-stage="logic_group"] .xv6LogicTarget')?.insertAdjacentElement('afterend', preHost);
-      const postHost = el('div', 'xv6LearnerObjectGroupSurface');
-      postHost.dataset.learnerObjectSlot = 'logic_group_postlearn';
-      root.querySelector('[data-study-stage="group_close"] .xv6GroupClosure')?.insertAdjacentElement('afterend', postHost);
+      const allKps = array(learner.kps);
+      const kpById = new Map(allKps.map((kp) => [kp?.identity?.kpId, kp]));
+      const groups = array(learner.logicGroups);
+      const groupIds = groups.map((group) => group?.identity?.logicGroupId);
+      let sourceLearnIndex = 0;
+      let groupLearnIndex = 0;
+      let lastGroupId = '';
 
-      const groupIds = Array.isArray(learner.logicGroups) ? learner.logicGroups.map((group) => group?.identity?.logicGroupId) : [];
+      const activeStage = () => {
+        const node = [...root.querySelectorAll('[data-study-stage]')].find((stage) => !stage.hasAttribute('hidden'));
+        return node?.getAttribute('data-study-stage') || 'block_learn';
+      };
       const activeGroupIndex = () => {
         const counter = root.querySelector('[data-logic-counter]')?.textContent || '';
         const match = counter.match(/(\d+)\s*\//);
         return Math.max(0, Number(match?.[1] || 1) - 1);
       };
-      const renderGroup = () => {
-        const groupId = groupIds[activeGroupIndex()] || '';
-        preHost.replaceChildren(...renderSlot(learner.slots?.logicGroupPrelearn?.[groupId] || {}).childNodes);
-        postHost.replaceChildren(...renderSlot(learner.slots?.logicGroupPostlearn?.[groupId] || {}).childNodes);
+      const activeGroup = () => groups[activeGroupIndex()] || groups[0] || null;
+      const activeRecallCard = () => root.querySelector('[data-kp-recall-card]:not([hidden])');
+      const activeRecallKpId = () => activeRecallCard()?.getAttribute('data-kp-id') || '';
+      const recallAnswerVisible = () => {
+        const answer = activeRecallCard()?.querySelector('[data-kp-answer]');
+        return Boolean(answer && !answer.hasAttribute('hidden'));
       };
-      const counter = root.querySelector('[data-logic-counter]');
-      if (counter) new MutationObserver(renderGroup).observe(counter, { childList: true, subtree: true, characterData: true });
-      renderGroup();
+      const sourceCompanionKp = () => allKps[Math.max(0, Math.min(allKps.length - 1, sourceLearnIndex))] || allKps[0] || null;
+      const groupCompanionIds = () => array(activeGroup()?.kpIds);
+      const groupCompanionKp = () => {
+        const ids = groupCompanionIds();
+        const kpId = ids[Math.max(0, Math.min(ids.length - 1, groupLearnIndex))] || ids[0] || '';
+        return kpById.get(kpId) || null;
+      };
 
-      root.querySelectorAll('[data-kp-recall-card][data-kp-id]').forEach((card) => {
-        const kpId = card.getAttribute('data-kp-id') || '';
-        const answer = card.querySelector('[data-kp-answer]');
-        const slot = learner.slots?.kpRecallPostReveal?.[kpId];
-        if (!answer || !slot) return;
-        const host = renderSlot({ ...slot, core: null });
-        host.dataset.learnerObjectSlot = 'kp_recall_post_reveal';
-        host.dataset.kpId = kpId;
-        answer.append(host);
+      const renderCompanionCard = (host, kp, index, total, stageName) => {
+        host.replaceChildren();
+        if (!kp) return;
+        const frame = el('section', 'xv6KpLearnCompanion');
+        frame.dataset.learnerKpCompanion = stageName;
+        frame.dataset.kpId = text(kp?.identity?.kpId);
+        const top = el('header', 'xv6KpLearnCompanionHeader');
+        const identity = el('div');
+        identity.append(el('span', '', 'KP Learn · Lecture companion'));
+        identity.append(el('strong', '', `${kp?.identity?.displayId || ''} · ${kp?.identity?.title || ''}`));
+        const nav = el('div', 'xv6KpLearnNav');
+        const prev = el('button', '', '‹'); prev.type = 'button'; prev.dataset.companionPrev = stageName; prev.disabled = index <= 0;
+        const count = el('em', '', `${index + 1}/${Math.max(1, total)}`);
+        const next = el('button', '', '›'); next.type = 'button'; next.dataset.companionNext = stageName; next.disabled = index >= total - 1;
+        nav.append(prev, count, next);
+        top.append(identity, nav);
+        frame.append(top);
+
+        if (kp?.prompt?.canonical) {
+          const prompt = el('div', 'xv6KpLearnPrompt');
+          prompt.append(el('span', '', '主提示'));
+          prompt.append(el('p', '', kp.prompt.canonical));
+          frame.append(prompt);
+        }
+        const locators = el('div', 'xv6KpLearnLocators');
+        if (kp?.source?.locator) locators.append(el('span', '', `Source · ${kp.source.locator}`));
+        if (kp?.outline?.locator) locators.append(el('span', '', `Outline · ${kp.outline.locator}`));
+        if (locators.childElementCount) frame.append(locators);
+
+        const core = el('div', 'markdown xv6KpLearnCore');
+        core.dataset.learnerKpCore = text(kp?.identity?.kpId);
+        core.innerHTML = kp?.core?.html || '';
+        frame.append(core);
+        const note = el('footer', 'xv6KpLearnCompanionNote', '原讲义继续在 iPad / MarginNote 连续读；这里负责 Prompt、完整 Core 和当前辅助，不把 KP 变成新的 Source 边界。');
+        frame.append(note);
+        host.append(frame);
+      };
+
+      const sourceStage = root.querySelector('[data-study-stage="source_contact"]');
+      const groupLearnStage = root.querySelector('[data-study-stage="kp_learn"]');
+      let sourceCompanionHost = null;
+      let groupCompanionHost = null;
+      if (sourceStage) {
+        sourceStage.classList.add('xv6LearnerCompanionStage');
+        sourceCompanionHost = el('div', 'xv6KpLearnCompanionHost');
+        const header = sourceStage.querySelector(':scope > header');
+        if (header) header.insertAdjacentElement('afterend', sourceCompanionHost); else sourceStage.prepend(sourceCompanionHost);
+        const footerText = sourceStage.querySelector(':scope > footer > span');
+        if (footerText) footerText.textContent = '保持原讲义连续学习；KP Learn 只是 Mac 侧伴读，不要求逐 KP 完成仪式。';
+        const done = sourceStage.querySelector('[data-source-contact-done]');
+        if (done) done.textContent = '本段原讲义已完成，回来做学习节 Recall';
+      }
+      if (groupLearnStage) {
+        groupLearnStage.classList.add('xv6LearnerCompanionStage');
+        groupCompanionHost = el('div', 'xv6KpLearnCompanionHost');
+        const header = groupLearnStage.querySelector(':scope > header');
+        if (header) header.insertAdjacentElement('afterend', groupCompanionHost); else groupLearnStage.prepend(groupCompanionHost);
+        const footerText = groupLearnStage.querySelector(':scope > footer > span');
+        if (footerText) footerText.textContent = '在原讲义连续完成这一学习节；中间可切 KP Learn 伴读，但不要求来回切 App。';
+        const done = groupLearnStage.querySelector('[data-group-lecture-done]');
+        if (done) done.textContent = '这一节原讲义已完成，开始 Recall';
+      }
+
+      const renderCompanions = () => {
+        if (sourceCompanionHost) {
+          sourceLearnIndex = Math.max(0, Math.min(allKps.length - 1, sourceLearnIndex));
+          renderCompanionCard(sourceCompanionHost, sourceCompanionKp(), sourceLearnIndex, allKps.length, 'source_contact');
+        }
+        const group = activeGroup();
+        const groupId = group?.identity?.logicGroupId || '';
+        if (groupId !== lastGroupId) {
+          lastGroupId = groupId;
+          groupLearnIndex = 0;
+        }
+        const ids = groupCompanionIds();
+        groupLearnIndex = Math.max(0, Math.min(ids.length - 1, groupLearnIndex));
+        if (groupCompanionHost) renderCompanionCard(groupCompanionHost, groupCompanionKp(), groupLearnIndex, ids.length, 'kp_learn');
+      };
+
+      const renderAux = () => {
+        if (!(auxSurface instanceof HTMLElement) || !(auxHost instanceof HTMLElement)) return;
+        const stage = activeStage();
+        let slotName = 'none';
+        let representationStage = 'LEARN';
+        let title = '当前辅助';
+        let slot = {};
+        if (stage === 'block_learn') {
+          slotName = 'block_orientation';
+          representationStage = 'BLOCK_ORIENT';
+          title = 'Block 辅助';
+          slot = { extension: array(learner.slots?.blockOrientation) };
+        } else if (stage === 'source_contact') {
+          const kp = sourceCompanionKp();
+          slotName = 'kp_learn_aux';
+          representationStage = 'KP_LEARN';
+          title = kp ? `${kp.identity.displayId} · 学习辅助` : 'KP Learn 辅助';
+          slot = learner.slots?.kpLearnAux?.[kp?.identity?.kpId] || {};
+        } else if (stage === 'kp_learn') {
+          const kp = groupCompanionKp();
+          slotName = 'kp_learn_aux';
+          representationStage = 'KP_LEARN';
+          title = kp ? `${kp.identity.displayId} · 学习辅助` : 'KP Learn 辅助';
+          slot = learner.slots?.kpLearnAux?.[kp?.identity?.kpId] || {};
+        } else if (stage === 'logic_group') {
+          const groupId = groupIds[activeGroupIndex()] || '';
+          slotName = 'logic_group_prelearn';
+          representationStage = 'LOGIC_GROUP_ORIENT';
+          title = '学习节辅助';
+          slot = learner.slots?.logicGroupPrelearn?.[groupId] || {};
+        } else if (stage === 'group_close') {
+          const groupId = groupIds[activeGroupIndex()] || '';
+          slotName = 'logic_group_postlearn';
+          representationStage = 'GROUP_CLOSURE';
+          title = '收口辅助';
+          slot = learner.slots?.logicGroupPostlearn?.[groupId] || {};
+        } else if (stage === 'kp_recall' && recallAnswerVisible()) {
+          const kpId = activeRecallKpId();
+          slotName = 'kp_recall_post_reveal';
+          representationStage = 'KP_RECALL_REVEAL';
+          title = 'Reveal 后辅助';
+          slot = { ...(learner.slots?.kpRecallPostReveal?.[kpId] || {}), core: null };
+        } else if (stage === 'kp_recall') {
+          representationStage = 'KP_RECALL_FRONT';
+        }
+        const rendered = renderSlot(slot, { stage: representationStage });
+        auxHost.dataset.learnerObjectSlot = slotName;
+        auxHost.dataset.representationStage = representationStage;
+        auxHost.replaceChildren(...rendered.childNodes);
+        const weight = resolvedSlotWeight(slot, representationStage);
+        root.dataset.auxWeight = weight;
+        auxSurface.hidden = auxHost.childElementCount === 0;
+        if (auxTitle) auxTitle.textContent = title;
+        root.dispatchEvent(new CustomEvent('kianos:xizong-aux-change', { detail: { slot: slotName, weight, representationStage } }));
+      };
+
+      const rerender = () => { renderCompanions(); renderAux(); };
+      renderCompanions();
+      renderAux();
+
+      root.addEventListener('click', (event) => {
+        const target = event.target instanceof Element ? event.target : null;
+        const prev = target?.closest('[data-companion-prev]');
+        const next = target?.closest('[data-companion-next]');
+        if (!prev && !next) return;
+        const stageName = (prev || next)?.getAttribute(prev ? 'data-companion-prev' : 'data-companion-next') || '';
+        const delta = next ? 1 : -1;
+        if (stageName === 'source_contact') sourceLearnIndex = Math.max(0, Math.min(allKps.length - 1, sourceLearnIndex + delta));
+        if (stageName === 'kp_learn') groupLearnIndex = Math.max(0, Math.min(groupCompanionIds().length - 1, groupLearnIndex + delta));
+        rerender();
       });
+
+      const stages = [...root.querySelectorAll('[data-study-stage]')];
+      const stageObserver = new MutationObserver(renderAux);
+      stages.forEach((stage) => stageObserver.observe(stage, { attributes: true, attributeFilter: ['hidden'] }));
+      const counter = root.querySelector('[data-logic-counter]');
+      if (counter) new MutationObserver(rerender).observe(counter, { childList: true, subtree: true, characterData: true });
+      const recallObserver = new MutationObserver(renderAux);
+      root.querySelectorAll('[data-kp-recall-card],[data-kp-answer]').forEach((node) => recallObserver.observe(node, { attributes: true, attributeFilter: ['hidden'] }));
     }
   }
 </script>
 
 <style is:global>
-  .xv6LearnerObjectSurface,.xv6LearnerObjectGroupSurface{display:grid;gap:.55rem;margin:.65rem 0}
-  .xv6LearnerObjectSurface:empty,.xv6LearnerObjectGroupSurface:empty{display:none}
+  .xv6LearnerObjectSurface{display:grid;gap:.55rem;margin:0}.xv6LearnerObjectSurface:empty{display:none}
   .xv6LearnerAsset{display:grid;grid-template-columns:112px minmax(0,1fr);gap:.55rem;align-items:start;padding:.48rem 0;border-top:1px solid var(--line,#d9dde5)}
   .xv6LearnerAsset:first-child{border-top:0}.xv6LearnerAssetLabel{font-size:.72rem;font-weight:800;opacity:.68}.xv6LearnerAsset p{margin:0;font-size:.86rem;line-height:1.55}
-  .xv6LearnerAsset.visual,.xv6LearnerAsset.extension,.xv6LearnerAsset.connection.reserve{padding:.65rem .72rem;border:1px solid var(--line,#d9dde5);border-radius:10px;background:var(--soft,#f5f6f8)}
+  .xv6LearnerAsset.support{grid-template-columns:104px minmax(0,1fr);padding:.55rem 0;border-top:1px solid var(--line,#d9dde5);background:transparent}
+  .xv6LearnerAsset.precision{grid-template-columns:104px minmax(0,1fr);padding:.58rem 0;border-top:1px solid var(--line,#d9dde5);background:transparent}
+  .xv6LearnerAsset.connection{grid-template-columns:104px minmax(0,1fr);padding:.5rem 0;border-top:1px solid var(--line,#d9dde5);background:transparent}
+  .xv6LearnerAsset.visual,.xv6LearnerAsset.extension.representation-source_visual,.xv6LearnerAsset.extension.representation-reviewed_visual,.xv6LearnerAsset.extension.representation-structured_table{padding:.65rem .72rem;border:1px solid var(--line,#d9dde5);border-radius:10px;background:var(--soft,#f5f6f8)}
   .xv6LearnerAsset.visual,.xv6LearnerAsset.extension{grid-template-columns:1fr}.xv6LearnerAsset.extension h4{margin:0;font-size:.96rem}.xv6LearnerAsset.extension small{opacity:.65;line-height:1.45}
   .xv6LearnerVisualGallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}.xv6LearnerVisualGallery figure{margin:0;border:1px solid var(--line,#d9dde5);border-radius:9px;overflow:hidden;background:#fff}.xv6LearnerVisualGallery figure.primary{grid-column:1/-1}.xv6LearnerVisualGallery img{display:block;width:100%;height:auto;max-height:380px;object-fit:contain}.xv6LearnerVisualGallery figure.primary img{max-height:520px}.xv6LearnerVisualGallery figcaption{padding:.4rem .5rem;border-top:1px solid var(--line,#d9dde5);font-size:.72rem;font-weight:700;opacity:.7}
   .xv6LearnerExtensionImage{display:block;max-width:100%;height:auto;border-radius:8px}.xv6LearnerTableWrap{overflow:auto}.xv6LearnerTable{width:100%;min-width:32rem;border-collapse:collapse;font-size:.84rem}.xv6LearnerTable th,.xv6LearnerTable td{padding:.45rem .55rem;border:1px solid var(--line,#d9dde5);text-align:left;vertical-align:top}.xv6LearnerTable tr.emphasis td{font-weight:700}.xv6LearnerReference summary{cursor:pointer;font-weight:700}
-  @media(max-width:720px){.xv6LearnerAsset{grid-template-columns:1fr;gap:.2rem}.xv6LearnerVisualGallery{grid-template-columns:1fr}.xv6LearnerVisualGallery figure.primary{grid-column:auto}.xv6LearnerVisualGallery img,.xv6LearnerVisualGallery figure.primary img{max-height:none}}
+  .xv6LearnerAuxSurface{display:flex;flex:1 1 auto;min-height:0;flex-direction:column;overflow:hidden;border-bottom:1px solid var(--study-line,var(--line,#d9dde5));background:#fff}.xv6LearnerAuxSurface[hidden]{display:none}.xv6LearnerAuxSurface>header{flex:0 0 auto;padding:9px 11px;border-bottom:1px solid var(--study-line,var(--line,#d9dde5));background:var(--soft,#f5f6f8)}.xv6LearnerAuxSurface>header span{display:block;font-size:9px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;opacity:.6}.xv6LearnerAuxSurface>header strong{display:block;margin-top:2px;font-size:13px}.xv6LearnerAuxBody{flex:1 1 auto;min-height:0;overflow:auto;padding:9px 10px;overscroll-behavior:contain}.xv6LearnerAuxHost{min-height:0}
+  .xv6KpLearnCompanionHost{min-height:0}.xv6KpLearnCompanion{display:flex;min-height:0;flex-direction:column;gap:10px}.xv6KpLearnCompanionHeader{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:9px;border-bottom:1px solid var(--line,#d9dde5)}.xv6KpLearnCompanionHeader>div:first-child{display:grid;gap:2px}.xv6KpLearnCompanionHeader span{font-size:.7rem;font-weight:800;letter-spacing:.04em;color:var(--study-green,#286c57)}.xv6KpLearnCompanionHeader strong{font-size:1rem}.xv6KpLearnNav{display:flex!important;align-items:center;gap:7px}.xv6KpLearnNav button{min-width:32px;height:32px;border:1px solid var(--line,#d9dde5);border-radius:8px;background:#fff}.xv6KpLearnNav em{font-size:.76rem;font-style:normal;opacity:.6}.xv6KpLearnPrompt{padding:10px 12px;border-left:3px solid var(--study-green,#286c57);background:var(--soft,#f5f6f8)}.xv6KpLearnPrompt span{font-size:.68rem;font-weight:800;opacity:.6}.xv6KpLearnPrompt p{margin:4px 0 0;font-size:.96rem;line-height:1.65;font-weight:650}.xv6KpLearnLocators{display:flex;flex-wrap:wrap;gap:6px}.xv6KpLearnLocators span{padding:4px 7px;border-radius:7px;background:var(--soft,#f5f6f8);font-size:.72rem;opacity:.72}.xv6KpLearnCore{min-height:0;overflow:auto;padding-right:8px;overscroll-behavior:contain}.xv6KpLearnCore>:first-child{margin-top:0}.xv6KpLearnCore>:last-child{margin-bottom:0}.xv6KpLearnCompanionNote{padding-top:8px;border-top:1px dashed var(--line,#d9dde5);font-size:.72rem;line-height:1.55;opacity:.62}
+  .xv6LearnerObjectActive .xv6LearnerCompanionStage>.xv6LectureFirst,.xv6LearnerObjectActive [data-study-stage="source_contact"].xv6LearnerCompanionStage>.xv6SourceRules,.xv6LearnerObjectActive [data-study-stage="kp_learn"].xv6LearnerCompanionStage>.xv6GroupKpMap{display:none}
+  @media(max-width:1100px){.xv6LearnerAsset{grid-template-columns:1fr;gap:.2rem}.xv6LearnerVisualGallery{grid-template-columns:1fr}.xv6LearnerVisualGallery figure.primary{grid-column:auto}.xv6LearnerVisualGallery img,.xv6LearnerVisualGallery figure.primary img{max-height:none}.xv6LearnerAuxSurface{display:none!important}.xv6KpLearnCore{overflow:visible}}
 </style>

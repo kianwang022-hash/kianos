@@ -2,11 +2,14 @@
 import { marked } from 'marked';
 import Base from '../../../layouts/Base.astro';
 import XizongBlockV6 from '../../../components/XizongBlockV6.astro';
+import XizongBlockWorkspaceShell from '../../../components/XizongBlockWorkspaceShell.astro';
+import XizongBlockAuxLayoutSync from '../../../components/XizongBlockAuxLayoutSync.astro';
+import XizongVisibleTypeFloor from '../../../components/XizongVisibleTypeFloor.astro';
 import XizongQuestionCrosswalkReverse from '../../../components/XizongQuestionCrosswalkReverse.astro';
 import XizongLearnerObjectBridge from '../../../components/XizongLearnerObjectBridge.astro';
 import XizongMemoryReleaseBridge from '../../../components/XizongMemoryReleaseBridge.astro';
+import XizongRecallEvidenceBridge from '../../../components/XizongRecallEvidenceBridge.astro';
 import XizongStudyEnhancer from '../../../components/XizongStudyEnhancer.astro';
-import XizongMemoryReviewV6 from '../../../components/XizongMemoryReviewV6.astro';
 import XizongBlockEvidenceGuard from '../../../components/XizongBlockEvidenceGuard.astro';
 import XizongRepairInboxBridge from '../../../components/XizongRepairInboxBridge.astro';
 import XizongLastLocation from '../../../components/XizongLastLocation.astro';
@@ -52,11 +55,18 @@ const block = projection;
   <XizongLastLocation system={system} block={canonicalBlock} />
   <XizongBlockV6 block={projection} />
   <XizongLearnerObjectBridge learnerObject={learnerObject} />
+  <XizongBlockWorkspaceShell />
+  <XizongBlockAuxLayoutSync />
+  <XizongVisibleTypeFloor />
   <XizongMemoryReleaseBridge learnerObject={learnerObject} objectId={canonicalBlock.objectId} sourceHash={canonicalBlock.sourceHash} />
-  <XizongQuestionCrosswalkReverse crosswalk={crosswalk} />
+  <!-- Crosswalk remains a canonical read-only/query capability, but it no longer occupies
+       first-pass Block workspace UI. Deep-link anchors remain mounted for reviewed backlinks. -->
+  <div hidden aria-hidden="true" data-xizong-legacy-crosswalk-bridge>
+    <XizongQuestionCrosswalkReverse crosswalk={crosswalk} />
+  </div>
   <XizongRuntimeStageGuard system={system} block={block} />
   <XizongStudyEnhancer block={projection} />
-  <XizongMemoryReviewV6 block={projection} />
+  <XizongRecallEvidenceBridge block={projection} />
   <XizongBlockEvidenceGuard block={projection} />
   <XizongRepairInboxBridge block={projection} />
 </Base>
