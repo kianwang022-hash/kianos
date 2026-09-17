@@ -46,7 +46,7 @@ jobs:
       - name: Validate Politics runtime
         working-directory: static-web
         run: npm run validate:politics
-      - name: Audit purpose-first rollout across all PASS units
+      - name: Audit content hierarchy rollout across all PASS units
         working-directory: static-web
         run: node scripts/audit-politics-purpose-first-rollout.mjs
       - name: Build Current site
@@ -60,13 +60,13 @@ jobs:
       - name: Execute Politics Functional First journeys
         working-directory: static-web
         run: node scripts/test-politics-functional-journey.mjs
-      - name: Verify purpose-first Politics Golden UI
+      - name: Verify Politics Golden learner surface
         working-directory: static-web
         run: node scripts/test-politics-golden-purpose-first.mjs
-      - name: Verify Marx C01 purpose-first pilot
+      - name: Verify Marx C01 explicit surface ownership
         working-directory: static-web
         run: node scripts/test-politics-marx-c01-purpose-first.mjs
-      - name: Verify five-subject purpose-first batch matrix
+      - name: Verify five-subject explicit surface matrix
         working-directory: static-web
         run: node scripts/test-politics-purpose-first-batch-matrix.mjs
       - name: Verify explicit content-to-surface mapping in browser
