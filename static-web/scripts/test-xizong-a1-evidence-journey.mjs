@@ -4,12 +4,13 @@ import path from 'node:path';
 import { spawn, spawnSync } from 'node:child_process';
 import { loadXizongBlock, loadXizongSystem } from '../src/lib/xizong.mjs';
 import { loadXizongSystemQuestionSweep } from '../src/lib/xizongQuestions.mjs';
+import { XIZONG_MEMORY_STORAGE_KEY } from '../src/lib/xizongMemoryModel.mjs';
 
 const PORT = 4329;
 const DEBUG_PORT = 9229;
 const BASE = `http://127.0.0.1:${PORT}`;
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-const report = { schema: 'kianos.xizong.a1.browser_evidence_journey.v1', started_at: new Date().toISOString(), checks: [] };
+const report = { schema: 'kianos.xizong.a1.browser_evidence_journey.v2', started_at: new Date().toISOString(), checks: [] };
 const check = (condition, name, detail = '') => {
   if (!condition) throw new Error(`A1_BROWSER_EVIDENCE_FAIL:${name}${detail ? `:${detail}` : ''}`);
   report.checks.push({ name, pass: true, detail });
@@ -89,7 +90,6 @@ class CDP {
   close() { try { this.ws?.close(); } catch {} }
 }
 const clickExpr = (selector) => `(()=>{const e=document.querySelector(${js(selector)});if(!e)return {ok:false};e.click();return {ok:true,disabled:Boolean(e.disabled),hidden:Boolean(e.hidden)};})()`;
-const hiddenExpr = (selector) => `(()=>{const e=document.querySelector(${js(selector)});return e ? Boolean(e.hidden) : null;})()`;
 
 const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', String(PORT)], { cwd: process.cwd(), stdio: ['ignore', 'pipe', 'pipe'], detached: process.platform !== 'win32' });
 const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'kianos-a1-e-'));
@@ -118,12 +118,16 @@ try {
   const b2StudyKey = 'kianos-xizong-astro-v2:xizong:circulation-b02';
   const b2ExtKey = 'kianos-xizong-memory-review-v2:xizong:circulation-b02';
 
-  // ----- Block evidence: repeated actual Recall + Memory + Chat repair -----
+  // ----- Block Evidence owner: repeated real Recall stays append-preserved. -----
   await cdp.navigate(`${BASE}/xizong/circulation/b02/`);
   await cdp.evaluate(`(()=>{for(const key of Object.keys(localStorage))if(key.includes('xizong'))localStorage.removeItem(key);sessionStorage.clear();})()`);
   await cdp.reload();
   await cdp.evaluate(`localStorage.setItem(${js(b2StudyKey)}, JSON.stringify({stage:'kp_recall',groupIndex:0,kpIndex:0,learned:${JSON.stringify(Object.fromEntries(firstGroupIds.map((id) => [id, true])))},ratings:{},blockRecallDone:false,completed:false}))`);
   await cdp.reload();
+  check(await cdp.evaluate(`document.querySelectorAll('.xv6MemoryReview').length`) === 0, 'retired_after_learn_ui_absent');
+  check(await cdp.evaluate(`Boolean(document.querySelector('[data-xizong-recall-evidence-bridge]')?.hidden)`), 'recall_evidence_bridge_is_nonvisual');
+  check(await cdp.evaluate(`Boolean(document.querySelector('[data-xizong-memory-release-bridge]')?.hidden)`), 'memory_release_bridge_is_nonvisual');
+
   await cdp.evaluate(clickExpr('[data-kp-recall-card]:not([hidden]) [data-kp-reveal]'));
   await cdp.evaluate(clickExpr('[data-kp-recall-card]:not([hidden]) [data-rating="unknown"]'));
   await sleep(180);
@@ -141,32 +145,11 @@ try {
   check(recallEvents.length === 2, 'repeated_identical_recall_attempt_preserved', String(recallEvents.length));
   let study = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(b2StudyKey)})||'null')`);
   check(study?.ratings?.[firstKp] === 'unknown', 'latest_recall_state_remains_unknown');
+  check(!(ext?.evidenceHistory || []).some((row) => row.type === 'MEMORY' || row.type === 'CHAT_PLAN_REVIEW'), 'block_recall_does_not_manufacture_retired_after_learn_evidence');
+  const memoryBeforeComplete = await cdp.evaluate(`(()=>{try{return JSON.parse(localStorage.getItem(${js(XIZONG_MEMORY_STORAGE_KEY)})||'null')}catch{return null}})()`);
+  check(!memoryBeforeComplete?.releasedBlocks?.['circulation-b02'], 'incomplete_block_does_not_release_memory');
 
-  await cdp.evaluate(clickExpr('[data-extension-tab="memory"]'));
-  await cdp.evaluate(clickExpr('[data-memory-reveal]'));
-  await cdp.evaluate(clickExpr('[data-memory-response="STABLE"]'));
-  await sleep(120);
-  ext = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(b2ExtKey)})||'null')`);
-  study = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(b2StudyKey)})||'null')`);
-  check(ext?.memory?.[firstKp] === 'STABLE', 'memory_can_exit_local_weak_queue');
-  check(study?.ratings?.[firstKp] === 'unknown', 'memory_stable_does_not_rewrite_original_recall');
-  check((ext?.evidenceHistory || []).some((row) => row.type === 'MEMORY' && row.kp_id === firstKp && row.state === 'STABLE'), 'memory_event_appended');
-
-  await cdp.evaluate(clickExpr('[data-extension-tab="review"]'));
-  await cdp.evaluate(clickExpr('[data-review-import-toggle]'));
-  await cdp.evaluate(`(()=>{const e=document.querySelector('[data-review-import-text]');e.value=${js(JSON.stringify({ plan: [{ kp_id: firstKp, reason: 'fresh evidence test', action: 'repair smallest owner', priority: 'high' }] }))};})()`);
-  await cdp.evaluate(clickExpr('[data-review-apply]'));
-  await cdp.evaluate(clickExpr('[data-review-reveal]'));
-  await cdp.evaluate(clickExpr('[data-review-rating="mastered"]'));
-  await sleep(120);
-  ext = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(b2ExtKey)})||'null')`);
-  study = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(b2StudyKey)})||'null')`);
-  const repairEvidence = (ext?.evidenceHistory || []).filter((row) => row.type === 'CHAT_PLAN_REVIEW' && row.kp_id === firstKp);
-  check(repairEvidence.some((row) => row.evidence_role === 'REPAIR_ONLY' && row.rating === 'mastered'), 'chat_repair_is_repair_only');
-  check(study?.ratings?.[firstKp] === 'unknown', 'chat_repair_does_not_rewrite_original_recall');
-  check(!(ext?.reviewPlan || []).some((row) => String(row?.kpId || row?.kp_id || row) === firstKp), 'resolved_chat_repair_task_closes_without_mastery_promotion');
-
-  // ----- System W/U repair: stable excluded, reviewed relation routed, unresolved relation not guessed -----
+  // ----- System W/U repair: stable excluded, reviewed relation routed, unresolved relation not guessed. -----
   const reviewedQuestion = sweep.questions.find((q) => q.relation?.blockId && q.relation?.primaryKpId && q.relation.blockId !== 'circulation-b02')
     || sweep.questions.find((q) => q.relation?.blockId && q.relation?.primaryKpId);
   const unresolvedQuestion = sweep.questions.find((q) => q.questionId !== reviewedQuestion?.questionId && (!q.relation?.blockId || !q.relation?.primaryKpId));
@@ -214,7 +197,7 @@ try {
   const sweepAfterRepair = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(sweepKey)})||'null')`);
   check(sweepAfterRepair?.results?.[reviewedQuestion.questionId]?.status === 'wrong' && sweepAfterRepair?.results?.[stableQuestion.questionId]?.status === 'stable', 'repair_return_does_not_rewrite_original_question_evidence');
 
-  // ----- Block content-version mutation: archive stale evidence, preserve notes only -----
+  // ----- Block content-version mutation: archive stale evidence, preserve notes only. -----
   const staleMeta = system.blocks.find((row) => row.blockId === 'circulation-b03');
   const staleBlock = loadXizongBlock('circulation', staleMeta.slug);
   const staleObjectId = 'xizong:circulation-b03';
@@ -245,7 +228,7 @@ try {
   check(stalePersonal?.lectureRead === false && stalePersonal?.kp?.[noteKp]?.comment === 'keep this note', 'stale_block_reset_preserves_note_but_not_lecture_completion');
   check(staleArchiveKeys.length > 0, 'stale_block_evidence_archived');
 
-  // Malformed Evidence extension falls back without manufacturing mastery.
+  // Malformed legacy evidence bridge data recovers without manufacturing mastery.
   const malformedMeta = system.blocks.find((row) => row.blockId === 'circulation-b05');
   const malformedKey = 'kianos-xizong-memory-review-v2:xizong:circulation-b05';
   await cdp.navigate(`${BASE}/xizong/circulation/${malformedMeta.slug}/`);
