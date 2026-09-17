@@ -1,0 +1,71 @@
+name: Authority Consistency
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'AUTHORITY_INHERITANCE_CONTRACT.md'
+      - 'AUTHORITY_OWNERSHIP.json'
+      - 'CURRENT.md'
+      - 'content/**/CURRENT.md'
+      - 'SYSTEM_CONTRACT.md'
+      - 'ARCHITECTURE.md'
+      - 'PROJECT_MANAGEMENT_CONTRACT.md'
+      - 'BRANCH_LIFECYCLE.md'
+      - 'EXAM_ORCHESTRATOR_CONTRACT.md'
+      - 'EXAM_ORCHESTRATOR_CURRENT.json'
+      - 'static-web/HOME_SUBJECT_PROJECTION_CONTRACT.md'
+      - 'static-web/EXTERNAL_READING_PRODUCT_BRIEF.md'
+      - 'static-web/src/**/*.astro'
+      - 'static-web/src/**/*.mjs'
+      - 'static-web/src/**/*.js'
+      - 'static-web/src/styles/shared-shell.css'
+      - 'static-web/src/styles/study-timer.css'
+      - 'static-web/scripts/**'
+      - 'tools/authority_consistency_audit.py'
+      - 'tools/authority_projection_audit.py'
+      - '.github/workflows/authority-consistency.yml'
+  pull_request:
+    paths:
+      - 'AUTHORITY_INHERITANCE_CONTRACT.md'
+      - 'AUTHORITY_OWNERSHIP.json'
+      - 'CURRENT.md'
+      - 'content/**/CURRENT.md'
+      - 'SYSTEM_CONTRACT.md'
+      - 'ARCHITECTURE.md'
+      - 'PROJECT_MANAGEMENT_CONTRACT.md'
+      - 'BRANCH_LIFECYCLE.md'
+      - 'EXAM_ORCHESTRATOR_CONTRACT.md'
+      - 'EXAM_ORCHESTRATOR_CURRENT.json'
+      - 'static-web/HOME_SUBJECT_PROJECTION_CONTRACT.md'
+      - 'static-web/EXTERNAL_READING_PRODUCT_BRIEF.md'
+      - 'static-web/src/**/*.astro'
+      - 'static-web/src/**/*.mjs'
+      - 'static-web/src/**/*.js'
+      - 'static-web/src/styles/shared-shell.css'
+      - 'static-web/src/styles/study-timer.css'
+      - 'static-web/scripts/**'
+      - 'tools/authority_consistency_audit.py'
+      - 'tools/authority_projection_audit.py'
+      - '.github/workflows/authority-consistency.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: authority-consistency-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  authority-consistency:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Audit authority inheritance, shared ownership and sync boundaries
+        run: python tools/authority_consistency_audit.py
+      - name: Audit derived projections and conditional shared capabilities
+        run: python tools/authority_projection_audit.py

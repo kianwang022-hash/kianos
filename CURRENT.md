@@ -10,26 +10,26 @@
 ## Root Work Cursor
 
 **Active scope:** Parallel learner-facing convergence under the accepted shared UI rules  
-**Current stage:** shared UI preferences / style rules are accepted on `main`; lane work now proceeds independently by owner without reopening root architecture  
-**Blocker:** none at root; shared-shell implementation must have one writer  
-**Next action:** run the current parallel assignments below. Each lane edits only its owned surface unless the shared-shell owner lands a shared change on `main` first.
+**Current stage:** the 4173-style shared Shell is on `main`; durable shared ownership is now explicit, while lane work proceeds independently by owner  
+**Blocker:** none at root; a shared implementation path may still have only one active writer at a time  
+**Next action:** run the current parallel assignments below. Each lane edits only its owned surface. Shared-owner changes route through `AUTHORITY_INHERITANCE_CONTRACT.md` + `AUTHORITY_OWNERSHIP.json` rather than becoming a subject-local fork.
 
 ### Current parallel assignment
 
 | Lane | Current responsibility | Shared-shell rule |
 | --- | --- | --- |
-| English | **English UI architecture + legacy `4173` visual convergence**; additionally owns the current implementation of the shared Base Shell / collapsible `K` global rail | English is the **single current writer** for shared Shell / `K` rail / global navigation implementation. It must follow `static-web/UI_STYLE_BRIEF.md` and must not change English Learning/Runtime/Evidence semantics. |
-| Xizong | **Xizong learner-facing UI convergence** in the current Chat | Xizong must **consume** the shared Shell from `main`; it must not independently recreate or modify the global `K` rail / Base Shell while English owns that shared implementation. |
+| English | **English UI architecture + legacy `4173` visual convergence**; this Chat is also the **current writer** for shared Shell changes when cross-lane Shell work is required | Shared Shell is a **Shared Platform authority**, not English semantic ownership. English may modify the registered shared implementation owner during this assignment, then land it on `main` for all lanes to consume. |
+| Xizong | **Xizong learner-facing UI convergence** in the current Chat | Xizong consumes the shared owner from `main`; it must not independently recreate or fork the global `K` rail / Base Shell. |
 | Politics | Continue **explicit content → learner-surface mapping** (#352 / current Politics mapping lane) | Do not start broad Politics UI redesign until the mapping owner is stable enough for downstream consumption. |
-| Lexical | No new broad parallel UI rewrite while shared Shell is being established | Preserve accepted Lexical visual proof; later adopt shared Shell from `main` without reopening Lexical semantics. |
+| Lexical | No new broad parallel UI rewrite while current convergence is active | Preserve accepted Lexical visual proof; consume Shared Platform owners without reopening Lexical semantics. |
 
 Hard coordination rule:
 
-> **Shared Shell has one temporary implementation writer; subject surfaces have their own writers.**
+> **Shared Platform has durable owners; each shared implementation path has at most one current writer. Subject surfaces may refine locally but may not create a competing shared Truth.**
 
-If a subject needs a change to shared Shell / global nav / shared UI primitives, do not patch it locally. Route the shared change to the current shared-shell owner, land it on `main`, then rebase/sync the subject work and continue.
+If a subject needs a change to Shared Shell / global nav / shared UI primitives, do not patch it locally. Route the shared change to the current writer, land it on `main`, then rebase/sync the subject work and continue.
 
-Top-level governance is accepted and remains frozen. This is implementation of `PROJECT_MANAGEMENT_CONTRACT.md`, not a new root architecture.
+Top-level governance is accepted and remains frozen. `AUTHORITY_INHERITANCE_CONTRACT.md` makes the existing architecture rule executable: lower scopes may refine higher scopes, never contradict or duplicate them.
 
 ---
 
@@ -37,6 +37,8 @@ Top-level governance is accepted and remains frozen. This is implementation of `
 
 - project requirements / invariants → `PROJECT_DEFINITION.md`
 - project architecture → `ARCHITECTURE.md`
+- authority inheritance / anti-drift → `AUTHORITY_INHERITANCE_CONTRACT.md`
+- machine-readable owner topology → `AUTHORITY_OWNERSHIP.json`
 - worker entry / operating rules → `AGENTS.md`
 - cross-lane project-management execution → `PROJECT_MANAGEMENT_CONTRACT.md`
 - governance acceptance → `GOVERNANCE_ACCEPTANCE.md`
@@ -115,7 +117,8 @@ For cross-layer/root integration work:
 
 ```text
 root CURRENT
-→ PROJECT_MANAGEMENT_CONTRACT.md
+→ AUTHORITY_INHERITANCE_CONTRACT.md + AUTHORITY_OWNERSHIP.json when ownership/derivation/sync is involved
+→ PROJECT_MANAGEMENT_CONTRACT.md when cross-lane execution is involved
 → exact affected authority chain only
 → work
 ```
@@ -127,10 +130,11 @@ Do not use historical repositories, retired branches, migration records, old Iss
 Keep these distinctions everywhere:
 
 ```text
-Artifact Truth ≠ Acceptance Truth ≠ Learner Truth ≠ Work Cursor
+Artifact Truth ≠ Acceptance Truth ≠ Learner Truth ≠ Work Cursor ≠ Derived Read Model
 Hierarchy = ownership/routing
 Dependency = scheduling
 Learner order = learner experience sequence
+Current writer ≠ durable authority owner
 ```
 
 This file should remain small. Progress history belongs in Git history / exact evidence owners, not here.
