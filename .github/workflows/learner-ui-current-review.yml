@@ -1,0 +1,67 @@
+name: Learner UI Current Review
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/learner-ui-current-review.yml'
+      - 'static-web/src/styles/kianos.css'
+      - 'static-web/src/styles/current/**'
+      - 'static-web/src/layouts/Base.astro'
+      - 'static-web/src/pages/vocabulary/**'
+      - 'static-web/src/components/Vocabulary*.astro'
+      - 'static-web/scripts/capture-current-ui-review.mjs'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/learner-ui-current-review.yml'
+      - 'static-web/src/styles/kianos.css'
+      - 'static-web/src/styles/current/**'
+      - 'static-web/src/layouts/Base.astro'
+      - 'static-web/src/pages/vocabulary/**'
+      - 'static-web/src/components/Vocabulary*.astro'
+      - 'static-web/scripts/capture-current-ui-review.mjs'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: learner-ui-current-review-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lexical-mac-wide:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Astro dependencies
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+
+      - name: Build Current learner site
+        working-directory: static-web
+        run: npm run build
+
+      - name: Install Chromium review tool
+        working-directory: static-web
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Capture and assert Mac-wide Lexical Current
+        working-directory: static-web
+        run: node scripts/capture-current-ui-review.mjs
+
+      - name: Upload human visual gate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: learner-ui-current-review-${{ github.sha }}
+          path: ui-current-review/
+          if-no-files-found: error
+          retention-days: 14
