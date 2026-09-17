@@ -1,8 +1,10 @@
 ---
 import Value from './PoliticsProjectionValue.astro';
 import PoliticsPurposeFirstGeometry from './PoliticsPurposeFirstGeometry.astro';
+import PoliticsExplicitSurfacePlan from './PoliticsExplicitSurfacePlan.astro';
 const { projection } = Astro.props;
 const labels = {cause:'起因',cause_layers:'原因层次',process:'发展过程',turning_point:'转折',evaluation:'评价',historical_gain:'历史成果',failure_causes:'失败原因',failure_lesson:'教训',program:'主张与方案',mechanism:'作用机制',before:'前提',historical_meaning:'历史意义',core_contradiction:'核心矛盾',from_previous:'承上',historical_position:'历史位置',conditions:'形成条件',teaching_relations:'关键关系',identity_hierarchy:'体系身份',role_summary:'这一层回答什么',concept_identity:'概念与性质',application_rule:'情境判断',current_relation:'主关系',theory_response:'理论回应',parallel_theory_responses:'不同问题的回应'};
+const explicitOrient = projection?.surfacePlan?.states?.ORIENT || null;
 const usePurposeFirst = projection?.purposeFirst === true || projection?.purposeFirstPilot === true;
 const hierarchy = projection?.hierarchy?.tiers || null;
 const h1Primary = hierarchy
@@ -11,8 +13,10 @@ const h1Primary = hierarchy
 const h3 = hierarchy?.H3_SUPPORTING_UNDERSTANDING || [];
 const h1Projection = hierarchy ? { ...projection, primary: h1Primary, secondary: [] } : projection;
 ---
-{projection && <section class={`politicsCompiledGeometry ${usePurposeFirst ? 'purposeFirst' : ''} ${hierarchy ? 'hierarchyAware' : ''}`} data-compiled-shape={projection.shape} data-compiled-unit={projection.unitId} data-representation={projection?.representation?.kind || undefined} data-content-hierarchy={hierarchy ? 'v1' : undefined}>
-  {usePurposeFirst ? (
+{projection && <section class={`politicsCompiledGeometry ${explicitOrient ? 'explicitMapped' : ''} ${usePurposeFirst ? 'purposeFirst' : ''} ${hierarchy ? 'hierarchyAware' : ''}`} data-compiled-shape={projection.shape} data-compiled-unit={projection.unitId} data-representation={projection?.representation?.kind || undefined} data-content-hierarchy={hierarchy ? 'v1' : undefined} data-explicit-surface-mapping={explicitOrient ? 'v1' : undefined}>
+  {explicitOrient ? (
+    <PoliticsExplicitSurfacePlan groups={explicitOrient} />
+  ) : usePurposeFirst ? (
     <PoliticsPurposeFirstGeometry projection={h1Projection} />
   ) : (
     <div class="compiledPrimary">
@@ -23,7 +27,7 @@ const h1Projection = hierarchy ? { ...projection, primary: h1Primary, secondary:
     </div>
   )}
 
-  {hierarchy ? (
+  {!explicitOrient && (hierarchy ? (
     h3.length > 0 && <details class="politicsHierarchySupport" data-hierarchy-tier="H3_SUPPORTING_UNDERSTANDING">
       <summary>理解补充 · 需要时展开</summary>
       <div class="politicsHierarchySupportBody">
@@ -40,7 +44,7 @@ const h1Projection = hierarchy ? { ...projection, primary: h1Primary, secondary:
       {projection.takeaway.length > 0 && <section class="compiledTakeaway"><h3>这一段带走</h3>{projection.takeaway.map(value => <Value value={value} />)}</section>}
       {projection.exact.length > 0 && <section class="compiledExact"><h3>精确表述</h3>{projection.exact.map(value => <Value value={value} />)}</section>}
     </>
-  )}
+  ))}
 </section>}
 
 <style>
