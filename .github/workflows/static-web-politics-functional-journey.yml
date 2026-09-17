@@ -57,6 +57,9 @@ jobs:
         run: |
           npm install --no-save --no-audit --no-fund playwright@1.56.1
           npx playwright install --with-deps chromium
+      - name: Verify Politics Home meaningful attention
+        working-directory: static-web
+        run: node scripts/test-politics-home-attention.mjs
       - name: Execute Politics Functional First journeys
         working-directory: static-web
         run: node scripts/test-politics-functional-journey.mjs
