@@ -327,6 +327,24 @@ const payload = learnerObject || null;
         if (groupCompanionHost) renderCompanionCard(groupCompanionHost, groupCompanionKp(), groupLearnIndex, ids.length, 'kp_learn');
       };
 
+      const mergeSlots = (...slots) => {
+        const families = ['connection', 'visual', 'precision', 'extension'];
+        const merged = {};
+        for (const family of families) {
+          const seen = new Set();
+          merged[family] = [];
+          for (const slot of slots) {
+            for (const row of array(slot?.[family])) {
+              const key = text(row?.id) || JSON.stringify(row);
+              if (seen.has(key)) continue;
+              seen.add(key);
+              merged[family].push(row);
+            }
+          }
+        }
+        return merged;
+      };
+
       const renderAux = () => {
         if (!(auxSurface instanceof HTMLElement) || !(auxHost instanceof HTMLElement)) return;
         const stage = activeStage();
@@ -347,10 +365,14 @@ const payload = learnerObject || null;
           slot = learner.slots?.kpLearnAux?.[kp?.identity?.kpId] || {};
         } else if (stage === 'kp_learn') {
           const kp = groupCompanionKp();
+          const groupId = groupIds[activeGroupIndex()] || '';
           slotName = 'kp_learn_aux';
           representationStage = 'KP_LEARN';
           title = kp ? `${kp.identity.displayId} · 学习辅助` : 'KP Learn 辅助';
-          slot = learner.slots?.kpLearnAux?.[kp?.identity?.kpId] || {};
+          slot = mergeSlots(
+            learner.slots?.logicGroupPrelearn?.[groupId] || {},
+            learner.slots?.kpLearnAux?.[kp?.identity?.kpId] || {}
+          );
         } else if (stage === 'logic_group') {
           const groupId = groupIds[activeGroupIndex()] || '';
           slotName = 'logic_group_prelearn';
