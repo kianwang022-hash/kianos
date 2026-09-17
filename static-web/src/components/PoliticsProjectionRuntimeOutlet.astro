@@ -1,17 +1,45 @@
 ---
+import Value from './PoliticsProjectionValue.astro';
 const { compiled = null } = Astro.props;
 const rows = compiled ? [...compiled.values()].filter((row) => row?.purposeFirst || row?.purposeFirstPilot) : [];
+const h2Groups = (row) => {
+  const items = row?.hierarchy?.tiers?.H2_FIRST_ROUND_CARRY || [];
+  return {
+    takeaway: items.filter((item) => item.kind === 'takeaway'),
+    boundary: items.filter((item) => item.kind === 'boundary'),
+    exact: items.filter((item) => item.kind === 'exact')
+  };
+};
 ---
 
 {rows.length > 0 && (
   <div hidden data-politics-projection-runtime-registry>
-    {rows.map((row) => (
-      <section data-projection-outlet-unit={row.unitId}>
-        {row.handoff?.locator && <p data-projection-locator>{row.handoff.locator}</p>}
-        {row.handoff?.lookFor?.map((item) => <p data-projection-look-for>{item}</p>)}
-        {row.closure && <p data-projection-closure>{row.closure}</p>}
-      </section>
-    ))}
+    {rows.map((row) => {
+      const h2 = h2Groups(row);
+      const hasH2 = h2.takeaway.length || h2.boundary.length || h2.exact.length;
+      return (
+        <section data-projection-outlet-unit={row.unitId}>
+          {row.handoff?.locator && <p data-projection-locator>{row.handoff.locator}</p>}
+          {row.handoff?.lookFor?.map((item) => <p data-projection-look-for>{item}</p>)}
+          {row.closure && <p data-projection-closure>{row.closure}</p>}
+          {hasH2 && <aside class="politicsFirstRoundCarry" data-hierarchy-tier="H2_FIRST_ROUND_CARRY" data-projection-carry-template>
+            <header><strong>第一轮带走</strong></header>
+            {h2.takeaway.length > 0 && <section class="carryGroup carryTakeaway">
+              <span>主结论</span>
+              {h2.takeaway.map((item) => <Value value={item.value} />)}
+            </section>}
+            {h2.boundary.length > 0 && <section class="carryGroup carryBoundary">
+              <span>分清</span>
+              {h2.boundary.map((item) => <Value value={item.value} />)}
+            </section>}
+            {h2.exact.length > 0 && <section class="carryGroup carryExact">
+              <span>记准</span>
+              {h2.exact.map((item) => <Value value={item.value} />)}
+            </section>}
+          </aside>}
+        </section>
+      );
+    })}
   </div>
 )}
 
@@ -25,13 +53,29 @@ const rows = compiled ? [...compiled.values()].filter((row) => row?.purposeFirst
       const unit = document.querySelector(`[data-politics-unit][data-unit-id="${CSS.escape(unitId)}"]`);
       if (!unit) return;
 
+      // Hierarchy owns default attention. Legacy answer/bridge prose may remain
+      // in the runtime DOM for compatibility, but does not get default learner
+      // attention unless Current Projection selected it into H1-H4.
+      unit.querySelectorAll('.politicsAnswer,.politicsBridge').forEach((node) => {
+        node.hidden = true;
+        node.setAttribute('data-hierarchy-demoted', '');
+      });
+
+      const companion = unit.querySelector('.politicsUnitCompanion');
+      const source = unit.querySelector('[data-politics-external-source]');
+      const carry = entry.querySelector('[data-projection-carry-template]');
+      if (companion && carry) {
+        carry.removeAttribute('data-projection-carry-template');
+        if (source) companion.insertBefore(carry, source);
+        else companion.prepend(carry);
+      }
+
       const locator = entry.querySelector('[data-projection-locator]')?.textContent?.trim();
       const lookFor = [...entry.querySelectorAll('[data-projection-look-for]')]
         .map((node) => node.textContent?.trim())
         .filter(Boolean);
       const closure = entry.querySelector('[data-projection-closure]')?.textContent?.trim();
 
-      const source = unit.querySelector('[data-politics-external-source]');
       const handoff = source?.querySelector('.politicsSourceHandoff');
       if (handoff && (locator || lookFor.length)) {
         let block = handoff.querySelector('[data-current-handoff]');
@@ -61,18 +105,54 @@ const rows = compiled ? [...compiled.values()].filter((row) => row?.purposeFirst
         }
       }
 
-      if (closure) {
-        const closureBox = unit.querySelector('.politicsClosure > div');
-        if (closureBox) {
-          let closureText = closureBox.querySelector('[data-current-closure]') || closureBox.querySelector('p');
-          if (!closureText) {
-            closureText = document.createElement('p');
-            closureBox.prepend(closureText);
-          }
-          closureText.setAttribute('data-current-closure', '');
-          closureText.textContent = closure;
+      const closureBox = unit.querySelector('.politicsClosure > div');
+      if (closure && closureBox) {
+        let closureText = closureBox.querySelector('[data-current-closure]') || closureBox.querySelector('p');
+        if (!closureText) {
+          closureText = document.createElement('p');
+          closureBox.prepend(closureText);
         }
+        closureText.setAttribute('data-current-closure', '');
+        closureText.textContent = closure;
+      }
+
+      // H4 next-bridge becomes timely at Close/Continue, not during first-entry
+      // Orientation. Keep the existing node/semantics, but move it under the
+      // already-collapsed closure surface.
+      const next = unit.querySelector('.politicsNextBridge');
+      if (next && closureBox) {
+        next.setAttribute('data-hierarchy-tier', 'H4_ON_DEMAND');
+        closureBox.append(next);
       }
     });
   })();
 </script>
+
+<style is:global>
+  .politicsStudy[data-politics-runtime] .politicsFirstRoundCarry{
+    display:grid;gap:12px;padding:0 0 16px;margin:0 0 16px;border-bottom:1px solid var(--study-line);
+  }
+  .politicsStudy[data-politics-runtime] .politicsFirstRoundCarry>header strong{
+    font-size:18px;line-height:1.45;color:#234d3e;
+  }
+  .politicsStudy[data-politics-runtime] .carryGroup{
+    display:grid;gap:6px;padding-left:12px;border-left:3px solid #c7d9d2;
+  }
+  .politicsStudy[data-politics-runtime] .carryGroup>span{
+    font-size:16px;line-height:1.45;font-weight:760;color:#5b756c;
+  }
+  .politicsStudy[data-politics-runtime] .carryGroup .projectionText,
+  .politicsStudy[data-politics-runtime] .carryGroup p,
+  .politicsStudy[data-politics-runtime] .carryGroup li,
+  .politicsStudy[data-politics-runtime] .carryGroup strong,
+  .politicsStudy[data-politics-runtime] .carryGroup span:not(:first-child){
+    font-size:17px;line-height:1.62;
+  }
+  .politicsStudy[data-politics-runtime] .carryGroup .projectionValueList,
+  .politicsStudy[data-politics-runtime] .carryGroup .projectionValueRecord{
+    display:grid;gap:7px;
+  }
+  .politicsStudy[data-politics-runtime] .politicsClosure .politicsNextBridge{
+    margin:14px 0 0;padding-top:12px;border-top:1px solid #e5ece8;font-size:17px;line-height:1.62;
+  }
+</style>

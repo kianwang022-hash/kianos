@@ -1,6 +1,7 @@
 import { spawn } from 'node:child_process';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { chromium } from 'playwright';
+import { loadPoliticsCompiledPresentation } from '../src/lib/politicsCompiledPresentation.mjs';
 
 const PORT = 4328;
 const BASE = `http://127.0.0.1:${PORT}`;
@@ -70,6 +71,7 @@ try {
   const page = await context.newPage();
 
   for (const sample of samples) {
+    const compiled = loadPoliticsCompiledPresentation(sample.subject, sample.chapter);
     await page.goto(`${BASE}/politics/${sample.subject}/${sample.chapter}/`, { waitUntil: 'networkidle' });
     const target = await page.evaluate(() => {
       const units = [...document.querySelectorAll('[data-politics-unit]')];
@@ -78,9 +80,17 @@ try {
       return { index, unitId: units[index].getAttribute('data-unit-id') || '' };
     });
     check(Boolean(target), `${sample.label}_has_pass_unit`);
+    const projection = compiled?.get(target.unitId);
+    check(Boolean(projection?.hierarchy), `${sample.label}_compiled_hierarchy_present`);
+    const expectedH2 = projection.hierarchy.tiers.H2_FIRST_ROUND_CARRY.length;
+    const expectedH3 = projection.hierarchy.tiers.H3_SUPPORTING_UNDERSTANDING.length;
+    const expectedNext = Boolean(projection.next);
+
     await page.evaluate((hash) => { location.hash = hash; }, `unit-${target.index + 1}`);
     const unit = page.locator(`[data-politics-unit][data-unit-id="${target.unitId}"]`);
     await unit.waitFor({ state: 'visible' });
+    const compiledGeometry = unit.locator('.politicsCompiledGeometry');
+    check((await compiledGeometry.getAttribute('data-content-hierarchy')) === 'v1', `${sample.label}_h1_stage_uses_content_hierarchy`);
     const geometry = unit.locator('[data-purpose-first-geometry]');
     await geometry.waitFor({ state: 'visible' });
     const rendered = await geometry.getAttribute('data-representation');
@@ -89,9 +99,38 @@ try {
     check((await geometry.locator('svg,canvas').count()) === 0, `${sample.label}_no_auto_diagram`);
     const text = (await geometry.innerText()).replace(/\s+/g, ' ').trim();
     check(text.length >= 8, `${sample.label}_learner_content_visible`, text.slice(0, 80));
+
+    check((await unit.locator('.compiledBoundaries,.compiledTakeaway,.compiledExact,.compiledSecondary').count()) === 0, `${sample.label}_legacy_equal_weight_layers_removed`);
+    const support = unit.locator('details[data-hierarchy-tier="H3_SUPPORTING_UNDERSTANDING"]');
+    check((await support.count()) === (expectedH3 ? 1 : 0), `${sample.label}_h3_presence_matches_content`, `${expectedH3}`);
+    if (expectedH3) {
+      check(!(await support.evaluate((node) => node.open)), `${sample.label}_h3_collapsed_by_default`);
+    }
+
+    const carry = unit.locator('[data-hierarchy-tier="H2_FIRST_ROUND_CARRY"]');
+    check((await carry.count()) === (expectedH2 ? 1 : 0), `${sample.label}_h2_presence_matches_content`, `${expectedH2}`);
+    if (expectedH2) {
+      check(await carry.isVisible(), `${sample.label}_h2_visible_as_first_round_carry`);
+      check((await carry.locator('xpath=ancestor::*[contains(@class,"politicsUnitCompanion")]').count()) === 1, `${sample.label}_h2_lives_in_companion`);
+    }
+
+    const next = unit.locator('.politicsNextBridge');
+    if (expectedNext) {
+      check((await next.count()) === 1, `${sample.label}_h4_next_present`);
+      check((await next.locator('xpath=ancestor::details[contains(@class,"politicsClosure")]').count()) === 1, `${sample.label}_h4_next_owned_by_closure`);
+      check(!(await next.isVisible()), `${sample.label}_h4_next_not_first_entry_visible`);
+    }
+    check((await unit.locator('[data-hierarchy-tier="H5_REPAIR_REFERENCE"]').count()) === 0, `${sample.label}_h5_not_default_surface`);
+
+    const demoted = unit.locator('[data-hierarchy-demoted]');
+    if (await demoted.count()) {
+      const visibleDemoted = await demoted.evaluateAll((nodes) => nodes.filter((node) => getComputedStyle(node).display !== 'none' && !node.hidden && node.getClientRects().length > 0).map((node) => node.textContent?.trim().slice(0, 60)));
+      check(visibleDemoted.length === 0, `${sample.label}_legacy_unselected_copy_stays_quiet`, JSON.stringify(visibleDemoted));
+    }
+
     const tiny = await visibleTextBelowFloor(page, 16);
     check(tiny.length === 0, `${sample.label}_visible_text_floor_16px`, JSON.stringify(tiny));
-    const bodySamples = geometry.locator('.purposeRelation,.purposePrompt,.projectionText,.purposeSecondary p');
+    const bodySamples = unit.locator('.purposeRelation,.purposePrompt,.projectionText,.purposeSecondary p,.carryGroup p,.politicsHierarchySupportItem p');
     if (await bodySamples.count()) {
       const sizes = await bodySamples.evaluateAll((nodes) => nodes.filter((node) => node.getClientRects().length > 0).map((node) => Number.parseFloat(getComputedStyle(node).fontSize)));
       check(sizes.every((size) => size >= 17), `${sample.label}_body_copy_17px`, JSON.stringify(sizes));
@@ -107,7 +146,7 @@ try {
 } finally {
   await mkdir(auditDir, { recursive: true });
   await writeFile(new URL('purpose-first-batch-matrix.json', auditDir), JSON.stringify({
-    schema: 'kianos.politics.purpose_first_batch_matrix.v1',
+    schema: 'kianos.politics.purpose_first_batch_matrix.v2',
     samples,
     checks,
     failure,

@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { resolvePoliticsUnitRepresentation } from './politicsRepresentationGate.mjs';
+import { buildPoliticsContentHierarchy, validatePoliticsContentHierarchy } from './politicsContentHierarchy.mjs';
 
 // Read-only consumer of the accepted Projection selector manifest. It selects
 // exact Current values; it never compiles new knowledge or changes unit identity.
@@ -60,7 +61,7 @@ export function loadPoliticsCompiledPresentation(subject, code) {
     const objects = entries => (entries || []).map(entry => ({ role: entry.role, value: resolve(entry.content) })).filter(entry => present(entry.value));
     const selectedValues = entries => flattenPresent((entries || []).map(resolve));
     const handoff = selected.chengfeng_handoff || null;
-    units.set(selected.unit_id, {
+    const resolved = {
       unitId: selected.unit_id,
       shape: selected.projection_shape,
       representation: resolvePoliticsUnitRepresentation(selected, { stage: 'ORIENT' }),
@@ -82,7 +83,10 @@ export function loadPoliticsCompiledPresentation(subject, code) {
         lookFor: selectedValues(handoff.look_for)
       } : null,
       closure: resolve(selected.optional_closure)
-    });
+    };
+    resolved.hierarchy = buildPoliticsContentHierarchy(resolved);
+    validatePoliticsContentHierarchy(resolved.hierarchy);
+    units.set(selected.unit_id, resolved);
   }
   cache.set(file, units);
   return units;
