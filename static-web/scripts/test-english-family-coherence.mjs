@@ -95,7 +95,7 @@ async function selectKnownWord(page, selector) {
 }
 
 async function assertExactLexicalResult(page, word, name) {
-  const rows = page.locator('.lexicalWordRow');
+  const rows = page.locator('[data-lexical-search-results] .lexicalWordRow');
   check(await rows.count() > 0, `${name}_lookup_resolves_current_catalog`, word);
   const firstWord = String(await rows.first().locator('strong').textContent() || '').trim();
   check(firstWord.toLowerCase() === word.toLowerCase(), `${name}_exact_owner_ranks_first`, `${word} -> ${firstWord}`);
