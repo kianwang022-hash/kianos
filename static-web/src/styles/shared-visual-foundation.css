@@ -1,0 +1,80 @@
+/* KianOS shared visual foundation.
+   Owns cross-site visual primitives only: typography, color, radius, spacing and elevation.
+   Subject/task geometry remains lane-owned. */
+
+:root {
+  /* Warm, legacy-4173-inspired neutral system. */
+  --study-canvas: #eef2ef;
+  --study-surface: #fbfcfa;
+  --study-surface-muted: #f4f7f4;
+  --study-warm: #fbfaf6;
+  --study-ink: #20342c;
+  --study-muted: #5e6e66;
+  --study-faint: #7a8781;
+  --study-line: #d7dfda;
+  --study-line-strong: #c5d0c9;
+  --study-green: #2f765f;
+  --study-green-2: #4b8a75;
+  --study-green-soft: #e6f0eb;
+  --study-danger: #97524d;
+
+  /* Softer geometry than the previous engineering/dashboard treatment. */
+  --study-radius: 22px;
+  --study-radius-medium: 16px;
+  --study-radius-small: 12px;
+  --study-radius-control: 10px;
+  --study-shadow: 0 14px 36px rgba(28, 48, 39, .065);
+
+  /* One shared type scale. 15px is metadata floor, not a normal learner target. */
+  --study-type-meta: 15px;
+  --study-type-secondary: 17px;
+  --study-type-body: 18px;
+  --study-type-control: 17px;
+  --study-type-task: 22px;
+  --study-type-section: 28px;
+  --study-type-page: 36px;
+
+  --study-weight-body: 500;
+  --study-weight-secondary: 500;
+  --study-weight-control: 600;
+  --study-weight-strong: 650;
+  --study-weight-title: 700;
+
+  --study-leading-body: 1.58;
+  --study-leading-tight: 1.24;
+
+  /* Compact rhythm: bigger type without wasting the Mac viewport. */
+  --study-space-1: 4px;
+  --study-space-2: 8px;
+  --study-space-3: 12px;
+  --study-space-4: 16px;
+  --study-space-5: 20px;
+  --study-space-6: 24px;
+
+  --study-font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Noto Sans CJK SC", "Segoe UI", sans-serif;
+  --study-serif: "Iowan Old Style", Charter, "Palatino Linotype", Palatino, Georgia, "Noto Serif CJK SC", serif;
+  --study-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+html {
+  background: var(--study-canvas);
+}
+
+body {
+  background: var(--study-canvas);
+  color: var(--study-ink);
+  font-family: var(--study-font);
+  font-size: var(--study-type-body);
+  font-weight: var(--study-weight-body);
+  line-height: var(--study-leading-body);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: var(--study-font);
+  font-weight: var(--study-weight-control);
+}
