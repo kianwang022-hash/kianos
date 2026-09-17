@@ -101,6 +101,13 @@ try {
   check(await visualRoot.locator('xpath=ancestor::*[@data-xizong-aux-surface]').count() === 1,
     'logic_group_visual_renders_in_dynamic_auxiliary_region');
   await page.waitForFunction(() => document.querySelector('[data-xizong-v6-block]')?.getAttribute('data-aux-weight') === 'rich');
+  await page.waitForFunction(() => {
+    const node = document.querySelector('[data-xizong-v6-block]');
+    const main = node?.querySelector('.portedStudyMain')?.getBoundingClientRect().width || 0;
+    const right = node?.querySelector('.portedStudyChain')?.getBoundingClientRect().width || 0;
+    const ratio = right / Math.max(1, main + right);
+    return ratio >= 0.35 && ratio <= 0.50;
+  });
 
   const expandedGeometry = await root.evaluate((node) => {
     const main = node.querySelector('.portedStudyMain')?.getBoundingClientRect().width || 0;
