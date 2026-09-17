@@ -59,11 +59,7 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Verify Politics Home meaningful attention
         working-directory: static-web
-        shell: bash
-        run: |
-          set -o pipefail
-          mkdir -p ../politics-functional-audit
-          node scripts/test-politics-home-attention.mjs 2>&1 | tee ../politics-functional-audit/home-attention.log
+        run: node scripts/test-politics-home-attention.mjs
       - name: Execute Politics Functional First journeys
         working-directory: static-web
         run: node scripts/test-politics-functional-journey.mjs
