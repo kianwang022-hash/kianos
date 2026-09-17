@@ -20,7 +20,7 @@
     "validate:politics-representation": "node scripts/validate-politics-representation-gate.mjs",
     "validate:politics-surface-mapping:partial": "node scripts/audit-politics-explicit-surface-mapping.mjs --allow-partial && node scripts/test-politics-explicit-surface-calibration.mjs",
     "validate:politics-surface-mapping": "node scripts/audit-politics-explicit-surface-mapping.mjs && node scripts/test-politics-explicit-surface-calibration.mjs",
-    "validate:politics": "npm run validate:politics-hierarchy && npm run validate:politics-representation && npm run validate:politics-surface-mapping:partial && node scripts/validate-politics-runtime.mjs && node scripts/validate-politics-repair-memory.mjs && node scripts/validate-politics-practice-parity.mjs",
+    "validate:politics": "npm run validate:politics-hierarchy && npm run validate:politics-representation && npm run validate:politics-surface-mapping && node scripts/validate-politics-runtime.mjs && node scripts/validate-politics-repair-memory.mjs && node scripts/validate-politics-practice-parity.mjs",
     "validate:xizong-semantic": "node scripts/validate-xizong-semantic-adapter.mjs",
     "validate:xizong-projection-current": "python3 ../content/xizong/projection/tools/validate_projection.py --self-test --json .qa/xizong-projection-current.json && node scripts/validate-xizong-projection-current.mjs",
     "validate:xizong-representation": "node scripts/validate-xizong-representation-gate.mjs",
