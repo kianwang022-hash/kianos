@@ -5,29 +5,26 @@ Parent: root `CURRENT.md`
 
 This file owns routing only. It does not own medical Core, lane Learning semantics, scoped Acceptance Truth, product semantics, shared-platform semantics, or Kian's learner progress.
 
----
-
 ## Lane Work Cursor
 
 **Active lane-level scope:** Xizong learner-facing UI architecture migration in the current Chat  
-**Current state:** Slice 4B later-stage residue cleanup is already landed on current `main`; `.xizongLaterStage` is physically absent and `xzExitStage` remains the Current System Exit presentation owner  
-**Blocker:** none in Xizong itself; Shared Platform Shell changes are written by the currently assigned shared-shell writer, while Xizong consumes the registered owner from `main`  
-**Next action:** first reconcile `static-web/XIZONG_UI_MIGRATION.md` + `static-web/XIZONG_PRODUCT_STATUS.md` to the landed Slice 4B state, then audit the remaining Xizong ownership graph before opening any further bounded cleanup slice. Do not invent a new slice from stale documentation. Shared Base Shell / global `K` rail adoption is consumed only from the registered Shared Platform owner on `main`; do not reproduce or patch it locally.
+**Current state:** Slice 4B later-stage residue cleanup is landed on current `main`; `.xizongLaterStage` is physically absent and `xzExitStage` remains the Current System Exit presentation owner  
+**Blocker:** none in Xizong itself; Shared Platform Shell changes are written by the assigned shared-shell writer, while Xizong consumes the registered owner from `main`  
+**Next action:** first reconcile `static-web/XIZONG_UI_MIGRATION.md` + `static-web/XIZONG_PRODUCT_STATUS.md` to landed Slice 4B, then audit the remaining Xizong ownership graph before opening another bounded cleanup slice. Do not invent a slice from stale documentation. Consume Shared Base Shell / global `K` rail only from the registered Shared Platform owner on `main`.
 
-### Current UI ownership boundary
+### UI ownership boundary
 
-Xizong owns Xizong-specific learner surfaces and local geometry. It may change Xizong Home / System / Block / Recall / Memory / Question / System Exit presentation, Xizong-specific density/typography/hierarchy, and exact Xizong route/component/style owners.
+Xizong owns Xizong-specific learner surfaces and local geometry: Home / System / Block / Recall / Memory / Question / System Exit presentation, local density/typography/hierarchy, and exact Xizong route/component/style owners.
 
 It does **not** own or fork:
-
 - shared Base Shell;
 - global `K` rail / expand-collapse behavior;
 - shared global-navigation destinations;
-- shared UI tokens/primitives when the needed change is cross-domain.
+- shared UI tokens/primitives when the change is cross-domain.
 
-Durable shared ownership is defined by root `AUTHORITY_INHERITANCE_CONTRACT.md` + `AUTHORITY_OWNERSHIP.json`. A temporary writer assignment is not semantic ownership. If Xizong exposes a real shared defect, route it to the registered shared owner/current writer, land it on `main`, then continue from updated `main`.
+Durable shared ownership is defined by root `AUTHORITY_INHERITANCE_CONTRACT.md` + `AUTHORITY_OWNERSHIP.json`; a temporary writer assignment is not semantic ownership. Route real shared defects to the registered shared owner/current writer, land them on `main`, then continue from updated `main`.
 
-For overall Xizong content-program coordination, `CONTENT_MAINLINE.md` coordinates priorities/dependencies only; exact scoped owners remain authoritative.
+`CONTENT_MAINLINE.md` coordinates overall content priorities/dependencies only; exact scoped owners remain authoritative.
 
 | Scope | Work Cursor | Acceptance Truth |
 | --- | --- | --- |
@@ -39,14 +36,11 @@ For overall Xizong content-program coordination, `CONTENT_MAINLINE.md` coordinat
 
 System hierarchy, construction dependency and learner order are not automatically the same.
 
----
-
-## Fresh-Chat router
+## Fresh-Chat Router
 
 Historical Frozen files, old Issues, PR summaries and prior Chats are provenance only unless a Current owner explicitly points to them.
 
 ### Overall content program
-
 ```text
 CURRENT.md
 → CONTENT_MAINLINE.md
@@ -55,15 +49,13 @@ CURRENT.md
 ```
 
 ### Medical / content truth
-
 ```text
 knowledge/manifest.json
 → exact System / Block canonical owner
 → local CURRENT / ACCEPTANCE when applicable
 ```
 
-### Learning / cognition / first-pass flow
-
+### Learning / cognition / first-pass
 ```text
 LEARNING_CONTRACT.md
 → LEARNER_OBJECT_CONTRACT.md when learner-object consumption matters
@@ -72,14 +64,12 @@ LEARNING_CONTRACT.md
 ```
 
 Locked boundaries:
-
 - original Lecture / MarginNote is external-primary for continuous first-pass Source learning;
 - Logic Group is retrieval/local-closure, not automatically a Source-contact segment;
 - Lecture-attached TTSX stays in original Lecture/MarginNote; KianOS owns release/checkpoint/selected capture only;
 - Visual / Precision / Extension / Connection are conditional support, not parallel curricula.
 
 ### Product / UI / Projection
-
 ```text
 static-web/XIZONG_PRODUCT_STATUS.md
 → static-web/XIZONG_UI_MIGRATION.md when migration is active
@@ -90,12 +80,11 @@ static-web/XIZONG_PRODUCT_STATUS.md
 → exact Xizong Runtime/component/style owner
 ```
 
-If work touches Shared Shell / global navigation / Current delivery / cross-lane ownership, read root `AUTHORITY_INHERITANCE_CONTRACT.md` + `AUTHORITY_OWNERSHIP.json` and consume the registered owner rather than creating a Xizong copy.
+For Shared Shell / global navigation / Current delivery / cross-lane ownership, read root `AUTHORITY_INHERITANCE_CONTRACT.md` + `AUTHORITY_OWNERSHIP.json` and consume the registered owner rather than creating a Xizong copy.
 
 Do not infer Learning semantics from DOM/CSS. A Runtime mismatch is an implementation defect, not a new Learning rule.
 
 ### Visual / Precision / Extension
-
 ```text
 LEARNING_CONTRACT.md
 → LEARNER_OBJECT_CONTRACT.md
@@ -107,7 +96,6 @@ LEARNING_CONTRACT.md
 Sparse enrichment is intentional; missing enrichment is not learner debt.
 
 ### Questions / explanations / second pass
-
 ```text
 questions/ + explanations/ + question-relations/
 → knowledge/learner/study-policy.json
@@ -116,9 +104,7 @@ questions/ + explanations/ + question-relations/
 
 Keep distinct: Lecture-attached TTSX = first-pass local probe; official System sweep = first-pass coverage evidence after System Recall; SECOND_PASS = targeted discrimination/precision/application; reviewed Question→Knowledge relation = optional precise routing.
 
----
-
-## Fresh independent re-acceptance
+## Fresh Independent Re-acceptance
 
 When Kian requests a fresh/independent audit, old Current/Acceptance/PR summaries are prior evidence, not the first-pass answer key.
 
@@ -131,9 +117,7 @@ actual Source / Core / Learning / Runtime owners
 
 A real defect reopens only the earliest responsible owner and dependent chain. U still requires real Kian use.
 
----
-
-## Stable lane owners
+## Stable Lane Owners
 
 - program coordination → `CONTENT_MAINLINE.md`
 - Knowledge map → `knowledge/manifest.json`
@@ -153,14 +137,12 @@ A real defect reopens only the earliest responsible owner and dependent chain. U
 
 Do not create System-level Learning contracts or duplicate parent/shared status merely for symmetry.
 
----
-
-## Ordinary continuation
+## Ordinary Continuation
 
 ```text
-System work:  requested System CURRENT → ACCEPTANCE → exact unresolved owner → work
-Content:      Xizong CURRENT → CONTENT_MAINLINE → exact active lane owner → work
-UI/product:   Xizong CURRENT → Product Status + UI Migration + Presentation/UI rules → exact Xizong-owned surface
+System work: requested System CURRENT → ACCEPTANCE → exact unresolved owner → work
+Content:     Xizong CURRENT → CONTENT_MAINLINE → exact active lane owner → work
+UI/product:  Xizong CURRENT → Product Status + UI Migration + Presentation/UI rules → exact Xizong-owned surface
 ```
 
 Multiple System Chats may proceed concurrently when write sets and dependencies are independent. Do not read retired snapshots, unrelated Systems, migration history, legacy repositories, or prior Chats by default.
