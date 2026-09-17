@@ -1,6 +1,7 @@
 ---
 const { subject } = Astro.props;
 const resume = subject.resume || {};
+const quickLinks = Array.isArray(subject.quickLinks) ? subject.quickLinks : [];
 const displayLabel = subject.id === 'xizong' ? '西综' : subject.label;
 const fallbackTitle = resume.fallbackLabel || (subject.id === 'english' ? '打开 English 工作台' : `打开${displayLabel}`);
 const fallbackMeta = subject.id === 'english'
@@ -46,6 +47,11 @@ const titleCompat = subject.id === 'xizong'
     <strong data-home-resume-title {...titleCompat}>{fallbackTitle}</strong>
     <small data-home-resume-meta>{fallbackMeta}</small>
     <p class="homeResumeAttention" data-home-resume-attention hidden></p>
+    {quickLinks.length > 0 && (
+      <nav class="homeSubjectQuickLinks" aria-label={`${displayLabel} 快速入口`}>
+        {quickLinks.map((item) => <a href={item.href}>{item.label}</a>)}
+      </nav>
+    )}
   </section>
 
   <div class="homeSubjectTime" aria-label={`${displayLabel} 今日学习时间`}>
