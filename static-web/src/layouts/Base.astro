@@ -4,14 +4,13 @@ import '../styles/runtime.css';
 import '../styles/xizong-dense-calm.css';
 import '../styles/english.css';
 import '../styles/visual-convergence.css';
-import '../styles/lexical-presentation.css';
 import '../styles/politics-presentation.css';
 import '../styles/xizong-presentation.css';
 import '../styles/stage-one-composition.css';
 import '../styles/viewport-workspaces.css';
-import '../styles/responsive-guards.css';
-import '../styles/lexical-card-polish.css';
+import '../styles/lexical-presentation.css';
 import '../styles/site-visual-tuning.css';
+import '../styles/english-cloze-polish.css';
 import '../styles/english-objective-convergence.css';
 import '../styles/english-productive-convergence.css';
 import '../styles/english-family-coherence.css';
@@ -129,6 +128,12 @@ const navItems = [
   </body>
 </html>
 <script>
+  /*
+   * The dedicated Mac Current mirror writes a tiny localhost-only status file.
+   * Polling it makes an already-open learner page follow a newly synced main SHA
+   * even when the changed canonical asset lives outside Astro/Vite's watch graph.
+   * Normal branch previews/deployments simply receive a 404 and do nothing.
+   */
   (() => {
     if (!['127.0.0.1', 'localhost'].includes(window.location.hostname)) return;
     const url = document.body?.dataset.currentStatusUrl;
@@ -153,7 +158,7 @@ const navItems = [
           window.location.reload();
         }
       } catch {
-        // A short restart/network gap leaves the last usable page intact.
+        // A short restart/network gap should leave the last usable page intact.
       }
     };
 
