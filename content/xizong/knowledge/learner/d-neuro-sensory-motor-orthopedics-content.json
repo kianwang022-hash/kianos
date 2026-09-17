@@ -1,0 +1,208 @@
+{
+  "schema": "kianos.xizong.system_content_realization.v1",
+  "status": "CANDIDATE",
+  "construction_status": "PHASE7A_CONTENT_ROLE_REALIZATION",
+  "authority": "CHAT_APPROVED_CONTENT_CANDIDATE",
+  "system_id": "neuro-sensory-motor-orthopedics",
+  "canonical_id": "D",
+  "scope": "D learner-content organization over accepted canonical Block/KP Core; no medical-Core duplication, no Projection/UI decisions",
+  "depends_on": {
+    "knowledge_owner": "content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/system.json",
+    "medical_core_root": "content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/",
+    "learning_owner": "content/xizong/knowledge/learner/d-neuro-sensory-motor-orthopedics-learning.json"
+  },
+  "role": "REALIZE_ACCEPTED_KNOWLEDGE_THROUGH_ACCEPTED_LEARNING_WITHOUT_BECOMING_A_SECOND_LECTURE",
+  "hard_rules": [
+    "Original iPad/MarginNote Lecture remains the primary continuous explanatory Source for genuine new Source learning and original visuals.",
+    "Canonical Block Markdown remains the sole medical Core owner; this content owner references Core and may not fork or paraphrase a second medical truth.",
+    "KianOS Framework content is orientation/compression, not a replacement continuous Lecture.",
+    "Canonical KP Detailed Expansion is Core/reveal/repair/reference material; it is not automatically compulsory continuous first-pass KianOS reading.",
+    "Logic Group is retrieval/local-closure structure and never creates a Source trip by itself.",
+    "Visual-required cognition must use real original-Source visual contact when first formed; text cannot certify a never-seen spatial model.",
+    "Source gaps/conflicts remain explicit and fail closed; Content may not repair them from model prior.",
+    "Content organization must not add hard prerequisites, inferred question membership, learner progress or UI geometry."
+  ],
+  "content_layers": {
+    "ORIENTATION": "center problem + minimum map + bounded Framework + attention/ownership boundary before Source contact",
+    "SOURCE_CONTACT": "continuous original Lecture contact at the accepted whole-Block or natural-Source-unit granularity; integration-primary Blocks do not manufacture a new continuous Lecture pass",
+    "RETRIEVAL": "accepted Logic-Group prompts/closures retrieve already-contacted Core without normal Source re-entry",
+    "CORE_CHECK": "canonical KP Core is used to check, explain or repair retrieval; full Core exists because it is medical truth, not because it must all be reread continuously",
+    "BOUNDARY": "Source gaps/conflicts, external-owner boundaries, deferred scope and exact precision remain explicit",
+    "COMPRESSION": "Block Recall and accepted optional PSR/System reconstruction compress already-built models; they do not replace first Source contact"
+  },
+  "legacy_route_resolution": {
+    "block_frontmatter.prerequisites": "LEGACY_NONAUTHORITATIVE_FOR_D_LEARNER_READINESS; accepted Learning owner system_route.requires is the only D hard-readiness authority",
+    "block_frontmatter.next_blocks": "LEGACY_NONAUTHORITATIVE_FOR_D_LEARNER_ROUTE; accepted Learning owner default_route/benefits_from governs learner guidance",
+    "block_intro.first_pass_fixed_flow": "MUST_BE_INTERPRETED_THROUGH_ACCEPTED_SOURCE_CONTACT_MODE; whole-Block, natural-Source-unit and integration-primary Blocks do not share one literal Source handoff pattern",
+    "cleanup_state": "CONTENT_DEBT_TO_REMOVE_OR_REWRITE_IN_CANONICAL_BLOCK_WRAPPERS_BEFORE_CONTENT_CLOSURE"
+  },
+  "default_content_behavior": {
+    "before_source": [
+      "read one bounded Block orientation",
+      "know the Source stop-line and what to notice",
+      "do not pre-read full KP expansions as a second Lecture"
+    ],
+    "after_source": [
+      "retrieve the accepted LG(s) unlocked by that Source contact",
+      "use canonical Core only for checking/repair/reference as needed",
+      "complete cognition-specific closure",
+      "continue according to accepted Source-contact mode"
+    ],
+    "after_block": [
+      "Block Recall rebuilds the governing medical problem rather than reciting KP labels"
+    ]
+  },
+  "block_realization": {
+    "N1": {"source_mode":"WHOLE_BLOCK_SOURCE","content_pattern":"ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"},
+    "N2": {"source_mode":"WHOLE_BLOCK_SOURCE","content_pattern":"ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"},
+    "N3": {"source_mode":"WHOLE_BLOCK_SOURCE","content_pattern":"ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"},
+    "N4": {
+      "source_mode":"NATURAL_SOURCE_UNITS",
+      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "source_units":[
+        {"id":"N4-SU1","label":"NMJ + excitation-contraction coupling","lg_refs":["N4-LG01","N4-LG02","N4-LG03"]},
+        {"id":"N4-SU2","label":"contractile mechanics + force regulation","lg_refs":["N4-LG04","N4-LG05","N4-LG06"]}
+      ]
+    },
+    "N5": {
+      "source_mode":"NATURAL_SOURCE_UNITS",
+      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "source_units":[
+        {"id":"N5-SU1","label":"vestibular spatial unit","lg_refs":["N5-LG02"]},
+        {"id":"N5-SU2","label":"general sensation + pain + projection unit","lg_refs":["N5-LG01","N5-LG03","N5-LG04"]}
+      ],
+      "boundary":"olfaction/gustation standalone mechanism remains Source-limited; do not fabricate a complete model"
+    },
+    "N6": {
+      "source_mode":"NATURAL_SOURCE_UNITS",
+      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "source_units":[
+        {"id":"N6-SU1","label":"optics + near response","lg_refs":["N6-LG01","N6-LG02"]},
+        {"id":"N6-SU2","label":"retinal transduction/network + visual phenomena","lg_refs":["N6-LG03","N6-LG04","N6-LG05"]},
+        {"id":"N6-SU3","label":"visual pathway/field localization","lg_refs":["N6-LG06"]}
+      ]
+    },
+    "N7": {
+      "source_mode":"NATURAL_SOURCE_UNITS",
+      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "source_units":[
+        {"id":"N7-SU1","label":"outer/middle-ear transmission","lg_refs":["N7-LG01"]},
+        {"id":"N7-SU2","label":"cochlear mechanics + transduction","lg_refs":["N7-LG02","N7-LG03","N7-LG04"]}
+      ]
+    },
+    "N8": {
+      "source_mode":"NATURAL_SOURCE_UNITS",
+      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "source_units":[
+        {"id":"N8-SU1","label":"spinal reflex/tone","lg_refs":["N8-LG01","N8-LG02","N8-LG03","N8-LG04"]},
+        {"id":"N8-SU2","label":"basal ganglia + cerebellum","lg_refs":["N8-LG05"]},
+        {"id":"N8-SU3","label":"cortex/descending/UMN-LMN","lg_refs":["N8-LG06"]}
+      ]
+    },
+    "N9": {"source_mode":"WHOLE_BLOCK_SOURCE","content_pattern":"ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"},
+    "N10": {
+      "source_mode":"NATURAL_SOURCE_UNITS",
+      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "source_units":[
+        {"id":"N10-SU1","label":"higher cortical function","lg_refs":["N10-LG01","N10-LG02","N10-LG03"]},
+        {"id":"N10-SU2","label":"hypothalamus","lg_refs":["N10-LG04","N10-LG05","N10-LG06"]}
+      ]
+    },
+    "N11": {
+      "source_mode":"INTEGRATION_PRIMARY",
+      "content_pattern":"KIANOS_INTEGRATION_RETRIEVAL_WITH_TARGETED_SOURCE_RETURN",
+      "required_prior_owners":["N1","N5","N8"],
+      "targeted_source_returns":["tract/localization visuals","root/nerve/cord visuals","relevant surgery wording or uncertainty"],
+      "rule":"Do not manufacture a new continuous N11 Lecture pass."
+    },
+    "O1": {
+      "source_mode":"INTEGRATION_PRIMARY",
+      "content_pattern":"KIANOS_ORTHOPEDIC_ENTRY_INTEGRATION_WITH_TARGETED_SOURCE_RETURN",
+      "targeted_source_returns":["reviewed shared orthopedic visuals when available","specific evidence/function wording when uncertain"],
+      "rule":"O1 may orient independently; do not gate the orthopedic branch behind completion of the neural branch."
+    },
+    "O2": {"source_mode":"WHOLE_BLOCK_SOURCE","content_pattern":"ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"},
+    "O3": {
+      "source_mode":"NATURAL_SOURCE_UNITS",
+      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "hard_readiness":["N11"],
+      "source_units":[
+        {"id":"O3-SU1","label":"axial trauma/stability","lg_refs":["O3-LG01","O3-LG02","O3-LG03"]},
+        {"id":"O3-SU2","label":"cord/conus/cauda danger/localization","lg_refs":["O3-LG04","O3-LG05","O3-LG06"]}
+      ]
+    },
+    "O4": {
+      "source_mode":"NATURAL_SOURCE_UNITS",
+      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "hard_readiness":["N11"],
+      "source_units":[
+        {"id":"O4-SU1","label":"cervical compression","lg_refs":["O4-LG01","O4-LG02","O4-LG03"]},
+        {"id":"O4-SU2","label":"lumbar compression","lg_refs":["O4-LG04","O4-LG05"],"reactivate_lg_refs":["O4-LG01"]}
+      ]
+    },
+    "O5": {
+      "source_mode":"NATURAL_SOURCE_UNITS",
+      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "hard_readiness":["N11"],
+      "source_units":[
+        {"id":"O5-SU1","label":"common localization + plexus","lg_refs":["O5-LG01","O5-LG02"]},
+        {"id":"O5-SU2","label":"upper-limb named nerves","lg_refs":["O5-LG03"]},
+        {"id":"O5-SU3","label":"lower-limb named nerves","lg_refs":["O5-LG04"],"post_unit_closure_lg_refs":["O5-LG05"]}
+      ]
+    },
+    "O6": {"source_mode":"WHOLE_BLOCK_SOURCE","content_pattern":"ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"},
+    "O7": {"source_mode":"WHOLE_BLOCK_SOURCE","content_pattern":"ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"},
+    "O8": {"source_mode":"WHOLE_BLOCK_SOURCE","content_pattern":"ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"},
+    "O9": {"source_mode":"WHOLE_BLOCK_SOURCE","content_pattern":"ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"},
+    "O10": {"source_mode":"WHOLE_BLOCK_SOURCE","content_pattern":"ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"},
+    "O11": {
+      "source_mode":"NATURAL_SOURCE_UNITS",
+      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "source_units":[
+        {"id":"O11-SU1","label":"chronic soft-tissue overload","lg_refs":["O11-LG01","O11-LG02","O11-LG03","O11-LG04"]},
+        {"id":"O11-SU2","label":"chronic nerve compression","lg_refs":["O11-LG05"],"reactivation":"N11 only for root-vs-named-nerve discrimination; not a whole-Block gate"}
+      ]
+    },
+    "O12": {"source_mode":"WHOLE_BLOCK_SOURCE","content_pattern":"ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL","boundary":"clubfoot remains explicit Source gap"},
+    "O13": {
+      "source_mode":"NATURAL_SOURCE_UNITS",
+      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "source_units":[
+        {"id":"O13-SU1","label":"acute bone/joint infection","lg_refs":["O13-LG01","O13-LG02","O13-LG03"]},
+        {"id":"O13-SU2","label":"chronic osteomyelitis/dead-space source control","lg_refs":["O13-LG04"]}
+      ]
+    },
+    "O14": {
+      "source_mode":"NATURAL_SOURCE_UNITS",
+      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "source_units":[
+        {"id":"O14-SU1","label":"spine TB","lg_refs":["O14-LG01","O14-LG02"]},
+        {"id":"O14-SU2","label":"hip/peripheral-joint TB","lg_refs":["O14-LG03"],"post_unit_closure_lg_refs":["O14-LG04"]}
+      ]
+    },
+    "O15": {"source_mode":"WHOLE_BLOCK_SOURCE","content_pattern":"ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"},
+    "O16": {
+      "source_mode":"NATURAL_SOURCE_UNITS",
+      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "source_units":[
+        {"id":"O16-SU1","label":"general tumor coordinate + evidence","lg_refs":["O16-LG01","O16-LG07"]},
+        {"id":"O16-SU2","label":"representative tumors/tumor-like lesions","lg_refs":["O16-LG02","O16-LG03","O16-LG04","O16-LG05","O16-LG06"]},
+        {"id":"O16-SU3","label":"spine/destructive differential","lg_refs":["O16-LG08"]}
+      ]
+    }
+  },
+  "content_close_requirements": [
+    "Remove or rewrite stale D Block frontmatter prerequisites/next_blocks so canonical Block wrappers no longer advertise a second learner route.",
+    "Rewrite Block first-pass role copy so WHOLE_BLOCK_SOURCE, NATURAL_SOURCE_UNITS and INTEGRATION_PRIMARY are semantically distinct.",
+    "Replace wording that assumes benefits_from Blocks are already completed with bounded reactivation/default-route language.",
+    "Audit every accepted LG for sufficient canonical Core, retrieval prompt, boundary and closure support without adding duplicate medical truth.",
+    "Keep full clinical-neurology/ophthalmology/ENT/rehab/guideline negative space closed.",
+    "Pass the page-disappearance test before P becomes eligible."
+  ],
+  "downstream_boundary": {
+    "projection": "FROZEN_UNTIL_CONTENT_ACCEPTANCE",
+    "runtime": "FROZEN",
+    "evidence": "FROZEN",
+    "rule": "Content roles may be rich and selective, but must not choose UI geometry, progressive-disclosure widgets, runtime states or learner evidence semantics."
+  }
+}
