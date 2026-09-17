@@ -922,4 +922,11 @@ body#kianos-workspace.surfaceBody-xizong .portedStudyIdentityMeta small{max-widt
   body#kianos-workspace.surfaceBody-xizong .xzBlockWorkspace :is(p,li,td,th,figcaption) { font-size:max(16px,1em); }
   body#kianos-workspace.surfaceBody-xizong .xzBlockWorkspace :is(span,small,b,strong,em,label,button,summary,code,kbd) { font-size:max(15px,1em); }
   body#kianos-workspace.surfaceBody-xizong .xzBlockWorkspace :is(.xv6KpLearnPrompt p,.xv6KpLearnCore p,.xv6KpLearnCore li,.xv6KpLearnCore td,.xv6KpLearnCore th,[data-kp-answer] p,[data-kp-answer] li,[data-kp-answer] td,[data-kp-answer] th,.xv6LearnerAsset p,.xv6LogicGoal,.xv6LogicTarget p) { font-size:max(16px,1em); }
+
+  /* The compact shell contains deliberately dense migrated rules. Keep the floor in the
+     same sole owner, but give it enough specificity to outrank those legacy selectors
+     without reintroducing !important or a second visual owner. */
+  body#kianos-workspace.surfaceBody-xizong .xzBlockWorkspace.portedStudyRuntime.portedStudyRuntimeV2.xv6Block.xv6BlockWorkspaceShell :is(p,li,td,th,figcaption) { font-size:max(16px,1em); }
+  body#kianos-workspace.surfaceBody-xizong .xzBlockWorkspace.portedStudyRuntime.portedStudyRuntimeV2.xv6Block.xv6BlockWorkspaceShell :is(span,small,b,strong,em,label,button,summary,code,kbd) { font-size:max(15px,1em); }
+  body#kianos-workspace.surfaceBody-xizong .xzBlockWorkspace.portedStudyRuntime.portedStudyRuntimeV2.xv6Block.xv6BlockWorkspaceShell :is(.xv6KpLearnPrompt p,.xv6KpLearnCore p,.xv6KpLearnCore li,.xv6KpLearnCore td,.xv6KpLearnCore th,[data-kp-answer] p,[data-kp-answer] li,[data-kp-answer] td,[data-kp-answer] th,.xv6LearnerAsset p,.xv6LogicGoal,.xv6LogicTarget p) { font-size:max(16px,1em); }
 }
