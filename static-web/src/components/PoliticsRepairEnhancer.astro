@@ -68,7 +68,7 @@ const handoffJson = JSON.stringify(handoffMap).replace(/</g, '\\u003c');
 
       unit.querySelectorAll('[data-politics-repair]').forEach((drawer) => {
         drawer.querySelectorAll(
-          ':scope > ul,:scope > p:not(.politicsMicro),:scope > .politicsPreciseRepair,:scope > [data-politics-explicit-surface-plan]'
+          ':scope > ul,:scope > p:not(.politicsMicro),:scope > [data-politics-explicit-surface-plan]'
         ).forEach((node) => node.remove());
         const plan = template.content.cloneNode(true);
         const sourceLink = drawer.querySelector('a');
