@@ -62,7 +62,10 @@ async function audit(page, { ordinal, expectedWord, expectExpansion, sparse }) {
     const contentNodes = [...document.querySelectorAll(
       '.lexicalCoreHeadline>p,.lexicalCoreHeadline>b,.lexicalCoreHeadline>small,.lexicalSenseMeaning>p,.lexicalSenseMeaning>strong,.lexicalSenseNote,.lexicalSenseUsage li>b,.lexicalSenseUsage li>span,.lexicalExpansionSection>header>span,.portedVocabEvidenceList>article>b,.portedVocabEvidenceList>article>p,.portedVocabEvidenceList>article>small,.lexicalFormBoundary,.lexicalFormVariants b,.lexicalFormVariants span,.lexicalFamilyRows b'
     )].filter((node) => node instanceof HTMLElement && css(node).display !== 'none');
-    const tops = [pos, meaning, usage].filter((node) => node instanceof HTMLElement).map((node) => rect(node).top);
+    const posRect = rect(pos);
+    const meaningRect = rect(meaning);
+    const usageRect = rect(usage);
+    const tops = [posRect?.top, meaningRect?.top, usageRect?.top].filter((value) => Number.isFinite(value));
     const rowStyle = css(firstUsableRow);
     const expansionStyle = css(expansion);
     const sheetRect = rect(sheet);
@@ -78,12 +81,17 @@ async function audit(page, { ordinal, expectedWord, expectExpansion, sparse }) {
       definitionFont:definitionStyle?.fontFamily || '',
       usageFont:usageStyle?.fontFamily || '',
       senseCount:rows.length,
+      firstUsableIsLast:firstUsableRow === rows.at(-1),
       row:{
         radius:rowStyle?.borderRadius || '',
         shadow:rowStyle?.boxShadow || '',
         bottom:rowStyle?.borderBottomWidth || ''
       },
       alignmentSpread:tops.length >= 2 ? Math.max(...tops)-Math.min(...tops) : null,
+      columnGaps:{
+        posMeaning:posRect && meaningRect ? meaningRect.left-posRect.right : null,
+        meaningUsage:meaningRect && usageRect ? usageRect.left-meaningRect.right : null
+      },
       expansionPresent:expansion instanceof HTMLElement,
       expansion:{
         radius:expansionStyle?.borderRadius || '',
@@ -97,6 +105,9 @@ async function audit(page, { ordinal, expectedWord, expectExpansion, sparse }) {
     };
   }, { expectedWord, expectExpansion, sparse });
 
+  // Always leave a real screenshot behind, even when a geometry assertion fails.
+  await page.screenshot({ path: path.join(outputRoot, `lexical-${expectedWord}.png`), fullPage: false });
+
   const serif = /Georgia|Times|serif/i;
   assert(result.wordText === expectedWord, 'word_identity', `${ordinal}:${result.wordText}`);
   assert(serif.test(result.wordFont), 'word_serif', result.wordFont);
@@ -105,8 +116,12 @@ async function audit(page, { ordinal, expectedWord, expectExpansion, sparse }) {
   assert(result.senseCount >= 1, 'sense_rows_present', String(ordinal));
   assert(result.row.radius === '0px', 'sense_not_card_radius', result.row.radius);
   assert(result.row.shadow === 'none', 'sense_not_card_shadow', result.row.shadow);
-  assert(parseFloat(result.row.bottom || '0') >= 1, 'sense_rule_boundary', result.row.bottom);
+  if (result.senseCount > 1 && !result.firstUsableIsLast) {
+    assert(parseFloat(result.row.bottom || '0') >= 1, 'sense_rule_boundary', result.row.bottom);
+  }
   assert(result.alignmentSpread === null || result.alignmentSpread <= 8, 'sense_first_line_alignment', String(result.alignmentSpread));
+  assert(result.columnGaps.posMeaning === null || result.columnGaps.posMeaning >= 12, 'pos_meaning_no_collision', String(result.columnGaps.posMeaning));
+  assert(result.columnGaps.meaningUsage === null || result.columnGaps.meaningUsage >= 12, 'meaning_usage_no_collision', String(result.columnGaps.meaningUsage));
   assert(result.minContentFont === null || result.minContentFont >= 15, 'learner_content_font_floor', String(result.minContentFont));
   assert(result.expansionPresent === expectExpansion, 'earned_expansion', `${ordinal}:${result.expansionPresent}`);
   if (result.expansionPresent) {
@@ -126,13 +141,8 @@ try {
   const reports = [];
 
   reports.push(await audit(page, { ordinal: 1, expectedWord: 'a', expectExpansion: true, sparse: false }));
-  await page.screenshot({ path: path.join(outputRoot, 'lexical-a.png'), fullPage: false });
-
   reports.push(await audit(page, { ordinal: 2, expectedWord: 'abandon', expectExpansion: false, sparse: true }));
-  await page.screenshot({ path: path.join(outputRoot, 'lexical-abandon.png'), fullPage: false });
-
   reports.push(await audit(page, { ordinal: 13, expectedWord: 'abroad', expectExpansion: true, sparse: true }));
-  await page.screenshot({ path: path.join(outputRoot, 'lexical-abroad.png'), fullPage: false });
 
   fs.writeFileSync(path.join(outputRoot, 'report.json'), `${JSON.stringify({ status:'PASS', reports }, null, 2)}\n`);
   console.log(`Lexical visual convergence PASS → ${outputRoot}`);
