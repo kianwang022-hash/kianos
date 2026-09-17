@@ -93,6 +93,45 @@ Different data sources do not justify duplicate Runtime or duplicate UI.
 
 Conversely, similar-looking pages do not justify one Runtime when their cognitive object differs.
 
+### 3.1 Shell / CSS / component ownership
+
+The shared Base Shell should remain thin.
+
+`Base.astro` may globally own/import only genuinely shared concerns such as:
+
+- Shared Visual foundation;
+- global shell/navigation;
+- truly cross-site runtime/reset/accessibility rules;
+- shared Timer or other explicitly global capability.
+
+Subject/task-specific presentation should be owned and loaded by the narrowest subject/task entrypoint or component that needs it.
+
+Hard rule:
+
+```text
+shared Base
+≠ global dumping ground for English / Politics / Xizong / Lexical CSS
+```
+
+Do not add new global imports such as subject-specific `english-*`, `politics-*`, `xizong-*`, or `lexical-*` layers merely for convenience.
+
+Likewise, subject-specific bridges/components should mount at the applicable family/task boundary, not in global Base unless their behavior is genuinely cross-site.
+
+Temporary historical global imports may remain during bounded migration, but they are Engineering debt, not the target architecture. Consolidation should move toward:
+
+```text
+Base
+→ shared foundation + shell only
+
+subject entry
+→ subject visual/runtime
+
+task workspace
+→ task-specific geometry/interaction
+```
+
+This boundary exists to keep ordinary visual/content changes local and to prevent CSS cascade order from becoming hidden product logic.
+
 ---
 
 ## 4｜Shared high-frequency input grammar
