@@ -39,9 +39,9 @@ if (!errors.length) {
   if (!owner.includes('.xzSystemWorkspace')) fail('Current System visual owner does not target xzSystemWorkspace');
   if (/!important/.test(owner)) fail('Current System visual owner must not rely on !important cascade recovery');
 
-  const legacyStillContainsSystemDebt = /\.xv6System|\.xv6Spine|\.xv6Mother|\.xv6Failure|\.xv6Dependency/.test(legacy);
-  if (!legacyStillContainsSystemDebt) {
-    console.log('XIZONG_SYSTEM_LEGACY_CSS_ALREADY_PHYSICALLY_CLEAN');
+  const retiredSystemSelector = /\.xv6(?:System|Spine|Mother|Parallel|DensePair|Chips|Relations|Failure|SelectedBlock|Dependency)/;
+  if (retiredSystemSelector.test(legacy)) {
+    fail('retired System Framework selectors must be physically absent from broad xizong-presentation.css');
   }
 }
 
@@ -59,5 +59,5 @@ console.log(JSON.stringify({
   route_css: 'none',
   component_css: 'none',
   retired_component: 'XizongSystemV6.astro',
-  legacy_css_status: 'inactive by namespace; physical deletion remains migration cleanup'
+  legacy_css_status: 'retired System Framework selectors physically absent from broad presentation'
 }, null, 2));

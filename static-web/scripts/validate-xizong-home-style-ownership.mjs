@@ -21,6 +21,7 @@ if (!errors.length) {
   const tools = read(toolsPath);
   const owner = read(ownerPath);
   const legacy = read(legacyPath);
+  const retiredHomeSelector = /\.(?:xzOverview|xzSystemWorkbench|xzOpenDomain|xzSystemRows|xzSystemRow|xzOverviewCompanion|xzLearnerChain|xzFutureRow|xzFutureMap|xizongHomeTools|xizongContinue)\b/;
 
   if (!route.includes("import '../../styles/xizong-home-workspace.css';")) fail('Home route must load xizong-home-workspace.css');
   if (!route.includes('class="xzHome"')) fail('Home route must expose Current xzHome root');
@@ -33,10 +34,9 @@ if (!errors.length) {
   }
   if (!owner.includes('.xzHome')) fail('Home stylesheet does not target Current root');
   if (/!important/.test(owner)) fail('Home stylesheet must not rely on !important cascade recovery');
-  if (/\.(?:xzOverview|xzSystemWorkbench|xzOpenDomain|xzSystemRows|xzSystemRow|xzOverviewCompanion|xizongHomeTools|xizongContinue)\b/.test(owner)) {
-    fail('Current Home stylesheet still styles retired Home namespace');
-  }
+  if (retiredHomeSelector.test(owner)) fail('Current Home stylesheet still styles retired Home namespace');
   if (/\.xzHome(?:\b|[A-Z])/.test(legacy)) fail('broad legacy xizong-presentation.css must not own Current xzHome namespace');
+  if (retiredHomeSelector.test(legacy)) fail('retired Home selectors must be physically absent from broad xizong-presentation.css');
 }
 
 if (errors.length) {
@@ -50,5 +50,6 @@ console.log(JSON.stringify({
   visual_owner: 'static-web/src/styles/xizong-home-workspace.css',
   helper_component_css: 'none',
   current_namespace: 'xzHome*',
+  retired_home_css: 'physically absent from broad presentation',
   memory_entry: 'explicit'
 }, null, 2));
