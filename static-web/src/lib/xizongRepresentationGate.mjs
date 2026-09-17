@@ -139,9 +139,9 @@ export function resolveXizongLearnerAssetRepresentation(asset, { stage = 'LEARN'
   const normalizedStage = upper(stage) || 'LEARN';
   const type = assetType(asset);
 
-  // Learner-object support is treated as answer-bearing on protected Recall fronts.
-  // The resolver does not attempt to outsmart the neutral-front contract family by family.
-  if (RECALL_FRONT_STAGES.has(normalizedStage)) {
+  // KP Recall is Core-protected only: learner support may remain visible.
+  // Block/System Recall retain stricter neutral-front protection.
+  if (RECALL_FRONT_STAGES.has(normalizedStage) && normalizedStage !== 'KP_RECALL_FRONT') {
     return {
       schema: XIZONG_REPRESENTATION_SCHEMA,
       kind: 'STRUCTURED_TEXT',
