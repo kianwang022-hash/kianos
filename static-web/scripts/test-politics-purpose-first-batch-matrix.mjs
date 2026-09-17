@@ -91,6 +91,11 @@ try {
     check(text.length >= 8, `${sample.label}_learner_content_visible`, text.slice(0, 80));
     const tiny = await visibleTextBelowFloor(page, 16);
     check(tiny.length === 0, `${sample.label}_visible_text_floor_16px`, JSON.stringify(tiny));
+    const bodySamples = geometry.locator('.purposeRelation,.purposePrompt,.projectionText,.purposeSecondary p');
+    if (await bodySamples.count()) {
+      const sizes = await bodySamples.evaluateAll((nodes) => nodes.filter((node) => node.getClientRects().length > 0).map((node) => Number.parseFloat(getComputedStyle(node).fontSize)));
+      check(sizes.every((size) => size >= 17), `${sample.label}_body_copy_17px`, JSON.stringify(sizes));
+    }
     await page.screenshot({ path: new URL(`purpose-first-${sample.label}.png`, auditDir).pathname, fullPage: false });
   }
 
