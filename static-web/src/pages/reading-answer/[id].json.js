@@ -17,6 +17,16 @@ export function getStaticPaths() {
       params: { id: item.runtimeId },
       props: { kind: 'external', objectId: item.id }
     }));
+
+  const owners = new Map();
+  [...reading, ...external].forEach((entry) => {
+    const id = String(entry.params.id);
+    const owner = `${entry.props.kind}:${entry.props.objectId}`;
+    const existing = owners.get(id);
+    if (existing) throw new Error(`CURRENT_READING_ANSWER_ROUTE_COLLISION:${id}:${existing}:${owner}`);
+    owners.set(id, owner);
+  });
+
   return [...reading, ...external];
 }
 
