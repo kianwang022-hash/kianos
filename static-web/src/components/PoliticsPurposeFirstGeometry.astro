@@ -1,0 +1,123 @@
+---
+import Value from './PoliticsProjectionValue.astro';
+const { projection } = Astro.props;
+
+const roleLabels = {
+  cause:'起因',cause_layers:'原因层次',process:'发展过程',turning_point:'转折',evaluation:'评价',historical_gain:'历史成果',failure_causes:'失败原因',failure_lesson:'教训',program:'主张与方案',mechanism:'作用机制',before:'前提',historical_meaning:'历史意义',core_contradiction:'核心矛盾',from_previous:'承上',historical_position:'历史位置',conditions:'形成条件',teaching_relations:'关键关系',identity_hierarchy:'体系身份',role_summary:'这一层回答什么',concept_identity:'概念与性质',application_rule:'情境判断',current_relation:'主关系',theory_response:'理论回应',parallel_theory_responses:'不同问题的回应'
+};
+
+function asList(value) {
+  return Array.isArray(value) ? value : (value == null ? [] : [value]);
+}
+
+function rowFrom(value, role, index) {
+  if (typeof value === 'string' || typeof value === 'number') {
+    return { key: `${role || 'row'}-${index}`, label: '', problem: '', relation: String(value) };
+  }
+  if (!value || typeof value !== 'object') return null;
+  const row = {
+    key: String(value?.id || value?.label || value?.title || `${role || 'row'}-${index}`),
+    label: String(value?.label || value?.title || value?.name || ''),
+    problem: String(value?.problem || ''),
+    relation: String(value?.relation || value?.text || value?.meaning || '')
+  };
+  return row.label || row.problem || row.relation ? row : null;
+}
+
+function prepare(objects = []) {
+  const rows = [];
+  const fallback = [];
+  for (const object of objects) {
+    asList(object?.value).forEach((value, index) => {
+      const row = rowFrom(value, object?.role, index);
+      if (row) rows.push(row);
+      else if (value != null) fallback.push({
+        key: `${object?.role || 'object'}-${index}`,
+        role: object?.role || '',
+        value
+      });
+    });
+  }
+  return { rows, fallback };
+}
+
+const representation = projection?.representation || { kind: 'STRUCTURED_TEXT' };
+const primary = prepare(projection?.primary || []);
+const secondary = prepare(projection?.secondary || []);
+const gateKind = representation.kind || 'STRUCTURED_TEXT';
+// Batch rollout stays conservative. Compare is the only non-text layout already
+// browser-proven across a non-intro chapter. Timeline / Hierarchy remain text until
+// their visual form earns its own evidence; names alone never grant a diagram.
+const renderKind = gateKind === 'COMPARE' && primary.fallback.length === 0 && primary.rows.length >= 2
+  ? 'COMPARE'
+  : 'STRUCTURED_TEXT';
+---
+
+{projection && (
+  <section
+    class={`politicsPurposeFirstGeometry kind-${renderKind.toLowerCase()}`}
+    data-purpose-first-geometry
+    data-representation={renderKind}
+    data-gate-representation={gateKind}
+    data-projection-unit={projection.unitId}
+  >
+    {renderKind === 'COMPARE' ? (
+      <div class="purposeCompare" data-purpose-compare>
+        {primary.rows.map((row) => (
+          <section class="purposeCompareAxis" data-purpose-row={row.key}>
+            {row.label && <h3>{row.label}</h3>}
+            {row.problem && <p class="purposePrompt">{row.problem}</p>}
+            {row.relation && <p class="purposeRelation">{row.relation}</p>}
+          </section>
+        ))}
+      </div>
+    ) : (
+      <div class="purposeTextSequence" data-purpose-structured-text>
+        {primary.rows.map((row, index) => (
+          <section class="purposeTextRow" data-purpose-row={row.key}>
+            <span class="purposeIndex">{String(index + 1).padStart(2, '0')}</span>
+            <div>
+              {row.label && <h3>{row.label}</h3>}
+              {row.problem && <p class="purposePrompt">{row.problem}</p>}
+              {row.relation && <p class="purposeRelation">{row.relation}</p>}
+            </div>
+          </section>
+        ))}
+        {primary.fallback.map((item, index) => (
+          <section class="purposeFallbackRow" data-purpose-fallback={item.key}>
+            <span class="purposeIndex">{String(primary.rows.length + index + 1).padStart(2, '0')}</span>
+            <div>
+              {roleLabels[item.role] && <h3>{roleLabels[item.role]}</h3>}
+              <Value value={item.value} />
+            </div>
+          </section>
+        ))}
+      </div>
+    )}
+
+    {(secondary.rows.length > 0 || secondary.fallback.length > 0) && (
+      <section class="purposeSecondary">
+        <h3>进一步判断</h3>
+        {secondary.rows.map((row) => (
+          <div class="purposeSecondaryRow">
+            {row.label && <strong>{row.label}</strong>}
+            <div>
+              {row.problem && <p>{row.problem}</p>}
+              {row.relation && <p>{row.relation}</p>}
+            </div>
+          </div>
+        ))}
+        {secondary.fallback.map((item) => (
+          <div class="purposeSecondaryFallback">
+            {roleLabels[item.role] && <strong>{roleLabels[item.role]}</strong>}
+            <Value value={item.value} />
+          </div>
+        ))}
+      </section>
+    )}
+  </section>
+)}
+
+<style>
+  .politicsPurposeFirstGeometry{display:grid;gap:18px;min-width:0}.purposeCompare{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:0;border-top:1px solid var(--study-line);border-bottom:1px solid var(--study-line)}.purposeCompareAxis{display:grid;align-content:start;gap:8px;padding:18px 22px 20px 0}.purposeCompareAxis+.purposeCompareAxis{padding-left:24px;border-left:1px solid var(--study-line)}.purposeCompareAxis h3,.purposeTextRow h3,.purposeFallbackRow h3{margin:0;color:#173f32;font-size:21px;line-height:1.4}.purposePrompt{margin:0;color:#597067;font-size:17px;line-height:1.62}.purposeRelation{margin:0;color:#29483d;font-size:17px;line-height:1.68}.purposeTextSequence{display:grid;border-top:1px solid var(--study-line)}.purposeTextRow,.purposeFallbackRow{display:grid;grid-template-columns:42px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid #e8eeeb}.purposeTextRow>div,.purposeFallbackRow>div{display:grid;gap:5px}.purposeIndex{padding-top:3px;color:#6b8a7f;font-size:16px;font-weight:760}.purposeFallbackRow :global(.projectionText),.purposeFallbackRow :global(li),.purposeFallbackRow :global(p),.purposeFallbackRow :global(span),.purposeFallbackRow :global(strong){font-size:17px;line-height:1.62}.purposeSecondary{display:grid;gap:10px;padding-top:14px;border-top:1px solid var(--study-line)}.purposeSecondary>h3{margin:0;color:#38584d;font-size:18px}.purposeSecondaryRow,.purposeSecondaryFallback{display:grid;grid-template-columns:minmax(160px,.32fr) minmax(0,1fr);gap:16px}.purposeSecondaryRow strong,.purposeSecondaryFallback strong{font-size:17px}.purposeSecondaryRow p{margin:0;font-size:17px;line-height:1.62;color:#526a61}.purposeSecondaryFallback :global(.projectionText),.purposeSecondaryFallback :global(li),.purposeSecondaryFallback :global(p),.purposeSecondaryFallback :global(span),.purposeSecondaryFallback :global(strong){font-size:17px;line-height:1.62}@media(max-width:1050px){.purposeCompare{grid-template-columns:1fr}.purposeCompareAxis+.purposeCompareAxis{padding-left:0;border-left:0;border-top:1px solid var(--study-line)}.purposeSecondaryRow,.purposeSecondaryFallback{grid-template-columns:1fr}}
+</style>

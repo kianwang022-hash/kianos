@@ -13,6 +13,8 @@ This file owns routing only. It does not own medical Core, lane learning semanti
 **Blocker:** none at lane-routing level  
 **Next action:** route work to the narrowest Current owner for the actual task.
 
+Durable multi-lane content production coordination lives in `CONTENT_MAINLINE.md`. Read it after this file whenever the task is to continue the overall Xizong content program across medical construction, Questions or Visual / Extension work. `CONTENT_MAINLINE.md` coordinates priority and dependencies only; exact scoped owners remain authoritative.
+
 | Scope | Work Cursor | Acceptance Truth |
 | --- | --- | --- |
 | A1 Circulation | `knowledge/systems/a1-circulation/CURRENT.md` | `knowledge/systems/a1-circulation/ACCEPTANCE.md` |
@@ -28,6 +30,17 @@ System hierarchy, construction dependency and Kian learner order are not automat
 ## Fresh-Chat task router｜use before history
 
 Historical Frozen files, old Issues, PR summaries and prior Chats are provenance only unless a Current owner explicitly points to them.
+
+### Program-level content continuation
+
+```text
+CURRENT.md
+→ CONTENT_MAINLINE.md
+→ exact active lane owner
+→ exact scoped CURRENT / ACCEPTANCE / canonical asset
+```
+
+Use this route when Kian asks to continue the overall content program, choose the next parallel lane, resume Question/Crosswalk production, resume Visual/Extension production, or coordinate D/E/F construction. Do not reconstruct the program from prompts or prior Chat memory.
 
 ### Medical / content truth
 
@@ -139,6 +152,7 @@ A real defect reopens only the earliest responsible owner and its dependent chai
 
 ## Stable lane owners
 
+- program-level content coordination → `CONTENT_MAINLINE.md`
 - Knowledge map → `knowledge/manifest.json`
 - medical Core → `knowledge/systems/**`
 - lane Learning → `LEARNING_CONTRACT.md`
@@ -164,6 +178,15 @@ System work:
 requested System CURRENT
 → requested System ACCEPTANCE
 → exact earliest unresolved owner
+→ work
+```
+
+Program-level content work:
+
+```text
+Xizong CURRENT
+→ CONTENT_MAINLINE
+→ exact active lane owner
 → work
 ```
 

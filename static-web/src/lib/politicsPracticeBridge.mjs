@@ -12,7 +12,7 @@ export function installPoliticsPracticeBridge() {
     link.dataset.practiceUnitEntry = config.unit_key;
     link.href = `${base}politics/practice/?unit=${encodeURIComponent(config.unit_key)}`;
     link.textContent = '在工作台做本单元配套题 →';
-    link.style.cssText = 'display:block;margin-top:12px;font-size:15px;color:#246a55;font-weight:650';
+    link.style.cssText = 'display:block;margin-top:12px;font-size:16px;color:#246a55;font-weight:650';
     source.append(link);
   }
   const params = new URLSearchParams(location.search);

@@ -1,6 +1,6 @@
 ---
 const { value, emphasizeLabels = false } = Astro.props;
-const labels = { role:'体系身份', upstream:'上游依据', downstream:'向下展开', goal:'目标', method:'方法', principle:'原则', task:'任务', foundation:'基础', core:'核心', position:'位置', essence:'本质', object:'对象', condition:'条件', result:'结果', development:'发展', meaning:'意义' };
+const labels = { role:'体系身份', not_role:'不是', upstream:'上游依据', downstream:'向下展开', goal:'目标', method:'方法', principle:'原则', task:'任务', foundation:'基础', core:'核心', position:'位置', essence:'本质', object:'对象', condition:'条件', result:'结果', development:'发展', meaning:'意义' };
 const excluded = new Set(['id','natural_unit_id','source_refs','source_evidence','learning_priority','learning_rule','schema','status']);
 const primitive = typeof value === 'string' || typeof value === 'number';
 // Only structurally labelled Projection slots use this typographic split.

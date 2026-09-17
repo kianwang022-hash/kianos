@@ -6,7 +6,7 @@
   "canonical_id": "A2",
   "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
   "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
-  "notes": "Preserves reviewed R1/R2/R3/R6/R7/R8/R11 bundles and adds reviewed high-value R1/R2 physiology, R4 asthma, R5 pneumonia, R8 IPF, R10 pleural-fluid, R11 lung-cancer and R12 ARDS source visuals. Coverage remains intentionally sparse and independently extensible.",
+  "notes": "Preserves reviewed sparse A2 source visuals. The former R1 LG04 obstructive/restrictive screenshot and R10 LG01 pleural-fluid mechanism/Light screenshots were migrated to native STRUCTURED_TABLE Extension slots and are intentionally absent here.",
   "bundles": [
     {
       "cue_id": "a2-r01-lg01-visual",
@@ -24,25 +24,6 @@
           "height": 490,
           "source_crop_sha256": "e9ccf5070ad3ffd7401f7208e93b1494bdcd8ed839b2234086eb04b98812ed0a",
           "derived_asset_sha256": "054e8a14b7c1fdf8184530919e6bbe27cc271c289bb8c2ff618a574bfa6dc031"
-        }
-      ]
-    },
-    {
-      "cue_id": "a2-r01-lg04-visual",
-      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
-      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
-      "assets": [
-        {
-          "source_object_id": "physiology:0ad07df500372:pi169:crop:1a23259512f86f28",
-          "source_page": 170,
-          "usage_role": "OBSTRUCTIVE_RESTRICTIVE_VENTILATION_COMPARISON",
-          "usage_label": "P170 · 阻塞 vs 限制通气障碍",
-          "alt": "生理讲义 P170：阻塞性与限制性通气障碍的阻力、呼吸困难、疾病和肺功能方向对照",
-          "asset_path": "a2-r01-lg04/r01-p170-obstructive-restrictive.webp",
-          "width": 950,
-          "height": 520,
-          "source_crop_sha256": "1a23259512f86f2806ddb9e01765bc295e5bc9964b30b56c12ba7432df89a949",
-          "derived_asset_sha256": "10be05eae43e112948a1ae63404a2693704804fe10abd5a41abaf374a3c1491c"
         }
       ]
     },
@@ -302,37 +283,6 @@
           "height": 211,
           "source_crop_sha256": "950f038cd66ef5c7e0fcf7619974335fa4f638ffeb145eb998598aec8bd2f7ed",
           "derived_asset_sha256": "4760a18df114133aaef47a5e892c318fdd3a874edf8677ca1f51406c5b99735c"
-        }
-      ]
-    },
-    {
-      "cue_id": "a2-r10-lg01-visual",
-      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
-      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
-      "assets": [
-        {
-          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi81:crop:e4ebc426e6ac0d06",
-          "source_page": 67,
-          "usage_role": "TRANSUDATE_EXUDATE_FORMATION_MECHANISM",
-          "usage_label": "P67 · 渗出液/漏出液形成机制",
-          "alt": "内科讲义 P67：静水压、胶体渗透压、血管通透性和淋巴回流对渗出液/漏出液形成的机制",
-          "asset_path": "a2-r10-lg01/r10-p67-transudate-exudate-mechanism.webp",
-          "width": 1150,
-          "height": 700,
-          "source_crop_sha256": "e4ebc426e6ac0d06aeae82307ed1e49a93a8ed7eedfdd34b085fe237c87e1c53",
-          "derived_asset_sha256": "d62ebaae686bcd0fbb0a450507a89081cfa019f2baa629354ee667eb93b92ef5"
-        },
-        {
-          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi82:crop:e5c1fbda7e748a5d",
-          "source_page": 68,
-          "usage_role": "LIGHT_CRITERIA_TRANSUDATE_EXUDATE_COMPARISON",
-          "usage_label": "P68 · 渗出液/漏出液定量与 Light 标准",
-          "alt": "内科讲义 P68：渗出液与漏出液的定量指标及 Light 标准对照",
-          "asset_path": "a2-r10-lg01/r10-p68-light-criteria.webp",
-          "width": 1100,
-          "height": 600,
-          "source_crop_sha256": "e5c1fbda7e748a5d730cce2de2c0893d1851b80428d04a0d0b1f17d9e75779df",
-          "derived_asset_sha256": "0910d7a5cd486bd9a0cef6210369cd3a4de7cc0ca758e4f74fd206720c2e1cbb"
         }
       ]
     },
