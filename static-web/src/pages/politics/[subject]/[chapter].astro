@@ -5,6 +5,7 @@ import PoliticsChapterPresentation from '../../../components/PoliticsChapterPres
 import PoliticsChapterRuntime from '../../../components/PoliticsChapterRuntime.astro';
 import PoliticsCognitiveWorkspace from '../../../components/PoliticsCognitiveWorkspace.astro';
 import PoliticsCognitiveWorkspaceBridge from '../../../components/PoliticsCognitiveWorkspaceBridge.astro';
+import PoliticsCognitiveWorkspaceReadable from '../../../components/PoliticsCognitiveWorkspaceReadable.astro';
 import PoliticsRepairEnhancer from '../../../components/PoliticsRepairEnhancer.astro';
 import PoliticsUnitReturnEnhancer from '../../../components/PoliticsUnitReturnEnhancer.astro';
 import PoliticsPracticeBridge from '../../../components/PoliticsPracticeBridge.astro';
@@ -25,6 +26,13 @@ const useCognitiveWorkspace = subject === 'marxism'
   && chapter === 'ch00'
   && data.units.some((unit) => unit?.raw?.learning_semantics?.schema === 'kianos.politics.learning_semantics.v1');
 ---
+<style is:global>
+  /* Golden C00 calibration: the learner-facing orientation question must read as a real headline. */
+  .politicsCognitiveWorkspace.directReasoningWorkspace[data-subject="marxism"][data-chapter="ch00"] [data-stage="ORIENT"] > h2 {
+    font-size: clamp(32px, 2.45vw, 39px) !important;
+  }
+</style>
+
 <Base
   title={data.title}
   kicker={`${data.subjectMeta.label} · ${data.subjectMeta.shape}`}
@@ -52,7 +60,8 @@ const useCognitiveWorkspace = subject === 'marxism'
   {useCognitiveWorkspace
     ? <PoliticsCognitiveWorkspace chapter={data} base={base} />
     : <PoliticsChapterRuntime chapter={data} base={base} compiled={compiled} />}
-  {useCognitiveWorkspace && <PoliticsCognitiveWorkspaceBridge />}
+  {useCognitiveWorkspace && <PoliticsCognitiveWorkspaceBridge chapter={data} />}
+  {useCognitiveWorkspace && <PoliticsCognitiveWorkspaceReadable />}
 
   <script is:inline>
     (() => {

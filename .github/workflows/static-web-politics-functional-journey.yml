@@ -57,6 +57,9 @@ jobs:
       - name: Execute Politics Functional First journeys
         working-directory: static-web
         run: node scripts/test-politics-functional-journey.mjs
+      - name: Verify purpose-first Politics Golden UI
+        working-directory: static-web
+        run: node scripts/test-politics-golden-purpose-first.mjs
       - name: Execute Mao Runtime journeys
         working-directory: static-web
         run: node scripts/test-politics-mao-runtime.mjs

@@ -14,8 +14,10 @@ const requireText = (text, needle, label) => {
 
 const component = read('src/components/PoliticsCognitiveWorkspace.astro');
 const bridge = read('src/components/PoliticsCognitiveWorkspaceBridge.astro');
+const readable = read('src/components/PoliticsCognitiveWorkspaceReadable.astro');
 const page = read('src/pages/politics/[subject]/[chapter].astro');
 const presentation = read('PRESENTATION_CONTRACT.md');
+const preferences = read('KIAN_UI_PREFERENCES.md');
 const learning = read('../content/politics/LEARNING_CONTRACT.md');
 
 for (const marker of [
@@ -64,19 +66,41 @@ for (const fastPath of [
   "setWorkspaceState(unit, 'VERIFY')"
 ]) requireText(bridge, fastPath, 'score-first workspace bridge');
 
-for (const visualRule of [
+// Shell behavior remains stable; representation choice is now purpose-first.
+for (const shellRule of [
   'directReasoningWorkspace',
-  'data-direct-relation-field',
-  'core reasoning is primary content',
-  "deck.querySelector('.mapTabs')?.remove()",
-  'panel.hidden = false',
-  'promoteDirectRelations(panel)',
-  'Preserve the Map\'s own topology',
-  'data-node-deepening',
-  'inspectorPrimaryAnchor',
+  '章地图 +',
+  '.relationStrip',
+  "inspectorTitle.textContent = '容易混'",
   '.workspaceState{display:none}',
   '.suyiNote{display:none!important}'
-]) requireText(bridge, visualRule, 'topology-preserving direct-visible bridge');
+]) requireText(bridge, shellRule, 'golden workspace shell');
+
+// Learner-visible acceptance: text is the default. A visual is kept only when it
+// clearly reduces reconstruction cost without inventing hierarchy or causality.
+for (const readableRule of [
+  'PURPOSE_FIRST / TEXT_DEFAULT',
+  'SIMPLE_CHAIN_WHEN_CLEARER',
+  "s02.dataset.politicsRepresentation = 'TEXT_DEFAULT'",
+  "panel.dataset.representation = 'TEXT'",
+  'purposeChain',
+  'featureNames',
+  'readableRelations',
+  "['科学性', '人民性', '实践性', '发展性']",
+  '集中体现马克思主义的革命性',
+  '为革命性提供科学基础',
+  '科学性与革命性',
+  '概念解释（需要时）',
+  'font-size:clamp(31px',
+  'font-size:19px',
+  'font-size:16px'
+]) requireText(readable, readableRule, 'purpose-first readable layer');
+
+for (const preferenceRule of [
+  'larger, comfortably readable type',
+  'tiny text that makes sustained reading tiring',
+  'Kian\'s direct feedback > real-use evidence > these hypotheses.'
+]) requireText(preferences, preferenceRule, 'learner UI preference owner');
 
 for (const forbiddenProjection of [
   'buildDirectReasoningFlow',
@@ -86,9 +110,13 @@ for (const forbiddenProjection of [
   if (bridge.includes(forbiddenProjection)) fail(`projection still coerces Map into generic flow: ${forbiddenProjection}`);
 }
 
+if (bridge.includes('.chapterContext{display:none}')) fail('chapter context was hidden instead of kept as compact map entry');
+if (bridge.includes('demoteRelationChain')) fail('required relation chain was mechanically folded');
+
 requireText(page, "subject === 'marxism'", 'route calibration');
 requireText(page, "chapter === 'ch00'", 'route calibration');
 requireText(page, 'PoliticsCognitiveWorkspace', 'route calibration');
+requireText(page, 'PoliticsCognitiveWorkspaceReadable', 'route calibration');
 requireText(page, 'PoliticsChapterRuntime', 'fallback runtime');
 
 for (const rule of [
@@ -121,14 +149,14 @@ for (const unit of semanticUnits) {
 const s02 = semanticUnits.find((unit) => unit.unitId === 'POL27-CF-MARX-C00-S02');
 if (!s02) fail('C00 S02 calibration unit missing');
 if ((s02.raw.learning_semantics.framework_maps || []).length !== 2) {
-  fail('C00 S02 must preserve two distinct framework maps');
+  fail('C00 S02 must preserve two distinct framework maps in Current even when UI renders them as readable text');
 }
 
 const valueMap = (s02.raw.learning_semantics.framework_maps || []).find((map) => map.id === 'MARX-C00-S02-MAP-VALUE-01');
 if (!valueMap) fail('C00 S02 contemporary-value map missing');
 const valueEdges = valueMap.edges || [];
 if (valueEdges.length !== 3 || !valueEdges.every((edge) => edge.from === 'contemporary_value')) {
-  fail('C00 S02 contemporary-value hub topology changed');
+  fail('C00 S02 contemporary-value hub semantics changed');
 }
 
 console.log('POLITICS_COGNITIVE_WORKSPACE_PASS');
@@ -137,8 +165,10 @@ console.log(JSON.stringify({
   semanticUnits: semanticUnits.length,
   states: ['ORIENT', 'EXTERNAL_LEARN', 'RECALL', 'VERIFY', 'REPAIR', 'CLOSE'],
   scoreFirstFastPath: 'EXTERNAL_LEARN -> VERIFY; RECALL optional',
-  primaryReasoning: 'DIRECT_VISIBLE_SEMANTIC_EDGES',
-  mapProjection: 'TOPOLOGY_PRESERVED_RELATIONS_FIRST',
-  secondaryDepth: 'NODE_GLOSSARY_AND_RELATION_CHAIN_OPTIONAL',
+  representationRule: 'PURPOSE_FIRST_TEXT_DEFAULT_VISUAL_ONLY_WHEN_CLEARER',
+  s01: 'SIMPLE_CHAIN_WHEN_CLEARER',
+  s02: 'STRUCTURED_TEXT_RELATIONS',
+  secondaryDepth: 'REQUIRED_RELATION_CHAIN_VISIBLE_LOWER_WEIGHT',
+  chapterContext: 'COMPACT_OPTIONAL_ENTRY',
   surface: 'MAC_LANDSCAPE_COGNITIVE_WORKSPACE'
 }, null, 2));
