@@ -1,383 +1,261 @@
-# Xizong Product / UI Status
+# Xizong Content / Product Status
 
-Status: **CURRENT PRODUCT ROUTER · ONE RUNTIME · SHARED SEMANTIC ADAPTER CURRENT · PRODUCTION SEMANTIC RENDERER CURRENT · GOLDEN JOURNEY CURRENT · B+C COMPATIBILITY NEXT**  
+Status: **CURRENT HUMAN ROUTER · CONTENT + PRODUCT / ENGINEERING IN ONE VIEW · NON-AUTHORITATIVE SUMMARY**  
 Domain router: `content/xizong/CURRENT.md`  
+Acceptance truth: scoped System `CURRENT.md / ACCEPTANCE.md`  
 Learning authority: `content/xizong/LEARNING_CONTRACT.md` + `content/xizong/knowledge/learner/study-policy.json`  
-Presentation authority: `static-web/PRESENTATION_CONTRACT.md`  
+Presentation authority: `static-web/PRESENTATION_CONTRACT.md` + `static-web/XIZONG_REPRESENTATION_GATE.md`  
 Projection authority: `content/xizong/projection/PROJECTION_CONTRACT.md`  
 Safety / review: `XIZONG_UI_REVIEW_PROTOCOL.md`
 
-Historical integrated execution prompts, old Frozen web contracts, old Issue checklists and PR summaries are provenance only. They may explain how Current was reached but do not override the Current owners above.
+> This file is the **single low-friction progress/status view** for Xizong content assets and shared product engineering. It summarizes Current owners; it never creates Acceptance Truth, medical truth, learner state, question membership, Visual coverage or readiness.
+>
+> If this summary conflicts with a scoped `CURRENT.md`, `ACCEPTANCE.md`, canonical asset or contract, the scoped owner wins.
+
+No percentage-complete score is used. Optional Visuals, Crosswalk relations and other sparse assets are intentionally not required to reach 100% coverage.
 
 ---
 
-## 1｜Current product model in one view
+# 1｜Current product model
 
-Xizong is one learning product and one learner Runtime. Visual, Extension, TTSX checkpoints, Recall, official questions, second pass and Repair are conditional capabilities inside the same learning system; they are not parallel apps or curricula.
+Xizong is **one learning product and one learner Runtime**. Visual, Precision, Extension, TTSX checkpoints, Recall, official questions, second pass, Memory and Repair are conditional capabilities inside the same system; they are not parallel apps or curricula.
 
-The current first-pass model is:
+First-pass learning remains:
 
 ```text
-System / Block orientation
-→ Attention Projection: what matters now / later / only if needed
-→ continuous original Lecture in iPad / MarginNote at accepted Source-contact granularity
-→ optional Visual Gate / Extension when the current object genuinely benefits from it
-→ natural Lecture subsection boundary
-     └─ if reviewed TTSX binding exists:
-        KianOS shows a lightweight checkpoint
-        → Kian completes TTSX in the Lecture / MarginNote itself
-        → reads answer + all options + question-side explanation / expansion
-        → KianOS confirms completion and may optionally retain selected question(s) / short note
-→ continue Source or return at the accepted retrieval point
-→ KP retrieval / LG closure
+System Framework
+→ Block Framework
+→ continuous original Lecture in iPad / MarginNote
+   + Mac KP Learn companion (Prompt + full Core + locators + useful support)
+→ KP Recall
+→ Logic Group closure
 → Block Recall
 → Block Complete
+→ idempotent Memory release
 → after the System is actually learned: System Recall
-→ official System question sweep in KianOS
+→ official System question sweep
 → W/U smallest-sufficient Repair / exact Return
-→ short post-question reconstruction
 ```
 
 Hard distinctions:
 
 ```text
-Logic Group
-= retrieval / local-closure unit
-
-Source-contact segment
-= continuous original-Lecture execution unit
-
-Lecture-attached TTSX
-= local first-pass probe completed in the original Lecture surface
-
-Official System questions
-= KianOS Question Runtime evidence after the System model exists
+Logic Group            = retrieval / local-closure unit
+Source-contact segment = continuous original-Lecture execution unit
+TTSX                    = source-local checkpoint completed in Lecture / MarginNote
+Official System qids    = KianOS Question Runtime after the System model exists
 ```
 
-Do not force these into one unit because the current component tree happens to be simpler that way.
+Do not collapse these because a UI component happens to be easier that way.
 
 ---
 
-## 2｜Learner-facing information architecture
-
-The Block workspace should follow three information lanes:
-
-```text
-LEFT
-Position / Logic Map
-"Where am I?"
-
-CENTER
-Primary Cognitive Path
-"What am I actually learning / recalling / doing now?"
-
-RIGHT
-Attention Projection
-"How much attention should the other relevant information receive now?"
-```
-
-### Left — Position
-
-Use for Block/LG location and lightweight navigation. It is not a second content column and should not expand into engineering metadata.
-
-### Center — Primary Cognitive Path
-
-This is the dominant workspace. Depending on the current learner state it may show:
-
-- Block / current causal problem;
-- current Source-contact instruction / exact source;
-- an actually useful cognitive Projection object;
-- a Visual Gate / Extension when required;
-- a TTSX checkpoint at a real Source boundary;
-- Recall Front / Reveal / closure;
-- official Question Runtime after the System reaches that stage.
-
-Only the current main action should dominate.
-
-### Right — Attention Projection
-
-The right rail is **not primarily a workflow checklist**. Its main job is to spend Kian's attention for him.
-
-Learner-facing groups should be natural-language forms of:
-
-- **本轮带走** — important current material that should survive this pass;
-- **按需辅助** — Visual / table / Source / Precision support only when useful now;
-- **可以后置** — low-coupling precision / lists / details that must not block the main mechanism;
-- **后面再学 / 串联** — a future owner or connection to notice without expanding now.
-
-Backend labels such as `MI-G`, `MI-D`, `CURRENT_CORE`, `RESERVE_LEARNING`, `CONNECTION_HOOK`, `DEFERRED`, Projection roles and geometry are machine semantics. They should normally be translated into the learner-facing result rather than printed as taxonomy badges.
-
-Block / Lecture / Recall / Complete progress may appear lightly, but it must not consume the entire right rail and displace Attention Projection.
-
----
-
-## 3｜Canonical Current Runtime｜no parallel V7 / second runtime
-
-The production routing remains one Runtime family:
-
-```text
-/xizong/
-→ XizongHomeTools
-
-/xizong/[system]/
-→ XizongSystemV6
-→ XizongSystemExitRuntime
-→ XizongSystemRepairReturn
-→ XizongSystemEvidenceGuard
-→ XizongRuntimeStageGuard
-
-/xizong/[system]/[block]/
-→ XizongBlockV6
-→ XizongMemoryReviewV6
-→ Block Evidence / Stage / Repair / cue / enrichment support
-```
-
-`V6` is a historical implementation suffix, not a sixth live learner model. Do not create `V7`, a separate `SecondPassRuntime`, a Visual runtime, a TTSX runtime or another Evidence store to solve current integration problems.
-
-When Current Learning semantics expose a mismatch in the component, fix the shared semantic adapter / Runtime / renderer rather than preserving an obsolete component assumption.
-
----
-
-## 4｜TTSX / Lecture-attached question checkpoint
-
-Lecture-attached TTSX is **not a duplicate KianOS question-taking surface**.
-
-Ownership:
-
-```text
-Lecture / MarginNote owns
-- answering the TTSX
-- answer checking
-- all options
-- source-local explanation
-- question-side expansion / supplements
-
-KianOS owns
-- Boundary / Binding release bookkeeping
-- lightweight "this group is due" checkpoint
-- completion confirmation
-- optional question picker
-- optional short reason / note
-- routing selected W/U / expansion / confusion / connection / precision evidence later
-```
-
-Core rule:
-
-```text
-Boundary = WHEN
-reviewed Binding = WHICH
-```
-
-No binding means no invented release. KianOS must not fall back to the official question corpus by similarity or proximity.
-
-Default learner interaction should be minimal:
-
-```text
-TTSX · N questions
-在讲义原位置完成，并看全部选项 / 题旁拓展
-
-[已完成]
-
-[选择值得留下的题]   [没有，继续]
-```
-
-Selecting a question does not immediately mutate canonical Knowledge. A retained note may later be classified as personal note, Memory/Precision, Connection, Repair evidence, Chat debrief or a reviewed Core candidate.
-
----
-
-## 5｜Official Question Runtime / multi-pass / Crosswalk
-
-Official questions use the existing shared Question Runtime and append-preserved attempt history.
-
-```text
-stable question identity
-├─ current-round progress
-└─ attemptHistory
-     ├─ FIRST_PASS
-     ├─ SECOND_PASS
-     └─ LATE_REVIEW
-```
-
-FIRST_PASS official sweep, SECOND_PASS and later review are phases / task conditions of the same question product.
-
-Current second-pass behavior already includes targeted re-entry from previous Wrong / Uncertain / repaired-not-fresh-verified evidence; Stable work does not need mandatory full repetition, while explicit full re-sweep may remain an opt-in mode.
-
-The reviewed Question↔Knowledge interface is also a current capability:
-
-- canonical positive truth is only explicit `REVIEWED` Question→Knowledge relation;
-- reverse Block/KP→Questions lookup is derived from the same relation owner;
-- missing mapping is legal and does not block practice;
-- Runtime must not infer a relation from title, disease name, page adjacency, Block membership or model intuition.
-
-Crosswalk content may continue to grow without changing the product skeleton.
-
----
-
-## 6｜Visual / Precision / Extension
-
-Visual is conditional support in the main learning chain, not a separate completion program.
-
-Use this conceptual ladder:
-
-```text
-Visual Truth
-original Lecture / PDF / reviewed source
-        ↓
-Visual Gate
-"does this learner object genuinely require seeing a visual?"
-        ↓
-Extension Slot (optional)
-"is there a persistent web asset that materially improves repeat use?"
-        ↓
-Attention / Projection timing
-"should Kian see it now, after Reveal, or only on demand?"
-```
-
-The generic Extension Asset layer is Current and supports:
-
-- `SOURCE_VISUAL`;
-- `STRUCTURED_TABLE`;
-- `SUMMARY_VISUAL`.
-
-Existing legacy `*-source-visuals.json` packs remain compatible; they are not the preferred reason to keep building a system-wide screenshot catalog.
-
-Hard rule:
-
-> **Visual Gate ≠ required web asset ≠ screenshot backlog ≠ learner completion.**
-
-Future Visual / Extension content should usually be added or improved because actual learning shows repeated value, a visual-recognition need, a spatial/mechanistic need, or a superior reviewed MarginNote/user summary exists. Do not bulk-produce an entire System merely for visual coverage symmetry.
-
-Precision remains orthogonal to Visual. High-value exactness may be current or deferred based on learning timing; it is not automatically a large UI component.
-
-Current formal Extension ownership / replacement rules live in `content/xizong/EXTENSION_ASSET_CONTRACT.md`; capability boundaries live in `XIZONG_VISUAL_PRECISION_CAPABILITY.md`.
-
----
-
-## 7｜Projection / semantic presentation
-
-Projection exists between learning/content semantics and final Astro layout:
-
-```text
-Current medical / learning owners
-→ shared semantic adapter
-→ cognitive / semantic presentation objects
-→ shared renderer
-→ learner UI
-```
-
-Projection may decide semantic role, cognitive geometry and stage-safe visibility. It may not invent medical truth, learner state, question relations, Source locators or Source-contact segmentation.
-
-Current reconciliation is now explicit:
-
-- the shared A1/A2/A3/B/C semantic adapter is Current and validates LG identity/membership, Source-contact semantics, retrieval points, fail-closed TTSX, Attention items and optional Visual/Extension refs;
-- A1 / A2 / A3 / B have materialized compiled Projection assets: 4 Systems / 76 Blocks / 80 Projection assets;
-- C has accepted Knowledge + Learning and is **Projection-eligible but intentionally not yet compiled**: 27 Blocks / 423 KP / 133 LG;
-- C explicit/non-contiguous LG membership is preserved; it is not rewritten into fake contiguous ranges;
-- B whole-LG Source contact and C Block/canonical-Source-unit contact remain different accepted execution models;
-- compiled-asset validation and Current-eligibility/topology reconciliation are separate gates, so neither can manufacture the other's claim;
-- production Block rendering now consumes the unified semantic / Projection objects through the shared production presenter while retaining the existing V6 Runtime and `kianos-xizong-astro-v2` learner-state store.
-
-Do not interpret `role / geometry` as learner-facing labels. The learner should see the mechanism chain, comparison, boundary or exact item itself, not `CHAIN / MATRIX / EXACT` engineering words.
-
----
-
-## 8｜Content / System availability
-
-Knowledge inventory, Projection eligibility, compiled Projection assets and product readiness are different dimensions.
-
-Progressive availability remains legal:
+# 2｜Content / asset progress
+
+Legend:
+
+- **PASS / CLOSED** — scoped Acceptance explicitly accepts it.
+- **CURRENT** — durable asset/implementation is on `main`; this alone does not create scoped PASS.
+- **PARTIAL** — real reviewed assets exist; sparse/incremental coverage is intentional.
+- **ELIGIBLE** — upstream gate permits the next stage; the next stage itself is not yet accepted.
+- **BLOCKED** — a named unresolved boundary blocks the claim.
+- **CANDIDATE** — work exists outside Current acceptance.
+- **SUBSTRATE** — source/canonical-looking material exists but no Current acceptance is asserted here.
+
+| System | Source / official-question scope | Knowledge | Learning | Content realization | Guide / Framework | Visual / Precision / Extension | Question→Knowledge | Next content action |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **A1 Circulation** | **PASS**; exact System sweep **376 qids** | **PASS** · 12 Blocks / 312 KP | **PASS** | **CLOSED** | Current Beginner Guide + Framework | **PARTIAL by design** · reviewed Source Visual + cues/Precision | progressive reviewed subset | real learner U; only concrete additive repair/Visual/Crosswalk work |
+| **A2 Respiratory** | **PASS**; exact System sweep **359 qids** | **PASS** · 12 Blocks / 236 KP | **PASS** | accepted Current scope | Current Beginner Guide + Framework | **PARTIAL by design** · reviewed Source Visual + Precision/cues | progressive reviewed subset | real learner U; additive high-value assets only |
+| **A3 Urinary** | **PASS**; exact System sweep **243 qids** | **PASS** · 14 Blocks / 257 KP | **PASS** | accepted Current scope | Current Beginner Guide + Framework | **PARTIAL by design** · reviewed Source Visual + structured-table Extension | progressive reviewed subset | real learner U; additive Extension/Crosswalk only |
+| **B Digestive / Metabolic / Endocrine / Tumor** | **BLOCKED**: exact Current official-question membership not accepted | **PASS** · 38 Blocks / 600 KP | **PASS** · 170 LG | accepted substrate; no broad rewrite implied | Current Beginner Guide + Framework | **PARTIAL / candidate-rich**; no System-wide Visual quota | progressive reviewed subset | close exact question scope; dedicated downstream acceptance; materialize only high-value Visual/Extension |
+| **C Hematology / Immunity / Infection** | no accepted exact System question-scope claim | **PASS** · 27 Blocks / 423 KP | **PASS_AFTER_REPAIR** · 133 LG | downstream eligible from accepted K/L | no Guide required merely for symmetry | sparse absence is legal | progressive reviewed subset | dedicated downstream P; Visual only where cognition benefits |
+| **D Neuro / Sensory / Motor / Orthopedics** | S1 first-learning boundary candidate PASS; S2 exact official membership unaccepted | candidate 27 Blocks / 356 KP | candidate 128 LG | **frozen behind fresh L acceptance** | not Current | future Visual-heavy scope; visual-source debt must remain explicit | no scoped accepted mapping | **Fresh Independent L Audit → if PASS, Content Realization / Optimization → P/R/E** |
+| **E Reproductive / Breast** | **SUBSTRATE** | **SUBSTRATE** (`E1–E14` + `SR1–SR6`) | not accepted | not Current | not Current | not started / no coverage claim | no scoped claim | bounded **Source + Knowledge** construction / audit; L only after K is trustworthy |
+| **F Remaining Clinical** | **SUBSTRATE** | canonical block substrate exists | not accepted | not Current | not Current | not started / no coverage claim | no scoped claim | later bounded S/K construction after higher-priority D/E |
+
+Progressive availability is legal:
 
 ```text
 accepted K/L
 ≠ compiled Projection
-≠ product route available
-≠ learner prerequisite failed
-≠ learner debt
+≠ product route ready
+≠ official question scope accepted
+≠ learner progress
 ```
 
-Current product-side state:
-
-```text
-A1 / A2 / A3   accepted engineering learner paths for their named scopes
-B               accepted modern K/L + compiled Projection; downstream fresh P/renderer acceptance remains
-C               accepted modern K/L + Projection eligible; no compiled C Projection yet
-D / E / F       continue their own independent construction / acceptance chains
-```
-
-Do not wait for every System, every Visual, every Crosswalk relation or every future Extension before improving the shared learner product. Conversely, do not claim a later System is ready merely because the shared renderer exists or because its K/L content is accepted.
+Shared renderer availability must never promote a later System's scoped Acceptance.
 
 ---
 
-## 9｜Presentation / visual direction
+# 3｜Visual / Precision / Extension
 
-Current Mac-wide direction remains:
-
-- useful density, not tiny text;
-- continuous workspace, not endless independent cards;
-- large readable learner text;
-- low decorative chrome;
-- real horizontal space usage;
-- task-native geometry;
-- no engineering terminology on the learner surface;
-- no second Lecture reader in Astro;
-- neutral Recall fronts are workspace-wide, including side rails / visuals / precision / tooltips.
-
-A System / Block / LG / KP / Visual / question is not entitled to a separate card just because it exists as a data object.
-
-The Presentation Contract remains binding:
+Visual is conditional support, not a completion program.
 
 ```text
-Learning Logic
-→ content semantics
-→ cognitive state
-→ semantic presentation objects
-→ spatial representation
-→ Astro
+Visual Truth
+→ Visual Gate
+→ optional reviewed Extension / Source Visual
+→ Representation Gate
+→ learner UI only when it lowers learning cost
 ```
 
-Not:
+Current rules:
 
-```text
-JSON fields / Markdown headings
-→ cards / sections / buttons
-→ page
-```
+- `Visual cue exists` ≠ web image required;
+- `MAP / NETWORK / TREE` exists ≠ draw a graph;
+- asset existence ≠ automatic surface entitlement;
+- missing optional Visual/Extension ≠ learner debt;
+- ordinary lists/mechanisms normally prefer structured text / simple chain / table / formula;
+- spatial, anatomic, morphologic, waveform and image-recognition cognition can justify strong Visual priority;
+- Precision is orthogonal to Visual and may be current or deferred by learning timing.
+
+Materialized examples:
+
+| Scope | Current state |
+| --- | --- |
+| A1 | reviewed sparse/high-value Source Visual pack; physiology/pathology anchors |
+| A2 | reviewed sparse Source Visual pack; pathology / curves / spatial anchors grow additively |
+| A3 | generic Extension registry with reviewed `SOURCE_VISUAL` + `STRUCTURED_TABLE` |
+| B | reviewed semantic candidates/specs exist; no symmetry-driven System-wide Visual registry required |
+| C | no completeness claim; absence is legal |
+| D | expected Visual-heavy domain; only accepted high-value assets should materialize after L/content truth is stable |
+
+Formal ownership: `content/xizong/EXTENSION_ASSET_CONTRACT.md` and `XIZONG_VISUAL_PRECISION_CAPABILITY.md`.
 
 ---
 
-## 10｜Current next product sequence
+# 4｜Official questions / Crosswalk
 
-The authority, shared semantic adapter, Projection reconciliation, production semantic renderer and representative Golden Journey are no longer the active blockers.
+## Question Truth
+
+`content/xizong/questions/` owns **3,750 immutable Current official-question IDs** with stem/options/official answer/provenance. Explanations, mappings and learner attempts are separate layers.
+
+Accepted System first-pass scope currently visible:
 
 ```text
-DONE  1. Current learning/product authority consolidation
-DONE  2. shared A1/A2/A3/B/C semantic adapter
-          - Logic Group identity/membership
-          - Source-contact semantics
-          - retrieval point
-          - fail-closed TTSX boundary/binding model
-          - Attention items
-          - Visual Gate / Extension refs
-DONE  3. reconcile Projection manifest / validation with Current Learning truth
-          - A1/A2/A3/B compiled
-          - C eligible, deliberately not falsely compiled
-DONE  4. update production Block renderer to consume semantic / Projection objects
-          - exact semantic LG membership reaches the learner surface
-          - natural/block Source contact uses one continuous original-Lecture handoff before LG retrieval
-          - whole-LG Source contact remains supported without forcing that topology onto other Systems
-          - compiled Projection / Attention / optional Visual-Precision support stays inside the existing V6 family
-          - existing v2 learner state and neutral Recall front are preserved
-DONE  5. representative Golden Journey
-          - A1 circulation/B02 traverses orientation + Attention → one continuous original-Lecture Source contact → every LG/KP retrieval/closure → Block Recall → explicit Block completion
-          - clean entry and Source entry do not manufacture Recall or completion evidence
-          - overlapping LG membership is accepted as retrieval topology while unique KP evidence remains complete
-          - a first-pass FUZZY rating remains FUZZY through completion rather than being silently promoted to mastery
-          - reload preserves the existing `kianos-xizong-astro-v2` state; no parallel v3 store is created
-NEXT  6. B + C compatibility acceptance
-      7. only then final Xizong UI convergence
-      8. later Systems / Visuals / Crosswalk continue additively
+A1   376
+A2   359
+A3   243
+B    BLOCKED — exact System membership not accepted
+C    no accepted exact scope claim
+D    S2 not accepted
+E/F  no scoped claim
 ```
 
-For step 6, validate the accepted B and C semantic variants against the same production shell without normalizing them into A semantics. B whole-Logic-Group Source contact must remain whole-LG; C explicit/non-contiguous LG membership and Block/canonical-Source-unit contact must remain intact. C may remain Projection-eligible without fabricated compiled Projection assets unless a separate accepted compilation step changes that truth.
+System membership does **not** imply Question→Block/KP mapping.
 
-Real learner U remains external and path-scoped.
+## Reviewed Question→Knowledge Crosswalk
+
+`content/xizong/question-relations/` is an independent progressive content program.
+
+Current snapshot baseline:
+
+- **701 REVIEWED relations**;
+- **70 shards**;
+- inferred relations = **0**;
+- missing mapping is legal and does not block practice;
+- reverse Block/KP→Question lookup derives only from reviewed positive rows;
+- normal batch throughput may remain small and quality-first.
+
+```text
+3,750 Question Truth
+≠ 3,750 reviewed Question→KP mappings
+```
+
+Crosswalk may grow independently without another UI redesign.
+
+---
+
+# 5｜Shared product / engineering progress
+
+| Capability | Current state | Boundary |
+| --- | --- | --- |
+| Shared semantic adapter | **CURRENT** | A1/A2/A3/B/C; preserves heterogeneous LG and Source-contact semantics |
+| Unified learner object | **CURRENT** | Prompt + Core + Source + Outline + Precision + Visual + Extension + Connection resolved once |
+| Purpose-first Representation Gate | **CURRENT** | geometry/asset presence never mandates a graph/component; ambiguous layout falls back to safer representation |
+| One-screen Block workspace | **CURRENT via #331** | `Logic Map | KP Learn/Recall | dynamic auxiliary`; local scrolling; readable density |
+| KP Learn companion | **CURRENT** | Mac Prompt + full Core + locators while original Lecture remains continuous on iPad/MarginNote |
+| Dynamic auxiliary rail | **CURRENT** | rich reviewed Visual/table expands; light Precision/Connection shrinks; empty support returns space to Core |
+| Recall-front protection | **CURRENT** | answer-bearing Core/Visual/Precision/Extension hidden before Reveal |
+| Block Framework composition | **CURRENT** | multiple Projection objects compose one learner Framework; one object does not imply one card |
+| Crosswalk normal placement | **CURRENT** | query-only / hidden in normal first-pass Block workspace |
+| Standalone Memory | **CURRENT** | `Today | Core | Precision | Marked | Repair` |
+| Block Complete → Memory | **CURRENT** | idempotent release of Core/current-owner Precision + private Prompt/Marked state |
+| Shared official Question Runtime | **CURRENT capability** | usable only where honest System question scope / scoped Acceptance permits it |
+| Repair / evidence guards | **CURRENT shared capability** | shared capability never auto-promotes B/C scoped R/E |
+| Representative A1/A2/A3/B/C Block browser matrix | **CURRENT regression gate** | proves shared-shell compatibility, not later-System Acceptance |
+| Real learner U | **UNTESTED unless Kian actually studies** | CI/browser fixtures never create learner truth |
+
+Current Block integration baseline: **PR #331 merged to main**.
+
+The next website/product task after #331 is **System Workspace convergence**, not another Block rewrite. Shared engineering should otherwise reopen only for a concrete Current defect or a new System integration requirement.
+
+---
+
+# 6｜Runtime / product invariants
+
+Keep one Runtime family. Historical `V6` suffixes are implementation names, not permission to create parallel products.
+
+Do **not** create:
+
+- `V7` merely to solve integration;
+- a separate Visual runtime;
+- a separate TTSX runtime;
+- a second Evidence store;
+- a due-wall / overdue scheduler that overrides learner agency.
+
+TTSX remains source-local in MarginNote; KianOS owns reviewed release bookkeeping and lightweight completion, not duplicate answering.
+
+Official questions remain one shared Question Runtime with preserved attempt history (`FIRST_PASS / SECOND_PASS / LATE_REVIEW`). Missing Crosswalk mapping is legal.
+
+---
+
+# 7｜Current parallel work and next sequence
+
+## Website / product mainline
+
+```text
+DONE  shared semantic adapter / learner object
+DONE  Block Framework + Representation Gate
+DONE  one-screen Block Workspace (#331)
+DONE  Block Complete → standalone Memory release
+DONE  A1/A2/A3/B/C representative Block browser matrix
+NEXT  System Workspace convergence
+LATER Xizong Home / Memory / System Exit / Question workspace consistency + real-use acceptance
+```
+
+## Content mainline
+
+```text
+D Fresh Independent L Audit
+→ if PASS: D Content Realization / Optimization
+→ D Projection / high-value Visual / Runtime acceptance
+
+parallel:
+E bounded Source + Knowledge groundwork
+
+independent:
+Crosswalk reviewed batches
++ unresolved System official-question scope (especially B, later D)
+
+F remains later unless exam priority or a real dependency changes the order.
+```
+
+Visual work stays additive and high-value; it must not become a symmetry-driven backlog that blocks otherwise accepted learning.
+
+---
+
+# 8｜Update rule
+
+Update this file only after a material change such as:
+
+- scoped Acceptance changes;
+- a System enters/leaves a construction stage;
+- official System question scope changes;
+- a material Visual/Extension program is admitted;
+- a shared engineering capability lands on main;
+- the website/product mainline moves to a new workspace.
+
+Do not update for every PR, CI rerun, individual visual crop, Crosswalk batch or learner session.
+
+> **Status summarizes Truth; Status never creates Truth.**
