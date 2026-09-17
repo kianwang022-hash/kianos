@@ -1,0 +1,940 @@
+/* English Writing productive workspace — route-scoped Visual owner.
+   Preserve whole-essay runtime, protected exam gate, local evidence and Chat handoff behavior.
+   Mac-wide default-visible learner text floor: >= 15px.
+*/
+
+body#kianos-workspace.uiEnglish .writingRuntime {
+  width: 100%;
+  max-width: none;
+  display: grid;
+  gap: 9px;
+}
+
+/* Quiet task strip: navigation recedes, title and current stage remain legible. */
+body#kianos-workspace.uiEnglish .writingRuntimeHeader {
+  position: static;
+  display: grid;
+  grid-template-columns: auto minmax(0,1fr) auto;
+  align-items: center;
+  min-height: 56px;
+  gap: 14px;
+  padding: 5px 4px 10px !important;
+  border: 0;
+  border-bottom: 1px solid #d9e0e4;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntimeHeader > a {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 7px;
+  border-radius: 5px;
+  color: #6e7c87;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntimeHeader > a:hover {
+  background: #f4f6f7;
+  color: #344a5b;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntimeHeader > div {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto;
+  grid-template-areas:
+    "eyebrow meta"
+    "title title";
+  min-width: 0;
+  column-gap: 14px;
+  row-gap: 2px;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntimeHeader > div > span {
+  grid-area: eyebrow;
+  color: #5d7485;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntimeHeader h1 {
+  grid-area: title;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  color: #24323d;
+  font-size: 18px !important;
+  font-weight: 650;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntimeHeader small,
+body#kianos-workspace.uiEnglish .writingRuntimeHeader small b {
+  grid-area: meta;
+  align-self: center;
+  color: #74818b;
+  font-size: 15px;
+  font-weight: 520;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntimeHeader nav {
+  display: flex;
+  gap: 3px;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntimeHeader nav :is(a,span) {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 7px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: #6f7d88;
+  font-size: 15px;
+  font-weight: 580;
+  text-decoration: none;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntimeHeader nav a:hover {
+  background: #f4f6f7;
+  color: #344a5b;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntimeHeader nav span {
+  color: #a1a8ae;
+}
+
+/* Accepted runtime composition: prompt remains visible; writing is the dominant workspace. */
+body#kianos-workspace.uiEnglish .writingRuntimeColumns {
+  display: grid;
+  grid-template-columns: minmax(320px,.5fr) minmax(0,1fr);
+  gap: 0;
+  height: calc(100dvh - 166px);
+  min-height: 640px;
+  overflow: hidden;
+  border: 1px solid #d9e0e4;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(29,43,58,.035);
+}
+
+
+body#kianos-workspace.uiEnglish .writingRuntime[data-task-kind="small"] .writingRuntimeColumns {
+  grid-template-columns: minmax(300px,.42fr) minmax(0,1fr);
+}
+
+body#kianos-workspace.uiEnglish .writingRuntime[data-task-kind="big"] .writingRuntimeColumns {
+  grid-template-columns: minmax(360px,.58fr) minmax(0,1fr);
+}
+
+body#kianos-workspace.uiEnglish .writingPrompt,
+body#kianos-workspace.uiEnglish .writingWork {
+  min-width: 0;
+  min-height: 0;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+  box-shadow: none;
+}
+
+body#kianos-workspace.uiEnglish .writingPrompt {
+  position: static;
+  align-self: stretch;
+  display: block;
+  padding: 22px 28px 34px !important;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+  background: #fcfcfb;
+}
+
+body#kianos-workspace.uiEnglish .writingPrompt > header {
+  margin-bottom: 12px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #edf0f1;
+}
+
+body#kianos-workspace.uiEnglish .writingPrompt > header span {
+  color: #78858e;
+  font-size: 15px;
+  font-weight: 580;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+body#kianos-workspace.uiEnglish .writingPrompt > header h2 {
+  margin: 3px 0 0;
+  color: #2d3b45;
+  font-size: 21px;
+  font-weight: 650;
+}
+
+body#kianos-workspace.uiEnglish .writingPromptBody {
+  display: grid;
+  gap: 13px;
+  color: #28343d;
+  font-size: 17px;
+  line-height: 1.68;
+}
+
+body#kianos-workspace.uiEnglish .writingPromptBody dl {
+  display: grid;
+  gap: 0;
+  margin: 0 0 18px;
+  border-block: 1px solid #e7ebed;
+}
+
+body#kianos-workspace.uiEnglish .writingPromptBody dl > div {
+  display: grid;
+  grid-template-columns: 86px minmax(0,1fr);
+  gap: 14px;
+  padding: 9px 0;
+  border-top: 1px solid #edf0f1;
+}
+
+body#kianos-workspace.uiEnglish .writingPromptBody dl > div:first-child {
+  border-top: 0;
+}
+
+body#kianos-workspace.uiEnglish .writingPromptBody dt {
+  color: #74818a;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+body#kianos-workspace.uiEnglish .writingPromptBody dd {
+  margin: 0;
+  color: #34434f;
+  font-size: 16px;
+  font-weight: 560;
+}
+
+body#kianos-workspace.uiEnglish .writingPromptBody > p,
+body#kianos-workspace.uiEnglish .writingVisualScenario {
+  margin: 0;
+  color: #26343e;
+  font-family: var(--english-reading-font);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.76;
+  text-wrap: pretty;
+}
+
+body#kianos-workspace.uiEnglish .writingVisualScenario {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+body#kianos-workspace.uiEnglish .writingPromptBody blockquote {
+  margin: 0;
+  padding: 11px 0 11px 14px;
+  border: 0;
+  border-left: 2px solid #b9c7d0;
+  border-radius: 0;
+  background: transparent;
+  color: #34434e;
+  font-family: var(--english-reading-font);
+  font-size: 17px;
+  font-weight: 450;
+  line-height: 1.72;
+}
+
+
+body#kianos-workspace.uiEnglish .writingPromptFacts {
+  margin: 0;
+  padding: 11px 0 0 1.2em;
+  border-top: 1px solid #e7ebed;
+}
+
+body#kianos-workspace.uiEnglish .writingPromptFacts li {
+  margin: 5px 0;
+  color: #3c4a54;
+  font-family: var(--english-reading-font);
+  font-size: 16px;
+  line-height: 1.58;
+}
+
+body#kianos-workspace.uiEnglish .writingFacts {
+  margin: 20px 0;
+  padding: 14px 0;
+  border: 0;
+  border-block: 1px solid #e7ebed;
+  border-radius: 0;
+  background: transparent;
+}
+
+body#kianos-workspace.uiEnglish .writingFacts > strong,
+body#kianos-workspace.uiEnglish .writingBoundary strong {
+  color: #566e7e;
+  font-size: 15px;
+  font-weight: 650;
+}
+
+body#kianos-workspace.uiEnglish .writingFacts ul {
+  margin: 9px 0 0;
+  padding-left: 1.25em;
+}
+
+body#kianos-workspace.uiEnglish .writingFacts li {
+  margin: 5px 0;
+  color: #3c4a54;
+  font-size: 16px;
+  line-height: 1.62;
+}
+
+body#kianos-workspace.uiEnglish .writingBoundary {
+  margin: 16px 0 0 !important;
+  padding: 12px 0 0;
+  border-top: 1px solid #edf0f1;
+  color: #65727b !important;
+  font-family: var(--english-ui-font) !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+}
+
+body#kianos-workspace.uiEnglish .writingPromptMeta {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 9px;
+  border-top: 1px solid #e7ebed;
+}
+
+body#kianos-workspace.uiEnglish .writingPromptMeta span {
+  color: #76828b;
+  font-size: 15px;
+  font-weight: 520;
+  line-height: 1.45;
+}
+
+body#kianos-workspace.uiEnglish .writingProvenance {
+  margin-top: 10px;
+  color: #7c878f;
+}
+
+body#kianos-workspace.uiEnglish .writingProvenance summary,
+body#kianos-workspace.uiEnglish .writingProvenance code {
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+body#kianos-workspace.uiEnglish .writingProvenance summary {
+  font-weight: 560;
+  cursor: pointer;
+}
+
+/* One continuous authoring surface rather than a stack of dashboard cards. */
+body#kianos-workspace.uiEnglish .writingWork {
+  display: block;
+  overflow-y: auto;
+  border-left: 1px solid #dfe4e7;
+  scrollbar-gutter: stable;
+}
+
+body#kianos-workspace.uiEnglish .writingStage,
+body#kianos-workspace.uiEnglish .writingFrozen,
+body#kianos-workspace.uiEnglish .writingHistory {
+  margin: 0;
+  padding: 28px 32px;
+  border: 0;
+  border-bottom: 1px solid #edf0f2;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+body#kianos-workspace.uiEnglish .writingStage > header > span,
+body#kianos-workspace.uiEnglish .writingFrozen > header > span {
+  color: #647887;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+body#kianos-workspace.uiEnglish .writingStage > header h2 {
+  margin: 4px 0 6px;
+  color: #273743;
+  font-size: 24px;
+  font-weight: 650;
+  line-height: 1.32;
+}
+
+body#kianos-workspace.uiEnglish .writingStage > header p {
+  max-width: 74ch;
+  margin: 0;
+  color: #65727c;
+  font-size: 16px;
+  font-weight: 480;
+  line-height: 1.68;
+}
+
+/* Planning mode is a quiet mode choice, not two competing cards. */
+body#kianos-workspace.uiEnglish .writingPlanMode {
+  display: inline-grid;
+  grid-template-columns: repeat(2,minmax(0,auto));
+  gap: 0;
+  margin-top: 16px;
+  overflow: hidden;
+  border: 1px solid #dfe4e7;
+  border-radius: 8px;
+}
+
+body#kianos-workspace.uiEnglish .writingPlanMode label {
+  display: grid;
+  grid-template-columns: auto minmax(0,1fr);
+  gap: 9px;
+  align-items: start;
+  margin: 0;
+  padding: 9px 12px;
+  border: 0;
+  border-left: 1px solid #e2e6e9;
+  border-radius: 0;
+  background: #fff;
+  cursor: pointer;
+}
+
+body#kianos-workspace.uiEnglish .writingPlanMode label:first-child {
+  border-left: 0;
+}
+
+body#kianos-workspace.uiEnglish .writingPlanMode label:has(input:checked) {
+  background: #f5f8fa;
+}
+
+body#kianos-workspace.uiEnglish .writingPlanMode input {
+  margin-top: 3px;
+}
+
+body#kianos-workspace.uiEnglish .writingPlanMode span {
+  display: grid;
+  gap: 3px;
+}
+
+body#kianos-workspace.uiEnglish .writingPlanMode strong {
+  color: #344550;
+  font-size: 15px;
+  font-weight: 650;
+}
+
+body#kianos-workspace.uiEnglish .writingPlanMode small {
+  display: none;
+}
+
+body#kianos-workspace.uiEnglish .writingField {
+  display: grid;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+body#kianos-workspace.uiEnglish .writingEssayField {
+  margin-top: 16px;
+}
+
+body#kianos-workspace.uiEnglish .writingField > span {
+  color: #374955;
+  font-size: 16px;
+  font-weight: 650;
+}
+
+body#kianos-workspace.uiEnglish .writingField > small {
+  color: #74808a;
+  font-size: 15px;
+  font-weight: 480;
+  line-height: 1.52;
+}
+
+body#kianos-workspace.uiEnglish .writingField textarea {
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  min-height: 126px;
+  padding: 14px 15px;
+  border: 1px solid #d9e0e5;
+  border-radius: 7px;
+  background: #fff;
+  color: #25333e;
+  font-family: var(--english-reading-font);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.72;
+  outline: none;
+  box-shadow: none;
+}
+
+body#kianos-workspace.uiEnglish .writingField textarea[data-plan-draft] {
+  height: 82px;
+  min-height: 82px;
+}
+
+body#kianos-workspace.uiEnglish .writingField textarea[data-essay-draft] {
+  min-height: 330px;
+}
+
+body#kianos-workspace.uiEnglish .writingField textarea:focus {
+  border-color: #7f9bad;
+  outline: 3px solid rgba(60,101,127,.08);
+}
+
+body#kianos-workspace.uiEnglish .writingActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 0;
+}
+
+body#kianos-workspace.uiEnglish .writingActions :is(button,.buttonLink) {
+  min-height: 34px;
+  padding: 0 11px;
+  border: 1px solid #d8e0e5;
+  border-radius: 6px;
+  background: #fff;
+  color: #596a77;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+body#kianos-workspace.uiEnglish .writingActions :is(button,.buttonLink):hover {
+  background: #f6f8f9;
+}
+
+body#kianos-workspace.uiEnglish .writingActions .primary,
+body#kianos-workspace.uiEnglish .writingActions .primaryLink {
+  border-color: #294e65;
+  background: #294e65;
+  color: #fff;
+  font-weight: 680;
+}
+
+body#kianos-workspace.uiEnglish .writingActions small {
+  flex-basis: 100%;
+  color: #74808a;
+  font-size: 15px;
+  font-weight: 480;
+  line-height: 1.55;
+}
+
+body#kianos-workspace.uiEnglish .writingActions small.isBad {
+  color: #9a4b38;
+}
+
+/* Shared Productive Convergence remains the behavior owner; Writing owns only
+   its route-level presentation. */
+body#kianos-workspace.uiEnglish .writingRuntime .writingLiveMeta {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0;
+  margin: 2px 0 7px;
+  color: #71808a;
+  font-size: 15px;
+  font-weight: 520;
+  line-height: 1.45;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntime .writingLiveMeta span + span::before {
+  content: "·";
+  margin: 0 10px;
+  color: #a0a9af;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntime .productiveDirectReview {
+  display: grid;
+  gap: 16px;
+  padding: 22px 0 24px;
+  border-bottom: 1px solid #e7ebee;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntime .productiveDirectReview > header {
+  display: grid;
+  gap: 5px;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntime .productiveDirectReview > header > span {
+  color: #647887;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: 0;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntime .productiveDirectReview > header h2 {
+  margin: 0;
+  color: #2c3c47;
+  font-size: 22px;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntime .productiveDirectReview > header p {
+  margin: 0;
+  color: #66737d;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntime .productiveDirectActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntime .productiveDirectActions button {
+  min-height: 34px;
+  padding: 0 11px;
+  border: 1px solid #d8e0e5;
+  border-radius: 6px;
+  background: #fff;
+  color: #596a77;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntime .productiveDirectActions button.primary {
+  border-color: #294e65;
+  background: #294e65;
+  color: #fff;
+  font-weight: 680;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntime .productiveDirectStatus {
+  flex-basis: 100%;
+  color: #74808a;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntime .productiveAdvanced {
+  margin-top: 10px;
+  padding-top: 12px;
+  border-top: 1px solid #e7ebee;
+}
+
+body#kianos-workspace.uiEnglish .writingRuntime .productiveAdvanced > summary {
+  color: #687782;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Frozen evidence and later review states stay in the same document rhythm. */
+body#kianos-workspace.uiEnglish .writingFrozen {
+  padding-block: 18px;
+  background: #fafcfa;
+}
+
+body#kianos-workspace.uiEnglish .writingFrozen header {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+body#kianos-workspace.uiEnglish .writingFrozen header small {
+  color: #7a858d;
+  font-size: 15px;
+}
+
+body#kianos-workspace.uiEnglish .writingFrozenGrid {
+  display: grid;
+  grid-template-columns: minmax(0,.72fr) minmax(0,1.28fr);
+  gap: 0;
+  margin-top: 12px;
+  border: 1px solid #e1e6e9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+body#kianos-workspace.uiEnglish .writingFrozenGrid section {
+  min-width: 0;
+  padding: 14px 16px;
+  border: 0;
+  border-left: 1px solid #e1e6e9;
+  border-radius: 0;
+  background: #fff;
+}
+
+body#kianos-workspace.uiEnglish .writingFrozenGrid section:first-child {
+  border-left: 0;
+}
+
+body#kianos-workspace.uiEnglish .writingFrozenGrid strong {
+  font-size: 15px;
+  font-weight: 650;
+}
+
+body#kianos-workspace.uiEnglish .writingFrozenGrid pre {
+  margin: 8px 0 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: #42505a;
+  font: inherit;
+  font-size: 15px;
+  line-height: 1.62;
+}
+
+body#kianos-workspace.uiEnglish .writingDiagnosis,
+body#kianos-workspace.uiEnglish .writingTransfer {
+  display: grid;
+  gap: 6px;
+  margin-top: 16px;
+  padding: 14px 0;
+  border: 0;
+  border-block: 1px solid #e4e9ec;
+  border-radius: 0;
+  background: transparent;
+}
+
+body#kianos-workspace.uiEnglish .writingDiagnosis > span {
+  color: #61798a;
+  font-size: 15px;
+  font-weight: 650;
+  text-transform: none;
+}
+
+body#kianos-workspace.uiEnglish .writingDiagnosis > strong,
+body#kianos-workspace.uiEnglish .writingTransfer > strong {
+  color: #32434f;
+  font-size: 17px;
+  font-weight: 650;
+}
+
+body#kianos-workspace.uiEnglish .writingDiagnosis p,
+body#kianos-workspace.uiEnglish .writingTransfer p {
+  margin: 0;
+  color: #5f6c75;
+  font-size: 15px;
+  line-height: 1.62;
+}
+
+body#kianos-workspace.uiEnglish .writingDiagnosis small,
+body#kianos-workspace.uiEnglish .writingTransfer code {
+  color: #78838b;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+body#kianos-workspace.uiEnglish .writingComplete {
+  background: #fafcfa;
+}
+
+body#kianos-workspace.uiEnglish .writingHistory {
+  padding-block: 18px 24px;
+}
+
+body#kianos-workspace.uiEnglish .writingHistory summary,
+body#kianos-workspace.uiEnglish .writingHistory p,
+body#kianos-workspace.uiEnglish .writingHistory button {
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+body#kianos-workspace.uiEnglish .writingHistory summary {
+  font-weight: 620;
+  cursor: pointer;
+}
+
+body#kianos-workspace.uiEnglish .writingHistory p {
+  color: #6e7a83;
+}
+
+body#kianos-workspace.uiEnglish .writingHistory button {
+  min-height: 34px;
+  padding: 0 10px;
+  border: 1px solid #d8e0e5;
+  border-radius: 6px;
+  background: #fff;
+  color: #5d6c77;
+}
+
+/* Optional later-fresh evidence uses the same visual language when it appears. */
+body#kianos-workspace.uiEnglish .writingEvidencePanel {
+  max-width: none;
+  margin: 12px 0 0;
+  padding: 22px 24px;
+  border: 1px solid #dfe4e7;
+  border-radius: 9px;
+  background: #fff;
+  box-shadow: none;
+  gap: 14px;
+}
+
+body#kianos-workspace.uiEnglish .writingEvidencePanel > header span,
+body#kianos-workspace.uiEnglish .writingEvidenceTargetHead > span,
+body#kianos-workspace.uiEnglish .writingEvidenceTargetHead code,
+body#kianos-workspace.uiEnglish .writingEvidenceTarget > small {
+  font-size: 15px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+body#kianos-workspace.uiEnglish .writingEvidencePanel h2 {
+  font-size: 20px;
+  font-weight: 650;
+}
+
+body#kianos-workspace.uiEnglish .writingEvidencePanel header p,
+body#kianos-workspace.uiEnglish .writingEvidencePanel header aside,
+body#kianos-workspace.uiEnglish .writingEvidenceStatus,
+body#kianos-workspace.uiEnglish .writingEvidenceTarget > p,
+body#kianos-workspace.uiEnglish .writingEvidenceActions small,
+body#kianos-workspace.uiEnglish .writingEvidenceField > span,
+body#kianos-workspace.uiEnglish .writingEvidenceLedger summary,
+body#kianos-workspace.uiEnglish .writingEvidenceLedgerRow :is(span,strong,small) {
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+body#kianos-workspace.uiEnglish .writingEvidenceTarget {
+  padding: 14px 0;
+  border: 0;
+  border-block: 1px solid #e4e9ec;
+  border-radius: 0;
+  background: transparent;
+}
+
+body#kianos-workspace.uiEnglish .writingEvidenceTargetHead > strong {
+  font-size: 17px;
+}
+
+body#kianos-workspace.uiEnglish .writingEvidenceActions button {
+  min-height: 34px;
+  padding: 0 11px;
+  border-radius: 6px;
+  background: #294e65;
+  border-color: #294e65;
+  font-size: 15px;
+}
+
+body#kianos-workspace.uiEnglish .writingEvidenceField textarea {
+  min-height: 132px;
+  padding: 13px 14px;
+  border-color: #d9e0e5;
+  border-radius: 7px;
+  font-family: var(--english-reading-font);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+body#kianos-workspace.uiEnglish .writingEvidenceLedgerRow {
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 1px solid #edf0f1;
+  border-radius: 0;
+}
+
+/* Protected true-exam lock is still a gate, not a dashboard card. */
+body#kianos-workspace.uiEnglish .writingExamLocked {
+  max-width: 58rem;
+  margin: 30px auto;
+  padding: 30px 32px;
+  border: 1px solid #dfe4e7;
+  border-radius: 10px;
+  background: #fffdf9;
+  box-shadow: none;
+}
+
+body#kianos-workspace.uiEnglish .writingExamLocked span,
+body#kianos-workspace.uiEnglish .writingExamLocked a {
+  font-size: 15px;
+}
+
+body#kianos-workspace.uiEnglish .writingExamLocked h2 {
+  margin: 7px 0 9px;
+  font-size: 23px;
+}
+
+body#kianos-workspace.uiEnglish .writingExamLocked p {
+  margin: 0 0 16px;
+  color: #64717a;
+  font-size: 16px;
+  line-height: 1.68;
+}
+
+@media (max-width: 1180px) {
+  body#kianos-workspace.uiEnglish .writingRuntime[data-task-kind="small"] .writingRuntimeColumns {
+    grid-template-columns: minmax(280px,.44fr) minmax(0,1fr);
+  }
+
+  body#kianos-workspace.uiEnglish .writingRuntime[data-task-kind="big"] .writingRuntimeColumns {
+    grid-template-columns: minmax(330px,.58fr) minmax(0,1fr);
+  }
+
+  body#kianos-workspace.uiEnglish .writingPrompt {
+    padding-inline: 28px !important;
+  }
+}
+
+@media (max-width: 980px) {
+  body#kianos-workspace.uiEnglish .writingRuntimeHeader {
+    grid-template-columns: 1fr;
+  }
+
+  body#kianos-workspace.uiEnglish .writingRuntimeHeader > div {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "eyebrow"
+      "title"
+      "meta";
+  }
+
+  body#kianos-workspace.uiEnglish .writingRuntimeHeader nav {
+    justify-content: flex-start;
+  }
+
+  body#kianos-workspace.uiEnglish .writingRuntimeColumns {
+    height: auto;
+    min-height: 0;
+    grid-template-columns: 1fr;
+    overflow: visible;
+  }
+
+  body#kianos-workspace.uiEnglish .writingPrompt,
+  body#kianos-workspace.uiEnglish .writingWork {
+    max-height: none;
+    overflow: visible;
+  }
+
+  body#kianos-workspace.uiEnglish .writingWork {
+    border-left: 0;
+    border-top: 1px solid #dfe4e7;
+  }
+}
+
+@media (max-width: 760px) {
+  body#kianos-workspace.uiEnglish .writingPrompt,
+  body#kianos-workspace.uiEnglish .writingStage,
+  body#kianos-workspace.uiEnglish .writingFrozen,
+  body#kianos-workspace.uiEnglish .writingHistory {
+    padding-inline: 18px !important;
+  }
+
+  body#kianos-workspace.uiEnglish .writingPlanMode,
+  body#kianos-workspace.uiEnglish .writingFrozenGrid {
+    grid-template-columns: 1fr;
+  }
+
+  body#kianos-workspace.uiEnglish .writingPlanMode label,
+  body#kianos-workspace.uiEnglish .writingFrozenGrid section {
+    border-left: 0;
+    border-top: 1px solid #e1e6e9;
+  }
+
+  body#kianos-workspace.uiEnglish .writingPlanMode label:first-child,
+  body#kianos-workspace.uiEnglish .writingFrozenGrid section:first-child {
+    border-top: 0;
+  }
+}
