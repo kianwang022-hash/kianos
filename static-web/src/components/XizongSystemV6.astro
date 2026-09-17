@@ -1,23 +1,25 @@
 ---
+import { composeXizongSystemFrameworkRepresentation } from '../lib/xizongRepresentationGate.mjs';
+
 const { system, pathways } = Astro.props;
 const base = import.meta.env.BASE_URL;
-const variableLabel = (item) => typeof item === 'string' ? item : String(item?.label || item?.id || '');
-const recall = system?.systemRecall;
-const recallPrompt = typeof recall === 'string'
-  ? recall
-  : String(recall?.neutral_front || recall?.prompt || recall?.question || '面对陌生病例，先按系统母模型定位 Failure Layer，再进入具体 Block。');
-const recallSteps = Array.isArray(recall?.reverse_case_algorithm)
-  ? recall.reverse_case_algorithm
-  : Array.isArray(recall?.algorithm) ? recall.algorithm : [];
+const framework = composeXizongSystemFrameworkRepresentation(system);
 const totalKp = system.blocks.reduce((sum, block) => sum + block.kpCount, 0);
 const firstBlock = system.blocks[0];
 const failureViews = pathways?.systemFailureViews || {};
+const variableRows = framework.variables.rows;
+const relationRows = framework.formulas;
 ---
-<section class="xv6SystemShell" data-xizong-system={system.systemId}>
-  <aside class="xv6SystemRail">
+<section
+  class="xv6SystemShell xv6SystemWorkspace"
+  data-xizong-system={system.systemId}
+  data-representation-gate={framework.schema}
+  data-system-framework-plan="purpose-first"
+>
+  <aside class="xv6SystemRail" aria-label="System Block route">
     <header>
-      <span>{system.canonicalId} · System</span>
-      <strong>{system.title}</strong>
+      <span>System Route</span>
+      <strong>{system.canonicalId} · {system.title}</strong>
       <small>{system.blocks.length} Blocks · {totalKp} KP</small>
     </header>
     <nav aria-label="Block route">
@@ -31,63 +33,108 @@ const failureViews = pathways?.systemFailureViews || {};
         <small>{block.kpCount} KP</small>
       </a>)}
     </nav>
-    <footer><kbd>↑</kbd><kbd>↓</kbd> 选 Block · <kbd>Enter</kbd> 进入</footer>
+    <footer>↑ ↓ 选择 · Enter 进入</footer>
   </aside>
 
   <main class="xv6SystemMain">
     <header class="xv6SystemHeroDense">
       <div>
-        <span>{system.canonicalId} · System Learn</span>
-        <h2>{system.title}</h2>
+        <span>{system.canonicalId} · System Framework</span>
+        <h1>{system.title}</h1>
       </div>
-      <p>{system.mission}</p>
+      <p data-representation-kind={framework.mission.representation.kind}>{framework.mission.text}</p>
     </header>
 
-    <section class="xv6Panel xv6MotherPanel" data-system-section="mother">
-      <header><span>Mother Model</span><h3>先把整个系统压成一条可运行的链</h3></header>
-      {system.mentalModel.motherModel && <p class="xv6Mother">{system.mentalModel.motherModel}</p>}
-      <ol class="xv6Spine" data-system-spine>
-        {system.mentalModel.spine.map((item, index) => <li data-spine-node={index + 1}><b>{String(index + 1).padStart(2, '0')}</b><span>{item}</span></li>)}
-      </ol>
-      {system.mentalModel.parallelControls.length > 0 && (
-        <div class="xv6Parallel">{system.mentalModel.parallelControls.map((item) => <span>{item}</span>)}</div>
+    <section class="xv6SystemFramework" data-system-section="mother">
+      <header class="xv6FrameworkHeading">
+        <span>先抓主模型</span>
+        <h2>这个系统在维持什么？</h2>
+      </header>
+
+      {framework.motherModel.text && (
+        <p class="xv6Mother" data-representation-kind={framework.motherModel.representation.kind}>
+          {framework.motherModel.text}
+        </p>
       )}
-    </section>
 
-    <section class="xv6DensePair">
-      <article class="xv6Panel">
-        <header><span>Core Variables</span><h3>最小变量语言</h3></header>
-        <div class="xv6Chips">{system.coreVariables.map((item) => <span>{variableLabel(item)}</span>)}</div>
-        {system.coreRelations.length > 0 && <div class="xv6Relations">{system.coreRelations.map((item) => <code>{item}</code>)}</div>}
-      </article>
-      <article class="xv6Panel">
-        <header><span>Judgment Axes</span><h3>病例固定坐标</h3></header>
-        <div class="xv6Chips">{system.judgmentAxes.map((item) => <span>{item}</span>)}</div>
-      </article>
-    </section>
+      {framework.spine.items.length > 0 && (
+        <div class="xv6FrameworkBlock" data-representation-kind={framework.spine.representation.kind}>
+          <span class="xv6SectionLabel">主骨架</span>
+          <ol class="xv6Spine" data-system-spine>
+            {framework.spine.items.map((item, index) => <li data-spine-node={index + 1}>
+              <b>{String(index + 1).padStart(2, '0')}</b>
+              <span>{item}</span>
+            </li>)}
+          </ol>
+        </div>
+      )}
 
-    <section class="xv6Panel" data-system-section="failure">
-      <header><span>Failure Modes</span><h3>点一个故障，看整条链哪里先坏</h3></header>
-      <div class="xv6FailureGrid">
-        {system.failureModes.map((mode, index) => <button type="button" data-failure-id={mode.id}>
-          <b>FM{index + 1}</b>
-          <div><h4>{mode.label}</h4>{mode.chain && <p>{mode.chain}</p>}</div>
-        </button>)}
-      </div>
-      {Object.keys(failureViews).length > 0 && (
-        <div class="xv6FailureRun" data-failure-run>
-          <span>当前机制</span>
-          <strong data-failure-run-title>选一个 Failure Mode</strong>
-          <p data-failure-run-chain>只看它首先影响哪一段、随后怎样传下去。</p>
-          <div data-failure-run-vars></div>
+      {framework.parallelControls.items.length > 0 && (
+        <div class="xv6ParallelBlock" data-representation-kind={framework.parallelControls.representation.kind}>
+          <span class="xv6SectionLabel">并行调节</span>
+          <div class="xv6Parallel">{framework.parallelControls.items.map((item) => <span>{item}</span>)}</div>
         </div>
       )}
     </section>
 
-    {system.dependencyDag.length > 0 && (
-      <details class="xv6Dependency">
-        <summary>Block 依赖图</summary>
-        <div class="xv6Relations">{system.dependencyDag.map((item) => <code>{item}</code>)}</div>
+    <section class="xv6SystemCoordinates">
+      <article class="xv6LanguageBlock">
+        <header>
+          <span>最小变量语言</span>
+          <h2>先用这些量描述系统</h2>
+        </header>
+        {variableRows.length > 0 && (
+          <div class="xv6VariableTable" data-representation-kind={framework.variables.representation.kind}>
+            {variableRows.map((item) => <div class="xv6VariableRow">
+              <strong>{item.label}</strong>
+              {item.role && <span>{item.role}</span>}
+            </div>)}
+          </div>
+        )}
+        {relationRows.length > 0 && (
+          <div class="xv6FormulaList">
+            {relationRows.map((item) => <code data-representation-kind={item.representation.kind}>{item.formula}</code>)}
+          </div>
+        )}
+      </article>
+
+      <article class="xv6AxesBlock" data-representation-kind={framework.judgmentAxes.representation.kind}>
+        <header>
+          <span>病例判断坐标</span>
+          <h2>遇到病例先沿这些轴定位</h2>
+        </header>
+        <ul>{framework.judgmentAxes.items.map((item) => <li>{item}</li>)}</ul>
+      </article>
+    </section>
+
+    {framework.failures.length > 0 && (
+      <section class="xv6FailureWorkspace" data-system-section="failure">
+        <header class="xv6FrameworkHeading">
+          <span>Failure Explorer</span>
+          <h2>一次只看一种失败怎样破坏主链</h2>
+        </header>
+        <div class="xv6FailureLayout">
+          <div class="xv6FailureGrid">
+            {framework.failures.map((mode, index) => <button type="button" data-failure-id={mode.id}>
+              <b>F{index + 1}</b>
+              <span>{mode.label}</span>
+            </button>)}
+          </div>
+          <div class="xv6FailureRun" data-failure-run data-representation-kind="STRUCTURED_TEXT">
+            <span>当前机制</span>
+            <strong data-failure-run-title>选择一个 Failure</strong>
+            <p data-failure-run-chain>只看它首先影响哪一段，以及随后怎样传下去。</p>
+            <div data-failure-run-vars></div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    {framework.dependencies.items.length > 0 && (
+      <details class="xv6Dependency" data-representation-kind={framework.dependencies.representation.kind}>
+        <summary>按需看学习依赖</summary>
+        <p>这里只保留 Current 明确写出的依赖关系；不自动画层级图，也不据此制造新的强制顺序。</p>
+        <ul>{framework.dependencies.items.map((item) => <li>{item}</li>)}</ul>
       </details>
     )}
 
@@ -101,25 +148,23 @@ const failureViews = pathways?.systemFailureViews || {};
 
   <aside class="xv6SystemContext">
     <section class="xv6SelectedBlock">
-      <span>Selected Block</span>
+      <span>当前 Block</span>
       <b data-selected-label>{firstBlock?.label}</b>
-      <h3 data-selected-title>{firstBlock?.title}</h3>
+      <h2 data-selected-title>{firstBlock?.title}</h2>
       <p data-selected-meta>{firstBlock ? `${firstBlock.kpCount} KP${firstBlock.outlineCount > 0 ? ` · Outline ${firstBlock.outlineCount}` : ''}` : ''}</p>
-      <button type="button" data-open-selected>Enter · 进入当前 Block</button>
+      <button type="button" data-open-selected>进入这个 Block</button>
     </section>
 
-    <section class="xv6RecallCompact" data-system-section="recall">
-      <span>System Recall</span>
-      <h3>陌生病例先恢复系统</h3>
-      <blockquote>{recallPrompt}</blockquote>
-      {recallSteps.length > 0 && <ol>{recallSteps.map((item) => <li>{typeof item === 'string' ? item : JSON.stringify(item)}</li>)}</ol>}
+    <section class="xv6SystemGuide">
+      <span>怎么用这一页</span>
+      <p>先恢复主骨架与判断坐标，再从左侧进入当前 Block。Failure 只用来定位“哪里先坏”，不需要一次展开全部。</p>
     </section>
 
     <section class="xv6SystemKeys">
-      <span>Keyboard</span>
-      <p><kbd>↑</kbd><kbd>↓</kbd> 选择 Block</p>
-      <p><kbd>Enter</kbd> 进入</p>
-      <p><kbd>M</kbd> 母模型 · <kbd>F</kbd> Failure · <kbd>R</kbd> Recall</p>
+      <span>快捷键</span>
+      <p>↑ ↓ 选择 Block</p>
+      <p>Enter 进入</p>
+      <p>M 主模型 · F Failure</p>
     </section>
   </aside>
 
@@ -131,6 +176,7 @@ const failureViews = pathways?.systemFailureViews || {};
   })))}></script>
   <script type="application/json" data-failure-payload set:html={JSON.stringify(Object.fromEntries(system.failureModes.map((mode) => [mode.id, {
     label: mode.label,
+    chain: mode.chain || '',
     ...(failureViews[mode.id] || {})
   }])))}></script>
 </section>
@@ -181,7 +227,7 @@ const failureViews = pathways?.systemFailureViews || {};
       });
       failureButtons.forEach((button) => button.classList.toggle('active', button.getAttribute('data-failure-id') === id));
       if (failureTitle) failureTitle.textContent = view.label || id;
-      if (failureChain) failureChain.textContent = view.chain || '';
+      if (failureChain) failureChain.textContent = view.chain || 'Current 只定义了 Failure 身份；这里不补猜额外链条。';
       if (failureVars) {
         failureVars.replaceChildren();
         (view.variables || []).forEach((value) => {
@@ -213,7 +259,6 @@ const failureViews = pathways?.systemFailureViews || {};
       const key = event.key.toLowerCase();
       if (key === 'm') root.querySelector('[data-system-section="mother"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       if (key === 'f') root.querySelector('[data-system-section="failure"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      if (key === 'r') root.querySelector('[data-system-section="recall"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
     renderSelection(false);
@@ -221,8 +266,14 @@ const failureViews = pathways?.systemFailureViews || {};
 </script>
 
 <style>
-  .xv6SystemShell{display:grid;grid-template-columns:220px minmax(0,1fr) 285px;gap:12px;align-items:start}.xv6SystemRail,.xv6SystemContext{position:sticky;top:58px;max-height:calc(100vh - 70px);overflow:auto;border:1px solid var(--study-line,#d9dde5);border-radius:14px;background:#fff}.xv6SystemRail header{display:grid;gap:3px;padding:13px 12px;border-bottom:1px solid var(--study-line,#d9dde5)}.xv6SystemRail header span,.xv6SystemContext>section>span,.xv6Panel header span{color:var(--study-green,#286c57);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.xv6SystemRail header strong{font-size:16px}.xv6SystemRail header small{color:var(--study-muted,#6d7873);font-size:9px}.xv6SystemRail nav{display:grid;padding:5px 0}.xv6SystemRail nav a{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:3px 7px;align-items:center;min-height:46px;padding:6px 9px;border-left:3px solid transparent;color:inherit;text-decoration:none}.xv6SystemRail nav a:hover,.xv6SystemRail nav a.selected{border-left-color:var(--study-green,#286c57);background:#f0f7f4}.xv6SystemRail nav a b{font-size:10px;color:var(--study-green,#286c57)}.xv6SystemRail nav a span{overflow:hidden;font-size:10px;font-weight:720;text-overflow:ellipsis;white-space:nowrap}.xv6SystemRail nav a small{color:var(--study-muted,#6d7873);font-size:8px}.xv6SystemRail footer{padding:9px 10px;border-top:1px solid var(--study-line,#d9dde5);color:var(--study-muted,#6d7873);font-size:8px}.xv6SystemShell kbd{display:inline-block;min-width:19px;padding:1px 4px;border:1px solid #d7ddd9;border-bottom-width:2px;border-radius:4px;background:#fff;color:#4d5b55;font:700 8px/1.4 system-ui;text-align:center}
-  .xv6SystemMain{display:grid;gap:10px;min-width:0}.xv6SystemHeroDense,.xv6Panel,.xv6Dependency{border:1px solid var(--study-line,#d9dde5);border-radius:14px;background:#fff}.xv6SystemHeroDense{display:grid;grid-template-columns:minmax(180px,.55fr) minmax(0,1.45fr);gap:18px;align-items:center;padding:13px 16px}.xv6SystemHeroDense span{color:var(--study-green,#286c57);font-size:9px;font-weight:850;letter-spacing:.08em}.xv6SystemHeroDense h2{margin:3px 0 0;font-size:26px}.xv6SystemHeroDense p{margin:0;color:var(--study-muted,#6d7873);font-size:12px;line-height:1.55}.xv6Panel{padding:14px 16px}.xv6Panel h3{margin:2px 0 7px;font-size:17px}.xv6Mother{margin:6px 0 9px;font-size:13px;line-height:1.6}.xv6Spine{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:5px;list-style:none;padding:0;margin:8px 0 0}.xv6Spine li{display:flex;gap:6px;align-items:center;min-height:42px;padding:7px 8px;border:1px solid transparent;border-radius:9px;background:var(--study-surface-muted,#f5f6f8);transition:opacity .12s,border-color .12s,background .12s}.xv6Spine li b{font-size:8px;opacity:.5}.xv6Spine li span{font-size:10px;font-weight:700}.xv6Spine li.mechanism-active{border-color:var(--study-green,#286c57);background:#eef8f4}.xv6Spine li.mechanism-dim{opacity:.34}.xv6Parallel,.xv6Chips,.xv6Relations{display:flex;gap:4px;flex-wrap:wrap;margin-top:7px}.xv6Parallel span,.xv6Chips span,.xv6Relations code{padding:4px 7px;border-radius:999px;background:var(--study-surface-muted,#f5f6f8);font-size:9px}.xv6DensePair{display:grid;grid-template-columns:1fr 1fr;gap:10px}.xv6FailureGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin-top:8px}.xv6FailureGrid button{display:grid;grid-template-columns:36px minmax(0,1fr);gap:6px;padding:8px 9px;border:1px solid var(--study-line,#d9dde5);border-radius:9px;background:#fff;color:inherit;text-align:left}.xv6FailureGrid button:hover,.xv6FailureGrid button.active{border-color:var(--study-green,#286c57);background:#f0f7f4}.xv6FailureGrid button>b{color:var(--study-green,#286c57);font-size:9px}.xv6FailureGrid h4{margin:0;font-size:11px}.xv6FailureGrid p{margin:3px 0 0;color:var(--study-muted,#6d7873);font-size:9px;line-height:1.45}.xv6FailureRun{display:grid;gap:5px;margin-top:9px;padding:10px 11px;border-left:3px solid var(--study-green,#286c57);background:var(--study-surface-muted,#f5f6f8)}.xv6FailureRun>span{color:var(--study-green,#286c57);font-size:8px;font-weight:850;letter-spacing:.08em}.xv6FailureRun>strong{font-size:12px}.xv6FailureRun>p{margin:0;font-size:11px;line-height:1.55}.xv6FailureRun>div{display:flex;flex-wrap:wrap;gap:4px}.xv6FailureRun>div span{padding:3px 6px;border-radius:999px;background:#fff;font-size:9px}.xv6Dependency{padding:9px 12px}.xv6Dependency summary{cursor:pointer;font-size:10px;font-weight:750}
-  .xv6SystemContext{display:grid;align-content:start}.xv6SystemContext>section{padding:12px;border-bottom:1px solid var(--study-line,#d9dde5)}.xv6SelectedBlock b{display:block;margin-top:5px;color:var(--study-green,#286c57);font-size:10px}.xv6SelectedBlock h3{margin:4px 0;font-size:17px;line-height:1.25}.xv6SelectedBlock p{margin:0 0 9px;color:var(--study-muted,#6d7873);font-size:9px}.xv6SelectedBlock button{width:100%;min-height:34px;border:1px solid var(--study-green,#286c57);border-radius:8px;background:var(--study-green,#286c57);color:#fff;font-size:10px;font-weight:800}.xv6RecallCompact h3{margin:4px 0 7px;font-size:15px}.xv6RecallCompact blockquote{margin:0;padding:8px 9px;border-left:3px solid var(--study-green,#286c57);background:var(--study-surface-muted,#f5f6f8);font-size:10px;line-height:1.5}.xv6RecallCompact ol{margin:8px 0 0;padding-left:18px}.xv6RecallCompact li{margin:4px 0;color:var(--study-muted,#6d7873);font-size:9px;line-height:1.45}.xv6SystemKeys p{margin:5px 0;color:var(--study-muted,#6d7873);font-size:9px}
-  @media(max-width:1050px){.xv6SystemShell{grid-template-columns:200px minmax(0,1fr)}.xv6SystemContext{position:static;grid-column:1/-1;max-height:none;grid-template-columns:1fr 1fr 1fr}.xv6SystemContext>section{border-right:1px solid var(--study-line,#d9dde5);border-bottom:0}}@media(max-width:760px){.xv6SystemShell{display:block}.xv6SystemRail,.xv6SystemContext{position:static;max-height:none;margin-bottom:10px}.xv6SystemRail nav{grid-template-columns:1fr 1fr}.xv6SystemHeroDense,.xv6DensePair,.xv6SystemContext{display:grid;grid-template-columns:1fr}.xv6FailureGrid{grid-template-columns:1fr}}
+  .xv6SystemShell{display:grid;grid-template-columns:214px minmax(0,1fr) 300px;gap:12px;align-items:start}.xv6SystemRail,.xv6SystemContext{position:sticky;top:58px;max-height:calc(100vh - 76px);overflow:auto;border:1px solid var(--study-line,#d9dde5);border-radius:13px;background:#fff}.xv6SystemRail header{display:grid;gap:5px;padding:14px 13px;border-bottom:1px solid var(--study-line,#d9dde5)}.xv6SystemRail header span,.xv6SystemContext>section>span,.xv6FrameworkHeading span,.xv6SystemCoordinates article header span,.xv6SectionLabel{color:var(--study-green,#286c57);font-size:15px;font-weight:820;letter-spacing:.02em}.xv6SystemRail header strong{font-size:17px;line-height:1.35}.xv6SystemRail header small{color:var(--study-muted,#6d7873);font-size:15px}.xv6SystemRail nav{display:grid;padding:5px 0}.xv6SystemRail nav a{display:grid;grid-template-columns:36px minmax(0,1fr);gap:2px 8px;align-items:center;min-height:54px;padding:8px 10px;border-left:3px solid transparent;color:inherit;text-decoration:none}.xv6SystemRail nav a:hover,.xv6SystemRail nav a.selected{border-left-color:var(--study-green,#286c57);background:#f0f7f4}.xv6SystemRail nav a b{grid-row:1 / span 2;color:var(--study-green,#286c57);font-size:15px}.xv6SystemRail nav a span{overflow:hidden;font-size:15px;font-weight:720;line-height:1.35;text-overflow:ellipsis;white-space:nowrap}.xv6SystemRail nav a small{color:var(--study-muted,#6d7873);font-size:15px}.xv6SystemRail footer{padding:10px 12px;border-top:1px solid var(--study-line,#d9dde5);color:var(--study-muted,#6d7873);font-size:15px}
+  .xv6SystemMain{display:grid;gap:10px;min-width:0}.xv6SystemHeroDense,.xv6SystemFramework,.xv6SystemCoordinates,.xv6FailureWorkspace,.xv6Dependency{border:1px solid var(--study-line,#d9dde5);border-radius:13px;background:#fff}.xv6SystemHeroDense{display:grid;grid-template-columns:minmax(200px,.62fr) minmax(0,1.38fr);gap:20px;align-items:center;padding:16px 19px}.xv6SystemHeroDense span{color:var(--study-green,#286c57);font-size:15px;font-weight:820}.xv6SystemHeroDense h1{margin:3px 0 0;font-size:28px;line-height:1.25}.xv6SystemHeroDense p{margin:0;color:var(--study-muted,#5f6d67);font-size:16px;line-height:1.65}
+  .xv6SystemFramework{padding:18px 20px}.xv6FrameworkHeading h2,.xv6SystemCoordinates h2{margin:4px 0 0;font-size:21px;line-height:1.35}.xv6Mother{margin:12px 0 14px;font-size:17px;line-height:1.72}.xv6FrameworkBlock{padding-top:13px;border-top:1px solid var(--study-line,#d9dde5)}.xv6Spine{display:flex;gap:0;align-items:stretch;list-style:none;padding:0;margin:9px 0 0;overflow:auto}.xv6Spine li{position:relative;display:flex;flex:1 1 0;min-width:145px;gap:8px;align-items:flex-start;padding:11px 24px 11px 11px;border:1px solid #e4e9e6;border-right:0;background:#f7faf8;transition:opacity .12s,border-color .12s,background .12s}.xv6Spine li:first-child{border-radius:9px 0 0 9px}.xv6Spine li:last-child{border-right:1px solid #e4e9e6;border-radius:0 9px 9px 0}.xv6Spine li:not(:last-child)::after{content:'→';position:absolute;right:6px;top:50%;transform:translateY(-50%);color:var(--study-green,#286c57);font-size:17px;font-weight:800}.xv6Spine li b{color:var(--study-green,#286c57);font-size:15px}.xv6Spine li span{font-size:16px;font-weight:700;line-height:1.45}.xv6Spine li.mechanism-active{border-color:var(--study-green,#286c57);background:#edf7f2}.xv6Spine li.mechanism-dim{opacity:.32}.xv6ParallelBlock{display:grid;gap:7px;margin-top:13px}.xv6Parallel{display:flex;gap:7px;flex-wrap:wrap}.xv6Parallel span{padding:6px 9px;border-radius:7px;background:#f4f7f5;font-size:15px;line-height:1.4}
+  .xv6SystemCoordinates{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);overflow:hidden}.xv6SystemCoordinates article{padding:17px 19px}.xv6SystemCoordinates article+article{border-left:1px solid var(--study-line,#d9dde5)}.xv6VariableTable{display:grid;gap:0;margin-top:11px;border-top:1px solid #e4e9e6}.xv6VariableRow{display:grid;grid-template-columns:minmax(120px,.8fr) minmax(0,1.2fr);gap:12px;padding:8px 0;border-bottom:1px solid #edf0ee}.xv6VariableRow strong{font-size:16px}.xv6VariableRow span{color:var(--study-muted,#5f6d67);font-size:15px;line-height:1.45}.xv6FormulaList{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.xv6FormulaList code{padding:7px 10px;border-radius:7px;background:#edf6f2;color:#244c40;font-size:16px;font-weight:750}.xv6AxesBlock ul{display:grid;gap:7px;margin:12px 0 0;padding:0;list-style:none}.xv6AxesBlock li{padding:8px 10px;border-left:3px solid #b8d4c8;background:#f7faf8;font-size:16px;line-height:1.5}
+  .xv6FailureWorkspace{padding:18px 20px}.xv6FailureLayout{display:grid;grid-template-columns:minmax(220px,.75fr) minmax(0,1.25fr);gap:12px;margin-top:13px}.xv6FailureGrid{display:grid;align-content:start;gap:6px}.xv6FailureGrid button{display:grid;grid-template-columns:38px minmax(0,1fr);gap:8px;align-items:center;min-height:44px;padding:8px 10px;border:1px solid var(--study-line,#d9dde5);border-radius:8px;background:#fff;color:inherit;text-align:left}.xv6FailureGrid button:hover,.xv6FailureGrid button.active{border-color:var(--study-green,#286c57);background:#f0f7f4}.xv6FailureGrid button>b{color:var(--study-green,#286c57);font-size:15px}.xv6FailureGrid button>span{font-size:15px;font-weight:720;line-height:1.4}.xv6FailureRun{display:grid;align-content:start;gap:7px;min-height:150px;padding:14px 16px;border-left:3px solid var(--study-green,#286c57);background:#f7faf8}.xv6FailureRun>span{color:var(--study-green,#286c57);font-size:15px;font-weight:820}.xv6FailureRun>strong{font-size:19px;line-height:1.35}.xv6FailureRun>p{margin:0;font-size:16px;line-height:1.65}.xv6FailureRun>div{display:flex;flex-wrap:wrap;gap:6px}.xv6FailureRun>div span{padding:5px 8px;border-radius:7px;background:#fff;font-size:15px}
+  .xv6Dependency{padding:13px 16px}.xv6Dependency summary{cursor:pointer;font-size:16px;font-weight:780}.xv6Dependency p{margin:10px 0 8px;color:var(--study-muted,#5f6d67);font-size:16px;line-height:1.6}.xv6Dependency ul{display:grid;gap:6px;margin:0;padding-left:21px}.xv6Dependency li{font-size:16px;line-height:1.5}.portedSourceFoot summary,.portedSourceFoot code{font-size:15px}
+  .xv6SystemContext{display:grid;align-content:start}.xv6SystemContext>section{padding:14px;border-bottom:1px solid var(--study-line,#d9dde5)}.xv6SelectedBlock b{display:block;margin-top:7px;color:var(--study-green,#286c57);font-size:16px}.xv6SelectedBlock h2{margin:5px 0;font-size:21px;line-height:1.3}.xv6SelectedBlock p{margin:0 0 12px;color:var(--study-muted,#5f6d67);font-size:15px}.xv6SelectedBlock button{width:100%;min-height:42px;border:1px solid var(--study-green,#286c57);border-radius:8px;background:var(--study-green,#286c57);color:#fff;font-size:16px;font-weight:800}.xv6SystemGuide p,.xv6SystemKeys p{margin:7px 0 0;color:var(--study-muted,#5f6d67);font-size:15px;line-height:1.55}
+  @media(min-width:1101px) and (min-height:680px){.xv6SystemShell{height:calc(100vh - 82px);min-height:620px;align-items:stretch}.xv6SystemRail,.xv6SystemContext{position:static;max-height:none;height:100%;overflow:auto}.xv6SystemMain{height:100%;overflow:auto;overscroll-behavior:contain;padding-right:2px}}
+  @media(max-width:1100px){.xv6SystemShell{grid-template-columns:210px minmax(0,1fr)}.xv6SystemContext{position:static;grid-column:1/-1;max-height:none;grid-template-columns:1fr 1fr 1fr}.xv6SystemContext>section{border-right:1px solid var(--study-line,#d9dde5);border-bottom:0}.xv6SystemCoordinates{grid-template-columns:1fr}.xv6SystemCoordinates article+article{border-left:0;border-top:1px solid var(--study-line,#d9dde5)}}
+  @media(max-width:760px){.xv6SystemShell{display:block}.xv6SystemRail,.xv6SystemContext{position:static;max-height:none;height:auto;margin-bottom:10px}.xv6SystemRail nav{grid-template-columns:1fr 1fr}.xv6SystemHeroDense,.xv6SystemContext,.xv6FailureLayout{display:grid;grid-template-columns:1fr}.xv6SystemContext>section{border-right:0;border-bottom:1px solid var(--study-line,#d9dde5)}.xv6Spine{display:grid;gap:6px;overflow:visible}.xv6Spine li,.xv6Spine li:first-child,.xv6Spine li:last-child{min-width:0;border:1px solid #e4e9e6;border-radius:8px}.xv6Spine li:not(:last-child)::after{content:'↓';right:10px}.xv6SystemHeroDense{gap:10px}.xv6SystemHeroDense h1{font-size:25px}}
 </style>
