@@ -1,12 +1,13 @@
 ---
 import '../styles/product-closure.css';
+import '../styles/home-workbench.css';
 import ExamOrchestratorHome from '../components/ExamOrchestratorHome.astro';
 import MissionControlHome from '../components/MissionControlHome.astro';
 import Base from '../layouts/Base.astro';
 import XizongHomeTools from '../components/XizongHomeTools.astro';
 import PoliticsHomeTools from '../components/PoliticsHomeTools.astro';
 import EnglishResume from '../components/EnglishResume.astro';
-import { buildRevision, inspectReadingSources } from '../lib/current.mjs';
+import { inspectReadingSources } from '../lib/current.mjs';
 import { inspectLexicalSources } from '../lib/lexical.mjs';
 import { listProjectableXizongSystems } from '../lib/xizong.mjs';
 import { listPoliticsSubjectsCurrent, politicsCurrentHealth } from '../lib/politicsCurrent.mjs';
@@ -16,8 +17,6 @@ import { inspectTranslationSources } from '../lib/englishTranslation.mjs';
 
 const base = import.meta.env.BASE_URL;
 const xizongSystems = listProjectableXizongSystems();
-const xizongBlocks = xizongSystems.reduce((sum, system) => sum + system.blocks.length, 0);
-const xizongKp = xizongSystems.reduce((sum, system) => sum + system.blocks.reduce((blockSum, block) => blockSum + block.kpCount, 0), 0);
 const lexicalState = inspectLexicalSources();
 const readingState = inspectReadingSources();
 const readingReady = readingState.status === 'ready';
@@ -38,37 +37,95 @@ const xizongHref = firstSystem ? `${base}xizong/${firstSystem.systemId}/` : `${b
 const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubject.subject}/${firstChapter.code}/` : `${base}politics/`;
 ---
 <Base title="学习工作台" active="home" showLead={false}>
-  <header class="commandHeader">
-    <div><p class="pageKicker" data-exam-phase>一轮收口 · 总目标 425+</p><h1>学习工作台</h1><p class="commandSubtitle">选一条主线，回到正在做的事。</p></div>
-    <div class="commandScope examGate"><span>下个关键节点</span><strong data-exam-gate>按本轮时间线定位</strong></div>
+  <header class="homeL3Header">
+    <div class="homeL3HeaderCopy">
+      <p class="pageKicker" data-exam-phase>一轮收口 · 总目标 425+</p>
+      <h1>学习工作台</h1>
+      <p class="homeL3Subtitle">选一条主线，回到正在做的事。</p>
+    </div>
+    <div class="homeL3Gate examGate">
+      <span>下个关键节点</span>
+      <strong data-exam-gate>按本轮时间线定位</strong>
+    </div>
   </header>
 
-  <div class="commandGrid">
-    <section class="commandSubjects" aria-label="三科状态与 Continue">
-      <header class="commandSectionHead"><h2>Continue</h2><span>回到最近位置，或自由选择任务</span></header>
-      <article class="commandSubject" data-home-subject="xizong">
-        <header><div><span class="commandOrdinal">01</span><h2>西医综合</h2><span class="commandAvailability">{xizongSystems.length ? `${xizongSystems.length} 个 System 已开放` : '暂未开放'}</span></div><a href={`${base}xizong/`}>知识地图 →</a></header>
-        <p class="commandSubjectMeta">原讲义连续学习 · 框架定位 · 主动 Recall</p>
-        <XizongHomeTools firstHref={xizongHref} firstLabel={firstSystem ? `${firstSystem.canonicalId} · ${firstSystem.title}` : '查看西综入口'} />
+  <div class="homeL3Grid">
+    <section class="homeL3Subjects" aria-label="三科状态与 Continue">
+      <header class="homeL3SectionHead">
+        <h2>Continue</h2>
+        <span>回到最近位置，或自由选择任务</span>
+      </header>
+
+      <article class="homeL3Subject" data-home-subject="xizong">
+        <header class="homeL3SubjectHead">
+          <div class="homeL3SubjectIdentity">
+            <span class="homeL3Ordinal">01</span>
+            <div class="homeL3SubjectTitle">
+              <h2>西医综合</h2>
+              <span class="homeL3Availability">{xizongSystems.length ? `${xizongSystems.length} 个 System 已开放` : '暂未开放'}</span>
+            </div>
+          </div>
+          <a class="homeL3OverviewLink" href={`${base}xizong/`}>知识地图 →</a>
+        </header>
+        <p class="homeL3Meta">原讲义连续学习 · 框架定位 · 主动 Recall</p>
+        <div class="homeL3ActionSurface">
+          <XizongHomeTools firstHref={xizongHref} firstLabel={firstSystem ? `${firstSystem.canonicalId} · ${firstSystem.title}` : '查看西综入口'} />
+        </div>
       </article>
-      <article class="commandSubject" data-home-subject="english">
-        <header><div><span class="commandOrdinal">02</span><h2>English</h2><span class="commandAvailability">{englishReady ? '可开始' : '部分任务已开放'}</span></div><a href={`${base}english/`}>英语工作台 →</a></header>
-        <p class="commandSubjectMeta">完整任务优先 · 阅读、翻译与写作</p>
-        <EnglishResume />
-        <nav class="commandTaskLinks" aria-label="英语任务"><a href={`${base}reading/`}>Reading A</a><a href={`${base}cloze/`}>Cloze</a><a href={`${base}reading-b/`}>Part B</a><a href={`${base}translation/`}>Translation</a><a href={`${base}writing/`}>Writing</a></nav>
+
+      <article class="homeL3Subject" data-home-subject="english">
+        <header class="homeL3SubjectHead">
+          <div class="homeL3SubjectIdentity">
+            <span class="homeL3Ordinal">02</span>
+            <div class="homeL3SubjectTitle">
+              <h2>English</h2>
+              <span class="homeL3Availability">{englishReady ? '可开始' : '部分任务已开放'}</span>
+            </div>
+          </div>
+          <a class="homeL3OverviewLink" href={`${base}english/`}>英语工作台 →</a>
+        </header>
+        <p class="homeL3Meta">完整任务优先 · 阅读、翻译与写作</p>
+        <div class="homeL3ActionSurface">
+          <EnglishResume />
+        </div>
+        <nav class="homeL3TaskLinks" aria-label="英语任务">
+          <a href={`${base}reading/`}>Reading A</a>
+          <a href={`${base}cloze/`}>Cloze</a>
+          <a href={`${base}reading-b/`}>Part B</a>
+          <a href={`${base}translation/`}>Translation</a>
+          <a href={`${base}writing/`}>Writing</a>
+        </nav>
       </article>
-      <article class="commandSubject" data-home-subject="politics">
-        <header><div><span class="commandOrdinal">03</span><h2>政治</h2><span class="commandAvailability">{politicsSubjects.length} 科 · {politicsChapters} 章{politicsHealth.status === 'ready' ? '可进入' : '，部分开放'}</span></div><a href={`${base}politics/`}>五科总览 →</a></header>
-        <p class="commandSubjectMeta">乘风原讲义 → 肖1000 验证 → 精准回源</p>
-        <PoliticsHomeTools firstHref={politicsHref} firstLabel={firstChapter ? `${firstSubject.label} · ${firstChapter.title}` : '查看政治入口'} />
+
+      <article class="homeL3Subject" data-home-subject="politics">
+        <header class="homeL3SubjectHead">
+          <div class="homeL3SubjectIdentity">
+            <span class="homeL3Ordinal">03</span>
+            <div class="homeL3SubjectTitle">
+              <h2>政治</h2>
+              <span class="homeL3Availability">{politicsSubjects.length} 科 · {politicsChapters} 章{politicsHealth.status === 'ready' ? '可进入' : '，部分开放'}</span>
+            </div>
+          </div>
+          <a class="homeL3OverviewLink" href={`${base}politics/`}>五科总览 →</a>
+        </header>
+        <p class="homeL3Meta">乘风原讲义 → 肖1000 验证 → 精准回源</p>
+        <div class="homeL3ActionSurface">
+          <PoliticsHomeTools firstHref={politicsHref} firstLabel={firstChapter ? `${firstSubject.label} · ${firstChapter.title}` : '查看政治入口'} />
+        </div>
       </article>
     </section>
 
-    <aside class="commandSupport examSupport" aria-label="今日安排与学习支持">
+    <aside class="homeL3Support" aria-label="今日安排与学习支持">
       <ExamOrchestratorHome />
       <MissionControlHome />
-      <section class="commandSupportSection examSupportLinks"><a href={`${base}vocabulary/`}>Vocabulary →</a><nav aria-label="英语 Guide"><a href={`${base}objective-learn/`}>Objective Guide</a><a href={`${base}translation-learn/`}>Translation Guide</a><a href={`${base}writing-learn/`}>Writing Guide</a></nav></section>
+      <section class="homeL3SupportLinks">
+        <a href={`${base}vocabulary/`}>Vocabulary →</a>
+        <nav aria-label="英语 Guide">
+          <a href={`${base}objective-learn/`}>Objective Guide</a>
+          <a href={`${base}translation-learn/`}>Translation Guide</a>
+          <a href={`${base}writing-learn/`}>Writing Guide</a>
+        </nav>
+      </section>
     </aside>
   </div>
-  <footer class="commandFoot"><span>本机学习记录 · 保留各科断点</span><a href={`${base}current/`}>Current · {buildRevision.slice(0, 8)}</a></footer>
 </Base>
