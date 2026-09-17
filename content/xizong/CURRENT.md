@@ -8,9 +8,9 @@ This file owns routing only. It does not own medical Core, lane Learning semanti
 ## Lane Work Cursor
 
 **Active lane-level scope:** Xizong learner-facing UI architecture migration in the current Chat  
-**Current state:** Slice 4B later-stage residue cleanup is landed on current `main`; `.xizongLaterStage` is physically absent and `xzExitStage` remains the Current System Exit presentation owner  
-**Blocker:** none in Xizong itself; Shared Platform Shell changes are written by the assigned shared-shell writer, while Xizong consumes the registered owner from `main`  
-**Next action:** first reconcile `static-web/XIZONG_UI_MIGRATION.md` + `static-web/XIZONG_PRODUCT_STATUS.md` to landed Slice 4B, then audit the remaining Xizong ownership graph before opening another bounded cleanup slice. Do not invent a slice from stale documentation. Consume Shared Base Shell / global `K` rail only from the registered Shared Platform owner on `main`.
+**Current state:** Home / System / Memory / System Exit single-owner cutovers are landed; closed-surface cleanup through #379 is landed; fresh Current audit in `static-web/XIZONG_BLOCK_PRESENTATION_AUDIT.md` proves the remaining active Block workspace still has overlapping Xizong-specific presentation owners  
+**Blocker:** none in Xizong itself; Shared Platform Shell changes remain owned by the registered shared owner, while Xizong consumes that owner from `main`  
+**Next action:** execute the bounded **Block presentation single-owner convergence** defined by `static-web/XIZONG_BLOCK_PRESENTATION_AUDIT.md`. Preserve exact Block Learning / Runtime / learner-object / Evidence semantics; keep `runtime.css` and Shared Shell as upstream primitives; move only Xizong Block-specific presentation into one exact owner. Do not mix the cutover with the separately named dead pre-Shell / retired Home/System selector cleanup.
 
 ### UI ownership boundary
 
@@ -73,6 +73,7 @@ Locked boundaries:
 ```text
 static-web/XIZONG_PRODUCT_STATUS.md
 → static-web/XIZONG_UI_MIGRATION.md when migration is active
+→ static-web/XIZONG_BLOCK_PRESENTATION_AUDIT.md when the Block cutover is active
 → static-web/PRESENTATION_CONTRACT.md
 → static-web/UI_STYLE_BRIEF.md
 → LEARNER_OBJECT_CONTRACT.md when placement matters
@@ -142,7 +143,7 @@ Do not create System-level Learning contracts or duplicate parent/shared status 
 ```text
 System work: requested System CURRENT → ACCEPTANCE → exact unresolved owner → work
 Content:     Xizong CURRENT → CONTENT_MAINLINE → exact active lane owner → work
-UI/product:  Xizong CURRENT → Product Status + UI Migration + Presentation/UI rules → exact Xizong-owned surface
+UI/product:  Xizong CURRENT → Product Status + UI Migration + exact active audit/owner → Presentation/UI rules → work
 ```
 
 Multiple System Chats may proceed concurrently when write sets and dependencies are independent. Do not read retired snapshots, unrelated Systems, migration history, legacy repositories, or prior Chats by default.
