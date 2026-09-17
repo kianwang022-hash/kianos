@@ -1,0 +1,161 @@
+---
+const { compiled = null } = Astro.props;
+const rows = compiled instanceof Map
+  ? [...compiled.values()].map((unit) => ({
+      unitId: unit.unitId,
+      handoff: unit.chengfengHandoff || null,
+      optionalClosure: unit.optionalClosure ?? null
+    }))
+  : [];
+const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
+---
+<script type="application/json" data-politics-projection-outlets set:html={payload}></script>
+
+<script>
+  const payloadNode = document.querySelector('[data-politics-projection-outlets]');
+  if (payloadNode instanceof HTMLScriptElement) {
+    let rows = [];
+    try { rows = JSON.parse(payloadNode.textContent || '[]'); } catch {}
+    payloadNode.remove();
+
+    const flattenText = (value) => {
+      if (value === null || value === undefined || value === '') return [];
+      if (typeof value === 'string' || typeof value === 'number') return [String(value).trim()].filter(Boolean);
+      if (Array.isArray(value)) return value.flatMap(flattenText);
+      if (typeof value === 'object') {
+        if (typeof value.text === 'string') return flattenText(value.text);
+        if (typeof value.label === 'string' && typeof value.value === 'string') return [`${value.label}：${value.value}`];
+        return Object.values(value).flatMap(flattenText);
+      }
+      return [];
+    };
+
+    const appendLines = (host, values, tag = 'li') => {
+      for (const line of values.flatMap(flattenText)) {
+        const node = document.createElement(tag);
+        node.textContent = line;
+        host.appendChild(node);
+      }
+    };
+
+    for (const row of rows) {
+      const unit = [...document.querySelectorAll('[data-politics-unit][data-unit-id]')]
+        .find((node) => node.getAttribute('data-unit-id') === row.unitId);
+      if (!(unit instanceof HTMLElement)) continue;
+
+      const handoff = row.handoff;
+      const source = unit.querySelector('.politicsSourceHandoff');
+      if (handoff && source instanceof HTMLElement) {
+        const old = source.querySelector('[data-projection-handoff]');
+        old?.remove();
+
+        const panel = document.createElement('section');
+        panel.className = 'politicsProjectionHandoff';
+        panel.dataset.projectionHandoff = 'true';
+
+        const eyebrow = document.createElement('span');
+        eyebrow.className = 'politicsProjectionHandoffEyebrow';
+        eyebrow.textContent = handoff.surface === 'IPAD_MARGINNOTE' ? 'iPad / MarginNote · 当前学习' : '当前原始学习面';
+        panel.appendChild(eyebrow);
+
+        const locatorLines = flattenText(handoff.sourceLocator);
+        if (locatorLines.length) {
+          const locator = document.createElement('strong');
+          locator.className = 'politicsProjectionLocator';
+          locator.textContent = locatorLines.join(' · ');
+          panel.appendChild(locator);
+        }
+
+        const lookFor = flattenText(handoff.lookFor);
+        if (lookFor.length) {
+          const label = document.createElement('b');
+          label.textContent = '带着这些问题读';
+          const list = document.createElement('ul');
+          appendLines(list, lookFor);
+          panel.append(label, list);
+        }
+
+        source.prepend(panel);
+        source.closest('.politicsSource')?.setAttribute('data-projection-owned-handoff', 'true');
+      }
+
+      const closure = unit.querySelector('.politicsClosure');
+      if (closure instanceof HTMLDetailsElement) {
+        if (row.optionalClosure === null || row.optionalClosure === undefined || row.optionalClosure === '') {
+          closure.hidden = true;
+          closure.removeAttribute('open');
+        } else {
+          closure.hidden = false;
+          closure.open = true;
+          closure.dataset.projectionOwnedClosure = 'true';
+          const summary = closure.querySelector('summary');
+          if (summary) summary.textContent = '学完后脑中过一遍 · 可选';
+          const body = closure.querySelector(':scope > div');
+          if (body instanceof HTMLElement) {
+            body.replaceChildren();
+            const lines = flattenText(row.optionalClosure);
+            if (lines.length <= 1) {
+              const p = document.createElement('p');
+              p.textContent = lines[0] || '';
+              body.appendChild(p);
+            } else {
+              const list = document.createElement('ul');
+              appendLines(list, lines);
+              body.appendChild(list);
+            }
+          }
+        }
+      }
+    }
+  }
+</script>
+
+<style is:global>
+  body#kianos-workspace.surfaceBody-politics .politicsProjectionHandoff{
+    display:grid;
+    gap:10px;
+    margin:0 0 17px;
+    padding:0 0 17px;
+    border-bottom:1px solid var(--study-line,#dbe5de);
+  }
+  body#kianos-workspace.surfaceBody-politics .politicsProjectionHandoffEyebrow{
+    font-size:15px;
+    line-height:1.5;
+    font-weight:650;
+    color:#4c785c;
+  }
+  body#kianos-workspace.surfaceBody-politics .politicsProjectionLocator{
+    font-size:17px;
+    line-height:1.7;
+    color:#2e583d;
+  }
+  body#kianos-workspace.surfaceBody-politics .politicsProjectionHandoff>b{
+    margin-top:2px;
+    font-size:15px;
+    color:#587361;
+  }
+  body#kianos-workspace.surfaceBody-politics .politicsProjectionHandoff ul{
+    display:grid;
+    gap:7px;
+    margin:0;
+    padding-left:20px;
+  }
+  body#kianos-workspace.surfaceBody-politics .politicsProjectionHandoff li{
+    font-size:16px;
+    line-height:1.75;
+    color:#435f4c;
+  }
+  body#kianos-workspace.surfaceBody-politics .politicsClosure[data-projection-owned-closure="true"]{
+    border-top:1px solid var(--study-line,#dbe5de);
+  }
+  body#kianos-workspace.surfaceBody-politics .politicsClosure[data-projection-owned-closure="true"]>summary{
+    cursor:default;
+    list-style:none;
+    font-size:15px;
+  }
+  body#kianos-workspace.surfaceBody-politics .politicsClosure[data-projection-owned-closure="true"]>summary::-webkit-details-marker{display:none;}
+  body#kianos-workspace.surfaceBody-politics .politicsClosure[data-projection-owned-closure="true"] :is(p,li){
+    font-size:16px;
+    line-height:1.75;
+  }
+</style>
