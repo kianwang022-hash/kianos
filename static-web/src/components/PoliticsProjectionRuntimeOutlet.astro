@@ -1,6 +1,6 @@
 ---
 const { compiled = null } = Astro.props;
-const rows = compiled ? [...compiled.values()].filter((row) => row?.purposeFirstPilot) : [];
+const rows = compiled ? [...compiled.values()].filter((row) => row?.purposeFirst || row?.purposeFirstPilot) : [];
 ---
 
 {rows.length > 0 && (

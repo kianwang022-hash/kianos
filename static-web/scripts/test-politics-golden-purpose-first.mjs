@@ -25,7 +25,7 @@ async function waitForServer() {
   throw new Error('POLITICS_GOLDEN_PREVIEW_SERVER_NOT_READY');
 }
 
-async function visibleLearnerTextBelowFloor(locator, floorPx = 15) {
+async function visibleLearnerTextBelowFloor(locator, floorPx = 16) {
   return locator.evaluate((root, floor) => {
     const offenders = [];
     const seen = new Set();
@@ -75,8 +75,8 @@ try {
   check(await s01.locator('.purposeChain').isVisible(), 's01_simple_chain_visible');
   const s01TitleSize = Number.parseFloat(await s01.locator('[data-stage="ORIENT"] > h2').evaluate((node) => getComputedStyle(node).fontSize));
   check(s01TitleSize >= 30, 's01_main_title_readable', `${s01TitleSize}px`);
-  const s01TinyText = await visibleLearnerTextBelowFloor(body, 15);
-  check(s01TinyText.length === 0, 's01_page_visible_text_floor_15px', JSON.stringify(s01TinyText));
+  const s01TinyText = await visibleLearnerTextBelowFloor(body, 16);
+  check(s01TinyText.length === 0, 's01_page_visible_text_floor_16px', JSON.stringify(s01TinyText));
 
   await workspace.locator('[data-workspace-unit-tab="1"]').click();
   const s02 = workspace.locator('[data-workspace-unit][data-unit-id="POL27-CF-MARX-C00-S02"]');
@@ -112,10 +112,10 @@ try {
   const exactSize = Number.parseFloat(await s02.locator('.firstRoundExact > p').first().evaluate((node) => getComputedStyle(node).fontSize));
   check(mainTitleSize >= 30, 's02_main_title_readable', `${mainTitleSize}px`);
   check(peerSize >= 18, 's02_peer_type_readable', `${peerSize}px`);
-  check(relationSize >= 16, 's02_relation_type_readable', `${relationSize}px`);
-  check(exactSize >= 16, 's02_exact_type_readable', `${exactSize}px`);
-  const s02TinyText = await visibleLearnerTextBelowFloor(body, 15);
-  check(s02TinyText.length === 0, 's02_page_visible_text_floor_15px', JSON.stringify(s02TinyText));
+  check(relationSize >= 17, 's02_relation_type_readable', `${relationSize}px`);
+  check(exactSize >= 17, 's02_exact_type_readable', `${exactSize}px`);
+  const s02TinyText = await visibleLearnerTextBelowFloor(body, 16);
+  check(s02TinyText.length === 0, 's02_page_visible_text_floor_16px', JSON.stringify(s02TinyText));
 
   await context.close();
   console.log('POLITICS_GOLDEN_PURPOSE_FIRST_PASS');

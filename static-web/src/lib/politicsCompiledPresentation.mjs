@@ -52,23 +52,22 @@ export function loadPoliticsCompiledPresentation(subject, code) {
   const rawUnits = source.units || source.unit_projections || (source.unit ? [source.unit] : []);
   const rawById = new Map(rawUnits.map(unit => [unit.natural_unit_id, unit]));
   const units = new Map();
-  const purposeFirstPilot = directory === 'marxism' && code === 'ch01';
   for (const selected of projection.units || []) {
     if (selected.projection_disposition !== 'PASS') continue;
     const rawUnit = rawById.get(selected.unit_id);
     if (!rawUnit) throw new Error(`POLITICS_PROJECTION_UNIT_MISSING:${selected.unit_id}`);
     const resolve = ref => resolvePoliticsPresentationRef(ref, source, rawUnit);
     const objects = entries => (entries || []).map(entry => ({ role: entry.role, value: resolve(entry.content) })).filter(entry => present(entry.value));
-    const selectedValues = entries => {
-      const values = (entries || []).map(resolve).filter(present);
-      return purposeFirstPilot ? flattenPresent(values) : values;
-    };
+    const selectedValues = entries => flattenPresent((entries || []).map(resolve));
     const handoff = selected.chengfeng_handoff || null;
     units.set(selected.unit_id, {
       unitId: selected.unit_id,
       shape: selected.projection_shape,
       representation: resolvePoliticsUnitRepresentation(selected, { stage: 'ORIENT' }),
-      purposeFirstPilot,
+      purposeFirst: true,
+      // Compatibility marker for the already accepted C01 browser slice. It is
+      // no longer the rollout gate; all PASS units now use purpose-first.
+      purposeFirstPilot: directory === 'marxism' && code === 'ch01',
       problem: resolve(selected.current_problem),
       primary: objects(selected.primary_geometry),
       secondary: objects(selected.secondary_reasoning),
@@ -80,9 +79,7 @@ export function loadPoliticsCompiledPresentation(subject, code) {
         surface: handoff.surface || null,
         sourceOwnerIds: Array.isArray(handoff.source_owner_ids) ? handoff.source_owner_ids : [],
         locator: resolve(handoff.source_locator),
-        lookFor: purposeFirstPilot
-          ? flattenPresent((handoff.look_for || []).map(resolve))
-          : (handoff.look_for || []).map(resolve).filter(present)
+        lookFor: selectedValues(handoff.look_for)
       } : null,
       closure: resolve(selected.optional_closure)
     });
