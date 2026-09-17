@@ -17,6 +17,7 @@ import PoliticsPracticeBridge from '../../../components/PoliticsPracticeBridge.a
 import PoliticsEvidenceEnhancer from '../../../components/PoliticsEvidenceEnhancer.astro';
 import { listPoliticsChapterPathsCurrent, loadPoliticsChapterCurrent } from '../../../lib/politicsCurrent.mjs';
 import { enrichPoliticsChapterCurrent } from '../../../lib/politicsRepairMemory.mjs';
+import '../../../styles/politics-natural-unit-convergence.css';
 
 export function getStaticPaths() {
   return listPoliticsChapterPathsCurrent()
