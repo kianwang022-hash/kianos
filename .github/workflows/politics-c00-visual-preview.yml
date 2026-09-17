@@ -1,0 +1,92 @@
+name: Politics C00 Visual Preview
+
+on:
+  push:
+    branches:
+      - 'preview/politics-c00-visual-v2-20260918'
+
+permissions:
+  contents: read
+
+jobs:
+  screenshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install runtime
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+      - name: Install normal-width CJK font
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk
+          fc-match "Noto Sans CJK SC"
+      - name: Install Chromium
+        working-directory: static-web
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Start preview
+        working-directory: static-web
+        run: |
+          nohup npm run dev -- --host 127.0.0.1 >/tmp/politics-preview.log 2>&1 &
+          for i in {1..60}; do
+            if curl -fsS http://127.0.0.1:4321/politics/marxism/ch00/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/politics-preview.log
+          exit 1
+      - name: Capture real C00 screenshots
+        working-directory: static-web
+        run: |
+          mkdir -p ../politics-c00-preview
+          node --input-type=module <<'NODE'
+          import { chromium } from 'playwright';
+          import fs from 'node:fs';
+          const browser=await chromium.launch({headless:true});
+          const page=await browser.newPage({viewport:{width:1512,height:982},deviceScaleFactor:1});
+          const errors=[];
+          page.on('pageerror',e=>errors.push(String(e)));
+          await page.goto('http://127.0.0.1:4321/politics/marxism/ch00/',{waitUntil:'networkidle'});
+          await page.locator('[data-politics-cognitive-workspace]').waitFor();
+          await page.screenshot({path:'../politics-c00-preview/s01.png',fullPage:false});
+          const tabs=page.locator('[data-workspace-unit-tab]');
+          if(await tabs.count()>1){
+            await tabs.nth(1).click();
+            await page.waitForTimeout(250);
+            await page.screenshot({path:'../politics-c00-preview/s02.png',fullPage:false});
+          }
+          const metrics=await page.evaluate(()=>{
+            const el=document.querySelector('[data-stage="ORIENT"] h2');
+            const style=el?getComputedStyle(el):null;
+            return {
+              bodyWidth:document.body.scrollWidth,
+              viewportWidth:innerWidth,
+              plans:document.querySelectorAll('[data-politics-explicit-surface-plan]').length,
+              rawSemanticDom:document.querySelectorAll('.mapDeck,.semanticMap,.relationStrip,.fallbackOrientation').length,
+              headline:el?.textContent?.trim()||'',
+              headlineStyle:style?{
+                fontFamily:style.fontFamily,
+                fontSize:style.fontSize,
+                fontWeight:style.fontWeight,
+                letterSpacing:style.letterSpacing,
+                lineHeight:style.lineHeight
+              }:null
+            };
+          });
+          fs.writeFileSync('../politics-c00-preview/metrics.json',JSON.stringify({metrics,errors},null,2));
+          if(errors.length) throw new Error('PREVIEW_PAGE_ERRORS');
+          if(metrics.rawSemanticDom!==0) throw new Error('RAW_SEMANTIC_DOM_PRESENT');
+          await browser.close();
+          NODE
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: politics-c00-preview-${{ github.sha }}
+          path: politics-c00-preview/
+          retention-days: 7
