@@ -23,6 +23,7 @@ on:
       - 'static-web/src/styles/english*.css'
       - 'static-web/scripts/test-english-family-coherence.mjs'
       - 'static-web/scripts/test-objective-guide-visual.mjs'
+      - 'static-web/scripts/test-translation-guide-visual.mjs'
       - '.github/workflows/static-web-english-family-coherence.yml'
   pull_request:
     paths:
@@ -45,6 +46,7 @@ on:
       - 'static-web/src/styles/english*.css'
       - 'static-web/scripts/test-english-family-coherence.mjs'
       - 'static-web/scripts/test-objective-guide-visual.mjs'
+      - 'static-web/scripts/test-translation-guide-visual.mjs'
       - '.github/workflows/static-web-english-family-coherence.yml'
   workflow_dispatch:
 
@@ -81,6 +83,9 @@ jobs:
       - name: Assert Objective Guide readability and editorial geometry
         working-directory: static-web
         run: node scripts/test-objective-guide-visual.mjs
+      - name: Assert Translation Guide readability and native learning geometry
+        working-directory: static-web
+        run: node scripts/test-translation-guide-visual.mjs
       - name: Preserve fresh screenshots and report
         if: always()
         uses: actions/upload-artifact@v4
