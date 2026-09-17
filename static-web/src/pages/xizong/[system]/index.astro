@@ -10,6 +10,7 @@ import XizongRuntimeStageGuard from '../../../components/XizongRuntimeStageGuard
 import { listProjectableXizongSystems, loadXizongSystem } from '../../../lib/xizong.mjs';
 import { loadXizongPathways } from '../../../lib/xizongPathways.mjs';
 import { loadXizongSystemQuestionSweep } from '../../../lib/xizongQuestions.mjs';
+import '../../../styles/xizong-system-workspace.css';
 
 export function getStaticPaths() {
   return listProjectableXizongSystems().map((system) => ({ params: { system: system.systemId }, props: { systemId: system.systemId } }));
@@ -44,8 +45,6 @@ const questionSweep = loadXizongSystemQuestionSweep(system);
      recall surface remains available inside the later System Exit workspace. */
   .xv6SystemContext .xv6RecallCompact{display:none}
   .xv6SystemContext .xv6SystemKeys p:last-child{display:none}
-  /* Keep the selected-Block context readable at the accepted desktop width. */
-  @media(min-width:1101px){.xv6SystemContext{min-width:290px}}
 
   .xizongLaterStage{margin-top:14px;border:1px solid var(--study-line,#d9dde5);border-radius:14px;background:#fff;overflow:hidden}
   .xizongLaterStage>summary{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:6px 14px;align-items:center;padding:12px 15px;cursor:pointer;list-style:none}
