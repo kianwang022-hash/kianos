@@ -66,53 +66,61 @@ try {
   await mkdir(auditDir, { recursive: true });
 
   await page.goto(`${BASE}/politics/marxism/ch01/#unit-1`, { waitUntil: 'networkidle' });
-  const s01 = page.locator('[data-workspace-unit][data-unit-id="POL27-CF-MARX-C01-S01"]');
+  const s01 = page.locator('[data-politics-unit][data-unit-id="POL27-CF-MARX-C01-S01"]');
   await s01.waitFor({ state: 'visible' });
-  check((await s01.getAttribute('data-explicit-surface-mapping')) === 'v1', 's01_uses_explicit_surface_mapping');
+  const s01Compiled = s01.locator('[data-compiled-unit="POL27-CF-MARX-C01-S01"]');
+  await s01Compiled.waitFor({ state: 'visible' });
+  check((await s01Compiled.getAttribute('data-explicit-surface-mapping')) === 'v1', 's01_uses_explicit_surface_mapping');
 
-  const s01Axes = s01.locator('[data-surface-group="marx-c01-s01-axes"]');
+  const s01Axes = s01Compiled.locator('[data-surface-group="marx-c01-s01-axes"]');
   await s01Axes.waitFor({ state: 'visible' });
   check((await s01Axes.getAttribute('data-surface-primitive')) === 'PARALLEL_SET', 's01_axes_are_parallel');
   check((await s01Axes.locator('.explicitParallel > article').count()) === 2, 's01_keeps_two_owned_axis_groups');
   check((await s01Axes.locator('.sequenceTransition').count()) === 0, 's01_parallel_axes_have_no_invented_arrows');
+  check((await s01Axes.locator('[data-surface-field="problem"]').count()) === 2, 's01_two_problem_lines_visible');
+  check((await s01Axes.locator('[data-surface-field="relation"]').count()) === 2, 's01_two_relation_lines_visible');
   const s01AxesText = (await s01Axes.innerText()).replace(/\s+/g, ' ');
   check(s01AxesText.includes('哲学基本问题的两条轴'), 's01_keeps_first_axis');
   check(s01AxesText.includes('辩证法与形而上学'), 's01_keeps_second_axis');
   check(s01AxesText.includes('两条轴回答不同问题'), 's01_axis_relation_text_visible');
 
-  const s01Boundary = s01.locator('[data-surface-group="marx-c01-s01-boundary"]');
+  const s01Boundary = s01Compiled.locator('[data-surface-group="marx-c01-s01-boundary"]');
   await s01Boundary.waitFor({ state: 'visible' });
   check((await s01Boundary.getAttribute('data-surface-primitive')) === 'STATEMENT', 's01_boundary_is_statement');
   const s01BoundaryText = (await s01Boundary.innerText()).replace(/\s+/g, ' ');
   check(s01BoundaryText.includes('三组判断不要串轴'), 's01_boundary_visible');
-  check((await s01.locator('[data-purpose-first-geometry], .purposeChain, .purposeTextMap').count()) === 0, 's01_legacy_geometry_absent');
-  const s01Tiny = await visibleTextBelowFloor(s01, 15);
+  check((await s01Compiled.locator('[data-purpose-first-geometry], .purposeChain, .purposeTextMap').count()) === 0, 's01_legacy_geometry_absent');
+  const s01Tiny = await visibleTextBelowFloor(s01Compiled, 15);
   check(s01Tiny.length === 0, 's01_learner_text_floor_15px', JSON.stringify(s01Tiny));
   await page.screenshot({ path: new URL('marx-c01-s01-explicit-surface.png', auditDir).pathname, fullPage: true });
 
   await page.goto(`${BASE}/politics/marxism/ch01/#unit-2`, { waitUntil: 'networkidle' });
-  const s02 = page.locator('[data-workspace-unit][data-unit-id="POL27-CF-MARX-C01-S02"]');
+  const s02 = page.locator('[data-politics-unit][data-unit-id="POL27-CF-MARX-C01-S02"]');
   await s02.waitFor({ state: 'visible' });
-  check((await s02.getAttribute('data-explicit-surface-mapping')) === 'v1', 's02_uses_explicit_surface_mapping');
+  const s02Compiled = s02.locator('[data-compiled-unit="POL27-CF-MARX-C01-S02"]');
+  await s02Compiled.waitFor({ state: 'visible' });
+  check((await s02Compiled.getAttribute('data-explicit-surface-mapping')) === 'v1', 's02_uses_explicit_surface_mapping');
 
-  const s02Chain = s02.locator('[data-surface-group="marx-c01-s02-world-chain"]');
+  const s02Chain = s02Compiled.locator('[data-surface-group="marx-c01-s02-world-chain"]');
   await s02Chain.waitFor({ state: 'visible' });
   check((await s02Chain.getAttribute('data-surface-primitive')) === 'DIRECTED_SEQUENCE', 's02_world_model_is_directed_sequence');
   check((await s02Chain.locator('.sequenceItem').count()) === 9, 's02_keeps_nine_current_beats', String(await s02Chain.locator('.sequenceItem').count()));
   check((await s02Chain.locator('.sequenceTransition').count()) === 8, 's02_has_exact_eight_owned_transitions');
+  check((await s02Chain.locator('[data-surface-field="problem"]').count()) === 9, 's02_nine_problem_lines_visible');
+  check((await s02Chain.locator('[data-surface-field="relation"]').count()) === 9, 's02_nine_relation_lines_visible');
   const s02Text = (await s02Chain.innerText()).replace(/\s+/g, ' ');
   check(s02Text.includes('物质范畴'), 's02_keeps_material_category');
   check(s02Text.includes('人工智能边界'), 's02_keeps_ai_boundary_beat');
   check(s02Text.includes('世界的物质统一性'), 's02_keeps_material_unity');
   check(s02Text.includes('物质决定意识'), 's02_node_relation_text_visible');
 
-  const s02Boundaries = s02.locator('[data-surface-group="marx-c01-s02-boundaries"]');
+  const s02Boundaries = s02Compiled.locator('[data-surface-group="marx-c01-s02-boundaries"]');
   await s02Boundaries.waitFor({ state: 'visible' });
   check((await s02Boundaries.getAttribute('data-surface-primitive')) === 'PARALLEL_SET', 's02_boundaries_are_parallel');
   check((await s02Boundaries.locator('.explicitParallel > article').count()) === 4, 's02_keeps_four_current_boundaries');
   check((await s02Boundaries.locator('.sequenceTransition').count()) === 0, 's02_boundaries_have_no_invented_direction');
-  check((await s02.locator('[data-purpose-first-geometry], .purposeChain, .purposeTextMap').count()) === 0, 's02_legacy_geometry_absent');
-  const s02Tiny = await visibleTextBelowFloor(s02, 15);
+  check((await s02Compiled.locator('[data-purpose-first-geometry], .purposeChain, .purposeTextMap').count()) === 0, 's02_legacy_geometry_absent');
+  const s02Tiny = await visibleTextBelowFloor(s02Compiled, 15);
   check(s02Tiny.length === 0, 's02_learner_text_floor_15px', JSON.stringify(s02Tiny));
   await page.screenshot({ path: new URL('marx-c01-s02-explicit-surface.png', auditDir).pathname, fullPage: true });
 
@@ -124,7 +132,7 @@ try {
 } finally {
   await mkdir(auditDir, { recursive: true });
   await writeFile(new URL('marx-c01-purpose-first.json', auditDir), JSON.stringify({
-    schema: 'kianos.politics.marx_c01_explicit_surface.v2',
+    schema: 'kianos.politics.marx_c01_explicit_surface.v3',
     checks,
     failure,
     status: failure ? 'FAIL' : 'PASS'
