@@ -9,20 +9,25 @@
 
 ## Root Work Cursor
 
-**Active scope:** Project management stabilization — English Objective Guide visual proof  
-**Current stage:** Lexical UI proof 已收口；English 经只读债务 / 并行冲突盘点后，只对 Objective Guide 做下一轮小范围 screenshot-driven visual convergence  
-**Blocker:** none  
-**Next action:** 用现有 English Family Coherence 对 Objective Guide 做 1440×900 实图验收，同时锁住正文 ≥17px、目录 ≥16px、去卡片化、无横向溢出和单一 route visual owner；只有实图与既有 English 功能回归均通过后才允许合并。Translation / Writing Guide 与 Reading / Cloze / Part B / Translation / Writing 工作区本轮冻结。
+**Active scope:** Parallel learner-facing convergence under the accepted shared UI rules  
+**Current stage:** shared UI preferences / style rules are accepted on `main`; lane work now proceeds independently by owner without reopening root architecture  
+**Blocker:** none at root; shared-shell implementation must have one writer  
+**Next action:** run the current parallel assignments below. Each lane edits only its owned surface unless the shared-shell owner lands a shared change on `main` first.
 
-Lexical UI proof evidence remains accepted on `main` through PR #361:
+### Current parallel assignment
 
-- `a / abandon / abroad` 1536×900 real screenshots reviewed;
-- English lexical typography = serif, Chinese / UI = sans;
-- Sense rows = continuous editorial rows, not cards;
-- Expansion = quiet continuous rail, not stacked cards;
-- sparse words use natural height instead of a fake full-viewport white container;
-- Lexical visual styling has one active owner;
-- Lexical Current Runtime + Functional First browser journeys remain PASS.
+| Lane | Current responsibility | Shared-shell rule |
+| --- | --- | --- |
+| English | **English UI architecture + legacy `4173` visual convergence**; additionally owns the current implementation of the shared Base Shell / collapsible `K` global rail | English is the **single current writer** for shared Shell / `K` rail / global navigation implementation. It must follow `static-web/UI_STYLE_BRIEF.md` and must not change English Learning/Runtime/Evidence semantics. |
+| Xizong | **Xizong learner-facing UI convergence** in the current Chat | Xizong must **consume** the shared Shell from `main`; it must not independently recreate or modify the global `K` rail / Base Shell while English owns that shared implementation. |
+| Politics | Continue **explicit content → learner-surface mapping** (#352 / current Politics mapping lane) | Do not start broad Politics UI redesign until the mapping owner is stable enough for downstream consumption. |
+| Lexical | No new broad parallel UI rewrite while shared Shell is being established | Preserve accepted Lexical visual proof; later adopt shared Shell from `main` without reopening Lexical semantics. |
+
+Hard coordination rule:
+
+> **Shared Shell has one temporary implementation writer; subject surfaces have their own writers.**
+
+If a subject needs a change to shared Shell / global nav / shared UI primitives, do not patch it locally. Route the shared change to the current shared-shell owner, land it on `main`, then rebase/sync the subject work and continue.
 
 Top-level governance is accepted and remains frozen. This is implementation of `PROJECT_MANAGEMENT_CONTRACT.md`, not a new root architecture.
 
