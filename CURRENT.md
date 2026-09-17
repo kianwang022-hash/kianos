@@ -1,358 +1,104 @@
 # KianOS Root Current
 
-**Role:** Control Tower + root engineering router  
-**Rule:** reports current work only; not semantic Truth, Acceptance Truth or learner progress.
+Role: **Control Tower + root router**  
+Rule: current routing/status only. No semantic Truth, Acceptance ledger, learner progress, or duplicated child-task cursor.
 
 ---
 
-## Current stage
+## Active programs
 
-Permanent architecture:
+| Program | State | Continue from |
+| --- | --- | --- |
+| Website / UI launch | **ACTIVE** | `static-web/CURRENT.md` |
+| Xizong Content | **ACTIVE** | `content/xizong/CONTENT_MAINLINE.md` |
+| English Content | **STEADY** — no broad rebuild | `content/english/CURRENT.md` |
+| Politics Content | **STEADY** — reopen only concrete defects | `content/politics/CURRENT.md` |
+| Lexical backend Content | **CLOSED for broad rebuild** | `content/lexical/CURRENT.md` |
 
-```text
-RULE / MODEL
-→ CONTENT
-→ VISUAL
-→ ENGINEERING
-→ CONTROL
-```
-
-Control now tracks **two long-running program streams in parallel**:
-
-```text
-A. WEBSITE / UI LAUNCH
-B. CONTENT IMPROVEMENT PROGRAM
-```
-
-Neither stream is subordinate to the other. Content may continue improving while mature learner surfaces launch; UI may launch without waiting for optional future Content enrichment.
-
-Shared Visual + Shared Shell are landed. Home is Human-Gate accepted. English Architecture-v2 / UI vertical is landed through #394. Politics and Xizong UI remain active learner-surface work.
+Website launch and Content improvement are independent unless an exact dependency says otherwise.
 
 ---
 
-## Website / UI launch stream
-
-| Lane | Current state | Owns | Must not change |
-| --- | --- | --- | --- |
-| Xizong UI | **ACTIVE** · `work/ui-xizong-vertical-20260918` | Xizong subject/task presentation + narrow runtime wiring | Shared Visual, Shared Shell, other subjects, medical semantics |
-| Politics UI | **ACTIVE** · formal #395 + preview #397 | Politics Natural Unit / question / review presentation + narrow wiring | Politics Content/Learning/Surface-Mapping semantics, Shared Shell, other subjects |
-| English UI | **LANDED** · #394 | accepted English task geometry + SourceTruth boundary | Shared Shell, other subjects, English Learning semantics |
-
-Lexical remains an English learner-product child. Its backend canonical root may stay independent; learner-facing global navigation must not promote it into a fourth subject.
-
-### UI Human-Gate rule
-
-Material visual work follows:
-
-```text
-implementation / preview
-→ real browser screenshot
-→ Kian Human Gate
-→ targeted CI
-→ merge
-```
-
-An unapproved screenshot is not a visual PASS. CI green alone never authorizes merge of a material learner-facing visual change.
-
----
-
-## Unified control entrypoint / task dispatcher
-
-Root `CURRENT.md` is the one entrypoint for project-control requests, but **not** the owner of every exact task.
+## Unified entrypoint
 
 Natural language is enough:
 
 ```text
+看看整个主线
 看看西综主线
-看看西综现在有哪些任务
 看看政治 UI
 英语现在做到哪
 ```
 
-Control resolves the relevant owner chain and returns the current active task set.
+Control routes through the relevant owner chain and reads the latest exact cursor before reporting.
 
-For Xizong Content, the normal dispatch path is:
+Typical Xizong Content path:
 
 ```text
 root CURRENT
 → content/xizong/CURRENT.md
 → content/xizong/CONTENT_MAINLINE.md
-→ exact active task owner(s)
-
-Examples of exact owners:
-D Content              → D scoped CURRENT
-Question Crosswalk     → question-relations/continuation.json
-Visual / Extension     → exact reviewed batch/asset owner when active
+→ exact active CURRENT / continuation cursor
 ```
 
-After Control presents tasks, a follow-up such as:
+Typical website path:
 
 ```text
-开始第一个
-开始 D
-继续 Crosswalk
+root CURRENT
+→ static-web/CURRENT.md
+→ exact subject / surface owner
 ```
 
-means:
-
-```text
-selected task
-→ re-read its exact Current/cursor
-→ load only the minimum required upstream authority
-→ start work immediately
-```
-
-No file-name or mode selection should be pushed back onto Kian.
-
-### Scheduling/update rule
-
-The dispatcher is **read-through**, not a manually duplicated task database.
-
-```text
-exact task owner
-= exact cursor / next action
-
-program mainline
-= active lanes / priority / dependency
-
-root Control
-= global discovery / routing / high-level snapshot
-```
-
-This prevents Root from becoming stale every time a bounded batch advances. Exact task progress remains live in its canonical cursor; Control discovers it on demand.
-
-### Creating tasks through Control
-
-A command such as:
-
-```text
-创建一个西综任务：……
-把这个放进后续任务
-新增一个 Politics UI task：……
-```
-
-is a persistence request, not a conversational note.
-
-Control must:
-
-```text
-resolve scope
-→ choose existing exact CURRENT / program Mainline owner
-→ write the task there
-→ verify the write
-→ report the created task + owner
-```
-
-The task is not durable until the repository write succeeds. If it cannot be written, report **not created**.
-
-Do not require Kian to specify the file. Do not create a parallel Todo registry when the existing Current/Mainline hierarchy can own the task.
-
-### Sync safety
-
-```text
-task creation
-→ owner write succeeds
-→ task becomes discoverable
-
-task execution result
-+
-exact CURRENT / cursor update
-→ same active branch / PR
-→ accepted together
-→ merge together
-```
-
-If a Mainline names an active branch/PR, Control reads that task's exact cursor from the named ref. `main` remains the accepted baseline, but must not overwrite an in-flight task's newer explicit cursor during status/continuation.
+Task creation, persistence, active-ref freshness and artifact+cursor atomicity are operating rules owned by `AGENTS.md`; they are not duplicated here.
 
 ---
 
+## Cross-program status
 
+### Website / UI
+- English UI vertical: landed.
+- Xizong UI: active.
+- Politics UI: active.
+- Material Visual changes still require real-browser screenshot + Kian Human Gate before merge.
 
-## Content improvement stream
+Exact branch / PR / screenshot state belongs to `static-web/CURRENT.md` or the exact UI owner.
 
-Root Control must summarize durable **program-level Content progress**, not only website work.
+### Content
+- Xizong is the only broad active Content program; its exact tasks/progress live in `content/xizong/CONTENT_MAINLINE.md` and child cursors.
+- English and Politics have no broad semantic rebuild active.
+- Lexical full-catalog Content rebuild/audit is closed; reopen only exact defects.
 
-It does not duplicate every batch or local audit. Exact Content truth and exact work cursors remain in their own owners. Root Control reads those owners and keeps only the current stage / meaningful progress / next durable gate.
-
-### Bound content feeds
-
-```text
-Xizong
-→ content/xizong/CONTENT_MAINLINE.md
-→ exact active System CURRENT when a System has an active stage
-→ content/xizong/question-relations/continuation.json for Crosswalk cursor
-
-English
-→ content/english/CURRENT.md
-
-Politics
-→ content/politics/CURRENT.md
-
-Lexical backend
-→ content/lexical/CURRENT.md
-```
-
-### Current Content snapshot
-
-| Content lane | Current progress | Next durable step |
-| --- | --- | --- |
-| **Xizong D · Neuro / Sensory / Motor / Orthopedics** | **Content Realization ACTIVE**. Upstream `S1 / K / L` closed. 27/27 Block wrapper cleanup closed. Neural sufficiency **56/56 LG PASS**. | **Phase 7D:** audit O1–O16 / **72 orthopedic LGs**, then Phase 7E fresh independent Content closure. P/R/E remain frozen until Content closes. |
-| **Xizong E · Reproductive / Breast** | Parallel Source / Knowledge groundwork is permitted by the mainline; no program-level accepted K/L closure is claimed here. | Source reconstruction/audit → Knowledge construction → independent K acceptance → Learning. |
-| **Xizong F · Remaining Clinical** | Later lane. | Starts after D/E priority unless a real exam/dependency reason reprioritizes it. |
-| **Xizong Question→Knowledge Crosswalk** | **C2 broad basic coverage ACTIVE**. Latest durable cursor: **727 REVIEWED relations**; no linear frontier. | Next evidence-driven review packet, default bounded batch 50. |
-| **Xizong Visual / Extension** | Continuous selective high-value program; deliberately no percentage-complete target. | Small reviewed batches only where a stable owner and real learner value justify them. |
-| **Lexical Content** | **7,946 / 7,946 COMPLETE** + independent semantic audit **7,946 / 7,946 COMPLETE**. | No broad Content rebuild; real learner use, then reopen only exact defects. |
-| **English Content** | Objective / Translation / Writing canonical Content accepted for current scope. | No broad Content program; change exact task owner only for concrete semantic defects. |
-| **Politics Content** | Five-subject semantic engineering closed through current scoped S/K/L/P/R/E. | No broad semantic program; reopen smallest owner only on concrete defect. |
-
-### Content-Control update rule
-
-Update this root snapshot when a **program-level stage changes**, for example:
-
-- D moves from Phase 7D → Content closure → Projection;
-- E passes K and enters Learning;
-- Crosswalk reaches a meaningful durable count/stage transition;
-- a whole-catalog Content program opens/closes;
-- a new System becomes the active medical-content priority.
-
-Do **not** update Root Current for each 50-item batch, one Block edit, one image crop, or one local CI rerun.
-
-This keeps Control useful without turning it into a duplicate Content database.
+Do not copy System counts, batch counts, phase numbers, Crosswalk totals, or exact next actions into Root. Read them from their canonical cursor on demand.
 
 ---
 
-## Required vertical-slice method
+## Control output
 
-Every subject UI lane follows:
-
-```text
-RULE
-→ CONTENT
-→ accepted VISUAL baseline
-→ ENGINEERING
-→ real-browser screenshot
-→ Human Gate
-```
-
-Default visual decision is **KEEP / MIGRATE**, not REDESIGN.
-
-A new Chat may redesign an accepted surface only when:
-- Kian explicitly rejects it; or
-- upstream Rule/Content materially changed and the old geometry is now wrong.
-
----
-
-## Frozen shared visual baseline
-
-- #389 Shared Visual + Shared Shell remain the shared L1/L2 authority.
-- #390 Home is the accepted Home L3 baseline.
-- Kian's direct screenshot feedback outranks assistant visual inference.
-- Mac-wide first; high useful information density; no generic SaaS/dashboard/card-pile drift.
-- Default-visible learner text must remain comfortably readable and substantial.
-- Chinese/CJK typography must feel **wide, solid, full and optically substantial**; narrow/condensed-looking, thin or compressed CJK rendering is a Visual FAIL.
-- Do not use negative letter-spacing to squeeze Chinese titles/body copy.
-
-Shared writers are frozen during subject parallel work. Subject lanes must not add new global Base CSS imports or reinterpret the shared shell.
-
----
-
-## Learner product tree
+For a whole-project status request, report only:
 
 ```text
-Home
-├─ 西综
-├─ 政治
-└─ English
-   ├─ Reading A
-   ├─ Cloze
-   ├─ Part B
-   ├─ Translation
-   ├─ Writing
-   ├─ Vocabulary / Lexical
-   └─ External Reading
-```
-
----
-
-## Subject targets
-
-### Xizong
-Preserve accepted System / Block / KP / Recall learning geometry. Use original lecture/iPad source flow where Learning Rule says it is primary. UI work must not turn Logic Group into medical truth or invent new Knowledge.
-
-### Politics
-Preserve Natural Unit and Source/Knowledge hierarchy. Chengfeng continuous study remains the original lecture/MarginNote flow; Astro is not a replacement continuous reader.
-
-### English
-Preserve native whole-task geometry: Reading passage + full question set, Cloze full passage + 20 items, Part B global reconciliation, Translation source + authored translation, Writing prompt + dominant writing surface. External Reading reuses the Reading task family rather than creating a second runtime.
-
----
-
-## Engineering boundary
-
-```text
-Base
-→ shared foundation + shell + truly global runtime only
-
-subject entry
-→ subject visual/runtime
-
-task workspace
-→ task-specific geometry/interaction
-```
-
-Do not turn launch into broad CSS archaeology. Consolidate historical overrides only when they visibly block the accepted subject surface.
-
-UI iteration fast lane:
-
-```text
-local/branch implementation
-→ real browser screenshot
-→ visual correction as one batch
-→ Kian Human Gate
-→ targeted CI once
-→ merge
-```
-
-Do not run full GitHub CI after every cosmetic adjustment.
-
----
-
-## Control reporting
-
-For UI / launch work report:
-
-```text
-Stage
-Done
-Real blocker
-Next
-Human Gate
-```
-
-For Content work report:
-
-```text
-Program / System
+Active programs
 Current stage
-Meaningful progress
-Next durable gate
+Next durable action
 Real blocker
+Human Gate when relevant
 ```
 
-For a whole-project status request, show **both streams**. Hide branch/SHA/CI detail unless it changes the decision.
+Then drill down only when Kian selects a program/task.
 
 ---
 
-## Hard boundaries
+## Stop rule
 
-Do not:
-- add new architecture layers/contracts for completeness;
-- reopen accepted Learning Logic for visual convenience;
-- redesign accepted visual baselines by default;
-- let one subject lane edit shared shell/global visual ownership;
-- expose engineering/debug state as learner content;
-- block website launch on unfinished optional Content enrichment;
-- freeze a valid Content program merely because UI launch work is active;
-- infer Content completion from UI/Runtime readiness or learner progress from repository state.
+Root Control must remain small.
 
-**Optimization target:** a finished learning website **and** a continuously improving canonical Content system, with Control making both visible without duplicating their exact owners.
+Do not add:
+- domain learning rules;
+- Visual style rules;
+- engineering implementation rules;
+- product trees already owned elsewhere;
+- child progress snapshots;
+- exact task queues;
+- history / CI logs / branch archaeology.
+
+If Root needs those details to answer a request, route to the real owner and read them live.
