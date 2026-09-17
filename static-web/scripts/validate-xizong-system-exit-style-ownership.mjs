@@ -17,6 +17,7 @@ const repair = read('src/components/XizongSystemRepairReturn.astro');
 const owner = read('src/styles/xizong-system-exit-workspace.css');
 const systemStyle = read('src/styles/xizong-system-workspace.css');
 const broadStyle = read('src/styles/xizong-presentation.css');
+const denseCalmStyle = read('src/styles/xizong-dense-calm.css');
 
 check(route.includes("../../../styles/xizong-system-exit-workspace.css"), 'route_imports_exact_owner');
 check(hasClassToken(route, 'xzExitStage'), 'route_uses_current_later_stage_namespace');
@@ -44,13 +45,18 @@ check(fontSizes.length > 0, 'owner_has_explicit_type_scale');
 check(fontSizes.every((size) => size >= 15), 'owner_type_floor_15', `min=${Math.min(...fontSizes)}`);
 
 // Current Exit presentation belongs only to the dedicated owner. Closed-surface
-// legacy selectors must now be physically absent from both broad and System styles.
+// legacy selectors must be physically absent from broad, System and dense-calm styles.
 check(!systemStyle.includes('.xzExitStage'), 'first_pass_system_style_cannot_own_current_exit_namespace');
 check(!systemStyle.includes('.xizongLaterStage'), 'retired_system_workspace_exit_css_physically_removed');
 check(!broadStyle.includes('.xzExitStage') && !broadStyle.includes('.xzExitCard') && !broadStyle.includes('.xzExitStem') && !broadStyle.includes('.xzExitOptions'), 'broad_presentation_cannot_own_current_exit_namespace');
 for (const token of ['.xseCard', '.xseStem', '.xseOptions', '.xseRecall', '.xseNav', '.xseActions', '.xseToolbar', '.xizongRepairInbox']) {
   check(!broadStyle.includes(token), 'legacy_broad_exit_css_physically_removed', token);
 }
+const denseCalmNoComments = stripCssComments(denseCalmStyle);
+check(!/\.xzExit(?:\b|[A-Z])/.test(denseCalmNoComments), 'dense_calm_cannot_own_current_exit_namespace');
+check(!denseCalmNoComments.includes('.xizongLaterStage'), 'dense_calm_retired_later_stage_physically_removed');
+check(!/\.xse(?:\b|[A-Z])/.test(denseCalmNoComments), 'dense_calm_cannot_style_exit_behavior_classes');
+check(!/\.(?:xqc|xrr)(?:\b|[A-Z])/.test(denseCalmNoComments), 'dense_calm_cannot_style_crosswalk_or_repair_return');
 
 // Runtime semantics must remain owned by the original components.
 for (const token of [
@@ -74,6 +80,7 @@ console.log(JSON.stringify({
   runtime_owners: ['XizongSystemExitRuntime', 'XizongQuestionCrosswalkConsumer', 'XizongSystemRepairReturn'],
   broad_legacy_exit_css: 'physically removed',
   system_workspace_legacy_exit_css: 'physically removed',
+  dense_calm_exit_css: 'physically removed',
   remaining_cleanup_namespaces: [],
   visible_type_floor_px: 15
 }, null, 2));

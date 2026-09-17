@@ -8,11 +8,12 @@ const routePath = path.join(src, 'pages', 'xizong', 'index.astro');
 const toolsPath = path.join(src, 'components', 'XizongHomeTools.astro');
 const ownerPath = path.join(src, 'styles', 'xizong-home-workspace.css');
 const legacyPath = path.join(src, 'styles', 'xizong-presentation.css');
+const denseCalmPath = path.join(src, 'styles', 'xizong-dense-calm.css');
 const errors = [];
 const read = (file) => fs.readFileSync(file, 'utf8');
 const fail = (message) => errors.push(message);
 
-for (const file of [routePath, toolsPath, ownerPath, legacyPath]) {
+for (const file of [routePath, toolsPath, ownerPath, legacyPath, denseCalmPath]) {
   if (!fs.existsSync(file)) fail(`required file missing: ${path.relative(webRoot, file)}`);
 }
 
@@ -21,7 +22,8 @@ if (!errors.length) {
   const tools = read(toolsPath);
   const owner = read(ownerPath);
   const legacy = read(legacyPath);
-  const retiredHomeSelector = /\.(?:xzOverview|xzSystemWorkbench|xzOpenDomain|xzSystemRows|xzSystemRow|xzOverviewCompanion|xzLearnerChain|xzFutureRow|xzFutureMap|xizongHomeTools|xizongContinue)\b/;
+  const denseCalm = read(denseCalmPath);
+  const retiredHomeSelector = /\.(?:xzOverview|xzSystemWorkbench|xzOpenDomain|xzSystemRows|xzSystemRow|xzOverviewCompanion|xzLearnerChain|xzFutureRow|xzFutureMap|xizongHomeTools|xizongContinue|homeCurrentStrip|homeGrid|homeLane)\b/;
 
   if (!route.includes("import '../../styles/xizong-home-workspace.css';")) fail('Home route must load xizong-home-workspace.css');
   if (!route.includes('class="xzHome"')) fail('Home route must expose Current xzHome root');
@@ -36,7 +38,9 @@ if (!errors.length) {
   if (/!important/.test(owner)) fail('Home stylesheet must not rely on !important cascade recovery');
   if (retiredHomeSelector.test(owner)) fail('Current Home stylesheet still styles retired Home namespace');
   if (/\.xzHome(?:\b|[A-Z])/.test(legacy)) fail('broad legacy xizong-presentation.css must not own Current xzHome namespace');
+  if (/\.xzHome(?:\b|[A-Z])/.test(denseCalm)) fail('xizong-dense-calm.css must not own Current xzHome namespace');
   if (retiredHomeSelector.test(legacy)) fail('retired Home selectors must be physically absent from broad xizong-presentation.css');
+  if (retiredHomeSelector.test(denseCalm)) fail('retired Home selectors must be physically absent from xizong-dense-calm.css');
 }
 
 if (errors.length) {
@@ -50,6 +54,6 @@ console.log(JSON.stringify({
   visual_owner: 'static-web/src/styles/xizong-home-workspace.css',
   helper_component_css: 'none',
   current_namespace: 'xzHome*',
-  retired_home_css: 'physically absent from broad presentation',
+  retired_home_css: 'physically absent from broad presentation and dense calm',
   memory_entry: 'explicit'
 }, null, 2));
