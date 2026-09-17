@@ -49,7 +49,7 @@ If the mapping is absent, the learner surface fails closed to a plain truthful s
 It may own:
 - learner state: `ORIENT`, `EXTERNAL_LEARN`, `CLOSE`, `VERIFY_POST`, `REPAIR`, `CONTINUE`;
 - semantic zone: `PRIMARY`, `COMPANION`, `SUPPORT`, `HANDOFF`, `CLOSURE`, `REPAIR_ONLY`;
-- representation primitive: `STATEMENT`, `PARALLEL_SET`, `DIRECTED_SEQUENCE`, `COMPARE`, `HIERARCHY`, `TIMELINE`;
+- representation primitive: `STATEMENT`, `PARALLEL_SET`, `RELATION_SET`, `DIRECTED_SEQUENCE`, `COMPARE`, `HIERARCHY`, `TIMELINE`;
 - exact selected refs/items;
 - explicit relation labels / direction when the knowledge owns them;
 - grouping boundaries and learner-facing group title.
@@ -77,6 +77,17 @@ One explicit learner claim. No spatial relation is implied.
 
 ### `PARALLEL_SET`
 Items are peers under one question/category. Order may be convenient but does not imply causality, chronology, hierarchy or prerequisite.
+
+### `RELATION_SET`
+Two or more explicitly owned relation claims belong together, but **the relations are not a sequence with one another**.
+
+Each relation owns its own `from → relation → to` direction. The set itself does not imply:
+- that the first relation causes the second;
+- that targets/sources form levels;
+- that the list order is chronological;
+- that several relations should be collapsed into one chain.
+
+Use this for patterns such as several properties independently contributing to another concept, or several explicit relations jointly explaining one model.
 
 ### `DIRECTED_SEQUENCE`
 A direction/order is part of the intended cognition. Each transition must be explicitly owned. Use for causal/process/reasoning sequences only when direction is educationally material.
@@ -164,12 +175,13 @@ The exact wire schema may evolve during the bounded migration, but the ownership
 The mapper must distinguish at least these cases:
 
 ```text
-A / B / C are three sources              → PARALLEL_SET
-A leads to B leads to C                  → DIRECTED_SEQUENCE
-A happened before B                      → TIMELINE
-A differs from B on X                    → COMPARE
-A contains B / B belongs to level A      → HIERARCHY
-A is simply important                     → STATEMENT
+A / B / C are three sources                         → PARALLEL_SET
+A → X, B → X, C → X are separate owned relations   → RELATION_SET
+A leads to B leads to C                             → DIRECTED_SEQUENCE
+A happened before B                                 → TIMELINE
+A differs from B on X                               → COMPARE
+A contains B / B belongs to level A                 → HIERARCHY
+A is simply important                                → STATEMENT
 ```
 
 Never compress two relation types into one chain merely to make a neat graphic.
@@ -212,7 +224,7 @@ Acceptance requires:
 3. 9 REFERENCE_ONLY owners remain non-teaching;
 4. zero default learner relation is inferred from field names / Projection shape names / DOM structure;
 5. no renderer reconstructs semantics by reading rendered node/edge DOM;
-6. all explicit `DIRECTED_SEQUENCE` / `TIMELINE` / `HIERARCHY` relations trace to Current semantic relations;
+6. all explicit `RELATION_SET` / `DIRECTED_SEQUENCE` / `TIMELINE` / `HIERARCHY` relations trace to Current semantic relations;
 7. parallel conditions/features remain parallel unless Current owns a stronger relation;
 8. representative browser acceptance covers all five subjects and heterogeneous primitives;
 9. Xiao1000 Question Truth / Evidence / exact Return / first attempt remain unchanged;
