@@ -46,9 +46,8 @@ const ttsx = block?.ttsx || { checkpoints: [] };
     <div class="portedStudyContextRow">
       <a href={`${base}xizong/${block.systemId}/`}>‹ {block.systemTitle}</a>
       <span>{block.systemTitle} › {block.label}</span>
-      <div class="portedStudyShellActions">
-        <button type="button" data-toggle-outline aria-pressed="false">目录</button>
-        <button type="button" data-toggle-chain aria-pressed="false">注意力</button>
+      <div class="portedStudyShellActions" aria-label="Block keyboard hints">
+        <span>← → 切换 · Space 隐藏 Core · Enter 学好并继续</span>
       </div>
     </div>
     <div class="portedStudyIdentity">
@@ -61,9 +60,8 @@ const ttsx = block?.ttsx || { checkpoints: [] };
         <small>← / → 推进 · 状态只留在本机</small>
       </div>
     </div>
-    <nav class="portedStudyTabs" aria-label="Block workspace">
+    <nav class="portedStudyTabs" aria-label="Block workspace" hidden>
       <button type="button" class="active" data-study-tab="learn">Learn</button>
-      <button type="button" data-study-tab="outline">Outline</button>
     </nav>
   </header>
 
@@ -94,10 +92,7 @@ const ttsx = block?.ttsx || { checkpoints: [] };
           {attention.minimalModel && <div class="xv6MinimalModel"><span>先带着这个最小模型</span><p>{attention.minimalModel}</p></div>}
           <XizongCognitiveProjectionStage projection={block.cognitiveProjection} />
           {!block?.cognitiveProjection?.compiled && block.blockLearnHtml && (
-            <details class="xv6BlockOrientation">
-              <summary>需要时看 Block 定位</summary>
-              <article class="portedStudyArticle markdown" set:html={block.blockLearnHtml}></article>
-            </details>
+            <article class="portedStudyArticle markdown xv6BlockOrientation" set:html={block.blockLearnHtml}></article>
           )}
           {!hasTimedVisuals && block.visualGateHtml && <details class="xv6VisualGate"><summary>需要时看原图</summary><div class="markdown" set:html={block.visualGateHtml}></div></details>}
           <footer class="portedStudyStageAction">
@@ -114,8 +109,8 @@ const ttsx = block?.ttsx || { checkpoints: [] };
             </header>
             <div class="xv6LectureFirst xv6LectureHandoff">
               <div>
-                <strong>在原讲义里连续完成当前自然学习段</strong>
-                <p>不要因为网页有 Logic Group 就按组切回 KianOS。先沿原讲义自然结构连续学；回来后再按学习节做提取与闭合。</p>
+                <strong>MarginNote 连续学习 + Mac KP Learn 同时进行</strong>
+                <p>原讲义保持连续推进；Mac 只切换当前 KP 的 Prompt / Core / 支持，不把 KP 变成新的 Source 边界。</p>
               </div>
               <span data-block-source-contact>{continuousSource}</span>
             </div>
@@ -126,8 +121,8 @@ const ttsx = block?.ttsx || { checkpoints: [] };
               )}
             </div>
             <footer>
-              <span>这个确认只表示你完成了本轮连续 Source 接触，不代表已经掌握。</span>
-              <button type="button" class="portedPrimaryAction" data-source-contact-done>本轮原讲义连续学习已完成，回来 Recall</button>
+              <span>到真实 Source boundary 再确认本段接触完成；KP Learn 本身持续伴读。</span>
+              <button type="button" class="portedPrimaryAction" data-source-contact-done>本段原讲义已完成，进入 Recall</button>
             </footer>
           </section>
         )}
@@ -148,14 +143,14 @@ const ttsx = block?.ttsx || { checkpoints: [] };
               <em data-group-lecture-counter>学习节 1/{groups.length}</em>
             </header>
             <div class="xv6LectureFirst xv6LectureHandoff">
-              <div><strong>在原讲义里连续完成这一学习节</strong><p>不要按 KP 来回切换 App。先顺着原讲义把这一组机制完整学完，再一次回来做本节 Recall。</p></div>
+              <div><strong>MarginNote 连续学习 + Mac KP Learn 同时进行</strong><p>原讲义不停；左右键只切 Mac 当前 KP 伴读对象，Enter 记录这个 KP 已学好。</p></div>
               <span data-group-lecture-source>{firstGroupSource}</span>
             </div>
             <details class="xv6GroupKpMap">
               <summary>回来后要 Recall 的 KP 路标</summary>
               <p data-group-lecture-kps>{firstGroupKps.map((kp) => kp.displayId).join(' · ') || '本学习节对应 KP'}</p>
             </details>
-            <footer><span>原图、表格、例子和讲义配套题都留在 MarginNote；网页只负责回来后的提取与闭合。</span><button type="button" class="portedPrimaryAction" data-group-lecture-done>这一节原讲义已连续学完，开始 Recall</button></footer>
+            <footer><span>原图、表格、例子和讲义配套题仍留在 MarginNote；KP Learn 同步提供 Prompt、Core 和当前支持。</span><button type="button" class="portedPrimaryAction" data-group-lecture-done>这一节已完成，开始 Recall</button></footer>
           </section>
         )}
 
@@ -191,14 +186,20 @@ const ttsx = block?.ttsx || { checkpoints: [] };
         <section class="portedBlockRecall" data-study-stage="block_recall" hidden>
           <header><span>Recall · Block</span><h3>把这一块重新压回一条主链</h3><p>{block.centerQuestion}</p></header>
           <div class="xv6BlockRecallCore">
-            <div class="xv6RecallPromptBox"><strong>先别展开答案。</strong><p>离开 KP 标题，自己从起点跑到终点；卡住的位置才是这次真正要修的地方。</p></div>
-            {block.recallSpine && <details class="xv6RecallSpine"><summary>恢复主链</summary><p>{block.recallSpine}</p></details>}
-            <details class="xv6GroupReview">
-              <summary>需要时按学习节核对</summary>
-              <div>{groups.map((group) => <section><strong>{group.label}</strong><p>{group.closure || group.goal || ''}</p></section>)}</div>
-            </details>
+            <div class="xv6RecallPromptBox">
+              <strong>先从中心问题把整个 Block 自己跑一遍。</strong>
+              <p>左侧 Logic Group 名称可以作为骨架，但 Recall Spine / Closure 在 Reveal 前保持隐藏。</p>
+              <button type="button" class="portedPrimaryAction" data-block-recall-reveal>Reveal Block Model</button>
+            </div>
+            <div data-block-recall-answer hidden>
+              {block.recallSpine && <section class="xv6RecallSpine"><strong>Recall Spine</strong><p>{block.recallSpine}</p></section>}
+              <section class="xv6GroupReview">
+                <strong>Logic Group Closure</strong>
+                <div>{groups.map((group) => <section><strong>{group.label}</strong><p>{group.closure || group.goal || ''}</p></section>)}</div>
+              </section>
+            </div>
           </div>
-          <footer><span>Block Recall 测的是能不能重新运行模型，不是再读一遍全部 KP。</span><button type="button" data-block-recall-complete>确认本轮 Block Recall 已完成</button></footer>
+          <footer><span>Block Recall 测的是能不能重新运行模型，不是再读一遍全部 KP。</span><button type="button" data-block-recall-complete disabled>确认本轮 Block Recall 已完成</button></footer>
         </section>
 
         <section class="portedBlockComplete" data-study-stage="block_complete" hidden>
@@ -217,35 +218,8 @@ const ttsx = block?.ttsx || { checkpoints: [] };
       </section>
     </main>
 
-    <aside class="portedStudyChain xv6AttentionRail" aria-label="Attention Projection" data-xizong-attention>
-      <header><span>Attention</span><strong>本轮怎么分配注意力</strong></header>
-      <div class="xv6AttentionGroup primary">
-        <span>本轮带走</span>
-        {carryNow.length > 0
-          ? carryNow.map((row) => <p>{row.text}</p>)
-          : <p>{attention.currentProblem || block.firstPassFocus || '当前主问题'}</p>}
-      </div>
-      {(supportCount.visual + supportCount.precision + supportCount.extension) > 0 && (
-        <div class="xv6AttentionGroup support">
-          <span>按需辅助</span>
-          <p>{[
-            supportCount.visual ? `原图 ${supportCount.visual}` : '',
-            supportCount.precision ? `精确项 ${supportCount.precision}` : '',
-            supportCount.extension ? `辅助资产 ${supportCount.extension}` : ''
-          ].filter(Boolean).join(' · ')}</p>
-        </div>
-      )}
-      {attention.stopLine && <div class="xv6AttentionGroup later"><span>可以后置</span><p>{attention.stopLine}</p></div>}
-      <ol class="xv6ProgressMini" aria-label="First-pass progress">
-        <li data-chain-step="block_learn"><button type="button" data-stage-target="block_learn"><i></i><span><b>Block</b><small>定位</small></span></button></li>
-        {!sourcePerGroup && <li data-chain-step="source_contact"><button type="button" data-stage-target="source_contact"><i></i><span><b>原讲义</b><small data-chain-source>未确认</small></span></button></li>}
-        <li data-chain-step="logic_group"><button type="button" data-stage-target="logic_group"><i></i><span><b>学习节</b><small data-chain-group>1/{groups.length}</small></span></button></li>
-        {sourcePerGroup && <li data-chain-step="kp_learn"><button type="button" data-stage-target="kp_learn"><i></i><span><b>原讲义</b><small data-chain-kp-learn>连续学习</small></span></button></li>}
-        <li data-chain-step="kp_recall"><button type="button" data-stage-target="kp_recall"><i></i><span><b>本节 Recall</b><small data-chain-kp-recall>0/{kps.length}</small></span></button></li>
-        <li data-chain-step="block_recall"><button type="button" data-stage-target="block_recall"><i></i><span><b>Block Recall</b><small data-chain-block-recall>未完成</small></span></button></li>
-        <li data-chain-step="block_complete"><button type="button" data-stage-target="block_complete"><i></i><span><b>完成</b><small data-chain-complete>未完成</small></span></button></li>
-      </ol>
-      <footer>{sourcePerGroup ? '当前 System 的 Source 接触按整学习节执行。' : 'Source 连续学习与 Logic Group 提取是两层，不再按学习节反复切回讲义。'}</footer>
+    <aside class="portedStudyChain xv6AttentionRail" aria-label="Current KP support" data-xizong-attention>
+      <header><span>CONTEXT</span><strong>当前辅助</strong></header>
     </aside>
   </div>
 
@@ -519,6 +493,27 @@ const ttsx = block?.ttsx || { checkpoints: [] };
       let collapsed = false; try { collapsed = sessionStorage.getItem(`kianos-xizong-layout:${objectId}:${kind}`) === 'true'; } catch {}
       setCollapsed(kind, collapsed);
       root.querySelector(kind === 'outline' ? '[data-toggle-outline]' : '[data-toggle-chain]')?.addEventListener('click', () => setCollapsed(kind, !layout?.classList.contains(`${kind}-collapsed`)));
+    });
+
+    root.addEventListener('kianos:xizong-kp-learned', (event) => {
+      const kpId = event instanceof CustomEvent ? String(event.detail?.kpId || '') : '';
+      if (!kpId) return;
+      const index = indexForKpId(kpId);
+      if (index < 0) return;
+      state.learned = { ...(state.learned || {}), [kpId]: true };
+      state.kpIndex = index;
+      state.groupIndex = groupIndexForKp(index);
+      save();
+      syncState();
+    });
+
+    const blockRecallReveal = root.querySelector('[data-block-recall-reveal]');
+    const blockRecallAnswer = root.querySelector('[data-block-recall-answer]');
+    const blockRecallComplete = root.querySelector('[data-block-recall-complete]');
+    blockRecallReveal?.addEventListener('click', () => {
+      if (blockRecallAnswer) blockRecallAnswer.hidden = false;
+      blockRecallReveal.hidden = true;
+      if (blockRecallComplete) blockRecallComplete.disabled = false;
     });
 
     document.addEventListener('keydown', (event) => {
