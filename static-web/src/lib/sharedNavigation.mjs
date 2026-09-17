@@ -30,6 +30,23 @@ export function englishNavigation(base = '/') {
   ];
 }
 
+export function politicsNavigation(base = '/') {
+  return [
+    { key: 'overview', label: '总览', href: `${base}politics/`, matchPath: /^politics\/?$/ },
+    { key: 'learn', label: '学习', href: `${base}politics/`, matchPath: /^politics\/(?!practice(?:\/|$)|review(?:\/|$)|practice-review(?:\/|$)).+/ },
+    { key: 'practice', label: '训练', href: `${base}politics/practice/`, matchPath: /^politics\/practice(?:\/|$)/ },
+    { key: 'review', label: '复习', href: `${base}politics/review/`, matchPath: /^politics\/(?:review|practice-review)(?:\/|$)/ }
+  ];
+}
+
+export function xizongNavigation(base = '/') {
+  return [
+    { key: 'overview', label: '总览', href: `${base}xizong/`, matchPath: /^xizong\/?$/ },
+    { key: 'learn', label: '学习', href: `${base}xizong/`, matchPath: /^xizong\/(?!memory(?:\/|$)).+/ },
+    { key: 'memory', label: '记忆', href: `${base}xizong/memory/`, matchPath: /^xizong\/memory(?:\/|$)/ }
+  ];
+}
+
 export function localRoute(pathname, base = '/') {
   return pathname.slice(base.length).replace(/^\/+|\/+$/g, '');
 }
@@ -46,6 +63,14 @@ export function isEnglishRuntime(localPath = '') {
   return ENGLISH_RUNTIME_PREFIXES.includes(topSegment(localPath));
 }
 
+export function isPoliticsFamily(localPath = '') {
+  return topSegment(localPath) === 'politics';
+}
+
+export function isXizongFamily(localPath = '') {
+  return topSegment(localPath) === 'xizong';
+}
+
 export function resolveGlobalActive(localPath = '', active = 'home') {
   const segment = topSegment(localPath);
   if (ENGLISH_FAMILY_PREFIXES.includes(segment)) return 'english';
@@ -57,4 +82,41 @@ export function resolveGlobalActive(localPath = '', active = 'home') {
 export function resolveEnglishActive(localPath = '') {
   const segment = topSegment(localPath);
   return englishNavigation('/').find((entry) => entry.match.includes(segment))?.key || 'overview';
+}
+
+function resolvePathNavigationActive(localPath, entries) {
+  return entries.find((entry) => entry.matchPath?.test(localPath))?.key || entries[0]?.key || 'overview';
+}
+
+export function subjectShell(localPath = '', base = '/') {
+  if (isEnglishFamily(localPath)) {
+    return {
+      key: 'english',
+      label: 'English',
+      items: englishNavigation(base),
+      active: resolveEnglishActive(localPath)
+    };
+  }
+
+  if (isPoliticsFamily(localPath)) {
+    const items = politicsNavigation(base);
+    return {
+      key: 'politics',
+      label: '政治',
+      items,
+      active: resolvePathNavigationActive(localPath, items)
+    };
+  }
+
+  if (isXizongFamily(localPath)) {
+    const items = xizongNavigation(base);
+    return {
+      key: 'xizong',
+      label: '西综',
+      items,
+      active: resolvePathNavigationActive(localPath, items)
+    };
+  }
+
+  return null;
 }
