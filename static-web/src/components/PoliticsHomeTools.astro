@@ -96,6 +96,16 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
 </script>
 
 <style>
-  .politicsHomeTools{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;margin-top:12px}.politicsContinue,.politicsHandoff{padding:18px 20px;border:1px solid var(--study-line);border-radius:14px;background:#fff;color:inherit}.politicsContinue{display:grid;gap:4px;text-decoration:none}.politicsContinue>span,.politicsHandoff span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.politicsContinue strong,.politicsHandoff strong{font-size:18px}.politicsContinue small{color:var(--study-faint);line-height:1.5}.politicsHandoff{display:flex;align-items:center;justify-content:space-between;gap:16px}.politicsHandoff>div{display:grid;gap:4px}.politicsHandoff p{margin:0;color:var(--study-muted);font-size:12px;line-height:1.55}.politicsHandoff button{padding:9px 12px;border:1px solid currentColor;border-radius:9px;background:#fff;color:inherit;font:inherit;font-size:12px;font-weight:760;cursor:pointer;white-space:nowrap}
+  .politicsHomeTools{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;margin-top:12px}
+  .politicsContinue,.politicsHandoff{padding:18px 20px;border:1px solid var(--study-line);border-radius:14px;background:#fff;color:inherit}
+  .politicsContinue{display:grid;gap:6px;text-decoration:none}
+  .politicsContinue>span,.politicsHandoff span{color:var(--study-green);font-size:16px;line-height:1.4;font-weight:800;letter-spacing:.02em}
+  .politicsContinue strong{font-size:20px;line-height:1.45}
+  .politicsContinue small{color:var(--study-faint);font-size:17px;line-height:1.6}
+  .politicsHandoff{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .politicsHandoff>div{display:grid;gap:6px}
+  .politicsReviewEntry{font-size:17px;line-height:1.5;font-weight:700}
+  .politicsHandoff p{margin:0;color:var(--study-muted);font-size:17px;line-height:1.6}
+  .politicsHandoff button{padding:10px 13px;border:1px solid currentColor;border-radius:9px;background:#fff;color:inherit;font:inherit;font-size:16px;line-height:1.4;font-weight:760;cursor:pointer;white-space:nowrap}
   @media(max-width:760px){.politicsHomeTools{grid-template-columns:1fr}.politicsHandoff{align-items:stretch;flex-direction:column}.politicsHandoff button{white-space:normal}}
 </style>
