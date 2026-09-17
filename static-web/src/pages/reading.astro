@@ -1,8 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import ReadingHome from '../components/ReadingHome.astro';
-import { inspectReadingSources } from '../lib/current.mjs';
-import { listReadingSets } from '../lib/englishReading.mjs';
+import { inspectReadingSources, listReadingSets } from '../lib/englishReadingSourceTruth.mjs';
 
 const sourceState = inspectReadingSources();
 const sets = sourceState.status === 'ready' ? listReadingSets() : [];
