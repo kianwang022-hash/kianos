@@ -35,12 +35,6 @@ function learnerLines(item, extraReserved = []) {
 function itemChildren(item) {
   return textList(item?.items);
 }
-
-function sharedRelationTarget(group) {
-  if (group?.primitive !== 'RELATION_SET' || !Array.isArray(group.items) || group.items.length < 2) return '';
-  const targets = group.items.map((item) => String(item?.to_label || '').trim()).filter(Boolean);
-  return targets.length === group.items.length && new Set(targets).size === 1 ? targets[0] : '';
-}
 ---
 
 <div class="politicsExplicitSurfacePlan" data-politics-explicit-surface-plan>
@@ -77,34 +71,6 @@ function sharedRelationTarget(group) {
             );
           })}
         </div>
-      ) : group.primitive === 'RELATION_SET' ? (
-        sharedRelationTarget(group) ? (
-          <div class="explicitRelationConvergence">
-            <div class="relationSourceRows">
-              {group.items.map((item) => (
-                <article>
-                  <strong>{item.from_label || itemLabel(item)}</strong>
-                  {item.relation && <span data-surface-field="relation">{item.relation}</span>}
-                  <i aria-hidden="true">→</i>
-                </article>
-              ))}
-            </div>
-            <div class="relationSharedTarget">
-              <strong>{sharedRelationTarget(group)}</strong>
-            </div>
-          </div>
-        ) : (
-          <div class="explicitRelationRows">
-            {group.items.map((item) => (
-              <article>
-                {item.from_label && <strong>{item.from_label}</strong>}
-                {item.relation && <span data-surface-field="relation">{item.relation}</span>}
-                <i aria-hidden="true">→</i>
-                {item.to_label && <strong>{item.to_label}</strong>}
-              </article>
-            ))}
-          </div>
-        )
       ) : group.primitive === 'PARALLEL_SET' ? (
         <div class="explicitParallel">
           {group.items.map((item) => (
@@ -172,10 +138,4 @@ function sharedRelationTarget(group) {
 
 <style>
   .politicsExplicitSurfacePlan{display:grid;gap:18px;min-width:0}.explicitGroup{display:grid;gap:10px;min-width:0}.explicitGroup>header{padding-bottom:7px;border-bottom:1px solid var(--study-line)}.explicitGroup>header strong{font-size:18px;line-height:1.45;color:#294b40}.zone-support{padding-top:4px}.zone-support>header strong{color:#587067;font-size:16px}.explicitParallel{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}.explicitParallel article,.explicitStatements article{display:grid;gap:5px;padding:9px 0 9px 12px;border-left:3px solid #bfd3cb}.explicitParallel b,.explicitStatements b,.sequenceItem b{font-size:18px;line-height:1.4;color:#173f32}.explicitParallel p,.explicitStatements p,.sequenceItem p{margin:0;font-size:16px;line-height:1.62;color:#4f675e}.explicitParallel ul,.explicitStatements ul,.sequenceItem ul{display:flex;flex-wrap:wrap;gap:7px 12px;margin:2px 0 0;padding:0;list-style:none}.explicitParallel li,.explicitStatements li,.sequenceItem li{font-size:16px;line-height:1.55;color:#405f54}.explicitSequence{display:flex;align-items:stretch;gap:12px;min-width:0}.sequenceItem{flex:1 1 0;display:grid;align-content:start;gap:5px;padding:10px 0 10px 12px;border-left:3px solid #7aa995}.sequenceTransition{flex:0 0 80px;display:grid;align-content:center;justify-items:center;gap:3px;color:#658d7f}.sequenceTransition span{font-size:16px;line-height:1.45;text-align:center}.sequenceTransition i{font-style:normal;font-size:20px;font-weight:760}.explicitCompare{display:grid;gap:10px}.explicitCompare article{padding:10px 0;border-bottom:1px solid #e7eeea}.compareSides{display:grid;grid-template-columns:1fr 1fr;gap:12px}.compareSides b{font-size:17px;color:#24483c}.explicitCompare p{margin:7px 0 0;font-size:16px;line-height:1.62;color:#536a61}.explicitHierarchy{display:grid;gap:8px}.explicitHierarchy article{display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;margin-left:calc(var(--level) * 12px);padding:9px 0;border-bottom:1px solid #e7eeea}.explicitHierarchy article>span{font-size:15px;font-weight:760;color:#527166}.explicitHierarchy article>div{display:grid;gap:5px}.explicitHierarchy p{margin:0;font-size:17px;line-height:1.6;color:#29483d}.explicitTimeline{display:grid;gap:8px;margin:0;padding:0;list-style:none}.explicitTimeline li{display:grid;grid-template-columns:130px minmax(0,1fr);gap:14px;padding:8px 0;border-bottom:1px solid #e7eeea}.explicitTimeline b{font-size:16px;color:#24483c}.explicitTimeline li>div{display:grid;gap:4px}.explicitTimeline span{font-size:16px;line-height:1.6;color:#536a61}.edgeStatement{display:flex;flex-wrap:wrap;align-items:baseline;gap:7px}.edgeStatement strong{font-size:17px}.edgeStatement span{font-size:16px;color:#587067}.surfaceLocator{font-weight:700;color:#2d5b49!important}@media(max-width:980px){.explicitSequence{display:grid}.sequenceTransition{min-height:30px;grid-template-columns:auto auto;justify-content:start}.sequenceTransition i{transform:rotate(90deg)}.compareSides{grid-template-columns:1fr}.explicitHierarchy article,.explicitTimeline li{grid-template-columns:1fr}.explicitHierarchy article{margin-left:0}}
-
-  .explicitRelationConvergence{display:grid;grid-template-columns:minmax(0,1fr) minmax(120px,.3fr);gap:18px;align-items:stretch}
-  .relationSourceRows{display:grid;gap:0}.relationSourceRows article{display:grid;grid-template-columns:minmax(100px,.35fr) minmax(0,1fr) auto;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid #e5ebe7}
-  .relationSourceRows article:first-child{border-top:1px solid #e5ebe7}.relationSourceRows strong{font-size:17px;line-height:1.5;color:#2c493e}.relationSourceRows span{font-size:16px;line-height:1.58;color:#5b7066}.relationSourceRows i{font-style:normal;color:#6e8c7d}
-  .relationSharedTarget{display:grid;place-items:center;padding:14px;border-left:2px solid #9db8ab;background:#f7faf8}.relationSharedTarget strong{font-size:18px;line-height:1.5;color:#27493b}
-  .explicitRelationRows{display:grid;gap:0}.explicitRelationRows article{display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid #e5ebe7}.explicitRelationRows strong{font-size:17px;color:#2c493e}.explicitRelationRows span{font-size:16px;line-height:1.58;color:#5b7066}.explicitRelationRows i{font-style:normal;color:#6e8c7d}
 </style>
