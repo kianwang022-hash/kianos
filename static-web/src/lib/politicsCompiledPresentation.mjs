@@ -1,6 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
+import {
+  resolvePoliticsChapterGeometry,
+  resolvePoliticsUnitRepresentation
+} from './politicsRepresentationGate.mjs';
 
 // Read-only consumer of the accepted Projection selector manifest. It selects
 // exact Current values; it never compiles new knowledge or changes unit identity.
@@ -37,7 +41,11 @@ export function resolvePoliticsPresentationRef(ref, chapter, unit) {
 
 function resolvedShapeEntries(entries, resolve) {
   return (entries || [])
-    .map(entry => ({ shape: entry.shape, value: resolve(entry.content) }))
+    .map(entry => ({
+      shape: entry.shape,
+      value: resolve(entry.content),
+      representation: resolvePoliticsChapterGeometry(entry, { stage: 'ORIENT' })
+    }))
     .filter(entry => entry.shape && present(entry.value));
 }
 
@@ -102,6 +110,8 @@ export function loadPoliticsCompiledPresentation(subject, code) {
       unitId: selected.unit_id,
       disposition: selected.projection_disposition,
       shape: selected.projection_shape,
+      representation: resolvePoliticsUnitRepresentation(selected, { stage: 'ORIENT' }),
+      externalRepresentation: resolvePoliticsUnitRepresentation(selected, { stage: 'EXTERNAL_LEARN' }),
       problem: resolve(selected.current_problem),
       primary: resolvedObjects(selected.primary_geometry, resolve),
       secondary: resolvedObjects(selected.secondary_reasoning, resolve),
