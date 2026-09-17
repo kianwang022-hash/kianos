@@ -30,6 +30,16 @@ async function waitForServer() {
   throw new Error('POLITICS_NU_VISUAL_SERVER_NOT_READY');
 }
 
+async function enterFirstUnit(page) {
+  const unit = page.locator('[data-politics-unit]').first();
+  const anchor = await unit.getAttribute('id');
+  if (!anchor) throw new Error('POLITICS_NU_VISUAL_UNIT_ANCHOR_MISSING');
+  const railLink = page.locator(`.politicsRail a[href="#${anchor}"]`);
+  await railLink.click();
+  await unit.waitFor({ state: 'visible' });
+  return unit;
+}
+
 const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
   cwd: process.cwd(), stdio: ['ignore', 'pipe', 'pipe'], detached: process.platform !== 'win32'
 });
@@ -46,8 +56,7 @@ try {
     await page.goto(`${BASE}/politics/${subject}/${chapter}/`, { waitUntil: 'networkidle' });
     const study = page.locator('.politicsStudy');
     await study.waitFor({ state: 'visible' });
-    const unit = page.locator('[data-politics-unit]:visible').first();
-    await unit.waitFor({ state: 'visible' });
+    const unit = await enterFirstUnit(page);
 
     const metrics = await unit.evaluate((node) => {
       const cognition = node.querySelector('.politicsUnitCognition');
@@ -88,6 +97,7 @@ try {
   const narrow = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const narrowPage = await narrow.newPage();
   await narrowPage.goto(`${BASE}/politics/history/ch01/`, { waitUntil: 'networkidle' });
+  await enterFirstUnit(narrowPage);
   const narrowMetrics = await narrowPage.evaluate(() => ({
     width: window.innerWidth,
     scrollWidth: document.documentElement.scrollWidth,
