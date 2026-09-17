@@ -82,7 +82,57 @@ Do not load unrelated subject content to change shared presentation, and do not 
 
 ## CONTROL
 
-Use root `CURRENT.md` plus only the lane/orchestrator owners needed for the requested status or decision.
+Use root `CURRENT.md` as the **single control entrypoint**, then route into only the lane/orchestrator owners needed for the requested status or decision.
+
+### Unified task dispatch
+
+Natural-language control requests should resolve automatically.
+
+Examples:
+
+```text
+“看看西综主线”
+→ root CURRENT
+→ content/xizong/CURRENT.md
+→ content/xizong/CONTENT_MAINLINE.md
+→ read exact active task cursors needed to report the current task set
+
+“看看西综 UI”
+→ root CURRENT
+→ content/xizong/CURRENT.md
+→ active Xizong UI owner / branch state
+
+“开始 D”
+or, after a task list, “开始第一个”
+→ re-read the selected task's exact CURRENT/cursor
+→ read only the minimum required Contract / Acceptance / canonical owner
+→ execute the task
+```
+
+The user should not need to remember file names, branch names, issue numbers, stage codes, or repository paths.
+
+### Task ownership and update propagation
+
+Do not duplicate exact task state into Root Control.
+
+```text
+exact task CURRENT / cursor
+→ owns exact “where are we / what next”
+
+program mainline / orchestrator
+→ owns lane priority, dependency and active-task set
+
+root CURRENT
+→ owns cross-program visibility and routing only
+```
+
+When work advances:
+
+1. update the **exact task owner** first;
+2. update its program mainline only when the lane stage / priority / dependency materially changes;
+3. update root `CURRENT.md` only when the cross-program snapshot materially changes.
+
+Therefore a fresh control request should **read through the owner chain**, not trust a stale copied Root summary when a child cursor has moved.
 
 Normal target after scope resolution:
 

@@ -56,6 +56,73 @@ An unapproved screenshot is not a visual PASS. CI green alone never authorizes m
 
 ---
 
+## Unified control entrypoint / task dispatcher
+
+Root `CURRENT.md` is the one entrypoint for project-control requests, but **not** the owner of every exact task.
+
+Natural language is enough:
+
+```text
+看看西综主线
+看看西综现在有哪些任务
+看看政治 UI
+英语现在做到哪
+```
+
+Control resolves the relevant owner chain and returns the current active task set.
+
+For Xizong Content, the normal dispatch path is:
+
+```text
+root CURRENT
+→ content/xizong/CURRENT.md
+→ content/xizong/CONTENT_MAINLINE.md
+→ exact active task owner(s)
+
+Examples of exact owners:
+D Content              → D scoped CURRENT
+Question Crosswalk     → question-relations/continuation.json
+Visual / Extension     → exact reviewed batch/asset owner when active
+```
+
+After Control presents tasks, a follow-up such as:
+
+```text
+开始第一个
+开始 D
+继续 Crosswalk
+```
+
+means:
+
+```text
+selected task
+→ re-read its exact Current/cursor
+→ load only the minimum required upstream authority
+→ start work immediately
+```
+
+No file-name or mode selection should be pushed back onto Kian.
+
+### Scheduling/update rule
+
+The dispatcher is **read-through**, not a manually duplicated task database.
+
+```text
+exact task owner
+= exact cursor / next action
+
+program mainline
+= active lanes / priority / dependency
+
+root Control
+= global discovery / routing / high-level snapshot
+```
+
+This prevents Root from becoming stale every time a bounded batch advances. Exact task progress remains live in its canonical cursor; Control discovers it on demand.
+
+---
+
 ## Content improvement stream
 
 Root Control must summarize durable **program-level Content progress**, not only website work.
