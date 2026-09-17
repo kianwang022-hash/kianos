@@ -13,8 +13,8 @@ This file owns Work Cursor only. It does not own medical Core, accepted Learning
 **Scope:** D — Neuro / Sensory / Motor / Orthopedics  
 **Accepted upstream:** **S1 + K + L closed**  
 **Active construction stage:** **Content Realization / Optimization**  
-**Content state:** **PHASE 7B WRAPPER / AUTHORITY CLEANUP CLOSED · CONTENT NOT CLOSED**  
-**Earliest eligible next action:** **Phase 7C — N1–N11 LG-by-LG content sufficiency + density audit**  
+**Content state:** **PHASE 7B WRAPPER CLEANUP CLOSED + PHASE 7C NEURAL LG SUFFICIENCY CLOSED · CONTENT NOT CLOSED**  
+**Earliest eligible next action:** **Phase 7D — O1–O16 / 72 LG content sufficiency + density audit**  
 **Parallel Source boundary:** exact official D System question membership remains **UNTESTED** and gates the later trusted official-question sweep only
 
 ```text
@@ -57,6 +57,7 @@ Content realization evidence:
 - `content/xizong/knowledge/learner/D_PHASE7A_CONTENT_ROLE_AUDIT.md`
 - `content/xizong/knowledge/learner/D_PHASE7B_BLOCK_WRAPPER_CLEANUP_SPEC.md`
 - `content/xizong/knowledge/learner/D_PHASE7B_BLOCK_WRAPPER_CLEANUP_EXECUTION.md`
+- `content/xizong/knowledge/learner/D_PHASE7C_NEURAL_CONTENT_SUFFICIENCY_AUDIT.md`
 
 Fresh independent L evidence:
 
@@ -149,40 +150,64 @@ Formal execution receipt:
 
 ---
 
-## Active Phase 7C — neural LG content sufficiency / density audit
+## Phase 7C result — CLOSED
+
+Neural Content was audited against all accepted N1–N11 Logic Groups:
+
+```text
+N1–N11 accepted LGs reviewed = 56 / 56
+PASS after audit/repair       = 56 / 56
+Broad Core rewrite            = NOT JUSTIFIED
+```
+
+The first readback found only two bounded Recall-front defects:
+
+- `N10-LG04 / N10-KP11`: singleton title directly stated the posterior-vs-anterior pituitary transport answer;
+- `N11-LG05 / N11-KP12`: singleton title directly enumerated nearly the full urgent-escalation closure.
+
+Both were repaired only at the Recall-facing identity/prompt layer and targeted readback passed. Reveal-side medical Core, accepted LG membership, Source units, visual gates and boundaries were unchanged.
+
+Formal receipt:
+
+`content/xizong/knowledge/learner/D_PHASE7C_NEURAL_CONTENT_SUFFICIENCY_AUDIT.md`
+
+Preserved neural negative space includes N5 olfaction/gustation Source limits, N6 diabetic-retinopathy stage conflict, N10 cortical-location label conflict, N11 spinal-shock timing context difference and the absence of a full clinical-neurology curriculum.
+
+---
+
+## Active Phase 7D — orthopedic LG content sufficiency / density audit
 
 Earliest Content question now becomes:
 
-> Does every accepted N1–N11 Logic Group have enough canonical learner-facing Core, retrieval cue and closure support to form the intended model after Source contact, without forcing a second Lecture read?
+> Does every accepted O1–O16 Logic Group have enough canonical learner-facing Core, retrieval cue and closure support after its accepted Source contact, without turning KianOS into a second orthopedic Lecture or importing external guideline knowledge?
 
-Phase 7C must inspect the actual neural canonical owners LG-by-LG and classify concrete defects rather than broadly rewrite prose.
+Audit **all 72 accepted orthopedic LGs** against their actual canonical KP owners.
 
-For every accepted neural LG, test at least:
+For every LG test at least:
 
 ```text
-1. model identity / causal job is clear;
-2. KP set is sufficient for that job;
-3. active-recall cues do not leak the answer excessively;
-4. Detailed Expansion is sufficient for check / repair but not compulsory exposition;
-5. confusable / precision / boundary content is present where genuinely needed;
-6. visual dependence remains a Source / Visual Gate, not silently text-simulated;
-7. Source gaps/conflicts remain explicit;
-8. closure can be achieved without unrelated prior-Block completion assumptions.
+1. model identity / causal or discrimination job is clear;
+2. KP membership is sufficient for the accepted closure;
+3. pre-Reveal title/prompt scaffolds retrieval without essentially answering the closure;
+4. Detailed Expansion is sufficient for check / repair and not compulsory continuous exposition;
+5. precision/confusable/boundary content exists where materially needed;
+6. force / displacement / anatomy / imaging cognition remains delegated to original Source visuals when spatially decisive;
+7. Source gaps/conflicts and external-owner boundaries remain explicit;
+8. closure does not assume non-hard prior Blocks are already completed.
 ```
 
-Possible outcomes per LG / Block:
+Possible outcomes:
 
 - `PASS_NO_CHANGE`;
 - `TARGETED_CONTENT_REPAIR` in the natural canonical owner;
-- `BLOCKED_BY_SOURCE_GAP` only where the accepted Source boundary truly lacks support.
+- `BLOCKED_BY_SOURCE_GAP` only where the accepted Source truly lacks the required content.
 
-Phase 7C must not reopen accepted Learning topology merely because prose could be stylistically improved.
+Do not reopen accepted Learning topology merely because orthopedic prose could be stylistically improved.
 
-After neural Content sufficiency closes:
+After orthopedic Content sufficiency closes:
 
 ```text
-Phase 7D — O1–O16 LG-by-LG content sufficiency/density audit
-→ Phase 7E — fresh independent Content closure audit
+Phase 7E — fresh independent Content closure audit
 ```
 
 ---
@@ -198,7 +223,7 @@ Content remains open until:
 - Page-disappearance test passes;
 - no Projection/UI decisions have been smuggled into Content.
 
-Phase 7B has already closed the wrapper-route / first-pass-role portion of this list.
+Phase 7B closed wrapper-route / first-pass-role debt. Phase 7C closed neural LG sufficiency/density.
 
 ---
 
