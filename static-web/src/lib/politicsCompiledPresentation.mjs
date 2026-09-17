@@ -52,6 +52,7 @@ export function loadPoliticsCompiledPresentation(subject, code) {
   const rawUnits = source.units || source.unit_projections || (source.unit ? [source.unit] : []);
   const rawById = new Map(rawUnits.map(unit => [unit.natural_unit_id, unit]));
   const units = new Map();
+  const purposeFirstPilot = directory === 'marxism' && code === 'ch01';
   for (const selected of projection.units || []) {
     if (selected.projection_disposition !== 'PASS') continue;
     const rawUnit = rawById.get(selected.unit_id);
@@ -63,6 +64,7 @@ export function loadPoliticsCompiledPresentation(subject, code) {
       unitId: selected.unit_id,
       shape: selected.projection_shape,
       representation: resolvePoliticsUnitRepresentation(selected, { stage: 'ORIENT' }),
+      purposeFirstPilot,
       problem: resolve(selected.current_problem),
       primary: objects(selected.primary_geometry),
       secondary: objects(selected.secondary_reasoning),
