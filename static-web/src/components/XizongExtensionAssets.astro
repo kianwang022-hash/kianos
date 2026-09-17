@@ -80,6 +80,9 @@ const groupIds = (block?.logicGroups || []).map((group) => group.groupId);
       card.className = `xizongExtensionCard xizongExtensionCard--${text(asset.asset_type).toLowerCase()}`;
       card.dataset.xizongExtension = 'true';
       card.dataset.xizongExtensionSlot = text(asset.slot_id);
+      card.dataset.xizongExtensionType = text(asset.asset_type);
+      card.dataset.xizongExtensionTiming = text(asset.display_policy?.timing);
+      if (asset.owner?.kp_id) card.dataset.xizongExtensionOwnerKp = text(asset.owner.kp_id);
       const heading = document.createElement('header');
       addText(heading, 'span', 'xizongExtensionType', text(asset.asset_type).replaceAll('_', ' '));
       addText(heading, 'h4', '', asset.title);
@@ -94,9 +97,13 @@ const groupIds = (block?.logicGroups || []).map((group) => group.groupId);
 
     const mount = (target, asset) => {
       if (!target) return;
-      if (asset.display_policy?.timing === 'REFERENCE_ONLY') {
+      const folded = asset.display_policy?.timing === 'REFERENCE_ONLY' || asset.display_policy?.default_state === 'COLLAPSED';
+      if (folded) {
         const details = document.createElement('details');
-        details.className = 'xizongExtensionReference';
+        details.className = asset.display_policy?.timing === 'REFERENCE_ONLY'
+          ? 'xizongExtensionReference'
+          : 'xizongExtensionCollapsed';
+        details.dataset.xizongExtensionFold = text(asset.slot_id);
         addText(details, 'summary', '', asset.title);
         details.append(renderCard(asset));
         target.append(details);
@@ -135,9 +142,9 @@ const groupIds = (block?.logicGroups || []).map((group) => group.groupId);
       const groupId = activeGroupId();
       groupTarget.replaceChildren();
       closeTarget.replaceChildren();
-      assets.filter((asset) => asset.owner?.logic_group_id === groupId && asset.display_policy?.timing !== 'POST_REVEAL')
+      assets.filter((asset) => !asset.owner?.kp_id && asset.owner?.logic_group_id === groupId && asset.display_policy?.timing !== 'POST_REVEAL')
         .forEach((asset) => mount(groupTarget, asset));
-      assets.filter((asset) => asset.owner?.logic_group_id === groupId && asset.display_policy?.timing === 'POST_REVEAL')
+      assets.filter((asset) => !asset.owner?.kp_id && asset.owner?.logic_group_id === groupId && asset.display_policy?.timing === 'POST_REVEAL')
         .forEach((asset) => mount(closeTarget, asset));
     };
 
@@ -161,9 +168,9 @@ const groupIds = (block?.logicGroups || []).map((group) => group.groupId);
   .xizongExtensionTable tr.emphasis td { font-weight:700; }
   .xizongExtensionFigure { margin:.7rem 0 0; }
   .xizongExtensionFigure img { display:block; max-width:100%; height:auto; border-radius:10px; }
-  .xizongExtensionReference { margin:.7rem 0; }
-  .xizongExtensionReference summary { cursor:pointer; font-weight:700; }
-  .xizongExtensionReference .xizongExtensionCard { margin-left:.25rem; }
+  .xizongExtensionReference,.xizongExtensionCollapsed { margin:.7rem 0; }
+  .xizongExtensionReference summary,.xizongExtensionCollapsed summary { cursor:pointer; font-weight:700; }
+  .xizongExtensionReference .xizongExtensionCard,.xizongExtensionCollapsed .xizongExtensionCard { margin-left:.25rem; }
   .xizongExtensionGroupSurface:empty { display:none; }
   @media (max-width:720px) { .xizongExtensionCard header { align-items:flex-start; flex-direction:column; gap:.15rem; } }
 </style>
