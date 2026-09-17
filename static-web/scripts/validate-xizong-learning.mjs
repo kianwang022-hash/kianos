@@ -58,6 +58,98 @@ const wuIds = (results) => Object.entries(results)
   .filter(([, row]) => row && ['wrong', 'uncertain'].includes(row.status))
   .map(([questionId]) => questionId);
 
+const pad2 = (value) => String(value).padStart(2, '0');
+
+function validateLogicGroupCognitiveRoutes() {
+  const policy = JSON.parse(read('content/xizong/knowledge/learner/study-policy.json'));
+  const routePolicy = policy?.logic_group_cognitive_route;
+  assert(routePolicy, 'logic-group-cognitive-route-policy-missing');
+  const allowedShapes = new Set(routePolicy.shape_values || []);
+  const allowedEdges = new Set(routePolicy?.structure?.edge_kinds || []);
+  assert(allowedShapes.size > 0, 'logic-group-cognitive-route-shapes-missing');
+  assert(allowedEdges.size > 0, 'logic-group-cognitive-route-edge-kinds-missing');
+
+  const learnerRoot = path.join(repoRoot, 'content/xizong/knowledge/learner');
+  const files = fs.readdirSync(learnerRoot)
+    .filter((name) => /-learning\.json$/i.test(name))
+    .sort();
+
+  let routeCount = 0;
+  for (const name of files) {
+    const support = JSON.parse(fs.readFileSync(path.join(learnerRoot, name), 'utf8'));
+    const blocks = support?.blocks || {};
+    const blocksWithRoute = Object.entries(blocks).filter(([, block]) =>
+      Object.values(block?.logic_groups || {}).some((group) => group?.cognitive_route)
+    );
+    if (!blocksWithRoute.length) continue;
+
+    assert(support?.system_owner, `${name}:cognitive-route-system-owner-missing`);
+    const system = JSON.parse(read(support.system_owner));
+
+    for (const [blockId, block] of blocksWithRoute) {
+      const canonicalGroups = new Map((system?.logic_index?.[blockId] || []).map((group) => [group.id, group]));
+      for (const [groupId, groupLearning] of Object.entries(block?.logic_groups || {})) {
+        const route = groupLearning?.cognitive_route;
+        if (!route) continue;
+        routeCount += 1;
+
+        const canonical = canonicalGroups.get(groupId);
+        assert(canonical, `${groupId}:cognitive-route-canonical-group-missing`);
+        assert(allowedShapes.has(route.shape), `${groupId}:cognitive-route-shape:${route.shape}`);
+        assert(String(route.organizing_question || '').trim(), `${groupId}:cognitive-route-question-missing`);
+        assert(Array.isArray(route.nodes) && route.nodes.length > 0, `${groupId}:cognitive-route-nodes-missing`);
+        assert(Array.isArray(route.edges), `${groupId}:cognitive-route-edges-not-array`);
+
+        const nodeIds = route.nodes.map((node) => String(node?.id || ''));
+        assert(nodeIds.every(Boolean), `${groupId}:cognitive-route-node-id-missing`);
+        assert(new Set(nodeIds).size === nodeIds.length, `${groupId}:cognitive-route-node-id-duplicate`);
+
+        const routeKpIds = [];
+        for (const node of route.nodes) {
+          assert(String(node?.label || '').trim(), `${groupId}:${node?.id}:cognitive-route-node-label-missing`);
+          assert(Array.isArray(node?.kp_ids) && node.kp_ids.length > 0, `${groupId}:${node?.id}:cognitive-route-node-kp-missing`);
+          for (const kpId of node.kp_ids) routeKpIds.push(String(kpId));
+        }
+        assert(new Set(routeKpIds).size === routeKpIds.length, `${groupId}:cognitive-route-kp-duplicate`);
+
+        const range = Array.isArray(canonical?.kp) ? canonical.kp : [];
+        const start = Number(range[0]);
+        const end = Number(range[1]);
+        assert(Number.isInteger(start) && Number.isInteger(end) && end >= start, `${groupId}:canonical-range-invalid`);
+        const expectedKpIds = [];
+        for (let ordinal = start; ordinal <= end; ordinal += 1) {
+          expectedKpIds.push(`${blockId}-kp${pad2(ordinal)}`);
+        }
+        assert(
+          routeKpIds.length === expectedKpIds.length
+          && expectedKpIds.every((kpId) => routeKpIds.includes(kpId)),
+          `${groupId}:cognitive-route-kp-coverage:${routeKpIds.join(',')}`
+        );
+
+        const nodeSet = new Set(nodeIds);
+        for (const edge of route.edges) {
+          const from = String(edge?.from || '');
+          const to = String(edge?.to || '');
+          assert(nodeSet.has(from), `${groupId}:cognitive-route-edge-from:${from}`);
+          assert(nodeSet.has(to), `${groupId}:cognitive-route-edge-to:${to}`);
+          assert(from !== to, `${groupId}:cognitive-route-self-edge:${from}`);
+          assert(allowedEdges.has(edge?.kind), `${groupId}:cognitive-route-edge-kind:${edge?.kind}`);
+          assert(String(edge?.label || '').trim(), `${groupId}:cognitive-route-edge-label-missing:${from}->${to}`);
+        }
+      }
+    }
+  }
+
+  const a2 = JSON.parse(read('content/xizong/knowledge/learner/a2-respiratory-learning.json'));
+  const r1Groups = Object.values(a2?.blocks?.['respiratory-r01']?.logic_groups || {});
+  assert(r1Groups.length === 4, `a2-r1-logic-group-count:${r1Groups.length}`);
+  assert(r1Groups.every((group) => group?.cognitive_route), 'a2-r1-cognitive-route-calibration-incomplete');
+  assert(routeCount >= 4, `cognitive-route-count:${routeCount}`);
+  return routeCount;
+}
+
+const cognitiveRouteCount = validateLogicGroupCognitiveRoutes();
+
 // ---------- Current A1 structural / learning-contract load ----------
 const system = loadXizongSystem('circulation');
 assert(system.canonicalId === 'A1', `identity:${system.canonicalId}`);
