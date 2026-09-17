@@ -1,6 +1,6 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import XizongSystemV6 from '../../../components/XizongSystemV6.astro';
+import XizongSystemWorkspace from '../../../components/XizongSystemWorkspace.astro';
 import XizongSystemExitRuntime from '../../../components/XizongSystemExitRuntime.astro';
 import XizongQuestionCrosswalkConsumer from '../../../components/XizongQuestionCrosswalkConsumer.astro';
 import XizongSystemRepairReturn from '../../../components/XizongSystemRepairReturn.astro';
@@ -23,7 +23,7 @@ const questionSweep = loadXizongSystemQuestionSweep(system);
 ---
 <Base title={system.title} kicker={`西医综合 · ${system.canonicalId} · System Learn`} description={system.mission} sourcePath={system.sourcePath} sourceHash={system.sourceHash} objectId={`xizong:${system.systemId}`} active="xizong" showLead={false}>
   <XizongLastLocation system={system} />
-  <XizongSystemV6 system={system} pathways={pathways} />
+  <XizongSystemWorkspace system={system} pathways={pathways} />
   {questionSweep && (
     <details class="xizongLaterStage" data-xizong-later-stage="system-exit">
       <summary>
