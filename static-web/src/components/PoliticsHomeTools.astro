@@ -123,5 +123,10 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
   body#kianos-workspace.surfaceBody-politics [data-politics-home-tools] .politicsReviewEntry:hover{text-decoration:underline}
   body#kianos-workspace.surfaceBody-politics [data-politics-home-tools] .politicsHandoff button{font-size:14px;line-height:1.4}
   body#kianos-workspace.surfaceBody-politics [data-politics-home-tools][data-has-handoff="error"] .politicsHandoff{background:#fbfaf4}
-  @media(max-width:760px){body#kianos-workspace.surfaceBody-politics [data-politics-home-tools]{grid-template-columns:1fr}}
+  @media(max-width:760px){
+    body#kianos-workspace.surfaceBody-politics [data-politics-home-tools]{grid-template-columns:1fr}
+    body#kianos-workspace.surfaceBody-politics .politicsOverviewActions{width:100%;min-width:0;flex-direction:column;align-items:stretch;gap:8px}
+    body#kianos-workspace.surfaceBody-politics .politicsOverviewActions>a{max-width:100%;min-width:0;box-sizing:border-box;overflow-wrap:anywhere}
+    body#kianos-workspace.surfaceBody-politics .politicsOverviewActions .politicsPracticeEntry{flex-shrink:1;justify-content:space-between;gap:12px}
+  }
 </style>
