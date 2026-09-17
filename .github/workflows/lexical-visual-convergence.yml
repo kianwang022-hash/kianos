@@ -1,0 +1,72 @@
+name: Lexical Visual Convergence
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/lexical-visual-convergence.yml'
+      - 'static-web/src/layouts/Base.astro'
+      - 'static-web/src/pages/vocabulary/**'
+      - 'static-web/src/components/Vocabulary*.astro'
+      - 'static-web/src/styles/lexical-presentation.css'
+      - 'static-web/src/styles/english-cloze-polish.css'
+      - 'static-web/src/styles/viewport-workspaces.css'
+      - 'static-web/scripts/validate-lexical-style-ownership.mjs'
+      - 'static-web/scripts/capture-lexical-visual-convergence.mjs'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lexical-visual-convergence.yml'
+      - 'static-web/src/layouts/Base.astro'
+      - 'static-web/src/pages/vocabulary/**'
+      - 'static-web/src/components/Vocabulary*.astro'
+      - 'static-web/src/styles/lexical-presentation.css'
+      - 'static-web/src/styles/english-cloze-polish.css'
+      - 'static-web/src/styles/viewport-workspaces.css'
+      - 'static-web/scripts/validate-lexical-style-ownership.mjs'
+      - 'static-web/scripts/capture-lexical-visual-convergence.mjs'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lexical-visual-convergence-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  mac-wide-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Prove Lexical has one active visual owner
+        working-directory: static-web
+        run: node scripts/validate-lexical-style-ownership.mjs
+
+      - name: Install and build Current learner site
+        working-directory: static-web
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+
+      - name: Install Chromium review tool
+        working-directory: static-web
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Capture and assert a / abandon / abroad
+        working-directory: static-web
+        run: node scripts/capture-lexical-visual-convergence.mjs
+
+      - name: Upload screenshots for human review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lexical-visual-review-${{ github.sha }}
+          path: lexical-visual-review/
+          if-no-files-found: error
+          retention-days: 14
