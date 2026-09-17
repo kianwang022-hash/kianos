@@ -144,6 +144,10 @@ try {
   check(await root.locator('[data-study-stage="kp_recall"] [data-learner-asset]').count() === 0, 'recall_front_contains_no_auxiliary_answer_payload');
   check(await root.locator('[data-kp-recall-card]:not([hidden]) [data-kp-answer]').isHidden(), 'recall_answer_remains_hidden_before_reveal');
   await page.waitForFunction(() => document.querySelector('[data-xizong-v6-block]')?.getAttribute('data-aux-weight') === 'none');
+  await page.waitForFunction(() => {
+    const right = document.querySelector('[data-xizong-v6-block] .portedStudyChain')?.getBoundingClientRect().width || 0;
+    return right >= 190 && right <= 230;
+  });
   const compactRecallWidth = await root.locator('.portedStudyChain').evaluate((node) => node.getBoundingClientRect().width);
   check(compactRecallWidth >= 190 && compactRecallWidth <= 230, 'auxiliary_rail_returns_space_to_core_on_clean_recall_front', String(compactRecallWidth));
 
