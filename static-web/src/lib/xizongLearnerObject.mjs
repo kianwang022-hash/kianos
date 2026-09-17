@@ -31,6 +31,7 @@ function normalizeCue(row, kind) {
     task: text(row?.task || row?.micro_task),
     sourceLocator: text(row?.source_locator || row?.sourceLocator),
     sourceVisualBundle: row?.source_visual_bundle || null,
+    answerHtml: text(row?.answerHtml || row?.answer_html || row?.raw?.answerHtml || row?.raw?.answer_html),
     raw: row
   };
 }
