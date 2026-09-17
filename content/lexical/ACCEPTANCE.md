@@ -9,12 +9,12 @@ S  PASS
 K  PASS — full catalog
 L  PASS — learner-controlled vNext learning logic
 P  PASS — Current 7,946-owner generation
-R  BLOCKED — fresh Current re-acceptance active; bounded Functional First PASS
-E  BLOCKED — downstream-frozen; bounded Functional First PASS
+R  PASS_WITH_DEBT — Current executable learner loop
+E  BLOCKED — fresh Current re-acceptance active
 U  UNTESTED
 ```
 
-Allowed claim: Source/Natural Owner boundaries, full-catalog K quality, the Current learner projection, the vNext Learning Contract, and the bounded Repair / Challenge / Evidence implementation are integrated and browser-proven. P is accepted for the current admitted Lexical generation. R/E unrestricted Current readiness is being freshly re-audited under Issue #323; real learner U remains separate.
+Allowed claim: Source/Natural Owner boundaries, full-catalog K quality, Current learner projection and the Current executable Lexical learning loop are learner-ready for the audited generation. R has one named non-blocking product debt; E is now the active downstream acceptance gate. Real learner U remains separate.
 
 Artifact Truth, Acceptance Truth and private Learner Truth remain separate. No engineering/browser evidence creates familiarity, mastery, Coverage progress, Repair debt or U.
 
@@ -40,15 +40,11 @@ same-owner Form boundary browser         PASS
 Astro build                               PASS
 ```
 
-Durable evidence lives under `content/lexical/acceptance/full-catalog-k-*.json`. The three bounded integration repairs (`organise@3375`, `resolve@4115`, `installment@5902`) restored already-accepted authority and did not reopen semantic review. `form_identity.boundaries[]` is projected without collapsing same-owner and distinct-owner identity.
-
-K PASS means the current 7,946-owner catalog is a trustworthy learning asset. It does not mean every owner requires Depth or has been learned.
+Durable evidence lives under `content/lexical/acceptance/full-catalog-k-*.json`. K PASS means the current 7,946-owner catalog is a trustworthy learning asset; it does not mean every owner requires Depth or has been learned.
 
 ## L — preserved PASS
 
 `LEARNING_CONTRACT.md` remains learner-facing authority.
-
-Canonical loop:
 
 ```text
 reliable Coverage judgment
@@ -66,88 +62,68 @@ Unknown/Fuzzy may open Depth now but cannot manufacture future whole-card Repair
 
 Fresh re-acceptance authority: Issue #323 and `content/lexical/acceptance/PRE_CURRENT_REACCEPTANCE_AUDIT_20260917.md`.
 
-The audited scope is the current 7,946-owner generation and its currently admitted learner surfaces. Hypothetical future content types are not a permanent blocker; a future admitted type receives its own bounded projection evidence when it exists.
+P was re-judged against the current admitted generation rather than hypothetical future content. Current learner projection provides Study / Continue, Search, Repair and Challenge; Mastered/Known/Fuzzy/Unknown routing; non-leaking Recall → Reveal; Core / senses / secondary senses; constructions / fixed collocations; Relation/confusable; Form/identity; exact local `+`; sparse/rich adaptive shapes; keyboard traversal and Coverage continuation.
 
-Current learner projection provides:
+Final P closure PR #324 landed after latest-main synchronization. Its final head passed Governance, Shard Tools, Current Runtime and Lexical Functional First run `35164291800`, including full-catalog projection verification and every representative browser journey.
 
-- Study / Continue, Search, Repair and Challenge entry surfaces;
-- recent-position continuation and meaningful-evidence Return handoff;
-- whole-card Mastered / Known / Fuzzy / Unknown routing;
-- Recall Map before answer-bearing Reveal;
-- Core / Word Feel, active senses and verified secondary senses;
-- constructions and fixed collocations;
-- Relation/confusable views;
-- Form / identity distinctions;
-- exact local `+` surfaces;
-- sparse-word and rich-word adaptive shapes;
-- keyboard-first traversal plus Prev / Next / Coverage continuation.
+No known Current projection defect changes the learner path, leaks protected answers, invents semantics or assigns a material action to the wrong primary surface.
 
-Projection preserves the Learning Contract: answer-bearing Depth stays hidden before Reveal; Known can Fast Pass without Repair debt; Fuzzy/Unknown can enter Depth without creating whole-card future debt; optional modules are not fabricated merely to fill a template.
+## R — Current-generation PASS_WITH_DEBT
 
-Fresh exact-head revalidation synchronized the audit branch with `main@08b8d07ad1ae3d904fe794e0c38801f039c4ae39`. On synchronized head `d511a18c182d668b900ad4fd25ea39aaca4dbdfa`:
+Fresh re-acceptance authority: Issue #323 and `content/lexical/acceptance/R_CURRENT_REACCEPTANCE_AUDIT_20260917.md`.
 
-- Lexical Shard Tools run `35163912615` — PASS;
-- LexicalOS Current Runtime run `35163912664` — PASS, including Current catalog hydration and Astro build;
-- Lexical Functional First run `35163912533` — PASS, including full-catalog projection verification and every representative browser journey.
+Current Runtime already executes the material learning loop:
 
-No known Current projection defect changes the learner path, leaks protected answers, invents semantics or assigns a material action to the wrong primary surface. Therefore P is PASS for the Current generation.
+- Home defaults to Study / Continue; Search, Repair and Challenge are separate optional modes;
+- Coverage cursor persists independently of Repair eligibility;
+- Known/Mastered Fast Pass and Fuzzy/Unknown Depth routing execute directly;
+- exact local `+` admits target-level Repair rather than whole-card debt;
+- one shared evidence ledger/reducer owns Repair projection;
+- Home and Word-page Repair reflect the same ACTIVE targets;
+- manual clear is dormancy/agency rather than mastery;
+- Challenge imports an explicit selected packet, supports answer/repair/reconstruction/continue, and resumes exact packet progress after refresh;
+- meaningful Return evidence is exportable;
+- exact English → Lexical evidence can activate/dormancy the same target;
+- unrelated target evidence does not clear another target;
+- no due/overdue wall or mandatory all-Repair-before-Coverage rule exists.
 
-P PASS does not settle Runtime session selection, Evidence identity evolution, or real learner U; those are separate downstream gates.
+### Named non-blocking debt
 
-## R — BLOCKED pending fresh Current re-acceptance
+The Repair tab currently exposes the full ACTIVE inventory rather than a first-class “recommended small current subset + why now” view.
 
-PR #174 integrated the bounded Functional First Runtime and Evidence loop. Current implementation already includes:
+This does **not** block R because:
 
-- shared evidence-ledger authority for Repair;
-- card routing separate from local Repair admission;
-- exact local `+` and manual clear;
-- Home and Word-page Repair from the same reducer;
-- `NONE → ACTIVE → DORMANT` behavior;
-- Challenge import, answer, repair/reconstruction and resume after refresh;
-- Return Packet export;
-- exact English → Lexical target handoff;
-- Coverage continuation without a due wall.
+1. Repair is an optional tab, not the default session;
+2. Coverage can continue without clearing ACTIVE targets;
+3. the UI has no due semantics or mandatory Repair gate;
+4. Challenge consumes an explicit packet, so Chat can already compile a small useful subset from fresh evidence/capacity;
+5. the Learning Contract explicitly assigns adaptive selection/diagnosis to Chat rather than requiring a fixed Astro scheduler.
 
-This is real integrated implementation, not design-only work.
+Therefore this is product/UX debt only. It must not be “fixed” by inventing a calendar scheduler, fixed quota, overdue wall or mandatory clearing rule.
 
-R remains BLOCKED only while Issue #323 freshly determines whether any current executable-path blocker remains. The main attack is Repair entry/session selection: the contract asks for a small useful Repair branch while also explicitly assigning adaptive selection strategy to Chat. Showing all ACTIVE targets for visibility is not automatically a blocker if it is optional and never prevents Coverage.
+`R = PASS_WITH_DEBT` means the intended Current executable learner journey works correctly; the named debt may improve convenience but does not alter the claimed learning behavior.
 
-Do not rebuild Runtime merely to preserve the historical `BLOCKED` label.
+## E — BLOCKED / fresh Current re-acceptance active
 
-## E — BLOCKED / downstream-frozen
+`EVIDENCE_MEMORY_CONTRACT.md` owns event semantics. The integrated reducer already proves stable exact target keys, idempotent replay, event-ID conflict quarantine, occurrence ordering, card-routing / Repair separation, qualified attribution, demand-matched dormancy, reconstruction limits, correction/recomputation, dormancy/reactivation and no calendar-generated debt.
 
-`EVIDENCE_MEMORY_CONTRACT.md` owns event semantics. The integrated reducer already proves:
+The fresh E attack must now resolve one concrete Current risk rather than preserving the old bounded label by inertia:
 
-- stable exact target keys (`target_id` or versioned locator + revision);
-- idempotent replay;
-- event-ID conflict quarantine;
-- causal/occurrence ordering rather than import-time recency;
-- separation of card routing and local Repair admission;
-- qualified English/Challenge attribution;
-- demand-matched dormancy;
-- same-session reconstruction not counted as delayed transfer;
-- question/semantic correction and recomputation;
-- precise dormancy/reactivation;
-- no calendar-generated overdue debt;
-- manual clear as agency rather than mastery.
+> Canonical sense lifecycle records already contain `active`, `deprecated`, `merged` and explicit `merged_into_sense_id`. Persisted evidence targeting an older stable sense must either follow an explicit valid Current lineage or fail closed/quarantine. It must never silently attach to a neighboring/current sense by array position or spelling, and it must not remain as invisible actionable debt with no Current learner target.
 
-E remains downstream-frozen until R is judged. A concrete identity-evolution question has been identified for the later E attack: the canonical sense registry contains `active`, `deprecated` and `merged` lifecycle records plus `merged_into_sense_id`, while persisted evidence must either follow explicit valid lineage or fail closed rather than silently attach to the wrong Current target.
-
-No E PASS is implied until that Current lineage behavior is explicitly accepted.
+No E PASS is implied until this identity-evolution path is explicitly verified and, if necessary, repaired.
 
 ## Bounded Functional First proof — preserved PASS
 
-The current browser/runtime chain has already demonstrated the intended bounded behaviors on real Current surfaces: non-leaking Recall, Fast Pass, local Repair, shared reducer projection, Challenge resume, exact English handoff, form identity, sparse/rich content shapes, correction/recomputation and evidence-qualified dormancy.
-
-This bounded proof remains evidence for R/E but is no longer used as a reason to withhold Current P after the fresh Projection re-acceptance.
+Existing browser/runtime evidence remains valid: non-leaking Recall, Fast Pass, local Repair, shared reducer projection, Challenge resume, exact English handoff, form identity, sparse/rich content shapes, correction/recomputation and evidence-qualified dormancy are all implemented on Current surfaces.
 
 ## U — UNTESTED
 
 Only real private learner use can establish U. Browser journeys and synthetic fixtures do not count as learner validation.
 
-The strongest current learner-facing claim is therefore:
+The strongest current learner-facing claim is:
 
-> **LexicalOS Current Projection is ready for learner use; Runtime and Evidence unrestricted Current readiness are still being freshly reconciled.**
+> **LexicalOS Current Projection and Runtime are learner-ready; Evidence identity evolution is the active engineering acceptance gate; real learner U remains untested.**
 
 ## Owners
 
