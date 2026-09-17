@@ -11,7 +11,7 @@ const manifest = read('content/politics/projection/manifest.json');
 
 const ALLOWED_STATES = new Set(['ORIENT', 'EXTERNAL_LEARN', 'CLOSE', 'VERIFY_POST', 'REPAIR', 'CONTINUE']);
 const ALLOWED_ZONES = new Set(['PRIMARY', 'COMPANION', 'SUPPORT', 'HANDOFF', 'CLOSURE', 'REPAIR_ONLY']);
-const ALLOWED_PRIMITIVES = new Set(['STATEMENT', 'PARALLEL_SET', 'DIRECTED_SEQUENCE', 'COMPARE', 'HIERARCHY', 'TIMELINE']);
+const ALLOWED_PRIMITIVES = new Set(['STATEMENT', 'PARALLEL_SET', 'RELATION_SET', 'DIRECTED_SEQUENCE', 'COMPARE', 'HIERARCHY', 'TIMELINE']);
 const PROVENANCE_FIELDS = new Set(['id', 'source_evidence', 'source_ref', 'source_refs', 'source_owner_ids', 'schema', 'status', 'audit', 'learning_priority', 'learner_tier']);
 const STATE_ZONES = {
   ORIENT: new Set(['PRIMARY', 'COMPANION', 'SUPPORT']),
@@ -42,6 +42,18 @@ function rawUnitsFor(source) {
 
 function validateResolvedGroup(group, prefix) {
   if (!Array.isArray(group.items) || group.items.length === 0) fail('RESOLVED_GROUP_EMPTY', prefix);
+  if (group.primitive === 'STATEMENT' && group.items.length !== 1) {
+    fail('STATEMENT_MUST_BE_SINGLE_CLAIM', `${prefix}:${group.items.length}`);
+  }
+  if (group.primitive === 'RELATION_SET') {
+    if (group.items.length < 2) fail('RELATION_SET_TOO_SHORT', prefix);
+    if (group.transitions.length) fail('RELATION_SET_HAS_SEQUENCE_TRANSITIONS', prefix);
+    for (const item of group.items) {
+      if (!(item?.from_label && item?.relation && item?.to_label)) {
+        fail('RELATION_SET_ITEM_NOT_EXPLICIT', `${prefix}:${item?.id || '<item>'}`);
+      }
+    }
+  }
   if (group.primitive === 'DIRECTED_SEQUENCE') {
     if (group.items.length < 2) fail('DIRECTED_SEQUENCE_TOO_SHORT', prefix);
     if (group.transitions.length !== Math.max(0, group.items.length - 1)) fail('DIRECTED_SEQUENCE_TRANSITION_COUNT', prefix);
@@ -102,8 +114,8 @@ function validateMapping(unit, file, source, rawUnit) {
       if (group.primitive === 'DIRECTED_SEQUENCE' && (!Array.isArray(group.transitions) || group.transitions.length === 0)) {
         fail('DIRECTED_SEQUENCE_WITHOUT_TRANSITIONS', prefix);
       }
-      if (group.primitive === 'PARALLEL_SET' && Array.isArray(group.transitions) && group.transitions.length) {
-        fail('PARALLEL_SET_HAS_TRANSITIONS', prefix);
+      if (['PARALLEL_SET', 'RELATION_SET', 'STATEMENT'].includes(group.primitive) && Array.isArray(group.transitions) && group.transitions.length) {
+        fail(`${group.primitive}_HAS_TRANSITIONS`, prefix);
       }
       if (group.primitive === 'HIERARCHY' && (!Array.isArray(group.levels) || group.levels.length === 0)) {
         fail('HIERARCHY_WITHOUT_LEVELS', prefix);
