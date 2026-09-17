@@ -11,7 +11,7 @@ This file does not duplicate English content, scoped Acceptance Truth, or learne
 
 **Active lane-level scope:** none — Functional First integration and the 2026-09-17 learner Source Truth repair are closed.  
 **Module engineering state:** Objective / Translation / Writing each have `S/K/L/P/R/E PASS`.  
-**Learner state:** each module `U` remains real-use-only / `UNTESTED`; the 2026-09-17 real-use defect report is a valid product signal, not a blanket U PASS.  
+**Learner state:** each module `U` remains real-use-only / `UNTESTED`; the defect report below is a real product signal, not a blanket U PASS.  
 **Blocker:** none known for English Functional First use after the Source Truth repair.  
 **Next action:** stop engineering expansion. Normal learner use may continue when scheduled. A real learner-use defect may reopen only the earliest responsible existing owner.
 
@@ -19,53 +19,9 @@ English is back to router-only baseline.
 
 ---
 
-## Learner Source Truth repair closure｜2026-09-17
+## Learner Source Truth repair｜2026-09-17
 
-Real learner use exposed a material learner-facing source defect: Current English task pages could surface garbled / duplicated / stale exam text even though the refined source asset still existed in Current.
-
-### Root cause
-
-The Current Astro learner paths for Reading A / Cloze / Reading B / Translation / Writing had regressed to projecting `question_bank.v1.json` and related raw/current structures directly. They did **not** consume the already-current `content/english/source/global_source_truth.v1.json` learner-facing source overlay.
-
-Bounded historical recovery against the retired Local `4173` runtime established the missing projection responsibility: the old builder applied `global_source_truth` to all English sets before learner projection, including source text plus question prompt / option overlays. Historical runtime code is evidence only; no legacy runtime dependency or fallback is restored.
-
-### Current authority split after repair
-
-```text
-stable object identity / answers / current translation references / analysis
-→ Current canonical question_bank / reading_corpus / scoped owners
-
-learner-facing official source presentation
-→ Current global_source_truth
-   - source_text / paragraphs
-   - question prompt / option overlays when present
-   - shared option pools / images / format source fields when present
-```
-
-`global_source_truth` is therefore used as learner-facing **Source Truth projection**, not as Current answer authority. This preserves later Current answer/reference repairs while restoring the refined exam presentation.
-
-### Repaired learner paths
-
-- Reading A;
-- Cloze;
-- Reading B;
-- Translation;
-- protected true-exam Writing.
-
-All five routes use one shared Current-only Source Truth adapter. Missing/mismatched Source Truth fails closed; there is no legacy fallback.
-
-### Exact-head execution evidence
-
-PR #353 pre-documentation head `9ed043e086d68e11f34a0648c171825175b70dd2`:
-
-- Objective Learner Journey run `35184065083` → **PASS**;
-- Static Web Translation QA run `35184065149` → **PASS**;
-- Static Web Writing QA run `35184065042` → **PASS**;
-- English Family Coherence run `35184065160` → **PASS**.
-
-The shared Source Truth regression gate checks Current Source Truth readiness, requires mapped Source Truth for all Current exam sets, and exercises representative learner projections across all five task families. Existing build / Runtime / Evidence / browser journeys remain green on the repaired implementation.
-
-This repair does not promote learner mastery or module U. It closes the concrete source/projection defect reported by real learner use.
+Real learner use exposed garbled / duplicated exam presentation because Current learner pages projected raw `question_bank / reading_corpus` while bypassing the already-current `global_source_truth` overlay. The repaired shared adapter now routes Reading A / Cloze / Reading B / Translation / protected true-exam Writing learner-facing source text, prompt/options, shared pools and source images through `content/english/source/global_source_truth.v1.json`; stable identity, answers, current translation references and analysis remain with their Current canonical owners. The retired `4173` runtime was bounded recovery evidence only; there is no legacy fallback. PR #353 pre-documentation head `9ed043e086d68e11f34a0648c171825175b70dd2` passed Objective `35184065083`, Translation `35184065149`, Writing `35184065042`, and English Family Coherence `35184065160`. This closes the source/projection defect without promoting learner mastery or module U.
 
 ---
 
