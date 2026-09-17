@@ -1,378 +1,256 @@
 # KianOS Worker Instructions
 
-This file owns **how a Chat / Agent / worker should enter and operate inside KianOS**.
+This file owns **how a Chat / Agent / worker enters and operates inside KianOS**.
 
-It does not own product requirements, architecture, domain cognition, acceptance evidence, or learner progress.
+It does not own project requirements, architecture, domain learning semantics, Acceptance Truth, learner progress, or product content.
 
-Authority order for governance questions:
+The operating goal is simple:
 
-```text
-PROJECT_DEFINITION.md
-→ ARCHITECTURE.md
-→ repository-wide Standards / Contracts
-→ lane / sub-lane Contracts
-→ canonical Artifact / Acceptance / Learner owners
-→ CURRENT Work Cursor
-→ temporary worker / branch execution
-```
-
-For ordinary lane work, do not reread the whole hierarchy. Use the smallest deterministic read path that the task requires.
+> **Kian says what he wants to do; the worker resolves the correct scope/owner and hides repository complexity unless it is actually needed.**
 
 ---
 
-# 1｜Core operating model
+# 1｜Intent first
 
-KianOS is designed for replaceable Chats and concurrent work across independent scopes at any justified depth.
-
-A worker is temporary execution capacity, not project memory.
-
-`main@HEAD` is the normal durable shared repository state after accepted work lands. Temporary branches are execution surfaces and do not become truth owners.
-
-Normal operation uses current canonical authority only. Historical commits, old repositories, retired branches, migration records, prior implementations, and old Issues are outside the normal reasoning/read set unless the user explicitly authorizes a bounded recovery / rollback / historical comparison / migration task.
-
-Missing Current authority fails closed against silent guessing, but it must not create indefinite historical archaeology.
-
-For a reconstruction task where the needed Current truth can be re-established, use this bounded recovery rule:
+Before reading a Work Cursor, classify the user's request by what they are trying to do.
 
 ```text
-Current / canonical evidence
-→ one bounded search of explicitly relevant historical assets when they have a concrete chance of resolving the gap
-→ if unavailable or insufficient, stop historical search
-→ reconstruct from current first-party or otherwise authoritative external sources
-→ record provenance and mark reconstructed evidence as reconstructed, not recovered historical original
-→ continue the active dependency chain
+LEARN    use the learning system / continue studying
+BUILD    construct, audit or change content / learning assets / runtime semantics
+UI       change learner-facing presentation / interaction / visual implementation
+CONTROL  ask for cross-scope status, priorities, blockers or project management
 ```
 
-Do not block Current construction solely because a historical asset cannot be found. Historical material is evidence, not a mandatory fallback dependency.
+Natural language is authoritative. Do not require Kian to name these modes.
 
-The exception is a genuinely historical claim whose object is the old artifact itself, such as “what exactly did version X say then?”. In that case the original historical evidence is required; if it is unavailable, report the historical claim as unavailable / unverified rather than silently replacing it with a reconstruction.
+Default rule:
 
-## 1.1 Current-first stop｜Current outranks stale Chat state
+> **A bare learner-facing continuation such as “继续英语 / 继续政治 / 继续循环 / 继续 Translation” means LEARN unless the current conversation clearly establishes an engineering/UI task.**
 
-Before continuing a long-running GitHub-backed task from conversational context, read the target scope's current canonical `CURRENT.md` / Acceptance owner first when the state may have changed.
+Engineering words such as `内容建设 / audit / PR / CI / runtime / contract / UI / 页面 / 视觉 / implementation` may resolve BUILD or UI.
 
-If Current says the previously discussed blocker is closed, the engineering scope is stopped, or the next unresolved stage has moved, **do not continue the old Chat narrative**. Report the Current delta and follow the current Work Cursor.
+`CURRENT.md` is an **engineering Work Cursor**. It must not silently override learner intent.
 
-Hard rule:
-
-> **“Continue” means continue Current, not continue the last remembered red light.**
-
-Prior Chat diagnostics are evidence/history only. They do not outrank newer canonical state.
-
-## 1.2 Blocker validity and loop escape
-
-Fail-closed behavior protects truth, but a blocker itself must remain justified.
-
-A valid blocker must be able to name:
-
-1. **the Current requirement / acceptance claim it prevents**;
-2. **why proceeding without it would create a real semantic, source, evidence, safety, or runtime defect**;
-3. **the smallest admissible closure evidence**;
-4. **whether that closure requires historical fidelity specifically, or only reliable Current truth**.
-
-A failed proof method is not automatically a failed requirement. For example, inability to re-hash an old file is a blocker only when exact authentication of that historical artifact is itself the required claim. It must not silently become the only path to a reconstructable Current authority.
-
-When repeated attempts produce no material semantic/evidence progress—e.g. cycling through old commits, zips, scripts, Chats, or transports—the worker must stop the current proof path and revalidate the blocker:
+Therefore:
 
 ```text
-No material progress
-→ restate the actual Current requirement
-→ ask whether the blocker is about Historical Fidelity or Current Truth
-→ inspect alternative admissible closure paths
-→ use bounded Current reconstruction when allowed
-→ otherwise preserve the historical claim as unavailable / unverified
+“继续英语”        → learner continuation / learner state
+“继续英语 UI”     → English UI scope
+“继续英语内容建设” → English BUILD scope
+“英语做到哪了”     → CONTROL / status
 ```
-
-Do not weaken a real gate merely to make progress. The purpose is to prevent **false deadlock**, not to permit false PASS.
-
-Hard scheduling rule:
-
-> **Hierarchy is ownership/routing. Dependency is scheduling.**
-
-A parent/child or sibling relationship does not itself mean one scope must wait for another.
 
 ---
 
-# 2｜Three Truths + One Cursor
+# 2｜Small read paths
 
-Keep these responsibilities separate:
+Do not reread the governance hierarchy as ritual.
 
-## Artifact Truth
-What source/content/semantic/runtime/product asset actually exists.
+## LEARN
 
-Read the real canonical owner or implementation. Do not rely on a status summary when the task needs the artifact itself.
+Use the smallest learner-facing path:
 
-## Acceptance Truth
-What readiness/quality claim is actually supported by evidence.
+```text
+known domain/task
+→ actual learner/runtime state or Resume owner
+→ domain Learning Contract only when needed to interpret the next action
+→ learn
+```
 
-`LEARNING_ACCEPTANCE.md` defines the S/K/L/P/R/E/U standard; it is not itself every module's current evidence ledger.
+Do **not** enter an engineering `CURRENT.md` merely because one exists.
 
-## Learner Truth
-What Kian has actually studied, attempted, repaired, transferred, forgotten, deferred, or demonstrated.
-
-Private learner state is not shared engineering Current and cannot be inferred from Artifact or Acceptance Truth.
-
-## Work Cursor
-What this worker should do next in the current scope.
-
-The human/Chat-facing Work Cursor is `CURRENT.md` at the relevant independently continued scope.
-
-Hard rule:
-
-> **Artifact Truth ≠ Acceptance Truth ≠ Learner Truth; CURRENT / Work Cursor cannot manufacture any of them.**
-
----
-
-# 3｜Fresh-Chat entry protocol
-
-## 3.1 Target scope already known
-
-If the target lane/sub-lane is known and repository governance is already understood in the Chat:
+## BUILD
 
 ```text
 target scope CURRENT
-→ exact required owner(s) named by Current
+→ exact domain Contract / canonical owner required by that cursor
+→ Acceptance owner only when the acceptance claim matters
 → work
 ```
 
-Do not read root Current merely as ritual.
+## UI
 
-## 3.2 Target lane known, governance not known
+```text
+exact UI/surface scope
+→ shared visual/presentation authority that actually applies
+→ exact surface owner
+→ preserve list from domain/runtime owner only when needed
+→ work
+```
 
-Read:
+Do not load unrelated subject content to change shared presentation, and do not load broad governance to change one bounded surface.
 
-1. this `AGENTS.md` only far enough to understand routing/boundaries;
-2. target lane/sub-lane `CURRENT.md`;
-3. only the exact Contract / Artifact / Acceptance / machine owner required by that Work Cursor;
-4. current branch/`main@HEAD` version of exact paths before mutation.
+## CONTROL
 
-## 3.3 Target scope unknown or root-level work
+Use root `CURRENT.md` plus only the lane/orchestrator owners needed for the requested status or decision.
 
-Read root `CURRENT.md` to resolve the active root Work Cursor or lane entrypoint.
+Normal target after scope resolution:
 
-For genuine governance / architecture work, also read:
+> **roughly 2–3 precise reads before effective work; 4 only when the task genuinely crosses an authority boundary.**
 
-- `PROJECT_DEFINITION.md`;
-- `ARCHITECTURE.md`;
-- only the root Standard / Contract relevant to the proposed change.
-
-For cross-lane project-management / delivery / Mission Control / migration-discipline / implementation-scope work, read `PROJECT_MANAGEMENT_CONTRACT.md` as the single execution-management owner. Do not invent a parallel management model in Chat or duplicate its rules into lane files.
-
-## 3.4 Continuation is not a mandatory layer
-
-Do **not** assume every lane continuation file must be read.
-
-A `continuation.*` file is read only when the scope Current names it as an exact required owner and it still has a proven narrow machine/process responsibility.
-
-A continuation must not be treated as a historical narrative, second Work Cursor, Acceptance owner, Artifact owner, or learner-state owner.
-
-Normal read target:
-
-> **known scope → 2–4 precise reads → effective work**
-
-If routine continuation requires broad repository search or historical reconstruction, surface that as an architecture defect rather than normalizing it.
+If a known-scope task routinely needs broad repository search, history archaeology or many unrelated documents, treat that as a routing/ownership defect.
 
 ---
 
-# 4｜Federated scope routing
+# 3｜Truth boundaries
 
-First-class lanes have predictable local Work Cursor entrypoints:
-
-```text
-content/xizong/CURRENT.md
-content/english/CURRENT.md
-content/lexical/CURRENT.md
-content/politics/CURRENT.md
-```
-
-An independently entered/continued sub-lane may have its own `CURRENT.md` only when doing so materially reduces ambiguity/read cost.
-
-Do not create Current files for every directory.
-
-Root governance defines shared invariants; lanes and sub-lanes add only genuine local differences.
-
-## 4.1 Router semantics
-
-A parent lane Current is an ownership/routing surface unless genuine parent-level integration work is active.
-
-Do **not** infer this pattern:
+Keep these distinct:
 
 ```text
-parent
-→ child A must finish
-→ child B may start
+Artifact Truth    what actually exists
+Acceptance Truth  what current evidence proves
+Learner Truth     what Kian has actually learned/done
+Work Cursor       what an engineering worker should do next
 ```
 
-merely from hierarchy.
+Hard rule:
 
-Instead:
+> **Artifact ≠ Acceptance ≠ Learner; Work Cursor manufactures none of them.**
 
-```text
-parent router
-├─ independent child A → its own CURRENT / dependency chain
-├─ independent child B → its own CURRENT / dependency chain
-└─ parent integration scope → only when a real cross-child claim exists
-```
-
-Independent children may be active concurrently. A parent router must not appoint one child as the lane's single global active task merely because it was worked on most recently.
-
-If a parent-level task genuinely depends on child outputs, state that dependency explicitly and freeze only the affected parent/downstream chain.
+A build PASS does not mean learning-ready. Engineering readiness does not mean Kian studied it. A learner Resume does not become repository engineering Current.
 
 ---
 
-# 5｜Single-owner and inheritance rules
+# 4｜Current-first applies to engineering continuation
 
-Use one owner per responsibility.
-
-Repository-wide owners include:
-
-- `PROJECT_DEFINITION.md` — project purpose, requirements, invariants, non-goals, success tests;
-- `ARCHITECTURE.md` — owner hierarchy, Three Truths + One Cursor, Current/continuation/dependency/concurrency structure;
-- `PROJECT_MANAGEMENT_CONTRACT.md` — cross-lane project management, durable Chat-to-GitHub decisions, Mission Control read-model rules, change classes, reading discipline, migration discipline, effect-based completion, and plain-language reporting;
-- `LEARNING_ASSET_STANDARD.md` — formal learning-asset construction order;
-- `LEARNING_ACCEPTANCE.md` — S/K/L/P/R/E/U readiness standard;
-- `SYSTEM_CONTRACT.md` — shared mature learner-surface capabilities;
-- `BRANCH_LIFECYCLE.md` — temporary branch landing/retirement mechanics;
-- `DEFERRED.md` — intentionally postponed repository work.
-
-Lane/sub-lane Contracts reference inherited root rules and contain only genuine cognition/behavior differences.
-
-Do not copy root rules into every lane. Do not copy Artifact/Acceptance/Learner Truth into Current.
-
-Learner order in a domain contract is not automatically a construction dependency. Construction dependency must be justified by what one scope actually needs from another.
-
----
-
-# 6｜Learning-asset work
-
-For substantial formal learning-asset work, first resolve the active construction stage under `LEARNING_ASSET_STANDARD.md`:
+For BUILD/UI work, current canonical authority outranks stale Chat narrative.
 
 ```text
-Truth / Knowledge Boundary
-→ Learning Logic
-→ Content Realization / Optimization
-→ Projection / Interaction
-→ Runtime Loop
-→ Evidence / Acceptance
+engineering continuation
+→ target CURRENT
+→ exact Current owner(s)
+→ work
 ```
 
-Within the current scope's real dependency chain, only the earliest unresolved stage is ACTIVE by default. A downstream defect may reopen the earliest responsible upstream stage; affected downstream work then freezes.
+If Current says the old blocker is closed or the scope moved, do not continue the old Chat narrative.
 
-This is **not** a repository-wide waterfall and not a parent-lane queue. Independent scopes may each have their own active stage concurrently, even when they are siblings or nested under the same lane.
+For LEARN, resume from real learner/runtime evidence instead. Do not reinterpret a bare “continue” as the latest engineering cursor.
 
-Construction order is not the S/K/L/P/R/E/U acceptance framework.
-
-Never use content volume, page existence, build success, runtime maturity, or progress in a sibling scope as a substitute for learning closure in the current scope.
+History, retired branches, old Issues, old repositories and prior implementation snapshots are not normal Current fallback. Use them only for a bounded recovery/history/rollback task.
 
 ---
 
-# 7｜Learner-state boundary
+# 5｜Ownership, dependency and containment
 
-Shared repository construction answers:
+One responsibility has one canonical owner. Lower scopes may refine inherited rules but must not duplicate or contradict them.
 
-> What exists / what is accepted / what are we building next?
+Scheduling follows real dependency, not hierarchy:
 
-Learner Truth answers:
+```text
+no real dependency → proceed independently
+real dependency    → name the narrow owner and freeze only the affected chain
+```
 
-> What has Kian actually learned or done?
+A cross-scope defect may be reported or escalated. It is not permission to repair unrelated siblings.
 
-Never infer the second from the first.
+When a subject task finds a shared-platform blocker:
+
+```text
+subject worker records the blocker
+→ shared owner fixes it in its own bounded scope
+→ subject receives only the closure result
+→ subject revalidates the affected slice
+```
+
+Do not drag another owner's debug history, CI logs or artifact archaeology into the blocked subject Chat.
+
+---
+
+# 6｜Minimal writes
+
+Ordinary work changes only the owner that actually owns the requested effect plus the smallest required acceptance/cursor update.
 
 Examples:
 
-- Runtime supports System Recall ≠ Kian should perform System Recall now.
-- Module ready for learner test ≠ Kian has learned the module.
-- Work Cursor says `validate transfer` ≠ learner transfer has occurred.
+```text
+content wording / KP / relation
+→ canonical content owner
 
-When real learner action is required, derive it from actual learner evidence/private learner state/conversation context, not engineering position.
+shared typography / radius / color primitive
+→ shared visual owner
 
-Learner sequence and artifact-construction sequence are separate responsibilities. A System may need to be learned after another System while their independent construction work still proceeds in parallel.
+Politics Natural Unit geometry
+→ Politics surface owner
 
----
+one-page exceptional overflow
+→ exact page/surface owner
+```
 
-# 8｜Minimal-write and dependency-aware concurrency rule
+Do not update root governance or parent routers merely to record local progress.
 
-Ordinary work writes only within the authorized scope.
-
-Lane/sub-lane work should normally modify only:
-
-- the active scope's canonical Artifact owner(s);
-- its local Acceptance owner when evidence changes;
-- its local Work Cursor when next action changes;
-- exact runtime paths inside the authorized scope.
-
-Do not update root governance or a parent router merely to record child progress.
-
-Before coordinating or blocking another scope, ask whether the current work actually depends on an unresolved artifact/decision/evidence from that scope.
-
-- no real dependency → continue independently;
-- real dependency → name it, escalate to its narrow owner, and freeze only the affected chain.
-
-`main` advancing for unrelated work does not invalidate another branch by itself. Reconcile when write-sets overlap, authority changed, an inherited parent rule materially changed, or a real dependency was discovered.
-
-Follow `BRANCH_LIFECYCLE.md` for branch landing/retirement.
+`main` advancing for unrelated work is not a blocker. Reconcile only for real write-set overlap, authority change, inherited-rule change or newly discovered dependency.
 
 ---
 
-# 9｜Scope containment
+# 7｜No new governance by default
 
-A worker stays inside the authorized scope.
+Before adding a Contract, registry, router, Current type, validator, migration layer or permanent abstraction, first try to simplify or reuse an existing owner.
 
-A cross-scope defect may be:
+A new durable governance object is allowed only when the existing owner model cannot represent a recurring real responsibility without ambiguity or duplication.
 
-- reported;
-- recorded in the appropriate owner/Deferred mechanism when authorized;
-- used to block and escalate the current task when it is a real dependency.
+Hard default:
 
-It is not automatic permission to repair unrelated siblings/downstream layers.
+> **Execution friction → simplify the narrow owner first; do not answer with another governance layer.**
 
-For staged learning-asset work, continue to obey the earliest unresolved stage **on the active dependency chain**. Do not use that rule to freeze independent siblings.
+---
+
+# 8｜Substantial-work context pack
+
+For genuinely cross-layer or risky work, compress the required context before implementation:
+
+```text
+Goal
+Owner / authority chain
+Must preserve
+Affected / not affected
+Write-set
+Success / stop condition
+```
+
+Carry this compressed context, not the full text of every upstream document.
+
+For ordinary known-scope work, do not manufacture a Context Pack ceremony.
+
+---
+
+# 9｜Plain-language reporting
+
+Engineering complexity stays in the backend unless Kian asks for it.
+
+Normal progress reporting answers only what matters:
+
+```text
+现在在哪
+已经完成什么
+真实 blocker（没有就说没有）
+下一步
+是否需要 Kian 做什么
+```
+
+Do not expose branch mechanics, CI archaeology, CSS specificity or long SHA lists unless they materially affect a decision.
+
+For CONTROL/status reporting, prefer the compact shape:
+
+```text
+Stage
+Next
+Blocker
+Owner
+Human Gate (when relevant)
+```
 
 ---
 
 # 10｜Compact operating rule
 
-Before substantial GitHub-backed work, determine internally:
-
 ```text
-scope
-CURRENT / Work Cursor entry
-active / earliest unresolved stage
-real dependency chain
-independent sibling scopes that must remain untouched
-exact required reads
-Artifact owner(s)
-Acceptance owner when relevant
-Learner Truth boundary
-learner order vs construction dependency when relevant
-exact intended write-set
-branch base/current SHA
+understand Kian's intent
+→ resolve the narrow scope
+→ read the minimum current owner set
+→ preserve upstream semantics
+→ do the smallest correct work
+→ prove the requested real effect
+→ stop
 ```
 
-For cross-layer / platform / root-integration work, additionally apply `PROJECT_MANAGEMENT_CONTRACT.md`:
-
-```text
-change class
-Impact Cone
-Authority Spine
-compressed Context Pack
-success / cutover / delete / rollback conditions when relevant
-```
-
-Then do the smallest correct work.
-
-If the task is a continuation or a repeated failure loop, additionally check:
-
-```text
-is the Chat state stale relative to Current?
-is the named blocker still blocking a real Current requirement?
-is the failure in the requirement, or only in one proof/recovery method?
-has the current path produced material semantic/evidence progress?
-is there a valid alternative closure path?
-```
-
-Compact scheduler:
-
-> **Scope 按依赖并行；Gate / Stage 沿真实依赖串行。**
-
-KianOS should make each fresh Chat faster to restart, not require it to relearn how the repository became what it is.
+KianOS succeeds when fresh Chats restart quickly and normal changes are cheap—not when workers can recite the repository's governance history.
