@@ -49,3 +49,52 @@ const firstLabel = firstChapter ? `${firstSubject.label} · ${firstChapter.title
     addEventListener('hashchange',readHash);readHash();
   }
 </script>
+
+<style is:global>
+  /*
+   * Politics Home readability closure.
+   * Visible text creates a reading obligation: never encode lower priority as tiny type.
+   * These scoped rules intentionally override older Home presentation CSS.
+   */
+  body#kianos-workspace.surfaceBody-politics .pageKicker,
+  body#kianos-workspace.surfaceBody-politics .politicsOverviewActions a,
+  body#kianos-workspace.surfaceBody-politics .politicsOverviewActions span,
+  body#kianos-workspace.surfaceBody-politics .politicsContinue>span,
+  body#kianos-workspace.surfaceBody-politics .politicsHandoff span,
+  body#kianos-workspace.surfaceBody-politics .politicsHandoff button,
+  body#kianos-workspace.surfaceBody-politics .politicsSubjectWorkbench>header>span,
+  body#kianos-workspace.surfaceBody-politics .politicsSubjectTabs span,
+  body#kianos-workspace.surfaceBody-politics .politicsSubjectIdentity>span,
+  body#kianos-workspace.surfaceBody-politics .politicsSubjectIdentity small,
+  body#kianos-workspace.surfaceBody-politics .politicsChapterRows a>span,
+  body#kianos-workspace.surfaceBody-politics .politicsChapterRows a>b {
+    font-size:16px!important;
+    line-height:1.5;
+  }
+
+  body#kianos-workspace.surfaceBody-politics .pageSubcopy,
+  body#kianos-workspace.surfaceBody-politics .politicsOverviewHeader p:not(.pageKicker),
+  body#kianos-workspace.surfaceBody-politics .politicsContinue>small,
+  body#kianos-workspace.surfaceBody-politics .politicsHandoff p,
+  body#kianos-workspace.surfaceBody-politics .politicsReviewEntry,
+  body#kianos-workspace.surfaceBody-politics .politicsSubjectIdentity p,
+  body#kianos-workspace.surfaceBody-politics .politicsOverviewFoot {
+    font-size:17px!important;
+    line-height:1.65;
+  }
+
+  body#kianos-workspace.surfaceBody-politics .politicsContinue>strong {
+    font-size:22px!important;
+    line-height:1.45;
+  }
+
+  body#kianos-workspace.surfaceBody-politics .politicsSubjectTabs strong {
+    font-size:20px!important;
+    line-height:1.35;
+  }
+
+  body#kianos-workspace.surfaceBody-politics .politicsChapterRows a>strong {
+    font-size:17px!important;
+    line-height:1.6;
+  }
+</style>
