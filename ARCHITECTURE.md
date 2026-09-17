@@ -1,633 +1,726 @@
 # KianOS Architecture
 
-Status: CURRENT — accepted top-level architecture
-Version: 1.2
+Status: **CURRENT — accepted top-level architecture**  
+Version: **2.0**
 
-This document defines **how KianOS is structurally organized to satisfy the project requirements**.
+This document defines the smallest durable architecture needed for KianOS to remain understandable, restartable, editable and useful over long-term real study.
 
-Authority order:
+Its job is not to describe every file, workflow or implementation detail. Its job is to answer:
 
-```text
-PROJECT_DEFINITION.md
-→ ARCHITECTURE.md
-→ repository-wide Standards / Contracts
-→ lane / sub-lane Contracts
-→ Artifact / Acceptance / Learner owners
-→ CURRENT Work Cursors
-→ temporary worker / branch execution
-```
+> **What are the permanent responsibilities in KianOS, who owns them, and how do they fit together without creating duplicate truth?**
 
-Architecture is downstream of Project Definition. If this structure fails Fresh Chat, Truth Separation, Parallel Chat, Three-month Entropy, Learning Closure, or Content Change Absorption tests, Architecture changes; the Requirement does not bend to preserve implementation convenience.
+`PROJECT_DEFINITION.md` remains the higher owner for why KianOS exists and what success means.
 
 ---
 
-# 1｜Core architecture model
+# 1｜The five durable responsibilities
 
-KianOS is a **federated, restartable, concurrent learning workspace** with recursive local autonomy.
-
-Default ownership hierarchy:
+KianOS has five top-level responsibilities:
 
 ```text
-KianOS Root
-→ Lane
-→ independently-continuable Sub-lane when justified
-→ Natural / Canonical Owners
-→ Learner-facing Runtime
+                         RULE / MODEL
+              why / knowledge quality / learning /
+                    interaction / boundaries
+                              │
+             ┌────────────────┼────────────────┐
+             ↓                ↓                ↓
+         CONTENT           VISUAL         ENGINEERING
+         what to learn     how it appears   how it runs
+             │                │                │
+             └────────────────┴────────────────┘
+                              ↓
+                           WEBSITE
+                     learner execution surface
+
+                              ↑
+                           CONTROL
+                 reads current state; creates no Truth
 ```
 
-Examples of first-class lanes include Xizong, English, LexicalOS, and Politics.
+These are **responsibilities**, not five separate databases and not five mandatory file types.
 
-A sub-lane becomes first-class only when independent entry/continuation is common enough that a local Work Cursor materially reduces read cost or ambiguity.
+A responsibility may be implemented by one or several narrow canonical owners. The hard rule is that one fact/decision still has one canonical owner.
 
-Do **not** create hierarchy merely because a directory exists.
+---
 
-## 1.1 Hierarchy is ownership, not scheduling
+## 1.1 RULE / MODEL｜why the system behaves this way
 
-The hierarchy answers:
+Rule / Model is the upstream logic that gives KianOS its learning intent.
 
-> **Who owns this scope, which rules does it inherit, and where should a worker enter?**
+It includes five kinds of rule:
 
-It does **not** answer:
-
-> **Which scope must wait for which other scope?**
-
-Scheduling follows real dependency.
-
-```text
-ownership / routing hierarchy ≠ construction dependency ≠ learner order
-```
+### Purpose
+Why this learner/domain exists and what outcome it optimizes.
 
 Examples:
 
-- Politics Marxism and History may both be nested under Politics and still progress concurrently;
-- Xizong A1/A2/A3 may be sibling Systems and progress concurrently when their current construction work is independent;
-- two Blocks may be constructed concurrently even when the approved learner path later consumes them in sequence;
-- a parent integration task may depend on several child results, but that dependency must be explicit rather than inferred from parenthood.
+- English optimizes future exam performance on new material, not framework completion;
+- Politics optimizes reliable score gain per learner time;
+- Xizong builds a mechanism-centered, retrievable, progressively compressed medical model;
+- Lexical builds fast, correct, transferable lexical access.
 
-Hard rule:
+### Knowledge-quality rule
+What counts as a **good AI-reconstructed knowledge asset** rather than copied source material.
 
-> **Independent scopes may progress concurrently at any justified depth. Within a real dependency chain, downstream work waits for the earliest unresolved dependency.**
+The AI role is not to display the lecture/book again. It must transform reliable Source into learner-worthy Knowledge according to domain-specific rules.
 
-A containment edge creates inheritance/routing. It does not create a work-order edge by itself.
+Examples may include:
 
----
+- mechanism / causal relations / boundaries / precision in Xizong;
+- semantic relations / historical logic / confusable boundaries in Politics;
+- transferable task models / decision rules in English;
+- Core / senses / familiar-new branches / constructions / phraseology / confusables in Lexical.
 
-# 2｜Project Definition, Architecture, and Operating Cycle
+### Learning logic
+How the approved knowledge should actually be learned, recalled, applied, repaired and compressed.
 
-KianOS uses three different levels:
+### Interaction logic
+What learner actions mean and which transitions are legitimate.
+
+Examples: whole-passage Reading attempt, conditional repair, Recall→Reveal, Writing revision, question Submit, low-friction stable exit.
+
+### Boundaries
+What downstream layers are forbidden from inventing.
+
+Hard boundary:
 
 ```text
-Project Definition
-what / why / requirements / invariants
-        ↓
-Architecture
-owners / hierarchy / boundaries / inheritance / dependency scheduling
-        ↓
-Operating Cycle
-Design → Implement → Accept → Use → Observe → Revise
+Content does not decide page layout.
+Visual does not invent knowledge.
+Engineering does not invent Learning Logic.
+Website does not become a second content owner.
+Control does not manufacture Truth.
 ```
 
-The Operating Cycle runs repeatedly inside the Architecture and may run concurrently in multiple independent scopes.
-
-A downstream defect may reopen the earliest responsible upstream layer on its own dependency chain, but ordinary implementation work does not rewrite Project Definition or Architecture.
+Root rules live in root authority. Domain-specific rules live in the domain Learning / Content contracts that genuinely own those differences.
 
 ---
 
-# 3｜Three Truths + One Cursor
+## 1.2 CONTENT｜the durable learning asset
 
-KianOS separates three kinds of reality from one kind of action pointer.
+Content is the most important long-lived learner asset in GitHub.
 
-## 3.1 Artifact Truth｜what actually exists
+Its normal causal chain is:
 
-Artifact Truth answers:
+```text
+SOURCE
+reliable original material / question / provenance
+        ↓
+KNOWLEDGE
+AI-reviewed reconstruction of what is actually worth learning
+        ↓
+LEARNING CONTENT
+canonical assets used by learner paths
 
-> **What source, content, semantic owner, code, runtime, page, capability, or product asset actually exists now?**
++ questions
++ explanations
++ reviewed relations
++ examples
++ reference / enrichment where justified
+```
 
-Artifact Truth is distributed across the real canonical assets that own those facts.
+### Source is not a separate top-level layer
 
-Typical owners include:
+Source is the factual/provenance foundation inside Content.
 
-- source / provenance owners;
-- Natural Owners / canonical content assets;
-- manifests only where routing/identity is their real responsibility;
-- actual runtime/source code;
-- learner-facing projection implementation.
+Source answers:
 
-Do not create a second central “artifact status database” merely to summarize what the real owners already prove.
+> **What reliable raw material are we allowed to learn from?**
 
-## 3.2 Acceptance Truth｜what has actually been demonstrated
+Knowledge answers:
 
-Acceptance Truth answers:
+> **Has AI actually transformed that material into a coherent, accurate, learner-worthy knowledge model?**
 
-> **What readiness / quality claim is supported by current evidence?**
+A copied lecture, copied PDF, teacher chapter order, raw question taxonomy, or rendered source text is not automatically good Knowledge.
 
-`LEARNING_ACCEPTANCE.md` defines the repository-wide S/K/L/P/R/E/U standard. It is a **standard**, not the current evidence ledger itself.
+### Website-disappearance rule
 
-Actual Acceptance Truth belongs to the narrowest scope that needs durable acceptance tracking, for example a lane, independently entered sub-lane, or bounded module acceptance owner.
+Canonical Content must remain coherent and valuable if the current Astro website disappears tomorrow.
 
-Acceptance owners may reference build/schema/E2E evidence, but must not copy Artifact Truth wholesale or infer Learner Truth.
+The website is a consumer of Content, never its semantic owner.
 
-## 3.3 Learner Truth｜what Kian has actually learned or done
+### Normal content change path
+
+```text
+Kian + Chat
+→ read exact canonical owner
+→ discuss / improve content
+→ edit one GitHub owner
+→ main
+→ Current mirror sync
+→ existing renderer shows the new Current
+```
+
+Routine content change should not require editing a duplicate page copy.
+
+---
+
+## 1.3 VISUAL｜stable presentation of accepted meaning
+
+Visual owns how already-approved meaning appears to the learner.
+
+Visual has three scopes:
+
+```text
+Shared Visual
+→ site-wide typography / weight / palette / spacing / radius / elevation / shared controls
+
+Subject Visual
+→ English / Politics / Xizong visual language where the domain genuinely differs
+
+Accepted Surface Blueprint
+→ stable task geometry already accepted by Kian
+```
+
+Examples of Accepted Surface Blueprints:
+
+- Reading: passage left / complete question set right;
+- Cloze: full passage / full 20-row answer sheet;
+- Translation: source left / learner translation right;
+- Writing: prompt/material left / dominant essay workspace right;
+- Politics: accepted Natural Unit workspace geometry;
+- Xizong: accepted System / Block / Recall / Memory / Question workspaces;
+- Lexical: accepted word / Depth / Challenge geometry inside English learner navigation.
+
+### Accepted design is an asset
+
+Once a learner surface has passed Kian's Human Gate, later CSS refactors, Shell changes, owner cleanup, or new Chats do **not** reopen its layout by default.
+
+A surface is redesigned only when:
+
+1. Kian explicitly asks to redesign it; or
+2. upstream Rule / Learning Logic changes enough that the accepted geometry no longer expresses the real task.
+
+### Visual does not own semantics
+
+Visual may choose hierarchy, spacing, typography, layout, disclosure and interaction affordance.
+
+It may not decide what the knowledge means, what a question tests, or what the learner should learn.
+
+---
+
+## 1.4 ENGINEERING｜make the approved system executable
+
+Engineering implements Rule + Content + Visual.
+
+Typical Engineering owners include:
+
+- loaders / adapters;
+- shared or domain renderers;
+- Runtime/state;
+- Reading / Question / Recall / Translation / Writing / Lexical workspaces;
+- answer gating;
+- learner interaction persistence;
+- Timer;
+- navigation;
+- keyboard behavior;
+- GitHub → local Current sync;
+- Astro implementation;
+- browser/runtime validation and CI.
+
+### Runtime is part of Engineering
+
+Runtime does not form another top-level architecture.
+
+Rule decides what a learner action means. Runtime makes it executable.
+
+Example:
+
+```text
+RULE
+Reading is a whole-passage clean attempt before formal review.
+
+ENGINEERING
+store answers + Uncertain
+→ protect answer key
+→ Submit
+→ score
+→ expose bounded review only afterward
+```
+
+If Runtime behaves differently from the approved Rule, Runtime is wrong; the system does not reinterpret the Learning Logic merely to preserve implementation convenience.
+
+### Reuse same task behavior
+
+When two content sources use the same learner task semantics, prefer one renderer/runtime.
+
+Example:
+
+```text
+Reading A exam objects ─┐
+External Reading objects ├→ shared Reading Workspace
+other compatible reading ┘
+```
+
+Different data sources do not justify duplicate UI or duplicate Runtime.
+
+---
+
+## 1.5 CONTROL｜know where everything is
+
+Control is a read/control responsibility, not a new Truth database.
+
+Control reads the narrow current owners needed to answer:
+
+- what Rule is active;
+- what Content is mature / missing;
+- what Visual is accepted / pending;
+- what Engineering capability exists / is blocked;
+- what Acceptance evidence exists;
+- what learner state is known when that private state is legitimately available;
+- what should happen next.
+
+Control normally reports in a compact form:
+
+```text
+Stage
+Next
+Blocker
+Owner
+Human Gate when relevant
+```
+
+`CURRENT.md` is an **engineering Work Cursor / router** inside Control. It is not learner progress and not semantic Truth.
+
+A bare learner request such as `继续英语` does not automatically mean `continue the engineering CURRENT`.
+
+---
+
+# 2｜Three cross-cutting truth guards
+
+The five responsibilities are constrained by three truth guards.
+
+These guards are **not additional product layers**.
+
+## 2.1 Source Truth
+
+Reliable factual/source boundaries must remain explicit.
+
+Do not silently invent missing source facts, official answers, provenance, mappings, or quoted teaching content.
+
+## 2.2 Learner Truth
 
 Learner Truth answers:
 
-> **What has Kian actually studied, attempted, repaired, transferred, forgotten, deferred, or demonstrated?**
+> **What has Kian actually studied, attempted, repaired, retained, forgotten, deferred or demonstrated?**
 
-Private learner state is **not shared repository Artifact Current**.
+It is private learner/runtime evidence.
 
-Its owner may be learner/runtime-local storage or another explicitly authorized private learner-state owner. Shared repository engineering state must never manufacture Learner Truth.
+Engineering readiness, page existence, accepted Content, CI success or a Work Cursor must never manufacture learner progress.
 
-Hard rule:
+## 2.3 Acceptance Truth
 
-```text
-Artifact Truth ≠ Acceptance Truth ≠ Learner Truth
-```
+Acceptance answers:
 
-No one may be silently inferred from another.
+> **What quality/readiness claim has actually been demonstrated?**
 
-## 3.4 Work Cursor｜what the current worker should do next
+`LEARNING_ACCEPTANCE.md` owns the S/K/L/P/R/E/U standard.
 
-Work Cursor is not a fourth Truth.
-
-It answers:
-
-> **For this scope, what is the active / earliest unresolved point on the current dependency chain, blocker, and next action?**
-
-The canonical human/Chat-facing Work Cursor is `CURRENT.md` at the relevant independent scope.
-
-`CURRENT` is a navigation/control surface, not a historical log and not a second Truth owner.
-
-A local Current controls only its own scope. It must not serialize independent sibling scopes merely because they share a parent.
+A file existing, page rendering, build passing, Runtime working or screenshot looking good may support Acceptance, but does not replace the applicable evidence standard.
 
 ---
 
-# 4｜CURRENT architecture
+# 3｜S / K / L / P / R / E / U is acceptance, not architecture
 
-## 4.1 Root `CURRENT.md`
-
-Root Current has two narrow responsibilities:
-
-1. route a worker to the correct independently continued scope when the target scope is not already known;
-2. hold the root-level Work Cursor only when genuine repository-wide governance/integration work is active.
-
-Root Current must not aggregate detailed lane progress or duplicate lane Truth.
-
-If the target lane is already known and repository governance is already understood, a worker may go directly to the lane Current.
-
-## 4.2 Lane `CURRENT.md`
-
-Every first-class lane has one predictable local Work Cursor entry:
+The acceptance gates map naturally onto the five-responsibility model:
 
 ```text
-content/<lane>/CURRENT.md
+S  Source      → is Source reliable?
+K  Knowledge   → did Source become high-quality learner-worthy Knowledge?
+L  Learning    → is the Rule / Learning Logic correct?
+P  Projection  → does the learner-facing presentation serve that Learning Logic?
+R  Runtime     → can Engineering execute the intended behavior?
+E  Evidence    → are meaningful learner observations preserved/interpreted correctly?
+U  User        → did Kian actually use the path successfully?
 ```
 
-A lane Current should contain only enough to restart current work:
+These are **quality gates**, not seven top-level product layers.
+
+Construction order and acceptance remain separate responsibilities:
+
+```text
+LEARNING_ASSET_STANDARD.md
+= how a learning asset is built
+
+LEARNING_ACCEPTANCE.md
+= what evidence permits us to call it ready
+```
+
+---
+
+# 4｜Projection is optional derivation, not a mandatory architecture layer
+
+Projection / presentation transformation may be useful when the same canonical cognition must appear differently by learner state.
+
+Example:
+
+```text
+same canonical knowledge
+├─ Learn: full explanation
+├─ Recall: answer-bearing parts hidden
+├─ Repair: failed relation foregrounded
+└─ Review: compressed representation
+```
+
+In those cases:
+
+```text
+Canonical Content
+→ derived presentation / projection
+→ renderer
+```
+
+But ordinary Content does not need a ceremonial Projection hop when the existing renderer can consume it directly:
+
+```text
+Canonical Content
+→ renderer
+```
+
+Hard rules:
+
+- Projection is derived, not independently edited semantic Truth;
+- Projection must not invent missing relations/content;
+- Projection must not become a second canonical knowledge copy;
+- a renderer may fail closed when semantics are insufficient rather than guess.
+
+---
+
+# 5｜Backend ownership tree ≠ learner product tree
+
+KianOS distinguishes **backend ownership** from **learner-facing navigation**.
+
+A scope may deserve an independent backend lane because it has substantial canonical assets, independent maintenance, bounded continuation or parallel work.
+
+That does not require it to appear as a learner-facing top-level product.
+
+## 5.1 Current learner product tree
+
+The accepted top-level learner product is:
+
+```text
+Home
+├─ 西综
+├─ 政治
+└─ English
+   ├─ Reading A
+   ├─ Cloze
+   ├─ Part B
+   ├─ Translation
+   ├─ Writing
+   ├─ Vocabulary / Lexical
+   └─ External Reading
+```
+
+Lexical may retain independent backend canonical ownership and engineering continuation where that lowers ambiguity and protects lexical Truth.
+
+But learner-facing Vocabulary / Lexical is an **English child function**, not a fourth subject beside English.
+
+Likewise, External Reading is an English child surface and another data source for the shared Reading task family, not another top-level product.
+
+Hard distinction:
+
+```text
+backend lane / canonical ownership
+≠
+learner navigation level
+```
+
+---
+
+# 6｜Ownership hierarchy and concurrency
+
+KianOS remains federated and restartable.
+
+Backend ownership may use:
+
+```text
+Root
+→ Lane
+→ independently continuable Sub-lane when justified
+→ Canonical Owners
+→ learner execution
+```
+
+Hierarchy answers:
+
+> **Who owns this responsibility and which rules does it inherit?**
+
+Hierarchy does **not** determine work order.
+
+Scheduling follows real dependency:
+
+```text
+no real dependency → proceed independently
+real dependency    → freeze only the affected downstream chain
+```
+
+A parent/child or sibling relationship alone does not create serialization.
+
+Examples:
+
+- independent Xizong Systems may be constructed concurrently;
+- Politics subjects may progress concurrently;
+- lexical content batches may progress independently when their real write sets do not conflict;
+- learner order may still be sequential even when artifact construction is parallel.
+
+Hard distinction:
+
+```text
+ownership hierarchy
+≠ construction dependency
+≠ learner order
+≠ learner product navigation
+```
+
+---
+
+# 7｜One owner per responsibility
+
+One current fact, rule, semantic object, acceptance claim or learner-state fact has one canonical owner for its responsibility.
+
+Other layers may:
+
+- reference;
+- derive;
+- adapt;
+- render;
+- validate;
+
+They may not maintain a competing mutable copy.
+
+Examples:
+
+- medical Knowledge stays in canonical Xizong content, not Astro markup;
+- lexical truth stays in lexical Natural Owners, not Reading pages;
+- shared typography stays in the shared visual owner, not repeated subject CSS;
+- learner progress stays in private learner state, not repository CURRENT;
+- Home consumes subject projections/read models; it does not recreate subject cognition.
+
+If two owners appear to maintain the same fact, resolve ownership upstream instead of adding synchronization glue.
+
+---
+
+# 8｜CURRENT and Fresh Chat
+
+`CURRENT.md` is a small engineering router / Work Cursor.
+
+It answers only:
 
 ```text
 scope
-active / earliest unresolved stage when genuine lane-level work exists
-blocker
-next action
-frozen / out-of-scope
-required reads
-references to relevant Artifact / Acceptance / Learner boundaries
+current active engineering stage
+real blocker
+next engineering action
+exact owners needed to continue
 ```
 
-When the lane is acting only as a router, it should **not** appoint one independent child as the lane's globally active child. Each child owns its own Work Cursor and may progress concurrently with independent siblings.
+It is not:
 
-A parent lane may have its own active integration Work Cursor at the same time as child scopes only when that parent work is itself a genuine independent scope and does not depend on unresolved child results. If it does depend on them, the dependency must be stated explicitly.
+- project history;
+- Acceptance evidence ledger;
+- learner progress;
+- semantic content;
+- a second Contract.
 
-A lane Current must not contain:
+## Fresh Chat target
 
-- historical narrative;
-- large completed-work logs;
-- copied Contract text;
-- copied acceptance evidence;
-- copied Artifact Truth inventories already owned elsewhere;
-- learner progress inferred from engineering state;
-- unrelated sibling-lane status.
+Once intent and scope are known, normal work should reach effective action after roughly **2–3 precise reads**, 4 only when a real cross-authority boundary exists.
 
-## 4.3 Sub-lane `CURRENT.md`
-
-Create a sub-lane Current only when the sub-lane is genuinely independently entered/continued and local routing reduces read cost.
-
-Qualification test:
-
-- workers routinely continue this scope without needing the parent lane's active work;
-- it owns a distinct Work Cursor;
-- its required read set can be bounded locally;
-- creating the Current removes ambiguity rather than duplicating parent state.
-
-If these are false, keep the work under the parent lane Current.
-
-A justified sub-lane may be active concurrently with other justified sub-lanes at the same or different hierarchy depth when no real dependency links their current work.
-
-## 4.4 Current is not history
-
-Current describes current work only.
-
-Git history, explicit changelogs, acceptance evidence, recovery artifacts, archived repositories, and retired branches preserve prior events when needed.
-
-Normal Current reasoning does not carry migration narratives or old implementation history forward.
-
----
-
-# 5｜Continuation policy
-
-`continuation.*` is **not a required architecture layer**.
-
-Each continuation is justified only by a proven narrow machine/process responsibility that Current should not own, such as:
-
-- deterministic structured cursor consumed by automation/runtime;
-- stable machine schema/identity state that cannot be represented by simple Current routing;
-- another concrete machine dependency proven by current code.
-
-Retire or absorb it when it mainly contains:
-
-- what happened before;
-- long progress narrative;
-- next-action prose already suitable for Current;
-- duplicated acceptance summaries;
-- duplicated Contract rules;
-- repeated required-read history.
-
-A retained continuation must not become:
-
-- a second Work Cursor;
-- a historical journal;
-- an Acceptance Truth owner;
-- an Artifact Truth owner;
-- a learner-state store.
-
-Target fresh-worker path:
+Normal read patterns:
 
 ```text
-known scope
-→ scope CURRENT
-→ exact required owner(s)
+LEARN
+→ actual learner/runtime state
+→ domain Rule only when needed
+→ learn
+
+BUILD
+→ target CURRENT
+→ exact Rule / Content owner
 → work
+
+UI
+→ shared/local Visual owner
+→ accepted Surface Blueprint
+→ exact implementation owner
+→ work
+
+CONTROL
+→ root/lane Current + only required owners
+→ report
 ```
 
-A machine-only continuation may be one of those exact required owners when genuinely necessary, but it is not a mandatory intermediate layer for every scope.
+Broad repository archaeology is a routing defect, not a normal continuation method.
+
+Historical repositories, old Issues, retired branches and prior Chats are evidence for bounded recovery/history tasks only; they are not normal Current semantic fallback.
 
 ---
 
-# 6｜Rules and inheritance
+# 9｜Content evolvability and change-cost tests
 
-Repository-wide rules live once at the highest valid owner.
+KianOS succeeds only if the next legitimate change is cheap.
 
-## 6.1 Root standards / contracts
+## 9.1 Content change
 
-Root owns cross-KianOS rules such as:
+Representative test:
 
-- project requirements → `PROJECT_DEFINITION.md`;
-- architecture → `ARCHITECTURE.md`;
-- worker/repository operating instructions → `AGENTS.md`;
-- formal learning-asset construction order → `LEARNING_ASSET_STANDARD.md`;
-- S/K/L/P/R/E/U readiness standard → `LEARNING_ACCEPTANCE.md`;
-- shared mature learner-surface capabilities → `SYSTEM_CONTRACT.md`;
-- temporary branch lifecycle/concurrency mechanics → `BRANCH_LIFECYCLE.md`;
-- intentionally postponed repository work → `DEFERRED.md`.
+> `改这个 KP / word sense / Politics teaching object。`
 
-## 6.2 Lane contracts
+Expected path:
 
-Lane contracts contain only cognition/rules genuinely different from root standards or parent contracts.
+```text
+canonical owner
+→ targeted validation / derived presentation only if required
+→ existing renderer
+```
 
-They reference inherited root rules rather than copying them.
+No duplicate page edit.
 
-Learner order defined by a lane contract is a learner-path fact. It does not automatically serialize artifact construction unless a real construction dependency also exists.
+## 9.2 Global visual change
 
-## 6.3 Sub-lane contracts
+Representative test:
 
-A sub-lane gets a durable local contract only when its cognition or execution semantics genuinely differ enough to require one.
+> `全站正文更厚一点。`
 
-Do not normalize one file per folder.
+Expected path:
+
+```text
+one shared visual owner
+→ inherited by learner surfaces
+```
+
+Not subject-by-subject CSS repair.
+
+## 9.3 Subject/surface geometry change
+
+Representative test:
+
+> `Politics Natural Unit 右栏更窄。`
+
+Expected path:
+
+```text
+Politics surface visual owner
+```
+
+Not a global visual rewrite.
+
+## 9.4 Runtime defect
+
+Representative test:
+
+> `Reading Submit 坏了。`
+
+Expected path:
+
+```text
+Reading interaction Rule
++ exact Reading Runtime owner
+→ focused repair
+```
+
+No Learning redesign unless the defect proves the existing Rule itself is wrong.
 
 ---
 
-# 7｜Learning-asset construction and acceptance
+# 10｜Rules inherit; they do not multiply
 
-Formal learning-asset work follows `LEARNING_ASSET_STANDARD.md`.
+Repository-wide invariants live once at the highest valid owner.
 
-Construction order:
+Domain/sub-lane contracts add only genuine local differences.
 
-```text
-Truth / Knowledge Boundary
-→ Learning Logic
-→ Content Realization / Optimization
-→ Projection / Interaction
-→ Runtime Loop
-→ Evidence / Acceptance
-```
+Do not create a new Contract, registry, router, Current type, status layer or abstraction merely because an implementation feels complicated.
 
-Within one declared dependency chain, only the earliest unresolved construction stage is ACTIVE by default; affected downstream stages remain frozen.
+Before adding durable architecture, prove:
 
-This does **not** create a repository-wide or parent-lane waterfall. Independent scopes may each have their own active stage concurrently, including nested sibling subjects, Systems, modules, or bounded batches when their work does not depend on one another.
+1. a recurring real responsibility has no valid existing owner;
+2. simplification/reuse cannot represent it without ambiguity or duplicate Truth;
+3. the new object lowers long-term continuation or change cost.
 
-Readiness is then judged independently through `LEARNING_ACCEPTANCE.md`:
-
-```text
-S / K / L / P / R / E / U
-```
-
-Acceptance gate state is local to the audited scope. An unresolved gate in one scope does not freeze an independent sibling scope.
-
-Construction stage and acceptance gate must not substitute for each other.
-
-Most importantly:
-
-```text
-Artifact exists
-≠ Acceptance PASS
-≠ Kian learned it
-```
-
-## 7.1 Content-evolution architecture
-
-To satisfy Project Requirement R10, KianOS separates **stable identity / ownership** from **evolving content and representation** and from **reusable product/runtime behavior**.
-
-Default flow:
-
-```text
-Canonical / Natural Owner
-        ↓
-Learning-support / reviewed relation / question assets when applicable
-        ↓
-Cognitive Projection asset / semantic presentation objects
-        ↓
-shared or domain-appropriate learner workspace / renderer
-        ↓
-Runtime / Evidence / Return
-```
-
-This is a responsibility chain, not a requirement that every lane use the same file schema or renderer.
-
-### Stable identity vs mutable realization
-
-When the semantic object remains the same, ordinary refinement should preserve its stable identity even if the following evolve:
-
-- wording / explanation depth;
-- learner ordering inside an approved boundary;
-- cognitive geometry / projection metadata;
-- optional Visual / Precision / Boundary / Connection enrichment;
-- question explanation / reviewed relation detail;
-- stage-specific visibility or compression.
-
-Identity must not be renumbered or replaced merely because a page layout or projection shape changes.
-
-If the semantic object itself splits, merges, changes meaning, or moves ownership, that is a real upstream change and must be handled by the responsible owner rather than hidden behind compatibility code.
-
-### Asset-driven change by default
-
-Routine content evolution should normally be absorbed here:
-
-```text
-Current asset changes
-→ rebuild / update affected Projection asset when needed
-→ targeted validation
-→ existing workspace consumes the result
-```
-
-Shared/product code must not encode current domain content as a hidden ontology merely because hard-coding is convenient.
-
-Avoid patterns such as:
-
-```text
-if specific named topic → special semantic truth in page code
-if one current asset is absent → renderer guesses the missing relation
-all sibling assets must copy optional fields for schema symmetry
-```
-
-Domain-specific renderers/components remain legitimate when the **cognitive geometry itself** is genuinely domain-specific. The prohibition is against moving canonical truth or ordinary content variation into implementation code.
-
-### Optional enrichment is first-class
-
-A lane/scope may have additional reviewed assets—e.g. Visual, Precision, Connection, pathway, comparison, case, source-local or other projection support—without forcing every sibling to manufacture matching files.
-
-Rules:
-
-- supported enrichment may project;
-- unsupported enrichment stays absent;
-- absence must not be filled by inference;
-- a new enrichment class should integrate through a bounded semantic role/capability when possible rather than requiring page-by-page branching;
-- only add a shared abstraction when multiple real learner needs justify it.
-
-### Multi-stage / multi-pass reuse
-
-Where one canonical cognitive object is reused across learning stages or later passes, prefer state-specific Projection over duplicated content owners.
-
-Conceptually:
-
-```text
-same canonical cognition
-├─ ORIENT / first learning
-├─ RECALL / closure
-├─ later REVIEW / application / transfer
-└─ late compressed use
-```
-
-The domain Learning Contract decides which stages/passes actually exist and what they mean. Architecture only requires that a later pass should not need a duplicate canonical knowledge system merely because its learner-facing representation becomes thinner, more discriminative, more applied, or more selective.
-
-### When Product / Runtime must change
-
-An asset-only update is **not** sufficient when the change alters:
-
-- Learning Logic or natural learner unit;
-- task geometry / interaction semantics;
-- surface ownership or cross-surface handoff;
-- evidence meaning / attempt semantics;
-- canonical identity/ownership;
-- a genuine domain behavior that no accepted runtime capability can express.
-
-Then reopen the earliest responsible construction stage and re-walk affected downstream stages. R10 protects evolvability; it does not authorize semantic changes to bypass stage gates.
+Otherwise simplify the narrow existing owner.
 
 ---
 
-# 8｜Dependency-driven concurrency and write boundaries
+# 11｜Architecture acceptance tests
 
-Concurrency is normal.
-
-The scheduler asks first:
-
-> **Does this work depend on an unresolved decision/artifact/evidence owned elsewhere?**
-
-- **No** → the scope may progress concurrently.
-- **Yes** → state the dependency and freeze only the affected downstream chain.
-
-Hierarchy depth, sibling status, parent ownership, or learner-facing sequence is not enough by itself to answer that question.
-
-## 8.1 Scope-local default
-
-Ordinary lane/sub-lane work writes only:
-
-- the active scope's canonical Artifact owner(s);
-- its local Acceptance owner when acceptance evidence changes;
-- its local Work Cursor when the next action changes;
-- exact runtime files in the authorized scope.
-
-It does not update root governance merely to record ordinary progress.
-
-Independent sibling scopes should avoid writing parent routers merely to announce local progress; that would recreate false serialization and write contention.
-
-## 8.2 Branch semantics
-
-`main@HEAD` is the durable shared Current repository state.
-
-Temporary branches are execution surfaces, not truth owners.
-
-A branch becoming behind `main` is not itself a defect.
-
-Reconcile only when:
-
-- intended write-sets overlap;
-- authority/owner definitions changed;
-- inherited parent rules materially changed for the child scope;
-- a newly discovered real dependency makes the previous independent assumption invalid.
-
-Branch landing / retirement follows `BRANCH_LIFECYCLE.md`.
-
-## 8.3 Scope containment
-
-A worker acts only within the authorized scope.
-
-Cross-scope defects may be reported or may block the current task. They are not permission for opportunistic unrelated repair.
-
-When a cross-scope issue is a genuine dependency, escalate only to the narrow owner of that dependency. Do not freeze or repair unrelated siblings.
-
----
-
-# 9｜History and recovery boundary
-
-Normal operation is current-authority-first.
-
-Historical repositories, retired branches, migration records, old Issues, old releases, or prior runtime implementations are not normal semantic fallback.
-
-History may be inspected only for a bounded recovery, rollback, historical comparison, or migration task.
-
-Once the accepted recovery result is represented in Current authority, normal work returns immediately to current-only reasoning.
-
----
-
-# 10｜Anti-entropy guardrails
-
-KianOS uses lightweight governance checks specifically to prevent recurring structural entropy.
-
-The guard is intentionally narrow and should only expand when a real repeated failure class appears. Current checks defend against:
-
-- Current becoming oversized/narrative;
-- required Current / Acceptance owners disappearing;
-- retired continuation / legacy acceptance paths returning to authority;
-- manifests pointing back to retired owners;
-- continuation reappearing as a mandatory required-read hop.
-
-Additional checks are added only when observed failures justify them.
-
-The lint exists to defend requirements R1–R10, not to create a second governance platform.
-
----
-
-# 11｜Requirement traceability
-
-Every durable architecture choice must map to at least one real Project Requirement.
-
-| Architecture decision | Primary requirement owner |
-| --- | --- |
-| Predictable scope Current entry | R1 Restartability, R3 Bounded context |
-| Lane/sub-lane federation | R2 Local autonomy, R6 Concurrency |
-| Hierarchy separated from dependency scheduling | R2 Local autonomy, R6 Concurrency, R7 Scope containment |
-| Single canonical owner | R4 Single authority, R8 Anti-entropy |
-| Artifact / Acceptance / Learner separation | R5 Truth separation, R9 Learning quality |
-| CURRENT as Work Cursor only | R1, R3, R5, R8 |
-| continuation not mandatory | R3, R4, R8 |
-| inherited rules instead of copies | R4, R8 |
-| scope-local write sets | R6, R7 |
-| earliest unresolved stage per dependency chain | R7, R9 |
-| history excluded from normal fallback | R3, R8 |
-| lightweight entropy lint | R8 |
-| temporary branches not truth owners | R4, R6, R8 |
-| stable identity + asset-driven content evolution | R4, R8, R10 |
-| optional enrichment without sibling schema mimicry | R4, R8, R10 |
-| multi-stage projection reuse instead of duplicate canonical content | R4, R9, R10 |
-
-If a proposed durable abstraction cannot name a Project Requirement it satisfies, it should not be added by default.
-
----
-
-# 12｜Architecture acceptance tests
-
-This Architecture remains accepted only while it continues to satisfy:
+This Architecture remains valid only while it passes these observable tests.
 
 ## A1｜Fresh Chat Test
 
-Known scope → effective work in roughly 2–4 precise reads without prior-chat recall or repository-wide search.
+Known intent + known scope → effective work in roughly 2–3 precise reads without prior-chat reconstruction.
 
-## A2｜Truth Separation Test
+## A2｜Owner Uniqueness Test
 
-For one scope, separately resolve:
+For any important current fact or rule, `Who owns this?` has one clear answer.
 
-- Artifact Truth;
-- Acceptance Truth;
-- Learner Truth;
-- Work Cursor.
+## A3｜Truth Separation Test
 
-No answer may be manufactured from another.
+Artifact/Content reality, Acceptance, Learner Truth and engineering Work Cursor remain separately resolvable.
 
-## A3｜Parallel Chat Test
+## A4｜Content Change Absorption Test
 
-Independent scopes at any justified hierarchy depth can proceed concurrently with minimal ordinary write contention.
+Ordinary legitimate Content evolution reaches the learner through asset change + existing renderer/runtime without page-specific semantic rewrite.
 
-A parent/sibling relationship alone must not serialize them. Only real dependency, authority, or write-set overlap should require coordination.
+## A5｜Visual Change Cost Test
 
-## A4｜Owner Uniqueness Test
+Global visual change resolves globally; subject/surface geometry resolves locally; accepted Surface Blueprints do not reopen accidentally.
 
-Important current facts/rules have one canonical owner.
+## A6｜Parallel Work Test
 
-## A5｜Three-month Entropy Test
+Independent scopes can proceed concurrently without false parent/sibling serialization or broad rebase rituals.
 
-Continued use should not recreate ballooning Current/continuation files, duplicate rules/status, broad searches, root-contention, false parent-level child serialization, or learner/product state leakage.
+## A7｜Learning Closure Test
 
-## A6｜Learning Closure Test
+Engineering completion cannot substitute for S/K/L/P/R/E/U evidence or real learner U.
 
-Learner-facing readiness claims still require the learning construction and acceptance standards; governance simplification and concurrency must not weaken learning evidence or allow downstream stages to outrun unresolved dependencies.
+## A8｜Three-month Entropy Test
 
-## A7｜Content Change Absorption Test
+Continued use should not recreate:
 
-For a representative accepted surface, make a legitimate Current-only content/projection change that does not alter learner behavior—for example add/remove/reorder a semantic object, add an optional reviewed enrichment, refine a relation, or change stage visibility.
+- giant Current/history files;
+- duplicate semantic owners;
+- repeated rules across lanes;
+- UI copies of canonical content;
+- subject-local forks of shared visual/runtime infrastructure;
+- Fresh Chats that need repository-wide archaeology.
 
-PASS requires that the normal change path is primarily:
-
-```text
-responsible asset owner
-→ affected Projection/representation
-→ validation
-→ existing learner surface
-```
-
-without copying domain truth into page code, forcing unrelated sibling schema changes, or inventing a new Runtime state machine.
-
-A legitimate cognition/interaction/evidence change may require Product/Runtime work; the test fails only when **ordinary asset evolution** repeatedly does.
+If these recur, architecture must be simplified at the earliest responsible owner.
 
 ---
 
-# 13｜Change discipline
+# 12｜Compact operating model
 
-The accepted architecture is a baseline, not a license to keep expanding governance.
-
-Normal lower-level upgrades proceed from their own local `CURRENT` and earliest unresolved dependency. Root Architecture changes only when real use demonstrates that an existing Project Requirement is not being satisfied reliably enough.
-
-When a new abstraction, registry, automation, status owner, runner layer, dashboard, or shared platform feature is proposed, require this chain:
+For ordinary KianOS work, keep this mental model:
 
 ```text
-observed blocker / repeated failure
-→ named Project Requirement / Invariant
-→ prove the current simpler layer is insufficient
-→ choose the smallest reversible architecture change
-→ execute / accept / observe
+RULE       why / quality / learning / interaction
+CONTENT    what to learn
+VISUAL     how it appears
+ENGINEERING how it runs
+CONTROL    where we are
 ```
 
-If that chain cannot be shown, keep the simpler structure.
+Constrained by:
 
-No learning content, source semantics, learner evidence, or unrelated runtime behavior should be rewritten merely because governance ownership changes.
+```text
+Source Truth
+Learner Truth
+Acceptance
+```
 
-Likewise, no learner page or runtime state machine should be rewritten merely because ordinary Current content/projection assets evolve; first ask whether the responsible asset layer can absorb the change under R10.
+Normal product flow:
+
+```text
+Rule
+↓
+Content + Visual
+↓
+Engineering
+↓
+Website
+```
+
+Control observes and routes the system from the side.
+
+The website is the learner-facing execution surface. **The durable asset is the Rule + Content + accepted Visual/Engineering model behind it, not the page itself.**
