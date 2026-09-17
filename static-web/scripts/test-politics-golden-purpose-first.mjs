@@ -35,6 +35,8 @@ async function visibleLearnerTextBelowFloor(locator, floorPx = 15) {
       if (!text || !/[A-Za-z0-9\u3400-\u9FFF]/.test(text)) continue;
       const element = walker.currentNode.parentElement;
       if (!element) continue;
+      const closedDetails = element.closest('details:not([open])');
+      if (closedDetails && !element.closest('summary')) continue;
       const style = getComputedStyle(element);
       if (style.display === 'none' || style.visibility === 'hidden' || Number(style.opacity) === 0) continue;
       if (!element.getClientRects().length) continue;
