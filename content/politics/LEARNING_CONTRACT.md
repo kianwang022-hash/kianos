@@ -257,36 +257,40 @@ The learner should see **what to do and why**, not scheduler internals.
 
 Politics later-stage consolidation is **not a miniature Xizong** and must not inherit a high-friction per-item recall workflow.
 
-Politics has a smaller time budget and lower overall exam priority than Xizong. Its default later-stage learning unit is therefore the **chapter or another genuinely large chapter-level memory structure**, not every Natural Unit, K object, reconstruction target, or Memory candidate.
+Politics has a smaller time budget and lower overall exam priority than Xizong. Its default later-stage learner unit is therefore the **chapter or another genuinely large chapter-level memory structure**, not every Natural Unit, Knowledge object, reconstruction target, or Memory candidate.
 
-Default consolidation path:
+#### One-shot diagnosis first; targeted recall only for real gaps
+
+The default path is:
 
 ```text
 CHAPTER_RECONSTRUCT
-→ CORE_CONTENT_RECALL
-→ ACTIVE_PRECISION when justified
-→ PRIOR_WRONG / meaningful UNCERTAIN when present
-→ SELECTIVE_RETEST when useful
-→ SMALLEST_REPAIR only if still unstable
+→ CHECK_AGAINST_GROUP_RUBRIC
+→ [TARGETED_CONTENT_RECALL only for missing/weak groups]
+→ [ACTIVE_PRECISION when justified]
+→ [PRIOR_WRONG / meaningful UNCERTAIN when present]
+→ [SELECTIVE_RETEST when useful]
+→ [SMALLEST_REPAIR only if still unstable]
 → CLOSE
 ```
 
-This is a **fast path by default**:
+Square-bracket actions are conditional. A stable chapter is allowed to move from one-shot reconstruction/check directly toward exit.
 
-- reconstruct the chapter in one bounded operation rather than one prompt per K target;
-- use the framework to organize a substantial amount of chapter content, not to replace all memory work;
-- recall core content in a small number of meaningful groups rather than item-by-item ceremony;
+Hard rule:
+
+> **The chapter reconstruction and the grouped recall rubric must not become two mandatory passes over the same content.**
+
+The chapter reconstruction should attempt to regenerate the chapter in one bounded operation. The grouped recall scope is primarily the **evaluation rubric** for that attempt and the source of targeted follow-up only when a material group was missing, confused, or too weak.
+
+Therefore:
+
+- do not automatically ask every group again after a successful whole-chapter reconstruction;
+- do not create one task per K target merely because the backend contains targets;
+- when only one group is weak, recall only that group;
+- when the whole framework is broken, reopen the large model rather than micro-drilling every descendant;
 - allow the learner's own wording when the relation, conclusion, scope and decisive qualifiers remain correct;
-- require exact wording/list/identity/timeline/legal precision only when the point is actually active/admitted;
+- require exact wording/list/identity/timeline/legal precision only when the point is actually active and source-legitimate;
 - use historical Wrong / meaningful Uncertain evidence to earn depth;
-- use Xiao1000 as selective verification, not as an automatic whole-bank rerun;
-
-Retest selection priority:
-
-1. unresolved historical Wrong / meaningful Uncertain for the chapter;
-2. a small representative/high-discrimination sample when fresh verification is actually useful;
-3. no retest when current evidence already makes the extra question cost unjustified;
-- reopen only the smallest broken relation/source segment;
 - let stable chapters exit cheaply.
 
 The learner-facing path must not expose backend recall taxonomies, K object counts, candidate counts, or per-node completion counters. A rich backend exists so repair can become precise when needed; it does not justify a rich default workflow.
@@ -295,45 +299,18 @@ The learner-facing path must not expose backend recall taxonomies, K object coun
 
 Politics differs from Xizong in one important way: after first-round understanding, a substantial proportion of a chapter may still need active retrieval.
 
-Therefore later consolidation must distinguish:
+Later consolidation therefore distinguishes:
 
-1. **chapter framework reconstruction** — recover the chapter's organizing logic;
-2. **core-content recall** — regenerate the important content hanging from that framework;
-3. **precision recall** — exact hats, fixed groups/lists, identities, timelines, legal wording or other source-grounded details that genuinely require exactness.
+1. **chapter framework reconstruction** — recover the chapter's organizing logic and as much important attached content as possible in one pass;
+2. **grouped core-content rubric** — define the few chapter-level content groups that should be recoverable and identify real gaps after the one-shot attempt;
+3. **targeted content recall** — re-retrieve only the missing/weak groups;
+4. **precision recall** — exact hats, fixed groups/lists, identities, timelines, legal wording or other source-grounded details that genuinely require exactness.
 
-Compression in Politics therefore means **organizing future memory operations**, not simply deleting detail until only a skeleton remains.
+Compression in Politics means **organizing future memory operations**, not deleting detail until only a skeleton remains.
 
-At the same time, "the chapter matters" does not mean "every sentence must be memorized word-for-word". Broad relations may be reconstructed; grouped content may need complete retrieval without fixed prose; only true Precision demands exact retention.
+At the same time, "the chapter matters" does not mean "every sentence must be memorized word-for-word". Broad relations may be reconstructed; grouped content may need complete retrieval without fixed prose; only true Precision demands separately tracked exact retention.
 
-#### Core-content recall scope is a Learning decision
-
-For a chapter to be later-stage L-ready, `CORE_CONTENT_RECALL` must be explicit enough that downstream Projection/Runtime does not have to guess which chapter content should be actively regenerated.
-
-The recall scope should be a **small set of meaningful chapter-level groups** that reference Current Knowledge owners. It may reuse existing chapter compression / active structures / boundaries, but it must not duplicate the full source prose.
-
-Hard boundary:
-
-```text
-Current Knowledge
-→ L-approved grouped recall scope
-→ later Projection / Runtime
-
-not
-
-Current JSON fields
-→ UI guesses what looks important
-```
-
-A calibration chapter therefore needs to answer:
-
-- what one large reconstruction should be attempted first;
-- which few content groups should then be actively recalled;
-- which exact candidates are merely available vs actually active;
-- what prior evidence can earn deeper review;
-- what condition allows the chapter to exit.
-
-This grouping is Learning semantics. Layout, reveal interaction and visual form remain downstream.
-#### Structured completeness is not the same as durable Precision debt
+#### Grouped completeness is not durable Precision debt
 
 A chapter may require the learner to retrieve a fixed **group** completely without creating a separate durable Precision object for every item.
 
@@ -341,13 +318,13 @@ Example:
 
 ```text
 five development concepts
-→ chapter Content Recall may require all five + their roles
-→ this does not automatically create five persistent Precision tasks
+→ chapter reconstruction/rubric expects all five + their roles
+→ if recalled correctly, no extra Precision task is created
+→ if exactness itself later proves fragile/score-relevant, Precision may activate
 ```
 
-Use durable Precision when exactness itself needs independent future tracking. Use grouped Content Recall when completeness belongs naturally inside the chapter reconstruction.
+Use durable Precision when exactness itself needs independent future tracking. Use grouped recall when completeness belongs naturally inside the chapter reconstruction.
 
-This distinction prevents Politics from turning every fixed group into a high-frequency card queue.
 #### Candidate availability is not learner debt
 
 Hard rule:
@@ -360,24 +337,75 @@ or historical handbook mentions it
 learner owes a review task
 ```
 
-A Precision candidate becomes an active learner task only when one of the Memory-admission conditions in §6.2 is satisfied or when the active later phase explicitly requires it.
+A Precision candidate becomes an active learner task only when its **admission/freshness requirements** are satisfied and the active phase/evidence justifies showing it.
+
+For high-delta domains, freshness is a hard prerequisite:
+
+```text
+Xi high-delta exact wording
+or current legal/normative exactness
+→ current-year/current-law source gate must pass first
+→ only then can W/U or output need activate exact Precision
+```
+
+Wrong/Uncertain evidence may prove that exact retention is needed; it does **not** authorize stale or unverified exact wording.
+
+History horizontal Knowledge follows the same separation:
+
+```text
+candidate pool
+→ admission / source legitimacy
+→ chapter relevance selects among admitted/active items
+→ learner task
+```
+
+Chapter relevance alone never promotes a candidate into durable debt.
 
 Examples:
 
 - History's horizontal candidate inventory is a repair/precision reservoir, not a mandatory scan of every meeting/document/land-policy item on every chapter pass.
 - Xi high-delta candidate domains stay dormant until current-year source refresh makes exactness legitimate.
-- chapter reconstruction targets may support one chapter-level recall prompt; they do not imply one prompt per target.
+- chapter reconstruction targets may support one chapter-level attempt; they do not imply one prompt per target.
 - Analysis Output hooks remain dormant during ordinary consolidation unless the analysis-output phase activates them.
+
+#### Retest selection
+
+Xiao1000 remains verification evidence, not an automatic second-round syllabus.
+
+Retest priority:
+
+1. unresolved historical Wrong / meaningful Uncertain for the chapter;
+2. a small representative/high-discrimination sample when fresh verification is actually useful;
+3. no retest when current evidence makes the extra question cost unjustified.
+
+Do not rerun a whole chapter bank by default.
+
+#### Later-stage consolidation surface ownership
+
+For **consolidation only**, the approved primary/companion surfaces are:
+
+| Learner action | Primary surface | Companion / boundary |
+| --- | --- | --- |
+| chapter one-shot reconstruction + check | **Astro / KianOS web** | must stay fast and chapter-level; no duplicate Chengfeng reader |
+| targeted content-gap recall | **Astro / KianOS web** | only failed/weak groups re-open |
+| active Precision recall | **Astro / KianOS web** | exact source refresh may require the designated current source; candidate-only items remain hidden |
+| historical W/U review + Xiao1000 retest | **Astro / KianOS web** | preserve existing question/evidence truth |
+| exact source repair | original owning source by default | Chengfeng or the designated current Memory/legal source, depending on the failure |
+| deep semantic repair | **Chat** | return to the interrupted chapter/retest path afterward |
+
+This later-stage assignment does not change first-round Chengfeng surface ownership.
+
+Analysis-output and Mock/final surface ownership remain separate unresolved later-phase decisions; consolidation acceptance must not settle them by implication.
 
 #### Subject-specific fast shapes
 
 The path remains chapter-fast while respecting subject cognition:
 
-- **Marxism** — reconstruct one relation/mechanism model, recall the principle content, then exact only decisive boundaries/formulations.
-- **Mao** — reconstruct historical problem → theory response → identity/hat structure, then recall the major content groups without turning every theory item into a microcard.
-- **Xi / New Thought** — reconstruct role/hierarchy first, then recall the chapter's high-value content under that hierarchy; exact wording/list membership remains current-year-source gated.
-- **History** — recover the causal historical movie first; activate only the horizontal meeting/document/land-policy/ideological line that is relevant to the chapter or real evidence.
-- **Ethics / Law** — recover concept/boundary/situation structure first; exact legal/normative wording is selectively source-gated.
+- **Marxism** — one relation/mechanism reconstruction; only weak principle groups receive targeted re-recall; exact only decisive boundaries/formulations.
+- **Mao** — one historical problem → theory response → identity/hat reconstruction; only missing major groups are recalled again.
+- **Xi / New Thought** — one role/hierarchy reconstruction with substantial attached content; high-delta exact wording/list membership remains current-year-source gated.
+- **History** — one causal historical movie; horizontal meeting/document/land-policy/ideological lines activate only after admission and real relevance/evidence.
+- **Ethics / Law** — one concept/boundary/situation reconstruction; exact legal/normative wording requires current-source legitimacy before activation.
 
 #### Later-pass shrinkage
 
@@ -387,7 +415,7 @@ After a chapter has been successfully reconstructed, later review should increas
 
 ```text
 framework gaps
-+ content gaps
++ content-group gaps
 + active Precision gaps
 + real Wrong / meaningful Uncertain evidence
 ```
@@ -398,14 +426,14 @@ Do not force a full chapter replay merely because the chapter remains available.
 
 A chapter may close for the current consolidation pass when:
 
-- no material framework gap remains;
-- no material core-content gap remains that would change objective discrimination or later answer generation;
+- the one-shot reconstruction shows no material framework gap;
+- no material grouped-content gap remains that would change objective discrimination or later answer generation;
 - active/admitted Precision for this pass is stable enough for the current phase;
 - selected W/U or retest debt has been resolved or explicitly remains pending for a justified reason.
 
 Closure is phase-scoped evidence, not a mastery claim.
 
-Analysis-output and Mock/final work remain separate later states. Ordinary chapter consolidation must not automatically append answer-writing drills or whole-paper work.
+This section accepts only the **consolidation learning model**. Analysis-output Learning and Mock/final Learning remain separate later gates and must not be called accepted merely because consolidation closes.
 
 ### 6.2 Memory admission: understanding may expand; Memory may not
 
