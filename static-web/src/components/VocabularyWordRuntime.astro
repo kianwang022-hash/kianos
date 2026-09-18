@@ -1,7 +1,7 @@
 ---
 const { answer } = Astro.props;
 const card = answer.record || {};
-const wordFeel = card.word_feel || {};
+const wordFeel = card.word_feel && typeof card.word_feel === 'object' ? card.word_feel : null;
 const senses = Array.isArray(card.senses) ? card.senses : [];
 const secondarySenses = Array.isArray(card.secondary_senses) ? card.secondary_senses : [];
 const constructions = Array.isArray(card.constructions) ? card.constructions : [];
@@ -75,25 +75,27 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
           </div>
         </div>
 
-        <section class="lexicalCoreHeadline" data-vocab-target-row aria-label="Word Feel and Core">
-          <span>WORD FEEL / CORE</span>
-          <p>{wordFeel.summary_cn}</p>
-          {wordFeel.decision_cn && (
-            <div class="lexicalCoreDecision">
-              <small>怎么判断</small>
-              <b>{wordFeel.decision_cn}</b>
-            </div>
-          )}
-          <button
-            type="button"
-            data-vocab-repair
-            data-target-kind={repair(wordFeel.repair).target_kind || 'core'}
-            data-target-id={repair(wordFeel.repair).target_id || ''}
-            data-target-locator={repair(wordFeel.repair).target_locator || ''}
-            data-target-label={repair(wordFeel.repair).target_label || wordFeel.summary_cn || card.word}
-            aria-pressed="false"
-          >+</button>
-        </section>
+        {wordFeel && (
+          <section class="lexicalCoreHeadline" data-vocab-target-row aria-label="Word Feel and Core">
+            <span>WORD FEEL / CORE</span>
+            <p>{wordFeel.summary_cn}</p>
+            {wordFeel.decision_cn && (
+              <div class="lexicalCoreDecision">
+                <small>怎么判断</small>
+                <b>{wordFeel.decision_cn}</b>
+              </div>
+            )}
+            <button
+              type="button"
+              data-vocab-repair
+              data-target-kind={repair(wordFeel.repair).target_kind || 'core'}
+              data-target-id={repair(wordFeel.repair).target_id || ''}
+              data-target-locator={repair(wordFeel.repair).target_locator || ''}
+              data-target-label={repair(wordFeel.repair).target_label || wordFeel.summary_cn || card.word}
+              aria-pressed="false"
+            >+</button>
+          </section>
+        )}
       </header>
 
       <div class="portedVocabBody" data-vocab-body data-has-reference={hasReferenceRail ? 'true' : 'false'} data-reference-weight={referenceWeight}>
