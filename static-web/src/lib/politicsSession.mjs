@@ -1,6 +1,7 @@
 export const POLITICS_SESSION_KEYS = Object.freeze({
   instruction: 'kianos-politics-session-instruction-v1',
-  evidence: 'kianos-politics-session-evidence-v1'
+  evidence: 'kianos-politics-session-evidence-v1',
+  runtime: 'kianos-politics-session-runtime-v1'
 });
 
 export const POLITICS_SESSION_PHASES = Object.freeze([
@@ -16,6 +17,7 @@ export const POLITICS_SESSION_RECIPES = Object.freeze([
   'PRECISION',
   'QUESTION_RETEST',
   'SOURCE_REPAIR',
+  'CHAT_REPAIR_RETURN',
   'CLOSE'
 ]);
 
@@ -93,6 +95,9 @@ function normalizeStep(step, index) {
   }
   if (recipeType === 'SOURCE_REPAIR' && !targetRefs.length && !sourceHref) {
     throw new Error(`POLITICS_SESSION_SOURCE_TARGET_REQUIRED:${stepId}`);
+  }
+  if (recipeType === 'CHAT_REPAIR_RETURN' && !targetRefs.length && !questionIds.length) {
+    throw new Error(`POLITICS_SESSION_CHAT_RETURN_CONTEXT_REQUIRED:${stepId}`);
   }
   if (recipeType === 'CLOSE' && (targetRefs.length || questionIds.length)) {
     throw new Error(`POLITICS_SESSION_CLOSE_MUST_BE_EMPTY:${stepId}`);
@@ -187,7 +192,12 @@ export function normalizePoliticsSessionInstruction(input, options = {}) {
     subject_id: text(scope.subject_id || input.subject_id),
     phase: 'CONSOLIDATION',
     anchor_ref: text(scope.anchor_ref || input.anchor_ref),
-    steps: Array.isArray(input.actions) ? input.actions : [],
+    steps: (Array.isArray(input.actions) ? input.actions : []).map((action) => ({
+      ...action,
+      step_id: action?.step_id || action?.action_id,
+      recipe_type: action?.recipe_type || action?.type,
+      learner_prompt: action?.learner_prompt || action?.prompt
+    })),
     return_policy: input.return_policy || { on_complete: 'CHAT', on_interrupt: 'RESUME' }
   };
   return validatePoliticsSessionInstruction(normalized, options);
