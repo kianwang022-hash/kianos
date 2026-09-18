@@ -128,7 +128,28 @@ Those are Chat decisions.
 
 ### Minimal plan semantics
 
-A later-stage plan may contain any valid ordered subset of actions such as:
+The durable semantic interface is `kianos.politics.consolidation_plan.v1`.
+
+This name defines the **minimum meaning** the later Runtime must preserve. It does not force one transport technology, file location, API endpoint, or UI component.
+
+A plan contains:
+
+```text
+scope
+- subject_id
+- chapter_id
+- phase = CONSOLIDATION
+
+actions[]
+- action_id
+- type
+- explicit target refs / question ids as needed
+- learner-facing prompt when needed
+- explicit reveal / source refs when needed
+- explicit precision guards when type = PRECISION
+```
+
+Allowed action types:
 
 - `RECONSTRUCT`
 - `TARGETED_RECALL`
@@ -138,9 +159,87 @@ A later-stage plan may contain any valid ordered subset of actions such as:
 - `CHAT_REPAIR_RETURN`
 - `CLOSE`
 
-Each action should point to explicit Current content/object refs, question ids, or an explicit learner-facing prompt supplied by Chat.
+#### Action requirements
 
-The runtime may validate object identity, availability, state safety and evidence persistence. It may **not** replace missing Chat decisions with semantic inference from raw JSON.
+`RECONSTRUCT`
+- Chat supplies the learner-facing reconstruction prompt;
+- Chat supplies the Current K refs that may be used for reveal/check;
+- Web must not expand the prompt into additional chapter topics.
+
+`TARGETED_RECALL`
+- Chat supplies the exact Current object/group refs to retrieve now;
+- Web must not append sibling objects because they are nearby or share a field.
+
+`PRECISION`
+- Chat supplies the exact source-grounded target ref;
+- Chat supplies the activation basis, for example real W/U evidence or active phase requirement;
+- when Current K marks the domain as high-delta/current-law sensitive, Chat also supplies the applicable current-source/freshness evidence ref;
+- Web validates the supplied refs/state shape and fails closed when required guard data is absent;
+- Web does not decide whether a candidate deserves activation.
+
+`QUESTION_RETEST`
+- Chat supplies explicit stable Xiao1000 `question_id` values;
+- Web does not select additional questions or expand to the chapter bank.
+
+`SOURCE_REPAIR`
+- Chat supplies the exact owning source locator / source ref;
+- Web routes there without synthesizing a replacement lecture.
+
+`CHAT_REPAIR_RETURN`
+- Web returns the bounded learner evidence/object identity needed for Chat repair;
+- after Chat decides the repair, Web resumes from the explicit returned plan/action.
+
+`CLOSE`
+- Chat may explicitly close the current consolidation session;
+- Web may always let the learner exit the UI, but it must not infer semantic chapter closure from counters, elapsed time, or content availability.
+
+#### No strategy fields in Web
+
+The plan/runtime interface must not create Web-owned strategy fields such as:
+
+- importance score;
+- review priority;
+- due score;
+- recommended next K object;
+- automatic chapter completeness;
+- inferred Precision need;
+- inferred question selection;
+- inferred close readiness.
+
+If Chat needs those judgments, they remain Chat/private-strategy logic and arrive only as already-decided actions.
+
+The runtime may validate object identity, availability, source guard presence, state safety and evidence persistence. It may **not** replace missing Chat decisions with semantic inference from raw JSON.
+
+### Return evidence semantics
+
+The durable return meaning is `kianos.politics.consolidation_return.v1`.
+
+It is **private learner evidence**, not shared Current truth.
+
+The return contains only enough evidence for Chat to make the next decision:
+
+```text
+scope
+- subject_id
+- chapter_id
+- phase = CONSOLIDATION
+
+events[]
+- action_id
+- action_type
+- observable outcome
+- learner response / selection when needed
+- W/U marker when produced
+- stable content/question/source identity
+
+resume
+- interrupted action / next explicit action when one exists
+- source locator when a cross-surface repair is active
+```
+
+The return must not include a Web-authored recommendation such as "review this next" or "chapter mastered".
+
+Chat consumes the evidence and may send a new `consolidation_plan.v1`.
 
 ### Runtime capability, not strategy
 
