@@ -106,7 +106,7 @@ async function audit(page, { ordinal, expectedWord, sparse }) {
       bodyScrollWidth:document.documentElement.scrollWidth,
       bodyClientWidth:document.documentElement.clientWidth
     };
-  }, { expectedWord, expectExpansion, sparse });
+  }, { expectedWord, sparse });
 
   // Always leave a real screenshot behind, even when a geometry assertion fails.
   await page.screenshot({ path: path.join(outputRoot, `lexical-${expectedWord}.png`), fullPage: false });
