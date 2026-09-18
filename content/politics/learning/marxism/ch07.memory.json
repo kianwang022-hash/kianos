@@ -1,0 +1,107 @@
+{
+  "schema": "kianos.politics.memory_projection.v1",
+  "status": "CURRENT_K_REVIEWED",
+  "chapter_id": "POL27-LEARN-MARX-C07",
+  "policy": "SOURCE_GROUNDED_SELECTIVE",
+  "principle": "Candidate existence is Knowledge; durable review debt requires later admission evidence.",
+  "preferred_memory_reference": {
+    "role": "DESIGNATED_MEMORY_HANDBOOK",
+    "label": "腿姐《冲刺背诵手册》",
+    "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+    "historical_package": "content/politics/source/historical/leg26/manifest.json",
+    "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MARX.md",
+    "rule": "Current canonical region/source must support the relation. LEG26 supplies historical retention priority; current-year source/WU/output evidence governs admission."
+  },
+  "admission_gate": {
+    "default": "NOT_ADMITTED",
+    "requires_source_grounding": true,
+    "admit_when_any": [
+      "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+      "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED",
+      "LATER_ANALYSIS_OUTPUT_REQUIRES_EXACT_FORMULATION"
+    ],
+    "do_not_admit_for": [
+      "historical handbook presence alone",
+      "chapter importance alone",
+      "one stable correct answer"
+    ]
+  },
+  "units": {
+    "POL27-CF-MARX-C07-S01": {
+      "title": "社会主义五百年的历史进程",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MARX-C07-S01-M01",
+          "form": "historical_boundary",
+          "statement": "空想社会主义是科学社会主义的重要思想来源并有历史贡献，但缺少对资本主义规律、现实主体和实现道路的科学说明，因此不等于科学社会主义。",
+          "source_refs": [
+            "POL27-CF-MARX-C07-S01"
+          ],
+          "current_recall_basis": {
+            "priority": "P0",
+            "forms": [
+              "timeline",
+              "identity"
+            ]
+          },
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MARX-P068"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        },
+        {
+          "id": "POL27-MEM-MARX-C07-S01-M02",
+          "form": "milestone_identity",
+          "statement": "巴黎公社是无产阶级夺取政权的第一次伟大尝试；十月革命实现社会主义从理想到现实的伟大飞跃。",
+          "source_refs": [
+            "POL27-CF-MARX-C07-S01"
+          ],
+          "current_recall_basis": {
+            "priority": "P0",
+            "forms": [
+              "timeline",
+              "identity"
+            ]
+          },
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MARX-P069"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    },
+    "POL27-CF-MARX-C07-S02": {
+      "title": "科学社会主义基本原则",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MARX-C07-S02-M01",
+          "form": "principle_boundary",
+          "statement": "坚持科学社会主义基本原则不等于复制固定模式；社会主义发展道路可以多样化，但道路多样性不等于没有共同方向和基本原则。",
+          "source_refs": [
+            "POL27-CF-MARX-C07-S02"
+          ],
+          "current_recall_basis": {
+            "priority": "P1",
+            "forms": [
+              "list",
+              "hat"
+            ]
+          },
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MARX-P070"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    }
+  },
+  "deferred_candidate_domains": [
+    {
+      "domain": "社会主义发展道路多样性的完整原因列表",
+      "reason": "LEG26 historical list is clear, but exact current-year list membership should be reconciled before freezing."
+    }
+  ]
+}
