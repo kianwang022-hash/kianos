@@ -962,7 +962,7 @@ private Session Evidence back to Chat
 
 ### A | Final Learner Object direct-consumption closure
 
-**Current judgment: IMPLEMENTED_CANDIDATE / VALIDATION_PENDING**
+**Current judgment: PASS**
 
 The direct-consumption repair is now implemented as a candidate:
 
@@ -980,7 +980,23 @@ accepted explicit Surface Mapping
 → Website literal renderer
 ```
 
-This is not yet an Acceptance PASS. Dedicated direct-consumption validation, Politics QA/build, and representative browser proof are still required.
+Acceptance proof on clean head:
+
+- `kianos.politics.final_learner_object.v1` resolves for all **151 / 151 PASS owners**;
+- direct-consumption validator reports **151 / 151 Final Learner Objects, 0 failures**;
+- Static Web Politics QA **PASS**, including all subject Content/Projection audits, Current bindings, and Astro build;
+- Politics Functional First Journey **PASS**;
+- Golden learner surface, Marx C01 explicit ownership, five-subject surface matrix, and explicit content→surface browser mapping all **PASS**;
+- Mao Runtime/Evidence, Xi Runtime/Evidence, Ethics Runtime/Evidence, and Ethics Projection journeys all **PASS**;
+- mapped learner surfaces no longer depend on Mao / Xi / Ethics semantic display adapters or arbitrary item-field enumeration.
+
+Allowed claim:
+
+```text
+Politics Final Learner Object direct-consumption = PASS
+```
+
+This PASS owns only the final learner-payload boundary. It does not by itself close the generic Session executor / Evidence loop.
 
 Acceptance requires:
 
