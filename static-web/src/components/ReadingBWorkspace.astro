@@ -169,7 +169,12 @@ const questionByOrdinal = new Map(item.questions.map((question, index) => [Strin
 <script>
   document.querySelectorAll('[data-objective-root][data-objective-task="reading_b"]').forEach((root) => {
     if (!(root instanceof HTMLElement)) return;
-    const storageKey = root.getAttribute('data-objective-storage-key') || '';
+    const baseStorageKey = root.getAttribute('data-objective-storage-key') || '';
+    const examSessionId = new URLSearchParams(location.search).get('exam_session') || '';
+    const objectId = root.getAttribute('data-objective-object') || '';
+    const storageKey = examSessionId
+      ? `kianos-english-exam-task-v1:${examSessionId}:reading_b:${objectId}`
+      : baseStorageKey;
     const candidatePolicy = root.getAttribute('data-reading-b-candidate-policy') || 'source_unspecified';
     const taskForm = root.getAttribute('data-reading-b-task-form') || 'generic_matching';
     let fixedGivens = [];
