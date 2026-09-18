@@ -105,6 +105,97 @@ function normalizeExplanation(row) {
   };
 }
 
+function loadCachedShard(root, shard, cache, fallback) {
+  const key = `${root}/${shard}`;
+  if (cache.has(key)) return cache.get(key);
+  if (!fs.existsSync(absolute(key))) {
+    cache.set(key, fallback);
+    return fallback;
+  }
+  const value = readJson(key);
+  cache.set(key, value);
+  return value;
+}
+
+function loadQuestionProjection(questionId, questionCache = new Map(), explanationCache = new Map()) {
+  const route = routeForQuestionId(questionId);
+  const truthShard = loadCachedShard(QUESTION_ROOT, route.shard, questionCache, {});
+  const truth = truthShard?.[questionId];
+  if (!truth || truth.question_id !== questionId) {
+    throw new Error(`CURRENT_XIZONG_QUESTION_ORPHAN:${questionId}`);
+  }
+
+  const explanationShard = loadCachedShard(EXPLANATION_ROOT, route.shard, explanationCache, []);
+  const explanationRow = Array.isArray(explanationShard)
+    ? explanationShard.find((row) => row?.question_id === questionId)
+    : null;
+
+  const optionObject = truth?.content?.option_set?.options || {};
+  const options = Object.entries(optionObject).map(([label, text]) => ({
+    label: String(label),
+    text: String(text)
+  }));
+  if (!options.length) throw new Error(`CURRENT_XIZONG_QUESTION_OPTIONS_MISSING:${questionId}`);
+
+  return {
+    questionId,
+    year: Number(truth?.source_identity?.official_exam_year || route.year),
+    number: Number(truth?.source_identity?.official_exam_number || route.number),
+    questionType: String(truth?.question_type || ''),
+    stem: String(truth?.content?.stem || ''),
+    options,
+    correctAnswer: String(truth?.content?.correct_answer || ''),
+    explanation: normalizeExplanation(explanationRow),
+    relation: loadReviewedXizongQuestionRelation(questionId)
+  };
+}
+
+export function listXizongQuestionYears() {
+  const manifest = readJson(`${QUESTION_ROOT}/manifest.json`);
+  const years = new Set();
+  for (const shard of manifest?.canonical_storage?.shards || []) {
+    const match = String(shard?.path || '').match(/^shards\/(\d{4})\//);
+    if (match) years.add(match[1]);
+  }
+  return [...years].sort();
+}
+
+export function loadXizongQuestionYear(year) {
+  const normalizedYear = String(year || '');
+  if (!/^\d{4}$/.test(normalizedYear)) {
+    throw new Error(`CURRENT_XIZONG_QUESTION_YEAR_INVALID:${normalizedYear}`);
+  }
+  const manifest = readJson(`${QUESTION_ROOT}/manifest.json`);
+  const shardRows = (manifest?.canonical_storage?.shards || [])
+    .filter((row) => String(row?.path || '').startsWith(`shards/${normalizedYear}/`));
+  if (!shardRows.length) throw new Error(`CURRENT_XIZONG_QUESTION_YEAR_MISSING:${normalizedYear}`);
+
+  const questionCache = new Map();
+  const explanationCache = new Map();
+  const ids = [];
+  for (const row of shardRows) {
+    const shard = loadCachedShard(QUESTION_ROOT, row.path, questionCache, {});
+    ids.push(...Object.keys(shard || {}));
+  }
+  ids.sort((a, b) => routeForQuestionId(a).number - routeForQuestionId(b).number);
+  return ids.map((questionId) => loadQuestionProjection(questionId, questionCache, explanationCache));
+}
+
+export function loadXizongQuestionsByIds(questionIds) {
+  const ids = Array.isArray(questionIds) ? questionIds.map(String) : [];
+  const seen = new Set();
+  if (!ids.length) throw new Error('CURRENT_XIZONG_CHAT_SET_EMPTY');
+  if (ids.some((id) => !/^xizong-official-\d{4}-n\d{3}$/.test(id))) {
+    throw new Error('CURRENT_XIZONG_CHAT_SET_ID_INVALID');
+  }
+  if (ids.some((id) => seen.has(id) || !seen.add(id))) {
+    throw new Error('CURRENT_XIZONG_CHAT_SET_DUPLICATE_ID');
+  }
+  const questionCache = new Map();
+  const explanationCache = new Map();
+  return ids.map((questionId) => loadQuestionProjection(questionId, questionCache, explanationCache));
+}
+
 export function loadXizongSystemQuestionSweep(system) {
   const relativeScopePath = scopePath(system);
   if (!fs.existsSync(absolute(relativeScopePath))) return null;
@@ -139,46 +230,7 @@ export function loadXizongSystemQuestionSweep(system) {
 
   const questionCache = new Map();
   const explanationCache = new Map();
-
-  const loadShard = (root, shard, cache, fallback) => {
-    const key = `${root}/${shard}`;
-    if (cache.has(key)) return cache.get(key);
-    if (!fs.existsSync(absolute(key))) {
-      cache.set(key, fallback);
-      return fallback;
-    }
-    const value = readJson(key);
-    cache.set(key, value);
-    return value;
-  };
-
-  const questions = ids.map((questionId) => {
-    const route = routeForQuestionId(questionId);
-    const truthShard = loadShard(QUESTION_ROOT, route.shard, questionCache, {});
-    const truth = truthShard?.[questionId];
-    if (!truth || truth.question_id !== questionId) throw new Error(`CURRENT_XIZONG_QUESTION_SCOPE_ORPHAN:${questionId}`);
-
-    const explanationShard = loadShard(EXPLANATION_ROOT, route.shard, explanationCache, []);
-    const explanationRow = Array.isArray(explanationShard)
-      ? explanationShard.find((row) => row?.question_id === questionId)
-      : null;
-
-    const optionObject = truth?.content?.option_set?.options || {};
-    const options = Object.entries(optionObject).map(([label, text]) => ({ label: String(label), text: String(text) }));
-    if (!options.length) throw new Error(`CURRENT_XIZONG_QUESTION_OPTIONS_MISSING:${questionId}`);
-
-    return {
-      questionId,
-      year: Number(truth?.source_identity?.official_exam_year || route.year),
-      number: Number(truth?.source_identity?.official_exam_number || route.number),
-      questionType: String(truth?.question_type || ''),
-      stem: String(truth?.content?.stem || ''),
-      options,
-      correctAnswer: String(truth?.content?.correct_answer || ''),
-      explanation: normalizeExplanation(explanationRow),
-      relation: loadReviewedXizongQuestionRelation(questionId)
-    };
-  });
+  const questions = ids.map((questionId) => loadQuestionProjection(questionId, questionCache, explanationCache));
 
   return {
     systemId: system.systemId,
