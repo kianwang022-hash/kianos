@@ -13,8 +13,11 @@ on:
       - 'static-web/src/styles/xizong-practice-workspace.css'
       - 'static-web/src/lib/xizongQuestions.mjs'
       - 'static-web/src/lib/xizongRetainedPractice.mjs'
+      - 'static-web/src/lib/xizongPaperScoring.mjs'
+      - 'content/xizong/questions/exam-format.json'
       - 'static-web/src/lib/sharedNavigation.mjs'
       - 'static-web/scripts/validate-xizong-retained-practice.mjs'
+      - 'static-web/scripts/validate-xizong-paper-practice.mjs'
       - 'static-web/src/components/XizongQuestionCrosswalkConsumer.astro'
       - 'static-web/src/components/XizongSystemRepairReturn.astro'
       - 'static-web/src/pages/xizong/[system]/index.astro'
@@ -39,8 +42,11 @@ on:
       - 'static-web/src/styles/xizong-practice-workspace.css'
       - 'static-web/src/lib/xizongQuestions.mjs'
       - 'static-web/src/lib/xizongRetainedPractice.mjs'
+      - 'static-web/src/lib/xizongPaperScoring.mjs'
+      - 'content/xizong/questions/exam-format.json'
       - 'static-web/src/lib/sharedNavigation.mjs'
       - 'static-web/scripts/validate-xizong-retained-practice.mjs'
+      - 'static-web/scripts/validate-xizong-paper-practice.mjs'
       - 'static-web/src/components/XizongQuestionCrosswalkConsumer.astro'
       - 'static-web/src/components/XizongSystemRepairReturn.astro'
       - 'static-web/src/pages/xizong/[system]/index.astro'
@@ -82,6 +88,8 @@ jobs:
         run: node scripts/validate-xizong-question-attempts.mjs
       - name: Validate retained Practice aggregation
         run: node scripts/validate-xizong-retained-practice.mjs
+      - name: Validate whole-paper scoring / Hidden semantics
+        run: node scripts/validate-xizong-paper-practice.mjs
       - name: Validate reviewed Question Crosswalk contract
         run: node scripts/validate-xizong-question-crosswalk.mjs
       - name: Build Astro
@@ -103,6 +111,8 @@ jobs:
             static-web/.qa/xizong-practice-workbench.png
             static-web/.qa/xizong-practice-retained-entry.png
             static-web/.qa/xizong-practice-retained-workbench.png
+            static-web/.qa/xizong-practice-paper-front.png
+            static-web/.qa/xizong-practice-paper-result.png
             static-web/.qa/xizong-system-exit-recall.png
             static-web/.qa/xizong-system-exit-recall-reveal.png
           if-no-files-found: warn
