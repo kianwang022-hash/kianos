@@ -10,8 +10,8 @@ This cursor owns current engineering routing only. It does not own Rule / Model,
 
 ## Current state
 
-**Active lane:** Lexical Continuous Content + Repair Test Upgrade — PAUSED FOR GENERATION RULES  
-**Blocker:** module-level generation rules must be fixed before o0051–o0100 continues
+**Active lane:** Lexical Continuous Content + Repair Test Upgrade — PAUSED FOR GENERATION-RULE HUMAN GATE  
+**Blocker:** Kian must accept frozen module-generation rules before o0051–o0100 continues
 
 Stage:
 
@@ -576,4 +576,6 @@ Derived Repair Test blueprints live under `content/lexical/learner/repair-bluepr
 
 Next internal shard: **o0051–o0100 — PAUSED**.
 
-Do not continue catalog mutation until Core / Sense / Familiar-new / Construction / Phraseology / Decision Boundary / Relation / Register / Family / Form / Productive-use / Repair Test generation rules are explicitly accepted and the catalog directive returns to ACTIVE.
+Draft module-generation rules now live in `CONTENT_ASSET_CONTRACT.md §4A`, with a required per-owner stability matrix in `CONTENT_EXECUTION.md §3A`.
+
+Do not continue catalog mutation until Kian accepts those rules and the catalog directive returns to ACTIVE.

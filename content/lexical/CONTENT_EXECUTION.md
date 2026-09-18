@@ -28,6 +28,46 @@ The initial tool omits only top-level provenance/lookup pointers and known opera
 
 An oversized word fails explicitly. Expand the one-owner budget or inspect a bounded coherent object, never truncate a record or hide an unsent field behind an automatic PASS. A compact bundle is a transport projection, not a new semantic owner.
 
+## 3A. Module-level stability receipt
+
+Every fresh owner review must record a module matrix before closure.
+
+Required module keys:
+
+```text
+core
+senses
+familiar_new
+construction
+phraseology
+decision_boundary
+relation_confusable
+register_stance
+family_morphology
+form_identity
+productive_use
+repair_test
+```
+
+Each key is exactly one of:
+
+```text
+NOT_NEEDED
+PRESERVE
+UPGRADED
+BLOCKED
+```
+
+For every `UPGRADED` or `BLOCKED` module, record at least one allowed change reason from `CONTENT_ASSET_CONTRACT.md §4A`.
+
+A `NO_CHANGE` owner may still be `DEPTH_READY`; its module matrix proves that no module was silently skipped.
+
+A later pass must read the latest closed module matrix. It may not rewrite a `PRESERVE` module unless new evidence establishes an allowed gap.
+
+This matrix belongs in the receipt / audit evidence, not in semantic Natural Owners.
+
+---
+
 ## 4. Fresh judgment and readback
 
 Each owner in a shard receives exactly one current-generation decision:
@@ -35,6 +75,8 @@ Each owner in a shard receives exactly one current-generation decision:
 - operation: `NO_CHANGE` or `UPGRADED`;
 - final quality: `SAFE_SIMPLE`, `DEPTH_READY` or `BLOCKED`;
 - a concise, actual semantic rationale;
+- the complete module matrix from §3A;
+- explicit allowed change reason(s) for every upgraded / blocked module;
 - exact before/dependency hashes and final view identity;
 - for BLOCKED: the unmet requirement and smallest admissible closure evidence.
 

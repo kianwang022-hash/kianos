@@ -8,7 +8,7 @@ This contract answers one question:
 
 > **What must a lexical content object contain so LexicalOS can reliably decide what is safe to pass quickly, what deserves Depth, and what exactly can later become a local Repair target?**
 
-It does not own private learner state, review scheduling, UI layout, Challenge generation, or visual design.
+It does not own private learner state, review scheduling, UI layout, concrete Challenge instance generation, or visual design. It does own the content-side quality standard for derived Repair Test blueprints.
 
 ---
 
@@ -152,6 +152,232 @@ Examples: `abstract`, `access`, `sanction`.
 Use `BLOCKED` when a reliable final learner object cannot yet be produced without guessing, unresolved ownership, or unresolved semantic evidence.
 
 Do not silently pass an ambiguous object to preserve throughput.
+
+---
+
+## 4A. Frozen module generation rules
+
+These rules exist to prevent semantic drift and stylistic churn across repeated content-upgrade passes.
+
+### Global stability rule
+
+A later pass defaults to **PRESERVE**.
+
+A module may be changed only for one or more explicit reasons:
+
+- `CORRECTNESS_GAP` — meaning, usage, boundary or form is wrong;
+- `COVERAGE_GAP` — a learner-worthy current branch is missing;
+- `DECISION_GAP` — the learner cannot reliably choose among existing branches;
+- `STRUCTURE_GAP` — a reusable construction / complement / argument pattern is not represented clearly;
+- `PHRASEOLOGY_GAP` — a high-value lexical combination needed for recognition or production is missing;
+- `OWNERSHIP_GAP` — truth is stored in the wrong canonical owner or duplicated across owners;
+- `REGISTER_FORM_GAP` — a material register / stance / intensity / pronunciation / spelling / inflection distinction is missing;
+- `PRODUCTIVE_VALUE_GAP` — an important Translation / Writing retrieval pattern is absent;
+- `TESTABILITY_GAP` — an important lexical risk cannot be tested cleanly from current content;
+- `REDUNDANCY_NOISE` — duplicated learner-facing content obscures the real object.
+
+`STYLE_POLISH` is **not** an allowed reason.
+
+> **If a module already satisfies its rule and no explicit gap exists, preserve it even if another writer could phrase it differently.**
+
+Every fresh owner receipt must give each module one status:
+
+```text
+NOT_NEEDED
+PRESERVE
+UPGRADED
+BLOCKED
+```
+
+### A｜Core / Word Feel
+
+**Job:** compress the whole word into the smallest model that helps predict its important uses.
+
+Generate / upgrade Core only when:
+
+- current Core is only a list of Chinese glosses;
+- one genuine organizing model can unify important branches;
+- a genuine split / contronym must be explicit;
+- a rare / technical branch dominates the current summary;
+- a high-value branch-selection cue is missing.
+
+Field roles:
+
+- `core_meaning_cn` = compact whole-word summary;
+- `core_meaning_en` = concise lexical calibration;
+- `mental_model_cn` = how to select / transfer the word across contexts when a decision rule exists;
+- `core_clusters` = real branch groups only, never one cluster per dictionary row.
+
+Stop when Core predicts the major learner-worthy uses without flattening genuine polysemy.
+
+Do not concatenate translations, repeat the Sense list, rewrite a good Core for style, or invent a fake metaphor.
+
+### B｜Active Sense
+
+**Job:** represent learner-worthy current meanings that materially change comprehension or use.
+
+Create / keep an active Sense when omission could plausibly cause wrong comprehension, mistranslation, wrong parse / argument structure, wrong branch selection, or loss of an ordinary / professionally useful modern meaning.
+
+Each active Sense should have:
+
+- one distinct learner definition in Chinese;
+- one concise English calibration;
+- correct POS / governing pattern where material;
+- a Sense-local note only when it adds a real boundary;
+- Sense-local phraseology only when it truly belongs to that Sense.
+
+Stop when all learner-worthy current branches are present and distinguishable.
+
+Do not split because dictionaries use different rows, merge because Chinese glosses look similar, or create new Senses for Recall-map cosmetics.
+
+### C｜Familiar-new / Secondary Sense
+
+**Job:** expose a hidden branch that a familiar surface form could cause the learner to miss.
+
+Promote only when the surface is likely to feel known, the branch is modern and useful enough to matter, omission could cause a realistic error, and there is a distinct contextual / syntactic / collocational / domain cue.
+
+A familiar-new branch needs a useful selector, not just another Chinese gloss.
+
+`secondary_senses` is a learner-projection role, not lower semantic truth.
+
+Do not create familiar-new content from rare dictionary completeness alone.
+
+### D｜Construction
+
+**Job:** expose a reusable form skeleton whose structure itself carries learning value.
+
+Promote when argument slots matter, preposition / complement choice matters, the pattern selects or changes meaning, it is reusable for Translation / Writing, or hiding it in one example would conceal the rule.
+
+A Construction should state a normalized pattern with slots, what it means / does, optional English calibration when helpful, and R / D / P demand only when material.
+
+Stop at one stable representation per reusable skeleton.
+
+Do not promote every frequent phrase, store one example sentence as a Construction, or duplicate a Sense-local fixed pattern without a separate learner job.
+
+### E｜Collocation / Phraseology / Multiword Unit
+
+**Job:** preserve lexical combinations whose selection is not safely predictable from general grammar alone.
+
+Include only when it materially improves recognition speed, idiomatic selection, phrase completion, translation, writing, or Sense discrimination.
+
+Use `fixed_pattern` when the combination itself should be retrievable; use `usage_example` when it only illustrates a Sense.
+
+One strong phrase is better than several generic corpus co-occurrences.
+
+Do not fill quotas, keep arbitrary frequent neighbors, or duplicate a Construction without a separate lexicalized job.
+
+### F｜Same-word Decision Boundary
+
+**Job:** tell the learner what cue selects one branch of the same word over another.
+
+Required when two active branches are realistically confusable, the word is a contronym, syntax / collocation / object type selects meaning, or a familiar-new branch is easy to misread.
+
+A useful boundary says:
+
+```text
+cue / context / syntax
+→ branch
+→ consequence
+```
+
+Same-word boundaries stay Word-owned.
+
+Do not merely restate “A means X; B means Y”.
+
+### G｜Cross-word Relation / Confusable
+
+**Job:** explain when two different words are not interchangeable.
+
+Create only when comparison changes a real learner decision. Material dimensions may include semantic scope, syntax, collocation, register, stance, agency, result vs process, intensity, or writing safety.
+
+Cross-word truth stays Relation-owned.
+
+Do not create thesaurus lists, generic “both mean ...” notes, or Relations without a selection rule.
+
+### H｜Register / Stance / Intensity / Valence
+
+**Job:** preserve pragmatic distinctions that can change interpretation or make production materially inappropriate.
+
+Generate only when the distinction changes a real choice. Attach it to the smallest truthful owner: Sense, Construction, Relation or Form.
+
+Use actionable distinctions such as formal legal vs neutral everyday, approving vs disapproving, strong vs mild, or positive vs negative valence.
+
+Do not add vague labels that do not change what the learner should choose.
+
+### I｜Word Family / Morphology
+
+**Job:** help decode or produce genuinely useful related forms.
+
+Include when the relation adds productive derivation, useful POS shift, a meaning-preserving morphological pattern, important semantic drift, or high-value production support.
+
+A useful family entry explains the relation; “same AWL family” alone is insufficient.
+
+Prefer a few productive links over exhaustive family trees. Decorative family members stay out of default Depth.
+
+### J｜Form / Pronunciation / Spelling / Inflection
+
+**Job:** preserve non-obvious form distinctions that matter for recognition, identity or production.
+
+Generate when material: POS-conditioned pronunciation / stress, irregular inflection, confusing spelling, capitalization changing lexical identity, regional form difference, homograph / heteronym distinction.
+
+Structured Form / identity remains canonical.
+
+Do not duplicate the same pronunciation rule in Sense notes once Form owns it. Routine pronunciation alone is not Expansion.
+
+### K｜Translation / Writing Productive Use
+
+**Job:** mark lexical material worth active retrieval, not create a separate exam-tip layer.
+
+Generate only when an exact Word / Sense / Construction provides high-value reusable production.
+
+A productive cue must identify what form should be retrieved, what semantic / syntactic constraint matters, and whether demand is Production or only Discrimination.
+
+Prefer reusable patterns over memorized complete sentences.
+
+Do not turn every Sense into Production, store generic writing advice, or add non-lexical exam tricks.
+
+### L｜Repair Test Blueprint
+
+**Job:** describe how to diagnose one exact lexical weakness; concrete questions remain freshly generated.
+
+A blueprint is allowed only when the target has stable identity, a wrong answer would change the next Repair decision, and the diagnostic is grounded entirely in current canonical truth.
+
+Required fields:
+
+- exact target identity;
+- Recognition / Discrimination / Production demand;
+- diagnostic intent;
+- decision boundary being tested;
+- plausible distractor policy;
+- context constraints preventing answer leakage;
+- smallest useful Repair if wrong;
+- Reconstruction rule using a changed context.
+
+Typical mapping:
+
+- Sense → contextual meaning / paraphrase discrimination;
+- familiar-new → branch selection;
+- Construction → slot / complement selection;
+- phraseology → phrase completion / idiomatic selection;
+- Relation → forced contrast;
+- Form → pronunciation / spelling / identity discrimination;
+- productive target → constrained mini-translation / production.
+
+Hard rules:
+
+- blueprint never invents semantics absent from canonical Content;
+- concrete Test instances are normally regenerated fresh;
+- one Test answers one diagnostic question;
+- distractors come from real neighboring branches / confusions;
+- Reconstruction changes context rather than repeating the item;
+- if canonical target meaning / boundary changes, the blueprint must be revalidated;
+- `SAFE_SIMPLE` may correctly have `NO_TEST_NEEDED`.
+
+### M｜Recall Map and Reference
+
+Recall Map is derived from accepted active learner objects. Never alter semantics merely to make Recall notation neat.
+
+Reference-only stores valid low-current-value truth that should remain searchable without crowding Study. Demotion requires a semantic reason; it is not a layout tool.
 
 ---
 
