@@ -302,6 +302,27 @@ try {
   const minType = await scanTypeFloor(root, 'a2_r1');
   await page.screenshot({ path: path.join(auditDir, 'xizong-block-kp-learn.png'), fullPage: false });
 
+  // Corrupt/private state must never be able to manufacture a TTSX release when
+  // the Current semantic Projection has no reviewed Boundary/Binding.
+  await page.evaluate((key) => {
+    const existing = JSON.parse(localStorage.getItem(key) || '{}');
+    localStorage.setItem(key, JSON.stringify({
+      ...existing,
+      stage: 'ttsx_checkpoint',
+      pendingTtsx: {
+        key: 'fake-unreviewed-binding',
+        label: 'fake',
+        checkpointIds: ['fake-unreviewed-binding']
+      }
+    }));
+  }, studyKey);
+  await page.reload({ waitUntil: 'networkidle' });
+  const failClosedRoot = page.locator('[data-xizong-v6-block]');
+  await failClosedRoot.waitFor({ state: 'visible' });
+  check((await visibleStage(failClosedRoot)) !== 'ttsx_checkpoint', 'corrupt_unreviewed_ttsx_state_cannot_release_checkpoint');
+  const failClosedState = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || '{}'), studyKey);
+  check(!failClosedState?.pendingTtsx, 'corrupt_unreviewed_ttsx_pending_state_is_discarded');
+
   report.finished_at = new Date().toISOString();
   report.status = 'PASS';
   report.route = ROUTE;
