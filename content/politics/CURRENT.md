@@ -18,17 +18,17 @@ Politics exam-lifecycle **later-stage Knowledge is now closed at K with bounded 
 ```text
 later-stage Source baseline
 → K realization / audit                  PASS_WITH_DEBT
-→ Consolidation L old static-rubric model  FAIL / REVISION_REQUIRED
-→ corrected Chat-owned strategy model       REPAIRED_AFTER_INTERFACE_ATTACK
-→ fresh independent Consolidation L re-audit ACTIVE NEXT GATE
-→ Analysis-Output / Mock L                  UNTESTED
-→ later Projection / Runtime                FROZEN
+→ Consolidation L                         PASS_AFTER_REPAIR
+→ Analysis-Output L                        PASS / Chat-primary
+→ Mock / Final L                           PASS / Chat-primary + source-paper primary
+→ later-stage L overall                    PASS
+→ Exam-Horizon adaptation                  ACTIVE NEXT GATE
 ```
 
 K detail and source-refresh debt remain owned by `content/politics/ACCEPTANCE.md` and `manifest.json`; this cursor does not duplicate subject counts or candidate inventories.
 
-**Next active gate: fresh independent Consolidation L re-audit on the current #433 head.**  
-The previous fresh audit rejected the static K→L rubric-coverage model. That model has now been removed: **Chat owns review selection; Web only executes an explicit Chat plan and returns evidence.** The five representative chapters no longer carry fixed later-stage review plans. Analysis-Output / Mock L and downstream Projection / Runtime remain frozen.
+**Next active gate: Exam-Horizon adaptation.**  
+Fresh independent later-stage L acceptance is now closed: **Consolidation = PASS_AFTER_REPAIR; Analysis Output = PASS; Mock / Final = PASS.** Downstream work may proceed, but each downstream closure still requires its own proof.
 
 The stable first-round learner loop remains:
 
@@ -66,17 +66,21 @@ Chat Session Instruction  Session Evidence
 Current closure status:
 
 ```text
-A Final Learner Object direct-consumption   FAIL / revision required
+A Final Learner Object direct-consumption   IMPLEMENTED_CANDIDATE / VALIDATION_PENDING
 B Generic Runtime Atom closure              PARTIAL
 C Chat ↔ Website typed-control closure      PARTIAL
 D 12/20 Exam-Horizon scenario acceptance    UNTESTED
 ```
 
-Known A-red implementation evidence:
+Current A-candidate implementation:
 
-- `politicsCurrent.mjs` still chains subject-specific adapters;
-- some subject adapters still fill learner payload from raw teaching fields;
-- `PoliticsExplicitSurfacePlan.astro` still enumerates arbitrary scalar fields through `learnerLines()`.
+- `kianos.politics.final_learner_object.v1` is compiled from the already-resolved explicit Surface Mapping;
+- mapped learner-facing consumers read that Final Learner Object instead of raw teaching fields;
+- `PoliticsExplicitSurfacePlan.astro` renders fixed payload keys and no longer enumerates arbitrary item fields;
+- Mao / Xi / Ethics subject-specific display adapters are no longer bound through `politicsCurrent.mjs`;
+- mapped units suppress legacy parallel answer / repair / handoff / closure learner payload.
+
+This is implementation evidence only. A remains unaccepted until the dedicated direct-consumption validator, Politics QA/build, and representative browser journey pass.
 
 The target Runtime atom set is:
 
@@ -107,7 +111,7 @@ private learner evidence + Current Content
 
 The #433 `consolidation_plan.v1` remains a phase-specific precursor and must normalize into the one exam-horizon instruction envelope rather than gaining a second permanent executor.
 
-**Dependency rule:** contract/audit work may continue, but later-stage Projection/Runtime implementation remains frozen until the affected Learning gate is accepted.
+**Dependency rule:** the Learning blocker is closed. Exam-Horizon implementation may proceed in dependency order: Final Learner Object direct-consumption → reusable execution/evidence boundary → representative P1–P5 scenario acceptance.
 
 Exact acceptance and P1–P5 scenario proof live in `ACCEPTANCE.md`.
 
