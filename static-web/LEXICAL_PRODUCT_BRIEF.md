@@ -1,6 +1,6 @@
 # Lexical Visual / Surface Blueprint — Candidate
 
-Status: **L2 VISUAL FAMILY ACCEPTED — L3 surface blueprints remain Human-Gate candidates**  
+Status: **L2 VISUAL FAMILY ACCEPTED — L3 DEPTH ACCEPTED; remaining L3 surfaces stay Human-Gate candidates**  
 Parent Visual authority: `static-web/PRESENTATION_CONTRACT.md`  
 Preference owner: `static-web/KIAN_UI_PREFERENCES.md`  
 Rule / Model owner: `content/lexical/LEARNING_CONTRACT.md`  
@@ -11,7 +11,7 @@ This file defines the **candidate learner-facing Vocabulary / Lexical product mo
 
 It does not own lexical semantics, learner state, evidence meaning, scheduler policy or Engineering implementation.
 
-Material page geometry remains candidate until Kian reviews real-browser screenshots.
+Material page geometry remains candidate until Kian reviews real-browser screenshots, except the accepted L3 Depth baseline recorded below.
 
 ---
 
@@ -337,6 +337,86 @@ Their Rule / Content ownership corrections may be retained where semantically co
 
 ---
 
+## 5.4｜Accepted L3 Depth baseline
+
+Status: **ACCEPTED by Kian — 2026-09-18**
+
+Human-Gate evidence came from real 1440×900 Chromium captures after the Final Learner Object direct-consumption cutover.
+
+Accepted representative fixture family:
+
+```text
+ambulance  → SAFE_SIMPLE / no earned Reference
+access     → rich polysemy + Family Reference
+row        → same-word pronunciation split without repeated Sense overlays
+stationary → Confusable Reference
+charge     → genuinely long rich object; scrolling allowed
+```
+
+Also preserved as semantic-layout sentinels:
+
+```text
+abstract   → Chinese Word Feel + Sense + structured Form + Family
+sanction   → contronym Word Feel + Senses + Constructions; no fake Reference
+write      → ordinary Senses + real write ↔ right Confusable
+```
+
+Accepted visual/interaction baseline:
+
+- neutral English-family page canvas;
+- substantial editorial serif headword / English lexical calibration;
+- full-bodied readable Chinese sans;
+- Chinese learner meaning before English calibration;
+- restrained deep-green semantic markers only;
+- Word Feel is a compact header semantic zone, not a card stack;
+- Sense = one clear bordered learning object;
+- sense-local phrases remain inside the Sense;
+- Word-owned Construction stays in main flow;
+- Reference is earned and appears only for real Confusable / Form / Family / relation objects;
+- no empty right rail;
+- rich Mac geometry remains approximately 68–70% primary / 30–32% Reference when Reference exists;
+- Bottom Dock remains stable and visible;
+- one-screen fit is preferred when natural, **not a hard requirement**;
+- genuinely rich words may scroll; visual compression must not delete meaningful learner content;
+- redundant canonical/provenance expressions must be resolved upstream in the Final Learner Object, never hidden heuristically by the renderer.
+
+Accepted architecture underneath this visual baseline:
+
+```text
+Natural Owner
+→ explicit Content-owned learner dispositions
+→ materialized Final Learner Object
+→ Website fixed mapping
+```
+
+The Website may decide typography, spacing and responsive geometry. It must not decide semantic inclusion, importance, merge survival, dedupe, relation placement or learner value.
+
+### Baseline change rule
+
+Minor polish that preserves the accepted composition may proceed through normal browser QA.
+
+A material change to any of the following requires a fresh Kian Human Gate:
+
+- primary / Reference composition;
+- Word Feel / Sense / Construction / Reference visual grammar;
+- typography hierarchy;
+- palette / broad surface treatment;
+- Bottom Dock interaction model;
+- introduction of new persistent learner-facing regions;
+- any change that reintroduces duplicate learner information into the surface.
+
+The accepted baseline must not drift back toward:
+
+- cream / gray-green editorial-sheet treatment;
+- English-first learner hierarchy;
+- tiny or thin Chinese text;
+- flattened or under-explained Reference rail;
+- generic card piles;
+- empty persistent Reference width;
+- front-end semantic filtering.
+
+---
+
 ## 5.5｜Legacy interaction baseline — preserve
 
 The legacy 4173 Lexical study surface is a **positive interaction asset**, not historical debt.
@@ -577,7 +657,6 @@ These are intentionally unresolved:
 - whether Home should retain visible Study/Search/Repair/Challenge tabs or use a denser workbench composition;
 - whether Recall should be a separate full-stage front, a compact top zone, or conditional only;
 - exact SAFE_SIMPLE one-glance information required for a reliable Fast Pass;
-- exact L3 Depth composition inside the accepted L2 68–70% / 30–32% family geometry;
 - whether local `+` is always visible or appears on hover/focus while remaining discoverable;
 - Repair subset composition and explanation density;
 - Challenge workspace geometry;
