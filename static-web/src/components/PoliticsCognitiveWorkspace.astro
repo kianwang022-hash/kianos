@@ -56,10 +56,6 @@ const workbenchHref = (unit) => `${base}politics/practice/?unit=${encodeURICompo
         </button>
       ))}
     </nav>
-    <div class="workspaceState">
-      <span>STATE</span>
-      <strong data-workspace-state-label>ORIENT</strong>
-    </div>
   </header>
 
   <section class="chapterContext">
@@ -116,7 +112,7 @@ const workbenchHref = (unit) => `${base}politics/practice/?unit=${encodeURICompo
                 )}
                 {maps.map((map, mapIndex) => (
                   <section class={`semanticMap ${mapIndex === 0 ? 'active' : ''}`} data-map-panel={mapIndex} hidden={mapIndex !== 0}>
-                    <header><span>MAP {String(mapIndex + 1).padStart(2, '0')}</span><strong>{map.title}</strong></header>
+                    <header><span>关系</span><strong>{map.title}</strong></header>
                     <div class="semanticMapNodes">
                       {asList(map.nodes).map((node) => (
                         <article>
@@ -226,13 +222,13 @@ const workbenchHref = (unit) => `${base}politics/practice/?unit=${encodeURICompo
 
           <section class="stageScene verifyScene" data-stage="VERIFY" hidden>
             <header class="verifyHeader">
-              <div><p class="stageEyebrow">肖1000 · 配套验证</p><h2>统一在肖1000 Workbench 作答。</h2></div>
+              <div><p class="stageEyebrow">肖1000 · 配套验证</p><h2>统一在肖1000做题页作答。</h2></div>
               <span>{unit.questions.length ? `${unit.questions.length} 题` : unit.questionRefCount ? '题目待解析' : '本段无题'}</span>
             </header>
 
             {unit.questions.length > 0 ? (
               <div class="workbenchHandoff">
-                <p>题面、预制精修背面、错因、备注和 Review Evidence 都由同一个 Workbench 负责。</p>
+                <p>题面、预制精修背面、错因和备注都在同一个做题页完成。</p>
                 <a class="primaryAction" data-workspace-practice-link href={workbenchHref(unit)}>进入本单元配套题 →</a>
               </div>
             ) : unit.questionRefCount > 0 ? (
@@ -276,38 +272,38 @@ const workbenchHref = (unit) => `${base}politics/practice/?unit=${encodeURICompo
             )}
             {precision.length > 0 && (
               <details class="inspectorDetails">
-                <summary>Exact · 后置精确记忆</summary>
+                <summary>需要精确记的内容</summary>
                 {precision.map((item) => <p>{item.fact}</p>)}
               </details>
             )}
-            {suyiRows.length > 0 && <p class="suyiNote">苏一结构已消费：{absorbedSuyi} 个关系/框架 delta 被吸收；不会另开第二条课程。</p>}
+
           </section>
 
           <section data-inspector-state="EXTERNAL_LEARN" hidden id={`source-${unit.unitId}`}>
-            <header><span>IPAD HANDOFF</span><strong>乘风定位</strong></header>
+            <header><span>原讲义</span><strong>乘风定位</strong></header>
             <p class="locatorText">{handoff.locator || unit.title}</p>
             {asList(handoff.look_for).length > 0 && <ul>{asList(handoff.look_for).map((item) => <li>{item}</li>)}</ul>}
             <p class="locatorSupport">{locatorCount ? `已绑定 ${locatorCount} 处原讲义定位依据。` : '按当前 Natural Unit 标题回原讲义。'}</p>
           </section>
 
           <section data-inspector-state="RECALL" hidden>
-            <header><span>RECALL</span><strong>先输出，再核对</strong></header>
+            <header><span>闭卷核对</span><strong>先输出，再核对</strong></header>
             <p>这里故意保持安静。先重建关系；只有主动点“显示结构核对”才揭示模型。</p>
-            {anchors.length > 0 && <details class="inspectorDetails"><summary>真的卡住再看 Anchor</summary>{anchors.map((item) => <p>{item.text}</p>)}</details>}
+            {anchors.length > 0 && <details class="inspectorDetails"><summary>真的卡住再看提示</summary>{anchors.map((item) => <p>{item.text}</p>)}</details>}
           </section>
 
           <section data-inspector-state="VERIFY" hidden>
-            <header><span>配套题</span><strong>去统一 Workbench 作答</strong></header>
+            <header><span>配套题</span><strong>去统一做题页作答</strong></header>
             <p>提交后直接看预制精修解析；错因和备注随题记录，需要复盘时再一次性导出学习包。</p>
           </section>
 
           <section data-inspector-state="REPAIR" hidden>
-            <header><span>复盘</span><strong>从 Review 批量处理</strong></header>
-            <p>单题 Wrong / Uncertain 不在这里强制打断；需要深挖时，从 Review 学习包统一交给 Chat。</p>
+            <header><span>复盘</span><strong>从复习页批量处理</strong></header>
+            <p>单题 Wrong / Uncertain 不在这里强制打断；需要深挖时，从复习页一次性导出学习包给 Chat。</p>
           </section>
 
           <section data-inspector-state="CLOSE" hidden>
-            <header><span>CLOSE</span><strong>本 Unit 留下什么</strong></header>
+            <header><span>本单元</span><strong>最后留下什么</strong></header>
             {anchors.length > 0 ? anchors.map((item) => <p class="closeInspectorAnchor">{item.text}</p>) : <p>{t.closure || '保留这段最核心的关系。'}</p>}
           </section>
         </aside>
