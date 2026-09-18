@@ -2,7 +2,7 @@
 import Value from './PoliticsProjectionValue.astro';
 import PoliticsExplicitSurfacePlan from './PoliticsExplicitSurfacePlan.astro';
 const { compiled = null } = Astro.props;
-const rows = compiled ? [...compiled.values()].filter((row) => row?.surfacePlan?.states?.ORIENT?.length || row?.purposeFirst || row?.purposeFirstPilot) : [];
+const rows = compiled ? [...compiled.values()].filter((row) => row?.finalLearnerObject?.states?.ORIENT?.length || row?.purposeFirst || row?.purposeFirstPilot) : [];
 const h2Groups = (row) => {
   const items = row?.hierarchy?.tiers?.H2_FIRST_ROUND_CARRY || [];
   return {
@@ -16,7 +16,7 @@ const h2Groups = (row) => {
 {rows.length > 0 && (
   <div hidden data-politics-projection-runtime-registry>
     {rows.map((row) => {
-      const states = row?.surfacePlan?.states || null;
+      const states = row?.finalLearnerObject?.states || null;
       const explicit = Boolean(states?.ORIENT?.length);
       const h2 = h2Groups(row);
       const hasH2 = h2.takeaway.length || h2.boundary.length || h2.exact.length;
