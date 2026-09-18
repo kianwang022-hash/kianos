@@ -218,7 +218,11 @@ expectThrows(
 
 // Private evidence stays browser-local; shared Current is not a learner ledger.
 check(workspace.includes('localStorage.setItem'), 'Translation private learner state must persist on-device');
-check(workspace.includes('不会写回 GitHub shared Current'), 'learner-facing UI must state that private evidence is not shared Current truth');
+check(
+  workspace.includes('作答与修改记录只保存在这台浏览器')
+    && workspace.includes('localStorage.setItem'),
+  'learner-facing UI must state local-only learner history without exposing canonical implementation language'
+);
 
 const result = {
   schema: 'kianos.english.translation.evidence-gate-validation.v1',
