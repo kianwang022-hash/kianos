@@ -543,9 +543,14 @@ The existing `kianos.politics.return_packet.v1` remains the compact cross-sessio
 
 #### Fail-closed phase rule
 
-The generic envelope may represent future phase labels before those phases are implemented, but Runtime may execute a phase/task recipe only when the applicable Politics Learning/Content/Presentation contract is accepted.
+The generic envelope may represent phase labels before every Website recipe is implemented, but Runtime may execute a phase/task recipe only when the applicable Politics Learning / Content / Presentation / Runtime boundary for that recipe is accepted.
 
-Therefore current `ANALYSIS_OUTPUT` and `MOCK_FINAL` labels do not create render or execution entitlement while their L/P/R gates remain unaccepted.
+Later-stage Learning is now independently accepted for `CONSOLIDATION`, `ANALYSIS_OUTPUT`, and `MOCK_FINAL`. That L acceptance authorizes downstream realization; it does **not** make every phase automatically renderable by the Website.
+
+- Chat-primary Analysis Output remains usable in Chat without a dedicated Website recipe.
+- Mock/Final remains usable with the source paper/PDF + Chat without a dedicated Website page.
+- A Website session recipe for either phase must still consume an already-resolved learner payload and pass its own Presentation/Runtime acceptance.
+- Missing downstream payload/recipe fails closed; Runtime never substitutes raw Current fields or invents a phase strategy.
 
 ---
 #### `ORIENT`
