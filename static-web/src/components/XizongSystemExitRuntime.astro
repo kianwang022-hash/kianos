@@ -691,9 +691,7 @@ const payload = JSON.stringify({
       const selected = [...currentSelection].sort();
       const correct = answerLetters(currentQuestion.correctAnswer);
       currentCorrect = sameLetters(selected, correct);
-      const status = currentCorrect
-        ? (markedFor(currentQuestion.questionId) ? 'uncertain' : 'stable')
-        : 'wrong';
+      const status = currentCorrect ? 'stable' : 'wrong';
       if (!persistResult(currentQuestion, status, currentSelection)) return;
       renderQuestion(currentIndex);
       if (currentCorrect && preferences.fastSweep) {
