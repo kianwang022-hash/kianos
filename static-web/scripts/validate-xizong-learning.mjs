@@ -255,7 +255,8 @@ has(practiceUi, "setXizongQuestionMarked(sweepState", 'explicit-marked-state-mis
 has(practiceUi, 'recordXizongQuestionAttempt(sweepState, {', 'question-result-not-routed-through-stable-attempt-owner');
 has(questionAttemptLib, "['wrong', 'uncertain'].includes", 'legacy-wu-evidence-not-preserved-for-targeted-second-pass');
 has(questionAttemptLib, 'Boolean(marks[questionId])', 'marked-not-preserved-for-targeted-second-pass');
-has(practiceUi, '暂无可安全消费的 REVIEWED 回链；保留题号，不补猜映射。', 'no-guess-guard');
+has(practiceUi, "['RESOLVED_KP','RESOLVED_BLOCK','BLOCK_ONLY'].includes(relation.targetStatus)", 'reviewed-relation-status-guard-missing');
+has(practiceUi, 'relationWrap.hidden = true;', 'no-guess-guard');
 has(questionLib, 'loadReviewedXizongQuestionRelation(questionId)', 'question-runtime-bypasses-crosswalk-owner');
 has(crosswalkLib, "if (!row || row.review_status !== 'REVIEWED') return null;", 'unreviewed-precise-relation-accepted');
 
