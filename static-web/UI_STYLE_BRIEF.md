@@ -100,6 +100,35 @@ Hard rules:
 - actual browser screenshots must verify glyph body/proportion as well as size, weight and contrast;
 - if a CI/browser environment cannot render an adequately full CJK face, that screenshot is not valid Visual evidence for typography acceptance.
 
+### Accepted Chinese UI face
+
+The shared Chinese learner/UI face is now calibrated against the exact legacy 4173 Politics Learn surface at:
+
+```text
+kianos-legacy@5cb002b4f775dbac0aa777ef8954f65db09904ab
+```
+
+The preferred shared stack is:
+
+```css
+-apple-system,
+BlinkMacSystemFont,
+"PingFang SC",
+"Noto Sans CJK SC",
+sans-serif
+```
+
+On Mac, Chinese should therefore resolve to the PingFang system family while Latin/system UI may continue through the Apple system face.
+
+The positive reference is the Politics mode row (`继续 / 随机 / 错题 / 到期 / 收藏`), especially the active `错题` state. Its family is inherited from the Learn surface; the active state is intentionally heavier. This is distinct from the old Politics hero/title rule using `Georgia, "Songti SC", serif`, which is **not** the shared Chinese direction.
+
+Hard rules:
+
+- Chinese learner-facing UI/content inherits the shared stack; subject/task CSS must not invent a second Chinese font family.
+- Chinese headings do not switch to Songti/serif merely to look editorial.
+- Active/current labels may use stronger weight, but they keep the same family.
+- English editorial/exam typography is outside this Chinese unification rule and remains task-owned.
+
 ### Typeface roles
 
 Shared chrome and Chinese/UI copy should favor a clean system-sans stack with strong CJK rendering and enough weight/contrast for sustained use.
