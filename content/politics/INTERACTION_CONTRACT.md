@@ -137,8 +137,9 @@ A plan contains:
 ```text
 scope
 - subject_id
-- chapter_id
 - phase = CONSOLIDATION
+- anchor_ref = explicit Current chapter / subject-level review owner / cross-chapter Knowledge owner
+- chapter_id = optional context when the session is chapter-anchored
 
 actions[]
 - action_id
@@ -181,6 +182,21 @@ Examples:
 The Web is not deciding whether the target is worth learning. It is only enforcing the canonical target boundary already owned upstream.
 
 If the runtime cannot verify a referenced target's eligibility / phase / freshness boundary, it must fail closed and return a bounded blocker to Chat rather than infer permission.
+
+#### Scope is not chapter-only
+
+The scope model must support cross-chapter consolidation when Current K owns a genuine cross-chapter structure.
+
+Examples include History meeting / land-policy / person-document / ideological-liberation lines.
+
+Therefore:
+
+- `anchor_ref` is required and identifies the Current owner being reviewed;
+- `chapter_id` is optional context, not the universal review unit;
+- Chat may compose a plan around a chapter, a subject-level horizontal asset, or another accepted Current review owner;
+- Web must not force a cross-chapter plan back into one chapter merely because the route/component is chapter-oriented.
+
+This keeps the interface generic without making Web decide review granularity.
 
 #### Action requirements
 
@@ -244,8 +260,9 @@ The return contains only enough evidence for Chat to make the next decision:
 ```text
 scope
 - subject_id
-- chapter_id
 - phase = CONSOLIDATION
+- anchor_ref
+- chapter_id = optional context
 
 events[]
 - action_id
