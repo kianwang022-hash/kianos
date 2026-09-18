@@ -120,7 +120,7 @@ requireText(page, 'PoliticsCognitiveWorkspaceReadable', 'route calibration');
 requireText(page, 'PoliticsChapterRuntime', 'fallback runtime');
 
 for (const rule of [
-  'Primary environment: Mac landscape workspace',
+  'Primary learner environment is Mac / wide landscape',
   'Cognitive Stage',
   'Contextual Inspector',
   'Space expresses simultaneous relationships; state transitions express learning sequence.',
