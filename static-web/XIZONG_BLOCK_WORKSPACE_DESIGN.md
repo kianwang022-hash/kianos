@@ -1,6 +1,6 @@
 # Xizong Block Workspace — accepted design
 
-Status: **BLOCK WORKSPACE PRODUCT LOGIC ACCEPTED — RESPONSIVE / FINAL VISUAL STYLING STILL OPEN**
+Status: **MAC-WIDE BLOCK / KP LEARN L3 HUMAN-GATE ACCEPTED 2026-09-18 — TARGETED CI / MERGE PENDING**
 Parent: `static-web/XIZONG_PRODUCT_BRIEF.md`
 Review safety: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`
 
@@ -12,10 +12,10 @@ Preserve the existing mature learner chain:
 
 ```text
 Block orientation
-→ Logic Group orientation
-→ iPad / MarginNote continuous original-Lecture study for the whole Logic Group
-→ one return to KianOS
-→ that Logic Group's KP Recall
+→ current Logic Group purpose / closure shown inside the persistent Logic Map
+→ iPad / MarginNote continuous original-Lecture study while Mac stays on KP Learn
+→ current KP marked learned as the learner advances
+→ that Logic Group's KP Recall on the same KP card with Core hidden
 → Logic Group closure
 → next Logic Group
 → Block Recall
@@ -111,29 +111,30 @@ Legitimate clicks/state changes include switching Logic Group, entering external
 
 Important first-round Block Guide structure should normally be visible on Mac without repeated accordion/detail opening. Protected answers and truly secondary/later reference remain progressively disclosed.
 
-## 6｜Logic Group orientation — ACCEPTED
+## 6｜Logic Group Map — ACCEPTED
 
-Entering a Logic Group changes the current cognitive object but stays inside the same Block Workspace.
+Logic Group no longer requires a large standalone orientation page in the normal Mac path.
 
-Default Mac composition:
+The persistent left map owns lightweight local orientation:
 
 ```text
-Logic Group Map
-│
-├─ current Logic Group title
+current Logic Group
 ├─ goal: this group solves what problem
-├─ closure target: what should be possible after learning
-├─ KP coverage / range as return roadmap only
-├─ relevant Current Visual cue / incoming connection when explicitly owned
-└─ action: go to the original Lecture for continuous study
+├─ closure: what should be possible after learning
+└─ real KP rows
+   ├─ KP id
+   ├─ real Current title
+   └─ current / learned / recalled state
 ```
 
 Rules:
 
 - `goal` and `closure` remain Current learning-support text; UI does not rewrite their meaning;
-- KP identities/range are visible as a roadmap, not as permission to turn first learning into isolated KP cards;
-- group-level Visual appears at the learning entrance only when Current owns a relevant cue;
-- incoming connection may reactivate a previously learned relation when Current explicitly owns that connection;
+- KP rows use real Current titles rather than bare 01/02/03 numbering;
+- no inferred arrows / topology are drawn from KP order;
+- the map is collapsible; collapsing it returns the width to the primary KP work surface;
+- entering another Logic Group changes the active KP / learning object directly rather than forcing a separate orientation ceremony;
+- group-level Visual / Connection / Precision remain conditional Context when Current owns them;
 - no permanent empty Context rail when no contextual object exists.
 
 ## 7｜MarginNote handoff / one return — ACCEPTED
