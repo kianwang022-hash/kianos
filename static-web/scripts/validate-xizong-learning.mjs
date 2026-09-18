@@ -250,7 +250,10 @@ lacks(memoryUi, /恢复 canonical|Current rule|Current owning Core|Current 精�
 lacks(xizongHome, /CURRENT SYSTEMS/, 'engineering-current-label-on-xizong-home');
 has(xizongPresentation, '.kianosCurrentDock{display:none!important;}', 'engineering-current-dock-not-hidden-on-xizong');
 
-has(practiceUi, "persistAttempt(isCorrect ? 'stable' : 'wrong')", 'question-status-derived-from-submit');
+has(practiceUi, 'data-question-uncertain', 'explicit-uncertain-control-missing');
+has(practiceUi, "const status = isCorrect ? (currentUncertain ? 'uncertain' : 'stable') : 'wrong';", 'correct-unsure-not-recorded-as-uncertain');
+has(practiceUi, "event.key.toLowerCase() === 'u'", 'uncertain-keyboard-grammar-missing');
+has(practiceUi, "status: isCorrect ? (draft.uncertain ? 'uncertain' : 'stable') : 'wrong'", 'paper-uncertain-not-materialized-at-seal');
 has(practiceUi, "setXizongQuestionMarked(sweepState", 'explicit-marked-state-missing');
 has(practiceUi, 'recordXizongQuestionAttempt(sweepState, {', 'question-result-not-routed-through-stable-attempt-owner');
 has(questionAttemptLib, "['wrong', 'uncertain'].includes", 'legacy-wu-evidence-not-preserved-for-targeted-second-pass');
