@@ -487,7 +487,7 @@ const payload = JSON.stringify({
       if (!(fastSweepButton instanceof HTMLElement)) return;
       const on = Boolean(preferences.fastSweep);
       fastSweepButton.setAttribute('aria-pressed', String(on));
-      fastSweepButton.textContent = \`Fast Sweep：\${on ? '开' : '关'}\`;
+      fastSweepButton.textContent = `Fast Sweep：${on ? '开' : '关'}`;
     };
 
     const renderMarkControl = () => {
@@ -522,7 +522,7 @@ const payload = JSON.stringify({
         article.className = 'xseRetainedItem';
         const meta = document.createElement('div');
         const title = document.createElement('strong');
-        title.textContent = \`\${question.year} · 第 \${question.number} 题\`;
+        title.textContent = `${question.year} · 第 ${question.number} 题`;
         const tags = document.createElement('span');
         const tagValues = [];
         if (result?.status === 'wrong') tagValues.push('Wrong');
@@ -559,7 +559,7 @@ const payload = JSON.stringify({
         button.classList.toggle('wrong', result?.status === 'wrong');
         button.classList.toggle('uncertain', result?.status === 'uncertain');
         button.classList.toggle('marked', marked);
-        button.setAttribute('aria-label', \`第 \${index + 1} 题\${marked ? '，已标记' : ''}\`);
+        button.setAttribute('aria-label', `第 ${index + 1} 题${marked ? '，已标记' : ''}`);
         const no = document.createElement('b');
         no.textContent = String(index + 1);
         const state = document.createElement('span');
@@ -609,8 +609,8 @@ const payload = JSON.stringify({
       done.hidden = true;
       root.querySelector('.xseQuestion').hidden = false;
 
-      questionMeta.textContent = \`\${currentQuestion.year} · 第 \${currentQuestion.number} 题 · \${currentQuestion.questionType || '题'}\`;
-      questionProgress.textContent = \`\${xizongStudyPhaseLabel(sweepState.round?.studyPhase)} · 本轮 \${currentIndex + 1} / \${activeQuestions.length}\`;
+      questionMeta.textContent = `${currentQuestion.year} · 第 ${currentQuestion.number} 题 · ${currentQuestion.questionType || '题'}`;
+      questionProgress.textContent = `${xizongStudyPhaseLabel(sweepState.round?.studyPhase)} · 本轮 ${currentIndex + 1} / ${activeQuestions.length}`;
       stem.textContent = currentQuestion.stem;
       selectionHint.textContent = currentQuestion.questionType === 'X'
         ? '多选题：1–5 切换选项，Enter 提交'
