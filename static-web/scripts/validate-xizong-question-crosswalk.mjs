@@ -49,14 +49,16 @@ const bSystem = JSON.parse(fs.readFileSync(bSystemPath, 'utf8'));
 check((bSystem?.identity?.legacy_system_id_variants || []).includes(bRelation?.sourceSystemId), 'b_relation_uses_explicit_legacy_alias', bRelation?.sourceSystemId || 'missing');
 check(bRelation?.targetStatus === 'UNRESOLVED_BLOCK' && !bRelation?.knowledgePath, 'b_projection_gate_fails_closed', bRelation?.targetStatus || 'missing');
 
-const consumerSource = fs.readFileSync(path.join(repoRoot, 'static-web/src/components/XizongQuestionCrosswalkConsumer.astro'), 'utf8');
+const practiceSource = fs.readFileSync(path.join(repoRoot, 'static-web/src/components/XizongPracticeWorkbench.astro'), 'utf8');
 const reverseSource = fs.readFileSync(path.join(repoRoot, 'static-web/src/components/XizongQuestionCrosswalkReverse.astro'), 'utf8');
-check(consumerSource.includes('暂无 REVIEWED Crosswalk') && consumerSource.includes('不补猜映射'), 'consumer_missing_mapping_fallback_explicit');
+check(practiceSource.includes('暂无可安全消费的 REVIEWED 回链') && practiceSource.includes('不补猜映射'), 'practice_missing_mapping_fallback_explicit');
+check(practiceSource.includes("['RESOLVED_KP','RESOLVED_BLOCK','BLOCK_ONLY'].includes(relation.targetStatus)"), 'practice_requires_reviewed_resolved_target');
+check(practiceSource.includes('relation?.knowledgePath'), 'practice_consumes_shared_relation_path');
 check(reverseSource.includes('canonical REVIEWED Question→Knowledge relation') && reverseSource.includes('不会被网页猜进来'), 'reverse_lookup_declares_derived_only');
 
-const systemPage = fs.readFileSync(path.join(repoRoot, 'static-web/src/pages/xizong/[system]/index.astro'), 'utf8');
+const practicePage = fs.readFileSync(path.join(repoRoot, 'static-web/src/pages/xizong/practice/[system].astro'), 'utf8');
 const blockPage = fs.readFileSync(path.join(repoRoot, 'static-web/src/pages/xizong/[system]/[block].astro'), 'utf8');
-check(systemPage.includes('<XizongQuestionCrosswalkConsumer system={system} />'), 'system_consumer_mounted');
+check(practicePage.includes('<XizongPracticeWorkbench system={system} sweep={sweep} />'), 'practice_consumer_mounted');
 check(blockPage.includes('<XizongQuestionCrosswalkReverse crosswalk={crosswalk} />'), 'block_reverse_lookup_mounted');
 
 console.log(`XIZONG_CROSSWALK_OK mapped=${mappedId} missing=${unmapped?.questionId} reverse=${reverse.reviewedQuestionCount}`);
