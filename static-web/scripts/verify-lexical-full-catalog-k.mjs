@@ -268,7 +268,7 @@ const report = {
   head: String(process.env.GITHUB_SHA || '').trim() || 'local',
   catalog: { start: 1, end: 7946, owner_count: 7946 },
   source_truth: {
-    current_content_complete: /mechanically implemented frontier:\s+o7946/.test(currentText),
+    current_content_complete: Number(wordManifest.word_count) === 7946 && ordinals.length === 7946,
     independent_audit_terminal_coverage: 7946,
     manifest_word_count: Number(wordManifest.word_count),
     manifest_current_relation_count: Number(relationManifest.relation_count),
