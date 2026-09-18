@@ -82,14 +82,7 @@
         "sense_id": "sense:appropriate:e1ed4ee96dc059e1",
         "sense_label_en": "suitable or right for a particular situation",
         "sort_order": 0,
-        "transitivity": "nonverb",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "appropriate",
-          "paired_form": "appropriate adjective / verb",
-          "note": "appropriate adjective ends with /ət/; appropriate verb ends with /eɪt/."
-        }
+        "transitivity": "nonverb"
       },
       {
         "collocations": [
@@ -122,14 +115,7 @@
         "sense_id": "sense:appropriate:b9ad6957983e5fcd",
         "sense_label_en": "to take something for one's own use, especially illegally",
         "sort_order": 1,
-        "transitivity": "vt",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "appropriate",
-          "paired_form": "appropriate adjective / verb",
-          "note": "appropriate adjective ends with /ət/; appropriate verb ends with /eɪt/."
-        }
+        "transitivity": "vt"
       },
       {
         "collocations": [
@@ -162,14 +148,7 @@
         "sense_id": "sense:appropriate:3c2a8a8d071d59fb",
         "sense_label_en": "to set aside money for a particular purpose",
         "sort_order": 2,
-        "transitivity": "vt",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "appropriate",
-          "paired_form": "appropriate adjective / verb",
-          "note": "appropriate adjective ends with /ət/; appropriate verb ends with /eɪt/."
-        }
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -190,11 +169,14 @@
     "word": "appropriate",
     "word_family": [
       {
-        "boundary": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+        "boundary": "appropriate（形容词）→ appropriately（副词）：表示方式恰当、合适。",
         "codex_reviewed": false,
         "definition_cn": null,
-        "definition_en": null,
-        "dimensions": {},
+        "definition_en": "in a suitable or proper way",
+        "dimensions": {
+          "morphology": "adjective → adverb",
+          "semantic_focus": "manner judged suitable"
+        },
         "direction": "R+P",
         "evidence": [
           {
@@ -211,7 +193,7 @@
         ],
         "label_en": null,
         "level": null,
-        "meaning_cn": null,
+        "meaning_cn": "恰当地；合适地",
         "module": "word_family",
         "pattern": null,
         "pos": null,
@@ -228,11 +210,14 @@
         "writing_safe": true
       },
       {
-        "boundary": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+        "boundary": "appropriate（形容词）→ appropriateness（名词）：表示恰当、合适这一性质。",
         "codex_reviewed": false,
         "definition_cn": null,
-        "definition_en": null,
-        "dimensions": {},
+        "definition_en": "the quality of being suitable or right for a situation",
+        "dimensions": {
+          "morphology": "adjective → noun",
+          "semantic_focus": "quality of suitability"
+        },
         "direction": "R+P",
         "evidence": [
           {
@@ -249,7 +234,7 @@
         ],
         "label_en": null,
         "level": null,
-        "meaning_cn": null,
+        "meaning_cn": "恰当性；合适程度",
         "module": "word_family",
         "pattern": null,
         "pos": null,
@@ -266,7 +251,60 @@
         "writing_safe": true
       }
     ],
-    "word_id": "word:appropriate"
+    "word_id": "word:appropriate",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_pronunciation",
+      "spelling": "appropriate",
+      "identity_rule": "part_of_speech_selects_final_syllable",
+      "boundary": "The adjective appropriate ends in /-ət/; the verb appropriate ends in /-eɪt/.",
+      "boundaries": [
+        {
+          "surface": "appropriate",
+          "condition": "adjective",
+          "note": "形容词词尾读 /-ət/，意为“适当的”"
+        },
+        {
+          "surface": "appropriate",
+          "condition": "verb",
+          "note": "动词词尾读 /-eɪt/，意为“挪用/拨用”"
+        }
+      ],
+      "variants": [
+        {
+          "variant_id": "form:appropriate:adjective-uk",
+          "pos": [
+            "adjective"
+          ],
+          "learner_key": "adjective · UK",
+          "ipa": "/əˈprəʊ.pri.ət/"
+        },
+        {
+          "variant_id": "form:appropriate:adjective-us",
+          "pos": [
+            "adjective"
+          ],
+          "learner_key": "adjective · US",
+          "ipa": "/əˈproʊ.pri.ət/"
+        },
+        {
+          "variant_id": "form:appropriate:verb-uk",
+          "pos": [
+            "verb"
+          ],
+          "learner_key": "verb · UK",
+          "ipa": "/əˈprəʊ.pri.eɪt/"
+        },
+        {
+          "variant_id": "form:appropriate:verb-us",
+          "pos": [
+            "verb"
+          ],
+          "learner_key": "verb · US",
+          "ipa": "/əˈproʊ.pri.eɪt/"
+        }
+      ],
+      "authority": "Cambridge Dictionary pronunciation check + Baseline v2 2026-09-19"
+    }
   },
   "relation_refs": [
     {

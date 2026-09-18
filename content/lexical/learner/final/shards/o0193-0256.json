@@ -1140,7 +1140,7 @@
     "ordinal": 204,
     "word": "announce",
     "source_owner_path": "content/lexical/words/by-ordinal/o0204.json",
-    "source_fingerprint": "d6ff4c0b63c5277868768dd0c9a2da1928f7ba2c17220591a0cb32f7e45ecfc2",
+    "source_fingerprint": "df9aa76d1a9c3d05f35309a7385914f20863f7a7db62d4b15d8a66ecb8b607d6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1149,13 +1149,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "宣布",
-      "decision_cn": "",
+      "summary_cn": "公开宣布某事；也可由迹象或事件预示某事即将到来",
+      "decision_cn": "看主语和语境：person/organization announces news → 宣布；sign/event announces a change/arrival → 预示。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "宣布"
+        "target_label": "公开宣布某事；也可由迹象或事件预示某事即将到来"
       }
     },
     "senses": [
@@ -1484,18 +1484,7 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": [
-        {
-          "target_word": "annually",
-          "lines": [
-            {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[0]"
-        }
-      ]
+      "family": []
     }
   },
   {
@@ -1708,7 +1697,7 @@
     "ordinal": 209,
     "word": "answer",
     "source_owner_path": "content/lexical/words/by-ordinal/o0209.json",
-    "source_fingerprint": "87ffb890028509324351785098b99bfba4b72c06c58af9f70a8e172cf5590aa1",
+    "source_fingerprint": "6b8b37073ae488ae7a1ea3c660c85bf9aea491e64b512b1006e466973a637b53",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1718,13 +1707,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "回答",
-      "decision_cn": "",
+      "summary_cn": "对某个问题、责任或要求作出回应：回答问题，也可承担责任或满足需要/目的",
+      "decision_cn": "看补语：answer a question/person/phone → 回答；answer for/to → 负责；answer a need/purpose → 满足、符合。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "回答"
+        "target_label": "对某个问题、责任或要求作出回应：回答问题，也可承担责任或满足需要/目的"
       }
     },
     "senses": [
@@ -1970,7 +1959,7 @@
     "ordinal": 211,
     "word": "antenna",
     "source_owner_path": "content/lexical/words/by-ordinal/o0211.json",
-    "source_fingerprint": "f3b14010dfd606a557b8739006958bd219ab78aab4d864801fa0eca2cc2a7ae6",
+    "source_fingerprint": "1e04033ae021380a1357c67b5807f106abb91abca8b286677160c7d6ff324f5b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2051,49 +2040,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:antenna:handoff-6569a1d661d66324",
-        "source_locator": "record.constructions[0]",
-        "pattern": "antennas / antennae",
-        "lines": [
-          {
-            "text": "技术天线通常用 antennas；生物触角通常用 antennae",
-            "lang": "cn"
-          },
-          {
-            "text": "plural form boundary by sense/domain",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:antenna:handoff-6569a1d661d66324",
-          "target_locator": "record.constructions[0]",
-          "target_label": "antennas / antennae"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
-      "family": [
-        {
-          "target_word": "",
-          "lines": [
-            {
-              "text": "技术意义 antennas；生物意义 antennae",
-              "lang": "cn"
-            },
-            {
-              "text": "plural forms selected by sense/domain",
-              "lang": "en"
-            }
-          ],
-          "source_locator": "record.word_family[0]"
+      "form": {
+        "boundary": "Technical/radio antenna usually pluralizes as antennas; biological insect antenna usually pluralizes as antennae.",
+        "boundaries": [
+          {
+            "surface": "antennas",
+            "condition": "technical/radio sense",
+            "note": "技术/通信意义通常用 antennas"
+          },
+          {
+            "surface": "antennae",
+            "condition": "biological sense",
+            "note": "生物触角意义通常用 antennae"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "Technical/radio antenna usually pluralizes as antennas; biological insect antenna usually pluralizes as antennae."
         }
-      ]
+      },
+      "family": []
     }
   },
   {
@@ -2102,7 +2075,7 @@
     "ordinal": 212,
     "word": "anticipate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0212.json",
-    "source_fingerprint": "c7c53171e7f328db5d33cbb044193731cc1e295dbb7232cc69837ddf33a735d1",
+    "source_fingerprint": "23175aeae92d757c1e68ef12648a35ab791cfe6197c8be3ff6dc756ac40b6325",
     "sense_lineage": [
       {
         "word_id": "word:anticipate",
@@ -2119,13 +2092,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "预期，预料",
-      "decision_cn": "",
+      "summary_cn": "预见某事并提前做好准备；也可表示抢在某人/某事之前行动",
+      "decision_cn": "expect/foresee + event → 预期并准备；anticipate sb/sth in action → 抢先、占先。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "预期，预料"
+        "target_label": "预见某事并提前做好准备；也可表示抢在某人/某事之前行动"
       }
     },
     "senses": [
@@ -2494,7 +2467,7 @@
     "ordinal": 215,
     "word": "anxious",
     "source_owner_path": "content/lexical/words/by-ordinal/o0215.json",
-    "source_fingerprint": "e64078e357a3768ceb680aaf182393621287ed7c1a2fa978008076e2ac452ca9",
+    "source_fingerprint": "1e3bf6b1fb59ccc745764c44540df042635f239f68252d7e7ed864ca6d909b42",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2503,13 +2476,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "焦虑的，渴望的",
-      "decision_cn": "",
+      "summary_cn": "处于强烈期待状态：可能因坏结果而焦虑，也可能因想得到某事而渴望",
+      "decision_cn": "anxious about sth → 焦虑；anxious to do / anxious for sth → 渴望、急于。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "焦虑的，渴望的"
+        "target_label": "处于强烈期待状态：可能因坏结果而焦虑，也可能因想得到某事而渴望"
       }
     },
     "senses": [
@@ -2598,7 +2571,50 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:anxious:baseline-v2-about",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be anxious about sth",
+        "lines": [
+          {
+            "text": "对某事感到焦虑、忧虑",
+            "lang": "cn"
+          },
+          {
+            "text": "feel worried or nervous about something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:anxious:baseline-v2-about",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be anxious about sth"
+        }
+      },
+      {
+        "id": "construction:anxious:baseline-v2-to-for",
+        "source_locator": "record.constructions[1]",
+        "pattern": "be anxious to do sth / for sth",
+        "lines": [
+          {
+            "text": "渴望、急于做某事/得到某物",
+            "lang": "cn"
+          },
+          {
+            "text": "want very much to do something or obtain something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:anxious:baseline-v2-to-for",
+          "target_locator": "record.constructions[1]",
+          "target_label": "be anxious to do sth / for sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2974,7 +2990,7 @@
     "ordinal": 219,
     "word": "anything",
     "source_owner_path": "content/lexical/words/by-ordinal/o0219.json",
-    "source_fingerprint": "40981b08e87308e2545e872ae0c383e4f5ca5b52cf69b3c3fc59e5df903249fd",
+    "source_fingerprint": "2d18eaa497183a7ab5a818e5a568de30a0177007bdff3cae3addb425740ee73b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3031,24 +3047,66 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "construction:anything:handoff-6fec4203e75c2cb4",
+        "id": "construction:anything:baseline-v2-anything-but",
         "source_locator": "record.constructions[0]",
-        "pattern": "anything but / anything like / if anything",
+        "pattern": "anything but ...",
         "lines": [
           {
-            "text": "远非；有点像；如果说有什么变化",
+            "text": "绝不是；远非……",
             "lang": "cn"
           },
           {
-            "text": "high-value idiomatic and corrective phraseology",
+            "text": "not at all; far from",
             "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:anything:handoff-6fec4203e75c2cb4",
+          "target_id": "construction:anything:baseline-v2-anything-but",
           "target_locator": "record.constructions[0]",
-          "target_label": "anything but / anything like / if anything"
+          "target_label": "anything but ..."
+        }
+      },
+      {
+        "id": "construction:anything:baseline-v2-anything-like",
+        "source_locator": "record.constructions[1]",
+        "pattern": "anything like ...",
+        "lines": [
+          {
+            "text": "像……；接近……（常见于疑问/否定）",
+            "lang": "cn"
+          },
+          {
+            "text": "in any way similar to or approximately like",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:anything:baseline-v2-anything-like",
+          "target_locator": "record.constructions[1]",
+          "target_label": "anything like ..."
+        }
+      },
+      {
+        "id": "construction:anything:baseline-v2-if-anything",
+        "source_locator": "record.constructions[2]",
+        "pattern": "if anything",
+        "lines": [
+          {
+            "text": "如果说有什么的话；反而",
+            "lang": "cn"
+          },
+          {
+            "text": "used to make a cautious correction or say the opposite tendency is more likely",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:anything:baseline-v2-if-anything",
+          "target_locator": "record.constructions[2]",
+          "target_label": "if anything"
         }
       }
     ],
@@ -3169,7 +3227,7 @@
     "ordinal": 221,
     "word": "anywhere",
     "source_owner_path": "content/lexical/words/by-ordinal/o0221.json",
-    "source_fingerprint": "f4ba3b9f3f8084cad9fb6f3fc6d86b14f81f20a0b8276f816361fcfbed23af9c",
+    "source_fingerprint": "5c6bb5e8ba1b97dacd3e5826e1deef12ac1aca5ec60fd2e87acf70c1fe39c988",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3226,24 +3284,45 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "construction:anywhere:handoff-837877284909e070",
+        "id": "construction:anywhere:baseline-v2-anywhere-near",
         "source_locator": "record.constructions[0]",
-        "pattern": "anywhere near; get anywhere",
+        "pattern": "anywhere near ...",
         "lines": [
           {
-            "text": "接近；取得进展",
+            "text": "接近……；差不多达到……（多用于否定/疑问）",
             "lang": "cn"
           },
           {
-            "text": "approximately/as close as or make progress",
+            "text": "at all close to a level, amount, or quality",
             "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:anywhere:handoff-837877284909e070",
+          "target_id": "construction:anywhere:baseline-v2-anywhere-near",
           "target_locator": "record.constructions[0]",
-          "target_label": "anywhere near; get anywhere"
+          "target_label": "anywhere near ..."
+        }
+      },
+      {
+        "id": "construction:anywhere:baseline-v2-get-anywhere",
+        "source_locator": "record.constructions[1]",
+        "pattern": "get anywhere",
+        "lines": [
+          {
+            "text": "取得进展；有所进展",
+            "lang": "cn"
+          },
+          {
+            "text": "make progress or achieve a useful result",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:anywhere:baseline-v2-get-anywhere",
+          "target_locator": "record.constructions[1]",
+          "target_label": "get anywhere"
         }
       }
     ],
@@ -3260,7 +3339,7 @@
     "ordinal": 222,
     "word": "apart",
     "source_owner_path": "content/lexical/words/by-ordinal/o0222.json",
-    "source_fingerprint": "5a607ed80d854c62b1d79d047e5a97a98cc7cc906416126ac885eee4f9efe6b5",
+    "source_fingerprint": "382fb71c7ec793d1fed9bf09d1ba61937d9e8e5621292f75f53a665a993eaede",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3341,8 +3420,12 @@
         "pattern": "apart from sb/sth",
         "lines": [
           {
-            "text": "除…之外；除了…还",
+            "text": "除……之外；除了……还",
             "lang": "cn"
+          },
+          {
+            "text": "except for, or in addition to depending on context",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -3353,24 +3436,45 @@
         }
       },
       {
-        "id": "construction:apart:handoff-6833167625cc0c0a",
+        "id": "construction:apart:baseline-v2-tell-apart",
         "source_locator": "record.constructions[1]",
-        "pattern": "apart from; tell A and B apart; fall apart",
+        "pattern": "tell A and B apart",
         "lines": [
           {
-            "text": "除……之外（两义）；辨别；崩溃/散开",
+            "text": "分辨 A 和 B；区分两者",
             "lang": "cn"
           },
           {
-            "text": "high-value separation and idiomatic patterns",
+            "text": "recognize the difference between two people or things",
             "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:apart:handoff-6833167625cc0c0a",
+          "target_id": "construction:apart:baseline-v2-tell-apart",
           "target_locator": "record.constructions[1]",
-          "target_label": "apart from; tell A and B apart; fall apart"
+          "target_label": "tell A and B apart"
+        }
+      },
+      {
+        "id": "construction:apart:baseline-v2-fall-apart",
+        "source_locator": "record.constructions[2]",
+        "pattern": "fall apart",
+        "lines": [
+          {
+            "text": "散开；破裂；崩溃",
+            "lang": "cn"
+          },
+          {
+            "text": "break into pieces or fail physically/emotionally",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:apart:baseline-v2-fall-apart",
+          "target_locator": "record.constructions[2]",
+          "target_label": "fall apart"
         }
       }
     ],
@@ -3589,7 +3693,7 @@
     "ordinal": 225,
     "word": "apologise",
     "source_owner_path": "content/lexical/words/by-ordinal/o0225.json",
-    "source_fingerprint": "3b04359a517fd9bb942f337e706040119f61e76da682a23fb1866cc9623949c0",
+    "source_fingerprint": "068828f6c13ea2abdcfce281d20991575810395070764a2530307ee28c3aa11b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3616,15 +3720,7 @@
         "definition_cn": "道歉",
         "definition_en": "express regret for something one has done wrong",
         "note": "",
-        "identity_overlay": {
-          "text": "BrE apologise; AmE apologize. Same lexical meaning and semantic owner.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "BrE apologise; AmE apologize. Same lexical meaning and semantic owner."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:3e7afd591a5902559d93",
@@ -3666,7 +3762,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "apologise is the standard British spelling; apologize is the standard American spelling of the same verb.",
+        "boundaries": [
+          {
+            "surface": "apologise",
+            "condition": "British English",
+            "note": "英式拼写"
+          },
+          {
+            "surface": "apologize",
+            "condition": "American English",
+            "note": "美式拼写"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "apologise is the standard British spelling; apologize is the standard American spelling of the same verb."
+        }
+      },
       "family": []
     }
   },
@@ -4130,11 +4247,11 @@
     "ordinal": 230,
     "word": "appeal",
     "source_owner_path": "content/lexical/words/by-ordinal/o0230.json",
-    "source_fingerprint": "75859f701e264a4198c882426de836cbea6aee22862917921eab0ba99d1a1261",
+    "source_fingerprint": "bafd4e7a9f3b087e8cb9b43aa5da244133e218bb4f708ed3d55efbb455da6f62",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(3+1)V",
+        "3V",
         "3N"
       ],
       "density": "rich"
@@ -4346,22 +4463,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:appeal:7766e2ed3a8e580d",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "上诉",
-        "definition_en": "to formally request a higher court to review a decision",
-        "pattern": "appeal against a decision 对判决提出上诉",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:appeal:7766e2ed3a8e580d",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "上诉"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [
       {
         "id": "deep:constructions:appeal:a483213d6acb6a4b",
@@ -4408,6 +4510,27 @@
           "target_locator": "record.constructions[1]",
           "target_label": "appeal to reason/common sense/evidence"
         }
+      },
+      {
+        "id": "construction:appeal:baseline-v2-legal",
+        "source_locator": "record.constructions[2]",
+        "pattern": "appeal against a decision / appeal to a higher court",
+        "lines": [
+          {
+            "text": "对决定/判决提出上诉；向更高法院上诉",
+            "lang": "cn"
+          },
+          {
+            "text": "formally ask for a decision to be reviewed, especially by a higher court",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:appeal:baseline-v2-legal",
+          "target_locator": "record.constructions[2]",
+          "target_label": "appeal against a decision / appeal to a higher court"
+        }
       }
     ],
     "reference": {
@@ -4423,7 +4546,7 @@
     "ordinal": 231,
     "word": "appear",
     "source_owner_path": "content/lexical/words/by-ordinal/o0231.json",
-    "source_fingerprint": "62cce0023db07cf77970ea40614c4abadae83a012221e097bd6dfcd2e490bd17",
+    "source_fingerprint": "61e6858e3f6317c81f3ddcf7210115a227fc0d610978849fbfa4698a5a44f83e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4622,7 +4745,15 @@
           "target_word": "appearance",
           "lines": [
             {
-              "text": "appearance (noun)",
+              "text": "出现；露面",
+              "lang": "cn"
+            },
+            {
+              "text": "appear（出现/露面）→ appearance（出现、露面这一事件）；不要把这条派生关系挂到“外观”义上。",
+              "lang": "cn"
+            },
+            {
+              "text": "the act of appearing, becoming visible, or arriving",
               "lang": "en"
             }
           ],
@@ -5361,7 +5492,7 @@
     "ordinal": 239,
     "word": "applicable",
     "source_owner_path": "content/lexical/words/by-ordinal/o0239.json",
-    "source_fingerprint": "5a0fccadd3784e447badb8af1a7ce53daa6939573e9d0e033b66557ec4a59653",
+    "source_fingerprint": "dedc46363eda1962e94c5eba452436c34fcc8b6b59331dc7caf2354ed2d0552b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5421,7 +5552,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:applicable:baseline-v2-to",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be applicable to sb/sth",
+        "lines": [
+          {
+            "text": "适用于某人/某事；与某情况有关",
+            "lang": "cn"
+          },
+          {
+            "text": "be relevant to or capable of being applied to a person, thing, or situation",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:applicable:baseline-v2-to",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be applicable to sb/sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5435,7 +5588,7 @@
     "ordinal": 240,
     "word": "application",
     "source_owner_path": "content/lexical/words/by-ordinal/o0240.json",
-    "source_fingerprint": "0039d42c953f916078bbd06c9ea29818b3562c6293d0888010572ed774388fa5",
+    "source_fingerprint": "9e6bfb6abc9413aa002d637d353457afba1cc7251f5cbe995d7cd4ca8a72f5df",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5444,13 +5597,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "应用或申请",
-      "decision_cn": "",
+      "summary_cn": "把某物投入使用、提出正式申请，或指为特定用途设计的应用程序",
+      "decision_cn": "看对象/场景：method/rule → 应用；job/admission/form → 申请；software/mobile → 应用程序。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "应用或申请"
+        "target_label": "把某物投入使用、提出正式申请，或指为特定用途设计的应用程序"
       }
     },
     "senses": [
@@ -5613,7 +5766,7 @@
     "ordinal": 241,
     "word": "apply",
     "source_owner_path": "content/lexical/words/by-ordinal/o0241.json",
-    "source_fingerprint": "e1eafd9701a2e8f7a63cc07b4679c968c844f429bb047f5d8d169e2707a4c294",
+    "source_fingerprint": "c5d239e3ad051227414194f6f0c9ed0769ef262094bca47ac8c234a4e946d60e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5622,13 +5775,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "应用；申请",
-      "decision_cn": "",
+      "summary_cn": "把某物“放到”一个目标上：可申请、应用、适用、涂敷，也可把自己投入某项工作",
+      "decision_cn": "看结构：apply for → 申请；apply A to B → 应用/涂敷；apply to → 适用；apply oneself to → 专心投入。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "应用；申请"
+        "target_label": "把某物“放到”一个目标上：可申请、应用、适用、涂敷，也可把自己投入某项工作"
       }
     },
     "senses": [
@@ -5901,10 +6054,10 @@
       "form": null,
       "family": [
         {
-          "target_word": "",
+          "target_word": "application",
           "lines": [
             {
-              "text": "Productive/transparent family relation; application realizes several apply-derived noun meanings.",
+              "text": "apply (put into use) → application (putting to use)",
               "lang": "en"
             }
           ],
@@ -5914,21 +6067,11 @@
           "target_word": "application",
           "lines": [
             {
-              "text": "apply (put into use) → application (putting to use)",
-              "lang": "en"
-            }
-          ],
-          "source_locator": "record.word_family[1]"
-        },
-        {
-          "target_word": "application",
-          "lines": [
-            {
               "text": "apply (make a formal request) → application (formal request)",
               "lang": "en"
             }
           ],
-          "source_locator": "record.word_family[2]"
+          "source_locator": "record.word_family[1]"
         }
       ]
     }
@@ -5939,7 +6082,7 @@
     "ordinal": 242,
     "word": "appoint",
     "source_owner_path": "content/lexical/words/by-ordinal/o0242.json",
-    "source_fingerprint": "f7b2dab1f05c1688a50330d8b7ef887414bc0d90e9033f0e7e9a17b29b08ddc9",
+    "source_fingerprint": "515408a5f8cca112a17a14d2bf15e9d0dd9aff453dbcbcdbddae6a8bc0fa5439",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6038,7 +6181,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:appoint:baseline-v2-sb-as-to",
+        "source_locator": "record.constructions[0]",
+        "pattern": "appoint sb as sth / appoint sb to sth",
+        "lines": [
+          {
+            "text": "任命某人为某职位；委派某人到某岗位/机构",
+            "lang": "cn"
+          },
+          {
+            "text": "choose or assign someone to a role, position, or body",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:appoint:baseline-v2-sb-as-to",
+          "target_locator": "record.constructions[0]",
+          "target_label": "appoint sb as sth / appoint sb to sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6332,11 +6497,11 @@
     "ordinal": 245,
     "word": "appreciate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0245.json",
-    "source_fingerprint": "186d473e61786b40f37d4ed5347466fa4fea62f65d8643e00b58150c5bd254df",
+    "source_fingerprint": "f8ecfdc2da57497105153a0ff2a4830549f27126ba20e6d8edfa5c0ab154ace5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(4+1)V"
+        "4V"
       ],
       "density": "rich"
     },
@@ -6496,22 +6661,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:appreciate:3cb3cc81008075db",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "感激；感谢",
-        "definition_en": "to be thankful for an action or help",
-        "pattern": "appreciate + 帮助/好意等，表感激",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:appreciate:3cb3cc81008075db",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "感激；感谢"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -6537,11 +6687,11 @@
     "ordinal": 246,
     "word": "approach",
     "source_owner_path": "content/lexical/words/by-ordinal/o0246.json",
-    "source_fingerprint": "c19f682f0c69b1163af850f7f74b9fff25ccdb9ad1b61f50002f4f7e1d7ccab9",
+    "source_fingerprint": "39869a5d09e2eff50760c3954ce83f843a1a515ef58b0cd30bb3f4c42561dc00",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(3+1)V",
+        "3V",
         "2N"
       ],
       "density": "rich"
@@ -6714,22 +6864,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:approach:b88e2602a21f8617",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "找…商量，接洽",
-        "definition_en": "to speak to someone about something, often to ask for something",
-        "pattern": "approach sb about + sth 接洽",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:approach:b88e2602a21f8617",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "找…商量，接洽"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -6740,8 +6875,16 @@
           "target_word": "approachable",
           "lines": [
             {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+              "text": "易接近的；平易近人的；可接洽的",
               "lang": "cn"
+            },
+            {
+              "text": "approach → approachable：表示人容易接近/交流，或对象容易接近、处理。",
+              "lang": "cn"
+            },
+            {
+              "text": "easy to talk to, deal with, or approach",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -6755,7 +6898,7 @@
     "ordinal": 247,
     "word": "appropriate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0247.json",
-    "source_fingerprint": "541c4da690d221f5a1233c1d4b430d2d7aa68003b70c50df715e2a4fe13411c0",
+    "source_fingerprint": "ad65c6ea1bf606dbd7b2eb9edf7c299c02c54bfb08f6d4ec7a60bb7cdd5d5aaf",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6783,15 +6926,7 @@
         "definition_cn": "适当的，恰当的",
         "definition_en": "suitable or right for a particular situation",
         "note": "",
-        "identity_overlay": {
-          "text": "appropriate adjective ends with /ət/; appropriate verb ends with /eɪt/.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "appropriate adjective ends with /ət/; appropriate verb ends with /eɪt/."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:97afc3ea6ee570abb685",
@@ -6830,15 +6965,7 @@
         "definition_cn": "挪用，盗用",
         "definition_en": "to take something for one's own use, especially illegally",
         "note": "",
-        "identity_overlay": {
-          "text": "appropriate adjective ends with /ət/; appropriate verb ends with /eɪt/.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "appropriate adjective ends with /ət/; appropriate verb ends with /eɪt/."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:0cbdae29f7de407c8afe",
@@ -6877,15 +7004,7 @@
         "definition_cn": "拨出（款项）",
         "definition_en": "to set aside money for a particular purpose",
         "note": "",
-        "identity_overlay": {
-          "text": "appropriate adjective ends with /ət/; appropriate verb ends with /eɪt/.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "appropriate adjective ends with /ət/; appropriate verb ends with /eɪt/."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:4505d26c0bcabcff1813",
@@ -6940,29 +7059,58 @@
           }
         }
       ],
-      "form": null,
-      "family": [
-        {
-          "target_word": "appropriately",
-          "lines": [
-            {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[0]"
-        },
-        {
-          "target_word": "appropriateness",
-          "lines": [
-            {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[1]"
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "appropriate",
+            "condition": "adjective",
+            "note": "形容词词尾读 /-ət/，意为“适当的”"
+          },
+          {
+            "surface": "appropriate",
+            "condition": "verb",
+            "note": "动词词尾读 /-eɪt/，意为“挪用/拨用”"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "adjective"
+            ],
+            "reading": "adjective · UK",
+            "ipa": "/əˈprəʊ.pri.ət/"
+          },
+          {
+            "pos": [
+              "adjective"
+            ],
+            "reading": "adjective · US",
+            "ipa": "/əˈproʊ.pri.ət/"
+          },
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "verb · UK",
+            "ipa": "/əˈprəʊ.pri.eɪt/"
+          },
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "verb · US",
+            "ipa": "/əˈproʊ.pri.eɪt/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
         }
-      ]
+      },
+      "family": []
     }
   },
   {
@@ -7225,7 +7373,7 @@
     "ordinal": 250,
     "word": "approximate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0250.json",
-    "source_fingerprint": "85348ef7dc3ab2b1a0e92918eafd6eb6c4ec9af62104a07edea2e4dec1ad023d",
+    "source_fingerprint": "a5745166cd4efa1632588cc57d5bb46ace6dd6b0c7981e242a11efe090c02d48",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7350,7 +7498,57 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "approximate",
+            "condition": "adjective",
+            "note": "形容词词尾读 /-mət/，意为“大约的/近似的”"
+          },
+          {
+            "surface": "approximate",
+            "condition": "verb",
+            "note": "动词词尾读 /-meɪt/，意为“接近/粗略估计”"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "adjective"
+            ],
+            "reading": "adjective · UK",
+            "ipa": "/əˈprɒk.sɪ.mət/"
+          },
+          {
+            "pos": [
+              "adjective"
+            ],
+            "reading": "adjective · US",
+            "ipa": "/əˈprɑːk.sə.mət/"
+          },
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "verb · UK",
+            "ipa": "/əˈprɒk.sɪ.meɪt/"
+          },
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "verb · US",
+            "ipa": "/əˈprɑːk.sə.meɪt/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },

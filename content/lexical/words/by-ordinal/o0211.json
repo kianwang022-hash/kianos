@@ -6,17 +6,7 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [
-      {
-        "construction_id": "construction:antenna:handoff-6569a1d661d66324",
-        "pattern": "antennas / antennae",
-        "meaning_cn": "技术天线通常用 antennas；生物触角通常用 antennae",
-        "definition_en": "plural form boundary by sense/domain",
-        "level": "L1",
-        "pos": "phrase",
-        "source": "semantic-review-handoff-v1"
-      }
-    ],
+    "constructions": [],
     "content_hash": "2e71e98326b2f685d8f38229cdeb67363653bf2c24b27c95d2b36366cbb0e971",
     "core_concept": {
       "core_clusters": [],
@@ -109,16 +99,28 @@
       "runtime_model_calls": false
     },
     "word": "antenna",
-    "word_family": [
-      {
-        "form_boundary": true,
-        "pattern": "antennas / antennae",
-        "meaning_cn": "技术意义 antennas；生物意义 antennae",
-        "definition_en": "plural forms selected by sense/domain",
-        "source": "semantic-review-handoff-v1"
-      }
-    ],
-    "word_id": "word:antenna"
+    "word_family": [],
+    "word_id": "word:antenna",
+    "form_identity": {
+      "form_type": "sense_conditioned_plural",
+      "spelling": "antenna",
+      "identity_rule": "sense_domain_selects_plural",
+      "boundary": "Technical/radio antenna usually pluralizes as antennas; biological insect antenna usually pluralizes as antennae.",
+      "boundaries": [
+        {
+          "surface": "antennas",
+          "condition": "technical/radio sense",
+          "note": "技术/通信意义通常用 antennas"
+        },
+        {
+          "surface": "antennae",
+          "condition": "biological sense",
+          "note": "生物触角意义通常用 antennae"
+        }
+      ],
+      "variants": [],
+      "authority": "Baseline v2 re-validation 2026-09-19"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
