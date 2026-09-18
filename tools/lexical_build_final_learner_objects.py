@@ -151,6 +151,7 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
     usage_note_decisions = word_decision.get("sense_usage_notes") or {}
     secondary_decisions = word_decision.get("secondary_senses") or {}
     overlay_decisions = word_decision.get("sense_identity_overlays") or {}
+    family_decisions = word_decision.get("word_family") or {}
     word_feel_decision = word_decision.get("word_feel") or {}
 
     core = record.get("core_concept") or {}
@@ -277,6 +278,12 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
     family = []
     for i, item in enumerate(record.get("word_family") or []):
         if not isinstance(item, dict):
+            continue
+        family_id = str(item.get("fact_id") or item.get("target_word") or "")
+        family_disposition = (family_decisions.get(family_id) or {}).get("disposition")
+        if family_disposition not in (None, "DEFAULT_DEPTH", "EXPLORE_ONLY"):
+            raise RuntimeError(f"FINAL_LEARNER_FAMILY_DISPOSITION_INVALID:{word_id}:{family_id}:{family_disposition}")
+        if family_disposition == "EXPLORE_ONLY":
             continue
         family.append({
             "target_word": str(item.get("target_word") or ""),

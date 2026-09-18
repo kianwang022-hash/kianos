@@ -28,7 +28,7 @@ Architecture-level website blocker: **none**.
 | Lane | State | Active ref / continue from |
 | --- | --- | --- |
 | Xizong UI | **BOUNDED LOOP AUDIT ACTIVE · PR #458** | `work/xizong-full-loop-audit-20260918` → live Study Packet + Memory Repair + exact-head QA |
-| Politics UI | **ACTIVE · HOME HUMAN GATE READY** | PR #466 · `work/politics-home-human-gate-20260919` · L2 / Learn / Chapter landed in main; Home candidate is fully gated and waiting only for Kian visual approval |
+| Politics UI | **ACTIVE · REVIEW HUMAN GATE READY** | PR #468 · `work/politics-review-human-gate-20260919` · populated Review candidate fully gated; waiting only for Kian visual approval |
 | English UI | **LANDED** | `content/english/CURRENT.md` |
 | Lexical / Vocabulary UI | **LANDED · HUMAN GATES CLOSED** | `content/lexical/CURRENT.md` → normal use / concrete defects only |
 
@@ -181,7 +181,7 @@ CI green is not visual acceptance.
 ## Current next actions
 
 - **Xizong:** material UI remains accepted. Fresh full-loop audit #458 has now closed the bounded integration defects found during adversarial replay: live Block Study Packet v3 replaces the retired After Learn packet; System W/U Chat returns enter current Memory Repair with exact Block/question return and version invalidation; SYSTEM Practice fails closed until System Recall is completed; correct-but-unsure is first-class Uncertain evidence including whole-paper Seal; released Recall/Practice/Whole Paper own truthful Home Resume while locked stages cannot hijack it; learner-facing engineering diagnostics/protocol copy are removed and guarded by browser QA. Next = exact-head Static Web Xizong QA must execute through A1 browser Runtime + Evidence before merge. Durable learner-data recovery remains shared-platform work.
-- **Politics:** L2 + Learn Index + chapter workspace are landed in `main`. PR #466 now closes Home composition: exact Continue, actionable W/U Handoff, and five subject entries only; chapter browsing stays in `/politics/learn/`. Functional First, Xi/Ethics Runtime+Evidence, real macOS PingFang visual gate and cross-subject regression are green. **Next action: Kian Human Gate on the Home screenshot; do not merge or proceed to Review/Practice visual closure before approval.**
+- **Politics:** L2 + Learn Index + chapter workspace + Home are landed in `main`. PR #468 closes Review visual structure while preserving W/U / discussion / source return / original-question behavior. Populated 1512×982 macOS evidence uses Wrong + Uncertain + discussion across multiple Units; Functional First, Xi/Ethics Runtime+Evidence and Mac visual gate are green. **Next action: Kian Human Gate on Review only; Practice visual closure waits behind approval.**
 - **English:** landed; fix only concrete launch-visible defects.
 - **Lexical:** Vocabulary v2 learner-surface closure and English exact handoff/return are accepted; normal use only unless a concrete defect appears.
 - **Platform:** after Politics Human Gate, close learner-data durability / typed Chat Return and run final cross-subject regression. UI/CSS ownership cleanup is maintenance, not a new learner product.
