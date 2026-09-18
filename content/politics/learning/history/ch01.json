@@ -7,9 +7,22 @@
   "teaching_shape": "CHRONOLOGY_STAGE_TURNING_POINT_CAUSE_EVALUATION",
   "canonical_mainline": "CHENGFENG",
   "source_bindings": {
-    "region_ids": ["POL27-REGION-HISTORY-C01-S01", "POL27-REGION-HISTORY-C01-S02", "POL27-REGION-HISTORY-C01-S03", "POL27-REGION-HISTORY-C01-S04"],
-    "natural_unit_ids": ["POL27-CF-HISTORY-C01-S01", "POL27-CF-HISTORY-C01-S02", "POL27-CF-HISTORY-C01-S03", "POL27-CF-HISTORY-C01-S04"],
-    "suyi_refs": ["POL27-SY-HISTORY-P099-B167-Y2018", "POL27-SY-HISTORY-P100-B048-Y2017"]
+    "region_ids": [
+      "POL27-REGION-HISTORY-C01-S01",
+      "POL27-REGION-HISTORY-C01-S02",
+      "POL27-REGION-HISTORY-C01-S03",
+      "POL27-REGION-HISTORY-C01-S04"
+    ],
+    "natural_unit_ids": [
+      "POL27-CF-HISTORY-C01-S01",
+      "POL27-CF-HISTORY-C01-S02",
+      "POL27-CF-HISTORY-C01-S03",
+      "POL27-CF-HISTORY-C01-S04"
+    ],
+    "suyi_refs": [
+      "POL27-SY-HISTORY-P099-B167-Y2018",
+      "POL27-SY-HISTORY-P100-B048-Y2017"
+    ]
   },
   "chapter_orientation": {
     "starting_point": "鸦片战争前，中国仍是封建社会；西方资本主义已经扩张并向世界市场推进。两种历史进程在战争中正面碰撞。",
@@ -29,7 +42,10 @@
       "stage_question": "为什么1840不是普通年份，而是中国历史性质发生转折的入口？",
       "cause": "国内封建社会衰落与西方资本主义扩张相遇，列强以战争打开中国市场。",
       "turning_point": "中国社会性质逐渐发生重大变化，近代中国的基本国情、主要矛盾和历史任务由此形成。",
-      "what_to_hold": ["半殖民地半封建社会是后续所有政治探索的共同历史背景。", "民族独立、人民解放与国家富强、人民幸福构成近代中国必须解决的历史任务。"],
+      "what_to_hold": [
+        "半殖民地半封建社会是后续所有政治探索的共同历史背景。",
+        "民族独立、人民解放与国家富强、人民幸福构成近代中国必须解决的历史任务。"
+      ],
       "next": "既然社会性质改变，下一步先看列强究竟怎样把这种控制具体化。"
     },
     {
@@ -54,14 +70,87 @@
       "natural_unit_id": "POL27-CF-HISTORY-C01-S04",
       "title": "第四节 反侵略战争的失败与民族意识的觉醒",
       "stage_question": "失败应该归因于武器落后，还是更深的社会政治原因？",
-      "cause_layers": ["根本原因在于腐朽的社会制度。", "经济技术落后是重要原因，但不能替代制度层面的根本解释。"],
+      "cause_layers": [
+        "根本原因在于腐朽的社会制度。",
+        "经济技术落后是重要原因，但不能替代制度层面的根本解释。"
+      ],
       "turning_point": "持续危机和失败促使越来越多人意识到，单纯被动抵抗不够，中国必须寻找新的国家出路。",
       "next": "第二章开始出现第一轮主动探索：农民、地主阶级洋务派、资产阶级维新派分别提出自己的方案。"
     }
   ],
   "chapter_compression": {
-    "timeline": ["鸦片战争", "社会性质变化", "列强多层侵略", "持续反抗", "失败原因暴露", "民族意识觉醒"],
+    "timeline": [
+      "鸦片战争",
+      "社会性质变化",
+      "列强多层侵略",
+      "持续反抗",
+      "失败原因暴露",
+      "民族意识觉醒"
+    ],
     "causal_chain": "外部资本主义侵略 + 国内封建制度危机 → 半殖民地半封建社会 → 民族危机加深 → 旧式抵抗难以成功 → 必须寻找新的国家出路",
     "review_prompt": "闭卷只回答三个问题：1840后中国变成了什么社会？为什么反侵略屡败？这些失败把历史推向了什么新任务？"
+  },
+  "later_stage_knowledge": {
+    "schema": "kianos.politics.later_stage_knowledge.v1",
+    "status": "CURRENT_K_REVIEWED",
+    "phase_scope": [
+      "CONSOLIDATION",
+      "PRECISION",
+      "ANALYSIS_OUTPUT"
+    ],
+    "compression_model": {
+      "cognition": "CRISIS_FORMATION_CAUSAL_MOVIE",
+      "purpose": "Preserve the chapter causal movie first; use horizontal compression only for later exact identity/confusable repair.",
+      "reconstruction_source": "chapter_compression",
+      "chapter_compression": {
+        "timeline": [
+          "鸦片战争",
+          "社会性质变化",
+          "列强多层侵略",
+          "持续反抗",
+          "失败原因暴露",
+          "民族意识觉醒"
+        ],
+        "causal_chain": "外部资本主义侵略 + 国内封建制度危机 → 半殖民地半封建社会 → 民族危机加深 → 旧式抵抗难以成功 → 必须寻找新的国家出路",
+        "review_prompt": "闭卷只回答三个问题：1840后中国变成了什么社会？为什么反侵略屡败？这些失败把历史推向了什么新任务？"
+      },
+      "horizontal_knowledge_owner": "content/politics/learning/history/later-stage-knowledge.json",
+      "horizontal_candidate_refs": [
+        {
+          "line": "people_documents",
+          "id": "HIST-PDOC-001"
+        },
+        {
+          "line": "people_documents",
+          "id": "HIST-PDOC-002"
+        }
+      ]
+    },
+    "precision_knowledge": {
+      "policy": "REFERENCE_SUBJECT_HORIZONTAL_K",
+      "owner_path": "content/politics/learning/history/later-stage-knowledge.json",
+      "candidate_refs": [
+        {
+          "line": "people_documents",
+          "id": "HIST-PDOC-001"
+        },
+        {
+          "line": "people_documents",
+          "id": "HIST-PDOC-002"
+        }
+      ],
+      "candidate_domains": [
+        "近代社会性质/主要矛盾等身份边界",
+        "列强侵略与民族危机的阶段定位",
+        "早期人物—著作—主张对应"
+      ],
+      "admission_state": "CANDIDATE_ONLY",
+      "current_year_delta_risk": "LOW_TO_MEDIUM",
+      "rule": "History precision is mainly cross-cutting identity/timeline knowledge. Exact recent-history items require current-year refresh."
+    },
+    "analysis_output_hooks": [],
+    "output_source_role": "NO_PRIMARY_DEDICATED_OUTPUT",
+    "historical_output_value": [],
+    "first_round_effect": "NONE"
   }
 }
