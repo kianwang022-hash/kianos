@@ -182,7 +182,7 @@ CI green is not visual acceptance.
 
 ## Current next actions
 
-- **Xizong:** Block/TTSX, dedicated System Recall, and Practice front/back L3 are in `main` with real macOS Human Gates closed. PingFang-first Chinese typography is authoritative; Linux remains geometry/runtime-only evidence. Next bounded UI slice = **Practice scope closure on the same Workbench**: first a global retained W/U/Marked entry independent of one System, then whole-paper/year scope + Hidden result. CHAT_SET manual import already exists; typed Chat Return integration stays with the separate Learner Data / Chat Handoff lane.
+- **Xizong:** Block/TTSX, dedicated System Recall, Practice front/back, and global retained W/U/Marked are in `main` with real macOS Human Gates closed. PingFang-first Chinese typography is authoritative; Linux remains geometry/runtime-only evidence. Next bounded UI slice = **whole-paper/year scope + Hidden result + seal/reveal on the same Practice Workbench**. Historical years keep their own real paper shape; Website must not normalize all years to one question count. CHAT_SET manual import already exists; typed Chat Return integration stays with the separate Learner Data / Chat Handoff lane.
 - **Politics:** continue from the cleaned SurfacePlan-only renderer path; Visual may arrange mapped objects but must not author semantic grouping/relations.
 - **English:** only concrete launch-visible defects; do not reopen accepted task geometry.
 - **Lexical:** execute Architecture-v2 adaptation from current Rule + canonical Content; first Human Gates are Vocabulary Home and representative SAFE_SIMPLE / DEPTH_READY Word surfaces. Do not treat prior P/R/E PASS as current visual Human-Gate approval.
