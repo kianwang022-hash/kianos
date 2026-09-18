@@ -52,9 +52,9 @@
   --study-space-5: 20px;
   --study-space-6: 24px;
 
-  /* CJK-first is a visual requirement, not only a fallback preference.
-     Keep a dedicated Chinese family ahead of generic system UI fonts so learner
-     chrome does not collapse into a narrow/condensed-looking fallback. */
+  /* L1 Chinese UI face — exact 4173 Politics Learn reference.
+     Apple system UI stays first for Latin/system chrome; on Mac, Chinese resolves
+     through PingFang SC. Subject/task CSS must not replace the Chinese family. */
   --study-font-cjk: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans CJK SC", sans-serif;
   --study-font: var(--study-font-cjk);
   --study-serif: "Iowan Old Style", Charter, "Palatino Linotype", Palatino, Georgia, "Noto Serif CJK SC", serif;
