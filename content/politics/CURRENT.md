@@ -24,6 +24,8 @@ Next active gate                       Politics L3 UI acceptance
 
 Current-year source debt is Precision/output freshness debt, not a blocker on stable Memory or first-round study.
 
+**Learner boundary:** this Current does not own private learner progress, mastery, W/U history, or real learner U.
+
 ---
 
 ## Content model
