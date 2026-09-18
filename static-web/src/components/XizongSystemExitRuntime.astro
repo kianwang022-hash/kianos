@@ -17,33 +17,25 @@ const failureLabel = (mode) => Array.isArray(mode)
   : [mode?.label, mode?.chain].filter(Boolean).join('：');
 ---
 <section class="xse xseRecallOnly" id="system-exit" data-xizong-system-exit={system.systemId}>
-  <header class="xseHero">
-    <div>
-      <span>{system.canonicalId} · System Recall</span>
-      <h2>闭卷恢复 {system.title}</h2>
-    </div>
-    <p>这里只负责系统级重建。完成后进入独立训练板块；题目、解析、整卷和二轮不再塞进 System 页面。</p>
-  </header>
-
   <section class="xseCompletionWorkbench">
     <section class="xseRecallWorkspace" data-recall-workspace>
-      <aside class="xseRecallAxes" aria-label="Reconstruction dimensions">
-        <span>RECONSTRUCTION</span>
-        <strong>系统主链</strong>
-        <strong>并行控制</strong>
-        <strong>Failure 定位</strong>
-        <strong>病例判断顺序</strong>
-        <small>只给重建维度，不提前给答案。</small>
-      </aside>
-
       <div class="xseRecallStage">
         <header class="xseRecallStageHead">
           <div>
-            <span class="xseEyebrow">System Recall</span>
-            <h3>从自己的模型开始</h3>
+            <span class="xseEyebrow">{system.canonicalId} · System Recall</span>
+            <h3>闭卷恢复 {system.title}</h3>
           </div>
           <strong data-recall-status>还没完成本次 System Recall</strong>
         </header>
+
+        <div class="xseRecallAxes" aria-label="Reconstruction dimensions">
+          <span>重建维度</span>
+          <strong>系统主链</strong>
+          <strong>并行控制</strong>
+          <strong>Failure 定位</strong>
+          <strong>病例判断顺序</strong>
+          <small>只给维度，不提前给答案。</small>
+        </div>
 
         <section class="xseRecallFront" data-recall-front>
           <p class="xseRecallPrompt">{recallPrompt}</p>
