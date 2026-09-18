@@ -97,11 +97,11 @@
     "ordinal": 322,
     "word": "attach",
     "source_owner_path": "content/lexical/words/by-ordinal/o0322.json",
-    "source_fingerprint": "4926d6278e7ab0a0d4e9516db95f5b83153edc8c30a20d07532f247b8b689076",
+    "source_fingerprint": "45cc5d7452d981acd198ef911e7c9a69fa271a67d3848314a0e71991edf1330e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(4+1)V"
+        "4V"
       ],
       "density": "rich"
     },
@@ -262,22 +262,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:attach:e672c1bbe0c32479",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "赋予（重要性等），认为……具有",
-        "definition_en": "to assign or attribute importance, value, etc. to something",
-        "pattern": "attach importance/value to",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:attach:e672c1bbe0c32479",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "赋予（重要性等），认为……具有"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [
       {
         "id": "deep:constructions:attach:e4313a1067f27853",
@@ -302,6 +287,27 @@
           "target_id": "deep:constructions:attach:e4313a1067f27853",
           "target_locator": "record.constructions[0]",
           "target_label": "vt. + object + to + sth"
+        }
+      },
+      {
+        "id": "construction:attach:baseline-v2-importance-value-to",
+        "source_locator": "record.constructions[1]",
+        "pattern": "attach importance/value/significance to sth",
+        "lines": [
+          {
+            "text": "重视某事；赋予某事重要性/价值/意义",
+            "lang": "cn"
+          },
+          {
+            "text": "regard something as having importance, value, or significance",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:attach:baseline-v2-importance-value-to",
+          "target_locator": "record.constructions[1]",
+          "target_label": "attach importance/value/significance to sth"
         }
       }
     ],
@@ -1275,7 +1281,7 @@
     "ordinal": 329,
     "word": "attitude",
     "source_owner_path": "content/lexical/words/by-ordinal/o0329.json",
-    "source_fingerprint": "dce8fb04fd83d6f1b04db5087f77dabd2902f451b65a1cc7e2e866e836bb68b7",
+    "source_fingerprint": "3bab403b999273279209c319125747ce883c8698bbc58c0479f9cd6375a71387",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1284,13 +1290,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "态度；看法",
-      "decision_cn": "态度或看法",
+      "summary_cn": "某对象相对参照系的“姿态/取向”：可指人的态度，也可指身体姿势或航空器姿态",
+      "decision_cn": "toward issue/person → 态度看法；body/theatrical pose → 姿势；aircraft/spacecraft → 飞行姿态。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "态度；看法"
+        "target_label": "某对象相对参照系的“姿态/取向”：可指人的态度，也可指身体姿势或航空器姿态"
       }
     },
     "senses": [
@@ -1707,7 +1713,7 @@
     "ordinal": 333,
     "word": "attribute",
     "source_owner_path": "content/lexical/words/by-ordinal/o0333.json",
-    "source_fingerprint": "333b8dc6c71c3d4a5d4ac29cbe4fbfec18a9755dfd038927ab480e6f011d96a9",
+    "source_fingerprint": "a979d95f83926140eb2765c0036f25f10a1d11bad59c422fef1fe332849f5b11",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1735,15 +1741,7 @@
         "definition_cn": "属性；特征",
         "definition_en": "a quality or feature regarded as characteristic of someone or something",
         "note": "",
-        "identity_overlay": {
-          "text": "pronunciation_by_part_of_speech",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "pronunciation_by_part_of_speech"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:82b591183d827f346e17",
@@ -1782,15 +1780,7 @@
         "definition_cn": "把…归因于",
         "definition_en": "to regard something as being caused by or due to something else",
         "note": "",
-        "identity_overlay": {
-          "text": "pronunciation_by_part_of_speech",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "pronunciation_by_part_of_speech"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:2379a4e36bddc43b51ac",
@@ -1875,14 +1865,72 @@
           }
         }
       ],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "attribute",
+            "condition": "noun",
+            "note": "名词首音节重读，表示“属性/特征”"
+          },
+          {
+            "surface": "attribute",
+            "condition": "verb",
+            "note": "动词第二音节重读，表示“归因于”"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "noun · UK",
+            "ipa": "/ˈæt.rɪ.bjuːt/"
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "noun · US",
+            "ipa": "/ˈæt.rɪ.bjuːt/"
+          },
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "verb · UK",
+            "ipa": "/əˈtrɪb.juːt/"
+          },
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "verb · US",
+            "ipa": "/əˈtrɪb.juːt/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": [
         {
           "target_word": "attributable",
           "lines": [
             {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+              "text": "可归因于……的；由……造成的",
               "lang": "cn"
+            },
+            {
+              "text": "attribute A to B → A is attributable to B：主动“把A归因于B”与形容词“可归因于B”。",
+              "lang": "cn"
+            },
+            {
+              "text": "capable of being attributed to a particular cause or source",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -2491,7 +2539,7 @@
     "ordinal": 340,
     "word": "august",
     "source_owner_path": "content/lexical/words/by-ordinal/o0340.json",
-    "source_fingerprint": "259ddbbb990c6ff62a62bb440b3cd9a3adf4e1b796a7e71385e29e6ea194f3a8",
+    "source_fingerprint": "0726ebaf3fec7215063e3c74c1c3fbed67c4383f76a1ae72ab8a1922bb461fc8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2519,15 +2567,7 @@
         "definition_cn": "八月",
         "definition_en": "the month following July and preceding September",
         "note": "",
-        "identity_overlay": {
-          "text": "case_sensitive_lexeme",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "case_sensitive_lexeme"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:147512841d971a8e8fb1",
@@ -2566,15 +2606,7 @@
         "definition_cn": "威严的；令人敬畏的",
         "definition_en": "majestic, venerable, or profoundly impressive",
         "note": "",
-        "identity_overlay": {
-          "text": "lowercase_common_lexeme",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "lowercase_common_lexeme"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:eb98bb14a9d2da9a2a25",
@@ -2598,7 +2630,57 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "August",
+            "condition": "capitalized month name",
+            "note": "月份 August：首音节重读"
+          },
+          {
+            "surface": "august",
+            "condition": "lowercase formal adjective",
+            "note": "形容词 august：第二音节重读，表示“威严的/令人敬畏的”"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "August · month · UK",
+            "ipa": "/ˈɔː.ɡəst/"
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "August · month · US",
+            "ipa": "/ˈɑː.ɡəst/"
+          },
+          {
+            "pos": [
+              "adjective"
+            ],
+            "reading": "august · adjective · UK",
+            "ipa": "/ɔːˈɡʌst/"
+          },
+          {
+            "pos": [
+              "adjective"
+            ],
+            "reading": "august · adjective · US",
+            "ipa": "/ɑːˈɡʌst/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -3004,7 +3086,7 @@
     "ordinal": 345,
     "word": "authority",
     "source_owner_path": "content/lexical/words/by-ordinal/o0345.json",
-    "source_fingerprint": "8d362c9078f4b87c420eb0daf7c6fc9656cb471db6e59f91d9dec3546695447b",
+    "source_fingerprint": "de50c1d8e3fa715dfb82531ebcd868a5659d9464acf623329e9d9f2972bfaa3f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3013,13 +3095,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "行使权力或权威",
-      "decision_cn": "",
+      "summary_cn": "“被认可的权力/可信来源”：可指职权、掌权机构、某领域权威专家，或正式授权",
+      "decision_cn": "have authority → 权力/职权；the authorities → 当局；an authority on sth → 权威专家；with/by authority → 许可、授权。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "行使权力或权威"
+        "target_label": "“被认可的权力/可信来源”：可指职权、掌权机构、某领域权威专家，或正式授权"
       }
     },
     "senses": [

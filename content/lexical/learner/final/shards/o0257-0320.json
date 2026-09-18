@@ -5702,7 +5702,7 @@
     "ordinal": 301,
     "word": "assess",
     "source_owner_path": "content/lexical/words/by-ordinal/o0301.json",
-    "source_fingerprint": "800938aec555db3de20bf8c9a3ad255733cad2c7a8a4a10c0433b35bd8f207c5",
+    "source_fingerprint": "141f4747aacce71807408fe417e5c44027477577572ac766b573a9a26c3792e5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5711,13 +5711,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "评估，估价",
-      "decision_cn": "",
+      "summary_cn": "对人或事作出核定：可一般评估，也可为税务估价，或据此征收税款/罚款",
+      "decision_cn": "impact/ability/quality → 评估；property/value + tax context → 估价；tax/fine + person/entity → 征收。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "评估，估价"
+        "target_label": "对人或事作出核定：可一般评估，也可为税务估价，或据此征收税款/罚款"
       }
     },
     "senses": [
@@ -5811,28 +5811,7 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": [
-        {
-          "target_word": "assessment",
-          "lines": [
-            {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[0]"
-        },
-        {
-          "target_word": "assessable",
-          "lines": [
-            {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[1]"
-        }
-      ]
+      "family": []
     }
   },
   {
@@ -5941,7 +5920,7 @@
     "ordinal": 303,
     "word": "assign",
     "source_owner_path": "content/lexical/words/by-ordinal/o0303.json",
-    "source_fingerprint": "4653eb0adde0af53752d176c2b91a2105051af2eb5b09fa8a34184e591d8c13f",
+    "source_fingerprint": "f78900b8137141196301ea4687af5a09ee07ba8a247c4aa21f2729628cebf01b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5950,13 +5929,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "分配；指派",
-      "decision_cn": "",
+      "summary_cn": "把任务、人、类别、数值或权利放到指定对象/位置上",
+      "decision_cn": "assign sth to sb → 分配/布置；assign sb to role/task → 指派；assign value/category → 指定/归类；assign rights → 转让。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "分配；指派"
+        "target_label": "把任务、人、类别、数值或权利放到指定对象/位置上"
       }
     },
     "senses": [
@@ -6115,7 +6094,50 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:assign:baseline-v2-sth-to-sb",
+        "source_locator": "record.constructions[0]",
+        "pattern": "assign sth to sb/sth",
+        "lines": [
+          {
+            "text": "把任务、物品、数值或权利分配/指定给某人或某对象",
+            "lang": "cn"
+          },
+          {
+            "text": "give or allocate a task, item, value, category, or right to a recipient or target",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:assign:baseline-v2-sth-to-sb",
+          "target_locator": "record.constructions[0]",
+          "target_label": "assign sth to sb/sth"
+        }
+      },
+      {
+        "id": "construction:assign:baseline-v2-sb-to-sth",
+        "source_locator": "record.constructions[1]",
+        "pattern": "assign sb to sth / to do sth",
+        "lines": [
+          {
+            "text": "指派某人到某岗位/任务；派某人做某事",
+            "lang": "cn"
+          },
+          {
+            "text": "select or direct someone for a role, task, place, or action",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:assign:baseline-v2-sb-to-sth",
+          "target_locator": "record.constructions[1]",
+          "target_label": "assign sb to sth / to do sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6251,18 +6273,7 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": [
-        {
-          "target_word": "assign",
-          "lines": [
-            {
-              "text": "assign 动词形式",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[0]"
-        }
-      ]
+      "family": []
     }
   },
   {
@@ -6781,18 +6792,7 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": [
-        {
-          "target_word": "assist",
-          "lines": [
-            {
-              "text": "assist 为动词，assistant 为名词",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[0]"
-        }
-      ]
+      "family": []
     }
   },
   {
@@ -6801,7 +6801,7 @@
     "ordinal": 309,
     "word": "associate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0309.json",
-    "source_fingerprint": "4563707c4b0446984ae657cbaddf7fb4e232c45f5952db0ff5d0a8fc88894e43",
+    "source_fingerprint": "c68ffa58fa0697ba9ad82267f9d11c216578fcc53c8a4737451261c4d08b5f33",
     "sense_lineage": [
       {
         "word_id": "word:associate",
@@ -6851,15 +6851,7 @@
         "definition_cn": "把 A 与 B 联系起来",
         "definition_en": "link A with B in thought or fact",
         "note": "",
-        "identity_overlay": {
-          "text": "associate as a verb ends /-eɪt/.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "associate as a verb ends /-eɪt/."
-          }
-        },
+        "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -6876,15 +6868,7 @@
         "definition_cn": "同事；伙伴",
         "definition_en": "a colleague or partner",
         "note": "",
-        "identity_overlay": {
-          "text": "associate as a noun ends /-ət/.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "associate as a noun ends /-ət/."
-          }
-        },
+        "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -6901,15 +6885,7 @@
         "definition_cn": "交往；结交",
         "definition_en": "to keep company or associate with someone",
         "note": "",
-        "identity_overlay": {
-          "text": "associate as a verb ends /-eɪt/.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "associate as a verb ends /-eɪt/."
-          }
-        },
+        "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -6962,27 +6938,6 @@
           "target_locator": "record.constructions[1]",
           "target_label": "associate A with B / be associated with B"
         }
-      },
-      {
-        "id": "construction:associate:handoff-0e5475b7fda267ac",
-        "source_locator": "record.constructions[2]",
-        "pattern": "associate with sb; an associate",
-        "lines": [
-          {
-            "text": "与某人交往；同事或伙伴",
-            "lang": "cn"
-          },
-          {
-            "text": "keep company with someone; a colleague or partner",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:associate:handoff-0e5475b7fda267ac",
-          "target_locator": "record.constructions[2]",
-          "target_label": "associate with sb; an associate"
-        }
       }
     ],
     "reference": {
@@ -7006,7 +6961,57 @@
           }
         }
       ],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "associate",
+            "condition": "verb",
+            "note": "动词词尾读 /-eɪt/，表示联系/交往"
+          },
+          {
+            "surface": "associate",
+            "condition": "noun",
+            "note": "名词词尾读 /-ət/，表示同事/伙伴"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "verb · UK",
+            "ipa": "/əˈsəʊ.si.eɪt/"
+          },
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "verb · US",
+            "ipa": "/əˈsoʊ.ʃi.eɪt/"
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "noun · UK",
+            "ipa": "/əˈsəʊ.ʃi.ət/"
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "noun · US",
+            "ipa": "/əˈsoʊ.ʃi.ət/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -7147,11 +7152,11 @@
     "ordinal": 311,
     "word": "assume",
     "source_owner_path": "content/lexical/words/by-ordinal/o0311.json",
-    "source_fingerprint": "dddb5d4e62e9dc90ebd882c65ed51052201944e07d976df3f77c9ce31c2a4527",
+    "source_fingerprint": "63a8e47107c7ccb8728b274dab2c286ff6768a1fe2a52704aeaa403d39a8543b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(4+1)V"
+        "4V"
       ],
       "density": "rich"
     },
@@ -7311,39 +7316,13 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:assume:2bb026d58baa0706",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "呈现；具有",
-        "definition_en": "to begin to have a particular appearance or quality",
-        "pattern": "assume 呈现形态",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:assume:2bb026d58baa0706",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "呈现；具有"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": [
-        {
-          "target_word": "assumption",
-          "lines": [
-            {
-              "text": "assume 词族 assumption",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[0]"
-        }
-      ]
+      "family": []
     }
   },
   {
@@ -7352,7 +7331,7 @@
     "ordinal": 312,
     "word": "assumption",
     "source_owner_path": "content/lexical/words/by-ordinal/o0312.json",
-    "source_fingerprint": "911cfe561127ac5c2c50c64a6af3c690f43cbefc5fff90c71cb555d13ac372d6",
+    "source_fingerprint": "70f0e8f5952d3f4b043e257a8541359b805b2685d2b03c58af0fb045db8ad64f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7361,13 +7340,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "假定或承担",
-      "decision_cn": "",
+      "summary_cn": "把某物“当作/接下/装出”：可是假定某事为真、承担职位/责任，或装出某种姿态",
+      "decision_cn": "assumption that... → 假定；assumption of power/responsibility → 承担/就任；assumption of manner/air → 假装、装出。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "假定或承担"
+        "target_label": "把某物“当作/接下/装出”：可是假定某事为真、承担职位/责任，或装出某种姿态"
       }
     },
     "senses": [
@@ -7660,7 +7639,7 @@
     "ordinal": 314,
     "word": "assure",
     "source_owner_path": "content/lexical/words/by-ordinal/o0314.json",
-    "source_fingerprint": "6b3279d1a84d3a13d4dfc2d9b7d70eb0511b453aa7f4a75caf687db78e17b08b",
+    "source_fingerprint": "3580d794645d25e838154a3d89383d4013b793e23d0b5abe975b9b9621f5f641",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7751,7 +7730,50 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:assure:baseline-v2-sb-that",
+        "source_locator": "record.constructions[0]",
+        "pattern": "assure sb (that) ...",
+        "lines": [
+          {
+            "text": "向某人保证……；使某人确信……",
+            "lang": "cn"
+          },
+          {
+            "text": "tell someone confidently that something is true, especially to remove doubt",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:assure:baseline-v2-sb-that",
+          "target_locator": "record.constructions[0]",
+          "target_label": "assure sb (that) ..."
+        }
+      },
+      {
+        "id": "construction:assure:baseline-v2-sb-of",
+        "source_locator": "record.constructions[1]",
+        "pattern": "assure sb of sth",
+        "lines": [
+          {
+            "text": "向某人保证某事；使某人确信某事",
+            "lang": "cn"
+          },
+          {
+            "text": "give someone confidence or certainty about something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:assure:baseline-v2-sb-of",
+          "target_locator": "record.constructions[1]",
+          "target_label": "assure sb of sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [
         {
