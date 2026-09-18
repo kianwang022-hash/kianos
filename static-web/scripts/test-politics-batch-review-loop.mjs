@@ -77,8 +77,10 @@ try {
   // Home shows records/Review entry but does not auto-export Chat packets.
   await page.goto(`${BASE}/politics/`, { waitUntil: 'domcontentloaded' });
   check(await page.locator('[data-politics-copy-handoff]').count() === 0, 'home_has_no_direct_chat_export');
-  const currentDockDisplay = await page.locator('.kianosCurrentDock').evaluate((n) => getComputedStyle(n).display);
-  check(currentDockDisplay === 'none', 'politics_hides_engineering_current_dock', currentDockDisplay);
+  const currentDock = page.locator('.kianosCurrentDock');
+  const currentDockCount = await currentDock.count();
+  const currentDockDisplay = currentDockCount ? await currentDock.evaluate((n) => getComputedStyle(n).display) : 'absent';
+  check(currentDockCount === 0 || currentDockDisplay === 'none', 'politics_has_no_visible_engineering_current_dock', currentDockDisplay);
 
   // Review is the intentional batch Chat handoff owner.
   await page.goto(`${BASE}/politics/review/`, { waitUntil: 'domcontentloaded' });
