@@ -3,7 +3,7 @@
 Role: **Politics engineering Work Cursor + subject router**  
 Parent: root `CURRENT.md`
 
-This file does not own Politics Source / Knowledge, Learning Logic, Acceptance Truth, learner progress or shared Visual/Engineering policy.
+This cursor owns only current engineering position and routing. It does not own Source / Knowledge, Learning Logic, Acceptance Truth, learner progress, or shared Visual/Engineering policy.
 
 A bare `继续政治 / 继续马原 / 继续史纲` is a learner request unless the active conversation is clearly BUILD / UI / CONTROL work.
 
@@ -11,170 +11,108 @@ A bare `继续政治 / 继续马原 / 继续史纲` is a learner request unless 
 
 ## Current state
 
-Politics **first-round** learning engineering remains closed through the current scoped `S/K/L/P/R/E` evidence for all five subjects. Real learner `U` remains real-use-only.
-
-Politics exam-lifecycle **later-stage Knowledge is now closed at K with bounded source-refresh debt** across all five subjects.
-
 ```text
-later-stage Source baseline
-→ K realization / audit                  PASS_WITH_DEBT
-→ Consolidation L old static-rubric model  FAIL / REVISION_REQUIRED
-→ corrected Chat-owned strategy model       REPAIRED_AFTER_INTERFACE_ATTACK
-→ Consolidation L                            PASS_AFTER_REPAIR
-→ Analysis-Output L                           PASS / Chat-primary
-→ Mock / Final L                              PASS / Chat-primary + source-paper primary
-→ later-stage L overall                       PASS
-→ Exam-Horizon adaptation                     ACTIVE NEXT GATE
+First-round Politics S/K/L/P/R/E   PASS
+Real learner U                     UNTESTED
+
+Later-stage K                      PASS_WITH_DEBT
+Consolidation L                    PASS_AFTER_REPAIR
+Analysis Output L                  PASS / Chat-primary
+Mock / Final L                     PASS / Chat-primary + source-paper primary
+Later-stage L overall              PASS
+
+Next active gate                   Exam-Horizon adaptation
 ```
 
-K detail and source-refresh debt remain owned by `content/politics/ACCEPTANCE.md` and `manifest.json`; this cursor does not duplicate subject counts or candidate inventories.
+K/source-refresh debt stays in `ACCEPTANCE.md` and `manifest.json`; this cursor does not duplicate inventories.
 
-Analysis Output is now explicitly **Chat-primary**:
-
-```text
-chapter analysis_output_hooks in GitHub
-→ Chat practice / diagnosis / output coaching
-```
-
-No dedicated Analysis Output Website/Runtime is required. Routing/production rules live in `content/politics/analysis-output/README.md`. Real learner outputs remain private and never enter shared Current.
-
-
-Mock / Final is also explicitly **Chat-primary** around an authentic/exam-like paper/PDF execution surface:
-
-```text
-GitHub Mock/Final rules + Current assets
-→ Chat decides full Mock vs smaller timed practice
-→ learner executes on the owning paper/PDF/task surface
-→ private evidence
-→ Chat routes the smallest repair / builds the final queue
-```
-
-No dedicated Mock/Final Website is required. Routing/production rules live in `content/politics/mock-final/README.md`.
-
-**Next active gate: Politics Exam-Horizon adaptation.**  
-Later-stage Learning is now accepted across **Consolidation / Analysis Output / Mock-Final**. The next work is downstream: close Final Learner Object direct-consumption first, then the reusable execution/evidence boundary. Website/Runtime must continue to render already-resolved learner payload and must not infer learning strategy or learner-facing semantics from raw Current fields.
-
-The stable first-round learner loop remains:
-
-```text
-Orientation / current Natural Unit
-→ Chengfeng continuous study on iPad / MarginNote
-→ optional checkpoint
-→ Xiao1000 verification in Astro
-→ stable correct exits cheaply
-   OR Wrong / meaningful Uncertain → smallest useful repair → exact return
-→ meaningful Resume
-```
-
-Exact semantics live in `LEARNING_CONTRACT.md` and the subject canonical owners, not in this cursor.
+Analysis Output remains Chat-primary. Mock/Final remains Chat-primary around an authentic/exam-like paper/PDF. Neither requires a dedicated Website page.
 
 ---
 
-## Exam-Horizon Adaptation
-
-A stacked Politics product-adaptation lane is active on top of the current later-stage L candidate.
-
-It does **not** reopen the top-level architecture and does not authorize later-stage Runtime implementation before L acceptance.
+## Exam-Horizon adaptation
 
 Target:
 
 ```text
-GitHub / Current Content
-→ resolved Final Learner Objects
-→ accepted Visual
-→ phase-agnostic Runtime atoms
+Current Content
+→ accepted Surface Mapping
+→ Final Learner Object
+→ faithful Website execution
 ↑                         ↓
 Chat Session Instruction  Session Evidence
 ```
 
-Current closure status:
+Current closure:
 
 ```text
 A Final Learner Object direct-consumption   IMPLEMENTED_CANDIDATE / VALIDATION_PENDING
-B Generic Runtime Atom closure              PARTIAL
-C Chat ↔ Website typed-control closure      PARTIAL
-D 12/20 Exam-Horizon scenario acceptance    UNTESTED
+B reusable Runtime mechanics                PARTIAL
+C Chat ↔ Website typed control              PARTIAL
+D P1–P5 exam-horizon scenarios              UNTESTED
 ```
 
-Current A-candidate implementation:
+A candidate now:
+- compiles `kianos.politics.final_learner_object.v1` from resolved Surface Mapping;
+- requires all 151 PASS owners to resolve Final Learner Objects;
+- renders fixed final payload instead of arbitrary raw fields;
+- removes Mao / Xi / Ethics semantic display adapters from `politicsCurrent.mjs`;
+- suppresses mapped-state legacy learner payload;
+- fails closed if a PASS owner lacks the final object.
 
-- `kianos.politics.final_learner_object.v1` is compiled from the already-resolved explicit Surface Mapping;
-- mapped learner-facing consumers read that Final Learner Object instead of raw teaching fields;
-- `PoliticsExplicitSurfacePlan.astro` renders fixed payload keys and no longer enumerates arbitrary item fields;
-- Mao / Xi / Ethics subject-specific display adapters are no longer bound through `politicsCurrent.mjs`;
-- mapped units suppress legacy parallel answer / repair / handoff / closure learner payload.
+A is not accepted until direct-consumption validation + Politics QA/build + representative browser proof pass.
 
-This is implementation evidence only. A remains unaccepted until the dedicated direct-consumption validator, Politics QA/build, and representative browser journey pass.
-
-The target Runtime atom set is:
-
+After A:
 ```text
-SHOW
-CONCEAL_REVEAL
-INPUT_SUBMIT
-MARK
-SEQUENCE
-TIMER
-HANDOFF
-RETURN
-CAPTURE
+reuse SHOW / CONCEAL_REVEAL / INPUT_SUBMIT / MARK / SEQUENCE
++ TIMER / HANDOFF / RETURN / CAPTURE
+→ one typed session executor
+→ Review can execute Chat-selected reconstruction / recall / Precision / retest
 ```
 
-Later capabilities such as Recall / Reconstruct / Timed Task / Mock must be Session recipes over these atoms, not new phase engines.
-
-Typed control target:
-
-```text
-private learner evidence + Current Content
-→ Chat
-→ kianos.politics.session-instruction.v1
-→ Website executor
-→ kianos.politics.session-evidence.v1
-→ Chat
-```
-
-The #433 `consolidation_plan.v1` remains a phase-specific precursor and must normalize into the one exam-horizon instruction envelope rather than gaining a second permanent executor.
-
-**Dependency rule:** the Learning blocker is closed. Exam-Horizon implementation may proceed in dependency order: Final Learner Object direct-consumption → reusable execution/evidence boundary → representative P1–P5 scenario acceptance.
-
-Exact acceptance and P1–P5 scenario proof live in `ACCEPTANCE.md`.
+Exact rules and scenario proof live in `INTERACTION_CONTRACT.md` and `ACCEPTANCE.md`.
 
 ---
 
-## Local derived-presentation mechanism
-
-Politics has an accepted `SURFACE_MAPPING_CONTRACT.md` because its Natural Unit states sometimes need explicit derived learner presentation.
-
-That mechanism is **local to Politics presentation**. It is not a sixth architecture layer and it is not a second Knowledge owner.
+## Stable first-round learner loop
 
 ```text
-canonical Politics Content / Learning semantics
-→ accepted Surface Mapping when stateful presentation is needed
-→ current renderer/runtime
+Orientation
+→ Chengfeng continuous study on iPad / MarginNote
+→ optional close
+→ Xiao1000 verification in Astro
+→ stable correct exits cheaply
+   OR Wrong / meaningful Uncertain
+   → smallest repair → exact Return
+→ meaningful Resume
 ```
 
-Surface Mapping may preserve approved grouping, relation type, learner-visible relation text, zones and state-specific payload. It may not invent new Knowledge.
-
-Runtime / UI owns triggers, shell, responsive behavior, typography, spacing and styling. It must not infer Politics semantics from raw field names, DOM shape or geometry.
-
----
-
-## Stable content / learning boundaries
+Source roles:
 
 ```text
 Suyi       framework / orientation / exactness cross-check input
 Chengfeng  continuous first-round mainline on original iPad / MarginNote
 Xiao1000   verification / later evidence in Astro
-KianOS     orientation / selective presentation / verification / repair companion
-Chat       adaptive semantic repair when earned
+KianOS     orientation / mapped presentation / verification / repair companion
+Chat       adaptive strategy / semantic repair / later-stage selection
 ```
 
-- Source ownership ≠ surface ownership.
-- stable correct stays cheap;
-- Wrong/meaningful Uncertain opens the smallest useful repair;
-- first-attempt Evidence and exact Return survive visual optimization;
-- `REFERENCE_ONLY` content remains non-teaching;
-- a missing/empty derived presentation is never permission for UI to synthesize Knowledge.
+---
+
+## Direct-presentation boundary
+
+Politics uses explicit `SURFACE_MAPPING_CONTRACT.md`.
+
+```text
+canonical Content / Learning
+→ accepted Surface Mapping
+→ resolved Final Learner Object
+→ renderer
+```
+
+Runtime/UI may own triggers, responsive layout, typography, spacing and styling. It may not infer Politics semantics, review priority, learner debt, or display content from raw fields.
+
+Missing final learner payload fails closed.
 
 ---
 
@@ -197,50 +135,38 @@ A blocker in one subject does not freeze siblings without a real shared dependen
 ### Content / semantic work
 
 ```text
-exact Politics subject / Natural Unit
+exact subject / Natural Unit
 → exact canonical Content owner
-→ Learning Contract only when the semantic rule is needed
+→ Learning Contract only when needed
 → scoped Acceptance only when the claim matters
-→ work
 ```
 
 ### Visual work
 
 ```text
-static-web/PRESENTATION_CONTRACT.md
-→ accepted Politics Natural Unit / surface blueprint
-→ SURFACE_MAPPING_CONTRACT.md only when stateful semantic presentation matters
+shared Presentation authority
+→ accepted Politics Surface Mapping
 → exact surface owner
 → browser proof
 ```
-
-Do not rediscover Politics grammar from raw JSON or old screenshots.
 
 ### Runtime / behavior work
 
 ```text
 SYSTEM_CONTRACT.md
-→ exact Politics runtime/evidence/repair owner
+→ exact Politics execution/evidence/return owner
 → targeted functional proof
 ```
 
-Runtime must not redefine Learning Logic or Knowledge.
+Do not recover semantics from raw JSON, old screenshots, legacy Projection shapes, or historical branches.
 
 ---
 
-## Fresh-Chat rule
+## Fresh-Chat / re-acceptance
 
 Known Politics work should normally reach effective work after roughly 2–3 precise reads.
 
-Do not require a new UI Chat to read every Learning, Interaction, Projection, Surface Mapping, Product Status and migration document as ritual. Read an upstream owner only when the requested effect crosses that boundary.
-
-Historical PRs / old visual migrations are evidence only.
-
----
-
-## Re-acceptance
-
-When Kian explicitly requests a fresh independent audit, inspect real Source / Knowledge / Learning / Runtime owners first. Old PASS labels and prior summaries are evidence for reconciliation, not the answer key.
+For a fresh independent audit, inspect real current owners first. Old PASS labels and prior summaries are reconciliation evidence, not the answer key.
 
 Real learner `U` cannot be simulated.
 
@@ -248,6 +174,6 @@ Real learner `U` cannot be simulated.
 
 ## Stop rule
 
-Normal learner use is now more valuable than reopening broad Politics engineering.
+Do the smallest work that reduces learner friction or protects exam performance.
 
-Reopen only the smallest owner identified by a real Content, Learning, Visual or Runtime defect.
+Do not reopen accepted Politics semantic architecture without a concrete defect.
