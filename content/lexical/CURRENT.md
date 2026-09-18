@@ -149,6 +149,71 @@ real baseline
 
 ---
 
+## Direct-render Content closure — ACTIVE 2026-09-18
+
+Kian explicitly requires:
+
+> **Website = direct renderer of Current GitHub knowledge assets. 有啥画啥。**
+
+Website may read, mechanically hydrate stable references, lay out and provide interaction. It must not decide semantic inclusion, priority, publication worthiness, merge survival, learner value or owner placement.
+
+A full-catalog audit now covers all **7,946 Current Word owners** plus the Current Relation owner tree.
+
+Current audit result: **BLOCKED**.
+
+```text
+Word owner files                          7,946
+Relation owner files actually present      428
+Relation manifest declared count            384
+Word relation refs                          530
+Referenced Relation owners                  372
+Unreferenced Relation-owner files            56
+```
+
+Hard blocker counts:
+
+```text
+invalid relation refs                         0
+stale / non-learner relation refs             1
+retired Relation owners in Current tree       1
+explicit Word-local semantic Relation owner   1
+learner-array status / merge leaks           420
+active-secondary duplicate objects           145
+frontend semantic-judgment hits                0
+Relation manifest count mismatch               1
+```
+
+Important review queues:
+
+```text
+single-source Relation candidates             48
+  └─ heteronym_pronunciation                  16
+exact Construction↔Collocation duplicates    433
+words that would require web judgment
+if Content stayed uncorrected                 437
+```
+
+Known examples:
+
+- `sanction`: one retired same-word polysemy Relation owner remains physically in the Current Relation tree; the Word ref has already been removed in this lane.
+- `farther`: one Word relation ref hydrates a payload whose `publication_status` is `reference_only`; Current learner-facing ownership therefore remains unresolved.
+- 419 learner-facing Construction entries still carry an explicit `presentation_merge.surviving_object_id`; Website previously hid these, which violates direct-render ownership.
+- 145 `secondary_senses` entries point back to already-active Sense IDs; these must be resolved in Content rather than hidden by Website.
+- 16 single-source `heteronym_pronunciation` Relations are strong ownership-review candidates because the owner contract assigns same-word POS-conditioned pronunciation to `word_owner.record.form_identity`.
+- the Current Relation manifest cannot presently be trusted as a complete count: 428 files exist while the manifest declares 384.
+
+Permanent gate:
+
+`tools/lexical_direct_render_owner_audit.py` + `Lexical Direct Render Owner Audit` CI.
+
+### Current stop rule
+
+**Do not resume L3 visual acceptance while this Content closure is BLOCKED.**
+
+The Website runtime has already had its known `verification / publication / priority / score / merge` semantic filters removed. Further learner-surface defects must be fixed in the Current knowledge assets or their mechanical ownership/hydration path, not reintroduced as front-end judgment.
+
+---
+
 ## L3 Depth Human Gate — FAILED 2026-09-18
 
 The latest Mac-wide Depth candidate is **not accepted**. Do not treat its screenshot, typography, Reference layout, spacing or card treatment as a future baseline merely because build/browser CI passed.
