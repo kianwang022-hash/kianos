@@ -7,50 +7,75 @@ This file does not own Marxism Source Truth, teaching content, Politics learning
 
 ---
 
-## Active BUILD lane｜Later-stage Knowledge calibration
+## Active BUILD lane｜Later-stage Knowledge realization
 
-Marxism has moved beyond historical Source routing into actual later-stage **K realization**. First-round Chengfeng Knowledge remains unchanged.
+Marxism later-stage **K** has moved from two-shape calibration to whole-subject realization without changing first-round Chengfeng ownership.
 
-Current causal scope:
+Current state:
 
 ```text
-Current first-round Knowledge
+C00–C08 first-round Knowledge
 + LEG26 historical Memory / Output Source
 + existing chapter_compression
 ↓
-Later-stage Knowledge
-  - Compression reconstruction
-  - sparse Precision / Memory candidates
-  - source-grounded Analysis Output hooks
+Later-stage K
+  Compression reconstruction   COMPLETE C00–C08
+  Analysis Output hooks        REALIZED where justified
+  Precision / Memory           PARTIAL; source-gated
 ↓
-later L audit (not started yet)
+later L audit                  NOT STARTED
 ```
 
-Current calibration owners:
+### Compression Knowledge
 
-- **C02 唯物辩证法** — relation/output-heavy shape:
-  - chapter reconstruction upgraded into a directed relation model;
-  - decisive boundaries and cross-Unit confusables are explicit;
-  - existing C02 Memory pilot is referenced rather than duplicated;
-  - three source-grounded analysis-output hooks now exist as K only.
-- **C05 资本主义的本质及规律** — precision/mechanism-heavy shape:
-  - economic mechanism reconstruction is explicit;
-  - cross-Unit confusables are explicit;
-  - new sparse `ch05.memory.json` holds grounded candidate-only precision;
-  - formulas/list exactness remains deferred until exact Current/current-year corroboration.
+All nine Marxism chapters now own an explicit `later_stage_knowledge.compression_model`, but the cognition remains chapter-specific:
 
-Hard boundary:
+- C00 theory identity/development sequence;
+- C01 philosophical axes + materialism chain;
+- C02 dialectical relation reconstruction;
+- C03 practice→recognition→truth/value loop;
+- C04 social-structure hierarchy + driver levels;
+- C05 political-economy mechanism chain;
+- C06 form-change vs essence chain;
+- C07 timeline + principle boundary;
+- C08 ideal-from-reality logic.
 
-- this work changes **Knowledge only**;
-- no `REVIEW / PRECISION / OUTPUT` learner state is activated yet;
-- no UI / Projection / Runtime behavior is changed;
-- historical LEG26 presence never equals current-year Memory admission.
+The target is reconstruction, not a second summary course.
 
-Next:
+### Analysis Output Knowledge
 
-1. audit C02/C05 as two materially different later-stage K shapes;
-2. if the shared K shape holds, realize Marxism C00–C08;
-3. only after Marxism K closure move to later-stage **L** design.
+Output hooks exist only where LEG26 and Current Knowledge jointly justify them:
+
+- C01: objective law / subjective initiative; practice / nature;
+- C02: relation-development; contradiction analysis; dialectical categories;
+- C03: practice-recognition; truth-value; innovation;
+- C04: technology; reform; people as historical subject.
+
+C00 and C05–C08 do not receive synthetic Output hooks merely for chapter symmetry.
+
+### Precision / Memory Knowledge
+
+- C02 keeps the existing four candidate-only K03 Memory objects.
+- C05 now owns six grounded candidate-only precision objects plus three deferred formula/list domains.
+- C00/C01/C03/C04/C06/C07/C08 currently own explicit precision **domains** but not fabricated exact candidates where current-year handbook / exact source binding is still missing.
+- zero candidate is durable Memory merely because LEG26 contains it.
+
+### Audit result
+
+Whole-subject structural K audit:
+
+- 9/9 chapters have later-stage K;
+- all reconstruction / boundary / Output owner ids remain inside Current chapter ownership;
+- all historical Output/Precision refs resolve to real LEG26 pages;
+- no later-stage K object contains timer / retry / reveal / UI / Runtime control;
+- first-round effect remains `NONE`.
+
+### Next
+
+1. perform a fresh semantic K audit on C00–C08, attacking over-compression / duplication / missing high-value confusables;
+2. materialize additional Precision candidates only where Current + historical/current-year source supports exactness;
+3. declare Marxism K closed only after that audit;
+4. **do not start later-stage L before Marxism K closure.**
 
 
 ---
