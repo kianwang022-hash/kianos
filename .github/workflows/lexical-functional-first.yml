@@ -30,6 +30,9 @@ jobs:
       - name: Repair modern Form boundary learner projection
         if: github.ref == 'refs/heads/lexical/full-catalog-k-reacceptance'
         run: python tools/lexical_fix_full_catalog_projection_gaps.py
+      - name: Verify Final Learner Object direct-consumption boundary
+        working-directory: static-web
+        run: node scripts/validate-lexical-functional-first-final-object.mjs
       - name: Verify full-catalog K intrinsic integrity and projection fidelity
         working-directory: static-web
         run: node scripts/verify-lexical-full-catalog-k.mjs
