@@ -483,11 +483,121 @@ const payload = JSON.stringify({
       }
     };
 
-    const renderQuestion = () => {
+    const renderFastSweep = () => {
+      if (!(fastSweepButton instanceof HTMLElement)) return;
+      const on = Boolean(preferences.fastSweep);
+      fastSweepButton.setAttribute('aria-pressed', String(on));
+      fastSweepButton.textContent = \`Fast Sweep：\${on ? '开' : '关'}\`;
+    };
+
+    const renderMarkControl = () => {
+      if (!(questionMarkButton instanceof HTMLElement)) return;
+      const marked = Boolean(currentQuestion && markedFor(currentQuestion.questionId));
+      questionMarkButton.setAttribute('aria-pressed', String(marked));
+      questionMarkButton.textContent = marked ? 'M · 已标记' : 'M · 标记';
+      questionMarkButton.classList.toggle('active', marked);
+    };
+
+    const retainedItems = () => activeQuestions
+      .map((question, index) => ({ question, index, result: resultFor(question.questionId), marked: markedFor(question.questionId) }))
+      .filter((row) => row.result && (['wrong', 'uncertain'].includes(row.result.status) || row.marked));
+
+    const renderRetainedReview = () => {
+      if (!(retainedList instanceof HTMLElement)) return;
+      retainedList.replaceChildren();
+      const rows = retainedItems().filter((row) => {
+        if (retainedFilter === 'wrong') return row.result?.status === 'wrong';
+        if (retainedFilter === 'marked') return row.marked;
+        return true;
+      });
+      if (!rows.length) {
+        const empty = document.createElement('p');
+        empty.className = 'xseRetainedEmpty';
+        empty.textContent = '当前没有这一类保留项。';
+        retainedList.appendChild(empty);
+        return;
+      }
+      rows.forEach(({ question, index, result, marked }) => {
+        const article = document.createElement('article');
+        article.className = 'xseRetainedItem';
+        const meta = document.createElement('div');
+        const title = document.createElement('strong');
+        title.textContent = \`\${question.year} · 第 \${question.number} 题\`;
+        const tags = document.createElement('span');
+        const tagValues = [];
+        if (result?.status === 'wrong') tagValues.push('Wrong');
+        if (result?.status === 'uncertain') tagValues.push('Uncertain');
+        if (marked) tagValues.push('Marked');
+        tags.textContent = tagValues.join(' · ');
+        meta.append(title, tags);
+        const open = document.createElement('button');
+        open.type = 'button';
+        open.textContent = '查看';
+        open.addEventListener('click', () => {
+          done.hidden = true;
+          root.querySelector('.xseQuestion').hidden = false;
+          renderQuestion(index);
+          workspace.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        article.append(meta, open);
+        retainedList.appendChild(article);
+      });
+    };
+
+    const renderQuestionMap = () => {
+      if (!(questionMap instanceof HTMLElement)) return;
+      questionMap.replaceChildren();
+      activeQuestions.forEach((question, index) => {
+        const result = resultFor(question.questionId);
+        const marked = markedFor(question.questionId);
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'xseMapItem';
+        button.dataset.mapIndex = String(index);
+        button.classList.toggle('current', currentQuestion?.questionId === question.questionId);
+        button.classList.toggle('answered', Boolean(result));
+        button.classList.toggle('wrong', result?.status === 'wrong');
+        button.classList.toggle('uncertain', result?.status === 'uncertain');
+        button.classList.toggle('marked', marked);
+        button.setAttribute('aria-label', \`第 \${index + 1} 题\${marked ? '，已标记' : ''}\`);
+        const no = document.createElement('b');
+        no.textContent = String(index + 1);
+        const state = document.createElement('span');
+        state.textContent = marked ? 'M' : result?.status === 'wrong' ? '×' : result?.status === 'uncertain' ? '?' : result ? '·' : '';
+        button.append(no, state);
+        button.addEventListener('click', () => renderQuestion(index));
+        questionMap.appendChild(button);
+      });
+    };
+
+    const renderDone = () => {
+      currentQuestion = null;
+      root.querySelector('.xseQuestion').hidden = true;
+      answerPanel.hidden = true;
+      done.hidden = false;
+      renderStats();
+      renderQuestionMap();
+      renderRetainedReview();
+    };
+
+    const renderQuestion = (requestedIndex = null) => {
       activeQuestions = computeActive();
-      currentQuestion = firstUnanswered();
-      currentSelection = new Set();
-      currentCorrect = false;
+      if (!activeQuestions.length) {
+        renderDone();
+        return;
+      }
+
+      let index = Number.isInteger(requestedIndex) ? Number(requestedIndex) : firstUnansweredIndex();
+      if (index < 0) {
+        renderDone();
+        return;
+      }
+      currentIndex = Math.max(0, Math.min(activeQuestions.length - 1, index));
+      currentQuestion = activeQuestions[currentIndex];
+      const existing = resultFor(currentQuestion.questionId);
+      currentSelection = new Set(existing?.selected || []);
+      currentCorrect = existing ? existing.status !== 'wrong' : false;
+
       answerPanel.hidden = true;
       secondPassReview.hidden = true;
       secondPassDistractorDetails.hidden = true;
@@ -495,26 +605,18 @@ const payload = JSON.stringify({
       secondPassEmpty.hidden = true;
       repairPanel.hidden = true;
       correctJudge.hidden = true;
-      uncertainJudge.hidden = true;
       wrongJudge.hidden = true;
-      done.hidden = Boolean(currentQuestion);
-
-      if (!currentQuestion) {
-        workspace.hidden = false;
-        root.querySelector('.xseQuestion').hidden = true;
-        answerPanel.hidden = true;
-        done.hidden = false;
-        renderStats();
-        return;
-      }
+      done.hidden = true;
       root.querySelector('.xseQuestion').hidden = false;
-      const answeredCount = activeQuestions.filter((question) => resultFor(question.questionId)).length;
-      questionMeta.textContent = `${currentQuestion.year} · 第 ${currentQuestion.number} 题 · ${currentQuestion.questionType || '题'}`;
-      questionProgress.textContent = `${xizongStudyPhaseLabel(sweepState.round?.studyPhase)} · 本轮 ${answeredCount + 1} / ${activeQuestions.length}`;
+
+      questionMeta.textContent = \`\${currentQuestion.year} · 第 \${currentQuestion.number} 题 · \${currentQuestion.questionType || '题'}\`;
+      questionProgress.textContent = \`\${xizongStudyPhaseLabel(sweepState.round?.studyPhase)} · 本轮 \${currentIndex + 1} / \${activeQuestions.length}\`;
       stem.textContent = currentQuestion.stem;
-      selectionHint.textContent = currentQuestion.questionType === 'X' ? '多选题：可选多个选项' : '选择一个答案';
-      submit.disabled = true;
-      submit.textContent = '提交答案';
+      selectionHint.textContent = currentQuestion.questionType === 'X'
+        ? '多选题：1–5 切换选项，Enter 提交'
+        : preferences.fastSweep ? 'Fast Sweep：1–5 选择并提交' : '1–5 选择，Enter 提交';
+      submit.disabled = Boolean(existing) || currentSelection.size === 0;
+      submit.textContent = existing ? '本轮已作答' : '提交答案';
       optionsBox.replaceChildren();
 
       currentQuestion.options.forEach((option) => {
@@ -527,8 +629,10 @@ const payload = JSON.stringify({
         const text = document.createElement('span');
         text.textContent = option.text;
         button.append(label, text);
+        if (existing) button.disabled = true;
+        button.classList.toggle('selected', currentSelection.has(option.label));
         button.addEventListener('click', () => {
-          if (!answerPanel.hidden) return;
+          if (resultFor(currentQuestion.questionId)) return;
           if (currentQuestion.questionType === 'X') {
             currentSelection.has(option.label) ? currentSelection.delete(option.label) : currentSelection.add(option.label);
           } else {
@@ -537,45 +641,66 @@ const payload = JSON.stringify({
           }
           [...optionsBox.querySelectorAll('.xseOption')].forEach((node) => node.classList.toggle('selected', currentSelection.has(node.dataset.option || '')));
           submit.disabled = currentSelection.size === 0;
+          if (preferences.fastSweep && currentQuestion.questionType !== 'X' && currentSelection.size) {
+            window.setTimeout(() => submitAnswer(), 0);
+          }
         });
         optionsBox.appendChild(button);
       });
+
+      if (existing) {
+        const correct = answerLetters(currentQuestion.correctAnswer);
+        answerPanel.hidden = false;
+        correctAnswerNode.textContent = correct.join('、');
+        answerResult.textContent = existing.status === 'wrong' ? '答案错误' : existing.status === 'uncertain' ? '答案正确 · 已保留' : '答案正确';
+        answerResult.classList.toggle('isWrong', existing.status === 'wrong');
+        [...optionsBox.querySelectorAll('.xseOption')].forEach((node) => {
+          const label = node.dataset.option || '';
+          node.classList.toggle('correct', correct.includes(label));
+          node.classList.toggle('wrong', currentSelection.has(label) && !correct.includes(label));
+        });
+        showSecondPassReview(currentQuestion);
+        if (existing.status === 'wrong') {
+          showRepair(currentQuestion);
+          wrongJudge.hidden = false;
+        } else {
+          correctJudge.hidden = false;
+        }
+      }
+
+      renderMarkControl();
+      renderQuestionMap();
+      renderFastSweep();
+    };
+
+    const nextQuestion = () => {
+      activeQuestions = computeActive();
+      const after = activeQuestions.findIndex((question, index) => index > currentIndex && !resultFor(question.questionId));
+      const before = activeQuestions.findIndex((question) => !resultFor(question.questionId));
+      const next = after >= 0 ? after : before;
+      if (next < 0) {
+        renderDone();
+        return;
+      }
+      renderQuestion(next);
+      workspace.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
     const submitAnswer = () => {
-      if (!currentQuestion || !currentSelection.size) return;
+      if (!currentQuestion || !currentSelection.size || resultFor(currentQuestion.questionId)) return;
       const selected = [...currentSelection].sort();
       const correct = answerLetters(currentQuestion.correctAnswer);
       currentCorrect = sameLetters(selected, correct);
-      answerPanel.hidden = false;
-      correctAnswerNode.textContent = correct.join('、');
-      answerResult.textContent = currentCorrect ? '答案正确' : '答案错误';
-      answerResult.classList.toggle('isWrong', !currentCorrect);
-      [...optionsBox.querySelectorAll('.xseOption')].forEach((node) => {
-        const label = node.dataset.option || '';
-        node.disabled = true;
-        node.classList.toggle('correct', correct.includes(label));
-        node.classList.toggle('wrong', currentSelection.has(label) && !correct.includes(label));
-      });
-      submit.disabled = true;
-      showSecondPassReview(currentQuestion);
-      if (currentCorrect) {
-        correctJudge.hidden = false;
-        wrongJudge.hidden = true;
-      } else {
-        if (!persistResult(currentQuestion, 'wrong', currentSelection)) return;
-        showRepair(currentQuestion);
-        correctJudge.hidden = true;
-        wrongJudge.hidden = false;
-      }
-      answerPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    };
-
-    const nextAfter = (status) => {
-      if (!currentQuestion) return;
+      const status = currentCorrect
+        ? (markedFor(currentQuestion.questionId) ? 'uncertain' : 'stable')
+        : 'wrong';
       if (!persistResult(currentQuestion, status, currentSelection)) return;
-      renderQuestion();
-      workspace.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      renderQuestion(currentIndex);
+      if (currentCorrect && preferences.fastSweep) {
+        window.setTimeout(() => nextQuestion(), 220);
+      } else {
+        answerPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
     };
 
     const wuPacket = () => {
