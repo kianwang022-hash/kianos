@@ -278,8 +278,9 @@
       "materialization_status": "WAIT_CURRENT_YEAR_DESIGNATED_SOURCE_REFRESH_BEFORE_EXACT_MEMORY_OBJECTS",
       "current_year_delta_risk": "VERY_HIGH",
       "rule": "Current chapter role/boundary truth is stable enough for candidate discovery; exact learner-facing wording/list membership waits for current-year designated source.",
-      "memory_admission_state": "ADMITTED_STABLE_SEMANTIC",
-      "precision_admission_state": "CANDIDATE_FRESHNESS"
+      "memory_admission_state": "ADMITTED_STABLE",
+      "precision_admission_state": "CANDIDATE_FRESHNESS",
+      "precision_blocker": "CURRENT_YEAR_XI_POLICY_OR_MEMBERSHIP_REFRESH_REQUIRED"
     },
     "analysis_output_hooks": [
       {
@@ -313,10 +314,10 @@
     "first_round_effect": "NONE",
     "memory_knowledge": {
       "policy": "CHENGFENG_CORE_LEG26_MEMORY_OVERLAY",
-      "admission_state": "ADMITTED_STABLE_SEMANTIC",
       "source_model": "compression_model",
       "role": "Current-grounded role/hierarchy/boundary models are deliberate Memory. Historical LEG26 supplies memory-priority and candidate-shape support.",
-      "precision_boundary": "Current-policy wording, annual membership, current-affairs linkage and high-delta exact hats remain freshness-gated Precision."
+      "precision_boundary": "Current-policy wording, annual membership, current-affairs linkage and high-delta exact hats remain freshness-gated Precision.",
+      "memory_admission_state": "ADMITTED_STABLE"
     }
   }
 }

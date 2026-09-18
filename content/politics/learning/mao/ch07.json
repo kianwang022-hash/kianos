@@ -229,17 +229,18 @@
       ],
       "materialization_status": "DEFER_EXACT_OBJECTS_HISTORICAL_SUPPORT_THIN",
       "memory_admission_state": "ADMITTED_STABLE",
-      "precision_admission_state": "CANDIDATE_EXACTNESS"
+      "precision_admission_state": "CANDIDATE_EXACTNESS",
+      "precision_blocker": "EXACT_WORDING_OR_NORMALIZATION_NOT_SEPARATELY_ADMITTED"
     },
     "analysis_output_hooks": [],
     "analysis_output_status": "NO_DEDICATED_LEG26_OUTPUT_BANK_DO_NOT_INVENT",
     "first_round_effect": "NONE",
     "memory_knowledge": {
       "policy": "CHENGFENG_CORE_LEG26_MEMORY_OVERLAY",
-      "admission_state": "ADMITTED_STABLE",
       "source_model": "compression_model",
       "role": "Current-grounded stable theory roles/relations are deliberate Memory; LEG26 supplies memory-priority support.",
-      "precision_boundary": "Exact hats/wording stay governed by precision_knowledge and its historical-source thinness."
+      "precision_boundary": "Exact hats/wording stay governed by precision_knowledge and its historical-source thinness.",
+      "memory_admission_state": "ADMITTED_STABLE"
     }
   }
 }
