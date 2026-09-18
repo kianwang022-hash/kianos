@@ -334,6 +334,33 @@ The shared desktop shell should behave like a mature workspace, not like repeate
 - Page-local navigation may organize the current object or subject, but it must not recreate the whole KianOS global menu.
 - If a second navigation row does not change the current task/context more specifically than the global rail, it is duplicate chrome and should be removed.
 
+### Three navigation levels
+
+The learner-facing navigation hierarchy is fixed as:
+
+```text
+L1 = site-wide
+L2 = subject-wide
+L3 = local task / workspace
+```
+
+- **L1** is the shared KianOS global rail and owns cross-subject destinations only.
+- **L2** is the current subject's stable primary capability/workspace navigation and belongs in the shared Subject Bar.
+- **L3** is local to one L2 capability or page context: task forms, modes, filters, tabs, object traversal or local repair/research modes.
+- A task subtype must not be promoted to L2 merely because it has its own route.
+- L3 must not visually recreate another full Subject Bar. Establish hierarchy through position, container grammar, width and active treatment before shrinking useful text.
+- L1/L2 may share substantial navigation typography; semantic level comes from ownership and spatial hierarchy, not from making lower levels tiny or thin.
+- A full-task immersive Runtime may temporarily suppress L2 when persistent chrome would materially reduce the task workspace.
+
+Current English example:
+
+```text
+L1  English
+L2  Overview | Objective | Translation | Writing | Vocabulary
+L3  Objective  → Reading A | Cloze | Part B
+    Vocabulary → Overview | Learn | Repair | Research
+```
+
 Legacy `4173` is positive interaction evidence for the collapsible rail behavior and dense desktop navigation feel; it is not semantic/runtime authority.
 
 ---

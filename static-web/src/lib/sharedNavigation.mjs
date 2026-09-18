@@ -21,9 +21,17 @@ export const ENGLISH_RUNTIME_PREFIXES = ENGLISH_FAMILY_PREFIXES.filter((segment)
 export function englishNavigation(base = '/') {
   return [
     { key: 'overview', label: 'Overview', href: `${base}english/`, match: ['english'] },
-    { key: 'reading', label: 'Reading A', href: `${base}reading/`, match: ['reading', 'reading-answer', 'reading-review', 'objective-learn'] },
-    { key: 'cloze', label: 'Cloze', href: `${base}cloze/`, match: ['cloze', 'cloze-answer'] },
-    { key: 'part-b', label: 'Part B', href: `${base}reading-b/`, match: ['reading-b', 'reading-b-answer'] },
+    {
+      key: 'objective',
+      label: 'Objective',
+      href: `${base}reading/`,
+      match: [
+        'reading', 'reading-answer', 'reading-review',
+        'cloze', 'cloze-answer',
+        'reading-b', 'reading-b-answer',
+        'objective-learn'
+      ]
+    },
     { key: 'translation', label: 'Translation', href: `${base}translation/`, match: ['translation', 'translation-reference', 'translation-learn'] },
     { key: 'writing', label: 'Writing', href: `${base}writing/`, match: ['writing', 'writing-learn'] },
     { key: 'vocabulary', label: 'Vocabulary', href: `${base}vocabulary/`, match: ['vocabulary'] }
@@ -64,6 +72,24 @@ export function isEnglishRuntime(localPath = '') {
   return ENGLISH_RUNTIME_PREFIXES.includes(topSegment(localPath));
 }
 
+export function isEnglishImmersiveTaskRuntime(localPath = '') {
+  const parts = localPath.split('/').filter(Boolean);
+  const segment = parts[0] || '';
+  if (parts.length < 2) return false;
+  return [
+    'reading',
+    'reading-answer',
+    'reading-review',
+    'cloze',
+    'cloze-answer',
+    'reading-b',
+    'reading-b-answer',
+    'translation',
+    'translation-reference',
+    'writing'
+  ].includes(segment);
+}
+
 export function isPoliticsFamily(localPath = '') {
   return topSegment(localPath) === 'politics';
 }
@@ -90,8 +116,16 @@ function resolvePathNavigationActive(localPath, entries) {
 }
 
 export function subjectShell(localPath = '', base = '/') {
-  // English family uses the shared K rail plus page-local task navigation.
-  if (isEnglishFamily(localPath)) return null;
+  if (isEnglishFamily(localPath)) {
+    if (isEnglishImmersiveTaskRuntime(localPath)) return null;
+    const items = englishNavigation(base);
+    return {
+      key: 'english',
+      label: 'English',
+      items,
+      active: resolveEnglishActive(localPath)
+    };
+  }
 
   if (isPoliticsFamily(localPath)) {
     const items = politicsNavigation(base);
