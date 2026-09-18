@@ -123,6 +123,14 @@ optional useful Recall
 
 Depth may be rich.
 
+Mac-wide single-screen fit is a **preferred density outcome, not a hard requirement**. A genuinely rich lexical object may scroll.
+
+The hard requirement is different:
+
+> **Do not make the learner reread the same knowledge merely because canonical ownership stores it in multiple fields or object types.**
+
+Default Depth consumes a Content-owned Final Learner Object. Core compression, Sense detail, Construction reuse and Reference boundaries must each have a distinct learner job. Canonical redundancy / provenance remains upstream; the learner surface should not repeat it.
+
 The UI should preserve semantic hierarchy rather than splitting Core / senses / constructions / relations / form into equal dashboard cards.
 
 Preferred hierarchy derives from Rule:
