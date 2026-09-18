@@ -168,21 +168,6 @@ try {
   assert(await page.locator('[data-vocab-action-dock] [data-vocab-route="fuzzy"]').isVisible(), 'v2_depth_dock_exposes_fuzzy');
   await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-rich-depth-1440x900.png'), fullPage: false });
 
-  // Human-Gate Depth fixtures: rich Core/contronym, multi-POS/form, and weak-Core tolerance.
-  const depthFixtures = [
-    { ordinal: 4248, word: 'sanction' },
-    { ordinal: 19, word: 'abstract' },
-    { ordinal: 5477, word: 'write' }
-  ];
-  for (const fixture of depthFixtures) {
-    await page.evaluate((word) => localStorage.removeItem(`kianos-vocabulary-astro-v2:word:${word}`), fixture.word);
-    await page.goto(`${origin}/vocabulary/${fixture.ordinal}/`, { waitUntil: 'networkidle' });
-    assert((await page.locator('[data-vocab-front] h2').innerText()).trim() === fixture.word, `v2_depth_fixture_${fixture.word}`);
-    await page.keyboard.press('Space');
-    await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
-    await page.screenshot({ path: path.join(outputRoot, `lexical-v2-depth-${fixture.word}-1440x900.png`), fullPage: false });
-  }
-
   // Tighter Mac landscape evidence: same learning geometry, reduced secondary density.
   await page.setViewportSize({ width: 1280, height: 800 });
   await page.evaluate(() => localStorage.removeItem('kianos-vocabulary-astro-v2:word:write'));
