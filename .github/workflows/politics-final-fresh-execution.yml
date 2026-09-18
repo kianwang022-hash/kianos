@@ -1,0 +1,37 @@
+name: Politics Final Fresh Execution
+on:
+  push:
+    branches: ['work/politics-final-fresh-20260919']
+permissions:
+  contents: read
+concurrency:
+  group: politics-final-fresh-execution
+  cancel-in-progress: true
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Export exact-head bounded audit workspace
+        run: |
+          mkdir -p /tmp/politics-final-fresh
+          git rev-parse HEAD > /tmp/politics-final-fresh/HEAD.txt
+          git ls-tree -r --name-only HEAD > /tmp/politics-final-fresh/repository-paths.txt
+          git archive --format=tar.gz -o /tmp/politics-final-fresh/workspace.tar.gz HEAD AGENTS.md PROJECT_DEFINITION.md ARCHITECTURE.md LEARNING_ACCEPTANCE.md SYSTEM_CONTRACT.md content/politics static-web/src static-web/scripts static-web/package.json static-web/package-lock.json static-web/astro.config.mjs static-web/PRESENTATION_CONTRACT.md static-web/POLITICS_PRODUCT_BRIEF.md static-web/LOCAL_CURRENT_SYNC.md .github/workflows/static-web-politics-functional-journey.yml .github/workflows/static-web-politics-qa.yml .github/workflows/kianos-mac-visual-gate.yml
+      - name: Independent fresh assertions when present
+        run: |
+          if test -f static-web/scripts/audit-politics-final-fresh.mjs; then
+            node static-web/scripts/audit-politics-final-fresh.mjs | tee /tmp/politics-final-fresh/assertions.log
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: politics-final-fresh-workspace
+          path: /tmp/politics-final-fresh/
+          retention-days: 7
