@@ -182,6 +182,79 @@ Exact columns / proportions remain open until screenshot Human Gate.
 
 ---
 
+## 5.5｜Legacy interaction baseline — preserve
+
+The legacy 4173 Lexical study surface is a **positive interaction asset**, not historical debt.
+
+Architecture v2 may change semantic ownership, learner modes, exact Repair identity and English handoff, but should preserve the proven low-friction study interaction unless a Human Gate explicitly replaces it.
+
+### Whole-card keyboard contract
+
+Before Reveal:
+
+```text
+← / ↑ / Space
+→ Reveal / 查看完整词义
+
+click Familiar / Mastered
+→ may still Fast Pass without Reveal
+```
+
+After Reveal:
+
+```text
+←  Unknown
+↑  Fuzzy
+→  Familiar
+↓  Mastered
+
+Backspace
+→ Undo the immediately preceding whole-card routing judgment
+
+S
+→ pronounce current word
+```
+
+The four arrow keys belong to **whole-card judgment**. They must not be repurposed for local sense/construction navigation.
+
+### Exact local Repair keyboard contract
+
+Architecture v2 adds local Repair without taking over the legacy arrow map:
+
+```text
+J / K
+→ move among exact learner-worthy local Repair objects
+
++
+→ toggle the currently focused exact object into / out of Repair
+```
+
+Inline local `+` remains clickable.
+
+This is intentionally separate from whole-card Unknown / Fuzzy / Familiar / Mastered.
+
+### Bottom action dock
+
+Study mode should keep a stable bottom action dock as the visible keyboard legend.
+
+Before Reveal:
+
+```text
+Reveal | Familiar | Mastered | Undo | Note
+```
+
+After Reveal:
+
+```text
+Unknown | Fuzzy | Familiar | Mastered | Undo | Note
+```
+
+The Dock is part of the learning interaction, not decorative chrome.
+
+Lookup mode does not show whole-card rating actions.
+
+---
+
 ## 6｜Whole-card judgment versus local Repair
 
 The surface must visibly preserve this distinction:
