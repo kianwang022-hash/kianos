@@ -1,6 +1,6 @@
 # Xizong Block Workspace — accepted design
 
-Status: **MAC-WIDE BLOCK WORKSPACE + BLOCK TAIL HUMAN-GATE ACCEPTED 2026-09-18 — TARGETED CI / MERGE PENDING**
+Status: **CURRENT — MAC-WIDE BLOCK WORKSPACE + BLOCK TAIL HUMAN-GATE ACCEPTED / MERGED 2026-09-18**
 Parent: `static-web/XIZONG_PRODUCT_BRIEF.md`
 Review safety: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`
 
@@ -502,6 +502,6 @@ Block Guide
 
 There is **no standalone Logic Group Closure page** and **no standalone Block Complete page**.
 
-Human Gate acceptance on 2026-09-18 covers the Block Recall Front, Block Recall Reveal, and post-Recall completion-confirmation state on the real Mac-wide Chromium surface. The remaining merge gate is targeted CI on the final branch head plus a final Current-head check.
+Human Gate acceptance on 2026-09-18 covers the Block Recall Front, Block Recall Reveal, and post-Recall completion-confirmation state on the real Mac-wide Chromium surface. Targeted `Xizong Block Workspace` browser acceptance passed on the final candidate, and PR #422 merged this Block tail into `main`.
 
 Responsive fallback and future Projection compilation work may continue later, but they must preserve this accepted interaction geometry and may not reintroduce the removed closure/completion ceremony.
