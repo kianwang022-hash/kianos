@@ -177,7 +177,7 @@ const base = import.meta.env.BASE_URL;
 
 <style>
   .englishExamTaskBridge{
-    position:sticky;top:68px;z-index:145;
+    position:sticky;top:14px;z-index:145;
     display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:18px;
     max-width:82rem;margin:0 auto 12px;padding:10px 14px;
     border:1px solid rgba(45,83,69,.18);border-radius:11px;
@@ -185,14 +185,14 @@ const base = import.meta.env.BASE_URL;
   }
   .englishExamTaskBridge[hidden]{display:none}
   .englishExamTaskBridge>div:first-child{display:grid;gap:2px;min-width:0}
-  .englishExamTaskBridge span{font-size:9px;font-weight:850;letter-spacing:.08em;color:var(--study-green)}
-  .englishExamTaskBridge strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px}
-  .englishExamTaskBridge small{font-size:9px;color:var(--study-faint)}
-  .englishExamTaskBridge>b{font-size:16px;font-variant-numeric:tabular-nums;color:#31483f}
+  .englishExamTaskBridge span{font-size:var(--study-type-meta);font-weight:800;letter-spacing:.04em;color:var(--study-green)}
+  .englishExamTaskBridge strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:16px;line-height:1.25}
+  .englishExamTaskBridge small{font-size:var(--study-type-meta);line-height:1.3;color:var(--study-faint)}
+  .englishExamTaskBridge>b{font-size:18px;font-variant-numeric:tabular-nums;color:#31483f}
   .englishExamTaskActions{display:flex;align-items:center;gap:7px}
   .englishExamTaskActions a,.englishExamTaskActions button{
-    padding:7px 10px;border:1px solid var(--study-line);border-radius:8px;background:#fff;color:inherit;
-    font:inherit;font-size:10px;font-weight:800;text-decoration:none;cursor:pointer
+    min-height:38px;padding:7px 11px;border:1px solid var(--study-line);border-radius:8px;background:#fff;color:inherit;
+    font:inherit;font-size:var(--study-type-meta);font-weight:750;text-decoration:none;cursor:pointer
   }
   .englishExamTaskActions button{border-color:var(--study-green);background:var(--study-green);color:#fff}
   :global(html[data-english-exam-session="true"] [data-reading-continuous]),
@@ -202,7 +202,7 @@ const base = import.meta.env.BASE_URL;
   :global(html[data-english-exam-session="true"] .translationHeader nav),
   :global(html[data-english-exam-session="true"] .writingRuntimeHeader nav){display:none !important}
   @media(max-width:720px){
-    .englishExamTaskBridge{top:58px;grid-template-columns:1fr auto}
+    .englishExamTaskBridge{top:8px;grid-template-columns:1fr auto}
     .englishExamTaskActions{grid-column:1/-1}
   }
 </style>
