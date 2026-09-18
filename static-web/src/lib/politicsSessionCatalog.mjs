@@ -201,6 +201,8 @@ export function buildPoliticsSessionTargetCatalog(base = '/') {
     }
   }
 
+  targets.push(...memorySidecarTargets(base), ...historyHorizontalTargets(base));
+
   const identities = targets.map(({ group, ...row }) => row);
   const revision = createHash('sha256').update(JSON.stringify(identities)).digest('hex');
 
