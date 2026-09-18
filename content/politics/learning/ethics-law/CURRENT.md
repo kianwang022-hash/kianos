@@ -7,35 +7,85 @@ This file does not own Ethics Source Truth, Politics-wide semantics, Acceptance 
 
 ---
 
-## Bounded Source→Knowledge lane｜LEG26 historical baseline
+## Active BUILD lane｜Later-stage Knowledge
 
-LEG26-ETHICS has now been reconciled against Current Ethics-Law C00–C06 without changing the accepted first-round learner model or S/K/L/P/R/E engineering chain.
-
-Historical roles:
+Ethics-Law later-stage **K** is now realized across C00–C06 without changing the accepted first-round learner model.
 
 ```text
-Upper 15 topics
-→ concept / hat / confusable compression
-
-Lower 20 principle/output templates
-→ later Chat-first answer scaffolding
-
-Current Chengfeng/Knowledge
-→ still owns concept truth and first-round learning
+Current concept/boundary Knowledge
++ LEG26 upper concept/hat compression
++ LEG26 lower historical output templates
+↓
+Later-stage K
+  Compression reconstruction   PASS C00–C06
+  Precision candidate K        PASS_WITH_DEBT
+  Analysis Output K            PASS_WITH_DEBT
+↓
+later-stage L                  NOT STARTED
 ```
 
-Hard boundaries:
+### Compression Knowledge
 
-- first round remains **concept layer → nearest boundary → relation/situational judgment**;
-- C00 has no standalone historical upper topic, so only actually supported cross-topic morality/law relations are retained;
-- classical sayings are not converted into an isolated poetry-memory dump;
-- legal/rule-of-law material carries a stronger freshness gate than stable moral concepts;
-- lower “万能答案” templates are later output scaffolds, not first-round compulsory recitation;
-- no new Memory sidecars were created;
-- **zero** LEG26-only candidates were admitted to durable current-year Memory;
-- UI / Projection / Runtime remains frozen.
+All seven chapters now own explicit later-stage reconstruction using their existing Current chapter compression:
 
-Reopen this lane only for real Wrong/Uncertain boundary evidence, a current-year legal/source update, or the later analysis-output phase.
+- C00 morality-law norm boundary;
+- C01 life value + personal/social relation;
+- C02 ideal-belief-reality relation;
+- C03 Chinese-spirit hat hierarchy;
+- C04 three-level core-values structure;
+- C05 morality core/principle + situational map;
+- C06 rule-of-law hierarchy + application.
+
+Round-two Ethics must still reason from **concept layer → nearest boundary → situation**, not replay the chapter.
+
+### Precision Knowledge
+
+All 7 chapters now own real `*.memory.json` candidate owners:
+
+- **22 candidate-only objects** total;
+- **2 explicit deferred domains**;
+- zero durable Memory admissions.
+
+C06 carries a separate `HIGH_CURRENT_LEGAL_SOURCE_REQUIRED` freshness gate. Legal/rule-of-law wording is not admitted merely because the historical handbook contains it.
+
+### Analysis Output Knowledge
+
+Each chapter has a bounded Output hook where the lower historical templates genuinely support later written production:
+
+- morality/law;
+- life value;
+- ideals;
+- Chinese spirit;
+- core values;
+- moral practice;
+- rule of law / rights-obligations / legal literacy.
+
+These hooks begin from Current concept/boundary truth; historical “万能答案” prose is never the answer key.
+
+### Audit
+
+- 7/7 chapters have later-stage K;
+- 21 decisive boundaries;
+- 22 Precision candidates;
+- 7 Output hooks;
+- C06 legal freshness gate verified;
+- all candidate refs point to real Current owners + real LEG26 pages;
+- every candidate remains `CANDIDATE_ONLY`;
+- first-round effect remains `NONE`;
+- no Learn / UI / Runtime control is embedded in K.
+
+### Status
+
+```text
+Ethics Compression K      PASS
+Ethics Precision K        PASS_WITH_DEBT — current-year/legal freshness
+Ethics Output K           PASS_WITH_DEBT — source refresh before exact output
+Overall Ethics later K    PASS_WITH_DEBT
+Later-stage L             NOT STARTED
+```
+
+This closes the fifth Politics later-stage K subject. Next gate is Politics-wide later-stage **L**.
+
 
 ---
 
