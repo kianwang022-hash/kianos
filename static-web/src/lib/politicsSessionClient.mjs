@@ -245,12 +245,21 @@ export function initPoliticsSessionReview(root) {
       return;
     }
 
-    $('[data-session-recipe]').textContent = step.recipe_type;
+    const recipeLabels = {
+      RECONSTRUCT: '想一遍这一块',
+      TARGETED_RECALL: '只回忆这个点',
+      QUESTION_RETEST: '重做指定题',
+      SOURCE_REPAIR: '回源修补',
+      PRECISION: '精确记忆',
+      CHAT_REPAIR_RETURN: '回 Chat 判断',
+      CLOSE: '完成'
+    };
+    $('[data-session-recipe]').textContent = recipeLabels[step.recipe_type] || '当前任务';
     $('[data-session-prompt]').textContent = step.learner_prompt
       || (step.recipe_type === 'TARGETED_RECALL' ? '只回忆 Chat 指定的这一项。' : '执行 Chat 指定的当前动作。');
 
     if (step.timer_seconds != null) {
-      blockStep('这一步带有显式计时约束；通用 timed-task executor 还未验收，当前 fail closed。');
+      blockStep('这一步需要计时，但通用计时任务还没完成验收；当前先不自动执行。');
       return;
     }
 
@@ -289,7 +298,7 @@ export function initPoliticsSessionReview(root) {
     if (step.recipe_type === 'SOURCE_REPAIR') {
       $('[data-session-mode="source"]').hidden = false;
       if (!step.source_href) {
-        blockStep('SOURCE_REPAIR 没有 exact source_href；网页不会把学习单元链接猜成原讲义定位。');
+        blockStep('Chat 没有给出可验证的来源定位；网页不会拿相邻内容代替。');
         return;
       }
       $('[data-session-source-link]').href = step.source_href;
@@ -297,7 +306,8 @@ export function initPoliticsSessionReview(root) {
     }
 
     if (step.recipe_type === 'PRECISION') {
-      blockStep('Precision guard resolver 还未闭环；即使 Chat 已给候选 ref，网页当前也不会越过 admission / freshness gate 展示。');
+      // Precision remains fail closed until admission/freshness can be verified.
+      blockStep('这条精确记忆还没有通过当年资料 / 录取条件核对，当前先不展示。');
       return;
     }
 

@@ -125,6 +125,7 @@ try {
   check((await page.locator('[data-session-prompt]').innerText()) === '闭卷把这一块想回来。', 'chat_prompt_literal');
   check(await page.locator('[data-session-reveal-content]').isHidden(), 'answer_payload_concealed_before_reveal');
   check((await page.locator('[data-session-reveal-content] [data-surface-group]').count()) === 0, 'no_target_clone_before_reveal');
+  await page.screenshot({ path: path.join(auditDir, 'politics-review-session-recall.png'), fullPage: false });
 
   await page.locator('[data-session-response]').fill('我的闭卷回忆');
   await page.locator('[data-session-response]').press('Space');
@@ -137,6 +138,7 @@ try {
   await group.waitFor({ state: 'visible' });
   check((await group.getAttribute('data-surface-primitive')) === target.primitive, 'revealed_group_primitive_literal', target.primitive);
   check((await page.locator('[data-session-reveal-content] [data-surface-group]').count()) === 1, 'reveal_only_chat_selected_group');
+  await page.screenshot({ path: path.join(auditDir, 'politics-review-session-reveal.png'), fullPage: false });
 
   await page.locator('[data-session-mark="UNCERTAIN"]').click();
   await page.locator('[data-session-mode="questions"]').waitFor({ state: 'visible' });
@@ -202,7 +204,7 @@ try {
   };
   await importSession(page, precisionInstruction);
   await page.locator('[data-session-blocked]').waitFor({ state: 'visible' });
-  check((await page.locator('[data-session-blocked-reason]').innerText()).includes('Precision guard resolver 还未闭环'), 'precision_runtime_fails_closed');
+  check((await page.locator('[data-session-blocked-reason]').innerText()).includes('还没有通过当年资料 / 录取条件核对'), 'precision_runtime_fails_closed');
   check(await page.locator('[data-session-reveal-content]').isHidden(), 'precision_block_does_not_reveal_target');
 
   report.finished_at = new Date().toISOString();
