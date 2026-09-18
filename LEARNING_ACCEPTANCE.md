@@ -240,6 +240,27 @@ The canonical content should still make sense if the webpage disappeared.
 
 > **If the team is still asking “what should this section actually teach?” while constructing UI, Knowledge is not closed.**
 
+### Evidence required for materially reconstructed Knowledge
+
+A new or materially reconstructed K candidate cannot PASS only because:
+
+- object counts are complete;
+- every source page has been assigned somewhere;
+- JSON/schema validation is green;
+- the builder's own summary says the model is coherent.
+
+Acceptance evidence should include a semantic falsification pass against the strongest realistic failure modes for that domain. When the K reconstruction creates or materially changes a System/module-level model, an independent or fresh readback is preferred and should be required when plausible competing models, source conflicts, ownership boundaries, or exactness claims could change learner behavior downstream.
+
+Examples of valid K attacks include:
+
+- challenge whether a list/classification should instead be mechanism/evidence-role structure;
+- search for modern/current knowledge silently replacing exam-source historical wording;
+- attack missing negative space and duplicated cross-owner truth;
+- challenge whether a marker/antibody/identity is being over-promoted into the whole diagnosis;
+- sample dense/high-risk Blocks rather than accepting full coverage counts as proof.
+
+A bounded local correction to accepted K may stay accepted when it does not materially alter scope/model/ownership/exactness.
+
 ---
 
 ## L｜Learning — Does the path match how the learner should actually form the ability?
