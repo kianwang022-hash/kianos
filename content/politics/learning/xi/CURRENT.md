@@ -7,6 +7,40 @@ This file does not own Xi Source Truth, Politics-wide learning/interaction seman
 
 ---
 
+## Bounded Source→Knowledge lane｜LEG26 historical baseline
+
+LEG26-XI has now been reconciled against Current Xi C00–C17 without changing Chengfeng first-round ownership or the accepted S/K/L/P/R/E engineering chain.
+
+Completed boundary:
+
+```text
+LEG26 upper: 19 historical objective/compression topics
++
+LEG26 lower: 13 historical analysis-answer templates
+↓
+map by Current Xi chapter owner, not by handbook topic number
+↓
+Memory candidate priority / second-round compression / Chat-first output baseline
+↓
+0 direct 2027 Memory promotions
+↓
+no UI / Projection / Runtime change
+```
+
+Important closures:
+
+- the 19 upper-volume topics are **not** one-to-one with Current C00–C17; merged and embedded areas are mapped only where the source actually supports them;
+- C09 rule-of-law material is embedded inside the democracy topical span rather than treated as an invented standalone LEG26 topic;
+- C13/C14 share the historical “国家安全与军队建设” topic and remain separate Current owners;
+- C17 has no standalone upper-volume topic; its LEG26 value is lower-volume **党的建设 / 自我革命 Chat-output support only**, not a fabricated objective-memory inventory;
+- upper topics 16–19 are explicitly flagged by the historical handbook itself for current-affairs review;
+- the lower “13大背诵与万能答案” is retained as a **Chat-first, later-phase, high-delta output baseline**, never as first-round compulsory recitation;
+- **zero** historical Xi candidate is admitted to 2027 durable Memory without current-year corroboration.
+
+Reopen this bounded lane only for 2027 designated-memory/current-affairs source delta, real Wrong/Uncertain evidence, or the later analysis-output phase.
+
+---
+
 ## Work Cursor
 
 **Scope:** Xi whole-module continuation after fresh Evidence re-acceptance  
