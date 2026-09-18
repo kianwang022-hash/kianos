@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { compileLexicalStudyObject } from './final-learner-object.mjs';
+import { compileLexicalStudyObject, compileLexicalFinalLearnerObject } from './final-learner-object.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const lexicalRoot = path.resolve(here, '..');
@@ -29,6 +29,25 @@ for (const [wordId, wordDecision] of Object.entries(decisions.words || {})) {
     assert.ok(senseIds.has(senseId), `${wordId} decision points to unknown sense ${senseId}`);
     assert.ok(allowedDispositions.has(decision?.disposition), `${wordId} invalid disposition for ${senseId}`);
   }
+}
+
+
+
+const renderer = readText('static-web/src/components/VocabularyWordRuntime.astro');
+assert.match(renderer, /answer\.learnerObject/,
+  'Word renderer must consume the Final Learner Object');
+for (const forbidden of [
+  'answer.record',
+  'verification_status',
+  'publication_status',
+  'presentation_merge',
+  'learning_value_score',
+  'core_concept',
+  'secondary_senses',
+  'semantic_neighbors'
+]) {
+  assert.equal(renderer.includes(forbidden), false,
+    `Word renderer must not consume raw/backend semantic field: ${forbidden}`);
 }
 
 const compiler = readText('content/lexical/tools/final-learner-object.mjs');
@@ -74,6 +93,38 @@ const sanctionPlural = sanction.senses.find((sense) => sense.sense_id === 'sense
 assert.equal(sanctionPlural?.usage_note, 'economic/trade sanctions is usually plural',
   'normal learner-useful usage note must not be suppressed without an explicit Content decision');
 
+
+const abstractFinal = compileLexicalFinalLearnerObject(abstractOwner.record, abstractDecision);
+assert.equal(abstractFinal.schema, 'kianos.lexical.final_learner_object.v1');
+assert.equal(abstractFinal.word, 'abstract');
+assert.equal(abstractFinal.word_feel.core_cn,
+  '把具体细节拿开，只保留概念或关键信息；名词还表示论文/文章的摘要');
+assert.equal(abstractFinal.word_feel.decision_cn,
+  'adj = 从具体实例抽离；noun = 把论文压成摘要；verb = 从材料中抽取/抽象出。');
+assert.equal(abstractFinal.senses.length, 4);
+assert.equal(abstractFinal.form?.variants?.length, 2);
+assert.deepEqual(
+  abstractFinal.form.variants.map((variant) => ({ pos: variant.pos, learner_key: variant.learner_key, ipa: variant.ipa })),
+  [
+    { pos: ['adjective', 'noun'], learner_key: 'AB-stract', ipa: '/ˈæb.strækt/' },
+    { pos: ['verb'], learner_key: 'ab-STRACT', ipa: '/əbˈstrækt/' }
+  ]
+);
+assert.equal(abstractFinal.form.notes.length, 0,
+  'abstract structured Form should not regain pronunciation prose through Sense notes');
+
+const sanctionFinal = compileLexicalFinalLearnerObject(sanctionOwner.record, decisions.words['word:sanction'] || {});
+const sanctionFinalPlural = sanctionFinal.senses.find((sense) => sense.id === 'sense:sanction:4768079655e356a5');
+assert.equal(sanctionFinalPlural?.usage_note, 'economic/trade sanctions is usually plural');
+assert.equal(sanctionFinal.word_feel.core_cn,
+  '同一个“官方权力”词可以走两个相反方向：批准，或处罚/制裁');
+
+const answerOwner = readJson('content/lexical/words/by-ordinal/o0209.json');
+const answerFinal = compileLexicalFinalLearnerObject(answerOwner.record, decisions.words['word:answer'] || {});
+assert.equal(answerFinal.word, 'answer');
+assert.ok(Array.isArray(answerFinal.constructions));
+assert.ok(Array.isArray(answerFinal.family));
+
 console.log(JSON.stringify({
   status: 'PASS',
   decision_owner: decisionsPath,
@@ -85,5 +136,14 @@ console.log(JSON.stringify({
     boundary_prose_in_default_depth: false,
     stress_labels_in_default_depth: false
   },
-  sanction_usage_note_preserved: true
+  sanction_usage_note_preserved: true,
+  final_object_shape: {
+    word_feel: true,
+    senses: true,
+    constructions: true,
+    relations: true,
+    form: true,
+    family: true,
+    recall_map: true
+  }
 }, null, 2));
