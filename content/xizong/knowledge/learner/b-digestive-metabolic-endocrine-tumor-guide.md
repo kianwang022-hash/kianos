@@ -27,7 +27,7 @@ Bounded historical explanatory provenance:
 
 B 最大的认知风险，是按教材目录把“消化、生化、内分泌、分子、肿瘤”分别学成几套孤岛。
 
-Current B 真正做的是把它们放进同一个物质—能量—控制系统：
+B 真正做的是把它们放进同一个物质—能量—控制系统：
 
 > **外源食物和内源储备怎样进入人体，被推进、消化、吸收、分配和转化；细胞怎样把底物变成 ATP、储存物和生物合成原料；激素怎样切换这些流量；DNA→RNA→蛋白怎样提供执行器；当某一层失败时，症状、实验室、影像、内镜、病理和外科空间怎样暴露第一故障。**
 
@@ -37,7 +37,7 @@ Current B 真正做的是把它们放进同一个物质—能量—控制系统�
 
 ## 2｜先在脑内同时追六条流
 
-历史 Guide 的“多条 flow 并行”非常适合作为 beginner explanation；Current B 的 mother model / spine / dependency DAG 也支持这一点。
+历史 Guide 的“多条 flow 并行”非常适合作为 beginner explanation；现在的 B 系统模型也支持这一点。
 
 ### ① 输入与运输流
 
@@ -110,7 +110,7 @@ DNA
 
 有共同依赖，但没有一条合理的“D1→D2→……→G5”单链。
 
-Current dependency DAG 的核心意思是：
+当前依赖关系的核心意思是：
 
 ```text
 D1–D4 先建立连续的输入 / 消化 / 吸收
@@ -280,10 +280,10 @@ System Guide 只负责选择正确支路和认知坐标。
 ```text
 中心问题
 → Block Framework / 最小模型
-→ 按 B learning owner 规定的 Source contact 学原讲义
+→ 按当前 B 学习路径规定的 Source contact 学原讲义
 → Logic Group / KP 理解与 Recall
 → Group / Block Closure
-→ Current-owned Memory Routing
+→ 进入 Memory Routing
 ```
 
 不要让 Guide 自己展开成“第二套 600 KP 正文”。
@@ -303,11 +303,11 @@ B 同时有机制链、代谢方向、反馈轴、疾病诊疗和大量精确项
 
 ### MI-G 负责
 
-Current owner 显式标出的、后面会不断调用的 gating memory：例如某些方向、核心反馈、关键分类门槛或必须能即时恢复的结构。
+当前 Block 显式标出的、后面会不断调用的 gating memory：例如某些方向、核心反馈、关键分类门槛或必须能即时恢复的结构。
 
 ### MI-D 负责
 
-Current owner 显式标出的精确但可后置项目：完整酶名、辅酶、数字、分期、术式、药物细目等只有在归位后才进入间隔记忆，不应一开始就把 mechanism / flow 拦住。
+当前 Block 显式标出的精确但可后置项目：完整酶名、辅酶、数字、分期、术式、药物细目等只有在归位后才进入间隔记忆，不应一开始就把 mechanism / flow 拦住。
 
 `MI-D` 仍然要背；只是**先把它放到正确抽屉，再让 Memory 系统负责持续精确化**。
 

@@ -9,6 +9,8 @@ const fail = (message) => { throw new Error(`XIZONG_REPAIR_INBOX_FAIL:${message}
 const assert = (condition, message) => { if (!condition) fail(message); };
 
 const repairReturn = read('static-web/src/components/XizongSystemRepairReturn.astro');
+const memoryWorkspace = read('static-web/src/components/XizongMemoryWorkspace.astro');
+const memoryModel = read('static-web/src/lib/xizongMemoryModel.mjs');
 const bridge = read('static-web/src/components/XizongRepairInboxBridge.astro');
 const blockGuard = read('static-web/src/components/XizongBlockEvidenceGuard.astro');
 const systemGuard = read('static-web/src/components/XizongSystemEvidenceGuard.astro');
@@ -18,6 +20,15 @@ assert(repairReturn.includes('kianos-xizong-repair-inbox-v1:'), 'system-return-d
 assert(!repairReturn.includes('kianos-xizong-memory-review-v2:${objectId}'), 'system-return-still-writes-block-evidence-store');
 assert(repairReturn.includes('sourceQuestionIds: item.questionIds'), 'repair-inbox-loses-question-provenance');
 assert(repairReturn.includes('!relation?.blockId || !relation?.primaryKpId'), 'repair-inbox-route-not-reviewed-only');
+assert(repairReturn.includes('XIZONG_MEMORY_STORAGE_KEY'), 'system-return-does-not-update-current-memory-repair');
+assert(repairReturn.includes('setRepairTasks'), 'system-return-does-not-create-visible-repair-task');
+assert(repairReturn.includes("origin: 'SYSTEM_WU_CHAT_RETURN'"), 'visible-repair-origin-missing');
+assert(repairReturn.includes('systemId,'), 'visible-repair-system-identity-missing');
+assert(memoryModel.includes('systemId: text(task?.systemId'), 'repair-model-drops-system-identity');
+assert(memoryWorkspace.includes('data-repair-complete'), 'memory-repair-cannot-be-completed');
+assert(memoryWorkspace.includes('data-repair-block-link'), 'memory-repair-loses-block-return');
+assert(memoryWorkspace.includes('data-repair-return-link'), 'memory-repair-loses-question-return');
+assert(memoryModel.includes('export function completeRepairTask'), 'repair-completion-not-durable');
 
 assert(blockPage.includes('<XizongRepairInboxBridge block={projection} />'), 'repair-inbox-bridge-not-mounted');
 assert(bridge.includes('kianos-xizong-repair-inbox-v1:'), 'bridge-does-not-read-inbox');
@@ -41,11 +52,12 @@ assert(systemGuard.includes('localStorage.removeItem(inboxKey)'), 'system-versio
 
 console.log([
   'Xizong repair inbox contract PASS',
-  'SystemReturn=inbox-only',
+  'SystemReturn=inbox+visible-memory-repair',
   'BlockConsume=atomic+current-KP-scoped',
   'CrossTab=storage-event+reload',
   'WriteOrder=store-before-clear',
   'ImportEvidence=REPAIR_ONLY+question-provenance+idempotent',
+  'VisibleRepair=block-return+question-return+durable-completion',
   'VersionChange=block+system fail-closed',
   'U=NOT_TESTED_BY_THIS_SCRIPT'
 ].join(' | '));

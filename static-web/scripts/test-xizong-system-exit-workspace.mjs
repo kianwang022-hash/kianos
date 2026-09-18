@@ -165,10 +165,23 @@ try {
   const entry=page.locator('[data-xizong-system-recall-entry]');
   check(await entry.isHidden(),'system_recall_entry_hidden_before_system_complete');
 
+  const lastLocationKey='kianos-xizong-last-location-v1';
+  const beforePrematureRoute=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),lastLocationKey);
   await page.goto(`${BASE}/xizong/circulation/recall/`,{waitUntil:'networkidle'});
   const lock=page.locator('[data-xizong-system-recall-lock]');
   await lock.waitFor({state:'visible'});
   check(await page.locator('[data-xizong-system-exit="circulation"]').isHidden(),'direct_recall_route_fails_closed_before_system_complete');
+  const afterPrematureRecall=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),lastLocationKey);
+  check(afterPrematureRecall?.href===beforePrematureRoute?.href,'locked_recall_does_not_hijack_resume');
+
+  await page.goto(`${BASE}/xizong/practice/circulation/`,{waitUntil:'networkidle'});
+  const prematurePractice=page.locator('[data-xizong-practice="circulation"]');
+  await prematurePractice.locator('[data-chat-set-gate]').waitFor({state:'visible'});
+  check((await prematurePractice.locator('[data-chat-set-error-title]').textContent()||'').includes('System Recall'),'direct_system_practice_fails_closed_before_recall');
+  check(await prematurePractice.locator('[data-question-card]').isHidden(),'premature_system_practice_releases_no_question');
+  check((await prematurePractice.locator('[data-chat-set-gate] a').getAttribute('href')||'').includes('/xizong/circulation/recall/'),'premature_system_practice_returns_to_recall');
+  const afterPrematurePractice=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),lastLocationKey);
+  check(afterPrematurePractice?.href===beforePrematureRoute?.href,'locked_practice_does_not_hijack_resume');
 
   await page.goto(`${BASE}/xizong/circulation/`,{waitUntil:'networkidle'});
   await page.evaluate((ids)=>{
@@ -180,6 +193,8 @@ try {
   check(String(recallHref||'').includes('/xizong/circulation/recall/'),'system_recall_entry_targets_dedicated_route',String(recallHref));
   await entry.locator('a').click();
   await page.waitForURL(/\/xizong\/circulation\/recall\//);
+  const releasedRecallLocation=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),lastLocationKey);
+  check(releasedRecallLocation?.resumeKind==='SYSTEM_RECALL','released_system_recall_becomes_resume');
 
   check(await page.locator('[data-xizong-system-recall-page]').isVisible(),'dedicated_recall_page_visible');
   check(await page.locator('[data-xizong-later-stage="system-exit"]').count()===0,'recall_not_embedded_in_system_details');
@@ -208,6 +223,8 @@ try {
   await page.goto(`${BASE}/xizong/practice/circulation/`,{waitUntil:'networkidle'});
   const practice=page.locator('[data-xizong-practice="circulation"]');
   await practice.waitFor({state:'visible'});
+  const releasedPracticeLocation=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),lastLocationKey);
+  check(releasedPracticeLocation?.resumeKind==='PRACTICE_SYSTEM','released_system_practice_becomes_resume');
   check(await practice.locator('[data-holdout-gate]').isVisible(),'practice_holdout_gate_visible_without_setting');
   check(await practice.locator('[data-question-map]').count()===1,'practice_owns_question_map');
   check(await practice.locator('[data-reasoning-chain]').count()===1,'practice_owns_reasoning_chain_projection');
@@ -297,6 +314,23 @@ try {
   const stored=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),sweepKey);
   check(stored?.results?.[firstQuestion.questionId]?.status==='wrong','practice_attempt_persisted');
   check((stored?.attemptHistory||[]).some((event)=>event.question_id===firstQuestion.questionId),'practice_attempt_history_append');
+
+  await page.keyboard.press('Enter');
+  await practice.locator('[data-question-card]').waitFor({state:'visible'});
+  const uncertainMeta=(await practice.locator('[data-question-meta]').textContent()||'').trim();
+  const uncertainQuestion=sweep.questions.find((q)=>uncertainMeta.includes(String(q.year))&&uncertainMeta.includes(`第 ${q.number} 题`));
+  check(Boolean(uncertainQuestion),'uncertain_fixture_question_resolves',uncertainMeta);
+  await page.keyboard.press('u');
+  check((await practice.locator('[data-question-uncertain]').getAttribute('aria-pressed'))==='true','uncertain_toggle_on');
+  for(const label of answerLetters(uncertainQuestion.correctAnswer)) {
+    await practice.locator(`.xzpOption[data-option="${label}"]`).click();
+  }
+  await practice.locator('[data-submit-answer]').click();
+  await practice.locator('[data-practice-back]').waitFor({state:'visible'});
+  check((await practice.locator('[data-answer-result]').textContent()||'').includes('不确定'),'correct_unsure_opens_uncertain_review');
+  const uncertainStored=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),sweepKey);
+  check(uncertainStored?.results?.[uncertainQuestion.questionId]?.status==='uncertain','correct_unsure_persists_uncertain');
+  check((uncertainStored?.attemptHistory||[]).some((event)=>event.question_id===uncertainQuestion.questionId&&event.status==='uncertain'),'uncertain_attempt_history_append');
 
   await page.evaluate(({sweepKey,holdoutKey,state,year})=>{
     localStorage.setItem(sweepKey,JSON.stringify(state));
@@ -396,6 +430,8 @@ try {
   },{paperKey,holdoutKey,otherYear:holdoutYear});
   await page.goto(`${BASE}/xizong/practice/paper/2026/`,{waitUntil:'networkidle'});
   const paperPractice=page.locator('[data-xizong-practice="paper-2026"]');
+  const paperResumeLocation=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),lastLocationKey);
+  check(paperResumeLocation?.resumeKind==='PAPER','whole_paper_becomes_resume');
   await paperPractice.locator('[data-question-card]').waitFor({state:'visible'});
   check((await paperPractice.locator('[data-practice-scope-title]').textContent()||'').includes('2026'),'paper_2026_title');
   check((await paperPractice.locator('.xzpResultMode').textContent()||'').includes('隐藏'),'paper_result_hidden_label');
@@ -438,6 +474,8 @@ try {
   check((paperBeforeSeal?.paperDraftAnswers?.[paperFirst.questionId]?.selected||[]).includes(paperFirstWrong.label),'paper_draft_final_wrong_selection_restored');
 
   await paperPractice.locator('.xzpMapItem').nth(1).click();
+  await paperPractice.locator('[data-question-uncertain]').click();
+  check((await paperPractice.locator('[data-question-uncertain]').getAttribute('aria-pressed'))==='true','paper_uncertain_toggle_on');
   for(const label of answerLetters(paperSecond.correctAnswer)) {
     await paperPractice.locator(`.xzpOption[data-option="${label}"]`).click();
   }
@@ -445,6 +483,7 @@ try {
   await page.waitForTimeout(260);
 
   const preSealState=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),paperKey);
+  check(preSealState?.paperDraftAnswers?.[paperSecond.questionId]?.uncertain===true,'paper_uncertain_draft_persisted');
   const expectedPaperSummary=scoreXizongPaperResults(paper2026.paperFormat,paper2026.questions,preSealState?.paperDraftAnswers||{});
   check(expectedPaperSummary.correctCount===1&&expectedPaperSummary.wrongCount===1,'paper_fixture_score_shape',JSON.stringify(expectedPaperSummary));
 
@@ -462,7 +501,7 @@ try {
   const paperAfterSeal=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),paperKey);
   check(Boolean(paperAfterSeal?.paperSeal?.sealedAt),'paper_seal_persisted');
   check(paperAfterSeal?.results?.[paperFirst.questionId]?.status==='wrong','paper_seal_materializes_wrong_attempt');
-  check(paperAfterSeal?.results?.[paperSecond.questionId]?.status==='stable','paper_seal_materializes_stable_attempt');
+  check(paperAfterSeal?.results?.[paperSecond.questionId]?.status==='uncertain','paper_seal_materializes_correct_uncertain_attempt');
   check((paperAfterSeal?.attemptHistory||[]).filter((event)=>event.result_visibility==='hidden').length===2,'paper_seal_materializes_hidden_attempt_events');
   const holdoutAfterPaperSeal=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'[]'),holdoutKey);
   check(!holdoutAfterPaperSeal.map(Number).includes(2026),'paper_seal_releases_consumed_year_from_holdout');

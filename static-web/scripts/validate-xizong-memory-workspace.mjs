@@ -14,6 +14,7 @@ import {
   weakWeightForCard,
   isWeakMemoryCard,
   setRepairTasks,
+  completeRepairTask,
   selectMemoryView
 } from '../src/lib/xizongMemoryModel.mjs';
 import {
@@ -107,10 +108,23 @@ assert(precision.answerResolution === 'OWNER_CONTEXT_ONLY', 'precision-resolutio
 assert(!precision.answerHtml && precision.ownerContextHtml.includes('owner context'), 'precision-fallback-context');
 
 state = setRepairTasks(state, [{
-  id: 'repair:test', cardId: core.id, title: '只修一个机制断点', reason: 'Chat discriminating check', action: '重新运行局部链条', priority: 'high'
+  id: 'repair:test',
+  cardId: core.id,
+  blockId: 'respiratory-r01',
+  title: '只修一个机制断点',
+  reason: 'Chat discriminating check',
+  action: '重新运行局部链条',
+  priority: 'high',
+  sourceQuestionIds: ['xizong-official-2025-n101'],
+  blockHref: '/xizong/respiratory/r01/',
+  returnHref: '/xizong/practice/respiratory/'
 }]);
 assert(selectMemoryView(state, 'REPAIR').items.length === 1, 'repair-queue');
+assert(selectMemoryView(state, 'REPAIR').items[0].sourceQuestionIds[0] === 'xizong-official-2025-n101', 'repair-question-provenance');
 assert(Object.keys(state.cards).length === 3, 'repair-created-duplicate-card');
+state = completeRepairTask(state, 'repair:test', '2026-09-17T12:30:00Z');
+assert(selectMemoryView(state, 'REPAIR').items.length === 0, 'repair-completion-did-not-clear-active-queue');
+assert(state.repairTasks[0].status === 'DONE' && state.repairTasks[0].completedAt === '2026-09-17T12:30:00.000Z', 'repair-completion-evidence');
 
 const learnerObjectFixture = {
   schema: 'kianos.xizong.learner_object.v1',

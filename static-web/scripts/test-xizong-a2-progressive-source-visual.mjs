@@ -47,7 +47,11 @@ try {
   await root.waitFor({ state: 'visible' });
   await page.waitForFunction(() => document.querySelector('[data-xizong-v6-block]')?.classList.contains('xv6BlockWorkspaceShell'));
   const visualRoot = root.locator('[data-learner-asset="visual"][data-learner-asset-id="a2-r08-lg01-visual"]');
-  check(await page.locator('[data-xizong-learner-object-payload]').count() === 1, 'unified_learner_object_payload_present');
+  const learnerPayload = page.locator('[data-xizong-learner-object-payload]');
+  check(await learnerPayload.count() === 1, 'unified_learner_object_payload_present');
+  const learner = JSON.parse((await learnerPayload.textContent()) || '{}');
+  const firstSourceLocator = String(learner?.kps?.[0]?.source?.locator || '');
+  check(Boolean(firstSourceLocator), 'learner_object_preserves_source_locator');
   check(await root.locator('[data-xizong-group-visuals]').count() === 0, 'legacy_group_visual_dom_owner_retired');
 
   const geometry = await root.evaluate((node) => {
@@ -74,7 +78,7 @@ try {
     };
   });
   check(geometry.shell, 'one_screen_workspace_shell_mounted');
-  check(geometry.leftWidth >= 160 && geometry.leftWidth <= 200, 'logic_map_stays_narrow', String(geometry.leftWidth));
+  check(geometry.leftWidth >= 270 && geometry.leftWidth <= 310, 'logic_map_stays_narrow', String(geometry.leftWidth));
   check(geometry.mainWidth > geometry.leftWidth * 2.5, 'central_learning_surface_is_dominant', JSON.stringify(geometry));
   check(geometry.rootBottom <= geometry.viewportHeight + 2, 'block_workspace_fits_viewport', `${geometry.rootBottom}/${geometry.viewportHeight}`);
   check(geometry.pageScrollHeight <= geometry.pageClientHeight + 4, 'block_route_does_not_become_endless_page', `${geometry.pageScrollHeight}/${geometry.pageClientHeight}`);
@@ -89,17 +93,32 @@ try {
   const companion = root.locator('[data-learner-kp-companion="source_contact"]');
   await companion.waitFor({ state: 'visible' });
   check(await companion.locator('[data-learner-kp-core]').count() === 1, 'source_contact_hosts_full_kp_learn_core');
-  check(await companion.getByText('Source ·', { exact: false }).count() > 0, 'kp_learn_companion_preserves_source_locator');
+  const companionLocatorText = (await companion.locator('.xv6KpLearnLocators').textContent()) || '';
+  check(companionLocatorText.includes(firstSourceLocator), 'kp_learn_companion_preserves_source_locator', companionLocatorText);
   check(await root.locator('[data-study-stage="source_contact"] .xv6LectureFirst').isHidden(), 'blank_source_handoff_body_is_retired');
   check(await visualRoot.count() === 0, 'logic_group_visual_not_shown_during_continuous_source_contact');
 
   await root.locator('[data-source-contact-done]').click();
-  await root.locator('[data-study-stage="logic_group"]').waitFor({ state: 'visible' });
+  await page.waitForFunction(() => {
+    const host = document.querySelector('[data-xizong-v6-block]');
+    const ttsx = host?.querySelector('[data-study-stage="ttsx_checkpoint"]');
+    const recall = host?.querySelector('[data-study-stage="kp_recall"]');
+    return (ttsx instanceof HTMLElement && !ttsx.hidden) || (recall instanceof HTMLElement && !recall.hidden);
+  });
+  const ttsxStage = root.locator('[data-study-stage="ttsx_checkpoint"]');
+  if (await ttsxStage.isVisible()) {
+    await root.locator('[data-ttsx-done]').click();
+  }
+  await root.locator('[data-study-stage="kp_recall"]').waitFor({ state: 'visible' });
   await visualRoot.waitFor({ state: 'visible' });
-  check(await visualRoot.locator('xpath=ancestor::*[@data-learner-object-slot="logic_group_prelearn"]').count() === 1,
-    'logic_group_visual_uses_prelearn_semantic_slot');
+  check(await visualRoot.locator('xpath=ancestor::*[@data-learner-object-slot="kp_recall_aux"]').count() === 1,
+    'reviewed_source_visual_follows_current_kp_recall_aux_slot');
   check(await visualRoot.locator('xpath=ancestor::*[@data-xizong-aux-surface]').count() === 1,
-    'logic_group_visual_renders_in_dynamic_auxiliary_region');
+    'reviewed_source_visual_renders_in_dynamic_auxiliary_region');
+  check(await root.locator('[data-kp-recall-card]:not([hidden]) [data-kp-answer]').isHidden(),
+    'recall_core_remains_hidden_while_safe_support_is_visible');
+  check((await root.locator('[data-xizong-aux-surface] [data-learner-object-slot]').getAttribute('data-representation-stage')) === 'KP_RECALL_FRONT',
+    'source_visual_uses_safe_kp_recall_front_stage');
   await page.waitForFunction(() => document.querySelector('[data-xizong-v6-block]')?.getAttribute('data-aux-weight') === 'rich');
   await page.waitForFunction(() => {
     const node = document.querySelector('[data-xizong-v6-block]');
@@ -136,22 +155,14 @@ try {
   const response = await page.request.get(new URL(src, BASE).toString());
   check(response.ok(), 'asset_http_ok', `${response.status()}:${src}`);
 
-  // Recall front stays workspace-wide neutral; answer-bearing auxiliary content returns only after Reveal.
-  await root.locator('[data-enter-group]').click();
-  await root.locator('[data-study-stage="kp_recall"]').waitFor({ state: 'visible' });
+  // KP Recall is Core-protected: reviewed safe support may stay visible, while the Core answer remains hidden until Reveal.
   check(await root.locator('[data-study-stage="kp_learn"]').count() === 0, 'natural_source_group_does_not_reopen_group_source_stage');
-  check(await visualRoot.count() === 0, 'group_visual_hidden_during_recall_front');
-  check(await root.locator('[data-study-stage="kp_recall"] [data-learner-asset]').count() === 0, 'recall_front_contains_no_auxiliary_answer_payload');
+  check(await visualRoot.isVisible(), 'reviewed_source_visual_may_remain_as_safe_recall_support');
   check(await root.locator('[data-kp-recall-card]:not([hidden]) [data-kp-answer]').isHidden(), 'recall_answer_remains_hidden_before_reveal');
-  await page.waitForFunction(() => document.querySelector('[data-xizong-v6-block]')?.getAttribute('data-aux-weight') === 'none');
-  await page.waitForFunction(() => {
-    const right = document.querySelector('[data-xizong-v6-block] .portedStudyChain')?.getBoundingClientRect().width || 0;
-    return right >= 190 && right <= 230;
-  });
-  const compactRecallWidth = await root.locator('.portedStudyChain').evaluate((node) => node.getBoundingClientRect().width);
-  check(compactRecallWidth >= 190 && compactRecallWidth <= 230, 'auxiliary_rail_returns_space_to_core_on_clean_recall_front', String(compactRecallWidth));
 
   await root.locator('[data-kp-recall-card]:not([hidden]) [data-kp-reveal]').click();
+  await page.waitForFunction(() => document.querySelector('[data-xizong-aux-surface] [data-learner-object-slot]')?.getAttribute('data-representation-stage') === 'KP_RECALL_REVEAL');
+  check(await visualRoot.isVisible(), 'reviewed_source_visual_remains_available_after_reveal');
   const answerOverflow = await root.locator('[data-kp-recall-card]:not([hidden]) [data-kp-answer]').evaluate((node) => getComputedStyle(node).overflowY);
   check(['auto', 'scroll'].includes(answerOverflow), 'kp_core_has_local_scroll_path_after_reveal', answerOverflow);
   const recallGeometry = await root.evaluate((node) => ({

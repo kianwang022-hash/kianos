@@ -51,9 +51,10 @@ assert(system.blocks.some((block) => block.blockId === canonicalRelation.blockId
 
 const component = read('static-web/src/components/XizongSystemRepairReturn.astro');
 const bridge = read('static-web/src/components/XizongRepairInboxBridge.astro');
-const page = read('static-web/src/pages/xizong/[system]/index.astro');
+const page = read('static-web/src/pages/xizong/practice/[system].astro');
 const blockPage = read('static-web/src/pages/xizong/[system]/[block].astro');
-const memory = read('static-web/src/components/XizongMemoryReviewV6.astro');
+const memoryModel = read('static-web/src/lib/xizongMemoryModel.mjs');
+const memoryWorkspace = read('static-web/src/components/XizongMemoryWorkspace.astro');
 
 assert(component.includes("['wrong', 'uncertain'].includes(row.status)"), 'component-wu-filter-missing');
 assert(component.includes('const relation = question?.relation;'), 'component-does-not-derive-canonical-relation');
@@ -70,8 +71,12 @@ assert(bridge.includes("type: 'SYSTEM_WU_PLAN_IMPORTED'"), 'bridge-import-eviden
 assert(bridge.includes("evidence_role: 'REPAIR_ONLY'"), 'bridge-repair-role-missing');
 assert(bridge.includes("window.addEventListener('storage'"), 'open-block-tab-cannot-receive-repair-inbox');
 assert(bridge.includes('window.location.reload();'), 'repair-inbox-consumption-does-not-rebuild-memory-state');
-assert(memory.includes("evidence_role: 'REPAIR_ONLY'"), 'block-repair-evidence-role-regressed');
-assert(memory.includes('不覆盖最初 KP Recall'), 'repair-overwrites-original-recall');
+assert(component.includes('XIZONG_MEMORY_STORAGE_KEY'), 'visible-memory-repair-delivery-missing');
+assert(component.includes('setRepairTasks'), 'visible-memory-repair-owner-bypassed');
+assert(component.includes("origin: 'SYSTEM_WU_CHAT_RETURN'"), 'visible-repair-origin-missing');
+assert(memoryModel.includes('export function completeRepairTask'), 'visible-repair-completion-owner-missing');
+assert(memoryWorkspace.includes('data-repair-complete'), 'visible-repair-completion-control-missing');
+assert(memoryWorkspace.includes('不把修完自动写成 mastery'), 'repair-overwrites-mastery-boundary');
 
 console.log([
   'A2 W/U repair-return PASS',
@@ -83,5 +88,6 @@ console.log([
   'ChatCannotInventQuestionToKnowledgeMapping=true',
   'ReturnKeepsQuestionMainline=true',
   'CrossTabRepairInbox=true',
+  'VisibleMemoryRepair=true',
   'U=NOT_TESTED_BY_THIS_SCRIPT'
 ].join(' | '));

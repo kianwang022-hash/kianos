@@ -127,6 +127,63 @@ try {
   check((await page.locator('[data-xizong-continue]').getAttribute('href') || '').includes('/xizong/circulation/b01/'), 'continue_restores_last_href');
 
   await page.evaluate(() => {
+    localStorage.setItem('kianos-xizong-last-location-v1', JSON.stringify({
+      href:'/xizong/circulation/recall/',
+      systemCanonical:'A1',
+      systemId:'circulation',
+      systemTitle:'循环系统',
+      resumeKind:'SYSTEM_RECALL',
+      resumeTitle:'System Recall · 循环系统',
+      resumeDetail:'恢复系统级闭卷重建',
+      resumeStage:'SYSTEM RECALL',
+      resumePosition:'A1 · 循环系统',
+      resumeAction:'继续 Recall →'
+    }));
+  });
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  check((await page.locator('[data-xizong-continue-title]').textContent() || '').includes('System Recall'), 'continue_labels_system_recall_truthfully');
+  check((await page.locator('[data-xizong-continue-stage]').textContent() || '').trim() === 'SYSTEM RECALL', 'continue_stage_system_recall');
+  check((await page.locator('[data-xizong-continue]').getAttribute('href') || '').includes('/xizong/circulation/recall/'), 'continue_restores_system_recall_href');
+
+  await page.evaluate(() => {
+    localStorage.setItem('kianos-xizong-last-location-v1', JSON.stringify({
+      href:'/xizong/practice/circulation/',
+      systemCanonical:'A1',
+      systemId:'circulation',
+      systemTitle:'循环系统',
+      resumeKind:'PRACTICE_SYSTEM',
+      resumeTitle:'训练 · 循环系统',
+      resumeDetail:'恢复当前 System 的正式训练',
+      resumeStage:'PRACTICE',
+      resumePosition:'A1 · 系统真题',
+      resumeAction:'继续训练 →'
+    }));
+  });
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  check((await page.locator('[data-xizong-continue-title]').textContent() || '').includes('训练'), 'continue_labels_system_practice_truthfully');
+  check((await page.locator('[data-xizong-continue-stage]').textContent() || '').trim() === 'PRACTICE', 'continue_stage_system_practice');
+  check((await page.locator('[data-xizong-continue]').getAttribute('href') || '').includes('/xizong/practice/circulation/'), 'continue_restores_system_practice_href');
+
+  await page.evaluate(() => {
+    localStorage.setItem('kianos-xizong-last-location-v1', JSON.stringify({
+      href:'/xizong/practice/paper/2026/',
+      systemCanonical:'2026',
+      systemId:'paper-2026',
+      systemTitle:'2026 整卷',
+      resumeKind:'PAPER',
+      resumeTitle:'2026 整卷',
+      resumeDetail:'恢复这套整卷的作答现场',
+      resumeStage:'WHOLE PAPER',
+      resumePosition:'2026 · 整卷',
+      resumeAction:'继续整卷 →'
+    }));
+  });
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  check((await page.locator('[data-xizong-continue-title]').textContent() || '').includes('2026 整卷'), 'continue_labels_whole_paper_truthfully');
+  check((await page.locator('[data-xizong-continue-stage]').textContent() || '').trim() === 'WHOLE PAPER', 'continue_stage_whole_paper');
+  check((await page.locator('[data-xizong-continue]').getAttribute('href') || '').includes('/xizong/practice/paper/2026/'), 'continue_restores_whole_paper_href');
+
+  await page.evaluate(() => {
     localStorage.setItem('kianos-xizong-memory-v1', JSON.stringify({
       schema:'kianos.xizong.memory.v1',
       revision:1,

@@ -1,6 +1,7 @@
 ---
 import Base from '../../../../layouts/Base.astro';
 import XizongPracticeWorkbench from '../../../../components/XizongPracticeWorkbench.astro';
+import XizongLastLocation from '../../../../components/XizongLastLocation.astro';
 import { listXizongPaperSummaries, loadXizongWholePaper } from '../../../../lib/xizongQuestions.mjs';
 import '../../../../styles/xizong-practice-workspace.css';
 
@@ -21,5 +22,14 @@ const system = {
 ---
 
 <Base title={`${year} 整卷 · 西综训练`} active="xizong" showLead={false} objectId={`xizong:practice:paper:${year}`}>
+  <XizongLastLocation
+    system={system}
+    resumeKind="PAPER"
+    resumeTitle={`${year} 整卷`}
+    resumeDetail="恢复这套整卷的作答现场"
+    resumeStage="WHOLE PAPER"
+    resumePosition={`${year} · 整卷`}
+    resumeAction="继续整卷 →"
+  />
   <XizongPracticeWorkbench system={system} sweep={sweep} scopeKind="PAPER" />
 </Base>

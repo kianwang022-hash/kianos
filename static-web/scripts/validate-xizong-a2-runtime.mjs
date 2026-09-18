@@ -112,24 +112,27 @@ assert(wu.length === 2 && wu.includes(q2) && wu.includes(q3) && !wu.includes(q1)
 // ---------- Actual runtime-source contracts ----------
 const blockUi = read('static-web/src/components/XizongBlockV6.astro');
 const enhancerUi = read('static-web/src/components/XizongStudyEnhancer.astro');
-const memoryUi = read('static-web/src/components/XizongMemoryReviewV6.astro');
-const exitUi = read('static-web/src/components/XizongSystemExitRuntime.astro');
+const memoryWorkspace = read('static-web/src/components/XizongMemoryWorkspace.astro');
+const repairReturn = read('static-web/src/components/XizongSystemRepairReturn.astro');
+const practiceUi = read('static-web/src/components/XizongPracticeWorkbench.astro');
 const guardUi = read('static-web/src/components/XizongRuntimeStageGuard.astro');
 const blockPage = read('static-web/src/pages/xizong/[system]/[block].astro');
 const systemPage = read('static-web/src/pages/xizong/[system]/index.astro');
+const recallPage = read('static-web/src/pages/xizong/[system]/recall.astro');
+const practicePage = read('static-web/src/pages/xizong/practice/[system].astro');
 const lastLocation = read('static-web/src/components/XizongLastLocation.astro');
 const homeTools = read('static-web/src/components/XizongHomeTools.astro');
 const questionLib = read('static-web/src/lib/xizongQuestions.mjs');
 const crosswalkLib = read('static-web/src/lib/xizongQuestionCrosswalk.mjs');
 
-has(blockUi, "let state = { stage: 'block_learn', groupIndex: 0, kpIndex: 0, learned: {}, ratings: {}, blockRecallDone: false, completed: false }", 'block-initial-state');
+has(blockUi, "let state = { stage: 'block_learn', groupIndex: 0, kpIndex: 0, learned: {}, ratings: {}, ttsxEvidence: {}, ttsxAnnotations: {}, pendingTtsx: null, blockRecallDone: false, completed: false }", 'block-initial-state');
 has(blockUi, "JSON.parse(localStorage.getItem(storageKey) || 'null')", 'block-state-read');
 has(blockUi, 'localStorage.setItem(storageKey, JSON.stringify(state))', 'block-state-write');
-has(blockUi, "setStage('group_close')", 'logic-group-close-transition');
-has(blockUi, "setStage('kp_recall')", 'kp-recall-transition');
-has(blockUi, "setStage('block_recall')", 'block-recall-transition');
-has(blockUi, "setStage('block_complete')", 'block-complete-transition');
-has(blockUi, '不要按 KP 来回切换 App', 'logic-group-lecture-continuity');
+has(blockUi, 'state.sourceContactDone = true;', 'source-contact-completion-write');
+has(blockUi, "setStage(queued ? 'ttsx_checkpoint' : 'kp_recall')", 'kp-recall-transition');
+has(blockUi, "window.setTimeout(() => setStage('block_recall'), 120)", 'block-recall-transition');
+has(blockUi, 'state.completed = true;', 'block-complete-write');
+has(blockUi, 'data-source-contact-mode={sourceContactMode}', 'source-contact-mode-missing');
 has(blockUi, 'data-group-lecture-done', 'logic-group-lecture-return');
 has(enhancerUi, 'button.disabled = !coreReady || Boolean(study.completed);', 'block-completion-ui-gate');
 assert(!enhancerUi.includes('lectureRead'), 'legacy-block-lecture-confirmation-remains');
@@ -140,29 +143,39 @@ has(guardUi, "requested === 'block_recall'", 'premature-block-recall-stage-guard
 has(guardUi, "target.closest('[data-block-recall-complete]')", 'premature-block-recall-evidence-guard');
 has(guardUi, "target.closest('[data-start-recall]')", 'premature-system-recall-start-guard');
 has(guardUi, "target.closest('[data-reveal-recall]')", 'premature-system-recall-reveal-guard');
-has(guardUi, 'if (completed.length < blockIds.length)', 'premature-system-recall-guard');
+has(guardUi, 'const ready = completed.length >= blockIds.length;', 'premature-system-recall-readiness-missing');
+has(guardUi, 'if (!ready)', 'premature-system-recall-guard');
 has(guardUi, 'Free navigation among orientation/current-learning surfaces is preserved.', 'free-navigation-contract');
 has(blockPage, '<XizongRuntimeStageGuard system={system} block={block} />', 'block-guard-not-mounted');
 has(systemPage, '<XizongRuntimeStageGuard system={system} />', 'system-guard-not-mounted');
 
-has(exitUi, "let recallState = readJson(recallKey, { completedAt: null });", 'system-recall-default-progress');
-has(exitUi, "let holdoutYears = readJson(holdoutKey, []);", 'holdout-not-empty-by-default');
-matches(exitUi, /startSweep\.disabled\s*=\s*!\(recallState\.completedAt\s*&&\s*holdoutYears\.length\)/, 'question-sweep-prerequisite-gate');
-has(exitUi, ".filter(({ result }) => result && ['wrong', 'uncertain'].includes(result.status))", 'wu-only-handoff');
-has(exitUi, '暂无审核过的精确 KP 回链：保留题号给 Chat，不让网页自己猜。', 'no-guessed-repair-route');
+has(recallPage, 'data-xizong-system-recall-lock hidden', 'system-recall-lock-missing');
+has(recallPage, '<XizongRuntimeStageGuard system={system} />', 'system-recall-guard-not-mounted');
+has(practicePage, '<XizongSystemEvidenceGuard system={system} sweep={sweep} />', 'practice-evidence-guard-not-mounted');
+has(practiceUi, "let holdoutYears = data.allowHoldout ? [] : readJson(holdoutKey, []);", 'holdout-not-empty-by-default');
+has(practiceUi, "if (data?.scopeKind === 'SYSTEM')", 'system-practice-release-gate-missing');
+has(practiceUi, "kianos:xizong:system-recall:", 'system-practice-does-not-read-recall-evidence');
+has(practiceUi, "if (!recallState?.completedAt)", 'system-practice-does-not-fail-closed-before-recall');
+has(practiceUi, 'data-question-uncertain', 'uncertain-control-missing');
+has(practiceUi, "currentUncertain ? 'uncertain' : 'stable'", 'correct-unsure-evidence-missing');
+has(practiceUi, "if (data.holdoutRequired !== false && !holdoutYears.length) { renderGate(); return; }", 'question-sweep-prerequisite-gate');
+has(repairReturn, ".filter(([, row]) => row && ['wrong', 'uncertain'].includes(row.status))", 'wu-only-handoff');
+has(repairReturn, '暂无审核过的精确 Block/KP 回链：保留题号给 Chat，不自动猜。', 'no-guessed-repair-route');
 has(questionLib, 'loadReviewedXizongQuestionRelation(questionId)', 'question-runtime-bypasses-crosswalk-owner');
 has(crosswalkLib, "if (!row || row.review_status !== 'REVIEWED') return null;", 'unreviewed-question-relation-accepted');
 
-has(memoryUi, 'const parsed = JSON.parse(text);', 'chat-return-json-parse');
-has(memoryUi, '.filter((row) => byId.has(row.kpId))', 'chat-return-not-scoped-to-current-block');
-has(memoryUi, "window.alert('Chat 计划 JSON 无法解析。');", 'malformed-chat-return-not-contained');
-has(memoryUi, "type: 'CHAT_PLAN_REVIEW', evidence_role: 'REPAIR_ONLY'", 'chat-return-repair-role');
+has(enhancerUi, "schema: 'kianos.xizong.study_packet.v3'", 'live-study-packet-missing');
+has(enhancerUi, 'learning_state:', 'study-packet-learning-state-missing');
+has(repairReturn, 'const parsed = JSON.parse(text);', 'chat-return-json-parse');
+has(repairReturn, 'const allowed = new Set(currentWu().map', 'chat-return-not-scoped-to-current-wu');
+has(repairReturn, "origin: 'SYSTEM_WU_CHAT_RETURN'", 'chat-return-repair-role');
+has(memoryWorkspace, 'data-repair-complete', 'visible-repair-completion-missing');
 
 has(lastLocation, "localStorage.setItem('kianos-xizong-last-location-v1', JSON.stringify(value))", 'last-location-write');
 has(lastLocation, 'href: window.location.pathname', 'last-location-path');
 has(homeTools, "localStorage.getItem('kianos-xizong-last-location-v1')", 'continue-read');
 has(homeTools, 'link.href = last.href;', 'continue-return');
-has(homeTools, '} catch {}', 'continue-malformed-state-containment');
+has(homeTools, 'catch { return fallback; }', 'continue-malformed-state-containment');
 
 console.log([
   'A2 Runtime acceptance probe PASS',

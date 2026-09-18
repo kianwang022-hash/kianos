@@ -42,6 +42,7 @@ const payload = JSON.stringify({
       <button type="button" class="xzpPaperSealControl" data-paper-seal hidden>交卷</button>
       <button type="button" class="xzpQuietControl" data-fast-sweep aria-pressed="false">Fast</button>
       <button type="button" class="xzpQuietControl xzpMarkControl" data-question-mark aria-pressed="false">☆ 标记</button>
+      <button type="button" class="xzpQuietControl xzpUncertainControl" data-question-uncertain aria-pressed="false">△ 不确定</button>
       <button type="button" class="xzpQuietControl" data-review-toggle aria-pressed="false" hidden>解析</button>
 
       <details class="xzpMore">
@@ -63,7 +64,7 @@ const payload = JSON.stringify({
           </details>
           <div class="xzpMoreHelp">
             <span>快捷键</span>
-            <p>1–5 选择 · Enter 提交/继续 · Space 正反面 · M 标记 · ← → 切题</p>
+            <p>1–5 选择 · Enter 提交/继续 · Space 正反面 · U 不确定 · M 标记 · ← → 切题</p>
           </div>
         </div>
       </details>
@@ -297,8 +298,27 @@ const payload = JSON.stringify({
       if (copy) copy.textContent = body;
       if (gate) gate.hidden = false;
     };
-    const showChatSetError = (title, body) => showScopeError('CHAT SET', title, body);
-    const showRetainedError = (title, body) => showScopeError('RETAINED', title, body);
+    const showChatSetError = (title, body) => showScopeError('Chat 训练', title, body);
+    const showRetainedError = (title, body) => showScopeError('回收训练', title, body);
+
+    if (data?.scopeKind === 'SYSTEM') {
+      const recallState = readJson(`kianos:xizong:system-recall:${initialSystemId}:v1`, null);
+      if (!recallState?.completedAt) {
+        showScopeError(
+          '系统训练',
+          '先完成 System Recall',
+          '系统真题只在整个 System 学完并完成一次系统级闭卷重建后释放。当前先回到 System Recall。'
+        );
+        const controls = root.querySelector('.xzpControls');
+        if (controls instanceof HTMLElement) controls.hidden = true;
+        const returnLink = root.querySelector('[data-chat-set-gate] a');
+        if (returnLink instanceof HTMLAnchorElement) {
+          returnLink.href = `${data.base}xizong/${initialSystemId}/recall/`;
+          returnLink.textContent = '去 System Recall';
+        }
+        return;
+      }
+    }
 
     const hydrateQuestionIds = async (ids) => {
       const years = [...new Set(ids.map((id) => id.match(/official-(\d{4})-/)?.[1]).filter(Boolean))];
@@ -323,24 +343,24 @@ const payload = JSON.stringify({
       const allowHoldout = set?.allow_holdout === true;
 
       if (!set || set?.schema !== 'kianos.xizong.chat_set.v1' || !setId || !ids.length) {
-        showChatSetError('没有可执行的 Chat Set', '请先从训练入口导入 Chat 返回的 kianos.xizong.chat_set.v1。');
+        showChatSetError('还没有可执行的 Chat 题单', '请先从训练入口导入 Chat 为你生成的题单。');
         return;
       }
       if (!['FIRST_PASS','SECOND_PASS','LATE_REVIEW'].includes(phase)) {
-        showChatSetError('Chat Set 阶段无效', `study_phase=${phase} 不是可执行阶段。`);
+        showChatSetError('这份 Chat 题单暂时无法执行', '题单的学习阶段设置不完整，请让 Chat 重新生成。');
         return;
       }
       if (visibility !== 'immediate') {
-        showChatSetError('当前 Chat Set 只执行即时反馈', 'Hidden 结果会和 Whole Paper 一起实现；当前不静默降级。');
+        showChatSetError('这份 Chat 题单只支持即时反馈', '如果想整段作答后再统一看结果，请使用整卷模式。');
         return;
       }
       if (ids.some((id) => !/^xizong-official-\d{4}-n\d{3}$/.test(id))) {
-        showChatSetError('Chat Set 含无效题号', '只接受 canonical xizong-official-YYYY-nNNN 题号。');
+        showChatSetError('Chat 题单里有无法识别的题号', '请让 Chat 重新生成这份题单，网页不会自行猜测或替换题目。');
         return;
       }
       const uniqueIds = [...new Set(ids)];
       if (uniqueIds.length !== ids.length) {
-        showChatSetError('Chat Set 含重复题号', '网页不会自行去重或改写 Chat 给出的顺序，请让 Chat 返回唯一 qid。');
+        showChatSetError('Chat 题单里有重复题目', '网页不会自行删改题单，请让 Chat 重新生成一次。');
         return;
       }
 
@@ -348,14 +368,14 @@ const payload = JSON.stringify({
       const holdoutSet = new Set((Array.isArray(savedHoldout) ? savedHoldout : []).map(Number));
       const selectedHoldoutYears = [...new Set(ids.map((id) => Number(id.match(/official-(\d{4})-/)?.[1])).filter((year) => holdoutSet.has(year)))];
       if (selectedHoldoutYears.length && !allowHoldout) {
-        showChatSetError('Chat Set 命中整卷保留年份', `${selectedHoldoutYears.join('、')} 仍受 Holdout 保护。让 Chat/你显式设置 allow_holdout=true 才会执行。`);
+        showChatSetError('Chat 题单命中整卷保留年份', `${selectedHoldoutYears.join('、')} 仍处于整卷保留状态；确认要使用后，请让 Chat 重新生成允许消耗保留年份的题单。`);
         return;
       }
 
       try {
         const { years, byId, missing } = await hydrateQuestionIds(ids);
         if (missing.length) {
-          showChatSetError('Chat Set 含不存在的 Current 题号', `未找到：${missing.slice(0, 6).join('、')}${missing.length > 6 ? '…' : ''}`);
+          showChatSetError('Chat Set 含当前题库不存在的题号', `未找到：${missing.slice(0, 6).join('、')}${missing.length > 6 ? '…' : ''}`);
           return;
         }
 
@@ -383,7 +403,7 @@ const payload = JSON.stringify({
         root.querySelector('[data-holdout-control]')?.setAttribute('hidden', '');
       } catch (error) {
         console.error(error);
-        showChatSetError('Chat Set 题目载入失败', 'Current Question Truth 没有完整载入；网页没有替换、补猜或跳过任何题。');
+        showChatSetError('Chat Set 题目载入失败', '当前题目数据没有完整载入；网页没有替换、补猜或跳过任何题。');
         return;
       }
     }
@@ -404,11 +424,11 @@ const payload = JSON.stringify({
         return;
       }
       if (!['SECOND_PASS','LATE_REVIEW','FIRST_PASS'].includes(phase) || visibility !== 'immediate') {
-        showRetainedError('回收范围参数无效', '当前 retained scope 只执行显式阶段 + immediate feedback。');
+        showRetainedError('这份回收题单无法执行', '题单设置不完整，请回训练入口重新生成。');
         return;
       }
       if (ids.some((id) => !/^xizong-official-\d{4}-n\d{3}$/.test(id)) || new Set(ids).size !== ids.length) {
-        showRetainedError('回收范围含无效题号', '只接受唯一 canonical qid；网页不会模糊匹配或自行替换。');
+        showRetainedError('回收题单里有无法识别的题号', '网页不会模糊匹配或自行替换，请重新生成这份回收题单。');
         return;
       }
 
@@ -423,7 +443,7 @@ const payload = JSON.stringify({
       try {
         const { years, byId, missing } = await hydrateQuestionIds(ids);
         if (missing.length) {
-          showRetainedError('回收范围含不存在的 Current 题号', `未找到：${missing.slice(0, 6).join('、')}${missing.length > 6 ? '…' : ''}`);
+          showRetainedError('回收范围含当前题库不存在的题号', `未找到：${missing.slice(0, 6).join('、')}${missing.length > 6 ? '…' : ''}`);
           return;
         }
         data = {
@@ -450,7 +470,7 @@ const payload = JSON.stringify({
         root.querySelector('[data-holdout-control]')?.setAttribute('hidden', '');
       } catch (error) {
         console.error(error);
-        showRetainedError('回收题载入失败', 'Current Question Truth 没有完整载入；网页没有替换、补猜或跳过任何题。');
+        showRetainedError('回收题载入失败', '当前题目数据没有完整载入；网页没有替换、补猜或跳过任何题。');
         return;
       }
     }
@@ -458,7 +478,7 @@ const payload = JSON.stringify({
     if (data?.scopeKind === 'PAPER') {
       const format = data?.paperFormat;
       if (!format || Number(format.year) !== Number(data.years?.[0]) || Number(format.question_count) !== Number(data.questions?.length) || Number(format.max_score) <= 0) {
-        showScopeError('整卷', '整卷评分规则不可用', '当前年份没有可验证的 exam-format owner；网页不会猜分。');
+        showScopeError('整卷', '整卷评分规则不可用', '当前年份的评分规则无法验证；网页不会猜分。');
         return;
       }
       data = {
@@ -524,6 +544,7 @@ const payload = JSON.stringify({
     const done = root.querySelector('[data-sweep-done]');
     const fastButton = root.querySelector('[data-fast-sweep]');
     const markButton = root.querySelector('[data-question-mark]');
+    const uncertainButton = root.querySelector('[data-question-uncertain]');
     const nextButton = root.querySelector('[data-next-question]');
     const reviewToggle = root.querySelector('[data-review-toggle]');
     const showFrontButton = root.querySelector('[data-show-front]');
@@ -566,6 +587,7 @@ const payload = JSON.stringify({
     let currentQuestion = null;
     let currentIndex = 0;
     let currentSelection = new Set();
+    let currentUncertain = false;
     let backVisible = false;
     const paperMode = data.scopeKind === 'PAPER';
     const paperSealed = () => Boolean(sweepState?.paperSeal?.sealedAt);
@@ -624,9 +646,19 @@ const payload = JSON.stringify({
       if (currentQuestion) {
         markButton.setAttribute('aria-pressed', String(markedFor(currentQuestion.questionId)));
         markButton.textContent = markedFor(currentQuestion.questionId) ? '★ 已标记' : '☆ 标记';
+        if (uncertainButton instanceof HTMLButtonElement) {
+          uncertainButton.setAttribute('aria-pressed', String(currentUncertain));
+          uncertainButton.textContent = currentUncertain ? '△ 已标不确定' : '△ 不确定';
+          uncertainButton.disabled = Boolean(resultFor(currentQuestion.questionId));
+        }
       } else {
         markButton.setAttribute('aria-pressed', 'false');
         markButton.textContent = '☆ 标记';
+        if (uncertainButton instanceof HTMLButtonElement) {
+          uncertainButton.setAttribute('aria-pressed', 'false');
+          uncertainButton.textContent = '△ 不确定';
+          uncertainButton.disabled = true;
+        }
       }
     };
 
@@ -852,7 +884,7 @@ const payload = JSON.stringify({
           const isCorrect = same([...selected].sort(), letters(question.correctAnswer));
           next = recordXizongQuestionAttempt(next, {
             question,
-            status: isCorrect ? 'stable' : 'wrong',
+            status: isCorrect ? (draft.uncertain ? 'uncertain' : 'stable') : 'wrong',
             selected,
             marked: markedFor(question.questionId),
             context: attemptContext,
@@ -914,6 +946,9 @@ const payload = JSON.stringify({
       currentQuestion = activeQuestions[currentIndex];
       const existing = responseFor(currentQuestion.questionId);
       currentSelection = new Set(existing?.selected || []);
+      currentUncertain = paperMode && !paperSealed()
+        ? Boolean(existing?.uncertain)
+        : Boolean(existing?.status === 'uncertain');
 
       holdoutGate.hidden = true;
       done.hidden = true;
@@ -925,8 +960,8 @@ const payload = JSON.stringify({
       if (questionProgressSide) questionProgressSide.textContent = `${currentIndex + 1} / ${activeQuestions.length}`;
       stem.textContent = currentQuestion.stem;
       hint.textContent = currentQuestion.questionType === 'X'
-        ? '1–5 切换选项 · Enter 提交 · M 标记'
-        : preferences.fastSweep ? 'Fast：1–5 选择即提交 · M 标记' : '1–5 选择 · Enter 提交 · M 标记';
+        ? '1–5 切换选项 · Enter 提交 · U 不确定 · M 标记'
+        : preferences.fastSweep ? 'Fast：U 可先标不确定 · 1–5 选择即提交 · M 标记' : '1–5 选择 · Enter 提交 · U 不确定 · M 标记';
       optionsBox.replaceChildren();
 
       currentQuestion.options.forEach((option) => {
@@ -992,6 +1027,7 @@ const payload = JSON.stringify({
           ...(sweepState.paperDraftAnswers || {}),
           [currentQuestion.questionId]: {
             selected: [...currentSelection].sort(),
+            uncertain: Boolean(currentUncertain),
             updatedAt: new Date().toISOString()
           }
         }
@@ -1048,9 +1084,17 @@ const payload = JSON.stringify({
       const correct = letters(currentQuestion.correctAnswer);
       const selected = [...currentSelection].sort();
       const isCorrect = same(selected, correct);
-      if (!persistAttempt(isCorrect ? 'stable' : 'wrong')) return;
+      const status = isCorrect ? (currentUncertain ? 'uncertain' : 'stable') : 'wrong';
+      if (!persistAttempt(status)) return;
       renderQuestion(currentIndex);
-      if (isCorrect) window.setTimeout(nextQuestion, preferences.fastSweep ? 120 : 520);
+      if (status === 'stable') window.setTimeout(nextQuestion, preferences.fastSweep ? 120 : 520);
+    };
+
+    const toggleUncertain = () => {
+      if (!currentQuestion || resultFor(currentQuestion.questionId)) return;
+      currentUncertain = !currentUncertain;
+      if (paperMode && !paperSealed() && paperDraftFor(currentQuestion.questionId)) persistPaperDraft();
+      renderTop();
     };
 
     const toggleMark = () => {
@@ -1086,10 +1130,11 @@ const payload = JSON.stringify({
       renderTop();
       if (currentQuestion && !resultFor(currentQuestion.questionId)) {
         hint.textContent = currentQuestion.questionType === 'X'
-          ? '1–5 切换选项 · Enter 提交 · M 标记'
-          : preferences.fastSweep ? 'Fast：1–5 选择即提交 · M 标记' : '1–5 选择 · Enter 提交 · M 标记';
+          ? '1–5 切换选项 · Enter 提交 · U 不确定 · M 标记'
+          : preferences.fastSweep ? 'Fast：U 可先标不确定 · 1–5 选择即提交 · M 标记' : '1–5 选择 · Enter 提交 · U 不确定 · M 标记';
       }
     });
+    uncertainButton?.addEventListener('click', toggleUncertain);
     markButton.addEventListener('click', toggleMark);
     paperSealControl?.addEventListener('click', sealPaper);
     paperSealReady?.addEventListener('click', sealPaper);
@@ -1155,6 +1200,11 @@ const payload = JSON.stringify({
       if (target instanceof HTMLElement && target.closest('input,textarea,select,[contenteditable="true"]')) return;
       if (!currentQuestion) return;
 
+      if (event.key.toLowerCase() === 'u') {
+        event.preventDefault();
+        toggleUncertain();
+        return;
+      }
       if (event.key.toLowerCase() === 'm') {
         event.preventDefault();
         toggleMark();

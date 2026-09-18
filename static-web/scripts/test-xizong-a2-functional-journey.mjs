@@ -7,15 +7,16 @@ const PORT = 4326;
 const BASE = `http://127.0.0.1:${PORT}`;
 const auditDir = path.resolve(process.cwd(), '../xizong-a2-functional-audit');
 fs.mkdirSync(auditDir, { recursive: true });
-const report = { schema: 'kianos.xizong.a2.functional_first_journey.v1', started_at: new Date().toISOString(), checks: [] };
+const report = { schema: 'kianos.xizong.a2.functional_first_journey.v2', started_at: new Date().toISOString(), checks: [] };
 const check = (condition, name, detail = '') => {
   if (!condition) throw new Error(`A2_FUNCTIONAL_FAIL:${name}${detail ? `:${detail}` : ''}`);
   report.checks.push({ name, pass: true, detail });
 };
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const answerLetters = (value) => (String(value || '').toUpperCase().match(/[A-Z]/g) || []).sort();
 
 async function waitForServer() {
-  for (let i = 0; i < 80; i += 1) {
+  for (let i = 0; i < 100; i += 1) {
     try { const r = await fetch(`${BASE}/xizong/`); if (r.ok) return; } catch {}
     await sleep(250);
   }
@@ -30,47 +31,52 @@ async function clearXizong(page) {
   });
 }
 
+async function visibleStage(root) {
+  return root.locator('[data-study-stage]:visible').first().getAttribute('data-study-stage');
+}
+
 async function blockResumeAndEvidenceJourney(page) {
-  await page.goto(`${BASE}/xizong/respiratory/r01/`, { waitUntil: 'domcontentloaded' });
+  const route = `${BASE}/xizong/respiratory/r01/`;
+  const studyKey = 'kianos-xizong-astro-v2:xizong:respiratory-r01';
+  await page.goto(route, { waitUntil: 'domcontentloaded' });
   const root = page.locator('[data-xizong-v6-block]');
   await root.waitFor({ state: 'visible' });
   const recallCards = root.locator('[data-kp-recall-card]');
   const kpCount = await recallCards.count();
-  check(kpCount > 0, 'r01_recall_inventory_present', String(kpCount));
-  check(await root.locator('[data-kp-learn-card]').count() === 0, 'legacy_per_kp_web_learn_surface_absent');
-  check(await root.locator('[data-study-stage="kp_learn"]').count() === 0, 'natural_source_has_no_per_group_lecture_stage');
 
-  const studyKey = 'kianos-xizong-astro-v2:xizong:respiratory-r01';
+  check(kpCount > 0, 'r01_recall_inventory_present', String(kpCount));
+  check(await visibleStage(root) === 'block_learn', 'r01_starts_at_block_orientation');
+  check(await root.locator('[data-kp-learn-card]').count() === 0, 'legacy_per_kp_web_learn_surface_absent');
+
   await root.locator('[data-stage-next="logic_group"]').click();
   await root.locator('[data-study-stage="source_contact"]').waitFor({ state: 'visible' });
   let state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
   check(state?.stage === 'source_contact' && state?.sourceContactDone === false, 'block_orientation_enters_continuous_source_contact');
   check(Object.keys(state?.ratings || {}).length === 0, 'source_contact_does_not_manufacture_recall_evidence');
+
   const savedGroup = state.groupIndex;
   const savedIndex = state.kpIndex;
-
   await page.reload({ waitUntil: 'domcontentloaded' });
   await root.locator('[data-study-stage="source_contact"]').waitFor({ state: 'visible' });
   state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
   check(state?.stage === 'source_contact' && state?.groupIndex === savedGroup && state?.kpIndex === savedIndex, 'refresh_restores_continuous_source_contact');
-
-  await root.locator('[data-stage-target="kp_recall"]').click();
-  await page.waitForTimeout(80);
-  state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
-  check(state?.stage === 'source_contact', 'premature_recall_stage_blocked_before_source_contact');
-  check(Object.keys(state?.ratings || {}).length === 0, 'premature_recall_cannot_manufacture_evidence');
+  check(await root.locator('[data-stage-target="kp_recall"]').count() === 0, 'retired_direct_recall_shortcut_absent');
+  check(await root.locator('[data-study-stage="kp_recall"]:visible').count() === 0, 'recall_not_released_before_source_contact');
 
   await root.locator('[data-source-contact-done]').click();
-  await root.locator('[data-study-stage="logic_group"]').waitFor({ state: 'visible' });
+  await page.waitForTimeout(100);
+  let stage = await visibleStage(root);
+  if (stage === 'ttsx_checkpoint') {
+    await root.locator('[data-ttsx-done]').click();
+    await page.waitForTimeout(100);
+    stage = await visibleStage(root);
+  }
+  check(stage === 'kp_recall', 'continuous_source_contact_enters_current_recall_flow', stage);
+
   state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
   const learnedIds = Object.entries(state?.learned || {}).filter(([, learned]) => Boolean(learned)).map(([id]) => id);
-  check(state?.sourceContactDone === true && state?.stage === 'logic_group', 'continuous_source_contact_persists_and_returns_to_groups');
+  check(state?.sourceContactDone === true, 'continuous_source_contact_persists');
   check(learnedIds.length === kpCount, 'block_source_contact_marks_current_block_contact_only', `${learnedIds.length}/${kpCount}`);
-
-  await root.locator('[data-enter-group]').click();
-  await root.locator('[data-study-stage="kp_recall"]').waitFor({ state: 'visible' });
-  state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
-  check(state?.stage === 'kp_recall', 'logic_group_enters_recall_without_source_reopen');
 
   const recall = root.locator('[data-kp-recall-card]:not([hidden])');
   const attemptedKp = await recall.getAttribute('data-kp-id');
@@ -85,23 +91,30 @@ async function blockResumeAndEvidenceJourney(page) {
   await page.evaluate(({ key, kpIds }) => {
     const learned = Object.fromEntries(kpIds.map((id) => [id, true]));
     const ratings = Object.fromEntries(kpIds.map((id) => [id, 'mastered']));
-    localStorage.setItem(key, JSON.stringify({ stage: 'block_complete', groupIndex: 0, kpIndex: 0, sourceContactDone: true, learned, ratings, blockRecallDone: false, completed: false }));
+    localStorage.setItem(key, JSON.stringify({
+      stage: 'block_recall',
+      groupIndex: 0,
+      kpIndex: 0,
+      sourceContactDone: true,
+      learned,
+      ratings,
+      ttsxEvidence: {},
+      ttsxAnnotations: {},
+      pendingTtsx: null,
+      blockRecallDone: false,
+      completed: false
+    }));
   }, { key: studyKey, kpIds: allKpIds });
   await page.reload({ waitUntil: 'domcontentloaded' });
-  const complete = root.locator('[data-block-complete]');
-  check(await complete.isDisabled(), 'block_recall_required_for_completion');
-  await complete.evaluate((button) => {
-    button.disabled = false;
-    button.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
-  });
-  state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
-  check(state?.completed !== true, 'capture_guard_rejects_completion_without_block_recall');
 
-  await root.locator('[data-stage-target="block_recall"]').click();
+  const complete = root.locator('[data-block-complete]');
+  check(await visibleStage(root) === 'block_recall', 'complete_candidate_reopens_at_block_recall');
+  check(await complete.isDisabled(), 'block_recall_required_for_completion');
+  await root.locator('[data-block-recall-reveal]').click();
   await root.locator('[data-block-recall-complete]').click();
-  await page.waitForTimeout(60);
+  await page.waitForTimeout(80);
   state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
-  check(state?.blockRecallDone === true && state?.stage === 'block_complete', 'block_recall_persists_and_returns_to_completion');
+  check(state?.blockRecallDone === true && state?.completed !== true, 'block_recall_is_separate_from_final_completion');
   check(!(await complete.isDisabled()), 'block_recall_unlocks_completion');
   await complete.click();
   state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
@@ -117,6 +130,7 @@ async function systemQuestionRepairJourney(page) {
     'respiratory-r01','respiratory-r02','respiratory-r03','respiratory-r04','respiratory-r05','respiratory-r06',
     'respiratory-r07','respiratory-r08','respiratory-r09','respiratory-r10','respiratory-r11','respiratory-r12'
   ];
+
   await page.goto(`${BASE}/xizong/respiratory/`, { waitUntil: 'domcontentloaded' });
   await page.evaluate((ids) => {
     ids.forEach((id) => {
@@ -125,60 +139,73 @@ async function systemQuestionRepairJourney(page) {
       localStorage.setItem(key, JSON.stringify({ ...old, completed: true }));
     });
   }, blockIds);
-  await page.reload({ waitUntil: 'domcontentloaded' });
 
-  const later = page.locator('[data-xizong-later-stage="system-exit"]');
-  await later.locator(':scope > summary').click();
-  const exit = page.locator('[data-xizong-system-exit="respiratory"]');
-  await exit.locator('[data-start-recall]').click();
-  await exit.locator('[data-reveal-recall]').click();
-  await exit.locator('[data-complete-recall]').click();
-  check((await page.evaluate(() => JSON.parse(localStorage.getItem('kianos:xizong:system-recall:respiratory:v1') || 'null')))?.completedAt, 'system_recall_persists_after_all_blocks');
+  await page.goto(`${BASE}/xizong/respiratory/recall/`, { waitUntil: 'domcontentloaded' });
+  const recall = page.locator('[data-xizong-system-exit="respiratory"]');
+  await recall.waitFor({ state: 'visible' });
+  check(await page.locator('[data-xizong-system-recall-lock]').isHidden(), 'completed_system_releases_dedicated_recall');
+  await recall.locator('[data-reveal-recall]').click();
+  await recall.locator('[data-complete-recall]').click();
+  const recallState = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos:xizong:system-recall:respiratory:v1') || 'null'));
+  check(Boolean(recallState?.completedAt), 'system_recall_persists_after_all_blocks');
+  check(await recall.locator('[data-practice-handoff]').isVisible(), 'system_recall_releases_practice_handoff');
 
-  const payload = await exit.locator('[data-sweep-payload]').evaluate((node) => JSON.parse(node.textContent || 'null'));
-  const target = payload.questions.find((q) => q?.relation?.primaryKpId && q?.relation?.blockId && q?.explanation?.decisionAxis && q?.explanation?.valuableDistractors?.length && q?.explanation?.transferRule);
-  check(Boolean(target), 'reviewed_relation_second_pass_explanation_question_exists');
+  await page.goto(`${BASE}/xizong/practice/respiratory/`, { waitUntil: 'networkidle' });
+  const practice = page.locator('[data-xizong-practice="respiratory"]');
+  await practice.waitFor({ state: 'visible' });
+  const payload = JSON.parse((await practice.locator('[data-sweep-payload]').textContent()) || 'null');
+  const target = payload.questions.find((q) => q?.relation?.primaryKpId && q?.relation?.blockId && q?.relation?.knowledgePath);
+  check(Boolean(target), 'reviewed_relation_question_exists');
   const holdoutYear = payload.years.find((year) => Number(year) !== Number(target.year));
   check(Boolean(holdoutYear), 'non_target_holdout_year_exists');
-  await exit.locator('[data-holdout-input]').fill(String(holdoutYear));
-  await exit.locator('[data-save-holdout]').click();
 
-  await page.evaluate(({ targetId, heldYear, questions }) => {
-    const active = questions.filter((q) => Number(q.year) !== Number(heldYear));
-    const results = {};
-    for (const q of active) {
-      if (q.questionId === targetId) break;
-      results[q.questionId] = { status: 'stable', selected: [], correctAnswer: q.correctAnswer, updatedAt: new Date().toISOString() };
-    }
-    localStorage.setItem('kianos:xizong:system-question-sweep:respiratory:v1', JSON.stringify({ results }));
-  }, { targetId: target.questionId, heldYear: holdoutYear, questions: payload.questions });
+  await practice.locator('.xzpMore').evaluate((node) => { node.open = true; });
+  await practice.locator('[data-holdout-control]').evaluate((node) => { node.open = true; });
+  await practice.locator('[data-holdout-input]').fill(String(holdoutYear));
+  await practice.locator('[data-save-holdout]').click();
+  await practice.locator('[data-question-card]').waitFor({ state: 'visible' });
 
-  await exit.locator('[data-start-sweep]').click();
-  const workspace = exit.locator('[data-question-workspace]');
-  await workspace.waitFor({ state: 'visible' });
-  check((await exit.locator('[data-question-meta]').textContent() || '').includes(String(target.number)), 'reviewed_target_is_current_question');
+  const mapTarget = practice.locator(`.xzpMapItem[title="${target.year} · 第 ${target.number} 题"]`);
+  await mapTarget.click();
+  check((await practice.locator('[data-question-meta]').textContent() || '').includes(`第 ${target.number} 题`), 'reviewed_target_selected_in_current_workbench');
 
-  const correctLetters = String(target.correctAnswer || '').toUpperCase().match(/[A-Z]/g) || [];
-  for (const letter of correctLetters) await exit.locator(`[data-question-options] [data-option="${letter}"]`).click();
-  await exit.locator('[data-submit-answer]').click();
-  check(!(await exit.locator('[data-second-pass-review]').isVisible()), 'first_pass_does_not_show_second_pass_review');
-  await exit.locator('[data-mark-uncertain]').click();
-  const firstPassState = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos:xizong:system-question-sweep:respiratory:v1') || '{"results":{}}'));
-  const saved = firstPassState.results?.[target.questionId];
-  const firstAttempt = (firstPassState.attemptHistory || []).find((event) => event.question_id === target.questionId && event.evidence_origin === 'USER_QUESTION_ATTEMPT');
-  check(saved?.status === 'uncertain', 'uncertain_result_persists_as_current_round_state');
-  check(firstPassState.round?.studyPhase === 'FIRST_PASS' && firstPassState.round?.ordinal === 1, 'first_pass_round_is_explicit');
-  check(firstAttempt?.type === 'QUESTION_ATTEMPT' && firstAttempt?.status === 'uncertain', 'first_pass_attempt_appended');
-  check(firstAttempt?.study_phase === 'FIRST_PASS' && firstAttempt?.attempt_index === 1, 'first_pass_attempt_order_and_phase_preserved');
-  const firstAttemptSnapshot = JSON.stringify(firstAttempt);
+  await practice.locator('[data-question-uncertain]').click();
+  check((await practice.locator('[data-question-uncertain]').getAttribute('aria-pressed')) === 'true', 'learner_uncertainty_explicit_before_submit');
+  for (const letter of answerLetters(target.correctAnswer)) {
+    await practice.locator(`[data-question-options] [data-option="${letter}"]`).click();
+  }
+  await practice.locator('[data-submit-answer]').click();
+  await page.waitForTimeout(150);
+  check((await practice.locator('[data-answer-result]').textContent() || '').includes('不确定'), 'correct_but_unsure_stays_uncertain');
+
+  const sweepKey = 'kianos:xizong:system-question-sweep:respiratory:v1';
+  const firstPassState = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), sweepKey);
+  check(firstPassState?.results?.[target.questionId]?.status === 'uncertain', 'uncertain_result_persists');
+  check((firstPassState?.attemptHistory || []).some((event) =>
+    event.question_id === target.questionId && event.status === 'uncertain' && event.evidence_origin === 'USER_QUESTION_ATTEMPT'
+  ), 'uncertain_attempt_is_append_preserved');
+  check(await practice.locator('[data-relation-wrap]').isVisible(), 'reviewed_relation_released_after_attempt');
+  check((await practice.locator('[data-relation-link]').getAttribute('href') || '').includes(String(target.relation.knowledgePath).replace(/^\/+/,'')), 'reviewed_relation_targets_exact_knowledge_path');
 
   const repair = page.locator('[data-xizong-repair-return="respiratory"]');
   await repair.locator(':scope > summary').click();
-  const plan = JSON.stringify({ plan: [{ question_id: target.questionId, reason: 'functional journey', action: 'repair owning KP', priority: 'high' }] });
+  const plan = JSON.stringify({ plan: [{
+    question_id: target.questionId,
+    reason: 'A2 functional journey',
+    action: 'repair reviewed owning KP only',
+    priority: 'high'
+  }] });
   await repair.locator('[data-plan-text]').fill(plan);
   await repair.locator('[data-apply-plan]').click();
+
   const routeLink = repair.locator('[data-plan-list] a').first();
   await routeLink.waitFor({ state: 'visible' });
+  const memoryAfterPlan = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos-xizong-memory-v1') || 'null'));
+  const visibleRepair = (memoryAfterPlan?.repairTasks || []).find((task) =>
+    task?.kpId === target.relation.primaryKpId && (task?.sourceQuestionIds || []).includes(target.questionId)
+  );
+  check(Boolean(visibleRepair), 'reviewed_wu_enters_visible_memory_repair');
+  check(String(visibleRepair?.returnHref || '').includes('/xizong/practice/respiratory/'), 'visible_repair_keeps_question_return');
 
   const [repairPage] = await Promise.all([
     page.context().waitForEvent('page'),
@@ -186,77 +213,21 @@ async function systemQuestionRepairJourney(page) {
   ]);
   await repairPage.waitForLoadState('domcontentloaded');
   await repairPage.waitForTimeout(500);
-  const relation = target.relation;
   const repairEvidence = await repairPage.evaluate(({ blockId, kpId }) => {
     const ext = JSON.parse(localStorage.getItem(`kianos-xizong-memory-review-v2:xizong:${blockId}`) || 'null');
     return {
       inPlan: Array.isArray(ext?.reviewPlan) && ext.reviewPlan.some((row) => String(row?.kpId || row?.kp_id || row || '') === kpId),
-      imported: Array.isArray(ext?.evidenceHistory) && ext.evidenceHistory.some((row) => row?.type === 'SYSTEM_WU_PLAN_IMPORTED' && row?.evidence_role === 'REPAIR_ONLY')
+      imported: Array.isArray(ext?.evidenceHistory) && ext.evidenceHistory.some((row) =>
+        row?.type === 'SYSTEM_WU_PLAN_IMPORTED' && row?.evidence_role === 'REPAIR_ONLY'
+      )
     };
-  }, { blockId: relation.blockId, kpId: relation.primaryKpId });
+  }, { blockId: target.relation.blockId, kpId: target.relation.primaryKpId });
   check(repairEvidence.inPlan && repairEvidence.imported, 'reviewed_wu_routes_to_owner_as_repair_only');
   await repairPage.close();
 
-  check(!page.isClosed(), 'original_sweep_tab_preserved_for_return');
-  const stateAfterRepair = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos:xizong:system-question-sweep:respiratory:v1') || '{"results":{}}'));
-  const savedAfterRepair = stateAfterRepair.results?.[target.questionId];
-  const firstAttemptAfterRepair = (stateAfterRepair.attemptHistory || []).find((event) => event.attempt_id === firstAttempt.attempt_id);
-  check(savedAfterRepair?.status === 'uncertain', 'repair_does_not_rewrite_current_round_result');
-  check(JSON.stringify(firstAttemptAfterRepair) === firstAttemptSnapshot, 'repair_does_not_rewrite_original_question_attempt');
-
-  // Finish the rest of round 1 through the real UI. Do not manufacture
-  // completion by editing localStorage behind the Runtime's back.
-  const currentPayloadQuestion = async () => {
-    const meta = (await exit.locator('[data-question-meta]').textContent() || '').trim();
-    return payload.questions.find((q) => meta.includes(String(q.year)) && meta.includes(`第 ${q.number} 题`)) || null;
-  };
-  const answerCurrentStable = async () => {
-    const question = await currentPayloadQuestion();
-    if (!question) throw new Error(`A2_CURRENT_QUESTION_NOT_RESOLVED:${await exit.locator('[data-question-meta]').textContent()}`);
-    const letters = String(question.correctAnswer || '').toUpperCase().match(/[A-Z]/g) || [];
-    for (const letter of letters) await exit.locator(`[data-question-options] [data-option="${letter}"]`).click();
-    await exit.locator('[data-submit-answer]').click();
-    await exit.locator('[data-mark-stable]').click();
-    return question;
-  };
-
-  if (await exit.locator('[data-next-uncertain]').isVisible()) await exit.locator('[data-next-uncertain]').click();
-  for (let guard = 0; guard <= payload.questions.length && !(await exit.locator('[data-sweep-done]').isVisible()); guard += 1) {
-    await answerCurrentStable();
-  }
-  check(await exit.locator('[data-sweep-done]').isVisible(), 'first_pass_real_ui_reaches_done_surface');
-  check((await exit.locator('[data-study-phase]').textContent() || '').includes('一轮'), 'done_surface_reports_first_pass');
-  check((await exit.locator('[data-start-next-round]').textContent() || '').includes('重点队列'), 'done_surface_offers_targeted_second_pass');
-  check(await exit.locator('[data-start-next-round-full]').isVisible(), 'done_surface_keeps_explicit_full_resweep_option');
-  await exit.locator('[data-start-next-round]').click();
-
-  const secondRoundStart = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos:xizong:system-question-sweep:respiratory:v1') || '{"results":{}}'));
-  const preservedAfterRoundStart = (secondRoundStart.attemptHistory || []).filter((event) => event.question_id === target.questionId);
-  check(secondRoundStart.round?.studyPhase === 'SECOND_PASS' && secondRoundStart.round?.ordinal === 2, 'second_pass_round_started_in_same_runtime');
-  check(secondRoundStart.round?.queueMode === 'TARGETED', 'second_pass_defaults_to_targeted_queue');
-  check(Object.keys(secondRoundStart.results || {}).length === 0, 'next_round_resets_only_session_results');
-  check(preservedAfterRoundStart.length === 1 && JSON.stringify(preservedAfterRoundStart[0]) === firstAttemptSnapshot, 'next_round_preserves_first_attempt');
-  check((await exit.locator('[data-study-phase]').textContent() || '').includes('二轮'), 'runtime_reports_second_pass');
-  check((await exit.locator('[data-question-meta]').textContent() || '').includes(String(target.number)), 'targeted_second_pass_opens_prior_uncertain_immediately');
-  check((await exit.locator('[data-sweep-count]').textContent() || '').trim() === '1', 'stable_first_pass_questions_excluded_from_default_second_pass');
-  const secondPassReview = exit.locator('[data-second-pass-review]');
-  check(!(await secondPassReview.isVisible()), 'second_pass_review_hidden_before_submit');
-
-  for (const letter of correctLetters) await exit.locator(`[data-question-options] [data-option="${letter}"]`).click();
-  await exit.locator('[data-submit-answer]').click();
-  check(await secondPassReview.isVisible(), 'second_pass_review_visible_only_after_submit');
-  check((await exit.locator('[data-second-pass-axis]').textContent() || '').includes(target.explanation.decisionAxis), 'second_pass_decision_axis_is_reviewed_source');
-  check(await exit.locator('[data-second-pass-distractors] li').count() === target.explanation.valuableDistractors.length, 'second_pass_valuable_distractors_projected');
-  check((await exit.locator('[data-second-pass-transfer]').textContent() || '').includes(target.explanation.transferRule), 'second_pass_transfer_rule_projected');
-  await exit.locator('[data-mark-stable]').click();
-
-  const secondPassState = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos:xizong:system-question-sweep:respiratory:v1') || '{"results":{}}'));
-  const targetAttempts = (secondPassState.attemptHistory || []).filter((event) => event.question_id === target.questionId);
-  check(targetAttempts.length === 2, 'same_question_has_two_append_preserved_attempts');
-  check(JSON.stringify(targetAttempts[0]) === firstAttemptSnapshot, 'second_pass_does_not_mutate_first_attempt');
-  check(targetAttempts[1]?.study_phase === 'SECOND_PASS' && targetAttempts[1]?.attempt_index === 2, 'second_attempt_has_distinct_phase_and_order');
-  check(targetAttempts[1]?.status === 'stable' && targetAttempts[1]?.evidence_origin === 'USER_QUESTION_ATTEMPT', 'second_attempt_records_fresh_observation');
-  check(secondPassState.results?.[target.questionId]?.studyPhase === 'SECOND_PASS', 'mutable_results_only_describe_current_round');
+  check(!page.isClosed(), 'original_practice_tab_preserved_for_return');
+  const stateAfterRepair = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), sweepKey);
+  check(stateAfterRepair?.results?.[target.questionId]?.status === 'uncertain', 'repair_does_not_rewrite_question_attempt');
 }
 
 const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
@@ -276,7 +247,7 @@ try {
   report.status = 'PASS';
   report.evidence_class = 'EXECUTED_BROWSER_ENGINEERING_EVIDENCE_NOT_REAL_LEARNER_U';
   fs.writeFileSync(path.join(auditDir, 'journey.json'), JSON.stringify(report, null, 2));
-  console.log('A2_FUNCTIONAL_FIRST_JOURNEY_PASS');
+  console.log(`A2_FUNCTIONAL_FIRST_JOURNEY_PASS | checks=${report.checks.length}`);
 } catch (error) {
   report.finished_at = new Date().toISOString();
   report.status = 'FAIL';

@@ -52,7 +52,9 @@ const blockRuntime = read('static-web/src/components/XizongBlockV6.astro');
 assert(blockRuntime.includes("const groupId = kpData[index]?.groupId || '';"), 'runtime-does-not-route-by-kp-group-id');
 assert(blockRuntime.includes("const firstKpId = Array.isArray(group?.kpIds) ? group.kpIds[0] : '';"), 'runtime-group-entry-does-not-use-first-kp-id');
 assert(blockRuntime.includes("const firstMissingId = ids.find((id) => !state.ratings?.[id]);"), 'runtime-group-close-does-not-check-missing-recall');
-assert(blockRuntime.includes("window.setTimeout(() => setStage('group_close'), 120);"), 'runtime-group-close-transition-missing');
+assert(blockRuntime.includes('state.groupIndex += 1;') && blockRuntime.includes('setStage(stageForSelectedGroup());'), 'runtime-next-group-transition-missing');
+assert(blockRuntime.includes("window.setTimeout(() => setStage('block_recall'), 120);"), 'runtime-final-group-to-block-recall-missing');
+assert(!blockRuntime.includes("setStage('group_close')"), 'runtime-retired-group-close-stage-regressed');
 assert(!blockRuntime.includes('const ordinal = index + 1;'), 'runtime-still-confuses-array-position-with-stable-kp-ordinal');
 assert(!blockRuntime.includes('if ((state.kpIndex + 1) >= Number(group?.end || totalKp))'), 'runtime-still-closes-group-by-array-position');
 
@@ -62,8 +64,11 @@ const lastLocation = read('static-web/src/components/XizongLastLocation.astro');
 const homeTools = read('static-web/src/components/XizongHomeTools.astro');
 assert(lastLocation.includes("localStorage.setItem('kianos-xizong-last-location-v1'"), 'last-location-not-persisted');
 assert(lastLocation.includes('href: window.location.pathname'), 'last-location-missing-route');
+assert(lastLocation.includes('requiredSystemRecall'), 'practice-resume-release-guard-missing');
+assert(lastLocation.includes('requiredBlocks.every'), 'system-recall-resume-release-guard-missing');
 assert(homeTools.includes("localStorage.getItem('kianos-xizong-last-location-v1')"), 'home-resume-does-not-read-last-location');
 assert(homeTools.includes('link.href = last.href;'), 'home-resume-does-not-return-to-last-route');
+assert(homeTools.includes('if (last.resumeKind)'), 'home-resume-does-not-render-explicit-stage-kind');
 assert(blockRuntime.includes("JSON.parse(localStorage.getItem(storageKey) || 'null')"), 'block-resume-does-not-restore-state');
 assert(blockRuntime.includes("setKpIndex(state.kpIndex || 0); setStage(state.stage || 'block_learn');"), 'block-resume-does-not-restore-stage-and-kp');
 
@@ -81,7 +86,7 @@ console.log([
   'Xizong Functional First regression PASS',
   'B5=nonnumeric-order-routed-by-canonical-group-id',
   'BlockComplete=formal-contact+recall+block-recall-fail-closed',
-  'Resume=last-route+block-stage+kp-state',
+  'Resume=last-route+released-stage+block-stage+kp-state',
   'Evidence=DETERMINISTIC_RUNTIME_CONTRACT',
   'U=NOT_TESTED_BY_THIS_SCRIPT'
 ].join(' | '));

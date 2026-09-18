@@ -43,7 +43,7 @@ Na / K / Ca 等电解质
 
 ## 2｜一张脑内母模型
 
-Current A3 的 mother model 可以直接压成：
+A3 的 mother model 可以直接压成：
 
 ```text
 血液进入肾脏
@@ -56,7 +56,7 @@ Current A3 的 mother model 可以直接压成：
 → 尿路负责运送、储存与排空
 ```
 
-历史 Guide 里“**大量滤过 → 绝大部分回收 → 少量精细调节 → 形成终尿**”是很好的 beginner explanation。这里保留这套解释动作，但具体滤过、转运、激素、酸碱和疾病语义全部服从 Current A3 owner。
+历史 Guide 里“**大量滤过 → 绝大部分回收 → 少量精细调节 → 形成终尿**”是很好的 beginner explanation。这里保留这套解释动作，但具体滤过、转运、激素、酸碱和疾病内容以当前 A3 系统模型为准。
 
 ---
 
@@ -103,7 +103,7 @@ Current A3 的 mother model 可以直接压成：
 
 ## 4｜Failure Map：第一故障发生在哪
 
-Current A3 可以先压成 9 类故障：
+A3 可以先压成 9 类故障：
 
 1. **肾灌注不足**：血送不到肾或有效动脉血容量不足；
 2. **滤过动力 / Kf 异常**：滤过量下降；
@@ -160,10 +160,10 @@ System Guide 到 Block 入口就停。
 ```text
 中心问题
 → Block Framework / 最小模型
-→ 按 A3 learning owner 规定的 Source contact 学原讲义
+→ 按当前 A3 学习路径规定的 Source contact 学原讲义
 → Logic Group / KP 理解与闭卷恢复
 → Group / Block Closure
-→ Current-owned Memory Routing
+→ 进入 Memory Routing
 ```
 
 A3 的空间、方向和变量非常多，所以 Framework 尤其重要：先知道“血在哪、滤液在哪、这一段做什么、这个变量往哪变”，再去记具体 transporter、数字或疾病 pattern。
@@ -172,7 +172,7 @@ A3 的空间、方向和变量非常多，所以 Framework 尤其重要：先知
 
 ## 7｜Memory Routing：不要让精确细节堵住肾单位主线
 
-若 Current Block 显式给出：
+若当前 Block 显式给出：
 
 - **MI-G**：后续 Block 会直接调用，当前必须带走；
 - **MI-D**：需要准确记住，但不应阻断当前机制推进。
@@ -184,7 +184,7 @@ A3 的空间、方向和变量非常多，所以 Framework 尤其重要：先知
 → 先作为 gating cognition 建稳
 
 精确正常值 / 完整名单 / pattern 细节 / 术式与阈值
-→ 只有 Current owner 明确归位后再进入对应 Memory 路由
+→ 只有当前学习内容明确归位后再进入对应 Memory 路由
 ```
 
 这不是降低精确记忆要求，而是防止“精确记忆”把肾单位这条连续电影拆碎。

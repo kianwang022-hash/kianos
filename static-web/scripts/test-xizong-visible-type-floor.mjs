@@ -93,10 +93,18 @@ try {
   await scanVisibleLearnerText(root, 'source_contact_kp_companion');
 
   await root.locator('[data-source-contact-done]').click();
-  await root.locator('[data-study-stage="logic_group"]').waitFor({ state: 'visible' });
-  await scanVisibleLearnerText(root, 'logic_group_with_aux');
+  await page.waitForFunction(() => {
+    const host = document.querySelector('[data-xizong-v6-block]');
+    const ttsx = host?.querySelector('[data-study-stage="ttsx_checkpoint"]');
+    const recall = host?.querySelector('[data-study-stage="kp_recall"]');
+    return (ttsx instanceof HTMLElement && !ttsx.hidden) || (recall instanceof HTMLElement && !recall.hidden);
+  });
+  const ttsxStage = root.locator('[data-study-stage="ttsx_checkpoint"]');
+  if (await ttsxStage.isVisible()) {
+    await scanVisibleLearnerText(root, 'ttsx_checkpoint');
+    await root.locator('[data-ttsx-done]').click();
+  }
 
-  await root.locator('[data-enter-group]').click();
   await root.locator('[data-study-stage="kp_recall"]').waitFor({ state: 'visible' });
   await scanVisibleLearnerText(root, 'kp_recall_front');
 

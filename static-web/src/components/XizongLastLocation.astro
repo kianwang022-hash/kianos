@@ -1,20 +1,55 @@
 ---
-const { system, block = null } = Astro.props;
+const {
+  system = null,
+  block = null,
+  resumeKind = '',
+  resumeTitle = '',
+  resumeDetail = '',
+  resumeStage = '',
+  resumePosition = '',
+  resumeAction = '',
+  requiredBlockIds = [],
+  requiredSystemRecall = ''
+} = Astro.props;
+const systemId = system?.systemId || '';
+const requiredBlocks = Array.isArray(requiredBlockIds) ? requiredBlockIds.filter(Boolean) : [];
 ---
 <span
   data-xizong-last-location
-  data-system-id={system.systemId}
-  data-system-title={system.title}
-  data-system-canonical={system.canonicalId}
+  data-system-id={systemId}
+  data-system-title={system?.title || ''}
+  data-system-canonical={system?.canonicalId || ''}
   data-block-slug={block?.slug || ''}
   data-block-label={block?.label || ''}
   data-block-title={block?.title || ''}
+  data-resume-kind={resumeKind}
+  data-resume-title={resumeTitle}
+  data-resume-detail={resumeDetail}
+  data-resume-stage={resumeStage}
+  data-resume-position={resumePosition}
+  data-resume-action={resumeAction}
+  data-required-system-recall={requiredSystemRecall}
   hidden
 ></span>
+<script type="application/json" data-xizong-last-location-required-blocks set:html={JSON.stringify(requiredBlocks)}></script>
 
 <script>
   const node = document.querySelector('[data-xizong-last-location]');
   if (node instanceof HTMLElement) {
+    const readJson = (key, fallback = null) => {
+      try { return JSON.parse(localStorage.getItem(key) || '') || fallback; } catch { return fallback; }
+    };
+    let requiredBlocks = [];
+    try { requiredBlocks = JSON.parse(document.querySelector('[data-xizong-last-location-required-blocks]')?.textContent || '[]'); } catch {}
+
+    const requiredSystemRecall = node.getAttribute('data-required-system-recall') || '';
+    const blocksReady = !requiredBlocks.length || requiredBlocks.every((blockId) =>
+      Boolean(readJson(`kianos-xizong-astro-v2:xizong:${blockId}`, {})?.completed)
+    );
+    const recallReady = !requiredSystemRecall || Boolean(
+      readJson(`kianos:xizong:system-recall:${requiredSystemRecall}:v1`, {})?.completedAt
+    );
+
     const value = {
       systemId: node.getAttribute('data-system-id') || '',
       systemTitle: node.getAttribute('data-system-title') || '',
@@ -22,10 +57,17 @@ const { system, block = null } = Astro.props;
       blockSlug: node.getAttribute('data-block-slug') || '',
       blockLabel: node.getAttribute('data-block-label') || '',
       blockTitle: node.getAttribute('data-block-title') || '',
+      resumeKind: node.getAttribute('data-resume-kind') || '',
+      resumeTitle: node.getAttribute('data-resume-title') || '',
+      resumeDetail: node.getAttribute('data-resume-detail') || '',
+      resumeStage: node.getAttribute('data-resume-stage') || '',
+      resumePosition: node.getAttribute('data-resume-position') || '',
+      resumeAction: node.getAttribute('data-resume-action') || '',
       href: window.location.pathname,
       observed_at: new Date().toISOString()
     };
-    if (value.systemId) {
+
+    if ((value.systemId || value.resumeKind) && blocksReady && recallReady) {
       try { localStorage.setItem('kianos-xizong-last-location-v1', JSON.stringify(value)); } catch {}
     }
   }

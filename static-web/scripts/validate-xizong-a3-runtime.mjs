@@ -87,18 +87,24 @@ const enhancerUi = read('static-web/src/components/XizongStudyEnhancer.astro');
 const stageGuard = read('static-web/src/components/XizongRuntimeStageGuard.astro');
 const blockEvidenceGuard = read('static-web/src/components/XizongBlockEvidenceGuard.astro');
 const systemEvidenceGuard = read('static-web/src/components/XizongSystemEvidenceGuard.astro');
-const exitUi = read('static-web/src/components/XizongSystemExitRuntime.astro');
 const repairUi = read('static-web/src/components/XizongSystemRepairReturn.astro');
 const repairBridge = read('static-web/src/components/XizongRepairInboxBridge.astro');
-const memoryUi = read('static-web/src/components/XizongMemoryReviewV6.astro');
+const memoryModel = read('static-web/src/lib/xizongMemoryModel.mjs');
+const memoryWorkspace = read('static-web/src/components/XizongMemoryWorkspace.astro');
+const practiceUi = read('static-web/src/components/XizongPracticeWorkbench.astro');
 const lastLocation = read('static-web/src/components/XizongLastLocation.astro');
+const homeTools = read('static-web/src/components/XizongHomeTools.astro');
 const blockPage = read('static-web/src/pages/xizong/[system]/[block].astro');
+const systemPage = read('static-web/src/pages/xizong/[system]/index.astro');
+const recallPage = read('static-web/src/pages/xizong/[system]/recall.astro');
+const practicePage = read('static-web/src/pages/xizong/practice/[system].astro');
 
-has(blockUi, "setStage('group_close')", 'logic-group-close-transition');
-has(blockUi, "setStage('kp_recall')", 'kp-recall-transition');
-has(blockUi, "setStage('block_recall')", 'block-recall-transition');
-has(blockUi, "setStage('block_complete')", 'block-complete-transition');
-has(blockUi, '不要按 KP 来回切换 App', 'logic-group-lecture-continuity');
+has(blockUi, "let state = { stage: 'block_learn', groupIndex: 0, kpIndex: 0, learned: {}, ratings: {}, ttsxEvidence: {}, ttsxAnnotations: {}, pendingTtsx: null, blockRecallDone: false, completed: false }", 'block-initial-state');
+has(blockUi, 'state.sourceContactDone = true;', 'source-contact-completion-write');
+has(blockUi, "setStage(queued ? 'ttsx_checkpoint' : 'kp_recall')", 'kp-recall-transition');
+has(blockUi, "window.setTimeout(() => setStage('block_recall'), 120)", 'block-recall-transition');
+has(blockUi, 'state.completed = true;', 'block-complete-write');
+has(blockUi, 'data-source-contact-mode={sourceContactMode}', 'source-contact-mode-missing');
 has(blockUi, 'data-group-lecture-done', 'logic-group-lecture-return');
 has(enhancerUi, 'button.disabled = !coreReady || Boolean(study.completed);', 'block-completion-ui-gate');
 assert(!enhancerUi.includes('lectureRead'), 'legacy-block-lecture-confirmation-remains');
@@ -111,8 +117,8 @@ has(stageGuard, "target.closest('[data-block-recall-complete]')", 'premature-blo
 has(stageGuard, "target.closest('[data-start-recall]')", 'system-recall-start-guard');
 has(stageGuard, "target.closest('[data-reveal-recall]')", 'system-recall-reveal-guard');
 has(stageGuard, "target.closest('[data-complete-recall]')", 'system-recall-completion-guard');
-has(stageGuard, "target.closest('[data-start-sweep]')", 'system-sweep-completion-guard');
-has(stageGuard, 'if (completed.length < blockIds.length)', 'whole-system-prerequisite-guard');
+has(stageGuard, 'const ready = completed.length >= blockIds.length;', 'system-recall-readiness-missing');
+has(stageGuard, 'if (!ready)', 'whole-system-prerequisite-guard');
 
 has(blockEvidenceGuard, "block?.learningSupportSourceHash || ''", 'block-learning-support-not-versioned');
 has(blockEvidenceGuard, 'localStorage.removeItem(repairInboxKey);', 'stale-block-repair-inbox-not-invalidated');
@@ -123,11 +129,18 @@ has(systemEvidenceGuard, 'localStorage.removeItem(recallKey);', 'stale-system-re
 has(systemEvidenceGuard, 'localStorage.removeItem(sweepKey);', 'stale-system-sweep-not-invalidated');
 has(systemEvidenceGuard, 'stale_block_repair_inboxes', 'stale-system-repair-inbox-not-archived');
 
-has(exitUi, "let recallState = readJson(recallKey, { completedAt: null });", 'system-recall-default-progress');
-has(exitUi, "let holdoutYears = readJson(holdoutKey, []);", 'holdout-not-empty-by-default');
-matches(exitUi, /startSweep\.disabled\s*=\s*!\(recallState\.completedAt\s*&&\s*holdoutYears\.length\)/, 'question-sweep-prerequisite-gate');
-has(exitUi, ".filter(({ result }) => result && ['wrong', 'uncertain'].includes(result.status))", 'wu-only-handoff');
-has(exitUi, '暂无审核过的精确 KP 回链：保留题号给 Chat，不让网页自己猜。', 'no-guessed-repair-route');
+has(recallPage, 'data-xizong-system-recall-lock hidden', 'system-recall-lock-missing');
+has(recallPage, '<XizongRuntimeStageGuard system={system} />', 'system-recall-guard-not-mounted');
+has(practicePage, '<XizongSystemEvidenceGuard system={system} sweep={sweep} />', 'practice-evidence-guard-not-mounted');
+has(practiceUi, "if (data?.scopeKind === 'SYSTEM')", 'system-practice-release-gate-missing');
+has(practiceUi, "kianos:xizong:system-recall:", 'system-practice-does-not-read-recall-evidence');
+has(practiceUi, "if (!recallState?.completedAt)", 'system-practice-does-not-fail-closed-before-recall');
+has(practiceUi, "let holdoutYears = data.allowHoldout ? [] : readJson(holdoutKey, []);", 'holdout-not-empty-by-default');
+has(practiceUi, "if (data.holdoutRequired !== false && !holdoutYears.length) { renderGate(); return; }", 'question-sweep-prerequisite-gate');
+has(practiceUi, 'data-question-uncertain', 'uncertain-control-missing');
+has(practiceUi, "currentUncertain ? 'uncertain' : 'stable'", 'correct-unsure-evidence-missing');
+has(repairUi, ".filter(([, row]) => row && ['wrong', 'uncertain'].includes(row.status))", 'wu-only-handoff');
+has(repairUi, '暂无审核过的精确 Block/KP 回链：保留题号给 Chat，不自动猜。', 'no-guessed-repair-route');
 
 has(repairUi, 'allowed.has(row.questionId)', 'chat-plan-not-scoped-to-real-wu');
 has(repairUi, '!relation?.blockId || !relation?.primaryKpId', 'repair-route-not-reviewed-relation-only');
@@ -137,8 +150,15 @@ has(repairBridge, "type: 'SYSTEM_WU_PLAN_IMPORTED'", 'repair-inbox-import-not-ev
 has(repairBridge, "window.addEventListener('storage'", 'open-block-tab-repair-return-missing');
 has(repairBridge, 'window.location.reload();', 'repair-return-does-not-rebuild-block-memory-state');
 has(blockPage, '<XizongRepairInboxBridge block={projection} />', 'repair-inbox-bridge-not-mounted');
-has(memoryUi, "type: 'CHAT_PLAN_REVIEW', evidence_role: 'REPAIR_ONLY'", 'repair-evidence-overwrites-mastery');
+has(repairUi, 'XIZONG_MEMORY_STORAGE_KEY', 'visible-memory-repair-delivery-missing');
+has(repairUi, "origin: 'SYSTEM_WU_CHAT_RETURN'", 'visible-memory-repair-origin-missing');
+has(memoryModel, 'export function completeRepairTask', 'visible-repair-completion-owner-missing');
+has(memoryWorkspace, 'data-repair-complete', 'visible-repair-completion-control-missing');
+has(systemEvidenceGuard, 'stale_visible_memory_repairs', 'stale-visible-repair-not-versioned');
+has(enhancerUi, "schema: 'kianos.xizong.study_packet.v3'", 'live-study-packet-missing');
 has(lastLocation, "localStorage.setItem('kianos-xizong-last-location-v1', JSON.stringify(value))", 'resume-location-not-persisted');
+has(lastLocation, 'requiredSystemRecall', 'practice-resume-release-guard-missing');
+has(homeTools, 'if (last.resumeKind)', 'resume-stage-kind-not-rendered');
 
 console.log([
   'A3 Runtime acceptance probe PASS',

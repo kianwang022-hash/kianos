@@ -122,7 +122,8 @@ try {
   await cdp.navigate(`${BASE}/xizong/circulation/b02/`);
   await cdp.evaluate(`(()=>{for(const key of Object.keys(localStorage))if(key.includes('xizong'))localStorage.removeItem(key);sessionStorage.clear();})()`);
   await cdp.reload();
-  await cdp.evaluate(`localStorage.setItem(${js(b2StudyKey)}, JSON.stringify({stage:'kp_recall',groupIndex:0,kpIndex:0,learned:${JSON.stringify(Object.fromEntries(firstGroupIds.map((id) => [id, true])))},ratings:{},blockRecallDone:false,completed:false}))`);
+  const allB2KpIds = b2.kpRecords.map((row) => row.kpId);
+  await cdp.evaluate(`localStorage.setItem(${js(b2StudyKey)}, JSON.stringify({stage:'kp_recall',groupIndex:0,kpIndex:0,sourceContactDone:true,learned:${JSON.stringify(Object.fromEntries(allB2KpIds.map((id) => [id, true])))},ratings:{},ttsxEvidence:{},ttsxAnnotations:{},pendingTtsx:null,blockRecallDone:false,completed:false}))`);
   await cdp.reload();
   check(await cdp.evaluate(`document.querySelectorAll('.xv6MemoryReview').length`) === 0, 'retired_after_learn_ui_absent');
   check(await cdp.evaluate(`Boolean(document.querySelector('[data-xizong-recall-evidence-bridge]')?.hidden)`), 'recall_evidence_bridge_is_nonvisual');
@@ -146,6 +147,28 @@ try {
   let study = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(b2StudyKey)})||'null')`);
   check(study?.ratings?.[firstKp] === 'unknown', 'latest_recall_state_remains_unknown');
   check(!(ext?.evidenceHistory || []).some((row) => row.type === 'MEMORY' || row.type === 'CHAT_PLAN_REVIEW'), 'block_recall_does_not_manufacture_retired_after_learn_evidence');
+
+  // The live Block dock must export Chat-readable learner state from the current runtime,
+  // not from the retired After Learn surface.
+  check(await cdp.evaluate(`getComputedStyle(document.querySelector('.kianosCurrentDock')).display === 'none'`), 'engineering_current_dock_hidden_on_xizong');
+  await cdp.evaluate(`(()=>{Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async(text)=>{globalThis.__xizongStudyPacket=String(text);}}});})()`);
+  await cdp.evaluate(clickExpr('[data-copy-study-packet]'));
+  await sleep(120);
+  const packetText = await cdp.evaluate(`globalThis.__xizongStudyPacket || ''`);
+  const studyPacket = JSON.parse(packetText);
+  check(studyPacket?.schema === 'kianos.xizong.study_packet.v3', 'live_study_packet_schema');
+  check(studyPacket?.current?.block_id === 'circulation-b02', 'live_study_packet_block_identity', String(studyPacket?.current?.block_id || ''));
+  check(studyPacket?.learning_state?.current_stage === 'kp_recall', 'live_study_packet_stage', String(studyPacket?.learning_state?.current_stage || ''));
+  const expectedResumeKp = b2.kpRecords[Math.max(0, Math.min(b2.kpRecords.length - 1, Number(study?.kpIndex || 0)))]?.kpId || '';
+  check(studyPacket?.learning_state?.resume?.kp_id === expectedResumeKp, 'live_study_packet_exact_kp_resume', `${studyPacket?.learning_state?.resume?.kp_id || ''}/${expectedResumeKp}`);
+  check(studyPacket?.learning_state?.source_contact && Object.prototype.hasOwnProperty.call(studyPacket.learning_state.source_contact, 'whole_block_confirmed'), 'live_study_packet_source_contact_state');
+  check(studyPacket?.learning_state?.ttsx && Object.prototype.hasOwnProperty.call(studyPacket.learning_state.ttsx, 'evidence'), 'live_study_packet_ttsx_state');
+  const packetKp = (studyPacket?.kp_evidence || []).find((row) => row.kp_id === firstKp);
+  check(packetKp?.recall_rating === 'unknown', 'live_study_packet_latest_recall');
+  check(Number(packetKp?.repeated_unstable_count || 0) >= 2, 'live_study_packet_repeated_instability', String(packetKp?.repeated_unstable_count || 0));
+  check((studyPacket?.block_evidence_history || []).filter((row) => row.type === 'KP_RECALL' && row.kp_id === firstKp).length >= 2, 'live_study_packet_preserves_attempt_history');
+  check(Array.isArray(studyPacket?.practice?.wrong_uncertain), 'live_study_packet_practice_summary_present');
+
   const memoryBeforeComplete = await cdp.evaluate(`(()=>{try{return JSON.parse(localStorage.getItem(${js(XIZONG_MEMORY_STORAGE_KEY)})||'null')}catch{return null}})()`);
   check(!memoryBeforeComplete?.releasedBlocks?.['circulation-b02'], 'incomplete_block_does_not_release_memory');
 
@@ -159,7 +182,7 @@ try {
   check(Boolean(reviewedBlockMeta), 'reviewed_relation_targets_current_a1_block', reviewedQuestion.relation.blockId);
   const targetObjectId = `xizong:${reviewedQuestion.relation.blockId}`;
   const targetStudyKey = `kianos-xizong-astro-v2:${targetObjectId}`;
-  await cdp.navigate(`${BASE}/xizong/circulation/`);
+  await cdp.navigate(`${BASE}/xizong/practice/circulation/`);
   await cdp.evaluate(`localStorage.setItem(${js(targetStudyKey)}, JSON.stringify({stage:'block_learn',groupIndex:0,kpIndex:0,learned:{${js(reviewedQuestion.relation.primaryKpId)}:true},ratings:{${js(reviewedQuestion.relation.primaryKpId)}:'unknown'},blockRecallDone:false,completed:false}))`);
   const sweepKey = 'kianos:xizong:system-question-sweep:circulation:v1';
   await cdp.evaluate(`localStorage.setItem(${js(sweepKey)}, JSON.stringify({results:{${js(stableQuestion.questionId)}:{status:'stable',selected:['A']},${js(reviewedQuestion.questionId)}:{status:'wrong',selected:['B']},${js(unresolvedQuestion.questionId)}:{status:'uncertain',selected:['C']}}}))`);
@@ -177,6 +200,21 @@ try {
   const repairIds = (repair?.plan || []).map((row) => row.questionId).sort();
   check(repairIds.length === 2 && repairIds.includes(reviewedQuestion.questionId) && repairIds.includes(unresolvedQuestion.questionId), 'system_repair_accepts_only_current_wrong_uncertain', repairIds.join(','));
   check(!repairIds.includes(stableQuestion.questionId), 'stable_question_creates_no_repair_debt');
+
+  const memoryAfterPlan = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(XIZONG_MEMORY_STORAGE_KEY)})||'null')`);
+  const activeSystemRepairs = (memoryAfterPlan?.repairTasks || []).filter((task) => task?.status !== 'DONE');
+  check(activeSystemRepairs.length === 1, 'reviewed_wu_creates_one_visible_memory_repair', String(activeSystemRepairs.length));
+  check(activeSystemRepairs[0]?.kpId === reviewedQuestion.relation.primaryKpId, 'memory_repair_targets_reviewed_kp');
+  check((activeSystemRepairs[0]?.sourceQuestionIds || []).includes(reviewedQuestion.questionId), 'memory_repair_preserves_source_question');
+  check(!(activeSystemRepairs[0]?.sourceQuestionIds || []).includes(unresolvedQuestion.questionId), 'unresolved_question_not_guessed_into_memory_repair');
+
+  await cdp.navigate(`${BASE}/xizong/memory/`);
+  await cdp.evaluate(clickExpr('[data-memory-view="REPAIR"]'));
+  await sleep(120);
+  check(!(await cdp.evaluate(`document.querySelector('[data-memory-repair-card]')?.hidden`)), 'memory_repair_is_learner_visible');
+  check((await cdp.evaluate(`document.querySelector('[data-repair-title]')?.textContent || ''`)).includes(reviewedQuestion.relation.primaryKpId), 'memory_repair_shows_exact_kp');
+  check(Boolean(await cdp.evaluate(`document.querySelector('[data-repair-block-link]')?.getAttribute('href') || ''`)), 'memory_repair_has_block_return');
+  check((await cdp.evaluate(`document.querySelector('[data-repair-return-link]')?.getAttribute('href') || ''`)).includes('/xizong/practice/circulation/'), 'memory_repair_has_question_return');
 
   const inboxSnapshot = await cdp.evaluate(`(()=>{const out={};for(const key of Object.keys(localStorage)){if(key.startsWith('kianos-xizong-repair-inbox-v1:'))out[key]=JSON.parse(localStorage.getItem(key));}return out;})()`);
   const inboxQuestionIds = Object.values(inboxSnapshot).flatMap((inbox) => (inbox?.plans || []).flatMap((plan) => plan.sourceQuestionIds || []));
@@ -196,6 +234,46 @@ try {
   check((targetExt?.evidenceHistory || []).some((row) => row.type === 'SYSTEM_WU_PLAN_IMPORTED' && row.evidence_role === 'REPAIR_ONLY' && (row.source_question_ids || []).includes(reviewedQuestion.questionId)), 'repair_inbox_import_evidence_is_repair_only');
   const sweepAfterRepair = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(sweepKey)})||'null')`);
   check(sweepAfterRepair?.results?.[reviewedQuestion.questionId]?.status === 'wrong' && sweepAfterRepair?.results?.[stableQuestion.questionId]?.status === 'stable', 'repair_return_does_not_rewrite_original_question_evidence');
+
+  await cdp.navigate(`${BASE}/xizong/memory/`);
+  await cdp.evaluate(clickExpr('[data-memory-view="REPAIR"]'));
+  await sleep(100);
+  await cdp.evaluate(clickExpr('[data-repair-complete]'));
+  await sleep(100);
+  const memoryAfterRepairDone = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(XIZONG_MEMORY_STORAGE_KEY)})||'null')`);
+  const completedRepair = (memoryAfterRepairDone?.repairTasks || []).find((task) => task?.kpId === reviewedQuestion.relation.primaryKpId);
+  check(completedRepair?.status === 'DONE' && Boolean(completedRepair?.completedAt), 'memory_repair_completion_is_durable_evidence');
+  const sweepAfterRepairDone = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(sweepKey)})||'null')`);
+  check(sweepAfterRepairDone?.results?.[reviewedQuestion.questionId]?.status === 'wrong', 'repair_completion_does_not_rewrite_question_attempt');
+
+  // System question/relation version changes must invalidate visible question-derived Repair
+  // while preserving unrelated systems and archiving the stale tasks.
+  const systemEvidenceMetaKey = 'kianos:xizong:system-evidence-meta:circulation:v1';
+  await cdp.navigate(`${BASE}/xizong/practice/circulation/`);
+  const currentSystemEvidenceVersion = await cdp.evaluate(`document.querySelector('[data-xizong-system-evidence-guard]')?.getAttribute('data-evidence-version') || ''`);
+  check(Boolean(currentSystemEvidenceVersion), 'system_evidence_version_present');
+  await cdp.evaluate(`(()=>{
+    const key=${js(XIZONG_MEMORY_STORAGE_KEY)};
+    const memory=JSON.parse(localStorage.getItem(key)||'null')||{schema:'kianos.xizong.memory.v1',revision:1,releasedBlocks:{},cards:{},promptOverrides:{},marks:{},evidence:[],attention:{},repairTasks:[]};
+    memory.repairTasks=[
+      ...(memory.repairTasks||[]),
+      {id:'stale-circulation-repair',systemId:'circulation',blockId:'circulation-b01',kpId:'circulation-b01-kp01',origin:'SYSTEM_WU_CHAT_RETURN',status:'ACTIVE',sourceQuestionIds:['old-q']},
+      {id:'keep-respiratory-repair',systemId:'respiratory',blockId:'respiratory-r01',kpId:'respiratory-r01-kp01',origin:'SYSTEM_WU_CHAT_RETURN',status:'ACTIVE',sourceQuestionIds:['other-q']}
+    ];
+    localStorage.setItem(key,JSON.stringify(memory));
+    localStorage.setItem(${js(systemEvidenceMetaKey)},JSON.stringify({version:'STALE_SYSTEM_VERSION'}));
+  })()`);
+  await cdp.reload();
+  await sleep(1200);
+  const memoryAfterSystemVersionChange = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(XIZONG_MEMORY_STORAGE_KEY)})||'null')`);
+  check(!(memoryAfterSystemVersionChange?.repairTasks||[]).some((task)=>task?.id==='stale-circulation-repair'), 'stale_visible_system_repair_invalidated');
+  check((memoryAfterSystemVersionChange?.repairTasks||[]).some((task)=>task?.id==='keep-respiratory-repair'), 'unrelated_system_repair_preserved');
+  const staleSystemArchive = await cdp.evaluate(`(()=>{
+    const keys=Object.keys(localStorage).filter((key)=>key.startsWith('kianos-xizong-stale-system-evidence:circulation:')).sort();
+    const key=keys[keys.length-1];
+    return key?JSON.parse(localStorage.getItem(key)||'null'):null;
+  })()`);
+  check((staleSystemArchive?.stale_visible_memory_repairs||[]).some((task)=>task?.id==='stale-circulation-repair'), 'stale_visible_system_repair_archived');
 
   // ----- Block content-version mutation: archive stale evidence, preserve notes only. -----
   const staleMeta = system.blocks.find((row) => row.blockId === 'circulation-b03');

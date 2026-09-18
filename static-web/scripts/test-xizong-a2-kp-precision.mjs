@@ -51,30 +51,41 @@ async function readLearnerObject(page) {
   return JSON.parse(raw || '{}');
 }
 
-async function completeNaturalSourceContact(root, suffix) {
+async function completeNaturalSourceContact(root, page, suffix) {
   await root.locator('[data-stage-next="logic_group"]').click();
   await root.locator('[data-study-stage="source_contact"]').waitFor({ state: 'visible' });
   check(await root.locator('[data-study-stage="kp_learn"]').count() === 0, `natural_source_has_no_group_lecture_${suffix}`);
   await root.locator('[data-source-contact-done]').click();
-  await root.locator('[data-study-stage="logic_group"]').waitFor({ state: 'visible' });
+  await page.waitForFunction(() => {
+    const host = document.querySelector('[data-xizong-v6-block]');
+    const ttsx = host?.querySelector('[data-study-stage="ttsx_checkpoint"]');
+    const recall = host?.querySelector('[data-study-stage="kp_recall"]');
+    return (ttsx instanceof HTMLElement && !ttsx.hidden) || (recall instanceof HTMLElement && !recall.hidden);
+  });
+  const ttsxStage = root.locator('[data-study-stage="ttsx_checkpoint"]');
+  if (await ttsxStage.isVisible()) await root.locator('[data-ttsx-done]').click();
+  await root.locator('[data-study-stage="kp_recall"]').waitFor({ state: 'visible' });
 }
 
-async function reachTargetKp(root, targetId) {
+async function reachTargetKp(root, page, targetId) {
   const targetCard = root.locator(`[data-kp-recall-card][data-kp-id="${targetId}"]`);
   check(await targetCard.count() === 1, `target_card_exists_${targetId}`);
-  const targetIndex = Number(await targetCard.getAttribute('data-kp-recall-card'));
-  const targetGroupLabel = ((await targetCard.locator('header > span').first().textContent()) || '').trim();
-  check(Boolean(targetGroupLabel), `target_group_label_present_${targetId}`);
-  const targetGroupButton = root.locator('[data-group-target]').filter({ hasText: targetGroupLabel });
-  check(await targetGroupButton.count() === 1, `target_group_button_unique_${targetId}`, targetGroupLabel);
+  const learner = await readLearnerObject(page);
+  const targetKp = (learner?.kps || []).find((kp) => kp?.identity?.kpId === targetId);
+  const targetGroupId = targetKp?.identity?.logicGroupId || '';
+  const targetGroupIndex = (learner?.logicGroups || []).findIndex((group) => group?.identity?.logicGroupId === targetGroupId);
+  check(targetGroupIndex >= 0, `target_group_resolved_${targetId}`, targetGroupId);
+  const targetGroup = learner?.logicGroups?.[targetGroupIndex];
+  const targetPosition = (targetGroup?.kpIds || []).indexOf(targetId);
+  check(targetPosition >= 0, `target_position_resolved_${targetId}`, String(targetPosition));
 
-  await completeNaturalSourceContact(root, targetId);
-  await targetGroupButton.click();
-  await root.locator('[data-study-stage="logic_group"]').waitFor({ state: 'visible' });
-  await root.locator('[data-enter-group]').click();
-  await root.locator('[data-study-stage="kp_recall"]').waitFor({ state: 'visible' });
+  await completeNaturalSourceContact(root, page, targetId);
   check(await root.locator('[data-study-stage="source_contact"]').isHidden(), `target_recall_does_not_reopen_source_${targetId}`);
-  await root.locator(`[data-kp-target="${targetIndex}"]`).evaluate((el) => el.click());
+  await root.locator(`[data-group-target="${targetGroupIndex}"]`).click();
+  await root.locator('[data-study-stage="kp_recall"]').waitFor({ state: 'visible' });
+  for (let step = 0; step < targetPosition; step += 1) {
+    await root.locator('[data-recall-next]').click();
+  }
   check(await targetCard.isVisible(), `target_card_visible_${targetId}`);
   return targetCard;
 }
@@ -112,31 +123,39 @@ try {
     const learner = await readLearnerObject(page);
     const slots = Object.values(learner?.slots?.kpRecallPostReveal || {});
     learnerPrecision += slots.reduce((sum, slot) => sum + (Array.isArray(slot?.precision) ? slot.precision.length : 0), 0);
-    check(await root.locator('[data-xizong-aux-surface] [data-learner-object-slot="kp_recall_post_reveal"]').count() === 0,
-      `post_reveal_slot_not_preinstantiated_${route}`);
+    check(await root.locator('[data-xizong-aux-surface] [data-representation-stage="KP_RECALL_REVEAL"]').count() === 0,
+      `recall_reveal_stage_not_preinstantiated_${route}`);
   }
   check(learnerPrecision === 17, 'all_current_kp_precision_rows_present_in_learner_object', String(learnerPrecision));
 
   for (const item of representatives) {
     const root = await resetBlock(page, item.route);
-    const card = await reachTargetKp(root, item.kpId);
+    const card = await reachTargetKp(root, page, item.kpId);
     const answer = card.locator('[data-kp-answer]');
     const auxHost = root.locator('[data-xizong-aux-surface] [data-learner-object-slot]');
 
     check(await answer.isHidden(), `answer_hidden_before_reveal_${item.kpId}`);
-    check((await auxHost.getAttribute('data-learner-object-slot')) !== 'kp_recall_post_reveal',
-      `precision_slot_absent_before_reveal_${item.kpId}`);
-    check(await root.locator('[data-xizong-aux-surface] [data-learner-asset="precision"]').count() === 0,
-      `precision_not_instantiated_before_reveal_${item.kpId}`);
-    check(await root.locator('[data-kp-recall-card]:not([hidden]) [data-learner-asset="precision"]:visible').count() === 0,
-      `recall_front_has_no_visible_precision_${item.kpId}`);
+    check((await auxHost.getAttribute('data-learner-object-slot')) === 'kp_recall_aux',
+      `precision_recall_context_slot_bound_${item.kpId}`);
+    check((await auxHost.getAttribute('data-representation-stage')) === 'KP_RECALL_FRONT',
+      `precision_recall_front_stage_${item.kpId}`);
+    const frontCue = auxHost.locator(`[data-learner-asset="precision"][data-learner-asset-id="${item.cueId}"]`);
+    check(await frontCue.count() === 1, `precision_context_cue_bound_before_reveal_${item.kpId}`);
+    check((await frontCue.getAttribute('data-precision-resolution')) === 'CUE_ONLY',
+      `precision_context_remains_cue_only_${item.kpId}`);
+    check((await frontCue.textContent() || '').includes(item.cue), `precision_context_text_unchanged_${item.kpId}`);
+    check(await frontCue.isVisible(), `precision_context_visible_before_reveal_${item.kpId}`);
+    check(await frontCue.locator('.xv6LearnerPrecisionExact').count() === 0,
+      `precision_context_has_no_exact_answer_before_reveal_${item.kpId}`);
 
     await card.locator('[data-kp-reveal]').click();
-    const stack = root.locator('[data-xizong-aux-surface] [data-learner-object-slot="kp_recall_post_reveal"]');
-    await stack.waitFor({ state: 'visible' });
+    await root.locator('[data-xizong-aux-surface] [data-learner-object-slot="kp_recall_aux"][data-representation-stage="KP_RECALL_REVEAL"]').waitFor({ state: 'visible' });
+    const stack = root.locator('[data-xizong-aux-surface] [data-learner-object-slot="kp_recall_aux"]');
     const cue = stack.locator(`[data-learner-asset="precision"][data-learner-asset-id="${item.cueId}"]`);
     check(await answer.isVisible(), `answer_visible_after_reveal_${item.kpId}`);
-    check(await stack.count() === 1, `precision_post_reveal_slot_bound_${item.kpId}`);
+    check(await stack.count() === 1, `precision_recall_aux_remains_bound_after_reveal_${item.kpId}`);
+    check((await stack.getAttribute('data-representation-stage')) === 'KP_RECALL_REVEAL',
+      `precision_recall_reveal_stage_${item.kpId}`);
     check(await cue.count() === 1, `precision_cue_id_bound_${item.kpId}`);
     check((await cue.textContent() || '').includes(item.cue), `precision_text_unchanged_${item.kpId}`);
     check(await cue.isVisible(), `precision_cue_visible_after_reveal_${item.kpId}`);

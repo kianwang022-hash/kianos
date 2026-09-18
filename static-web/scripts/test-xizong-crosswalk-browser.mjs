@@ -32,16 +32,16 @@ async function currentPayloadQuestion(exit, payload) {
 }
 
 async function runJourney(page) {
-  await page.goto(`${BASE}/xizong/respiratory/`, { waitUntil: 'domcontentloaded' });
+  const practiceUrl = `${BASE}/xizong/practice/respiratory/`;
+  await page.goto(practiceUrl, { waitUntil: 'domcontentloaded' });
   await page.evaluate(() => {
     for (const key of Object.keys(localStorage)) if (key.includes('xizong')) localStorage.removeItem(key);
     sessionStorage.clear();
   });
   await page.reload({ waitUntil: 'domcontentloaded' });
 
-  const later = page.locator('[data-xizong-later-stage="system-exit"]');
-  const exit = page.locator('[data-xizong-system-exit="respiratory"]');
-  const payload = await exit.locator('[data-sweep-payload]').evaluate((node) => JSON.parse(node.textContent || 'null'));
+  let practice = page.locator('[data-xizong-practice="respiratory"]');
+  const payload = await practice.locator('[data-sweep-payload]').evaluate((node) => JSON.parse(node.textContent || 'null'));
   const mapped = payload.questions.find((question) => question?.relation?.targetStatus === 'RESOLVED_KP' && question?.relation?.knowledgePath);
   const unmapped = payload.questions.find((question) => !question?.relation);
   check(Boolean(mapped), 'mapped_second_pass_fixture_exists', mapped?.questionId || 'none');
@@ -79,31 +79,31 @@ async function runJourney(page) {
   }, { ids: blockIds, mappedId: mapped.questionId, unmappedId: unmapped.questionId, heldYear: holdoutYear });
   await page.reload({ waitUntil: 'domcontentloaded' });
 
-  await later.locator(':scope > summary').click();
-  check((await exit.locator('[data-study-phase]').textContent() || '').includes('二轮'), 'runtime_reads_second_pass_fixture');
-  check((await exit.locator('[data-sweep-count]').textContent() || '').trim() === '2', 'targeted_queue_contains_only_two_fixture_questions');
-  await exit.locator('[data-start-sweep]').click();
-  await exit.locator('[data-question-workspace]').waitFor({ state: 'visible' });
+  practice = page.locator('[data-xizong-practice="respiratory"]');
+  await practice.locator('[data-question-card]').waitFor({ state: 'visible' });
+  check((await practice.locator('[data-study-phase]').textContent() || '').includes('二轮'), 'runtime_reads_second_pass_fixture');
+  check(await practice.locator('[data-question-map] .xzpMapItem').count() === 2, 'targeted_queue_contains_only_two_fixture_questions');
 
   let sawMapped = false;
   let sawUnmapped = false;
   for (let index = 0; index < 2; index += 1) {
-    const question = await currentPayloadQuestion(exit, payload);
+    const question = await currentPayloadQuestion(practice, payload);
     check(Boolean(question), 'current_question_resolves_to_payload', String(index + 1));
     for (const letter of answerLetters(question.correctAnswer)) {
-      await exit.locator(`[data-question-options] [data-option="${letter}"]`).click();
+      await practice.locator(`[data-question-options] [data-option="${letter}"]`).click();
     }
-    await exit.locator('[data-submit-answer]').click();
+    // Keep the correct answer in the review surface so the current built-in knowledge return can be inspected.
+    await practice.locator('[data-question-uncertain]').click();
+    await practice.locator('[data-submit-answer]').click();
+    await practice.locator('[data-answer-panel]').waitFor({ state: 'visible' });
 
-    const consumer = page.locator('[data-xizong-question-crosswalk-consumer="respiratory"]');
-    await consumer.waitFor({ state: 'visible' });
-    const link = consumer.locator('[data-crosswalk-link]');
-    const fallback = consumer.locator('[data-crosswalk-fallback]');
+    const relationWrap = practice.locator('[data-relation-wrap]');
+    const link = practice.locator('[data-relation-link]');
 
     if (question.relation?.targetStatus === 'RESOLVED_KP') {
       sawMapped = true;
+      check(await relationWrap.isVisible(), 'reviewed_mapping_shows_relation_region', question.questionId);
       check(await link.isVisible(), 'reviewed_mapping_shows_link', question.questionId);
-      check(!(await fallback.isVisible()), 'reviewed_mapping_hides_fallback', question.questionId);
       const href = await link.evaluate((node) => node.href);
       check(Boolean(href) && href.endsWith(question.relation.knowledgePath), 'question_link_uses_projected_knowledge_path', href || 'missing');
 
@@ -117,16 +117,16 @@ async function runJourney(page) {
       await blockPage.close();
     } else {
       sawUnmapped = true;
-      check(!(await link.isVisible()), 'missing_mapping_has_no_fabricated_link', question.questionId);
-      check(await fallback.isVisible(), 'missing_mapping_shows_graceful_fallback', question.questionId);
-      check((await fallback.textContent() || '').includes('不补猜映射'), 'missing_mapping_fallback_forbids_guessing', question.questionId);
+      check(await relationWrap.isHidden(), 'missing_mapping_hides_relation_region', question.questionId);
+      check(await link.isHidden(), 'missing_mapping_has_no_fabricated_link', question.questionId);
     }
 
-    await exit.locator('[data-mark-stable]').click();
+    await practice.locator('[data-next-question]').click();
+    if (index === 0) await practice.locator('[data-question-card]').waitFor({ state: 'visible' });
   }
 
   check(sawMapped && sawUnmapped, 'journey_exercises_mapped_and_unmapped_paths');
-  check(await exit.locator('[data-sweep-done]').isVisible(), 'two_question_second_pass_reaches_done');
+  check(await practice.locator('[data-sweep-done]').isVisible(), 'two_question_second_pass_reaches_done');
 }
 
 const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', String(PORT)], {

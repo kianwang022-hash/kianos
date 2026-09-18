@@ -69,6 +69,9 @@ body#kianos-workspace.surfaceBody-xizong .xv6GroupKpMap>summary { font-size:15px
 body#kianos-workspace.surfaceBody-xizong .xv6GroupLecture>footer { padding:22px 28px;display:grid;gap:17px; }
 body#kianos-workspace.surfaceBody-xizong .xv6GroupLecture>footer>span { font-size:15px;line-height:1.8; }
 body#kianos-workspace.surfaceBody-xizong .xv6GroupLecture>footer>button { justify-self:start; }
+body#kianos-workspace.surfaceBody-xizong .xv6BlockSourceContact>footer { display:grid;gap:15px;padding:22px 28px 28px;border-top:1px solid var(--study-line); }
+body#kianos-workspace.surfaceBody-xizong .xv6BlockSourceContact>footer>span { font-size:15px;line-height:1.8;color:#839184; }
+body#kianos-workspace.surfaceBody-xizong .xv6BlockSourceContact>footer>button { justify-self:start;max-width:100%;white-space:normal; }
 body#kianos-workspace.surfaceBody-xizong .portedKpCards { padding:0; }
 body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard { width:100%;max-width:none;margin:0;border:0;border-radius:0;box-shadow:none;background:#fff; }
 body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard>header { padding:27px 30px 24px; }
@@ -172,3 +175,10 @@ body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard:has([data-kp-answer
 body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard:has([data-kp-answer]:not([hidden]))>.portedRecallPrompt { display:none; }
 body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard { scroll-margin-top:72px; }
 body#kianos-workspace.surfaceBody-xizong .xv6PersonalDock .position { display:block; }
+
+
+/* Learner surface: repository/Current diagnostics stay out of normal Xizong study. */
+body#kianos-workspace.surfaceBody-xizong .kianosCurrentDock{display:none!important;}
+/* Keep the default draggable timer clear of the primary KP Recall rating row.
+   A learner-dragged/saved position uses inline coordinates and still wins. */
+body#kianos-workspace.surfaceBody-xizong .studyTimerDock { bottom:92px; }

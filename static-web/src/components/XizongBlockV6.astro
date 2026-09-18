@@ -107,7 +107,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
           <b>{kp.displayId}</b><span>{kp.title}</span><small data-kp-state={kp.kpId}>—</small>
         </button>)}
       </nav>
-      <footer>位置图只负责导航；学习顺序由 Current Learning 决定。</footer>
+      <footer>位置图只负责导航；学习顺序由当前学习路径决定。</footer>
     </aside>
 
     <main class="portedStudyMain" id="canonical-content">
@@ -602,7 +602,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
       }
       state.stage = stage;
       stages.forEach((panel) => { panel.hidden = panel.getAttribute('data-study-stage') !== state.stage; });
-      if (state.stage === 'kp_recall') resetRecallCard(kpRecallCards[state.kpIndex]);
+      if (state.stage === 'kp_recall') setKpIndex(state.kpIndex);
       if (state.stage === 'ttsx_checkpoint') syncTtsxStage();
       if (kpRail) kpRail.hidden = true;
       if (groupRail) groupRail.hidden = false;

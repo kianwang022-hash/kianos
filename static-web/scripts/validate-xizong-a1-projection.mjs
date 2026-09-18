@@ -14,15 +14,18 @@ function assert(condition, code) {
   if (!condition) throw new Error(code);
 }
 
-// P1 — first learning is Logic-Group continuous Lecture contact, not KP-by-KP app switching.
-assert(block.includes('不要按 KP 来回切换 App'), 'A1_P_GROUP_LECTURE_CONTINUITY_MISSING');
-assert(block.includes('data-group-lecture-done'), 'A1_P_GROUP_LECTURE_HANDOFF_MISSING');
-assert(block.includes('这一节原讲义已连续学完，开始 Recall'), 'A1_P_GROUP_RETURN_ACTION_MISSING');
+// P1 — first learning preserves continuous original-Lecture contact and returns into local Recall.
+// Validate the Current state graph/controls rather than historical learner copy.
+assert(block.includes('data-source-contact-mode={sourceContactMode}'), 'A1_P_SOURCE_CONTACT_MODE_MISSING');
+assert(block.includes('data-study-stage="source_contact"') && block.includes('data-source-contact-done'), 'A1_P_BLOCK_SOURCE_CONTACT_MISSING');
+assert(block.includes('data-study-stage="kp_learn"') && block.includes('data-group-lecture-done'), 'A1_P_GROUP_LECTURE_HANDOFF_MISSING');
+assert(block.includes('MarginNote 连续学习 + Mac KP Learn 同时进行'), 'A1_P_GROUP_LECTURE_CONTINUITY_MISSING');
+assert(block.includes('data-study-stage="kp_recall"'), 'A1_P_GROUP_RETURN_ACTION_MISSING');
 assert(!block.includes('data-kp-learned'), 'A1_P_KP_BY_KP_LEARN_FLOW_REGRESSION');
-assert(block.includes('<b>原讲义</b>') && block.includes('<b>本节 Recall</b>'), 'A1_P_CHAIN_SEMANTICS_MISSING');
+assert(block.includes('data-enter-group') && block.includes('data-group-lecture-done') && block.includes('data-source-contact-done'), 'A1_P_CHAIN_SEMANTICS_MISSING');
 
-// P2 — formal answer reveal remains behind a neutral Recall front.
-assert(block.includes('先主动恢复，不看答案型标题。'), 'A1_P_NEUTRAL_RECALL_FRONT_MISSING');
+// P2 — formal Core reveal remains behind the Recall front.
+assert(block.includes('Core 暂时隐藏'), 'A1_P_NEUTRAL_RECALL_FRONT_MISSING');
 assert(block.includes('data-kp-answer hidden'), 'A1_P_RECALL_ANSWER_NOT_HIDDEN');
 assert(block.includes('data-kp-reveal'), 'A1_P_RECALL_REVEAL_MISSING');
 
@@ -33,17 +36,20 @@ assert(guard.includes("target.closest('[data-kp-reveal]')"), 'A1_P_EARLY_REVEAL_
 assert(guard.includes("target.closest('[data-start-recall]')"), 'A1_P_EARLY_SYSTEM_RECALL_NOT_GUARDED');
 assert(guard.includes("target.closest('[data-reveal-recall]')"), 'A1_P_EARLY_SYSTEM_REVEAL_NOT_GUARDED');
 
-// P4 — System Exit is explicitly later-stage; first-learning System surface stays orientation-first.
-assert(systemPage.includes('后面阶段 · System Exit'), 'A1_P_SYSTEM_EXIT_NOT_LATER_STAGE');
-assert(systemPage.includes('学完整个系统后，再做 System Recall + 系统真题'), 'A1_P_SYSTEM_EXIT_TIMING_COPY_MISSING');
+// P4 — System Recall/Practice stay later-stage and fail closed until whole-System completion.
+assert(systemPage.includes('data-xizong-system-recall-entry hidden'), 'A1_P_SYSTEM_EXIT_NOT_LATER_STAGE');
+assert(systemPage.includes('整个 System 已完成，进入系统级闭卷重建。') && systemPage.includes('Recall 是独立工作区；完成后再进入训练。'), 'A1_P_SYSTEM_EXIT_TIMING_COPY_MISSING');
 assert(
   system.includes('data-system-framework-plan="purpose-first"') &&
     system.includes('data-representation-gate={framework.schema}') &&
     system.includes('data-system-section="mother"') &&
     system.includes('data-system-section="failure"') &&
-    system.includes('data-selected-title') &&
-    system.includes('进入这个 Block') &&
+    system.includes('data-system-block={index}') &&
+    system.includes('class="xzSystemRouteRail"') &&
+    system.includes('class="xzSystemStage"') &&
+    system.includes('data-system-view-button="framework"') &&
     system.includes('class="xzSystemWorkspace"') &&
+    !system.includes('data-selected-title') &&
     !system.includes('xv6System'),
   'A1_P_SYSTEM_ORIENTATION_INCOMPLETE'
 );
@@ -55,4 +61,4 @@ assert(base.includes('body.surfaceBody-xizong .portedSourceFoot'), 'A1_P_SOURCE_
 // P6 — Projection does not invent Question→KP bindings in the Block learner surface.
 assert(!block.includes('questionToKp') && !block.includes('question_to_kp'), 'A1_P_INFERRED_QUESTION_KP_SURFACE');
 
-console.log('A1 Projection PASS | LogicGroupLecture=continuous | RecallReveal=guarded | SystemWorkspace=current-single-owner | SystemExit=later | GovernanceChrome=hidden');
+console.log('A1 Projection PASS | SourceContact=continuous+conditional | RecallReveal=guarded | SystemWorkspace=current-single-owner | SystemRecall=later | GovernanceChrome=hidden');
