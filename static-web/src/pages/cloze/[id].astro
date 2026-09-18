@@ -6,6 +6,7 @@ import ObjectiveAnswerGate from '../../components/ObjectiveAnswerGate.astro';
 import ObjectiveHandoff from '../../components/ObjectiveHandoff.astro';
 import ObjectiveTransferClaims from '../../components/ObjectiveTransferClaims.astro';
 import ObjectiveNavigator from '../../components/ObjectiveNavigator.astro';
+import EnglishExamTaskBridge from '../../components/EnglishExamTaskBridge.astro';
 import { listClozeSets, loadClozeById } from '../../lib/englishObjectiveSourceTruth.mjs';
 
 export function getStaticPaths() {
@@ -26,6 +27,7 @@ const item = loadClozeById(Astro.props.objectId);
   objectId={item.objectId}
   active="cloze"
 >
+  <EnglishExamTaskBridge task="cloze" objectId={item.objectId} />
   <ClozeWorkspace item={item} />
   <ObjectiveAnswerGate task="cloze" answerRoute="cloze-answer" />
   <ObjectiveHandoff />
