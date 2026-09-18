@@ -14,9 +14,10 @@ Shared Visual / Shell landed
 → Xizong material learner surfaces landed
 → Politics learner surfaces landed
 → UI Closure / CSS ownership consolidation active
-→ Learner Data / Chat Handoff closure
-→ final regression
-→ launch
+→ Chat-owned Home cutover + Learner Data / Chat Handoff active in parallel
+→ Home integration
+→ final cross-subject regression
+→ launch / broad engineering freeze
 ```
 
 Architecture-level website blocker: **none**.
@@ -104,21 +105,28 @@ Exact cleanup inventory should be created **when this lane activates**, from the
 
 ---
 
-## Queued platform lane
+## Active platform lane
 
-### Learner Data / Chat Handoff Closure — **QUEUED**
+### Chat-owned Home + Learner Data / Chat Handoff Closure — **ACTIVE · PARALLEL WITH CSS CLOSURE**
+
+Active ref: `work/platform-chat-home-cutover-20260919`.
+
+The first cutover removes autonomous Website strategy: Home may display and execute a validated Chat plan, but it must not infer cross-subject allocation, priority or next-subject strategy when no valid plan exists.
+
+The remaining learner-data work closes the same platform boundary; it is not a separate packet ecosystem.
 
 Existing pieces already exist: Shared Study Timer, Daily Learning Packet composition, subject Return/Handoff packets, and GitHub→Mac Current sync. The missing work is integration, not a new packet ecosystem.
 
-Activation:
+Current sequence:
 
 ```text
-subject learner surfaces stable enough for final handoff controls
-→ inventory existing packet producers / importers
-→ unify one cross-subject Chat export entry
-→ close typed Return/import paths
-→ add private local durable checkpoints
+Chat-owned plan boundary
+→ inventory existing subject packet producers / importers
+→ one cross-subject Daily Learning Packet entry
+→ typed subject Return/import closure
+→ private local durable checkpoints
 → recovery / migration proof
+→ Home consumes final interfaces
 ```
 
 Target flow:
