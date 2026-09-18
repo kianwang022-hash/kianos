@@ -125,6 +125,21 @@ assert.equal(answerFinal.word, 'answer');
 assert.ok(Array.isArray(answerFinal.constructions));
 assert.ok(Array.isArray(answerFinal.family));
 
+
+process.env.KIANOS_REPO_ROOT = repoRoot;
+const { loadLexicalWordByOrdinal } = await import('../../../static-web/src/lib/lexical.mjs');
+const hydratedAnswer = loadLexicalWordByOrdinal(209);
+assert.equal(hydratedAnswer.learnerObject?.schema, 'kianos.lexical.final_learner_object.v1');
+assert.equal(hydratedAnswer.learnerObject?.word, 'answer');
+assert.ok(hydratedAnswer.learnerObject?.relations?.length >= 2,
+  'Current Relation owners must hydrate into fixed Final relation objects before rendering');
+for (const relation of hydratedAnswer.learnerObject.relations) {
+  assert.ok(relation.title, 'Final relation must have a fixed learner-facing title');
+  assert.ok(Array.isArray(relation.lines), 'Final relation must expose fixed learner-facing lines');
+  assert.ok(Array.isArray(relation.differences), 'Final relation must expose fixed learner-facing differences');
+  assert.ok(relation.repair_target?.locator, 'Final relation must preserve exact repair identity');
+}
+
 console.log(JSON.stringify({
   status: 'PASS',
   decision_owner: decisionsPath,
@@ -137,6 +152,7 @@ console.log(JSON.stringify({
     stress_labels_in_default_depth: false
   },
   sanction_usage_note_preserved: true,
+  hydrated_relation_objects: hydratedAnswer.learnerObject.relations.length,
   final_object_shape: {
     word_feel: true,
     senses: true,
