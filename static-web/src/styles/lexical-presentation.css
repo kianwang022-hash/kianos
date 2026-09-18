@@ -482,6 +482,11 @@ body#kianos-workspace.uiWordStudy .lexicalRoutingHint{
   text-align:left;
 }
 
+
+body#kianos-workspace.uiWordStudy .portedVocabStudySheet:has([data-vocab-details][hidden]) .portedVocabFoot{
+  display:none;
+}
+
 /* Depth remains one editorial lexical object. */
 body#kianos-workspace.uiWordStudy .lexicalWordIdentity>span{
   font-size:15px;
