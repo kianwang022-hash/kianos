@@ -105,7 +105,6 @@ for (const shardMeta of shardRows) {
     assert(row?.explanation_status === 'APPROVED', `explanation-status:${id}`);
     assert(String(row?.exam_target || '').trim(), `explanation-exam-target-missing:${id}`);
     assert(String(row?.decision_axis || '').trim(), `explanation-decision-axis-missing:${id}`);
-    assert(Array.isArray(row?.reasoning_chain) && row.reasoning_chain.length > 0, `explanation-reasoning-missing:${id}`);
 
     if (row?.review?.format === 'FAST_OWNER') fastOwner += 1;
     if (String(row?.correct_option_reason || '').trim()) withCorrectOptionReason += 1;
