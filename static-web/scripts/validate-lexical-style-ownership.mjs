@@ -28,15 +28,19 @@ if (viewportIndex < 0 || lexicalIndex < viewportIndex) fail('Lexical final owner
 
 if (/<style(?:\s|>)/i.test(page)) fail('vocabulary/[ordinal].astro must not own visual CSS');
 if (!owner.includes('--lexical-serif:Georgia')) fail('Lexical serif role missing');
-if (!/\.lexicalSenseRow\{[^}]*border:0;[^}]*border-bottom:/s.test(owner)) fail('sense rows must be rule-separated, not cards');
-if (!/\.lexicalExpansionSection\{[^}]*border:0;[^}]*border-bottom:/s.test(owner)) fail('Expansion sections must be continuous rail sections, not cards');
-if (!/\.portedVocabStudySheet\{[^}]*border:0;/s.test(owner)) fail('Word study sheet must not be a giant outer card');
-if (!owner.includes('sparse words do not')) fail('natural-height sparse-word rule missing');
+// Architecture v2 intentionally restores the accepted legacy Lexical visual DNA:
+ // semantic sense blocks and reference modules may use light rounded boundaries.
+ // Guard against generic component-card styling by requiring real semantic anchors
+ // and keeping shadows absent, rather than banning radius itself.
+if (!/\.lexicalSenseRow\{[^}]*border-left:4px solid/s.test(owner)) fail('sense rows need semantic left-edge ownership');
+if (!/\.lexicalSenseRow\{[^}]*border-radius:7px/s.test(owner)) fail('sense semantic block radius missing');
+if (!/\.lexicalExpansionSection\{[^}]*border:1px solid/s.test(owner)) fail('Expansion semantic boundary missing');
+if (!/\.lexicalExpansionSection\{[^}]*border-radius:8px/s.test(owner)) fail('Expansion semantic block radius missing');
+if (!/\.portedVocabStudySheet\{[^}]*border:1px solid/s.test(owner)) fail('immersive Word study sheet boundary missing');
+if (!owner.includes('Legacy visual DNA')) fail('legacy visual DNA marker missing');
 
 const forbidden = [
-  ['sense-card-radius', /\.lexicalSenseRow\{[^}]*border-radius:(?!0)/s],
   ['sense-card-shadow', /\.lexicalSenseRow\{[^}]*box-shadow:(?!none)/s],
-  ['expansion-card-radius', /\.lexicalExpansionSection\{[^}]*border-radius:(?!0)/s],
   ['expansion-card-shadow', /\.lexicalExpansionSection\{[^}]*box-shadow:(?!none)/s]
 ];
 for (const [name, pattern] of forbidden) if (pattern.test(owner)) fail(name);
