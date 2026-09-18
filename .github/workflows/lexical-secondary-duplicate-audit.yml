@@ -1,0 +1,20 @@
+name: Lexical Secondary Duplicate Audit
+on:
+  pull_request:
+    paths:
+      - 'content/lexical/words/**'
+      - 'tools/lexical_secondary_duplicate_audit.py'
+      - '.github/workflows/lexical-secondary-duplicate-audit.yml'
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python tools/lexical_secondary_duplicate_audit.py --output /tmp/secondary-report.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lexical-secondary-duplicate-${{ github.sha }}
+          path: /tmp/secondary-report.json
+          retention-days: 14
