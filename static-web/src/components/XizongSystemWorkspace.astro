@@ -204,7 +204,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
 
         {framework.dependencies.items.length > 0 && (
           <details class="xzSystemDependency" data-representation-kind={framework.dependencies.representation.kind}>
-            <summary>按需看 Current 明确拥有的依赖关系</summary>
+            <summary>按需看当前明确的依赖关系</summary>
             <ul>{framework.dependencies.items.map((item) => <li>{item}</li>)}</ul>
           </details>
         )}
@@ -311,7 +311,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
       failureButtons.forEach((button) => button.classList.toggle('active', button.getAttribute('data-failure-id') === id));
 
       if (failureTitle) failureTitle.textContent = view.label || id;
-      if (failureChain) failureChain.textContent = view.chain || 'Current 只定义了 Failure 身份；这里不补猜额外链条。';
+      if (failureChain) failureChain.textContent = view.chain || '这里只保留已经明确的故障定位；没有证据的链条不补猜。';
       if (failureVars) {
         failureVars.replaceChildren();
         (view.variables || []).forEach((value) => {
