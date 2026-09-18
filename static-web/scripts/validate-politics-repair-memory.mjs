@@ -63,6 +63,12 @@ for (const file of memoryFiles) {
   if (data?.policy !== 'SOURCE_GROUNDED_SELECTIVE') fail(`${rel} must use SOURCE_GROUNDED_SELECTIVE`);
   if (data?.admission_gate?.requires_source_grounding !== true) fail(`${rel} must require source grounding`);
 
+  const handbook = data?.preferred_memory_reference || null;
+  if (handbook) {
+    if (handbook.role !== 'DESIGNATED_MEMORY_HANDBOOK') fail(`${rel} preferred_memory_reference must be DESIGNATED_MEMORY_HANDBOOK`);
+    if (!handbook.binding_status) fail(`${rel} preferred_memory_reference missing binding_status`);
+  }
+
   for (const [unitId, unit] of Object.entries(data?.units || {})) {
     const candidates = Array.isArray(unit?.candidates) ? unit.candidates : [];
     if (!candidates.length) fail(`${rel}:${unitId} has no candidates`);
@@ -75,7 +81,25 @@ for (const file of memoryFiles) {
       if (candidate?.admission !== 'CANDIDATE_ONLY') {
         fail(`${rel}:${candidate?.id || unitId} shared Current may define a candidate, not private learner review debt`);
       }
-      if (!candidate?.handbook_alignment) fail(`${rel}:${candidate?.id || unitId} missing handbook_alignment`);
+      if (!candidate?.admission_blocker) {
+        fail(`${rel}:${candidate?.id || unitId} candidate-only Memory must keep an explicit admission_blocker`);
+      }
+
+      const historicalRefs = Array.isArray(candidate?.historical_handbook_refs)
+        ? candidate.historical_handbook_refs.filter(Boolean)
+        : [];
+      const historicalAlignment = String(candidate?.historical_handbook_alignment || '').trim();
+      const legacyAlignment = String(candidate?.handbook_alignment || '').trim();
+
+      if (historicalRefs.length && !handbook) {
+        fail(`${rel}:${candidate?.id || unitId} has historical_handbook_refs without preferred_memory_reference`);
+      }
+      if ((historicalAlignment || legacyAlignment) && !historicalRefs.length) {
+        fail(`${rel}:${candidate?.id || unitId} claims handbook alignment without historical_handbook_refs`);
+      }
+      // Historical handbook support proves candidate provenance only. It does not
+      // create current-year durable review debt, so per-candidate alignment text is
+      // optional when exact historical refs + file-level handbook binding exist.
     }
   }
 }
