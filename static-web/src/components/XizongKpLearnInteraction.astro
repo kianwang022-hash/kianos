@@ -526,15 +526,6 @@
         }
       });
 
-      // BlockV6 used Enter as a whole-Source confirmation before KP Learn became a
-      // real simultaneous companion. Capture first so Enter now means "this KP learned".
-      document.addEventListener('keydown', (event) => {
-        if (event.key !== 'Enter' || stageName() !== 'source_contact') return;
-        const target = event.target;
-        if (target instanceof HTMLElement && target.closest('input,textarea,select,button,a,[contenteditable="true"]')) return;
-        event.stopImmediatePropagation();
-      }, true);
-
       const enhanceRecallCards = () => {
         const memory = readMemory();
         root.querySelectorAll('[data-kp-recall-card][data-kp-id]').forEach((card) => {
