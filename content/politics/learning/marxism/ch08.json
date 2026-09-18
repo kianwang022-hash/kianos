@@ -6,9 +6,15 @@
   "title": "第八章 共产主义崇高理想及其最终实现",
   "canonical_mainline": "CHENGFENG",
   "source_bindings": {
-    "region_ids": ["POL27-REGION-MARX-C08"],
-    "natural_unit_ids": ["POL27-CF-MARX-C08"],
-    "suyi_refs": ["POL27-SY-MARX-P043-B033-Y2026"]
+    "region_ids": [
+      "POL27-REGION-MARX-C08"
+    ],
+    "natural_unit_ids": [
+      "POL27-CF-MARX-C08"
+    ],
+    "suyi_refs": [
+      "POL27-SY-MARX-P043-B033-Y2026"
+    ]
   },
   "chapter_orientation": {
     "from_previous": "第七章已经说明社会主义从理论进入现实，并且必须在实践中发展。最后一章回答整个马原主线的终点问题：最终理想应怎样被科学理解。",
@@ -28,18 +34,45 @@
       "title": "第八章 共产主义崇高理想及其最终实现",
       "core_problem": "怎样既避免把共产主义学成空想，又避免把远大理想降成与现实无关的口号？",
       "teaching_beats": [
-        {"label": "科学预见的方法", "relation": "研究未来社会应把握现实社会的矛盾和发展趋势，只概括基本方向和特征，不凭主观愿望预制全部具体细节。"},
-        {"label": "基本特征", "relation": "共产主义的社会关系、人的发展和分配方式都以高度发展的社会生产力和新的社会关系为现实前提。"},
-        {"label": "历史必然性", "relation": "必然性来自社会基本矛盾和生产力发展的客观趋势，不是从道德愿望推出。"},
-        {"label": "长期性", "relation": "旧社会关系、物质条件和人的发展都需要长期历史过程，因此必然趋势与长期复杂过程必须同时成立。"},
-        {"label": "理想与现实", "relation": "远大理想通过当前社会主义实践逐步推进；现实工作不是理想的替代物，而是实现理想的历史环节。"}
+        {
+          "label": "科学预见的方法",
+          "relation": "研究未来社会应把握现实社会的矛盾和发展趋势，只概括基本方向和特征，不凭主观愿望预制全部具体细节。"
+        },
+        {
+          "label": "基本特征",
+          "relation": "共产主义的社会关系、人的发展和分配方式都以高度发展的社会生产力和新的社会关系为现实前提。"
+        },
+        {
+          "label": "历史必然性",
+          "relation": "必然性来自社会基本矛盾和生产力发展的客观趋势，不是从道德愿望推出。"
+        },
+        {
+          "label": "长期性",
+          "relation": "旧社会关系、物质条件和人的发展都需要长期历史过程，因此必然趋势与长期复杂过程必须同时成立。"
+        },
+        {
+          "label": "理想与现实",
+          "relation": "远大理想通过当前社会主义实践逐步推进；现实工作不是理想的替代物，而是实现理想的历史环节。"
+        }
       ],
-      "major_boundaries": ["科学预见不等于详细设计未来社会一切制度细节。", "历史必然性不等于自动实现。", "实现长期性不等于理想不可实现。", "远大理想和当前实践不是彼此割裂的两套目标。"],
+      "major_boundaries": [
+        "科学预见不等于详细设计未来社会一切制度细节。",
+        "历史必然性不等于自动实现。",
+        "实现长期性不等于理想不可实现。",
+        "远大理想和当前实践不是彼此割裂的两套目标。"
+      ],
       "closure_cue": "闭卷恢复四句话：从现实出发科学预见 → 基本特征有物质前提 → 方向具有历史必然性 → 实现是长期实践过程。"
     }
   ],
   "chapter_compression": {
-    "reconstruction_chain": ["现实矛盾与发展趋势", "科学预见", "共产主义基本特征", "历史必然性", "长期复杂过程", "远大理想与现实实践统一"],
+    "reconstruction_chain": [
+      "现实矛盾与发展趋势",
+      "科学预见",
+      "共产主义基本特征",
+      "历史必然性",
+      "长期复杂过程",
+      "远大理想与现实实践统一"
+    ],
     "review_prompt": "为什么‘共产主义必然实现’与‘共产主义实现是长期历史过程’并不矛盾？"
   },
   "subject_closure": {
@@ -54,5 +87,100 @@
       "第八章：整个历史运动指向什么——共产主义理想与实现"
     ],
     "one_sentence": "马原从世界观出发，经辩证法、认识论和历史观，最后用同一套方法解释资本主义、社会主义以及共产主义的历史方向。"
+  },
+  "later_stage_knowledge": {
+    "schema": "kianos.politics.later_stage_knowledge.v1",
+    "status": "CURRENT_K_CANDIDATE",
+    "phase_scope": [
+      "CONSOLIDATION",
+      "PRECISION"
+    ],
+    "compression_model": {
+      "cognition": "IDEAL_FROM_REALITY_LOGIC",
+      "purpose": "Keep scientific prediction, ideal features, historical inevitability and long-term realization in one non-utopian model.",
+      "reconstruction_prompt": "解释为什么共产主义既有历史必然性，又必须长期实现；并说明科学预见为什么不能变成未来社会细节设计。",
+      "reconstruction_targets": [
+        {
+          "id": "MARX-C08-LK-C01",
+          "claim": "科学预见未来社会必须从现实社会矛盾和发展趋势出发，只概括基本方向特征而不任意设计细节。",
+          "owner_ids": [
+            "POL27-CF-MARX-C08"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        },
+        {
+          "id": "MARX-C08-LK-C02",
+          "claim": "共产主义基本特征建立在高度发展的生产力和新的社会关系等现实前提上。",
+          "owner_ids": [
+            "POL27-CF-MARX-C08"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        },
+        {
+          "id": "MARX-C08-LK-C03",
+          "claim": "历史必然性来自客观社会发展趋势，不等于自动实现；实现要通过人的实践和长期历史过程。",
+          "owner_ids": [
+            "POL27-CF-MARX-C08"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        },
+        {
+          "id": "MARX-C08-LK-C04",
+          "claim": "社会主义现实实践是通向远大理想的历史环节，远大理想与当前实践不是两套彼此割裂的目标。",
+          "owner_ids": [
+            "POL27-CF-MARX-C08"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        }
+      ],
+      "decisive_boundaries": [
+        {
+          "id": "MARX-C08-LK-B01",
+          "boundary": "科学预见 ≠ 详细设计未来社会一切细节",
+          "owner_ids": [
+            "POL27-CF-MARX-C08"
+          ]
+        },
+        {
+          "id": "MARX-C08-LK-B02",
+          "boundary": "历史必然性 ≠ 自动实现",
+          "owner_ids": [
+            "POL27-CF-MARX-C08"
+          ]
+        },
+        {
+          "id": "MARX-C08-LK-B03",
+          "boundary": "实现长期性 ≠ 理想不可实现",
+          "owner_ids": [
+            "POL27-CF-MARX-C08"
+          ]
+        },
+        {
+          "id": "MARX-C08-LK-B04",
+          "boundary": "远大理想 ≠ 与现实实践割裂",
+          "owner_ids": [
+            "POL27-CF-MARX-C08"
+          ]
+        }
+      ],
+      "cross_unit_confusables": []
+    },
+    "precision_knowledge": {
+      "policy": "PENDING_EXACT_CANDIDATE_MATERIALIZATION",
+      "candidate_domains": [
+        "预见未来社会方法论原则 fixed list",
+        "人的自由全面发展/共产主义特征 fixed formulations",
+        "共产主义长期实现关系",
+        "远大理想/共同理想 relation dimensions"
+      ],
+      "materialization_status": "WAIT_CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE",
+      "historical_source_refs": [
+        "LEG26-UPPER-MARX-P070",
+        "LEG26-UPPER-MARX-P071"
+      ]
+    },
+    "analysis_output_hooks": [],
+    "analysis_output_status": "LOW_PRIMARY",
+    "first_round_effect": "NONE"
   }
 }
