@@ -338,7 +338,8 @@ const payload = JSON.stringify({
       return eligible.filter((question) => activeIds.has(String(question.questionId)));
     };
     const resultFor = (questionId) => sweepState.results?.[questionId] || null;
-    const firstUnanswered = () => activeQuestions.find((question) => !resultFor(question.questionId)) || null;
+    const markedFor = (questionId) => isXizongQuestionMarked(sweepState, questionId);
+    const firstUnansweredIndex = () => activeQuestions.findIndex((question) => !resultFor(question.questionId));
 
     const counts = () => {
       const results = activeQuestions.map((question) => resultFor(question.questionId)).filter(Boolean);
@@ -346,6 +347,7 @@ const payload = JSON.stringify({
         stable: results.filter((row) => row.status === 'stable').length,
         uncertain: results.filter((row) => row.status === 'uncertain').length,
         wrong: results.filter((row) => row.status === 'wrong').length,
+        marked: activeQuestions.filter((question) => markedFor(question.questionId)).length,
         remaining: activeQuestions.length - results.length
       };
     };
@@ -359,12 +361,13 @@ const payload = JSON.stringify({
       root.querySelector('[data-stat-stable]').textContent = String(stat.stable);
       root.querySelector('[data-stat-uncertain]').textContent = String(stat.uncertain);
       root.querySelector('[data-stat-wrong]').textContent = String(stat.wrong);
+      root.querySelector('[data-stat-marked]').textContent = String(stat.marked);
       root.querySelector('[data-stat-remaining]').textContent = holdoutYears.length ? String(stat.remaining) : '—';
       root.querySelector('[data-sweep-count]').textContent = holdoutYears.length ? String(activeQuestions.length) : String(data.questionCount);
       const summary = root.querySelector('[data-sweep-summary]');
       if (summary) {
         if (phase === 'SECOND_PASS' && sweepState.round?.queueMode !== 'FULL_RESWEEP') {
-          summary.textContent = `二轮默认只回收一轮 Wrong / Uncertain；当前重点队列 ${activeQuestions.length} 道。没有 reviewed Mapping 也不会阻塞作答。`;
+          summary.textContent = `二轮默认回收一轮 Wrong / Uncertain / Marked；当前重点队列 ${activeQuestions.length} 道。没有 reviewed Mapping 也不会阻塞作答。`;
         } else {
           summary.textContent = holdoutYears.length
             ? `已保留整卷：${holdoutYears.join('、')}。${phaseLabel}实际可用 ${activeQuestions.length} / ${data.questionCount} 道。`
@@ -394,13 +397,10 @@ const payload = JSON.stringify({
 
     const renderRecall = () => {
       if (!recallStatus) return;
-      if (recallState.completedAt) {
-        recallStatus.textContent = '本次 System Recall 已完成，可以进入真题';
-        startRecall.textContent = '再做一次闭卷 Recall';
-      } else {
-        recallStatus.textContent = '还没完成本次 System Recall';
-        startRecall.textContent = '开始闭卷 Recall';
-      }
+      const completed = Boolean(recallState.completedAt);
+      recallStatus.textContent = completed ? '本次 System Recall 已完成' : '还没完成本次 System Recall';
+      if (recallWorkspace instanceof HTMLElement) recallWorkspace.hidden = completed;
+      if (questionGate instanceof HTMLElement) questionGate.hidden = !completed;
       renderStats();
     };
 
@@ -427,6 +427,7 @@ const payload = JSON.stringify({
           question,
           status,
           selected,
+          marked: markedFor(question.questionId),
           context: attemptContext,
           holdoutYears
         });
