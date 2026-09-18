@@ -13,18 +13,31 @@ A bare `继续政治 / 继续马原 / 继续史纲` is a learner request unless 
 
 Politics **first-round** learning engineering remains closed through the current scoped `S/K/L/P/R/E` evidence for all five subjects. Real learner `U` remains real-use-only.
 
-A separate exam-lifecycle Content task is now active: build the missing **later-stage Knowledge** required by the existing Learning Contract for consolidation / precision / analysis output / final preparation. This does not reopen or invalidate the accepted first-round path.
-
-Current later-stage dependency:
+Politics exam-lifecycle **later-stage Knowledge is now closed at K with bounded source-refresh debt** across all five subjects.
 
 ```text
-historical/current-year later sources
-→ later-stage K realization
-→ later-stage L audit
-→ later Projection / Runtime only after K/L close
+later-stage Source baseline
+→ K realization / audit                  PASS_WITH_DEBT
+→ later-stage L audit                    ACTIVE NEXT GATE
+→ later Projection / Runtime             FROZEN
 ```
 
-Marxism C02/C05 are the active K calibration pair. UI remains frozen.
+Subject K closure:
+
+- Marxism — Compression + sparse Precision + bounded Output;
+- Mao — historical problem → theory response → identity/hat Precision; no invented Output bank;
+- Xi — role/hierarchy compression + high-delta Precision map + current-year-refresh Output hooks;
+- History — causal movie + four horizontal Precision lines + bounded Output;
+- Ethics-Law — concept/boundary/situation compression + Precision candidates + legal freshness gate.
+
+The remaining debt is not “missing K architecture”. It is expected source refresh/admission work:
+- designated current-year Memory handbook delta;
+- current-year Xi/current-affairs updates;
+- current legal/source exactness where required;
+- learner Wrong/Uncertain evidence that may promote or reject candidates.
+
+**Next active gate: later-stage L.**  
+UI / Projection / Runtime remain frozen until L decides how Compression, Precision, W/U Retest and Analysis Output should actually be learned.
 
 The stable first-round learner loop remains:
 
