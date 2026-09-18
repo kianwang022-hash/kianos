@@ -584,6 +584,8 @@ const payload = JSON.stringify({
       return eligible.filter((q) => ids.has(String(q.questionId)));
     };
     const resultFor = (id) => sweepState.results?.[id] || null;
+    const paperDraftFor = (id) => sweepState.paperDraftAnswers?.[id] || null;
+    const responseFor = (id) => paperMode && !paperSealed() ? paperDraftFor(id) : resultFor(id);
     const markedFor = (id) => resolveXizongQuestionMarked(preferences, sweepState, id);
 
     const reviewMetaFor = (id) => sweepState.reviewMeta?.[id] || {};
@@ -616,7 +618,8 @@ const payload = JSON.stringify({
       if (resultModeNode) resultModeNode.textContent = paperMode ? (paperSealed() ? '已出分' : '隐藏') : '即时';
       if (paperSealControl instanceof HTMLButtonElement) {
         paperSealControl.hidden = !paperMode || paperSealed();
-        paperSealControl.textContent = paperMode ? `交卷 · ${Object.keys(sweepState.results || {}).length}/${data.questions.length}` : '交卷';
+        const answered = paperMode ? data.questions.filter((question) => Boolean(responseFor(question.questionId))).length : Object.keys(sweepState.results || {}).length;
+        paperSealControl.textContent = paperMode ? `交卷 · ${answered}/${data.questions.length}` : '交卷';
       }
       if (currentQuestion) {
         markButton.setAttribute('aria-pressed', String(markedFor(currentQuestion.questionId)));
@@ -751,12 +754,13 @@ const payload = JSON.stringify({
 
         rows.forEach(({ q, index }) => {
           const result = resultFor(q.questionId);
+          const response = responseFor(q.questionId);
           const marked = markedFor(q.questionId);
           const button = document.createElement('button');
           button.type = 'button';
           button.className = 'xzpMapItem';
           button.classList.toggle('current', currentQuestion?.questionId === q.questionId);
-          button.classList.toggle('answered', Boolean(result));
+          button.classList.toggle('answered', Boolean(response));
           button.classList.toggle('wrong', Boolean(result?.status === 'wrong' && (!paperMode || paperSealed())));
           button.classList.toggle('marked', marked);
           button.textContent = String(q.number || index + 1);
@@ -790,7 +794,7 @@ const payload = JSON.stringify({
       renderTop();
     };
 
-    const firstUnansweredIndex = () => activeQuestions.findIndex((q) => !resultFor(q.questionId));
+    const firstUnansweredIndex = () => activeQuestions.findIndex((q) => !responseFor(q.questionId));
     const firstPaperReviewIndex = () => {
       const wrongIndex = activeQuestions.findIndex((q) => resultFor(q.questionId)?.status === 'wrong');
       return wrongIndex >= 0 ? wrongIndex : 0;
@@ -840,8 +844,23 @@ const payload = JSON.stringify({
     const sealPaper = () => {
       if (!paperMode) return;
       if (!paperSealed()) {
-        const summary = scoreXizongPaperResults(data.paperFormat, data.questions, sweepState.results || {});
-        const next = sealXizongPaperState(sweepState, summary);
+        let next = sweepState;
+        for (const question of data.questions) {
+          const draft = next.paperDraftAnswers?.[question.questionId];
+          if (!draft || next.results?.[question.questionId]) continue;
+          const selected = Array.isArray(draft.selected) ? draft.selected : [];
+          const isCorrect = same([...selected].sort(), letters(question.correctAnswer));
+          next = recordXizongQuestionAttempt(next, {
+            question,
+            status: isCorrect ? 'stable' : 'wrong',
+            selected,
+            marked: markedFor(question.questionId),
+            context: attemptContext,
+            holdoutYears
+          });
+        }
+        const summary = scoreXizongPaperResults(data.paperFormat, data.questions, next.results || {});
+        next = sealXizongPaperState(next, summary);
         if (!writeJson(sweepKey, next)) return;
         sweepState = next;
       }
@@ -888,7 +907,7 @@ const payload = JSON.stringify({
       if (index < 0) { renderDone(); return; }
       currentIndex = Math.max(0, Math.min(activeQuestions.length - 1, index));
       currentQuestion = activeQuestions[currentIndex];
-      const existing = resultFor(currentQuestion.questionId);
+      const existing = responseFor(currentQuestion.questionId);
       currentSelection = new Set(existing?.selected || []);
 
       holdoutGate.hidden = true;
@@ -916,7 +935,8 @@ const payload = JSON.stringify({
         copy.textContent = option.text;
         button.append(key, copy);
         button.classList.toggle('selected', currentSelection.has(option.label));
-        if (existing) button.disabled = true;
+        const responseLocked = Boolean(existing) && (!paperMode || paperSealed());
+        if (responseLocked) button.disabled = true;
         button.addEventListener('click', () => {
           if (resultFor(currentQuestion.questionId)) return;
           if (currentQuestion.questionType === 'X') {
@@ -934,11 +954,13 @@ const payload = JSON.stringify({
         optionsBox.appendChild(button);
       });
 
-      submit.disabled = Boolean(existing) || currentSelection.size === 0;
-      submit.hidden = Boolean(existing);
+      const responseLocked = Boolean(existing) && (!paperMode || paperSealed());
+      submit.disabled = responseLocked || currentSelection.size === 0;
+      submit.hidden = responseLocked;
+      submit.textContent = paperMode && !paperSealed() ? (existing ? '更新答案' : '保存答案') : '提交答案';
       clearReview();
       const mayRevealResult = !paperMode || paperSealed();
-      if (reviewToggle) reviewToggle.hidden = !existing || !mayRevealResult;
+      if (reviewToggle) reviewToggle.hidden = !resultFor(currentQuestion.questionId) || !mayRevealResult;
 
       if (existing && mayRevealResult) {
         const correct = letters(currentQuestion.correctAnswer);
@@ -957,7 +979,24 @@ const payload = JSON.stringify({
       renderTop();
     };
 
-    const persistAttempt = (status) => {
+    const persistPaperDraft = () => {
+      if (!paperMode || paperSealed() || !currentQuestion) return false;
+      const next = {
+        ...sweepState,
+        paperDraftAnswers: {
+          ...(sweepState.paperDraftAnswers || {}),
+          [currentQuestion.questionId]: {
+            selected: [...currentSelection].sort(),
+            updatedAt: new Date().toISOString()
+          }
+        }
+      };
+      if (!writeJson(sweepKey, next)) return false;
+      sweepState = next;
+      return true;
+    };
+
+        const persistAttempt = (status) => {
       let next;
       try {
         next = recordXizongQuestionAttempt(sweepState, {
@@ -993,16 +1032,19 @@ const payload = JSON.stringify({
     };
 
     const submitAnswer = () => {
-      if (!currentQuestion || !currentSelection.size || resultFor(currentQuestion.questionId)) return;
+      if (!currentQuestion || !currentSelection.size) return;
+      if (paperMode && !paperSealed()) {
+        if (!persistPaperDraft()) return;
+        renderQuestion(currentIndex);
+        window.setTimeout(nextQuestion, preferences.fastSweep ? 90 : 180);
+        return;
+      }
+      if (resultFor(currentQuestion.questionId)) return;
       const correct = letters(currentQuestion.correctAnswer);
       const selected = [...currentSelection].sort();
       const isCorrect = same(selected, correct);
       if (!persistAttempt(isCorrect ? 'stable' : 'wrong')) return;
       renderQuestion(currentIndex);
-      if (paperMode && !paperSealed()) {
-        window.setTimeout(nextQuestion, preferences.fastSweep ? 90 : 180);
-        return;
-      }
       if (isCorrect) window.setTimeout(nextQuestion, preferences.fastSweep ? 120 : 520);
     };
 
