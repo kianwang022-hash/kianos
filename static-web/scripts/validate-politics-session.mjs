@@ -191,12 +191,16 @@ pass(sessionClient.includes("step.recipe_type === 'PRECISION'") && sessionClient
 pass(sessionClient.includes('timed-task executor 还未验收'), 'SESSION_TIMER_RUNTIME_FAIL_CLOSED');
 pass(sessionClient.includes("const completed = status === 'COMPLETED' || nextIndex >= instruction.steps.length"), 'SESSION_EXPLICIT_CLOSE_TERMINATES_PLAN');
 const sessionClientLines = sessionClient.split('\n').map((line) => line.trimStart());
-const safeEvidenceBindingLine = sessionClientLines.findIndex((line) => line.startsWith("$('[data-session-copy-evidence]').forEach"));
-const unsafeEvidenceBindingLine = sessionClientLines.findIndex((line) => line.startsWith("$('[data-session-copy-evidence]').forEach"));
+const evidenceBindingLine = sessionClientLines.findIndex((line) =>
+  line.includes("[data-session-copy-evidence]") && line.includes(".forEach")
+);
+const evidenceBinding = evidenceBindingLine >= 0 ? sessionClientLines[evidenceBindingLine] : '';
+const safeEvidenceBinding = evidenceBinding.charAt(0) === '$' && evidenceBinding.charAt(1) === '$' && evidenceBinding.charAt(2) === '(';
+const unsafeEvidenceBinding = evidenceBinding.charAt(0) === '$' && evidenceBinding.charAt(1) === '(';
 const keyboardBindingLine = sessionClientLines.findIndex((line) => line.startsWith("window.addEventListener('keydown'"));
-pass(safeEvidenceBindingLine >= 0, 'SESSION_ALL_EVIDENCE_COPY_CONTROLS_BOUND');
-pass(unsafeEvidenceBindingLine < 0, 'SESSION_SINGLE_NODE_FOREACH_INIT_CRASH_ABSENT');
-pass(safeEvidenceBindingLine >= 0 && keyboardBindingLine > safeEvidenceBindingLine, 'SESSION_INIT_REACHES_KEYBOARD_BINDING');
+pass(safeEvidenceBinding, 'SESSION_ALL_EVIDENCE_COPY_CONTROLS_BOUND');
+pass(!unsafeEvidenceBinding, 'SESSION_SINGLE_NODE_FOREACH_INIT_CRASH_ABSENT');
+pass(evidenceBindingLine >= 0 && keyboardBindingLine > evidenceBindingLine, 'SESSION_INIT_REACHES_KEYBOARD_BINDING');
 pass(!sessionClient.includes("if (runtime.status === 'PAUSED_CHAT') {\n      $('[data-session-step]').hidden = true;"), 'SESSION_PAUSED_CHAT_SURFACE_VISIBLE');
 pass(practiceClient.includes('if (explicitRetest) return explicitQuestionIds.map'), 'PRACTICE_EXPLICIT_RETEST_EXACT_POOL');
 pass(practiceClient.includes("if (!explicitRetest && controls.mode.value === 'random')"), 'PRACTICE_EXPLICIT_RETEST_ORDER_NOT_SHUFFLED');
