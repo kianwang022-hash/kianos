@@ -6,9 +6,9 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
 <section class="lexicalHome" data-lexical-home data-base={base}>
   <header class="lexicalHomeHeader">
     <div>
-      <span>LEXICAL / VOCABULARY</span>
-      <h2>把词学透，也能快速扫过。</h2>
-      <p>熟悉的词快速继续；需要时展开词义，留下真正不稳的具体分支。</p>
+      <span>ENGLISH · LEXICAL</span>
+      <h2>Vocabulary</h2>
+      <p>Coverage 是主线；稳定词快速离开，真正不稳的具体对象才进入 Repair。</p>
     </div>
     <nav aria-label="Vocabulary modes">
       <button type="button" class="active" data-lexical-tab="study">Study</button>
@@ -20,15 +20,15 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
 
   <section class="lexicalHomePanel" data-lexical-panel="study">
     <a class="lexicalContinueCard" data-lexical-continue href={`${base}vocabulary/1/`}>
-      <span>CONTINUE / 继续学习</span>
+      <span>CONTINUE COVERAGE</span>
       <strong data-lexical-continue-word>开始 Vocabulary</strong>
-      <p data-lexical-continue-core>顺序只是遍历入口；当前 English performance 或 Repair 更值钱时，可以随时停。</p>
+      <p data-lexical-continue-core>从上次位置继续；熟悉就过，需要时再开 Depth。</p>
       <small data-lexical-continue-meta>{rows.length} Current Words</small>
       <span class="lexicalContinueArrow" aria-hidden="true">↗</span>
     </a>
 
     <section class="lexicalRecent">
-      <header><strong>最近学习</strong><span>回到最近的位置</span></header>
+      <header><strong>Recent</strong><span>最近打开过的 Study 对象</span></header>
       <div data-lexical-recent-list><p class="lexicalEmpty">还没有本地学习记录。</p></div>
     </section>
 
@@ -44,17 +44,17 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
 
   <section class="lexicalHomePanel" data-lexical-panel="search" hidden>
     <label class="lexicalSearchBox">
-      <span>Search all Current Words</span>
+      <span>Search Current Lexicon</span>
       <input type="search" autocomplete="off" spellcheck="false" data-lexical-search placeholder="输入单词，例如 default / account / observe" />
     </label>
     <div class="lexicalSearchResults" data-lexical-search-results>
-      <p class="lexicalEmpty">输入词形后直接打开对应 Depth Card。</p>
+      <p class="lexicalEmpty">输入词形，直接打开 canonical Word；普通查词不会推进 Coverage。</p>
     </div>
   </section>
 
   <section class="lexicalHomePanel" data-lexical-panel="review" hidden>
     <section class="lexicalRecent">
-      <header><strong>Repair</strong><span>只保留有真实 evidence 的具体对象</span></header>
+      <header><strong>Repair</strong><span>只处理 evidence-backed exact targets</span></header>
       <div data-lexical-review-list><p class="lexicalEmpty">当前没有 Repair 对象。</p></div>
     </section>
   </section>
