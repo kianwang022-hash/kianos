@@ -18,16 +18,17 @@ Politics exam-lifecycle **later-stage Knowledge is now closed at K with bounded 
 ```text
 later-stage Source baseline
 → K realization / audit                  PASS_WITH_DEBT
-→ Consolidation L candidate              REPAIRED / same-Chat readback PASS
-→ fresh independent Consolidation L audit ACTIVE NEXT GATE
-→ Analysis-Output / Mock L                UNTESTED
-→ later Projection / Runtime              FROZEN
+→ Consolidation L old static-rubric model  FAIL / REVISION_REQUIRED
+→ corrected Chat-owned strategy model       READY_FOR_FRESH_RE-AUDIT
+→ fresh independent Consolidation L re-audit ACTIVE NEXT GATE
+→ Analysis-Output / Mock L                  UNTESTED
+→ later Projection / Runtime                FROZEN
 ```
 
 K detail and source-refresh debt remain owned by `content/politics/ACCEPTANCE.md` and `manifest.json`; this cursor does not duplicate subject counts or candidate inventories.
 
-**Next active gate: fresh independent Consolidation L audit on the current #433 head.**  
-The same builder Chat has already repaired duplicate recall, candidate-admission leakage, freshness bypass and later-stage surface ownership, but cannot manufacture independent acceptance. Analysis-Output / Mock L and downstream Projection / Runtime remain frozen.
+**Next active gate: fresh independent Consolidation L re-audit on the current #433 head.**  
+The previous fresh audit rejected the static K→L rubric-coverage model. That model has now been removed: **Chat owns review selection; Web only executes an explicit Chat plan and returns evidence.** The five representative chapters no longer carry fixed later-stage review plans. Analysis-Output / Mock L and downstream Projection / Runtime remain frozen.
 
 The stable first-round learner loop remains:
 
