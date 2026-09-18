@@ -74,14 +74,20 @@ const {
       return views[current] || ['CONTINUE', block?.label || '当前 Block', '继续 →'];
     };
 
-    if (last?.systemId && link instanceof HTMLAnchorElement) {
+    if (last?.href && link instanceof HTMLAnchorElement) {
       const system = systems.find((row) => row?.systemId === last.systemId);
       const block = system?.blocks?.find((row) => row?.slug === last.blockSlug || row?.label === last.blockLabel);
 
-      if (last.href) link.href = last.href;
-      setText(location, [system?.canonicalId || last.systemCanonical, system?.title || last.systemTitle].filter(Boolean).join(' · '));
+      link.href = last.href;
+      setText(location, [system?.canonicalId || last.systemCanonical, system?.title || last.systemTitle].filter(Boolean).join(' · ') || '西医综合');
 
-      if (block) {
+      if (last.resumeKind) {
+        setText(title, last.resumeTitle || '继续上次学习');
+        setText(detail, last.resumeDetail || '恢复上次中断的位置');
+        setText(stage, last.resumeStage || 'CONTINUE');
+        setText(position, last.resumePosition || last.resumeTitle || '上次学习现场');
+        setText(action, last.resumeAction || '继续 →');
+      } else if (block) {
         const stateKey = `kianos-xizong-astro-v2:xizong:${block.blockId}`;
         const blockState = parse(localStorage.getItem(stateKey), {});
         const [stageLabel, stagePosition, actionLabel] = stageView(blockState, block);
@@ -99,7 +105,7 @@ const {
       }
 
       document.querySelectorAll('[data-xizong-system-entry]').forEach((entry) => {
-        const active = entry.getAttribute('data-xizong-system-entry') === last.systemId;
+        const active = Boolean(system) && entry.getAttribute('data-xizong-system-entry') === last.systemId;
         entry.classList.toggle('is-current', active);
         const actionNode = entry.querySelector('[data-xizong-system-action]');
         if (active && actionNode) actionNode.textContent = '当前正在学习';
