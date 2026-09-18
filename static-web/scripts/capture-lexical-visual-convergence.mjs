@@ -178,6 +178,7 @@ try {
     { ordinal: 5477, word: 'write', expectPatterns: false }
   ];
   for (const fixture of depthFixtures) {
+    await page.evaluate((word) => localStorage.removeItem(`kianos-vocabulary-astro-v2:word:${word}`), fixture.word);
     await page.goto(`${origin}/vocabulary/${fixture.ordinal}/`, { waitUntil: 'networkidle' });
     await page.locator('[data-vocab-front]').waitFor({ state: 'visible' });
     assert((await page.locator('[data-vocab-front] h2').innerText()).trim() === fixture.word, `v2_depth_fixture_${fixture.word}`);
@@ -189,6 +190,8 @@ try {
     assert(patternVisible === fixture.expectPatterns, `v2_word_owned_patterns_${fixture.word}`, String(patternVisible));
     const constructionInReference = await page.locator('.portedVocabEvidenceColumn .lexicalConstructionSection').count();
     assert(constructionInReference === 0, `v2_no_construction_in_reference_${fixture.word}`, String(constructionInReference));
+    const fixtureDock = await page.locator('[data-vocab-action-dock]').boundingBox();
+    assert(Boolean(fixtureDock && fixtureDock.y + fixtureDock.height <= 900), `v2_depth_dock_in_view_${fixture.word}`, JSON.stringify(fixtureDock));
     await page.screenshot({ path: path.join(outputRoot, `lexical-v2-depth-${fixture.word}-1440x900.png`), fullPage: false });
   }
 
