@@ -222,9 +222,11 @@
         "抗战路线与战略阶段 boundaries",
         "抗战胜利原因/意义 hierarchy"
       ],
-      "admission_state": "CANDIDATE_ONLY",
       "current_year_delta_risk": "LOW_TO_MEDIUM",
-      "rule": "History precision is mainly cross-cutting identity/timeline knowledge. Exact recent-history items require current-year refresh."
+      "rule": "History precision is mainly cross-cutting identity/timeline knowledge. Exact recent-history items require current-year refresh.",
+      "memory_admission_state": "ADMITTED_STABLE",
+      "precision_admission_state": "CANDIDATE_EXACTNESS",
+      "precision_blocker": "EXACT_WORDING_OR_NORMALIZATION_NOT_SEPARATELY_ADMITTED"
     },
     "analysis_output_hooks": [
       {
