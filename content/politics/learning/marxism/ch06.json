@@ -240,23 +240,21 @@
       ]
     },
     "precision_knowledge": {
-      "policy": "PENDING_EXACT_CANDIDATE_MATERIALIZATION",
-      "candidate_domains": [
-        "垄断形成/竞争/利润来源 hats",
-        "金融资本与国家垄断资本主义 fixed identities",
-        "经济全球化表现/动因 lists",
-        "二战后/21世纪资本主义变化 lists",
-        "历史进步性/局限性 fixed lists"
+      "policy": "REFERENCE_MEMORY_SIDECAR",
+      "owner_path": "content/politics/learning/marxism/ch06.memory.json",
+      "candidate_ids": [
+        "POL27-MEM-MARX-C06-S01-M01",
+        "POL27-MEM-MARX-C06-S01-M02",
+        "POL27-MEM-MARX-C06-S01-M03",
+        "POL27-MEM-MARX-C06-S02-M01"
       ],
-      "materialization_status": "WAIT_CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE",
-      "historical_source_refs": [
-        "LEG26-UPPER-MARX-P060",
-        "LEG26-UPPER-MARX-P061",
-        "LEG26-UPPER-MARX-P063",
-        "LEG26-UPPER-MARX-P065",
-        "LEG26-UPPER-MARX-P066",
-        "LEG26-UPPER-MARX-P067"
-      ]
+      "admission_state": "CANDIDATE_ONLY",
+      "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+      "deferred_domains": [
+        "经济全球化表现/动因完整列表",
+        "21世纪资本主义新特征完整列表"
+      ],
+      "rule": "Candidate-only Knowledge is materialized from Current P0/P1 recall needs plus historical handbook support; durable review debt remains admission-gated."
     },
     "analysis_output_hooks": [],
     "analysis_output_status": "LOW_PRIMARY",
