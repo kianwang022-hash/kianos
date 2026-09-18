@@ -22,18 +22,18 @@ Independent Learning judgment, concrete source/content/runtime repairs, fresh br
 
 First-round Learning model re-accepted; the repaired bounded first-round execution paths have fresh technical proof. Full Politics-wide closure is not claimed. See `ACCEPTANCE.md` for exact path-level results and historical reconciliation.
 
-### Immediate Human Gate: A — material visual delta
+### Human Gate A — ACCEPTED
 
 A real Mac defect squeezed long directed sequences into unreadable narrow CJK columns. The candidate keeps canonical labels/order/relation text and body font size while stacking long sequences vertically in the existing stage.
 
 Owner: `static-web/src/components/PoliticsExplicitSurfacePlan.astro`.
 Proof: `static-web/scripts/test-politics-sequence-readability.mjs`; macOS artifacts `sequence-readable-start.png` and `sequence-readable-end.png`, compared with the pre-repair Marxism C01 Unit 2 capture.
 
-**Kian must accept/reject this changed geometry before visual promotion.** The old PR #477 Mac Gate remains valid only for unchanged surfaces. Browser screenshots do not manufacture a new Human Gate or U.
+**Kian accepted this changed long-sequence geometry on 2026-09-19 after direct before/after Mac review.** The acceptance covers the visible layout change only; it does not manufacture learner U or close shared Return/durability limits.
 
-### Next after the visual decision
+### Immediate next — technical promotion
 
-Resolve only actual PR/main write conflicts and relevant inherited integration assertions, then rerun the smallest affected proof on the resulting exact head. Do not claim current main already contains this candidate; do not rerun unrelated subjects or the initial A/B/C model by ritual.
+Resolve only actual PR/main write conflicts and relevant inherited integration assertions, then rerun the smallest affected proof on the resulting exact head. If the resulting candidate is clean, merge PR #486 and advance this cursor to the remaining shared platform/source limits rather than reopening first-round Politics semantics. Do not claim current main already contains this candidate; do not rerun unrelated subjects or the initial A/B/C model by ritual.
 
 The inspected PR state had merge conflicts and inherited Politics QA failures despite the fresh exact-head suite passing. These are technical promotion work, not requests for Kian to debug CI. Do not silently waive them or describe all CI as green.
 
