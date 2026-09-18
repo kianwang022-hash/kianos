@@ -445,7 +445,9 @@ const payload = JSON.stringify({
       ? `kianos:xizong:chat-set-question-sweep:${storageId}:v1`
       : data.scopeKind === 'RETAINED'
         ? `kianos:xizong:retained-question-sweep:${storageId}:v1`
-        : `kianos:xizong:system-question-sweep:${initialSystemId}:v1`;
+        : data.scopeKind === 'PAPER'
+          ? `kianos:xizong:paper-question-sweep:${storageId}:v1`
+          : `kianos:xizong:system-question-sweep:${initialSystemId}:v1`;
 
     let holdoutYears = data.allowHoldout ? [] : readJson(holdoutKey, []);
     let preferences = readJson(preferenceKey, { fastSweep: false, questionMarks: {} });
@@ -497,6 +499,24 @@ const payload = JSON.stringify({
     const holdoutInput = root.querySelector('[data-holdout-input]');
     const saveHoldout = root.querySelector('[data-save-holdout]');
     const moreMenu = root.querySelector('.xzpMore');
+    const resultMode = root.querySelector('[data-result-mode]');
+    const paperSubmit = root.querySelector('[data-paper-submit]');
+    const paperResult = root.querySelector('[data-paper-result]');
+    const paperReveal = root.querySelector('[data-paper-reveal]');
+    const paperScore = root.querySelector('[data-paper-score]');
+    const paperReviewFirst = root.querySelector('[data-paper-review-first]');
+    const roundActions = root.querySelector('[data-round-actions]');
+    const doneKicker = root.querySelector('[data-done-kicker]');
+    const doneTitle = root.querySelector('[data-done-title]');
+    const doneCopy = root.querySelector('[data-done-copy]');
+    const paperMode = data.scopeKind === 'PAPER';
+    const hiddenResultMode = data.resultVisibility === 'hidden';
+    const resultsRevealed = () => !hiddenResultMode || Boolean(sweepState.resultRevealAt);
+
+    if (paperMode) {
+      root.querySelector('[data-holdout-control]')?.setAttribute('hidden', '');
+      if (fastButton instanceof HTMLElement) fastButton.hidden = true;
+    }
 
     const field = {
       examTarget: [root.querySelector('[data-exam-target-wrap]'), root.querySelector('[data-exam-target]')],
@@ -558,6 +578,9 @@ const payload = JSON.stringify({
       holdoutInput.value = holdoutYears.join(', ');
       fastButton.setAttribute('aria-pressed', String(Boolean(preferences.fastSweep)));
       fastButton.textContent = preferences.fastSweep ? 'Fast · On' : 'Fast';
+      if (resultMode) resultMode.textContent = hiddenResultMode
+        ? (resultsRevealed() ? '已揭晓' : 'Hidden')
+        : '即时';
       if (currentQuestion) {
         markButton.setAttribute('aria-pressed', String(markedFor(currentQuestion.questionId)));
         markButton.textContent = markedFor(currentQuestion.questionId) ? '★ 已标记' : '☆ 标记';
@@ -578,7 +601,7 @@ const payload = JSON.stringify({
     };
 
     const showBack = () => {
-      if (!currentQuestion || !resultFor(currentQuestion.questionId)) return;
+      if (!resultsRevealed() || !currentQuestion || !resultFor(currentQuestion.questionId)) return;
       backVisible = true;
       if (front) front.hidden = true;
       if (back) back.hidden = false;
@@ -610,6 +633,7 @@ const payload = JSON.stringify({
     };
 
     const renderReview = (question, result) => {
+      if (!resultsRevealed()) return;
       const explanation = question?.explanation || {};
       const meta = reviewMetaFor(question.questionId);
       Object.values(field).forEach(([wrap, node]) => {
@@ -696,7 +720,7 @@ const payload = JSON.stringify({
           button.className = 'xzpMapItem';
           button.classList.toggle('current', currentQuestion?.questionId === q.questionId);
           button.classList.toggle('answered', Boolean(result));
-          button.classList.toggle('wrong', result?.status === 'wrong');
+          button.classList.toggle('wrong', resultsRevealed() && result?.status === 'wrong');
           button.classList.toggle('marked', marked);
           button.textContent = String(q.number || index + 1);
           button.title = `${year} · 第 ${q.number || index + 1} 题`;
@@ -736,13 +760,38 @@ const payload = JSON.stringify({
       done.hidden = false;
       if (reviewToggle) reviewToggle.hidden = true;
       clearReview();
-      questionMeta.textContent = 'ROUND COMPLETE';
+      questionMeta.textContent = paperMode ? `${data.years?.[0] || ''} · WHOLE PAPER` : 'ROUND COMPLETE';
       questionProgress.textContent = `${activeQuestions.length} / ${activeQuestions.length}`;
       if (questionProgressSide) questionProgressSide.textContent = `${activeQuestions.length} / ${activeQuestions.length}`;
-      const phase = sweepState.round?.studyPhase || 'FIRST_PASS';
-      if (nextPhaseSelect) nextPhaseSelect.value = phase;
-      if (nextQueueSelect) nextQueueSelect.value = 'TARGETED';
-      nextRoundButton.disabled = false;
+
+      if (paperMode) {
+        const revealed = resultsRevealed();
+        if (doneKicker) doneKicker.textContent = revealed ? 'PAPER REVEALED' : 'PAPER COMPLETE';
+        if (doneTitle) doneTitle.textContent = revealed ? '整卷已交卷' : '整卷已经全部作答';
+        if (doneCopy) doneCopy.textContent = revealed
+          ? '结果已释放；现在可以按原题号复盘，Evidence 仍沿用同一份 Question Attempt history。'
+          : '当前只确认整卷已完成作答；对错、正确答案和解析仍然保持 Hidden。';
+        if (paperSubmit instanceof HTMLElement) paperSubmit.hidden = revealed;
+        if (paperResult instanceof HTMLElement) paperResult.hidden = !revealed;
+        if (roundActions instanceof HTMLElement) roundActions.hidden = true;
+
+        if (revealed && paperScore) {
+          const rows = activeQuestions.map((question) => resultFor(question.questionId)).filter(Boolean);
+          const stable = rows.filter((row) => row.status === 'stable').length;
+          const wrong = rows.filter((row) => row.status === 'wrong').length;
+          const uncertain = rows.filter((row) => row.status === 'uncertain').length;
+          paperScore.textContent = `正确 ${stable} / ${activeQuestions.length} · Wrong ${wrong}${uncertain ? ` · Uncertain ${uncertain}` : ''}`;
+        }
+      } else {
+        if (paperSubmit instanceof HTMLElement) paperSubmit.hidden = true;
+        if (paperResult instanceof HTMLElement) paperResult.hidden = true;
+        if (roundActions instanceof HTMLElement) roundActions.hidden = false;
+        const phase = sweepState.round?.studyPhase || 'FIRST_PASS';
+        if (nextPhaseSelect) nextPhaseSelect.value = phase;
+        if (nextQueueSelect) nextQueueSelect.value = 'TARGETED';
+        nextRoundButton.disabled = false;
+      }
+
       renderMap();
       renderTop();
     };
