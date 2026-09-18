@@ -1,4 +1,5 @@
 ---
+import { loadXizongSystemCompletionRequirements } from '../lib/xizong.mjs';
 import {
   ensureXizongQuestionSweepState,
   recordXizongQuestionAttempt,
@@ -26,6 +27,7 @@ const payload = JSON.stringify({
   resultVisibility: sweep.resultVisibility || 'immediate',
   paperFormat: sweep.paperFormat || null,
   scopeKind,
+  completionRequirements: scopeKind === 'SYSTEM' ? loadXizongSystemCompletionRequirements(system) : [],
   base
 }).replace(/</g, '\\u003c');
 ---
@@ -245,6 +247,7 @@ const payload = JSON.stringify({
 </section>
 
 <script>
+  import { inspectXizongSystemCompletion, hasXizongSystemRecall } from '../lib/xizongMemoryAutoRelease.mjs';
   import {
     ensureXizongQuestionSweepState,
     recordXizongQuestionAttempt,
@@ -304,7 +307,7 @@ const payload = JSON.stringify({
 
     if (data?.scopeKind === 'SYSTEM') {
       const recallState = readJson(`kianos:xizong:system-recall:${initialSystemId}:v1`, null);
-      if (!recallState?.completedAt) {
+      if (!inspectXizongSystemCompletion(data.completionRequirements, localStorage).complete || !hasXizongSystemRecall(localStorage, initialSystemId)) {
         showScopeError(
           '系统训练',
           '先完成 System Recall',
