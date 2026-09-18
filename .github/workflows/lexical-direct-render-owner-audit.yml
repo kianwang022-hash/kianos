@@ -30,6 +30,12 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Validate Content-owned Final Learner Object decisions
+        run: node content/lexical/tools/validate-final-learner-object.mjs
 
       - name: Audit all Current Lexical owners
         id: audit
