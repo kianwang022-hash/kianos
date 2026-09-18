@@ -184,7 +184,7 @@ Permanent lineage evidence:
 
 ---
 
-## Direct-render materialization / ownership closure — ACTIVE 2026-09-18
+## Direct-render raw-owner diagnostic — HISTORICAL / SUPERSEDED 2026-09-18
 
 Kian explicitly requires:
 
@@ -253,7 +253,7 @@ Projection/materialization metadata findings are diagnostics for ownership/trans
 
 ---
 
-## Final Learner Object direct-consumption cutover — ACTIVE CANDIDATE 2026-09-18
+## Final Learner Object direct-consumption cutover — ACCEPTED 2026-09-18
 
 The learner-facing chain is now:
 
@@ -283,7 +283,9 @@ Reviewed pressure-test decisions currently include:
 
 `stationary` and `charge` remain unsuppressed pressure-test controls because their current objects carry distinct learner jobs.
 
-Current Human Gate question is now Visual only:
+Cutover status: **PASS**. Website Word Study now consumes materialized Final Learner Objects directly; raw-owner renderer diagnostics no longer define the learner-surface execution model.
+
+The remaining Human Gate question for this accepted Depth baseline is Visual only:
 
 > Given the accepted Final Learner Object, is the fixed Website mapping readable, dense, aligned and low-noise?
 
