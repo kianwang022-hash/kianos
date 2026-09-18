@@ -82,6 +82,13 @@ async function advanceToRecall(page, root, item) {
   let stage = await activeStage(root);
   check(stage === 'block_learn', `${lane}_starts_at_block_learn`, stage);
 
+  const settleTtsx = async () => {
+    if (stage !== 'ttsx_checkpoint') return;
+    await root.locator('[data-study-stage="ttsx_checkpoint"]').waitFor({ state: 'visible' });
+    await root.locator('[data-ttsx-done]').click();
+    stage = await waitForStageChange(page, root, 'ttsx_checkpoint');
+  };
+
   await root.locator('[data-stage-next="logic_group"]').click();
   stage = await waitForStageChange(page, root, 'block_learn');
   check(['source_contact', 'logic_group', 'kp_learn'].includes(stage), `${lane}_current_topology_is_supported`, stage);
@@ -93,6 +100,12 @@ async function advanceToRecall(page, root, item) {
     check(await companion.locator('[data-learner-kp-core]').count() === 1, `${lane}_source_contact_is_kp_learn_companion`);
     await root.locator('[data-source-contact-done]').click();
     stage = await waitForStageChange(page, root, 'source_contact');
+    await settleTtsx();
+  }
+
+  if (stage === 'logic_group') {
+    await root.locator('[data-enter-group]').click();
+    stage = await waitForStageChange(page, root, 'logic_group');
   }
 
   if (stage === 'kp_learn') {
@@ -101,23 +114,11 @@ async function advanceToRecall(page, root, item) {
     check(await companion.locator('[data-learner-kp-core]').count() === 1, `${lane}_group_kp_learn_is_companion`);
     await root.locator('[data-group-lecture-done]').click();
     stage = await waitForStageChange(page, root, 'kp_learn');
+    await settleTtsx();
   }
 
-  check(stage === 'logic_group', `${lane}_reaches_logic_group_without_forced_topology`, stage);
-  await root.locator('[data-enter-group]').click();
-  stage = await waitForStageChange(page, root, 'logic_group');
-
-  if (stage === 'kp_learn') {
-    const companion = root.locator('[data-learner-kp-companion="kp_learn"]');
-    await companion.waitFor({ state: 'visible' });
-    check(await companion.locator('[data-learner-kp-core]').count() === 1, `${lane}_entered_group_uses_kp_learn_companion`);
-    await root.locator('[data-group-lecture-done]').click();
-    stage = await waitForStageChange(page, root, 'kp_learn');
-  }
-
-  check(stage === 'kp_recall', `${lane}_reaches_recall`, stage);
+  check(stage === 'kp_recall', `${lane}_reaches_recall_through_current_flow`, stage);
 }
-
 const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
   cwd: process.cwd(), stdio: ['ignore', 'pipe', 'pipe'], detached: process.platform !== 'win32'
 });
