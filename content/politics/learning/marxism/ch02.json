@@ -41,7 +41,9 @@
   "unit_projections": [
     {
       "natural_unit_id": "POL27-CF-MARX-C02-S01",
-      "embedded_natural_unit_ids": ["POL27-CF-MARX-C02-K03"],
+      "embedded_natural_unit_ids": [
+        "POL27-CF-MARX-C02-K03"
+      ],
       "region_id": "POL27-REGION-MARX-C02-S01",
       "title": "第一节 事物的普遍联系和变化发展",
       "from_previous": "第一章留下的结论是：世界是物质的并且永远运动。现在要解释运动为什么具有结构，而不是随机变化。",
@@ -144,5 +146,214 @@
     "xiao1000_default": "INLINE_VERIFICATION_AFTER_RELEVANT_UNIT",
     "memory_default": "NOT_PRIMARY_FIRST_ROUND_SURFACE",
     "astro_rule": "Prefer content-driven rendering; do not hard-code this chapter's political semantics in components."
+  },
+  "later_stage_knowledge": {
+    "schema": "kianos.politics.later_stage_knowledge.v1",
+    "status": "CURRENT_K_CALIBRATION",
+    "phase_scope": [
+      "CONSOLIDATION",
+      "ANALYSIS_OUTPUT"
+    ],
+    "compression_model": {
+      "cognition": "DIRECTED_RELATION_RECONSTRUCTION",
+      "purpose": "Recover one coherent dialectical model instead of rereading five isolated definitions.",
+      "reconstruction_prompt": "不看答案，解释：事物为什么处在联系中、什么才叫发展、发展动力从哪里来、状态怎样跃迁、为什么发展前进又曲折，以及这些规律怎样变成方法。",
+      "reconstruction_targets": [
+        {
+          "id": "MARX-C02-LK-C01",
+          "claim": "联系首先提供事物存在和变化的条件化关系网络；普遍联系不等于任意联系。",
+          "owner_ids": [
+            "POL27-CF-MARX-C02-S01"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        },
+        {
+          "id": "MARX-C02-LK-C02",
+          "claim": "发展说明变化的方向性和新事物生成，不能把一切变化都叫发展。",
+          "owner_ids": [
+            "POL27-CF-MARX-C02-S01"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        },
+        {
+          "id": "MARX-C02-LK-C03",
+          "claim": "内部矛盾解释发展的根本动力；矛盾分析必须同时保留普遍性、特殊性和不平衡性。",
+          "owner_ids": [
+            "POL27-CF-MARX-C02-K03",
+            "POL27-CF-MARX-C02-S01"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        },
+        {
+          "id": "MARX-C02-LK-C04",
+          "claim": "量变—质变解释状态跃迁，辩证否定/否定之否定解释发展形式的前进性与曲折性。",
+          "owner_ids": [
+            "POL27-CF-MARX-C02-S01"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        },
+        {
+          "id": "MARX-C02-LK-C05",
+          "claim": "客观世界的辩证运动要求认识和实践采用联系、发展、具体分析而非孤立、静止、无原则折中。",
+          "owner_ids": [
+            "POL27-CF-MARX-C02-S02"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        }
+      ],
+      "decisive_boundaries": [
+        {
+          "id": "MARX-C02-LK-B01",
+          "boundary": "联系普遍 ≠ 联系任意",
+          "owner_ids": [
+            "POL27-CF-MARX-C02-S01"
+          ]
+        },
+        {
+          "id": "MARX-C02-LK-B02",
+          "boundary": "变化 ≠ 发展",
+          "owner_ids": [
+            "POL27-CF-MARX-C02-S01"
+          ]
+        },
+        {
+          "id": "MARX-C02-LK-B03",
+          "boundary": "主要矛盾 ≠ 矛盾主要方面",
+          "owner_ids": [
+            "POL27-CF-MARX-C02-K03"
+          ]
+        },
+        {
+          "id": "MARX-C02-LK-B04",
+          "boundary": "辩证否定 ≠ 简单抛弃",
+          "owner_ids": [
+            "POL27-CF-MARX-C02-S01"
+          ]
+        },
+        {
+          "id": "MARX-C02-LK-B05",
+          "boundary": "辩证思维 ≠ 无原则折中",
+          "owner_ids": [
+            "POL27-CF-MARX-C02-S02"
+          ]
+        }
+      ],
+      "cross_unit_confusables": [
+        {
+          "id": "MARX-C02-LK-X01",
+          "items": [
+            "矛盾普遍性/特殊性",
+            "主要矛盾/矛盾主要方面"
+          ],
+          "reason": "都属于矛盾分析，但一个处理一般—个别，另一个处理复杂矛盾体系中的地位/方面，不能互换。"
+        },
+        {
+          "id": "MARX-C02-LK-X02",
+          "items": [
+            "量变质变",
+            "否定之否定"
+          ],
+          "reason": "前者回答状态怎样跃迁，后者回答发展为什么表现为前进性与曲折性。"
+        }
+      ]
+    },
+    "precision_knowledge": {
+      "policy": "REFERENCE_EXISTING_MEMORY_SIDECAR",
+      "owner_path": "content/politics/learning/marxism/ch02.memory.json",
+      "candidate_ids": [
+        "POL27-MEM-MARX-C02-K03-M01",
+        "POL27-MEM-MARX-C02-K03-M02",
+        "POL27-MEM-MARX-C02-K03-M03",
+        "POL27-MEM-MARX-C02-K03-M04"
+      ],
+      "admission_state": "CANDIDATE_ONLY",
+      "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+      "rule": "Compression may reference these candidates; it may not silently promote them into durable Memory."
+    },
+    "analysis_output_hooks": [
+      {
+        "id": "MARX-C02-OUT-RELATION-DEVELOPMENT",
+        "title": "联系与发展",
+        "material_cues": [
+          "相互影响/相互制约",
+          "循环/系统关系",
+          "过程/变化/创新/新事物"
+        ],
+        "owner_ids": [
+          "POL27-CF-MARX-C02-S01"
+        ],
+        "retrieval_target": "先判断材料在强调关系网络还是发展过程；只写材料真正命中的原理。",
+        "answer_skeleton": [
+          "指出联系或发展的核心关系",
+          "说明其客观/条件/过程属性",
+          "把原理重新扣回材料中的关系或变化",
+          "给出相应方法论要求"
+        ],
+        "historical_output_refs": [
+          "LEG26-LOWER-MARX-P051"
+        ],
+        "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
+      },
+      {
+        "id": "MARX-C02-OUT-CONTRADICTION",
+        "title": "矛盾分析法",
+        "material_cues": [
+          "正反两面",
+          "对立又依存",
+          "转化",
+          "差异化处理",
+          "重点/关键/主流"
+        ],
+        "owner_ids": [
+          "POL27-CF-MARX-C02-K03",
+          "POL27-CF-MARX-C02-S01"
+        ],
+        "retrieval_target": "先判断材料命中同一性/斗争性、普遍性/特殊性，还是主次结构；不能把所有矛盾原理全写上。",
+        "answer_skeleton": [
+          "识别材料中的具体矛盾关系",
+          "调用最小命中原理",
+          "说明条件/层级/方向边界",
+          "回扣材料并给出具体分析或抓重点的方法论"
+        ],
+        "historical_output_refs": [
+          "LEG26-LOWER-MARX-P051",
+          "LEG26-LOWER-MARX-P052",
+          "LEG26-LOWER-MARX-P053"
+        ],
+        "precision_refs": [
+          "POL27-MEM-MARX-C02-K03-M01",
+          "POL27-MEM-MARX-C02-K03-M03",
+          "POL27-MEM-MARX-C02-K03-M04"
+        ],
+        "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
+      },
+      {
+        "id": "MARX-C02-OUT-DIALECTICAL-CATEGORIES",
+        "title": "基本范畴与辩证分析",
+        "material_cues": [
+          "原因/后果",
+          "必然/偶然",
+          "表面/本质",
+          "全面与重点"
+        ],
+        "owner_ids": [
+          "POL27-CF-MARX-C02-S01",
+          "POL27-CF-MARX-C02-S02"
+        ],
+        "retrieval_target": "材料出现范畴关系时，优先写最具体的关系，而不是退化成万能‘辩证看问题’。",
+        "answer_skeleton": [
+          "确定材料的关系范畴",
+          "说明二者区别及联系",
+          "指出材料中的具体条件/表现",
+          "给出对应认识或实践要求"
+        ],
+        "historical_output_refs": [
+          "LEG26-LOWER-MARX-P053",
+          "LEG26-LOWER-MARX-P054"
+        ],
+        "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
+      }
+    ],
+    "first_round_effect": "NONE"
   }
 }
