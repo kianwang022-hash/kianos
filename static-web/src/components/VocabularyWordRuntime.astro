@@ -75,6 +75,11 @@ const coreSecondaryCn = String(core.mental_model_cn || '').trim() && String(core
   ? String(core.mental_model_cn).trim()
   : '';
 const coreEnglish = String(core.core_meaning_en || '').trim();
+const coreClusters = (Array.isArray(core.core_clusters) ? core.core_clusters : [])
+  .map((cluster) => String(cluster?.label_cn || cluster?.label_en || '').trim())
+  .filter(Boolean)
+  .slice(0, 4);
+const coreClusterSummary = coreClusters.join(' → ');
 
 const posCode = (value = '') => {
   const pos = String(value).toLowerCase();
@@ -196,20 +201,18 @@ const relationDifferenceRows = (relation = {}) => {
             <span><button type="button" data-vocab-speak="en-GB">英</button><button type="button" data-vocab-speak="en-US" class="active">美</button></span>
           </div>
         </div>
-        <div class="lexicalDepthKeyHint"><b>J / K</b> 局部对象 <span>·</span> <b>+</b> Repair <span>·</span> <b>S</b> 发音</div>
+        <section class="lexicalCoreHeadline" data-vocab-target-row aria-label="Word Feel and Core">
+          <span>WORD FEEL / CORE</span>
+          <p>{corePrimaryCn}</p>
+          {coreClusterSummary && <small class="lexicalCoreCoverage">覆盖：{coreClusterSummary}</small>}
+          {coreSecondaryCn && <b>{coreSecondaryCn}</b>}
+          {!coreClusterSummary && !coreSecondaryCn && coreEnglish && <small>{coreEnglish}</small>}
+          <button type="button" data-vocab-repair data-target-kind="core" data-target-id="" data-target-locator="record.core_concept" data-target-label={`${core.core_meaning_cn || core.mental_model_cn || core.core_meaning_en || card.word}`} aria-pressed="false">+</button>
+        </section>
       </header>
 
       <div class="portedVocabBody" data-vocab-body data-has-expansion={hasImportantExpansion ? 'true' : 'false'} data-expansion-weight={expansionWeight}>
         <main class="portedVocabMeaningColumn">
-          <section class="lexicalCoreRow" data-vocab-target-row>
-            <header><span>核心语义模型</span><small>建立总方向</small></header>
-            <div>
-              {coreEnglish && <p>{coreEnglish}</p>}
-              <strong>{corePrimaryCn}</strong>
-              {coreSecondaryCn && <small>{coreSecondaryCn}</small>}
-            </div>
-            <button type="button" data-vocab-repair data-target-kind="core" data-target-id="" data-target-locator="record.core_concept" data-target-label={`${core.core_meaning_cn || core.mental_model_cn || core.core_meaning_en || card.word}`} aria-pressed="false">+</button>
-          </section>
           <div class="portedVocabSenseList" data-vocab-repair-list>
             {senses.map((sense, index) => {
               const collocations = allCollocationsWithIndex(sense);
