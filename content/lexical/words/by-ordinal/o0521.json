@@ -6,7 +6,27 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:blue:baseline-v2-feel-blue",
+        "pattern": "feel blue",
+        "meaning_cn": "感到忧郁、情绪低落",
+        "definition_en": "feel sad or depressed",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "baseline-v2-2026-09-19"
+      },
+      {
+        "construction_id": "construction:blue:baseline-v2-out-of-the-blue",
+        "pattern": "out of the blue",
+        "meaning_cn": "出乎意料地；突然地",
+        "definition_en": "unexpectedly and without warning",
+        "boundary": "This idiom is not the depressed sense of blue.",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "baseline-v2-2026-09-19"
+      }
+    ],
     "content_hash": "4fe838bcabeea32c562bc00d52c63f9bd51fd2c336719607246b85d641e7552a",
     "core_concept": {
       "core_clusters": [
@@ -22,18 +42,19 @@
         },
         {
           "label_cn": "蓝色的；忧郁的；下流的",
-          "label_en": "having the color blue; sad or melancholy; indecent or obscene",
+          "label_en": "having the color blue; sad or depressed; indecent or obscene",
           "pos": "adjective",
           "sense_ids": [
             "sense:blue:2992d0472e3257e1",
-            "sense:blue:6f3d17a364575ca7"
+            "sense:blue:6f3d17a364575ca7",
+            "sense:blue:bf1e2c403f9d5fe0"
           ]
         }
       ],
-      "core_meaning_cn": "蓝色",
-      "core_meaning_en": "the color of the clear sky",
-      "mental_model_cn": "蓝色",
-      "mental_model_en": ""
+      "core_meaning_cn": "蓝色；也可形容忧郁，或在少量语境中表示下流",
+      "core_meaning_en": "blue in color; also sad/depressed, and in some contexts indecent or obscene",
+      "mental_model_cn": "color → 蓝色；feel blue → 忧郁；blue joke/material → 下流。out of the blue 是独立 idiom，表示“出乎意料地”。",
+      "mental_model_en": "Color is literal; feel blue is depressed; blue joke/material is indecent; out of the blue is a separate idiom meaning unexpectedly."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -172,26 +193,7 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:ba7895467b36f7ea3366",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:blue:bf1e2c403f9d5fe0:collocation:handoff-o0475-o0674"
-            ],
-            "meaning_cn": "感到忧郁",
-            "phrase": "feel blue"
-          },
-          {
-            "collocation_id": "collocation:c7e973ecf6d20613f1fa",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:blue:bf1e2c403f9d5fe0:collocation:handoff-o0475-o0674"
-            ],
-            "meaning_cn": "出乎意料地",
-            "phrase": "out of the blue"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "悲伤的、忧郁的",
         "definition_en": "sad or depressed",

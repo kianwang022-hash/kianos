@@ -571,7 +571,7 @@
     "ordinal": 517,
     "word": "bloom",
     "source_owner_path": "content/lexical/words/by-ordinal/o0517.json",
-    "source_fingerprint": "457e08228e57ec53ae4875e515f2dd2d0f560f52ac3810901f96e55bff91d11b",
+    "source_fingerprint": "fba584616cdd66a9556da64713b9db2f7ad70f13a856520e60aa30ecba436507",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -581,13 +581,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "开花；花朵",
-      "decision_cn": "",
+      "summary_cn": "开花；花朵；也可指生态系统中某类生物的大量快速繁殖",
+      "decision_cn": "plant/flower → 开花、花朵；ecology/science → bloom 可指短期大量增长，如 algal bloom（藻华）。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "开花；花朵"
+        "target_label": "开花；花朵；也可指生态系统中某类生物的大量快速繁殖"
       }
     },
     "senses": [
@@ -1104,7 +1104,7 @@
     "ordinal": 521,
     "word": "blue",
     "source_owner_path": "content/lexical/words/by-ordinal/o0521.json",
-    "source_fingerprint": "28c04d7ee3043562ff7e670d585c479212c0f53765827ed9d64f9911e847e8f0",
+    "source_fingerprint": "a33582c501c7f9d0e70cff2512e75c35033a4b1ef6eb43295ccc5802f7e9feeb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1114,13 +1114,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "蓝色",
-      "decision_cn": "",
+      "summary_cn": "蓝色；也可形容忧郁，或在少量语境中表示下流",
+      "decision_cn": "color → 蓝色；feel blue → 忧郁；blue joke/material → 下流。out of the blue 是独立 idiom，表示“出乎意料地”。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "蓝色"
+        "target_label": "蓝色；也可形容忧郁，或在少量语境中表示下流"
       }
     },
     "senses": [
@@ -1270,34 +1270,7 @@
         "definition_en": "sad or depressed",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:ba7895467b36f7ea3366",
-            "source_locator": "record.senses[5].collocations[0]",
-            "phrase": "feel blue",
-            "meaning_cn": "感到忧郁",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:ba7895467b36f7ea3366",
-              "target_locator": "record.senses[5].collocations[0]",
-              "target_label": "feel blue"
-            }
-          },
-          {
-            "id": "collocation:c7e973ecf6d20613f1fa",
-            "source_locator": "record.senses[5].collocations[1]",
-            "phrase": "out of the blue",
-            "meaning_cn": "出乎意料地",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c7e973ecf6d20613f1fa",
-              "target_locator": "record.senses[5].collocations[1]",
-              "target_label": "out of the blue"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:blue:bf1e2c403f9d5fe0",
@@ -1307,7 +1280,54 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:blue:baseline-v2-feel-blue",
+        "source_locator": "record.constructions[0]",
+        "pattern": "feel blue",
+        "lines": [
+          {
+            "text": "感到忧郁、情绪低落",
+            "lang": "cn"
+          },
+          {
+            "text": "feel sad or depressed",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:blue:baseline-v2-feel-blue",
+          "target_locator": "record.constructions[0]",
+          "target_label": "feel blue"
+        }
+      },
+      {
+        "id": "construction:blue:baseline-v2-out-of-the-blue",
+        "source_locator": "record.constructions[1]",
+        "pattern": "out of the blue",
+        "lines": [
+          {
+            "text": "出乎意料地；突然地",
+            "lang": "cn"
+          },
+          {
+            "text": "This idiom is not the depressed sense of blue.",
+            "lang": "en"
+          },
+          {
+            "text": "unexpectedly and without warning",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:blue:baseline-v2-out-of-the-blue",
+          "target_locator": "record.constructions[1]",
+          "target_label": "out of the blue"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1972,7 +1992,7 @@
     "ordinal": 527,
     "word": "board",
     "source_owner_path": "content/lexical/words/by-ordinal/o0527.json",
-    "source_fingerprint": "7b96a5e8ec9054c18bbdaa7e340b73b2fc6dfabe886aba56dcd84ce67563096e",
+    "source_fingerprint": "d892c1fc7e356edd24f41ab88cf5f0cd81adc9af56253414f3e76b194bd76f58",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2017,19 +2037,6 @@
             "meaning_cn": "在委员会中；在董事会",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:8747d95ad7164400f87a",
-            "source_locator": "record.senses[0].collocations[2]",
-            "phrase": "on board",
-            "meaning_cn": "在船、飞机或车辆上；参与、加入或支持计划",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:8747d95ad7164400f87a",
-              "target_locator": "record.senses[0].collocations[2]",
-              "target_label": "on board"
-            }
           }
         ],
         "repair": {
@@ -2211,7 +2218,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:board:baseline-v2-on-board",
+        "source_locator": "record.constructions[0]",
+        "pattern": "on board",
+        "lines": [
+          {
+            "text": "在船、飞机或其他交通工具上；也可表示加入、参与或支持某计划/团队",
+            "lang": "cn"
+          },
+          {
+            "text": "Distinct from on the board = serving on a committee/board of directors.",
+            "lang": "en"
+          },
+          {
+            "text": "aboard a vehicle; figuratively, participating in or supporting a plan, team, or project",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:board:baseline-v2-on-board",
+          "target_locator": "record.constructions[0]",
+          "target_label": "on board"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2225,7 +2258,7 @@
     "ordinal": 528,
     "word": "boast",
     "source_owner_path": "content/lexical/words/by-ordinal/o0528.json",
-    "source_fingerprint": "fbb91aedadea6aad7717c6848b842c4d27b7a1f4a208192000336edfe8c4be4f",
+    "source_fingerprint": "2b28529ad6c5375dbd33d3bb7149ce2284bcd2f6c65d17229e07960101958c6f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2235,13 +2268,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "自夸",
-      "decision_cn": "",
+      "summary_cn": "可以是“夸自己”，也可以是某人/某地“拥有值得自豪的东西”",
+      "decision_cn": "boast of/about sth → 吹嘘、夸耀；place/person boasts sth → 拥有并以某物为傲。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "自夸"
+        "target_label": "可以是“夸自己”，也可以是某人/某地“拥有值得自豪的东西”"
       }
     },
     "senses": [
@@ -2364,7 +2397,50 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:boast:baseline-v2-of-about",
+        "source_locator": "record.constructions[0]",
+        "pattern": "boast of/about sth",
+        "lines": [
+          {
+            "text": "吹嘘；夸耀某事",
+            "lang": "cn"
+          },
+          {
+            "text": "talk with excessive pride about something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:boast:baseline-v2-of-about",
+          "target_locator": "record.constructions[0]",
+          "target_label": "boast of/about sth"
+        }
+      },
+      {
+        "id": "construction:boast:baseline-v2-transitive",
+        "source_locator": "record.constructions[1]",
+        "pattern": "boast sth",
+        "lines": [
+          {
+            "text": "拥有值得自豪的某物/特点",
+            "lang": "cn"
+          },
+          {
+            "text": "possess or feature something impressive",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:boast:baseline-v2-transitive",
+          "target_locator": "record.constructions[1]",
+          "target_label": "boast sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2479,22 +2555,22 @@
     "ordinal": 530,
     "word": "body",
     "source_owner_path": "content/lexical/words/by-ordinal/o0530.json",
-    "source_fingerprint": "489502332fd34f681484291f9b5977da08bfda434a4d4a8e5d995dcd5df85531",
+    "source_fingerprint": "2bd837aa45eaa2ff4ae106a0fe8bf99fbf90c2367981aea380ed45936e0149e0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(5+1)N"
+        "5N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "生物体的结构；团体或物体",
-      "decision_cn": "",
+      "summary_cn": "一个“整体实体”：可指身体/尸体、组织机构、文章主体，或一整套知识/证据/资料",
+      "decision_cn": "person/animal → 身体；dead body → 尸体；governing body → 机构；body of text → 主体；body of evidence/knowledge → 大量成套资料。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "生物体的结构；团体或物体"
+        "target_label": "一个“整体实体”：可指身体/尸体、组织机构、文章主体，或一整套知识/证据/资料"
       }
     },
     "senses": [
@@ -2620,22 +2696,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:body:0db1e10501eebac5",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "noun",
-        "definition_cn": "团体，机构",
-        "definition_en": "a group of people with a common purpose or function",
-        "pattern": "governing body",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:body:0db1e10501eebac5",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "团体，机构"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -3291,7 +3352,7 @@
     "ordinal": 535,
     "word": "bomb",
     "source_owner_path": "content/lexical/words/by-ordinal/o0535.json",
-    "source_fingerprint": "c19851c09612f562503437f74d35a36467822d17ec62ffb77a0615d2b71da2a2",
+    "source_fingerprint": "8e43f8debf13fb8e28626f2ad56dcc689358217a843d1d0ab711fd16ea467697",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3301,13 +3362,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "炸弹或轰炸",
-      "decision_cn": "",
+      "summary_cn": "炸弹/轰炸；非正式语境中也可表示彻底失败、惨败",
+      "decision_cn": "explosive/attack → 炸弹、轰炸；show/movie/test/performance + bomb → 惨败、彻底失败。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "炸弹或轰炸"
+        "target_label": "炸弹/轰炸；非正式语境中也可表示彻底失败、惨败"
       }
     },
     "senses": [
@@ -3413,7 +3474,7 @@
     "ordinal": 536,
     "word": "bond",
     "source_owner_path": "content/lexical/words/by-ordinal/o0536.json",
-    "source_fingerprint": "1411dfcb0d0276cb0634af80d60a980e7e8350544a511cdf573a309b8467c493",
+    "source_fingerprint": "d501f5825e8321a681880d6663f83b7a7675a666910fd33ee70e3b7ec02a4790",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3423,13 +3484,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "联系或金融工具",
-      "decision_cn": "",
+      "summary_cn": "“连接”是共同核心：金融债券、人与人的纽带、建立联系、黏合，以及化学键",
+      "decision_cn": "finance → 债券；people/relationship → 纽带/建立联系；materials → 黏合；chemistry → 化学键。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "联系或金融工具"
+        "target_label": "“连接”是共同核心：金融债券、人与人的纽带、建立联系、黏合，以及化学键"
       }
     },
     "senses": [
@@ -3613,11 +3674,11 @@
     "ordinal": 537,
     "word": "bone",
     "source_owner_path": "content/lexical/words/by-ordinal/o0537.json",
-    "source_fingerprint": "6f5e82e2f8f709cccc78944ef5a472a64db363460f9623fec86181781623fbcb",
+    "source_fingerprint": "b794104751147dee43316e8cab2b507ae8b8fc871b83c383e152a5d9f62f7853",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "3N"
       ],
       "density": "rich"
@@ -3749,41 +3810,36 @@
           "target_locator": "record.senses[3]",
           "target_label": "骨白色"
         }
-      },
-      {
-        "id": "sense:bone:b73a9a2aae83536d",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "用功学习（非正式）",
-        "definition_en": "to study or review something intensively",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:c2b787e2646ba16df620",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "bone up on sth",
-            "meaning_cn": "集中学习或复习某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c2b787e2646ba16df620",
-              "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "bone up on sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bone:b73a9a2aae83536d",
-          "target_locator": "record.senses[4]",
-          "target_label": "用功学习（非正式）"
-        }
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:bone:baseline-v2-bone-up-on",
+        "source_locator": "record.constructions[0]",
+        "pattern": "bone up on sth",
+        "lines": [
+          {
+            "text": "集中学习；突击复习某事",
+            "lang": "cn"
+          },
+          {
+            "text": "The study meaning belongs to the phrasal verb bone up (on), not to a standalone study sense of bone.",
+            "lang": "en"
+          },
+          {
+            "text": "study or review something intensively, especially in preparation for a task or test",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bone:baseline-v2-bone-up-on",
+          "target_locator": "record.constructions[0]",
+          "target_label": "bone up on sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4269,7 +4325,7 @@
     "ordinal": 542,
     "word": "boot",
     "source_owner_path": "content/lexical/words/by-ordinal/o0542.json",
-    "source_fingerprint": "c79ed16bbc3b0654021f33eca71ba864aa1baf83cab39861000fe079299efce2",
+    "source_fingerprint": "3465acccb660cdba84b35d0b5b3cc8dce560ea3951ad065f3e1065523ceae31f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4279,13 +4335,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "靴子或踢/启动",
-      "decision_cn": "",
+      "summary_cn": "靴子；英式汽车后备箱；也可作动词表示踢、赶走或启动系统",
+      "decision_cn": "footwear → 靴子；BrE car context → 后备箱；boot sb out → 赶走；computer/system → 启动。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "靴子或踢/启动"
+        "target_label": "靴子；英式汽车后备箱；也可作动词表示踢、赶走或启动系统"
       }
     },
     "senses": [
@@ -4422,7 +4478,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:boot:baseline-v2-sb-out",
+        "source_locator": "record.constructions[0]",
+        "pattern": "boot sb out (of sth)",
+        "lines": [
+          {
+            "text": "把某人赶出去；逐出；撵走",
+            "lang": "cn"
+          },
+          {
+            "text": "force someone to leave a place, group, or position",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:boot:baseline-v2-sb-out",
+          "target_locator": "record.constructions[0]",
+          "target_label": "boot sb out (of sth)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5334,7 +5412,7 @@
     "ordinal": 550,
     "word": "both",
     "source_owner_path": "content/lexical/words/by-ordinal/o0550.json",
-    "source_fingerprint": "ca7c13c5d783d0147db26e17ce416e8e6adcb29501f7136f011c40ea358eb744",
+    "source_fingerprint": "f53fde37ae490e090c63232a5c957f276294c8a38de1c52ef682c49cde80adb6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5453,7 +5531,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:both:baseline-v2-a-and-b",
+        "source_locator": "record.constructions[0]",
+        "pattern": "both A and B",
+        "lines": [
+          {
+            "text": "A 和 B 两者都；既 A 又 B",
+            "lang": "cn"
+          },
+          {
+            "text": "Keep the two coordinated elements grammatically parallel.",
+            "lang": "en"
+          },
+          {
+            "text": "used to state that two coordinated people, things, qualities, or actions are both included",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:both:baseline-v2-a-and-b",
+          "target_locator": "record.constructions[0]",
+          "target_label": "both A and B"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
