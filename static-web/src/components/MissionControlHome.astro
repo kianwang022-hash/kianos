@@ -8,8 +8,11 @@ function laneState(lane) {
   const blocker = String(lane.blocker || '').trim().toLowerCase();
   if (blocker && blocker !== 'none') return { label: '有阻塞', tone: 'blocked' };
   const active = String(lane.active || '').trim().toLowerCase();
-  if (!active || active === 'none' || active.includes('router-only')) return { label: '工程已收口', tone: 'quiet' };
-  return { label: '建设中', tone: 'active' };
+  if (!active || active === 'none' || active.includes('router-only') || active.includes('steady') || active.includes('closed')) {
+    return { label: '工程已收口', tone: 'quiet' };
+  }
+  if (active.includes('active')) return { label: '建设中', tone: 'active' };
+  return { label: '工程已收口', tone: 'quiet' };
 }
 
 const lanes = snapshot.lanes.map((lane) => ({ ...lane, state: laneState(lane) }));
