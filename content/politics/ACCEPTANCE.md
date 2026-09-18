@@ -638,3 +638,240 @@ Analysis-Output L
 Mock/Final L
 = UNTESTED
 ```
+
+
+---
+
+## Politics Exam-Horizon Adaptation — 12/20 product acceptance
+
+Status: **ACTIVE CANDIDATE / CURRENT IMPLEMENTATION PARTIAL**
+
+This is not a new Architecture layer and not a Politics UI redesign.
+
+It asks one product question:
+
+> **Can Politics run from the current first round through December 20 using evolving Content + one stable Website execution substrate, without introducing a new phase-specific website architecture?**
+
+The Politics learner-product chain is:
+
+```text
+Rule / Learning
+↓
+Canonical Content
+↓
+resolved Final Learner Objects
+↓
+accepted Visual
+↓
+phase-agnostic Runtime atoms
+↑
+typed Session Instruction from Chat
+↓
+private Session Evidence back to Chat
+```
+
+### A | Final Learner Object direct-consumption closure
+
+**Current judgment: FAIL / REVISION_REQUIRED**
+
+The upstream direction is already correct: explicit Politics Surface Mapping exists and accepted learner states are intended to resolve into `surfacePlan`.
+
+But current implementation still preserves semantic interpretation below the intended final-object boundary:
+
+- `static-web/src/lib/politicsCurrent.mjs` chains subject-specific projection/adaptation helpers;
+- Mao / Xi / Ethics helpers still fill/normalize learner payload from raw teaching fields;
+- `PoliticsExplicitSurfacePlan.astro` uses generic scalar-field enumeration via `learnerLines()`.
+
+Therefore current Politics does **not yet** satisfy the stronger direct-consumption rule:
+
+```text
+Final Learner Object
+→ Website literally renders it
+```
+
+without field interpretation.
+
+Acceptance requires:
+
+1. learner-facing grouping/relation/wording already resolved before the renderer;
+2. renderer consumes explicit primitive payload, not arbitrary scalar fields;
+3. ordinary canonical Content edits do not require subject-specific semantic adapter edits;
+4. candidate/admission/audit/status metadata never becomes learner-visible because a component inspected raw shape;
+5. missing final learner payload fails closed rather than falling back to raw teaching fields.
+
+### B | Generic Runtime Atom closure
+
+**Current judgment: PARTIAL**
+
+Existing Politics/shared implementation already proves useful mechanics:
+
+- Xiao1000 `INPUT_SUBMIT` + deterministic answer check;
+- Wrong / Uncertain `MARK + CAPTURE`;
+- source/repair Return paths;
+- private location / Resume;
+- shared Study Timer;
+- question sequencing;
+- existing Daily Learning Packet infrastructure.
+
+But the Politics Runtime is still largely first-round/workspace-shaped rather than explicitly closed as phase-agnostic atoms.
+
+Target atom set:
+
+```text
+SHOW
+CONCEAL_REVEAL
+INPUT_SUBMIT
+MARK
+SEQUENCE
+TIMER
+HANDOFF
+RETURN
+CAPTURE
+```
+
+Acceptance requires that later capabilities such as Recall, Reconstruct, Timed Task and Mock are recipes over those atoms rather than new phase engines.
+
+Hard failure examples:
+
+```text
+if phase === "round2"
+if politics_mock
+if final_review
+```
+
+when those branches own distinct execution engines instead of composing existing atoms.
+
+### C | Chat ↔ Website typed-control closure
+
+**Current judgment: PARTIAL**
+
+Existing useful pieces:
+
+- `kianos.politics.return_packet.v1`;
+- private Politics evidence / location state;
+- shared `kianos.daily-learning-packet.v1`;
+- #433 candidate semantics for Chat-owned consolidation control.
+
+Exam-horizon target:
+
+```text
+private learner evidence
++ Current Content
+→ Chat
+→ kianos.politics.session-instruction.v1
+→ phase-agnostic Runtime atoms
+→ kianos.politics.session-evidence.v1
+→ Chat
+```
+
+The current `consolidation_plan.v1` must not become a second permanent executor/import path. It is normalized into the generic session instruction with `phase=CONSOLIDATION`.
+
+Acceptance requires:
+
+1. Chat can select explicit Current targets / questions / order;
+2. Website can validate identity/guard/state safety but cannot choose learning strategy;
+3. open Politics recall is not semantically graded by Web;
+4. exact/source/freshness guards follow targets across recipes;
+5. private learner evidence can be supplied back to Chat without Web-authored ranking;
+6. typed return/import cannot mutate canonical GitHub Content;
+7. changing permanent Politics content flows through GitHub/Current, while temporary learner decisions stay private.
+
+### D | Exam-Horizon scenario acceptance
+
+**Current judgment: UNTESTED / BLOCKED BY LATER-PHASE L + RUNTIME CLOSURE**
+
+Politics does not pass this gate merely because the current first-round page works.
+
+One stable substrate must prove all of the following without adding a new bottom-layer architecture.
+
+#### Scenario P1 — current first round
+
+```text
+Orientation
+→ Chengfeng original-source handoff
+→ Return
+→ Xiao1000 Question Set
+→ W/U capture
+→ smallest Repair
+→ Return
+```
+
+Current first-round path: previously accepted through E for its scoped journey.
+
+#### Scenario P2 — Consolidation
+
+```text
+Chat selects one chapter / horizontal line / specific gap
+→ RECONSTRUCT or TARGETED_RECALL
+→ optional admitted Precision
+→ selected historical W/U
+→ selected Xiao1000 retest
+→ Evidence Return
+→ Chat decides whether to close/deepen
+```
+
+Learning candidate: active in #433; fresh independent re-audit still required.
+
+#### Scenario P3 — Analysis Output
+
+```text
+material cue
+→ identify owning principle / political position
+→ retrieve selected source-grounded framework/formulation
+→ learner writes output
+→ timed / untimed submit
+→ evidence
+→ Chat diagnosis / repair
+→ return
+```
+
+Current status: **L UNTESTED**. Existing K Output hooks do not by themselves authorize Runtime.
+
+#### Scenario P4 — Mock
+
+```text
+fixed exam-like objective + analysis task composition
+→ shared TIMER
+→ task SEQUENCE / INPUT_SUBMIT
+→ completion
+→ evidence packet
+→ Chat repair only for real weakness
+```
+
+Current status: **L/P/R UNTESTED**. Mock must be a Session recipe, not a new Politics Runtime engine.
+
+#### Scenario P5 — final compression
+
+```text
+Chat selects high-yield admitted Memory / boundaries / real weak points
+→ short Recall / Precision / selected retest
+→ no manufactured full-chapter replay
+→ exit
+```
+
+Current status: **UNTESTED**, but must reuse the same Session Instruction + Runtime atoms.
+
+### Politics exam-horizon closure rule
+
+Politics may claim **Exam-Horizon Ready** only when all of these are true:
+
+1. Final Learner Object direct-consumption is closed;
+2. Runtime atoms cover every accepted Politics action through the exam horizon;
+3. one typed Session Instruction / Evidence loop drives all later phases;
+4. no learner strategy is hidden in Website selectors/adapters;
+5. Analysis Output and Mock Learning contracts are separately accepted before execution;
+6. representative scenarios P1–P5 execute without introducing a new Runtime architecture;
+7. future current-year Content refresh changes assets, not Website semantic logic.
+
+Allowed current conclusion:
+
+```text
+Politics first-round learner system        accepted for existing scoped path
+Politics Final Learner Object closure      FAIL / revision required
+Politics Runtime Atom closure              PARTIAL
+Politics typed Chat control closure        PARTIAL
+Politics Consolidation L                   pending fresh independent re-audit
+Politics Analysis-Output L                 UNTESTED
+Politics Mock/Final L                      UNTESTED
+Politics Exam-Horizon readiness            UNTESTED
+```
