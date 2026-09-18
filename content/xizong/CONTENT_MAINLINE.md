@@ -116,16 +116,19 @@ A Current-first recovery task is restoring production semantics that survived on
 Bounded scope:
 
 ```text
-repository Learning-asset production
-→ restore substantial-L self-adversarial + fresh-independent acceptance rule
+repository learning-asset production
+→ restore Knowledge falsification / bounded fresh readback
+→ restore substantial-L self-adversarial + fresh-independent acceptance
+→ restore substantial Content closure readback before P
 
 Xizong Question Explanation
 → restore adaptive FAST/deep production rule
 → repair stale README/manifest process pointer
 → add production-integrity validation
 
-then
-→ scan Current content owners for the same "artifact survived / production protocol disappeared" failure
+cross-domain recovery scan
+→ verify English / Politics / Lexical production owners
+→ distinguish intentional conditional/retired paths from true lost production authority
 → repair only confirmed cases
 → close this temporary recovery task
 ```
