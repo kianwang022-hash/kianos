@@ -1,0 +1,79 @@
+{
+  "schema": "kianos.politics.historical_source_package.v1",
+  "package_id": "LEG26_BEISONG",
+  "status": "HISTORICAL_BASELINE_IMPORTED",
+  "year_label": "2026_exam_baseline",
+  "source_role": "HISTORICAL_MEMORY_OUTPUT_BASELINE",
+  "canonical_authority": false,
+  "learner_direct_use": false,
+  "current_year_corroboration_required": true,
+  "source_text_policy": "SOURCE_FAITHFUL_TRANSCRIPTION_NO_SEMANTIC_REWRITE",
+  "pdf_storage_policy": "PDF_BYTES_NOT_COMMITTED_TO_PUBLIC_REPO; VERIFY AGAINST SHA_BOUND_PRIVATE_OR_CHAT_COPY WHEN NEEDED",
+  "intended_uses": [
+    "CURRENT_YEAR_DELTA_COMPARISON",
+    "MEMORY_ADMISSION_CANDIDATE_DISCOVERY",
+    "OBJECTIVE_COMPRESSION_BASELINE",
+    "ANALYSIS_OUTPUT_BASELINE",
+    "CURRENT_AFFAIRS_DELTA_BASELINE"
+  ],
+  "forbidden_uses": [
+    "DIRECT_2027_RECALL_AUTHORITY",
+    "DIRECT_2027_FIXED_WORDING_AUTHORITY",
+    "UI_LEARNER_CONTENT_WITHOUT_CURRENT_YEAR_ACCEPTANCE"
+  ],
+  "pdf_inputs": [
+    {
+      "volume": "upper",
+      "sha256": "dffd0bd2b1c2c752aad2389ba53e7bdded0f8a79a84d5ecb5a697afb18381c2e",
+      "pages": 237
+    },
+    {
+      "volume": "lower",
+      "sha256": "06c5d89fac40b5209c913af22b784b70a38637616f90493e0486600778cf83c8",
+      "pages": 86
+    }
+  ],
+  "markdown": [
+    {
+      "path": "content/politics/source/historical/leg26/LEG26-FRONTMATTER.md",
+      "sha256": "44c2137a3b2a66a7e67c25afb099ca7ec55dee103a63b0606ddcba0fe980fdb3",
+      "role": "USAGE_AND_PRODUCT_INTENT"
+    },
+    {
+      "path": "content/politics/source/historical/leg26/LEG26-MARX.md",
+      "sha256": "d3575a43321efefee8cd67d84d7423b8a8f58e0833f783629692e56415705247",
+      "role": "MARX_MEMORY_AND_ANALYSIS_BASELINE"
+    },
+    {
+      "path": "content/politics/source/historical/leg26/LEG26-MAO.md",
+      "sha256": "89ed2b2fbba13f613832122c0722eff6f8929a5a6e246f0616d30d24770929c8",
+      "role": "MAO_MEMORY_BASELINE"
+    },
+    {
+      "path": "content/politics/source/historical/leg26/LEG26-XI.md",
+      "sha256": "a97f4b8e71f6e925d8ec5eb1faabf2b3a24bc22e65b1eadc889a6bcf1352c007",
+      "role": "XI_MEMORY_ANALYSIS_AND_CURRENT_AFFAIRS_BASELINE"
+    },
+    {
+      "path": "content/politics/source/historical/leg26/LEG26-HISTORY.md",
+      "sha256": "4bca9f2041fdd3178f0597e5747b538e28b6a00b9046bed2d41b6d78ea192b8e",
+      "role": "HISTORY_MEMORY_AND_ANALYSIS_BASELINE"
+    },
+    {
+      "path": "content/politics/source/historical/leg26/LEG26-ETHICS.md",
+      "sha256": "57e9c18c511369b3737bf4f14d07b876f145c2b0175ee0efb57ee53383ed2fe7",
+      "role": "ETHICS_MEMORY_AND_ANALYSIS_BASELINE"
+    },
+    {
+      "path": "content/politics/source/historical/leg26/LEG26-SUPPLEMENT.md",
+      "sha256": "749b743ff07d17e465d2c5469001de114c1d6db70a571e7260bfd7544ceab51e",
+      "role": "CROSS_SUBJECT_OBJECTIVE_COMPRESSION_BASELINE"
+    },
+    {
+      "path": "content/politics/source/historical/leg26/LEG26-PROVENANCE.md",
+      "sha256": "f5e99fdd2a92ab2e50dd3b54abd28b81e21c4c47965656f5fc61533df33d189a",
+      "role": "PAGE_AND_PROVENANCE_OWNER"
+    }
+  ],
+  "next_stage": "BUILD_DELTA_INDEX_AND_MAP_LEG26_CANDIDATES_TO_CURRENT_POLITICS_KNOWLEDGE_WITHOUT_PROMOTING_TO_CURRENT"
+}
