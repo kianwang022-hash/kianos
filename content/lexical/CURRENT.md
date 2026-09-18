@@ -595,7 +595,26 @@ Canonical closure receipt:
 Repair Test blueprints:
 `content/lexical/learner/repair-blueprints/shards/o0051-0100.json`
 
-Next internal shard: **o0101–o0150 — FRESH READ + COMBINED CONTENT/TEST REPORT**.
+Closed internal shard: **o0101–o0150 — CLOSED**.
+
+```text
+50 / 50 fresh owner/module judgments
+18 approved Natural Owners upgraded
+32 owners NO_CHANGE after fresh read
+29 Repair Test blueprints written and read back
+21 NO_TEST_NEEDED
+0 BLOCKED
+0 learner-page/UI files changed
+Final Learner Object materialization PASS (7,946 objects)
+```
+
+Canonical Baseline-v2 receipt:
+`content/lexical/audit/baseline-v2/lane-a/o0101-o0150.json`
+
+Repair Test blueprints:
+`content/lexical/learner/repair-blueprints/shards/o0101-0150.json`
+
+Next internal shard: **o0151–o0200 — FRESH READ + COMBINED CONTENT/TEST REPORT**.
 
 Apply the one-shard Human Gate: fresh-read all 50 owners, combine real Content defects and worthwhile Repair Test candidates into one plain-language report, then wait for one Kian approval. After approval, automatically close all reported work and advance to the next shard.
 
