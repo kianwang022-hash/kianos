@@ -376,32 +376,50 @@ try {
   await page.evaluate(() => window.scrollTo({ top: Math.min(360, document.documentElement.scrollHeight - innerHeight), behavior: 'instant' }));
   const readingReturnHref = await page.evaluate(() => location.pathname + location.search + location.hash);
   const expectedReturnY = await page.evaluate(() => window.scrollY);
-  const selectedWord = await page.evaluate((knownWords) => {
-    const passage = document.querySelector('[data-reading-passage]');
-    if (!(passage instanceof HTMLElement)) return '';
-    const known = new Set(knownWords);
-    const walker = document.createTreeWalker(passage, NodeFilter.SHOW_TEXT);
+  const paragraphTexts = await page.locator('[data-reading-passage] p').allTextContents();
+  let selectionFixture = null;
+  const knownLexicalWords = new Set(lexicalWords);
+  for (const minimumLength of [3, 2]) {
+    for (let index = 0; index < paragraphTexts.length && !selectionFixture; index += 1) {
+      const tokens = String(paragraphTexts[index] || '').match(/[A-Za-z]+(?:[-'][A-Za-z]+)*/g) || [];
+      const word = tokens.find((token) => token.length >= minimumLength && knownLexicalWords.has(token.toLowerCase()));
+      if (word) selectionFixture = { index, word };
+    }
+    if (selectionFixture) break;
+  }
+  assert(Boolean(selectionFixture), 'v2_english_handoff_has_current_lexical_token');
+  const selected = await page.evaluate(({ index, word }) => {
+    const root = document.querySelectorAll('[data-reading-passage] p')[index];
+    if (!(root instanceof HTMLElement)) return false;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const target = word.toLowerCase();
+    const isLetter = (char) => Boolean(char && /[A-Za-z]/.test(char));
     while (walker.nextNode()) {
       const node = walker.currentNode;
-      const text = String(node.textContent || '');
-      const pattern = /[A-Za-z]+(?:[-'’][A-Za-z]+)*/g;
-      let match;
-      while ((match = pattern.exec(text))) {
-        const word = match[0];
-        if (word.length < 3 || !known.has(word.toLowerCase())) continue;
-        const range = document.createRange();
-        range.setStart(node, match.index);
-        range.setEnd(node, match.index + word.length);
-        const selection = window.getSelection();
-        selection?.removeAllRanges();
-        selection?.addRange(range);
-        (node.parentElement || passage).dispatchEvent(new MouseEvent('mouseup', { bubbles: true, clientX: 120, clientY: 160 }));
-        return word;
+      const value = node.nodeValue || '';
+      const lower = value.toLowerCase();
+      let cursor = lower.indexOf(target);
+      while (cursor >= 0) {
+        const before = cursor > 0 ? value[cursor - 1] : '';
+        const afterIndex = cursor + word.length;
+        const after = afterIndex < value.length ? value[afterIndex] : '';
+        if (!isLetter(before) && !isLetter(after)) {
+          const range = document.createRange();
+          range.setStart(node, cursor);
+          range.setEnd(node, cursor + word.length);
+          const selection = window.getSelection();
+          selection?.removeAllRanges();
+          selection?.addRange(range);
+          (node.parentElement || root).dispatchEvent(new MouseEvent('mouseup', { bubbles: true, clientX: 120, clientY: 160 }));
+          return true;
+        }
+        cursor = lower.indexOf(target, cursor + 1);
       }
     }
-    return '';
-  }, lexicalWords);
-  assert(Boolean(selectedWord), 'v2_english_handoff_selects_current_lexical_word');
+    return false;
+  }, selectionFixture);
+  const selectedWord = selectionFixture.word;
+  assert(selected, 'v2_english_handoff_selects_current_lexical_word', selectedWord);
   await page.locator('[data-english-selection-menu]').waitFor({ state: 'visible' });
   assert(await page.locator('[data-selection-lexical]').isVisible(), 'v2_english_selection_exposes_lexical_action');
   await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-english-selection-1440x900.png'), fullPage: false });
