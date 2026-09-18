@@ -22,6 +22,15 @@ const assertNoEngineering=async(page,name)=>{
   check(!forbidden.test(text),name,text.match(forbidden)?.[0]||'');
 };
 
+const parseChatStateHandoff=(text)=>{
+  const raw=String(text||'');
+  check(raw.startsWith('KIANOS_LEXICAL_HANDOFF_V1'),'chat_state_handoff_marker');
+  const marker='LEXICAL_CHAT_STATE_JSON';
+  const index=raw.indexOf(marker);
+  check(index>=0,'chat_state_handoff_json_marker');
+  return JSON.parse(raw.slice(index+marker.length).trim());
+};
+
 let browser;
 try{
   await waitForServer();
@@ -74,7 +83,7 @@ try{
   check(await page.locator('[data-lexical-handoff]').isVisible(),'chat_state_handoff_visible_after_learning');
   check((await page.locator('[data-lexical-copy-return]').innerText()).includes('学习状态'),'chat_handoff_is_user_facing');
   await page.locator('[data-lexical-copy-return]').click();
-  const copiedState=JSON.parse(await page.evaluate(()=>navigator.clipboard.readText()));
+  const copiedState=parseChatStateHandoff(await page.evaluate(()=>navigator.clipboard.readText()));
   check(copiedState?.schema==='kianos.lexical.chat_state.v1','copied_state_uses_chat_schema',copiedState?.schema||'');
   check(copiedState?.coverage?.cursor?.ordinal===4,'copied_state_keeps_coverage_cursor',JSON.stringify(copiedState?.coverage?.cursor||null));
   check(copiedState?.routing?.same_day_revisit?.length===1,'copied_state_keeps_same_day_revisit');
@@ -111,7 +120,9 @@ try{
     }]
   };
   await page.locator('[data-challenge-chat-load-button]').click();
-  await page.locator('[data-challenge-chat-paste-input]').fill(JSON.stringify(challenge));
+  await page.locator('[data-challenge-chat-paste-input]').fill(
+    '按当前 Repair 生成这一组，直接在网页继续：\n\n\`\`\`json\n'+JSON.stringify(challenge,null,2)+'\n\`\`\`\n\n做完后再把结果给 Chat。'
+  );
   await page.locator('[data-challenge-chat-paste-start]').click();
   await page.locator('[data-challenge-question-panel]').waitFor({state:'visible'});
   check((await page.locator('[data-challenge-word]').innerText()).trim()===target.word,'chat_practice_targets_exact_word');

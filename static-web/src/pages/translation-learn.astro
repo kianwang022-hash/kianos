@@ -19,7 +19,7 @@ for (const chunk of chunks) {
 }
 
 const nav = [
-  ['A', 'Global Map'],
+  ['A', '整体方法'],
   ['B1', 'B1 · Representation'],
   ['B3', 'B3 · Reconstruction'],
   ['B4', 'B4 · Execution'],
@@ -42,9 +42,9 @@ const diagnosticSections = await Promise.all(diagnosticKeys.map(async (key) => (
 const runtimeSections = await Promise.all(runtimeKeys.map(async (key) => ({ key, html: await renderChunk(key) })));
 ---
 <Base
-  title="Translation First Learning"
-  kicker="English · Translation First Learning"
-  description="Global Map + Representation / Reconstruction / Execution；Fidelity 作为贯穿约束按需展开，不制造第四门课。"
+  title="Translation Guide"
+  kicker="English · Translation · Guide"
+  description="理解英文 → 忠实重建 → 考场表达；会的直接跳，卡住再回来。"
   sourcePath={sourcePath}
   sourceHash={sourceHash}
   objectId="english:translation-first-learning"
@@ -52,13 +52,13 @@ const runtimeSections = await Promise.all(runtimeKeys.map(async (key) => ({ key,
 >
   <section class="translationLearnShell">
     <aside class="translationLearnNav">
-      <span>First Learning</span>
+      <span>学习框架</span>
       <strong>三块主干，够用就进真题</strong>
-      <p>Global Map 看懂后，只补当前不稳的能力。已经会的直接跳；Skill Map 和 Fidelity Guard 都不是待办清单。</p>
+      <p>先看懂整体方法，再只补当前不稳的能力。已经会的直接跳；进阶内容不是待办清单。</p>
       <nav aria-label="Translation First Learning navigation">
         {nav.map(([key, label]) => <a href={`#translation-${key.toLowerCase()}`}>{label}</a>)}
       </nav>
-      <a class="runtimeLink" href={`${base}translation/`}>直接进入 Translation Runtime →</a>
+      <a class="runtimeLink" href={`${base}translation/`}>直接进入 Translation →</a>
     </aside>
 
     <main class="translationLearnMain">
@@ -74,8 +74,8 @@ const runtimeSections = await Promise.all(runtimeKeys.map(async (key) => ({ key,
 
       <details class="translationReferenceSection">
         <summary>
-          <div><span>按需展开</span><strong>Fidelity Guard + Skill Map + Deep Repair</strong></div>
-          <small>只有真实失真或反复 failure 出现时才回来；这里保存知识，不制造第一次学习任务。</small>
+          <div><span>按需展开</span><strong>忠实度检查 + 进阶技巧</strong></div>
+          <small>只有真实失真或反复出错时才回来；这里只是参考，不要求一次学完。</small>
         </summary>
         <div class="translationReferenceBody">
           {diagnosticSections.map((section) => section.html && (
@@ -86,8 +86,8 @@ const runtimeSections = await Promise.all(runtimeKeys.map(async (key) => ({ key,
 
       <details class="translationReferenceSection runtimeReference">
         <summary>
-          <div><span>系统 / Chat 参考</span><strong>Material Routing + Runtime</strong></div>
-          <small>系统规则完整保留，但 learner 不需要为了流程完整而操作它们。</small>
+          <div><span>深入参考</span><strong>材料选择与练习方式</strong></div>
+          <small>这些内容只在需要理解练习方式或和 Chat 深挖时展开。</small>
         </summary>
         <div class="translationReferenceBody">
           {runtimeSections.map((section) => section.html && (
@@ -97,9 +97,9 @@ const runtimeSections = await Promise.all(runtimeKeys.map(async (key) => ({ key,
       </details>
 
       <a class="translationExit" href={`${base}translation/`}>
-        <span>First Learning Exit</span>
-        <strong>能稳定 Represent → Reconstruct → Deliver，就进入真实 Translation</strong>
-        <p>真实 clean attempt 才是主线；只有它暴露的高价值 failure 才值得把 repair reservoir 展开。</p>
+        <span>回到练习</span>
+        <strong>能稳定读准 → 重建 → 表达，就进入真实 Translation</strong>
+        <p>真实完整翻译才是主线；只有反复影响表现的问题才值得回来深挖。</p>
       </a>
     </main>
   </section>

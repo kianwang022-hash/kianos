@@ -30,7 +30,7 @@ const nextHref = translation.navigation?.nextId
   <header class="translationHeader">
     <a class="translationBack" href={`${base}translation/`}>‹ Translation</a>
     <div>
-      <span>Productive lane · whole task/set</span>
+      <span>完整翻译</span>
       <h1>{translation.title}</h1>
       <small>{translation.paperId || 'English I'} · {translation.navigation?.position || 1} / {translation.navigation?.total || 1} · <b data-translation-stage-label>Clean Attempt</b></small>
     </div>
@@ -43,8 +43,8 @@ const nextHref = translation.navigation?.nextId
   <div class="translationColumns">
     <article class="translationSource">
       <header>
-        <span>Source stays visible</span>
-        <h2>原文 / Task</h2>
+        <span>原文</span>
+        <h2>整套原文</h2>
       </header>
       {translation.context?.instruction && <p class="translationInstruction">{translation.context.instruction}</p>}
       {translation.context?.subtitle && <p class="translationSubtitle">{translation.context.subtitle}</p>}
@@ -59,32 +59,24 @@ const nextHref = translation.navigation?.nextId
           </section>
         ))}
         {!material.length && !promptSegments.length && (
-          <p class="translationMissing">Current source projection is empty. Runtime validation should block this build.</p>
+          <p class="translationMissing">当前原文没有完整载入，请返回上一页后重试。</p>
         )}
       </div>
 
       <section class="translationPending" data-pending-panel hidden>
-        <header><span>Transfer Pending</span><strong data-pending-count>0</strong></header>
+        <header><span>待后续验证</span><strong data-pending-count>0</strong></header>
         <div data-pending-list></div>
-        <small>这些是过去 repair 后仍等待新材料验证的可复用能力点；当前题不相关时不会自动算证据。</small>
+        <small>这些是以前修过、以后遇到相关新题时可以顺手再确认的问题；与当前题无关时不会打扰你。</small>
       </section>
 
-      <details class="translationProvenance">
-        <summary>Current provenance</summary>
-        <code>{translation.sourcePaths?.questions}</code>
-        <code>{translation.sourcePaths?.contract}</code>
-        <code>question-bank:{translation.sourceHashes?.questionOwner?.slice(0, 12)}</code>
-        <code>task:{translation.sourceHashes?.renderedObject?.slice(0, 12)}</code>
-        <code>reference:{translation.referenceCoverage?.available || 0}/{translation.referenceCoverage?.total || prompts.length}</code>
-      </details>
-    </article>
+     </article>
 
     <section class="translationWork">
       <section class="translationStage" data-stage="attempt">
         <header>
-          <span>01 · Clean Attempt</span>
+          <span>01 · 第一次作答</span>
           <h2>完整做完这一套</h2>
-          <p>Review unit 仍是一整套；但每个 Segment 的第一版分别保存，避免证据被一个大文本框压扁。参考译文现在不可见。</p>
+          <p>把这一整套先独立做完。每个句子的第一版都会保留；作答前不显示参考译文。</p>
         </header>
         <div class="translationAttemptGrid">
           {prompts.map((item) => (
@@ -97,55 +89,55 @@ const nextHref = translation.navigation?.nextId
         </div>
         <div class="translationActions">
           <button type="button" class="primary" data-freeze-first>锁定整套第一版</button>
-          <small data-first-status>必须完成全部 Segment 才能锁定；锁定后第一版不再被 revision 覆盖。</small>
+          <small data-first-status>全部完成后才能锁定；锁定后第一版会一直保留。</small>
         </div>
       </section>
 
       <section class="translationFrozen" data-frozen-first hidden>
-        <header><span>First Translation · immutable evidence</span><small data-first-time></small></header>
+        <header><span>第一版译文 · 已保留</span><small data-first-time></small></header>
         <div data-first-list></div>
       </section>
 
       <section class="translationStage" data-stage="decision" hidden>
         <header>
-          <span>02 · PASS or Review</span>
+          <span>02 · 完成 / 复盘</span>
           <h2>稳定就走，有真实问题才修</h2>
-          <p>如果意义、关系、信息和中文表达都足够稳定，直接 PASS；不要为了“系统有复盘功能”制造修复债务。</p>
+          <p>如果意义、关系、信息和中文表达都足够稳定，就直接结束这一套；只有真的有问题才进入复盘。</p>
         </header>
         <div class="translationDecisionGrid">
           <button type="button" class="decisionPass" data-pass-clean>
-            <strong>PASS · 这套稳定</strong>
-            <span>没有足以影响得分可靠性的 meaningful failure，直接离开。</span>
+            <strong>这套稳定，继续</strong>
+            <span>没有明显影响得分的问题，直接进入下一套。</span>
           </button>
           <button type="button" class="decisionReview" data-route-review>
-            <strong>Need Review / Verify</strong>
-            <span>有错误、不确定，或这套可能验证了一个旧的 Transfer Pending。</span>
+            <strong>需要复盘</strong>
+            <span>有错误、不确定，或者你想确认一个以前反复出现的问题。</span>
           </button>
         </div>
       </section>
 
       <section class="translationStage" data-stage="diagnosis" hidden>
         <header>
-          <span>03 · Whole-set Review</span>
-          <h2>把整套交给 Chat，只修 first meaningful failure</h2>
-          <p>Chat 可以在内部定位到句子 / clause / scope，但 learner-facing 仍保持整套复盘。默认不先看 Reference。</p>
+          <span>03 · 整套复盘</span>
+          <h2>需要时让 Chat 帮你定位最重要的问题</h2>
+          <p>先看完整的一套，再定位真正影响表现的上游问题。默认不先看参考译文。</p>
         </header>
         <div class="translationActions">
-          <button type="button" class="primary" data-copy-chat>复制 Handoff 给 Chat</button>
-          <button type="button" data-reveal-reference>确实需要时看 Reference</button>
-          <small data-copy-status>Handoff 会自动带上第一版和现有 Transfer Pending；不会提前附参考译文。</small>
+          <button type="button" class="primary" data-copy-chat>复制给 Chat</button>
+          <button type="button" data-reveal-reference>确实需要时看参考译文</button>
+          <small data-copy-status>会带上原文和你的第一版；不会提前附参考译文。</small>
         </div>
         <label class="translationReturnBox">
-          <span>Chat Return</span>
-          <textarea data-chat-return rows="12" placeholder="把 Chat 返回的 KIANOS_TRANSLATION_RETURN_V1 粘贴到这里…"></textarea>
+          <span>Chat 返回</span>
+          <textarea data-chat-return rows="12" placeholder="把 Chat 返回的判断粘贴到这里…"></textarea>
         </label>
         <div class="translationActions">
-          <button type="button" class="primary" data-import-return>导入 Chat 判断 →</button>
-          <small data-return-status>PASS 会直接结束；REPAIR_NEEDED 会带着 primary failure / minimal repair 进入 Reconstruction。</small>
+          <button type="button" class="primary" data-import-return>应用 Chat 判断 →</button>
+          <small data-return-status>稳定就直接结束；需要修改时，只进入真正受影响的部分。</small>
         </div>
         <section class="translationReference" data-reference-panel hidden>
           <div class="translationReferenceHead">
-            <strong>Reference · explicit reveal</strong>
+            <strong>参考译文 · 手动查看</strong>
             <small>{reference?.availableCount || 0}/{reference?.totalCount || prompts.length} available · 参考表达不是唯一正确表达</small>
           </div>
           <div data-reference-list></div>
@@ -154,32 +146,32 @@ const nextHref = translation.navigation?.nextId
 
       <section class="translationStage" data-stage="reconstruct" hidden>
         <header>
-          <span>04 · Reconstruction</span>
+          <span>04 · 重新翻译</span>
           <h2>只重做真正受影响的部分</h2>
-          <p>先用 minimal repair 自己重新执行；Reference 自动收起。同一句重译成功只说明 repair 生效，不等于 mastery。</p>
+          <p>先根据刚才发现的问题自己重新翻译；参考译文会自动收起。同一句改对只说明这次修复有效，不代表以后一定稳定。</p>
         </header>
         <section class="translationRepairCard" data-repair-card></section>
         <div class="translationReconstructGrid" data-reconstruct-list></div>
         <div class="translationActions">
-          <button type="button" class="primary" data-save-reconstruction>保存 Reconstruction</button>
-          <button type="button" data-back-diagnosis>返回 Review</button>
+          <button type="button" class="primary" data-save-reconstruction>保存重译</button>
+          <button type="button" data-back-diagnosis>返回复盘</button>
           <small data-reconstruct-status></small>
         </div>
       </section>
 
       <section class="translationStage" data-stage="passed" hidden>
         <header>
-          <span>PASS · no manufactured debt</span>
+          <span>已完成</span>
           <h2>这套可以离开</h2>
-          <p>当前任务没有需要建立 repair debt 的 meaningful failure。若它同时提供了某个旧 Pending target 的新证据，需要 Chat 明确判定后才更新那个 target。</p>
+          <p>没有需要继续处理的问题。若它刚好碰到了以前反复出现的弱点，也只在真正相关时再顺手确认。</p>
         </header>
         <div class="translationActions">
-          <button type="button" data-toggle-complete-reference>可选：看 Reference</button>
+          <button type="button" data-toggle-complete-reference>可选：看参考译文</button>
           {nextHref && <a class="buttonLink primaryLink" href={nextHref}>下一套 →</a>}
         </div>
         <section class="translationReference" data-complete-reference hidden>
           <div class="translationReferenceHead">
-            <strong>Reference · optional post-attempt comparison</strong>
+            <strong>参考译文 · 作答后对照</strong>
             <small>{reference?.availableCount || 0}/{reference?.totalCount || prompts.length} available</small>
           </div>
           <div data-complete-reference-list></div>
@@ -188,13 +180,13 @@ const nextHref = translation.navigation?.nextId
 
       <section class="translationStage" data-stage="repaired" hidden>
         <header>
-          <span>Repair Complete</span>
-          <h2>当前失败已修复，不自动制造长期债务</h2>
-          <p>Chat 判断这个问题不值得进入 durable transfer ledger。可以看 Reference，也可以直接进入下一套。</p>
+          <span>已修复</span>
+          <h2>这个问题已经处理完</h2>
+          <p>这次问题不需要继续追踪。可以看看参考译文，也可以直接进入下一套。</p>
         </header>
         <div class="translationLatest" data-latest-reconstruction></div>
         <div class="translationActions">
-          <button type="button" data-toggle-complete-reference>打开 Reference</button>
+          <button type="button" data-toggle-complete-reference>打开参考译文</button>
           {nextHref && <a class="buttonLink primaryLink" href={nextHref}>下一套 →</a>}
         </div>
         <section class="translationReference" data-complete-reference hidden>
@@ -205,9 +197,9 @@ const nextHref = translation.navigation?.nextId
 
       <section class="translationStage" data-stage="transfer_pending" hidden>
         <header>
-          <span>TRANSFER_PENDING</span>
-          <h2>这次 repair 生效；以后新题再验证</h2>
-          <p>当前题的 reconstruction 不能关闭能力问题。这个可复用 target 已进入本机 Pending；只有后续真正相关的 fresh evidence 才能支持或反驳它。</p>
+          <span>以后再验证</span>
+          <h2>这次已经修好，等以后新题自然再确认</h2>
+          <p>不用在同一道题上反复证明。以后遇到真正相关的新题时，再看这个问题是否已经稳定。</p>
         </header>
         <section class="translationTransferCard" data-current-transfer></section>
         <div class="translationLatest" data-latest-reconstruction></div>
@@ -222,13 +214,13 @@ const nextHref = translation.navigation?.nextId
       </section>
 
       <details class="translationHistory">
-        <summary>Local attempt history <span data-history-count>0</span></summary>
+        <summary>本机记录 <span data-history-count>0</span></summary>
         <div data-history-list><p>还没有历史记录。</p></div>
         <div class="translationHistoryActions">
           <button type="button" data-reset-task>归档本轮并重新开始</button>
-          <button type="button" data-clear-history>清空已归档 History</button>
+          <button type="button" data-clear-history>清空历史记录</button>
         </div>
-        <small>Attempt / repair / transfer 都只存在本机浏览器；不会写回 GitHub shared Current。</small>
+        <small>作答与修改记录只保存在这台浏览器。</small>
       </details>
     </section>
   </div>
@@ -320,7 +312,7 @@ const nextHref = translation.navigation?.nextId
         if (item?.available && String(item?.text || '').trim()) text.textContent = String(item.text);
         else {
           block.classList.add('referenceGap');
-          text.textContent = `Current source 暂无已核验参考译文（${item?.status || 'missing_reference'}）；runtime 不会自行补造。`;
+          text.textContent = '这句暂时没有已核验的参考译文；网页不会自行补写。';
         }
         block.append(label, text);
         container.appendChild(block);
@@ -346,7 +338,7 @@ const nextHref = translation.navigation?.nextId
         box.appendChild(item);
       });
       const time = root.querySelector('[data-first-time]');
-      if (time) time.textContent = state.firstSubmittedAt ? `locked ${formatTime(state.firstSubmittedAt)}` : '';
+      if (time) time.textContent = state.firstSubmittedAt ? `已保留 · ${formatTime(state.firstSubmittedAt)}` : '';
     };
 
     const renderPending = () => {
@@ -375,7 +367,7 @@ const nextHref = translation.navigation?.nextId
           const titleEl = document.createElement('strong');
           titleEl.textContent = [failure.layer, failure.skill].filter(Boolean).join(' · ');
           const repair = document.createElement('p');
-          repair.textContent = `Minimal repair：${failure.minimal_repair || ''}`;
+          repair.textContent = `修正方向：${failure.minimal_repair || ''}`;
           const action = document.createElement('p');
           action.textContent = `重新执行：${failure.reconstruction_prompt || '按刚才修复重新翻译受影响部分。'}`;
           card.append(titleEl, repair, action);
@@ -394,7 +386,7 @@ const nextHref = translation.navigation?.nextId
         const first = document.createElement('blockquote'); first.textContent = state.firstAttempts?.[id] || '';
         const area = document.createElement('textarea');
         area.rows = 5;
-        area.placeholder = '用 repair 后的能力自己重新翻译…';
+        area.placeholder = '按刚才的修正方向自己重新翻译…';
         area.dataset.reconstructId = id;
         area.value = state.reconstructDrafts?.[id] || '';
         area.addEventListener('input', () => { state.reconstructDrafts[id] = area.value; save(); });
@@ -408,7 +400,7 @@ const nextHref = translation.navigation?.nextId
         box.replaceChildren();
         const latest = state.reconstructions?.[state.reconstructions.length - 1];
         if (!latest?.answers) return;
-        const strong = document.createElement('strong'); strong.textContent = 'Latest reconstruction';
+        const strong = document.createElement('strong'); strong.textContent = '最新重译';
         box.appendChild(strong);
         Object.entries(latest.answers).forEach(([id, answer]) => {
           const p = document.createElement('p');
@@ -440,14 +432,14 @@ const nextHref = translation.navigation?.nextId
       [...state.history].reverse().forEach((item, index) => {
         const details = document.createElement('details');
         const summary = document.createElement('summary');
-        summary.textContent = `Attempt ${state.history.length - index} · ${item.decision || 'legacy'} · ${formatTime(item.archivedAt || item.firstSubmittedAt)}`;
+        summary.textContent = `第 ${state.history.length - index} 次 · ${formatTime(item.archivedAt || item.firstSubmittedAt)}`;
         details.appendChild(summary);
         const firstRows = item.firstAttempts || {};
         Object.entries(firstRows).forEach(([id, answer]) => {
           const p = document.createElement('p'); p.textContent = `S${promptById.get(id)?.ordinal || id}：${answer}`; details.appendChild(p);
         });
         if (item.legacy && item.firstAttempt) {
-          const p = document.createElement('p'); p.textContent = `Legacy first attempt：${item.firstAttempt}`; details.appendChild(p);
+          const p = document.createElement('p'); p.textContent = `旧记录第一版：${item.firstAttempt}`; details.appendChild(p);
         }
         list.appendChild(details);
       });
@@ -459,13 +451,13 @@ const nextHref = translation.navigation?.nextId
       });
       const stageLabel = root.querySelector('[data-translation-stage-label]');
       if (stageLabel) stageLabel.textContent = ({
-        attempt: 'Clean Attempt',
-        decision: 'PASS / Review',
-        diagnosis: 'Whole-set Review',
-        reconstruct: 'Reconstruction',
-        passed: 'PASS',
-        repaired: 'Repair Complete',
-        transfer_pending: 'TRANSFER_PENDING'
+        attempt: '第一次作答',
+        decision: '完成 / 复盘',
+        diagnosis: '整套复盘',
+        reconstruct: '重新翻译',
+        passed: '已完成',
+        repaired: '已修复',
+        transfer_pending: '以后再验证'
       })[state.stage] || 'Translation';
 
       root.querySelectorAll('[data-attempt-id]').forEach((node) => {
@@ -480,12 +472,12 @@ const nextHref = translation.navigation?.nextId
       const referencePanel = root.querySelector('[data-reference-panel]');
       if (referencePanel instanceof HTMLElement) referencePanel.hidden = !state.referenceRevealed;
       const revealButton = root.querySelector('[data-reveal-reference]');
-      if (revealButton) revealButton.textContent = state.referenceRevealed ? '收起 Reference' : '确实需要时看 Reference';
+      if (revealButton) revealButton.textContent = state.referenceRevealed ? '收起参考译文' : '确实需要时看参考译文';
       root.querySelectorAll('[data-complete-reference]').forEach((panel) => {
         if (panel instanceof HTMLElement) panel.hidden = !state.completeReferenceOpen;
       });
       root.querySelectorAll('[data-toggle-complete-reference]').forEach((button) => {
-        button.textContent = state.completeReferenceOpen ? '收起 Reference' : '打开 Reference';
+        button.textContent = state.completeReferenceOpen ? '收起参考译文' : '打开参考译文';
       });
       save();
     };
@@ -608,7 +600,7 @@ const nextHref = translation.navigation?.nextId
     root.querySelector('[data-copy-chat]')?.addEventListener('click', async () => {
       const status = root.querySelector('[data-copy-status]');
       const ok = await copyText(buildHandoff());
-      if (status) status.textContent = ok ? '已复制整套 Handoff；回到 Chat 直接粘贴即可。' : '复制失败，请手动复制。';
+      if (status) status.textContent = ok ? '已复制给 Chat；回到 Chat 直接粘贴即可。' : '复制失败，请手动复制。';
     });
 
     root.querySelector('[data-import-return]')?.addEventListener('click', () => {
@@ -620,10 +612,10 @@ const nextHref = translation.navigation?.nextId
         const applied = applyTranslationReturn(state, payload, prompts, transferLedger, { task: objectId });
         state = applied.state;
         transferLedger = applied.ledger;
-        if (status) status.textContent = payload.decision === 'PASS' ? 'Chat 判定 PASS。' : '已导入 primary failure，进入 Reconstruction。';
+        if (status) status.textContent = payload.decision === 'PASS' ? 'Chat 判断这套可以结束。' : '已应用 Chat 的修正方向，进入重新翻译。';
         render();
       } catch (error) {
-        if (status) status.textContent = `Return 无法导入：${error instanceof Error ? error.message : String(error)}`;
+        if (status) status.textContent = '这次 Chat 返回无法应用，请重新复制完整结果。';
       }
     });
 
@@ -636,7 +628,7 @@ const nextHref = translation.navigation?.nextId
       const status = root.querySelector('[data-reconstruct-status]');
       const result = saveReconstruction(state, transferLedger, { task: objectId });
       if (!result.ok) {
-        if (status) status.textContent = `还缺 ${result.missing.length} 个受影响 Segment 的 Reconstruction。`;
+        if (status) status.textContent = `还有 ${result.missing.length} 个需要重译的句子没有完成。`;
         return;
       }
       state = result.state;
@@ -652,7 +644,7 @@ const nextHref = translation.navigation?.nextId
     });
 
     root.querySelector('[data-reset-task]')?.addEventListener('click', () => {
-      if (!confirm('归档当前 Translation attempt，并重新开始这一套？')) return;
+      if (!confirm('保存当前记录，并重新开始这一套？')) return;
       const history = [...(state.history || [])];
       const snapshot = archiveTranslationAttempt(state);
       if (snapshot) history.push(snapshot);
@@ -662,7 +654,7 @@ const nextHref = translation.navigation?.nextId
     });
     root.querySelector('[data-clear-history]')?.addEventListener('click', () => {
       if (!state.history?.length) return;
-      if (!confirm('清空这一套已归档的本机 Translation History？')) return;
+      if (!confirm('清空这一套的本机历史记录？')) return;
       state.history = [];
       render();
     });

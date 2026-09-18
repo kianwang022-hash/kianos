@@ -1,18 +1,18 @@
 
 <details class="englishSessionControl" data-english-session-control>
   <summary>
-    <span>CHAT CONTROL</span>
-    <strong>Evidence ↔ Session</strong>
+    <span>和 Chat 同步</span>
+    <strong>今日学习安排</strong>
   </summary>
   <div class="englishSessionControlBody">
-    <p>网页只提供事实状态并执行已导入的 Chat Session；不会自己排序任务。</p>
+    <p>需要 Chat 帮你安排下一步时，先复制当前进度；Chat 给出安排后再导入。平时也可以直接自由进入任何任务。</p>
     <div class="englishSessionActions">
-      <button type="button" data-english-copy-evidence>复制英语状态</button>
-      <button type="button" data-english-toggle-import>导入 Chat Session</button>
-      <button type="button" data-english-clear-session>清除 Session</button>
+      <button type="button" data-english-copy-evidence>复制当前进度</button>
+      <button type="button" data-english-toggle-import>导入学习安排</button>
+      <button type="button" data-english-clear-session>清除安排</button>
     </div>
     <div class="englishSessionImport" data-english-session-import hidden>
-      <textarea rows="8" data-english-session-input placeholder="粘贴 kianos.english.session-instruction.v1 JSON"></textarea>
+      <textarea rows="8" data-english-session-input placeholder="粘贴 Chat 给你的学习安排"></textarea>
       <div>
         <button type="button" class="primary" data-english-apply-session>导入</button>
         <button type="button" data-english-cancel-session>取消</button>
@@ -26,7 +26,7 @@
   import {
     ENGLISH_SESSION_SCHEMA,
     ENGLISH_SESSION_KEY,
-    buildEnglishEvidencePacket,
+    buildEnglishChatHandoffText,
     clearEnglishSessionInstruction,
     readEnglishSessionInstruction,
     writeEnglishSessionInstruction
@@ -38,6 +38,7 @@
     const importBox = root.querySelector('[data-english-session-import]');
     const input = root.querySelector('[data-english-session-input]');
     const localDay = () => new Date().toLocaleDateString('en-CA');
+    const taskLabels = { reading_a: 'Reading A', cloze: 'Cloze', reading_b: 'Part B', translation: 'Translation', writing: 'Writing', full_paper: 'Full Paper' };
 
     const setStatus = (text, bad = false) => {
       if (!(status instanceof HTMLElement)) return;
@@ -49,15 +50,15 @@
       const state = readEnglishSessionInstruction(localStorage, localDay());
       if (state.status === 'ready' && state.instruction) {
         const step = state.instruction.steps[state.instruction.current_step];
-        setStatus('已载入 · ' + step.task + ' · ' + step.object_id + ' · step ' + (state.instruction.current_step + 1) + '/' + state.instruction.steps.length);
+        setStatus('已载入 · ' + (step.label || taskLabels[step.task] || '英语任务') + ' · ' + (state.instruction.current_step + 1) + '/' + state.instruction.steps.length);
       } else if (state.status === 'stale') {
-        setStatus('旧 Session 已过期；网页不会沿用昨天安排。', true);
+        setStatus('昨天的学习安排已过期；今天不会自动沿用。', true);
       } else if (state.status === 'invalid') {
-        setStatus('Session 无效；网页不会猜一个替代安排。', true);
+        setStatus('这份学习安排无法读取；网页不会自行猜测下一步。', true);
       } else if (state.status === 'unavailable') {
         setStatus('本机存储不可用。', true);
       } else {
-        setStatus('当前没有 Chat Session；下面任务入口仍可自由使用。');
+        setStatus('当前没有额外安排；下面的任务都可以直接进入。');
       }
     };
 
@@ -84,10 +85,9 @@
 
     root.querySelector('[data-english-copy-evidence]')?.addEventListener('click', async () => {
       try {
-        const packet = buildEnglishEvidencePacket(localStorage, { day: localDay() });
-        const text = 'KIANOS_ENGLISH_EVIDENCE_V1\n' + JSON.stringify(packet, null, 2);
+        const text = buildEnglishChatHandoffText(localStorage, { day: localDay() });
         setStatus(await copyText(text)
-          ? '英语事实状态已复制；把它发给 Chat，让 Chat 决定下一步。'
+          ? '当前英语进度已复制；把它发给 Chat 即可继续安排下一步。'
           : '复制失败，请稍后再试。', false);
       } catch (error) {
         setStatus(error instanceof Error ? error.message : String(error), true);
@@ -109,7 +109,7 @@
         const instruction = writeEnglishSessionInstruction(localStorage, raw, localDay());
         if (input instanceof HTMLTextAreaElement) input.value = '';
         if (importBox instanceof HTMLElement) importBox.hidden = true;
-        setStatus('Session 已导入 · ' + instruction.session_id);
+        setStatus('学习安排已导入。');
         window.dispatchEvent(new CustomEvent('kianos:english-session-updated', {
           detail: { schema: ENGLISH_SESSION_SCHEMA, session_id: instruction.session_id }
         }));
@@ -120,7 +120,7 @@
 
     root.querySelector('[data-english-clear-session]')?.addEventListener('click', () => {
       clearEnglishSessionInstruction(localStorage);
-      setStatus('Session 已清除；网页不再显示自动 Resume。');
+      setStatus('学习安排已清除。');
       window.dispatchEvent(new CustomEvent('kianos:english-session-updated', {
         detail: { schema: ENGLISH_SESSION_SCHEMA, cleared: true }
       }));

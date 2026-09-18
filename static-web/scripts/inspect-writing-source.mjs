@@ -123,11 +123,22 @@ const expectedManifestHash = String(manifest?.source_identity?.question_bank_sha
 const expectedProvenanceHash = String(provenance?.source_materialization?.question_bank?.sha256 || '');
 const actualHash = sha256Text(bankText);
 
+const taskMap = manifest?.final_learner_objects?.task_map;
+const writingMap = taskMap?.tasks?.writing;
+const writingSections = Array.isArray(writingMap?.sections) ? writingMap.sections.map(String) : [];
+const writingSpecs = writingMap?.section_specs || {};
+
 const checks = {
   manifestCurrentReady: manifest?.status === 'CURRENT_READY',
-  manifestWritingOwnerExact: manifest?.owners?.writing_contract === 'content/english/modules/writing/learning.md',
-  manifestQuestionBankOwnerExact: manifest?.owners?.question_bank === 'content/english/source/question_bank.v1.json',
-  legacyFallbackDisabled: manifest?.runtime_contract?.legacy_fallback === false,
+  contentTaskMapCurrent: taskMap?.schema === 'kianos.english.task_map.v1'
+    && taskMap?.role === 'CONTENT_OWNED_TASK_IDENTITY',
+  writingSectionsExact: JSON.stringify(writingSections) === JSON.stringify(['writing_part_a', 'writing_part_b']),
+  writingPartAIdentityExact: writingSpecs?.writing_part_a?.kind === 'small'
+    && Number(writingSpecs?.writing_part_a?.set_count) === 22
+    && Number(writingSpecs?.writing_part_a?.prompt_count) === 22,
+  writingPartBIdentityExact: writingSpecs?.writing_part_b?.kind === 'big'
+    && Number(writingSpecs?.writing_part_b?.set_count) === 27
+    && Number(writingSpecs?.writing_part_b?.prompt_count) === 27,
   manifestHashMatchesBytes: Boolean(expectedManifestHash) && expectedManifestHash === actualHash,
   provenanceHashMatchesBytes: Boolean(expectedProvenanceHash) && expectedProvenanceHash === actualHash,
   manifestAndProvenanceHashAgree: Boolean(expectedManifestHash) && expectedManifestHash === expectedProvenanceHash,
@@ -157,7 +168,7 @@ const report = {
     promptTextIncluded: false,
     answerIncluded: false,
     analysisIncluded: false,
-    purpose: 'Resolve Writing source boundaries before learner projection without consuming protected task content.'
+    purpose: 'Inspect current Content-owned Writing task identity without consuming protected task content.'
   }
 };
 

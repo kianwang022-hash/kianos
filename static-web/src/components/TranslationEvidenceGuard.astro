@@ -22,7 +22,7 @@
         const button = document.createElement('button');
         button.type = 'button';
         button.dataset.reopenReview = '';
-        button.textContent = '发现问题 → 回 Review';
+        button.textContent = '发现问题 → 回到复盘';
         button.addEventListener('click', () => {
           const reviewButton = root.querySelector('[data-route-review]');
           if (reviewButton instanceof HTMLButtonElement) reviewButton.click();

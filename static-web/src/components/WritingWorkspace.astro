@@ -21,9 +21,9 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
   <header class="writingRuntimeHeader">
     <a href={`${base}writing/`}>‹ Writing</a>
     <div>
-      <span>Productive lane · one complete essay</span>
+      <span>完整写作</span>
       <h1>{task.title}</h1>
-      <small>{task.kind === 'small' ? 'Small Writing' : 'Big Writing'} · synthetic · <b data-stage-label>Clean Attempt</b></small>
+      <small>{task.kind === 'small' ? 'Small Writing' : 'Big Writing'} · 练习 · <b data-stage-label>第一次写作</b></small>
     </div>
     <nav aria-label="Writing synthetic task navigation">
       {previousHref ? <a href={previousHref}>‹ 上一篇</a> : <span>‹ 上一篇</span>}
@@ -34,7 +34,7 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
   <div class="writingRuntimeColumns">
     <article class="writingPrompt">
       <header>
-        <span>{task.sourceKind === 'exam' ? 'Original prompt' : 'Synthetic prompt'}</span>
+        <span>{task.sourceKind === 'exam' ? '真题题面' : '练习题面'}</span>
         <h2>{task.kind === 'small' ? 'Small Writing' : 'Big Writing'}</h2>
       </header>
       <div class="writingPromptBody">
@@ -56,12 +56,7 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
       <div class="writingPromptMeta">
         <span>{task.targetWords} words</span>
       </div>
-      <details class="writingProvenance">
-        <summary>Source</summary>
-        <code>{task.sourcePath}</code>
-        <code>{task.id}</code>
-      </details>
-    </article>
+     </article>
 
     <section class="writingWork">
       <section class="writingStage" data-runtime-stage="attempt">
@@ -95,90 +90,90 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
       </section>
 
       <section class="writingFrozen" data-frozen-evidence hidden>
-        <header><span>Immutable first evidence</span><small data-first-time></small></header>
+        <header><span>第一版 · 已保留</span><small data-first-time></small></header>
         <div class="writingFrozenGrid">
-          <section><strong>First planning/content</strong><pre data-first-plan></pre></section>
-          <section><strong>First draft</strong><pre data-first-draft></pre></section>
+          <section><strong>第一版提纲 / 内容</strong><pre data-first-plan></pre></section>
+          <section><strong>第一版作文</strong><pre data-first-draft></pre></section>
         </div>
       </section>
 
       <section class="writingStage" data-runtime-stage="review" hidden>
         <header>
-          <span>02 · Whole-Essay Review</span>
-          <h2>让 Chat 判断 PASS，或者只找 first meaningful failure</h2>
-          <p>PASS 是真实出口。若要修，只返回最早且足以解释重要下游问题的一层 + 最小 repair；不先给 model essay，不为“还能更高级”制造债务。</p>
+          <span>02 · 整篇复盘</span>
+          <h2>需要时让 Chat 帮你判断哪里最值得修</h2>
+          <p>如果这篇已经够稳定，就直接结束。需要修改时，只找最重要、最上游的问题，不先给你一篇替代成文。</p>
         </header>
         <div class="writingActions">
-          <button type="button" class="primary" data-copy-review>复制 Review Packet</button>
-          <small data-copy-review-status>把 packet 发给 Chat；它包含 prompt、first planning evidence 和 first draft。</small>
+          <button type="button" class="primary" data-copy-review>复制给 Chat</button>
+          <small data-copy-review-status>会带上题目、你的第一版提纲和第一版作文。</small>
         </div>
         <label class="writingField">
-          <span>Chat Return</span>
-          <textarea rows="12" data-review-return placeholder="把 Chat 返回的 kianos.english.writing.review-return.v1 JSON 粘贴到这里…"></textarea>
+          <span>Chat 返回</span>
+          <textarea rows="12" data-review-return placeholder="把 Chat 返回的判断粘贴到这里…"></textarea>
         </label>
         <div class="writingActions">
-          <button type="button" class="primary" data-import-review>导入 Chat 判断 →</button>
-          <small data-review-status>PASS 直接结束；REPAIR_NEEDED 才进入最小重生成。</small>
+          <button type="button" class="primary" data-import-review>应用 Chat 判断 →</button>
+          <small data-review-status>稳定就直接结束；需要修改时才进入下一步。</small>
         </div>
       </section>
 
       <section class="writingStage" data-runtime-stage="repair" hidden>
         <header>
-          <span>03 · Smallest Repair</span>
+          <span>03 · 定点修改</span>
           <h2>只重做真正受影响的范围</h2>
-          <p>learner-facing 仍是一篇作文的复盘；repair scope 可以更小，但这里只让你重新生成，不把 Chat 的替代成文贴给你。</p>
+          <p>整篇作文仍然是上下文，但你只需要自己重写真正受影响的部分，不会把 Chat 的替代成文直接塞回来。</p>
         </header>
         <section class="writingDiagnosis" data-diagnosis-card></section>
         <label class="writingField">
-          <span>Re-generation</span>
-          <small data-regeneration-instruction>按上面的 scope 和 minimal repair 自己重新执行。</small>
-          <textarea rows="12" data-regeneration placeholder="只写需要重新生成的内容；如果 scope 是整篇，就重写整篇。"></textarea>
+          <span>重新写</span>
+          <small data-regeneration-instruction>按上面的修正方向自己重新写。</small>
+          <textarea rows="12" data-regeneration placeholder="只写需要重做的内容；如果影响整篇，就重写整篇。"></textarea>
         </label>
         <div class="writingActions">
-          <button type="button" class="primary" data-lock-regeneration>锁定 re-generation →</button>
-          <small data-regeneration-status>同题改对只证明 repair 生效，不等于 transfer closure。</small>
+          <button type="button" class="primary" data-lock-regeneration>完成这次修改 →</button>
+          <small data-regeneration-status>同题改好只说明这次修改有效；以后是否稳定，要看新的写作。</small>
         </div>
       </section>
 
       <section class="writingStage" data-runtime-stage="repair-check" hidden>
         <header>
-          <span>04 · Repair Check</span>
-          <h2>确认根问题是否真的修掉</h2>
-          <p>Chat 先检查这次 named repair。若上游已修好、但一个后续问题仍独立存在，它才可以成为下一轮 first failure。</p>
+          <span>04 · 检查修改</span>
+          <h2>确认真正的问题是否已经解决</h2>
+          <p>让 Chat 只检查刚才这次修改。如果上游问题已经修好，但还剩一个独立问题，再决定是否继续处理。</p>
         </header>
         <div class="writingActions">
-          <button type="button" class="primary" data-copy-repair>复制 Repair Check Packet</button>
-          <small data-copy-repair-status>不会把 same-prompt correction 当 mastery；也不会自动创建 Transfer Pending。</small>
+          <button type="button" class="primary" data-copy-repair>复制给 Chat 检查</button>
+          <small data-copy-repair-status>只检查这次修改，不会因为同题改对就把问题当成永久掌握。</small>
         </div>
         <label class="writingField">
-          <span>Chat Repair Return</span>
-          <textarea rows="12" data-repair-return placeholder="把 Chat 返回的 kianos.english.writing.repair-return.v1 JSON 粘贴到这里…"></textarea>
+          <span>Chat 返回</span>
+          <textarea rows="12" data-repair-return placeholder="把 Chat 返回的检查结果粘贴到这里…"></textarea>
         </label>
         <div class="writingActions">
-          <button type="button" class="primary" data-import-repair>导入 Repair 判断 →</button>
-          <small data-repair-status>可复用高价值问题才进入 TRANSFER_PENDING；否则 REPAIR_COMPLETE 直接结束。</small>
+          <button type="button" class="primary" data-import-repair>应用检查结果 →</button>
+          <small data-repair-status>大多数一次性问题到这里就结束；只有真正会反复影响以后写作的问题才留待后续验证。</small>
         </div>
       </section>
 
       <section class="writingStage writingComplete" data-runtime-stage="passed" hidden>
-        <header><span>PASS / ACCEPTABLE</span><h2>这篇可以离开</h2><p>Chat 没找到足以影响可靠性的 meaningful failure。没有 repair debt，也不会为了“更高级”强制继续。</p></header>
-        <div class="writingActions">{nextHref && <a class="buttonLink primaryLink" href={nextHref}>下一篇 synthetic →</a>}</div>
+        <header><span>已完成</span><h2>这篇可以离开</h2><p>没有足以影响表现的问题，不需要为了“还能更高级”继续折腾。</p></header>
+        <div class="writingActions">{nextHref && <a class="buttonLink primaryLink" href={nextHref}>下一篇练习 →</a>}</div>
       </section>
 
       <section class="writingStage writingComplete" data-runtime-stage="repair-complete" hidden>
-        <header><span>REPAIR_COMPLETE</span><h2>当前失败已修复，不进入长期循环</h2><p>same-prompt re-generation 已经证明 repair 生效；这个问题不值得占用未来复习时间，因此没有 TRANSFER_PENDING。</p></header>
+        <header><span>已修复</span><h2>这个问题已经处理完</h2><p>这次修改已经有效，这个问题不值得继续占用以后练习时间。</p></header>
         <div class="writingActions">{nextHref && <a class="buttonLink primaryLink" href={nextHref}>下一篇 synthetic →</a>}</div>
       </section>
 
       <section class="writingStage writingComplete" data-runtime-stage="transfer-pending" hidden>
-        <header><span>TRANSFER_PENDING</span><h2>repair 已完成，等以后 fresh Writing 再验证</h2><p>这里只建立待验证目标，不在同一道 prompt 上自我关闭。真正的 later fresh/unseen evidence 属于下一阶段 E。</p></header>
+        <header><span>以后再验证</span><h2>这次已经修好，等以后新作文自然再确认</h2><p>不用在同一道题上反复证明。以后遇到真正相关的新作文时，再看这个问题是否已经稳定。</p></header>
         <section class="writingTransfer" data-transfer-card></section>
         <div class="writingActions">{nextHref && <a class="buttonLink primaryLink" href={nextHref}>下一篇 synthetic →</a>}</div>
       </section>
 
       <details class="writingHistory">
-        <summary>Local runtime state · <span data-history-count>0</span> archived</summary>
-        <p>first evidence、repair 和 history 只存在当前浏览器，不写进 GitHub shared Current。</p>
+        <summary>本机记录 · <span data-history-count>0</span></summary>
+        <p>第一版、修改和历史记录只保存在这台浏览器。</p>
         <button type="button" data-reset-attempt>归档本轮并重新开始</button>
       </details>
     </section>
@@ -227,13 +222,13 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
       [WRITING_STATES.TRANSFER_PENDING]: 'transfer-pending'
     };
     const stageLabels = {
-      [WRITING_STATES.ATTEMPT]: 'Clean Attempt',
-      [WRITING_STATES.REVIEW_PENDING]: 'Whole-Essay Review',
-      [WRITING_STATES.PASS_ACCEPTABLE]: 'PASS / ACCEPTABLE',
-      [WRITING_STATES.REPAIR_NEEDED]: 'Smallest Repair',
-      [WRITING_STATES.REPAIR_CHECK_PENDING]: 'Repair Check',
-      [WRITING_STATES.REPAIR_COMPLETE]: 'REPAIR_COMPLETE',
-      [WRITING_STATES.TRANSFER_PENDING]: 'TRANSFER_PENDING'
+      [WRITING_STATES.ATTEMPT]: '第一次写作',
+      [WRITING_STATES.REVIEW_PENDING]: '整篇复盘',
+      [WRITING_STATES.PASS_ACCEPTABLE]: '已完成',
+      [WRITING_STATES.REPAIR_NEEDED]: '定点修改',
+      [WRITING_STATES.REPAIR_CHECK_PENDING]: '检查修改',
+      [WRITING_STATES.REPAIR_COMPLETE]: '已修复',
+      [WRITING_STATES.TRANSFER_PENDING]: '以后再验证'
     };
 
     const plan = root.querySelector('[data-plan-draft]');

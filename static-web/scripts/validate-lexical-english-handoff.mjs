@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { lexicalEventFromObjectiveThread, objectiveTaskToLexicalSource } from '../src/lib/lexicalEnglishEvidence.mjs';
-import { appendEvidenceEvent, compileRepairTargets, emptyLexicalLedger, repairStateForEvent } from '../src/lib/lexicalEvidence.mjs';
+import { appendEvidenceEvent, compileRepairTargets, emptyLexicalLedger, repairStateForEvent, serializeLexicalReturnPacketForChat } from '../src/lib/lexicalEvidence.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const read = (relative) => fs.readFileSync(path.resolve(here, '..', relative), 'utf8');
@@ -24,6 +24,32 @@ const baseThread = (overrides = {}) => ({
 });
 const prepare = (thread = baseThread(), task = 'reading_a', objectId = 'reading:test') => lexicalEventFromObjectiveThread({
   task, objectId, attemptSubmittedAt: '2026-09-16T08:00:00Z', thread
+});
+
+test('Lexical learner packet is self-describing for a fresh Chat', () => {
+  const packet = {
+    schema: 'kianos.lexical.return_packet.v1',
+    study_day: '2026-09-18',
+    exported_at: '2026-09-18T10:00:00.000Z',
+    events: [{
+      event_id: 'evt-1',
+      word_id: 'word:abide',
+      ordinal: 4,
+      target_kind: 'sense',
+      target_id: 'sense:abide:main',
+      source: 'reading',
+      outcome: 'WRONG',
+      observed_at: '2026-09-18T09:00:00.000Z'
+    }]
+  };
+  const text = serializeLexicalReturnPacketForChat(packet);
+  assert.match(text, /^KIANOS_LEXICAL_HANDOFF_V1/m);
+  assert.match(text, /HOW TO READ IT/);
+  assert.match(text, /WHAT CHAT SHOULD DO/);
+  assert.match(text, /content\/lexical\/CURRENT\.md/);
+  assert.match(text, /kianos\.lexical\.challenge_packet\.v1/);
+  assert.match(text, /LEXICAL_RETURN_PACKET_JSON/);
+  assert.match(text, /"word_id": "word:abide"/);
 });
 
 test('task source mapping stays inside lexical evidence contract', () => {

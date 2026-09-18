@@ -129,17 +129,11 @@ const questionId = (question, index) => String(question.id || question.question_
   </div>
 
   <details class="portedReadingHistory" data-reading-history>
-    <summary>History <span data-reading-history-count>0</span></summary>
+    <summary>本机记录 <span data-reading-history-count>0</span></summary>
     <ol data-reading-history-list><li>还没有提交记录。</li></ol>
-    <button type="button" data-reading-clear-history>清空本机 History</button>
+    <button type="button" data-reading-clear-history>清空本机记录</button>
   </details>
-
-  <details class="portedReadingSource">
-    <summary>Current provenance</summary>
-    <code>{reading.sourcePaths.passage}</code>
-    <code>passage:{reading.sourceHashes.passageOwner.slice(0, 12)}</code>
-    <code>questions:{reading.sourceHashes.questionOwner.slice(0, 12)}</code>
-  </details>
+ 
 </section>
 
 <script>

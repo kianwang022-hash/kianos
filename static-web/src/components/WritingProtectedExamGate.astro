@@ -5,9 +5,9 @@ const payload = JSON.stringify({ taskId: task.id, taskKind: task.kind, synthetic
 ---
 <section class="writingExamGate" data-writing-exam-gate>
   <section class="writingExamLocked" data-exam-locked>
-    <span>Protected true exam · locked</span>
-    <h2>先完成 Synthetic Small + Big</h2>
-    <p>这篇真题只在两篇 synthetic 都到达终态后进入正常 learner flow。这里不提前展示题面、范文、解析或主题提示。</p>
+    <span>首篇真题 · 尚未开放</span>
+    <h2>先各完成一篇 Small / Big 起步练习</h2>
+    <p>两种写作模式都完整写过一次后，这篇真题才会开放。进入前不会提前展示题面、范文、解析或主题提示。</p>
     <a href={`${base}writing/`}>← 返回 Writing</a>
   </section>
 
@@ -46,14 +46,14 @@ const payload = JSON.stringify({ taskId: task.id, taskKind: task.kind, synthetic
         const meta = runtime.querySelector('.writingRuntimeHeader small');
         if (meta && stageLabel) {
           meta.replaceChildren(
-            document.createTextNode(`${payload?.taskKind === 'small' ? 'Small Writing' : 'Big Writing'} · protected true exam · `),
+            document.createTextNode(`${payload?.taskKind === 'small' ? 'Small Writing' : 'Big Writing'} · 真题 · `),
             stageLabel
           );
         }
         const nav = runtime.querySelector('.writingRuntimeHeader nav');
-        if (nav) nav.setAttribute('aria-label', 'Writing protected true-exam navigation');
+        if (nav) nav.setAttribute('aria-label', 'Writing true-exam navigation');
         const promptMeta = runtime.querySelectorAll('.writingPromptMeta span');
-        if (promptMeta[2]) promptMeta[2].textContent = 'Clean true-exam first attempt';
+        if (promptMeta[2]) promptMeta[2].textContent = '首次独立完成';
       }
     }
   }

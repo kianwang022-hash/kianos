@@ -4,7 +4,7 @@ import {
   STUDY_TIMER_LEDGER_KEY,
   STUDY_TIMER_SCHEMA
 } from '../src/lib/studyTimer.mjs';
-import { buildDailyLearningPacket, attachDailySubjectPacket } from '../src/lib/dailyLearningPacket.mjs';
+import { buildDailyLearningPacket, attachDailySubjectPacket, serializeDailyLearningPacketForChat } from '../src/lib/dailyLearningPacket.mjs';
 
 class MemoryStorage {
   constructor(entries = {}) { this.map = new Map(Object.entries(entries)); }
@@ -83,6 +83,15 @@ assert.equal(packet.subjects.xizong.plan.remainingMinutes, 300);
 assert.deepEqual(packet.subjects.politics.evidence, politicsEvidence);
 assert.equal(packet.subjects.xizong.evidence, null);
 assert.equal(packet.schedule.capacity.remainingMinutes, 510);
+
+const chatText = serializeDailyLearningPacketForChat(packet);
+assert.match(chatText, /^KIANOS_DAILY_LEARNING_HANDOFF_V1/m);
+assert.match(chatText, /HOW TO READ IT/);
+assert.match(chatText, /WHAT CHAT SHOULD DO/);
+assert.match(chatText, /CURRENT\.md/);
+assert.match(chatText, /DAILY_PACKET_JSON/);
+assert.match(chatText, /"total_minutes": 90/);
+assert.match(chatText, /Missing evidence means unknown/);
 
 const withXizong = attachDailySubjectPacket(packet, 'xizong', { schema: 'xizong.daily.v1', completed_blocks: ['B03'] });
 assert.equal(withXizong.subjects.xizong.evidence.completed_blocks[0], 'B03');
