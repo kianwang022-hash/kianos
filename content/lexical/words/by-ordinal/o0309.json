@@ -51,15 +51,6 @@
         "level": "L1",
         "meaning_cn": "把A与B联系起来；A与B相关",
         "pattern": "associate A with B / be associated with B"
-      },
-      {
-        "construction_id": "construction:associate:handoff-0e5475b7fda267ac",
-        "pattern": "associate with sb; an associate",
-        "meaning_cn": "与某人交往；同事或伙伴",
-        "definition_en": "keep company with someone; a colleague or partner",
-        "level": "L1",
-        "pos": "phrase",
-        "source": "semantic-review-handoff-v1"
       }
     ],
     "content_hash": "66616a810a590742f497ca6f3b2284300fd562239a87c862320a0419880c3a5b",
@@ -113,14 +104,7 @@
         "sense_label_en": "associate A with B",
         "sort_order": 0,
         "transitivity": "vi",
-        "collocations": [],
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "associate",
-          "paired_form": "associate noun / verb",
-          "note": "associate as a verb ends /-eɪt/."
-        }
+        "collocations": []
       },
       {
         "confidence": "high",
@@ -134,14 +118,7 @@
         "sense_label_en": "associate",
         "sort_order": 1,
         "transitivity": "nonverb",
-        "collocations": [],
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "associate",
-          "paired_form": "associate noun / verb",
-          "note": "associate as a noun ends /-ət/."
-        }
+        "collocations": []
       },
       {
         "confidence": "high",
@@ -155,14 +132,7 @@
         "sense_label_en": "to keep company or associate with someone",
         "sort_order": 2,
         "transitivity": "vi",
-        "collocations": [],
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "associate",
-          "paired_form": "associate noun / verb",
-          "note": "associate as a verb ends /-eɪt/."
-        }
+        "collocations": []
       }
     ],
     "verification_summary": {
@@ -182,7 +152,60 @@
     },
     "word": "associate",
     "word_family": [],
-    "word_id": "word:associate"
+    "word_id": "word:associate",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_pronunciation",
+      "spelling": "associate",
+      "identity_rule": "part_of_speech_selects_final_syllable",
+      "boundary": "The verb associate ends in /-eɪt/; the noun associate ends in /-ət/.",
+      "boundaries": [
+        {
+          "surface": "associate",
+          "condition": "verb",
+          "note": "动词词尾读 /-eɪt/，表示联系/交往"
+        },
+        {
+          "surface": "associate",
+          "condition": "noun",
+          "note": "名词词尾读 /-ət/，表示同事/伙伴"
+        }
+      ],
+      "variants": [
+        {
+          "variant_id": "form:associate:verb-uk",
+          "pos": [
+            "verb"
+          ],
+          "learner_key": "verb · UK",
+          "ipa": "/əˈsəʊ.si.eɪt/"
+        },
+        {
+          "variant_id": "form:associate:verb-us",
+          "pos": [
+            "verb"
+          ],
+          "learner_key": "verb · US",
+          "ipa": "/əˈsoʊ.ʃi.eɪt/"
+        },
+        {
+          "variant_id": "form:associate:noun-uk",
+          "pos": [
+            "noun"
+          ],
+          "learner_key": "noun · UK",
+          "ipa": "/əˈsəʊ.ʃi.ət/"
+        },
+        {
+          "variant_id": "form:associate:noun-us",
+          "pos": [
+            "noun"
+          ],
+          "learner_key": "noun · US",
+          "ipa": "/əˈsoʊ.ʃi.ət/"
+        }
+      ],
+      "authority": "Cambridge Dictionary pronunciation check + Baseline v2 2026-09-19"
+    }
   },
   "relation_refs": [
     {
