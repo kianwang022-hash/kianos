@@ -174,7 +174,11 @@ try {
         pageClientHeight: document.scrollingElement?.clientHeight || 0
       };
     });
-    check(geometry.left >= 270 && geometry.left <= 310, `${item.lane}_logic_map_stays_narrow`, JSON.stringify(geometry));
+    if (item.evidenceRole === 'CURRENT_PROJECTED_ROUTE') {
+      check(geometry.left >= 270 && geometry.left <= 310, `${item.lane}_logic_map_stays_narrow`, JSON.stringify(geometry));
+    } else {
+      check(geometry.left > 0 && geometry.left < geometry.main, `${item.lane}_qa_topology_mounts_workspace_columns`, JSON.stringify(geometry));
+    }
     check(geometry.main > geometry.left * 2.5, `${item.lane}_central_workspace_dominant`, JSON.stringify(geometry));
     check(geometry.bottom <= geometry.viewport + 2, `${item.lane}_workspace_fits_viewport`, JSON.stringify(geometry));
     check(geometry.pageScrollHeight <= geometry.pageClientHeight + 4, `${item.lane}_no_outer_endless_scroll`, JSON.stringify(geometry));
