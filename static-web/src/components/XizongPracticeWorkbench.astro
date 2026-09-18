@@ -453,6 +453,27 @@ const payload = JSON.stringify({
       }
     }
 
+    if (data?.scopeKind === 'PAPER') {
+      const format = data?.paperFormat;
+      if (!format || Number(format.year) !== Number(data.years?.[0]) || Number(format.question_count) !== Number(data.questions?.length) || Number(format.max_score) <= 0) {
+        showScopeError('WHOLE PAPER', '整卷评分规则不可用', '当前年份没有可验证的 exam-format owner；网页不会猜分。');
+        return;
+      }
+      data = {
+        ...data,
+        studyPhase: 'FIRST_PASS',
+        queueMode: 'EXPLICIT_SET',
+        attemptContext: 'PAPER',
+        resultVisibility: 'hidden',
+        fastSweep: false,
+        allowHoldout: true,
+        holdoutRequired: false
+      };
+      const titleNode = root.querySelector('[data-practice-scope-title]');
+      if (titleNode) titleNode.textContent = `${format.year} · 整卷`;
+      root.querySelector('[data-holdout-control]')?.setAttribute('hidden', '');
+    }
+
     if (!data?.questions?.length) return;
 
     const storageId = String(data.systemId || initialSystemId).replace(/[^a-zA-Z0-9:_-]+/g, '-');
@@ -460,7 +481,9 @@ const payload = JSON.stringify({
       ? `kianos:xizong:chat-set-question-sweep:${storageId}:v1`
       : data.scopeKind === 'RETAINED'
         ? `kianos:xizong:retained-question-sweep:${storageId}:v1`
-        : `kianos:xizong:system-question-sweep:${initialSystemId}:v1`;
+        : data.scopeKind === 'PAPER'
+          ? `kianos:xizong:paper-question-sweep:${storageId}:v1`
+          : `kianos:xizong:system-question-sweep:${initialSystemId}:v1`;
 
     let holdoutYears = data.allowHoldout ? [] : readJson(holdoutKey, []);
     let preferences = readJson(preferenceKey, { fastSweep: false, questionMarks: {} });
@@ -512,6 +535,18 @@ const payload = JSON.stringify({
     const holdoutInput = root.querySelector('[data-holdout-input]');
     const saveHoldout = root.querySelector('[data-save-holdout]');
     const moreMenu = root.querySelector('.xzpMore');
+    const resultModeNode = root.querySelector('.xzpResultMode');
+    const paperSealControl = root.querySelector('[data-paper-seal]');
+    const paperSealReady = root.querySelector('[data-paper-seal-ready]');
+    const paperReady = root.querySelector('[data-paper-ready]');
+    const paperResult = root.querySelector('[data-paper-result]');
+    const paperReviewStart = root.querySelector('[data-paper-review-start]');
+    const paperEarned = root.querySelector('[data-paper-earned]');
+    const paperMax = root.querySelector('[data-paper-max]');
+    const paperCorrect = root.querySelector('[data-paper-correct]');
+    const paperWrong = root.querySelector('[data-paper-wrong]');
+    const paperUnanswered = root.querySelector('[data-paper-unanswered]');
+    const paperYearLabel = root.querySelector('[data-paper-year-label]');
 
     const field = {
       examTarget: [root.querySelector('[data-exam-target-wrap]'), root.querySelector('[data-exam-target]')],
@@ -530,6 +565,9 @@ const payload = JSON.stringify({
     let currentIndex = 0;
     let currentSelection = new Set();
     let backVisible = false;
+    const paperMode = data.scopeKind === 'PAPER';
+    const paperSealed = () => Boolean(sweepState?.paperSeal?.sealedAt);
+    const paperReviewUnlocked = () => Boolean(sweepState?.paperSeal?.reviewUnlockedAt);
 
     const letters = (value) => (String(value || '').toUpperCase().match(/[A-Z]/g) || []).sort();
     const same = (a, b) => a.length === b.length && a.every((value, index) => value === b[index]);
@@ -568,11 +606,16 @@ const payload = JSON.stringify({
 
     const renderTop = () => {
       activeQuestions = computeActive();
-      root.querySelector('[data-study-phase]').textContent = xizongStudyPhaseLabel(sweepState.round?.studyPhase || 'FIRST_PASS');
+      root.querySelector('[data-study-phase]').textContent = paperMode ? '整卷' : xizongStudyPhaseLabel(sweepState.round?.studyPhase || 'FIRST_PASS');
       holdoutCurrent.textContent = holdoutYears.length ? holdoutYears.join('、') : '未设置';
       holdoutInput.value = holdoutYears.join(', ');
       fastButton.setAttribute('aria-pressed', String(Boolean(preferences.fastSweep)));
       fastButton.textContent = preferences.fastSweep ? 'Fast · On' : 'Fast';
+      if (resultModeNode) resultModeNode.textContent = paperMode ? (paperSealed() ? '已出分' : '隐藏') : '即时';
+      if (paperSealControl instanceof HTMLButtonElement) {
+        paperSealControl.hidden = !paperMode || paperSealed();
+        paperSealControl.textContent = paperMode ? `交卷 · ${Object.keys(sweepState.results || {}).length}/${data.questions.length}` : '交卷';
+      }
       if (currentQuestion) {
         markButton.setAttribute('aria-pressed', String(markedFor(currentQuestion.questionId)));
         markButton.textContent = markedFor(currentQuestion.questionId) ? '★ 已标记' : '☆ 标记';
@@ -594,6 +637,7 @@ const payload = JSON.stringify({
 
     const showBack = () => {
       if (!currentQuestion || !resultFor(currentQuestion.questionId)) return;
+      if (paperMode && !paperSealed()) return;
       backVisible = true;
       if (front) front.hidden = true;
       if (back) back.hidden = false;
@@ -711,7 +755,7 @@ const payload = JSON.stringify({
           button.className = 'xzpMapItem';
           button.classList.toggle('current', currentQuestion?.questionId === q.questionId);
           button.classList.toggle('answered', Boolean(result));
-          button.classList.toggle('wrong', result?.status === 'wrong');
+          button.classList.toggle('wrong', Boolean(result?.status === 'wrong' && (!paperMode || paperSealed())));
           button.classList.toggle('marked', marked);
           button.textContent = String(q.number || index + 1);
           button.title = `${year} · 第 ${q.number || index + 1} 题`;
