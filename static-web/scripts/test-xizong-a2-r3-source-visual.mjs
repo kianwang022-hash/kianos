@@ -46,13 +46,23 @@ try {
 
   await root.locator('[data-stage-next="logic_group"]').click();
   await root.locator('[data-study-stage="source_contact"]').waitFor({ state: 'visible' });
-  check(await visualRoot.isHidden(), 'group_visual_waits_until_source_contact_returns_to_logic_group');
+  check(await visualRoot.isHidden(), 'group_visual_waits_until_source_contact_is_complete');
   await root.locator('[data-source-contact-done]').click();
-  await root.locator('[data-study-stage="logic_group"]').waitFor({ state: 'visible' });
+  await page.waitForFunction(() => {
+    const host = document.querySelector('[data-xizong-v6-block]');
+    const ttsx = host?.querySelector('[data-study-stage="ttsx_checkpoint"]');
+    const recall = host?.querySelector('[data-study-stage="kp_recall"]');
+    return (ttsx instanceof HTMLElement && !ttsx.hidden) || (recall instanceof HTMLElement && !recall.hidden);
+  });
+  const ttsxStage = root.locator('[data-study-stage="ttsx_checkpoint"]');
+  if (await ttsxStage.isVisible()) await root.locator('[data-ttsx-done]').click();
+  await root.locator('[data-study-stage="kp_recall"]').waitFor({ state: 'visible' });
 
   await visualRoot.waitFor({ state: 'visible' });
-  check(await visualRoot.locator('xpath=ancestor::*[@data-learner-object-slot="logic_group_prelearn"]').count() === 1,
-    'group_visual_uses_prelearn_semantic_slot');
+  check(await visualRoot.locator('xpath=ancestor::*[@data-learner-object-slot="kp_recall_aux"]').count() === 1,
+    'group_visual_follows_current_kp_recall_aux_slot');
+  check((await root.locator('[data-xizong-aux-surface] [data-learner-object-slot]').getAttribute('data-representation-stage')) === 'KP_RECALL_FRONT',
+    'group_visual_uses_safe_recall_front_stage');
   const figures = visualRoot.locator('.xv6LearnerVisualGallery figure');
   check(await figures.count() === 3, 'three_reviewed_source_objects_rendered', String(await figures.count()));
 
@@ -75,11 +85,8 @@ try {
 
   await visualRoot.screenshot({ path: path.join(auditDir, 'r3-source-visual.png') });
 
-  await root.locator('[data-enter-group]').click();
-  await root.locator('[data-study-stage="kp_recall"]').waitFor({ state: 'visible' });
   check(await root.locator('[data-study-stage="kp_learn"]').count() === 0, 'natural_source_group_does_not_reopen_lecture');
-  check(await visualRoot.isHidden(), 'group_source_visual_hidden_during_recall_front');
-  check(await root.locator('[data-study-stage="kp_recall"] [data-learner-asset="visual"]:visible').count() === 0, 'recall_front_contains_no_source_visual');
+  check(await visualRoot.isVisible(), 'reviewed_source_visual_remains_as_safe_recall_support');
   check(await root.locator('[data-kp-recall-card]:not([hidden]) [data-kp-answer]').isHidden(), 'recall_answer_still_hidden_before_reveal');
 
   report.finished_at = new Date().toISOString();

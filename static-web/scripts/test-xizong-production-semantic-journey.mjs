@@ -66,15 +66,17 @@ try {
   check(Object.keys(state?.learned || {}).length === 0, 'entering_source_contact_does_not_manufacture_evidence');
 
   await page.locator('[data-source-contact-done]').click();
-  check(await visibleStage() === 'logic_group', 'source_contact_returns_to_retrieval_orientation');
+  let postSourceStage = await visibleStage();
+  if (postSourceStage === 'ttsx_checkpoint') {
+    await page.locator('[data-ttsx-done]').click();
+    postSourceStage = await visibleStage();
+  }
+  check(postSourceStage === 'kp_recall', 'source_contact_releases_first_group_recall', postSourceStage || '');
   state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
   const totalKp = await page.locator('[data-kp-recall-card]').count();
   const learnedCount = Object.values(state?.learned || {}).filter(Boolean).length;
   check(state?.sourceContactDone === true, 'continuous_source_contact_confirmation_persisted');
   check(learnedCount === totalKp && totalKp > 0, 'continuous_source_contact_releases_block_retrieval', `${learnedCount}/${totalKp}`);
-
-  await page.locator('[data-enter-group]').click();
-  check(await visibleStage() === 'kp_recall', 'natural_source_mode_goes_directly_to_group_recall');
   check(await page.locator('[data-study-stage="kp_learn"]:visible').count() === 0, 'no_lg_by_lg_source_bounce_after_continuous_contact');
 
   const firstGroupId = await page.locator('[data-kp-recall-card]:visible').getAttribute('data-kp-id');

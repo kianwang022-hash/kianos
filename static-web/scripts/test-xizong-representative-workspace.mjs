@@ -27,7 +27,7 @@ const representatives = [
   { lane: 'A3', route: '/xizong/urinary/b01/', evidenceRole: 'CURRENT_PROJECTED_ROUTE' },
   {
     lane: 'B', route: '/qa/xizong-workspace/b/', evidenceRole: 'QA_TOPOLOGY_COMPATIBILITY_ONLY',
-    expectedEntryStage: 'logic_group',
+    expectedEntryStage: 'kp_learn',
     authorityRef: 'b-digestive-metabolic-endocrine-tumor-learning.json#surface_handoff_contract'
   },
   {
