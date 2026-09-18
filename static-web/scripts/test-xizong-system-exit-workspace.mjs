@@ -160,7 +160,9 @@ try {
   const exit = page.locator('[data-xizong-system-exit="circulation"]');
   await exit.waitFor({ state: 'visible' });
   check(await page.locator('.xseCard,.xseStem,.xseOptions').count() === 0, 'legacy_broad_exit_visual_classes_absent');
-  check(await page.locator('.xzExitCard').count() === 3, 'three_current_exit_steps_present');
+  check(await page.locator('.xseCompletionWorkbench').count() === 1, 'single_completion_workbench_present');
+  check(await page.locator('[data-recall-dialog]').count() === 0, 'recall_modal_removed');
+  check(await page.locator('[data-recall-workspace]').isVisible(), 'inline_recall_workspace_visible');
   check(await page.locator('[data-xizong-question-crosswalk-consumer]').isHidden(), 'crosswalk_hidden_before_second_pass_answer');
   await scanVisibleType(stage, 'exit_entry');
 
@@ -174,19 +176,18 @@ try {
   check(geometry.exit_width > 1000, 'exit_workspace_uses_available_width', JSON.stringify(geometry));
   report.geometry = geometry;
 
-  await exit.locator('[data-start-recall]').click();
-  const dialog = exit.locator('[data-recall-dialog]');
-  await dialog.waitFor({ state: 'visible' });
+  const recallWorkspace = exit.locator('[data-recall-workspace]');
   check(await exit.locator('[data-recall-front]').isVisible(), 'recall_front_visible');
   check(await exit.locator('[data-recall-reveal]').isHidden(), 'recall_answer_protected');
-  await scanVisibleType(dialog, 'recall_front');
+  await scanVisibleType(recallWorkspace, 'recall_front');
   await page.screenshot({ path: recallShot, fullPage: false });
   await exit.locator('[data-reveal-recall]').click();
   check(await exit.locator('[data-recall-front]').isHidden(), 'recall_front_hides_after_reveal');
   check(await exit.locator('[data-recall-reveal]').isVisible(), 'recall_reveal_visible');
-  await scanVisibleType(dialog, 'recall_reveal');
+  await scanVisibleType(recallWorkspace, 'recall_reveal');
   await exit.locator('[data-complete-recall]').click();
-  check(await dialog.isHidden(), 'recall_dialog_closes_after_complete');
+  check(await recallWorkspace.isHidden(), 'recall_workspace_hides_after_complete');
+  check(await exit.locator('[data-question-gate]').isVisible(), 'question_gate_visible_after_recall');
   const recallState = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), recallKey);
   check(Boolean(recallState?.completedAt), 'recall_completion_persisted');
 
@@ -200,6 +201,15 @@ try {
   await workspace.waitFor({ state: 'visible' });
   check((await exit.locator('[data-question-stem]').textContent() || '').trim().length > 10, 'official_question_stem_visible');
   check(await exit.locator('.xseOption').count() >= 4, 'official_question_options_visible');
+  check(await exit.locator('[data-question-map] .xseMapItem').count() > 10, 'question_map_populated');
+  check((await exit.locator('[data-fast-sweep]').getAttribute('aria-pressed')) === 'false', 'fast_sweep_off_by_default');
+  await exit.locator('[data-fast-sweep]').click();
+  check((await exit.locator('[data-fast-sweep]').getAttribute('aria-pressed')) === 'true', 'fast_sweep_can_enable');
+  await exit.locator('[data-fast-sweep]').click();
+  await exit.locator('[data-question-mark]').click();
+  check((await exit.locator('[data-question-mark]').getAttribute('aria-pressed')) === 'true', 'question_mark_can_set');
+  await exit.locator('[data-question-mark]').click();
+  check((await exit.locator('[data-question-mark]').getAttribute('aria-pressed')) === 'false', 'question_mark_can_clear');
   await scanVisibleType(workspace, 'first_pass_question');
 
   await exit.locator(`.xseOption[data-option="${firstPassWrongOption.label}"]`).click();
@@ -258,7 +268,7 @@ try {
       check(await fallback.isVisible(), 'missing_crosswalk_fallback_visible', targetId);
       check((await fallback.textContent() || '').includes('暂无 REVIEWED Crosswalk'), 'missing_crosswalk_does_not_guess', targetId);
     }
-    await exit2.locator('[data-mark-stable]').click();
+    await exit2.locator('[data-next-correct]').click();
     await page.waitForTimeout(80);
   }
   const secondStored = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), sweepKey);
