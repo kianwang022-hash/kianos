@@ -70,50 +70,49 @@ try {
   check(Object.keys(state?.ratings || {}).length === 0, 'source_entry_does_not_manufacture_recall_evidence');
   check(state?.completed !== true, 'source_entry_does_not_manufacture_completion');
 
-  await page.locator('[data-source-contact-done]').click();
-  check(await visibleStage() === 'logic_group', 'source_confirmation_returns_to_retrieval_orientation');
-  state = await readState();
   const totalKp = await page.locator('[data-kp-recall-card]').count();
   const groupCount = await page.locator('[data-group-target]').count();
+
+  await page.locator('[data-source-contact-done]').click();
+  await page.waitForTimeout(100);
+  let stageAfterSource = await visibleStage();
+  if (stageAfterSource === 'ttsx_checkpoint') {
+    check(await page.locator('[data-study-stage="ttsx_checkpoint"]:visible').count() === 1, 'source_boundary_ttsx_is_explicit_when_owned');
+    await page.locator('[data-ttsx-done]').click();
+    await page.waitForTimeout(100);
+    stageAfterSource = await visibleStage();
+  }
+  check(stageAfterSource === 'kp_recall', 'source_confirmation_enters_recall_through_current_flow', stageAfterSource);
+
+  state = await readState();
   const learnedCountAfterSource = Object.values(state?.learned || {}).filter(Boolean).length;
   check(state?.sourceContactDone === true, 'source_contact_confirmation_persisted');
   check(totalKp > 0 && learnedCountAfterSource === totalKp, 'source_contact_releases_all_block_kps_for_retrieval', `${learnedCountAfterSource}/${totalKp}`);
   check(Object.keys(state?.ratings || {}).length === 0, 'source_contact_is_not_recall_mastery');
   check(state?.completed !== true, 'source_contact_is_not_block_completion');
+  check(await page.locator('[data-study-stage="source_contact"]:visible').count() === 0, 'source_not_reopened_after_block_contact');
+  check(await page.locator('[data-study-stage="kp_learn"]:visible').count() === 0, 'natural_block_source_has_no_fake_group_lecture');
 
   const ratedKpIds = new Set();
   let ratingActions = 0;
   let fuzzyKpId = '';
-  for (let groupIndex = 0; groupIndex < groupCount; groupIndex += 1) {
-    check(await visibleStage() === 'logic_group', 'logic_group_orientation_reached', `${groupIndex + 1}/${groupCount}`);
-    await page.locator('[data-enter-group]').click();
-    check(await visibleStage() === 'kp_recall', 'natural_source_group_enters_recall_directly', `${groupIndex + 1}/${groupCount}`);
-    check(await page.locator('[data-study-stage="source_contact"]:visible').count() === 0, 'source_not_reopened_for_logic_group', `${groupIndex + 1}/${groupCount}`);
-    check(await page.locator('[data-study-stage="kp_learn"]:visible').count() === 0, 'no_fake_per_group_lecture_for_natural_source_mode', `${groupIndex + 1}/${groupCount}`);
-
-    let safety = 0;
-    while ((await visibleStage()) === 'kp_recall' && safety++ < totalKp + 5) {
-      const card = page.locator('[data-kp-recall-card]:visible');
-      const kpId = await card.getAttribute('data-kp-id');
-      check(Boolean(kpId), 'visible_recall_card_has_real_kp', kpId || '');
-      const reveal = card.locator('[data-kp-reveal]:visible');
-      if (await reveal.count()) await reveal.click();
-      const rating = !fuzzyKpId ? 'fuzzy' : kpId === fuzzyKpId ? 'fuzzy' : 'known';
-      await card.locator(`[data-rating="${rating}"]`).click();
-      if (!fuzzyKpId) fuzzyKpId = kpId || '';
-      ratedKpIds.add(kpId || '');
-      ratingActions += 1;
-      await page.waitForTimeout(170);
-    }
-    check(safety <= totalKp + 5, 'recall_loop_terminated', `${groupIndex + 1}/${groupCount}`);
-    check(await visibleStage() === 'group_close', 'logic_group_closes_after_real_retrieval', `${groupIndex + 1}/${groupCount}`);
-    await page.locator('[data-group-close-next]').click();
-    if (groupIndex < groupCount - 1) {
-      check(await visibleStage() === 'logic_group', 'next_logic_group_reached_without_source_bounce', `${groupIndex + 2}/${groupCount}`);
-    }
+  let safety = 0;
+  while ((await visibleStage()) === 'kp_recall' && safety++ < totalKp + 5) {
+    const card = page.locator('[data-kp-recall-card]:visible');
+    const kpId = await card.getAttribute('data-kp-id');
+    check(Boolean(kpId), 'visible_recall_card_has_real_kp', kpId || '');
+    const reveal = card.locator('[data-kp-reveal]:visible');
+    if (await reveal.count()) await reveal.click();
+    const rating = !fuzzyKpId ? 'fuzzy' : 'known';
+    await card.locator(`[data-rating="${rating}"]`).click();
+    if (!fuzzyKpId) fuzzyKpId = kpId || '';
+    ratedKpIds.add(kpId || '');
+    ratingActions += 1;
+    await page.waitForTimeout(170);
   }
-
+  check(safety <= totalKp + 5, 'recall_loop_terminated');
   check(await visibleStage() === 'block_recall', 'all_logic_groups_flow_into_block_recall');
+
   state = await readState();
   check(ratedKpIds.size === totalKp, 'every_unique_kp_received_real_recall_evidence', `${ratedKpIds.size}/${totalKp};actions=${ratingActions}`);
   check(Object.keys(state?.ratings || {}).length === totalKp, 'all_recall_ratings_persisted', `${Object.keys(state?.ratings || {}).length}/${totalKp}`);
@@ -123,7 +122,8 @@ try {
   check(await completeButton.isDisabled(), 'final_completion_still_locked_before_block_recall');
 
   await page.locator('[data-block-recall-complete]').click();
-  check(await visibleStage() === 'block_complete', 'block_recall_enters_completion_gate');
+  await page.waitForTimeout(80);
+  check(await visibleStage() === 'block_recall', 'block_recall_stays_on_reconstruction_surface_until_final_confirmation');
   state = await readState();
   check(state?.blockRecallDone === true, 'block_recall_completion_persisted');
   check(state?.completed !== true, 'completion_requires_explicit_final_confirmation');
@@ -137,7 +137,7 @@ try {
 
   await page.reload({ waitUntil: 'networkidle' });
   state = await readState();
-  check(await visibleStage() === 'block_complete', 'completed_stage_survives_reload');
+  check(await visibleStage() === 'block_recall', 'completed_block_reopens_at_recall_context');
   check(state?.sourceContactDone === true, 'source_contact_survives_reload');
   check(Object.values(state?.learned || {}).filter(Boolean).length === totalKp, 'source_contact_coverage_survives_reload');
   check(Object.keys(state?.ratings || {}).length === totalKp, 'recall_evidence_survives_reload');
