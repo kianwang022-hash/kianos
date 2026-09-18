@@ -150,9 +150,9 @@ subject owner
 → Home composition
 ```
 
-Home must not import subject-native presentation components in order to discover meaning, parse subject internals to recreate scheduling semantics, or style subject-native DOM as part of Home composition.
+Home may mount a subject-owned **read-only Resume / entry projection component** when that component remains the subject's own opaque projection surface. Home must not inspect that component's private state/DOM to discover meaning, recreate its priority rules, or mutate subject-private learner state.
 
-When `static-web/HOME_SUBJECT_PROJECTION_CONTRACT.md` exists, it is the narrower Home integration contract and must refine this rule without weakening it.
+A narrower Home integration contract may be registered when needed, but absence of one does not authorize Home to infer subject semantics.
 
 Cross-subject scheduling is not Home-owned cognition. `EXAM_ORCHESTRATOR_CONTRACT.md` owns orchestration policy; its checked Current projection is a derived runtime input, not a second mutable policy owner.
 
@@ -261,7 +261,7 @@ The fix belongs at the earliest responsible owner.
 - registered derived projections remain bound to their declared source owner and authority class;
 - cross-subject Orchestrator runtime remains bound to the Orchestrator Contract through its derived Current projection;
 - conditionally declared shared capabilities must materialize their complete owner set when activated;
-- once Home's projection contract exists, Home cannot regress to subject-native presentation imports;
+- Home cannot infer, duplicate or mutate subject-private Resume / learner semantics;
 - once External Reading integration exists, its adapter cannot mutate Reading A's private continuous-session store.
 
 The checkers intentionally do **not** interpret learning semantics. Domain semantic acceptance remains with domain owners.
