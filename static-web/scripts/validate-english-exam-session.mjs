@@ -155,15 +155,15 @@ for (const [label, source] of Object.entries({
 }
 
 assert.match(sourceChecks.readingGate, /examMode/);
-assert.match(sourceChecks.readingGate, /if (!examMode && savedAttempt.submitted)/);
+assert.match(sourceChecks.readingGate, /if \\(!examMode && savedAttempt\\.submitted\\)/);
 assert.match(sourceChecks.objectiveGate, /examMode/);
-assert.match(sourceChecks.objectiveGate, /if (!examMode && saved.submitted)/);
-assert.match(sourceChecks.translationReference, /if (examMode) return;/);
+assert.match(sourceChecks.objectiveGate, /if \\(!examMode && saved\\.submitted\\)/);
+assert.match(sourceChecks.translationReference, /if \\(examMode\\) return;/);
 assert.match(sourceChecks.bridge, /stopImmediatePropagation/);
 assert.match(sourceChecks.bridge, /captureEnglishExamStep/);
 assert.match(sourceChecks.bridge, /sealEnglishExamSession/);
 assert.match(sourceChecks.home, /04 · FULL PAPER/);
-assert.match(sourceChecks.home, /english-exam//);
+assert.match(sourceChecks.home, /english-exam\\//);
 assert.match(sourceChecks.examHome, /统一出 Objective 分/);
 assert.match(sourceChecks.examWriting, /FULL PAPER · PROTECTED/);
 assert.match(sourceChecks.sessionControl, /'full_paper'/);
