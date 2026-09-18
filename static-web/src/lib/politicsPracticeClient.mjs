@@ -316,7 +316,7 @@ export function initPoliticsPractice(root) {
     if (blocked || active() || session?.status === 'paused') return;
     if (!explicitRetest && !$('[data-learned-scope]').checked) throw new Error('请先在原讲义学习所选范围，再开始配套题。');
     let pool = eligible();
-    if (controls.mode.value === 'random') {
+    if (!explicitRetest && controls.mode.value === 'random') {
       pool = [...pool]; for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
     }
     if (startQuestionId) {
