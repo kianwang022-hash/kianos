@@ -461,3 +461,79 @@ Politics later-stage P/R/E             FROZEN
 Strongest valid claim:
 
 > **The Politics later-stage L candidate is ready for fresh independent audit, not yet learner-design accepted.**
+
+
+### Same-Chat anti-anchored readback after builder repair
+
+Status: **POST-REPAIR READBACK PASS — NOT INDEPENDENT ACCEPTANCE**
+
+After the initial builder attack, the candidate was re-read against the Current K shapes and the recovered production protocol while treating the proposed fast path as potentially wrong.
+
+This additional readback found four material defects:
+
+1. **Duplicate learner work** — whole-chapter reconstruction and all grouped Content Recall were still modeled as sequential default actions, causing the same chapter content to be actively retrieved twice.
+2. **History admission leakage** — chapter relevance itself could still activate horizontal candidate Precision, violating candidate ≠ debt.
+3. **Freshness bypass risk** — Xi high-delta and Ethics/Law exactness could be activated by W/U without making current-year/current-law freshness a hard prerequisite.
+4. **Later-stage surface ownership unresolved** — consolidation had states but no explicit primary surface assignment, leaving downstream Projection/Runtime room to decide a Learning question.
+
+Repairs now present in the candidate:
+
+```text
+one-shot chapter reconstruction
+→ check against 2–3 L-owned group rubrics
+→ recall only materially failed groups
+→ active/admitted Precision only
+→ prior W/U when present
+→ selective retest
+→ smallest repair
+→ cheap close
+```
+
+Additional repaired invariants:
+
+- grouped recall objects are evaluation rubrics / gap-recall targets, not mandatory second-pass tasks;
+- History horizontal items require admission before chapter relevance can select them;
+- Xi high-delta exactness requires current-year source refresh before any later activation;
+- Ethics/Law exactness requires current legal/source recheck before any later activation;
+- consolidation reconstruction/check, targeted gap recall, active Precision and retest are assigned to Astro/KianOS web;
+- original source owns exact source repair; Chat owns deep semantic repair;
+- Analysis Output and Mock/final surface ownership remain explicitly unresolved later gates.
+
+Five-shape post-repair readback:
+
+| Subject | One-shot default | Gap rubric | Exactness behavior |
+| --- | --- | --- | --- |
+| Marxism C02 | relation/mechanism reconstruction | 3 groups | admitted exactness only |
+| Mao C02 | national-condition → revolution model | 3 groups | admitted exactness only |
+| Xi C06 | role/hierarchy + attached content | 3 groups | current-year freshness hard prerequisite |
+| History C05 | causal historical movie | 2 groups | admitted horizontal items selected by relevance/evidence |
+| Ethics-Law C06 | rule-of-law hierarchy/application | 3 groups | current legal/source freshness hard prerequisite |
+
+No additional semantic defect was found in this same-Chat post-repair readback.
+
+However, under the recovered production rule:
+
+> **Builder self-review / same-Chat re-read ≠ fresh independent L acceptance.**
+
+Therefore this readback does not promote L to PASS.
+
+### Exact fresh-audit target
+
+A fresh auditor should start from the current #433 head and independently test:
+
+1. whether one-shot reconstruction genuinely saves time rather than merely hiding a second course;
+2. whether the group rubrics preserve enough Politics chapter memory instead of over-compressing toward Xizong-style skeletons;
+3. whether any candidate-only Precision can still become learner debt without valid admission/freshness;
+4. whether the five subject shapes remain genuinely distinct;
+5. whether consolidation surface ownership minimizes switching and preserves first-round Chengfeng boundaries;
+6. whether Analysis Output / Mock remain outside the accepted consolidation claim.
+
+If that fresh audit passes without new structural defects, the allowed acceptance scope is:
+
+```text
+Politics later-stage Consolidation L logic = PASS_AFTER_REPAIR
+Politics later-stage Analysis-Output L     = UNTESTED
+Politics later-stage Mock/Final L          = UNTESTED
+```
+
+The next stage after such L acceptance would be whole-lane **Content realization / rollout + Content Closure readback**, not Projection/Runtime.
