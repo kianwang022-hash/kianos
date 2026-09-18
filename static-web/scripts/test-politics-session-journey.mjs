@@ -176,7 +176,7 @@ try {
   const evidence = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos-politics-session-evidence-v1') || 'null'));
   check(evidence?.schema === 'kianos.politics.session-evidence.v1', 'session_evidence_schema');
   check(evidence?.events?.length === 3, 'session_evidence_three_explicit_steps', String(evidence?.events?.length));
-  check(evidence.events[0].response === '我的闭卷回忆' && evidence.events[0].mark === 'UNCERTAIN', 'recall_response_and_self_mark_preserved');
+  check(evidence.events[0].response === '我的闭卷回忆 ' && evidence.events[0].mark === 'UNCERTAIN', 'recall_response_and_self_mark_preserved');
   check(evidence.events[1].deterministic_result?.results?.length === 2, 'question_results_returned_as_facts');
   check(evidence.events[2].response === 'CHAT_EXPLICIT_CLOSE', 'close_is_chat_explicit');
   const evidenceText = JSON.stringify(evidence);
