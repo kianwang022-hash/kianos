@@ -39,56 +39,67 @@ These are parameters of one task family, not separate question products.
 
 System Recall hands into Practice with `scope=SYSTEM:<id>`; whole paper later uses the same Workbench with `scope=PAPER:<year>`; Chat-guided review uses `scope=CHAT_SET:<set-id>` and an explicit ordered qid list.
 
-## 2｜Mac-wide L3 geometry — Main first, Context conditional
+## 2｜Mac-wide L3 geometry — front / back
 
-Practice inherits `XIZONG_VISUAL_LANGUAGE.md`:
+Practice uses one stable **front/back task surface**.
 
-```text
-Structure | Main | Conditional Context
-```
-
-Before a useful review exists:
+### Front｜作答
 
 ```text
-┌──────────────────────────────────────────────────────────────────────────────┐
-│ thin session bar: scope / phase / progress                 Fast / Result / M │
-├──────────────┬───────────────────────────────────────────────────────────────┤
-│ Question Map │ Current Question                                             │
-│ local scroll │ dominant exam-paper surface                                 │
-└──────────────┴───────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────┬─────────────────────┐
+│                                       │                     │
+│              Question                 │      Progress       │
+│                                       │                     │
+│  stem + options                       │  group progress     │
+│                                       │  question navigator │
+└───────────────────────────────────────┴─────────────────────┘
 ```
 
-Wrong / meaningful Uncertain, or deliberate Review:
+Front owns only answering and orientation.
+
+### Back｜复盘
+
+Wrong / Uncertain automatically flips to the back.
 
 ```text
-┌──────────────┬───────────────────────────────────────┬───────────────────────┐
-│ Question Map │ Current Question                      │ Adaptive Explanation  │
-│              │ original stem/options stay in place  │ conditional context   │
-└──────────────┴───────────────────────────────────────┴───────────────────────┘
+┌──────────────────────────────┬────────────────────────────────────────┐
+│ Quick learner feedback       │ Knowledge Review                       │
+│                              │                                        │
+│ result                       │ Current explanation                     │
+│ learner / correct answer     │ reasoning / distractors / transfer     │
+│ cause picker                 │ reviewed knowledge return when owned    │
+│ optional note                │                                        │
+└──────────────────────────────┴────────────────────────────────────────┘
 ```
 
-Hard L3 rules:
+Back follows the same interaction grammar already proven in Politics Practice:
 
-- Question Map is a narrow Structure region, approximately 160–175px on the primary Mac geometry.
-- The map groups by real exam year and displays the original official question number; session progress is separate.
-- Correct/stable questions stay visually quiet. Wrong and Marked use small state marks rather than full-color tile fields.
-- Main is the dominant region. When Explanation is absent, Main gets the width back.
-- Stable correct work does not automatically open Explanation.
-- Wrong opens Explanation in place; deliberate Review may open it for an already-attempted question.
-- The original question remains visible when Explanation opens so option discrimination can be read side-by-side.
-- Question/options read as one continuous exam-paper surface; ordinary options are rows with dividers, not a card pile.
-- Map, Main and Context may own local scrolling; the primary Mac workbench should fit the viewport without shrinking learner text.
-- Permanent keyboard-help text is not part of the focal surface; shortcuts remain available through quiet help.
+- left = quick learner evidence;
+- right = knowledge review;
+- `Space` toggles Front ↔ Back;
+- `Enter` submits on Front and advances on Back;
+- Stable correct remains cheap and normally advances without forcing Back;
+- revisiting an attempted question may use Space / Review to inspect the Back;
+- learner cause/note is evidence only; Website does not diagnose the failure.
 
-Typography follows Xizong L2 / accepted Legacy evidence without restoring Legacy semantics:
-- broad/full-bodied Chinese glyph feel;
-- question stem about 20–22px;
-- answer options about 17–18px;
-- explanation body about 17px;
-- ordinary learner text Regular/Medium, generally 500–650 rather than pervasive 750/800;
-- 15px remains only the absolute floor.
+Quick learner evidence uses the shared labels:
 
-This is the current L3 candidate. Real-browser/Mac screenshot acceptance by Kian is still required before it becomes final visual Truth.
+```text
+没记住
+没想明白
+选项没辨清
+看错 / 粗心
+```
+
+These labels do not imply a medical diagnosis or automatic repair action.
+
+Visual rules:
+
+- Front uses two large mature surfaces: dominant Question + quieter Progress.
+- Back uses one mature review surface with a roughly 32% / 68% internal split.
+- Chinese typography, radius, spacing and panel treatment inherit Xizong L2 / shared visual rules.
+- Do not reintroduce the old Map | Question | Explanation three-column composition.
+- Linux CI may validate geometry/runtime; Mac-local Human Gate owns typography/aesthetic acceptance.
 
 ## 3｜Explanation is adaptive, not a field checklist
 
@@ -275,8 +286,10 @@ Explanation Content changes are included in evidence freshness/version guards so
 Current candidate implements:
 - dedicated Xizong `训练` navigation entry;
 - SYSTEM scope;
-- conditional two-column → three-column Practice L3 geometry;
-- year-grouped Question Map using original official question numbers;
+- front/back Practice L3 geometry;
+- Front = Question + Progress / original-number navigator;
+- Back = quick learner feedback + Knowledge Review;
+- Space toggles Front ↔ Back;
 - Normal / Fast;
 - Immediate result;
 - Marked;
