@@ -71,6 +71,14 @@ export function initPoliticsSessionReview(root) {
       .map((template) => [template.dataset.politicsSessionTarget, template])
   );
   const targetRefs = new Set(targetTemplates.keys());
+  const targetPolicies = new Map(
+    [...targetTemplates.entries()].map(([ref, template]) => [ref, {
+      kind: template.dataset.sessionTargetKind || 'FINAL',
+      memory_admission: template.dataset.sessionMemoryAdmission || '',
+      precision_admission: template.dataset.sessionPrecisionAdmission || '',
+      precision_blocker: template.dataset.sessionPrecisionBlocker || ''
+    }])
+  );
 
   let instruction = null;
   let evidence = null;
@@ -180,6 +188,22 @@ export function initPoliticsSessionReview(root) {
     $('[data-session-step-main]').hidden = true;
   };
 
+  const targetPolicyForStep = (step) => (step?.target_refs || []).map((ref) => ({
+    ref,
+    ...(targetPolicies.get(ref) || { kind: 'UNKNOWN', memory_admission: '', precision_admission: '', precision_blocker: '' })
+  }));
+
+  const memoryStepAllowed = (step) => targetPolicyForStep(step).every((row) =>
+    row.kind !== 'MEMORY' || row.memory_admission === 'ADMITTED_STABLE'
+  );
+
+  const precisionStepAllowed = (step) => {
+    const policies = targetPolicyForStep(step);
+    return policies.length > 0 && policies.every((row) =>
+      row.kind === 'MEMORY' && row.precision_admission === 'ADMITTED_STABLE'
+    );
+  };
+
   const practiceCompletion = (step) => {
     const practice = readJson(storage, PRACTICE_KEYS.session, null);
     if (!practice || practice.status !== 'completed' || practice.endedEarly) return null;
@@ -265,6 +289,10 @@ export function initPoliticsSessionReview(root) {
     }
 
     if (['RECONSTRUCT', 'TARGETED_RECALL'].includes(step.recipe_type)) {
+      if (!memoryStepAllowed(step)) {
+        blockStep('这个记忆对象还没有通过 Memory admission；网页不会用相邻或相似内容替代。');
+        return;
+      }
       $('[data-session-mode="recall"]').hidden = false;
       const textarea = $('[data-session-response]');
       textarea.value = runtime.response || '';
@@ -307,8 +335,19 @@ export function initPoliticsSessionReview(root) {
     }
 
     if (step.recipe_type === 'PRECISION') {
-      // Precision remains fail closed until admission/freshness can be verified.
-      blockStep('这条精确记忆还没有通过当年资料 / 录取条件核对，当前先不展示。');
+      if (!precisionStepAllowed(step)) {
+        const blockers = targetPolicyForStep(step)
+          .map((row) => row.precision_blocker)
+          .filter(Boolean);
+        blockStep(blockers[0] || '这条内容已经可以作为 Memory 回忆，但还没有通过 Precision exactness / freshness admission。');
+        return;
+      }
+      $('[data-session-mode="recall"]').hidden = false;
+      const textarea = $('[data-session-response]');
+      textarea.value = runtime.response || '';
+      $('[data-session-reveal-content]').hidden = !runtime.revealed;
+      $('[data-session-markers]').hidden = !runtime.revealed;
+      if (runtime.revealed) cloneTargets(step, $('[data-session-reveal-content]'));
       return;
     }
 
@@ -405,7 +444,7 @@ export function initPoliticsSessionReview(root) {
   $('[data-session-reveal]').addEventListener('click', () => {
     try {
       const step = currentStep();
-      if (!step || !['RECONSTRUCT', 'TARGETED_RECALL'].includes(step.recipe_type)) return;
+      if (!step || !['RECONSTRUCT', 'TARGETED_RECALL', 'PRECISION'].includes(step.recipe_type)) return;
       saveDraft();
       runtime.revealed = true;
       persistRuntime({ ...runtime, revealed: true, active_since: now() });
@@ -507,7 +546,7 @@ export function initPoliticsSessionReview(root) {
     if (target instanceof HTMLElement && (target.matches('input, textarea, select, button, a') || target.isContentEditable)) return;
     if (event.code === 'Space') {
       const step = currentStep();
-      if (step && ['RECONSTRUCT', 'TARGETED_RECALL'].includes(step.recipe_type) && !runtime.revealed) {
+      if (step && ['RECONSTRUCT', 'TARGETED_RECALL', 'PRECISION'].includes(step.recipe_type) && !runtime.revealed) {
         event.preventDefault();
         $('[data-session-reveal]').click();
       }
