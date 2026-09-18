@@ -203,5 +203,217 @@
     "xiao1000_default": "INLINE_VERIFICATION_AFTER_RELEVANT_UNIT",
     "memory_default": "NOT_PRIMARY_FIRST_ROUND_SURFACE",
     "astro_rule": "Prefer content-driven rendering; do not hard-code this chapter's political semantics in components."
+  },
+  "later_stage_knowledge": {
+    "schema": "kianos.politics.later_stage_knowledge.v1",
+    "status": "CURRENT_K_CANDIDATE",
+    "phase_scope": [
+      "CONSOLIDATION",
+      "PRECISION",
+      "ANALYSIS_OUTPUT"
+    ],
+    "compression_model": {
+      "cognition": "PRACTICE_RECOGNITION_TRUTH_VALUE_LOOP",
+      "purpose": "Retain one full loop from practice to recognition to truth/value and back to practice.",
+      "reconstruction_prompt": "闭卷恢复：实践怎样产生认识，感性怎样上升到理性，为什么必须回实践，真理如何被检验，价值怎样进入，最后怎样重新回到改造世界。",
+      "reconstruction_targets": [
+        {
+          "id": "MARX-C03-LK-C01",
+          "claim": "实践是主体与客观世界发生现实联系的活动，也是认识的来源、动力、检验和目的基础。",
+          "owner_ids": [
+            "POL27-CF-MARX-C03-S01"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        },
+        {
+          "id": "MARX-C03-LK-C02",
+          "claim": "感性认识提供直接材料，理性认识把握本质规律；认识必须再回实践并在新实践中继续发展。",
+          "owner_ids": [
+            "POL27-CF-MARX-C03-S01"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        },
+        {
+          "id": "MARX-C03-LK-C03",
+          "claim": "真理具有客观性，同时任何具体真理又受条件和认识程度限制；实践检验也是历史发展的过程。",
+          "owner_ids": [
+            "POL27-CF-MARX-C03-S02"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        },
+        {
+          "id": "MARX-C03-LK-C04",
+          "claim": "价值回答对象对主体需要的意义，但正确价值实现不能脱离真理和客观规律。",
+          "owner_ids": [
+            "POL27-CF-MARX-C03-S02"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        },
+        {
+          "id": "MARX-C03-LK-C05",
+          "claim": "认识世界与改造世界、改造客观世界与主观世界统一于不断发展的实践；自由建立在认识必然基础上。",
+          "owner_ids": [
+            "POL27-CF-MARX-C03-S03"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        }
+      ],
+      "decisive_boundaries": [
+        {
+          "id": "MARX-C03-LK-B01",
+          "boundary": "实践 ≠ 主观思考",
+          "owner_ids": [
+            "POL27-CF-MARX-C03-S01"
+          ]
+        },
+        {
+          "id": "MARX-C03-LK-B02",
+          "boundary": "感性认识 ≠ 错误认识；理性认识 ≠ 脱离感性材料",
+          "owner_ids": [
+            "POL27-CF-MARX-C03-S01"
+          ]
+        },
+        {
+          "id": "MARX-C03-LK-B03",
+          "boundary": "真理绝对性 ≠ 一整块永不发展的终极知识",
+          "owner_ids": [
+            "POL27-CF-MARX-C03-S02"
+          ]
+        },
+        {
+          "id": "MARX-C03-LK-B04",
+          "boundary": "真理相对性 ≠ 没有客观标准",
+          "owner_ids": [
+            "POL27-CF-MARX-C03-S02"
+          ]
+        },
+        {
+          "id": "MARX-C03-LK-B05",
+          "boundary": "实践标准 ≠ 一次实践永久终结认识",
+          "owner_ids": [
+            "POL27-CF-MARX-C03-S02"
+          ]
+        },
+        {
+          "id": "MARX-C03-LK-B06",
+          "boundary": "自由 ≠ 摆脱客观规律",
+          "owner_ids": [
+            "POL27-CF-MARX-C03-S03"
+          ]
+        }
+      ],
+      "cross_unit_confusables": [
+        {
+          "id": "MARX-C03-LK-X01",
+          "items": [
+            "感性认识/理性认识",
+            "现象/本质"
+          ],
+          "reason": "前者是认识阶段，后者是客观事物的表现—内在关系，不能等同。"
+        },
+        {
+          "id": "MARX-C03-LK-X02",
+          "items": [
+            "真理",
+            "价值"
+          ],
+          "reason": "真理判断主客观是否符合，价值判断客体对主体的意义，实践要求二者统一但不能互替。"
+        }
+      ]
+    },
+    "precision_knowledge": {
+      "policy": "PENDING_EXACT_CANDIDATE_MATERIALIZATION",
+      "candidate_domains": [
+        "实践与认识四重关系",
+        "真理客观性/一元性/绝对性相对性",
+        "真理谬误与真理价值 boundaries",
+        "实践检验真理标准确定性/不确定性"
+      ],
+      "materialization_status": "WAIT_CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_OR_WU_EVIDENCE",
+      "historical_source_refs": [
+        "LEG26-UPPER-MARX-P026",
+        "LEG26-UPPER-MARX-P031",
+        "LEG26-UPPER-MARX-P033"
+      ]
+    },
+    "analysis_output_hooks": [
+      {
+        "id": "MARX-C03-OUT-PRACTICE-RECOGNITION",
+        "title": "实践与认识",
+        "material_cues": [
+          "实践产生认识",
+          "理论指导行动",
+          "认识不断深化",
+          "反复探索"
+        ],
+        "owner_ids": [
+          "POL27-CF-MARX-C03-S01"
+        ],
+        "retrieval_target": "按实践→认识→再实践恢复循环，而不是只写‘实践重要’。",
+        "answer_skeleton": [
+          "实践是认识基础",
+          "感性到理性说明认识深化",
+          "认识回实践指导并接受检验",
+          "新实践继续推动认识发展"
+        ],
+        "historical_output_refs": [
+          "LEG26-LOWER-MARX-P055",
+          "LEG26-LOWER-MARX-P056"
+        ],
+        "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
+      },
+      {
+        "id": "MARX-C03-OUT-TRUTH-VALUE",
+        "title": "真理与价值",
+        "material_cues": [
+          "正确认识",
+          "条件变化",
+          "评价/效用",
+          "合规律性与合目的性"
+        ],
+        "owner_ids": [
+          "POL27-CF-MARX-C03-S02"
+        ],
+        "retrieval_target": "先判断题目是真理性质、真理检验，还是价值尺度/二者统一。",
+        "answer_skeleton": [
+          "给出命中的真理或价值关系",
+          "说明条件/客观性边界",
+          "说明二者统一于实践",
+          "回扣材料中的事实与目的"
+        ],
+        "historical_output_refs": [
+          "LEG26-LOWER-MARX-P057",
+          "LEG26-LOWER-MARX-P058"
+        ],
+        "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
+      },
+      {
+        "id": "MARX-C03-OUT-INNOVATION",
+        "title": "守正创新与理论实践互动",
+        "material_cues": [
+          "守正创新",
+          "理论创新",
+          "实践创新",
+          "坚持与发展"
+        ],
+        "owner_ids": [
+          "POL27-CF-MARX-C03-S03"
+        ],
+        "retrieval_target": "把坚持真理/规律与发展创新同时保留，并说明理论与实践双向互动。",
+        "answer_skeleton": [
+          "守正提供前提和方向",
+          "创新推动认识实践发展",
+          "实践创新提供动力源泉",
+          "理论创新提供行动指导",
+          "回扣材料中的新实践/新问题"
+        ],
+        "historical_output_refs": [
+          "LEG26-LOWER-MARX-P058",
+          "LEG26-LOWER-MARX-P059"
+        ],
+        "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
+      }
+    ],
+    "first_round_effect": "NONE"
   }
 }
