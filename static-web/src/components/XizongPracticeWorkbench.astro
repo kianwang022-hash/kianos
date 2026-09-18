@@ -23,6 +23,8 @@ const payload = JSON.stringify({
   holdoutRequired: sweep.holdoutRequired !== false,
   years: sweep.years,
   questions: sweep.questions,
+  resultVisibility: sweep.resultVisibility || 'immediate',
+  paperFormat: sweep.paperFormat || null,
   scopeKind,
   base
 }).replace(/</g, '\\u003c');
@@ -37,6 +39,7 @@ const payload = JSON.stringify({
     <div class="xzpProgress" data-question-progress>准备中</div>
 
     <div class="xzpControls">
+      <button type="button" class="xzpPaperSealControl" data-paper-seal hidden>交卷</button>
       <button type="button" class="xzpQuietControl" data-fast-sweep aria-pressed="false">Fast</button>
       <button type="button" class="xzpQuietControl xzpMarkControl" data-question-mark aria-pressed="false">☆ 标记</button>
       <button type="button" class="xzpQuietControl" data-review-toggle aria-pressed="false" hidden>解析</button>
@@ -94,6 +97,32 @@ const payload = JSON.stringify({
           <button type="button" data-submit-answer disabled>提交答案</button>
         </footer>
       </article>
+
+      <section class="xzpPaperReady" data-paper-ready hidden>
+        <span>PAPER COMPLETE</span>
+        <h2>本卷已经答完</h2>
+        <p>答案仍然保持隐藏。确认交卷后才统一出分并开放复盘。</p>
+        <button type="button" data-paper-seal-ready>交卷并出分</button>
+      </section>
+
+      <section class="xzpPaperResult" data-paper-result hidden>
+        <span>PAPER SEALED</span>
+        <div class="xzpPaperScore">
+          <strong data-paper-earned>0</strong>
+          <em>/</em>
+          <b data-paper-max>0</b>
+        </div>
+        <p data-paper-year-label>整卷成绩</p>
+        <dl>
+          <div><dt>正确</dt><dd data-paper-correct>0</dd></div>
+          <div><dt>错误</dt><dd data-paper-wrong>0</dd></div>
+          <div><dt>未答</dt><dd data-paper-unanswered>0</dd></div>
+        </dl>
+        <div class="xzpPaperResultActions">
+          <button type="button" data-paper-review-start>进入复盘</button>
+          <a href={`${base}xizong/practice/`}>返回整卷目录</a>
+        </div>
+      </section>
 
       <section class="xzpDone" data-sweep-done hidden>
         <span>ROUND COMPLETE</span>
@@ -230,6 +259,11 @@ const payload = JSON.stringify({
     resolveXizongQuestionMarked,
     setXizongGlobalQuestionMark
   } from '../lib/xizongRetainedPractice.mjs';
+  import {
+    scoreXizongPaperResults,
+    sealXizongPaperState,
+    unlockXizongPaperReview
+  } from '../lib/xizongPaperScoring.mjs';
 
   document.querySelectorAll('[data-xizong-practice]').forEach(async (root) => {
     const initialSystemId = root.getAttribute('data-xizong-practice') || '';
