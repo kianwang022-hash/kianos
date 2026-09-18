@@ -284,6 +284,339 @@ body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallReveal>div { pad
 body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallReveal :is(ol,ul,li,b) { font-size:16px;line-height:1.6; }
 body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallReveal :is(ol,ul) { margin:8px 0 0;padding-left:24px; }
 
+
+/* Current System Completion workbench: one phase-aware surface, no Recall modal / three-step card board. */
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseCompletionWorkbench {
+  overflow:hidden;
+  border:1px solid var(--xz-exit-line);
+  border-radius:10px;
+  background:#fff;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseCompletionHead {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(330px,430px);
+  gap:18px;
+  align-items:center;
+  padding:15px 18px;
+  border-bottom:1px solid var(--xz-exit-line);
+  background:#f8fbf9;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseCompletionIdentity { min-width:0; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseCompletionIdentity>span {
+  color:var(--xz-exit-green);
+  font-size:15px;
+  font-weight:800;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseCompletionIdentity h3 {
+  margin:3px 0 4px;
+  font-size:20px;
+  line-height:1.35;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseCompletionIdentity p {
+  margin:0;
+  color:var(--xz-exit-muted);
+  font-size:15px;
+  line-height:1.5;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHoldoutCompact {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:7px 10px;
+  align-items:center;
+  min-width:0;
+  padding-left:16px;
+  border-left:1px solid var(--xz-exit-line);
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHoldoutCompact>div:first-child {
+  min-width:0;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHoldoutCompact>div:first-child span {
+  display:block;
+  color:var(--xz-exit-muted);
+  font-size:15px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHoldoutCompact>div:first-child strong {
+  display:block;
+  margin-top:2px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-size:15px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHoldoutCompact .xseHoldoutEditor {
+  grid-column:1/-1;
+  grid-template-columns:auto minmax(0,1fr) auto;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHoldoutCompact>.xseTextButton {
+  justify-self:end;
+}
+
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallWorkspace {
+  display:grid;
+  grid-template-columns:210px minmax(0,1fr);
+  min-height:430px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallAxes {
+  display:grid;
+  align-content:start;
+  gap:0;
+  padding:20px 16px;
+  border-right:1px solid var(--xz-exit-line);
+  background:#fbfcfb;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallAxes>span {
+  margin-bottom:14px;
+  color:var(--xz-exit-green);
+  font-size:15px;
+  font-weight:800;
+  letter-spacing:.03em;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallAxes>strong {
+  padding:10px 0;
+  border-top:1px solid var(--xz-exit-line);
+  font-size:16px;
+  font-weight:700;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallAxes>small {
+  margin-top:14px;
+  color:var(--xz-exit-muted);
+  font-size:15px;
+  line-height:1.5;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallStage {
+  min-width:0;
+  padding:22px 24px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallStageHead {
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:18px;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--xz-exit-line);
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallStageHead h3 {
+  margin:3px 0 0;
+  font-size:22px;
+  line-height:1.35;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallStageHead>strong {
+  color:var(--xz-exit-muted);
+  font-size:15px;
+  line-height:1.5;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallFront {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(280px,.68fr);
+  gap:14px 22px;
+  padding:22px 0 0;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallPrompt {
+  grid-column:1/-1;
+  margin:0;
+  max-width:64ch;
+  font-size:21px;
+  line-height:1.7;
+  font-weight:650;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallInstruction {
+  align-content:start;
+  padding:14px 16px;
+  border-left:3px solid #a9c7ba;
+  background:#f6f9f7;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallFront textarea {
+  width:100%;
+  min-height:150px;
+  box-sizing:border-box;
+  padding:13px 14px;
+  border:1px solid var(--xz-exit-line);
+  border-radius:8px;
+  background:#fff;
+  color:var(--study-ink,#253b37);
+  font:500 15px/1.6 var(--study-font,system-ui);
+  resize:vertical;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallActions {
+  grid-column:1/-1;
+  display:flex;
+  justify-content:flex-end;
+  gap:8px;
+  margin-top:4px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallReveal {
+  display:grid;
+  gap:16px;
+  padding:20px 0 0;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallModel {
+  display:grid;
+  grid-template-columns:1.15fr .95fr 1fr;
+  gap:0;
+  border:1px solid var(--xz-exit-line);
+  border-radius:9px;
+  overflow:hidden;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallModel>section {
+  min-width:0;
+  padding:15px 16px;
+  background:#fbfcfb;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallModel>section+section {
+  border-left:1px solid var(--xz-exit-line);
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallModel>section>span {
+  color:var(--xz-exit-green);
+  font-size:15px;
+  font-weight:800;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallModel :is(ol,ul) {
+  margin:9px 0 0;
+  padding-left:22px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallModel :is(li,b) {
+  font-size:16px;
+  line-height:1.6;
+}
+
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseQuestionGate {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:12px 18px;
+  align-items:center;
+  padding:19px 22px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseQuestionGateCopy h3 {
+  margin:3px 0 5px;
+  font-size:21px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseQuestionGateCopy p {
+  margin:0;
+  color:var(--xz-exit-muted);
+  font-size:15px;
+  line-height:1.55;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseQuestionGate .xseSweepStats {
+  justify-content:flex-end;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseQuestionGate .xseSweepActions {
+  grid-column:1/-1;
+  justify-content:flex-end;
+}
+
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseWorkspaceControls {
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+  flex-wrap:wrap;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseResultMode {
+  padding:7px 9px;
+  border:1px solid var(--xz-exit-line);
+  border-radius:7px;
+  color:var(--xz-exit-muted);
+  font-size:15px;
+  font-weight:700;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseWorkspaceControls [aria-pressed="true"] {
+  border-color:#6d9787;
+  background:#eaf3ee;
+  color:var(--xz-exit-green);
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseQuestionLayout {
+  display:grid;
+  grid-template-columns:190px minmax(0,1fr);
+  min-height:520px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseQuestionMap {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  align-content:start;
+  gap:6px;
+  padding:16px 14px 16px 0;
+  border-right:1px solid var(--xz-exit-line);
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xse button.xseMapItem {
+  position:relative;
+  display:grid;
+  place-items:center;
+  min-width:0;
+  height:38px;
+  padding:0;
+  border-color:#d5e0da;
+  background:#fff;
+  color:var(--study-ink,#253b37);
+  font-size:14px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xse button.xseMapItem b {
+  font-size:14px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xse button.xseMapItem span {
+  position:absolute;
+  top:1px;
+  right:3px;
+  color:var(--xz-exit-green);
+  font-size:10px;
+  font-weight:850;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xse button.xseMapItem.current {
+  border-color:var(--xz-exit-green);
+  box-shadow:inset 0 0 0 1px var(--xz-exit-green);
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xse button.xseMapItem.answered { background:#f5f8f6; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xse button.xseMapItem.wrong { border-color:#d8a29a;background:#fff5f3; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xse button.xseMapItem.marked { border-color:#c9a96d;background:#fffaf0; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseQuestionMain {
+  min-width:0;
+  padding-left:20px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRetainedReview {
+  display:grid;
+  gap:12px;
+  margin:16px 0;
+  padding:14px 0;
+  border-top:1px solid var(--xz-exit-line);
+  border-bottom:1px solid var(--xz-exit-line);
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRetainedFilters {
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRetainedFilters button {
+  background:#fff;
+  color:var(--xz-exit-green);
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRetainedFilters button[aria-pressed="true"] {
+  background:#eaf3ee;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage [data-retained-list] {
+  display:grid;
+  gap:7px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRetainedItem {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:10px;
+  align-items:center;
+  padding:10px 0;
+  border-top:1px solid var(--xz-exit-line);
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRetainedItem:first-child { border-top:0; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRetainedItem>div {
+  display:grid;
+  gap:2px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRetainedItem strong { font-size:16px; }
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRetainedItem span,
+body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRetainedEmpty {
+  margin:0;
+  color:var(--xz-exit-muted);
+  font-size:15px;
+  line-height:1.5;
+}
+
 /* Reviewed Crosswalk is a conditional evidence strip, not another card product. */
 body#kianos-workspace.surfaceBody-xizong .xzExitStage .xqc {
   margin:0 14px 14px;
@@ -378,6 +711,13 @@ body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrrList article a { justi
 body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrr script { display:none; }
 
 @media (max-width:1050px) {
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseCompletionHead { grid-template-columns:1fr; }
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHoldoutCompact { padding-left:0;border-left:0;border-top:1px solid var(--xz-exit-line);padding-top:12px; }
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallWorkspace { grid-template-columns:170px minmax(0,1fr); }
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallModel { grid-template-columns:1fr; }
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallModel>section+section { border-left:0;border-top:1px solid var(--xz-exit-line); }
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseQuestionLayout { grid-template-columns:150px minmax(0,1fr); }
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseQuestionMap { grid-template-columns:repeat(3,minmax(0,1fr)); }
   body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseSteps { grid-template-columns:1fr; }
   body#kianos-workspace.surfaceBody-xizong .xzExitStage .xzExitCard+.xzExitCard { border-left:0;border-top:1px solid var(--xz-exit-line); }
   body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHero { grid-template-columns:1fr; }
@@ -385,6 +725,15 @@ body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrr script { display:none
   body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHoldoutEditor button { justify-self:start; }
 }
 @media (max-width:760px) {
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallWorkspace,
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseQuestionLayout { grid-template-columns:1fr; }
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallAxes { border-right:0;border-bottom:1px solid var(--xz-exit-line); }
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallFront { grid-template-columns:1fr; }
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseQuestionMap { grid-template-columns:repeat(6,minmax(0,1fr));padding:12px 0;border-right:0;border-bottom:1px solid var(--xz-exit-line); }
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseQuestionMain { padding-left:0; }
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseQuestionGate { grid-template-columns:1fr; }
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseQuestionGate .xseSweepStats,
+  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseQuestionGate .xseSweepActions { grid-column:auto;justify-content:flex-start; }
   body#kianos-workspace.surfaceBody-xizong .xzExitStage>summary,
   body#kianos-workspace.surfaceBody-xizong .xzExitStage .xrr>summary { grid-template-columns:1fr; }
   body#kianos-workspace.surfaceBody-xizong .xzExitStage>summary::before { display:none; }
