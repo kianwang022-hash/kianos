@@ -3,11 +3,11 @@
 Status: CURRENT_SUBORDINATE  
 Authority: CHAT_APPROVED_SUBORDINATE  
 Scope: formal learner-facing Xizong Extension assets  
-Parent authority: `XIZONG_STUDY_LEARNING_BASELINE_v6_FROZEN.md` / `content/xizong/LEARNING_CONTRACT.md`
+Parent authority: `content/xizong/LEARNING_CONTRACT.md` + `content/xizong/knowledge/learner/study-policy.json`
 
 This contract formalizes how Xizong learner-facing **Extension assets** are admitted, owned, replaced, rendered and maintained.
 
-It does **not** create a second learning baseline, second medical owner, second Lecture, or second learner-state store. If any rule here appears to conflict with the frozen v6 baseline or the Xizong Learning Contract, fail closed and defer to those upstream owners.
+It does **not** create a second learning baseline, second medical owner, second Lecture, or second learner-state store. If any rule here appears to conflict with the Current Xizong Learning Contract, shared study policy, or canonical medical owner, fail closed and defer to those upstream owners.
 
 ---
 
@@ -353,4 +353,4 @@ For formal Extensions:
 
 > **Owner stays stable; asset may improve continuously.**
 
-This preserves v6's frozen learning architecture while making figures, tables and later user-provided summaries cheap to update rather than expensive to rebuild.
+This preserves the Current Xizong learning architecture while making figures, tables and later user-provided summaries cheap to update rather than expensive to rebuild.
