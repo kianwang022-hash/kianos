@@ -69,6 +69,41 @@ These are **shared site-wide taste defaults**, not Home-only preferences. Subjec
 
 These are taste constraints, not instructions to clone Apple, Raycast, Arc, the legacy site, or any named product. Legacy screenshots are visual evidence for typography/density/taste, not authority to restore retired semantics or runtime behavior.
 
+### Accepted Chinese UI font reference
+
+Kian explicitly accepts the Chinese UI character shown by the legacy `4173` Politics Learn mode row:
+
+```text
+继续 / 随机 / 错题 / 到期 / 收藏
+```
+
+Exact evidence:
+
+```text
+kianos-legacy@5cb002b4f775dbac0aa777ef8954f65db09904ab
+```
+
+The accepted shared stack is:
+
+```css
+-apple-system,
+BlinkMacSystemFont,
+"PingFang SC",
+"Noto Sans CJK SC",
+sans-serif
+```
+
+On Mac, Chinese resolves to the PingFang system family. The active `错题` state is positive evidence for a visibly stronger weight, not for a different family.
+
+Explicit preference:
+- this is the default Chinese UI / Chinese learner-text family across KianOS;
+- Chinese headings stay in the same sans family by default;
+- do **not** use the old `Georgia, "Songti SC", serif` Politics hero/title treatment as the shared Chinese direction;
+- active/current/important Chinese may be heavier, while normal body text stays comfortably Medium;
+- English typography is deliberately outside this rule for now.
+
+This is an L1 preference. Subject L2/L3 may choose size, hierarchy and weight within the shared family, but must not silently replace the Chinese font family.
+
 ### Visible text carries a reading obligation
 
 - If a learner-facing surface chooses to show text by default, Kian will treat that text as something worth reading or identifying. **Visible therefore implies readable and useful.**
