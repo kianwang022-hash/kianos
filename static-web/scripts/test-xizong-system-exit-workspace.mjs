@@ -200,10 +200,10 @@ try {
   await practice.locator('[data-cause="options"]').click();
   await practice.locator('[data-attempt-note]').fill('需要回看选项边界');
   await practice.locator('[data-attempt-note]').blur();
-  let reviewMeta = await page.evaluate((key,id)=>{
+  let reviewMeta = await page.evaluate(({key,id})=>{
     const state=JSON.parse(localStorage.getItem(key)||'null');
     return state?.reviewMeta?.[id]||null;
-  },sweepKey,firstQuestion.questionId);
+  },{key:sweepKey,id:firstQuestion.questionId});
   check(reviewMeta?.cause==='options','quick_cause_persisted',String(reviewMeta?.cause||''));
   check(reviewMeta?.note==='需要回看选项边界','quick_note_persisted',String(reviewMeta?.note||''));
 
