@@ -46,6 +46,73 @@ Exact semantics live in `LEARNING_CONTRACT.md` and the subject canonical owners,
 
 ---
 
+## Exam-Horizon Adaptation
+
+A stacked Politics product-adaptation lane is active on top of the current later-stage L candidate.
+
+It does **not** reopen the top-level architecture and does not authorize later-stage Runtime implementation before L acceptance.
+
+Target:
+
+```text
+GitHub / Current Content
+→ resolved Final Learner Objects
+→ accepted Visual
+→ phase-agnostic Runtime atoms
+↑                         ↓
+Chat Session Instruction  Session Evidence
+```
+
+Current closure status:
+
+```text
+A Final Learner Object direct-consumption   FAIL / revision required
+B Generic Runtime Atom closure              PARTIAL
+C Chat ↔ Website typed-control closure      PARTIAL
+D 12/20 Exam-Horizon scenario acceptance    UNTESTED
+```
+
+Known A-red implementation evidence:
+
+- `politicsCurrent.mjs` still chains subject-specific adapters;
+- some subject adapters still fill learner payload from raw teaching fields;
+- `PoliticsExplicitSurfacePlan.astro` still enumerates arbitrary scalar fields through `learnerLines()`.
+
+The target Runtime atom set is:
+
+```text
+SHOW
+CONCEAL_REVEAL
+INPUT_SUBMIT
+MARK
+SEQUENCE
+TIMER
+HANDOFF
+RETURN
+CAPTURE
+```
+
+Later capabilities such as Recall / Reconstruct / Timed Task / Mock must be Session recipes over these atoms, not new phase engines.
+
+Typed control target:
+
+```text
+private learner evidence + Current Content
+→ Chat
+→ kianos.politics.session-instruction.v1
+→ Website executor
+→ kianos.politics.session-evidence.v1
+→ Chat
+```
+
+The #433 `consolidation_plan.v1` remains a phase-specific precursor and must normalize into the one exam-horizon instruction envelope rather than gaining a second permanent executor.
+
+**Dependency rule:** contract/audit work may continue, but later-stage Projection/Runtime implementation remains frozen until the affected Learning gate is accepted.
+
+Exact acceptance and P1–P5 scenario proof live in `ACCEPTANCE.md`.
+
+---
+
 ## Local derived-presentation mechanism
 
 Politics has an accepted `SURFACE_MAPPING_CONTRACT.md` because its Natural Unit states sometimes need explicit derived learner presentation.
