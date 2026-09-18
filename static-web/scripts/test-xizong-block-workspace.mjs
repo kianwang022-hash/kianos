@@ -300,6 +300,14 @@ try {
   check(ratedState?.ratings?.[currentRecallKpId] === 'known', 'rating_persists_real_recall_evidence', currentRecallKpId || '');
 
   const minType = await scanTypeFloor(root, 'a2_r1');
+  const blockTypography = await root.evaluate((node) => ({
+    fontFamily: getComputedStyle(node).fontFamily,
+    bodySize: getComputedStyle(node).fontSize
+  }));
+  report.block_typography = blockTypography;
+  if (process.platform === 'darwin') {
+    check(String(blockTypography.fontFamily || '').includes('PingFang SC'), 'mac_block_uses_pingfang_sc', blockTypography.fontFamily || '');
+  }
   await page.screenshot({ path: path.join(auditDir, 'xizong-block-kp-learn.png'), fullPage: false });
 
   // Visual-only Human Gate capture. Current has no reviewed TTSX Binding owner,
