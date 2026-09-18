@@ -1,6 +1,6 @@
 # Lexical Visual / Surface Blueprint — Candidate
 
-Status: **CANDIDATE — Architecture v2 adaptation; Kian Human Gate required**  
+Status: **L2 VISUAL FAMILY ACCEPTED — L3 surface blueprints remain Human-Gate candidates**  
 Parent Visual authority: `static-web/PRESENTATION_CONTRACT.md`  
 Preference owner: `static-web/KIAN_UI_PREFERENCES.md`  
 Rule / Model owner: `content/lexical/LEARNING_CONTRACT.md`  
@@ -152,33 +152,180 @@ Human Gate must decide whether:
 
 ---
 
-## 5｜Depth visual language
+## 5｜Accepted L2 Vocabulary / Lexical visual family
 
-Candidate direction:
+Status: **ACCEPTED by Kian — 2026-09-18**
 
-> **editorial lexical sheet, not component dashboard.**
+This section owns the shared learner-facing visual language for Vocabulary / Lexical inside the English product family. It is upstream of exact Fast Pass / Depth / Repair / Challenge surface geometry.
 
-Use the Mac-wide screen to keep the lexical object coherent.
+Hard inheritance:
 
-Prefer:
+```text
+L1 Shared Visual
+→ English family shell / control language
+→ this Lexical L2 family
+→ L3 exact surface blueprint
+```
 
-- strong English serif treatment for lexical headwords/examples where helpful;
-- substantial readable Chinese sans-serif for explanations;
-- typography and alignment before cards;
-- clear sense hierarchy;
-- sense-local Expansion kept spatially near its owner;
-- subtle boundaries for Relations / Form / Reference when they are secondary;
-- local `+` attached to the exact object it affects.
+L3 may specialize lexical learning geometry. It may not invent a new page theme, font system, palette, card language or chrome.
 
-Avoid:
+### Product identity
 
-- one rounded card per sense;
-- one panel per backend field;
-- tiny metadata;
-- large empty hero regions;
-- hiding first-round useful semantics behind many repeated expand clicks.
+Vocabulary / Lexical must first feel like part of **English / KianOS**, not a separate green dictionary application.
 
-Exact columns / proportions remain open until screenshot Human Gate.
+Inherit from Shared Visual / English family:
+
+- page canvas / ordinary surfaces;
+- navigation / return controls;
+- ordinary buttons, inputs and overlays;
+- normal border / radius / elevation language;
+- normal Chinese UI typography;
+- shared spacing / density discipline.
+
+Forbidden L2 forks include:
+
+- cream / yellow paper-like page themes;
+- broad gray-green or pale-green surface washes;
+- Lexical-specific decorative gradients;
+- a separate button/control family;
+- a separate UI font stack;
+- coloring the page merely to create “Lexical identity”.
+
+### Accent ownership
+
+Accepted direction:
+
+> **English shell + very restrained deep-green lexical semantic markers.**
+
+Role split:
+
+```text
+English blue / neutral
+→ product, navigation and ordinary task chrome
+
+Lexical deep green
+→ lexical semantic structure only
+```
+
+Deep green may mark POS / semantic type labels, Word Feel structure cues, Construction type labels, local `+` / Repair focus, Reference-card titles or current lexical focus.
+
+Deep green must not become the normal body-text color, page background, rail background, full Sense fill or broad decorative paint.
+
+### Typography hierarchy
+
+Learner scan order:
+
+```text
+word identity
+→ Chinese semantic定位
+→ English lexical calibration
+→ usable phrase / construction
+```
+
+Accepted roles:
+
+- **Headword** — substantial editorial serif; strongest lexical identity.
+- **Word Feel / Core Chinese** — Shared CJK sans; strong compact semantic model.
+- **Sense Chinese definition** — **first body-reading layer**; Shared CJK sans; visually stronger / earlier than English definition.
+- **Sense English definition** — editorial serif; precise calibration after Chinese; never a heavy headline by default.
+- **Phrase / Construction English** — editorial serif with enough weight to remain quickly scannable.
+- **Phrase Chinese gloss** — CJK sans, immediately readable.
+- **POS / semantic-type / structure labels** — Shared UI/CJK sans with restrained deep-green accent.
+- **Reference body** — Chinese sans plus English serif only where genuinely lexical.
+- ordinary learner-visible text keeps the Shared Visual readability floor; secondary does not mean thin / tiny / pale.
+
+Use the shared serif role (`Iowan Old Style → Charter → Palatino → Georgia fallback`) rather than hard-wiring Georgia as the Lexical voice.
+
+### Container grammar
+
+Container choice follows the semantic owner rather than backend-field count.
+
+```text
+Word Feel
+→ header semantic zone; not an ordinary card
+
+Sense
+→ one clear bordered learning object
+
+sense-owned phrase / collocation
+→ stays inside its Sense; no extra page-level card
+
+Word-owned Construction
+→ one main-workspace section container + internal pattern rows
+
+Reference
+→ independent cards for genuine cross-sense / cross-word / form / family objects
+```
+
+Sense object:
+
+- ordinary Shared/English surface;
+- thin neutral border;
+- restrained family-consistent radius;
+- no default shadow;
+- no green fill;
+- use Mac width to keep meaning + use spatially close;
+- child phrases / fixed structures use light local emphasis, not nested card piles.
+
+Reference cards are intentionally real cards because each represents an independent reference object such as Confusable, Form / Pronunciation or productive Family. They remain compact, white / neutral, thin-bordered and normally unshadowed.
+
+Do not flatten the whole page into borderless rows merely to look “editorial”, and do not wrap every field in a generic card.
+
+### Mac-wide family geometry
+
+Default rich lexical workspace:
+
+```text
+Primary lexical learning   ≈ 68–70%
+Reference                  ≈ 30–32%
+```
+
+Reference width is **earned**. If no useful Reference objects exist, the primary workspace expands instead of preserving an empty rail.
+
+Reference uses the same neutral page family; it is not a broad tinted side panel.
+
+### Chrome / scrolling / controls
+
+- keep page-local top context thin: return / mode / traversal / useful position only;
+- do not permanently expose method instructions, engineering state or keyboard tutorials above the learner object;
+- use vertical height for lexical learning;
+- rich lexical content may scroll naturally;
+- Reference may remain simultaneously visible on Mac and scroll locally when needed;
+- Word Feel must not become a giant sticky hero;
+- Bottom Dock remains a stable, low-height keyboard/action legend and stays visible without becoming a second decorative theme;
+- local `+` remains attached to its exact semantic object and stays visually quiet until hover/focus/active.
+
+### Family continuity across learner jobs
+
+Fast Pass / Depth / Repair / Challenge / Lookup must feel like states/jobs of one Vocabulary product rather than separate microsites.
+
+```text
+same shell
++ same headword / Chinese / English lexical typography roles
++ same semantic accent
++ same Reference grammar
++ same local Repair grammar
+→ different disclosure / focus according to learner job
+```
+
+Depth may reveal a rich lexical object. Repair may foreground one unstable local object. Neither is permission to redesign the family.
+
+### Legacy boundary
+
+Legacy / 4173 remains positive **evidence** for:
+
+- strong lexical English typography;
+- fast scanning;
+- low-friction keyboard study;
+- useful sense / usage spatial grouping.
+
+It is not authority to restore legacy palette, chrome, cards, runtime semantics or every historical visual decision.
+
+### Failed L3 candidate boundary
+
+The 2026-09-18 cream / gray-green “editorial sheet” Depth screenshots are **Human-Gate FAILED** and are not a future visual baseline.
+
+Their Rule / Content ownership corrections may be retained where semantically correct. Their local theme, English-first body hierarchy, flattened Reference rail and page material treatment must not be inherited merely because browser/CI checks passed.
 
 ---
 
@@ -422,7 +569,7 @@ These are intentionally unresolved:
 - whether Home should retain visible Study/Search/Repair/Challenge tabs or use a denser workbench composition;
 - whether Recall should be a separate full-stage front, a compact top zone, or conditional only;
 - exact SAFE_SIMPLE one-glance information required for a reliable Fast Pass;
-- exact Mac-wide Depth geometry;
+- exact L3 Depth composition inside the accepted L2 68–70% / 30–32% family geometry;
 - whether local `+` is always visible or appears on hover/focus while remaining discoverable;
 - Repair subset composition and explanation density;
 - Challenge workspace geometry;
