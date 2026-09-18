@@ -29,17 +29,17 @@ const lexicalIndex = base.indexOf("import '../styles/lexical-presentation.css';"
 if (viewportIndex < 0 || lexicalIndex < viewportIndex) fail('Lexical final owner must load after shared viewport baseline');
 
 if (/<style(?:\s|>)/i.test(page)) fail('vocabulary/[ordinal].astro must not own visual CSS');
-if (!owner.includes('--lexical-serif:Georgia')) fail('Lexical serif role missing');
-// Architecture-v2 Depth is an editorial lexical sheet, not a semantic-card dashboard.
-// Ownership is expressed by canonical placement + typographic hierarchy + quiet rules.
-if (!/\.lexicalSenseRow\{[^}]*border-bottom:1px solid/s.test(owner)) fail('sense editorial rule missing');
-if (!/\.lexicalSenseRow\{[^}]*border-radius:0/s.test(owner)) fail('sense rows must stay editorial, not rounded cards');
-if (!/\.lexicalWordPatterns\{[^}]*border-top:1px solid/s.test(owner)) fail('word-owned pattern section boundary missing');
-if (!/\.portedVocabEvidenceColumn\{[^}]*border-left:1px solid/s.test(owner)) fail('cross-sense reference rail boundary missing');
-if (!/\.lexicalExpansionSection\{[^}]*border-bottom:1px solid/s.test(owner)) fail('reference section rule missing');
-if (!/\.lexicalExpansionSection\{[^}]*border-radius:0/s.test(owner)) fail('reference sections must stay flat');
-if (!/\.portedVocabStudySheet\{[^}]*border:1px solid/s.test(owner)) fail('immersive Word study sheet boundary missing');
-if (!owner.includes('Legacy visual DNA')) fail('legacy visual DNA marker missing');
+if (!owner.includes('--lexical-serif:var(--study-serif)')) fail('Lexical must consume the shared editorial serif role');
+// Accepted L2 family: Sense is one bounded learning object, Word-owned patterns stay in
+// the primary flow, and genuine Reference objects are independent right-side cards.
+if (!/\.lexicalSenseRow\{[^}]*border:1px solid/s.test(owner)) fail('sense learning-object boundary missing');
+if (!/\.lexicalSenseRow\{[^}]*border-radius:7px/s.test(owner)) fail('sense family radius missing');
+if (!/\.lexicalWordPatterns\{[^}]*border:1px solid/s.test(owner)) fail('word-owned pattern section boundary missing');
+if (!/\.lexicalExpansionSection\{[^}]*border:1px solid/s.test(owner)) fail('Reference card boundary missing');
+if (!/\.lexicalExpansionSection\{[^}]*border-radius:7px/s.test(owner)) fail('Reference card family radius missing');
+if (!/\.portedVocabBody\{[^}]*grid-template-columns:minmax\(0,69fr\) minmax\(330px,31fr\)/s.test(owner)) fail('Mac L3 primary/reference geometry missing');
+if (!/\.portedVocabStudySheet\{[^}]*border:1px solid/s.test(owner)) fail('Word study sheet boundary missing');
+if (!owner.includes('English-family neutral shell + restrained lexical semantic accent')) fail('accepted L2/L3 marker missing');
 
 if (!runtime.includes('class="lexicalCoreHeadline"')) fail('Word Feel / Core must live in the Depth header');
 if (runtime.includes('class="lexicalCoreRow"')) fail('duplicate body Core card must stay removed');
