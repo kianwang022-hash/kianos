@@ -31,13 +31,9 @@ export function captureSharedControlCheckpoint(storage, {
   const profile = profileRaw == null ? null : validateExamProfile(profileRaw, studyDay);
 
   const chatRaw = parse(storage, EXAM_CHAT_PLAN_KEY);
-  let chatPlan = null;
-  if (chatRaw != null) {
-    try { chatPlan = validateExamChatPlan(chatRaw, studyDay); }
-    catch (error) {
-      if (!String(error?.message || error).includes('stale')) throw error;
-    }
-  }
+  const chatPlan = chatRaw == null || (studyDay && chatRaw?.study_day !== studyDay)
+    ? null
+    : validateExamChatPlan(chatRaw, studyDay);
 
   return {
     schema: SHARED_CONTROL_CHECKPOINT_SCHEMA,
