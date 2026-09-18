@@ -84,39 +84,10 @@ assert.deepEqual(packet.subjects.politics.evidence, politicsEvidence);
 assert.equal(packet.subjects.xizong.evidence, null);
 assert.equal(packet.schedule.capacity.remainingMinutes, 510);
 
-const xizongEvidence = {
-  schema: 'kianos.xizong.study_packet.v3',
-  current: {
-    system_id: 'circulation',
-    canonical_id: 'A1',
-    block_id: 'circulation-b03',
-    block_label: 'B03'
-  },
-  learning_state: {
-    current_stage: 'kp_recall',
-    source_contact: { mode: 'WHOLE_LOGIC_GROUP', per_logic_group: false, whole_block_confirmed: true, active_group_contacted: true },
-    resume: { group_index: 1, logic_group_id: 'circulation-b03-lg02', kp_index: 6, kp_id: 'circulation-b03-kp07', source_locator: 'P42' },
-    ttsx: { pending: null, evidence: { 'source:circulation-b03-lg01': { completedAt: '2026-09-17T01:00:00Z' } }, annotations: {} },
-    learned_kp_ids: ['circulation-b03-kp01','circulation-b03-kp07'],
-    recall_ratings: { 'circulation-b03-kp01': 'mastered', 'circulation-b03-kp07': 'fuzzy' },
-    block_recall_done: false,
-    block_complete: false
-  },
-  summary: { total_kp: 18, learned_kp: 7, recalled_kp: 7, unresolved_wu_questions: 3, marked_questions: 1 },
-  practice: {
-    holdout_years: [2026],
-    wrong_uncertain: [{ question_id: 'xizong-official-2025-n101', status: 'wrong' }],
-    marked_question_ids: ['xizong-official-2024-n088']
-  }
-};
-const withXizong = attachDailySubjectPacket(packet, 'xizong', xizongEvidence);
-assert.equal(withXizong.subjects.xizong.evidence.schema, 'kianos.xizong.study_packet.v3');
-assert.equal(withXizong.subjects.xizong.evidence.learning_state.current_stage, 'kp_recall');
-assert.equal(withXizong.subjects.xizong.evidence.learning_state.resume.kp_id, 'circulation-b03-kp07');
-assert.equal(withXizong.subjects.xizong.evidence.learning_state.source_contact.whole_block_confirmed, true);
-assert.equal(withXizong.subjects.xizong.evidence.practice.wrong_uncertain[0].question_id, 'xizong-official-2025-n101');
+const withXizong = attachDailySubjectPacket(packet, 'xizong', { schema: 'xizong.daily.v1', completed_blocks: ['B03'] });
+assert.equal(withXizong.subjects.xizong.evidence.completed_blocks[0], 'B03');
 assert.equal(packet.subjects.xizong.evidence, null, 'attach must not mutate the original packet');
 assert.throws(() => attachDailySubjectPacket(packet, 'lexical', {}), /Unsupported subject/);
 assert.throws(() => buildDailyLearningPacket({ storage, day: '2026-09-17', now: t0, plan: { ...plan, day: '2026-09-18' } }), /day mismatch/);
 
-console.log('PASS daily learning packet: time + plan + exact Xizong learner-state evidence');
+console.log('PASS daily learning packet: time + plan + opaque subject evidence');
