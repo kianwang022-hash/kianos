@@ -20,11 +20,11 @@ later-stage Source baseline
 → K realization / audit                  PASS_WITH_DEBT
 → Consolidation L old static-rubric model  FAIL / REVISION_REQUIRED
 → corrected Chat-owned strategy model       REPAIRED_AFTER_INTERFACE_ATTACK
-→ Consolidation L corrected candidate       READY_FOR_FRESH_AUDIT
-→ Analysis-Output L                          CANDIDATE / Chat-primary
-→ Mock / Final L                             CANDIDATE / Chat-primary + source-paper primary
-→ fresh independent later-stage L audit      ACTIVE NEXT GATE
-→ later Projection / Runtime                 FROZEN
+→ Consolidation L                            PASS_AFTER_REPAIR
+→ Analysis-Output L                           PASS / Chat-primary
+→ Mock / Final L                              PASS / Chat-primary + source-paper primary
+→ later-stage L overall                       PASS
+→ Exam-Horizon adaptation                     ACTIVE NEXT GATE
 ```
 
 K detail and source-refresh debt remain owned by `content/politics/ACCEPTANCE.md` and `manifest.json`; this cursor does not duplicate subject counts or candidate inventories.
@@ -51,8 +51,8 @@ GitHub Mock/Final rules + Current assets
 
 No dedicated Mock/Final Website is required. Routing/production rules live in `content/politics/mock-final/README.md`.
 
-**Next active gate: fresh independent later-stage L audit on the current #433 head.**  
-Audit the three bounded Learning scopes independently: **Consolidation / Analysis Output / Mock-Final**. Consolidation uses Chat-owned adaptive review selection; Analysis Output is Chat-primary; Mock/Final is Chat-primary around an authentic/exam-like paper/PDF surface. Downstream Projection / Runtime remain frozen until the affected Learning scope passes.
+**Next active gate: Politics Exam-Horizon adaptation.**  
+Later-stage Learning is now accepted across **Consolidation / Analysis Output / Mock-Final**. The next work is downstream: close Final Learner Object direct-consumption first, then the reusable execution/evidence boundary. Website/Runtime must continue to render already-resolved learner payload and must not infer learning strategy or learner-facing semantics from raw Current fields.
 
 The stable first-round learner loop remains:
 
