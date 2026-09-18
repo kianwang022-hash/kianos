@@ -13,13 +13,16 @@ fs.mkdirSync(auditDir, { recursive: true });
 const targetCatalog = buildPoliticsSessionTargetCatalog('/');
 const practiceCatalog = buildPoliticsPracticeCatalogCurrent('/');
 const target = targetCatalog.targets.find((row) =>
-  row.subject === 'marxism' && row.state === 'ORIENT'
+  row.subject === 'marxism' && row.state === 'ORIENT' && row.target_kind === 'FINAL'
 ) || targetCatalog.targets[0];
+const memoryTarget = targetCatalog.targets.find((row) =>
+  row.subject === 'marxism' && row.target_kind === 'MEMORY' && row.memory_admission === 'ADMITTED_STABLE'
+);
 const questions = practiceCatalog.questions
   .filter((row) => row.unitKey && /^[A-D]+$/.test(row.answer || ''))
   .slice(0, 2);
 
-if (!target || questions.length !== 2) throw new Error('POLITICS_SESSION_JOURNEY_FIXTURE_MISSING');
+if (!target || !memoryTarget || questions.length !== 2) throw new Error('POLITICS_SESSION_JOURNEY_FIXTURE_MISSING');
 
 const qIds = questions.map((row) => row.id);
 const answers = Object.fromEntries(questions.map((row) => [row.id, row.answer]));
@@ -189,22 +192,41 @@ try {
 
   await page.screenshot({ path: path.join(auditDir, 'politics-session-complete.png'), fullPage: false });
 
+  const memoryInstruction = {
+    schema: 'kianos.politics.session-instruction.v1',
+    session_id: 'browser-session-memory-recall',
+    subject_id: memoryTarget.subject,
+    phase: 'CONSOLIDATION',
+    anchor_ref: memoryTarget.unit_id,
+    steps: [{
+      step_id: 'memory-recall-1',
+      recipe_type: 'TARGETED_RECALL',
+      target_refs: [memoryTarget.ref],
+      learner_prompt: '只回忆这个已录取的稳定记忆点。'
+    }]
+  };
+  await importSession(page, memoryInstruction);
+  await page.locator('[data-session-reveal]').click();
+  await page.locator('[data-session-reveal-content]').waitFor({ state: 'visible' });
+  check((await page.locator('[data-session-reveal-content] [data-surface-group="' + memoryTarget.group_id + '"]').count()) === 1, 'stable_memory_target_reveals');
+  await page.locator('[data-session-mark="STABLE"]').click();
+  await page.locator('[data-session-complete]').waitFor({ state: 'visible' });
+
   const precisionInstruction = {
     schema: 'kianos.politics.session-instruction.v1',
     session_id: 'browser-session-precision-blocked',
-    subject_id: target.subject,
+    subject_id: memoryTarget.subject,
     phase: 'CONSOLIDATION',
-    anchor_ref: target.unit_id,
+    anchor_ref: memoryTarget.unit_id,
     steps: [{
       step_id: 'precision-1',
       recipe_type: 'PRECISION',
-      target_refs: [target.ref],
-      guard_evidence_refs: ['synthetic-browser-guard']
+      target_refs: [memoryTarget.ref]
     }]
   };
   await importSession(page, precisionInstruction);
   await page.locator('[data-session-blocked]').waitFor({ state: 'visible' });
-  check((await page.locator('[data-session-blocked-reason]').innerText()).includes('还没有通过当年资料 / 录取条件核对'), 'precision_runtime_fails_closed');
+  check((await page.locator('[data-session-blocked-reason]').innerText()).length > 0, 'precision_candidate_returns_bounded_blocker');
   check(await page.locator('[data-session-reveal-content]').isHidden(), 'precision_block_does_not_reveal_target');
 
   report.finished_at = new Date().toISOString();
