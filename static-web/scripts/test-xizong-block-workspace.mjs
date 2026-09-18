@@ -302,6 +302,17 @@ try {
   const minType = await scanTypeFloor(root, 'a2_r1');
   await page.screenshot({ path: path.join(auditDir, 'xizong-block-kp-learn.png'), fullPage: false });
 
+  // Visual-only Human Gate capture. This does not create or pretend a reviewed
+  // Binding exists; functional assertions above remain fail-closed.
+  await page.evaluate(() => {
+    const root = document.querySelector('[data-xizong-v6-block]');
+    if (!root) return;
+    root.querySelectorAll('[data-study-stage]').forEach((node) => { node.hidden = true; });
+    const checkpoint = root.querySelector('[data-study-stage="ttsx_checkpoint"]');
+    if (checkpoint instanceof HTMLElement) checkpoint.hidden = false;
+  });
+  await page.screenshot({ path: path.join(auditDir, 'xizong-block-ttsx-checkpoint-visual-only.png'), fullPage: false });
+
   // Corrupt/private state must never be able to manufacture a TTSX release when
   // the Current semantic Projection has no reviewed Boundary/Binding.
   await page.evaluate((key) => {
