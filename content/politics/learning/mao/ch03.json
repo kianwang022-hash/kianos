@@ -278,22 +278,18 @@
       ]
     },
     "precision_knowledge": {
-      "policy": "CURRENT_GROUNDED_CANDIDATE_DOMAIN",
-      "candidate_domains": [
-        "新民主主义社会定位",
-        "一化三改 fixed structure",
-        "三类改造路径/principles",
-        "1956制度确立 time/identity"
+      "policy": "REFERENCE_MEMORY_SIDECAR",
+      "owner_path": "content/politics/learning/mao/ch03.memory.json",
+      "candidate_ids": [
+        "POL27-MEM-MAO-C03-S01-M01",
+        "POL27-MEM-MAO-C03-S01-M02",
+        "POL27-MEM-MAO-C03-S02-M01",
+        "POL27-MEM-MAO-C03-S03-M01"
       ],
-      "historical_source_refs": [
-        "LEG26-UPPER-MAO-P087",
-        "LEG26-UPPER-MAO-P088",
-        "LEG26-UPPER-MAO-P089",
-        "LEG26-UPPER-MAO-P090",
-        "LEG26-UPPER-MAO-P091",
-        "LEG26-UPPER-MAO-P092"
-      ],
-      "materialization_status": "CANDIDATE_OBJECTS_TO_BE_MATERIALIZED_BELOW"
+      "admission_state": "CANDIDATE_ONLY",
+      "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+      "deferred_domains": [],
+      "rule": "Current Knowledge + inspected historical handbook support creates candidate-only precision; durable Memory remains admission-gated."
     },
     "analysis_output_hooks": [],
     "analysis_output_status": "NO_DEDICATED_LEG26_OUTPUT_BANK_DO_NOT_INVENT",
