@@ -177,7 +177,7 @@
   },
   "later_stage_knowledge": {
     "schema": "kianos.politics.later_stage_knowledge.v1",
-    "status": "CURRENT_K_CANDIDATE",
+    "status": "CURRENT_K_REVIEWED",
     "phase_scope": [
       "CONSOLIDATION",
       "PRECISION",
@@ -302,32 +302,14 @@
           "LEG26-LOWER-MARX-P055"
         ],
         "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
-      },
-      {
-        "id": "MARX-C01-OUT-HUMAN-NATURE",
-        "title": "实践与人与自然关系",
-        "material_cues": [
-          "生态环境",
-          "人与自然",
-          "改造自然",
-          "自然规律"
-        ],
-        "owner_ids": [
-          "POL27-CF-MARX-C01-S02"
-        ],
-        "retrieval_target": "把人的实践能动性和自然界客观前提放在同一个关系中。",
-        "answer_skeleton": [
-          "说明自然界是人类社会存在发展的前提",
-          "说明实践构成人与自然现实联系",
-          "说明改造自然必须遵循自然规律",
-          "回扣材料中的生态后果/实践方式"
-        ],
-        "historical_output_refs": [
-          "LEG26-LOWER-MARX-P055"
-        ],
-        "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
       }
     ],
-    "first_round_effect": "NONE"
+    "first_round_effect": "NONE",
+    "deferred_output_domains": [
+      {
+        "domain": "实践与人与自然关系",
+        "reason": "Historical LEG26 output source is useful, but the current chapter Knowledge object does not yet own a sufficiently explicit later-output relation. Requires exact Current source-node binding before promotion."
+      }
+    ]
   }
 }
