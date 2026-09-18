@@ -1,0 +1,130 @@
+{
+  "schema": "kianos.politics.memory_projection.v1",
+  "status": "CURRENT_K_REVIEWED",
+  "chapter_id": "POL27-LEARN-MARX-C06",
+  "policy": "SOURCE_GROUNDED_SELECTIVE",
+  "principle": "Candidate existence is Knowledge; durable review debt requires later admission evidence.",
+  "preferred_memory_reference": {
+    "role": "DESIGNATED_MEMORY_HANDBOOK",
+    "label": "腿姐《冲刺背诵手册》",
+    "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+    "historical_package": "content/politics/source/historical/leg26/manifest.json",
+    "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MARX.md",
+    "rule": "Current canonical region/source must support the relation. LEG26 supplies historical retention priority; current-year source/WU/output evidence governs admission."
+  },
+  "admission_gate": {
+    "default": "NOT_ADMITTED",
+    "requires_source_grounding": true,
+    "admit_when_any": [
+      "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+      "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED",
+      "LATER_ANALYSIS_OUTPUT_REQUIRES_EXACT_FORMULATION"
+    ],
+    "do_not_admit_for": [
+      "historical handbook presence alone",
+      "chapter importance alone",
+      "one stable correct answer"
+    ]
+  },
+  "units": {
+    "POL27-CF-MARX-C06-S01": {
+      "title": "垄断资本主义的形成与发展",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MARX-C06-S01-M01",
+          "form": "boundary",
+          "statement": "垄断并不能消灭竞争，只会使竞争在垄断组织之间、垄断与非垄断资本之间以更复杂形式继续存在。",
+          "source_refs": [
+            "POL27-CF-MARX-C06-S01"
+          ],
+          "current_recall_basis": {
+            "priority": "P0",
+            "forms": [
+              "boundary",
+              "list"
+            ]
+          },
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MARX-P061"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        },
+        {
+          "id": "POL27-MEM-MARX-C06-S01-M02",
+          "form": "source_boundary",
+          "statement": "垄断利润不是新的独立价值来源，归根到底仍来自劳动者创造的剩余价值；垄断价格改变分配实现方式，不意味着价值规律失效。",
+          "source_refs": [
+            "POL27-CF-MARX-C06-S01"
+          ],
+          "current_recall_basis": {
+            "priority": "P0",
+            "forms": [
+              "boundary",
+              "list"
+            ]
+          },
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MARX-P063"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        },
+        {
+          "id": "POL27-MEM-MARX-C06-S01-M03",
+          "form": "identity_boundary",
+          "statement": "国家垄断资本主义是国家力量与私人垄断资本相结合的资本主义形式，不等于社会主义，也没有从根本上消除资本主义基本矛盾。",
+          "source_refs": [
+            "POL27-CF-MARX-C06-S01"
+          ],
+          "current_recall_basis": {
+            "priority": "P0",
+            "forms": [
+              "boundary",
+              "list"
+            ]
+          },
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MARX-P064"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    },
+    "POL27-CF-MARX-C06-S02": {
+      "title": "当代资本主义的新变化",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MARX-C06-S02-M01",
+          "form": "essence_boundary",
+          "statement": "二战后和当代资本主义的新变化是真实的适应性调整，但主要发生在资本主义制度基本框架内，并没有消除资本主义基本矛盾或改变其制度本质。",
+          "source_refs": [
+            "POL27-CF-MARX-C06-S02"
+          ],
+          "current_recall_basis": {
+            "priority": "P0",
+            "forms": [
+              "boundary"
+            ]
+          },
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MARX-P066"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    }
+  },
+  "deferred_candidate_domains": [
+    {
+      "domain": "经济全球化表现/动因完整列表",
+      "reason": "Current region marks the area high-value, but exact list membership should wait for current-year designated-memory reconciliation."
+    },
+    {
+      "domain": "21世纪资本主义新特征完整列表",
+      "reason": "High annual-delta risk; preserve as historical candidate domain until current-year source arrives."
+    }
+  ]
+}
