@@ -74,7 +74,7 @@ assert(blockPage.includes('<XizongBlockEvidenceGuard block={projection} />'), 'b
 assert(blockPage.includes('<XizongRepairInboxBridge block={projection} />'), 'repair-inbox-bridge-not-mounted');
 
 assert(recallBridge.includes("type: 'KP_RECALL'"), 'recall-ledger-owner-missing');
-assert(recallBridge.includes("evidence_origin: 'USER_RECALL_ATTEMPT'"), 'actual-recall-attempt-not-appended');
+assert(recallBridge.includes("appendRecall(kpId, rating, 'USER_RECALL_ATTEMPT')"), 'user-recall-attempt-ledger-missing');
 assert(recallBridge.includes("evidence_origin: 'BOOTSTRAP_EXISTING_STATE'"), 'legacy-recall-bootstrap-missing');
 assert(memoryModel.includes('export function appendMemoryEvidence'), 'memory-evidence-owner-missing');
 assert(memoryModel.includes('export function completeRepairTask'), 'resolved-repair-closure-missing');
