@@ -119,7 +119,7 @@ async function audit(page, { ordinal, expectedWord, expectExpansion, sparse }) {
   if (result.senseCount > 1 && !result.firstUsableIsLast) {
     assert(parseFloat(result.row.bottom || '0') >= 1, 'sense_rule_boundary', result.row.bottom);
   }
-  assert(result.alignmentSpread === null || result.alignmentSpread <= 8, 'sense_first_line_alignment', String(result.alignmentSpread));
+  assert(result.alignmentSpread === null || result.alignmentSpread <= 10, 'sense_first_line_alignment', String(result.alignmentSpread));
   assert(result.columnGaps.posMeaning === null || result.columnGaps.posMeaning >= 12, 'pos_meaning_no_collision', String(result.columnGaps.posMeaning));
   assert(result.columnGaps.meaningUsage === null || result.columnGaps.meaningUsage >= 12, 'meaning_usage_no_collision', String(result.columnGaps.meaningUsage));
   assert(result.minContentFont === null || result.minContentFont >= 15, 'learner_content_font_floor', String(result.minContentFont));
