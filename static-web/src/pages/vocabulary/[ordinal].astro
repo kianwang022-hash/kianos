@@ -21,6 +21,8 @@ const { ordinal }=Astro.props;const answer=loadLexicalWordByOrdinal(Number(ordin
   if(root instanceof HTMLElement) root.dataset.vocabMode=mode;
   if(nav instanceof HTMLElement){
     nav.dataset.lexicalMode=mode;
+    const center=nav.querySelector(':scope>span');
+    if(center) center.textContent=mode==='lookup'?'Lookup':mode==='repair'?'Repair':center.textContent;
     const ordinal=Number(nav.getAttribute('data-ordinal')||0);
     if(mode==='study'&&Number.isInteger(ordinal)&&ordinal>0){
       try{localStorage.setItem('kianos-vocabulary-last-ordinal',String(ordinal))}catch{}
