@@ -206,7 +206,7 @@
   },
   "later_stage_knowledge": {
     "schema": "kianos.politics.later_stage_knowledge.v1",
-    "status": "CURRENT_K_CANDIDATE",
+    "status": "CURRENT_K_REVIEWED",
     "phase_scope": [
       "CONSOLIDATION",
       "PRECISION",
@@ -386,34 +386,14 @@
           "LEG26-LOWER-MARX-P058"
         ],
         "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
-      },
-      {
-        "id": "MARX-C03-OUT-INNOVATION",
-        "title": "守正创新与理论实践互动",
-        "material_cues": [
-          "守正创新",
-          "理论创新",
-          "实践创新",
-          "坚持与发展"
-        ],
-        "owner_ids": [
-          "POL27-CF-MARX-C03-S03"
-        ],
-        "retrieval_target": "把坚持真理/规律与发展创新同时保留，并说明理论与实践双向互动。",
-        "answer_skeleton": [
-          "守正提供前提和方向",
-          "创新推动认识实践发展",
-          "实践创新提供动力源泉",
-          "理论创新提供行动指导",
-          "回扣材料中的新实践/新问题"
-        ],
-        "historical_output_refs": [
-          "LEG26-LOWER-MARX-P058",
-          "LEG26-LOWER-MARX-P059"
-        ],
-        "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
       }
     ],
-    "first_round_effect": "NONE"
+    "first_round_effect": "NONE",
+    "deferred_output_domains": [
+      {
+        "domain": "守正创新 / 理论创新与实践创新",
+        "reason": "LEG26 lower volume supports later output, but Current C03 chapter Knowledge does not explicitly own the relation at the required output precision. Bind to Current source before promotion."
+      }
+    ]
   }
 }
