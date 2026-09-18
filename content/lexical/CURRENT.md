@@ -11,14 +11,14 @@ This cursor owns current engineering routing only. It does not own Rule / Model,
 ## Current state
 
 **Active lane:** Lexical Architecture v2 adaptation  
-**Blocker:** none at architecture level; material learner surfaces still require Kian Human Gate.
+**Blocker:** none at architecture level; L3 Depth Human Gate is accepted. Remaining material surfaces still require their own Human Gates.
 
 Stage:
 
 ```text
 A Rule / Content readback       PASS / PRESERVE
 B Lexical L2 visual family     ACCEPTED
-C L3 Surface Human Gates        ACTIVE
+C L3 Surface Human Gates        DEPTH ACCEPTED / OTHERS ACTIVE
 D Engineering adaptation        AFTER VISUAL
 E English-family integration    AFTER SURFACES
 ```
@@ -291,43 +291,46 @@ Do not use screenshots to decide semantics or add front-end suppression.
 
 ---
 
-## L3 Depth Human Gate — FAILED 2026-09-18
+## L3 Depth Human Gate — ACCEPTED 2026-09-18
 
-The latest Mac-wide Depth candidate is **not accepted**. Do not treat its screenshot, typography, Reference layout, spacing or card treatment as a future baseline merely because build/browser CI passed.
+The current Mac-wide Depth surface is **Human-Gate ACCEPTED** as the visual baseline.
 
-Repeated learner-visible defects called out by Kian:
+Acceptance evidence includes the real-browser fixture family:
 
-- Chinese learner-facing typography still renders narrow / weak / visually unpleasant; nominal font-size / weight is not sufficient evidence.
-- Chinese semantic meaning must remain the first scan layer; English lexical text may be editorial but must not visually dominate the learning object.
-- the right Reference region is low-quality when it shows a small under-explained card inside a large empty rail;
-- genuine decision boundaries / confusable distinctions must be shown from their real semantic owner; labels alone are not useful learning content;
-- retired Relation compatibility pointers must not project as current learner Reference cards;
-- Reference cards, Sense objects and header zones must align cleanly on the Mac-wide grid;
-- do not repeatedly reintroduce pale/weak text, excessive empty area, or misaligned nested containers after these have already been rejected;
-- Linux/browser CI screenshots with poor CJK fallback are not valid Human-Gate typography evidence.
+```text
+ambulance / access / row / stationary / charge
+abstract / sanction / write
+```
 
-This L3 must be rebuilt from the accepted L2 family and real semantic owners rather than patched incrementally.
+Preserve:
+
+- Chinese-first semantic hierarchy;
+- current substantial typography and neutral English-family surface;
+- compact Word Feel;
+- clear Sense objects;
+- Word-owned Construction main flow;
+- earned Reference rail only;
+- current Bottom Dock interaction language;
+- no front-end semantic judgment;
+- no duplicate learner information created by renderer logic.
+
+One-screen fit remains preferred when natural, not mandatory. Rich words may scroll.
+
+Material visual changes require a fresh Kian Human Gate. Minor polish may proceed if the accepted composition remains intact.
 
 ---
 
 ## Exact next action
 
-Return to **L3 Depth** and redesign only that bounded surface under the accepted L2 family.
+Preserve the accepted **L3 Depth** baseline and continue to the next unaccepted Lexical surface in Human-Gate order.
 
-Before implementation:
-
-1. preserve current Rule / Content ownership already established for Word Feel, Sense, Word-owned Construction and Reference;
-2. discuss the L3 Mac composition with Kian;
-3. use `sanction` and `abstract` as rich semantic fixtures and `write` only as weak-Core layout tolerance;
-4. do not inherit the failed cream / gray-green candidate's local palette, English-first hierarchy or flattened Reference rail.
-
-After Kian accepts the L3 proposal:
+For Depth itself:
 
 ```text
-candidate implementation
-→ real Mac screenshot
-→ Human Gate
-→ targeted CI
+Final Learner Object
+→ fixed Website mapping
+→ accepted L3 Depth baseline
+→ normal use / bounded polish only
 ```
 
-Do not begin broad CSS cleanup, Runtime redesign or Content migration before the relevant surfaces are accepted.
+Do not redesign Depth again unless real use exposes a concrete problem or Kian explicitly reopens its Human Gate.
