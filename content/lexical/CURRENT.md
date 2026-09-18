@@ -10,17 +10,17 @@ This cursor owns current engineering routing only. It does not own Rule / Model,
 
 ## Current state
 
-**Active lane:** Lexical Architecture v2 adaptation  
-**Blocker:** none at architecture level; L3 Depth plus Repair / Challenge Human Gates are accepted. English handoff / exact return is the next material Human Gate.
+**Active lane:** NONE — Lexical Architecture v2 learner-surface closure accepted  
+**Blocker:** none
 
 Stage:
 
 ```text
 A Rule / Content readback       PASS / PRESERVE
 B Lexical L2 visual family     ACCEPTED
-C L3 Surface Human Gates        DEPTH + REPAIR/CHALLENGE ACCEPTED
-D Engineering adaptation        ACTIVE / bounded per accepted surface
-E English-family integration    ENGLISH HANDOFF / EXACT RETURN NEXT
+C L3 Surface Human Gates        ACCEPTED
+D Engineering adaptation        ACCEPTED
+E English-family integration    ACCEPTED
 ```
 
 This is **not** a 7,946-word Content rebuild.
@@ -356,18 +356,57 @@ Material changes to this interaction geometry require a fresh Human Gate.
 
 ---
 
-## Exact next action
+## English handoff / exact return Human Gate — ACCEPTED 2026-09-18
 
-Build and Human-Gate the **English → Vocabulary → exact English return** surface on the already-existing shared bridge.
+Kian accepted the final shared English ↔ Vocabulary interaction.
 
-Required path:
+Accepted path:
 
 ```text
 English task
 → select exact lexical token
-→ open the matching Vocabulary Lookup owner when exact identity exists
-→ preserve task context without advancing Coverage
-→ return to the exact originating task / position
+→ direct-open matching Vocabulary owner in read-only Lookup
+→ preserve originating task context
+→ Lookup does not advance Coverage or create card routing
+→ return to exact originating English task / position
+→ clear temporary return context
 ```
 
-Do not create a second dictionary, duplicate lexical content, or reopen accepted Depth / Repair / Challenge geometry.
+Fresh browser proof covers Reading A / Cloze / Translation through the same shared bridge.
+
+Preserve:
+
+- one shared English → Lexical bridge; no page-local dictionary copies;
+- exact-owner direct open when identity is exact;
+- read-only lookup by default;
+- explicit local `+` remains the only learner action that may admit exact Repair;
+- return context is temporary and disappears after restoration;
+- Vocabulary keeps one local top navigation surface; parent English L2 is not stacked above it.
+
+Material changes to this interaction require a fresh Human Gate.
+
+---
+
+## Learner-surface closure — ACCEPTED 2026-09-18
+
+The current Vocabulary v2 learner surface is accepted as one coherent product baseline:
+
+```text
+Overview workbench
+→ direct Learn / Fast Pass / Depth
+→ exact local +
+→ Repair + Challenge
+→ Research / Lookup
+→ English exact handoff / return
+→ My / Settings utility
+```
+
+No further broad Lexical UI architecture work is planned for this exam cycle.
+
+---
+
+## Exact next action
+
+Normal use.
+
+Do not reopen the accepted Vocabulary architecture, navigation, Depth geometry, Repair / Challenge interaction or English handoff for speculative polish. Reopen only for a concrete learner-visible defect, a broken contract, or an explicit new Kian request.

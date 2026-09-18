@@ -1,6 +1,6 @@
 # Lexical Visual / Surface Blueprint — Candidate
 
-Status: **VISUAL FAMILY ACCEPTED — DEPTH + REPAIR / CHALLENGE SURFACES ACCEPTED; ENGLISH HANDOFF NEXT**  
+Status: **VOCABULARY V2 LEARNER SURFACE ACCEPTED — 2026-09-18**  
 Parent Visual authority: `static-web/PRESENTATION_CONTRACT.md`  
 Preference owner: `static-web/KIAN_UI_PREFERENCES.md`  
 Rule / Model owner: `content/lexical/LEARNING_CONTRACT.md`  
@@ -55,7 +55,7 @@ These jobs must not be flattened into one dashboard or one card template.
 
 ---
 
-## 3｜Vocabulary Home — candidate role
+## 3｜Vocabulary Home — accepted role
 
 Home is a **lexical workbench / router**, not a progress dashboard.
 
@@ -69,7 +69,7 @@ It should answer quickly:
 - how to enter Challenge when justified;
 - whether an English-origin return context is active.
 
-Candidate priority:
+Accepted priority:
 
 ```text
 Continue Coverage
@@ -95,7 +95,7 @@ Same-day revisit is **ephemeral routing support**, not Repair: it is derived fro
 
 ---
 
-## 4｜Word Study — candidate learner model
+## 4｜Word Study — accepted learner model
 
 A Main Word is the learning container, but not every word deserves the same surface weight.
 
@@ -153,14 +153,7 @@ Preferred hierarchy derives from Rule:
 
 Recall earns space only when it exposes familiarity illusion or materially improves retrieval.
 
-The current centered “word + Recall Map” is **not yet accepted merely because it exists**.
-
-Human Gate must decide whether:
-
-- it is the correct default Depth entry;
-- it should be smaller / denser;
-- it should disappear for SAFE_SIMPLE;
-- its notation is immediately useful at real study speed.
+The current accepted baseline keeps Recall compact, preserves the accepted keyboard entry, and allows simple words to Fast Pass without forced Reveal. Rich words may use the Recall Map as the entry to accepted Depth.
 
 ---
 
@@ -670,11 +663,13 @@ It must not:
 
 ---
 
-## 10｜English handoff
+## 10｜English handoff — accepted
 
-English and Lexical should feel like one product even though their semantic owners remain separate.
+Status: **ACCEPTED by Kian — 2026-09-18**
 
-Target interaction:
+English and Lexical feel like one product even though their semantic owners remain separate.
+
+Accepted interaction:
 
 ```text
 English task
@@ -708,11 +703,11 @@ Lexical inherits Dense Calm and Kian's UI preferences:
 
 ---
 
-## 12｜Human Gate sequence
+## 12｜Human Gate closure
 
-Do not accept Lexical UI from build success.
+Status: **ALL MATERIAL VOCABULARY V2 HUMAN GATES ACCEPTED — 2026-09-18**
 
-Human Gate order:
+Accepted sequence:
 
 1. **Vocabulary Home**
 2. **SAFE_SIMPLE Fast Pass**
@@ -722,37 +717,11 @@ Human Gate order:
 6. **Challenge**
 7. **English → Lexical → exact return**
 
-For each material surface:
-
-```text
-current real screenshot
-→ discuss learner purpose
-→ candidate implementation
-→ same-size real screenshot
-→ Kian Human Gate
-→ only then freeze geometry
-```
+The accepted geometry is now frozen for normal use. Build success remains insufficient to reopen it; only concrete learner-visible evidence or an explicit Kian request may do so.
 
 ---
 
-## 13｜Open decisions
-
-These are intentionally unresolved:
-
-- whether Home should retain visible Study/Search/Repair/Challenge tabs or use a denser workbench composition;
-- whether Recall should be a separate full-stage front, a compact top zone, or conditional only;
-- exact SAFE_SIMPLE one-glance information required for a reliable Fast Pass;
-- whether local `+` is always visible or appears on hover/focus while remaining discoverable;
-- Repair subset composition and explanation density;
-- Challenge workspace geometry;
-- how much English-origin context should remain visible inside Lexical before it becomes distracting.
-
-Resolve these through the Rule + real learner screenshots, not legacy inheritance.
-
-
----
-
-## 14｜Exam-cycle closure
+## 13｜Exam-cycle closure
 
 Lexical v2 must support the full 2026-09-18 → 2026-12-20 exam cycle without another functional architecture rebuild.
 
