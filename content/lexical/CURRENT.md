@@ -149,6 +149,41 @@ real baseline
 
 ---
 
+## Current-owner lineage readback — PASS 2026-09-18
+
+A fresh read-only lineage audit now proves that the Current Word set is **not** broadly semantically stale.
+
+```text
+Current Word owners                         7,946
+per-owner full-catalog K conclusions        7,946
+semantic-reconciliation range coverage      7,946
+FRESH_ACCEPTED                                 10
+CORRECTIVE_AFTER_FRESH                          7
+K_ACCEPTED_RECONCILED                       7,929
+LINEAGE_INCOMPLETE                              0
+```
+
+Important interpretation:
+
+- all 7,946 owners remain covered by the accepted full-catalog K generation;
+- all 7,946 fall under an explicit reconciliation authority range;
+- `needs_delta_review=true` remains on 1,196 owners, but **all 1,196 are simultaneously K_ACCEPTED_RECONCILED**; this legacy metadata must not be treated as proof that semantics failed;
+- `sanction@o4248` was the only broken provenance pointer. Its semantics were already accepted by the real `gold01-receipt.json`; only the stale pointer path was repaired;
+- `abstract@o0019` is explicit `CORRECTIVE_AFTER_FRESH`;
+- `sanction@o4248` is explicit fresh calibration / `DEPTH_READY`;
+- `write@o5477` is K-accepted/reconciled but remains the bounded weak-Core optimization sentinel owned by Issue #427.
+
+Therefore:
+
+> **Do not reopen full-catalog lexical semantics merely because migration / projection metadata remains visible.**
+
+The primary current defect exposed by L3 is **renderer fidelity**: the website historically suppressed, collapsed or mislabeled already-accepted learner-facing fields.
+
+Permanent lineage evidence:
+`tools/lexical_current_owner_lineage_audit.py` + `Lexical Current Owner Lineage Audit`.
+
+---
+
 ## Direct-render materialization / ownership closure — ACTIVE 2026-09-18
 
 Kian explicitly requires:
@@ -161,7 +196,7 @@ A full-catalog audit now covers all **7,946 Current Word owners** plus the Curre
 
 This is a **materialization / ownership closure audit, not a fresh K semantic audit**. Current `ACCEPTANCE.md` still owns semantic readiness (`K PASS — full catalog`, 7,946/7,946, BLOCKED=0) unless fresh word-level evidence explicitly overturns a judgment.
 
-Current direct-render closure result: **BLOCKED**.
+Current direct-render diagnostic: **projection/materialization metadata remains non-flat, but this does not override K PASS.**
 
 ```text
 Word owner files                          7,946
@@ -208,11 +243,13 @@ Permanent gate:
 
 `tools/lexical_direct_render_owner_audit.py` + `Lexical Direct Render Owner Audit` CI.
 
-### Current stop rule
+### Current execution rule
 
-**Do not resume L3 visual acceptance while this Content closure is BLOCKED.**
+L3 may proceed only through **faithful direct rendering** of accepted Current owners.
 
-The Website runtime has already had its known `verification / publication / priority / score / merge` semantic filters removed. Further learner-surface defects must be fixed in the Current final-owner materialization / ownership-hydration path, not reintroduced as front-end judgment. Do not reopen accepted lexical semantics merely because projection metadata or cutover residue is present.
+The Website runtime must not use `verification / publication / priority / score / merge` as semantic inclusion rules. Mechanical Relation hydration is allowed; semantic suppression is not.
+
+Projection/materialization metadata findings are diagnostics for ownership/transport cleanup, **not automatic semantic K failures**. The immediate learner-surface task is to prove that accepted Word / Relation / Form learner-facing fields are rendered without omission, relabeling or semantic reinterpretation.
 
 ---
 
