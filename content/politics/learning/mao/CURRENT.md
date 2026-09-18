@@ -7,30 +7,72 @@ This file does not own Mao Source Truth, Politics-wide learning/interaction sema
 
 ---
 
-## Bounded Source→Knowledge lane｜LEG26 historical baseline
+## Active BUILD lane｜Later-stage Knowledge
 
-The imported LEG26 historical handbook has now been reconciled against Current Mao Knowledge without reopening first-round Chengfeng ownership or the accepted S/K/L/P/R/E engineering chain.
-
-Completed boundary:
+Mao later-stage **K** is now realized without changing first-round Chengfeng ownership or the accepted first-round S/K/L/P/R/E path.
 
 ```text
-LEG26 historical Source
-→ Mao C00–C08 Current Knowledge reconciliation
-→ Memory candidate discovery / second-round objective compression
-→ no current-year promotion
-→ no UI / Projection change
+Current first-round Mao Knowledge
++ LEG26 historical objective-compression source
+↓
+Later-stage K
+  Compression reconstruction   PASS C00–C08
+  Precision candidate K        PASS_WITH_DEBT
+  Analysis Output K            NOT CREATED — no justified LEG26 output bank
+↓
+later-stage L                  NOT STARTED
 ```
 
-Results:
+### Compression Knowledge
 
-- C00–C06 contain useful historical fixed-formulation / identity / boundary / timeline compression;
-- C03 and C06 are especially precision-rich, but remain historical candidates until current-year corroboration;
-- C07/C08 have only thin theory-succession identity coverage in LEG26-MAO, so they remain reference-only rather than being expanded by inference;
-- LEG26-MAO contains no dedicated lower-volume analysis-output bank comparable to Marxism, so **no Mao Analysis Output layer was invented**;
-- no chapter-level Memory sidecar was created merely for completeness;
-- **zero** candidate was admitted to 2027 durable Memory solely from LEG26.
+All 9 chapters own explicit chapter-specific reconstruction models:
 
-Reopen this bounded lane only for a 2027 designated-memory delta, learner Wrong/Uncertain evidence requiring exact retention, or a later approved analysis-output source.
+- C00 Chinese-adaptation / theory-succession logic;
+- C01 formation → content → living soul → historical position;
+- C02 national condition → revolution model;
+- C03 transition + differentiated socialist transformation;
+- C04 socialist-construction exploration;
+- C05 theory-system succession;
+- C06 socialism essence → national condition → policy system;
+- C07 party-advancement hierarchy;
+- C08 development-concept role hierarchy.
+
+This is not a second Mao course. It is the smallest later reconstruction worth retaining.
+
+### Precision Knowledge
+
+Concrete candidate-only Memory owners now exist for C00–C06:
+
+- **22 candidate-only objects** total;
+- **5 explicitly deferred exactness domains**;
+- zero durable Memory admission.
+
+C07/C08 remain deliberately different: Current Knowledge is strong, but LEG26-MAO supplies only thin theory-succession identity support rather than detailed chapter recitation material. Their exact Memory objects therefore remain source-gated instead of being inferred for symmetry.
+
+### Analysis Output
+
+LEG26-MAO contains no dedicated later analysis-answer bank comparable to Marxism. Mao therefore receives **no synthetic Output hooks** in this K pass. A later approved output/current-affairs source may reopen this.
+
+### Audit
+
+- 9/9 chapters have later-stage K;
+- 34 reconstruction targets;
+- all reconstruction/boundary owners stay inside Current chapter ownership;
+- all 22 materialized Memory objects remain `CANDIDATE_ONLY`;
+- all historical refs resolve to actual LEG26-MAO pages;
+- no later-stage K object introduces Learn / timer / retry / reveal / UI / Runtime behavior;
+- first-round effect remains `NONE`.
+
+### Status
+
+```text
+Mao later-stage K   PASS_WITH_DEBT
+Debt                C07/C08 precision exactness + current-year admission
+Later-stage L       NOT STARTED
+```
+
+Next program dependency: continue Politics later-stage **K** with Xi. Do not start Mao later-stage L yet.
+
 
 ---
 
