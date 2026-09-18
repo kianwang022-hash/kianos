@@ -85,7 +85,7 @@ const payload = JSON.stringify({
       </section>
 
       <section class="xzpHoldoutGate" data-holdout-gate hidden>
-        <span>WHOLE-PAPER HOLDOUT</span>
+        <span>整卷保留</span>
         <h2>先保留至少一套完整试卷</h2>
         <p>系统训练不会自动消耗你准备留到整卷阶段的年份。右上角明确填入保留年份后再开始。</p>
       </section>
@@ -99,14 +99,14 @@ const payload = JSON.stringify({
       </article>
 
       <section class="xzpPaperReady" data-paper-ready hidden>
-        <span>PAPER COMPLETE</span>
+        <span>待交卷</span>
         <h2>本卷已经答完</h2>
         <p>答案仍然保持隐藏。确认交卷后才统一出分并开放复盘。</p>
         <button type="button" data-paper-seal-ready>交卷并出分</button>
       </section>
 
       <section class="xzpPaperResult" data-paper-result hidden>
-        <span>PAPER SEALED</span>
+        <span>已交卷</span>
         <div class="xzpPaperScore">
           <strong data-paper-earned>0</strong>
           <em>/</em>
@@ -458,7 +458,7 @@ const payload = JSON.stringify({
     if (data?.scopeKind === 'PAPER') {
       const format = data?.paperFormat;
       if (!format || Number(format.year) !== Number(data.years?.[0]) || Number(format.question_count) !== Number(data.questions?.length) || Number(format.max_score) <= 0) {
-        showScopeError('WHOLE PAPER', '整卷评分规则不可用', '当前年份没有可验证的 exam-format owner；网页不会猜分。');
+        showScopeError('整卷', '整卷评分规则不可用', '当前年份没有可验证的 exam-format owner；网页不会猜分。');
         return;
       }
       data = {
@@ -810,7 +810,7 @@ const payload = JSON.stringify({
       if (paperResult) paperResult.hidden = true;
       if (paperReady) paperReady.hidden = false;
       if (reviewToggle) reviewToggle.hidden = true;
-      questionMeta.textContent = 'WHOLE PAPER · READY TO SEAL';
+      questionMeta.textContent = '整卷 · 待交卷';
       questionProgress.textContent = `${activeQuestions.length} / ${activeQuestions.length}`;
       if (questionProgressSide) questionProgressSide.textContent = `${activeQuestions.length} / ${activeQuestions.length}`;
       renderMap();
@@ -834,7 +834,7 @@ const payload = JSON.stringify({
       if (paperWrong) paperWrong.textContent = String(summary.wrongCount);
       if (paperUnanswered) paperUnanswered.textContent = String(summary.unansweredCount);
       if (paperYearLabel) paperYearLabel.textContent = `${data.paperFormat?.year || ''} 整卷 · ${summary.answeredCount}/${summary.questionCount} 已作答`;
-      questionMeta.textContent = 'WHOLE PAPER · SEALED';
+      questionMeta.textContent = '整卷 · 已交卷';
       questionProgress.textContent = `${summary.earnedScore} / ${summary.maxScore}`;
       if (questionProgressSide) questionProgressSide.textContent = `正确 ${summary.correctCount} · 错误 ${summary.wrongCount}`;
       renderMap();
