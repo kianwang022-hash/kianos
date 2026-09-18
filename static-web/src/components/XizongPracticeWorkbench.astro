@@ -323,7 +323,7 @@ const payload = JSON.stringify({
     const hydrateQuestionIds = async (ids) => {
       const years = [...new Set(ids.map((id) => id.match(/official-(\d{4})-/)?.[1]).filter(Boolean))];
       const banks = await Promise.all(years.map(async (year) => {
-        const response = await fetch(`${data.base}xizong/practice/data/${year}.json`);
+        const response = await fetch(`${data.base}xizong/practice/data/${year}.json/`);
         if (!response.ok) throw new Error(`YEAR_FETCH_FAILED:${year}`);
         return response.json();
       }));
