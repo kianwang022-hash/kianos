@@ -278,8 +278,6 @@
     "precision_knowledge": {
       "policy": "REFERENCE_MEMORY_SIDECAR",
       "owner_path": "content/politics/learning/marxism/ch05.memory.json",
-      "admission_state": "CANDIDATE_ONLY",
-      "admission_blocker": "EXACT_WORDING_OR_NORMALIZATION_NOT_SEPARATELY_ADMITTED",
       "deferred_domains": [
         "剩余价值率/利润率等公式 exactness",
         "资本有机构成公式/符号 exactness",
@@ -287,7 +285,8 @@
       ],
       "rule": "Stable semantic Memory is admitted through the sidecar. This precision_knowledge object governs only exactness; exact wording/normalization remains candidate-only until separately owned.",
       "memory_admission_state": "ADMITTED_STABLE",
-      "precision_admission_state": "CANDIDATE_EXACTNESS"
+      "precision_admission_state": "CANDIDATE_EXACTNESS",
+      "precision_blocker": "EXACT_WORDING_OR_NORMALIZATION_NOT_SEPARATELY_ADMITTED"
     },
     "analysis_output_hooks": [],
     "analysis_output_status": "LOW_PRIMARY_NO_PROACTIVE_OUTPUT_K_IN_THIS_CALIBRATION",
@@ -296,7 +295,8 @@
       "policy": "REFERENCE_MEMORY_SIDECAR",
       "owner_path": "content/politics/learning/marxism/ch05.memory.json",
       "memory_admission_state": "ADMITTED_STABLE",
-      "role": "LEG26 upgrades Current Chengfeng-grounded stable objects into durable semantic Memory; learner-specific W/U only changes priority."
+      "role": "LEG26 upgrades Current Chengfeng-grounded stable objects into durable semantic Memory; learner-specific W/U only changes priority.",
+      "source_model": "compression_model"
     }
   }
 }

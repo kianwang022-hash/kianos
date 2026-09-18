@@ -194,14 +194,13 @@
         "POL27-MEM-MAO-C05-M01",
         "POL27-MEM-MAO-C05-M02"
       ],
-      "admission_state": "CANDIDATE_ONLY",
-      "admission_blocker": "EXACT_WORDING_OR_NORMALIZATION_NOT_SEPARATELY_ADMITTED",
       "deferred_domains": [
         "改革开放各重要节点的完整会议/文献定位"
       ],
       "rule": "Stable semantic Memory is admitted through the sidecar. This precision_knowledge object governs only exactness; exact wording/normalization remains candidate-only until separately owned.",
       "memory_admission_state": "ADMITTED_STABLE",
-      "precision_admission_state": "CANDIDATE_EXACTNESS"
+      "precision_admission_state": "CANDIDATE_EXACTNESS",
+      "precision_blocker": "EXACT_WORDING_OR_NORMALIZATION_NOT_SEPARATELY_ADMITTED"
     },
     "analysis_output_hooks": [],
     "analysis_output_status": "NO_DEDICATED_LEG26_OUTPUT_BANK_DO_NOT_INVENT",
@@ -210,7 +209,8 @@
       "policy": "REFERENCE_MEMORY_SIDECAR",
       "owner_path": "content/politics/learning/mao/ch05.memory.json",
       "memory_admission_state": "ADMITTED_STABLE",
-      "role": "LEG26 upgrades Current Chengfeng-grounded stable objects into durable semantic Memory; learner-specific W/U only changes priority."
+      "role": "LEG26 upgrades Current Chengfeng-grounded stable objects into durable semantic Memory; learner-specific W/U only changes priority.",
+      "source_model": "compression_model"
     }
   }
 }
