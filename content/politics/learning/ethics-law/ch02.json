@@ -7,8 +7,16 @@
   "teaching_shape": "CONCEPT_BOUNDARY_NORMATIVE_JUDGMENT_IDENTITY_AND_SITUATIONAL_APPLICATION",
   "canonical_mainline": "CHENGFENG",
   "source_bindings": {
-    "region_ids": ["POL27-REGION-ETHICS-C02-S01", "POL27-REGION-ETHICS-C02-S02", "POL27-REGION-ETHICS-C02-S03"],
-    "natural_unit_ids": ["POL27-CF-ETHICS-C02-S01", "POL27-CF-ETHICS-C02-S02", "POL27-CF-ETHICS-C02-S03"],
+    "region_ids": [
+      "POL27-REGION-ETHICS-C02-S01",
+      "POL27-REGION-ETHICS-C02-S02",
+      "POL27-REGION-ETHICS-C02-S03"
+    ],
+    "natural_unit_ids": [
+      "POL27-CF-ETHICS-C02-S01",
+      "POL27-CF-ETHICS-C02-S02",
+      "POL27-CF-ETHICS-C02-S03"
+    ],
     "suyi_refs": []
   },
   "chapter_orientation": {
@@ -49,26 +57,50 @@
       {
         "natural_unit_id": "POL27-CF-ETHICS-C02-S01",
         "name": "理想的三个高价值特征",
-        "items": ["超越性", "实践性", "时代性（历史性）"],
-        "source_refs": ["POL27-CF-ETHICS-C02-K01-N01"]
+        "items": [
+          "超越性",
+          "实践性",
+          "时代性（历史性）"
+        ],
+        "source_refs": [
+          "POL27-CF-ETHICS-C02-K01-N01"
+        ]
       },
       {
         "natural_unit_id": "POL27-CF-ETHICS-C02-S01",
         "name": "信念的三个高价值特征",
-        "items": ["执着性", "支撑性", "多样性"],
-        "source_refs": ["POL27-CF-ETHICS-C02-K01-N01"]
+        "items": [
+          "执着性",
+          "支撑性",
+          "多样性"
+        ],
+        "source_refs": [
+          "POL27-CF-ETHICS-C02-K01-N01"
+        ]
       },
       {
         "natural_unit_id": "POL27-CF-ETHICS-C02-S01",
         "name": "理想—信念关系",
-        "items": ["理想是信念所指的对象", "信念是理想实现的保障", "二者相互依存"],
-        "source_refs": ["POL27-CF-ETHICS-C02-K01-N03"]
+        "items": [
+          "理想是信念所指的对象",
+          "信念是理想实现的保障",
+          "二者相互依存"
+        ],
+        "source_refs": [
+          "POL27-CF-ETHICS-C02-K01-N03"
+        ]
       },
       {
         "natural_unit_id": "POL27-CF-ETHICS-C02-S03",
         "name": "理想—现实关系",
-        "items": ["对立统一", "现实是理想形成和实现的基础", "理想源于现实并超越现实，最终依靠实践转化"],
-        "source_refs": ["POL27-CF-ETHICS-C02-K03"]
+        "items": [
+          "对立统一",
+          "现实是理想形成和实现的基础",
+          "理想源于现实并超越现实，最终依靠实践转化"
+        ],
+        "source_refs": [
+          "POL27-CF-ETHICS-C02-K03"
+        ]
       }
     ],
     "deferred_precision": [
@@ -79,5 +111,91 @@
   "chapter_compression": {
     "reconstruction": "理想在实践中形成并指向可实现的未来 → 超越现实但不能脱离现实 → 信念把目标变成稳定行动 → 理想是信念对象、信念是理想保障 → 实现过程长期/艰巨/曲折 → 个人理想与共同理想在社会实践中协调",
     "review_prompt": "闭卷回答：理想为什么既源于现实又超越现实？理想和信念各自解决什么问题？再说出两者相互依存的方向。"
+  },
+  "later_stage_knowledge": {
+    "schema": "kianos.politics.later_stage_knowledge.v1",
+    "status": "CURRENT_K_REVIEWED",
+    "phase_scope": [
+      "CONSOLIDATION",
+      "PRECISION",
+      "ANALYSIS_OUTPUT"
+    ],
+    "compression_model": {
+      "cognition": "IDEAL_BELIEF_REALITY_RELATION",
+      "purpose": "Reuse Current concept/boundary Knowledge as the later reconstruction owner; later review should discriminate concepts and situations rather than replay the chapter.",
+      "reconstruction_source": "chapter_compression",
+      "chapter_compression": {
+        "reconstruction": "理想在实践中形成并指向可实现的未来 → 超越现实但不能脱离现实 → 信念把目标变成稳定行动 → 理想是信念对象、信念是理想保障 → 实现过程长期/艰巨/曲折 → 个人理想与共同理想在社会实践中协调",
+        "review_prompt": "闭卷回答：理想为什么既源于现实又超越现实？理想和信念各自解决什么问题？再说出两者相互依存的方向。"
+      },
+      "decisive_boundaries": [
+        {
+          "boundary": "理想 ≠ 幻想；信念 ≠ 没有根据的固执。理想源于现实但又超越现实，信念稳定但不是拒绝事实和规律。",
+          "owner_ids": [
+            "POL27-CF-ETHICS-C02-S01"
+          ]
+        },
+        {
+          "boundary": "坚定 ≠ 盲目。信仰是最高层次的信念，但信仰也有科学与盲目之分；科学信仰来自对客观规律的正确认识。",
+          "owner_ids": [
+            "POL27-CF-ETHICS-C02-S02"
+          ]
+        },
+        {
+          "boundary": "理想源于现实 ≠ 理想只是现实的复制；理想超越现实 ≠ 可以脱离现实条件。个人理想服从共同理想 ≠ 抹掉个人正当追求。",
+          "owner_ids": [
+            "POL27-CF-ETHICS-C02-S03"
+          ]
+        }
+      ]
+    },
+    "precision_knowledge": {
+      "policy": "CURRENT_GROUNDED_CANDIDATE_MAP",
+      "candidate_domains": [
+        "理想/信念 traits",
+        "理想与现实 dialectical relation",
+        "个人理想/共同理想 layers"
+      ],
+      "historical_source_slices": [
+        {
+          "from": "LEG26-UPPER-ETHICS-P206",
+          "through": "LEG26-UPPER-ETHICS-P208",
+          "scope": "专题二：理想信念选择题压缩"
+        },
+        {
+          "from": "LEG26-LOWER-ETHICS-P079",
+          "through": "LEG26-LOWER-ETHICS-P080",
+          "scope": "理想专题分析题模板"
+        }
+      ],
+      "materialization_status": "CANDIDATE_OBJECTS_TO_BE_MATERIALIZED",
+      "freshness_gate": "NORMAL_CURRENT_YEAR_CORROBORATION"
+    },
+    "analysis_output_hooks": [
+      {
+        "id": "ETHICS-C02-OUT-IDEALS",
+        "title": "理想信念",
+        "material_cues": [
+          "理想",
+          "信念",
+          "现实",
+          "奋斗"
+        ],
+        "retrieval_target": "用现实基础—超越目标—实践实现来解释理想，再把信念作为持续行动保障。",
+        "answer_skeleton": [
+          "理想源于现实又超越现实",
+          "理想必须具有实现可能性并通过实践推进",
+          "信念提供稳定精神支撑",
+          "实现具有长期艰巨曲折性",
+          "个人理想与共同理想在实践中结合"
+        ],
+        "current_year_status": "STABLE_CONCEPTUAL"
+      }
+    ],
+    "output_source_role": "HIGH_VALUE_CHAT_FIRST_OUTPUT_BASELINE",
+    "historical_output_value": [
+      "理想专题"
+    ],
+    "first_round_effect": "NONE"
   }
 }
