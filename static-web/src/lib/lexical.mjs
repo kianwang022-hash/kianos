@@ -1,6 +1,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { buildLexicalFinalWordObject, validateLexicalFinalWordObject } from './lexicalFinalLearnerObject.mjs';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT
   ? path.resolve(process.env.KIANOS_REPO_ROOT)
@@ -9,6 +10,9 @@ const repoRoot = process.env.KIANOS_REPO_ROOT
 const LEXICAL_MANIFEST = 'content/lexical/manifest.json';
 const ANSWER_ORDINAL = 209;
 let lexicalSnapshotCache = null;
+const relationJsonCache = new Map();
+const rawWordCache = new Map();
+const finalWordCache = new Map();
 
 function absolute(relativePath) {
   return path.join(repoRoot, relativePath);
@@ -20,6 +24,11 @@ function readText(relativePath) {
 
 function readJson(relativePath) {
   return JSON.parse(readText(relativePath));
+}
+
+function readRelationJson(relativePath) {
+  if (!relationJsonCache.has(relativePath)) relationJsonCache.set(relativePath, readJson(relativePath));
+  return relationJsonCache.get(relativePath);
 }
 
 function stableJson(value) {
@@ -98,7 +107,7 @@ function hydrateRelations(owner, record) {
       throw new Error(`CURRENT_LEXICAL_RELATION_REF_INVALID:${owner?.word_id || ''}`);
     }
 
-    const relation = readJson(ownerPath);
+    const relation = readRelationJson(ownerPath);
     if (relation?.relation_id !== relationId) {
       throw new Error(`CURRENT_LEXICAL_RELATION_ID_MISMATCH:${relationId}`);
     }
@@ -147,33 +156,17 @@ export function listLexicalOrdinals() {
 }
 
 export function listLexicalWordSummaries() {
-  const { wordManifest } = lexicalManifestSnapshot();
   return listLexicalOrdinals().map((ordinal) => {
-    const sourcePath = wordOwnerPath(wordManifest, ordinal);
-    const owner = readJson(sourcePath);
-    if (owner?.schema !== 'kianos.lexical.word_owner.v1' || owner?.ordinal !== ordinal || !owner?.record) {
-      throw new Error(`CURRENT_LEXICAL_WORD_OWNER_SUMMARY_INVALID:${ordinal}`);
-    }
-    const record = owner.record;
-    const senses = Array.isArray(record.senses) ? record.senses : [];
-    const constructions = Array.isArray(record.constructions) ? record.constructions : [];
-    const fixedPatternCount = senses.reduce((count, sense) => count + (sense.collocations || []).filter((item) => item.exam_value === 'fixed_pattern').length, 0);
-    const relationCount = Array.isArray(owner.relation_refs) ? owner.relation_refs.length : 0;
+    const resolved = loadLexicalFinalWordByOrdinal(ordinal);
     return {
-      objectId: owner.word_id,
-      ordinal,
-      word: record.word || owner.word || '',
-      coreCn: record.core_concept?.core_meaning_cn || '',
-      coreEn: record.core_concept?.core_meaning_en || '',
-      senseCount: senses.length,
-      promptCount: constructions.length + fixedPatternCount,
-      relationCount,
-      senseLineage: senseLineageForOwner(owner)
+      ...resolved.learnerObject.summary,
+      senseLineage: resolved.evidenceIdentityLineage
     };
   });
 }
 
 export function loadLexicalWordByOrdinal(ordinal) {
+  if (rawWordCache.has(ordinal)) return clone(rawWordCache.get(ordinal));
   if (!Number.isInteger(ordinal) || ordinal < 1) {
     throw new Error(`CURRENT_LEXICAL_ORDINAL_INVALID:${ordinal}`);
   }
@@ -199,7 +192,7 @@ export function loadLexicalWordByOrdinal(ordinal) {
   const sourceHash = sha256(stableJson({ owner: record, relationPaths }));
   const senseLineage = senseLineageForOwner(owner);
 
-  return {
+  const resolved = {
     objectId: owner.word_id,
     ordinal,
     record,
@@ -215,6 +208,30 @@ export function loadLexicalWordByOrdinal(ordinal) {
       sourceHash
     }]
   };
+  rawWordCache.set(ordinal, resolved);
+  return clone(resolved);
+}
+
+export function loadLexicalFinalWordByOrdinal(ordinal) {
+  if (finalWordCache.has(ordinal)) return clone(finalWordCache.get(ordinal));
+  const raw = loadLexicalWordByOrdinal(ordinal);
+  const learnerObject = buildLexicalFinalWordObject({
+    objectId: raw.objectId,
+    ordinal: raw.ordinal,
+    record: raw.record
+  });
+  validateLexicalFinalWordObject(learnerObject);
+  const resolved = {
+    schema: 'kianos.lexical.final_word_envelope.v1',
+    objectId: raw.objectId,
+    ordinal: raw.ordinal,
+    sourcePath: raw.sourcePath,
+    sourceHash: raw.sourceHash,
+    learnerObject,
+    evidenceIdentityLineage: raw.senseLineage
+  };
+  finalWordCache.set(ordinal, resolved);
+  return clone(resolved);
 }
 
 export function loadAnswer() {
