@@ -163,6 +163,15 @@ jobs:
         run: |
           npm install --no-save --no-audit --no-fund playwright@1.56.1
           npx playwright install --with-deps chromium
+      - name: Guard Xizong learner surfaces from engineering chrome
+        run: node scripts/test-xizong-learner-chrome.mjs
+      - name: Upload Xizong learner chrome evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xizong-learner-chrome
+          path: static-web/.qa/xizong-learner-chrome.json
+          if-no-files-found: warn
       - name: Execute progressive Source Visual browser journey
         run: node scripts/test-xizong-a2-progressive-source-visual.mjs
       - name: Upload progressive Source Visual evidence
