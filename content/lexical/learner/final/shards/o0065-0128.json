@@ -5215,7 +5215,7 @@
     "ordinal": 101,
     "word": "affection",
     "source_owner_path": "content/lexical/words/by-ordinal/o0101.json",
-    "source_fingerprint": "7cfb88dd3eb50e1cc7c0247210cdc90f355fe58b97e8857ed5be10303969f583",
+    "source_fingerprint": "2f779b7dc2f61b219f4d9dad14029afe9deeb11a20c984d2707fa91cf5c03b48",
     "sense_lineage": [
       {
         "word_id": "word:affection",
@@ -5232,13 +5232,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "喜爱；情感",
-      "decision_cn": "",
+      "summary_cn": "温和而持续的喜爱、亲近或关爱之情",
+      "decision_cn": "比一般 liking 更有温度，通常指对人或事物的亲近与关爱；不要和 affect 的“影响”或专业“情感表现”混在一起。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "喜爱；情感"
+        "target_label": "温和而持续的喜爱、亲近或关爱之情"
       }
     },
     "senses": [
@@ -5297,7 +5297,7 @@
     "ordinal": 102,
     "word": "affiliate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0102.json",
-    "source_fingerprint": "c39495e02c655bcbbacb7b3c90c4dd76634131ba5f703f72dd0b48813b571480",
+    "source_fingerprint": "efea918e380300e2c1b8ba2b8dfb49a4e7b8b1f02e5656adef341e650363ea35",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5307,13 +5307,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "使隶属；附属机构",
-      "decision_cn": "",
+      "summary_cn": "正式连接或隶属于更大的组织；名词指附属机构或成员",
+      "decision_cn": "看词性与结构：be affiliated with/to ... = 正式隶属或关联；an affiliate = 附属机构或成员。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "使隶属；附属机构"
+        "target_label": "正式连接或隶属于更大的组织；名词指附属机构或成员"
       }
     },
     "senses": [
@@ -5407,7 +5407,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:affiliate:baseline-v2-be-affiliated-with",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be affiliated with/to ...",
+        "lines": [
+          {
+            "text": "隶属于；与……正式关联",
+            "lang": "cn"
+          },
+          {
+            "text": "be officially connected with or attached to a larger organization",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:affiliate:baseline-v2-be-affiliated-with",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be affiliated with/to ..."
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5548,7 +5570,7 @@
     "ordinal": 104,
     "word": "affluent",
     "source_owner_path": "content/lexical/words/by-ordinal/o0104.json",
-    "source_fingerprint": "22c55b3c226155ee5fab902d1f62b2e8d4928101efd4923469eaae5ab4a86dc2",
+    "source_fingerprint": "8194456f01952d70c7627f2700406349a14356929f0b8c44b58817244512fa60",
     "sense_lineage": [
       {
         "word_id": "word:affluent",
@@ -5637,7 +5659,7 @@
     "ordinal": 105,
     "word": "afford",
     "source_owner_path": "content/lexical/words/by-ordinal/o0105.json",
-    "source_fingerprint": "7c5ebfcee11436f26c9c421da181b9f985f0f6d8d0d38c0e83cf2f372ceb194e",
+    "source_fingerprint": "f0fc667808be1bca63a7d9f87e6e044e194b15475f01b33916ecb4123b862b35",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5646,13 +5668,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "负担得起",
-      "decision_cn": "",
+      "summary_cn": "有足够资源承担成本、时间或风险；正式用法也可表示给予、提供",
+      "decision_cn": "afford + price/time/risk → 能承担；afford sb sth → 给某人提供某物。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "负担得起"
+        "target_label": "有足够资源承担成本、时间或风险；正式用法也可表示给予、提供"
       }
     },
     "senses": [
@@ -6444,7 +6466,7 @@
     "ordinal": 112,
     "word": "against",
     "source_owner_path": "content/lexical/words/by-ordinal/o0112.json",
-    "source_fingerprint": "355d95208be27fed3ce475f9306ce0837c60d364d5addfb3998b6adcf2c90d12",
+    "source_fingerprint": "a1334890ab9d7f8fd7e0def155b559d3c560d3dfee1dfa7cc84e5bb9f127936c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6453,13 +6475,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "反对或接触",
-      "decision_cn": "",
+      "summary_cn": "处于对立、接触或防御关系的一侧",
+      "decision_cn": "vote/fight against → 反对；lean against → 接触/倚靠；protect/insure against → 防范风险。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "反对或接触"
+        "target_label": "处于对立、接触或防御关系的一侧"
       }
     },
     "senses": [
@@ -6615,7 +6637,7 @@
     "ordinal": 113,
     "word": "age",
     "source_owner_path": "content/lexical/words/by-ordinal/o0113.json",
-    "source_fingerprint": "d41be4b58f17890c6f72d03edd15978effd2fd6c89dc7f0f21f3011ef9aff2a6",
+    "source_fingerprint": "d7a91bb748add39f112c8ffcc6fb99878c4f8f1b6e49e305346620c827972fd4",
     "sense_lineage": [
       {
         "word_id": "word:age",
@@ -6798,7 +6820,7 @@
     "ordinal": 114,
     "word": "agency",
     "source_owner_path": "content/lexical/words/by-ordinal/o0114.json",
-    "source_fingerprint": "51100e713b30c2ca56a899e8a7cd3031aa98c1b3be5f9582d61c1304faa4cb9a",
+    "source_fingerprint": "42e7267adfa2a62395da52ef8a2cab145d80c1c71fb7bee77d6769dea9bbd5dd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6807,13 +6829,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "机构或行动能力",
-      "decision_cn": "",
+      "summary_cn": "机构；或个体/主体自主采取行动并作出选择的能动性",
+      "decision_cn": "看语境：travel/government agency → 机构；human/social agency → 能动性、自主行动能力。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "机构或行动能力"
+        "target_label": "机构；或个体/主体自主采取行动并作出选择的能动性"
       }
     },
     "senses": [
@@ -6890,7 +6912,7 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "行动能力，作用力",
+        "definition_cn": "能动性；自主行动能力",
         "definition_en": "the capacity or power to act",
         "note": "",
         "identity_overlay": null,
@@ -6916,7 +6938,7 @@
           "target_kind": "sense",
           "target_id": "sense:agency:16844fe9f4fd5272",
           "target_locator": "record.senses[2]",
-          "target_label": "行动能力，作用力"
+          "target_label": "能动性；自主行动能力"
         }
       }
     ],
@@ -7630,7 +7652,7 @@
     "ordinal": 119,
     "word": "aggressive",
     "source_owner_path": "content/lexical/words/by-ordinal/o0119.json",
-    "source_fingerprint": "f5ff897958d1709ca6eec97bb3c1fd4b8bb9d7880836599917cfa18b2b3a593b",
+    "source_fingerprint": "50fb578bddbe2de75323d7004f1948307d6d3646b3e37c5b496a4dff26c16c9c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7639,13 +7661,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "好斗的；进取的",
-      "decision_cn": "",
+      "summary_cn": "强势地推进：对人可表现为进取或好斗；对疾病可表示进展快、侵袭性强",
+      "decision_cn": "看对象：person/strategy → 进取或强势；behavior → 好斗挑衅；disease/tumor → 进展快、侵袭性强。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "好斗的；进取的"
+        "target_label": "强势地推进：对人可表现为进取或好斗；对疾病可表示进展快、侵袭性强"
       }
     },
     "senses": [
@@ -8027,7 +8049,7 @@
     "ordinal": 123,
     "word": "agree",
     "source_owner_path": "content/lexical/words/by-ordinal/o0123.json",
-    "source_fingerprint": "85eeb4fc0cba0c1131da7b45f8d46559544e06e083ffad118e390d947162cb92",
+    "source_fingerprint": "d8e69f75ec56ff82273be2142976cd9252aeca77f5796d36783abfb17196071c",
     "sense_lineage": [
       {
         "word_id": "word:agree",
@@ -8217,15 +8239,15 @@
             "lang": "cn"
           },
           {
-            "text": "承认；认定",
+            "text": "一致认为；公认",
             "lang": "cn"
           },
           {
-            "text": "formal impersonal agreement construction",
+            "text": "formal impersonal agreement construction; do not read this as a separate 'admit' sense",
             "lang": "en"
           },
           {
-            "text": "to admit or acknowledge (used in passive or formal contexts)",
+            "text": "to be mutually or generally accepted as true in the formal construction 'it is agreed that ...'",
             "lang": "en"
           }
         ],
@@ -8395,7 +8417,7 @@
     "ordinal": 125,
     "word": "agriculture",
     "source_owner_path": "content/lexical/words/by-ordinal/o0125.json",
-    "source_fingerprint": "7bbc7fd8c9c71930398f45ed887f3d1743cf8d3b7c73dab08f1e35dbb946f84b",
+    "source_fingerprint": "5fae9cb3dff66173948b6ae94c802004bc9a1ea961377a3e230033f5eba8a2a5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8442,34 +8464,31 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:agriculture:handoff-23def5ea38fe39fe",
-        "source_locator": "record.constructions[0]",
-        "pattern": "agricultural industry/sector",
-        "lines": [
-          {
-            "text": "农业产业；农业部门",
-            "lang": "cn"
-          },
-          {
-            "text": "natural adjective collocation for the farming sector",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:agriculture:handoff-23def5ea38fe39fe",
-          "target_locator": "record.constructions[0]",
-          "target_label": "agricultural industry/sector"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [
+        {
+          "target_word": "agricultural",
+          "lines": [
+            {
+              "text": "农业的；农学的",
+              "lang": "cn"
+            },
+            {
+              "text": "agriculture（名词）→ agricultural（形容词）；agricultural industry/sector 表示农业产业/部门。",
+              "lang": "cn"
+            },
+            {
+              "text": "relating to farming or agriculture",
+              "lang": "en"
+            }
+          ],
+          "source_locator": "record.word_family[0]"
+        }
+      ]
     }
   },
   {
@@ -8809,7 +8828,7 @@
     "ordinal": 128,
     "word": "aim",
     "source_owner_path": "content/lexical/words/by-ordinal/o0128.json",
-    "source_fingerprint": "ae9fe5fda06fdff3f86e42393eaf01436c568070502ca3f74736d1b57f09e457",
+    "source_fingerprint": "e34cb7f8499627319b8d0792288f7c11acb845b3839710314b405888a70e6987",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8955,7 +8974,7 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": null,
+        "id": "deep:constructions:aim:ff40daf5c3846391",
         "source_locator": "record.constructions[0]",
         "pattern": "aim at sb/sth",
         "lines": [
@@ -8966,13 +8985,13 @@
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": null,
+          "target_id": "deep:constructions:aim:ff40daf5c3846391",
           "target_locator": "record.constructions[0]",
           "target_label": "aim at sb/sth"
         }
       },
       {
-        "id": null,
+        "id": "deep:constructions:aim:b27bb9f3ebb07596",
         "source_locator": "record.constructions[1]",
         "pattern": "aim at doing sth",
         "lines": [
@@ -8983,13 +9002,13 @@
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": null,
+          "target_id": "deep:constructions:aim:b27bb9f3ebb07596",
           "target_locator": "record.constructions[1]",
           "target_label": "aim at doing sth"
         }
       },
       {
-        "id": null,
+        "id": "deep:constructions:aim:7ffe478783a5319f",
         "source_locator": "record.constructions[2]",
         "pattern": "aim for sth",
         "lines": [
@@ -9000,7 +9019,7 @@
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": null,
+          "target_id": "deep:constructions:aim:7ffe478783a5319f",
           "target_locator": "record.constructions[2]",
           "target_label": "aim for sth"
         }

@@ -807,7 +807,7 @@
     "ordinal": 135,
     "word": "albeit",
     "source_owner_path": "content/lexical/words/by-ordinal/o0135.json",
-    "source_fingerprint": "a1576b837945c766bfbe7ea246d2b53cb35e3e1734d4dfa0f800a44c047ed2b3",
+    "source_fingerprint": "78370bd38c12986539f300c7f0c74f7aa56f20447e7717e11842c2cb0eb2ce74",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -863,14 +863,18 @@
       {
         "id": "construction:albeit:handoff-480380c4ba30c406",
         "source_locator": "record.constructions[0]",
-        "pattern": "albeit + adjective/participle",
+        "pattern": "albeit + adjective/adverb/phrase/participle",
         "lines": [
           {
-            "text": "尽管；虽说（正式）",
+            "text": "尽管；虽说（正式、压缩的让步结构）",
             "lang": "cn"
           },
           {
-            "text": "although, in a formal compressed construction",
+            "text": "formal concessive linker; the following material is often compressed rather than a full finite clause",
+            "lang": "en"
+          },
+          {
+            "text": "although, introducing a concise concessive phrase or non-finite element rather than normally a full finite clause",
             "lang": "en"
           }
         ],
@@ -878,7 +882,7 @@
           "target_kind": "construction",
           "target_id": "construction:albeit:handoff-480380c4ba30c406",
           "target_locator": "record.constructions[0]",
-          "target_label": "albeit + adjective/participle"
+          "target_label": "albeit + adjective/adverb/phrase/participle"
         }
       }
     ],
@@ -1130,7 +1134,7 @@
     "ordinal": 138,
     "word": "alert",
     "source_owner_path": "content/lexical/words/by-ordinal/o0138.json",
-    "source_fingerprint": "1b5c3977140dd68d28d70d423413b61b545aafc62f41f13df6f8156fa09df4f4",
+    "source_fingerprint": "0ed3d4b15f95c51d9e2150f4482ce7e7befef5eafd84771475784ed1661ea33f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1265,7 +1269,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:alert:baseline-v2-alert-sb-to-sth",
+        "source_locator": "record.constructions[0]",
+        "pattern": "alert sb to sth",
+        "lines": [
+          {
+            "text": "使某人注意到/意识到某事",
+            "lang": "cn"
+          },
+          {
+            "text": "make someone aware of a danger, problem, or important fact",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:alert:baseline-v2-alert-sb-to-sth",
+          "target_locator": "record.constructions[0]",
+          "target_label": "alert sb to sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1746,7 +1772,7 @@
     "ordinal": 143,
     "word": "alike",
     "source_owner_path": "content/lexical/words/by-ordinal/o0143.json",
-    "source_fingerprint": "c02dceec752eefbfa6d43190f874857536718c168ba40a72af51f231a380e55f",
+    "source_fingerprint": "73d263058f0c249e1fa2234cfaab856b838d2525129a67d3174b0ad3537fd6bd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1838,7 +1864,58 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:alike:baseline-v2-be-look-alike",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be/look alike",
+        "lines": [
+          {
+            "text": "相像；看起来相似",
+            "lang": "cn"
+          },
+          {
+            "text": "alike 通常作表语或补语，不直接放在名词前修饰名词。",
+            "lang": "cn"
+          },
+          {
+            "text": "be or look similar to each other",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:alike:baseline-v2-be-look-alike",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be/look alike"
+        }
+      },
+      {
+        "id": "construction:alike:baseline-v2-x-and-y-alike",
+        "source_locator": "record.constructions[1]",
+        "pattern": "X and Y alike",
+        "lines": [
+          {
+            "text": "X 和 Y 都一样地；X 和 Y 都",
+            "lang": "cn"
+          },
+          {
+            "text": "adverbial alike can distribute the same statement across two groups or items.",
+            "lang": "en"
+          },
+          {
+            "text": "both X and Y, or X and Y in the same way",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:alike:baseline-v2-x-and-y-alike",
+          "target_locator": "record.constructions[1]",
+          "target_label": "X and Y alike"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1852,7 +1929,7 @@
     "ordinal": 144,
     "word": "alive",
     "source_owner_path": "content/lexical/words/by-ordinal/o0144.json",
-    "source_fingerprint": "d65b99b95a13b20c0005b29eafd5a31c1363ec05433c9f96630c262201cf5515",
+    "source_fingerprint": "33585d354c98d128296642a98b42d0e84e7a64949e429a5ad83f621654fe42ec",
     "sense_lineage": [
       {
         "word_id": "word:alive",
@@ -2024,6 +2101,31 @@
           "target_locator": "record.constructions[0]",
           "target_label": "come alive; alive to ..."
         }
+      },
+      {
+        "id": "construction:alive:baseline-v2-predicative",
+        "source_locator": "record.constructions[1]",
+        "pattern": "be/stay alive",
+        "lines": [
+          {
+            "text": "活着；保持存活",
+            "lang": "cn"
+          },
+          {
+            "text": "alive 通常作表语/补语，不直接放在名词前；名词前通常用 living 等表达。",
+            "lang": "cn"
+          },
+          {
+            "text": "be or remain living",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:alive:baseline-v2-predicative",
+          "target_locator": "record.constructions[1]",
+          "target_label": "be/stay alive"
+        }
       }
     ],
     "reference": {
@@ -2039,7 +2141,7 @@
     "ordinal": 145,
     "word": "all",
     "source_owner_path": "content/lexical/words/by-ordinal/o0145.json",
-    "source_fingerprint": "41de44d293dfb81dcc00e608753552df5d08c291a6c33397285e18b3990ee384",
+    "source_fingerprint": "326c63a3fe86e30cd397c96988b7d36e6c3a533bad9552069536b8e92e8179b9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2155,24 +2257,87 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "construction:all:handoff-61850d88f89d1f63",
+        "id": "construction:all:baseline-v2-at-all",
         "source_locator": "record.constructions[0]",
-        "pattern": "at all / all but / all along / all in all",
+        "pattern": "at all",
         "lines": [
           {
-            "text": "根本；几乎；一直；总的来说",
+            "text": "根本；丝毫；任何程度上",
             "lang": "cn"
           },
           {
-            "text": "high-value phraseology with all",
+            "text": "in any way or to any degree, especially in negatives and questions",
             "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:all:handoff-61850d88f89d1f63",
+          "target_id": "construction:all:baseline-v2-at-all",
           "target_locator": "record.constructions[0]",
-          "target_label": "at all / all but / all along / all in all"
+          "target_label": "at all"
+        }
+      },
+      {
+        "id": "construction:all:baseline-v2-all-but",
+        "source_locator": "record.constructions[1]",
+        "pattern": "all but ...",
+        "lines": [
+          {
+            "text": "几乎；差一点就完全……",
+            "lang": "cn"
+          },
+          {
+            "text": "almost or very nearly",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:all:baseline-v2-all-but",
+          "target_locator": "record.constructions[1]",
+          "target_label": "all but ..."
+        }
+      },
+      {
+        "id": "construction:all:baseline-v2-all-along",
+        "source_locator": "record.constructions[2]",
+        "pattern": "all along",
+        "lines": [
+          {
+            "text": "一直；自始至终",
+            "lang": "cn"
+          },
+          {
+            "text": "from the beginning and throughout the whole time",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:all:baseline-v2-all-along",
+          "target_locator": "record.constructions[2]",
+          "target_label": "all along"
+        }
+      },
+      {
+        "id": "construction:all:baseline-v2-all-in-all",
+        "source_locator": "record.constructions[3]",
+        "pattern": "all in all",
+        "lines": [
+          {
+            "text": "总的来说；总而言之",
+            "lang": "cn"
+          },
+          {
+            "text": "considering everything; overall",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:all:baseline-v2-all-in-all",
+          "target_locator": "record.constructions[3]",
+          "target_label": "all in all"
         }
       }
     ],
@@ -2189,7 +2354,7 @@
     "ordinal": 146,
     "word": "allege",
     "source_owner_path": "content/lexical/words/by-ordinal/o0146.json",
-    "source_fingerprint": "56c080c32762bc5e93632b7dfc3e30d781eccce428bc1512a0c7e1f3dc73a204",
+    "source_fingerprint": "3c885489177db6e1d2eb802ed77819dd74193019fef6d64ca366f8e4da18672b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2282,6 +2447,31 @@
           "target_id": "deep:constructions:allege:676ec344dd90514c",
           "target_locator": "record.constructions[0]",
           "target_label": "vt. + that-clause / vt. + object"
+        }
+      },
+      {
+        "id": "construction:allege:baseline-v2-be-alleged-to",
+        "source_locator": "record.constructions[1]",
+        "pattern": "be alleged to do / have done sth",
+        "lines": [
+          {
+            "text": "据称做……；据称曾做过……",
+            "lang": "cn"
+          },
+          {
+            "text": "formal reporting pattern that keeps the claim unattributed/unproven rather than presenting it as fact.",
+            "lang": "en"
+          },
+          {
+            "text": "be claimed, without proof, to do something or to have done something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:allege:baseline-v2-be-alleged-to",
+          "target_locator": "record.constructions[1]",
+          "target_label": "be alleged to do / have done sth"
         }
       }
     ],
@@ -2639,7 +2829,7 @@
     "ordinal": 150,
     "word": "allocate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0150.json",
-    "source_fingerprint": "827a1bc83d38511d9e5a9c04dad146e5eb2401c000a60972f8cab09b3a79c40b",
+    "source_fingerprint": "f3b50bcc23a97f3fc2a092e121e9d158412647af4c320dd61780dc3284294ddc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2699,7 +2889,50 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:allocate:baseline-v2-to",
+        "source_locator": "record.constructions[0]",
+        "pattern": "allocate sth to sb/sth",
+        "lines": [
+          {
+            "text": "把某物分配给某人/某用途",
+            "lang": "cn"
+          },
+          {
+            "text": "assign a resource, amount, or responsibility to a recipient or destination",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:allocate:baseline-v2-to",
+          "target_locator": "record.constructions[0]",
+          "target_label": "allocate sth to sb/sth"
+        }
+      },
+      {
+        "id": "construction:allocate:baseline-v2-for",
+        "source_locator": "record.constructions[1]",
+        "pattern": "allocate sth for sth",
+        "lines": [
+          {
+            "text": "为某用途拨出/分配某物",
+            "lang": "cn"
+          },
+          {
+            "text": "set aside or assign a resource for a particular purpose",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:allocate:baseline-v2-for",
+          "target_locator": "record.constructions[1]",
+          "target_label": "allocate sth for sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
