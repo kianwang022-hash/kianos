@@ -29,8 +29,11 @@ const evidenceRows = (sweep?.questions || []).map((question) => [
   question.relation?.blockId || '',
   question.relation?.primaryKpId || '',
   ...(question.relation?.supportingKpIds || []),
+  question.explanation?.examTarget || '',
   question.explanation?.decisionAxis || '',
+  ...(question.explanation?.reasoningChain || []),
   question.explanation?.correctOptionReason || '',
+  ...(question.explanation?.valuableDistractors || []).flatMap((item) => [item.option || '', item.reason || '']),
   question.explanation?.commonFailureNode || '',
   question.explanation?.transferRule || ''
 ].join('~')).join('|');
