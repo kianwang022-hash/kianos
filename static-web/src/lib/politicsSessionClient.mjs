@@ -220,7 +220,7 @@ export function initPoliticsSessionReview(root) {
 
     $$('[data-session-mode]').forEach((node) => { node.hidden = true; });
     $('[data-session-complete]').hidden = runtime.status !== 'COMPLETED';
-    $('[data-session-step]').hidden = runtime.status !== 'ACTIVE';
+    $('[data-session-step]').hidden = !['ACTIVE', 'PAUSED_CHAT'].includes(runtime.status);
     $('[data-session-blocked]').hidden = true;
     $('[data-session-step-main]').hidden = false;
     $('[data-session-reveal-content]').hidden = true;
@@ -357,8 +357,19 @@ export function initPoliticsSessionReview(root) {
         JSON.parse($('[data-session-import-text]').value),
         { targetRefs, questionIds }
       );
-      if (instruction && runtime?.status !== 'COMPLETED' && instruction.session_id !== next.session_id) {
-        throw new Error('当前 Chat 任务还没完成；为保护 Evidence，不会直接覆盖成另一任务。');
+      if (instruction) {
+        const currentEncoded = JSON.stringify(instruction);
+        const nextEncoded = JSON.stringify(next);
+        if (instruction.session_id === next.session_id) {
+          if (currentEncoded !== nextEncoded) {
+            throw new Error('同一个 session_id 的任务内容发生变化；为保护已有 Evidence，请让 Chat 发一个新的 session_id。');
+          }
+          $('[data-session-import-dialog]').close();
+          return;
+        }
+        if (runtime?.status !== 'COMPLETED') {
+          throw new Error('当前 Chat 任务还没完成；为保护 Evidence，不会直接覆盖成另一任务。');
+        }
       }
       storage.setItem(POLITICS_SESSION_KEYS.instruction, JSON.stringify(next));
       storage.setItem(POLITICS_SESSION_KEYS.evidence, JSON.stringify(emptyPoliticsSessionEvidence(next)));
@@ -474,10 +485,10 @@ export function initPoliticsSessionReview(root) {
     catch (error) { setError(error.message); }
   });
 
-  $('[data-session-copy-evidence]').addEventListener('click', async () => {
+  $('[data-session-copy-evidence]').forEach((button) => button.addEventListener('click', async () => {
     try { await copyText(evidence || emptyPoliticsSessionEvidence(instruction)); }
     catch (error) { setError(error.message); }
-  });
+  }));
 
   window.addEventListener('keydown', (event) => {
     if (!instruction || runtime?.status !== 'ACTIVE' || event.metaKey || event.ctrlKey || event.altKey || event.repeat || event.isComposing) return;
