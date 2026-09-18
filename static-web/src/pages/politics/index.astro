@@ -3,43 +3,21 @@ import '../../styles/product-closure.css';
 import '../../styles/politics-home-workspace.css';
 import Base from '../../layouts/Base.astro';
 import PoliticsHomeTools from '../../components/PoliticsHomeTools.astro';
-import { listPoliticsSubjectsCurrent } from '../../lib/politicsCurrent.mjs';
 
 const base = import.meta.env.BASE_URL;
-const subjects = listPoliticsSubjectsCurrent();
 const firstHref = `${base}politics/learn/`;
 const firstLabel = '选择科目和章节';
 ---
 <Base title="政治" active="politics" showLead={false}>
-  <section class="politicsHomeV2" data-politics-home-v2>
+  <section class="politicsHomeV3" data-politics-home-v3>
     <header class="politicsHomeHeader">
       <div>
         <span>政治</span>
-        <h1>从上次位置继续，或进入五科</h1>
+        <h1>接着上次的位置学</h1>
       </div>
-      <p>有上次位置就直接续上；没有就从五科进入。</p>
+      <p>学习、做题和回看都从真实记录继续，不另外制造一套进度。</p>
     </header>
 
     <PoliticsHomeTools firstHref={firstHref} firstLabel={firstLabel} />
-
-    <section class="politicsHomeSubjects" aria-labelledby="politics-home-subjects-title">
-      <header>
-        <div>
-          <span>五科</span>
-          <h2 id="politics-home-subjects-title">选择科目</h2>
-        </div>
-        <a href={`${base}politics/learn/`}>全部章节 →</a>
-      </header>
-
-      <nav aria-label="政治五科入口">
-        {subjects.map((subject) => (
-          <a href={`${base}politics/learn/#subject-${subject.subject}`}>
-            <strong>{subject.label}</strong>
-            <span>{subject.shape}</span>
-            <b>进入 →</b>
-          </a>
-        ))}
-      </nav>
-    </section>
   </section>
 </Base>
