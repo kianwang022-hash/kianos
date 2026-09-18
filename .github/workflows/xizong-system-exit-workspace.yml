@@ -5,6 +5,12 @@ on:
   pull_request:
     paths:
       - 'static-web/src/components/XizongSystemExitRuntime.astro'
+      - 'static-web/src/components/XizongPracticeWorkbench.astro'
+      - 'static-web/src/pages/xizong/practice/index.astro'
+      - 'static-web/src/pages/xizong/practice/[system].astro'
+      - 'static-web/src/styles/xizong-practice-workspace.css'
+      - 'static-web/src/lib/xizongQuestions.mjs'
+      - 'static-web/src/lib/sharedNavigation.mjs'
       - 'static-web/src/components/XizongQuestionCrosswalkConsumer.astro'
       - 'static-web/src/components/XizongSystemRepairReturn.astro'
       - 'static-web/src/pages/xizong/[system]/index.astro'
@@ -19,6 +25,12 @@ on:
     branches: [main]
     paths:
       - 'static-web/src/components/XizongSystemExitRuntime.astro'
+      - 'static-web/src/components/XizongPracticeWorkbench.astro'
+      - 'static-web/src/pages/xizong/practice/index.astro'
+      - 'static-web/src/pages/xizong/practice/[system].astro'
+      - 'static-web/src/styles/xizong-practice-workspace.css'
+      - 'static-web/src/lib/xizongQuestions.mjs'
+      - 'static-web/src/lib/sharedNavigation.mjs'
       - 'static-web/src/components/XizongQuestionCrosswalkConsumer.astro'
       - 'static-web/src/components/XizongSystemRepairReturn.astro'
       - 'static-web/src/pages/xizong/[system]/index.astro'
@@ -73,7 +85,7 @@ jobs:
           name: xizong-system-exit-workspace
           path: |
             static-web/.qa/xizong-system-exit-workspace.json
-            static-web/.qa/xizong-system-exit-question.png
+            static-web/.qa/xizong-practice-workbench.png
             static-web/.qa/xizong-system-exit-recall.png
             static-web/.qa/xizong-system-exit-recall-reveal.png
           if-no-files-found: warn
