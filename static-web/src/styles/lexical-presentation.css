@@ -381,6 +381,26 @@ body#kianos-workspace.uiWordStudy{
   color:var(--legacy-ink);
 }
 
+/* Word Study is an immersive task surface: global navigation and shared timer
+   return immediately after leaving the word route. */
+body#kianos-workspace.uiWordStudy .kianosShellFrame{
+  grid-template-columns:minmax(0,1fr);
+}
+body#kianos-workspace.uiWordStudy .kianosGlobalRail{
+  display:none;
+}
+body#kianos-workspace.uiWordStudy .kianosShellMain{
+  width:100%;
+}
+body#kianos-workspace.uiWordStudy .kianosShellMain>.productCanvas{
+  width:100%;
+  max-width:none;
+  margin:0;
+}
+body#kianos-workspace.uiWordStudy [data-study-timer-dock]{
+  display:none!important;
+}
+
 body#kianos-workspace.uiWordStudy>.productCanvas{
   width:100%;
   max-width:none;
