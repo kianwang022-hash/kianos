@@ -3,7 +3,7 @@ import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
 import { loadXizongSystem } from '../src/lib/xizong.mjs';
-import { loadXizongSystemQuestionSweep } from '../src/lib/xizongQuestions.mjs';
+import { loadXizongSystemQuestionSweep, loadXizongWholePaper } from '../src/lib/xizongQuestions.mjs';
 import {
   ensureXizongQuestionSweepState,
   recordXizongQuestionAttempt,
@@ -13,6 +13,7 @@ import {
 import {
   collectXizongRetainedEvidence
 } from '../src/lib/xizongRetainedPractice.mjs';
+import { scoreXizongPaperResults } from '../src/lib/xizongPaperScoring.mjs';
 
 const PORT = 4338;
 const BASE = `http://127.0.0.1:${PORT}`;
@@ -25,6 +26,8 @@ const practiceFrontShot = path.join(auditDir, 'xizong-practice-workbench-front.p
 const practiceShot = path.join(auditDir, 'xizong-practice-workbench.png');
 const retainedEntryShot = path.join(auditDir, 'xizong-practice-retained-entry.png');
 const retainedWorkbenchShot = path.join(auditDir, 'xizong-practice-retained-workbench.png');
+const paperFrontShot = path.join(auditDir, 'xizong-practice-paper-front.png');
+const paperResultShot = path.join(auditDir, 'xizong-practice-paper-result.png');
 const report = {
   schema:'kianos.xizong.recall_practice_workspace.v2',
   representative:'A1/circulation',
@@ -131,6 +134,13 @@ respiratoryState=recordXizongQuestionAttempt(respiratoryState,{
 },{now:'2026-09-18T05:10:00.000Z',makeId:respiratoryMakeId});
 const markedFixture=eligible.find((q)=>![reviewedTarget.questionId,missingTarget.questionId].includes(q.questionId));
 check(Boolean(markedFixture),'fixture_global_mark_question');
+
+const paper2026=loadXizongWholePaper(2026);
+check(paper2026.questionCount===165,'fixture_2026_paper_count',String(paper2026.questionCount));
+const paperFirst=paper2026.questions[0];
+const paperSecond=paper2026.questions[1];
+const paperFirstWrong=paperFirst.options.find((option)=>!answerLetters(paperFirst.correctAnswer).includes(option.label));
+check(Boolean(paperFirstWrong),'fixture_paper_wrong_option');
 
 const server=spawn('npm',['run','preview','--','--host','127.0.0.1','--port',String(PORT)],{
   cwd:process.cwd(),stdio:['ignore','pipe','pipe'],detached:process.platform!=='win32'
@@ -377,6 +387,74 @@ try {
     wu_count:expectedRetained.wrongUncertainIds.length,
     marked_count:expectedRetained.markedIds.length,
     cross_system_question:respiratoryQuestion.questionId
+  };
+
+  const paperKey='kianos:xizong:paper-question-sweep:paper-2026:v1';
+  await page.evaluate((key)=>localStorage.removeItem(key),paperKey);
+  await page.goto(`${BASE}/xizong/practice/paper/2026/`,{waitUntil:'networkidle'});
+  const paperPractice=page.locator('[data-xizong-practice="paper-2026"]');
+  await paperPractice.locator('[data-question-card]').waitFor({state:'visible'});
+  check((await paperPractice.locator('[data-practice-scope-title]').textContent()||'').includes('2026'),'paper_2026_title');
+  check((await paperPractice.locator('.xzpResultMode').textContent()||'').includes('隐藏'),'paper_result_hidden_label');
+  check(await paperPractice.locator('.xzpMapItem').count()===165,'paper_2026_map_count');
+  check(await paperPractice.locator('[data-paper-seal]').isVisible(),'paper_seal_control_visible');
+  await scanVisibleType(paperPractice,'practice_paper_front');
+  await page.screenshot({path:paperFrontShot,fullPage:false});
+
+  await paperPractice.locator(`.xzpOption[data-option="${paperFirstWrong.label}"]`).click();
+  await paperPractice.locator('[data-submit-answer]').click();
+  await page.waitForTimeout(260);
+
+  await paperPractice.locator('.xzpMapItem').first().click();
+  await paperPractice.locator('[data-question-card]').waitFor({state:'visible'});
+  check(await paperPractice.locator('.xzpOption.correct').count()===0,'paper_hidden_no_correct_option_leak');
+  check(await paperPractice.locator('.xzpOption.wrong').count()===0,'paper_hidden_no_wrong_option_leak');
+  check(await paperPractice.locator('[data-practice-back]').isHidden(),'paper_hidden_back_locked');
+  check(await paperPractice.locator('[data-review-toggle]').isHidden(),'paper_hidden_review_toggle_locked');
+  const paperBeforeSeal=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),paperKey);
+  check(paperBeforeSeal?.results?.[paperFirst.questionId]?.status==='wrong','paper_hidden_attempt_persisted_privately');
+  check((paperBeforeSeal?.attemptHistory||[]).some((event)=>event.question_id===paperFirst.questionId&&event.result_visibility==='hidden'),'paper_attempt_event_marks_hidden_visibility');
+  check(!paperBeforeSeal?.paperSeal?.sealedAt,'paper_not_sealed_before_submit');
+
+  await paperPractice.locator('.xzpMapItem').nth(1).click();
+  for(const label of answerLetters(paperSecond.correctAnswer)) {
+    await paperPractice.locator(`.xzpOption[data-option="${label}"]`).click();
+  }
+  await paperPractice.locator('[data-submit-answer]').click();
+  await page.waitForTimeout(260);
+
+  const preSealState=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),paperKey);
+  const expectedPaperSummary=scoreXizongPaperResults(paper2026.paperFormat,paper2026.questions,preSealState?.results||{});
+  check(expectedPaperSummary.correctCount===1&&expectedPaperSummary.wrongCount===1,'paper_fixture_score_shape',JSON.stringify(expectedPaperSummary));
+
+  await paperPractice.locator('[data-paper-seal]').click();
+  await paperPractice.locator('[data-paper-result]').waitFor({state:'visible'});
+  check(Number(await paperPractice.locator('[data-paper-earned]').textContent())===expectedPaperSummary.earnedScore,'paper_score_released_after_seal');
+  check(Number(await paperPractice.locator('[data-paper-max]').textContent())===300,'paper_score_max_300');
+  check(Number(await paperPractice.locator('[data-paper-correct]').textContent())===1,'paper_correct_count_released');
+  check(Number(await paperPractice.locator('[data-paper-wrong]').textContent())===1,'paper_wrong_count_released');
+  check(Number(await paperPractice.locator('[data-paper-unanswered]').textContent())===163,'paper_unanswered_count_released');
+  check((await paperPractice.locator('.xzpResultMode').textContent()||'').includes('已出分'),'paper_result_mode_changes_after_seal');
+  await scanVisibleType(paperPractice,'practice_paper_result');
+  await page.screenshot({path:paperResultShot,fullPage:false});
+
+  const paperAfterSeal=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),paperKey);
+  check(Boolean(paperAfterSeal?.paperSeal?.sealedAt),'paper_seal_persisted');
+  await paperPractice.locator('[data-paper-review-start]').click();
+  await paperPractice.locator('[data-question-card]').waitFor({state:'visible'});
+  check(await paperPractice.locator('.xzpOption.correct').count()>=1,'paper_review_releases_correct_option');
+  check(await paperPractice.locator('.xzpOption.wrong').count()>=1,'paper_review_releases_wrong_option');
+  check(await paperPractice.locator('[data-review-toggle]').isVisible(),'paper_review_toggle_released');
+  await paperPractice.locator('[data-review-toggle]').click();
+  await paperPractice.locator('[data-practice-back]').waitFor({state:'visible'});
+  check((await paperPractice.locator('[data-correct-answer]').textContent()||'').trim().length>0,'paper_review_releases_correct_answer');
+
+  report.paper={
+    year:2026,
+    question_count:paper2026.questionCount,
+    answered_before_seal:expectedPaperSummary.answeredCount,
+    earned_score:expectedPaperSummary.earnedScore,
+    max_score:expectedPaperSummary.maxScore
   };
 
   report.status='PASS';
