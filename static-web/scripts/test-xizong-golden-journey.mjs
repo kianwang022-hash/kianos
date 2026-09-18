@@ -121,6 +121,7 @@ try {
   check(state?.completed !== true, 'block_not_completed_before_block_recall');
   check(await completeButton.isDisabled(), 'final_completion_still_locked_before_block_recall');
 
+  await page.locator('[data-block-recall-reveal]').click();
   await page.locator('[data-block-recall-complete]').click();
   await page.waitForTimeout(80);
   check(await visibleStage() === 'block_recall', 'block_recall_stays_on_reconstruction_surface_until_final_confirmation');
