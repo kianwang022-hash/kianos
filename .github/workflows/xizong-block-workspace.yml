@@ -1,0 +1,84 @@
+name: Xizong Block Workspace
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'content/xizong/LEARNING_CONTRACT.md'
+      - 'content/xizong/LEARNER_OBJECT_CONTRACT.md'
+      - 'content/xizong/knowledge/learner/study-policy.json'
+      - 'static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md'
+      - 'static-web/src/components/XizongBlock*.astro'
+      - 'static-web/src/components/XizongKpLearnInteraction.astro'
+      - 'static-web/src/components/XizongLearnerObjectBridge.astro'
+      - 'static-web/src/components/XizongStudyEnhancer.astro'
+      - 'static-web/src/lib/xizongLearnerObject.mjs'
+      - 'static-web/src/lib/xizongRepresentationGate.mjs'
+      - 'static-web/src/pages/xizong/[system]/[block].astro'
+      - 'static-web/src/styles/xizong-block-workspace.css'
+      - 'static-web/scripts/test-xizong-block-workspace.mjs'
+      - 'static-web/scripts/validate-xizong-learner-object.mjs'
+      - 'static-web/scripts/validate-xizong-representation-gate.mjs'
+      - '.github/workflows/xizong-block-workspace.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'content/xizong/LEARNING_CONTRACT.md'
+      - 'content/xizong/LEARNER_OBJECT_CONTRACT.md'
+      - 'content/xizong/knowledge/learner/study-policy.json'
+      - 'static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md'
+      - 'static-web/src/components/XizongBlock*.astro'
+      - 'static-web/src/components/XizongKpLearnInteraction.astro'
+      - 'static-web/src/components/XizongLearnerObjectBridge.astro'
+      - 'static-web/src/components/XizongStudyEnhancer.astro'
+      - 'static-web/src/lib/xizongLearnerObject.mjs'
+      - 'static-web/src/lib/xizongRepresentationGate.mjs'
+      - 'static-web/src/pages/xizong/[system]/[block].astro'
+      - 'static-web/src/styles/xizong-block-workspace.css'
+      - 'static-web/scripts/test-xizong-block-workspace.mjs'
+      - 'static-web/scripts/validate-xizong-learner-object.mjs'
+      - 'static-web/scripts/validate-xizong-representation-gate.mjs'
+      - '.github/workflows/xizong-block-workspace.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: xizong-block-workspace-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  block-workspace:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: static-web
+    steps:
+      - name: Checkout Current candidate
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Validate learner-object Recall contract
+        run: node scripts/validate-xizong-learner-object.mjs
+      - name: Validate Representation gate
+        run: node scripts/validate-xizong-representation-gate.mjs
+      - name: Install browser acceptance tool
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Execute Block KP Learn browser acceptance
+        run: node scripts/test-xizong-block-workspace.mjs
+      - name: Upload Block workspace evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xizong-block-workspace
+          path: |
+            static-web/.qa/xizong-block-workspace.json
+            static-web/.qa/xizong-block-kp-learn.png
+            static-web/.qa/xizong-block-recall-front.png
+          if-no-files-found: warn
