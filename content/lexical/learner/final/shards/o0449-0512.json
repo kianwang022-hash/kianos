@@ -5,7 +5,7 @@
     "ordinal": 449,
     "word": "behalf",
     "source_owner_path": "content/lexical/words/by-ordinal/o0449.json",
-    "source_fingerprint": "fcc065fd49ee6f1c0e33271dfb43259a77fdc504aeda6571d0596e67941aace9",
+    "source_fingerprint": "09765f41ccd98813c3ef9acaf3609ed2e03d46b5169e599b1a53ed637a712a68",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -14,13 +14,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "代表某人，为某人的利益",
-      "decision_cn": "",
+      "summary_cn": "表示“替某人这一方行事”：既可代表某人/机构，也可为了某人的利益或支持；on behalf of 是主流形式，in behalf of 在美式可见",
+      "decision_cn": "on behalf of sb → 可表示代表，也可表示为了其利益/支持；不要硬拆成两个绝对不同短语。in behalf of 是美式可见变体。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "代表某人，为某人的利益"
+        "target_label": "表示“替某人这一方行事”：既可代表某人/机构，也可为了某人的利益或支持；on behalf of 是主流形式，in behalf of 在美式可见"
       }
     },
     "senses": [
@@ -96,7 +96,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:behalf:baseline-v2-on-behalf-of",
+        "source_locator": "record.constructions[0]",
+        "pattern": "on behalf of sb/sth / on sb's behalf",
+        "lines": [
+          {
+            "text": "代表某人/机构；为了某人的利益或支持",
+            "lang": "cn"
+          },
+          {
+            "text": "US English may also use 'in behalf of'. The representation-vs-benefit distinction is contextual, not an absolute on/in rule.",
+            "lang": "en"
+          },
+          {
+            "text": "representing someone or acting for their benefit or support",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:behalf:baseline-v2-on-behalf-of",
+          "target_locator": "record.constructions[0]",
+          "target_label": "on behalf of sb/sth / on sb's behalf"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -110,7 +136,7 @@
     "ordinal": 450,
     "word": "behave",
     "source_owner_path": "content/lexical/words/by-ordinal/o0450.json",
-    "source_fingerprint": "40943e46ec2464aff1b9ed13b1c3ef1db145b90347e762f3839a531a814cd036",
+    "source_fingerprint": "3c87f6b3a9fd12e3dda5b37512f4a8bcf7fc1ad48efac5e191f6983f2fc2bc6a",
     "sense_lineage": [
       {
         "word_id": "word:behave",
@@ -230,7 +256,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:behave:baseline-v2-oneself",
+        "source_locator": "record.constructions[0]",
+        "pattern": "behave yourself / behave oneself",
+        "lines": [
+          {
+            "text": "规矩点；举止得体；守规矩",
+            "lang": "cn"
+          },
+          {
+            "text": "conduct oneself properly or in accordance with expected rules",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:behave:baseline-v2-oneself",
+          "target_locator": "record.constructions[0]",
+          "target_label": "behave yourself / behave oneself"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
