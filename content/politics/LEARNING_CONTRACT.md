@@ -564,6 +564,82 @@ If later real learner use proves that a small helper materially reduces friction
 
 Do not import the full later recitation burden into first-round Chengfeng study merely to feel safe.
 
+
+### 6.4 Mock / Final is execution evidence + last-mile compression
+
+Mock / Final is a separate later Learning lane.
+
+It is intentionally **not** a fourth Politics course and does not require a dedicated Website.
+
+Durable routing / production rules live at:
+
+```text
+content/politics/mock-final/README.md
+```
+
+#### Mock
+
+Mock answers a whole-paper question that ordinary practice cannot answer cheaply:
+
+```text
+Can current objective knowledge/discrimination
++ analysis transfer
++ pacing/switching
++ answer completion
+
+survive under exam-like constraints?
+```
+
+Use full Mock only when that evidence can change a real learner decision. Use smaller timed sets when the real uncertainty is local.
+
+Preserve one clean first attempt. Do not interrupt the paper for mid-attempt semantic repair.
+
+Afterward:
+
+```text
+Mock evidence
+→ Chat identifies the first meaningful failure
+→ route to existing smallest owner
+→ repair
+→ return to ordinary learning
+```
+
+Do not create a generic Mock weakness when an existing Consolidation / Precision / Analysis Output / execution owner already explains the failure.
+
+Same-paper correction is repair evidence, not fresh transfer.
+
+#### Final
+
+Final review starts from a small evidence-backed queue:
+
+```text
+admitted high-value Precision / Memory
++ current-year exact overlays
++ high-frequency Analysis Output skeletons
++ repeated / still-relevant W/U
++ Mock-exposed real weaknesses
++ critical current-source refreshes
+```
+
+It does **not** start from the whole Politics chapter tree.
+
+Stable chapter content, candidate-only Memory, stale historical wording, rich reference content and full Xiao1000 replay are excluded by default.
+
+Hard rule:
+
+> **Final compression is what is worth carrying into the exam, not a miniature fourth round.**
+
+Chat owns the final queue and may shrink/re-open it as evidence changes.
+
+#### Surface boundary
+
+Mock execution may occur on an authentic/exam-like paper/PDF or other surface that preserves real timing and answer delivery.
+
+Chat owns Mock selection/diagnosis and Final prioritization.
+
+No dedicated Mock page, final-review dashboard, Website scheduler or Website semantic grading is required for Learning closure.
+
+
 ## 7. Astro boundary
 
 Astro renders and interacts with Current assets **only for learner actions assigned to the Astro surface by this Learning Contract**.
