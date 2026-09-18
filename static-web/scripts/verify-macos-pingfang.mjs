@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { chromium } from 'playwright';
 
 if (process.platform !== 'darwin') {
@@ -18,6 +20,8 @@ try {
       fontCheck: document.fonts.check('600 32px "PingFang SC"', '错题 到期 收藏 西综')
     };
   });
+  fs.mkdirSync(path.resolve('.qa'), { recursive: true });
+  fs.writeFileSync(path.resolve('.qa/mac-font-proof.json'), JSON.stringify(result, null, 2) + '\n');
   console.log(JSON.stringify(result, null, 2));
   if (!result.fontCheck) throw new Error('PINGFANG_NOT_AVAILABLE_IN_BROWSER');
   if (!String(result.fontFamily).includes('PingFang SC')) throw new Error(`PINGFANG_NOT_REQUESTED: ${result.fontFamily}`);
