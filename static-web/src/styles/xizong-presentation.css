@@ -176,3 +176,6 @@ body#kianos-workspace.surfaceBody-xizong .xv6PersonalDock .position { display:bl
 
 /* Learner surface: repository/Current diagnostics stay out of normal Xizong study. */
 body#kianos-workspace.surfaceBody-xizong .kianosCurrentDock{display:none!important;}
+/* Keep the default draggable timer clear of the primary KP Recall rating row.
+   A learner-dragged/saved position uses inline coordinates and still wins. */
+body#kianos-workspace.surfaceBody-xizong .studyTimerDock { bottom:92px; }
