@@ -183,7 +183,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
           <header class="xv6TtsxHeader">
             <div>
               <span>MarginNote-first</span>
-              <strong>配套题 <b data-ttsx-progress>0/0</b></strong>
+              <strong>配套题 <b data-ttsx-progress>0 道</b></strong>
               <small data-ttsx-meta>按原讲义页码逐组核对；这里不判分、不分类、不生成 Question Attempt。</small>
             </div>
             <em>Checkpoint</em>
@@ -382,7 +382,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
           ? `${parts.join(' · ')} · 回 MarginNote 原位置完成题目、答案、全部选项和题旁拓展。`
           : '回 MarginNote 原位置完成题目、答案、全部选项和题旁拓展。';
       }
-      if (progress) progress.textContent = `0/${rows.length}`;
+      if (progress) progress.textContent = `${rows.length} 道`;
       if (meta) meta.textContent = rows.length
         ? `${rows.length} 道 · 每题都可以单独「+写一句」，也可以一题都不记。`
         : '按原讲义页码逐组核对；这里不判分、不分类、不生成 Question Attempt。';
