@@ -291,6 +291,7 @@ const relationDifferenceRows = (relation = {}) => {
         </main>
 
         {hasReferenceRail && <aside class="portedVocabEvidenceColumn" aria-label="Cross-sense lexical reference">
+          <header class="lexicalReferenceHeading">REFERENCE</header>
           {importantRelationRows.length > 0 && <section class="lexicalExpansionSection lexicalRelationSection">
             <header><span>Contrast / Confusable</span><small>只保留会改变判断的边界</small></header>
             <div class="portedVocabEvidenceList">
