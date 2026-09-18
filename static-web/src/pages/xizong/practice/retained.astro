@@ -1,0 +1,27 @@
+---
+import Base from '../../../layouts/Base.astro';
+import XizongPracticeWorkbench from '../../../components/XizongPracticeWorkbench.astro';
+import '../../../styles/xizong-practice-workspace.css';
+
+const system = {
+  systemId: 'retained',
+  canonicalId: 'RETAIN',
+  title: '保留题回收'
+};
+
+const sweep = {
+  systemId: 'retained',
+  canonicalId: 'RETAIN',
+  title: '保留题回收',
+  questionCount: 0,
+  scopePath: 'private://retained',
+  scopeHash: 'retained:pending',
+  questionInventoryHash: 'retained:pending',
+  years: [],
+  questions: []
+};
+---
+
+<Base title="保留题回收 · 西综训练" active="xizong" showLead={false} objectId="xizong:practice:retained">
+  <XizongPracticeWorkbench system={system} sweep={sweep} scopeKind="RETAINED" />
+</Base>
