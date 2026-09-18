@@ -137,8 +137,43 @@ let browser;
 try {
   await waitForServer();
   browser = await chromium.launch({ headless: true });
-  const page = await browser.newPage({ viewport: { width: 1536, height: 900 }, deviceScaleFactor: 1 });
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
   const reports = [];
+
+  // Architecture-v2 Human Gate evidence.
+  await page.goto(`${origin}/vocabulary/`, { waitUntil: 'networkidle' });
+  await page.evaluate(() => localStorage.clear());
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-home-1440x900.png'), fullPage: false });
+
+  await page.goto(`${origin}/vocabulary/3/`, { waitUntil: 'networkidle' });
+  assert(await page.locator('[data-vocab-front]').isVisible(), 'v2_safe_fast_pass_front_visible');
+  assert(await page.locator('[data-vocab-details]').isHidden(), 'v2_safe_fast_pass_depth_protected');
+  assert(await page.locator('[data-card-routing-controls]').isVisible(), 'v2_safe_fast_pass_routing_visible');
+  await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-safe-fast-pass-1440x900.png'), fullPage: false });
+
+  await page.goto(`${origin}/vocabulary/1/`, { waitUntil: 'networkidle' });
+  assert(await page.locator('[data-vocab-front][data-recall-density="rich"]').isVisible(), 'v2_rich_recall_front_visible');
+  await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-rich-recall-1440x900.png'), fullPage: false });
+  await page.locator('[data-vocab-reveal]').click();
+  await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
+  await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-rich-depth-1440x900.png'), fullPage: false });
+
+  await page.evaluate(() => {
+    localStorage.setItem('kianos-vocabulary-last-ordinal', '77');
+    localStorage.removeItem('kianos-vocabulary-astro-v2:word:answer');
+  });
+  await page.goto(`${origin}/vocabulary/209/?mode=lookup`, { waitUntil: 'networkidle' });
+  await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
+  assert(await page.locator('[data-vocab-front]').isHidden(), 'v2_lookup_skips_recall');
+  assert(await page.locator('[data-card-routing-controls]').count() === 0, 'v2_lookup_has_no_whole_card_routing');
+  const lookupState = await page.evaluate(() => ({
+    cursor: localStorage.getItem('kianos-vocabulary-last-ordinal'),
+    wordState: localStorage.getItem('kianos-vocabulary-astro-v2:word:answer')
+  }));
+  assert(lookupState.cursor === '77', 'v2_lookup_does_not_advance_coverage', String(lookupState.cursor));
+  assert(lookupState.wordState === null, 'v2_lookup_does_not_create_word_state');
+  await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-lookup-1440x900.png'), fullPage: false });
 
   reports.push(await audit(page, { ordinal: 1, expectedWord: 'a', expectExpansion: true, sparse: false }));
   reports.push(await audit(page, { ordinal: 2, expectedWord: 'abandon', expectExpansion: false, sparse: true }));
