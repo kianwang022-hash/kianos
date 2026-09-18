@@ -1,38 +1,65 @@
-name: English Fresh Independent Audit
+name: English Audit Candidate Transport
 on:
   push:
     branches: [audit/english-final-independent-20260919]
+    paths: ['.github/english-audit-ready.json']
 permissions:
-  contents: read
+  contents: write
+  actions: read
 jobs:
-  source-asset-recovery:
+  candidate:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - name: Recover only source-owned URLs with exact hash verification
-        run: |
-          python - <<'PY'
-          import json, pathlib, hashlib, urllib.request, concurrent.futures
-          owner=json.load(open('content/english/source/global_source_truth.v1.json'))
-          out=pathlib.Path('/tmp/english-source-recovery');out.mkdir()
-          targets=[(k,a) for k,u in owner['units'].items() if u.get('section')=='writing_part_b' for a in u.get('images',[])]
-          def recover(item):
-            k,a=item;r={'object_id':k,'asset_path':a['asset_path'],'expected_sha256':a['asset_sha256']}
-            try:
-              req=urllib.request.Request(a['source_url'],headers={'User-Agent':'Mozilla/5.0'})
-              data=urllib.request.urlopen(req,timeout=25).read()
-              h=hashlib.sha256(data).hexdigest();r.update(actual_sha256=h,bytes=len(data),status='EXACT' if h==a['asset_sha256'] else 'HASH_MISMATCH')
-              if h==a['asset_sha256']:
-                p=out/a['asset_path'];p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(data)
-            except Exception as e:r.update(status='UNAVAILABLE',error=str(e))
-            return r
-          with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool: rows=list(pool.map(recover,targets))
-          (out/'source-recovery.json').write_text(json.dumps(rows,indent=2))
-          print(json.dumps([{k:v for k,v in r.items() if k not in ['expected_sha256','actual_sha256']} for r in rows],indent=2))
-          PY
-      - uses: actions/upload-artifact@v4
+        with:
+          ref: audit/english-final-independent-20260919
+      - uses: actions/download-artifact@v4
         with:
           name: english-exact-source-recovery
-          path: /tmp/english-source-recovery/
-          retention-days: 1
+          run-id: 35405340889
+          github-token: ${{ github.token }}
+          path: /tmp/english-exact-recovery
+      - name: Validate every before/after identity then stage one candidate
+        run: |
+          python - <<'PY'
+          import pathlib, json, hashlib, base64, lzma, shutil, subprocess
+          root=pathlib.Path('.')
+          config=json.loads(pathlib.Path('.github/english-audit-ready.json').read_text())
+          paths=[pathlib.Path('.github/english-audit-part-'+str(i)+'.txt') for i in range(config['parts'])]
+          data=base64.b64decode(''.join(p.read_text().strip() for p in paths),validate=True)
+          assert hashlib.sha256(data).hexdigest()==config['sha256'], 'TRANSPORT_HASH_MISMATCH'
+          ops=json.loads(lzma.decompress(data))
+          for name,op in ops.items():
+            p=pathlib.Path(name)
+            assert not p.is_absolute() and '..' not in p.parts, 'INVALID_PATH'
+            before=p.read_text() if p.exists() else ''
+            assert hashlib.sha256(before.encode()).hexdigest()==op['before'], 'BEFORE_MISMATCH:'+name
+          for name,op in ops.items():
+            p=pathlib.Path(name); lines=(p.read_text() if p.exists() else '').splitlines(keepends=True)
+            for start,end,text in reversed(op['changes']): lines[start:end]=[text]
+            after=''.join(lines)
+            assert hashlib.sha256(after.encode()).hexdigest()==op['after'], 'AFTER_MISMATCH:'+name
+            p.parent.mkdir(parents=True,exist_ok=True);p.write_text(after)
+          source=json.loads(pathlib.Path('content/english/source/global_source_truth.v1.json').read_text())
+          restored=[];missing=[]
+          for key,unit in source['units'].items():
+            if unit.get('section')!='writing_part_b':continue
+            for asset in unit.get('images',[]):
+              src=pathlib.Path('/tmp/english-exact-recovery')/asset['asset_path']
+              if not src.exists():missing.append(key);continue
+              assert hashlib.sha256(src.read_bytes()).hexdigest()==asset['asset_sha256'], 'SOURCE_HASH_MISMATCH:'+key
+              target=pathlib.Path('static-web/public')/asset['asset_path'];target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(src,target);restored.append(str(target))
+          assert len(restored)==25 and set(missing)=={'english1-2011-writing-b-main','english1-2026-writing-b-main'}, 'UNEXPECTED_SOURCE_COVERAGE'
+          obsolete=[str(p) for p in paths]+['.github/english-audit-ready.json','.github/workflows/english-final-independent.yml']
+          for name in obsolete:pathlib.Path(name).unlink()
+          subprocess.run(['git','add','-A','--',*ops.keys(),*restored,*obsolete],check=True)
+          print('Validated',len(ops),'text owners and',len(restored),'exact original source assets; two source blockers retained.')
+          PY
+      - name: Commit candidate and cursors together (never main)
+        run: |
+          git config user.name 'KianOS English Audit'
+          git config user.email 'english-audit@users.noreply.github.com'
+          git commit -m "fix(english): fresh independent learner acceptance candidate"
+          git push origin HEAD:audit/english-final-independent-20260919
+          git rev-parse HEAD
