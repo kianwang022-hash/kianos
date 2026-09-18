@@ -2,7 +2,7 @@ export const XIZONG_RETAINED_SET_SCHEMA = 'kianos.xizong.retained_set.v1';
 export const XIZONG_RETAINED_SET_KEY = 'kianos:xizong:retained-set:v1';
 export const XIZONG_QUESTION_PREFERENCES_KEY = 'kianos:xizong:question-preferences:v1';
 
-const SWEEP_KEY = /^kianos:xizong:(?:system|chat-set|retained)-question-sweep:.*:v1$/;
+const SWEEP_KEY = /^kianos:xizong:(?:system|chat-set|retained|paper)-question-sweep:.*:v1$/;
 const QID = /^xizong-official-(\d{4})-n\d{3}$/;
 
 const asObject = (value) => value && typeof value === 'object' && !Array.isArray(value) ? value : {};
@@ -66,9 +66,11 @@ export function collectXizongRetainedEvidence(entries, options = {}) {
     const history = Array.isArray(state.attemptHistory) && state.attemptHistory.length
       ? state.attemptHistory
       : fallbackResultEvents(state);
+    const hiddenPaperSealed = Boolean(state?.paperSeal?.sealedAt);
 
     for (const event of history) {
       if (event?.type && event.type !== 'QUESTION_ATTEMPT') continue;
+      if (String(event?.result_visibility || '') === 'hidden' && !hiddenPaperSealed) continue;
       const questionId = eventQuestionId(event);
       if (!QID.test(questionId)) continue;
       const previous = latest.get(questionId);
