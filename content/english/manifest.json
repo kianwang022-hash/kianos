@@ -82,9 +82,25 @@
             "writing_part_a",
             "writing_part_b"
           ],
-          "section_roles": {
-            "writing_part_a": "small",
-            "writing_part_b": "big"
+          "section_specs": {
+            "writing_part_a": {
+              "kind": "small",
+              "year_start": 2005,
+              "year_end": 2026,
+              "set_count": 22,
+              "prompt_count": 22,
+              "set_id_pattern": "english1-{year}-writing-a-main",
+              "prompt_id_pattern": "english1-{year}-writing-a-main-prompt"
+            },
+            "writing_part_b": {
+              "kind": "big",
+              "year_start": 2000,
+              "year_end": 2026,
+              "set_count": 27,
+              "prompt_count": 27,
+              "set_id_pattern": "english1-{year}-writing-b-main",
+              "prompt_id_pattern": "english1-{year}-writing-b-main-prompt"
+            }
           }
         }
       }
