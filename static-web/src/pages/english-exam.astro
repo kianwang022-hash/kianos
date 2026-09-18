@@ -33,14 +33,31 @@ const papers = listEnglishExamPapers();
 </Base>
 
 <style>
-  .englishExamIndex{max-width:76rem;margin:0 auto;display:grid;gap:12px}
-  .englishExamIndex>header{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;padding:24px 26px;border:1px solid var(--study-line);border-radius:16px;background:#fff;box-shadow:var(--study-shadow)}
-  .englishExamIndex>header span{font-size:9px;font-weight:850;letter-spacing:.08em;color:var(--study-green)}
-  .englishExamIndex>header h1{margin:5px 0 8px;font-size:28px}.englishExamIndex>header p{max-width:74ch;margin:0;color:var(--study-muted);font-size:12px;line-height:1.7}
-  .englishExamIndex>header aside{display:grid;text-align:right}.englishExamIndex>header aside strong{font-size:30px}.englishExamIndex>header aside small{font-size:9px;color:var(--study-faint)}
-  .englishExamPaperList{overflow:hidden;border:1px solid var(--study-line);border-radius:14px;background:#fff}
-  .englishExamPaperList>a{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:14px;align-items:center;padding:13px 16px;border-bottom:1px solid var(--study-line);color:inherit;text-decoration:none}
-  .englishExamPaperList>a:last-child{border-bottom:0}.englishExamPaperList>a:hover{background:var(--study-green-soft)}
-  .englishExamPaperList>a>span{font-size:14px;font-weight:850;color:var(--study-green)}.englishExamPaperList>a>div{display:grid;gap:2px}.englishExamPaperList strong{font-size:12px}.englishExamPaperList small{font-size:9px;color:var(--study-muted)}.englishExamPaperList b{color:var(--study-green)}
-  @media(max-width:700px){.englishExamIndex>header{grid-template-columns:1fr}.englishExamIndex>header aside{text-align:left}}
+  .englishExamIndex{max-width:76rem;margin:0 auto;display:grid;gap:16px}
+  .englishExamIndex>header{
+    display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end;
+    padding:10px 2px 18px;border-bottom:1px solid var(--study-line)
+  }
+  .englishExamIndex>header span{font-size:var(--study-type-meta);font-weight:800;letter-spacing:.04em;color:var(--study-green)}
+  .englishExamIndex>header h1{margin:6px 0 8px;font-size:30px;line-height:1.15}
+  .englishExamIndex>header p{max-width:72ch;margin:0;color:var(--study-muted);font-size:17px;line-height:1.65}
+  .englishExamIndex>header aside{display:grid;gap:3px;text-align:right}
+  .englishExamIndex>header aside strong{font-size:34px;line-height:1}
+  .englishExamIndex>header aside small{font-size:var(--study-type-meta);color:var(--study-faint)}
+  .englishExamPaperList{overflow:hidden;border:1px solid var(--study-line);border-radius:14px;background:var(--study-surface)}
+  .englishExamPaperList>a{
+    display:grid;grid-template-columns:58px minmax(0,1fr) auto;gap:18px;align-items:center;
+    min-height:62px;padding:10px 16px;border-bottom:1px solid var(--study-line);color:inherit;text-decoration:none
+  }
+  .englishExamPaperList>a:last-child{border-bottom:0}
+  .englishExamPaperList>a:hover{background:var(--study-green-soft)}
+  .englishExamPaperList>a>span{font-size:17px;font-weight:800;color:var(--study-green)}
+  .englishExamPaperList>a>div{display:grid;gap:3px}
+  .englishExamPaperList strong{font-size:17px;line-height:1.25}
+  .englishExamPaperList small{font-size:var(--study-type-meta);line-height:1.35;color:var(--study-muted)}
+  .englishExamPaperList b{font-size:17px;color:var(--study-green)}
+  @media(max-width:700px){
+    .englishExamIndex>header{grid-template-columns:1fr}
+    .englishExamIndex>header aside{text-align:left}
+  }
 </style>
