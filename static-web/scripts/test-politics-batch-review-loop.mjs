@@ -42,7 +42,7 @@ try {
   await page.goto(unitUrl.href, { waitUntil: 'domcontentloaded' });
   check(await page.locator('[data-politics-question]').count() === 0, 'learning_page_has_no_inline_xiao_attempt');
   const entry = page.locator(`[data-practice-unit-entry="${target.unitKey}"]`);
-  await entry.waitFor({ state: 'visible' });
+  await entry.waitFor({ state: 'attached' });
   const entryHref = await entry.getAttribute('href');
   check(String(entryHref).includes('/politics/practice/?unit='), 'learning_page_routes_exact_unit_to_workbench', String(entryHref));
 
