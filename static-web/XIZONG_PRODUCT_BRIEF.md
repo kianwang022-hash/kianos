@@ -171,12 +171,19 @@ The approved first-pass model remains external-primary:
 System orientation
 → choose Block
 → Block orientation
-→ current Logic Group orientation
-→ iPad / MarginNote original Lecture: continuous study of the whole Logic Group
-→ return once to KianOS
-→ KP Recall for that Logic Group
+→ current Logic Group / Source-contact orientation
+→ iPad / MarginNote original Lecture: continuous study at the accepted Source-contact granularity
+   while Mac KP Learn remains a companion rather than a second Lecture
+→ at a real reviewed Source boundary:
+     if a reviewed Lecture-attached TTSX binding exists
+     → lightweight TTSX checkpoint
+     → questions stay in MarginNote; optional learner note may be left in KianOS
+     otherwise
+     → no checkpoint is invented
+→ return at the accepted retrieval point
+→ KP Recall for the current Logic Group
 → Logic Group closure
-→ next Logic Group
+→ next Logic Group / accepted Source contact
 → Block Recall
 → Block Complete
 ```
@@ -184,7 +191,8 @@ System orientation
 After the relevant System has actually been learned, later stages may expose:
 
 ```text
-System Recall
+System Framework releases dedicated System Recall entry
+→ separate System Recall workspace
 → official System question sweep
 → Wrong / meaningful Uncertain repair
 → short post-question System reconstruction
@@ -195,9 +203,10 @@ Runtime capability never authorizes a learner-facing stage before the learner ha
 Hard learner-facing boundaries:
 
 - original Lecture in MarginNote remains the continuous first-learning owner;
-- KianOS owns orientation, cognitive positioning, selective cues, retrieval, closure, verification, repair routing and later review;
+- KianOS owns orientation, cognitive positioning, Source-boundary release, conditional TTSX checkpointing, selective cues, retrieval, closure, verification, repair routing and later review;
 - KP is a stable canonical knowledge identity, **not automatically the learner-facing first-learning order**;
-- Logic Group is the local continuity / closure unit inside a Block;
+- Logic Group is the local retrieval / closure unit inside a Block and is not automatically the Source-contact unit;
+- System Recall is a dedicated learner surface released after real whole-System completion, not an expandable region embedded under System Framework;
 - stable correct work must remain cheap;
 - Wrong / meaningful Uncertain opens only the smallest useful repair;
 - engineering readiness must never be rendered as learner progress.
