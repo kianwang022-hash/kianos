@@ -16,6 +16,7 @@ const acceptance = read('LEARNING_ACCEPTANCE.md');
 const explanationReadme = read('content/xizong/explanations/README.md');
 const explanationManifest = readJson('content/xizong/explanations/manifest.json');
 const extensionContract = read('content/xizong/EXTENSION_ASSET_CONTRACT.md');
+const extensionContract = read('content/xizong/EXTENSION_ASSET_CONTRACT.md');
 const questionManifest = readJson('content/xizong/questions/manifest.json');
 
 assert(
@@ -49,6 +50,15 @@ assert(
 assert(
   assetStandard.includes('Production continuity across migrations'),
   'learning-asset-standard-lost-production-continuity-rule'
+);
+assert(
+  extensionContract.includes('content/xizong/LEARNING_CONTRACT.md')
+    && extensionContract.includes('content/xizong/knowledge/learner/study-policy.json'),
+  'extension-parent-authority-not-current'
+);
+assert(
+  !extensionContract.includes('XIZONG_STUDY_LEARNING_BASELINE_v6_FROZEN.md'),
+  'extension-retired-v6-parent-authority-returned'
 );
 assert(
   !extensionContract.includes('XIZONG_STUDY_LEARNING_BASELINE_v6_FROZEN.md'),
