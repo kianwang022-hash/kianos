@@ -2,7 +2,6 @@
 import '../styles/product-closure.css';
 import '../styles/home-workbench.css';
 import ExamOrchestratorHome from '../components/ExamOrchestratorHome.astro';
-import MissionControlHome from '../components/MissionControlHome.astro';
 import Base from '../layouts/Base.astro';
 import XizongHomeTools from '../components/XizongHomeTools.astro';
 import PoliticsHomeTools from '../components/PoliticsHomeTools.astro';
@@ -117,7 +116,6 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
 
     <aside class="homeL3Support" aria-label="今日安排与学习支持">
       <ExamOrchestratorHome />
-      <MissionControlHome />
       <section class="homeL3SupportLinks">
         <a href={`${base}vocabulary/`}>Vocabulary →</a>
         <nav aria-label="英语 Guide">
