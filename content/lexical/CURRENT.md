@@ -11,16 +11,16 @@ This cursor owns current engineering routing only. It does not own Rule / Model,
 ## Current state
 
 **Active lane:** Lexical Architecture v2 adaptation  
-**Blocker:** none at architecture level; L3 Depth Human Gate is accepted. Remaining material surfaces still require their own Human Gates.
+**Blocker:** none at architecture level; L3 Depth plus Repair / Challenge Human Gates are accepted. English handoff / exact return is the next material Human Gate.
 
 Stage:
 
 ```text
 A Rule / Content readback       PASS / PRESERVE
 B Lexical L2 visual family     ACCEPTED
-C L3 Surface Human Gates        DEPTH ACCEPTED / OTHERS ACTIVE
-D Engineering adaptation        AFTER VISUAL
-E English-family integration    AFTER SURFACES
+C L3 Surface Human Gates        DEPTH + REPAIR/CHALLENGE ACCEPTED
+D Engineering adaptation        ACTIVE / bounded per accepted surface
+E English-family integration    ENGLISH HANDOFF / EXACT RETURN NEXT
 ```
 
 This is **not** a 7,946-word Content rebuild.
@@ -322,17 +322,52 @@ Material visual changes require a fresh Kian Human Gate. Minor polish may procee
 
 ---
 
-## Exact next action
+## L3 Repair + Challenge Human Gate — ACCEPTED 2026-09-18
 
-Preserve the accepted **L3 Depth** baseline and continue to the next unaccepted Lexical surface in Human-Gate order.
+Kian accepted the real-browser Repair execution family as one coherent learner job. Because Challenge is the execution mode inside Repair rather than a peer L3 destination, the same Human Gate closes both surfaces.
 
-For Depth itself:
+Accepted states:
 
 ```text
-Final Learner Object
-→ fixed Website mapping
-→ accepted L3 Depth baseline
-→ normal use / bounded polish only
+ACTIVE
+→ narrow exact-object rail + dominant spatial Test
+
+WRONG
+→ minimum local Repair only
+
+RECONSTRUCTION
+→ same directional interaction language
+
+EMPTY
+→ calm exit back to Learn; no task wall
 ```
 
-Do not redesign Depth again unless real use exposes a concrete problem or Kian explicitly reopens its Human Gate.
+Preserve:
+
+- Chat decides what exact target deserves a Test;
+- Astro executes continuously with ← ↑ ↓ → and records evidence;
+- wrong answers reveal only the smallest useful Repair;
+- Reconstruction does not masquerade as transfer evidence;
+- no overdue wall, mandatory queue clearing or full-card restudy;
+- manual packet transport remains debug / compatibility only;
+- Challenge remains inside Repair and does not become a fifth Vocabulary L3 destination.
+
+Material changes to this interaction geometry require a fresh Human Gate.
+
+---
+
+## Exact next action
+
+Build and Human-Gate the **English → Vocabulary → exact English return** surface on the already-existing shared bridge.
+
+Required path:
+
+```text
+English task
+→ select exact lexical token
+→ open the matching Vocabulary Lookup owner when exact identity exists
+→ preserve task context without advancing Coverage
+→ return to the exact originating task / position
+```
+
+Do not create a second dictionary, duplicate lexical content, or reopen accepted Depth / Repair / Challenge geometry.

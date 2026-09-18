@@ -1,6 +1,6 @@
 # Lexical Visual / Surface Blueprint — Candidate
 
-Status: **VISUAL FAMILY ACCEPTED — DEPTH SURFACE ACCEPTED; remaining learner surfaces stay Human-Gate candidates**  
+Status: **VISUAL FAMILY ACCEPTED — DEPTH + REPAIR / CHALLENGE SURFACES ACCEPTED; ENGLISH HANDOFF NEXT**  
 Parent Visual authority: `static-web/PRESENTATION_CONTRACT.md`  
 Preference owner: `static-web/KIAN_UI_PREFERENCES.md`  
 Rule / Model owner: `content/lexical/LEARNING_CONTRACT.md`  
@@ -547,7 +547,11 @@ A rich Depth encounter may end with zero local `+` targets.
 
 ---
 
-## 7｜Repair — candidate role
+## 7｜Repair — accepted role
+
+Status: **ACCEPTED by Kian — 2026-09-18**
+
+Human Gate accepted the ACTIVE / WRONG / RECONSTRUCTION / EMPTY family shown in real 1440×900 browser captures. Challenge is the execution mode inside Repair, so this acceptance covers the visible Repair session geometry and its core interaction language.
 
 Repair is a **direct execution session**, not an inventory-management page and not a second study Home.
 
@@ -599,7 +603,9 @@ Forbidden:
 
 ---
 
-## 8｜Challenge — Repair execution mode
+## 8｜Challenge — accepted Repair execution mode
+
+Status: **ACCEPTED by Kian — 2026-09-18**
 
 Challenge remains a test job, but it is **not a peer Vocabulary L3 destination**. It is the primary execution mode inside Repair when Chat decides that a target deserves a Test.
 

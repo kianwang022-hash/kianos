@@ -10,7 +10,7 @@ const base = import.meta.env.BASE_URL;
 
 <div class="englishLexicalReturn" data-english-lexical-return hidden>
   <div>
-    <span>LEXICAL · READ ONLY</span>
+    <span>ENGLISH → VOCABULARY</span>
     <strong data-english-return-title>返回 English</strong>
     <small data-english-return-meta></small>
   </div>
@@ -214,8 +214,10 @@ const base = import.meta.env.BASE_URL;
       }
       const title = returnBar.querySelector('[data-english-return-title]');
       const meta = returnBar.querySelector('[data-english-return-meta]');
-      if (title) title.textContent = `返回 ${context.task || 'English'}`;
-      if (meta) meta.textContent = `${context.word || 'lookup'} · 只读查词，不创建 English / Lexical mastery`;
+      const action = returnBar.querySelector('[data-english-return-action]');
+      if (title) title.textContent = context.word || 'Vocabulary Lookup';
+      if (meta) meta.textContent = `来自 ${context.task || 'English'} · 浏览本身不推进 Coverage；返回时恢复原位置`;
+      if (action) action.textContent = `← 返回 ${context.task || 'English'}`;
       returnBar.hidden = false;
     };
 
@@ -226,13 +228,23 @@ const base = import.meta.env.BASE_URL;
       if (!lookup) return;
       const root = document.querySelector('[data-lexical-home]');
       if (!(root instanceof HTMLElement)) return;
-      const tab = root.querySelector('[data-lexical-tab="search"]');
+      const tab = root.querySelector('[data-lexical-tab="research"]');
+      const searchMode = root.querySelector('[data-lexical-research-mode="search"]');
       const input = root.querySelector('[data-lexical-search]');
       if (tab instanceof HTMLButtonElement) tab.click();
+      if (searchMode instanceof HTMLButtonElement) searchMode.click();
       if (input instanceof HTMLInputElement) {
         input.value = lookup;
         input.dispatchEvent(new Event('input', { bubbles: true }));
         input.focus();
+      }
+
+      // English handoff should reach the exact canonical owner without making the
+      // learner click through an intermediate result row when identity is exact.
+      if (params.get('from') === 'english') {
+        const exact = [...root.querySelectorAll('[data-lexical-search-results] .lexicalWordRow')]
+          .find((row) => String(row.querySelector('strong')?.textContent || '').trim().toLowerCase() === lookup.toLowerCase());
+        if (exact instanceof HTMLAnchorElement) location.href = exact.href;
       }
     };
 

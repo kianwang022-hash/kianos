@@ -362,6 +362,69 @@ try {
   await page.goto(`${origin}/vocabulary/`, { waitUntil: 'networkidle' });
   await page.evaluate(() => localStorage.clear());
 
+  // English → Vocabulary → exact English return is one shared bridge, not a second dictionary.
+  await page.evaluate(() => { localStorage.clear(); sessionStorage.clear(); });
+  await page.goto(`${origin}/vocabulary/`, { waitUntil: 'networkidle' });
+  const lexicalWords = await page.evaluate(() => {
+    const rows = JSON.parse(document.querySelector('[data-lexical-catalog]')?.textContent || '[]');
+    return rows.map((row) => String(row.word || '').toLowerCase()).filter(Boolean);
+  });
+  await page.goto(`${origin}/reading/`, { waitUntil: 'networkidle' });
+  const firstReadingHref = await page.locator('[data-reading-continue]').getAttribute('href');
+  assert(Boolean(firstReadingHref), 'v2_english_handoff_has_reading_fixture');
+  await page.goto(new URL(firstReadingHref, origin).href, { waitUntil: 'networkidle' });
+  await page.evaluate(() => window.scrollTo({ top: Math.min(360, document.documentElement.scrollHeight - innerHeight), behavior: 'instant' }));
+  const readingReturnHref = await page.evaluate(() => location.pathname + location.search + location.hash);
+  const expectedReturnY = await page.evaluate(() => window.scrollY);
+  const selectedWord = await page.evaluate((knownWords) => {
+    const passage = document.querySelector('[data-reading-passage]');
+    if (!(passage instanceof HTMLElement)) return '';
+    const known = new Set(knownWords);
+    const walker = document.createTreeWalker(passage, NodeFilter.SHOW_TEXT);
+    while (walker.nextNode()) {
+      const node = walker.currentNode;
+      const text = String(node.textContent || '');
+      const pattern = /[A-Za-z]+(?:[-'’][A-Za-z]+)*/g;
+      let match;
+      while ((match = pattern.exec(text))) {
+        const word = match[0];
+        if (!known.has(word.toLowerCase())) continue;
+        const range = document.createRange();
+        range.setStart(node, match.index);
+        range.setEnd(node, match.index + word.length);
+        const selection = window.getSelection();
+        selection?.removeAllRanges();
+        selection?.addRange(range);
+        document.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));
+        return word;
+      }
+    }
+    return '';
+  }, lexicalWords);
+  assert(Boolean(selectedWord), 'v2_english_handoff_selects_current_lexical_word');
+  await page.locator('[data-english-selection-menu]').waitFor({ state: 'visible' });
+  assert(await page.locator('[data-selection-lexical]').isVisible(), 'v2_english_selection_exposes_lexical_action');
+  await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-english-selection-1440x900.png'), fullPage: false });
+
+  await page.locator('[data-selection-lexical]').click();
+  await page.waitForURL(/\/vocabulary\/\d+\/?\?mode=lookup$/);
+  await page.locator('[data-local-port="vocabulary"][data-vocab-mode="lookup"]').waitFor({ state: 'visible' });
+  assert((await page.locator('.lexicalWordIdentity h2').innerText()).trim().toLowerCase() === selectedWord.toLowerCase(), 'v2_english_handoff_opens_exact_owner', selectedWord);
+  assert(await page.locator('[data-english-lexical-return]').isVisible(), 'v2_english_handoff_keeps_return_context');
+  assert((await page.locator('[data-english-return-meta]').innerText()).includes('不推进 Coverage'), 'v2_english_handoff_lookup_is_nonprogressing');
+  const routingAfterLookup = await page.evaluate(() => localStorage.getItem('kianos-lexical-card-routing-v1'));
+  assert(routingAfterLookup === null, 'v2_english_lookup_does_not_create_card_routing');
+  await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-english-handoff-lookup-1440x900.png'), fullPage: false });
+
+  await page.locator('[data-english-return-action]').click();
+  await page.waitForURL((url) => url.pathname + url.search + url.hash === readingReturnHref);
+  await page.waitForTimeout(120);
+  const returnedY = await page.evaluate(() => window.scrollY);
+  assert(Math.abs(returnedY - expectedReturnY) < 120, 'v2_english_handoff_restores_window_position', `${expectedReturnY}->${returnedY}`);
+  const returnContext = await page.evaluate(() => sessionStorage.getItem('kianos-english-lexical-return-v1'));
+  assert(returnContext === null, 'v2_english_handoff_clears_return_context_after_restore');
+  await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-english-handoff-return-1440x900.png'), fullPage: false });
+
   // Daily new-word ceiling is a real capacity guard, not decorative Home state.
   await page.evaluate(() => {
     localStorage.clear();
