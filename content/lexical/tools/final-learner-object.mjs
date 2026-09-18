@@ -73,3 +73,253 @@ export function compileLexicalStudyObject(record = {}, decisions = {}) {
     form_identity: form
   };
 }
+
+
+const exactUniqueText = (values = []) => {
+  const seen = new Set();
+  const rows = [];
+  for (const raw of values) {
+    const value = String(raw || '').trim();
+    if (!value || seen.has(value)) continue;
+    seen.add(value);
+    rows.push(value);
+  }
+  return rows;
+};
+
+const repairTarget = (kind, id, locator, label) => ({
+  kind: String(kind || 'lexical'),
+  id: id ? String(id) : '',
+  locator: locator ? String(locator) : '',
+  label: String(label || '').trim()
+});
+
+const posLabel = (value = '') => {
+  const pos = String(value || '').toLowerCase();
+  if (pos.startsWith('verb') || pos === 'v') return 'V';
+  if (pos.startsWith('adj') || pos === 'a') return 'A';
+  if (pos.startsWith('noun') || pos === 'n') return 'N';
+  if (pos.startsWith('adv')) return 'ADV';
+  if (pos.startsWith('prep')) return 'PREP';
+  if (pos.startsWith('interj')) return 'INTJ';
+  if (pos.startsWith('numeral')) return 'NUM';
+  return String(value || 'S').toUpperCase();
+};
+
+const relationLearnerObject = (relation = {}, kind, locator, word) => {
+  const evidenceObjects = Array.isArray(relation.source_evidence_objects)
+    ? relation.source_evidence_objects
+    : [];
+  const differences = [];
+  if (relation.difference_axes && typeof relation.difference_axes === 'object') {
+    for (const [key, value] of Object.entries(relation.difference_axes)) {
+      if (value) differences.push({ key: String(key).replaceAll('_', ' '), value: String(value) });
+    }
+  }
+  for (const item of evidenceObjects) {
+    if (!item?.difference || typeof item.difference !== 'object') continue;
+    for (const [key, value] of Object.entries(item.difference)) {
+      if (value) differences.push({ key: String(key).replaceAll('_', ' '), value: String(value) });
+    }
+  }
+
+  const title = String(
+    relation.target_expression ||
+    relation.target_word ||
+    relation.module ||
+    relation.relation_type ||
+    'contrast'
+  ).trim();
+
+  return {
+    id: String(relation.relation_id || relation.fact_id || ''),
+    kind,
+    title,
+    lines: exactUniqueText([
+      relation.meaning_cn,
+      relation.definition_cn,
+      relation.boundary,
+      ...(Array.isArray(relation.boundaries) ? relation.boundaries : []),
+      relation.learning_note,
+      relation.relation_note,
+      relation.shared_definition,
+      relation.shared_core,
+      relation.shared_meaning,
+      relation.unsafe_swap,
+      ...evidenceObjects.map((item) => item?.learner_note),
+      relation.definition_en
+    ]).filter((line) => line !== title),
+    differences,
+    repair_target: repairTarget(
+      'relation',
+      relation.fact_id || relation.relation_id || '',
+      locator,
+      title || word
+    )
+  };
+};
+
+export function compileLexicalFinalLearnerObject(record = {}, decisions = {}) {
+  const study = compileLexicalStudyObject(record, decisions);
+  const word = String(study.word || '');
+  const core = study.core_concept && typeof study.core_concept === 'object'
+    ? study.core_concept
+    : {};
+
+  const senses = [];
+  for (const [index, sense] of (Array.isArray(study.senses) ? study.senses : []).entries()) {
+    senses.push({
+      id: String(sense?.sense_id || ''),
+      kind: 'active',
+      pos: String(sense?.pos || ''),
+      pos_label: posLabel(sense?.pos),
+      governing_pattern: String(sense?.governing_pattern || ''),
+      meaning_cn: String(sense?.definition_cn || ''),
+      calibration_en: String(sense?.definition_en || ''),
+      usage_note: String(sense?.usage_note || ''),
+      collocations: (Array.isArray(sense?.collocations) ? sense.collocations : []).map((item, collocationIndex) => ({
+        id: String(item?.collocation_id || ''),
+        phrase: String(item?.phrase || ''),
+        meaning_cn: String(item?.meaning_cn || ''),
+        role: item?.exam_value === 'fixed_pattern' ? 'fixed_pattern' : 'usage_example',
+        repair_target: item?.exam_value === 'fixed_pattern'
+          ? repairTarget(
+              'collocation',
+              item?.collocation_id || '',
+              `record.senses[${index}].collocations[${collocationIndex}]`,
+              item?.phrase || word
+            )
+          : null
+      })),
+      repair_target: repairTarget(
+        'sense',
+        sense?.sense_id || '',
+        `record.senses[${index}]`,
+        sense?.definition_cn || sense?.definition_en || word
+      )
+    });
+  }
+
+  for (const [index, sense] of (Array.isArray(study.secondary_senses) ? study.secondary_senses : []).entries()) {
+    senses.push({
+      id: String(sense?.fact_id || sense?.source_sense_id || ''),
+      kind: 'secondary',
+      pos: String(sense?.pos || ''),
+      pos_label: posLabel(sense?.pos),
+      governing_pattern: String(sense?.governing_pattern || ''),
+      meaning_cn: String(sense?.definition_cn || sense?.meaning_cn || ''),
+      calibration_en: String(sense?.definition_en || sense?.label_en || ''),
+      usage_note: String(sense?.usage_note || ''),
+      pattern: String(sense?.pattern || sense?.boundary || ''),
+      collocations: (Array.isArray(sense?.collocations) ? sense.collocations : []).map((item) => ({
+        id: String(item?.collocation_id || ''),
+        phrase: String(item?.phrase || ''),
+        meaning_cn: String(item?.meaning_cn || ''),
+        role: item?.exam_value === 'fixed_pattern' ? 'fixed_pattern' : 'usage_example',
+        repair_target: null
+      })),
+      repair_target: repairTarget(
+        'secondary_sense',
+        sense?.fact_id || sense?.source_sense_id || '',
+        `record.secondary_senses[${index}]`,
+        sense?.definition_cn || sense?.meaning_cn || sense?.definition_en || sense?.label_en || word
+      )
+    });
+  }
+
+  const constructions = (Array.isArray(study.constructions) ? study.constructions : []).map((item, index) => {
+    const locator = String(item?.learner_source_locator || `record.constructions[${index}]`);
+    const title = String(item?.pattern || item?.label_en || item?.boundary || '').trim();
+    return {
+      id: String(item?.construction_id || item?.fact_id || ''),
+      pattern: title,
+      meaning_cn: String(item?.meaning_cn || item?.definition_cn || ''),
+      lines: exactUniqueText([
+        item?.learning_note,
+        item?.definition_en,
+        item?.boundary
+      ]).filter((line) => line !== title),
+      repair_target: repairTarget(
+        'construction',
+        item?.construction_id || item?.fact_id || '',
+        locator,
+        title || word
+      )
+    };
+  });
+
+  const relations = [
+    ...(Array.isArray(study.semantic_neighbors) ? study.semantic_neighbors : []).map((relation, index) =>
+      relationLearnerObject(relation, 'relation', `record.semantic_neighbors[${index}]`, word)),
+    ...(Array.isArray(study.confusables) ? study.confusables : []).map((relation, index) =>
+      relationLearnerObject(relation, 'confusable', `record.confusables[${index}]`, word))
+  ];
+
+  const formNotes = [];
+  for (const sense of Array.isArray(study.senses) ? study.senses : []) {
+    const overlay = sense?.lexical_identity_overlay;
+    if (!overlay || overlay?.identity_type !== 'form_boundary') continue;
+    const note = String(
+      overlay.note || overlay.label_cn || overlay.label_en || overlay.boundary || ''
+    ).trim();
+    if (note) formNotes.push({
+      source_sense_id: String(sense?.sense_id || ''),
+      text: note
+    });
+  }
+
+  const form = study.form_identity
+    ? {
+        form_type: String(study.form_identity.form_type || ''),
+        spelling: String(study.form_identity.spelling || word),
+        variants: (Array.isArray(study.form_identity.variants) ? study.form_identity.variants : []).map((variant) => ({
+          id: String(variant?.variant_id || ''),
+          pos: Array.isArray(variant?.pos) ? variant.pos.map(String) : [],
+          learner_key: String(variant?.learner_key || ''),
+          ipa: String(variant?.ipa || '')
+        })),
+        notes: formNotes,
+        repair_target: repairTarget('form_identity', '', 'record.form_identity', word)
+      }
+    : formNotes.length
+      ? {
+          form_type: 'form_boundary',
+          spelling: word,
+          variants: [],
+          notes: formNotes,
+          repair_target: repairTarget('form_identity', '', 'record.form_identity', word)
+        }
+      : null;
+
+  const family = (Array.isArray(study.word_family) ? study.word_family : []).map((item) => ({
+    id: String(item?.fact_id || ''),
+    target_word: String(item?.target_word || ''),
+    lines: exactUniqueText([
+      item?.meaning_cn,
+      item?.definition_cn,
+      item?.boundary,
+      item?.learning_note,
+      item?.shared_definition,
+      item?.definition_en
+    ])
+  }));
+
+  const coreMeaning = String(core.core_meaning_cn || core.mental_model_cn || '').trim();
+  const decision = String(core.mental_model_cn || '').trim();
+
+  return {
+    schema: 'kianos.lexical.final_learner_object.v1',
+    word_id: String(study.word_id || ''),
+    word,
+    word_feel: {
+      core_cn: coreMeaning,
+      decision_cn: decision && decision !== coreMeaning ? decision : '',
+      repair_target: repairTarget('core', '', 'record.core_concept', coreMeaning || word)
+    },
+    senses,
+    constructions,
+    relations,
+    form,
+    family
+  };
+}
