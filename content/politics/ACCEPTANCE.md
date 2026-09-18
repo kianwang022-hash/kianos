@@ -633,8 +633,103 @@ Fresh independent Consolidation L re-audit
 = PENDING
 
 Analysis-Output L
-= UNTESTED
+= CANDIDATE / CHAT-PRIMARY / FRESH AUDIT PENDING
 
 Mock/Final L
+= UNTESTED
+```
+
+
+---
+
+## Analysis-Output L — Chat-primary candidate
+
+Status: **CANDIDATE / FRESH AUDIT PENDING**
+
+Politics analysis-question preparation is intentionally **Chat-primary**. No dedicated learner Website/Runtime is required for this lane.
+
+Durable architecture:
+
+```text
+GitHub Current
+= source-grounded reusable assets
+  topic / material cues / owning principle
+  small answer skeleton
+  exact formulations when source-legitimate
+  current-year overlay refs / freshness state
+
+Chat
+= learner surface
+  selects topic/material/depth
+  asks the learner to identify what is tested
+  checks the answer skeleton
+  requests exact wording only when needed
+  requests full prose only when worth the time
+  diagnoses and repairs the smallest real output failure
+
+Website
+= no required role
+```
+
+Canonical topic ownership remains in:
+
+```text
+content/politics/learning/<subject>/<chapter>.json
+→ later_stage_knowledge.analysis_output_hooks[]
+```
+
+Lane-level routing/production rules live at:
+
+```text
+content/politics/analysis-output/README.md
+```
+
+Default Chat depth:
+
+```text
+IDENTIFY
+→ SKELETON
+```
+
+Add `EXACT` only when source/current-year wording matters.
+
+Add `DELIVER` only when:
+- first calibrating an important question family;
+- material → principle → skeleton conversion is unstable;
+- timed delivery itself needs evidence;
+- Mock/final practice explicitly requires full prose.
+
+Hard boundaries:
+
+- do not build a second answer-template database;
+- do not force symmetric Output banks across all five subjects;
+- no source support → no exact formulation claim;
+- historical output material may scaffold a topic but cannot freeze current-year wording;
+- Xi/current-affairs and legal/normative material keep their strongest freshness gates;
+- real learner answers / weakness rankings / Chat diagnosis stay private, not in GitHub Current;
+- Website/Runtime acceptance is not required for Analysis Output L.
+
+Fresh audit must test whether the existing hooks + Chat-primary rules are sufficient to:
+1. identify a source-grounded topic;
+2. train material → principle recognition;
+3. train a compact answer skeleton;
+4. retrieve only legitimate exact/current wording;
+5. use full prose selectively;
+6. repair the smallest real output failure;
+7. avoid inventing unsupported or stale answer banks.
+
+Allowed current claim:
+
+```text
+Politics Analysis-Output L
+= CANDIDATE / CHAT-PRIMARY
+
+Fresh independent audit
+= PENDING
+
+Website/Runtime
+= NOT REQUIRED FOR THIS LANE
+
+Real learner U
 = UNTESTED
 ```
