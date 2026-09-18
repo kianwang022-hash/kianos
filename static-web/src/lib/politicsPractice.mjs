@@ -16,6 +16,7 @@ const QUESTION_MANIFEST = `${ROOT}/source/questions/manifest.json`;
 const QUESTION_SHARDS = `${ROOT}/source/questions/shards`;
 const PROJECTION_MANIFEST = `${ROOT}/projection/manifest.json`;
 const PROJECTION_ROOT = `${ROOT}/projection`;
+const SOURCE_NODE_SHARDS = `${ROOT}/source/nodes/shards`;
 const LEARNER_EXPLANATION_MANIFEST = `${ROOT}/derived/xiao1000-learner-explanations/manifest.json`;
 const QUESTION_WIDTH = 25;
 
@@ -39,6 +40,100 @@ function sha256(value) { return createHash('sha256').update(value).digest('hex')
 function parseJsonl(relativePath) {
   if (!exists(relativePath)) return [];
   return readText(relativePath).split(/\r?\n/).map((line) => line.trim()).filter(Boolean).map(JSON.parse);
+}
+
+function slug(value) {
+  return String(value || 'unknown').toLowerCase().replace(/[^a-z0-9_-]+/g, '-').replace(/^-+|-+$/g, '') || 'unknown';
+}
+
+function sourceNodeShardPath(ownerId) {
+  const id = String(ownerId || '');
+  const match = id.match(/^POL27-([A-Z0-9]+)-([A-Z0-9_]+)(?:-|$)/i);
+  if (!match) return '';
+  const source = slug(`POL27-${match[1]}`);
+  const subject = slug(match[2]);
+  const chapter = id.match(/-C(\d{2})(?:-|$)/i)?.[1] || null;
+  const page = id.match(/-P(\d{3})(?:-|$)/i)?.[1] || null;
+  const partition = chapter ? `c${chapter}` : page ? `p${page}` : 'root';
+  return `${SOURCE_NODE_SHARDS}/${source}/${subject}/${partition}.json`;
+}
+
+const sourceNodeShardCache = new Map();
+function sourceNodeRows(ownerId) {
+  const relativePath = sourceNodeShardPath(ownerId);
+  if (!relativePath || !exists(relativePath)) return [];
+  if (!sourceNodeShardCache.has(relativePath)) sourceNodeShardCache.set(relativePath, readJson(relativePath));
+  const shard = sourceNodeShardCache.get(relativePath);
+  return Object.entries(shard || {})
+    .filter(([id]) => id === ownerId || id.startsWith(`${ownerId}-`))
+    .map(([id, row]) => ({ id, row }));
+}
+
+function normalizedMatchText(value) {
+  return clean(value).replace(/[\s·•，。、“”‘’：:；;（）()【】\[\]<>《》—–\-_/\\]/g, '');
+}
+
+function locatorStep(id, row) {
+  const title = clean(row?.title || row?.original_text_span);
+  if (/-K\d+$/i.test(id)) {
+    const number = title.match(/考点\s*(\d+)/)?.[1] || id.match(/-K(\d+)$/i)?.[1];
+    return number ? `考点${Number(number)}` : '';
+  }
+  if (/-N\d+$/i.test(id)) {
+    const number = title.match(/^\s*(\d+)\s*[.．、]/)?.[1] || id.match(/-N(\d+)$/i)?.[1];
+    return number ? String(Number(number)) : '';
+  }
+  if (/-I\d+$/i.test(id)) {
+    const number = title.match(/^[（(]\s*(\d+)\s*[）)]/)?.[1] || id.match(/-I(\d+)$/i)?.[1];
+    return number ? `（${Number(number)}）` : '';
+  }
+  return '';
+}
+
+function exactChengfengLocator(rawQuestion, unit) {
+  if (!unit || !Array.isArray(unit.source) || clean(rawQuestion?.answer).length !== 1) return null;
+  const answerLabel = clean(rawQuestion.answer).toUpperCase();
+  if (!/^[A-D]$/.test(answerLabel)) return null;
+  const answerText = clean(rawQuestion?.options?.[answerLabel]);
+  const needle = normalizedMatchText(answerText);
+  if (needle.length < 6) return null;
+
+  const candidates = [];
+  for (const source of unit.source) {
+    const ownerId = clean(source?.id);
+    if (!ownerId || !ownerId.startsWith('POL27-CF-')) continue;
+    for (const entry of sourceNodeRows(ownerId)) {
+      const rowText = normalizedMatchText(entry.row?.original_text_span || entry.row?.title);
+      if (!rowText || !rowText.includes(needle)) continue;
+      const depth = Array.isArray(entry.row?.hierarchy_path) ? entry.row.hierarchy_path.length : entry.id.split('-').length;
+      candidates.push({ ...entry, ownerId, depth });
+    }
+  }
+  if (!candidates.length) return null;
+
+  const deepest = Math.max(...candidates.map((row) => row.depth));
+  const leaves = candidates.filter((row) => row.depth === deepest);
+  if (leaves.length !== 1) return null;
+  const match = leaves[0];
+
+  const shardPath = sourceNodeShardPath(match.ownerId);
+  const shard = shardPath && exists(shardPath) ? readJson(shardPath) : {};
+  const hierarchy = Array.isArray(match.row?.hierarchy_path) ? match.row.hierarchy_path : [];
+  const steps = hierarchy
+    .map((id) => locatorStep(id, shard?.[id] || (id === match.id ? match.row : null)))
+    .filter(Boolean);
+  const page = Number(match.row?.book_page_start || match.row?.book_page_end || 0);
+  if (!steps.length || !page) return null;
+
+  return {
+    status: 'EXACT_SOURCE_NODE',
+    source: '乘风',
+    bookPage: page,
+    steps,
+    display: `乘风 P${page} · ${steps.join(' → ')}`,
+    sourceNodeId: match.id,
+    matchBasis: 'CORRECT_OPTION_EXACT_SOURCE_NODE_MATCH'
+  };
 }
 
 function sourceQuestionId(question = {}) {
@@ -395,6 +490,7 @@ export function buildPoliticsPracticeCatalogCurrent(base = '/') {
         chatExplanation: refinedRow.chatExplanation,
         contentVersion: refined.contentVersion
       },
+      chengfengLocator: exactChengfengLocator(raw, owner),
       originalFace: asset ? {
         assetId: clean(asset.asset_id || sourceId),
         relativePath: clean(asset.relative_path),
