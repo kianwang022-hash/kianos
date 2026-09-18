@@ -93,7 +93,11 @@ bounded Source reconstruction / audit
 → Knowledge construction / audit
 → independent K acceptance
 → Learning construction
+→ builder self-adversarial Learning attack
+→ fresh independent L acceptance
 ```
+
+For substantial System-level Learning reconstruction, builder self-review cannot promote L by itself. E/F inherit the root production rule restored in `LEARNING_ASSET_STANDARD.md` / `LEARNING_ACCEPTANCE.md`; downstream P remains frozen until fresh L acceptance.
 
 Do not copy D topology into E for symmetry.
 
