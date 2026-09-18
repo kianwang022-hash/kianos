@@ -189,8 +189,8 @@ function projectReviewQuestion(semanticQuestion, passage, labels) {
 let cache;
 
 function objectiveTaskSections(manifest, taskName) {
-  const map = manifest?.final_learner_objects?.objective_task_map;
-  if (map?.schema !== 'kianos.english.objective_task_map.v1' || !map?.tasks || typeof map.tasks !== 'object') {
+  const map = manifest?.final_learner_objects?.task_map;
+  if (map?.schema !== 'kianos.english.task_map.v1' || !map?.tasks || typeof map.tasks !== 'object') {
     throw new Error('READING_TASK_MAP_NOT_READY');
   }
   const task = map.tasks[taskName];
