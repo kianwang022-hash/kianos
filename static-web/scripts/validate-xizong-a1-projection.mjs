@@ -14,12 +14,18 @@ function assert(condition, code) {
   if (!condition) throw new Error(code);
 }
 
-// P1 — first learning is Logic-Group continuous Lecture contact, not KP-by-KP app switching.
-assert(block.includes('不要按 KP 来回切换 App'), 'A1_P_GROUP_LECTURE_CONTINUITY_MISSING');
+// P1 — first learning keeps one formal Lecture contact per Logic Group, with MarginNote
+// as the original-source primary surface and Mac KP Learn as companion support.
+assert(block.includes('data-study-stage="kp_learn"'), 'A1_P_GROUP_LECTURE_STAGE_MISSING');
 assert(block.includes('data-group-lecture-done'), 'A1_P_GROUP_LECTURE_HANDOFF_MISSING');
-assert(block.includes('这一节原讲义已连续学完，开始 Recall'), 'A1_P_GROUP_RETURN_ACTION_MISSING');
+assert(block.includes('MarginNote 连续学习 + Mac KP Learn 同时进行'), 'A1_P_GROUP_LECTURE_CONTINUITY_MISSING');
+assert(block.includes('原图、表格、例子和讲义配套题仍留在 MarginNote'), 'A1_P_ORIGINAL_LECTURE_PRIMARY_BOUNDARY_MISSING');
+assert(block.includes('这一节已完成，开始 Recall'), 'A1_P_GROUP_RETURN_ACTION_MISSING');
 assert(!block.includes('data-kp-learned'), 'A1_P_KP_BY_KP_LEARN_FLOW_REGRESSION');
-assert(block.includes('<b>原讲义</b>') && block.includes('<b>本节 Recall</b>'), 'A1_P_CHAIN_SEMANTICS_MISSING');
+assert(
+  block.includes("kp_learn: '原讲义连续学习'") && block.includes("kp_recall: '本节 KP Recall'"),
+  'A1_P_CHAIN_SEMANTICS_MISSING'
+);
 
 // P2 — formal answer reveal remains behind a neutral Recall front.
 assert(block.includes('先主动恢复，不看答案型标题。'), 'A1_P_NEUTRAL_RECALL_FRONT_MISSING');
