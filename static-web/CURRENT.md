@@ -27,7 +27,7 @@ Architecture-level website blocker: **none**.
 
 | Lane | State | Active ref / continue from |
 | --- | --- | --- |
-| Xizong UI | **LANDED · MATERIAL HUMAN GATES CLOSED** | `main` → exact accepted Xizong surface owner; reopen only concrete defects |
+| Xizong UI | **BOUNDED LOOP AUDIT ACTIVE · PR #458** | `work/xizong-full-loop-audit-20260918` → live Study Packet + Memory Repair + exact-head QA |
 | Politics UI | **ACTIVE · ONLY MATERIAL SUBJECT UI REMAINING** | `main` → `POLITICS_PRODUCT_BRIEF.md` → current Politics renderer; old #395 is stale evidence, not a merge target |
 | English UI | **LANDED** | `content/english/CURRENT.md` |
 | Lexical / Vocabulary UI | **LANDED · HUMAN GATES CLOSED** | `content/lexical/CURRENT.md` → normal use / concrete defects only |
@@ -180,7 +180,7 @@ CI green is not visual acceptance.
 
 ## Current next actions
 
-- **Xizong:** learner-facing material UI is landed through whole-paper/year Hidden → Seal → score → same-Workbench Review. Block/TTSX, System Recall, Practice front/back, global retained W/U/Marked and whole-paper are all in `main` with real macOS Human Gates closed. Reopen only concrete defects. Typed Chat Return and durable learner-data recovery stay with the shared Learner Data / Chat Handoff lane.
+- **Xizong:** material UI remains accepted, but fresh full-loop audit #458 found two bounded integration defects: the active Block had no live Chat-readable Study Packet after retirement of the old After Learn surface, and System W/U Chat returns were not reaching the current visible Memory Repair queue. #458 repairs these without reopening accepted task geometry, removes learner-visible engineering diagnostics/copy, and must pass exact-head A1 browser Runtime/Evidence before merge. Durable learner-data recovery remains shared-platform work.
 - **Politics:** this is the only remaining material subject-UI closure. The old #395 branch is heavily diverged from Current main and must not be merged as-is; replay only still-valid Politics surface behavior from current `main`, then obtain real-browser Human Gate.
 - **English:** landed; fix only concrete launch-visible defects.
 - **Lexical:** Vocabulary v2 learner-surface closure and English exact handoff/return are accepted; normal use only unless a concrete defect appears.
