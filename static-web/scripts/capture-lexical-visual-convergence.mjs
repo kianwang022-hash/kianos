@@ -177,9 +177,46 @@ try {
 
   // Rule → Content → Visual Human-Gate fixtures.
   const depthFixtures = [
-    { ordinal: 4248, word: 'sanction', expectPatterns: true },
-    { ordinal: 19, word: 'abstract', expectPatterns: true },
-    { ordinal: 5477, word: 'write', expectPatterns: false }
+    {
+      ordinal: 4248,
+      word: 'sanction',
+      expectPatterns: true,
+      expectReference: false,
+      expectText: [
+        '同一个“官方权力”词可以走两个相反方向：批准，或处罚/制裁',
+        '先看权力是在“放行”还是“惩罚”',
+        '正式批准；授权',
+        '官方制裁；处罚',
+        'impose sanctions on/against sb/sth',
+        'sanction sb for (doing) sth'
+      ]
+    },
+    {
+      ordinal: 19,
+      word: 'abstract',
+      expectPatterns: true,
+      expectReference: true,
+      expectText: [
+        'AB-stract',
+        '/ˈæb.strækt/',
+        'initial',
+        'ab-STRACT',
+        '/əbˈstrækt/',
+        'final',
+        'abstractly',
+        '同属 AWL 词族；词性与义项不同，不可视为同义替换'
+      ]
+    },
+    {
+      ordinal: 5477,
+      word: 'write',
+      expectPatterns: false,
+      expectReference: true,
+      expectText: [
+        'write ↔ right',
+        'write 是动词“写”；right 可表正确、权利或右侧'
+      ]
+    }
   ];
   for (const fixture of depthFixtures) {
     await page.evaluate((word) => localStorage.removeItem(`kianos-vocabulary-astro-v2:word:${word}`), fixture.word);
@@ -194,6 +231,12 @@ try {
     assert(patternVisible === fixture.expectPatterns, `v2_word_owned_patterns_${fixture.word}`, String(patternVisible));
     const constructionInReference = await page.locator('.portedVocabEvidenceColumn .lexicalConstructionSection').count();
     assert(constructionInReference === 0, `v2_no_construction_in_reference_${fixture.word}`, String(constructionInReference));
+    const referenceVisible = await page.locator('.portedVocabEvidenceColumn').isVisible().catch(() => false);
+    assert(referenceVisible === fixture.expectReference, `v2_reference_presence_${fixture.word}`, String(referenceVisible));
+    const renderedText = await page.locator('[data-vocab-details]').innerText();
+    for (const expectedText of fixture.expectText || []) {
+      assert(renderedText.includes(expectedText), `v2_direct_render_${fixture.word}_${expectedText}`);
+    }
     const fixtureDock = await page.locator('[data-vocab-action-dock]').boundingBox();
     assert(Boolean(fixtureDock && fixtureDock.y + fixtureDock.height <= 900), `v2_depth_dock_in_view_${fixture.word}`, JSON.stringify(fixtureDock));
     await page.screenshot({ path: path.join(outputRoot, `lexical-v2-depth-${fixture.word}-1440x900.png`), fullPage: false });
