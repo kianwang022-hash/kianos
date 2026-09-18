@@ -173,7 +173,7 @@ actions[]
 - explicit target refs / question ids as needed
 - learner-facing prompt when needed
 - explicit reveal / source refs when needed
-- explicit precision guards when type = PRECISION
+- explicit target-guard evidence refs whenever the referenced target requires admission / freshness / phase proof
 ```
 
 Allowed action types:
