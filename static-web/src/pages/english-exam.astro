@@ -6,15 +6,15 @@ import { listEnglishExamPapers } from '../lib/englishExamPaper.mjs';
 const base = import.meta.env.BASE_URL;
 const papers = listEnglishExamPapers();
 ---
-<Base title="English · Full Paper" active="english" showLead={false} objectId="english:full-paper-index">
+<Base title="英语 · 整卷模考" active="english" showLead={false} objectId="english:full-paper-index">
   <section class="englishExamIndex">
     <header>
       <div>
-        <span>ENGLISH · FULL PAPER</span>
-        <h1>整卷 / Mock</h1>
-        <p>180 分钟，100 分。任务页面沿用现有 Reading / Cloze / Part B / Translation / Writing；这里只负责选卷和进入整卷 Session。</p>
+        <span>英语一 · 整卷训练</span>
+        <h1>整卷模考</h1>
+        <p>选择一套真题，按 180 分钟完整做完。做题过程中不看答案，交卷后再统一查看结果。</p>
       </div>
-      <aside><strong>{papers.length}</strong><small>Current complete papers</small></aside>
+      <aside><strong>{papers.length}</strong><small>套完整真题</small></aside>
     </header>
 
     <div class="englishExamPaperList">
@@ -22,8 +22,8 @@ const papers = listEnglishExamPapers();
         <a href={`${base}english-exam/${encodeURIComponent(paper.paperId)}/`}>
           <span>{paper.year}</span>
           <div>
-            <strong>English I · {paper.year}</strong>
-            <small>{paper.durationMinutes} min · {paper.totalPoints} pts · {paper.stepCount} execution steps</small>
+            <strong>{paper.year} 英语一</strong>
+            <small>{paper.durationMinutes} 分钟 · {paper.totalPoints} 分</small>
           </div>
           <b>→</b>
         </a>
