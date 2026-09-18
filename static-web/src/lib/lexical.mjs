@@ -102,6 +102,11 @@ function hydrateRelations(owner, record) {
     if (relation?.relation_id !== relationId) {
       throw new Error(`CURRENT_LEXICAL_RELATION_ID_MISMATCH:${relationId}`);
     }
+    // Retired compatibility pointers may remain addressable for provenance, but they
+    // are no longer semantic Relation owners and must not project as learner cards.
+    if (String(relation?.provenance?.status || '').toUpperCase() === 'RETIRED_AS_SEMANTIC_OWNER') {
+      continue;
+    }
     const views = Array.isArray(relation.word_views) ? relation.word_views : [];
     const view = views.find((candidate) =>
       candidate?.source_word_id === owner.word_id &&
