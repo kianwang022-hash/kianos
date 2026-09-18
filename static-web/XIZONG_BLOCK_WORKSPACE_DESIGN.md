@@ -1,6 +1,6 @@
 # Xizong Block Workspace — accepted design
 
-Status: **MAC-WIDE BLOCK / KP LEARN L3 HUMAN-GATE ACCEPTED 2026-09-18 — TARGETED CI / MERGE PENDING**
+Status: **MAC-WIDE BLOCK WORKSPACE + BLOCK TAIL HUMAN-GATE ACCEPTED 2026-09-18 — TARGETED CI / MERGE PENDING**
 Parent: `static-web/XIZONG_PRODUCT_BRIEF.md`
 Review safety: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`
 
@@ -16,10 +16,12 @@ Block orientation
 → iPad / MarginNote continuous original-Lecture study while Mac stays on KP Learn
 → current KP marked learned as the learner advances
 → that Logic Group's KP Recall on the same KP card with Core hidden
-→ Logic Group closure
+→ last KP rating automatically closes the Logic Group in the Logic Map
 → next Logic Group
-→ Block Recall
-→ Block Complete
+→ final Logic Group closes directly into Block Recall
+→ Reveal Block model
+→ complete Block Recall
+→ lightweight same-surface confirmation of Block first-pass completion
 → After Learn when useful
 ```
 
@@ -107,7 +109,7 @@ A shared Block change must not silently lose A2's Current Visual / Precision / C
 
 > **把点击用在切换认知对象，不要用在获得本来就该看到的信息。**
 
-Legitimate clicks/state changes include switching Logic Group, entering external Lecture, returning for Recall, moving through KP Recall, Closure, Block Recall, or an actually useful After-Learn task.
+Legitimate clicks/state changes include switching Logic Group, entering external Lecture, returning for Recall, moving through KP Recall, Block Recall, or an actually useful After-Learn task. Logic Group closure itself is derived automatically from completed KP Recall evidence.
 
 Important first-round Block Guide structure should normally be visible on Mac without repeated accordion/detail opening. Protected answers and truly secondary/later reference remain progressively disclosed.
 
@@ -385,7 +387,7 @@ Chat Repair = explicit adaptive / specialist repair task, not the default queue 
 
 ### 12.1 First-pass timing
 
-During unfinished `kp_recall`, Logic Group Closure and Block Recall:
+During unfinished `kp_recall`, unfinished Logic Groups and Block Recall:
 
 - preserve weak Recall evidence and any legitimate Memory admission in state;
 - do not automatically open the full `Memory / 储备 / 回 Chat` workspace after each rating;
@@ -479,29 +481,27 @@ Preserve:
 
 UI productization may change timing / prominence / spatial composition but does not rewrite those contracts.
 
-## 13｜Block Workspace completion state
+## 13｜Block Workspace implementation / Human Gate state
 
-The Block family product logic is now accepted at responsibility / interaction level:
+The accepted first-pass Block mainline is now:
 
 ```text
 Block Guide
-→ Logic Group orientation
-→ MarginNote handoff
-→ one return
-→ KP Recall Front / Reveal
-→ Logic Group Closure
+→ Logic Group orientation in Logic Map
+→ MarginNote handoff / KP Learn companion
+→ KP Recall Front / Reveal on the same KP card
+→ last KP rating auto-closes the Logic Group in Logic Map
 → next Logic Group
-→ Block Recall Front / Reconstruction
-→ Block Complete
-→ selective After Learn
+→ final Logic Group closes directly into Block Recall Front
+→ Reveal Block model
+→ complete Block Recall
+→ same-surface lightweight confirmation of Block first-pass completion
+→ selective After Learn when useful
 → return to System
 ```
 
-Still open before implementation:
+There is **no standalone Logic Group Closure page** and **no standalone Block Complete page**.
 
-- responsive fallback details;
-- final typography / spacing / exact visual polish;
-- screenshot-level acceptance;
-- later Projection asset schema / compilation details.
+Human Gate acceptance on 2026-09-18 covers the Block Recall Front, Block Recall Reveal, and post-Recall completion-confirmation state on the real Mac-wide Chromium surface. The remaining merge gate is targeted CI on the final branch head plus a final Current-head check.
 
-These visual/implementation details must preserve the accepted Block logic above.
+Responsive fallback and future Projection compilation work may continue later, but they must preserve this accepted interaction geometry and may not reintroduce the removed closure/completion ceremony.
