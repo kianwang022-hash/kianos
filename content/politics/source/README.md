@@ -36,3 +36,36 @@ A shard migration is admissible only when `source-shard-audit.json` proves:
 - no added learning semantics.
 
 Until runtime/audit consumers are cut over and parity remains green, the monoliths stay recovery authority. After cutover they may remain archival/recovery inputs, but they must not be treated as a competing learner-runtime owner.
+
+
+## Reserved later-source intake
+
+Politics reserves source-intake lanes for later materials without treating absent material as Current Truth.
+
+The intake lifecycle is:
+
+```text
+UNBOUND
+→ SOURCE_BOUND
+→ CHAT_RECONCILED
+→ CANONICAL_DELTA_ACCEPTED
+→ LEARNER_SURFACE_ELIGIBLE
+```
+
+Reserved lanes currently include:
+
+- **CURRENT_AFFAIRS** — current-year policy / meeting / current-affairs delta and analysis-output context;
+- **XIAO8** — fresh Mock / evaluation source; unseen content must remain protected until the learner attempts it;
+- **XIAO4** — final-phase high-value delta, analysis-output and final-memory source.
+
+Reservation means only that the architecture knows how a future source enters. It does **not** mean:
+
+- the source exists;
+- its content is already known;
+- empty questions/cards should be created;
+- a learner-facing UI entry should be shown;
+- the source may redefine first-round Chengfeng order.
+
+When a real source arrives, Chat may inspect it, compare it against Current Politics Knowledge, classify the delta, and write only accepted changes back to GitHub. PDF/raster evidence may remain outside the repository when a source-faithful Markdown/provenance layer is sufficient for Current work.
+
+Fresh evaluation material such as Xiao8 must preserve first-attempt integrity. Answer/explanation content becomes repair or Knowledge evidence only after the relevant attempt, unless Kian explicitly authorizes another use.
