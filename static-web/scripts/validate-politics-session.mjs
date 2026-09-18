@@ -191,6 +191,8 @@ pass(sessionClient.includes("step.recipe_type === 'PRECISION'") && sessionClient
 pass(sessionClient.includes('timed-task executor 还未验收'), 'SESSION_TIMER_RUNTIME_FAIL_CLOSED');
 pass(sessionClient.includes("const completed = status === 'COMPLETED' || nextIndex >= instruction.steps.length"), 'SESSION_EXPLICIT_CLOSE_TERMINATES_PLAN');
 pass(sessionClient.includes("$('[data-session-copy-evidence]').forEach"), 'SESSION_ALL_EVIDENCE_COPY_CONTROLS_BOUND');
+pass(!sessionClient.includes("$('[data-session-copy-evidence]').forEach"), 'SESSION_SINGLE_NODE_FOREACH_INIT_CRASH_ABSENT');
+pass(sessionClient.indexOf("$('[data-session-copy-evidence]').forEach") < sessionClient.indexOf("window.addEventListener('keydown'"), 'SESSION_INIT_REACHES_KEYBOARD_BINDING');
 pass(!sessionClient.includes("if (runtime.status === 'PAUSED_CHAT') {\n      $('[data-session-step]').hidden = true;"), 'SESSION_PAUSED_CHAT_SURFACE_VISIBLE');
 pass(practiceClient.includes('if (explicitRetest) return explicitQuestionIds.map'), 'PRACTICE_EXPLICIT_RETEST_EXACT_POOL');
 pass(practiceClient.includes("const ids = (explicitRetest ? pool : pool.slice"), 'PRACTICE_EXPLICIT_RETEST_NO_COUNT_EXPANSION');
