@@ -27,7 +27,7 @@ Architecture-level website blocker: **none**.
 
 | Lane | State | Active ref / continue from |
 | --- | --- | --- |
-| Xizong UI | **ACTIVE** | `work/xizong-system-completion-final-20260918` → `XIZONG_VISUAL_LANGUAGE.md` (L2) → exact L3 surface owner |
+| Xizong UI | **ACTIVE · PRACTICE HUMAN GATE CLOSED** | `main` → `XIZONG_VISUAL_LANGUAGE.md` (L2) → exact L3 surface owner |
 | Politics UI | **ACTIVE** | formal `#395` / `work/ui-politics-vertical-20260918`; preview `#397` stays isolated until Human Gate |
 | English UI | **LANDED** | `content/english/CURRENT.md` |
 | Lexical Architecture v2 | **ACTIVE** | `content/lexical/CURRENT.md` → `static-web/LEXICAL_PRODUCT_BRIEF.md` → representative learner surfaces |
@@ -182,7 +182,7 @@ CI green is not visual acceptance.
 
 ## Current next actions
 
-- **Xizong:** Practice front/back L3 is accepted for main: Front = Question + Progress; Back = quick learner feedback + Knowledge Review; Space toggles sides; shared L1 CJK typography is authoritative. After merge, continue explicit W/U, Marked, CHAT_SET and whole-paper/Hidden on the same Workbench, then re-review System Recall visual under the same L2.
+- **Xizong:** Practice front/back L3 is in `main` and its real macOS Human Gate is closed: Front = Question + Progress; Back = quick learner feedback + Knowledge Review; Space toggles sides; shared L1 PingFang-first Chinese typography is authoritative. Linux remains geometry/runtime-only evidence. Continue explicit W/U, Marked, CHAT_SET and whole-paper/Hidden on the same Workbench, then re-review System Recall visual under the same L2.
 - **Politics:** continue from the cleaned SurfacePlan-only renderer path; Visual may arrange mapped objects but must not author semantic grouping/relations.
 - **English:** only concrete launch-visible defects; do not reopen accepted task geometry.
 - **Lexical:** execute Architecture-v2 adaptation from current Rule + canonical Content; first Human Gates are Vocabulary Home and representative SAFE_SIMPLE / DEPTH_READY Word surfaces. Do not treat prior P/R/E PASS as current visual Human-Gate approval.
