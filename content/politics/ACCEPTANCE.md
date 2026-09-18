@@ -598,3 +598,43 @@ It does **not** decide whether the target is pedagogically important.
 The five representative K shapes remain free of static `later_stage_learning` plans.
 
 No claim is made here that this same Chat constitutes the required fresh independent acceptance.
+
+
+### Same-Chat final post-repair readback
+
+Status: **PASS_NON_ACCEPTING — FRESH INDEPENDENT RE-AUDIT STILL REQUIRED**
+
+After the seven interface repairs, the final candidate head was read back against the corrected authority model.
+
+Confirmed:
+
+- five representative chapter K owners contain **no static `later_stage_learning` plan**;
+- all five still preserve their heterogeneous later-stage K;
+- `consolidation_plan.v1` and `consolidation_return.v1` are present;
+- Chat planning receives factual private learner evidence before plan construction;
+- target addressing is explicit and deterministic;
+- target guards follow the target across action types;
+- target-local role/blocker/freshness outranks parent/generic policy;
+- cross-chapter Current anchors are supported;
+- open recall is not semantically graded by Web;
+- no stale static-rubric / fixed-review-sequence rule remains in the Learning or Interaction contracts.
+
+No further semantic defect was found in this same-Chat final readback.
+
+This is intentionally **not** the repository-required fresh independent L acceptance because the current Chat participated in construction/repair.
+
+Allowed state:
+
+```text
+Politics later-stage Consolidation L candidate
+= REPAIRED / SAME-CHAT READBACK PASS
+
+Fresh independent Consolidation L re-audit
+= PENDING
+
+Analysis-Output L
+= UNTESTED
+
+Mock/Final L
+= UNTESTED
+```
