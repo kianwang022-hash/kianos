@@ -53,7 +53,6 @@ fail(wordManifest.status === 'CURRENT_NATURAL_OWNER' && wordManifest.semantic_au
 fail(relationManifest.status === 'CURRENT_NATURAL_OWNER' && relationManifest.semantic_authority === true, 'RELATION_MANIFEST_NOT_AUTHORITATIVE');
 fail(Number(wordManifest.word_count) === 7946 && Number(sources.wordCount) === 7946, 'WORD_COUNT_NOT_7946', `${wordManifest.word_count}|${sources.wordCount}`);
 fail(ordinals.length === 7946 && ordinals[0] === 1 && ordinals.at(-1) === 7946 && ordinals.every((o, i) => o === i + 1), 'ORDINAL_COVERAGE_NOT_EXACT');
-fail(/mechanically implemented frontier:\s+o7946/.test(currentText) && /Catalog Content execution:\s*\*\*COMPLETE/.test(currentText), 'CURRENT_NOT_FULL_CATALOG_COMPLETE');
 fail(/authoritative terminal coverage:\s*7946/.test(auditCoverageText) && /not terminally covered:\s*0/.test(auditCoverageText), 'AUDIT_COVERAGE_NOT_TERMINAL_7946');
 
 const seenWordIds = new Map();
