@@ -18,18 +18,21 @@ const pendingDescription = sourceState.status === 'invalid'
   sourcePath="content/english/manifest.json"
   objectId="english:reading-b-home"
   active="reading_b"
+  showLead={sourceState.status !== 'ready'}
 >
   <EnglishObjectiveLocalNav active="part-b" />
   {sourceState.status === 'ready' ? (
     <ObjectiveHome
       sets={sets}
       route="reading-b"
-      label="Reading B"
-      description="整组材料、候选池和 placement map 同时保留。复盘先恢复篇章结构，再判断 local / coupled / structure-level repair。"
-      unitLabel="sets"
+      label="Part B"
+      learnerLabel="新题型"
+      headline="按整组完成真题"
+      description="先把整组材料和候选关系做完整，再统一提交；复盘时回到篇章结构判断。"
+      unitLabel="套"
       lastLocationKey="kianos-reading-b-last-location-v1"
       learningHref={`${base}objective-learn/#reading-b`}
-      learningSummary="第一次系统学 Part B 时，先建立 Discourse Skeleton → Position Demand → Candidate Role → Global Reconciliation。"
+      learningSummary="第一次系统学习时，先把篇章骨架、位置需求、候选作用和全局核对的做题链学清楚。"
     />
   ) : (
     <section class="migrationPending">
