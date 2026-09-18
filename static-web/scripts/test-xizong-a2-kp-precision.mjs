@@ -71,10 +71,17 @@ async function reachTargetKp(root, page, targetId) {
   const targetCard = root.locator(`[data-kp-recall-card][data-kp-id="${targetId}"]`);
   check(await targetCard.count() === 1, `target_card_exists_${targetId}`);
   const targetIndex = Number(await targetCard.getAttribute('data-kp-recall-card'));
+  const learner = await readLearnerObject(page);
+  const targetKp = (learner?.kps || []).find((kp) => kp?.identity?.kpId === targetId);
+  const targetGroupId = targetKp?.identity?.logicGroupId || '';
+  const targetGroupIndex = (learner?.logicGroups || []).findIndex((group) => group?.identity?.logicGroupId === targetGroupId);
+  check(targetGroupIndex >= 0, `target_group_resolved_${targetId}`, targetGroupId);
 
   await completeNaturalSourceContact(root, page, targetId);
   check(await root.locator('[data-study-stage="source_contact"]').isHidden(), `target_recall_does_not_reopen_source_${targetId}`);
-  await root.locator(`[data-kp-target="${targetIndex}"]`).evaluate((el) => el.click());
+  await root.locator(`[data-group-target="${targetGroupIndex}"]`).click();
+  await root.locator('[data-study-stage="kp_recall"]').waitFor({ state: 'visible' });
+  await root.locator(`[data-kp-target="${targetIndex}"]`).click();
   check(await targetCard.isVisible(), `target_card_visible_${targetId}`);
   return targetCard;
 }
