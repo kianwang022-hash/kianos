@@ -133,6 +133,7 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
           id: `repair:system-wu:${systemId}:${item.blockId}:${item.kpId}`,
           kpId: item.kpId,
           blockId: item.blockId,
+          systemId,
           title: [route?.label, item.kpId].filter(Boolean).join(' · '),
           reason: plan.reason,
           action: plan.action,
