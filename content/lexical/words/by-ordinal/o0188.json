@@ -6,17 +6,7 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [
-      {
-        "construction_id": "construction:analyse:handoff-7191372f8ec65208",
-        "pattern": "analyse / analyze",
-        "meaning_cn": "英式 analyse；美式 analyze",
-        "definition_en": "regional spelling variants",
-        "level": "L1",
-        "pos": "phrase",
-        "source": "semantic-review-handoff-v1"
-      }
-    ],
+    "constructions": [],
     "content_hash": "1784ea957dcba621a02a1a8eb9c41a1c16dfde271c11767b14fe48fb2b89d359",
     "core_concept": {
       "core_clusters": [],
@@ -121,16 +111,27 @@
       "runtime_model_calls": false
     },
     "word": "analyse",
-    "word_family": [
-      {
-        "form_boundary": true,
-        "pattern": "analyse / analyze",
-        "meaning_cn": "英式 analyse；美式 analyze",
-        "definition_en": "regional spelling variants",
-        "source": "semantic-review-handoff-v1"
-      }
-    ],
-    "word_id": "word:analyse"
+    "word_family": [],
+    "word_id": "word:analyse",
+    "form_identity": {
+      "form_type": "regional_spelling_variant",
+      "spelling": "analyse",
+      "identity_rule": "regional_spelling_same_lexeme",
+      "boundary": "analyse is the standard British spelling; analyze is the standard American spelling of the same verb.",
+      "variants": [
+        {
+          "variant_id": "form:analyse:british",
+          "surface": "analyse",
+          "region": "British English"
+        },
+        {
+          "variant_id": "form:analyse:american",
+          "surface": "analyze",
+          "region": "American English"
+        }
+      ],
+      "authority": "Baseline v2 re-validation 2026-09-19"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
