@@ -154,6 +154,9 @@ const fixture = {
       action: '重新运行这一局部链条',
       priority: 'high',
       origin: 'BROWSER_FIXTURE',
+      sourceQuestionIds: ['xizong-official-2025-n101'],
+      blockHref: '/xizong/respiratory/r01/',
+      returnHref: '/xizong/practice/respiratory/',
       status: 'ACTIVE'
     }
   ]
@@ -262,7 +265,15 @@ try {
   await page.locator('[data-memory-view="REPAIR"]').click();
   check(await page.locator('[data-memory-repair-card]').isVisible(), 'repair_surface');
   check((await page.locator('[data-repair-action]').textContent())?.includes('局部链条'), 'repair_action_visible');
+  check(await page.locator('[data-repair-block-link]').isVisible(), 'repair_block_return_visible');
+  check((await page.locator('[data-repair-block-link]').getAttribute('href'))?.includes('/xizong/respiratory/r01/'), 'repair_block_return_exact');
+  check(await page.locator('[data-repair-return-link]').isVisible(), 'repair_question_return_visible');
+  check((await page.locator('[data-repair-return-link]').getAttribute('href'))?.includes('/xizong/practice/respiratory/'), 'repair_question_return_exact');
   await scanVisibleType(root, 'repair');
+  await page.locator('[data-repair-complete]').click();
+  stored = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), STORAGE_KEY);
+  check(stored?.repairTasks?.[0]?.status === 'DONE' && Boolean(stored?.repairTasks?.[0]?.completedAt), 'repair_completion_persisted');
+  check((await page.locator('[data-memory-summary-repair]').textContent())?.trim() === '0', 'completed_repair_leaves_active_summary');
 
   await page.locator('[data-memory-view="CORE"]').click();
   await page.screenshot({ path: screenshotPath, fullPage: false });
