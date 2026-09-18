@@ -101,7 +101,9 @@ assert(blockUi.includes("const sourcePerGroup = sourceContact.logicGroupIsAutoma
 assert(blockUi.includes("if (sourcePerGroup) setStage('kp_learn');"), 'V6:B:whole-lg-source-entry-missing');
 assert(blockUi.includes("else if (state.sourceContactDone) setStage('kp_recall');"), 'V6:C:direct-retrieval-return-missing');
 assert(blockUi.includes("if (!sourcePerGroup && requested === 'logic_group' && button.hasAttribute('data-stage-next') && !state.sourceContactDone) setStage('source_contact');"), 'V6:C:single-continuous-source-gate-missing');
-assert(blockUi.includes("if (sourcePerGroup && stage === 'source_contact') stage = 'logic_group';"), 'V6:B:block-source-stage-not-blocked');
+assert(blockUi.includes("if (sourcePerGroup && stage === 'source_contact') stage = 'kp_learn';"), 'V6:B:legacy-source-stage-not-normalized-to-group-lecture');
+assert(blockUi.includes("MarginNote 连续学习 + Mac KP Learn 同时进行"), 'V6:B:margin-note-primary-companion-boundary-missing');
+assert(blockUi.includes("原图、表格、例子和讲义配套题仍留在 MarginNote"), 'V6:B:original-lecture-primary-content-boundary-missing');
 assert(blockUi.includes("const storageKey = `kianos-xizong-astro-v2:${objectId}`;"), 'V6:shared-v2-store-missing');
 assert(!blockUi.includes('kianos-xizong-astro-v3'), 'V6:parallel-store-created');
 
