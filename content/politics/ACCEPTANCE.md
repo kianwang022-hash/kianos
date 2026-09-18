@@ -316,3 +316,72 @@ Pure visual/layout implementation may continue only if it consumes the accepted 
 Private browser / Return Packet / conversation evidence only.
 
 > **Engineering acceptance through E and Surface Mapping acceptance cannot manufacture Kian's learner progress, mastery, later transfer, or U evidence.**
+
+---
+
+## Later-stage K adversarial readback — 2026-09-18
+
+Status: **PASS_WITH_DEBT RECONFIRMED**
+
+Trigger: bounded Politics-wide semantic falsification required before later-stage L construction under the recovered production protocol in PR #431.
+
+### Attack questions
+
+The readback treated the current K stack as possibly wrong and attacked five failure modes:
+
+1. **over-generalization** — did a chapter compression erase the subject's real cognition?
+2. **historical leakage** — did LEG26 alone become Current learner truth?
+3. **false precision** — did candidate existence silently become durable Memory debt?
+4. **output invention** — were analysis-answer hooks created without Current Knowledge support?
+5. **future-work inflation** — does rich K accidentally imply that every candidate must become a learner operation?
+
+### Representative readback
+
+- **Marxism C02** — relation reconstruction remains primary; precision stays candidate-only; promoted Output hooks are bounded to Current-owned relation/contradiction Knowledge and retain current-year recheck. **PASS**.
+- **Mao C02** — national-condition → revolutionary model preserves object/dynamic/leadership/nature/prospect/road/tool identity boundaries; no dedicated Output bank was invented for symmetry. **PASS**.
+- **Xi C06** — stable role/hierarchy Knowledge is separated from very-high-delta exact wording; exact Memory object materialization remains blocked pending current-year designated source refresh. **PASS_WITH_DEBT**.
+- **History C05 + horizontal K** — the chapter causal movie remains the reconstruction owner; meetings/land-policy horizontal assets remain candidate-only; recent-history material remains reference-only/high-delta. **PASS_WITH_DEBT**.
+- **Ethics-Law C06** — rule-of-law hierarchy/application is preserved while legal exactness is protected by a high-current-source freshness gate; no historical candidate is auto-admitted. **PASS_WITH_DEBT**.
+
+No structural K defect requiring reconstruction was found in this bounded falsification.
+
+### K → L hard handoff constraint
+
+The readback did expose one critical Learning-boundary risk:
+
+> **Rich Knowledge availability must not become mandatory learner debt.**
+
+Therefore later-stage L must preserve all of the following:
+
+```text
+K may be rich
+→ learner path stays thin by default
+→ chapter-level fast reconstruction
+→ only high-value active Precision
+→ historical Wrong / meaningful Uncertain earns depth
+→ selective retest
+→ smallest repair
+→ exit
+```
+
+In particular:
+
+- 50 History horizontal candidates do **not** imply 50 mandatory recall operations;
+- Xi candidate domains do **not** become exact tasks before current-year source admission;
+- chapter reconstruction targets do **not** require one-by-one ritual recall;
+- Analysis Output hooks remain dormant until the analysis-output phase activates them;
+- candidate exists / content exists / K is valid never means learner owes a task.
+
+### Reconfirmed K conclusion
+
+```text
+Politics later-stage K
+= PASS_WITH_DEBT
+
+Debt
+= current-year source refresh / Memory admission / analysis-output freshness
+≠ missing Knowledge architecture
+
+Next eligible gate
+= later-stage L construction + builder attack + fresh independent audit
+```
