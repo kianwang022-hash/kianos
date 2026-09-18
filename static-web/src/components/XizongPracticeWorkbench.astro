@@ -504,6 +504,13 @@ const payload = JSON.stringify({
     const renderReview = (question, result) => {
       const explanation = question?.explanation || {};
       const meta = reviewMetaFor(question.questionId);
+      Object.values(field).forEach(([wrap, node]) => {
+        if (wrap) wrap.hidden = true;
+        if (node instanceof HTMLOListElement || node instanceof HTMLUListElement) node.replaceChildren();
+        else if (node) node.textContent = '';
+      });
+      if (relationWrap) relationWrap.hidden = true;
+      if (relationLink) { relationLink.hidden = true; relationLink.removeAttribute('href'); relationLink.textContent = ''; }
       answerPanel.hidden = false;
       answerResult.textContent = result.status === 'wrong' ? '本题答错' : result.status === 'uncertain' ? '本题不确定' : '本题答对';
       answerResult.classList.toggle('wrong', result.status === 'wrong');
