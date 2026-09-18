@@ -299,6 +299,34 @@ Compression in Politics therefore means **organizing future memory operations**,
 
 At the same time, "the chapter matters" does not mean "every sentence must be memorized word-for-word". Broad relations may be reconstructed; grouped content may need complete retrieval without fixed prose; only true Precision demands exact retention.
 
+#### Core-content recall scope is a Learning decision
+
+For a chapter to be later-stage L-ready, `CORE_CONTENT_RECALL` must be explicit enough that downstream Projection/Runtime does not have to guess which chapter content should be actively regenerated.
+
+The recall scope should be a **small set of meaningful chapter-level groups** that reference Current Knowledge owners. It may reuse existing chapter compression / active structures / boundaries, but it must not duplicate the full source prose.
+
+Hard boundary:
+
+```text
+Current Knowledge
+→ L-approved grouped recall scope
+→ later Projection / Runtime
+
+not
+
+Current JSON fields
+→ UI guesses what looks important
+```
+
+A calibration chapter therefore needs to answer:
+
+- what one large reconstruction should be attempted first;
+- which few content groups should then be actively recalled;
+- which exact candidates are merely available vs actually active;
+- what prior evidence can earn deeper review;
+- what condition allows the chapter to exit.
+
+This grouping is Learning semantics. Layout, reveal interaction and visual form remain downstream.
 #### Candidate availability is not learner debt
 
 Hard rule:
