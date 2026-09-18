@@ -64,7 +64,7 @@ A1 的第一原则不是背疾病名，而是先问：**哪一个循环变量或
 冠脉自供血 / 氧供—耗氧
 ```
 
-历史 Guide 曾用“泵—阀—管路—容量池—节律—调节—交换”帮助第一次进入。这里保留的是这个**解释动作**；具体 Current 语义已重新落回现在的 `system.json` mother model / spine / controls，不继承旧 Guide 的事实 authority。
+历史 Guide 曾用“泵—阀—管路—容量池—节律—调节—交换”帮助第一次进入。这里保留的是这个**解释动作**；具体医学内容以现在这套系统模型为准，不把旧 Guide 当作事实来源。
 
 ---
 
@@ -102,7 +102,7 @@ compliance    心腔在压力下有多容易被充开
 
 ## 4｜疾病先按“第一故障”定位
 
-Current A1 最值得保留的不是一张疾病目录，而是 Failure Mode 语言：
+A1 最值得保留的不是一张疾病目录，而是 Failure Mode 语言：
 
 1. **泵弱**：排空失败 → 前向流量下降，同时上游压力升高；
 2. **泵硬 / 充盈受限**：舒张或外部限制异常 → 充盈压高、储备差；
@@ -171,13 +171,13 @@ System Guide 只负责把你送到正确的 Block 入口。
 ```text
 中心问题
 → Block Framework / 最小脑内模型
-→ 按该 System 当前 learning owner 规定的 Source contact 学原讲义
+→ 按当前 A1 学习路径规定的 Source contact 学原讲义
 → Logic Group / KP 做局部理解与闭卷恢复
 → Group / Block Closure
-→ Current-owned Memory Routing
+→ 进入 Memory Routing
 ```
 
-注意：这段流程**不意味着每个 Logic Group 都必须重新回一次讲义**。A1 的具体 Source-contact 粒度继续由 `a1-circulation-learning.json` 与 lane learning contract 决定。
+注意：这段流程**不意味着每个 Logic Group 都必须重新回一次讲义**。A1 的具体 Source-contact 粒度继续按当前学习路径执行。
 
 ---
 
@@ -191,11 +191,11 @@ Framework 不是“摘要卡片”，而是这个 Block 在学 KP 前先装进�
 
 ### MI-G
 
-Current Block 若显式标出 `MI-G`，它代表会阻断后续理解 / Recall 的 gating memory，第一次就要带走。
+当前 Block 若显式标出 `MI-G`，它代表会阻断后续理解 / Recall 的 gating memory，第一次就要带走。
 
 ### MI-D
 
-Current Block 若显式标出 `MI-D`，它代表需要精确保留、但可以从当前机制主线移到后续间隔记忆的内容。
+当前 Block 若显式标出 `MI-D`，它代表需要精确保留、但可以从当前机制主线移到后续间隔记忆的内容。
 
 `MI-D` 不是低价值；它只是**不应该为了一个孤立数字或长名单让整条机制学习停住**。
 
