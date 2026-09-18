@@ -7,8 +7,12 @@
   "teaching_shape": "CHRONOLOGY_STAGE_TURNING_POINT_CAUSE_EVALUATION",
   "canonical_mainline": "CHENGFENG",
   "source_bindings": {
-    "region_ids": ["POL27-REGION-HISTORY-C10"],
-    "natural_unit_ids": ["POL27-CF-HISTORY-C10"],
+    "region_ids": [
+      "POL27-REGION-HISTORY-C10"
+    ],
+    "natural_unit_ids": [
+      "POL27-CF-HISTORY-C10"
+    ],
     "suyi_refs": []
   },
   "chapter_orientation": {
@@ -30,15 +34,91 @@
       "title": "第十章 中国特色社会主义进入新时代",
       "stage_question": "什么变化足以构成一个新的历史方位，而不仅是时间自然往后走？",
       "from_previous": "第九章已经说明改革开放怎样长期改变中国的发展道路和国家面貌。第十章要回答的是，这些长期积累为什么在新的历史条件下形成了阶段性跃迁。",
-      "process": ["发展基础、制度能力和综合国力进入新的水平。", "社会主要矛盾和人民需要呈现新的阶段性特征。", "改革发展稳定、内政外交国防、治党治国治军等任务进入更高复杂度。", "新时代的理论和实践围绕新的历史条件继续展开。"],
+      "process": [
+        "发展基础、制度能力和综合国力进入新的水平。",
+        "社会主要矛盾和人民需要呈现新的阶段性特征。",
+        "改革发展稳定、内政外交国防、治党治国治军等任务进入更高复杂度。",
+        "新时代的理论和实践围绕新的历史条件继续展开。"
+      ],
       "historical_position": "新时代不是脱离改革开放另起炉灶，而是在长期中国特色社会主义实践基础上进入新的发展阶段。",
       "boundary": "史纲在这里关注的是历史阶段和长线变化；具体新时代理论体系、政策结构和精确帽子，应由新思想主干承担，不能让史纲重复成为第二套新思想课程。",
       "next": "史纲整科至此完成从近代民族危机到新时代的长线。后续进入其他政治科目时，只调用这条历史背景，不重复重学一遍。"
     }
   ],
   "chapter_compression": {
-    "timeline": ["改革开放长期发展", "中国特色社会主义事业不断推进", "进入新时代", "国家治理和现代化任务升级", "历史性成就和历史性变革", "民族复兴进入新的历史阶段"],
+    "timeline": [
+      "改革开放长期发展",
+      "中国特色社会主义事业不断推进",
+      "进入新时代",
+      "国家治理和现代化任务升级",
+      "历史性成就和历史性变革",
+      "民族复兴进入新的历史阶段"
+    ],
     "whole_course_bridge": "近代危机 → 各阶级救国探索 → 辛亥革命 → 五四与新的领导力量 → 新民主主义革命道路成熟 → 抗战胜利 → 解放战争与新中国 → 社会主义制度建立 → 建设探索 → 改革开放 → 新时代",
     "review_prompt": "不要背会议清单。闭卷用一条长线回答：近代以来中国为什么会从‘寻找救国道路’一步步走到‘中国特色社会主义进入新时代’？"
+  },
+  "later_stage_knowledge": {
+    "schema": "kianos.politics.later_stage_knowledge.v1",
+    "status": "CURRENT_K_REVIEWED",
+    "phase_scope": [
+      "CONSOLIDATION",
+      "PRECISION",
+      "ANALYSIS_OUTPUT"
+    ],
+    "compression_model": {
+      "cognition": "RECENT_HISTORY_STAGE_POSITION",
+      "purpose": "Preserve the chapter causal movie first; use horizontal compression only for later exact identity/confusable repair.",
+      "reconstruction_source": "chapter_compression",
+      "chapter_compression": {
+        "timeline": [
+          "改革开放长期发展",
+          "中国特色社会主义事业不断推进",
+          "进入新时代",
+          "国家治理和现代化任务升级",
+          "历史性成就和历史性变革",
+          "民族复兴进入新的历史阶段"
+        ],
+        "whole_course_bridge": "近代危机 → 各阶级救国探索 → 辛亥革命 → 五四与新的领导力量 → 新民主主义革命道路成熟 → 抗战胜利 → 解放战争与新中国 → 社会主义制度建立 → 建设探索 → 改革开放 → 新时代",
+        "review_prompt": "不要背会议清单。闭卷用一条长线回答：近代以来中国为什么会从‘寻找救国道路’一步步走到‘中国特色社会主义进入新时代’？"
+      },
+      "horizontal_knowledge_owner": "content/politics/learning/history/later-stage-knowledge.json",
+      "horizontal_candidate_refs": []
+    },
+    "precision_knowledge": {
+      "policy": "REFERENCE_SUBJECT_HORIZONTAL_K",
+      "owner_path": "content/politics/learning/history/later-stage-knowledge.json",
+      "candidate_refs": [],
+      "candidate_domains": [
+        "新时代历史方位/会议 milestone candidates only"
+      ],
+      "admission_state": "REFERENCE_ONLY_HIGH_DELTA",
+      "current_year_delta_risk": "VERY_HIGH",
+      "rule": "History precision is mainly cross-cutting identity/timeline knowledge. Exact recent-history items require current-year refresh."
+    },
+    "analysis_output_hooks": [
+      {
+        "id": "HISTORY-C10-OUT-NEW-ERA",
+        "title": "改革开放长线到新时代",
+        "material_cues": [
+          "新时代",
+          "历史方位",
+          "改革开放成就",
+          "新征程"
+        ],
+        "retrieval_target": "只承担历史阶段衔接，不复制新思想政策体系。",
+        "answer_skeleton": [
+          "长期改革开放形成新的发展基础",
+          "历史任务和社会条件进入新阶段",
+          "新时代在中国特色社会主义长期实践基础上形成",
+          "具体理论政策交还新思想/时政主干"
+        ],
+        "current_year_status": "VERY_HIGH_DELTA_REFRESH_REQUIRED"
+      }
+    ],
+    "output_source_role": "CHAT_FIRST_HIGH_DELTA_CROSS_SUBJECT_OUTPUT",
+    "historical_output_value": [
+      "历史进程/新征程母版"
+    ],
+    "first_round_effect": "NONE"
   }
 }
