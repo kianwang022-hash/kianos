@@ -1,0 +1,80 @@
+{
+  "schema": "kianos.politics.memory_projection.v1",
+  "status": "CURRENT_K_REVIEWED",
+  "chapter_id": "POL27-LEARN-MAO-C04",
+  "policy": "SOURCE_GROUNDED_SELECTIVE",
+  "principle": "Candidate existence is Knowledge; durable review debt remains admission-gated.",
+  "preferred_memory_reference": {
+    "role": "DESIGNATED_MEMORY_HANDBOOK",
+    "label": "腿姐《冲刺背诵手册》",
+    "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+    "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MAO.md",
+    "rule": "Current Mao Knowledge must independently own the relation. LEG26 supports historical retention priority; current-year source/WU evidence controls durable admission."
+  },
+  "admission_gate": {
+    "default": "NOT_ADMITTED",
+    "requires_source_grounding": true,
+    "admit_when_any": [
+      "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+      "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED"
+    ],
+    "do_not_admit_for": [
+      "historical handbook presence alone",
+      "chapter importance alone",
+      "one stable correct answer"
+    ]
+  },
+  "units": {
+    "POL27-CF-MAO-C04-S01": {
+      "title": "初步探索的重要理论成果",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MAO-C04-S01-M01",
+          "form": "identity_boundary",
+          "statement": "‘第二次结合’提出的是把马克思列宁主义基本原理同中国革命和建设具体实际进一步结合、探索适合中国情况的社会主义建设道路；提出这一任务不等于已经完成成熟道路探索。",
+          "source_refs": [
+            "POL27-CF-MAO-C04-S01"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MAO-P093",
+            "LEG26-UPPER-MAO-P095"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        },
+        {
+          "id": "POL27-MEM-MAO-C04-S01-M02",
+          "form": "theory_triplet",
+          "statement": "社会主义建设初步探索的高价值支点可区分为《论十大关系》所代表的建设关系统筹、社会主义社会矛盾理论、以及中国工业化道路探索。",
+          "source_refs": [
+            "POL27-CF-MAO-C04-S01"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MAO-P093"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        },
+        {
+          "id": "POL27-MEM-MAO-C04-S01-M03",
+          "form": "contradiction_boundary",
+          "statement": "社会主义社会仍然存在矛盾，但社会主义社会基本矛盾与敌我矛盾、人民内部矛盾不是同一层次；不能把所有社会矛盾都理解为对抗性矛盾。",
+          "source_refs": [
+            "POL27-CF-MAO-C04-S01"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MAO-P093"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    }
+  },
+  "deferred_candidate_domains": [
+    {
+      "domain": "中国工业化道路完整‘农轻重/两条腿走路’固定列表",
+      "reason": "Historical source is rich, but complete exact list should wait for current-year designated source / Current exactness binding."
+    }
+  ]
+}
