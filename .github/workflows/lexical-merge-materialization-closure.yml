@@ -43,6 +43,7 @@ jobs:
           python tools/lexical_merge_materialization_audit.py --output lexical-merge-closure/after.json
 
       - name: Commit safe cleanup
+        if: github.event_name == 'workflow_dispatch'
         run: |
           if git diff --quiet -- content/lexical/words/by-ordinal; then
             echo "No safe cleanup changes"
