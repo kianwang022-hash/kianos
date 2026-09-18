@@ -303,23 +303,21 @@
       ]
     },
     "precision_knowledge": {
-      "policy": "CURRENT_GROUNDED_CANDIDATE_DOMAIN",
-      "candidate_domains": [
-        "首要基本理论问题",
-        "社会主义本质 fixed formulation",
-        "解放思想实事求是 identity",
-        "一个中心两个基本点/hats",
-        "改革性质",
-        "计划/市场 boundary",
-        "历史地位"
+      "policy": "REFERENCE_MEMORY_SIDECAR",
+      "owner_path": "content/politics/learning/mao/ch06.memory.json",
+      "candidate_ids": [
+        "POL27-MEM-MAO-C06-S01-M01",
+        "POL27-MEM-MAO-C06-S01-M02",
+        "POL27-MEM-MAO-C06-S02-M01",
+        "POL27-MEM-MAO-C06-S02-M02",
+        "POL27-MEM-MAO-C06-S02-M03"
       ],
-      "historical_source_refs": [
-        "LEG26-UPPER-MAO-P098",
-        "LEG26-UPPER-MAO-P099",
-        "LEG26-UPPER-MAO-P100",
-        "LEG26-UPPER-MAO-P101"
+      "admission_state": "CANDIDATE_ONLY",
+      "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+      "deferred_domains": [
+        "初级阶段两层含义/发展战略/一国两制/外交等完整固定表述"
       ],
-      "materialization_status": "CANDIDATE_OBJECTS_TO_BE_MATERIALIZED_BELOW"
+      "rule": "Current Knowledge + inspected historical handbook support creates candidate-only precision; durable Memory remains admission-gated."
     },
     "analysis_output_hooks": [],
     "analysis_output_status": "NO_DEDICATED_LEG26_OUTPUT_BANK_DO_NOT_INVENT",
