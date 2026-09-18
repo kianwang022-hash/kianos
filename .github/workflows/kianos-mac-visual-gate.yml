@@ -1,0 +1,92 @@
+name: KianOS Mac Visual Gate
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'static-web/src/styles/shared-visual-foundation.css'
+      - 'static-web/src/styles/visual-convergence.css'
+      - 'static-web/src/styles/shared-shell.css'
+      - 'static-web/src/styles/xizong-practice-workspace.css'
+      - 'static-web/src/components/XizongPracticeWorkbench.astro'
+      - 'static-web/src/styles/xizong-system-exit-workspace.css'
+      - 'static-web/src/components/XizongSystemExitRuntime.astro'
+      - 'static-web/scripts/test-xizong-system-exit-workspace.mjs'
+      - 'static-web/scripts/verify-macos-pingfang.mjs'
+      - '.github/workflows/kianos-mac-visual-gate.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'static-web/src/styles/shared-visual-foundation.css'
+      - 'static-web/src/styles/visual-convergence.css'
+      - 'static-web/src/styles/shared-shell.css'
+      - 'static-web/src/styles/xizong-practice-workspace.css'
+      - 'static-web/src/components/XizongPracticeWorkbench.astro'
+      - 'static-web/src/styles/xizong-system-exit-workspace.css'
+      - 'static-web/src/components/XizongSystemExitRuntime.astro'
+      - 'static-web/scripts/test-xizong-system-exit-workspace.mjs'
+      - 'static-web/scripts/verify-macos-pingfang.mjs'
+      - '.github/workflows/kianos-mac-visual-gate.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: kianos-mac-visual-gate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  mac-visual-gate:
+    runs-on: macos-14
+    defaults:
+      run:
+        working-directory: static-web
+    steps:
+      - name: Checkout candidate
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Build Astro
+        run: npm run build
+
+      - name: Install Chromium
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install chromium
+
+      - name: Require real PingFang on macOS
+        run: |
+          test -d /System/Library/Fonts
+          PINGFANG_PATH="$(find /System/Library/Fonts /Library/Fonts -iname '*PingFang*' -print -quit 2>/dev/null || true)"
+          if [ -z "$PINGFANG_PATH" ]; then
+            echo "PingFang font not found on this macOS runner; visual evidence is invalid."
+            exit 1
+          fi
+          echo "PingFang found: $PINGFANG_PATH"
+
+      - name: Verify Chromium can use PingFang
+        run: node scripts/verify-macos-pingfang.mjs
+
+      - name: Capture Xizong Mac visual evidence
+        run: node scripts/test-xizong-system-exit-workspace.mjs
+
+      - name: Upload Mac visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xizong-mac-visual-gate
+          path: |
+            static-web/.qa/mac-font-proof.json
+            static-web/.qa/xizong-system-exit-workspace.json
+            static-web/.qa/xizong-practice-workbench-front.png
+            static-web/.qa/xizong-practice-workbench.png
+            static-web/.qa/xizong-system-exit-recall.png
+            static-web/.qa/xizong-system-exit-recall-reveal.png
+          if-no-files-found: error
