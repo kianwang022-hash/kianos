@@ -32,57 +32,103 @@ const payload = JSON.stringify({
     <p>System Recall 不拿题目替代自己的模型；随后用真题找缺口。正确且理由清楚就快过，只有 Wrong / Uncertain 值得停下来修。</p>
   </header>
 
-  <div class="xseSteps">
-    <section class="xzExitCard xseRecallCard">
-      <div class="xseStepNo">1</div>
-      <div class="xseCardBody">
-        <span class="xseEyebrow">System Recall</span>
-        <h3>闭卷恢复 {system.title}</h3>
-        <p>{recallPrompt}</p>
-        <div class="xseStatusRow">
-          <strong data-recall-status>还没完成本次 System Recall</strong>
-          <button type="button" data-start-recall>开始闭卷 Recall</button>
-        </div>
-      </div>
-    </section>
 
-    <section class="xzExitCard xseHoldoutCard">
-      <div class="xseStepNo">2</div>
-      <div class="xseCardBody">
-        <span class="xseEyebrow">整卷保留</span>
-        <h3>先锁住以后要当陌生整卷的年份</h3>
-        <p>完整卷保留是浏览器全局的个人学习状态；当前已保存的年份会自动从所有 System sweep 排除，需要时可在这里修改。</p>
-        <div class="xseHoldoutCurrent" data-holdout-current>尚未锁定整卷保留题</div>
+  <section class="xseCompletionWorkbench" data-completion-workbench>
+    <header class="xseCompletionHead">
+      <div class="xseCompletionIdentity">
+        <span>System Completion · <b data-study-phase>一轮</b></span>
+        <h3>{system.title}</h3>
+        <p data-sweep-summary>先闭卷恢复系统模型，再进入当前轮次的真题任务。</p>
+      </div>
+
+      <div class="xseHoldoutCompact" aria-label="Whole-paper holdout setting">
+        <div>
+          <span>整卷保留</span>
+          <strong data-holdout-current>尚未锁定整卷保留题</strong>
+        </div>
         <div class="xseHoldoutEditor" data-holdout-editor>
-          <label for={`xse-holdout-${system.systemId}`}>保留年份</label>
-          <input id={`xse-holdout-${system.systemId}`} data-holdout-input inputmode="numeric" placeholder="例如：2025, 2026" />
-          <button type="button" data-save-holdout>锁定这些完整试卷</button>
+          <label for={`xse-holdout-${system.systemId}`}>年份</label>
+          <input id={`xse-holdout-${system.systemId}`} data-holdout-input inputmode="numeric" placeholder="例如 2025, 2026" />
+          <button type="button" data-save-holdout>保存</button>
         </div>
-        <button class="xseTextButton" type="button" data-edit-holdout hidden>修改保留年份</button>
-        <small>只保存在你的浏览器，不写入 GitHub Current。</small>
+        <button class="xseTextButton" type="button" data-edit-holdout hidden>修改</button>
+      </div>
+    </header>
+
+    <section class="xseRecallWorkspace" data-recall-workspace>
+      <aside class="xseRecallAxes" aria-label="Reconstruction dimensions">
+        <span>RECONSTRUCTION</span>
+        <strong>系统主链</strong>
+        <strong>并行控制</strong>
+        <strong>Failure 定位</strong>
+        <strong>病例判断顺序</strong>
+        <small>这里只给重建维度，不给答案。</small>
+      </aside>
+
+      <div class="xseRecallStage">
+        <header class="xseRecallStageHead">
+          <div>
+            <span class="xseEyebrow">System Recall · Before Questions</span>
+            <h3>闭卷恢复 {system.title}</h3>
+          </div>
+          <strong data-recall-status>还没完成本次 System Recall</strong>
+        </header>
+
+        <section class="xseRecallFront" data-recall-front>
+          <p class="xseRecallPrompt">{recallPrompt}</p>
+          <div class="xseRecallInstruction">
+            <b>现在不要看 System Framework。</b>
+            <span>先恢复母链、关键控制、Failure 定位和陌生病例的判断顺序。可以口述、纸写，也可以用右侧草稿；草稿不是完成门槛。</span>
+          </div>
+          <textarea data-recall-scratch aria-label="Optional System Recall scratch" placeholder="可选草稿：写几个关键词即可，不会作为完成条件。"></textarea>
+          <div class="xseRecallActions">
+            <button type="button" data-reveal-recall>Space · 核对模型</button>
+          </div>
+        </section>
+
+        <section class="xseRecallReveal" data-recall-reveal hidden>
+          <div class="xseRecallModel">
+            <section>
+              <span>母链</span>
+              <ol>{system.mentalModel.spine.map((item) => <li>{item}</li>)}</ol>
+            </section>
+            <section>
+              <span>陌生病例顺序</span>
+              <ol>{recallSteps.map((item) => <li>{typeof item === 'string' ? item : JSON.stringify(item)}</li>)}</ol>
+            </section>
+            <section>
+              <span>Failure Modes</span>
+              <ul>{system.failureModes.map((mode) => <li><b>{mode.label}</b>{mode.chain ? `：${mode.chain}` : ''}</li>)}</ul>
+            </section>
+          </div>
+          <div class="xseRecallActions">
+            <button type="button" data-reveal-recall-back>Space · 重新闭卷</button>
+            <button type="button" data-complete-recall>Enter · 完成本次 System Recall</button>
+          </div>
+        </section>
       </div>
     </section>
 
-    <section class="xzExitCard xseSweepCard" data-sweep-card>
-      <div class="xseStepNo">3</div>
-      <div class="xseCardBody">
+    <section class="xseQuestionGate" data-question-gate hidden>
+      <div class="xseQuestionGateCopy">
         <span class="xseEyebrow">Official Questions</span>
-        <h3><span data-sweep-count>{sweep.questionCount}</span> 道系统真题范围已恢复</h3>
-        <p data-sweep-summary>锁定整卷后，系统会自动排除这些年份；剩余题按一轮规则做覆盖性 sweep。</p>
-        <div class="xseSweepStats" data-sweep-stats>
-          <span>轮次 <b data-study-phase>一轮</b></span>
-          <span>稳 <b data-stat-stable>0</b></span>
-          <span>不确定 <b data-stat-uncertain>0</b></span>
-          <span>错 <b data-stat-wrong>0</b></span>
-          <span>剩余 <b data-stat-remaining>—</b></span>
-        </div>
-        <div class="xseSweepActions">
-          <button type="button" data-start-sweep disabled>进入系统真题</button>
-          <button type="button" class="secondary" data-copy-wu>复制 W/U 给 Chat</button>
-        </div>
+        <h3><span data-sweep-count>{sweep.questionCount}</span> 道当前轮次题目</h3>
+        <p>Recall 已完成。稳定题快速通过；Wrong / Uncertain / Marked 才占用后续注意力。</p>
+      </div>
+      <div class="xseSweepStats" data-sweep-stats>
+        <span>稳 <b data-stat-stable>0</b></span>
+        <span>不确定 <b data-stat-uncertain>0</b></span>
+        <span>错 <b data-stat-wrong>0</b></span>
+        <span>标记 <b data-stat-marked>0</b></span>
+        <span>剩余 <b data-stat-remaining>—</b></span>
+      </div>
+      <div class="xseSweepActions">
+        <button type="button" data-start-sweep disabled>进入系统真题</button>
+        <button type="button" class="secondary" data-start-recall>再做一次 System Recall</button>
+        <button type="button" class="secondary" data-copy-wu>复制保留项给 Chat</button>
       </div>
     </section>
-  </div>
+  </section>
 
   <section class="xseWorkspace" data-question-workspace hidden>
     <header class="xseWorkspaceHead">
@@ -90,99 +136,82 @@ const payload = JSON.stringify({
         <span data-question-meta>—</span>
         <h3 data-question-progress>—</h3>
       </div>
-      <button type="button" class="xseTextButton" data-close-sweep>返回 System</button>
+      <div class="xseWorkspaceControls">
+        <button type="button" class="xseTextButton" data-fast-sweep aria-pressed="false">Fast Sweep：关</button>
+        <span class="xseResultMode">结果：即时</span>
+        <button type="button" class="xseTextButton" data-question-mark aria-pressed="false">M · 标记</button>
+        <button type="button" class="xseTextButton" data-close-sweep>返回 System</button>
+      </div>
     </header>
 
-    <article class="xseQuestion">
-      <p class="xzExitStem" data-question-stem></p>
-      <div class="xzExitOptions" data-question-options></div>
-      <div class="xseSubmitRow">
-        <small data-selection-hint></small>
-        <button type="button" data-submit-answer disabled>提交答案</button>
-      </div>
-    </article>
+    <div class="xseQuestionLayout">
+      <nav class="xseQuestionMap" data-question-map aria-label="Question map"></nav>
 
-    <section class="xseAnswer" data-answer-panel hidden>
-      <div class="xseAnswerTop">
-        <strong data-answer-result></strong>
-        <span>官方答案：<b data-correct-answer></b></span>
-      </div>
-      <section class="xseSecondPassReview" data-second-pass-review hidden>
-        <span>二轮核对</span>
-        <strong data-second-pass-axis></strong>
-        <details data-second-pass-distractor-details hidden>
-          <summary>高价值干扰项</summary>
-          <ul data-second-pass-distractors></ul>
-        </details>
-        <p data-second-pass-transfer></p>
-        <p data-second-pass-empty hidden>当前没有审核过的二轮解析；保留这次作答证据，必要时交给 Chat，不补猜内容。</p>
-      </section>
-      <div class="xseRepair" data-repair-panel hidden>
-        <p data-repair-axis></p>
-        <p data-repair-reason></p>
-        <details>
-          <summary>再看一层</summary>
-          <p data-repair-failure></p>
-          <p data-repair-transfer></p>
-          <p data-repair-relation></p>
-        </details>
-      </div>
-      <div class="xseJudge" data-correct-judge hidden>
-        <button type="button" data-mark-stable>稳，下一题</button>
-        <button type="button" class="secondary" data-mark-uncertain>正确，但我不确定</button>
-      </div>
-      <div class="xseJudge" data-uncertain-judge hidden>
-        <button type="button" data-next-uncertain>看完修补，下一题</button>
-      </div>
-      <div class="xseJudge" data-wrong-judge hidden>
-        <button type="button" data-next-wrong>记为 Wrong，下一题</button>
-      </div>
-    </section>
+      <div class="xseQuestionMain">
+        <article class="xseQuestion">
+          <p class="xzExitStem" data-question-stem></p>
+          <div class="xzExitOptions" data-question-options></div>
+          <div class="xseSubmitRow">
+            <small data-selection-hint></small>
+            <button type="button" data-submit-answer disabled>提交答案</button>
+          </div>
+        </article>
 
-    <section class="xseDone" data-sweep-done hidden>
-      <span>System sweep</span>
-      <h3>本轮可用题已经扫完</h3>
-      <p>Wrong / Uncertain 已经留下。先把这些证据交给 Chat，再做一次短 System Recall，确认题目没有替代你的模型。</p>
-      <div class="xseSweepActions">
-        <button type="button" data-copy-wu-done>复制详细 W/U 学习包</button>
-        <button type="button" class="secondary" data-repeat-recall>题后再做一次短 System Recall</button>
-        <button type="button" data-start-next-round>开始第二轮重点队列</button>
-        <button type="button" class="secondary" data-start-next-round-full>完整重刷本 System</button>
+        <section class="xseAnswer" data-answer-panel hidden>
+          <div class="xseAnswerTop">
+            <strong data-answer-result></strong>
+            <span>官方答案：<b data-correct-answer></b></span>
+          </div>
+          <section class="xseSecondPassReview" data-second-pass-review hidden>
+            <span>二轮核对</span>
+            <strong data-second-pass-axis></strong>
+            <details data-second-pass-distractor-details hidden>
+              <summary>高价值干扰项</summary>
+              <ul data-second-pass-distractors></ul>
+            </details>
+            <p data-second-pass-transfer></p>
+            <p data-second-pass-empty hidden>当前没有审核过的二轮解析；保留这次作答证据，必要时交给 Chat，不补猜内容。</p>
+          </section>
+          <div class="xseRepair" data-repair-panel hidden>
+            <p data-repair-axis></p>
+            <p data-repair-reason></p>
+            <details>
+              <summary>再看一层</summary>
+              <p data-repair-failure></p>
+              <p data-repair-transfer></p>
+              <p data-repair-relation></p>
+            </details>
+          </div>
+          <div class="xseJudge" data-correct-judge hidden>
+            <button type="button" data-next-correct>Enter · 下一题</button>
+          </div>
+          <div class="xseJudge" data-wrong-judge hidden>
+            <button type="button" data-next-wrong>Enter · 下一题</button>
+          </div>
+        </section>
+
+        <section class="xseDone" data-sweep-done hidden>
+          <span>System sweep</span>
+          <h3>本轮可用题已经扫完</h3>
+          <p>保留项已经留下。需要时集中复盘，再做一次短 System Recall，把具体题目提示重新拿掉。</p>
+          <div class="xseRetainedReview" data-retained-review>
+            <div class="xseRetainedFilters">
+              <button type="button" data-retained-filter="all" aria-pressed="true">全部保留</button>
+              <button type="button" data-retained-filter="wrong">Wrong</button>
+              <button type="button" data-retained-filter="marked">Marked</button>
+            </div>
+            <div data-retained-list></div>
+          </div>
+          <div class="xseSweepActions">
+            <button type="button" data-copy-wu-done>复制详细学习包</button>
+            <button type="button" class="secondary" data-repeat-recall>题后 System Recall</button>
+            <button type="button" data-start-next-round>开始第二轮重点队列</button>
+            <button type="button" class="secondary" data-start-next-round-full>完整重刷本 System</button>
+          </div>
+        </section>
       </div>
-    </section>
+    </div>
   </section>
-
-  <dialog class="xseRecallDialog" data-recall-dialog>
-    <form method="dialog" class="xseDialogShell">
-      <header>
-        <div><span>闭卷 · System Recall</span><h2>{system.title}</h2></div>
-        <button value="cancel" aria-label="关闭">×</button>
-      </header>
-      <section class="xseRecallFront" data-recall-front>
-        <p>{recallPrompt}</p>
-        <div class="xseRecallInstruction">
-          <b>现在不要看 System 页。</b>
-          <span>先在脑中恢复母链、Failure 定位和陌生病例的判断顺序。能说出来以后再核对。</span>
-        </div>
-        <button type="button" data-reveal-recall>我已经回忆，核对</button>
-      </section>
-      <section class="xseRecallReveal" data-recall-reveal hidden>
-        <div>
-          <span>母链</span>
-          <ol>{system.mentalModel.spine.map((item) => <li>{item}</li>)}</ol>
-        </div>
-        <div>
-          <span>陌生病例顺序</span>
-          <ol>{recallSteps.map((item) => <li>{typeof item === 'string' ? item : JSON.stringify(item)}</li>)}</ol>
-        </div>
-        <div>
-          <span>Failure Modes</span>
-          <ul>{system.failureModes.map((mode) => <li><b>{mode.label}</b>{mode.chain ? `：${mode.chain}` : ''}</li>)}</ul>
-        </div>
-        <button type="button" data-complete-recall>这次 System Recall 完成</button>
-      </section>
-    </form>
-  </dialog>
 
   <script type="application/json" data-sweep-payload set:html={payload}></script>
 </section>
