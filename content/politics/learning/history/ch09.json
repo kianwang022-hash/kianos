@@ -7,8 +7,14 @@
   "teaching_shape": "CHRONOLOGY_STAGE_TURNING_POINT_CAUSE_EVALUATION",
   "canonical_mainline": "CHENGFENG",
   "source_bindings": {
-    "region_ids": ["POL27-REGION-HISTORY-C09-S01", "POL27-REGION-HISTORY-C09-S02"],
-    "natural_unit_ids": ["POL27-CF-HISTORY-C09-S01", "POL27-CF-HISTORY-C09-S02"],
+    "region_ids": [
+      "POL27-REGION-HISTORY-C09-S01",
+      "POL27-REGION-HISTORY-C09-S02"
+    ],
+    "natural_unit_ids": [
+      "POL27-CF-HISTORY-C09-S01",
+      "POL27-CF-HISTORY-C09-S02"
+    ],
     "suyi_refs": []
   },
   "chapter_orientation": {
@@ -29,7 +35,12 @@
       "natural_unit_id": "POL27-CF-HISTORY-C09-S01",
       "title": "第一节 历史性的伟大转折和改革开放的起步",
       "stage_question": "为什么在真正启动经济改革以前，首先要解决思想路线和工作重心问题？",
-      "process": ["真理标准问题讨论推动重新确立实践是检验真理的标准。", "思想解放为正本清源、拨乱反正和重新判断国家发展任务提供条件。", "十一届三中全会实现历史性转折，把党和国家工作重点转向社会主义现代化建设，并作出改革开放的重大决策。", "农村等领域改革逐步启动，对外开放开始展开。"],
+      "process": [
+        "真理标准问题讨论推动重新确立实践是检验真理的标准。",
+        "思想解放为正本清源、拨乱反正和重新判断国家发展任务提供条件。",
+        "十一届三中全会实现历史性转折，把党和国家工作重点转向社会主义现代化建设，并作出改革开放的重大决策。",
+        "农村等领域改革逐步启动，对外开放开始展开。"
+      ],
       "turning_point": "发展问题重新成为国家中心任务，解决发展问题的方法也从原有高度集中的体制思路转向改革和开放。",
       "boundary": "改革开放是在社会主义制度基础上的自我完善和发展，不是抛弃社会主义制度或回到旧社会。",
       "next": "改革一旦启动，就会不断触及经济体制、所有制、市场机制和发展战略等更深层问题。"
@@ -51,8 +62,168 @@
     }
   ],
   "chapter_compression": {
-    "timeline": ["真理标准问题讨论", "十一届三中全会", "拨乱反正与改革开放起步", "农村与城市改革展开", "对外开放扩大", "南方谈话", "中国特色社会主义道路和理论发展", "现代化建设持续推进"],
+    "timeline": [
+      "真理标准问题讨论",
+      "十一届三中全会",
+      "拨乱反正与改革开放起步",
+      "农村与城市改革展开",
+      "对外开放扩大",
+      "南方谈话",
+      "中国特色社会主义道路和理论发展",
+      "现代化建设持续推进"
+    ],
     "stage_shift": "总结建设曲折 → 思想解放与拨乱反正 → 工作重心转移 → 改革开放 → 体制不断调整 → 南方谈话推动改革继续突破 → 中国特色社会主义道路形成发展 → 为新时代奠定基础",
     "review_prompt": "闭卷回答：为什么改革开放既是1978前后的一次历史转折，又是一条在实践和理论相互突破中长期推进的社会主义自我发展道路？"
+  },
+  "later_stage_knowledge": {
+    "schema": "kianos.politics.later_stage_knowledge.v1",
+    "status": "CURRENT_K_REVIEWED",
+    "phase_scope": [
+      "CONSOLIDATION",
+      "PRECISION",
+      "ANALYSIS_OUTPUT"
+    ],
+    "compression_model": {
+      "cognition": "REFORM_OPENING_STAGE_BREAKTHROUGHS",
+      "purpose": "Preserve the chapter causal movie first; use horizontal compression only for later exact identity/confusable repair.",
+      "reconstruction_source": "chapter_compression",
+      "chapter_compression": {
+        "timeline": [
+          "真理标准问题讨论",
+          "十一届三中全会",
+          "拨乱反正与改革开放起步",
+          "农村与城市改革展开",
+          "对外开放扩大",
+          "南方谈话",
+          "中国特色社会主义道路和理论发展",
+          "现代化建设持续推进"
+        ],
+        "stage_shift": "总结建设曲折 → 思想解放与拨乱反正 → 工作重心转移 → 改革开放 → 体制不断调整 → 南方谈话推动改革继续突破 → 中国特色社会主义道路形成发展 → 为新时代奠定基础",
+        "review_prompt": "闭卷回答：为什么改革开放既是1978前后的一次历史转折，又是一条在实践和理论相互突破中长期推进的社会主义自我发展道路？"
+      },
+      "horizontal_knowledge_owner": "content/politics/learning/history/later-stage-knowledge.json",
+      "horizontal_candidate_refs": [
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-017"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-018"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-019"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-020"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-021"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-022"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-023"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-024"
+        },
+        {
+          "line": "land_policy",
+          "id": "HIST-LAND-012"
+        },
+        {
+          "line": "ideological_liberation",
+          "id": "HIST-IDEA-006"
+        }
+      ]
+    },
+    "precision_knowledge": {
+      "policy": "REFERENCE_SUBJECT_HORIZONTAL_K",
+      "owner_path": "content/politics/learning/history/later-stage-knowledge.json",
+      "candidate_refs": [
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-017"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-018"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-019"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-020"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-021"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-022"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-023"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-024"
+        },
+        {
+          "line": "land_policy",
+          "id": "HIST-LAND-012"
+        },
+        {
+          "line": "ideological_liberation",
+          "id": "HIST-IDEA-006"
+        }
+      ],
+      "candidate_domains": [
+        "十一届三中全会/真理标准讨论/南方谈话 milestones",
+        "改革开放阶段会议 identities",
+        "农村改革与土地经营制度 boundaries"
+      ],
+      "admission_state": "CANDIDATE_ONLY",
+      "current_year_delta_risk": "LOW_TO_MEDIUM",
+      "rule": "History precision is mainly cross-cutting identity/timeline knowledge. Exact recent-history items require current-year refresh."
+    },
+    "analysis_output_hooks": [
+      {
+        "id": "HISTORY-C09-OUT-REFORM-OPENING",
+        "title": "改革开放历史进程",
+        "material_cues": [
+          "真理标准讨论",
+          "十一届三中全会",
+          "南方谈话",
+          "社会主义市场经济"
+        ],
+        "retrieval_target": "按思想解放—历史转折—改革推进—再次突破组织，不把会议逐个罗列。",
+        "answer_skeleton": [
+          "真理标准讨论提供思想先导",
+          "十一届三中全会完成伟大转折并开启新时期",
+          "改革开放逐步推进",
+          "南方谈话推动再次思想解放和改革突破",
+          "市场经济体制目标等使改革进入新阶段"
+        ],
+        "current_year_status": "STABLE_TO_HIGH_DELTA_LATE_SECTION"
+      }
+    ],
+    "output_source_role": "HISTORY_ANALYSIS_CROSS_TOPIC_SUPPORT",
+    "historical_output_value": [
+      "历史进程/专题史实组织"
+    ],
+    "first_round_effect": "NONE"
   }
 }
