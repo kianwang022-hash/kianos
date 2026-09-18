@@ -1008,8 +1008,13 @@ body#kianos-workspace.uiWordStudy .lexicalRelationDecision dd{
   font-size:16px;
   line-height:1.45;
 }
+body#kianos-workspace.uiWordStudy .lexicalFormSection:has(.lexicalFormVariants) .lexicalFormBoundary{
+  display:block;
+  margin-bottom:8px;
+}
 body#kianos-workspace.uiWordStudy .lexicalFormVariants{
   display:grid;
+  grid-template-columns:minmax(0,1fr);
   gap:0;
   margin-top:9px;
 }
@@ -1023,6 +1028,7 @@ body#kianos-workspace.uiWordStudy .lexicalFormVariants article{
   border-top:1px solid #e8ecef;
 }
 body#kianos-workspace.uiWordStudy .lexicalFormVariants article:first-child{border-top:0;}
+body#kianos-workspace.uiWordStudy .lexicalFormVariants article:nth-child(n+2){border-top:1px solid #e8ecef;}
 body#kianos-workspace.uiWordStudy .lexicalFormPos{
   grid-column:1;
   grid-row:1 / span 2;
@@ -1067,6 +1073,7 @@ body#kianos-workspace.uiWordStudy .lexicalFormIpa{
 }
 body#kianos-workspace.uiWordStudy .lexicalFamilyRows{
   display:grid;
+  grid-template-columns:minmax(0,1fr);
   gap:0;
 }
 body#kianos-workspace.uiWordStudy .lexicalFamilyRows article{
