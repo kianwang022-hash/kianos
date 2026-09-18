@@ -1,6 +1,6 @@
 # Xizong Block Workspace — accepted design
 
-Status: **BLOCK WORKSPACE PRODUCT LOGIC ACCEPTED — RESPONSIVE / FINAL VISUAL STYLING STILL OPEN**
+Status: **CURRENT — MAC-WIDE BLOCK WORKSPACE + BLOCK TAIL HUMAN-GATE ACCEPTED / MERGED 2026-09-18**
 Parent: `static-web/XIZONG_PRODUCT_BRIEF.md`
 Review safety: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`
 
@@ -12,14 +12,16 @@ Preserve the existing mature learner chain:
 
 ```text
 Block orientation
-→ Logic Group orientation
-→ iPad / MarginNote continuous original-Lecture study for the whole Logic Group
-→ one return to KianOS
-→ that Logic Group's KP Recall
-→ Logic Group closure
+→ current Logic Group purpose / closure shown inside the persistent Logic Map
+→ iPad / MarginNote continuous original-Lecture study while Mac stays on KP Learn
+→ current KP marked learned as the learner advances
+→ that Logic Group's KP Recall on the same KP card with Core hidden
+→ last KP rating automatically closes the Logic Group in the Logic Map
 → next Logic Group
-→ Block Recall
-→ Block Complete
+→ final Logic Group closes directly into Block Recall
+→ Reveal Block model
+→ complete Block Recall
+→ lightweight same-surface confirmation of Block first-pass completion
 → After Learn when useful
 ```
 
@@ -59,7 +61,7 @@ Preserve semantically:
 - Logic Group navigation;
 - Logic Group continuous-Lecture model;
 - one return after the whole Logic Group;
-- neutral KP Recall front and answer gating;
+- same-card KP Recall with Core-only reveal gating;
 - KP Recall evidence semantics;
 - Logic Group closure;
 - Block Recall and completion gate;
@@ -107,33 +109,34 @@ A shared Block change must not silently lose A2's Current Visual / Precision / C
 
 > **把点击用在切换认知对象，不要用在获得本来就该看到的信息。**
 
-Legitimate clicks/state changes include switching Logic Group, entering external Lecture, returning for Recall, moving through KP Recall, Closure, Block Recall, or an actually useful After-Learn task.
+Legitimate clicks/state changes include switching Logic Group, entering external Lecture, returning for Recall, moving through KP Recall, Block Recall, or an actually useful After-Learn task. Logic Group closure itself is derived automatically from completed KP Recall evidence.
 
 Important first-round Block Guide structure should normally be visible on Mac without repeated accordion/detail opening. Protected answers and truly secondary/later reference remain progressively disclosed.
 
-## 6｜Logic Group orientation — ACCEPTED
+## 6｜Logic Group Map — ACCEPTED
 
-Entering a Logic Group changes the current cognitive object but stays inside the same Block Workspace.
+Logic Group no longer requires a large standalone orientation page in the normal Mac path.
 
-Default Mac composition:
+The persistent left map owns lightweight local orientation:
 
 ```text
-Logic Group Map
-│
-├─ current Logic Group title
+current Logic Group
 ├─ goal: this group solves what problem
-├─ closure target: what should be possible after learning
-├─ KP coverage / range as return roadmap only
-├─ relevant Current Visual cue / incoming connection when explicitly owned
-└─ action: go to the original Lecture for continuous study
+├─ closure: what should be possible after learning
+└─ real KP rows
+   ├─ KP id
+   ├─ real Current title
+   └─ current / learned / recalled state
 ```
 
 Rules:
 
 - `goal` and `closure` remain Current learning-support text; UI does not rewrite their meaning;
-- KP identities/range are visible as a roadmap, not as permission to turn first learning into isolated KP cards;
-- group-level Visual appears at the learning entrance only when Current owns a relevant cue;
-- incoming connection may reactivate a previously learned relation when Current explicitly owns that connection;
+- KP rows use real Current titles rather than bare 01/02/03 numbering;
+- no inferred arrows / topology are drawn from KP order;
+- the map is collapsible; collapsing it returns the width to the primary KP work surface;
+- entering another Logic Group changes the active KP / learning object directly rather than forcing a separate orientation ceremony;
+- group-level Visual / Connection / Precision remain conditional Context when Current owns them;
 - no permanent empty Context rail when no contextual object exists.
 
 ## 7｜MarginNote handoff / one return — ACCEPTED
@@ -185,13 +188,14 @@ KP Recall remains a two-state learner interaction inside the owning Logic Group:
 
 ```text
 A. Recall Front
-   KP identity + neutral Active Prompt only
+   same KP card / same title / same Active Prompt / same useful Context
+   + canonical Core hidden
    → learner reconstructs from memory
    → Reveal
 
 B. Recall Reveal
-   Current KP title + complete canonical Core
-   + relevant Current context only
+   same KP card / same Context
+   + complete canonical Core visible
    → 1 / 2 / 3 / 4 evidence
    → next unrecalled KP in the same Logic Group
 ```
@@ -200,24 +204,24 @@ B. Recall Reveal
 
 Hard rule:
 
-> **Neutral-front protection applies to the whole workspace, not only the main Recall card.**
+> **KP Recall protects the canonical Core, not the whole workspace.**
 
 Before Reveal:
 
-- show current Block / Logic Group position and KP ID;
-- show the Current neutral prompt / `主提示` when it is non-answer-leaking;
-- do not show the answer-type KP title, canonical Core, Precision answer cue, answer-revealing Visual cue, or other contextual content that leaks the formal answer;
-- the left Logic Map remains visible; the current Logic Group may expand to show KP IDs / state only;
-- do not expose answer-type titles through a side dock, breadcrumb, inspector, tooltip or shortcut chrome.
+- keep the same KP identity/title and Active Prompt visible;
+- keep the same Logic Map visible, including current LG goal / closure and real KP titles/states;
+- keep Current-owned Source / Outline / Precision / Visual / Connection Context visible when useful;
+- hide the complete canonical KP Core;
+- Reveal opens that same Core in place.
 
-A Current implementation risk was identified: the main Recall card correctly hides `kp.title` until Reveal, while the existing `XizongStudyEnhancer` dock can render `KPxx · title` during Recall. Productization must remove this cross-surface leakage and the Projection validator should cover the whole workspace neutral front rather than only the main card.
+This is intentionally different from Block/System Recall. KP Recall is a lightweight retrieval check inside an already learned local object, so the product does not spend extra interaction cost pretending the surrounding context disappeared.
 
 ### 9.2 Recall Reveal
 
 After legitimate Reveal:
 
-- show the Current KP title;
-- render the complete canonical Current Core without semantic thinning or AI summarization;
+- keep the Current KP title and surrounding Context in place;
+- reveal the complete canonical Current Core without semantic thinning or AI summarization;
 - preserve useful Current internal structure such as chains, tables, formulas, contrasts and headings;
 - Mac-wide Projection may improve spatial organization, typography and relation visibility without rewriting medical content;
 - relevant KP-level source locator / Visual / Precision may enter the conditional Context region only when Current owns them;
@@ -241,7 +245,7 @@ Keep the interaction cheap:
 - Reveal first;
 - rating only after Reveal;
 - after rating, move to the next unrecalled KP in the same Logic Group;
-- after all owned KP in the Logic Group have real Recall evidence, move to Logic Group Closure;
+- after all owned KP in the Logic Group have real Recall evidence, mark that Logic Group closed in the Logic Map and move directly to the next Logic Group;
 - no per-KP `add to Memory`, `confirm answer read`, or other ceremony in the first-pass mainline.
 
 Keyboard / shortcut behavior must fail closed under the same gating: no hidden shortcut may rate or reveal content before the legitimate state permits it.
@@ -252,31 +256,22 @@ High-density Core stays complete after Reveal; density is organized spatially ra
 
 Do not turn a long accepted KP Core into a thin summary merely because it sits inside a Recall surface. The learner action is still `Recall → verify against canonical Core`, not `Recall → verify against an AI-generated abstract`.
 
-## 10｜Logic Group Closure — ACCEPTED
+## 10｜Logic Group Closure — ABSORBED INTO LOGIC MAP
 
-Logic Group Closure is a **local model closure**, not a second KP test and not a new mastery gate.
+Logic Group Closure has no standalone learner page/stage.
 
 After all owned KP in the Logic Group have real Recall evidence:
 
 ```text
-KP Recall complete
-→ return to the Logic Group problem
-→ confirm the group now closes around its Current closure target
-→ expose timing-appropriate Precision / outgoing Connection / Reserve when Current owns them
-→ continue the mainline
+last KP rating
+→ Logic Map marks current LG closed
+→ next LG opens directly
+→ after final LG closes, enter Block Recall
 ```
 
-Mac responsibilities:
+The Current `goal / closure` text remains visible in the Logic Map as the local model target. Weak Recall evidence stays preserved for later Memory/repair, but there is no extra Closure button, rating, checklist or confirmation ceremony.
 
-- keep the owning Logic Group visible in the Logic Map;
-- show the Current `goal` and `closure` as the local problem / closure target;
-- do not restate every KP or require another per-KP check;
-- weak Recall evidence remains preserved for later Memory/repair but does not block the first-pass mainline merely because one KP is not yet stable;
-- group-level Precision may appear here when its Current role is later exactness;
-- outgoing Connection / Reserve may appear here when Current explicitly owns the relation and timing;
-- no extra Closure rating, checklist, `mastered?` ceremony or forced Memory admission.
-
-Closure must remain cheap: the learner should be able to recognize that the local model closes and move on.
+Timing-appropriate group Precision / outgoing Connection / Reserve may still appear through the normal conditional Context owner when Current explicitly owns them; they do not justify a separate stage.
 
 ## 11｜Block Recall / Reconstruction — ACCEPTED
 
@@ -344,7 +339,7 @@ It is learner-controlled local recovery inside the accepted Block mainline.
 
 ### 11.4 Block Recall evidence and completion
 
-Preserve the Current distinction:
+Preserve the evidence distinction while merging the visual surface:
 
 ```text
 Block Recall done
@@ -352,7 +347,14 @@ Block Recall done
 Block completed
 ```
 
-Do not merge these state writes merely to remove one click without a dedicated Runtime/Evidence review.
+Both writes now live on the **same Block Recall Reveal surface**:
+
+```text
+Reveal Block model
+→ complete Block Recall
+→ confirm Block first-pass complete
+→ return to System / continue
+```
 
 Current completion semantics remain:
 
@@ -363,7 +365,7 @@ all owned KP formal Lecture contact
 = Block completion eligible
 ```
 
-The final completion action may be visually lightweight, but its accepted evidence meaning remains intact.
+The final completion action is visually lightweight but remains a distinct real state write. There is no standalone Block Complete page.
 
 ## 12｜After Learn — ACCEPTED
 
@@ -385,7 +387,7 @@ Chat Repair = explicit adaptive / specialist repair task, not the default queue 
 
 ### 12.1 First-pass timing
 
-During unfinished `kp_recall`, Logic Group Closure and Block Recall:
+During unfinished `kp_recall`, unfinished Logic Groups and Block Recall:
 
 - preserve weak Recall evidence and any legitimate Memory admission in state;
 - do not automatically open the full `Memory / 储备 / 回 Chat` workspace after each rating;
@@ -479,29 +481,27 @@ Preserve:
 
 UI productization may change timing / prominence / spatial composition but does not rewrite those contracts.
 
-## 13｜Block Workspace completion state
+## 13｜Block Workspace implementation / Human Gate state
 
-The Block family product logic is now accepted at responsibility / interaction level:
+The accepted first-pass Block mainline is now:
 
 ```text
 Block Guide
-→ Logic Group orientation
-→ MarginNote handoff
-→ one return
-→ KP Recall Front / Reveal
-→ Logic Group Closure
+→ Logic Group orientation in Logic Map
+→ MarginNote handoff / KP Learn companion
+→ KP Recall Front / Reveal on the same KP card
+→ last KP rating auto-closes the Logic Group in Logic Map
 → next Logic Group
-→ Block Recall Front / Reconstruction
-→ Block Complete
-→ selective After Learn
+→ final Logic Group closes directly into Block Recall Front
+→ Reveal Block model
+→ complete Block Recall
+→ same-surface lightweight confirmation of Block first-pass completion
+→ selective After Learn when useful
 → return to System
 ```
 
-Still open before implementation:
+There is **no standalone Logic Group Closure page** and **no standalone Block Complete page**.
 
-- responsive fallback details;
-- final typography / spacing / exact visual polish;
-- screenshot-level acceptance;
-- later Projection asset schema / compilation details.
+Human Gate acceptance on 2026-09-18 covers the Block Recall Front, Block Recall Reveal, and post-Recall completion-confirmation state on the real Mac-wide Chromium surface. Targeted `Xizong Block Workspace` browser acceptance passed on the final candidate, and PR #422 merged this Block tail into `main`.
 
-These visual/implementation details must preserve the accepted Block logic above.
+Responsive fallback and future Projection compilation work may continue later, but they must preserve this accepted interaction geometry and may not reintroduce the removed closure/completion ceremony.

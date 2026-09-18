@@ -42,16 +42,21 @@ for (const systemSummary of listProjectableXizongSystems()) {
       assert(kp.outline?.locator === (canonicalKp?.outlineLocator || ''), `${kpId}:outline-drift`);
 
       const learnSlot = learnerObject.slots?.kpLearnAux?.[kpId] || {};
+      const recallContext = learnerObject.slots?.kpRecallContext?.[kpId] || {};
       const recallSlot = learnerObject.slots?.kpRecallPostReveal?.[kpId] || {};
       const connections = [...(kp.connection?.incoming || []), ...(kp.connection?.outgoing || [])];
       assert(sameIds(learnSlot.visual, kp.visual), `${kpId}:learn-visual-drift`);
       assert(sameIds(learnSlot.precision, kp.precision), `${kpId}:learn-precision-drift`);
       assert(sameIds(learnSlot.extension, kp.extension), `${kpId}:learn-extension-drift`);
       assert(sameIds(learnSlot.connection, connections), `${kpId}:learn-connection-drift`);
-      assert(sameIds(recallSlot.visual, kp.visual), `${kpId}:recall-visual-drift`);
-      assert(sameIds(recallSlot.precision, kp.precision), `${kpId}:recall-precision-drift`);
-      assert(sameIds(recallSlot.extension, kp.extension), `${kpId}:recall-extension-drift`);
-      assert(sameIds(recallSlot.connection, connections), `${kpId}:recall-connection-drift`);
+      assert(sameIds(recallContext.visual, kp.visual), `${kpId}:recall-context-visual-drift`);
+      assert(sameIds(recallContext.precision, kp.precision), `${kpId}:recall-context-precision-drift`);
+      assert(sameIds(recallContext.extension, kp.extension), `${kpId}:recall-context-extension-drift`);
+      assert(sameIds(recallContext.connection, connections), `${kpId}:recall-context-connection-drift`);
+      assert(sameIds(recallSlot.visual, kp.visual), `${kpId}:recall-legacy-visual-drift`);
+      assert(sameIds(recallSlot.precision, kp.precision), `${kpId}:recall-legacy-precision-drift`);
+      assert(sameIds(recallSlot.extension, kp.extension), `${kpId}:recall-legacy-extension-drift`);
+      assert(sameIds(recallSlot.connection, connections), `${kpId}:recall-legacy-connection-drift`);
       assert(recallSlot.core?.markdown === kp.core.markdown, `${kpId}:recall-core-drift`);
     }
 
@@ -80,7 +85,7 @@ for (const systemSummary of listProjectableXizongSystems()) {
   }
 }
 
-// Adversarial: Recall front must stay answer-clean.
+// Adversarial: KP Recall front may keep title/context refs, but Core must stay hidden.
 {
   const sample = {
     schema: 'kianos.xizong.learner_object.v1',
@@ -88,15 +93,19 @@ for (const systemSummary of listProjectableXizongSystems()) {
     identity: { blockId: 'fixture' },
     logicGroups: [],
     kps: [{
-      identity: { kpId: 'fixture-kp01' },
+      identity: { kpId: 'fixture-kp01', title: 'Fixture title' },
       core: { markdown: 'answer', html: '' },
       precision: [], visual: [], extension: [], connection: { incoming: [], outgoing: [] },
-      recall: { front: { identity: { kpId: 'fixture-kp01' }, prompt: { canonical: 'prompt' }, core: 'leak' }, postRevealRefs: ['core'] }
+      recall: {
+        front: { identity: { kpId: 'fixture-kp01', title: 'Fixture title' }, prompt: { canonical: 'prompt' }, core: 'leak' },
+        contextRefs: [],
+        postRevealRefs: ['core']
+      }
     }]
   };
   let rejected = false;
   try { validateXizongLearnerObject(sample); } catch { rejected = true; }
-  assert(rejected, 'adversarial-recall-front-leak-not-caught');
+  assert(rejected, 'adversarial-recall-front-core-leak-not-caught');
 }
 
 // Adversarial: a cue cannot name a real KP and a real but wrong Logic Group.

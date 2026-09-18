@@ -140,7 +140,7 @@
   },
   "compression_ladder": {
     "LEARN": "主提示 + 当前机制 + 必要边界 + Lecture 接触；需要时才显示 Reserve / Hook / Precision / Visual / TTSX checkpoint。",
-    "RECALL": "去掉正文提示，只保留非泄题 Active Prompt → 自己恢复 → Reveal → 评分。",
+    "RECALL": "保留同一 KP 的标题 / Active Prompt / Source-Outline / Current Context，只隐藏 canonical Core → 自己恢复 → Reveal Core → 评分。Block/System Recall 仍可采用更严格的中性重建前台。",
     "BLOCK_SYSTEM_RECALL": "把多个 KP 压回一个模型，不重复测全部 KP。",
     "SECOND_PASS_REVIEW": "机制骨架 + 易混边界 + Precision + Wrong/Uncertain。",
     "LATE_REVIEW": "一句主链 + 少量高价值边界/Precision；内容应越学越薄。"

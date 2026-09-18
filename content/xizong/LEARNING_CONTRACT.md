@@ -259,13 +259,19 @@ It should expose the current Prompt/Core and useful locators/support without req
 
 ### KP Recall
 
-Answer-protected active retrieval after the owning material has actually been learned.
+Core-protected active retrieval after the owning material has actually been learned.
 
-The same Knowledge may be reused, but answer-bearing content stays hidden until Reveal.
+Learn and Recall remain the same KP learner object. Recall changes **Core visibility**, not the identity of the card or its surrounding workspace.
+
+Before Reveal, the canonical KP Core stays hidden. The KP title, active Prompt, Source / Outline locators and Current-owned Context such as Precision / Visual / Connection may remain visible when useful. Reveal opens the same canonical Core; it does not switch to a second answer card.
+
+This protection rule is specific to KP Recall. Block/System Recall may still use stricter neutral-front protection where their accepted reconstruction contract requires it.
 
 ### Logic Group closure
 
-Brief local reconstruction. It is not a large separate learner page or new Source-reading step.
+A lightweight state inside the persistent Logic Map, not a standalone learner stage.
+
+When all KPs in the Logic Group have real Recall evidence, the map marks that group closed and the learner proceeds directly to the next Logic Group. The existing `goal / closure` text remains the local model target; no extra confirmation page, rating or click is required.
 
 ---
 

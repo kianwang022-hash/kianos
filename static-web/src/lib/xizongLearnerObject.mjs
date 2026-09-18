@@ -31,6 +31,7 @@ function normalizeCue(row, kind) {
     task: text(row?.task || row?.micro_task),
     sourceLocator: text(row?.source_locator || row?.sourceLocator),
     sourceVisualBundle: row?.source_visual_bundle || null,
+    answerHtml: text(row?.answerHtml || row?.answer_html || row?.raw?.answerHtml || row?.raw?.answer_html),
     raw: row
   };
 }
@@ -104,23 +105,24 @@ function learnSteps(object) {
 }
 
 function recallProjection(object) {
-  const postRevealRefs = [];
-  if (object.core?.markdown || object.core?.html) postRevealRefs.push('core');
-  if (object.precision.length) postRevealRefs.push('precision');
-  if (object.visual.length) postRevealRefs.push('visual');
-  if (object.extension.length) postRevealRefs.push('extension');
-  if (object.connection.incoming.length || object.connection.outgoing.length) postRevealRefs.push('connection');
+  const contextRefs = [];
+  if (object.precision.length) contextRefs.push('precision');
+  if (object.visual.length) contextRefs.push('visual');
+  if (object.extension.length) contextRefs.push('extension');
+  if (object.connection.incoming.length || object.connection.outgoing.length) contextRefs.push('connection');
   return {
     front: {
       identity: {
         kpId: object.identity.kpId,
         displayId: object.identity.displayId,
+        title: object.identity.title,
         logicGroupId: object.identity.logicGroupId,
         groupLabel: object.identity.groupLabel
       },
       prompt: object.prompt
     },
-    postRevealRefs
+    contextRefs,
+    postRevealRefs: (object.core?.markdown || object.core?.html) ? ['core'] : []
   };
 }
 
@@ -283,6 +285,12 @@ export function buildXizongLearnerObject({
         extension: kp.extension,
         connection: [...kp.connection.incoming, ...kp.connection.outgoing]
       }])),
+      kpRecallContext: Object.fromEntries(kpObjects.map((kp) => [kp.identity.kpId, {
+        visual: kp.visual,
+        precision: kp.precision,
+        extension: kp.extension,
+        connection: [...kp.connection.incoming, ...kp.connection.outgoing]
+      }])),
       kpRecallPostReveal: Object.fromEntries(kpObjects.map((kp) => [kp.identity.kpId, {
         core: kp.core,
         visual: kp.visual,
@@ -300,18 +308,18 @@ export function validateXizongLearnerObject(object) {
   if (!kpIds.length || new Set(kpIds).size !== kpIds.length) fail('KP_SET_INVALID', object?.identity?.blockId);
   for (const kp of object.kps) {
     const front = kp?.recall?.front || {};
-    const forbiddenFrontKeys = ['core', 'precision', 'visual', 'extension', 'connection', 'title'];
-    if (forbiddenFrontKeys.some((key) => Object.prototype.hasOwnProperty.call(front, key))) {
-      fail('RECALL_FRONT_LEAK', `${kp.identity.kpId}:${forbiddenFrontKeys.find((key) => Object.prototype.hasOwnProperty.call(front, key))}`);
-    }
-    if (front?.identity?.title) fail('RECALL_FRONT_TITLE_LEAK', kp.identity.kpId);
-    const expected = [];
-    if (kp.core?.markdown || kp.core?.html) expected.push('core');
-    if (kp.precision?.length) expected.push('precision');
-    if (kp.visual?.length) expected.push('visual');
-    if (kp.extension?.length) expected.push('extension');
-    if (kp.connection?.incoming?.length || kp.connection?.outgoing?.length) expected.push('connection');
-    if (expected.join('|') !== array(kp?.recall?.postRevealRefs).join('|')) fail('POST_REVEAL_REF_MISMATCH', kp.identity.kpId);
+    if (Object.prototype.hasOwnProperty.call(front, 'core')) fail('RECALL_FRONT_CORE_LEAK', kp.identity.kpId);
+    if (front?.identity?.title !== kp?.identity?.title) fail('RECALL_FRONT_TITLE_DRIFT', kp.identity.kpId);
+
+    const expectedContext = [];
+    if (kp.precision?.length) expectedContext.push('precision');
+    if (kp.visual?.length) expectedContext.push('visual');
+    if (kp.extension?.length) expectedContext.push('extension');
+    if (kp.connection?.incoming?.length || kp.connection?.outgoing?.length) expectedContext.push('connection');
+    if (expectedContext.join('|') !== array(kp?.recall?.contextRefs).join('|')) fail('RECALL_CONTEXT_REF_MISMATCH', kp.identity.kpId);
+
+    const expectedReveal = (kp.core?.markdown || kp.core?.html) ? ['core'] : [];
+    if (expectedReveal.join('|') !== array(kp?.recall?.postRevealRefs).join('|')) fail('POST_REVEAL_REF_MISMATCH', kp.identity.kpId);
   }
   return {
     ok: true,
