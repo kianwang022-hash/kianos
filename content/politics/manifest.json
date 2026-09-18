@@ -104,7 +104,7 @@
     ],
     "lifecycle_scope": {
       "first_round": "CLOSED_FOR_ALL_FIVE_SUBJECTS",
-      "later_stage": "K_PASS_WITH_DEBT_L_NOT_STARTED",
+      "later_stage": "L_CANDIDATE_BUILDER_PASS_AFTER_REPAIR_INDEPENDENT_AUDIT_PENDING",
       "rule": "First-round K/L closure is distinct from exam-lifecycle later-stage K/L closure."
     }
   },
@@ -157,7 +157,7 @@
     "marxism_later_stage_compression_k_audit": "PASS",
     "marxism_later_stage_output_k_audit": "PASS_FOR_PROMOTED_CURRENT_GROUNDED_HOOKS",
     "marxism_later_stage_precision_k_status": "ACTIVE_PARTIAL",
-    "marxism_later_stage_l_started": false,
+    "marxism_later_stage_l_started": true,
     "marxism_later_stage_k_status": "PASS_WITH_DEBT_CURRENT_YEAR_MEMORY_ADMISSION",
     "marxism_later_stage_precision_candidate_k_complete": true,
     "marxism_later_stage_precision_admission_complete": false,
@@ -183,14 +183,14 @@
       "C08"
     ],
     "mao_later_stage_output_k_status": "NONE_JUSTIFIED_BY_CURRENT_SOURCE",
-    "mao_later_stage_l_started": false,
+    "mao_later_stage_l_started": true,
     "xi_later_stage_k_status": "PASS_WITH_DEBT_CURRENT_YEAR_DELTA",
     "xi_later_stage_compression_k_complete": true,
     "xi_later_stage_precision_candidate_domain_count": 54,
     "xi_later_stage_precision_exact_objects_complete": false,
     "xi_later_stage_output_hook_count": 15,
     "xi_later_stage_output_current_year_refresh_required": true,
-    "xi_later_stage_l_started": false,
+    "xi_later_stage_l_started": true,
     "history_later_stage_k_status": "PASS_WITH_DEBT_RECENT_HISTORY_REFRESH",
     "history_later_stage_compression_k_complete": true,
     "history_later_stage_horizontal_precision_candidate_count": 50,
@@ -211,15 +211,25 @@
       "C10"
     ],
     "history_recent_history_current_year_refresh_required": true,
-    "history_later_stage_l_started": false,
+    "history_later_stage_l_started": true,
     "ethics_later_stage_k_status": "PASS_WITH_DEBT_LEGAL_FRESHNESS",
     "ethics_later_stage_compression_k_complete": true,
     "ethics_later_stage_precision_candidate_count": 22,
     "ethics_later_stage_output_hook_count": 7,
     "ethics_later_stage_legal_current_source_recheck_required": true,
-    "ethics_later_stage_l_started": false,
+    "ethics_later_stage_l_started": true,
     "later_stage_knowledge_status": "PASS_WITH_DEBT_CURRENT_YEAR_MEMORY_OUTPUT_REFRESH",
     "later_stage_knowledge_ready_for_learning_audit": true,
-    "later_stage_memory_admission_complete": false
+    "later_stage_memory_admission_complete": false,
+    "later_stage_learning_candidate": true,
+    "later_stage_learning_calibration_chapters": [
+      "POL27-LEARN-MARX-C02",
+      "POL27-LEARN-MAO-C02",
+      "POL27-LEARN-XI-C06",
+      "POL27-LEARN-HISTORY-C05",
+      "POL27-LEARN-ETHICS-C06"
+    ],
+    "later_stage_learning_builder_attack": "PASS_AFTER_REPAIR",
+    "later_stage_learning_independent_audit": "PENDING"
   }
 }
