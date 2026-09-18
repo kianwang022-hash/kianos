@@ -1,0 +1,1322 @@
+{
+  "schema": "kianos.lexical.baseline_v2_module_receipt.v1",
+  "range": {
+    "start_ordinal": 451,
+    "end_ordinal": 500
+  },
+  "authority": {
+    "contract": "content/lexical/CONTENT_ASSET_CONTRACT.md §4A",
+    "execution": "content/lexical/CONTENT_EXECUTION.md §3A/§3B",
+    "page_rule": "Lexical Content may not modify learner pages / static-web"
+  },
+  "phase": "BASELINE_V2_FULL_REVALIDATION",
+  "approval": {
+    "human_gate": "APPROVED",
+    "approved_at": "2026-09-19",
+    "interaction_rule": "one shard = one Kian Human Gate"
+  },
+  "summary": {
+    "owners_freshly_revalidated": 50,
+    "word_content_owners_upgraded": 17,
+    "relation_projection_dedup_updates": 1,
+    "depth_disposition_owner_updates": 2,
+    "owners_without_word_content_mutation": 33,
+    "blocked": 0,
+    "repair_test_blueprints": 23,
+    "no_test_needed": 27,
+    "learner_page_files_changed": 0,
+    "final_learner_object_count": 7946,
+    "final_learner_materialization": "PASS",
+    "materializer_run_id": 35394884360,
+    "materialized_branch_head": "46011dfa6cfc1169ed2f15b63e3132127ed55ab8"
+  },
+  "projection_notes": {
+    "word:beside": "duplicate learner-facing besides confusable projection collapsed to deep:confusables:beside:25b35653c7a51bd2; both canonical evidence owners remain intact",
+    "word:behavior": "behave family reference → EXPLORE_ONLY",
+    "word:beneficial": "low-information beneficiary family reference → EXPLORE_ONLY"
+  },
+  "decisions": [
+    {
+      "ordinal": 451,
+      "word": "behavior",
+      "operation": "UPGRADED",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "UPGRADED",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "UPGRADED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "PRESERVE",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "UPGRADED"
+      },
+      "change_reasons": {
+        "core": [
+          "COVERAGE_GAP",
+          "DECISION_GAP"
+        ],
+        "decision_boundary": [
+          "DECISION_GAP"
+        ]
+      },
+      "rationale": "Applied only the Kian-approved Baseline-v2 Word Content mutation(s), then read back the materialized Final Learner Object."
+    },
+    {
+      "ordinal": 452,
+      "word": "behind",
+      "operation": "UPGRADED",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "UPGRADED",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "UPGRADED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "UPGRADED"
+      },
+      "change_reasons": {
+        "core": [
+          "COVERAGE_GAP",
+          "DECISION_GAP"
+        ],
+        "decision_boundary": [
+          "DECISION_GAP"
+        ]
+      },
+      "rationale": "Applied only the Kian-approved Baseline-v2 Word Content mutation(s), then read back the materialized Final Learner Object."
+    },
+    {
+      "ordinal": 453,
+      "word": "being",
+      "operation": "NO_CHANGE",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 454,
+      "word": "belief",
+      "operation": "NO_CHANGE",
+      "final_quality": "SAFE_SIMPLE",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 455,
+      "word": "believe",
+      "operation": "UPGRADED",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "UPGRADED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "UPGRADED",
+        "relation_confusable": "PRESERVE",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "UPGRADED",
+        "repair_test": "UPGRADED"
+      },
+      "change_reasons": {
+        "construction": [
+          "STRUCTURE_GAP",
+          "PRODUCTIVE_VALUE_GAP"
+        ],
+        "decision_boundary": [
+          "DECISION_GAP"
+        ],
+        "productive_use": [
+          "PRODUCTIVE_VALUE_GAP"
+        ]
+      },
+      "rationale": "Applied only the Kian-approved Baseline-v2 Word Content mutation(s), then read back the materialized Final Learner Object."
+    },
+    {
+      "ordinal": 456,
+      "word": "bell",
+      "operation": "UPGRADED",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "UPGRADED",
+        "senses": "UPGRADED",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "UPGRADED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "UPGRADED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "UPGRADED",
+        "repair_test": "UPGRADED"
+      },
+      "change_reasons": {
+        "core": [
+          "CORRECTNESS_GAP",
+          "OWNERSHIP_GAP"
+        ],
+        "senses": [
+          "CORRECTNESS_GAP",
+          "OWNERSHIP_GAP"
+        ],
+        "construction": [
+          "STRUCTURE_GAP"
+        ],
+        "decision_boundary": [
+          "CORRECTNESS_GAP"
+        ],
+        "productive_use": [
+          "PRODUCTIVE_VALUE_GAP"
+        ]
+      },
+      "rationale": "Applied only the Kian-approved Baseline-v2 Word Content mutation(s), then read back the materialized Final Learner Object."
+    },
+    {
+      "ordinal": 457,
+      "word": "belly",
+      "operation": "NO_CHANGE",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 458,
+      "word": "belong",
+      "operation": "UPGRADED",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "UPGRADED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "UPGRADED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "UPGRADED",
+        "repair_test": "UPGRADED"
+      },
+      "change_reasons": {
+        "construction": [
+          "STRUCTURE_GAP"
+        ],
+        "decision_boundary": [
+          "DECISION_GAP"
+        ],
+        "productive_use": [
+          "PRODUCTIVE_VALUE_GAP"
+        ]
+      },
+      "rationale": "Applied only the Kian-approved Baseline-v2 Word Content mutation(s), then read back the materialized Final Learner Object."
+    },
+    {
+      "ordinal": 459,
+      "word": "beloved",
+      "operation": "NO_CHANGE",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 460,
+      "word": "below",
+      "operation": "NO_CHANGE",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 461,
+      "word": "belt",
+      "operation": "NO_CHANGE",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 462,
+      "word": "bench",
+      "operation": "NO_CHANGE",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 463,
+      "word": "bend",
+      "operation": "NO_CHANGE",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 464,
+      "word": "beneath",
+      "operation": "NO_CHANGE",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 465,
+      "word": "beneficial",
+      "operation": "NO_CHANGE",
+      "final_quality": "SAFE_SIMPLE",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "PRESERVE",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "UPGRADED"
+      },
+      "change_reasons": {},
+      "rationale": "Natural semantic owner preserved; approved default-Depth family disposition updated separately."
+    },
+    {
+      "ordinal": 466,
+      "word": "benefit",
+      "operation": "UPGRADED",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "UPGRADED",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "UPGRADED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "UPGRADED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "UPGRADED",
+        "repair_test": "UPGRADED"
+      },
+      "change_reasons": {
+        "core": [
+          "DECISION_GAP"
+        ],
+        "construction": [
+          "STRUCTURE_GAP"
+        ],
+        "decision_boundary": [
+          "DECISION_GAP"
+        ],
+        "productive_use": [
+          "PRODUCTIVE_VALUE_GAP"
+        ]
+      },
+      "rationale": "Applied only the Kian-approved Baseline-v2 Word Content mutation(s), then read back the materialized Final Learner Object."
+    },
+    {
+      "ordinal": 467,
+      "word": "benevolent",
+      "operation": "NO_CHANGE",
+      "final_quality": "SAFE_SIMPLE",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 468,
+      "word": "benign",
+      "operation": "UPGRADED",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "UPGRADED",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "UPGRADED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "UPGRADED"
+      },
+      "change_reasons": {
+        "core": [
+          "DECISION_GAP"
+        ],
+        "decision_boundary": [
+          "DECISION_GAP"
+        ]
+      },
+      "rationale": "Applied only the Kian-approved Baseline-v2 Word Content mutation(s), then read back the materialized Final Learner Object."
+    },
+    {
+      "ordinal": 469,
+      "word": "beside",
+      "operation": "UPGRADED",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "UPGRADED",
+        "relation_confusable": "UPGRADED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "UPGRADED"
+      },
+      "change_reasons": {
+        "relation_confusable": [
+          "REDUNDANCY_NOISE"
+        ]
+      },
+      "rationale": "Preserved both canonical evidence sources while removing the duplicate learner-facing confusable projection."
+    },
+    {
+      "ordinal": 470,
+      "word": "besides",
+      "operation": "NO_CHANGE",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "PRESERVE",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 471,
+      "word": "best",
+      "operation": "NO_CHANGE",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "PRESERVE",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "PRESERVE",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 472,
+      "word": "bet",
+      "operation": "UPGRADED",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "UPGRADED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "UPGRADED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "UPGRADED",
+        "repair_test": "UPGRADED"
+      },
+      "change_reasons": {
+        "construction": [
+          "STRUCTURE_GAP"
+        ],
+        "decision_boundary": [
+          "DECISION_GAP"
+        ],
+        "productive_use": [
+          "PRODUCTIVE_VALUE_GAP"
+        ]
+      },
+      "rationale": "Applied only the Kian-approved Baseline-v2 Word Content mutation(s), then read back the materialized Final Learner Object."
+    },
+    {
+      "ordinal": 473,
+      "word": "betray",
+      "operation": "NO_CHANGE",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "PRESERVE",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "UPGRADED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 474,
+      "word": "better",
+      "operation": "NO_CHANGE",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "PRESERVE",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "PRESERVE",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 475,
+      "word": "between",
+      "operation": "NO_CHANGE",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "PRESERVE",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "PRESERVE",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "PRESERVE",
+        "repair_test": "UPGRADED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 476,
+      "word": "beverage",
+      "operation": "NO_CHANGE",
+      "final_quality": "SAFE_SIMPLE",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 477,
+      "word": "beware",
+      "operation": "UPGRADED",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "UPGRADED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "UPGRADED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "UPGRADED",
+        "repair_test": "UPGRADED"
+      },
+      "change_reasons": {
+        "construction": [
+          "STRUCTURE_GAP"
+        ],
+        "decision_boundary": [
+          "DECISION_GAP"
+        ],
+        "productive_use": [
+          "PRODUCTIVE_VALUE_GAP"
+        ]
+      },
+      "rationale": "Applied only the Kian-approved Baseline-v2 Word Content mutation(s), then read back the materialized Final Learner Object."
+    },
+    {
+      "ordinal": 478,
+      "word": "bewilder",
+      "operation": "NO_CHANGE",
+      "final_quality": "SAFE_SIMPLE",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 479,
+      "word": "beyond",
+      "operation": "NO_CHANGE",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 480,
+      "word": "bias",
+      "operation": "NO_CHANGE",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "PRESERVE",
+        "relation_confusable": "PRESERVE",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "UPGRADED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 481,
+      "word": "bible",
+      "operation": "UPGRADED",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "UPGRADED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "UPGRADED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "UPGRADED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "UPGRADED"
+      },
+      "change_reasons": {
+        "form_identity": [
+          "REGISTER_FORM_GAP"
+        ],
+        "decision_boundary": [
+          "REGISTER_FORM_GAP"
+        ]
+      },
+      "rationale": "Applied only the Kian-approved Baseline-v2 Word Content mutation(s), then read back the materialized Final Learner Object."
+    },
+    {
+      "ordinal": 482,
+      "word": "bibliography",
+      "operation": "NO_CHANGE",
+      "final_quality": "SAFE_SIMPLE",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 483,
+      "word": "bicycle",
+      "operation": "NO_CHANGE",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 484,
+      "word": "bid",
+      "operation": "UPGRADED",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "UPGRADED",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "UPGRADED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "UPGRADED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "UPGRADED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "UPGRADED",
+        "repair_test": "UPGRADED"
+      },
+      "change_reasons": {
+        "core": [
+          "DECISION_GAP"
+        ],
+        "construction": [
+          "STRUCTURE_GAP",
+          "REGISTER_FORM_GAP"
+        ],
+        "decision_boundary": [
+          "DECISION_GAP"
+        ],
+        "productive_use": [
+          "PRODUCTIVE_VALUE_GAP"
+        ]
+      },
+      "rationale": "Applied only the Kian-approved Baseline-v2 Word Content mutation(s), then read back the materialized Final Learner Object."
+    },
+    {
+      "ordinal": 485,
+      "word": "big",
+      "operation": "NO_CHANGE",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 486,
+      "word": "bill",
+      "operation": "UPGRADED",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "UPGRADED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "UPGRADED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "UPGRADED",
+        "repair_test": "UPGRADED"
+      },
+      "change_reasons": {
+        "construction": [
+          "CORRECTNESS_GAP",
+          "OWNERSHIP_GAP"
+        ],
+        "decision_boundary": [
+          "DECISION_GAP"
+        ],
+        "productive_use": [
+          "PRODUCTIVE_VALUE_GAP"
+        ]
+      },
+      "rationale": "Applied only the Kian-approved Baseline-v2 Word Content mutation(s), then read back the materialized Final Learner Object."
+    },
+    {
+      "ordinal": 487,
+      "word": "billion",
+      "operation": "NO_CHANGE",
+      "final_quality": "SAFE_SIMPLE",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 488,
+      "word": "bin",
+      "operation": "NO_CHANGE",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 489,
+      "word": "bind",
+      "operation": "NO_CHANGE",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "PRESERVE",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "PRESERVE",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "PRESERVE",
+        "repair_test": "UPGRADED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 490,
+      "word": "biography",
+      "operation": "NO_CHANGE",
+      "final_quality": "SAFE_SIMPLE",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 491,
+      "word": "biology",
+      "operation": "NO_CHANGE",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 492,
+      "word": "bird",
+      "operation": "NO_CHANGE",
+      "final_quality": "SAFE_SIMPLE",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 493,
+      "word": "birth",
+      "operation": "UPGRADED",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "UPGRADED",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "UPGRADED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "UPGRADED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "UPGRADED",
+        "repair_test": "UPGRADED"
+      },
+      "change_reasons": {
+        "core": [
+          "COVERAGE_GAP",
+          "DECISION_GAP"
+        ],
+        "construction": [
+          "STRUCTURE_GAP"
+        ],
+        "decision_boundary": [
+          "DECISION_GAP"
+        ],
+        "productive_use": [
+          "PRODUCTIVE_VALUE_GAP"
+        ]
+      },
+      "rationale": "Applied only the Kian-approved Baseline-v2 Word Content mutation(s), then read back the materialized Final Learner Object."
+    },
+    {
+      "ordinal": 494,
+      "word": "birthday",
+      "operation": "NO_CHANGE",
+      "final_quality": "SAFE_SIMPLE",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 495,
+      "word": "biscuit",
+      "operation": "UPGRADED",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "UPGRADED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "UPGRADED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "UPGRADED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "UPGRADED"
+      },
+      "change_reasons": {
+        "form_identity": [
+          "REGISTER_FORM_GAP"
+        ],
+        "decision_boundary": [
+          "REGISTER_FORM_GAP"
+        ]
+      },
+      "rationale": "Applied only the Kian-approved Baseline-v2 Word Content mutation(s), then read back the materialized Final Learner Object."
+    },
+    {
+      "ordinal": 496,
+      "word": "bit",
+      "operation": "UPGRADED",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "UPGRADED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "UPGRADED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "UPGRADED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "UPGRADED"
+      },
+      "change_reasons": {
+        "form_identity": [
+          "REGISTER_FORM_GAP",
+          "OWNERSHIP_GAP"
+        ],
+        "decision_boundary": [
+          "DECISION_GAP"
+        ]
+      },
+      "rationale": "Applied only the Kian-approved Baseline-v2 Word Content mutation(s), then read back the materialized Final Learner Object."
+    },
+    {
+      "ordinal": 497,
+      "word": "bite",
+      "operation": "NO_CHANGE",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 498,
+      "word": "bitter",
+      "operation": "UPGRADED",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "UPGRADED",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "UPGRADED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "UPGRADED"
+      },
+      "change_reasons": {
+        "core": [
+          "COVERAGE_GAP",
+          "DECISION_GAP"
+        ],
+        "decision_boundary": [
+          "DECISION_GAP"
+        ]
+      },
+      "rationale": "Applied only the Kian-approved Baseline-v2 Word Content mutation(s), then read back the materialized Final Learner Object."
+    },
+    {
+      "ordinal": 499,
+      "word": "bizarre",
+      "operation": "NO_CHANGE",
+      "final_quality": "SAFE_SIMPLE",
+      "modules": {
+        "core": "PRESERVE",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "NOT_NEEDED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "NOT_NEEDED"
+      },
+      "change_reasons": {},
+      "rationale": "Fresh shard read found no approved semantic gap requiring mutation."
+    },
+    {
+      "ordinal": 500,
+      "word": "black",
+      "operation": "UPGRADED",
+      "final_quality": "DEPTH_READY",
+      "modules": {
+        "core": "UPGRADED",
+        "senses": "PRESERVE",
+        "familiar_new": "NOT_NEEDED",
+        "construction": "NOT_NEEDED",
+        "phraseology": "NOT_NEEDED",
+        "decision_boundary": "UPGRADED",
+        "relation_confusable": "NOT_NEEDED",
+        "register_stance": "NOT_NEEDED",
+        "family_morphology": "NOT_NEEDED",
+        "form_identity": "NOT_NEEDED",
+        "productive_use": "NOT_NEEDED",
+        "repair_test": "UPGRADED"
+      },
+      "change_reasons": {
+        "core": [
+          "CORRECTNESS_GAP",
+          "DECISION_GAP"
+        ],
+        "decision_boundary": [
+          "DECISION_GAP"
+        ]
+      },
+      "rationale": "Applied only the Kian-approved Baseline-v2 Word Content mutation(s), then read back the materialized Final Learner Object."
+    }
+  ],
+  "closure": "CLOSED",
+  "next_shard": {
+    "start_ordinal": 501,
+    "end_ordinal": 550,
+    "status": "FRESH_READ_AND_COMBINED_REPORT_NEXT"
+  }
+}
