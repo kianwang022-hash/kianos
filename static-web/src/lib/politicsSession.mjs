@@ -80,6 +80,9 @@ function normalizeStep(step, index) {
   );
   const prompt = text(step.learner_prompt ?? step.prompt);
   const sourceHref = text(step.source_href ?? step.sourceHref);
+  if (sourceHref && !sourceHref.startsWith('/') && !/^https?:\/\//i.test(sourceHref)) {
+    throw new Error(`POLITICS_SESSION_SOURCE_HREF_INVALID:${stepId}`);
+  }
 
   if (['RECONSTRUCT', 'TARGETED_RECALL'].includes(recipeType) && !targetRefs.length) {
     throw new Error(`POLITICS_SESSION_TARGET_REQUIRED:${stepId}`);
