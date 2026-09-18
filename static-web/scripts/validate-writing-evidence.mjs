@@ -243,7 +243,12 @@ if (fs.existsSync(panelPath)) {
   const panel = fs.readFileSync(panelPath, 'utf8');
   check(panel.includes('kianos-writing-evidence-v1'), 'PRIVATE_LEDGER_STORAGE_MISSING');
   check(panel.includes('buildWritingTransferCheckPacket') && panel.includes('applyWritingTransferReturn'), 'TRANSFER_ROUNDTRIP_NOT_EXECUTABLE');
-  check(panel.includes('same-prompt repair') && panel.includes('REOPEN'), 'TRANSFER_SEMANTIC_BOUNDARY_NOT_VISIBLE');
+  const workspace = fs.readFileSync(path.resolve(process.cwd(), 'src/components/WritingWorkspace.astro'), 'utf8');
+  check(
+    workspace.includes('同题改好只说明这次修改有效；以后是否稳定，要看新的写作。')
+      && panel.includes('REOPEN'),
+    'TRANSFER_SEMANTIC_BOUNDARY_NOT_VISIBLE'
+  );
 }
 if (fs.existsSync(routePath)) {
   const route = fs.readFileSync(routePath, 'utf8');
