@@ -84,6 +84,9 @@ function validateTask({ task, list, load, loadAnswers }) {
   }
   if (!sets.length) issues.push(`${task}: no resolved sets`);
   if (!state.sections?.length) issues.push(`${task}: no resolved Current section`);
+  if (state.sectionResolutionMode !== 'content-owned-task-map') {
+    issues.push(`${task}: task identity must come from Content-owned task map, got ${state.sectionResolutionMode || 'none'}`);
+  }
 
   for (const catalogItem of sets) {
     try {
@@ -258,6 +261,54 @@ function validateEvidenceRuntimeWiring() {
     issueCount: uiIssues.length,
     legacyQuestionWatchLoaded: uiIssues.some((issue) => issue.includes('legacy runtime still loaded'))
   };
+}
+
+try {
+  const manifest = JSON.parse(read('../../content/english/manifest.json'));
+  const map = manifest?.final_learner_objects?.task_map;
+  if (map?.schema !== 'kianos.english.task_map.v1') {
+    issues.push('English task map: missing Content-owned schema');
+  }
+  const expected = {
+    reading_a: ['reading_part_a'],
+    cloze: ['cloze'],
+    reading_b: ['reading_part_b'],
+    translation: ['translation'],
+    writing: ['writing_part_a', 'writing_part_b']
+  };
+  for (const [task, sections] of Object.entries(expected)) {
+    if (JSON.stringify(map?.tasks?.[task]?.sections || []) !== JSON.stringify(sections)) {
+      issues.push(`English task map: ${task} sections drift`);
+    }
+  }
+
+  const objectiveLoader = read('../src/lib/englishObjective.mjs');
+  for (const forbidden of ['KIANOS_CLOZE_SECTIONS', 'KIANOS_READING_B_SECTIONS', 'sectionMatch(', 'idMatch(']) {
+    if (objectiveLoader.includes(forbidden)) issues.push(`Objective loader: semantic task inference remains: ${forbidden}`);
+  }
+
+  const readingLoader = read('../src/lib/englishReading.mjs');
+  if (!readingLoader.includes("objectiveTaskSections(manifest, 'reading_a')")) {
+    issues.push('Reading A loader: Content-owned task identity not consumed');
+  }
+
+  const translationLoader = read('../src/lib/englishTranslation.mjs');
+  for (const forbidden of ['KIANOS_TRANSLATION_SECTIONS', 'sectionMatch(', 'idMatch(']) {
+    if (translationLoader.includes(forbidden)) issues.push(`Translation loader: semantic task inference remains: ${forbidden}`);
+  }
+  if (!translationLoader.includes("manifest?.final_learner_objects?.task_map")) {
+    issues.push('Translation loader: Content-owned task identity not consumed');
+  }
+
+  const writingLoader = read('../src/lib/englishWriting.mjs');
+  if (writingLoader.includes('looksLikeWriting(')) {
+    issues.push('Writing loader: semantic task inference remains: looksLikeWriting');
+  }
+  if (!writingLoader.includes("manifest?.final_learner_objects?.task_map")) {
+    issues.push('Writing loader: Content-owned task identity not consumed');
+  }
+} catch (error) {
+  issues.push(`English task map: ${error instanceof Error ? error.message : String(error)}`);
 }
 
 validateTask({ task: 'cloze', list: listClozeSets, load: loadClozeById, loadAnswers: loadClozeAnswersById });

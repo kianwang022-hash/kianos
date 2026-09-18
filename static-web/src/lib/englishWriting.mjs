@@ -81,19 +81,6 @@ function stableJson(value) {
   return `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${stableJson(value[key])}`).join(',')}}`;
 }
 
-function normalizeToken(value) {
-  return String(value || '')
-    .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '_')
-    .replace(/^_+|_+$/g, '');
-}
-
-function looksLikeWriting(value) {
-  const token = normalizeToken(value);
-  return /(^|_)(writing|composition|essay)($|_)/.test(token);
-}
-
 function textBlocks(value) {
   if (typeof value === 'string' || typeof value === 'number') {
     return String(value)
@@ -293,14 +280,24 @@ function collectForbiddenPaths(value, prefix = '') {
   return hits;
 }
 
-function validateBoundary(bank) {
+function validateBoundary(bank, manifest) {
   const sets = Array.isArray(bank?.passage_or_sets) ? bank.passage_or_sets : [];
   const inventory = sectionInventory(bank);
+  const map = manifest?.final_learner_objects?.task_map;
+  if (map?.schema !== 'kianos.english.task_map.v1' || !map?.tasks || typeof map.tasks !== 'object') {
+    throw new Error('WRITING_TASK_MAP_NOT_READY');
+  }
+  const expectedWritingSections = Array.isArray(map.tasks?.writing?.sections)
+    ? map.tasks.writing.sections.map((value) => String(value || '').trim()).filter(Boolean).sort()
+    : [];
+  if (!expectedWritingSections.length || new Set(expectedWritingSections).size !== expectedWritingSections.length) {
+    throw new Error('WRITING_TASK_IDENTITY_INVALID');
+  }
   const actualWritingSections = inventory
-    .filter((row) => looksLikeWriting(row.section) || [...row.setIds, ...row.promptIds].some(looksLikeWriting))
+    .filter((row) => expectedWritingSections.includes(row.section))
     .map((row) => row.section)
     .sort();
-  const expectedWritingSections = Object.keys(WRITING_SOURCE_BOUNDARY.sections).sort();
+  const boundarySections = Object.keys(WRITING_SOURCE_BOUNDARY.sections).sort();
   const checks = {
     exactWritingSections: JSON.stringify(actualWritingSections) === JSON.stringify(expectedWritingSections),
     exactSectionCoverage: true,
@@ -318,6 +315,10 @@ function validateBoundary(bank) {
 
   if (!checks.exactWritingSections) {
     issues.push(`WRITING_SECTION_BOUNDARY_DRIFT:expected=${expectedWritingSections.join('|')}:actual=${actualWritingSections.join('|')}`);
+  }
+  if (JSON.stringify(boundarySections) !== JSON.stringify(expectedWritingSections)) {
+    checks.exactWritingSections = false;
+    issues.push(`WRITING_RUNTIME_BOUNDARY_NOT_ALIGNED_TO_CONTENT:content=${expectedWritingSections.join('|')}:runtime=${boundarySections.join('|')}`);
   }
 
   for (const [section, spec] of Object.entries(WRITING_SOURCE_BOUNDARY.sections)) {
@@ -425,7 +426,7 @@ function snapshot() {
       if (!pass) issues.push(name);
     }
 
-    const boundary = validateBoundary(bank);
+    const boundary = validateBoundary(bank, manifest);
     issues.push(...boundary.issues);
     const checks = { ...ownerChecks, ...boundary.checks };
     const status = Object.values(checks).every(Boolean) ? 'ready' : 'invalid';

@@ -18,6 +18,7 @@ const pendingDescription = sourceState.status === 'invalid'
   sourcePath="content/english/manifest.json"
   objectId="english:reading-home"
   active="reading"
+  showLead={sourceState.status !== 'ready'}
 >
   <EnglishObjectiveLocalNav active="reading" />
   {sourceState.status === 'ready' ? (

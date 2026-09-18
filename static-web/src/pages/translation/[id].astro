@@ -5,6 +5,7 @@ import TranslationWorkspace from '../../components/TranslationWorkspace.astro';
 import TranslationEvidenceGuard from '../../components/TranslationEvidenceGuard.astro';
 import TranslationPersistenceGuard from '../../components/TranslationPersistenceGuard.astro';
 import TranslationReferenceLoader from '../../components/TranslationReferenceLoader.astro';
+import EnglishExamTaskBridge from '../../components/EnglishExamTaskBridge.astro';
 import {
   listTranslationSets,
   loadTranslationById
@@ -37,6 +38,7 @@ const referenceUrl = `${base}translation-reference/${encodeURIComponent(translat
   objectId={translation.objectId}
   active="home"
 >
+  <EnglishExamTaskBridge task="translation" objectId={translation.objectId} />
   <TranslationPersistenceGuard />
   <TranslationWorkspace translation={translation} reference={reference} />
   <TranslationEvidenceGuard />

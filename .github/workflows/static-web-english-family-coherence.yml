@@ -21,6 +21,17 @@ on:
       - 'static-web/src/components/Translation*.astro'
       - 'static-web/src/components/Vocabulary*.astro'
       - 'static-web/src/styles/english*.css'
+      - 'static-web/src/lib/englishExamPaper.mjs'
+      - 'static-web/src/lib/englishExamSession.mjs'
+      - 'static-web/src/components/EnglishExamTaskBridge.astro'
+      - 'static-web/src/pages/english-exam.astro'
+      - 'static-web/src/pages/english-exam/**'
+      - 'static-web/src/pages/english-exam-writing/**'
+      - 'static-web/src/pages/english-exam-answer/**'
+      - 'static-web/scripts/validate-english-exam-session.mjs'
+      - 'static-web/scripts/test-english-exam-session-browser.mjs'
+      - 'static-web/src/lib/englishSessionControl.mjs'
+      - 'static-web/scripts/validate-english-chat-control.mjs'
       - 'static-web/scripts/test-english-family-coherence.mjs'
       - 'static-web/scripts/test-objective-guide-visual.mjs'
       - '.github/workflows/static-web-english-family-coherence.yml'
@@ -43,6 +54,17 @@ on:
       - 'static-web/src/components/Translation*.astro'
       - 'static-web/src/components/Vocabulary*.astro'
       - 'static-web/src/styles/english*.css'
+      - 'static-web/src/lib/englishExamPaper.mjs'
+      - 'static-web/src/lib/englishExamSession.mjs'
+      - 'static-web/src/components/EnglishExamTaskBridge.astro'
+      - 'static-web/src/pages/english-exam.astro'
+      - 'static-web/src/pages/english-exam/**'
+      - 'static-web/src/pages/english-exam-writing/**'
+      - 'static-web/src/pages/english-exam-answer/**'
+      - 'static-web/scripts/validate-english-exam-session.mjs'
+      - 'static-web/scripts/test-english-exam-session-browser.mjs'
+      - 'static-web/src/lib/englishSessionControl.mjs'
+      - 'static-web/scripts/validate-english-chat-control.mjs'
       - 'static-web/scripts/test-english-family-coherence.mjs'
       - 'static-web/scripts/test-objective-guide-visual.mjs'
       - '.github/workflows/static-web-english-family-coherence.yml'
@@ -67,6 +89,12 @@ jobs:
       - name: Install runtime
         working-directory: static-web
         run: npm install --no-audit --no-fund
+      - name: Validate Chat-owned English control
+        working-directory: static-web
+        run: node scripts/validate-english-chat-control.mjs
+      - name: Validate English full-paper runtime
+        working-directory: static-web
+        run: node scripts/validate-english-exam-session.mjs
       - name: Build Current site
         working-directory: static-web
         run: npm run build
@@ -78,6 +106,9 @@ jobs:
       - name: Execute English family coherence journey
         working-directory: static-web
         run: node scripts/test-english-family-coherence.mjs
+      - name: Execute English full-paper browser journey
+        working-directory: static-web
+        run: node scripts/test-english-exam-session-browser.mjs
       - name: Assert Objective Guide readability and editorial geometry
         working-directory: static-web
         run: node scripts/test-objective-guide-visual.mjs

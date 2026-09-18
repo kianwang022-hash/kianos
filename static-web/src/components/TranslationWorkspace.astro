@@ -262,7 +262,10 @@ const nextHref = translation.navigation?.nextId
     const position = Number(root.getAttribute('data-position') || 1);
     const total = Number(root.getAttribute('data-total') || 1);
     const base = root.getAttribute('data-base') || '/';
-    const storageKey = `kianos-translation-attempt-v2:${objectId}`;
+    const examSessionId = new URLSearchParams(location.search).get('exam_session') || '';
+    const storageKey = examSessionId
+      ? `kianos-english-exam-task-v1:${examSessionId}:translation:${objectId}`
+      : `kianos-translation-attempt-v2:${objectId}`;
     const legacyStorageKey = `kianos-translation-attempt-v1:${objectId}`;
     const lastLocationKey = 'kianos-translation-last-location-v1';
 
@@ -281,13 +284,13 @@ const nextHref = translation.navigation?.nextId
     const references = Array.isArray(reference?.references) ? reference.references : [];
     const promptById = new Map(prompts.map((prompt) => [String(prompt.id), prompt]));
 
-    const saved = readJson(storageKey, null) || readJson(legacyStorageKey, null);
+    const saved = readJson(storageKey, null) || (!examSessionId ? readJson(legacyStorageKey, null) : null);
     let state = normalizeTranslationState(prompts, saved);
-    let transferLedger = normalizeTransferLedger(readJson(TRANSLATION_TRANSFER_STORAGE_KEY, null));
+    let transferLedger = normalizeTransferLedger(examSessionId ? null : readJson(TRANSLATION_TRANSFER_STORAGE_KEY, null));
 
     const save = () => {
       writeJson(storageKey, state);
-      writeJson(TRANSLATION_TRANSFER_STORAGE_KEY, transferLedger);
+      if (!examSessionId) writeJson(TRANSLATION_TRANSFER_STORAGE_KEY, transferLedger);
     };
     const stampLastLocation = () => writeJson(lastLocationKey, {
       id: objectId,
@@ -298,7 +301,7 @@ const nextHref = translation.navigation?.nextId
       href: `${base}translation/${encodeURIComponent(objectId)}/`,
       updatedAt: new Date().toISOString()
     });
-    stampLastLocation();
+    if (!examSessionId) stampLastLocation();
 
     const escapeLine = (value) => String(value || '').replace(/\s+/g, ' ').trim();
     const formatTime = (value) => {

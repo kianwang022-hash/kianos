@@ -1,0 +1,79 @@
+---
+import Base from '../../layouts/Base.astro';
+import '../../styles/english-writing-vertical.css';
+import WritingWorkspace from '../../components/WritingWorkspace.astro';
+import EnglishExamTaskBridge from '../../components/EnglishExamTaskBridge.astro';
+import {
+  listWritingExamRuntimeTasks,
+  loadWritingExamRuntimeTask
+} from '../../lib/englishWritingRuntimeSourceTruth.mjs';
+
+export function getStaticPaths() {
+  return listWritingExamRuntimeTasks().map((task) => ({
+    params: { id: task.id },
+    props: { writingId: task.id }
+  }));
+}
+
+const { writingId } = Astro.props;
+const task = loadWritingExamRuntimeTask(writingId);
+---
+<Base
+  title={task.title}
+  kicker="英语一 · 整卷写作"
+  description="整卷中的写作部分。交卷前不显示复盘内容。"
+  sourcePath={task.sourcePath}
+  sourceHash={task.sourceHash}
+  objectId={task.id}
+  active="english"
+>
+  <section class="englishExamWritingGate" data-english-exam-writing-gate data-task-id={task.id}>
+    <section class="englishExamWritingLocked" data-exam-writing-locked>
+      <span>整卷模考 · 写作</span>
+      <h2>这道写作题需要从当前整卷进入</h2>
+      <p>如果整卷已经结束或链接失效，请返回 English 重新进入当前试卷。</p>
+      <a href="/english/">← English</a>
+    </section>
+    <div data-exam-writing-runtime hidden>
+      <EnglishExamTaskBridge task="writing" objectId={task.id} />
+      <WritingWorkspace task={task} />
+    </div>
+  </section>
+</Base>
+
+<script>
+  import { readEnglishExamSession } from '../../lib/englishExamSession.mjs';
+
+  const gate = document.querySelector('[data-english-exam-writing-gate]');
+  if (gate instanceof HTMLElement) {
+    const params = new URLSearchParams(location.search);
+    const sessionId = params.get('exam_session') || '';
+    const stepId = params.get('exam_step') || '';
+    const objectId = gate.getAttribute('data-task-id') || '';
+    const session = readEnglishExamSession(localStorage);
+    const allowed = Boolean(
+      sessionId
+      && stepId
+      && session?.session_id === sessionId
+      && session?.status === 'ACTIVE'
+      && session?.steps?.some((step) =>
+        step.step_id === stepId
+        && step.task === 'writing'
+        && step.object_id === objectId
+      )
+    );
+    const locked = gate.querySelector('[data-exam-writing-locked]');
+    const runtime = gate.querySelector('[data-exam-writing-runtime]');
+    if (locked instanceof HTMLElement) locked.hidden = allowed;
+    if (runtime instanceof HTMLElement) runtime.hidden = !allowed;
+  }
+</script>
+
+<style>
+  .englishExamWritingGate{display:grid;gap:12px}
+  .englishExamWritingLocked{max-width:54rem;margin:28px auto;padding:28px;border:1px solid var(--study-line);border-radius:16px;background:#fffdf8;box-shadow:var(--study-shadow)}
+  .englishExamWritingLocked span{font-size:9px;font-weight:850;letter-spacing:.08em;color:var(--study-green)}
+  .englishExamWritingLocked h2{margin:6px 0 8px}
+  .englishExamWritingLocked p{margin:0 0 14px;color:var(--study-muted);font-size:12px;line-height:1.7}
+  .englishExamWritingLocked a{font-size:11px;font-weight:800;color:var(--study-green);text-decoration:none}
+</style>

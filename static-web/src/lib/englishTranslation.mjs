@@ -225,42 +225,24 @@ function sectionInventory(bank) {
     .sort((a, b) => a.section.localeCompare(b.section));
 }
 
-function sectionMatch(section) {
-  return /(^|_)translation($|_)/.test(normalizeToken(section));
-}
-
-function idMatch(id) {
-  return /(^|[-_:])translation($|[-_:])/i.test(String(id || ''));
-}
-
-function resolveTranslationSections(bank) {
+function resolveTranslationSections(bank, manifest) {
+  const map = manifest?.final_learner_objects?.task_map;
+  if (map?.schema !== 'kianos.english.task_map.v1' || !map?.tasks || typeof map.tasks !== 'object') {
+    throw new Error('TRANSLATION_TASK_MAP_NOT_READY');
+  }
+  const sections = Array.isArray(map.tasks?.translation?.sections)
+    ? map.tasks.translation.sections.map((value) => String(value || '').trim()).filter(Boolean)
+    : [];
+  if (!sections.length || new Set(sections).size !== sections.length) {
+    throw new Error('TRANSLATION_TASK_IDENTITY_INVALID');
+  }
   const inventory = sectionInventory(bank);
   const available = inventory.map((row) => row.section);
-  const override = String(process.env.KIANOS_TRANSLATION_SECTIONS || '')
-    .split(',')
-    .map((value) => value.trim())
-    .filter(Boolean);
-
-  if (override.length) {
-    const missing = override.filter((section) => !available.includes(section));
-    if (missing.length) {
-      throw new Error(`TRANSLATION_SECTION_OVERRIDE_INVALID:missing=${missing.join('|')}:available=${available.join('|')}`);
-    }
-    return { sections: override, inventory, mode: 'explicit-current-override' };
+  const missing = sections.filter((section) => !available.includes(section));
+  if (missing.length) {
+    throw new Error(`TRANSLATION_TASK_SECTION_MISSING:missing=${missing.join('|')}:available=${available.join('|')}`);
   }
-
-  const candidates = inventory.filter((row) => {
-    const ids = [...row.setIds, ...row.promptIds];
-    return sectionMatch(row.section) || ids.some(idMatch);
-  });
-  if (!candidates.length) {
-    throw new Error(`TRANSLATION_SECTION_NOT_RESOLVED:available=${available.join('|')}`);
-  }
-  return {
-    sections: candidates.map((row) => row.section),
-    inventory,
-    mode: 'current-evidence'
-  };
+  return { sections, inventory, mode: 'content-owned-task-map' };
 }
 
 let cache;
@@ -293,7 +275,7 @@ function snapshot() {
       return cache;
     }
 
-    const resolution = resolveTranslationSections(bank);
+    const resolution = resolveTranslationSections(bank, manifest);
     const selected = new Set(resolution.sections);
     const sets = (Array.isArray(bank?.passage_or_sets) ? bank.passage_or_sets : [])
       .filter((row) => row?.id && selected.has(String(row?.section || '')))

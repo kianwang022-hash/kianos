@@ -1,0 +1,153 @@
+
+<details class="englishSessionControl" data-english-session-control>
+  <summary>
+    <span>CHAT CONTROL</span>
+    <strong>Evidence ↔ Session</strong>
+  </summary>
+  <div class="englishSessionControlBody">
+    <p>网页只提供事实状态并执行已导入的 Chat Session；不会自己排序任务。</p>
+    <div class="englishSessionActions">
+      <button type="button" data-english-copy-evidence>复制英语状态</button>
+      <button type="button" data-english-toggle-import>导入 Chat Session</button>
+      <button type="button" data-english-clear-session>清除 Session</button>
+    </div>
+    <div class="englishSessionImport" data-english-session-import hidden>
+      <textarea rows="8" data-english-session-input placeholder="粘贴 kianos.english.session-instruction.v1 JSON"></textarea>
+      <div>
+        <button type="button" class="primary" data-english-apply-session>导入</button>
+        <button type="button" data-english-cancel-session>取消</button>
+      </div>
+    </div>
+    <small data-english-session-status></small>
+  </div>
+</details>
+
+<script>
+  import {
+    ENGLISH_SESSION_SCHEMA,
+    ENGLISH_SESSION_KEY,
+    buildEnglishEvidencePacket,
+    clearEnglishSessionInstruction,
+    readEnglishSessionInstruction,
+    writeEnglishSessionInstruction
+  } from '../lib/englishSessionControl.mjs';
+
+  const root = document.querySelector('[data-english-session-control]');
+  if (root instanceof HTMLDetailsElement) {
+    const status = root.querySelector('[data-english-session-status]');
+    const importBox = root.querySelector('[data-english-session-import]');
+    const input = root.querySelector('[data-english-session-input]');
+    const localDay = () => new Date().toLocaleDateString('en-CA');
+
+    const setStatus = (text, bad = false) => {
+      if (!(status instanceof HTMLElement)) return;
+      status.textContent = text;
+      status.classList.toggle('isBad', bad);
+    };
+
+    const renderStatus = () => {
+      const state = readEnglishSessionInstruction(localStorage, localDay());
+      if (state.status === 'ready' && state.instruction) {
+        const step = state.instruction.steps[state.instruction.current_step];
+        setStatus('已载入 · ' + step.task + ' · ' + step.object_id + ' · step ' + (state.instruction.current_step + 1) + '/' + state.instruction.steps.length);
+      } else if (state.status === 'stale') {
+        setStatus('旧 Session 已过期；网页不会沿用昨天安排。', true);
+      } else if (state.status === 'invalid') {
+        setStatus('Session 无效；网页不会猜一个替代安排。', true);
+      } else if (state.status === 'unavailable') {
+        setStatus('本机存储不可用。', true);
+      } else {
+        setStatus('当前没有 Chat Session；下面任务入口仍可自由使用。');
+      }
+    };
+
+    const copyText = async (value) => {
+      try {
+        await navigator.clipboard.writeText(value);
+        return true;
+      } catch {
+        try {
+          const area = document.createElement('textarea');
+          area.value = value;
+          area.style.position = 'fixed';
+          area.style.opacity = '0';
+          document.body.appendChild(area);
+          area.select();
+          const ok = document.execCommand('copy');
+          area.remove();
+          return ok;
+        } catch {
+          return false;
+        }
+      }
+    };
+
+    root.querySelector('[data-english-copy-evidence]')?.addEventListener('click', async () => {
+      try {
+        const packet = buildEnglishEvidencePacket(localStorage, { day: localDay() });
+        const text = 'KIANOS_ENGLISH_EVIDENCE_V1\n' + JSON.stringify(packet, null, 2);
+        setStatus(await copyText(text)
+          ? '英语事实状态已复制；把它发给 Chat，让 Chat 决定下一步。'
+          : '复制失败，请稍后再试。', false);
+      } catch (error) {
+        setStatus(error instanceof Error ? error.message : String(error), true);
+      }
+    });
+
+    root.querySelector('[data-english-toggle-import]')?.addEventListener('click', () => {
+      if (importBox instanceof HTMLElement) importBox.hidden = false;
+      if (input instanceof HTMLTextAreaElement) input.focus();
+    });
+
+    root.querySelector('[data-english-cancel-session]')?.addEventListener('click', () => {
+      if (importBox instanceof HTMLElement) importBox.hidden = true;
+    });
+
+    root.querySelector('[data-english-apply-session]')?.addEventListener('click', () => {
+      try {
+        const raw = input instanceof HTMLTextAreaElement ? input.value : '';
+        const instruction = writeEnglishSessionInstruction(localStorage, raw, localDay());
+        if (input instanceof HTMLTextAreaElement) input.value = '';
+        if (importBox instanceof HTMLElement) importBox.hidden = true;
+        setStatus('Session 已导入 · ' + instruction.session_id);
+        window.dispatchEvent(new CustomEvent('kianos:english-session-updated', {
+          detail: { schema: ENGLISH_SESSION_SCHEMA, session_id: instruction.session_id }
+        }));
+      } catch (error) {
+        setStatus(error instanceof Error ? error.message : String(error), true);
+      }
+    });
+
+    root.querySelector('[data-english-clear-session]')?.addEventListener('click', () => {
+      clearEnglishSessionInstruction(localStorage);
+      setStatus('Session 已清除；网页不再显示自动 Resume。');
+      window.dispatchEvent(new CustomEvent('kianos:english-session-updated', {
+        detail: { schema: ENGLISH_SESSION_SCHEMA, cleared: true }
+      }));
+    });
+
+    window.addEventListener('storage', (event) => {
+      if (event.key === ENGLISH_SESSION_KEY || event.key === null) renderStatus();
+    });
+    window.addEventListener('focus', renderStatus);
+    renderStatus();
+  }
+</script>
+
+<style>
+  .englishSessionControl{padding:14px 16px;border:1px solid var(--study-line);border-radius:12px;background:#fff}
+  .englishSessionControl summary{display:flex;align-items:baseline;justify-content:space-between;gap:12px;cursor:pointer;list-style:none}
+  .englishSessionControl summary::-webkit-details-marker{display:none}
+  .englishSessionControl summary span{font-size:9px;font-weight:850;letter-spacing:.08em;color:var(--study-green)}
+  .englishSessionControl summary strong{font-size:12px}
+  .englishSessionControlBody{display:grid;gap:10px;padding-top:12px}
+  .englishSessionControlBody p{margin:0;color:var(--study-muted);font-size:10px;line-height:1.6}
+  .englishSessionActions{display:flex;flex-wrap:wrap;gap:6px}
+  .englishSessionActions button,.englishSessionImport button{padding:7px 9px;border:1px solid var(--study-line);border-radius:7px;background:#fff;color:inherit;font:inherit;font-size:10px;font-weight:750;cursor:pointer}
+  .englishSessionImport{display:grid;gap:7px}
+  .englishSessionImport textarea{width:100%;box-sizing:border-box;padding:9px;border:1px solid var(--study-line);border-radius:8px;background:#fff;font:inherit;font-size:10px;line-height:1.5}
+  .englishSessionImport>div{display:flex;gap:6px}
+  .englishSessionImport button.primary{border-color:var(--study-green);background:var(--study-green);color:#fff}
+  .englishSessionControlBody>small{font-size:9px;line-height:1.5;color:var(--study-faint)}
+  .englishSessionControlBody>small.isBad{color:#8a4a42}
+</style>

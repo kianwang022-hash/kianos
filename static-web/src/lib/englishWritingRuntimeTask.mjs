@@ -184,6 +184,18 @@ export function inspectWritingTrueExamEntry() {
   };
 }
 
+export function listWritingExamRuntimeTasks() {
+  return listWritingTasks()
+    .filter((task) => task?.sourceReady)
+    .map((task) => normalizeExamTask(loadWritingById(task.id)));
+}
+
+export function loadWritingExamRuntimeTask(id) {
+  const summary = listWritingTasks().find((task) => task?.sourceReady && task.id === id);
+  if (!summary) throw new Error(`WRITING_EXAM_SESSION_TASK_NOT_READY:${id}`);
+  return normalizeExamTask(loadWritingById(summary.id));
+}
+
 export function loadWritingRuntimeTask(id) {
   const synthetic = listWritingSyntheticTasks();
   if (synthetic.some((task) => task.id === id)) return loadWritingSyntheticTask(id);

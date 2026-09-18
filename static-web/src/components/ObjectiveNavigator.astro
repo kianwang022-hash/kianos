@@ -20,7 +20,7 @@ const lastLocationKey = task === 'cloze'
 </nav>
 
 <script>
-  document.querySelectorAll('[data-objective-navigator]').forEach((node) => {
+  if (!new URLSearchParams(location.search).has('exam_session')) document.querySelectorAll('[data-objective-navigator]').forEach((node) => {
     if (!(node instanceof HTMLElement)) return;
     const key = node.getAttribute('data-last-key') || '';
     if (!key) return;

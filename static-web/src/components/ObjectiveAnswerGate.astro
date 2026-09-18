@@ -14,7 +14,12 @@ const base = import.meta.env.BASE_URL;
     if (!(root instanceof HTMLElement)) return;
 
     const objectId = root.getAttribute('data-objective-object') || '';
-    const storageKey = root.getAttribute('data-objective-storage-key') || '';
+    const baseStorageKey = root.getAttribute('data-objective-storage-key') || '';
+    const examSessionId = new URLSearchParams(location.search).get('exam_session') || '';
+    const storageKey = examSessionId
+      ? `kianos-english-exam-task-v1:${examSessionId}:${task}:${objectId}`
+      : baseStorageKey;
+    const examMode = Boolean(examSessionId);
     const answerUrl = `${basePath}${route}/${encodeURIComponent(objectId)}.json`;
     const submit = root.querySelector('[data-objective-submit]');
     const questions = [...root.querySelectorAll('[data-objective-question]')];
@@ -112,7 +117,7 @@ const base = import.meta.env.BASE_URL;
     document.addEventListener('click', async (event) => {
       const target = event.target instanceof Element ? event.target : null;
       const button = target?.closest('[data-objective-submit]');
-      if (!button || !root.contains(button) || ready) return;
+      if (!button || !root.contains(button) || ready || examMode) return;
       event.preventDefault();
       event.stopImmediatePropagation();
       const ok = await loadAnswers();
@@ -125,6 +130,6 @@ const base = import.meta.env.BASE_URL;
     }, true);
 
     const saved = readAttempt();
-    if (saved.submitted) void loadAnswers();
+    if (!examMode && saved.submitted) void loadAnswers();
   });
 </script>

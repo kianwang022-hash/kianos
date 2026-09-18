@@ -1,0 +1,403 @@
+
+---
+import Base from '../../layouts/Base.astro';
+import {
+  listEnglishExamPapers,
+  loadEnglishExamPaper
+} from '../../lib/englishExamPaper.mjs';
+
+export function getStaticPaths() {
+  return listEnglishExamPapers().map((paper) => ({
+    params: { id: paper.paperId },
+    props: { paperId: paper.paperId }
+  }));
+}
+
+const paper = loadEnglishExamPaper(Astro.props.paperId);
+const payload = JSON.stringify(paper).replace(/</g, '\u003c');
+const serverTaskLabel = (step) => ({
+  cloze: '完形填空',
+  reading_a: step.passage_index ? '阅读理解 · 第 ' + step.passage_index + ' 篇' : '阅读理解',
+  reading_b: '新题型',
+  translation: '翻译',
+  writing: step.writing_kind === 'small' ? '小作文' : '大作文'
+})[step.task] || step.task;
+---
+<Base
+  title={`${paper.year} 英语一 · 整卷模考`}
+  kicker="英语一 · 整卷模考"
+  description="180 分钟完整作答，交卷后统一查看结果。"
+  objectId={`english-exam:${paper.paper_id}`}
+  active="english"
+  showLead={false}
+>
+  <section class="englishExamHome" data-english-exam-home data-paper-id={paper.paper_id} data-base={import.meta.env.BASE_URL}>
+    <header class="englishExamHero">
+      <div>
+        <span>英语一 · 整卷模考</span>
+        <h1>{paper.year} 英语一</h1>
+        <p>180 分钟完整作答。做题过程中不看答案；交卷后统一查看客观题结果，翻译和写作再交给 Chat 复盘。</p>
+      </div>
+      <aside>
+        <strong data-exam-home-clock>180:00</strong>
+        <span data-exam-home-state>尚未开始</span>
+      </aside>
+    </header>
+
+    <section class="englishExamActions">
+      <button type="button" class="primary" data-exam-start disabled>开始整卷</button>
+      <button type="button" class="primary" data-exam-continue hidden>继续当前部分</button>
+      <button type="button" data-exam-seal hidden>提前交卷</button>
+      <button type="button" class="primary" data-exam-release hidden>查看客观题结果</button>
+      <button type="button" data-exam-copy hidden>把整卷交给 Chat 复盘</button>
+      <small data-exam-home-status></small>
+    </section>
+
+    <section class="englishExamSteps">
+      <header><span>答题进度</span><strong>100 分 · 客观题 60 · 翻译与写作 40</strong></header>
+      <div data-exam-step-list>
+        {paper.steps.map((step, index) => (
+          <div class="englishExamStep" data-complete="false">
+            <span class="englishExamStepIndex">{String(index + 1).padStart(2, '0')}</span>
+            <div class="englishExamStepCopy">
+              <strong>{serverTaskLabel(step)}</strong>
+            </div>
+            <b class="englishExamStepMeta">{step.max_points} 分</b>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="englishExamResult" data-exam-result hidden>
+      <span>客观题结果</span>
+      <strong data-exam-objective-score>— / 60</strong>
+      <p>翻译和写作保留你的原始作答，交给 Chat 结合原题继续复盘。</p>
+      <div data-exam-objective-breakdown></div>
+    </section>
+
+    <script type="application/json" data-exam-paper set:html={payload}></script>
+  </section>
+</Base>
+
+<script>
+  import {
+    ENGLISH_EXAM_SESSION_KEY,
+    buildEnglishExamEvidencePacket,
+    englishExamRemainingMs,
+    englishExamTaskHref,
+    readEnglishExamSession,
+    releaseEnglishExamObjective,
+    sealEnglishExamSession,
+    selectEnglishExamStep,
+    startEnglishExamSession,
+    writeEnglishExamSession
+  } from '../../lib/englishExamSession.mjs';
+  import { readEnglishSessionInstruction } from '../../lib/englishSessionControl.mjs';
+
+  const root = document.querySelector('[data-english-exam-home]');
+  if (root instanceof HTMLElement) {
+    const base = root.getAttribute('data-base') || '/';
+    const paperId = root.getAttribute('data-paper-id') || '';
+    let paper = null;
+    try { paper = JSON.parse(root.querySelector('[data-exam-paper]')?.textContent || 'null'); } catch {}
+    if (!paper?.paper_id) throw new Error('ENGLISH_EXAM_PAPER_PAYLOAD_MISSING');
+
+    const startButton = root.querySelector('[data-exam-start]');
+    const continueButton = root.querySelector('[data-exam-continue]');
+    const sealButton = root.querySelector('[data-exam-seal]');
+    const releaseButton = root.querySelector('[data-exam-release]');
+    const copyButton = root.querySelector('[data-exam-copy]');
+    const statusNode = root.querySelector('[data-exam-home-status]');
+    const clock = root.querySelector('[data-exam-home-clock]');
+    const stateLabel = root.querySelector('[data-exam-home-state]');
+    const stepList = root.querySelector('[data-exam-step-list]');
+    const result = root.querySelector('[data-exam-result]');
+    const score = root.querySelector('[data-exam-objective-score]');
+    const breakdown = root.querySelector('[data-exam-objective-breakdown]');
+
+    const localDay = () => new Date().toLocaleDateString('en-CA');
+    const setStatus = (message, bad = false) => {
+      if (!(statusNode instanceof HTMLElement)) return;
+      statusNode.textContent = message;
+      statusNode.classList.toggle('isBad', bad);
+    };
+
+    const taskLabel = (step) => ({
+      cloze: '完形填空',
+      reading_a: step.passage_index ? '阅读理解 · 第 ' + step.passage_index + ' 篇' : '阅读理解',
+      reading_b: '新题型',
+      translation: '翻译',
+      writing: step.writing_kind === 'small' ? '小作文' : '大作文'
+    })[step.task] || step.task;
+
+    const readTaskOrderFromChat = () => {
+      const control = readEnglishSessionInstruction(localStorage, localDay());
+      if (control.status !== 'ready' || !control.instruction) return null;
+      const step = control.instruction.steps[control.instruction.current_step];
+      if (step?.task !== 'full_paper' || step?.object_id !== paperId) return null;
+      return Array.isArray(step?.params?.task_order) && step.params.task_order.length
+        ? step.params.task_order
+        : null;
+    };
+
+    const currentSession = () => {
+      const state = readEnglishExamSession(localStorage);
+      return state?.paper_id === paperId ? state : null;
+    };
+
+    const writeSession = (state) => {
+      writeEnglishExamSession(localStorage, state);
+      window.dispatchEvent(new CustomEvent('kianos:english-exam-updated', { detail: { paper_id: paperId } }));
+      return state;
+    };
+
+    const hrefFor = (state, index) => englishExamTaskHref(state.steps[index], {
+      base,
+      sessionId: state.session_id,
+      stepIndex: index
+    });
+
+    const renderSteps = (state) => {
+      if (!(stepList instanceof HTMLElement)) return;
+      stepList.replaceChildren();
+      const source = state?.steps || paper.steps;
+      source.forEach((step, index) => {
+        const row = document.createElement(state?.status === 'ACTIVE' ? 'a' : 'div');
+        row.className = 'englishExamStep';
+        row.dataset.complete = state?.captures?.[step.step_id] ? 'true' : 'false';
+        if (state?.status === 'ACTIVE' && row instanceof HTMLAnchorElement) {
+          row.href = hrefFor(state, index);
+          row.addEventListener('click', () => {
+            try { writeSession(selectEnglishExamStep(state, index)); } catch {}
+          });
+        }
+        const n = document.createElement('span');
+        n.className = 'englishExamStepIndex';
+        n.textContent = String(index + 1).padStart(2, '0');
+        const copy = document.createElement('div');
+        copy.className = 'englishExamStepCopy';
+        const strong = document.createElement('strong');
+        strong.textContent = taskLabel(step);
+        copy.append(strong);
+        const meta = document.createElement('b');
+        meta.className = 'englishExamStepMeta';
+        meta.textContent = state?.captures?.[step.step_id] ? '已完成' : step.max_points + ' 分';
+        row.append(n, copy, meta);
+        stepList.appendChild(row);
+      });
+    };
+
+    const renderResult = (state) => {
+      const released = state?.status === 'RELEASED' && state.release?.objective;
+      if (result instanceof HTMLElement) result.hidden = !released;
+      if (!released) return;
+      if (score) score.textContent = state.release.objective.points + ' / ' + state.release.objective.max_points;
+      if (breakdown instanceof HTMLElement) {
+        breakdown.replaceChildren();
+        for (const row of state.release.objective.steps || []) {
+          const p = document.createElement('p');
+          p.textContent = taskLabel(row) + ' · ' + row.correct + '/' + row.total + ' · ' + row.points + '/' + row.max_points;
+          breakdown.appendChild(p);
+        }
+      }
+    };
+
+    const render = () => {
+      const state = currentSession();
+      const active = state?.status === 'ACTIVE';
+      const sealed = state?.status === 'SEALED';
+      const released = state?.status === 'RELEASED';
+
+      if (startButton instanceof HTMLButtonElement) startButton.hidden = Boolean(state);
+      if (continueButton instanceof HTMLButtonElement) continueButton.hidden = !active;
+      if (sealButton instanceof HTMLButtonElement) sealButton.hidden = !active;
+      if (releaseButton instanceof HTMLButtonElement) releaseButton.hidden = !sealed;
+      if (copyButton instanceof HTMLButtonElement) copyButton.hidden = !sealed && !released;
+
+      if (stateLabel) {
+        stateLabel.textContent = !state ? '尚未开始'
+          : active ? '进行中 · ' + Object.keys(state.captures || {}).length + '/' + state.steps.length
+          : sealed ? '已交卷 · 可查看客观题结果'
+          : '已出分 · 翻译和写作待复盘';
+      }
+
+      renderSteps(state);
+      renderResult(state);
+    };
+
+    const start = () => {
+      const existing = readEnglishExamSession(localStorage);
+      if (existing?.status === 'ACTIVE' && existing.paper_id !== paperId) {
+        if (!confirm('当前还有 ' + existing.paper_id + ' 的整卷 Session。开始新卷会替换它，继续？')) return;
+      }
+      try {
+        const state = startEnglishExamSession(paper, {
+          taskOrder: readTaskOrderFromChat()
+        });
+        writeSession(state);
+        setStatus('整卷已开始。交卷前不会显示答案和复盘。');
+        render();
+        location.href = hrefFor(state, 0);
+      } catch (error) {
+        setStatus(error instanceof Error ? error.message : String(error), true);
+      }
+    };
+
+    startButton?.addEventListener('click', start);
+    continueButton?.addEventListener('click', () => {
+      const state = currentSession();
+      if (!state || state.status !== 'ACTIVE') return;
+      const index = Math.min(state.current_step, state.steps.length - 1);
+      location.href = hrefFor(state, index);
+    });
+    sealButton?.addEventListener('click', () => {
+      const state = currentSession();
+      if (!state || state.status !== 'ACTIVE') return;
+      if (!confirm('确认提前交卷？交卷后不能继续修改这次整卷作答。')) return;
+      writeSession(sealEnglishExamSession(state));
+      setStatus('已交卷。现在可以查看客观题结果。');
+      render();
+    });
+    releaseButton?.addEventListener('click', async () => {
+      const state = currentSession();
+      if (!state || state.status !== 'SEALED') return;
+      try {
+        const response = await fetch(base + 'english-exam-answer/' + encodeURIComponent(paperId) + '.json', {
+          headers: { Accept: 'application/json' }
+        });
+        if (!response.ok) throw new Error('answer ' + response.status);
+        const packet = await response.json();
+        writeSession(releaseEnglishExamObjective(state, packet));
+        setStatus('客观题已出分；翻译和写作可继续交给 Chat 复盘。');
+        render();
+      } catch (error) {
+        setStatus(error instanceof Error ? error.message : String(error), true);
+      }
+    });
+    copyButton?.addEventListener('click', async () => {
+      const state = currentSession();
+      if (!state || !['SEALED', 'RELEASED'].includes(state.status)) return;
+      const value = 'KIANOS_ENGLISH_EXAM_EVIDENCE_V1\n' + JSON.stringify(buildEnglishExamEvidencePacket(state), null, 2);
+      try {
+        await navigator.clipboard.writeText(value);
+        setStatus('整卷作答已复制，可以交给 Chat 继续复盘。');
+      } catch {
+        setStatus('复制失败，请重试。', true);
+      }
+    });
+
+    const tick = () => {
+      const state = currentSession();
+      if (!state || state.status !== 'ACTIVE') {
+        if (clock) clock.textContent = state?.status === 'SEALED' || state?.status === 'RELEASED' ? '00:00' : '180:00';
+        return;
+      }
+      const ms = englishExamRemainingMs(state);
+      const seconds = Math.max(0, Math.ceil(ms / 1000));
+      const minutes = Math.floor(seconds / 60);
+      const rest = seconds % 60;
+      if (clock) clock.textContent = String(minutes).padStart(3, '0') + ':' + String(rest).padStart(2, '0');
+      if (ms <= 0) {
+        writeSession(sealEnglishExamSession(state));
+        setStatus('180 分钟到，整卷已自动交卷。');
+        render();
+      }
+    };
+
+    window.addEventListener('storage', (event) => {
+      if (event.key === ENGLISH_EXAM_SESSION_KEY || event.key === null) render();
+    });
+    window.addEventListener('focus', render);
+    render();
+    tick();
+    if (startButton instanceof HTMLButtonElement) startButton.disabled = false;
+    root.dataset.examReady = 'true';
+    setInterval(tick, 1000);
+  }
+</script>
+
+<style>
+  .englishExamHome{max-width:76rem;margin:0 auto;display:grid;gap:14px}
+  .englishExamHero{
+    display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end;
+    padding:10px 2px 18px;border-bottom:1px solid var(--study-line)
+  }
+  .englishExamHero>div>span,.englishExamSteps header span,.englishExamResult>span{
+    font-size:var(--study-type-meta);font-weight:800;letter-spacing:.04em;color:var(--study-green)
+  }
+  .englishExamHero h1{margin:6px 0 8px;font-size:30px;line-height:1.15}
+  .englishExamHero p{max-width:70ch;margin:0;color:var(--study-muted);font-size:17px;line-height:1.65}
+  .englishExamHero aside{display:grid;gap:4px;text-align:right}
+  .englishExamHero aside strong{font-size:32px;line-height:1;font-variant-numeric:tabular-nums}
+  .englishExamHero aside span{font-size:var(--study-type-meta);color:var(--study-muted)}
+  .englishExamActions{
+    display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+    padding:0 0 14px;border-bottom:1px solid var(--study-line)
+  }
+  .englishExamActions button{
+    min-height:40px;padding:8px 13px;border:1px solid var(--study-line);border-radius:8px;
+    background:#fff;font:inherit;font-size:16px;font-weight:700;cursor:pointer
+  }
+  .englishExamActions button.primary{border-color:var(--study-green);background:var(--study-green);color:#fff}
+  .englishExamActions small{flex-basis:100%;font-size:var(--study-type-meta);line-height:1.45;color:var(--study-muted)}
+  .englishExamActions small.isBad{color:#994b3b}
+  .englishExamSteps{padding:2px 0 0}
+  .englishExamSteps>header{
+    display:flex;justify-content:space-between;align-items:center;gap:18px;
+    padding:0 2px 10px;border-bottom:1px solid var(--study-line)
+  }
+  .englishExamSteps>header strong{font-size:var(--study-type-meta)}
+  .englishExamSteps [data-exam-step-list]{display:grid}
+  .englishExamStep{
+    display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:14px;align-items:center;
+    min-height:62px;padding:9px 4px;border-bottom:1px solid var(--study-line);
+    color:inherit;text-decoration:none
+  }
+  .englishExamStep:last-child{border-bottom:0}
+  a.englishExamStep:hover{background:var(--study-green-soft)}
+  .englishExamStepIndex{
+    display:grid;width:34px;height:34px;place-items:center;border-radius:8px;
+    background:var(--study-surface-muted);color:var(--study-muted);
+    font-size:var(--study-type-meta);font-weight:800;font-variant-numeric:tabular-nums
+  }
+  .englishExamStepCopy{display:grid;gap:3px;min-width:0}
+  .englishExamStepCopy strong{font-size:17px;line-height:1.25}
+  .englishExamStepCopy small{
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+    font-size:var(--study-type-meta);line-height:1.35;color:var(--study-muted)
+  }
+  .englishExamStepMeta{font-size:var(--study-type-meta);color:var(--study-green);white-space:nowrap}
+  .englishExamStep[data-complete="true"]{background:#fbfdfc}
+
+  :global(.englishExamStep){
+    display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:14px;align-items:center;
+    min-height:58px;padding:8px 4px;border-bottom:1px solid var(--study-line);
+    color:inherit;text-decoration:none
+  }
+  :global(.englishExamStep:last-child){border-bottom:0}
+  :global(a.englishExamStep:hover){background:var(--study-green-soft)}
+  :global(.englishExamStepIndex){
+    display:grid;width:34px;height:34px;place-items:center;border-radius:8px;
+    background:var(--study-surface-muted);color:var(--study-muted);
+    font-size:var(--study-type-meta);font-weight:800;font-variant-numeric:tabular-nums
+  }
+  :global(.englishExamStepCopy){min-width:0}
+  :global(.englishExamStepCopy strong){font-size:17px;line-height:1.3}
+  :global(.englishExamStepMeta){font-size:15px;color:var(--study-green);white-space:nowrap}
+  :global(.englishExamStep[data-complete="true"]){background:#fbfdfc}
+  .englishExamResult{
+    padding:18px 20px;border:1px solid var(--study-line);border-radius:12px;background:#fbfdfc
+  }
+  .englishExamResult>strong{display:block;margin-top:6px;font-size:30px}
+  .englishExamResult>p,.englishExamRule p{
+    margin:8px 0 0;color:var(--study-muted);font-size:16px;line-height:1.6
+  }
+  .englishExamResult [data-exam-objective-breakdown]{display:grid;gap:5px;margin-top:12px}
+  .englishExamResult [data-exam-objective-breakdown] p{margin:0;font-size:var(--study-type-meta)}
+  .englishExamRule{padding:14px 2px 0;border-top:1px solid var(--study-line)}
+  .englishExamRule strong{font-size:16px}
+  @media(max-width:760px){
+    .englishExamHero{grid-template-columns:1fr}
+    .englishExamHero aside{text-align:left}
+  }
+</style>

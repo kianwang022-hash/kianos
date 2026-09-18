@@ -3,50 +3,51 @@ const {
   sets = [],
   route = '',
   label = 'Objective',
-  headline = 'Clean Attempt → Review → Transfer',
+  learnerLabel = label,
+  headline = '',
   description = '',
-  unitLabel = 'sets',
+  unitLabel = '套',
   lastLocationKey = '',
   learningHref = '',
-  learningSummary = '第一次系统学习时先建立题型认知模型；平时训练可直接 Continue。'
+  learningSummary = '第一次系统学习时先建立题型做题框架；平时训练直接进入真题。'
 } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const payload = JSON.stringify(sets).replace(/</g, '\\u003c');
 const first = sets[0];
+const itemTitle = (item) => item?.year ? `${item.year} · ${learnerLabel}` : learnerLabel;
 ---
-<section class="objectiveHome" data-objective-home data-base={base} data-route={route} data-last-key={lastLocationKey}>
+<section class="objectiveHome" data-objective-home data-base={base} data-route={route} data-last-key={lastLocationKey} data-learner-label={learnerLabel}>
   <section class="objectiveHomeHero">
     <div>
-      <span>{label} · Current</span>
-      <h2>{headline}</h2>
+      <span>{label}</span>
+      <h2>{headline || learnerLabel}</h2>
       <p>{description}</p>
     </div>
     <aside>
-      <strong>{sets.length} {unitLabel}</strong>
-      <span>Current source only</span>
-      <span>passage / set-level review</span>
+      <strong>{sets.length} {unitLabel}真题</strong>
+      <span>按年份选择 · 每次完成一整套</span>
     </aside>
   </section>
 
   {learningHref && (
     <a class="objectiveLearnEntry" href={learningHref}>
-      <div><span>First Learning</span><strong>先建立 {label} 的做题框架</strong></div>
+      <div><span>方法框架</span><strong>第一次系统学 {learnerLabel}</strong></div>
       <p>{learningSummary}</p>
-      <b>学习框架 →</b>
+      <b>进入方法框架 →</b>
     </a>
   )}
 
   <section class="objectiveHomeGrid">
     <a class="objectiveContinue" data-objective-continue href={first ? `${base}${route}/${encodeURIComponent(first.id)}/` : `${base}${route}/`}>
-      <span>Continue</span>
-      <strong data-objective-continue-title>{first?.title || `开始 ${label}`}</strong>
-      <p data-objective-continue-meta>{first ? `第 1 / ${sets.length} 组` : 'Current task 暂不可用'}</p>
+      <span>继续做题</span>
+      <strong data-objective-continue-title>{first ? itemTitle(first) : `开始${learnerLabel}`}</strong>
+      <p data-objective-continue-meta>{first ? '从真题列表开始' : '当前没有可用真题'}</p>
     </a>
 
     <section class="objectiveBrowse">
       <header>
-        <div><span>Navigate</span><strong>Current {unitLabel}</strong></div>
-        <input type="search" data-objective-search placeholder="搜索年份 / set id / 标题" />
+        <div><span>选择真题</span><strong>按年份浏览</strong></div>
+        <input type="search" data-objective-search placeholder="搜索年份" />
       </header>
       <div data-objective-results></div>
     </section>
@@ -61,19 +62,22 @@ const first = sets[0];
     const base = node.getAttribute('data-base') || '/';
     const route = node.getAttribute('data-route') || '';
     const lastKey = node.getAttribute('data-last-key') || '';
+    const learnerLabel = node.getAttribute('data-learner-label') || '真题';
     let sets = [];
     try { sets = JSON.parse(node.querySelector('[data-objective-catalog]')?.textContent || '[]'); } catch {}
     const hrefFor = (id) => `${base}${route}/${encodeURIComponent(id)}/`;
+    const learnerTitle = (item) => item?.year ? `${item.year} · ${learnerLabel}` : learnerLabel;
 
     let last = null;
     try { last = lastKey ? JSON.parse(localStorage.getItem(lastKey) || 'null') : null; } catch {}
     const continueLink = node.querySelector('[data-objective-continue]');
-    if (last?.id && continueLink instanceof HTMLAnchorElement && sets.some((item) => item.id === last.id)) {
+    const matched = last?.id ? sets.find((item) => item.id === last.id) : null;
+    if (matched && continueLink instanceof HTMLAnchorElement) {
       continueLink.href = last.href || hrefFor(last.id);
       const title = node.querySelector('[data-objective-continue-title]');
       const meta = node.querySelector('[data-objective-continue-meta]');
-      if (title) title.textContent = last.title || last.id;
-      if (meta) meta.textContent = `${last.year || last.paperId || 'English I'} · 第 ${last.position || '?'} / ${last.total || sets.length} 组 · 最近打开`;
+      if (title) title.textContent = learnerTitle(matched);
+      if (meta) meta.textContent = '最近打开 · 从这里继续';
     }
 
     const results = node.querySelector('[data-objective-results]');
@@ -82,26 +86,26 @@ const first = sets[0];
       const q = String(query || '').trim().toLowerCase();
       const visible = sets.filter((item) => {
         if (!q) return true;
-        return [item.id, item.title, item.paperId, item.year, item.section].some((value) => String(value || '').toLowerCase().includes(q));
-      }).slice(0, q ? 50 : 20);
+        return [item.year, item.paperId, item.title].some((value) => String(value || '').toLowerCase().includes(q));
+      }).slice(0, q ? 50 : 24);
       results.replaceChildren();
       visible.forEach((item) => {
         const link = document.createElement('a');
         link.href = hrefFor(item.id);
         const copy = document.createElement('div');
         const title = document.createElement('strong');
-        title.textContent = item.title || item.id;
+        title.textContent = learnerTitle(item);
         const meta = document.createElement('span');
-        meta.textContent = `${item.year || item.paperId || 'English I'} · ${item.id}`;
+        meta.textContent = '英语一真题';
         copy.append(title, meta);
-        const pos = document.createElement('small');
-        pos.textContent = `${item.position} / ${item.total}`;
-        link.append(copy, pos);
+        const enter = document.createElement('small');
+        enter.textContent = '进入 →';
+        link.append(copy, enter);
         results.appendChild(link);
       });
       if (!visible.length) {
         const empty = document.createElement('p');
-        empty.textContent = '没有匹配的 Current set。';
+        empty.textContent = '没有匹配的年份。';
         results.appendChild(empty);
       }
     };
@@ -111,7 +115,25 @@ const first = sets[0];
 </script>
 
 <style>
-  .objectiveHome{max-width:72rem;margin:0 auto;display:grid;gap:12px}.objectiveHomeHero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;padding:24px 26px;border:1px solid var(--study-line);border-radius:16px;background:#fff;box-shadow:var(--study-shadow)}.objectiveHomeHero>div>span,.objectiveBrowse header span,.objectiveContinue>span,.objectiveLearnEntry span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.objectiveHomeHero h2{margin:5px 0 8px;font-size:27px}.objectiveHomeHero p{max-width:74ch;margin:0;color:var(--study-muted);font-size:13px;line-height:1.7}.objectiveHomeHero aside{display:grid;gap:3px;padding-left:20px;border-left:1px solid var(--study-line)}.objectiveHomeHero aside strong{color:var(--study-green)}.objectiveHomeHero aside span{color:var(--study-faint);font-size:10px}
-  .objectiveLearnEntry{display:grid;grid-template-columns:minmax(220px,.8fr) minmax(0,1.3fr) auto;gap:18px;align-items:center;padding:14px 18px;border:1px solid #cfe2d8;border-radius:13px;background:var(--study-green-soft);color:inherit;text-decoration:none}.objectiveLearnEntry>div{display:grid;gap:3px}.objectiveLearnEntry strong{font-size:14px}.objectiveLearnEntry p{margin:0;color:var(--study-muted);font-size:11px;line-height:1.55}.objectiveLearnEntry b{color:var(--study-green);font-size:11px;white-space:nowrap}
-  .objectiveHomeGrid{display:grid;grid-template-columns:minmax(260px,.72fr) minmax(0,1.28fr);gap:12px}.objectiveContinue,.objectiveBrowse{padding:20px;border:1px solid var(--study-line);border-radius:14px;background:#fff;color:inherit}.objectiveContinue{display:grid;align-content:start;gap:6px;text-decoration:none}.objectiveContinue strong{font-size:22px;line-height:1.35}.objectiveContinue p{margin:0;color:var(--study-muted);font-size:12px;line-height:1.6}.objectiveBrowse header{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:12px}.objectiveBrowse header>div{display:grid;gap:3px}.objectiveBrowse header input{width:min(280px,48%);padding:8px 10px;border:1px solid var(--study-line);border-radius:9px;font:inherit}.objectiveBrowse [data-objective-results]{display:grid;gap:5px}.objectiveBrowse [data-objective-results]>a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 10px;border-radius:9px;color:inherit;text-decoration:none}.objectiveBrowse [data-objective-results]>a:hover{background:var(--study-green-soft)}.objectiveBrowse [data-objective-results] div{display:grid;gap:2px;min-width:0}.objectiveBrowse [data-objective-results] strong{font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.objectiveBrowse [data-objective-results] span,.objectiveBrowse [data-objective-results] small{color:var(--study-faint);font-size:9px}.objectiveBrowse [data-objective-results]>p{color:var(--study-muted);font-size:12px}@media(max-width:820px){.objectiveHomeHero,.objectiveHomeGrid,.objectiveLearnEntry{grid-template-columns:1fr}.objectiveHomeHero aside{padding:12px 0 0;border-left:0;border-top:1px solid var(--study-line)}.objectiveBrowse header{align-items:stretch;flex-direction:column}.objectiveBrowse header input{width:100%;box-sizing:border-box}}
+  .objectiveHome{max-width:72rem;margin:0 auto;display:grid;gap:14px}
+  .objectiveHomeHero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end;padding:20px 22px;border:1px solid var(--study-line);border-radius:14px;background:#fff}
+  .objectiveHomeHero>div>span,.objectiveBrowse header span,.objectiveContinue>span,.objectiveLearnEntry span{color:var(--study-green);font-size:14px;font-weight:800;letter-spacing:.04em}
+  .objectiveHomeHero h2{margin:6px 0 8px;font-size:28px}.objectiveHomeHero p{max-width:70ch;margin:0;color:var(--study-muted);font-size:16px;line-height:1.65}
+  .objectiveHomeHero aside{display:grid;gap:5px;padding-left:22px;border-left:1px solid var(--study-line)}.objectiveHomeHero aside strong{font-size:18px;color:var(--study-green)}.objectiveHomeHero aside span{color:var(--study-muted);font-size:14px}
+  .objectiveLearnEntry{display:grid;grid-template-columns:minmax(220px,.8fr) minmax(0,1.3fr) auto;gap:18px;align-items:center;padding:14px 18px;border:1px solid #cfe2d8;border-radius:12px;background:var(--study-green-soft);color:inherit;text-decoration:none}.objectiveLearnEntry>div{display:grid;gap:4px}.objectiveLearnEntry strong{font-size:17px}.objectiveLearnEntry p{margin:0;color:var(--study-muted);font-size:15px;line-height:1.55}.objectiveLearnEntry b{color:var(--study-green);font-size:15px;white-space:nowrap}
+  .objectiveHomeGrid{display:grid;grid-template-columns:minmax(300px,.72fr) minmax(0,1.28fr);gap:14px}.objectiveContinue,.objectiveBrowse{padding:20px;border:1px solid var(--study-line);border-radius:14px;background:#fff;color:inherit}
+  .objectiveContinue{display:grid;align-content:start;gap:8px;text-decoration:none}.objectiveContinue strong{font-size:22px;line-height:1.35}.objectiveContinue p{margin:0;color:var(--study-muted);font-size:15px;line-height:1.6}
+  .objectiveBrowse header{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:12px}.objectiveBrowse header>div{display:grid;gap:4px}.objectiveBrowse header strong{font-size:17px}.objectiveBrowse header input{width:min(250px,44%);padding:9px 11px;border:1px solid var(--study-line);border-radius:9px;font:inherit;font-size:15px}
+  .objectiveBrowse [data-objective-results]{display:grid}.objectiveBrowse [data-objective-results]>a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:52px;padding:8px 10px;border-bottom:1px solid var(--study-line);color:inherit;text-decoration:none}.objectiveBrowse [data-objective-results]>a:last-child{border-bottom:0}.objectiveBrowse [data-objective-results]>a:hover{background:var(--study-green-soft)}
+  .objectiveBrowse [data-objective-results] div{display:grid;gap:3px;min-width:0}.objectiveBrowse [data-objective-results] strong{font-size:16px}.objectiveBrowse [data-objective-results] span{color:var(--study-muted);font-size:14px}.objectiveBrowse [data-objective-results] small{color:var(--study-green);font-size:14px;font-weight:700}.objectiveBrowse [data-objective-results]>p{color:var(--study-muted);font-size:15px}
+
+  :global(.objectiveBrowse [data-objective-results]>a){display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:52px;padding:8px 10px;border-bottom:1px solid var(--study-line);color:inherit;text-decoration:none}
+  :global(.objectiveBrowse [data-objective-results]>a:last-child){border-bottom:0}
+  :global(.objectiveBrowse [data-objective-results]>a:hover){background:var(--study-green-soft)}
+  :global(.objectiveBrowse [data-objective-results]>a>div){display:grid;gap:2px;min-width:0}
+  :global(.objectiveBrowse [data-objective-results]>a strong){font-size:17px;line-height:1.2}
+  :global(.objectiveBrowse [data-objective-results]>a span){color:var(--study-muted);font-size:14px}
+  :global(.objectiveBrowse [data-objective-results]>a small){color:var(--study-green);font-size:14px;font-weight:700}
+  :global(.objectiveBrowse [data-objective-results]>p){color:var(--study-muted);font-size:15px}
+  @media(max-width:820px){.objectiveHomeHero,.objectiveHomeGrid,.objectiveLearnEntry{grid-template-columns:1fr}.objectiveHomeHero aside{padding:12px 0 0;border-left:0;border-top:1px solid var(--study-line)}.objectiveBrowse header{align-items:stretch;flex-direction:column}.objectiveBrowse header input{width:100%;box-sizing:border-box}}
 </style>
