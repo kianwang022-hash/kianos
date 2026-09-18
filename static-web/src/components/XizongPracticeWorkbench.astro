@@ -3,7 +3,6 @@ import {
   ensureXizongQuestionSweepState,
   recordXizongQuestionAttempt,
   startNextXizongQuestionRound,
-  deriveXizongSecondPassQuestionIds,
   deriveXizongQuestionIdsForCurrentRound,
   xizongStudyPhaseLabel,
   setXizongQuestionMarked,
@@ -84,10 +83,24 @@ const payload = JSON.stringify({
       <section class="xzpDone" data-sweep-done hidden>
         <span>ROUND COMPLETE</span>
         <h2>这一轮已经扫完</h2>
-        <p>稳定题不制造额外任务；真正需要回收的内容留在 Wrong / Uncertain / Marked。</p>
+        <p>本次作答证据已经保留。下一步阶段和训练范围按 Chat 计划显式执行，网页不自动晋级。</p>
         <div class="xzpRoundActions">
-          <button type="button" data-start-next-round>开始二轮重点队列</button>
-          <button type="button" class="secondary" data-start-next-round-full>二轮完整重刷</button>
+          <label>
+            <span>阶段</span>
+            <select data-next-phase>
+              <option value="FIRST_PASS">一轮</option>
+              <option value="SECOND_PASS">二轮</option>
+              <option value="LATE_REVIEW">考前</option>
+            </select>
+          </label>
+          <label>
+            <span>范围</span>
+            <select data-next-queue>
+              <option value="TARGETED">重点队列</option>
+              <option value="FULL_RESWEEP">完整重刷</option>
+            </select>
+          </label>
+          <button type="button" data-start-next-round>按计划开始下一批</button>
           <a href={`${base}xizong/`}>回西综总览</a>
         </div>
       </section>
@@ -162,8 +175,7 @@ const payload = JSON.stringify({
     ensureXizongQuestionSweepState,
     recordXizongQuestionAttempt,
     startNextXizongQuestionRound,
-    deriveXizongSecondPassQuestionIds,
-    deriveXizongQuestionIdsForCurrentRound,
+      deriveXizongQuestionIdsForCurrentRound,
     xizongStudyPhaseLabel,
     setXizongQuestionMarked,
     isXizongQuestionMarked
@@ -194,7 +206,9 @@ const payload = JSON.stringify({
       canonicalId: data.canonicalId,
       scopeHash: data.scopeHash,
       questionInventoryHash: data.questionInventoryHash,
-      questions: data.questions
+      questions: data.questions,
+      attemptContext: 'SYSTEM_SWEEP',
+      resultVisibility: 'immediate'
     };
     sweepState = ensureXizongQuestionSweepState(sweepState, { ...attemptContext, holdoutYears });
     writeJson(sweepKey, sweepState);
@@ -217,7 +231,8 @@ const payload = JSON.stringify({
     const markButton = root.querySelector('[data-question-mark]');
     const nextButton = root.querySelector('[data-next-question]');
     const nextRoundButton = root.querySelector('[data-start-next-round]');
-    const nextRoundFullButton = root.querySelector('[data-start-next-round-full]');
+    const nextPhaseSelect = root.querySelector('[data-next-phase]');
+    const nextQueueSelect = root.querySelector('[data-next-queue]');
     const holdoutCurrent = root.querySelector('[data-holdout-current]');
     const holdoutInput = root.querySelector('[data-holdout-input]');
     const saveHoldout = root.querySelector('[data-save-holdout]');
@@ -398,16 +413,9 @@ const payload = JSON.stringify({
       questionMeta.textContent = 'ROUND COMPLETE';
       questionProgress.textContent = `${activeQuestions.length} / ${activeQuestions.length}`;
       const phase = sweepState.round?.studyPhase || 'FIRST_PASS';
-      if (phase === 'FIRST_PASS') {
-        const targetCount = deriveXizongSecondPassQuestionIds(sweepState, data.questions, holdoutYears).length;
-        nextRoundButton.textContent = targetCount ? `开始二轮重点队列 · ${targetCount} 题` : '二轮重点队列为空';
-        nextRoundButton.disabled = targetCount === 0;
-        nextRoundFullButton.hidden = false;
-      } else {
-        nextRoundButton.textContent = phase === 'SECOND_PASS' ? '开始后期复习轮' : '再开一轮后期复习';
-        nextRoundButton.disabled = false;
-        nextRoundFullButton.hidden = true;
-      }
+      if (nextPhaseSelect) nextPhaseSelect.value = phase;
+      if (nextQueueSelect) nextQueueSelect.value = 'TARGETED';
+      nextRoundButton.disabled = false;
       renderMap();
       renderTop();
     };
@@ -557,15 +565,17 @@ const payload = JSON.stringify({
     submit.addEventListener('click', submitAnswer);
     nextButton.addEventListener('click', nextQuestion);
 
-    const startNextRound = (queueMode = 'TARGETED') => {
+    const startNextRound = () => {
       activeQuestions = computeActive();
+      const studyPhase = String(nextPhaseSelect?.value || sweepState.round?.studyPhase || 'FIRST_PASS');
+      const queueMode = String(nextQueueSelect?.value || 'TARGETED');
       let next;
       try {
         next = startNextXizongQuestionRound(
           sweepState,
           activeQuestions.map((q) => q.questionId),
           {},
-          { queueMode }
+          { studyPhase, queueMode }
         );
       } catch (error) {
         console.error(error);
@@ -575,8 +585,7 @@ const payload = JSON.stringify({
       sweepState = next;
       renderQuestion();
     };
-    nextRoundButton.addEventListener('click', () => startNextRound('TARGETED'));
-    nextRoundFullButton.addEventListener('click', () => startNextRound('FULL_RESWEEP'));
+    nextRoundButton.addEventListener('click', startNextRound);
 
     document.addEventListener('keydown', (event) => {
       if (!document.body.contains(root) || root.getClientRects().length === 0) return;
