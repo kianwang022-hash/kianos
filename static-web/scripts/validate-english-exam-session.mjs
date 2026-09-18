@@ -164,11 +164,28 @@ assert.match(sourceChecks.bridge, /captureEnglishExamStep/);
 assert.match(sourceChecks.bridge, /sealEnglishExamSession/);
 assert.match(sourceChecks.home, /04 · FULL PAPER/);
 assert.match(sourceChecks.home, /english-exam\//);
-assert.match(sourceChecks.examHome, /统一出 Objective 分/);
-assert.match(sourceChecks.examWriting, /FULL PAPER · PROTECTED/);
+assert.match(sourceChecks.examHome, /查看客观题结果/);
+assert.match(sourceChecks.examWriting, /整卷模考 · 写作/);
 assert.match(sourceChecks.sessionControl, /'full_paper'/);
 assert.match(sourceChecks.sessionControl, /full_paper/);
 assert.match(sourceChecks.sessionControl, /english-exam/);
+
+for (const [label, source] of Object.entries({
+  examHome: sourceChecks.examHome,
+  examWriting: sourceChecks.examWriting,
+  bridge: sourceChecks.bridge
+})) {
+  for (const forbidden of [
+    'PAPER MAP',
+    'OBJECTIVE RELEASE',
+    'Runtime boundary',
+    'productive evidence',
+    'execution steps',
+    'FULL PAPER · PROTECTED'
+  ]) {
+    assert.equal(source.includes(forbidden), false, label + ' must not leak engineering copy: ' + forbidden);
+  }
+}
 
 console.log(JSON.stringify({
   status: 'PASS',
