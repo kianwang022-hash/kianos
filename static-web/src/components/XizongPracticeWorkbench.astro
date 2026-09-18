@@ -24,6 +24,12 @@ const payload = JSON.stringify({
   years: sweep.years,
   questions: sweep.questions,
   scopeKind,
+  resultVisibility: sweep.resultVisibility || 'immediate',
+  studyPhase: sweep.studyPhase || 'FIRST_PASS',
+  queueMode: sweep.queueMode || 'TARGETED',
+  attemptContext: sweep.attemptContext || 'SYSTEM_SWEEP',
+  allowHoldout: sweep.allowHoldout === true,
+  fastSweep: sweep.fastSweep === true,
   base
 }).replace(/</g, '\\u003c');
 ---
@@ -46,7 +52,7 @@ const payload = JSON.stringify({
         <div class="xzpMorePanel">
           <div class="xzpMoreRow">
             <span>结果</span>
-            <strong class="xzpResultMode">即时</strong>
+            <strong class="xzpResultMode" data-result-mode>即时</strong>
           </div>
           <details class="xzpHoldout" data-holdout-control>
             <summary><span>整卷保留</span><b data-holdout-current>未设置</b></summary>
@@ -96,10 +102,23 @@ const payload = JSON.stringify({
       </article>
 
       <section class="xzpDone" data-sweep-done hidden>
-        <span>ROUND COMPLETE</span>
-        <h2>这一轮已经扫完</h2>
-        <p>本次作答证据已经保留。下一步阶段和训练范围按 Chat 计划显式执行，网页不自动晋级。</p>
-        <div class="xzpRoundActions">
+        <span data-done-kicker>ROUND COMPLETE</span>
+        <h2 data-done-title>这一轮已经扫完</h2>
+        <p data-done-copy>本次作答证据已经保留。下一步阶段和训练范围按 Chat 计划显式执行，网页不自动晋级。</p>
+
+        <section class="xzpPaperSubmit" data-paper-submit hidden>
+          <strong>所有题都已作答，结果仍保持 Hidden。</strong>
+          <p>交卷前不会显示正确答案、Wrong 状态或解析。确认交卷后才释放结果与复盘。</p>
+          <button type="button" data-paper-reveal>交卷并查看结果</button>
+        </section>
+
+        <section class="xzpPaperResult" data-paper-result hidden>
+          <strong data-paper-score>—</strong>
+          <p>结果已经释放；题号状态、正确答案和 Knowledge Review 现在可以查看。</p>
+          <button type="button" data-paper-review-first>从第 1 题开始复盘</button>
+        </section>
+
+        <div class="xzpRoundActions" data-round-actions>
           <label>
             <span>阶段</span>
             <select data-next-phase>
