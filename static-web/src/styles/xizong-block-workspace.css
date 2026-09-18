@@ -103,7 +103,7 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyLay
   flex: 1 1 auto;
   min-height: 0;
   display: grid;
-  grid-template-columns: 224px minmax(0,1fr) 0;
+  grid-template-columns: 292px minmax(0,1fr) 0;
   overflow: hidden;
   align-items: stretch;
   border: 1px solid var(--xz-block-line);
@@ -111,6 +111,13 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyLay
   border-radius: 0 0 var(--study-radius-medium, 16px) var(--study-radius-medium, 16px);
   background: #fff;
 }
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-aux-weight="light"] .portedStudyLayout {
+  grid-template-columns: 292px minmax(0,1fr) 280px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-aux-weight="rich"] .portedStudyLayout {
+  grid-template-columns: 292px minmax(0,1fr) minmax(380px,36%);
+}
+
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell :is(.portedStudyOutline,.portedStudyMain,.portedStudyChain) {
   min-height: 0;
   min-width: 0;
@@ -266,8 +273,8 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudySta
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyStageAction > span {
   color: var(--xz-block-muted);
-  font-size: 15px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.58;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedPrimaryAction {
   min-height: 40px;
@@ -892,7 +899,7 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzLogicMapTogg
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzLogicGroupDetail {
   display: grid;
   gap: 8px;
-  padding: 10px 11px 12px 43px;
+  padding: 12px 14px 14px;
   border-bottom: 1px solid var(--xz-block-line);
   background: #f2f6f3;
 }
@@ -918,23 +925,28 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzLogicGroupKp
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzLogicGroupKp {
   display: grid;
-  grid-template-columns: 48px minmax(0,1fr) auto;
-  gap: 6px;
+  grid-template-columns: 54px minmax(0,1fr);
+  gap: 4px 8px;
   align-items: start;
   padding: 7px 0;
   border-bottom: 1px solid rgba(215,223,218,.7);
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzLogicGroupKp > b {
   color: var(--xz-block-muted);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 800;
+  white-space: nowrap;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzLogicGroupKp > span {
-  font-size: 15px;
+  min-width: 0;
+  font-size: 16px;
   font-weight: 620;
-  line-height: 1.42;
+  line-height: 1.5;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzLogicGroupKp > em {
+  grid-column: 2;
   color: var(--xz-block-muted);
   font-size: 15px;
   font-style: normal;
@@ -1112,3 +1124,182 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzBlockRecallA
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzBlockRecallActions [hidden] {
   display: none !important;
 }
+
+
+/* Lecture-attached TTSX checkpoint: question list stays reference-only; notes are optional per question. */
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxCheckpoint {
+  min-height:420px;
+  display:grid;
+  grid-template-rows:auto minmax(0,1fr) auto;
+  align-content:start;
+  padding:20px 24px 18px;
+  background:#fff;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxCheckpoint[hidden] { display:none; }
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxHeader {
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:flex-start;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--xz-block-line);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxHeader>div { min-width:0; }
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxHeader span {
+  display:block;
+  color:var(--xz-block-green);
+  font-size:16px;
+  font-weight:750;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxHeader strong {
+  display:block;
+  margin-top:3px;
+  font-size:26px;
+  font-weight:680;
+  line-height:1.35;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxHeader strong b {
+  color:var(--xz-block-muted);
+  font:600 18px/1.35 var(--study-font-cjk, "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxHeader small {
+  display:block;
+  margin-top:5px;
+  color:var(--xz-block-muted);
+  font-size:16px;
+  font-weight:500;
+  line-height:1.55;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxHeader em {
+  color:var(--xz-block-muted);
+  font-size:15px;
+  font-style:normal;
+  font-weight:600;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxBody {
+  display:grid;
+  align-content:start;
+  gap:14px;
+  padding:18px 0 20px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxBoundary {
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:18px;
+  padding:0 0 12px;
+  border-bottom:1px solid var(--xz-block-line);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxBoundary strong {
+  color:var(--xz-block-green);
+  font-size:17px;
+  font-weight:700;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxBoundary span {
+  color:var(--xz-block-muted);
+  font-size:16px;
+  font-weight:500;
+  line-height:1.55;
+  text-align:right;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxQuestionList {
+  display:grid;
+  gap:0;
+  border-top:1px solid var(--xz-block-line);
+  border-bottom:1px solid var(--xz-block-line);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxQuestionRow {
+  display:grid;
+  grid-template-columns:104px minmax(0,1fr) 96px 106px;
+  gap:10px 14px;
+  align-items:center;
+  min-height:56px;
+  padding:9px 12px;
+  border-bottom:1px solid rgba(215,223,218,.78);
+  background:#fff;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxQuestionRow:last-child { border-bottom:0; }
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxQuestionId {
+  color:var(--xz-block-green);
+  font-size:16px;
+  font-weight:750;
+  white-space:nowrap;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxQuestionRow>p {
+  min-width:0;
+  margin:0;
+  color:#34483e;
+  font-size:17px;
+  font-weight:500;
+  line-height:1.55;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxQuestionPage {
+  color:var(--xz-block-muted);
+  font-size:15px;
+  font-weight:550;
+  white-space:nowrap;
+  text-align:right;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxWrite {
+  min-height:34px;
+  justify-self:end;
+  border:0;
+  border-radius:6px;
+  background:#edf5f1;
+  color:var(--xz-block-green);
+  padding:6px 9px;
+  font:650 15px/1.3 var(--study-font-cjk, "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif);
+  cursor:pointer;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxAnnotationEditor {
+  grid-column:2 / -1;
+  display:grid;
+  gap:7px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxAnnotationEditor[hidden] { display:none; }
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxAnnotationEditor textarea {
+  width:100%;
+  min-height:76px;
+  resize:vertical;
+  box-sizing:border-box;
+  padding:9px 10px;
+  border:1px solid var(--xz-block-line-strong);
+  border-radius:7px;
+  background:#fff;
+  color:var(--study-ink,#20342c);
+  font:500 17px/1.58 var(--study-font-cjk, "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxAnnotationEditor>div {
+  display:flex;
+  gap:7px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxAnnotationEditor button {
+  min-height:32px;
+  border:1px solid var(--xz-block-line-strong);
+  border-radius:6px;
+  background:#fff;
+  color:var(--xz-block-green);
+  padding:5px 9px;
+  font:650 15px/1.3 var(--study-font-cjk, "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxEmpty {
+  margin:0;
+  color:var(--xz-block-muted);
+  font-size:16px;
+  line-height:1.6;
+}
+@media(max-width:1100px){
+  body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyLayout { grid-template-columns:260px minmax(0,1fr) 0; }
+  body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxQuestionRow {
+    grid-template-columns:92px minmax(0,1fr) 88px;
+  }
+  body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxWrite {
+    grid-column:3;
+    grid-row:2;
+  }
+  body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxQuestionPage {
+    grid-column:2;
+    text-align:left;
+  }
+}
+

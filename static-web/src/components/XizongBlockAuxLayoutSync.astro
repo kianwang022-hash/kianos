@@ -4,29 +4,11 @@
 
 <script>
   const root = document.querySelector('[data-xizong-v6-block]');
-  const layout = root?.querySelector('[data-study-layout]');
 
-  if (root instanceof HTMLElement && layout instanceof HTMLElement) {
-    const apply = () => {
-      const outlineCollapsed = layout.classList.contains('outline-collapsed');
-      const chainCollapsed = layout.classList.contains('chain-collapsed');
-      const left = outlineCollapsed ? '0px' : '224px';
-      const weight = root.dataset.auxWeight || 'none';
-      const right = chainCollapsed || weight === 'none'
-        ? '0px'
-        : weight === 'rich'
-          ? 'minmax(380px,36%)'
-          : '280px';
-      layout.style.setProperty('grid-template-columns', `${left} minmax(0,1fr) ${right}`, 'important');
-    };
-
+  if (root instanceof HTMLElement) {
     root.addEventListener('kianos:xizong-aux-change', (event) => {
       const weight = event instanceof CustomEvent ? String(event.detail?.weight || 'none') : 'none';
       root.dataset.auxWeight = ['none', 'light', 'rich'].includes(weight) ? weight : 'none';
-      apply();
     });
-
-    new MutationObserver(apply).observe(layout, { attributes: true, attributeFilter: ['class'] });
-    apply();
   }
 </script>

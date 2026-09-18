@@ -33,6 +33,34 @@ const supportCount = {
 };
 const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
 const ttsx = block?.ttsx || { checkpoints: [] };
+const normalizeTtsxQuestionRow = (item, index) => ({
+  questionId: String(item?.questionId || item?.question_id || item?.id || `question-${index + 1}`),
+  displayLabel: String(item?.displayLabel || item?.question_display_label || item?.label || item?.questionId || item?.question_id || `题 ${index + 1}`),
+  title: String(item?.title || item?.question_display_title || item?.stem || '题干请回 MarginNote 查看'),
+  sourcePageLabel: String(item?.sourcePageLabel || item?.source_page_label || item?.pageLabel || item?.page_label || '')
+});
+const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []).map((row, index) => {
+  const rawRows = Array.isArray(row?.questionRows)
+    ? row.questionRows
+    : Array.isArray(row?.question_rows)
+      ? row.question_rows
+      : Array.isArray(row?.questions) ? row.questions : [];
+  const rawIds = Array.isArray(row?.questionIds)
+    ? row.questionIds
+    : Array.isArray(row?.question_ids) ? row.question_ids : [];
+  const questionRows = rawRows.length
+    ? rawRows.map(normalizeTtsxQuestionRow)
+    : rawIds.map((questionId, questionIndex) => normalizeTtsxQuestionRow({ questionId }, questionIndex));
+  return {
+    checkpointId: String(row?.checkpointId || row?.checkpoint_id || `ttsx-${index + 1}`),
+    logicGroupId: String(row?.logicGroupId || row?.logic_group_id || ''),
+    sourceSegmentId: String(row?.sourceSegmentId || row?.source_segment_id || ''),
+    label: String(row?.label || row?.group_title || '当前 Source boundary'),
+    lecturePageLabel: String(row?.lecturePageLabel || row?.lecture_page_label || ''),
+    questionPageLabel: String(row?.questionPageLabel || row?.question_page_label || ''),
+    questionRows
+  };
+});
 ---
 <section
   class="portedStudyRuntime portedStudyRuntimeV2 xv6Block"
@@ -116,13 +144,10 @@ const ttsx = block?.ttsx || { checkpoints: [] };
             </div>
             <div class="xv6SourceRules">
               <p>原图、表格、例子与讲义配套题都留在 MarginNote 原位置；题目在讲义里完成并看全部选项 / 题旁拓展。</p>
-              {Array.isArray(ttsx.checkpoints) && ttsx.checkpoints.length > 0 && (
-                <p data-ttsx-checkpoint>当前存在已审核的 TTSX Boundary / Binding；按原讲义位置完成后再回来确认。</p>
-              )}
             </div>
             <footer>
               <span>到真实 Source boundary 再确认本段接触完成；KP Learn 本身持续伴读。</span>
-              <button type="button" class="portedPrimaryAction" data-source-contact-done>本段原讲义已完成，进入 Recall</button>
+              <button type="button" class="portedPrimaryAction" data-source-contact-done>本段原讲义已完成</button>
             </footer>
           </section>
         )}
@@ -150,9 +175,32 @@ const ttsx = block?.ttsx || { checkpoints: [] };
               <summary>回来后要 Recall 的 KP 路标</summary>
               <p data-group-lecture-kps>{firstGroupKps.map((kp) => kp.displayId).join(' · ') || '本学习节对应 KP'}</p>
             </details>
-            <footer><span>原图、表格、例子和讲义配套题仍留在 MarginNote；KP Learn 同步提供 Prompt、Core 和当前支持。</span><button type="button" class="portedPrimaryAction" data-group-lecture-done>这一节已完成，开始 Recall</button></footer>
+            <footer><span>原图、表格、例子和讲义配套题仍留在 MarginNote；KP Learn 同步提供 Prompt、Core 和当前支持。</span><button type="button" class="portedPrimaryAction" data-group-lecture-done>这一节已完成</button></footer>
           </section>
         )}
+
+        <section class="xv6TtsxCheckpoint" data-study-stage="ttsx_checkpoint" hidden>
+          <header class="xv6TtsxHeader">
+            <div>
+              <span>MarginNote-first</span>
+              <strong>配套题 <b data-ttsx-progress>0 道</b></strong>
+              <small data-ttsx-meta>按原讲义页码逐组核对；这里不判分、不分类、不生成 Question Attempt。</small>
+            </div>
+            <em>Checkpoint</em>
+          </header>
+          <div class="xv6TtsxBody">
+            <div class="xv6TtsxBoundary">
+              <strong data-ttsx-boundary-label>当前 Source boundary</strong>
+              <span data-ttsx-page-label>回 MarginNote 原位置完成题目、答案、全部选项和题旁拓展。</span>
+            </div>
+            <div class="xv6TtsxQuestionList" data-ttsx-question-list></div>
+            <p class="xv6TtsxEmpty" data-ttsx-empty hidden>当前 reviewed Binding 没有可展示的题目明细；不会从系统真题库猜题。</p>
+          </div>
+          <footer class="portedStudyStageAction">
+            <span>完成后直接进入当前学习节的 KP Recall。</span>
+            <button type="button" class="portedPrimaryAction" data-ttsx-done>已完成 → 进入 KP Recall</button>
+          </footer>
+        </section>
 
         <section class="portedKpWorkspace recall" data-study-stage="kp_recall" hidden>
           <header class="portedKpWorkspaceHeader">
@@ -225,6 +273,7 @@ const ttsx = block?.ttsx || { checkpoints: [] };
 <script define:vars={{
   sourcePerGroup,
   sourceContactMode,
+  ttsxPayload: ttsxCheckpoints,
   groupPayload: groups.map((group) => ({ groupId: group.groupId, label: group.label, start: group.start, end: group.end, kpIds: group.kpIds, goal: group.goal || '', closure: group.closure || '', membershipMode: group.membershipMode || '' })),
   kpPayload: kps.map((kp) => ({ kpId: kp.kpId, displayId: kp.displayId, title: kp.title, groupId: kp.groupId, sourceLocator: kp.sourceLocator || '' }))
 }}>
@@ -235,6 +284,7 @@ const ttsx = block?.ttsx || { checkpoints: [] };
     const storageKey = `kianos-xizong-astro-v2:${objectId}`;
     const groups = groupPayload || [];
     const kpData = kpPayload || [];
+    const ttsxData = Array.isArray(ttsxPayload) ? ttsxPayload : [];
     const kpRecallCards = [...root.querySelectorAll('[data-kp-recall-card]')];
     const kpRailButtons = [...root.querySelectorAll('[data-kp-target]')];
     const groupRailButtons = [...root.querySelectorAll('[data-group-target]')];
@@ -247,7 +297,7 @@ const ttsx = block?.ttsx || { checkpoints: [] };
     const contextLabel = root.querySelector('[data-study-context-label]');
     const statusLabel = root.querySelector('[data-study-local-status]');
     const totalKp = kpData.length;
-    let state = { stage: 'block_learn', groupIndex: 0, kpIndex: 0, learned: {}, ratings: {}, blockRecallDone: false, completed: false };
+    let state = { stage: 'block_learn', groupIndex: 0, kpIndex: 0, learned: {}, ratings: {}, ttsxEvidence: {}, ttsxAnnotations: {}, pendingTtsx: null, blockRecallDone: false, completed: false };
     try { state = { ...state, ...(JSON.parse(localStorage.getItem(storageKey) || 'null') || {}) }; } catch {}
     if (typeof state.sourceContactDone !== 'boolean') {
       const legacyLearned = Object.values(state.learned || {}).filter(Boolean).length;
@@ -259,6 +309,35 @@ const ttsx = block?.ttsx || { checkpoints: [] };
     const recallCount = () => Object.keys(state.ratings || {}).length;
     const canComplete = () => totalKp > 0 && learnedCount() >= totalKp && recallCount() >= totalKp && Boolean(state.blockRecallDone);
     const currentGroup = () => groups[Math.max(0, Math.min(groups.length - 1, Number(state.groupIndex || 0)))] || groups[0];
+    const ttsxRowsForGroup = (group = currentGroup()) => {
+      if (!group) return [];
+      const segmentId = `source:${group.groupId}`;
+      return ttsxData.filter((row) => row?.logicGroupId === group.groupId || row?.sourceSegmentId === segmentId);
+    };
+    const ttsxKeyFor = (rows, fallback) => {
+      const ids = rows.map((row) => String(row?.checkpointId || '')).filter(Boolean);
+      return ids.length ? ids.join('|') : fallback;
+    };
+    const reviewedTtsxIds = new Set(ttsxData.map((row) => String(row?.checkpointId || '')).filter(Boolean));
+    const pendingTtsxIsReviewed = (pending) => {
+      const ids = Array.isArray(pending?.checkpointIds) ? pending.checkpointIds.map(String).filter(Boolean) : [];
+      return ids.length > 0 && ids.every((id) => reviewedTtsxIds.has(id));
+    };
+    const ttsxDone = (key) => Boolean(key && state.ttsxEvidence?.[key]?.completedAt);
+    const queueTtsx = (rows, fallbackKey, label) => {
+      if (!Array.isArray(rows) || rows.length === 0) return false;
+      const key = ttsxKeyFor(rows, fallbackKey);
+      if (ttsxDone(key)) return false;
+      state.pendingTtsx = {
+        key,
+        label: String(rows[0]?.label || label || '当前 Source boundary'),
+        lecturePageLabel: String(rows[0]?.lecturePageLabel || ''),
+        questionPageLabel: String(rows[0]?.questionPageLabel || ''),
+        checkpointIds: rows.map((row) => String(row?.checkpointId || '')).filter(Boolean),
+        questionRows: rows.flatMap((row) => Array.isArray(row?.questionRows) ? row.questionRows : [])
+      };
+      return true;
+    };
     const groupIndexForKp = (index) => {
       const groupId = kpData[index]?.groupId || '';
       const found = groups.findIndex((group) => group.groupId === groupId);
@@ -285,7 +364,116 @@ const ttsx = block?.ttsx || { checkpoints: [] };
       const index = item ? indexForKpId(item.kpId) : firstIndexForGroup(group);
       return index >= 0 ? index : 0;
     };
-    const stageLabel = { block_learn: 'Block Learn', source_contact: '原讲义连续学习', logic_group: '学习节', kp_learn: '原讲义连续学习', kp_recall: '本节 KP Recall', block_recall: 'Block Recall' };
+    const stageLabel = { block_learn: 'Block Learn', source_contact: '原讲义连续学习', logic_group: '学习节', kp_learn: '原讲义连续学习', ttsx_checkpoint: '讲义配套题', kp_recall: '本节 KP Recall', block_recall: 'Block Recall' };
+
+    const syncTtsxStage = () => {
+      const pending = state.pendingTtsx;
+      const label = root.querySelector('[data-ttsx-boundary-label]');
+      const pageLabel = root.querySelector('[data-ttsx-page-label]');
+      const progress = root.querySelector('[data-ttsx-progress]');
+      const meta = root.querySelector('[data-ttsx-meta]');
+      const list = root.querySelector('[data-ttsx-question-list]');
+      const empty = root.querySelector('[data-ttsx-empty]');
+      const rows = Array.isArray(pending?.questionRows) ? pending.questionRows : [];
+      if (label) label.textContent = pending?.label || '当前 Source boundary';
+      if (pageLabel) {
+        const parts = [pending?.lecturePageLabel, pending?.questionPageLabel ? `题目 ${pending.questionPageLabel}` : ''].filter(Boolean);
+        pageLabel.textContent = parts.length
+          ? `${parts.join(' · ')} · 回 MarginNote 原位置完成题目、答案、全部选项和题旁拓展。`
+          : '回 MarginNote 原位置完成题目、答案、全部选项和题旁拓展。';
+      }
+      if (progress) progress.textContent = `${rows.length} 道`;
+      if (meta) meta.textContent = rows.length
+        ? `${rows.length} 道 · 每题都可以单独「+写一句」，也可以一题都不记。`
+        : '按原讲义页码逐组核对；这里不判分、不分类、不生成 Question Attempt。';
+      if (empty instanceof HTMLElement) empty.hidden = rows.length > 0;
+      if (!(list instanceof HTMLElement)) return;
+      list.replaceChildren();
+
+      const annotations = pending?.key ? (state.ttsxAnnotations?.[pending.key] || {}) : {};
+      rows.forEach((question) => {
+        const row = document.createElement('section');
+        row.className = 'xv6TtsxQuestionRow';
+        row.dataset.ttsxQuestionRow = String(question?.questionId || '');
+
+        const id = document.createElement('strong');
+        id.className = 'xv6TtsxQuestionId';
+        id.textContent = String(question?.displayLabel || question?.questionId || '题目');
+        row.append(id);
+
+        const title = document.createElement('p');
+        title.textContent = String(question?.title || '题干请回 MarginNote 查看');
+        row.append(title);
+
+        const page = document.createElement('span');
+        page.className = 'xv6TtsxQuestionPage';
+        page.textContent = String(question?.sourcePageLabel || '');
+        row.append(page);
+
+        const write = document.createElement('button');
+        write.type = 'button';
+        write.className = 'xv6TtsxWrite';
+        write.dataset.ttsxWrite = String(question?.questionId || '');
+        const savedText = String(annotations?.[question?.questionId]?.text || '');
+        write.textContent = savedText || '+写一句';
+        row.append(write);
+
+        const editor = document.createElement('div');
+        editor.className = 'xv6TtsxAnnotationEditor';
+        editor.hidden = true;
+        const textarea = document.createElement('textarea');
+        textarea.rows = 2;
+        textarea.placeholder = '写一句你想以后回看的东西';
+        textarea.value = savedText;
+        const actions = document.createElement('div');
+        const saveButton = document.createElement('button');
+        saveButton.type = 'button';
+        saveButton.textContent = '保存';
+        const cancelButton = document.createElement('button');
+        cancelButton.type = 'button';
+        cancelButton.textContent = '取消';
+        actions.append(saveButton, cancelButton);
+        editor.append(textarea, actions);
+        row.append(editor);
+
+        write.addEventListener('click', () => {
+          editor.hidden = false;
+          write.hidden = true;
+          textarea.focus();
+        });
+        cancelButton.addEventListener('click', () => {
+          editor.hidden = true;
+          write.hidden = false;
+          textarea.value = String(state.ttsxAnnotations?.[pending?.key]?.[question?.questionId]?.text || '');
+        });
+        saveButton.addEventListener('click', () => {
+          const value = textarea.value.trim();
+          const key = pending?.key || '';
+          const qid = String(question?.questionId || '');
+          if (!key || !qid) return;
+          const group = { ...(state.ttsxAnnotations?.[key] || {}) };
+          if (value) group[qid] = { text: value, updatedAt: new Date().toISOString() };
+          else delete group[qid];
+          state.ttsxAnnotations = { ...(state.ttsxAnnotations || {}), [key]: group };
+          save();
+          write.textContent = value || '+写一句';
+          editor.hidden = true;
+          write.hidden = false;
+        });
+        textarea.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') {
+            event.preventDefault();
+            cancelButton.click();
+          }
+          if ((event.metaKey || event.ctrlKey) && event.key === 'Enter') {
+            event.preventDefault();
+            saveButton.click();
+          }
+        });
+
+        list.append(row);
+      });
+    };
 
     const syncGroupStage = () => {
       const group = currentGroup();
@@ -371,7 +559,7 @@ const ttsx = block?.ttsx || { checkpoints: [] };
     };
 
     const normalizeLegacyStage = () => {
-      const validStages = ['block_learn', 'source_contact', 'logic_group', 'kp_learn', 'kp_recall', 'group_close', 'block_recall', 'block_complete'];
+      const validStages = ['block_learn', 'source_contact', 'logic_group', 'kp_learn', 'ttsx_checkpoint', 'kp_recall', 'group_close', 'block_recall', 'block_complete'];
       if (!validStages.includes(state.stage)) state.stage = 'block_learn';
       if (state.stage === 'block_complete') state.stage = 'block_recall';
       if (!sourcePerGroup && state.stage === 'kp_learn') state.stage = state.sourceContactDone ? 'kp_recall' : 'source_contact';
@@ -391,6 +579,12 @@ const ttsx = block?.ttsx || { checkpoints: [] };
           state.stage = 'block_recall';
         }
       }
+      if (state.pendingTtsx && !pendingTtsxIsReviewed(state.pendingTtsx)) state.pendingTtsx = null;
+      if (state.stage === 'ttsx_checkpoint' && (!state.pendingTtsx?.key || ttsxDone(state.pendingTtsx.key))) {
+        state.pendingTtsx = null;
+        state.stage = 'kp_recall';
+      }
+      if (state.stage === 'kp_recall' && state.pendingTtsx?.key && pendingTtsxIsReviewed(state.pendingTtsx) && !ttsxDone(state.pendingTtsx.key)) state.stage = 'ttsx_checkpoint';
       if (state.stage === 'kp_recall') state.kpIndex = firstUnrecalledIndexForGroup(group);
       if (state.completed && !canComplete()) state.completed = false;
     };
@@ -401,9 +595,15 @@ const ttsx = block?.ttsx || { checkpoints: [] };
       if (!sourcePerGroup && stage === 'kp_recall' && !state.sourceContactDone) stage = 'source_contact';
       if (sourcePerGroup && stage === 'source_contact') stage = 'kp_learn';
       if (stage === 'logic_group') stage = sourcePerGroup ? 'kp_learn' : (state.sourceContactDone ? 'kp_recall' : 'source_contact');
+      if (stage === 'kp_recall' && state.pendingTtsx?.key && pendingTtsxIsReviewed(state.pendingTtsx) && !ttsxDone(state.pendingTtsx.key)) stage = 'ttsx_checkpoint';
+      if (stage === 'ttsx_checkpoint' && (!state.pendingTtsx?.key || !pendingTtsxIsReviewed(state.pendingTtsx) || ttsxDone(state.pendingTtsx.key))) {
+        state.pendingTtsx = null;
+        stage = 'kp_recall';
+      }
       state.stage = stage;
       stages.forEach((panel) => { panel.hidden = panel.getAttribute('data-study-stage') !== state.stage; });
       if (state.stage === 'kp_recall') resetRecallCard(kpRecallCards[state.kpIndex]);
+      if (state.stage === 'ttsx_checkpoint') syncTtsxStage();
       if (kpRail) kpRail.hidden = true;
       if (groupRail) groupRail.hidden = false;
       root.querySelectorAll('[data-chain-step]').forEach((item) => item.classList.toggle('viewing', item.getAttribute('data-chain-step') === state.stage));
@@ -429,7 +629,9 @@ const ttsx = block?.ttsx || { checkpoints: [] };
       state.learned = Object.fromEntries(kpData.map((kp) => [kp.kpId, true]));
       state.groupIndex = 0;
       state.kpIndex = firstIndexForGroup(groups[0]);
-      save(); setStage('kp_recall');
+      const queued = queueTtsx(ttsxData, 'block-source-boundary', '本段原讲义 Source boundary');
+      save();
+      setStage(queued ? 'ttsx_checkpoint' : 'kp_recall');
     });
 
     root.querySelector('[data-enter-group]')?.addEventListener('click', () => {
@@ -447,7 +649,28 @@ const ttsx = block?.ttsx || { checkpoints: [] };
       ids.forEach((id) => { learned[id] = true; });
       state.learned = learned;
       state.kpIndex = firstUnrecalledIndexForGroup(group);
-      save(); setStage('kp_recall');
+      const rows = ttsxRowsForGroup(group);
+      const queued = queueTtsx(rows, `logic-group:${group?.groupId || state.groupIndex}`, `${group?.label || '当前学习节'} · 配套题`);
+      save();
+      setStage(queued ? 'ttsx_checkpoint' : 'kp_recall');
+    });
+    root.querySelector('[data-ttsx-done]')?.addEventListener('click', () => {
+      const pending = state.pendingTtsx;
+      if (!pending?.key) {
+        setStage('kp_recall');
+        return;
+      }
+      state.ttsxEvidence = {
+        ...(state.ttsxEvidence || {}),
+        [pending.key]: {
+          completedAt: new Date().toISOString(),
+          annotations: { ...(state.ttsxAnnotations?.[pending.key] || {}) },
+          checkpointIds: Array.isArray(pending.checkpointIds) ? [...pending.checkpointIds] : []
+        }
+      };
+      state.pendingTtsx = null;
+      save();
+      setStage('kp_recall');
     });
     const stageForSelectedGroup = () => sourcePerGroup ? 'kp_learn' : (state.sourceContactDone ? 'kp_recall' : 'source_contact');
     groupRailButtons.forEach((button, index) => button.addEventListener('click', () => {

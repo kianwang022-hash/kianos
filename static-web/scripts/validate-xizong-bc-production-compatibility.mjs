@@ -101,7 +101,7 @@ assert(blockUi.includes("const sourcePerGroup = sourceContact.logicGroupIsAutoma
 assert(blockUi.includes("if (sourcePerGroup) setStage('kp_learn');"), 'V6:B:whole-lg-source-entry-missing');
 assert(blockUi.includes("else if (state.sourceContactDone) setStage('kp_recall');"), 'V6:C:direct-retrieval-return-missing');
 assert(blockUi.includes("if (!sourcePerGroup && requested === 'logic_group' && button.hasAttribute('data-stage-next') && !state.sourceContactDone) setStage('source_contact');"), 'V6:C:single-continuous-source-gate-missing');
-assert(blockUi.includes("if (sourcePerGroup && stage === 'source_contact') stage = 'logic_group';"), 'V6:B:block-source-stage-not-blocked');
+assert(blockUi.includes("if (sourcePerGroup && stage === 'source_contact') stage = 'kp_learn';"), 'V6:B:block-source-stage-redirects-to-whole-lg-contact');
 assert(blockUi.includes("const storageKey = `kianos-xizong-astro-v2:${objectId}`;"), 'V6:shared-v2-store-missing');
 assert(!blockUi.includes('kianos-xizong-astro-v3'), 'V6:parallel-store-created');
 

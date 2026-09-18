@@ -116,15 +116,33 @@ try {
   const sweepKey='kianos:xizong:system-question-sweep:circulation:v1';
 
   await page.goto(`${BASE}/xizong/circulation/`,{waitUntil:'networkidle'});
-  await page.evaluate((ids)=>{
+  await page.evaluate(()=>{
     for(const key of Object.keys(localStorage)) if(key.includes('xizong')) localStorage.removeItem(key);
     sessionStorage.clear();
+  });
+  await page.reload({waitUntil:'networkidle'});
+
+  const entry=page.locator('[data-xizong-system-recall-entry]');
+  check(await entry.isHidden(),'system_recall_entry_hidden_before_system_complete');
+
+  await page.goto(`${BASE}/xizong/circulation/recall/`,{waitUntil:'networkidle'});
+  const lock=page.locator('[data-xizong-system-recall-lock]');
+  await lock.waitFor({state:'visible'});
+  check(await page.locator('[data-xizong-system-exit="circulation"]').isHidden(),'direct_recall_route_fails_closed_before_system_complete');
+
+  await page.goto(`${BASE}/xizong/circulation/`,{waitUntil:'networkidle'});
+  await page.evaluate((ids)=>{
     for(const id of ids) localStorage.setItem(`kianos-xizong-astro-v2:xizong:${id}`,JSON.stringify({completed:true}));
   },blockIds);
   await page.reload({waitUntil:'networkidle'});
+  await entry.waitFor({state:'visible'});
+  const recallHref=await entry.locator('a').getAttribute('href');
+  check(String(recallHref||'').includes('/xizong/circulation/recall/'),'system_recall_entry_targets_dedicated_route',String(recallHref));
+  await entry.locator('a').click();
+  await page.waitForURL(/\/xizong\/circulation\/recall\//);
 
-  const stage=page.locator('[data-xizong-later-stage="system-exit"]');
-  await stage.evaluate((node)=>{node.open=true;});
+  check(await page.locator('[data-xizong-system-recall-page]').isVisible(),'dedicated_recall_page_visible');
+  check(await page.locator('[data-xizong-later-stage="system-exit"]').count()===0,'recall_not_embedded_in_system_details');
   const recall=page.locator('[data-xizong-system-exit="circulation"]');
   await recall.waitFor({state:'visible'});
   check(await recall.locator('[data-recall-workspace]').isVisible(),'recall_workspace_visible');

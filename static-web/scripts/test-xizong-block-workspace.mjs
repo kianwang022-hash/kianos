@@ -144,6 +144,7 @@ try {
 
   let stage = await visibleStage(root);
   check(['kp_learn', 'source_contact'].includes(stage), 'first_learning_enters_kp_companion', stage);
+  check(await root.locator('[data-study-stage="ttsx_checkpoint"]').count() === 1, 'ttsx_checkpoint_surface_present');
 
   const learnCard = root.locator('[data-study-stage]:visible .xv6KpLearnCompanion[data-kp-id]');
   await learnCard.waitFor({ state: 'visible' });
@@ -173,7 +174,7 @@ try {
     };
   });
   check(!expandedGeometry.collapsed, 'logic_map_expanded_by_default', JSON.stringify(expandedGeometry));
-  check(expandedGeometry.left >= 215 && expandedGeometry.left <= 240, 'logic_map_mac_width', JSON.stringify(expandedGeometry));
+  check(expandedGeometry.left >= 280 && expandedGeometry.left <= 305, 'logic_map_mac_width', JSON.stringify(expandedGeometry));
 
   await toggle.click();
   await page.waitForFunction(() => document.querySelector('[data-study-layout]')?.classList.contains('outline-collapsed'));
@@ -231,10 +232,12 @@ try {
   }
   stage = await visibleStage(root);
   check(stage === 'kp_recall', 'enter_learning_advances_to_recall_after_real_kps', `stage=${stage};presses=${presses}`);
+  check(await root.locator('[data-study-stage="ttsx_checkpoint"]').isHidden(), 'unbound_ttsx_fails_closed_without_fake_release');
 
   const studyKey = `kianos-xizong-astro-v2:${objectId}`;
   const studyState = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || '{}'), studyKey);
   check(Object.values(studyState?.learned || {}).filter(Boolean).length >= 1, 'enter_records_learned_state');
+  check(Object.keys(studyState?.ttsxEvidence || {}).length === 0, 'unbound_ttsx_creates_no_fake_evidence');
 
   const recallCard = root.locator('[data-kp-recall-card]:not([hidden])');
   await recallCard.waitFor({ state: 'visible' });
@@ -297,7 +300,95 @@ try {
   check(ratedState?.ratings?.[currentRecallKpId] === 'known', 'rating_persists_real_recall_evidence', currentRecallKpId || '');
 
   const minType = await scanTypeFloor(root, 'a2_r1');
+  const blockTypography = await root.evaluate((node) => ({
+    fontFamily: getComputedStyle(node).fontFamily,
+    bodySize: getComputedStyle(node).fontSize
+  }));
+  report.block_typography = blockTypography;
+  if (process.platform === 'darwin') {
+    check(String(blockTypography.fontFamily || '').includes('PingFang SC'), 'mac_block_uses_pingfang_sc', blockTypography.fontFamily || '');
+  }
   await page.screenshot({ path: path.join(auditDir, 'xizong-block-kp-learn.png'), fullPage: false });
+
+  // Visual-only Human Gate capture. Current has no reviewed TTSX Binding owner,
+  // so the DOM is populated only for visual inspection using the exact legacy
+  // interaction grammar. Functional assertions above remain fail-closed.
+  await page.evaluate(() => {
+    const root = document.querySelector('[data-xizong-v6-block]');
+    if (!root) return;
+    root.querySelectorAll('[data-study-stage]').forEach((node) => { node.hidden = true; });
+    const checkpoint = root.querySelector('[data-study-stage="ttsx_checkpoint"]');
+    if (!(checkpoint instanceof HTMLElement)) return;
+    checkpoint.hidden = false;
+
+    const progress = checkpoint.querySelector('[data-ttsx-progress]');
+    if (progress) progress.textContent = '9 道';
+    const meta = checkpoint.querySelector('[data-ttsx-meta]');
+    if (meta) meta.textContent = '9 道 · 每题都可以单独「+写一句」，也可以一题都不记。';
+    const boundary = checkpoint.querySelector('[data-ttsx-boundary-label]');
+    if (boundary) boundary.textContent = '四瓣膜病：时相 + 杂音形态';
+    const pageLabel = checkpoint.querySelector('[data-ttsx-page-label]');
+    if (pageLabel) pageLabel.textContent = '生理 P111–122 · 题目 P120–121 · 回 MarginNote 原位置核对。';
+    const empty = checkpoint.querySelector('[data-ttsx-empty]');
+    if (empty instanceof HTMLElement) empty.hidden = true;
+
+    const rows = [
+      ['2013N7A','心室肌收缩的后负荷是','生理 P120'],
+      ['2014N6A','心率过快时，心输出量减少的主要原因是','生理 P120'],
+      ['2015N6A','心室功能减退病人代偿期射血分数下降的原因是','生理 P120'],
+      ['2017N5A','一个心动周期中，主动脉瓣开始关闭的瞬间是','生理 P120'],
+      ['2021N5A','心室压力-容积环向右扩大时的判断','生理 P120'],
+      ['2022N5A','心动周期过程中，主动脉瓣关闭的时间是','生理 P121'],
+      ['2023N5A','在一个心动周期里，第一心音出现在','生理 P121'],
+      ['2025N6','题干请回 MarginNote 查看','生理 P121'],
+      ['2025N137','题干请回 MarginNote 查看','生理 P121']
+    ];
+    const list = checkpoint.querySelector('[data-ttsx-question-list]');
+    if (!(list instanceof HTMLElement)) return;
+    list.replaceChildren();
+    rows.forEach(([id,title,page]) => {
+      const row = document.createElement('section');
+      row.className = 'xv6TtsxQuestionRow';
+      const strong = document.createElement('strong');
+      strong.className = 'xv6TtsxQuestionId';
+      strong.textContent = id;
+      const p = document.createElement('p');
+      p.textContent = title;
+      const span = document.createElement('span');
+      span.className = 'xv6TtsxQuestionPage';
+      span.textContent = page;
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'xv6TtsxWrite';
+      button.textContent = '+写一句';
+      row.append(strong,p,span,button);
+      list.append(row);
+    });
+  });
+  check(await root.locator('[data-study-stage="ttsx_checkpoint"] .xv6TtsxQuestionRow').count() === 9, 'ttsx_visual_candidate_has_multi_question_list');
+  check(await root.locator('[data-study-stage="ttsx_checkpoint"] .xv6TtsxWrite').count() === 9, 'ttsx_visual_candidate_has_per_question_note_actions');
+  await page.screenshot({ path: path.join(auditDir, 'xizong-block-ttsx-checkpoint-visual-only.png'), fullPage: false });
+
+  // Corrupt/private state must never be able to manufacture a TTSX release when
+  // the Current semantic Projection has no reviewed Boundary/Binding.
+  await page.evaluate((key) => {
+    const existing = JSON.parse(localStorage.getItem(key) || '{}');
+    localStorage.setItem(key, JSON.stringify({
+      ...existing,
+      stage: 'ttsx_checkpoint',
+      pendingTtsx: {
+        key: 'fake-unreviewed-binding',
+        label: 'fake',
+        checkpointIds: ['fake-unreviewed-binding']
+      }
+    }));
+  }, studyKey);
+  await page.reload({ waitUntil: 'networkidle' });
+  const failClosedRoot = page.locator('[data-xizong-v6-block]');
+  await failClosedRoot.waitFor({ state: 'visible' });
+  check((await visibleStage(failClosedRoot)) !== 'ttsx_checkpoint', 'corrupt_unreviewed_ttsx_state_cannot_release_checkpoint');
+  const failClosedState = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || '{}'), studyKey);
+  check(!failClosedState?.pendingTtsx, 'corrupt_unreviewed_ttsx_pending_state_is_discarded');
 
   report.finished_at = new Date().toISOString();
   report.status = 'PASS';

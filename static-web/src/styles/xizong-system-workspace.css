@@ -799,3 +799,55 @@ body#kianos-workspace.surfaceBody-xizong .xzSystemContext > div span {
     border-left: 0;
   }
 }
+
+
+/* Dedicated System Recall release: System Framework only exposes the next action.
+   The Recall workspace itself lives on /xizong/:system/recall/. */
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallEntry {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:28px;
+  margin-top:16px;
+  padding:18px 20px;
+  border-top:1px solid var(--study-line,#d7dfda);
+  border-bottom:1px solid var(--study-line,#d7dfda);
+  background:#fff;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallEntry[hidden] { display:none; }
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallEntry>div { min-width:0; }
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallEntry span {
+  display:block;
+  color:var(--study-green,#2f765f);
+  font-size:15px;
+  font-weight:650;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallEntry strong {
+  display:block;
+  margin-top:4px;
+  font-size:20px;
+  font-weight:650;
+  line-height:1.45;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallEntry small {
+  display:block;
+  margin-top:4px;
+  color:var(--study-muted,#5e6e66);
+  font-size:15px;
+  font-weight:500;
+  line-height:1.5;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallEntry>a {
+  flex:none;
+  min-height:40px;
+  display:inline-flex;
+  align-items:center;
+  padding:8px 14px;
+  border:1px solid #34765f;
+  border-radius:8px;
+  background:#34765f;
+  color:#fff;
+  font-size:16px;
+  font-weight:600;
+  text-decoration:none;
+}
