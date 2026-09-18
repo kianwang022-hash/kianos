@@ -280,6 +280,12 @@ This is a **fast path by default**:
 - require exact wording/list/identity/timeline/legal precision only when the point is actually active/admitted;
 - use historical Wrong / meaningful Uncertain evidence to earn depth;
 - use Xiao1000 as selective verification, not as an automatic whole-bank rerun;
+
+Retest selection priority:
+
+1. unresolved historical Wrong / meaningful Uncertain for the chapter;
+2. a small representative/high-discrimination sample when fresh verification is actually useful;
+3. no retest when current evidence already makes the extra question cost unjustified;
 - reopen only the smallest broken relation/source segment;
 - let stable chapters exit cheaply.
 
@@ -327,6 +333,21 @@ A calibration chapter therefore needs to answer:
 - what condition allows the chapter to exit.
 
 This grouping is Learning semantics. Layout, reveal interaction and visual form remain downstream.
+#### Structured completeness is not the same as durable Precision debt
+
+A chapter may require the learner to retrieve a fixed **group** completely without creating a separate durable Precision object for every item.
+
+Example:
+
+```text
+five development concepts
+→ chapter Content Recall may require all five + their roles
+→ this does not automatically create five persistent Precision tasks
+```
+
+Use durable Precision when exactness itself needs independent future tracking. Use grouped Content Recall when completeness belongs naturally inside the chapter reconstruction.
+
+This distinction prevents Politics from turning every fixed group into a high-frequency card queue.
 #### Candidate availability is not learner debt
 
 Hard rule:
