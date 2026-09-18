@@ -602,7 +602,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
       }
       state.stage = stage;
       stages.forEach((panel) => { panel.hidden = panel.getAttribute('data-study-stage') !== state.stage; });
-      if (state.stage === 'kp_recall') resetRecallCard(kpRecallCards[state.kpIndex]);
+      if (state.stage === 'kp_recall') setKpIndex(state.kpIndex);
       if (state.stage === 'ttsx_checkpoint') syncTtsxStage();
       if (kpRail) kpRail.hidden = true;
       if (groupRail) groupRail.hidden = false;
