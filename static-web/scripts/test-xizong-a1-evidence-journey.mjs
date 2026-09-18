@@ -240,7 +240,7 @@ try {
   await cdp.evaluate(clickExpr('[data-repair-complete]'));
   await sleep(100);
   const memoryAfterRepairDone = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(XIZONG_MEMORY_STORAGE_KEY)})||'null')`);
-  const completedRepair = (memoryAfterRepairDone?.repairTasks || []).find((task) => task?.kpId === ${js(reviewedQuestion.relation.primaryKpId)});
+  const completedRepair = (memoryAfterRepairDone?.repairTasks || []).find((task) => task?.kpId === reviewedQuestion.relation.primaryKpId);
   check(completedRepair?.status === 'DONE' && Boolean(completedRepair?.completedAt), 'memory_repair_completion_is_durable_evidence');
   const sweepAfterRepairDone = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(sweepKey)})||'null')`);
   check(sweepAfterRepairDone?.results?.[reviewedQuestion.questionId]?.status === 'wrong', 'repair_completion_does_not_rewrite_question_attempt');
