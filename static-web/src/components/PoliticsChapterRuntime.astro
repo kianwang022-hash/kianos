@@ -34,7 +34,7 @@ const guideLabel = chapter.subject === 'history'
   data-chapter={chapter.code || chapter.chapter || ''}
   data-title={chapter.title}
 >
-  <header class="politicsChapterLocation"><a href={`${base}politics/learn/#subject-${chapter.subject}`}>{chapter.subjectMeta.label}</a><span>/</span><h1>{chapter.title}</h1><small>{units.length} 个 Natural Unit</small></header>
+  <header class="politicsChapterLocation"><a href={`${base}politics/learn/#subject-${chapter.subject}`}>{chapter.subjectMeta.label}</a><span>/</span><h1>{chapter.title}</h1><small>{units.length} 个学习单元</small></header>
   <aside class="politicsRail" aria-label="本章路径">
     <a class="politicsBack" href={`${base}politics/learn/#subject-${chapter.subject}`}>← 学习索引</a>
     <span>{chapter.subjectMeta.label}</span>
@@ -72,7 +72,7 @@ const guideLabel = chapter.subject === 'history'
         <section class="politicsUnit" id={`unit-${index + 1}`} data-politics-unit data-unit-id={unit.unitId}>
           <div class="politicsUnitCognition">
           <header class="politicsUnitHead">
-            <p class="politicsMicro">{index + 1} / {units.length} · 当前 Natural Unit</p>
+            <p class="politicsMicro">{index + 1} / {units.length} · 当前学习单元</p>
             <h2>{unit.title}</h2>
             {t.bridge && <p class="politicsBridge">{t.bridge}</p>}
             {currentProblem && <div class="politicsQuestion"><span>这一段真正要解决</span><strong>{currentProblem}</strong></div>}
