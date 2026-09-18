@@ -95,7 +95,7 @@ const protectedAux = resolveXizongLearnerAssetRepresentation({
   kind: 'VISUAL',
   sourceVisualBundle: { assets: [{ src: '/fixture.webp' }] }
 }, { stage: 'KP_RECALL_FRONT' });
-check(protectedAux.visible === false, 'auxiliary_assets_hidden_on_recall_front');
+check(protectedAux.visible === true, 'kp_recall_front_keeps_auxiliary_assets_visible');
 
 const plan = composeXizongFrameworkRepresentation(a1b1.objects || []);
 check(plan.componentEntitlement === false, 'framework_objects_do_not_entitle_one_component_each');
@@ -150,7 +150,7 @@ check(learnerBridge.includes("root.dataset.representationGate = 'kianos.xizong.r
 check(learnerBridge.includes('resolvedSlotWeight'), 'auxiliary_width_uses_resolved_representation_weight');
 check(learnerBridge.includes("['SOURCE_VISUAL', 'REVIEWED_VISUAL', 'STRUCTURED_TABLE']"), 'rich_aux_is_bounded_to_reviewed_visual_or_table_primitives');
 check(!learnerBridge.includes("if (array(slot?.visual).length || richExtension) return 'rich'"), 'raw_asset_existence_no_longer_controls_aux_width');
-check(learnerBridge.includes("representationStage = 'KP_RECALL_FRONT'"), 'recall_front_routes_through_protected_representation_stage');
+check(learnerBridge.includes("'KP_RECALL_FRONT'") && learnerBridge.includes("slotName = 'kp_recall_aux'"), 'recall_front_routes_through_core_protected_context_stage');
 
 check(systemComponent.includes('composeXizongSystemFrameworkRepresentation'), 'system_framework_consumes_representation_gate');
 check(systemComponent.includes('data-system-framework-plan="purpose-first"'), 'system_workspace_marks_purpose_first_plan');
@@ -183,7 +183,7 @@ console.log(JSON.stringify({
     framework: 'GATE_DRIVEN_COMPOSED_SURFACE',
     systemFramework: 'PURPOSE_FIRST_GATE_DRIVEN_WORKSPACE',
     auxiliary: 'GATE_DRIVEN_DYNAMIC_SUPPORT',
-    recallFront: 'WORKSPACE_WIDE_PROTECTED'
+    recallFront: 'CORE_ONLY_PROTECTED'
   },
   hardFallback: 'STRUCTURED_TEXT'
 }, null, 2));

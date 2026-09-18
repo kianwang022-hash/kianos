@@ -1,0 +1,626 @@
+---
+---
+<span hidden data-xizong-kp-learn-interaction></span>
+
+<script>
+  import {
+    XIZONG_MEMORY_STORAGE_KEY,
+    normalizeXizongMemoryState,
+    setPersonalPrompt
+  } from '../lib/xizongMemoryModel.mjs';
+
+  const root = document.querySelector('[data-xizong-v6-block]');
+  const payloadNode = document.querySelector('[data-xizong-learner-object-payload]');
+
+  if (root instanceof HTMLElement && payloadNode) {
+    let learner = null;
+    try { learner = JSON.parse(payloadNode.textContent || 'null'); } catch {}
+    if (learner?.schema === 'kianos.xizong.learner_object.v1') {
+      const objectId = root.getAttribute('data-study-object') || 'xizong:unknown';
+      const studyKey = `kianos-xizong-astro-v2:${objectId}`;
+      const personalKey = `kianos-xizong-personal-v1:${objectId}`;
+      const kpById = new Map((learner.kps || []).map((kp) => [kp?.identity?.kpId, kp]));
+      const groupById = new Map((learner.logicGroups || []).map((group) => [group?.identity?.logicGroupId, group]));
+
+      const parse = (value, fallback = null) => {
+        try { return JSON.parse(value || 'null') ?? fallback; } catch { return fallback; }
+      };
+      const readStudy = () => parse(localStorage.getItem(studyKey), {});
+      const readPersonal = () => {
+        const raw = parse(localStorage.getItem(personalKey), {});
+        return raw && typeof raw === 'object' ? raw : {};
+      };
+      const writePersonal = (value) => {
+        try { localStorage.setItem(personalKey, JSON.stringify(value)); } catch {}
+      };
+      const readMemory = () => normalizeXizongMemoryState(parse(localStorage.getItem(XIZONG_MEMORY_STORAGE_KEY), null));
+      const writeMemory = (value) => {
+        try { localStorage.setItem(XIZONG_MEMORY_STORAGE_KEY, JSON.stringify(value)); } catch {}
+      };
+      const stageName = () => [...root.querySelectorAll('[data-study-stage]')]
+        .find((node) => !node.hasAttribute('hidden'))?.getAttribute('data-study-stage') || '';
+
+      const activeLearnFrame = () => {
+        const stage = [...root.querySelectorAll('[data-study-stage]')].find((node) => !node.hasAttribute('hidden'));
+        return stage?.querySelector('.xv6KpLearnCompanion[data-kp-id]') || null;
+      };
+      const activeRecallCard = () => root.querySelector('[data-kp-recall-card]:not([hidden])');
+      const activeUnifiedCard = () => stageName() === 'kp_recall' ? activeRecallCard() : activeLearnFrame();
+      const activeKpId = () => activeUnifiedCard()?.getAttribute('data-kp-id') || '';
+      const recallRevealed = () => {
+        const answer = activeRecallCard()?.querySelector('[data-kp-answer]');
+        return Boolean(answer && !answer.hasAttribute('hidden'));
+      };
+
+      const syncRecallPrompts = () => {
+        const memory = readMemory();
+        root.querySelectorAll('[data-kp-recall-card][data-kp-id]').forEach((card) => {
+          const kpId = card.getAttribute('data-kp-id') || '';
+          const kp = kpById.get(kpId);
+          const prompt = String(memory.promptOverrides?.[kpId] || kp?.prompt?.canonical || '');
+          const node = card.querySelector(':scope > header > p');
+          if (node) node.textContent = prompt;
+        });
+      };
+
+      const ensurePersonalKp = (kpId) => {
+        const personal = readPersonal();
+        personal.kp ||= {};
+        personal.kp[kpId] ||= { questionStatus: '', comment: '', marks: [] };
+        if (!Array.isArray(personal.kp[kpId].marks)) personal.kp[kpId].marks = [];
+        return { personal, row: personal.kp[kpId] };
+      };
+
+      const currentMarks = (kpId) => {
+        const personal = readPersonal();
+        return Array.isArray(personal?.kp?.[kpId]?.marks) ? personal.kp[kpId].marks : [];
+      };
+
+      const rangeForQuote = (container, quote) => {
+        if (!(container instanceof HTMLElement) || !quote) return null;
+        const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT);
+        const nodes = [];
+        let full = '';
+        while (walker.nextNode()) {
+          const node = walker.currentNode;
+          const start = full.length;
+          full += node.textContent || '';
+          nodes.push({ node, start, end: full.length });
+        }
+        const at = full.indexOf(quote);
+        if (at < 0) return null;
+        const endAt = at + quote.length;
+        const startRow = nodes.find((row) => at >= row.start && at <= row.end);
+        const endRow = [...nodes].reverse().find((row) => endAt >= row.start && endAt <= row.end);
+        if (!startRow || !endRow) return null;
+        const range = document.createRange();
+        range.setStart(startRow.node, Math.max(0, at - startRow.start));
+        range.setEnd(endRow.node, Math.max(0, endAt - endRow.start));
+        return range;
+      };
+
+      const applyHighlights = () => {
+        if (!('highlights' in CSS) || typeof Highlight === 'undefined') return;
+        CSS.highlights.delete('xizong-important');
+        CSS.highlights.delete('xizong-weak');
+        const frame = activeUnifiedCard();
+        if (!(frame instanceof HTMLElement)) return;
+        const kpId = frame.getAttribute('data-kp-id') || '';
+        const marks = currentMarks(kpId);
+        const ranges = { important: [], weak: [] };
+        marks.forEach((mark) => {
+          const container = mark.surface === 'PROMPT'
+            ? frame.querySelector('[data-kp-learn-prompt-copy]')
+            : frame.querySelector('[data-kp-learn-core]');
+          const range = rangeForQuote(container, String(mark.text || ''));
+          if (range && ranges[mark.kind]) ranges[mark.kind].push(range);
+        });
+        if (ranges.important.length) CSS.highlights.set('xizong-important', new Highlight(...ranges.important));
+        if (ranges.weak.length) CSS.highlights.set('xizong-weak', new Highlight(...ranges.weak));
+      };
+
+      let selectionPending = null;
+      let markMenu = document.querySelector('[data-xizong-mark-menu]');
+      if (!(markMenu instanceof HTMLElement)) {
+        markMenu = document.createElement('div');
+        markMenu.dataset.xizongMarkMenu = '';
+        markMenu.className = 'xzKpMarkMenu';
+        markMenu.hidden = true;
+        markMenu.innerHTML = `
+          <button type="button" data-xizong-mark-kind="important">重点</button>
+          <button type="button" data-xizong-mark-kind="weak">不熟</button>
+        `;
+        document.body.append(markMenu);
+      }
+
+      const hideMarkMenu = () => {
+        if (markMenu instanceof HTMLElement) markMenu.hidden = true;
+        selectionPending = null;
+      };
+
+      const saveMark = (kind) => {
+        if (!selectionPending) return;
+        const { kpId, surface, text } = selectionPending;
+        const { personal, row } = ensurePersonalKp(kpId);
+        const exists = row.marks.some((mark) => mark.surface === surface && mark.text === text && mark.kind === kind);
+        if (!exists) {
+          row.marks.push({
+            surface,
+            text,
+            kind,
+            createdAt: new Date().toISOString()
+          });
+          writePersonal(personal);
+        }
+        window.getSelection()?.removeAllRanges();
+        hideMarkMenu();
+        refreshUnifiedSurface();
+      };
+
+      markMenu.querySelectorAll('[data-xizong-mark-kind]').forEach((button) => {
+        button.addEventListener('click', () => saveMark(button.getAttribute('data-xizong-mark-kind') || 'important'));
+      });
+
+      const showMarkMenuFromSelection = () => {
+        const frame = activeUnifiedCard();
+        const selection = window.getSelection();
+        if (!(frame instanceof HTMLElement) || !selection || selection.rangeCount === 0 || selection.isCollapsed) {
+          hideMarkMenu();
+          return;
+        }
+        const text = selection.toString().trim();
+        if (!text || text.length > 600) {
+          hideMarkMenu();
+          return;
+        }
+        const range = selection.getRangeAt(0);
+        const common = range.commonAncestorContainer instanceof Element
+          ? range.commonAncestorContainer
+          : range.commonAncestorContainer.parentElement;
+        const prompt = common?.closest?.('[data-kp-learn-prompt-copy]');
+        const core = common?.closest?.('[data-kp-learn-core]');
+        if (!prompt && !core) {
+          hideMarkMenu();
+          return;
+        }
+        const kpId = frame.getAttribute('data-kp-id') || '';
+        const rect = range.getBoundingClientRect();
+        selectionPending = { kpId, surface: prompt ? 'PROMPT' : 'CORE', text };
+        if (markMenu instanceof HTMLElement) {
+          markMenu.style.left = `${Math.min(window.innerWidth - 150, Math.max(8, rect.left + rect.width / 2 - 62))}px`;
+          markMenu.style.top = `${Math.max(8, rect.top - 44)}px`;
+          markMenu.hidden = false;
+        }
+      };
+
+      document.addEventListener('mouseup', (event) => {
+        const target = event.target instanceof Element ? event.target : null;
+        if (target?.closest('[data-xizong-mark-menu]')) return;
+        queueMicrotask(showMarkMenuFromSelection);
+      });
+
+      document.addEventListener('mousedown', (event) => {
+        const target = event.target instanceof Element ? event.target : null;
+        if (target?.closest('[data-xizong-mark-menu]')) return;
+        if (!target?.closest('.xzKpUnifiedCard')) hideMarkMenu();
+      });
+
+      const downloadPacket = () => {
+        const study = readStudy();
+        const personal = readPersonal();
+        const memory = readMemory();
+        const packet = {
+          schema: 'kianos.xizong.study_packet.v2',
+          packet_scope: 'LIVE_BLOCK_LEARN',
+          exported_at: new Date().toISOString(),
+          object_id: objectId,
+          current: {
+            system_id: learner.identity?.systemId || '',
+            canonical_id: learner.identity?.canonicalId || '',
+            block_id: learner.identity?.blockId || '',
+            block_label: learner.identity?.blockLabel || '',
+            block_title: learner.identity?.title || '',
+            current_stage: study.stage || '',
+            current_kp_id: activeKpId()
+          },
+          learning_state: {
+            learned_kp_ids: Object.entries(study.learned || {}).filter(([, done]) => Boolean(done)).map(([id]) => id),
+            recall_ratings: study.ratings || {},
+            block_recall_done: Boolean(study.blockRecallDone),
+            block_complete: Boolean(study.completed)
+          },
+          kp_evidence: (learner.kps || []).map((kp) => {
+            const kpId = kp?.identity?.kpId || '';
+            const local = personal?.kp?.[kpId] || {};
+            return {
+              kp_id: kpId,
+              display_id: kp?.identity?.displayId || '',
+              title: kp?.identity?.title || '',
+              prompt_canonical: kp?.prompt?.canonical || '',
+              prompt_override: memory.promptOverrides?.[kpId] || '',
+              learned: Boolean(study.learned?.[kpId]),
+              recall_rating: study.ratings?.[kpId] || '',
+              marks: Array.isArray(local.marks) ? local.marks : [],
+              note: local.comment || '',
+              source_locator: kp?.source?.locator || '',
+              outline_locator: kp?.outline?.locator || '',
+              precision_ids: (kp?.precision || []).map((row) => row.id),
+              visual_ids: (kp?.visual || []).map((row) => row.id),
+              connection_ids: [
+                ...(kp?.connection?.incoming || []).map((row) => row.id),
+                ...(kp?.connection?.outgoing || []).map((row) => row.id)
+              ]
+            };
+          }),
+          request_to_chat: [
+            '结合 Current owner 和这个学习包，优先看我主动标出的“不熟 / 重点”、Prompt override 与真实 Recall evidence。',
+            '区分：机制理解断点、暂时记忆不稳、Precision 不稳、主动提示设计问题、页面出现时机问题或 canonical 内容疑点。',
+            '稳定内容不要制造额外复习；只返回最有价值的少数注意点或修补任务。'
+          ]
+        };
+        const blob = new Blob([JSON.stringify(packet, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const anchor = document.createElement('a');
+        anchor.href = url;
+        anchor.download = `xizong-${learner.identity?.blockLabel || 'block'}-study-packet.json`;
+        document.body.append(anchor);
+        anchor.click();
+        anchor.remove();
+        window.setTimeout(() => URL.revokeObjectURL(url), 500);
+      };
+
+      const syncLogicMap = () => {
+        root.querySelectorAll('.xzLogicGroupDetail').forEach((node) => node.remove());
+        const study = readStudy();
+        const card = activeUnifiedCard();
+        const cardKpId = card?.getAttribute('data-kp-id') || '';
+        const fallbackGroup = (learner.logicGroups || [])[Math.max(0, Number(study.groupIndex || 0))] || null;
+        const kp = kpById.get(cardKpId);
+        const groupId = kp?.identity?.logicGroupId || fallbackGroup?.identity?.logicGroupId || '';
+        const group = groupById.get(groupId) || fallbackGroup;
+        if (!group) return;
+        const groupIndex = (learner.logicGroups || []).findIndex((row) => row?.identity?.logicGroupId === groupId);
+        const button = root.querySelector(`[data-group-target="${groupIndex}"]`);
+        if (!(button instanceof HTMLElement)) return;
+
+        const detail = document.createElement('section');
+        detail.className = 'xzLogicGroupDetail';
+        detail.dataset.logicGroupDetail = groupId;
+
+        if (group.goal) {
+          const goal = document.createElement('p');
+          goal.className = 'xzLogicGroupGoal';
+          goal.innerHTML = `<b>这一节解决</b><span></span>`;
+          goal.querySelector('span').textContent = group.goal;
+          detail.append(goal);
+        }
+        if (group.closure) {
+          const closure = document.createElement('p');
+          closure.className = 'xzLogicGroupClosure';
+          closure.innerHTML = `<b>学完能做到</b><span></span>`;
+          closure.querySelector('span').textContent = group.closure;
+          detail.append(closure);
+        }
+
+        const kpList = document.createElement('div');
+        kpList.className = 'xzLogicGroupKps';
+        (group.kpIds || []).forEach((id) => {
+          const item = kpById.get(id);
+          const row = document.createElement('div');
+          row.className = 'xzLogicGroupKp';
+          row.classList.toggle('current', id === cardKpId);
+          row.classList.toggle('learned', Boolean(study.learned?.[id]));
+          row.classList.toggle('recalled', Boolean(study.ratings?.[id]));
+
+          const code = document.createElement('b');
+          code.textContent = item?.identity?.displayId || id;
+          row.append(code);
+
+          const title = document.createElement('span');
+          title.textContent = item?.identity?.title || '';
+          row.append(title);
+
+          const state = document.createElement('em');
+          state.textContent = study.ratings?.[id]
+            ? '已 Recall'
+            : study.learned?.[id]
+              ? '已学'
+              : id === cardKpId
+                ? '当前'
+                : '';
+          row.append(state);
+          kpList.append(row);
+        });
+        detail.append(kpList);
+        button.insertAdjacentElement('afterend', detail);
+      };
+
+      const renderPromptEditor = (frame, kpId, promptNode, canonicalPrompt) => {
+        if (frame.querySelector('[data-kp-prompt-editor]')) return;
+        const editor = document.createElement('div');
+        editor.dataset.kpPromptEditor = '';
+        editor.className = 'xzKpPromptEditor';
+        editor.hidden = true;
+        editor.innerHTML = `
+          <textarea rows="2" data-kp-prompt-input></textarea>
+          <div>
+            <button type="button" data-kp-prompt-save>保存</button>
+            <button type="button" data-kp-prompt-reset>恢复默认</button>
+            <button type="button" data-kp-prompt-cancel>取消</button>
+          </div>
+        `;
+        promptNode.insertAdjacentElement('afterend', editor);
+        const input = editor.querySelector('[data-kp-prompt-input]');
+        const open = promptNode.querySelector('[data-kp-prompt-edit]');
+        open?.addEventListener('click', () => {
+          const memory = readMemory();
+          if (input instanceof HTMLTextAreaElement) input.value = memory.promptOverrides?.[kpId] || canonicalPrompt;
+          editor.hidden = false;
+          input?.focus();
+        });
+        editor.querySelector('[data-kp-prompt-cancel]')?.addEventListener('click', () => { editor.hidden = true; });
+        editor.querySelector('[data-kp-prompt-save]')?.addEventListener('click', () => {
+          const value = input instanceof HTMLTextAreaElement ? input.value : '';
+          const next = setPersonalPrompt(readMemory(), kpId, value);
+          writeMemory(next);
+          editor.hidden = true;
+          enhanceCurrentFrame();
+          syncRecallPrompts();
+        });
+        editor.querySelector('[data-kp-prompt-reset]')?.addEventListener('click', () => {
+          const next = setPersonalPrompt(readMemory(), kpId, '');
+          writeMemory(next);
+          editor.hidden = true;
+          enhanceCurrentFrame();
+          syncRecallPrompts();
+        });
+      };
+
+      const enhanceCurrentFrame = () => {
+        const frame = activeLearnFrame();
+        if (!(frame instanceof HTMLElement)) return;
+        const kpId = frame.getAttribute('data-kp-id') || '';
+        const kp = kpById.get(kpId);
+        if (!kp) return;
+
+        frame.classList.add('xzKpLearnStage');
+        const header = frame.querySelector('.xv6KpLearnCompanionHeader');
+        const nav = frame.querySelector('.xv6KpLearnNav');
+        const locators = frame.querySelector('.xv6KpLearnLocators');
+        if (header && !header.querySelector('.xzKpLearnHeaderRight')) {
+          const right = document.createElement('div');
+          right.className = 'xzKpLearnHeaderRight';
+          if (locators) {
+            locators.classList.add('xzKpLearnLocatorMini');
+            right.append(locators);
+          }
+          if (nav) right.append(nav);
+          const packet = document.createElement('button');
+          packet.type = 'button';
+          packet.className = 'xzKpPacketButton';
+          packet.textContent = '学习包';
+          packet.title = '下载当前 Block 学习包并上传给 Chat';
+          packet.addEventListener('click', downloadPacket);
+          right.append(packet);
+          header.append(right);
+        }
+
+        const prompt = frame.querySelector('.xv6KpLearnPrompt');
+        if (prompt instanceof HTMLElement) {
+          prompt.dataset.kpLearnPrompt = '';
+          const label = prompt.querySelector(':scope > span');
+          const copy = prompt.querySelector(':scope > p');
+          if (copy instanceof HTMLElement) {
+            copy.dataset.kpLearnPromptCopy = '';
+            const memory = readMemory();
+            copy.textContent = memory.promptOverrides?.[kpId] || kp.prompt?.canonical || '';
+          }
+          if (label && !prompt.querySelector('[data-kp-prompt-edit]')) {
+            const edit = document.createElement('button');
+            edit.type = 'button';
+            edit.dataset.kpPromptEdit = '';
+            edit.textContent = '编辑';
+            label.insertAdjacentElement('afterend', edit);
+          }
+          renderPromptEditor(frame, kpId, prompt, kp.prompt?.canonical || '');
+        }
+
+        frame.classList.add('xzKpUnifiedCard');
+        const core = frame.querySelector('[data-learner-kp-core]');
+        if (core instanceof HTMLElement) {
+          core.dataset.kpLearnCore = '';
+          core.dataset.kpLearnCore = '';
+        }
+
+        let actions = frame.querySelector('.xzKpLearnActions');
+        if (!(actions instanceof HTMLElement)) {
+          actions = document.createElement('footer');
+          actions.className = 'xzKpLearnActions';
+          actions.innerHTML = `
+            <span>← → 切 KP　·　Space 隐藏 / 显示 Core　·　Enter 这个 KP 学好了</span>
+            <div>
+              <button type="button" data-kp-core-toggle>隐藏 Core</button>
+              <span data-kp-learn-state>学习中</span>
+            </div>
+          `;
+          frame.append(actions);
+        }
+        const study = readStudy();
+        const learned = Boolean(study.learned?.[kpId]);
+        const stateNode = actions.querySelector('[data-kp-learn-state]');
+        if (stateNode) stateNode.textContent = learned ? '已学好' : '学习中';
+
+        const toggle = actions.querySelector('[data-kp-core-toggle]');
+        if (toggle && !toggle.dataset.bound) {
+          toggle.dataset.bound = 'true';
+          toggle.addEventListener('click', () => {
+            const target = frame.querySelector('[data-learner-kp-core]');
+            if (!(target instanceof HTMLElement)) return;
+            target.hidden = !target.hidden;
+            toggle.textContent = target.hidden ? '显示 Core' : '隐藏 Core';
+            frame.classList.toggle('core-hidden', target.hidden);
+          });
+        }
+
+        syncLogicMap();
+        applyHighlights();
+      };
+
+      const advanceLearn = () => {
+        const stage = stageName();
+        if (!['source_contact', 'kp_learn'].includes(stage)) return false;
+        const frame = activeLearnFrame();
+        if (!(frame instanceof HTMLElement)) return false;
+        const kpId = frame.getAttribute('data-kp-id') || '';
+        if (!kpId) return false;
+
+        root.dispatchEvent(new CustomEvent('kianos:xizong-kp-learned', {
+          bubbles: true,
+          detail: { kpId }
+        }));
+
+        const next = frame.querySelector(`[data-companion-next="${stage}"]`);
+        if (next instanceof HTMLButtonElement && !next.disabled) {
+          next.click();
+          return true;
+        }
+
+        queueMicrotask(() => {
+          const study = readStudy();
+          if (stage === 'kp_learn') {
+            const groupId = kpById.get(kpId)?.identity?.logicGroupId || '';
+            const group = groupById.get(groupId);
+            const done = (group?.kpIds || []).every((id) => Boolean(study.learned?.[id]));
+            if (done) root.querySelector('[data-group-lecture-done]')?.click();
+          } else {
+            const done = (learner.kps || []).every((row) => Boolean(study.learned?.[row?.identity?.kpId]));
+            if (done) root.querySelector('[data-source-contact-done]')?.click();
+          }
+        });
+        return true;
+      };
+
+      document.addEventListener('keydown', (event) => {
+        const target = event.target;
+        if (target instanceof HTMLElement && target.closest('input,textarea,select,button,a,[contenteditable="true"]')) return;
+        const stage = stageName();
+        if (!['source_contact', 'kp_learn'].includes(stage)) return;
+        const frame = activeLearnFrame();
+        if (!(frame instanceof HTMLElement)) return;
+
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+          event.preventDefault();
+          const attr = event.key === 'ArrowLeft' ? 'data-companion-prev' : 'data-companion-next';
+          const button = frame.querySelector(`[${attr}="${stage}"]`);
+          if (button instanceof HTMLButtonElement && !button.disabled) button.click();
+          return;
+        }
+        if (event.code === 'Space') {
+          event.preventDefault();
+          frame.querySelector('[data-kp-core-toggle]')?.click();
+          return;
+        }
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          advanceLearn();
+        }
+      });
+
+      const enhanceRecallCards = () => {
+        const memory = readMemory();
+        root.querySelectorAll('[data-kp-recall-card][data-kp-id]').forEach((card) => {
+          if (!(card instanceof HTMLElement)) return;
+          const kpId = card.getAttribute('data-kp-id') || '';
+          const kp = kpById.get(kpId);
+          if (!kp) return;
+          card.classList.add('xzKpUnifiedCard', 'xzKpRecallCard');
+
+          const header = card.querySelector(':scope > header');
+          const titleNode = header?.querySelector(':scope > h3');
+          if (titleNode) titleNode.textContent = [kp?.identity?.displayId, kp?.identity?.title].filter(Boolean).join(' · ');
+          const prompt = header?.querySelector(':scope > p');
+          if (prompt instanceof HTMLElement) {
+            prompt.dataset.kpLearnPromptCopy = '';
+            prompt.textContent = memory.promptOverrides?.[kpId] || kp.prompt?.canonical || '';
+          }
+
+          const answer = card.querySelector('[data-kp-answer]');
+          if (answer instanceof HTMLElement) answer.dataset.kpLearnCore = '';
+
+          const revealed = Boolean(answer && !answer.hasAttribute('hidden'));
+          card.classList.toggle('is-revealed', revealed);
+          card.classList.toggle('is-front', !revealed);
+
+          if (header instanceof HTMLElement && !header.querySelector('.xzKpRecallMode')) {
+            const mode = document.createElement('span');
+            mode.className = 'xzKpRecallMode';
+            mode.textContent = 'KP RECALL';
+            header.prepend(mode);
+          }
+
+          if (header instanceof HTMLElement && !header.querySelector('[data-recall-prompt-edit]')) {
+            const edit = document.createElement('button');
+            edit.type = 'button';
+            edit.dataset.recallPromptEdit = '';
+            edit.className = 'xzRecallPromptEdit';
+            edit.textContent = '编辑主提示';
+            header.append(edit);
+
+            const editor = document.createElement('div');
+            editor.className = 'xzKpPromptEditor xzRecallPromptEditor';
+            editor.hidden = true;
+            editor.innerHTML = `
+              <textarea rows="2" data-kp-prompt-input></textarea>
+              <div>
+                <button type="button" data-kp-prompt-save>保存</button>
+                <button type="button" data-kp-prompt-reset>恢复默认</button>
+                <button type="button" data-kp-prompt-cancel>取消</button>
+              </div>
+            `;
+            header.insertAdjacentElement('afterend', editor);
+            const input = editor.querySelector('[data-kp-prompt-input]');
+            edit.addEventListener('click', () => {
+              const state = readMemory();
+              if (input instanceof HTMLTextAreaElement) input.value = state.promptOverrides?.[kpId] || kp.prompt?.canonical || '';
+              editor.hidden = false;
+              input?.focus();
+            });
+            editor.querySelector('[data-kp-prompt-cancel]')?.addEventListener('click', () => { editor.hidden = true; });
+            editor.querySelector('[data-kp-prompt-save]')?.addEventListener('click', () => {
+              const value = input instanceof HTMLTextAreaElement ? input.value : '';
+              writeMemory(setPersonalPrompt(readMemory(), kpId, value));
+              editor.hidden = true;
+              refreshUnifiedSurface();
+            });
+            editor.querySelector('[data-kp-prompt-reset]')?.addEventListener('click', () => {
+              writeMemory(setPersonalPrompt(readMemory(), kpId, ''));
+              editor.hidden = true;
+              refreshUnifiedSurface();
+            });
+          }
+        });
+      };
+
+      const refreshUnifiedSurface = () => {
+        enhanceCurrentFrame();
+        enhanceRecallCards();
+        syncRecallPrompts();
+        syncLogicMap();
+        applyHighlights();
+      };
+
+      root.addEventListener('click', (event) => {
+        const target = event.target instanceof Element ? event.target : null;
+        if (!target?.closest('[data-kp-reveal],[data-rating],[data-companion-prev],[data-companion-next],[data-group-target]')) return;
+        queueMicrotask(refreshUnifiedSurface);
+      });
+
+      const observer = new MutationObserver(() => {
+        queueMicrotask(refreshUnifiedSurface);
+      });
+      observer.observe(root, { subtree: true, attributes: true, attributeFilter: ['hidden'] });
+
+      refreshUnifiedSurface();
+    }
+  }
+</script>

@@ -53,7 +53,7 @@ If two inputs disagree, the resolver must fail closed or preserve the higher-aut
 | Block Framework | Block causal model, local route, boundaries, formulas/comparisons | compiled Block Projection, block-safe Extension | permanent content column or second Lecture |
 | Logic Group | LG identity, short goal, closure, ordered KP membership | LG Visual, Connection, Precision, Extension | independent large page or Source-contact boundary by itself |
 | KP Learn | canonical Prompt + full Core + Source + Outline | current-owner Precision, Visual, Extension, Connection / boundary support | answer-protected Recall card, separate enhancer stack, replacement Lecture |
-| KP Recall | same compact Prompt on a clean front; Core after Reveal | only stage-safe post-Reveal Precision / Visual / Extension / Connection | pre-Reveal answer leak |
+| KP Recall | same KP identity/title + Prompt with Core hidden until Reveal | Source / Outline + Current-owned Precision / Visual / Extension / Connection may remain visible | duplicate answer card or hidden second learner object |
 | LG Closure | one local closure target plus useful post-learn exactness/forward connection | group Precision / post-Reveal Extension | second review session |
 | Block Closure | Block Recall result + explicit Block Complete gate | release descriptor for Memory integration | automatic immediate review debt |
 
@@ -102,8 +102,9 @@ learn_steps[]
   refs = semantic refs inside this same learner object
 
 recall
-  front = identity + prompt only
-  post_reveal_refs = answer-bearing fields that may return after Reveal
+  front = identity/title + prompt
+  context_refs = Current-owned auxiliary families allowed both before and after Reveal
+  post_reveal_refs = core only
 ```
 
 The resolver must not manufacture an unavailable phase merely to make all KPs visually symmetrical.
@@ -136,26 +137,29 @@ A renderer should therefore ask the learner object for the active owner rather t
 
 ---
 
-## 6｜Answer-protection contract
+## 6｜KP Recall Core-protection contract
 
-KP Recall protection applies to the **complete answer-bearing workspace**.
+KP Recall protects the **canonical Core**, not the whole workspace.
 
-Before Reveal, the renderable front may contain only:
+Before Reveal, the learner may still see:
 
-- KP identity / location;
+- KP identity / title / location;
 - canonical or private Prompt;
-- non-answer-bearing navigation/runtime chrome.
+- Source / Outline locators;
+- Current-owned Precision / Visual / Extension / Connection Context;
+- normal navigation/runtime chrome.
 
-The following are answer-bearing by default and must stay behind Reveal in Recall:
+The canonical KP Core itself stays hidden until Reveal.
 
-- Core;
-- Precision;
-- Visual;
-- Extension;
-- answer-bearing Connection detail;
-- source/outline content excerpts beyond non-answer-bearing locators.
+The learner object therefore separates:
 
-The learner object may contain those fields in memory, but the Recall projection must expose them only through `post_reveal_refs`; front renderers must not traverse the full object recursively.
+```text
+front          = identity/title + prompt
+context_refs   = auxiliary families legal before and after Reveal
+post_reveal_refs = core
+```
+
+This rule is specific to KP Recall. Block/System Recall may continue to use stricter neutral-front protection under their own reconstruction contracts.
 
 ---
 
@@ -166,7 +170,7 @@ A reviewed Visual anchor may belong to a Logic Group **or an exact KP**.
 KP Visual is therefore supported by contract. It is not an error state.
 
 - during KP Learn: a useful KP Visual may be shown in the auxiliary companion region;
-- during KP Recall: the same answer-bearing Visual stays hidden until Reveal;
+- during KP Recall: the same reviewed Visual may remain visible while only the canonical Core is hidden;
 - Source Visual bundles remain provenance-backed support and do not replace the original Lecture / MarginNote source.
 
 Any runtime check that rejects all `anchor.kp_id` Visuals is obsolete once this resolver is active.
@@ -197,7 +201,8 @@ The runtime may expose a small fixed set of **semantic slots** such as:
 block_orientation
 logic_group_prelearn
 kp_learn_aux
-kp_recall_post_reveal
+kp_recall_context
+kp_recall_post_reveal  # legacy compatibility alias; Core remains the only Reveal-gated payload
 logic_group_postlearn
 ```
 
@@ -217,7 +222,8 @@ A Current learner-object build must prove at least:
 2. KP/LG anchors resolve only to real Current owners;
 3. no medical Core is invented by Projection;
 4. reviewed KP Visuals resolve successfully;
-5. Recall front contains no answer-bearing payload;
-6. every answer-bearing auxiliary family is reachable only after Reveal in Recall;
-7. missing optional Precision / Visual / Extension / Connection stays absent rather than generating fake debt;
-8. compiled Cognitive Projection may enrich System/Block orientation but never becomes a second KP medical owner.
+5. KP Recall front contains no canonical Core payload;
+6. KP Recall context refs resolve only to Current-owned auxiliary families and may remain visible before Reveal;
+7. Reveal-gated refs contain Core and do not create a second answer object;
+8. missing optional Precision / Visual / Extension / Connection stays absent rather than generating fake debt;
+9. compiled Cognitive Projection may enrich System/Block orientation but never becomes a second KP medical owner.
