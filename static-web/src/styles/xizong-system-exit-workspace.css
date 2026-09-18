@@ -534,6 +534,9 @@ body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseQuestionMap {
   grid-template-columns:repeat(4,minmax(0,1fr));
   align-content:start;
   gap:6px;
+  max-height:calc(100vh - 260px);
+  overflow-y:auto;
+  overscroll-behavior:contain;
   padding:16px 14px 16px 0;
   border-right:1px solid var(--xz-exit-line);
 }
