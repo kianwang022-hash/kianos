@@ -18,6 +18,7 @@ const base = import.meta.env.BASE_URL;
     readEnglishSessionInstruction,
     englishSessionStepHref
   } from '../lib/englishSessionControl.mjs';
+  import { WRITING_STATES } from '../lib/writingRuntimeModel.mjs';
 
   const root = document.querySelector('[data-english-resume-surface]');
   if (root instanceof HTMLElement) {
@@ -34,6 +35,15 @@ const base = import.meta.env.BASE_URL;
       writing: 'Writing'
     };
     const localDay = () => new Date().toLocaleDateString('en-CA');
+    const readJson = (key) => {
+      try { return JSON.parse(localStorage.getItem(key) || 'null'); }
+      catch { return null; }
+    };
+    const selectedStepIsComplete = (step) => {
+      if (step?.task !== 'writing' || !step?.object_id) return false;
+      const record = readJson(`kianos-writing-runtime-v1:${step.object_id}`);
+      return [WRITING_STATES.PASS_ACCEPTABLE, WRITING_STATES.REPAIR_COMPLETE].includes(record?.state);
+    };
 
     const render = () => {
       if (!(resume instanceof HTMLElement)
@@ -50,7 +60,7 @@ const base = import.meta.env.BASE_URL;
       const instruction = state.instruction;
       const step = instruction.steps[instruction.current_step];
       const href = englishSessionStepHref(step, base);
-      if (!step || !href) {
+      if (!step || !href || selectedStepIsComplete(step)) {
         resume.hidden = true;
         return;
       }
