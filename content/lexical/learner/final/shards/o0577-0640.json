@@ -210,7 +210,7 @@
     "ordinal": 579,
     "word": "breath",
     "source_owner_path": "content/lexical/words/by-ordinal/o0579.json",
-    "source_fingerprint": "5599ec06b5b892320f382f642dd4c89391cd4334e628dcd83ad0036f97527514",
+    "source_fingerprint": "04873d0218e889955ad364b1522f56c31d31f4c2fea59174787a5e8c7f69558b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -348,7 +348,54 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:breath:baseline-v2-out-of",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be/out of breath",
+        "lines": [
+          {
+            "text": "上气不接下气；气喘吁吁",
+            "lang": "cn"
+          },
+          {
+            "text": "be breathing with difficulty after exertion",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:breath:baseline-v2-out-of",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be/out of breath"
+        }
+      },
+      {
+        "id": "construction:breath:baseline-v2-take-hold",
+        "source_locator": "record.constructions[1]",
+        "pattern": "take/hold one's breath",
+        "lines": [
+          {
+            "text": "深吸一口气；屏住呼吸",
+            "lang": "cn"
+          },
+          {
+            "text": "take a breath = inhale/rest briefly; hold one's breath = stop breathing temporarily.",
+            "lang": "en"
+          },
+          {
+            "text": "take in a breath or temporarily stop breathing",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:breath:baseline-v2-take-hold",
+          "target_locator": "record.constructions[1]",
+          "target_label": "take/hold one's breath"
+        }
+      }
+    ],
     "reference": {
       "confusables": [
         {
@@ -737,7 +784,7 @@
     "ordinal": 582,
     "word": "breeze",
     "source_owner_path": "content/lexical/words/by-ordinal/o0582.json",
-    "source_fingerprint": "847df80419f896350fbcddc3d5d8927408b46f92e356a731a95662bce325626f",
+    "source_fingerprint": "3565aa1f2037ce2249af9850715ca265245313ee9e52c18fc9dcfb092c164cda",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -850,7 +897,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:breeze:baseline-v2-through",
+        "source_locator": "record.constructions[0]",
+        "pattern": "breeze through sth",
+        "lines": [
+          {
+            "text": "轻松快速地通过、完成某事",
+            "lang": "cn"
+          },
+          {
+            "text": "pass through or complete something easily and quickly",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:breeze:baseline-v2-through",
+          "target_locator": "record.constructions[0]",
+          "target_label": "breeze through sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1435,11 +1504,11 @@
     "ordinal": 588,
     "word": "brief",
     "source_owner_path": "content/lexical/words/by-ordinal/o0588.json",
-    "source_fingerprint": "d547a693aee4a50831453bcb05f70c103f8db2b356864e96645c94045989a566",
+    "source_fingerprint": "c37be0531dd2e6b6c95c6226f1da71b4f509e3649b0efee646b6e3a3e872d1b2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(1+1)V",
+        "1V",
         "1A",
         "1N"
       ],
@@ -1540,22 +1609,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:brief:bf86735c1c197c6f",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "向…作简报；简要介绍",
-        "definition_en": "to give essential information to someone",
-        "pattern": "brief sb on sth",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:brief:bf86735c1c197c6f",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "向…作简报；简要介绍"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [
       {
         "id": "construction:f773ec8e568ac710b26b",
@@ -1572,6 +1626,27 @@
           "target_id": "construction:f773ec8e568ac710b26b",
           "target_locator": "record.constructions[0]",
           "target_label": "in brief"
+        }
+      },
+      {
+        "id": "construction:brief:baseline-v2-sb-on",
+        "source_locator": "record.constructions[1]",
+        "pattern": "brief sb on sth",
+        "lines": [
+          {
+            "text": "向某人简要介绍、通报某事",
+            "lang": "cn"
+          },
+          {
+            "text": "give someone the essential information about a subject or situation",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:brief:baseline-v2-sb-on",
+          "target_locator": "record.constructions[1]",
+          "target_label": "brief sb on sth"
         }
       }
     ],
@@ -1657,7 +1732,7 @@
     "ordinal": 590,
     "word": "bright",
     "source_owner_path": "content/lexical/words/by-ordinal/o0590.json",
-    "source_fingerprint": "04f65bdaa073911a41dbcf67f1edc4ca37d9dfbc3fbfbd427ce8865497622873",
+    "source_fingerprint": "e1f7891cec748c65be822c56510ddd9b5eef031b46bf9ffac41c58893d55c6af",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1667,13 +1742,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "明亮的；聪明的",
-      "decision_cn": "",
+      "summary_cn": "明亮的、聪明的、鲜艳的；也可表示前景光明、有希望",
+      "decision_cn": "light/color → 明亮鲜艳；person/student → 聪明；future/prospects → 有希望、前途光明。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "明亮的；聪明的"
+        "target_label": "明亮的、聪明的、鲜艳的；也可表示前景光明、有希望"
       }
     },
     "senses": [
@@ -1953,7 +2028,7 @@
     "ordinal": 592,
     "word": "bring",
     "source_owner_path": "content/lexical/words/by-ordinal/o0592.json",
-    "source_fingerprint": "d3b078b11c8d560f02d9595ace728e13f5c5a8592dfacd0d2ced0ed48156d630",
+    "source_fingerprint": "9e3881cdf1c0a883c75a04b504f436d1c0130ce23633780be793fb3c528c9f04",
     "sense_lineage": [
       {
         "word_id": "word:bring",
@@ -1972,7 +2047,7 @@
     ],
     "recall_map": {
       "parts": [
-        "(3+1)V"
+        "3V"
       ],
       "density": "rich"
     },
@@ -2144,22 +2219,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:bring:ae75f219eb7246d8",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "引起；产生",
-        "definition_en": "to cause to happen or occur as a consequence",
-        "pattern": "bring about 后接结果，表示“导致、促成”",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:bring:ae75f219eb7246d8",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "引起；产生"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [
       {
         "id": "construction:2904d6a81204ee267d8d",
@@ -2179,20 +2239,87 @@
         }
       },
       {
-        "id": "construction:86efd6d5c4abb3c8186d",
+        "id": "construction:bring:baseline-v2-up",
         "source_locator": "record.constructions[1]",
-        "pattern": "bring up / out / back / in",
+        "pattern": "bring up",
         "lines": [
           {
-            "text": "high-value phrasal branches of bring",
+            "text": "提出话题；抚养、养育",
+            "lang": "cn"
+          },
+          {
+            "text": "raise a topic for discussion; or raise and care for a child",
             "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:86efd6d5c4abb3c8186d",
+          "target_id": "construction:bring:baseline-v2-up",
           "target_locator": "record.constructions[1]",
-          "target_label": "bring up / out / back / in"
+          "target_label": "bring up"
+        }
+      },
+      {
+        "id": "construction:bring:baseline-v2-out",
+        "source_locator": "record.constructions[2]",
+        "pattern": "bring out",
+        "lines": [
+          {
+            "text": "使显现、突出；出版或推出",
+            "lang": "cn"
+          },
+          {
+            "text": "make something noticeable or clear; or publish/release a product or work",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bring:baseline-v2-out",
+          "target_locator": "record.constructions[2]",
+          "target_label": "bring out"
+        }
+      },
+      {
+        "id": "construction:bring:baseline-v2-back",
+        "source_locator": "record.constructions[3]",
+        "pattern": "bring back",
+        "lines": [
+          {
+            "text": "带回；使恢复；使回想起",
+            "lang": "cn"
+          },
+          {
+            "text": "return something/someone; restore; or cause someone to remember",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bring:baseline-v2-back",
+          "target_locator": "record.constructions[3]",
+          "target_label": "bring back"
+        }
+      },
+      {
+        "id": "construction:bring:baseline-v2-in",
+        "source_locator": "record.constructions[4]",
+        "pattern": "bring in",
+        "lines": [
+          {
+            "text": "引入；带来收入；请入/启用",
+            "lang": "cn"
+          },
+          {
+            "text": "introduce or involve; generate income; or bring someone/something into use",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bring:baseline-v2-in",
+          "target_locator": "record.constructions[4]",
+          "target_label": "bring in"
         }
       }
     ],
@@ -2749,7 +2876,7 @@
     "ordinal": 598,
     "word": "bronze",
     "source_owner_path": "content/lexical/words/by-ordinal/o0598.json",
-    "source_fingerprint": "2142cafa221d18474aea6190a8dc60d304cc63dc5c14046052c7f64154d58de1",
+    "source_fingerprint": "3f455bea4317c948fd7a982a2afe6181f1e65d86bd9c94553a4459c1c41beac5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2760,13 +2887,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "青铜或青铜色",
-      "decision_cn": "",
+      "summary_cn": "青铜或青铜色；在竞赛中也可指铜牌、第三名",
+      "decision_cn": "material/color → 青铜、青铜色；competition/medal → 铜牌、第三名。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "青铜或青铜色"
+        "target_label": "青铜或青铜色；在竞赛中也可指铜牌、第三名"
       }
     },
     "senses": [
@@ -2891,7 +3018,7 @@
     "ordinal": 599,
     "word": "broom",
     "source_owner_path": "content/lexical/words/by-ordinal/o0599.json",
-    "source_fingerprint": "86163fbd15a148e54aabb7f1700f9a7bb3694f4493d6e282025d320cd4fe3edc",
+    "source_fingerprint": "b11bd17092195ec6fcd2363094d187c85b1a1956e64b3cf67453d394c008ca65",
     "sense_lineage": [
       {
         "word_id": "word:broom",
@@ -2910,18 +3037,18 @@
     ],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "扫帚；金雀花",
-      "decision_cn": "",
+      "summary_cn": "扫帚；低频也可指金雀花类黄花灌木",
+      "decision_cn": "household/tool → 扫帚；botany/plant context → 金雀花类灌木。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "扫帚；金雀花"
+        "target_label": "扫帚；低频也可指金雀花类黄花灌木"
       }
     },
     "senses": [
@@ -2949,6 +3076,23 @@
           "target_id": "sense:broom:54e0301836115690",
           "target_locator": "record.senses[0]",
           "target_label": "扫帚"
+        }
+      },
+      {
+        "id": "sense:broom:908e88f61be15b32",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "金雀花；一种开黄色花的灌木",
+        "definition_en": "a shrub with long slender branches and typically yellow flowers, especially broom plants of Cytisus/Genista/Spartium",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:broom:908e88f61be15b32",
+          "target_locator": "record.senses[1]",
+          "target_label": "金雀花；一种开黄色花的灌木"
         }
       }
     ],
