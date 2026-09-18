@@ -1,6 +1,6 @@
 # Lexical Visual / Surface Blueprint — Candidate
 
-Status: **L2 VISUAL FAMILY ACCEPTED — L3 DEPTH ACCEPTED; remaining L3 surfaces stay Human-Gate candidates**  
+Status: **VOCABULARY V2 LEARNER SURFACE ACCEPTED — 2026-09-18**  
 Parent Visual authority: `static-web/PRESENTATION_CONTRACT.md`  
 Preference owner: `static-web/KIAN_UI_PREFERENCES.md`  
 Rule / Model owner: `content/lexical/LEARNING_CONTRACT.md`  
@@ -55,19 +55,21 @@ These jobs must not be flattened into one dashboard or one card template.
 
 ---
 
-## 3｜Vocabulary Home — candidate role
+## 3｜Vocabulary Home — accepted role
 
 Home is a **lexical workbench / router**, not a progress dashboard.
 
 It should answer quickly:
 
 - where to continue Coverage;
-- whether a small high-value Repair action is worth doing now;
+- how much new-word capacity remains today;
+- whether any whole-word `Unknown / Fuzzy` judgments deserve one same-day revisit;
+- whether a small high-value exact Repair action is worth doing now;
 - how to search the canonical lexicon;
 - how to enter Challenge when justified;
 - whether an English-origin return context is active.
 
-Candidate priority:
+Accepted priority:
 
 ```text
 Continue Coverage
@@ -89,9 +91,11 @@ Do not foreground:
 
 No fixed words/day target belongs on Home unless a separate scheduler owner explicitly supplies one.
 
+Same-day revisit is **ephemeral routing support**, not Repair: it is derived from today's latest whole-card judgment, disappears after a later `Known / Mastered` judgment, and never becomes overdue debt.
+
 ---
 
-## 4｜Word Study — candidate learner model
+## 4｜Word Study — accepted learner model
 
 A Main Word is the learning container, but not every word deserves the same surface weight.
 
@@ -149,18 +153,11 @@ Preferred hierarchy derives from Rule:
 
 Recall earns space only when it exposes familiarity illusion or materially improves retrieval.
 
-The current centered “word + Recall Map” is **not yet accepted merely because it exists**.
-
-Human Gate must decide whether:
-
-- it is the correct default Depth entry;
-- it should be smaller / denser;
-- it should disappear for SAFE_SIMPLE;
-- its notation is immediately useful at real study speed.
+The current accepted baseline keeps Recall compact, preserves the accepted keyboard entry, and allows simple words to Fast Pass without forced Reveal. Rich words may use the Recall Map as the entry to accepted Depth.
 
 ---
 
-## 5｜Accepted L2 Vocabulary / Lexical visual family
+## 5｜Accepted Vocabulary / Lexical visual family
 
 Status: **ACCEPTED by Kian — 2026-09-18**
 
@@ -169,17 +166,50 @@ This section owns the shared learner-facing visual language for Vocabulary / Lex
 Hard inheritance:
 
 ```text
-L1 Shared Visual
+Shared Visual
 → English family shell / control language
-→ this Lexical L2 family
-→ L3 exact surface blueprint
+→ Lexical visual family
+→ exact learner surface
 ```
 
-L3 may specialize lexical learning geometry. It may not invent a new page theme, font system, palette, card language or chrome.
+Exact learner surfaces may specialize lexical learning geometry. They may not invent a new page theme, font system, palette, card language or chrome.
 
 ### Product identity
 
 Vocabulary / Lexical must first feel like part of **English / KianOS**, not a separate green dictionary application.
+
+Navigation ownership is:
+
+```text
+L1 global rail  → English
+L2 English      → Vocabulary
+L3 Vocabulary   → Overview | Learn | Repair | Research
+```
+
+A local `← English` control is a parent return/breadcrumb, not another navigation level.
+
+When the learner enters Vocabulary, **do not stack the parent English L2 bar above the Vocabulary bar**. Vocabulary is a child workspace that temporarily owns the single visible top navigation surface:
+
+```text
+← English | Vocabulary | Overview | Learn | Repair | Research | 我的 / 设置
+```
+
+English remains active in the L1 global rail, which preserves subject identity without duplicate chrome.
+
+Within Vocabulary L3, **Learn is an action destination, not another dashboard**:
+
+```text
+Overview = today/workbench
+Learn    = enter the current Coverage word directly
+Repair   = exact Repair workspace
+Research = lookup / semantic exploration
+```
+
+Do not create a separate Learn home that repeats Overview state, recent history or same-day revisit controls.
+
+`我的 / 设置` is a **low-frequency utility layer**, not a fifth L3 learning workspace. It may own stable preferences, interpretable learner-state views and local learner-data backup/restore. It must not become an account dashboard or duplicate canonical lexical content.
+
+
 
 Inherit from Shared Visual / English family:
 
@@ -190,7 +220,7 @@ Inherit from Shared Visual / English family:
 - normal Chinese UI typography;
 - shared spacing / density discipline.
 
-Forbidden L2 forks include:
+Forbidden family forks include:
 
 - cream / yellow paper-like page themes;
 - broad gray-green or pale-green surface washes;
@@ -203,13 +233,13 @@ Forbidden L2 forks include:
 
 Accepted direction:
 
-> **English shell + very restrained deep-green lexical semantic markers.**
+> **Shared English shell + very restrained deep-green lexical semantic markers.**
 
 Role split:
 
 ```text
-English blue / neutral
-→ product, navigation and ordinary task chrome
+Shared English shell / neutral chrome
+→ product, navigation and ordinary task controls
 
 Lexical deep green
 → lexical semantic structure only
@@ -510,37 +540,82 @@ A rich Depth encounter may end with zero local `+` targets.
 
 ---
 
-## 7｜Repair — candidate role
+## 7｜Repair — accepted role
 
-Repair is not “all active debt.”
+Status: **ACCEPTED by Kian — 2026-09-18**
 
-Normal Repair entry should prefer a **small evidence-backed current subset** only when that is useful.
+Human Gate accepted the ACTIVE / WRONG / RECONSTRUCTION / EMPTY family shown in real 1440×900 browser captures. Challenge is the execution mode inside Repair, so this acceptance covers the visible Repair session geometry and its core interaction language.
 
-For each surfaced target, show enough to answer:
+Repair is a **direct execution session**, not an inventory-management page and not a second study Home.
 
-- what exact lexical object is unstable;
-- why it is appearing now;
-- what demand is being tested or repaired;
-- how to leave quickly when stable.
+Primary flow:
 
-The full active inventory may remain available as secondary reference.
+```text
+current exact Repair objects
+→ Chat selects / compiles a small useful Test set
+→ website executes the session continuously
+→ ← ↑ ↓ → answer
+→ correct / wrong evidence
+→ wrong only: minimal Repair explanation
+→ optional Reconstruction
+→ Next
+```
+
+The learner should normally enter Repair and immediately continue the current Test when a valid local Challenge Packet already exists.
+
+Repair has three visible states:
+
+```text
+EMPTY
+→ no current Repair
+→ continue Learn
+
+WAITING
+→ current Repair exists but no Test is loaded
+→ wait for Chat compilation / sync
+
+ACTIVE
+→ Test loaded
+→ continuous spatial-choice session
+```
+
+The active Mac-wide surface should devote most width to the Test. A narrow current-target rail may show word identity, target kind, source evidence, demand and an optional “查看完整词义” escape hatch. It must not reveal the answer or force full-word rereading.
+
+A Repair inventory may remain available in a collapsed transparency section for confirmation / positioning only. It is not the normal click-by-click interaction path.
+
+Manual Challenge Packet JSON import is a compatibility / debug control only and must not occupy the normal learner surface.
 
 Forbidden:
 
 - overdue wall;
 - calendar-generated urgency;
 - mandatory queue clearing;
-- full-card re-study when one local object is the actual problem.
+- full-card re-study when one local object is the actual problem;
+- making the learner open every Repair object manually before testing;
+- making packet transport / engineering controls the visual center of Repair.
 
 ---
 
-## 8｜Challenge — candidate role
+## 8｜Challenge — accepted Repair execution mode
 
-Challenge is a test workspace.
+Status: **ACCEPTED by Kian — 2026-09-18**
 
-One challenge should test one named lexical demand with the smallest useful high-information form.
+Challenge remains a test job, but it is **not a peer Vocabulary L3 destination**. It is the primary execution mode inside Repair when Chat decides that a target deserves a Test.
 
-Examples:
+One Challenge tests one named lexical demand with the smallest useful high-information form.
+
+Default interaction for current spatial-choice Challenge:
+
+```text
+← ↑ → ↓
+→ record exact result
+→ correct: continue
+→ wrong: show minimum Repair
+→ Reconstruction when supplied
+→ continue
+```
+
+Examples include:
 
 - contextual sense discrimination;
 - construction slot choice;
@@ -548,19 +623,22 @@ Examples:
 - confusable boundary;
 - constrained Translation/Writing production.
 
-Challenge must not become another semantic content owner.
+Chat owns adaptive Test selection / generation. Astro owns fast presentation, keyboard interaction, local resume and evidence capture. Challenge must not become another semantic content owner.
+
+A saved local Test must resume automatically when Repair is entered. Leaving Repair must release the four-direction keyboard controls.
 
 After resolution:
 
 ```text
-stable
-→ exit / continue
+stable evidence
+→ target may become dormant when the evidence contract allows
 
 meaningful failure
-→ exact Repair target
+→ keep / reactivate the exact Repair target
+→ change diagnosis or Test form when needed
 
 English-origin context
-→ return to originating English task when appropriate
+→ return to the originating English task when appropriate
 ```
 
 ---
@@ -585,11 +663,13 @@ It must not:
 
 ---
 
-## 10｜English handoff
+## 10｜English handoff — accepted
 
-English and Lexical should feel like one product even though their semantic owners remain separate.
+Status: **ACCEPTED by Kian — 2026-09-18**
 
-Target interaction:
+English and Lexical feel like one product even though their semantic owners remain separate.
+
+Accepted interaction:
 
 ```text
 English task
@@ -623,11 +703,11 @@ Lexical inherits Dense Calm and Kian's UI preferences:
 
 ---
 
-## 12｜Human Gate sequence
+## 12｜Human Gate closure
 
-Do not accept Lexical UI from build success.
+Status: **ALL MATERIAL VOCABULARY V2 HUMAN GATES ACCEPTED — 2026-09-18**
 
-Human Gate order:
+Accepted sequence:
 
 1. **Vocabulary Home**
 2. **SAFE_SIMPLE Fast Pass**
@@ -637,37 +717,11 @@ Human Gate order:
 6. **Challenge**
 7. **English → Lexical → exact return**
 
-For each material surface:
-
-```text
-current real screenshot
-→ discuss learner purpose
-→ candidate implementation
-→ same-size real screenshot
-→ Kian Human Gate
-→ only then freeze geometry
-```
+The accepted geometry is now frozen for normal use. Build success remains insufficient to reopen it; only concrete learner-visible evidence or an explicit Kian request may do so.
 
 ---
 
-## 13｜Open decisions
-
-These are intentionally unresolved:
-
-- whether Home should retain visible Study/Search/Repair/Challenge tabs or use a denser workbench composition;
-- whether Recall should be a separate full-stage front, a compact top zone, or conditional only;
-- exact SAFE_SIMPLE one-glance information required for a reliable Fast Pass;
-- whether local `+` is always visible or appears on hover/focus while remaining discoverable;
-- Repair subset composition and explanation density;
-- Challenge workspace geometry;
-- how much English-origin context should remain visible inside Lexical before it becomes distracting.
-
-Resolve these through the Rule + real learner screenshots, not legacy inheritance.
-
-
----
-
-## 14｜Exam-cycle closure
+## 13｜Exam-cycle closure
 
 Lexical v2 must support the full 2026-09-18 → 2026-12-20 exam cycle without another functional architecture rebuild.
 

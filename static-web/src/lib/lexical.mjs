@@ -149,6 +149,9 @@ export function listLexicalWordSummaries() {
     const relationCount = (Array.isArray(reference.confusables) ? reference.confusables.length : 0)
       + (Array.isArray(reference.relations) ? reference.relations.length : 0);
 
+    const familyCount = Array.isArray(reference.family) ? reference.family.length : 0;
+    const hasForm = Boolean(reference.form);
+
     return {
       objectId: object.word_id,
       ordinal,
@@ -156,8 +159,13 @@ export function listLexicalWordSummaries() {
       coreCn: object.word_feel?.summary_cn || '',
       coreEn: '',
       senseCount: senses.length + secondary.length,
+      secondarySenseCount: secondary.length,
+      constructionCount: constructions.length,
+      fixedPatternCount,
       promptCount: constructions.length + fixedPatternCount,
       relationCount,
+      familyCount,
+      hasForm,
       senseLineage: Array.isArray(object.sense_lineage) ? object.sense_lineage : []
     };
   });

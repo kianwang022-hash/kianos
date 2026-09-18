@@ -10,17 +10,17 @@ This cursor owns current engineering routing only. It does not own Rule / Model,
 
 ## Current state
 
-**Active lane:** Lexical Architecture v2 adaptation  
-**Blocker:** none at architecture level; L3 Depth Human Gate is accepted. Remaining material surfaces still require their own Human Gates.
+**Active lane:** NONE — Lexical Architecture v2 learner-surface closure accepted  
+**Blocker:** none
 
 Stage:
 
 ```text
 A Rule / Content readback       PASS / PRESERVE
 B Lexical L2 visual family     ACCEPTED
-C L3 Surface Human Gates        DEPTH ACCEPTED / OTHERS ACTIVE
-D Engineering adaptation        AFTER VISUAL
-E English-family integration    AFTER SURFACES
+C L3 Surface Human Gates        ACCEPTED
+D Engineering adaptation        ACCEPTED
+E English-family integration    ACCEPTED
 ```
 
 This is **not** a 7,946-word Content rebuild.
@@ -322,17 +322,91 @@ Material visual changes require a fresh Kian Human Gate. Minor polish may procee
 
 ---
 
-## Exact next action
+## L3 Repair + Challenge Human Gate — ACCEPTED 2026-09-18
 
-Preserve the accepted **L3 Depth** baseline and continue to the next unaccepted Lexical surface in Human-Gate order.
+Kian accepted the real-browser Repair execution family as one coherent learner job. Because Challenge is the execution mode inside Repair rather than a peer L3 destination, the same Human Gate closes both surfaces.
 
-For Depth itself:
+Accepted states:
 
 ```text
-Final Learner Object
-→ fixed Website mapping
-→ accepted L3 Depth baseline
-→ normal use / bounded polish only
+ACTIVE
+→ narrow exact-object rail + dominant spatial Test
+
+WRONG
+→ minimum local Repair only
+
+RECONSTRUCTION
+→ same directional interaction language
+
+EMPTY
+→ calm exit back to Learn; no task wall
 ```
 
-Do not redesign Depth again unless real use exposes a concrete problem or Kian explicitly reopens its Human Gate.
+Preserve:
+
+- Chat decides what exact target deserves a Test;
+- Astro executes continuously with ← ↑ ↓ → and records evidence;
+- wrong answers reveal only the smallest useful Repair;
+- Reconstruction does not masquerade as transfer evidence;
+- no overdue wall, mandatory queue clearing or full-card restudy;
+- manual packet transport remains debug / compatibility only;
+- Challenge remains inside Repair and does not become a fifth Vocabulary L3 destination.
+
+Material changes to this interaction geometry require a fresh Human Gate.
+
+---
+
+## English handoff / exact return Human Gate — ACCEPTED 2026-09-18
+
+Kian accepted the final shared English ↔ Vocabulary interaction.
+
+Accepted path:
+
+```text
+English task
+→ select exact lexical token
+→ direct-open matching Vocabulary owner in read-only Lookup
+→ preserve originating task context
+→ Lookup does not advance Coverage or create card routing
+→ return to exact originating English task / position
+→ clear temporary return context
+```
+
+Fresh browser proof covers Reading A / Cloze / Translation through the same shared bridge.
+
+Preserve:
+
+- one shared English → Lexical bridge; no page-local dictionary copies;
+- exact-owner direct open when identity is exact;
+- read-only lookup by default;
+- explicit local `+` remains the only learner action that may admit exact Repair;
+- return context is temporary and disappears after restoration;
+- Vocabulary keeps one local top navigation surface; parent English L2 is not stacked above it.
+
+Material changes to this interaction require a fresh Human Gate.
+
+---
+
+## Learner-surface closure — ACCEPTED 2026-09-18
+
+The current Vocabulary v2 learner surface is accepted as one coherent product baseline:
+
+```text
+Overview workbench
+→ direct Learn / Fast Pass / Depth
+→ exact local +
+→ Repair + Challenge
+→ Research / Lookup
+→ English exact handoff / return
+→ My / Settings utility
+```
+
+No further broad Lexical UI architecture work is planned for this exam cycle.
+
+---
+
+## Exact next action
+
+Normal use.
+
+Do not reopen the accepted Vocabulary architecture, navigation, Depth geometry, Repair / Challenge interaction or English handoff for speculative polish. Reopen only for a concrete learner-visible defect, a broken contract, or an explicit new Kian request.
