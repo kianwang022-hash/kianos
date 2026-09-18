@@ -95,48 +95,103 @@ Later phases may add `REVIEW`, `PRECISION`, and `MOCK / TRANSFER` states when th
 
 These states are not backend status labels for display everywhere. At runtime, one state owns the dominant learner task.
 
-### 3.1A Later-stage consolidation state model
+### 3.1A Later-stage consolidation execution model
 
-Later-stage Politics uses a chapter-fast interaction model rather than a per-node drill loop:
+Later-stage Politics does **not** give the web a fixed review strategy.
 
-```text
-RECONSTRUCT
-→ CHECK
-→ [TARGETED_CONTENT_RECALL only for failed groups]
-→ [PRECISION when active]
-→ [EVIDENCE_REVIEW when prior W/U exists]
-→ [RETEST when useful]
-→ wrong / uncertain → REPAIR → RETEST or CLOSE
-→ CLOSE
-```
-
-Square-bracket states are conditional. They appear only when real chapter/phase evidence justifies them.
-
-Interaction rules:
-
-- `RECONSTRUCT` is one chapter-level or large-structure **one-shot attempt**. It should recover the framework plus as much important attached content as possible.
-- `CHECK` compares that one-shot attempt against the L-owned grouped recall rubric. It is not a second active-recall pass.
-- `TARGETED_CONTENT_RECALL` opens only groups that were materially missing, confused, or too weak during the one-shot attempt.
-- a group recalled correctly during `RECONSTRUCT` must not be asked again merely because a group object exists.
-- `PRECISION` shows only source-legitimate active/admitted exactness. Candidate-only inventory remains dormant.
-- high-delta Xi wording and current legal/normative exactness require their current-source freshness gate before exact recall can activate.
-- `EVIDENCE_REVIEW` prioritizes real historical Wrong / meaningful Uncertain evidence over generic extra review.
-- `RETEST` is selective verification; a stable chapter does not owe a full Xiao1000 rerun.
-- `REPAIR` opens only the smallest broken relation, boundary, source segment or exact item.
-- `CLOSE` exits cheaply and records phase-scoped consolidation evidence without implying mastery.
-
-The UI must not expose this model as a long wizard, mandatory counters, or state taxonomy. It should feel like:
+The interaction boundary is:
 
 ```text
-一次把这一章想回来
-→ 看真正漏了什么
-→ 只补漏掉的大块 / 少量精确点
-→ 做真正薄弱的题
-→ 下一章
+Chat
+→ chooses this session's review actions from Current K + learner evidence + phase/time budget
+→ sends an explicit plan
+
+Web
+→ executes that plan faithfully
+→ captures learner evidence
+→ returns evidence / resume state
+
+Chat
+→ decides what to do next
 ```
 
-Backend state may be richer than the learner-facing workflow.
+The web must not infer:
 
+- which chapter content deserves recall;
+- which K boundary is important now;
+- whether a candidate should become Precision;
+- whether a whole chapter or only one item should be reviewed;
+- whether a retest is worth the time;
+- whether a learner should close the chapter.
+
+Those are Chat decisions.
+
+### Minimal plan semantics
+
+A later-stage plan may contain any valid ordered subset of actions such as:
+
+- `RECONSTRUCT`
+- `TARGETED_RECALL`
+- `PRECISION`
+- `QUESTION_RETEST`
+- `SOURCE_REPAIR`
+- `CHAT_REPAIR_RETURN`
+- `CLOSE`
+
+Each action should point to explicit Current content/object refs, question ids, or an explicit learner-facing prompt supplied by Chat.
+
+The runtime may validate object identity, availability, state safety and evidence persistence. It may **not** replace missing Chat decisions with semantic inference from raw JSON.
+
+### Runtime capability, not strategy
+
+The web should provide reusable functionality for:
+
+- clean answer / recall attempt;
+- reveal or compare against explicitly selected content;
+- targeted recall of an explicitly selected object/group;
+- exact/Precision recall for an explicitly activated item;
+- Xiao1000 attempt/retest by explicit question id;
+- Wrong / Uncertain marking;
+- source locator / repair handoff;
+- compact evidence summary;
+- Return to Chat;
+- resume / close.
+
+No capability becomes mandatory merely because it exists.
+
+### Subject shape is carried by content + Chat plan
+
+Shared runtime controls may be common, but the plan payload must preserve the selected subject cognition:
+
+- Marxism can carry a relation/mechanism prompt;
+- History can carry a causal-movie prompt;
+- Mao can carry a problem→theory→identity prompt;
+- Xi can carry hierarchy/role prompts;
+- Ethics/Law can carry boundary/situation prompts.
+
+The renderer executes those semantics; it does not invent a common Politics review template.
+
+### Learner-facing simplicity
+
+The learner should experience only the current action, for example:
+
+```text
+想一遍这一章
+```
+
+or:
+
+```text
+只补这个边界
+```
+
+or:
+
+```text
+重做这 2 道旧错题
+```
+
+The learner should not see the backend plan schema, K candidate inventory, scheduler logic or why Chat did not select other available content.
 #### `ORIENT`
 Dominant task: know what problem this Natural Unit solves and how it sits in the subject/chapter structure.
 
