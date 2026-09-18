@@ -159,6 +159,55 @@ Do not silently pass an ambiguous object to preserve throughput.
 
 These rules exist to prevent semantic drift and stylistic churn across repeated content-upgrade passes.
 
+### Two-phase lifecycle
+
+The catalog has two different operating phases. Do not mix them.
+
+#### Phase 1 — Baseline v2 full re-validation
+
+Current phase after the 2026-09-18 module-rule freeze.
+
+Every Main Word and every required module must receive a **fresh current-generation judgment**, even when historical Acceptance already says PASS.
+
+Historical PASS / prior audit / prior module wording may inform the review, but may not substitute for reading the Current object.
+
+For each module:
+
+```text
+fresh read
+→ NOT_NEEDED / PRESERVE / UPGRADED / BLOCKED
+```
+
+`PRESERVE` in this phase means:
+
+> **Freshly re-read under the frozen generation rule and confirmed good enough.**
+
+It does not mean “old baseline is trusted by default”.
+
+A mutation still requires an allowed gap reason. Fresh review is permission to challenge the old baseline; it is **not** permission to rewrite for style.
+
+The first o0001–o0050 shard predates this frozen module matrix. Its semantic upgrades remain valid Current content, but the shard must receive one bounded rule-conformance re-validation / module matrix before it becomes the canonical Baseline-v2 receipt.
+
+#### Phase 2 — Evidence-triggered maintenance
+
+Begins only after the full 7,946-word Baseline-v2 re-validation is closed.
+
+Then the default becomes **PRESERVE without full-catalog re-running**.
+
+A module reopens only when new evidence establishes an allowed gap, for example:
+
+- real learner feedback;
+- Reading / Cloze / Translation / Writing lexical evidence;
+- repeated Repair / Challenge failure that reveals a content weakness;
+- new reliable semantic / form evidence;
+- canonical Relation / Form change affecting the word;
+- a material generation-rule change that can be shown to affect this module;
+- an identified Test blueprint defect.
+
+A rule change invalidates only affected modules / owners. It never authorizes automatic full-catalog rewriting.
+
+---
+
 ### Global stability rule
 
 A later pass defaults to **PRESERVE**.
@@ -656,6 +705,50 @@ inspect hundreds of words
 Batch size is adaptive. Simple healthy owners may close quickly; rich polysemy / construction / Relation-heavy owners require smaller semantic units.
 
 Word ordinal ranges may be worked independently only while their write sets are actually independent. Relation / Form owners that cross ranges must be reconciled against the latest integration truth before acceptance.
+
+---
+
+## 16A. Learner-page freeze / UI ownership boundary
+
+Content improvement and learner-page design are separate responsibilities.
+
+During Baseline-v2 re-validation or later maintenance, a Lexical Content worker may change only:
+
+- canonical Word / Relation / Form truth;
+- explicit Content-owned learner dispositions;
+- derived Final Learner Objects through the existing materializer;
+- derived Repair Test blueprints;
+- bounded receipts / acceptance evidence / cursor state.
+
+A Lexical Content worker must **not** change:
+
+- `static-web/**` learner pages;
+- navigation;
+- layout / spacing / typography;
+- component structure;
+- keyboard interaction;
+- learner-facing labels;
+- renderer inclusion logic;
+- accepted Repair / Challenge interaction geometry;
+- shared English / Vocabulary shell.
+
+Normal rule:
+
+> **Content may change; the accepted page structure does not. The existing renderer simply shows the new accepted learner content.**
+
+If richer or corrected Content exposes a real rendering defect:
+
+```text
+record exact renderer defect
+→ route to the UI owner
+→ separate UI change
+→ real-browser proof
+→ Kian Human Gate when material
+```
+
+Do not “fix” a renderer defect by weakening, deleting or reshaping correct Content just to fit the current page.
+
+Likewise, do not use a Content upgrade as an excuse for speculative visual polish.
 
 ---
 

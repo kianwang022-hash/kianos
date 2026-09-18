@@ -13,7 +13,7 @@ Rule: current routing/status only. No semantic Truth, Acceptance ledger, learner
 | Xizong Content | **ACTIVE** | `content/xizong/CONTENT_MAINLINE.md` |
 | English Content | **STEADY** — no broad rebuild | `content/english/CURRENT.md` |
 | Politics Content | **STEADY** — reopen only concrete defects | `content/politics/CURRENT.md` |
-| Lexical backend Content | **CLOSED for broad rebuild** | `content/lexical/CURRENT.md` |
+| Lexical backend Content | **ACTIVE — bounded Baseline-v2 re-validation; broad architecture rebuild remains closed** | `content/lexical/CURRENT.md` |
 
 Website launch and Content improvement are independent unless an exact dependency says otherwise.
 
@@ -68,7 +68,7 @@ Exact branch / PR / screenshot state belongs to `static-web/CURRENT.md` or the e
 ### Content
 - Xizong is the only broad active Content program; its exact tasks/progress live in `content/xizong/CONTENT_MAINLINE.md` and child cursors.
 - English and Politics have no broad semantic rebuild active.
-- Lexical full-catalog Content rebuild/audit is closed; reopen only exact defects.
+- Lexical broad architecture rebuild/audit remains closed. A bounded **Baseline-v2 lexical content re-validation** is active under frozen module rules; after that, Lexical returns to evidence-triggered maintenance rather than periodic full-catalog rewriting.
 
 Do not copy System counts, batch counts, phase numbers, Crosswalk totals, or exact next actions into Root. Read them from their canonical cursor on demand.
 

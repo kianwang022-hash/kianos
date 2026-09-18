@@ -10,8 +10,8 @@ This cursor owns current engineering routing only. It does not own Rule / Model,
 
 ## Current state
 
-**Active lane:** Lexical Continuous Content + Repair Test Upgrade — PAUSED FOR GENERATION-RULE HUMAN GATE  
-**Blocker:** Kian must accept frozen module-generation rules before o0051–o0100 continues
+**Active lane:** Lexical Baseline v2 Re-validation + Continuous Maintenance — PAUSED FOR GENERATION-RULE HUMAN GATE  
+**Blocker:** Kian must accept frozen module-generation + page-freeze rules before catalog work resumes
 
 Stage:
 
@@ -579,3 +579,5 @@ Next internal shard: **o0051–o0100 — PAUSED**.
 Draft module-generation rules now live in `CONTENT_ASSET_CONTRACT.md §4A`, with a required per-owner stability matrix in `CONTENT_EXECUTION.md §3A`.
 
 Do not continue catalog mutation until Kian accepts those rules and the catalog directive returns to ACTIVE.
+
+After acceptance, first re-validate **o0001–o0050** against the frozen module matrix (no stylistic rewrite), then continue **o0051–o0100**. Learner-page / UI changes remain out of scope throughout.
