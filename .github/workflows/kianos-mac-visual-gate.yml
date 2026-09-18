@@ -17,6 +17,10 @@ on:
       - 'static-web/src/styles/xizong-system-exit-workspace.css'
       - 'static-web/src/components/XizongSystemExitRuntime.astro'
       - 'static-web/src/styles/xizong-block-workspace.css'
+      - 'static-web/src/styles/politics-learn-workspace.css'
+      - 'static-web/src/pages/politics/**'
+      - 'static-web/src/components/PoliticsChapterRuntime.astro'
+      - 'static-web/scripts/test-politics-learn-mac-visual.mjs'
       - 'static-web/src/components/XizongBlockV6.astro'
       - 'static-web/src/components/XizongKpLearnInteraction.astro'
       - 'static-web/scripts/test-xizong-block-workspace.mjs'
@@ -39,6 +43,10 @@ on:
       - 'static-web/src/styles/xizong-system-exit-workspace.css'
       - 'static-web/src/components/XizongSystemExitRuntime.astro'
       - 'static-web/src/styles/xizong-block-workspace.css'
+      - 'static-web/src/styles/politics-learn-workspace.css'
+      - 'static-web/src/pages/politics/**'
+      - 'static-web/src/components/PoliticsChapterRuntime.astro'
+      - 'static-web/scripts/test-politics-learn-mac-visual.mjs'
       - 'static-web/src/components/XizongBlockV6.astro'
       - 'static-web/src/components/XizongKpLearnInteraction.astro'
       - 'static-web/scripts/test-xizong-block-workspace.mjs'
@@ -92,11 +100,25 @@ jobs:
       - name: Verify Chromium can use PingFang
         run: node scripts/verify-macos-pingfang.mjs
 
+      - name: Capture Politics Learn Mac visual evidence
+        run: node scripts/test-politics-learn-mac-visual.mjs
+
       - name: Capture Xizong System Recall Mac visual evidence
         run: node scripts/test-xizong-system-exit-workspace.mjs
 
       - name: Capture Xizong Block Mac visual evidence
         run: node scripts/test-xizong-block-workspace.mjs
+
+      - name: Upload Politics Mac visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: politics-mac-visual-gate
+          path: |
+            static-web/.qa/politics-learn-mac-visual.json
+            static-web/.qa/politics-learn-index-mac.png
+            static-web/.qa/politics-chapter-workspace-mac.png
+          if-no-files-found: error
 
       - name: Upload Mac visual evidence
         if: always()
