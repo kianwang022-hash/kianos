@@ -83,6 +83,8 @@ const memoryUi = read('static-web/src/components/XizongMemoryReviewV6.astro');
 const repairBridge = read('static-web/src/components/XizongRepairInboxBridge.astro');
 const blockPage = read('static-web/src/pages/xizong/[system]/[block].astro');
 const exitUi = read('static-web/src/components/XizongSystemExitRuntime.astro');
+const practiceUi = read('static-web/src/components/XizongPracticeWorkbench.astro');
+const questionAttemptLib = read('static-web/src/lib/xizongQuestionAttempts.mjs');
 const repairReturn = read('static-web/src/components/XizongSystemRepairReturn.astro');
 
 assert(blockGuard.includes('kianos-xizong-stale-evidence-v1:'), 'stale-block-evidence-not-archived');
@@ -123,14 +125,13 @@ assert(systemGuard.includes('stale_block_repair_inboxes'), 'stale-repair-inbox-n
 assert(systemGuard.includes('localStorage.removeItem(inboxKey)'), 'stale-system-repair-inbox-not-invalidated');
 assert(systemGuard.includes('localStorage.removeItem(sweepKey)'), 'stale-system-sweep-not-invalidated');
 
-assert(exitUi.includes("let holdoutYears = readJson(holdoutKey, []);"), 'learner-holdout-not-private-empty-default');
-assert(exitUi.includes('const eligibleQuestions = () => data.questions.filter((question) => !holdoutYears.includes(Number(question.year)));'), 'holdout-not-excluded-from-active-sweep');
-assert(exitUi.includes('deriveXizongQuestionIdsForCurrentRound(sweepState, eligible, [])'), 'phase-aware-active-sweep-not-derived');
-assert(exitUi.includes("results.filter((row) => row.status === 'stable')"), 'stable-correct-evidence-not-distinct');
-assert(exitUi.includes("results.filter((row) => row.status === 'uncertain')"), 'uncertain-evidence-not-distinct');
-assert(exitUi.includes("results.filter((row) => row.status === 'wrong')"), 'wrong-evidence-not-distinct');
-assert(exitUi.includes("['wrong', 'uncertain'].includes(result.status) || marked"), 'stable-unmarked-correct-forced-into-retained-review');
-assert(exitUi.includes('暂无审核过的精确 KP 回链：保留题号给 Chat，不让网页自己猜。'), 'missing-relation-is-being-guessed');
+assert(practiceUi.includes("let holdoutYears = readJson(holdoutKey, []);"), 'learner-holdout-not-private-empty-default');
+assert(practiceUi.includes('const eligibleQuestions = () => data.questions.filter((q) => !holdoutYears.includes(Number(q.year)));'), 'holdout-not-excluded-from-active-sweep');
+assert(practiceUi.includes('deriveXizongQuestionIdsForCurrentRound(sweepState, eligible, [])'), 'phase-aware-active-sweep-not-derived');
+assert(questionAttemptLib.includes("['stable', 'uncertain', 'wrong'].includes(result.status)"), 'stable-uncertain-wrong-evidence-contract-not-distinct');
+assert(questionAttemptLib.includes("['wrong', 'uncertain'].includes"), 'wu-targeted-second-pass-contract-missing');
+assert(questionAttemptLib.includes('Boolean(marks[questionId])'), 'marked-targeted-second-pass-contract-missing');
+assert(practiceUi.includes('暂无可安全消费的 REVIEWED 回链；保留题号，不补猜映射。'), 'missing-relation-is-being-guessed');
 
 assert(repairReturn.includes('allowed.has(row.questionId)'), 'repair-plan-not-scoped-to-actual-wu');
 assert(repairReturn.includes('!relation?.blockId || !relation?.primaryKpId'), 'repair-route-not-reviewed-only');
