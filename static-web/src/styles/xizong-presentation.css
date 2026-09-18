@@ -172,3 +172,7 @@ body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard:has([data-kp-answer
 body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard:has([data-kp-answer]:not([hidden]))>.portedRecallPrompt { display:none; }
 body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard { scroll-margin-top:72px; }
 body#kianos-workspace.surfaceBody-xizong .xv6PersonalDock .position { display:block; }
+
+
+/* Learner surface: repository/Current diagnostics stay out of normal Xizong study. */
+body#kianos-workspace.surfaceBody-xizong .kianosCurrentDock{display:none!important;}
