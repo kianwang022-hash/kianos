@@ -6,57 +6,7 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [
-      {
-        "boundary": "deduce that+从句",
-        "codex_reviewed": false,
-        "definition_cn": "推断；演绎",
-        "definition_en": "to conclude by reasoning",
-        "dimensions": {},
-        "direction": "R",
-        "evidence": [
-          {
-            "evidence_id": "evidence:core-card:deduce:840cd27d0771",
-            "evidence_status": "source_checked",
-            "source_labels": [],
-            "source_locator": "deduce:l1:1",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:constructions:deduce:c151d3ef1d7ece8e",
-        "family_sources": [],
-        "label_en": null,
-        "level": null,
-        "meaning_cn": "推断出…",
-        "module": "constructions",
-        "pattern": "deduce that + clause",
-        "pos": "verb",
-        "presentation_merge": {
-          "merge_id": "presentation-merge:bb23eb7c617adad67fef",
-          "metadata_tags": [
-            "cloze",
-            "collocation",
-            "construction",
-            "writing"
-          ],
-          "mode": "MERGE_PRESENTATION",
-          "surviving_object_id": "collocation:a5871fe542da20ef1753"
-        },
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:deduce:ee7a2e049f3a54e7",
-        "target_sense_id": null,
-        "target_word": null,
-        "task_tags": [
-          "cloze",
-          "writing"
-        ],
-        "verification_status": "verified",
-        "writing_safe": false
-      }
-    ],
+    "constructions": [],
     "content_hash": "b735d8803361448d5a6d49de230f206dcdbba8de7b016801bea05f12b9ba919c",
     "core_concept": {
       "core_clusters": [],
@@ -78,7 +28,17 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:a5871fe542da20ef1753",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:deduce:ee7a2e049f3a54e7:collocation:1"
+            ],
+            "meaning_cn": "推断出…",
+            "phrase": "deduce that + clause"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "从证据推断出结论",
         "definition_en": "to infer or reach a conclusion from evidence",
@@ -192,7 +152,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1257-1264.json",
     "source_content_hash": "b2222287085d82c6c00bf506d4f6a2517f863ffa43fc54622f36ea6c5eeaac29",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

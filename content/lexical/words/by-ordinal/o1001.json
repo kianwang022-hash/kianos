@@ -50,55 +50,6 @@
         ],
         "verification_status": "verified",
         "writing_safe": false
-      },
-      {
-        "boundary": "仅用于conform to sth",
-        "codex_reviewed": false,
-        "definition_cn": "符合；一致",
-        "definition_en": "to be similar or in line with something",
-        "dimensions": {},
-        "direction": "R",
-        "evidence": [
-          {
-            "evidence_id": "evidence:core-card:conform:b1b50d244f11",
-            "evidence_status": "source_checked",
-            "source_labels": [],
-            "source_locator": "conform:l1:1",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:constructions:conform:58badbb2ea3eaa0a",
-        "family_sources": [],
-        "label_en": null,
-        "level": null,
-        "meaning_cn": "符合某事物",
-        "module": "constructions",
-        "pattern": "conform to + sth",
-        "pos": "verb",
-        "presentation_merge": {
-          "merge_id": "presentation-merge:4e2aca8df31beb5f7a76",
-          "metadata_tags": [
-            "cloze",
-            "collocation",
-            "construction",
-            "writing"
-          ],
-          "mode": "MERGE_PRESENTATION",
-          "surviving_object_id": "collocation:9a47354e90bed8d7a7b9"
-        },
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:conform:e9dce6937b545516",
-        "target_sense_id": null,
-        "target_word": null,
-        "task_tags": [
-          "cloze",
-          "writing"
-        ],
-        "verification_status": "verified",
-        "writing_safe": false
       }
     ],
     "content_hash": "ace73b6b4542fc8379baf244803768e2c2aecb7605cb99171e778500741e24ec",
@@ -123,7 +74,17 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:9a47354e90bed8d7a7b9",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:conform:e9dce6937b545516:collocation:0"
+            ],
+            "meaning_cn": "符合某事物",
+            "phrase": "conform to + sth"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "遵守、符合",
         "definition_en": "to comply with or match a rule, standard, or pattern",
@@ -273,7 +234,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1001-1008.json",
     "source_content_hash": "ace73b6b4542fc8379baf244803768e2c2aecb7605cb99171e778500741e24ec",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
