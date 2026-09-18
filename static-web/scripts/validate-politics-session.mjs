@@ -190,60 +190,29 @@ pass(!sessionClient.includes('politicsCurrent') && !sessionClient.includes('load
 pass(sessionClient.includes("step.recipe_type === 'PRECISION'") && sessionClient.includes('fail closed'), 'SESSION_PRECISION_RUNTIME_FAIL_CLOSED');
 pass(sessionClient.includes('timed-task executor 还未验收'), 'SESSION_TIMER_RUNTIME_FAIL_CLOSED');
 pass(sessionClient.includes("const completed = status === 'COMPLETED' || nextIndex >= instruction.steps.length"), 'SESSION_EXPLICIT_CLOSE_TERMINATES_PLAN');
+
 const sessionClientLines = sessionClient.split('\n').map((line) => line.trimStart());
 const evidenceBindingLine = sessionClientLines.findIndex((line) =>
-  line.includes("[data-session-copy-evidence]") && line.includes(".forEach")
+  line.includes('[data-session-copy-evidence]') && line.includes('.forEach')
 );
 const evidenceBinding = evidenceBindingLine >= 0 ? sessionClientLines[evidenceBindingLine] : '';
-const safeEvidenceBinding = evidenceBinding.charAt(0) === '$' && evidenceBinding.charAt(1) === '$' && evidenceBinding.charAt(2) === '(';
-const unsafeEvidenceBinding = evidenceBinding.charAt(0) === '$' && evidenceBinding.charAt(1) === '(';
+const safeEvidenceBinding = evidenceBinding.charCodeAt(0) === 36 && evidenceBinding.charCodeAt(1) === 36 && evidenceBinding.charCodeAt(2) === 40;
+const unsafeEvidenceBinding = evidenceBinding.charCodeAt(0) === 36 && evidenceBinding.charCodeAt(1) === 40;
 const keyboardBindingLine = sessionClientLines.findIndex((line) => line.startsWith("window.addEventListener('keydown'"));
 pass(safeEvidenceBinding, 'SESSION_ALL_EVIDENCE_COPY_CONTROLS_BOUND');
 pass(!unsafeEvidenceBinding, 'SESSION_SINGLE_NODE_FOREACH_INIT_CRASH_ABSENT');
 pass(evidenceBindingLine >= 0 && keyboardBindingLine > evidenceBindingLine, 'SESSION_INIT_REACHES_KEYBOARD_BINDING');
 pass(!sessionClient.includes("if (runtime.status === 'PAUSED_CHAT') {\n      $('[data-session-step]').hidden = true;"), 'SESSION_PAUSED_CHAT_SURFACE_VISIBLE');
+
 const practiceClientLines = practiceClient.split('\n').map((line) => line.trimStart());
 const explicitModeBindingLine = practiceClientLines.find((line) =>
-  line.includes("[data-mode-value]") && line.includes(".forEach") && line.includes("button.disabled = true")
+  line.includes('[data-mode-value]') && line.includes('.forEach') && line.includes('button.disabled = true')
 ) || '';
-const explicitModeBindingSafe = explicitModeBindingLine.charAt(0) === '
-pass(practiceClient.includes("if (!explicitRetest && controls.mode.value === 'random')"), 'PRACTICE_EXPLICIT_RETEST_ORDER_NOT_SHUFFLED');
-pass(practiceClient.includes("const ids = (explicitRetest ? pool : pool.slice"), 'PRACTICE_EXPLICIT_RETEST_NO_COUNT_EXPANSION');
-pass(practiceClient.includes("if (!explicitRetest && controls.mode.value === 'random')"), 'PRACTICE_EXPLICIT_RETEST_ORDER_NOT_RANDOMIZED');
-pass(practiceClient.includes("mode: explicitRetest ? 'explicit_retest'"), 'PRACTICE_EXPLICIT_RETEST_IDENTITY');
-
-console.log(JSON.stringify({
-  schema: 'kianos.politics.session-executor-audit.v1',
-  target_count: targets.target_count,
-  question_count: practice.questionCount,
-  sample_target: sampleTarget.ref,
-  sample_questions: sampleQuestions,
-  failures
-}, null, 2));
-
-if (failures.length) process.exitCode = 1;
- && explicitModeBindingLine.charAt(1) === '
-pass(practiceClient.includes("if (!explicitRetest && controls.mode.value === 'random')"), 'PRACTICE_EXPLICIT_RETEST_ORDER_NOT_SHUFFLED');
-pass(practiceClient.includes("const ids = (explicitRetest ? pool : pool.slice"), 'PRACTICE_EXPLICIT_RETEST_NO_COUNT_EXPANSION');
-pass(practiceClient.includes("if (!explicitRetest && controls.mode.value === 'random')"), 'PRACTICE_EXPLICIT_RETEST_ORDER_NOT_RANDOMIZED');
-pass(practiceClient.includes("mode: explicitRetest ? 'explicit_retest'"), 'PRACTICE_EXPLICIT_RETEST_IDENTITY');
-
-console.log(JSON.stringify({
-  schema: 'kianos.politics.session-executor-audit.v1',
-  target_count: targets.target_count,
-  question_count: practice.questionCount,
-  sample_target: sampleTarget.ref,
-  sample_questions: sampleQuestions,
-  failures
-}, null, 2));
-
-if (failures.length) process.exitCode = 1;
- && explicitModeBindingLine.charAt(2) === '(';
+const explicitModeBindingSafe = explicitModeBindingLine.charCodeAt(0) === 36 && explicitModeBindingLine.charCodeAt(1) === 36 && explicitModeBindingLine.charCodeAt(2) === 40;
 pass(explicitModeBindingSafe, 'PRACTICE_EXPLICIT_RETEST_MODE_BINDING_SAFE');
 pass(practiceClient.includes('if (explicitRetest) return explicitQuestionIds.map'), 'PRACTICE_EXPLICIT_RETEST_EXACT_POOL');
 pass(practiceClient.includes("if (!explicitRetest && controls.mode.value === 'random')"), 'PRACTICE_EXPLICIT_RETEST_ORDER_NOT_SHUFFLED');
-pass(practiceClient.includes("const ids = (explicitRetest ? pool : pool.slice"), 'PRACTICE_EXPLICIT_RETEST_NO_COUNT_EXPANSION');
-pass(practiceClient.includes("if (!explicitRetest && controls.mode.value === 'random')"), 'PRACTICE_EXPLICIT_RETEST_ORDER_NOT_RANDOMIZED');
+pass(practiceClient.includes('const ids = (explicitRetest ? pool : pool.slice'), 'PRACTICE_EXPLICIT_RETEST_NO_COUNT_EXPANSION');
 pass(practiceClient.includes("mode: explicitRetest ? 'explicit_retest'"), 'PRACTICE_EXPLICIT_RETEST_IDENTITY');
 
 console.log(JSON.stringify({
