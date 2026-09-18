@@ -103,6 +103,11 @@ const base = import.meta.env.BASE_URL;
         <header><span>Repair · bounded task</span><h2 data-repair-title></h2><p data-repair-context></p></header>
         <dl><div><dt>为什么回来</dt><dd data-repair-reason></dd></div><div><dt>只修什么</dt><dd data-repair-action></dd></div></dl>
         <small>Repair 是专项任务，不复制 Core / Precision，也不把修完自动写成 mastery。</small>
+        <div class="xzMemoryCardActions xzMemoryRepairActions">
+          <a data-repair-block-link hidden>去对应 Block</a>
+          <button type="button" data-repair-complete>完成修补</button>
+          <a data-repair-return-link hidden>回原题</a>
+        </div>
       </article>
     </main>
 
@@ -247,8 +252,18 @@ const base = import.meta.env.BASE_URL;
       const owner = state.cards[item.cardId] || {};
       setText('[data-repair-title]', item.title || cardLabel(owner) || item.kpId || '专项修补');
       setText('[data-repair-context]', [item.priority, item.origin, cardContext(owner)].filter(Boolean).join(' · '));
-      setText('[data-repair-reason]', item.reason || '已由上游 evidence / Chat 指定为专项修补。');
+      setText('[data-repair-reason]', item.reason || '已由学习证据 / Chat 指定为专项修补。');
       setText('[data-repair-action]', item.action || '按最小充分范围完成修补后返回主线。');
+      const blockLink = q('[data-repair-block-link]');
+      const returnLink = q('[data-repair-return-link]');
+      if (blockLink instanceof HTMLAnchorElement) {
+        blockLink.hidden = !item.blockHref;
+        blockLink.href = item.blockHref || '#';
+      }
+      if (returnLink instanceof HTMLAnchorElement) {
+        returnLink.hidden = !item.returnHref;
+        returnLink.href = item.returnHref || '#';
+      }
     };
 
     const makeQueueButton = (item, itemIndex, kind) => {
@@ -407,6 +422,15 @@ const base = import.meta.env.BASE_URL;
       state = addMarkedFragment(state, { cardId: item.id, kpId: item.kpId, surface, text: fragment });
       save(); syncSummary();
       selection?.removeAllRanges();
+    });
+
+    q('[data-repair-complete]')?.addEventListener('click', () => {
+      const item = selectedItem();
+      if (!item?.id || view !== 'REPAIR') return;
+      state = completeRepairTask(state, item.id);
+      save();
+      index = Math.min(index, Math.max(0, currentItems.length - 2));
+      rebuild();
     });
 
     q('[data-marked-remove]')?.addEventListener('click', () => {
