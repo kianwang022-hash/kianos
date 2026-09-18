@@ -188,6 +188,21 @@ function projectReviewQuestion(semanticQuestion, passage, labels) {
 
 let cache;
 
+function objectiveTaskSections(manifest, taskName) {
+  const map = manifest?.final_learner_objects?.task_map;
+  if (map?.schema !== 'kianos.english.task_map.v1' || !map?.tasks || typeof map.tasks !== 'object') {
+    throw new Error('READING_TASK_MAP_NOT_READY');
+  }
+  const task = map.tasks[taskName];
+  const sections = Array.isArray(task?.sections)
+    ? task.sections.map((value) => String(value || '').trim()).filter(Boolean)
+    : [];
+  if (!sections.length || new Set(sections).size !== sections.length) {
+    throw new Error(`READING_TASK_IDENTITY_INVALID:${taskName}`);
+  }
+  return sections;
+}
+
 function snapshot() {
   if (cache) return cache;
   const gate = inspectReadingSources();
@@ -202,8 +217,9 @@ function snapshot() {
   const manifest = JSON.parse(manifestText);
   const bank = JSON.parse(bankText);
   const corpus = JSON.parse(corpusText);
+  const readingSections = new Set(objectiveTaskSections(manifest, 'reading_a'));
   const sets = (Array.isArray(bank.passage_or_sets) ? bank.passage_or_sets : [])
-    .filter((row) => row?.section === 'reading_part_a' && row?.id)
+    .filter((row) => row?.id && readingSections.has(String(row?.section || '')))
     .sort((a, b) => String(a.id).localeCompare(String(b.id)));
 
   cache = {
