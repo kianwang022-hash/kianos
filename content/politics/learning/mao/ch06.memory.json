@@ -1,0 +1,111 @@
+{
+  "schema": "kianos.politics.memory_projection.v1",
+  "status": "CURRENT_K_REVIEWED",
+  "chapter_id": "POL27-LEARN-MAO-C06",
+  "policy": "SOURCE_GROUNDED_SELECTIVE",
+  "principle": "Candidate existence is Knowledge; durable review debt remains admission-gated.",
+  "preferred_memory_reference": {
+    "role": "DESIGNATED_MEMORY_HANDBOOK",
+    "label": "腿姐《冲刺背诵手册》",
+    "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+    "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MAO.md",
+    "rule": "Current Mao Knowledge must independently own the relation. LEG26 supports historical retention priority; current-year source/WU evidence controls durable admission."
+  },
+  "admission_gate": {
+    "default": "NOT_ADMITTED",
+    "requires_source_grounding": true,
+    "admit_when_any": [
+      "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+      "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED"
+    ],
+    "do_not_admit_for": [
+      "historical handbook presence alone",
+      "chapter importance alone",
+      "one stable correct answer"
+    ]
+  },
+  "units": {
+    "POL27-CF-MAO-C06-S01": {
+      "title": "邓小平理论首要的基本的理论问题和精髓",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MAO-C06-S01-M01",
+          "form": "identity",
+          "statement": "邓小平理论首要的基本的理论问题是‘什么是社会主义、怎样建设社会主义’；精髓是解放思想、实事求是。",
+          "source_refs": [
+            "POL27-CF-MAO-C06-S01"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MAO-P098"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        },
+        {
+          "id": "POL27-MEM-MAO-C06-S01-M02",
+          "form": "fixed_formulation",
+          "statement": "社会主义本质强调解放和发展生产力，消灭剥削、消除两极分化，最终达到共同富裕。",
+          "source_refs": [
+            "POL27-CF-MAO-C06-S01"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MAO-P098"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    },
+    "POL27-CF-MAO-C06-S02": {
+      "title": "邓小平理论的主要内容",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MAO-C06-S02-M01",
+          "form": "fixed_structure",
+          "statement": "党的基本路线用‘一个中心、两个基本点’把以经济建设为中心、坚持四项基本原则和坚持改革开放统一起来。",
+          "source_refs": [
+            "POL27-CF-MAO-C06-S02"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MAO-P099"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        },
+        {
+          "id": "POL27-MEM-MAO-C06-S02-M02",
+          "form": "confusable_boundary",
+          "statement": "计划和市场都是经济手段，不是划分社会主义与资本主义制度属性的标志。",
+          "source_refs": [
+            "POL27-CF-MAO-C06-S02"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MAO-P099",
+            "LEG26-UPPER-MAO-P100"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        },
+        {
+          "id": "POL27-MEM-MAO-C06-S02-M03",
+          "form": "reform_boundary",
+          "statement": "改革是社会主义制度的自我完善和发展，不是改变社会主义制度性质。",
+          "source_refs": [
+            "POL27-CF-MAO-C06-S02"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MAO-P099"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    }
+  },
+  "deferred_candidate_domains": [
+    {
+      "domain": "初级阶段两层含义/发展战略/一国两制/外交等完整固定表述",
+      "reason": "Current chapter owns the structure, but LEG26 selected-topic coverage is incomplete for freezing the full exact list."
+    }
+  ]
+}
