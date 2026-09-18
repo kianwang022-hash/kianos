@@ -2,10 +2,7 @@ name: English fresh audit workbench
 on:
   push:
     branches: [work/english-final-audit-20260919]
-    paths:
-      - .github/workflows/english-final-audit-workbench.yml
-      - .audit-temp/english/**
-      - static-web/scripts/english-final-fresh-*
+    paths: ['.github/workflows/english-final-audit-workbench.yml', '.audit-temp/english/**', 'static-web/scripts/english-final-fresh-*']
 permissions:
   contents: read
 jobs:
@@ -17,8 +14,7 @@ jobs:
       sha: ${{ steps.apply.outputs.sha }}
     steps:
       - uses: actions/checkout@v4
-      - name: Materialize hash-verified bounded candidate
-        id: apply
+      - id: apply
         shell: bash
         run: |
           set -euo pipefail
@@ -30,12 +26,15 @@ jobs:
           expected=['bf36c9842101c8fee01f8bf0e9081a40fb6a9cf6','9d9b6f90650f4d77d9a01a266d814aaafbfcd587','8d807b09e54030d9097ea871ef8c34a28b245fef','625572b4cd09a8270a2a541bdc0d4b8dc8f6550a','4e58663af88c6f5b728ea97ead5a49e194d85c09','c3288708b6201cd2b99ca4b84543e9d274f260c3','7bfdd7c6e9c29d69915ea9380d19eee5d29130df']
           for i,path in enumerate(sorted(Path('.audit-temp/english').glob('[0-9][0-9]'))):
             data=path.read_bytes(); text=base64.b64encode(data).decode()
-            if i==3: text=text.replace('mnPlPlxf','mnPlxf').replace('GyffES8t','Gyff+8t')
-            if i==6: text=text.replace('T99+Mmv','T99+9Mmv')
+            if i==3:
+              text=text.replace('mnPlPlxf','mnPlxf').replace('GyffES8t','Gyff+8t')
+              text=text[:5300]+'EPTKHuTzmIjdMF9wjVU5euIg8TqsMCJYpGnU+PstHobL4py3warPRVJ6Xv1UmUVVkqIQ603pxOQ8TblKie3GHSz9agIc2VzZeGX7+vplgSdr1768cmXtsqLLjkW86VX1RlpOBtLKQ762iD/TC05pubFQA3XnqqvAtw=='
+            if i==6:
+              text=text.replace('T99+Mmv','T99+9Mmv')
+              text=text[:3900]+'Fi2WKILvx+jG6C7r3iHIjhhy0Oj5zqUkVaSJh73wDFSuxzzHZS93ztK/3pDJSeG15k+4c3TU6e+FYnfgzVozqh67TwbZNbr/H0+qWjD9qAEA'
             if i in (3,6): data=base64.b64decode(text)
             actual=hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
-            if actual!=expected[i]:
-              print('TRANSPORT_MISMATCH',i,len(data),actual,text[-160:]);raise SystemExit(1)
+            assert actual==expected[i],(i,len(data),actual)
             out.append(data)
           data=b''.join(out)
           assert hashlib.sha256(data).hexdigest()=='8515aea51c4e26532ff1ee654f3fe4e347156416813477e96b2bd8b55242b38b'
@@ -49,14 +48,14 @@ jobs:
             python3 - <<'PY'
           from pathlib import Path
           p=Path('content/english/CURRENT.md');s=p.read_text()
-          section='## Active final acceptance task\n\nFresh independent English-wide learner acceptance is ACTIVE.\n\nExecution brief: `FINAL_LEARNER_ACCEPTANCE_BRIEF.md`.\n\nActive ref: `work/english-final-audit-20260919`. Independent learner model and failure hypotheses were approved before implementation inspection. Candidate repairs and fresh synthetic/adversarial/browser evidence are being evaluated; historical child PASS is not an integration verdict. Shared durability, actual Kian Mac Human Gates and real-use U must remain separately scoped.\n\nThis task does not imply that Kian has attempted or mastered any material.\n\n---\n\n'
+          section='## Active final acceptance task\n\nFresh independent English-wide learner acceptance is ACTIVE.\n\nExecution brief: `FINAL_LEARNER_ACCEPTANCE_BRIEF.md`.\n\nActive ref: `work/english-final-audit-20260919`. Independent learner model and failure hypotheses were approved before implementation inspection. Candidate repairs and fresh synthetic/adversarial/browser evidence are being evaluated; historical child PASS is not an integration verdict. Shared durability, actual Kian Mac Human Gates and real-use U remain separately scoped. No learner progress is inferred.\n\n---\n\n'
           if '## Active final acceptance task' not in s:s=s.replace('## Architecture v2 owner map',section+'## Architecture v2 owner map')
           p.write_text(s)
           PY
             git add content/english/CURRENT.md
             git config user.name 'KianOS bounded audit worker'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git commit -m 'fix(english): bind learner evidence and harden exam/session boundaries'
+            git commit -m 'fix(english): bind evidence and harden exam/session boundaries'
             git push origin HEAD:work/english-final-audit-20260919
           fi
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
@@ -67,7 +66,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 25
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
@@ -76,19 +75,19 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Install execution dependencies
+      - name: Install dependencies
         working-directory: static-web
         run: |
           npm ci
           npm install --no-save --package-lock=false playwright
           npx playwright install chromium
-      - name: Fresh synthetic semantic and adversarial proof
+      - name: Independent synthetic adversarial proof
         working-directory: static-web
         run: |
           mkdir -p .qa/english-final
           git rev-parse HEAD > .qa/english-final/tested-head.txt
           AUDIT_OUTPUT=.qa/english-final/candidate-probes.json node scripts/english-final-fresh-audit.mjs
-      - name: Real browser on native host
+      - name: Native browser verification
         working-directory: static-web
         shell: bash
         run: |
