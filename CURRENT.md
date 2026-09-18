@@ -12,7 +12,7 @@ Rule: current routing/status only. No semantic Truth, Acceptance ledger, learner
 | Website / UI launch | **ACTIVE** | `static-web/CURRENT.md` |
 | Xizong Content | **ACTIVE** | `content/xizong/CONTENT_MAINLINE.md` |
 | English Content | **STEADY** — no broad rebuild | `content/english/CURRENT.md` |
-| Politics Content | **STEADY** — reopen only concrete defects | `content/politics/CURRENT.md` |
+| Politics Content | **ACTIVE** — exam-lifecycle later-stage L next | `content/politics/CURRENT.md` |
 | Lexical backend Content | **CLOSED for broad rebuild** | `content/lexical/CURRENT.md` |
 
 Website launch and Content improvement are independent unless an exact dependency says otherwise.
