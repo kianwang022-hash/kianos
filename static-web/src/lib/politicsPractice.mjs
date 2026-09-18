@@ -482,6 +482,7 @@ export function buildPoliticsPracticeCatalogCurrent(base = '/') {
       unitTitle: owner?.title || '',
       unitHref: owner?.href || '',
       scopeStatus,
+      semanticUnitIds: uniq(list(regions.byQuestion.get(questionId)).map(row => clean(row?.natural_unit_id))),
       referenceOwnerIds,
       type: questionType(raw),
       stem: clean(raw.stem),
@@ -516,6 +517,14 @@ export function buildPoliticsPracticeCatalogCurrent(base = '/') {
   }
   for (const chapter of chapters) {
     chapter.questionIds = questions.filter((question) => question.subject === chapter.subject && question.chapter === chapter.code).map((question) => question.id);
+  }
+
+  for (const question of questions) {
+    // Task-changing truth invalidates this task, not every Politics session.
+    // Explanatory copy, unrelated Units and geometry do not change this identity.
+    question.taskRevision = sha256(JSON.stringify({ id: question.id,
+      sourceId: question.sourceId, unitKey: question.unitKey, type: question.type,
+      stem: question.stem, options: question.options, answer: question.answer }));
   }
 
   return {

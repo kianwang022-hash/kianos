@@ -1,101 +1,76 @@
 # Politics Current
 
-Role: **Politics engineering Work Cursor + subject router**  
+Role: **Politics engineering Work Cursor + subject router**
 Parent: root `CURRENT.md`
 
-This file does not own Politics Source / Knowledge, Learning Logic, Acceptance Truth, learner progress or shared Visual/Engineering policy.
+This file does not own Source, Knowledge, Learning semantics, Acceptance Truth, learner progress or shared platform policy. A bare learner continuation remains LEARN unless the conversation explicitly establishes engineering work.
 
-A bare `继续政治 / 继续马原 / 继续史纲` is a learner request unless the active conversation is clearly BUILD / UI / CONTROL work.
+## Active task / actual restart point
 
----
+**Politics Final Learner Acceptance — fresh independent audit**
 
-## Current state
+- Branch: `work/politics-final-fresh-20260919`
+- PR: #486; candidate not merged
+- Execution brief: `FINAL_LEARNER_ACCEPTANCE_BRIEF.md`
+- Result owner: `ACCEPTANCE.md`
+- Tested code head: `54625f4c84206d0bbabbd0147d862f07451ea4e9`
+- Fresh Linux + real macOS proof: workflow run `35403203403`; artifact identity files identify the exact integrated checkout
 
-Politics learning engineering is closed through the current scoped `S/K/L/P/R/E` evidence for all five subjects. Real learner `U` remains real-use-only.
+Independent Learning judgment, concrete source/content/runtime repairs, fresh browser failure tests and bounded five-subject regression have been executed. Lane Acceptance now records a **PARTIAL** result rather than repeating the old all-five-subject PASS headline.
 
-There is no current reason to reopen Politics semantic engineering without a concrete defect.
+### Current result, without duplicating the evidence ledger
 
-The 2026-09-19 fresh learner-loop audit defect is closed in PR #477. Politics learning pages no longer expose a second inline Xiao1000 attempt surface; the formal Workbench is the only learner-facing Xiao1000 attempt/evidence/backside owner, and Review is the only learner-triggered batch Chat handoff. Kian accepted the real Mac Human Gate on 2026-09-19.
+First-round Learning model re-accepted; the repaired bounded first-round execution paths have fresh technical proof. Full Politics-wide closure is not claimed. See `ACCEPTANCE.md` for exact path-level results and historical reconciliation.
 
-The stable learner loop remains:
+### Human Gate A — ACCEPTED
 
-```text
-Orientation / current Natural Unit
-→ Chengfeng continuous study on iPad / MarginNote
-→ optional checkpoint
-→ single Xiao1000 Workbench
-→ prebuilt refined backside Content
-→ record Evidence / cause / note
-→ continue
-→ learner-triggered batch Review packet → Chat when wanted
-→ meaningful Resume
-```
+A real Mac defect squeezed long directed sequences into unreadable narrow CJK columns. The candidate keeps canonical labels/order/relation text and body font size while stacking long sequences vertically in the existing stage.
 
-Exact semantics live in `LEARNING_CONTRACT.md` and the subject canonical owners, not in this cursor.
+Owner: `static-web/src/components/PoliticsExplicitSurfacePlan.astro`.
+Proof: `static-web/scripts/test-politics-sequence-readability.mjs`; macOS artifacts `sequence-readable-start.png` and `sequence-readable-end.png`, compared with the pre-repair Marxism C01 Unit 2 capture.
 
----
+**Kian accepted this changed long-sequence geometry on 2026-09-19 after direct before/after Mac review.** The acceptance covers the visible layout change only; it does not manufacture learner U or close shared Return/durability limits.
 
-## Active final acceptance task
+### Immediate next — technical promotion
 
-Kian explicitly requested a **fresh, higher-quality Politics Final Learner Acceptance**.
+Resolve only actual PR/main write conflicts and relevant inherited integration assertions, then rerun the smallest affected proof on the resulting exact head. If the resulting candidate is clean, merge PR #486 and advance this cursor to the remaining shared platform/source limits rather than reopening first-round Politics semantics. Do not claim current main already contains this candidate; do not rerun unrelated subjects or the initial A/B/C model by ritual.
 
-Durable execution brief:
+The inspected PR state had merge conflicts and inherited Politics QA failures despite the fresh exact-head suite passing. These are technical promotion work, not requests for Kian to debug CI. Do not silently waive them or describe all CI as green.
 
-`FINAL_LEARNER_ACCEPTANCE_BRIEF.md`
+### Separate real limits — not first-round content rebuilding
 
-This task is Politics-wide fresh re-acceptance. It is not a rerun of the five subject PASS labels, PR #477, or existing CI.
+- **Shared task-aware Chat Return/import:** outbound Politics batch export and exact local Unit Return are proved; typed diagnosis import/reconciliation/replay is not. Route through `static-web/CURRENT.md` to the existing shared owner. Do not build a Politics-only second return protocol or storage system.
+- **Full private recovery:** same-profile refresh/restart, failed persistence and provenance protections are proved for tested paths. Complete Politics backup/profile-loss/cross-device/GitHub-to-Mac restoration is not. Shared checkpoint foundation PASS is not complete subject-payload closure.
+- **Later Source:** no complete approved current-year analysis/current-affairs/recitation/Xiao4/Mock Source chain. Affected paths remain `UPSTREAM SOURCE NOT YET AVAILABLE / NOT YET ACCEPTABLE`; draft/history remains provenance only. Do not fabricate material.
+- **U:** all newly audited learner paths remain `UNTESTED` until Kian actually uses them. Synthetic test evidence is not private learner progress.
 
-Execution rules:
+These limits remain explicit even after visual approval. First-round readiness must not be inflated into whole-exam readiness.
 
-- audit Politics Learning Logic itself before trusting historical L/P/R/E PASS;
-- independently re-derive the roles of Suyi / Chengfeng / Xiao1000 / KianOS / Chat;
-- preserve five subject-specific cognitive shapes while attacking shared Surface Mapping/runtime flattening;
-- re-test the single Xiao1000 Workbench + learner-triggered Review→Chat batch loop;
-- explicitly audit selective Memory/Precision, analysis-answer output, current-affairs/later-source boundaries, Mock/final compression, Resume and learner-data durability;
-- do not call Politics whole-exam learner-ready merely because all five first-round subject paths are accepted through E;
-- repair only the earliest responsible owner when a real defect is found;
-- never manufacture learner `U`.
-
-Final lane-wide claims remain owned by `content/politics/ACCEPTANCE.md` and may be strengthened only by executed current-head evidence.
-
----
-
-## Local derived-presentation mechanism
-
-Politics has an accepted `SURFACE_MAPPING_CONTRACT.md` because its Natural Unit states sometimes need explicit derived learner presentation.
-
-That mechanism is **local to Politics presentation**. It is not a sixth architecture layer and it is not a second Knowledge owner.
+## Stable role boundaries
 
 ```text
-canonical Politics Content / Learning semantics
-→ accepted Surface Mapping when stateful presentation is needed
-→ current renderer/runtime
-```
-
-Surface Mapping may preserve approved grouping, relation type, learner-visible relation text, zones and state-specific payload. It may not invent new Knowledge.
-
-Runtime / UI owns triggers, shell, responsive behavior, typography, spacing and styling. It must not infer Politics semantics from raw field names, DOM shape or geometry.
-
----
-
-## Stable content / learning boundaries
-
-```text
-Suyi       framework / orientation / exactness cross-check input
+Suyi       useful framework / cross-check input, not a second course
 Chengfeng  continuous first-round mainline on original iPad / MarginNote
-Xiao1000   verification / later evidence in the single formal Workbench
-KianOS     orientation / selective presentation / verification / Review companion
-Chat       batch Review diagnosis / durable content correction when learner-triggered
+Xiao1000   verification in the single formal Workbench
+KianOS     orientation / selective presentation / verification / Review / Resume
+Chat       learner-triggered batch diagnosis and smallest justified follow-up
 ```
 
-- Source ownership ≠ surface ownership.
-- stable correct stays cheap;
-- Wrong/Uncertain records learner evidence without forcing an immediate Chat/repair context switch;
-- first-attempt Evidence and exact Return survive visual optimization;
-- `REFERENCE_ONLY` content remains non-teaching;
-- a missing/empty derived presentation is never permission for UI to synthesize Knowledge.
+Exact semantics remain in `LEARNING_CONTRACT.md` and `INTERACTION_CONTRACT.md`.
 
----
+Wrong/Uncertain records private evidence and permits continuation. Chengfeng is the correct source owner when repair is actually warranted, not a mandatory immediate detour. Stable Natural Unit identity does not require one sitting; checkpoint is genuinely optional. Whole-question first-ready must include decisive cross-Unit dependencies, not merely a partial hit.
+
+First-round exact discrimination does not automatically create permanent Memory debt. `REFERENCE_ONLY` stays non-teaching. Missing semantic or source support is not permission to guess.
+
+## Surface Mapping boundary
+
+```text
+canonical Content / Learning semantics
+-> explicit Politics Surface Mapping when needed
+-> renderer/runtime
+```
+
+Mapping preserves content-owned relation type, text, grouping, zones and state payload. It is not a new Knowledge owner. UI owns geometry, triggers and styling, not causal/chronological/hierarchical invention. Each subject retains its genuine cognition; no common card/flow grammar is imposed.
 
 ## Subject router
 
@@ -107,66 +82,14 @@ Chat       batch Review diagnosis / durable content correction when learner-trig
 | Xi | `learning/xi/CURRENT.md` | `learning/xi/ACCEPTANCE.md` |
 | Ethics-Law | `learning/ethics-law/CURRENT.md` | `learning/ethics-law/ACCEPTANCE.md` |
 
-A blocker in one subject does not freeze siblings without a real shared dependency.
+A blocker in one subject does not freeze independent siblings.
 
----
+## Normal entry / containment
 
-## Normal routing
+Content work: exact subject/Natural Unit -> canonical Content owner -> only required Contract.
+Visual work: shared `static-web/PRESENTATION_CONTRACT.md` -> exact accepted Politics surface -> material Human Gate only when changed.
+Runtime work: `SYSTEM_CONTRACT.md` -> exact runtime/evidence owner -> targeted proof.
 
-### Content / semantic work
+Fresh Chats should read this cursor and the narrow result/owner required to continue, not old Chat summaries or broad CI history. For this active branch, read the branch result rather than silently substituting main.
 
-```text
-exact Politics subject / Natural Unit
-→ exact canonical Content owner
-→ Learning Contract only when the semantic rule is needed
-→ scoped Acceptance only when the claim matters
-→ work
-```
-
-### Visual work
-
-```text
-static-web/PRESENTATION_CONTRACT.md
-→ accepted Politics Natural Unit / surface blueprint
-→ SURFACE_MAPPING_CONTRACT.md only when stateful semantic presentation matters
-→ exact surface owner
-→ browser proof
-```
-
-Do not rediscover Politics grammar from raw JSON or old screenshots.
-
-### Runtime / behavior work
-
-```text
-SYSTEM_CONTRACT.md
-→ exact Politics runtime/evidence/Review owner
-→ targeted functional proof
-```
-
-Runtime must not redefine Learning Logic or Knowledge.
-
----
-
-## Fresh-Chat rule
-
-Known Politics work should normally reach effective work after roughly 2–3 precise reads.
-
-Do not require a new UI Chat to read every Learning, Interaction, Projection, Surface Mapping, Product Status and migration document as ritual. Read an upstream owner only when the requested effect crosses that boundary.
-
-Historical PRs / old visual migrations are evidence only.
-
----
-
-## Re-acceptance
-
-When Kian explicitly requests a fresh independent audit, inspect real Source / Knowledge / Learning / Runtime owners first. Old PASS labels and prior summaries are evidence for reconciliation, not the answer key.
-
-Real learner `U` cannot be simulated.
-
----
-
-## Stop rule
-
-Normal learner use is now more valuable than reopening broad Politics engineering.
-
-Reopen only the smallest owner identified by a real Content, Learning, Visual or Runtime defect.
+After the defined promotion boundaries close, return to real study and concrete-defect maintenance. More possible architecture or richer source detail is not by itself a reason to expand engineering.

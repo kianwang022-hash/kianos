@@ -1,6 +1,6 @@
 import { recordPoliticsFirstAttempt } from './politicsUnitReturn.mjs';
 
-import { PRACTICE_KEYS, readPoliticsSnapshot, selectPoliticsReview } from './politicsPracticeState.mjs';
+import { PRACTICE_KEYS, readPoliticsSnapshot, selectPoliticsReview, isPoliticsStorageValue, politicsSessionMatchesCatalog } from './politicsPracticeState.mjs';
 export { PRACTICE_KEYS };
 const emptyMeta = () => ({ schema: 'kianos.politics.practice_meta.v1', favorites: {}, discussion: {}, causes: {}, notes: {}, latestOutcome: {} });
 const seconds = (n) => `${Math.floor(Math.max(0, n) / 60)}:${String(Math.floor(Math.max(0, n)) % 60).padStart(2, '0')}`;
@@ -19,7 +19,7 @@ export function initPoliticsPractice(root) {
     const raw = localStorage.getItem(key);
     if (raw === null) return fallback;
     const value = JSON.parse(raw);
-    if (!value || typeof value !== 'object') throw new Error('本地记录无法读取；请先保留记录并恢复存储。');
+    if (!isPoliticsStorageValue(key, value)) throw new Error('本地记录无法读取；请先保留记录并恢复存储。');
     return value;
   };
   const write = (key, value) => {
@@ -152,7 +152,7 @@ export function initPoliticsPractice(root) {
     hide('[data-result-discussion]', !meta.discussion?.[question().id]);
   };
   const validateReview = (payload, q) => {
-    if (payload?.schema !== 'kianos.politics.practice_review.v1' || payload.revision !== catalog.revision || payload.id !== q.id || payload.sourceId !== q.sourceId || payload.unitKey !== q.unitKey || !payload.takeaway?.trim() || !payload.chatExplanation?.trim() || !/^[A-D]+$/.test(payload.answer) || new Set(payload.answer).size !== payload.answer.length || [...payload.answer].some((l) => !q.options.some((o) => o.label === l)) || (q.type === 'single' && payload.answer.length !== 1)) throw new Error('本题解析缺失、绑定不符或已更新；当前题未提交。请等待内容对账后重试。');
+    if (payload?.schema !== 'kianos.politics.practice_review.v1' || (!q.taskRevision ? payload.revision !== catalog.revision : payload.taskRevision !== q.taskRevision) || payload.id !== q.id || payload.sourceId !== q.sourceId || payload.unitKey !== q.unitKey || !payload.takeaway?.trim() || !payload.chatExplanation?.trim() || !/^[A-D]+$/.test(payload.answer) || new Set(payload.answer).size !== payload.answer.length || [...payload.answer].some((l) => !q.options.some((o) => o.label === l)) || (q.type === 'single' && payload.answer.length !== 1)) throw new Error('本题解析缺失、绑定不符或已更新；当前题未提交。请等待内容对账后重试。');
   };
   const renderResult = () => {
     const q = question(), r = result(), payload = r.review;
@@ -261,7 +261,7 @@ export function initPoliticsPractice(root) {
     if (!p || !q || p.questionId !== q.id || !unit) throw new Error('待保存作答与当前位置不符；未写入。');
     validateReview(p.review, q); ensureWritable();
     const store = read(PRACTICE_KEYS.attempts, { schema: 'kianos.politics.attempt_snapshot.v1', units: {} });
-    const first = recordPoliticsFirstAttempt(store, unit.returnConfig, { question_id: q.id, outcome: p.outcome, selected: p.selected, correct_answer: p.review.answer, study_day: p.studyDay, observed_at: p.observedAt });
+    const first = recordPoliticsFirstAttempt(store, unit.returnConfig, { question_id: q.id, outcome: p.outcome, selected: p.selected, correct_answer: p.review.answer, study_day: p.studyDay, observed_at: p.observedAt, uncertain: p.uncertain, source_context: p.sourceContext });
     if (!first.recorded && first.reason !== 'FIRST_ATTEMPT_ALREADY_RECORDED') throw new Error('首次作答绑定无效；未推进。');
     if (first.recorded) {
       try { write(PRACTICE_KEYS.attempts, first.store); }
@@ -273,7 +273,7 @@ export function initPoliticsPractice(root) {
     if (p.outcome === 'WRONG' || p.uncertain) {
       const events = read(PRACTICE_KEYS.evidence, []);
       if (!Array.isArray(events)) throw new Error('复盘记录格式不符；未推进。');
-      if (!events.some((e) => e.event_id === p.eventId)) write(PRACTICE_KEYS.evidence, [...events, { event_id: p.eventId, subject: q.subject, chapter: q.chapter, chapter_title: q.chapterTitle, unit_id: q.unitId, question_id: q.id, source: 'xiao1000', outcome: p.outcome, uncertain: p.uncertain, selected: p.selected, correct_answer: p.review.answer, study_day: p.studyDay, observed_at: p.observedAt }]);
+      if (!events.some((e) => e.event_id === p.eventId)) write(PRACTICE_KEYS.evidence, [...events, { event_id: p.eventId, subject: q.subject, chapter: q.chapter, chapter_title: q.chapterTitle, unit_id: q.unitId, question_id: q.id, source: 'xiao1000', outcome: p.outcome, uncertain: p.uncertain, selected: p.selected, correct_answer: p.review.answer, study_day: p.studyDay, observed_at: p.observedAt, ...(p.sourceContext ? { source_context: p.sourceContext, source_href: p.sourceContext.source_href, source_owner_ids: p.sourceContext.source_owner_ids } : {}) }]);
     }
     saveSession({ ...session, pending: null, draft: null, results: { ...session.results, [q.id]: p } });
     hide('[data-retry-save]'); clearError(); activeSince = 0; renderResult();
@@ -291,7 +291,7 @@ export function initPoliticsPractice(root) {
       if (!response.ok) throw new Error('本题解析暂不可用；当前题未提交，请稍后重试。');
       const review = await response.json(); validateReview(review, q);
       const answer = sorted(selected), correct = answer === sorted(review.answer);
-      const pending = { questionId: q.id, eventId: `${session.id}:${q.id}`, selected: answer, correct, uncertain, outcome: correct ? (uncertain ? 'UNCERTAIN' : 'STABLE') : 'WRONG', elapsedMs: totalMs(), answerChanges: trajectory.filter((t) => t.from && t.from !== t.to).length, trajectory: [...trajectory], observedAt: iso(), studyDay: new Date().toLocaleDateString('en-CA'), review };
+      const pending = { questionId: q.id, eventId: `${session.id}:${q.id}`, selected: answer, correct, uncertain, outcome: correct ? (uncertain ? 'UNCERTAIN' : 'STABLE') : 'WRONG', elapsedMs: totalMs(), answerChanges: trajectory.filter((t) => t.from && t.from !== t.to).length, trajectory: [...trajectory], observedAt: iso(), studyDay: new Date().toLocaleDateString('en-CA'), review, sourceContext: { subject: q.subject, chapter: q.chapter, unit_id: q.unitId, unit_key: q.unitKey, source_id: q.sourceId, source_href: q.unitHref, unit_role: review.unitRole, semantic_unit_ids: review.semanticUnitIds || [], source_owner_ids: (review.source || []).map(row => row.id), locator: review.chengfengLocator || null, content_revision: review.revision, task_revision: q.taskRevision } };
       saveSession({ ...session, pending }); activeSince = 0;
       flushPending();
     } catch (e) {
@@ -335,7 +335,7 @@ export function initPoliticsPractice(root) {
     }
     const ids = pool.slice(0, Number(controls.count.value)).map((q) => q.id);
     if (!ids.length) throw new Error('当前筛选没有可开始的题目。');
-    saveSession({ schema: 'kianos.politics.practice_session.v1', runtimeVersion: 2, revision: catalog.revision, id: `politics-${crypto.randomUUID()}`, status: 'active', ids, index: 0, startedAt: iso(), results: {}, pending: null, draft: null, origin: controls.mode.value === 'review' ? catalog.reviewBase.replace(/practice-review\/$/, 'review/') : (controls.unit.value !== 'all' ? uByKey.get(controls.unit.value).href : '/politics/'), scope: { subject: controls.subject.value, chapter: controls.chapter.value, unit: controls.unit.value, type: controls.type.value, mode: controls.mode.value, interaction: 'NORMAL', learnedScopeConfirmedAt: iso() } });
+    saveSession({ schema: 'kianos.politics.practice_session.v1', runtimeVersion: 2, revision: catalog.revision, id: `politics-${crypto.randomUUID()}`, status: 'active', ids, taskRevisions: Object.fromEntries(ids.map(id => [id, qById.get(id).taskRevision])), index: 0, startedAt: iso(), results: {}, pending: null, draft: null, origin: controls.mode.value === 'review' ? catalog.reviewBase.replace(/practice-review\/$/, 'review/') : (controls.unit.value !== 'all' ? uByKey.get(controls.unit.value).href : '/politics/'), scope: { subject: controls.subject.value, chapter: controls.chapter.value, unit: controls.unit.value, type: controls.type.value, mode: controls.mode.value, interaction: 'NORMAL', learnedScopeConfirmedAt: iso() } });
     clearError(); render(); $('[data-question-card]').focus({ preventScroll: true });
   };
   on('[data-start-session], [data-start-session-inline]', 'click', start);
@@ -403,7 +403,7 @@ export function initPoliticsPractice(root) {
   window.setInterval(() => { if (active() && !result()) text('[data-question-timer]', seconds(totalMs() / 1000)); }, 1000);
 
   try {
-    if (session && (session.runtimeVersion !== 2 || session.revision !== catalog.revision || !Array.isArray(session.ids) || !session.ids.length || session.ids.some((id) => !qById.has(id)) || !Number.isInteger(session.index) || session.index < 0 || session.index >= session.ids.length || !['active', 'paused', 'completed'].includes(session.status))) throw new Error('原题组版本或内容已变化，无法安全恢复。记录已保留，请先对账原题组。');
+    if (session && !politicsSessionMatchesCatalog(session, catalog)) throw new Error('原题组版本或内容已变化，无法安全恢复。记录已保留，请先对账原题组。');
     const params = new URLSearchParams(location.search);
     if (params.has('session')) {
       if (!session || params.get('session') !== session.id || params.get('question') !== question()?.id || !['active', 'paused', 'completed'].includes(session.status)) throw new Error('返回目标已过期或与当前题组不符；没有跳到其他题。');

@@ -92,9 +92,9 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
       const uncertain = items.filter((item) => item.outcome === 'UNCERTAIN').length;
       const quiet = root.querySelector('[data-politics-today-quiet]');
 
-      root.querySelector('[data-politics-today-attempts]')?.replaceChildren(String(attempts.size));
-      root.querySelector('[data-politics-today-wrong]')?.replaceChildren(String(wrong));
-      root.querySelector('[data-politics-today-uncertain]')?.replaceChildren(String(uncertain));
+      root.querySelector('[data-politics-today-attempts]')?.replaceChildren(snapshot.errors.length ? '—' : String(attempts.size));
+      root.querySelector('[data-politics-today-wrong]')?.replaceChildren(snapshot.errors.length ? '—' : String(wrong));
+      root.querySelector('[data-politics-today-uncertain]')?.replaceChildren(snapshot.errors.length ? '—' : String(uncertain));
 
       if (!quiet) return;
       if (snapshot.errors.length) {

@@ -16,7 +16,7 @@ The shared presentation grammar decides how approved cognition is represented. T
 
 The shared first-round loop is:
 
-`Orientation → Chengfeng continuous learning on original iPad/MarginNote surface → short closure/checkpoint → Xiao1000 verification in Astro/KianOS web → smallest sufficient repair when needed → continue`
+`Orientation → Chengfeng continuous learning on original iPad/MarginNote surface → optional useful closure/checkpoint → single Xiao1000 Workbench → prebuilt backside + record Evidence → continue; later learner-triggered batch Review → Chat → smallest justified follow-up, including no action`
 
 Later phases may add Unit/Block compression, selective Memory, and Mock transfer.
 
@@ -54,7 +54,7 @@ Astro may keep the current Natural Unit, learning question, checkpoint, relation
 A minimal source excerpt is allowed only when it serves a bounded repair/orientation decision. It must not expand by convenience into a second full lecture.
 
 ### At natural closure
-Use one short reconstruction/checkpoint cue. Do not create a large recall workflow unless later evidence justifies it.
+Offer one short reconstruction/checkpoint cue only when useful; it may be skipped. Natural Unit identity is not a one-sitting requirement. Pausing/resuming within the original source does not require a web checkpoint or prove completion. Do not create a large recall workflow unless later evidence justifies it.
 
 ### Verification
 Open the currently relevant Xiao1000 questions in the Astro/KianOS web question surface only after the owning content is learned.
@@ -271,7 +271,8 @@ Xiao1000 validates learning; it does not organize learning.
 - release by owning Natural Unit / natural subsection;
 - preserve original question/options/answer;
 - answer in the Astro/KianOS web Politics question surface after the owning content is learned;
-- wrong/uncertain should repair to Chengfeng rather than open a second explanation textbook;
+- Wrong/Uncertain records Evidence and continues by default; it is not an immediate repair/source-switch trigger;
+- when a source-grounded repair is actually warranted, Chengfeng is the first-round Source owner to return to, not a second explanation textbook; the learner may also choose an optional immediate source return;
 - stable correct should pass fast;
 - repeated questions are allowed later with a different cognitive task.
 

@@ -61,7 +61,7 @@ Owned relation text is **content, not connector chrome**. If a relation label ex
 
 Once a PASS owner has a resolved `surface_mapping`, every learner-facing payload for a mapped learner state must come from `surfacePlan.states[state]`.
 
-Runtime may still own the interaction shell around that payload — for example when a source handoff becomes reachable, when a closure panel expands, or when Wrong / Uncertain opens repair — but it may not repopulate that state from parallel semantic channels such as:
+Runtime may still own the interaction shell around that payload — for example when a source handoff becomes reachable, when a closure panel expands, or when the learner actually elects a justified repair (not automatically on Wrong / Uncertain) — but it may not repopulate that state from parallel semantic channels such as:
 - legacy `projection.hierarchy` payloads;
 - legacy `handoff`, `closure` or `next` fields;
 - raw teaching fields;

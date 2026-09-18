@@ -125,7 +125,7 @@ const workbenchHref = (unit) => `${base}politics/practice/?unit=${encodeURICompo
             </header>
             <div class="politicsSourceHandoff">
               <strong>{unit.title}</strong>
-              <p>在原讲义连续学完这一单元；需要时回来做简短闭合，再进入配套题。</p>
+              <p>按原讲义连续学习，可中途暂停并从原位置继续。简短闭合可选；学过相关内容后再进入配套题。</p>
               {unit.sourceNodes.length > 0 ? (
                 <details class="politicsSourceLocators">
                   <summary>原讲义定位 · {unit.sourceNodes.length} 处</summary>
@@ -145,7 +145,7 @@ const workbenchHref = (unit) => `${base}politics/practice/?unit=${encodeURICompo
           </section>
 
           <details class="politicsClosure">
-            <summary>学完了 · 20 秒闭合</summary>
+            <summary>学完了 · 20 秒闭合（可选）</summary>
             <div>
               <p>{t.closure || t.question || '闭卷说出刚才这段最核心的关系。'}</p>
               {t.boundaries?.length > 0 && <ul>{t.boundaries.map((item) => <li>{item}</li>)}</ul>}

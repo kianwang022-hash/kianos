@@ -1,0 +1,98 @@
+name: Politics Final Fresh Execution
+on:
+  pull_request:
+    paths:
+      - 'content/politics/**'
+      - 'static-web/src/lib/politics*.mjs'
+      - 'static-web/src/components/Politics*.astro'
+      - 'static-web/src/pages/politics/**'
+      - 'static-web/scripts/*politics*.mjs'
+      - '.github/workflows/politics-final-fresh-execution.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'content/politics/**'
+      - 'static-web/src/lib/politics*.mjs'
+      - 'static-web/src/components/Politics*.astro'
+      - 'static-web/src/pages/politics/**'
+      - 'static-web/scripts/*politics*.mjs'
+      - '.github/workflows/politics-final-fresh-execution.yml'
+permissions:
+  contents: read
+concurrency:
+  group: politics-final-fresh-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  evidence:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: bash
+    env:
+      POLITICS_FRESH_EVIDENCE: /tmp/politics-final-fresh
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Exact integrated audit identity
+        run: |
+          mkdir -p "$POLITICS_FRESH_EVIDENCE"
+          git rev-parse HEAD > "$POLITICS_FRESH_EVIDENCE/HEAD.txt"
+          git cat-file -p HEAD | sed -n 's/^parent //p' > "$POLITICS_FRESH_EVIDENCE/INTEGRATED_PARENTS.txt"
+          printf '%s\n' '${{ github.event.pull_request.head.sha || github.sha }}' > "$POLITICS_FRESH_EVIDENCE/PR_HEAD.txt"
+          printf '%s\n' '${{ github.event.pull_request.base.sha }}' > "$POLITICS_FRESH_EVIDENCE/BASE_HEAD.txt"
+      - name: Bounded tracked-source readback for independent review
+        run: |
+          git archive HEAD AGENTS.md PROJECT_DEFINITION.md ARCHITECTURE.md LEARNING_ACCEPTANCE.md SYSTEM_CONTRACT.md CURRENT.md content/politics static-web/src static-web/scripts static-web/package.json static-web/PRESENTATION_CONTRACT.md static-web/POLITICS_PRODUCT_BRIEF.md | gzip > "$POLITICS_FRESH_EVIDENCE/current-source-readback.tar.gz"
+          test "$(gzip -dc "$POLITICS_FRESH_EVIDENCE/current-source-readback.tar.gz" | tar -tf - | wc -l | tr -d ' ')" -gt 100
+      - name: Install existing runtime and browser test driver
+        working-directory: static-web
+        run: |
+          npm install --no-audit --no-fund
+          npm install --no-save playwright@1.56.1 --no-audit --no-fund
+          npx playwright install chromium
+      - name: Build exact Current
+        id: build
+        working-directory: static-web
+        run: npm run build > "$POLITICS_FRESH_EVIDENCE/build.log" 2>&1
+      - name: Independent semantic and runtime assertions
+        if: always() && steps.build.outcome == 'success'
+        working-directory: static-web
+        run: node scripts/audit-politics-final-fresh.mjs > "$POLITICS_FRESH_EVIDENCE/assertions.log" 2>&1
+      - name: Independent real-browser attacks
+        if: always() && steps.build.outcome == 'success'
+        working-directory: static-web
+        run: node scripts/test-politics-final-fresh-browser.mjs > "$POLITICS_FRESH_EVIDENCE/browser.log" 2>&1
+      - name: Internal sequence readability and settled Mac proof
+        if: always() && steps.build.outcome == 'success'
+        working-directory: static-web
+        run: node scripts/test-politics-sequence-readability.mjs > "$POLITICS_FRESH_EVIDENCE/readability.log" 2>&1
+      - name: Bounded heterogeneous regression after fresh attacks
+        if: always() && steps.build.outcome == 'success'
+        working-directory: static-web
+        run: |
+          for f in audit-politics-explicit-surface-mapping audit-politics-history-content audit-politics-history-first-ready audit-politics-marxism-first-ready audit-politics-k03-learning-projection audit-politics-k03-runtime-evidence audit-politics-marxism-runtime-evidence audit-politics-mao-evidence audit-politics-xi-evidence audit-politics-ethics-evidence validate-politics-runtime validate-politics-repair-memory; do
+            if node "scripts/$f.mjs" > "$POLITICS_FRESH_EVIDENCE/$f.log" 2>&1; then echo "PASS $f"; else echo "FAIL $f"; fi
+          done | tee "$POLITICS_FRESH_EVIDENCE/regression.log"
+          if grep -q '^FAIL ' "$POLITICS_FRESH_EVIDENCE/regression.log"; then exit 1; fi
+      - name: Inherited shared-checkpoint foundation regression
+        if: always() && steps.build.outcome == 'success'
+        working-directory: static-web
+        run: |
+          if test -f scripts/test-private-learner-checkpoint.mjs; then
+            node scripts/test-private-learner-checkpoint.mjs > "$POLITICS_FRESH_EVIDENCE/shared-foundation.log" 2>&1
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: politics-final-fresh-${{ matrix.os }}
+          path: /tmp/politics-final-fresh/
+          retention-days: 14
