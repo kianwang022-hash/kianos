@@ -1,0 +1,149 @@
+{
+  "schema": "kianos.politics.memory_projection.v1",
+  "status": "CURRENT_K_REVIEWED",
+  "chapter_id": "POL27-LEARN-MARX-C03",
+  "policy": "SOURCE_GROUNDED_SELECTIVE",
+  "principle": "Candidate existence is Knowledge; durable review debt requires later admission evidence.",
+  "preferred_memory_reference": {
+    "role": "DESIGNATED_MEMORY_HANDBOOK",
+    "label": "腿姐《冲刺背诵手册》",
+    "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+    "historical_package": "content/politics/source/historical/leg26/manifest.json",
+    "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MARX.md",
+    "rule": "Current canonical region/chapter Knowledge must independently support the relation. LEG26 supplies historical retention priority; current-year source/WU/output evidence governs admission."
+  },
+  "admission_gate": {
+    "default": "NOT_ADMITTED",
+    "requires_source_grounding": true,
+    "admit_when_any": [
+      "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+      "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED",
+      "LATER_ANALYSIS_OUTPUT_REQUIRES_EXACT_FORMULATION"
+    ],
+    "do_not_admit_for": [
+      "historical handbook presence alone",
+      "chapter importance alone",
+      "one stable correct answer"
+    ]
+  },
+  "units": {
+    "POL27-CF-MARX-C03-S01": {
+      "title": "实践与认识",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MARX-C03-S01-M01",
+          "form": "fixed_relation_set",
+          "statement": "实践是认识的基础，对认识具有决定作用：是认识的来源、发展的动力、检验认识真理性的根本标准，也是认识的目的。",
+          "source_refs": [
+            "POL27-CF-MARX-C03-S01"
+          ],
+          "current_recall_basis": {
+            "priority": "P0",
+            "forms": [
+              "boundary",
+              "sequence"
+            ]
+          },
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MARX-P026",
+            "LEG26-UPPER-MARX-P027",
+            "LEG26-LOWER-MARX-P055"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        },
+        {
+          "id": "POL27-MEM-MARX-C03-S01-M02",
+          "form": "confusable_boundary",
+          "statement": "感性认识是认识的直接、具体阶段并有待深化；理性认识在感性材料基础上把握本质和规律。感性认识有局限不等于不可靠。",
+          "source_refs": [
+            "POL27-CF-MARX-C03-S01"
+          ],
+          "current_recall_basis": {
+            "priority": "P0",
+            "forms": [
+              "boundary",
+              "sequence"
+            ]
+          },
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MARX-P033",
+            "LEG26-UPPER-MARX-P034",
+            "LEG26-LOWER-MARX-P056"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    },
+    "POL27-CF-MARX-C03-S02": {
+      "title": "真理与价值",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MARX-C03-S02-M01",
+          "form": "hat_relation",
+          "statement": "真理的客观性是真理的本质属性；真理的客观性决定真理的一元性。",
+          "source_refs": [
+            "POL27-CF-MARX-C03-S02"
+          ],
+          "current_recall_basis": {
+            "priority": "P0",
+            "forms": [
+              "boundary",
+              "hat"
+            ]
+          },
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MARX-P031",
+            "LEG26-LOWER-MARX-P057"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        },
+        {
+          "id": "POL27-MEM-MARX-C03-S02-M02",
+          "form": "relation_boundary",
+          "statement": "任何具体真理都是绝对性与相对性的统一；相对性不等于没有客观标准，绝对性也不等于真理无需发展。",
+          "source_refs": [
+            "POL27-CF-MARX-C03-S02"
+          ],
+          "current_recall_basis": {
+            "priority": "P0",
+            "forms": [
+              "boundary",
+              "hat"
+            ]
+          },
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MARX-P031",
+            "LEG26-UPPER-MARX-P032",
+            "LEG26-LOWER-MARX-P057"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        },
+        {
+          "id": "POL27-MEM-MARX-C03-S02-M03",
+          "form": "standard_boundary",
+          "statement": "实践是检验认识真理性的根本标准；实践检验是历史发展的过程，不等于一次实践永久终结认识。",
+          "source_refs": [
+            "POL27-CF-MARX-C03-S02"
+          ],
+          "current_recall_basis": {
+            "priority": "P0",
+            "forms": [
+              "boundary",
+              "hat"
+            ]
+          },
+          "historical_handbook_refs": [
+            "LEG26-LOWER-MARX-P058"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    }
+  },
+  "deferred_candidate_domains": []
+}
