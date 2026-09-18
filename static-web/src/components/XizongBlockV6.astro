@@ -293,6 +293,11 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
       const ids = rows.map((row) => String(row?.checkpointId || '')).filter(Boolean);
       return ids.length ? ids.join('|') : fallback;
     };
+    const reviewedTtsxIds = new Set(ttsxData.map((row) => String(row?.checkpointId || '')).filter(Boolean));
+    const pendingTtsxIsReviewed = (pending) => {
+      const ids = Array.isArray(pending?.checkpointIds) ? pending.checkpointIds.map(String).filter(Boolean) : [];
+      return ids.length > 0 && ids.every((id) => reviewedTtsxIds.has(id));
+    };
     const ttsxDone = (key) => Boolean(key && state.ttsxEvidence?.[key]?.completedAt);
     const queueTtsx = (rows, fallbackKey, label) => {
       if (!Array.isArray(rows) || rows.length === 0) return false;
@@ -448,11 +453,12 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
           state.stage = 'block_recall';
         }
       }
+      if (state.pendingTtsx && !pendingTtsxIsReviewed(state.pendingTtsx)) state.pendingTtsx = null;
       if (state.stage === 'ttsx_checkpoint' && (!state.pendingTtsx?.key || ttsxDone(state.pendingTtsx.key))) {
         state.pendingTtsx = null;
         state.stage = 'kp_recall';
       }
-      if (state.stage === 'kp_recall' && state.pendingTtsx?.key && !ttsxDone(state.pendingTtsx.key)) state.stage = 'ttsx_checkpoint';
+      if (state.stage === 'kp_recall' && state.pendingTtsx?.key && pendingTtsxIsReviewed(state.pendingTtsx) && !ttsxDone(state.pendingTtsx.key)) state.stage = 'ttsx_checkpoint';
       if (state.stage === 'kp_recall') state.kpIndex = firstUnrecalledIndexForGroup(group);
       if (state.completed && !canComplete()) state.completed = false;
     };
@@ -463,8 +469,11 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
       if (!sourcePerGroup && stage === 'kp_recall' && !state.sourceContactDone) stage = 'source_contact';
       if (sourcePerGroup && stage === 'source_contact') stage = 'kp_learn';
       if (stage === 'logic_group') stage = sourcePerGroup ? 'kp_learn' : (state.sourceContactDone ? 'kp_recall' : 'source_contact');
-      if (stage === 'kp_recall' && state.pendingTtsx?.key && !ttsxDone(state.pendingTtsx.key)) stage = 'ttsx_checkpoint';
-      if (stage === 'ttsx_checkpoint' && (!state.pendingTtsx?.key || ttsxDone(state.pendingTtsx.key))) stage = 'kp_recall';
+      if (stage === 'kp_recall' && state.pendingTtsx?.key && pendingTtsxIsReviewed(state.pendingTtsx) && !ttsxDone(state.pendingTtsx.key)) stage = 'ttsx_checkpoint';
+      if (stage === 'ttsx_checkpoint' && (!state.pendingTtsx?.key || !pendingTtsxIsReviewed(state.pendingTtsx) || ttsxDone(state.pendingTtsx.key))) {
+        state.pendingTtsx = null;
+        stage = 'kp_recall';
+      }
       state.stage = stage;
       stages.forEach((panel) => { panel.hidden = panel.getAttribute('data-study-stage') !== state.stage; });
       if (state.stage === 'kp_recall') resetRecallCard(kpRecallCards[state.kpIndex]);
