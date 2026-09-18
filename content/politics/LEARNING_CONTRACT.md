@@ -253,7 +253,112 @@ Later review may include:
 
 The learner should see **what to do and why**, not scheduler internals.
 
-### 6.1 Memory admission: understanding may expand; Memory may not
+### 6.1 Later-stage consolidation fast path
+
+Politics later-stage consolidation is **not a miniature Xizong** and must not inherit a high-friction per-item recall workflow.
+
+Politics has a smaller time budget and lower overall exam priority than Xizong. Its default later-stage learning unit is therefore the **chapter or another genuinely large chapter-level memory structure**, not every Natural Unit, K object, reconstruction target, or Memory candidate.
+
+Default consolidation path:
+
+```text
+CHAPTER_RECONSTRUCT
+→ CORE_CONTENT_RECALL
+→ ACTIVE_PRECISION when justified
+→ PRIOR_WRONG / meaningful UNCERTAIN when present
+→ SELECTIVE_RETEST when useful
+→ SMALLEST_REPAIR only if still unstable
+→ CLOSE
+```
+
+This is a **fast path by default**:
+
+- reconstruct the chapter in one bounded operation rather than one prompt per K target;
+- use the framework to organize a substantial amount of chapter content, not to replace all memory work;
+- recall core content in a small number of meaningful groups rather than item-by-item ceremony;
+- allow the learner's own wording when the relation, conclusion, scope and decisive qualifiers remain correct;
+- require exact wording/list/identity/timeline/legal precision only when the point is actually active/admitted;
+- use historical Wrong / meaningful Uncertain evidence to earn depth;
+- use Xiao1000 as selective verification, not as an automatic whole-bank rerun;
+- reopen only the smallest broken relation/source segment;
+- let stable chapters exit cheaply.
+
+The learner-facing path must not expose backend recall taxonomies, K object counts, candidate counts, or per-node completion counters. A rich backend exists so repair can become precise when needed; it does not justify a rich default workflow.
+
+#### Framework organizes memory; it does not replace memory
+
+Politics differs from Xizong in one important way: after first-round understanding, a substantial proportion of a chapter may still need active retrieval.
+
+Therefore later consolidation must distinguish:
+
+1. **chapter framework reconstruction** — recover the chapter's organizing logic;
+2. **core-content recall** — regenerate the important content hanging from that framework;
+3. **precision recall** — exact hats, fixed groups/lists, identities, timelines, legal wording or other source-grounded details that genuinely require exactness.
+
+Compression in Politics therefore means **organizing future memory operations**, not simply deleting detail until only a skeleton remains.
+
+At the same time, "the chapter matters" does not mean "every sentence must be memorized word-for-word". Broad relations may be reconstructed; grouped content may need complete retrieval without fixed prose; only true Precision demands exact retention.
+
+#### Candidate availability is not learner debt
+
+Hard rule:
+
+```text
+content exists
+or K candidate exists
+or historical handbook mentions it
+≠
+learner owes a review task
+```
+
+A Precision candidate becomes an active learner task only when one of the Memory-admission conditions in §6.2 is satisfied or when the active later phase explicitly requires it.
+
+Examples:
+
+- History's horizontal candidate inventory is a repair/precision reservoir, not a mandatory scan of every meeting/document/land-policy item on every chapter pass.
+- Xi high-delta candidate domains stay dormant until current-year source refresh makes exactness legitimate.
+- chapter reconstruction targets may support one chapter-level recall prompt; they do not imply one prompt per target.
+- Analysis Output hooks remain dormant during ordinary consolidation unless the analysis-output phase activates them.
+
+#### Subject-specific fast shapes
+
+The path remains chapter-fast while respecting subject cognition:
+
+- **Marxism** — reconstruct one relation/mechanism model, recall the principle content, then exact only decisive boundaries/formulations.
+- **Mao** — reconstruct historical problem → theory response → identity/hat structure, then recall the major content groups without turning every theory item into a microcard.
+- **Xi / New Thought** — reconstruct role/hierarchy first, then recall the chapter's high-value content under that hierarchy; exact wording/list membership remains current-year-source gated.
+- **History** — recover the causal historical movie first; activate only the horizontal meeting/document/land-policy/ideological line that is relevant to the chapter or real evidence.
+- **Ethics / Law** — recover concept/boundary/situation structure first; exact legal/normative wording is selectively source-gated.
+
+#### Later-pass shrinkage
+
+The second pass should be cheaper than the first, and later passes cheaper again.
+
+After a chapter has been successfully reconstructed, later review should increasingly target only:
+
+```text
+framework gaps
++ content gaps
++ active Precision gaps
++ real Wrong / meaningful Uncertain evidence
+```
+
+Do not force a full chapter replay merely because the chapter remains available.
+
+#### Close condition
+
+A chapter may close for the current consolidation pass when:
+
+- no material framework gap remains;
+- no material core-content gap remains that would change objective discrimination or later answer generation;
+- active/admitted Precision for this pass is stable enough for the current phase;
+- selected W/U or retest debt has been resolved or explicitly remains pending for a justified reason.
+
+Closure is phase-scoped evidence, not a mastery claim.
+
+Analysis-output and Mock/final work remain separate later states. Ordinary chapter consolidation must not automatically append answer-writing drills or whole-paper work.
+
+### 6.2 Memory admission: understanding may expand; Memory may not
 
 Politics teaching projection may synthesize, reorder, and explain source material when that improves understanding. Durable Memory/Precision has a stricter rule:
 
@@ -280,7 +385,7 @@ Precision is narrower still. A question may produce conceptual repair without pr
 
 Optional chapter-level `*.memory.json` sidecars may hold sparse, source-grounded candidates without making them first-round learner-facing content. Sidecars exist only where validation demonstrates a real need; do not materialize them across every chapter for schema completeness.
 
-### 6.2 Analysis-output is a separate score channel
+### 6.3 Analysis-output is a separate score channel
 
 First-round understanding and Xiao1000 performance do not by themselves prove that the learner can produce high-scoring analysis answers.
 
