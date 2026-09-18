@@ -1,8 +1,9 @@
 # Xizong Practice Workbench — accepted design
 
-Status: **CURRENT CANDIDATE — SINGLE QUESTION PRODUCT OWNER 2026-09-18 · HUMAN GATE ACTIVE**
+Status: **CURRENT CANDIDATE — FUNCTION/OWNERSHIP FROZEN · L3 VISUAL RE-REVIEW UNDER XIZONG L2 REQUIRED**
 
 Parent: `static-web/XIZONG_PRODUCT_BRIEF.md`  
+Visual L2: `static-web/XIZONG_VISUAL_LANGUAGE.md`  
 Learning authority: `content/xizong/LEARNING_CONTRACT.md`  
 Question Truth: `content/xizong/questions/`  
 Explanation Truth: `content/xizong/explanations/`  
