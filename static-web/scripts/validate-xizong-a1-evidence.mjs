@@ -66,6 +66,9 @@ assert(systemGuard.includes('questionEvidenceHash.toString(16)'), 'system-versio
 assert(systemGuard.includes('kianos-xizong-stale-system-evidence:'), 'stale-system-archive-missing');
 assert(systemGuard.includes('stale_block_question_plans'), 'stale-system-question-plan-archive-missing');
 assert(systemGuard.includes('stale_block_repair_inboxes'), 'stale-system-inbox-archive-missing');
+assert(systemGuard.includes('stale_visible_memory_repairs'), 'stale-visible-memory-repair-archive-missing');
+assert(systemGuard.includes('XIZONG_MEMORY_STORAGE_KEY'), 'system-version-guard-misses-visible-memory-repair');
+assert(systemGuard.includes("String(task?.origin || '') === 'SYSTEM_WU_CHAT_RETURN'"), 'system-version-guard-does-not-scope-question-derived-repair');
 assert(systemGuard.includes('localStorage.removeItem(recallKey)'), 'stale-system-recall-not-invalidated');
 assert(systemGuard.includes('localStorage.removeItem(sweepKey)'), 'stale-system-sweep-not-invalidated');
 assert(systemGuard.includes("phase = answered === 0 ? 'PRE_QUESTION'"), 'system-recall-pre-phase-missing');
