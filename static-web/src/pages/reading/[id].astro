@@ -1,5 +1,5 @@
 ---
-import Base from '../../layouts/Base.astro';
+import EnglishBase from '../../layouts/EnglishBase.astro';
 import '../../styles/reading.css';
 import '../../styles/reading-interaction.css';
 import '../../styles/reading-repair.css';
@@ -26,7 +26,7 @@ export function getStaticPaths() {
 const { readingId } = Astro.props;
 const reading = loadReadingById(readingId);
 ---
-<Base
+<EnglishBase
   title={reading.title}
   kicker="English · Reading A"
   description=""
@@ -44,4 +44,4 @@ const reading = loadReadingById(readingId);
   <ReadingPassageHandoff />
   <ObjectiveTransferClaims task="reading_a" />
   <ReadingSessionHandoff />
-</Base>
+</EnglishBase>

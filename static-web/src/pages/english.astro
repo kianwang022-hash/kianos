@@ -1,5 +1,5 @@
 ---
-import Base from '../layouts/Base.astro';
+import EnglishBase from '../layouts/EnglishBase.astro';
 import EnglishResume from '../components/EnglishResume.astro';
 import EnglishSessionControl from '../components/EnglishSessionControl.astro';
 import { inspectReadingSources } from '../lib/englishReadingSourceTruth.mjs';
@@ -13,7 +13,7 @@ const writingRuntime = inspectWritingSyntheticTasks();
 
 const statusLabel = (status) => status === 'ready' ? '可进入' : status === 'invalid' ? '暂不可用' : '部分开放';
 ---
-<Base title="English" active="english" showLead={false} objectId="english:performance-home">
+<EnglishBase title="English" active="english" showLead={false} objectId="english:performance-home">
   <section class="englishHub" data-english-hub data-base={base}>
     <header class="englishOverview">
       <div><span>ENGLISH · PERFORMANCE</span><h1>读懂，写清，稳定完成。</h1><p>从完整任务开始；有具体问题，再回到最小修复。</p></div>
@@ -62,4 +62,4 @@ const statusLabel = (status) => status === 'ready' ? '可进入' : status === 'i
       </aside>
     </div>
   </section>
-</Base>
+</EnglishBase>

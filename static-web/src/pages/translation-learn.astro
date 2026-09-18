@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 import { marked } from 'marked';
-import Base from '../layouts/Base.astro';
+import EnglishBase from '../layouts/EnglishBase.astro';
 
 const sourcePath = 'content/english/modules/translation/learning.md';
 const sourceUrl = new URL(`../../../${sourcePath}`, import.meta.url);
@@ -41,7 +41,7 @@ const coreSections = await Promise.all(coreKeys.map(async (key) => ({ key, html:
 const diagnosticSections = await Promise.all(diagnosticKeys.map(async (key) => ({ key, html: await renderChunk(key) })));
 const runtimeSections = await Promise.all(runtimeKeys.map(async (key) => ({ key, html: await renderChunk(key) })));
 ---
-<Base
+<EnglishBase
   title="Translation Guide"
   kicker="English · Translation · Guide"
   description="理解英文 → 忠实重建 → 考场表达；会的直接跳，卡住再回来。"
@@ -103,7 +103,7 @@ const runtimeSections = await Promise.all(runtimeKeys.map(async (key) => ({ key,
       </a>
     </main>
   </section>
-</Base>
+</EnglishBase>
 
 <style>
   .translationLearnShell{max-width:86rem;margin:0 auto;display:grid;grid-template-columns:17rem minmax(0,1fr);gap:16px;align-items:start}.translationLearnNav{position:sticky;top:76px;display:grid;gap:9px;padding:16px;border:1px solid var(--study-line);border-radius:14px;background:#fff;box-shadow:var(--study-shadow)}.translationLearnNav>span,.translationReferenceSection summary span,.translationExit>span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.translationLearnNav>strong{font-size:14px}.translationLearnNav>p{margin:0;color:var(--study-muted);font-size:10px;line-height:1.6}.translationLearnNav nav{display:grid;gap:2px;padding:8px 0;border-top:1px solid var(--study-line);border-bottom:1px solid var(--study-line)}.translationLearnNav nav a{padding:6px 7px;border-radius:7px;color:inherit;font-size:10px;font-weight:750;text-decoration:none}.translationLearnNav nav a:hover{background:var(--study-green-soft);color:var(--study-green)}.runtimeLink{color:var(--study-green);font-size:10px;font-weight:850;text-decoration:none}.translationLearnMain{display:grid;gap:12px;min-width:0}.translationLearnIntro,.translationLearnContent,.translationReferenceSection,.translationExit{padding:28px 34px;border:1px solid var(--study-line);border-radius:16px;background:#fff;box-shadow:var(--study-shadow)}.translationLearnIntro{padding-bottom:18px}.translationPathStrip{display:flex;align-items:center;justify-content:center;gap:9px;padding:12px;border:1px solid #cfe2d8;border-radius:12px;background:var(--study-green-soft);color:var(--study-green);font-size:10px;font-weight:850;letter-spacing:.04em}.translationPathStrip b{color:var(--study-faint)}.translationPathStrip em{font-style:normal;font-weight:650;opacity:.72}.translationReferenceSection{padding:0;overflow:hidden}.translationReferenceSection summary{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 22px;cursor:pointer;list-style:none}.translationReferenceSection summary::-webkit-details-marker{display:none}.translationReferenceSection summary>div{display:grid;gap:3px}.translationReferenceSection summary strong{font-size:14px}.translationReferenceSection summary small{max-width:34rem;color:var(--study-muted);font-size:10px;line-height:1.5;text-align:right}.translationReferenceBody{display:grid;gap:0;padding:0 28px 26px;border-top:1px solid var(--study-line)}.translationReferenceBody>.markdownBody{padding-top:22px}.runtimeReference{background:#fbfdfc}.translationExit{display:grid;gap:4px;color:inherit;text-decoration:none;border-color:#bdd8c8;background:var(--study-green-soft)}.translationExit strong{font-size:18px}.translationExit p{margin:0;color:var(--study-muted);font-size:11px;line-height:1.55}

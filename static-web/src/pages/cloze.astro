@@ -1,5 +1,5 @@
 ---
-import Base from '../layouts/Base.astro';
+import EnglishBase from '../layouts/EnglishBase.astro';
 import ObjectiveHome from '../components/ObjectiveHome.astro';
 import EnglishObjectiveLocalNav from '../components/EnglishObjectiveLocalNav.astro';
 import { inspectObjectiveTask, listClozeSets } from '../lib/englishObjectiveSourceTruth.mjs';
@@ -11,7 +11,7 @@ const pendingDescription = sourceState.status === 'invalid'
   ? 'Cloze Current section 无法被唯一、安全识别；Runtime 保持 fail-closed。'
   : 'English Current 依赖缺失；补齐当前依赖并通过 gate 后自动启用。';
 ---
-<Base
+<EnglishBase
   title="Cloze"
   kicker={sourceState.status === 'ready' ? 'English · Objective' : 'English · Current gate'}
   description={sourceState.status === 'ready' ? 'Slot Constraint → Best Fit. 一篇完形是最小训练与复盘单位。' : pendingDescription}
@@ -43,4 +43,4 @@ const pendingDescription = sourceState.status === 'invalid'
       {sourceState.availableSections.length > 0 && <div class="migrationPendingList"><strong>Available Current sections</strong>{sourceState.availableSections.map((item) => <code>{item.section} · {item.setCount} sets</code>)}</div>}
     </section>
   )}
-</Base>
+</EnglishBase>

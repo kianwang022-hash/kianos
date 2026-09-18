@@ -1,5 +1,5 @@
 ---
-import Base from '../../layouts/Base.astro';
+import EnglishBase from '../../layouts/EnglishBase.astro';
 import '../../styles/english-translation-vertical.css';
 import TranslationWorkspace from '../../components/TranslationWorkspace.astro';
 import TranslationEvidenceGuard from '../../components/TranslationEvidenceGuard.astro';
@@ -29,7 +29,7 @@ const reference = {
 };
 const referenceUrl = `${base}translation-reference/${encodeURIComponent(translationId)}.json`;
 ---
-<Base
+<EnglishBase
   title={translation.title}
   kicker="English · Translation"
   description="先独立完成整套；稳定就继续，有问题再做针对性重译。"
@@ -63,4 +63,4 @@ const referenceUrl = `${base}translation-reference/${encodeURIComponent(translat
       }
     }
   </script>
-</Base>
+</EnglishBase>

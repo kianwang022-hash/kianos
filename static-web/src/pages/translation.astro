@@ -1,5 +1,5 @@
 ---
-import Base from '../layouts/Base.astro';
+import EnglishBase from '../layouts/EnglishBase.astro';
 import { inspectTranslationSources, listTranslationSets } from '../lib/englishTranslationSourceTruth.mjs';
 
 const base = import.meta.env.BASE_URL;
@@ -8,7 +8,7 @@ const sets = listTranslationSets();
 const first = sets[0] || null;
 const payload = JSON.stringify(sets).replace(/</g, '\u003c');
 ---
-<Base
+<EnglishBase
   title="Translation"
   kicker="English · Productive Lane"
   description="完整翻译一套；稳定就继续，有真实问题再做最小修复。"
@@ -72,7 +72,7 @@ const payload = JSON.stringify(sets).replace(/</g, '\u003c');
 
     <script type="application/json" data-translation-catalog set:html={payload}></script>
   </section>
-</Base>
+</EnglishBase>
 
 <script>
   const root = document.querySelector('[data-translation-home]');

@@ -1,5 +1,5 @@
 ---
-import Base from '../../layouts/Base.astro';
+import EnglishBase from '../../layouts/EnglishBase.astro';
 import '../../styles/english-writing-vertical.css';
 import WritingWorkspace from '../../components/WritingWorkspace.astro';
 import WritingEvidencePanel from '../../components/WritingEvidencePanel.astro';
@@ -19,7 +19,7 @@ const task = loadWritingRuntimeTask(writingId);
 const syntheticGateIds = listWritingSyntheticTasks().map((item) => item.id);
 const isExam = task.sourceKind === 'exam';
 ---
-<Base
+<EnglishBase
   title={task.title}
   kicker="English · Writing"
   description="先完整写出自己的第一版；稳定就结束，有问题再做最小修改。"
@@ -39,4 +39,4 @@ const isExam = task.sourceKind === 'exam';
       <WritingEvidencePanel task={task} />
     </>
   )}
-</Base>
+</EnglishBase>

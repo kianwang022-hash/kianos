@@ -1,6 +1,6 @@
 ---
 import { marked } from 'marked';
-import Base from '../layouts/Base.astro';
+import EnglishBase from '../layouts/EnglishBase.astro';
 import { loadWritingLearningProjection } from '../lib/englishWritingLearning.mjs';
 
 const projection = loadWritingLearningProjection();
@@ -30,7 +30,7 @@ const layerCards = [
   ['DELIVER', 'Execution', '在时间里完整交付']
 ];
 ---
-<Base
+<EnglishBase
   title="Writing Guide"
   kicker="English · Writing · Guide"
   description="先看完整写作链；已经稳定的直接跳过，哪里不稳再补哪里。"
@@ -145,7 +145,7 @@ const layerCards = [
       </section>
     </main>
   </section>
-</Base>
+</EnglishBase>
 
 <script>
   const root = document.querySelector('[data-writing-learning]');

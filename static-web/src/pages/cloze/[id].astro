@@ -1,5 +1,5 @@
 ---
-import Base from '../../layouts/Base.astro';
+import EnglishBase from '../../layouts/EnglishBase.astro';
 import '../../styles/english-cloze-vertical.css';
 import ClozeWorkspace from '../../components/ClozeWorkspace.astro';
 import ObjectiveAnswerGate from '../../components/ObjectiveAnswerGate.astro';
@@ -18,7 +18,7 @@ export function getStaticPaths() {
 
 const item = loadClozeById(Astro.props.objectId);
 ---
-<Base
+<EnglishBase
   title={item.title}
   kicker="English · Cloze"
   description="Slot Demand → Constraints → Candidate Contrast → Best Fit"
@@ -33,4 +33,4 @@ const item = loadClozeById(Astro.props.objectId);
   <ObjectiveHandoff />
   <ObjectiveTransferClaims task="cloze" />
   <ObjectiveNavigator task="cloze" route="cloze" item={item} />
-</Base>
+</EnglishBase>
