@@ -65,6 +65,7 @@ export function initPoliticsPractice(root) {
   };
   const on = (selector, event, fn) => $$(selector).forEach((node) => node.addEventListener(event, run(fn)));
   const eligible = () => {
+    if (explicitRetest) return explicitQuestionIds.map((id) => qById.get(id)).filter(Boolean);
     let reviewIds = null;
     if (controls.mode.value === 'review') {
       const snapshot = readPoliticsSnapshot(localStorage);
@@ -86,8 +87,8 @@ export function initPoliticsPractice(root) {
   };
   const scopeSummary = () => {
     const count = eligible().length;
-    text('[data-scope-summary]', `当前范围 ${count} 题`);
-    text('[data-available-count]', count); text('[data-target-count]', Math.min(count, Number(controls.count.value)));
+    text('[data-scope-summary]', explicitRetest ? `Chat 指定 ${count} 题 · 不扩题` : `当前范围 ${count} 题`);
+    text('[data-available-count]', count); text('[data-target-count]', explicitRetest ? count : Math.min(count, Number(controls.count.value)));
     const unavailable = (catalog.unavailable || []).filter((q) => controls.subject.value === 'all' || q.subject === controls.subject.value).length;
     text('[data-practice-unavailable]', `${unavailable} 题尚无可用的学习单元绑定，暂不开放练习。`);
     hide('[data-practice-unavailable]', !unavailable);
@@ -308,7 +309,7 @@ export function initPoliticsPractice(root) {
   };
   const start = () => {
     if (blocked || active() || session?.status === 'paused') return;
-    if (!$('[data-learned-scope]').checked) throw new Error('请先在原讲义学习所选范围，再开始配套题。');
+    if (!explicitRetest && !$('[data-learned-scope]').checked) throw new Error('请先在原讲义学习所选范围，再开始配套题。');
     let pool = eligible();
     if (controls.mode.value === 'random') {
       pool = [...pool]; for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
@@ -317,9 +318,13 @@ export function initPoliticsPractice(root) {
       if (!pool.some((q) => q.id === startQuestionId)) throw new Error('当前筛选不包含链接中的原题；请重新选择范围。');
       pool = [qById.get(startQuestionId), ...pool.filter((q) => q.id !== startQuestionId)];
     }
-    const ids = pool.slice(0, Number(controls.count.value)).map((q) => q.id);
+    const ids = (explicitRetest ? pool : pool.slice(0, Number(controls.count.value))).map((q) => q.id);
     if (!ids.length) throw new Error('当前筛选没有可开始的题目。');
-    saveSession({ schema: 'kianos.politics.practice_session.v1', runtimeVersion: 2, revision: catalog.revision, id: `politics-${crypto.randomUUID()}`, status: 'active', ids, index: 0, startedAt: iso(), results: {}, pending: null, draft: null, origin: controls.mode.value === 'review' ? catalog.reviewBase.replace(/practice-review\/$/, 'review/') : (controls.unit.value !== 'all' ? uByKey.get(controls.unit.value).href : '/politics/'), scope: { subject: controls.subject.value, chapter: controls.chapter.value, unit: controls.unit.value, type: controls.type.value, mode: controls.mode.value, interaction: 'NORMAL', learnedScopeConfirmedAt: iso() } });
+    const requestedReturn = params.get('returnTo') || '';
+    const explicitReturn = requestedReturn.startsWith('/') && requestedReturn.includes('/politics/review/')
+      ? requestedReturn
+      : '/politics/review/';
+    saveSession({ schema: 'kianos.politics.practice_session.v1', runtimeVersion: 2, revision: catalog.revision, id: `politics-${crypto.randomUUID()}`, status: 'active', ids, index: 0, startedAt: iso(), results: {}, pending: null, draft: null, origin: explicitRetest ? explicitReturn : (controls.mode.value === 'review' ? catalog.reviewBase.replace(/practice-review\/$/, 'review/') : (controls.unit.value !== 'all' ? uByKey.get(controls.unit.value).href : '/politics/')), scope: { subject: explicitRetest ? 'CHAT_EXPLICIT' : controls.subject.value, chapter: explicitRetest ? 'CHAT_EXPLICIT' : controls.chapter.value, unit: explicitRetest ? 'CHAT_EXPLICIT' : controls.unit.value, type: controls.type.value, mode: explicitRetest ? 'explicit_retest' : controls.mode.value, interaction: 'NORMAL', learnedScopeConfirmedAt: explicitRetest ? null : iso() } });
     clearError(); render(); $('[data-question-card]').focus({ preventScroll: true });
   };
   on('[data-start-session], [data-start-session-inline]', 'click', start);
@@ -388,10 +393,18 @@ export function initPoliticsPractice(root) {
 
   try {
     if (session && (session.runtimeVersion !== 2 || session.revision !== catalog.revision || !Array.isArray(session.ids) || !session.ids.length || session.ids.some((id) => !qById.has(id)) || !Number.isInteger(session.index) || session.index < 0 || session.index >= session.ids.length || !['active', 'paused', 'completed'].includes(session.status))) throw new Error('原题组版本或内容已变化，无法安全恢复。记录已保留，请先对账原题组。');
-    const params = new URLSearchParams(location.search);
     if (params.has('session')) {
       if (!session || params.get('session') !== session.id || params.get('question') !== question()?.id || !['active', 'paused', 'completed'].includes(session.status)) throw new Error('返回目标已过期或与当前题组不符；没有跳到其他题。');
       if (session.status === 'paused') saveSession({ ...session, status: 'active' });
+    } else if (explicitRetest) {
+      if (new Set(explicitQuestionIds).size !== explicitQuestionIds.length) throw new Error('Chat 指定题号重复；未开始题组。');
+      const missing = explicitQuestionIds.filter((id) => !qById.has(id));
+      if (missing.length) throw new Error(`Chat 指定题号已变化或不可用：${missing.join('、')}；未替换为其他题。`);
+      if (session && ['active', 'paused'].includes(session.status)) throw new Error('已有未完成题组，请先恢复或结束原题组；未覆盖。');
+      for (const control of Object.values(controls)) control.disabled = true;
+      $('[data-mode-value]').forEach((button) => { button.disabled = true; });
+      $('[data-learned-scope]').checked = true;
+      $('[data-learned-scope]').disabled = true;
     } else if (params.get('review') === 'problems') {
       if (session && ['active', 'paused'].includes(session.status)) throw new Error('已有未完成题组，请先从今日回访的继续入口恢复；未替换原题组。');
       const reviewDay = params.get('reviewDay');
