@@ -122,7 +122,8 @@ try {
   await cdp.navigate(`${BASE}/xizong/circulation/b02/`);
   await cdp.evaluate(`(()=>{for(const key of Object.keys(localStorage))if(key.includes('xizong'))localStorage.removeItem(key);sessionStorage.clear();})()`);
   await cdp.reload();
-  await cdp.evaluate(`localStorage.setItem(${js(b2StudyKey)}, JSON.stringify({stage:'kp_recall',groupIndex:0,kpIndex:0,learned:${JSON.stringify(Object.fromEntries(firstGroupIds.map((id) => [id, true])))},ratings:{},blockRecallDone:false,completed:false}))`);
+  const allB2KpIds = b2.kpRecords.map((row) => row.kpId);
+  await cdp.evaluate(`localStorage.setItem(${js(b2StudyKey)}, JSON.stringify({stage:'kp_recall',groupIndex:0,kpIndex:0,sourceContactDone:true,learned:${JSON.stringify(Object.fromEntries(allB2KpIds.map((id) => [id, true])))},ratings:{},ttsxEvidence:{},ttsxAnnotations:{},pendingTtsx:null,blockRecallDone:false,completed:false}))`);
   await cdp.reload();
   check(await cdp.evaluate(`document.querySelectorAll('.xv6MemoryReview').length`) === 0, 'retired_after_learn_ui_absent');
   check(await cdp.evaluate(`Boolean(document.querySelector('[data-xizong-recall-evidence-bridge]')?.hidden)`), 'recall_evidence_bridge_is_nonvisual');
