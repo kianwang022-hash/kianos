@@ -165,10 +165,14 @@ try {
   const entry=page.locator('[data-xizong-system-recall-entry]');
   check(await entry.isHidden(),'system_recall_entry_hidden_before_system_complete');
 
+  const lastLocationKey='kianos-xizong-last-location-v1';
+  const beforePrematureRoute=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),lastLocationKey);
   await page.goto(`${BASE}/xizong/circulation/recall/`,{waitUntil:'networkidle'});
   const lock=page.locator('[data-xizong-system-recall-lock]');
   await lock.waitFor({state:'visible'});
   check(await page.locator('[data-xizong-system-exit="circulation"]').isHidden(),'direct_recall_route_fails_closed_before_system_complete');
+  const afterPrematureRecall=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),lastLocationKey);
+  check(afterPrematureRecall?.href===beforePrematureRoute?.href,'locked_recall_does_not_hijack_resume');
 
   await page.goto(`${BASE}/xizong/practice/circulation/`,{waitUntil:'networkidle'});
   const prematurePractice=page.locator('[data-xizong-practice="circulation"]');
@@ -176,6 +180,8 @@ try {
   check((await prematurePractice.locator('[data-chat-set-error-title]').textContent()||'').includes('System Recall'),'direct_system_practice_fails_closed_before_recall');
   check(await prematurePractice.locator('[data-question-card]').isHidden(),'premature_system_practice_releases_no_question');
   check((await prematurePractice.locator('[data-chat-set-gate] a').getAttribute('href')||'').includes('/xizong/circulation/recall/'),'premature_system_practice_returns_to_recall');
+  const afterPrematurePractice=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),lastLocationKey);
+  check(afterPrematurePractice?.href===beforePrematureRoute?.href,'locked_practice_does_not_hijack_resume');
 
   await page.goto(`${BASE}/xizong/circulation/`,{waitUntil:'networkidle'});
   await page.evaluate((ids)=>{
@@ -187,6 +193,8 @@ try {
   check(String(recallHref||'').includes('/xizong/circulation/recall/'),'system_recall_entry_targets_dedicated_route',String(recallHref));
   await entry.locator('a').click();
   await page.waitForURL(/\/xizong\/circulation\/recall\//);
+  const releasedRecallLocation=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),lastLocationKey);
+  check(releasedRecallLocation?.resumeKind==='SYSTEM_RECALL','released_system_recall_becomes_resume');
 
   check(await page.locator('[data-xizong-system-recall-page]').isVisible(),'dedicated_recall_page_visible');
   check(await page.locator('[data-xizong-later-stage="system-exit"]').count()===0,'recall_not_embedded_in_system_details');
@@ -215,6 +223,8 @@ try {
   await page.goto(`${BASE}/xizong/practice/circulation/`,{waitUntil:'networkidle'});
   const practice=page.locator('[data-xizong-practice="circulation"]');
   await practice.waitFor({state:'visible'});
+  const releasedPracticeLocation=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),lastLocationKey);
+  check(releasedPracticeLocation?.resumeKind==='PRACTICE_SYSTEM','released_system_practice_becomes_resume');
   check(await practice.locator('[data-holdout-gate]').isVisible(),'practice_holdout_gate_visible_without_setting');
   check(await practice.locator('[data-question-map]').count()===1,'practice_owns_question_map');
   check(await practice.locator('[data-reasoning-chain]').count()===1,'practice_owns_reasoning_chain_projection');
@@ -420,6 +430,8 @@ try {
   },{paperKey,holdoutKey,otherYear:holdoutYear});
   await page.goto(`${BASE}/xizong/practice/paper/2026/`,{waitUntil:'networkidle'});
   const paperPractice=page.locator('[data-xizong-practice="paper-2026"]');
+  const paperResumeLocation=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),lastLocationKey);
+  check(paperResumeLocation?.resumeKind==='PAPER','whole_paper_becomes_resume');
   await paperPractice.locator('[data-question-card]').waitFor({state:'visible'});
   check((await paperPractice.locator('[data-practice-scope-title]').textContent()||'').includes('2026'),'paper_2026_title');
   check((await paperPractice.locator('.xzpResultMode').textContent()||'').includes('隐藏'),'paper_result_hidden_label');
