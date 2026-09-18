@@ -14,6 +14,7 @@ const assetStandard = read('LEARNING_ASSET_STANDARD.md');
 const acceptance = read('LEARNING_ACCEPTANCE.md');
 const explanationReadme = read('content/xizong/explanations/README.md');
 const explanationManifest = readJson('content/xizong/explanations/manifest.json');
+const extensionContract = read('content/xizong/EXTENSION_ASSET_CONTRACT.md');
 const questionManifest = readJson('content/xizong/questions/manifest.json');
 
 assert(
@@ -39,6 +40,15 @@ assert(
 assert(
   acceptance.includes('Pre-P condition: realized Content must be closed'),
   'learning-acceptance-lost-pre-p-content-closure'
+);
+assert(
+  !extensionContract.includes('XIZONG_STUDY_LEARNING_BASELINE_v6_FROZEN.md'),
+  'extension-contract-still-points-to-nonexistent-v6-baseline'
+);
+assert(
+  extensionContract.includes('content/xizong/LEARNING_CONTRACT.md')
+  && extensionContract.includes('content/xizong/knowledge/learner/study-policy.json'),
+  'extension-contract-current-parent-authority-missing'
 );
 
 assert(
