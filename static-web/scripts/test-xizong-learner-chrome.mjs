@@ -39,8 +39,11 @@ const routes = [
   ['home', '/xizong/'],
   ['system', '/xizong/circulation/'],
   ['block', '/xizong/circulation/b01/'],
+  ['system-recall', '/xizong/circulation/recall/'],
   ['memory', '/xizong/memory/'],
-  ['practice', '/xizong/practice/circulation/']
+  ['practice-home', '/xizong/practice/'],
+  ['practice-system', '/xizong/practice/circulation/'],
+  ['whole-paper', '/xizong/practice/paper/2026/']
 ];
 
 const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
