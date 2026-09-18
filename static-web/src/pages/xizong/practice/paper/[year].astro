@@ -1,0 +1,40 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import XizongPracticeWorkbench from '../../../../components/XizongPracticeWorkbench.astro';
+import { listXizongQuestionYears, loadXizongQuestionYear } from '../../../../lib/xizongQuestions.mjs';
+import '../../../../styles/xizong-practice-workspace.css';
+
+export function getStaticPaths() {
+  return listXizongQuestionYears().map((year) => ({ params: { year }, props: { year } }));
+}
+
+const { year } = Astro.props;
+const questions = loadXizongQuestionYear(year);
+const system = {
+  systemId: `paper-${year}`,
+  canonicalId: String(year),
+  title: `${year} 整卷`
+};
+const sweep = {
+  systemId: `paper-${year}`,
+  canonicalId: String(year),
+  title: `${year} 整卷`,
+  questionCount: questions.length,
+  scopePath: `content/xizong/questions/shards/${year}/`,
+  scopeHash: `paper:${year}:current`,
+  questionInventoryHash: `paper:${year}:${questions.length}`,
+  years: [Number(year)],
+  questions,
+  holdoutRequired: false,
+  resultVisibility: 'hidden',
+  studyPhase: 'FIRST_PASS',
+  queueMode: 'EXPLICIT_SET',
+  attemptContext: 'WHOLE_PAPER',
+  allowHoldout: true,
+  fastSweep: false
+};
+---
+
+<Base title={`${year} 整卷 · 西综训练`} active="xizong" showLead={false} objectId={`xizong:practice:paper:${year}`}>
+  <XizongPracticeWorkbench system={system} sweep={sweep} scopeKind="PAPER" />
+</Base>
