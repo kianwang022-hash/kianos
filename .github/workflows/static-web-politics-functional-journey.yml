@@ -60,9 +60,9 @@ jobs:
       - name: Verify Politics Home meaningful attention
         working-directory: static-web
         run: node scripts/test-politics-home-attention.mjs
-      - name: Execute Politics Functional First journeys
+      - name: Verify Politics single Workbench batch-review loop
         working-directory: static-web
-        run: node scripts/test-politics-functional-journey.mjs
+        run: node scripts/test-politics-batch-review-loop.mjs
       - name: Verify Politics Golden learner surface
         working-directory: static-web
         run: node scripts/test-politics-golden-purpose-first.mjs
