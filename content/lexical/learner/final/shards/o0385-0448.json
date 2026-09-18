@@ -5,11 +5,11 @@
     "ordinal": 385,
     "word": "balance",
     "source_owner_path": "content/lexical/words/by-ordinal/o0385.json",
-    "source_fingerprint": "efcb46583384284b7d66b7addf4963294afc3c131c04a98d4204a6c9dc3eece7",
+    "source_fingerprint": "eb54e1dc26aed58cc9deac68de74f4ad1d5ee49e8d47f9bf7adfaf572500f243",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3V",
+        "(3+1)V",
         "2N"
       ],
       "density": "rich"
@@ -166,7 +166,22 @@
         }
       }
     ],
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "deep:secondary_senses:balance:5f7290d4d073b73d",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "verb",
+        "definition_cn": "权衡",
+        "definition_en": "to compare the importance of things",
+        "pattern": "balance the pros and cons 权衡利弊",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "deep:secondary_senses:balance:5f7290d4d073b73d",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "权衡"
+        }
+      }
+    ],
     "constructions": [
       {
         "id": "construction:2a790e7e4fc6086d0673",
@@ -1108,7 +1123,7 @@
     "ordinal": 394,
     "word": "band",
     "source_owner_path": "content/lexical/words/by-ordinal/o0394.json",
-    "source_fingerprint": "adf4f757f27c47b1447bf502901e91ce138c666a7e16990f1cb79f1ff22b9a94",
+    "source_fingerprint": "efa51df81540d3cd84271379b99445269336af973bb54ff29a7264022b771230",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1280,29 +1295,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:band:baseline-v2-together",
-        "source_locator": "record.constructions[0]",
-        "pattern": "band together",
-        "lines": [
-          {
-            "text": "联合起来；团结起来共同做某事",
-            "lang": "cn"
-          },
-          {
-            "text": "join together as a group for a shared purpose",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:band:baseline-v2-together",
-          "target_locator": "record.constructions[0]",
-          "target_label": "band together"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1597,7 +1590,7 @@
     "ordinal": 397,
     "word": "bank",
     "source_owner_path": "content/lexical/words/by-ordinal/o0397.json",
-    "source_fingerprint": "44da95df0f700f63df38a5220b4e63c38eb67f3f0261a68216daa7aa3949da09",
+    "source_fingerprint": "f52f8af3c4bac2b039ca9abc55eea4e95f2a38e2996d153172034ecbe978a463",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1607,13 +1600,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "围绕“集中/储存/依靠”形成多支：金融机构、河岸/堆/排、储备库，以及 bank on=指望",
-      "decision_cn": "money/account → 银行；river/snow/switches → 河岸/堆/一排；blood/data reserve → 储备库；bank on... → 依靠、指望。",
+      "summary_cn": "银行或隆起的土地",
+      "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "围绕“集中/储存/依靠”形成多支：金融机构、河岸/堆/排、储备库，以及 bank on=指望"
+        "target_label": "银行或隆起的土地"
       }
     },
     "senses": [
@@ -1801,29 +1794,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:bank:baseline-v2-on",
-        "source_locator": "record.constructions[0]",
-        "pattern": "bank on sb/sth / doing sth",
-        "lines": [
-          {
-            "text": "依靠；指望；确信某人/某事会发生",
-            "lang": "cn"
-          },
-          {
-            "text": "rely on or confidently expect someone, something, or an event",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:bank:baseline-v2-on",
-          "target_locator": "record.constructions[0]",
-          "target_label": "bank on sb/sth / doing sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1837,7 +1808,7 @@
     "ordinal": 398,
     "word": "bankrupt",
     "source_owner_path": "content/lexical/words/by-ordinal/o0398.json",
-    "source_fingerprint": "22e5a66bd11c6e5975b55826b838314799ee5bbce7444daa5d3b8ed55bf683ab",
+    "source_fingerprint": "8c8758e78edf068651b75e224eb3cbbed7943013eb13ac60cb99505ada23a1dd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1848,13 +1819,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "失去足够“资源”：可指财务上破产，也可比喻为思想、道德或政治上极度贫乏",
-      "decision_cn": "company/person/debt → 财务破产；morally/intellectually/politically bankrupt → 思想、道德、政治上贫乏。",
+      "summary_cn": "破产的；贫乏的",
+      "decision_cn": "财务上破产或无力偿还债务",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "失去足够“资源”：可指财务上破产，也可比喻为思想、道德或政治上极度贫乏"
+        "target_label": "破产的；贫乏的"
       }
     },
     "senses": [
@@ -2545,7 +2516,7 @@
     "ordinal": 404,
     "word": "bare",
     "source_owner_path": "content/lexical/words/by-ordinal/o0404.json",
-    "source_fingerprint": "dd91c8222997f0ddb04fd86795d5ac8feb51093fa396a673b209d9087ccab182",
+    "source_fingerprint": "ce4fb860add864468e2da648db701ba679dd56221cbd29d9b30c56385c77558e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2555,13 +2526,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "无遮盖或暴露",
-      "decision_cn": "",
+      "summary_cn": "“裸露/缺少覆盖”延伸到“只剩最低限度”：可指无遮盖、赤裸，也可表示仅仅/极少",
+      "decision_cn": "body/surface → 无遮盖；bare minimum/majority/facts → 仅仅、最低限度；bare one's teeth/soul → 暴露、袒露。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "无遮盖或暴露"
+        "target_label": "“裸露/缺少覆盖”延伸到“只剩最低限度”：可指无遮盖、赤裸，也可表示仅仅/极少"
       }
     },
     "senses": [
@@ -2697,7 +2668,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:bare:baseline-v2-minimum",
+        "source_locator": "record.constructions[0]",
+        "pattern": "the bare minimum",
+        "lines": [
+          {
+            "text": "最低限度；最少必需量",
+            "lang": "cn"
+          },
+          {
+            "text": "the smallest amount that is necessary or acceptable",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bare:baseline-v2-minimum",
+          "target_locator": "record.constructions[0]",
+          "target_label": "the bare minimum"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2780,7 +2773,7 @@
     "ordinal": 406,
     "word": "bargain",
     "source_owner_path": "content/lexical/words/by-ordinal/o0406.json",
-    "source_fingerprint": "de5d07b0a8ef67a153c60ef9bd7d56c63330f38870dcec6ef3554bd50e4b7892",
+    "source_fingerprint": "f99064e0507f4004a251f1ea1c19d596c2c47b07d9446286c3388ac751d6e416",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2790,13 +2783,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "交易；讨价还价",
-      "decision_cn": "",
+      "summary_cn": "围绕“交换条件”形成三支：协议/交易、划算的买卖/便宜货、讨价还价谈条件",
+      "decision_cn": "make/strike a bargain → 达成协议；a bargain / bargain price → 划算、便宜货；bargain with/over/for → 讨价还价、谈判。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "交易；讨价还价"
+        "target_label": "围绕“交换条件”形成三支：协议/交易、划算的买卖/便宜货、讨价还价谈条件"
       }
     },
     "senses": [
@@ -2906,7 +2899,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:bargain:baseline-v2-with-over-for",
+        "source_locator": "record.constructions[0]",
+        "pattern": "bargain with sb over/for sth",
+        "lines": [
+          {
+            "text": "与某人就某事讨价还价；谈判条件",
+            "lang": "cn"
+          },
+          {
+            "text": "negotiate with someone over the price or terms of something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bargain:baseline-v2-with-over-for",
+          "target_locator": "record.constructions[0]",
+          "target_label": "bargain with sb over/for sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3558,24 +3573,24 @@
     "ordinal": 412,
     "word": "base",
     "source_owner_path": "content/lexical/words/by-ordinal/o0412.json",
-    "source_fingerprint": "0f8c0bd640a0dec85567e465a2ead94a2ef361d77acc589ff5d677a7840a6a02",
+    "source_fingerprint": "cf12a2b8ff9fc7cffcc2a06282619e5950e3abfce9c3e183818c09941aadbb8d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(1+1)V",
+        "1V",
         "1A",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "基础，底部",
-      "decision_cn": "",
+      "summary_cn": "作为“支撑点/出发点”：可指底部与基础、行动基地、把某物建立在某依据上；少见形容词可指卑鄙低劣",
+      "decision_cn": "bottom/foundation → 底部基础；military/operations → 基地；base sth on / be based on → 以…为基础；base motives → 卑鄙的。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "基础，底部"
+        "target_label": "作为“支撑点/出发点”：可指底部与基础、行动基地、把某物建立在某依据上；少见形容词可指卑鄙低劣"
       }
     },
     "senses": [
@@ -3707,22 +3722,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:base:debe504084ce7a2d",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "以...为基础",
-        "definition_en": "to use something as the foundation for something else",
-        "pattern": "base sth on sth 以...为基础",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:base:debe504084ce7a2d",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "以...为基础"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [
       {
         "id": "construction:279de88d4c9a8ba6fc4f",
@@ -3884,18 +3884,7 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": [
-        {
-          "target_word": "base",
-          "lines": [
-            {
-              "text": "basement 是 base 派生的场所名词",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[0]"
-        }
-      ]
+      "family": []
     }
   },
   {
@@ -5018,7 +5007,7 @@
     "ordinal": 423,
     "word": "bathe",
     "source_owner_path": "content/lexical/words/by-ordinal/o0423.json",
-    "source_fingerprint": "390f6d1862c524f26fbce08daefebc6e2b662e5d1e2ec6ca0b995bab680434fb",
+    "source_fingerprint": "224a88221291e0146304fee72996a166925759c218edcdaf2c73433632bfb166",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5154,7 +5143,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:bathe:baseline-v2-be-bathed-in",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be bathed in light/sunlight/colour",
+        "lines": [
+          {
+            "text": "沐浴在光线、阳光或色彩中",
+            "lang": "cn"
+          },
+          {
+            "text": "be covered or suffused with light, colour, or a similar surrounding effect",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bathe:baseline-v2-be-bathed-in",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be bathed in light/sunlight/colour"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5264,7 +5275,7 @@
     "ordinal": 425,
     "word": "battery",
     "source_owner_path": "content/lexical/words/by-ordinal/o0425.json",
-    "source_fingerprint": "4a585650a0bec2c031d4f571c4d9b2dfbd873314a15bcb1e7c56757761125812",
+    "source_fingerprint": "57bed22f1c4defcd23cf2016d8e2f0ddb49ad9f85415fa713a109f0447e5457b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5273,13 +5284,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "电池；一组",
-      "decision_cn": "",
+      "summary_cn": "“一组共同工作的东西”是主线：电池、炮组/成套装置、一系列测试；法律中 battery 指未经同意的有害或冒犯性实际接触",
+      "decision_cn": "device → 电池；guns/missiles → 炮组；a battery of tests → 一系列；legal context → battery 通常强调实际 harmful/offensive contact，assault 的边界因法域而异。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "电池；一组"
+        "target_label": "“一组共同工作的东西”是主线：电池、炮组/成套装置、一系列测试；法律中 battery 指未经同意的有害或冒犯性实际接触"
       }
     },
     "senses": [
@@ -5379,9 +5390,9 @@
         "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "殴打罪",
-        "definition_en": "the crime of hitting someone; assault",
-        "note": "",
+        "definition_cn": "（法律）未经同意的有害或冒犯性实际身体接触；具体罪名边界依司法辖区而异",
+        "definition_en": "in law, intentional harmful or offensive physical contact without consent; statutory boundaries vary by jurisdiction",
+        "note": "Common-law battery centers on actual harmful/offensive contact; assault may instead center on apprehension of imminent contact, but modern statutes vary by jurisdiction.",
         "identity_overlay": null,
         "usage": [
           {
@@ -5402,7 +5413,7 @@
           "target_kind": "sense",
           "target_id": "sense:battery:4ab7733257425a35",
           "target_locator": "record.senses[3]",
-          "target_label": "殴打罪"
+          "target_label": "（法律）未经同意的有害或冒犯性实际身体接触；具体罪名边界依司法辖区而异"
         }
       }
     ],
@@ -5570,7 +5581,7 @@
     "ordinal": 427,
     "word": "bay",
     "source_owner_path": "content/lexical/words/by-ordinal/o0427.json",
-    "source_fingerprint": "26d83ae3508a938f7504a3ef1db9ab4b8ba856d1adfc18c873e1db8bce394ac0",
+    "source_fingerprint": "27b8aa427f20c187a7e258b9c329023a7eeca22321c444bdbacc8a4fbab55e1d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5745,7 +5756,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:bay:baseline-v2-at-bay",
+        "source_locator": "record.constructions[0]",
+        "pattern": "keep/hold sb/sth at bay",
+        "lines": [
+          {
+            "text": "阻止某人/某物靠近、恶化或取得控制",
+            "lang": "cn"
+          },
+          {
+            "text": "prevent someone or something from approaching, worsening, or gaining control",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bay:baseline-v2-at-bay",
+          "target_locator": "record.constructions[0]",
+          "target_label": "keep/hold sb/sth at bay"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6261,23 +6294,23 @@
     "ordinal": 432,
     "word": "bear",
     "source_owner_path": "content/lexical/words/by-ordinal/o0432.json",
-    "source_fingerprint": "3b30d823a2dd0380722f9ba1e0350002c1e945e12b4603cfc558cb94456072c8",
+    "source_fingerprint": "4314c42123d5203f84b4af9a4d170120e58b63cc774e056fd2e2443e2b9b9c8c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(3+1)V",
+        "3V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "忍受；熊",
-      "decision_cn": "",
+      "summary_cn": "核心是“承受/承载”：可忍受痛苦、承担成本或重量、生育/产生结果；名词另有熊和金融看跌者",
+      "decision_cn": "pain/behavior → 忍受；cost/weight/responsibility → 承担/支承；child/fruit → 生育/产生；animal/market → 熊/空头。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "忍受；熊"
+        "target_label": "核心是“承受/承载”：可忍受痛苦、承担成本或重量、生育/产生结果；名词另有熊和金融看跌者"
       }
     },
     "senses": [
@@ -6475,22 +6508,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:bear:80e41b771b67b224",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "承担；支承",
-        "definition_en": "to carry or support something",
-        "pattern": "bear 承担；支承",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:bear:80e41b771b67b224",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "承担；支承"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [
       {
         "id": "construction:f55d91c79d24e4288b97",
@@ -6656,7 +6674,7 @@
     "ordinal": 434,
     "word": "bearing",
     "source_owner_path": "content/lexical/words/by-ordinal/o0434.json",
-    "source_fingerprint": "fce60f24c2d7456a1be4e54b80c925c2b8dc1b650929baa124526c5f4ff9c07a",
+    "source_fingerprint": "d09a557c79c98d5069ffb4793760c8e2dc34f81f23c135d817331142dec4d1a5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6665,13 +6683,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "有关；方位；举止",
-      "decision_cn": "举止；轴承",
+      "summary_cn": "“bearing”表示某种承受/取向关系：可指与某事的关系或影响、方位、举止风度、机械轴承，也可保留低频的忍受/生育名词义",
+      "decision_cn": "have a bearing on → 关联/影响；take a bearing → 方位；personal/military bearing → 举止；ball bearing → 轴承；context may also select endurance/childbearing.",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "有关；方位；举止"
+        "target_label": "“bearing”表示某种承受/取向关系：可指与某事的关系或影响、方位、举止风度、机械轴承，也可保留低频的忍受/生育名词义"
       }
     },
     "senses": [
@@ -7886,7 +7904,7 @@
     "ordinal": 443,
     "word": "beef",
     "source_owner_path": "content/lexical/words/by-ordinal/o0443.json",
-    "source_fingerprint": "f42079b1a8644b9efc8d85da46d329724fca8d4981101dc7d02459c88f861393",
+    "source_fingerprint": "58f372a245b46b2fdf2e579f7daef21b6caff513a23cef2c1e88d1b57321cee7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8060,7 +8078,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:beef:baseline-v2-up",
+        "source_locator": "record.constructions[0]",
+        "pattern": "beef up sth / beef sth up",
+        "lines": [
+          {
+            "text": "加强；充实；增加；改进某物",
+            "lang": "cn"
+          },
+          {
+            "text": "strengthen, increase, reinforce, or improve something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:beef:baseline-v2-up",
+          "target_locator": "record.constructions[0]",
+          "target_label": "beef up sth / beef sth up"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -8315,7 +8355,7 @@
     "ordinal": 446,
     "word": "beg",
     "source_owner_path": "content/lexical/words/by-ordinal/o0446.json",
-    "source_fingerprint": "dccf750d1b2c83383a4bd53cf15b9ca88d03c08bac0423b6b9fc1a16b962ebb8",
+    "source_fingerprint": "82c99b0c839f19f35a806c01dc2e4ee1e4de7d744b31de11f79f5356b40842c4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8450,7 +8490,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:beg:baseline-v2-question",
+        "source_locator": "record.constructions[0]",
+        "pattern": "beg the question",
+        "lines": [
+          {
+            "text": "传统逻辑义：预设结论、循环论证；现代常见义：引出/使人提出某个问题",
+            "lang": "cn"
+          },
+          {
+            "text": "In formal logic/academic argument, the circular-reasoning sense matters. In general contemporary usage, 'begs the question' often means 'raises the question'. Avoid assuming only one reading without context.",
+            "lang": "en"
+          },
+          {
+            "text": "traditionally, assume what is to be proved; in widespread modern usage, raise or prompt a question",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:beg:baseline-v2-question",
+          "target_locator": "record.constructions[0]",
+          "target_label": "beg the question"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
