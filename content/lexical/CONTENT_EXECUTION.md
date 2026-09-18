@@ -28,6 +28,48 @@ The initial tool omits only top-level provenance/lookup pointers and known opera
 
 An oversized word fails explicitly. Expand the one-owner budget or inspect a bounded coherent object, never truncate a record or hide an unsent field behind an automatic PASS. A compact bundle is a transport projection, not a new semantic owner.
 
+## 3A. Module-level stability receipt
+
+Every fresh owner review must record a module matrix before closure.
+
+Required module keys:
+
+```text
+core
+senses
+familiar_new
+construction
+phraseology
+decision_boundary
+relation_confusable
+register_stance
+family_morphology
+form_identity
+productive_use
+repair_test
+```
+
+Each key is exactly one of:
+
+```text
+NOT_NEEDED
+PRESERVE
+UPGRADED
+BLOCKED
+```
+
+For every `UPGRADED` or `BLOCKED` module, record at least one allowed change reason from `CONTENT_ASSET_CONTRACT.md §4A`.
+
+A `NO_CHANGE` owner may still be `DEPTH_READY`; its module matrix proves that no module was silently skipped.
+
+During **Baseline v2 full re-validation**, every owner/module must still receive a fresh judgment under the frozen rules; historical module state cannot skip the read.
+
+After Baseline v2 closes, a later maintenance pass must read the latest closed module matrix and may not rewrite a `PRESERVE` module unless new evidence establishes an allowed gap.
+
+This matrix belongs in the receipt / audit evidence, not in semantic Natural Owners.
+
+---
+
 ## 4. Fresh judgment and readback
 
 Each owner in a shard receives exactly one current-generation decision:
@@ -35,6 +77,8 @@ Each owner in a shard receives exactly one current-generation decision:
 - operation: `NO_CHANGE` or `UPGRADED`;
 - final quality: `SAFE_SIMPLE`, `DEPTH_READY` or `BLOCKED`;
 - a concise, actual semantic rationale;
+- the complete module matrix from §3A;
+- explicit allowed change reason(s) for every upgraded / blocked module;
 - exact before/dependency hashes and final view identity;
 - for BLOCKED: the unmet requirement and smallest admissible closure evidence.
 
@@ -77,6 +121,16 @@ For an activated package, its machine manifest owns only range allocation and sh
 Use `PENDING → REVIEWING → STAGED → LOCAL_CLOSED → INTEGRATED`, with `BLOCKED`/`INTERRUPTED` when appropriate. Reviewed-terminal count, accepted count, integrated count and contiguous frontier are different quantities. A BLOCKED word may not stop independent ranges, but it remains a visible gap and never counts as accepted.
 
 Do not create an active package manifest while Catalog is paused. On interruption, persist at most the current bounded shard checkpoint. A staged or branch-committed patch is not accepted main content. Next Chat reads Current → active package/checkpoint → the exact current shard, not old Chat history or every prior receipt.
+
+## 6A. Content lane cannot edit learner pages
+
+Continuous lexical Content execution may mutate canonical lexical owners, derived learner objects, Repair Test blueprints and receipts only.
+
+It must not modify `static-web/**`, learner-page layout, navigation, typography, interactions, renderer semantic inclusion, or accepted Vocabulary surface geometry.
+
+If final-object readback reveals that correct Content is not faithfully shown, emit a bounded renderer defect and route it to the UI owner. Do not distort Content to compensate.
+
+---
 
 ## 7. Concurrency and history
 
