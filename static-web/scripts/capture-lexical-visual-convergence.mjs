@@ -56,7 +56,7 @@ async function audit(page, { ordinal, expectedWord, expectExpansion, sparse }) {
     const rows = [...document.querySelectorAll('.lexicalSenseRow')].filter((node) => node instanceof HTMLElement);
     const firstUsableRow = rows.find((row) => row.querySelector('.lexicalSenseUsage li>b')) || rows[0];
     const pos = firstUsableRow?.querySelector('header>span');
-    const meaning = firstUsableRow?.querySelector('.lexicalSenseMeaning>p');
+    const meaning = firstUsableRow?.querySelector('.lexicalSenseMeaning>strong');
     const usage = firstUsableRow?.querySelector('.lexicalSenseUsage li>b');
     const expansion = document.querySelector('.lexicalExpansionSection');
     const contentNodes = [...document.querySelectorAll(
