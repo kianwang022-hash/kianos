@@ -557,27 +557,26 @@ Start Lane A · o0001–o0200.
 
 Lane A active branch: `work/lexical-continuous-lane-a-o0001-o0200`.
 
-Closed internal shard:
+Baseline-v2 closed shard:
 
 ```text
 o0001–o0050
-50 / 50 fresh owner judgments
-21 Natural Owners upgraded
-29 Repair Test blueprints
+50 / 50 fresh module matrices
+6 owners upgraded under frozen rules
+44 owners NO_CHANGE after fresh re-read
 0 BLOCKED
-Final Learner Object materialization readback PASS
-Merge Materialization Audit / Closure PASS
-Current Integrity / Secondary Duplicate / Shard Tools PASS
+4 duplicate Secondary projections removed
+4 owners' Family/Morphology content upgraded
+29 Repair Test blueprints preserved
+0 learner-page/UI files changed
+Final Learner Object materialization PASS
 ```
 
-Representative final-object readback confirms upgraded learner summaries for `accept / access / accommodate / accord / acknowledge`.
+Canonical Baseline-v2 receipt:
+`content/lexical/audit/baseline-v2/lane-a/o0001-o0050.json`
 
-Derived Repair Test blueprints live under `content/lexical/learner/repair-blueprints/shards/` and remain diagnostic content, never semantic Truth.
+Generation Rules + Page Freeze Human Gate — **ACCEPTED 2026-09-19**.
 
-Next internal shard: **o0051–o0100 — PAUSED**.
+Next internal shard: **o0051–o0100 — ACTIVE**.
 
-Draft module-generation rules now live in `CONTENT_ASSET_CONTRACT.md §4A`, with a required per-owner stability matrix in `CONTENT_EXECUTION.md §3A`.
-
-Generation Rules Human Gate — **ACCEPTED 2026-09-19**.
-
-First re-validate **o0001–o0050** against the frozen module matrix (no stylistic rewrite), then continue **o0051–o0100**. Learner-page / UI changes remain out of scope throughout.
+Apply the same frozen module matrix. Freshly re-read every owner; change only modules with an explicit allowed gap reason. Learner-page / UI changes remain out of scope throughout.
