@@ -104,7 +104,7 @@
     ],
     "lifecycle_scope": {
       "first_round": "CLOSED_FOR_ALL_FIVE_SUBJECTS",
-      "later_stage": "L_CANDIDATE_BUILDER_PASS_AFTER_REPAIR_INDEPENDENT_AUDIT_PENDING",
+      "later_stage": "CONSOLIDATION_L_CANDIDATE_REPAIRED_INDEPENDENT_AUDIT_PENDING",
       "rule": "First-round K/L closure is distinct from exam-lifecycle later-stage K/L closure."
     }
   },
@@ -230,6 +230,11 @@
       "POL27-LEARN-ETHICS-C06"
     ],
     "later_stage_learning_builder_attack": "PASS_AFTER_REPAIR",
-    "later_stage_learning_independent_audit": "PENDING"
+    "later_stage_learning_independent_audit": "PENDING",
+    "later_stage_consolidation_l_candidate": true,
+    "later_stage_consolidation_l_post_repair_readback": "PASS_NON_ACCEPTING_SAME_CHAT",
+    "later_stage_consolidation_l_independent_audit": "PENDING",
+    "later_stage_analysis_output_l": "UNTESTED",
+    "later_stage_mock_final_l": "UNTESTED"
   }
 }
