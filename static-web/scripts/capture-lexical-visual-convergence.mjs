@@ -149,7 +149,10 @@ try {
   await page.goto(`${origin}/vocabulary/3/`, { waitUntil: 'networkidle' });
   assert(await page.locator('[data-vocab-front]').isVisible(), 'v2_safe_fast_pass_front_visible');
   assert(await page.locator('[data-vocab-details]').isHidden(), 'v2_safe_fast_pass_depth_protected');
-  assert(await page.locator('[data-card-routing-controls]').isVisible(), 'v2_safe_fast_pass_routing_visible');
+  assert(await page.locator('[data-vocab-action-dock] [data-vocab-route="known"]').isVisible(), 'v2_safe_fast_pass_known_visible');
+  assert(await page.locator('[data-vocab-action-dock] [data-vocab-route="mastered"]').isVisible(), 'v2_safe_fast_pass_mastered_visible');
+  assert(await page.locator('[data-vocab-action-dock] [data-vocab-route="unknown"]').isHidden(), 'v2_safe_fast_pass_unknown_hidden_before_reveal');
+  assert(await page.locator('[data-vocab-action-dock] [data-vocab-route="fuzzy"]').isHidden(), 'v2_safe_fast_pass_fuzzy_hidden_before_reveal');
   await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-safe-fast-pass-1440x900.png'), fullPage: false });
 
   await page.goto(`${origin}/vocabulary/5477/`, { waitUntil: 'networkidle' });
