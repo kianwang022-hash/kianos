@@ -6,16 +6,17 @@ Subjects: **Xizong 306 / English / Politics**
 
 This document is the single canonical owner for KianOS **cross-subject exam orchestration**.
 
-It owns:
+It owns the **shared factual planning context and Chat-planning priors**:
 
-- exam outcome targets used for cross-subject allocation;
-- phase / milestone / hard-Gate planning;
-- cross-subject capacity arbitration;
-- required pace vs observed pace;
-- global review-budget arbitration;
-- score-closure / re-estimation rules;
+- exam outcome targets;
+- phase / milestone / hard-Gate definitions;
+- capacity / study-time fact semantics;
+- required-pace / observed-pace concepts available to Chat;
+- score-closure / re-estimation evidence requirements;
 - material-refresh / ingestion timing at the orchestration layer;
-- the information budget of the learner-facing global scheduler surface.
+- the information budget of the learner-facing global planning surface.
+
+It does **not** own the current allocation decision, next-subject decision, review priority, or daily learning strategy. Those are adaptive Chat decisions.
 
 It does **not** own:
 
@@ -29,10 +30,20 @@ Hard boundary:
 
 ```text
 subject runtime / evidence
-→ private learner estimate / workload demand
-→ Exam Orchestrator capacity allocation
++ current exam facts / Gates / capacity
+        ↓
+       Chat
+strategy / allocation / priority / next action
+        ↓
+typed private Chat Plan / Session Instruction
+        ↓
+Website execution + display
+        ↓
+bounded learner evidence
+        ↺ Chat
 
-Exam Orchestrator
+Website / Exam Orchestrator runtime
+≠ strategy engine
 ≠ second subject learning system
 ≠ second Source Truth
 ≠ second mastery ledger
@@ -43,6 +54,71 @@ The governing repository distinction remains:
 ```text
 Artifact Truth ≠ Acceptance Truth ≠ Learner Truth ≠ Work Cursor
 ```
+
+## 0｜Current control boundary — Chat owns orchestration
+
+Effective 2026-09-18, the durable product relation is:
+
+```text
+GitHub / Current = long-lived assets and exam facts
+Chat             = adaptive brain
+Runtime          = execution
+Website          = learner execution surface
+```
+
+Therefore the production Website must not calculate a replacement learning strategy from raw phase, score-gap, review-pressure, workload, priority, or elapsed-time fields.
+
+The Website may:
+
+- record/validate real capacity and study-time facts;
+- expose subject-owned Resume/Continue targets;
+- expose current Phase / Gate / material-window facts;
+- validate a typed Chat plan;
+- display the already-decided allocation/next action;
+- execute subject Session Instructions;
+- capture learner evidence and return it to Chat;
+- fail closed when a Chat plan is missing/stale/invalid.
+
+The Website must not:
+
+- allocate elastic capacity among subjects;
+- rank subjects by inferred urgency;
+- choose the next subject from score/workload heuristics;
+- create review debt or repair priority;
+- infer a plan because no Chat plan exists.
+
+### Typed private cross-subject plan
+
+The current private control packet is:
+
+```text
+kianos.exam.chat-plan.v1
+
+study_day
+generated_at
+subjects
+  xizong / english / politics
+    target_minutes   optional
+    role             optional learner-facing label
+    note             optional Chat rationale
+    session_ref      optional pointer to subject Session Instruction
+next_subject         optional
+attention            optional
+```
+
+This packet is private learner/control state. It must not be committed to public canonical Content.
+
+### Legacy scheduling text below
+
+The phase/capacity/score-gap/recoverability rules below remain valuable **planning priors for Chat** and historical rationale.
+
+Whenever later text says that the “Orchestrator” allocates, recalculates, ranks, protects a floor, or chooses a next action, interpret that as:
+
+> **Chat uses these priors plus current learner evidence to decide the plan; the Website does not execute that strategy autonomously.**
+
+This section has precedence over older runtime-allocation wording.
+
+The legacy `buildExamPlan()` implementation may remain temporarily for compatibility/tests during migration, but no production learner surface may call it once the Chat-control cutover is active.
 
 ---
 
