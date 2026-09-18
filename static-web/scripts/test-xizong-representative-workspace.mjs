@@ -182,12 +182,14 @@ try {
     await advanceToRecall(page, root, item);
     await root.locator('[data-kp-recall-card]:not([hidden])').waitFor({ state: 'visible' });
     check(await root.locator('[data-kp-recall-card]:not([hidden]) [data-kp-answer]:visible').count() === 0, `${item.lane}_recall_front_answer_hidden`);
-    check(await root.locator('[data-xizong-aux-surface] [data-learner-asset]:visible').count() === 0, `${item.lane}_recall_front_aux_has_no_answer_payload`);
-    check((await root.locator('[data-xizong-aux-surface] [data-learner-object-slot]').getAttribute('data-learner-object-slot')) !== 'kp_recall_post_reveal', `${item.lane}_post_reveal_slot_absent_before_reveal`);
+    const auxHost = root.locator('[data-xizong-aux-surface] [data-learner-object-slot]');
+    check((await auxHost.getAttribute('data-representation-stage')) === 'KP_RECALL_FRONT', `${item.lane}_recall_front_uses_safe_context_stage`);
 
     const activeCard = root.locator('[data-kp-recall-card]:not([hidden])');
     await activeCard.locator('[data-kp-reveal]').click();
     check(await activeCard.locator('[data-kp-answer]').isVisible(), `${item.lane}_reveal_restores_answer_only_after_action`);
+    await page.waitForFunction(() => document.querySelector('[data-xizong-aux-surface] [data-learner-object-slot]')?.getAttribute('data-representation-stage') === 'KP_RECALL_REVEAL');
+    check((await auxHost.getAttribute('data-representation-stage')) === 'KP_RECALL_REVEAL', `${item.lane}_recall_aux_transitions_after_reveal`);
 
     report.representatives.push({
       lane: item.lane,
