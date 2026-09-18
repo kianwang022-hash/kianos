@@ -42,7 +42,8 @@ export function politicsNavigation(base = '/') {
 export function xizongNavigation(base = '/') {
   return [
     { key: 'overview', label: '总览', href: `${base}xizong/`, matchPath: /^xizong\/?$/ },
-    { key: 'learn', label: '学习', href: `${base}xizong/`, matchPath: /^xizong\/(?!memory(?:\/|$)).+/ },
+    { key: 'learn', label: '学习', href: `${base}xizong/`, matchPath: /^xizong\/(?!practice(?:\/|$)|memory(?:\/|$)).+/ },
+    { key: 'practice', label: '训练', href: `${base}xizong/practice/`, matchPath: /^xizong\/practice(?:\/|$)/ },
     { key: 'memory', label: '记忆', href: `${base}xizong/memory/`, matchPath: /^xizong\/memory(?:\/|$)/ }
   ];
 }

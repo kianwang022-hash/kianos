@@ -1,5 +1,5 @@
 export const XIZONG_STUDY_PHASES = Object.freeze(['FIRST_PASS', 'SECOND_PASS', 'LATE_REVIEW']);
-export const XIZONG_QUESTION_ROUND_MODES = Object.freeze(['TARGETED', 'FULL_RESWEEP']);
+export const XIZONG_QUESTION_ROUND_MODES = Object.freeze(['TARGETED', 'FULL_RESWEEP', 'EXPLICIT_SET']);
 
 const PHASE_LABELS = Object.freeze({
   FIRST_PASS: '一轮',
@@ -14,9 +14,8 @@ const questionIdOf = (event) => String(event?.question_id || event?.questionId |
 
 export const xizongStudyPhaseLabel = (phase) => PHASE_LABELS[phase] || PHASE_LABELS.FIRST_PASS;
 
-export const nextXizongStudyPhase = (phase) => phase === 'FIRST_PASS'
-  ? 'SECOND_PASS'
-  : 'LATE_REVIEW';
+const normalizeStudyPhase = (phase, fallback = 'FIRST_PASS') =>
+  XIZONG_STUDY_PHASES.includes(String(phase || '')) ? String(phase) : fallback;
 
 function questionMap(questions) {
   return new Map((Array.isArray(questions) ? questions : [])
@@ -46,18 +45,46 @@ function latestAttemptByQuestion(history, phase = null) {
 export function deriveXizongSecondPassQuestionIds(input, questions, holdoutYears = []) {
   const state = isObject(input) ? input : {};
   const firstPassLatest = latestAttemptByQuestion(state.attemptHistory, 'FIRST_PASS');
+  const latest = latestAttemptByQuestion(state.attemptHistory);
   return eligibleQuestions(questions, holdoutYears)
     .map((question) => String(question.questionId))
-    .filter((questionId) => ['wrong', 'uncertain'].includes(String(firstPassLatest.get(questionId)?.status || '')));
+    .filter((questionId) => {
+      const firstStatus = String(firstPassLatest.get(questionId)?.status || '');
+      const latestStatus = String(latest.get(questionId)?.status || '');
+      return ['wrong', 'uncertain'].includes(firstStatus) && ['wrong', 'uncertain'].includes(latestStatus);
+    });
+}
+
+export function deriveXizongMarkedQuestionIds(input, questions, holdoutYears = []) {
+  const state = isObject(input) ? input : {};
+  const marks = isObject(state.marks) ? state.marks : {};
+  return eligibleQuestions(questions, holdoutYears)
+    .map((question) => String(question.questionId))
+    .filter((questionId) => Boolean(marks[questionId]));
+}
+
+export function deriveXizongLateReviewQuestionIds(input, questions, holdoutYears = []) {
+  const state = isObject(input) ? input : {};
+  const latest = latestAttemptByQuestion(state.attemptHistory);
+  return eligibleQuestions(questions, holdoutYears)
+    .map((question) => String(question.questionId))
+    .filter((questionId) => ['wrong', 'uncertain'].includes(String(latest.get(questionId)?.status || '')));
 }
 
 export function deriveXizongQuestionIdsForCurrentRound(input, questions, holdoutYears = []) {
   const state = isObject(input) ? input : {};
   const eligible = eligibleQuestions(questions, holdoutYears);
-  if (state.round?.studyPhase !== 'SECOND_PASS') return eligible.map((question) => String(question.questionId));
-  if (state.round?.queueMode === 'FULL_RESWEEP') return eligible.map((question) => String(question.questionId));
-  const targeted = new Set(deriveXizongSecondPassQuestionIds(state, eligible, []));
-  return eligible.map((question) => String(question.questionId)).filter((questionId) => targeted.has(questionId));
+  const allIds = eligible.map((question) => String(question.questionId));
+  if (['FULL_RESWEEP', 'EXPLICIT_SET'].includes(state.round?.queueMode)) return allIds;
+  if (state.round?.studyPhase === 'SECOND_PASS') {
+    const targeted = new Set(deriveXizongSecondPassQuestionIds(state, eligible, []));
+    return allIds.filter((questionId) => targeted.has(questionId));
+  }
+  if (state.round?.studyPhase === 'LATE_REVIEW') {
+    const targeted = new Set(deriveXizongLateReviewQuestionIds(state, eligible, []));
+    return allIds.filter((questionId) => targeted.has(questionId));
+  }
+  return allIds;
 }
 
 function attemptEvent({
@@ -83,7 +110,7 @@ function attemptEvent({
     system_id: String(context?.systemId || ''),
     canonical_id: String(context?.canonicalId || ''),
     study_phase: round.studyPhase,
-    context: 'SYSTEM_SWEEP',
+    context: String(context?.attemptContext || 'SYSTEM_SWEEP'),
     round_id: round.id,
     round_ordinal: round.ordinal,
     status: String(result?.status || ''),
@@ -92,10 +119,13 @@ function attemptEvent({
     year: question?.year ?? null,
     number: question?.number ?? null,
     question_type: question?.questionType || '',
-    result_visibility: 'immediate',
+    result_visibility: ['immediate', 'hidden'].includes(String(context?.resultVisibility || ''))
+      ? String(context.resultVisibility)
+      : 'immediate',
     scope_hash: String(context?.scopeHash || ''),
     question_inventory_hash: String(context?.questionInventoryHash || ''),
     holdout_years: [...new Set((Array.isArray(holdoutYears) ? holdoutYears : []).map(Number).filter(Number.isFinite))].sort((a, b) => a - b),
+    marked: Boolean(result?.marked),
     submitted_at: submittedAt
   };
 }
@@ -105,6 +135,7 @@ export function ensureXizongQuestionSweepState(input, context = {}, runtime = {}
   const makeId = runtime.makeId || fallbackId;
   const state = isObject(input) ? { ...input } : {};
   state.results = isObject(state.results) ? { ...state.results } : {};
+  state.marks = isObject(state.marks) ? { ...state.marks } : {};
   state.attemptHistory = Array.isArray(state.attemptHistory) ? [...state.attemptHistory] : [];
 
   const validRound = isObject(state.round)
@@ -120,7 +151,10 @@ export function ensureXizongQuestionSweepState(input, context = {}, runtime = {}
       .sort();
     state.round = {
       id: makeId('round'),
-      studyPhase: 'FIRST_PASS',
+      studyPhase: normalizeStudyPhase(context?.studyPhase),
+      queueMode: XIZONG_QUESTION_ROUND_MODES.includes(String(context?.queueMode || ''))
+        ? String(context.queueMode)
+        : 'TARGETED',
       ordinal: 1,
       startedAt: legacyTimes[0] || now,
       evidenceOrigin: Object.keys(state.results).length ? 'BOOTSTRAP_EXISTING_STATE' : 'RUNTIME_CREATED'
@@ -182,6 +216,7 @@ export function recordXizongQuestionAttempt(input, payload, runtime = {}) {
     status: String(payload?.status || ''),
     selected: [...new Set(Array.from(payload?.selected || []).map(String))].sort(),
     correctAnswer: question.correctAnswer,
+    marked: Boolean(payload?.marked ?? state.marks?.[questionId]),
     updatedAt: now
   };
   if (!['stable', 'uncertain', 'wrong'].includes(result.status)) {
@@ -215,6 +250,20 @@ export function recordXizongQuestionAttempt(input, payload, runtime = {}) {
   };
 }
 
+export function setXizongQuestionMarked(input, questionId, marked = true) {
+  const id = String(questionId || '');
+  if (!id) throw new Error('XIZONG_QUESTION_MARK_ID_MISSING');
+  const state = isObject(input) ? { ...input } : {};
+  state.marks = isObject(state.marks) ? { ...state.marks } : {};
+  if (marked) state.marks[id] = true;
+  else delete state.marks[id];
+  return state;
+}
+
+export function isXizongQuestionMarked(input, questionId) {
+  return Boolean(isObject(input?.marks) && input.marks[String(questionId || '')]);
+}
+
 export function startNextXizongQuestionRound(input, activeQuestionIds, runtime = {}, options = {}) {
   const now = runtime.now || isoNow();
   const makeId = runtime.makeId || fallbackId;
@@ -223,18 +272,16 @@ export function startNextXizongQuestionRound(input, activeQuestionIds, runtime =
   const remaining = activeIds.filter((questionId) => !state.results?.[questionId]);
   if (remaining.length) throw new Error(`XIZONG_QUESTION_ROUND_INCOMPLETE:${remaining.length}`);
 
-  const nextPhase = nextXizongStudyPhase(state.round.studyPhase);
+  const requestedPhase = normalizeStudyPhase(options?.studyPhase, state.round.studyPhase);
   const requestedMode = String(options?.queueMode || 'TARGETED');
-  const queueMode = nextPhase === 'SECOND_PASS'
-    ? (XIZONG_QUESTION_ROUND_MODES.includes(requestedMode) ? requestedMode : 'TARGETED')
-    : 'FULL_RESWEEP';
+  const queueMode = XIZONG_QUESTION_ROUND_MODES.includes(requestedMode) ? requestedMode : 'TARGETED';
 
   return {
     ...state,
     results: {},
     round: {
       id: makeId('round'),
-      studyPhase: nextPhase,
+      studyPhase: requestedPhase,
       queueMode,
       ordinal: Number(state.round.ordinal || 1) + 1,
       startedAt: now,

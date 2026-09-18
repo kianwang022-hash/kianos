@@ -7,13 +7,41 @@ Lane router: `content/xizong/CURRENT.md`
 Shared projection grammar: `static-web/PRESENTATION_CONTRACT.md`  
 **UI review safety protocol: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`**  
 Preference owner: `static-web/KIAN_UI_PREFERENCES.md`  
-Style owner: `static-web/UI_STYLE_BRIEF.md`
+Shared L1 style owner: `static-web/UI_STYLE_BRIEF.md`  
+**Xizong L2 visual owner: `static-web/XIZONG_VISUAL_LANGUAGE.md`**
 
 This file records accepted learner-visible Xizong product and Projection architecture decisions before Codex implementation. It does **not** change medical Content, Learning Logic, Evidence semantics, learner progress, or the S/K/L/P/R/E/U status of any System.
 
-For any mature Xizong surface discussion, `XIZONG_UI_REVIEW_PROTOCOL.md` is a mandatory companion read before local UI recommendation. Product decisions live here; the protocol owns the whole-flow-before-local-optimization review method.
+For any mature Xizong surface discussion, `XIZONG_UI_REVIEW_PROTOCOL.md` is a mandatory companion read before local UI recommendation. Product decisions live here; the protocol owns the whole-flow-before-local-optimization review method. Any learner-facing L3 visual proposal must additionally inherit `XIZONG_VISUAL_LANGUAGE.md`; local surface owners may vary geometry but may not silently create a separate Xizong aesthetic.
 
 The detailed surface owners in §6 now own accepted composition/interaction decisions. They must not be treated as still-undiscussed merely because an earlier version of this brief said so. Product acceptance, Projection validation, implementation acceptance and real Mac visual acceptance remain separate.
+
+## Strategy boundary｜Chat thinks, learner surfaces execute
+
+Xizong adaptive strategy belongs to Chat / explicit learner planning, not to an increasingly intelligent webpage.
+
+```text
+Chat / learner judgment
+→ explicit current phase / task / scope
+→ stable Xizong learner workspace
+→ real learner evidence
+→ Chat judgment again
+```
+
+The website may execute and preserve:
+- Learn / Framework / Recall / Practice / Memory / Repair / whole-paper actions;
+- explicit phase/scope/mode parameters;
+- real Recall/question/marking/return evidence.
+
+The website must not independently:
+- decide that FIRST_PASS should become SECOND_PASS or LATE_REVIEW;
+- infer a root-cause diagnosis from Wrong / Uncertain;
+- turn Marked or available Memory assets into compulsory future debt;
+- construct a fixed multi-cycle curriculum merely because repeated runs are technically possible.
+
+A repeated run/session may have an ordinal for evidence identity, but it is not a new canonical Learning hierarchy. Stable learner surfaces should remain reusable across as many later runs as Chat/learner strategy requires.
+
+---
 
 ## Naming lock｜Guide ≠ Framework
 
@@ -335,7 +363,8 @@ The responsibilities below remain shared product boundaries. Exact accepted surf
 | Xizong Home | `static-web/XIZONG_HOME_DESIGN.md` |
 | System Framework / Cognitive Canvas | `static-web/XIZONG_SYSTEM_GUIDE_DESIGN.md` |
 | Block / Logic Group / handoff / KP Recall / Block Recall / After Learn | `static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md` |
-| System Recall / question interaction / hidden results / review | `static-web/XIZONG_SYSTEM_COMPLETION_DESIGN.md` |
+| System Recall / completion handoff | `static-web/XIZONG_SYSTEM_COMPLETION_DESIGN.md` |
+| All formal question practice / System scope / W-U-Marked / whole paper | `static-web/XIZONG_PRACTICE_DESIGN.md` |
 
 These do not have to be separate URLs; several may be states of one workspace. Accepted responsibility/composition is not final styling or screenshot acceptance.
 
@@ -419,15 +448,15 @@ Accepted Front / Reconstruction and completion separation are in `XIZONG_BLOCK_W
 Only when learner state legitimately permits:
 
 ```text
-System Recall
-→ official question sweep
-→ smallest W/U repair
-→ post-question System reconstruction
+System Recall Front
+→ System Recall Reveal
+→ complete System reconstruction
+→ handoff to Practice(scope = current System) when that scope exists
 ```
 
-Accepted high-throughput question interaction, independent result visibility, learner marking, bounded Quick Review and System Recall composition are owned by `XIZONG_SYSTEM_COMPLETION_DESIGN.md`.
+System Recall is part of the learning/reconstruction chain and does **not** depend on accepted official-question scope availability. Formal question rendering, Fast Sweep, result visibility, Marked, explanation and review belong only to `XIZONG_PRACTICE_DESIGN.md`.
 
-These product decisions do not prove that the new question behavior is already implemented. Compatibility with current Evidence/Runtime must be resolved before adopting it.
+The accepted Recall composition and handoff boundary are owned by `XIZONG_SYSTEM_COMPLETION_DESIGN.md`.
 
 ## G｜After-Learn
 
@@ -442,9 +471,9 @@ Accepted timing and distinct Memory / Reserve / Chat Repair responsibilities are
 
 ## H｜Xizong-wide practice / whole-paper product direction
 
-Whole-paper practice belongs to Xizong-wide Practice, not to one System's completion page. System practice and whole-paper practice should reuse the question workbench where their native task semantics permit it.
+All formal question practice belongs to the Xizong-wide Practice Workbench, not to a System completion page. System scope, retained W/U/Marked, whole-paper and later custom scopes reuse the same question workbench; only scope/mode changes.
 
-The accepted entry model separates three decisions:
+The accepted Practice owner is `XIZONG_PRACTICE_DESIGN.md`. Its entry model separates three decisions:
 
 ```text
 question scope: by System / whole paper

@@ -1,0 +1,116 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { listProjectableXizongSystems, loadXizongSystem } from '../../../lib/xizong.mjs';
+import { loadXizongSystemQuestionSweep } from '../../../lib/xizongQuestions.mjs';
+import '../../../styles/xizong-practice-workspace.css';
+
+const base = import.meta.env.BASE_URL;
+const scopes = listProjectableXizongSystems()
+  .map((row) => {
+    const system = loadXizongSystem(row.systemId);
+    const sweep = loadXizongSystemQuestionSweep(system);
+    return sweep ? {
+      systemId: system.systemId,
+      canonicalId: system.canonicalId,
+      title: system.title,
+      count: sweep.questionCount,
+      years: sweep.years
+    } : null;
+  })
+  .filter(Boolean);
+---
+<Base title="西综训练" active="xizong" showLead={false}>
+  <section class="xzpLanding">
+    <header>
+      <div>
+        <span>PRACTICE</span>
+        <h1>训练</h1>
+      </div>
+      <p>同一个题目工作台，只改变训练范围。System、二轮回收、整卷和后期训练共用同一套作答与解析逻辑。</p>
+    </header>
+
+    <section>
+      <div class="xzpLandingLabel">
+        <span>按 System</span>
+        <small>当前已接受精确题目范围</small>
+      </div>
+      <nav class="xzpScopeList" aria-label="System practice scopes">
+        {scopes.map((scope) => (
+          <a href={`${base}xizong/practice/${scope.systemId}/`}>
+            <b>{scope.canonicalId}</b>
+            <strong>{scope.title}</strong>
+            <span>{scope.count} 题</span>
+            <em>进入训练 →</em>
+          </a>
+        ))}
+      </nav>
+    </section>
+
+    <section class="xzpChatSetEntry">
+      <details data-chat-set-import data-chat-set-import-base={base}>
+        <summary>
+          <div>
+            <span>Chat 自选题</span>
+            <strong>让 Chat 直接指定 qid，网页只执行</strong>
+          </div>
+          <em>导入 →</em>
+        </summary>
+        <div class="xzpChatSetImportBody">
+          <p>粘贴 Chat 返回的 <code>kianos.xizong.chat_set.v1</code>。题目顺序按 Chat 原样执行；网页不会补题、猜题或扩大范围。</p>
+          <textarea rows="9" data-chat-set-text placeholder='{"schema":"kianos.xizong.chat_set.v1","set_id":"a1-a2-review-01","label":"A1/A2 鉴别回收","study_phase":"SECOND_PASS","result_visibility":"immediate","speed":"normal","question_ids":["xizong-official-2021-n037","xizong-official-2023-n084"]}'></textarea>
+          <div>
+            <button type="button" data-chat-set-start>导入并开始</button>
+            <small data-chat-set-status>只保存到本机 learner state，不进入 GitHub。</small>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section class="xzpLandingFuture">
+      <div>
+        <span>同一 Workbench 后续范围</span>
+        <p>Wrong / Uncertain / Marked、CHAT_SET、整卷年份和后期显式范围都接到这里，不再造第二套刷题页。</p>
+      </div>
+    </section>
+  </section>
+</Base>
+
+<script>
+  document.querySelectorAll('[data-chat-set-import]').forEach((root) => {
+    const input = root.querySelector('[data-chat-set-text]');
+    const status = root.querySelector('[data-chat-set-status]');
+    const button = root.querySelector('[data-chat-set-start]');
+    const base = root.getAttribute('data-chat-set-import-base') || '/';
+
+    button?.addEventListener('click', () => {
+      try {
+        const parsed = JSON.parse(input?.value || '');
+        const ids = Array.isArray(parsed?.question_ids) ? parsed.question_ids.map(String) : [];
+        const validPhase = ['FIRST_PASS','SECOND_PASS','LATE_REVIEW'].includes(String(parsed?.study_phase || ''));
+        const validSpeed = ['normal','fast'].includes(String(parsed?.speed || 'normal'));
+        if (parsed?.schema !== 'kianos.xizong.chat_set.v1') throw new Error('schema');
+        if (!String(parsed?.set_id || '').trim()) throw new Error('set_id');
+        if (!ids.length || ids.some((id) => !/^xizong-official-\d{4}-n\d{3}$/.test(id))) throw new Error('question_ids');
+        if (new Set(ids).size !== ids.length) throw new Error('duplicate');
+        if (!validPhase) throw new Error('study_phase');
+        if (String(parsed?.result_visibility || 'immediate') !== 'immediate') throw new Error('result_visibility');
+        if (!validSpeed) throw new Error('speed');
+
+        localStorage.setItem('kianos:xizong:chat-set:v1', JSON.stringify({
+          schema: 'kianos.xizong.chat_set.v1',
+          set_id: String(parsed.set_id),
+          label: String(parsed.label || 'Chat 自选题'),
+          study_phase: String(parsed.study_phase),
+          result_visibility: 'immediate',
+          speed: String(parsed.speed || 'normal'),
+          allow_holdout: parsed.allow_holdout === true,
+          question_ids: ids
+        }));
+        if (status) status.textContent = `已接收 ${ids.length} 题，正在打开 Workbench…`;
+        window.location.href = `${base}xizong/practice/chat-set/`;
+      } catch (error) {
+        if (status) status.textContent = '无法导入：检查 schema / set_id / 阶段 / qid；当前 CHAT_SET 仅支持 immediate。';
+      }
+    });
+  });
+</script>

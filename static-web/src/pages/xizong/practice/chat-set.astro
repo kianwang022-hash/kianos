@@ -1,0 +1,26 @@
+---
+import Base from '../../../layouts/Base.astro';
+import XizongPracticeWorkbench from '../../../components/XizongPracticeWorkbench.astro';
+import '../../../styles/xizong-practice-workspace.css';
+
+const system = {
+  systemId: 'chat-set',
+  canonicalId: 'CHAT',
+  title: 'Chat 自选题'
+};
+
+const sweep = {
+  systemId: 'chat-set',
+  canonicalId: 'CHAT',
+  title: 'Chat 自选题',
+  questionCount: 0,
+  scopePath: 'private://chat-set',
+  scopeHash: 'chat-set:pending',
+  questionInventoryHash: 'chat-set:pending',
+  years: [],
+  questions: []
+};
+---
+<Base title="Chat 自选题 · 西综训练" active="xizong" showLead={false} objectId="xizong:practice:chat-set">
+  <XizongPracticeWorkbench system={system} sweep={sweep} scopeKind="CHAT_SET" />
+</Base>

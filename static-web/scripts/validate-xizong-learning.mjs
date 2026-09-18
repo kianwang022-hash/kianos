@@ -182,6 +182,8 @@ const memoryUi = read('static-web/src/components/XizongMemoryReviewV6.astro');
 const systemPage = read('static-web/src/pages/xizong/[system]/index.astro');
 const systemUi = read('static-web/src/components/XizongSystemWorkspace.astro');
 const exitUi = read('static-web/src/components/XizongSystemExitRuntime.astro');
+const practiceUi = read('static-web/src/components/XizongPracticeWorkbench.astro');
+const questionAttemptLib = read('static-web/src/lib/xizongQuestionAttempts.mjs');
 
 has(xizongLib, 'function blockOpeningOrientation(markdown)', 'generic-opening-fallback-missing');
 has(xizongLib, "replace(/^---\\s*\\n[\\s\\S]*?\\n---\\s*\\n+/, '')", 'generic-opening-does-not-strip-frontmatter');
@@ -190,20 +192,21 @@ lacks(xizongLib, /record\.ordinal\s*!==\s*index\s*\+\s*1/, 'loader-still-forces-
 has(xizongLib, 'const intro = blockOpeningOrientation(markdown);', 'loader-bypasses-generic-opening');
 
 lacks(systemPage, /2025-2026-v1|writeJson\(holdoutKey,\s*\[2025,\s*2026\]\)/, 'shared-runtime-seeds-private-holdout');
-has(exitUi, 'let holdoutYears = readJson(holdoutKey, []);', 'holdout-not-empty-by-default');
-has(exitUi, 'const normalizeHoldout = (value) =>', 'holdout-normalization-missing');
-has(exitUi, 'eligibleYears.has(year)', 'holdout-normalization-does-not-restrict-to-eligible-years');
-has(exitUi, 'holdoutYears = normalizeHoldout(holdoutYears);', 'persisted-holdout-not-normalized-before-use');
-has(exitUi, 'const eligibleQuestions = () => data.questions.filter((question) => !holdoutYears.includes(Number(question.year)));', 'holdout-filter-runtime-missing');
-has(exitUi, 'deriveXizongQuestionIdsForCurrentRound(sweepState, eligible, [])', 'phase-aware-question-queue-derivation-missing');
+has(practiceUi, "let holdoutYears = data.allowHoldout ? [] : readJson(holdoutKey, []);", 'system-holdout-empty-by-default-with-explicit-chat-override-only');
+has(practiceUi, "const allowHoldout = set?.allow_holdout === true;", 'chat-holdout-override-must-be-explicit');
+has(practiceUi, "if (selectedHoldoutYears.length && !allowHoldout)", 'chat-set-cannot-silently-consume-holdout');
+has(practiceUi, 'const normalizeHoldout = (value) =>', 'holdout-normalization-missing');
+has(practiceUi, 'eligibleYears.has(year)', 'holdout-normalization-does-not-restrict-to-eligible-years');
+has(practiceUi, 'holdoutYears = normalizeHoldout(holdoutYears);', 'persisted-holdout-not-normalized-before-use');
+has(practiceUi, 'const eligibleQuestions = () => data.questions.filter((q) => !holdoutYears.includes(Number(q.year)));', 'holdout-filter-runtime-missing');
+has(practiceUi, 'deriveXizongQuestionIdsForCurrentRound(sweepState, eligible, [])', 'phase-aware-question-queue-derivation-missing');
 has(questionLib, 'valuable_distractors', 'valuable-distractor-source-projection-missing');
 has(questionLib, 'valuableDistractors', 'valuable-distractor-runtime-field-missing');
-has(exitUi, 'data-second-pass-review hidden', 'second-pass-review-not-hidden-by-default');
-has(exitUi, "sweepState.round?.studyPhase === 'SECOND_PASS'", 'second-pass-review-not-phase-gated');
-has(exitUi, 'showSecondPassReview(currentQuestion);', 'second-pass-review-not-bound-to-submit');
-has(exitUi, 'secondPassReview.hidden = true;', 'second-pass-review-not-reset-before-question');
-has(exitUi, '当前没有审核过的二轮解析；保留这次作答证据，必要时交给 Chat，不补猜内容。', 'missing-explanation-does-not-fail-closed');
-matches(exitUi, /startSweep\.disabled\s*=\s*!\(recallState\.completedAt\s*&&\s*holdoutYears\.length\)/, 'sweep-gate-missing-recall-or-explicit-holdout');
+has(questionLib, 'reasoning_chain', 'reasoning-chain-source-projection-missing');
+has(questionLib, 'reasoningChain', 'reasoning-chain-runtime-field-missing');
+has(practiceUi, 'data-reasoning-chain', 'adaptive-reasoning-chain-surface-missing');
+has(practiceUi, 'renderReview(currentQuestion, existing);', 'adaptive-review-not-bound-to-submitted-question');
+has(practiceUi, "if (data.holdoutRequired !== false && !holdoutYears.length) { renderGate(); return; }", 'system-practice-gate-missing-explicit-holdout');
 
 matches(systemUi, /outlineCount\s*>\s*0\s*\?/, 'outline-absence-not-conditionally-projected');
 lacks(systemUi, /Outline\s*\$\{?0\}?/, 'literal-outline-zero');
@@ -233,12 +236,12 @@ has(memoryUi, "mastery: 'requires later meaningful fresh Recall/transfer evidenc
 has(memoryUi, 'const parsed = JSON.parse(text);', 'chat-return-json-parse-path');
 has(memoryUi, "window.alert('Chat 计划 JSON 无法解析。');", 'chat-return-json-error-path');
 
-has(exitUi, "if (!persistResult(currentQuestion, 'wrong', currentSelection)) return;", 'wrong-path');
-has(exitUi, "nextAfter('stable')", 'stable-fast-pass');
-has(exitUi, "if (!persistResult(currentQuestion, 'uncertain', currentSelection)) return;", 'uncertain-path');
-has(exitUi, ".filter(({ result }) => result && ['wrong', 'uncertain'].includes(result.status))", 'wu-only-packet');
-has(exitUi, 'recordXizongQuestionAttempt(sweepState, {', 'question-result-not-routed-through-stable-attempt-owner');
-has(exitUi, '暂无审核过的精确 KP 回链：保留题号给 Chat，不让网页自己猜。', 'no-guess-guard');
+has(practiceUi, "persistAttempt(isCorrect ? 'stable' : 'wrong')", 'question-status-derived-from-submit');
+has(practiceUi, "setXizongQuestionMarked(sweepState", 'explicit-marked-state-missing');
+has(practiceUi, 'recordXizongQuestionAttempt(sweepState, {', 'question-result-not-routed-through-stable-attempt-owner');
+has(questionAttemptLib, "['wrong', 'uncertain'].includes", 'legacy-wu-evidence-not-preserved-for-targeted-second-pass');
+has(questionAttemptLib, 'Boolean(marks[questionId])', 'marked-not-preserved-for-targeted-second-pass');
+has(practiceUi, '暂无可安全消费的 REVIEWED 回链；保留题号，不补猜映射。', 'no-guess-guard');
 has(questionLib, 'loadReviewedXizongQuestionRelation(questionId)', 'question-runtime-bypasses-crosswalk-owner');
 has(crosswalkLib, "if (!row || row.review_status !== 'REVIEWED') return null;", 'unreviewed-precise-relation-accepted');
 

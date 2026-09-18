@@ -2,8 +2,6 @@
 import Base from '../../../layouts/Base.astro';
 import XizongSystemWorkspace from '../../../components/XizongSystemWorkspace.astro';
 import XizongSystemExitRuntime from '../../../components/XizongSystemExitRuntime.astro';
-import XizongQuestionCrosswalkConsumer from '../../../components/XizongQuestionCrosswalkConsumer.astro';
-import XizongSystemRepairReturn from '../../../components/XizongSystemRepairReturn.astro';
 import XizongSystemEvidenceGuard from '../../../components/XizongSystemEvidenceGuard.astro';
 import XizongLastLocation from '../../../components/XizongLastLocation.astro';
 import XizongRuntimeStageGuard from '../../../components/XizongRuntimeStageGuard.astro';
@@ -22,6 +20,7 @@ export function getStaticPaths() {
 }
 
 const { systemId } = Astro.props;
+const base = import.meta.env.BASE_URL;
 const system = loadXizongSystem(systemId);
 const guide = loadXizongBeginnerGuide(system);
 const pathways = loadXizongPathways(system);
@@ -41,19 +40,18 @@ const questionSweep = loadXizongSystemQuestionSweep(system);
   <XizongLastLocation system={system} />
   <XizongSystemWorkspace system={system} pathways={pathways} guide={guide} />
 
-  {questionSweep && (
-    <details class="xzExitStage" data-xizong-later-stage="system-exit" hidden>
-      <summary>
-        <span>后面阶段 · System Exit</span>
-        <strong>System Recall + 系统真题</strong>
-        <small>只有整个 System 真实完成后才出现。</small>
-      </summary>
-      <XizongSystemExitRuntime system={system} sweep={questionSweep} />
-      <XizongQuestionCrosswalkConsumer system={system} />
-      <XizongSystemRepairReturn system={system} />
-      <XizongSystemEvidenceGuard system={system} sweep={questionSweep} />
-    </details>
-  )}
+  <details class="xzExitStage" data-xizong-later-stage="system-exit" hidden>
+    <summary>
+      <span>后面阶段 · System Recall</span>
+      <strong>闭卷恢复整个 System</strong>
+      <small>{questionSweep ? '完成后进入独立训练板块。' : '只在整个 System 真实完成后出现。'}</small>
+    </summary>
+    <XizongSystemExitRuntime
+      system={system}
+      practiceHref={questionSweep ? `${base}xizong/practice/${system.systemId}/` : null}
+    />
+    <XizongSystemEvidenceGuard system={system} sweep={questionSweep} />
+  </details>
 
   <XizongRuntimeStageGuard system={system} />
 </Base>

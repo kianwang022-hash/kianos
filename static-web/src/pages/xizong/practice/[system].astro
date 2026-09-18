@@ -1,0 +1,27 @@
+---
+import Base from '../../../layouts/Base.astro';
+import XizongPracticeWorkbench from '../../../components/XizongPracticeWorkbench.astro';
+import XizongSystemRepairReturn from '../../../components/XizongSystemRepairReturn.astro';
+import XizongSystemEvidenceGuard from '../../../components/XizongSystemEvidenceGuard.astro';
+import { listProjectableXizongSystems, loadXizongSystem } from '../../../lib/xizong.mjs';
+import { loadXizongSystemQuestionSweep } from '../../../lib/xizongQuestions.mjs';
+import '../../../styles/xizong-practice-workspace.css';
+
+export function getStaticPaths() {
+  return listProjectableXizongSystems().flatMap((row) => {
+    const system = loadXizongSystem(row.systemId);
+    const sweep = loadXizongSystemQuestionSweep(system);
+    return sweep ? [{ params: { system: system.systemId }, props: { systemId: system.systemId } }] : [];
+  });
+}
+
+const { systemId } = Astro.props;
+const system = loadXizongSystem(systemId);
+const sweep = loadXizongSystemQuestionSweep(system);
+if (!sweep) throw new Error(`CURRENT_XIZONG_PRACTICE_SCOPE_MISSING:${systemId}`);
+---
+<Base title={`训练 · ${system.title}`} active="xizong" showLead={false} objectId={`xizong:practice:${system.systemId}`}>
+  <XizongPracticeWorkbench system={system} sweep={sweep} />
+  <XizongSystemRepairReturn system={system} />
+  <XizongSystemEvidenceGuard system={system} sweep={sweep} />
+</Base>

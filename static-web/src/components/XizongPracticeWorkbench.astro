@@ -1,0 +1,882 @@
+---
+import {
+  ensureXizongQuestionSweepState,
+  recordXizongQuestionAttempt,
+  startNextXizongQuestionRound,
+  deriveXizongQuestionIdsForCurrentRound,
+  xizongStudyPhaseLabel,
+  setXizongQuestionMarked,
+  isXizongQuestionMarked
+} from '../lib/xizongQuestionAttempts.mjs';
+
+const { system, sweep, scopeKind = 'SYSTEM' } = Astro.props;
+if (!sweep) throw new Error(`CURRENT_XIZONG_PRACTICE_SWEEP_MISSING:${system?.systemId || 'unknown'}`);
+const base = import.meta.env.BASE_URL;
+const payload = JSON.stringify({
+  systemId: sweep.systemId,
+  canonicalId: sweep.canonicalId,
+  title: sweep.title,
+  questionCount: sweep.questionCount,
+  scopePath: sweep.scopePath,
+  scopeHash: sweep.scopeHash,
+  questionInventoryHash: sweep.questionInventoryHash,
+  holdoutRequired: sweep.holdoutRequired !== false,
+  years: sweep.years,
+  questions: sweep.questions,
+  scopeKind,
+  base
+}).replace(/</g, '\\u003c');
+---
+<section class="xzp" data-xizong-practice={system.systemId} data-practice-scope-kind={scopeKind} data-question-workspace>
+  <header class="xzpTopbar">
+    <div class="xzpScope">
+      <strong data-practice-scope-title>{system.canonicalId} · {system.title}</strong>
+      <span><b data-study-phase>一轮</b></span>
+    </div>
+
+    <div class="xzpProgress" data-question-progress>准备中</div>
+
+    <div class="xzpControls">
+      <button type="button" class="xzpQuietControl" data-fast-sweep aria-pressed="false">Fast</button>
+      <button type="button" class="xzpQuietControl xzpMarkControl" data-question-mark aria-pressed="false">☆ 标记</button>
+      <button type="button" class="xzpQuietControl" data-review-toggle aria-pressed="false" hidden>解析</button>
+
+      <details class="xzpMore">
+        <summary aria-label="更多训练设置">•••</summary>
+        <div class="xzpMorePanel">
+          <div class="xzpMoreRow">
+            <span>结果</span>
+            <strong class="xzpResultMode">即时</strong>
+          </div>
+          <details class="xzpHoldout" data-holdout-control>
+            <summary><span>整卷保留</span><b data-holdout-current>未设置</b></summary>
+            <div>
+              <label for={`xzp-holdout-${system.systemId}`}>保留年份</label>
+              <div>
+                <input id={`xzp-holdout-${system.systemId}`} data-holdout-input inputmode="numeric" placeholder="例如 2025, 2026" />
+                <button type="button" data-save-holdout>保存</button>
+              </div>
+            </div>
+          </details>
+          <div class="xzpMoreHelp">
+            <span>快捷键</span>
+            <p>1–5 选择 · Enter 提交/继续 · Space 正反面 · M 标记 · ← → 切题</p>
+          </div>
+        </div>
+      </details>
+    </div>
+  </header>
+
+  <div class="xzpBody" data-practice-front>
+    <main class="xzpQuestionPane">
+      <header class="xzpQuestionMeta">
+        <span data-question-meta>—</span>
+        <small data-selection-hint hidden></small>
+      </header>
+
+      <section class="xzpChatSetGate" data-chat-set-gate hidden>
+        <span>CHAT SET</span>
+        <h2 data-chat-set-error-title>无法打开 Chat 自选题</h2>
+        <p data-chat-set-error-body></p>
+        <a href={`${base}xizong/practice/`}>返回训练入口</a>
+      </section>
+
+      <section class="xzpHoldoutGate" data-holdout-gate hidden>
+        <span>WHOLE-PAPER HOLDOUT</span>
+        <h2>先保留至少一套完整试卷</h2>
+        <p>系统训练不会自动消耗你准备留到整卷阶段的年份。右上角明确填入保留年份后再开始。</p>
+      </section>
+
+      <article class="xzpQuestion" data-question-card hidden>
+        <p class="xzpStem" data-question-stem></p>
+        <div class="xzpOptions" data-question-options></div>
+        <footer>
+          <button type="button" data-submit-answer disabled>提交答案</button>
+        </footer>
+      </article>
+
+      <section class="xzpDone" data-sweep-done hidden>
+        <span>ROUND COMPLETE</span>
+        <h2>这一轮已经扫完</h2>
+        <p>本次作答证据已经保留。下一步阶段和训练范围按 Chat 计划显式执行，网页不自动晋级。</p>
+        <div class="xzpRoundActions">
+          <label>
+            <span>阶段</span>
+            <select data-next-phase>
+              <option value="FIRST_PASS">一轮</option>
+              <option value="SECOND_PASS">二轮</option>
+              <option value="LATE_REVIEW">考前</option>
+            </select>
+          </label>
+          <label>
+            <span>范围</span>
+            <select data-next-queue>
+              <option value="TARGETED">重点队列</option>
+              <option value="FULL_RESWEEP">完整重刷</option>
+            </select>
+          </label>
+          <button type="button" data-start-next-round>按计划开始下一批</button>
+          <a href={`${base}xizong/`}>回西综总览</a>
+        </div>
+      </section>
+    </main>
+
+    <aside class="xzpProgressPane">
+      <header>
+        <span>本组进度</span>
+        <strong data-question-progress-side>准备中</strong>
+      </header>
+      <nav class="xzpMap" data-question-map aria-label="题号"></nav>
+    </aside>
+  </div>
+
+  <section class="xzpBack" data-practice-back hidden>
+    <aside class="xzpFeedbackPane">
+      <header class="xzpFeedbackResult">
+        <strong data-answer-result></strong>
+        <span>你的答案 <b data-user-answer></b></span>
+        <span>正确答案 <b data-correct-answer></b></span>
+      </header>
+
+      <section class="xzpCausePicker">
+        <span>你觉得主要是哪里出了问题？（可选）</span>
+        <div>
+          <button type="button" data-cause="memory">没记住</button>
+          <button type="button" data-cause="understanding">没想明白</button>
+          <button type="button" data-cause="options">选项没辨清</button>
+          <button type="button" data-cause="careless">看错 / 粗心</button>
+        </div>
+      </section>
+
+      <label class="xzpAttemptNote">
+        <span>备注</span>
+        <textarea rows="4" data-attempt-note placeholder="想问 Chat / 自己卡住的点……"></textarea>
+        <small data-attempt-note-status></small>
+      </label>
+
+      <div class="xzpBackTools">
+        <button type="button" class="xzpQuietControl" data-show-front>Space · 回正面</button>
+      </div>
+    </aside>
+
+    <main class="xzpReviewPane" aria-label="知识回看">
+      <header class="xzpReviewHeading">
+        <h2>知识回看</h2>
+        <button type="button" class="xzpReviewNext" data-next-question>下一题</button>
+      </header>
+      <section class="xzpReview" data-answer-panel hidden>
+        <section data-exam-target-wrap hidden>
+          <h3>考点</h3>
+          <p data-exam-target></p>
+        </section>
+
+        <section data-decision-axis-wrap hidden>
+          <h3>判断轴</h3>
+          <p data-decision-axis></p>
+        </section>
+
+        <section data-reasoning-chain-wrap hidden>
+          <h3>推理</h3>
+          <ol data-reasoning-chain></ol>
+        </section>
+
+        <section data-correct-reason-wrap hidden>
+          <h3>为什么对</h3>
+          <p data-correct-reason></p>
+        </section>
+
+        <section data-distractors-wrap hidden>
+          <h3>高价值干扰项</h3>
+          <ul data-distractors></ul>
+        </section>
+
+        <section data-failure-node-wrap hidden>
+          <h3>常见断点</h3>
+          <p data-failure-node></p>
+        </section>
+
+        <section data-transfer-rule-wrap hidden>
+          <h3>条件变化 / 迁移</h3>
+          <p data-transfer-rule></p>
+        </section>
+
+        <section class="xzpRelation" data-relation-wrap hidden>
+          <h3>知识回链</h3>
+          <a data-relation-link hidden></a>
+        </section>
+
+
+      </section>
+    </main>
+  </section>
+
+  <script type="application/json" data-sweep-payload set:html={payload}></script>
+</section>
+
+<script>
+  import {
+    ensureXizongQuestionSweepState,
+    recordXizongQuestionAttempt,
+    startNextXizongQuestionRound,
+    deriveXizongQuestionIdsForCurrentRound,
+    xizongStudyPhaseLabel,
+    setXizongQuestionMarked,
+    isXizongQuestionMarked
+  } from '../lib/xizongQuestionAttempts.mjs';
+
+  document.querySelectorAll('[data-xizong-practice]').forEach(async (root) => {
+    const initialSystemId = root.getAttribute('data-xizong-practice') || '';
+    let data = null;
+    try { data = JSON.parse(root.querySelector('[data-sweep-payload]')?.textContent || 'null'); } catch {}
+
+    const holdoutKey = 'kianos:xizong:full-paper-holdout-years:v1';
+    const preferenceKey = 'kianos:xizong:question-preferences:v1';
+    const chatSetKey = 'kianos:xizong:chat-set:v1';
+
+    const readJson = (key, fallback) => {
+      try { return JSON.parse(localStorage.getItem(key) || '') || fallback; } catch { return fallback; }
+    };
+    const writeJson = (key, value) => {
+      try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch { return false; }
+    };
+
+    const showChatSetError = (title, body) => {
+      const gate = root.querySelector('[data-chat-set-gate]');
+      const heading = root.querySelector('[data-chat-set-error-title]');
+      const copy = root.querySelector('[data-chat-set-error-body]');
+      root.querySelector('[data-question-card]')?.setAttribute('hidden', '');
+      root.querySelector('[data-holdout-gate]')?.setAttribute('hidden', '');
+      root.querySelector('[data-sweep-done]')?.setAttribute('hidden', '');
+      if (heading) heading.textContent = title;
+      if (copy) copy.textContent = body;
+      if (gate) gate.hidden = false;
+    };
+
+    if (data?.scopeKind === 'CHAT_SET') {
+      const set = readJson(chatSetKey, null);
+      const ids = Array.isArray(set?.question_ids) ? set.question_ids.map(String) : [];
+      const setId = String(set?.set_id || '');
+      const phase = String(set?.study_phase || 'SECOND_PASS');
+      const visibility = String(set?.result_visibility || 'immediate');
+      const speed = String(set?.speed || 'normal');
+      const label = String(set?.label || 'Chat 自选题');
+      const allowHoldout = set?.allow_holdout === true;
+
+      if (!set || set?.schema !== 'kianos.xizong.chat_set.v1' || !setId || !ids.length) {
+        showChatSetError('没有可执行的 Chat Set', '请先从训练入口导入 Chat 返回的 kianos.xizong.chat_set.v1。');
+        return;
+      }
+      if (!['FIRST_PASS','SECOND_PASS','LATE_REVIEW'].includes(phase)) {
+        showChatSetError('Chat Set 阶段无效', `study_phase=${phase} 不是可执行阶段。`);
+        return;
+      }
+      if (visibility !== 'immediate') {
+        showChatSetError('当前 Chat Set 只执行即时反馈', 'Hidden 结果会和 Whole Paper 一起实现；当前不静默降级。');
+        return;
+      }
+      if (ids.some((id) => !/^xizong-official-\d{4}-n\d{3}$/.test(id))) {
+        showChatSetError('Chat Set 含无效题号', '只接受 canonical xizong-official-YYYY-nNNN 题号。');
+        return;
+      }
+      const uniqueIds = [...new Set(ids)];
+      if (uniqueIds.length !== ids.length) {
+        showChatSetError('Chat Set 含重复题号', '网页不会自行去重或改写 Chat 给出的顺序，请让 Chat 返回唯一 qid。');
+        return;
+      }
+
+      const savedHoldout = readJson(holdoutKey, []);
+      const holdoutSet = new Set((Array.isArray(savedHoldout) ? savedHoldout : []).map(Number));
+      const selectedHoldoutYears = [...new Set(ids.map((id) => Number(id.match(/official-(\d{4})-/)?.[1])).filter((year) => holdoutSet.has(year)))];
+      if (selectedHoldoutYears.length && !allowHoldout) {
+        showChatSetError('Chat Set 命中整卷保留年份', `${selectedHoldoutYears.join('、')} 仍受 Holdout 保护。让 Chat/你显式设置 allow_holdout=true 才会执行。`);
+        return;
+      }
+
+      try {
+        const years = [...new Set(ids.map((id) => id.match(/official-(\d{4})-/)?.[1]).filter(Boolean))];
+        const banks = await Promise.all(years.map(async (year) => {
+          const response = await fetch(`${data.base}xizong/practice/data/${year}.json`);
+          if (!response.ok) throw new Error(`YEAR_FETCH_FAILED:${year}`);
+          return response.json();
+        }));
+        const byId = new Map(banks.flatMap((bank) => bank?.questions || []).map((q) => [q.questionId, q]));
+        const missing = ids.filter((id) => !byId.has(id));
+        if (missing.length) {
+          showChatSetError('Chat Set 含不存在的 Current 题号', `未找到：${missing.slice(0, 6).join('、')}${missing.length > 6 ? '…' : ''}`);
+          return;
+        }
+
+        data = {
+          ...data,
+          systemId: `chat-set:${setId}`,
+          canonicalId: 'CHAT',
+          title: label,
+          questionCount: ids.length,
+          scopePath: 'private://chat-set',
+          scopeHash: `chat-set:${setId}`,
+          questionInventoryHash: `chat-set:${setId}`,
+          years: years.map(Number),
+          questions: ids.map((id) => byId.get(id)),
+          studyPhase: phase,
+          queueMode: 'EXPLICIT_SET',
+          attemptContext: 'CHAT_SET',
+          resultVisibility: visibility,
+          fastSweep: speed === 'fast',
+          allowHoldout,
+          holdoutRequired: false
+        };
+        const titleNode = root.querySelector('[data-practice-scope-title]');
+        if (titleNode) titleNode.textContent = `Chat · ${label}`;
+        root.querySelector('[data-holdout-control]')?.setAttribute('hidden', '');
+      } catch (error) {
+        console.error(error);
+        showChatSetError('Chat Set 题目载入失败', 'Current Question Truth 没有完整载入；网页没有替换、补猜或跳过任何题。');
+        return;
+      }
+    }
+
+    if (!data?.questions?.length) return;
+
+    const storageId = String(data.systemId || initialSystemId).replace(/[^a-zA-Z0-9:_-]+/g, '-');
+    const sweepKey = data.scopeKind === 'CHAT_SET'
+      ? `kianos:xizong:chat-set-question-sweep:${storageId}:v1`
+      : `kianos:xizong:system-question-sweep:${initialSystemId}:v1`;
+
+    let holdoutYears = data.allowHoldout ? [] : readJson(holdoutKey, []);
+    let preferences = readJson(preferenceKey, { fastSweep: false });
+    if (typeof data.fastSweep === 'boolean') preferences = { ...preferences, fastSweep: data.fastSweep };
+    let sweepState = readJson(sweepKey, { results: {}, marks: {} });
+    const attemptContext = {
+      systemId: data.systemId,
+      canonicalId: data.canonicalId,
+      scopeHash: data.scopeHash,
+      questionInventoryHash: data.questionInventoryHash,
+      questions: data.questions,
+      attemptContext: data.attemptContext || 'SYSTEM_SWEEP',
+      resultVisibility: data.resultVisibility || 'immediate',
+      studyPhase: data.studyPhase || 'FIRST_PASS',
+      queueMode: data.queueMode || 'TARGETED'
+    };
+    sweepState = ensureXizongQuestionSweepState(sweepState, { ...attemptContext, holdoutYears });
+    writeJson(sweepKey, sweepState);
+
+    const front = root.querySelector('[data-practice-front]');
+    const back = root.querySelector('[data-practice-back]');
+    const mapNode = root.querySelector('[data-question-map]');
+    const questionCard = root.querySelector('[data-question-card]');
+    const holdoutGate = root.querySelector('[data-holdout-gate]');
+    const questionMeta = root.querySelector('[data-question-meta]');
+    const questionProgress = root.querySelector('[data-question-progress]');
+    const questionProgressSide = root.querySelector('[data-question-progress-side]');
+    const stem = root.querySelector('[data-question-stem]');
+    const optionsBox = root.querySelector('[data-question-options]');
+    const submit = root.querySelector('[data-submit-answer]');
+    const hint = root.querySelector('[data-selection-hint]');
+    const answerPanel = root.querySelector('[data-answer-panel]');
+    const answerResult = root.querySelector('[data-answer-result]');
+    const userAnswer = root.querySelector('[data-user-answer]');
+    const correctAnswer = root.querySelector('[data-correct-answer]');
+    const done = root.querySelector('[data-sweep-done]');
+    const fastButton = root.querySelector('[data-fast-sweep]');
+    const markButton = root.querySelector('[data-question-mark]');
+    const nextButton = root.querySelector('[data-next-question]');
+    const reviewToggle = root.querySelector('[data-review-toggle]');
+    const showFrontButton = root.querySelector('[data-show-front]');
+    const causeButtons = [...root.querySelectorAll('[data-cause]')];
+    const attemptNote = root.querySelector('[data-attempt-note]');
+    const attemptNoteStatus = root.querySelector('[data-attempt-note-status]');
+    const nextRoundButton = root.querySelector('[data-start-next-round]');
+    const nextPhaseSelect = root.querySelector('[data-next-phase]');
+    const nextQueueSelect = root.querySelector('[data-next-queue]');
+    const holdoutCurrent = root.querySelector('[data-holdout-current]');
+    const holdoutInput = root.querySelector('[data-holdout-input]');
+    const saveHoldout = root.querySelector('[data-save-holdout]');
+    const moreMenu = root.querySelector('.xzpMore');
+
+    const field = {
+      examTarget: [root.querySelector('[data-exam-target-wrap]'), root.querySelector('[data-exam-target]')],
+      decisionAxis: [root.querySelector('[data-decision-axis-wrap]'), root.querySelector('[data-decision-axis]')],
+      reasoningChain: [root.querySelector('[data-reasoning-chain-wrap]'), root.querySelector('[data-reasoning-chain]')],
+      correctReason: [root.querySelector('[data-correct-reason-wrap]'), root.querySelector('[data-correct-reason]')],
+      distractors: [root.querySelector('[data-distractors-wrap]'), root.querySelector('[data-distractors]')],
+      failureNode: [root.querySelector('[data-failure-node-wrap]'), root.querySelector('[data-failure-node]')],
+      transferRule: [root.querySelector('[data-transfer-rule-wrap]'), root.querySelector('[data-transfer-rule]')]
+    };
+    const relationWrap = root.querySelector('[data-relation-wrap]');
+    const relationLink = root.querySelector('[data-relation-link]');
+
+    let activeQuestions = [];
+    let currentQuestion = null;
+    let currentIndex = 0;
+    let currentSelection = new Set();
+    let backVisible = false;
+
+    const letters = (value) => (String(value || '').toUpperCase().match(/[A-Z]/g) || []).sort();
+    const same = (a, b) => a.length === b.length && a.every((value, index) => value === b[index]);
+    const eligibleYears = new Set((data.years || []).map(Number));
+    const normalizeHoldout = (value) => [...new Set((Array.isArray(value) ? value : []).map(Number).filter((year) => eligibleYears.has(year)))].sort((a,b)=>a-b);
+    holdoutYears = normalizeHoldout(holdoutYears);
+
+    const eligibleQuestions = () => data.questions.filter((q) => !holdoutYears.includes(Number(q.year)));
+    const computeActive = () => {
+      const eligible = eligibleQuestions();
+      const ids = new Set(deriveXizongQuestionIdsForCurrentRound(sweepState, eligible, []));
+      return eligible.filter((q) => ids.has(String(q.questionId)));
+    };
+    const resultFor = (id) => sweepState.results?.[id] || null;
+    const markedFor = (id) => isXizongQuestionMarked(sweepState, id);
+
+    const reviewMetaFor = (id) => sweepState.reviewMeta?.[id] || {};
+    const persistReviewMeta = (patch = {}) => {
+      if (!currentQuestion) return;
+      const id = currentQuestion.questionId;
+      const current = reviewMetaFor(id);
+      const next = {
+        ...sweepState,
+        reviewMeta: {
+          ...(sweepState.reviewMeta || {}),
+          [id]: {
+            ...current,
+            ...patch,
+            updatedAt: new Date().toISOString()
+          }
+        }
+      };
+      if (!writeJson(sweepKey, next)) return;
+      sweepState = next;
+    };
+
+    const renderTop = () => {
+      activeQuestions = computeActive();
+      root.querySelector('[data-study-phase]').textContent = xizongStudyPhaseLabel(sweepState.round?.studyPhase || 'FIRST_PASS');
+      holdoutCurrent.textContent = holdoutYears.length ? holdoutYears.join('、') : '未设置';
+      holdoutInput.value = holdoutYears.join(', ');
+      fastButton.setAttribute('aria-pressed', String(Boolean(preferences.fastSweep)));
+      fastButton.textContent = preferences.fastSweep ? 'Fast · On' : 'Fast';
+      if (currentQuestion) {
+        markButton.setAttribute('aria-pressed', String(markedFor(currentQuestion.questionId)));
+        markButton.textContent = markedFor(currentQuestion.questionId) ? '★ 已标记' : '☆ 标记';
+      } else {
+        markButton.setAttribute('aria-pressed', 'false');
+        markButton.textContent = '☆ 标记';
+      }
+    };
+
+    const showFront = () => {
+      backVisible = false;
+      if (front) front.hidden = false;
+      if (back) back.hidden = true;
+      if (reviewToggle) {
+        reviewToggle.setAttribute('aria-pressed', 'false');
+        reviewToggle.textContent = '复盘';
+      }
+    };
+
+    const showBack = () => {
+      if (!currentQuestion || !resultFor(currentQuestion.questionId)) return;
+      backVisible = true;
+      if (front) front.hidden = true;
+      if (back) back.hidden = false;
+      if (reviewToggle) {
+        reviewToggle.hidden = false;
+        reviewToggle.setAttribute('aria-pressed', 'true');
+        reviewToggle.textContent = '回正面';
+      }
+    };
+
+    const clearReview = () => {
+      showFront();
+      answerPanel.hidden = true;
+      Object.values(field).forEach(([wrap, node]) => {
+        if (wrap) wrap.hidden = true;
+        if (node instanceof HTMLOListElement || node instanceof HTMLUListElement) node.replaceChildren();
+        else if (node) node.textContent = '';
+      });
+      if (relationWrap) relationWrap.hidden = true;
+      if (relationLink) { relationLink.hidden = true; relationLink.removeAttribute('href'); relationLink.textContent = ''; }
+    };
+
+    const setTextField = (key, value) => {
+      const [wrap, node] = field[key] || [];
+      const text = String(value || '').trim();
+      if (!wrap || !node || !text) return;
+      wrap.hidden = false;
+      node.textContent = text;
+    };
+
+    const renderReview = (question, result) => {
+      const explanation = question?.explanation || {};
+      const meta = reviewMetaFor(question.questionId);
+      Object.values(field).forEach(([wrap, node]) => {
+        if (wrap) wrap.hidden = true;
+        if (node instanceof HTMLOListElement || node instanceof HTMLUListElement) node.replaceChildren();
+        else if (node) node.textContent = '';
+      });
+      if (relationWrap) relationWrap.hidden = true;
+      if (relationLink) { relationLink.hidden = true; relationLink.removeAttribute('href'); relationLink.textContent = ''; }
+      answerPanel.hidden = false;
+      answerResult.textContent = result.status === 'wrong' ? '本题答错' : result.status === 'uncertain' ? '本题不确定' : '本题答对';
+      answerResult.classList.toggle('wrong', result.status === 'wrong');
+      userAnswer.textContent = letters(result.selected).join('、') || '—';
+      correctAnswer.textContent = letters(question.correctAnswer).join('、');
+      causeButtons.forEach((button) => button.classList.toggle('active', button.dataset.cause === meta.cause));
+      if (attemptNote instanceof HTMLTextAreaElement) attemptNote.value = String(meta.note || '');
+      if (attemptNoteStatus) attemptNoteStatus.textContent = meta.note ? '已保存' : '';
+      showBack();
+
+      setTextField('examTarget', explanation.examTarget);
+      setTextField('decisionAxis', explanation.decisionAxis);
+
+      const chain = Array.isArray(explanation.reasoningChain) ? explanation.reasoningChain : [];
+      if (chain.length && field.reasoningChain[0] && field.reasoningChain[1]) {
+        field.reasoningChain[0].hidden = false;
+        chain.forEach((item) => {
+          const li = document.createElement('li');
+          li.textContent = item;
+          field.reasoningChain[1].appendChild(li);
+        });
+      }
+
+      setTextField('correctReason', explanation.correctOptionReason);
+
+      const distractors = Array.isArray(explanation.valuableDistractors) ? explanation.valuableDistractors : [];
+      if (distractors.length && field.distractors[0] && field.distractors[1]) {
+        field.distractors[0].hidden = false;
+        distractors.forEach((item) => {
+          const li = document.createElement('li');
+          li.textContent = `${item.option} · ${item.reason}`;
+          field.distractors[1].appendChild(li);
+        });
+      }
+
+      setTextField('failureNode', explanation.commonFailureNode);
+      setTextField('transferRule', explanation.transferRule);
+
+      if (relationWrap) {
+        relationWrap.hidden = true;
+        const relation = question?.relation || null;
+        if (relation?.knowledgePath && ['RESOLVED_KP','RESOLVED_BLOCK','BLOCK_ONLY'].includes(relation.targetStatus)) {
+          relationWrap.hidden = false;
+          relationLink.hidden = false;
+          const normalizedKnowledgePath = String(relation.knowledgePath || '').split('/').filter(Boolean).join('/');
+          relationLink.href = `${data.base}${normalizedKnowledgePath}`;
+          const label = [relation.blockLabel || relation.blockId, relation.primaryKpDisplayId || relation.primaryKpId, relation.primaryKpTitle].filter(Boolean).join(' · ');
+          relationLink.textContent = label ? `回到 ${label}` : '回到审核过的知识位置';
+        }
+      }
+    };
+
+    const renderMap = () => {
+      mapNode.replaceChildren();
+      const groups = new Map();
+      activeQuestions.forEach((q, index) => {
+        const year = String(q.year || '—');
+        if (!groups.has(year)) groups.set(year, []);
+        groups.get(year).push({ q, index });
+      });
+
+      groups.forEach((rows, year) => {
+        const section = document.createElement('section');
+        section.className = 'xzpMapYear';
+        const heading = document.createElement('h3');
+        heading.textContent = year;
+        const grid = document.createElement('div');
+        grid.className = 'xzpMapGrid';
+
+        rows.forEach(({ q, index }) => {
+          const result = resultFor(q.questionId);
+          const marked = markedFor(q.questionId);
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'xzpMapItem';
+          button.classList.toggle('current', currentQuestion?.questionId === q.questionId);
+          button.classList.toggle('answered', Boolean(result));
+          button.classList.toggle('wrong', result?.status === 'wrong');
+          button.classList.toggle('marked', marked);
+          button.textContent = String(q.number || index + 1);
+          button.title = `${year} · 第 ${q.number || index + 1} 题`;
+          button.addEventListener('click', () => renderQuestion(index));
+          grid.appendChild(button);
+        });
+
+        section.append(heading, grid);
+        mapNode.appendChild(section);
+      });
+
+      window.requestAnimationFrame(() => {
+        mapNode.querySelector('.xzpMapItem.current')?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+      });
+    };
+
+    const renderGate = () => {
+      currentQuestion = null;
+      questionCard.hidden = true;
+      done.hidden = true;
+      holdoutGate.hidden = false;
+      if (reviewToggle) reviewToggle.hidden = true;
+      clearReview();
+      questionProgress.textContent = '等待整卷保留设置';
+      if (questionProgressSide) questionProgressSide.textContent = '—';
+      questionMeta.textContent = 'SYSTEM PRACTICE';
+      renderMap();
+      renderTop();
+    };
+
+    const firstUnansweredIndex = () => activeQuestions.findIndex((q) => !resultFor(q.questionId));
+
+    const renderDone = () => {
+      currentQuestion = null;
+      questionCard.hidden = true;
+      holdoutGate.hidden = true;
+      done.hidden = false;
+      if (reviewToggle) reviewToggle.hidden = true;
+      clearReview();
+      questionMeta.textContent = 'ROUND COMPLETE';
+      questionProgress.textContent = `${activeQuestions.length} / ${activeQuestions.length}`;
+      if (questionProgressSide) questionProgressSide.textContent = `${activeQuestions.length} / ${activeQuestions.length}`;
+      const phase = sweepState.round?.studyPhase || 'FIRST_PASS';
+      if (nextPhaseSelect) nextPhaseSelect.value = phase;
+      if (nextQueueSelect) nextQueueSelect.value = 'TARGETED';
+      nextRoundButton.disabled = false;
+      renderMap();
+      renderTop();
+    };
+
+    const renderQuestion = (requestedIndex = null) => {
+      activeQuestions = computeActive();
+      if (data.holdoutRequired !== false && !holdoutYears.length) { renderGate(); return; }
+      if (!activeQuestions.length) { renderDone(); return; }
+
+      let index = Number.isInteger(requestedIndex) ? Number(requestedIndex) : firstUnansweredIndex();
+      if (index < 0) { renderDone(); return; }
+      currentIndex = Math.max(0, Math.min(activeQuestions.length - 1, index));
+      currentQuestion = activeQuestions[currentIndex];
+      const existing = resultFor(currentQuestion.questionId);
+      currentSelection = new Set(existing?.selected || []);
+
+      holdoutGate.hidden = true;
+      done.hidden = true;
+      questionCard.hidden = false;
+      questionMeta.textContent = `${currentQuestion.year} · 第 ${currentQuestion.number} 题 · ${currentQuestion.questionType || '题'}`;
+      questionProgress.textContent = `${currentIndex + 1} / ${activeQuestions.length}`;
+      if (questionProgressSide) questionProgressSide.textContent = `${currentIndex + 1} / ${activeQuestions.length}`;
+      stem.textContent = currentQuestion.stem;
+      hint.textContent = currentQuestion.questionType === 'X'
+        ? '1–5 切换选项 · Enter 提交 · M 标记'
+        : preferences.fastSweep ? 'Fast：1–5 选择即提交 · M 标记' : '1–5 选择 · Enter 提交 · M 标记';
+      optionsBox.replaceChildren();
+
+      currentQuestion.options.forEach((option) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'xzpOption';
+        button.dataset.option = option.label;
+        const key = document.createElement('b');
+        key.textContent = option.label;
+        const copy = document.createElement('span');
+        copy.textContent = option.text;
+        button.append(key, copy);
+        button.classList.toggle('selected', currentSelection.has(option.label));
+        if (existing) button.disabled = true;
+        button.addEventListener('click', () => {
+          if (resultFor(currentQuestion.questionId)) return;
+          if (currentQuestion.questionType === 'X') {
+            currentSelection.has(option.label) ? currentSelection.delete(option.label) : currentSelection.add(option.label);
+          } else {
+            currentSelection.clear();
+            currentSelection.add(option.label);
+          }
+          optionsBox.querySelectorAll('.xzpOption').forEach((node) => node.classList.toggle('selected', currentSelection.has(node.dataset.option || '')));
+          submit.disabled = currentSelection.size === 0;
+          if (preferences.fastSweep && currentQuestion.questionType !== 'X' && currentSelection.size) {
+            window.setTimeout(submitAnswer, 0);
+          }
+        });
+        optionsBox.appendChild(button);
+      });
+
+      submit.disabled = Boolean(existing) || currentSelection.size === 0;
+      submit.hidden = Boolean(existing);
+      clearReview();
+      if (reviewToggle) reviewToggle.hidden = !existing;
+
+      if (existing) {
+        const correct = letters(currentQuestion.correctAnswer);
+        optionsBox.querySelectorAll('.xzpOption').forEach((node) => {
+          const key = node.dataset.option || '';
+          node.classList.toggle('correct', correct.includes(key));
+          node.classList.toggle('wrong', currentSelection.has(key) && !correct.includes(key));
+        });
+        if (existing.status === 'wrong' || existing.status === 'uncertain') renderReview(currentQuestion, existing);
+        else showFront();
+      }
+
+      renderMap();
+      renderTop();
+    };
+
+    const persistAttempt = (status) => {
+      let next;
+      try {
+        next = recordXizongQuestionAttempt(sweepState, {
+          question: currentQuestion,
+          status,
+          selected: currentSelection,
+          marked: markedFor(currentQuestion.questionId),
+          context: attemptContext,
+          holdoutYears
+        });
+      } catch (error) {
+        console.error(error);
+        return false;
+      }
+      if (!writeJson(sweepKey, next)) return false;
+      sweepState = next;
+      return true;
+    };
+
+    const nextQuestion = () => {
+      activeQuestions = computeActive();
+      const after = activeQuestions.findIndex((q, index) => index > currentIndex && !resultFor(q.questionId));
+      const first = firstUnansweredIndex();
+      const next = after >= 0 ? after : first;
+      if (next < 0) renderDone();
+      else renderQuestion(next);
+    };
+
+    const submitAnswer = () => {
+      if (!currentQuestion || !currentSelection.size || resultFor(currentQuestion.questionId)) return;
+      const correct = letters(currentQuestion.correctAnswer);
+      const selected = [...currentSelection].sort();
+      const isCorrect = same(selected, correct);
+      if (!persistAttempt(isCorrect ? 'stable' : 'wrong')) return;
+      renderQuestion(currentIndex);
+      if (isCorrect) window.setTimeout(nextQuestion, preferences.fastSweep ? 120 : 520);
+    };
+
+    const toggleMark = () => {
+      if (!currentQuestion) return;
+      const next = setXizongQuestionMarked(sweepState, currentQuestion.questionId, !markedFor(currentQuestion.questionId));
+      if (!writeJson(sweepKey, next)) return;
+      sweepState = next;
+      renderTop();
+      renderMap();
+    };
+
+    const parseHoldout = () => normalizeHoldout(String(holdoutInput.value || '').split(/[,，\\s]+/).filter(Boolean));
+    saveHoldout.addEventListener('click', () => {
+      const selected = parseHoldout();
+      if (!selected.length) {
+        holdoutCurrent.textContent = '至少保留一套';
+        return;
+      }
+      holdoutYears = selected;
+      writeJson(holdoutKey, holdoutYears);
+      root.querySelector('[data-holdout-control]')?.removeAttribute('open');
+      moreMenu?.removeAttribute('open');
+      renderQuestion();
+    });
+
+    fastButton.addEventListener('click', () => {
+      preferences = { ...preferences, fastSweep: !preferences.fastSweep };
+      writeJson(preferenceKey, preferences);
+      renderTop();
+      if (currentQuestion && !resultFor(currentQuestion.questionId)) {
+        hint.textContent = currentQuestion.questionType === 'X'
+          ? '1–5 切换选项 · Enter 提交 · M 标记'
+          : preferences.fastSweep ? 'Fast：1–5 选择即提交 · M 标记' : '1–5 选择 · Enter 提交 · M 标记';
+      }
+    });
+    markButton.addEventListener('click', toggleMark);
+    reviewToggle?.addEventListener('click', () => {
+      if (!currentQuestion) return;
+      const existing = resultFor(currentQuestion.questionId);
+      if (!existing) return;
+      if (backVisible) showFront();
+      else renderReview(currentQuestion, existing);
+    });
+    showFrontButton?.addEventListener('click', showFront);
+    causeButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        if (!currentQuestion) return;
+        const cause = String(button.dataset.cause || '');
+        const current = reviewMetaFor(currentQuestion.questionId);
+        const nextCause = current.cause === cause ? '' : cause;
+        persistReviewMeta({ cause: nextCause });
+        causeButtons.forEach((node) => node.classList.toggle('active', node.dataset.cause === nextCause));
+      });
+    });
+    attemptNote?.addEventListener('change', () => {
+      if (!(attemptNote instanceof HTMLTextAreaElement)) return;
+      persistReviewMeta({ note: attemptNote.value.trim() });
+      if (attemptNoteStatus) attemptNoteStatus.textContent = attemptNote.value.trim() ? '已保存' : '';
+    });
+    submit.addEventListener('click', submitAnswer);
+    nextButton.addEventListener('click', nextQuestion);
+
+    const startNextRound = () => {
+      activeQuestions = computeActive();
+      const studyPhase = String(nextPhaseSelect?.value || sweepState.round?.studyPhase || 'FIRST_PASS');
+      const queueMode = String(nextQueueSelect?.value || 'TARGETED');
+      let next;
+      try {
+        next = startNextXizongQuestionRound(
+          sweepState,
+          activeQuestions.map((q) => q.questionId),
+          {},
+          { studyPhase, queueMode }
+        );
+      } catch (error) {
+        console.error(error);
+        return;
+      }
+      if (!writeJson(sweepKey, next)) return;
+      sweepState = next;
+      renderQuestion();
+    };
+    nextRoundButton.addEventListener('click', startNextRound);
+
+    document.addEventListener('keydown', (event) => {
+      if (!document.body.contains(root) || root.getClientRects().length === 0) return;
+      const target = event.target;
+      if (target instanceof HTMLElement && target.closest('input,textarea,select,[contenteditable="true"]')) return;
+      if (!currentQuestion) return;
+
+      if (event.key.toLowerCase() === 'm') {
+        event.preventDefault();
+        toggleMark();
+        return;
+      }
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault();
+        const delta = event.key === 'ArrowLeft' ? -1 : 1;
+        renderQuestion(Math.max(0, Math.min(activeQuestions.length - 1, currentIndex + delta)));
+        return;
+      }
+      if (/^[1-5]$/.test(event.key) && !resultFor(currentQuestion.questionId)) {
+        const option = currentQuestion.options[Number(event.key) - 1];
+        if (option) {
+          event.preventDefault();
+          optionsBox.querySelector(`.xzpOption[data-option="${option.label}"]`)?.click();
+        }
+        return;
+      }
+      if (event.code === 'Space') {
+        const existing = resultFor(currentQuestion.questionId);
+        if (existing) {
+          event.preventDefault();
+          if (backVisible) showFront();
+          else renderReview(currentQuestion, existing);
+        }
+        return;
+      }
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        if (resultFor(currentQuestion.questionId)) nextQuestion();
+        else if (currentSelection.size) submitAnswer();
+      }
+    });
+
+    renderQuestion();
+  });
+</script>

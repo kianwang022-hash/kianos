@@ -4,9 +4,12 @@ import {
   ensureXizongQuestionSweepState,
   recordXizongQuestionAttempt,
   startNextXizongQuestionRound,
-  nextXizongStudyPhase,
   deriveXizongSecondPassQuestionIds,
-  deriveXizongQuestionIdsForCurrentRound
+  deriveXizongMarkedQuestionIds,
+  deriveXizongLateReviewQuestionIds,
+  deriveXizongQuestionIdsForCurrentRound,
+  setXizongQuestionMarked,
+  isXizongQuestionMarked
 } from '../src/lib/xizongQuestionAttempts.mjs';
 
 let idCounter = 0;
@@ -82,6 +85,9 @@ const firstRoundHistory = JSON.stringify(state.attemptHistory);
 state = startNextXizongQuestionRound(state, ['q1', 'q2'], {
   now: '2026-09-15T01:00:00.000Z',
   makeId
+}, {
+  studyPhase: 'SECOND_PASS',
+  queueMode: 'TARGETED'
 });
 assert.equal(state.round.studyPhase, 'SECOND_PASS');
 assert.equal(state.round.queueMode, 'TARGETED');
@@ -128,11 +134,32 @@ state = recordXizongQuestionAttempt(state, {
 state = startNextXizongQuestionRound(state, ['q1', 'q2'], {
   now: '2026-09-15T02:00:00.000Z',
   makeId
+}, {
+  studyPhase: 'LATE_REVIEW',
+  queueMode: 'TARGETED'
 });
 assert.equal(state.round.studyPhase, 'LATE_REVIEW');
-assert.equal(state.round.queueMode, 'FULL_RESWEEP');
+assert.equal(state.round.queueMode, 'TARGETED');
 assert.equal(state.round.ordinal, 3);
-assert.equal(nextXizongStudyPhase('LATE_REVIEW'), 'LATE_REVIEW');
+assert.deepEqual(
+  deriveXizongLateReviewQuestionIds(state, context.questions, context.holdoutYears),
+  [],
+  'freshly verified stable questions should not be forced back into late review'
+);
+assert.deepEqual(
+  deriveXizongQuestionIdsForCurrentRound(state, context.questions, context.holdoutYears),
+  [],
+  'late review targeted mode must not silently become a full resweep'
+);
+
+const lateHistory = JSON.stringify(state.attemptHistory);
+state = startNextXizongQuestionRound(state, [], {
+  now: '2026-09-15T02:10:00.000Z',
+  makeId
+});
+assert.equal(state.round.studyPhase, 'LATE_REVIEW', 'starting another run must preserve phase unless explicitly changed');
+assert.equal(state.round.queueMode, 'TARGETED');
+assert.equal(JSON.stringify(state.attemptHistory), lateHistory, 'starting another run must preserve attempt history');
 
 // Representative queue calibration: Stable is skipped by default; W/U re-enter;
 // held-out questions remain excluded; mapping presence is irrelevant to queue membership.
@@ -141,7 +168,8 @@ const representativeQuestions = [
   { questionId: 'uncertain-unmapped', year: 2024, number: 11, questionType: 'A1', correctAnswer: 'B' },
   { questionId: 'wrong-case', year: 2024, number: 12, questionType: 'A2', correctAnswer: 'C', relation: { primaryKpId: 'KP09' } },
   { questionId: 'wrong-multiselect', year: 2024, number: 13, questionType: 'X', correctAnswer: 'AC' },
-  { questionId: 'wrong-heldout', year: 2025, number: 14, questionType: 'A1', correctAnswer: 'D' }
+  { questionId: 'wrong-heldout', year: 2025, number: 14, questionType: 'A1', correctAnswer: 'D' },
+  { questionId: 'stable-marked', year: 2024, number: 15, questionType: 'A1', correctAnswer: 'E' }
 ];
 const representativeHistory = [
   { type: 'QUESTION_ATTEMPT', question_id: 'stable-simple', study_phase: 'FIRST_PASS', status: 'stable' },
@@ -150,15 +178,22 @@ const representativeHistory = [
   { type: 'QUESTION_ATTEMPT', question_id: 'wrong-multiselect', study_phase: 'FIRST_PASS', status: 'wrong' },
   { type: 'QUESTION_ATTEMPT', question_id: 'wrong-heldout', study_phase: 'FIRST_PASS', status: 'wrong' }
 ];
-const representativeState = {
+let representativeState = {
   attemptHistory: representativeHistory,
   results: {},
   round: { id: 'round-2', studyPhase: 'SECOND_PASS', queueMode: 'TARGETED', ordinal: 2 }
 };
+representativeState = setXizongQuestionMarked(representativeState, 'stable-marked', true);
+assert.equal(isXizongQuestionMarked(representativeState, 'stable-marked'), true);
 assert.deepEqual(
   deriveXizongSecondPassQuestionIds(representativeState, representativeQuestions, [2025]),
   ['uncertain-unmapped', 'wrong-case', 'wrong-multiselect'],
-  'targeted queue should include W/U regardless of mapping and exclude Stable/holdout'
+  'targeted second-pass queue should include unresolved W/U regardless of mapping and exclude Stable/Marked/holdout'
+);
+assert.deepEqual(
+  deriveXizongMarkedQuestionIds(representativeState, representativeQuestions, [2025]),
+  ['stable-marked'],
+  'Marked must remain an explicit learner-selected scope rather than automatic second-pass debt'
 );
 assert.deepEqual(
   deriveXizongQuestionIdsForCurrentRound(representativeState, representativeQuestions, [2025]),
@@ -170,7 +205,7 @@ const fullRepresentative = {
 };
 assert.deepEqual(
   deriveXizongQuestionIdsForCurrentRound(fullRepresentative, representativeQuestions, [2025]),
-  ['stable-simple', 'uncertain-unmapped', 'wrong-case', 'wrong-multiselect'],
+  ['stable-simple', 'uncertain-unmapped', 'wrong-case', 'wrong-multiselect', 'stable-marked'],
   'explicit full re-sweep should include all non-holdout questions'
 );
 
@@ -179,7 +214,10 @@ console.log([
   'LegacyBootstrap=preserved+idempotent',
   'CurrentResults=round-scoped',
   'AttemptHistory=append-preserved',
-  'SecondPassDefault=targeted-W/U',
+  'SecondPassDefault=targeted-unresolved-W/U',
+  'Marked=explicit-scope',
+  'PhaseTransition=explicit',
+  'LateReview=no-auto-full-resweep',
   'StableDefault=excluded',
   'MissingMapping=non-blocking',
   'QuestionForms=A1+A2+X',

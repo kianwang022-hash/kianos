@@ -1,7 +1,7 @@
 /* Stage one: presentation only. Visibility owned by Runtime always wins. */
 .productNavIcon { display:none; }
 body#kianos-workspace.uiStageOne {
-  --study-font: system-ui,-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC","Segoe UI",sans-serif;
+  --study-font: var(--study-font-cjk);
   --study-ink:#23332f; --study-muted:#5c6d66; --study-faint:#77857f;
   --study-line:#dce3df; --study-green:#286857; --study-green-soft:#edf5f1;
   --study-radius:10px; --study-shadow:none;
