@@ -265,14 +265,16 @@ function validateEvidenceRuntimeWiring() {
 
 try {
   const manifest = JSON.parse(read('../../content/english/manifest.json'));
-  const map = manifest?.final_learner_objects?.objective_task_map;
-  if (map?.schema !== 'kianos.english.objective_task_map.v1') {
+  const map = manifest?.final_learner_objects?.task_map;
+  if (map?.schema !== 'kianos.english.task_map.v1') {
     issues.push('objective task map: missing Content-owned schema');
   }
   const expected = {
     reading_a: ['reading_part_a'],
     cloze: ['cloze'],
-    reading_b: ['reading_part_b']
+    reading_b: ['reading_part_b'],
+    translation: ['translation'],
+    writing: ['writing_part_a', 'writing_part_b']
   };
   for (const [task, sections] of Object.entries(expected)) {
     if (JSON.stringify(map?.tasks?.[task]?.sections || []) !== JSON.stringify(sections)) {
@@ -289,6 +291,24 @@ try {
   const readingLoader = read('../src/lib/englishReading.mjs');
   if (!readingLoader.includes("objectiveTaskSections(manifest, 'reading_a')")) {
     issues.push('Reading A loader: Content-owned task identity not consumed');
+  }
+
+  const translationLoader = read('../src/lib/englishTranslation.mjs');
+  for (const forbidden of ['KIANOS_TRANSLATION_SECTIONS', 'sectionMatch(', 'idMatch(']) {
+    if (translationLoader.includes(forbidden)) {
+      issues.push(`Translation loader: semantic task inference remains: ${forbidden}`);
+    }
+  }
+  if (!translationLoader.includes("manifest?.final_learner_objects?.task_map")) {
+    issues.push('Translation loader: Content-owned task identity not consumed');
+  }
+
+  const writingLoader = read('../src/lib/englishWriting.mjs');
+  if (writingLoader.includes('looksLikeWriting(')) {
+    issues.push('Writing loader: semantic task inference remains: looksLikeWriting');
+  }
+  if (!writingLoader.includes("manifest?.final_learner_objects?.task_map")) {
+    issues.push('Writing loader: Content-owned task identity not consumed');
   }
 } catch (error) {
   issues.push(`objective task map: ${error instanceof Error ? error.message : String(error)}`);
