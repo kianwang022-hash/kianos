@@ -45,24 +45,7 @@
         "sense_id": "sense:axis:676882ed54d85cea",
         "sense_label_en": "a real or imaginary line through the center of an object, around which t",
         "sort_order": 0,
-        "transitivity": "nonverb",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "inflectional_form",
-          "lexical_identity_id": "identity:0a7689261c4fe6cdf7cc",
-          "surface_lemma": "axis",
-          "inflectional_forms": [
-            {
-              "surface_form": "axis",
-              "number": "singular"
-            },
-            {
-              "surface_form": "axes",
-              "number": "plural"
-            }
-          ],
-          "pronunciation_note": "axis /ˈæk.sɪs/; axes /ˈæk.siːz/"
-        }
+        "transitivity": "nonverb"
       },
       {
         "collocations": [
@@ -105,13 +88,6 @@
         "definition_en": "the alliance of Germany, Italy, and later Japan in World War II",
         "governing_pattern": "",
         "level": "L3",
-        "lexical_identity_overlay": {
-          "case_sensitive": true,
-          "identity_type": "capitalized_historical_proper_lexeme",
-          "lexical_identity_id": "identity:5821862974ca8ab79fa0",
-          "recommended_disposition": null,
-          "surface_lemma": "Axis"
-        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:axis:2c40d67a7df95691",
@@ -137,7 +113,57 @@
     },
     "word": "axis",
     "word_family": [],
-    "word_id": "word:axis"
+    "word_id": "word:axis",
+    "form_identity": {
+      "form_type": "inflection_and_case_conditioned_identity",
+      "spelling": "axis",
+      "identity_rule": "number_and_capitalization_select_form_or_lexeme",
+      "boundary": "axis is singular; axes is its plural. Capitalized Axis refers to the World War II Axis alliance.",
+      "boundaries": [
+        {
+          "surface": "axis",
+          "condition": "singular common noun",
+          "note": "单数：轴/轴线"
+        },
+        {
+          "surface": "axes",
+          "condition": "plural common noun",
+          "note": "复数：多个轴；读音 /ˈæk.siːz/"
+        },
+        {
+          "surface": "Axis",
+          "condition": "capitalized historical proper lexeme",
+          "note": "二战“轴心国/轴心集团”"
+        }
+      ],
+      "variants": [
+        {
+          "variant_id": "form:axis:singular",
+          "pos": [
+            "noun"
+          ],
+          "learner_key": "axis · singular",
+          "ipa": "/ˈæk.sɪs/"
+        },
+        {
+          "variant_id": "form:axis:plural",
+          "pos": [
+            "noun"
+          ],
+          "learner_key": "axes · plural",
+          "ipa": "/ˈæk.siːz/"
+        },
+        {
+          "variant_id": "form:axis:proper",
+          "pos": [
+            "noun"
+          ],
+          "learner_key": "Axis · historical proper name",
+          "ipa": "/ˈæk.sɪs/"
+        }
+      ],
+      "authority": "existing canonical lexical identity + Baseline v2 2026-09-19"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
