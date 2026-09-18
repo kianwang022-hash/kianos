@@ -111,14 +111,14 @@ kianos-legacy@5cb002b4f775dbac0aa777ef8954f65db09904ab
 The preferred shared stack is:
 
 ```css
+"PingFang SC",
 -apple-system,
 BlinkMacSystemFont,
-"PingFang SC",
 "Noto Sans CJK SC",
 sans-serif
 ```
 
-On Mac, Chinese should therefore resolve to the PingFang system family while Latin/system UI may continue through the Apple system face.
+For Chinese learner-facing UI on Mac, PingFang is explicit and first. English/task-native typography remains separately owned.
 
 The positive reference is the Politics mode row (`继续 / 随机 / 错题 / 到期 / 收藏`), especially the active `错题` state. Its family is inherited from the Learn surface; the active state is intentionally heavier. This is distinct from the old Politics hero/title rule using `Georgia, "Songti SC", serif`, which is **not** the shared Chinese direction.
 
@@ -128,6 +128,9 @@ Hard rules:
 - Chinese headings do not switch to Songti/serif merely to look editorial.
 - Active/current labels may use stronger weight, but they keep the same family.
 - English editorial/exam typography is outside this Chinese unification rule and remains task-owned.
+- Ubuntu/Linux browser evidence is geometry/runtime evidence only for Chinese typography.
+- A Chinese typography Human Gate requires macOS browser evidence that proves PingFang is installed and usable before producing the accepted screenshot.
+- Accepted proof on 2026-09-18: macOS Chromium reported `fontFamily="PingFang SC"`, `fontWeight=600`, `fontCheck=true`.
 
 ### Typeface roles
 
