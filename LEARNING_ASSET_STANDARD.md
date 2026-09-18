@@ -256,6 +256,41 @@ If no, Content is not closed.
 
 Output: canonical Content that can be consumed by any valid future surface.
 
+### Content closure readback before Presentation
+
+For substantial Content realization, materialization is not the end of the stage.
+
+Before downstream Presentation / Projection becomes eligible, perform a bounded **Content Closure readback** against the accepted Knowledge + Learning decisions:
+
+```text
+accepted K + L
+→ Content realization
+→ Content closure audit / readback
+→ repair real semantic or hierarchy drift
+→ only then downstream Presentation / Projection
+```
+
+The closure audit should attack the failures that commonly appear during realization:
+
+- accepted Knowledge relation / boundary changed for storage or renderer convenience;
+- accepted Learning timing/order leaked into duplicated medical/domain truth;
+- rich backend objects were flattened, over-expanded, or made uniform for schema symmetry;
+- low-value/reference material was promoted because a field/component exists;
+- a required learner-worthy explanation/bridge/boundary disappeared despite object-count completeness;
+- Source evidence/provenance became a second learner course;
+- optional/conditional content was turned into mandatory learner debt;
+- Content began encoding page geometry / cards / columns / component choices;
+- cross-owner truth was copied rather than referenced;
+- "all fields present" was substituted for "this object is sufficient for its learner job".
+
+When the realization is broad or high-risk, use a fresh/independent readback or heterogeneous sample attack rather than relying only on the builder's own checklist.
+
+A small additive correction to already accepted Content may use a bounded owner-level readback instead of a full ritual re-audit.
+
+Hard rule:
+
+> **Projection/UI may expose a Content defect, but must not repair it downstream.**
+
 ---
 
 # 6｜Stage 4 — Presentation / Interaction, only when needed
