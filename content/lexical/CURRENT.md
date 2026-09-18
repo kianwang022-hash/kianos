@@ -149,6 +149,25 @@ real baseline
 
 ---
 
+## L3 Depth Human Gate — FAILED 2026-09-18
+
+The latest Mac-wide Depth candidate is **not accepted**. Do not treat its screenshot, typography, Reference layout, spacing or card treatment as a future baseline merely because build/browser CI passed.
+
+Repeated learner-visible defects called out by Kian:
+
+- Chinese learner-facing typography still renders narrow / weak / visually unpleasant; nominal font-size / weight is not sufficient evidence.
+- Chinese semantic meaning must remain the first scan layer; English lexical text may be editorial but must not visually dominate the learning object.
+- the right Reference region is low-quality when it shows a small under-explained card inside a large empty rail;
+- genuine decision boundaries / confusable distinctions must be shown from their real semantic owner; labels alone are not useful learning content;
+- retired Relation compatibility pointers must not project as current learner Reference cards;
+- Reference cards, Sense objects and header zones must align cleanly on the Mac-wide grid;
+- do not repeatedly reintroduce pale/weak text, excessive empty area, or misaligned nested containers after these have already been rejected;
+- Linux/browser CI screenshots with poor CJK fallback are not valid Human-Gate typography evidence.
+
+This L3 must be rebuilt from the accepted L2 family and real semantic owners rather than patched incrementally.
+
+---
+
 ## Exact next action
 
 Return to **L3 Depth** and redesign only that bounded surface under the accepted L2 family.
