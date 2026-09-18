@@ -1,0 +1,89 @@
+{
+  "schema": "kianos.politics.memory_projection.v1",
+  "status": "CURRENT_K_REVIEWED",
+  "chapter_id": "POL27-LEARN-MAO-C02",
+  "policy": "SOURCE_GROUNDED_SELECTIVE",
+  "principle": "Candidate existence is Knowledge; durable review debt remains admission-gated.",
+  "preferred_memory_reference": {
+    "role": "DESIGNATED_MEMORY_HANDBOOK",
+    "label": "腿姐《冲刺背诵手册》",
+    "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+    "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MAO.md",
+    "rule": "Current Mao Knowledge must independently own the relation. LEG26 supports historical retention priority; current-year source/WU evidence controls durable admission."
+  },
+  "admission_gate": {
+    "default": "NOT_ADMITTED",
+    "requires_source_grounding": true,
+    "admit_when_any": [
+      "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+      "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED"
+    ],
+    "do_not_admit_for": [
+      "historical handbook presence alone",
+      "chapter importance alone",
+      "one stable correct answer"
+    ]
+  },
+  "units": {
+    "POL27-CF-MAO-C02-S02": {
+      "title": "新民主主义革命的总路线和基本纲领",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MAO-C02-S02-M01",
+          "form": "identity_grid",
+          "statement": "新民主主义革命的对象、动力、领导、性质和前途是不同身份：对象回答反对谁，动力回答依靠谁，领导回答谁掌握领导权，性质回答革命属于什么类型，前途回答革命向哪里发展。",
+          "source_refs": [
+            "POL27-CF-MAO-C02-S02"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MAO-P077",
+            "LEG26-UPPER-MAO-P078",
+            "LEG26-UPPER-MAO-P079"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        },
+        {
+          "id": "POL27-MEM-MAO-C02-S02-M02",
+          "form": "nature_boundary",
+          "statement": "新民主主义革命由无产阶级领导，但革命性质仍是新式资产阶级民主革命；领导阶级不能直接替代革命性质判断。",
+          "source_refs": [
+            "POL27-CF-MAO-C02-S01",
+            "POL27-CF-MAO-C02-S02"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MAO-P077",
+            "LEG26-UPPER-MAO-P079"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    },
+    "POL27-CF-MAO-C02-S03": {
+      "title": "新民主主义革命的道路和基本经验",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MAO-C02-S03-M01",
+          "form": "road_tool_boundary",
+          "statement": "农村包围城市、武装夺取政权是中国革命道路；统一战线、武装斗争、党的建设是推进革命的三大法宝，二者不是同一层级。",
+          "source_refs": [
+            "POL27-CF-MAO-C02-S03"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MAO-P081",
+            "LEG26-UPPER-MAO-P083"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    }
+  },
+  "deferred_candidate_domains": [
+    {
+      "domain": "政治/经济/文化纲领完整固定表述",
+      "reason": "Current chapter owns the three-layer structure; exact detailed list remains current-year/source-exactness work."
+    }
+  ]
+}
