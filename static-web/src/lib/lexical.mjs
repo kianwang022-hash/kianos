@@ -1,6 +1,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { compileLexicalStudyObject } from '../../../content/lexical/tools/final-learner-object.mjs';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT
   ? path.resolve(process.env.KIANOS_REPO_ROOT)
@@ -194,10 +195,11 @@ export function loadLexicalWordByOrdinal(ordinal) {
     throw new Error(`CURRENT_LEXICAL_WORD_RECORD_ID_MISMATCH:${ordinal}`);
   }
 
-  const record = clone(owner.record);
-  const relationPaths = hydrateRelations(owner, record);
-  const sourceHash = sha256(stableJson({ owner: record, relationPaths }));
+  const hydratedRecord = clone(owner.record);
+  const relationPaths = hydrateRelations(owner, hydratedRecord);
+  const sourceHash = sha256(stableJson({ owner: hydratedRecord, relationPaths }));
   const senseLineage = senseLineageForOwner(owner);
+  const record = compileLexicalStudyObject(hydratedRecord);
 
   return {
     objectId: owner.word_id,
