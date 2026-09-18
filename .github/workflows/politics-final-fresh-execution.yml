@@ -46,7 +46,7 @@ jobs:
         run: |
           mkdir -p "$POLITICS_FRESH_EVIDENCE"
           git rev-parse HEAD > "$POLITICS_FRESH_EVIDENCE/HEAD.txt"
-          git show -s --format=%P HEAD > "$POLITICS_FRESH_EVIDENCE/INTEGRATED_PARENTS.txt"
+          git cat-file -p HEAD | sed -n 's/^parent //p' > "$POLITICS_FRESH_EVIDENCE/INTEGRATED_PARENTS.txt"
           printf '%s\n' '${{ github.event.pull_request.head.sha || github.sha }}' > "$POLITICS_FRESH_EVIDENCE/PR_HEAD.txt"
           printf '%s\n' '${{ github.event.pull_request.base.sha }}' > "$POLITICS_FRESH_EVIDENCE/BASE_HEAD.txt"
       - name: Bounded tracked-source readback for independent review
@@ -71,6 +71,10 @@ jobs:
         if: always() && steps.build.outcome == 'success'
         working-directory: static-web
         run: node scripts/test-politics-final-fresh-browser.mjs > "$POLITICS_FRESH_EVIDENCE/browser.log" 2>&1
+      - name: Internal sequence readability and settled Mac proof
+        if: always() && steps.build.outcome == 'success'
+        working-directory: static-web
+        run: node scripts/test-politics-sequence-readability.mjs > "$POLITICS_FRESH_EVIDENCE/readability.log" 2>&1
       - name: Bounded heterogeneous regression after fresh attacks
         if: always() && steps.build.outcome == 'success'
         working-directory: static-web
