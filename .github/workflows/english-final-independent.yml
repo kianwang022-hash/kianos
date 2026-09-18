@@ -5,28 +5,34 @@ on:
 permissions:
   contents: read
 jobs:
-  isolated-toolchain:
+  source-asset-recovery:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - name: Install isolated verification dependencies
-        working-directory: static-web
+      - name: Recover only source-owned URLs with exact hash verification
         run: |
-          npm install --no-package-lock
-          npm install --no-save --package-lock=false playwright@1.56.1
-          npx playwright install chromium --only-shell
-      - name: Package execution tools (no learner state)
-        run: |
-          mkdir -p /tmp/english-independent
-          git rev-parse HEAD > /tmp/english-independent/head.txt
-          tar -czf /tmp/english-independent/node-modules.tar.gz -C static-web node_modules
-          tar -czf /tmp/english-independent/browser.tar.gz -C "$HOME/.cache" ms-playwright
+          python - <<'PY'
+          import json, pathlib, hashlib, urllib.request, concurrent.futures
+          owner=json.load(open('content/english/source/global_source_truth.v1.json'))
+          out=pathlib.Path('/tmp/english-source-recovery');out.mkdir()
+          targets=[(k,a) for k,u in owner['units'].items() if u.get('section')=='writing_part_b' for a in u.get('images',[])]
+          def recover(item):
+            k,a=item;r={'object_id':k,'asset_path':a['asset_path'],'expected_sha256':a['asset_sha256']}
+            try:
+              req=urllib.request.Request(a['source_url'],headers={'User-Agent':'Mozilla/5.0'})
+              data=urllib.request.urlopen(req,timeout=25).read()
+              h=hashlib.sha256(data).hexdigest();r.update(actual_sha256=h,bytes=len(data),status='EXACT' if h==a['asset_sha256'] else 'HASH_MISMATCH')
+              if h==a['asset_sha256']:
+                p=out/a['asset_path'];p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(data)
+            except Exception as e:r.update(status='UNAVAILABLE',error=str(e))
+            return r
+          with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool: rows=list(pool.map(recover,targets))
+          (out/'source-recovery.json').write_text(json.dumps(rows,indent=2))
+          print(json.dumps([{k:v for k,v in r.items() if k not in ['expected_sha256','actual_sha256']} for r in rows],indent=2))
+          PY
       - uses: actions/upload-artifact@v4
         with:
-          name: english-independent-toolchain
-          path: /tmp/english-independent/
+          name: english-exact-source-recovery
+          path: /tmp/english-source-recovery/
           retention-days: 1
