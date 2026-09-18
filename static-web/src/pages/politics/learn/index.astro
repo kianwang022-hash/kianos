@@ -1,0 +1,100 @@
+---
+import Base from '../../../layouts/Base.astro';
+import '../../../styles/politics-learn-workspace.css';
+import { listPoliticsSubjectsCurrent } from '../../../lib/politicsCurrent.mjs';
+
+const base = import.meta.env.BASE_URL;
+const subjects = listPoliticsSubjectsCurrent();
+---
+
+<Base title="政治 · 学习" active="politics" showLead={false}>
+  <section class="politicsLearnIndex" data-politics-learn-index>
+    <header class="politicsLearnIndexHeader">
+      <div>
+        <span>学习</span>
+        <h1>五科 → 章节</h1>
+      </div>
+      <p>只负责定位：选科目，进章节，进入真正的 Learn Workspace。</p>
+    </header>
+
+    <div class="politicsLearnIndexGrid">
+      <nav class="politicsLearnSubjects" aria-label="政治五科">
+        {subjects.map((subject, index) => (
+          <a
+            href={`#subject-${subject.subject}`}
+            class={index === 0 ? 'active' : ''}
+            aria-current={index === 0 ? 'true' : undefined}
+            data-politics-learn-subject={subject.subject}
+          >
+            <strong>{subject.label}</strong>
+            <span>{subject.shape}</span>
+          </a>
+        ))}
+      </nav>
+
+      <div class="politicsLearnPanels">
+        {subjects.map((subject, index) => (
+          <section
+            class="politicsLearnPanel"
+            id={`subject-${subject.subject}`}
+            data-politics-learn-panel={subject.subject}
+            hidden={index !== 0}
+          >
+            <header class="politicsLearnPanelHeader">
+              <div>
+                <span class="politicsLearnPanelMeta">{subject.shape}</span>
+                <h2>{subject.label}</h2>
+                <p>{subject.description}</p>
+              </div>
+              <span>{subject.chapters.length} 个章节</span>
+            </header>
+
+            <nav class="politicsLearnChapterRows" aria-label={`${subject.label}章节`}>
+              {subject.chapters.map((chapter, chapterIndex) => (
+                <a href={`${base}politics/${subject.subject}/${chapter.code}/`}>
+                  <span>{String(chapterIndex + 1).padStart(2, '0')}</span>
+                  <strong>{chapter.title}</strong>
+                  <b>→</b>
+                </a>
+              ))}
+            </nav>
+          </section>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const root = document.querySelector('[data-politics-learn-index]');
+  if (root) {
+    const subjects = [...root.querySelectorAll('[data-politics-learn-subject]')];
+    const panels = [...root.querySelectorAll('[data-politics-learn-panel]')];
+
+    const select = (subject) => {
+      if (!panels.some((panel) => panel.getAttribute('data-politics-learn-panel') === subject)) return;
+      panels.forEach((panel) => {
+        panel.hidden = panel.getAttribute('data-politics-learn-panel') !== subject;
+      });
+      subjects.forEach((link) => {
+        const active = link.getAttribute('data-politics-learn-subject') === subject;
+        link.classList.toggle('active', active);
+        if (active) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
+      });
+    };
+
+    const selectFromHash = () => {
+      const fromHash = window.location.hash.replace('#subject-', '');
+      const fallback = subjects[0]?.getAttribute('data-politics-learn-subject') || '';
+      select(subjects.some((link) => link.getAttribute('data-politics-learn-subject') === fromHash) ? fromHash : fallback);
+    };
+
+    subjects.forEach((link) => {
+      link.addEventListener('click', () => select(link.getAttribute('data-politics-learn-subject') || ''));
+    });
+
+    window.addEventListener('hashchange', selectFromHash);
+    selectFromHash();
+  }
+</script>
