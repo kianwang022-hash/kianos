@@ -21,7 +21,7 @@ const broadStyle = read('src/styles/xizong-presentation.css');
 const denseCalmStyle = read('src/styles/xizong-dense-calm.css');
 
 check(systemRoute.includes("../../../styles/xizong-system-exit-workspace.css"), 'system_route_imports_recall_owner');
-check(practiceRoute.includes("../../../../styles/xizong-practice-workspace.css"), 'practice_route_imports_practice_owner');
+check(practiceRoute.includes("../../../styles/xizong-practice-workspace.css"), 'practice_route_imports_practice_owner');
 check(!practiceRoute.includes('xizong-system-exit-workspace.css'), 'practice_does_not_import_recall_owner');
 check(!systemRoute.includes('XizongSystemRepairReturn'), 'system_route_does_not_own_repair');
 check(practiceRoute.includes('XizongSystemRepairReturn'), 'practice_route_owns_repair_return');
