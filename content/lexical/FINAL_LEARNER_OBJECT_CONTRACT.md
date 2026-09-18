@@ -66,6 +66,15 @@ Reference owns genuine extra boundaries only:
 
 Do not manufacture Reference content from same-word Sense/Core repetition.
 
+When a structured Form object already exposes the usable distinction directly:
+
+- keep POS / learner key / IPA;
+- omit explanatory prose that merely restates the same pronunciation rule;
+- omit `initial/final` labels when the learner key itself already marks the stress;
+- omit Sense usage notes whose only purpose is repeating the same pronunciation/stress distinction.
+
+Canonical prose remains upstream for Explore/reference. Default Depth keeps the smallest learner-useful form.
+
 ## 3. No heuristic semantic dedupe
 
 The builder may use:
