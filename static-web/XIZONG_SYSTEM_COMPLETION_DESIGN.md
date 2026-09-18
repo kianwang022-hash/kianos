@@ -1,6 +1,6 @@
 # Xizong System Completion / Recall — accepted surface design
 
-Status: **CURRENT CANDIDATE — FUNCTION/OWNERSHIP FROZEN · L3 VISUAL RE-REVIEW UNDER XIZONG L2 REQUIRED**  
+Status: **ACCEPTED FOR MAIN — FUNCTION / OWNERSHIP / L3 VISUAL 2026-09-18 · REAL LEARNER U PENDING**  
 Parent: `static-web/XIZONG_PRODUCT_BRIEF.md`  
 Practice owner: `static-web/XIZONG_PRACTICE_DESIGN.md`  
 Review safety: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`  
@@ -116,9 +116,9 @@ Mac-wide origin is a dedicated Recall page/workspace, not a region appended unde
 
 Use broad/full-bodied Chinese typography, readable 16–22px learner copy, moderate Regular/Medium weights, low cardiness and protected vertical working height.
 
-## 7｜Acceptance boundary
+## 7｜Acceptance boundary — PASSED 2026-09-18
 
-Required before merge:
+Accepted on real macOS Human Gate after the dedicated route / PingFang-first visual candidate was reviewed. The following conditions are now the regression boundary:
 1. System Framework releases the dedicated System Recall entry only after real System completion;
 2. System Recall is rendered on its own L3 route/workspace, not embedded under System Framework;
 3. Front is answer-safe;
