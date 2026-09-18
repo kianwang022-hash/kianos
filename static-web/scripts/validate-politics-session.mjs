@@ -202,6 +202,44 @@ pass(safeEvidenceBinding, 'SESSION_ALL_EVIDENCE_COPY_CONTROLS_BOUND');
 pass(!unsafeEvidenceBinding, 'SESSION_SINGLE_NODE_FOREACH_INIT_CRASH_ABSENT');
 pass(evidenceBindingLine >= 0 && keyboardBindingLine > evidenceBindingLine, 'SESSION_INIT_REACHES_KEYBOARD_BINDING');
 pass(!sessionClient.includes("if (runtime.status === 'PAUSED_CHAT') {\n      $('[data-session-step]').hidden = true;"), 'SESSION_PAUSED_CHAT_SURFACE_VISIBLE');
+const practiceClientLines = practiceClient.split('\n').map((line) => line.trimStart());
+const explicitModeBindingLine = practiceClientLines.find((line) =>
+  line.includes("[data-mode-value]") && line.includes(".forEach") && line.includes("button.disabled = true")
+) || '';
+const explicitModeBindingSafe = explicitModeBindingLine.charAt(0) === '
+pass(practiceClient.includes("if (!explicitRetest && controls.mode.value === 'random')"), 'PRACTICE_EXPLICIT_RETEST_ORDER_NOT_SHUFFLED');
+pass(practiceClient.includes("const ids = (explicitRetest ? pool : pool.slice"), 'PRACTICE_EXPLICIT_RETEST_NO_COUNT_EXPANSION');
+pass(practiceClient.includes("if (!explicitRetest && controls.mode.value === 'random')"), 'PRACTICE_EXPLICIT_RETEST_ORDER_NOT_RANDOMIZED');
+pass(practiceClient.includes("mode: explicitRetest ? 'explicit_retest'"), 'PRACTICE_EXPLICIT_RETEST_IDENTITY');
+
+console.log(JSON.stringify({
+  schema: 'kianos.politics.session-executor-audit.v1',
+  target_count: targets.target_count,
+  question_count: practice.questionCount,
+  sample_target: sampleTarget.ref,
+  sample_questions: sampleQuestions,
+  failures
+}, null, 2));
+
+if (failures.length) process.exitCode = 1;
+ && explicitModeBindingLine.charAt(1) === '
+pass(practiceClient.includes("if (!explicitRetest && controls.mode.value === 'random')"), 'PRACTICE_EXPLICIT_RETEST_ORDER_NOT_SHUFFLED');
+pass(practiceClient.includes("const ids = (explicitRetest ? pool : pool.slice"), 'PRACTICE_EXPLICIT_RETEST_NO_COUNT_EXPANSION');
+pass(practiceClient.includes("if (!explicitRetest && controls.mode.value === 'random')"), 'PRACTICE_EXPLICIT_RETEST_ORDER_NOT_RANDOMIZED');
+pass(practiceClient.includes("mode: explicitRetest ? 'explicit_retest'"), 'PRACTICE_EXPLICIT_RETEST_IDENTITY');
+
+console.log(JSON.stringify({
+  schema: 'kianos.politics.session-executor-audit.v1',
+  target_count: targets.target_count,
+  question_count: practice.questionCount,
+  sample_target: sampleTarget.ref,
+  sample_questions: sampleQuestions,
+  failures
+}, null, 2));
+
+if (failures.length) process.exitCode = 1;
+ && explicitModeBindingLine.charAt(2) === '(';
+pass(explicitModeBindingSafe, 'PRACTICE_EXPLICIT_RETEST_MODE_BINDING_SAFE');
 pass(practiceClient.includes('if (explicitRetest) return explicitQuestionIds.map'), 'PRACTICE_EXPLICIT_RETEST_EXACT_POOL');
 pass(practiceClient.includes("if (!explicitRetest && controls.mode.value === 'random')"), 'PRACTICE_EXPLICIT_RETEST_ORDER_NOT_SHUFFLED');
 pass(practiceClient.includes("const ids = (explicitRetest ? pool : pool.slice"), 'PRACTICE_EXPLICIT_RETEST_NO_COUNT_EXPANSION');
