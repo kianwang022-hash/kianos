@@ -175,26 +175,18 @@
       ]
     },
     "precision_knowledge": {
-      "policy": "CURRENT_GROUNDED_CANDIDATE_MAP",
-      "candidate_domains": [
-        "人生目的/态度/价值层级",
-        "个人与社会关系",
-        "人生价值评价尺度与错误人生观 boundaries"
+      "policy": "REFERENCE_MEMORY_SIDECAR",
+      "owner_path": "content/politics/learning/ethics-law/ch01.memory.json",
+      "candidate_ids": [
+        "POL27-MEM-ETHICS-C01-S01-M01",
+        "POL27-MEM-ETHICS-C01-K03-M01",
+        "POL27-MEM-ETHICS-C01-S02-M01"
       ],
-      "historical_source_slices": [
-        {
-          "from": "LEG26-UPPER-ETHICS-P205",
-          "through": "LEG26-UPPER-ETHICS-P206",
-          "scope": "专题一：人生观选择题压缩"
-        },
-        {
-          "from": "LEG26-LOWER-ETHICS-P080",
-          "through": "LEG26-LOWER-ETHICS-P081",
-          "scope": "人生观/奋斗与青年相关分析题模板"
-        }
-      ],
-      "materialization_status": "CANDIDATE_OBJECTS_TO_BE_MATERIALIZED",
-      "freshness_gate": "NORMAL_CURRENT_YEAR_CORROBORATION"
+      "admission_state": "CANDIDATE_ONLY",
+      "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+      "deferred_domains": [],
+      "freshness_gate": "NORMAL",
+      "rule": "Current concept/boundary Knowledge plus inspected historical support creates candidate-only precision; durable Memory remains admission-gated."
     },
     "analysis_output_hooks": [
       {
