@@ -553,6 +553,8 @@ Later-stage Learning is now independently accepted for `CONSOLIDATION`, `ANALYSI
 - Missing downstream payload/recipe fails closed; Runtime never substitutes raw Current fields or invents a phase strategy.
 
 ---
+
+---
 #### `ORIENT`
 Dominant task: know what problem this Natural Unit solves and how it sits in the subject/chapter structure.
 
