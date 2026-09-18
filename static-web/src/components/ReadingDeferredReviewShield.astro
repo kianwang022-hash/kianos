@@ -3,7 +3,7 @@
 <script>
   const readingRoot = document.querySelector('[data-local-port="reading"]');
 
-  if (readingRoot) {
+  if (readingRoot && !new URLSearchParams(location.search).has('exam_session')) {
     const readingKey = readingRoot.getAttribute('data-reading-object') || 'reading';
     const basePath = readingRoot.getAttribute('data-reading-base') || '/';
     const attemptKey = `kianos-reading-attempt-v1:${readingKey}`;

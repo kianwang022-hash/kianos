@@ -24,7 +24,7 @@ const hrefFor = (id) => id ? `${base}reading/${encodeURIComponent(id)}/` : '';
 <script>
   const passageNavigator = document.querySelector('[data-reading-passage-navigator]');
   const result = document.querySelector('[data-reading-result]');
-  if (passageNavigator && result) {
+  if (passageNavigator && result && !new URLSearchParams(location.search).has('exam_session')) {
     const readingKey = passageNavigator.getAttribute('data-reading-object') || 'reading';
     const attemptKey = `kianos-reading-attempt-v1:${readingKey}`;
     const continuousKey = 'kianos-reading-continuous-session-v1';

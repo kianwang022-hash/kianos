@@ -1,6 +1,7 @@
 <span data-objective-handoff-root hidden></span>
 
 <script>
+  import { englishReturnBinding } from '../lib/englishTaskEvidence.mjs';
   const TRANSFER_STORE_KEY = 'kianos-english-objective-transfer-claims-v1';
   const normalizeAnswer = (value) => Array.isArray(value)
     ? value.map(String)
@@ -28,6 +29,7 @@
 
   document.querySelectorAll('[data-objective-root]').forEach((root) => {
     if (!(root instanceof HTMLElement)) return;
+    if (new URLSearchParams(location.search).has('exam_session')) return;
     const task = root.getAttribute('data-objective-task') || '';
     const objectId = root.getAttribute('data-objective-object') || '';
     const storageKey = root.getAttribute('data-objective-storage-key') || '';
@@ -171,7 +173,7 @@
         'newClaims may only reference a reusable task-specific thread whose repairCompleted=true and repairEvidence is non-empty. Do not duplicate Lexical or Reading objects. CLOSED and REOPENED require relevant fresh evidence; otherwise leave the claim unchanged.',
         'KIANOS_OBJECTIVE_RETURN_V1',
         '```json',
-        JSON.stringify({ schema: 'kianos.english.objective_review_return.v1', task, objectId, threads: [], newClaims: [], claimUpdates: [] }, null, 2),
+        JSON.stringify({ ...englishReturnBinding(attempt), schema: 'kianos.english.objective_review_return.v1', task, objectId, threads: [], newClaims: [], claimUpdates: [] }, null, 2),
         '```'
       );
 
@@ -203,6 +205,7 @@
         try {
           localStorage.setItem(handoffKey, JSON.stringify({
             schema: 'kianos.english.objective_handoff.v1',
+            ...englishReturnBinding(attempt),
             task,
             objectId,
             mode: 'OPTIONAL_ESCALATION',

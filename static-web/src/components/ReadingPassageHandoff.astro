@@ -1,11 +1,12 @@
 <span data-reading-passage-handoff-root hidden></span>
 
 <script>
+  import { englishReturnBinding } from '../lib/englishTaskEvidence.mjs';
   const TRANSFER_STORE_KEY = 'kianos-english-objective-transfer-claims-v1';
   const TASK = 'reading_a';
   const readingRoot = document.querySelector('[data-local-port="reading"]');
 
-  if (readingRoot) {
+  if (readingRoot && !new URLSearchParams(location.search).has('exam_session')) {
     const readingKey = readingRoot.getAttribute('data-reading-object') || 'reading';
     const storageKey = `kianos-reading-attempt-v1:${readingKey}`;
     const handoffKey = `kianos-english-objective-handoff-v1:${TASK}:${readingKey}`;
@@ -163,7 +164,7 @@
         'Use the smallest useful repair and re-execution only when it changes future behavior or resolves genuine uncertainty. newClaims require a reusable, high-value repaired thread with real repairEvidence. Leave unrelated claims untouched.',
         'KIANOS_OBJECTIVE_RETURN_V1',
         '```json',
-        JSON.stringify({ schema: 'kianos.english.objective_review_return.v1', task: TASK, objectId: readingKey, threads: [], newClaims: [], claimUpdates: [] }, null, 2),
+        JSON.stringify({ ...englishReturnBinding(attempt), schema: 'kianos.english.objective_review_return.v1', task: TASK, objectId: readingKey, threads: [], newClaims: [], claimUpdates: [] }, null, 2),
         '```'
       );
 
@@ -195,6 +196,7 @@
         try {
           localStorage.setItem(handoffKey, JSON.stringify({
             schema: 'kianos.english.objective_handoff.v1',
+            ...englishReturnBinding(attempt),
             task: TASK,
             objectId: readingKey,
             mode: 'OPTIONAL_ESCALATION',

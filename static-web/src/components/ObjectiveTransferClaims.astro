@@ -4,6 +4,9 @@ const { task = '' } = Astro.props;
 <span data-objective-transfer-runtime data-transfer-task={task} hidden></span>
 
 <script>
+  import { assertEnglishReturnBinding, sameEnglishReturn } from '../lib/englishTaskEvidence.mjs';
+  import { lexicalEventFromObjectiveThread, assertCurrentLexicalTarget } from '../lib/lexicalEnglishEvidence.mjs';
+  import { LEXICAL_LEDGER_STORAGE_KEY, appendEvidenceEvent, emptyLexicalLedger, normalizeLexicalLedger, compileRepairTargets } from '../lib/lexicalEvidence.mjs';
   const STORE_KEY = 'kianos-english-objective-transfer-claims-v1';
   const RETURN_SCHEMA = 'kianos.english.objective_review_return.v1';
   const RETURN_MARKER = 'KIANOS_OBJECTIVE_RETURN_V1';
@@ -74,6 +77,7 @@ const { task = '' } = Astro.props;
 
   document.querySelectorAll('[data-objective-transfer-runtime]').forEach((host) => {
     if (!(host instanceof HTMLElement)) return;
+    if (new URLSearchParams(location.search).has('exam_session')) return;
     const task = String(host.getAttribute('data-transfer-task') || '');
     if (!VALID_TASKS.has(task)) return;
 
@@ -183,25 +187,16 @@ const { task = '' } = Astro.props;
       }
     };
 
-    const persistPair = (nextStore, nextReview) => {
-      const oldStore = localStorage.getItem(STORE_KEY);
-      const oldReview = localStorage.getItem(reviewKey);
-      try {
-        localStorage.setItem(STORE_KEY, JSON.stringify(normalizeStore(nextStore)));
-        localStorage.setItem(reviewKey, JSON.stringify(nextReview));
-        return true;
-      } catch {
-        try {
-          if (oldStore === null) localStorage.removeItem(STORE_KEY);
-          else localStorage.setItem(STORE_KEY, oldStore);
-          if (oldReview === null) localStorage.removeItem(reviewKey);
-          else localStorage.setItem(reviewKey, oldReview);
-        } catch {}
-        return false;
-      }
+    // Validate the whole return before any mutation. Rollback handles synchronous
+    // storage failures, not OS/browser crashes: durable transactions stay shared.
+    const persistPair = (nextStore, nextReview, extra = []) => {
+      const writes=[[STORE_KEY,JSON.stringify(normalizeStore(nextStore))],[reviewKey,JSON.stringify(nextReview)],...extra];
+      const old=writes.map(([key])=>[key,localStorage.getItem(key)]);
+      try { for(const [key,value]of writes)localStorage.setItem(key,value);return true; }
+      catch { try{for(const [key,value]of old)value===null?localStorage.removeItem(key):localStorage.setItem(key,value);}catch{}return false; }
     };
 
-    const applyReturn = () => {
+    const applyReturn = async () => {
       const node = ensurePanel();
       const input = node.querySelector('[data-transfer-input]');
       const status = node.querySelector('[data-transfer-status]');
@@ -221,7 +216,56 @@ const { task = '' } = Astro.props;
         if (status) status.textContent = '当前作答尚未提交，不能导入学习状态。';
         return;
       }
+      assertEnglishReturnBinding(payload,attempt);
+      const previousRaw=localStorage.getItem(reviewKey);
+      const previous=previousRaw?JSON.parse(previousRaw):null;
+      if(previous?.attemptSubmittedAt===attempt.submittedAt && sameEnglishReturn(previous.returnPayload,payload)) {
+        if(status)status.textContent='这份返回已经应用；没有重复写入。';return;
+      }
+      for(const key of ['threads','newClaims','claimUpdates'])if(!Array.isArray(payload[key]))throw new Error('ENGLISH_RETURN_ARRAY_REQUIRED:'+key);
+      const currentItems=new Set(Object.keys(attempt.results||{}));
+      const threadIds=new Set();
+      for(const thread of payload.threads){
+        if(!thread||!VALID_ROUTES.has(thread.route)||!VALID_SCOPES.has(thread.scope)||!thread.threadId||threadIds.has(thread.threadId)||!Array.isArray(thread.itemIds)||!thread.itemIds.length||thread.itemIds.some(id=>!currentItems.has(id))||!String(thread.summary||'').trim())throw new Error('ENGLISH_RETURN_THREAD_INVALID');
+        if(thread.repairCompleted===true&&!String(thread.repairEvidence||'').trim())throw new Error('ENGLISH_RETURN_REPAIR_EVIDENCE_REQUIRED');
+        threadIds.add(thread.threadId);
+      }
+      const beforeStore=localStorage.getItem(STORE_KEY);
+      const beforeLedger=localStorage.getItem(LEXICAL_LEDGER_STORAGE_KEY);
+      let ledger=normalizeLexicalLedger(beforeLedger?JSON.parse(beforeLedger):emptyLexicalLedger());
+      const changedWords=new Map();
+      for(const [index,thread]of payload.threads.entries()){
+        if(thread.route!=='lexical')continue;
+        const prepared=lexicalEventFromObjectiveThread({task,objectId,attemptSubmittedAt:attempt.submittedAt,thread,threadIndex:index});
+        if(prepared.status!=='READY')throw new Error(prepared.status);
+        const event=prepared.event;
+        const response=await fetch(`${import.meta.env.BASE_URL}vocabulary/targets/${event.ordinal}.json`,{cache:'no-store'});
+        if(!response.ok)throw new Error('LEXICAL_CURRENT_TARGET_UNAVAILABLE');
+        const current=await response.json();assertCurrentLexicalTarget(event,current);
+        // Positive transfer needs already-recorded private attempt provenance.
+        const quality=attempt.evidence_quality||{};
+        if(event.outcome==='CORRECT'){
+          if(quality.assistance!=='unassisted')delete event.assistance;
+          if(!['fresh','unseen'].includes(quality.context_novelty))delete event.context_novelty;
+        }
+        const result=appendEvidenceEvent(ledger,event);
+        if(!['APPENDED','DUPLICATE_IGNORED'].includes(result.status))throw new Error('LEXICAL_EVIDENCE_'+result.status);
+        ledger=result.ledger;changedWords.set(event.word_id,event);
+      }
+      if(readAttempt().submittedAt!==attempt.submittedAt||localStorage.getItem(STORE_KEY)!==beforeStore||localStorage.getItem(LEXICAL_LEDGER_STORAGE_KEY)!==beforeLedger||localStorage.getItem(reviewKey)!==previousRaw)throw new Error('ENGLISH_RETURN_CONCURRENT_CHANGE');
+      const lexicalWrites=[];
+      if(changedWords.size){
+        lexicalWrites.push([LEXICAL_LEDGER_STORAGE_KEY,JSON.stringify(ledger)]);
+        const targets=compileRepairTargets(ledger);
+        for(const [wordId,event]of changedWords){
+          const key='kianos-vocabulary-astro-v2:'+wordId,raw=localStorage.getItem(key);
+          const cache=raw?JSON.parse(raw):{revealed:false,repairTargets:{},meta:{word_id:wordId,ordinal:event.ordinal,word:event.word}};
+          cache.repairTargets=Object.fromEntries(targets.filter(t=>t.word_id===wordId).map(t=>[t.target_id||`${t.target_kind}:${t.target_locator||''}`,{...t,label:t.target_id||t.target_locator,source:'evidence_reducer',outcome:'ADDED'}]));
+          lexicalWrites.push([key,JSON.stringify(cache)]);
+        }
+      }
       const handoff = readHandoff();
+      if(handoff)assertEnglishReturnBinding(handoff,attempt);
       const allowedActive = new Set(Array.isArray(handoff?.activeClaimIds) ? handoff.activeClaimIds.map(String) : []);
       const allowedReopen = new Set(Array.isArray(handoff?.reopenCandidateIds) ? handoff.reopenCandidateIds.map(String) : []);
       const currentProblems = problemCount(attempt);
@@ -229,7 +273,7 @@ const { task = '' } = Astro.props;
       const threads = (Array.isArray(payload.threads) ? payload.threads : [])
         .map(normalizeThread)
         .filter(Boolean);
-      const store = readStore();
+      const store = normalizeStore(beforeStore?JSON.parse(beforeStore):{});
       let claims = store.claims.map((claim) => ({ ...claim }));
       const importedAt = now();
       let acceptedUpdates = 0;
@@ -245,9 +289,10 @@ const { task = '' } = Astro.props;
         if (index < 0) { skipped += 1; return; }
         const claim = claims[index];
         const freshObject = String(claim?.sourceObjectId || '') !== objectId;
+        const qualifiedFresh=freshObject && attempt?.evidence_quality?.assistance==='unassisted' && ['fresh','unseen'].includes(attempt?.evidence_quality?.context_novelty) && update.sameDemand===true && !(attempt.history||[]).length;
 
         if (requested === 'CLOSED') {
-          if (!handoff || !allowedActive.has(claimId) || claim.status !== 'TRANSFER_PENDING' || !freshObject || !evidence) { skipped += 1; return; }
+          if (!handoff || !allowedActive.has(claimId) || claim.status !== 'TRANSFER_PENDING' || !qualifiedFresh || !evidence) { skipped += 1; return; }
           claims[index] = {
             ...claim,
             status: 'CLOSED',
@@ -300,6 +345,7 @@ const { task = '' } = Astro.props;
 
         if (duplicateIndex >= 0) {
           const existing = claims[duplicateIndex];
+          if (existing.task !== task || existing.sourceObjectId !== objectId || existing.sourceThreadId !== sourceThreadId || normalizedStatement(existing.statement)!==normalizedStatement(statement)) throw new Error('ENGLISH_CLAIM_IDENTITY_CONFLICT');
           if (existing.status === 'TRANSFER_PENDING') {
             claims[duplicateIndex] = {
               ...existing,
@@ -331,6 +377,7 @@ const { task = '' } = Astro.props;
         acceptedClaims += 1;
       });
 
+      if(skipped)throw new Error('ENGLISH_RETURN_REJECTED_WHOLE_BUNDLE:'+skipped);
       const activeClaims = claims.filter((claim) => claim?.status === 'TRANSFER_PENDING');
       const inactiveClaims = claims
         .filter((claim) => claim?.status !== 'TRANSFER_PENDING')
@@ -344,11 +391,13 @@ const { task = '' } = Astro.props;
         objectId,
         threads,
         importedAt,
+        attemptSubmittedAt:attempt.submittedAt,
+        returnPayload:payload,
         acceptedUpdates,
         acceptedClaims,
         skipped
       };
-      if (!persistPair({ version: 1, claims }, nextReview)) {
+      if (!persistPair({ version: 1, claims }, nextReview,lexicalWrites)) {
         if (status) status.textContent = '本机保存失败，未完成导入；你的粘贴内容已保留，可以重试。';
         return;
       }
@@ -357,6 +406,7 @@ const { task = '' } = Astro.props;
       const importBox = node.querySelector('[data-transfer-import]');
       if (importBox instanceof HTMLElement) importBox.hidden = true;
       if (status) status.textContent = `已导入：${acceptedClaims} 个新 pending claim，${acceptedUpdates} 个状态更新；${skipped} 项因证据不足或不匹配被忽略。`;
+      if(changedWords.size)window.dispatchEvent(new CustomEvent('kianos:lexical-evidence-changed'));
       root.dispatchEvent(new CustomEvent('kianos:objective-transfer-updated', { bubbles: true }));
       render();
     };
@@ -370,7 +420,7 @@ const { task = '' } = Astro.props;
       const box = node.querySelector('[data-transfer-import]');
       if (box instanceof HTMLElement) box.hidden = true;
     });
-    node.querySelector('[data-transfer-apply]')?.addEventListener('click', applyReturn);
+    node.querySelector('[data-transfer-apply]')?.addEventListener('click', () => applyReturn().catch(error=>{const status=node.querySelector('[data-transfer-status]');if(status)status.textContent='返回未应用，原始记录保留：'+error.message;}));
 
     if (readingMode) {
       root.addEventListener('click', () => window.setTimeout(render, 0));

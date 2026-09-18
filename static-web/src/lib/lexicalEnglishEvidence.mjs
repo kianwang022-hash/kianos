@@ -61,8 +61,7 @@ export function lexicalEventFromObjectiveThread({
 
   const threadId = clean(thread.threadId) || `t${Number(threadIndex) + 1}`;
   const targetIdentity = targetId || `${targetLocator}@${targetRevision}`;
-  const explicitEventId = clean(evidence.event_id);
-  const eventId = explicitEventId || [
+  const eventId = [
     'english', eventPart(task), eventPart(objectId), eventPart(validIso(attemptSubmittedAt) || observedAt), eventPart(threadId),
     eventPart(wordId), eventPart(targetKind), eventPart(targetIdentity), eventPart(outcome)
   ].join(':');
@@ -98,4 +97,16 @@ export function lexicalEventFromObjectiveThread({
   if (label) event.target_label = label.slice(0, 240);
 
   return { status: 'READY', event };
+}
+
+// This checks Current identity; labels, approximate spelling and historical
+// aliases are never a substitute for a real repair target.
+export function assertCurrentLexicalTarget(event, current) {
+  if(current?.word_id!==event?.word_id||Number(current?.ordinal)!==Number(event?.ordinal))throw new Error('LEXICAL_CURRENT_WORD_MISMATCH');
+  const target=(current.targets||[]).find(t=>t.target_kind===event.target_kind && (event.target_id?t.target_id===event.target_id:t.target_locator===event.target_locator));
+  if(!target)throw new Error('LEXICAL_CURRENT_TARGET_UNRESOLVED');
+  if(event.target_locator&&event.target_locator!==target.target_locator)throw new Error('LEXICAL_CURRENT_LOCATOR_MISMATCH');
+  if(!event.target_id&&event.target_revision!==current.source_revision)throw new Error('LEXICAL_CURRENT_REVISION_MISMATCH');
+  if(!DEMANDS.has(event.demand))throw new Error('LEXICAL_EXACT_DEMAND_REQUIRED');
+  return target;
 }

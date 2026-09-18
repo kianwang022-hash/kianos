@@ -230,6 +230,7 @@ const nextHref = translation.navigation?.nextId
 </section>
 
 <script>
+  import { englishReturnBinding } from '../lib/englishTaskEvidence.mjs';
   import { saveEnglishTaskState } from '../lib/englishExamSession.mjs';
   import { guardEnglishTaskEvidence } from '../lib/englishTaskEvidence.mjs';
   const examTaskContext = () => { try { return JSON.parse(document.querySelector('[data-exam-task-context]')?.textContent || 'null'); } catch { return null; } };
@@ -511,6 +512,8 @@ const nextHref = translation.navigation?.nextId
       `paper: ${paperId}`,
       `title: ${title}`,
       '',
+      'WHOLE SOURCE CONTEXT',
+      root.querySelector('[data-exam-task-context]')?.textContent || document.querySelector('[data-exam-task-context]')?.textContent || 'Context unavailable; do not infer missing passage.',
       'SOURCE SEGMENTS',
       sourceSegmentsText(),
       '',
@@ -532,6 +535,7 @@ const nextHref = translation.navigation?.nextId
       JSON.stringify({
         schema: TRANSLATION_RETURN_SCHEMA,
         task: objectId,
+        ...englishReturnBinding(state),
         decision: 'PASS | REPAIR_NEEDED',
         primary_failure: {
           layer: 'Lexical | English Representation | Relation / Information Preservation | Chinese Reconstruction | Execution / Self-check',

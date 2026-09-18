@@ -445,11 +445,11 @@ const questionId = (question, index) => String(question.id || question.question_
               summaryLabel.textContent = `统一复盘 · ${index + 1} / ${session.reviewIds.length} 篇`;
             } else if (session.lastSummary?.lastId === readingKey) {
               const last = session.lastSummary;
-              summaryLabel.textContent = `本次训练 ${last.passages} 篇 · ${last.score}/${last.total}${last.reviewPassages ? ' · 复盘结束' : ' · 无待复盘'}`;
+              summaryLabel.textContent = `本次训练 ${last.passages} 篇 · ${last.score}/${last.total}${last.reviewPassages ? ' · 复盘结束' : ' · 无可回看'}`;
             } else {
               summaryLabel.textContent = problems.length === 0
-                ? '稳定 · 可以直接下一篇'
-                : `有 ${problems.length} 题待复盘`;
+                ? '本次全对 · 可以直接下一篇'
+                : `有 ${problems.length} 题可回看`;
             }
           }
         }

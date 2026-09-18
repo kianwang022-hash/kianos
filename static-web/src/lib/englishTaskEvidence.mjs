@@ -66,3 +66,25 @@ export function englishMaterialExposure(storage, objectId) {
   }
   return {object_id:objectId,state:observations.length?'EXPOSED':'UNKNOWN',observations};
 }
+
+export function englishReturnBinding(record, repair = false) {
+  const attempt = String(record?.firstSubmittedAt || record?.submittedAt || '');
+  if (!attempt) throw new Error('ENGLISH_RETURN_FIRST_ATTEMPT_REQUIRED');
+  return {
+    attemptSubmittedAt: attempt,
+    contentRevision: record?.evidence_binding?.content_revision || null,
+    ...(repair ? { regenerationSubmittedAt: record?.regenerationSubmittedAt || '' } : {})
+  };
+}
+export function assertEnglishReturnBinding(payload, record, repair = false) {
+  const expected=englishReturnBinding(record,repair);
+  for (const [key,value] of Object.entries(expected)) {
+    if (payload?.[key] !== value || (key==='regenerationSubmittedAt' && !value)) {
+      throw new Error('ENGLISH_RETURN_STALE_EVIDENCE:'+key);
+    }
+  }
+}
+export function sameEnglishReturn(a,b) {
+  const stable=v=>Array.isArray(v)?v.map(stable):v&&typeof v==='object'?Object.fromEntries(Object.keys(v).sort().map(k=>[k,stable(v[k])])):v;
+  return !!a && !!b && JSON.stringify(stable(a))===JSON.stringify(stable(b));
+}

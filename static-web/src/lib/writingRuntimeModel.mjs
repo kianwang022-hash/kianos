@@ -1,3 +1,5 @@
+import { englishReturnBinding, assertEnglishReturnBinding, sameEnglishReturn } from './englishTaskEvidence.mjs';
+
 export const WRITING_RUNTIME_VERSION = 1;
 export const WRITING_RUNTIME_SCHEMA = 'kianos.english.writing.runtime.v1';
 export const WRITING_REVIEW_PACKET_SCHEMA = 'kianos.english.writing.review-packet.v1';
@@ -170,6 +172,7 @@ export function buildWritingReviewPacket(task, record) {
       allowedFirstFailureLayers: WRITING_FAILURE_LAYERS,
       returnSchema: {
         schema: WRITING_REVIEW_RETURN_SCHEMA,
+        ...englishReturnBinding(record),
         taskId: task.id,
         reviewOf: 'FIRST_DRAFT',
         verdict: 'PASS_ACCEPTABLE | REPAIR_NEEDED',
@@ -216,6 +219,7 @@ export function validateWritingReviewReturn(input, taskId) {
     }
     return {
       schema: WRITING_REVIEW_RETURN_SCHEMA,
+      attemptSubmittedAt:value.attemptSubmittedAt,contentRevision:value.contentRevision,
       taskId: clean(taskId),
       reviewOf: 'FIRST_DRAFT',
       verdict: 'PASS_ACCEPTABLE',
@@ -231,6 +235,7 @@ export function validateWritingReviewReturn(input, taskId) {
   if (!nonEmpty(value.smallestRepair)) throw new Error('WRITING_SMALLEST_REPAIR_REQUIRED');
   return {
     schema: WRITING_REVIEW_RETURN_SCHEMA,
+    attemptSubmittedAt:value.attemptSubmittedAt,contentRevision:value.contentRevision,
     taskId: clean(taskId),
     reviewOf: 'FIRST_DRAFT',
     verdict: 'REPAIR_NEEDED',
@@ -242,6 +247,9 @@ export function validateWritingReviewReturn(input, taskId) {
 }
 
 export function applyWritingReviewReturn(record, reviewReturn, now) {
+  reviewReturn=validateWritingReviewReturn(reviewReturn,record?.taskId);
+  assertEnglishReturnBinding(reviewReturn,record);
+  if(sameEnglishReturn(record.reviewReturn,reviewReturn)) return clone(record);
   if (!record || record.state !== WRITING_STATES.REVIEW_PENDING) {
     throw new Error(`WRITING_REVIEW_IMPORT_INVALID_STATE:${record?.state || 'missing'}`);
   }
@@ -273,6 +281,7 @@ export function lockWritingRegeneration(record, regeneration, now) {
   if (!record.reviewReturn || record.reviewReturn.verdict !== 'REPAIR_NEEDED') throw new Error('WRITING_REGEN_MISSING_ROOT_REPAIR');
   if (!nonEmpty(regeneration)) throw new Error('WRITING_REGEN_REQUIRED');
   const next = clone(record);
+  next.regenerationSubmittedAt = nowIso(now);
   next.regeneration = clean(regeneration);
   next.regenerationDraft = clean(regeneration);
   next.repairReturn = null;
@@ -313,6 +322,7 @@ export function buildWritingRepairCheckPacket(task, record) {
       cascadeRule: 'If the upstream repair succeeds but a later problem remains independently, it may become the next first failure. Otherwise do not manufacture downstream debt.',
       returnSchema: {
         schema: WRITING_REPAIR_RETURN_SCHEMA,
+        ...englishReturnBinding(record,true),
         taskId: task.id,
         repairOf: 'REGENERATION',
         verdict: 'REPAIR_COMPLETE | REPAIR_STILL_NEEDED',
@@ -343,6 +353,7 @@ function normalizeMemoryAdmission(value) {
 export function validateWritingRepairReturn(input, record) {
   if (!record?.reviewReturn || record.reviewReturn.verdict !== 'REPAIR_NEEDED') throw new Error('WRITING_REPAIR_RETURN_MISSING_ROOT_DIAGNOSIS');
   const value = parseJsonInput(input);
+  assertEnglishReturnBinding(value,record,true);
   if (value?.schema !== WRITING_REPAIR_RETURN_SCHEMA) throw new Error(`WRITING_REPAIR_RETURN_SCHEMA:${value?.schema || 'missing'}`);
   if (clean(value?.taskId) !== clean(record.taskId)) throw new Error(`WRITING_REPAIR_RETURN_TASK_MISMATCH:${value?.taskId || 'missing'}`);
   if (value?.repairOf !== 'REGENERATION') throw new Error(`WRITING_REPAIR_RETURN_REPAIR_OF:${value?.repairOf || 'missing'}`);
@@ -352,6 +363,7 @@ export function validateWritingRepairReturn(input, record) {
   if (value.verdict === 'REPAIR_COMPLETE') {
     return {
       schema: WRITING_REPAIR_RETURN_SCHEMA,
+      ...englishReturnBinding(record,true),
       taskId: record.taskId,
       repairOf: 'REGENERATION',
       verdict: 'REPAIR_COMPLETE',
@@ -378,6 +390,7 @@ export function validateWritingRepairReturn(input, record) {
 
   return {
     schema: WRITING_REPAIR_RETURN_SCHEMA,
+    ...englishReturnBinding(record,true),
     taskId: record.taskId,
     repairOf: 'REGENERATION',
     verdict: 'REPAIR_STILL_NEEDED',
@@ -390,6 +403,9 @@ export function validateWritingRepairReturn(input, record) {
 }
 
 export function applyWritingRepairReturn(record, repairReturn, now) {
+  assertEnglishReturnBinding(repairReturn,record,true);
+  if(sameEnglishReturn(record.repairReturn,repairReturn)) return clone(record);
+  repairReturn=validateWritingRepairReturn(repairReturn,record);
   if (!record || record.state !== WRITING_STATES.REPAIR_CHECK_PENDING) {
     throw new Error(`WRITING_REPAIR_IMPORT_INVALID_STATE:${record?.state || 'missing'}`);
   }
@@ -462,7 +478,7 @@ export function resetWritingAttempt(task, record, now) {
 }
 
 export function syntheticTaskQualifiesForColdStartExit(record) {
-  return Boolean(record) && [
+  return Boolean(record?.firstDraft?.trim() && record?.firstSubmittedAt && record?.sourceKind==='synthetic') && [
     WRITING_STATES.PASS_ACCEPTABLE,
     WRITING_STATES.REPAIR_COMPLETE,
     WRITING_STATES.TRANSFER_PENDING

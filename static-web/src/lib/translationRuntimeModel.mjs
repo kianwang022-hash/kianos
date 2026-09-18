@@ -1,3 +1,5 @@
+import { assertEnglishReturnBinding, sameEnglishReturn } from './englishTaskEvidence.mjs';
+
 export const TRANSLATION_RUNTIME_VERSION = 2;
 export const TRANSLATION_RETURN_SCHEMA = 'KIANOS_TRANSLATION_RETURN_V1';
 export const TRANSLATION_TRANSFER_STORAGE_KEY = 'kianos-translation-transfer-v1';
@@ -311,6 +313,9 @@ function normalizedAffectedSegments(payload, prompts) {
 }
 
 export function applyTranslationReturn(state, payload, prompts = [], ledger = null, context = {}) {
+  assertEnglishReturnBinding(payload,state);
+  payload=parseTranslationReturn(JSON.stringify(payload),context.task);
+  if(sameEnglishReturn(state.chatReturn,payload)) return {state:structuredClone(state),ledger:normalizeTransferLedger(ledger)};
   const affectedSegments = payload?.decision === 'REPAIR_NEEDED'
     ? normalizedAffectedSegments(payload, prompts)
     : [];
