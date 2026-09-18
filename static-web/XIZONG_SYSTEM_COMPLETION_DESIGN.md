@@ -1,9 +1,10 @@
 # Xizong System Completion / Recall — accepted surface design
 
-Status: **CURRENT CANDIDATE — RECALL / PRACTICE OWNERSHIP FROZEN 2026-09-18 · HUMAN GATE ACTIVE**  
+Status: **CURRENT CANDIDATE — FUNCTION/OWNERSHIP FROZEN · L3 VISUAL RE-REVIEW UNDER XIZONG L2 REQUIRED**  
 Parent: `static-web/XIZONG_PRODUCT_BRIEF.md`  
 Practice owner: `static-web/XIZONG_PRACTICE_DESIGN.md`  
-Review safety: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`
+Review safety: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`  
+Visual L2: `static-web/XIZONG_VISUAL_LANGUAGE.md`
 
 This owner is intentionally narrow. It owns **System Recall and the handoff out of the learning surface**. It does not own formal question practice.
 
