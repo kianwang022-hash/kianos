@@ -159,6 +159,8 @@ async function systemQuestionRepairJourney(page) {
   const holdoutYear = payload.years.find((year) => Number(year) !== Number(target.year));
   check(Boolean(holdoutYear), 'non_target_holdout_year_exists');
 
+  await practice.locator('.xzpMore').evaluate((node) => { node.open = true; });
+  await practice.locator('[data-holdout-control]').evaluate((node) => { node.open = true; });
   await practice.locator('[data-holdout-input]').fill(String(holdoutYear));
   await practice.locator('[data-save-holdout]').click();
   await practice.locator('[data-question-card]').waitFor({ state: 'visible' });
