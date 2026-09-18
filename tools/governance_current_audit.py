@@ -221,6 +221,42 @@ def walk_values(value):
         yield value
 
 
+def audit_production_protocol_owners() -> None:
+    """Protect recovered live-production quality gates without interpreting domain semantics."""
+    global checks
+    agents = require_file("AGENTS.md")
+    standard = require_file("LEARNING_ASSET_STANDARD.md")
+    acceptance = require_file("LEARNING_ACCEPTANCE.md")
+    if agents:
+        value = agents.read_text(encoding="utf-8")
+        checks += 1
+        if "Production-protocol continuity during owner cleanup" not in value:
+            fail("PRODUCTION_CONTINUITY_RULE_MISSING", "AGENTS.md")
+    if standard:
+        value = standard.read_text(encoding="utf-8")
+        required = {
+            "K_FALSIFICATION_RULE_MISSING": "Adversarial Knowledge reconstruction",
+            "L_FRESH_AUDIT_RULE_MISSING": "Builder self-review ≠ fresh independent L acceptance.",
+            "CONTENT_CLOSURE_RULE_MISSING": "Content closure readback before Presentation",
+            "MIGRATION_PRODUCTION_CONTINUITY_MISSING": "Production continuity across migrations",
+        }
+        for code, token in required.items():
+            checks += 1
+            if token not in value:
+                fail(code, "LEARNING_ASSET_STANDARD.md")
+    if acceptance:
+        value = acceptance.read_text(encoding="utf-8")
+        required = {
+            "K_ACCEPTANCE_FALSIFICATION_MISSING": "Evidence required for materially reconstructed Knowledge",
+            "L_ACCEPTANCE_FRESH_EVIDENCE_MISSING": "Evidence required for substantial reconstructed Learning",
+            "PRE_P_CONTENT_CLOSURE_MISSING": "Pre-P condition: realized Content must be closed",
+        }
+        for code, token in required.items():
+            checks += 1
+            if token not in value:
+                fail(code, "LEARNING_ACCEPTANCE.md")
+
+
 def audit_manifest(relative: str) -> None:
     global checks
     path = require_file(relative)
@@ -241,6 +277,8 @@ def audit_manifest(relative: str) -> None:
 
 
 def main() -> int:
+    audit_production_protocol_owners()
+
     for path in CURRENT_PATHS:
         audit_current(path)
 
