@@ -1,39 +1,16 @@
 ---
 const { groups = [] } = Astro.props;
 
-function textList(value) {
-  if (value == null || value === '') return [];
-  if (Array.isArray(value)) return value.flatMap(textList);
-  return [String(value)];
-}
-
-function itemLabel(item) {
-  return item?.label || item?.role || item?.name || item?.left || item?.from_label || '';
-}
-
-function learnerLines(item, extraReserved = []) {
-  const reserved = new Set([
-    'id',
-    'label',
-    'role',
-    'name',
-    'left',
-    'right',
-    'from_label',
-    'to_label',
-    'locator',
-    'look_for',
-    'items',
-    ...extraReserved
-  ]);
-  return Object.entries(item || {}).flatMap(([field, value]) => {
-    if (reserved.has(field) || value == null || value === '' || typeof value === 'object') return [];
-    return [{ field, text: String(value) }];
-  });
+function itemLines(item) {
+  return Array.isArray(item?.lines) ? item.lines : [];
 }
 
 function itemChildren(item) {
-  return textList(item?.items);
+  return Array.isArray(item?.children) ? item.children : [];
+}
+
+function itemLookFor(item) {
+  return Array.isArray(item?.lookFor) ? item.lookFor : [];
 }
 ---
 
@@ -55,14 +32,14 @@ function itemChildren(item) {
             return (
               <>
                 <article class="sequenceItem">
-                  {itemLabel(item) && <b>{itemLabel(item)}</b>}
-                  {learnerLines(item).map((line) => <p data-surface-field={line.field}>{line.text}</p>)}
+                  {item.heading && <b>{item.heading}</b>}
+                  {itemLines(item).map((line) => <p data-surface-field={line.field}>{line.text}</p>)}
                   {itemChildren(item).length > 0 && <ul>{itemChildren(item).map((line) => <li>{line}</li>)}</ul>}
                 </article>
                 {next && transition && (
-                  <div class="sequenceTransition" data-transition-mode={transition.relation_mode}>
-                    {transition.relation_mode === 'LABELED_RELATION' && transition.relation && (
-                      <span data-surface-field="relation">{transition.relation}</span>
+                  <div class="sequenceTransition" data-transition-mode={transition.mode}>
+                    {transition.mode === 'LABELED_RELATION' && transition.label && (
+                      <span data-surface-field="relation">{transition.label}</span>
                     )}
                     <i aria-hidden="true">→</i>
                   </div>
@@ -75,10 +52,10 @@ function itemChildren(item) {
         <div class="explicitParallel">
           {group.items.map((item) => (
             <article>
-              {itemLabel(item) && <b>{itemLabel(item)}</b>}
-              {item.from_label && item.to_label ? (
-                <p><strong>{item.from_label}</strong><span data-surface-field="relation">{item.relation || ''}</span><strong>{item.to_label}</strong></p>
-              ) : learnerLines(item).map((line) => <p data-surface-field={line.field}>{line.text}</p>)}
+              {item.heading && <b>{item.heading}</b>}
+              {item.relationClaim ? (
+                <p><strong>{item.relationClaim.from}</strong><span data-surface-field="relation">{item.relationClaim.relation || ''}</span><strong>{item.relationClaim.to}</strong></p>
+              ) : itemLines(item).map((line) => <p data-surface-field={line.field}>{line.text}</p>)}
               {itemChildren(item).length > 0 && <ul>{itemChildren(item).map((line) => <li>{line}</li>)}</ul>}
             </article>
           ))}
@@ -87,11 +64,8 @@ function itemChildren(item) {
         <div class="explicitCompare">
           {group.items.map((item) => (
             <article>
-              <div class="compareSides">
-                {item.left && <b>{item.left}</b>}
-                {item.right && <b>{item.right}</b>}
-              </div>
-              {learnerLines(item).map((line) => <p data-surface-field={line.field}>{line.text}</p>)}
+              {item.compare && <div class="compareSides"><b>{item.compare.left}</b><b>{item.compare.right}</b></div>}
+              {itemLines(item).map((line) => <p data-surface-field={line.field}>{line.text}</p>)}
             </article>
           ))}
         </div>
@@ -99,8 +73,8 @@ function itemChildren(item) {
         <div class="explicitHierarchy">
           {group.items.map((item, index) => (
             <article style={`--level:${index}`}>
-              {itemLabel(item) && <span>{itemLabel(item)}</span>}
-              <div>{learnerLines(item).map((line) => <p data-surface-field={line.field}>{line.text}</p>)}</div>
+              {item.heading && <span>{item.heading}</span>}
+              <div>{itemLines(item).map((line) => <p data-surface-field={line.field}>{line.text}</p>)}</div>
             </article>
           ))}
         </div>
@@ -108,8 +82,8 @@ function itemChildren(item) {
         <ol class="explicitTimeline">
           {group.items.map((item) => (
             <li>
-              {itemLabel(item) && <b>{itemLabel(item)}</b>}
-              <div>{learnerLines(item).map((line) => <span data-surface-field={line.field}>{line.text}</span>)}</div>
+              {item.heading && <b>{item.heading}</b>}
+              <div>{itemLines(item).map((line) => <span data-surface-field={line.field}>{line.text}</span>)}</div>
             </li>
           ))}
         </ol>
@@ -117,15 +91,15 @@ function itemChildren(item) {
         <div class="explicitStatements">
           {group.items.map((item) => (
             <article>
-              {item.from_label && item.to_label ? (
-                <p class="edgeStatement"><strong>{item.from_label}</strong><span data-surface-field="relation">{item.relation || ''}</span><strong>{item.to_label}</strong></p>
+              {item.relationClaim ? (
+                <p class="edgeStatement"><strong>{item.relationClaim.from}</strong><span data-surface-field="relation">{item.relationClaim.relation || ''}</span><strong>{item.relationClaim.to}</strong></p>
               ) : (
                 <>
-                  {itemLabel(item) && <b>{itemLabel(item)}</b>}
-                  {learnerLines(item).map((line) => <p data-surface-field={line.field}>{line.text}</p>)}
+                  {item.heading && <b>{item.heading}</b>}
+                  {itemLines(item).map((line) => <p data-surface-field={line.field}>{line.text}</p>)}
                   {itemChildren(item).length > 0 && <ul>{itemChildren(item).map((line) => <li>{line}</li>)}</ul>}
                   {item.locator && <p class="surfaceLocator" data-surface-field="locator">{item.locator}</p>}
-                  {textList(item.look_for).length > 0 && <ul>{textList(item.look_for).map((line) => <li data-surface-field="look_for">{line}</li>)}</ul>}
+                  {itemLookFor(item).length > 0 && <ul>{itemLookFor(item).map((line) => <li data-surface-field="look_for">{line}</li>)}</ul>}
                 </>
               )}
             </article>
