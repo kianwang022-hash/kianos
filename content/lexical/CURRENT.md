@@ -253,6 +253,44 @@ Projection/materialization metadata findings are diagnostics for ownership/trans
 
 ---
 
+## Final Learner Object direct-consumption cutover — ACTIVE CANDIDATE 2026-09-18
+
+The learner-facing chain is now:
+
+```text
+Current Natural Owners
+→ explicit Content-owned learner dispositions
+→ 7,946 materialized Final Learner Objects
+→ Website fixed mapping
+```
+
+Hard boundaries:
+
+- Natural Owners remain semantic Truth.
+- `content/lexical/final-learner-object-decisions.json` is the **single sparse explicit projection-decision owner**.
+- `tools/lexical_build_final_learner_objects.py` materializes the complete derived learner asset set.
+- `content/lexical/learner/final/manifest.json` owns the 7,946 derived Final Learner Objects.
+- Website reads the materialized Final Learner Object shards directly.
+- Website no longer hydrates Natural Owners or runs a semantic compiler for Word Study.
+- Final Learner builder may execute explicit decisions and stable-ID ownership/merge rules; it may not discover semantic equivalence.
+
+Reviewed pressure-test decisions currently include:
+
+- `abstract`: pronunciation-only Sense notes → Explore-only because structured Form already owns the distinction;
+- `ambulance`: duplicate Word Feel → Explore-only for default Depth;
+- `access`: one active-Sense duplicate secondary object → Explore-only;
+- `row`: repeated Sense pronunciation overlays → Explore-only because Word Feel already owns the pronunciation split.
+
+`stationary` and `charge` remain unsuppressed pressure-test controls because their current objects carry distinct learner jobs.
+
+Current Human Gate question is now Visual only:
+
+> Given the accepted Final Learner Object, is the fixed Website mapping readable, dense, aligned and low-noise?
+
+Do not use screenshots to decide semantics or add front-end suppression.
+
+---
+
 ## L3 Depth Human Gate — FAILED 2026-09-18
 
 The latest Mac-wide Depth candidate is **not accepted**. Do not treat its screenshot, typography, Reference layout, spacing or card treatment as a future baseline merely because build/browser CI passed.
