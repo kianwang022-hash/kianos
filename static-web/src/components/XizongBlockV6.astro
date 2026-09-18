@@ -346,10 +346,23 @@ const ttsx = block?.ttsx || { checkpoints: [] };
       syncGroupStage();
     };
 
+    const resetRecallCard = (card) => {
+      if (!(card instanceof HTMLElement)) return;
+      const answer = card.querySelector('[data-kp-answer]');
+      const rating = card.querySelector('[data-kp-rating]');
+      const reveal = card.querySelector('[data-kp-reveal]');
+      if (answer instanceof HTMLElement) answer.hidden = true;
+      if (rating instanceof HTMLElement) rating.hidden = true;
+      if (reveal instanceof HTMLElement) reveal.hidden = false;
+    };
+
     const setKpIndex = (index) => {
       state.kpIndex = Math.max(0, Math.min(totalKp - 1, Number(index) || 0));
       state.groupIndex = groupIndexForKp(state.kpIndex);
-      kpRecallCards.forEach((card, itemIndex) => { card.hidden = itemIndex !== state.kpIndex; });
+      kpRecallCards.forEach((card, itemIndex) => {
+        card.hidden = itemIndex !== state.kpIndex;
+        if (itemIndex === state.kpIndex && state.stage === 'kp_recall') resetRecallCard(card);
+      });
       const recallLabel = kpRecallCards[state.kpIndex]?.querySelector('h3')?.textContent || '';
       root.querySelector('[data-kp-recall-title]')?.replaceChildren(document.createTextNode(recallLabel));
       const group = currentGroup();
@@ -385,6 +398,7 @@ const ttsx = block?.ttsx || { checkpoints: [] };
       if (stage === 'logic_group') stage = sourcePerGroup ? 'kp_learn' : (state.sourceContactDone ? 'kp_recall' : 'source_contact');
       state.stage = stage;
       stages.forEach((panel) => { panel.hidden = panel.getAttribute('data-study-stage') !== state.stage; });
+      if (state.stage === 'kp_recall') resetRecallCard(kpRecallCards[state.kpIndex]);
       if (kpRail) kpRail.hidden = true;
       if (groupRail) groupRail.hidden = false;
       root.querySelectorAll('[data-chain-step]').forEach((item) => item.classList.toggle('viewing', item.getAttribute('data-chain-step') === state.stage));
