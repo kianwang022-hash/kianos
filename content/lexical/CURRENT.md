@@ -582,3 +582,5 @@ Current internal shard: **o0051–o0100 — APPROVED CONTENT FIXES MATERIALIZED;
 Kian approved the previously reported content problems for this shard. The approved fixes are staged and Final Learner Object readback passes, with **0 learner-page/UI files changed**.
 
 Do not add further semantic changes in o0051–o0100 without a new Kian problem report. Next action is read-only Repair Test diagnosis: report which exact targets deserve a Test blueprint and why; do not write Test blueprints before approval.
+
+Interaction rule: **one bounded shard (normally 50 owners) = one Kian Human Gate**. The shard report combines Content fixes + Repair Test candidates. Once Kian approves that report, automatically write all reported/approved Content and Test changes, rebuild/read back/validate, advance the cursor, and begin the next shard without inserting another approval step.
