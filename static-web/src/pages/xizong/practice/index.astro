@@ -1,7 +1,7 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import { listProjectableXizongSystems, loadXizongSystem } from '../../../lib/xizong.mjs';
-import { loadXizongSystemQuestionSweep } from '../../../lib/xizongQuestions.mjs';
+import { loadXizongSystemQuestionSweep, listXizongPaperSummaries } from '../../../lib/xizongQuestions.mjs';
 import '../../../styles/xizong-practice-workspace.css';
 
 const base = import.meta.env.BASE_URL;
@@ -18,6 +18,7 @@ const scopes = listProjectableXizongSystems()
     } : null;
   })
   .filter(Boolean);
+const papers = listXizongPaperSummaries();
 ---
 <Base title="西综训练" active="xizong" showLead={false}>
   <section class="xzpLanding">
@@ -68,6 +69,22 @@ const scopes = listProjectableXizongSystems()
       </nav>
     </section>
 
+    <section class="xzpPaperEntry">
+      <div class="xzpLandingLabel">
+        <span>整卷</span>
+        <small>按当年真实题量 / 分值执行；作答中隐藏结果，交卷后统一出分</small>
+      </div>
+      <nav class="xzpPaperYears" aria-label="Whole paper years">
+        {papers.map((paper) => (
+          <a href={`${base}xizong/practice/paper/${paper.year}/`}>
+            <strong>{paper.year}</strong>
+            <span>{paper.questionCount} 题</span>
+            <b>{paper.maxScore} 分</b>
+          </a>
+        ))}
+      </nav>
+    </section>
+
     <section class="xzpChatSetEntry">
       <details data-chat-set-import data-chat-set-import-base={base}>
         <summary>
@@ -91,7 +108,7 @@ const scopes = listProjectableXizongSystems()
     <section class="xzpLandingFuture">
       <div>
         <span>同一 Workbench 后续范围</span>
-        <p>CHAT_SET 已接入；下一段只剩整卷年份 + Hidden result。所有范围继续复用同一个 Practice Workbench。</p>
+        <p>System、回收、整卷年份和 CHAT_SET 都复用同一个 Practice Workbench；网页只改变明确的执行范围。</p>
       </div>
     </section>
   </section>
