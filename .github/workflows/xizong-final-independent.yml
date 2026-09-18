@@ -18,20 +18,16 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 2
-      - name: Apply reviewed bounded edits, never medical Content or shared learner store
-        shell: bash
+      - name: Apply bounded closeout, with no medical or shared-store changes
         run: |
-          set -euo pipefail
-          if test -f .github/xizong-final-repair.py; then
-            python3 .github/xizong-final-repair.py
-            python3 .github/xizong-final-repair2.py
-            python3 .github/xizong-final-probes.py
+          if test -f .github/xizong-final-closeout.py; then
+            python3 .github/xizong-final-closeout.py
             git diff --check
-            git add content/xizong/LEARNER_OBJECT_CONTRACT.md content/xizong/projection/PROJECTION_CONTRACT.md static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md static-web/XIZONG_PRODUCT_BRIEF.md static-web/XIZONG_UI_REVIEW_PROTOCOL.md static-web/src/components static-web/src/lib/xizongLearnerObject.mjs static-web/src/lib/xizongMemoryModel.mjs static-web/src/lib/xizongProductionProjection.mjs static-web/src/lib/xizongRepresentationGate.mjs static-web/src/styles/xizong-block-workspace.css static-web/scripts/test-xizong-final-independent.mjs
-            git rm .github/xizong-final-repair.py .github/xizong-final-repair2.py .github/xizong-final-probes.py
+            git add static-web/src/components/XizongRecallEvidenceBridge.astro static-web/src/components/XizongStudyEnhancer.astro static-web/src/components/XizongKpLearnInteraction.astro static-web/src/components/XizongPracticeWorkbench.astro static-web/scripts/test-xizong-final-independent.mjs
+            git rm .github/xizong-final-closeout.py
             git config user.name 'KianOS acceptance worker'
             git config user.email 'noreply@users.noreply.github.com'
-            git commit -m 'fix(xizong): preserve source granularity, protected evidence and safe recovery'
+            git commit -m 'fix(xizong): persist evidence before advance and unify complete packet export'
             git push origin HEAD:work/xizong-final-learner-20260919-independent
           fi
       - id: head
