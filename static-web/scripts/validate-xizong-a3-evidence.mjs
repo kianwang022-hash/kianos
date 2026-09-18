@@ -79,10 +79,13 @@ assert(sweep.questions.filter((question) => Number(question.year) === heldYear).
 
 const blockGuard = read('static-web/src/components/XizongBlockEvidenceGuard.astro');
 const systemGuard = read('static-web/src/components/XizongSystemEvidenceGuard.astro');
-const memoryUi = read('static-web/src/components/XizongMemoryReviewV6.astro');
+const recallBridge = read('static-web/src/components/XizongRecallEvidenceBridge.astro');
+const memoryModel = read('static-web/src/lib/xizongMemoryModel.mjs');
+const memoryWorkspace = read('static-web/src/components/XizongMemoryWorkspace.astro');
 const repairBridge = read('static-web/src/components/XizongRepairInboxBridge.astro');
 const blockPage = read('static-web/src/pages/xizong/[system]/[block].astro');
-const exitUi = read('static-web/src/components/XizongSystemExitRuntime.astro');
+const recallPage = read('static-web/src/pages/xizong/[system]/recall.astro');
+const practicePage = read('static-web/src/pages/xizong/practice/[system].astro');
 const practiceUi = read('static-web/src/components/XizongPracticeWorkbench.astro');
 const questionAttemptLib = read('static-web/src/lib/xizongQuestionAttempts.mjs');
 const repairReturn = read('static-web/src/components/XizongSystemRepairReturn.astro');
@@ -95,15 +98,13 @@ assert(blockGuard.includes("kp: oldPersonal?.kp || {}"), 'learner-notes-not-pres
 assert(!blockGuard.includes("type: 'KP_RECALL'"), 'block-guard-competes-for-recall-evidence');
 assert(!blockGuard.includes('[data-review-rating]'), 'block-guard-competes-for-repair-evidence');
 
-assert(memoryUi.includes("evidence_origin: 'USER_RECALL_ATTEMPT'"), 'actual-recall-attempt-ledger-missing');
-assert(memoryUi.includes("evidence_origin: 'BOOTSTRAP_EXISTING_STATE'"), 'existing-state-bootstrap-missing');
-assert(memoryUi.includes("type: 'CHAT_PLAN_REVIEW', evidence_role: 'REPAIR_ONLY'"), 'repair-only-role-missing');
-assert(memoryUi.includes("['known', 'mastered'].includes(value)"), 'resolved-repair-closure-missing');
-assert(memoryUi.includes('ext.reviewPlan ='), 'single-owner-repair-plan-closure-missing');
-assert(memoryUi.includes("same-session recall evidence; each actual Recall attempt is appended"), 'repeated-recall-semantics-missing');
-assert(memoryUi.includes("STABLE may clear the local weak queue but does not rewrite the original Recall rating"), 'memory-does-not-preserve-first-recall');
-assert(memoryUi.includes("known/mastered may close the active repair task but never rewrite original Recall or mastery automatically"), 'repair-closure-semantics-too-strong');
-assert(memoryUi.includes("requires later meaningful fresh Recall/transfer evidence"), 'fresh-evidence-mastery-boundary-missing');
+assert(recallBridge.includes("evidence_origin: 'USER_RECALL_ATTEMPT'"), 'actual-recall-attempt-ledger-missing');
+assert(recallBridge.includes("evidence_origin: 'BOOTSTRAP_EXISTING_STATE'"), 'existing-state-bootstrap-missing');
+assert(recallBridge.includes("type: 'KP_RECALL'"), 'recall-ledger-owner-missing');
+assert(memoryModel.includes('export function appendMemoryEvidence'), 'memory-evidence-owner-missing');
+assert(memoryModel.includes('export function completeRepairTask'), 'resolved-repair-closure-missing');
+assert(memoryWorkspace.includes('completeRepairTask(state, item.id)'), 'visible-repair-not-closed-through-owner');
+assert(memoryWorkspace.includes('不把修完自动写成 mastery'), 'repair-closure-semantics-too-strong');
 
 assert(repairReturn.includes('kianos-xizong-repair-inbox-v1:'), 'system-repair-return-bypasses-inbox');
 assert(!repairReturn.includes('kianos-xizong-memory-review-v2:${objectId}'), 'system-repair-return-competes-for-block-evidence-store');
@@ -122,10 +123,13 @@ assert(systemGuard.includes('blockEvidenceHash.toString(16)'), 'block-content-no
 assert(systemGuard.includes("system?.learningSupport?.sourceHash || ''"), 'learning-support-not-versioned-at-system-level');
 assert(systemGuard.includes('stale_block_question_plans'), 'stale-question-derived-repair-not-archived');
 assert(systemGuard.includes('stale_block_repair_inboxes'), 'stale-repair-inbox-not-archived');
+assert(systemGuard.includes('stale_visible_memory_repairs'), 'stale-visible-repair-not-archived');
 assert(systemGuard.includes('localStorage.removeItem(inboxKey)'), 'stale-system-repair-inbox-not-invalidated');
 assert(systemGuard.includes('localStorage.removeItem(sweepKey)'), 'stale-system-sweep-not-invalidated');
+assert(recallPage.includes('<XizongSystemEvidenceGuard system={system} sweep={questionSweep} />'), 'recall-system-evidence-guard-not-mounted');
+assert(practicePage.includes('<XizongSystemEvidenceGuard system={system} sweep={sweep} />'), 'practice-system-evidence-guard-not-mounted');
 
-assert(practiceUi.includes("let holdoutYears = readJson(holdoutKey, []);"), 'learner-holdout-not-private-empty-default');
+assert(practiceUi.includes("let holdoutYears = data.allowHoldout ? [] : readJson(holdoutKey, []);"), 'learner-holdout-not-private-empty-default');
 assert(practiceUi.includes('const eligibleQuestions = () => data.questions.filter((q) => !holdoutYears.includes(Number(q.year)));'), 'holdout-not-excluded-from-active-sweep');
 assert(practiceUi.includes('deriveXizongQuestionIdsForCurrentRound(sweepState, eligible, [])'), 'phase-aware-active-sweep-not-derived');
 assert(questionAttemptLib.includes("['stable', 'uncertain', 'wrong'].includes(result.status)"), 'stable-uncertain-wrong-evidence-contract-not-distinct');
