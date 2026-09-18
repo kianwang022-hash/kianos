@@ -75,15 +75,12 @@ jobs:
       - name: Verify explicit content-to-surface mapping in browser
         working-directory: static-web
         run: node scripts/test-politics-explicit-surface-browser.mjs
-      - name: Execute Mao Runtime journeys
+      - name: Verify Mao single-Workbench Runtime and Evidence
         working-directory: static-web
-        run: node scripts/test-politics-mao-runtime.mjs
+        run: POLITICS_SUBJECT=mao node scripts/test-politics-subject-workbench-journey.mjs
       - name: Audit Mao Evidence model
         working-directory: static-web
         run: node scripts/audit-politics-mao-evidence.mjs
-      - name: Execute Mao Evidence journeys
-        working-directory: static-web
-        run: node scripts/test-politics-mao-evidence.mjs
       - name: Save journey evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -91,17 +88,10 @@ jobs:
           name: politics-functional-journey-${{ github.sha }}
           path: politics-functional-audit/
           retention-days: 7
-      - name: Save Mao Runtime evidence
+      - name: Save Mao Workbench evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: politics-mao-runtime-${{ github.sha }}
-          path: politics-mao-runtime-audit/
-          retention-days: 7
-      - name: Save Mao Evidence evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: politics-mao-evidence-${{ github.sha }}
-          path: politics-mao-evidence-audit/
+          name: politics-mao-workbench-${{ github.sha }}
+          path: politics-mao-workbench-audit/
           retention-days: 7
