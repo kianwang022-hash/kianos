@@ -149,6 +149,9 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
     word = str(record.get("word") or owner.get("word") or "")
     word_decision = (decisions.get("words") or {}).get(word_id) or {}
     usage_note_decisions = word_decision.get("sense_usage_notes") or {}
+    secondary_decisions = word_decision.get("secondary_senses") or {}
+    overlay_decisions = word_decision.get("sense_identity_overlays") or {}
+    word_feel_decision = word_decision.get("word_feel") or {}
 
     core = record.get("core_concept") or {}
     summary_cn = str(core.get("core_meaning_cn") or core.get("mental_model_cn") or "").strip()
@@ -189,7 +192,10 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
                 or overlay.get("boundary") or overlay.get("identity_type") or overlay.get("canonical_form") or ""
             )
         overlay_object = None
-        if overlay_text:
+        overlay_disposition = (overlay_decisions.get(sense_id) or {}).get("disposition")
+        if overlay_disposition not in (None, "DEFAULT_DEPTH", "EXPLORE_ONLY"):
+            raise RuntimeError(f"FINAL_LEARNER_OVERLAY_DISPOSITION_INVALID:{word_id}:{sense_id}:{overlay_disposition}")
+        if overlay_text and overlay_disposition != "EXPLORE_ONLY":
             overlay_object = {
                 "text": overlay_text,
                 "repair": repair(
@@ -217,6 +223,11 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
         if not isinstance(branch, dict):
             continue
         branch_id = str(branch.get("fact_id") or branch.get("source_sense_id") or "")
+        secondary_disposition = (secondary_decisions.get(branch_id) or {}).get("disposition")
+        if secondary_disposition not in (None, "DEFAULT_DEPTH", "EXPLORE_ONLY"):
+            raise RuntimeError(f"FINAL_LEARNER_SECONDARY_DISPOSITION_INVALID:{word_id}:{branch_id}:{secondary_disposition}")
+        if secondary_disposition == "EXPLORE_ONLY":
+            continue
         secondary.append({
             "id": branch_id or None,
             "source_locator": f"record.secondary_senses[{i}]",
@@ -348,7 +359,7 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
             "parts": recall_parts,
             "density": recall_density,
         },
-        "word_feel": {
+        "word_feel": None if word_feel_decision.get("disposition") == "EXPLORE_ONLY" else {
             "summary_cn": summary_cn,
             "decision_cn": decision_cn,
             "repair": repair("core", "record.core_concept", None, summary_cn or word),
