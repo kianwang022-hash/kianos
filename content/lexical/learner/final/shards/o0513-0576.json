@@ -5773,11 +5773,11 @@
     "ordinal": 552,
     "word": "bottle",
     "source_owner_path": "content/lexical/words/by-ordinal/o0552.json",
-    "source_fingerprint": "dd63230e081ace51e6730c37a877b00dcea945d176e9e089c22ffe251d5ef109",
+    "source_fingerprint": "2808cd96c06621c01e27bc890b77967fd99160846ab3a3838ecbbc47a57560b7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "3N"
       ],
       "density": "rich"
@@ -5901,41 +5901,36 @@
           "target_locator": "record.senses[3]",
           "target_label": "奶瓶"
         }
-      },
-      {
-        "id": "sense:bottle:a697bd5019ab5aed",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "抑制（情感）",
-        "definition_en": "to hold in or restrain (emotions)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:838c3bc3c790449a5444",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "bottle up + feelings",
-            "meaning_cn": "压抑感情",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:838c3bc3c790449a5444",
-              "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "bottle up + feelings"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bottle:a697bd5019ab5aed",
-          "target_locator": "record.senses[4]",
-          "target_label": "抑制（情感）"
-        }
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:bottle:baseline-v2-up-emotions",
+        "source_locator": "record.constructions[0]",
+        "pattern": "bottle up feelings/emotions",
+        "lines": [
+          {
+            "text": "压抑、克制感情；把情绪憋在心里",
+            "lang": "cn"
+          },
+          {
+            "text": "The emotional sense belongs to the phrasal verb bottle up, not a standalone verb sense of bottle.",
+            "lang": "en"
+          },
+          {
+            "text": "suppress or keep feelings and emotions inside instead of expressing them",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bottle:baseline-v2-up-emotions",
+          "target_locator": "record.constructions[0]",
+          "target_label": "bottle up feelings/emotions"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6327,7 +6322,7 @@
     "ordinal": 555,
     "word": "bound",
     "source_owner_path": "content/lexical/words/by-ordinal/o0555.json",
-    "source_fingerprint": "e11cfad4bfe85c55e5acc0116dba132275241db465ff4c02c56c27ae54a0410b",
+    "source_fingerprint": "5c3b00f43660b9efdbc73b5a666c10d546b800ced45cd00e3768338c6423c3d9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6508,7 +6503,54 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:bound:baseline-v2-to-do",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be bound to do sth",
+        "lines": [
+          {
+            "text": "必定会；很可能会做某事",
+            "lang": "cn"
+          },
+          {
+            "text": "Do not confuse this likelihood reading with bound by = constrained by.",
+            "lang": "en"
+          },
+          {
+            "text": "be certain or very likely to do something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bound:baseline-v2-to-do",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be bound to do sth"
+        }
+      },
+      {
+        "id": "construction:bound:baseline-v2-for-place",
+        "source_locator": "record.constructions[1]",
+        "pattern": "be bound for + place",
+        "lines": [
+          {
+            "text": "开往；前往某地",
+            "lang": "cn"
+          },
+          {
+            "text": "be travelling or destined for a particular place",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bound:baseline-v2-for-place",
+          "target_locator": "record.constructions[1]",
+          "target_label": "be bound for + place"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6596,7 +6638,7 @@
     "ordinal": 557,
     "word": "bow",
     "source_owner_path": "content/lexical/words/by-ordinal/o0557.json",
-    "source_fingerprint": "07a533a33ffcf3d5bee4f6f9e15507c7cf3e10c67b30b0b15000e79ad5f6742c",
+    "source_fingerprint": "01d53abe65a6389fa9393e39f96290236aa70bfe046eb446074527ddd40373b4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6791,27 +6833,53 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [
-        {
-          "title": "bow ↔ baʊ/bow ↔ bow/bəʊ",
-          "target_word": "baʊ/bow ↔ bow/bəʊ",
-          "lines": [
-            {
-              "text": "bow has major heteronyms: /baʊ/ (bend/front of ship etc.) and /bəʊ/ BrE, /boʊ/ AmE (weapon/ribbon knot etc.). Bind pronunciation to senses, not spelling alone.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "confusable:horizontal:8946c51913fd1c5044d9",
-            "target_locator": "record.confusables[0]",
-            "target_label": "bow ↔ baʊ/bow ↔ bow/bəʊ"
-          }
-        }
-      ],
+      "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "bow",
+            "condition": "bend/bow to someone; front of a ship/aircraft",
+            "note": "读 /baʊ/"
+          },
+          {
+            "surface": "bow",
+            "condition": "archery weapon; ribbon knot; musical bow",
+            "note": "BrE /bəʊ/；AmE /boʊ/"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun",
+              "verb"
+            ],
+            "reading": "bend / ship-front senses",
+            "ipa": "/baʊ/"
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "weapon / ribbon / musical bow · UK",
+            "ipa": "/bəʊ/"
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "weapon / ribbon / musical bow · US",
+            "ipa": "/boʊ/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -7458,7 +7526,7 @@
     "ordinal": 564,
     "word": "brace",
     "source_owner_path": "content/lexical/words/by-ordinal/o0564.json",
-    "source_fingerprint": "fb34e1806d39fa50ef28be5000e33c36bc506a0a5e535b1292b234f98696e325",
+    "source_fingerprint": "5ddee5358a1efd0f1abb22733d6b79da8944413daa452c4f7440c929447bce7f",
     "sense_lineage": [
       {
         "word_id": "word:brace",
@@ -7543,21 +7611,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:427ffa54c3008e54e974",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "brace oneself",
-            "meaning_cn": "使自己做好准备",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:427ffa54c3008e54e974",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "brace oneself"
-            }
-          },
-          {
             "id": "collocation:6e62c3486ef206a35428",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "brace the roof",
             "meaning_cn": "支撑屋顶",
             "kind": "usage_example",
@@ -7604,7 +7659,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:brace:baseline-v2-oneself-for",
+        "source_locator": "record.constructions[0]",
+        "pattern": "brace oneself for sth",
+        "lines": [
+          {
+            "text": "使自己做好心理或身体准备，迎接困难或冲击",
+            "lang": "cn"
+          },
+          {
+            "text": "prepare oneself mentally or physically for something difficult or unpleasant",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:brace:baseline-v2-oneself-for",
+          "target_locator": "record.constructions[0]",
+          "target_label": "brace oneself for sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7934,7 +8011,7 @@
     "ordinal": 567,
     "word": "brake",
     "source_owner_path": "content/lexical/words/by-ordinal/o0567.json",
-    "source_fingerprint": "ca8885e8c8fb94d0d3a9214cf7039d7b38affb798ad98bcd4a200c1947e1c9b5",
+    "source_fingerprint": "1c59a42e88d82927f352732f9e8b92bedc1f25599493e3adfa31bfd64ad687c4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7944,13 +8021,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "使减速或停止的装置或动作",
-      "decision_cn": "",
+      "summary_cn": "刹车装置或刹车动作；也可比喻为对进程的制约因素",
+      "decision_cn": "vehicle → 刹车；a brake on growth/progress → 对增长或进程的制约；低频 noun 还可指丛林/蕨类。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "使减速或停止的装置或动作"
+        "target_label": "刹车装置或刹车动作；也可比喻为对进程的制约因素"
       }
     },
     "senses": [
@@ -8064,7 +8141,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:brake:baseline-v2-on",
+        "source_locator": "record.constructions[0]",
+        "pattern": "a brake on sth",
+        "lines": [
+          {
+            "text": "对某事的制约、阻碍或减缓因素",
+            "lang": "cn"
+          },
+          {
+            "text": "something that slows, limits, or restrains a process or development",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:brake:baseline-v2-on",
+          "target_locator": "record.constructions[0]",
+          "target_label": "a brake on sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -9076,7 +9175,7 @@
     "ordinal": 575,
     "word": "break",
     "source_owner_path": "content/lexical/words/by-ordinal/o0575.json",
-    "source_fingerprint": "5c91546d8c02562c63f1758b65873dbde6cf7d4862db011b3fac85974d292ecb",
+    "source_fingerprint": "fb5c0ab13553910db2f139ff84681b119af8c5df31463ce0f4fa1340d76a7f4c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9316,20 +9415,87 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "construction:c6ec20beac86d1d67209",
+        "id": "construction:break:baseline-v2-down",
         "source_locator": "record.constructions[0]",
-        "pattern": "break down / through / up / into",
+        "pattern": "break down",
         "lines": [
           {
-            "text": "high-frequency phrasal branches remain distinct from generic break",
+            "text": "发生故障；崩溃；失败；也可拆分分析",
+            "lang": "cn"
+          },
+          {
+            "text": "stop functioning, collapse/fail, or divide something into smaller parts for analysis",
             "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:c6ec20beac86d1d67209",
+          "target_id": "construction:break:baseline-v2-down",
           "target_locator": "record.constructions[0]",
-          "target_label": "break down / through / up / into"
+          "target_label": "break down"
+        }
+      },
+      {
+        "id": "construction:break:baseline-v2-through",
+        "source_locator": "record.constructions[1]",
+        "pattern": "break through",
+        "lines": [
+          {
+            "text": "突破障碍；取得重大突破",
+            "lang": "cn"
+          },
+          {
+            "text": "force a way through a barrier or make a major advance",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:break:baseline-v2-through",
+          "target_locator": "record.constructions[1]",
+          "target_label": "break through"
+        }
+      },
+      {
+        "id": "construction:break:baseline-v2-up",
+        "source_locator": "record.constructions[2]",
+        "pattern": "break up",
+        "lines": [
+          {
+            "text": "分开；解散；结束关系；使破碎",
+            "lang": "cn"
+          },
+          {
+            "text": "separate into parts, disperse, or end a relationship/group",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:break:baseline-v2-up",
+          "target_locator": "record.constructions[2]",
+          "target_label": "break up"
+        }
+      },
+      {
+        "id": "construction:break:baseline-v2-into",
+        "source_locator": "record.constructions[3]",
+        "pattern": "break into sth",
+        "lines": [
+          {
+            "text": "强行进入；闯入",
+            "lang": "cn"
+          },
+          {
+            "text": "enter a building or place by force, especially illegally",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:break:baseline-v2-into",
+          "target_locator": "record.constructions[3]",
+          "target_label": "break into sth"
         }
       }
     ],

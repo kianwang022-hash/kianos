@@ -208,16 +208,55 @@
     },
     "word": "bow",
     "word_family": [],
-    "word_id": "word:bow"
-  },
-  "relation_refs": [
-    {
-      "relation_id": "confusable:horizontal:8946c51913fd1c5044d9",
-      "owner_path": "content/lexical/relations/by-id/5c/5cb9837784315f25271c2bee4278a7d6baac3e3ac5af2d56f52637d43f9cd3c4.json",
-      "field": "confusables",
-      "index": 0
+    "word_id": "word:bow",
+    "form_identity": {
+      "form_type": "heteronym_sense_conditioned_pronunciation",
+      "spelling": "bow",
+      "identity_rule": "sense_selects_pronunciation",
+      "boundary": "bow has major heteronyms: /baʊ/ for bending/bowing and the front of a ship; /bəʊ/ in BrE or /boʊ/ in AmE for the weapon, ribbon knot, and musical bow.",
+      "boundaries": [
+        {
+          "surface": "bow",
+          "condition": "bend/bow to someone; front of a ship/aircraft",
+          "note": "读 /baʊ/"
+        },
+        {
+          "surface": "bow",
+          "condition": "archery weapon; ribbon knot; musical bow",
+          "note": "BrE /bəʊ/；AmE /boʊ/"
+        }
+      ],
+      "variants": [
+        {
+          "variant_id": "form:bow:baʊ",
+          "pos": [
+            "noun",
+            "verb"
+          ],
+          "learner_key": "bend / ship-front senses",
+          "ipa": "/baʊ/"
+        },
+        {
+          "variant_id": "form:bow:bəʊ-uk",
+          "pos": [
+            "noun"
+          ],
+          "learner_key": "weapon / ribbon / musical bow · UK",
+          "ipa": "/bəʊ/"
+        },
+        {
+          "variant_id": "form:bow:boʊ-us",
+          "pos": [
+            "noun"
+          ],
+          "learner_key": "weapon / ribbon / musical bow · US",
+          "ipa": "/boʊ/"
+        }
+      ],
+      "authority": "Baseline v2 re-validation 2026-09-19"
     }
-  ],
+  },
+  "relation_refs": [],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
