@@ -15,6 +15,12 @@ Question Truth includes only source-faithful exam facts and stable identity:
 
 Question explanations, Question→KP mappings, runtime attempts and learner state are separate layers and do not belong here.
 
+Whole-paper **exam-format / scoring geometry** is also separate from individual Question Truth and is owned by:
+
+- `content/xizong/questions/exam-format.json`
+
+That owner records only reviewed historical paper shape (year range, real question count, max score, per-number scoring segments and provenance). Runtime may consume it for whole-paper scoring; it may not infer scores from question type or normalize historical papers to the current format.
+
 ## Deterministic exact-ID storage
 
 Canonical Question Truth is stored under `shards/YYYY/qNNN-NNN.json`, with a
