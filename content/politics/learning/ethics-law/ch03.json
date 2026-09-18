@@ -155,27 +155,17 @@
       ]
     },
     "precision_knowledge": {
-      "policy": "CURRENT_GROUNDED_CANDIDATE_MAP",
-      "candidate_domains": [
-        "民族精神/时代精神 core identities",
-        "中国精神 role hats",
-        "爱国主义与爱党爱社会主义关系边界",
-        "改革创新相关时代精神定位"
+      "policy": "REFERENCE_MEMORY_SIDECAR",
+      "owner_path": "content/politics/learning/ethics-law/ch03.memory.json",
+      "candidate_ids": [
+        "POL27-MEM-ETHICS-C03-S01-M01",
+        "POL27-MEM-ETHICS-C03-S02-M01"
       ],
-      "historical_source_slices": [
-        {
-          "from": "LEG26-UPPER-ETHICS-P208",
-          "through": "LEG26-UPPER-ETHICS-P211",
-          "scope": "专题三中国精神 + 专题四爱国主义"
-        },
-        {
-          "from": "LEG26-LOWER-ETHICS-P081",
-          "through": "LEG26-LOWER-ETHICS-P082",
-          "scope": "中国精神/爱国主义/改革创新分析题模板"
-        }
-      ],
-      "materialization_status": "CANDIDATE_OBJECTS_TO_BE_MATERIALIZED",
-      "freshness_gate": "NORMAL_CURRENT_YEAR_CORROBORATION"
+      "admission_state": "CANDIDATE_ONLY",
+      "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+      "deferred_domains": [],
+      "freshness_gate": "NORMAL",
+      "rule": "Current concept/boundary Knowledge plus inspected historical support creates candidate-only precision; durable Memory remains admission-gated."
     },
     "analysis_output_hooks": [
       {
