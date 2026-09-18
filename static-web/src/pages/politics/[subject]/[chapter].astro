@@ -33,7 +33,7 @@ const useCognitiveWorkspace = subject === 'marxism'
 const useExplicitCognitiveMapping = useCognitiveWorkspace
   && compiled instanceof Map
   && [...compiled.values()].length > 0
-  && [...compiled.values()].every((row) => row?.surfacePlan?.states?.ORIENT?.length > 0);
+  && [...compiled.values()].every((row) => row?.finalLearnerObject?.states?.ORIENT?.length > 0);
 const usePurposeFirstRuntime = !useCognitiveWorkspace && Boolean(compiled?.size);
 ---
 <style is:global>
