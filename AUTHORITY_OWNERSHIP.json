@@ -45,6 +45,16 @@
         "dock": "static-web/src/components/StudyTimerDock.astro",
         "style": "static-web/src/styles/study-timer.css"
       }
+    },
+    "private_learner_checkpoint": {
+      "trigger": "static-web/src/lib/privateCheckpointRuntime.mjs",
+      "owners": {
+        "runtime": "static-web/src/lib/privateCheckpointRuntime.mjs",
+        "client": "static-web/src/lib/privateLearnerCheckpoint.mjs",
+        "shared_control_adapter": "static-web/src/lib/sharedControlCheckpoint.mjs",
+        "localhost_bridge": "static-web/scripts/privateLearnerBridge.mjs",
+        "file_store": "static-web/scripts/privateLearnerStore.mjs"
+      }
     }
   }
 }
