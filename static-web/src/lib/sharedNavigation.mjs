@@ -89,14 +89,8 @@ function resolvePathNavigationActive(localPath, entries) {
 }
 
 export function subjectShell(localPath = '', base = '/') {
-  if (isEnglishFamily(localPath)) {
-    return {
-      key: 'english',
-      label: 'English',
-      items: englishNavigation(base),
-      active: resolveEnglishActive(localPath)
-    };
-  }
+  // English family uses the shared K rail plus page-local task navigation.
+  if (isEnglishFamily(localPath)) return null;
 
   if (isPoliticsFamily(localPath)) {
     const items = politicsNavigation(base);
