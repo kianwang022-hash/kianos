@@ -503,7 +503,7 @@ Do not preserve a wrong upstream model merely because downstream implementation 
 
 ---
 
-# 11｜Fresh-Chat construction test
+# 12｜Fresh-Chat construction test
 
 For a known learning-asset scope, a fresh Chat should be able to answer quickly:
 
@@ -520,7 +520,7 @@ If this requires broad repository archaeology, the ownership/routing design is d
 
 ---
 
-# 12｜Change rule
+# 13｜Change rule
 
 Do not add another construction stage merely because a new file type or implementation technique appears.
 
