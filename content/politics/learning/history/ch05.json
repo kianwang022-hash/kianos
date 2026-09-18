@@ -7,8 +7,14 @@
   "teaching_shape": "CHRONOLOGY_STAGE_TURNING_POINT_CAUSE_EVALUATION",
   "canonical_mainline": "CHENGFENG",
   "source_bindings": {
-    "region_ids": ["POL27-REGION-HISTORY-C05-S01", "POL27-REGION-HISTORY-C05-S02"],
-    "natural_unit_ids": ["POL27-CF-HISTORY-C05-S01", "POL27-CF-HISTORY-C05-S02"],
+    "region_ids": [
+      "POL27-REGION-HISTORY-C05-S01",
+      "POL27-REGION-HISTORY-C05-S02"
+    ],
+    "natural_unit_ids": [
+      "POL27-CF-HISTORY-C05-S01",
+      "POL27-CF-HISTORY-C05-S02"
+    ],
     "suyi_refs": []
   },
   "chapter_orientation": {
@@ -30,7 +36,12 @@
       "title": "第一节 中国共产党对革命新道路的探索",
       "stage_question": "为什么中国共产党在大革命失败后必须重新回答‘革命依靠谁、在哪里积累力量、怎样夺取政权’？",
       "before": "原有国共合作破裂，革命力量在城市遭受严重打击。",
-      "process": ["中国共产党开始独立领导武装斗争。", "土地革命把广大农民的根本利益与革命结合起来。", "革命根据地成为保存和发展力量的重要空间。", "农村包围城市、武装夺取政权的道路在实践中逐步形成。"],
+      "process": [
+        "中国共产党开始独立领导武装斗争。",
+        "土地革命把广大农民的根本利益与革命结合起来。",
+        "革命根据地成为保存和发展力量的重要空间。",
+        "农村包围城市、武装夺取政权的道路在实践中逐步形成。"
+      ],
       "turning_point": "革命不再把希望寄托于短期城市决战，而开始建立能够长期积累力量的农村革命根据地。",
       "boundary": "‘转向农村’不是放弃城市和全国革命目标，而是根据中国政治经济发展不平衡、农民人口众多等实际条件改变力量积累方式。",
       "next": "新道路被找到，并不等于革命从此顺利；接下来还要经历路线错误、军事挫折和长征的考验。"
@@ -39,15 +50,148 @@
       "natural_unit_id": "POL27-CF-HISTORY-C05-S02",
       "title": "第二节 中国革命在曲折中前进",
       "stage_question": "为什么已经找到正确方向的革命，仍然会遭遇严重失败甚至被迫战略转移？",
-      "process": ["革命根据地和土地革命取得发展。", "党内错误路线使革命遭受重大损失。", "红军开始长征，在极端困难中保存革命骨干力量。", "遵义会议纠正关键错误，党的领导逐步走向独立自主和成熟。"],
+      "process": [
+        "革命根据地和土地革命取得发展。",
+        "党内错误路线使革命遭受重大损失。",
+        "红军开始长征，在极端困难中保存革命骨干力量。",
+        "遵义会议纠正关键错误，党的领导逐步走向独立自主和成熟。"
+      ],
       "turning_point": "遵义会议的意义不只是一次会议决定，而是中国共产党开始更加独立自主地从中国实际出发解决自己的路线和领导问题。",
       "evaluation": "这段曲折说明正确道路的形成不是一次完成，而是在实践、错误和纠正中逐步成熟。",
       "next": "革命力量重新站稳后，全国主要矛盾又因日本侵略急剧变化，革命进入抗日民族战争的新阶段。"
     }
   ],
   "chapter_compression": {
-    "timeline": ["大革命失败", "独立武装斗争", "土地革命和根据地建设", "农村革命道路形成", "错误路线和反围剿失利", "长征", "遵义会议"],
+    "timeline": [
+      "大革命失败",
+      "独立武装斗争",
+      "土地革命和根据地建设",
+      "农村革命道路形成",
+      "错误路线和反围剿失利",
+      "长征",
+      "遵义会议"
+    ],
     "stage_shift": "城市革命受挫 → 独立武装斗争 → 农村根据地积累力量 → 新道路形成 → 路线错误造成危机 → 长征和遵义会议 → 革命领导走向成熟",
     "review_prompt": "闭卷回答：为什么农村包围城市不是一个预先设计好的公式，而是大革命失败后在中国实际和革命实践中逐步形成的道路？"
+  },
+  "later_stage_knowledge": {
+    "schema": "kianos.politics.later_stage_knowledge.v1",
+    "status": "CURRENT_K_REVIEWED",
+    "phase_scope": [
+      "CONSOLIDATION",
+      "PRECISION",
+      "ANALYSIS_OUTPUT"
+    ],
+    "compression_model": {
+      "cognition": "REVOLUTIONARY_ROAD_FORMATION",
+      "purpose": "Preserve the chapter causal movie first; use horizontal compression only for later exact identity/confusable repair.",
+      "reconstruction_source": "chapter_compression",
+      "chapter_compression": {
+        "timeline": [
+          "大革命失败",
+          "独立武装斗争",
+          "土地革命和根据地建设",
+          "农村革命道路形成",
+          "错误路线和反围剿失利",
+          "长征",
+          "遵义会议"
+        ],
+        "stage_shift": "城市革命受挫 → 独立武装斗争 → 农村根据地积累力量 → 新道路形成 → 路线错误造成危机 → 长征和遵义会议 → 革命领导走向成熟",
+        "review_prompt": "闭卷回答：为什么农村包围城市不是一个预先设计好的公式，而是大革命失败后在中国实际和革命实践中逐步形成的道路？"
+      },
+      "horizontal_knowledge_owner": "content/politics/learning/history/later-stage-knowledge.json",
+      "horizontal_candidate_refs": [
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-005"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-006"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-007"
+        },
+        {
+          "line": "land_policy",
+          "id": "HIST-LAND-004"
+        },
+        {
+          "line": "land_policy",
+          "id": "HIST-LAND-005"
+        },
+        {
+          "line": "land_policy",
+          "id": "HIST-LAND-006"
+        }
+      ]
+    },
+    "precision_knowledge": {
+      "policy": "REFERENCE_SUBJECT_HORIZONTAL_K",
+      "owner_path": "content/politics/learning/history/later-stage-knowledge.json",
+      "candidate_refs": [
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-005"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-006"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-007"
+        },
+        {
+          "line": "land_policy",
+          "id": "HIST-LAND-004"
+        },
+        {
+          "line": "land_policy",
+          "id": "HIST-LAND-005"
+        },
+        {
+          "line": "land_policy",
+          "id": "HIST-LAND-006"
+        }
+      ],
+      "candidate_domains": [
+        "道路探索关键会议/文献",
+        "土地革命政策演变",
+        "左/右倾 confusable boundaries",
+        "农村包围城市道路形成阶段"
+      ],
+      "admission_state": "CANDIDATE_ONLY",
+      "current_year_delta_risk": "LOW_TO_MEDIUM",
+      "rule": "History precision is mainly cross-cutting identity/timeline knowledge. Exact recent-history items require current-year refresh."
+    },
+    "analysis_output_hooks": [
+      {
+        "id": "HISTORY-C05-OUT-REVOLUTIONARY-ROAD",
+        "title": "中国革命新道路探索",
+        "material_cues": [
+          "农村包围城市",
+          "土地革命",
+          "长征",
+          "遵义会议"
+        ],
+        "retrieval_target": "从大革命失败后的现实困境写道路怎样在实践中形成，不写成会议清单。",
+        "answer_skeleton": [
+          "大革命失败导致原道路断裂",
+          "武装斗争/土地革命寻找新的力量空间",
+          "农村根据地实践形成新道路",
+          "错误路线造成危机",
+          "长征/遵义完成重要转折",
+          "道路在曲折实践中成熟"
+        ],
+        "current_year_status": "STABLE_HISTORICAL"
+      }
+    ],
+    "output_source_role": "HIGH_VALUE_CHAT_FIRST_OUTPUT_BASELINE",
+    "historical_output_value": [
+      "革命道路探索/转折"
+    ],
+    "first_round_effect": "NONE"
   }
 }
