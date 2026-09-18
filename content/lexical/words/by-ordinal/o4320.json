@@ -8,104 +8,6 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "see + that 从句，表示明白",
-        "codex_reviewed": false,
-        "definition_cn": "理解；明白",
-        "definition_en": "to understand or realize",
-        "dimensions": {},
-        "direction": "R",
-        "evidence": [
-          {
-            "evidence_id": "evidence:core-card:see:ea56cdae6806",
-            "evidence_status": "source_checked",
-            "source_labels": [],
-            "source_locator": "see:l1:2",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:constructions:see:114964f7e1a7fb18",
-        "family_sources": [],
-        "label_en": null,
-        "level": null,
-        "meaning_cn": "明白……",
-        "module": "constructions",
-        "pattern": "see + that-clause",
-        "pos": "verb",
-        "presentation_merge": {
-          "merge_id": "presentation-merge:2aee6aafe8dbdc09e818",
-          "metadata_tags": [
-            "cloze",
-            "collocation",
-            "construction",
-            "writing"
-          ],
-          "mode": "MERGE_PRESENTATION",
-          "surviving_object_id": "collocation:4b87ad108f41704e7ddb"
-        },
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:see:c494c6e327b15c9d",
-        "target_sense_id": null,
-        "target_word": null,
-        "task_tags": [
-          "cloze",
-          "writing"
-        ],
-        "verification_status": "verified",
-        "writing_safe": false
-      },
-      {
-        "boundary": "see to it that + 从句，确保",
-        "codex_reviewed": false,
-        "definition_cn": "确保；务必",
-        "definition_en": "to make sure or take care that something happens",
-        "dimensions": {},
-        "direction": "R",
-        "evidence": [
-          {
-            "evidence_id": "evidence:core-card:see:853f94812db9",
-            "evidence_status": "source_checked",
-            "source_labels": [],
-            "source_locator": "see:l2:4",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:constructions:see:09e8e786617bafe9",
-        "family_sources": [],
-        "label_en": null,
-        "level": null,
-        "meaning_cn": "确保……",
-        "module": "constructions",
-        "pattern": "see to it that + clause",
-        "pos": "verb",
-        "presentation_merge": {
-          "merge_id": "presentation-merge:e2f519394bc66b4b946d",
-          "metadata_tags": [
-            "cloze",
-            "collocation",
-            "construction",
-            "writing"
-          ],
-          "mode": "MERGE_PRESENTATION",
-          "surviving_object_id": "collocation:7032818d41bffc4f6ad0"
-        },
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:see:cd9a66de34285ceb",
-        "target_sense_id": null,
-        "target_word": null,
-        "task_tags": [
-          "cloze",
-          "writing"
-        ],
-        "verification_status": "verified",
-        "writing_safe": false
-      },
-      {
         "construction_id": "construction:af189d7273ef55b79439",
         "direction": "R+P",
         "level": "L1",
@@ -165,7 +67,17 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:4b87ad108f41704e7ddb",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:see:c494c6e327b15c9d:collocation:0"
+            ],
+            "meaning_cn": "明白……",
+            "phrase": "see + that-clause"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "理解；明白",
         "definition_en": "to understand or realize",
@@ -207,7 +119,17 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:7032818d41bffc4f6ad0",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:see:cd9a66de34285ceb:collocation:0"
+            ],
+            "meaning_cn": "确保……",
+            "phrase": "see to it that + clause"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "确保；务必",
         "definition_en": "to make sure or take care that something happens",
@@ -433,7 +355,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4313-4320.json",
     "source_content_hash": "f8727939ad7401718712ef46464c9fe8cc357e90be0bfc80c9295711c8615e8d",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

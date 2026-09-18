@@ -8,55 +8,6 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "respond to + sth/sb",
-        "codex_reviewed": false,
-        "definition_cn": "回答；回应",
-        "definition_en": "to say or do something as a reaction to something that has been said or done",
-        "dimensions": {},
-        "direction": "R",
-        "evidence": [
-          {
-            "evidence_id": "evidence:core-card:respond:56eab06fdfce",
-            "evidence_status": "source_checked",
-            "source_labels": [],
-            "source_locator": "respond:l1:1",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:constructions:respond:f8ba6338841b2032",
-        "family_sources": [],
-        "label_en": null,
-        "level": null,
-        "meaning_cn": "对……作出回应",
-        "module": "constructions",
-        "pattern": "respond to + sth/sb",
-        "pos": "verb",
-        "presentation_merge": {
-          "merge_id": "presentation-merge:353cf60d5ed23164e2c0",
-          "metadata_tags": [
-            "cloze",
-            "collocation",
-            "construction",
-            "writing"
-          ],
-          "mode": "MERGE_PRESENTATION",
-          "surviving_object_id": "collocation:268faf3c3f9fbd62b9cb"
-        },
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:respond:cba033438d535e3c",
-        "target_sense_id": null,
-        "target_word": null,
-        "task_tags": [
-          "cloze",
-          "writing"
-        ],
-        "verification_status": "verified",
-        "writing_safe": false
-      },
-      {
         "boundary": "respond to + sth",
         "codex_reviewed": false,
         "definition_cn": "有良好反应；响应",
@@ -129,7 +80,17 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:268faf3c3f9fbd62b9cb",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:respond:cba033438d535e3c:collocation:0"
+            ],
+            "meaning_cn": "对……作出回应",
+            "phrase": "respond to + sth/sb"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "回答；回应",
         "definition_en": "to say or do something as a reaction to something that has been said or done",
@@ -333,7 +294,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4113-4120.json",
     "source_content_hash": "924f9486a3b80babd0c915936e40a74c06e701c47e849e26bc5b61636c014473",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

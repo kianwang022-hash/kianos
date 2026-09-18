@@ -6,57 +6,7 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [
-      {
-        "boundary": "in response to = as a reaction or reply to",
-        "codex_reviewed": false,
-        "definition_cn": "作为对某事的反应而说或做的事；回答",
-        "definition_en": "something said or done as a reaction to something else",
-        "dimensions": {},
-        "direction": "R+P",
-        "evidence": [
-          {
-            "evidence_id": "evidence:core-card:response:7022b0e62ea2",
-            "evidence_status": "source_checked",
-            "source_labels": [],
-            "source_locator": "response:l1:1",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:constructions:response:4a4ef0d3693fe173",
-        "family_sources": [],
-        "label_en": null,
-        "level": null,
-        "meaning_cn": "作为对某事的回应",
-        "module": "constructions",
-        "pattern": "in response to + sth",
-        "pos": "noun",
-        "presentation_merge": {
-          "merge_id": "presentation-merge:dfff2939ce7cee1810ba",
-          "metadata_tags": [
-            "cloze",
-            "collocation",
-            "construction",
-            "writing"
-          ],
-          "mode": "MERGE_PRESENTATION",
-          "surviving_object_id": "collocation:2e3562578c9693fa18c1"
-        },
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:response:081963c9229151c0",
-        "target_sense_id": null,
-        "target_word": null,
-        "task_tags": [
-          "cloze",
-          "writing"
-        ],
-        "verification_status": "verified",
-        "writing_safe": true
-      }
-    ],
+    "constructions": [],
     "content_hash": "1ae380db8f0bd8107aa09102e6c974749ae128ad89c3be632b5ed91b97f5ba83",
     "core_concept": {
       "core_clusters": [],
@@ -78,7 +28,17 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:2e3562578c9693fa18c1",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:response:081963c9229151c0:collocation:0"
+            ],
+            "meaning_cn": "作为对某事的回应",
+            "phrase": "in response to + sth"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "作为对某事的反应而说或做的事；回答",
         "definition_en": "something said or done as a reaction to something else",
@@ -255,7 +215,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4121-4128.json",
     "source_content_hash": "b88f373cbf8d4a36aa844c2309e0cedf62c7a4b853eb60eb47984c2c491f7489",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

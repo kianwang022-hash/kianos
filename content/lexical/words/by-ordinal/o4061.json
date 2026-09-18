@@ -44,55 +44,6 @@
         ],
         "verification_status": "verified",
         "writing_safe": true
-      },
-      {
-        "boundary": "remark on sth 评论某事",
-        "codex_reviewed": false,
-        "definition_cn": "评论，谈论",
-        "definition_en": "to make a comment about something",
-        "dimensions": {},
-        "direction": "R+P",
-        "evidence": [
-          {
-            "evidence_id": "evidence:core-card:remark:91960c881927",
-            "evidence_status": "source_checked",
-            "source_labels": [],
-            "source_locator": "remark:l1:5",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:constructions:remark:2ec88f9ff943d5b1",
-        "family_sources": [],
-        "label_en": null,
-        "level": null,
-        "meaning_cn": "评论某事",
-        "module": "constructions",
-        "pattern": "remark on + sth",
-        "pos": "verb",
-        "presentation_merge": {
-          "merge_id": "presentation-merge:c92df18734d6110b35a1",
-          "metadata_tags": [
-            "cloze",
-            "collocation",
-            "construction",
-            "writing"
-          ],
-          "mode": "MERGE_PRESENTATION",
-          "surviving_object_id": "collocation:0eaa6d3c91850596b654"
-        },
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:remark:ef776ae04ac451b6",
-        "target_sense_id": null,
-        "target_word": null,
-        "task_tags": [
-          "cloze",
-          "writing"
-        ],
-        "verification_status": "verified",
-        "writing_safe": true
       }
     ],
     "content_hash": "63fb29a250b3a57084d28bd24483264abda4fec322bc61b6584d24b1d715c952",
@@ -120,7 +71,17 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:0eaa6d3c91850596b654",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:remark:805f56534db5595f:collocation:0"
+            ],
+            "meaning_cn": "评论某事",
+            "phrase": "remark on + sth"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "评论，言论",
         "definition_en": "a statement expressing an opinion or information",
@@ -409,7 +370,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4057-4064.json",
     "source_content_hash": "922eac686a688c2420271fe4fb10e9349ad18ff5f2d471cb6774e46642546b53",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
