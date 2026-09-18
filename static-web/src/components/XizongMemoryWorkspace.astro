@@ -56,7 +56,7 @@ const base = import.meta.env.BASE_URL;
         </header>
 
         <section class="xzMemoryPrompt" data-memory-prompt-wrap>
-          <header><span>Prompt</span><div><button type="button" data-memory-prompt-edit>改 Prompt</button><button type="button" data-memory-prompt-reset>恢复 canonical</button></div></header>
+          <header><span>Prompt</span><div><button type="button" data-memory-prompt-edit>改 Prompt</button><button type="button" data-memory-prompt-reset>恢复默认 Prompt</button></div></header>
           <p data-memory-prompt data-mark-surface="PROMPT"></p>
           <div class="xzMemoryPromptEditor" data-memory-prompt-editor hidden>
             <textarea rows="3" data-memory-prompt-input></textarea>
@@ -107,7 +107,7 @@ const base = import.meta.env.BASE_URL;
     </main>
 
     <aside class="xzMemoryContext">
-      <section><span>Current rule</span><strong data-memory-rule-title>Evidence-driven Today</strong><p data-memory-rule-text>Weak 是权重，不是复制卡；稳定内容仍留在长期库里。</p></section>
+      <section><span>当前规则</span><strong data-memory-rule-title>按证据进入 Today</strong><p data-memory-rule-text>薄弱只影响回收优先级，不复制卡；稳定内容仍留在长期库里。</p></section>
       <section><span>Keyboard</span><dl><div><dt>Space</dt><dd>Reveal</dd></div><div><dt>← / →</dt><dd>上一项 / 下一项</dd></div></dl></section>
       <section class="xzMemoryMarkHint" data-memory-mark-hint><span>Marked</span><p>在 Prompt / Core 中选中文字，再点“标记选中片段”。它只表示你想以后再看这一小段。</p></section>
     </aside>
@@ -187,7 +187,7 @@ const base = import.meta.env.BASE_URL;
     const effectiveAnswerHtml = (item) => {
       if (item.family === 'CORE') return item.coreHtml || '';
       if (item.answerHtml) return item.answerHtml;
-      return item.ownerContextHtml || '<p>这个 Precision cue 尚未物化出安全的独立答案；请回 Current owning Core / Source。</p>';
+      return item.ownerContextHtml || '<p>这个精确记忆点暂时没有安全的独立答案；请回对应 Core / 原讲义。</p>';
     };
 
     const showCard = (item) => {
@@ -211,7 +211,7 @@ const base = import.meta.env.BASE_URL;
       else {
         setText('[data-memory-precision-text]', item.cue || item.title || '恢复这个精确项。');
         setText('[data-memory-precision-resolution]', item.answerResolution === 'EXACT_CURRENT_OWNER'
-          ? '已绑定 Current 精确答案。'
+          ? '已绑定精确答案。'
           : '当前 cue 只声明“哪里要精确”；下方使用 owning Core context，不从正文猜取阈值。');
       }
 
