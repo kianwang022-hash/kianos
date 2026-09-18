@@ -126,6 +126,32 @@ The web must not infer:
 
 Those are Chat decisions.
 
+### Chat planning input: evidence facts, not Web recommendations
+
+Before Chat composes a consolidation plan, it must be able to receive the bounded private learner evidence that materially affects the decision.
+
+Reuse the existing Politics private evidence / `kianos.politics.return_packet.v1` handoff semantics rather than creating a Web scheduler.
+
+For consolidation entry, the handoff/evidence snapshot may include:
+
+- requested subject / chapter / Current anchor identity;
+- unresolved or still-meaningful historical `WRONG` / `UNCERTAIN` question ids and owning content refs;
+- prior exact/Precision evidence when it exists;
+- last meaningful learner position / interrupted action when relevant;
+- recent session outcomes needed to avoid repeating already-stable work.
+
+The Web may filter mechanically by explicit scope / state such as 'unresolved W/U for this anchor'. It must not rank, score, recommend, or decide what Chat should review.
+
+The planning direction is therefore:
+
+```text
+private learner evidence facts + Current K + phase/time context
+→ Chat strategy
+→ consolidation_plan.v1
+```
+
+The exact query/export transport is Runtime/Evidence implementation work. The Learning/Interaction requirement is that Chat must not be forced to guess learner state or reconstruct it manually from UI history.
+
 ### Minimal plan semantics
 
 The durable semantic interface is `kianos.politics.consolidation_plan.v1`.
@@ -592,6 +618,8 @@ This is personal session position, not shared Current and not a semantic owner.
 Continue must not imply that the learner resumes by reading duplicated Chengfeng text in Astro. When Chengfeng study is next, Continue should route/point the learner back to the original iPad/MarginNote source position and keep the Astro companion state aligned.
 
 ### Return / Handoff
+
+During later-stage consolidation, the same private evidence channel may also be queried/exported as a bounded **fact snapshot** before Chat plans the next session. This is not a recommendation surface.
 
 Stable correct Xiao1000 answers do not need to enter the daily handoff by default.
 
