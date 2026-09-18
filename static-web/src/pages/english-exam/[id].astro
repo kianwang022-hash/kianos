@@ -44,7 +44,7 @@ const serverTaskLabel = (step) => ({
     </header>
 
     <section class="englishExamActions">
-      <button type="button" class="primary" data-exam-start>开始整卷</button>
+      <button type="button" class="primary" data-exam-start disabled>开始整卷</button>
       <button type="button" class="primary" data-exam-continue hidden>继续当前部分</button>
       <button type="button" data-exam-seal hidden>提前交卷</button>
       <button type="button" class="primary" data-exam-release hidden>统一出 Objective 分</button>
@@ -318,6 +318,8 @@ const serverTaskLabel = (step) => ({
     window.addEventListener('focus', render);
     render();
     tick();
+    if (startButton instanceof HTMLButtonElement) startButton.disabled = false;
+    root.dataset.examReady = 'true';
     setInterval(tick, 1000);
   }
 </script>
