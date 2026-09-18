@@ -2,10 +2,22 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
+import { politicsProductCatalog } from '../src/lib/productCatalog.mjs';
+import { PRACTICE_KEYS as K } from '../src/lib/politicsPracticeState.mjs';
 
 const PORT = 4341;
 const BASE = `http://127.0.0.1:${PORT}`;
 const VIEWPORT = { width: 1512, height: 982 };
+const reviewCatalog = politicsProductCatalog('/');
+const reviewQuestions = [];
+const reviewUnits = new Set();
+for (const q of reviewCatalog.questions || []) {
+  if (!q.unitKey || reviewUnits.has(q.unitKey)) continue;
+  reviewQuestions.push(q);
+  reviewUnits.add(q.unitKey);
+  if (reviewQuestions.length === 3) break;
+}
+if (reviewQuestions.length < 3) throw new Error('POLITICS_REVIEW_VISUAL_FIXTURE_NEEDS_3_UNITS');
 const auditDir = path.resolve(process.cwd(), '.qa');
 fs.mkdirSync(auditDir, { recursive: true });
 
@@ -78,6 +90,7 @@ try {
   await waitFor('/politics/');
   await waitFor('/politics/learn/');
   await waitFor('/politics/marxism/ch02/');
+  await waitFor('/politics/review/');
 
   browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({ viewport: VIEWPORT, locale: 'zh-CN' });
@@ -156,6 +169,75 @@ try {
   report.routes.learn_index = { route: '/politics/learn/', metrics: learnMetrics, type: learnType };
   await page.screenshot({ path: path.join(auditDir, 'politics-learn-index-mac.png') });
   fs.writeFileSync(path.join(auditDir, 'politics-learn-mac-visual.json'), JSON.stringify(report, null, 2));
+
+  const reviewResponse = await page.goto(`${BASE}/politics/review/`, { waitUntil: 'domcontentloaded' });
+  check(reviewResponse?.ok(), 'review_http_ok', String(reviewResponse?.status()));
+
+  const reviewFixture = (() => {
+    const outcomes = ['WRONG', 'UNCERTAIN', 'STABLE'];
+    const units = {};
+    const latestOutcome = {};
+    const discussion = {};
+    const notes = {};
+    const causes = {};
+    const evidence = [];
+    reviewQuestions.forEach((q, index) => {
+      const outcome = outcomes[index];
+      units[q.unitKey] ||= { attempts: {} };
+      units[q.unitKey].attempts[q.id] = {
+        question_id: q.id,
+        outcome,
+        study_day: '2026-09-19',
+        selected: outcome === 'WRONG' ? 'A' : q.answer
+      };
+      latestOutcome[q.id] = outcome;
+      if (index === 2) discussion[q.id] = true;
+      if (index === 0) notes[q.id] = '这里需要重新确认概念边界。';
+      if (index === 1) causes[q.id] = '两个选项之间犹豫';
+      evidence.push({
+        subject: q.subject,
+        chapter: q.chapter,
+        unit_id: q.unitId,
+        question_id: q.id,
+        source: 'xiao1000',
+        outcome,
+        study_day: '2026-09-19',
+        observed_at: `2026-09-19T10:0${index}:00.000Z`
+      });
+    });
+    return { attempts: { units }, meta: { latestOutcome, discussion, notes, causes }, evidence };
+  })();
+
+  await page.evaluate(({ K, fixture }) => {
+    localStorage.setItem(K.attempts, JSON.stringify(fixture.attempts));
+    localStorage.setItem(K.meta, JSON.stringify(fixture.meta));
+    localStorage.setItem(K.evidence, JSON.stringify(fixture.evidence));
+  }, { K, fixture: reviewFixture });
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  await page.evaluate(() => document.fonts.ready);
+  await page.locator('[data-politics-review][data-ready="true"]').waitFor({ state: 'visible' });
+  check(await activePoliticsNav(page) === '复习', 'review_l2_active');
+  check(await page.locator('.reviewNavigation').count() === 0, 'review_has_no_duplicate_navigation');
+  check(await page.locator('[data-review-action]').isVisible(), 'review_main_action_visible');
+  check(await page.locator('.reviewGroup').count() >= 2, 'review_multiple_unit_groups_visible');
+  check(await page.locator('.reviewQuestionRow').count() >= 3, 'review_question_rows_visible');
+  const reviewMetrics = await page.evaluate(() => {
+    const root = document.querySelector('[data-politics-review]');
+    const strip = document.querySelector('.reviewActionStrip');
+    const action = document.querySelector('[data-review-action]');
+    const group = document.querySelector('.reviewGroup');
+    if (!root || !strip || !action || !group) return null;
+    const rect = (node) => {
+      const r = node.getBoundingClientRect();
+      return { x: r.x, y: r.y, width: r.width, height: r.height, right: r.right, bottom: r.bottom };
+    };
+    return { root: rect(root), strip: rect(strip), action: rect(action), firstGroup: rect(group) };
+  });
+  check(Boolean(reviewMetrics), 'review_geometry_present');
+  check(reviewMetrics.root.width >= 1100, 'review_uses_mac_width', JSON.stringify(reviewMetrics));
+  const reviewType = await visibleTypeFloor(page, '[data-politics-review]', 'review');
+  report.routes.review = { route: '/politics/review/', metrics: reviewMetrics, type: reviewType };
+  await page.screenshot({ path: path.join(auditDir, 'politics-review-mac.png') });
 
   const chapterResponse = await page.goto(`${BASE}/politics/marxism/ch02/`, { waitUntil: 'domcontentloaded' });
   check(chapterResponse?.ok(), 'chapter_http_ok', String(chapterResponse?.status()));
