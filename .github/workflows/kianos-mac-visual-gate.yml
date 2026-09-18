@@ -9,6 +9,8 @@ on:
       - 'static-web/src/styles/shared-shell.css'
       - 'static-web/src/styles/xizong-practice-workspace.css'
       - 'static-web/src/components/XizongPracticeWorkbench.astro'
+      - 'static-web/src/pages/xizong/practice/**'
+      - 'static-web/src/lib/xizongRetainedPractice.mjs'
       - 'static-web/src/styles/xizong-system-exit-workspace.css'
       - 'static-web/src/components/XizongSystemExitRuntime.astro'
       - 'static-web/src/styles/xizong-block-workspace.css'
@@ -26,6 +28,8 @@ on:
       - 'static-web/src/styles/shared-shell.css'
       - 'static-web/src/styles/xizong-practice-workspace.css'
       - 'static-web/src/components/XizongPracticeWorkbench.astro'
+      - 'static-web/src/pages/xizong/practice/**'
+      - 'static-web/src/lib/xizongRetainedPractice.mjs'
       - 'static-web/src/styles/xizong-system-exit-workspace.css'
       - 'static-web/src/components/XizongSystemExitRuntime.astro'
       - 'static-web/src/styles/xizong-block-workspace.css'
@@ -98,6 +102,8 @@ jobs:
             static-web/.qa/xizong-system-exit-workspace.json
             static-web/.qa/xizong-practice-workbench-front.png
             static-web/.qa/xizong-practice-workbench.png
+            static-web/.qa/xizong-practice-retained-entry.png
+            static-web/.qa/xizong-practice-retained-workbench.png
             static-web/.qa/xizong-system-exit-recall.png
             static-web/.qa/xizong-system-exit-recall-reveal.png
             static-web/.qa/xizong-block-workspace.json
