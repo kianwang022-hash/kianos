@@ -28,6 +28,16 @@ Do not reopen English learning architecture for styling convenience.
 
 ---
 
+## Active final acceptance task
+
+Fresh independent English-wide learner acceptance is ACTIVE.
+
+Execution brief: `FINAL_LEARNER_ACCEPTANCE_BRIEF.md`.
+
+Active ref: `work/english-final-audit-20260919`. Independent learner model and failure hypotheses were approved before implementation inspection. Candidate repairs and fresh synthetic/adversarial/browser evidence are being evaluated; historical child PASS is not an integration verdict. Shared durability, actual Kian Mac Human Gates and real-use U remain separately scoped. No learner progress is inferred.
+
+---
+
 ## Architecture v2 owner map
 
 ```text

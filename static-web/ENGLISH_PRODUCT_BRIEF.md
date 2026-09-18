@@ -527,7 +527,7 @@ English Home follows the shared UI floor but should not aim at the floor:
 
 If an unfinished English object exists, Resume is the most important action on Home.
 
-If nothing is unfinished, Home may promote the most relevant current-phase task, but must not manufacture a fake `Continue` or fake progress state.
+If no valid Chat instruction exists, Home presents factual unfinished work and direct navigation. It must not rank cross-task priorities, promote a guessed next task, or manufacture `Continue` or learner progress. A valid typed Chat instruction may nominate the next task.
 
 ### Review / Guide rail
 

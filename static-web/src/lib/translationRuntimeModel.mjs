@@ -48,6 +48,8 @@ function repairSignature(payload) {
 }
 
 function freshTransferClosureEligible(target, context = {}) {
+  // No local history is not proof of freshness or unassisted performance.
+  if (!['fresh','unseen'].includes(context.contextNovelty) || context.assistance !== 'unassisted' || context.sameDemand !== true) return false;
   const historyCount = Number(context.taskHistoryCount);
   if (!Number.isFinite(historyCount) || historyCount !== 0) return false;
   const attemptAt = isoMillis(context.attemptFirstSubmittedAt);
@@ -143,6 +145,8 @@ export function wholeAttemptMissing(prompts = [], drafts = {}) {
 }
 
 export function freezeWholeAttempt(state, prompts = [], now) {
+  if (state?.firstSubmittedAt && Object.keys(state?.firstAttempts || {}).length) return { ok: true, missing: [], state: structuredClone(state) };
+  if (state?.stage !== 'attempt') throw new Error('TRANSLATION_FREEZE_INVALID_STAGE');
   const missing = wholeAttemptMissing(prompts, state?.drafts || {});
   if (missing.length) return { ok: false, missing, state };
   const next = structuredClone(state);
@@ -156,6 +160,7 @@ export function freezeWholeAttempt(state, prompts = [], now) {
 }
 
 export function passCleanAttempt(state, now) {
+  if (!state?.firstSubmittedAt || !Object.keys(state?.firstAttempts || {}).length || state.stage === 'attempt') throw new Error('TRANSLATION_PASS_REQUIRES_FIRST_ATTEMPT');
   const next = structuredClone(state);
   next.stage = 'passed';
   next.decision = 'PASS';

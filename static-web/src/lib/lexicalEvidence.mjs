@@ -343,6 +343,7 @@ export function deriveRepairStates(ledgerInput) {
       target_revision: identity.target_revision || null,
       state: 'NONE',
       required_demand: null,
+      required_demands: [],
       activated_at: null,
       last_evidence_at: null,
       last_event_id: null,
@@ -351,40 +352,50 @@ export function deriveRepairStates(ledgerInput) {
     };
 
     if (eventCanAdmit(event)) {
+      if (state.state !== 'ACTIVE') state.required_demands = [];
+      state.required_demands = [...new Set([...state.required_demands, event.demand || 'unknown'])];
       state.state = 'ACTIVE';
       state.activated_at = event.observed_at;
       state.last_evidence_at = event.observed_at;
       state.last_event_id = event.event_id;
-      if (event.demand) state.required_demand = event.demand;
+      state.required_demand = state.required_demands[0] || null;
       if (event.outcome === 'WRONG' || event.outcome === 'AGAIN') {
         state.failure_count_since_dormant += 1;
         if (state.failure_count_since_dormant >= 2) state.diagnosis_required = true;
       }
     } else if (weakEvidenceCanAccumulate(event)) {
-      const contexts = slowContexts.get(key) || new Set();
+      const slowKey = key + '|' + (event.demand || 'unknown');
+      const contexts = slowContexts.get(slowKey) || new Set();
       if (event.context_id) contexts.add(String(event.context_id));
-      slowContexts.set(key, contexts);
+      slowContexts.set(slowKey, contexts);
       if (contexts.size >= 2) {
         state.state = 'ACTIVE';
         state.activated_at = state.activated_at || event.observed_at;
         state.last_evidence_at = event.observed_at;
         state.last_event_id = event.event_id;
-        if (event.demand) state.required_demand = event.demand;
+        state.required_demands = [...new Set([...state.required_demands, event.demand || 'unknown'])];
+        state.required_demand = state.required_demands[0] || null;
       }
     } else if (event.outcome === 'CLEAR') {
-      slowContexts.set(key, new Set());
+      for (const slowKey of slowContexts.keys()) if (slowKey === key || slowKey.startsWith(key + '|')) slowContexts.delete(slowKey);
+      state.required_demands = [];
+      state.required_demand = null;
       state.state = 'DORMANT';
       state.last_evidence_at = event.observed_at;
       state.last_event_id = event.event_id;
       state.failure_count_since_dormant = 0;
       state.diagnosis_required = false;
-    } else if (qualifiesForDormancy(event, state.required_demand)) {
-      slowContexts.set(key, new Set());
-      state.state = 'DORMANT';
+    } else if (state.state === 'ACTIVE' && state.required_demands.includes(event.demand) && qualifiesForDormancy(event, event.demand)) {
+      for (const slowKey of slowContexts.keys()) if (slowKey === key || slowKey.startsWith(key + '|')) slowContexts.delete(slowKey);
+      state.required_demands = state.required_demands.filter(demand => demand !== event.demand);
+      state.required_demand = state.required_demands[0] || null;
+      state.state = state.required_demands.length ? 'ACTIVE' : 'DORMANT';
       state.last_evidence_at = event.observed_at;
       state.last_event_id = event.event_id;
-      state.failure_count_since_dormant = 0;
-      state.diagnosis_required = false;
+      if (state.state === 'DORMANT') {
+        state.failure_count_since_dormant = 0;
+        state.diagnosis_required = false;
+      }
     } else if (event.outcome === 'CORRECT') {
       state.last_evidence_at = event.observed_at;
       state.last_event_id = event.event_id;

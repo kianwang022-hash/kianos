@@ -35,7 +35,7 @@ Preferred interaction:
 
 - passage remains visually primary;
 - blanks stay in context;
-- one active blank may expose its four candidates without hiding surrounding text;
+- all blank rows and candidates remain available in the complete question sheet; active blank is focus only;
 - fast previous/next navigation is allowed;
 - `Uncertain` may be captured with one low-friction action;
 - timer/progress remain quiet;

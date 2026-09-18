@@ -182,6 +182,9 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
 </section>
 
 <script>
+  import { saveEnglishTaskState } from '../lib/englishExamSession.mjs';
+  import { guardEnglishTaskEvidence } from '../lib/englishTaskEvidence.mjs';
+  const examTaskContext = () => { try { return JSON.parse(document.querySelector('[data-exam-task-context]')?.textContent || 'null'); } catch { return null; } };
   import {
     WRITING_STATES,
     createInitialWritingRecord,
@@ -207,6 +210,7 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
     const storageKey = examSessionId
       ? `kianos-english-exam-task-v1:${examSessionId}:writing:${task.id}`
       : `kianos-writing-runtime-v1:${task.id}`;
+    if (!guardEnglishTaskEvidence(root,localStorage,storageKey,examTaskContext())) throw new Error('ENGLISH_EVIDENCE_RECOVERY_REQUIRED');
     const lastLocationKey = 'kianos-writing-last-location-v1';
     let saved = null;
     try { saved = JSON.parse(localStorage.getItem(storageKey) || 'null'); } catch {}
@@ -239,7 +243,7 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
 
     function persist() {
       record.updatedAt = new Date().toISOString();
-      try { localStorage.setItem(storageKey, JSON.stringify(record)); } catch {}
+      try { saveEnglishTaskState(localStorage, storageKey, record, examTaskContext()); } catch {}
       if (!examSessionId) {
         try {
           localStorage.setItem(lastLocationKey, JSON.stringify({

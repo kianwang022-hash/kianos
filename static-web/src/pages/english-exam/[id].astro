@@ -164,11 +164,11 @@ const serverTaskLabel = (step) => ({
       source.forEach((step, index) => {
         const row = document.createElement(state?.status === 'ACTIVE' ? 'a' : 'div');
         row.className = 'englishExamStep';
-        row.dataset.complete = state?.captures?.[step.step_id] ? 'true' : 'false';
+        row.dataset.complete = state?.captures?.[step.step_id] && state.captures[step.step_id].completed !== false ? 'true' : 'false';
         if (state?.status === 'ACTIVE' && row instanceof HTMLAnchorElement) {
           row.href = hrefFor(state, index);
           row.addEventListener('click', () => {
-            try { writeSession(selectEnglishExamStep(state, index)); } catch {}
+            try { writeSession(selectEnglishExamStep(currentSession(), index)); } catch {}
           });
         }
         const n = document.createElement('span');
@@ -181,7 +181,7 @@ const serverTaskLabel = (step) => ({
         copy.append(strong);
         const meta = document.createElement('b');
         meta.className = 'englishExamStepMeta';
-        meta.textContent = state?.captures?.[step.step_id] ? '已完成' : step.max_points + ' 分';
+        meta.textContent = state?.captures?.[step.step_id] && state.captures[step.step_id].completed !== false ? '已完成' : step.max_points + ' 分';
         row.append(n, copy, meta);
         stepList.appendChild(row);
       });
@@ -216,7 +216,7 @@ const serverTaskLabel = (step) => ({
 
       if (stateLabel) {
         stateLabel.textContent = !state ? '尚未开始'
-          : active ? '进行中 · ' + Object.keys(state.captures || {}).length + '/' + state.steps.length
+          : active ? '进行中 · ' + Object.values(state.captures || {}).filter(c=>c.completed !== false).length + '/' + state.steps.length
           : sealed ? '已交卷 · 可查看客观题结果'
           : '已出分 · 翻译和写作待复盘';
       }
@@ -228,7 +228,7 @@ const serverTaskLabel = (step) => ({
     const start = () => {
       const existing = readEnglishExamSession(localStorage);
       if (existing?.status === 'ACTIVE' && existing.paper_id !== paperId) {
-        if (!confirm('当前还有 ' + existing.paper_id + ' 的整卷 Session。开始新卷会替换它，继续？')) return;
+        setStatus('请先完成或交卷当前整卷；不会替换未完成的作答。', true); return;
       }
       try {
         const state = startEnglishExamSession(paper, {

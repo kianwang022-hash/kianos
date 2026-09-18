@@ -1,5 +1,6 @@
 ---
-const { task, objectId } = Astro.props;
+const { task, objectId, taskObject=null } = Astro.props;
+const taskContext=JSON.stringify(taskObject).replace(/</g,'\\u003c');
 const base = import.meta.env.BASE_URL;
 ---
 <aside
@@ -10,6 +11,7 @@ const base = import.meta.env.BASE_URL;
   data-base={base}
   hidden
 >
+  <script type="application/json" data-exam-task-context set:html={taskContext}></script>
   <div>
     <span>整卷模考</span>
     <strong data-exam-step-label>当前部分</strong>
@@ -23,154 +25,54 @@ const base = import.meta.env.BASE_URL;
 </aside>
 
 <script>
-  import {
-    readEnglishExamSession,
-    writeEnglishExamSession,
-    englishExamRemainingMs,
-    captureEnglishExamStep,
-    sealEnglishExamSession,
-    englishExamTaskHref
-  } from '../lib/englishExamSession.mjs';
-
-  const bridge = document.querySelector('[data-english-exam-task-bridge]');
-  if (bridge instanceof HTMLElement) {
-    const params = new URLSearchParams(location.search);
-    const querySession = params.get('exam_session') || '';
-    const queryStep = params.get('exam_step') || '';
-    const task = bridge.getAttribute('data-task') || '';
-    const objectId = bridge.getAttribute('data-object-id') || '';
-    const base = bridge.getAttribute('data-base') || '/';
-    let state = readEnglishExamSession(localStorage);
-
-    const exactStep = () => state?.steps?.find((step) =>
-      step.step_id === queryStep && step.task === task && step.object_id === objectId
-    ) || null;
-
-    if (querySession && state?.session_id === querySession && state?.status === 'ACTIVE' && exactStep()) {
-      bridge.hidden = false;
-      document.documentElement.dataset.englishExamSession = 'true';
-      const step = exactStep();
-      const stepIndex = state.steps.findIndex((row) => row.step_id === step.step_id);
-      const label = bridge.querySelector('[data-exam-step-label]');
-      const progress = bridge.querySelector('[data-exam-step-progress]');
-      const remaining = bridge.querySelector('[data-exam-remaining]');
-      const returnLink = bridge.querySelector('[data-exam-return]');
-      if (label) label.textContent = ({ cloze: "完形填空", reading_a: "阅读理解", reading_b: "新题型", translation: "翻译", writing: step.writing_kind === "small" ? "小作文" : "大作文" })[task] || "当前部分";
-      if (progress) progress.textContent = `第 ${stepIndex + 1} / ${state.steps.length} 部分`;
-      if (returnLink instanceof HTMLAnchorElement) {
-        returnLink.href = `${base}english-exam/${encodeURIComponent(state.paper_id)}/`;
+  import { readEnglishExamSession, writeEnglishExamSession, englishExamRemainingMs, captureEnglishExamStep, sealEnglishExamSession, englishExamTaskHref, englishExamTaskKey, englishExamPayload } from '../lib/englishExamSession.mjs';
+  const bridge=document.querySelector('[data-english-exam-task-bridge]');
+  if(bridge instanceof HTMLElement) {
+    const params=new URLSearchParams(location.search), querySession=params.get('exam_session') || '', queryStep=params.get('exam_step') || '';
+    const task=bridge.dataset.task || '', objectId=bridge.dataset.objectId || '', base=bridge.dataset.base || '/';
+    let context=null;try{context=JSON.parse(bridge.querySelector('[data-exam-task-context]')?.textContent || 'null')}catch{}
+    let state=readEnglishExamSession(localStorage);
+    const exact=s=>s?.steps.find(row=>row.step_id===queryStep && row.task===task && row.object_id===objectId);
+    const home=s=>`${base}english-exam/${encodeURIComponent(s.paper_id)}/`;
+    const matching=state?.steps.find(row=>row.task===task && row.object_id===objectId);
+    // An ordinary route for the active paper cannot become an answer/review side door.
+    if(!querySession && state?.status==='ACTIVE' && matching) location.replace(englishExamTaskHref(matching,{base,sessionId:state.session_id}));
+    if(querySession) {
+      document.documentElement.dataset.englishExamSession='true';
+      const lock=()=>{
+        document.querySelectorAll('[data-local-port="reading"],[data-objective-root],[data-translation-runtime],[data-writing-runtime]').forEach(node=>{node.inert=true;});
+        const button=bridge.querySelector('[data-exam-complete]');if(button instanceof HTMLButtonElement)button.disabled=true;
+      };
+      const refresh=()=>{state=readEnglishExamSession(localStorage);return state?.session_id===querySession && exact(state) && state.status==='ACTIVE';};
+      if(!refresh()) { lock(); if(state)location.replace(home(state)); }
+      else {
+        const step=exact(state), index=state.steps.findIndex(row=>row.step_id===queryStep);
+        bridge.hidden=false;
+        bridge.querySelector('[data-exam-step-label]').textContent=({cloze:'完形填空',reading_a:'阅读理解',reading_b:'新题型',translation:'翻译',writing:step.writing_kind==='small'?'小作文':'大作文'})[task];
+        bridge.querySelector('[data-exam-step-progress]').textContent=`第 ${index+1} / ${state.steps.length} 部分`;
+        bridge.querySelector('[data-exam-return]').href=home(state);
+        let completing=false;
+        const complete=()=>{
+          if(completing)return;completing=true;
+          try {
+            if(!refresh())throw new Error('这次整卷已结束；不能继续改写。');
+            if(englishExamRemainingMs(state)<=0){lock();writeEnglishExamSession(localStorage,sealEnglishExamSession(state));location.href=home(state);return;}
+            const local=JSON.parse(localStorage.getItem(englishExamTaskKey(querySession,task,objectId)) || '{}');
+            const next=captureEnglishExamStep(state,{stepId:queryStep,task,objectId,payload:englishExamPayload(task,local,context)});
+            writeEnglishExamSession(localStorage,next);
+            location.href=next.current_step<next.steps.length?englishExamTaskHref(next.steps[next.current_step],{base,sessionId:querySession,stepIndex:next.current_step}):home(next);
+          }catch(e){completing=false;bridge.querySelector('[data-exam-step-progress]').textContent=e.message;}
+        };
+        const selector=({reading_a:'[data-reading-submit]',cloze:'[data-objective-submit]',reading_b:'[data-objective-submit]',translation:'[data-freeze-first]',writing:'[data-lock-first]'})[task];
+        window.addEventListener('click',e=>{const target=e.target instanceof Element?e.target:null;if(!target?.closest('[data-exam-complete]')&&!target?.closest(selector))return;e.preventDefault();e.stopImmediatePropagation();complete();},true);
+        const tick=()=>{
+          if(!refresh()){lock();location.replace(home(state || {paper_id:'unknown'}));return;}
+          const ms=englishExamRemainingMs(state),sec=Math.ceil(ms/1000);
+          bridge.querySelector('[data-exam-remaining]').textContent=String(Math.floor(sec/60)).padStart(3,'0')+':'+String(sec%60).padStart(2,'0');
+          if(ms<=0){lock();writeEnglishExamSession(localStorage,sealEnglishExamSession(state));location.replace(home(state));}
+        };
+        window.addEventListener('storage',tick);window.addEventListener('focus',tick);tick();setInterval(tick,1000);
       }
-
-      const taskStorageKey = () =>
-        `kianos-english-exam-task-v1:${state.session_id}:${task}:${objectId}`;
-
-      const readTaskState = () => {
-        try { return JSON.parse(localStorage.getItem(taskStorageKey()) || 'null') || {}; }
-        catch { return {}; }
-      };
-
-      const capturePayload = () => {
-        const local = readTaskState();
-        if (['reading_a', 'cloze', 'reading_b'].includes(task)) {
-          return {
-            answers: local.answers && typeof local.answers === 'object' ? local.answers : {},
-            uncertain: Array.isArray(local.uncertain) ? local.uncertain : [],
-            started_at: local.startedAt || null,
-            trajectory: local.trajectory && typeof local.trajectory === 'object' ? local.trajectory : {}
-          };
-        }
-        if (task === 'translation') {
-          return {
-            answers: local.drafts && typeof local.drafts === 'object' ? local.drafts : {},
-            started_at: local.startedAt || null
-          };
-        }
-        if (task === 'writing') {
-          return {
-            plan_mode: local.planMode || 'planned',
-            plan: local.draftPlan || '',
-            essay: local.draftEssay || '',
-            started_at: local.startedAt || null
-          };
-        }
-        return {};
-      };
-
-      const routeNext = () => {
-        if (state.current_step >= state.steps.length) {
-          location.href = `${base}english-exam/${encodeURIComponent(state.paper_id)}/`;
-          return;
-        }
-        const next = state.steps[state.current_step];
-        location.href = englishExamTaskHref(next, {
-          base,
-          sessionId: state.session_id,
-          stepIndex: state.current_step
-        }) || `${base}english-exam/${encodeURIComponent(state.paper_id)}/`;
-      };
-
-      let completing = false;
-      const completeStep = () => {
-        if (completing) return;
-        completing = true;
-        try {
-          if (englishExamRemainingMs(state) <= 0) {
-            state = sealEnglishExamSession(state);
-            writeEnglishExamSession(localStorage, state);
-            location.href = `${base}english-exam/${encodeURIComponent(state.paper_id)}/`;
-            return;
-          }
-          state = captureEnglishExamStep(state, {
-            stepId: step.step_id,
-            task,
-            objectId,
-            payload: capturePayload()
-          });
-          writeEnglishExamSession(localStorage, state);
-          routeNext();
-        } catch (error) {
-          completing = false;
-          const button = bridge.querySelector('[data-exam-complete]');
-          if (button instanceof HTMLButtonElement) {
-            button.disabled = false;
-            button.textContent = error instanceof Error ? error.message : '无法封存本部分';
-          }
-        }
-      };
-
-      const underlyingSelector = ({
-        reading_a: '[data-reading-submit]',
-        cloze: '[data-objective-submit]',
-        reading_b: '[data-objective-submit]',
-        translation: '[data-freeze-first]',
-        writing: '[data-lock-first]'
-      })[task];
-
-      window.addEventListener('click', (event) => {
-        const target = event.target instanceof Element ? event.target : null;
-        const own = target?.closest('[data-exam-complete]');
-        const underlying = underlyingSelector ? target?.closest(underlyingSelector) : null;
-        if (!own && !underlying) return;
-        event.preventDefault();
-        event.stopPropagation();
-        event.stopImmediatePropagation();
-        completeStep();
-      }, true);
-
-      const renderTime = () => {
-        const ms = englishExamRemainingMs(state);
-        const totalSeconds = Math.max(0, Math.ceil(ms / 1000));
-        const minutes = Math.floor(totalSeconds / 60);
-        const seconds = totalSeconds % 60;
-        if (remaining) remaining.textContent = `${String(minutes).padStart(3, '0')}:${String(seconds).padStart(2, '0')}`;
-        if (ms <= 0 && state.status === 'ACTIVE') {
-          state = sealEnglishExamSession(state);
-          writeEnglishExamSession(localStorage, state);
-          location.href = `${base}english-exam/${encodeURIComponent(state.paper_id)}/`;
-        }
-      };
-      renderTime();
-      setInterval(renderTime, 1000);
     }
   }
 </script>

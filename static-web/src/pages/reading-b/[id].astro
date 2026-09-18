@@ -27,7 +27,7 @@ const item = loadReadingBById(Astro.props.objectId);
   objectId={item.objectId}
   active="reading_b"
 >
-  <EnglishExamTaskBridge task="reading_b" objectId={item.objectId} />
+  <EnglishExamTaskBridge task="reading_b" objectId={item.objectId} taskObject={item} />
   <ReadingBWorkspace item={item} />
   <ObjectiveAnswerGate task="reading_b" answerRoute="reading-b-answer" />
   <ObjectiveHandoff />

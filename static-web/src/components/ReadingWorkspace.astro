@@ -137,6 +137,9 @@ const questionId = (question, index) => String(question.id || question.question_
 </section>
 
 <script>
+  import { saveEnglishTaskState } from '../lib/englishExamSession.mjs';
+  import { guardEnglishTaskEvidence } from '../lib/englishTaskEvidence.mjs';
+  const examTaskContext = () => { try { return JSON.parse(document.querySelector('[data-exam-task-context]')?.textContent || 'null'); } catch { return null; } };
   const root = document.querySelector('[data-local-port="reading"]');
   if (root) {
     const readingKey = root.getAttribute('data-reading-object') || 'reading';
@@ -146,6 +149,7 @@ const questionId = (question, index) => String(question.id || question.question_
     const storageKey = examSessionId
       ? `kianos-english-exam-task-v1:${examSessionId}:reading_a:${readingKey}`
       : `kianos-reading-attempt-v1:${readingKey}`;
+    if (!guardEnglishTaskEvidence(root,localStorage,storageKey,examTaskContext())) throw new Error('ENGLISH_EVIDENCE_RECOVERY_REQUIRED');
     const continuousKey = examSessionId
       ? `kianos-english-exam-continuous-v1:${examSessionId}`
       : 'kianos-reading-continuous-session-v1';
@@ -232,7 +236,7 @@ const questionId = (question, index) => String(question.id || question.question_
     }
 
     const save = () => {
-      try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch {}
+      try { saveEnglishTaskState(localStorage, storageKey, state, examTaskContext()); } catch {}
     };
     save();
 
@@ -543,13 +547,18 @@ const questionId = (question, index) => String(question.id || question.question_
       ).length;
       const attempt = {
         submittedAt: state.submittedAt,
+        startedAt: state.startedAt,
+        answers: structuredClone(state.answers),
+        trajectory: structuredClone(state.trajectory),
+        results: structuredClone(results),
+        taskContext: examTaskContext(),
         score,
         total: questions.length,
         durationSec: elapsedSeconds(),
         wrong: questions.filter((question) => ['wrong', 'unanswered'].includes(results[qid(question)])).map((question) => ordinal(question)),
         uncertain: questions.filter((question) => (state.uncertain || []).includes(qid(question))).map((question) => ordinal(question))
       };
-      state.history = [attempt, ...(state.history || [])].slice(0, 8);
+      state.history = [attempt, ...(state.history || [])];
 
       const session = readSession();
       if (session.active) {

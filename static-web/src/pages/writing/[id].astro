@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import EnglishExamTaskBridge from '../../components/EnglishExamTaskBridge.astro';
 import '../../styles/english-writing-vertical.css';
 import WritingWorkspace from '../../components/WritingWorkspace.astro';
 import WritingEvidencePanel from '../../components/WritingEvidencePanel.astro';
@@ -28,6 +29,7 @@ const isExam = task.sourceKind === 'exam';
   objectId={task.id}
   active="home"
 >
+  <EnglishExamTaskBridge task="writing" objectId={task.id} taskObject={task} />
   {isExam ? (
     <WritingProtectedExamGate task={task} syntheticGateIds={syntheticGateIds}>
       <WritingWorkspace task={task} />

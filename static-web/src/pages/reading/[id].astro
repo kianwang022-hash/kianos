@@ -35,7 +35,7 @@ const reading = loadReadingById(readingId);
   objectId={reading.objectId}
   active="reading"
 >
-  <EnglishExamTaskBridge task="reading_a" objectId={reading.objectId} />
+  <EnglishExamTaskBridge task="reading_a" objectId={reading.objectId} taskObject={reading} />
   <ReadingLastLocation reading={reading} />
   <ReadingWorkspace reading={reading} />
   <ReadingAnswerGate />

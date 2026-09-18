@@ -167,6 +167,9 @@ const questionByOrdinal = new Map(item.questions.map((question, index) => [Strin
 </section>
 
 <script>
+  import { saveEnglishTaskState } from '../lib/englishExamSession.mjs';
+  import { guardEnglishTaskEvidence } from '../lib/englishTaskEvidence.mjs';
+  const examTaskContext = () => { try { return JSON.parse(document.querySelector('[data-exam-task-context]')?.textContent || 'null'); } catch { return null; } };
   document.querySelectorAll('[data-objective-root][data-objective-task="reading_b"]').forEach((root) => {
     if (!(root instanceof HTMLElement)) return;
     const baseStorageKey = root.getAttribute('data-objective-storage-key') || '';
@@ -179,6 +182,7 @@ const questionByOrdinal = new Map(item.questions.map((question, index) => [Strin
     const taskForm = root.getAttribute('data-reading-b-task-form') || 'generic_matching';
     let fixedGivens = [];
     try { fixedGivens = JSON.parse(root.getAttribute('data-reading-b-fixed-givens') || '[]').map(String); } catch {}
+    if (!guardEnglishTaskEvidence(root,localStorage,storageKey,examTaskContext())) throw new Error('ENGLISH_EVIDENCE_RECOVERY_REQUIRED');
     const rows = [...root.querySelectorAll('[data-objective-question]')];
     const submit = root.querySelector('[data-objective-submit]');
     const normalizeAnswer = (value) => Array.isArray(value)
@@ -205,7 +209,7 @@ const questionByOrdinal = new Map(item.questions.map((question, index) => [Strin
       } catch { return blankState(); }
     };
     let state = read();
-    const save = () => localStorage.setItem(storageKey, JSON.stringify(state));
+    const save = () => saveEnglishTaskState(localStorage, storageKey, state, examTaskContext());
     if (examSessionId && !localStorage.getItem(storageKey)) save();
     const formalOf = (row) => {
       try { return normalizeAnswer(JSON.parse(row.getAttribute('data-answer') || '""')); }

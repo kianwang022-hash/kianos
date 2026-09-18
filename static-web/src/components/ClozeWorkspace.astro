@@ -73,6 +73,9 @@ function optionEntries(options) {
 </section>
 
 <script>
+  import { saveEnglishTaskState } from '../lib/englishExamSession.mjs';
+  import { guardEnglishTaskEvidence } from '../lib/englishTaskEvidence.mjs';
+  const examTaskContext = () => { try { return JSON.parse(document.querySelector('[data-exam-task-context]')?.textContent || 'null'); } catch { return null; } };
   document.querySelectorAll('[data-objective-root][data-objective-task="cloze"]').forEach((root) => {
     if (!(root instanceof HTMLElement)) return;
     const baseStorageKey = root.getAttribute('data-objective-storage-key') || '';
@@ -81,6 +84,7 @@ function optionEntries(options) {
     const storageKey = examSessionId
       ? `kianos-english-exam-task-v1:${examSessionId}:cloze:${objectId}`
       : baseStorageKey;
+    if (!guardEnglishTaskEvidence(root,localStorage,storageKey,examTaskContext())) throw new Error('ENGLISH_EVIDENCE_RECOVERY_REQUIRED');
     const rows = [...root.querySelectorAll('[data-objective-question]')];
     const jumps = [...root.querySelectorAll('[data-cloze-jump]')];
     const uncertainButton = root.querySelector('[data-cloze-uncertain]');
@@ -110,7 +114,7 @@ function optionEntries(options) {
       } catch { return blankState(); }
     };
     let state = read();
-    const save = () => localStorage.setItem(storageKey, JSON.stringify(state));
+    const save = () => saveEnglishTaskState(localStorage, storageKey, state, examTaskContext());
     if (examSessionId && !localStorage.getItem(storageKey)) save();
 
     const formalOf = (row) => {

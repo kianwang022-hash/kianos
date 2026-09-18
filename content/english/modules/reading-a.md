@@ -26,7 +26,7 @@ The first attempt must remain clean and exam-like.
 Default surface:
 
 - passage visible;
-- one current question / A–D controls;
+- complete question set in natural order; one focused question may own A–D keyboard controls, never visibility;
 - `Uncertain` as an optional low-friction mark;
 - quiet timer/progress;
 - fast keyboard navigation;

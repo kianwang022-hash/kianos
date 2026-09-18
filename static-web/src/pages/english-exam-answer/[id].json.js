@@ -2,9 +2,9 @@ import {
   listEnglishExamPapers,
   loadEnglishExamPaper
 } from '../../lib/englishExamPaper.mjs';
-import { loadReadingAnswersById } from '../../lib/englishReadingSourceTruth.mjs';
+import { loadReadingAnswersById, loadReadingById } from '../../lib/englishReadingSourceTruth.mjs';
 import {
-  loadClozeAnswersById,
+  loadClozeAnswersById, loadClozeById, loadReadingBById,
   loadReadingBAnswersById
 } from '../../lib/englishObjectiveSourceTruth.mjs';
 import { ENGLISH_EXAM_ANSWER_SCHEMA } from '../../lib/englishExamSession.mjs';
@@ -30,6 +30,7 @@ export function GET({ props }) {
     steps[step.step_id] = {
       task: step.task,
       object_id: step.object_id,
+      content_revision: (step.task==='reading_a'?loadReadingById(step.object_id):step.task==='cloze'?loadClozeById(step.object_id):loadReadingBById(step.object_id)).sourceHashes.renderedObject,
       answers: packet.answers
     };
   }

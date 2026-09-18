@@ -38,7 +38,7 @@ const referenceUrl = `${base}translation-reference/${encodeURIComponent(translat
   objectId={translation.objectId}
   active="home"
 >
-  <EnglishExamTaskBridge task="translation" objectId={translation.objectId} />
+  <EnglishExamTaskBridge task="translation" objectId={translation.objectId} taskObject={translation} />
   <TranslationPersistenceGuard />
   <TranslationWorkspace translation={translation} reference={reference} />
   <TranslationEvidenceGuard />

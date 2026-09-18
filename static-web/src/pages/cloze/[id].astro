@@ -27,7 +27,7 @@ const item = loadClozeById(Astro.props.objectId);
   objectId={item.objectId}
   active="cloze"
 >
-  <EnglishExamTaskBridge task="cloze" objectId={item.objectId} />
+  <EnglishExamTaskBridge task="cloze" objectId={item.objectId} taskObject={item} />
   <ClozeWorkspace item={item} />
   <ObjectiveAnswerGate task="cloze" answerRoute="cloze-answer" />
   <ObjectiveHandoff />

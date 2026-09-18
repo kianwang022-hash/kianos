@@ -1,5 +1,10 @@
+---
+import { englishTaskCatalog } from '../lib/englishTaskCatalog.mjs';
+const catalogJson=JSON.stringify(englishTaskCatalog()).replace(/</g,'\\u003c');
+---
 
 <details class="englishSessionControl" data-english-session-control>
+  <script type="application/json" data-english-current-catalog set:html={catalogJson}></script>
   <summary>
     <span>和 Chat 同步</span>
     <strong>今日学习安排</strong>
@@ -34,6 +39,7 @@
 
   const root = document.querySelector('[data-english-session-control]');
   if (root instanceof HTMLDetailsElement) {
+    const catalog = JSON.parse(root.querySelector('[data-english-current-catalog]')?.textContent || '{}');
     const status = root.querySelector('[data-english-session-status]');
     const importBox = root.querySelector('[data-english-session-import]');
     const input = root.querySelector('[data-english-session-input]');
@@ -85,7 +91,7 @@
 
     root.querySelector('[data-english-copy-evidence]')?.addEventListener('click', async () => {
       try {
-        const text = buildEnglishChatHandoffText(localStorage, { day: localDay() });
+        const text = buildEnglishChatHandoffText(localStorage, { day: localDay(), catalog });
         setStatus(await copyText(text)
           ? '当前英语进度已复制；把它发给 Chat 即可继续安排下一步。'
           : '复制失败，请稍后再试。', false);
@@ -106,7 +112,7 @@
     root.querySelector('[data-english-apply-session]')?.addEventListener('click', () => {
       try {
         const raw = input instanceof HTMLTextAreaElement ? input.value : '';
-        const instruction = writeEnglishSessionInstruction(localStorage, raw, localDay());
+        const instruction = writeEnglishSessionInstruction(localStorage, raw, localDay(), catalog);
         if (input instanceof HTMLTextAreaElement) input.value = '';
         if (importBox instanceof HTMLElement) importBox.hidden = true;
         setStatus('学习安排已导入。');

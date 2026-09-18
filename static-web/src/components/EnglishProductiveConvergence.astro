@@ -316,6 +316,7 @@
   }
 
   onReady(() => {
+    if (new URLSearchParams(location.search).has('exam_session')) return;
     enhanceTranslation();
     enhanceWriting();
   });

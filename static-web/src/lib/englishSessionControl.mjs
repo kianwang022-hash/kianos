@@ -1,3 +1,4 @@
+import { englishMaterialExposure } from './englishTaskEvidence.mjs';
 import {
   readEnglishExamSession,
   summarizeEnglishExamSession
@@ -63,7 +64,9 @@ function normalizeStep(step, index) {
       if (!Array.isArray(step.params.task_order)) {
         throw new Error('ENGLISH_SESSION_EXAM_ORDER_INVALID');
       }
-      params.task_order = step.params.task_order.map((value) => clean(value, 40)).filter(Boolean);
+      params.task_order = step.params.task_order.map((value) => clean(value, 40));
+      const required = ENGLISH_SESSION_TASKS.filter(task => task !== 'full_paper');
+      if (params.task_order.length !== required.length || new Set(params.task_order).size !== required.length || params.task_order.some(t => !required.includes(t))) throw new Error('ENGLISH_SESSION_EXAM_ORDER_INVALID');
     }
   }
   return {
@@ -102,6 +105,8 @@ export function validateEnglishSessionInstruction(value, expectedDay = null) {
     throw new Error('ENGLISH_SESSION_STEP_COUNT_INVALID:' + steps.length);
   }
 
+  if (new Set(steps.map(step=>step.step_id)).size !== steps.length) throw new Error('ENGLISH_SESSION_DUPLICATE_STEP');
+
   const currentStep = Number(value.current_step ?? value.currentStep ?? 0);
   if (!Number.isInteger(currentStep) || currentStep < 0 || currentStep >= steps.length) {
     throw new Error('ENGLISH_SESSION_CURRENT_STEP_INVALID:' + currentStep);
@@ -113,6 +118,7 @@ export function validateEnglishSessionInstruction(value, expectedDay = null) {
     study_day: studyDay,
     generated_at: new Date(generatedAt).toISOString(),
     current_step: currentStep,
+    evidence_revision: clean(value.evidence_revision, 100) || null,
     steps,
     return_policy: {
       on_finish: clean(value?.return_policy?.on_finish || value?.returnPolicy?.onFinish || 'english_home', 80)
@@ -169,9 +175,23 @@ export function readEnglishSessionInstruction(storage, expectedDay = null) {
   }
 }
 
-export function writeEnglishSessionInstruction(storage, input, expectedDay = null) {
+export function writeEnglishSessionInstruction(storage, input, expectedDay = null, catalog = null) {
   if (!storage?.setItem) throw new Error('ENGLISH_SESSION_STORAGE_UNAVAILABLE');
   const instruction = parseEnglishSessionInstruction(input, expectedDay);
+  if (!catalog || instruction.steps.some(step => !(catalog[step.task] || []).includes(step.object_id))) throw new Error('ENGLISH_SESSION_CURRENT_ID_UNRESOLVED');
+  const priorRaw = storage.getItem(ENGLISH_SESSION_KEY);
+  if (priorRaw) {
+    let prior;
+    try { prior = validateEnglishSessionInstruction(JSON.parse(priorRaw)); }
+    catch { throw new Error('ENGLISH_SESSION_RECOVERY_REQUIRED'); }
+    const signature = value => JSON.stringify({ ...value, current_step: 0 });
+    if (prior.session_id === instruction.session_id) {
+      if (signature(prior) !== signature(instruction)) throw new Error('ENGLISH_SESSION_ID_CONFLICT');
+      return prior; // Replay acknowledges the original instruction; never rewinds its cursor.
+    }
+    if (instruction.generated_at <= prior.generated_at) throw new Error('ENGLISH_SESSION_OUT_OF_ORDER');
+  }
+  if (!instruction.evidence_revision || instruction.evidence_revision !== englishEvidenceRevision(storage)) throw new Error('ENGLISH_SESSION_EVIDENCE_STALE');
   storage.setItem(ENGLISH_SESSION_KEY, JSON.stringify(instruction));
   return instruction;
 }
@@ -255,6 +275,65 @@ function productiveEvidence(storage, task) {
   };
 }
 
+
+// Factual retention index, not a cross-task scheduler. Missing/corrupt records stay unknown.
+const ATTEMPT_PREFIXES = Object.freeze({
+  reading_a:'kianos-reading-attempt-v1:', cloze:'kianos-cloze-attempt-v1:',
+  reading_b:'kianos-reading-b-attempt-v1:', translation:'kianos-translation-attempt-v2:',
+  writing:'kianos-writing-runtime-v1:'
+});
+function evidenceEntries(storage) {
+  const keys = [];
+  for (let i=0;i<Number(storage?.length || 0);i++) {
+    const key = storage.key(i);
+    if (key && (Object.values(ATTEMPT_PREFIXES).some(p=>key.startsWith(p)) || key==='kianos-english-exam-session-v1' || key==='kianos-english-material-evidence-v1')) keys.push(key);
+  }
+  return keys.sort().map(key=>[key,storage.getItem(key)]);
+}
+export function englishEvidenceRevision(storage) {
+  const text = JSON.stringify(evidenceEntries(storage));
+  let a=2166136261, b=2246822507;
+  for (let i=0;i<text.length;i++) { a=Math.imul(a^text.charCodeAt(i),16777619); b=Math.imul(b^text.charCodeAt(i),3266489909); }
+  return (a>>>0).toString(16).padStart(8,'0')+(b>>>0).toString(16).padStart(8,'0');
+}
+export function englishStepComplete(storage, step) {
+  if (step?.task==='full_paper') {
+    const exam=readEnglishExamSession(storage);
+    return exam?.paper_id===step.object_id && ['SEALED','RELEASED'].includes(exam.status);
+  }
+  const record=readJson(storage,(ATTEMPT_PREFIXES[step?.task] || '')+step?.object_id);
+  if (!record) return false;
+  if (step.task==='writing') return ['PASS_ACCEPTABLE','REPAIR_COMPLETE','TRANSFER_PENDING'].includes(record.state);
+  if (step.task==='translation') return ['passed','repaired','transfer_pending'].includes(record.stage);
+  if (!record.submitted) return false;
+  if (problemCount(record)===0) return true;
+  const review=readJson(storage,`kianos-english-objective-review-return-v1:${step.task}:${step.object_id}`);
+  return review?.attemptSubmittedAt===record.submittedAt && Array.isArray(review.threads) && review.threads.every(t=>t.repairCompleted===true);
+}
+export function nextEnglishInstructionStep(storage, instruction, catalog=null) {
+  // Only walk the order that Chat explicitly selected; never rank new tasks.
+  for (let i=instruction.current_step;i<instruction.steps.length;i++) {
+    const step=instruction.steps[i];
+    if (catalog && !(catalog[step.task] || []).includes(step.object_id)) return null;
+    if (!englishStepComplete(storage,step)) return {step,index:i};
+  }
+  return null;
+}
+function retainedTaskFacts(storage) {
+  return evidenceEntries(storage).flatMap(([key,raw])=>{
+    const pair=Object.entries(ATTEMPT_PREFIXES).find(([,p])=>key.startsWith(p));
+    if (!pair) return [];
+    const [task,prefix]=pair; let record;
+    try { record=JSON.parse(raw); } catch { return [{task,object_id:key.slice(prefix.length),status:'RECOVERY_REQUIRED'}]; }
+    return [{task,object_id:key.slice(prefix.length),state:record.stage || record.state || (record.submitted?'submitted':'attempt'),
+      complete:englishStepComplete(storage,{task,object_id:key.slice(prefix.length)}),
+      problem_count:problemCount(record),uncertain_count:record.uncertain?.length || 0,
+      first_submitted_at:record.firstSubmittedAt || record.submittedAt || null,
+      has_first_output:Boolean(record.firstDraft || Object.keys(record.firstAttempts || {}).length),
+      current_index:record.currentIndex ?? null,content_revision:record.evidence_binding?.content_revision || record.content_revision || null}];
+  });
+}
+
 export function buildEnglishEvidencePacket(storage, { day, now = Date.now() } = {}) {
   if (!storage?.getItem) throw new Error('ENGLISH_EVIDENCE_STORAGE_UNAVAILABLE');
   if (!validDay(day)) throw new Error('ENGLISH_EVIDENCE_DAY_INVALID');
@@ -263,6 +342,8 @@ export function buildEnglishEvidencePacket(storage, { day, now = Date.now() } = 
     schema: ENGLISH_EVIDENCE_SCHEMA,
     study_day: day,
     generated_at: new Date(now).toISOString(),
+    evidence_revision: englishEvidenceRevision(storage),
+    retained_tasks: retainedTaskFacts(storage).map(task=>({...task,exposure:englishMaterialExposure(storage,task.object_id)})),
     tasks: clone({
       reading_a: objectiveEvidence(storage, LAST_LOCATION_KEYS.reading_a, 'kianos-reading-attempt-v1:'),
       cloze: objectiveEvidence(storage, LAST_LOCATION_KEYS.cloze, 'kianos-cloze-attempt-v1:'),
@@ -274,7 +355,7 @@ export function buildEnglishEvidencePacket(storage, { day, now = Date.now() } = 
   };
 }
 
-export function buildEnglishChatHandoffText(storage, { day, now = Date.now() } = {}) {
+export function buildEnglishChatHandoffText(storage, { day, now = Date.now(), catalog = null } = {}) {
   const evidence = buildEnglishEvidencePacket(storage, { day, now });
   const generatedAt = new Date(now).toISOString();
   const returnShape = {
@@ -282,6 +363,7 @@ export function buildEnglishChatHandoffText(storage, { day, now = Date.now() } =
     session_id: `english-${day}-chat`,
     study_day: day,
     generated_at: generatedAt,
+    evidence_revision: evidence.evidence_revision,
     current_step: 0,
     steps: [{
       step_id: 'step-1',
@@ -299,7 +381,7 @@ export function buildEnglishChatHandoffText(storage, { day, now = Date.now() } =
     '',
     'HOW TO READ IT',
     '- EVIDENCE_JSON is factual learner/runtime state, not a recommendation, mastery claim, or task priority table.',
-    '- If GitHub access is available, first read kianwang022-hash/kianos@main content/english/CURRENT.md, then only the exact child owner needed for the task. Do not revive legacy architecture.',
+    '- If GitHub access is available, read the exact Current content/learning owner needed to interpret this learner evidence; engineering CURRENT is not learner progress. Do not revive legacy architecture.',
     '- Apply the current English Learning Contract: stable work stays cheap; real problems get the smallest useful repair; Chat owns cross-task next-step selection; the website only executes the selected task.',
     '- Missing evidence means unknown, not failed. Finished work must not be turned back into Resume debt.',
     '',
@@ -307,6 +389,9 @@ export function buildEnglishChatHandoffText(storage, { day, now = Date.now() } =
     '- Explain the current English situation in normal language and choose a next action only when that is useful.',
     '- If the learner only asked for review/diagnosis, answer normally; no website return object is required.',
     '- If the learner wants the website to Resume an exact next task, include ONE JSON object matching RETURN_SHAPE. Replace the angle-bracket placeholders; task must be one of reading_a, cloze, reading_b, translation, writing, full_paper. Use exact Current object ids; never invent ids.',
+    '',
+    'CURRENT_OBJECT_IDS (identity only; no protected task content)',
+    JSON.stringify(catalog),
     '',
     'RETURN_SHAPE',
     JSON.stringify(returnShape, null, 2),

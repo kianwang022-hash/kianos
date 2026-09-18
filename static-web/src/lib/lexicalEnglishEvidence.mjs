@@ -63,7 +63,7 @@ export function lexicalEventFromObjectiveThread({
   const targetIdentity = targetId || `${targetLocator}@${targetRevision}`;
   const explicitEventId = clean(evidence.event_id);
   const eventId = explicitEventId || [
-    'english', eventPart(task), eventPart(objectId), eventPart(threadId),
+    'english', eventPart(task), eventPart(objectId), eventPart(validIso(attemptSubmittedAt) || observedAt), eventPart(threadId),
     eventPart(wordId), eventPart(targetKind), eventPart(targetIdentity), eventPart(outcome)
   ].join(':');
 
@@ -79,12 +79,13 @@ export function lexicalEventFromObjectiveThread({
     source,
     outcome,
     source_task_id: clean(evidence.source_task_id) || `${clean(task)}:${clean(objectId)}`,
-    context_id: clean(evidence.context_id) || `${clean(task)}:${clean(objectId)}:${threadId}`,
+    context_id: clean(evidence.context_id) || `${clean(task)}:${clean(objectId)}:${validIso(attemptSubmittedAt) || observedAt}:${threadId}`,
     attribution: 'lexical',
     observed_at: observedAt
   };
 
   const demand = clean(evidence.demand);
+  if (demand && !DEMANDS.has(demand)) return { status: 'REJECTED_INVALID_DEMAND', event: null };
   if (DEMANDS.has(demand)) event.demand = demand;
   const assistance = clean(evidence.assistance);
   if (ASSISTANCE.has(assistance)) event.assistance = assistance;

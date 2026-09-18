@@ -35,7 +35,7 @@ const task = loadWritingExamRuntimeTask(writingId);
       <a href="/english/">← English</a>
     </section>
     <div data-exam-writing-runtime hidden>
-      <EnglishExamTaskBridge task="writing" objectId={task.id} />
+      <EnglishExamTaskBridge task="writing" objectId={task.id} taskObject={task} />
       <WritingWorkspace task={task} />
     </div>
   </section>

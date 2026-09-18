@@ -230,6 +230,9 @@ const nextHref = translation.navigation?.nextId
 </section>
 
 <script>
+  import { saveEnglishTaskState } from '../lib/englishExamSession.mjs';
+  import { guardEnglishTaskEvidence } from '../lib/englishTaskEvidence.mjs';
+  const examTaskContext = () => { try { return JSON.parse(document.querySelector('[data-exam-task-context]')?.textContent || 'null'); } catch { return null; } };
   import {
     TRANSLATION_RETURN_SCHEMA,
     TRANSLATION_TRANSFER_STORAGE_KEY,
@@ -258,6 +261,7 @@ const nextHref = translation.navigation?.nextId
     const storageKey = examSessionId
       ? `kianos-english-exam-task-v1:${examSessionId}:translation:${objectId}`
       : `kianos-translation-attempt-v2:${objectId}`;
+    if (!guardEnglishTaskEvidence(root,localStorage,storageKey,examTaskContext())) throw new Error('ENGLISH_EVIDENCE_RECOVERY_REQUIRED');
     const legacyStorageKey = `kianos-translation-attempt-v1:${objectId}`;
     const lastLocationKey = 'kianos-translation-last-location-v1';
 
@@ -281,7 +285,7 @@ const nextHref = translation.navigation?.nextId
     let transferLedger = normalizeTransferLedger(examSessionId ? null : readJson(TRANSLATION_TRANSFER_STORAGE_KEY, null));
 
     const save = () => {
-      writeJson(storageKey, state);
+      saveEnglishTaskState(localStorage, storageKey, state, examTaskContext());
       if (!examSessionId) writeJson(TRANSLATION_TRANSFER_STORAGE_KEY, transferLedger);
     };
     const stampLastLocation = () => writeJson(lastLocationKey, {
