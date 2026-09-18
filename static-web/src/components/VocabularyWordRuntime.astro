@@ -174,15 +174,17 @@ const relationDifferenceRows = (relation = {}) => {
 
   <section class="portedVocabStudySheet">
     <section class="portedVocabWordFront" data-vocab-front data-recall-density={recallDensity}>
-      <span>Recall Map</span>
       <h2>{card.word}</h2>
+      <div class="lexicalFrontPronunciation" aria-label="Pronunciation">
+        <button type="button" data-vocab-speak="en-US">美音 · 点击播放</button>
+        <span class="lexicalPronunciationToggle"><button type="button" data-vocab-speak="en-GB">英</button><button type="button" data-vocab-speak="en-US" class="active">美</button></span>
+      </div>
       <div class="portedVocabRecallMap">
         <strong>{recallParts.length ? recallParts.join(' · ') : 'Core'}</strong>
-        {secondarySenses.length > 0 && <small>+ = 高价值深层分支</small>}
+        <small>当前 active 词义</small>
         {recallPatterns.map((pattern) => <code>{pattern}</code>)}
       </div>
-      <p>先判断这个词现在是否值得 Depth；稳定就直接离开。</p>
-      <button type="button" class="portedPrimaryAction" data-vocab-reveal>Open Depth</button>
+      <p>点击任意空白处，或按 ← / ↑ / Space 查看完整词义</p>
     </section>
 
     <div data-vocab-details hidden>
@@ -310,9 +312,38 @@ const relationDifferenceRows = (relation = {}) => {
     </div>
 
     <footer class="portedVocabFoot">
-      <span>Space Reveal · ↑↓ 选择拓展 · → / + 加入 Repair · ← 撤销 · S 发音</span>
+      <span>J / K 选择局部对象 · + 加入/移出 Repair · S 发音</span>
       <details><summary>Source</summary><code>{answer.sourcePath}</code><code>sha256:{String(answer.sourceHash).slice(0, 16)}</code></details>
     </footer>
+  </section>
+
+  <footer class="lexicalActionDock" data-vocab-action-dock aria-label="Vocabulary actions">
+    <button type="button" class="dockReveal" data-vocab-reveal>
+      <span>◉</span><b>查看词义</b><small>← / ↑ / Space</small>
+    </button>
+    <button type="button" class="dockUnknown" data-vocab-route="unknown">
+      <span>←</span><b>不认识</b><small>Unknown</small>
+    </button>
+    <button type="button" class="dockFuzzy" data-vocab-route="fuzzy">
+      <span>↑</span><b>模糊</b><small>Fuzzy</small>
+    </button>
+    <button type="button" class="dockKnown" data-vocab-route="known">
+      <span>→</span><b>熟练</b><small>继续下一词</small>
+    </button>
+    <button type="button" class="dockMastered" data-vocab-route="mastered">
+      <span>↓</span><b>已掌握</b><small>稳定快速离开</small>
+    </button>
+    <button type="button" class="dockUndo" data-vocab-undo disabled>
+      <span>↶</span><b>Undo</b><small>Backspace</small>
+    </button>
+    <button type="button" class="dockNote" data-vocab-note>
+      <span>✎</span><b>+笔记</b><small>个人学习备注</small>
+    </button>
+  </footer>
+
+  <section class="lexicalNoteDrawer" data-vocab-note-drawer hidden>
+    <label><span>{card.word} · Note</span><textarea rows="5" data-vocab-note-input placeholder="只记对后续学习有用的个人备注。"></textarea></label>
+    <div><button type="button" data-vocab-note-cancel>取消</button><button type="button" class="primary" data-vocab-note-save>保存并返回词卡</button></div>
   </section>
 </section>
 
@@ -340,6 +371,9 @@ const relationDifferenceRows = (relation = {}) => {
     if (modeLabel) modeLabel.textContent = mode === 'lookup' ? 'Lookup' : mode === 'repair' ? 'Repair' : 'Depth';
     const repairSummary = root.querySelector('[data-vocab-repair-summary]');
     const repairButtons = [...root.querySelectorAll('[data-vocab-repair]')];
+    const noteKey = `kianos-lexical-note-v1:${objectId}`;
+    const noteDrawer = root.querySelector('[data-vocab-note-drawer]');
+    const noteInput = root.querySelector('[data-vocab-note-input]');
     const localStudyDay = () => new Date().toLocaleDateString('en-CA');
     const eventLocalDay = (iso) => { const date = new Date(iso); return Number.isNaN(date.getTime()) ? '' : date.toLocaleDateString('en-CA'); };
     const readJson = (key, fallback) => { try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; } catch { return fallback; } };
@@ -410,6 +444,7 @@ const relationDifferenceRows = (relation = {}) => {
     };
 
     const render = () => {
+      root.dataset.vocabRevealed = String(Boolean(state.revealed));
       if (front) front.hidden = Boolean(state.revealed);
       if (details) details.hidden = !state.revealed;
       repairButtons.forEach((button, index) => {
@@ -433,6 +468,28 @@ const relationDifferenceRows = (relation = {}) => {
 
     const openCard = () => { state.revealed = true; save(false); render(); };
     reveal?.addEventListener('click', openCard);
+    front?.addEventListener('click', (event) => {
+      if (mode !== 'study' || state.revealed) return;
+      const target = event.target;
+      if (target instanceof HTMLElement && target.closest('button,a,input,textarea,select')) return;
+      openCard();
+    });
+
+    const openNote = () => {
+      if (!(noteDrawer instanceof HTMLElement) || !(noteInput instanceof HTMLTextAreaElement)) return;
+      noteInput.value = localStorage.getItem(noteKey) || '';
+      noteDrawer.hidden = false;
+      requestAnimationFrame(() => noteInput.focus({ preventScroll: true }));
+    };
+    const closeNote = () => { if (noteDrawer instanceof HTMLElement) noteDrawer.hidden = true; };
+    root.querySelector('[data-vocab-note]')?.addEventListener('click', openNote);
+    root.querySelector('[data-vocab-note-cancel]')?.addEventListener('click', closeNote);
+    root.querySelector('[data-vocab-note-save]')?.addEventListener('click', () => {
+      if (noteInput instanceof HTMLTextAreaElement) {
+        try { localStorage.setItem(noteKey, noteInput.value.trim()); } catch {}
+      }
+      closeNote();
+    });
 
     const speak = (lang = 'en-US') => {
       if (!('speechSynthesis' in window) || !word) return;
@@ -505,18 +562,15 @@ const relationDifferenceRows = (relation = {}) => {
       const target = event.target;
       if (target instanceof HTMLElement && target.closest('input,textarea,select,[contenteditable="true"]')) return;
       if (event.key.toLowerCase() === 's') { event.preventDefault(); speak('en-US'); return; }
-      if (!state.revealed && (event.code === 'Space' || event.key === 'Enter')) { event.preventDefault(); openCard(); return; }
-      if (!state.revealed) return;
-      if (event.key === 'ArrowDown') { event.preventDefault(); selectByDelta(1); return; }
-      if (event.key === 'ArrowUp') { event.preventDefault(); selectByDelta(-1); return; }
-      if (event.key === 'ArrowRight' || event.key === '+') {
-        const button = activeRepairButton();
-        if (button) { event.preventDefault(); setRepair(button, true); }
-        return;
+      if (!state.revealed && (event.code === 'Space' || event.key === 'ArrowLeft' || event.key === 'ArrowUp')) {
+        event.preventDefault(); openCard(); return;
       }
-      if (event.key === 'ArrowLeft') {
+      if (!state.revealed) return;
+      if (event.key.toLowerCase() === 'j') { event.preventDefault(); selectByDelta(1); return; }
+      if (event.key.toLowerCase() === 'k') { event.preventDefault(); selectByDelta(-1); return; }
+      if (event.key === '+') {
         const button = activeRepairButton();
-        if (button) { event.preventDefault(); setRepair(button, false); }
+        if (button) { event.preventDefault(); button.click(); }
       }
     };
     document.addEventListener('keydown', onKeydown);
