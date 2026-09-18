@@ -856,3 +856,76 @@ Website/Runtime
 Real learner U
 = UNTESTED
 ```
+
+
+---
+
+## Fresh independent later-stage L acceptance — PASS
+
+Status: **PASS**
+
+A fresh independent audit was run against the current #433 head after the same-Chat construction/readback phase. Prior PASS labels and the PR summary were treated as evidence only, not as the answer key.
+
+The audit read the actual later-stage Learning rules and representative Current K owners across all five Politics cognition shapes:
+
+- Marxism C02 — relation/mechanism reconstruction;
+- Mao C02 — national-condition → route/identity structure;
+- Xi C06 — hierarchy/role + high-delta exactness;
+- History C05 + subject horizontal owner — causal movie + cross-chapter precision candidates;
+- Ethics-Law C06 — concept/boundary/situation + legal freshness.
+
+### Consolidation L
+
+Verdict: **PASS_AFTER_REPAIR**
+
+Confirmed:
+- no static per-chapter `later_stage_learning` plan remains in the representative K owners;
+- Chat owns adaptive selection from Current K + bounded private learner evidence;
+- Web executes explicit targets and returns evidence only;
+- target guards follow the target across action labels;
+- guarded / candidate-only / Analysis-only / freshness-gated content cannot be surfaced by relabeling the action;
+- cross-chapter History anchors are supported;
+- open reconstruction is not semantically graded by Web;
+- stable chapters may close cheaply and weak chapters deepen only by Chat decision.
+
+### Analysis-Output L
+
+Verdict: **PASS**
+
+Confirmed:
+- Chat is the primary learning surface;
+- GitHub stores only durable source-grounded topic/material/principle/skeleton/exact-current assets;
+- default work is IDENTIFY → SKELETON, with EXACT / DELIVER only when earned;
+- no symmetric five-subject answer bank is manufactured;
+- Xi/current-affairs and legal/normative exact wording remain freshness-gated;
+- real learner answers / weakness ranking / Chat diagnosis remain private;
+- no dedicated Website/Runtime is required for L closure.
+
+### Mock / Final L
+
+Verdict: **PASS**
+
+Confirmed:
+- full Mock is used only when whole-paper evidence can change a real decision;
+- one clean first attempt is preserved;
+- objective / analysis / execution failures route to their smallest existing owners;
+- same-paper correction is repair evidence, not fresh transfer;
+- Final begins from admitted/current/high-value/evidence-backed items, not all chapters;
+- stable content exits instead of being replayed;
+- no dedicated Mock/Final Website is required.
+
+### Accepted later-stage Learning boundary
+
+```text
+Politics later-stage K            PASS_WITH_DEBT
+Politics Consolidation L          PASS_AFTER_REPAIR
+Politics Analysis-Output L        PASS
+Politics Mock / Final L           PASS
+Politics later-stage L overall    PASS
+
+Politics later-stage Projection   downstream / not accepted here
+Politics later-stage Runtime      downstream / not accepted here
+Politics real learner U           UNTESTED
+```
+
+This acceptance removes the Learning blocker on downstream Exam-Horizon adaptation. It does not itself prove Final Learner Object direct-consumption, Runtime closure, typed Chat↔Website execution, or real learner use.
