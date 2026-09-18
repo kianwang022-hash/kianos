@@ -166,18 +166,19 @@
       "cross_unit_confusables": []
     },
     "precision_knowledge": {
-      "policy": "PENDING_EXACT_CANDIDATE_MATERIALIZATION",
-      "candidate_domains": [
-        "预见未来社会方法论原则 fixed list",
-        "人的自由全面发展/共产主义特征 fixed formulations",
-        "共产主义长期实现关系",
-        "远大理想/共同理想 relation dimensions"
+      "policy": "REFERENCE_MEMORY_SIDECAR",
+      "owner_path": "content/politics/learning/marxism/ch08.memory.json",
+      "candidate_ids": [
+        "POL27-MEM-MARX-C08-M01",
+        "POL27-MEM-MARX-C08-M02",
+        "POL27-MEM-MARX-C08-M03"
       ],
-      "materialization_status": "WAIT_CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE",
-      "historical_source_refs": [
-        "LEG26-UPPER-MARX-P070",
-        "LEG26-UPPER-MARX-P071"
-      ]
+      "admission_state": "CANDIDATE_ONLY",
+      "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+      "deferred_domains": [
+        "远大理想与共同理想的时间/层次/范围三维关系"
+      ],
+      "rule": "Candidate-only Knowledge is materialized from Current P0/P1 recall needs plus historical handbook support; durable review debt remains admission-gated."
     },
     "analysis_output_hooks": [],
     "analysis_output_status": "LOW_PRIMARY",
