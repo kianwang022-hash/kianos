@@ -43,7 +43,6 @@ const fail = (condition, code, detail = '') => {
 const topManifest = readJson(path.join(lexicalRoot, 'manifest.json'));
 const wordManifest = readJson(path.join(lexicalRoot, 'words/manifest.json'));
 const relationManifest = readJson(path.join(lexicalRoot, 'relations/manifest.json'));
-const currentText = fs.readFileSync(path.join(lexicalRoot, 'CURRENT.md'), 'utf8');
 const auditCoverageText = fs.readFileSync(path.join(lexicalRoot, 'semantic-audit/reconciliation/CATALOG_COVERAGE_RECONCILIATION.md'), 'utf8');
 const sources = inspectLexicalSources();
 const ordinals = listLexicalOrdinals();
