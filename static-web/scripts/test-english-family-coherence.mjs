@@ -213,11 +213,11 @@ async function assertSourceLookup(page, route, selector, name) {
   }
   const word = await selectKnownWord(page, selector);
   await page.locator('[data-selection-lexical]').click();
-  await page.waitForURL('**/vocabulary/?from=english&lookup=*');
-  check((await page.locator('[data-lexical-search]').inputValue()).toLowerCase() === word.toLowerCase(), `${name}_lookup_prefills_word`);
+  await page.waitForURL((url) => /\/vocabulary\/\d+\/$/.test(url.pathname) && url.searchParams.get('mode') === 'lookup');
+  check((await page.locator('.lexicalWordIdentity h2').innerText()).trim().toLowerCase() === word.toLowerCase(), `${name}_lookup_opens_exact_owner`, word);
+  check((await page.locator('[data-english-return-title]').innerText()).trim().toLowerCase() === word.toLowerCase(), `${name}_return_bar_names_lookup`, word);
   const meta = await page.locator('[data-english-return-meta]').textContent();
-  check(String(meta || '').includes(word), `${name}_return_bar_names_lookup`);
-  await assertExactLexicalResult(page, word, name);
+  check(String(meta || '').includes('不推进 Coverage'), `${name}_lookup_preserves_nonprogressing_contract`);
   await page.locator('[data-english-return-action]').click();
   await page.waitForURL(`**${route}`);
   check(new URL(page.url()).pathname.endsWith(route), `${name}_returns_exact_task`);
