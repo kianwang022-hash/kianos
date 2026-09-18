@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { listPoliticsSubjectsCurrent, loadPoliticsChapterCurrent } from '../src/lib/politicsCurrent.mjs';
+import { loadPoliticsCompiledPresentation } from '../src/lib/politicsCompiledPresentation.mjs';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT ? path.resolve(process.env.KIANOS_REPO_ROOT) : path.resolve(process.cwd(), '..');
 const component = fs.readFileSync(path.join(repoRoot, 'static-web/src/components/PoliticsChapterRuntime.astro'), 'utf8');
@@ -17,6 +18,7 @@ let rawEvaluationAnchors = 0;
 let projectedEvaluationAnchors = 0;
 for (const meta of ethics?.chapters || []) {
   const chapter = loadPoliticsChapterCurrent('ethics_law', meta.code);
+  const compiled = loadPoliticsCompiledPresentation('ethics_law', meta.code);
   if (!chapter?.orientation?.question) fail('ETHICS_ORIENTATION_QUESTION_MISSING', meta.code);
   if (!chapter?.orientation?.answer) fail('ETHICS_ORIENTATION_ANSWER_MISSING', meta.code);
   if (!chapter?.units?.length) fail('ETHICS_UNITS_MISSING', meta.code);
@@ -28,8 +30,12 @@ for (const meta of ethics?.chapters || []) {
     if (!Array.isArray(unit?.teaching?.boundaries) || !unit.teaching.boundaries.length) fail('ETHICS_BOUNDARY_MISSING', `${meta.code}/${unit.unitId}`);
     if (unit?.raw?.evaluation_anchor) {
       rawEvaluationAnchors += 1;
-      if (String(unit?.teaching?.evaluationAnchor || '').trim()) projectedEvaluationAnchors += 1;
-      else fail('ETHICS_EVALUATION_ANCHOR_DROPPED', `${meta.code}/${unit.unitId}`);
+      const finalObject = compiled instanceof Map ? compiled.get(unit.unitId)?.finalLearnerObject : null;
+      const orient = finalObject?.states?.ORIENT || [];
+      const close = finalObject?.states?.CLOSE || [];
+      const payload = JSON.stringify({ orient, close });
+      if (payload.includes(String(unit.raw.evaluation_anchor))) projectedEvaluationAnchors += 1;
+      else fail('ETHICS_EVALUATION_ANCHOR_DROPPED_FROM_FINAL_OBJECT', `${meta.code}/${unit.unitId}`);
     }
   }
 }
@@ -51,7 +57,7 @@ const report = {
   projected_evaluation_anchors: projectedEvaluationAnchors,
   assertions: [
     'ORIENTATION_SURVIVES', 'UNIT_PROBLEM_ANSWER_SURVIVES', 'BOUNDARY_SURVIVES',
-    'EVALUATION_ANCHOR_SURVIVES', 'BACKEND_CONTENT_NOT_RENDERED',
+    'EVALUATION_ANCHOR_SURVIVES_IN_FINAL_OBJECT', 'BACKEND_CONTENT_NOT_RENDERED',
     'CHENGFENG_REMAINS_EXTERNAL_PRIMARY', 'GUIDE_AND_CLOSURE_PROGRESSIVE_DISCLOSURE'
   ],
   failures
