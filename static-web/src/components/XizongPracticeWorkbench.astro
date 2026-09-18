@@ -852,17 +852,21 @@ const payload = JSON.stringify({
       submit.disabled = Boolean(existing) || currentSelection.size === 0;
       submit.hidden = Boolean(existing);
       clearReview();
-      if (reviewToggle) reviewToggle.hidden = !existing;
+      if (reviewToggle) reviewToggle.hidden = !existing || !resultsRevealed();
 
       if (existing) {
-        const correct = letters(currentQuestion.correctAnswer);
-        optionsBox.querySelectorAll('.xzpOption').forEach((node) => {
-          const key = node.dataset.option || '';
-          node.classList.toggle('correct', correct.includes(key));
-          node.classList.toggle('wrong', currentSelection.has(key) && !correct.includes(key));
-        });
-        if (existing.status === 'wrong' || existing.status === 'uncertain') renderReview(currentQuestion, existing);
-        else showFront();
+        if (resultsRevealed()) {
+          const correct = letters(currentQuestion.correctAnswer);
+          optionsBox.querySelectorAll('.xzpOption').forEach((node) => {
+            const key = node.dataset.option || '';
+            node.classList.toggle('correct', correct.includes(key));
+            node.classList.toggle('wrong', currentSelection.has(key) && !correct.includes(key));
+          });
+          if (existing.status === 'wrong' || existing.status === 'uncertain') renderReview(currentQuestion, existing);
+          else showFront();
+        } else {
+          showFront();
+        }
       }
 
       renderMap();
@@ -905,7 +909,11 @@ const payload = JSON.stringify({
       const isCorrect = same(selected, correct);
       if (!persistAttempt(isCorrect ? 'stable' : 'wrong')) return;
       renderQuestion(currentIndex);
-      if (isCorrect) window.setTimeout(nextQuestion, preferences.fastSweep ? 120 : 520);
+      if (hiddenResultMode && !resultsRevealed()) {
+        window.setTimeout(nextQuestion, 140);
+      } else if (isCorrect) {
+        window.setTimeout(nextQuestion, preferences.fastSweep ? 120 : 520);
+      }
     };
 
     const toggleMark = () => {
@@ -946,6 +954,16 @@ const payload = JSON.stringify({
       }
     });
     markButton.addEventListener('click', toggleMark);
+    paperReveal?.addEventListener('click', () => {
+      if (!paperMode || !hiddenResultMode || resultsRevealed()) return;
+      sweepState = { ...sweepState, resultRevealAt: new Date().toISOString() };
+      if (!writeJson(sweepKey, sweepState)) return;
+      renderDone();
+    });
+    paperReviewFirst?.addEventListener('click', () => {
+      if (!paperMode || !resultsRevealed()) return;
+      renderQuestion(0);
+    });
     reviewToggle?.addEventListener('click', () => {
       if (!currentQuestion) return;
       const existing = resultFor(currentQuestion.questionId);
@@ -1021,7 +1039,7 @@ const payload = JSON.stringify({
       }
       if (event.code === 'Space') {
         const existing = resultFor(currentQuestion.questionId);
-        if (existing) {
+        if (existing && resultsRevealed()) {
           event.preventDefault();
           if (backVisible) showFront();
           else renderReview(currentQuestion, existing);
