@@ -10,8 +10,8 @@ This cursor owns current engineering routing only. It does not own Rule / Model,
 
 ## Current state
 
-**Active lane:** Vocabulary real-use loop closure audit — ACTIVE  
-**Blocker:** Chat-readable learner-state handoff and learner-visible engineering residue are under bounded repair / verification
+**Active lane:** Vocabulary real-use loop closure audit — HUMAN GATE  
+**Blocker:** none in targeted engineering proof; final Repair WAITING learner-facing control needs Kian Human Gate
 
 Stage:
 
@@ -405,31 +405,31 @@ No further broad Lexical UI architecture work is planned for this exam cycle.
 
 ---
 
-## Real-use closure audit — ACTIVE 2026-09-18
+## Real-use closure audit — TARGETED PASS 2026-09-18
 
-The accepted Vocabulary architecture is not reopened. This bounded audit owns only concrete real-use defects exposed after acceptance:
+Fresh targeted proof now establishes:
 
-- normal learner surfaces must not expose engineering transport/provenance language;
-- the Chat handoff must summarize actual Coverage, whole-card routing, same-day revisit, exact active Repair and meaningful current-day evidence;
-- Chat-generated Challenge transport must be usable without opening a debug/JSON surface;
-- GitHub main → local Current mirror delivery must remain proven by the existing Current Delivery integration gate.
+- Learn / Fast Pass / Depth → local `+` → exact Repair → Chat-loaded Challenge → wrong → minimum Repair → Reconstruction → new evidence is continuous;
+- Fuzzy remains same-day whole-card routing support and creates no Repair debt;
+- the Chat learner-state snapshot includes Coverage cursor/volume, daily capacity, latest whole-card routing, same-day revisit, exact active Repair, current-day evidence and Challenge resume state;
+- normal Vocabulary Overview / Settings / Research / Repair surfaces do not expose the audited engineering transport/provenance strings;
+- Current Delivery integration proves remote `main` advances are mirrored to the dedicated Current checkout with exact SHA/state;
+- private learner state remains browser-local and is never persisted to shared GitHub Content.
 
-No learner-state payload may be persisted to shared GitHub Content.
+The only remaining gate is visual / interaction acceptance of the learner-facing “载入 Chat 练习” control inside the existing Repair WAITING region.
 
 ---
 
 ## Exact next action
 
-Prove one continuous real-use loop in a targeted browser gate:
+Kian Human Gate on the fresh Repair WAITING / Chat-load screenshot.
+
+If accepted:
 
 ```text
-Learn / Fast Pass / Depth
-→ local +
-→ Home state handoff to Chat
-→ user-facing Chat Test load
-→ Repair / Challenge / Reconstruction
-→ new evidence
-→ state handoff remains interpretable
+record Human Gate acceptance
+→ return CURRENT to NONE / Normal use
+→ merge the bounded closure PR
 ```
 
-Then remove this temporary audit cursor and return to Normal use.
+Do not reopen accepted Vocabulary architecture or lexical semantics.

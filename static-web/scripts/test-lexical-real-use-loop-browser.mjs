@@ -26,7 +26,7 @@ let browser;
 try{
   await waitForServer();
   browser=await chromium.launch({headless:true});
-  const context=await browser.newContext({viewport:{width:1440,height:900}});
+  const context=await browser.newContext({viewport:{width:1440,height:900},permissions:['clipboard-read','clipboard-write']});
   const page=await context.newPage();
 
   await goto(page,'/vocabulary/');
@@ -73,6 +73,13 @@ try{
   check((await page.locator('[data-lexical-repair-count]').first().innerText()).trim()==='1','local_plus_projects_one_repair');
   check(await page.locator('[data-lexical-handoff]').isVisible(),'chat_state_handoff_visible_after_learning');
   check((await page.locator('[data-lexical-copy-return]').innerText()).includes('学习状态'),'chat_handoff_is_user_facing');
+  await page.locator('[data-lexical-copy-return]').click();
+  const copiedState=JSON.parse(await page.evaluate(()=>navigator.clipboard.readText()));
+  check(copiedState?.schema==='kianos.lexical.chat_state.v1','copied_state_uses_chat_schema',copiedState?.schema||'');
+  check(copiedState?.coverage?.cursor?.ordinal===4,'copied_state_keeps_coverage_cursor',JSON.stringify(copiedState?.coverage?.cursor||null));
+  check(copiedState?.routing?.same_day_revisit?.length===1,'copied_state_keeps_same_day_revisit');
+  check(copiedState?.repair?.active_target_count===1,'copied_state_keeps_exact_repair');
+  check(typeof copiedState?.chat_instruction==='string'&&copiedState.chat_instruction.includes('Coverage as traversal'),'copied_state_carries_interpretation_contract');
   await assertNoEngineering(page,'home_handoff_has_no_engineering_copy');
 
   // Repair waiting uses learner-facing Chat transport; debug transport stays hidden.
@@ -80,6 +87,7 @@ try{
   check(await page.locator('[data-challenge-chat-load-button]').isVisible(),'repair_exposes_load_chat_practice');
   check(await page.locator('[data-challenge-manual-tools]').isHidden(),'debug_transport_hidden_in_normal_use');
   await assertNoEngineering(page,'repair_waiting_has_no_engineering_copy');
+  await page.screenshot({path:path.join(OUT,'vocabulary-repair-chat-load-1440x900.png'),fullPage:false});
 
   const challenge={
     schema:'kianos.lexical.challenge_packet.v1',
