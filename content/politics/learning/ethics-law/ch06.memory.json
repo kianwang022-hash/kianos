@@ -1,0 +1,139 @@
+{
+  "schema": "kianos.politics.memory_projection.v1",
+  "status": "CURRENT_K_REVIEWED",
+  "chapter_id": "POL27-LEARN-ETHICS-C06",
+  "policy": "SOURCE_GROUNDED_SELECTIVE",
+  "principle": "Candidate existence is Knowledge; durable review debt remains admission-gated.",
+  "freshness": "HIGH_CURRENT_LEGAL_SOURCE_REQUIRED",
+  "preferred_memory_reference": {
+    "role": "DESIGNATED_MEMORY_HANDBOOK",
+    "label": "腿姐《冲刺背诵手册》",
+    "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+    "historical_subject_source": "content/politics/source/historical/leg26/LEG26-ETHICS.md"
+  },
+  "admission_gate": {
+    "default": "NOT_ADMITTED",
+    "requires_source_grounding": true,
+    "admit_when_any": [
+      "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+      "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED",
+      "LATER_ANALYSIS_OUTPUT_REQUIRES_EXACT_FORMULATION"
+    ],
+    "do_not_admit_for": [
+      "historical handbook presence alone",
+      "one stable correct answer",
+      "OCR reconstruction by guess"
+    ]
+  },
+  "units": {
+    "POL27-CF-ETHICS-C06-S01": {
+      "title": "法律特征与运行",
+      "candidates": [
+        {
+          "id": "POL27-MEM-ETHICS-C06-S01-M01",
+          "form": "sequence",
+          "statement": "社会主义法律运行包括立法、执法、司法、守法四个相互联系的环节。",
+          "source_refs": [
+            "POL27-CF-ETHICS-C06-S01"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-ETHICS-P224",
+            "LEG26-UPPER-ETHICS-P225"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION"
+        }
+      ]
+    },
+    "POL27-CF-ETHICS-C06-S02": {
+      "title": "全面依法治国层级",
+      "candidates": [
+        {
+          "id": "POL27-MEM-ETHICS-C06-S02-M01",
+          "form": "hat_hierarchy",
+          "statement": "习近平法治思想是全面依法治国的根本遵循和行动指南；中国特色社会主义法治道路定方向；中国特色社会主义法治体系是总抓手；建设法治中国是宏伟目标。",
+          "source_refs": [
+            "POL27-CF-ETHICS-C06-S02"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-ETHICS-P229",
+            "LEG26-UPPER-ETHICS-P231"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION"
+        },
+        {
+          "id": "POL27-MEM-ETHICS-C06-S02-M02",
+          "form": "fixed_structure",
+          "statement": "科学立法、严格执法、公正司法、全民守法构成全面依法治国的工作格局；依法治国、依法执政、依法行政共同推进，法治国家、法治政府、法治社会一体建设。",
+          "source_refs": [
+            "POL27-CF-ETHICS-C06-S02"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-ETHICS-P231",
+            "LEG26-UPPER-ETHICS-P232"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION"
+        }
+      ]
+    },
+    "POL27-CF-ETHICS-C06-S03": {
+      "title": "宪法",
+      "candidates": [
+        {
+          "id": "POL27-MEM-ETHICS-C06-S03-M01",
+          "form": "timeline_identity",
+          "statement": "1954年宪法是中华人民共和国第一部宪法，现行宪法是1982年宪法；宪法是国家根本法、治国安邦总章程和国家制度法律规范的重要总依据。",
+          "source_refs": [
+            "POL27-CF-ETHICS-C06-S03"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-ETHICS-P225",
+            "LEG26-LOWER-ETHICS-P085"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION"
+        }
+      ]
+    },
+    "POL27-CF-ETHICS-C06-S04": {
+      "title": "法治思维与权利义务",
+      "candidates": [
+        {
+          "id": "POL27-MEM-ETHICS-C06-S04-M01",
+          "form": "fixed_list",
+          "statement": "法治思维的高频基本内容包括法律至上、权力制约、公平正义、权利保障、程序正当。",
+          "source_refs": [
+            "POL27-CF-ETHICS-C06-S04"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-ETHICS-P232"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION"
+        },
+        {
+          "id": "POL27-MEM-ETHICS-C06-S04-M02",
+          "form": "rights_duties_boundary",
+          "statement": "法律权利和法律义务相互依存、相互联系；个人既是权利主体也是义务主体，权利不是无限自由，义务也不是单方面服从。",
+          "source_refs": [
+            "POL27-CF-ETHICS-C06-S04"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-ETHICS-P234",
+            "LEG26-LOWER-ETHICS-P086"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION"
+        }
+      ]
+    }
+  },
+  "deferred_candidate_domains": [
+    {
+      "domain": "法治道路/法治体系详细原则与法律条文相关扩展",
+      "reason": "Higher freshness risk. Exact legal/normative wording must be checked against current source before admission."
+    }
+  ]
+}
