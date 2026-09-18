@@ -144,9 +144,12 @@ try {
   await page.goto(`${origin}/vocabulary/`, { waitUntil: 'networkidle' });
   await page.evaluate(() => localStorage.clear());
   await page.reload({ waitUntil: 'networkidle' });
+  assert(await page.locator('[data-kianos-global-rail]').isVisible(), 'v2_home_keeps_global_rail');
   await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-home-1440x900.png'), fullPage: false });
 
   await page.goto(`${origin}/vocabulary/3/`, { waitUntil: 'networkidle' });
+  assert(await page.locator('[data-kianos-global-rail]').isHidden(), 'v2_word_study_hides_global_rail');
+  assert(await page.locator('[data-study-timer-dock]').isHidden(), 'v2_word_study_hides_shared_timer');
   assert(await page.locator('[data-vocab-front]').isVisible(), 'v2_safe_fast_pass_front_visible');
   assert(await page.locator('[data-vocab-details]').isHidden(), 'v2_safe_fast_pass_depth_protected');
   assert(await page.locator('[data-vocab-action-dock] [data-vocab-route="known"]').isVisible(), 'v2_safe_fast_pass_known_visible');
