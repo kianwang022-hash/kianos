@@ -1,0 +1,91 @@
+name: English Exam Session
+
+on:
+  pull_request:
+    paths:
+      - 'content/english/manifest.json'
+      - 'static-web/src/lib/englishExamPaper.mjs'
+      - 'static-web/src/lib/englishExamSession.mjs'
+      - 'static-web/src/lib/englishSessionControl.mjs'
+      - 'static-web/src/lib/englishWritingRuntimeTask.mjs'
+      - 'static-web/src/lib/englishWritingRuntimeSourceTruth.mjs'
+      - 'static-web/src/components/EnglishExamTaskBridge.astro'
+      - 'static-web/src/components/ReadingWorkspace.astro'
+      - 'static-web/src/components/ClozeWorkspace.astro'
+      - 'static-web/src/components/ReadingBWorkspace.astro'
+      - 'static-web/src/components/TranslationWorkspace.astro'
+      - 'static-web/src/components/WritingWorkspace.astro'
+      - 'static-web/src/components/ReadingAnswerGate.astro'
+      - 'static-web/src/components/ObjectiveAnswerGate.astro'
+      - 'static-web/src/components/TranslationReferenceLoader.astro'
+      - 'static-web/src/components/ReadingLastLocation.astro'
+      - 'static-web/src/components/ObjectiveNavigator.astro'
+      - 'static-web/src/pages/english.astro'
+      - 'static-web/src/pages/english-exam.astro'
+      - 'static-web/src/pages/english-exam/**'
+      - 'static-web/src/pages/english-exam-answer/**'
+      - 'static-web/src/pages/english-exam-writing/**'
+      - 'static-web/src/pages/reading/**'
+      - 'static-web/src/pages/cloze/**'
+      - 'static-web/src/pages/reading-b/**'
+      - 'static-web/src/pages/translation/**'
+      - 'static-web/scripts/validate-english-exam-session.mjs'
+      - 'static-web/scripts/test-english-exam-session-browser.mjs'
+      - '.github/workflows/static-web-english-exam-session.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'content/english/manifest.json'
+      - 'static-web/src/lib/englishExamPaper.mjs'
+      - 'static-web/src/lib/englishExamSession.mjs'
+      - 'static-web/src/lib/englishSessionControl.mjs'
+      - 'static-web/src/components/EnglishExamTaskBridge.astro'
+      - 'static-web/src/pages/english-exam.astro'
+      - 'static-web/src/pages/english-exam/**'
+      - 'static-web/src/pages/english-exam-answer/**'
+      - 'static-web/src/pages/english-exam-writing/**'
+      - 'static-web/scripts/validate-english-exam-session.mjs'
+      - 'static-web/scripts/test-english-exam-session-browser.mjs'
+      - '.github/workflows/static-web-english-exam-session.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: english-exam-session-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  exam-session:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install runtime
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+      - name: Validate full-paper semantics
+        working-directory: static-web
+        run: node scripts/validate-english-exam-session.mjs
+      - name: Build learner site
+        working-directory: static-web
+        run: npm run build
+      - name: Install browser acceptance
+        working-directory: static-web
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Run full-paper browser journey
+        working-directory: static-web
+        run: node scripts/test-english-exam-session-browser.mjs
+      - name: Upload full-paper proof
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: english-exam-session-${{ github.sha }}
+          path: english-exam-audit/
+          retention-days: 14
