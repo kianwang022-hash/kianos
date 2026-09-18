@@ -48,6 +48,19 @@ function returnText(payload) {
   return `KIANOS_OBJECTIVE_RETURN_V1\n\`\`\`json\n${JSON.stringify(payload, null, 2)}\n\`\`\``;
 }
 
+async function assertNoVisibleEngineering(page, name) {
+  const roots = page.locator('[data-objective-root], [data-local-port="reading"]');
+  const count = await roots.count();
+  let text = '';
+  for (let i = 0; i < count; i += 1) {
+    if (await roots.nth(i).isVisible()) text += ' ' + String(await roots.nth(i).innerText());
+  }
+  text = text.replace(/\s+/g, ' ');
+  const forbidden = ['KIANOS_', 'Current provenance', 'sha256:', 'Deep review evidence', 'pending claim', 'claimId'];
+  const hits = forbidden.filter((term) => text.includes(term));
+  check(hits.length === 0, name, hits.join('|'));
+}
+
 async function storeClaims(page, task) {
   return page.evaluate((targetTask) => {
     const value = JSON.parse(localStorage.getItem('kianos-english-objective-transfer-claims-v1') || '{"claims":[]}');
@@ -140,6 +153,7 @@ async function chromiumJourney() {
   const repairItem = loadClozeById(repairId);
   await page.goto(`${BASE}/cloze/${encodeURIComponent(repairId)}/`);
   await answerCloze(page, repairItem, loadClozeAnswersById(repairId), 0);
+  await assertNoVisibleEngineering(page, 'cloze_problem_surface_has_no_engineering_language');
   const repairPacket = await copyHandoff(page, '[data-objective-copy-chat]');
   check(repairPacket.includes('Cloze deep review packet v2') && repairPacket.includes('OPTIONAL_ESCALATION') && repairPacket.includes('REPAIR / RETURN PROTOCOL'), 'cloze_problem_packet_is_optional_whole_context');
   const handoff = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), `kianos-english-objective-handoff-v1:cloze:${repairId}`);
@@ -208,6 +222,7 @@ async function chromiumJourney() {
   await page.waitForFunction(() => document.querySelector('[data-transfer-import]')?.hasAttribute('hidden'));
   let clozeClaims = await storeClaims(page, 'cloze');
   check(clozeClaims.length === 1 && clozeClaims[0].status === 'TRANSFER_PENDING', 'completed_repair_creates_one_pending_claim');
+  await assertNoVisibleEngineering(page, 'cloze_saved_review_surface_has_no_engineering_language');
   const claimId = clozeClaims[0].claimId;
 
   await importReturn(page, completedReturn);

@@ -11,49 +11,47 @@ const payload = JSON.stringify(sets).replace(/</g, '\u003c');
 <Base
   title="Translation"
   kicker="English · Productive Lane"
-  description="Whole-task productive runtime: clean attempt can PASS; meaningful failures receive the smallest useful repair before returning to performance."
+  description="完整翻译一套；稳定就继续，有真实问题再做最小修复。"
   active="home"
 >
   <section class="translationHome" data-translation-home data-base={base}>
     <section class="translationHero">
       <div>
-        <span>Translation · Current</span>
-        <h2>Produce → PASS / Repair → Continue</h2>
-        <p>Translation 是独立 Productive lane。整套 task/set 是 learner-facing review unit；每个 Segment 保留自己的 first evidence。稳定工作直接 PASS，真实 failure 才进入按需 repair。</p>
+        <span>Translation</span>
+        <h2>完整翻译，稳定就继续。</h2>
+        <p>每次完成一整套。先保留自己的第一版；没有影响得分的问题就直接进入下一套，真正卡住时再做针对性修复。</p>
       </div>
       <aside>
-        <strong>{state.status === 'ready' ? `${sets.length} sets` : state.status}</strong>
-        {state.status === 'ready' && <span>{state.completeReferenceSetCount} full-reference · {state.partialReferenceSetCount} partial-reference</span>}
-        {state.status === 'ready' && state.referenceGaps?.length > 0 && <span>{state.referenceGaps.length} segment reference gaps · transparent, never fabricated</span>}
-        <span>{state.sectionResolutionMode || 'Current source gate'}</span>
-        <span>private learner state stays on-device</span>
+        <strong>{state.status === 'ready' ? `${sets.length} 套` : '暂不可用'}</strong>
+        {state.status === 'ready' && <span>参考译文完整 {state.completeReferenceSetCount} / {sets.length}</span>}
+        {state.status === 'ready' && state.referenceGaps?.length > 0 && <span>{state.referenceGaps.length} 个句子暂缺参考译文</span>}
+        <span>作答记录保存在本机</span>
       </aside>
     </section>
 
     <a class="translationLearn" href={`${base}translation-learn/`}>
-      <div><span>First Learning</span><strong>Global Map → 3 productive cores → real Translation</strong></div>
-      <p>Representation / Reconstruction / Execution 是主干；Fidelity 是贯穿约束。已经稳定的部分可以跳，Skill Map / Deep Skills 按真实 failure 再展开。</p>
+      <div><span>学习框架</span><strong>理解英文 → 忠实重建 → 考场表达</strong></div>
+      <p>先把三件事分清：读准原文、忠实转成中文、在考试时间内完成。已经稳定的部分可以跳，哪里反复出错再回哪里。</p>
       <b>学习框架 →</b>
     </a>
 
     {state.status !== 'ready' ? (
       <section class="translationGate">
-        <strong>Translation Current source not ready</strong>
-        <p>{[...(state.issues || []), ...(state.missing || [])].join(' · ') || 'Unknown Current source issue.'}</p>
-        {!!state.availableSections?.length && <code>{state.availableSections.map((row) => `${row.section}:${row.setCount}`).join(' · ')}</code>}
+        <strong>Translation 暂时不可用</strong>
+        <p>当前题库没有完整载入，请稍后再试。</p>
       </section>
     ) : (
       <section class="translationHomeGrid">
         <a class="translationContinue" data-translation-continue href={first ? `${base}translation/${encodeURIComponent(first.id)}/` : `${base}translation/`}>
           <span>Continue</span>
           <strong data-translation-continue-title>{first?.title || '开始 Translation'}</strong>
-          <p data-translation-continue-meta>{first ? `第 1 / ${sets.length} 套 · reference ${first.referenceCoverage?.available || 0}/${first.referenceCoverage?.total || 0}` : 'Current Translation 暂不可用'}</p>
+          <p data-translation-continue-meta>{first ? `第 1 / ${sets.length} 套 · 参考译文 ${first.referenceCoverage?.available || 0}/${first.referenceCoverage?.total || 0}` : 'Translation 暂不可用'}</p>
         </a>
 
         <section class="translationBrowse">
           <header>
-            <div><span>Navigate</span><strong>Current Translation sets</strong></div>
-            <input type="search" data-translation-search placeholder="搜索年份 / set id / 标题" />
+            <div><span>全部练习</span><strong>Translation</strong></div>
+            <input type="search" data-translation-search placeholder="搜索年份 / 标题" />
           </header>
           <div data-translation-results></div>
         </section>
@@ -62,15 +60,14 @@ const payload = JSON.stringify(sets).replace(/</g, '\u003c');
 
     {state.status === 'ready' && state.referenceGaps?.length > 0 && (
       <details class="translationSourceGaps">
-        <summary>Current reference source gaps · {state.referenceGaps.length}</summary>
-        <p>这些句子的英文原文仍可正常完成 Attempt → PASS / repair → reconstruction；只是 Current owner 尚无已核验参考译文，因此 runtime 不会自行补造。</p>
-        {state.referenceGaps.map((gap) => <code>{gap.id} · {gap.status}</code>)}
+        <summary>部分参考译文暂缺 · {state.referenceGaps.length}</summary>
+        <p>这些句子仍可正常练习；需要对照时，网页只显示已经核验过的参考译文。</p>
       </details>
     )}
 
     <section class="translationContractNote">
-      <strong>Runtime boundary</strong>
-      <p>浏览器保存 private first attempt / reconstruction / transfer ledger；Chat 只在值得深诊断时参与 semantic judgment。Stable clean work 可以 PASS；只有可复用且高价值的 repair 才值得建立后台 transfer claim，claim 本身不会在首页召唤 learner action。</p>
+      <strong>使用方式</strong>
+      <p>先独立完成整套。稳定就继续；有明显错误或不确定时再让 Chat 帮你定位问题，随后回到网页自己重译。</p>
     </section>
 
     <script type="application/json" data-translation-catalog set:html={payload}></script>
@@ -86,16 +83,16 @@ const payload = JSON.stringify(sets).replace(/</g, '\u003c');
     const hrefFor = (id) => `${base}translation/${encodeURIComponent(id)}/`;
     const coverageText = (item) => {
       const coverage = item?.referenceCoverage || {};
-      return coverage.complete ? `reference ${coverage.available}/${coverage.total}` : `reference ${coverage.available}/${coverage.total} · partial`;
+      return coverage.complete ? `参考译文 ${coverage.available}/${coverage.total}` : `参考译文 ${coverage.available}/${coverage.total} · 部分可用`;
     };
     const stageText = (stage) => ({
-      attempt: 'Clean Attempt',
-      decision: 'PASS / Review',
-      diagnosis: '待 Chat Review',
-      reconstruct: 'Reconstruction',
-      passed: 'PASS',
-      repaired: 'Repair Complete',
-      transfer_pending: 'Repair Complete'
+      attempt: '第一次作答',
+      decision: '完成 / 复盘',
+      diagnosis: '待复盘',
+      reconstruct: '重新翻译',
+      passed: '已完成',
+      repaired: '已修复',
+      transfer_pending: '已修复'
     })[stage] || '';
 
     let last = null;
@@ -131,14 +128,14 @@ const payload = JSON.stringify(sets).replace(/</g, '\u003c');
         link.href = hrefFor(item.id);
         const copy = document.createElement('div');
         const title = document.createElement('strong'); title.textContent = item.title || item.id;
-        const meta = document.createElement('span'); meta.textContent = `${item.paperId || 'English I'} · ${item.id} · ${coverageText(item)}`;
+        const meta = document.createElement('span'); meta.textContent = `${item.paperId || 'English I'} · ${coverageText(item)}`;
         copy.append(title, meta);
         const pos = document.createElement('small'); pos.textContent = `${item.position} / ${item.total}`;
         link.append(copy, pos);
         results.appendChild(link);
       });
       if (!visible.length) {
-        const empty = document.createElement('p'); empty.textContent = '没有匹配的 Current Translation set。'; results.appendChild(empty);
+        const empty = document.createElement('p'); empty.textContent = '没有匹配的 Translation 练习。'; results.appendChild(empty);
       }
     };
     root.querySelector('[data-translation-search]')?.addEventListener('input', (event) => render(event.currentTarget.value || ''));

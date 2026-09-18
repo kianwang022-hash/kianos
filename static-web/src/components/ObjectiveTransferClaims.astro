@@ -119,15 +119,15 @@ const { task = '' } = Astro.props;
       panel.innerHTML = `
         <div class="objectiveTransferHead">
           <div>
-            <span>Deep review evidence</span>
-            <strong data-transfer-title>Chat 复盘回写</strong>
+            <span>可选深复盘</span>
+            <strong data-transfer-title>Chat 复盘结果</strong>
           </div>
-          <button type="button" data-transfer-toggle>导入 Chat 返回</button>
+          <button type="button" data-transfer-toggle>应用 Chat 返回</button>
         </div>
         <p data-transfer-summary></p>
         <div data-transfer-claims></div>
         <div data-transfer-import hidden>
-          <textarea rows="7" data-transfer-input placeholder="把包含 KIANOS_OBJECTIVE_RETURN_V1 的 Chat 回复粘贴到这里；也可只粘贴 JSON。"></textarea>
+          <textarea rows="7" data-transfer-input placeholder="把 Chat 返回的复盘结果粘贴到这里…"></textarea>
           <div class="objectiveTransferActions">
             <button type="button" data-transfer-apply>导入</button>
             <button type="button" data-transfer-cancel>取消</button>
@@ -155,13 +155,13 @@ const { task = '' } = Astro.props;
       const list = node.querySelector('[data-transfer-claims]');
       if (title) {
         title.textContent = savedReturn
-          ? `Chat 返回已保存 · ${savedReturn.threads?.length || 0} thread`
+          ? 'Chat 返回已保存'
           : '可选深复盘回写';
       }
       if (summary) {
         summary.textContent = savedReturn
-          ? `本次深复盘返回已保存。${pending.length ? `仍有 ${pending.length} 个后台 pending claim；只在后续真正相关的复盘中顺手验证。` : '没有新的迁移债。'}`
-          : '只有这次 problem 确实值得深挖时才导入 Chat 返回；快速看懂的一次性错误不需要创建 claim。';
+          ? `本次深复盘结果已保存。${pending.length ? `还有 ${pending.length} 个以前的问题，只有以后遇到真正相关的新题时才顺手确认。` : '没有需要继续追踪的问题。'}`
+          : '只有这次问题确实值得深挖时才需要导入 Chat 返回；快速看懂的一次性错误到这里就结束。';
       }
       if (list) {
         list.replaceChildren();
@@ -169,7 +169,7 @@ const { task = '' } = Astro.props;
           const row = document.createElement('div');
           row.className = 'objectiveTransferClaim';
           const id = document.createElement('span');
-          id.textContent = claim.claimId || 'claim';
+          id.textContent = ''; id.hidden = true;
           const statement = document.createElement('strong');
           statement.textContent = claim.statement || '—';
           row.append(id, statement);
@@ -177,7 +177,7 @@ const { task = '' } = Astro.props;
         });
         if (pending.length > 6) {
           const more = document.createElement('small');
-          more.textContent = `另有 ${pending.length - 6} 个后台 pending claim`;
+          more.textContent = `另有 ${pending.length - 6} 个待以后自然验证的问题`;
           list.appendChild(more);
         }
       }

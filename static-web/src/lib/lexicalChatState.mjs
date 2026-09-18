@@ -139,3 +139,48 @@ export function buildLexicalChatStatePacket({
     challenge_session: challengeSession
   };
 }
+
+export function serializeLexicalChatStateForChat(packet) {
+  if (!packet || packet.schema !== LEXICAL_CHAT_STATE_SCHEMA) {
+    throw new Error('Invalid Lexical Chat State Packet.');
+  }
+  return [
+    'KIANOS_LEXICAL_HANDOFF_V1',
+    'This packet was exported by the KianOS Vocabulary learner website for Chat.',
+    '',
+    'HOW TO READ IT',
+    '- Read the embedded chat_instruction and semantics first. Coverage is traversal, not mastery; same-day revisit is not debt; Repair contains exact evidence-backed targets.',
+    '- If GitHub access is available, read kianwang022-hash/kianos@main AGENTS.md, then content/lexical/CURRENT.md, then only the exact Current owner/contract needed for the target.',
+    '- Missing evidence quality stays unknown. Do not turn whole-card Unknown/Fuzzy alone into durable Repair.',
+    '',
+    'WHAT CHAT SHOULD DO',
+    '- Explain the current vocabulary state in normal language and choose only a small useful action.',
+    '- If a Repair test is useful, return one kianos.lexical.challenge_packet.v1 JSON object compatible with content/lexical/learner/packet-contract.json.',
+    '- If no generated test is useful, answer normally; a structured return is not mandatory.',
+    '',
+    'LEXICAL_CHAT_STATE_JSON',
+    JSON.stringify(packet, null, 2)
+  ].join('\n');
+}
+
+export function parseLexicalChallengePacketText(input) {
+  if (input && typeof input === 'object' && !Array.isArray(input)) return input;
+  const raw = String(input || '').trim();
+  if (!raw) throw new Error('LEXICAL_CHALLENGE_IMPORT_EMPTY');
+
+  const candidates = [raw];
+  const fenced = raw.match(/\`\`\`(?:json)?\s*([\s\S]*?)\`\`\`/i);
+  if (fenced?.[1]) candidates.push(fenced[1].trim());
+  const start = raw.indexOf('{');
+  const end = raw.lastIndexOf('}');
+  if (start >= 0 && end > start) candidates.push(raw.slice(start, end + 1));
+
+  for (const candidate of candidates) {
+    try {
+      const value = JSON.parse(candidate);
+      if (value && typeof value === 'object' && !Array.isArray(value)) return value;
+    } catch {}
+  }
+  throw new Error('LEXICAL_CHALLENGE_IMPORT_INVALID');
+}
+

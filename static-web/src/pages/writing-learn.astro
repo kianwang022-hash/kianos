@@ -31,9 +31,9 @@ const layerCards = [
 ];
 ---
 <Base
-  title="Writing First Learning"
-  kicker="English · Writing · First Learning"
-  description="先建立六个真实写作 primitive；已经稳定的直接跳过，Small / Big 作为 task specialization，之后尽快回到完整写作。"
+  title="Writing Guide"
+  kicker="English · Writing · Guide"
+  description="先看完整写作链；已经稳定的直接跳过，哪里不稳再补哪里。"
   sourcePath={projection.sourcePath}
   sourceHash={projection.sourceHash}
   objectId="english:writing:first-learning"
@@ -42,15 +42,15 @@ const layerCards = [
   <section class="writingLearnShell" data-writing-learning>
     <header class="writingHero">
       <div class="writingHeroCopy">
-        <span class="writingEyebrow">Targeted First Learning</span>
+        <span class="writingEyebrow">学习框架</span>
         <h1>从任务到成文，不从模板开始。</h1>
-        <p>先看整条生成链。不会的 primitive 再进入；已经稳定的直接跳过。Guide 的目的不是让你完成课程，而是尽快回到完整 Writing。</p>
+        <p>先看整条生成链。不会的能力再进入；已经稳定的直接跳过。这里的目的不是完成一门课程，而是尽快回到完整 Writing。</p>
       </div>
       <aside class="writingHeroRule">
-        <strong>Functional route</strong>
-        <span>Global Map → targeted primitive → real Writing</span>
-        <small>Small / Big 是 specialization；practice 是练习，不是额外 primitive。</small>
-        <a href={`${base}writing/`}>直接进入 Writing Runtime →</a>
+        <strong>使用方式</strong>
+        <span>整体方法 → 补薄弱能力 → 完整写作</span>
+        <small>Small / Big 是两种任务模式；练习只是练习，不是额外课程。</small>
+        <a href={`${base}writing/`}>直接进入 Writing →</a>
       </aside>
     </header>
 
@@ -71,14 +71,14 @@ const layerCards = [
         <button type="button" data-writing-route={block.id}><strong>{block.id.toUpperCase()}</strong><span>{block.title.replace(/^B\d+｜/, '')}</span></button>
       ))}
       <button type="button" data-writing-route="modes"><strong>Modes</strong><span>Small / Big</span></button>
-      <button type="button" data-writing-route="practice"><strong>Practice</strong><span>synthetic / entry</span></button>
+      <button type="button" data-writing-route="practice"><strong>练习</strong><span>起步 / 真题入口</span></button>
     </nav>
 
     <main class="writingStage">
       <section class="writingPanel" data-writing-panel="global-map">
         <div class="writingPanelHeader">
           <div><span>Orientation</span><h2>先建立整张地图</h2></div>
-          <p>看懂六个 primitive 的关系即可。它们是能力 owner，不是六个必须打卡的阶段。</p>
+          <p>看懂六个核心能力的关系即可。它们不是六个必须打卡的阶段。</p>
         </div>
         <article class="markdownBody" set:html={globalHtml}></article>
         <article class="markdownBody coreIntro" set:html={coreIntroHtml}></article>
@@ -94,14 +94,14 @@ const layerCards = [
         return (
           <section class="writingPanel" data-writing-panel={block.id} hidden>
             <div class="writingPanelHeader compact">
-              <div><span>Primitive · {index + 1}/6</span><h2>{block.title}</h2></div>
-              <p>只学到能返回完整 Writing。需要更深的例子与 micro-drill 时再调用 reference reservoir / Chat。</p>
+              <div><span>核心能力 · {index + 1}/6</span><h2>{block.title}</h2></div>
+              <p>只学到能返回完整 Writing。需要更深的例子或小练习时再展开参考内容或问 Chat。</p>
             </div>
             <article class="markdownBody writingSegment" set:html={block.html}></article>
             <footer class="writingPanelActions">
               <button type="button" class="secondary" data-writing-route={previous}>← 上一块</button>
               <a href={`${base}writing/`}>已经够用 → 去写</a>
-              <button type="button" data-writing-route={next}>{index === blocks.length - 1 ? '看 Task Modes →' : '下一 primitive →'}</button>
+              <button type="button" data-writing-route={next}>{index === blocks.length - 1 ? '看任务模式 →' : '下一能力 →'}</button>
             </footer>
           </section>
         );
@@ -109,21 +109,21 @@ const layerCards = [
 
       <section class="writingPanel" data-writing-panel="modes" hidden>
         <div class="writingPanelHeader">
-          <div><span>Specialization</span><h2>Small / Big：同一主干的两种任务模式</h2></div>
-          <p>这里学习真实分叉，不重复学习六个公共 primitive。</p>
+          <div><span>任务模式</span><h2>Small / Big：同一主干的两种任务模式</h2></div>
+          <p>这里只看两种题型真正不同的地方，不重复学习六个公共能力。</p>
         </div>
         <article class="markdownBody" set:html={modesHtml}></article>
         <footer class="writingPanelActions">
           <button type="button" class="secondary" data-writing-route="b6">← 回 B6</button>
-          <a href={`${base}writing/`}>进入 Writing Runtime →</a>
-          <button type="button" data-writing-route="practice">看 Practice / Entry →</button>
+          <a href={`${base}writing/`}>进入 Writing →</a>
+          <button type="button" data-writing-route="practice">看练习 / 真题入口 →</button>
         </footer>
       </section>
 
       <section class="writingPanel" data-writing-panel="practice" hidden>
         <div class="writingPanelHeader">
-          <div><span>Practice / Entry</span><h2>需要时练，再进入真实 Writing</h2></div>
-          <p>Synthetic 是 calibration / repair 工具，不是长期题库；页面不再用手工 checkbox 冒充真实完成证据。</p>
+          <div><span>练习 / 真题入口</span><h2>需要时练，再进入真实 Writing</h2></div>
+          <p>起步练习只用来建立完整输出和修正明显问题，不是长期题库；是否完成以真实写作为准。</p>
         </div>
         <article class="markdownBody syntheticGate" set:html={practiceHtml}></article>
 
@@ -133,14 +133,14 @@ const layerCards = [
         </details>
 
         <details class="writingLaterAsset" data-true-exam-gate>
-          <summary>True-Exam Entry · 保护 fresh material</summary>
+          <summary>首篇真题 · 保持未见材料</summary>
           <article class="markdownBody" set:html={trueExamGateHtml}></article>
         </details>
 
         <footer class="writingPanelActions">
           <button type="button" class="secondary" data-writing-route="modes">← 回 Modes</button>
-          <span>真实 synthetic completion / exam-entry 状态由 Productive Runtime evidence 决定。</span>
-          <a href={`${base}writing/`}>进入 Writing Runtime →</a>
+          <span>起步练习是否完成，以真实写作记录为准。</span>
+          <a href={`${base}writing/`}>进入 Writing →</a>
         </footer>
       </section>
     </main>

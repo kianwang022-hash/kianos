@@ -15,15 +15,33 @@
         "level": "L1",
         "pos": "phrase",
         "source": "semantic-review-handoff-v1"
+      },
+      {
+        "construction_id": "construction:accommodate:continuous-20260918-01",
+        "pattern": "accommodate + number/guests",
+        "meaning_cn": "可容纳某数量的人",
+        "definition_en": "have enough space for a stated number of people",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "continuous-content-upgrade-20260918"
+      },
+      {
+        "construction_id": "construction:accommodate:continuous-20260918-02",
+        "pattern": "accommodate + need/request/preference",
+        "meaning_cn": "满足、照顾某种需要/请求/偏好",
+        "definition_en": "make room for or satisfy a need, request, or preference",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "continuous-content-upgrade-20260918"
       }
     ],
     "content_hash": "f6fa9598eadf0b2056b4fdeb2f1d7e352e9f6edd8623fe7fbfb010b595d4ecb7",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "容纳，适应，提供",
-      "core_meaning_en": "to provide space or make suitable",
-      "mental_model_cn": "容纳，适应，提供",
-      "mental_model_en": ""
+      "core_meaning_cn": "给人、需求或差异“腾出空间”：可字面容纳，也可满足需要、调整安排或使自己适应",
+      "core_meaning_en": "to make room for people, needs, or differences: house, satisfy, adjust, or adapt",
+      "mental_model_cn": "看宾语决定分支：number/guests → 容纳；request/need → 满足；plan/view → 调整使兼容；oneself → 使自己适应。bare accommodate to 较少用于主动产出，优先 accommodate oneself to / adapt to。",
+      "mental_model_en": "Let the object select the branch: house people, meet a request, adjust something to fit, or accommodate oneself to a situation."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -165,7 +183,8 @@
         "sense_id": "sense:accommodate:1fbf05b413d85299",
         "sense_label_en": "to adapt to something",
         "sort_order": 3,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "note": "Bare intransitive accommodate to is relatively uncommon in ordinary production; prefer accommodate oneself to or adapt to when expressing personal adaptation."
       }
     ],
     "verification_summary": {

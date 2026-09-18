@@ -12,40 +12,40 @@ const payload = JSON.stringify({ tasks, trueExam: trueExam.firstExam }).replace(
 <Base
   title="Writing"
   kicker="English · Productive Lane"
-  description="Whole-essay productive runtime: preserve first evidence, use semantic review during calibration, repair only meaningful failures, and return to writing."
+  description="完整写完一篇；稳定就继续，有真实问题再做最小修复。"
   active="home"
 >
   <section class="writingHome" data-writing-home data-base={base}>
     <section class="writingHomeHero">
       <div>
-        <span>Writing · Whole-Essay Runtime</span>
-        <h2>Generate → Review → PASS / Repair → Continue</h2>
-        <p>先用 synthetic 完整输出建立真实生成能力。first planning/content evidence 和 first draft 保存在本机；calibration 阶段用 Chat 做 semantic judgment，稳定后只让真正影响未来表现的问题进入 repair。</p>
+        <span>Writing · 完整写作</span>
+        <h2>写完整篇，复盘，继续。</h2>
+        <p>先用两篇起步练习建立完整输出。第一版会保留在本机；稳定的作文直接结束，真正影响未来表现的问题才值得修。</p>
       </div>
       <aside>
-        <strong>{state.status === 'ready' ? `${tasks.length} synthetic tasks` : state.status}</strong>
-        <span>whole essay = learner-facing attempt / review unit</span>
-        <span>first evidence stays private on-device</span>
-        <span>protected true exam stays hidden until entry condition is met</span>
+        <strong>{state.status === 'ready' ? `${tasks.length} 个起步练习` : '暂不可用'}</strong>
+        <span>一次完成一整篇</span>
+        <span>第一版保存在本机</span>
+        <span>完成起步练习后开放首篇真题</span>
       </aside>
     </section>
 
     <a class="writingLearnLink" href={`${base}writing-learn/`}>
-      <div><span>First Learning</span><strong>Global Map → targeted primitive → real Writing</strong></div>
-      <p>六个 primitive 是能力 owner，不是必须完成的课程。Small / Big 是 specialization；会的直接跳过，卡住再回来。</p>
+      <div><span>学习框架</span><strong>整体方法 → 需要补的能力 → 完整写作</strong></div>
+      <p>六个核心能力不是必须逐项打卡的课程。Small / Big 只是两种任务模式；会的直接跳过，卡住再回来。</p>
       <b>学习框架 →</b>
     </a>
 
     {state.status !== 'ready' ? (
       <section class="writingHomeGate">
-        <strong>Writing synthetic runtime source not ready</strong>
-        <p>{state.issues.join(' · ') || 'Unknown runtime source issue.'}</p>
+        <strong>Writing 暂时不可用</strong>
+        <p>当前练习没有完整载入，请稍后再试。</p>
       </section>
     ) : (
       <section class="writingTaskGrid">
         {tasks.map((task) => (
           <a class="writingTaskCard" data-writing-task-card={task.id} href={`${base}writing/${encodeURIComponent(task.id)}/`}>
-            <span>{task.kind === 'small' ? 'Small Writing' : 'Big Writing'} · synthetic</span>
+            <span>{task.kind === 'small' ? 'Small Writing' : 'Big Writing'} · 起步练习</span>
             <strong>{task.title}</strong>
             <p>{task.kind === 'small' ? task.learnerTask.directions : task.learnerTask.visual_scenario}</p>
             <div><small>Target · {task.targetWords} words</small><b data-task-state={task.id}>未开始</b></div>
@@ -56,18 +56,18 @@ const payload = JSON.stringify({ tasks, trueExam: trueExam.firstExam }).replace(
 
     <section class="writingTrueExamShield" data-true-exam-shield>
       <div>
-        <span>Protected true exam</span>
+        <span>首篇真题</span>
         <strong data-true-exam-title>现在不展示真题目录</strong>
       </div>
-      <p data-true-exam-copy>Cold-start mechanics 和第一次完整输出先用 synthetic material。两种模式都有真实完整输出后，只释放第一篇 clean 真题来检查 synthetic skill 是否迁移到真实 prompt；不会为了工程验收消耗真题。</p>
+      <p data-true-exam-copy>先各完成一篇 Small / Big 起步练习。两种模式都真正写过以后，再开放第一篇真题；在进入前不会提前展示题面解析或写作提示。</p>
       <a class="writingTrueExamEntry" data-true-exam-entry hidden href={`${base}writing/${encodeURIComponent(trueExam.firstExam.id)}/`}>
         开始第一篇 clean 真题 →
       </a>
     </section>
 
     <section class="writingRuntimeBoundary">
-      <strong>Runtime boundary</strong>
-      <p>浏览器保存 first evidence 与 unfinished state；Chat 在需要 semantic judgment 时做 whole-essay review。PASS 是出口；repair 只处理 smallest meaningful failure。只有可复用高价值问题才建立后台 transfer target，pending target 不在首页制造 learner attention debt。</p>
+      <strong>使用方式</strong>
+      <p>先完整写完。觉得稳定可以直接结束；有明显问题时再让 Chat 帮你找到最重要的一处，然后回到网页自己修改。</p>
     </section>
 
     <script type="application/json" data-writing-catalog set:html={payload}></script>
@@ -82,13 +82,13 @@ const payload = JSON.stringify({ tasks, trueExam: trueExam.firstExam }).replace(
     const tasks = Array.isArray(catalog?.tasks) ? catalog.tasks : [];
     const finalStates = new Set(['PASS_ACCEPTABLE', 'REPAIR_COMPLETE', 'TRANSFER_PENDING']);
     const stageText = (state) => ({
-      ATTEMPT: '进行中 · Clean Attempt',
-      REVIEW_PENDING: '待 semantic review',
-      PASS_ACCEPTABLE: 'PASS / ACCEPTABLE',
-      REPAIR_NEEDED: '需要最小 repair',
-      REPAIR_CHECK_PENDING: 'repair 尚未确认',
-      REPAIR_COMPLETE: 'Repair Complete',
-      TRANSFER_PENDING: 'Repair Complete'
+      ATTEMPT: '进行中',
+      REVIEW_PENDING: '待复盘',
+      PASS_ACCEPTABLE: '已完成',
+      REPAIR_NEEDED: '需要修改',
+      REPAIR_CHECK_PENDING: '待确认',
+      REPAIR_COMPLETE: '已修复',
+      TRANSFER_PENDING: '已修复'
     })[state] || '未开始';
 
     let completed = 0;
@@ -112,7 +112,7 @@ const payload = JSON.stringify({ tasks, trueExam: trueExam.firstExam }).replace(
     if (examEntry instanceof HTMLElement) examEntry.hidden = !qualified;
     if (qualified) {
       if (examTitle) examTitle.textContent = '第一篇 clean 真题已解锁';
-      if (examCopy) examCopy.textContent = '只释放这一篇 official task；进入前仍不展示范文、解析、主题总结或针对该题的写作思路。第一次真题的 first draft 会成为比 synthetic 更强的迁移证据。';
+      if (examCopy) examCopy.textContent = '现在只开放这一篇真题；进入前仍不展示范文、解析、主题总结或针对该题的写作思路。先独立完成自己的第一版。';
     }
   }
 </script>

@@ -57,11 +57,11 @@ requireCheck(page.indexOf('data-writing-panel="global-map"') < page.indexOf('dat
 requireCheck(!page.includes('data-writing-route="skill-map"'), 'SKILL_MAP_PROMOTED_TO_FIRST_ROUTE');
 requireCheck(page.includes('<details class="writingLaterAsset">'), 'LATER_ASSETS_NOT_PROGRESSIVELY_DISCLOSED');
 requireAny(page, ['Skill Map · 后续卡住时再用', 'Skill Map'], 'SKILL_MAP_NOT_DISCOVERABLE');
-requireAny(page, ['True-Exam Entry', '保护 fresh material'], 'TRUE_EXAM_PROTECTION_COPY_MISSING');
+requireAny(page, ['True-Exam Entry', '保护 fresh material', '首篇真题 · 保持未见材料'], 'TRUE_EXAM_PROTECTION_COPY_MISSING');
 requireCheck(page.includes('href={`${base}writing/`}'), 'PRODUCTIVE_RUNTIME_RETURN_MISSING');
 requireCheck(!page.includes('data-check-required-action') && !page.includes('data-unlock-check'), 'MANDATORY_ACTIVE_CHECK_GATE_PRESENT');
 requireCheck(!page.includes('data-synthetic-gate'), 'MANUAL_SYNTHETIC_MASTERY_CHECKBOX_PRESENT');
-requireAny(page, ['真实 synthetic completion / exam-entry 状态由 Productive Runtime evidence 决定', 'Productive Runtime evidence'], 'RUNTIME_EVIDENCE_OWNER_NOT_EXPLICIT');
+requireAny(page, ['真实 synthetic completion / exam-entry 状态由 Productive Runtime evidence 决定', 'Productive Runtime evidence', '起步练习是否完成，以真实写作记录为准'], 'RUNTIME_EVIDENCE_OWNER_NOT_EXPLICIT');
 
 // First-learning state is only private navigation, never answer/mastery evidence.
 requireCheck(!/localStorage\.setItem\([^\n]*(response\.value|textarea|first.?try|answer)/i.test(page), 'ACTIVE_CHECK_TEXT_PERSISTED');
@@ -101,7 +101,7 @@ const discoverabilityProbes = {
 for (const [name, pass] of Object.entries(discoverabilityProbes)) requireCheck(pass, `DISCOVERABILITY_PROBE:${name}`);
 
 // First-learning UI must not pretend to own Runtime/Evidence state semantics.
-requireAny(page, ['Writing Runtime', 'Productive Runtime'], 'RUNTIME_BOUNDARY_NOT_EXPLICIT');
+requireAny(page, ['Writing Runtime', 'Productive Runtime', '使用方式'], 'RUNTIME_BOUNDARY_NOT_EXPLICIT');
 requireCheck(!page.includes('PASS/ACCEPTABLE') && !page.includes('TRANSFER_PENDING'), 'RUNTIME_STATE_MACHINE_LEAKED_INTO_FIRST_LEARNING_UI');
 
 const report = {

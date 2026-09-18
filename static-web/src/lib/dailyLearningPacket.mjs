@@ -62,3 +62,29 @@ export function attachDailySubjectPacket(packet, subject, subjectPacketValue) {
     }
   };
 }
+
+export function serializeDailyLearningPacketForChat(packet) {
+  if (!packet || packet.schema !== 'kianos.daily-learning-packet.v1') {
+    throw new Error('Invalid Daily Learning Packet.');
+  }
+
+  return [
+    'KIANOS_DAILY_LEARNING_HANDOFF_V1',
+    'This packet was exported by the KianOS learner website for Chat.',
+    '',
+    'HOW TO READ IT',
+    '- Treat time, schedule, and each subject evidence payload as factual learner state. Do not invent mastery, debt, or missing events.',
+    '- subjects.<subject>.evidence is owned by that subject contract and may be null. Preserve unknown fields rather than guessing their meaning.',
+    '- If GitHub access is available, route through kianwang022-hash/kianos@main CURRENT.md and then the exact subject CURRENT/contract needed. Do not use chat memory to override checked canonical state.',
+    '- The schedule is a current plan/capacity snapshot, not proof that the learner completed the planned work.',
+    '',
+    'WHAT CHAT SHOULD DO',
+    '- Summarize what actually happened, identify only meaningful unfinished/problem work, and propose the smallest useful next action.',
+    '- Stable work should not create review debt. Missing evidence means unknown.',
+    '- If a subject-specific structured return is needed, use that subject\'s existing return contract. Do not invent a universal mutation schema.',
+    '',
+    'DAILY_PACKET_JSON',
+    JSON.stringify(packet, null, 2)
+  ].join('\n');
+}
+

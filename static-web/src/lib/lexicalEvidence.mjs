@@ -414,3 +414,30 @@ export function exportReturnEvents(ledgerInput, studyDay, toLocalDay = (iso) => 
     .filter((event) => allowed.has(event.outcome) && toLocalDay(event.observed_at) === studyDay)
     .map((event) => clone(event));
 }
+
+export function serializeLexicalReturnPacketForChat(packet) {
+  if (!packet || packet.schema !== 'kianos.lexical.return_packet.v1' || !Array.isArray(packet.events)) {
+    throw new Error('Invalid Lexical Return Packet.');
+  }
+
+  return [
+    'KIANOS_LEXICAL_HANDOFF_V1',
+    'This packet was exported by the KianOS Vocabulary learner website for Chat.',
+    '',
+    'HOW TO READ IT',
+    '- LEXICAL_RETURN_PACKET_JSON contains factual lexical events. It is evidence, not a ready-made Repair queue or mastery verdict.',
+    '- Resolve exact word/target identity against kianwang022-hash/kianos@main. Start at content/lexical/CURRENT.md, then use the current Lexical contracts/owners needed for the exact target.',
+    '- Missing target revision, demand, assistance, novelty, delayed separation, or attribution stays unknown. Never upgrade missing metadata into strong evidence.',
+    '- Replayed event identity is idempotent. A wrong/slow event is not permission to create whole-card debt when only one exact target is implicated.',
+    '',
+    'WHAT CHAT SHOULD DO',
+    '- Reconcile event identity/corrections and identify only exact unstable lexical targets justified by current evidence.',
+    '- Prefer a small useful Repair/Challenge set; do not create overdue debt or test every word.',
+    '- If a website Test is useful, return one kianos.lexical.challenge_packet.v1 JSON object following content/lexical/learner/packet-contract.json. Do not invent semantic content outside Current owners.',
+    '- If no new Test is useful, reply normally and say so; a structured return is not mandatory.',
+    '',
+    'LEXICAL_RETURN_PACKET_JSON',
+    JSON.stringify(packet, null, 2)
+  ].join('\n');
+}
+

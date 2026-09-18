@@ -43,6 +43,125 @@ const paper = loadEnglishExamPaper(summaries[0].paperId);
 const first = paper.steps[0];
 check(first.task === 'cloze', 'default_first_step_not_cloze', first.task);
 
+
+function normalStorageKey(step) {
+  return ({
+    cloze: 'kianos-cloze-attempt-v1:',
+    reading_a: 'kianos-reading-attempt-v1:',
+    reading_b: 'kianos-reading-b-attempt-v1:',
+    translation: 'kianos-translation-attempt-v2:',
+    writing: 'kianos-writing-runtime-v1:'
+  })[step.task] + step.object_id;
+}
+
+async function prepareExamStep(page, step, index, total) {
+  await page.locator('[data-english-exam-task-bridge]').waitFor({ state: 'visible' });
+  const progress = String(await page.locator('[data-exam-step-progress]').textContent() || '');
+  check(progress.includes(`第 ${index + 1} / ${total} 部分`), 'full_step_progress_mismatch', progress);
+
+  const examMode = await page.evaluate(() => document.documentElement.dataset.englishExamSession === 'true');
+  check(examMode, 'full_step_not_in_exam_mode', step.step_id);
+
+  if (['cloze', 'reading_a', 'reading_b'].includes(step.task)) {
+    check(await page.locator('[data-objective-formal]:visible, [data-reading-formal-answer]:visible').count() === 0, 'full_step_answer_leak', step.step_id);
+  }
+
+  if (step.task === 'cloze') {
+    await page.locator('[data-cloze-option]').first().click();
+  } else if (step.task === 'reading_a') {
+    await page.locator('[data-option]').first().click();
+  } else if (step.task === 'reading_b') {
+    const select = page.locator('[data-reading-b-select]').first();
+    const options = await select.locator('option').evaluateAll((nodes) => nodes.map((node) => node.value).filter(Boolean));
+    if (options.length) await select.selectOption(options[0]);
+  } else if (step.task === 'translation') {
+    const boxes = page.locator('[data-attempt-id]');
+    const count = await boxes.count();
+    check(count > 0, 'full_translation_inputs_missing');
+    for (let i = 0; i < count; i += 1) {
+      await boxes.nth(i).fill(`Mock 翻译第 ${i + 1} 句。`);
+    }
+  } else if (step.task === 'writing') {
+    const essay = page.locator('[data-essay-draft]');
+    await essay.waitFor({ state: 'visible' });
+    await essay.fill(`Mock ${step.writing_kind || 'writing'} essay. This is isolated exam-session evidence and must not modify normal Writing state.`);
+  }
+
+  const isolatedKeyPresent = await page.evaluate(({ sessionId, task, objectId }) =>
+    localStorage.getItem(`kianos-english-exam-task-v1:${sessionId}:${task}:${objectId}`) !== null,
+    {
+      sessionId: new URL(page.url()).searchParams.get('exam_session') || '',
+      task: step.task,
+      objectId: step.object_id
+    }
+  );
+  check(isolatedKeyPresent, 'full_step_isolated_storage_missing', step.step_id);
+}
+
+async function fullNineStepJourney(browser, paper) {
+  const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+  const page = await context.newPage();
+  try {
+    await page.goto(`${BASE}/english-exam/${encodeURIComponent(paper.paper_id)}/`, { waitUntil: 'domcontentloaded' });
+    await page.locator('[data-english-exam-home][data-exam-ready="true"]').waitFor({ state: 'visible' });
+
+    const sentinels = paper.steps.map((step, index) => ({
+      key: normalStorageKey(step),
+      value: { sentinel: `normal-${index + 1}`, task: step.task, objectId: step.object_id }
+    }));
+    await page.evaluate((rows) => rows.forEach(({ key, value }) => localStorage.setItem(key, JSON.stringify(value))), sentinels);
+
+    await page.locator('[data-exam-start]').click();
+
+    for (let index = 0; index < paper.steps.length; index += 1) {
+      const step = paper.steps[index];
+      if (index === 0) {
+        await page.waitForURL('**/cloze/**?exam_session=*');
+      }
+      await prepareExamStep(page, step, index, paper.steps.length);
+
+      const complete = page.locator('[data-exam-complete]');
+      await complete.waitFor({ state: 'visible' });
+      if (index < paper.steps.length - 1) {
+        const currentUrl = page.url();
+        await complete.click();
+        await page.waitForFunction((url) => location.href !== url, currentUrl);
+      } else {
+        await complete.click();
+        await page.waitForURL(`**/english-exam/${encodeURIComponent(paper.paper_id)}/`);
+      }
+    }
+
+    check(await page.locator('.englishExamStep[data-complete="true"]').count() === 9, 'full_paper_not_9_of_9_complete');
+
+    const captured = await page.evaluate(() => {
+      const raw = localStorage.getItem('kianos-english-exam-session-v1');
+      const state = raw ? JSON.parse(raw) : null;
+      return { currentStep: state?.current_step, captureCount: Object.keys(state?.captures || {}).length, status: state?.status };
+    });
+    check(captured.currentStep === 9 && captured.captureCount === 9 && captured.status === 'ACTIVE', 'full_paper_capture_state_invalid', JSON.stringify(captured));
+
+    const unchanged = await page.evaluate((rows) => rows.every(({ key, value }) => {
+      const actual = JSON.parse(localStorage.getItem(key) || 'null');
+      return actual?.sentinel === value.sentinel;
+    }), sentinels);
+    check(unchanged, 'full_paper_polluted_normal_learning_storage');
+
+    page.once('dialog', (dialog) => dialog.accept());
+    await page.locator('[data-exam-seal]').click();
+    check(await page.locator('[data-exam-result]').isHidden(), 'full_paper_result_visible_before_release');
+    await page.locator('[data-exam-release]').click();
+    await page.locator('[data-exam-result]').waitFor({ state: 'visible' });
+    const score = String(await page.locator('[data-exam-objective-score]').textContent() || '');
+    check(score.includes('/ 60'), 'full_paper_release_not_out_of_60', score);
+    check((await page.locator('[data-exam-result]').innerText()).includes('Chat'), 'full_paper_productive_review_not_routed_to_chat');
+
+    await page.screenshot({ path: path.join(auditDir, 'english-exam-9-step-complete.png'), fullPage: false });
+  } finally {
+    await context.close();
+  }
+}
+
 const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4321'], {
   cwd: process.cwd(),
   stdio: ['ignore', 'pipe', 'pipe'],
@@ -115,6 +234,7 @@ try {
     await page.screenshot({ path: path.join(auditDir, 'english-exam-release.png'), fullPage: false });
 
     await context.close();
+    await fullNineStepJourney(browser, paper);
   } finally {
     await browser.close().catch(() => {});
   }
@@ -124,7 +244,9 @@ try {
     steps: paper.steps.length,
     delayed_objective_release: true,
     mock_storage_isolated: true,
-    productive_review_owner: 'CHAT'
+    productive_review_owner: 'CHAT',
+    full_browser_steps_completed: 9,
+    normal_learning_storage_preserved: true
   }, null, 2));
   console.log('ENGLISH_EXAM_BROWSER_PASS');
 } catch (error) {

@@ -2,9 +2,8 @@
    Current learning/runtime/evidence semantics remain owned by their existing modules. */
 
 body#kianos-workspace.uiEnglish {
-  --english-ui-font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+  --english-ui-font: var(--study-font-cjk);
   --english-reading-font: "Iowan Old Style", Charter, "Palatino Linotype", Palatino, Georgia, serif;
-  --study-font: var(--english-ui-font);
   --study-canvas: #f6f7f9;
   --study-surface: #ffffff;
   --study-surface-muted: #f8fafc;
@@ -19,10 +18,10 @@ body#kianos-workspace.uiEnglish {
   --study-shadow: 0 12px 34px rgba(29, 43, 58, .055);
   background: var(--study-canvas);
   color: var(--study-ink);
-  font-family: var(--english-ui-font);
+  font-family: var(--study-font);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: auto;
 }
 
 /* Product chrome: quieter, smaller, closer to a native study app. */
@@ -513,4 +512,53 @@ body#kianos-workspace.uiEnglish :is(.translationProvenance,.writingProvenance,.p
   body#kianos-workspace.uiEnglish .portedReadingPassage { padding: 20px 18px 38px; }
   body#kianos-workspace.uiEnglish .portedReadingPassage p { font-size: 18px; line-height: 1.72; }
   body#kianos-workspace.uiEnglish :is(.translationSource,.writingPrompt) { padding: 22px 18px 36px; }
+}
+
+
+/* L1 typography convergence — inherit the shared PingFang-first UI system.
+   English exam/editorial reading keeps its task-owned serif face above. */
+body#kianos-workspace.uiEnglish :is(
+  .productNavItem,
+  .englishOverview p,
+  .englishCapabilityLead p,
+  .englishCapabilityRoutes>a>div>small,
+  .englishResume>div>span,
+  .englishResume small,
+  .portedReadingSessionHeader>div>span,
+  .clozeRuntimeHeader>div>span,
+  .readingBHeader>div>span,
+  .translationHeader>div>span,
+  .writingRuntimeHeader>div>span,
+  .portedReadingHeaderCenter>span,
+  .portedReadingSessionHeader>a,
+  .translationHeader>a,
+  .writingRuntimeHeader>a,
+  .portedReadingHeaderActions button,
+  .portedReadingHeaderActions a,
+  .translationHeader nav button,
+  .translationHeader nav a,
+  .writingRuntimeHeader nav button,
+  .writingRuntimeHeader nav a,
+  .portedReadingQuestionNav button,
+  .portedReadingAnnotate>span,
+  .portedReadingAnnotate button,
+  .portedReadingAnnotate small,
+  .portedReadingQuestion>header>span,
+  .portedUncertain,
+  .portedReadingOptions button b,
+  .translationStage>header>span,
+  .writingWork .writingStage>header>span,
+  .clozeDecisionTop strong,
+  .clozeQuestion>p:first-child
+) {
+  font-size: var(--study-type-meta);
+  font-family: var(--study-font-cjk);
+}
+
+body#kianos-workspace.uiEnglish :is(
+  .portedReadingQuestion>p,
+  .portedReadingOptions button span,
+  .clozeOptions button span
+) {
+  font-size: var(--study-type-control);
 }

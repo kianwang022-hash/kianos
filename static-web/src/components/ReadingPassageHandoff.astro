@@ -202,9 +202,9 @@
             reopenCandidateIds: packet.reopenCandidateIds,
             createdAt: new Date().toISOString()
           }));
-          if (status) status.textContent = '已复制深复盘包；让 Chat 在能解释得分问题时立即停，不追求流程完整。';
+          if (status) status.textContent = '已复制给 Chat；能解释得分问题时立即停，不追求流程完整。';
         } catch {
-          if (status) status.textContent = '复盘包已复制，但本机握手状态保存失败；这次不要导入 claim 状态。';
+          if (status) status.textContent = '已复制给 Chat，但本机未能保存这次回访信息；这次只做复盘，不更新长期记录。';
         }
       } catch {
         if (status) status.textContent = '复制失败，请稍后再试。';
