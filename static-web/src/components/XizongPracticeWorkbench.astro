@@ -299,7 +299,9 @@ const payload = JSON.stringify({
     if (!data?.questions?.length) return;
 
     const storageId = String(data.systemId || initialSystemId).replace(/[^a-zA-Z0-9:_-]+/g, '-');
-    const sweepKey = `kianos:xizong:question-sweep:${storageId}:v1`;
+    const sweepKey = data.scopeKind === 'CHAT_SET'
+      ? `kianos:xizong:chat-set-question-sweep:${storageId}:v1`
+      : `kianos:xizong:system-question-sweep:${initialSystemId}:v1`;
 
     let holdoutYears = data.allowHoldout ? [] : readJson(holdoutKey, []);
     let preferences = readJson(preferenceKey, { fastSweep: false });
