@@ -98,7 +98,7 @@ assert(blockGuard.includes("kp: oldPersonal?.kp || {}"), 'learner-notes-not-pres
 assert(!blockGuard.includes("type: 'KP_RECALL'"), 'block-guard-competes-for-recall-evidence');
 assert(!blockGuard.includes('[data-review-rating]'), 'block-guard-competes-for-repair-evidence');
 
-assert(recallBridge.includes("evidence_origin: 'USER_RECALL_ATTEMPT'"), 'actual-recall-attempt-ledger-missing');
+assert(recallBridge.includes("appendRecall(kpId, rating, 'USER_RECALL_ATTEMPT')"), 'user-recall-attempt-ledger-missing');
 assert(recallBridge.includes("evidence_origin: 'BOOTSTRAP_EXISTING_STATE'"), 'existing-state-bootstrap-missing');
 assert(recallBridge.includes("type: 'KP_RECALL'"), 'recall-ledger-owner-missing');
 assert(memoryModel.includes('export function appendMemoryEvidence'), 'memory-evidence-owner-missing');
