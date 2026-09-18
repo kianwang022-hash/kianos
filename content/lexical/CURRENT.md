@@ -214,6 +214,49 @@ Do not:
 
 ---
 
+## Exam-cycle stop condition
+
+Lexical Architecture v2 is not complete merely when the current September UI looks good.
+
+It must support the full 2026-09-18 → 2026-12-20 exam cycle **without another functional architecture rebuild**.
+
+Expected phase use:
+
+```text
+Phase A / B
+→ Coverage / Fast Pass / chosen Depth
+→ English task lookup as needed
+
+Phase C
+→ Coverage maintenance
+→ real English lexical failure activates exact Repair
+→ later fresh evidence may fade/reactivate the same target
+
+Phase D
+→ targeted Repair / Challenge
+→ Translation / Writing productive lexical demands
+→ full-task English evidence remains primary transfer evidence
+
+Phase E
+→ no broad new lexical course
+→ only high-value active Repair / fast lookup / exam-output support
+→ aggressive exit for stable material
+```
+
+Later phase change may alter priority, subset and task demand. It must **not** require a separate Lexical second-pass site, sprint site or duplicate learner-state model.
+
+Architecture-v2 acceptance therefore requires:
+
+1. Study / Lookup / Repair modes use the same canonical Word owners;
+2. Lookup never advances Coverage merely by opening a Word;
+3. Repair focuses the exact unstable object rather than forcing whole-card relearning;
+4. Challenge can test recognition / discrimination / production without becoming semantic truth;
+5. English task evidence can activate / validate lexical targets without a competing English vocabulary system;
+6. all paths preserve exact Resume / Return and private learner evidence across later phases;
+7. Phase E can reduce the visible workload to high-value active objects without new architecture.
+
+---
+
 ## Current next action
 
 **Build the Lexical Visual candidate from the current Rule + Content owners, then run the first Human Gate on Vocabulary Home and representative Word Study surfaces.**
