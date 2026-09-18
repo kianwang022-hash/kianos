@@ -32,6 +32,10 @@ const forbidden = [
   ['retained', /\bRETAINED\b/],
   ['internal-repair-origin', /SYSTEM_WU_CHAT_RETURN/],
   ['exam-format-owner', /exam-format owner/i],
+  ['runtime', /\bruntime\b/i],
+  ['projection', /\bprojection\b/i],
+  ['repository', /\brepository\b|\brepo\b/i],
+  ['development-copy', /工程状态|开发状态|产品本身独立|桥接最后再接/],
   ['internal-error-code', /CURRENT_XIZONG|XIZONG_[A-Z_]+_(?:FAIL|INVALID|MISSING)/]
 ];
 
