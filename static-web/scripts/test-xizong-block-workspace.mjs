@@ -242,7 +242,26 @@ try {
   check(recallTitle.includes('KP') && recallTitle.length > 5, 'recall_keeps_real_kp_title', recallTitle);
   check((await recallCard.locator('[data-kp-learn-prompt-copy]').innerText()).includes('QA override'), 'recall_reuses_same_prompt_override');
 
-  check(await recallCard.locator('[data-kp-answer]').isHidden(), 'recall_front_hides_core_only');
+  const recallFrontState = await recallCard.evaluate((node) => {
+    const answer = node.querySelector('[data-kp-answer]');
+    const reveal = node.querySelector('[data-kp-reveal]');
+    const rating = node.querySelector('[data-kp-rating]');
+    return {
+      answerHiddenAttribute: answer?.hasAttribute('hidden') ?? null,
+      answerDisplay: answer ? getComputedStyle(answer).display : null,
+      revealHiddenAttribute: reveal?.hasAttribute('hidden') ?? null,
+      revealDisplay: reveal ? getComputedStyle(reveal).display : null,
+      ratingHiddenAttribute: rating?.hasAttribute('hidden') ?? null,
+      ratingDisplay: rating ? getComputedStyle(rating).display : null,
+      cardClass: node.className,
+      activeElement: document.activeElement?.outerHTML?.slice(0, 180) || ''
+    };
+  });
+  check(
+    recallFrontState.answerHiddenAttribute === true && recallFrontState.answerDisplay === 'none',
+    'recall_front_hides_core_only',
+    JSON.stringify(recallFrontState)
+  );
   check(await logicDetail.locator('.xzLogicGroupGoal').count() === 1, 'recall_keeps_logic_map_goal');
   check(await logicDetail.locator('.xzLogicGroupKp > span').count() >= 1, 'recall_keeps_logic_map_kp_titles');
 
