@@ -305,6 +305,23 @@ try {
   check(stored?.results?.[firstQuestion.questionId]?.status==='wrong','practice_attempt_persisted');
   check((stored?.attemptHistory||[]).some((event)=>event.question_id===firstQuestion.questionId),'practice_attempt_history_append');
 
+  await page.keyboard.press('Enter');
+  await practice.locator('[data-question-card]').waitFor({state:'visible'});
+  const uncertainMeta=(await practice.locator('[data-question-meta]').textContent()||'').trim();
+  const uncertainQuestion=sweep.questions.find((q)=>uncertainMeta.includes(String(q.year))&&uncertainMeta.includes(`第 ${q.number} 题`));
+  check(Boolean(uncertainQuestion),'uncertain_fixture_question_resolves',uncertainMeta);
+  await page.keyboard.press('u');
+  check((await practice.locator('[data-question-uncertain]').getAttribute('aria-pressed'))==='true','uncertain_toggle_on');
+  for(const label of answerLetters(uncertainQuestion.correctAnswer)) {
+    await practice.locator(`.xzpOption[data-option="${label}"]`).click();
+  }
+  await practice.locator('[data-submit-answer]').click();
+  await practice.locator('[data-practice-back]').waitFor({state:'visible'});
+  check((await practice.locator('[data-answer-result]').textContent()||'').includes('不确定'),'correct_unsure_opens_uncertain_review');
+  const uncertainStored=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),sweepKey);
+  check(uncertainStored?.results?.[uncertainQuestion.questionId]?.status==='uncertain','correct_unsure_persists_uncertain');
+  check((uncertainStored?.attemptHistory||[]).some((event)=>event.question_id===uncertainQuestion.questionId&&event.status==='uncertain'),'uncertain_attempt_history_append');
+
   await page.evaluate(({sweepKey,holdoutKey,state,year})=>{
     localStorage.setItem(sweepKey,JSON.stringify(state));
     localStorage.setItem(holdoutKey,JSON.stringify([year]));
@@ -445,6 +462,8 @@ try {
   check((paperBeforeSeal?.paperDraftAnswers?.[paperFirst.questionId]?.selected||[]).includes(paperFirstWrong.label),'paper_draft_final_wrong_selection_restored');
 
   await paperPractice.locator('.xzpMapItem').nth(1).click();
+  await paperPractice.locator('[data-question-uncertain]').click();
+  check((await paperPractice.locator('[data-question-uncertain]').getAttribute('aria-pressed'))==='true','paper_uncertain_toggle_on');
   for(const label of answerLetters(paperSecond.correctAnswer)) {
     await paperPractice.locator(`.xzpOption[data-option="${label}"]`).click();
   }
@@ -452,6 +471,7 @@ try {
   await page.waitForTimeout(260);
 
   const preSealState=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),paperKey);
+  check(preSealState?.paperDraftAnswers?.[paperSecond.questionId]?.uncertain===true,'paper_uncertain_draft_persisted');
   const expectedPaperSummary=scoreXizongPaperResults(paper2026.paperFormat,paper2026.questions,preSealState?.paperDraftAnswers||{});
   check(expectedPaperSummary.correctCount===1&&expectedPaperSummary.wrongCount===1,'paper_fixture_score_shape',JSON.stringify(expectedPaperSummary));
 
@@ -469,7 +489,7 @@ try {
   const paperAfterSeal=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),paperKey);
   check(Boolean(paperAfterSeal?.paperSeal?.sealedAt),'paper_seal_persisted');
   check(paperAfterSeal?.results?.[paperFirst.questionId]?.status==='wrong','paper_seal_materializes_wrong_attempt');
-  check(paperAfterSeal?.results?.[paperSecond.questionId]?.status==='stable','paper_seal_materializes_stable_attempt');
+  check(paperAfterSeal?.results?.[paperSecond.questionId]?.status==='uncertain','paper_seal_materializes_correct_uncertain_attempt');
   check((paperAfterSeal?.attemptHistory||[]).filter((event)=>event.result_visibility==='hidden').length===2,'paper_seal_materializes_hidden_attempt_events');
   const holdoutAfterPaperSeal=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'[]'),holdoutKey);
   check(!holdoutAfterPaperSeal.map(Number).includes(2026),'paper_seal_releases_consumed_year_from_holdout');
