@@ -39,34 +39,36 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "行为，行动；法案，法令；（戏剧的）幕",
-          "label_en": "something that people do or cause to happen; a law made by a government; a part of a play or opera",
+          "label_cn": "行为、行动",
+          "label_en": "something done; an action or deed",
           "pos": "noun",
           "sense_ids": [
             "sense:act:601bb18249c95285"
           ]
         },
         {
-          "label_cn": "行动；表现；起作用",
-          "label_en": "act, behave, or function",
+          "label_cn": "行动、表现、起作用；表演",
+          "label_en": "take action, behave, function, or perform",
           "pos": "verb",
           "sense_ids": [
-            "sense:act:27ae16abd7e25f5f"
+            "sense:act:27ae16abd7e25f5f",
+            "sense:act:73a74867a0775de3"
           ]
         },
         {
-          "label_cn": "法案；法令",
-          "label_en": "an Act or statute",
+          "label_cn": "戏剧的一幕；法案",
+          "label_en": "a part of a play or opera; a statute",
           "pos": "noun",
           "sense_ids": [
+            "sense:act:9669b64cf18054d4",
             "sense:act:91201571c8f9538c"
           ]
         }
       ],
-      "core_meaning_cn": "行动、表现；行为；法案",
-      "core_meaning_en": "to act or behave; an act/action; a statute",
-      "mental_model_cn": "行动、表现；行为；法案",
-      "mental_model_en": ""
+      "core_meaning_cn": "行动、表现或表演；名词可指行为、戏剧的一幕或法案",
+      "core_meaning_en": "to act, behave, function, or perform; as a noun, a deed, a stage section, or a statute",
+      "mental_model_cn": "先看场景：do/behave/function → 行动或表现；play/film → 表演；an act of... → 行为；Act Two → 戏剧的一幕；an Act → 法案。",
+      "mental_model_en": "Use context: action/behavior/function, stage or film performance, a deed, a section of a play, or a statute."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -76,7 +78,34 @@
       "semantic-review:0057",
       "semantic-reconciliation:o0025-o0224"
     ],
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "source_sense_id": "sense:act:73a74867a0775de3",
+        "module": "secondary_senses",
+        "pos": "verb",
+        "level": "L2",
+        "definition_cn": "表演；扮演（戏剧、电影等中的角色）",
+        "definition_en": "to perform or play a role in a play, film, or other performance",
+        "boundary": "看到 play/film/role/part 等表演语境时，act 是“演、扮演”，不是一般“行动”。",
+        "direction": "R",
+        "publication_status": "publishable",
+        "verification_status": "verified",
+        "writing_safe": true
+      },
+      {
+        "source_sense_id": "sense:act:9669b64cf18054d4",
+        "module": "secondary_senses",
+        "pos": "noun",
+        "level": "L2",
+        "definition_cn": "（戏剧、歌剧等的）一幕",
+        "definition_en": "one of the main parts into which a play or opera is divided",
+        "boundary": "Act + number / the first or second act 指戏剧结构中的“一幕”。",
+        "direction": "R",
+        "publication_status": "publishable",
+        "verification_status": "verified",
+        "writing_safe": true
+      }
+    ],
     "semantic_neighbors": [],
     "senses": [
       {
