@@ -20,10 +20,11 @@ later-stage Source baseline
 → K realization / audit                  PASS_WITH_DEBT
 → Consolidation L old static-rubric model  FAIL / REVISION_REQUIRED
 → corrected Chat-owned strategy model       REPAIRED_AFTER_INTERFACE_ATTACK
-→ fresh independent Consolidation L re-audit ACTIVE NEXT GATE
-→ Analysis-Output L                         CANDIDATE / Chat-primary
-→ Mock / Final L                            CANDIDATE / Chat-primary + source-paper primary
-→ later Projection / Runtime                FROZEN
+→ Consolidation L corrected candidate       READY_FOR_FRESH_AUDIT
+→ Analysis-Output L                          CANDIDATE / Chat-primary
+→ Mock / Final L                             CANDIDATE / Chat-primary + source-paper primary
+→ fresh independent later-stage L audit      ACTIVE NEXT GATE
+→ later Projection / Runtime                 FROZEN
 ```
 
 K detail and source-refresh debt remain owned by `content/politics/ACCEPTANCE.md` and `manifest.json`; this cursor does not duplicate subject counts or candidate inventories.
@@ -50,8 +51,8 @@ GitHub Mock/Final rules + Current assets
 
 No dedicated Mock/Final Website is required. Routing/production rules live in `content/politics/mock-final/README.md`.
 
-**Next active gate: fresh independent Consolidation L re-audit on the current #433 head.**  
-The previous fresh audit rejected the static K→L rubric-coverage model. That model has now been removed: **Chat owns review selection; Web only executes an explicit Chat plan and returns evidence.** The five representative chapters no longer carry fixed later-stage review plans. Analysis-Output / Mock L and downstream Projection / Runtime remain frozen.
+**Next active gate: fresh independent later-stage L audit on the current #433 head.**  
+Audit the three bounded Learning scopes independently: **Consolidation / Analysis Output / Mock-Final**. Consolidation uses Chat-owned adaptive review selection; Analysis Output is Chat-primary; Mock/Final is Chat-primary around an authentic/exam-like paper/PDF surface. Downstream Projection / Runtime remain frozen until the affected Learning scope passes.
 
 The stable first-round learner loop remains:
 
