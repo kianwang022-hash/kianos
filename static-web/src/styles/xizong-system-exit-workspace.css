@@ -1,22 +1,77 @@
 /* Xizong System Recall — sole visual owner for the later System reconstruction surface.
    Question/Practice presentation is owned by xizong-practice-workspace.css. */
 
-body#kianos-workspace.surfaceBody-xizong .xzExitStage {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage {
   --xse-line:var(--study-line,#d7dfda);
   --xse-line-strong:var(--study-line-strong,#c5d0c9);
   --xse-muted:var(--study-muted,#5e6e66);
   --xse-green:var(--study-green,#2f765f);
-  margin-top:14px;
-  overflow:hidden;
-  border:1px solid var(--xse-line);
-  border-radius:10px;
-  background:#fff;
+  min-height:calc(100dvh - 146px);
+  display:grid;
+  align-content:start;
+  gap:14px;
   color:var(--study-ink,#20342c);
-  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC","Noto Sans SC",sans-serif;
-  font-weight:500;
+  font-family:var(--study-font);
+  font-weight:600;
 }
 
-body#kianos-workspace.surfaceBody-xizong .xzExitStage>summary {
+
+
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallNav {
+  min-height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:0 4px 10px;
+  border-bottom:1px solid var(--xse-line);
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallNav a {
+  color:var(--xse-green);
+  font-size:15px;
+  font-weight:650;
+  text-decoration:none;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallNav span {
+  color:var(--xse-muted);
+  font-size:15px;
+  font-weight:600;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallLock {
+  max-width:760px;
+  margin:8vh auto 0;
+  padding:24px 0;
+  border-top:1px solid var(--xse-line-strong);
+  border-bottom:1px solid var(--xse-line-strong);
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallLock[hidden] { display:none; }
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallLock span {
+  color:var(--xse-green);
+  font-size:15px;
+  font-weight:650;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallLock strong {
+  display:block;
+  margin-top:5px;
+  font-size:24px;
+  font-weight:650;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallLock p {
+  margin:8px 0 18px;
+  color:var(--xse-muted);
+  font-size:17px;
+  font-weight:500;
+  line-height:1.65;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallLock a {
+  color:var(--xse-green);
+  font-size:16px;
+  font-weight:650;
+  text-decoration:none;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage>[data-xizong-system-exit][hidden] { display:none; }
+
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage>summary {
   display:grid;
   grid-template-columns:auto minmax(0,1fr) auto;
   gap:5px 14px;
@@ -25,8 +80,8 @@ body#kianos-workspace.surfaceBody-xizong .xzExitStage>summary {
   cursor:pointer;
   list-style:none;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage>summary::-webkit-details-marker { display:none; }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage>summary::before {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage>summary::-webkit-details-marker { display:none; }
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage>summary::before {
   content:'›';
   grid-row:1 / span 2;
   color:var(--xse-green);
@@ -34,35 +89,34 @@ body#kianos-workspace.surfaceBody-xizong .xzExitStage>summary::before {
   font-weight:650;
   transition:transform .15s ease;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage[open]>summary::before { transform:rotate(90deg); }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage>summary span {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage[open]>summary::before { transform:rotate(90deg); }
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage>summary span {
   color:var(--xse-green);
   font-size:15px;
   font-weight:650;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage>summary strong {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage>summary strong {
   font-size:17px;
   font-weight:600;
   line-height:1.45;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage>summary small {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage>summary small {
   grid-column:3;
   color:var(--xse-muted);
   font-size:15px;
   font-weight:500;
   line-height:1.45;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage[open]>summary {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage[open]>summary {
   border-bottom:1px solid var(--xse-line);
   background:#fafcfb;
 }
 
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xse {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xse {
   display:grid;
-  gap:12px;
   padding:12px;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHero {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseHero {
   display:grid;
   grid-template-columns:minmax(280px,.7fr) minmax(0,1.3fr);
   gap:28px;
@@ -70,19 +124,19 @@ body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHero {
   padding:13px 16px 15px;
   border-bottom:1px solid var(--xse-line);
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHero span,
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseEyebrow {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseHero span,
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseEyebrow {
   color:var(--xse-green);
   font-size:15px;
   font-weight:650;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHero h2 {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseHero h2 {
   margin:4px 0 0;
   font-size:27px;
   font-weight:650;
   line-height:1.28;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHero p {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseHero p {
   margin:0;
   color:var(--xse-muted);
   font-size:17px;
@@ -90,55 +144,56 @@ body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHero p {
   line-height:1.62;
 }
 
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseCompletionWorkbench {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseCompletionWorkbench {
   overflow:hidden;
   border:1px solid var(--xse-line-strong);
   border-radius:10px;
   background:#fff;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallWorkspace {
-  display:grid;
-  grid-template-columns:190px minmax(0,1fr);
-  min-height:455px;
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallWorkspace {
+  display:block;
+  min-height:430px;
   max-height:calc(100dvh - 250px);
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallAxes {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallAxes {
   display:grid;
-  align-content:start;
-  gap:0;
-  padding:19px 16px;
-  border-right:1px solid var(--xse-line);
-  background:#fafbfa;
+  grid-template-columns:auto repeat(4,max-content) minmax(120px,1fr);
+  align-items:center;
+  margin-top:14px;
+  padding:11px 0 12px;
+  border-top:1px solid var(--xse-line);
+  border-bottom:1px solid var(--xse-line);
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallAxes>span {
-  margin-bottom:12px;
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallAxes>span {
+  padding-right:16px;
   color:var(--xse-green);
   font-size:15px;
-  font-weight:650;
+  font-weight:700;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallAxes>strong {
-  padding:10px 0;
-  border-top:1px solid var(--xse-line);
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallAxes>strong {
+  padding:0 16px;
+  border-left:1px solid var(--xse-line);
   font-size:16px;
-  font-weight:600;
+  font-weight:650;
+  white-space:nowrap;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallAxes>small {
-  margin-top:13px;
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallAxes>small {
+  justify-self:end;
   color:var(--xse-muted);
   font-size:15px;
-  font-weight:500;
-  line-height:1.55;
+  font-weight:600;
+  line-height:1.45;
 }
 
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallStage {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallStage {
   min-width:0;
   min-height:0;
   overflow:auto;
   overscroll-behavior:contain;
-  padding:20px 24px 22px;
+  padding:22px 26px 24px;
   scrollbar-gutter:stable;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallStageHead {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallStageHead {
   display:flex;
   justify-content:space-between;
   gap:18px;
@@ -146,58 +201,57 @@ body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallStageHead {
   padding-bottom:12px;
   border-bottom:1px solid var(--xse-line);
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallStageHead h3 {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallStageHead h3 {
   margin:4px 0 0;
-  font-size:23px;
-  font-weight:650;
-  line-height:1.35;
+  font-size:27px;
+  font-weight:700;
+  line-height:1.32;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallStageHead>strong {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallStageHead>strong {
   color:var(--xse-muted);
   font-size:15px;
-  font-weight:500;
+  font-weight:600;
 }
 
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallFront {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallFront {
   min-height:330px;
   display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(280px,.68fr);
-  gap:16px 26px;
-  align-content:center;
-  padding:22px 0 8px;
+  grid-template-columns:1fr;
+  gap:22px;
+  align-content:start;
+  padding:30px 0 8px;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallPrompt {
-  grid-column:1/-1;
-  max-width:62ch;
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallPrompt {
+  max-width:66ch;
   margin:0;
   color:#1d3028;
-  font-size:22px;
-  font-weight:600;
-  line-height:1.7;
+  font-size:24px;
+  font-weight:650;
+  line-height:1.72;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallInstruction {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallInstruction {
   display:grid;
   gap:5px;
-  align-content:start;
-  padding:13px 15px;
-  border-left:3px solid #97bbaa;
-  background:#f6f9f7;
+  max-width:760px;
+  padding:7px 0 7px 16px;
+  border-left:3px solid #8fb7a5;
+  background:transparent;
   font-size:17px;
-  font-weight:500;
-  line-height:1.62;
+  font-weight:600;
+  line-height:1.65;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallInstruction b {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallInstruction b {
   font-weight:650;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallActions {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallActions {
   grid-column:1/-1;
   display:flex;
   justify-content:flex-end;
   gap:8px;
   align-items:center;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xse button,
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xse a {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xse button,
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xse a {
   min-height:38px;
   border:1px solid #34765f;
   border-radius:8px;
@@ -208,127 +262,134 @@ body#kianos-workspace.surfaceBody-xizong .xzExitStage .xse a {
   text-decoration:none;
   cursor:pointer;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xse button.secondary {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xse button.secondary {
   border-color:#cad7d0;
   background:#fff;
   color:#315f4d;
 }
 
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallReveal {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallReveal {
   display:grid;
   gap:15px;
   padding-top:17px;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallPaper {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallPaper {
   display:grid;
   grid-template-columns:1fr 1fr;
   column-gap:26px;
   border-top:1px solid var(--xse-line-strong);
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallPaper>section {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallPaper>section {
   min-width:0;
   padding:15px 0 16px;
   border-bottom:1px solid var(--xse-line);
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallPaper>section:nth-child(odd) {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallPaper>section:nth-child(odd) {
   padding-right:12px;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallPaper>section:nth-child(even) {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallPaper>section:nth-child(even) {
   padding-left:12px;
   border-left:1px solid var(--xse-line);
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallPaper>section>span {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallPaper>section>span {
   color:var(--xse-green);
   font-size:15px;
   font-weight:650;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallPaper :is(ol,ul) {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallPaper :is(ol,ul) {
   display:grid;
   gap:5px;
   margin:8px 0 0;
   padding-left:22px;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallPaper li {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallPaper li {
   color:#263b33;
-  font-size:16px;
-  font-weight:500;
-  line-height:1.62;
+  font-size:17px;
+  font-weight:600;
+  line-height:1.68;
 }
 
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xsePracticeHandoff {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xsePracticeHandoff {
   display:flex;
   justify-content:space-between;
   gap:28px;
   align-items:center;
   padding:18px 20px;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xsePracticeHandoff>div:first-child {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xsePracticeHandoff>div:first-child {
   min-width:0;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xsePracticeHandoff span {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xsePracticeHandoff span {
   color:var(--xse-green);
   font-size:15px;
   font-weight:650;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xsePracticeHandoff strong {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xsePracticeHandoff strong {
   display:block;
   margin-top:3px;
   font-size:21px;
   font-weight:650;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xsePracticeHandoff p {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xsePracticeHandoff p {
   margin:5px 0 0;
   color:var(--xse-muted);
   font-size:16px;
-  font-weight:500;
+  font-weight:600;
 }
-body#kianos-workspace.surfaceBody-xizong .xzExitStage .xsePracticeHandoff>div:last-child {
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xsePracticeHandoff>div:last-child {
   display:flex;
   gap:8px;
   align-items:center;
   flex:none;
 }
 
-body#kianos-workspace.surfaceBody-xizong .xzExitStage [hidden] { display:none; }
+body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage [hidden] { display:none; }
 
 @media (max-width:900px) {
-  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseHero,
-  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallWorkspace {
-    grid-template-columns:1fr;
+  body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallAxes {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:0;
   }
-  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallAxes {
-    border-right:0;
-    border-bottom:1px solid var(--xse-line);
+  body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallAxes>span,
+  body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallAxes>small {
+    grid-column:1/-1;
+    justify-self:start;
+    padding:5px 0;
   }
-  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallWorkspace {
+  body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallAxes>strong {
+    padding:8px 12px 8px 0;
+    border-left:0;
+    border-top:1px solid var(--xse-line);
+  }
+  body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallWorkspace {
     max-height:none;
   }
-  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallStage {
+  body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallStage {
     overflow:visible;
   }
-  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallFront,
-  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallPaper {
+  body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallFront,
+  body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallPaper {
     grid-template-columns:1fr;
   }
-  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallPaper>section:nth-child(even) {
+  body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallPaper>section:nth-child(even) {
     padding-left:0;
     border-left:0;
   }
-  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xsePracticeHandoff {
+  body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xsePracticeHandoff {
     align-items:flex-start;
     flex-direction:column;
   }
 }
 
 @media (max-width:650px) {
-  body#kianos-workspace.surfaceBody-xizong .xzExitStage>summary {
+  body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage>summary {
     grid-template-columns:1fr;
   }
-  body#kianos-workspace.surfaceBody-xizong .xzExitStage>summary::before { display:none; }
-  body#kianos-workspace.surfaceBody-xizong .xzExitStage>summary small { grid-column:auto; }
-  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallStage { padding:17px; }
-  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xseRecallPrompt { font-size:20px; }
-  body#kianos-workspace.surfaceBody-xizong .xzExitStage .xsePracticeHandoff>div:last-child {
+  body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage>summary::before { display:none; }
+  body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage>summary small { grid-column:auto; }
+  body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallStage { padding:17px; }
+  body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xseRecallPrompt { font-size:20px; }
+  body#kianos-workspace.surfaceBody-xizong .xzSystemRecallPage .xsePracticeHandoff>div:last-child {
     align-items:stretch;
     flex-direction:column;
     width:100%;
