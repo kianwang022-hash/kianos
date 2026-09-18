@@ -135,6 +135,7 @@ for (const branch of secondarySenses) {
   if (pattern) patternPrompts.push(pattern);
 }
 const recallPatterns = [...new Set(patternPrompts)].slice(0, 5);
+const recallDensity = senses.length > 1 || secondarySenses.length > 0 || recallPatterns.length > 0 ? 'rich' : 'light';
 
 const relationLead = (relation = {}) => String(
   relation.boundary ||
@@ -172,7 +173,7 @@ const relationDifferenceRows = (relation = {}) => {
   </header>
 
   <section class="portedVocabStudySheet">
-    <section class="portedVocabWordFront" data-vocab-front>
+    <section class="portedVocabWordFront" data-vocab-front data-recall-density={recallDensity}>
       <span>Recall Map</span>
       <h2>{card.word}</h2>
       <div class="portedVocabRecallMap">
@@ -180,8 +181,8 @@ const relationDifferenceRows = (relation = {}) => {
         {secondarySenses.length > 0 && <small>+ = 高价值深层分支</small>}
         {recallPatterns.map((pattern) => <code>{pattern}</code>)}
       </div>
-      <p>先把你能想到的高价值含义和结构在脑中搜一遍，再翻开核对。</p>
-      <button type="button" class="portedPrimaryAction" data-vocab-reveal>Reveal</button>
+      <p>先判断这个词现在是否值得 Depth；稳定就直接离开。</p>
+      <button type="button" class="portedPrimaryAction" data-vocab-reveal>Open Depth</button>
     </section>
 
     <div data-vocab-details hidden>
