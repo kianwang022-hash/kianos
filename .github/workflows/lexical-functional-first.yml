@@ -109,3 +109,35 @@ jobs:
             content/lexical/acceptance/full-catalog-k-report.json
           if-no-files-found: warn
           retention-days: 7
+
+  final-object-cutover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Astro dependencies
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+      - name: Verify all 7,946 Final Learner Objects
+        working-directory: static-web
+        run: node scripts/validate-lexical-functional-first-final-object.mjs
+      - name: Build all learner surfaces from Final Objects
+        working-directory: static-web
+        run: npm run build
+      - name: Install isolated browser acceptance tool
+        working-directory: static-web
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Verify sparse and rich Final Object surfaces
+        working-directory: static-web
+        run: node scripts/test-lexical-content-shape-browser.mjs
+      - name: Verify form identity Final Object surface
+        working-directory: static-web
+        run: node scripts/test-lexical-form-identity-browser.mjs
+      - name: Verify learner evidence projection survives cutover
+        working-directory: static-web
+        run: node scripts/test-lexical-ledger-word-projection-browser.mjs
