@@ -86,7 +86,7 @@ const serializedCatalog = JSON.stringify(publicPracticeCatalog(catalog)).replace
       <div class="politicsSubmitRow">
         <span class="politicsTimer" data-question-timer>0:00</span>
         <small class="practiceKeyHint">A–D 选择 · Enter 提交</small>
-        <small class="politicsFastHint" data-fast-hint hidden>单选即答；错题停留复盘</small>
+        <small class="politicsFastHint" data-fast-hint hidden>单选即答；提交后看背面</small>
         <button type="button" class="politicsConfirmAnswer primary" data-submit>确认答案</button>
       </div>
       <div class="politicsFastFeedback" data-fast-feedback role="status" hidden></div>
@@ -123,7 +123,7 @@ const serializedCatalog = JSON.stringify(publicPracticeCatalog(catalog)).replace
           </section>
           <label class="politicsAttemptNote">
             <span>备注</span>
-            <textarea rows="3" data-note placeholder="今晚想问 Chat / 自己卡住的点……"></textarea>
+            <textarea rows="3" data-note placeholder="记录你卡住的点（可选）……"></textarea>
             <small data-note-status role="status" aria-live="polite"></small>
           </label>
         </div>
