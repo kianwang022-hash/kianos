@@ -64,8 +64,11 @@ const lastLocation = read('static-web/src/components/XizongLastLocation.astro');
 const homeTools = read('static-web/src/components/XizongHomeTools.astro');
 assert(lastLocation.includes("localStorage.setItem('kianos-xizong-last-location-v1'"), 'last-location-not-persisted');
 assert(lastLocation.includes('href: window.location.pathname'), 'last-location-missing-route');
+assert(lastLocation.includes('requiredSystemRecall'), 'practice-resume-release-guard-missing');
+assert(lastLocation.includes('requiredBlocks.every'), 'system-recall-resume-release-guard-missing');
 assert(homeTools.includes("localStorage.getItem('kianos-xizong-last-location-v1')"), 'home-resume-does-not-read-last-location');
 assert(homeTools.includes('link.href = last.href;'), 'home-resume-does-not-return-to-last-route');
+assert(homeTools.includes('if (last.resumeKind)'), 'home-resume-does-not-render-explicit-stage-kind');
 assert(blockRuntime.includes("JSON.parse(localStorage.getItem(storageKey) || 'null')"), 'block-resume-does-not-restore-state');
 assert(blockRuntime.includes("setKpIndex(state.kpIndex || 0); setStage(state.stage || 'block_learn');"), 'block-resume-does-not-restore-stage-and-kp');
 
@@ -83,7 +86,7 @@ console.log([
   'Xizong Functional First regression PASS',
   'B5=nonnumeric-order-routed-by-canonical-group-id',
   'BlockComplete=formal-contact+recall+block-recall-fail-closed',
-  'Resume=last-route+block-stage+kp-state',
+  'Resume=last-route+released-stage+block-stage+kp-state',
   'Evidence=DETERMINISTIC_RUNTIME_CONTRACT',
   'U=NOT_TESTED_BY_THIS_SCRIPT'
 ].join(' | '));
