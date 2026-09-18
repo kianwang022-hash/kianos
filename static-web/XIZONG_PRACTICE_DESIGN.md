@@ -307,10 +307,16 @@ Current CHAT_SET slice also implements:
 - explicit Holdout protection / explicit `allow_holdout=true` override;
 - the same Practice Workbench and append-preserved attempt semantics.
 
+Global retained Practice is now in main:
+- Wrong / Uncertain aggregates the latest unresolved attempt across local Practice scopes;
+- a later Stable attempt removes stale W/U debt;
+- Marked is global learner-owned state across scopes;
+- Holdout years remain protected;
+- retained qids hydrate Current Question Truth and execute in the same Workbench.
+
 Still separate:
 - unified typed Chat Return Packet integration beyond the manual CHAT_SET fallback;
-- whole-paper scope + Hidden result;
-- global retained W/U/Marked entry independent of one System;
+- whole-paper/year scope + Hidden result + seal/reveal;
 - durable learner-data closure;
 - real learner U.
 
