@@ -28,6 +28,17 @@
       "relation_owner": "content/politics/source/question_knowledge_links.jsonl",
       "asset_owner": "content/politics/source/xiao_2027_question_assets.json",
       "explanation_provenance": "content/politics/source/xiao_2027_explanation_provenance.v1.json"
+    },
+    "historical_memory_output": {
+      "leg26": {
+        "role": "HISTORICAL_MEMORY_OUTPUT_BASELINE",
+        "authority": "NON_CANONICAL_HISTORICAL_SOURCE",
+        "learner_required": false,
+        "current_year_corroboration_required": true,
+        "manifest": "content/politics/source/historical/leg26/manifest.json",
+        "provenance": "content/politics/source/historical/leg26/LEG26-PROVENANCE.md",
+        "policy": "USE_FOR_DELTA_MEMORY_OUTPUT_AND_CURRENT_AFFAIRS_BASELINE_ONLY; NEVER_PROMOTE_DIRECTLY_TO_CURRENT"
+      }
     }
   },
   "source_inventory": {
@@ -63,6 +74,11 @@
       "sha256": "0675bb9378d23cb50de483abe093bc71196e8a5955b8945bf728f76637d2dc38",
       "records": 19528,
       "role": "CANONICAL_SOURCE_NODE_REGISTRY"
+    },
+    "historical_memory_output": {
+      "packages": 1,
+      "leg26_markdown_files": 8,
+      "role": "HISTORICAL_SOURCE_BASELINE_NOT_CURRENT_LEARNER_TRUTH"
     }
   },
   "knowledge_and_learning_content": {
