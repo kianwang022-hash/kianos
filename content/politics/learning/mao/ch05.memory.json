@@ -1,0 +1,66 @@
+{
+  "schema": "kianos.politics.memory_projection.v1",
+  "status": "CURRENT_K_REVIEWED",
+  "chapter_id": "POL27-LEARN-MAO-C05",
+  "policy": "SOURCE_GROUNDED_SELECTIVE",
+  "principle": "Candidate existence is Knowledge; durable review debt remains admission-gated.",
+  "preferred_memory_reference": {
+    "role": "DESIGNATED_MEMORY_HANDBOOK",
+    "label": "腿姐《冲刺背诵手册》",
+    "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+    "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MAO.md",
+    "rule": "Current Mao Knowledge must independently own the relation. LEG26 supports historical retention priority; current-year source/WU evidence controls durable admission."
+  },
+  "admission_gate": {
+    "default": "NOT_ADMITTED",
+    "requires_source_grounding": true,
+    "admit_when_any": [
+      "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+      "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED"
+    ],
+    "do_not_admit_for": [
+      "historical handbook presence alone",
+      "chapter importance alone",
+      "one stable correct answer"
+    ]
+  },
+  "units": {
+    "POL27-CF-MAO-C05": {
+      "title": "中国特色社会主义理论体系的形成发展",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MAO-C05-M01",
+          "form": "succession_identity",
+          "statement": "邓小平理论是中国特色社会主义理论体系的开篇之作；‘三个代表’重要思想是跨世纪发展；科学发展观是新世纪新阶段的新发展。",
+          "source_refs": [
+            "POL27-CF-MAO-C05"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MAO-P098"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        },
+        {
+          "id": "POL27-MEM-MAO-C05-M02",
+          "form": "condition_classification",
+          "statement": "中国特色社会主义理论体系形成发展条件可分为国际背景、历史条件和改革开放社会主义现代化建设实践基础三个维度。",
+          "source_refs": [
+            "POL27-CF-MAO-C05"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MAO-P097"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    }
+  },
+  "deferred_candidate_domains": [
+    {
+      "domain": "改革开放各重要节点的完整会议/文献定位",
+      "reason": "High annual-edition sensitivity; candidate discovery is valid but exact milestone set should be updated with current-year designated source."
+    }
+  ]
+}
