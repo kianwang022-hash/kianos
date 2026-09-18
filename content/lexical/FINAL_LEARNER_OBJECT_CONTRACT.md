@@ -75,7 +75,17 @@ When a structured Form object already exposes the usable distinction directly:
 
 Canonical prose remains upstream for Explore/reference. Default Depth keeps the smallest learner-useful form.
 
-## 3. No heuristic semantic dedupe
+## 3. Builder invariant
+
+> **Final Learner Object builder may resolve explicit ownership and projection decisions; it may not discover semantic equivalence.**
+
+In plain terms:
+
+> **builder 可以执行决定，不能做决定。**
+
+A suppression / promotion is valid only when an explicit Content-owned role, merge, disposition, or projection override already says so.
+
+## 4. No heuristic semantic dedupe
 
 The builder may use:
 
@@ -94,7 +104,7 @@ The builder must not use:
 
 Any further semantic compression requires an explicit Content-owned projection decision or richer canonical metadata.
 
-## 4. Direct-render invariant
+## 5. Direct-render invariant
 
 After this build:
 
