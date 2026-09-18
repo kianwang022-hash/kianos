@@ -75,9 +75,13 @@ const coreSecondaryCn = String(core.mental_model_cn || '').trim() && String(core
   ? String(core.mental_model_cn).trim()
   : '';
 const coreEnglish = String(core.core_meaning_en || '').trim();
-const coreClusterLabels = (Array.isArray(core.core_clusters) ? core.core_clusters : [])
-  .map((cluster) => String(cluster?.label_cn || cluster?.label_en || '').trim())
-  .filter(Boolean)
+const coreClusterRows = (Array.isArray(core.core_clusters) ? core.core_clusters : [])
+  .map((cluster) => ({
+    labelCn: String(cluster?.label_cn || '').trim(),
+    labelEn: String(cluster?.label_en || '').trim(),
+    pos: String(cluster?.pos || '').trim()
+  }))
+  .filter((cluster) => cluster.labelCn || cluster.labelEn)
   .slice(0, 4);
 
 const posCode = (value = '') => {
@@ -203,11 +207,21 @@ const relationDifferenceRows = (relation = {}) => {
         <section class="lexicalCoreHeadline" data-vocab-target-row aria-label="Word Feel and Core">
           <span>WORD FEEL / CORE</span>
           <p>{corePrimaryCn}</p>
-          {coreSecondaryCn && <b>{coreSecondaryCn}</b>}
-          {coreClusterLabels.length > 0 && (
-            <div class="lexicalCoreClusters" aria-label="Core branches">
-              <small>分支</small>
-              {coreClusterLabels.map((label) => <em>{label}</em>)}
+          {coreSecondaryCn && (
+            <div class="lexicalCoreDecision">
+              <small>怎么判断</small>
+              <b>{coreSecondaryCn}</b>
+            </div>
+          )}
+          {coreClusterRows.length > 0 && (
+            <div class="lexicalCoreBranches" aria-label="Core branches">
+              {coreClusterRows.map((cluster) => (
+                <article>
+                  <b>{cluster.labelCn || cluster.labelEn}</b>
+                  {cluster.labelCn && cluster.labelEn && <span>{cluster.labelEn}</span>}
+                  {cluster.pos && <small>{cluster.pos}</small>}
+                </article>
+              ))}
             </div>
           )}
           {!coreSecondaryCn && coreEnglish && <small class="lexicalCoreEnglish">{coreEnglish}</small>}
@@ -291,9 +305,8 @@ const relationDifferenceRows = (relation = {}) => {
         </main>
 
         {hasReferenceRail && <aside class="portedVocabEvidenceColumn" aria-label="Cross-sense lexical reference">
-          <header class="lexicalReferenceHeading">REFERENCE</header>
           {importantRelationRows.length > 0 && <section class="lexicalExpansionSection lexicalRelationSection">
-            <header><span>Contrast / Confusable</span><small>只保留会改变判断的边界</small></header>
+            <header><span>易混辨析</span><small>Confusable / Contrast</small></header>
             <div class="portedVocabEvidenceList">
               {importantRelationRows.map(({ relation, locator }) => (
                 <article data-vocab-target-row>
@@ -308,15 +321,15 @@ const relationDifferenceRows = (relation = {}) => {
           </section>}
 
           {formIdentity && <section class="lexicalExpansionSection lexicalFormSection" data-vocab-target-row>
-            <header><span>Form / Pronunciation</span><small>形式会改变读取时才显示</small></header>
+            <header><span>词形 / 发音</span><small>Form / Pronunciation</small></header>
             {formIdentity.boundary && <p class="lexicalFormBoundary">{formIdentity.boundary}</p>}
             {formBoundaries.length > 0 && <div class="lexicalFormVariants">{formBoundaries.map((boundary) => <article><b>{boundary.surface || boundary.condition || 'Form boundary'}</b>{boundary.condition && boundary.surface && <span>{boundary.condition}</span>}{boundary.note && <small>{boundary.note}</small>}</article>)}</div>}
-            {formVariants.length > 0 && <div class="lexicalFormVariants">{formVariants.map((variant) => <article><b>{variant.learner_key || variant.canonical_form || variant.variant_id}</b>{variant.ipa && <span>{variant.ipa}</span>}{Array.isArray(variant.pos) && <small>{variant.pos.join(' / ')}</small>}</article>)}</div>}
+            {formVariants.length > 0 && <div class="lexicalFormVariants">{formVariants.map((variant) => <article>{Array.isArray(variant.pos) && <small>{variant.pos.join(' / ')}</small>}<b>{variant.learner_key || variant.canonical_form || variant.variant_id}</b>{variant.ipa && <span>{variant.ipa}</span>}</article>)}</div>}
             <button type="button" data-vocab-repair data-target-kind="form_identity" data-target-id="" data-target-locator="record.form_identity" data-target-label={`${formIdentity.boundary || formBoundaries.map((boundary) => boundary.surface).filter(Boolean).join(' / ') || card.word}`} aria-pressed="false">+</button>
           </section>}
 
           {showFamilyInReference && <section class="lexicalExpansionSection lexicalFamilySection">
-            <header><span>Word Family</span><small>有压缩价值才跟随 Depth</small></header>
+            <header><span>词族</span><small>Word Family</small></header>
             <div class="lexicalFamilyRows">{wordFamilyRows.map(({ item }) => <article><b>{item.target_word}</b>{item.boundary && <span>{item.boundary}</span>}</article>)}</div>
           </section>}
         </aside>}
