@@ -979,6 +979,12 @@ const payload = JSON.stringify({
 
     const nextQuestion = () => {
       activeQuestions = computeActive();
+      if (paperMode && paperSealed()) {
+        const next = currentIndex + 1;
+        if (next >= activeQuestions.length) renderPaperResult();
+        else renderQuestion(next);
+        return;
+      }
       const after = activeQuestions.findIndex((q, index) => index > currentIndex && !resultFor(q.questionId));
       const first = firstUnansweredIndex();
       const next = after >= 0 ? after : first;
@@ -993,6 +999,10 @@ const payload = JSON.stringify({
       const isCorrect = same(selected, correct);
       if (!persistAttempt(isCorrect ? 'stable' : 'wrong')) return;
       renderQuestion(currentIndex);
+      if (paperMode && !paperSealed()) {
+        window.setTimeout(nextQuestion, preferences.fastSweep ? 90 : 180);
+        return;
+      }
       if (isCorrect) window.setTimeout(nextQuestion, preferences.fastSweep ? 120 : 520);
     };
 
@@ -1034,6 +1044,16 @@ const payload = JSON.stringify({
       }
     });
     markButton.addEventListener('click', toggleMark);
+    paperSealControl?.addEventListener('click', sealPaper);
+    paperSealReady?.addEventListener('click', sealPaper);
+    paperReviewStart?.addEventListener('click', () => {
+      if (!paperMode || !paperSealed()) return;
+      const next = unlockXizongPaperReview(sweepState);
+      if (!writeJson(sweepKey, next)) return;
+      sweepState = next;
+      activeQuestions = computeActive();
+      renderQuestion(firstPaperReviewIndex());
+    });
     reviewToggle?.addEventListener('click', () => {
       if (!currentQuestion) return;
       const existing = resultFor(currentQuestion.questionId);
@@ -1111,6 +1131,7 @@ const payload = JSON.stringify({
         const existing = resultFor(currentQuestion.questionId);
         if (existing) {
           event.preventDefault();
+          if (paperMode && !paperSealed()) return;
           if (backVisible) showFront();
           else renderReview(currentQuestion, existing);
         }
