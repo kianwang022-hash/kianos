@@ -85,6 +85,34 @@ In plain terms:
 
 A suppression / promotion is valid only when an explicit Content-owned role, merge, disposition, or projection override already says so.
 
+### Sparse explicit decision owner
+
+Default rule is **preserve**. Exceptional default-Depth dispositions live in:
+
+`content/lexical/final-learner-object-decisions.json`
+
+This is derived Content, not semantic Truth. It may reference only stable Current identities and must remain sparse.
+
+Example:
+
+```text
+word:abstract
+→ sense:... adjective pronunciation note = EXPLORE_ONLY
+→ sense:... verb pronunciation note      = EXPLORE_ONLY
+```
+
+The builder may execute that exact ID-bound decision. It may not inspect the note text to decide that it "looks like Form".
+
+For structured `form_identity.variants`, the default Depth mapping is fixed rather than heuristic:
+
+```text
+pos
+learner_key
+ipa
+```
+
+Canonical `boundary`, `stress`, provenance and identity metadata may remain upstream for Explore/reference, but they are not duplicated into the default structured Form learner object merely because they exist.
+
 ## 4. No heuristic semantic dedupe
 
 The builder may use:
