@@ -337,6 +337,8 @@ Priority normally favors:
 3. naturally relevant high-value validation;
 4. otherwise a new high-value performance task.
 
+This priority is applied by **Chat over current learner evidence**. Website/Runtime may expose factual unfinished state and execute an explicit typed English Session Instruction, but must not encode its own cross-task score/ranking algorithm or infer the next English task when no Chat instruction exists.
+
 Passed work and dormant pending claims must not drag the learner backward.
 
 ---
