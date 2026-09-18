@@ -182,19 +182,19 @@
       "cross_unit_confusables": []
     },
     "precision_knowledge": {
-      "policy": "PENDING_EXACT_CANDIDATE_MATERIALIZATION",
-      "candidate_domains": [
-        "空想到科学/理论到现实 milestone identities",
-        "巴黎公社/十月革命历史定位",
-        "列宁探索阶段与政策 boundaries",
-        "社会主义道路多样性原因/探索原则 lists"
+      "policy": "REFERENCE_MEMORY_SIDECAR",
+      "owner_path": "content/politics/learning/marxism/ch07.memory.json",
+      "candidate_ids": [
+        "POL27-MEM-MARX-C07-S01-M01",
+        "POL27-MEM-MARX-C07-S01-M02",
+        "POL27-MEM-MARX-C07-S02-M01"
       ],
-      "materialization_status": "WAIT_CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE",
-      "historical_source_refs": [
-        "LEG26-UPPER-MARX-P068",
-        "LEG26-UPPER-MARX-P069",
-        "LEG26-UPPER-MARX-P070"
-      ]
+      "admission_state": "CANDIDATE_ONLY",
+      "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+      "deferred_domains": [
+        "社会主义发展道路多样性的完整原因列表"
+      ],
+      "rule": "Candidate-only Knowledge is materialized from Current P0/P1 recall needs plus historical handbook support; durable review debt remains admission-gated."
     },
     "analysis_output_hooks": [],
     "analysis_output_status": "LOW_PRIMARY",
