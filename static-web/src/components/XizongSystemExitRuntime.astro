@@ -703,16 +703,33 @@ const payload = JSON.stringify({
       }
     };
 
+
+    const toggleCurrentMark = () => {
+      if (!currentQuestion) return;
+      const nextMarked = !markedFor(currentQuestion.questionId);
+      const nextState = setXizongQuestionMarked(sweepState, currentQuestion.questionId, nextMarked);
+      if (!writeJson(sweepKey, nextState)) {
+        window.alert('本机保存失败：标记状态没有写入。');
+        return;
+      }
+      sweepState = nextState;
+      renderStats();
+      renderMarkControl();
+      renderQuestionMap();
+      if (!done.hidden) renderRetainedReview();
+    };
+
     const wuPacket = () => {
-      const items = activeQuestions
-        .map((question) => ({ question, result: resultFor(question.questionId) }))
-        .filter(({ result }) => result && ['wrong', 'uncertain'].includes(result.status))
-        .map(({ question, result }) => ({
+      const retained = activeQuestions
+        .map((question) => ({ question, result: resultFor(question.questionId), marked: markedFor(question.questionId) }))
+        .filter(({ result, marked }) => result && (['wrong', 'uncertain'].includes(result.status) || marked))
+        .map(({ question, result, marked }) => ({
           question_id: question.questionId,
           year: question.year,
           number: question.number,
           type: question.questionType,
           status: result.status,
+          marked,
           learner_answer: result.selected,
           correct_answer: answerLetters(question.correctAnswer),
           stem: question.stem,
@@ -721,7 +738,7 @@ const payload = JSON.stringify({
         }));
       return {
         schema: 'kianos.xizong.system_question_sweep_packet.v1',
-        learner_task: 'Review Wrong/Uncertain evidence. Distinguish memory lapse, mechanism gap, precision gap, distractor/condition error, or product/content issue. Use only reviewed precise Question-to-Knowledge relations when present; otherwise do not invent a KP mapping. Return a concise repair plan that Astro can execute if useful.',
+        learner_task: 'Review retained Wrong / Uncertain / Marked evidence. Distinguish memory lapse, mechanism gap, precision gap, distractor/condition error, or product/content issue. Use only reviewed precise Question-to-Knowledge relations when present; otherwise do not invent a KP mapping. Return a concise repair plan that Astro can execute if useful.',
         system: { canonical_id: data.canonicalId, system_id: data.systemId, title: data.title },
         question_scope: { path: data.scopePath, sha256: data.scopeHash, inventory_sha256: data.questionInventoryHash, full_count: data.questionCount },
         study_phase: sweepState.round?.studyPhase || 'FIRST_PASS',
@@ -730,7 +747,8 @@ const payload = JSON.stringify({
         holdout_years: holdoutYears,
         active_question_count: activeQuestions.length,
         stats: counts(),
-        wrong_uncertain: items,
+        wrong_uncertain: retained.filter((item) => ['wrong', 'uncertain'].includes(item.status)),
+        retained,
         exported_at: new Date().toISOString()
       };
     };
@@ -748,20 +766,33 @@ const payload = JSON.stringify({
     };
 
     startRecall?.addEventListener('click', () => {
+      workspace.hidden = true;
+      if (questionGate instanceof HTMLElement) questionGate.hidden = true;
+      if (recallWorkspace instanceof HTMLElement) recallWorkspace.hidden = false;
       recallFront.hidden = false;
       recallReveal.hidden = true;
-      if (typeof recallDialog?.showModal === 'function') recallDialog.showModal();
+      recallScratch?.focus();
+      recallWorkspace?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
+
     revealRecall?.addEventListener('click', () => {
       recallFront.hidden = true;
       recallReveal.hidden = false;
     });
+
+    revealRecallBack?.addEventListener('click', () => {
+      recallReveal.hidden = true;
+      recallFront.hidden = false;
+    });
+
     completeRecall?.addEventListener('click', () => {
       recallState = { completedAt: new Date().toISOString() };
-      writeJson(recallKey, recallState);
-      recallDialog?.close();
+      if (!writeJson(recallKey, recallState)) {
+        window.alert('本机保存失败：System Recall 没有记录完成。');
+        return;
+      }
       renderRecall();
-      root.querySelector('[data-holdout-current]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      questionGate?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
     saveHoldout?.addEventListener('click', () => {
@@ -774,41 +805,106 @@ const payload = JSON.stringify({
       writeJson(holdoutKey, holdoutYears);
       renderHoldout();
     });
+
     editHoldout?.addEventListener('click', () => {
       holdoutEditor.hidden = false;
       editHoldout.hidden = true;
       holdoutInput?.focus();
     });
 
+    fastSweepButton?.addEventListener('click', () => {
+      preferences = { ...preferences, fastSweep: !preferences.fastSweep };
+      writeJson(preferenceKey, preferences);
+      renderFastSweep();
+      if (currentQuestion && !resultFor(currentQuestion.questionId)) {
+        selectionHint.textContent = currentQuestion.questionType === 'X'
+          ? '多选题：1–5 切换选项，Enter 提交'
+          : preferences.fastSweep ? 'Fast Sweep：1–5 选择并提交' : '1–5 选择，Enter 提交';
+      }
+    });
+
+    questionMarkButton?.addEventListener('click', toggleCurrentMark);
+
     startSweep?.addEventListener('click', () => {
       if (!recallState.completedAt || !holdoutYears.length) return;
+      if (questionGate instanceof HTMLElement) questionGate.hidden = true;
+      if (recallWorkspace instanceof HTMLElement) recallWorkspace.hidden = true;
       workspace.hidden = false;
       renderQuestion();
       workspace.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
+
     closeSweep?.addEventListener('click', () => {
       workspace.hidden = true;
+      if (questionGate instanceof HTMLElement) questionGate.hidden = !recallState.completedAt;
       root.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
+
     submit?.addEventListener('click', submitAnswer);
-    root.querySelector('[data-mark-stable]')?.addEventListener('click', () => nextAfter('stable'));
-    root.querySelector('[data-mark-uncertain]')?.addEventListener('click', () => {
-      if (!currentQuestion) return;
-      if (!persistResult(currentQuestion, 'uncertain', currentSelection)) return;
-      showRepair(currentQuestion);
-      correctJudge.hidden = true;
-      uncertainJudge.hidden = false;
-    });
-    root.querySelector('[data-next-uncertain]')?.addEventListener('click', () => {
-      renderQuestion();
-      workspace.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-    root.querySelector('[data-next-wrong]')?.addEventListener('click', () => {
-      renderQuestion();
-      workspace.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
+    root.querySelector('[data-next-correct]')?.addEventListener('click', nextQuestion);
+    root.querySelector('[data-next-wrong]')?.addEventListener('click', nextQuestion);
+
+    retainedFilterButtons.forEach((button) => button.addEventListener('click', () => {
+      retainedFilter = button.getAttribute('data-retained-filter') || 'all';
+      retainedFilterButtons.forEach((candidate) => candidate.setAttribute('aria-pressed', String(candidate === button)));
+      renderRetainedReview();
+    }));
+
     copyWuButtons.forEach((button) => button.addEventListener('click', () => copyWu(button)));
     root.querySelector('[data-repeat-recall]')?.addEventListener('click', () => startRecall?.click());
+
+    document.addEventListener('keydown', (event) => {
+      const target = event.target;
+      if (target instanceof HTMLElement && target.closest('input,textarea,select,[contenteditable="true"]')) return;
+
+      const recallVisible = recallWorkspace instanceof HTMLElement && !recallWorkspace.hidden;
+      if (recallVisible) {
+        if (event.key.toLowerCase() === 'c') {
+          event.preventDefault();
+          recallScratch?.focus();
+          return;
+        }
+        if (event.code === 'Space') {
+          event.preventDefault();
+          if (!recallReveal.hidden) revealRecallBack?.click();
+          else revealRecall?.click();
+          return;
+        }
+        if (event.key === 'Enter' && !recallReveal.hidden) {
+          event.preventDefault();
+          completeRecall?.click();
+          return;
+        }
+      }
+
+      if (!(workspace instanceof HTMLElement) || workspace.hidden || !currentQuestion) return;
+
+      if (event.key.toLowerCase() === 'm') {
+        event.preventDefault();
+        toggleCurrentMark();
+        return;
+      }
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault();
+        const delta = event.key === 'ArrowLeft' ? -1 : 1;
+        renderQuestion(Math.max(0, Math.min(activeQuestions.length - 1, currentIndex + delta)));
+        return;
+      }
+      if (/^[1-5]$/.test(event.key) && !resultFor(currentQuestion.questionId)) {
+        const option = currentQuestion.options[Number(event.key) - 1];
+        if (option) {
+          event.preventDefault();
+          optionsBox.querySelector(`.xseOption[data-option="${option.label}"]`)?.click();
+        }
+        return;
+      }
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        if (resultFor(currentQuestion.questionId)) nextQuestion();
+        else if (currentSelection.size) submitAnswer();
+      }
+    });
+
     const startNextRound = (queueMode = 'TARGETED') => {
       activeQuestions = computeActive();
       let nextState;
