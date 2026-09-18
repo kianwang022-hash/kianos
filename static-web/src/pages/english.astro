@@ -16,13 +16,13 @@ const statusLabel = (status) => status === 'ready' ? '可进入' : status === 'i
 <Base title="English" active="english" showLead={false} objectId="english:performance-home">
   <section class="englishHub" data-english-hub data-base={base}>
     <header class="englishOverview">
-      <div><span>ENGLISH OS · PERFORMANCE WORKSPACE</span><h1>读懂，写清，稳定完成。</h1><p>从完整任务开始；有具体问题，再回到最小修复。</p></div>
+      <div><span>ENGLISH · PERFORMANCE</span><h1>读懂，写清，稳定完成。</h1><p>从完整任务开始；有具体问题，再回到最小修复。</p></div>
       <aside><span>English I · Target</span><strong>85<span>+</span></strong><small>Objective 60 · Translation 10 · Writing 30</small></aside>
     </header>
     <div class="englishCapabilityLayout">
       <main class="englishCapabilityMap">
         <EnglishResume />
-        <header class="englishWorkbenchHeading"><h2>选择本次任务</h2><span>Perform → Review / Exit</span></header>
+        <header class="englishWorkbenchHeading"><h2>选择本次任务</h2><span>完成任务 → 看结果 → 必要时修复</span></header>
         <section class="englishCapabilityGroup" data-capability="objective">
           <div class="englishCapabilityLead"><span>01 · OBJECTIVE</span><h2>阅读与判断</h2><p>整篇材料、完整题组；让证据决定选择。</p></div>
           <div class="englishCapabilityRoutes">
@@ -43,9 +43,9 @@ const statusLabel = (status) => status === 'ready' ? '可进入' : status === 'i
           <small class="englishAvailability">{statusLabel(writingRuntime.status)}</small>
         </section>
         <section class="englishCapabilityGroup" data-capability="full-paper">
-          <div class="englishCapabilityLead"><span>04 · FULL PAPER</span><h2>整卷执行</h2><p>180 分钟连续完成；各任务仍使用同一套已接受 Runtime，交卷后统一 release。</p></div>
+          <div class="englishCapabilityLead"><span>04 · FULL PAPER</span><h2>整卷执行</h2><p>180 分钟连续完成；交卷后再统一查看客观题结果。</p></div>
           <div class="englishCapabilityRoutes"><a href={`${base}english-exam/`}><span>100 <small>pts</small></span><div><strong>Full Paper / Mock</strong><small>Cloze · Reading · Part B · Translation · Writing</small></div><b>→</b></a></div>
-          <small class="englishAvailability">按 Chat / learner 明确选择进入</small>
+          <small class="englishAvailability">按需要进入</small>
         </section>
       </main>
       <aside class="englishContextRail">
@@ -58,7 +58,7 @@ const statusLabel = (status) => status === 'ready' ? '可进入' : status === 'i
             <a href={`${base}writing-learn/`}><strong>Writing</strong><span>六个基本能力 · Small / Big</span><b>↗</b></a>
           </nav>
         </section>
-        <section class="englishLexicalCompanion"><span>LEXICAL COMPANION</span><h2>卡在一个词？</h2><p>查具体词义、结构或辨析，再回到原任务。</p><a href={`${base}vocabulary/`}>打开 Vocabulary <b>→</b></a></section>
+        <section class="englishLexicalCompanion"><span>VOCABULARY</span><h2>卡在一个词？</h2><p>查具体词义、结构或辨析，再回到原任务。</p><a href={`${base}vocabulary/`}>打开 Vocabulary <b>→</b></a></section>
       </aside>
     </div>
   </section>
