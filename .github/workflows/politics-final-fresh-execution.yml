@@ -8,7 +8,63 @@ concurrency:
   group: politics-final-fresh-execution
   cancel-in-progress: true
 jobs:
+  apply:
+    if: github.ref == 'refs/heads/work/politics-final-fresh-20260919'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      head: ${{ steps.apply.outputs.head }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: work/politics-final-fresh-20260919
+      - name: Apply reviewed exact-blob edits atomically
+        id: apply
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, os, pathlib, subprocess
+          transport = pathlib.Path('.github/politics-fresh-reviewed-edits.json')
+          def blob(data):
+              return hashlib.sha1(b'blob ' + str(len(data)).encode() + b'\0' + data).hexdigest()
+          if transport.exists():
+              rows = json.loads(transport.read_text())
+              plans = {}
+              for row in rows:
+                  name = row['path']
+                  p = pathlib.PurePosixPath(name)
+                  assert not p.is_absolute() and '..' not in p.parts
+                  assert name.startswith(('content/politics/', 'static-web/src/'))
+                  assert name not in plans
+                  raw = pathlib.Path(name).read_bytes()
+                  assert blob(raw) == row['old'], 'OLD_BLOB_MISMATCH:' + name
+                  text = raw.decode('utf-8')
+                  original_length = len(text)
+                  previous = 0
+                  for a, b, replacement in row['edits']:
+                      assert previous <= a <= b <= original_length
+                      assert isinstance(replacement, str)
+                      previous = b
+                  for a, b, replacement in reversed(row['edits']):
+                      text = text[:a] + replacement + text[b:]
+                  result = text.encode('utf-8')
+                  assert blob(result) == row['new'], 'NEW_BLOB_MISMATCH:' + name
+                  plans[name] = result
+              for name, result in plans.items():
+                  pathlib.Path(name).write_bytes(result)
+              transport.unlink()
+              subprocess.run(['git', 'add', '--', *plans, str(transport)], check=True)
+              subprocess.run(['git', 'config', 'user.name', 'KianOS Audit Worker'], check=True)
+              subprocess.run(['git', 'config', 'user.email', 'audit-worker@example.invalid'], check=True)
+              subprocess.run(['git', 'commit', '-m', 'fix(politics): apply source-grounded fresh learner audit repairs'], check=True)
+              subprocess.run(['git', 'push', 'origin', 'HEAD:work/politics-final-fresh-20260919'], check=True)
+          head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              f.write('head=' + head + '\n')
+          PY
   evidence:
+    needs: apply
     strategy:
       fail-fast: false
       matrix:
@@ -21,6 +77,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{ needs.apply.outputs.head }}
           persist-credentials: false
       - uses: actions/setup-node@v4
         with:
@@ -36,21 +93,17 @@ jobs:
           npm install --no-save playwright@1.56.1 --no-audit --no-fund
           npx playwright install chromium
       - name: Build exact Current
+        id: build
         working-directory: static-web
         run: npm run build > "$POLITICS_FRESH_EVIDENCE/build.log" 2>&1
-      - name: Correct audit-only fixture access (not product code)
+      - name: Independent semantic and runtime assertions
+        if: always() && steps.build.outcome == 'success'
         working-directory: static-web
-        run: |
-          node --input-type=module -e "import fs from 'node:fs'; const p='scripts/test-politics-final-fresh-browser.mjs'; let s=fs.readFileSync(p,'utf8'); s=s.replaceAll('q.takeaway.trim()', 'q.refined.takeaway.trim()').replaceAll('q.chatExplanation.trim()', 'q.refined.chatExplanation.trim()'); fs.writeFileSync(p,s);"
-      - name: Execute independent attacks (findings are in JSON, not workflow color)
+        run: node scripts/audit-politics-final-fresh.mjs > "$POLITICS_FRESH_EVIDENCE/assertions.log" 2>&1
+      - name: Independent real-browser attacks
+        if: always() && steps.build.outcome == 'success'
         working-directory: static-web
         run: node scripts/test-politics-final-fresh-browser.mjs > "$POLITICS_FRESH_EVIDENCE/browser.log" 2>&1
-      - name: Independent semantic assertions when present
-        working-directory: static-web
-        run: |
-          if test -f scripts/audit-politics-final-fresh.mjs; then
-            node scripts/audit-politics-final-fresh.mjs > "$POLITICS_FRESH_EVIDENCE/assertions.log" 2>&1
-          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
