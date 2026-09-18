@@ -1,0 +1,32 @@
+name: Xizong Fresh Independent Acceptance
+on:
+  push:
+    branches: [work/xizong-final-learner-20260919-independent]
+permissions:
+  contents: read
+jobs:
+  independent:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Preserve exact-head scoped source (not prior acceptance evidence)
+        run: |
+          mkdir -p /tmp/xizong-independent
+          git rev-parse HEAD > /tmp/xizong-independent/head.txt
+          git archive HEAD content/xizong static-web .github/workflows AGENTS.md PROJECT_DEFINITION.md ARCHITECTURE.md LEARNING_ACCEPTANCE.md LEARNING_ASSET_STANDARD.md SYSTEM_CONTRACT.md EXAM_ORCHESTRATOR_CONTRACT.md CURRENT.md README.md | gzip > /tmp/xizong-independent/worktree.tar.gz
+      - name: Run fresh contract-derived probes when present
+        run: |
+          if test -f static-web/scripts/test-xizong-final-independent.mjs; then
+            cd static-web
+            node scripts/test-xizong-final-independent.mjs 2>&1 | tee /tmp/xizong-independent/independent.txt
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: xizong-independent-${{ github.sha }}
+          path: /tmp/xizong-independent
+          retention-days: 7
