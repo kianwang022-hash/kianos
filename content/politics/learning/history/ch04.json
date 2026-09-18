@@ -25,7 +25,9 @@
       "POL27-CF-HISTORY-C04-K07",
       "POL27-CF-HISTORY-C04-S03"
     ],
-    "suyi_refs": ["POL27-SY-HISTORY-P107-B088-Y2017"]
+    "suyi_refs": [
+      "POL27-SY-HISTORY-P107-B088-Y2017"
+    ]
   },
   "chapter_orientation": {
     "starting_point": "辛亥革命推翻了君主专制，但旧民主主义革命没有完成民族独立和人民解放任务。北洋军阀统治进一步说明，仅有共和形式并不能解决中国的根本问题。",
@@ -107,5 +109,153 @@
     ],
     "stage_shift": "旧民主主义革命受挫 → 思想解放与十月革命提供新的方向 → 新阶级力量出现 → 五四成为阶段转换 → 马克思主义与工人运动结合 → 新的领导力量形成 → 全国革命高涨 → 大革命失败 → 革命道路问题被推到中心",
     "review_prompt": "不要只回答‘五四有什么意义’。闭卷说明：为什么从辛亥革命失败到大革命失败这段历史，实际上完成了中国革命思想武器、阶级力量和领导力量的更替？"
+  },
+  "later_stage_knowledge": {
+    "schema": "kianos.politics.later_stage_knowledge.v1",
+    "status": "CURRENT_K_REVIEWED",
+    "phase_scope": [
+      "CONSOLIDATION",
+      "PRECISION",
+      "ANALYSIS_OUTPUT"
+    ],
+    "compression_model": {
+      "cognition": "REVOLUTION_STAGE_SHIFT",
+      "purpose": "Preserve the chapter causal movie first; use horizontal compression only for later exact identity/confusable repair.",
+      "reconstruction_source": "chapter_compression",
+      "chapter_compression": {
+        "timeline": [
+          "新文化运动",
+          "十月革命影响",
+          "五四运动",
+          "马克思主义广泛传播",
+          "马克思主义与工人运动结合",
+          "中国共产党成立",
+          "革命纲领逐步明确",
+          "第一次国共合作",
+          "大革命发展",
+          "大革命失败"
+        ],
+        "stage_shift": "旧民主主义革命受挫 → 思想解放与十月革命提供新的方向 → 新阶级力量出现 → 五四成为阶段转换 → 马克思主义与工人运动结合 → 新的领导力量形成 → 全国革命高涨 → 大革命失败 → 革命道路问题被推到中心",
+        "review_prompt": "不要只回答‘五四有什么意义’。闭卷说明：为什么从辛亥革命失败到大革命失败这段历史，实际上完成了中国革命思想武器、阶级力量和领导力量的更替？"
+      },
+      "horizontal_knowledge_owner": "content/politics/learning/history/later-stage-knowledge.json",
+      "horizontal_candidate_refs": [
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-001"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-002"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-003"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-004"
+        },
+        {
+          "line": "people_documents",
+          "id": "HIST-PDOC-005"
+        },
+        {
+          "line": "people_documents",
+          "id": "HIST-PDOC-006"
+        },
+        {
+          "line": "land_policy",
+          "id": "HIST-LAND-003"
+        },
+        {
+          "line": "ideological_liberation",
+          "id": "HIST-IDEA-003"
+        },
+        {
+          "line": "ideological_liberation",
+          "id": "HIST-IDEA-004"
+        }
+      ]
+    },
+    "precision_knowledge": {
+      "policy": "REFERENCE_SUBJECT_HORIZONTAL_K",
+      "owner_path": "content/politics/learning/history/later-stage-knowledge.json",
+      "candidate_refs": [
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-001"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-002"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-003"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-004"
+        },
+        {
+          "line": "people_documents",
+          "id": "HIST-PDOC-005"
+        },
+        {
+          "line": "people_documents",
+          "id": "HIST-PDOC-006"
+        },
+        {
+          "line": "land_policy",
+          "id": "HIST-LAND-003"
+        },
+        {
+          "line": "ideological_liberation",
+          "id": "HIST-IDEA-003"
+        },
+        {
+          "line": "ideological_liberation",
+          "id": "HIST-IDEA-004"
+        }
+      ],
+      "candidate_domains": [
+        "五四后马克思主义传播节点",
+        "中共成立与早期会议 identity",
+        "大革命统一战线/失败转折 boundaries",
+        "人物—著作—理论阶段对应"
+      ],
+      "admission_state": "CANDIDATE_ONLY",
+      "current_year_delta_risk": "LOW_TO_MEDIUM",
+      "rule": "History precision is mainly cross-cutting identity/timeline knowledge. Exact recent-history items require current-year refresh."
+    },
+    "analysis_output_hooks": [
+      {
+        "id": "HISTORY-C04-OUT-NEW-LEADERSHIP",
+        "title": "五四—马克思主义传播—中共成立",
+        "material_cues": [
+          "五四运动",
+          "马克思主义传播",
+          "中国共产党成立",
+          "新民主主义革命开端"
+        ],
+        "retrieval_target": "写成思想武器—阶级力量—理论与工运结合—新领导政党形成的阶段换轨。",
+        "answer_skeleton": [
+          "旧民主主义革命受挫",
+          "新文化/十月革命打开新思想空间",
+          "五四推动新阶级力量和阶段转换",
+          "马克思主义同工人运动结合",
+          "中共成立形成新的领导核心"
+        ],
+        "current_year_status": "STABLE_HISTORICAL"
+      }
+    ],
+    "output_source_role": "VERY_HIGH_VALUE_CHAT_FIRST_OUTPUT_BASELINE",
+    "historical_output_value": [
+      "马克思主义",
+      "中共成立",
+      "历史成就"
+    ],
+    "first_round_effect": "NONE"
   }
 }
