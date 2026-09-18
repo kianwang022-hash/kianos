@@ -263,7 +263,113 @@ The old behavior `whole primary object → H1 → renderer decides` is not suffi
 
 ---
 
-## 8 | Migration / acceptance
+## 8 | Final Learner Object direct-consumption
+
+For Politics, the resolved learner-surface object is the **Final Learner Object** consumed by the Website.
+
+This is not a new top-level architecture layer. It is the final accepted Content/derived-presentation shape at the existing Content → Visual/renderer boundary.
+
+```text
+canonical Politics semantic owners
+→ accepted Content / derived Surface Mapping
+→ resolved Final Learner Object
+→ renderer
+```
+
+Hard rule:
+
+> **The Website renders the Final Learner Object literally. It does not inspect canonical/raw metadata to decide what becomes learner-facing.**
+
+### Final object must own learner payload explicitly
+
+A resolved group must carry only explicit learner-facing payload for its declared primitive, plus mechanical identity/provenance needed to resolve the object.
+
+Allowed final-object concerns include:
+
+- stable object/group id;
+- learner state / zone;
+- declared representation primitive;
+- learner-facing title / label / text / children;
+- explicit relation labels/direction already accepted upstream;
+- explicit locator / look-for text when the learner surface owns it;
+- canonical target/provenance refs needed for guard/return.
+
+Raw decision metadata must not be interpreted by the renderer, including fields such as:
+
+- priority / score / confidence;
+- publication or verification status;
+- presentation merge hints;
+- candidate/admission state;
+- source-review flags;
+- backend audit metadata;
+- arbitrary scalar fields that happen to exist on a canonical object.
+
+If such metadata affects learner visibility or wording, that decision must already have been resolved upstream into the Final Learner Object.
+
+### No generic field enumeration
+
+The renderer must not use a pattern equivalent to:
+
+```text
+Object.entries(item)
+→ ignore a small reserved list
+→ render every remaining scalar
+```
+
+That is semantic inference by omission and fails direct-consumption closure.
+
+Instead, each primitive must consume an explicit payload shape. For example:
+
+```text
+STATEMENT        → explicit text
+PARALLEL_SET     → explicit learner items
+RELATION_SET     → explicit from / relation / to claims
+DIRECTED_SEQUENCE→ explicit items + explicit transitions
+COMPARE          → explicit sides / axes / learner explanation
+HIERARCHY        → explicit nodes / levels / labels
+TIMELINE         → explicit events / dates / learner text
+```
+
+The exact serialization may evolve, but the renderer must never rediscover learner-facing fields from arbitrary object shape.
+
+### Dynamic Chat-selected sessions
+
+A Chat-selected review/session may point to canonical K objects that were not pre-rendered in the first-round SurfacePlan.
+
+Before rendering, the Website still receives a resolved Final Learner Object or an explicitly typed session payload. It must not dereference raw K and decide presentation semantics on its own.
+
+Therefore:
+
+```text
+Chat selects target
+→ accepted resolver/compiler resolves target + guard + learner payload
+→ Final Learner Object
+→ generic renderer
+```
+
+not:
+
+```text
+Chat selects raw JSON path
+→ component opens file
+→ component guesses which fields are learner-facing
+```
+
+### Current migration red flags
+
+The current implementation is **not yet closed** under this stricter rule:
+
+- `politicsCurrent.mjs` still chains subject-specific projection/adaptation helpers;
+- `PoliticsExplicitSurfacePlan.astro` still contains generic scalar-field enumeration through `learnerLines()`;
+- some subject adapters still normalize/fill learner payload from raw teaching fields.
+
+These are migration targets, not permission to weaken the Final Learner Object rule.
+
+Direct-consumption closure is reached only when routine canonical Content changes flow through the accepted resolver/compiler and existing renderer without subject-specific semantic code edits.
+
+---
+
+## 9 | Migration / acceptance
 
 This is a system-wide repair, not a C00 patch.
 
@@ -286,7 +392,7 @@ Until this acceptance closes, broad Politics learner-surface productization must
 
 ---
 
-## 9 | Stop rule for UI
+## 10 | Stop rule for UI
 
 UI implementation may:
 - render the declared primitive;
