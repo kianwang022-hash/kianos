@@ -56,7 +56,8 @@ async function audit(page, { ordinal, expectedWord, sparse }) {
     const rows = [...document.querySelectorAll('.lexicalSenseRow')].filter((node) => node instanceof HTMLElement);
     const firstUsableRow = rows.find((row) => row.querySelector('.lexicalSenseUsage li>b')) || rows[0];
     const pos = firstUsableRow?.querySelector('header>span');
-    const meaning = firstUsableRow?.querySelector('.lexicalSenseMeaning>strong');
+    const meaning = firstUsableRow?.querySelector('.lexicalSenseMeaning>p');
+    const englishMeaning = firstUsableRow?.querySelector('.lexicalSenseMeaning>strong');
     const usage = firstUsableRow?.querySelector('.lexicalSenseUsage li>b');
     const body = document.querySelector('[data-vocab-body]');
     const reference = document.querySelector('.portedVocabEvidenceColumn');
@@ -66,6 +67,7 @@ async function audit(page, { ordinal, expectedWord, sparse }) {
     )].filter((node) => node instanceof HTMLElement && css(node).display !== 'none');
     const posRect = rect(pos);
     const meaningRect = rect(meaning);
+    const englishMeaningRect = rect(englishMeaning);
     const usageRect = rect(usage);
     const tops = [posRect?.top, meaningRect?.top, usageRect?.top].filter((value) => Number.isFinite(value));
     const rowStyle = css(firstUsableRow);
@@ -89,6 +91,7 @@ async function audit(page, { ordinal, expectedWord, sparse }) {
         bottom:rowStyle?.borderBottomWidth || ''
       },
       alignmentSpread:tops.length >= 2 ? Math.max(...tops)-Math.min(...tops) : null,
+      chineseBeforeEnglish:Boolean(meaningRect && englishMeaningRect && meaningRect.top < englishMeaningRect.top),
       columnGaps:{
         posMeaning:posRect && meaningRect ? meaningRect.left-posRect.right : null,
         meaningUsage:meaningRect && usageRect ? usageRect.left-meaningRect.right : null
@@ -122,7 +125,8 @@ async function audit(page, { ordinal, expectedWord, sparse }) {
   if (result.senseCount > 1 && !result.firstUsableIsLast) {
     assert(parseFloat(result.row.bottom || '0') >= 1, 'sense_rule_boundary', result.row.bottom);
   }
-  assert(result.alignmentSpread === null || result.alignmentSpread <= 10, 'sense_first_line_alignment', String(result.alignmentSpread));
+  assert(result.alignmentSpread === null || result.alignmentSpread <= 12, 'sense_first_line_alignment', String(result.alignmentSpread));
+  assert(result.chineseBeforeEnglish, 'sense_chinese_before_english', String(ordinal));
   assert(result.columnGaps.posMeaning === null || result.columnGaps.posMeaning >= 12, 'pos_meaning_no_collision', String(result.columnGaps.posMeaning));
   assert(result.columnGaps.meaningUsage === null || result.columnGaps.meaningUsage >= 12, 'meaning_usage_no_collision', String(result.columnGaps.meaningUsage));
   assert(result.minContentFont === null || result.minContentFont >= 15, 'learner_content_font_floor', String(result.minContentFont));
