@@ -24,6 +24,22 @@ assert(
   acceptance.includes('Evidence required for substantial reconstructed Learning'),
   'learning-acceptance-lost-adversarial-evidence-rule'
 );
+assert(
+  assetStandard.includes('Adversarial Knowledge reconstruction'),
+  'learning-asset-standard-lost-knowledge-falsification-rule'
+);
+assert(
+  acceptance.includes('Evidence required for materially reconstructed Knowledge'),
+  'learning-acceptance-lost-knowledge-falsification-evidence'
+);
+assert(
+  assetStandard.includes('Content closure readback before Presentation'),
+  'learning-asset-standard-lost-content-closure-rule'
+);
+assert(
+  acceptance.includes('Pre-P condition: realized Content must be closed'),
+  'learning-acceptance-lost-pre-p-content-closure'
+);
 
 assert(
   !/Process rules are governed by\s+`learning\/xizong\/question-explanation-process\.md`/i.test(explanationReadme),
