@@ -1,6 +1,6 @@
 # Xizong System Completion — accepted surface design
 
-Status: **ACTIVE SURFACE DESIGN — QUESTION SWEEP + SYSTEM RECALL ACCEPTED, FINAL ENTRY / VISUAL COMPOSITION STILL UNDER DISCUSSION**  
+Status: **CURRENT CANDIDATE — PRODUCT COMPOSITION FROZEN 2026-09-18 · IMPLEMENTATION / HUMAN GATE ACTIVE**  
 Parent: `static-web/XIZONG_PRODUCT_BRIEF.md`  
 Review safety: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`
 
@@ -19,6 +19,8 @@ System learned
 ```
 
 Whole-paper holdout remains a small question-entry setting rather than a peer learner stage.
+
+Final composition is now frozen as **one phase-aware System Completion workbench**. System Recall, official System questions, W/U review and later question rounds are states of the same workbench; they are not separate product pages.
 
 Keep the existing hard prerequisites and Evidence semantics:
 
@@ -450,19 +452,47 @@ Xizong-wide Practice / Questions
 
 Holdout exists specifically to protect those future whole-paper runs from being silently consumed by System-by-System practice.
 
-## 12｜Implementation boundary
+## 12｜Final System Completion composition — FROZEN
 
-Do not implement this design yet.
-
-Before Codex work:
+The learner-facing System Completion surface is one Mac-wide workbench:
 
 ```text
-freeze remaining question-entry / whole-paper product composition
-→ freeze final Mac visual composition
-→ confirm any required compatibility migration from current correct/uncertain evidence semantics
-→ review hidden-result / whole-paper result-reveal evidence compatibility
-→ preserve existing Runtime / Evidence / Repair / Return invariants
-→ then implement
+System Completion
+├─ top status / phase / compact holdout setting
+├─ System Recall Front
+│  └─ protected reconstruction desk
+├─ System Recall Reveal
+│  └─ Current compressed System model
+├─ System Questions
+│  └─ same Question Runtime for FIRST_PASS / SECOND_PASS / LATE_REVIEW
+└─ concentrated W/U / Marked review and post-question Recall
 ```
 
-If achieving the low-friction correct-auto-advance flow or hidden-result whole-paper mode requires changing an existing evidence-state contract rather than only its learner-facing interaction, perform a dedicated Runtime/Evidence review first instead of silently changing the meaning of stored evidence.
+Hard UI decisions:
+
+- System Recall is **inline inside the workbench**, never a modal over answer-bearing System content;
+- `holdout` is a compact question strategy setting, not a numbered learner stage or full-size peer card;
+- finishing Recall changes the workbench state and unlocks questions without navigating to another page;
+- FIRST_PASS / SECOND_PASS / LATE_REVIEW reuse the same Question Runtime and Evidence history;
+- SECOND_PASS may project reviewed decision axis / valuable distractors / transfer rule after submit, but never invent missing content;
+- LATE_REVIEW remains a thinner phase of the same Runtime; no second knowledge store or second question product is created;
+- System Completion does not own whole-paper runs. Xizong-wide Practice will reuse the same task grammar in a later bounded implementation;
+- all medical/System cognition is consumed from Current owners; component markup/CSS may not hard-code System-specific knowledge.
+
+### 12.1 Current implementation slice
+
+The active implementation slice is intentionally bounded to the System Completion surface:
+
+```text
+existing modal System Recall
+→ inline Recall Front / Reveal
+→ compact holdout control
+→ same Question workspace / attempt history / W-U / SECOND_PASS
+→ browser Human Gate
+```
+
+No Question Truth, medical Content, Learning, Evidence meaning, reviewed mapping or learner-state schema changes are authorized in this slice.
+
+Whole-paper Runtime and durable learner-data closure remain subsequent product slices after this System Completion surface is accepted.
+
+If a later hidden-result / whole-paper implementation requires changing stored evidence semantics, perform the dedicated Runtime/Evidence review at that later owner rather than smuggling it into this surface change.
