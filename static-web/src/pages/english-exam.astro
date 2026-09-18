@@ -1,0 +1,46 @@
+
+---
+import Base from '../layouts/Base.astro';
+import { listEnglishExamPapers } from '../lib/englishExamPaper.mjs';
+
+const base = import.meta.env.BASE_URL;
+const papers = listEnglishExamPapers();
+---
+<Base title="English · Full Paper" active="english" showLead={false} objectId="english:full-paper-index">
+  <section class="englishExamIndex">
+    <header>
+      <div>
+        <span>ENGLISH · FULL PAPER</span>
+        <h1>整卷 / Mock</h1>
+        <p>180 分钟，100 分。任务页面沿用现有 Reading / Cloze / Part B / Translation / Writing；这里只负责选卷和进入整卷 Session。</p>
+      </div>
+      <aside><strong>{papers.length}</strong><small>Current complete papers</small></aside>
+    </header>
+
+    <div class="englishExamPaperList">
+      {papers.map((paper) => (
+        <a href={`${base}english-exam/${encodeURIComponent(paper.paperId)}/`}>
+          <span>{paper.year}</span>
+          <div>
+            <strong>English I · {paper.year}</strong>
+            <small>{paper.durationMinutes} min · {paper.totalPoints} pts · {paper.stepCount} execution steps</small>
+          </div>
+          <b>→</b>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .englishExamIndex{max-width:76rem;margin:0 auto;display:grid;gap:12px}
+  .englishExamIndex>header{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;padding:24px 26px;border:1px solid var(--study-line);border-radius:16px;background:#fff;box-shadow:var(--study-shadow)}
+  .englishExamIndex>header span{font-size:9px;font-weight:850;letter-spacing:.08em;color:var(--study-green)}
+  .englishExamIndex>header h1{margin:5px 0 8px;font-size:28px}.englishExamIndex>header p{max-width:74ch;margin:0;color:var(--study-muted);font-size:12px;line-height:1.7}
+  .englishExamIndex>header aside{display:grid;text-align:right}.englishExamIndex>header aside strong{font-size:30px}.englishExamIndex>header aside small{font-size:9px;color:var(--study-faint)}
+  .englishExamPaperList{overflow:hidden;border:1px solid var(--study-line);border-radius:14px;background:#fff}
+  .englishExamPaperList>a{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:14px;align-items:center;padding:13px 16px;border-bottom:1px solid var(--study-line);color:inherit;text-decoration:none}
+  .englishExamPaperList>a:last-child{border-bottom:0}.englishExamPaperList>a:hover{background:var(--study-green-soft)}
+  .englishExamPaperList>a>span{font-size:14px;font-weight:850;color:var(--study-green)}.englishExamPaperList>a>div{display:grid;gap:2px}.englishExamPaperList strong{font-size:12px}.englishExamPaperList small{font-size:9px;color:var(--study-muted)}.englishExamPaperList b{color:var(--study-green)}
+  @media(max-width:700px){.englishExamIndex>header{grid-template-columns:1fr}.englishExamIndex>header aside{text-align:left}}
+</style>

@@ -75,7 +75,12 @@ function optionEntries(options) {
 <script>
   document.querySelectorAll('[data-objective-root][data-objective-task="cloze"]').forEach((root) => {
     if (!(root instanceof HTMLElement)) return;
-    const storageKey = root.getAttribute('data-objective-storage-key') || '';
+    const baseStorageKey = root.getAttribute('data-objective-storage-key') || '';
+    const examSessionId = new URLSearchParams(location.search).get('exam_session') || '';
+    const objectId = root.getAttribute('data-objective-object') || '';
+    const storageKey = examSessionId
+      ? `kianos-english-exam-task-v1:${examSessionId}:cloze:${objectId}`
+      : baseStorageKey;
     const rows = [...root.querySelectorAll('[data-objective-question]')];
     const jumps = [...root.querySelectorAll('[data-cloze-jump]')];
     const uncertainButton = root.querySelector('[data-cloze-uncertain]');

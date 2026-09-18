@@ -1,0 +1,208 @@
+---
+const { task, objectId } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+<aside
+  class="englishExamTaskBridge"
+  data-english-exam-task-bridge
+  data-task={task}
+  data-object-id={objectId}
+  data-base={base}
+  hidden
+>
+  <div>
+    <span>FULL PAPER</span>
+    <strong data-exam-step-label>Mock</strong>
+    <small data-exam-step-progress></small>
+  </div>
+  <b data-exam-remaining>180:00</b>
+  <div class="englishExamTaskActions">
+    <a data-exam-return href="#">整卷</a>
+    <button type="button" data-exam-complete>完成本部分 →</button>
+  </div>
+</aside>
+
+<script>
+  import {
+    readEnglishExamSession,
+    writeEnglishExamSession,
+    englishExamRemainingMs,
+    captureEnglishExamStep,
+    sealEnglishExamSession,
+    englishExamTaskHref
+  } from '../lib/englishExamSession.mjs';
+
+  const bridge = document.querySelector('[data-english-exam-task-bridge]');
+  if (bridge instanceof HTMLElement) {
+    const params = new URLSearchParams(location.search);
+    const querySession = params.get('exam_session') || '';
+    const queryStep = params.get('exam_step') || '';
+    const task = bridge.getAttribute('data-task') || '';
+    const objectId = bridge.getAttribute('data-object-id') || '';
+    const base = bridge.getAttribute('data-base') || '/';
+    let state = readEnglishExamSession(localStorage);
+
+    const exactStep = () => state?.steps?.find((step) =>
+      step.step_id === queryStep && step.task === task && step.object_id === objectId
+    ) || null;
+
+    if (querySession && state?.session_id === querySession && state?.status === 'ACTIVE' && exactStep()) {
+      bridge.hidden = false;
+      document.documentElement.dataset.englishExamSession = 'true';
+      const step = exactStep();
+      const stepIndex = state.steps.findIndex((row) => row.step_id === step.step_id);
+      const label = bridge.querySelector('[data-exam-step-label]');
+      const progress = bridge.querySelector('[data-exam-step-progress]');
+      const remaining = bridge.querySelector('[data-exam-remaining]');
+      const returnLink = bridge.querySelector('[data-exam-return]');
+      if (label) label.textContent = step.label || step.object_id;
+      if (progress) progress.textContent = `Step ${stepIndex + 1} / ${state.steps.length}`;
+      if (returnLink instanceof HTMLAnchorElement) {
+        returnLink.href = `${base}english-exam/${encodeURIComponent(state.paper_id)}/`;
+      }
+
+      const taskStorageKey = () =>
+        `kianos-english-exam-task-v1:${state.session_id}:${task}:${objectId}`;
+
+      const readTaskState = () => {
+        try { return JSON.parse(localStorage.getItem(taskStorageKey()) || 'null') || {}; }
+        catch { return {}; }
+      };
+
+      const capturePayload = () => {
+        const local = readTaskState();
+        if (['reading_a', 'cloze', 'reading_b'].includes(task)) {
+          return {
+            answers: local.answers && typeof local.answers === 'object' ? local.answers : {},
+            uncertain: Array.isArray(local.uncertain) ? local.uncertain : [],
+            started_at: local.startedAt || null,
+            trajectory: local.trajectory && typeof local.trajectory === 'object' ? local.trajectory : {}
+          };
+        }
+        if (task === 'translation') {
+          return {
+            answers: local.drafts && typeof local.drafts === 'object' ? local.drafts : {},
+            started_at: local.startedAt || null
+          };
+        }
+        if (task === 'writing') {
+          return {
+            plan_mode: local.planMode || 'planned',
+            plan: local.draftPlan || '',
+            essay: local.draftEssay || '',
+            started_at: local.startedAt || null
+          };
+        }
+        return {};
+      };
+
+      const routeNext = () => {
+        if (state.current_step >= state.steps.length) {
+          location.href = `${base}english-exam/${encodeURIComponent(state.paper_id)}/`;
+          return;
+        }
+        const next = state.steps[state.current_step];
+        location.href = englishExamTaskHref(next, {
+          base,
+          sessionId: state.session_id,
+          stepIndex: state.current_step
+        }) || `${base}english-exam/${encodeURIComponent(state.paper_id)}/`;
+      };
+
+      let completing = false;
+      const completeStep = () => {
+        if (completing) return;
+        completing = true;
+        try {
+          if (englishExamRemainingMs(state) <= 0) {
+            state = sealEnglishExamSession(state);
+            writeEnglishExamSession(localStorage, state);
+            location.href = `${base}english-exam/${encodeURIComponent(state.paper_id)}/`;
+            return;
+          }
+          state = captureEnglishExamStep(state, {
+            stepId: step.step_id,
+            task,
+            objectId,
+            payload: capturePayload()
+          });
+          writeEnglishExamSession(localStorage, state);
+          routeNext();
+        } catch (error) {
+          completing = false;
+          const button = bridge.querySelector('[data-exam-complete]');
+          if (button instanceof HTMLButtonElement) {
+            button.disabled = false;
+            button.textContent = error instanceof Error ? error.message : '无法封存本部分';
+          }
+        }
+      };
+
+      const underlyingSelector = ({
+        reading_a: '[data-reading-submit]',
+        cloze: '[data-objective-submit]',
+        reading_b: '[data-objective-submit]',
+        translation: '[data-freeze-first]',
+        writing: '[data-lock-first]'
+      })[task];
+
+      window.addEventListener('click', (event) => {
+        const target = event.target instanceof Element ? event.target : null;
+        const own = target?.closest('[data-exam-complete]');
+        const underlying = underlyingSelector ? target?.closest(underlyingSelector) : null;
+        if (!own && !underlying) return;
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        completeStep();
+      }, true);
+
+      const renderTime = () => {
+        const ms = englishExamRemainingMs(state);
+        const totalSeconds = Math.max(0, Math.ceil(ms / 1000));
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds % 60;
+        if (remaining) remaining.textContent = `${String(minutes).padStart(3, '0')}:${String(seconds).padStart(2, '0')}`;
+        if (ms <= 0 && state.status === 'ACTIVE') {
+          state = sealEnglishExamSession(state);
+          writeEnglishExamSession(localStorage, state);
+          location.href = `${base}english-exam/${encodeURIComponent(state.paper_id)}/`;
+        }
+      };
+      renderTime();
+      setInterval(renderTime, 1000);
+    }
+  }
+</script>
+
+<style>
+  .englishExamTaskBridge{
+    position:sticky;top:68px;z-index:145;
+    display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:18px;
+    max-width:82rem;margin:0 auto 12px;padding:10px 14px;
+    border:1px solid rgba(45,83,69,.18);border-radius:11px;
+    background:rgba(248,251,249,.97);box-shadow:0 8px 24px rgba(30,52,43,.08);backdrop-filter:blur(12px)
+  }
+  .englishExamTaskBridge[hidden]{display:none}
+  .englishExamTaskBridge>div:first-child{display:grid;gap:2px;min-width:0}
+  .englishExamTaskBridge span{font-size:9px;font-weight:850;letter-spacing:.08em;color:var(--study-green)}
+  .englishExamTaskBridge strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px}
+  .englishExamTaskBridge small{font-size:9px;color:var(--study-faint)}
+  .englishExamTaskBridge>b{font-size:16px;font-variant-numeric:tabular-nums;color:#31483f}
+  .englishExamTaskActions{display:flex;align-items:center;gap:7px}
+  .englishExamTaskActions a,.englishExamTaskActions button{
+    padding:7px 10px;border:1px solid var(--study-line);border-radius:8px;background:#fff;color:inherit;
+    font:inherit;font-size:10px;font-weight:800;text-decoration:none;cursor:pointer
+  }
+  .englishExamTaskActions button{border-color:var(--study-green);background:var(--study-green);color:#fff}
+  :global(html[data-english-exam-session="true"] [data-reading-continuous]),
+  :global(html[data-english-exam-session="true"] [data-reading-session-actions]),
+  :global(html[data-english-exam-session="true"] .portedReadingPassageNavigator),
+  :global(html[data-english-exam-session="true"] .objectiveNavigator),
+  :global(html[data-english-exam-session="true"] .translationHeader nav),
+  :global(html[data-english-exam-session="true"] .writingRuntimeHeader nav){display:none !important}
+  @media(max-width:720px){
+    .englishExamTaskBridge{top:58px;grid-template-columns:1fr auto}
+    .englishExamTaskActions{grid-column:1/-1}
+  }
+</style>

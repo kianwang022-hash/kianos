@@ -11,7 +11,11 @@ const base = import.meta.env.BASE_URL;
     const readingKey = root.getAttribute('data-reading-object') || 'reading';
     const basePath = gate.getAttribute('data-reading-base') || '/';
     const answerUrl = `${basePath}reading-answer/${encodeURIComponent(readingKey)}.json`;
-    const attemptKey = `kianos-reading-attempt-v1:${readingKey}`;
+    const examSessionId = new URLSearchParams(location.search).get('exam_session') || '';
+    const attemptKey = examSessionId
+      ? `kianos-english-exam-task-v1:${examSessionId}:reading_a:${readingKey}`
+      : `kianos-reading-attempt-v1:${readingKey}`;
+    const examMode = Boolean(examSessionId);
     const submit = root.querySelector('[data-reading-submit]');
     const questions = [...root.querySelectorAll('[data-question]')];
     let ready = root.getAttribute('data-reading-answers-ready') === 'true';
@@ -97,7 +101,7 @@ const base = import.meta.env.BASE_URL;
     document.addEventListener('click', async (event) => {
       const target = event.target instanceof Element ? event.target : null;
       const button = target?.closest('[data-reading-submit]');
-      if (!button || !root.contains(button) || ready) return;
+      if (!button || !root.contains(button) || ready || examMode) return;
 
       event.preventDefault();
       event.stopImmediatePropagation();
@@ -112,7 +116,7 @@ const base = import.meta.env.BASE_URL;
     }, true);
 
     const savedAttempt = readJson(attemptKey, {});
-    if (savedAttempt.submitted) {
+    if (!examMode && savedAttempt.submitted) {
       void loadAnswers().then((ok) => {
         if (!ok) return;
         decorateSubmittedReview();

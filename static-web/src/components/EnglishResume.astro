@@ -1,18 +1,24 @@
 ---
 const base = import.meta.env.BASE_URL;
 ---
-<div data-english-resume-surface data-base={import.meta.env.BASE_URL}>
-    <section class="englishResume" data-english-resume hidden>
-      <div>
-        <span>Highest-value next action</span>
-        <strong data-english-resume-title></strong>
-        <small data-english-resume-meta></small>
-      </div>
-      <a class="primaryLink" data-english-resume-link href={`${base}english/`}>继续 →</a>
-    </section>
+<div data-english-resume-surface data-base={base}>
+  <section class="englishResume" data-english-resume hidden>
+    <div>
+      <span>Chat-selected next action</span>
+      <strong data-english-resume-title></strong>
+      <small data-english-resume-meta></small>
+    </div>
+    <a class="primaryLink" data-english-resume-link href={`${base}english/`}>进入 →</a>
+  </section>
 </div>
 
 <script>
+  import {
+    ENGLISH_SESSION_KEY,
+    readEnglishSessionInstruction,
+    englishSessionStepHref
+  } from '../lib/englishSessionControl.mjs';
+
   const root = document.querySelector('[data-english-resume-surface]');
   if (root instanceof HTMLElement) {
     const base = root.getAttribute('data-base') || '/';
@@ -20,62 +26,47 @@ const base = import.meta.env.BASE_URL;
     const title = root.querySelector('[data-english-resume-title]');
     const meta = root.querySelector('[data-english-resume-meta]');
     const link = root.querySelector('[data-english-resume-link]');
-
-    const read = (key) => {
-      try { return JSON.parse(localStorage.getItem(key) || 'null'); }
-      catch { return null; }
+    const taskLabels = {
+      reading_a: 'Reading A',
+      cloze: 'Cloze',
+      reading_b: 'Part B',
+      translation: 'Translation',
+      writing: 'Writing'
     };
-    const timestamp = (value) => Date.parse(value || '') || 0;
-    const entries = [];
+    const localDay = () => new Date().toLocaleDateString('en-CA');
 
-    const readingLast = read('kianos-reading-last-location-v1');
-    if (readingLast?.id) {
-      const attempt = read(`kianos-reading-attempt-v1:${readingLast.id}`) || {};
-      const results = attempt.results || {};
-      const uncertain = new Set(attempt.uncertain || []);
-      const problems = Object.keys(results).filter((id) => ['wrong', 'unanswered'].includes(results[id]) || uncertain.has(id)).length;
-      if (!attempt.submitted) {
-        entries.push({ priority: 100, time: timestamp(readingLast.updatedAt || attempt.startedAt), title: readingLast.title || 'Reading A · unfinished attempt', meta: 'Reading A · 继续 clean attempt', href: `${base}reading/${encodeURIComponent(readingLast.id)}/` });
-      } else if (problems > 0 && attempt.reviewUnlocked !== false) {
-        entries.push({ priority: 82, time: timestamp(attempt.submittedAt || readingLast.updatedAt), title: readingLast.title || 'Reading A · triage', meta: `Reading A · ${problems} 个 problem 等待 triage`, href: `${base}reading/${encodeURIComponent(readingLast.id)}/` });
+    const render = () => {
+      if (!(resume instanceof HTMLElement)
+        || !(title instanceof HTMLElement)
+        || !(meta instanceof HTMLElement)
+        || !(link instanceof HTMLAnchorElement)) return;
+
+      const state = readEnglishSessionInstruction(localStorage, localDay());
+      if (state.status !== 'ready' || !state.instruction) {
+        resume.hidden = true;
+        return;
       }
-    }
 
-    const translationLast = read('kianos-translation-last-location-v1');
-    if (translationLast?.id) {
-      const state = String(translationLast.stage || translationLast.state || '').toUpperCase();
-      const priorities = { ATTEMPT: 100, DECISION: 86, DIAGNOSIS: 92, RECONSTRUCT: 96 };
-      const priority = priorities[state] || 0;
-      if (priority) entries.push({
-        priority,
-        time: timestamp(translationLast.updatedAt),
-        title: translationLast.title || 'Translation',
-        meta: `Translation · ${state.toLowerCase().replaceAll('_', ' ')}`,
-        href: translationLast.href || `${base}translation/${encodeURIComponent(translationLast.id)}/`
-      });
-    }
+      const instruction = state.instruction;
+      const step = instruction.steps[instruction.current_step];
+      const href = englishSessionStepHref(step, base);
+      if (!step || !href) {
+        resume.hidden = true;
+        return;
+      }
 
-    const writingLast = read('kianos-writing-last-location-v1');
-    if (writingLast?.id) {
-      const state = String(writingLast.state || '').toUpperCase();
-      const priorities = { ATTEMPT: 100, REVIEW_PENDING: 90, REPAIR_NEEDED: 96, REPAIR_CHECK_PENDING: 86 };
-      const priority = priorities[state] || 0;
-      if (priority) entries.push({
-        priority,
-        time: timestamp(writingLast.updatedAt),
-        title: writingLast.title || 'Writing',
-        meta: `Writing · ${state.toLowerCase().replaceAll('_', ' ')}`,
-        href: writingLast.href || `${base}writing/${encodeURIComponent(writingLast.id)}/`
-      });
-    }
-
-    entries.sort((a, b) => b.priority - a.priority || b.time - a.time);
-    const best = entries[0];
-    if (best && resume && title && meta && link) {
       resume.hidden = false;
-      title.textContent = best.title;
-      meta.textContent = best.meta;
-      link.href = best.href;
-    }
+      title.textContent = step.label || `${taskLabels[step.task] || step.task} · ${step.object_id}`;
+      meta.textContent = step.note
+        || `Session ${instruction.current_step + 1} / ${instruction.steps.length} · Chat 已选择，本页不重新排序`;
+      link.href = href;
+    };
+
+    window.addEventListener('kianos:english-session-updated', render);
+    window.addEventListener('storage', (event) => {
+      if (event.key === ENGLISH_SESSION_KEY || event.key === null) render();
+    });
+    window.addEventListener('focus', render);
+    render();
   }
 </script>

@@ -184,9 +184,30 @@ async function repairReturnJourney(browser, task) {
     check(await page.locator('[data-writing-evidence-panel]').isHidden(), 'active_repair_has_no_transfer_attention');
 
     await page.goto(`${BASE}/english/`, { waitUntil: 'domcontentloaded' });
+    check(await page.locator('[data-english-resume]').isHidden(), 'website_does_not_auto_rank_active_writing_repair');
+
+    await page.evaluate((taskId) => {
+      const day = new Date().toLocaleDateString('en-CA');
+      localStorage.setItem('kianos-english-session-instruction-v1', JSON.stringify({
+        schema: 'kianos.english.session-instruction.v1',
+        session_id: 'writing-ffv-repair',
+        study_day: day,
+        generated_at: new Date().toISOString(),
+        current_step: 0,
+        steps: [{
+          step_id: 'writing-repair',
+          task: 'writing',
+          object_id: taskId,
+          label: 'Writing repair',
+          note: 'FFV exact repair return'
+        }],
+        return_policy: { on_finish: 'english_home' }
+      }));
+    }, task.id);
+    await page.reload({ waitUntil: 'domcontentloaded' });
     await page.locator('[data-english-resume]').waitFor({ state: 'visible' });
-    check((await page.locator('[data-english-resume-meta]').textContent())?.includes('repair needed'), 'english_resume_surfaces_active_writing_repair');
-    check((await page.locator('[data-english-resume-link]').getAttribute('href'))?.includes(task.id), 'english_resume_returns_to_exact_writing_task');
+    check((await page.locator('[data-english-resume-title]').textContent()) === 'Writing repair', 'chat_session_surfaces_selected_writing_repair');
+    check((await page.locator('[data-english-resume-link]').getAttribute('href'))?.includes(task.id), 'chat_session_returns_to_exact_writing_task');
 
     await page.goto(`${BASE}/writing/${encodeURIComponent(task.id)}/`, { waitUntil: 'domcontentloaded' });
     await page.locator('[data-runtime-stage="repair"]').waitFor({ state: 'visible' });

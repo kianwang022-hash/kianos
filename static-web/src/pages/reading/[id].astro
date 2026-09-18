@@ -13,6 +13,7 @@ import ObjectiveTransferClaims from '../../components/ObjectiveTransferClaims.as
 import ReadingPassageHandoff from '../../components/ReadingPassageHandoff.astro';
 import ReadingSessionHandoff from '../../components/ReadingSessionHandoff.astro';
 import ReadingLastLocation from '../../components/ReadingLastLocation.astro';
+import EnglishExamTaskBridge from '../../components/EnglishExamTaskBridge.astro';
 import { listReadingSets, loadReadingById } from '../../lib/englishReadingSourceTruth.mjs';
 
 export function getStaticPaths() {
@@ -34,6 +35,7 @@ const reading = loadReadingById(readingId);
   objectId={reading.objectId}
   active="reading"
 >
+  <EnglishExamTaskBridge task="reading_a" objectId={reading.objectId} />
   <ReadingLastLocation reading={reading} />
   <ReadingWorkspace reading={reading} />
   <ReadingAnswerGate />

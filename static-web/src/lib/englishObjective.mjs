@@ -13,31 +13,7 @@ const SOURCE = Object.freeze({
   readingBLayout: 'content/english/source/reading_b_layout.v1.json'
 });
 
-const TASK = Object.freeze({
-  cloze: {
-    env: 'KIANOS_CLOZE_SECTIONS',
-    sectionMatch(section) {
-      const value = normalizeToken(section);
-      return /(^|_)cloze($|_)/.test(value);
-    },
-    idMatch(id) {
-      return /(^|[-_:])cloze($|[-_:])/i.test(String(id || ''));
-    }
-  },
-  reading_b: {
-    env: 'KIANOS_READING_B_SECTIONS',
-    sectionMatch(section) {
-      const value = normalizeToken(section);
-      return /reading.*(?:part_?b|_b)(?:_|$)/.test(value)
-        || /^(?:reading_)?part_?b(?:_|$)/.test(value);
-    },
-    idMatch(id) {
-      const value = String(id || '');
-      return /(^|[-_:])reading[-_:](?:part[-_:])?b($|[-_:])/i.test(value)
-        || /(^|[-_:])reading[-_:]part[-_:]?b($|[-_:])/i.test(value);
-    }
-  }
-});
+const ENGLISH_TASK_MAP_SCHEMA = 'kianos.english.task_map.v1';
 
 function absolute(relativePath) {
   return path.join(repoRoot, relativePath);
@@ -339,30 +315,26 @@ function sectionInventory(bank) {
     .sort((a, b) => a.section.localeCompare(b.section));
 }
 
-function resolveTaskSections(bank, taskName) {
-  const config = TASK[taskName];
-  if (!config) throw new Error(`OBJECTIVE_TASK_UNKNOWN:${taskName}`);
+function resolveTaskSections(bank, manifest, taskName) {
+  const map = manifest?.final_learner_objects?.task_map;
+  if (map?.schema !== ENGLISH_TASK_MAP_SCHEMA || !map?.tasks || typeof map.tasks !== 'object') {
+    throw new Error('OBJECTIVE_TASK_MAP_NOT_READY');
+  }
+  const task = map.tasks[taskName];
+  if (!task || !Array.isArray(task.sections) || task.sections.length < 1) {
+    throw new Error(`OBJECTIVE_TASK_IDENTITY_MISSING:${taskName}`);
+  }
+  const sections = task.sections.map((value) => String(value || '').trim()).filter(Boolean);
+  if (!sections.length || new Set(sections).size !== sections.length) {
+    throw new Error(`OBJECTIVE_TASK_IDENTITY_INVALID:${taskName}`);
+  }
   const inventory = sectionInventory(bank);
   const available = inventory.map((row) => row.section);
-  const override = String(process.env[config.env] || '')
-    .split(',')
-    .map((value) => value.trim())
-    .filter(Boolean);
-
-  if (override.length) {
-    const missing = override.filter((section) => !available.includes(section));
-    if (missing.length) throw new Error(`OBJECTIVE_SECTION_OVERRIDE_INVALID:${taskName}:missing=${missing.join('|')}:available=${available.join('|')}`);
-    return { sections: override, inventory, mode: 'explicit-current-override' };
+  const missing = sections.filter((section) => !available.includes(section));
+  if (missing.length) {
+    throw new Error(`OBJECTIVE_TASK_SECTION_MISSING:${taskName}:missing=${missing.join('|')}:available=${available.join('|')}`);
   }
-
-  const candidates = inventory.filter((row) => {
-    const nameEvidence = config.sectionMatch(row.section);
-    const ids = [...row.setIds, ...row.questionIds];
-    return nameEvidence || ids.some((id) => config.idMatch(id));
-  });
-
-  if (!candidates.length) throw new Error(`OBJECTIVE_SECTION_NOT_RESOLVED:${taskName}:available=${available.join('|')}`);
-  return { sections: candidates.map((row) => row.section), inventory, mode: 'current-evidence' };
+  return { sections, inventory, mode: 'content-owned-task-map' };
 }
 
 const cache = new Map();
@@ -393,7 +365,7 @@ function snapshot(taskName) {
       readingBLayoutHash = sha256(layoutText);
     }
 
-    const resolution = resolveTaskSections(bank, taskName);
+    const resolution = resolveTaskSections(bank, manifest, taskName);
     const selected = new Set(resolution.sections);
     const sets = (Array.isArray(bank.passage_or_sets) ? bank.passage_or_sets : [])
       .filter((row) => row?.id && selected.has(String(row?.section || '')))

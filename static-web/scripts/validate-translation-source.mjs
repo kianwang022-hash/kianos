@@ -38,7 +38,7 @@ check(report.status === 'ready', `SOURCE_STATUS:${report.status}`);
 check((report.issues || []).length === 0, `SOURCE_ISSUES:${(report.issues || []).join('|')}`);
 check((report.missing || []).length === 0, `SOURCE_MISSING:${(report.missing || []).join('|')}`);
 check(Array.isArray(report.sections) && report.sections.length > 0, 'TRANSLATION_SECTION_NOT_RESOLVED');
-check(report.sectionResolutionMode === 'current-evidence', `SECTION_RESOLUTION_MODE:${report.sectionResolutionMode || 'missing'}`);
+check(report.sectionResolutionMode === 'content-owned-task-map', `SECTION_RESOLUTION_MODE:${report.sectionResolutionMode || 'missing'}`);
 check(report.setCount > 0, `TRANSLATION_SET_COUNT:${report.setCount}`);
 check(catalog.length === report.setCount, `CATALOG_SET_COUNT:${catalog.length}/${report.setCount}`);
 check(report.completeReferenceSetCount + report.partialReferenceSetCount === report.setCount,
@@ -62,7 +62,7 @@ for (const item of catalog) {
   check(task.task === 'translation', `TASK_KIND:${item.id}:${task.task}`);
   check(task.objectId === item.id, `TASK_IDENTITY:${item.id}:${task.objectId}`);
   check(task.manifestStatus === 'CURRENT_READY', `MANIFEST_STATUS:${item.id}:${task.manifestStatus || 'missing'}`);
-  check(task.sectionResolutionMode === 'current-evidence', `TASK_SECTION_RESOLUTION_MODE:${item.id}:${task.sectionResolutionMode || 'missing'}`);
+  check(task.sectionResolutionMode === 'content-owned-task-map', `TASK_SECTION_RESOLUTION_MODE:${item.id}:${task.sectionResolutionMode || 'missing'}`);
   check(report.sections.includes(task.section), `TASK_SECTION_OUTSIDE_RESOLUTION:${item.id}:${task.section}`);
   check(Object.keys(task).every((key) => learnerProjectionKeys.has(key)), `UNEXPECTED_LEARNER_FIELD:${item.id}`);
 

@@ -148,8 +148,13 @@ const questionId = (question, index) => String(question.id || question.question_
     const readingKey = root.getAttribute('data-reading-object') || 'reading';
     const basePath = root.getAttribute('data-reading-base') || '/';
     const nextReadingId = root.getAttribute('data-reading-next-id') || '';
-    const storageKey = `kianos-reading-attempt-v1:${readingKey}`;
-    const continuousKey = 'kianos-reading-continuous-session-v1';
+    const examSessionId = new URLSearchParams(location.search).get('exam_session') || '';
+    const storageKey = examSessionId
+      ? `kianos-english-exam-task-v1:${examSessionId}:reading_a:${readingKey}`
+      : `kianos-reading-attempt-v1:${readingKey}`;
+    const continuousKey = examSessionId
+      ? `kianos-english-exam-continuous-v1:${examSessionId}`
+      : 'kianos-reading-continuous-session-v1';
     const navButtons = [...root.querySelectorAll('.portedReadingQuestionNav button')];
     const questions = [...root.querySelectorAll('[data-question]')];
     const progress = root.querySelector('[data-reading-progress]');

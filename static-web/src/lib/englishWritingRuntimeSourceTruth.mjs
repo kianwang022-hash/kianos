@@ -3,7 +3,9 @@ import {
   listWritingRuntimeTasks as baseListWritingRuntimeTasks,
   getFirstProtectedTrueExamTask as baseGetFirstProtectedTrueExamTask,
   inspectWritingTrueExamEntry as baseInspectWritingTrueExamEntry,
-  loadWritingRuntimeTask as baseLoadWritingRuntimeTask
+  loadWritingRuntimeTask as baseLoadWritingRuntimeTask,
+  listWritingExamRuntimeTasks as baseListWritingExamRuntimeTasks,
+  loadWritingExamRuntimeTask as baseLoadWritingExamRuntimeTask
 } from './englishWritingRuntimeTask.mjs';
 import { projectWritingRuntimeSourceTruth } from './englishSourceTruth.mjs';
 
@@ -35,4 +37,12 @@ export function inspectWritingTrueExamEntry() {
 
 export function loadWritingRuntimeTask(id) {
   return projectWritingRuntimeSourceTruth(baseLoadWritingRuntimeTask(id));
+}
+
+export function listWritingExamRuntimeTasks() {
+  return baseListWritingExamRuntimeTasks().map((task) => projectWritingRuntimeSourceTruth(task));
+}
+
+export function loadWritingExamRuntimeTask(id) {
+  return projectWritingRuntimeSourceTruth(baseLoadWritingExamRuntimeTask(id));
 }
