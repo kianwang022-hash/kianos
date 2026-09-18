@@ -23,37 +23,7 @@ later-stage Source baseline
 → later Projection / Runtime             FROZEN
 ```
 
-Subject K closure:
-
-- Marxism — Compression + sparse Precision + bounded Output;
-- Mao — historical problem → theory response → identity/hat Precision; no invented Output bank;
-- Xi — role/hierarchy compression + high-delta Precision map + current-year-refresh Output hooks;
-- History — causal movie + four horizontal Precision lines + bounded Output;
-- Ethics-Law — concept/boundary/situation compression + Precision candidates + legal freshness gate.
-
-The remaining debt is not “missing K architecture”. It is expected source refresh/admission work:
-- designated current-year Memory handbook delta;
-- current-year Xi/current-affairs updates;
-- current legal/source exactness where required;
-- learner Wrong/Uncertain evidence that may promote or reject candidates.
-
-Later-stage L now has a five-shape calibration candidate: Marx C02, Mao C02, Xi C06, History C05 and Ethics-Law C06.
-
-Accepted builder-side direction:
-
-```text
-chapter-fast reconstruction
-→ grouped core-content recall
-→ only active/admitted Precision
-→ historical W/U earns depth
-→ selective retest
-→ smallest repair
-→ cheap exit
-```
-
-Builder adversarial review found and repaired two real defects:
-- History horizontal Precision candidates were removed from default Content Recall;
-- grouped-complete chapter recall was explicitly separated from durable Precision debt.
+K detail and source-refresh debt remain owned by `content/politics/ACCEPTANCE.md` and `manifest.json`; this cursor does not duplicate subject counts or candidate inventories.
 
 **Next active gate: fresh independent later-stage L audit.**  
 UI / Projection / Runtime remain frozen until that audit closes.
