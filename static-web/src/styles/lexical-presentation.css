@@ -227,3 +227,325 @@ body#kianos-workspace.uiWordStudy [data-vocab-target-row].keyboard-target{outlin
   body#kianos-workspace.uiStageOne .lexicalContinueCard>strong{font-size:44px;}
   body#kianos-workspace.uiStageOne .lexicalHomeHeader nav{gap:20px;}
 }
+
+
+/* --------------------------------------------------------------------------
+   Architecture v2 candidate — Human Gate required
+   -------------------------------------------------------------------------- */
+
+/* Vocabulary Home = compact lexical workbench, not a marketing hero. */
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalHomeHeader{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:end;
+  gap:28px;
+  padding:10px 2px 13px;
+  border-bottom:1px solid #d7dfda;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalHomeHeader>div>span{
+  font-size:15px;
+  letter-spacing:.04em;
+  color:#64776d;
+  font-weight:650;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalHomeHeader h2{
+  margin:3px 0 2px;
+  font-family:var(--lexical-serif);
+  font-size:34px;
+  line-height:1.15;
+  letter-spacing:-.025em;
+  font-weight:500;
+  color:#22352c;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalHomeHeader p{
+  max-width:52rem;
+  margin:0;
+  font-size:17px;
+  line-height:1.55;
+  color:#66776e;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalHomeHeader nav{
+  align-self:end;
+  display:flex;
+  gap:20px;
+  padding:0;
+  border:0;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalHomeHeader nav button{
+  padding:8px 1px 10px;
+  font-size:16px;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalHomePanel{
+  margin-top:16px;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical [data-lexical-panel=study]{
+  grid-template-columns:minmax(0,1.42fr) minmax(320px,.58fr);
+  min-height:250px;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalContinueCard{
+  min-height:250px;
+  padding:30px 34px;
+  justify-content:center;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalContinueCard>span:first-child{
+  font-size:15px;
+  letter-spacing:.035em;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalContinueCard>strong{
+  margin:10px 0 5px;
+  font-size:52px;
+  line-height:1.08;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalContinueCard>p{
+  max-width:38rem;
+  margin:0 0 10px;
+  font-size:17px;
+  line-height:1.55;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalContinueCard>small{
+  font-size:15px;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalContinueCard .lexicalContinueArrow{
+  width:38px;
+  height:38px;
+  right:24px;
+  top:22px;
+  font-size:21px;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalRecent{
+  padding:22px 24px;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalRecent>header{
+  padding-bottom:11px;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalRecent>header>strong{
+  font-size:17px;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalRecent>header>span{
+  font-size:15px;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalWordRow{
+  padding:13px 0;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalWordRow strong{
+  font-size:22px;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalWordRow span{
+  font-size:16px;
+  line-height:1.5;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalWordRow small{
+  font-size:15px;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalEmpty{
+  font-size:16px;
+  line-height:1.6;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalSearchBox{
+  padding:20px 26px 18px;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalSearchBox>span{
+  margin-bottom:6px;
+  font-size:15px;
+  letter-spacing:0;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalSearchBox input{
+  font-size:22px;
+  padding:7px 0 10px;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalSearchResults{
+  padding:4px 26px 22px;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalHandoff{
+  padding:15px 24px;
+}
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalHandoff span,
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalHandoff p,
+body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalHandoff button{
+  font-size:15px;
+}
+
+/* Word Study front: fast judgment first, Depth only when earned/chosen. */
+body#kianos-workspace.uiWordStudy .lexicalStudyNav{
+  min-height:48px;
+  padding:7px 24px;
+  font-size:16px;
+}
+body#kianos-workspace.uiWordStudy .lexicalStudyNav>span{
+  font-size:15px;
+}
+body#kianos-workspace.uiWordStudy .portedVocabPreviewBar button{
+  min-width:40px;
+  font-size:15px;
+  padding:5px 8px;
+}
+body#kianos-workspace.uiWordStudy .portedVocabWordFront{
+  min-height:420px;
+  padding:44px 54px 40px;
+  justify-content:center;
+  align-items:stretch;
+  text-align:left;
+}
+body#kianos-workspace.uiWordStudy .portedVocabWordFront[data-recall-density=light]{
+  display:grid;
+  grid-template-columns:minmax(0,760px);
+  align-content:center;
+  justify-content:center;
+  justify-items:start;
+}
+body#kianos-workspace.uiWordStudy .portedVocabWordFront[data-recall-density=light] .portedVocabRecallMap{
+  display:none;
+}
+body#kianos-workspace.uiWordStudy .portedVocabWordFront[data-recall-density=rich]{
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(360px,.72fr);
+  grid-template-rows:auto auto auto auto auto auto;
+  column-gap:56px;
+  align-content:center;
+  justify-items:start;
+}
+body#kianos-workspace.uiWordStudy .portedVocabWordFront>span{
+  font-size:15px;
+  letter-spacing:.06em;
+}
+body#kianos-workspace.uiWordStudy .portedVocabWordFront h2{
+  margin:7px 0 10px;
+  font-size:clamp(68px,6vw,94px);
+  line-height:1.02;
+}
+body#kianos-workspace.uiWordStudy .portedVocabWordFront>p{
+  margin:3px 0 15px;
+  font-size:17px;
+  line-height:1.55;
+  color:#6b7a72;
+}
+body#kianos-workspace.uiWordStudy .portedVocabWordFront[data-recall-density=rich] .portedVocabRecallMap{
+  grid-column:2;
+  grid-row:1 / 7;
+  align-self:center;
+  justify-self:stretch;
+  justify-content:flex-start;
+  align-content:center;
+  padding:22px 0 22px 36px;
+  border-left:1px solid #dfe5e1;
+  max-width:none;
+}
+body#kianos-workspace.uiWordStudy .portedVocabRecallMap>strong{
+  flex-basis:100%;
+  margin-bottom:3px;
+  font-size:19px;
+}
+body#kianos-workspace.uiWordStudy .portedVocabRecallMap small{
+  flex-basis:100%;
+  font-size:15px;
+}
+body#kianos-workspace.uiWordStudy .portedVocabRecallMap code{
+  font-size:16px;
+  padding:4px 7px;
+}
+body#kianos-workspace.uiWordStudy [data-vocab-reveal]{
+  grid-column:1;
+  width:auto;
+  min-width:0;
+  padding:7px 0;
+  border:0;
+  background:transparent;
+  color:#4d6d5f;
+  font-size:15px;
+  font-weight:600;
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+body#kianos-workspace.uiWordStudy .lexicalRoutingControls{
+  grid-column:1;
+  justify-content:flex-start;
+  gap:8px;
+  margin-top:5px;
+}
+body#kianos-workspace.uiWordStudy .lexicalRoutingControls button{
+  min-height:37px;
+  padding:8px 13px;
+  font-size:15px;
+  border-radius:6px;
+}
+body#kianos-workspace.uiWordStudy .lexicalRoutingControls button[data-route=known],
+body#kianos-workspace.uiWordStudy .lexicalRoutingControls button[data-route=mastered]{
+  color:#2d5e49;
+  background:#f4f7f5;
+  border-color:#cbd9d1;
+}
+body#kianos-workspace.uiWordStudy .lexicalRoutingHint{
+  grid-column:1;
+  margin-top:4px;
+  font-size:15px;
+  line-height:1.5;
+  text-align:left;
+}
+
+/* Depth remains one editorial lexical object. */
+body#kianos-workspace.uiWordStudy .lexicalWordIdentity>span{
+  font-size:15px;
+  letter-spacing:.04em;
+}
+body#kianos-workspace.uiWordStudy .lexicalSenseRow>header>span{
+  font-size:15px;
+  letter-spacing:0;
+}
+body#kianos-workspace.uiWordStudy .lexicalSenseRow>header>small{
+  font-size:15px;
+}
+body#kianos-workspace.uiWordStudy .lexicalExpansionSection>header>small{
+  font-size:15px;
+}
+body#kianos-workspace.uiWordStudy .portedVocabFoot,
+body#kianos-workspace.uiWordStudy .portedVocabFoot summary,
+body#kianos-workspace.uiWordStudy .portedVocabLocalNote{
+  font-size:15px;
+}
+
+/* Lookup / Repair are not Coverage sessions. */
+body#kianos-workspace.uiWordStudy .portedVocabRuntime[data-vocab-mode=lookup] .portedVocabWordFront,
+body#kianos-workspace.uiWordStudy .portedVocabRuntime[data-vocab-mode=repair] .portedVocabWordFront{
+  display:none!important;
+}
+body#kianos-workspace.uiWordStudy .lexicalStudyNav[data-lexical-mode=lookup]>div,
+body#kianos-workspace.uiWordStudy .lexicalStudyNav[data-lexical-mode=repair]>div{
+  display:none;
+}
+body#kianos-workspace.uiWordStudy .portedVocabRuntime[data-vocab-mode=lookup] .portedVocabLocalNote{
+  display:none;
+}
+body#kianos-workspace.uiWordStudy .portedVocabRuntime[data-vocab-mode=lookup] .portedVocabFoot>span{
+  display:none;
+}
+body#kianos-workspace.uiWordStudy .portedVocabRuntime[data-vocab-mode=repair] .repair-selected{
+  background:#f4f8f5;
+  box-shadow:inset 3px 0 0 #5b806e;
+}
+
+@media(max-width:980px){
+  body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalHomeHeader{
+    grid-template-columns:1fr;
+    align-items:start;
+  }
+  body#kianos-workspace.uiStageOne.surfaceBody-lexical .lexicalHomeHeader nav{
+    justify-self:start;
+  }
+  body#kianos-workspace.uiStageOne.surfaceBody-lexical [data-lexical-panel=study]{
+    grid-template-columns:1fr;
+  }
+  body#kianos-workspace.uiStageOne.surfaceBody-lexical [data-lexical-panel=study]>.lexicalRecent{
+    border-left:0;
+    border-top:1px solid #e1e6e3;
+  }
+  body#kianos-workspace.uiWordStudy .portedVocabWordFront[data-recall-density=rich]{
+    grid-template-columns:1fr;
+  }
+  body#kianos-workspace.uiWordStudy .portedVocabWordFront[data-recall-density=rich] .portedVocabRecallMap{
+    grid-column:1;
+    grid-row:auto;
+    padding:16px 0 0;
+    border-left:0;
+    border-top:1px solid #dfe5e1;
+  }
+}
