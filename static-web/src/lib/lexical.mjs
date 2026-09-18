@@ -47,20 +47,27 @@ function lexicalManifestSnapshot() {
 
   const wordManifestPath = manifest.word_manifest;
   const relationManifestPath = manifest.relation_manifest;
-  if (!wordManifestPath || !relationManifestPath) {
+  const finalObjectDecisionPath = manifest?.final_learner_object?.decisions;
+  if (!wordManifestPath || !relationManifestPath || !finalObjectDecisionPath) {
     throw new Error('CURRENT_LEXICAL_OWNER_MANIFEST_PATH_MISSING');
   }
 
   const wordManifest = readJson(wordManifestPath);
   const relationManifest = readJson(relationManifestPath);
+  const finalObjectDecisions = readJson(finalObjectDecisionPath);
   if (wordManifest?.status !== 'CURRENT_NATURAL_OWNER' || wordManifest?.semantic_authority !== true) {
     throw new Error('CURRENT_LEXICAL_WORD_MANIFEST_NOT_AUTHORITATIVE');
   }
   if (relationManifest?.status !== 'CURRENT_NATURAL_OWNER' || relationManifest?.semantic_authority !== true) {
     throw new Error('CURRENT_LEXICAL_RELATION_MANIFEST_NOT_AUTHORITATIVE');
   }
+  if (finalObjectDecisions?.schema !== 'kianos.lexical.final_learner_object_decisions.v1'
+    || finalObjectDecisions?.status !== 'CURRENT_DERIVED_CONTENT'
+    || finalObjectDecisions?.semantic_authority !== false) {
+    throw new Error('CURRENT_LEXICAL_FINAL_OBJECT_DECISIONS_INVALID');
+  }
 
-  lexicalSnapshotCache = { manifest, wordManifest, relationManifest };
+  lexicalSnapshotCache = { manifest, wordManifest, relationManifest, finalObjectDecisions };
   return lexicalSnapshotCache;
 }
 
@@ -133,6 +140,7 @@ export function inspectLexicalSources() {
     manifestPath: LEXICAL_MANIFEST,
     wordManifestPath: manifest.word_manifest,
     relationManifestPath: manifest.relation_manifest,
+    finalLearnerObjectDecisionPath: manifest.final_learner_object.decisions,
     wordCount: wordManifest.word_count,
     relationCount: relationManifest.relation_count,
     auditPath: manifest.audit,
@@ -179,7 +187,7 @@ export function loadLexicalWordByOrdinal(ordinal) {
     throw new Error(`CURRENT_LEXICAL_ORDINAL_INVALID:${ordinal}`);
   }
 
-  const { wordManifest } = lexicalManifestSnapshot();
+  const { wordManifest, finalObjectDecisions } = lexicalManifestSnapshot();
   const maxOrdinal = Number(wordManifest.word_count || 0);
   if (ordinal > maxOrdinal) throw new Error(`CURRENT_LEXICAL_ORDINAL_OUT_OF_RANGE:${ordinal}`);
 
@@ -199,7 +207,8 @@ export function loadLexicalWordByOrdinal(ordinal) {
   const relationPaths = hydrateRelations(owner, hydratedRecord);
   const sourceHash = sha256(stableJson({ owner: hydratedRecord, relationPaths }));
   const senseLineage = senseLineageForOwner(owner);
-  const record = compileLexicalStudyObject(hydratedRecord);
+  const decisions = finalObjectDecisions?.words?.[owner.word_id] || {};
+  const record = compileLexicalStudyObject(hydratedRecord, decisions);
 
   return {
     objectId: owner.word_id,
