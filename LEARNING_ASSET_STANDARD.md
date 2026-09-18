@@ -116,6 +116,37 @@ Examples:
 
 Output: trustworthy canonical Knowledge / capability assets.
 
+### Adversarial Knowledge reconstruction
+
+For a **new or materially reconstructed Knowledge owner**, a coherent first draft is not enough. Before K can close, attack the candidate against the strongest plausible failure modes.
+
+Use a bounded sequence:
+
+```text
+Knowledge candidate
+→ semantic self-falsification / adversarial audit
+→ repair real defects
+→ independent / fresh readback when the reconstruction is material enough to justify it
+→ K PASS / PASS_WITH_DEBT
+```
+
+The attack should be domain-native, not schema-native. Depending on the asset, test the relevant risks:
+
+- source wording or historical precision silently generalized into timeless truth;
+- teacher/file/question order mistaken for ontology;
+- classification/list replacing mechanism or decision structure;
+- one marker / antibody / formula / label replacing the full evidence role;
+- negative-space leakage into a second course or external modern-guideline curriculum;
+- duplicate ownership across Systems / modules;
+- missing decisive relation / boundary hidden by complete counts;
+- AI-generated relation or exactness without Source support;
+- over-compression that destroys the learner-worthy model;
+- over-expansion that turns canonical Knowledge into an encyclopedia.
+
+For substantial new System/module Knowledge, acceptance should include a bounded independent or fresh readback when practical. It need not mimic the exact Learning-audit protocol, but builder completeness claims and validators alone are not sufficient evidence.
+
+A small correction inside an already accepted owner does not require ritual re-acceptance unless it materially changes the model, scope, ownership, or source-grounded exactness.
+
 ---
 
 # 4｜Stage 2 — Learning Logic
