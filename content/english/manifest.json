@@ -51,5 +51,59 @@
     "engineering_may_invent_or_repair_semantics": false,
     "private_interaction_state_is_shared_current": false
   },
-  "provenance_rule": "Migration, recovery, repair, historical projection, and hash-audit evidence belongs in provenance.json or Git history and is not normal learner Content."
+  "provenance_rule": "Migration, recovery, repair, historical projection, and hash-audit evidence belongs in provenance.json or Git history and is not normal learner Content.",
+  "final_learner_objects": {
+    "task_map": {
+      "schema": "kianos.english.task_map.v1",
+      "role": "CONTENT_OWNED_TASK_IDENTITY",
+      "tasks": {
+        "reading_a": {
+          "sections": [
+            "reading_part_a"
+          ]
+        },
+        "cloze": {
+          "sections": [
+            "cloze"
+          ]
+        },
+        "reading_b": {
+          "sections": [
+            "reading_part_b"
+          ]
+        },
+        "translation": {
+          "sections": [
+            "translation"
+          ]
+        },
+        "writing": {
+          "sections": [
+            "writing_part_a",
+            "writing_part_b"
+          ],
+          "section_specs": {
+            "writing_part_a": {
+              "kind": "small",
+              "year_start": 2005,
+              "year_end": 2026,
+              "set_count": 22,
+              "prompt_count": 22,
+              "set_id_pattern": "english1-{year}-writing-a-main",
+              "prompt_id_pattern": "english1-{year}-writing-a-main-prompt"
+            },
+            "writing_part_b": {
+              "kind": "big",
+              "year_start": 2000,
+              "year_end": 2026,
+              "set_count": 27,
+              "prompt_count": 27,
+              "set_id_pattern": "english1-{year}-writing-b-main",
+              "prompt_id_pattern": "english1-{year}-writing-b-main-prompt"
+            }
+          }
+        }
+      }
+    }
+  }
 }
