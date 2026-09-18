@@ -8,55 +8,6 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "find + that-clause 表示认为",
-        "codex_reviewed": false,
-        "definition_cn": "认为，感到",
-        "definition_en": "to have a particular opinion or feeling",
-        "dimensions": {},
-        "direction": "R",
-        "evidence": [
-          {
-            "evidence_id": "evidence:core-card:find:fc1e02776839",
-            "evidence_status": "source_checked",
-            "source_labels": [],
-            "source_locator": "find:l2:3",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:constructions:find:5385885f02e042cd",
-        "family_sources": [],
-        "label_en": null,
-        "level": null,
-        "meaning_cn": "发现/认为……",
-        "module": "constructions",
-        "pattern": "find + that-clause",
-        "pos": "verb",
-        "presentation_merge": {
-          "merge_id": "presentation-merge:fa3b44fdafae34cc2040",
-          "metadata_tags": [
-            "cloze",
-            "collocation",
-            "construction",
-            "writing"
-          ],
-          "mode": "MERGE_PRESENTATION",
-          "surviving_object_id": "collocation:6e12658e38aa11d39bf6"
-        },
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:find:3023f49b7b3f59d7",
-        "target_sense_id": null,
-        "target_word": null,
-        "task_tags": [
-          "cloze",
-          "writing"
-        ],
-        "verification_status": "verified",
-        "writing_safe": false
-      },
-      {
         "construction_id": "construction:8342b1cf22d7f86f9764",
         "direction": "R",
         "level": "L2",
@@ -168,7 +119,17 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:6e12658e38aa11d39bf6",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:find:3023f49b7b3f59d7:collocation:0"
+            ],
+            "meaning_cn": "发现/认为……",
+            "phrase": "find + that-clause"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "认为；觉得；发现……处于某状态",
         "definition_en": "to have a particular opinion or feeling about something; to discover that something is the case",
@@ -360,7 +321,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1929-1936.json",
     "source_content_hash": "fb82f1c433e77fb2d2bf1c3965e9f134491346cef02b5761ae1acb1a56741aeb",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
