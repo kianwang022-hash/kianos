@@ -206,6 +206,7 @@ const questionByOrdinal = new Map(item.questions.map((question, index) => [Strin
     };
     let state = read();
     const save = () => localStorage.setItem(storageKey, JSON.stringify(state));
+    if (examSessionId && !localStorage.getItem(storageKey)) save();
     const formalOf = (row) => {
       try { return normalizeAnswer(JSON.parse(row.getAttribute('data-answer') || '""')); }
       catch { return []; }
