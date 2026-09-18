@@ -345,7 +345,8 @@ const payload = JSON.stringify({
         const relation = question?.relation || null;
         if (relation?.knowledgePath && ['RESOLVED_KP','RESOLVED_BLOCK','BLOCK_ONLY'].includes(relation.targetStatus)) {
           relationLink.hidden = false;
-          relationLink.href = `${data.base}${String(relation.knowledgePath).replace(/^\\/+/, '')}`;
+          const normalizedKnowledgePath = String(relation.knowledgePath || '').split('/').filter(Boolean).join('/');
+          relationLink.href = `${data.base}${normalizedKnowledgePath}`;
           const label = [relation.blockLabel || relation.blockId, relation.primaryKpDisplayId || relation.primaryKpId, relation.primaryKpTitle].filter(Boolean).join(' · ');
           relationLink.textContent = label ? `回到 ${label}` : '回到审核过的知识位置';
         } else {
