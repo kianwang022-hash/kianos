@@ -175,7 +175,7 @@ has(lastLocation, "localStorage.setItem('kianos-xizong-last-location-v1', JSON.s
 has(lastLocation, 'href: window.location.pathname', 'last-location-path');
 has(homeTools, "localStorage.getItem('kianos-xizong-last-location-v1')", 'continue-read');
 has(homeTools, 'link.href = last.href;', 'continue-return');
-has(homeTools, '} catch {}', 'continue-malformed-state-containment');
+has(homeTools, 'catch { return fallback; }', 'continue-malformed-state-containment');
 
 console.log([
   'A2 Runtime acceptance probe PASS',
