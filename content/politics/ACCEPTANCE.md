@@ -633,12 +633,229 @@ Fresh independent Consolidation L re-audit
 = PENDING
 
 Analysis-Output L
-= UNTESTED
+= CANDIDATE / CHAT-PRIMARY / FRESH AUDIT PENDING
 
 Mock/Final L
+= CANDIDATE / CHAT-PRIMARY + SOURCE-PAPER PRIMARY / FRESH AUDIT PENDING
+```
+
+
+---
+
+## Analysis-Output L — Chat-primary candidate
+
+Status: **CANDIDATE / FRESH AUDIT PENDING**
+
+Politics analysis-question preparation is intentionally **Chat-primary**. No dedicated learner Website/Runtime is required for this lane.
+
+Durable architecture:
+
+```text
+GitHub Current
+= source-grounded reusable assets
+  topic / material cues / owning principle
+  small answer skeleton
+  exact formulations when source-legitimate
+  current-year overlay refs / freshness state
+
+Chat
+= learner surface
+  selects topic/material/depth
+  asks the learner to identify what is tested
+  checks the answer skeleton
+  requests exact wording only when needed
+  requests full prose only when worth the time
+  diagnoses and repairs the smallest real output failure
+
+Website
+= no required role
+```
+
+Canonical topic ownership remains in:
+
+```text
+content/politics/learning/<subject>/<chapter>.json
+→ later_stage_knowledge.analysis_output_hooks[]
+```
+
+Lane-level routing/production rules live at:
+
+```text
+content/politics/analysis-output/README.md
+```
+
+Default Chat depth:
+
+```text
+IDENTIFY
+→ SKELETON
+```
+
+Add `EXACT` only when source/current-year wording matters.
+
+Add `DELIVER` only when:
+- first calibrating an important question family;
+- material → principle → skeleton conversion is unstable;
+- timed delivery itself needs evidence;
+- Mock/final practice explicitly requires full prose.
+
+Hard boundaries:
+
+- do not build a second answer-template database;
+- do not force symmetric Output banks across all five subjects;
+- no source support → no exact formulation claim;
+- historical output material may scaffold a topic but cannot freeze current-year wording;
+- Xi/current-affairs and legal/normative material keep their strongest freshness gates;
+- real learner answers / weakness rankings / Chat diagnosis stay private, not in GitHub Current;
+- Website/Runtime acceptance is not required for Analysis Output L.
+
+Fresh audit must test whether the existing hooks + Chat-primary rules are sufficient to:
+1. identify a source-grounded topic;
+2. train material → principle recognition;
+3. train a compact answer skeleton;
+4. retrieve only legitimate exact/current wording;
+5. use full prose selectively;
+6. repair the smallest real output failure;
+7. avoid inventing unsupported or stale answer banks.
+
+Allowed current claim:
+
+```text
+Politics Analysis-Output L
+= CANDIDATE / CHAT-PRIMARY
+
+Fresh independent audit
+= PENDING
+
+Website/Runtime
+= NOT REQUIRED FOR THIS LANE
+
+Real learner U
 = UNTESTED
 ```
 
+
+---
+
+## Mock / Final L — Chat-primary candidate
+
+Status: **CANDIDATE / FRESH AUDIT PENDING**
+
+Mock / Final does not create a fourth Politics course and does not require a dedicated Website.
+
+Durable model:
+
+```text
+GitHub Current
+= reusable Mock/Final rules + canonical learning assets
+
+authentic / exam-like paper or PDF
+= primary Mock execution surface
+
+Chat
+= decides full Mock vs smaller timed practice
+  diagnoses the first meaningful failure
+  routes repair to the smallest existing owner
+  builds / shrinks the final high-value queue
+
+private learner state
+= real answers / timing / W-U / completion / final queue
+```
+
+### Mock candidate rule
+
+Use a full Mock only when whole-paper evidence can change a real decision.
+
+Mock should test:
+- objective reliability;
+- analysis transfer;
+- pacing / switching;
+- answer completion.
+
+Preserve one clean first attempt. Do not repair in the middle of the paper.
+
+After the attempt:
+
+```text
+Mock evidence
+→ Chat diagnosis
+→ smallest existing owner
+→ repair
+→ later fresh evidence when needed
+```
+
+Do not create a generic Mock weakness when Consolidation / Precision / Analysis Output / execution already owns the failure.
+
+Same-paper correction is repair evidence, not fresh transfer.
+
+### Final candidate rule
+
+Final review starts from:
+
+```text
+admitted high-value Precision / Memory
++ current-year exact overlays
++ high-frequency Analysis Output skeletons
++ repeated / still-relevant W/U
++ Mock-exposed real weaknesses
++ critical source refreshes
+```
+
+It does not start from all chapters.
+
+Default exclusions:
+- stable chapter content;
+- candidate-only unadmitted Memory;
+- stale historical exact wording;
+- rich reference/explanation content;
+- automatic full Xiao1000 replay.
+
+Hard rule:
+
+> **Final compression is what is worth carrying into the exam, not a miniature fourth round.**
+
+### Website boundary
+
+No dedicated Mock page / final dashboard / fixed scheduler / Website semantic grading is required for this lane.
+
+The candidate must remain usable with:
+
+```text
+GitHub durable assets
++ source paper/PDF
++ Chat
++ private learner evidence
+```
+
+### Fresh audit target
+
+Fresh independent audit should test whether this candidate:
+
+1. uses full Mock only when whole-paper evidence is worth its cost;
+2. preserves a clean first attempt;
+3. distinguishes objective / analysis / execution failures;
+4. routes failures to existing smallest owners;
+5. avoids same-paper overfitting;
+6. builds Final only from admitted/current/high-value/evidence-backed items;
+7. keeps high-delta exactness freshness-gated;
+8. removes stable content instead of replaying the whole curriculum;
+9. does not manufacture a Website requirement.
+
+Allowed current claim:
+
+```text
+Politics Mock / Final L
+= CANDIDATE
+
+Fresh independent audit
+= PENDING
+
+Website/Runtime
+= NOT REQUIRED FOR THIS LANE
+
+Real learner U
+= UNTESTED
+```
 
 
 ---
@@ -647,9 +864,57 @@ Mock/Final L
 
 Status: **PASS**
 
-A fresh independent audit was run against the repaired later-stage Learning candidate, using the real heterogeneous Current K shapes rather than prior PASS labels or the PR summary as the answer key.
+A fresh independent audit was run against the current #433 head after the same-Chat construction/readback phase. Prior PASS labels and the PR summary were treated as evidence only, not as the answer key.
 
-Accepted result:
+The audit read the actual later-stage Learning rules and representative Current K owners across all five Politics cognition shapes:
+
+- Marxism C02 — relation/mechanism reconstruction;
+- Mao C02 — national-condition → route/identity structure;
+- Xi C06 — hierarchy/role + high-delta exactness;
+- History C05 + subject horizontal owner — causal movie + cross-chapter precision candidates;
+- Ethics-Law C06 — concept/boundary/situation + legal freshness.
+
+### Consolidation L
+
+Verdict: **PASS_AFTER_REPAIR**
+
+Confirmed:
+- no static per-chapter `later_stage_learning` plan remains in the representative K owners;
+- Chat owns adaptive selection from Current K + bounded private learner evidence;
+- Web executes explicit targets and returns evidence only;
+- target guards follow the target across action labels;
+- guarded / candidate-only / Analysis-only / freshness-gated content cannot be surfaced by relabeling the action;
+- cross-chapter History anchors are supported;
+- open reconstruction is not semantically graded by Web;
+- stable chapters may close cheaply and weak chapters deepen only by Chat decision.
+
+### Analysis-Output L
+
+Verdict: **PASS**
+
+Confirmed:
+- Chat is the primary learning surface;
+- GitHub stores only durable source-grounded topic/material/principle/skeleton/exact-current assets;
+- default work is IDENTIFY → SKELETON, with EXACT / DELIVER only when earned;
+- no symmetric five-subject answer bank is manufactured;
+- Xi/current-affairs and legal/normative exact wording remain freshness-gated;
+- real learner answers / weakness ranking / Chat diagnosis remain private;
+- no dedicated Website/Runtime is required for L closure.
+
+### Mock / Final L
+
+Verdict: **PASS**
+
+Confirmed:
+- full Mock is used only when whole-paper evidence can change a real decision;
+- one clean first attempt is preserved;
+- objective / analysis / execution failures route to their smallest existing owners;
+- same-paper correction is repair evidence, not fresh transfer;
+- Final begins from admitted/current/high-value/evidence-backed items, not all chapters;
+- stable content exits instead of being replayed;
+- no dedicated Mock/Final Website is required.
+
+### Accepted later-stage Learning boundary
 
 ```text
 Politics later-stage K            PASS_WITH_DEBT
@@ -663,17 +928,7 @@ Politics later-stage Runtime      downstream / not accepted here
 Politics real learner U           UNTESTED
 ```
 
-Key acceptance points:
-
-- Consolidation keeps review selection in Chat; Web executes explicit targets and returns evidence only.
-- Five subject cognition shapes remain distinct; no static per-chapter review rubric is reintroduced.
-- target admission / freshness / phase guards follow the target across action labels.
-- Analysis Output remains Chat-primary with source-grounded hooks; full prose is selective rather than daily ritual.
-- Mock preserves clean first-attempt evidence and routes failures back to existing smallest owners.
-- Final starts from admitted/current/high-value/evidence-backed items rather than replaying all chapters.
-- no dedicated Analysis Output / Mock / Final Website is required by Learning.
-
-This closes the Learning blocker on downstream Exam-Horizon adaptation. It does not prove Final Learner Object direct-consumption, Runtime closure, typed Chat↔Website execution, or real learner U.
+This acceptance removes the Learning blocker on downstream Exam-Horizon adaptation. It does not itself prove Final Learner Object direct-consumption, Runtime closure, typed Chat↔Website execution, or real learner use.
 
 ---
 
