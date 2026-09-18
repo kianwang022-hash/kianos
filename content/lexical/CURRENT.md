@@ -10,8 +10,8 @@ This cursor owns current engineering routing only. It does not own Rule / Model,
 
 ## Current state
 
-**Active lane:** NONE — Lexical Architecture v2 learner-surface closure accepted  
-**Blocker:** none
+**Active lane:** Vocabulary real-use loop closure audit — ACTIVE  
+**Blocker:** Chat-readable learner-state handoff and learner-visible engineering residue are under bounded repair / verification
 
 Stage:
 
@@ -405,8 +405,31 @@ No further broad Lexical UI architecture work is planned for this exam cycle.
 
 ---
 
+## Real-use closure audit — ACTIVE 2026-09-18
+
+The accepted Vocabulary architecture is not reopened. This bounded audit owns only concrete real-use defects exposed after acceptance:
+
+- normal learner surfaces must not expose engineering transport/provenance language;
+- the Chat handoff must summarize actual Coverage, whole-card routing, same-day revisit, exact active Repair and meaningful current-day evidence;
+- Chat-generated Challenge transport must be usable without opening a debug/JSON surface;
+- GitHub main → local Current mirror delivery must remain proven by the existing Current Delivery integration gate.
+
+No learner-state payload may be persisted to shared GitHub Content.
+
+---
+
 ## Exact next action
 
-Normal use.
+Prove one continuous real-use loop in a targeted browser gate:
 
-Do not reopen the accepted Vocabulary architecture, navigation, Depth geometry, Repair / Challenge interaction or English handoff for speculative polish. Reopen only for a concrete learner-visible defect, a broken contract, or an explicit new Kian request.
+```text
+Learn / Fast Pass / Depth
+→ local +
+→ Home state handoff to Chat
+→ user-facing Chat Test load
+→ Repair / Challenge / Reconstruction
+→ new evidence
+→ state handoff remains interpretable
+```
+
+Then remove this temporary audit cursor and return to Normal use.

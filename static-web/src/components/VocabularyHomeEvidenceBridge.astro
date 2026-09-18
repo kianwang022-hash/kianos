@@ -11,10 +11,15 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
     LEXICAL_LEDGER_STORAGE_KEY,
     compileRepairTargets,
     emptyLexicalLedger,
-    exportReturnEvents,
     normalizeLexicalLedger,
     reconcileEvidenceIdentity
   } from '../lib/lexicalEvidence.mjs';
+  import {
+    LEXICAL_INTAKE_STORAGE_KEY,
+    LEXICAL_ROUTING_STORAGE_KEY,
+    LEXICAL_SETTINGS_STORAGE_KEY
+  } from '../lib/lexicalSettings.mjs';
+  import { buildLexicalChatStatePacket } from '../lib/lexicalChatState.mjs';
 
   const bridge = document.querySelector('[data-lexical-home-evidence-bridge]');
   const home = document.querySelector('[data-lexical-home]');
@@ -92,13 +97,20 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
     };
 
     const currentPacket = () => {
-      const studyDay = localStudyDay();
-      return {
-        schema: 'kianos.lexical.return_packet.v1',
-        study_day: studyDay,
-        exported_at: new Date().toISOString(),
-        events: exportReturnEvents(readLedger(), studyDay, eventLocalDay)
-      };
+      const lastOrdinalRaw = Number(localStorage.getItem('kianos-vocabulary-last-ordinal') || 1);
+      const lastOrdinal = Number.isInteger(lastOrdinalRaw) && lastOrdinalRaw >= 1 ? lastOrdinalRaw : 1;
+      const cursorRow = rows.find((row) => Number(row.ordinal) === lastOrdinal) || rows[0] || null;
+      return buildLexicalChatStatePacket({
+        ledger: readLedger(),
+        routing: readJson(LEXICAL_ROUTING_STORAGE_KEY, null),
+        intake: readJson(LEXICAL_INTAKE_STORAGE_KEY, null),
+        settings: readJson(LEXICAL_SETTINGS_STORAGE_KEY, null),
+        cursor: cursorRow ? { word_id: cursorRow.objectId, ordinal: Number(cursorRow.ordinal), word: cursorRow.word } : null,
+        challengePacket: readJson('kianos-lexical-challenge-packet-v1', null),
+        challengeProgress: readJson('kianos-lexical-challenge-progress-v1', null),
+        challengeEvents: readJson('kianos-lexical-challenge-events-v1', []),
+        now: new Date()
+      });
     };
 
     let copyButton = home.querySelector('[data-lexical-copy-return]');
@@ -108,11 +120,10 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
       copyButton = clean;
       copyButton.addEventListener('click', async () => {
         const packet = currentPacket();
-        if (!packet.events.length) return;
         const text = JSON.stringify(packet, null, 2);
-        try { await navigator.clipboard.writeText(text); copyButton.textContent = 'Copied'; }
-        catch { window.prompt('Copy Return Packet', text); }
-        window.setTimeout(() => { copyButton.textContent = 'Copy Return Packet'; }, 1200);
+        try { await navigator.clipboard.writeText(text); copyButton.textContent = '已复制'; }
+        catch { window.prompt('复制学习状态给 Chat', text); }
+        window.setTimeout(() => { copyButton.textContent = '复制学习状态给 Chat'; }, 1200);
       });
     }
 
@@ -120,10 +131,15 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
       const packet = currentPacket();
       const handoff = home.querySelector('[data-lexical-handoff]');
       const summary = home.querySelector('[data-lexical-return-summary]');
-      if (handoff instanceof HTMLElement) handoff.hidden = packet.events.length === 0;
-      if (copyButton instanceof HTMLButtonElement) copyButton.disabled = packet.events.length === 0;
-      if (summary) summary.textContent = packet.events.length
-        ? `当前学习日有 ${packet.events.length} 条可追溯 lexical evidence；重复导入会按 event identity 去重。`
+      const hasState = packet.coverage.introduced_total > 0
+        || packet.routing.latest_total > 0
+        || packet.repair.active_target_count > 0
+        || packet.today_evidence.length > 0
+        || Boolean(packet.challenge_session);
+      if (handoff instanceof HTMLElement) handoff.hidden = !hasState;
+      if (copyButton instanceof HTMLButtonElement) copyButton.disabled = !hasState;
+      if (summary) summary.textContent = hasState
+        ? `已进入 ${packet.coverage.introduced_total} 词 · 今日 ${packet.coverage.today_new} 新词 · ${packet.routing.same_day_revisit.length} 个同日待重学 · ${packet.repair.active_target_count} 个 Repair`
         : '';
     };
 
