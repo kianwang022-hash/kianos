@@ -11,6 +11,10 @@ on:
       - 'static-web/src/components/XizongPracticeWorkbench.astro'
       - 'static-web/src/styles/xizong-system-exit-workspace.css'
       - 'static-web/src/components/XizongSystemExitRuntime.astro'
+      - 'static-web/src/styles/xizong-block-workspace.css'
+      - 'static-web/src/components/XizongBlockV6.astro'
+      - 'static-web/src/components/XizongKpLearnInteraction.astro'
+      - 'static-web/scripts/test-xizong-block-workspace.mjs'
       - 'static-web/scripts/test-xizong-system-exit-workspace.mjs'
       - 'static-web/scripts/verify-macos-pingfang.mjs'
       - '.github/workflows/kianos-mac-visual-gate.yml'
@@ -24,6 +28,10 @@ on:
       - 'static-web/src/components/XizongPracticeWorkbench.astro'
       - 'static-web/src/styles/xizong-system-exit-workspace.css'
       - 'static-web/src/components/XizongSystemExitRuntime.astro'
+      - 'static-web/src/styles/xizong-block-workspace.css'
+      - 'static-web/src/components/XizongBlockV6.astro'
+      - 'static-web/src/components/XizongKpLearnInteraction.astro'
+      - 'static-web/scripts/test-xizong-block-workspace.mjs'
       - 'static-web/scripts/test-xizong-system-exit-workspace.mjs'
       - 'static-web/scripts/verify-macos-pingfang.mjs'
       - '.github/workflows/kianos-mac-visual-gate.yml'
@@ -74,8 +82,11 @@ jobs:
       - name: Verify Chromium can use PingFang
         run: node scripts/verify-macos-pingfang.mjs
 
-      - name: Capture Xizong Mac visual evidence
+      - name: Capture Xizong System Recall Mac visual evidence
         run: node scripts/test-xizong-system-exit-workspace.mjs
+
+      - name: Capture Xizong Block Mac visual evidence
+        run: node scripts/test-xizong-block-workspace.mjs
 
       - name: Upload Mac visual evidence
         if: always()
@@ -89,4 +100,8 @@ jobs:
             static-web/.qa/xizong-practice-workbench.png
             static-web/.qa/xizong-system-exit-recall.png
             static-web/.qa/xizong-system-exit-recall-reveal.png
+            static-web/.qa/xizong-block-workspace.json
+            static-web/.qa/xizong-block-kp-learn.png
+            static-web/.qa/xizong-block-recall-front.png
+            static-web/.qa/xizong-block-ttsx-checkpoint-visual-only.png
           if-no-files-found: error
