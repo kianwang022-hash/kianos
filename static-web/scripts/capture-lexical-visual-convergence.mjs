@@ -189,6 +189,10 @@ try {
         '官方制裁；处罚',
         'impose sanctions on/against sb/sth',
         'sanction sb for (doing) sth'
+      ],
+      expectAbsent: [
+        'an institutional-authority word with two opposing branches',
+        'ask what authority is doing'
       ]
     },
     {
@@ -197,15 +201,21 @@ try {
       expectPatterns: true,
       expectReference: true,
       expectText: [
-        'Adjective/noun and verb remain one Word identity; POS selects the stress pattern.',
+        '把具体细节拿开，只保留概念或关键信息；名词还表示论文/文章的摘要',
+        'adj = 从具体实例抽离；noun = 把论文压成摘要；verb = 从材料中抽取/抽象出。',
         'AB-stract',
         '/ˈæb.strækt/',
-        'initial',
         'ab-STRACT',
         '/əbˈstrækt/',
-        'final',
         'abstractly',
         '同属 AWL 词族；词性与义项不同，不可视为同义替换'
+      ],
+      expectAbsent: [
+        'Adjective/noun and verb remain one Word identity; POS selects the stress pattern.',
+        'As adjective/noun, stress is normally on the first syllable: AB-stract.',
+        'As a verb, stress normally shifts to the second syllable: ab-STRACT.',
+        'initial',
+        'final'
       ]
     },
     {
@@ -252,6 +262,14 @@ try {
         fixture.word === 'abstract' ? JSON.stringify(familyDebug) : ''
       );
     }
+    for (const forbiddenText of fixture.expectAbsent || []) {
+      assert(
+        !renderedText.includes(forbiddenText),
+        `v2_no_repeated_info_${fixture.word}_${forbiddenText}`,
+        renderedText
+      );
+    }
+    assert(await page.locator('.lexicalCoreBranches').count() === 0, `v2_no_core_cluster_cards_${fixture.word}`);
     if (fixture.word === 'abstract') {
       const formRows = await page.locator('.lexicalFormVariants article').evaluateAll((nodes) =>
         nodes.map((node) => {
