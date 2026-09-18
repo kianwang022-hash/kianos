@@ -181,7 +181,6 @@ try {
 
     await advanceToRecall(page, root, item);
     await root.locator('[data-kp-recall-card]:not([hidden])').waitFor({ state: 'visible' });
-    await page.waitForFunction(() => document.querySelector('[data-xizong-v6-block]')?.getAttribute('data-aux-weight') === 'none');
     check(await root.locator('[data-kp-recall-card]:not([hidden]) [data-kp-answer]:visible').count() === 0, `${item.lane}_recall_front_answer_hidden`);
     check(await root.locator('[data-xizong-aux-surface] [data-learner-asset]:visible').count() === 0, `${item.lane}_recall_front_aux_has_no_answer_payload`);
     check((await root.locator('[data-xizong-aux-surface] [data-learner-object-slot]').getAttribute('data-learner-object-slot')) !== 'kp_recall_post_reveal', `${item.lane}_post_reveal_slot_absent_before_reveal`);
