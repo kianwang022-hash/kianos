@@ -55,7 +55,7 @@
   /* L1 Chinese UI face — exact 4173 Politics Learn reference.
      Apple system UI stays first for Latin/system chrome; on Mac, Chinese resolves
      through PingFang SC. Subject/task CSS must not replace the Chinese family. */
-  --study-font-cjk: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans CJK SC", sans-serif;
+  --study-font-cjk: "PingFang SC", -apple-system, BlinkMacSystemFont, "Noto Sans CJK SC", sans-serif;
   --study-font: var(--study-font-cjk);
   --study-serif: "Iowan Old Style", Charter, "Palatino Linotype", Palatino, Georgia, "Noto Serif CJK SC", serif;
   --study-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
