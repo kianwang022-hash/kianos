@@ -10,6 +10,7 @@ const repoRoot = process.env.KIANOS_REPO_ROOT
 const LEARNER_ROOT = 'content/xizong/knowledge/learner';
 const QUESTION_ROOT = 'content/xizong/questions';
 const EXPLANATION_ROOT = 'content/xizong/explanations';
+const EXAM_FORMAT_PATH = 'content/xizong/questions/exam-format.json';
 
 function absolute(relativePath) {
   return path.join(repoRoot, relativePath);
@@ -194,6 +195,91 @@ export function loadXizongQuestionsByIds(questionIds) {
   const questionCache = new Map();
   const explanationCache = new Map();
   return ids.map((questionId) => loadQuestionProjection(questionId, questionCache, explanationCache));
+}
+
+function loadXizongExamFormatOwner() {
+  const owner = readJson(EXAM_FORMAT_PATH);
+  if (owner?.schema !== 'kianos.xizong.exam_format.v1' || owner?.status !== 'CURRENT') {
+    throw new Error('CURRENT_XIZONG_EXAM_FORMAT_INVALID');
+  }
+  return owner;
+}
+
+export function loadXizongExamFormatForYear(year) {
+  const normalizedYear = Number(year);
+  if (!Number.isInteger(normalizedYear)) throw new Error(`CURRENT_XIZONG_EXAM_FORMAT_YEAR_INVALID:${year}`);
+  const owner = loadXizongExamFormatOwner();
+  const row = (owner.eras || []).find((item) => normalizedYear >= Number(item?.start_year) && normalizedYear <= Number(item?.end_year));
+  if (!row) throw new Error(`CURRENT_XIZONG_EXAM_FORMAT_YEAR_MISSING:${normalizedYear}`);
+  return {
+    schema: owner.schema,
+    authority: owner.authority,
+    year: normalizedYear,
+    eraId: String(row.era_id || ''),
+    questionCount: Number(row.question_count || 0),
+    maxScore: Number(row.max_score || 0),
+    scoringSegments: (row.scoring_segments || []).map((segment) => ({
+      start: Number(segment.start),
+      end: Number(segment.end),
+      points: Number(segment.points)
+    })),
+    sourcePath: EXAM_FORMAT_PATH,
+    sourceHash: sha256(readText(EXAM_FORMAT_PATH))
+  };
+}
+
+export function listXizongPaperSummaries() {
+  const manifest = readJson(`${QUESTION_ROOT}/manifest.json`);
+  const counts = new Map();
+  for (const row of manifest?.canonical_storage?.shards || []) {
+    const match = String(row?.path || '').match(/^shards\/(\d{4})\//);
+    if (!match) continue;
+    counts.set(match[1], Number(counts.get(match[1]) || 0) + Number(row?.record_count || 0));
+  }
+  return [...counts.entries()]
+    .map(([year, questionCount]) => {
+      const format = loadXizongExamFormatForYear(year);
+      if (format.questionCount !== questionCount) {
+        throw new Error(`CURRENT_XIZONG_PAPER_FORMAT_COUNT_MISMATCH:${year}:${questionCount}/${format.questionCount}`);
+      }
+      return {
+        year: Number(year),
+        questionCount,
+        maxScore: format.maxScore,
+        eraId: format.eraId
+      };
+    })
+    .sort((a, b) => b.year - a.year);
+}
+
+export function loadXizongWholePaper(year) {
+  const normalizedYear = Number(year);
+  const questions = loadXizongQuestionYear(normalizedYear);
+  const format = loadXizongExamFormatForYear(normalizedYear);
+  if (questions.length !== format.questionCount) {
+    throw new Error(`CURRENT_XIZONG_PAPER_QUESTION_COUNT_MISMATCH:${normalizedYear}:${questions.length}/${format.questionCount}`);
+  }
+  const ids = questions.map((question) => question.questionId);
+  return {
+    systemId: `paper-${normalizedYear}`,
+    canonicalId: String(normalizedYear),
+    title: `${normalizedYear} 整卷`,
+    questionCount: questions.length,
+    scopePath: EXAM_FORMAT_PATH,
+    scopeHash: format.sourceHash,
+    questionInventoryHash: inventoryHash(ids),
+    questions,
+    years: [normalizedYear],
+    holdoutRequired: false,
+    resultVisibility: 'hidden',
+    paperFormat: {
+      year: normalizedYear,
+      era_id: format.eraId,
+      question_count: format.questionCount,
+      max_score: format.maxScore,
+      scoring_segments: format.scoringSegments
+    }
+  };
 }
 
 export function loadXizongSystemQuestionSweep(system) {
