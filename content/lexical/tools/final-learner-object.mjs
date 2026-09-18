@@ -1,7 +1,20 @@
-export function compileLexicalStudyObject(record = {}) {
+export function compileLexicalStudyObject(record = {}, decisions = {}) {
   const clone = (value) => JSON.parse(JSON.stringify(value));
 
-  const senses = Array.isArray(record.senses) ? clone(record.senses) : [];
+  const usageNoteDecisions = decisions?.sense_usage_notes && typeof decisions.sense_usage_notes === 'object'
+    ? decisions.sense_usage_notes
+    : {};
+
+  const senses = (Array.isArray(record.senses) ? record.senses : []).map((sourceSense) => {
+    const sense = clone(sourceSense);
+    const senseId = String(sense?.sense_id || '');
+    const disposition = usageNoteDecisions?.[senseId]?.disposition || null;
+    if (disposition && !['DEFAULT_DEPTH', 'EXPLORE_ONLY'].includes(disposition)) {
+      throw new Error(`LEXICAL_FINAL_OBJECT_USAGE_NOTE_DISPOSITION_INVALID:${senseId}:${disposition}`);
+    }
+    if (disposition === 'EXPLORE_ONLY') delete sense.usage_note;
+    return sense;
+  });
   const secondarySenses = Array.isArray(record.secondary_senses) ? clone(record.secondary_senses) : [];
 
   const materializedCollocationIds = new Set();
