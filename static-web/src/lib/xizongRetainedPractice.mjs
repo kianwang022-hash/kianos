@@ -66,9 +66,11 @@ export function collectXizongRetainedEvidence(entries, options = {}) {
     const history = Array.isArray(state.attemptHistory) && state.attemptHistory.length
       ? state.attemptHistory
       : fallbackResultEvents(state);
+    const hiddenPaperSealed = Boolean(state?.paperSeal?.sealedAt);
 
     for (const event of history) {
       if (event?.type && event.type !== 'QUESTION_ATTEMPT') continue;
+      if (String(event?.result_visibility || '') === 'hidden' && !hiddenPaperSealed) continue;
       const questionId = eventQuestionId(event);
       if (!QID.test(questionId)) continue;
       const previous = latest.get(questionId);
