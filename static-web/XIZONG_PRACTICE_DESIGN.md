@@ -282,9 +282,12 @@ Scoring is year-specific and must not be inferred by the renderer:
 Exact segment weights and provenance live only in `content/xizong/questions/exam-format.json`.
 
 Hard rules:
+- before Seal, answers are editable private paper drafts; they are **not** formal Question Attempts;
 - no correct/wrong styling in Question Map before Seal;
 - no Back / explanation / correct-answer access before Seal;
-- hidden attempts are preserved as evidence but do not enter global W/U queues until the paper is sealed;
+- Seal freezes the current drafts and materializes them once into append-preserved Question Attempts with `result_visibility=hidden`;
+- only sealed paper attempts may enter global W/U queues;
+- sealing an explicitly consumed paper releases that year from whole-paper Holdout while preserving other held years;
 - unanswered questions score zero;
 - X-type partial selection scores zero;
 - historical score/max remains historical; do not normalize old papers to 300;
