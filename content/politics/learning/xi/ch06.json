@@ -309,5 +309,69 @@
     ],
     "current_year_output_rule": "Historical templates are scaffolds only; Current Knowledge owns the concept model and current-year source must refresh policy/current-affairs wording.",
     "first_round_effect": "NONE"
+  },
+  "later_stage_learning": {
+    "schema": "kianos.politics.later_stage_learning.v1",
+    "status": "CURRENT_L_CALIBRATION",
+    "phase": "CONSOLIDATION",
+    "mode": "CHAPTER_FAST",
+    "reconstruct": {
+      "source": "later_stage_knowledge.compression_model",
+      "task": "一次性恢复：基本经济制度 → 新发展阶段/理念/格局 → 高质量发展 → 新质生产力/农业农村现代化的层级关系。"
+    },
+    "core_content_recall": {
+      "mode": "GROUPED_ACTIVE_RECALL",
+      "groups": [
+        {
+          "id": "XI-C06-LR-G01",
+          "title": "制度基础",
+          "prompt": "说出社会主义基本经济制度三层，并说明市场决定性作用与政府作用为什么不冲突。",
+          "owner_ids": [
+            "POL27-CF-XI-C06-S01"
+          ],
+          "tolerance": "GROUP_COMPLETE_DECISIVE_HATS_REQUIRED"
+        },
+        {
+          "id": "XI-C06-LR-G02",
+          "title": "三新角色",
+          "prompt": "区分新发展阶段、新发展理念、新发展格局各自在回答什么；五大发展理念按问题维度完整恢复。",
+          "owner_ids": [
+            "POL27-CF-XI-C06-S02"
+          ],
+          "tolerance": "GROUP_COMPLETE_ROLE_BOUNDARIES_REQUIRED"
+        },
+        {
+          "id": "XI-C06-LR-G03",
+          "title": "高质量发展展开",
+          "prompt": "说清高质量发展的身份，并把新质生产力、产业/农业农村现代化放回正确层级。",
+          "owner_ids": [
+            "POL27-CF-XI-C06-S03"
+          ],
+          "tolerance": "SEMANTIC_COMPLETE_CURRENT_YEAR_EXACTNESS_GATED"
+        }
+      ]
+    },
+    "precision": {
+      "policy": "CURRENT_YEAR_REFRESH_BEFORE_EXACT_ACTIVATION",
+      "candidate_owner": "later_stage_knowledge.precision_knowledge",
+      "default_state": "DORMANT_HIGH_DELTA_POOL",
+      "activation": [
+        "CURRENT_YEAR_DESIGNATED_SOURCE_REFRESHED",
+        "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_NEED",
+        "ANALYSIS_OUTPUT_PHASE_REQUIRES_EXACT_FORMULATION"
+      ]
+    },
+    "evidence": {
+      "prior_wrong_uncertain": "PRIORITIZE_IF_PRESENT",
+      "retest": "SELECTIVE_NOT_FULL_BANK"
+    },
+    "repair": "SMALLEST_SUFFICIENT",
+    "close": [
+      "NO_MATERIAL_FRAMEWORK_GAP",
+      "NO_MATERIAL_CORE_CONTENT_GAP",
+      "ACTIVE_PRECISION_STABLE_OR_NONE",
+      "SELECTED_RETEST_DEBT_CLEARED_OR_JUSTIFIABLY_PENDING"
+    ],
+    "analysis_output": "DORMANT_UNTIL_OUTPUT_PHASE_AND_CURRENT_YEAR_REFRESH"
   }
 }
