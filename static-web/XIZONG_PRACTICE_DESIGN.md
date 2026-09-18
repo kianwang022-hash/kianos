@@ -39,28 +39,56 @@ These are parameters of one task family, not separate question products.
 
 System Recall hands into Practice with `scope=SYSTEM:<id>`; whole paper later uses the same Workbench with `scope=PAPER:<year>`; Chat-guided review uses `scope=CHAT_SET:<set-id>` and an explicit ordered qid list.
 
-## 2｜Mac-wide one-screen geometry
+## 2｜Mac-wide L3 geometry — Main first, Context conditional
+
+Practice inherits `XIZONG_VISUAL_LANGUAGE.md`:
+
+```text
+Structure | Main | Conditional Context
+```
+
+Before a useful review exists:
 
 ```text
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│ scope / phase / progress                         Fast / Result / Mark         │
-├──────────────┬──────────────────────────────────┬────────────────────────────┤
-│ Question Map │ Current Question                 │ Adaptive Explanation       │
-│ local scroll │ stem                             │ local scroll               │
-│              │ options                          │                            │
-│              │ local scroll                     │                            │
-└──────────────┴──────────────────────────────────┴────────────────────────────┘
+│ thin session bar: scope / phase / progress                 Fast / Result / M │
+├──────────────┬───────────────────────────────────────────────────────────────┤
+│ Question Map │ Current Question                                             │
+│ local scroll │ dominant exam-paper surface                                 │
+└──────────────┴───────────────────────────────────────────────────────────────┘
 ```
 
-The primary Mac workbench should fit the viewport. Map, question and explanation own local scrolling rather than turning hundreds of questions into one long page.
+Wrong / meaningful Uncertain, or deliberate Review:
 
-Typography direction follows the accepted Legacy evidence without restoring Legacy semantics:
+```text
+┌──────────────┬───────────────────────────────────────┬───────────────────────┐
+│ Question Map │ Current Question                      │ Adaptive Explanation  │
+│              │ original stem/options stay in place  │ conditional context   │
+└──────────────┴───────────────────────────────────────┴───────────────────────┘
+```
+
+Hard L3 rules:
+
+- Question Map is a narrow Structure region, approximately 160–175px on the primary Mac geometry.
+- The map groups by real exam year and displays the original official question number; session progress is separate.
+- Correct/stable questions stay visually quiet. Wrong and Marked use small state marks rather than full-color tile fields.
+- Main is the dominant region. When Explanation is absent, Main gets the width back.
+- Stable correct work does not automatically open Explanation.
+- Wrong opens Explanation in place; deliberate Review may open it for an already-attempted question.
+- The original question remains visible when Explanation opens so option discrimination can be read side-by-side.
+- Question/options read as one continuous exam-paper surface; ordinary options are rows with dividers, not a card pile.
+- Map, Main and Context may own local scrolling; the primary Mac workbench should fit the viewport without shrinking learner text.
+- Permanent keyboard-help text is not part of the focal surface; shortcuts remain available through quiet help.
+
+Typography follows Xizong L2 / accepted Legacy evidence without restoring Legacy semantics:
 - broad/full-bodied Chinese glyph feel;
 - question stem about 20–22px;
-- answer options about 17px;
+- answer options about 17–18px;
 - explanation body about 17px;
 - ordinary learner text Regular/Medium, generally 500–650 rather than pervasive 750/800;
 - 15px remains only the absolute floor.
+
+This is the current L3 candidate. Real-browser/Mac screenshot acceptance by Kian is still required before it becomes final visual Truth.
 
 ## 3｜Explanation is adaptive, not a field checklist
 
@@ -247,7 +275,8 @@ Explanation Content changes are included in evidence freshness/version guards so
 Current candidate implements:
 - dedicated Xizong `训练` navigation entry;
 - SYSTEM scope;
-- one-screen Map / Question / Explanation geometry;
+- conditional two-column → three-column Practice L3 geometry;
+- year-grouped Question Map using original official question numbers;
 - Normal / Fast;
 - Immediate result;
 - Marked;
@@ -257,8 +286,15 @@ Current candidate implements:
 - targeted W/U queue and explicit full-resweep choice;
 - Marked preserved independently from the default W/U queue.
 
+Current CHAT_SET slice also implements:
+- manual JSON import fallback on Practice entry;
+- canonical qid validation with ordered cross-System execution;
+- Current Question Truth hydration by year;
+- explicit Holdout protection / explicit `allow_holdout=true` override;
+- the same Practice Workbench and append-preserved attempt semantics.
+
 Still separate:
-- CHAT_SET import/validation + cross-System execution on the same Workbench;
+- unified typed Chat Return Packet integration beyond the manual CHAT_SET fallback;
 - whole-paper scope + Hidden result;
 - global retained W/U/Marked entry independent of one System;
 - durable learner-data closure;
