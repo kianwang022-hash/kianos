@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import XizongPracticeWorkbench from '../../../components/XizongPracticeWorkbench.astro';
 import XizongSystemRepairReturn from '../../../components/XizongSystemRepairReturn.astro';
 import XizongSystemEvidenceGuard from '../../../components/XizongSystemEvidenceGuard.astro';
+import XizongLastLocation from '../../../components/XizongLastLocation.astro';
 import { listProjectableXizongSystems, loadXizongSystem } from '../../../lib/xizong.mjs';
 import { loadXizongSystemQuestionSweep } from '../../../lib/xizongQuestions.mjs';
 import '../../../styles/xizong-practice-workspace.css';
@@ -21,6 +22,16 @@ const sweep = loadXizongSystemQuestionSweep(system);
 if (!sweep) throw new Error(`CURRENT_XIZONG_PRACTICE_SCOPE_MISSING:${systemId}`);
 ---
 <Base title={`训练 · ${system.title}`} active="xizong" showLead={false} objectId={`xizong:practice:${system.systemId}`}>
+  <XizongLastLocation
+    system={system}
+    resumeKind="PRACTICE_SYSTEM"
+    resumeTitle={`训练 · ${system.title}`}
+    resumeDetail="恢复当前 System 的正式训练"
+    resumeStage="PRACTICE"
+    resumePosition={`${system.canonicalId} · 系统真题`}
+    resumeAction="继续训练 →"
+    requiredSystemRecall={system.systemId}
+  />
   <XizongPracticeWorkbench system={system} sweep={sweep} />
   <XizongSystemRepairReturn system={system} />
   <XizongSystemEvidenceGuard system={system} sweep={sweep} />
