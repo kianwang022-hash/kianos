@@ -13,15 +13,6 @@ PLIST="$HOME/Library/LaunchAgents/$LABEL.plist"
 LOG_DIR="$HOME/Library/Logs/KianOS"
 INTERVAL_MS="${KIANOS_SYNC_INTERVAL_MS:-8000}"
 PORT="${KIANOS_PORT:-4321}"
-SYNC_REF="${KIANOS_SYNC_REF:-main}"
-if [[ ! "$SYNC_REF" =~ ^[A-Za-z0-9._/-]+$ || "$SYNC_REF" == /* || "$SYNC_REF" == */ ]]; then
-  echo "Invalid KIANOS_SYNC_REF: $SYNC_REF" >&2
-  exit 2
-fi
-LOCAL_BRANCH="main"
-if [[ "$SYNC_REF" != "main" ]]; then
-  LOCAL_BRANCH="kianos-preview"
-fi
 
 GIT_BIN="$(command -v git || true)"
 NODE_BIN="$(command -v node || true)"
@@ -63,7 +54,7 @@ fi
 
 if [[ ! -e "$MIRROR_DIR" ]]; then
   echo "Cloning dedicated Current mirror → $MIRROR_DIR"
-  "$GIT_BIN" clone "$REPO_URL" "$MIRROR_DIR"
+  "$GIT_BIN" clone --branch main --single-branch "$REPO_URL" "$MIRROR_DIR"
 elif [[ ! -d "$MIRROR_DIR/.git" ]]; then
   echo "Refusing to reuse non-git directory: $MIRROR_DIR" >&2
   exit 2
@@ -75,9 +66,9 @@ fi
 
 cd "$MIRROR_DIR"
 touch .git/kianos-current-mirror
-"$GIT_BIN" fetch origin "refs/heads/$SYNC_REF:refs/remotes/origin/$SYNC_REF" --prune
-"$GIT_BIN" checkout -B "$LOCAL_BRANCH" "refs/remotes/origin/$SYNC_REF"
-"$GIT_BIN" reset --hard "refs/remotes/origin/$SYNC_REF"
+"$GIT_BIN" fetch origin main --prune
+"$GIT_BIN" checkout -B main origin/main
+"$GIT_BIN" reset --hard origin/main
 
 cd "$MIRROR_DIR/static-web"
 "$NPM_BIN" install --no-audit --no-fund
@@ -109,8 +100,6 @@ cat > "$PLIST" <<EOF
     <string>$INTERVAL_MS</string>
     <key>KIANOS_PORT</key>
     <string>$PORT</string>
-    <key>KIANOS_SYNC_REF</key>
-    <string>$SYNC_REF</string>
   </dict>
   <key>RunAtLoad</key>
   <true/>
@@ -138,7 +127,7 @@ cat <<EOF
 
 KianOS Current mirror installed.
 
-GitHub $SYNC_REF → $MIRROR_DIR → Astro localhost:$PORT
+GitHub main → $MIRROR_DIR → Astro localhost:$PORT
 Sync interval: $((INTERVAL_MS / 1000))s
 LaunchAgent: $PLIST
 Logs: $LOG_DIR/current.out.log
