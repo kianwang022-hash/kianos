@@ -388,14 +388,14 @@ try {
       let match;
       while ((match = pattern.exec(text))) {
         const word = match[0];
-        if (!known.has(word.toLowerCase())) continue;
+        if (word.length < 3 || !known.has(word.toLowerCase())) continue;
         const range = document.createRange();
         range.setStart(node, match.index);
         range.setEnd(node, match.index + word.length);
         const selection = window.getSelection();
         selection?.removeAllRanges();
         selection?.addRange(range);
-        document.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));
+        (node.parentElement || passage).dispatchEvent(new MouseEvent('mouseup', { bubbles: true, clientX: 120, clientY: 160 }));
         return word;
       }
     }
