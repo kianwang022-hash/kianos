@@ -87,11 +87,17 @@ export function loadPoliticsCompiledPresentation(subject, code) {
       closure: resolve(selected.optional_closure),
       surfacePlan: resolvePoliticsSurfaceMapping(selected.surface_mapping, source, rawUnit)
     };
+    if (!resolved.surfacePlan) {
+      throw new Error(`POLITICS_FINAL_LEARNER_OBJECT_SURFACE_PLAN_REQUIRED:${file}:${selected.unit_id}`);
+    }
     resolved.finalLearnerObject = compilePoliticsFinalLearnerObject(resolved.surfacePlan, {
       subject,
       chapter: code,
       unitId: selected.unit_id
     });
+    if (!resolved.finalLearnerObject) {
+      throw new Error(`POLITICS_FINAL_LEARNER_OBJECT_REQUIRED:${file}:${selected.unit_id}`);
+    }
     resolved.hierarchy = buildPoliticsContentHierarchy(resolved);
     validatePoliticsContentHierarchy(resolved.hierarchy);
     units.set(selected.unit_id, resolved);
