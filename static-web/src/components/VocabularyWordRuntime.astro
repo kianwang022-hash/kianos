@@ -107,6 +107,7 @@ const uniqueTextRows = (values = []) => {
   }
   return rows;
 };
+const lexicalTextClass = (value = '') => /[\u3400-\u9fff]/.test(String(value)) ? 'is-cn' : 'is-en';
 const relationTextRows = (relation = {}) => {
   const evidenceObjects = Array.isArray(relation.source_evidence_objects) ? relation.source_evidence_objects : [];
   return uniqueTextRows([
@@ -281,7 +282,7 @@ const familyTextRows = (item = {}) => uniqueTextRows([
                   <article data-vocab-target-row>
                     <b>{item.pattern || item.label_en || item.boundary}</b>
                     <div class="lexicalPatternText">
-                      {constructionTextRows(item).map((text) => <span>{text}</span>)}
+                      {constructionTextRows(item).map((text) => <span class={lexicalTextClass(text)}>{text}</span>)}
                     </div>
                     <button type="button" data-vocab-repair data-target-kind="construction" data-target-id={item.fact_id || item.construction_id || ''} data-target-locator={`record.constructions[${index}]`} data-target-label={`${item.pattern || item.boundary || item.label_en || card.word}`} aria-pressed="false">+</button>
                   </article>
@@ -301,7 +302,7 @@ const familyTextRows = (item = {}) => uniqueTextRows([
                   <article data-vocab-target-row>
                     <b>{card.word} ↔ {target}</b>
                     <div class="lexicalRelationText">
-                      {relationTextRows(relation).map((text) => <p>{text}</p>)}
+                      {relationTextRows(relation).map((text) => <p class={lexicalTextClass(text)}>{text}</p>)}
                     </div>
                     {relationDifferenceRows(relation).length > 0 && <dl class="lexicalRelationDecision">{relationDifferenceRows(relation).map(([key, value]) => <div><dt>{String(key).replaceAll('_', ' ')}</dt><dd>{String(value)}</dd></div>)}</dl>}
                     <button type="button" data-vocab-repair data-target-kind="relation" data-target-id={relation.fact_id || relation.relation_id || ''} data-target-locator={locator} data-target-label={`${card.word} ↔ ${target}`} aria-pressed="false">+</button>
@@ -320,7 +321,7 @@ const familyTextRows = (item = {}) => uniqueTextRows([
                   <article data-vocab-target-row>
                     <b>{card.word} ↔ {target}</b>
                     <div class="lexicalRelationText">
-                      {relationTextRows(relation).map((text) => <p>{text}</p>)}
+                      {relationTextRows(relation).map((text) => <p class={lexicalTextClass(text)}>{text}</p>)}
                     </div>
                     {relationDifferenceRows(relation).length > 0 && <dl class="lexicalRelationDecision">{relationDifferenceRows(relation).map(([key, value]) => <div><dt>{String(key).replaceAll('_', ' ')}</dt><dd>{String(value)}</dd></div>)}</dl>}
                     <button type="button" data-vocab-repair data-target-kind="relation" data-target-id={relation.fact_id || relation.relation_id || ''} data-target-locator={locator} data-target-label={`${card.word} ↔ ${target}`} aria-pressed="false">+</button>
@@ -334,13 +335,17 @@ const familyTextRows = (item = {}) => uniqueTextRows([
             <header><span>词形 / 发音</span><small>Form / Pronunciation</small></header>
             {formIdentity.boundary && <p class="lexicalFormBoundary">{formIdentity.boundary}</p>}
             {formBoundaries.length > 0 && <div class="lexicalFormVariants">{formBoundaries.map((boundary) => <article><b>{boundary.surface || boundary.condition || 'Form boundary'}</b>{boundary.condition && boundary.surface && <span>{boundary.condition}</span>}{boundary.note && <small>{boundary.note}</small>}</article>)}</div>}
-            {formVariants.length > 0 && <div class="lexicalFormVariants">{formVariants.map((variant) => <article>{Array.isArray(variant.pos) && <small>{variant.pos.join(' / ')}</small>}<b>{variant.learner_key || variant.canonical_form || variant.variant_id}</b>{variant.ipa && <span>{variant.ipa}</span>}{variant.stress && <small>{variant.stress}</small>}</article>)}</div>}
+            {formVariants.length > 0 && <div class="lexicalFormVariants">{formVariants.map((variant) => <article>
+              <small class="lexicalFormPos">{Array.isArray(variant.pos) ? variant.pos.join(' / ') : ''}</small>
+              <div class="lexicalFormReading"><b>{variant.learner_key || variant.canonical_form || variant.variant_id}</b>{variant.stress && <small>{variant.stress}</small>}</div>
+              {variant.ipa && <span class="lexicalFormIpa">{variant.ipa}</span>}
+            </article>)}</div>}
             <button type="button" data-vocab-repair data-target-kind="form_identity" data-target-id="" data-target-locator="record.form_identity" data-target-label={`${formIdentity.boundary || formBoundaries.map((boundary) => boundary.surface).filter(Boolean).join(' / ') || card.word}`} aria-pressed="false">+</button>
           </section>}
 
           {showFamilyInReference && <section class="lexicalExpansionSection lexicalFamilySection">
             <header><span>词族</span><small>Word Family</small></header>
-            <div class="lexicalFamilyRows">{wordFamilyRows.map(({ item }) => <article><b>{item.target_word}</b><div>{familyTextRows(item).map((text) => <span>{text}</span>)}</div></article>)}</div>
+            <div class="lexicalFamilyRows">{wordFamilyRows.map(({ item }) => <article><b>{item.target_word}</b><div>{familyTextRows(item).map((text) => <span class={lexicalTextClass(text)}>{text}</span>)}</div></article>)}</div>
           </section>}
         </aside>}
       </div>
