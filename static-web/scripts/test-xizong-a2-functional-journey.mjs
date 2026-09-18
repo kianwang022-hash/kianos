@@ -110,6 +110,7 @@ async function blockResumeAndEvidenceJourney(page) {
   const complete = root.locator('[data-block-complete]');
   check(await visibleStage(root) === 'block_recall', 'complete_candidate_reopens_at_block_recall');
   check(await complete.isDisabled(), 'block_recall_required_for_completion');
+  await root.locator('[data-block-recall-reveal]').click();
   await root.locator('[data-block-recall-complete]').click();
   await page.waitForTimeout(80);
   state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
