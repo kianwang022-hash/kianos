@@ -134,12 +134,22 @@ def audit_current(relative: str) -> None:
 
     lowered = text.lower()
     checks += 1
-    if "current" not in lowered or "work cursor" not in lowered:
-        fail("CURRENT_ROLE_MISSING", relative)
+    if relative == "CURRENT.md":
+        if "control tower" not in lowered or "root router" not in lowered:
+            fail("CURRENT_ROOT_ROLE_MISSING", relative)
+    elif relative in PARENT_ROUTER_PATHS:
+        if "router" not in lowered and "work cursor" not in lowered:
+            fail("CURRENT_ROUTER_ROLE_MISSING", relative)
+    elif "work cursor" not in lowered:
+        fail("CURRENT_WORK_CURSOR_ROLE_MISSING", relative)
 
-    checks += 1
-    if "next" not in lowered:
-        fail("CURRENT_NEXT_ACTION_MISSING", relative)
+    # Exact next-action ownership belongs to exact/module cursors. Root and
+    # parent routers may intentionally route to a program Mainline or child
+    # cursor instead of copying one local "next" field.
+    if relative != "CURRENT.md" and relative not in PARENT_ROUTER_PATHS:
+        checks += 1
+        if "next" not in lowered:
+            fail("CURRENT_NEXT_ACTION_MISSING", relative)
 
     checks += 1
     if not any(token in lowered for token in ("learner truth", "private learner", "learner progress")):
