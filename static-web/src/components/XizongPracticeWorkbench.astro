@@ -37,23 +37,32 @@ const payload = JSON.stringify({
     <div class="xzpProgress" data-question-progress>准备中</div>
 
     <div class="xzpControls">
-      <details class="xzpHoldout" data-holdout-control>
-        <summary><span>保留</span><b data-holdout-current>未设置</b></summary>
-        <div>
-          <label for={`xzp-holdout-${system.systemId}`}>整卷保留年份</label>
-          <div>
-            <input id={`xzp-holdout-${system.systemId}`} data-holdout-input inputmode="numeric" placeholder="例如 2025, 2026" />
-            <button type="button" data-save-holdout>保存</button>
-          </div>
-        </div>
-      </details>
       <button type="button" class="xzpQuietControl" data-fast-sweep aria-pressed="false">Fast</button>
-      <span class="xzpResultMode">即时</span>
       <button type="button" class="xzpQuietControl xzpMarkControl" data-question-mark aria-pressed="false">☆ 标记</button>
       <button type="button" class="xzpQuietControl" data-review-toggle aria-pressed="false" hidden>解析</button>
-      <details class="xzpKeyboardHelp">
-        <summary aria-label="键盘快捷键">?</summary>
-        <div>1–5 选择 · Enter 提交/继续 · M 标记 · ← → 切题</div>
+
+      <details class="xzpMore">
+        <summary aria-label="更多训练设置">•••</summary>
+        <div class="xzpMorePanel">
+          <div class="xzpMoreRow">
+            <span>结果</span>
+            <strong class="xzpResultMode">即时</strong>
+          </div>
+          <details class="xzpHoldout" data-holdout-control>
+            <summary><span>整卷保留</span><b data-holdout-current>未设置</b></summary>
+            <div>
+              <label for={`xzp-holdout-${system.systemId}`}>保留年份</label>
+              <div>
+                <input id={`xzp-holdout-${system.systemId}`} data-holdout-input inputmode="numeric" placeholder="例如 2025, 2026" />
+                <button type="button" data-save-holdout>保存</button>
+              </div>
+            </div>
+          </details>
+          <div class="xzpMoreHelp">
+            <span>快捷键</span>
+            <p>1–5 选择 · Enter 提交/继续 · M 标记 · ← → 切题</p>
+          </div>
+        </div>
       </details>
     </div>
   </header>
