@@ -62,12 +62,13 @@ const currentStatusUrl = `${base}__kianos-current.json`;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="KianOS Current learner runtime" />
+    <meta name="description" content="KianOS learning workspace" />
     <title>{title} · KianOS</title>
     <style is:global>
       [hidden] { display: none !important; }
       body.surfaceBody-xizong .sourceDock,
       body.surfaceBody-xizong .portedSourceFoot { display: none !important; }
+      body.uiEnglishFamily .kianosCurrentDock { display: none !important; }
     </style>
   </head>
   <body id="kianos-workspace" data-current-status-url={currentStatusUrl} data-kianos-rail="expanded" class={`surfaceBody-${active}${stageOne ? ' uiStageOne' : ''}${isHub ? ' uiHub' : ''}${isWordStudy ? ' uiWordStudy' : ''}${englishRuntime ? ' uiEnglish' : ''}${englishFamily ? ' uiEnglishFamily' : ''}`}>
