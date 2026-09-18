@@ -10,7 +10,7 @@ const kps = block?.kpRecords || [];
 
   <div class="xv6DockLocator">
     <span>iPad / MarginNote · 原讲义定位</span>
-    <code data-source-locator>{kps[0]?.sourceLocator || 'Current 暂无精确定位'}</code>
+    <code data-source-locator>{kps[0]?.sourceLocator || '暂无精确定位'}</code>
   </div>
 
 
@@ -96,7 +96,7 @@ const kps = block?.kpRecords || [];
       if (row) {
         if (position) position.textContent = `${row.displayId} · ${row.title}`;
         if (group) group.textContent = row.groupLabel || '学习节';
-        if (locator) locator.textContent = row.sourceLocator || 'Current 暂无精确定位';
+        if (locator) locator.textContent = row.sourceLocator || '暂无精确定位';
         if (comment && document.activeElement !== comment && renderedKpId !== row.kpId) comment.value = local?.comment || '';
         renderedKpId = row.kpId;
       }
