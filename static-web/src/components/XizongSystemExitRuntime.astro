@@ -223,7 +223,9 @@ const payload = JSON.stringify({
     startNextXizongQuestionRound,
     deriveXizongSecondPassQuestionIds,
     deriveXizongQuestionIdsForCurrentRound,
-    xizongStudyPhaseLabel
+    xizongStudyPhaseLabel,
+    setXizongQuestionMarked,
+    isXizongQuestionMarked
   } from '../lib/xizongQuestionAttempts.mjs';
 
   const roots = [...document.querySelectorAll('[data-xizong-system-exit]')];
@@ -236,6 +238,7 @@ const payload = JSON.stringify({
     const recallKey = `kianos:xizong:system-recall:${systemId}:v1`;
     const holdoutKey = 'kianos:xizong:full-paper-holdout-years:v1';
     const sweepKey = `kianos:xizong:system-question-sweep:${systemId}:v1`;
+    const preferenceKey = 'kianos:xizong:question-preferences:v1';
 
     const readJson = (key, fallback) => {
       try { return JSON.parse(localStorage.getItem(key) || '') || fallback; } catch { return fallback; }
@@ -247,6 +250,7 @@ const payload = JSON.stringify({
     let recallState = readJson(recallKey, { completedAt: null });
     let holdoutYears = readJson(holdoutKey, []);
     let sweepState = readJson(sweepKey, { results: {} });
+    let preferences = readJson(preferenceKey, { fastSweep: false });
     if (!sweepState || typeof sweepState !== 'object') sweepState = { results: {} };
     if (!sweepState.results || typeof sweepState.results !== 'object') sweepState.results = {};
     const attemptContext = {
@@ -262,10 +266,13 @@ const payload = JSON.stringify({
 
     const recallStatus = root.querySelector('[data-recall-status]');
     const startRecall = root.querySelector('[data-start-recall]');
-    const recallDialog = root.querySelector('[data-recall-dialog]');
+    const recallWorkspace = root.querySelector('[data-recall-workspace]');
+    const questionGate = root.querySelector('[data-question-gate]');
     const recallFront = root.querySelector('[data-recall-front]');
     const recallReveal = root.querySelector('[data-recall-reveal]');
+    const recallScratch = root.querySelector('[data-recall-scratch]');
     const revealRecall = root.querySelector('[data-reveal-recall]');
+    const revealRecallBack = root.querySelector('[data-reveal-recall-back]');
     const completeRecall = root.querySelector('[data-complete-recall]');
 
     const holdoutCurrent = root.querySelector('[data-holdout-current]');
@@ -278,6 +285,9 @@ const payload = JSON.stringify({
     const copyWuButtons = [...root.querySelectorAll('[data-copy-wu],[data-copy-wu-done]')];
     const workspace = root.querySelector('[data-question-workspace]');
     const closeSweep = root.querySelector('[data-close-sweep]');
+    const questionMap = root.querySelector('[data-question-map]');
+    const fastSweepButton = root.querySelector('[data-fast-sweep]');
+    const questionMarkButton = root.querySelector('[data-question-mark]');
     const questionMeta = root.querySelector('[data-question-meta]');
     const questionProgress = root.querySelector('[data-question-progress]');
     const stem = root.querySelector('[data-question-stem]');
@@ -300,9 +310,10 @@ const payload = JSON.stringify({
     const repairTransfer = root.querySelector('[data-repair-transfer]');
     const repairRelation = root.querySelector('[data-repair-relation]');
     const correctJudge = root.querySelector('[data-correct-judge]');
-    const uncertainJudge = root.querySelector('[data-uncertain-judge]');
     const wrongJudge = root.querySelector('[data-wrong-judge]');
     const done = root.querySelector('[data-sweep-done]');
+    const retainedList = root.querySelector('[data-retained-list]');
+    const retainedFilterButtons = [...root.querySelectorAll('[data-retained-filter]')];
     const nextRoundButton = root.querySelector('[data-start-next-round]');
     const nextRoundFullButton = root.querySelector('[data-start-next-round-full]');
 
@@ -310,6 +321,8 @@ const payload = JSON.stringify({
     let currentQuestion = null;
     let currentSelection = new Set();
     let currentCorrect = false;
+    let currentIndex = 0;
+    let retainedFilter = 'all';
 
     const answerLetters = (value) => (String(value || '').toUpperCase().match(/[A-Z]/g) || []).sort();
     const sameLetters = (a, b) => a.length === b.length && a.every((value, index) => value === b[index]);
