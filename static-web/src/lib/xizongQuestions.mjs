@@ -91,9 +91,13 @@ function normalizeExplanation(row) {
         reason: String(item?.reason || '')
       })).filter((item) => item.option && item.reason)
     : [];
+  const reasoningChain = Array.isArray(row.reasoning_chain)
+    ? row.reasoning_chain.map((item) => String(item || '').trim()).filter(Boolean)
+    : [];
   return {
     examTarget: String(row.exam_target || ''),
     decisionAxis: String(row.decision_axis || ''),
+    reasoningChain,
     correctOptionReason: String(row.correct_option_reason || ''),
     commonFailureNode: String(row.common_failure_node || ''),
     transferRule: String(row.transfer_rule || ''),
