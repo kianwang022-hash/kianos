@@ -36,3 +36,23 @@ A shard migration is admissible only when `source-shard-audit.json` proves:
 - no added learning semantics.
 
 Until runtime/audit consumers are cut over and parity remains green, the monoliths stay recovery authority. After cutover they may remain archival/recovery inputs, but they must not be treated as a competing learner-runtime owner.
+
+
+## Historical memory / output baselines
+
+Historical packages live under `content/politics/source/historical/` and are Source evidence only.
+
+Current imported package:
+
+- `historical/leg26/` — 2026 腿姐《冲刺背诵手册》 source-faithful Markdown baseline for Memory / objective compression / analysis-output / current-affairs delta work.
+
+Hard boundary:
+
+```text
+historical package
+→ current-year corroboration / delta
+→ accepted Current Knowledge
+→ learner use
+```
+
+Historical wording must never bypass current-year corroboration or replace current Chengfeng Natural Unit ownership.
