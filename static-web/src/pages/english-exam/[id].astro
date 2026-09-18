@@ -29,6 +29,7 @@ const serverTaskLabel = (step) => ({
   description="One 180-minute paper session using the existing task runtimes with delayed result release."
   objectId={`english-exam:${paper.paper_id}`}
   active="english"
+  showLead={false}
 >
   <section class="englishExamHome" data-english-exam-home data-paper-id={paper.paper_id} data-base={import.meta.env.BASE_URL}>
     <header class="englishExamHero">
@@ -57,14 +58,12 @@ const serverTaskLabel = (step) => ({
       <div data-exam-step-list>
         {paper.steps.map((step, index) => (
           <div class="englishExamStep" data-complete="false">
-            <div>
-              <span>{String(index + 1).padStart(2, '0')}</span>
-              <div>
-                <strong>{serverTaskLabel(step)}</strong>
-                <small>{step.label}</small>
-              </div>
+            <span class="englishExamStepIndex">{String(index + 1).padStart(2, '0')}</span>
+            <div class="englishExamStepCopy">
+              <strong>{serverTaskLabel(step)}</strong>
+              <small>{step.label}</small>
             </div>
-            <b>{step.max_points} pts</b>
+            <b class="englishExamStepMeta">{step.max_points} pts</b>
           </div>
         ))}
       </div>
@@ -178,19 +177,20 @@ const serverTaskLabel = (step) => ({
             try { writeSession(selectEnglishExamStep(state, index)); } catch {}
           });
         }
-        const left = document.createElement('div');
         const n = document.createElement('span');
+        n.className = 'englishExamStepIndex';
         n.textContent = String(index + 1).padStart(2, '0');
         const copy = document.createElement('div');
+        copy.className = 'englishExamStepCopy';
         const strong = document.createElement('strong');
         strong.textContent = taskLabel(step);
         const small = document.createElement('small');
         small.textContent = step.label;
         copy.append(strong, small);
-        left.append(n, copy);
         const meta = document.createElement('b');
+        meta.className = 'englishExamStepMeta';
         meta.textContent = state?.captures?.[step.step_id] ? '已封存' : step.max_points + ' pts';
-        row.append(left, meta);
+        row.append(n, copy, meta);
         stepList.appendChild(row);
       });
     };
@@ -325,33 +325,70 @@ const serverTaskLabel = (step) => ({
 </script>
 
 <style>
-  .englishExamHome{max-width:76rem;margin:0 auto;display:grid;gap:12px}
-  .englishExamHero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;padding:24px 26px;border:1px solid var(--study-line);border-radius:16px;background:#fff;box-shadow:var(--study-shadow)}
-  .englishExamHero>div>span,.englishExamSteps header span,.englishExamResult>span{font-size:9px;font-weight:850;letter-spacing:.08em;color:var(--study-green)}
-  .englishExamHero h1{margin:5px 0 8px;font-size:28px}
-  .englishExamHero p{max-width:76ch;margin:0;color:var(--study-muted);font-size:12px;line-height:1.7}
-  .englishExamHero aside{display:grid;gap:3px;text-align:right}
-  .englishExamHero aside strong{font-size:28px;font-variant-numeric:tabular-nums}
-  .englishExamHero aside span{font-size:10px;color:var(--study-muted)}
-  .englishExamActions{display:flex;align-items:center;gap:7px;flex-wrap:wrap;padding:12px 14px;border:1px solid var(--study-line);border-radius:12px;background:#fff}
-  .englishExamActions button{padding:8px 11px;border:1px solid var(--study-line);border-radius:8px;background:#fff;font:inherit;font-size:10px;font-weight:800;cursor:pointer}
+  .englishExamHome{max-width:76rem;margin:0 auto;display:grid;gap:14px}
+  .englishExamHero{
+    display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end;
+    padding:10px 2px 18px;border-bottom:1px solid var(--study-line)
+  }
+  .englishExamHero>div>span,.englishExamSteps header span,.englishExamResult>span{
+    font-size:var(--study-type-meta);font-weight:800;letter-spacing:.04em;color:var(--study-green)
+  }
+  .englishExamHero h1{margin:6px 0 8px;font-size:30px;line-height:1.15}
+  .englishExamHero p{max-width:70ch;margin:0;color:var(--study-muted);font-size:17px;line-height:1.65}
+  .englishExamHero aside{display:grid;gap:4px;text-align:right}
+  .englishExamHero aside strong{font-size:32px;line-height:1;font-variant-numeric:tabular-nums}
+  .englishExamHero aside span{font-size:var(--study-type-meta);color:var(--study-muted)}
+  .englishExamActions{
+    display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+    padding:0 0 14px;border-bottom:1px solid var(--study-line)
+  }
+  .englishExamActions button{
+    min-height:40px;padding:8px 13px;border:1px solid var(--study-line);border-radius:8px;
+    background:#fff;font:inherit;font-size:16px;font-weight:700;cursor:pointer
+  }
   .englishExamActions button.primary{border-color:var(--study-green);background:var(--study-green);color:#fff}
-  .englishExamActions small{flex-basis:100%;font-size:9px;color:var(--study-muted)}
+  .englishExamActions small{flex-basis:100%;font-size:var(--study-type-meta);line-height:1.45;color:var(--study-muted)}
   .englishExamActions small.isBad{color:#994b3b}
-  .englishExamSteps,.englishExamResult,.englishExamRule{padding:18px 20px;border:1px solid var(--study-line);border-radius:14px;background:#fff}
-  .englishExamSteps>header{display:flex;justify-content:space-between;gap:14px;margin-bottom:10px}
-  .englishExamSteps>header strong{font-size:11px}
-  .englishExamSteps [data-exam-step-list]{display:grid;gap:4px}
-  .englishExamStep{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:9px 10px;border-radius:9px;color:inherit;text-decoration:none}
+  .englishExamSteps{padding:2px 0 0}
+  .englishExamSteps>header{
+    display:flex;justify-content:space-between;align-items:center;gap:18px;
+    padding:0 2px 10px;border-bottom:1px solid var(--study-line)
+  }
+  .englishExamSteps>header strong{font-size:var(--study-type-meta)}
+  .englishExamSteps [data-exam-step-list]{display:grid}
+  .englishExamStep{
+    display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:14px;align-items:center;
+    min-height:62px;padding:9px 4px;border-bottom:1px solid var(--study-line);
+    color:inherit;text-decoration:none
+  }
+  .englishExamStep:last-child{border-bottom:0}
   a.englishExamStep:hover{background:var(--study-green-soft)}
-  .englishExamStep>div{display:flex;align-items:center;gap:10px;min-width:0}
-  .englishExamStep>div>span{display:grid;width:26px;height:26px;place-items:center;border-radius:8px;background:#f2f5f3;color:var(--study-muted);font-size:9px;font-weight:800}
-  .englishExamStep>div>div{display:grid;gap:1px;min-width:0}
-  .englishExamStep strong{font-size:11px}.englishExamStep small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:9px;color:var(--study-muted)}
-  .englishExamStep>b{font-size:9px;color:var(--study-green)}
+  .englishExamStepIndex{
+    display:grid;width:34px;height:34px;place-items:center;border-radius:8px;
+    background:var(--study-surface-muted);color:var(--study-muted);
+    font-size:var(--study-type-meta);font-weight:800;font-variant-numeric:tabular-nums
+  }
+  .englishExamStepCopy{display:grid;gap:3px;min-width:0}
+  .englishExamStepCopy strong{font-size:17px;line-height:1.25}
+  .englishExamStepCopy small{
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+    font-size:var(--study-type-meta);line-height:1.35;color:var(--study-muted)
+  }
+  .englishExamStepMeta{font-size:var(--study-type-meta);color:var(--study-green);white-space:nowrap}
   .englishExamStep[data-complete="true"]{background:#fbfdfc}
-  .englishExamResult{background:#fbfdfc}.englishExamResult>strong{display:block;margin-top:5px;font-size:28px}.englishExamResult>p,.englishExamRule p{margin:7px 0 0;color:var(--study-muted);font-size:10px;line-height:1.6}
-  .englishExamResult [data-exam-objective-breakdown]{display:grid;gap:4px;margin-top:10px}.englishExamResult [data-exam-objective-breakdown] p{margin:0;font-size:10px}
-  .englishExamRule strong{font-size:11px}
-  @media(max-width:760px){.englishExamHero{grid-template-columns:1fr}.englishExamHero aside{text-align:left}}
+  .englishExamResult{
+    padding:18px 20px;border:1px solid var(--study-line);border-radius:12px;background:#fbfdfc
+  }
+  .englishExamResult>strong{display:block;margin-top:6px;font-size:30px}
+  .englishExamResult>p,.englishExamRule p{
+    margin:8px 0 0;color:var(--study-muted);font-size:16px;line-height:1.6
+  }
+  .englishExamResult [data-exam-objective-breakdown]{display:grid;gap:5px;margin-top:12px}
+  .englishExamResult [data-exam-objective-breakdown] p{margin:0;font-size:var(--study-type-meta)}
+  .englishExamRule{padding:14px 2px 0;border-top:1px solid var(--study-line)}
+  .englishExamRule strong{font-size:16px}
+  @media(max-width:760px){
+    .englishExamHero{grid-template-columns:1fr}
+    .englishExamHero aside{text-align:left}
+  }
 </style>
