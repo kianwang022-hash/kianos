@@ -19,8 +19,6 @@ const packetMeta = {
   blockLabel: block?.label || '',
   blockTitle: block?.title || '',
   sourcePath: block?.sourcePath || '',
-  sourceContactMode: String(block?.sourceContact?.mode || ''),
-  sourcePerGroup: block?.sourceContact?.logicGroupIsAutomaticSourceChunk === true,
   reserveItems,
   exampleKpId
 };
@@ -95,7 +93,7 @@ const packetMeta = {
     </div>
     <div class="xv6ChatPacketIntro">
       <strong>这个包可以很详细，你不用自己读。</strong>
-      <p>会带上当前 Block、内容版本、精确断点、原讲义接触状态、KP Recall、配套题检查点、Memory、反复不稳记录、随手记、储备关系和已有 Chat 计划证据。Chat 用它判断你学到哪、哪里不稳，以及是否真的需要额外修补。</p>
+      <p>会带上当前 Block、Current source hash、学习进度、全部 KP Recall、Memory 状态、反复不稳记录、随手记、储备关系和已有 Chat 计划证据。Chat 用它判断是记忆问题、理解问题、提示问题还是页面时机问题。</p>
     </div>
     <div class="portedReviewImport" data-review-import hidden>
       <textarea rows="6" data-review-import-text placeholder='粘贴 Chat 返回 JSON。支持 kp_ids，也支持带 reason / action 的 plan/items。'></textarea>
@@ -125,9 +123,6 @@ const packetMeta = {
     kpId: kp.kpId,
     displayId: kp.displayId,
     title: kp.title,
-    groupId: kp.groupId || '',
-    groupLabel: kp.groupLabel || '',
-    sourceLocator: kp.sourceLocator || '',
     prompt: kp.prompt,
     detailHtml: kp.detailHtml
   })))}></script>
@@ -361,14 +356,6 @@ const packetMeta = {
       const study = readStudy();
       const personal = readPersonal();
       const evidenceHistory = ext.evidenceHistory || [];
-      const groupOrder = [...new Set(kps.map((kp) => String(kp.groupId || '')).filter(Boolean))];
-      const groupIndex = Math.max(0, Number(study.groupIndex || 0));
-      const kpIndex = Math.max(0, Number(study.kpIndex || 0));
-      const activeGroupId = groupOrder[Math.min(groupIndex, Math.max(0, groupOrder.length - 1))] || '';
-      const activeGroupKps = activeGroupId ? kps.filter((kp) => String(kp.groupId || '') === activeGroupId) : [];
-      const activeKp = kps[Math.min(kpIndex, Math.max(0, kps.length - 1))] || activeGroupKps[0] || kps[0] || null;
-      const activeGroupLabel = activeGroupKps[0]?.groupLabel || '';
-      const activeGroupContacted = activeGroupKps.length > 0 && activeGroupKps.every((kp) => Boolean(study.learned?.[kp.kpId]));
       const kpEvidence = kps.map((kp) => {
         const recallRating = study.ratings?.[kp.kpId] || '';
         const memoryState = ext.memory?.[kp.kpId] || ratingState(recallRating) || '';
@@ -377,9 +364,6 @@ const packetMeta = {
           kp_id: kp.kpId,
           display_id: kp.displayId,
           title: kp.title,
-          logic_group_id: kp.groupId || '',
-          logic_group_label: kp.groupLabel || '',
-          source_locator: kp.sourceLocator || '',
           prompt: kp.prompt || '',
           learned: Boolean(study.learned?.[kp.kpId]),
           recall_rating: recallRating,
@@ -406,26 +390,7 @@ const packetMeta = {
         },
         learning_state: {
           current_stage: study.stage || '',
-          source_contact: {
-            mode: packetMeta.sourceContactMode || '',
-            per_logic_group: Boolean(packetMeta.sourcePerGroup),
-            whole_block_confirmed: Boolean(study.sourceContactDone),
-            active_group_contacted: activeGroupContacted
-          },
-          resume: {
-            group_index: groupIndex,
-            logic_group_id: activeGroupId,
-            logic_group_label: activeGroupLabel,
-            kp_index: kpIndex,
-            kp_id: activeKp?.kpId || '',
-            kp_display_id: activeKp?.displayId || '',
-            source_locator: activeKp?.sourceLocator || ''
-          },
-          ttsx: {
-            pending: study.pendingTtsx || null,
-            evidence: study.ttsxEvidence || {},
-            annotations: study.ttsxAnnotations || {}
-          },
+          lecture_round_complete: Boolean(personal.lectureRead),
           learned_kp_ids: Object.entries(study.learned || {}).filter(([, done]) => Boolean(done)).map(([id]) => id),
           recall_ratings: study.ratings || {},
           block_recall_done: Boolean(study.blockRecallDone),
@@ -433,10 +398,7 @@ const packetMeta = {
         },
         summary: {
           total_kp: kps.length,
-          learned_kp: Object.values(study.learned || {}).filter(Boolean).length,
           recalled_kp: Object.keys(study.ratings || {}).length,
-          active_logic_group_id: activeGroupId,
-          active_kp_id: activeKp?.kpId || '',
           weak_now_kp_ids: weakNow.map((row) => row.kp_id),
           repeated_unstable_kp_ids: repeated.map((row) => row.kp_id),
           notes_count: kpEvidence.filter((row) => Boolean(row.note)).length
@@ -448,8 +410,6 @@ const packetMeta = {
         imported_chat_plan: planRows(),
         chat_plan_ratings: ext.reviewRatings || {},
         evidence_semantics: {
-          source_contact: 'records whether the required original Lecture / MarginNote contact has actually been confirmed; it is not inferred from repository readiness',
-          ttsx: 'records reviewed Lecture-attached checkpoint evidence separately from KP Recall and never manufactures a checkpoint when none is owned',
           kp_recall: 'primary same-session recall evidence; each actual Recall attempt is appended, including repeated identical ratings',
           memory: 'local repair evidence; STABLE may clear the local weak queue but does not rewrite the original Recall rating',
           chat_plan_review: 'repair-only evidence; known/mastered may close the active repair task but never rewrite original Recall or mastery automatically',
