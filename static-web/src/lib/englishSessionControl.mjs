@@ -1,3 +1,7 @@
+import {
+  readEnglishExamSession,
+  summarizeEnglishExamSession
+} from './englishExamSession.mjs';
 
 export const ENGLISH_SESSION_SCHEMA = 'kianos.english.session-instruction.v1';
 export const ENGLISH_SESSION_KEY = 'kianos-english-session-instruction-v1';
@@ -8,7 +12,8 @@ export const ENGLISH_SESSION_TASKS = Object.freeze([
   'cloze',
   'reading_b',
   'translation',
-  'writing'
+  'writing',
+  'full_paper'
 ]);
 
 const LAST_LOCATION_KEYS = Object.freeze({
@@ -49,12 +54,25 @@ function normalizeStep(step, index) {
   if (!/^[A-Za-z0-9._:-]+$/.test(objectId)) {
     throw new Error('ENGLISH_SESSION_OBJECT_INVALID:' + task);
   }
+  let params = {};
+  if (step.params != null) {
+    if (!step.params || typeof step.params !== 'object' || Array.isArray(step.params)) {
+      throw new Error('ENGLISH_SESSION_PARAMS_INVALID:' + task);
+    }
+    if (task === 'full_paper' && step.params.task_order != null) {
+      if (!Array.isArray(step.params.task_order)) {
+        throw new Error('ENGLISH_SESSION_EXAM_ORDER_INVALID');
+      }
+      params.task_order = step.params.task_order.map((value) => clean(value, 40)).filter(Boolean);
+    }
+  }
   return {
     step_id: clean(step.step_id || step.stepId || ('step-' + (index + 1)), 80),
     task,
     object_id: objectId,
     label: clean(step.label, 180),
-    note: clean(step.note, 800)
+    note: clean(step.note, 800),
+    params
   };
 }
 
@@ -170,7 +188,8 @@ export function englishSessionStepHref(step, base = '/') {
     cloze: 'cloze',
     reading_b: 'reading-b',
     translation: 'translation',
-    writing: 'writing'
+    writing: 'writing',
+    full_paper: 'english-exam'
   })[step.task];
   const normalizedBase = String(base || '/').endsWith('/') ? String(base || '/') : String(base || '/') + '/';
   return normalizedBase + prefix + '/' + encodeURIComponent(step.object_id) + '/';
@@ -250,6 +269,7 @@ export function buildEnglishEvidencePacket(storage, { day, now = Date.now() } = 
       reading_b: objectiveEvidence(storage, LAST_LOCATION_KEYS.reading_b, 'kianos-reading-b-attempt-v1:'),
       translation: productiveEvidence(storage, 'translation'),
       writing: productiveEvidence(storage, 'writing')
-    })
+    }),
+    exam_session: summarizeEnglishExamSession(readEnglishExamSession(storage))
   };
 }
