@@ -311,13 +311,14 @@
     "schema": "kianos.politics.later_stage_learning.v1",
     "status": "CURRENT_L_CALIBRATION",
     "phase": "CONSOLIDATION",
-    "mode": "CHAPTER_FAST",
+    "mode": "CHAPTER_FAST_DIAGNOSTIC_FIRST",
     "reconstruct": {
       "source": "later_stage_knowledge.compression_model",
-      "task": "从半殖民地半封建国情出发，一次性推出主要矛盾/任务、对象动力领导性质前途、纲领、道路和三大法宝。"
+      "task": "从半殖民地半封建国情出发，一次性推出主要矛盾/任务、对象动力领导性质前途、纲领、道路和三大法宝。",
+      "one_shot_rule": "RECALL_FRAMEWORK_PLUS_ATTACHED_CORE_CONTENT_AS_FAR_AS_POSSIBLE"
     },
     "core_content_recall": {
-      "mode": "GROUPED_ACTIVE_RECALL",
+      "mode": "GROUP_RUBRIC_PLUS_TARGETED_GAP_RECALL",
       "groups": [
         {
           "id": "MAO-C02-LR-G01",
@@ -326,7 +327,9 @@
           "owner_ids": [
             "POL27-CF-MAO-C02-S01"
           ],
-          "tolerance": "SEMANTIC_COMPLETE_DECISIVE_IDENTITIES_REQUIRED"
+          "tolerance": "SEMANTIC_COMPLETE_DECISIVE_IDENTITIES_REQUIRED",
+          "role": "EVALUATION_RUBRIC_AND_GAP_RECALL_TARGET",
+          "active_recall": "ONLY_IF_MATERIAL_GAP_AFTER_ONE_SHOT"
         },
         {
           "id": "MAO-C02-LR-G02",
@@ -335,7 +338,9 @@
           "owner_ids": [
             "POL27-CF-MAO-C02-S02"
           ],
-          "tolerance": "GROUP_COMPLETE_ROLE_BOUNDARIES_REQUIRED"
+          "tolerance": "GROUP_COMPLETE_ROLE_BOUNDARIES_REQUIRED",
+          "role": "EVALUATION_RUBRIC_AND_GAP_RECALL_TARGET",
+          "active_recall": "ONLY_IF_MATERIAL_GAP_AFTER_ONE_SHOT"
         },
         {
           "id": "MAO-C02-LR-G03",
@@ -345,23 +350,27 @@
             "POL27-CF-MAO-C02-S02",
             "POL27-CF-MAO-C02-S03"
           ],
-          "tolerance": "SEMANTIC_COMPLETE_FIXED_GROUPS_COMPLETE"
+          "tolerance": "SEMANTIC_COMPLETE_FIXED_GROUPS_COMPLETE",
+          "role": "EVALUATION_RUBRIC_AND_GAP_RECALL_TARGET",
+          "active_recall": "ONLY_IF_MATERIAL_GAP_AFTER_ONE_SHOT"
         }
-      ]
+      ],
+      "default_behavior": "CHECK_ONE_SHOT_RECONSTRUCTION_DO_NOT_REASK_STABLE_GROUPS"
     },
     "precision": {
       "policy": "ACTIVE_ADMITTED_ONLY",
       "candidate_owner": "content/politics/learning/mao/ch02.memory.json",
       "default_state": "DORMANT_CANDIDATE_POOL",
-      "activation": [
-        "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+      "admission_required_before_activation": true,
+      "activation_after_admission": [
+        "CURRENT_PHASE_REQUIRES_EXACTNESS",
         "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_NEED",
         "ANALYSIS_OUTPUT_PHASE_REQUIRES_EXACT_FORMULATION"
       ]
     },
     "evidence": {
       "prior_wrong_uncertain": "PRIORITIZE_IF_PRESENT",
-      "retest": "SELECTIVE_NOT_FULL_BANK"
+      "retest": "SELECTIVE_AFTER_GAP_WU_PRIORITY_NOT_FULL_BANK"
     },
     "repair": "SMALLEST_SUFFICIENT",
     "close": [
