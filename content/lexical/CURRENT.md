@@ -101,6 +101,20 @@ Existing browser-local evidence / exact target identity / lineage / dormancy / r
 
 ## Architecture-v2 adaptation stages
 
+### Stage A — Rule / Content readback — **PASS / PRESERVE**
+
+Fresh v2 readback conclusion:
+
+- `LEARNING_CONTRACT.md` already cleanly owns Purpose, learner loop, card-vs-local judgment, Fast Pass / Depth / Repair / Challenge and English boundary;
+- `CONTENT_ASSET_CONTRACT.md` already cleanly owns lexical knowledge quality and forbids UI / learner-state ownership;
+- Current Natural Owners already satisfy the website-disappearance rule and remain the only semantic Content source;
+- no broad Rule rewrite or Content migration is justified for Architecture v2;
+- `SAFE_SIMPLE / DEPTH_READY` remain Acceptance/content-quality conclusions, **not Runtime state and not a new required Word-owner field**;
+- Runtime must not read Acceptance audit files as semantic authority;
+- learner routing remains driven by canonical lexical truth + current learner evidence + Kian's whole-card judgment.
+
+Therefore Stage A does **not** mutate the 7,946-owner semantic catalog.
+
 ### Stage A — Rule / Content readback
 
 Question:
