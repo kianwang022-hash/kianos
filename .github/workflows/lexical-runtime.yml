@@ -73,6 +73,8 @@ jobs:
           ]
           roots += list(Path('content/lexical/words/by-ordinal').glob('*.json'))
           roots += list(Path('content/lexical/relations/by-id').glob('*/*.json'))
+          roots += [Path('content/lexical/final-learner-object-decisions.json'), Path('content/lexical/learner/final/manifest.json')]
+          roots += list(Path('content/lexical/learner/final/shards').glob('*.json'))
           for path in roots:
               json.loads(path.read_text())
           print(f'validated {len(roots)} lexical JSON files')
@@ -91,6 +93,7 @@ jobs:
 
           const inspection = inspectLexicalSources();
           if (inspection.status !== 'ready' || inspection.semanticAuthority !== true) throw new Error('LEXICAL_SOURCE_NOT_READY');
+          if (inspection.websiteConsumesFinalLearnerObject !== true) throw new Error('LEXICAL_WEBSITE_NOT_ON_FINAL_LEARNER_OBJECT');
 
           const ordinalsAll = listLexicalOrdinals();
           const summaries = listLexicalWordSummaries();
@@ -107,8 +110,8 @@ jobs:
           if (!byWord.default.record.constructions.some((item) => item.pattern === 'by default')) throw new Error('DEFAULT_BY_DEFAULT_MISSING');
           if ((byWord.delicate.record.secondary_senses || []).length < 2) throw new Error('DELICATE_DEPTH_BRANCHES_MISSING');
           if (!(byWord.fine.record.secondary_senses || []).some((item) => item.definition_cn === '处以罚款')) throw new Error('FINE_HIDDEN_SENSE_MISSING');
-          if (!(byWord.assure.record.semantic_neighbors || []).some((item) => item.target_word === 'ensure')) throw new Error('ASSURE_ENSURE_RELATION_MISSING');
-          if (!(byWord.ensure.record.semantic_neighbors || []).some((item) => item.target_word === 'assure')) throw new Error('ENSURE_ASSURE_RELATION_MISSING');
+          if (!(byWord.assure.record.reference?.relations || []).some((item) => item.target_word === 'ensure')) throw new Error('ASSURE_ENSURE_RELATION_MISSING');
+          if (!(byWord.ensure.record.reference?.relations || []).some((item) => item.target_word === 'assure')) throw new Error('ENSURE_ASSURE_RELATION_MISSING');
           NODE
 
       - name: Install Astro dependencies
