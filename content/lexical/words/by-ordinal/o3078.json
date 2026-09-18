@@ -6,7 +6,57 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "boundary": "understanding/perception branch, not physical hit/reach",
+        "codex_reviewed": false,
+        "definition_cn": "未听到；未觉察；未理解",
+        "definition_en": "to fail to understand the important point",
+        "dimensions": {},
+        "direction": "R+P",
+        "evidence": [
+          {
+            "evidence_id": "evidence:core-card:miss:19beb08f3161",
+            "evidence_status": "source_checked",
+            "source_labels": [],
+            "source_locator": "miss:l1:2",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:constructions:miss:f0ffb796361558e2",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": "未理解要点",
+        "module": "constructions",
+        "pattern": "miss the point",
+        "pos": "verb",
+        "presentation_merge": {
+          "merge_id": "presentation-merge:fdee5cb7b3f9f2fc82fb",
+          "metadata_tags": [
+            "cloze",
+            "collocation",
+            "construction",
+            "writing"
+          ],
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:15c4bbc61daf39cfa900"
+        },
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": null,
+        "source_sense_id": "sense:miss:0061310092e65c88",
+        "target_sense_id": null,
+        "target_word": null,
+        "task_tags": [
+          "cloze",
+          "writing"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true
+      }
+    ],
     "content_hash": "89d98a42ca0ab23c64e40b5fb01d06c0915ced82862aa34a4001e168f396f368",
     "core_concept": {
       "core_clusters": [
@@ -88,15 +138,6 @@
             ],
             "meaning_cn": "错过公交车",
             "phrase": "miss the bus"
-          },
-          {
-            "collocation_id": "collocation:15c4bbc61daf39cfa900",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:miss:0061310092e65c88:collocation:0"
-            ],
-            "meaning_cn": "未理解要点",
-            "phrase": "miss the point"
           }
         ],
         "confidence": "medium",
@@ -399,7 +440,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3073-3080.json",
     "source_content_hash": "25c21681c8407264aa05277c3bb7bccf2e55cb21d77cfb704f7466f4bfd436ba",
-    "semantic_delta": 1,
+    "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

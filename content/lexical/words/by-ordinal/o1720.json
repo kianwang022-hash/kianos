@@ -6,7 +6,57 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "boundary": "estimate that 估计…",
+        "codex_reviewed": false,
+        "definition_cn": "估计，估算",
+        "definition_en": "to calculate approximately the value, amount, or size of something",
+        "dimensions": {},
+        "direction": "R+P",
+        "evidence": [
+          {
+            "evidence_id": "evidence:core-card:estimate:3c8a26502ebb",
+            "evidence_status": "source_checked",
+            "source_labels": [],
+            "source_locator": "estimate:l1:5",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:constructions:estimate:4e811dfa9022a2c2",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": "估计…",
+        "module": "constructions",
+        "pattern": "estimate that + clause",
+        "pos": "verb",
+        "presentation_merge": {
+          "merge_id": "presentation-merge:85db128a55de0dbbcc1f",
+          "metadata_tags": [
+            "cloze",
+            "collocation",
+            "construction",
+            "writing"
+          ],
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:5dae9df51c4c2f94ae8a"
+        },
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": null,
+        "source_sense_id": "sense:estimate:cf1a14f74d6a5ed0",
+        "target_sense_id": null,
+        "target_word": null,
+        "task_tags": [
+          "cloze",
+          "writing"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true
+      }
+    ],
     "content_hash": "0daa2d721afdffb208b6a847e7abf8d3d0d3db656a7d91246b69d6aecaa24938",
     "core_concept": {
       "core_clusters": [
@@ -45,17 +95,7 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:5dae9df51c4c2f94ae8a",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:estimate:b7cafb7c04495797:collocation:1"
-            ],
-            "meaning_cn": "估计…",
-            "phrase": "estimate that + clause"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "估计；估算；估计值",
         "definition_en": "an approximate calculation or judgment of an amount, value, number, or cost",
@@ -379,7 +419,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1713-1720.json",
     "source_content_hash": "9a7d69937b90fe19b98cb2c2ae9e33849be39cbaf2b1b1bce93fad0e4646b6fd",
-    "semantic_delta": 1,
+    "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
