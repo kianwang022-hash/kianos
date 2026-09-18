@@ -175,7 +175,15 @@ The design target is:
 
 > **lower friction per correct judgment.**
 
-No fixed daily word quota belongs in this contract.
+No mandatory daily word **quota** belongs in this contract.
+
+A learner-controlled **daily new-word ceiling** is allowed and currently required as a capacity guard:
+
+- it limits only words entering Coverage for the first time on that local study day;
+- it is adjustable by Kian;
+- it is not a target, assignment or debt;
+- lowering or missing it never creates backlog;
+- already-introduced words, Repair and Research remain available after the ceiling is reached.
 
 ---
 
@@ -249,6 +257,20 @@ Unknown / Fuzzy / Known / Mastered
 +
 = exact local future Repair admission
 ```
+
+### Same-day revisit is ephemeral routing support
+
+Vocabulary Home may surface a **same-day revisit** queue compiled from card-level routing only.
+
+Current rule:
+
+- a word enters the same-day revisit set when its **latest routing judgment today** is `Unknown` or `Fuzzy`;
+- it leaves immediately when a later judgment today becomes `Known` or `Mastered`;
+- the set resets naturally across local study days;
+- it has no overdue state, no fixed countdown and no carry-over debt;
+- it is not Repair and must not create exact-object Repair targets by itself.
+
+This queue exists only to answer: **“今天哪些整词值得再回来一次？”**
 
 ---
 
@@ -326,7 +348,9 @@ stop by real time / capacity
 
 Coverage is the long-run mainline. Repair must not grow into a wall that prevents new Coverage.
 
-No fixed-volume scheduler belongs here for words/day, Repair targets, Challenge items or review minutes.
+No fixed-volume **obligation scheduler** belongs here for words/day, Repair targets, Challenge items or review minutes.
+
+The adjustable daily new-word ceiling is not such a scheduler. It is a learner-set upper bound on first-time Coverage intake, used to protect capacity without manufacturing required volume or overdue debt.
 
 ---
 

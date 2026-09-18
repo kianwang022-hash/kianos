@@ -1,6 +1,6 @@
 # Lexical Visual / Surface Blueprint — Candidate
 
-Status: **L2 VISUAL FAMILY ACCEPTED — L3 DEPTH ACCEPTED; remaining L3 surfaces stay Human-Gate candidates**  
+Status: **VISUAL FAMILY ACCEPTED — DEPTH SURFACE ACCEPTED; remaining learner surfaces stay Human-Gate candidates**  
 Parent Visual authority: `static-web/PRESENTATION_CONTRACT.md`  
 Preference owner: `static-web/KIAN_UI_PREFERENCES.md`  
 Rule / Model owner: `content/lexical/LEARNING_CONTRACT.md`  
@@ -62,7 +62,9 @@ Home is a **lexical workbench / router**, not a progress dashboard.
 It should answer quickly:
 
 - where to continue Coverage;
-- whether a small high-value Repair action is worth doing now;
+- how much new-word capacity remains today;
+- whether any whole-word `Unknown / Fuzzy` judgments deserve one same-day revisit;
+- whether a small high-value exact Repair action is worth doing now;
 - how to search the canonical lexicon;
 - how to enter Challenge when justified;
 - whether an English-origin return context is active.
@@ -88,6 +90,8 @@ Do not foreground:
 - engineering metadata.
 
 No fixed words/day target belongs on Home unless a separate scheduler owner explicitly supplies one.
+
+Same-day revisit is **ephemeral routing support**, not Repair: it is derived from today's latest whole-card judgment, disappears after a later `Known / Mastered` judgment, and never becomes overdue debt.
 
 ---
 
@@ -160,7 +164,7 @@ Human Gate must decide whether:
 
 ---
 
-## 5｜Accepted L2 Vocabulary / Lexical visual family
+## 5｜Accepted Vocabulary / Lexical visual family
 
 Status: **ACCEPTED by Kian — 2026-09-18**
 
@@ -169,17 +173,50 @@ This section owns the shared learner-facing visual language for Vocabulary / Lex
 Hard inheritance:
 
 ```text
-L1 Shared Visual
+Shared Visual
 → English family shell / control language
-→ this Lexical L2 family
-→ L3 exact surface blueprint
+→ Lexical visual family
+→ exact learner surface
 ```
 
-L3 may specialize lexical learning geometry. It may not invent a new page theme, font system, palette, card language or chrome.
+Exact learner surfaces may specialize lexical learning geometry. They may not invent a new page theme, font system, palette, card language or chrome.
 
 ### Product identity
 
 Vocabulary / Lexical must first feel like part of **English / KianOS**, not a separate green dictionary application.
+
+Navigation ownership is:
+
+```text
+L1 global rail  → English
+L2 English      → Vocabulary
+L3 Vocabulary   → Overview | Learn | Repair | Research
+```
+
+A local `← English` control is a parent return/breadcrumb, not another navigation level.
+
+When the learner enters Vocabulary, **do not stack the parent English L2 bar above the Vocabulary bar**. Vocabulary is a child workspace that temporarily owns the single visible top navigation surface:
+
+```text
+← English | Vocabulary | Overview | Learn | Repair | Research | 我的 / 设置
+```
+
+English remains active in the L1 global rail, which preserves subject identity without duplicate chrome.
+
+Within Vocabulary L3, **Learn is an action destination, not another dashboard**:
+
+```text
+Overview = today/workbench
+Learn    = enter the current Coverage word directly
+Repair   = exact Repair workspace
+Research = lookup / semantic exploration
+```
+
+Do not create a separate Learn home that repeats Overview state, recent history or same-day revisit controls.
+
+`我的 / 设置` is a **low-frequency utility layer**, not a fifth L3 learning workspace. It may own stable preferences, interpretable learner-state views and local learner-data backup/restore. It must not become an account dashboard or duplicate canonical lexical content.
+
+
 
 Inherit from Shared Visual / English family:
 
@@ -190,7 +227,7 @@ Inherit from Shared Visual / English family:
 - normal Chinese UI typography;
 - shared spacing / density discipline.
 
-Forbidden L2 forks include:
+Forbidden family forks include:
 
 - cream / yellow paper-like page themes;
 - broad gray-green or pale-green surface washes;
@@ -203,13 +240,13 @@ Forbidden L2 forks include:
 
 Accepted direction:
 
-> **English shell + very restrained deep-green lexical semantic markers.**
+> **Shared English shell + very restrained deep-green lexical semantic markers.**
 
 Role split:
 
 ```text
-English blue / neutral
-→ product, navigation and ordinary task chrome
+Shared English shell / neutral chrome
+→ product, navigation and ordinary task controls
 
 Lexical deep green
 → lexical semantic structure only
@@ -512,35 +549,74 @@ A rich Depth encounter may end with zero local `+` targets.
 
 ## 7｜Repair — candidate role
 
-Repair is not “all active debt.”
+Repair is a **direct execution session**, not an inventory-management page and not a second study Home.
 
-Normal Repair entry should prefer a **small evidence-backed current subset** only when that is useful.
+Primary flow:
 
-For each surfaced target, show enough to answer:
+```text
+current exact Repair objects
+→ Chat selects / compiles a small useful Test set
+→ website executes the session continuously
+→ ← ↑ ↓ → answer
+→ correct / wrong evidence
+→ wrong only: minimal Repair explanation
+→ optional Reconstruction
+→ Next
+```
 
-- what exact lexical object is unstable;
-- why it is appearing now;
-- what demand is being tested or repaired;
-- how to leave quickly when stable.
+The learner should normally enter Repair and immediately continue the current Test when a valid local Challenge Packet already exists.
 
-The full active inventory may remain available as secondary reference.
+Repair has three visible states:
+
+```text
+EMPTY
+→ no current Repair
+→ continue Learn
+
+WAITING
+→ current Repair exists but no Test is loaded
+→ wait for Chat compilation / sync
+
+ACTIVE
+→ Test loaded
+→ continuous spatial-choice session
+```
+
+The active Mac-wide surface should devote most width to the Test. A narrow current-target rail may show word identity, target kind, source evidence, demand and an optional “查看完整词义” escape hatch. It must not reveal the answer or force full-word rereading.
+
+A Repair inventory may remain available in a collapsed transparency section for confirmation / positioning only. It is not the normal click-by-click interaction path.
+
+Manual Challenge Packet JSON import is a compatibility / debug control only and must not occupy the normal learner surface.
 
 Forbidden:
 
 - overdue wall;
 - calendar-generated urgency;
 - mandatory queue clearing;
-- full-card re-study when one local object is the actual problem.
+- full-card re-study when one local object is the actual problem;
+- making the learner open every Repair object manually before testing;
+- making packet transport / engineering controls the visual center of Repair.
 
 ---
 
-## 8｜Challenge — candidate role
+## 8｜Challenge — Repair execution mode
 
-Challenge is a test workspace.
+Challenge remains a test job, but it is **not a peer Vocabulary L3 destination**. It is the primary execution mode inside Repair when Chat decides that a target deserves a Test.
 
-One challenge should test one named lexical demand with the smallest useful high-information form.
+One Challenge tests one named lexical demand with the smallest useful high-information form.
 
-Examples:
+Default interaction for current spatial-choice Challenge:
+
+```text
+← ↑ → ↓
+→ record exact result
+→ correct: continue
+→ wrong: show minimum Repair
+→ Reconstruction when supplied
+→ continue
+```
+
+Examples include:
 
 - contextual sense discrimination;
 - construction slot choice;
@@ -548,19 +624,22 @@ Examples:
 - confusable boundary;
 - constrained Translation/Writing production.
 
-Challenge must not become another semantic content owner.
+Chat owns adaptive Test selection / generation. Astro owns fast presentation, keyboard interaction, local resume and evidence capture. Challenge must not become another semantic content owner.
+
+A saved local Test must resume automatically when Repair is entered. Leaving Repair must release the four-direction keyboard controls.
 
 After resolution:
 
 ```text
-stable
-→ exit / continue
+stable evidence
+→ target may become dormant when the evidence contract allows
 
 meaningful failure
-→ exact Repair target
+→ keep / reactivate the exact Repair target
+→ change diagnosis or Test form when needed
 
 English-origin context
-→ return to originating English task when appropriate
+→ return to the originating English task when appropriate
 ```
 
 ---

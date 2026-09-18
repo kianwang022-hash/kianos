@@ -54,8 +54,8 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
     <section class="portedVocabWordFront" data-vocab-front data-recall-density={recallDensity}>
       <h2>{card.word}</h2>
       <div class="lexicalFrontPronunciation" aria-label="Pronunciation">
-        <button type="button" data-vocab-speak="en-US">美音 · 点击播放</button>
-        <span class="lexicalPronunciationToggle"><button type="button" data-vocab-speak="en-GB">英</button><button type="button" data-vocab-speak="en-US" class="active">美</button></span>
+        <button type="button" data-vocab-default-speak data-vocab-speak="en-US">美音 · 点击播放</button>
+        <span class="lexicalPronunciationToggle"><button type="button" data-vocab-speak="en-GB">英</button><button type="button" data-vocab-speak="en-US">美</button></span>
       </div>
       <div class="portedVocabRecallMap">
         <strong>{recallParts.length ? recallParts.join(' · ') : 'Core'}</strong>
@@ -70,8 +70,8 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
           <span>Coverage · Word Study</span>
           <h2>{card.word}</h2>
           <div class="lexicalDepthPronunciation">
-            <button type="button" data-vocab-speak="en-US">美音 · 点击播放</button>
-            <span><button type="button" data-vocab-speak="en-GB">英</button><button type="button" data-vocab-speak="en-US" class="active">美</button></span>
+            <button type="button" data-vocab-default-speak data-vocab-speak="en-US">美音 · 点击播放</button>
+            <span><button type="button" data-vocab-speak="en-GB">英</button><button type="button" data-vocab-speak="en-US">美</button></span>
           </div>
         </div>
 
@@ -408,6 +408,7 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
 
 <script>
   import { LEXICAL_LEDGER_STORAGE_KEY, appendEvidenceEvent, compileRepairTargets, emptyLexicalLedger, exportReturnEvents, legacyEventId, normalizeLexicalLedger } from '../lib/lexicalEvidence.mjs';
+  import { DEFAULT_PRONUNCIATION, LEXICAL_SETTINGS_STORAGE_KEY, normalizeLexicalSettings } from '../lib/lexicalSettings.mjs';
 
   const initializeVocabularyRoot = (root) => {
     if (!(root instanceof HTMLElement) || root.dataset.vocabInitialized === 'true') return;
@@ -437,6 +438,22 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
     const eventLocalDay = (iso) => { const date = new Date(iso); return Number.isNaN(date.getTime()) ? '' : date.toLocaleDateString('en-CA'); };
     const readJson = (key, fallback) => { try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; } catch { return fallback; } };
     const saveJson = (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); } catch {} };
+    const lexicalSettings = () => normalizeLexicalSettings(readJson(LEXICAL_SETTINGS_STORAGE_KEY, { default_pronunciation: DEFAULT_PRONUNCIATION }));
+    const defaultPronunciation = () => lexicalSettings().default_pronunciation;
+    const pronunciationLabel = (lang) => lang === 'en-GB' ? '英音 · 点击播放' : '美音 · 点击播放';
+    const syncPronunciationPreference = () => {
+      const preferred = defaultPronunciation();
+      root.querySelectorAll('[data-vocab-default-speak]').forEach((button) => {
+        button.setAttribute('data-vocab-speak', preferred);
+        button.textContent = pronunciationLabel(preferred);
+        if (button.hasAttribute('aria-label')) {
+          button.setAttribute('aria-label', preferred === 'en-GB' ? '英式发音' : '美式发音');
+        }
+      });
+      root.querySelectorAll('.lexicalPronunciationToggle [data-vocab-speak], .lexicalDepthPronunciation span [data-vocab-speak]').forEach((button) => {
+        button.classList.toggle('active', button.getAttribute('data-vocab-speak') === preferred);
+      });
+    };
     const readLedger = () => normalizeLexicalLedger(readJson(LEXICAL_LEDGER_STORAGE_KEY, emptyLexicalLedger()));
     const saveLedger = (ledger) => saveJson(LEXICAL_LEDGER_STORAGE_KEY, ledger);
     let selectedIndex = -1;
@@ -620,7 +637,7 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
       if (activeRoot !== root) return;
       const target = event.target;
       if (target instanceof HTMLElement && target.closest('input,textarea,select,[contenteditable="true"]')) return;
-      if (event.key.toLowerCase() === 's') { event.preventDefault(); speak('en-US'); return; }
+      if (event.key.toLowerCase() === 's') { event.preventDefault(); speak(defaultPronunciation()); return; }
       if (!state.revealed && (event.code === 'Space' || event.key === 'ArrowLeft' || event.key === 'ArrowUp')) {
         event.preventDefault(); openCard(); return;
       }
@@ -634,6 +651,11 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
     };
     document.addEventListener('keydown', onKeydown);
 
+    syncPronunciationPreference();
+    window.addEventListener('kianos:lexical-settings-changed', syncPronunciationPreference);
+    window.addEventListener('storage', (event) => {
+      if (event.key === LEXICAL_SETTINGS_STORAGE_KEY) syncPronunciationPreference();
+    });
     save();
     render();
   };

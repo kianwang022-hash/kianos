@@ -152,7 +152,229 @@ try {
   await page.evaluate(() => localStorage.clear());
   await page.reload({ waitUntil: 'networkidle' });
   assert(await page.locator('[data-kianos-global-rail]').isVisible(), 'v2_home_keeps_global_rail');
+  assert(await page.locator('[data-kianos-subject-bar="english"]').count() === 0, 'v2_vocabulary_suppresses_parent_english_l2');
+  assert(await page.locator('.lexicalLocalNav').count() === 1, 'v2_vocabulary_has_one_local_top_nav');
+  assert(await page.locator('.lexicalBackEnglish').isVisible(), 'v2_home_has_parent_english_return');
+  assert((await page.locator('.lexicalBackEnglish').getAttribute('href') || '').endsWith('/english/'), 'v2_home_parent_return_targets_english');
+  assert(await page.locator('[data-lexical-panel="overview"]').isVisible(), 'v2_home_defaults_to_overview');
+  const localJobs = [
+    ...(await page.locator('[data-lexical-tab]').allTextContents()).map((row) => row.trim()),
+    (await page.locator('[data-lexical-learn-nav]').innerText()).trim()
+  ];
+  assert(localJobs.sort().join('|') === ['Overview','Learn','Repair','Research'].sort().join('|'), 'v2_home_four_local_jobs', localJobs.join('|'));
+  assert(await page.locator('[data-lexical-daily-limit]').inputValue() === '50', 'v2_home_daily_new_limit_default_50');
+  assert((await page.locator('[data-lexical-same-day-count]').innerText()).trim() === '0', 'v2_home_same_day_revisit_starts_empty');
   await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-home-1440x900.png'), fullPage: false });
+
+  // Same-day revisit is ephemeral card routing support, not Repair debt.
+  await page.evaluate(() => {
+    const rows = JSON.parse(document.querySelector('[data-lexical-catalog]')?.textContent || '[]');
+    const row = rows[0];
+    if (!row) throw new Error('NO_LEXICAL_CATALOG_ROW');
+    const now = new Date().toISOString();
+    localStorage.setItem('kianos-lexical-card-routing-v1', JSON.stringify({
+      schema:'kianos.lexical.card_routing.v1',
+      history:[{ event_id:'visual-same-day-1', word_id:row.objectId, ordinal:row.ordinal, word:row.word, route:'UNKNOWN', observed_at:now }],
+      latest_by_word:{ [row.objectId]:{ event_id:'visual-same-day-1', word_id:row.objectId, ordinal:row.ordinal, word:row.word, route:'UNKNOWN', observed_at:now } }
+    }));
+  });
+  await page.reload({ waitUntil: 'networkidle' });
+  assert((await page.locator('[data-lexical-same-day-count]').innerText()).trim() === '1', 'v2_home_same_day_unknown_surfaces');
+  const directLearnHref = await page.locator('[data-lexical-learn-nav]').getAttribute('href');
+  const overviewContinueHref = await page.locator('[data-lexical-overview-continue]').getAttribute('href');
+  assert(Boolean(directLearnHref) && directLearnHref === overviewContinueHref, 'v2_learn_nav_is_direct_coverage_action', String(directLearnHref));
+  assert(await page.locator('[data-lexical-panel="learn"]').count() === 0, 'v2_learn_has_no_duplicate_home_panel');
+  const sameDayHref = await page.locator('[data-lexical-same-day-start]').getAttribute('href');
+  assert(Boolean(sameDayHref) && sameDayHref !== '#', 'v2_same_day_metric_jumps_directly_to_revisit', String(sameDayHref));
+
+  await page.evaluate(() => {
+    const routing = JSON.parse(localStorage.getItem('kianos-lexical-card-routing-v1') || '{}');
+    const wordId = Object.keys(routing.latest_by_word || {})[0];
+    const prior = routing.latest_by_word?.[wordId];
+    const now = new Date().toISOString();
+    const event = { ...prior, event_id:'visual-same-day-2', route:'KNOWN', observed_at:now };
+    routing.history = [...(routing.history || []), event];
+    routing.latest_by_word[wordId] = event;
+    localStorage.setItem('kianos-lexical-card-routing-v1', JSON.stringify(routing));
+  });
+  await page.goto(`${origin}/vocabulary/`, { waitUntil: 'networkidle' });
+  assert((await page.locator('[data-lexical-same-day-count]').innerText()).trim() === '0', 'v2_home_same_day_known_clears');
+  assert(await page.locator('[data-lexical-same-day-start]').getAttribute('aria-disabled') === 'true', 'v2_home_same_day_action_disables_when_empty');
+  await page.evaluate(() => localStorage.clear());
+
+  // Repair is a direct Chat-compiled Test session, not a list-management page.
+  await page.goto(`${origin}/vocabulary/4/`, { waitUntil: 'networkidle' });
+  if (!(await page.locator('[data-vocab-details]').isVisible())) await page.locator('[data-vocab-reveal]').click();
+  const repairRoot = page.locator('[data-local-port="vocabulary"]');
+  const repairPlus = page.locator('[data-vocab-repair]').first();
+  const repairTargetId = (await repairPlus.getAttribute('data-target-id')) || null;
+  const repairTarget = {
+    word_id: await repairRoot.getAttribute('data-vocab-object'),
+    ordinal: Number(await repairRoot.getAttribute('data-vocab-ordinal')),
+    word: await repairRoot.getAttribute('data-vocab-word'),
+    target_kind: await repairPlus.getAttribute('data-target-kind'),
+    target_id: repairTargetId,
+    target_locator: (await repairPlus.getAttribute('data-target-locator')) || null,
+    target_revision: repairTargetId ? null : await repairRoot.getAttribute('data-vocab-source-hash')
+  };
+  await repairPlus.click();
+  await page.evaluate((target) => {
+    localStorage.setItem('kianos-lexical-challenge-packet-v1', JSON.stringify({
+      schema:'kianos.lexical.challenge_packet.v1',
+      study_day:'2099-09-18',
+      generated_at:'2099-09-18T08:00:00Z',
+      challenges:[{
+        challenge_id:'visual-repair-session-1',
+        ...target,
+        source_evidence:'Depth 中手动 +',
+        demand:'discrimination',
+        question_type:'spatial_choice',
+        stem:'哪个选项最符合当前要修的这个词义边界？',
+        options:[
+          { key:'up', text:'上方干扰项' },
+          { key:'left', text:'左侧干扰项' },
+          { key:'right', text:'右侧干扰项' },
+          { key:'down', text:'正确选项' }
+        ],
+        correct_key:'down',
+        repair:'只修当前局部边界，不重新学习整张词卡。',
+        reconstruction:{
+          stem:'换一个语境，再判断一次同一个局部边界。',
+          options:[
+            { key:'left', text:'干扰项' },
+            { key:'right', text:'正确项' }
+          ],
+          correct_key:'right'
+        }
+      }]
+    }));
+  }, repairTarget);
+  await page.goto(`${origin}/vocabulary/`, { waitUntil: 'networkidle' });
+  await page.locator('[data-lexical-tab="repair"]').click();
+  await page.locator('[data-challenge-question-panel]').waitFor({ state: 'visible' });
+  assert(await page.locator('[data-challenge-import-panel]').isHidden(), 'v2_repair_synced_test_skips_import_surface');
+  assert((await page.locator('[data-challenge-word]').innerText()).trim() === repairTarget.word, 'v2_repair_current_word_matches_target');
+  assert(await page.locator('[data-challenge-choice]:visible').count() === 4, 'v2_repair_spatial_four_choice_surface');
+  const repairCurrentBox = await page.locator('.lexicalRepairCurrent').boundingBox();
+  const repairQuestionBox = await page.locator('.lexicalRepairQuestion').boundingBox();
+  assert(Boolean(repairCurrentBox && repairQuestionBox), 'v2_repair_mac_wide_geometry_exists');
+  assert(repairQuestionBox.width > repairCurrentBox.width * 2.5, 'v2_repair_question_dominates_current_meta', `${repairQuestionBox?.width}/${repairCurrentBox?.width}`);
+  await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-repair-active-1440x900.png'), fullPage: false });
+
+  // Wrong answer expands only the minimum Repair, then Reconstruction keeps the same four-direction language.
+  await page.locator('[data-challenge-choice="up"]').click();
+  assert((await page.locator('[data-challenge-feedback]').innerText()).includes('只修当前局部边界'), 'v2_repair_wrong_shows_minimum_repair');
+  assert((await page.locator('[data-challenge-continue]').innerText()).includes('Reconstruct'), 'v2_repair_wrong_offers_reconstruction');
+  await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-repair-wrong-1440x900.png'), fullPage: false });
+  await page.locator('[data-challenge-continue]').click();
+  assert((await page.locator('[data-challenge-progress]').innerText()).includes('Reconstruct'), 'v2_repair_enters_reconstruction');
+  assert(await page.locator('[data-challenge-choice]:visible').count() === 2, 'v2_repair_reconstruction_uses_compact_spatial_choice');
+  await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-repair-reconstruction-1440x900.png'), fullPage: false });
+
+  await page.evaluate(() => localStorage.clear());
+  await page.goto(`${origin}/vocabulary/`, { waitUntil: 'networkidle' });
+  await page.locator('[data-lexical-tab="repair"]').click();
+  assert(await page.locator('[data-challenge-import-panel]').isVisible(), 'v2_repair_empty_uses_waiting_surface');
+  assert((await page.locator('[data-challenge-waiting-title]').innerText()).includes('没有需要处理的 Repair'), 'v2_repair_empty_state_is_calm');
+  assert(await page.locator('[data-challenge-empty-learn]').isVisible(), 'v2_repair_empty_returns_to_learn');
+  await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-repair-empty-1440x900.png'), fullPage: false });
+  await page.locator('[data-lexical-tab="overview"]').click();
+
+  // Research modes must browse real Final Learner Object facets, not decorative categories.
+  await page.locator('[data-lexical-open-research="familiar"]').click();
+  assert(await page.locator('[data-lexical-panel="research"]').isVisible(), 'v2_research_quick_entry_opens_panel');
+  assert(await page.locator('[data-lexical-search-box]').isHidden(), 'v2_research_browse_hides_search_box');
+  assert(await page.locator('[data-lexical-search-results] .lexicalWordRow').count() > 0, 'v2_research_familiar_has_real_rows');
+  await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-research-familiar-1440x900.png'), fullPage: false });
+  for (const mode of ['relations', 'constructions', 'family', 'form']) {
+    await page.locator(`[data-lexical-research-mode="${mode}"]`).click();
+    assert(await page.locator('[data-lexical-search-results] .lexicalWordRow').count() > 0, `v2_research_${mode}_has_real_rows`);
+  }
+  await page.locator('[data-lexical-research-mode="search"]').click();
+  assert(await page.locator('[data-lexical-search-box]').isVisible(), 'v2_research_search_restores_input');
+  await page.goto(`${origin}/vocabulary/`, { waitUntil: 'networkidle' });
+
+  // My / Settings is a real utility layer, not decorative chrome.
+  await page.evaluate(() => {
+    const rows = JSON.parse(document.querySelector('[data-lexical-catalog]')?.textContent || '[]');
+    const row = rows[0];
+    if (!row) throw new Error('NO_LEXICAL_CATALOG_ROW');
+    const now = new Date().toISOString();
+    localStorage.setItem('kianos-lexical-card-routing-v1', JSON.stringify({
+      schema:'kianos.lexical.card_routing.v1',
+      history:[{ event_id:'visual-mastered-1', word_id:row.objectId, ordinal:row.ordinal, word:row.word, route:'MASTERED', observed_at:now }],
+      latest_by_word:{ [row.objectId]:{ event_id:'visual-mastered-1', word_id:row.objectId, ordinal:row.ordinal, word:row.word, route:'MASTERED', observed_at:now } }
+    }));
+  });
+  await page.locator('[data-lexical-settings-open]').click();
+  assert(await page.locator('[data-lexical-settings-dialog]').isVisible(), 'v2_settings_dialog_opens');
+  assert((await page.locator('[data-lexical-mastered-count]').innerText()).trim() === '1', 'v2_settings_mastered_count_reads_latest_routing');
+  assert(await page.locator('[data-lexical-mastered-list] .lexicalWordRow').count() === 1, 'v2_settings_mastered_list_renders_current_mastered');
+
+  await page.locator('[data-lexical-pronunciation="en-GB"]').click();
+  assert(await page.locator('[data-lexical-pronunciation="en-GB"]').getAttribute('aria-pressed') === 'true', 'v2_settings_default_pronunciation_changes');
+  await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-settings-1440x900.png'), fullPage: false });
+  await page.locator('.lexicalSettingsClose').click();
+
+  await page.locator('[data-lexical-daily-limit]').selectOption('30');
+  const savedSettings = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos-lexical-settings-v1') || '{}'));
+  assert(savedSettings.daily_new_limit === 30, 'v2_settings_daily_limit_updates');
+  assert(savedSettings.default_pronunciation === 'en-GB', 'v2_settings_daily_limit_preserves_pronunciation');
+
+  const downloadPromise = page.waitForEvent('download');
+  await page.locator('[data-lexical-settings-open]').click();
+  await page.locator('[data-lexical-export-state]').click();
+  const download = await downloadPromise;
+  assert(download.suggestedFilename().startsWith('kianos-lexical-backup-'), 'v2_settings_backup_downloads_json', download.suggestedFilename());
+
+  await page.evaluate(() => {
+    localStorage.setItem('kianos-lexical-settings-v1', JSON.stringify({
+      schema:'kianos.lexical.settings.v1',
+      daily_new_limit:20,
+      default_pronunciation:'en-US'
+    }));
+  });
+  await page.locator('[data-lexical-import-file]').setInputFiles({
+    name:'lexical-restore-test.json',
+    mimeType:'application/json',
+    buffer:Buffer.from(JSON.stringify({
+      schema:'kianos.lexical.local_backup.v1',
+      exported_at:new Date().toISOString(),
+      data:{
+        'kianos-lexical-settings-v1':JSON.stringify({
+          schema:'kianos.lexical.settings.v1',
+          daily_new_limit:30,
+          default_pronunciation:'en-GB'
+        })
+      }
+    }))
+  });
+  await page.waitForFunction(() => document.querySelector('[data-lexical-backup-status]')?.textContent?.includes('已恢复'));
+  const restoredSettings = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos-lexical-settings-v1') || '{}'));
+  assert(restoredSettings.daily_new_limit === 30, 'v2_settings_backup_restores_daily_limit');
+  assert(restoredSettings.default_pronunciation === 'en-GB', 'v2_settings_backup_restores_pronunciation');
+  assert((await page.locator('[data-lexical-backup-status]').innerText()).includes('已恢复'), 'v2_settings_backup_reports_restore');
+  await page.locator('.lexicalSettingsClose').click();
+
+  await page.goto(`${origin}/vocabulary/1/`, { waitUntil: 'networkidle' });
+  assert(await page.locator('[data-vocab-default-speak]').first().getAttribute('data-vocab-speak') === 'en-GB', 'v2_word_study_uses_default_pronunciation');
+  assert((await page.locator('[data-vocab-default-speak]').first().innerText()).includes('英音'), 'v2_word_study_default_pronunciation_label');
+  await page.goto(`${origin}/vocabulary/`, { waitUntil: 'networkidle' });
+  await page.evaluate(() => localStorage.clear());
+
+  // Daily new-word ceiling is a real capacity guard, not decorative Home state.
+  await page.evaluate(() => {
+    localStorage.clear();
+    localStorage.setItem('kianos-lexical-settings-v1', JSON.stringify({ schema:'kianos.lexical.settings.v1', daily_new_limit:1 }));
+  });
+  await page.goto(`${origin}/vocabulary/3/`, { waitUntil: 'networkidle' });
+  await page.locator('[data-vocab-action-dock] [data-vocab-route="known"]').click();
+  await page.waitForURL('**/vocabulary/?limit=reached');
+  assert((await page.locator('[data-lexical-today-new]').first().innerText()).trim() === '1', 'v2_daily_limit_records_first_new_word');
+  assert((await page.locator('[data-lexical-new-remaining]').innerText()).trim() === '0', 'v2_daily_limit_remaining_zero');
+  assert(await page.locator('[data-lexical-overview-continue]').getAttribute('aria-disabled') === 'true', 'v2_daily_limit_blocks_next_new_word');
+  assert(await page.locator('[data-lexical-learn-nav]').getAttribute('aria-disabled') === 'true', 'v2_daily_limit_blocks_direct_learn_nav');
+  await page.evaluate(() => localStorage.clear());
 
   await page.goto(`${origin}/vocabulary/3/`, { waitUntil: 'networkidle' });
   assert(await page.locator('[data-kianos-global-rail]').isHidden(), 'v2_word_study_hides_global_rail');

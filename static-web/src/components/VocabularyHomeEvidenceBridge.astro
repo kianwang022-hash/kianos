@@ -43,12 +43,21 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
       return mode === 'study' ? href : `${href}?mode=${encodeURIComponent(mode)}`;
     };
 
+    const currentRepairTargets = () => compileRepairTargets(readLedger());
+
+    const renderRepairSummary = () => {
+      const targets = currentRepairTargets();
+      const wordCount = new Set(targets.map((target) => target.word_id).filter(Boolean)).size;
+      home.querySelectorAll('[data-lexical-repair-count]').forEach((node) => { node.textContent = String(targets.length); });
+      home.querySelectorAll('[data-lexical-repair-word-count]').forEach((node) => { node.textContent = String(wordCount); });
+    };
+
     const renderReview = () => {
       const host = home.querySelector('[data-lexical-review-list]');
       if (!host) return;
       host.replaceChildren();
       const grouped = new Map();
-      for (const target of compileRepairTargets(readLedger())) {
+      for (const target of currentRepairTargets()) {
         if (!grouped.has(target.word_id)) grouped.set(target.word_id, []);
         grouped.get(target.word_id).push(target);
       }
@@ -59,7 +68,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
       if (!groups.length) {
         const empty = document.createElement('p');
         empty.className = 'lexicalEmpty';
-        empty.textContent = '当前没有 evidence-backed Repair 对象。';
+        empty.textContent = '当前没有需要处理的 Repair 对象。';
         host.appendChild(empty);
         return;
       }
@@ -72,11 +81,11 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
         word.textContent = row.word;
         const detail = document.createElement('span');
         detail.textContent = targets.some((target) => target.diagnosis_required)
-          ? `${targets.length} Repair · 需要换诊断方式`
-          : `${targets.length} exact Repair target${targets.length === 1 ? '' : 's'}`;
+          ? `${targets.length} 个 Repair 对象 · 需要换一种测试方式`
+          : `${targets.length} 个 Repair 对象`;
         copy.append(word, detail);
         const meta = document.createElement('small');
-        meta.textContent = `#${row.ordinal} · ACTIVE from current evidence`;
+        meta.textContent = `#${row.ordinal} · 当前 Repair`;
         link.append(copy, meta);
         host.appendChild(link);
       }
@@ -118,7 +127,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
         : '';
     };
 
-    const render = () => { renderReview(); renderHandoff(); };
+    const render = () => { renderRepairSummary(); renderReview(); renderHandoff(); };
     home.querySelectorAll('[data-lexical-tab]').forEach((button) => button.addEventListener('click', () => queueMicrotask(render)));
     window.addEventListener('kianos:lexical-evidence-changed', render);
     window.addEventListener('storage', (event) => { if (event.key === LEXICAL_LEDGER_STORAGE_KEY) render(); });

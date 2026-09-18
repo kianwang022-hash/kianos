@@ -110,12 +110,18 @@ try {
 
     for (const [route, active] of [
       ['translation/', 'Translation'],
-      ['writing/', 'Writing'],
-      ['vocabulary/', 'Vocabulary']
+      ['writing/', 'Writing']
     ]) {
       await page.goto(`${BASE}/${route}`, { waitUntil: 'domcontentloaded' });
       await assertEnglishL2(page, active);
     }
+
+    // Vocabulary is an English child workspace with its own single local top bar.
+    // Do not stack the parent English L2 above it; L1 still remains English-active.
+    await page.goto(`${BASE}/vocabulary/`, { waitUntil: 'domcontentloaded' });
+    check(await page.locator('[data-kianos-subject-bar="english"]').count() === 0, 'vocabulary_suppresses_parent_english_l2');
+    check(await page.locator('.lexicalLocalNav').count() === 1, 'vocabulary_has_one_local_top_nav');
+    check(await page.locator('.lexicalBackEnglish').isVisible(), 'vocabulary_has_explicit_english_return');
 
     const firstReading = listReadingSets()[0];
     check(Boolean(firstReading?.id), 'reading_runtime_fixture_missing');
@@ -133,6 +139,7 @@ try {
     l1: ['Home', '西综', '政治', 'English'],
     l2: l2Labels,
     objective_l3: l3Labels,
+    vocabulary_owns_single_local_top_bar: true,
     immersive_runtime_suppresses_l2: true
   }, null, 2));
   console.log('ENGLISH_NAVIGATION_HIERARCHY_PASS');

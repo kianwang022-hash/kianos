@@ -120,6 +120,11 @@ function resolvePathNavigationActive(localPath, entries) {
 }
 
 export function subjectShell(localPath = '', base = '/') {
+  // Vocabulary is an English child workspace, but once entered it owns one local top bar.
+  // Keep English active in L1 and return through the explicit ← English control instead
+  // of stacking the parent English L2 above Vocabulary's own navigation.
+  if (topSegment(localPath) === 'vocabulary') return null;
+
   if (isEnglishFamily(localPath)) {
     if (isEnglishImmersiveTaskRuntime(localPath)) return null;
     const items = englishNavigation(base);
