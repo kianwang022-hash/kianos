@@ -199,6 +199,81 @@ Subject-local Runtime/Evidence PASS is not inferred from that shared journey; ea
 
 ---
 
+## Exam-lifecycle later-stage Knowledge acceptance — PASS_WITH_DEBT
+
+This is a **new Knowledge-scope acceptance** for the post-first-round Politics lifecycle. It does not change the already accepted first-round learner journey and does not claim later-stage Learning / Projection / Runtime / Evidence readiness.
+
+Accepted causal boundary:
+
+```text
+Current first-round Politics Knowledge
++ historical LEG26 Memory / Output baseline
++ existing Xiao1000 evidence semantics
+↓
+later-stage Knowledge realization
+  Compression
+  Precision / Memory candidate Knowledge
+  Analysis Output Knowledge where source-supported
+↓
+PASS_WITH_DEBT
+↓
+eligible for later-stage L audit
+```
+
+### Subject accounting
+
+| Subject | Compression K | Precision / Memory K | Analysis Output K | Status |
+| --- | --- | --- | --- | --- |
+| Marxism | 9/9 chapters; 40 reconstruction targets | 34 candidate-only objects; 10 deferred exactness domains | 8 Current-grounded hooks | PASS_WITH_DEBT |
+| Mao | 9/9 chapters; 34 reconstruction targets | 22 candidate-only objects in C00–C06; C07/C08 source-gated | no dedicated Output bank invented | PASS_WITH_DEBT |
+| Xi | 18/18 chapters; Current chapter compression reused | 54 candidate domains; exact wording/list membership current-year gated | 15 conceptual Output hooks; current-year refresh required | PASS_WITH_DEBT |
+| History | 10/10 chapters preserve causal movie | 50 horizontal candidates: 24 meetings / 8 people-documents / 12 land-policy / 6 ideological-liberation | bounded hooks in C02–C07, C09, C10 | PASS_WITH_DEBT |
+| Ethics-Law | 7/7 chapters | 22 candidate-only objects; C06 legal freshness gate | 7 bounded Output hooks | PASS_WITH_DEBT |
+
+### Acceptance invariants
+
+1. **Compression is reconstruction, not a second course.** Existing first-round chapter cognition remains authoritative.
+2. **Subject cognition remains distinct.** Marxism is relation/mechanism-heavy; Mao is historical problem→theory response→identity; Xi is role/hierarchy-heavy; History is causal movie + horizontal exactness; Ethics-Law is concept boundary + situational judgment.
+3. **No historical handbook presence creates durable Memory by itself.** Candidate Knowledge and durable review debt remain different states.
+4. **Zero LEG26-only candidate has been admitted directly to current-year durable Memory.**
+5. **Output Knowledge exists only where source + Current Knowledge jointly justify it.** No Mao Output bank or symmetry-only hook was invented.
+6. **Xi/current-affairs and recent-History material remain current-year delta sensitive.**
+7. **Legal/rule-of-law exactness carries a stronger Current-source freshness gate.**
+8. **Later-stage K creates no first-round render entitlement.** First-round learner behavior remains unchanged.
+9. **No later-stage K object owns timer, retry, reveal order, scheduler behavior, UI geometry, Runtime state, or Evidence mutation.**
+10. **Wrong/Uncertain learner evidence may later promote, demote or reject candidate Memory; K does not manufacture personal review debt.**
+
+### Remaining bounded debt
+
+The following debt is expected and does not block later-stage Learning design:
+
+- 2027 designated Memory handbook delta / corroboration;
+- current-year Xi / current-affairs refresh;
+- recent-History refresh;
+- current legal/source exactness where required;
+- real Wrong/Uncertain evidence for selective Memory admission;
+- future mock/final-source material not yet published/imported.
+
+These are **source-refresh / admission debts**, not missing later-stage Knowledge architecture.
+
+### Allowed conclusion
+
+```text
+Politics first-round S/K/L/P/R/E         PASS
+Politics later-stage K                   PASS_WITH_DEBT
+Politics later-stage L                   UNTESTED / next active gate
+Politics later-stage P/R/E               downstream-frozen
+Politics real later-stage U              UNTESTED
+```
+
+Therefore the strongest current claim is:
+
+> **Politics later-stage Knowledge is ready for Learning-path audit.**
+
+It is not yet valid to claim that the second-round / analysis-output / mock learner system is ready for use.
+
+---
+
 ## U boundary / stop rule
 
 ```text
