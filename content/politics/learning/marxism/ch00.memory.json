@@ -1,0 +1,91 @@
+{
+  "schema": "kianos.politics.memory_projection.v1",
+  "status": "CURRENT_K_REVIEWED",
+  "chapter_id": "POL27-LEARN-MARX-C00",
+  "policy": "SOURCE_GROUNDED_SELECTIVE",
+  "principle": "Candidate existence is Knowledge; durable review debt requires later admission evidence.",
+  "preferred_memory_reference": {
+    "role": "DESIGNATED_MEMORY_HANDBOOK",
+    "label": "腿姐《冲刺背诵手册》",
+    "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+    "historical_package": "content/politics/source/historical/leg26/manifest.json",
+    "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MARX.md",
+    "rule": "Current region ownership + readable LEG26 may create candidate-only Knowledge. OCR-uncertain rows remain deferred until visual/current-year confirmation."
+  },
+  "admission_gate": {
+    "default": "NOT_ADMITTED",
+    "requires_source_grounding": true,
+    "admit_when_any": [
+      "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+      "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED"
+    ],
+    "do_not_admit_for": [
+      "historical handbook presence alone",
+      "OCR reconstruction by guess",
+      "chapter importance alone"
+    ]
+  },
+  "units": {
+    "POL27-CF-MARX-C00-S01": {
+      "title": "马克思主义的创立和发展",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MARX-C00-S01-M01",
+          "form": "identity_structure",
+          "statement": "马克思主义由马克思主义哲学、马克思主义政治经济学和科学社会主义三个基本组成部分构成。",
+          "source_refs": [
+            "POL27-CF-MARX-C00-S01"
+          ],
+          "current_recall_basis": {
+            "priority": "P1",
+            "forms": [
+              "timeline",
+              "identity"
+            ]
+          },
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MARX-P011"
+          ],
+          "historical_handbook_alignment": "DIRECT_READABLE_SUPPORT",
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    },
+    "POL27-CF-MARX-C00-S02": {
+      "title": "马克思主义的基本特征和当代价值",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MARX-C00-S02-M01",
+          "form": "fixed_summary",
+          "statement": "马克思主义基本特征可从整体上把握为科学性和革命性的统一。",
+          "source_refs": [
+            "POL27-CF-MARX-C00-S02"
+          ],
+          "current_recall_basis": {
+            "priority": "P1",
+            "forms": [
+              "list"
+            ]
+          },
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MARX-P011"
+          ],
+          "historical_handbook_alignment": "DIRECT_READABLE_SUPPORT",
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    }
+  },
+  "deferred_candidate_domains": [
+    {
+      "domain": "马恩列经典著作—人物—理论标志完整对应",
+      "reason": "Historically high-value, but requires exact Current node binding plus visual/current-year verification before candidate wording is frozen."
+    },
+    {
+      "domain": "基本特征完整逐项固定表述",
+      "reason": "LEG26 OCR table is partially corrupted; do not reconstruct the exact list from OCR/model memory."
+    }
+  ]
+}
