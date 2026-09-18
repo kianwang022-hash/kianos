@@ -577,6 +577,6 @@ Canonical Baseline-v2 receipt:
 
 Generation Rules + Page Freeze Human Gate — **ACCEPTED 2026-09-19**.
 
-Next internal shard: **o0051–o0100 — ACTIVE**.
+Next internal shard: **o0051–o0100 — READ / DIAGNOSE ONLY**.
 
-Apply the same frozen module matrix. Freshly re-read every owner; change only modules with an explicit allowed gap reason. Learner-page / UI changes remain out of scope throughout.
+Apply the frozen module matrix and fresh-read every owner, but do **not** mutate canonical Content until Kian receives and approves the bounded problem report. After approval, change only the approved modules / owners. Learner-page / UI changes remain out of scope throughout.
