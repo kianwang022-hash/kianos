@@ -117,6 +117,7 @@ const repairReturn = read('static-web/src/components/XizongSystemRepairReturn.as
 const practiceUi = read('static-web/src/components/XizongPracticeWorkbench.astro');
 const guardUi = read('static-web/src/components/XizongRuntimeStageGuard.astro');
 const blockPage = read('static-web/src/pages/xizong/[system]/[block].astro');
+const systemPage = read('static-web/src/pages/xizong/[system]/index.astro');
 const recallPage = read('static-web/src/pages/xizong/[system]/recall.astro');
 const practicePage = read('static-web/src/pages/xizong/practice/[system].astro');
 const lastLocation = read('static-web/src/components/XizongLastLocation.astro');
