@@ -129,7 +129,7 @@ assert(exitUi.includes('deriveXizongQuestionIdsForCurrentRound(sweepState, eligi
 assert(exitUi.includes("results.filter((row) => row.status === 'stable')"), 'stable-correct-evidence-not-distinct');
 assert(exitUi.includes("results.filter((row) => row.status === 'uncertain')"), 'uncertain-evidence-not-distinct');
 assert(exitUi.includes("results.filter((row) => row.status === 'wrong')"), 'wrong-evidence-not-distinct');
-assert(exitUi.includes("['wrong', 'uncertain'].includes(result.status)"), 'stable-correct-forced-into-repair');
+assert(exitUi.includes("['wrong', 'uncertain'].includes(result.status) || marked"), 'stable-unmarked-correct-forced-into-retained-review');
 assert(exitUi.includes('暂无审核过的精确 KP 回链：保留题号给 Chat，不让网页自己猜。'), 'missing-relation-is-being-guessed');
 
 assert(repairReturn.includes('allowed.has(row.questionId)'), 'repair-plan-not-scoped-to-actual-wu');
