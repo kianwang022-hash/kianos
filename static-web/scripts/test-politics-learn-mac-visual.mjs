@@ -281,6 +281,13 @@ try {
   check(await page.locator('[data-question-card]').isHidden(), 'practice_result_clean_question_hidden');
   check((await page.locator('[data-takeaway]').innerText()).trim().length > 0, 'practice_result_takeaway_visible');
   check((await page.locator('[data-chat-explanation]').innerText()).trim().length > 0, 'practice_result_explanation_visible');
+  const exactLocator = page.locator('[data-chengfeng-locator]');
+  check(await exactLocator.isVisible(), 'practice_result_exact_chengfeng_locator_visible');
+  const exactLocatorText = await exactLocator.innerText();
+  check(/乘风\s*P6/.test(exactLocatorText), 'practice_result_locator_page_p6', exactLocatorText);
+  check(/考点4/.test(exactLocatorText), 'practice_result_locator_exam_point_4', exactLocatorText);
+  check(/→\s*2\s*→\s*（1）/.test(exactLocatorText), 'practice_result_locator_path_2_1', exactLocatorText);
+  check(await page.locator('[data-review-sources]').isHidden(), 'practice_result_hides_broad_source_range_when_exact');
   const practiceResultText = await page.locator('[data-submitted-result]').innerText();
   check(!/肖1000原解析|查看.*原解析|历史原解析/.test(practiceResultText), 'practice_result_excludes_xiao_source_explanation');
   const practiceResultMetrics = await page.evaluate(() => {
