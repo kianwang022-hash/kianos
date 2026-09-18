@@ -413,7 +413,7 @@ body#kianos-workspace.surfaceBody-xizong .xzp button.xzpOption b {
 body#kianos-workspace.surfaceBody-xizong .xzp button.xzpOption span {
   padding-top:1px;
   font-size:19px;
-  font-weight:500;
+  font-weight:600;
   line-height:1.58;
 }
 body#kianos-workspace.surfaceBody-xizong .xzp button.xzpOption:hover:not(:disabled) {
@@ -474,8 +474,12 @@ body#kianos-workspace.surfaceBody-xizong .xzpReviewHeading {
   position:sticky;
   top:0;
   z-index:2;
-  margin:0 0 12px;
-  padding:2px 0 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin:0 0 14px;
+  padding:0 0 14px;
   border-bottom:1px solid #e5ebe7;
   background:#fff;
 }
@@ -485,6 +489,18 @@ body#kianos-workspace.surfaceBody-xizong .xzpReviewHeading h2 {
   font-size:22px;
   font-weight:600;
   line-height:1.35;
+}
+body#kianos-workspace.surfaceBody-xizong .xzpReviewNext {
+  min-width:104px;
+  min-height:44px;
+  border:1px solid #2f765f;
+  border-radius:10px;
+  background:#2f765f;
+  color:#fff;
+  padding:8px 16px;
+  font-size:17px;
+  font-weight:600;
+  cursor:pointer;
 }
 
 body#kianos-workspace.surfaceBody-xizong .xzpFeedbackResult {
@@ -583,6 +599,24 @@ body#kianos-workspace.surfaceBody-xizong .xzpReview {
 body#kianos-workspace.surfaceBody-xizong .xzpReview>section {
   padding:10px 0 17px;
 }
+body#kianos-workspace.surfaceBody-xizong .xzpReview [data-exam-target-wrap] {
+  margin-bottom:8px;
+  padding:14px 16px;
+  border-radius:11px;
+  background:#eef6f2;
+}
+body#kianos-workspace.surfaceBody-xizong .xzpReview [data-exam-target-wrap] h3 {
+  color:#4d6d5e;
+}
+body#kianos-workspace.surfaceBody-xizong .xzpReview [data-exam-target-wrap] p {
+  color:#24483a;
+  font-weight:600;
+}
+body#kianos-workspace.surfaceBody-xizong .xzpReview [data-decision-axis-wrap] {
+  padding-top:16px;
+  border-top:1px solid #e7ece9;
+}
+
 body#kianos-workspace.surfaceBody-xizong .xzpReview h3 {
   margin:0 0 8px;
   color:#527060;
@@ -615,14 +649,6 @@ body#kianos-workspace.surfaceBody-xizong .xzpRelation a {
   color:#2d694f;
   font-weight:600;
   text-decoration:none;
-}
-body#kianos-workspace.surfaceBody-xizong .xzpReview>footer {
-  display:flex;
-  justify-content:flex-end;
-  position:sticky;
-  bottom:0;
-  padding-top:16px;
-  background:#fff;
 }
 
 /* Empty / done / import gates. */
