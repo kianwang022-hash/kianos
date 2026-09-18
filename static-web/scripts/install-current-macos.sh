@@ -11,6 +11,7 @@ MIRROR_DIR="${KIANOS_CURRENT_DIR:-$HOME/KianOS-current}"
 LABEL="com.kianos.current-mirror"
 PLIST="$HOME/Library/LaunchAgents/$LABEL.plist"
 LOG_DIR="$HOME/Library/Logs/KianOS"
+PRIVATE_DIR="${KIANOS_PRIVATE_DIR:-$HOME/Library/Application Support/KianOS/learner-state}"
 INTERVAL_MS="${KIANOS_SYNC_INTERVAL_MS:-8000}"
 PORT="${KIANOS_PORT:-4321}"
 
@@ -28,7 +29,8 @@ for pair in "git:$GIT_BIN" "node:$NODE_BIN" "npm:$NPM_BIN"; do
   fi
 done
 
-mkdir -p "$HOME/Library/LaunchAgents" "$LOG_DIR"
+mkdir -p "$HOME/Library/LaunchAgents" "$LOG_DIR" "$PRIVATE_DIR"
+chmod 700 "$PRIVATE_DIR"
 DOMAIN="gui/$(id -u)"
 launchctl bootout "$DOMAIN/$LABEL" >/dev/null 2>&1 || true
 
@@ -100,6 +102,8 @@ cat > "$PLIST" <<EOF
     <string>$INTERVAL_MS</string>
     <key>KIANOS_PORT</key>
     <string>$PORT</string>
+    <key>KIANOS_PRIVATE_DIR</key>
+    <string>$PRIVATE_DIR</string>
   </dict>
   <key>RunAtLoad</key>
   <true/>
@@ -131,6 +135,7 @@ GitHub main → $MIRROR_DIR → Astro localhost:$PORT
 Sync interval: $((INTERVAL_MS / 1000))s
 LaunchAgent: $PLIST
 Logs: $LOG_DIR/current.out.log
+Private learner checkpoints: $PRIVATE_DIR
 
 This mirror is intentionally disposable/read-only. Do not develop in it.
 Your normal development worktree can remain separate.
