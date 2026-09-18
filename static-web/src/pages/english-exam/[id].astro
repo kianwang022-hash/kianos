@@ -15,6 +15,13 @@ export function getStaticPaths() {
 
 const paper = loadEnglishExamPaper(Astro.props.paperId);
 const payload = JSON.stringify(paper).replace(/</g, '\u003c');
+const serverTaskLabel = (step) => ({
+  cloze: 'Cloze',
+  reading_a: step.passage_index ? 'Reading A · P' + step.passage_index : 'Reading A',
+  reading_b: 'Part B',
+  translation: 'Translation',
+  writing: step.writing_kind === 'small' ? 'Writing A' : 'Writing B'
+})[step.task] || step.task;
 ---
 <Base
   title={`${paper.year} English I · Full Paper`}
@@ -47,7 +54,20 @@ const payload = JSON.stringify(paper).replace(/</g, '\u003c');
 
     <section class="englishExamSteps">
       <header><span>PAPER MAP</span><strong>100 pts · Objective 60 + Productive 40</strong></header>
-      <div data-exam-step-list></div>
+      <div data-exam-step-list>
+        {paper.steps.map((step, index) => (
+          <div class="englishExamStep" data-complete="false">
+            <div>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <div>
+                <strong>{serverTaskLabel(step)}</strong>
+                <small>{step.label}</small>
+              </div>
+            </div>
+            <b>{step.max_points} pts</b>
+          </div>
+        ))}
+      </div>
     </section>
 
     <section class="englishExamResult" data-exam-result hidden>
