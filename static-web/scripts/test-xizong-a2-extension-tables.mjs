@@ -35,27 +35,43 @@ async function resetBlock(page, route) {
   return root;
 }
 
-async function completeNaturalSourceContact(root, suffix) {
+async function readLearnerObject(page) {
+  const raw = await page.locator('[data-xizong-learner-object-payload]').textContent();
+  return JSON.parse(raw || '{}');
+}
+
+async function completeNaturalSourceContact(root, page, suffix) {
   await root.locator('[data-stage-next="logic_group"]').click();
   await root.locator('[data-study-stage="source_contact"]').waitFor({ state: 'visible' });
   check(await root.locator('[data-study-stage="kp_learn"]').count() === 0, `natural_source_has_no_group_lecture_${suffix}`);
   await root.locator('[data-source-contact-done]').click();
-  await root.locator('[data-study-stage="logic_group"]').waitFor({ state: 'visible' });
+  await page.waitForFunction(() => {
+    const host = document.querySelector('[data-xizong-v6-block]');
+    const ttsx = host?.querySelector('[data-study-stage="ttsx_checkpoint"]');
+    const recall = host?.querySelector('[data-study-stage="kp_recall"]');
+    return (ttsx instanceof HTMLElement && !ttsx.hidden) || (recall instanceof HTMLElement && !recall.hidden);
+  });
+  const ttsxStage = root.locator('[data-study-stage="ttsx_checkpoint"]');
+  if (await ttsxStage.isVisible()) await root.locator('[data-ttsx-done]').click();
+  await root.locator('[data-study-stage="kp_recall"]').waitFor({ state: 'visible' });
 }
 
-async function reachTargetGroup(root, targetKpId, { syntheticNavigation = false } = {}) {
+async function reachTargetGroup(root, page, targetKpId, { syntheticNavigation = false } = {}) {
   const targetCard = root.locator(`[data-kp-recall-card][data-kp-id="${targetKpId}"]`);
   check(await targetCard.count() === 1, `target_card_exists_${targetKpId}`);
-  const targetGroupLabel = ((await targetCard.locator('header > span').first().textContent()) || '').trim();
-  check(Boolean(targetGroupLabel), `target_group_label_present_${targetKpId}`);
-  const targetGroupButton = root.locator('[data-group-target]').filter({ hasText: targetGroupLabel });
-  check(await targetGroupButton.count() === 1, `target_group_button_unique_${targetKpId}`, targetGroupLabel);
+  const learner = await readLearnerObject(page);
+  const targetKp = (learner?.kps || []).find((kp) => kp?.identity?.kpId === targetKpId);
+  const targetGroupId = targetKp?.identity?.logicGroupId || '';
+  const targetGroupIndex = (learner?.logicGroups || []).findIndex((group) => group?.identity?.logicGroupId === targetGroupId);
+  check(targetGroupIndex >= 0, `target_group_resolved_${targetKpId}`, targetGroupId);
+  const targetGroupButton = root.locator(`[data-group-target="${targetGroupIndex}"]`);
+  check(await targetGroupButton.count() === 1, `target_group_button_unique_${targetKpId}`, String(targetGroupIndex));
 
-  await completeNaturalSourceContact(root, targetKpId);
+  await completeNaturalSourceContact(root, page, targetKpId);
   if (syntheticNavigation) await targetGroupButton.evaluate((el) => el.click());
   else await targetGroupButton.click();
-  await root.locator('[data-study-stage="logic_group"]').waitFor({ state: 'visible' });
-  const auxHost = root.locator('[data-xizong-aux-surface] [data-learner-object-slot="logic_group_prelearn"]');
+  await root.locator('[data-study-stage="kp_recall"]').waitFor({ state: 'visible' });
+  const auxHost = root.locator('[data-xizong-aux-surface] [data-learner-object-slot="kp_recall_aux"][data-representation-stage="KP_RECALL_FRONT"]');
   await auxHost.waitFor({ state: 'attached' });
   return { targetCard, auxHost };
 }
@@ -101,7 +117,7 @@ try {
 
     for (const item of representatives) {
       const root = await resetBlock(page, item.route);
-      const { auxHost } = await reachTargetGroup(root, item.kpId, { syntheticNavigation: viewport.label === 'narrow' });
+      const { auxHost } = await reachTargetGroup(root, page, item.kpId, { syntheticNavigation: viewport.label === 'narrow' });
       const auxSurface = root.locator('[data-xizong-aux-surface]');
       const slotCard = auxHost.locator(`[data-learner-asset="extension"][data-learner-asset-id="${item.slot}"]`);
       const folded = auxHost.locator(`details.xv6LearnerReference:has([data-learner-asset-id="${item.slot}"])`);
@@ -147,13 +163,13 @@ try {
           `narrow_no_page_horizontal_overflow_${item.slot}`, JSON.stringify(layout));
       }
 
-      await root.locator('[data-enter-group]').click();
-      await root.locator('[data-study-stage="kp_recall"]').waitFor({ state: 'visible' });
-      const recallAux = root.locator('[data-xizong-aux-surface] [data-learner-object-slot]');
+      const recallAux = root.locator('[data-xizong-aux-surface] [data-learner-object-slot="kp_recall_aux"]');
       check((await recallAux.getAttribute('data-representation-stage')) === 'KP_RECALL_FRONT',
         `recall_front_stage_${viewport.label}_${item.slot}`);
-      check(await root.locator(`[data-learner-asset="extension"][data-learner-asset-id="${item.slot}"]`).count() === 0,
-        `extension_absent_from_clean_recall_${viewport.label}_${item.slot}`);
+      check(await folded.count() === 1,
+        `reference_extension_retained_in_recall_context_${viewport.label}_${item.slot}`);
+      check(!(await slotCard.isVisible()),
+        `reference_extension_body_collapsed_on_recall_front_${viewport.label}_${item.slot}`);
     }
 
     await context.close();
