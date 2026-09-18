@@ -59,7 +59,8 @@ Task creation, persistence, active-ref freshness and artifact+cursor atomicity a
 - English UI vertical: landed.
 - Lexical / Vocabulary learner surfaces: landed.
 - Xizong material learner UI: landed through whole-paper Hidden/Seal/Review.
-- Politics learner UI: the only remaining material subject-UI closure.
+- Politics learner UI: landed through final Practice Human Gate (#470).
+- All material subject learner UI is now landed; UI/CSS ownership consolidation is active maintenance.
 - Shared learner-data / Chat handoff durability and final regression remain launch work.
 - Material Visual changes still require real-browser screenshot + Kian Human Gate before merge.
 
