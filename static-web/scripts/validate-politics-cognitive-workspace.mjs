@@ -121,11 +121,11 @@ requireText(page, 'PoliticsChapterRuntime', 'fallback runtime');
 
 for (const rule of [
   'Primary learner environment is Mac / wide landscape',
-  'Cognitive Stage',
-  'Contextual Inspector',
-  'Space expresses simultaneous relationships; state transitions express learning sequence.',
-  'cards/borders should represent a real interaction or semantic boundary',
-  'comfortable readable type'
+  'one learner action/object should have obvious focal priority',
+  'stable local navigation beside the main cognitive region',
+  'Use desktop width to show simultaneously useful relationships',
+  'hierarchy works before borders/cards do the work',
+  'typography is comfortably readable and optically substantial'
 ]) requireText(presentation, rule, 'presentation contract');
 
 const chapter = loadPoliticsChapterCurrent('marxism', 'ch00');
