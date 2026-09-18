@@ -159,6 +159,29 @@ Allowed action types:
 - `CHAT_REPAIR_RETURN`
 - `CLOSE`
 
+#### Target guards follow the target, not the action label
+
+Every explicit target ref keeps its canonical eligibility / freshness / phase boundary regardless of which action type references it.
+
+Hard rule:
+
+```text
+target is candidate-only / freshness-gated / phase-gated
+→ that guard still applies inside RECONSTRUCT / TARGETED_RECALL / PRECISION / REPAIR / any other action
+→ changing the action label cannot bypass the target's own gate
+```
+
+Examples:
+
+- a candidate-only Memory object cannot be surfaced through `TARGETED_RECALL` merely to avoid a `PRECISION` guard;
+- Xi high-delta exact wording cannot be surfaced in Consolidation until its current-year source gate passes;
+- current legal/normative exactness cannot be surfaced until the applicable legal/source recheck passes;
+- an `ANALYSIS_OUTPUT`-only hook cannot be used as ordinary Consolidation recall merely because Chat referenced it.
+
+The Web is not deciding whether the target is worth learning. It is only enforcing the canonical target boundary already owned upstream.
+
+If the runtime cannot verify a referenced target's eligibility / phase / freshness boundary, it must fail closed and return a bounded blocker to Chat rather than infer permission.
+
 #### Action requirements
 
 `RECONSTRUCT`
@@ -228,6 +251,7 @@ events[]
 - action_id
 - action_type
 - observable outcome
+- blocked target / guard reason when execution fails closed
 - learner response / selection when needed
 - W/U marker when produced
 - stable content/question/source identity
@@ -240,6 +264,24 @@ resume
 The return must not include a Web-authored recommendation such as "review this next" or "chapter mastered".
 
 Chat consumes the evidence and may send a new `consolidation_plan.v1`.
+
+### Semantic grading boundary
+
+The Web does not semantically grade open-ended Politics reconstruction / recall.
+
+For open recall, Web may:
+
+- capture the learner response;
+- reveal / juxtapose the exact Chat-selected Current refs;
+- capture learner `WRONG` / `UNCERTAIN` / self-check evidence when the interaction calls for it;
+- return the response + refs to Chat for semantic judgment.
+
+Web may perform deterministic checking only when the answer rule is already explicit and mechanical, for example:
+
+- Xiao1000 official-answer comparison;
+- an exact Precision target with an already-approved exact answer payload / accepted normalization rule.
+
+Web must not infer missing concepts, decide which part of a free response is semantically sufficient, or generate the next repair target from the learner's prose. Those judgments belong to Chat.
 
 ### Runtime capability, not strategy
 
