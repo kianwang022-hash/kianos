@@ -297,8 +297,8 @@ const payload = JSON.stringify({
       if (copy) copy.textContent = body;
       if (gate) gate.hidden = false;
     };
-    const showChatSetError = (title, body) => showScopeError('CHAT SET', title, body);
-    const showRetainedError = (title, body) => showScopeError('RETAINED', title, body);
+    const showChatSetError = (title, body) => showScopeError('Chat 训练', title, body);
+    const showRetainedError = (title, body) => showScopeError('回收训练', title, body);
 
     const hydrateQuestionIds = async (ids) => {
       const years = [...new Set(ids.map((id) => id.match(/official-(\d{4})-/)?.[1]).filter(Boolean))];
@@ -323,24 +323,24 @@ const payload = JSON.stringify({
       const allowHoldout = set?.allow_holdout === true;
 
       if (!set || set?.schema !== 'kianos.xizong.chat_set.v1' || !setId || !ids.length) {
-        showChatSetError('没有可执行的 Chat Set', '请先从训练入口导入 Chat 返回的 kianos.xizong.chat_set.v1。');
+        showChatSetError('还没有可执行的 Chat 题单', '请先从训练入口导入 Chat 为你生成的题单。');
         return;
       }
       if (!['FIRST_PASS','SECOND_PASS','LATE_REVIEW'].includes(phase)) {
-        showChatSetError('Chat Set 阶段无效', `study_phase=${phase} 不是可执行阶段。`);
+        showChatSetError('这份 Chat 题单暂时无法执行', '题单的学习阶段设置不完整，请让 Chat 重新生成。');
         return;
       }
       if (visibility !== 'immediate') {
-        showChatSetError('当前 Chat Set 只执行即时反馈', 'Hidden 结果会和 Whole Paper 一起实现；当前不静默降级。');
+        showChatSetError('这份 Chat 题单只支持即时反馈', '如果想整段作答后再统一看结果，请使用整卷模式。');
         return;
       }
       if (ids.some((id) => !/^xizong-official-\d{4}-n\d{3}$/.test(id))) {
-        showChatSetError('Chat Set 含无效题号', '只接受标准 xizong-official-YYYY-nNNN 题号。');
+        showChatSetError('Chat 题单里有无法识别的题号', '请让 Chat 重新生成这份题单，网页不会自行猜测或替换题目。');
         return;
       }
       const uniqueIds = [...new Set(ids)];
       if (uniqueIds.length !== ids.length) {
-        showChatSetError('Chat Set 含重复题号', '网页不会自行去重或改写 Chat 给出的顺序，请让 Chat 返回唯一 qid。');
+        showChatSetError('Chat 题单里有重复题目', '网页不会自行删改题单，请让 Chat 重新生成一次。');
         return;
       }
 
@@ -348,7 +348,7 @@ const payload = JSON.stringify({
       const holdoutSet = new Set((Array.isArray(savedHoldout) ? savedHoldout : []).map(Number));
       const selectedHoldoutYears = [...new Set(ids.map((id) => Number(id.match(/official-(\d{4})-/)?.[1])).filter((year) => holdoutSet.has(year)))];
       if (selectedHoldoutYears.length && !allowHoldout) {
-        showChatSetError('Chat Set 命中整卷保留年份', `${selectedHoldoutYears.join('、')} 仍受 Holdout 保护。让 Chat/你显式设置 allow_holdout=true 才会执行。`);
+        showChatSetError('Chat 题单命中整卷保留年份', `${selectedHoldoutYears.join('、')} 仍处于整卷保留状态；确认要使用后，请让 Chat 重新生成允许消耗保留年份的题单。`);
         return;
       }
 
@@ -404,11 +404,11 @@ const payload = JSON.stringify({
         return;
       }
       if (!['SECOND_PASS','LATE_REVIEW','FIRST_PASS'].includes(phase) || visibility !== 'immediate') {
-        showRetainedError('回收范围参数无效', '当前 retained scope 只执行显式阶段 + immediate feedback。');
+        showRetainedError('这份回收题单无法执行', '题单设置不完整，请回训练入口重新生成。');
         return;
       }
       if (ids.some((id) => !/^xizong-official-\d{4}-n\d{3}$/.test(id)) || new Set(ids).size !== ids.length) {
-        showRetainedError('回收范围含无效题号', '只接受唯一标准题号；网页不会模糊匹配或自行替换。');
+        showRetainedError('回收题单里有无法识别的题号', '网页不会模糊匹配或自行替换，请重新生成这份回收题单。');
         return;
       }
 
