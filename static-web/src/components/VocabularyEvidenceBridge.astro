@@ -15,6 +15,10 @@ const { nextHref = '/vocabulary/' } = Astro.props;
     const objectId=root.getAttribute('data-vocab-object')||word;
     const ordinal=Number(root.getAttribute('data-vocab-ordinal')||0);
     const sourceHash=root.getAttribute('data-vocab-source-hash')||'';
+    const requestedMode=new URLSearchParams(location.search).get('mode');
+    const mode=['lookup','repair'].includes(String(requestedMode||''))?String(requestedMode):'study';
+    root.dataset.vocabMode=mode;
+    const readOnlyLookup=mode==='lookup';
     const storageKey=`kianos-vocabulary-astro-v2:${objectId}`;
     const readJson=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key)||'null')||fallback}catch{return fallback}};
     const saveJson=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value))}catch{}};
@@ -25,7 +29,7 @@ const { nextHref = '/vocabulary/' } = Astro.props;
     const append=(event)=>{const result=appendEvidenceEvent(readLedger(),event);saveLedger(result.ledger);syncProjection(result.ledger);window.dispatchEvent(new CustomEvent('kianos:lexical-evidence-changed'));return result};
     const targetEventFromButton=(button,overrides={})=>{const targetKind=button.getAttribute('data-target-kind')||'lexical';const targetId=button.getAttribute('data-target-id')||null;const targetLocator=button.getAttribute('data-target-locator')||null;return {event_id:browserEventId('depth'),word_id:objectId,ordinal,word,target_kind:targetKind,target_id:targetId,target_locator:targetLocator,target_revision:targetId?null:(sourceHash||null),source:'depth_plus',outcome:'ADDED',observed_at:new Date().toISOString(),...overrides}};
     const existingState=readJson(storageKey,null);
-    if(existingState?.repairTargets&&typeof existingState.repairTargets==='object'){
+    if(!readOnlyLookup&&existingState?.repairTargets&&typeof existingState.repairTargets==='object'){
       let ledger=readLedger();
       for(const target of Object.values(existingState.repairTargets)){
         if(!target||typeof target!=='object'||target.source==='evidence_reducer')continue;
@@ -36,7 +40,7 @@ const { nextHref = '/vocabulary/' } = Astro.props;
     }
     const front=root.querySelector('[data-vocab-front]');
     const reveal=root.querySelector('[data-vocab-reveal]');
-    if(front instanceof HTMLElement&&!front.querySelector('[data-card-routing-controls]')){
+    if(mode==='study'&&front instanceof HTMLElement&&!front.querySelector('[data-card-routing-controls]')){
       const controls=document.createElement('div');controls.className='lexicalRoutingControls';controls.setAttribute('data-card-routing-controls','');
       [['mastered','Mastered · Next'],['known','Known · Next'],['fuzzy','Fuzzy · Depth'],['unknown','Unknown · Depth']].forEach(([route,label])=>{const button=document.createElement('button');button.type='button';button.setAttribute('data-route',route);button.textContent=label;controls.appendChild(button)});
       const hint=document.createElement('small');hint.className='lexicalRoutingHint';hint.textContent='整词判断只决定现在是否打开 Depth；不会自动生成未来 Repair。';reveal?.insertAdjacentElement('afterend',controls);controls.insertAdjacentElement('afterend',hint);
