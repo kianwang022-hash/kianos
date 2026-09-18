@@ -91,9 +91,11 @@
       "candidate_domains": [
         "新时代历史方位/会议 milestone candidates only"
       ],
-      "admission_state": "REFERENCE_ONLY_HIGH_DELTA",
       "current_year_delta_risk": "VERY_HIGH",
-      "rule": "History precision is mainly cross-cutting identity/timeline knowledge. Exact recent-history items require current-year refresh."
+      "rule": "History precision is mainly cross-cutting identity/timeline knowledge. Exact recent-history items require current-year refresh.",
+      "memory_admission_state": "ADMITTED_STABLE",
+      "precision_admission_state": "CANDIDATE_FRESHNESS",
+      "precision_blocker": "RECENT_HISTORY_CURRENT_YEAR_REFRESH_REQUIRED"
     },
     "analysis_output_hooks": [
       {

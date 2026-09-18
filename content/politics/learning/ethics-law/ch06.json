@@ -276,15 +276,14 @@
         "POL27-MEM-ETHICS-C06-S04-M01",
         "POL27-MEM-ETHICS-C06-S04-M02"
       ],
-      "admission_state": "CANDIDATE_ONLY",
-      "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_FOR_EXACTNESS",
       "deferred_domains": [
         "法治道路/法治体系详细原则与法律条文相关扩展"
       ],
       "freshness_gate": "HIGH_CURRENT_LEGAL_SOURCE_REQUIRED",
       "rule": "Stable semantic Memory is admitted through the sidecar. This precision_knowledge object governs only current legal/normative exactness and remains freshness-gated.",
       "memory_admission_state": "ADMITTED_STABLE",
-      "precision_admission_state": "CANDIDATE_FRESHNESS"
+      "precision_admission_state": "CANDIDATE_FRESHNESS",
+      "precision_blocker": "CURRENT_LEGAL_OR_NORMATIVE_SOURCE_REFRESH_REQUIRED"
     },
     "analysis_output_hooks": [
       {
@@ -321,7 +320,8 @@
       "policy": "REFERENCE_MEMORY_SIDECAR",
       "owner_path": "content/politics/learning/ethics-law/ch06.memory.json",
       "memory_admission_state": "ADMITTED_STABLE",
-      "role": "LEG26 upgrades Current Chengfeng-grounded stable ethics/law concepts into durable semantic Memory; exact legal/normative wording remains separately Precision-gated."
+      "role": "LEG26 upgrades Current Chengfeng-grounded stable ethics/law concepts into durable semantic Memory; exact legal/normative wording remains separately Precision-gated.",
+      "source_model": "compression_model"
     }
   }
 }
