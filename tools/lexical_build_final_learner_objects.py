@@ -112,18 +112,23 @@ def compile_relation(word: str, relation: dict[str, Any], locator: str) -> dict[
         "repair": repair("relation", locator, target_id, f"{word} ↔ {target}"),
     }
 
-def compile_form(form: Any) -> dict[str, Any] | None:
+def compile_form(form: Any, word_override: dict[str, Any]) -> dict[str, Any] | None:
     if not isinstance(form, dict):
         return None
+    suppress_variant_fields = set(word_override.get("suppress_form_variant_fields") or [])
     variants = []
     for variant in form.get("variants") or []:
         if not isinstance(variant, dict):
             continue
-        variants.append({
+        row = {
             "pos": list(variant.get("pos") or []),
             "reading": str(variant.get("learner_key") or variant.get("canonical_form") or variant.get("variant_id") or ""),
             "ipa": str(variant.get("ipa") or ""),
-        })
+            "stress": str(variant.get("stress") or ""),
+        }
+        for field in suppress_variant_fields:
+            row.pop(str(field), None)
+        variants.append(row)
     boundaries = []
     for boundary in form.get("boundaries") or []:
         if not isinstance(boundary, dict):
@@ -135,9 +140,7 @@ def compile_form(form: Any) -> dict[str, Any] | None:
         })
     if not variants and not boundaries and not form.get("boundary"):
         return None
-    # If structured variants already express a pronunciation distinction, explanatory prose is
-    # retained upstream but omitted from default Depth by contract.
-    boundary_text = "" if variants else str(form.get("boundary") or "")
+    boundary_text = "" if word_override.get("suppress_form_boundary") else str(form.get("boundary") or "")
     return {
         "boundary": boundary_text,
         "boundaries": boundaries,
@@ -190,6 +193,17 @@ def compile_word(owner: dict[str, Any], overrides: dict[str, Any]) -> dict[str, 
                 overlay.get("note") or overlay.get("label_cn") or overlay.get("label_en")
                 or overlay.get("boundary") or overlay.get("identity_type") or overlay.get("canonical_form") or ""
             )
+        overlay_object = None
+        if overlay_text:
+            overlay_object = {
+                "text": overlay_text,
+                "repair": repair(
+                    "form_identity",
+                    f"record.senses[{i}].lexical_identity_overlay",
+                    None,
+                    overlay_text,
+                ),
+            }
         senses.append({
             "id": sense_id or None,
             "source_locator": f"record.senses[{i}]",
@@ -198,7 +212,7 @@ def compile_word(owner: dict[str, Any], overrides: dict[str, Any]) -> dict[str, 
             "definition_cn": str(sense.get("definition_cn") or ""),
             "definition_en": str(sense.get("definition_en") or ""),
             "note": "" if sense_id in suppress_usage else str(sense.get("usage_note") or ""),
-            "identity_overlay": overlay_text,
+            "identity_overlay": overlay_object,
             "usage": usage,
             "repair": repair("sense", f"record.senses[{i}]", sense_id or None, str(sense.get("definition_cn") or sense.get("definition_en") or word)),
         })
@@ -272,6 +286,20 @@ def compile_word(owner: dict[str, Any], overrides: dict[str, Any]) -> dict[str, 
         })
 
     source_fingerprint = sha256({"record": record, "relation_paths": relation_paths})
+    sense_lineage = []
+    for ref in ((owner.get("identity_refs") or {}).get("senses") or []):
+        if not isinstance(ref, dict) or not ref.get("sense_id"):
+            continue
+        status = str(ref.get("status") or "unknown").lower()
+        if status == "active":
+            continue
+        sense_lineage.append({
+            "word_id": word_id,
+            "target_kind": "sense",
+            "from_target_id": str(ref.get("sense_id")),
+            "status": status,
+            "to_target_id": str(ref.get("merged_into_sense_id")) if ref.get("merged_into_sense_id") else None,
+        })
 
     return {
         "schema": "kianos.lexical.final_learner_object.v1",
@@ -280,6 +308,7 @@ def compile_word(owner: dict[str, Any], overrides: dict[str, Any]) -> dict[str, 
         "word": word,
         "source_owner_path": f"content/lexical/words/by-ordinal/o{int(owner['ordinal']):04d}.json",
         "source_fingerprint": source_fingerprint,
+        "sense_lineage": sense_lineage,
         "word_feel": {
             "summary_cn": summary_cn,
             "decision_cn": decision_cn,
@@ -291,7 +320,7 @@ def compile_word(owner: dict[str, Any], overrides: dict[str, Any]) -> dict[str, 
         "reference": {
             "confusables": confusables,
             "relations": relations,
-            "form": compile_form(record.get("form_identity")),
+            "form": compile_form(record.get("form_identity"), word_override),
             "family": family,
         },
     }
