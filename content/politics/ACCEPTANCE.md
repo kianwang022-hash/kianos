@@ -1,6 +1,6 @@
 # Politics Acceptance
 
-Status: CURRENT — FRESH RE-ACCEPTANCE IS PARTIAL; CANDIDATE NOT MERGED
+Status: CURRENT — FIRST-ROUND FRESH RE-ACCEPTANCE CLOSED; WHOLE-EXAM CLOSURE PARTIAL
 Standard: root `LEARNING_ACCEPTANCE.md`
 Role: Politics lane-wide integration Acceptance Truth
 
@@ -9,15 +9,16 @@ This file owns integration claims, not Source, Learning semantics, learner progr
 ## 2026-09-19 fresh independent result
 
 Execution brief: `FINAL_LEARNER_ACCEPTANCE_BRIEF.md`.
-Candidate: PR #486, `work/politics-final-fresh-20260919`.
+Landed: PR #486 → `main` merge `d180b0b913b63085ab0bd8c30dcdeadb1c64dc9f`.
 
-The first-round Learning model is re-accepted after narrow clarification and concrete source/content repairs. This is NOT an unconditional Politics-wide P/R/E PASS and NOT whole-exam readiness. Shared task-aware Chat Return/import and full private learner recovery are not proved closed. The material long-sequence geometry repair passed Kian's Mac Human Gate on 2026-09-19 after direct before/after review. No new learner U is claimed.
+The audited first-round Learning model and repaired first-round execution paths are accepted on `main`. This is NOT whole-exam readiness: shared task-aware Chat Return/import, full private learner recovery, and later current-year Source remain separate open owners. The material long-sequence geometry repair passed Kian's Mac Human Gate on 2026-09-19 after direct before/after review. No new learner U is claimed.
 
 ### Executed evidence boundary
 
-The independently executed code head is `54625f4c84206d0bbabbd0147d862f07451ea4e9`.
-Fresh workflow run: `35403203403`, `Politics Final Fresh Execution`.
-Both Linux and real macOS execution completed successfully. The downloadable artifact records `HEAD.txt`, `PR_HEAD.txt`, `BASE_HEAD.txt` and `INTEGRATED_PARENTS.txt`; these identify the tested integrated checkout and its parents rather than pretending a later moving main was tested.
+Final executed `main` head: `d180b0b913b63085ab0bd8c30dcdeadb1c64dc9f`.
+Fresh workflow run: `35405553121`, `Politics Final Fresh Execution` — Linux PASS + real macOS PASS.
+Functional First run: `35405553183` — PASS.
+The same repaired candidate had already passed the pre-merge integrated PR run `35405340304`; the post-merge runs above are the final promotion evidence. Broad Governance / Authority / legacy Static Politics QA red states that reproduced on pre-merge `main` are not reclassified as #486 regressions and do not widen this lane's scope.
 
 Evidence includes:
 

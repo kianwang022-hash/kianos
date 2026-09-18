@@ -5,18 +5,19 @@ Parent: root `CURRENT.md`
 
 This file does not own Source, Knowledge, Learning semantics, Acceptance Truth, learner progress or shared platform policy. A bare learner continuation remains LEARN unless the conversation explicitly establishes engineering work.
 
-## Active task / actual restart point
+## Current state / actual restart point
 
-**Politics Final Learner Acceptance — fresh independent audit**
+**Politics Final Learner Acceptance — CLOSED for audited first-round paths**
 
-- Branch: `work/politics-final-fresh-20260919`
-- PR: #486; candidate not merged
+- Landed: PR #486 → `main` merge `d180b0b913b63085ab0bd8c30dcdeadb1c64dc9f`
 - Execution brief: `FINAL_LEARNER_ACCEPTANCE_BRIEF.md`
 - Result owner: `ACCEPTANCE.md`
-- Tested code head: `54625f4c84206d0bbabbd0147d862f07451ea4e9`
-- Fresh Linux + real macOS proof: workflow run `35403203403`; artifact identity files identify the exact integrated checkout
+- Final tested `main` head: `d180b0b913b63085ab0bd8c30dcdeadb1c64dc9f`
+- Fresh Linux + real macOS proof: workflow `35405553121` PASS
+- Functional First: workflow `35405553183` PASS
+- Kian Mac Human Gate: PASS on 2026-09-19
 
-Independent Learning judgment, concrete source/content/runtime repairs, fresh browser failure tests and bounded five-subject regression have been executed. Lane Acceptance now records a **PARTIAL** result rather than repeating the old all-five-subject PASS headline.
+Independent Learning judgment, concrete source/content/runtime repairs, fresh browser failure tests and bounded five-subject regression are complete and landed. `ACCEPTANCE.md` owns the final path-level result. The remaining `PARTIAL` boundary is whole-exam/platform scope, not a request to reopen accepted first-round Politics semantics.
 
 ### Current result, without duplicating the evidence ledger
 
@@ -31,7 +32,7 @@ Proof: `static-web/scripts/test-politics-sequence-readability.mjs`; macOS artifa
 
 **Kian accepted this changed long-sequence geometry on 2026-09-19 after direct before/after Mac review.** The acceptance covers the visible layout change only; it does not manufacture learner U or close shared Return/durability limits.
 
-### Immediate next — technical promotion
+### Next owner after final acceptance
 
 Resolve only actual PR/main write conflicts and relevant inherited integration assertions, then rerun the smallest affected proof on the resulting exact head. If the resulting candidate is clean, merge PR #486 and advance this cursor to the remaining shared platform/source limits rather than reopening first-round Politics semantics. Do not claim current main already contains this candidate; do not rerun unrelated subjects or the initial A/B/C model by ritual.
 
