@@ -9,7 +9,8 @@ import {
   validateEnglishSessionInstruction,
   parseEnglishSessionInstruction,
   englishSessionStepHref,
-  buildEnglishEvidencePacket
+  buildEnglishEvidencePacket,
+  buildEnglishChatHandoffText
 } from '../src/lib/englishSessionControl.mjs';
 
 const webRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -148,6 +149,20 @@ for (const forbidden of ['"priority"', '"recommended"', '"recommendation"', '"ne
   assert.equal(encodedEvidence.includes(forbidden), false, 'Evidence must stay factual: ' + forbidden);
 }
 
+const chatHandoff = buildEnglishChatHandoffText(storage, {
+  day,
+  now: Date.parse('2026-09-18T10:00:00.000Z')
+});
+assert.match(chatHandoff, /^KIANOS_ENGLISH_HANDOFF_V1/m);
+assert.match(chatHandoff, /HOW TO READ IT/);
+assert.match(chatHandoff, /WHAT CHAT SHOULD DO/);
+assert.match(chatHandoff, /content\/english\/CURRENT\.md/);
+assert.match(chatHandoff, /kianos\.english\.session-instruction\.v1/);
+assert.match(chatHandoff, /EVIDENCE_JSON/);
+assert.match(chatHandoff, /"problem_count": 1/);
+assert.doesNotMatch(chatHandoff, /EVIDENCE_JSON[\s\S]*"priority"/);
+
+
 const resume = readWeb('src/components/EnglishResume.astro');
 assert.match(resume, /readEnglishSessionInstruction/);
 assert.match(resume, /englishSessionStepHref/);
@@ -163,9 +178,9 @@ for (const forbidden of [
 }
 
 const control = readWeb('src/components/EnglishSessionControl.astro');
-assert.match(control, /buildEnglishEvidencePacket/);
+assert.match(control, /buildEnglishChatHandoffText/);
 assert.match(control, /writeEnglishSessionInstruction/);
-assert.match(control, /KIANOS_ENGLISH_EVIDENCE_V1/);
+assert.match(readWeb('src/lib/englishSessionControl.mjs'), /KIANOS_ENGLISH_HANDOFF_V1/);
 
 const home = readWeb('src/pages/english.astro');
 assert.match(home, /EnglishSessionControl/);
