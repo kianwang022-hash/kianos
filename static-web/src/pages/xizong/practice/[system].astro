@@ -6,7 +6,6 @@ import XizongSystemEvidenceGuard from '../../../../components/XizongSystemEviden
 import { listProjectableXizongSystems, loadXizongSystem } from '../../../../lib/xizong.mjs';
 import { loadXizongSystemQuestionSweep } from '../../../../lib/xizongQuestions.mjs';
 import '../../../../styles/xizong-practice-workspace.css';
-import '../../../../styles/xizong-system-exit-workspace.css';
 
 export function getStaticPaths() {
   return listProjectableXizongSystems().flatMap((row) => {
