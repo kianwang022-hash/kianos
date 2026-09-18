@@ -47,7 +47,11 @@ try {
   await root.waitFor({ state: 'visible' });
   await page.waitForFunction(() => document.querySelector('[data-xizong-v6-block]')?.classList.contains('xv6BlockWorkspaceShell'));
   const visualRoot = root.locator('[data-learner-asset="visual"][data-learner-asset-id="a2-r08-lg01-visual"]');
-  check(await page.locator('[data-xizong-learner-object-payload]').count() === 1, 'unified_learner_object_payload_present');
+  const learnerPayload = page.locator('[data-xizong-learner-object-payload]');
+  check(await learnerPayload.count() === 1, 'unified_learner_object_payload_present');
+  const learner = JSON.parse((await learnerPayload.textContent()) || '{}');
+  const firstSourceLocator = String(learner?.kps?.[0]?.source?.locator || '');
+  check(Boolean(firstSourceLocator), 'learner_object_preserves_source_locator');
   check(await root.locator('[data-xizong-group-visuals]').count() === 0, 'legacy_group_visual_dom_owner_retired');
 
   const geometry = await root.evaluate((node) => {
@@ -89,7 +93,8 @@ try {
   const companion = root.locator('[data-learner-kp-companion="source_contact"]');
   await companion.waitFor({ state: 'visible' });
   check(await companion.locator('[data-learner-kp-core]').count() === 1, 'source_contact_hosts_full_kp_learn_core');
-  check(await companion.getByText('Source ·', { exact: false }).count() > 0, 'kp_learn_companion_preserves_source_locator');
+  const companionLocatorText = (await companion.locator('.xv6KpLearnLocators').textContent()) || '';
+  check(companionLocatorText.includes(firstSourceLocator), 'kp_learn_companion_preserves_source_locator', companionLocatorText);
   check(await root.locator('[data-study-stage="source_contact"] .xv6LectureFirst').isHidden(), 'blank_source_handoff_body_is_retired');
   check(await visualRoot.count() === 0, 'logic_group_visual_not_shown_during_continuous_source_contact');
 
