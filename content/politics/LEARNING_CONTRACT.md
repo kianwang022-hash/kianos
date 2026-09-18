@@ -299,6 +299,40 @@ The later phase may proactively admit source-grounded formulations from an appro
 
 Do not import the full later recitation burden into first-round Chengfeng study merely to feel safe.
 
+### 6.3 Later-source intake does not imply a new course or heavy web product
+
+Later materials enter Politics as **delta/evaluation/output sources**, not as automatic new learner mainlines.
+
+Reserved source roles:
+
+| Later source | Primary role | Default learner surface |
+| --- | --- | --- |
+| Current-affairs / policy updates | current-year Knowledge delta + analysis context | Chat-first; Astro only when a stable reusable learner action is proven useful |
+| Xiao8 / fresh mock material | unseen evaluation + post-attempt Evidence | exam/mock attempt surface + Chat/repair afterward |
+| Xiao4 / final sprint material | final high-value Memory/output delta + final evaluation | Chat + Memory / final-compression surfaces |
+
+Hard rules:
+
+1. **Source availability ≠ learner-surface eligibility.** A bound file does not automatically create a button, card, course, or review task.
+2. **Later sources are reconciled against existing canonical Knowledge first.** Classify useful changes as stable overlap, updated wording, genuinely new current-year content, retired content, evaluation evidence, or final-only delta.
+3. **Fresh mock integrity is protected.** Xiao8/Xiao4 questions intended as unseen evaluation must not leak answers or become prelearning content before the relevant attempt.
+4. **Analysis/current-affairs is Chat-first by default.** Build a new Astro surface only when repeated real use proves that a stable interaction deserves productization.
+5. **Final sources do not reopen the whole course.** In the final phase, admit only score-relevant deltas, required fixed formulations, high-value repair, and time-bounded output practice.
+6. **Renderer/UI never interprets a later source directly.** Any durable learner-facing knowledge still passes through accepted Content / Memory / Evidence owners.
+
+The default update path is:
+
+```text
+new source
+→ provenance/source binding
+→ Chat comparison against Current Knowledge
+→ bounded semantic/Memory/Evidence judgment
+→ GitHub canonical delta
+→ existing learner surface or Chat
+```
+
+This keeps the Politics product reusable through the exam without requiring a new website each time a late source arrives.
+
 ## 7. Astro boundary
 
 Astro renders and interacts with Current assets **only for learner actions assigned to the Astro surface by this Learning Contract**.
