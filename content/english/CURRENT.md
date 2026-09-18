@@ -28,30 +28,6 @@ Do not reopen English learning architecture for styling convenience.
 
 ---
 
-## Active final acceptance task
-
-Kian explicitly requested a **fresh, higher-quality English Final Learner Acceptance**.
-
-Durable execution brief:
-
-`FINAL_LEARNER_ACCEPTANCE_BRIEF.md`
-
-This task is an English-wide fresh re-acceptance, not a rerun of Objective / Translation / Writing PASS labels and not a broad UI redesign.
-
-Execution rules:
-
-- audit the English Learning model itself before trusting implementation or historical L PASS;
-- form an independent task model before reconciling old Acceptance / CI;
-- preserve Reading A / Cloze / Part B / Translation / Writing task-specific cognition where it genuinely differs;
-- include Lexical exact handoff/return, External Reading freshness, Chat-controlled Resume, whole-paper 180-minute execution, learner-data durability and real Mac presentation;
-- repair only the earliest responsible owner when a real defect is found;
-- do not consume fresh material merely to close engineering acceptance;
-- never manufacture learner `U`.
-
-Scoped module Acceptance remains owned by each child. Genuine English-wide integration claims may receive a lane `ACCEPTANCE.md` only after executed evidence justifies creating that owner.
-
----
-
 ## Architecture v2 owner map
 
 ```text

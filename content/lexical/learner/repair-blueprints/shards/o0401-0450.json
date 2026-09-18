@@ -1,0 +1,391 @@
+{
+  "schema": "kianos.lexical.repair_blueprint_shard.v1",
+  "range": {
+    "start_ordinal": 401,
+    "end_ordinal": 450
+  },
+  "authority": "content/lexical/LEARNING_CONTRACT.md + CONTENT_ASSET_CONTRACT.md + approved shard Human Gate 2026-09-19",
+  "generation_rule": "Blueprints store stable diagnostic intent; concrete instances are generated fresh from latest canonical content + learner evidence.",
+  "entries": [
+    {
+      "blueprint_id": "repair-blueprint:o0401:bar:v1",
+      "word_id": "word:bar",
+      "ordinal": 401,
+      "word": "bar",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 bar 的条棒、酒吧、障碍与动词禁止/阻挡。",
+      "decision_boundary_cn": "物体形状、场所、抽象障碍、bar sb from doing 四类语境决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 bar 的词性/领域分支。",
+      "reconstruction_rule_cn": "换一个金属条、酒吧、障碍或禁止行为语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0404:bare:v1",
+      "word_id": "word:bare",
+      "ordinal": 404,
+      "word": "bare",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分无遮盖/赤裸、bare minimum 等“仅仅/极少”、以及动词暴露。",
+      "decision_boundary_cn": "body/surface、minimum/majority、bare teeth/soul 三类对象决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 bare 的 literal exposure vs minimal amount vs verb。",
+      "reconstruction_rule_cn": "换一个身体、数量下限或袒露语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0405:barely:v1",
+      "word_id": "word:barely",
+      "ordinal": 405,
+      "word": "barely",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 barely 的“几乎不”与“勉强刚刚达到”。",
+      "decision_boundary_cn": "barely visible/alive 与 barely enough/pass 等阈值语境决定理解。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 barely 的 near-zero vs just-enough 边界。",
+      "reconstruction_rule_cn": "换一个可见程度或勉强达标语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0406:bargain:v1",
+      "word_id": "word:bargain",
+      "ordinal": 406,
+      "word": "bargain",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:bargain:baseline-v2-with-over-for",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定产出 bargain with sb over/for sth，并区分 noun bargain=协议/便宜货。",
+      "decision_boundary_cn": "with 指谈判对象，over/for 指议题/目标；noun slot 作为词性干扰。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 bargain 的谈判结构。",
+      "reconstruction_rule_cn": "换一个价格或合同条件谈判语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0407:bark:v1",
+      "word_id": "word:bark",
+      "ordinal": 407,
+      "word": "bark",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分树皮、狗吠声、狗叫动词与厉声说出。",
+      "decision_boundary_cn": "tree/dog/speech context 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 bark 的领域/词性分支。",
+      "reconstruction_rule_cn": "换一个树木、动物叫声或厉声命令语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0410:barren:v1",
+      "word_id": "word:barren",
+      "ordinal": 410,
+      "word": "barren",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分土地贫瘠、不育、抽象“完全缺乏”以及荒地名词义。",
+      "decision_boundary_cn": "land/soil、fertility、barren of ideas/resources、noun terrain 四类语境决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 barren 的 literal vs figurative 分支。",
+      "reconstruction_rule_cn": "换一个土地、繁殖或思想资源语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0412:base:v1",
+      "word_id": "word:base",
+      "ordinal": 412,
+      "word": "base",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:279de88d4c9a8ba6fc4f",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定产出 be based on/upon sth，并理解 base sth on sth。",
+      "decision_boundary_cn": "被动/形容式 based on 与主动 base A on B 形成结构切换；避免只记“基础”。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 base 的 grounding construction。",
+      "reconstruction_rule_cn": "换一个研究依据、电影改编或决策基础语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0415:basic:v1",
+      "word_id": "word:basic",
+      "ordinal": 415,
+      "word": "basic",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分基本/基础、简单初步、化学碱性、the basics 与 BASIC 语言。",
+      "decision_boundary_cn": "general learning、simplicity、chemistry、noun/plural、computing context 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 basic 的领域/词性分支。",
+      "reconstruction_rule_cn": "换一个基础技能、化学或计算机语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0420:bat:v1",
+      "word_id": "word:bat",
+      "ordinal": 420,
+      "word": "bat",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分蝙蝠、球棒/击球、动词击球与 not bat an eye 的熟词构式。",
+      "decision_boundary_cn": "animal/sports/action/idiom 四类语境决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 bat 的领域和高价值 idiom 边界。",
+      "reconstruction_rule_cn": "换一个动物、棒球或不动声色语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0423:bathe:v1",
+      "word_id": "word:bathe",
+      "ordinal": 423,
+      "word": "bathe",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:bathe:baseline-v2-be-bathed-in",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定产出 be bathed in light/sunlight/colour。",
+      "decision_boundary_cn": "literal washing/swimming 与 figurative light/suffusion 构式形成合理干扰。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 bathe 的 figurative construction。",
+      "reconstruction_rule_cn": "换一个房间、山谷或人物被光线笼罩的语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0425:battery:v1",
+      "word_id": "word:battery",
+      "ordinal": 425,
+      "word": "battery",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分电池、炮组/成组装置、一系列测试与法律 battery。",
+      "decision_boundary_cn": "electrical、military/group、battery of tests、legal contact 四类领域线索决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 battery 的领域分支与法律边界。",
+      "reconstruction_rule_cn": "换一个设备、炮兵、检测套餐或法律语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0427:bay:v1",
+      "word_id": "word:bay",
+      "ordinal": 427,
+      "word": "bay",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:bay:baseline-v2-at-bay",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定产出 keep/hold sb/sth at bay。",
+      "decision_boundary_cn": "阻止靠近/恶化/取得控制的 idiom 与海湾、狗吠、月桂等普通义分开。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 at bay 的整体结构。",
+      "reconstruction_rule_cn": "换一个疾病、竞争者或风险被控制的语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0432:bear:v1",
+      "word_id": "word:bear",
+      "ordinal": 432,
+      "word": "bear",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分忍受、承担/支承、生育/产生、动物熊与金融空头。",
+      "decision_boundary_cn": "pain/cost/weight/child/fruit/market 等对象决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 bear 的对象/领域分支。",
+      "reconstruction_rule_cn": "换一个疼痛、成本、结果或金融市场语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0434:bearing:v1",
+      "word_id": "word:bearing",
+      "ordinal": 434,
+      "word": "bearing",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分关联/影响、方位、举止风度、机械轴承以及低频忍受/生育义。",
+      "decision_boundary_cn": "have a bearing on、take a bearing、personal bearing、ball bearing 等搭配决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 bearing 的搭配/领域分支。",
+      "reconstruction_rule_cn": "换一个论证相关性、导航、举止或机械语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0436:beat:v1",
+      "word_id": "word:beat",
+      "ordinal": 436,
+      "word": "beat",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分击打、打败、心跳、节拍、巡逻区与疲惫形容词。",
+      "decision_boundary_cn": "object/competition/heart/music/police/adjective context 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 beat 的词性/领域分支。",
+      "reconstruction_rule_cn": "换一个比赛、心率、音乐或警务语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0443:beef:v1",
+      "word_id": "word:beef",
+      "ordinal": 443,
+      "word": "beef",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:beef:baseline-v2-up",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定产出 beef up sth / beef sth up，表达加强、充实、改进。",
+      "decision_boundary_cn": "与 beef about=抱怨和 noun beef=牛肉形成真实邻近干扰。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 beef up 的生产结构。",
+      "reconstruction_rule_cn": "换一个加强安保、团队或报告内容语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0446:beg:v1",
+      "word_id": "word:beg",
+      "ordinal": 446,
+      "word": "beg",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:beg:baseline-v2-question",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 beg the question 的传统逻辑“预设结论”与现代常见“引出问题”。",
+      "decision_boundary_cn": "正式逻辑/学术论证与一般媒体/口语语境决定 reading。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 beg the question 的双义与语体风险。",
+      "reconstruction_rule_cn": "换一个逻辑批评和一般讨论各一组新语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0449:behalf:v1",
+      "word_id": "word:behalf",
+      "ordinal": 449,
+      "word": "behalf",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:behalf:baseline-v2-on-behalf-of",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定使用 on behalf of sb/sth / on sb's behalf，并理解其可表示代表或为了其利益/支持。",
+      "decision_boundary_cn": "representation vs benefit/support 由语境决定，不使用僵硬 on/in 二分法；in behalf 作为美式变体干扰。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 behalf 的现代高价值结构。",
+      "reconstruction_rule_cn": "换一个代签、代发言或为某群体争取利益语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0450:behave:v1",
+      "word_id": "word:behave",
+      "ordinal": 450,
+      "word": "behave",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:behave:baseline-v2-oneself",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定产出 behave yourself / behave oneself，表达守规矩/举止得体。",
+      "decision_boundary_cn": "behave well/badly 与 reflexive behave oneself 形成结构选择。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 behave oneself 的生产骨架。",
+      "reconstruction_rule_cn": "换一个课堂、正式场合或儿童行为语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0440:become:v1",
+      "word_id": "word:become",
+      "ordinal": 440,
+      "word": "become",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 become=变成/成为 与较正式的 become sb=适合、与某人相称。",
+      "decision_boundary_cn": "change-of-state 与 clothing/behavior/suitability context 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 become 的常用 vs formal suitability 分支。",
+      "reconstruction_rule_cn": "换一个状态变化与服装/行为相称语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    }
+  ]
+}
