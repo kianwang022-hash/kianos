@@ -741,6 +741,22 @@ if final_review
 
 when those branches own distinct execution engines instead of composing existing atoms.
 
+#### Current Runtime atom inventory
+
+| Atom | Current Politics evidence | Judgment |
+| --- | --- | --- |
+| SHOW | current chapter / explicit SurfacePlan renderers exist | AVAILABLE, but blocked by Final Learner Object cleanup |
+| CONCEAL_REVEAL | answer gating exists for questions; no generic later-stage recall executor yet | PARTIAL |
+| INPUT_SUBMIT | Xiao1000 attempt/submit exists | AVAILABLE |
+| MARK | Uncertain/Wrong evidence exists; later Recall/Precision marking not generic yet | PARTIAL |
+| SEQUENCE | question sequencing exists | AVAILABLE |
+| TIMER | shared Study Timer exists, but not yet bound as a generic timed-task/session atom | PARTIAL |
+| HANDOFF | Chengfeng/source locator and repair handoff exist | AVAILABLE |
+| RETURN | Unit Return / last-location Resume exist | AVAILABLE |
+| CAPTURE | Politics question evidence/local state exists | AVAILABLE |
+
+So B is not a rewrite. The main missing Engineering work is to **extract/reuse the existing mechanics behind a phase-agnostic Session executor** and fill the genuinely absent generic pieces.
+
 ### C | Chat ↔ Website typed-control closure
 
 **Current judgment: PARTIAL**
