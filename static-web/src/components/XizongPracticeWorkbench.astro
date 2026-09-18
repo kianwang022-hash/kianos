@@ -28,32 +28,31 @@ const payload = JSON.stringify({
 <section class="xzp" data-xizong-practice={system.systemId} data-question-workspace>
   <header class="xzpTopbar">
     <div class="xzpScope">
-      <span>训练 · System</span>
       <strong>{system.canonicalId} · {system.title}</strong>
-      <small><b data-study-phase>一轮</b> · <span data-question-progress>准备中</span></small>
+      <span><b data-study-phase>一轮</b></span>
     </div>
 
-    <div class="xzpStats" aria-label="当前训练统计">
-      <span>稳 <b data-stat-stable>0</b></span>
-      <span>错 <b data-stat-wrong>0</b></span>
-      <span>标记 <b data-stat-marked>0</b></span>
-      <span>剩余 <b data-stat-remaining>—</b></span>
-    </div>
+    <div class="xzpProgress" data-question-progress>准备中</div>
 
     <div class="xzpControls">
       <details class="xzpHoldout" data-holdout-control>
-        <summary><span>整卷保留</span><b data-holdout-current>未设置</b></summary>
+        <summary><span>范围</span><b data-holdout-current>未设置</b></summary>
         <div>
-          <label for={`xzp-holdout-${system.systemId}`}>不进入系统训练的年份</label>
+          <label for={`xzp-holdout-${system.systemId}`}>整卷保留年份</label>
           <div>
             <input id={`xzp-holdout-${system.systemId}`} data-holdout-input inputmode="numeric" placeholder="例如 2025, 2026" />
             <button type="button" data-save-holdout>保存</button>
           </div>
         </div>
       </details>
-      <button type="button" class="xzpQuietControl" data-fast-sweep aria-pressed="false">Fast · 关</button>
-      <span class="xzpResultMode">结果 · 即时</span>
-      <button type="button" class="xzpQuietControl" data-question-mark aria-pressed="false">M · 标记</button>
+      <button type="button" class="xzpQuietControl" data-fast-sweep aria-pressed="false">Fast</button>
+      <span class="xzpResultMode">即时</span>
+      <button type="button" class="xzpQuietControl xzpMarkControl" data-question-mark aria-pressed="false">☆ 标记</button>
+      <button type="button" class="xzpQuietControl" data-review-toggle aria-pressed="false" hidden>解析</button>
+      <details class="xzpKeyboardHelp">
+        <summary aria-label="键盘快捷键">?</summary>
+        <div>1–5 选择 · Enter 提交/继续 · M 标记 · ← → 切题</div>
+      </details>
     </div>
   </header>
 
@@ -63,7 +62,7 @@ const payload = JSON.stringify({
     <main class="xzpQuestionPane">
       <header class="xzpQuestionMeta">
         <span data-question-meta>—</span>
-        <small data-selection-hint>1–5 选择 · Enter 提交 · M 标记 · ← → 切题</small>
+        <small data-selection-hint hidden></small>
       </header>
 
       <section class="xzpHoldoutGate" data-holdout-gate hidden>
@@ -116,7 +115,7 @@ const payload = JSON.stringify({
       <section class="xzpReview" data-answer-panel hidden>
         <header>
           <strong data-answer-result></strong>
-          <span>答案 <b data-correct-answer></b></span>
+          <span>你的答案 <b data-user-answer></b> · 正确答案 <b data-correct-answer></b></span>
         </header>
 
         <section data-exam-target-wrap hidden>
@@ -225,11 +224,13 @@ const payload = JSON.stringify({
     const reviewEmpty = root.querySelector('[data-review-empty]');
     const answerPanel = root.querySelector('[data-answer-panel]');
     const answerResult = root.querySelector('[data-answer-result]');
+    const userAnswer = root.querySelector('[data-user-answer]');
     const correctAnswer = root.querySelector('[data-correct-answer]');
     const done = root.querySelector('[data-sweep-done]');
     const fastButton = root.querySelector('[data-fast-sweep]');
     const markButton = root.querySelector('[data-question-mark]');
     const nextButton = root.querySelector('[data-next-question]');
+    const reviewToggle = root.querySelector('[data-review-toggle]');
     const nextRoundButton = root.querySelector('[data-start-next-round]');
     const nextPhaseSelect = root.querySelector('[data-next-phase]');
     const nextQueueSelect = root.querySelector('[data-next-queue]');
@@ -270,37 +271,30 @@ const payload = JSON.stringify({
     const resultFor = (id) => sweepState.results?.[id] || null;
     const markedFor = (id) => isXizongQuestionMarked(sweepState, id);
 
-    const counts = () => {
-      const rows = activeQuestions.map((q) => resultFor(q.questionId)).filter(Boolean);
-      return {
-        stable: rows.filter((row) => row.status === 'stable').length,
-        wrong: rows.filter((row) => row.status === 'wrong').length,
-        marked: activeQuestions.filter((q) => markedFor(q.questionId)).length,
-        remaining: activeQuestions.length - rows.length
-      };
-    };
-
     const renderTop = () => {
       activeQuestions = computeActive();
-      const stat = counts();
       root.querySelector('[data-study-phase]').textContent = xizongStudyPhaseLabel(sweepState.round?.studyPhase || 'FIRST_PASS');
-      root.querySelector('[data-stat-stable]').textContent = String(stat.stable);
-      root.querySelector('[data-stat-wrong]').textContent = String(stat.wrong);
-      root.querySelector('[data-stat-marked]').textContent = String(stat.marked);
-      root.querySelector('[data-stat-remaining]').textContent = holdoutYears.length ? String(stat.remaining) : '—';
       holdoutCurrent.textContent = holdoutYears.length ? holdoutYears.join('、') : '未设置';
       holdoutInput.value = holdoutYears.join(', ');
       fastButton.setAttribute('aria-pressed', String(Boolean(preferences.fastSweep)));
-      fastButton.textContent = `Fast · ${preferences.fastSweep ? '开' : '关'}`;
+      fastButton.textContent = preferences.fastSweep ? 'Fast · On' : 'Fast';
       if (currentQuestion) {
         markButton.setAttribute('aria-pressed', String(markedFor(currentQuestion.questionId)));
-        markButton.textContent = markedFor(currentQuestion.questionId) ? 'M · 已标记' : 'M · 标记';
+        markButton.textContent = markedFor(currentQuestion.questionId) ? '★ 已标记' : '☆ 标记';
+      } else {
+        markButton.setAttribute('aria-pressed', 'false');
+        markButton.textContent = '☆ 标记';
       }
     };
 
     const clearReview = () => {
+      root.classList.remove('is-reviewing');
       reviewEmpty.hidden = false;
       answerPanel.hidden = true;
+      if (reviewToggle) {
+        reviewToggle.setAttribute('aria-pressed', 'false');
+        reviewToggle.textContent = '解析';
+      }
       Object.values(field).forEach(([wrap, node]) => {
         if (wrap) wrap.hidden = true;
         if (node instanceof HTMLOListElement || node instanceof HTMLUListElement) node.replaceChildren();
@@ -321,10 +315,17 @@ const payload = JSON.stringify({
 
     const renderReview = (question, result) => {
       const explanation = question?.explanation || {};
+      root.classList.add('is-reviewing');
       reviewEmpty.hidden = true;
       answerPanel.hidden = false;
+      if (reviewToggle) {
+        reviewToggle.hidden = false;
+        reviewToggle.setAttribute('aria-pressed', 'true');
+        reviewToggle.textContent = '收起解析';
+      }
       answerResult.textContent = result.status === 'wrong' ? '答案错误' : result.status === 'uncertain' ? '答案正确 · 历史不确定' : '答案正确';
       answerResult.classList.toggle('wrong', result.status === 'wrong');
+      userAnswer.textContent = letters(result.selected).join('、') || '—';
       correctAnswer.textContent = letters(question.correctAnswer).join('、');
 
       setTextField('examTarget', explanation.examTarget);
@@ -356,37 +357,58 @@ const payload = JSON.stringify({
       setTextField('transferRule', explanation.transferRule);
 
       if (relationWrap) {
-        relationWrap.hidden = false;
+        relationWrap.hidden = true;
         const relation = question?.relation || null;
         if (relation?.knowledgePath && ['RESOLVED_KP','RESOLVED_BLOCK','BLOCK_ONLY'].includes(relation.targetStatus)) {
+          relationWrap.hidden = false;
           relationLink.hidden = false;
           const normalizedKnowledgePath = String(relation.knowledgePath || '').split('/').filter(Boolean).join('/');
           relationLink.href = `${data.base}${normalizedKnowledgePath}`;
           const label = [relation.blockLabel || relation.blockId, relation.primaryKpDisplayId || relation.primaryKpId, relation.primaryKpTitle].filter(Boolean).join(' · ');
           relationLink.textContent = label ? `回到 ${label}` : '回到审核过的知识位置';
-        } else {
-          relationFallback.hidden = false;
-          relationFallback.textContent = '暂无可安全消费的 REVIEWED 回链；保留题号，不补猜映射。';
         }
       }
     };
 
     const renderMap = () => {
       mapNode.replaceChildren();
+      const groups = new Map();
       activeQuestions.forEach((q, index) => {
-        const result = resultFor(q.questionId);
-        const marked = markedFor(q.questionId);
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.className = 'xzpMapItem';
-        button.classList.toggle('current', currentQuestion?.questionId === q.questionId);
-        button.classList.toggle('answered', Boolean(result));
-        button.classList.toggle('wrong', result?.status === 'wrong');
-        button.classList.toggle('marked', marked);
-        button.textContent = String(index + 1);
-        if (marked) button.dataset.marked = 'M';
-        button.addEventListener('click', () => renderQuestion(index));
-        mapNode.appendChild(button);
+        const year = String(q.year || '—');
+        if (!groups.has(year)) groups.set(year, []);
+        groups.get(year).push({ q, index });
+      });
+
+      groups.forEach((rows, year) => {
+        const section = document.createElement('section');
+        section.className = 'xzpMapYear';
+        const heading = document.createElement('h3');
+        heading.textContent = year;
+        const grid = document.createElement('div');
+        grid.className = 'xzpMapGrid';
+
+        rows.forEach(({ q, index }) => {
+          const result = resultFor(q.questionId);
+          const marked = markedFor(q.questionId);
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'xzpMapItem';
+          button.classList.toggle('current', currentQuestion?.questionId === q.questionId);
+          button.classList.toggle('answered', Boolean(result));
+          button.classList.toggle('wrong', result?.status === 'wrong');
+          button.classList.toggle('marked', marked);
+          button.textContent = String(q.number || index + 1);
+          button.title = `${year} · 第 ${q.number || index + 1} 题`;
+          button.addEventListener('click', () => renderQuestion(index));
+          grid.appendChild(button);
+        });
+
+        section.append(heading, grid);
+        mapNode.appendChild(section);
+      });
+
+      window.requestAnimationFrame(() => {
+        mapNode.querySelector('.xzpMapItem.current')?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
       });
     };
 
@@ -395,6 +417,7 @@ const payload = JSON.stringify({
       questionCard.hidden = true;
       done.hidden = true;
       holdoutGate.hidden = false;
+      if (reviewToggle) reviewToggle.hidden = true;
       clearReview();
       questionProgress.textContent = '等待整卷保留设置';
       questionMeta.textContent = 'SYSTEM PRACTICE';
@@ -409,6 +432,7 @@ const payload = JSON.stringify({
       questionCard.hidden = true;
       holdoutGate.hidden = true;
       done.hidden = false;
+      if (reviewToggle) reviewToggle.hidden = true;
       clearReview();
       questionMeta.textContent = 'ROUND COMPLETE';
       questionProgress.textContent = `${activeQuestions.length} / ${activeQuestions.length}`;
@@ -475,6 +499,7 @@ const payload = JSON.stringify({
       submit.disabled = Boolean(existing) || currentSelection.size === 0;
       submit.hidden = Boolean(existing);
       clearReview();
+      if (reviewToggle) reviewToggle.hidden = !existing;
 
       if (existing) {
         const correct = letters(currentQuestion.correctAnswer);
@@ -483,7 +508,9 @@ const payload = JSON.stringify({
           node.classList.toggle('correct', correct.includes(key));
           node.classList.toggle('wrong', currentSelection.has(key) && !correct.includes(key));
         });
-        renderReview(currentQuestion, existing);
+        if (existing.status === 'wrong' || existing.status === 'uncertain') {
+          renderReview(currentQuestion, existing);
+        }
       }
 
       renderMap();
@@ -562,6 +589,13 @@ const payload = JSON.stringify({
       }
     });
     markButton.addEventListener('click', toggleMark);
+    reviewToggle?.addEventListener('click', () => {
+      if (!currentQuestion) return;
+      const existing = resultFor(currentQuestion.questionId);
+      if (!existing) return;
+      if (root.classList.contains('is-reviewing')) clearReview();
+      else renderReview(currentQuestion, existing);
+    });
     submit.addEventListener('click', submitAnswer);
     nextButton.addEventListener('click', nextQuestion);
 
