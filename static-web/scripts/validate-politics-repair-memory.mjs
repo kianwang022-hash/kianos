@@ -55,6 +55,7 @@ function deferredFirstReady(chapter, questionId) {
 const sourceIds = sourceNodeIds();
 const memoryFiles = jsonFiles('.memory.json');
 const repairFiles = jsonFiles('.repair.json');
+let sidecarMemoryCount = 0;
 
 for (const file of memoryFiles) {
   const data = JSON.parse(fs.readFileSync(file, 'utf8'));
@@ -62,6 +63,14 @@ for (const file of memoryFiles) {
   if (data?.schema !== 'kianos.politics.memory_projection.v1') fail(`${rel} invalid schema`);
   if (data?.policy !== 'SOURCE_GROUNDED_SELECTIVE') fail(`${rel} must use SOURCE_GROUNDED_SELECTIVE`);
   if (data?.admission_gate?.requires_source_grounding !== true) fail(`${rel} must require source grounding`);
+  if (!data?.admission_gate?.memory_admission || !data?.admission_gate?.precision_admission) {
+    fail(`${rel} must own separate memory_admission and precision_admission gates`);
+  }
+  for (const legacyKey of ['default', 'admit_when_any', 'do_not_admit_for']) {
+    if (Object.prototype.hasOwnProperty.call(data?.admission_gate || {}, legacyKey)) {
+      fail(`${rel} legacy combined admission gate still present: ${legacyKey}`);
+    }
+  }
 
   const handbook = data?.preferred_memory_reference || null;
   if (handbook) {
@@ -73,6 +82,10 @@ for (const file of memoryFiles) {
     const candidates = Array.isArray(unit?.candidates) ? unit.candidates : [];
     if (!candidates.length) fail(`${rel}:${unitId} has no candidates`);
     for (const candidate of candidates) {
+      sidecarMemoryCount += 1;
+      if (Object.prototype.hasOwnProperty.call(candidate || {}, 'admission') || Object.prototype.hasOwnProperty.call(candidate || {}, 'admission_blocker')) {
+        fail(`${rel}:${candidate?.id || unitId} legacy combined admission fields remain`);
+      }
       const refs = Array.isArray(candidate?.source_refs) ? candidate.source_refs.filter(Boolean) : [];
       if (!refs.length) fail(`${rel}:${candidate?.id || unitId} has no source_refs`);
       for (const ref of refs) {
@@ -110,6 +123,9 @@ for (const file of memoryFiles) {
     }
   }
 }
+
+if (memoryFiles.length !== 23) fail(`memory sidecar file count ${memoryFiles.length}/23`);
+if (sidecarMemoryCount !== 78) fail(`sidecar Memory count ${sidecarMemoryCount}/78`);
 
 const historyHorizontalPath = path.join(learningRoot, 'history', 'later-stage-knowledge.json');
 if (fs.existsSync(historyHorizontalPath)) {

@@ -36,8 +36,12 @@ pass(targets.target_count === targets.targets.length && targets.target_count > 1
 pass(targetRefs.size === targets.targets.length, 'TARGET_REF_UNIQUE', String(targetRefs.size));
 const finalTargets = targets.targets.filter((row) => row.target_kind === 'FINAL');
 const memoryTargets = targets.targets.filter((row) => row.target_kind === 'MEMORY');
+const memoryModelTargets = memoryTargets.filter((row) => row.memory_shape === 'MODEL');
+const memoryPointTargets = memoryTargets.filter((row) => row.memory_shape === 'POINT');
 pass(finalTargets.length === 1083, 'TARGET_FINAL_OBJECT_COUNT', String(finalTargets.length));
-pass(memoryTargets.length === 128, 'TARGET_MEMORY_OBJECT_COUNT', String(memoryTargets.length));
+pass(memoryModelTargets.length === 53, 'TARGET_MEMORY_MODEL_COUNT', String(memoryModelTargets.length));
+pass(memoryPointTargets.length === 128, 'TARGET_MEMORY_POINT_COUNT', String(memoryPointTargets.length));
+pass(memoryTargets.length === 181, 'TARGET_MEMORY_TOTAL_COUNT', String(memoryTargets.length));
 pass(finalTargets.every((row) => row.ref.startsWith('politics-final:') && row.group), 'TARGET_FINAL_PREFIX_AND_PAYLOAD');
 pass(memoryTargets.every((row) =>
   row.ref.startsWith('politics-memory:')
@@ -47,11 +51,31 @@ pass(memoryTargets.every((row) =>
 pass(memoryTargets.every((row) =>
   ['CANDIDATE_EXACTNESS', 'CANDIDATE_FRESHNESS', 'ADMITTED_STABLE', 'NOT_APPLICABLE'].includes(row.precision_admission)
 ), 'TARGET_MEMORY_PRECISION_STATE_VALID');
+pass(memoryModelTargets.every((row) =>
+  row.memory_admission === 'ADMITTED_STABLE'
+  && row.precision_admission === 'NOT_APPLICABLE'
+  && row.group
+), 'TARGET_MEMORY_MODEL_IS_STABLE_NON_PRECISION');
+const modelCounts = Object.fromEntries(['marxism','history','mao','xi','ethics_law'].map((subject) => [
+  subject,
+  memoryModelTargets.filter((row) => row.subject === subject).length
+]));
+pass(
+  modelCounts.marxism === 9
+  && modelCounts.history === 10
+  && modelCounts.mao === 9
+  && modelCounts.xi === 18
+  && modelCounts.ethics_law === 7,
+  'TARGET_MEMORY_MODEL_SUBJECT_COVERAGE',
+  JSON.stringify(modelCounts)
+);
 
 const sampleTarget = finalTargets.find((row) => row.state === 'ORIENT' && row.subject === 'marxism') || finalTargets[0];
-const sampleMemoryTarget = memoryTargets.find((row) => row.subject === 'marxism') || memoryTargets[0];
+const sampleMemoryModelTarget = memoryModelTargets.find((row) => row.subject === 'xi') || memoryModelTargets[0];
+const sampleMemoryTarget = memoryPointTargets.find((row) => row.subject === 'marxism') || memoryPointTargets[0];
 const sampleQuestions = practice.questions.slice(0, 2).map((row) => row.id);
 pass(Boolean(sampleTarget), 'SAMPLE_TARGET_MISSING');
+pass(Boolean(sampleMemoryModelTarget), 'SAMPLE_MEMORY_MODEL_TARGET_MISSING');
 pass(Boolean(sampleMemoryTarget), 'SAMPLE_MEMORY_TARGET_MISSING');
 pass(sampleQuestions.length === 2, 'SAMPLE_QUESTIONS_MISSING');
 
@@ -125,10 +149,10 @@ const memoryRecall = normalizePoliticsSessionInstruction({
   steps: [{
     step_id: 'memory-recall',
     recipe_type: 'TARGETED_RECALL',
-    target_refs: [sampleMemoryTarget.ref]
+    target_refs: [sampleMemoryModelTarget.ref]
   }]
 }, { targetRefs, questionIds });
-pass(memoryRecall.steps[0].target_refs[0] === sampleMemoryTarget.ref, 'SESSION_MEMORY_RECALL_TARGET_LITERAL');
+pass(memoryRecall.steps[0].target_refs[0] === sampleMemoryModelTarget.ref, 'SESSION_MEMORY_MODEL_RECALL_TARGET_LITERAL');
 
 const precisionCandidate = normalizePoliticsSessionInstruction({
   ...instruction,

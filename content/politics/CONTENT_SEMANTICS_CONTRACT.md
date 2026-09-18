@@ -225,6 +225,34 @@ Memory admission does **not** mean verbatim recitation.
 
 Wrong/Uncertain evidence is private learner evidence that changes selection/repetition weight. It does not create shared Memory truth.
 
+
+#### Memory target materialization
+
+Memory Overlay realization has two canonical target shapes.
+
+**Chapter Memory Model**
+- owner: chapter `later_stage_knowledge.memory_knowledge`;
+- admission: `memory_admission_state = ADMITTED_STABLE` or an existing equivalent stable-semantic admission that is normalized upstream;
+- source payload: the already accepted chapter `compression_model`;
+- purpose: broad reconstruction / compressed review;
+- Precision behavior: `NOT_APPLICABLE` unless a separate exact target exists.
+
+**Discrete Memory Target**
+- owner: a `*.memory.json` sidecar or accepted subject-level horizontal Memory owner;
+- admission: target-local `memory_admission`;
+- purpose: independently addressable identity / boundary / meeting / hat / fixed structure;
+- Precision behavior: independently controlled by target-local `precision_admission`.
+
+Hard rule:
+
+```text
+Memory target exists in Runtime
+only because upstream Memory ownership + admission already exist.
+Runtime does not infer Memory worthiness from raw chapter fields.
+```
+
+When a chapter Memory owner is admitted, the derived target compiler may compile its accepted `compression_model` into one literal learner payload. This is an upstream deterministic mapping rule, not a browser strategy decision.
+
 #### `precision_knowledge`
 
 Owns **exactness admission**, separately from Memory admission.

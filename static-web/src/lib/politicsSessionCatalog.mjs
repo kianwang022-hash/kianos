@@ -82,6 +82,7 @@ function memorySidecarTargets(base) {
           targets.push({
             ref,
             target_kind: 'MEMORY',
+            memory_shape: 'POINT',
             subject,
             chapter,
             unit_id: clean(unitId),
@@ -129,6 +130,7 @@ function historyHorizontalTargets(base) {
       targets.push({
         ref,
         target_kind: 'MEMORY',
+        memory_shape: 'POINT',
         subject: 'history',
         chapter,
         unit_id: lineKey,
@@ -146,6 +148,101 @@ function historyHorizontalTargets(base) {
       });
     }
   }
+  return targets;
+}
+
+
+function normalizedMemoryAdmission(memoryKnowledge) {
+  const raw = clean(memoryKnowledge?.memory_admission_state || memoryKnowledge?.admission_state);
+  return raw === 'ADMITTED_STABLE_SEMANTIC' ? 'ADMITTED_STABLE' : raw;
+}
+
+function memoryModelLineText(value) {
+  if (typeof value === 'string') return clean(value);
+  if (!value || typeof value !== 'object') return '';
+  return clean(value.claim || value.boundary || value.text || value.label || value.hold);
+}
+
+function chapterMemoryModelLines(compression) {
+  const lines = [];
+  const seen = new Set();
+  const add = (field, value) => {
+    const text = memoryModelLineText(value);
+    if (!text || seen.has(text)) return;
+    seen.add(text);
+    lines.push({ field, text });
+  };
+
+  add('reconstruction', compression?.reconstruction);
+  add('reconstruction', compression?.chapter_compression?.reconstruction);
+  for (const row of compression?.reconstruction_targets || []) add('target', row);
+  for (const row of compression?.decisive_boundaries || []) add('boundary', row);
+  for (const row of compression?.cross_unit_confusables || []) add('confusable', row);
+  return lines;
+}
+
+function chapterMemoryModelSourceRefs(compression) {
+  const refs = new Set();
+  for (const row of [
+    ...(compression?.reconstruction_targets || []),
+    ...(compression?.decisive_boundaries || []),
+    ...(compression?.cross_unit_confusables || [])
+  ]) {
+    for (const ref of row?.owner_ids || []) if (ref) refs.add(String(ref));
+    for (const ref of row?.source_refs || []) if (ref) refs.add(String(ref));
+  }
+  return [...refs];
+}
+
+function chapterMemoryModelTargets(base) {
+  const targets = [];
+
+  for (const row of listPoliticsChapterPathsCurrent()) {
+    const subject = clean(row.subject);
+    const chapter = clean(row.chapter);
+    const directory = subject === 'ethics_law' ? 'ethics-law' : subject;
+    const file = path.join(learningRoot, directory, chapter + '.json');
+    if (!fs.existsSync(file)) continue;
+
+    const data = JSON.parse(fs.readFileSync(file, 'utf8'));
+    const later = data?.later_stage_knowledge || null;
+    const memoryKnowledge = later?.memory_knowledge || null;
+    const memoryAdmission = normalizedMemoryAdmission(memoryKnowledge);
+    if (memoryAdmission !== 'ADMITTED_STABLE') continue;
+
+    const compression = later?.compression_model || null;
+    const lines = chapterMemoryModelLines(compression);
+    if (!lines.length) continue;
+
+    const id = 'POL27-MEMMODEL-' + subject.toUpperCase().replace(/[^A-Z0-9]+/g, '-') + '-' + chapter.toUpperCase();
+    const ref = politicsMemoryTargetRef({ subject, owner: chapter, id });
+    const group = memoryGroup({
+      id,
+      title: clean(data?.title) || clean(chapter),
+      item: memoryItem(id, null, lines)
+    });
+
+    targets.push({
+      ref,
+      target_kind: 'MEMORY',
+      memory_shape: 'MODEL',
+      subject,
+      chapter,
+      unit_id: clean(data?.object_id || data?.objectId || chapter),
+      state: 'MEMORY',
+      group_id: id,
+      title: clean(data?.title) || clean(chapter),
+      zone: group.zone,
+      primitive: group.primitive,
+      unit_href: chapterHref(base, subject, chapter),
+      memory_admission: 'ADMITTED_STABLE',
+      precision_admission: 'NOT_APPLICABLE',
+      precision_blocker: '',
+      source_refs: chapterMemoryModelSourceRefs(compression),
+      group
+    });
+  }
+
   return targets;
 }
 
@@ -201,7 +298,7 @@ export function buildPoliticsSessionTargetCatalog(base = '/') {
     }
   }
 
-  targets.push(...memorySidecarTargets(base), ...historyHorizontalTargets(base));
+  targets.push(...chapterMemoryModelTargets(base), ...memorySidecarTargets(base), ...historyHorizontalTargets(base));
 
   const identities = targets.map(({ group, ...row }) => row);
   const revision = createHash('sha256').update(JSON.stringify(identities)).digest('hex');

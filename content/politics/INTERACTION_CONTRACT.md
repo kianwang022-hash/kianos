@@ -283,6 +283,8 @@ This keeps the interface generic without making Web decide review granularity.
 
 `TARGETED_RECALL`
 - Chat supplies the exact Current object/group refs to retrieve now;
+- a ref may address an accepted Final Learner Object group, an admitted Chapter Memory Model, or an admitted Discrete Memory Target;
+- Memory refs must carry upstream `memory_admission = ADMITTED_STABLE` after canonical normalization;
 - if no stable id exists, Chat supplies owner path + exact deterministic subpath;
 - Web must not append sibling objects because they are nearby or share a field.
 

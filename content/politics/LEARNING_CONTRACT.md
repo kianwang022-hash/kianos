@@ -184,6 +184,32 @@ Default domain direction:
 
 Wrong/Uncertain evidence may increase repetition weight, expose a missed stable Memory target, or justify exactness work. It is not required to create the stable Memory layer itself.
 
+
+### Two Memory execution shapes
+
+Admitted Memory is not synonymous with atomized flashcards.
+
+Politics uses two deliberate Memory shapes:
+
+```text
+Chapter / owner Memory Model
+= one admitted stable reconstruction model
+= used for broad second-round recall before drilling gaps
+
+Discrete Memory Target
+= one admitted stable identity / boundary / meeting / hat / fixed structure
+= used only when the object benefits from independent addressability
+```
+
+Rules:
+
+1. every accepted later-stage chapter may expose at most one **Chapter Memory Model** from its accepted `compression_model` once `memory_knowledge` admits that model;
+2. discrete sidecar / horizontal Memory objects remain separate and independently addressable;
+3. Chat normally starts from the largest useful reconstruction and drills into discrete Memory only when learner evidence or phase purpose justifies it;
+4. a Chapter Memory Model is semantic Memory, not verbatim Precision, so its default `precision_admission` is `NOT_APPLICABLE`;
+5. Website/Runtime never decides whether a chapter deserves Memory treatment; the chapter's `memory_knowledge` owner must admit it first;
+6. this materialization affects later Review/Consolidation only and creates no first-round render obligation.
+
 ### Surface roles
 
 Politics first-round learning uses explicit surface ownership rather than inferring it from implementation capability.
