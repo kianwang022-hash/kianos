@@ -61,7 +61,6 @@ const serverTaskLabel = (step) => ({
             <span class="englishExamStepIndex">{String(index + 1).padStart(2, '0')}</span>
             <div class="englishExamStepCopy">
               <strong>{serverTaskLabel(step)}</strong>
-              <small>{step.task === 'reading_a' ? '阅读真题' : step.task === 'writing' ? '写作真题' : '英语一真题'}</small>
             </div>
             <b class="englishExamStepMeta">{step.max_points} 分</b>
           </div>
@@ -179,13 +178,7 @@ const serverTaskLabel = (step) => ({
         copy.className = 'englishExamStepCopy';
         const strong = document.createElement('strong');
         strong.textContent = taskLabel(step);
-        const small = document.createElement('small');
-        small.textContent = step.task === 'reading_a'
-          ? '阅读真题'
-          : step.task === 'writing'
-            ? '写作真题'
-            : '英语一真题';
-        copy.append(strong, small);
+        copy.append(strong);
         const meta = document.createElement('b');
         meta.className = 'englishExamStepMeta';
         meta.textContent = state?.captures?.[step.step_id] ? '已完成' : step.max_points + ' 分';
@@ -375,6 +368,23 @@ const serverTaskLabel = (step) => ({
   }
   .englishExamStepMeta{font-size:var(--study-type-meta);color:var(--study-green);white-space:nowrap}
   .englishExamStep[data-complete="true"]{background:#fbfdfc}
+
+  :global(.englishExamStep){
+    display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:14px;align-items:center;
+    min-height:58px;padding:8px 4px;border-bottom:1px solid var(--study-line);
+    color:inherit;text-decoration:none
+  }
+  :global(.englishExamStep:last-child){border-bottom:0}
+  :global(a.englishExamStep:hover){background:var(--study-green-soft)}
+  :global(.englishExamStepIndex){
+    display:grid;width:34px;height:34px;place-items:center;border-radius:8px;
+    background:var(--study-surface-muted);color:var(--study-muted);
+    font-size:var(--study-type-meta);font-weight:800;font-variant-numeric:tabular-nums
+  }
+  :global(.englishExamStepCopy){min-width:0}
+  :global(.englishExamStepCopy strong){font-size:17px;line-height:1.3}
+  :global(.englishExamStepMeta){font-size:15px;color:var(--study-green);white-space:nowrap}
+  :global(.englishExamStep[data-complete="true"]){background:#fbfdfc}
   .englishExamResult{
     padding:18px 20px;border:1px solid var(--study-line);border-radius:12px;background:#fbfdfc
   }
