@@ -1,0 +1,152 @@
+{
+  "schema": "kianos.xizong.exam_format.v1",
+  "status": "CURRENT",
+  "authority": "REVIEWED_HISTORICAL_EXAM_FORMAT",
+  "track": "CLINICAL",
+  "owner_note": "Owns historical whole-paper question-count and scoring geometry only. Question content/answer truth remains under content/xizong/questions/shards/**. Runtime must consume this owner and must not infer scores from question type alone.",
+  "eras": [
+    {
+      "era_id": "WESTERN_MEDICINE_150",
+      "start_year": 2005,
+      "end_year": 2006,
+      "question_count": 150,
+      "max_score": 150,
+      "scoring_segments": [
+        {
+          "start": 1,
+          "end": 150,
+          "points": 1
+        }
+      ],
+      "evidence": [
+        {
+          "label": "2006 A-type 1-106, 1 point each",
+          "url": "https://vedio.koolearn.com/upload/vedio/material/kaoyanzt/2006kyxyzh_zt.pdf"
+        },
+        {
+          "label": "2006 B-type 107-128, 1 point each",
+          "url": "https://kaoyan.eol.cn/shiti/zhuanyeke/201606/t20160601_1405088_7.shtml"
+        },
+        {
+          "label": "2005 scoring reference / 150-question paper identity",
+          "url": "https://kaoyan.eol.cn/shiti/zhuanyeke/201606/t20160601_1405102_10.shtml"
+        }
+      ]
+    },
+    {
+      "era_id": "WESTERN_MEDICINE_2007_CLINICAL_TRANSITION",
+      "start_year": 2007,
+      "end_year": 2007,
+      "question_count": 180,
+      "max_score": 300,
+      "scoring_segments": [
+        {
+          "start": 1,
+          "end": 150,
+          "points": 1.6
+        },
+        {
+          "start": 151,
+          "end": 180,
+          "points": 2
+        }
+      ],
+      "note": "Current Question Truth is already the 180-question CLINICAL projection. Its stable n151-n180 identities represent the clinical-specific final section for Runtime scoring.",
+      "evidence": [
+        {
+          "label": "2007 outline change: common 1-150 at 1.6 points; clinical-specific 30 at 2 points",
+          "url": "https://yz.chsi.com.cn/kyzx/zyk/200708/20070823/1060460.html"
+        },
+        {
+          "label": "2007 exam-outline analysis of the 180-question clinical path",
+          "url": "https://www.chinakaoyan.com/info/article/id/10038.shtml"
+        }
+      ]
+    },
+    {
+      "era_id": "WESTERN_MEDICINE_180",
+      "start_year": 2008,
+      "end_year": 2016,
+      "question_count": 180,
+      "max_score": 300,
+      "scoring_segments": [
+        {
+          "start": 1,
+          "end": 90,
+          "points": 1.5
+        },
+        {
+          "start": 91,
+          "end": 120,
+          "points": 2
+        },
+        {
+          "start": 121,
+          "end": 150,
+          "points": 1.5
+        },
+        {
+          "start": 151,
+          "end": 180,
+          "points": 2
+        }
+      ],
+      "evidence": [
+        {
+          "label": "2008 scoring reform published on China Graduate Admissions Information",
+          "url": "https://yz.chsi.com.cn/kyzx/zyk/200708/20070823/1060460.html"
+        },
+        {
+          "label": "2016 paper confirms 180-question pre-reform structure",
+          "url": "https://kaoyan.eol.cn/shiti/zhuanyeke/201605/t20160524_1401494_17.shtml"
+        }
+      ]
+    },
+    {
+      "era_id": "CLINICAL_MEDICINE_COMPREHENSIVE_165",
+      "start_year": 2017,
+      "end_year": 2026,
+      "question_count": 165,
+      "max_score": 300,
+      "scoring_segments": [
+        {
+          "start": 1,
+          "end": 40,
+          "points": 1.5
+        },
+        {
+          "start": 41,
+          "end": 115,
+          "points": 2
+        },
+        {
+          "start": 116,
+          "end": 135,
+          "points": 1.5
+        },
+        {
+          "start": 136,
+          "end": 165,
+          "points": 2
+        }
+      ],
+      "evidence": [
+        {
+          "label": "2017 reform comparison published by People's Daily Education",
+          "url": "https://edu.people.com.cn/kaoyan/n1/2016/0815/c112975-28637665.html"
+        },
+        {
+          "label": "2017 paper structure / 165 questions",
+          "url": "https://wx.xisaiwang.com/tiku2/tp30391467.html?anyid=1a9641fd14504ab59035f865fb83c323166887"
+        }
+      ]
+    }
+  ],
+  "hard_rules": [
+    "A whole-paper score is computed only from the matching year rule in this owner.",
+    "Exact-answer equality is required; X-type partial selections receive zero for that question.",
+    "Unanswered questions receive zero.",
+    "Historical max scores remain historical; Runtime displays score/max and does not normalize old papers to 300.",
+    "No rule beyond the Current Question Truth year range is implied by this file."
+  ]
+}
