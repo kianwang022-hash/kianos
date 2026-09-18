@@ -116,5 +116,65 @@
     "mao_source_knowledge_content_closed": true,
     "xi_source_knowledge_content_closed": true,
     "ethics_law_source_knowledge_content_closed": true
+  },
+  "reserved_future_source_lanes": {
+    "lifecycle": [
+      "UNBOUND",
+      "SOURCE_BOUND",
+      "CHAT_RECONCILED",
+      "CANONICAL_DELTA_ACCEPTED",
+      "LEARNER_SURFACE_ELIGIBLE"
+    ],
+    "rule": "RESERVED_LANES_ARE_INACTIVE_UNTIL_REAL_SOURCE_BINDING_AND_MUST_NOT_CREATE_FAKE_CONTENT_OR_LEARNER_UI",
+    "current_affairs": {
+      "status": "RESERVED_UNBOUND",
+      "role": "CURRENT_AFFAIRS_DELTA_AND_ANALYSIS_CONTEXT",
+      "learner_surface": "CHAT_FIRST_UNLESS_REAL_USE_EVIDENCE_JUSTIFIES_ASTRO",
+      "may_feed": [
+        "CANONICAL_KNOWLEDGE_DELTA",
+        "MEMORY_CANDIDATE",
+        "ANALYSIS_OUTPUT_CONTEXT",
+        "FINAL_COMPRESSION_DELTA"
+      ],
+      "must_not": [
+        "REORDER_FIRST_ROUND_CHENGFENG",
+        "CREATE_MEMORY_DEBT_WITHOUT_SOURCE_REVIEW",
+        "BECOME_A_SECOND_CONTINUOUS_COURSE"
+      ]
+    },
+    "xiao8": {
+      "status": "RESERVED_UNBOUND",
+      "role": "FRESH_MOCK_AND_EVALUATION_SOURCE",
+      "unseen_policy": "PROTECT_UNSEEN_CONTENT_UNTIL_LEARNER_ATTEMPT",
+      "may_feed_after_attempt": [
+        "ATTEMPT_EVIDENCE",
+        "WRONG_UNCERTAIN_REPAIR",
+        "CANONICAL_KNOWLEDGE_DELTA_WHEN_REAL_GAP_IS_PROVEN",
+        "MEMORY_CANDIDATE",
+        "ANALYSIS_OUTPUT_REPAIR"
+      ],
+      "must_not": [
+        "BE_PRELEARNED_AS_A_COURSE",
+        "LEAK_ANSWER_BEFORE_ATTEMPT",
+        "REDEFINE_CANONICAL_KNOWLEDGE_FROM_ONE_ITEM_WITHOUT_REVIEW"
+      ]
+    },
+    "xiao4": {
+      "status": "RESERVED_UNBOUND",
+      "role": "FINAL_HIGH_VALUE_DELTA_AND_ANALYSIS_OUTPUT_SOURCE",
+      "activation": "FINAL_PHASE_OR_EXPLICIT_USER_BINDING",
+      "may_feed": [
+        "FINAL_MEMORY_DELTA",
+        "ANALYSIS_OUTPUT_FRAMEWORK",
+        "CURRENT_AFFAIRS_DELTA",
+        "MOCK_EVIDENCE",
+        "FINAL_COMPRESSION"
+      ],
+      "must_not": [
+        "TRIGGER_BROAD_COURSE_REBUILD",
+        "EXPAND_LOW_VALUE_REVIEW_DEBT",
+        "OVERRIDE_EXISTING_KNOWLEDGE_WITHOUT_SOURCE_RECONCILIATION"
+      ]
+    }
   }
 }
