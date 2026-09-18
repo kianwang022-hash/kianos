@@ -28,7 +28,7 @@ Architecture-level website blocker: **none**.
 | Lane | State | Active ref / continue from |
 | --- | --- | --- |
 | Xizong UI | **LANDED · MATERIAL HUMAN GATES CLOSED** | `main` → exact accepted Xizong surface owner; reopen only concrete defects |
-| Politics UI | **ACTIVE · REVIEW VISUAL CANDIDATE** | `work/politics-review-human-gate-20260919` · L2 / Learn / Chapter / Home landed in main; Review visual closure active |
+| Politics UI | **ACTIVE · REVIEW HUMAN GATE READY** | PR #468 · `work/politics-review-human-gate-20260919` · populated Review candidate fully gated; waiting only for Kian visual approval |
 | English UI | **LANDED** | `content/english/CURRENT.md` |
 | Lexical / Vocabulary UI | **LANDED · HUMAN GATES CLOSED** | `content/lexical/CURRENT.md` → normal use / concrete defects only |
 
@@ -181,7 +181,7 @@ CI green is not visual acceptance.
 ## Current next actions
 
 - **Xizong:** learner-facing material UI is landed through whole-paper/year Hidden → Seal → score → same-Workbench Review. Block/TTSX, System Recall, Practice front/back, global retained W/U/Marked and whole-paper are all in `main` with real macOS Human Gates closed. Reopen only concrete defects. Typed Chat Return and durable learner-data recovery stay with the shared Learner Data / Chat Handoff lane.
-- **Politics:** L2 + Learn Index + chapter workspace + Home are landed in `main`. Review is now the active surface: preserve W/U / discussion / source return / original-question behavior, remove duplicated in-page navigation, and converge the page into one compact review workspace. **Next action: real macOS populated-state screenshot + Kian Human Gate; Practice visual closure waits behind Review.**
+- **Politics:** L2 + Learn Index + chapter workspace + Home are landed in `main`. PR #468 closes Review visual structure while preserving W/U / discussion / source return / original-question behavior. Populated 1512×982 macOS evidence uses Wrong + Uncertain + discussion across multiple Units; Functional First, Xi/Ethics Runtime+Evidence and Mac visual gate are green. **Next action: Kian Human Gate on Review only; Practice visual closure waits behind approval.**
 - **English:** landed; fix only concrete launch-visible defects.
 - **Lexical:** Vocabulary v2 learner-surface closure and English exact handoff/return are accepted; normal use only unless a concrete defect appears.
 - **Platform:** after Politics Human Gate, close learner-data durability / typed Chat Return and run final cross-subject regression. UI/CSS ownership cleanup is maintenance, not a new learner product.
