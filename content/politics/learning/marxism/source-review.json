@@ -94,6 +94,143 @@
         "rule": "Do not create a second analysis-theory course. Later Chat packets may retrieve this output baseline only after the underlying Current Knowledge is accepted and the task phase calls for written output."
       },
       "decision": "KEEP_MEMORY_SPARSE_KEEP_OUTPUT_CHAT_FIRST"
+    },
+    "subject_topology": {
+      "status": "MAPPED_NOT_YET_SEMANTICALLY_CLOSED",
+      "source_file": "content/politics/source/historical/leg26/LEG26-MARX.md",
+      "rule": "This is a routing map only. Topic presence does not equal current-year Memory admission or Knowledge acceptance.",
+      "chapters": {
+        "C00": {
+          "current_title": "导论 马克思主义是关于无产阶级和人类解放的科学",
+          "leg26_topics": [
+            "专题一 马、恩、列经典著作和标志理论",
+            "专题二 马克思主义的构成、特征"
+          ],
+          "dominant_roles": [
+            "MEMORY_FIXED_FORMULATION",
+            "OBJECTIVE_COMPRESSION"
+          ],
+          "analysis_output": "NONE_PRIMARY"
+        },
+        "C01": {
+          "current_title": "第一章 世界的物质性及发展规律",
+          "leg26_topics": [
+            "专题三 哲学派别判断",
+            "专题四 物质与意识"
+          ],
+          "dominant_roles": [
+            "MEMORY_BOUNDARY",
+            "OBJECTIVE_COMPRESSION"
+          ],
+          "analysis_output": "LIMITED_CROSS_TOPIC_SUPPORT"
+        },
+        "C02": {
+          "current_title": "第二章 唯物辩证法",
+          "leg26_topics": [
+            "专题五 唯物辩证法两大特征",
+            "专题六 规律",
+            "专题七 矛盾",
+            "专题八 质量互变规律与否定之否定规律",
+            "专题九 马哲第一梯队K"
+          ],
+          "dominant_roles": [
+            "MEMORY_RELATION_BOUNDARY",
+            "OBJECTIVE_COMPRESSION",
+            "ANALYSIS_OUTPUT_BASELINE"
+          ],
+          "analysis_output": "HIGH_VALUE_CHAT_OUTPUT"
+        },
+        "C03": {
+          "current_title": "第三章 实践、认识、真理与价值",
+          "leg26_topics": [
+            "专题十 实践",
+            "专题十一 真理与价值",
+            "专题十二 感性认识与理性认识 VS 现象与本质"
+          ],
+          "dominant_roles": [
+            "MEMORY_RELATION_BOUNDARY",
+            "OBJECTIVE_COMPRESSION",
+            "ANALYSIS_OUTPUT_BASELINE"
+          ],
+          "analysis_output": "HIGH_VALUE_CHAT_OUTPUT"
+        },
+        "C04": {
+          "current_title": "第四章 人类社会及其发展规律",
+          "leg26_topics": [
+            "专题十三 科技",
+            "专题十四 马哲常见干扰项",
+            "专题十五 社会存在与社会意识",
+            "专题十六 马克思关于人的考查"
+          ],
+          "dominant_roles": [
+            "MEMORY_BOUNDARY",
+            "OBJECTIVE_COMPRESSION",
+            "ANALYSIS_OUTPUT_BASELINE"
+          ],
+          "analysis_output": "MEDIUM_HIGH_VALUE_CHAT_OUTPUT"
+        },
+        "C05": {
+          "current_title": "第五章 资本主义的本质及规律",
+          "leg26_topics": [
+            "专题十七 五对劳动概念关系",
+            "专题十八 货币",
+            "专题十九 价值规律",
+            "专题二十 资本重要关系和概念",
+            "专题二十一 马政经计算题公式",
+            "专题二十二 资本主义经济危机",
+            "专题二十三 马政经高能背诵48K（部分）"
+          ],
+          "dominant_roles": [
+            "MEMORY_PRECISION",
+            "OBJECTIVE_COMPRESSION",
+            "FORMULA_RECALL"
+          ],
+          "analysis_output": "LOW_PRIMARY"
+        },
+        "C06": {
+          "current_title": "第六章 资本主义的发展及趋势",
+          "leg26_topics": [
+            "专题二十三 马政经高能背诵48K（垄断/当代资本主义部分）"
+          ],
+          "dominant_roles": [
+            "MEMORY_PRECISION",
+            "OBJECTIVE_COMPRESSION"
+          ],
+          "analysis_output": "LOW_PRIMARY"
+        },
+        "C07": {
+          "current_title": "第七章 社会主义的发展及其规律",
+          "leg26_topics": [
+            "专题二十四 科社高能背诵20K（社会主义发展部分）"
+          ],
+          "dominant_roles": [
+            "MEMORY_PRECISION",
+            "OBJECTIVE_COMPRESSION"
+          ],
+          "analysis_output": "LOW_PRIMARY"
+        },
+        "C08": {
+          "current_title": "第八章 共产主义崇高理想及其最终实现",
+          "leg26_topics": [
+            "专题二十四 科社高能背诵20K（共产主义部分）"
+          ],
+          "dominant_roles": [
+            "MEMORY_FIXED_FORMULATION",
+            "OBJECTIVE_COMPRESSION"
+          ],
+          "analysis_output": "LOW_PRIMARY"
+        }
+      },
+      "lower_volume_analysis_baseline": {
+        "scope": "马原17大原理与万能答案",
+        "dominant_current_chapters": [
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "role": "CHAT_FIRST_OUTPUT_SOURCE",
+        "rule": "Use later for material→principle→answer-structure training; never convert the whole answer bank into first-round learner content."
+      }
     }
   }
 }
