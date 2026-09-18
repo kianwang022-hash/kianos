@@ -504,6 +504,20 @@ The default daily Politics handoff therefore carries only meaningful Wrong/Uncer
 
 `kianos.politics.return_packet.v1` is a runtime handoff shape, not a political-knowledge owner. Chat consumes it to decide the smallest next repair, compression, or content/runtime correction.
 
+For later-stage consolidation, `kianos.politics.consolidation_return.v1` is the **session-level execution return** defined in §3.1A. It does not replace the compact daily handoff.
+
+Relationship:
+
+```text
+consolidation_return.v1
+= what happened in the current Chat-selected session
+
+return_packet.v1
+= compact cross-session / Chat handoff extracted from meaningful evidence
+```
+
+A runtime may derive the compact handoff from session events, but must not invent additional review recommendations while doing so.
+
 Repeated failure may justify stronger reconstruction or review. A clean stable answer should not create ritual review debt merely because the question exists.
 
 ## 9. Astro implementation rule
