@@ -7292,7 +7292,7 @@
     "ordinal": 503,
     "word": "blame",
     "source_owner_path": "content/lexical/words/by-ordinal/o0503.json",
-    "source_fingerprint": "ece3e49c2475acefe949eebdeda8aeba6c4aa81f1a4230d1233e4447e8109d18",
+    "source_fingerprint": "199ed34c8221bc93b072f3b482f32827043cb8ca57d0bb0cfea6a5e5b5d9985b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7397,7 +7397,50 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:blame:baseline-v2-sb-for-sth",
+        "source_locator": "record.constructions[0]",
+        "pattern": "blame sb for sth",
+        "lines": [
+          {
+            "text": "因某事责备某人；认为某人应为某事负责",
+            "lang": "cn"
+          },
+          {
+            "text": "hold someone responsible for something wrong or undesirable",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:blame:baseline-v2-sb-for-sth",
+          "target_locator": "record.constructions[0]",
+          "target_label": "blame sb for sth"
+        }
+      },
+      {
+        "id": "construction:blame:baseline-v2-sth-on-sb",
+        "source_locator": "record.constructions[1]",
+        "pattern": "blame sth on sb/sth",
+        "lines": [
+          {
+            "text": "把某事归咎于某人/某物",
+            "lang": "cn"
+          },
+          {
+            "text": "attribute a problem, fault, or bad outcome to someone or something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:blame:baseline-v2-sth-on-sb",
+          "target_locator": "record.constructions[1]",
+          "target_label": "blame sth on sb/sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7411,7 +7454,7 @@
     "ordinal": 504,
     "word": "blank",
     "source_owner_path": "content/lexical/words/by-ordinal/o0504.json",
-    "source_fingerprint": "22158aa9415f4d67c9d042aaf6dd3d561b6f69013053abf58b5023274c982890",
+    "source_fingerprint": "7884b08cc7095c867faf56c2c4f2a0604a7e71a0f91ac8c20a06fcd2673c7df7",
     "sense_lineage": [
       {
         "word_id": "word:blank",
@@ -7545,7 +7588,50 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:blank:baseline-v2-draw-a-blank",
+        "source_locator": "record.constructions[0]",
+        "pattern": "draw a blank",
+        "lines": [
+          {
+            "text": "想不起；没有得到答案或结果",
+            "lang": "cn"
+          },
+          {
+            "text": "fail to remember, find an answer, or get a result",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:blank:baseline-v2-draw-a-blank",
+          "target_locator": "record.constructions[0]",
+          "target_label": "draw a blank"
+        }
+      },
+      {
+        "id": "construction:blank:baseline-v2-go-blank",
+        "source_locator": "record.constructions[1]",
+        "pattern": "go blank",
+        "lines": [
+          {
+            "text": "脑子突然一片空白；突然想不起来",
+            "lang": "cn"
+          },
+          {
+            "text": "suddenly become unable to think or remember",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:blank:baseline-v2-go-blank",
+          "target_locator": "record.constructions[1]",
+          "target_label": "go blank"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7737,7 +7823,7 @@
     "ordinal": 506,
     "word": "blast",
     "source_owner_path": "content/lexical/words/by-ordinal/o0506.json",
-    "source_fingerprint": "785f9380f51b5962de8dadf80a7f474e8473fc133ab8b5e0a43e31835f8240ab",
+    "source_fingerprint": "3322472802d447b6beb5474090ea160dd97627c1ce248d437b66fc9a50603f90",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7780,14 +7866,6 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "the blast of an explosion",
             "meaning_cn": "爆炸的冲击波",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:056eca243d6541e4c3f8",
-            "source_locator": "record.senses[0].collocations[2]",
-            "phrase": "have a blast",
-            "meaning_cn": "玩得非常开心",
             "kind": "usage_example",
             "repair": null
           }
@@ -7939,7 +8017,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:blast:baseline-v2-have-a-blast",
+        "source_locator": "record.constructions[0]",
+        "pattern": "have a blast",
+        "lines": [
+          {
+            "text": "玩得非常开心；过得很尽兴",
+            "lang": "cn"
+          },
+          {
+            "text": "This idiom is independent of the explosion sense in learner-facing interpretation.",
+            "lang": "en"
+          },
+          {
+            "text": "have a very enjoyable or exciting time",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:blast:baseline-v2-have-a-blast",
+          "target_locator": "record.constructions[0]",
+          "target_label": "have a blast"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7953,7 +8057,7 @@
     "ordinal": 507,
     "word": "blaze",
     "source_owner_path": "content/lexical/words/by-ordinal/o0507.json",
-    "source_fingerprint": "75e731b0a2b677f78300c9a59ded4887d31334c0ed829e6e68749ca95d6dbbe3",
+    "source_fingerprint": "9c47dae02dbdafa04f76e31ad7320d47733326b68dcb977122b95c3dcfe9a42e",
     "sense_lineage": [
       {
         "word_id": "word:blaze",
@@ -7971,13 +8075,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "明亮的火焰或燃烧",
-      "decision_cn": "",
+      "summary_cn": "明亮燃烧或闪耀；也可比喻为开辟新道路",
+      "decision_cn": "fire/light → 猛烈燃烧或闪耀；blaze a trail → 开辟道路、开创先河。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "明亮的火焰或燃烧"
+        "target_label": "明亮燃烧或闪耀；也可比喻为开辟新道路"
       }
     },
     "senses": [
@@ -8102,7 +8206,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:blaze:baseline-v2-a-trail",
+        "source_locator": "record.constructions[0]",
+        "pattern": "blaze a trail",
+        "lines": [
+          {
+            "text": "开辟道路；开创新方法；开创先河",
+            "lang": "cn"
+          },
+          {
+            "text": "pioneer a new path, method, or approach",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:blaze:baseline-v2-a-trail",
+          "target_locator": "record.constructions[0]",
+          "target_label": "blaze a trail"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -8590,7 +8716,7 @@
     "ordinal": 512,
     "word": "blind",
     "source_owner_path": "content/lexical/words/by-ordinal/o0512.json",
-    "source_fingerprint": "6eef4f39eccb1e58a6c792d1446c428b1460f627bb85dfca9a7e1f72d6bfa71b",
+    "source_fingerprint": "31535c9a69d4e240cad2b43e54a379420f88f4f0d93e7ef2c82c4163a62b37e5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8853,7 +8979,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:blind:baseline-v2-turn-a-blind-eye-to",
+        "source_locator": "record.constructions[0]",
+        "pattern": "turn a blind eye to sth",
+        "lines": [
+          {
+            "text": "对本应注意或处理的问题故意视而不见",
+            "lang": "cn"
+          },
+          {
+            "text": "deliberately ignore something wrong, unpleasant, or requiring attention",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:blind:baseline-v2-turn-a-blind-eye-to",
+          "target_locator": "record.constructions[0]",
+          "target_label": "turn a blind eye to sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
