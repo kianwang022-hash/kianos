@@ -3,15 +3,15 @@ import PoliticsExplicitSurfacePlan from './PoliticsExplicitSurfacePlan.astro';
 const { compiled = null } = Astro.props;
 const rows = compiled instanceof Map
   ? [...compiled.values()]
-      .filter((row) => row?.surfacePlan?.states?.ORIENT?.length)
+      .filter((row) => row?.finalLearnerObject?.states?.ORIENT?.length)
       .map((row) => ({
         unitId: row.unitId,
-        orientMain: row.surfacePlan.states.ORIENT.filter((group) => ['PRIMARY', 'SUPPORT'].includes(group.zone)),
-        orientCompanion: row.surfacePlan.states.ORIENT.filter((group) => group.zone === 'COMPANION'),
-        external: row.surfacePlan.states.EXTERNAL_LEARN || [],
-        close: row.surfacePlan.states.CLOSE || [],
-        repair: row.surfacePlan.states.REPAIR || [],
-        continueGroups: row.surfacePlan.states.CONTINUE || []
+        orientMain: row.finalLearnerObject.states.ORIENT.filter((group) => ['PRIMARY', 'SUPPORT'].includes(group.zone)),
+        orientCompanion: row.finalLearnerObject.states.ORIENT.filter((group) => group.zone === 'COMPANION'),
+        external: row.finalLearnerObject.states.EXTERNAL_LEARN || [],
+        close: row.finalLearnerObject.states.CLOSE || [],
+        repair: row.finalLearnerObject.states.REPAIR || [],
+        continueGroups: row.finalLearnerObject.states.CONTINUE || []
       }))
   : [];
 ---
