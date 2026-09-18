@@ -7,37 +7,93 @@ This file does not own Xi Source Truth, Politics-wide learning/interaction seman
 
 ---
 
-## Bounded Source→Knowledge lane｜LEG26 historical baseline
+## Active BUILD lane｜Later-stage Knowledge
 
-LEG26-XI has now been reconciled against Current Xi C00–C17 without changing Chengfeng first-round ownership or the accepted S/K/L/P/R/E engineering chain.
-
-Completed boundary:
+Xi later-stage **K** is now realized across C00–C17 without changing first-round Chengfeng ownership or the accepted first-round S/K/L/P/R/E path.
 
 ```text
-LEG26 upper: 19 historical objective/compression topics
-+
-LEG26 lower: 13 historical analysis-answer templates
+Current Xi chapter Knowledge
++ LEG26 historical objective/compression source
++ LEG26 lower historical output templates
 ↓
-map by Current Xi chapter owner, not by handbook topic number
+Later-stage K
+  Compression reconstruction      PASS C00–C17
+  Precision candidate map         PASS_WITH_DEBT
+  Analysis Output hooks           PASS_WITH_DEBT
 ↓
-Memory candidate priority / second-round compression / Chat-first output baseline
-↓
-0 direct 2027 Memory promotions
-↓
-no UI / Projection / Runtime change
+later-stage L                     NOT STARTED
 ```
 
-Important closures:
+### Compression Knowledge
 
-- the 19 upper-volume topics are **not** one-to-one with Current C00–C17; merged and embedded areas are mapped only where the source actually supports them;
-- C09 rule-of-law material is embedded inside the democracy topical span rather than treated as an invented standalone LEG26 topic;
-- C13/C14 share the historical “国家安全与军队建设” topic and remain separate Current owners;
-- C17 has no standalone upper-volume topic; its LEG26 value is lower-volume **党的建设 / 自我革命 Chat-output support only**, not a fabricated objective-memory inventory;
-- upper topics 16–19 are explicitly flagged by the historical handbook itself for current-affairs review;
-- the lower “13大背诵与万能答案” is retained as a **Chat-first, later-phase, high-delta output baseline**, never as first-round compulsory recitation;
-- **zero** historical Xi candidate is admitted to 2027 durable Memory without current-year corroboration.
+All 18 chapters reuse the existing Current `chapter_compression` as the reconstruction owner instead of creating a second Xi summary course.
 
-Reopen this bounded lane only for 2027 designated-memory/current-affairs source delta, real Wrong/Uncertain evidence, or the later analysis-output phase.
+Later-stage K adds only the missing semantic classification:
+- what cognition the chapter should reconstruct;
+- which boundaries must survive;
+- which exactness domains belong to Precision;
+- which material themes justify later Output retrieval.
+
+This preserves Xi's real cognitive shape: **先分角色/层级，再精确帽子。**
+
+### Precision Knowledge
+
+Whole-subject candidate map:
+
+- 18/18 chapters accounted;
+- **54 precision candidate domains** mapped to Current chapter owners;
+- stable role/hierarchy truth is Current-owned now;
+- exact learner-facing wording / list membership remains current-year gated;
+- C05/C06/C07/C12–C17 are marked highest-delta;
+- zero historical LEG26 wording is directly promoted to durable 2027 Memory.
+
+For Xi, this is the correct K boundary. Freezing dozens of 2026 policy sentences as exact Memory objects before the designated 2027 source would create false precision.
+
+### Analysis Output Knowledge
+
+There are **15 Current-grounded Output hooks** across chapters where the LEG26 lower bank or mapped cross-topic support genuinely exists.
+
+Examples include:
+- theory innovation / two integrations;
+- Chinese modernization;
+- Party leadership;
+- people standpoint;
+- reform;
+- high-quality development / new productive forces;
+- education-science-talent;
+- whole-process people's democracy;
+- culture;
+- livelihood;
+- ecology;
+- development-security;
+- global significance;
+- self-revolution.
+
+C09 / C14 / C15 receive no synthetic Output hook merely for symmetry because this historical source package does not justify one.
+
+Every Output hook is a **conceptual retrieval skeleton**, not current-year answer prose. Historical templates are scaffolds only; current-year policy/current-affairs source must refresh wording before actual output use.
+
+### Audit
+
+- 18/18 chapters own later-stage K;
+- 57 decisive boundaries;
+- 54 precision candidate domains;
+- 15 promoted Output hooks;
+- all later-stage objects keep `first_round_effect = NONE`;
+- no later-stage K object owns timer / retry / reveal / UI / Runtime behavior.
+
+### Status
+
+```text
+Xi Compression K      PASS
+Xi Precision K        PASS_WITH_DEBT — exact 2027 wording/list delta pending
+Xi Output K           PASS_WITH_DEBT — current-year refresh required
+Overall Xi later K    PASS_WITH_DEBT
+Later-stage L         NOT STARTED
+```
+
+Next program dependency: continue Politics later-stage **K** with History. Do not start Xi later-stage L yet.
+
 
 ---
 
