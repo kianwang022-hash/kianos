@@ -174,5 +174,160 @@
     "xiao1000_default": "INLINE_VERIFICATION_AFTER_RELEVANT_UNIT",
     "memory_default": "NOT_PRIMARY_FIRST_ROUND_SURFACE",
     "astro_rule": "Prefer content-driven rendering; do not hard-code this chapter's political semantics in components."
+  },
+  "later_stage_knowledge": {
+    "schema": "kianos.politics.later_stage_knowledge.v1",
+    "status": "CURRENT_K_CANDIDATE",
+    "phase_scope": [
+      "CONSOLIDATION",
+      "PRECISION",
+      "ANALYSIS_OUTPUT"
+    ],
+    "compression_model": {
+      "cognition": "PHILOSOPHICAL_AXIS_AND_MATERIALISM_CHAIN",
+      "purpose": "Recover the three classification axes and the material→movement→practice/consciousness→law/initiative→material-unity chain.",
+      "reconstruction_prompt": "先说清唯物/唯心、可知/不可知、辩证/形而上三条轴，再从物质一路恢复到意识能动性、客观规律和世界物质统一性。",
+      "reconstruction_targets": [
+        {
+          "id": "MARX-C01-LK-C01",
+          "claim": "唯物/唯心回答第一性，可知/不可知回答认识可能性，辩证/形而上回答怎样理解世界的存在发展。",
+          "owner_ids": [
+            "POL27-CF-MARX-C01-S01"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        },
+        {
+          "id": "MARX-C01-LK-C02",
+          "claim": "物质以运动方式存在，绝对运动中包含相对静止，时间空间是运动着物质的存在形式。",
+          "owner_ids": [
+            "POL27-CF-MARX-C01-S02"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        },
+        {
+          "id": "MARX-C01-LK-C03",
+          "claim": "物质决定意识与意识具有能动作用必须同时成立；意识改变现实必须经过实践并受客观规律制约。",
+          "owner_ids": [
+            "POL27-CF-MARX-C01-S02"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        },
+        {
+          "id": "MARX-C01-LK-C04",
+          "claim": "自然界、人类社会、主观世界和技术产物的多样性最终仍统一于物质世界。",
+          "owner_ids": [
+            "POL27-CF-MARX-C01-S02"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        }
+      ],
+      "decisive_boundaries": [
+        {
+          "id": "MARX-C01-LK-B01",
+          "boundary": "唯物/唯心 ≠ 可知/不可知 ≠ 辩证/形而上",
+          "owner_ids": [
+            "POL27-CF-MARX-C01-S01"
+          ]
+        },
+        {
+          "id": "MARX-C01-LK-B02",
+          "boundary": "静止 ≠ 与运动并列的另一种绝对状态",
+          "owner_ids": [
+            "POL27-CF-MARX-C01-S02"
+          ]
+        },
+        {
+          "id": "MARX-C01-LK-B03",
+          "boundary": "意识能动作用 ≠ 意识直接创造物质",
+          "owner_ids": [
+            "POL27-CF-MARX-C01-S02"
+          ]
+        },
+        {
+          "id": "MARX-C01-LK-B04",
+          "boundary": "世界多样性 ≠ 多个并列本原",
+          "owner_ids": [
+            "POL27-CF-MARX-C01-S02"
+          ]
+        }
+      ],
+      "cross_unit_confusables": [
+        {
+          "id": "MARX-C01-LK-X01",
+          "items": [
+            "物质决定意识",
+            "意识能动作用"
+          ],
+          "reason": "决定关系和反作用必须同时保留，否则分别滑向主观主义或消极机械论。"
+        }
+      ]
+    },
+    "precision_knowledge": {
+      "policy": "PENDING_EXACT_CANDIDATE_MATERIALIZATION",
+      "candidate_domains": [
+        "三条哲学分野 identity boundaries",
+        "运动绝对/静止相对 fixed relation",
+        "物质—意识关系 fixed boundary"
+      ],
+      "materialization_status": "WAIT_CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_OR_WU_EVIDENCE",
+      "historical_source_refs": [
+        "LEG26-UPPER-MARX-P012",
+        "LEG26-UPPER-MARX-P013",
+        "LEG26-UPPER-MARX-P014"
+      ]
+    },
+    "analysis_output_hooks": [
+      {
+        "id": "MARX-C01-OUT-LAW-INITIATIVE",
+        "title": "客观规律性与主观能动性",
+        "material_cues": [
+          "尊重规律",
+          "主动作为",
+          "规划设计",
+          "发挥人的作用",
+          "不能蛮干"
+        ],
+        "owner_ids": [
+          "POL27-CF-MARX-C01-S02"
+        ],
+        "retrieval_target": "同时保留规律客观性和人的能动作用，不能只写一边。",
+        "answer_skeleton": [
+          "指出规律不以人的意志为转移",
+          "说明正确发挥能动性以认识/利用规律为前提",
+          "说明能动作用通过实践实现",
+          "回扣材料中的条件与行动"
+        ],
+        "historical_output_refs": [
+          "LEG26-LOWER-MARX-P054",
+          "LEG26-LOWER-MARX-P055"
+        ],
+        "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
+      },
+      {
+        "id": "MARX-C01-OUT-HUMAN-NATURE",
+        "title": "实践与人与自然关系",
+        "material_cues": [
+          "生态环境",
+          "人与自然",
+          "改造自然",
+          "自然规律"
+        ],
+        "owner_ids": [
+          "POL27-CF-MARX-C01-S02"
+        ],
+        "retrieval_target": "把人的实践能动性和自然界客观前提放在同一个关系中。",
+        "answer_skeleton": [
+          "说明自然界是人类社会存在发展的前提",
+          "说明实践构成人与自然现实联系",
+          "说明改造自然必须遵循自然规律",
+          "回扣材料中的生态后果/实践方式"
+        ],
+        "historical_output_refs": [
+          "LEG26-LOWER-MARX-P055"
+        ],
+        "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
+      }
+    ],
+    "first_round_effect": "NONE"
   }
 }
