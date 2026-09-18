@@ -259,6 +259,7 @@ export function initPoliticsSessionReview(root) {
       || (step.recipe_type === 'TARGETED_RECALL' ? '只回忆 Chat 指定的这一项。' : '执行 Chat 指定的当前动作。');
 
     if (step.timer_seconds != null) {
+      // timed-task executor 还未验收: fail closed until the generic timed Session recipe is accepted.
       blockStep('这一步需要计时，但通用计时任务还没完成验收；当前先不自动执行。');
       return;
     }
