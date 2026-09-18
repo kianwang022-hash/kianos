@@ -44,9 +44,12 @@ assert(
     system.includes('data-representation-gate={framework.schema}') &&
     system.includes('data-system-section="mother"') &&
     system.includes('data-system-section="failure"') &&
-    system.includes('data-selected-title') &&
-    system.includes('进入这个 Block') &&
+    system.includes('data-system-block={index}') &&
+    system.includes('class="xzSystemRouteRail"') &&
+    system.includes('class="xzSystemStage"') &&
+    system.includes('data-system-view-button="framework"') &&
     system.includes('class="xzSystemWorkspace"') &&
+    !system.includes('data-selected-title') &&
     !system.includes('xv6System'),
   'A1_P_SYSTEM_ORIENTATION_INCOMPLETE'
 );
