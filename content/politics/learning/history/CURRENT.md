@@ -1,35 +1,32 @@
 # Politics History Current
 
-Role: independently continued Politics subject Work Cursor + restart entry  
+Role: **History subject Work Cursor + restart entry**  
 Parent: `content/politics/CURRENT.md`
 
-This file does not own History Source Truth, teaching content, Politics learning/interaction semantics, Acceptance Truth, or Kian's learner progress.
+This file does not own Source Truth, canonical teaching content, lane contracts, Acceptance Truth, or private learner progress.
 
 ---
 
-## Active BUILD lane｜Later-stage Knowledge
-
-History later-stage **K** is now realized without changing the accepted first-round causal learner model.
+## Current state
 
 ```text
-Current chapter causal movie
-+ LEG26 upper topical reviews
-+ LEG26 lower four horizontal lines
-+ LEG26 historical analysis templates
-↓
-Later-stage K
-  Chapter reconstruction     PASS C01–C10
-  Horizontal Precision K     PASS_WITH_DEBT
-  Analysis Output K          PASS_WITH_DEBT
-↓
-later-stage L               NOT STARTED
+First-round S/K/L/P/R/E        PASS
+Chapter Memory Models          10 / 10 · ADMITTED_STABLE
+Horizontal Memory Points       50 · ADMITTED_STABLE
+Recent-history exactness       freshness-gated where genuinely current
+Analysis Output hooks          bounded Current-grounded set
+Real learner U                 UNTESTED
+
+Next action                    no History semantic build; inherit parent Politics UI lane / real learner use
 ```
 
-### First principle
+History is content/function ready. Remaining debt is recent-history/current-year exactness, not stable Memory admission.
 
-History does **not** become a table course in round two.
+---
 
-The owning model remains:
+## Cognitive shape
+
+History remains a causal movie first:
 
 ```text
 chronology
@@ -39,144 +36,104 @@ chronology
 → evaluation
 ```
 
-The new later-stage K adds horizontal exactness only **after** that movie exists.
+Round two does not turn History into a table course.
 
-### Four horizontal Knowledge lines
+Each of the 10 chapters owns one stable Chapter Memory Model compiled from its accepted causal compression.
 
-A subject-level owner now exists at:
+---
+
+## Horizontal Memory Overlay
+
+The subject-level owner remains:
 
 `content/politics/learning/history/later-stage-knowledge.json`
 
-It contains **50 candidate-only precision objects**:
+It owns 50 stable discrete Memory points:
 
 - meetings: 24;
 - people/documents: 8;
 - land policy: 12;
 - ideological liberation: 6.
 
-Each object carries:
-- historical stage;
-- what identity/change to retain;
-- owning chapter(s);
-- historical source reference;
-- candidate-only admission state.
+These are added **after** the chapter causal movie exists.
 
-Recent-history meetings after the stable reform-era core remain reference-only/current-year-refresh territory rather than being frozen from LEG26.
-
-### Chapter K
-
-C01–C10 now each own `later_stage_knowledge` that:
-
-- reuses the existing `chapter_compression` as the causal reconstruction owner;
-- points to only the horizontal candidates relevant to that chapter;
-- preserves the correct chapter cognition;
-- adds later Output hooks only where the historical package actually supports one.
-
-Chapter shapes remain distinct, e.g.:
-
-- C02 failed-scheme comparison;
-- C03 success/limit double judgment;
-- C04 revolutionary stage shift;
-- C05 revolutionary-road formation;
-- C06 Anti-Japanese War cause hierarchy;
-- C09 reform/opening stage breakthroughs;
-- C10 recent-history stage position.
-
-### Analysis Output
-
-Promoted later Output hooks exist for C02–C07, C09 and C10 where the LEG26 history templates or mapped cross-topic support are useful.
-
-They retrieve **stage / turning point / cause / evaluation from Current History first**. Historical templates only help organize the answer.
-
-### Audit
-
-- 10/10 chapters have later-stage K;
-- 50 subject-level horizontal Precision candidates;
-- every chapter keeps `chapter_compression` as reconstruction owner;
-- all horizontal refs resolve to real candidate ids;
-- C10 recent History is explicitly `REFERENCE_ONLY_HIGH_DELTA`;
-- no first-round behavior changes;
-- no Learn / UI / Runtime state is introduced.
-
-### Status
-
-```text
-History Compression K      PASS
-History Precision K        PASS_WITH_DEBT — visual/current-year exactness where required
-History Output K           PASS_WITH_DEBT — C10 current-year refresh
-Overall History later K    PASS_WITH_DEBT
-Later-stage L              NOT STARTED
-```
-
-Next program dependency: continue Politics later-stage **K** with Ethics-Law. Do not start History later-stage L yet.
-
+Recent-history additions/deltas remain separately freshness-gated; that gate does not block stable historical Memory.
 
 ---
 
-## Work Cursor
+## Memory / Precision boundary
 
-**Scope:** History whole-subject acceptance under current shared Politics Surface Ownership  
-**Engineering acceptance:** `S/K/L/P/R/E PASS`  
-**Earliest unresolved stage:** `U｜User Validation` — learner-only, not an engineering task  
-**Blocker:** none at the engineering layer. The shared Politics surface contract changed after real Marxism learner friction exposed a wrong-surface assumption; History's affected L→P→R→E dependency was reaccepted by `Static Web Politics QA` run #365 (`34708774536`) on tested code head `5cc43829199851afe493e5c39352cc1d337da1b9`. History itself still has no U evidence because Kian has not yet used a named History learner path.  
-**Next action:** stop engineering this scope. When Kian actually studies History, use Chengfeng on iPad/MarginNote and Astro for the approved companion/verification actions; record only the real learner path used and reopen the responsible earlier gate only if concrete learner friction exposes a defect.
+```text
+Chapter Memory Model
+= causal movie worth reconstructing
+
+Horizontal Memory Point
+= independently addressable stable identity / chronology / confusable
+
+Precision
+= exact wording / exact membership safe to demand exactly
+```
+
+W/U changes what Chat selects/repeats. It does not create shared Memory truth or override current-year Precision gates.
 
 ---
 
-## Stage discipline
+## Learner path
+
+### First round
 
 ```text
-S PASS
-→ K PASS
-→ L PASS   shared surface ownership explicit
-→ P PASS   no duplicate Chengfeng web reader
-→ R PASS
-→ E PASS
-→ U UNTESTED (real learner use only)
+framework / stage map
+→ Chengfeng continuous study
+→ causal movie
+→ Xiao1000
+→ W/U repair only when needed
 ```
 
-There is no synthetic next engineering stage after E.
+### Review
+
+```text
+Chapter causal Memory Model
+→ inspect actual gap
+→ selected horizontal Memory Point(s)
+→ admitted Precision only when exactness matters
+→ selected Xiao1000 retest
+→ exit
+```
+
+Website does not decide which meeting/document/policy item deserves review.
 
 ---
 
 ## Closed boundary
 
-History is **module ready for learner test**, not learner-validated.
-
 Do not:
 
-- restore Chengfeng continuous source text to Astro merely because the runtime can load it;
-- keep polishing merely because more architecture can be imagined;
-- pre-run or simulate U;
-- infer learner progress from CI/repository state;
-- reopen S/K/L/P/R/E without new concrete evidence;
-- modify Marxism / Mao / Xi / Ethics-Law as part of this closed History scope unless a genuine shared Politics dependency requires it.
+- replace the causal movie with flat tables;
+- restore Chengfeng continuous source text to Astro;
+- treat all 50 horizontal Memory points as mandatory recall operations;
+- freeze recent-history claims from historical LEG26 when current-year refresh matters;
+- infer mastery from repository/CI state;
+- reopen S/K/L/P/R/E without concrete learner/source/question evidence.
 
 ---
 
 ## Required reads
 
-For ordinary re-entry before real learner use:
+Ordinary re-entry:
 
 1. `content/politics/learning/history/ACCEPTANCE.md`
+2. parent `content/politics/CURRENT.md`
 
-Nothing else is required unless a real learner path or concrete defect gives a narrower owner to inspect.
+Nothing else is required without a narrower defect.
 
 ---
 
 ## Truth boundaries
 
-### Artifact Truth
-
-History content/runtime/evidence artifacts remain under `content/politics/learning/history/` and Politics surfaces under `static-web/`. Shared surface semantics live in `content/politics/LEARNING_CONTRACT.md` and `content/politics/INTERACTION_CONTRACT.md`.
-
-### Acceptance Truth
-
-`content/politics/learning/history/ACCEPTANCE.md`
-
-### Learner Truth
-
-Private browser / Return Packet / conversation evidence only.
+**Artifact Truth** — `content/politics/learning/history/`  
+**Acceptance Truth** — `content/politics/learning/history/ACCEPTANCE.md`  
+**Learner Truth** — private browser / Session Evidence / conversation evidence only.
 
 ---
 
@@ -184,9 +141,7 @@ Private browser / Return Packet / conversation evidence only.
 
 ```text
 History CURRENT
-→ History ACCEPTANCE
-→ if no real U evidence: stop
-→ if real learner evidence exists: inspect only that named path
+→ ACCEPTANCE if needed
+→ if no real U defect: stop semantic engineering
+→ use parent Politics UI/runtime path
 ```
-
-No closed gate, sibling subject, legacy repository, or prior Chat is required by default.
