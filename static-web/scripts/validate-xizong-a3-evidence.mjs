@@ -135,7 +135,8 @@ assert(practiceUi.includes('deriveXizongQuestionIdsForCurrentRound(sweepState, e
 assert(questionAttemptLib.includes("['stable', 'uncertain', 'wrong'].includes(result.status)"), 'stable-uncertain-wrong-evidence-contract-not-distinct');
 assert(questionAttemptLib.includes("['wrong', 'uncertain'].includes"), 'wu-targeted-second-pass-contract-missing');
 assert(questionAttemptLib.includes('Boolean(marks[questionId])'), 'marked-targeted-second-pass-contract-missing');
-assert(practiceUi.includes('暂无可安全消费的 REVIEWED 回链；保留题号，不补猜映射。'), 'missing-relation-is-being-guessed');
+assert(practiceUi.includes("if (relation?.knowledgePath && ['RESOLVED_KP','RESOLVED_BLOCK','BLOCK_ONLY'].includes(relation.targetStatus))"), 'missing-relation-is-being-guessed');
+assert(practiceUi.includes("if (relationWrap) {\n        relationWrap.hidden = true;"), 'missing-relation-does-not-fail-closed');
 
 assert(repairReturn.includes('allowed.has(row.questionId)'), 'repair-plan-not-scoped-to-actual-wu');
 assert(repairReturn.includes('!relation?.blockId || !relation?.primaryKpId'), 'repair-route-not-reviewed-only');
