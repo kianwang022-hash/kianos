@@ -7,10 +7,10 @@
   "preferred_memory_reference": {
     "role": "DESIGNATED_MEMORY_HANDBOOK",
     "label": "腿姐《冲刺背诵手册》",
-    "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+    "binding_status": "HISTORICAL_MEMORY_PRIORITY_BOUND_STABLE_MEMORY_ALLOWED_EXACTNESS_RECHECK_SEPARATE",
     "historical_package": "content/politics/source/historical/leg26/manifest.json",
     "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MARX.md",
-    "rule": "LEG26 may confirm historical memory priority and wording shape only when Current Chengfeng/Knowledge still supports the claim. It does not by itself admit 2027 Memory; current-year designated-memory delta/corroboration still governs final admission."
+    "rule": "LEG26 is the Memory Overlay: when Current Chengfeng-grounded Knowledge supports the same claim, LEG26 may establish durable memory priority. Exact wording/list Precision admission remains separate."
   },
   "admission_gate": {
     "default": "NOT_ADMITTED",
@@ -23,7 +23,15 @@
       "explanation richness alone",
       "one correct understanding answer",
       "AI-generated extension without source support"
-    ]
+    ],
+    "memory_admission": {
+      "default": "ADMIT_WHEN_CURRENT_GROUNDED_AND_LEG26_SUPPORTED",
+      "wrong_uncertain_role": "PRIVATE_PRIORITY_MODULATION_NOT_SHARED_MEMORY_EXISTENCE"
+    },
+    "precision_admission": {
+      "default": "CANDIDATE_EXACTNESS",
+      "exactness_separate_from_memory": true
+    }
   },
   "units": {
     "POL27-CF-MARX-C02-K03": {
@@ -46,7 +54,15 @@
           "historical_handbook_alignment": "DIRECT_SUPPORT",
           "historical_review_note": "LEG26 explicitly preserves the conditional/relative versus unconditional/absolute boundary and later reuses it as analysis-output principle content.",
           "current_year_corroboration": "CURRENT_CHENGFENG_K03_GROUNDING_PRESENT",
-          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "memory_admission": "ADMITTED_STABLE",
+          "memory_mode": "SEMANTIC_RECALL",
+          "memory_basis": [
+            "CURRENT_CHENGFENG_GROUNDING",
+            "LEG26_MEMORY_PRIORITY"
+          ],
+          "precision_admission": "CANDIDATE_EXACTNESS",
+          "precision_blocker": "EXACT_WORDING_OR_NORMALIZATION_NOT_SEPARATELY_ADMITTED"
         },
         {
           "id": "POL27-MEM-MARX-C02-K03-M02",
@@ -64,7 +80,15 @@
           "historical_handbook_alignment": "CORE_RELATION_SUPPORTED_EXACT_WORDING_NOT_OWNED",
           "historical_review_note": "LEG26 says 同一性和斗争性不能单独起作用 / are mutually connected; the pilot's '时而同一、时而斗争' wording is an explanatory reformulation, so it remains non-exact.",
           "current_year_corroboration": "CURRENT_CHENGFENG_K03_GROUNDING_PRESENT",
-          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "memory_admission": "ADMITTED_STABLE",
+          "memory_mode": "SEMANTIC_RECALL",
+          "memory_basis": [
+            "CURRENT_CHENGFENG_GROUNDING",
+            "LEG26_MEMORY_PRIORITY"
+          ],
+          "precision_admission": "CANDIDATE_EXACTNESS",
+          "precision_blocker": "EXACT_WORDING_OR_NORMALIZATION_NOT_SEPARATELY_ADMITTED"
         },
         {
           "id": "POL27-MEM-MARX-C02-K03-M03",
@@ -82,7 +106,15 @@
           "historical_handbook_alignment": "DIRECT_SUPPORT_WITH_OCR_VISUAL_CHECK_ON_GLYPH_IF_PROMOTED",
           "historical_review_note": "LEG26 owns the commonality/particularity direction; OCR renders 寓 as 寅 in the transcription, so exact learner wording must be checked against the PDF page before promotion.",
           "current_year_corroboration": "CURRENT_CHENGFENG_K03_GROUNDING_PRESENT",
-          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "memory_admission": "ADMITTED_STABLE",
+          "memory_mode": "SEMANTIC_RECALL",
+          "memory_basis": [
+            "CURRENT_CHENGFENG_GROUNDING",
+            "LEG26_MEMORY_PRIORITY"
+          ],
+          "precision_admission": "CANDIDATE_EXACTNESS",
+          "precision_blocker": "EXACT_WORDING_OR_NORMALIZATION_NOT_SEPARATELY_ADMITTED"
         },
         {
           "id": "POL27-MEM-MARX-C02-K03-M04",
@@ -100,7 +132,15 @@
           "historical_handbook_alignment": "DIRECT_BOUNDARY_SUPPORT",
           "historical_review_note": "LEG26 rejects '矛盾可以调和' and its lower-volume output material trains transformation/opposition-unity usage; keep the current boundary as a candidate until current-year handbook delta is known.",
           "current_year_corroboration": "CURRENT_CHENGFENG_K03_GROUNDING_PRESENT",
-          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "memory_admission": "ADMITTED_STABLE",
+          "memory_mode": "SEMANTIC_RECALL",
+          "memory_basis": [
+            "CURRENT_CHENGFENG_GROUNDING",
+            "LEG26_MEMORY_PRIORITY"
+          ],
+          "precision_admission": "CANDIDATE_EXACTNESS",
+          "precision_blocker": "EXACT_WORDING_OR_NORMALIZATION_NOT_SEPARATELY_ADMITTED"
         }
       ]
     }
@@ -110,5 +150,12 @@
     "historical_memory_alignment": "COMPLETE",
     "current_year_memory_admission": "PENDING_CURRENT_YEAR_HANDBOOK_DELTA",
     "analysis_output_baseline": "BOUND_IN_MARXISM_SOURCE_REVIEW_NOT_PROMOTED_TO_LEARNER_RUNTIME"
+  },
+  "overlay_model": {
+    "core_owner": "CURRENT_CHENGFENG_KNOWLEDGE",
+    "framework_overlay": "SUYI",
+    "memory_overlay": "LEG26",
+    "memory_rule": "CURRENT_GROUNDED_STABLE_MEMORY",
+    "precision_rule": "EXACTNESS_ADMISSION_SEPARATE_FROM_MEMORY"
   }
 }

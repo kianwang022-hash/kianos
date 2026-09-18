@@ -7,10 +7,10 @@
   "preferred_memory_reference": {
     "role": "DESIGNATED_MEMORY_HANDBOOK",
     "label": "腿姐《冲刺背诵手册》",
-    "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+    "binding_status": "HISTORICAL_MEMORY_PRIORITY_BOUND_STABLE_MEMORY_ALLOWED_EXACTNESS_RECHECK_SEPARATE",
     "historical_package": "content/politics/source/historical/leg26/manifest.json",
     "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MARX.md",
-    "rule": "Current region ownership + readable LEG26 may create candidate-only Knowledge. OCR-uncertain rows remain deferred until visual/current-year confirmation."
+    "rule": "LEG26 is the Memory Overlay: when Current Chengfeng-grounded Knowledge supports the same claim, LEG26 may establish durable memory priority. Exact wording/list Precision admission remains separate."
   },
   "admission_gate": {
     "default": "NOT_ADMITTED",
@@ -23,7 +23,15 @@
       "historical handbook presence alone",
       "OCR reconstruction by guess",
       "chapter importance alone"
-    ]
+    ],
+    "memory_admission": {
+      "default": "ADMIT_WHEN_CURRENT_GROUNDED_AND_LEG26_SUPPORTED",
+      "wrong_uncertain_role": "PRIVATE_PRIORITY_MODULATION_NOT_SHARED_MEMORY_EXISTENCE"
+    },
+    "precision_admission": {
+      "default": "CANDIDATE_EXACTNESS",
+      "exactness_separate_from_memory": true
+    }
   },
   "units": {
     "POL27-CF-MARX-C00-S01": {
@@ -48,7 +56,15 @@
           ],
           "historical_handbook_alignment": "DIRECT_READABLE_SUPPORT",
           "admission": "CANDIDATE_ONLY",
-          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "memory_admission": "ADMITTED_STABLE",
+          "memory_mode": "SEMANTIC_RECALL",
+          "memory_basis": [
+            "CURRENT_CHENGFENG_GROUNDING",
+            "LEG26_MEMORY_PRIORITY"
+          ],
+          "precision_admission": "CANDIDATE_EXACTNESS",
+          "precision_blocker": "EXACT_WORDING_OR_NORMALIZATION_NOT_SEPARATELY_ADMITTED"
         }
       ]
     },
@@ -73,7 +89,15 @@
           ],
           "historical_handbook_alignment": "DIRECT_READABLE_SUPPORT",
           "admission": "CANDIDATE_ONLY",
-          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "memory_admission": "ADMITTED_STABLE",
+          "memory_mode": "SEMANTIC_RECALL",
+          "memory_basis": [
+            "CURRENT_CHENGFENG_GROUNDING",
+            "LEG26_MEMORY_PRIORITY"
+          ],
+          "precision_admission": "CANDIDATE_EXACTNESS",
+          "precision_blocker": "EXACT_WORDING_OR_NORMALIZATION_NOT_SEPARATELY_ADMITTED"
         }
       ]
     }
@@ -87,5 +111,12 @@
       "domain": "基本特征完整逐项固定表述",
       "reason": "LEG26 OCR table is partially corrupted; do not reconstruct the exact list from OCR/model memory."
     }
-  ]
+  ],
+  "overlay_model": {
+    "core_owner": "CURRENT_CHENGFENG_KNOWLEDGE",
+    "framework_overlay": "SUYI",
+    "memory_overlay": "LEG26",
+    "memory_rule": "CURRENT_GROUNDED_STABLE_MEMORY",
+    "precision_rule": "EXACTNESS_ADMISSION_SEPARATE_FROM_MEMORY"
+  }
 }
