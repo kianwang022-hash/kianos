@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { listPoliticsSubjectsCurrent, loadPoliticsChapterCurrent } from '../src/lib/politicsCurrent.mjs';
+import { loadPoliticsCompiledPresentation } from '../src/lib/politicsCompiledPresentation.mjs';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT
   ? path.resolve(process.env.KIANOS_REPO_ROOT)
@@ -16,14 +17,16 @@ if (xi && xi.chapters.length !== 18) fail('XI_CHAPTER_COUNT', `${xi.chapters.len
 let units = 0;
 let hierarchyUnits = 0;
 let rawArrayHierarchies = 0;
-let projectedArrayHierarchies = 0;
+let finalObjects = 0;
 let questions = 0;
 
 for (const meta of xi?.chapters || []) {
   const chapter = loadPoliticsChapterCurrent('xi', meta.code);
+  const compiled = loadPoliticsCompiledPresentation('xi', meta.code);
   if (!chapter?.orientation?.question) fail('XI_ORIENTATION_QUESTION_MISSING', meta.code);
   if (!chapter?.orientation?.answer) fail('XI_ORIENTATION_ANSWER_MISSING', meta.code);
   if (!chapter?.units?.length) fail('XI_UNITS_MISSING', meta.code);
+  if (!(compiled instanceof Map)) fail('XI_COMPILED_PRESENTATION_MISSING', meta.code);
 
   for (const unit of chapter?.units || []) {
     units += 1;
@@ -31,25 +34,32 @@ for (const meta of xi?.chapters || []) {
     if (!unit?.teaching?.question) fail('XI_UNIT_PROBLEM_MISSING', `${meta.code}/${unit.unitId}`);
 
     const rawHierarchy = unit?.raw?.hierarchy;
-    const projectedHierarchy = unit?.teaching?.hierarchy;
     if (rawHierarchy) hierarchyUnits += 1;
     if (Array.isArray(rawHierarchy)) rawArrayHierarchies += 1;
-    if (Array.isArray(projectedHierarchy)) {
-      projectedArrayHierarchies += 1;
-      fail('XI_HIERARCHY_NOT_RENDER_SAFE', `${meta.code}/${unit.unitId}`);
+
+    const finalObject = compiled instanceof Map ? compiled.get(unit.unitId)?.finalLearnerObject : null;
+    if (!finalObject?.states?.ORIENT?.length) {
+      fail('XI_FINAL_LEARNER_OBJECT_ORIENT_MISSING', `${meta.code}/${unit.unitId}`);
+      continue;
+    }
+    finalObjects += 1;
+
+    const serialized = JSON.stringify(finalObject);
+    if (serialized.includes('[object Object]')) {
+      fail('XI_FINAL_LEARNER_OBJECT_RENDER_VALUE_INVALID', `${meta.code}/${unit.unitId}`);
     }
 
-    if (projectedHierarchy && typeof projectedHierarchy === 'object' && !Array.isArray(projectedHierarchy)) {
-      for (const [key, value] of Object.entries(projectedHierarchy)) {
-        if (!String(key).trim() || !String(value).trim() || String(value).includes('[object Object]')) {
-          fail('XI_HIERARCHY_RENDER_VALUE_INVALID', `${meta.code}/${unit.unitId}:${key}`);
-        }
-      }
+    // Xi raw hierarchy may resolve upstream into HIERARCHY, PARALLEL_SET,
+    // STATEMENT, or another explicit primitive. The audit must not recreate
+    // that semantic decision in Runtime.
+    if (rawHierarchy && !(finalObject.states.ORIENT || []).length) {
+      fail('XI_HIERARCHY_HAS_NO_RESOLVED_ORIENT', `${meta.code}/${unit.unitId}`);
     }
   }
 }
 
 if (!rawArrayHierarchies) fail('XI_ARRAY_HIERARCHY_SENTINEL_MISSING');
+if (finalObjects !== units) fail('XI_FINAL_OBJECT_COVERAGE', `${finalObjects}/${units}`);
 if (!component.includes("chapter.subject === 'xi'")) fail('XI_GUIDE_LABEL_MISSING');
 if (!component.includes('去 iPad / MarginNote 学原讲义')) fail('XI_EXTERNAL_PRIMARY_HANDOFF_MISSING');
 // Check the external-only structure, not a retired learner-facing warning sentence.
@@ -66,11 +76,12 @@ const report = {
   questions,
   hierarchy_units: hierarchyUnits,
   raw_array_hierarchies: rawArrayHierarchies,
-  projected_array_hierarchies: projectedArrayHierarchies,
+  final_learner_objects: finalObjects,
   assertions: [
     'ORIENTATION_SURVIVES',
     'UNIT_PROBLEM_SURVIVES',
-    'HIERARCHY_IS_RENDER_SAFE',
+    'HIERARCHY_SEMANTICS_RESOLVE_UPSTREAM',
+    'FINAL_LEARNER_OBJECT_IS_RENDER_SAFE',
     'BACKEND_CONTENT_NOT_RENDERED',
     'CHENGFENG_REMAINS_EXTERNAL_PRIMARY',
     'GUIDE_AND_CLOSURE_PROGRESSIVE_DISCLOSURE'
