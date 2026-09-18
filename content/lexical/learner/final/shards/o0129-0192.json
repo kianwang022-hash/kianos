@@ -4702,7 +4702,7 @@
     "ordinal": 164,
     "word": "alternate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0164.json",
-    "source_fingerprint": "0a18ee7f51ed654fcba445ac3a4de803057fda39e03b035cc3b483b184afe17e",
+    "source_fingerprint": "2647b440e230d4d6ae0c2a316ed8644fdfe3f485f671ca09dbbf6ea84ca63f2b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4885,28 +4885,60 @@
       "relations": [],
       "form": {
         "boundary": "",
-        "boundaries": [],
+        "boundaries": [
+          {
+            "surface": "alternate",
+            "condition": "verb",
+            "note": "verb reading ends in /-neɪt/"
+          },
+          {
+            "surface": "alternate",
+            "condition": "adjective or noun",
+            "note": "adjective/noun reading ends in /-nət/"
+          }
+        ],
         "variants": [
           {
             "pos": [
               "verb"
             ],
-            "reading": "verb: -NATE",
-            "ipa": ""
+            "reading": "verb · UK",
+            "ipa": "/ˈɒl.tə.neɪt/"
+          },
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "verb · US",
+            "ipa": "/ˈɑːl.tɚ.neɪt/"
           },
           {
             "pos": [
               "adjective"
             ],
-            "reading": "adjective: -nət",
-            "ipa": ""
+            "reading": "adjective · UK",
+            "ipa": "/ɒlˈtɜː.nət/"
+          },
+          {
+            "pos": [
+              "adjective"
+            ],
+            "reading": "adjective · US",
+            "ipa": "/ˈɑːl.tɝː.nət/"
           },
           {
             "pos": [
               "noun"
             ],
-            "reading": "noun: -nət",
-            "ipa": ""
+            "reading": "noun · UK",
+            "ipa": "/ˈɒl.tə.nət/"
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "noun · US",
+            "ipa": "/ˈɑːl.tɝː.nət/"
           }
         ],
         "repair": {
@@ -7315,7 +7347,7 @@
     "ordinal": 188,
     "word": "analyse",
     "source_owner_path": "content/lexical/words/by-ordinal/o0188.json",
-    "source_fingerprint": "a7b7c173bbfc0341ac388d3c0e771a1825aae37023a3a510d7498ccf8cc350ce",
+    "source_fingerprint": "ea917476f18fd5728280d0fe5614bda9a34eba599252958203c603a6b5f1ab50",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7419,25 +7451,25 @@
       "confusables": [],
       "relations": [],
       "form": {
-        "boundary": "",
-        "boundaries": [],
-        "variants": [
+        "boundary": "analyse is the standard British spelling; analyze is the standard American spelling of the same verb.",
+        "boundaries": [
           {
-            "pos": [],
-            "reading": "form:analyse:british",
-            "ipa": ""
+            "surface": "analyse",
+            "condition": "British English",
+            "note": "英式拼写"
           },
           {
-            "pos": [],
-            "reading": "form:analyse:american",
-            "ipa": ""
+            "surface": "analyze",
+            "condition": "American English",
+            "note": "美式拼写"
           }
         ],
+        "variants": [],
         "repair": {
           "target_kind": "form_identity",
           "target_id": null,
           "target_locator": "record.form_identity",
-          "target_label": ""
+          "target_label": "analyse is the standard British spelling; analyze is the standard American spelling of the same verb."
         }
       },
       "family": []
