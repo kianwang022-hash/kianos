@@ -161,7 +161,7 @@ const relationDifferenceRows = (relation = {}) => {
   return Object.entries(difference).filter(([, value]) => Boolean(value)).slice(0, 4);
 };
 ---
-<section class="portedVocabRuntime portedVocabRuntimeV2" data-local-port="vocabulary" data-vocab-word={card.word} data-vocab-object={answer.objectId} data-vocab-ordinal={answer.ordinal} data-vocab-source-hash={answer.sourceHash}>
+<section class="portedVocabRuntime portedVocabRuntimeV2" data-local-port="vocabulary" data-vocab-mode="study" data-vocab-word={card.word} data-vocab-object={answer.objectId} data-vocab-ordinal={answer.ordinal} data-vocab-source-hash={answer.sourceHash}>
   <header class="portedVocabPreviewBar">
     <a href="/">‹ Vocabulary</a>
     <div><span>Study · Depth</span><b>{card.word}</b><small data-vocab-state-label>Ready</small></div>
@@ -326,6 +326,10 @@ const relationDifferenceRows = (relation = {}) => {
     const objectId = root.getAttribute('data-vocab-object') || word;
     const ordinal = Number(root.getAttribute('data-vocab-ordinal') || 0);
     const sourceHash = root.getAttribute('data-vocab-source-hash') || '';
+    const requestedMode = new URLSearchParams(location.search).get('mode');
+    const mode = ['lookup', 'repair'].includes(String(requestedMode || '')) ? String(requestedMode) : 'study';
+    const readOnlyLookup = mode === 'lookup';
+    root.dataset.vocabMode = mode;
     const storageKey = `kianos-vocabulary-astro-v2:${objectId}`;
     const front = root.querySelector('[data-vocab-front]');
     const details = root.querySelector('[data-vocab-details]');
@@ -348,24 +352,26 @@ const relationDifferenceRows = (relation = {}) => {
 
     const previousTargets = { ...state.repairTargets };
     let ledger = readLedger();
-    for (const target of Object.values(previousTargets)) {
-      if (!target || typeof target !== 'object' || target.source === 'evidence_reducer') continue;
-      const migration = {
-        word_id: objectId,
-        ordinal,
-        word,
-        target_kind: target.target_kind || 'lexical',
-        target_id: target.target_id || null,
-        target_locator: target.target_locator || null,
-        target_revision: target.target_id ? null : (target.target_revision || sourceHash || null),
-        source: 'depth_plus',
-        outcome: 'ADDED',
-        observed_at: target.observed_at || state.lastSeenAt || new Date().toISOString()
-      };
-      migration.event_id = `migration:${legacyEventId(migration)}`;
-      ledger = appendEvidenceEvent(ledger, migration).ledger;
+    if (!readOnlyLookup) {
+      for (const target of Object.values(previousTargets)) {
+        if (!target || typeof target !== 'object' || target.source === 'evidence_reducer') continue;
+        const migration = {
+          word_id: objectId,
+          ordinal,
+          word,
+          target_kind: target.target_kind || 'lexical',
+          target_id: target.target_id || null,
+          target_locator: target.target_locator || null,
+          target_revision: target.target_id ? null : (target.target_revision || sourceHash || null),
+          source: 'depth_plus',
+          outcome: 'ADDED',
+          observed_at: target.observed_at || state.lastSeenAt || new Date().toISOString()
+        };
+        migration.event_id = `migration:${legacyEventId(migration)}`;
+        ledger = appendEvidenceEvent(ledger, migration).ledger;
+      }
+      saveLedger(ledger);
     }
-    saveLedger(ledger);
     const activeTargets = compileRepairTargets(ledger).filter((target) => target.word_id === objectId);
     state.repairTargets = Object.fromEntries(activeTargets.map((target) => {
       const key = target.target_id || `${target.target_kind}:${target.target_locator || ''}`;
@@ -382,6 +388,8 @@ const relationDifferenceRows = (relation = {}) => {
       }];
     }));
 
+    if (mode !== 'study') state.revealed = true;
+
     const targetFromButton = (button) => {
       const kind = button.getAttribute('data-target-kind') || 'lexical';
       const id = button.getAttribute('data-target-id') || '';
@@ -391,7 +399,8 @@ const relationDifferenceRows = (relation = {}) => {
       return { key, kind, id, locator, label };
     };
 
-    const save = () => {
+    const save = (explicitMutation = false) => {
+      if (readOnlyLookup && !explicitMutation) return;
       state.lastSeenAt = new Date().toISOString();
       state.meta = { word_id: objectId, ordinal, word, source_hash: sourceHash };
       saveJson(storageKey, state);
@@ -411,11 +420,15 @@ const relationDifferenceRows = (relation = {}) => {
         row?.classList.toggle('repair-selected', active);
       });
       const count = Object.keys(state.repairTargets).length;
-      if (stateLabel) stateLabel.textContent = state.revealed ? (count ? `${count} Repair` : 'Scanned') : 'Ready';
+      if (stateLabel) stateLabel.textContent = mode === 'lookup'
+        ? 'Lookup'
+        : mode === 'repair'
+          ? (count ? `${count} Repair` : 'Repair')
+          : state.revealed ? (count ? `${count} Repair` : 'Scanned') : 'Ready';
       if (repairSummary) repairSummary.textContent = count ? `${count} 个具体分支处于 Repair 状态；当天新增项会进入 Return Packet。` : '当前没有加入 Repair 的分支。';
     };
 
-    const openCard = () => { state.revealed = true; save(); render(); };
+    const openCard = () => { state.revealed = true; save(false); render(); };
     reveal?.addEventListener('click', openCard);
 
     const speak = (lang = 'en-US') => {
@@ -445,7 +458,7 @@ const relationDifferenceRows = (relation = {}) => {
       } else {
         delete state.repairTargets[target.key];
       }
-      save();
+      save(true);
       render();
     };
 
