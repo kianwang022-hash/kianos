@@ -182,7 +182,7 @@ CI green is not visual acceptance.
 
 ## Current next actions
 
-- **Xizong:** L2 visual language is now accepted. Re-review Practice first as the next L3 under `XIZONG_VISUAL_LANGUAGE.md`, then System Recall; preserve the already-green Runtime/ownership split while visual composition remains Human-Gate pending. Question Explanation production remains a separate Content lane.
+- **Xizong:** L2 visual language is accepted. Close Practice L3/Human Gate first, then finish execution scopes on the same Workbench: explicit W/U, Marked, CHAT_SET (Chat supplies ordered qids; web validates/executes only), and whole-paper/Hidden. System Recall visual re-review follows. Question Explanation production remains a separate Content lane.
 - **Politics:** continue from the cleaned SurfacePlan-only renderer path; Visual may arrange mapped objects but must not author semantic grouping/relations.
 - **English:** only concrete launch-visible defects; do not reopen accepted task geometry.
 
