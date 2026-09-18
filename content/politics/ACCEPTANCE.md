@@ -388,152 +388,113 @@ Next eligible gate
 
 ---
 
-## Later-stage L candidate — builder adversarial result
+## Later-stage Consolidation L — corrected authority model
 
-Status: **CANDIDATE / BUILDER PASS_AFTER_REPAIR / FRESH INDEPENDENT AUDIT PENDING**
+Status: **REVISION APPLIED / FRESH RE-AUDIT PENDING**
 
-This section records Learning-candidate construction evidence only. It does **not** upgrade later-stage L to PASS.
+The independent audit on the earlier #433 head correctly rejected the static-rubric closure model. Its narrow red point exposed a deeper authority issue:
 
-### Candidate learning direction
+> **Politics review selection must not be frozen into per-chapter L rubrics or re-decided by the web. Chat owns the adaptive review strategy.**
 
-Politics consolidation is intentionally lower-friction than Xizong:
-
-```text
-chapter-fast reconstruction
-→ grouped core-content recall
-→ active/admitted Precision only
-→ historical Wrong / meaningful Uncertain earns depth
-→ selective Xiao1000 retest
-→ smallest repair
-→ cheap phase-scoped close
-```
-
-The framework organizes a substantial amount of chapter recall; it does not replace memory. At the same time, chapter-wide relevance does not imply sentence-by-sentence exact recitation.
-
-### Five-shape calibration
-
-| Subject | Calibration chapter | Default recall shape |
-| --- | --- | --- |
-| Marxism | C02 | one dialectical reconstruction + 3 grouped recalls |
-| Mao | C02 | one national-condition→revolution model + 3 grouped recalls |
-| Xi | C06 | one role/hierarchy reconstruction + 3 grouped recalls |
-| History | C05 | one causal movie + 2 grouped recalls; horizontal exactness stays optional |
-| Ethics-Law | C06 | one rule-of-law hierarchy + 3 grouped recalls |
-
-All five keep Precision dormant by default and use selective rather than whole-bank retest.
-
-### Builder adversarial attack
-
-The candidate was attacked for:
-
-1. turning Politics into a miniature Xizong with per-node recall tax;
-2. over-compressing Politics until only a skeleton remains and necessary chapter memory disappears;
-3. converting rich K availability into mandatory review debt;
-4. converting every fixed group into a durable Precision queue;
-5. flattening the five subjects into one cognitive shape;
-6. leaking analysis-output work into ordinary consolidation;
-7. leaving recall-scope selection to downstream UI inference.
-
-### Real defects found and repaired
-
-1. **Recall-scope ownership was initially under-specified.** The Learning Contract now requires L-approved grouped recall scope before Projection/Runtime; UI may not guess importance from raw JSON.
-2. **History C05 initially placed horizontal meeting/land candidates inside default Content Recall.** They were removed from the default path and remain selectively activatable Precision.
-3. **Grouped completeness risked being conflated with durable Precision debt.** The contract now explicitly allows complete grouped recall without creating separate persistent exact-memory tasks for every item.
-
-After those repairs, the five calibration chapters preserve the intended fast-path invariants.
-
-### What remains unaccepted
-
-- this is not yet a 53-chapter rollout;
-- fresh independent semantic audit has not yet accepted the L candidate;
-- later-stage Projection / Runtime / Evidence remain frozen;
-- current-year Memory / Xi-current-affairs / legal freshness debt remains as recorded under K.
-
-### Allowed conclusion
+### Correct durable model
 
 ```text
-Politics later-stage K                 PASS_WITH_DEBT
-Politics later-stage L candidate       BUILDER PASS_AFTER_REPAIR
-Politics later-stage L acceptance      UNTESTED — fresh independent audit next
-Politics later-stage P/R/E             FROZEN
+Current K
+= complete learner-worthy Knowledge / candidate reservoir
+
+Chat
+= decides what to review now from
+  phase + learner evidence + W/U + time budget + source freshness
+
+Web
+= executes the explicit Chat plan
+  and returns learner evidence
 ```
 
-Strongest valid claim:
+Therefore the previous requirement that every K decisive boundary / reconstruction target receive a static `CHECK_IN_GROUP / PRECISION_GATED / NOT_ACTIVE` disposition is **not** the desired closure model. That would freeze learner strategy in shared Current and partially transfer Chat's job into static L assets.
 
-> **The Politics later-stage L candidate is ready for fresh independent audit, not yet learner-design accepted.**
+### Repair applied
 
+1. Removed the static per-chapter `later_stage_learning` plans from the five representative chapters.
+2. Removed the requirement for fixed 2–3 L-owned chapter rubrics.
+3. Rewrote Consolidation L so Chat dynamically selects any valid subset/order of review actions from Current K.
+4. Rewrote the Interaction Contract so the web is an executor only and may not infer review priority, recall scope, Precision activation, retest need, or close timing.
+5. Preserved hard Precision admission/freshness rules: Chat may choose, but it may not bypass source legitimacy.
 
-### Same-Chat anti-anchored readback after builder repair
+### Required Chat → Web capability boundary
 
-Status: **POST-REPAIR READBACK PASS — NOT INDEPENDENT ACCEPTANCE**
-
-After the initial builder attack, the candidate was re-read against the Current K shapes and the recovered production protocol while treating the proposed fast path as potentially wrong.
-
-This additional readback found four material defects:
-
-1. **Duplicate learner work** — whole-chapter reconstruction and all grouped Content Recall were still modeled as sequential default actions, causing the same chapter content to be actively retrieved twice.
-2. **History admission leakage** — chapter relevance itself could still activate horizontal candidate Precision, violating candidate ≠ debt.
-3. **Freshness bypass risk** — Xi high-delta and Ethics/Law exactness could be activated by W/U without making current-year/current-law freshness a hard prerequisite.
-4. **Later-stage surface ownership unresolved** — consolidation had states but no explicit primary surface assignment, leaving downstream Projection/Runtime room to decide a Learning question.
-
-Repairs now present in the candidate:
+Chat may send an explicit adaptive session plan containing actions such as:
 
 ```text
-one-shot chapter reconstruction
-→ check against 2–3 L-owned group rubrics
-→ recall only materially failed groups
-→ active/admitted Precision only
-→ prior W/U when present
-→ selective retest
-→ smallest repair
-→ cheap close
+RECONSTRUCT
+TARGETED_RECALL
+PRECISION
+QUESTION_RETEST
+SOURCE_REPAIR
+CHAT_REPAIR_RETURN
+CLOSE
 ```
 
-Additional repaired invariants:
+Each action carries explicit Current object/content refs, question ids, and/or a learner-facing prompt. The web renders and records evidence. It does not manufacture missing semantic decisions from raw fields.
 
-- grouped recall objects are evaluation rubrics / gap-recall targets, not mandatory second-pass tasks;
-- History horizontal items require admission before chapter relevance can select them;
-- Xi high-delta exactness requires current-year source refresh before any later activation;
-- Ethics/Law exactness requires current legal/source recheck before any later activation;
-- consolidation reconstruction/check, targeted gap recall, active Precision and retest are assigned to Astro/KianOS web;
-- original source owns exact source repair; Chat owns deep semantic repair;
-- Analysis Output and Mock/final surface ownership remain explicitly unresolved later gates.
+### Representative five-shape readback
 
-Five-shape post-repair readback:
+The following chapters remain the heterogeneous K readback set, but they no longer own static L plans:
 
-| Subject | One-shot default | Gap rubric | Exactness behavior |
-| --- | --- | --- | --- |
-| Marxism C02 | relation/mechanism reconstruction | 3 groups | admitted exactness only |
-| Mao C02 | national-condition → revolution model | 3 groups | admitted exactness only |
-| Xi C06 | role/hierarchy + attached content | 3 groups | current-year freshness hard prerequisite |
-| History C05 | causal historical movie | 2 groups | admitted horizontal items selected by relevance/evidence |
-| Ethics-Law C06 | rule-of-law hierarchy/application | 3 groups | current legal/source freshness hard prerequisite |
+- Marxism C02 — relation/mechanism K;
+- Mao C02 — national-condition → revolution identity K;
+- Xi C06 — role/hierarchy + high-delta exactness K;
+- History C05 — causal movie + horizontal candidate reservoir;
+- Ethics-Law C06 — concept/boundary/situation + legal freshness K.
 
-No additional semantic defect was found in this same-Chat post-repair readback.
+The purpose of this set is now to prove that **one Chat-owned adaptive planning model can consume materially different K shapes without flattening them**, not to pre-author one fixed review plan per chapter.
 
-However, under the recovered production rule:
+### What the web is allowed to own
 
-> **Builder self-review / same-Chat re-read ≠ fresh independent L acceptance.**
+The web may own reusable mechanics:
 
-Therefore this readback does not promote L to PASS.
+- clean recall/answer input;
+- reveal/check against explicitly selected refs;
+- exact/Precision recall UI;
+- question attempt/retest by explicit id;
+- W/U capture;
+- source locator/handoff;
+- evidence persistence;
+- Chat Return / resume;
+- close mechanics.
 
-### Exact fresh-audit target
+It may not own:
 
-A fresh auditor should start from the current #433 head and independently test:
+- which K object deserves review now;
+- which chapter items are important enough to show;
+- which Precision candidate becomes debt;
+- whether to retest;
+- whether a chapter is sufficiently reviewed;
+- the learner's adaptive review strategy.
 
-1. whether one-shot reconstruction genuinely saves time rather than merely hiding a second course;
-2. whether the group rubrics preserve enough Politics chapter memory instead of over-compressing toward Xizong-style skeletons;
-3. whether any candidate-only Precision can still become learner debt without valid admission/freshness;
-4. whether the five subject shapes remain genuinely distinct;
-5. whether consolidation surface ownership minimizes switching and preserves first-round Chengfeng boundaries;
-6. whether Analysis Output / Mock remain outside the accepted consolidation claim.
-
-If that fresh audit passes without new structural defects, the allowed acceptance scope is:
+### Acceptance scope after repair
 
 ```text
-Politics later-stage Consolidation L logic = PASS_AFTER_REPAIR
-Politics later-stage Analysis-Output L     = UNTESTED
-Politics later-stage Mock/Final L          = UNTESTED
+Politics later-stage K                        PASS_WITH_DEBT
+Politics Consolidation L corrected candidate  READY_FOR_FRESH_RE-AUDIT
+Politics Analysis-Output L                    UNTESTED
+Politics Mock/Final L                         UNTESTED
+Politics later-stage P/R/E                    FROZEN
 ```
 
-The next stage after such L acceptance would be whole-lane **Content realization / rollout + Content Closure readback**, not Projection/Runtime.
+The previous fresh audit result remains valid for the old static-rubric head: **FAIL / REVISION_REQUIRED**.
+
+The current corrected head has **not** yet received fresh independent re-acceptance. The next auditor should test the authority boundary itself:
+
+1. can Chat freely select any needed K object without a static chapter plan;
+2. can the web execute without inferring semantics;
+3. can source/admission/freshness gates still prevent invalid Precision;
+4. can the same interface preserve all five subject cognition shapes;
+5. can stable chapters remain extremely cheap while weak chapters deepen only by Chat decision;
+6. do Analysis Output and Mock remain outside the Consolidation claim.
+
+If that fresh re-audit passes, the allowed claim is:
+
+> **Politics later-stage Consolidation L = PASS_AFTER_REPAIR.**
+
+Only after that may the project proceed to later-stage Content/Projection/Runtime realization.
