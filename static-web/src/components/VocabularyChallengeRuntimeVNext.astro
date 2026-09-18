@@ -11,7 +11,7 @@ const base = import.meta.env.BASE_URL;
   <section class="lexicalRepairWaiting" data-challenge-import-panel>
     <div class="lexicalRepairWaitingCopy">
       <span>REPAIR TEST</span>
-      <h3 data-challenge-waiting-title>等待下一组 Repair Test</h3>
+      <h3 data-challenge-waiting-title>等待下一组练习</h3>
       <p data-challenge-waiting-copy>Chat 根据当前 Repair 对象决定测什么；网页只负责连续执行和记录结果。</p>
       <a data-challenge-empty-learn href={base + 'vocabulary/'} hidden>继续 Learn →</a>
     </div>
@@ -19,7 +19,7 @@ const base = import.meta.env.BASE_URL;
     <div class="lexicalRepairWaitingStatus">
       <small data-challenge-status>Waiting</small>
       <b>← ↑ ↓ →</b>
-      <span>Test 到达后直接开始</span>
+      <span>练习准备好后直接开始</span>
     </div>
 
     <div class="lexicalRepairChatLoad" data-challenge-chat-load hidden>
@@ -464,9 +464,9 @@ if(root instanceof HTMLElement){
   const repairCountNode=document.querySelector('.lexicalRepairHeader [data-lexical-repair-count]');
   const syncWaitingState=()=>{
     const count=Number(repairCountNode?.textContent||0);
-    if(waitingTitle)waitingTitle.textContent=count>0?'等待 Chat 编译下一组 Test':'当前没有需要处理的 Repair';
+    if(waitingTitle)waitingTitle.textContent=count>0?'等待 Chat 准备下一组练习':'当前没有需要处理的 Repair';
     if(waitingCopy)waitingCopy.textContent=count>0
-      ? '当前有 '+count+' 个局部 Repair 对象；Chat 决定下一组测什么，Test 到达后这里直接开始。'
+      ? '当前有 '+count+' 个局部 Repair 对象；Chat 决定下一组测什么，练习准备好后这里直接开始。'
       : '没有需要优先处理的局部问题。可以继续 Learn；以后有新的有效 evidence 再回来。';
     if(emptyLearn instanceof HTMLAnchorElement){
       const learnNav=document.querySelector('[data-lexical-learn-nav]');
