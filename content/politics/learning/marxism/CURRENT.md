@@ -21,19 +21,28 @@ LEG26 historical Source
 → only later expose stage-specific Learn actions
 ```
 
-First completed batch:
+Completed bounded review:
 
-- `POL27-CF-MARX-C02-K03` / 对立统一规律;
-- historical handbook alignment recorded for the existing Memory pilot;
-- lower-volume analysis material recorded as Chat-first output baseline;
-- no candidate was promoted to current-year Memory solely from LEG26.
+- Marxism C00–C08 have all been reconciled against the imported LEG26 historical baseline;
+- C02 keeps the existing four K03 Memory candidates as the only current sparse pilot;
+- C00/C01/C03–C08 create no new Memory sidecars merely for completeness;
+- C02–C04 retain the lower-volume analysis material as Chat-first later-phase output baseline;
+- C05–C08 retain high-value precision/list/formula/timeline material only as second-round historical compression until current-year corroboration;
+- **zero** candidate was promoted to 2027 Memory solely because LEG26 contains it;
+- UI / Projection remains frozen.
 
-Next:
+Current boundary:
 
-- continue the same review across Marxism C00–C08;
-- keep Memory sparse;
-- do not build a second analysis-theory course;
-- do not resume Politics Visual/UI during this Content closure.
+```text
+LEG26 historical baseline
+→ Marxism C00–C08 semantic reconciliation COMPLETE
+→ wait for 2027 designated-memory delta and/or learner evidence
+→ selectively admit durable Memory / Precision / later Chat output
+```
+
+Next Content action:
+
+- move the same Source→Knowledge review method to the next Politics subject (Mao by default), while leaving Marxism closed unless a 2027 LEG delta or real learning evidence reopens it.
 
 ---
 
