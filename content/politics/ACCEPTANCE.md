@@ -535,7 +535,7 @@ This is still **candidate evidence**, not independent L acceptance.
 
 Status: **REVISION APPLIED / SAME-CHAT POST-REPAIR READBACK NEXT / INDEPENDENT ACCEPTANCE STILL PENDING**
 
-The corrected Chat-owned model was attacked against five representative K shapes and the real Interaction boundary. Six additional defects were found.
+The corrected Chat-owned model was attacked against five representative K shapes and the real Interaction boundary. Seven additional defects were found.
 
 1. **Action-label guard bypass**  
    A candidate Precision target could theoretically be referenced through `TARGETED_RECALL` / `RECONSTRUCT` and bypass a guard that was written only under the `PRECISION` action.
@@ -566,6 +566,11 @@ The corrected Chat-owned model was attacked against five representative K shapes
    Chat cannot adapt intelligently if it only sends plans but cannot receive the learner's prior W/U / Precision / resume facts.
 
    Repair: consolidation planning explicitly reuses the private Politics evidence / `return_packet.v1` channel as a bounded fact snapshot. Web may export scoped facts but may not rank/recommend them.
+
+7. **Guard evidence field was still action-scoped**  
+   The plan schema still implied that guard evidence belonged only to `PRECISION` actions, contradicting the repaired target-bound guard rule.
+
+   Repair: any action referencing a guarded target now carries the required admission / freshness / phase evidence refs.
 
 Current durable loop:
 
