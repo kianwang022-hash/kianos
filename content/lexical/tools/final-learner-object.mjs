@@ -12,11 +12,15 @@ export function compileLexicalStudyObject(record = {}) {
   }
 
   const constructions = (Array.isArray(record.constructions) ? record.constructions : [])
-    .filter((construction) => {
+    .map((construction, canonicalIndex) => ({ construction, canonicalIndex }))
+    .filter(({ construction }) => {
       const survivor = construction?.presentation_merge?.surviving_object_id;
       return !(survivor && materializedCollocationIds.has(String(survivor)));
     })
-    .map(clone);
+    .map(({ construction, canonicalIndex }) => ({
+      ...clone(construction),
+      learner_source_locator: `record.constructions[${canonicalIndex}]`
+    }));
 
   const core = record.core_concept && typeof record.core_concept === 'object'
     ? record.core_concept
