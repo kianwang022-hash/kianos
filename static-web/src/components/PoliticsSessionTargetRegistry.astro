@@ -1,0 +1,22 @@
+---
+import PoliticsExplicitSurfacePlan from './PoliticsExplicitSurfacePlan.astro';
+
+const { catalog = null } = Astro.props;
+const targets = Array.isArray(catalog?.targets) ? catalog.targets : [];
+---
+
+<div hidden data-politics-session-target-registry data-session-target-revision={catalog?.revision || ''}>
+  {targets.map((target) => (
+    <template
+      data-politics-session-target={target.ref}
+      data-session-target-subject={target.subject}
+      data-session-target-chapter={target.chapter}
+      data-session-target-unit={target.unit_id}
+      data-session-target-state={target.state}
+      data-session-target-group={target.group_id}
+      data-session-target-href={target.unit_href}
+    >
+      <PoliticsExplicitSurfacePlan groups={[target.group]} />
+    </template>
+  ))}
+</div>
