@@ -10,7 +10,7 @@ const repairs = (chapter?.units || []).flatMap((unit) =>
 );
 
 const explicitRepairRows = compiled instanceof Map
-  ? [...compiled.values()].filter((row) => row?.surfacePlan?.states?.REPAIR?.length > 0)
+  ? [...compiled.values()].filter((row) => row?.finalLearnerObject?.states?.REPAIR?.length > 0)
   : [];
 
 function hitLabel(hit) {
@@ -43,7 +43,7 @@ const handoffJson = JSON.stringify(handoffMap).replace(/</g, '\\u003c');
     {explicitRepairRows.map((row) => (
       <section data-explicit-repair-unit={row.unitId}>
         <template data-explicit-repair-template>
-          <PoliticsExplicitSurfacePlan groups={row.surfacePlan.states.REPAIR} />
+          <PoliticsExplicitSurfacePlan groups={row.finalLearnerObject.states.REPAIR} />
         </template>
       </section>
     ))}
