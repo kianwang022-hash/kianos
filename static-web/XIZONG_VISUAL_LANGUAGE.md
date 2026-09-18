@@ -420,7 +420,7 @@ At the time this L2 is accepted:
 - System Framework has prior discussed/accepted product direction;
 - Block Workspace / Block Recall has prior Human-Gate evidence;
 - System Recall candidate has functional/runtime acceptance but requires visual re-review under this L2;
-- Practice candidate has functional/runtime acceptance but requires a fresh L3 visual discussion/Human Gate under this L2;
+- Practice front/back L3 has accepted visual/runtime evidence for main: Front = Question + Progress; Back = quick learner feedback + Knowledge Review; shared L1 CJK typography remains authoritative;
 - Memory retains its accepted learning/evidence role; future material visual changes must also follow this L2.
 
 Do not infer that a green build/browser test means the new Recall/Practice visual composition is accepted.
