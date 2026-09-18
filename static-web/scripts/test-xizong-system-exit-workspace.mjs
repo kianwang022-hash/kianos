@@ -154,6 +154,7 @@ try {
   check(await practice.locator('[data-question-map]').count()===1,'practice_owns_question_map');
   check(await practice.locator('[data-reasoning-chain]').count()===1,'practice_owns_reasoning_chain_projection');
 
+  await practice.locator('.xzpMore').evaluate((node)=>{node.open=true;});
   await practice.locator('[data-holdout-control]').evaluate((node)=>{node.open=true;});
   await practice.locator('[data-holdout-input]').fill(String(holdoutYear));
   await practice.locator('[data-save-holdout]').click();
