@@ -75,8 +75,8 @@ const payload = JSON.stringify({
       </header>
 
       <section class="xzpChatSetGate" data-chat-set-gate hidden>
-        <span>CHAT SET</span>
-        <h2 data-chat-set-error-title>无法打开 Chat 自选题</h2>
+        <span data-scope-gate-label>CHAT SET</span>
+        <h2 data-chat-set-error-title>无法打开当前训练范围</h2>
         <p data-chat-set-error-body></p>
         <a href={`${base}xizong/practice/`}>返回训练入口</a>
       </section>
@@ -223,6 +223,13 @@ const payload = JSON.stringify({
     setXizongQuestionMarked,
     isXizongQuestionMarked
   } from '../lib/xizongQuestionAttempts.mjs';
+  import {
+    XIZONG_RETAINED_SET_SCHEMA,
+    XIZONG_RETAINED_SET_KEY,
+    XIZONG_QUESTION_PREFERENCES_KEY,
+    resolveXizongQuestionMarked,
+    setXizongGlobalQuestionMark
+  } from '../lib/xizongRetainedPractice.mjs';
 
   document.querySelectorAll('[data-xizong-practice]').forEach(async (root) => {
     const initialSystemId = root.getAttribute('data-xizong-practice') || '';
@@ -230,8 +237,9 @@ const payload = JSON.stringify({
     try { data = JSON.parse(root.querySelector('[data-sweep-payload]')?.textContent || 'null'); } catch {}
 
     const holdoutKey = 'kianos:xizong:full-paper-holdout-years:v1';
-    const preferenceKey = 'kianos:xizong:question-preferences:v1';
+    const preferenceKey = XIZONG_QUESTION_PREFERENCES_KEY;
     const chatSetKey = 'kianos:xizong:chat-set:v1';
+    const retainedSetKey = XIZONG_RETAINED_SET_KEY;
 
     const readJson = (key, fallback) => {
       try { return JSON.parse(localStorage.getItem(key) || '') || fallback; } catch { return fallback; }
@@ -240,16 +248,32 @@ const payload = JSON.stringify({
       try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch { return false; }
     };
 
-    const showChatSetError = (title, body) => {
+    const showScopeError = (label, title, body) => {
       const gate = root.querySelector('[data-chat-set-gate]');
+      const eyebrow = root.querySelector('[data-scope-gate-label]');
       const heading = root.querySelector('[data-chat-set-error-title]');
       const copy = root.querySelector('[data-chat-set-error-body]');
       root.querySelector('[data-question-card]')?.setAttribute('hidden', '');
       root.querySelector('[data-holdout-gate]')?.setAttribute('hidden', '');
       root.querySelector('[data-sweep-done]')?.setAttribute('hidden', '');
+      if (eyebrow) eyebrow.textContent = label;
       if (heading) heading.textContent = title;
       if (copy) copy.textContent = body;
       if (gate) gate.hidden = false;
+    };
+    const showChatSetError = (title, body) => showScopeError('CHAT SET', title, body);
+    const showRetainedError = (title, body) => showScopeError('RETAINED', title, body);
+
+    const hydrateQuestionIds = async (ids) => {
+      const years = [...new Set(ids.map((id) => id.match(/official-(\d{4})-/)?.[1]).filter(Boolean))];
+      const banks = await Promise.all(years.map(async (year) => {
+        const response = await fetch(`${data.base}xizong/practice/data/${year}.json`);
+        if (!response.ok) throw new Error(`YEAR_FETCH_FAILED:${year}`);
+        return response.json();
+      }));
+      const byId = new Map(banks.flatMap((bank) => bank?.questions || []).map((q) => [q.questionId, q]));
+      const missing = ids.filter((id) => !byId.has(id));
+      return { years, byId, missing };
     };
 
     if (data?.scopeKind === 'CHAT_SET') {
@@ -293,14 +317,7 @@ const payload = JSON.stringify({
       }
 
       try {
-        const years = [...new Set(ids.map((id) => id.match(/official-(\d{4})-/)?.[1]).filter(Boolean))];
-        const banks = await Promise.all(years.map(async (year) => {
-          const response = await fetch(`${data.base}xizong/practice/data/${year}.json`);
-          if (!response.ok) throw new Error(`YEAR_FETCH_FAILED:${year}`);
-          return response.json();
-        }));
-        const byId = new Map(banks.flatMap((bank) => bank?.questions || []).map((q) => [q.questionId, q]));
-        const missing = ids.filter((id) => !byId.has(id));
+        const { years, byId, missing } = await hydrateQuestionIds(ids);
         if (missing.length) {
           showChatSetError('Chat Set 含不存在的 Current 题号', `未找到：${missing.slice(0, 6).join('、')}${missing.length > 6 ? '…' : ''}`);
           return;
@@ -335,15 +352,84 @@ const payload = JSON.stringify({
       }
     }
 
+
+    if (data?.scopeKind === 'RETAINED') {
+      const set = readJson(retainedSetKey, null);
+      const ids = Array.isArray(set?.question_ids) ? set.question_ids.map(String) : [];
+      const setId = String(set?.set_id || '');
+      const mode = String(set?.mode || '');
+      const phase = String(set?.study_phase || 'SECOND_PASS');
+      const visibility = String(set?.result_visibility || 'immediate');
+      const speed = String(set?.speed || 'normal');
+      const label = String(set?.label || (mode === 'MARKED' ? '已标记' : '错题 / 不确定'));
+
+      if (!set || set?.schema !== XIZONG_RETAINED_SET_SCHEMA || !setId || !['WU','MARKED'].includes(mode) || !ids.length) {
+        showRetainedError('没有可执行的回收题', '请先从训练入口选择 Wrong / Uncertain 或 Marked。');
+        return;
+      }
+      if (!['SECOND_PASS','LATE_REVIEW','FIRST_PASS'].includes(phase) || visibility !== 'immediate') {
+        showRetainedError('回收范围参数无效', '当前 retained scope 只执行显式阶段 + immediate feedback。');
+        return;
+      }
+      if (ids.some((id) => !/^xizong-official-\d{4}-n\d{3}$/.test(id)) || new Set(ids).size !== ids.length) {
+        showRetainedError('回收范围含无效题号', '只接受唯一 canonical qid；网页不会模糊匹配或自行替换。');
+        return;
+      }
+
+      const savedHoldout = readJson(holdoutKey, []);
+      const holdoutSet = new Set((Array.isArray(savedHoldout) ? savedHoldout : []).map(Number));
+      const selectedHoldoutYears = [...new Set(ids.map((id) => Number(id.match(/official-(\d{4})-/)?.[1])).filter((year) => holdoutSet.has(year)))];
+      if (selectedHoldoutYears.length) {
+        showRetainedError('回收范围命中整卷保留年份', `${selectedHoldoutYears.join('、')} 仍受 Holdout 保护；请回训练入口重新生成范围。`);
+        return;
+      }
+
+      try {
+        const { years, byId, missing } = await hydrateQuestionIds(ids);
+        if (missing.length) {
+          showRetainedError('回收范围含不存在的 Current 题号', `未找到：${missing.slice(0, 6).join('、')}${missing.length > 6 ? '…' : ''}`);
+          return;
+        }
+        data = {
+          ...data,
+          systemId: `retained:${mode.toLowerCase()}`,
+          canonicalId: 'RETAIN',
+          title: label,
+          questionCount: ids.length,
+          scopePath: 'private://retained',
+          scopeHash: `retained:${mode.toLowerCase()}:${setId}`,
+          questionInventoryHash: `retained:${mode.toLowerCase()}:${ids.length}`,
+          years: years.map(Number),
+          questions: ids.map((id) => byId.get(id)),
+          studyPhase: phase,
+          queueMode: 'EXPLICIT_SET',
+          attemptContext: mode === 'MARKED' ? 'RETAINED_MARKED' : 'RETAINED_WU',
+          resultVisibility: visibility,
+          fastSweep: speed === 'fast',
+          allowHoldout: false,
+          holdoutRequired: false
+        };
+        const titleNode = root.querySelector('[data-practice-scope-title]');
+        if (titleNode) titleNode.textContent = `回收 · ${label}`;
+        root.querySelector('[data-holdout-control]')?.setAttribute('hidden', '');
+      } catch (error) {
+        console.error(error);
+        showRetainedError('回收题载入失败', 'Current Question Truth 没有完整载入；网页没有替换、补猜或跳过任何题。');
+        return;
+      }
+    }
+
     if (!data?.questions?.length) return;
 
     const storageId = String(data.systemId || initialSystemId).replace(/[^a-zA-Z0-9:_-]+/g, '-');
     const sweepKey = data.scopeKind === 'CHAT_SET'
       ? `kianos:xizong:chat-set-question-sweep:${storageId}:v1`
-      : `kianos:xizong:system-question-sweep:${initialSystemId}:v1`;
+      : data.scopeKind === 'RETAINED'
+        ? `kianos:xizong:retained-question-sweep:${storageId}:v1`
+        : `kianos:xizong:system-question-sweep:${initialSystemId}:v1`;
 
     let holdoutYears = data.allowHoldout ? [] : readJson(holdoutKey, []);
-    let preferences = readJson(preferenceKey, { fastSweep: false });
+    let preferences = readJson(preferenceKey, { fastSweep: false, questionMarks: {} });
     if (typeof data.fastSweep === 'boolean') preferences = { ...preferences, fastSweep: data.fastSweep };
     let sweepState = readJson(sweepKey, { results: {}, marks: {} });
     const attemptContext = {
@@ -424,7 +510,7 @@ const payload = JSON.stringify({
       return eligible.filter((q) => ids.has(String(q.questionId)));
     };
     const resultFor = (id) => sweepState.results?.[id] || null;
-    const markedFor = (id) => isXizongQuestionMarked(sweepState, id);
+    const markedFor = (id) => resolveXizongQuestionMarked(preferences, sweepState, id);
 
     const reviewMetaFor = (id) => sweepState.reviewMeta?.[id] || {};
     const persistReviewMeta = (patch = {}) => {
@@ -756,9 +842,13 @@ const payload = JSON.stringify({
 
     const toggleMark = () => {
       if (!currentQuestion) return;
-      const next = setXizongQuestionMarked(sweepState, currentQuestion.questionId, !markedFor(currentQuestion.questionId));
-      if (!writeJson(sweepKey, next)) return;
-      sweepState = next;
+      const nextMarked = !markedFor(currentQuestion.questionId);
+      const nextState = setXizongQuestionMarked(sweepState, currentQuestion.questionId, nextMarked);
+      const nextPreferences = setXizongGlobalQuestionMark(preferences, currentQuestion.questionId, nextMarked);
+      if (!writeJson(sweepKey, nextState)) return;
+      if (!writeJson(preferenceKey, nextPreferences)) return;
+      sweepState = nextState;
+      preferences = nextPreferences;
       renderTop();
       renderMap();
     };
