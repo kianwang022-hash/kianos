@@ -55,7 +55,11 @@
       button.before(recallButton);
 
       recallButton.addEventListener('click', () => setWorkspaceState(unit, 'RECALL'));
-      button.addEventListener('click', () => setWorkspaceState(unit, 'VERIFY'));
+      button.addEventListener('click', () => {
+        const href = unit.dataset.practiceHref || unit.querySelector('[data-workspace-practice-link]')?.getAttribute('href');
+        if (href) window.location.assign(href);
+        else setWorkspaceState(unit, 'VERIFY');
+      });
     });
 
     workspace.addEventListener('politics:resume-state', (event) => {
