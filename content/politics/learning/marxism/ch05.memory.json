@@ -1,0 +1,151 @@
+{
+  "schema": "kianos.politics.memory_projection.v1",
+  "status": "CURRENT_K_CALIBRATION",
+  "chapter_id": "POL27-LEARN-MARX-C05",
+  "policy": "SOURCE_GROUNDED_SELECTIVE",
+  "principle": "Later precision is sparse. Current understanding + designated memory source support may create candidates; candidates do not become durable debt automatically.",
+  "preferred_memory_reference": {
+    "role": "DESIGNATED_MEMORY_HANDBOOK",
+    "label": "腿姐《冲刺背诵手册》",
+    "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+    "historical_package": "content/politics/source/historical/leg26/manifest.json",
+    "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MARX.md",
+    "rule": "LEG26 may support historical priority and candidate wording only when Current chapter Knowledge independently supports the relation. Current-year handbook/PDF exactness is still required for durable admission."
+  },
+  "admission_gate": {
+    "default": "NOT_ADMITTED",
+    "requires_source_grounding": true,
+    "admit_when_any": [
+      "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+      "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED",
+      "LATER_ANALYSIS_OUTPUT_REQUIRES_EXACT_FORMULATION"
+    ],
+    "do_not_admit_for": [
+      "chapter importance alone",
+      "historical handbook presence alone",
+      "one stable correct answer",
+      "formula OCR without exact current-source verification"
+    ]
+  },
+  "units": {
+    "POL27-CF-MARX-C05-S01": {
+      "title": "商品经济和价值规律",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MARX-C05-S01-M01",
+          "form": "confusable_relation",
+          "statement": "具体劳动生产使用价值，抽象劳动形成价值；劳动二重性是理解商品二因素的劳动基础。",
+          "source_refs": [
+            "POL27-CF-MARX-C05-S01"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MARX-P043",
+            "LEG26-UPPER-MARX-P058"
+          ],
+          "historical_handbook_alignment": "DIRECT_RELATION_SUPPORT",
+          "admission": "CANDIDATE_ONLY",
+          "current_year_corroboration": "CURRENT_CHAPTER_KNOWLEDGE_PRESENT",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        },
+        {
+          "id": "POL27-MEM-MARX-C05-S01-M02",
+          "form": "precision_relation",
+          "statement": "商品价值量由社会必要劳动时间决定；劳动生产率变化通过改变单位商品所需社会必要劳动时间影响单位商品价值量。",
+          "source_refs": [
+            "POL27-CF-MARX-C05-S01"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MARX-P044",
+            "LEG26-UPPER-MARX-P049"
+          ],
+          "historical_handbook_alignment": "DIRECT_RELATION_SUPPORT",
+          "admission": "CANDIDATE_ONLY",
+          "current_year_corroboration": "CURRENT_CHAPTER_KNOWLEDGE_PRESENT",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    },
+    "POL27-CF-MARX-C05-S02": {
+      "title": "资本主义经济制度",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MARX-C05-S02-M01",
+          "form": "essence_boundary",
+          "statement": "工资表现为‘劳动的价格’，但本质上是劳动力价值或价格的转化形式。",
+          "source_refs": [
+            "POL27-CF-MARX-C05-S02"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MARX-P045"
+          ],
+          "historical_handbook_alignment": "DIRECT_SUPPORT",
+          "admission": "CANDIDATE_ONLY",
+          "current_year_corroboration": "CURRENT_CHAPTER_KNOWLEDGE_PRESENT",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        },
+        {
+          "id": "POL27-MEM-MARX-C05-S02-M02",
+          "form": "confusable_classification",
+          "statement": "不变资本/可变资本与固定资本/流动资本是不同分类标准：前者按资本在剩余价值生产中的作用区分，后者服务于资本周转/价值转移分析。",
+          "source_refs": [
+            "POL27-CF-MARX-C05-S02"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MARX-P053",
+            "LEG26-UPPER-MARX-P054"
+          ],
+          "historical_handbook_alignment": "DIRECT_BOUNDARY_SUPPORT",
+          "admission": "CANDIDATE_ONLY",
+          "current_year_corroboration": "CURRENT_CHAPTER_KNOWLEDGE_PRESENT",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        },
+        {
+          "id": "POL27-MEM-MARX-C05-S02-M03",
+          "form": "mechanism_boundary",
+          "statement": "必要劳动再生产劳动力价值，剩余劳动创造剩余价值；绝对剩余价值和相对剩余价值是两种主要提高剩余价值的方法。",
+          "source_refs": [
+            "POL27-CF-MARX-C05-S02"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MARX-P047",
+            "LEG26-UPPER-MARX-P048"
+          ],
+          "historical_handbook_alignment": "DIRECT_MECHANISM_SUPPORT",
+          "admission": "CANDIDATE_ONLY",
+          "current_year_corroboration": "CURRENT_CHAPTER_KNOWLEDGE_PRESENT",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        },
+        {
+          "id": "POL27-MEM-MARX-C05-S02-M04",
+          "form": "essence_boundary",
+          "statement": "利润不是独立的新价值来源，而是剩余价值在现实经济关系中的转化形式。",
+          "source_refs": [
+            "POL27-CF-MARX-C05-S02"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MARX-P050",
+            "LEG26-UPPER-MARX-P055"
+          ],
+          "historical_handbook_alignment": "DIRECT_SUPPORT",
+          "admission": "CANDIDATE_ONLY",
+          "current_year_corroboration": "CURRENT_CHAPTER_KNOWLEDGE_PRESENT",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    }
+  },
+  "deferred_candidate_domains": [
+    {
+      "domain": "剩余价值率/利润率等公式",
+      "reason": "Historical OCR contains formula candidates, but exact symbols/denominators require Current source-node binding + visual PDF/current-year confirmation before materialization."
+    },
+    {
+      "domain": "资本有机构成公式/符号",
+      "reason": "Concept relation is current-owned, but exact formula notation is not yet bound at candidate-object precision."
+    },
+    {
+      "domain": "经济危机完整固定列表",
+      "reason": "High-yield historical list exists, but chapter/current-year exactness should be reconciled before durable candidate creation."
+    }
+  ]
+}
