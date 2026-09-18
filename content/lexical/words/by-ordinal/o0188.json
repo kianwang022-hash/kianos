@@ -118,18 +118,19 @@
       "spelling": "analyse",
       "identity_rule": "regional_spelling_same_lexeme",
       "boundary": "analyse is the standard British spelling; analyze is the standard American spelling of the same verb.",
-      "variants": [
+      "boundaries": [
         {
-          "variant_id": "form:analyse:british",
           "surface": "analyse",
-          "region": "British English"
+          "condition": "British English",
+          "note": "英式拼写"
         },
         {
-          "variant_id": "form:analyse:american",
           "surface": "analyze",
-          "region": "American English"
+          "condition": "American English",
+          "note": "美式拼写"
         }
       ],
+      "variants": [],
       "authority": "Baseline v2 re-validation 2026-09-19"
     }
   },

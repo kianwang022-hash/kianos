@@ -183,33 +183,66 @@
       "spelling": "alternate",
       "identity_rule": "part_of_speech_selects_pronunciation",
       "boundary": "The verb alternate ends in /-neɪt/; the adjective and noun end in /-nət/.",
+      "boundaries": [
+        {
+          "surface": "alternate",
+          "condition": "verb",
+          "note": "verb reading ends in /-neɪt/"
+        },
+        {
+          "surface": "alternate",
+          "condition": "adjective or noun",
+          "note": "adjective/noun reading ends in /-nət/"
+        }
+      ],
       "variants": [
         {
-          "variant_id": "form:alternate:verb",
+          "variant_id": "form:alternate:verb-uk",
           "pos": [
             "verb"
           ],
-          "ipa_uk": "/ˈɒl.tə.neɪt/",
-          "ipa_us": "/ˈɑːl.tɚ.neɪt/",
-          "learner_key": "verb: -NATE"
+          "learner_key": "verb · UK",
+          "ipa": "/ˈɒl.tə.neɪt/"
         },
         {
-          "variant_id": "form:alternate:adjective",
+          "variant_id": "form:alternate:verb-us",
+          "pos": [
+            "verb"
+          ],
+          "learner_key": "verb · US",
+          "ipa": "/ˈɑːl.tɚ.neɪt/"
+        },
+        {
+          "variant_id": "form:alternate:adjective-uk",
           "pos": [
             "adjective"
           ],
-          "ipa_uk": "/ɒlˈtɜː.nət/",
-          "ipa_us": "/ˈɑːl.tɝː.nət/",
-          "learner_key": "adjective: -nət"
+          "learner_key": "adjective · UK",
+          "ipa": "/ɒlˈtɜː.nət/"
         },
         {
-          "variant_id": "form:alternate:noun",
+          "variant_id": "form:alternate:adjective-us",
+          "pos": [
+            "adjective"
+          ],
+          "learner_key": "adjective · US",
+          "ipa": "/ˈɑːl.tɝː.nət/"
+        },
+        {
+          "variant_id": "form:alternate:noun-uk",
           "pos": [
             "noun"
           ],
-          "ipa_uk": "/ˈɒl.tə.nət/",
-          "ipa_us": "/ˈɑːl.tɝː.nət/",
-          "learner_key": "noun: -nət"
+          "learner_key": "noun · UK",
+          "ipa": "/ˈɒl.tə.nət/"
+        },
+        {
+          "variant_id": "form:alternate:noun-us",
+          "pos": [
+            "noun"
+          ],
+          "learner_key": "noun · US",
+          "ipa": "/ˈɑːl.tɝː.nət/"
         }
       ],
       "authority": "Cambridge Dictionary pronunciation check + Baseline v2 2026-09-19"
