@@ -233,10 +233,11 @@ has(memoryUi, "mastery: 'requires later meaningful fresh Recall/transfer evidenc
 has(memoryUi, 'const parsed = JSON.parse(text);', 'chat-return-json-parse-path');
 has(memoryUi, "window.alert('Chat 计划 JSON 无法解析。');", 'chat-return-json-error-path');
 
-has(exitUi, "if (!persistResult(currentQuestion, 'wrong', currentSelection)) return;", 'wrong-path');
-has(exitUi, "nextAfter('stable')", 'stable-fast-pass');
-has(exitUi, "if (!persistResult(currentQuestion, 'uncertain', currentSelection)) return;", 'uncertain-path');
-has(exitUi, ".filter(({ result }) => result && ['wrong', 'uncertain'].includes(result.status))", 'wu-only-packet');
+has(exitUi, "const status = currentCorrect", 'question-status-derived-from-submit');
+has(exitUi, "markedFor(currentQuestion.questionId) ? 'uncertain' : 'stable'", 'marked-correct-preserves-uncertain-evidence-without-extra-prompt');
+has(exitUi, ": 'wrong';", 'wrong-path');
+has(exitUi, "setXizongQuestionMarked(sweepState", 'explicit-marked-state-missing');
+has(exitUi, "['wrong', 'uncertain'].includes(result.status) || marked", 'retained-packet-must-include-wu-or-marked');
 has(exitUi, 'recordXizongQuestionAttempt(sweepState, {', 'question-result-not-routed-through-stable-attempt-owner');
 has(exitUi, '暂无审核过的精确 KP 回链：保留题号给 Chat，不让网页自己猜。', 'no-guess-guard');
 has(questionLib, 'loadReviewedXizongQuestionRelation(questionId)', 'question-runtime-bypasses-crosswalk-owner');
