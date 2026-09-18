@@ -40,7 +40,7 @@ Do not revive historical UI migrations merely because old branches/PRs still exi
 
 ### UI Closure / CSS ownership consolidation — **ACTIVE**
 
-Active ref: PR #472 · `ui-css-closure-20260919` · post-Human-Gate ownership cleanup, no redesign.
+Active ref: PR #474 · `ui-css-base-deglobalize-20260919` · Base de-globalization / ownership cleanup, no redesign. PR #472 landed as `d45e4f6` and consolidated English Subject Visual.
 
 This is now the active website-wide engineering mainline. Politics Practice Human Gate closed on 2026-09-19 and PR #470 is merged.
 
