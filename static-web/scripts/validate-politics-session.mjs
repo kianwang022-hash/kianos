@@ -190,9 +190,13 @@ pass(!sessionClient.includes('politicsCurrent') && !sessionClient.includes('load
 pass(sessionClient.includes("step.recipe_type === 'PRECISION'") && sessionClient.includes('fail closed'), 'SESSION_PRECISION_RUNTIME_FAIL_CLOSED');
 pass(sessionClient.includes('timed-task executor 还未验收'), 'SESSION_TIMER_RUNTIME_FAIL_CLOSED');
 pass(sessionClient.includes("const completed = status === 'COMPLETED' || nextIndex >= instruction.steps.length"), 'SESSION_EXPLICIT_CLOSE_TERMINATES_PLAN');
-pass(sessionClient.includes("$$('[data-session-copy-evidence]').forEach"), 'SESSION_ALL_EVIDENCE_COPY_CONTROLS_BOUND');
-pass(!sessionClient.includes("$('[data-session-copy-evidence]').forEach"), 'SESSION_SINGLE_NODE_FOREACH_INIT_CRASH_ABSENT');
-pass(sessionClient.indexOf("$$('[data-session-copy-evidence]').forEach") < sessionClient.indexOf("window.addEventListener('keydown'"), 'SESSION_INIT_REACHES_KEYBOARD_BINDING');
+const sessionClientLines = sessionClient.split('\n').map((line) => line.trimStart());
+const safeEvidenceBindingLine = sessionClientLines.findIndex((line) => line.startsWith("$('[data-session-copy-evidence]').forEach"));
+const unsafeEvidenceBindingLine = sessionClientLines.findIndex((line) => line.startsWith("$('[data-session-copy-evidence]').forEach"));
+const keyboardBindingLine = sessionClientLines.findIndex((line) => line.startsWith("window.addEventListener('keydown'"));
+pass(safeEvidenceBindingLine >= 0, 'SESSION_ALL_EVIDENCE_COPY_CONTROLS_BOUND');
+pass(unsafeEvidenceBindingLine < 0, 'SESSION_SINGLE_NODE_FOREACH_INIT_CRASH_ABSENT');
+pass(safeEvidenceBindingLine >= 0 && keyboardBindingLine > safeEvidenceBindingLine, 'SESSION_INIT_REACHES_KEYBOARD_BINDING');
 pass(!sessionClient.includes("if (runtime.status === 'PAUSED_CHAT') {\n      $('[data-session-step]').hidden = true;"), 'SESSION_PAUSED_CHAT_SURFACE_VISIBLE');
 pass(practiceClient.includes('if (explicitRetest) return explicitQuestionIds.map'), 'PRACTICE_EXPLICIT_RETEST_EXACT_POOL');
 pass(practiceClient.includes("if (!explicitRetest && controls.mode.value === 'random')"), 'PRACTICE_EXPLICIT_RETEST_ORDER_NOT_SHUFFLED');
