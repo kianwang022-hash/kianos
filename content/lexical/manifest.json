@@ -34,16 +34,18 @@
     "lookup_closure": true
   },
   "runtime_contract": {
-    "astro_reads_current_natural_owners": true,
+    "astro_reads_current_natural_owners": false,
     "legacy_or_reference_semantic_fallback": false,
     "ui_semantic_authority": false,
     "learning_semantics_from_learning_contract": true,
-    "private_interaction_state_is_shared_current": false
+    "private_interaction_state_is_shared_current": false,
+    "astro_reads_final_learner_objects": true
   },
   "final_learner_object": {
     "contract": "content/lexical/FINAL_LEARNER_OBJECT_CONTRACT.md",
     "builder": "content/lexical/tools/final-learner-object.mjs",
     "decisions": "content/lexical/final-learner-object-decisions.json",
-    "role": "CONTENT_OWNED_DERIVED_LEARNER_OBJECT"
+    "role": "CONTENT_OWNED_DERIVED_LEARNER_OBJECT",
+    "materialized_manifest": "content/lexical/learner/final/manifest.json"
   }
 }
