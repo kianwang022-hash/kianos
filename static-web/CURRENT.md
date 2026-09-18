@@ -27,7 +27,7 @@ Architecture-level website blocker: **none**.
 
 | Lane | State | Active ref / continue from |
 | --- | --- | --- |
-| Xizong UI | **ACTIVE** | `work/ui-xizong-vertical-20260918` → `content/xizong/CURRENT.md` → exact accepted surface owner |
+| Xizong UI | **ACTIVE** | `work/xizong-system-completion-final-20260918` → `static-web/XIZONG_SYSTEM_COMPLETION_DESIGN.md` → exact implementation owner |
 | Politics UI | **ACTIVE** | formal `#395` / `work/ui-politics-vertical-20260918`; preview `#397` stays isolated until Human Gate |
 | English UI | **LANDED** | `content/english/CURRENT.md` |
 | Lexical learner surface | **STEADY under English** | `content/lexical/CURRENT.md` when a concrete defect exists |
@@ -182,7 +182,7 @@ CI green is not visual acceptance.
 
 ## Current next actions
 
-- **Xizong:** continue the active System / Block learner-surface convergence from its exact UI owner; preserve medical semantics and the Guide ≠ Framework boundary.
+- **Xizong:** close the phase-aware System Completion workbench first (inline System Recall → Questions → W/U / later rounds), then continue Whole Paper and durable learner-data closure. Content construction remains an independent producer and is not a prerequisite for this product closure.
 - **Politics:** continue from the cleaned SurfacePlan-only renderer path; Visual may arrange mapped objects but must not author semantic grouping/relations.
 - **English:** only concrete launch-visible defects; do not reopen accepted task geometry.
 
