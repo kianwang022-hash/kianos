@@ -233,13 +233,26 @@ try {
     assert(constructionInReference === 0, `v2_no_construction_in_reference_${fixture.word}`, String(constructionInReference));
     const referenceVisible = await page.locator('.portedVocabEvidenceColumn').isVisible().catch(() => false);
     assert(referenceVisible === fixture.expectReference, `v2_reference_presence_${fixture.word}`, String(referenceVisible));
+    const familyDebug = fixture.word === 'abstract'
+      ? await page.locator('.lexicalFamilySection').evaluateAll((nodes) => nodes.map((node) => ({
+          text: node.innerText,
+          html: node.innerHTML
+        })))
+      : [];
+    if (fixture.word === 'abstract') {
+      console.log('LEXICAL_ABSTRACT_FAMILY_DEBUG', JSON.stringify(familyDebug));
+    }
+    await page.screenshot({ path: path.join(outputRoot, `lexical-v2-depth-${fixture.word}-1440x900.png`), fullPage: false });
     const renderedText = await page.locator('[data-vocab-details]').innerText();
     for (const expectedText of fixture.expectText || []) {
-      assert(renderedText.includes(expectedText), `v2_direct_render_${fixture.word}_${expectedText}`);
+      assert(
+        renderedText.includes(expectedText),
+        `v2_direct_render_${fixture.word}_${expectedText}`,
+        fixture.word === 'abstract' ? JSON.stringify(familyDebug) : ''
+      );
     }
     const fixtureDock = await page.locator('[data-vocab-action-dock]').boundingBox();
     assert(Boolean(fixtureDock && fixtureDock.y + fixtureDock.height <= 900), `v2_depth_dock_in_view_${fixture.word}`, JSON.stringify(fixtureDock));
-    await page.screenshot({ path: path.join(outputRoot, `lexical-v2-depth-${fixture.word}-1440x900.png`), fullPage: false });
   }
 
   // Tighter Mac landscape evidence: same learning geometry, reduced secondary density.
