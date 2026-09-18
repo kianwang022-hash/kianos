@@ -189,6 +189,8 @@ const base = import.meta.env.BASE_URL;
     const selectedItem = () => currentItems[Math.max(0, Math.min(currentItems.length - 1, index))] || null;
     const cardLabel = (item) => item.family === 'PRECISION' ? (item.title || item.cue || item.id) : `${item.displayId || item.kpId || ''}${item.title ? `｜${item.title}` : ''}`;
     const cardContext = (item) => [item.canonicalId, item.blockLabel, item.groupLabel].filter(Boolean).join(' · ');
+    const repairPriorityLabel = (value) => ({ high:'高优先', medium:'中优先', low:'低优先', normal:'专项' }[String(value || '').toLowerCase()] || '专项');
+    const repairOriginLabel = (value) => String(value || '') === 'SYSTEM_WU_CHAT_RETURN' ? '真题 W/U · Chat' : '专项修补';
 
     const effectiveAnswerHtml = (item) => {
       if (item.family === 'CORE') return item.coreHtml || '';
@@ -218,7 +220,7 @@ const base = import.meta.env.BASE_URL;
         setText('[data-memory-precision-text]', item.cue || item.title || '恢复这个精确项。');
         setText('[data-memory-precision-resolution]', item.answerResolution === 'EXACT_CURRENT_OWNER'
           ? '已绑定精确答案。'
-          : '当前 cue 只声明“哪里要精确”；下方使用 owning Core context，不从正文猜取阈值。');
+          : '当前提示只声明“哪里要精确”；下方使用对应 Core 的上下文，不从正文猜取阈值。');
       }
 
       if (answer) answer.innerHTML = effectiveAnswerHtml(item);
@@ -252,7 +254,7 @@ const base = import.meta.env.BASE_URL;
       if (empty) empty.hidden = true;
       const owner = state.cards[item.cardId] || {};
       setText('[data-repair-title]', item.title || cardLabel(owner) || item.kpId || '专项修补');
-      setText('[data-repair-context]', [item.priority, item.origin, cardContext(owner)].filter(Boolean).join(' · '));
+      setText('[data-repair-context]', [repairPriorityLabel(item.priority), repairOriginLabel(item.origin), cardContext(owner)].filter(Boolean).join(' · '));
       setText('[data-repair-reason]', item.reason || '已由学习证据 / Chat 指定为专项修补。');
       setText('[data-repair-action]', item.action || '按最小充分范围完成修补后返回主线。');
       const blockLink = q('[data-repair-block-link]');
@@ -280,9 +282,9 @@ const base = import.meta.env.BASE_URL;
         body.textContent = item.text;
         meta.textContent = item.surface || 'fragment';
       } else if (kind === 'REPAIR') {
-        top.textContent = item.priority || 'Repair';
+        top.textContent = repairPriorityLabel(item.priority);
         body.textContent = item.title || item.action || item.kpId || '专项修补';
-        meta.textContent = item.origin || '';
+        meta.textContent = repairOriginLabel(item.origin);
       } else {
         top.textContent = item.family === 'PRECISION' ? 'P' : (item.displayId || 'Core');
         body.textContent = cardLabel(item);
