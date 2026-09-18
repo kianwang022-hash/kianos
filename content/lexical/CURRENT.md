@@ -555,6 +555,10 @@ If richer content exposes a real renderer defect, record it separately; do not s
 
 Start Lane A · o0001–o0200.
 
-First internal shard: o0001–o0050.
+Lane A active branch: `work/lexical-continuous-lane-a-o0001-o0200`.
+
+First internal shard: o0001–o0050 — staged for validation/materialization.
+
+Derived Repair Test blueprints live under `content/lexical/learner/repair-blueprints/shards/` and remain diagnostic content, never semantic Truth.
 
 For every owner, perform the complete semantic readback and the Repair Test judgment in the same close cycle.
