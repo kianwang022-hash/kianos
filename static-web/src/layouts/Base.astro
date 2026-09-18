@@ -81,22 +81,6 @@ const currentStatusUrl = `${base}__kianos-current.json`;
             </a>
           ))}
         </nav>
-        <footer class="kianosRailFooter" hidden={isVocabularyRoute}>
-          <details class="kianosCurrentDock">
-            <summary title="Current">
-              <span class="kianosCurrentPulse" aria-hidden="true"></span>
-              <span class="kianosCurrentLabel">Current</span>
-            </summary>
-            <div class="kianosCurrentPopover">
-              <span>Canonical projection</span>
-              {objectId && <strong>{objectId}</strong>}
-              {sourcePath && <code>{sourcePath}</code>}
-              {sourceHash && <code title={sourceHash}>sha256:{String(sourceHash).slice(0, 16)}</code>}
-              <small>canonical read-only · learner state browser-local</small>
-              <a href={`${base}current/`}>System Current →</a>
-            </div>
-          </details>
-        </footer>
       </aside>
 
       <div class="kianosShellMain">
@@ -185,7 +169,25 @@ const currentStatusUrl = `${base}__kianos-current.json`;
 <script>
   import { initStudyTimerRuntime } from '../lib/studyTimerClient.mjs';
   import { initStudyTimerDock } from '../lib/studyTimerDockClient.mjs';
-  const timer = initStudyTimerRuntime();
-  const dock = document.querySelector('[data-study-timer-dock]');
-  if (dock instanceof HTMLElement) initStudyTimerDock(dock, timer);
+  import {
+    initPrivateCheckpointAutosave,
+    restoreSharedControlFromPrivate
+  } from '../lib/privateCheckpointRuntime.mjs';
+
+  void (async () => {
+    let restored = null;
+    try {
+      restored = await restoreSharedControlFromPrivate(localStorage);
+    } catch {}
+
+    if (restored?.status === 'restored') {
+      window.location.reload();
+      return;
+    }
+
+    const timer = initStudyTimerRuntime();
+    const dock = document.querySelector('[data-study-timer-dock]');
+    if (dock instanceof HTMLElement) initStudyTimerDock(dock, timer);
+    initPrivateCheckpointAutosave(localStorage);
+  })();
 </script>
