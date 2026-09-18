@@ -75,21 +75,21 @@ Whole-subject structural + fresh semantic K audit is complete for the realized o
 Current gate status:
 
 ```text
-Compression K   PASS C00–C08
-Output K        PASS for currently promoted hooks
-Precision K     ACTIVE / PARTIAL
-  concrete candidate owners: C02, C05
-  remaining chapters: exact candidate materialization still source-gated
-Overall Marx K  NOT CLOSED
-Later-stage L   FROZEN
+Compression K                 PASS C00–C08
+Output K                      PASS for Current-grounded hooks
+Precision candidate K         PASS C00–C08
+  candidate-only objects      34
+  explicit deferred domains   10
+Current-year Memory admission PENDING by design
+Overall Marx later-stage K    PASS_WITH_DEBT
+Later-stage L                 NOT STARTED
 ```
 
-### Next
+The remaining debt is bounded and named: current-year handbook/PDF delta may confirm, modify or reject candidate wording/list membership before durable Memory admission. It does not erase the Current-owned compression / candidate / output Knowledge already realized.
 
-1. continue **Precision K**: bind exact Current source evidence and materialize only justified candidates for C00/C01/C03/C04/C06/C07/C08;
-2. keep current-year handbook delta as an admission/update input, not as a reason to postpone candidate discovery that Current Source can already support;
-3. close Marxism K only when compression/output/precision Knowledge all have truthful owners;
-4. **do not start later-stage L before Marxism K closure.**
+### Next dependency
+
+Politics later-stage work may now move to the next subject's **K**. Do not start Marxism later-stage L merely because Marxism K is ready; the current program task is to finish Politics later-stage Knowledge first.
 
 
 ---
