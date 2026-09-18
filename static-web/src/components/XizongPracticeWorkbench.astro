@@ -290,6 +290,8 @@ const payload = JSON.stringify({
       root.querySelector('[data-question-card]')?.setAttribute('hidden', '');
       root.querySelector('[data-holdout-gate]')?.setAttribute('hidden', '');
       root.querySelector('[data-sweep-done]')?.setAttribute('hidden', '');
+      root.querySelector('[data-paper-ready]')?.setAttribute('hidden', '');
+      root.querySelector('[data-paper-result]')?.setAttribute('hidden', '');
       if (eyebrow) eyebrow.textContent = label;
       if (heading) heading.textContent = title;
       if (copy) copy.textContent = body;
@@ -776,6 +778,8 @@ const payload = JSON.stringify({
       currentQuestion = null;
       questionCard.hidden = true;
       done.hidden = true;
+      if (paperReady) paperReady.hidden = true;
+      if (paperResult) paperResult.hidden = true;
       holdoutGate.hidden = false;
       if (reviewToggle) reviewToggle.hidden = true;
       clearReview();
@@ -787,8 +791,69 @@ const payload = JSON.stringify({
     };
 
     const firstUnansweredIndex = () => activeQuestions.findIndex((q) => !resultFor(q.questionId));
+    const firstPaperReviewIndex = () => {
+      const wrongIndex = activeQuestions.findIndex((q) => resultFor(q.questionId)?.status === 'wrong');
+      return wrongIndex >= 0 ? wrongIndex : 0;
+    };
+
+    const renderPaperReady = () => {
+      currentQuestion = null;
+      if (front) front.hidden = false;
+      if (back) back.hidden = true;
+      questionCard.hidden = true;
+      holdoutGate.hidden = true;
+      done.hidden = true;
+      if (paperResult) paperResult.hidden = true;
+      if (paperReady) paperReady.hidden = false;
+      if (reviewToggle) reviewToggle.hidden = true;
+      questionMeta.textContent = 'WHOLE PAPER · READY TO SEAL';
+      questionProgress.textContent = `${activeQuestions.length} / ${activeQuestions.length}`;
+      if (questionProgressSide) questionProgressSide.textContent = `${activeQuestions.length} / ${activeQuestions.length}`;
+      renderMap();
+      renderTop();
+    };
+
+    const renderPaperResult = () => {
+      const summary = sweepState?.paperSeal?.summary || scoreXizongPaperResults(data.paperFormat, data.questions, sweepState.results || {});
+      currentQuestion = null;
+      if (front) front.hidden = false;
+      if (back) back.hidden = true;
+      questionCard.hidden = true;
+      holdoutGate.hidden = true;
+      done.hidden = true;
+      if (paperReady) paperReady.hidden = true;
+      if (paperResult) paperResult.hidden = false;
+      if (reviewToggle) reviewToggle.hidden = true;
+      if (paperEarned) paperEarned.textContent = String(summary.earnedScore);
+      if (paperMax) paperMax.textContent = String(summary.maxScore);
+      if (paperCorrect) paperCorrect.textContent = String(summary.correctCount);
+      if (paperWrong) paperWrong.textContent = String(summary.wrongCount);
+      if (paperUnanswered) paperUnanswered.textContent = String(summary.unansweredCount);
+      if (paperYearLabel) paperYearLabel.textContent = `${data.paperFormat?.year || ''} 整卷 · ${summary.answeredCount}/${summary.questionCount} 已作答`;
+      questionMeta.textContent = 'WHOLE PAPER · SEALED';
+      questionProgress.textContent = `${summary.earnedScore} / ${summary.maxScore}`;
+      if (questionProgressSide) questionProgressSide.textContent = `正确 ${summary.correctCount} · 错误 ${summary.wrongCount}`;
+      renderMap();
+      renderTop();
+    };
+
+    const sealPaper = () => {
+      if (!paperMode) return;
+      if (!paperSealed()) {
+        const summary = scoreXizongPaperResults(data.paperFormat, data.questions, sweepState.results || {});
+        const next = sealXizongPaperState(sweepState, summary);
+        if (!writeJson(sweepKey, next)) return;
+        sweepState = next;
+      }
+      renderPaperResult();
+    };
 
     const renderDone = () => {
+      if (paperMode) {
+        if (paperSealed()) renderPaperResult();
+        else renderPaperReady();
+        return;
+      }
       currentQuestion = null;
       questionCard.hidden = true;
       holdoutGate.hidden = true;
@@ -810,8 +875,16 @@ const payload = JSON.stringify({
       activeQuestions = computeActive();
       if (data.holdoutRequired !== false && !holdoutYears.length) { renderGate(); return; }
       if (!activeQuestions.length) { renderDone(); return; }
+      if (paperMode && paperSealed() && !paperReviewUnlocked() && !Number.isInteger(requestedIndex)) {
+        renderPaperResult();
+        return;
+      }
 
-      let index = Number.isInteger(requestedIndex) ? Number(requestedIndex) : firstUnansweredIndex();
+      let index = Number.isInteger(requestedIndex)
+        ? Number(requestedIndex)
+        : paperMode && paperSealed() && paperReviewUnlocked()
+          ? firstPaperReviewIndex()
+          : firstUnansweredIndex();
       if (index < 0) { renderDone(); return; }
       currentIndex = Math.max(0, Math.min(activeQuestions.length - 1, index));
       currentQuestion = activeQuestions[currentIndex];
@@ -820,6 +893,8 @@ const payload = JSON.stringify({
 
       holdoutGate.hidden = true;
       done.hidden = true;
+      if (paperReady) paperReady.hidden = true;
+      if (paperResult) paperResult.hidden = true;
       questionCard.hidden = false;
       questionMeta.textContent = `${currentQuestion.year} · 第 ${currentQuestion.number} 题 · ${currentQuestion.questionType || '题'}`;
       questionProgress.textContent = `${currentIndex + 1} / ${activeQuestions.length}`;
@@ -862,17 +937,20 @@ const payload = JSON.stringify({
       submit.disabled = Boolean(existing) || currentSelection.size === 0;
       submit.hidden = Boolean(existing);
       clearReview();
-      if (reviewToggle) reviewToggle.hidden = !existing;
+      const mayRevealResult = !paperMode || paperSealed();
+      if (reviewToggle) reviewToggle.hidden = !existing || !mayRevealResult;
 
-      if (existing) {
+      if (existing && mayRevealResult) {
         const correct = letters(currentQuestion.correctAnswer);
         optionsBox.querySelectorAll('.xzpOption').forEach((node) => {
           const key = node.dataset.option || '';
           node.classList.toggle('correct', correct.includes(key));
           node.classList.toggle('wrong', currentSelection.has(key) && !correct.includes(key));
         });
-        if (existing.status === 'wrong' || existing.status === 'uncertain') renderReview(currentQuestion, existing);
+        if (!paperMode && (existing.status === 'wrong' || existing.status === 'uncertain')) renderReview(currentQuestion, existing);
         else showFront();
+      } else if (existing) {
+        showFront();
       }
 
       renderMap();
