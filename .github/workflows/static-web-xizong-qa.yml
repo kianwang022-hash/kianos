@@ -117,6 +117,8 @@ jobs:
           if-no-files-found: error
       - name: Validate A1 learner contract
         run: node scripts/validate-xizong-learning.mjs
+      - name: Validate Xizong learner state inside Daily Learning Packet
+        run: node scripts/test-daily-learning-packet.mjs
       - name: Validate A1 fresh Projection contracts
         run: node scripts/validate-xizong-a1-projection.mjs
       - name: Validate A1 fresh Evidence contracts
