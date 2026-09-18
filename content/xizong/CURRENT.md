@@ -25,6 +25,29 @@ Content construction may continue independently through exact System owners. Lea
 
 ---
 
+## Active final acceptance task
+
+Kian explicitly requested a **fresh, higher-quality Xizong Final Learner Acceptance**.
+
+Durable execution brief:
+
+`FINAL_LEARNER_ACCEPTANCE_BRIEF.md`
+
+This task is lane-wide integration re-acceptance, not a synthetic aggregate of child System gates and not a broad UI redesign.
+
+Execution rules:
+
+- form an independent model from Current Rule / canonical owners before reconciling old PASS evidence;
+- treat PR #458 and historical CI as later evidence, not authority;
+- pressure-test heterogeneous mature Systems and incomplete-System fail-closed behavior;
+- include real Runtime / Evidence / Practice / Chat Return / learner-data durability / Mac-wide presentation;
+- repair only the earliest responsible owner when a real defect is found;
+- never manufacture learner `U`.
+
+The eventual lane-wide claims belong in `ACCEPTANCE.md` only after executed evidence supports them.
+
+---
+
 ## Core Xizong boundaries
 
 These remain stable and are owned by `LEARNING_CONTRACT.md`:
