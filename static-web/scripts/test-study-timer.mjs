@@ -29,7 +29,7 @@ assert.equal(resolveStudyTimerContext('/kianos/xizong/circulation/b01/', base)?.
 assert.equal(resolveStudyTimerContext('/kianos/politics/marxism/c01/', base)?.subject, 'politics');
 assert.deepEqual(
   { subject: resolveStudyTimerContext('/kianos/reading/2025-01/', base)?.subject, detail: resolveStudyTimerContext('/kianos/reading/2025-01/', base)?.detailKey },
-  { subject: 'english', detail: 'reading' }
+  { subject: 'english', detail: 'objective' }
 );
 assert.equal(resolveStudyTimerContext('/kianos/vocabulary/42/', base)?.subject, 'english');
 assert.equal(resolveStudyTimerContext('/kianos/lexical/', base)?.subject, 'english', 'Legacy lexical route still belongs to English time.');
