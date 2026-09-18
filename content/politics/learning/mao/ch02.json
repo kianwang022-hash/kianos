@@ -306,5 +306,70 @@
     "analysis_output_hooks": [],
     "analysis_output_status": "NO_DEDICATED_LEG26_OUTPUT_BANK_DO_NOT_INVENT",
     "first_round_effect": "NONE"
+  },
+  "later_stage_learning": {
+    "schema": "kianos.politics.later_stage_learning.v1",
+    "status": "CURRENT_L_CALIBRATION",
+    "phase": "CONSOLIDATION",
+    "mode": "CHAPTER_FAST",
+    "reconstruct": {
+      "source": "later_stage_knowledge.compression_model",
+      "task": "从半殖民地半封建国情出发，一次性推出主要矛盾/任务、对象动力领导性质前途、纲领、道路和三大法宝。"
+    },
+    "core_content_recall": {
+      "mode": "GROUPED_ACTIVE_RECALL",
+      "groups": [
+        {
+          "id": "MAO-C02-LR-G01",
+          "title": "国情决定链",
+          "prompt": "从社会性质和主要矛盾推出革命任务、对象和革命性质。",
+          "owner_ids": [
+            "POL27-CF-MAO-C02-S01"
+          ],
+          "tolerance": "SEMANTIC_COMPLETE_DECISIVE_IDENTITIES_REQUIRED"
+        },
+        {
+          "id": "MAO-C02-LR-G02",
+          "title": "总路线身份组",
+          "prompt": "完整区分对象、动力、领导、性质、前途，并说明为什么不能互相替代。",
+          "owner_ids": [
+            "POL27-CF-MAO-C02-S02"
+          ],
+          "tolerance": "GROUP_COMPLETE_ROLE_BOUNDARIES_REQUIRED"
+        },
+        {
+          "id": "MAO-C02-LR-G03",
+          "title": "纲领、道路与法宝",
+          "prompt": "说清基本纲领的层级，并区分农村包围城市道路与统一战线/武装斗争/党的建设三大法宝。",
+          "owner_ids": [
+            "POL27-CF-MAO-C02-S02",
+            "POL27-CF-MAO-C02-S03"
+          ],
+          "tolerance": "SEMANTIC_COMPLETE_FIXED_GROUPS_COMPLETE"
+        }
+      ]
+    },
+    "precision": {
+      "policy": "ACTIVE_ADMITTED_ONLY",
+      "candidate_owner": "content/politics/learning/mao/ch02.memory.json",
+      "default_state": "DORMANT_CANDIDATE_POOL",
+      "activation": [
+        "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+        "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_NEED",
+        "ANALYSIS_OUTPUT_PHASE_REQUIRES_EXACT_FORMULATION"
+      ]
+    },
+    "evidence": {
+      "prior_wrong_uncertain": "PRIORITIZE_IF_PRESENT",
+      "retest": "SELECTIVE_NOT_FULL_BANK"
+    },
+    "repair": "SMALLEST_SUFFICIENT",
+    "close": [
+      "NO_MATERIAL_FRAMEWORK_GAP",
+      "NO_MATERIAL_CORE_CONTENT_GAP",
+      "ACTIVE_PRECISION_STABLE_OR_NONE",
+      "SELECTED_RETEST_DEBT_CLEARED_OR_JUSTIFIABLY_PENDING"
+    ],
+    "analysis_output": "NO_ROUTINE_OUTPUT_TASK_IN_CONSOLIDATION"
   }
 }
