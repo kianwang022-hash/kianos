@@ -61,11 +61,11 @@ const wordFamilyRows = (Array.isArray(card.word_family) ? card.word_family : [])
     Boolean(item?.target_word)
   );
 
-const hasImportantExpansion = constructionRows.length > 0 || importantRelationRows.length > 0 || Boolean(formIdentity);
-const showFamilyInExpansion = hasImportantExpansion && wordFamilyRows.length > 0;
-const expansionModuleCount = [constructionRows.length > 0, importantRelationRows.length > 0, Boolean(formIdentity), showFamilyInExpansion]
+const showFamilyInReference = wordFamilyRows.length > 0;
+const referenceModuleCount = [importantRelationRows.length > 0, Boolean(formIdentity), showFamilyInReference]
   .filter(Boolean).length;
-const expansionWeight = expansionModuleCount >= 3 ? 'rich' : expansionModuleCount === 1 ? 'light' : 'standard';
+const hasReferenceRail = referenceModuleCount > 0;
+const referenceWeight = referenceModuleCount >= 3 ? 'rich' : referenceModuleCount === 1 ? 'light' : 'standard';
 
 const identityOverlayText = (overlay = {}) => String(
   overlay.note || overlay.label_cn || overlay.label_en || overlay.boundary || overlay.identity_type || overlay.canonical_form || 'Form / identity distinction'
@@ -75,6 +75,10 @@ const coreSecondaryCn = String(core.mental_model_cn || '').trim() && String(core
   ? String(core.mental_model_cn).trim()
   : '';
 const coreEnglish = String(core.core_meaning_en || '').trim();
+const coreClusterLabels = (Array.isArray(core.core_clusters) ? core.core_clusters : [])
+  .map((cluster) => String(cluster?.label_cn || cluster?.label_en || '').trim())
+  .filter(Boolean)
+  .slice(0, 4);
 
 const posCode = (value = '') => {
   const pos = String(value).toLowerCase();
@@ -196,20 +200,23 @@ const relationDifferenceRows = (relation = {}) => {
             <span><button type="button" data-vocab-speak="en-GB">英</button><button type="button" data-vocab-speak="en-US" class="active">美</button></span>
           </div>
         </div>
-        <div class="lexicalDepthKeyHint"><b>J / K</b> 局部对象 <span>·</span> <b>+</b> Repair <span>·</span> <b>S</b> 发音</div>
+        <section class="lexicalCoreHeadline" data-vocab-target-row aria-label="Word Feel and Core">
+          <span>WORD FEEL / CORE</span>
+          <p>{corePrimaryCn}</p>
+          {coreSecondaryCn && <b>{coreSecondaryCn}</b>}
+          {coreClusterLabels.length > 0 && (
+            <div class="lexicalCoreClusters" aria-label="Core branches">
+              <small>分支</small>
+              {coreClusterLabels.map((label) => <em>{label}</em>)}
+            </div>
+          )}
+          {!coreSecondaryCn && coreEnglish && <small class="lexicalCoreEnglish">{coreEnglish}</small>}
+          <button type="button" data-vocab-repair data-target-kind="core" data-target-id="" data-target-locator="record.core_concept" data-target-label={`${core.core_meaning_cn || core.mental_model_cn || core.core_meaning_en || card.word}`} aria-pressed="false">+</button>
+        </section>
       </header>
 
-      <div class="portedVocabBody" data-vocab-body data-has-expansion={hasImportantExpansion ? 'true' : 'false'} data-expansion-weight={expansionWeight}>
+      <div class="portedVocabBody" data-vocab-body data-has-reference={hasReferenceRail ? 'true' : 'false'} data-reference-weight={referenceWeight}>
         <main class="portedVocabMeaningColumn">
-          <section class="lexicalCoreRow" data-vocab-target-row>
-            <header><span>核心语义模型</span><small>建立总方向</small></header>
-            <div>
-              {coreEnglish && <p>{coreEnglish}</p>}
-              <strong>{corePrimaryCn}</strong>
-              {coreSecondaryCn && <small>{coreSecondaryCn}</small>}
-            </div>
-            <button type="button" data-vocab-repair data-target-kind="core" data-target-id="" data-target-locator="record.core_concept" data-target-label={`${core.core_meaning_cn || core.mental_model_cn || core.core_meaning_en || card.word}`} aria-pressed="false">+</button>
-          </section>
           <div class="portedVocabSenseList" data-vocab-repair-list>
             {senses.map((sense, index) => {
               const collocations = allCollocationsWithIndex(sense);
@@ -261,23 +268,29 @@ const relationDifferenceRows = (relation = {}) => {
               </section>
             ))}
           </div>
+
+          {constructionRows.length > 0 && (
+            <section class="lexicalWordPatterns" aria-label="Word-level patterns and constructions">
+              <header>
+                <span>PATTERNS / CONSTRUCTIONS</span>
+                <small>Word-owned 可复用结构</small>
+              </header>
+              <div class="lexicalPatternList">
+                {constructionRows.map(({ construction: item, index }) => (
+                  <article data-vocab-target-row>
+                    <b>{item.pattern || item.boundary || item.label_en}</b>
+                    {(item.meaning_cn || item.definition_cn) && <span>{item.meaning_cn || item.definition_cn}</span>}
+                    {item.learning_note && <small>{item.learning_note}</small>}
+                    {item.definition_en && !item.learning_note && <small>{item.definition_en}</small>}
+                    <button type="button" data-vocab-repair data-target-kind="construction" data-target-id={item.fact_id || item.construction_id || ''} data-target-locator={`record.constructions[${index}]`} data-target-label={`${item.pattern || item.boundary || item.label_en || card.word}`} aria-pressed="false">+</button>
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
         </main>
 
-        {hasImportantExpansion && <aside class="portedVocabEvidenceColumn" aria-label="Important lexical expansion">
-          {constructionRows.length > 0 && <section class="lexicalExpansionSection lexicalConstructionSection">
-            <header><span>Constructions</span><small>独立构式 / 固定表达</small></header>
-            <div class="portedVocabEvidenceList">
-              {constructionRows.map(({ construction: item, index }) => (
-                <article data-vocab-target-row>
-                  <p class="lexicalExpansionCn">{item.meaning_cn || item.definition_cn || '—'}</p>
-                  <b>{item.pattern || item.boundary || item.label_en}</b>
-                  {item.definition_en && <small>{item.definition_en}</small>}
-                  <button type="button" data-vocab-repair data-target-kind="construction" data-target-id={item.fact_id || item.construction_id || ''} data-target-locator={`record.constructions[${index}]`} data-target-label={`${item.pattern || item.boundary || item.label_en || card.word}`} aria-pressed="false">+</button>
-                </article>
-              ))}
-            </div>
-          </section>}
-
+        {hasReferenceRail && <aside class="portedVocabEvidenceColumn" aria-label="Cross-sense lexical reference">
           {importantRelationRows.length > 0 && <section class="lexicalExpansionSection lexicalRelationSection">
             <header><span>Contrast / Confusable</span><small>只保留会改变判断的边界</small></header>
             <div class="portedVocabEvidenceList">
@@ -301,7 +314,7 @@ const relationDifferenceRows = (relation = {}) => {
             <button type="button" data-vocab-repair data-target-kind="form_identity" data-target-id="" data-target-locator="record.form_identity" data-target-label={`${formIdentity.boundary || formBoundaries.map((boundary) => boundary.surface).filter(Boolean).join(' / ') || card.word}`} aria-pressed="false">+</button>
           </section>}
 
-          {showFamilyInExpansion && <section class="lexicalExpansionSection lexicalFamilySection">
+          {showFamilyInReference && <section class="lexicalExpansionSection lexicalFamilySection">
             <header><span>Word Family</span><small>有压缩价值才跟随 Depth</small></header>
             <div class="lexicalFamilyRows">{wordFamilyRows.map(({ item }) => <article><b>{item.target_word}</b>{item.boundary && <span>{item.boundary}</span>}</article>)}</div>
           </section>}
