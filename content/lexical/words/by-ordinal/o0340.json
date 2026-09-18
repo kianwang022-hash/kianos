@@ -66,14 +66,6 @@
         "definition_en": "the month following July and preceding September",
         "governing_pattern": "",
         "level": "L1",
-        "lexical_identity_overlay": {
-          "case_sensitive": true,
-          "identity_type": "case_sensitive_lexeme",
-          "lexical_identity_id": "identity:c0e717d1d3d0ce08a367",
-          "recommended_disposition": null,
-          "surface_lemma": "August",
-          "pronunciation": "/ˈɔː.ɡəst/ month"
-        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:august:abd4aaa95974529f",
@@ -103,14 +95,7 @@
         "sense_id": "sense:august:a4a009c595995813",
         "sense_label_en": "majestic, venerable, or profoundly impressive",
         "sort_order": 1,
-        "transitivity": "nonverb",
-        "lexical_identity_overlay": {
-          "case_sensitive": true,
-          "identity_type": "lowercase_common_lexeme",
-          "lexical_identity_id": "identity:157758f1e89cae0088a7",
-          "surface_lemma": "august",
-          "pronunciation": "/ɔːˈɡʌst/ adjective"
-        }
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -130,7 +115,60 @@
     },
     "word": "august",
     "word_family": [],
-    "word_id": "word:august"
+    "word_id": "word:august",
+    "form_identity": {
+      "form_type": "case_and_stress_conditioned_lexeme",
+      "spelling": "august",
+      "identity_rule": "capitalization_and_stress_select_lexeme",
+      "boundary": "Capitalized August is the month and has first-syllable stress; lowercase august is the formal adjective 'majestic/venerable' and has second-syllable stress.",
+      "boundaries": [
+        {
+          "surface": "August",
+          "condition": "capitalized month name",
+          "note": "月份 August：首音节重读"
+        },
+        {
+          "surface": "august",
+          "condition": "lowercase formal adjective",
+          "note": "形容词 august：第二音节重读，表示“威严的/令人敬畏的”"
+        }
+      ],
+      "variants": [
+        {
+          "variant_id": "form:august:month-uk",
+          "pos": [
+            "noun"
+          ],
+          "learner_key": "August · month · UK",
+          "ipa": "/ˈɔː.ɡəst/"
+        },
+        {
+          "variant_id": "form:august:month-us",
+          "pos": [
+            "noun"
+          ],
+          "learner_key": "August · month · US",
+          "ipa": "/ˈɑː.ɡəst/"
+        },
+        {
+          "variant_id": "form:august:adjective-uk",
+          "pos": [
+            "adjective"
+          ],
+          "learner_key": "august · adjective · UK",
+          "ipa": "/ɔːˈɡʌst/"
+        },
+        {
+          "variant_id": "form:august:adjective-us",
+          "pos": [
+            "adjective"
+          ],
+          "learner_key": "august · adjective · US",
+          "ipa": "/ɑːˈɡʌst/"
+        }
+      ],
+      "authority": "Cambridge Dictionary pronunciation check + Baseline v2 2026-09-19"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],

@@ -120,13 +120,7 @@
         "sense_id": "sense:attribute:ae2dae6afe725db5",
         "sense_label_en": "a quality or feature regarded as characteristic of someone or something",
         "sort_order": 0,
-        "transitivity": "nonverb",
-        "lexical_identity_overlay": {
-          "identity_type": "pronunciation_by_part_of_speech",
-          "lexical_identity_id": "identity:9474a5adf82873451668",
-          "surface_lemma": "attribute",
-          "pronunciation": "/ˈæt.trɪ.bjuːt/ noun"
-        }
+        "transitivity": "nonverb"
       },
       {
         "collocations": [
@@ -159,13 +153,7 @@
         "sense_id": "sense:attribute:9d75480caee85cd9",
         "sense_label_en": "to regard something as being caused by or due to something else",
         "sort_order": 1,
-        "transitivity": "vt",
-        "lexical_identity_overlay": {
-          "identity_type": "pronunciation_by_part_of_speech",
-          "lexical_identity_id": "identity:9474a5adf82873451668",
-          "surface_lemma": "attribute",
-          "pronunciation": "/əˈtrɪb.juːt/ verb"
-        }
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -186,11 +174,14 @@
     "word": "attribute",
     "word_family": [
       {
-        "boundary": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+        "boundary": "attribute A to B → A is attributable to B：主动“把A归因于B”与形容词“可归因于B”。",
         "codex_reviewed": false,
         "definition_cn": null,
-        "definition_en": null,
-        "dimensions": {},
+        "definition_en": "capable of being attributed to a particular cause or source",
+        "dimensions": {
+          "morphology": "verb → adjective",
+          "productive_use": "be attributable to + cause/source"
+        },
         "direction": "R",
         "evidence": [
           {
@@ -207,7 +198,7 @@
         ],
         "label_en": null,
         "level": null,
-        "meaning_cn": null,
+        "meaning_cn": "可归因于……的；由……造成的",
         "module": "word_family",
         "pattern": null,
         "pos": null,
@@ -224,7 +215,60 @@
         "writing_safe": false
       }
     ],
-    "word_id": "word:attribute"
+    "word_id": "word:attribute",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_stress",
+      "spelling": "attribute",
+      "identity_rule": "part_of_speech_selects_stress",
+      "boundary": "The noun attribute has first-syllable stress; the verb attribute has second-syllable stress.",
+      "boundaries": [
+        {
+          "surface": "attribute",
+          "condition": "noun",
+          "note": "名词首音节重读，表示“属性/特征”"
+        },
+        {
+          "surface": "attribute",
+          "condition": "verb",
+          "note": "动词第二音节重读，表示“归因于”"
+        }
+      ],
+      "variants": [
+        {
+          "variant_id": "form:attribute:noun-uk",
+          "pos": [
+            "noun"
+          ],
+          "learner_key": "noun · UK",
+          "ipa": "/ˈæt.rɪ.bjuːt/"
+        },
+        {
+          "variant_id": "form:attribute:noun-us",
+          "pos": [
+            "noun"
+          ],
+          "learner_key": "noun · US",
+          "ipa": "/ˈæt.rɪ.bjuːt/"
+        },
+        {
+          "variant_id": "form:attribute:verb-uk",
+          "pos": [
+            "verb"
+          ],
+          "learner_key": "verb · UK",
+          "ipa": "/əˈtrɪb.juːt/"
+        },
+        {
+          "variant_id": "form:attribute:verb-us",
+          "pos": [
+            "verb"
+          ],
+          "learner_key": "verb · US",
+          "ipa": "/əˈtrɪb.juːt/"
+        }
+      ],
+      "authority": "Cambridge Dictionary pronunciation check + Baseline v2 2026-09-19"
+    }
   },
   "relation_refs": [
     {
