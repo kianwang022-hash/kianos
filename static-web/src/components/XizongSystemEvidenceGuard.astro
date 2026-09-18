@@ -61,6 +61,8 @@ const evidenceQuestions = (sweep?.questions || []).map((question) => ({
 <script type="application/json" data-evidence-questions set:html={JSON.stringify(evidenceQuestions).replace(/</g, '\\u003c')}></script>
 
 <script>
+  import { XIZONG_MEMORY_STORAGE_KEY, normalizeXizongMemoryState } from '../lib/xizongMemoryModel.mjs';
+
   const marker = document.querySelector('[data-xizong-system-evidence-guard]');
   const root = document.querySelector('[data-xizong-system-exit], [data-xizong-practice]');
   if (marker instanceof HTMLElement && root instanceof HTMLElement) {
@@ -105,6 +107,19 @@ const evidenceQuestions = (sweep?.questions || []).map((question) => ({
         }
       });
 
+      const oldMemory = normalizeXizongMemoryState(readJson(XIZONG_MEMORY_STORAGE_KEY, null));
+      const staleVisibleRepairs = (oldMemory.repairTasks || []).filter((task) =>
+        String(task?.systemId || '') === systemId && String(task?.origin || '') === 'SYSTEM_WU_CHAT_RETURN'
+      );
+      if (staleVisibleRepairs.length) {
+        writeJson(XIZONG_MEMORY_STORAGE_KEY, {
+          ...oldMemory,
+          repairTasks: (oldMemory.repairTasks || []).filter((task) =>
+            !(String(task?.systemId || '') === systemId && String(task?.origin || '') === 'SYSTEM_WU_CHAT_RETURN')
+          )
+        });
+      }
+
       const archiveKey = `kianos-xizong-stale-system-evidence:${systemId}:${Date.now()}`;
       writeJson(archiveKey, {
         archived_at: new Date().toISOString(),
@@ -115,7 +130,8 @@ const evidenceQuestions = (sweep?.questions || []).map((question) => ({
         repair: readJson(repairKey, {}),
         ledger: readJson(ledgerKey, {}),
         stale_block_question_plans: staleBlockQuestionPlans,
-        stale_block_repair_inboxes: staleBlockRepairInboxes
+        stale_block_repair_inboxes: staleBlockRepairInboxes,
+        stale_visible_memory_repairs: staleVisibleRepairs
       });
       try {
         localStorage.removeItem(recallKey);
