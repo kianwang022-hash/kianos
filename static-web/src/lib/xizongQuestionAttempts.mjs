@@ -1,5 +1,5 @@
 export const XIZONG_STUDY_PHASES = Object.freeze(['FIRST_PASS', 'SECOND_PASS', 'LATE_REVIEW']);
-export const XIZONG_QUESTION_ROUND_MODES = Object.freeze(['TARGETED', 'FULL_RESWEEP']);
+export const XIZONG_QUESTION_ROUND_MODES = Object.freeze(['TARGETED', 'FULL_RESWEEP', 'EXPLICIT_SET']);
 
 const PHASE_LABELS = Object.freeze({
   FIRST_PASS: '一轮',
@@ -75,7 +75,7 @@ export function deriveXizongQuestionIdsForCurrentRound(input, questions, holdout
   const state = isObject(input) ? input : {};
   const eligible = eligibleQuestions(questions, holdoutYears);
   const allIds = eligible.map((question) => String(question.questionId));
-  if (state.round?.queueMode === 'FULL_RESWEEP') return allIds;
+  if (['FULL_RESWEEP', 'EXPLICIT_SET'].includes(state.round?.queueMode)) return allIds;
   if (state.round?.studyPhase === 'SECOND_PASS') {
     const targeted = new Set(deriveXizongSecondPassQuestionIds(state, eligible, []));
     return allIds.filter((questionId) => targeted.has(questionId));
