@@ -18,6 +18,13 @@ const port = String(process.env.KIANOS_PORT || '4321');
 const npmBin = process.env.KIANOS_NPM_BIN || 'npm';
 const oneShot = process.env.KIANOS_SYNC_ONCE === '1';
 const skipAstro = process.env.KIANOS_SKIP_ASTRO === '1';
+const syncRef = String(process.env.KIANOS_SYNC_REF || 'main').trim() || 'main';
+if (!/^[A-Za-z0-9._/-]+$/.test(syncRef) || syncRef.startsWith('/') || syncRef.endsWith('/')) {
+  throw new Error(`Invalid KIANOS_SYNC_REF: ${syncRef}`);
+}
+const remoteTrackingRef = `refs/remotes/origin/${syncRef}`;
+const remoteHeadRef = `refs/heads/${syncRef}`;
+const localMirrorBranch = syncRef === 'main' ? 'main' : 'kianos-preview';
 
 let astro = null;
 let stopping = false;
@@ -103,8 +110,8 @@ async function stopAstro() {
   astro = null;
 }
 
-async function remoteMainSha() {
-  const raw = await git(['ls-remote', 'origin', 'refs/heads/main']);
+async function remoteTargetSha() {
+  const raw = await git(['ls-remote', 'origin', remoteHeadRef]);
   return raw.split(/\s+/)[0] || '';
 }
 
@@ -116,27 +123,27 @@ async function syncOnce({ initial = false } = {}) {
     lastKnownSha = local;
     writeStatus('checking', local);
 
-    const remote = await remoteMainSha();
-    if (!remote) throw new Error('origin/main did not return a SHA');
+    const remote = await remoteTargetSha();
+    if (!remote) throw new Error(`origin/${syncRef} did not return a SHA`);
     lastNetworkError = '';
 
     if (local === remote) {
       lastSyncHealthy = true;
       writeStatus('synced', local);
-      if (initial) log(`Current mirror already matches main ${local.slice(0, 8)}`);
+      if (initial) log(`Current mirror already matches ${syncRef} ${local.slice(0, 8)}`);
       return false;
     }
 
     writeStatus('updating', local, { target_sha: remote });
-    log(`main advanced ${local.slice(0, 8)} → ${remote.slice(0, 8)}; syncing whole repository`);
-    await git(['fetch', 'origin', 'main', '--prune']);
-    const fetched = await git(['rev-parse', 'origin/main']);
+    log(`${syncRef} advanced ${local.slice(0, 8)} → ${remote.slice(0, 8)}; syncing whole repository`);
+    await git(['fetch', 'origin', `${remoteHeadRef}:${remoteTrackingRef}`, '--prune']);
+    const fetched = await git(['rev-parse', remoteTrackingRef]);
     const changed = await git(['diff', '--name-only', local, fetched]);
     const changedPaths = changed ? changed.split('\n').filter(Boolean) : [];
 
     await stopAstro();
-    await git(['checkout', '-B', 'main', 'origin/main']);
-    await git(['reset', '--hard', 'origin/main']);
+    await git(['checkout', '-B', localMirrorBranch, remoteTrackingRef]);
+    await git(['reset', '--hard', remoteTrackingRef]);
     lastKnownSha = fetched;
 
     if (changedPaths.some((file) => [
@@ -148,8 +155,8 @@ async function syncOnce({ initial = false } = {}) {
     }
 
     lastSyncHealthy = true;
-    writeStatus('synced', fetched, { changed_paths: changedPaths.length });
-    log(`synced ${changedPaths.length} changed path(s); Current is ${fetched.slice(0, 8)}`);
+    writeStatus('synced', fetched, { changed_paths: changedPaths.length, sync_ref: syncRef });
+    log(`synced ${changedPaths.length} changed path(s); ${syncRef} is ${fetched.slice(0, 8)}`);
     startAstro();
     return true;
   } catch (error) {
@@ -191,7 +198,7 @@ process.on('SIGTERM', () => void shutdown('SIGTERM'));
 try {
   lastKnownSha = await git(['rev-parse', 'HEAD']);
 } catch {}
-writeStatus('starting', lastKnownSha);
+writeStatus('starting', lastKnownSha, { sync_ref: syncRef });
 await syncOnce({ initial: true });
 
 if (oneShot) {
@@ -200,5 +207,5 @@ if (oneShot) {
 }
 
 startAstro();
-log(`watching origin/main every ${Math.round(intervalMs / 1000)}s; all subjects/content sync as one repository`);
+log(`watching origin/${syncRef} every ${Math.round(intervalMs / 1000)}s; all subjects/content sync as one repository`);
 setInterval(() => void syncOnce(), intervalMs);
