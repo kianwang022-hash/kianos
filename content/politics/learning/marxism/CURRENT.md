@@ -7,42 +7,51 @@ This file does not own Marxism Source Truth, teaching content, Politics learning
 
 ---
 
-## Active BUILD lane｜LEG26 Memory / Output realization
+## Active BUILD lane｜Later-stage Knowledge calibration
 
-This subject has been intentionally reopened for a bounded new Source→Knowledge task: integrate the imported LEG26 historical memory/output baseline without changing first-round Chengfeng ownership or resuming UI work.
+Marxism has moved beyond historical Source routing into actual later-stage **K realization**. First-round Chengfeng Knowledge remains unchanged.
 
-Current sequence:
-
-```text
-LEG26 historical Source
-→ reconcile against Current Marxism Knowledge
-→ classify Memory candidates / objective compression / analysis-output baseline
-→ keep current-year admission separate
-→ only later expose stage-specific Learn actions
-```
-
-Completed bounded review:
-
-- Marxism C00–C08 have all been reconciled against the imported LEG26 historical baseline;
-- C02 keeps the existing four K03 Memory candidates as the only current sparse pilot;
-- C00/C01/C03–C08 create no new Memory sidecars merely for completeness;
-- C02–C04 retain the lower-volume analysis material as Chat-first later-phase output baseline;
-- C05–C08 retain high-value precision/list/formula/timeline material only as second-round historical compression until current-year corroboration;
-- **zero** candidate was promoted to 2027 Memory solely because LEG26 contains it;
-- UI / Projection remains frozen.
-
-Current boundary:
+Current causal scope:
 
 ```text
-LEG26 historical baseline
-→ Marxism C00–C08 semantic reconciliation COMPLETE
-→ wait for 2027 designated-memory delta and/or learner evidence
-→ selectively admit durable Memory / Precision / later Chat output
+Current first-round Knowledge
++ LEG26 historical Memory / Output Source
++ existing chapter_compression
+↓
+Later-stage Knowledge
+  - Compression reconstruction
+  - sparse Precision / Memory candidates
+  - source-grounded Analysis Output hooks
+↓
+later L audit (not started yet)
 ```
 
-Next Content action:
+Current calibration owners:
 
-- move the same Source→Knowledge review method to the next Politics subject (Mao by default), while leaving Marxism closed unless a 2027 LEG delta or real learning evidence reopens it.
+- **C02 唯物辩证法** — relation/output-heavy shape:
+  - chapter reconstruction upgraded into a directed relation model;
+  - decisive boundaries and cross-Unit confusables are explicit;
+  - existing C02 Memory pilot is referenced rather than duplicated;
+  - three source-grounded analysis-output hooks now exist as K only.
+- **C05 资本主义的本质及规律** — precision/mechanism-heavy shape:
+  - economic mechanism reconstruction is explicit;
+  - cross-Unit confusables are explicit;
+  - new sparse `ch05.memory.json` holds grounded candidate-only precision;
+  - formulas/list exactness remains deferred until exact Current/current-year corroboration.
+
+Hard boundary:
+
+- this work changes **Knowledge only**;
+- no `REVIEW / PRECISION / OUTPUT` learner state is activated yet;
+- no UI / Projection / Runtime behavior is changed;
+- historical LEG26 presence never equals current-year Memory admission.
+
+Next:
+
+1. audit C02/C05 as two materially different later-stage K shapes;
+2. if the shared K shape holds, realize Marxism C00–C08;
+3. only after Marxism K closure move to later-stage **L** design.
+
 
 ---
 
