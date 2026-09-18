@@ -65,6 +65,9 @@ try {
 
     await page.goto(`${BASE}/english-exam/${encodeURIComponent(paper.paper_id)}/`, { waitUntil: 'domcontentloaded' });
     check(await page.locator('[data-exam-start]').isVisible(), 'start_button_missing');
+    await page.locator('[data-english-exam-home][data-exam-ready="true"]').waitFor({ state: 'visible' });
+    await page.locator('[data-exam-start]').waitFor({ state: 'visible' });
+    check(await page.locator('[data-exam-start]').isEnabled(), 'start_button_not_enabled_after_runtime_ready');
     check((await page.locator('[data-exam-step-list]').locator('.englishExamStep').count()) === 9, 'paper_map_not_9_steps');
     await page.screenshot({ path: path.join(auditDir, 'english-exam-paper.png'), fullPage: false });
 
