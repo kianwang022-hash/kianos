@@ -158,6 +158,7 @@ try {
   await practice.locator('[data-holdout-control]').evaluate((node)=>{node.open=true;});
   await practice.locator('[data-holdout-input]').fill(String(holdoutYear));
   await practice.locator('[data-save-holdout]').click();
+  check(!(await practice.locator('.xzpMore').evaluate((node)=>node.open)),'practice_settings_close_after_holdout_save');
   await practice.locator('[data-question-card]').waitFor({state:'visible'});
   check((await practice.locator('[data-question-stem]').textContent()||'').trim().length>10,'practice_question_stem_visible');
   check(await practice.locator('.xzpOption').count()>=4,'practice_options_visible');
