@@ -27,7 +27,7 @@ Architecture-level website blocker: **none**.
 
 | Lane | State | Active ref / continue from |
 | --- | --- | --- |
-| Xizong UI | **ACTIVE · PRACTICE HUMAN GATE CLOSED** | `main` → `XIZONG_VISUAL_LANGUAGE.md` (L2) → exact L3 surface owner |
+| Xizong UI | **ACTIVE · BLOCK/TTSX + SYSTEM RECALL + PRACTICE HUMAN GATES CLOSED** | `main` → `XIZONG_VISUAL_LANGUAGE.md` (L2) → exact L3 surface owner |
 | Politics UI | **ACTIVE** | formal `#395` / `work/ui-politics-vertical-20260918`; preview `#397` stays isolated until Human Gate |
 | English UI | **LANDED** | `content/english/CURRENT.md` |
 | Lexical Architecture v2 | **ACTIVE** | `content/lexical/CURRENT.md` → `static-web/LEXICAL_PRODUCT_BRIEF.md` → representative learner surfaces |
@@ -182,7 +182,7 @@ CI green is not visual acceptance.
 
 ## Current next actions
 
-- **Xizong:** Practice front/back L3 is in `main` and its real macOS Human Gate is closed: Front = Question + Progress; Back = quick learner feedback + Knowledge Review; Space toggles sides; shared L1 PingFang-first Chinese typography is authoritative. Linux remains geometry/runtime-only evidence. Continue explicit W/U, Marked, CHAT_SET and whole-paper/Hidden on the same Workbench, then re-review System Recall visual under the same L2.
+- **Xizong:** Block/TTSX, dedicated System Recall, and Practice front/back L3 are in `main` with real macOS Human Gates closed. PingFang-first Chinese typography is authoritative; Linux remains geometry/runtime-only evidence. Next bounded UI slice = **Practice scope closure on the same Workbench**: first a global retained W/U/Marked entry independent of one System, then whole-paper/year scope + Hidden result. CHAT_SET manual import already exists; typed Chat Return integration stays with the separate Learner Data / Chat Handoff lane.
 - **Politics:** continue from the cleaned SurfacePlan-only renderer path; Visual may arrange mapped objects but must not author semantic grouping/relations.
 - **English:** only concrete launch-visible defects; do not reopen accepted task geometry.
 - **Lexical:** execute Architecture-v2 adaptation from current Rule + canonical Content; first Human Gates are Vocabulary Home and representative SAFE_SIMPLE / DEPTH_READY Word surfaces. Do not treat prior P/R/E PASS as current visual Human-Gate approval.
