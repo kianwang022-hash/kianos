@@ -182,7 +182,6 @@ const relationDifferenceRows = (relation = {}) => {
       <div class="portedVocabRecallMap">
         <strong>{recallParts.length ? recallParts.join(' · ') : 'Core'}</strong>
         <small>当前 active 词义</small>
-        {recallPatterns.length > 0 && <code>{recallPatterns.length}P</code>}
       </div>
       <p>点击任意空白处，或按 ← / ↑ / Space 查看完整词义</p>
     </section>
@@ -197,6 +196,7 @@ const relationDifferenceRows = (relation = {}) => {
             <span><button type="button" data-vocab-speak="en-GB">英</button><button type="button" data-vocab-speak="en-US" class="active">美</button></span>
           </div>
         </div>
+        <div class="lexicalDepthKeyHint"><b>J / K</b> 局部对象 <span>·</span> <b>+</b> Repair <span>·</span> <b>S</b> 发音</div>
       </header>
 
       <div class="portedVocabBody" data-vocab-body data-has-expansion={hasImportantExpansion ? 'true' : 'false'} data-expansion-weight={expansionWeight}>
@@ -371,7 +371,7 @@ const relationDifferenceRows = (relation = {}) => {
     const reveal = root.querySelector('[data-vocab-reveal]');
     const stateLabel = root.querySelector('[data-vocab-state-label]');
     const modeLabel = root.querySelector('.lexicalWordIdentity>span');
-    if (modeLabel) modeLabel.textContent = mode === 'lookup' ? 'Lookup' : mode === 'repair' ? 'Repair' : 'Depth';
+    if (modeLabel && mode !== 'study') modeLabel.textContent = mode === 'lookup' ? 'Lookup' : 'Repair';
     const repairSummary = root.querySelector('[data-vocab-repair-summary]');
     const repairButtons = [...root.querySelectorAll('[data-vocab-repair]')];
     const noteKey = `kianos-lexical-note-v1:${objectId}`;
