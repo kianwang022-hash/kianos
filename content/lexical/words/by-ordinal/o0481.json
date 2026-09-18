@@ -56,14 +56,7 @@
         "sense_id": "sense:bible:6c4bada62d3d5c34",
         "sense_label_en": "the sacred writings of the Christian religions",
         "sort_order": 0,
-        "transitivity": "nonverb",
-        "lexical_identity_overlay": {
-          "case_sensitive": true,
-          "identity_type": "case_sensitive_lexeme",
-          "surface_lemma": "Bible",
-          "paired_form": "Bible / bible",
-          "note": "Proper Christian scripture: surface lemma Bible / the Bible; case-sensitive and distinct from common bible."
-        }
+        "transitivity": "nonverb"
       },
       {
         "collocations": [
@@ -96,14 +89,7 @@
         "sense_id": "sense:bible:a4cd4db3674758eb",
         "sense_label_en": "a book regarded as authoritative in its field",
         "sort_order": 1,
-        "transitivity": "nonverb",
-        "lexical_identity_overlay": {
-          "case_sensitive": true,
-          "identity_type": "case_sensitive_lexeme",
-          "surface_lemma": "bible",
-          "paired_form": "Bible / bible",
-          "note": "Common lowercase bible = an authoritative book in a field; distinct from proper Bible."
-        }
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -123,7 +109,27 @@
     },
     "word": "bible",
     "word_family": [],
-    "word_id": "word:bible"
+    "word_id": "word:bible",
+    "form_identity": {
+      "form_type": "case_conditioned_lexeme",
+      "spelling": "bible",
+      "identity_rule": "capitalization_selects_lexeme",
+      "boundary": "Capitalized Bible refers to the Christian scriptures; lowercase bible can mean an authoritative or indispensable book in a field.",
+      "boundaries": [
+        {
+          "surface": "Bible",
+          "condition": "capitalized proper name",
+          "note": "基督教《圣经》"
+        },
+        {
+          "surface": "bible",
+          "condition": "lowercase common noun",
+          "note": "某领域被奉为权威的典籍/指南"
+        }
+      ],
+      "variants": [],
+      "authority": "Baseline v2 re-validation 2026-09-19"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],

@@ -181,7 +181,27 @@
     },
     "word": "bit",
     "word_family": [],
-    "word_id": "word:bit"
+    "word_id": "word:bit",
+    "form_identity": {
+      "form_type": "surface_homograph_lexeme_vs_inflection",
+      "spelling": "bit",
+      "identity_rule": "syntax_and_lemma_select_identity",
+      "boundary": "bit can be an independent noun (a small amount/piece, computing bit, horse bit) or the past tense of bite.",
+      "boundaries": [
+        {
+          "surface": "bit",
+          "condition": "noun slot",
+          "note": "独立名词：少量/小块、比特、马嚼子等"
+        },
+        {
+          "surface": "bit",
+          "condition": "past-tense verb slot",
+          "note": "bite 的过去式 bit；其过去分词通常是 bitten"
+        }
+      ],
+      "variants": [],
+      "authority": "Baseline v2 re-validation 2026-09-19"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
