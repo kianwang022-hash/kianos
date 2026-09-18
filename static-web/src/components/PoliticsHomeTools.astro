@@ -7,9 +7,9 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
 <section class="politicsHomeTools" data-politics-home-tools data-base={base} data-has-handoff="false">
   <script type="application/json" data-politics-home-catalog set:html={JSON.stringify(catalog).replace(/</g, '\\u003c')} />
   <a class="politicsContinue" data-politics-continue href={firstHref}>
-    <span>Continue</span>
+    <span>继续学习</span>
     <strong data-politics-continue-title>{firstLabel}</strong>
-    <small data-politics-continue-meta>先选学习单元；之后回到原题、原学习位置。</small>
+    <small data-politics-continue-meta>先选科目和章节；之后会准确回到原题或原学习位置。</small>
   </a>
   <section class="politicsHandoff" data-politics-handoff hidden>
     <div>
@@ -17,7 +17,7 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
       <a class="politicsReviewEntry" data-politics-review-entry href={`${base}politics/review/`}>今日回访 →</a>
       <p data-politics-handoff-summary>今天还没有需要带回 Chat 的政治证据。</p>
     </div>
-    <button type="button" data-politics-copy-handoff hidden>Copy Today's Handoff</button>
+    <button type="button" data-politics-copy-handoff hidden>复制学习包</button>
   </section>
 </section>
 
@@ -40,7 +40,7 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
       const title = root.querySelector('[data-politics-continue-title]');
       const meta = root.querySelector('[data-politics-continue-meta]');
       if (title) title.textContent = target?.title || firstTitle;
-      if (meta) meta.textContent = snapshot.errors.length ? '记录未能完整读取，先核对存储。' : target?.detail || '先选学习单元；之后准确回到原位置。';
+      if (meta) meta.textContent = snapshot.errors.length ? '记录未能完整读取，先核对存储。' : target?.detail || '先选科目和章节；之后会准确回到原位置。';
     };
 
     const actionableItems = (review) => review.items.filter((item) => item.needsReview);
@@ -72,7 +72,7 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
       root.dataset.hasHandoff = 'true';
       handoff.hidden = false;
       button.hidden = false;
-      summary.textContent = `今天 ${items.length} 条需要处理 · ${wrong} Wrong · ${uncertain} Uncertain。`;
+      summary.textContent = `今天 ${items.length} 条需要处理 · ${wrong} 错题 · ${uncertain} 不确定。`;
     };
 
     const buildActionablePacket = (snapshot, todayReview) => {
@@ -94,11 +94,11 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
       const text = JSON.stringify(buildActionablePacket(snapshot, todayReview), null, 2);
       try {
         await navigator.clipboard.writeText(text);
-        button.textContent = 'Copied';
+        button.textContent = '已复制';
       } catch {
         window.prompt('Copy Politics Handoff', text);
       }
-      window.setTimeout(() => { button.textContent = "Copy Today's Handoff"; }, 1200);
+      window.setTimeout(() => { button.textContent = '复制学习包'; }, 1200);
     });
 
     const update = () => {
