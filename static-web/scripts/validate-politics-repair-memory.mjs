@@ -73,6 +73,9 @@ for (const file of memoryFiles) {
   }
 
   const handbook = data?.preferred_memory_reference || null;
+  if (Object.prototype.hasOwnProperty.call(data?.review_state || {}, 'current_year_memory_admission')) {
+    fail(`${rel} legacy review_state.current_year_memory_admission remains`);
+  }
   if (handbook) {
     if (handbook.role !== 'DESIGNATED_MEMORY_HANDBOOK') fail(`${rel} preferred_memory_reference must be DESIGNATED_MEMORY_HANDBOOK`);
     if (!handbook.binding_status) fail(`${rel} preferred_memory_reference missing binding_status`);
@@ -110,13 +113,15 @@ for (const file of memoryFiles) {
         ? candidate.historical_handbook_refs.filter(Boolean)
         : [];
       const historicalAlignment = String(candidate?.historical_handbook_alignment || '').trim();
-      const legacyAlignment = String(candidate?.handbook_alignment || '').trim();
 
+      if (Object.prototype.hasOwnProperty.call(candidate || {}, 'handbook_alignment')) {
+        fail(`${rel}:${candidate?.id || unitId} legacy handbook_alignment field remains`);
+      }
       if (historicalRefs.length && !handbook) {
         fail(`${rel}:${candidate?.id || unitId} has historical_handbook_refs without preferred_memory_reference`);
       }
-      if ((historicalAlignment || legacyAlignment) && !historicalRefs.length) {
-        fail(`${rel}:${candidate?.id || unitId} claims handbook alignment without historical_handbook_refs`);
+      if (historicalAlignment && !historicalRefs.length) {
+        fail(`${rel}:${candidate?.id || unitId} claims historical handbook alignment without refs`);
       }
       // LEG26 may establish Memory priority only when Current-grounded Knowledge
       // supports the same semantic claim. Precision exactness/freshness is separate.
