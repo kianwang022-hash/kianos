@@ -16,7 +16,6 @@ const acceptance = read('LEARNING_ACCEPTANCE.md');
 const explanationReadme = read('content/xizong/explanations/README.md');
 const explanationManifest = readJson('content/xizong/explanations/manifest.json');
 const extensionContract = read('content/xizong/EXTENSION_ASSET_CONTRACT.md');
-const extensionContract = read('content/xizong/EXTENSION_ASSET_CONTRACT.md');
 const questionManifest = readJson('content/xizong/questions/manifest.json');
 
 assert(
