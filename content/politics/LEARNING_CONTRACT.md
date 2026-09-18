@@ -257,73 +257,80 @@ The learner should see **what to do and why**, not scheduler internals.
 
 Politics later-stage consolidation is **not a miniature Xizong** and must not inherit a high-friction per-item recall workflow.
 
-Politics has a smaller time budget and lower overall exam priority than Xizong. Its default later-stage learner unit is therefore the **chapter or another genuinely large chapter-level memory structure**, not every Natural Unit, Knowledge object, reconstruction target, or Memory candidate.
+Politics also does **not** freeze a universal chapter-by-chapter review script inside shared Current.
 
-#### One-shot diagnosis first; targeted recall only for real gaps
-
-The default path is:
+The durable division of responsibility is:
 
 ```text
-CHAPTER_RECONSTRUCT
-→ CHECK_AGAINST_GROUP_RUBRIC
-→ [TARGETED_CONTENT_RECALL only for missing/weak groups]
-→ [ACTIVE_PRECISION when justified]
-→ [PRIOR_WRONG / meaningful UNCERTAIN when present]
-→ [SELECTIVE_RETEST when useful]
-→ [SMALLEST_REPAIR only if still unstable]
-→ CLOSE
-```
+Current K
+= complete learner-worthy Knowledge / candidate reservoir
 
-Square-bracket actions are conditional. A stable chapter is allowed to move from one-shot reconstruction/check directly toward exit.
+Chat
+= adaptive review strategist
+  decides what this learner should retrieve now,
+  what can be skipped,
+  what exactness is active,
+  what W/U deserves repair,
+  and whether a retest is worth the time
+
+Web Runtime
+= faithful executor
+  renders the plan, captures evidence, supports reveal/retry/question/repair/return,
+  and never re-decides the Politics learning strategy
+```
 
 Hard rule:
 
-> **The chapter reconstruction and the grouped recall rubric must not become two mandatory passes over the same content.**
+> **The web must not infer review priority, recall scope, Precision activation, or chapter grouping from raw K fields. Those are Chat decisions.**
 
-The chapter reconstruction should attempt to regenerate the chapter in one bounded operation. The grouped recall scope is primarily the **evaluation rubric** for that attempt and the source of targeted follow-up only when a material group was missing, confused, or too weak.
+#### Default optimization target
 
-Therefore:
+Chat should normally optimize for:
 
-- do not automatically ask every group again after a successful whole-chapter reconstruction;
-- do not create one task per K target merely because the backend contains targets;
-- when only one group is weak, recall only that group;
-- when the whole framework is broken, reopen the large model rather than micro-drilling every descendant;
-- allow the learner's own wording when the relation, conclusion, scope and decisive qualifiers remain correct;
-- require exact wording/list/identity/timeline/legal precision only when the point is actually active and source-legitimate;
-- use historical Wrong / meaningful Uncertain evidence to earn depth;
-- let stable chapters exit cheaply.
+```text
+one large chapter reconstruction
+→ inspect the actual gap
+→ only target what is missing / unstable
+→ activate exactness only when justified
+→ use historical W/U and selective retest when they buy real score protection
+→ smallest repair
+→ exit
+```
 
-The learner-facing path must not expose backend recall taxonomies, K object counts, candidate counts, or per-node completion counters. A rich backend exists so repair can become precise when needed; it does not justify a rich default workflow.
+This is a policy direction, not a mandatory fixed step list.
 
-#### Framework organizes memory; it does not replace memory
+A stable chapter may need only one reconstruction and immediate close.
+A weak chapter may need several targeted follow-ups.
+A chapter with no justified Precision debt should show none.
 
-Politics differs from Xizong in one important way: after first-round understanding, a substantial proportion of a chapter may still need active retrieval.
+#### Politics memory principle
 
-Later consolidation therefore distinguishes:
+Politics differs from Xizong because a substantial amount of chapter content may still need active retrieval after first-round understanding.
 
-1. **chapter framework reconstruction** — recover the chapter's organizing logic and as much important attached content as possible in one pass;
-2. **grouped core-content rubric** — define the few chapter-level content groups that should be recoverable and identify real gaps after the one-shot attempt;
-3. **targeted content recall** — re-retrieve only the missing/weak groups;
-4. **precision recall** — exact hats, fixed groups/lists, identities, timelines, legal wording or other source-grounded details that genuinely require exactness.
+Therefore Chat may ask for:
 
-Compression in Politics means **organizing future memory operations**, not deleting detail until only a skeleton remains.
+- whole-chapter framework + attached-content reconstruction;
+- a specific missing content group;
+- one decisive boundary;
+- one fixed list / identity / timeline / legal wording;
+- one historical Wrong / meaningful Uncertain;
+- one selective Xiao1000 retest;
+- one source repair.
 
-At the same time, "the chapter matters" does not mean "every sentence must be memorized word-for-word". Broad relations may be reconstructed; grouped content may need complete retrieval without fixed prose; only true Precision demands separately tracked exact retention.
+But **availability is not debt**. Current K may remain rich while the current learner task remains very small.
 
-#### Grouped completeness is not durable Precision debt
+#### Structured completeness is not durable Precision debt
 
-A chapter may require the learner to retrieve a fixed **group** completely without creating a separate durable Precision object for every item.
+A fixed group can be worth retrieving completely inside a chapter reconstruction without becoming a persistent Precision queue.
 
 Example:
 
 ```text
 five development concepts
-→ chapter reconstruction/rubric expects all five + their roles
-→ if recalled correctly, no extra Precision task is created
-→ if exactness itself later proves fragile/score-relevant, Precision may activate
+→ Chat may ask the learner to recover all five + their roles
+→ if stable, no separate durable Precision task is created
+→ if exactness later proves fragile or score-relevant, Chat may activate Precision
 ```
-
-Use durable Precision when exactness itself needs independent future tracking. Use grouped recall when completeness belongs naturally inside the chapter reconstruction.
 
 #### Candidate availability is not learner debt
 
@@ -337,7 +344,7 @@ or historical handbook mentions it
 learner owes a review task
 ```
 
-A Precision candidate becomes an active learner task only when its **admission/freshness requirements** are satisfied and the active phase/evidence justifies showing it.
+Chat may activate candidate Precision only after the applicable source/admission rules are satisfied.
 
 For high-delta domains, freshness is a hard prerequisite:
 
@@ -345,95 +352,127 @@ For high-delta domains, freshness is a hard prerequisite:
 Xi high-delta exact wording
 or current legal/normative exactness
 → current-year/current-law source gate must pass first
-→ only then can W/U or output need activate exact Precision
+→ only then may Chat activate exact Precision
 ```
 
 Wrong/Uncertain evidence may prove that exact retention is needed; it does **not** authorize stale or unverified exact wording.
 
-History horizontal Knowledge follows the same separation:
-
-```text
-candidate pool
-→ admission / source legitimacy
-→ chapter relevance selects among admitted/active items
-→ learner task
-```
-
-Chapter relevance alone never promotes a candidate into durable debt.
-
-Examples:
-
-- History's horizontal candidate inventory is a repair/precision reservoir, not a mandatory scan of every meeting/document/land-policy item on every chapter pass.
-- Xi high-delta candidate domains stay dormant until current-year source refresh makes exactness legitimate.
-- chapter reconstruction targets may support one chapter-level attempt; they do not imply one prompt per target.
-- Analysis Output hooks remain dormant during ordinary consolidation unless the analysis-output phase activates them.
+History horizontal Knowledge is similarly a candidate reservoir. Chat decides whether one or more admitted items matter for the current chapter/session; chapter relevance alone is not durable debt.
 
 #### Retest selection
 
-Xiao1000 remains verification evidence, not an automatic second-round syllabus.
+Xiao1000 remains evidence, not a second-round syllabus.
 
-Retest priority:
+Chat decides whether to retest, normally preferring:
 
-1. unresolved historical Wrong / meaningful Uncertain for the chapter;
-2. a small representative/high-discrimination sample when fresh verification is actually useful;
-3. no retest when current evidence makes the extra question cost unjustified.
+1. unresolved historical Wrong / meaningful Uncertain;
+2. a small representative/high-discrimination sample when fresh verification is useful;
+3. no retest when the extra question cost is not justified.
 
 Do not rerun a whole chapter bank by default.
 
-#### Later-stage consolidation surface ownership
+#### Chat → Web execution interface
 
-For **consolidation only**, the approved primary/companion surfaces are:
+Later-stage consolidation needs a **small adaptive-plan interface**, not a second semantic owner.
 
-| Learner action | Primary surface | Companion / boundary |
+Chat must be able to send the web an ordered session plan containing only what is needed for the current study session, for example:
+
+```text
+scope
+- subject / chapter
+- phase = CONSOLIDATION
+
+actions[]
+- RECONSTRUCT
+- TARGETED_RECALL
+- PRECISION
+- QUESTION_RETEST
+- SOURCE_REPAIR
+- CHAT_REPAIR_RETURN
+- CLOSE
+
+each action
+- explicit Current content/object refs or question ids
+- learner-facing prompt/instruction when needed
+- reveal/reference payload refs when needed
+- no UI-authored semantic inference
+```
+
+The exact transport shape is an implementation decision. The Learning requirement is the authority boundary:
+
+```text
+Chat chooses
+→ Web executes
+→ Web returns learner evidence
+→ Chat may adapt the next plan
+```
+
+The web must support arbitrary valid subsets/orderings supplied by Chat. It must not require one fixed per-chapter rubric or hard-coded review sequence.
+
+#### Web capability requirements
+
+For later-stage Politics, Web needs reusable capabilities for:
+
+- clean reconstruction attempt;
+- reveal/check against explicitly supplied refs;
+- targeted recall for explicitly supplied content;
+- active Precision recall;
+- historical W/U display;
+- Xiao1000 retest by explicit question ids;
+- minimal source locator / repair handoff;
+- evidence capture;
+- Return to Chat / resume;
+- cheap close.
+
+These are **capabilities**, not learning decisions.
+
+#### Surface ownership
+
+For consolidation:
+
+| Learner action | Primary surface | Authority boundary |
 | --- | --- | --- |
-| chapter one-shot reconstruction + check | **Astro / KianOS web** | must stay fast and chapter-level; no duplicate Chengfeng reader |
-| targeted content-gap recall | **Astro / KianOS web** | only failed/weak groups re-open |
-| active Precision recall | **Astro / KianOS web** | exact source refresh may require the designated current source; candidate-only items remain hidden |
-| historical W/U review + Xiao1000 retest | **Astro / KianOS web** | preserve existing question/evidence truth |
-| exact source repair | original owning source by default | Chengfeng or the designated current Memory/legal source, depending on the failure |
-| deep semantic repair | **Chat** | return to the interrupted chapter/retest path afterward |
+| execute Chat-selected reconstruction / recall / Precision / retest | **Astro / KianOS web** | Web executes explicit Chat plan; it does not choose the plan |
+| exact source repair | original owning/current source | Chengfeng or designated current Memory/legal source as applicable |
+| adaptive semantic diagnosis / next-step selection | **Chat** | Chat owns review strategy |
+| return evidence / next plan | Web ↔ Chat | preserve object/question identity and learner evidence |
 
-This later-stage assignment does not change first-round Chengfeng surface ownership.
+This does not change first-round Chengfeng ownership.
 
-Analysis-output and Mock/final surface ownership remain separate unresolved later-phase decisions; consolidation acceptance must not settle them by implication.
+Analysis-output and Mock/final remain separate later Learning gates.
 
-#### Subject-specific fast shapes
+#### Subject cognition remains distinct
 
-The path remains chapter-fast while respecting subject cognition:
+Chat must preserve each subject's K cognition when composing a plan:
 
-- **Marxism** — one relation/mechanism reconstruction; only weak principle groups receive targeted re-recall; exact only decisive boundaries/formulations.
-- **Mao** — one historical problem → theory response → identity/hat reconstruction; only missing major groups are recalled again.
-- **Xi / New Thought** — one role/hierarchy reconstruction with substantial attached content; high-delta exact wording/list membership remains current-year-source gated.
-- **History** — one causal historical movie; horizontal meeting/document/land-policy/ideological lines activate only after admission and real relevance/evidence.
-- **Ethics / Law** — one concept/boundary/situation reconstruction; exact legal/normative wording requires current-source legitimacy before activation.
+- **Marxism** — relation/mechanism/principle reconstruction;
+- **Mao** — historical problem → theory response → identity/hat structure;
+- **Xi / New Thought** — role/hierarchy + current-year exactness;
+- **History** — causal historical movie + selectively activated horizontal exactness;
+- **Ethics / Law** — concept/boundary/situational judgment + current legal exactness.
+
+Shared Web primitives must not flatten these into one semantic template.
 
 #### Later-pass shrinkage
 
-The second pass should be cheaper than the first, and later passes cheaper again.
-
-After a chapter has been successfully reconstructed, later review should increasingly target only:
+Later passes should become cheaper because Chat can use accumulated evidence to select only real debt:
 
 ```text
-framework gaps
-+ content-group gaps
-+ active Precision gaps
-+ real Wrong / meaningful Uncertain evidence
+framework gap
++ content gap
++ active Precision gap
++ real Wrong / meaningful Uncertain
 ```
 
 Do not force a full chapter replay merely because the chapter remains available.
 
 #### Close condition
 
-A chapter may close for the current consolidation pass when:
+Chat may close the current consolidation session when the evidence available for the current phase shows no remaining task worth the time budget.
 
-- the one-shot reconstruction shows no material framework gap;
-- no material grouped-content gap remains that would change objective discrimination or later answer generation;
-- active/admitted Precision for this pass is stable enough for the current phase;
-- selected W/U or retest debt has been resolved or explicitly remains pending for a justified reason.
+Closure is phase-scoped evidence, not mastery.
 
-Closure is phase-scoped evidence, not a mastery claim.
-
-This section accepts only the **consolidation learning model**. Analysis-output Learning and Mock/final Learning remain separate later gates and must not be called accepted merely because consolidation closes.
+This section defines only **Consolidation Learning**. Analysis-output Learning and Mock/final Learning remain separate later gates.
 
 ### 6.2 Memory admission: understanding may expand; Memory may not
 
