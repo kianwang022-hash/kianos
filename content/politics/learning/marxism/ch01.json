@@ -263,18 +263,19 @@
       ]
     },
     "precision_knowledge": {
-      "policy": "PENDING_EXACT_CANDIDATE_MATERIALIZATION",
-      "candidate_domains": [
-        "三条哲学分野 identity boundaries",
-        "运动绝对/静止相对 fixed relation",
-        "物质—意识关系 fixed boundary"
+      "policy": "REFERENCE_MEMORY_SIDECAR",
+      "owner_path": "content/politics/learning/marxism/ch01.memory.json",
+      "candidate_ids": [
+        "POL27-MEM-MARX-C01-S01-M01",
+        "POL27-MEM-MARX-C01-S02-M01",
+        "POL27-MEM-MARX-C01-S02-M02"
       ],
-      "materialization_status": "WAIT_CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_OR_WU_EVIDENCE",
-      "historical_source_refs": [
-        "LEG26-UPPER-MARX-P012",
-        "LEG26-UPPER-MARX-P013",
-        "LEG26-UPPER-MARX-P014"
-      ]
+      "admission_state": "CANDIDATE_ONLY",
+      "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+      "deferred_domains": [
+        "物质—意识完整固定表述"
+      ],
+      "rule": "Candidate-only Knowledge is materialized from Current P0/P1 recall needs plus historical handbook support; durable review debt remains admission-gated."
     },
     "analysis_output_hooks": [
       {
