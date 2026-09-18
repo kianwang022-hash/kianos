@@ -266,28 +266,23 @@
       ]
     },
     "precision_knowledge": {
-      "policy": "CURRENT_GROUNDED_CANDIDATE_MAP",
-      "candidate_domains": [
-        "法律本质/运行环节 identities",
-        "宪法地位与法治 hierarchy",
-        "法治道路/体系/国家/政府/社会 role boundaries",
-        "法治思维/法律权威 identities",
-        "权利义务 relation and situational application"
+      "policy": "REFERENCE_MEMORY_SIDECAR",
+      "owner_path": "content/politics/learning/ethics-law/ch06.memory.json",
+      "candidate_ids": [
+        "POL27-MEM-ETHICS-C06-S01-M01",
+        "POL27-MEM-ETHICS-C06-S02-M01",
+        "POL27-MEM-ETHICS-C06-S02-M02",
+        "POL27-MEM-ETHICS-C06-S03-M01",
+        "POL27-MEM-ETHICS-C06-S04-M01",
+        "POL27-MEM-ETHICS-C06-S04-M02"
       ],
-      "historical_source_slices": [
-        {
-          "from": "LEG26-UPPER-ETHICS-P224",
-          "through": "LEG26-UPPER-ETHICS-P237",
-          "scope": "专题十一至十五：法律概念、法治道路、法治中国、法治思维/权威、权利义务"
-        },
-        {
-          "from": "LEG26-LOWER-ETHICS-P085",
-          "through": "LEG26-LOWER-ETHICS-P086",
-          "scope": "德治法治、全面依法治国、权利义务、青年法治素养等后期输出模板"
-        }
+      "admission_state": "CANDIDATE_ONLY",
+      "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION",
+      "deferred_domains": [
+        "法治道路/法治体系详细原则与法律条文相关扩展"
       ],
-      "materialization_status": "CANDIDATE_OBJECTS_TO_BE_MATERIALIZED",
-      "freshness_gate": "HIGH_CURRENT_LEGAL_SOURCE_REQUIRED"
+      "freshness_gate": "HIGH_CURRENT_LEGAL_SOURCE_REQUIRED",
+      "rule": "Candidate-only precision is grounded in Current concept/boundary Knowledge plus inspected historical support; durable Memory remains admission-gated."
     },
     "analysis_output_hooks": [
       {
