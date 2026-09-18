@@ -9,8 +9,15 @@ concurrency:
   cancel-in-progress: true
 jobs:
   evidence:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 20
+    env:
+      POLITICS_FRESH_EVIDENCE: ${{ runner.temp }}/politics-final-fresh
+      POLITICS_FRESH_ALLOW_FAILURES: '1'
     steps:
       - uses: actions/checkout@v4
         with:
@@ -20,26 +27,29 @@ jobs:
           node-version: '22'
       - name: Exact audit identity
         run: |
-          mkdir -p /tmp/politics-final-fresh
-          git rev-parse HEAD > /tmp/politics-final-fresh/HEAD.txt
-      - name: Install existing runtime
+          mkdir -p "$POLITICS_FRESH_EVIDENCE"
+          git rev-parse HEAD > "$POLITICS_FRESH_EVIDENCE/HEAD.txt"
+      - name: Install existing runtime and browser test driver
         working-directory: static-web
-        run: npm install --no-audit --no-fund
+        run: |
+          npm install --no-audit --no-fund
+          npm install --no-save playwright@1.56.1 --no-audit --no-fund
+          npx playwright install chromium
       - name: Build exact Current
         working-directory: static-web
-        run: npm run build > /tmp/politics-final-fresh/build.log 2>&1
-      - name: Export bounded Politics browser surface
-        run: |
-          tar --exclude='*.woff*' --exclude='*.ttf' --exclude='*.otf' -czf /tmp/politics-final-fresh/site.tar.gz -C static-web/dist politics _astro
-      - name: Independent fresh assertions when present
+        run: npm run build > "$POLITICS_FRESH_EVIDENCE/build.log" 2>&1
+      - name: Execute independent attacks (findings are in JSON, not workflow color)
+        working-directory: static-web
+        run: node scripts/test-politics-final-fresh-browser.mjs > "$POLITICS_FRESH_EVIDENCE/browser.log" 2>&1
+      - name: Independent semantic assertions when present
         working-directory: static-web
         run: |
           if test -f scripts/audit-politics-final-fresh.mjs; then
-            node scripts/audit-politics-final-fresh.mjs | tee /tmp/politics-final-fresh/assertions.log
+            node scripts/audit-politics-final-fresh.mjs > "$POLITICS_FRESH_EVIDENCE/assertions.log" 2>&1
           fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: politics-final-fresh-browser
-          path: /tmp/politics-final-fresh/
+          name: politics-final-fresh-${{ matrix.os }}
+          path: ${{ runner.temp }}/politics-final-fresh/
           retention-days: 7
