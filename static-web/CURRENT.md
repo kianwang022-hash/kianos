@@ -182,7 +182,7 @@ CI green is not visual acceptance.
 
 ## Current next actions
 
-- **Xizong:** Practice function/runtime work is retained, but the 2026-09-18 Practice visual candidate **failed Kian Human Gate**. Re-derive presentation from L1 → Xizong L2 → Practice L3 before any merge. Do not treat Linux CI screenshots as Mac typography acceptance. After visual acceptance, continue explicit W/U, Marked, CHAT_SET and whole-paper/Hidden on the same Workbench.
+- **Xizong:** Practice front/back L3 is accepted for main: Front = Question + Progress; Back = quick learner feedback + Knowledge Review; Space toggles sides; shared L1 CJK typography is authoritative. After merge, continue explicit W/U, Marked, CHAT_SET and whole-paper/Hidden on the same Workbench, then re-review System Recall visual under the same L2.
 - **Politics:** continue from the cleaned SurfacePlan-only renderer path; Visual may arrange mapped objects but must not author semantic grouping/relations.
 - **English:** only concrete launch-visible defects; do not reopen accepted task geometry.
 
