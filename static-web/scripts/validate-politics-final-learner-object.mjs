@@ -64,6 +64,9 @@ for (const [directory, subjectMeta] of Object.entries(manifest.subjects || {})) 
   }
 }
 
+if (ownerCount !== 151) fail('FINAL_OBJECT_PASS_OWNER_ACCOUNTING', String(ownerCount));
+if (finalCount !== ownerCount) fail('FINAL_OBJECT_COVERAGE_INCOMPLETE', `${finalCount}/${ownerCount}`);
+
 const renderer = fs.readFileSync(path.join(root, 'static-web/src/components/PoliticsExplicitSurfacePlan.astro'), 'utf8');
 for (const forbidden of ['learnerLines(', 'Object.entries(item', 'itemLabel(']) {
   if (renderer.includes(forbidden)) fail('RENDERER_SEMANTIC_ENUMERATION', forbidden);
