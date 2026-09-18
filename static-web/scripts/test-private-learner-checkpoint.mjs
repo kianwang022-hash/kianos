@@ -19,6 +19,11 @@ import {
   SHARED_CONTROL_CHECKPOINT_SCHEMA
 } from '../src/lib/sharedControlCheckpoint.mjs';
 import {
+  restoreSharedControlFromPrivate,
+  saveSharedControlToPrivate,
+  sharedControlStorageIsEmpty
+} from '../src/lib/privateCheckpointRuntime.mjs';
+import {
   EXAM_CHAT_PLAN_KEY,
   EXAM_CHAT_PLAN_SCHEMA
 } from '../src/lib/examChatPlan.mjs';
@@ -137,4 +142,47 @@ assert.equal(staleShared.chat_plan, null, 'stale Chat plan must not be promoted 
 
 assert.throws(() => writeFileCheckpoint({ ...checkpoint, schema: 'wrong' }, os.tmpdir()), /SCHEMA_INVALID/);
 
-console.log('PASS private learner checkpoint foundation: external durable store + shared control capture/restore');
+const empty = new MemoryStorage();
+assert.equal(sharedControlStorageIsEmpty(empty), true);
+const restoredRuntime = await restoreSharedControlFromPrivate(empty, {
+  now,
+  readCheckpoint: async () => ({ status: 'ready', checkpoint })
+});
+assert.equal(restoredRuntime.status, 'restored');
+assert.equal(JSON.parse(empty.getItem(EXAM_CHAT_PLAN_KEY)).next_subject, 'xizong');
+
+const present = new MemoryStorage({ [STUDY_TIMER_STATE_KEY]: JSON.stringify(timerState) });
+const skippedRuntime = await restoreSharedControlFromPrivate(present, {
+  now,
+  readCheckpoint: async () => { throw new Error('must not read private checkpoint when local shared state exists'); }
+});
+assert.equal(skippedRuntime.status, 'skipped');
+
+const yesterdayCheckpoint = buildPrivateLearnerCheckpoint({
+  studyDay: '2026-09-18',
+  now: now - 86400000,
+  shared: {
+    ...shared,
+    study_day: '2026-09-18',
+    chat_plan: { ...chatPlan, study_day: '2026-09-18', generated_at: new Date(now - 86400000).toISOString() }
+  },
+  subjects: { xizong: { schema: 'future.subject.payload.v1', keep: true } }
+});
+const nextDay = new MemoryStorage();
+const crossDay = await restoreSharedControlFromPrivate(nextDay, {
+  now,
+  readCheckpoint: async () => ({ status: 'ready', checkpoint: yesterdayCheckpoint })
+});
+assert.equal(crossDay.status, 'restored');
+assert.equal(nextDay.getItem(EXAM_CHAT_PLAN_KEY), null, 'previous-day Chat plan must not revive');
+assert.equal(JSON.parse(nextDay.getItem(STUDY_TIMER_LEDGER_KEY)).sessions.length, 1, 'durable timer history survives day boundary');
+
+let writtenCheckpoint = null;
+await saveSharedControlToPrivate(source, {
+  now,
+  readCheckpoint: async () => ({ status: 'ready', checkpoint: yesterdayCheckpoint }),
+  writeCheckpoint: async (value) => { writtenCheckpoint = value; return { status: 'saved' }; }
+});
+assert.equal(writtenCheckpoint.payload.subjects.xizong.keep, true, 'shared autosave must preserve future subject-owned payloads');
+
+console.log('PASS private learner checkpoint foundation: external durable store + shared control capture/restore + safe autosave');
