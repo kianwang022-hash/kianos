@@ -125,12 +125,14 @@ function exactChengfengLocator(rawQuestion, unit) {
   const page = Number(match.row?.book_page_start || match.row?.book_page_end || 0);
   if (!steps.length || !page) return null;
 
+  const [examPoint, ...rest] = steps;
+  const display = `乘风要点 P${page}${examPoint ? `【${examPoint}】` : ''}${rest.map((step) => `→${step}`).join('')}`;
   return {
     status: 'EXACT_SOURCE_NODE',
     source: '乘风',
     bookPage: page,
     steps,
-    display: `乘风 P${page} · ${steps.join(' → ')}`,
+    display,
     sourceNodeId: match.id,
     matchBasis: 'CORRECT_OPTION_EXACT_SOURCE_NODE_MATCH'
   };
