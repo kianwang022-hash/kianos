@@ -1,0 +1,429 @@
+{
+  "schema": "kianos.lexical.repair_blueprint_shard.v1",
+  "range": {
+    "start_ordinal": 601,
+    "end_ordinal": 650
+  },
+  "authority": "content/lexical/LEARNING_CONTRACT.md + CONTENT_ASSET_CONTRACT.md + approved shard Human Gate 2026-09-19",
+  "generation_rule": "Blueprints store stable diagnostic intent; concrete instances are generated fresh from latest canonical content + learner evidence.",
+  "entries": [
+    {
+      "blueprint_id": "repair-blueprint:o0603:browse:v1",
+      "word_id": "word:browse",
+      "ordinal": 603,
+      "word": "browse",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定选择 browse through sth / browse the internet / browse on sth。",
+      "decision_boundary_cn": "随意翻阅或上网浏览 vs 动物啃食嫩叶由对象和介词决定。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 browse 的结构选择。",
+      "reconstruction_rule_cn": "换一个网页/书店浏览和动物啃食语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0605:brush:v1",
+      "word_id": "word:brush",
+      "ordinal": 605,
+      "word": "brush",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:brush:baseline-v2-up-on",
+        "target_locator": "record.constructions[1]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定产出 brush up on sth，并区分 brush aside。",
+      "decision_boundary_cn": "复习提高知识技能用 up on；不理会/驳回用 aside。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 brush 的两个高价值 phrasal branches。",
+      "reconstruction_rule_cn": "换一个复习语言技能与驳回建议语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0614:build:v1",
+      "word_id": "word:build",
+      "ordinal": 614,
+      "word": "build",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:build:baseline-v2-up",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定产出 build up sth / build sth up。",
+      "decision_boundary_cn": "表达逐渐积累、增强或建立，而不是普通 build=建造。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 build up。",
+      "reconstruction_rule_cn": "换一个信心、储备、压力或业务增长语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0616:bulk:v1",
+      "word_id": "word:bulk",
+      "ordinal": 616,
+      "word": "bulk",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:bulk:baseline-v2-the-bulk-of",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定产出 the bulk of sth / in bulk。",
+      "decision_boundary_cn": "主体大部分用 the bulk of；大批量/散装用 in bulk。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 bulk 的两个高价值结构。",
+      "reconstruction_rule_cn": "换一个大部分工作与批量采购语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0621:bump:v1",
+      "word_id": "word:bump",
+      "ordinal": 621,
+      "word": "bump",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:bump:baseline-v2-into",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定产出 bump into sb 与 bump up sth。",
+      "decision_boundary_cn": "偶遇某人 vs 提高价格/数量/等级由 particle 和宾语决定。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 bump 的两个 phrasal branches。",
+      "reconstruction_rule_cn": "换一个偶遇熟人与涨价语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0630:bury:v1",
+      "word_id": "word:bury",
+      "ordinal": 630,
+      "word": "bury",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:bury:baseline-v2-oneself-in",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定产出 bury oneself in sth / bury the hatchet。",
+      "decision_boundary_cn": "沉浸于学习工作 vs 结束争吵和解是两种独立 idiom。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 bury 的两个高价值结构。",
+      "reconstruction_rule_cn": "换一个埋头复习与双方和解语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0624:burden:v1",
+      "word_id": "word:burden",
+      "ordinal": 624,
+      "word": "burden",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:4ae6fb1264fe3e06c743",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定产出 burden sb/sth with sth。",
+      "decision_boundary_cn": "负担承受者直接作宾语，负担内容用 with。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 burden with 的论元结构。",
+      "reconstruction_rule_cn": "换一个债务、行政要求或责任负担语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0642:by:v1",
+      "word_id": "word:by",
+      "ordinal": 642,
+      "word": "by",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:by:baseline-v2-deadline",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定使用 by + time/deadline 表“不迟于、截至”。",
+      "decision_boundary_cn": "by Friday/5 pm 表在该时点或之前，不等于 during 或 until。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 by 的 deadline 结构。",
+      "reconstruction_rule_cn": "换一个提交截止时间和到达时间语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0606:brutal:v1",
+      "word_id": "word:brutal",
+      "ordinal": 606,
+      "word": "brutal",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 brutal=残忍暴力 与 brutal honesty/assessment=直率而令人不快。",
+      "decision_boundary_cn": "violence/cruelty 与 speech/truth/evaluation context 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 brutal 的 literal harshness vs frankness。",
+      "reconstruction_rule_cn": "换一个暴力事件与直言评价语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0607:bubble:v1",
+      "word_id": "word:bubble",
+      "ordinal": 607,
+      "word": "bubble",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分物理气泡、幻想泡影、经济/资产泡沫。",
+      "decision_boundary_cn": "liquid/gas、idea/expectation、economy/asset/market context 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 bubble 的三类 noun branch。",
+      "reconstruction_rule_cn": "换一个肥皂泡、幻想和资产估值语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0610:budget:v1",
+      "word_id": "word:budget",
+      "ordinal": 610,
+      "word": "budget",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分预算名词、编预算动词与 budget hotel/airline=廉价经济型。",
+      "decision_boundary_cn": "noun/verb/adjective 句法位置和消费语境决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 budget 的词性/语义 selector。",
+      "reconstruction_rule_cn": "换一个年度预算、编列支出和廉价旅馆语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0611:buffer:v1",
+      "word_id": "word:buffer",
+      "ordinal": 611,
+      "word": "buffer",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分物理缓冲器、化学缓冲剂、计算机 buffer 与抽象缓冲保护。",
+      "decision_boundary_cn": "mechanical/chemical/computing/protection context 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 buffer 的领域分支。",
+      "reconstruction_rule_cn": "换一个碰撞保护、溶液、数据和风险缓冲语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0612:buffet:v1",
+      "word_id": "word:buffet",
+      "ordinal": 612,
+      "word": "buffet",
+      "target": {
+        "target_kind": "form_identity",
+        "target_id": null,
+        "target_locator": "record.form_identity"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "按 lexeme/词性稳定区分 buffet 自助餐 noun 与 buffet 猛击 verb 的发音。",
+      "decision_boundary_cn": "meal/furniture noun → UK /ˈbʊf.eɪ/, US /bəˈfeɪ/；strike verb → /ˈbʌf.ɪt/。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 buffet 的 pronunciation identity。",
+      "reconstruction_rule_cn": "换一个自助餐和风浪反复冲击语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0613:bug:v1",
+      "word_id": "word:bug",
+      "ordinal": 613,
+      "word": "bug",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分虫子、软件缺陷、窃听器、小病以及 verb 烦扰/窃听。",
+      "decision_boundary_cn": "insect/software/surveillance/health/person-object context 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 bug 的领域/词性 selector。",
+      "reconstruction_rule_cn": "换一个昆虫、程序、感冒、窃听与烦扰语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0617:bull:v1",
+      "word_id": "word:bull",
+      "ordinal": 617,
+      "word": "bull",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分公牛与金融市场看涨者/多头。",
+      "decision_boundary_cn": "animal/farm 与 investor/market context 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 bull 的 animal vs finance boundary。",
+      "reconstruction_rule_cn": "换一个牧场和证券市场语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0626:bureaucracy:v1",
+      "word_id": "word:bureaucracy",
+      "ordinal": 626,
+      "word": "bureaucracy",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分官僚机构/官吏群体、官僚体制与繁文缛节。",
+      "decision_boundary_cn": "people/administrative system/inefficient procedures context 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 bureaucracy 的制度/评价分支。",
+      "reconstruction_rule_cn": "换一个政府机构、行政体制和繁琐手续语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0633:business:v1",
+      "word_id": "word:business",
+      "ordinal": 633,
+      "word": "business",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分商业活动、企业、个人事务、营业量与职责本分。",
+      "decision_boundary_cn": "commerce/company/personal matter/trade volume/responsibility context 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 business 的领域 selector。",
+      "reconstruction_rule_cn": "换一个做生意、公司、私人事务和职责语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0636:butcher:v1",
+      "word_id": "word:butcher",
+      "ordinal": 636,
+      "word": "butcher",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分肉商/屠夫/屠宰与 figurative butcher=把表演、发音等搞砸。",
+      "decision_boundary_cn": "meat/animal vs song/pronunciation/performance context 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 butcher 的 literal vs figurative boundary。",
+      "reconstruction_rule_cn": "换一个肉店和糟糕演出语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0638:butterfly:v1",
+      "word_id": "word:butterfly",
+      "ordinal": 638,
+      "word": "butterfly",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分蝴蝶、蝶泳、把食物切开摊平，以及 butterflies in one's stomach。",
+      "decision_boundary_cn": "insect/swimming/cooking/anxiety context 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 butterfly 的领域和 idiom boundary。",
+      "reconstruction_rule_cn": "换一个昆虫、游泳、烹饪和紧张语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0640:buy:v1",
+      "word_id": "word:buy",
+      "ordinal": 640,
+      "word": "buy",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分购买、以代价换取/争取、相信/接受某说法，以及 buy into。",
+      "decision_boundary_cn": "money/product、time/advantage、story/idea context 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 buy 的 purchase vs exchange vs belief。",
+      "reconstruction_rule_cn": "换一个购物、争取时间和接受观点语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0643:bypass:v1",
+      "word_id": "word:bypass",
+      "ordinal": 643,
+      "word": "bypass",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分绕过/回避、绕城道路与医学分流术。",
+      "decision_boundary_cn": "process/rule、road/traffic、medical surgery context 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 bypass 的领域分支。",
+      "reconstruction_rule_cn": "换一个程序绕过、道路和心脏手术语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0648:cable:v1",
+      "word_id": "word:cable",
+      "ordinal": 648,
+      "word": "cable",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分电缆、粗绳索、电报及通过电缆发送消息。",
+      "decision_boundary_cn": "electric/signal、rope/structure、telegram/communication context 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 cable 的领域/词性分支。",
+      "reconstruction_rule_cn": "换一个通信电缆、钢缆和外交电报语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    }
+  ]
+}

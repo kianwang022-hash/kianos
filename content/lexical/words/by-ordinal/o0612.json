@@ -59,12 +59,6 @@
         "definition_en": "a meal at which guests serve themselves from a table",
         "governing_pattern": "",
         "level": "L1",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_by_part_of_speech",
-          "pronunciation": "/ˈbʊfeɪ/ noun meal",
-          "surface_lemma": "buffet"
-        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:buffet:53f225233fba54bd",
@@ -113,12 +107,6 @@
         "definition_en": "to strike against forcefully",
         "governing_pattern": "vt. + object",
         "level": "L2",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_by_part_of_speech",
-          "pronunciation": "/ˈbʌfɪt/ verb strike repeatedly",
-          "surface_lemma": "buffet"
-        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:buffet:4279c23fbff751bb",
@@ -168,7 +156,52 @@
     },
     "word": "buffet",
     "word_family": [],
-    "word_id": "word:buffet"
+    "word_id": "word:buffet",
+    "form_identity": {
+      "form_type": "homograph_pronunciation_by_lexeme",
+      "spelling": "buffet",
+      "identity_rule": "meal/furniture noun versus striking verb selects pronunciation",
+      "boundary": "The food/furniture noun buffet is pronounced UK /ˈbʊf.eɪ/ and commonly US /bəˈfeɪ/; the verb meaning 'strike repeatedly' is /ˈbʌf.ɪt/ in both UK and US English.",
+      "boundaries": [
+        {
+          "surface": "buffet",
+          "condition": "noun: self-service meal / related furniture or serving sense",
+          "note": "UK /ˈbʊf.eɪ/；US /bəˈfeɪ/"
+        },
+        {
+          "surface": "buffet",
+          "condition": "verb: strike repeatedly / be battered",
+          "note": "UK/US /ˈbʌf.ɪt/"
+        }
+      ],
+      "variants": [
+        {
+          "variant_id": "form:buffet:noun-uk",
+          "pos": [
+            "noun"
+          ],
+          "learner_key": "noun · meal/furniture · UK",
+          "ipa": "/ˈbʊf.eɪ/"
+        },
+        {
+          "variant_id": "form:buffet:noun-us",
+          "pos": [
+            "noun"
+          ],
+          "learner_key": "noun · meal/furniture · US",
+          "ipa": "/bəˈfeɪ/"
+        },
+        {
+          "variant_id": "form:buffet:verb",
+          "pos": [
+            "verb"
+          ],
+          "learner_key": "verb · strike repeatedly",
+          "ipa": "/ˈbʌf.ɪt/"
+        }
+      ],
+      "authority": "Cambridge Dictionary pronunciation check + Baseline v2 2026-09-19"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
