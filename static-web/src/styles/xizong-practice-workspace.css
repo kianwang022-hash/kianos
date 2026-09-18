@@ -10,11 +10,10 @@ body#kianos-workspace.surfaceBody-xizong .xzp {
   --xzp-wrong:#a55749;
   --xzp-mark:#9b7431;
   width:100%;
-  height:calc(100dvh - 118px);
-  min-height:650px;
-  overflow:hidden;
+  min-height:0;
+  overflow:visible;
   display:grid;
-  grid-template-rows:auto minmax(0,1fr);
+  grid-template-rows:auto auto;
   gap:14px;
   color:var(--xzp-ink);
   font-family:var(--study-font);
@@ -248,11 +247,13 @@ body#kianos-workspace.surfaceBody-xizong .xzpBody {
   display:grid;
   grid-template-columns:minmax(0,1fr) 300px;
   gap:16px;
+  align-items:start;
 }
 body#kianos-workspace.surfaceBody-xizong .xzpQuestionPane,
 body#kianos-workspace.surfaceBody-xizong .xzpProgressPane {
   min-width:0;
   min-height:0;
+  max-height:calc(100dvh - 205px);
   overflow:auto;
   overscroll-behavior:contain;
   scrollbar-gutter:stable;
@@ -262,7 +263,7 @@ body#kianos-workspace.surfaceBody-xizong .xzpProgressPane {
   box-shadow:0 1px 3px rgba(28,59,47,.05);
 }
 body#kianos-workspace.surfaceBody-xizong .xzpQuestionPane {
-  padding:26px 28px 32px;
+  padding:28px 30px 30px;
 }
 body#kianos-workspace.surfaceBody-xizong .xzpProgressPane {
   padding:20px 18px 22px;
@@ -374,9 +375,9 @@ body#kianos-workspace.surfaceBody-xizong .xzpQuestion {
   padding-top:24px;
 }
 body#kianos-workspace.surfaceBody-xizong .xzpStem {
-  margin:0 0 24px;
+  margin:0 0 26px;
   color:#153d31;
-  font-size:23px;
+  font-size:24px;
   font-weight:600;
   line-height:1.62;
 }
@@ -411,7 +412,7 @@ body#kianos-workspace.surfaceBody-xizong .xzp button.xzpOption b {
 }
 body#kianos-workspace.surfaceBody-xizong .xzp button.xzpOption span {
   padding-top:1px;
-  font-size:18px;
+  font-size:19px;
   font-weight:500;
   line-height:1.58;
 }
@@ -441,6 +442,7 @@ body#kianos-workspace.surfaceBody-xizong .xzpQuestion footer {
 /* Back = quick learner feedback + knowledge review, mirroring Politics Practice grammar. */
 body#kianos-workspace.surfaceBody-xizong .xzpBack {
   min-height:0;
+  max-height:calc(100dvh - 205px);
   overflow:hidden;
   display:grid;
   grid-template-columns:minmax(290px,32%) minmax(0,1fr);
@@ -468,9 +470,30 @@ body#kianos-workspace.surfaceBody-xizong .xzpReviewPane {
   padding-left:28px;
   border-left:1px solid #e3eae6;
 }
+body#kianos-workspace.surfaceBody-xizong .xzpReviewHeading {
+  position:sticky;
+  top:0;
+  z-index:2;
+  margin:0 0 12px;
+  padding:2px 0 14px;
+  border-bottom:1px solid #e5ebe7;
+  background:#fff;
+}
+body#kianos-workspace.surfaceBody-xizong .xzpReviewHeading h2 {
+  margin:0;
+  color:#183d31;
+  font-size:22px;
+  font-weight:600;
+  line-height:1.35;
+}
+
 body#kianos-workspace.surfaceBody-xizong .xzpFeedbackResult {
   display:grid;
   gap:8px;
+  padding:15px 16px;
+  border-left:4px solid #bd7468;
+  border-radius:10px;
+  background:#fff6f3;
 }
 body#kianos-workspace.surfaceBody-xizong .xzpFeedbackResult>strong {
   color:#286249;
@@ -563,7 +586,7 @@ body#kianos-workspace.surfaceBody-xizong .xzpReview>section {
 body#kianos-workspace.surfaceBody-xizong .xzpReview h3 {
   margin:0 0 8px;
   color:#527060;
-  font-size:16px;
+  font-size:17px;
   font-weight:600;
 }
 body#kianos-workspace.surfaceBody-xizong .xzpReview p,
@@ -683,7 +706,6 @@ body#kianos-workspace.surfaceBody-xizong .xzp [hidden] {
 }
 @media (max-width:900px) {
   body#kianos-workspace.surfaceBody-xizong .xzp {
-    height:auto;
     min-height:0;
     overflow:visible;
   }
