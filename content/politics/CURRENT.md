@@ -3,8 +3,6 @@
 Role: **Politics engineering Work Cursor + subject router**  
 Parent: root `CURRENT.md`
 
-This cursor owns only current engineering position and routing. It does not own Source / Knowledge, Learning Logic, Acceptance Truth, learner progress, or shared Visual/Engineering policy.
-
 A bare `继续政治 / 继续马原 / 继续史纲` is a learner request unless the active conversation is clearly BUILD / UI / CONTROL work.
 
 ---
@@ -12,117 +10,132 @@ A bare `继续政治 / 继续马原 / 继续史纲` is a learner request unless 
 ## Current state
 
 ```text
-First-round Politics S/K/L/P/R/E   PASS
-Real learner U                     UNTESTED
+First-round S/K/L/P/R/E                 PASS
+Final Learner Object                   PASS · 151/151
+Memory Overlay content                 PASS
+Consolidation / Review Runtime         PASS
+Chat ↔ Website Review control          PASS
+Analysis Output L                      PASS · Chat-primary
+Mock / Final L                         PASS · Chat + source-paper primary
+Real learner U                         UNTESTED
 
-Later-stage K                      PASS_WITH_DEBT
-Consolidation L                    PASS_AFTER_REPAIR
-Analysis Output L                  PASS / Chat-primary
-Mock / Final L                     PASS / Chat-primary + source-paper primary
-Later-stage L overall              PASS
-
-Next active gate                   Exam-Horizon adaptation
+Next active gate                       Politics L3 UI acceptance
 ```
 
-K/source-refresh debt stays in `ACCEPTANCE.md` and `manifest.json`; this cursor does not duplicate inventories.
-
-Analysis Output remains Chat-primary. Mock/Final remains Chat-primary around an authentic/exam-like paper/PDF. Neither requires a dedicated Website page.
+Current-year source debt is Precision/output freshness debt, not a blocker on stable Memory or first-round study.
 
 ---
 
-## Exam-Horizon adaptation
-
-Target:
+## Content model
 
 ```text
-Current Content
-→ accepted Surface Mapping
-→ Final Learner Object
-→ faithful Website execution
-↑                         ↓
-Chat Session Instruction  Session Evidence
+Chengfeng = canonical Knowledge backbone + continuous first-round mainline
+Suyi      = Framework Overlay
+LEG26     = Memory Overlay
+Xiao1000  = verification / private priority modulation
 ```
 
-Current closure:
+Hard boundary:
 
 ```text
-A Final Learner Object direct-consumption   PASS
-B reusable Runtime mechanics                PARTIAL · Review core PASS
-C Chat ↔ Website typed control              PASS · Consolidation/Review core
-D P1–P5 exam-horizon scenarios              PARTIAL · P2 core browser-PASS
+Memory admission
+= worth deliberately retaining / reconstructing
+
+Precision admission
+= safe to demand exact wording / hat / date / membership
 ```
 
-A is accepted on clean-head static + browser evidence. All 151 PASS owners resolve Final Learner Objects; renderer consumption is literal/fail-closed and the old subject display adapters are not authoritative.
-
-Accepted Review execution core:
-
-```text
-Chat Session Instruction
-→ RECONSTRUCT / TARGETED_RECALL
-→ literal Final Learner Object reveal
-→ learner W/U evidence
-→ exact Chat-selected Xiao1000 retest
-→ Session Evidence
-→ explicit Chat CLOSE / return
-```
-
-The Website still does not choose review targets, priorities, question sets, Precision admission, or close readiness.
-
-Remaining capability debt:
-
-```text
-guarded Precision
-→ fail closed until Current-year admission / freshness can be verified
-
-generic timed-task / Mock timer composition
-→ not yet accepted
-```
-
-**Next active gate: Memory Overlay content + Runtime closure.** UI work is paused until the corrected Chengfeng / Suyi / LEG26 three-layer model and separate Memory-vs-Precision admission are fully migrated and accepted.
-
-Exact rules and scenario proof live in `INTERACTION_CONTRACT.md` and `ACCEPTANCE.md`.
+W/U changes what Chat selects and repeats. It does not create shared Memory truth or override Precision admission.
 
 ---
 
-## Stable first-round learner loop
+## Current Memory inventory
+
+| Subject | Chapter Models | Discrete Points | Precision boundary |
+| --- | ---: | ---: | --- |
+| Marxism | 9 | 34 | exact wording/normalization separately gated |
+| History | 10 | 50 | recent-history exactness refreshed separately |
+| Mao | 9 | 22 | C07–C08 model-only; exact hats gated |
+| Xi | 18 | 0 | stable semantic Memory; policy exactness freshness-gated |
+| Ethics-Law | 7 | 22 | C06 legal/normative exactness freshness-gated |
+| **Total** | **53** | **128** | **181 Memory targets** |
+
+128 discrete points = 78 sidecar points + 50 History horizontal points.
+
+Runtime accounting:
 
 ```text
-Orientation
+Final learner targets   1083
+Memory targets           181
+Total Session targets   1264
+Xiao1000 questions      1148
+Session failures           0
+```
+
+---
+
+## Learner loops
+
+### First round
+
+```text
+Framework / Orientation
 → Chengfeng continuous study on iPad / MarginNote
-→ optional close
-→ Xiao1000 verification in Astro
-→ stable correct exits cheaply
-   OR Wrong / meaningful Uncertain
-   → smallest repair → exact Return
-→ meaningful Resume
+→ optional natural closure
+→ Xiao1000
+→ stable correct exits
+   OR W/U → smallest repair → exact Return
+→ Resume
 ```
 
-Source roles:
+### Consolidation / Review
 
 ```text
-Suyi       framework / orientation / exactness cross-check input
-Chengfeng  continuous first-round mainline on original iPad / MarginNote
-Xiao1000   verification / later evidence in Astro
-KianOS     orientation / mapped presentation / verification / repair companion
-Chat       adaptive strategy / semantic repair / later-stage selection
+Chapter Memory Model
+→ reconstruct the large model
+→ inspect actual gap
+→ selected Discrete Memory Point(s)
+→ admitted Precision only when exactness matters
+→ selected Xiao1000 retest
+→ smallest repair
+→ exit
 ```
+
+Chat owns target selection, order and stop timing.
+
+Website executes explicit targets and returns factual evidence only. It does not own mastery, priority, recommendations or admission.
+
+Browser acceptance covers:
+- Chapter Memory Model recall;
+- Discrete Memory Point recall;
+- Precision candidate fail-closed;
+- exact selected Xiao1000 retest;
+- Evidence return.
 
 ---
 
-## Direct-presentation boundary
+## Later phases
 
-Politics uses explicit `SURFACE_MAPPING_CONTRACT.md`.
+**Analysis Output** — Chat-primary from canonical `analysis_output_hooks`; no dedicated Website page required.
+
+**Mock / Final** — authentic/exam-like source paper/PDF + Chat; no dedicated Politics engine required.
+
+Generic timed-task composition remains shared Engineering debt, not a Politics learning blocker.
+
+---
+
+## Presentation boundary
 
 ```text
 canonical Content / Learning
-→ accepted Surface Mapping
-→ resolved Final Learner Object
-→ renderer
+→ accepted Surface Mapping / admitted Memory owner
+→ resolved learner payload
+→ Website literal execution
 ```
 
-Runtime/UI may own triggers, responsive layout, typography, spacing and styling. It may not infer Politics semantics, review priority, learner debt, or display content from raw fields.
+UI may own layout, typography and interaction mechanics. It may not infer Politics semantics, review scope, learner debt or Memory/Precision admission.
 
-Missing final learner payload fails closed.
+Missing/blocked payload fails closed.
 
 ---
 
@@ -136,54 +149,12 @@ Missing final learner payload fails closed.
 | Xi | `learning/xi/CURRENT.md` | `learning/xi/ACCEPTANCE.md` |
 | Ethics-Law | `learning/ethics-law/CURRENT.md` | `learning/ethics-law/ACCEPTANCE.md` |
 
-A blocker in one subject does not freeze siblings without a real shared dependency.
-
----
-
-## Normal routing
-
-### Content / semantic work
-
-```text
-exact subject / Natural Unit
-→ exact canonical Content owner
-→ Learning Contract only when needed
-→ scoped Acceptance only when the claim matters
-```
-
-### Visual work
-
-```text
-shared Presentation authority
-→ accepted Politics Surface Mapping
-→ exact surface owner
-→ browser proof
-```
-
-### Runtime / behavior work
-
-```text
-SYSTEM_CONTRACT.md
-→ exact Politics execution/evidence/return owner
-→ targeted functional proof
-```
-
-Do not recover semantics from raw JSON, old screenshots, legacy Projection shapes, or historical branches.
-
----
-
-## Fresh-Chat / re-acceptance
-
-Known Politics work should normally reach effective work after roughly 2–3 precise reads.
-
-For a fresh independent audit, inspect real current owners first. Old PASS labels and prior summaries are reconciliation evidence, not the answer key.
-
-Real learner `U` cannot be simulated.
-
 ---
 
 ## Stop rule
 
-Do the smallest work that reduces learner friction or protects exam performance.
+Politics semantic/content/function engineering is closed by default.
 
-Do not reopen accepted Politics semantic architecture without a concrete defect.
+Reopen only for a real source/current-year change, reproducible learner/U defect, question/repair defect, or admitted Precision/output refresh.
+
+Otherwise continue with **Politics L3 UI**.

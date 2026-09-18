@@ -199,7 +199,7 @@ Subject-local Runtime/Evidence PASS is not inferred from that shared journey; ea
 
 ---
 
-## Exam-lifecycle later-stage Knowledge acceptance — PASS_WITH_DEBT
+## Historical snapshot — exam-lifecycle later-stage Knowledge before Memory/Precision split
 
 This is a **new Knowledge-scope acceptance** for the post-first-round Politics lifecycle. It does not change the already accepted first-round learner journey and does not claim later-stage Learning / Projection / Runtime / Evidence readiness.
 
@@ -319,7 +319,7 @@ Private browser / Return Packet / conversation evidence only.
 
 ---
 
-## Later-stage K adversarial readback — 2026-09-18
+## Historical snapshot — later-stage K adversarial readback before Memory/Precision split — 2026-09-18
 
 Status: **PASS_WITH_DEBT RECONFIRMED**
 
@@ -1242,8 +1242,8 @@ Allowed current conclusion:
 Politics first-round learner system        accepted for existing scoped path
 Politics Final Learner Object closure      PASS
 Politics Consolidation/Review Runtime core PASS
-Politics Runtime Atom closure              PARTIAL — guarded Precision + timed-task remain
-Politics typed Chat control closure        PASS_FOR_CONSOLIDATION_REVIEW_CORE
+Politics required Review/Memory Runtime    PASS — shared timed-task remains non-blocking debt
+Politics typed Chat control closure        PASS_FOR_CONSOLIDATION_REVIEW_MEMORY
 Politics Consolidation L                   PASS_AFTER_REPAIR
 Politics Analysis-Output L                 PASS / Chat-primary
 Politics Mock/Final L                      PASS / Chat-primary + source-paper primary
@@ -1253,33 +1253,129 @@ Politics Exam-Horizon readiness            UNTESTED
 
 ---
 
-## Memory Overlay model correction — 2026-09-18
+## Memory Overlay content + Runtime acceptance — PASS
 
-Status: **RULE CORRECTED / CONTENT MIGRATION ACTIVE**
+Status: **PASS**
 
-The earlier later-stage K model over-coupled stable Memory admission with current-year exactness admission. This was too conservative for stable domains such as Marxism and most History.
+This section supersedes the pre-correction Memory-admission language in the historical snapshots above.
 
-Corrected model:
+### Final authority model
 
 ```text
 Chengfeng = canonical Knowledge backbone
 Suyi      = Framework Overlay
 LEG26     = Memory Overlay
-Xiao1000  = learner evidence / priority modulation
+Xiao1000  = learner evidence / private priority modulation
 ```
-
-And:
 
 ```text
 Memory admission ≠ Precision admission
 ```
 
-Consequences:
+Stable Memory existence is shared Content Truth. Wrong/Uncertain evidence changes what Chat selects/repeats; it does not create shared Memory.
 
-1. Current-grounded + LEG26-supported stable Marxism / History / classical Mao / stable Ethics objects may enter shared durable Memory without waiting for a new annual handbook.
-2. Exact wording, exact hats, OCR-sensitive text, current-policy wording, recent-history membership and legal/normative exactness remain separately Precision/freshness gated.
-3. Wrong/Uncertain evidence changes private review priority; it no longer serves as a prerequisite for the existence of stable shared Memory.
-4. Website/Runtime may execute only explicit Chat-selected targets and must respect the separate Memory vs Precision admission state.
-5. No overlay may replace Chengfeng semantic ownership or create a parallel course.
+### Accepted inventory
 
-This correction reopens only the bounded Memory-admission content/runtime layer. First-round Chengfeng learning order and accepted direct Surface Mapping remain unchanged.
+| Subject | Chapter Memory Models | Discrete Memory Points | Precision status |
+| --- | ---: | ---: | --- |
+| Marxism | 9 | 34 | semantic Memory admitted; exact wording/normalization separately gated |
+| History | 10 | 50 | causal movie + stable horizontal identities admitted; recent-history exactness refreshed separately |
+| Mao | 9 | 22 | all chapter models admitted; C00–C06 discrete points admitted; C07–C08 exactness source-thin |
+| Xi | 18 | 0 | stable role/hierarchy/boundary Memory admitted; policy/current-affairs exactness freshness-gated |
+| Ethics-Law | 7 | 22 | stable semantic Memory admitted; C06 legal/normative exactness freshness-gated |
+| **Total** | **53** | **128** | **181 learner-addressable Memory targets** |
+
+128 discrete targets = **78 sidecar points + 50 History horizontal points**.
+
+### Canonical admission
+
+Current admission is owned only by:
+
+```text
+memory_knowledge.memory_admission_state
+precision_knowledge.memory_admission_state
+precision_knowledge.precision_admission_state
+precision_knowledge.precision_blocker
+
+sidecar candidate.memory_admission
+sidecar candidate.precision_admission
+sidecar candidate.precision_blocker
+```
+
+Legacy combined `admission / admission_blocker / admission_state` fields are rejected by validation.
+
+### Accepted learner behavior
+
+```text
+Chapter Memory Model
+→ reconstruct large model
+→ inspect actual gap
+→ selected Discrete Memory Target(s)
+→ admitted Precision only when exactness matters
+→ selective Xiao1000 retest
+→ smallest repair
+→ exit
+```
+
+Rich K/Memory availability does not create mandatory learner debt.
+
+### Runtime boundary
+
+- Recall requires admitted Memory where a Memory ref is used.
+- Precision requires a Memory target with canonical `precision_admission = ADMITTED_STABLE`.
+- `CANDIDATE_EXACTNESS / CANDIDATE_FRESHNESS / NOT_APPLICABLE` fail closed.
+- Session/W-U evidence cannot override canonical Precision admission.
+- exact Chat-selected Xiao1000 retest remains literal and order-preserving.
+- Web records factual Evidence only and does not infer mastery/recommendations.
+
+### Acceptance evidence
+
+```text
+Final Learner Object owners       151 / 151
+Final learner targets                1083
+Chapter Memory Model targets            53
+Discrete Memory Point targets          128
+Total Memory targets                    181
+Total Session targets                  1264
+Xiao1000 training questions            1148
+Session validator failures                0
+```
+
+Browser/Runtime evidence:
+- Politics Functional First journey **PASS**;
+- Chapter Memory Model recall **PASS**;
+- Discrete Memory Point recall **PASS**;
+- Precision candidate fail-closed **PASS**;
+- Xi Runtime journey **PASS**;
+- Ethics-Law Runtime journey **PASS**;
+- direct content→surface browser fidelity remains **PASS**.
+
+### Remaining bounded debt
+
+This PASS does not claim every exact sentence is safe to memorize verbatim.
+
+Remaining debt:
+- Xi/current-affairs annual policy wording/membership;
+- genuinely recent-History additions/deltas;
+- legal/normative exactness;
+- OCR/normalization-sensitive exact formulations;
+- future admitted Precision/output refreshes when current sources justify them.
+
+These are **Precision/output source-refresh debts**, not Memory-admission debt and not first-round blockers.
+
+### Allowed conclusion
+
+```text
+Politics first-round content/function            PASS
+Politics stable Memory Overlay                   PASS
+Politics Review / Consolidation content+Runtime  PASS
+Politics Precision Runtime guard                 PASS
+Current Precision target admissions              SELECTIVE / SOURCE-GATED
+Politics Analysis Output L                       PASS · Chat-primary
+Politics Mock / Final L                          PASS · Chat + source-paper primary
+Politics real learner U                          UNTESTED
+Politics next engineering gate                   L3 UI acceptance
+```
+
+The corrected three-layer content model is now Current Truth. UI may resume only by consuming these accepted owners and may not re-decide content or Memory/Precision admission.
+
