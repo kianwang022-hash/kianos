@@ -71,6 +71,15 @@ assert(policy.depth === 'ADAPTIVE_SUFFICIENCY', 'explanation-production-depth-po
 assert(policy.fast_owner_is_debt_by_default === false, 'fast-owner-debt-policy-regressed');
 assert(policy.uniform_deep_enrichment_required === false, 'uniform-deep-enrichment-regressed');
 assert(policy.continuation === 'EVIDENCE_AND_VALUE_DRIVEN', 'explanation-continuation-policy-regressed');
+assert(explanationManifest?.coverage?.next_unreviewed_question_id === null, 'explanation-linear-cursor-returned');
+assert(
+  explanationManifest?.cycle_reset?.status === 'CURRENT_FULL_OBJECT_COVERAGE_ADAPTIVE_DEPTH',
+  'explanation-cycle-status-not-adaptive-full-coverage'
+);
+assert(
+  explanationManifest?.cycle_reset?.continuation === 'EVIDENCE_AND_VALUE_DRIVEN_NO_LINEAR_CURSOR',
+  'explanation-cycle-continuation-regressed'
+);
 
 const shardRows = explanationManifest?.canonical_storage?.shards || [];
 assert(Array.isArray(shardRows) && shardRows.length > 0, 'explanation-shards-missing');
