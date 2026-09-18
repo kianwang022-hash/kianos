@@ -13,7 +13,8 @@ const { reading } = Astro.props;
 
 <script>
   const node = document.querySelector('[data-reading-last-location]');
-  if (node instanceof HTMLElement) {
+  const examMode = new URLSearchParams(location.search).has('exam_session');
+  if (!examMode && node instanceof HTMLElement) {
     const value = {
       id: node.getAttribute('data-reading-id') || '',
       title: node.getAttribute('data-reading-title') || '',
