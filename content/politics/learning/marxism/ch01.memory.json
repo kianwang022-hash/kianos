@@ -1,0 +1,107 @@
+{
+  "schema": "kianos.politics.memory_projection.v1",
+  "status": "CURRENT_K_REVIEWED",
+  "chapter_id": "POL27-LEARN-MARX-C01",
+  "policy": "SOURCE_GROUNDED_SELECTIVE",
+  "principle": "Candidate existence is Knowledge; durable review debt requires later admission evidence.",
+  "preferred_memory_reference": {
+    "role": "DESIGNATED_MEMORY_HANDBOOK",
+    "label": "腿姐《冲刺背诵手册》",
+    "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+    "historical_package": "content/politics/source/historical/leg26/manifest.json",
+    "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MARX.md",
+    "rule": "Current canonical region/chapter Knowledge must independently support the relation. LEG26 supplies historical retention priority; current-year source/WU/output evidence governs admission."
+  },
+  "admission_gate": {
+    "default": "NOT_ADMITTED",
+    "requires_source_grounding": true,
+    "admit_when_any": [
+      "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+      "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED",
+      "LATER_ANALYSIS_OUTPUT_REQUIRES_EXACT_FORMULATION"
+    ],
+    "do_not_admit_for": [
+      "historical handbook presence alone",
+      "chapter importance alone",
+      "one stable correct answer"
+    ]
+  },
+  "units": {
+    "POL27-CF-MARX-C01-S01": {
+      "title": "哲学及其基本问题",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MARX-C01-S01-M01",
+          "form": "confusable_axis",
+          "statement": "唯物主义/唯心主义回答思维与存在何者第一性；可知论/不可知论回答思维能否认识存在；辩证法/形而上学回答怎样理解世界的存在和发展。",
+          "source_refs": [
+            "POL27-CF-MARX-C01-S01"
+          ],
+          "current_recall_basis": {
+            "priority": "P0",
+            "forms": [
+              "boundary"
+            ]
+          },
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MARX-P012"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    },
+    "POL27-CF-MARX-C01-S02": {
+      "title": "世界的多样性与物质统一性",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MARX-C01-S02-M01",
+          "form": "fixed_relation",
+          "statement": "运动是绝对的、无条件的；静止是相对的、有条件的，静止是运动中的相对稳定状态。",
+          "source_refs": [
+            "POL27-CF-MARX-C01-S02"
+          ],
+          "current_recall_basis": {
+            "priority": "P0",
+            "forms": [
+              "boundary",
+              "hat"
+            ]
+          },
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MARX-P013"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        },
+        {
+          "id": "POL27-MEM-MARX-C01-S02-M02",
+          "form": "relation_boundary",
+          "statement": "尊重客观规律是正确发挥主观能动性的前提；人的能动作用必须通过实践并依赖现实物质条件。",
+          "source_refs": [
+            "POL27-CF-MARX-C01-S02"
+          ],
+          "current_recall_basis": {
+            "priority": "P0",
+            "forms": [
+              "boundary",
+              "hat"
+            ]
+          },
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MARX-P018",
+            "LEG26-LOWER-MARX-P055"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    }
+  },
+  "deferred_candidate_domains": [
+    {
+      "domain": "物质—意识完整固定表述",
+      "reason": "Current chapter relation is clear, but exact designated-memory wording should be rebound before candidate-level wording is frozen."
+    }
+  ]
+}
