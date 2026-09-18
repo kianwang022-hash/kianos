@@ -8,28 +8,6 @@ concurrency:
 permissions:
   contents: read
 jobs:
-  source-inspection:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          persist-credentials: true
-      - name: Package exact scoped implementation for independent inspection
-        env:
-          CURRENT_MAIN: 14db655c5dd529d6676702075b785febab7c950c
-        run: |
-          mkdir -p /tmp/xizong-source-inspection
-          git fetch --no-tags --depth=1 origin "$CURRENT_MAIN"
-          for ref in "$CURRENT_MAIN" "$GITHUB_SHA"; do
-            git archive --format=tar.gz --output="/tmp/xizong-source-inspection/$ref.tar.gz" "$ref" content/xizong static-web/src static-web/scripts static-web/package.json static-web/astro.config.mjs .github/workflows AGENTS.md PROJECT_DEFINITION.md ARCHITECTURE.md LEARNING_ACCEPTANCE.md SYSTEM_CONTRACT.md 'static-web/*.md'
-          done
-          git diff "$CURRENT_MAIN" "$GITHUB_SHA" -- content/xizong static-web/src static-web/scripts SYSTEM_CONTRACT.md 'static-web/*.md' > /tmp/xizong-source-inspection/current-to-candidate.patch
-          printf 'Current main: %s\nCandidate: %s\nNo private learner state is included.\n' "$CURRENT_MAIN" "$GITHUB_SHA" > /tmp/xizong-source-inspection/PROVENANCE.txt
-      - uses: actions/upload-artifact@v4
-        with:
-          name: xizong-scoped-source-${{ github.sha }}
-          path: /tmp/xizong-source-inspection
-          retention-days: 7
   prepare:
     runs-on: ubuntu-latest
     permissions:
@@ -38,20 +16,48 @@ jobs:
       head: ${{ steps.head.outputs.sha }}
     steps:
       - uses: actions/checkout@v4
-      - name: Apply final bounded patch when present
+        with:
+          fetch-depth: 0
+      - name: Reconcile pinned Current and apply bounded repair
         run: |
+          git config user.name 'KianOS acceptance worker'
+          git config user.email 'noreply@users.noreply.github.com'
+          git fetch --no-tags origin 14db655c5dd529d6676702075b785febab7c950c
+          git merge --no-edit FETCH_HEAD
           if test -f .github/xizong-final-closeout.py; then
             python3 .github/xizong-final-closeout.py
             git diff --check
-            git add static-web/src/components/XizongPracticeWorkbench.astro static-web/src/components/XizongSystemExitRuntime.astro static-web/src/components/XizongSystemEvidenceGuard.astro static-web/scripts/test-xizong-final-independent.mjs
+            git add static-web/src/lib/xizong.mjs static-web/src/lib/xizongMemoryAutoRelease.mjs static-web/src/components/XizongRuntimeStageGuard.astro static-web/src/components/XizongLastLocation.astro static-web/src/components/XizongPracticeWorkbench.astro static-web/src/components/XizongBlockV6.astro static-web/scripts/test-xizong-final-independent.mjs
             git rm .github/xizong-final-closeout.py
-            git config user.name 'KianOS acceptance worker'
-            git config user.email 'noreply@users.noreply.github.com'
-            git commit -m 'fix(xizong): restore post-question reconstruction and preserve System Recall evidence'
-            git push origin HEAD:work/xizong-final-learner-20260919-independent
+            git commit -m 'fix(xizong): require exact current Block evidence at System and Resume gates'
           fi
+          git push origin HEAD:work/xizong-final-learner-20260919-independent
       - id: head
         run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+  source-inspection:
+    needs: prepare
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.prepare.outputs.head }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Package exact scoped implementation
+        env:
+          CURRENT_MAIN: 14db655c5dd529d6676702075b785febab7c950c
+        run: |
+          mkdir -p /tmp/xizong-source-inspection
+          for ref in "$CURRENT_MAIN" "$(git rev-parse HEAD)"; do
+            git archive --format=tar.gz --output="/tmp/xizong-source-inspection/$ref.tar.gz" "$ref" content/xizong static-web/src static-web/scripts static-web/package.json static-web/astro.config.mjs .github/workflows AGENTS.md PROJECT_DEFINITION.md ARCHITECTURE.md LEARNING_ACCEPTANCE.md SYSTEM_CONTRACT.md 'static-web/*.md'
+          done
+          git diff "$CURRENT_MAIN" HEAD -- content/xizong static-web/src static-web/scripts SYSTEM_CONTRACT.md 'static-web/*.md' > /tmp/xizong-source-inspection/current-to-candidate.patch
+          printf 'Current main: %s\nCandidate: %s\nSynthetic tests only; no learner U.\n' "$CURRENT_MAIN" "$(git rev-parse HEAD)" > /tmp/xizong-source-inspection/PROVENANCE.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: xizong-scoped-source-${{ needs.prepare.outputs.head }}
+          path: /tmp/xizong-source-inspection
+          retention-days: 7
   independent:
     needs: prepare
     strategy:
