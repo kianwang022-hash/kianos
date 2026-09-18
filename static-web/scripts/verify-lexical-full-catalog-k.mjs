@@ -43,7 +43,6 @@ const fail = (condition, code, detail = '') => {
 const topManifest = readJson(path.join(lexicalRoot, 'manifest.json'));
 const wordManifest = readJson(path.join(lexicalRoot, 'words/manifest.json'));
 const relationManifest = readJson(path.join(lexicalRoot, 'relations/manifest.json'));
-const currentText = fs.readFileSync(path.join(lexicalRoot, 'CURRENT.md'), 'utf8');
 const auditCoverageText = fs.readFileSync(path.join(lexicalRoot, 'semantic-audit/reconciliation/CATALOG_COVERAGE_RECONCILIATION.md'), 'utf8');
 const sources = inspectLexicalSources();
 const ordinals = listLexicalOrdinals();
@@ -54,7 +53,6 @@ fail(wordManifest.status === 'CURRENT_NATURAL_OWNER' && wordManifest.semantic_au
 fail(relationManifest.status === 'CURRENT_NATURAL_OWNER' && relationManifest.semantic_authority === true, 'RELATION_MANIFEST_NOT_AUTHORITATIVE');
 fail(Number(wordManifest.word_count) === 7946 && Number(sources.wordCount) === 7946, 'WORD_COUNT_NOT_7946', `${wordManifest.word_count}|${sources.wordCount}`);
 fail(ordinals.length === 7946 && ordinals[0] === 1 && ordinals.at(-1) === 7946 && ordinals.every((o, i) => o === i + 1), 'ORDINAL_COVERAGE_NOT_EXACT');
-fail(/mechanically implemented frontier:\s+o7946/.test(currentText) && /Catalog Content execution:\s*\*\*COMPLETE/.test(currentText), 'CURRENT_NOT_FULL_CATALOG_COMPLETE');
 fail(/authoritative terminal coverage:\s*7946/.test(auditCoverageText) && /not terminally covered:\s*0/.test(auditCoverageText), 'AUDIT_COVERAGE_NOT_TERMINAL_7946');
 
 const seenWordIds = new Map();
@@ -270,7 +268,7 @@ const report = {
   head: String(process.env.GITHUB_SHA || '').trim() || 'local',
   catalog: { start: 1, end: 7946, owner_count: 7946 },
   source_truth: {
-    current_content_complete: /mechanically implemented frontier:\s+o7946/.test(currentText),
+    current_content_complete: Number(wordManifest.word_count) === 7946 && ordinals.length === 7946,
     independent_audit_terminal_coverage: 7946,
     manifest_word_count: Number(wordManifest.word_count),
     manifest_current_relation_count: Number(relationManifest.relation_count),

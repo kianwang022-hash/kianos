@@ -15,6 +15,10 @@ const { nextHref = '/vocabulary/' } = Astro.props;
     const objectId=root.getAttribute('data-vocab-object')||word;
     const ordinal=Number(root.getAttribute('data-vocab-ordinal')||0);
     const sourceHash=root.getAttribute('data-vocab-source-hash')||'';
+    const requestedMode=new URLSearchParams(location.search).get('mode');
+    const mode=['lookup','repair'].includes(String(requestedMode||''))?String(requestedMode):'study';
+    root.dataset.vocabMode=mode;
+    const readOnlyLookup=mode==='lookup';
     const storageKey=`kianos-vocabulary-astro-v2:${objectId}`;
     const readJson=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key)||'null')||fallback}catch{return fallback}};
     const saveJson=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value))}catch{}};
@@ -25,7 +29,7 @@ const { nextHref = '/vocabulary/' } = Astro.props;
     const append=(event)=>{const result=appendEvidenceEvent(readLedger(),event);saveLedger(result.ledger);syncProjection(result.ledger);window.dispatchEvent(new CustomEvent('kianos:lexical-evidence-changed'));return result};
     const targetEventFromButton=(button,overrides={})=>{const targetKind=button.getAttribute('data-target-kind')||'lexical';const targetId=button.getAttribute('data-target-id')||null;const targetLocator=button.getAttribute('data-target-locator')||null;return {event_id:browserEventId('depth'),word_id:objectId,ordinal,word,target_kind:targetKind,target_id:targetId,target_locator:targetLocator,target_revision:targetId?null:(sourceHash||null),source:'depth_plus',outcome:'ADDED',observed_at:new Date().toISOString(),...overrides}};
     const existingState=readJson(storageKey,null);
-    if(existingState?.repairTargets&&typeof existingState.repairTargets==='object'){
+    if(!readOnlyLookup&&existingState?.repairTargets&&typeof existingState.repairTargets==='object'){
       let ledger=readLedger();
       for(const target of Object.values(existingState.repairTargets)){
         if(!target||typeof target!=='object'||target.source==='evidence_reducer')continue;
@@ -36,17 +40,79 @@ const { nextHref = '/vocabulary/' } = Astro.props;
     }
     const front=root.querySelector('[data-vocab-front]');
     const reveal=root.querySelector('[data-vocab-reveal]');
-    if(front instanceof HTMLElement&&!front.querySelector('[data-card-routing-controls]')){
-      const controls=document.createElement('div');controls.className='lexicalRoutingControls';controls.setAttribute('data-card-routing-controls','');
-      [['mastered','Mastered · Next'],['known','Known · Next'],['fuzzy','Fuzzy · Depth'],['unknown','Unknown · Depth']].forEach(([route,label])=>{const button=document.createElement('button');button.type='button';button.setAttribute('data-route',route);button.textContent=label;controls.appendChild(button)});
-      const hint=document.createElement('small');hint.className='lexicalRoutingHint';hint.textContent='整词判断只决定现在是否打开 Depth；不会自动生成未来 Repair。';reveal?.insertAdjacentElement('afterend',controls);controls.insertAdjacentElement('afterend',hint);
-      controls.addEventListener('click',(event)=>{const button=event.target instanceof HTMLElement?event.target.closest('[data-route]'):null;if(!(button instanceof HTMLButtonElement))return;const route=String(button.getAttribute('data-route')||'').toUpperCase();append({event_id:browserEventId('route'),word_id:objectId,ordinal,word,target_kind:'card',target_id:null,target_locator:null,source:'card_routing',outcome:route,observed_at:new Date().toISOString()});if(route==='FUZZY'||route==='UNKNOWN')reveal?.click();else window.location.href=nextHref});
-    }
+    const routeButtons=[...root.querySelectorAll('[data-vocab-route]')];
+    const undoButton=root.querySelector('[data-vocab-undo]');
+    const ROUTING_KEY='kianos-lexical-card-routing-v1';
+    const emptyRouting=()=>({schema:'kianos.lexical.card_routing.v1',history:[],latest_by_word:{}});
+    const readRouting=()=>{const value=readJson(ROUTING_KEY,emptyRouting());return value?.schema==='kianos.lexical.card_routing.v1'?value:emptyRouting()};
+    const saveRouting=(value)=>saveJson(ROUTING_KEY,value);
+    const updateUndoState=()=>{if(undoButton instanceof HTMLButtonElement)undoButton.disabled=readRouting().history.length===0};
+
+    const recordRouting=(route)=>{
+      const now=new Date().toISOString();
+      const routing=readRouting();
+      const event={
+        event_id:browserEventId('route'),
+        word_id:objectId,
+        ordinal,
+        word,
+        route:String(route||'').toUpperCase(),
+        observed_at:now,
+        return_href:location.pathname
+      };
+      routing.history=[...routing.history,event].slice(-300);
+      routing.latest_by_word={...(routing.latest_by_word||{}),[objectId]:event};
+      saveRouting(routing);
+      updateUndoState();
+      return event;
+    };
+
+    const undoRouting=()=>{
+      const routing=readRouting();
+      const last=routing.history.at(-1);
+      if(!last)return;
+      routing.history=routing.history.slice(0,-1);
+      const previous=[...routing.history].reverse().find((item)=>item.word_id===last.word_id)||null;
+      routing.latest_by_word={...(routing.latest_by_word||{})};
+      if(previous)routing.latest_by_word[last.word_id]=previous;
+      else delete routing.latest_by_word[last.word_id];
+      saveRouting(routing);
+      updateUndoState();
+      if(last.return_href)location.href=last.return_href;
+    };
+
+    const submitRoute=(route)=>{
+      if(mode!=='study')return;
+      recordRouting(route);
+      location.href=nextHref;
+    };
+
+    routeButtons.forEach((button)=>button.addEventListener('click',()=>{
+      submitRoute(button.getAttribute('data-vocab-route')||'');
+    }));
+    undoButton?.addEventListener('click',undoRouting);
+    updateUndoState();
+
     // The legacy WordRuntime listener was registered first on the same bubbling path.
     // Read aria-pressed after it finishes instead of queueing from capture phase; otherwise
     // the evidence bridge can observe the pre-toggle state and silently miss the admission.
     const recordToggle=(button)=>{const active=button.getAttribute('aria-pressed')==='true';append(targetEventFromButton(button,active?{}:{event_id:browserEventId('clear'),source:'manual_clear',outcome:'CLEAR'}))};
     root.addEventListener('click',(event)=>{const button=event.target instanceof HTMLElement?event.target.closest('[data-vocab-repair]'):null;if(button instanceof HTMLButtonElement)recordToggle(button)});
-    document.addEventListener('keydown',(event)=>{if(!['ArrowRight','ArrowLeft','+'].includes(event.key))return;const activeRoot=document.querySelector('[data-local-port="vocabulary"][data-vocab-keyboard-active="true"]')||document.querySelector('[data-local-port="vocabulary"]');if(activeRoot!==root)return;const button=root.querySelector('[data-vocab-target-row].keyboard-target [data-vocab-repair]');if(button instanceof HTMLButtonElement)recordToggle(button)});
+    document.addEventListener('keydown',(event)=>{
+      if(event.defaultPrevented||mode!=='study'||document.querySelector('[data-vocab-challenge-runtime][data-challenge-active="true"]'))return;
+      const activeRoot=document.querySelector('[data-local-port="vocabulary"][data-vocab-keyboard-active="true"]')||document.querySelector('[data-local-port="vocabulary"]');
+      if(activeRoot!==root)return;
+      const target=event.target;
+      if(target instanceof HTMLElement&&target.closest('input,textarea,select,button,a,[contenteditable="true"]'))return;
+      if(event.key==='Backspace'){
+        if(readRouting().history.length){event.preventDefault();undoRouting();}
+        return;
+      }
+      const revealed=root.dataset.vocabRevealed==='true';
+      if(!revealed)return;
+      const routeByKey={ArrowLeft:'unknown',ArrowUp:'fuzzy',ArrowRight:'known',ArrowDown:'mastered'};
+      const route=routeByKey[event.key];
+      if(route){event.preventDefault();submitRoute(route);}
+    });
   }
 </script>

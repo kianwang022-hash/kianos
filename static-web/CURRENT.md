@@ -30,7 +30,7 @@ Architecture-level website blocker: **none**.
 | Xizong UI | **ACTIVE** | `work/ui-xizong-vertical-20260918` → `content/xizong/CURRENT.md` → exact accepted surface owner |
 | Politics UI | **ACTIVE** | formal `#395` / `work/ui-politics-vertical-20260918`; preview `#397` stays isolated until Human Gate |
 | English UI | **LANDED** | `content/english/CURRENT.md` |
-| Lexical learner surface | **STEADY under English** | `content/lexical/CURRENT.md` when a concrete defect exists |
+| Lexical Architecture v2 | **ACTIVE** | `content/lexical/CURRENT.md` → `static-web/LEXICAL_PRODUCT_BRIEF.md` → representative learner surfaces |
 
 Do not revive historical UI migrations merely because old branches/PRs still exist.
 
@@ -185,6 +185,7 @@ CI green is not visual acceptance.
 - **Xizong:** continue the active System / Block learner-surface convergence from its exact UI owner; preserve medical semantics and the Guide ≠ Framework boundary.
 - **Politics:** continue from the cleaned SurfacePlan-only renderer path; Visual may arrange mapped objects but must not author semantic grouping/relations.
 - **English:** only concrete launch-visible defects; do not reopen accepted task geometry.
+- **Lexical:** execute Architecture-v2 adaptation from current Rule + canonical Content; first Human Gates are Vocabulary Home and representative SAFE_SIMPLE / DEPTH_READY Word surfaces. Do not treat prior P/R/E PASS as current visual Human-Gate approval.
 
 Exact branch/PR/cursor state must be read from the active owner/ref before work.
 

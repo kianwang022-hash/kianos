@@ -97,7 +97,7 @@ try {
   const frontText = await page.locator('[data-vocab-front]').innerText();
   const hiddenCore = String(await page.locator('[data-vocab-details] .lexicalSenseMeaning > p').first().textContent() || '').trim();
   check(Boolean(hiddenCore) && !frontText.includes(hiddenCore), 'recall_front_does_not_leak_core_answer', hiddenCore);
-  check(await page.locator('[data-route="known"]').count() === 1 && await page.locator('[data-route="mastered"]').count() === 1, 'fast_pass_controls_present');
+  check(await page.locator('[data-vocab-route="known"]').count() === 1 && await page.locator('[data-vocab-route="mastered"]').count() === 1, 'fast_pass_controls_present');
 
   // Known is a low-friction Fast Pass: record the whole-card observation, create no Repair, and continue Coverage.
   const fastContext = await browser.newContext({ viewport: { width: 1365, height: 900 } });
@@ -105,19 +105,23 @@ try {
   await goto(fastPage, '/vocabulary/4/');
   await fastPage.evaluate(() => localStorage.clear());
   await fastPage.reload({ waitUntil: 'domcontentloaded' });
-  await fastPage.locator('[data-route="known"]').click();
+  await fastPage.locator('[data-vocab-route="known"]').click();
   await fastPage.waitForURL(/\/vocabulary\/5\/?$/);
-  const fastLedger = await ledger(fastPage);
-  check(fastLedger?.events?.some((event) => event.target_kind === 'card' && event.outcome === 'KNOWN'), 'known_fast_pass_event_recorded');
+  const fastRouting = await fastPage.evaluate(() => JSON.parse(localStorage.getItem('kianos-lexical-card-routing-v1') || 'null'));
+  check(fastRouting?.history?.at(-1)?.route === 'KNOWN', 'known_fast_pass_event_recorded');
   check(await repairCount(fastPage, objectId) === 0, 'known_fast_pass_zero_repair_debt');
   await fastContext.close();
 
-  // Whole-card routing changes attention now, never future Repair.
-  await page.locator('[data-route="fuzzy"]').click();
-  check(await page.locator('[data-vocab-details]').isVisible(), 'fuzzy_opens_depth');
-  let l = await ledger(page);
-  check(l?.events?.some((event) => event.target_kind === 'card' && event.outcome === 'FUZZY'), 'fuzzy_event_recorded');
+  // Fuzzy/Unknown belong to the revealed four-direction judgment, not the Recall front.
+  await page.keyboard.press('Space');
+  check(await page.locator('[data-vocab-details]').isVisible(), 'space_reveals_depth');
+  await page.locator('[data-vocab-route="fuzzy"]').click();
+  await page.waitForURL(/\/vocabulary\/5\/?$/);
+  const fuzzyRouting = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos-lexical-card-routing-v1') || 'null'));
+  check(fuzzyRouting?.history?.at(-1)?.route === 'FUZZY', 'fuzzy_event_recorded');
   check(await repairCount(page, objectId) === 0, 'fuzzy_zero_repair_debt');
+  let l = await ledger(page);
+  check(!l?.events?.some((event) => event.target_kind === 'card'), 'card_routing_stays_out_of_repair_ledger');
   await goto(page, '/vocabulary/');
   await page.locator('[data-lexical-tab="review"]').click();
   await page.waitForTimeout(40);

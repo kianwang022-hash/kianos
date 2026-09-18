@@ -153,10 +153,8 @@ try {
   for (const surface of formSurfaces) check(form.bodyText.includes(String(surface)), 'same_owner_form_surface_visible', `${fixtures.same_owner_form.ordinal}:${surface}`);
 
   const reference = await inspect('reference_only', fixtures.reference_only);
-  const rawReference = rawOwner(fixtures.reference_only.ordinal).reference_senses || [];
-  const activeDefinitions = new Set((reference.card.senses || []).flatMap((sense) => [sense?.definition_cn, sense?.definition_en]).filter(Boolean).map(String));
-  const uniqueReferenceText = rawReference.flatMap((ref) => [ref?.definition_cn, ref?.definition_en]).filter((text) => text && !activeDefinitions.has(String(text))).map(String)[0];
-  if (uniqueReferenceText) check(!reference.bodyText.includes(uniqueReferenceText), 'reference_only_not_crowding_study', uniqueReferenceText);
+  const referenceOnlyProjectionCount = await page.locator('[data-target-locator^="reference_senses"],[data-target-locator*=".reference_senses"]').count();
+  check(referenceOnlyProjectionCount === 0, 'reference_only_objects_not_projected_into_study', String(referenceOnlyProjectionCount));
 
   const [leftFixture, rightFixture] = fixtures.distinct_owner_spelling;
   const left = await inspect('distinct_owner_left', leftFixture);

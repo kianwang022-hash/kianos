@@ -146,8 +146,9 @@ async function assertFullLexicalRoundTrip(page) {
   check(await page.locator('[data-english-lexical-return]').isVisible(), 'lexical_lookup_exposes_exact_return');
   await assertExactLexicalResult(page, word, 'reading');
   await page.screenshot({ path: path.join(auditDir, 'lexical-return-1440x900.png'), fullPage: false });
-  await page.locator('.lexicalWordRow').first().click();
-  await page.waitForURL('**/vocabulary/*/');
+  await page.locator('[data-lexical-search-results] .lexicalWordRow').first().click();
+  await page.waitForURL((url) => url.pathname.includes('/vocabulary/') && url.searchParams.get('mode') === 'lookup');
+  check(new URL(page.url()).searchParams.get('mode') === 'lookup', 'lexical_lookup_enters_read_only_mode', page.url());
   check(await page.locator('[data-english-lexical-return]').isVisible(), 'lexical_depth_keeps_return_context');
   await page.locator('[data-english-return-action]').click();
   await page.waitForURL(`**${original}`);

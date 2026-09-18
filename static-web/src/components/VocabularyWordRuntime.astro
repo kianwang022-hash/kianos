@@ -1,80 +1,27 @@
 ---
 const { answer } = Astro.props;
 const card = answer.record || {};
-const core = card.core_concept || {};
+const wordFeel = card.word_feel && typeof card.word_feel === 'object' ? card.word_feel : null;
 const senses = Array.isArray(card.senses) ? card.senses : [];
-const activeSenseIds = new Set(senses.map((sense) => String(sense?.sense_id || '')).filter(Boolean));
-const secondarySenseRows = (Array.isArray(card.secondary_senses) ? card.secondary_senses : [])
-  .map((branch, index) => ({ branch, index }))
-  .filter(({ branch }) =>
-    ['verified', 'semantic_auditor_verified'].includes(String(branch?.verification_status || '')) &&
-    ['publishable', 'codex_reviewed', 'published'].includes(String(branch?.publication_status || '')) &&
-    (!branch?.source_sense_id || !activeSenseIds.has(String(branch.source_sense_id)))
-  );
-const secondarySenses = secondarySenseRows.map(({ branch }) => branch);
+const secondarySenses = Array.isArray(card.secondary_senses) ? card.secondary_senses : [];
+const constructions = Array.isArray(card.constructions) ? card.constructions : [];
+const reference = card.reference && typeof card.reference === 'object' ? card.reference : {};
+const confusables = Array.isArray(reference.confusables) ? reference.confusables : [];
+const semanticRelations = Array.isArray(reference.relations) ? reference.relations : [];
+const form = reference.form && typeof reference.form === 'object' ? reference.form : null;
+const family = Array.isArray(reference.family) ? reference.family : [];
+const recallMap = card.recall_map && typeof card.recall_map === 'object' ? card.recall_map : {};
+const recallParts = Array.isArray(recallMap.parts) ? recallMap.parts : [];
+const recallDensity = String(recallMap.density || 'light');
 
-const normalizePhrase = (value = '') => String(value || '')
-  .toLowerCase()
-  .replace(/[’']/g, "'")
-  .replace(/\s+/g, ' ')
-  .trim();
-
-const allCollocationsWithIndex = (sense) => (sense.collocations || [])
-  .map((item, index) => ({ item, index }))
-  .filter(({ item }) => Boolean(item?.phrase));
-const fixedCollocationsWithIndex = (sense) => allCollocationsWithIndex(sense)
-  .filter(({ item }) => item.exam_value === 'fixed_pattern');
-const sensePhraseKeys = new Set(
-  senses.flatMap((sense) => allCollocationsWithIndex(sense).map(({ item }) => normalizePhrase(item.phrase)))
-);
-
-const constructionRows = (Array.isArray(card.constructions) ? card.constructions : [])
-  .map((construction, index) => ({ construction, index }))
-  .filter(({ construction }) =>
-    (!construction?.verification_status || ['verified', 'semantic_auditor_verified'].includes(String(construction.verification_status))) &&
-    !construction?.presentation_merge?.surviving_object_id &&
-    !sensePhraseKeys.has(normalizePhrase(construction?.pattern || construction?.boundary || ''))
-  );
-const constructions = constructionRows.map(({ construction }) => construction);
-
-const semanticNeighbors = Array.isArray(card.semantic_neighbors) ? card.semantic_neighbors : [];
-const confusables = Array.isArray(card.confusables) ? card.confusables : [];
-const relationRows = [
-  ...semanticNeighbors.map((relation, index) => ({ relation, locator: `record.semantic_neighbors[${index}]`, kind: 'relation' })),
-  ...confusables.map((relation, index) => ({ relation, locator: `record.confusables[${index}]`, kind: 'confusable' }))
-];
-const importantRelationRows = relationRows.filter(({ relation, kind }) => {
-  if (kind === 'confusable') return true;
-  const priority = String(relation?.priority || relation?.tier || '').toUpperCase();
-  const learningValue = Number(relation?.learning_value_score || 0);
-  return ['S', 'A'].includes(priority) || learningValue >= 8.5;
-});
-
-const formIdentity = card.form_identity && typeof card.form_identity === 'object' ? card.form_identity : null;
-const formBoundaries = Array.isArray(formIdentity?.boundaries) ? formIdentity.boundaries : [];
-const formVariants = Array.isArray(formIdentity?.variants) ? formIdentity.variants : [];
-const wordFamilyRows = (Array.isArray(card.word_family) ? card.word_family : [])
-  .map((item, index) => ({ item, index }))
-  .filter(({ item }) =>
-    (!item?.verification_status || ['verified', 'semantic_auditor_verified'].includes(String(item.verification_status))) &&
-    (!item?.publication_status || ['publishable', 'codex_reviewed', 'published'].includes(String(item.publication_status))) &&
-    Boolean(item?.target_word)
-  );
-
-const hasImportantExpansion = constructionRows.length > 0 || importantRelationRows.length > 0 || Boolean(formIdentity);
-const showFamilyInExpansion = hasImportantExpansion && wordFamilyRows.length > 0;
-const expansionModuleCount = [constructionRows.length > 0, importantRelationRows.length > 0, Boolean(formIdentity), showFamilyInExpansion]
-  .filter(Boolean).length;
-const expansionWeight = expansionModuleCount >= 3 ? 'rich' : expansionModuleCount === 1 ? 'light' : 'standard';
-
-const identityOverlayText = (overlay = {}) => String(
-  overlay.note || overlay.label_cn || overlay.label_en || overlay.boundary || overlay.identity_type || overlay.canonical_form || 'Form / identity distinction'
-);
-const corePrimaryCn = String(core.core_meaning_cn || core.mental_model_cn || '—');
-const coreSecondaryCn = String(core.mental_model_cn || '').trim() && String(core.mental_model_cn).trim() !== corePrimaryCn.trim()
-  ? String(core.mental_model_cn).trim()
-  : '';
-const coreEnglish = String(core.core_meaning_en || '').trim();
+const referenceModuleCount = [
+  confusables.length > 0,
+  semanticRelations.length > 0,
+  Boolean(form),
+  family.length > 0
+].filter(Boolean).length;
+const hasReferenceRail = referenceModuleCount > 0;
+const referenceWeight = referenceModuleCount >= 3 ? 'rich' : referenceModuleCount === 1 ? 'light' : 'standard';
 
 const posCode = (value = '') => {
   const pos = String(value).toLowerCase();
@@ -88,81 +35,13 @@ const posCode = (value = '') => {
   return String(value || 'S').toUpperCase();
 };
 
-const posOrder = ['V', 'A', 'N', 'ADV', 'PREP', 'INTJ', 'NUM'];
-const countPos = (rows) => rows.reduce((acc, item) => {
-  const code = posCode(item.pos);
-  acc[code] = (acc[code] || 0) + 1;
-  return acc;
-}, {});
-const primaryCounts = countPos(senses);
-const hiddenCounts = countPos(secondarySenses);
-const allPosCodes = [...new Set([...Object.keys(primaryCounts), ...Object.keys(hiddenCounts)])]
-  .sort((a, b) => {
-    const ai = posOrder.indexOf(a);
-    const bi = posOrder.indexOf(b);
-    return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi) || a.localeCompare(b);
-  });
-const recallParts = allPosCodes.map((code) => {
-  const primary = primaryCounts[code] || 0;
-  const hidden = hiddenCounts[code] || 0;
-  if (primary && hidden) return `(${primary}+${hidden})${code}`;
-  if (hidden) return `${hidden}${code}+`;
-  return `${primary}${code}`;
-});
-
-const escapeRegExp = (value = '') => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-const skeletonize = (value = '') => {
-  const text = String(value || '').trim();
-  if (!text) return '';
-  const word = String(card.word || '').trim();
-  if (!word) return text;
-  return text.replace(new RegExp(`\\b${escapeRegExp(word)}\\b`, 'gi'), '~');
-};
-
-const patternPrompts = [];
-for (const construction of constructions) {
-  const pattern = skeletonize(construction.pattern || construction.boundary || construction.label_en || '');
-  if (pattern) patternPrompts.push(pattern);
-}
-for (const sense of senses) {
-  for (const { item: collocation } of fixedCollocationsWithIndex(sense)) {
-    const pattern = skeletonize(collocation.phrase || '');
-    if (pattern) patternPrompts.push(pattern);
-  }
-}
-for (const branch of secondarySenses) {
-  const pattern = skeletonize(branch.pattern || branch.boundary || '');
-  if (pattern) patternPrompts.push(pattern);
-}
-const recallPatterns = [...new Set(patternPrompts)].slice(0, 5);
-
-const relationLead = (relation = {}) => String(
-  relation.boundary ||
-  (Array.isArray(relation.boundaries) ? relation.boundaries[0] : '') ||
-  relation.learning_note ||
-  relation.shared_core ||
-  relation.shared_meaning ||
-  ''
-).trim();
-const relationExtraBoundaries = (relation = {}) => {
-  const lead = relationLead(relation);
-  const candidates = [
-    ...(Array.isArray(relation.boundaries) ? relation.boundaries : []),
-    relation.learning_note,
-    relation.shared_core,
-    relation.shared_meaning
-  ].map((item) => String(item || '').trim()).filter(Boolean);
-  return [...new Set(candidates)].filter((item) => item !== lead).slice(0, 2);
-};
-const relationDifferenceRows = (relation = {}) => {
-  const objects = Array.isArray(relation.source_evidence_objects) ? relation.source_evidence_objects : [];
-  const difference = objects.find((item) => item?.difference && typeof item.difference === 'object')?.difference;
-  if (!difference) return [];
-  return Object.entries(difference).filter(([, value]) => Boolean(value)).slice(0, 4);
-};
+const repair = (value) => value && typeof value === 'object' ? value : {};
+const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.identity_overlay === 'object'
+  ? sense.identity_overlay
+  : null;
 ---
-<section class="portedVocabRuntime portedVocabRuntimeV2" data-local-port="vocabulary" data-vocab-word={card.word} data-vocab-object={answer.objectId} data-vocab-ordinal={answer.ordinal} data-vocab-source-hash={answer.sourceHash}>
-  <header class="portedVocabPreviewBar">
+<section class="portedVocabRuntime portedVocabRuntimeV2" data-local-port="vocabulary" data-vocab-mode="study" data-vocab-revealed="false" data-vocab-word={card.word} data-vocab-object={answer.objectId} data-vocab-ordinal={answer.ordinal} data-vocab-source-hash={answer.sourceHash}>
+  <header class="portedVocabPreviewBar" aria-hidden="true">
     <a href="/">‹ Vocabulary</a>
     <div><span>Study · Depth</span><b>{card.word}</b><small data-vocab-state-label>Ready</small></div>
     <div class="portedVocabPreviewActions">
@@ -172,134 +51,317 @@ const relationDifferenceRows = (relation = {}) => {
   </header>
 
   <section class="portedVocabStudySheet">
-    <section class="portedVocabWordFront" data-vocab-front>
-      <span>Recall Map</span>
+    <section class="portedVocabWordFront" data-vocab-front data-recall-density={recallDensity}>
       <h2>{card.word}</h2>
+      <div class="lexicalFrontPronunciation" aria-label="Pronunciation">
+        <button type="button" data-vocab-speak="en-US">美音 · 点击播放</button>
+        <span class="lexicalPronunciationToggle"><button type="button" data-vocab-speak="en-GB">英</button><button type="button" data-vocab-speak="en-US" class="active">美</button></span>
+      </div>
       <div class="portedVocabRecallMap">
         <strong>{recallParts.length ? recallParts.join(' · ') : 'Core'}</strong>
-        {secondarySenses.length > 0 && <small>+ = 高价值深层分支</small>}
-        {recallPatterns.map((pattern) => <code>{pattern}</code>)}
+        <small>当前 active 词义</small>
       </div>
-      <p>先把你能想到的高价值含义和结构在脑中搜一遍，再翻开核对。</p>
-      <button type="button" class="portedPrimaryAction" data-vocab-reveal>Reveal</button>
+      <p>点击任意空白处，或按 ← / ↑ / Space 查看完整词义</p>
     </section>
 
     <div data-vocab-details hidden>
       <header class="portedVocabWordHeader">
         <div class="lexicalWordIdentity">
-          <span>Depth Reveal</span>
+          <span>Coverage · Word Study</span>
           <h2>{card.word}</h2>
+          <div class="lexicalDepthPronunciation">
+            <button type="button" data-vocab-speak="en-US">美音 · 点击播放</button>
+            <span><button type="button" data-vocab-speak="en-GB">英</button><button type="button" data-vocab-speak="en-US" class="active">美</button></span>
+          </div>
         </div>
-        <div class="lexicalCoreHeadline" data-vocab-target-row>
-          <p>{corePrimaryCn}</p>
-          {coreSecondaryCn && <b>{coreSecondaryCn}</b>}
-          {coreEnglish && <small>{coreEnglish}</small>}
-          <button type="button" data-vocab-repair data-target-kind="core" data-target-id="" data-target-locator="record.core_concept" data-target-label={`${core.core_meaning_cn || core.mental_model_cn || core.core_meaning_en || card.word}`} aria-pressed="false">+</button>
-        </div>
-        <aside>
-          <b>{recallParts.length ? recallParts.join(' · ') : 'Core'}</b>
-          <small>会的扫过；慢 / 模糊 / 漏掉的具体分支按 +</small>
-        </aside>
+
+        {wordFeel && (
+          <section class="lexicalCoreHeadline" data-vocab-target-row aria-label="Word Feel and Core">
+            <span>WORD FEEL / CORE</span>
+            <p>{wordFeel.summary_cn}</p>
+            {wordFeel.decision_cn && (
+              <div class="lexicalCoreDecision">
+                <small>怎么判断</small>
+                <b>{wordFeel.decision_cn}</b>
+              </div>
+            )}
+            <button
+              type="button"
+              data-vocab-repair
+              data-target-kind={repair(wordFeel.repair).target_kind || 'core'}
+              data-target-id={repair(wordFeel.repair).target_id || ''}
+              data-target-locator={repair(wordFeel.repair).target_locator || ''}
+              data-target-label={repair(wordFeel.repair).target_label || wordFeel.summary_cn || card.word}
+              aria-pressed="false"
+            >+</button>
+          </section>
+        )}
       </header>
 
-      <div class="portedVocabBody" data-vocab-body data-has-expansion={hasImportantExpansion ? 'true' : 'false'} data-expansion-weight={expansionWeight}>
+      <div class="portedVocabBody" data-vocab-body data-has-reference={hasReferenceRail ? 'true' : 'false'} data-reference-weight={referenceWeight}>
         <main class="portedVocabMeaningColumn">
           <div class="portedVocabSenseList" data-vocab-repair-list>
-            {senses.map((sense, index) => {
-              const collocations = allCollocationsWithIndex(sense);
+            {senses.map((sense) => {
+              const target = repair(sense.repair);
+              const overlay = identityOverlay(sense);
               return (
                 <section class="lexicalSenseRow" data-vocab-target-row>
                   <header>
                     <span>{posCode(sense.pos)}</span>
                     {sense.governing_pattern && <small>{sense.governing_pattern}</small>}
-                    <button type="button" data-vocab-repair data-target-kind="sense" data-target-id={sense.sense_id || ''} data-target-locator={`record.senses[${index}]`} data-target-label={`${sense.definition_cn || sense.definition_en || card.word}`} aria-pressed="false">+</button>
+                    <button
+                      type="button"
+                      data-vocab-repair
+                      data-target-kind={target.target_kind || 'sense'}
+                      data-target-id={target.target_id || sense.id || ''}
+                      data-target-locator={target.target_locator || sense.source_locator || ''}
+                      data-target-label={target.target_label || sense.definition_cn || sense.definition_en || card.word}
+                      aria-pressed="false"
+                    >+</button>
                   </header>
+
                   <div class="lexicalSenseMeaning">
                     <p>{sense.definition_cn || '—'}</p>
                     <strong>{sense.definition_en || '—'}</strong>
-                    {sense.usage_note && <small class="lexicalSenseNote">{sense.usage_note}</small>}
-                    {sense.lexical_identity_overlay && (
+                    {sense.note && <small class="lexicalSenseNote">{sense.note}</small>}
+                    {overlay?.text && (
                       <article class="portedVocabIdentityOverlay" data-vocab-target-row>
-                        <small>FORM / IDENTITY</small>
-                        <b>{identityOverlayText(sense.lexical_identity_overlay)}</b>
-                        <button type="button" data-vocab-repair data-target-kind="form_identity" data-target-id="" data-target-locator={`record.senses[${index}].lexical_identity_overlay`} data-target-label={identityOverlayText(sense.lexical_identity_overlay)} aria-pressed="false">+</button>
+                        <b>{overlay.text}</b>
+                        <button
+                          type="button"
+                          data-vocab-repair
+                          data-target-kind={repair(overlay.repair).target_kind || 'form_identity'}
+                          data-target-id={repair(overlay.repair).target_id || ''}
+                          data-target-locator={repair(overlay.repair).target_locator || ''}
+                          data-target-label={repair(overlay.repair).target_label || overlay.text}
+                          aria-pressed="false"
+                        >+</button>
                       </article>
                     )}
                   </div>
-                  {collocations.length > 0 && (
+
+                  {Array.isArray(sense.usage) && sense.usage.length > 0 && (
                     <ul class="lexicalSenseUsage">
-                      {collocations.map(({ item, index: collocationIndex }) => (
-                        <li class={item.exam_value === 'fixed_pattern' ? 'isFixedPattern' : 'isUsageExample'} data-vocab-target-row={item.exam_value === 'fixed_pattern' ? '' : undefined}>
-                          <b>{item.phrase}</b>
-                          {item.meaning_cn && <span>{item.meaning_cn}</span>}
-                          {item.exam_value === 'fixed_pattern' && <button type="button" data-vocab-repair data-target-kind="collocation" data-target-id={item.collocation_id || ''} data-target-locator={`record.senses[${index}].collocations[${collocationIndex}]`} data-target-label={`${item.phrase || card.word}`} aria-pressed="false">+</button>}
-                        </li>
-                      ))}
+                      {sense.usage.map((item) => {
+                        const usageRepair = repair(item.repair);
+                        const isFixed = item.kind === 'fixed_pattern';
+                        return (
+                          <li class={isFixed ? 'isFixedPattern' : 'isUsageExample'} data-vocab-target-row={item.repair ? '' : undefined}>
+                            <b>{item.phrase}</b>
+                            {item.meaning_cn && <span>{item.meaning_cn}</span>}
+                            {item.repair && (
+                              <button
+                                type="button"
+                                data-vocab-repair
+                                data-target-kind={usageRepair.target_kind || 'collocation'}
+                                data-target-id={usageRepair.target_id || item.id || ''}
+                                data-target-locator={usageRepair.target_locator || item.source_locator || ''}
+                                data-target-label={usageRepair.target_label || item.phrase || card.word}
+                                aria-pressed="false"
+                              >+</button>
+                            )}
+                          </li>
+                        );
+                      })}
                     </ul>
                   )}
                 </section>
               );
             })}
 
-            {secondarySenseRows.map(({ branch, index }) => (
-              <section class="lexicalSenseRow lexicalSecondarySenseRow" data-vocab-target-row>
-                <header>
-                  <span>{posCode(branch.pos)}+</span>
-                  <button type="button" data-vocab-repair data-target-kind="secondary_sense" data-target-id={branch.fact_id || branch.source_sense_id || ''} data-target-locator={`record.secondary_senses[${index}]`} data-target-label={`${branch.definition_cn || branch.meaning_cn || branch.definition_en || branch.label_en || card.word}`} aria-pressed="false">+</button>
-                </header>
-                <div class="lexicalSenseMeaning">
-                  <p>{branch.definition_cn || branch.meaning_cn || '—'}</p>
-                  <strong>{branch.definition_en || branch.label_en || '—'}</strong>
-                </div>
-                {(branch.pattern || branch.boundary) && <div class="lexicalSenseUsage lexicalSecondaryUsage"><code>{branch.pattern || branch.boundary}</code></div>}
-              </section>
-            ))}
+            {secondarySenses.map((sense) => {
+              const target = repair(sense.repair);
+              return (
+                <section class="lexicalSenseRow lexicalSecondarySenseRow" data-vocab-target-row>
+                  <header>
+                    <span>{posCode(sense.pos)}+</span>
+                    <button
+                      type="button"
+                      data-vocab-repair
+                      data-target-kind={target.target_kind || 'secondary_sense'}
+                      data-target-id={target.target_id || sense.id || ''}
+                      data-target-locator={target.target_locator || sense.source_locator || ''}
+                      data-target-label={target.target_label || sense.definition_cn || sense.definition_en || card.word}
+                      aria-pressed="false"
+                    >+</button>
+                  </header>
+                  <div class="lexicalSenseMeaning">
+                    <p>{sense.definition_cn || '—'}</p>
+                    <strong>{sense.definition_en || '—'}</strong>
+                    {sense.note && <small class="lexicalSenseNote">{sense.note}</small>}
+                  </div>
+                  {sense.pattern && <div class="lexicalSenseUsage lexicalSecondaryUsage"><code>{sense.pattern}</code></div>}
+                </section>
+              );
+            })}
           </div>
+
+          {constructions.length > 0 && (
+            <section class="lexicalWordPatterns" aria-label="Word-level patterns and constructions">
+              <header>
+                <span>PATTERNS / CONSTRUCTIONS</span>
+                <small>Word-owned 可复用结构</small>
+              </header>
+              <div class="lexicalPatternList">
+                {constructions.map((item) => {
+                  const target = repair(item.repair);
+                  return (
+                    <article data-vocab-target-row>
+                      <b>{item.pattern}</b>
+                      <div class="lexicalPatternText">
+                        {(Array.isArray(item.lines) ? item.lines : []).map((line) => (
+                          <span class={line.lang === 'cn' ? 'is-cn' : 'is-en'}>{line.text}</span>
+                        ))}
+                      </div>
+                      <button
+                        type="button"
+                        data-vocab-repair
+                        data-target-kind={target.target_kind || 'construction'}
+                        data-target-id={target.target_id || item.id || ''}
+                        data-target-locator={target.target_locator || item.source_locator || ''}
+                        data-target-label={target.target_label || item.pattern || card.word}
+                        aria-pressed="false"
+                      >+</button>
+                    </article>
+                  );
+                })}
+              </div>
+            </section>
+          )}
         </main>
 
-        {hasImportantExpansion && <aside class="portedVocabEvidenceColumn" aria-label="Important lexical expansion">
-          {constructionRows.length > 0 && <section class="lexicalExpansionSection lexicalConstructionSection">
-            <header><span>Constructions</span><small>独立构式 / 固定表达</small></header>
-            <div class="portedVocabEvidenceList">
-              {constructionRows.map(({ construction: item, index }) => (
-                <article data-vocab-target-row>
-                  <p class="lexicalExpansionCn">{item.meaning_cn || item.definition_cn || '—'}</p>
-                  <b>{item.pattern || item.boundary || item.label_en}</b>
-                  {item.definition_en && <small>{item.definition_en}</small>}
-                  <button type="button" data-vocab-repair data-target-kind="construction" data-target-id={item.fact_id || item.construction_id || ''} data-target-locator={`record.constructions[${index}]`} data-target-label={`${item.pattern || item.boundary || item.label_en || card.word}`} aria-pressed="false">+</button>
-                </article>
-              ))}
-            </div>
-          </section>}
+        {hasReferenceRail && (
+          <aside class="portedVocabEvidenceColumn" aria-label="Cross-sense lexical reference">
+            {confusables.length > 0 && (
+              <section class="lexicalExpansionSection lexicalRelationSection">
+                <header><span>易混辨析</span><small>Confusable</small></header>
+                <div class="portedVocabEvidenceList">
+                  {confusables.map((item) => {
+                    const target = repair(item.repair);
+                    return (
+                      <article data-vocab-target-row>
+                        <b>{item.title}</b>
+                        <div class="lexicalRelationText">
+                          {(Array.isArray(item.lines) ? item.lines : []).map((line) => (
+                            <p class={line.lang === 'cn' ? 'is-cn' : 'is-en'}>{line.text}</p>
+                          ))}
+                        </div>
+                        {Array.isArray(item.differences) && item.differences.length > 0 && (
+                          <dl class="lexicalRelationDecision">
+                            {item.differences.map((row) => <div><dt>{row.key}</dt><dd>{row.value}</dd></div>)}
+                          </dl>
+                        )}
+                        <button
+                          type="button"
+                          data-vocab-repair
+                          data-target-kind={target.target_kind || 'relation'}
+                          data-target-id={target.target_id || item.id || ''}
+                          data-target-locator={target.target_locator || ''}
+                          data-target-label={target.target_label || item.title || card.word}
+                          aria-pressed="false"
+                        >+</button>
+                      </article>
+                    );
+                  })}
+                </div>
+              </section>
+            )}
 
-          {importantRelationRows.length > 0 && <section class="lexicalExpansionSection lexicalRelationSection">
-            <header><span>Contrast / Confusable</span><small>只保留会改变判断的边界</small></header>
-            <div class="portedVocabEvidenceList">
-              {importantRelationRows.map(({ relation, locator }) => (
-                <article data-vocab-target-row>
-                  <b>{relation.target_expression || relation.target_word || relation.module || 'contrast'}</b>
-                  {relationLead(relation) && <p>{relationLead(relation)}</p>}
-                  {relationExtraBoundaries(relation).map((boundary) => <small class="lexicalRelationNote">{boundary}</small>)}
-                  {relationDifferenceRows(relation).length > 0 && <dl class="lexicalRelationDecision">{relationDifferenceRows(relation).map(([key, value]) => <div><dt>{String(key).replaceAll('_', ' ')}</dt><dd>{String(value)}</dd></div>)}</dl>}
-                  <button type="button" data-vocab-repair data-target-kind="relation" data-target-id={relation.fact_id || relation.relation_id || ''} data-target-locator={locator} data-target-label={`${relation.target_expression || relation.target_word || relation.module || card.word}`} aria-pressed="false">+</button>
-                </article>
-              ))}
-            </div>
-          </section>}
+            {semanticRelations.length > 0 && (
+              <section class="lexicalExpansionSection lexicalRelationSection">
+                <header><span>语义关系</span><small>Relation</small></header>
+                <div class="portedVocabEvidenceList">
+                  {semanticRelations.map((item) => {
+                    const target = repair(item.repair);
+                    return (
+                      <article data-vocab-target-row>
+                        <b>{item.title}</b>
+                        <div class="lexicalRelationText">
+                          {(Array.isArray(item.lines) ? item.lines : []).map((line) => (
+                            <p class={line.lang === 'cn' ? 'is-cn' : 'is-en'}>{line.text}</p>
+                          ))}
+                        </div>
+                        {Array.isArray(item.differences) && item.differences.length > 0 && (
+                          <dl class="lexicalRelationDecision">
+                            {item.differences.map((row) => <div><dt>{row.key}</dt><dd>{row.value}</dd></div>)}
+                          </dl>
+                        )}
+                        <button
+                          type="button"
+                          data-vocab-repair
+                          data-target-kind={target.target_kind || 'relation'}
+                          data-target-id={target.target_id || item.id || ''}
+                          data-target-locator={target.target_locator || ''}
+                          data-target-label={target.target_label || item.title || card.word}
+                          aria-pressed="false"
+                        >+</button>
+                      </article>
+                    );
+                  })}
+                </div>
+              </section>
+            )}
 
-          {formIdentity && <section class="lexicalExpansionSection lexicalFormSection" data-vocab-target-row>
-            <header><span>Form / Pronunciation</span><small>形式会改变读取时才显示</small></header>
-            {formIdentity.boundary && <p class="lexicalFormBoundary">{formIdentity.boundary}</p>}
-            {formBoundaries.length > 0 && <div class="lexicalFormVariants">{formBoundaries.map((boundary) => <article><b>{boundary.surface || boundary.condition || 'Form boundary'}</b>{boundary.condition && boundary.surface && <span>{boundary.condition}</span>}{boundary.note && <small>{boundary.note}</small>}</article>)}</div>}
-            {formVariants.length > 0 && <div class="lexicalFormVariants">{formVariants.map((variant) => <article><b>{variant.learner_key || variant.canonical_form || variant.variant_id}</b>{variant.ipa && <span>{variant.ipa}</span>}{Array.isArray(variant.pos) && <small>{variant.pos.join(' / ')}</small>}</article>)}</div>}
-            <button type="button" data-vocab-repair data-target-kind="form_identity" data-target-id="" data-target-locator="record.form_identity" data-target-label={`${formIdentity.boundary || formBoundaries.map((boundary) => boundary.surface).filter(Boolean).join(' / ') || card.word}`} aria-pressed="false">+</button>
-          </section>}
+            {form && (
+              <section class="lexicalExpansionSection lexicalFormSection" data-vocab-target-row>
+                <header><span>词形 / 发音</span><small>Form / Pronunciation</small></header>
+                {form.boundary && <p class="lexicalFormBoundary">{form.boundary}</p>}
+                {Array.isArray(form.boundaries) && form.boundaries.length > 0 && (
+                  <div class="lexicalFormVariants">
+                    {form.boundaries.map((boundary) => (
+                      <article>
+                        <b>{boundary.surface || boundary.condition}</b>
+                        {boundary.condition && boundary.surface && <span>{boundary.condition}</span>}
+                        {boundary.note && <small>{boundary.note}</small>}
+                      </article>
+                    ))}
+                  </div>
+                )}
+                {Array.isArray(form.variants) && form.variants.length > 0 && (
+                  <div class="lexicalFormVariants">
+                    {form.variants.map((variant) => (
+                      <article>
+                        <small class="lexicalFormPos">{Array.isArray(variant.pos) ? variant.pos.join(' / ') : ''}</small>
+                        <div class="lexicalFormReading">
+                          <b>{variant.reading}</b>
+                          {variant.stress && <small>{variant.stress}</small>}
+                        </div>
+                        {variant.ipa && <span class="lexicalFormIpa">{variant.ipa}</span>}
+                      </article>
+                    ))}
+                  </div>
+                )}
+                <button
+                  type="button"
+                  data-vocab-repair
+                  data-target-kind={repair(form.repair).target_kind || 'form_identity'}
+                  data-target-id={repair(form.repair).target_id || ''}
+                  data-target-locator={repair(form.repair).target_locator || 'record.form_identity'}
+                  data-target-label={repair(form.repair).target_label || card.word}
+                  aria-pressed="false"
+                >+</button>
+              </section>
+            )}
 
-          {showFamilyInExpansion && <section class="lexicalExpansionSection lexicalFamilySection">
-            <header><span>Word Family</span><small>有压缩价值才跟随 Depth</small></header>
-            <div class="lexicalFamilyRows">{wordFamilyRows.map(({ item }) => <article><b>{item.target_word}</b>{item.boundary && <span>{item.boundary}</span>}</article>)}</div>
-          </section>}
-        </aside>}
+            {family.length > 0 && (
+              <section class="lexicalExpansionSection lexicalFamilySection">
+                <header><span>词族</span><small>Word Family</small></header>
+                <div class="lexicalFamilyRows">
+                  {family.map((item) => (
+                    <article>
+                      <b>{item.target_word}</b>
+                      <div>
+                        {(Array.isArray(item.lines) ? item.lines : []).map((line) => (
+                          <span class={line.lang === 'cn' ? 'is-cn' : 'is-en'}>{line.text}</span>
+                        ))}
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            )}
+          </aside>
+        )}
       </div>
 
       <section class="portedVocabLocalNote">
@@ -309,9 +371,38 @@ const relationDifferenceRows = (relation = {}) => {
     </div>
 
     <footer class="portedVocabFoot">
-      <span>Space Reveal · ↑↓ 选择拓展 · → / + 加入 Repair · ← 撤销 · S 发音</span>
+      <span>J / K 选择局部对象 · + 加入/移出 Repair · S 发音</span>
       <details><summary>Source</summary><code>{answer.sourcePath}</code><code>sha256:{String(answer.sourceHash).slice(0, 16)}</code></details>
     </footer>
+  </section>
+
+  <footer class="lexicalActionDock" data-vocab-action-dock aria-label="Vocabulary actions">
+    <button type="button" class="dockReveal" data-vocab-reveal>
+      <span>◉</span><b>查看词义</b><small>← / ↑ / Space</small>
+    </button>
+    <button type="button" class="dockUnknown" data-vocab-route="unknown">
+      <span>←</span><b>不认识</b><small>Unknown</small>
+    </button>
+    <button type="button" class="dockFuzzy" data-vocab-route="fuzzy">
+      <span>↑</span><b>模糊</b><small>Fuzzy</small>
+    </button>
+    <button type="button" class="dockKnown" data-vocab-route="known">
+      <span>→</span><b>熟练</b><small>继续下一词</small>
+    </button>
+    <button type="button" class="dockMastered" data-vocab-route="mastered">
+      <span>↓</span><b>已掌握</b><small>稳定快速离开</small>
+    </button>
+    <button type="button" class="dockUndo" data-vocab-undo disabled>
+      <span>↶</span><b>Undo</b><small>Backspace</small>
+    </button>
+    <button type="button" class="dockNote" data-vocab-note>
+      <span>✎</span><b>+笔记</b><small>个人学习备注</small>
+    </button>
+  </footer>
+
+  <section class="lexicalNoteDrawer" data-vocab-note-drawer hidden>
+    <label><span>{card.word} · Note</span><textarea rows="5" data-vocab-note-input placeholder="只记对后续学习有用的个人备注。"></textarea></label>
+    <div><button type="button" data-vocab-note-cancel>取消</button><button type="button" class="primary" data-vocab-note-save>保存并返回词卡</button></div>
   </section>
 </section>
 
@@ -326,13 +417,22 @@ const relationDifferenceRows = (relation = {}) => {
     const objectId = root.getAttribute('data-vocab-object') || word;
     const ordinal = Number(root.getAttribute('data-vocab-ordinal') || 0);
     const sourceHash = root.getAttribute('data-vocab-source-hash') || '';
+    const requestedMode = new URLSearchParams(location.search).get('mode');
+    const mode = ['lookup', 'repair'].includes(String(requestedMode || '')) ? String(requestedMode) : 'study';
+    const readOnlyLookup = mode === 'lookup';
+    root.dataset.vocabMode = mode;
     const storageKey = `kianos-vocabulary-astro-v2:${objectId}`;
     const front = root.querySelector('[data-vocab-front]');
     const details = root.querySelector('[data-vocab-details]');
     const reveal = root.querySelector('[data-vocab-reveal]');
     const stateLabel = root.querySelector('[data-vocab-state-label]');
+    const modeLabel = root.querySelector('.lexicalWordIdentity>span');
+    if (modeLabel && mode !== 'study') modeLabel.textContent = mode === 'lookup' ? 'Lookup' : 'Repair';
     const repairSummary = root.querySelector('[data-vocab-repair-summary]');
     const repairButtons = [...root.querySelectorAll('[data-vocab-repair]')];
+    const noteKey = `kianos-lexical-note-v1:${objectId}`;
+    const noteDrawer = root.querySelector('[data-vocab-note-drawer]');
+    const noteInput = root.querySelector('[data-vocab-note-input]');
     const localStudyDay = () => new Date().toLocaleDateString('en-CA');
     const eventLocalDay = (iso) => { const date = new Date(iso); return Number.isNaN(date.getTime()) ? '' : date.toLocaleDateString('en-CA'); };
     const readJson = (key, fallback) => { try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; } catch { return fallback; } };
@@ -348,24 +448,26 @@ const relationDifferenceRows = (relation = {}) => {
 
     const previousTargets = { ...state.repairTargets };
     let ledger = readLedger();
-    for (const target of Object.values(previousTargets)) {
-      if (!target || typeof target !== 'object' || target.source === 'evidence_reducer') continue;
-      const migration = {
-        word_id: objectId,
-        ordinal,
-        word,
-        target_kind: target.target_kind || 'lexical',
-        target_id: target.target_id || null,
-        target_locator: target.target_locator || null,
-        target_revision: target.target_id ? null : (target.target_revision || sourceHash || null),
-        source: 'depth_plus',
-        outcome: 'ADDED',
-        observed_at: target.observed_at || state.lastSeenAt || new Date().toISOString()
-      };
-      migration.event_id = `migration:${legacyEventId(migration)}`;
-      ledger = appendEvidenceEvent(ledger, migration).ledger;
+    if (!readOnlyLookup) {
+      for (const target of Object.values(previousTargets)) {
+        if (!target || typeof target !== 'object' || target.source === 'evidence_reducer') continue;
+        const migration = {
+          word_id: objectId,
+          ordinal,
+          word,
+          target_kind: target.target_kind || 'lexical',
+          target_id: target.target_id || null,
+          target_locator: target.target_locator || null,
+          target_revision: target.target_id ? null : (target.target_revision || sourceHash || null),
+          source: 'depth_plus',
+          outcome: 'ADDED',
+          observed_at: target.observed_at || state.lastSeenAt || new Date().toISOString()
+        };
+        migration.event_id = `migration:${legacyEventId(migration)}`;
+        ledger = appendEvidenceEvent(ledger, migration).ledger;
+      }
+      saveLedger(ledger);
     }
-    saveLedger(ledger);
     const activeTargets = compileRepairTargets(ledger).filter((target) => target.word_id === objectId);
     state.repairTargets = Object.fromEntries(activeTargets.map((target) => {
       const key = target.target_id || `${target.target_kind}:${target.target_locator || ''}`;
@@ -382,6 +484,8 @@ const relationDifferenceRows = (relation = {}) => {
       }];
     }));
 
+    if (mode !== 'study') state.revealed = true;
+
     const targetFromButton = (button) => {
       const kind = button.getAttribute('data-target-kind') || 'lexical';
       const id = button.getAttribute('data-target-id') || '';
@@ -391,13 +495,15 @@ const relationDifferenceRows = (relation = {}) => {
       return { key, kind, id, locator, label };
     };
 
-    const save = () => {
+    const save = (explicitMutation = false) => {
+      if (readOnlyLookup && !explicitMutation) return;
       state.lastSeenAt = new Date().toISOString();
       state.meta = { word_id: objectId, ordinal, word, source_hash: sourceHash };
       saveJson(storageKey, state);
     };
 
     const render = () => {
+      root.dataset.vocabRevealed = String(Boolean(state.revealed));
       if (front) front.hidden = Boolean(state.revealed);
       if (details) details.hidden = !state.revealed;
       repairButtons.forEach((button, index) => {
@@ -411,12 +517,38 @@ const relationDifferenceRows = (relation = {}) => {
         row?.classList.toggle('repair-selected', active);
       });
       const count = Object.keys(state.repairTargets).length;
-      if (stateLabel) stateLabel.textContent = state.revealed ? (count ? `${count} Repair` : 'Scanned') : 'Ready';
+      if (stateLabel) stateLabel.textContent = mode === 'lookup'
+        ? 'Lookup'
+        : mode === 'repair'
+          ? (count ? `${count} Repair` : 'Repair')
+          : state.revealed ? (count ? `${count} Repair` : 'Scanned') : 'Ready';
       if (repairSummary) repairSummary.textContent = count ? `${count} 个具体分支处于 Repair 状态；当天新增项会进入 Return Packet。` : '当前没有加入 Repair 的分支。';
     };
 
-    const openCard = () => { state.revealed = true; save(); render(); };
+    const openCard = () => { state.revealed = true; save(false); render(); };
     reveal?.addEventListener('click', openCard);
+    front?.addEventListener('click', (event) => {
+      if (mode !== 'study' || state.revealed) return;
+      const target = event.target;
+      if (target instanceof HTMLElement && target.closest('button,a,input,textarea,select')) return;
+      openCard();
+    });
+
+    const openNote = () => {
+      if (!(noteDrawer instanceof HTMLElement) || !(noteInput instanceof HTMLTextAreaElement)) return;
+      noteInput.value = localStorage.getItem(noteKey) || '';
+      noteDrawer.hidden = false;
+      requestAnimationFrame(() => noteInput.focus({ preventScroll: true }));
+    };
+    const closeNote = () => { if (noteDrawer instanceof HTMLElement) noteDrawer.hidden = true; };
+    root.querySelector('[data-vocab-note]')?.addEventListener('click', openNote);
+    root.querySelector('[data-vocab-note-cancel]')?.addEventListener('click', closeNote);
+    root.querySelector('[data-vocab-note-save]')?.addEventListener('click', () => {
+      if (noteInput instanceof HTMLTextAreaElement) {
+        try { localStorage.setItem(noteKey, noteInput.value.trim()); } catch {}
+      }
+      closeNote();
+    });
 
     const speak = (lang = 'en-US') => {
       if (!('speechSynthesis' in window) || !word) return;
@@ -445,7 +577,7 @@ const relationDifferenceRows = (relation = {}) => {
       } else {
         delete state.repairTargets[target.key];
       }
-      save();
+      save(true);
       render();
     };
 
@@ -489,18 +621,15 @@ const relationDifferenceRows = (relation = {}) => {
       const target = event.target;
       if (target instanceof HTMLElement && target.closest('input,textarea,select,[contenteditable="true"]')) return;
       if (event.key.toLowerCase() === 's') { event.preventDefault(); speak('en-US'); return; }
-      if (!state.revealed && (event.code === 'Space' || event.key === 'Enter')) { event.preventDefault(); openCard(); return; }
-      if (!state.revealed) return;
-      if (event.key === 'ArrowDown') { event.preventDefault(); selectByDelta(1); return; }
-      if (event.key === 'ArrowUp') { event.preventDefault(); selectByDelta(-1); return; }
-      if (event.key === 'ArrowRight' || event.key === '+') {
-        const button = activeRepairButton();
-        if (button) { event.preventDefault(); setRepair(button, true); }
-        return;
+      if (!state.revealed && (event.code === 'Space' || event.key === 'ArrowLeft' || event.key === 'ArrowUp')) {
+        event.preventDefault(); openCard(); return;
       }
-      if (event.key === 'ArrowLeft') {
+      if (!state.revealed) return;
+      if (event.key.toLowerCase() === 'j') { event.preventDefault(); selectByDelta(1); return; }
+      if (event.key.toLowerCase() === 'k') { event.preventDefault(); selectByDelta(-1); return; }
+      if (event.key === '+') {
         const button = activeRepairButton();
-        if (button) { event.preventDefault(); setRepair(button, false); }
+        if (button) { event.preventDefault(); button.click(); }
       }
     };
     document.addEventListener('keydown', onKeydown);

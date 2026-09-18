@@ -1,0 +1,47 @@
+name: Lexical Apply Materialized Merge Cleanup
+
+on:
+  push:
+    branches:
+      - work/lexical-architecture-v2-20260918
+    paths:
+      - 'content/lexical/audit/direct-render-merge-cleanup-trigger.json'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: work/lexical-architecture-v2-20260918
+          fetch-depth: 0
+
+      - name: Apply only provably materialized merge cleanup
+        run: |
+          python tools/lexical_apply_materialized_merge_cleanup.py --report /tmp/merge-cleanup-report.json
+
+      - name: Fail closed if no expected cleanup happened
+        run: |
+          python - <<'PY'
+          import json
+          r=json.load(open('/tmp/merge-cleanup-report.json',encoding='utf-8'))
+          if r['removed_construction_count'] <= 0:
+              raise SystemExit('NO_MATERIALIZED_MERGE_CLEANUP')
+          print(json.dumps({
+              'changed_word_count':r['changed_word_count'],
+              'removed_construction_count':r['removed_construction_count'],
+              'unresolved_presentation_merge_count':r['unresolved_presentation_merge_count'],
+          },ensure_ascii=False,indent=2))
+          PY
+
+      - name: Commit cleanup
+        run: |
+          git config user.name "KianOS Lexical Repair"
+          git config user.email "actions@users.noreply.github.com"
+          git add content/lexical/words/by-ordinal
+          git commit -m "content(lexical): remove already-materialized merge duplicates"
+          git push origin HEAD:work/lexical-architecture-v2-20260918

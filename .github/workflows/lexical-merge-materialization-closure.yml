@@ -1,0 +1,66 @@
+name: Lexical Merge Materialization Closure
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'content/lexical/words/**'
+      - 'content/lexical/canonical/collocations/**'
+      - 'tools/lexical_merge_materialization_audit.py'
+      - 'tools/lexical_apply_materialized_merge_cleanup.py'
+      - '.github/workflows/lexical-merge-materialization-closure.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  closure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          fetch-depth: 0
+
+      - name: Audit merge materialization
+        run: |
+          mkdir -p lexical-merge-closure
+          python tools/lexical_merge_materialization_audit.py --output lexical-merge-closure/before.json
+
+      - name: Materialize active merge survivors
+        run: |
+          python tools/lexical_materialize_active_merge_survivors.py \
+            --report lexical-merge-closure/materialize.json
+
+      - name: Apply safe materialized cleanup
+        run: |
+          python tools/lexical_apply_materialized_merge_cleanup.py \
+            --report lexical-merge-closure/apply.json
+
+      - name: Re-audit
+        run: |
+          python tools/lexical_merge_materialization_audit.py --output lexical-merge-closure/after.json
+
+      - name: Commit safe cleanup
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          if git diff --quiet -- content/lexical/words/by-ordinal; then
+            echo "No safe cleanup changes"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add content/lexical/words/by-ordinal
+            git commit -m "content(lexical): materialize merge survivors"
+            TARGET_BRANCH="${{ github.head_ref || github.ref_name }}"
+            git push origin HEAD:"$TARGET_BRANCH"
+          fi
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lexical-merge-materialization-${{ github.sha }}
+          path: lexical-merge-closure/*.json
+          if-no-files-found: error
+          retention-days: 14
