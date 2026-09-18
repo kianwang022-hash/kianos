@@ -17,8 +17,8 @@ Stage:
 
 ```text
 A Rule / Content readback       PASS / PRESERVE
-B Lexical Visual candidate      ACTIVE
-C Surface Human Gates           NEXT
+B Lexical L2 visual family     ACCEPTED
+C L3 Surface Human Gates        ACTIVE
 D Engineering adaptation        AFTER VISUAL
 E English-family integration    AFTER SURFACES
 ```
@@ -74,9 +74,24 @@ Fresh Rule / Content readback is closed:
 
 ---
 
-## Current Visual candidate
+## Current Visual state
 
-The candidate product model must distinguish:
+The L2 Vocabulary / Lexical visual family is accepted and now constrains all L3 surface work.
+
+Accepted family direction:
+
+- English / Shared shell and neutral visual language;
+- Chinese semantic meaning first, English lexical serif second;
+- restrained deep-green lexical semantic markers only;
+- Sense = clear learning object;
+- Word-owned Construction = main-flow section;
+- Reference = independent right-side cards;
+- rich Mac workspace ≈ 68–70% primary / 30–32% earned Reference;
+- Fast Pass / Depth / Repair / Challenge remain one visual family.
+
+The previous cream / gray-green editorial-sheet Depth candidate is Human-Gate FAILED and must not be used as a visual baseline.
+
+The product model must distinguish:
 
 1. Coverage / Study;
 2. Fast Pass;
@@ -136,6 +151,22 @@ real baseline
 
 ## Exact next action
 
-Build the first Lexical Visual candidate for **Vocabulary Home + representative Word Study surfaces** from the accepted Rule / Content owners, then run Kian Human Gate.
+Return to **L3 Depth** and redesign only that bounded surface under the accepted L2 family.
 
-Do not begin broad CSS cleanup, Runtime redesign or Content migration before those surfaces are accepted.
+Before implementation:
+
+1. preserve current Rule / Content ownership already established for Word Feel, Sense, Word-owned Construction and Reference;
+2. discuss the L3 Mac composition with Kian;
+3. use `sanction` and `abstract` as rich semantic fixtures and `write` only as weak-Core layout tolerance;
+4. do not inherit the failed cream / gray-green candidate's local palette, English-first hierarchy or flattened Reference rail.
+
+After Kian accepts the L3 proposal:
+
+```text
+candidate implementation
+→ real Mac screenshot
+→ Human Gate
+→ targeted CI
+```
+
+Do not begin broad CSS cleanup, Runtime redesign or Content migration before the relevant surfaces are accepted.
