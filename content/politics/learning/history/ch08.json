@@ -19,7 +19,9 @@
       "POL27-CF-HISTORY-C08-S03",
       "POL27-CF-HISTORY-C08-S04"
     ],
-    "suyi_refs": ["POL27-SY-HISTORY-P121-B041"]
+    "suyi_refs": [
+      "POL27-SY-HISTORY-P121-B041"
+    ]
   },
   "chapter_orientation": {
     "starting_point": "第七章完成的是政权转换：新中国建立。第八章开始的问题完全不同——一个刚刚成立、基础薄弱的新国家怎样先站稳，再完成社会制度和经济结构的深刻转型。",
@@ -40,7 +42,11 @@
       "natural_unit_id": "POL27-CF-HISTORY-C08-S01",
       "title": "第一节 中华人民共和国的成立与新生人民政权的巩固",
       "stage_question": "为什么新中国成立是决定性胜利，但还不能说明新的国家已经稳定运行？",
-      "process": ["新中国成立完成国家政权的根本转换。", "新生政权需要恢复经济、稳定社会秩序并维护国家安全。", "一系列巩固措施使新的国家制度获得更稳定的社会和经济基础。"],
+      "process": [
+        "新中国成立完成国家政权的根本转换。",
+        "新生政权需要恢复经济、稳定社会秩序并维护国家安全。",
+        "一系列巩固措施使新的国家制度获得更稳定的社会和经济基础。"
+      ],
       "boundary": "新中国成立首先标志民族独立和人民解放取得决定性胜利；社会主义基本制度的建立则是之后过渡时期完成的另一历史节点，二者不能混同。",
       "next": "国家站稳以后，问题转为经济工业化和所有制结构应该怎样进一步改变。"
     },
@@ -49,7 +55,11 @@
       "title": "第二节 党在过渡时期的总路线及其实施",
       "stage_question": "为什么国家既要推进工业化，又要同时改变农业、手工业和资本主义工商业的所有制关系？",
       "mechanism": "过渡时期总路线不是两项互不相关的任务，而是把社会主义工业化与社会主义改造相互配合：工业化提供新的生产力基础，所有制改造推动生产关系向社会主义方向变化。",
-      "process": ["逐步推进社会主义工业化。", "对农业和手工业进行社会主义改造。", "对资本主义工商业采取适合中国条件的社会主义改造方式。"],
+      "process": [
+        "逐步推进社会主义工业化。",
+        "对农业和手工业进行社会主义改造。",
+        "对资本主义工商业采取适合中国条件的社会主义改造方式。"
+      ],
       "turning_point": "社会主义改造基本完成后，中国进入社会主义社会，国家建设任务由‘向社会主义过渡’转为‘在社会主义制度下怎样建设国家’。",
       "boundary": "工业化和社会主义改造是总路线中的两个相互联系方面，不要把‘一化’和‘三改’理解成先后完全分离的两段。",
       "next": "制度建立以后，最大的未知变成：社会主义建设究竟应该怎样搞。"
@@ -77,8 +87,114 @@
     }
   ],
   "chapter_compression": {
-    "timeline": ["新中国成立", "巩固政权和恢复经济", "过渡时期总路线", "社会主义工业化与三大改造", "社会主义基本制度建立", "《论十大关系》与中共八大", "社会主义建设探索", "成就与曲折"],
+    "timeline": [
+      "新中国成立",
+      "巩固政权和恢复经济",
+      "过渡时期总路线",
+      "社会主义工业化与三大改造",
+      "社会主义基本制度建立",
+      "《论十大关系》与中共八大",
+      "社会主义建设探索",
+      "成就与曲折"
+    ],
     "stage_shift": "夺取政权 → 巩固新国家 → 从新民主主义向社会主义过渡 → 社会主义基本制度建立 → 从中国实际出发探索建设道路 → 建设任务成为中心 → 初步探索与曲折 → 为改革开放积累正反经验",
     "review_prompt": "闭卷区分三个问题：1949后先解决什么？1953—1956为什么要过渡？1956以后为什么又必须重新探索建设道路？"
+  },
+  "later_stage_knowledge": {
+    "schema": "kianos.politics.later_stage_knowledge.v1",
+    "status": "CURRENT_K_REVIEWED",
+    "phase_scope": [
+      "CONSOLIDATION",
+      "PRECISION",
+      "ANALYSIS_OUTPUT"
+    ],
+    "compression_model": {
+      "cognition": "NEW_STATE_TO_SOCIALIST_SYSTEM_TRANSITION",
+      "purpose": "Preserve the chapter causal movie first; use horizontal compression only for later exact identity/confusable repair.",
+      "reconstruction_source": "chapter_compression",
+      "chapter_compression": {
+        "timeline": [
+          "新中国成立",
+          "巩固政权和恢复经济",
+          "过渡时期总路线",
+          "社会主义工业化与三大改造",
+          "社会主义基本制度建立",
+          "《论十大关系》与中共八大",
+          "社会主义建设探索",
+          "成就与曲折"
+        ],
+        "stage_shift": "夺取政权 → 巩固新国家 → 从新民主主义向社会主义过渡 → 社会主义基本制度建立 → 从中国实际出发探索建设道路 → 建设任务成为中心 → 初步探索与曲折 → 为改革开放积累正反经验",
+        "review_prompt": "闭卷区分三个问题：1949后先解决什么？1953—1956为什么要过渡？1956以后为什么又必须重新探索建设道路？"
+      },
+      "horizontal_knowledge_owner": "content/politics/learning/history/later-stage-knowledge.json",
+      "horizontal_candidate_refs": [
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-014"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-015"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-016"
+        },
+        {
+          "line": "people_documents",
+          "id": "HIST-PDOC-008"
+        },
+        {
+          "line": "land_policy",
+          "id": "HIST-LAND-010"
+        },
+        {
+          "line": "land_policy",
+          "id": "HIST-LAND-011"
+        }
+      ]
+    },
+    "precision_knowledge": {
+      "policy": "REFERENCE_SUBJECT_HORIZONTAL_K",
+      "owner_path": "content/politics/learning/history/later-stage-knowledge.json",
+      "candidate_refs": [
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-014"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-015"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-016"
+        },
+        {
+          "line": "people_documents",
+          "id": "HIST-PDOC-008"
+        },
+        {
+          "line": "land_policy",
+          "id": "HIST-LAND-010"
+        },
+        {
+          "line": "land_policy",
+          "id": "HIST-LAND-011"
+        }
+      ],
+      "candidate_domains": [
+        "新中国巩固政权 milestones",
+        "过渡时期/制度确立 identities",
+        "社会主义建设初步探索会议与文献"
+      ],
+      "admission_state": "CANDIDATE_ONLY",
+      "current_year_delta_risk": "LOW_TO_MEDIUM",
+      "rule": "History precision is mainly cross-cutting identity/timeline knowledge. Exact recent-history items require current-year refresh."
+    },
+    "analysis_output_hooks": [],
+    "output_source_role": "NO_DEDICATED_HISTORY_OUTPUT_TEMPLATE",
+    "historical_output_value": [],
+    "first_round_effect": "NONE"
   }
 }
