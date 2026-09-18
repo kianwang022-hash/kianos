@@ -23,7 +23,7 @@ const clean = (value, max = 500) => String(value || '').trim().slice(0, max);
 const clone = (value) => value == null ? value : JSON.parse(JSON.stringify(value));
 
 const validDay = (day) => typeof day === 'string'
-  && /^\\d{4}-\\d{2}-\\d{2}$/.test(day)
+  && /^\d{4}-\d{2}-\d{2}$/.test(day)
   && !Number.isNaN(Date.parse(day + 'T00:00:00Z'))
   && new Date(day + 'T00:00:00Z').toISOString().slice(0, 10) === day;
 
