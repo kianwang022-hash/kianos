@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import { resolvePoliticsUnitRepresentation } from './politicsRepresentationGate.mjs';
 import { buildPoliticsContentHierarchy, validatePoliticsContentHierarchy } from './politicsContentHierarchy.mjs';
 import { resolvePoliticsSurfaceMapping } from './politicsSurfaceMapping.mjs';
+import { compilePoliticsFinalLearnerObject } from './politicsFinalLearnerObject.mjs';
 
 // Read-only consumer of the accepted Projection selector manifest. It selects
 // exact Current values; it never compiles new knowledge or changes unit identity.
@@ -86,6 +87,11 @@ export function loadPoliticsCompiledPresentation(subject, code) {
       closure: resolve(selected.optional_closure),
       surfacePlan: resolvePoliticsSurfaceMapping(selected.surface_mapping, source, rawUnit)
     };
+    resolved.finalLearnerObject = compilePoliticsFinalLearnerObject(resolved.surfacePlan, {
+      subject,
+      chapter: code,
+      unitId: selected.unit_id
+    });
     resolved.hierarchy = buildPoliticsContentHierarchy(resolved);
     validatePoliticsContentHierarchy(resolved.hierarchy);
     units.set(selected.unit_id, resolved);
