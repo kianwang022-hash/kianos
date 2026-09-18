@@ -1,5 +1,10 @@
 import assert from 'node:assert/strict';
-import { buildLexicalChatStatePacket, LEXICAL_CHAT_STATE_SCHEMA } from '../src/lib/lexicalChatState.mjs';
+import {
+  buildLexicalChatStatePacket,
+  LEXICAL_CHAT_STATE_SCHEMA,
+  serializeLexicalChatStateForChat,
+  parseLexicalChallengePacketText
+} from '../src/lib/lexicalChatState.mjs';
 import { appendEvidenceEvent, emptyLexicalLedger } from '../src/lib/lexicalEvidence.mjs';
 
 const now = new Date('2099-09-18T12:00:00Z');
@@ -68,6 +73,37 @@ assert.equal(packet.today_evidence.length, 2);
 assert.equal(packet.challenge_session.current_challenge_id, 'c1');
 assert.match(packet.chat_instruction, /Coverage as traversal/);
 assert.match(packet.semantics.repair, /exact ACTIVE/);
+
+const chatText = serializeLexicalChatStateForChat(packet);
+assert.match(chatText, /^KIANOS_LEXICAL_HANDOFF_V1/m);
+assert.match(chatText, /HOW TO READ IT/);
+assert.match(chatText, /WHAT CHAT SHOULD DO/);
+assert.match(chatText, /content\/lexical\/CURRENT\.md/);
+assert.match(chatText, /kianos\.lexical\.challenge_packet\.v1/);
+assert.match(chatText, /LEXICAL_CHAT_STATE_JSON/);
+assert.match(chatText, /"current_challenge_id": "c1"/);
+
+const chatChallenge = {
+  schema:'kianos.lexical.challenge_packet.v1',
+  study_day:'2099-09-18',
+  generated_at:'2099-09-18T12:05:00.000Z',
+  challenges:[{
+    challenge_id:'chat-c1',
+    word_id:'word:abide',
+    ordinal:4,
+    word:'abide',
+    target_kind:'core',
+    target_id:'core:abide',
+    question_type:'spatial_choice',
+    stem:'Choose the best sense.',
+    options:[{key:'left',text:'A'},{key:'right',text:'B'}],
+    correct_key:'right'
+  }]
+};
+assert.deepEqual(parseLexicalChallengePacketText(JSON.stringify(chatChallenge)), chatChallenge);
+assert.deepEqual(parseLexicalChallengePacketText(`\`\`\`json\n${JSON.stringify(chatChallenge)}\n\`\`\``), chatChallenge);
+assert.deepEqual(parseLexicalChallengePacketText(`可以，按当前 Repair 生成这一组：\n${JSON.stringify(chatChallenge)}\n做完再把结果给我。`), chatChallenge);
+assert.throws(() => parseLexicalChallengePacketText('没有 JSON'), /LEXICAL_CHALLENGE_IMPORT_INVALID/);
 
 console.log(JSON.stringify({
   status:'PASS',
