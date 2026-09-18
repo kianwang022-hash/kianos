@@ -28,7 +28,7 @@ Architecture-level website blocker: **none**.
 | Lane | State | Active ref / continue from |
 | --- | --- | --- |
 | Xizong UI | **LANDED · MATERIAL HUMAN GATES CLOSED** | `main` → exact accepted Xizong surface owner; reopen only concrete defects |
-| Politics UI | **ACTIVE · PRACTICE VISUAL CANDIDATE** | `work/politics-practice-human-gate-20260919` · L2 / Learn / Chapter / Home / Review landed in main; final Practice polish active |
+| Politics UI | **ACTIVE · PRACTICE HUMAN GATE READY** | PR #470 · `work/politics-practice-human-gate-20260919` · clean-attempt + submitted-result Practice polish fully gated; waiting only for Kian visual approval |
 | English UI | **LANDED** | `content/english/CURRENT.md` |
 | Lexical / Vocabulary UI | **LANDED · HUMAN GATES CLOSED** | `content/lexical/CURRENT.md` → normal use / concrete defects only |
 
@@ -181,7 +181,7 @@ CI green is not visual acceptance.
 ## Current next actions
 
 - **Xizong:** learner-facing material UI is landed through whole-paper/year Hidden → Seal → score → same-Workbench Review. Block/TTSX, System Recall, Practice front/back, global retained W/U/Marked and whole-paper are all in `main` with real macOS Human Gates closed. Reopen only concrete defects. Typed Chat Return and durable learner-data recovery stay with the shared Learner Data / Chat Handoff lane.
-- **Politics:** L2 + Learn Index + chapter workspace + Home + Review are landed in `main`. Practice is the final material surface and remains a polish-only lane: preserve the proven Legacy-parity Workbench DOM, order, answer gating, signals, source Return and submitted-result behavior; adjust typography / spacing / borders / two-column stability only. **Next action: real macOS clean-attempt + submitted-result screenshots + Kian Human Gate.**
+- **Politics:** L2 + Learn Index + chapter workspace + Home + Review are landed in `main`. PR #470 is the final material surface: Practice remains the proven Legacy-parity Workbench with no DOM/order/workflow rewrite; only typography, spacing, borders and result-column polish changed. Real macOS 1512×982 clean-attempt + submitted-result evidence, Functional First, Xi/Ethics Runtime+Evidence and cross-subject regression are green. **Next action: Kian Human Gate on the two Practice screenshots only.**
 - **English:** landed; fix only concrete launch-visible defects.
 - **Lexical:** Vocabulary v2 learner-surface closure and English exact handoff/return are accepted; normal use only unless a concrete defect appears.
 - **Platform:** after Politics Human Gate, close learner-data durability / typed Chat Return and run final cross-subject regression. UI/CSS ownership cleanup is maintenance, not a new learner product.
