@@ -188,18 +188,18 @@
       "cross_unit_confusables": []
     },
     "precision_knowledge": {
-      "policy": "CURRENT_GROUNDED_CANDIDATE_DOMAIN_HIGH_DELTA",
-      "candidate_domains": [
-        "形成发展的国际/历史/实践条件 classification",
-        "邓小平理论/三个代表/科学发展观/新时代思想 succession identities",
-        "关键改革开放 milestone identities"
+      "policy": "REFERENCE_MEMORY_SIDECAR",
+      "owner_path": "content/politics/learning/mao/ch05.memory.json",
+      "candidate_ids": [
+        "POL27-MEM-MAO-C05-M01",
+        "POL27-MEM-MAO-C05-M02"
       ],
-      "historical_source_refs": [
-        "LEG26-UPPER-MAO-P097",
-        "LEG26-UPPER-MAO-P098"
+      "admission_state": "CANDIDATE_ONLY",
+      "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+      "deferred_domains": [
+        "改革开放各重要节点的完整会议/文献定位"
       ],
-      "materialization_status": "CANDIDATE_OBJECTS_TO_BE_MATERIALIZED_BELOW",
-      "current_year_risk": "HIGH"
+      "rule": "Current Knowledge + inspected historical handbook support creates candidate-only precision; durable Memory remains admission-gated."
     },
     "analysis_output_hooks": [],
     "analysis_output_status": "NO_DEDICATED_LEG26_OUTPUT_BANK_DO_NOT_INVENT",
