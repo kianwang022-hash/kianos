@@ -10,7 +10,7 @@ const auditDir = path.resolve(process.cwd(), '.qa');
 fs.mkdirSync(auditDir, { recursive: true });
 
 const report = {
-  schema: 'kianos.politics.learn_mac_visual.v1',
+  schema: 'kianos.politics.mac_visual.v2',
   evidence_class: 'MACOS_CHROMIUM_VISUAL_EVIDENCE_NOT_REAL_LEARNER_U',
   viewport: VIEWPORT,
   routes: {},
@@ -75,6 +75,7 @@ const server = spawn('npm', ['run', 'dev', '--', '--host', '127.0.0.1', '--port'
 
 let browser;
 try {
+  await waitFor('/politics/');
   await waitFor('/politics/learn/');
   await waitFor('/politics/marxism/ch02/');
 
@@ -82,6 +83,35 @@ try {
   const context = await browser.newContext({ viewport: VIEWPORT, locale: 'zh-CN' });
   const page = await context.newPage();
   page.setDefaultTimeout(10000);
+
+  const homeResponse = await page.goto(`${BASE}/politics/`, { waitUntil: 'domcontentloaded' });
+  check(homeResponse?.ok(), 'home_http_ok', String(homeResponse?.status()));
+  await page.evaluate(() => document.fonts.ready);
+  check(await activePoliticsNav(page) === '总览', 'home_l2_active');
+  await page.locator('[data-politics-home-v2]').waitFor({ state: 'visible' });
+  check(await page.locator('.politicsHomeSubjects>nav>a').count() === 5, 'home_five_subject_entries');
+  check(await page.locator('.politicsChapterRows').count() === 0, 'home_has_no_chapter_directory');
+  const homeContinue = page.locator('[data-politics-continue]');
+  check((await homeContinue.getAttribute('href') || '').includes('/politics/learn/'), 'home_clean_continue_routes_to_learn_index');
+  check(await page.locator('[data-politics-handoff]').isHidden(), 'home_clean_handoff_quiet');
+  const homeMetrics = await page.evaluate(() => {
+    const root = document.querySelector('[data-politics-home-v2]');
+    const subjects = document.querySelector('.politicsHomeSubjects>nav');
+    if (!root || !subjects) return null;
+    const rr = root.getBoundingClientRect();
+    const sr = subjects.getBoundingClientRect();
+    return {
+      rootWidth: rr.width,
+      subjectsWidth: sr.width,
+      subjectColumns: getComputedStyle(subjects).gridTemplateColumns
+    };
+  });
+  check(Boolean(homeMetrics), 'home_geometry_present');
+  check(homeMetrics.rootWidth >= 1100, 'home_uses_mac_width', JSON.stringify(homeMetrics));
+  check(homeMetrics.subjectColumns.split(' ').length === 5, 'home_five_column_subject_geometry', JSON.stringify(homeMetrics));
+  const homeType = await visibleTypeFloor(page, '[data-politics-home-v2]', 'home');
+  report.routes.home = { route: '/politics/', metrics: homeMetrics, type: homeType };
+  await page.screenshot({ path: path.join(auditDir, 'politics-home-mac.png') });
 
   const learnResponse = await page.goto(`${BASE}/politics/learn/`, { waitUntil: 'domcontentloaded' });
   check(learnResponse?.ok(), 'learn_index_http_ok', String(learnResponse?.status()));
