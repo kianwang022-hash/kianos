@@ -1,5 +1,3 @@
-import { reorderEnglishExamSteps } from './englishExamPaper.mjs';
-
 export const ENGLISH_EXAM_SESSION_SCHEMA = 'kianos.english.exam-session.v1';
 export const ENGLISH_EXAM_SESSION_KEY = 'kianos-english-exam-session-v1';
 export const ENGLISH_EXAM_ANSWER_SCHEMA = 'kianos.english.exam-answer.v1';
@@ -13,6 +11,28 @@ function finiteTime(value, label) {
   const number = Number(value);
   if (!Number.isFinite(number)) throw new Error(`ENGLISH_EXAM_TIME_INVALID:${label}`);
   return number;
+}
+
+function reorderExamSteps(paper, taskOrder = null) {
+  const steps = Array.isArray(paper?.steps) ? paper.steps.map((step) => ({ ...step })) : [];
+  const defaultOrder = Array.isArray(paper?.default_task_order) ? [...paper.default_task_order] : [];
+  if (!Array.isArray(taskOrder) || !taskOrder.length) return steps;
+
+  const normalized = taskOrder.map(String);
+  if (
+    normalized.length !== defaultOrder.length
+    || new Set(normalized).size !== normalized.length
+    || normalized.some((task) => !defaultOrder.includes(task))
+  ) {
+    throw new Error('ENGLISH_EXAM_TASK_ORDER_INVALID');
+  }
+
+  const grouped = new Map();
+  for (const step of steps) {
+    if (!grouped.has(step.task)) grouped.set(step.task, []);
+    grouped.get(step.task).push(step);
+  }
+  return normalized.flatMap((task) => grouped.get(task) || []);
 }
 
 function validateStep(step) {
@@ -38,7 +58,7 @@ export function startEnglishExamSession(paper, {
     throw new Error('ENGLISH_EXAM_PAPER_INVALID');
   }
   const started = finiteTime(now, 'start');
-  const steps = reorderEnglishExamSteps(paper, taskOrder).map(validateStep);
+  const steps = reorderExamSteps(paper, taskOrder).map(validateStep);
   if (!steps.length) throw new Error('ENGLISH_EXAM_STEPS_EMPTY');
   const durationMinutes = Number(paper.duration_minutes || 0);
   if (!Number.isFinite(durationMinutes) || durationMinutes <= 0) {
