@@ -18,7 +18,8 @@ Politics exam-lifecycle **later-stage Knowledge is now closed at K with bounded 
 ```text
 later-stage Source baseline
 → K realization / audit                  PASS_WITH_DEBT
-→ later-stage L audit                    ACTIVE NEXT GATE
+→ L candidate + builder adversarial      PASS_AFTER_REPAIR
+→ fresh independent L audit              ACTIVE NEXT GATE
 → later Projection / Runtime             FROZEN
 ```
 
@@ -36,8 +37,26 @@ The remaining debt is not “missing K architecture”. It is expected source re
 - current legal/source exactness where required;
 - learner Wrong/Uncertain evidence that may promote or reject candidates.
 
-**Next active gate: later-stage L.**  
-UI / Projection / Runtime remain frozen until L decides how Compression, Precision, W/U Retest and Analysis Output should actually be learned.
+Later-stage L now has a five-shape calibration candidate: Marx C02, Mao C02, Xi C06, History C05 and Ethics-Law C06.
+
+Accepted builder-side direction:
+
+```text
+chapter-fast reconstruction
+→ grouped core-content recall
+→ only active/admitted Precision
+→ historical W/U earns depth
+→ selective retest
+→ smallest repair
+→ cheap exit
+```
+
+Builder adversarial review found and repaired two real defects:
+- History horizontal Precision candidates were removed from default Content Recall;
+- grouped-complete chapter recall was explicitly separated from durable Precision debt.
+
+**Next active gate: fresh independent later-stage L audit.**  
+UI / Projection / Runtime remain frozen until that audit closes.
 
 The stable first-round learner loop remains:
 
