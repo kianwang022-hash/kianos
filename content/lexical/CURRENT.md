@@ -149,7 +149,7 @@ real baseline
 
 ---
 
-## Direct-render Content closure — ACTIVE 2026-09-18
+## Direct-render materialization / ownership closure — ACTIVE 2026-09-18
 
 Kian explicitly requires:
 
@@ -159,7 +159,9 @@ Website may read, mechanically hydrate stable references, lay out and provide in
 
 A full-catalog audit now covers all **7,946 Current Word owners** plus the Current Relation owner tree.
 
-Current audit result: **BLOCKED**.
+This is a **materialization / ownership closure audit, not a fresh K semantic audit**. Current `ACCEPTANCE.md` still owns semantic readiness (`K PASS — full catalog`, 7,946/7,946, BLOCKED=0) unless fresh word-level evidence explicitly overturns a judgment.
+
+Current direct-render closure result: **BLOCKED**.
 
 ```text
 Word owner files                          7,946
@@ -189,8 +191,8 @@ Important review queues:
 single-source Relation candidates             48
   └─ heteronym_pronunciation                  16
 exact Construction↔Collocation duplicates    433
-words that would require web judgment
-if Content stayed uncorrected                 437
+words whose Current final object still carries
+projection/materialization ambiguity           437
 ```
 
 Known examples:
@@ -210,7 +212,7 @@ Permanent gate:
 
 **Do not resume L3 visual acceptance while this Content closure is BLOCKED.**
 
-The Website runtime has already had its known `verification / publication / priority / score / merge` semantic filters removed. Further learner-surface defects must be fixed in the Current knowledge assets or their mechanical ownership/hydration path, not reintroduced as front-end judgment.
+The Website runtime has already had its known `verification / publication / priority / score / merge` semantic filters removed. Further learner-surface defects must be fixed in the Current final-owner materialization / ownership-hydration path, not reintroduced as front-end judgment. Do not reopen accepted lexical semantics merely because projection metadata or cutover residue is present.
 
 ---
 
