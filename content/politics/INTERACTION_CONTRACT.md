@@ -101,7 +101,8 @@ Later-stage Politics uses a chapter-fast interaction model rather than a per-nod
 
 ```text
 RECONSTRUCT
-→ CONTENT_RECALL
+→ CHECK
+→ [TARGETED_CONTENT_RECALL only for failed groups]
 → [PRECISION when active]
 → [EVIDENCE_REVIEW when prior W/U exists]
 → [RETEST when useful]
@@ -109,24 +110,27 @@ RECONSTRUCT
 → CLOSE
 ```
 
-Square-bracket states are optional. They appear only when the learner has real active debt for that chapter/phase.
+Square-bracket states are conditional. They appear only when real chapter/phase evidence justifies them.
 
 Interaction rules:
 
-- `RECONSTRUCT` is normally one chapter-level or large-structure recall operation, not one task per Knowledge object.
-- `CONTENT_RECALL` groups the chapter's important retrievable content under that structure; it must not become a card-by-card march through the backend.
-- `PRECISION` shows only active/admitted exactness. Candidate-only inventory remains dormant.
+- `RECONSTRUCT` is one chapter-level or large-structure **one-shot attempt**. It should recover the framework plus as much important attached content as possible.
+- `CHECK` compares that one-shot attempt against the L-owned grouped recall rubric. It is not a second active-recall pass.
+- `TARGETED_CONTENT_RECALL` opens only groups that were materially missing, confused, or too weak during the one-shot attempt.
+- a group recalled correctly during `RECONSTRUCT` must not be asked again merely because a group object exists.
+- `PRECISION` shows only source-legitimate active/admitted exactness. Candidate-only inventory remains dormant.
+- high-delta Xi wording and current legal/normative exactness require their current-source freshness gate before exact recall can activate.
 - `EVIDENCE_REVIEW` prioritizes real historical Wrong / meaningful Uncertain evidence over generic extra review.
 - `RETEST` is selective verification; a stable chapter does not owe a full Xiao1000 rerun.
 - `REPAIR` opens only the smallest broken relation, boundary, source segment or exact item.
-- `CLOSE` exits cheaply and records phase-scoped completion without implying mastery.
+- `CLOSE` exits cheaply and records phase-scoped consolidation evidence without implying mastery.
 
-The UI must not expose this model as a large seven-step wizard, mandatory counters, or state taxonomy. It should feel like:
+The UI must not expose this model as a long wizard, mandatory counters, or state taxonomy. It should feel like:
 
 ```text
-重建这一章
-→ 看遗漏
-→ 钉少量精确点
+一次把这一章想回来
+→ 看真正漏了什么
+→ 只补漏掉的大块 / 少量精确点
 → 做真正薄弱的题
 → 下一章
 ```
