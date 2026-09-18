@@ -1,0 +1,87 @@
+{
+  "schema": "kianos.politics.memory_projection.v1",
+  "status": "CURRENT_K_REVIEWED",
+  "chapter_id": "POL27-LEARN-ETHICS-C01",
+  "policy": "SOURCE_GROUNDED_SELECTIVE",
+  "principle": "Candidate existence is Knowledge; durable review debt remains admission-gated.",
+  "freshness": "NORMAL",
+  "preferred_memory_reference": {
+    "role": "DESIGNATED_MEMORY_HANDBOOK",
+    "label": "腿姐《冲刺背诵手册》",
+    "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+    "historical_subject_source": "content/politics/source/historical/leg26/LEG26-ETHICS.md",
+    "rule": "Current Ethics Knowledge must independently own the relation. LEG26 supplies historical retention priority; current-year/source evidence governs admission."
+  },
+  "admission_gate": {
+    "default": "NOT_ADMITTED",
+    "requires_source_grounding": true,
+    "admit_when_any": [
+      "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+      "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED",
+      "LATER_ANALYSIS_OUTPUT_REQUIRES_EXACT_FORMULATION"
+    ],
+    "do_not_admit_for": [
+      "historical handbook presence alone",
+      "one stable correct answer",
+      "OCR reconstruction by guess"
+    ]
+  },
+  "units": {
+    "POL27-CF-ETHICS-C01-S01": {
+      "title": "人生观与个人社会关系",
+      "candidates": [
+        {
+          "id": "POL27-MEM-ETHICS-C01-S01-M01",
+          "form": "relation_boundary",
+          "statement": "个人与社会的关系是认识和处理人生问题的重要着眼点和出发点，其中最根本的是个人利益与社会利益的关系。",
+          "source_refs": [
+            "POL27-CF-ETHICS-C01-S01"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-ETHICS-P205"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    },
+    "POL27-CF-ETHICS-C01-K03": {
+      "title": "人生价值评价",
+      "candidates": [
+        {
+          "id": "POL27-MEM-ETHICS-C01-K03-M01",
+          "form": "evaluation_standard",
+          "statement": "人生价值评价的根本尺度，是看一个人的实践活动是否符合社会发展的客观规律、是否通过实践促进历史进步。",
+          "source_refs": [
+            "POL27-CF-ETHICS-C01-K03"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-LOWER-ETHICS-P080"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    },
+    "POL27-CF-ETHICS-C01-S02": {
+      "title": "正确人生观",
+      "candidates": [
+        {
+          "id": "POL27-MEM-ETHICS-C01-S02-M01",
+          "form": "boundary",
+          "statement": "个人价值实现不能简单等同于个人利益最大化；奉献社会也不等于否定个人正当发展。",
+          "source_refs": [
+            "POL27-CF-ETHICS-C01-S02"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-ETHICS-P205",
+            "LEG26-LOWER-ETHICS-P080"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    }
+  },
+  "deferred_candidate_domains": []
+}
