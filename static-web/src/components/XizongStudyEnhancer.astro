@@ -138,7 +138,6 @@ const kps = block?.kpRecords || [];
         if (stage === 'block_learn') root.querySelector('[data-stage-next="logic_group"]')?.click();
         else if (stage === 'logic_group') root.querySelector('[data-enter-group]')?.click();
         else if (stage === 'group_close') root.querySelector('[data-group-close-next]')?.click();
-        else if (stage === 'kp_recall') recallCards[currentIndex()]?.querySelector('[data-kp-reveal]:not([hidden])')?.click();
         return;
       }
       const key = event.key.toLowerCase();
