@@ -47,6 +47,26 @@ Engineering must not:
 
 ---
 
+## 1.1｜Final Learner Object boundary
+
+When canonical owners contain governance, provenance, relation-maintenance or acceptance fields that are not themselves learner-facing semantics, Engineering must resolve those owners into an explicit **Final Learner Object** before the renderer/runtime consumes them.
+
+```text
+canonical semantic owners
+→ accepted learner-object resolution
+→ Final Learner Object
+→ renderer/runtime
+```
+
+Hard rules:
+
+- renderer/runtime may validate a Final Learner Object, but may not complete its semantics;
+- learner visibility/grouping must not be inferred from fields such as audit status, publication status, relation-owner plumbing, merge metadata or priority scores inside UI code;
+- the resolver may preserve typed provenance/evidence identity needed for Return or migration, but those fields must not become learner-facing semantic selectors;
+- domain-native learner objects may differ in shape; no universal mega-schema is required;
+- routine canonical Content edits must flow through the existing resolver so the Website changes without a second page-content edit.
+
+
 ## 2｜Shared mature capabilities
 
 A learner surface should expose only the capabilities its approved path actually needs.
