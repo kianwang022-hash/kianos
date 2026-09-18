@@ -20,6 +20,7 @@ const payload = JSON.stringify({
   scopePath: sweep.scopePath,
   scopeHash: sweep.scopeHash,
   questionInventoryHash: sweep.questionInventoryHash,
+  holdoutRequired: sweep.holdoutRequired !== false,
   years: sweep.years,
   questions: sweep.questions,
   scopeKind,
@@ -285,10 +286,12 @@ const payload = JSON.stringify({
           attemptContext: 'CHAT_SET',
           resultVisibility: visibility,
           fastSweep: speed === 'fast',
-          allowHoldout
+          allowHoldout,
+          holdoutRequired: false
         };
         const titleNode = root.querySelector('[data-practice-scope-title]');
         if (titleNode) titleNode.textContent = `Chat · ${label}`;
+        root.querySelector('[data-holdout-control]')?.setAttribute('hidden', '');
       } catch (error) {
         console.error(error);
         showChatSetError('Chat Set 题目载入失败', 'Current Question Truth 没有完整载入；网页没有替换、补猜或跳过任何题。');
@@ -553,7 +556,7 @@ const payload = JSON.stringify({
 
     const renderQuestion = (requestedIndex = null) => {
       activeQuestions = computeActive();
-      if (!holdoutYears.length) { renderGate(); return; }
+      if (data.holdoutRequired !== false && !holdoutYears.length) { renderGate(); return; }
       if (!activeQuestions.length) { renderDone(); return; }
 
       let index = Number.isInteger(requestedIndex) ? Number(requestedIndex) : firstUnansweredIndex();
