@@ -62,19 +62,33 @@ C00 and C05–C08 do not receive synthetic Output hooks merely for chapter symme
 
 ### Audit result
 
-Whole-subject structural K audit:
+Whole-subject structural + fresh semantic K audit is complete for the realized objects:
 
-- 9/9 chapters have later-stage K;
-- all reconstruction / boundary / Output owner ids remain inside Current chapter ownership;
-- all historical Output/Precision refs resolve to real LEG26 pages;
+- 9/9 chapters have later-stage Compression Knowledge;
+- Compression keeps nine different chapter cognitions rather than forcing one chapter-framework template;
+- promoted Output hooks remain only where Current chapter Knowledge independently supports the relation;
+- three historical-output-rich but Current-K-underbound areas were deliberately deferred instead of promoted;
+- all reconstruction / boundary / promoted Output owner ids remain inside Current chapter ownership;
 - no later-stage K object contains timer / retry / reveal / UI / Runtime control;
 - first-round effect remains `NONE`.
 
+Current gate status:
+
+```text
+Compression K   PASS C00–C08
+Output K        PASS for currently promoted hooks
+Precision K     ACTIVE / PARTIAL
+  concrete candidate owners: C02, C05
+  remaining chapters: exact candidate materialization still source-gated
+Overall Marx K  NOT CLOSED
+Later-stage L   FROZEN
+```
+
 ### Next
 
-1. perform a fresh semantic K audit on C00–C08, attacking over-compression / duplication / missing high-value confusables;
-2. materialize additional Precision candidates only where Current + historical/current-year source supports exactness;
-3. declare Marxism K closed only after that audit;
+1. continue **Precision K**: bind exact Current source evidence and materialize only justified candidates for C00/C01/C03/C04/C06/C07/C08;
+2. keep current-year handbook delta as an admission/update input, not as a reason to postpone candidate discovery that Current Source can already support;
+3. close Marxism K only when compression/output/precision Knowledge all have truthful owners;
 4. **do not start later-stage L before Marxism K closure.**
 
 
