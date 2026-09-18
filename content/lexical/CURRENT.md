@@ -10,7 +10,7 @@ This cursor owns current engineering routing only. It does not own Rule / Model,
 
 ## Current state
 
-**Active lane:** NONE — Lexical Architecture v2 learner-surface closure accepted  
+**Active lane:** NONE — Lexical Architecture v2 + real-use loop closure accepted  
 **Blocker:** none
 
 Stage:
@@ -405,8 +405,51 @@ No further broad Lexical UI architecture work is planned for this exam cycle.
 
 ---
 
+## Real-use closure audit — TARGETED PASS 2026-09-18
+
+Fresh targeted proof now establishes:
+
+- Learn / Fast Pass / Depth → local `+` → exact Repair → Chat-loaded Challenge → wrong → minimum Repair → Reconstruction → new evidence is continuous;
+- Fuzzy remains same-day whole-card routing support and creates no Repair debt;
+- the Chat learner-state snapshot includes Coverage cursor/volume, daily capacity, latest whole-card routing, same-day revisit, exact active Repair, current-day evidence and Challenge resume state;
+- normal Vocabulary Overview / Settings / Research / Repair surfaces do not expose the audited engineering transport/provenance strings;
+- Current Delivery integration proves remote `main` advances are mirrored to the dedicated Current checkout with exact SHA/state;
+- private learner state remains browser-local and is never persisted to shared GitHub Content.
+
+The learner-facing “载入 Chat 练习” control inside the existing Repair WAITING region is Human-Gate ACCEPTED by Kian.
+
+---
+
+## Real-use Chat loop Human Gate — ACCEPTED 2026-09-18
+
+Kian accepted the learner-facing Repair WAITING / “载入 Chat 练习” control.
+
+The accepted real-use loop is now:
+
+```text
+Learn / Fast Pass / Depth
+→ local +
+→ exact Repair
+→ copy learning state to Chat
+→ Chat generates a targeted exercise
+→ load Chat exercise
+→ Challenge / minimum Repair / Reconstruction
+→ evidence returns to private learner state
+→ continue Coverage
+```
+
+Preserve:
+
+- learner-facing language only in normal use;
+- engineering/debug transport remains hidden unless explicitly requested;
+- Chat receives interpretable learner-state semantics, not only raw events;
+- private learner state remains browser-local;
+- GitHub owns code/content delivery, not learner-state storage.
+
+---
+
 ## Exact next action
 
 Normal use.
 
-Do not reopen the accepted Vocabulary architecture, navigation, Depth geometry, Repair / Challenge interaction or English handoff for speculative polish. Reopen only for a concrete learner-visible defect, a broken contract, or an explicit new Kian request.
+Do not reopen accepted Vocabulary architecture, learner-state semantics or Chat transport for speculative polish. Reopen only for a concrete learner-visible defect, a broken contract, or an explicit new Kian request.

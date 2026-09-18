@@ -88,9 +88,9 @@ try {
 
   await goto(page, '/vocabulary/');
   await page.locator('[data-lexical-tab="repair"]').click();
-  await page.locator('[data-challenge-manual-tools] summary').click();
-  await page.locator('[data-challenge-packet-input]').fill(JSON.stringify(packet));
-  await page.locator('[data-challenge-import]').click();
+  await page.locator('[data-challenge-chat-load-button]').click();
+  await page.locator('[data-challenge-chat-paste-input]').fill(JSON.stringify(packet));
+  await page.locator('[data-challenge-chat-paste-start]').click();
   await page.locator('[data-challenge-question-panel]').waitFor({ state: 'visible' });
   check((await page.locator('[data-challenge-progress]').innerText()).startsWith('1 / 2'), 'challenge_starts_first_item');
   await page.locator('[data-challenge-choice="right"]').click();

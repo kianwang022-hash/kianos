@@ -96,11 +96,11 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
 
     <section class="lexicalHandoff" data-lexical-handoff hidden>
       <div>
-        <span>RETURN</span>
-        <strong>有学习证据可返回 Chat</strong>
+        <span>CHAT</span>
+        <strong>让 Chat 读取当前学习状态</strong>
         <p data-lexical-return-summary></p>
       </div>
-      <button type="button" data-lexical-copy-return>Copy Return Packet</button>
+      <button type="button" data-lexical-copy-return>复制学习状态给 Chat</button>
     </section>
   </section>
 
@@ -145,7 +145,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
       <button type="button" data-lexical-research-mode="form">Form</button>
     </nav>
     <label class="lexicalSearchBox" data-lexical-search-box>
-      <span>Search all Current Words</span>
+      <span>Search vocabulary</span>
       <input type="search" autocomplete="off" spellcheck="false" data-lexical-search placeholder="输入单词，例如 default / account / observe" />
     </label>
     <div class="lexicalResearchBrowseMeta" data-lexical-research-browse-meta hidden></div>
@@ -197,7 +197,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
           <span>只备份你的学习记录和设置，不重复导出词库内容。</span>
         </div>
         <div class="lexicalBackupActions">
-          <button type="button" data-lexical-export-state>导出学习数据 JSON</button>
+          <button type="button" data-lexical-export-state>导出学习数据</button>
           <button type="button" data-lexical-import-state>恢复学习数据</button>
           <input type="file" accept="application/json,.json" data-lexical-import-file hidden />
         </div>
@@ -453,7 +453,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
         return ae - be || aw.length - bw.length || aw.localeCompare(bw);
       }).slice(0, 30);
       if (!matches.length) {
-        const empty = document.createElement('p'); empty.className = 'lexicalEmpty'; empty.textContent = 'Current 词库中没有匹配结果。'; searchHost.appendChild(empty); return;
+        const empty = document.createElement('p'); empty.className = 'lexicalEmpty'; empty.textContent = '词库中没有匹配结果。'; searchHost.appendChild(empty); return;
       }
       matches.forEach((row) => searchHost.appendChild(makeWordRow(row, stateFor(row), 'lookup')));
     };
@@ -483,7 +483,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
       if (!matches.length) {
         const empty = document.createElement('p');
         empty.className = 'lexicalEmpty';
-        empty.textContent = '当前 Final Learner Object 中没有这一类对象。';
+        empty.textContent = '当前词库里暂时没有这一类内容。';
         searchHost.appendChild(empty);
         return;
       }
