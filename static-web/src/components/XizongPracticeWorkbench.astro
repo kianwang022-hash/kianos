@@ -9,7 +9,7 @@ import {
   isXizongQuestionMarked
 } from '../lib/xizongQuestionAttempts.mjs';
 
-const { system, sweep } = Astro.props;
+const { system, sweep, scopeKind = 'SYSTEM' } = Astro.props;
 if (!sweep) throw new Error(`CURRENT_XIZONG_PRACTICE_SWEEP_MISSING:${system?.systemId || 'unknown'}`);
 const base = import.meta.env.BASE_URL;
 const payload = JSON.stringify({
@@ -22,13 +22,14 @@ const payload = JSON.stringify({
   questionInventoryHash: sweep.questionInventoryHash,
   years: sweep.years,
   questions: sweep.questions,
+  scopeKind,
   base
 }).replace(/</g, '\\u003c');
 ---
-<section class="xzp" data-xizong-practice={system.systemId} data-question-workspace>
+<section class="xzp" data-xizong-practice={system.systemId} data-practice-scope-kind={scopeKind} data-question-workspace>
   <header class="xzpTopbar">
     <div class="xzpScope">
-      <strong>{system.canonicalId} · {system.title}</strong>
+      <strong data-practice-scope-title>{system.canonicalId} · {system.title}</strong>
       <span><b data-study-phase>一轮</b></span>
     </div>
 
@@ -64,6 +65,13 @@ const payload = JSON.stringify({
         <span data-question-meta>—</span>
         <small data-selection-hint hidden></small>
       </header>
+
+      <section class="xzpChatSetGate" data-chat-set-gate hidden>
+        <span>CHAT SET</span>
+        <h2 data-chat-set-error-title>无法打开 Chat 自选题</h2>
+        <p data-chat-set-error-body></p>
+        <a href={`${base}xizong/practice/`}>返回训练入口</a>
+      </section>
 
       <section class="xzpHoldoutGate" data-holdout-gate hidden>
         <span>WHOLE-PAPER HOLDOUT</span>
@@ -173,21 +181,20 @@ const payload = JSON.stringify({
     ensureXizongQuestionSweepState,
     recordXizongQuestionAttempt,
     startNextXizongQuestionRound,
-      deriveXizongQuestionIdsForCurrentRound,
+    deriveXizongQuestionIdsForCurrentRound,
     xizongStudyPhaseLabel,
     setXizongQuestionMarked,
     isXizongQuestionMarked
   } from '../lib/xizongQuestionAttempts.mjs';
 
-  document.querySelectorAll('[data-xizong-practice]').forEach((root) => {
-    const systemId = root.getAttribute('data-xizong-practice') || '';
+  document.querySelectorAll('[data-xizong-practice]').forEach(async (root) => {
+    const initialSystemId = root.getAttribute('data-xizong-practice') || '';
     let data = null;
     try { data = JSON.parse(root.querySelector('[data-sweep-payload]')?.textContent || 'null'); } catch {}
-    if (!data?.questions?.length) return;
 
-    const sweepKey = `kianos:xizong:system-question-sweep:${systemId}:v1`;
     const holdoutKey = 'kianos:xizong:full-paper-holdout-years:v1';
     const preferenceKey = 'kianos:xizong:question-preferences:v1';
+    const chatSetKey = 'kianos:xizong:chat-set:v1';
 
     const readJson = (key, fallback) => {
       try { return JSON.parse(localStorage.getItem(key) || '') || fallback; } catch { return fallback; }
@@ -196,8 +203,107 @@ const payload = JSON.stringify({
       try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch { return false; }
     };
 
-    let holdoutYears = readJson(holdoutKey, []);
+    const showChatSetError = (title, body) => {
+      const gate = root.querySelector('[data-chat-set-gate]');
+      const heading = root.querySelector('[data-chat-set-error-title]');
+      const copy = root.querySelector('[data-chat-set-error-body]');
+      root.querySelector('[data-question-card]')?.setAttribute('hidden', '');
+      root.querySelector('[data-holdout-gate]')?.setAttribute('hidden', '');
+      root.querySelector('[data-sweep-done]')?.setAttribute('hidden', '');
+      if (heading) heading.textContent = title;
+      if (copy) copy.textContent = body;
+      if (gate) gate.hidden = false;
+    };
+
+    if (data?.scopeKind === 'CHAT_SET') {
+      const set = readJson(chatSetKey, null);
+      const ids = Array.isArray(set?.question_ids) ? set.question_ids.map(String) : [];
+      const setId = String(set?.set_id || '');
+      const phase = String(set?.study_phase || 'SECOND_PASS');
+      const visibility = String(set?.result_visibility || 'immediate');
+      const speed = String(set?.speed || 'normal');
+      const label = String(set?.label || 'Chat 自选题');
+      const allowHoldout = set?.allow_holdout === true;
+
+      if (!set || set?.schema !== 'kianos.xizong.chat_set.v1' || !setId || !ids.length) {
+        showChatSetError('没有可执行的 Chat Set', '请先从训练入口导入 Chat 返回的 kianos.xizong.chat_set.v1。');
+        return;
+      }
+      if (!['FIRST_PASS','SECOND_PASS','LATE_REVIEW'].includes(phase)) {
+        showChatSetError('Chat Set 阶段无效', `study_phase=${phase} 不是可执行阶段。`);
+        return;
+      }
+      if (visibility !== 'immediate') {
+        showChatSetError('当前 Chat Set 只执行即时反馈', 'Hidden 结果会和 Whole Paper 一起实现；当前不静默降级。');
+        return;
+      }
+      if (ids.some((id) => !/^xizong-official-\d{4}-n\d{3}$/.test(id))) {
+        showChatSetError('Chat Set 含无效题号', '只接受 canonical xizong-official-YYYY-nNNN 题号。');
+        return;
+      }
+      const uniqueIds = [...new Set(ids)];
+      if (uniqueIds.length !== ids.length) {
+        showChatSetError('Chat Set 含重复题号', '网页不会自行去重或改写 Chat 给出的顺序，请让 Chat 返回唯一 qid。');
+        return;
+      }
+
+      const savedHoldout = readJson(holdoutKey, []);
+      const holdoutSet = new Set((Array.isArray(savedHoldout) ? savedHoldout : []).map(Number));
+      const selectedHoldoutYears = [...new Set(ids.map((id) => Number(id.match(/official-(\d{4})-/)?.[1])).filter((year) => holdoutSet.has(year)))];
+      if (selectedHoldoutYears.length && !allowHoldout) {
+        showChatSetError('Chat Set 命中整卷保留年份', `${selectedHoldoutYears.join('、')} 仍受 Holdout 保护。让 Chat/你显式设置 allow_holdout=true 才会执行。`);
+        return;
+      }
+
+      try {
+        const years = [...new Set(ids.map((id) => id.match(/official-(\d{4})-/)?.[1]).filter(Boolean))];
+        const banks = await Promise.all(years.map(async (year) => {
+          const response = await fetch(`${data.base}xizong/practice/data/${year}.json`);
+          if (!response.ok) throw new Error(`YEAR_FETCH_FAILED:${year}`);
+          return response.json();
+        }));
+        const byId = new Map(banks.flatMap((bank) => bank?.questions || []).map((q) => [q.questionId, q]));
+        const missing = ids.filter((id) => !byId.has(id));
+        if (missing.length) {
+          showChatSetError('Chat Set 含不存在的 Current 题号', `未找到：${missing.slice(0, 6).join('、')}${missing.length > 6 ? '…' : ''}`);
+          return;
+        }
+
+        data = {
+          ...data,
+          systemId: `chat-set:${setId}`,
+          canonicalId: 'CHAT',
+          title: label,
+          questionCount: ids.length,
+          scopePath: 'private://chat-set',
+          scopeHash: `chat-set:${setId}`,
+          questionInventoryHash: `chat-set:${setId}`,
+          years: years.map(Number),
+          questions: ids.map((id) => byId.get(id)),
+          studyPhase: phase,
+          queueMode: 'EXPLICIT_SET',
+          attemptContext: 'CHAT_SET',
+          resultVisibility: visibility,
+          fastSweep: speed === 'fast',
+          allowHoldout
+        };
+        const titleNode = root.querySelector('[data-practice-scope-title]');
+        if (titleNode) titleNode.textContent = `Chat · ${label}`;
+      } catch (error) {
+        console.error(error);
+        showChatSetError('Chat Set 题目载入失败', 'Current Question Truth 没有完整载入；网页没有替换、补猜或跳过任何题。');
+        return;
+      }
+    }
+
+    if (!data?.questions?.length) return;
+
+    const storageId = String(data.systemId || initialSystemId).replace(/[^a-zA-Z0-9:_-]+/g, '-');
+    const sweepKey = `kianos:xizong:question-sweep:${storageId}:v1`;
+
+    let holdoutYears = data.allowHoldout ? [] : readJson(holdoutKey, []);
     let preferences = readJson(preferenceKey, { fastSweep: false });
+    if (typeof data.fastSweep === 'boolean') preferences = { ...preferences, fastSweep: data.fastSweep };
     let sweepState = readJson(sweepKey, { results: {}, marks: {} });
     const attemptContext = {
       systemId: data.systemId,
@@ -205,8 +311,10 @@ const payload = JSON.stringify({
       scopeHash: data.scopeHash,
       questionInventoryHash: data.questionInventoryHash,
       questions: data.questions,
-      attemptContext: 'SYSTEM_SWEEP',
-      resultVisibility: 'immediate'
+      attemptContext: data.attemptContext || 'SYSTEM_SWEEP',
+      resultVisibility: data.resultVisibility || 'immediate',
+      studyPhase: data.studyPhase || 'FIRST_PASS',
+      queueMode: data.queueMode || 'TARGETED'
     };
     sweepState = ensureXizongQuestionSweepState(sweepState, { ...attemptContext, holdoutYears });
     writeJson(sweepKey, sweepState);
