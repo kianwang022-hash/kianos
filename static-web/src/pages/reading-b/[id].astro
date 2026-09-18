@@ -6,6 +6,7 @@ import ObjectiveAnswerGate from '../../components/ObjectiveAnswerGate.astro';
 import ObjectiveHandoff from '../../components/ObjectiveHandoff.astro';
 import ObjectiveTransferClaims from '../../components/ObjectiveTransferClaims.astro';
 import ObjectiveNavigator from '../../components/ObjectiveNavigator.astro';
+import EnglishExamTaskBridge from '../../components/EnglishExamTaskBridge.astro';
 import { listReadingBSets, loadReadingBById } from '../../lib/englishObjectiveSourceTruth.mjs';
 
 export function getStaticPaths() {
@@ -26,6 +27,7 @@ const item = loadReadingBById(Astro.props.objectId);
   objectId={item.objectId}
   active="reading_b"
 >
+  <EnglishExamTaskBridge task="reading_b" objectId={item.objectId} />
   <ReadingBWorkspace item={item} />
   <ObjectiveAnswerGate task="reading_b" answerRoute="reading-b-answer" />
   <ObjectiveHandoff />
