@@ -423,6 +423,131 @@ or:
 ```
 
 The learner should not see the backend plan schema, K candidate inventory, scheduler logic or why Chat did not select other available content.
+### 3.1B Exam-horizon Runtime atoms and Session Instruction
+
+Politics Runtime must remain usable from the current first round through the exam without introducing phase-specific execution engines.
+
+Hard separation:
+
+```text
+Runtime atoms
+= phase-agnostic mechanics
+
+Session recipes
+= task-shape compositions of atoms
+
+Chat
+= chooses which recipe / targets / order are useful now
+```
+
+Runtime atoms must not branch on learner strategy such as `round1 / round2 / final`.
+
+#### Politics-required Runtime atoms
+
+The Politics execution surface must be able to compose these small stable atoms, preferably from shared Engineering owners when the same mechanics are cross-subject:
+
+- `SHOW` — render an already-resolved Final Learner Object / task payload;
+- `CONCEAL_REVEAL` — protect answer-bearing payload, then reveal on explicit learner action;
+- `INPUT_SUBMIT` — capture a selection or text response and submit it;
+- `MARK` — record learner-owned markers such as Uncertain / Recall rating / repair outcome;
+- `SEQUENCE` — move through an explicit Chat-provided ordered set without selecting the order;
+- `TIMER` — time / pause / complete an explicitly timed task;
+- `HANDOFF` — leave for the owning source/external task with exact locator identity;
+- `RETURN` — restore the exact interrupted session/step;
+- `CAPTURE` — persist the bounded learner evidence produced by the current action.
+
+These atoms do not own Politics knowledge, review priority, phase transition, question selection or close readiness.
+
+#### Session recipes are compositions, not new Runtime branches
+
+Learner-facing capabilities may be described as recipes over atoms:
+
+```text
+RECALL
+= SHOW + CONCEAL_REVEAL + MARK + CAPTURE
+
+QUESTION_SET
+= SEQUENCE + INPUT_SUBMIT + MARK + CAPTURE
+
+RECONSTRUCT
+= SHOW + CONCEAL_REVEAL + INPUT_SUBMIT and/or REVEAL + CAPTURE
+
+TIMED_TASK
+= SHOW/SEQUENCE + TIMER + INPUT_SUBMIT + CAPTURE
+
+SOURCE_REPAIR
+= HANDOFF + RETURN + CAPTURE
+
+MOCK
+= a Session recipe that composes already-valid task recipes under shared timing/order constraints
+```
+
+`MOCK` is therefore not a special Politics Runtime engine. Analysis Output and Mock may use additional accepted task recipes later, but they must be implemented by composing the same atoms rather than creating `if politics_mock` execution forks.
+
+#### One typed instruction envelope through the exam horizon
+
+The long-lived control envelope is:
+
+`kianos.politics.session-instruction.v1`
+
+It contains only already-decided execution instructions, for example:
+
+```text
+session_id
+subject_id
+phase
+anchor_ref
+
+steps[]
+- step_id
+- recipe_type
+- explicit target refs / question ids
+- learner-facing prompt when needed
+- explicit ordering
+- timer constraint when needed
+- target-guard evidence refs when required
+
+return_policy
+- where to return on finish / handoff / interruption
+```
+
+Phase is context/guard metadata. Runtime atoms do not change implementation behavior merely because phase changes.
+
+The current `kianos.politics.consolidation_plan.v1` is a **phase-specific semantic precursor**. Engineering closure must not create a second permanent importer/executor for it. It should normalize into `session-instruction.v1` with `phase = CONSOLIDATION`.
+
+Likewise, later Analysis Output / Mock instructions must use the same envelope after their Learning contracts are accepted.
+
+#### Session evidence
+
+The matching execution return is:
+
+`kianos.politics.session-evidence.v1`
+
+It carries facts only:
+
+- session / step identity;
+- explicit target identity;
+- response / selection when relevant;
+- deterministic result when an official/exact answer rule exists;
+- learner Wrong / Uncertain / rating marker;
+- timer facts;
+- handoff / return state;
+- blocked guard reason;
+- resume position.
+
+It carries no Web-authored diagnosis, recommended next object, mastery claim or phase transition.
+
+Chat consumes this evidence and may issue another `session-instruction.v1`.
+
+The existing `kianos.politics.return_packet.v1` remains the compact cross-session/Chat handoff view over meaningful private evidence. It is not a second execution engine.
+
+#### Fail-closed phase rule
+
+The generic envelope may represent future phase labels before those phases are implemented, but Runtime may execute a phase/task recipe only when the applicable Politics Learning/Content/Presentation contract is accepted.
+
+Therefore current `ANALYSIS_OUTPUT` and `MOCK_FINAL` labels do not create render or execution entitlement while their L/P/R gates remain unaccepted.
+
+---
 #### `ORIENT`
 Dominant task: know what problem this Natural Unit solves and how it sits in the subject/chapter structure.
 
