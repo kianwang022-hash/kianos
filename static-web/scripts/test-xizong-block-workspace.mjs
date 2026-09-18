@@ -204,6 +204,9 @@ try {
   }, personalKey);
   check(promptMarks.some((row) => row.kind === 'important' && row.surface === 'PROMPT'), 'prompt_mark_persisted');
 
+  await page.evaluate(() => {
+    if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
+  });
   await page.keyboard.press('Space');
   check(await learnCard.locator('[data-learner-kp-core]').isHidden(), 'space_hides_core');
   await page.keyboard.press('Space');
