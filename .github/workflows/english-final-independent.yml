@@ -1,0 +1,27 @@
+name: English Fresh Independent Audit
+on:
+  push:
+    branches: [audit/english-final-independent-20260919]
+  pull_request:
+    paths:
+      - .github/workflows/english-final-independent.yml
+permissions:
+  contents: read
+jobs:
+  current-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Export exact tracked Current for isolated inspection
+        run: |
+          mkdir -p /tmp/english-independent
+          git rev-parse HEAD > /tmp/english-independent/head.txt
+          git archive --format=tar HEAD | gzip > /tmp/english-independent/current-source.tar.gz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: english-independent-source
+          path: /tmp/english-independent/
+          retention-days: 1
