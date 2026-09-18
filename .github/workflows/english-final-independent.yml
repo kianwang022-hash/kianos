@@ -2,26 +2,31 @@ name: English Fresh Independent Audit
 on:
   push:
     branches: [audit/english-final-independent-20260919]
-  pull_request:
-    paths:
-      - .github/workflows/english-final-independent.yml
 permissions:
   contents: read
 jobs:
-  current-source:
+  isolated-toolchain:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-      - name: Export exact tracked Current for isolated inspection
+          node-version: 22
+      - name: Install isolated verification dependencies
+        working-directory: static-web
+        run: |
+          npm ci
+          npm install --no-save --package-lock=false playwright@1.56.1
+          npx playwright install chromium --only-shell
+      - name: Package execution tools (no learner state)
         run: |
           mkdir -p /tmp/english-independent
           git rev-parse HEAD > /tmp/english-independent/head.txt
-          git archive --format=tar HEAD | gzip > /tmp/english-independent/current-source.tar.gz
+          tar -czf /tmp/english-independent/node-modules.tar.gz -C static-web node_modules
+          tar -czf /tmp/english-independent/browser.tar.gz -C "$HOME/.cache" ms-playwright
       - uses: actions/upload-artifact@v4
         with:
-          name: english-independent-source
+          name: english-independent-toolchain
           path: /tmp/english-independent/
           retention-days: 1
