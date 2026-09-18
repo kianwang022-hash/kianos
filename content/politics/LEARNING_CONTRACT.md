@@ -123,7 +123,7 @@ The learner path may cross Chat, Astro, and the original iPad/MarginNote lecture
 
 The active first-round chain is:
 
-`Chat/Astro Orientation → Chengfeng Natural Unit continuous learning on original iPad/MarginNote lecture surface → natural checkpoint/closure when it adds retrieval value → Xiao1000 verification in Astro/KianOS web → wrong/uncertain source repair → Unit/Block compression when it removes future work → later Memory/analysis-output/Mock`
+`Chat/Astro Orientation → Chengfeng Natural Unit continuous learning on original iPad/MarginNote lecture surface → natural checkpoint/closure when it adds retrieval value → Xiao1000 verification in the single KianOS Workbench → prebuilt refined backside Content + learner Evidence/cause/note → continue → learner-triggered batch Review packet → Chat diagnosis only when the learner chooses to review → later Memory/analysis-output/Mock`
 
 This supersedes learner-facing flows that treat Suyi, Chengfeng, and Xiao1000 as parallel courses, and it also supersedes any implementation that turns Astro into a substitute continuous Chengfeng lecture reader.
 
@@ -145,11 +145,12 @@ Politics first-round learning uses explicit surface ownership rather than inferr
 | Chapter / Unit Orientation | Chat and/or Astro | Short map / WHY NOW only; not a second lecture |
 | Chengfeng continuous first study | **iPad / MarginNote original lecture surface** | Astro may hold position/checkpoint/bridge/locator, but must not substitute a continuous lecture reader |
 | Natural Unit position / checkpoint / closure cue | Astro | May tell the learner where they are and what to do next without duplicating the lecture |
-| Xiao1000 verification | **Astro / KianOS web Politics question surface** | Original question/options/official answer remain source-owned; the web surface owns attempt/evidence interaction, not learning order |
-| Wrong / Uncertain evidence capture | Astro | Preserve only evidence needed for repair/return |
-| Exact Chengfeng source repair | Original Chengfeng lecture surface by default | Astro may show a locator or minimal decisive excerpt; it must not expand into a second full lecture |
-| Deep semantic / relation repair | Chat | Adaptive diagnosis/repair; return to the owning learner path afterward |
-| Unit Return / handoff | Astro ↔ Chat as approved | Preserve Natural Unit / question identity and next action |
+| Xiao1000 verification | **single KianOS Politics Workbench** | Original question/options/official answer remain source-owned; the Workbench is the only learner-facing attempt/evidence writer |
+| Backside explanation Content | Workbench after submit | `takeaway` + refined explanation are prebuilt question-bound Content, not a runtime Chat call |
+| Wrong / Uncertain evidence capture | Workbench | Record outcome, learner cause/note/favorite/discussion when useful; do not force an immediate repair ritual |
+| Chengfeng locator / optional return | Workbench backside | Show the exact safest Current locator as reference; learner may return when useful, but W/U does not automatically interrupt the question session |
+| Batch Review → Chat | Review → Chat, learner-triggered | Export accumulated W/U + learner annotations as one packet when the learner chooses to review; Chat diagnoses patterns and decides the smallest durable follow-up |
+| Resume | Home / Review / Workbench | Preserve the meaningful unfinished question session or learning position without inventing scheduler debt |
 
 The Xiao1000 answer-surface binding preserves the existing approved PoliticsWorkbench practice chain: Unit learning closes, Astro launches the Unit's ready questions, records the attempt/evidence, and returns the learner to the Unit path. This binding does **not** authorize Astro to absorb Chengfeng continuous reading.
 
@@ -194,28 +195,40 @@ Only create an asset when it improves learning or removes future work. Do not ma
 - **No mandatory ritual:** Orientation, Recall, closure, source handoff and UI state transitions are tools, not ceremonies. Skip or compress them when they do not materially improve retrieval or transfer.
 - **No learner-facing scheduler internals:** fixed labels such as D1/D3/D7/D14 are not an active Politics learner contract. Review should present useful tasks and reasons, not scheduler implementation details.
 
-## 5. Xiao1000 verification and repair
+## 5. Xiao1000 verification, backside Content, and batch review
 
-Xiao1000 appears in **Astro/KianOS web** as the verification checkpoint after the relevant Natural Unit / natural subsection has been learned on the original Chengfeng surface.
+Xiao1000 appears in the **single KianOS Politics Workbench** after the relevant Natural Unit / natural subsection has been learned on the original Chengfeng surface.
 
-Astro owns the learner's question-attempt interaction, Wrong/Uncertain capture, fast correct continuation, and Unit return. It does not own Xiao1000's source truth and does not use Xiao1000 to organize first learning.
+The Workbench owns the learner's question-attempt interaction, first-attempt Evidence, Uncertain/cause/note/favorite/discussion signals, fast continuation, and submitted backside. It does not own Xiao1000 Source Truth and does not use Xiao1000 to organize first learning.
 
-For a stable correct answer:
+The submitted backside is **Content**, not an on-demand Chat interaction:
 
-`✓ → continue`
+```text
+question_id
+→ takeaway                 prebuilt refined Content
+→ refined explanation      prebuilt refined Content
+→ Current Chengfeng locator/reference
+→ learner cause / note / signals
+→ next question by default
+```
 
-For wrong or uncertain evidence:
+For stable correct:
 
-`question evidence → first meaningful failure → smallest sufficient repair → owning Chengfeng source → continue`
+`✓ → continue cheaply`
 
-Default repair hierarchy:
+For Wrong / Uncertain:
 
-1. wording / hat / fixed-boundary confusion → show the decisive distinction and minimal source evidence;
-2. concept relation unclear → reopen the relevant Teaching Bridge / boundary;
-3. Natural Unit model broken → return to the owning Chengfeng segment on the original source surface;
-4. persistent cross-unit confusion → use Unit/Block compression or targeted review.
+`show the same prebuilt backside Content → record learner Evidence/cause/note → optional Chengfeng reference/return → continue`
 
-Do not replace this with a second full AI explanation textbook.
+Wrong / Uncertain does **not** automatically open Chat, force source repair, or insert a diagnosis ceremony between questions.
+
+When the learner chooses to review a batch:
+
+`accumulated W/U + learner annotations → Review packet → Chat pattern diagnosis → smallest justified follow-up`
+
+That later follow-up may be no action, one source return, a boundary/relation reconstruction, a Memory/Precision admission, a retest, or a durable Content correction. Chat should compress many question events into the fewest real underlying problems rather than re-explain every question.
+
+Do not create a second inline Xiao1000 attempt surface inside Politics learning pages. Learning pages hand the exact Natural Unit to the formal Workbench.
 
 ### 5.1 Question-repair semantic authority
 
@@ -234,7 +247,7 @@ A question may test more than one knowledge node. Repair therefore distinguishes
 - `current_unit_hits` — the part being learned/repaired in the current Natural Unit;
 - `cross_unit_hits` — legitimate other knowledge hits in the same question that must not be pulled into the current Unit's teaching content merely because the option exists.
 
-The current learning chain repairs the **current-unit failure** first. Cross-unit hits are retained as evidence/context, not used to inflate the current Unit.
+When batch Review/Chat determines that repair is actually warranted, repair the **current-unit failure** first. Cross-unit hits are retained as evidence/context, not used to inflate the current Unit.
 
 ## 6. Review / Memory / Analysis Output / Mock
 

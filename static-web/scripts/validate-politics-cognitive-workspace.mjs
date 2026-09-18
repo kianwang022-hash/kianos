@@ -14,6 +14,7 @@ const requireText = (text, needle, label) => {
 
 const component = read('src/components/PoliticsCognitiveWorkspace.astro');
 const bridge = read('src/components/PoliticsCognitiveWorkspaceBridge.astro');
+const explicitBehavior = read('src/components/PoliticsCognitiveWorkspaceExplicitBehavior.astro');
 const readable = read('src/components/PoliticsCognitiveWorkspaceReadable.astro');
 const page = read('src/pages/politics/[subject]/[chapter].astro');
 const presentation = read('PRESENTATION_CONTRACT.md');
@@ -31,11 +32,13 @@ for (const marker of [
   'data-stage="CLOSE"',
   "state === 'REPAIR'",
   '去 iPad / MarginNote 学乘风',
-  'data-politics-question',
-  'data-politics-submit',
-  'data-politics-repair',
-  'data-politics-quiz'
+  'data-workspace-practice-link',
+  'data-practice-href'
 ]) requireText(component, marker, 'workspace component');
+
+if (component.includes('data-politics-question') || component.includes('data-politics-quiz')) {
+  fail('workspace must hand verification to the formal Workbench instead of owning inline question attempts');
+}
 
 for (const semanticKey of [
   'framework_maps',
@@ -62,9 +65,10 @@ for (const fastPath of [
   'learn-fastpath',
   '直接进入肖1000 →',
   '20 秒闭卷收口（可选）',
-  "setWorkspaceState(unit, 'RECALL')",
-  "setWorkspaceState(unit, 'VERIFY')"
+  "setWorkspaceState(unit, 'RECALL')"
 ]) requireText(bridge, fastPath, 'score-first workspace bridge');
+requireText(component, "window.location.assign(href)", 'recall-to-Workbench fast path');
+requireText(explicitBehavior, "window.location.assign(href)", 'direct-to-Workbench fast path');
 
 // Shell behavior remains stable; representation choice is now purpose-first.
 for (const shellRule of [
@@ -164,7 +168,7 @@ console.log(JSON.stringify({
   chapter: chapter.title,
   semanticUnits: semanticUnits.length,
   states: ['ORIENT', 'EXTERNAL_LEARN', 'RECALL', 'VERIFY', 'REPAIR', 'CLOSE'],
-  scoreFirstFastPath: 'EXTERNAL_LEARN -> VERIFY; RECALL optional',
+  scoreFirstFastPath: 'EXTERNAL_LEARN -> FORMAL_WORKBENCH; RECALL optional',
   representationRule: 'PURPOSE_FIRST_TEXT_DEFAULT_VISUAL_ONLY_WHEN_CLEARER',
   s01: 'SIMPLE_CHAIN_WHEN_CLEARER',
   s02: 'STRUCTURED_TEXT_RELATIONS',

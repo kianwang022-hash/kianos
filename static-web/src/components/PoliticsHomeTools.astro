@@ -4,7 +4,7 @@ const base = import.meta.env.BASE_URL;
 const catalog = politicsProductCatalog(base);
 const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
 ---
-<section class="politicsHomeTools" data-politics-home-tools data-base={base} data-has-handoff="false">
+<section class="politicsHomeTools" data-politics-home-tools data-base={base}>
   <script type="application/json" data-politics-home-catalog set:html={JSON.stringify(catalog).replace(/</g, '\\u003c')} />
 
   <a class="politicsContinueCard" data-politics-continue href={firstHref}>
@@ -29,10 +29,6 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
       <div><strong data-politics-today-uncertain>0</strong><span>不确定</span></div>
     </div>
 
-    <section class="politicsHandoff" data-politics-handoff hidden>
-      <p data-politics-handoff-summary>今天还没有需要处理的政治证据。</p>
-      <button type="button" data-politics-copy-handoff hidden>复制学习包</button>
-    </section>
     <p class="politicsTodayQuiet" data-politics-today-quiet>今天还没有做题记录。</p>
   </section>
 
@@ -51,7 +47,7 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
 </section>
 
 <script>
-  import { politicsReviewPacket, readPoliticsSnapshot, selectPoliticsReview, resolvePoliticsContinue } from '../lib/politicsPracticeState.mjs';
+  import { readPoliticsSnapshot, selectPoliticsReview, resolvePoliticsContinue } from '../lib/politicsPracticeState.mjs';
   const root = document.querySelector('[data-politics-home-tools]');
   if (root instanceof HTMLElement) {
     const catalogNode = root.querySelector('[data-politics-home-catalog]');
@@ -94,38 +90,22 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
       const attempts = todayAttemptIds(snapshot, day);
       const wrong = items.filter((item) => item.outcome === 'WRONG').length;
       const uncertain = items.filter((item) => item.outcome === 'UNCERTAIN').length;
-      const handoff = root.querySelector('[data-politics-handoff]');
-      const summary = root.querySelector('[data-politics-handoff-summary]');
-      const button = root.querySelector('[data-politics-copy-handoff]');
       const quiet = root.querySelector('[data-politics-today-quiet]');
 
       root.querySelector('[data-politics-today-attempts]')?.replaceChildren(String(attempts.size));
       root.querySelector('[data-politics-today-wrong]')?.replaceChildren(String(wrong));
       root.querySelector('[data-politics-today-uncertain]')?.replaceChildren(String(uncertain));
 
-      if (!(handoff instanceof HTMLElement) || !(button instanceof HTMLButtonElement) || !summary || !quiet) return;
+      if (!quiet) return;
       if (snapshot.errors.length) {
-        root.dataset.hasHandoff = 'error';
-        handoff.hidden = false;
-        button.hidden = true;
-        quiet.setAttribute('hidden', '');
-        summary.textContent = '记录未能完整读取，先进入复习核对。';
-        return;
+        quiet.textContent = '记录未能完整读取，先进入复习核对。';
+      } else if (!attempts.size) {
+        quiet.textContent = '今天还没有做题记录。';
+      } else if (items.length) {
+        quiet.textContent = `有 ${items.length} 题值得回看；想复盘时从「复习」一次性导出学习包。`;
+      } else {
+        quiet.textContent = '今天没有待处理的错题或不确定题。';
       }
-      if (!items.length) {
-        root.dataset.hasHandoff = 'false';
-        handoff.hidden = true;
-        button.hidden = true;
-        quiet.toggleAttribute('hidden', attempts.size > 0);
-        quiet.textContent = attempts.size ? '今天没有待处理的错题或不确定题。' : '今天还没有做题记录。';
-        return;
-      }
-
-      root.dataset.hasHandoff = 'true';
-      handoff.hidden = false;
-      button.hidden = false;
-      quiet.setAttribute('hidden', '');
-      summary.textContent = `还有 ${items.length} 题值得回看。`;
     };
 
     const renderRecent = (snapshot) => {
@@ -175,31 +155,7 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
       }));
     };
 
-    const buildActionablePacket = (snapshot, todayReview) => {
-      const ids = new Set(actionableItems(todayReview).map((item) => item.id));
-      const packet = politicsReviewPacket(catalog, snapshot, { day: localStudyDay(), filter: 'today' });
-      return {
-        ...packet,
-        events: packet.events.filter((event) => ids.has(event?.question_id)),
-        review_context: packet.review_context.filter((item) => ids.has(item?.question_id))
-      };
-    };
 
-    root.querySelector('[data-politics-copy-handoff]')?.addEventListener('click', async (event) => {
-      const button = event.currentTarget;
-      if (!(button instanceof HTMLButtonElement)) return;
-      const snapshot = readPoliticsSnapshot(localStorage);
-      const todayReview = selectPoliticsReview(catalog, snapshot, { day: localStudyDay(), filter: 'today' });
-      if (snapshot.errors.length || actionableItems(todayReview).length === 0) return;
-      const text = JSON.stringify(buildActionablePacket(snapshot, todayReview), null, 2);
-      try {
-        await navigator.clipboard.writeText(text);
-        button.textContent = '已复制';
-      } catch {
-        window.prompt('复制 Politics 学习包', text);
-      }
-      window.setTimeout(() => { button.textContent = '复制学习包'; }, 1200);
-    });
 
     const update = () => {
       const snapshot = readPoliticsSnapshot(localStorage);

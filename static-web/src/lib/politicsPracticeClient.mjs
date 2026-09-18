@@ -166,7 +166,7 @@ export function initPoliticsPractice(root) {
     const extra = [...r.selected].filter((l) => !payload.answer.includes(l));
     const delta = q.type === 'multiple' ? [missing.length && `漏选 ${missing.join('、')}`, extra.length && `多选 ${extra.join('、')}`].filter(Boolean).join('；') : '';
     text('[data-result-delta]', delta); hide('[data-result-delta-row]', !delta);
-    hide('[data-result-uncertain]', !r.uncertain); hide('[data-cause-picker]', r.correct);
+    hide('[data-result-uncertain]', !r.uncertain); hide('[data-cause-picker]', r.correct && !r.uncertain);
     hide('[data-result-discussion]', !meta.discussion?.[q.id]); renderSignals();
     $('[data-note]').value = meta.notes?.[q.id] || ''; text('[data-note-status]', '已保存');
     $$('[data-cause]').forEach((b) => { const enabled = meta.causes?.[q.id] === b.dataset.cause; b.classList.toggle('active', enabled); b.setAttribute('aria-pressed', String(enabled)); });
