@@ -99,7 +99,7 @@ const { nextHref = '/vocabulary/' } = Astro.props;
     const recordToggle=(button)=>{const active=button.getAttribute('aria-pressed')==='true';append(targetEventFromButton(button,active?{}:{event_id:browserEventId('clear'),source:'manual_clear',outcome:'CLEAR'}))};
     root.addEventListener('click',(event)=>{const button=event.target instanceof HTMLElement?event.target.closest('[data-vocab-repair]'):null;if(button instanceof HTMLButtonElement)recordToggle(button)});
     document.addEventListener('keydown',(event)=>{
-      if(mode!=='study'||document.querySelector('[data-vocab-challenge-runtime][data-challenge-active="true"]'))return;
+      if(event.defaultPrevented||mode!=='study'||document.querySelector('[data-vocab-challenge-runtime][data-challenge-active="true"]'))return;
       const activeRoot=document.querySelector('[data-local-port="vocabulary"][data-vocab-keyboard-active="true"]')||document.querySelector('[data-local-port="vocabulary"]');
       if(activeRoot!==root)return;
       const target=event.target;
