@@ -11,13 +11,13 @@ const base = import.meta.env.BASE_URL;
   hidden
 >
   <div>
-    <span>FULL PAPER</span>
-    <strong data-exam-step-label>Mock</strong>
+    <span>整卷模考</span>
+    <strong data-exam-step-label>当前部分</strong>
     <small data-exam-step-progress></small>
   </div>
   <b data-exam-remaining>180:00</b>
   <div class="englishExamTaskActions">
-    <a data-exam-return href="#">整卷</a>
+    <a data-exam-return href="#">查看整卷</a>
     <button type="button" data-exam-complete>完成本部分 →</button>
   </div>
 </aside>
@@ -55,8 +55,8 @@ const base = import.meta.env.BASE_URL;
       const progress = bridge.querySelector('[data-exam-step-progress]');
       const remaining = bridge.querySelector('[data-exam-remaining]');
       const returnLink = bridge.querySelector('[data-exam-return]');
-      if (label) label.textContent = step.label || step.object_id;
-      if (progress) progress.textContent = `Step ${stepIndex + 1} / ${state.steps.length}`;
+      if (label) label.textContent = ({ cloze: "完形填空", reading_a: "阅读理解", reading_b: "新题型", translation: "翻译", writing: step.writing_kind === "small" ? "小作文" : "大作文" })[task] || "当前部分";
+      if (progress) progress.textContent = `第 ${stepIndex + 1} / ${state.steps.length} 部分`;
       if (returnLink instanceof HTMLAnchorElement) {
         returnLink.href = `${base}english-exam/${encodeURIComponent(state.paper_id)}/`;
       }
