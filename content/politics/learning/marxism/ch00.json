@@ -764,5 +764,87 @@
     "suyi_default": "ABSORBED_SEMANTICS_NO_SEPARATE_LEARNER_MAINLINE",
     "xiao1000_default": "INLINE_VERIFICATION_AFTER_RELEVANT_UNIT",
     "memory_default": "NOT_PRIMARY_FIRST_ROUND_SURFACE"
+  },
+  "later_stage_knowledge": {
+    "schema": "kianos.politics.later_stage_knowledge.v1",
+    "status": "CURRENT_K_CANDIDATE",
+    "phase_scope": [
+      "CONSOLIDATION",
+      "PRECISION"
+    ],
+    "compression_model": {
+      "cognition": "THEORY_IDENTITY_AND_DEVELOPMENT_SEQUENCE",
+      "purpose": "Retain why Marxism arose, what kind of theory it became, why it develops, and why it remains usable without rereading a people/work list.",
+      "reconstruction_prompt": "不列人物著作，解释马克思主义为什么产生、形成了什么、为什么必须发展、基本特征与当代价值分别在回答什么。",
+      "reconstruction_targets": [
+        {
+          "id": "MARX-C00-LK-C01",
+          "claim": "现实社会条件、阶级实践和思想理论来源共同构成马克思主义产生的条件，而不是思想家凭空设计。",
+          "owner_ids": [
+            "POL27-CF-MARX-C00-S01"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        },
+        {
+          "id": "MARX-C00-LK-C02",
+          "claim": "马克思主义形成相互联系的完整理论体系，不是单一学科观点集合。",
+          "owner_ids": [
+            "POL27-CF-MARX-C00-S01"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        },
+        {
+          "id": "MARX-C00-LK-C03",
+          "claim": "理论来自并回应实践，因此坚持基本立场与随实践发展并不矛盾。",
+          "owner_ids": [
+            "POL27-CF-MARX-C00-S01",
+            "POL27-CF-MARX-C00-S02"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        },
+        {
+          "id": "MARX-C00-LK-C04",
+          "claim": "基本特征回答理论品格，当代价值回答这套立场观点方法为何仍能分析现实。",
+          "owner_ids": [
+            "POL27-CF-MARX-C00-S02"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        }
+      ],
+      "decisive_boundaries": [
+        {
+          "id": "MARX-C00-LK-B01",
+          "boundary": "坚持马克思主义 ≠ 教条化经典具体结论",
+          "owner_ids": [
+            "POL27-CF-MARX-C00-S02"
+          ]
+        },
+        {
+          "id": "MARX-C00-LK-B02",
+          "boundary": "理论持续发展 ≠ 抛弃基本立场",
+          "owner_ids": [
+            "POL27-CF-MARX-C00-S01",
+            "POL27-CF-MARX-C00-S02"
+          ]
+        }
+      ],
+      "cross_unit_confusables": []
+    },
+    "precision_knowledge": {
+      "policy": "PENDING_EXACT_CANDIDATE_MATERIALIZATION",
+      "candidate_domains": [
+        "经典著作—人物—理论标志 identity",
+        "马克思主义理论构成与基本特征 fixed formulations"
+      ],
+      "materialization_status": "WAIT_CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE",
+      "historical_source_refs": [
+        "LEG26-UPPER-MARX-P010",
+        "LEG26-UPPER-MARX-P011"
+      ],
+      "rule": "Do not infer exact work/author/hat pairs from chapter compression; materialize only after exact Current/current-year source confirmation."
+    },
+    "analysis_output_hooks": [],
+    "analysis_output_status": "NONE_PRIMARY",
+    "first_round_effect": "NONE"
   }
 }
