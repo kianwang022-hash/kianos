@@ -52,7 +52,9 @@ const blockRuntime = read('static-web/src/components/XizongBlockV6.astro');
 assert(blockRuntime.includes("const groupId = kpData[index]?.groupId || '';"), 'runtime-does-not-route-by-kp-group-id');
 assert(blockRuntime.includes("const firstKpId = Array.isArray(group?.kpIds) ? group.kpIds[0] : '';"), 'runtime-group-entry-does-not-use-first-kp-id');
 assert(blockRuntime.includes("const firstMissingId = ids.find((id) => !state.ratings?.[id]);"), 'runtime-group-close-does-not-check-missing-recall');
-assert(blockRuntime.includes("window.setTimeout(() => setStage('group_close'), 120);"), 'runtime-group-close-transition-missing');
+assert(blockRuntime.includes('state.groupIndex += 1;') && blockRuntime.includes('setStage(stageForSelectedGroup());'), 'runtime-next-group-transition-missing');
+assert(blockRuntime.includes("window.setTimeout(() => setStage('block_recall'), 120);"), 'runtime-final-group-to-block-recall-missing');
+assert(!blockRuntime.includes("setStage('group_close')"), 'runtime-retired-group-close-stage-regressed');
 assert(!blockRuntime.includes('const ordinal = index + 1;'), 'runtime-still-confuses-array-position-with-stable-kp-ordinal');
 assert(!blockRuntime.includes('if ((state.kpIndex + 1) >= Number(group?.end || totalKp))'), 'runtime-still-closes-group-by-array-position');
 
