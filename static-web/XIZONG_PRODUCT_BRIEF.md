@@ -16,6 +16,33 @@ For any mature Xizong surface discussion, `XIZONG_UI_REVIEW_PROTOCOL.md` is a ma
 
 The detailed surface owners in §6 now own accepted composition/interaction decisions. They must not be treated as still-undiscussed merely because an earlier version of this brief said so. Product acceptance, Projection validation, implementation acceptance and real Mac visual acceptance remain separate.
 
+## Strategy boundary｜Chat thinks, learner surfaces execute
+
+Xizong adaptive strategy belongs to Chat / explicit learner planning, not to an increasingly intelligent webpage.
+
+```text
+Chat / learner judgment
+→ explicit current phase / task / scope
+→ stable Xizong learner workspace
+→ real learner evidence
+→ Chat judgment again
+```
+
+The website may execute and preserve:
+- Learn / Framework / Recall / Practice / Memory / Repair / whole-paper actions;
+- explicit phase/scope/mode parameters;
+- real Recall/question/marking/return evidence.
+
+The website must not independently:
+- decide that FIRST_PASS should become SECOND_PASS or LATE_REVIEW;
+- infer a root-cause diagnosis from Wrong / Uncertain;
+- turn Marked or available Memory assets into compulsory future debt;
+- construct a fixed multi-cycle curriculum merely because repeated runs are technically possible.
+
+A repeated run/session may have an ordinal for evidence identity, but it is not a new canonical Learning hierarchy. Stable learner surfaces should remain reusable across as many later runs as Chat/learner strategy requires.
+
+---
+
 ## Naming lock｜Guide ≠ Framework
 
 Learner-facing terminology is now explicit:
