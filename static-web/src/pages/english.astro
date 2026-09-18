@@ -42,6 +42,11 @@ const statusLabel = (status) => status === 'ready' ? '可进入' : status === 'i
           <div class="englishCapabilityRoutes"><a href={`${base}writing/`}><span>30 <small>pts</small></span><div><strong>Writing</strong><small>先规划或直接写 · 完整表达</small></div><b>→</b></a></div>
           <small class="englishAvailability">{statusLabel(writingRuntime.status)}</small>
         </section>
+        <section class="englishCapabilityGroup" data-capability="full-paper">
+          <div class="englishCapabilityLead"><span>04 · FULL PAPER</span><h2>整卷执行</h2><p>180 分钟连续完成；各任务仍使用同一套已接受 Runtime，交卷后统一 release。</p></div>
+          <div class="englishCapabilityRoutes"><a href={`${base}english-exam/`}><span>100 <small>pts</small></span><div><strong>Full Paper / Mock</strong><small>Cloze · Reading · Part B · Translation · Writing</small></div><b>→</b></a></div>
+          <small class="englishAvailability">按 Chat / learner 明确选择进入</small>
+        </section>
       </main>
       <aside class="englishContextRail">
         <EnglishSessionControl />
