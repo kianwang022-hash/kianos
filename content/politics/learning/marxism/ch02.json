@@ -149,7 +149,7 @@
   },
   "later_stage_knowledge": {
     "schema": "kianos.politics.later_stage_knowledge.v1",
-    "status": "CURRENT_K_CALIBRATION",
+    "status": "CURRENT_K_REVIEWED",
     "phase_scope": [
       "CONSOLIDATION",
       "ANALYSIS_OUTPUT"
@@ -326,34 +326,14 @@
           "POL27-MEM-MARX-C02-K03-M04"
         ],
         "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
-      },
-      {
-        "id": "MARX-C02-OUT-DIALECTICAL-CATEGORIES",
-        "title": "基本范畴与辩证分析",
-        "material_cues": [
-          "原因/后果",
-          "必然/偶然",
-          "表面/本质",
-          "全面与重点"
-        ],
-        "owner_ids": [
-          "POL27-CF-MARX-C02-S01",
-          "POL27-CF-MARX-C02-S02"
-        ],
-        "retrieval_target": "材料出现范畴关系时，优先写最具体的关系，而不是退化成万能‘辩证看问题’。",
-        "answer_skeleton": [
-          "确定材料的关系范畴",
-          "说明二者区别及联系",
-          "指出材料中的具体条件/表现",
-          "给出对应认识或实践要求"
-        ],
-        "historical_output_refs": [
-          "LEG26-LOWER-MARX-P053",
-          "LEG26-LOWER-MARX-P054"
-        ],
-        "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
       }
     ],
-    "first_round_effect": "NONE"
+    "first_round_effect": "NONE",
+    "deferred_output_domains": [
+      {
+        "domain": "原因结果/必然偶然/现象本质等辩证范畴",
+        "reason": "LEG26 lower volume contains useful output material, but Current C02 chapter Knowledge does not yet explicitly own these relations. Requires Source→K binding before later Output promotion."
+      }
+    ]
   }
 }
