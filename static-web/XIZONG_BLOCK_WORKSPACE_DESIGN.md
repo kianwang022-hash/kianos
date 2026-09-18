@@ -243,7 +243,7 @@ Keep the interaction cheap:
 - Reveal first;
 - rating only after Reveal;
 - after rating, move to the next unrecalled KP in the same Logic Group;
-- after all owned KP in the Logic Group have real Recall evidence, move to Logic Group Closure;
+- after all owned KP in the Logic Group have real Recall evidence, mark that Logic Group closed in the Logic Map and move directly to the next Logic Group;
 - no per-KP `add to Memory`, `confirm answer read`, or other ceremony in the first-pass mainline.
 
 Keyboard / shortcut behavior must fail closed under the same gating: no hidden shortcut may rate or reveal content before the legitimate state permits it.
@@ -254,31 +254,22 @@ High-density Core stays complete after Reveal; density is organized spatially ra
 
 Do not turn a long accepted KP Core into a thin summary merely because it sits inside a Recall surface. The learner action is still `Recall → verify against canonical Core`, not `Recall → verify against an AI-generated abstract`.
 
-## 10｜Logic Group Closure — ACCEPTED
+## 10｜Logic Group Closure — ABSORBED INTO LOGIC MAP
 
-Logic Group Closure is a **local model closure**, not a second KP test and not a new mastery gate.
+Logic Group Closure has no standalone learner page/stage.
 
 After all owned KP in the Logic Group have real Recall evidence:
 
 ```text
-KP Recall complete
-→ return to the Logic Group problem
-→ confirm the group now closes around its Current closure target
-→ expose timing-appropriate Precision / outgoing Connection / Reserve when Current owns them
-→ continue the mainline
+last KP rating
+→ Logic Map marks current LG closed
+→ next LG opens directly
+→ after final LG closes, enter Block Recall
 ```
 
-Mac responsibilities:
+The Current `goal / closure` text remains visible in the Logic Map as the local model target. Weak Recall evidence stays preserved for later Memory/repair, but there is no extra Closure button, rating, checklist or confirmation ceremony.
 
-- keep the owning Logic Group visible in the Logic Map;
-- show the Current `goal` and `closure` as the local problem / closure target;
-- do not restate every KP or require another per-KP check;
-- weak Recall evidence remains preserved for later Memory/repair but does not block the first-pass mainline merely because one KP is not yet stable;
-- group-level Precision may appear here when its Current role is later exactness;
-- outgoing Connection / Reserve may appear here when Current explicitly owns the relation and timing;
-- no extra Closure rating, checklist, `mastered?` ceremony or forced Memory admission.
-
-Closure must remain cheap: the learner should be able to recognize that the local model closes and move on.
+Timing-appropriate group Precision / outgoing Connection / Reserve may still appear through the normal conditional Context owner when Current explicitly owns them; they do not justify a separate stage.
 
 ## 11｜Block Recall / Reconstruction — ACCEPTED
 
@@ -346,7 +337,7 @@ It is learner-controlled local recovery inside the accepted Block mainline.
 
 ### 11.4 Block Recall evidence and completion
 
-Preserve the Current distinction:
+Preserve the evidence distinction while merging the visual surface:
 
 ```text
 Block Recall done
@@ -354,7 +345,14 @@ Block Recall done
 Block completed
 ```
 
-Do not merge these state writes merely to remove one click without a dedicated Runtime/Evidence review.
+Both writes now live on the **same Block Recall Reveal surface**:
+
+```text
+Reveal Block model
+→ complete Block Recall
+→ confirm Block first-pass complete
+→ return to System / continue
+```
 
 Current completion semantics remain:
 
@@ -365,7 +363,7 @@ all owned KP formal Lecture contact
 = Block completion eligible
 ```
 
-The final completion action may be visually lightweight, but its accepted evidence meaning remains intact.
+The final completion action is visually lightweight but remains a distinct real state write. There is no standalone Block Complete page.
 
 ## 12｜After Learn — ACCEPTED
 
