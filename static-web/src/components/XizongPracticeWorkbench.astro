@@ -389,6 +389,7 @@ const payload = JSON.stringify({
     const holdoutCurrent = root.querySelector('[data-holdout-current]');
     const holdoutInput = root.querySelector('[data-holdout-input]');
     const saveHoldout = root.querySelector('[data-save-holdout]');
+    const moreMenu = root.querySelector('.xzpMore');
 
     const field = {
       examTarget: [root.querySelector('[data-exam-target-wrap]'), root.querySelector('[data-exam-target]')],
@@ -770,6 +771,7 @@ const payload = JSON.stringify({
       holdoutYears = selected;
       writeJson(holdoutKey, holdoutYears);
       root.querySelector('[data-holdout-control]')?.removeAttribute('open');
+      moreMenu?.removeAttribute('open');
       renderQuestion();
     });
 
