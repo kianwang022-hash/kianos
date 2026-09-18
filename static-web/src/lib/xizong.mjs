@@ -194,7 +194,7 @@ function parseKps(markdown, blockId) {
       title: String(match[4] || '').trim(),
       prompt: metadataValue(body, '主提示'),
       sourceLocator: metadataValue(body, '讲义定位 →') || metadataValue(body, '讲义定位'),
-      outlineLocator: metadataValue(body, 'Outline'),
+      outlineLocator: metadataValue(body, 'Outline →') || metadataValue(body, 'Outline'),
       detailMarkdown: stripKpMetadata(body)
     };
   });
