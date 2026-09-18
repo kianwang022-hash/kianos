@@ -56,7 +56,7 @@
   },
   "acceptance_boundary": "Child table/example/tip nodes may retain source_bound_ocr_needs_review without blocking whole-subject Source acceptance when the Natural Unit owner remains resolvable and learner semantics do not depend on the corrupt fragment.",
   "leg26_memory_output_review": {
-    "status": "IN_PROGRESS",
+    "status": "MARX_C00_C08_HISTORICAL_RECONCILIATION_COMPLETE",
     "source_package": "content/politics/source/historical/leg26/manifest.json",
     "policy": "HISTORICAL_BASELINE_MUST_BE_RECONCILED_WITH_CURRENT_KNOWLEDGE_BEFORE_LEARNER_PROMOTION",
     "first_batch": {
@@ -96,7 +96,7 @@
       "decision": "KEEP_MEMORY_SPARSE_KEEP_OUTPUT_CHAT_FIRST"
     },
     "subject_topology": {
-      "status": "MAPPED_NOT_YET_SEMANTICALLY_CLOSED",
+      "status": "SEMANTICALLY_REVIEWED_C00_C08",
       "source_file": "content/politics/source/historical/leg26/LEG26-MARX.md",
       "rule": "This is a routing map only. Topic presence does not equal current-year Memory admission or Knowledge acceptance.",
       "chapters": {
@@ -231,6 +231,368 @@
         "role": "CHAT_FIRST_OUTPUT_SOURCE",
         "rule": "Use later for material→principle→answer-structure training; never convert the whole answer bank into first-round learner content."
       }
+    },
+    "completed_at": "2026-09-18",
+    "ocr_policy": "All LEG26 Markdown pages are historical OCR transcriptions. Exact learner-facing wording, glyphs, formulas, and list membership require visual PDF verification plus current-year corroboration before promotion.",
+    "current_year_admission": "PENDING_2027_DESIGNATED_MEMORY_SOURCE_DELTA_OR_LATER_EVIDENCE",
+    "chapter_reviews": {
+      "C00": {
+        "status": "REVIEWED",
+        "current_knowledge_owners": [
+          "POL27-CF-MARX-C00-S01",
+          "POL27-CF-MARX-C00-S02"
+        ],
+        "historical_source_slices": [
+          {
+            "from": "LEG26-UPPER-MARX-P010",
+            "through": "LEG26-UPPER-MARX-P011",
+            "scope": "经典著作/标志理论；马克思主义构成、基本特征"
+          }
+        ],
+        "memory_result": {
+          "candidate_domains": [
+            "经典著作—人物—理论标志 identity",
+            "马克思主义构成与基本特征 fixed-formulation boundaries"
+          ],
+          "new_memory_sidecar": "NONE",
+          "current_year_admitted": [],
+          "reason": "High-value fixed material is historically visible, but creating durable debt before the 2027 designated-memory delta would turn a historical baseline into current authority."
+        },
+        "objective_compression": {
+          "role": "SECOND_ROUND_QUICK_RECALL_BASELINE",
+          "action": "KEEP_AS_SOURCE_REVIEW_REFERENCE"
+        },
+        "analysis_output_result": {
+          "role": "NONE_PRIMARY",
+          "learner_runtime_action": "NONE"
+        },
+        "decision": "KEEP_REFERENCE_ONLY_UNTIL_CURRENT_YEAR_DELTA"
+      },
+      "C01": {
+        "status": "REVIEWED",
+        "current_knowledge_owners": [
+          "POL27-CF-MARX-C01-S01",
+          "POL27-CF-MARX-C01-S02"
+        ],
+        "historical_source_slices": [
+          {
+            "from": "LEG26-UPPER-MARX-P012",
+            "through": "LEG26-UPPER-MARX-P014",
+            "scope": "哲学派别判断；物质与意识；主观能动性/客观规律相关边界"
+          },
+          {
+            "from": "LEG26-LOWER-MARX-P054",
+            "through": "LEG26-LOWER-MARX-P055",
+            "scope": "尊重客观规律性与发挥主观能动性；实践与自然关系，作为跨题输出支持"
+          }
+        ],
+        "memory_result": {
+          "candidate_domains": [
+            "唯物/唯心、可知/不可知、辩证/形而上等判断边界",
+            "物质—意识关系的固定边界与常见误判"
+          ],
+          "new_memory_sidecar": "NONE",
+          "current_year_admitted": [],
+          "reason": "These are better retained as sparse boundary candidates after current-year corroboration or Wrong/Uncertain evidence, not bulk memorized from LEG26."
+        },
+        "objective_compression": {
+          "role": "HIGH_VALUE_BOUNDARY_COMPRESSION",
+          "action": "KEEP_AS_SECOND_ROUND_REFERENCE"
+        },
+        "analysis_output_result": {
+          "role": "LIMITED_CROSS_TOPIC_CHAT_SUPPORT",
+          "source_value": [
+            "客观规律与主观能动性的关系",
+            "人与自然/实践关系"
+          ],
+          "learner_runtime_action": "NONE_YET"
+        },
+        "decision": "REVIEWED_NO_DURABLE_MEMORY_ADMISSION"
+      },
+      "C02": {
+        "status": "REVIEWED",
+        "current_knowledge_owners": [
+          "POL27-CF-MARX-C02-S01",
+          "POL27-CF-MARX-C02-S02",
+          "POL27-CF-MARX-C02-K03"
+        ],
+        "historical_source_slices": [
+          {
+            "from": "LEG26-UPPER-MARX-P014",
+            "through": "LEG26-UPPER-MARX-P025",
+            "scope": "联系、发展、规律、矛盾、质量互变、否定之否定、马哲高层级辨析"
+          },
+          {
+            "from": "LEG26-LOWER-MARX-P051",
+            "through": "LEG26-LOWER-MARX-P055",
+            "scope": "分析题：联系/发展/矛盾分析法/基本范畴/规律性与能动性"
+          }
+        ],
+        "memory_result": {
+          "existing_candidate_file": "content/politics/learning/marxism/ch02.memory.json",
+          "existing_candidate_ids": [
+            "POL27-MEM-MARX-C02-K03-M01",
+            "POL27-MEM-MARX-C02-K03-M02",
+            "POL27-MEM-MARX-C02-K03-M03",
+            "POL27-MEM-MARX-C02-K03-M04"
+          ],
+          "new_memory_sidecar": "NONE",
+          "current_year_admitted": [],
+          "reason": "The existing K03 pilot already captures the sparse high-value boundaries. The rest of LEG26 adds compression/output value but does not justify duplicating the chapter into Memory."
+        },
+        "objective_compression": {
+          "role": "HIGH_VALUE_RELATION_AND_TRAP_COMPRESSION",
+          "action": "KEEP_FOR_SECOND_ROUND"
+        },
+        "analysis_output_result": {
+          "role": "HIGH_VALUE_CHAT_OUTPUT_BASELINE",
+          "source_value": [
+            "material cue → principle recognition",
+            "principle content → method relation",
+            "矛盾分析法与辩证范畴的材料化调用"
+          ],
+          "learner_runtime_action": "CHAT_FIRST_LATER_PHASE"
+        },
+        "decision": "KEEP_EXISTING_SPARSE_MEMORY_AND_CHAT_FIRST_OUTPUT"
+      },
+      "C03": {
+        "status": "REVIEWED",
+        "current_knowledge_owners": [
+          "POL27-CF-MARX-C03-S01",
+          "POL27-CF-MARX-C03-S02",
+          "POL27-CF-MARX-C03-S03"
+        ],
+        "historical_source_slices": [
+          {
+            "from": "LEG26-UPPER-MARX-P026",
+            "through": "LEG26-UPPER-MARX-P035",
+            "scope": "实践；真理与价值；感性/理性认识与现象/本质辨析"
+          },
+          {
+            "from": "LEG26-LOWER-MARX-P055",
+            "through": "LEG26-LOWER-MARX-P059",
+            "scope": "分析题：实践—认识循环、感性—理性、真理观、真理—价值、守正创新、理论/实践创新"
+          }
+        ],
+        "memory_result": {
+          "candidate_domains": [
+            "实践与认识的关系边界",
+            "感性认识/理性认识边界",
+            "真理客观性、一元性、绝对性/相对性边界",
+            "真理/谬误与真理/价值关系",
+            "实践检验真理标准的边界"
+          ],
+          "new_memory_sidecar": "NONE",
+          "current_year_admitted": [],
+          "reason": "Most value is reconstructive relation knowledge plus later written-output retrieval. Do not convert the whole recognition chapter into static Memory."
+        },
+        "objective_compression": {
+          "role": "HIGH_VALUE_RELATION_COMPRESSION",
+          "action": "KEEP_FOR_SECOND_ROUND"
+        },
+        "analysis_output_result": {
+          "role": "HIGH_VALUE_CHAT_OUTPUT_BASELINE",
+          "source_value": [
+            "实践—认识—再实践的输出链",
+            "真理/价值类材料的破题与原理调用",
+            "守正创新与理论/实践创新的后期输出桥"
+          ],
+          "learner_runtime_action": "CHAT_FIRST_LATER_PHASE"
+        },
+        "decision": "REVIEWED_CHAT_OUTPUT_HIGH_MEMORY_SPARSE"
+      },
+      "C04": {
+        "status": "REVIEWED",
+        "current_knowledge_owners": [
+          "POL27-CF-MARX-C04-S01",
+          "POL27-CF-MARX-C04-S02",
+          "POL27-CF-MARX-C04-S03"
+        ],
+        "historical_source_slices": [
+          {
+            "from": "LEG26-UPPER-MARX-P036",
+            "through": "LEG26-UPPER-MARX-P042",
+            "scope": "科技、常见干扰项、社会存在/社会意识、马克思关于人的考查"
+          },
+          {
+            "from": "LEG26-LOWER-MARX-P059",
+            "through": "LEG26-LOWER-MARX-P060",
+            "scope": "分析题：科技、改革、人民群众"
+          }
+        ],
+        "memory_result": {
+          "candidate_domains": [
+            "社会存在—社会意识关系边界",
+            "科技在社会发展中的层级边界",
+            "人民群众/历史人物边界",
+            "改革在社会发展中的作用边界"
+          ],
+          "new_memory_sidecar": "NONE",
+          "current_year_admitted": [],
+          "reason": "LEG26 provides useful exam compression and output cues, but durable wording should wait for 2027 corroboration or learner evidence."
+        },
+        "objective_compression": {
+          "role": "HIGH_VALUE_TRAP_AND_HIERARCHY_COMPRESSION",
+          "action": "KEEP_FOR_SECOND_ROUND"
+        },
+        "analysis_output_result": {
+          "role": "MEDIUM_HIGH_VALUE_CHAT_OUTPUT_BASELINE",
+          "source_value": [
+            "科技作用的层级判断",
+            "改革/社会基本矛盾的输出桥",
+            "人民群众作为历史主体的材料识别"
+          ],
+          "learner_runtime_action": "CHAT_FIRST_LATER_PHASE"
+        },
+        "decision": "REVIEWED_KEEP_OUTPUT_BASELINE_NO_NEW_MEMORY_DEBT"
+      },
+      "C05": {
+        "status": "REVIEWED",
+        "current_knowledge_owners": [
+          "POL27-CF-MARX-C05-S01",
+          "POL27-CF-MARX-C05-S02",
+          "POL27-CF-MARX-C05-S03"
+        ],
+        "historical_source_slices": [
+          {
+            "from": "LEG26-UPPER-MARX-P043",
+            "through": "LEG26-UPPER-MARX-P060",
+            "scope": "劳动概念、货币、价值规律、资本关系、政经公式、经济危机及马政经高能背诵前段；P060为C05/C06混合边界页"
+          }
+        ],
+        "memory_result": {
+          "candidate_domains": [
+            "劳动概念与二重性 confusable boundaries",
+            "货币职能与价值规律 precision",
+            "剩余价值/资本关系 precision",
+            "马政经计算公式",
+            "经济危机 fixed relations"
+          ],
+          "new_memory_sidecar": "NONE",
+          "current_year_admitted": [],
+          "reason": "This chapter has the strongest precision/formula potential, but OCR and annual wording/list changes make historical bulk admission unsafe. Admit selectively after current-year check."
+        },
+        "objective_compression": {
+          "role": "VERY_HIGH_VALUE_PRECISION_AND_FORMULA_COMPRESSION",
+          "action": "KEEP_FOR_SECOND_ROUND_AND_PRECISION_STAGE"
+        },
+        "analysis_output_result": {
+          "role": "LOW_PRIMARY",
+          "learner_runtime_action": "NONE_BY_DEFAULT"
+        },
+        "decision": "REVIEWED_PRECISION_RICH_BUT_NOT_YET_ADMITTED"
+      },
+      "C06": {
+        "status": "REVIEWED",
+        "current_knowledge_owners": [
+          "POL27-CF-MARX-C06-S01",
+          "POL27-CF-MARX-C06-S02",
+          "POL27-CF-MARX-C06-S03"
+        ],
+        "historical_source_slices": [
+          {
+            "from": "LEG26-UPPER-MARX-P060",
+            "through": "LEG26-UPPER-MARX-P068",
+            "scope": "垄断、金融资本、国家垄断资本主义、全球化、当代资本主义变化、历史地位与趋势；P060/P068均为跨章边界页"
+          }
+        ],
+        "memory_result": {
+          "candidate_domains": [
+            "垄断形成/竞争/利润来源与价格边界",
+            "金融资本与国家垄断资本主义 precision",
+            "经济全球化表现/动因",
+            "二战后及21世纪资本主义变化的表现/原因/实质",
+            "资本主义历史进步性/局限性与替代趋势"
+          ],
+          "new_memory_sidecar": "NONE",
+          "current_year_admitted": [],
+          "reason": "Lists and formulations are high-yield but especially exposed to annual-edition delta; preserve as historical compression until 2027 source arrives."
+        },
+        "objective_compression": {
+          "role": "VERY_HIGH_VALUE_LIST_AND_BOUNDARY_COMPRESSION",
+          "action": "KEEP_FOR_SECOND_ROUND_AND_PRECISION_STAGE"
+        },
+        "analysis_output_result": {
+          "role": "LOW_PRIMARY",
+          "learner_runtime_action": "NONE_BY_DEFAULT"
+        },
+        "decision": "REVIEWED_WAIT_CURRENT_YEAR_DELTA"
+      },
+      "C07": {
+        "status": "REVIEWED",
+        "current_knowledge_owners": [
+          "POL27-CF-MARX-C07-S01",
+          "POL27-CF-MARX-C07-S02"
+        ],
+        "historical_source_slices": [
+          {
+            "from": "LEG26-UPPER-MARX-P068",
+            "through": "LEG26-UPPER-MARX-P070",
+            "scope": "科学社会主义历史进程、巴黎公社、十月革命、列宁探索、社会主义道路多样性与探索原则；P070后段进入C08"
+          }
+        ],
+        "memory_result": {
+          "candidate_domains": [
+            "科学社会主义历史进程 milestone identities",
+            "巴黎公社/十月革命等历史定位",
+            "列宁探索阶段与政策边界",
+            "社会主义道路多样性原因与探索原则"
+          ],
+          "new_memory_sidecar": "NONE",
+          "current_year_admitted": [],
+          "reason": "Useful identity/list material exists, but historical handbook should remain a candidate baseline until the current-year designated source confirms wording and emphasis."
+        },
+        "objective_compression": {
+          "role": "HIGH_VALUE_TIMELINE_AND_LIST_COMPRESSION",
+          "action": "KEEP_FOR_SECOND_ROUND"
+        },
+        "analysis_output_result": {
+          "role": "LOW_PRIMARY",
+          "learner_runtime_action": "NONE_BY_DEFAULT"
+        },
+        "decision": "REVIEWED_NO_NEW_MEMORY_SIDECAR"
+      },
+      "C08": {
+        "status": "REVIEWED",
+        "current_knowledge_owners": [
+          "POL27-CF-MARX-C08"
+        ],
+        "historical_source_slices": [
+          {
+            "from": "LEG26-UPPER-MARX-P070",
+            "through": "LEG26-UPPER-MARX-P071",
+            "scope": "预见未来社会的方法论原则、人的自由全面发展、共产主义实现长期性、远大理想/共同理想关系等"
+          }
+        ],
+        "memory_result": {
+          "candidate_domains": [
+            "预见未来社会的方法论原则",
+            "共产主义社会根本特征/价值目标等 fixed formulations",
+            "实现长期性的层级关系",
+            "远大理想与共同理想的关系维度"
+          ],
+          "new_memory_sidecar": "NONE",
+          "current_year_admitted": [],
+          "reason": "Fixed formulations are potentially memory-worthy, but they remain historical candidates until current-year admission."
+        },
+        "objective_compression": {
+          "role": "HIGH_VALUE_FIXED_FORMULATION_COMPRESSION",
+          "action": "KEEP_FOR_SECOND_ROUND"
+        },
+        "analysis_output_result": {
+          "role": "LOW_PRIMARY",
+          "learner_runtime_action": "NONE_BY_DEFAULT"
+        },
+        "decision": "REVIEWED_REFERENCE_ONLY_UNTIL_CURRENT_YEAR_DELTA"
+      }
+    },
+    "subject_decision": {
+      "memory": "SPARSE_CANDIDATE_DISCOVERY_ONLY",
+      "objective_compression": "KEEP_HISTORICAL_BASELINE_FOR_SECOND_ROUND",
+      "analysis_output": "C02_C04_CHAT_FIRST_BASELINE",
+      "current_year_promotion": "NONE_FROM_LEG26_ALONE",
+      "ui": "FROZEN_NO_ACTION",
+      "next_subject": "MAO_OR_WAIT_FOR_2027_LEG_DELTA"
     }
   }
 }
