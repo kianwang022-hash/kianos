@@ -158,7 +158,8 @@ try {
   check(studyPacket?.schema === 'kianos.xizong.study_packet.v3', 'live_study_packet_schema');
   check(studyPacket?.current?.block_id === 'circulation-b02', 'live_study_packet_block_identity', String(studyPacket?.current?.block_id || ''));
   check(studyPacket?.learning_state?.current_stage === 'kp_recall', 'live_study_packet_stage', String(studyPacket?.learning_state?.current_stage || ''));
-  check(studyPacket?.learning_state?.resume?.kp_id === firstKp, 'live_study_packet_exact_kp_resume', String(studyPacket?.learning_state?.resume?.kp_id || ''));
+  const expectedResumeKp = b2.kpRecords[Math.max(0, Math.min(b2.kpRecords.length - 1, Number(study?.kpIndex || 0)))]?.kpId || '';
+  check(studyPacket?.learning_state?.resume?.kp_id === expectedResumeKp, 'live_study_packet_exact_kp_resume', `${studyPacket?.learning_state?.resume?.kp_id || ''}/${expectedResumeKp}`);
   check(studyPacket?.learning_state?.source_contact && Object.prototype.hasOwnProperty.call(studyPacket.learning_state.source_contact, 'whole_block_confirmed'), 'live_study_packet_source_contact_state');
   check(studyPacket?.learning_state?.ttsx && Object.prototype.hasOwnProperty.call(studyPacket.learning_state.ttsx, 'evidence'), 'live_study_packet_ttsx_state');
   const packetKp = (studyPacket?.kp_evidence || []).find((row) => row.kp_id === firstKp);
