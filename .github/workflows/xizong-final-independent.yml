@@ -8,6 +8,28 @@ concurrency:
 permissions:
   contents: read
 jobs:
+  source-inspection:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Package exact scoped implementation for independent inspection
+        env:
+          CURRENT_MAIN: 14db655c5dd529d6676702075b785febab7c950c
+        run: |
+          mkdir -p /tmp/xizong-source-inspection
+          git fetch --no-tags --depth=1 origin "$CURRENT_MAIN"
+          for ref in "$CURRENT_MAIN" "$GITHUB_SHA"; do
+            git archive --format=tar.gz --output="/tmp/xizong-source-inspection/$ref.tar.gz" "$ref" content/xizong static-web/src static-web/scripts static-web/package.json static-web/astro.config.mjs .github/workflows AGENTS.md PROJECT_DEFINITION.md ARCHITECTURE.md LEARNING_ACCEPTANCE.md SYSTEM_CONTRACT.md 'static-web/*.md'
+          done
+          git diff "$CURRENT_MAIN" "$GITHUB_SHA" -- content/xizong static-web/src static-web/scripts SYSTEM_CONTRACT.md 'static-web/*.md' > /tmp/xizong-source-inspection/current-to-candidate.patch
+          printf 'Current main: %s\nCandidate: %s\nNo private learner state is included.\n' "$CURRENT_MAIN" "$GITHUB_SHA" > /tmp/xizong-source-inspection/PROVENANCE.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: xizong-scoped-source-${{ github.sha }}
+          path: /tmp/xizong-source-inspection
+          retention-days: 7
   prepare:
     runs-on: ubuntu-latest
     permissions:
