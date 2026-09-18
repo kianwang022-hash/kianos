@@ -19,7 +19,7 @@ Politics exam-lifecycle **later-stage Knowledge is now closed at K with bounded 
 later-stage Source baseline
 → K realization / audit                  PASS_WITH_DEBT
 → Consolidation L old static-rubric model  FAIL / REVISION_REQUIRED
-→ corrected Chat-owned strategy model       READY_FOR_FRESH_RE-AUDIT
+→ corrected Chat-owned strategy model       REPAIRED_AFTER_INTERFACE_ATTACK
 → fresh independent Consolidation L re-audit ACTIVE NEXT GATE
 → Analysis-Output / Mock L                  UNTESTED
 → later Projection / Runtime                FROZEN
