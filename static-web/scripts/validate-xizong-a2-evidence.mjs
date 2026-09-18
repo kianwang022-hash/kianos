@@ -55,10 +55,13 @@ assert(systemRecallPhase(100, 100) === 'POST_QUESTION', 'post-question-recall-no
 
 const blockGuard = read('static-web/src/components/XizongBlockEvidenceGuard.astro');
 const systemGuard = read('static-web/src/components/XizongSystemEvidenceGuard.astro');
-const memoryUi = read('static-web/src/components/XizongMemoryReviewV6.astro');
+const recallBridge = read('static-web/src/components/XizongRecallEvidenceBridge.astro');
+const memoryModel = read('static-web/src/lib/xizongMemoryModel.mjs');
+const memoryWorkspace = read('static-web/src/components/XizongMemoryWorkspace.astro');
 const repairBridge = read('static-web/src/components/XizongRepairInboxBridge.astro');
 const blockPage = read('static-web/src/pages/xizong/[system]/[block].astro');
-const systemPage = read('static-web/src/pages/xizong/[system]/index.astro');
+const recallPage = read('static-web/src/pages/xizong/[system]/recall.astro');
+const practicePage = read('static-web/src/pages/xizong/practice/[system].astro');
 const repairReturn = read('static-web/src/components/XizongSystemRepairReturn.astro');
 
 assert(blockGuard.includes('kianos-xizong-stale-evidence-v1:'), 'stale-block-evidence-not-archived');
@@ -70,14 +73,13 @@ assert(!blockGuard.includes("[data-review-rating]"), 'block-evidence-guard-still
 assert(blockPage.includes('<XizongBlockEvidenceGuard block={projection} />'), 'block-evidence-guard-not-mounted');
 assert(blockPage.includes('<XizongRepairInboxBridge block={projection} />'), 'repair-inbox-bridge-not-mounted');
 
-assert(memoryUi.includes("type: 'KP_RECALL'"), 'memory-owner-recall-ledger-missing');
-assert(memoryUi.includes("evidence_origin: 'USER_RECALL_ATTEMPT'"), 'actual-recall-attempt-not-appended');
-assert(memoryUi.includes("evidence_origin: 'BOOTSTRAP_EXISTING_STATE'"), 'legacy-recall-bootstrap-missing');
-assert(memoryUi.includes("type: 'CHAT_PLAN_REVIEW', evidence_role: 'REPAIR_ONLY'"), 'chat-repair-role-regressed');
-assert(memoryUi.includes("['known', 'mastered'].includes(value)"), 'resolved-repair-closure-missing');
-assert(memoryUi.includes('ext.reviewPlan ='), 'resolved-repair-not-removed-by-evidence-owner');
-assert(memoryUi.includes("memory: 'local repair evidence; STABLE may clear the local weak queue but does not rewrite the original Recall rating'"), 'memory-semantics-regressed');
-assert(memoryUi.includes("mastery: 'requires later meaningful fresh Recall/transfer evidence"), 'mastery-closure-too-weak');
+assert(recallBridge.includes("type: 'KP_RECALL'"), 'recall-ledger-owner-missing');
+assert(recallBridge.includes("evidence_origin: 'USER_RECALL_ATTEMPT'"), 'actual-recall-attempt-not-appended');
+assert(recallBridge.includes("evidence_origin: 'BOOTSTRAP_EXISTING_STATE'"), 'legacy-recall-bootstrap-missing');
+assert(memoryModel.includes('export function appendMemoryEvidence'), 'memory-evidence-owner-missing');
+assert(memoryModel.includes('export function completeRepairTask'), 'resolved-repair-closure-missing');
+assert(memoryWorkspace.includes('completeRepairTask(state, item.id)'), 'visible-repair-not-closed-through-owner');
+assert(memoryWorkspace.includes('不把修完自动写成 mastery'), 'repair-promotes-mastery');
 
 assert(repairReturn.includes('kianos-xizong-repair-inbox-v1:'), 'system-repair-return-bypasses-inbox');
 assert(!repairReturn.includes('kianos-xizong-memory-review-v2:${objectId}'), 'system-repair-return-still-writes-block-evidence-store');
@@ -93,8 +95,10 @@ assert(systemGuard.includes('question.correctAnswer'), 'question-answer-change-n
 assert(systemGuard.includes('question.relation?.primaryKpId'), 'reviewed-route-change-not-versioned');
 assert(systemGuard.includes('stale_block_question_plans'), 'stale-question-repair-plan-not-archived');
 assert(systemGuard.includes('stale_block_repair_inboxes'), 'stale-repair-inbox-not-archived');
+assert(systemGuard.includes('stale_visible_memory_repairs'), 'stale-visible-repair-not-archived');
 assert(systemGuard.includes('localStorage.removeItem(sweepKey)'), 'stale-question-results-remain-current');
-assert(systemPage.includes('<XizongSystemEvidenceGuard system={system} sweep={questionSweep} />'), 'system-evidence-guard-not-mounted');
+assert(recallPage.includes('<XizongSystemEvidenceGuard system={system} sweep={questionSweep} />'), 'recall-system-evidence-guard-not-mounted');
+assert(practicePage.includes('<XizongSystemEvidenceGuard system={system} sweep={sweep} />'), 'practice-system-evidence-guard-not-mounted');
 
 assert(repairReturn.includes('const sweepState = () => readJson'), 'system-repair-return-does-not-read-private-wu');
 assert(!repairReturn.includes('localStorage.setItem("content/'), 'private-evidence-writing-shared-content');
