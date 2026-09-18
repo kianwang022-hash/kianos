@@ -1,11 +1,11 @@
 ---
-import Base from '../../../../layouts/Base.astro';
-import XizongPracticeWorkbench from '../../../../components/XizongPracticeWorkbench.astro';
-import XizongSystemRepairReturn from '../../../../components/XizongSystemRepairReturn.astro';
-import XizongSystemEvidenceGuard from '../../../../components/XizongSystemEvidenceGuard.astro';
-import { listProjectableXizongSystems, loadXizongSystem } from '../../../../lib/xizong.mjs';
-import { loadXizongSystemQuestionSweep } from '../../../../lib/xizongQuestions.mjs';
-import '../../../../styles/xizong-practice-workspace.css';
+import Base from '../../../layouts/Base.astro';
+import XizongPracticeWorkbench from '../../../components/XizongPracticeWorkbench.astro';
+import XizongSystemRepairReturn from '../../../components/XizongSystemRepairReturn.astro';
+import XizongSystemEvidenceGuard from '../../../components/XizongSystemEvidenceGuard.astro';
+import { listProjectableXizongSystems, loadXizongSystem } from '../../../lib/xizong.mjs';
+import { loadXizongSystemQuestionSweep } from '../../../lib/xizongQuestions.mjs';
+import '../../../styles/xizong-practice-workspace.css';
 
 export function getStaticPaths() {
   return listProjectableXizongSystems().flatMap((row) => {
