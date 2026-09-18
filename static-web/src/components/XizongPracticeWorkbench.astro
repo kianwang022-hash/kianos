@@ -1,0 +1,614 @@
+---
+import {
+  ensureXizongQuestionSweepState,
+  recordXizongQuestionAttempt,
+  startNextXizongQuestionRound,
+  deriveXizongSecondPassQuestionIds,
+  deriveXizongQuestionIdsForCurrentRound,
+  xizongStudyPhaseLabel,
+  setXizongQuestionMarked,
+  isXizongQuestionMarked
+} from '../lib/xizongQuestionAttempts.mjs';
+
+const { system, sweep } = Astro.props;
+if (!sweep) throw new Error(`CURRENT_XIZONG_PRACTICE_SWEEP_MISSING:${system?.systemId || 'unknown'}`);
+const base = import.meta.env.BASE_URL;
+const payload = JSON.stringify({
+  systemId: sweep.systemId,
+  canonicalId: sweep.canonicalId,
+  title: sweep.title,
+  questionCount: sweep.questionCount,
+  scopePath: sweep.scopePath,
+  scopeHash: sweep.scopeHash,
+  questionInventoryHash: sweep.questionInventoryHash,
+  years: sweep.years,
+  questions: sweep.questions,
+  base
+}).replace(/</g, '\\u003c');
+---
+<section class="xzp" data-xizong-practice={system.systemId} data-question-workspace>
+  <header class="xzpTopbar">
+    <div class="xzpScope">
+      <span>训练 · System</span>
+      <strong>{system.canonicalId} · {system.title}</strong>
+      <small><b data-study-phase>一轮</b> · <span data-question-progress>准备中</span></small>
+    </div>
+
+    <div class="xzpStats" aria-label="当前训练统计">
+      <span>稳 <b data-stat-stable>0</b></span>
+      <span>错 <b data-stat-wrong>0</b></span>
+      <span>标记 <b data-stat-marked>0</b></span>
+      <span>剩余 <b data-stat-remaining>—</b></span>
+    </div>
+
+    <div class="xzpControls">
+      <details class="xzpHoldout" data-holdout-control>
+        <summary><span>整卷保留</span><b data-holdout-current>未设置</b></summary>
+        <div>
+          <label for={`xzp-holdout-${system.systemId}`}>不进入系统训练的年份</label>
+          <div>
+            <input id={`xzp-holdout-${system.systemId}`} data-holdout-input inputmode="numeric" placeholder="例如 2025, 2026" />
+            <button type="button" data-save-holdout>保存</button>
+          </div>
+        </div>
+      </details>
+      <button type="button" class="xzpQuietControl" data-fast-sweep aria-pressed="false">Fast · 关</button>
+      <span class="xzpResultMode">结果 · 即时</span>
+      <button type="button" class="xzpQuietControl" data-question-mark aria-pressed="false">M · 标记</button>
+    </div>
+  </header>
+
+  <div class="xzpBody">
+    <nav class="xzpMap" data-question-map aria-label="题号"></nav>
+
+    <main class="xzpQuestionPane">
+      <header class="xzpQuestionMeta">
+        <span data-question-meta>—</span>
+        <small data-selection-hint>1–5 选择 · Enter 提交 · M 标记 · ← → 切题</small>
+      </header>
+
+      <section class="xzpHoldoutGate" data-holdout-gate hidden>
+        <span>WHOLE-PAPER HOLDOUT</span>
+        <h2>先保留至少一套完整试卷</h2>
+        <p>系统训练不会自动消耗你准备留到整卷阶段的年份。右上角明确填入保留年份后再开始。</p>
+      </section>
+
+      <article class="xzpQuestion" data-question-card hidden>
+        <p class="xzpStem" data-question-stem></p>
+        <div class="xzpOptions" data-question-options></div>
+        <footer>
+          <button type="button" data-submit-answer disabled>提交答案</button>
+        </footer>
+      </article>
+
+      <section class="xzpDone" data-sweep-done hidden>
+        <span>ROUND COMPLETE</span>
+        <h2>这一轮已经扫完</h2>
+        <p>稳定题不制造额外任务；真正需要回收的内容留在 Wrong / Uncertain / Marked。</p>
+        <div class="xzpRoundActions">
+          <button type="button" data-start-next-round>开始二轮重点队列</button>
+          <button type="button" class="secondary" data-start-next-round-full>二轮完整重刷</button>
+          <a href={`${base}xizong/`}>回西综总览</a>
+        </div>
+      </section>
+    </main>
+
+    <aside class="xzpReviewPane">
+      <section class="xzpReviewEmpty" data-review-empty>
+        <span>解析</span>
+        <strong>提交后在这里核对</strong>
+        <p>简单题保持简单；只有这道题真实拥有的高价值解析才会出现。</p>
+      </section>
+
+      <section class="xzpReview" data-answer-panel hidden>
+        <header>
+          <strong data-answer-result></strong>
+          <span>答案 <b data-correct-answer></b></span>
+        </header>
+
+        <section data-exam-target-wrap hidden>
+          <h3>考点</h3>
+          <p data-exam-target></p>
+        </section>
+
+        <section data-decision-axis-wrap hidden>
+          <h3>判断轴</h3>
+          <p data-decision-axis></p>
+        </section>
+
+        <section data-reasoning-chain-wrap hidden>
+          <h3>推理</h3>
+          <ol data-reasoning-chain></ol>
+        </section>
+
+        <section data-correct-reason-wrap hidden>
+          <h3>为什么对</h3>
+          <p data-correct-reason></p>
+        </section>
+
+        <section data-distractors-wrap hidden>
+          <h3>高价值干扰项</h3>
+          <ul data-distractors></ul>
+        </section>
+
+        <section data-failure-node-wrap hidden>
+          <h3>常见断点</h3>
+          <p data-failure-node></p>
+        </section>
+
+        <section data-transfer-rule-wrap hidden>
+          <h3>条件变化 / 迁移</h3>
+          <p data-transfer-rule></p>
+        </section>
+
+        <section class="xzpRelation" data-relation-wrap hidden>
+          <h3>知识回链</h3>
+          <a data-relation-link hidden></a>
+          <p data-relation-fallback hidden></p>
+        </section>
+
+        <footer>
+          <button type="button" class="xzpQuietControl" data-next-question>Enter · 下一题</button>
+        </footer>
+      </section>
+    </aside>
+  </div>
+
+  <script type="application/json" data-sweep-payload set:html={payload}></script>
+</section>
+
+<script>
+  import {
+    ensureXizongQuestionSweepState,
+    recordXizongQuestionAttempt,
+    startNextXizongQuestionRound,
+    deriveXizongSecondPassQuestionIds,
+    deriveXizongQuestionIdsForCurrentRound,
+    xizongStudyPhaseLabel,
+    setXizongQuestionMarked,
+    isXizongQuestionMarked
+  } from '../lib/xizongQuestionAttempts.mjs';
+
+  document.querySelectorAll('[data-xizong-practice]').forEach((root) => {
+    const systemId = root.getAttribute('data-xizong-practice') || '';
+    let data = null;
+    try { data = JSON.parse(root.querySelector('[data-sweep-payload]')?.textContent || 'null'); } catch {}
+    if (!data?.questions?.length) return;
+
+    const sweepKey = `kianos:xizong:system-question-sweep:${systemId}:v1`;
+    const holdoutKey = 'kianos:xizong:full-paper-holdout-years:v1';
+    const preferenceKey = 'kianos:xizong:question-preferences:v1';
+
+    const readJson = (key, fallback) => {
+      try { return JSON.parse(localStorage.getItem(key) || '') || fallback; } catch { return fallback; }
+    };
+    const writeJson = (key, value) => {
+      try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch { return false; }
+    };
+
+    let holdoutYears = readJson(holdoutKey, []);
+    let preferences = readJson(preferenceKey, { fastSweep: false });
+    let sweepState = readJson(sweepKey, { results: {}, marks: {} });
+    const attemptContext = {
+      systemId: data.systemId,
+      canonicalId: data.canonicalId,
+      scopeHash: data.scopeHash,
+      questionInventoryHash: data.questionInventoryHash,
+      questions: data.questions
+    };
+    sweepState = ensureXizongQuestionSweepState(sweepState, { ...attemptContext, holdoutYears });
+    writeJson(sweepKey, sweepState);
+
+    const mapNode = root.querySelector('[data-question-map]');
+    const questionCard = root.querySelector('[data-question-card]');
+    const holdoutGate = root.querySelector('[data-holdout-gate]');
+    const questionMeta = root.querySelector('[data-question-meta]');
+    const questionProgress = root.querySelector('[data-question-progress]');
+    const stem = root.querySelector('[data-question-stem]');
+    const optionsBox = root.querySelector('[data-question-options]');
+    const submit = root.querySelector('[data-submit-answer]');
+    const hint = root.querySelector('[data-selection-hint]');
+    const reviewEmpty = root.querySelector('[data-review-empty]');
+    const answerPanel = root.querySelector('[data-answer-panel]');
+    const answerResult = root.querySelector('[data-answer-result]');
+    const correctAnswer = root.querySelector('[data-correct-answer]');
+    const done = root.querySelector('[data-sweep-done]');
+    const fastButton = root.querySelector('[data-fast-sweep]');
+    const markButton = root.querySelector('[data-question-mark]');
+    const nextButton = root.querySelector('[data-next-question]');
+    const nextRoundButton = root.querySelector('[data-start-next-round]');
+    const nextRoundFullButton = root.querySelector('[data-start-next-round-full]');
+    const holdoutCurrent = root.querySelector('[data-holdout-current]');
+    const holdoutInput = root.querySelector('[data-holdout-input]');
+    const saveHoldout = root.querySelector('[data-save-holdout]');
+
+    const field = {
+      examTarget: [root.querySelector('[data-exam-target-wrap]'), root.querySelector('[data-exam-target]')],
+      decisionAxis: [root.querySelector('[data-decision-axis-wrap]'), root.querySelector('[data-decision-axis]')],
+      reasoningChain: [root.querySelector('[data-reasoning-chain-wrap]'), root.querySelector('[data-reasoning-chain]')],
+      correctReason: [root.querySelector('[data-correct-reason-wrap]'), root.querySelector('[data-correct-reason]')],
+      distractors: [root.querySelector('[data-distractors-wrap]'), root.querySelector('[data-distractors]')],
+      failureNode: [root.querySelector('[data-failure-node-wrap]'), root.querySelector('[data-failure-node]')],
+      transferRule: [root.querySelector('[data-transfer-rule-wrap]'), root.querySelector('[data-transfer-rule]')]
+    };
+    const relationWrap = root.querySelector('[data-relation-wrap]');
+    const relationLink = root.querySelector('[data-relation-link]');
+    const relationFallback = root.querySelector('[data-relation-fallback]');
+
+    let activeQuestions = [];
+    let currentQuestion = null;
+    let currentIndex = 0;
+    let currentSelection = new Set();
+
+    const letters = (value) => (String(value || '').toUpperCase().match(/[A-Z]/g) || []).sort();
+    const same = (a, b) => a.length === b.length && a.every((value, index) => value === b[index]);
+    const eligibleYears = new Set((data.years || []).map(Number));
+    const normalizeHoldout = (value) => [...new Set((Array.isArray(value) ? value : []).map(Number).filter((year) => eligibleYears.has(year)))].sort((a,b)=>a-b);
+    holdoutYears = normalizeHoldout(holdoutYears);
+
+    const eligibleQuestions = () => data.questions.filter((q) => !holdoutYears.includes(Number(q.year)));
+    const computeActive = () => {
+      const eligible = eligibleQuestions();
+      const ids = new Set(deriveXizongQuestionIdsForCurrentRound(sweepState, eligible, []));
+      return eligible.filter((q) => ids.has(String(q.questionId)));
+    };
+    const resultFor = (id) => sweepState.results?.[id] || null;
+    const markedFor = (id) => isXizongQuestionMarked(sweepState, id);
+
+    const counts = () => {
+      const rows = activeQuestions.map((q) => resultFor(q.questionId)).filter(Boolean);
+      return {
+        stable: rows.filter((row) => row.status === 'stable').length,
+        wrong: rows.filter((row) => row.status === 'wrong').length,
+        marked: activeQuestions.filter((q) => markedFor(q.questionId)).length,
+        remaining: activeQuestions.length - rows.length
+      };
+    };
+
+    const renderTop = () => {
+      activeQuestions = computeActive();
+      const stat = counts();
+      root.querySelector('[data-study-phase]').textContent = xizongStudyPhaseLabel(sweepState.round?.studyPhase || 'FIRST_PASS');
+      root.querySelector('[data-stat-stable]').textContent = String(stat.stable);
+      root.querySelector('[data-stat-wrong]').textContent = String(stat.wrong);
+      root.querySelector('[data-stat-marked]').textContent = String(stat.marked);
+      root.querySelector('[data-stat-remaining]').textContent = holdoutYears.length ? String(stat.remaining) : '—';
+      holdoutCurrent.textContent = holdoutYears.length ? holdoutYears.join('、') : '未设置';
+      holdoutInput.value = holdoutYears.join(', ');
+      fastButton.setAttribute('aria-pressed', String(Boolean(preferences.fastSweep)));
+      fastButton.textContent = `Fast · ${preferences.fastSweep ? '开' : '关'}`;
+      if (currentQuestion) {
+        markButton.setAttribute('aria-pressed', String(markedFor(currentQuestion.questionId)));
+        markButton.textContent = markedFor(currentQuestion.questionId) ? 'M · 已标记' : 'M · 标记';
+      }
+    };
+
+    const clearReview = () => {
+      reviewEmpty.hidden = false;
+      answerPanel.hidden = true;
+      Object.values(field).forEach(([wrap, node]) => {
+        if (wrap) wrap.hidden = true;
+        if (node instanceof HTMLOListElement || node instanceof HTMLUListElement) node.replaceChildren();
+        else if (node) node.textContent = '';
+      });
+      if (relationWrap) relationWrap.hidden = true;
+      if (relationLink) { relationLink.hidden = true; relationLink.removeAttribute('href'); relationLink.textContent = ''; }
+      if (relationFallback) { relationFallback.hidden = true; relationFallback.textContent = ''; }
+    };
+
+    const setTextField = (key, value) => {
+      const [wrap, node] = field[key] || [];
+      const text = String(value || '').trim();
+      if (!wrap || !node || !text) return;
+      wrap.hidden = false;
+      node.textContent = text;
+    };
+
+    const renderReview = (question, result) => {
+      const explanation = question?.explanation || {};
+      reviewEmpty.hidden = true;
+      answerPanel.hidden = false;
+      answerResult.textContent = result.status === 'wrong' ? '答案错误' : result.status === 'uncertain' ? '答案正确 · 历史不确定' : '答案正确';
+      answerResult.classList.toggle('wrong', result.status === 'wrong');
+      correctAnswer.textContent = letters(question.correctAnswer).join('、');
+
+      setTextField('examTarget', explanation.examTarget);
+      setTextField('decisionAxis', explanation.decisionAxis);
+
+      const chain = Array.isArray(explanation.reasoningChain) ? explanation.reasoningChain : [];
+      if (chain.length && field.reasoningChain[0] && field.reasoningChain[1]) {
+        field.reasoningChain[0].hidden = false;
+        chain.forEach((item) => {
+          const li = document.createElement('li');
+          li.textContent = item;
+          field.reasoningChain[1].appendChild(li);
+        });
+      }
+
+      setTextField('correctReason', explanation.correctOptionReason);
+
+      const distractors = Array.isArray(explanation.valuableDistractors) ? explanation.valuableDistractors : [];
+      if (distractors.length && field.distractors[0] && field.distractors[1]) {
+        field.distractors[0].hidden = false;
+        distractors.forEach((item) => {
+          const li = document.createElement('li');
+          li.textContent = `${item.option} · ${item.reason}`;
+          field.distractors[1].appendChild(li);
+        });
+      }
+
+      setTextField('failureNode', explanation.commonFailureNode);
+      setTextField('transferRule', explanation.transferRule);
+
+      if (relationWrap) {
+        relationWrap.hidden = false;
+        const relation = question?.relation || null;
+        if (relation?.knowledgePath && ['RESOLVED_KP','RESOLVED_BLOCK','BLOCK_ONLY'].includes(relation.targetStatus)) {
+          relationLink.hidden = false;
+          relationLink.href = `${data.base}${String(relation.knowledgePath).replace(/^\\/+/, '')}`;
+          const label = [relation.blockLabel || relation.blockId, relation.primaryKpDisplayId || relation.primaryKpId, relation.primaryKpTitle].filter(Boolean).join(' · ');
+          relationLink.textContent = label ? `回到 ${label}` : '回到审核过的知识位置';
+        } else {
+          relationFallback.hidden = false;
+          relationFallback.textContent = '暂无可安全消费的 REVIEWED 回链；保留题号，不补猜映射。';
+        }
+      }
+    };
+
+    const renderMap = () => {
+      mapNode.replaceChildren();
+      activeQuestions.forEach((q, index) => {
+        const result = resultFor(q.questionId);
+        const marked = markedFor(q.questionId);
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'xzpMapItem';
+        button.classList.toggle('current', currentQuestion?.questionId === q.questionId);
+        button.classList.toggle('answered', Boolean(result));
+        button.classList.toggle('wrong', result?.status === 'wrong');
+        button.classList.toggle('marked', marked);
+        button.textContent = String(index + 1);
+        if (marked) button.dataset.marked = 'M';
+        button.addEventListener('click', () => renderQuestion(index));
+        mapNode.appendChild(button);
+      });
+    };
+
+    const renderGate = () => {
+      currentQuestion = null;
+      questionCard.hidden = true;
+      done.hidden = true;
+      holdoutGate.hidden = false;
+      clearReview();
+      questionProgress.textContent = '等待整卷保留设置';
+      questionMeta.textContent = 'SYSTEM PRACTICE';
+      renderMap();
+      renderTop();
+    };
+
+    const firstUnansweredIndex = () => activeQuestions.findIndex((q) => !resultFor(q.questionId));
+
+    const renderDone = () => {
+      currentQuestion = null;
+      questionCard.hidden = true;
+      holdoutGate.hidden = true;
+      done.hidden = false;
+      clearReview();
+      questionMeta.textContent = 'ROUND COMPLETE';
+      questionProgress.textContent = `${activeQuestions.length} / ${activeQuestions.length}`;
+      const phase = sweepState.round?.studyPhase || 'FIRST_PASS';
+      if (phase === 'FIRST_PASS') {
+        const targetCount = deriveXizongSecondPassQuestionIds(sweepState, data.questions, holdoutYears).length;
+        nextRoundButton.textContent = targetCount ? `开始二轮重点队列 · ${targetCount} 题` : '二轮重点队列为空';
+        nextRoundButton.disabled = targetCount === 0;
+        nextRoundFullButton.hidden = false;
+      } else {
+        nextRoundButton.textContent = phase === 'SECOND_PASS' ? '开始后期复习轮' : '再开一轮后期复习';
+        nextRoundButton.disabled = false;
+        nextRoundFullButton.hidden = true;
+      }
+      renderMap();
+      renderTop();
+    };
+
+    const renderQuestion = (requestedIndex = null) => {
+      activeQuestions = computeActive();
+      if (!holdoutYears.length) { renderGate(); return; }
+      if (!activeQuestions.length) { renderDone(); return; }
+
+      let index = Number.isInteger(requestedIndex) ? Number(requestedIndex) : firstUnansweredIndex();
+      if (index < 0) { renderDone(); return; }
+      currentIndex = Math.max(0, Math.min(activeQuestions.length - 1, index));
+      currentQuestion = activeQuestions[currentIndex];
+      const existing = resultFor(currentQuestion.questionId);
+      currentSelection = new Set(existing?.selected || []);
+
+      holdoutGate.hidden = true;
+      done.hidden = true;
+      questionCard.hidden = false;
+      questionMeta.textContent = `${currentQuestion.year} · 第 ${currentQuestion.number} 题 · ${currentQuestion.questionType || '题'}`;
+      questionProgress.textContent = `${currentIndex + 1} / ${activeQuestions.length}`;
+      stem.textContent = currentQuestion.stem;
+      hint.textContent = currentQuestion.questionType === 'X'
+        ? '1–5 切换选项 · Enter 提交 · M 标记'
+        : preferences.fastSweep ? 'Fast：1–5 选择即提交 · M 标记' : '1–5 选择 · Enter 提交 · M 标记';
+      optionsBox.replaceChildren();
+
+      currentQuestion.options.forEach((option) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'xzpOption';
+        button.dataset.option = option.label;
+        const key = document.createElement('b');
+        key.textContent = option.label;
+        const copy = document.createElement('span');
+        copy.textContent = option.text;
+        button.append(key, copy);
+        button.classList.toggle('selected', currentSelection.has(option.label));
+        if (existing) button.disabled = true;
+        button.addEventListener('click', () => {
+          if (resultFor(currentQuestion.questionId)) return;
+          if (currentQuestion.questionType === 'X') {
+            currentSelection.has(option.label) ? currentSelection.delete(option.label) : currentSelection.add(option.label);
+          } else {
+            currentSelection.clear();
+            currentSelection.add(option.label);
+          }
+          optionsBox.querySelectorAll('.xzpOption').forEach((node) => node.classList.toggle('selected', currentSelection.has(node.dataset.option || '')));
+          submit.disabled = currentSelection.size === 0;
+          if (preferences.fastSweep && currentQuestion.questionType !== 'X' && currentSelection.size) {
+            window.setTimeout(submitAnswer, 0);
+          }
+        });
+        optionsBox.appendChild(button);
+      });
+
+      submit.disabled = Boolean(existing) || currentSelection.size === 0;
+      submit.hidden = Boolean(existing);
+      clearReview();
+
+      if (existing) {
+        const correct = letters(currentQuestion.correctAnswer);
+        optionsBox.querySelectorAll('.xzpOption').forEach((node) => {
+          const key = node.dataset.option || '';
+          node.classList.toggle('correct', correct.includes(key));
+          node.classList.toggle('wrong', currentSelection.has(key) && !correct.includes(key));
+        });
+        renderReview(currentQuestion, existing);
+      }
+
+      renderMap();
+      renderTop();
+    };
+
+    const persistAttempt = (status) => {
+      let next;
+      try {
+        next = recordXizongQuestionAttempt(sweepState, {
+          question: currentQuestion,
+          status,
+          selected: currentSelection,
+          marked: markedFor(currentQuestion.questionId),
+          context: attemptContext,
+          holdoutYears
+        });
+      } catch (error) {
+        console.error(error);
+        return false;
+      }
+      if (!writeJson(sweepKey, next)) return false;
+      sweepState = next;
+      return true;
+    };
+
+    const nextQuestion = () => {
+      activeQuestions = computeActive();
+      const after = activeQuestions.findIndex((q, index) => index > currentIndex && !resultFor(q.questionId));
+      const first = firstUnansweredIndex();
+      const next = after >= 0 ? after : first;
+      if (next < 0) renderDone();
+      else renderQuestion(next);
+    };
+
+    const submitAnswer = () => {
+      if (!currentQuestion || !currentSelection.size || resultFor(currentQuestion.questionId)) return;
+      const correct = letters(currentQuestion.correctAnswer);
+      const selected = [...currentSelection].sort();
+      const isCorrect = same(selected, correct);
+      if (!persistAttempt(isCorrect ? 'stable' : 'wrong')) return;
+      renderQuestion(currentIndex);
+      if (isCorrect) window.setTimeout(nextQuestion, preferences.fastSweep ? 120 : 520);
+    };
+
+    const toggleMark = () => {
+      if (!currentQuestion) return;
+      const next = setXizongQuestionMarked(sweepState, currentQuestion.questionId, !markedFor(currentQuestion.questionId));
+      if (!writeJson(sweepKey, next)) return;
+      sweepState = next;
+      renderTop();
+      renderMap();
+    };
+
+    const parseHoldout = () => normalizeHoldout(String(holdoutInput.value || '').split(/[,，\\s]+/).filter(Boolean));
+    saveHoldout.addEventListener('click', () => {
+      const selected = parseHoldout();
+      if (!selected.length) {
+        holdoutCurrent.textContent = '至少保留一套';
+        return;
+      }
+      holdoutYears = selected;
+      writeJson(holdoutKey, holdoutYears);
+      root.querySelector('[data-holdout-control]')?.removeAttribute('open');
+      renderQuestion();
+    });
+
+    fastButton.addEventListener('click', () => {
+      preferences = { ...preferences, fastSweep: !preferences.fastSweep };
+      writeJson(preferenceKey, preferences);
+      renderTop();
+      if (currentQuestion && !resultFor(currentQuestion.questionId)) {
+        hint.textContent = currentQuestion.questionType === 'X'
+          ? '1–5 切换选项 · Enter 提交 · M 标记'
+          : preferences.fastSweep ? 'Fast：1–5 选择即提交 · M 标记' : '1–5 选择 · Enter 提交 · M 标记';
+      }
+    });
+    markButton.addEventListener('click', toggleMark);
+    submit.addEventListener('click', submitAnswer);
+    nextButton.addEventListener('click', nextQuestion);
+
+    const startNextRound = (queueMode = 'TARGETED') => {
+      activeQuestions = computeActive();
+      let next;
+      try {
+        next = startNextXizongQuestionRound(
+          sweepState,
+          activeQuestions.map((q) => q.questionId),
+          {},
+          { queueMode }
+        );
+      } catch (error) {
+        console.error(error);
+        return;
+      }
+      if (!writeJson(sweepKey, next)) return;
+      sweepState = next;
+      renderQuestion();
+    };
+    nextRoundButton.addEventListener('click', () => startNextRound('TARGETED'));
+    nextRoundFullButton.addEventListener('click', () => startNextRound('FULL_RESWEEP'));
+
+    document.addEventListener('keydown', (event) => {
+      if (!document.body.contains(root) || root.getClientRects().length === 0) return;
+      const target = event.target;
+      if (target instanceof HTMLElement && target.closest('input,textarea,select,[contenteditable="true"]')) return;
+      if (!currentQuestion) return;
+
+      if (event.key.toLowerCase() === 'm') {
+        event.preventDefault();
+        toggleMark();
+        return;
+      }
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault();
+        const delta = event.key === 'ArrowLeft' ? -1 : 1;
+        renderQuestion(Math.max(0, Math.min(activeQuestions.length - 1, currentIndex + delta)));
+        return;
+      }
+      if (/^[1-5]$/.test(event.key) && !resultFor(currentQuestion.questionId)) {
+        const option = currentQuestion.options[Number(event.key) - 1];
+        if (option) {
+          event.preventDefault();
+          optionsBox.querySelector(`.xzpOption[data-option="${option.label}"]`)?.click();
+        }
+        return;
+      }
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        if (resultFor(currentQuestion.questionId)) nextQuestion();
+        else if (currentSelection.size) submitAnswer();
+      }
+    });
+
+    renderQuestion();
+  });
+</script>
