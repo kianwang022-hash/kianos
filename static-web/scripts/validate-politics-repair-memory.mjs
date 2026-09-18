@@ -78,11 +78,19 @@ for (const file of memoryFiles) {
       for (const ref of refs) {
         if (!sourceIds.has(ref)) fail(`${rel}:${candidate?.id || unitId} unresolved source_ref ${ref}`);
       }
-      if (candidate?.admission !== 'CANDIDATE_ONLY') {
-        fail(`${rel}:${candidate?.id || unitId} shared Current may define a candidate, not private learner review debt`);
+      const memoryAdmission = String(candidate?.memory_admission || '');
+      const precisionAdmission = String(candidate?.precision_admission || '');
+      if (!['ADMITTED_STABLE', 'CANDIDATE_FRESHNESS', 'REFERENCE_ONLY'].includes(memoryAdmission)) {
+        fail(`${rel}:${candidate?.id || unitId} invalid memory_admission ${memoryAdmission || 'MISSING'}`);
       }
-      if (!candidate?.admission_blocker) {
-        fail(`${rel}:${candidate?.id || unitId} candidate-only Memory must keep an explicit admission_blocker`);
+      if (!['ADMITTED_STABLE', 'CANDIDATE_EXACTNESS', 'CANDIDATE_FRESHNESS', 'NOT_APPLICABLE'].includes(precisionAdmission)) {
+        fail(`${rel}:${candidate?.id || unitId} invalid precision_admission ${precisionAdmission || 'MISSING'}`);
+      }
+      if (memoryAdmission === 'ADMITTED_STABLE' && !candidate?.memory_basis?.some?.((row) => String(row).includes('CURRENT_'))) {
+        fail(`${rel}:${candidate?.id || unitId} stable Memory must retain Current grounding`);
+      }
+      if (precisionAdmission.startsWith('CANDIDATE_') && !candidate?.precision_blocker) {
+        fail(`${rel}:${candidate?.id || unitId} candidate Precision must keep an explicit precision_blocker`);
       }
 
       const historicalRefs = Array.isArray(candidate?.historical_handbook_refs)
@@ -97,11 +105,28 @@ for (const file of memoryFiles) {
       if ((historicalAlignment || legacyAlignment) && !historicalRefs.length) {
         fail(`${rel}:${candidate?.id || unitId} claims handbook alignment without historical_handbook_refs`);
       }
-      // Historical handbook support proves candidate provenance only. It does not
-      // create current-year durable review debt, so per-candidate alignment text is
-      // optional when exact historical refs + file-level handbook binding exist.
+      // LEG26 may establish Memory priority only when Current-grounded Knowledge
+      // supports the same semantic claim. Precision exactness/freshness is separate.
     }
   }
+}
+
+const historyHorizontalPath = path.join(learningRoot, 'history', 'later-stage-knowledge.json');
+if (fs.existsSync(historyHorizontalPath)) {
+  const history = JSON.parse(fs.readFileSync(historyHorizontalPath, 'utf8'));
+  let horizontalCount = 0;
+  for (const [lineKey, line] of Object.entries(history?.horizontal_lines || {})) {
+    for (const candidate of line?.candidates || []) {
+      horizontalCount += 1;
+      if (candidate?.memory_admission !== 'ADMITTED_STABLE') {
+        fail(`history:${lineKey}:${candidate?.id || 'UNKNOWN'} must be admitted stable Memory`);
+      }
+      if (!['CANDIDATE_EXACTNESS', 'ADMITTED_STABLE'].includes(candidate?.precision_admission)) {
+        fail(`history:${lineKey}:${candidate?.id || 'UNKNOWN'} invalid precision_admission`);
+      }
+    }
+  }
+  if (horizontalCount !== 50) fail(`history horizontal Memory count ${horizontalCount}/50`);
 }
 
 const chapterIndex = new Map();
