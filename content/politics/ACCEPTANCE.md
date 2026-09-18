@@ -640,6 +640,41 @@ Mock/Final L
 ```
 
 
+
+---
+
+## Fresh independent later-stage L acceptance — PASS
+
+Status: **PASS**
+
+A fresh independent audit was run against the repaired later-stage Learning candidate, using the real heterogeneous Current K shapes rather than prior PASS labels or the PR summary as the answer key.
+
+Accepted result:
+
+```text
+Politics later-stage K            PASS_WITH_DEBT
+Politics Consolidation L          PASS_AFTER_REPAIR
+Politics Analysis-Output L        PASS
+Politics Mock / Final L           PASS
+Politics later-stage L overall    PASS
+
+Politics later-stage Projection   downstream / not accepted here
+Politics later-stage Runtime      downstream / not accepted here
+Politics real learner U           UNTESTED
+```
+
+Key acceptance points:
+
+- Consolidation keeps review selection in Chat; Web executes explicit targets and returns evidence only.
+- Five subject cognition shapes remain distinct; no static per-chapter review rubric is reintroduced.
+- target admission / freshness / phase guards follow the target across action labels.
+- Analysis Output remains Chat-primary with source-grounded hooks; full prose is selective rather than daily ritual.
+- Mock preserves clean first-attempt evidence and routes failures back to existing smallest owners.
+- Final starts from admitted/current/high-value/evidence-backed items rather than replaying all chapters.
+- no dedicated Analysis Output / Mock / Final Website is required by Learning.
+
+This closes the Learning blocker on downstream Exam-Horizon adaptation. It does not prove Final Learner Object direct-consumption, Runtime closure, typed Chat↔Website execution, or real learner U.
+
 ---
 
 ## Politics Exam-Horizon Adaptation — 12/20 product acceptance
@@ -672,24 +707,25 @@ private Session Evidence back to Chat
 
 ### A | Final Learner Object direct-consumption closure
 
-**Current judgment: FAIL / REVISION_REQUIRED**
+**Current judgment: IMPLEMENTED_CANDIDATE / VALIDATION_PENDING**
 
-The upstream direction is already correct: explicit Politics Surface Mapping exists and accepted learner states are intended to resolve into `surfacePlan`.
+The direct-consumption repair is now implemented as a candidate:
 
-But current implementation still preserves semantic interpretation below the intended final-object boundary:
+- resolved explicit Surface Mapping compiles into `kianos.politics.final_learner_object.v1`;
+- learner-facing consumers read the Final Learner Object;
+- the renderer consumes fixed payload keys rather than enumerating arbitrary item fields;
+- Mao / Xi / Ethics semantic display adapters are no longer bound through `politicsCurrent.mjs`;
+- mapped units suppress legacy parallel answer / repair / handoff / closure learner payload.
 
-- `static-web/src/lib/politicsCurrent.mjs` chains subject-specific projection/adaptation helpers;
-- Mao / Xi / Ethics helpers still fill/normalize learner payload from raw teaching fields;
-- `PoliticsExplicitSurfacePlan.astro` uses generic scalar-field enumeration via `learnerLines()`.
-
-Therefore current Politics does **not yet** satisfy the stronger direct-consumption rule:
+The intended boundary is now:
 
 ```text
-Final Learner Object
-→ Website literally renders it
+accepted explicit Surface Mapping
+→ resolved Final Learner Object
+→ Website literal renderer
 ```
 
-without field interpretation.
+This is not yet an Acceptance PASS. Dedicated direct-consumption validation, Politics QA/build, and representative browser proof are still required.
 
 Acceptance requires:
 
@@ -794,7 +830,7 @@ Acceptance requires:
 
 ### D | Exam-Horizon scenario acceptance
 
-**Current judgment: UNTESTED / BLOCKED BY LATER-PHASE L + RUNTIME CLOSURE**
+**Current judgment: UNTESTED / BLOCKED BY DOWNSTREAM RUNTIME + SCENARIO PROOF**
 
 Politics does not pass this gate merely because the current first-round page works.
 
@@ -826,7 +862,7 @@ Chat selects one chapter / horizontal line / specific gap
 → Chat decides whether to close/deepen
 ```
 
-Learning candidate: active in #433; fresh independent re-audit still required.
+Learning: **PASS_AFTER_REPAIR**. Website session execution remains downstream work.
 
 #### Scenario P3 — Analysis Output
 
@@ -841,7 +877,7 @@ material cue
 → return
 ```
 
-Current status: **L UNTESTED**. Existing K Output hooks do not by themselves authorize Runtime.
+Learning: **PASS / Chat-primary**. Existing hooks support Chat use; any Website execution remains a separate downstream Runtime/Presentation question.
 
 #### Scenario P4 — Mock
 
@@ -854,7 +890,7 @@ fixed exam-like objective + analysis task composition
 → Chat repair only for real weakness
 ```
 
-Current status: **L/P/R UNTESTED**. Mock must be a Session recipe, not a new Politics Runtime engine.
+Learning: **PASS / Chat-primary + source-paper primary**. A Website Mock helper, if used, must be a Session recipe over accepted mechanics rather than a new Runtime engine.
 
 #### Scenario P5 — final compression
 
@@ -865,7 +901,7 @@ Chat selects high-yield admitted Memory / boundaries / real weak points
 → exit
 ```
 
-Current status: **UNTESTED**, but must reuse the same Session Instruction + Runtime atoms.
+Learning rule: **PASS**. Website-assisted final execution remains untested and must reuse the same Session Instruction + Runtime mechanics.
 
 ### Politics exam-horizon closure rule
 
@@ -883,11 +919,11 @@ Allowed current conclusion:
 
 ```text
 Politics first-round learner system        accepted for existing scoped path
-Politics Final Learner Object closure      FAIL / revision required
+Politics Final Learner Object closure      IMPLEMENTED_CANDIDATE / VALIDATION_PENDING
 Politics Runtime Atom closure              PARTIAL
 Politics typed Chat control closure        PARTIAL
-Politics Consolidation L                   pending fresh independent re-audit
-Politics Analysis-Output L                 UNTESTED
-Politics Mock/Final L                      UNTESTED
+Politics Consolidation L                   PASS_AFTER_REPAIR
+Politics Analysis-Output L                 PASS / Chat-primary
+Politics Mock/Final L                      PASS / Chat-primary + source-paper primary
 Politics Exam-Horizon readiness            UNTESTED
 ```
