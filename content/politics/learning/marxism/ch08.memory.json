@@ -1,0 +1,103 @@
+{
+  "schema": "kianos.politics.memory_projection.v1",
+  "status": "CURRENT_K_REVIEWED",
+  "chapter_id": "POL27-LEARN-MARX-C08",
+  "policy": "SOURCE_GROUNDED_SELECTIVE",
+  "principle": "Candidate existence is Knowledge; durable review debt requires later admission evidence.",
+  "preferred_memory_reference": {
+    "role": "DESIGNATED_MEMORY_HANDBOOK",
+    "label": "腿姐《冲刺背诵手册》",
+    "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+    "historical_package": "content/politics/source/historical/leg26/manifest.json",
+    "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MARX.md",
+    "rule": "Current canonical region/source must support the relation. LEG26 supplies historical retention priority; current-year source/WU/output evidence governs admission."
+  },
+  "admission_gate": {
+    "default": "NOT_ADMITTED",
+    "requires_source_grounding": true,
+    "admit_when_any": [
+      "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+      "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED",
+      "LATER_ANALYSIS_OUTPUT_REQUIRES_EXACT_FORMULATION"
+    ],
+    "do_not_admit_for": [
+      "historical handbook presence alone",
+      "chapter importance alone",
+      "one stable correct answer"
+    ]
+  },
+  "units": {
+    "POL27-CF-MARX-C08": {
+      "title": "共产主义崇高理想及其最终实现",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MARX-C08-M01",
+          "form": "method_boundary",
+          "statement": "科学预见未来社会必须从现实社会矛盾和发展规律出发，概括基本方向和特征，而不是任意设计未来社会全部具体细节。",
+          "source_refs": [
+            "POL27-CF-MARX-C08"
+          ],
+          "current_recall_basis": {
+            "priority": "P1",
+            "forms": [
+              "list",
+              "boundary"
+            ]
+          },
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MARX-P070",
+            "LEG26-UPPER-MARX-P071"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        },
+        {
+          "id": "POL27-MEM-MARX-C08-M02",
+          "form": "relation_boundary",
+          "statement": "共产主义实现具有历史必然性，同时又是长期复杂的历史过程；历史必然性不等于自动、短期实现。",
+          "source_refs": [
+            "POL27-CF-MARX-C08"
+          ],
+          "current_recall_basis": {
+            "priority": "P1",
+            "forms": [
+              "list",
+              "boundary"
+            ]
+          },
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MARX-P071"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        },
+        {
+          "id": "POL27-MEM-MARX-C08-M03",
+          "form": "ideal_practice_boundary",
+          "statement": "远大理想必须通过现实社会主义实践逐步推进；实现过程长期不等于理想不可实现，现实实践也不是对远大理想的替代。",
+          "source_refs": [
+            "POL27-CF-MARX-C08"
+          ],
+          "current_recall_basis": {
+            "priority": "P1",
+            "forms": [
+              "list",
+              "boundary"
+            ]
+          },
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MARX-P071"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    }
+  },
+  "deferred_candidate_domains": [
+    {
+      "domain": "远大理想与共同理想的时间/层次/范围三维关系",
+      "reason": "LEG26 owns the historical three-dimension list; Current chapter Knowledge currently owns the broader ideal/practice relation. Exact three-dimension candidate waits for finer Current binding."
+    }
+  ]
+}
