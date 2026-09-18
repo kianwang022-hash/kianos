@@ -1,25 +1,217 @@
 ---
 import Base from '../../layouts/Base.astro';
+import PoliticsSessionTargetRegistry from '../../components/PoliticsSessionTargetRegistry.astro';
 import { politicsProductCatalog } from '../../lib/productCatalog.mjs';
+import { buildPoliticsSessionTargetCatalog } from '../../lib/politicsSessionCatalog.mjs';
 import '../../styles/product-closure.css';
+
 const base = import.meta.env.BASE_URL;
 const catalog = politicsProductCatalog(base);
+const sessionTargets = buildPoliticsSessionTargetCatalog(base);
+const sessionQuestionIds = catalog.questions.map((question) => question.id);
 ---
-<Base title="政治 · 今日回访" active="politics" showLead={false}>
+
+<Base title="政治 · Review" active="politics" showLead={false}>
   <section class="politicsReviewPage" data-politics-review data-base={base}>
     <script type="application/json" data-review-catalog set:html={JSON.stringify(catalog).replace(/</g, '\\u003c')} />
-    <header class="reviewPageHeader"><div><p class="pageKicker">POLITICS · REVIEW</p><h1>今日回访</h1><p>只处理已经暴露的问题。回源、再试，然后回到主线。</p></div><a href={`${base}politics/`}>回五科总览 →</a></header>
-    <nav class="reviewNavigation" aria-label="政治学习"><a href={`${base}politics/`}>总览</a><a href={`${base}politics/practice/`}>肖1000</a><a href={`${base}politics/review/`} aria-current="page">回访</a></nav>
-    <section class="reviewResume" data-review-resume hidden><div><span>上次还在这里</span><strong data-review-resume-title></strong><p data-review-resume-detail></p></div><a data-review-resume-link class="examPrimary">继续 →</a></section>
-    <div class="reviewActionStrip"><nav aria-label="回访范围"><button data-review-filter="all" aria-pressed="true">待处理</button><button data-review-filter="today" aria-pressed="false">今天产生</button><button data-review-filter="discussion" aria-pressed="false">留给讨论</button></nav><select data-review-subject aria-label="选择科目"><option value="all">全部五科</option>{catalog.subjects.map(s => <option value={s.id}>{s.label}</option>)}</select><button data-review-copy class="examQuiet">复制回访学习包</button></div>
-    <p data-review-error class="examError" role="alert" hidden></p>
-    <section class="reviewMainAction" data-review-action hidden><div><h2>把错题与不确定再过一遍</h2><p data-review-count></p></div><a data-review-start class="examPrimary" href={`${base}politics/practice/?review=problems`}>开始回访 →</a></section>
-    <p class="reviewEmpty" data-review-empty>正在读取本机记录…</p>
-    <div class="reviewGroups" data-review-groups></div>
-    <footer class="reviewFoot"><p>同一道题的修正不覆盖首答，也不代表长期掌握。没有到期债务；稳定内容不强制重做。</p><a href={`${base}politics/`}>继续学新的内容 →</a></footer>
+    <script type="application/json" data-session-question-catalog set:html={JSON.stringify(sessionQuestionIds).replace(/</g, '\\u003c')} />
+
+    <header class="reviewPageHeader">
+      <div>
+        <p class="pageKicker">POLITICS · REVIEW</p>
+        <h1>复习</h1>
+        <p>Chat 决定这次做什么；网页只执行、记录、返回。</p>
+      </div>
+      <div class="reviewHeaderActions">
+        <button type="button" class="examQuiet" data-session-import-open>导入 Chat 任务</button>
+        <a href={`${base}politics/`}>回五科总览 →</a>
+      </div>
+    </header>
+
+    <nav class="reviewNavigation" aria-label="政治学习">
+      <a href={`${base}politics/`}>总览</a>
+      <a href={`${base}politics/practice/`}>肖1000</a>
+      <a href={`${base}politics/review/`} aria-current="page">复习</a>
+    </nav>
+
+    <p data-session-error class="examError" role="alert" hidden></p>
+
+    <section class="politicsSessionWorkspace" data-session-workspace hidden>
+      <header class="sessionHeader">
+        <div>
+          <span data-session-phase></span>
+          <strong data-session-id></strong>
+          <small data-session-anchor></small>
+        </div>
+        <div>
+          <b data-session-progress></b>
+          <button type="button" class="examQuiet" data-session-copy-evidence>复制 Evidence</button>
+        </div>
+      </header>
+
+      <section data-session-step class="sessionStep">
+        <div data-session-step-main>
+          <p class="pageKicker" data-session-recipe></p>
+          <h2 data-session-prompt></h2>
+
+          <div data-session-mode="recall" hidden>
+            <textarea
+              data-session-response
+              rows="7"
+              placeholder="先自己想回来。可以写，也可以只在脑中说；网页不做语义判分。"
+              aria-label="本次回忆"
+            ></textarea>
+            <div class="sessionPrimaryActions">
+              <button type="button" class="examPrimary" data-session-reveal>翻面核对</button>
+              <span>Space 也可以翻面</span>
+            </div>
+            <section class="sessionReveal" data-session-reveal-content hidden></section>
+            <nav class="sessionMarkers" data-session-markers aria-label="本次自评" hidden>
+              <button type="button" data-session-mark="STABLE">稳定</button>
+              <button type="button" data-session-mark="UNCERTAIN">有点虚</button>
+              <button type="button" data-session-mark="WRONG">需要修</button>
+            </nav>
+          </div>
+
+          <div data-session-mode="questions" class="sessionActionPanel" hidden>
+            <h3>只重做 Chat 指定的题</h3>
+            <ul data-session-question-list></ul>
+            <p data-session-question-status></p>
+            <div class="sessionPrimaryActions">
+              <a class="examPrimary" data-session-question-start>去肖1000做这组 →</a>
+              <button type="button" class="examQuiet" data-session-question-finish disabled>题组已完成，继续</button>
+            </div>
+          </div>
+
+          <div data-session-mode="source" class="sessionActionPanel" hidden>
+            <h3>回到指定来源</h3>
+            <p>这里只按 Chat 给的 exact locator 跳转，不用相邻内容代替。</p>
+            <div class="sessionPrimaryActions">
+              <a class="examPrimary" data-session-source-link>打开来源 →</a>
+              <button type="button" class="examQuiet" data-session-source-finish>我已回源，继续</button>
+            </div>
+          </div>
+
+          <div data-session-mode="chat" class="sessionActionPanel" data-session-chat-return hidden>
+            <h3>回 Chat 判断</h3>
+            <p>网页到这里停止，不生成修复方案或下一步。</p>
+            <button type="button" class="examPrimary" data-session-chat-copy>复制 Evidence 回 Chat</button>
+          </div>
+
+          <div data-session-mode="close" class="sessionActionPanel" hidden>
+            <h3>本次 Session 到这里</h3>
+            <p>这是 Chat 明确给出的 CLOSE，不代表网页判断“已经掌握”。</p>
+            <button type="button" class="examPrimary" data-session-close>完成本次 Session</button>
+          </div>
+        </div>
+
+        <section class="sessionBlocked" data-session-blocked hidden>
+          <p class="pageKicker">FAIL CLOSED</p>
+          <h3>这一步暂不执行</h3>
+          <p data-session-blocked-reason></p>
+          <button type="button" class="examPrimary" data-session-blocked-return>记录阻塞并回 Chat</button>
+        </section>
+      </section>
+
+      <section class="sessionComplete" data-session-complete hidden>
+        <p class="pageKicker">SESSION COMPLETE</p>
+        <h2>这张任务单已经执行完</h2>
+        <p data-session-complete-count></p>
+        <button type="button" class="examPrimary" data-session-copy-evidence>复制 Evidence</button>
+      </section>
+    </section>
+
+    <div data-review-native>
+      <section class="reviewResume" data-review-resume hidden>
+        <div>
+          <span>上次还在这里</span>
+          <strong data-review-resume-title></strong>
+          <p data-review-resume-detail></p>
+        </div>
+        <a data-review-resume-link class="examPrimary">继续 →</a>
+      </section>
+
+      <div class="reviewActionStrip">
+        <nav aria-label="回访范围">
+          <button data-review-filter="all" aria-pressed="true">待处理</button>
+          <button data-review-filter="today" aria-pressed="false">今天产生</button>
+          <button data-review-filter="discussion" aria-pressed="false">留给讨论</button>
+        </nav>
+        <select data-review-subject aria-label="选择科目">
+          <option value="all">全部五科</option>
+          {catalog.subjects.map((subject) => <option value={subject.id}>{subject.label}</option>)}
+        </select>
+        <button data-review-copy class="examQuiet">复制回访学习包</button>
+      </div>
+
+      <p data-review-error class="examError" role="alert" hidden></p>
+
+      <section class="reviewMainAction" data-review-action hidden>
+        <div>
+          <h2>把错题与不确定再过一遍</h2>
+          <p data-review-count></p>
+        </div>
+        <a data-review-start class="examPrimary" href={`${base}politics/practice/?review=problems`}>开始回访 →</a>
+      </section>
+
+      <p class="reviewEmpty" data-review-empty>正在读取本机记录…</p>
+      <div class="reviewGroups" data-review-groups></div>
+
+      <footer class="reviewFoot">
+        <p>同一道题的修正不覆盖首答，也不代表长期掌握。没有到期债务；稳定内容不强制重做。</p>
+        <a href={`${base}politics/`}>继续学新的内容 →</a>
+      </footer>
+    </div>
+
+    <dialog class="sessionImportDialog" data-session-import-dialog>
+      <form method="dialog" onsubmit="return false">
+        <header>
+          <div>
+            <p class="pageKicker">CHAT → WEBSITE</p>
+            <h2>导入本次 Politics Session</h2>
+          </div>
+          <button type="button" class="examQuiet" data-session-import-close>关闭</button>
+        </header>
+        <p>只接受显式 target / question / 顺序。网页不会补全缺失的学习策略。</p>
+        <textarea data-session-import-text rows="16" spellcheck="false" aria-label="Politics Session JSON"></textarea>
+        <p class="examError" data-session-import-error hidden></p>
+        <button type="button" class="examPrimary" data-session-import-confirm>载入任务</button>
+      </form>
+    </dialog>
   </section>
+
+  <PoliticsSessionTargetRegistry catalog={sessionTargets} />
 </Base>
+
 <script>
   import { initPoliticsReview } from '../../lib/politicsReviewClient.mjs';
-  initPoliticsReview(document.querySelector('[data-politics-review]'));
+  import { initPoliticsSessionReview } from '../../lib/politicsSessionClient.mjs';
+
+  const root = document.querySelector('[data-politics-review]');
+  initPoliticsReview(root);
+  initPoliticsSessionReview(root);
 </script>
+
+<style>
+  .reviewHeaderActions,.sessionHeader,.sessionPrimaryActions,.sessionMarkers{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .reviewHeaderActions{justify-content:flex-end}
+  .politicsSessionWorkspace{display:grid;gap:20px;margin:18px 0 28px}
+  .sessionHeader{justify-content:space-between;padding-bottom:14px;border-bottom:1px solid var(--study-line)}
+  .sessionHeader>div{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .sessionHeader small{opacity:.72}
+  .sessionStep{display:grid;gap:18px}
+  .sessionStep h2{max-width:900px;font-size:clamp(26px,2.4vw,38px);line-height:1.32;margin:4px 0 18px}
+  [data-session-mode="recall"]{display:grid;gap:16px}
+  [data-session-response],.sessionImportDialog textarea{width:100%;box-sizing:border-box;resize:vertical;font:inherit;line-height:1.65;padding:14px;border:1px solid var(--study-line);border-radius:12px;background:transparent;color:inherit}
+  .sessionPrimaryActions span{font-size:14px;opacity:.68}
+  .sessionReveal{padding-top:8px}
+  .sessionMarkers{padding-top:4px}
+  .sessionMarkers button{min-height:42px;padding:0 18px}
+  .sessionActionPanel,.sessionBlocked,.sessionComplete{display:grid;gap:14px;max-width:900px}
+  .sessionActionPanel h3,.sessionBlocked h3,.sessionComplete h2{margin:0}
+  .sessionImportDialog{width:min(820px,calc(100vw - 40px));border:1px solid var(--study-line);border-radius:16px;padding:0}
+  .sessionImportDialog form{display:grid;gap:16px;padding:22px}
+  .sessionImportDialog header{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+  .sessionImportDialog h2{margin:2px 0 0}
+  @media(max-width:760px){.sessionHeader,.reviewHeaderActions{align-items:flex-start}.sessionStep h2{font-size:26px}}
+</style>
