@@ -6,35 +6,32 @@ permissions:
   contents: read
 jobs:
   independent:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-14]
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Preserve exact-head runtime inputs
-        run: |
-          mkdir -p /tmp/xizong-independent
-          git rev-parse HEAD > /tmp/xizong-independent/head.txt
-          git archive HEAD | gzip > /tmp/xizong-independent/worktree.tar.gz
-      - name: Prepare current runtime dependencies
+      - name: Install runtime and isolated browser harness
         working-directory: static-web
         run: |
           npm install --no-package-lock --no-audit --no-fund
-          npm ls astro marked --json > /tmp/xizong-independent/dependency-versions.json
-          tar -czf /tmp/xizong-independent/node-modules.tar.gz node_modules
-      - name: Run fresh contract-derived probes when present
-        shell: bash
-        run: |
-          set -o pipefail
-          if test -f static-web/scripts/test-xizong-final-independent.mjs; then
-            cd static-web
-            node scripts/test-xizong-final-independent.mjs 2>&1 | tee /tmp/xizong-independent/independent.txt
-          fi
+          npm install --no-save --no-package-lock --no-audit --no-fund playwright
+          npx playwright install chromium
+      - name: Fresh independent contract and browser probes
+        working-directory: static-web
+        env:
+          KIANOS_REPO_ROOT: ${{ github.workspace }}
+          ASTRO_TELEMETRY_DISABLED: '1'
+        run: node scripts/test-xizong-final-independent.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: xizong-independent-${{ github.sha }}
-          path: /tmp/xizong-independent
-          retention-days: 7
+          name: xizong-fresh-${{ matrix.os }}-${{ github.sha }}
+          path: static-web/.qa/xizong-final-independent
+          retention-days: 14
