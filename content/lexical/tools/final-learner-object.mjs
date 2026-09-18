@@ -256,7 +256,7 @@ export function compileLexicalFinalLearnerObject(record = {}, decisions = {}) {
   ];
 
   const formNotes = [];
-  for (const sense of Array.isArray(study.senses) ? study.senses : []) {
+  for (const [senseIndex, sense] of (Array.isArray(study.senses) ? study.senses : []).entries()) {
     const overlay = sense?.lexical_identity_overlay;
     if (!overlay || overlay?.identity_type !== 'form_boundary') continue;
     const note = String(
@@ -264,7 +264,8 @@ export function compileLexicalFinalLearnerObject(record = {}, decisions = {}) {
     ).trim();
     if (note) formNotes.push({
       source_sense_id: String(sense?.sense_id || ''),
-      text: note
+      text: note,
+      locator: `record.senses[${senseIndex}].lexical_identity_overlay`
     });
   }
 
@@ -287,7 +288,7 @@ export function compileLexicalFinalLearnerObject(record = {}, decisions = {}) {
           spelling: word,
           variants: [],
           notes: formNotes,
-          repair_target: repairTarget('form_identity', '', 'record.form_identity', word)
+          repair_target: repairTarget('form_identity', '', formNotes[0].locator, formNotes[0].text || word)
         }
       : null;
 
