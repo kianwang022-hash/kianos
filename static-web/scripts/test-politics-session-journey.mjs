@@ -127,7 +127,9 @@ try {
   check((await page.locator('[data-session-reveal-content] [data-surface-group]').count()) === 0, 'no_target_clone_before_reveal');
 
   await page.locator('[data-session-response]').fill('我的闭卷回忆');
-  await page.locator('[data-session-recipe]').focus();
+  await page.locator('[data-session-response]').press('Space');
+  check((await page.locator('[data-session-response]').inputValue()).endsWith(' '), 'space_inside_textarea_remains_text_input');
+  await page.locator('[data-session-response]').blur();
   await page.keyboard.press('Space');
   await page.locator('[data-session-reveal-content]').waitFor({ state: 'visible' });
 
