@@ -246,6 +246,35 @@ Do not drag another owner's debug history, CI logs or artifact archaeology into 
 
 # 6｜Minimal writes
 
+### Production-protocol continuity during owner cleanup
+
+When retiring, moving, consolidating, or replacing a Current content/learning owner, preserve not only the final asset but also the active **production semantics** needed to maintain it.
+
+For any asset that remains Current and may still be repaired, extended, re-audited, or regenerated, resolve all of:
+
+```text
+canonical artifact owner
++
+how new/changed content is judged
++
+what acceptance/readback closes the change
++
+how continuation is resumed when work is progressive
+```
+
+A cleanup is incomplete if it leaves:
+
+- Current data with a README/manifest pointing to a removed process owner;
+- a growing asset with no recoverable continuation/quality rule;
+- Runtime consuming semantic fields whose production/admission rule exists only in historical PR text;
+- a new owner path while the old production contract silently disappears.
+
+If production is intentionally frozen forever, say so explicitly and retain only the validation/provenance needed to prove the frozen asset. Do not invent a live production pipeline for a genuinely immutable derived snapshot.
+
+Hard rule:
+
+> **Owner consolidation must preserve the ability to reproduce the asset's quality, not merely its bytes.**
+
 Ordinary work changes only the owner that actually owns the requested effect plus the smallest required acceptance/cursor update.
 
 Examples:
