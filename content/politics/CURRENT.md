@@ -35,6 +35,31 @@ Exact semantics live in `LEARNING_CONTRACT.md` and the subject canonical owners,
 
 ---
 
+## Active final acceptance task
+
+Kian explicitly requested a **fresh, higher-quality Politics Final Learner Acceptance**.
+
+Durable execution brief:
+
+`FINAL_LEARNER_ACCEPTANCE_BRIEF.md`
+
+This task is Politics-wide fresh re-acceptance. It is not a rerun of the five subject PASS labels, PR #477, or existing CI.
+
+Execution rules:
+
+- audit Politics Learning Logic itself before trusting historical L/P/R/E PASS;
+- independently re-derive the roles of Suyi / Chengfeng / Xiao1000 / KianOS / Chat;
+- preserve five subject-specific cognitive shapes while attacking shared Surface Mapping/runtime flattening;
+- re-test the single Xiao1000 Workbench + learner-triggered Review→Chat batch loop;
+- explicitly audit selective Memory/Precision, analysis-answer output, current-affairs/later-source boundaries, Mock/final compression, Resume and learner-data durability;
+- do not call Politics whole-exam learner-ready merely because all five first-round subject paths are accepted through E;
+- repair only the earliest responsible owner when a real defect is found;
+- never manufacture learner `U`.
+
+Final lane-wide claims remain owned by `content/politics/ACCEPTANCE.md` and may be strengthened only by executed current-head evidence.
+
+---
+
 ## Local derived-presentation mechanism
 
 Politics has an accepted `SURFACE_MAPPING_CONTRACT.md` because its Natural Unit states sometimes need explicit derived learner presentation.
