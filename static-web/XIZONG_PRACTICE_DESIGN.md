@@ -257,17 +257,38 @@ UI rules:
 
 Whole paper is a scope of Practice, not a separate product.
 
-Target behavior:
+Current candidate behavior:
 
 ```text
-scope = paper/year
-result visibility = hidden by default
-timer = exam mode when enabled
-→ complete / submit paper
-→ learner-controlled reveal and review in the same Workbench
+scope = PAPER:<year>
+→ hydrate that year's exact Current Question Truth
+→ consume reviewed exam-format/scoring owner for that year
+→ result visibility = hidden
+→ answer / navigate without correctness, answer or explanation leakage
+→ explicit Seal / 交卷
+→ one unified score release
+→ learner-controlled review in the same Workbench
 ```
 
-Hidden-result Evidence/score compatibility remains a later bounded implementation slice. SYSTEM-scope Practice may ship before it.
+Scoring is year-specific and must not be inferred by the renderer:
+
+```text
+2005–2006  150 questions / 150 points
+2007       180-question CLINICAL projection / 300 points
+2008–2016  180 questions / 300 points
+2017–2026  165 questions / 300 points
+```
+
+Exact segment weights and provenance live only in `content/xizong/questions/exam-format.json`.
+
+Hard rules:
+- no correct/wrong styling in Question Map before Seal;
+- no Back / explanation / correct-answer access before Seal;
+- hidden attempts are preserved as evidence but do not enter global W/U queues until the paper is sealed;
+- unanswered questions score zero;
+- X-type partial selection scores zero;
+- historical score/max remains historical; do not normalize old papers to 300;
+- timer may use the existing shared timing capability when explicitly enabled, but this slice does not create a second exam timer runtime.
 
 ## 10｜Evidence
 
@@ -307,10 +328,16 @@ Current CHAT_SET slice also implements:
 - explicit Holdout protection / explicit `allow_holdout=true` override;
 - the same Practice Workbench and append-preserved attempt semantics.
 
+Global retained Practice is now in main:
+- Wrong / Uncertain aggregates the latest unresolved attempt across local Practice scopes;
+- a later Stable attempt removes stale W/U debt;
+- Marked is global learner-owned state across scopes;
+- Holdout years remain protected;
+- retained qids hydrate Current Question Truth and execute in the same Workbench.
+
 Still separate:
 - unified typed Chat Return Packet integration beyond the manual CHAT_SET fallback;
-- whole-paper scope + Hidden result;
-- global retained W/U/Marked entry independent of one System;
+- whole-paper/year scope + Hidden result + seal/reveal;
 - durable learner-data closure;
 - real learner U.
 
