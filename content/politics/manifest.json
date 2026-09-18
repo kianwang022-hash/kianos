@@ -104,8 +104,23 @@
     ],
     "lifecycle_scope": {
       "first_round": "CLOSED_FOR_ALL_FIVE_SUBJECTS",
-      "later_stage": "CONSOLIDATION_L_REPAIRED_CHAT_STRATEGY_MODEL_FRESH_REAUDIT_PENDING",
+      "later_stage": "CONSOLIDATION_ANALYSIS_OUTPUT_MOCK_FINAL_L_CANDIDATES_READY_FOR_FRESH_AUDIT",
       "rule": "First-round K/L closure is distinct from exam-lifecycle later-stage K/L closure."
+    },
+    "analysis_output": {
+      "role": "CHAT_PRIMARY_LATER_STAGE_OUTPUT_LANE",
+      "routing_owner": "content/politics/analysis-output/README.md",
+      "canonical_topic_owner_pattern": "content/politics/learning/<subject>/<chapter>.json#later_stage_knowledge.analysis_output_hooks",
+      "website_required": false,
+      "learner_state_store": "PRIVATE_NOT_GITHUB",
+      "current_year_overlay_rule": "SOURCE_GROUNDED_DELTA_ONLY"
+    },
+    "mock_final": {
+      "role": "CHAT_PRIMARY_WITH_SOURCE_PAPER_EXECUTION",
+      "routing_owner": "content/politics/mock-final/README.md",
+      "website_required": false,
+      "learner_state_store": "PRIVATE_NOT_GITHUB",
+      "final_queue_rule": "ADMITTED_CURRENT_HIGH_VALUE_EVIDENCE_BACKED_ONLY"
     }
   },
   "derived_content": {
@@ -224,7 +239,7 @@
     "later_stage_learning_candidate": true,
     "later_stage_learning_builder_attack": "PASS_AFTER_REPAIR",
     "later_stage_consolidation_l_candidate": true,
-    "later_stage_consolidation_l_independent_audit": "PASS_AFTER_REPAIR_FRESH_INDEPENDENT",
+    "later_stage_consolidation_l_independent_audit": "FAIL_REVISION_REQUIRED_ON_STATIC_RUBRIC_MODEL",
     "later_stage_analysis_output_l": "PASS_CHAT_PRIMARY",
     "later_stage_mock_final_l": "PASS_CHAT_PRIMARY_SOURCE_PAPER_PRIMARY",
     "later_stage_consolidation_representative_k_readback": [
@@ -243,6 +258,14 @@
     "later_stage_projection_stale_after_k_expected": true,
     "later_stage_projection_refresh_blocked_until_l_acceptance": false,
     "later_stage_consolidation_interface_attack": "7_REAL_DEFECTS_REPAIRED",
+    "later_stage_learning_fresh_audit_scope": [
+      "CONSOLIDATION",
+      "ANALYSIS_OUTPUT",
+      "MOCK_FINAL"
+    ],
+    "later_stage_learning_status": "PASS",
+    "later_stage_learning_fresh_audit": "PASS",
+    "later_stage_next_gate": "EXAM_HORIZON_ADAPTATION_FINAL_LEARNER_OBJECT_DIRECT_CONSUMPTION",
     "exam_horizon_adaptation_active": true,
     "exam_horizon_final_learner_object_closure": "IMPLEMENTED_CANDIDATE_VALIDATION_PENDING",
     "exam_horizon_runtime_atom_closure": "PARTIAL",
@@ -262,8 +285,6 @@
       "CAPTURE"
     ],
     "exam_horizon_runtime_implementation_blocker": null,
-    "later_stage_learning_status": "PASS",
-    "later_stage_learning_fresh_audit": "PASS",
     "exam_horizon_next_gate": "FINAL_LEARNER_OBJECT_VALIDATION_THEN_SESSION_EXECUTOR"
   }
 }
