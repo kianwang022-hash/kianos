@@ -95,6 +95,44 @@ Later phases may add `REVIEW`, `PRECISION`, and `MOCK / TRANSFER` states when th
 
 These states are not backend status labels for display everywhere. At runtime, one state owns the dominant learner task.
 
+### 3.1A Later-stage consolidation state model
+
+Later-stage Politics uses a chapter-fast interaction model rather than a per-node drill loop:
+
+```text
+RECONSTRUCT
+→ CONTENT_RECALL
+→ [PRECISION when active]
+→ [EVIDENCE_REVIEW when prior W/U exists]
+→ [RETEST when useful]
+→ wrong / uncertain → REPAIR → RETEST or CLOSE
+→ CLOSE
+```
+
+Square-bracket states are optional. They appear only when the learner has real active debt for that chapter/phase.
+
+Interaction rules:
+
+- `RECONSTRUCT` is normally one chapter-level or large-structure recall operation, not one task per Knowledge object.
+- `CONTENT_RECALL` groups the chapter's important retrievable content under that structure; it must not become a card-by-card march through the backend.
+- `PRECISION` shows only active/admitted exactness. Candidate-only inventory remains dormant.
+- `EVIDENCE_REVIEW` prioritizes real historical Wrong / meaningful Uncertain evidence over generic extra review.
+- `RETEST` is selective verification; a stable chapter does not owe a full Xiao1000 rerun.
+- `REPAIR` opens only the smallest broken relation, boundary, source segment or exact item.
+- `CLOSE` exits cheaply and records phase-scoped completion without implying mastery.
+
+The UI must not expose this model as a large seven-step wizard, mandatory counters, or state taxonomy. It should feel like:
+
+```text
+重建这一章
+→ 看遗漏
+→ 钉少量精确点
+→ 做真正薄弱的题
+→ 下一章
+```
+
+Backend state may be richer than the learner-facing workflow.
+
 #### `ORIENT`
 Dominant task: know what problem this Natural Unit solves and how it sits in the subject/chapter structure.
 
