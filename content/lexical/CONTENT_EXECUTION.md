@@ -70,46 +70,54 @@ This matrix belongs in the receipt / audit evidence, not in semantic Natural Own
 
 ---
 
-## 3B. Pre-change Kian Human Gate
+## 3B. One-shard Kian Human Gate
 
-Baseline-v2 review is **read-first, report-first, mutate-second**.
+Baseline-v2 review is **read-first, one report, one approval, then automatic closure**.
 
-A worker may inspect and classify a bounded shard without approval. It must not mutate canonical lexical Content merely because it found a defect.
+The normal interaction unit is one bounded shard, normally up to 50 owners.
 
 Required sequence:
 
 ```text
-fresh read
-→ identify exact problem(s)
-→ report to Kian in plain language
-→ show why each problem violates a frozen module rule
-→ show the smallest proposed fix
-→ Kian approves
-→ mutate only the approved modules / owners
-→ final-object readback
-→ report what actually changed
+fresh-read the whole shard
+→ judge Content + Repair Test needs together
+→ give Kian one plain-language shard report
+→ Kian approves once
+→ automatically apply only the reported/approved Content fixes
+→ automatically write the reported/approved Repair Test blueprints
+→ rebuild derived Final Learner Objects
+→ complete final-object readback + validation
+→ write the local receipt / advance the exact cursor
+→ immediately begin the next shard
+→ return the next shard report
 ```
 
-The pre-change report must include, for every proposed mutation:
+The single pre-change report should cover the whole shard and include only decision-relevant items:
 
-- exact word;
-- exact module;
-- what is wrong now;
-- why it matters to learning / transfer / testing;
-- allowed gap reason from §4A;
-- smallest proposed change;
-- whether learner-page/UI is affected (normally **no**).
+- words/modules with a real Content problem, why it matters, and the smallest proposed fix;
+- exact lexical targets that deserve a Repair Test blueprint and why;
+- words that need no change / no Test may be summarized rather than expanded one by one;
+- learner-page/UI impact (normally **none**).
+
+One Kian approval for that shard authorizes all items explicitly included in that report:
+
+- the reported Word / Relation / Form semantic fixes;
+- the reported Repair Test blueprint writes;
+- mechanical Final Learner Object materialization;
+- validation / receipt updates;
+- exact cursor advancement to the next shard.
+
+Do **not** insert a second approval gate between Content and Repair Test work, and do not ask again before starting the next shard. The next Human Gate is the next shard's combined report.
 
 Hard rules:
 
-- no semantic Content mutation before Kian approval;
-- no bundling hidden extra fixes into an approved change;
-- approval for one shard does not authorize later shards;
+- no semantic Content or Repair Test mutation before the shard approval;
+- no bundling hidden extra fixes into an approved shard;
+- approval for one shard does not authorize unreported fixes in later shards;
 - `PRESERVE` / `NOT_NEEDED` decisions may be recorded without mutation;
-- mechanical derived materialization after an approved semantic change does not need a second approval;
+- mechanical derived materialization after approved changes does not need separate approval;
+- if writeback/readback exposes a **new semantic problem not present in the approved report**, stop that new mutation and surface it in the next report rather than silently expanding scope;
 - a critical correctness defect may be reported immediately, but still waits for approval unless leaving it unmodified would corrupt already-running data.
-
-This Human Gate applies to Word / Relation / Form truth and derived Repair Test blueprint edits.
 
 Learner-page / UI changes remain governed separately and are never implied by Content approval.
 
