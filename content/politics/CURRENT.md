@@ -131,6 +131,39 @@ It is a foundation repair, **not permission to resume UI after C00 alone**.
 
 ---
 
+## Reserved later-material entrances
+
+Later Politics sources are now reserved at the architecture boundary but remain **inactive / unbound**:
+
+```text
+CURRENT_AFFAIRS
+XIAO8
+XIAO4
+```
+
+They follow one intake path:
+
+```text
+UNBOUND
+→ SOURCE_BOUND
+→ CHAT_RECONCILED
+→ CANONICAL_DELTA_ACCEPTED
+→ LEARNER_SURFACE_ELIGIBLE
+```
+
+Operational meaning:
+
+- current-affairs material is treated primarily as current-year delta / analysis context against existing Knowledge;
+- Xiao8 is protected as fresh evaluation until the learner attempts it;
+- Xiao4 is a final-phase high-value delta / output / Memory source, not permission to rebuild the course;
+- Chat is the default adaptive surface for analysis/current-affairs work;
+- no dormant lane may create fake Content, empty Memory assets, fake questions, or visible UI navigation;
+- a future source can normally update GitHub Content/Memory/Evidence and reuse existing surfaces without a new product architecture.
+
+Politics UI remains frozen for the current Content-closure program. These reserved entrances are infrastructure only and do not reopen Visual work.
+
+---
+
 ## Subject router
 
 | Scope | Work Cursor | Acceptance Truth |
