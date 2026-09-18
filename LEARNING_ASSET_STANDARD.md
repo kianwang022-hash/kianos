@@ -146,6 +146,48 @@ learner order ≠ construction scheduling
 
 Output: domain Learning Contract or equivalent durable learner-path decision.
 
+### Adversarial Learning construction and fresh acceptance
+
+For a **substantial reconstructed Learning asset**—for example a new System/module learner route, a material repartition of learner units, a new prerequisite graph, a new Recall/verification timing model, or a change in primary surface ownership—the builder's first coherent candidate is **not** enough to close Learning.
+
+Use this bounded production sequence:
+
+```text
+Learning candidate
+→ builder self-adversarial attack
+→ repair any real red points
+→ fresh independent semantic audit
+→ repair if needed
+→ fresh readback / re-audit
+→ only then L PASS / PASS_AFTER_REPAIR
+```
+
+The self-adversarial attack should try the strongest plausible alternatives rather than merely inspect field completeness. Depending on the domain, attack at least the relevant dimensions:
+
+- different natural-unit / grouping / partition;
+- different learner order or prerequisite structure;
+- continuous versus fragmented learning;
+- different primary / companion surface ownership;
+- Recall / verification timing;
+- negative-space leakage and accidental second-course expansion;
+- overfitting to one previous module, teacher order, question order or current renderer;
+- later-pass compression and manufactured review debt.
+
+For the fresh independent audit, anti-anchoring matters:
+
+1. read Current Rule / Source / Knowledge owners first;
+2. form and record a provisional learner model **before** opening the builder candidate / receipts when practical;
+3. then challenge the candidate against that independent model;
+4. structural QA may support the audit but cannot substitute for semantic judgment.
+
+Hard rule:
+
+> **Builder self-review ≠ fresh independent L acceptance.**
+
+A small local repair to an already accepted Learning model does **not** require ritual fresh audit merely because text changed. Re-run the independent Learning attack when the change can materially alter learner order, natural units, continuity, prerequisite structure, Recall/verification timing, surface ownership, compression, or review debt.
+
+Until the affected Learning dependency is accepted, downstream Presentation / Runtime work may inspect the defect but must not patch around it as if L were settled.
+
 ---
 
 # 5｜Stage 3 — Content Realization
