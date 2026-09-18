@@ -863,6 +863,11 @@ const payload = JSON.stringify({
         next = sealXizongPaperState(next, summary);
         if (!writeJson(sweepKey, next)) return;
         sweepState = next;
+        const sealedYear = Number(data.paperFormat?.year);
+        const savedHoldout = readJson(holdoutKey, []);
+        if (Number.isFinite(sealedYear) && Array.isArray(savedHoldout) && savedHoldout.map(Number).includes(sealedYear)) {
+          writeJson(holdoutKey, savedHoldout.map(Number).filter((year) => year !== sealedYear));
+        }
       }
       renderPaperResult();
     };
