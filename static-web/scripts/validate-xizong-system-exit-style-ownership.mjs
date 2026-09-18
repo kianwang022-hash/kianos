@@ -57,6 +57,9 @@ for (const token of ['.xzp', '.xzpBody', '.xzpMap', '.xzpQuestionPane', '.xzpRev
 }
 check(!practiceOwner.includes('.xzExitStage'), 'practice_owner_cannot_style_recall_namespace');
 
+check(/font-family\s*:\s*var\(--study-font\)/.test(practiceOwner), 'practice_inherits_shared_l1_font_token');
+check(!/"PingFang SC"|BlinkMacSystemFont|"SF Pro Text"/.test(practiceOwner), 'practice_has_no_local_font_stack');
+
 for (const [name, source] of [['recall', exitOwner], ['practice', practiceOwner]]) {
   check(!/!\s*important\b/i.test(stripCssComments(source)), `${name}_owner_has_no_cascade_recovery`);
   const sizes = [...source.matchAll(/font-size\s*:\s*(\d+(?:\.\d+)?)px/g)].map((match) => Number(match[1]));
