@@ -485,7 +485,7 @@ export function initPoliticsSessionReview(root) {
     catch (error) { setError(error.message); }
   });
 
-  $('[data-session-copy-evidence]').forEach((button) => button.addEventListener('click', async () => {
+  $$('[data-session-copy-evidence]').forEach((button) => button.addEventListener('click', async () => {
     try { await copyText(evidence || emptyPoliticsSessionEvidence(instruction)); }
     catch (error) { setError(error.message); }
   }));
