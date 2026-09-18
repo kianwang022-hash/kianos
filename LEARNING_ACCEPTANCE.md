@@ -263,6 +263,30 @@ Learning acceptance asks:
 
 The path must be calibrated to the learner’s real state rather than inferred from engineering progress.
 
+### Evidence required for substantial reconstructed Learning
+
+A substantial reconstructed Learning candidate cannot PASS merely because:
+
+- the builder says the route is coherent;
+- all KP / Unit identities are accounted for;
+- a schema validator is green;
+- the current renderer can execute it;
+- construction receipts describe the intended rationale.
+
+When Learning work materially changes learner units, order, prerequisites, continuity, Recall/verification timing, surface ownership, compression, or review debt, acceptance evidence should include:
+
+```text
+builder self-adversarial attack
++
+fresh independent semantic challenge
++
+post-repair readback when a red point is found
+```
+
+The fresh challenger should, when practical, form a provisional learner model from Current Rule / Source / Knowledge **before** reading the candidate's conclusions. It should attempt at least one serious alternative route/partition/surface allocation and one relevant negative-space or overengineering attack.
+
+This does not create a ceremony for every wording edit. A bounded repair to an already accepted Learning model may keep L accepted when it cannot materially change learner behavior. But a builder's own second look is not independent evidence for a newly reconstructed L.
+
 ### Hard rule: Engineering State ≠ Learner State
 
 ```text
