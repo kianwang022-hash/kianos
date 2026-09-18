@@ -34,19 +34,25 @@ const questionIds = new Set(practice.questions.map((row) => row.id));
 pass(targets.schema === 'kianos.politics.session-target-catalog.v1', 'TARGET_CATALOG_SCHEMA');
 pass(targets.target_count === targets.targets.length && targets.target_count > 151, 'TARGET_CATALOG_NONEMPTY', String(targets.target_count));
 pass(targetRefs.size === targets.targets.length, 'TARGET_REF_UNIQUE', String(targetRefs.size));
-pass(targets.targets.every((row) =>
-  row.ref.startsWith('politics-final:')
-  && row.subject
-  && row.chapter
-  && row.unit_id
-  && row.state
-  && row.group_id
+const finalTargets = targets.targets.filter((row) => row.target_kind === 'FINAL');
+const memoryTargets = targets.targets.filter((row) => row.target_kind === 'MEMORY');
+pass(finalTargets.length === 1083, 'TARGET_FINAL_OBJECT_COUNT', String(finalTargets.length));
+pass(memoryTargets.length === 128, 'TARGET_MEMORY_OBJECT_COUNT', String(memoryTargets.length));
+pass(finalTargets.every((row) => row.ref.startsWith('politics-final:') && row.group), 'TARGET_FINAL_PREFIX_AND_PAYLOAD');
+pass(memoryTargets.every((row) =>
+  row.ref.startsWith('politics-memory:')
+  && row.memory_admission === 'ADMITTED_STABLE'
   && row.group
-), 'TARGET_REF_EXACT_FINAL_OBJECT_ONLY');
+), 'TARGET_MEMORY_ADMITTED_LITERAL_PAYLOAD');
+pass(memoryTargets.every((row) =>
+  ['CANDIDATE_EXACTNESS', 'CANDIDATE_FRESHNESS', 'ADMITTED_STABLE', 'NOT_APPLICABLE'].includes(row.precision_admission)
+), 'TARGET_MEMORY_PRECISION_STATE_VALID');
 
-const sampleTarget = targets.targets.find((row) => row.state === 'ORIENT' && row.subject === 'marxism') || targets.targets[0];
+const sampleTarget = finalTargets.find((row) => row.state === 'ORIENT' && row.subject === 'marxism') || finalTargets[0];
+const sampleMemoryTarget = memoryTargets.find((row) => row.subject === 'marxism') || memoryTargets[0];
 const sampleQuestions = practice.questions.slice(0, 2).map((row) => row.id);
 pass(Boolean(sampleTarget), 'SAMPLE_TARGET_MISSING');
+pass(Boolean(sampleMemoryTarget), 'SAMPLE_MEMORY_TARGET_MISSING');
 pass(sampleQuestions.length === 2, 'SAMPLE_QUESTIONS_MISSING');
 
 const instruction = normalizePoliticsSessionInstruction({
@@ -106,13 +112,34 @@ mustThrow(() => normalizePoliticsSessionInstruction({
 
 mustThrow(() => normalizePoliticsSessionInstruction({
   ...instruction,
-  session_id: 'session-audit-precision',
+  session_id: 'session-audit-precision-missing-target',
   steps: [{
-    step_id: 'precision-no-guard',
-    recipe_type: 'PRECISION',
-    target_refs: [sampleTarget.ref]
+    step_id: 'precision-no-target',
+    recipe_type: 'PRECISION'
   }]
-}, { targetRefs, questionIds }), 'SESSION_PRECISION_REQUIRES_GUARD', 'PRECISION_GUARD_REQUIRED');
+}, { targetRefs, questionIds }), 'SESSION_PRECISION_REQUIRES_TARGET', 'PRECISION_TARGET_REQUIRED');
+
+const memoryRecall = normalizePoliticsSessionInstruction({
+  ...instruction,
+  session_id: 'session-audit-memory-recall',
+  steps: [{
+    step_id: 'memory-recall',
+    recipe_type: 'TARGETED_RECALL',
+    target_refs: [sampleMemoryTarget.ref]
+  }]
+}, { targetRefs, questionIds });
+pass(memoryRecall.steps[0].target_refs[0] === sampleMemoryTarget.ref, 'SESSION_MEMORY_RECALL_TARGET_LITERAL');
+
+const precisionCandidate = normalizePoliticsSessionInstruction({
+  ...instruction,
+  session_id: 'session-audit-precision-candidate',
+  steps: [{
+    step_id: 'precision-candidate',
+    recipe_type: 'PRECISION',
+    target_refs: [sampleMemoryTarget.ref]
+  }]
+}, { targetRefs, questionIds });
+pass(precisionCandidate.steps[0].target_refs[0] === sampleMemoryTarget.ref, 'SESSION_PRECISION_CANDIDATE_IMPORTS_FOR_FAIL_CLOSED_RUNTIME');
 
 mustThrow(() => normalizePoliticsSessionInstruction({
   ...instruction,
@@ -186,8 +213,10 @@ for (const marker of [
   pass(reviewPage.includes(marker), 'REVIEW_SESSION_SURFACE_MARKER', marker);
 }
 pass(registry.includes('PoliticsExplicitSurfacePlan groups={[target.group]}'), 'SESSION_TARGET_REGISTRY_LITERAL_RENDER');
+pass(registry.includes('data-session-memory-admission') && registry.includes('data-session-precision-admission'), 'SESSION_TARGET_REGISTRY_EXPOSES_ADMISSION_ONLY');
 pass(!sessionClient.includes('politicsCurrent') && !sessionClient.includes('loadPoliticsChapterCurrent') && !sessionClient.includes('loadPoliticsCompiledPresentation'), 'SESSION_CLIENT_NO_RAW_CONTENT_OWNER');
-pass(sessionClient.includes("step.recipe_type === 'PRECISION'") && sessionClient.includes('fail closed'), 'SESSION_PRECISION_RUNTIME_FAIL_CLOSED');
+pass(sessionClient.includes("row.kind !== 'MEMORY' || row.memory_admission === 'ADMITTED_STABLE'"), 'SESSION_MEMORY_RUNTIME_ENFORCES_ADMISSION');
+pass(sessionClient.includes("row.kind === 'MEMORY' && row.precision_admission === 'ADMITTED_STABLE'"), 'SESSION_PRECISION_RUNTIME_ENFORCES_SEPARATE_ADMISSION');
 pass(sessionClient.includes('timed-task executor 还未验收'), 'SESSION_TIMER_RUNTIME_FAIL_CLOSED');
 pass(sessionClient.includes("const completed = status === 'COMPLETED' || nextIndex >= instruction.steps.length"), 'SESSION_EXPLICIT_CLOSE_TERMINATES_PLAN');
 
@@ -220,6 +249,8 @@ console.log(JSON.stringify({
   target_count: targets.target_count,
   question_count: practice.questionCount,
   sample_target: sampleTarget.ref,
+  sample_memory_target: sampleMemoryTarget.ref,
+  memory_target_count: memoryTargets.length,
   sample_questions: sampleQuestions,
   failures
 }, null, 2));
