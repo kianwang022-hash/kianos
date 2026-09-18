@@ -373,32 +373,9 @@ Do not rerun a whole chapter bank by default.
 
 #### Chat → Web execution interface
 
-Later-stage consolidation needs a **small adaptive-plan interface**, not a second semantic owner.
+Later-stage consolidation requires a **small adaptive-plan interface**, not a second semantic owner.
 
-Chat must be able to send the web an ordered session plan containing only what is needed for the current study session, for example:
-
-```text
-scope
-- subject / chapter
-- phase = CONSOLIDATION
-
-actions[]
-- RECONSTRUCT
-- TARGETED_RECALL
-- PRECISION
-- QUESTION_RETEST
-- SOURCE_REPAIR
-- CHAT_REPAIR_RETURN
-- CLOSE
-
-each action
-- explicit Current content/object refs or question ids
-- learner-facing prompt/instruction when needed
-- reveal/reference payload refs when needed
-- no UI-authored semantic inference
-```
-
-The exact transport shape is an implementation decision. The Learning requirement is the authority boundary:
+This Learning Contract owns only the authority boundary:
 
 ```text
 Chat chooses
@@ -407,7 +384,12 @@ Chat chooses
 → Chat may adapt the next plan
 ```
 
-The web must support arbitrary valid subsets/orderings supplied by Chat. It must not require one fixed per-chapter rubric or hard-coded review sequence.
+The durable plan/return semantics are owned by `INTERACTION_CONTRACT.md` as:
+
+- `kianos.politics.consolidation_plan.v1`;
+- `kianos.politics.consolidation_return.v1`.
+
+The web must support arbitrary valid subsets/orderings supplied by Chat. It must not require one fixed per-chapter rubric, hard-coded review sequence, or Web-authored recommendation.
 
 #### Web capability requirements
 
