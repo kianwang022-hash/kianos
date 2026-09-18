@@ -1,6 +1,6 @@
 # Xizong Practice Workbench — accepted design
 
-Status: **CURRENT CANDIDATE — FUNCTION/OWNERSHIP FROZEN · L3 VISUAL RE-REVIEW UNDER XIZONG L2 REQUIRED**
+Status: **FUNCTION/OWNERSHIP CANDIDATE · VISUAL HUMAN GATE FAIL 2026-09-18 — L3 PRESENTATION REWORK REQUIRED**
 
 Parent: `static-web/XIZONG_PRODUCT_BRIEF.md`  
 Visual L2: `static-web/XIZONG_VISUAL_LANGUAGE.md`  
@@ -300,3 +300,43 @@ Still separate:
 - durable learner-data closure;
 - real Mac/PingFang Human Gate;
 - real learner U.
+
+
+---
+
+## Visual rejection note｜2026-09-18
+
+The first L2/L3 implementation candidate is **REJECTED by Kian at Human Gate**.
+
+The rejection is visual/presentation-specific. Preserve the accepted functional/runtime work unless a separate defect is found.
+
+Observed failures to correct before the next Human Gate:
+
+- Linux/CI Chromium evidence was incorrectly treated as a Mac typography acceptance surface; CI remains useful for geometry/runtime only.
+- rendered Chinese typography felt narrow/cheap rather than the required broad/stable/full-bodied Mac reading character;
+- the local top bar exposed too much software/status chrome and read like an engineering tool;
+- full-height year/question inventory made Structure feel like a data table rather than quiet orientation;
+- the bordered rounded workspace + pale surrounding canvas + grid divisions produced SaaS/admin/dashboard smell;
+- fixed paper width inside a very large bounded workspace created conspicuous dead space rather than intentional editorial breathing room;
+- Explanation read as a sequence of projected fields rather than a coherent medical annotation surface.
+
+Do not repair this by adding more cards, borders, badges, shadows, colors or metadata.
+
+Re-derive Practice presentation from:
+
+```text
+L1 shared aesthetic constitution
+→ L2 Xizong medical cognition workspace
+→ L3 Practice task geometry
+```
+
+L3 interaction semantics that remain valid unless separately reopened:
+
+```text
+pre-answer: Structure + dominant Main
+Wrong / deliberate Review: Conditional Context appears
+stable correct remains cheap
+same fixed Practice runtime across scopes
+```
+
+Next visual review must use a real Mac-local screenshot for typography/aesthetic Human Gate. Linux CI screenshots may prove layout/runtime but not Mac font acceptance.
