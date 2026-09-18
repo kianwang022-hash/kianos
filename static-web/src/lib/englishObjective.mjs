@@ -13,7 +13,7 @@ const SOURCE = Object.freeze({
   readingBLayout: 'content/english/source/reading_b_layout.v1.json'
 });
 
-const OBJECTIVE_TASK_MAP_SCHEMA = 'kianos.english.objective_task_map.v1';
+const ENGLISH_TASK_MAP_SCHEMA = 'kianos.english.task_map.v1';
 
 function absolute(relativePath) {
   return path.join(repoRoot, relativePath);
@@ -316,8 +316,8 @@ function sectionInventory(bank) {
 }
 
 function resolveTaskSections(bank, manifest, taskName) {
-  const map = manifest?.final_learner_objects?.objective_task_map;
-  if (map?.schema !== OBJECTIVE_TASK_MAP_SCHEMA || !map?.tasks || typeof map.tasks !== 'object') {
+  const map = manifest?.final_learner_objects?.task_map;
+  if (map?.schema !== ENGLISH_TASK_MAP_SCHEMA || !map?.tasks || typeof map.tasks !== 'object') {
     throw new Error('OBJECTIVE_TASK_MAP_NOT_READY');
   }
 
