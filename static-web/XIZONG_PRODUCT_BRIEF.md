@@ -335,7 +335,8 @@ The responsibilities below remain shared product boundaries. Exact accepted surf
 | Xizong Home | `static-web/XIZONG_HOME_DESIGN.md` |
 | System Framework / Cognitive Canvas | `static-web/XIZONG_SYSTEM_GUIDE_DESIGN.md` |
 | Block / Logic Group / handoff / KP Recall / Block Recall / After Learn | `static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md` |
-| System Recall / question interaction / hidden results / review | `static-web/XIZONG_SYSTEM_COMPLETION_DESIGN.md` |
+| System Recall / completion handoff | `static-web/XIZONG_SYSTEM_COMPLETION_DESIGN.md` |
+| All formal question practice / System scope / W-U-Marked / whole paper | `static-web/XIZONG_PRACTICE_DESIGN.md` |
 
 These do not have to be separate URLs; several may be states of one workspace. Accepted responsibility/composition is not final styling or screenshot acceptance.
 
@@ -419,15 +420,15 @@ Accepted Front / Reconstruction and completion separation are in `XIZONG_BLOCK_W
 Only when learner state legitimately permits:
 
 ```text
-System Recall
-→ official question sweep
-→ smallest W/U repair
-→ post-question System reconstruction
+System Recall Front
+→ System Recall Reveal
+→ complete System reconstruction
+→ handoff to Practice(scope = current System) when that scope exists
 ```
 
-Accepted high-throughput question interaction, independent result visibility, learner marking, bounded Quick Review and System Recall composition are owned by `XIZONG_SYSTEM_COMPLETION_DESIGN.md`.
+System Recall is part of the learning/reconstruction chain and does **not** depend on accepted official-question scope availability. Formal question rendering, Fast Sweep, result visibility, Marked, explanation and review belong only to `XIZONG_PRACTICE_DESIGN.md`.
 
-These product decisions do not prove that the new question behavior is already implemented. Compatibility with current Evidence/Runtime must be resolved before adopting it.
+The accepted Recall composition and handoff boundary are owned by `XIZONG_SYSTEM_COMPLETION_DESIGN.md`.
 
 ## G｜After-Learn
 
@@ -442,9 +443,9 @@ Accepted timing and distinct Memory / Reserve / Chat Repair responsibilities are
 
 ## H｜Xizong-wide practice / whole-paper product direction
 
-Whole-paper practice belongs to Xizong-wide Practice, not to one System's completion page. System practice and whole-paper practice should reuse the question workbench where their native task semantics permit it.
+All formal question practice belongs to the Xizong-wide Practice Workbench, not to a System completion page. System scope, retained W/U/Marked, whole-paper and later custom scopes reuse the same question workbench; only scope/mode changes.
 
-The accepted entry model separates three decisions:
+The accepted Practice owner is `XIZONG_PRACTICE_DESIGN.md`. Its entry model separates three decisions:
 
 ```text
 question scope: by System / whole paper
