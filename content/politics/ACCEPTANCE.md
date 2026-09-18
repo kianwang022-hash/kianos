@@ -385,3 +385,79 @@ Debt
 Next eligible gate
 = later-stage L construction + builder attack + fresh independent audit
 ```
+
+---
+
+## Later-stage L candidate — builder adversarial result
+
+Status: **CANDIDATE / BUILDER PASS_AFTER_REPAIR / FRESH INDEPENDENT AUDIT PENDING**
+
+This section records Learning-candidate construction evidence only. It does **not** upgrade later-stage L to PASS.
+
+### Candidate learning direction
+
+Politics consolidation is intentionally lower-friction than Xizong:
+
+```text
+chapter-fast reconstruction
+→ grouped core-content recall
+→ active/admitted Precision only
+→ historical Wrong / meaningful Uncertain earns depth
+→ selective Xiao1000 retest
+→ smallest repair
+→ cheap phase-scoped close
+```
+
+The framework organizes a substantial amount of chapter recall; it does not replace memory. At the same time, chapter-wide relevance does not imply sentence-by-sentence exact recitation.
+
+### Five-shape calibration
+
+| Subject | Calibration chapter | Default recall shape |
+| --- | --- | --- |
+| Marxism | C02 | one dialectical reconstruction + 3 grouped recalls |
+| Mao | C02 | one national-condition→revolution model + 3 grouped recalls |
+| Xi | C06 | one role/hierarchy reconstruction + 3 grouped recalls |
+| History | C05 | one causal movie + 2 grouped recalls; horizontal exactness stays optional |
+| Ethics-Law | C06 | one rule-of-law hierarchy + 3 grouped recalls |
+
+All five keep Precision dormant by default and use selective rather than whole-bank retest.
+
+### Builder adversarial attack
+
+The candidate was attacked for:
+
+1. turning Politics into a miniature Xizong with per-node recall tax;
+2. over-compressing Politics until only a skeleton remains and necessary chapter memory disappears;
+3. converting rich K availability into mandatory review debt;
+4. converting every fixed group into a durable Precision queue;
+5. flattening the five subjects into one cognitive shape;
+6. leaking analysis-output work into ordinary consolidation;
+7. leaving recall-scope selection to downstream UI inference.
+
+### Real defects found and repaired
+
+1. **Recall-scope ownership was initially under-specified.** The Learning Contract now requires L-approved grouped recall scope before Projection/Runtime; UI may not guess importance from raw JSON.
+2. **History C05 initially placed horizontal meeting/land candidates inside default Content Recall.** They were removed from the default path and remain selectively activatable Precision.
+3. **Grouped completeness risked being conflated with durable Precision debt.** The contract now explicitly allows complete grouped recall without creating separate persistent exact-memory tasks for every item.
+
+After those repairs, the five calibration chapters preserve the intended fast-path invariants.
+
+### What remains unaccepted
+
+- this is not yet a 53-chapter rollout;
+- fresh independent semantic audit has not yet accepted the L candidate;
+- later-stage Projection / Runtime / Evidence remain frozen;
+- current-year Memory / Xi-current-affairs / legal freshness debt remains as recorded under K.
+
+### Allowed conclusion
+
+```text
+Politics later-stage K                 PASS_WITH_DEBT
+Politics later-stage L candidate       BUILDER PASS_AFTER_REPAIR
+Politics later-stage L acceptance      UNTESTED — fresh independent audit next
+Politics later-stage P/R/E             FROZEN
+```
+
+Strongest valid claim:
+
+> **The Politics later-stage L candidate is ready for fresh independent audit, not yet learner-design accepted.**
