@@ -68,7 +68,8 @@ async function clearEnglishResumeFixtures(page) {
       'kianos-reading-last-location-v1',
       'kianos-translation-last-location-v1',
       'kianos-writing-last-location-v1',
-      'kianos-writing-evidence-v1'
+      'kianos-writing-evidence-v1',
+      'kianos-english-session-instruction-v1'
     ].forEach((key) => localStorage.removeItem(key));
   });
 }
@@ -263,7 +264,8 @@ async function repairReturnJourney(browser, task) {
     await page.reload({ waitUntil: 'domcontentloaded' });
     check(await page.locator('[data-english-resume]').isHidden(), 'dormant_pending_states_do_not_summon_resume');
 
-    // Cross-lane resume is priority-based, not last-page based.
+    // Cross-lane learner state remains evidence only. Website must not recreate
+    // the retired cross-task priority table; Chat owns Resume selection.
     await setJson(page, 'kianos-translation-last-location-v1', {
       id: 'translation-reconstruct-fixture',
       title: 'Translation · unfinished reconstruction',
@@ -278,20 +280,30 @@ async function repairReturnJourney(browser, task) {
       href: `/writing/${encodeURIComponent(task.id)}/`,
       updatedAt: '2026-09-13T10:03:00.000Z'
     });
+    await setJson(page, 'kianos-english-session-instruction-v1', null);
     await page.reload({ waitUntil: 'domcontentloaded' });
-    await page.locator('[data-english-resume]').waitFor({ state: 'visible' });
-    check((await page.locator('[data-english-resume-title]').textContent())?.includes('Translation'), 'higher_value_translation_reconstruction_beats_writing_review');
+    check(await page.locator('[data-english-resume]').isHidden(), 'website_does_not_auto_rank_cross_lane_state');
 
-    await setJson(page, 'kianos-writing-last-location-v1', {
-      id: task.id,
-      title: task.title,
-      state: 'ATTEMPT',
-      href: `/writing/${encodeURIComponent(task.id)}/`,
-      updatedAt: '2026-09-13T10:04:00.000Z'
+    const day = await page.evaluate(() => new Date().toLocaleDateString('en-CA'));
+    await setJson(page, 'kianos-english-session-instruction-v1', {
+      schema: 'kianos.english.session-instruction.v1',
+      session_id: 'writing-ffv-cross-lane',
+      study_day: day,
+      generated_at: new Date().toISOString(),
+      current_step: 0,
+      steps: [{
+        step_id: 'translation-reconstruct',
+        task: 'translation',
+        object_id: 'translation-reconstruct-fixture',
+        label: 'Translation · unfinished reconstruction',
+        note: 'Chat selected from current English evidence'
+      }],
+      return_policy: { on_finish: 'english_home' }
     });
     await page.reload({ waitUntil: 'domcontentloaded' });
     await page.locator('[data-english-resume]').waitFor({ state: 'visible' });
-    check((await page.locator('[data-english-resume-title]').textContent()) === task.title, 'unfinished_clean_attempt_has_highest_resume_priority');
+    check((await page.locator('[data-english-resume-title]').textContent()) === 'Translation · unfinished reconstruction', 'chat_session_owns_cross_lane_resume_selection');
+    check((await page.locator('[data-english-resume-link]').getAttribute('href'))?.includes('translation-reconstruct-fixture'), 'chat_session_routes_to_selected_cross_lane_object');
 
     await clearEnglishResumeFixtures(page);
   } finally {
