@@ -64,10 +64,9 @@ const challengePacket = (target, id, extra = {}) => ({
 async function openChallenge(page, packet) {
   await goto(page, '/vocabulary/');
   await page.locator('[data-lexical-tab="repair"]').click();
-  const tools = page.locator('[data-challenge-manual-tools]');
-  if (!(await tools.getAttribute('open'))) await tools.locator('summary').click();
-  await page.locator('[data-challenge-packet-input]').fill(JSON.stringify(packet));
-  await page.locator('[data-challenge-import]').click();
+  await page.locator('[data-challenge-chat-load-button]').click();
+  await page.locator('[data-challenge-chat-paste-input]').fill(JSON.stringify(packet));
+  await page.locator('[data-challenge-chat-paste-start]').click();
   await page.locator('[data-challenge-question-panel]').waitFor({ state: 'visible' });
 }
 async function clearChallengePacket(page) {
@@ -162,10 +161,11 @@ try {
   await clearChallengePacket(page);
 
   // Explicitly qualifying delayed/unseen/unassisted target-matched evidence may make it dormant.
-  await page.locator('[data-challenge-packet-input]').fill(JSON.stringify(challengePacket(target, 'browser-delayed-success', {
+  await page.locator('[data-challenge-chat-load-button]').click();
+  await page.locator('[data-challenge-chat-paste-input]').fill(JSON.stringify(challengePacket(target, 'browser-delayed-success', {
     evidence_quality: { assistance: 'unassisted', context_novelty: 'unseen', delayed: true }
   })));
-  await page.locator('[data-challenge-import]').click();
+  await page.locator('[data-challenge-chat-paste-start]').click();
   await page.locator('[data-challenge-choice="right"]').click();
   const strongFeedback = await page.locator('[data-challenge-feedback]').innerText();
   check(strongFeedback.includes('暂时退出 Repair'), 'qualified_success_dormant', strongFeedback);
