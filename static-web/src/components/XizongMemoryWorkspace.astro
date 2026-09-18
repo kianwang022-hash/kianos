@@ -46,7 +46,7 @@ const base = import.meta.env.BASE_URL;
       <section class="xzMemoryEmpty" data-memory-empty>
         <span>Memory 还没有已释放内容</span>
         <h2>先学，不制造假复习。</h2>
-        <p>Core / Precision 会在真实 Block Complete 后进入长期库；“进入库”不等于“今天必须复习”。当前阶段先把 Memory 产品本身独立出来，Block 释放桥接最后再接。</p>
+        <p>Core / Precision 会在真实 Block Complete 后自动进入长期库；“进入库”不等于“今天必须复习”，只有真正值得回收的内容才会进入 Today。</p>
       </section>
 
       <article class="xzMemoryCard" data-memory-card hidden>
@@ -100,7 +100,7 @@ const base = import.meta.env.BASE_URL;
       </article>
 
       <article class="xzMemoryRepairCard" data-memory-repair-card hidden>
-        <header><span>Repair · bounded task</span><h2 data-repair-title></h2><p data-repair-context></p></header>
+        <header><span>Repair · 专项修补</span><h2 data-repair-title></h2><p data-repair-context></p></header>
         <dl><div><dt>为什么回来</dt><dd data-repair-reason></dd></div><div><dt>只修什么</dt><dd data-repair-action></dd></div></dl>
         <small>Repair 是专项任务，不复制 Core / Precision，也不把修完自动写成 mastery。</small>
         <div class="xzMemoryCardActions xzMemoryRepairActions">
