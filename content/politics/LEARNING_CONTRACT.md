@@ -131,10 +131,58 @@ A checkpoint is not mandatory after every small source fragment. Preserve Chengf
 
 ### Source roles
 
-- **Chengfeng** is the only continuous first-round learning mainline. Natural Unit existence, identity, boundary, and order follow the approved Chengfeng structure.
-- **Suyi** is a framework/reference source for Chat. Its useful mind-map structure should be semantically absorbed into Chat-approved Orientation / Bridge / Compression assets. The learner is not required to read Suyi separately, and Politics must not create a second Suyi learning mainline merely to preserve its original presentation.
-- **Xiao1000** is validation and transfer evidence. It may bind to one or more Natural Units/KPs but must not determine first-round learning order.
-- Different teachers may use different frameworks. Distinguish factual conflict, wording difference, and method preference. Chat decides the learner-facing result; do not hard-merge teachers into a false unified framework.
+- **Chengfeng** is the canonical Politics Knowledge backbone and the only continuous first-round learning mainline. Natural Unit existence, identity, boundary, order, concept relation and source repair ultimately resolve to Current Chengfeng-grounded Knowledge.
+- **Suyi** is the **Framework Overlay**. Its useful mind-map structure may upgrade the Chengfeng backbone into better Orientation / Framework / Bridge / Compression assets. It does not create a second course or a competing Knowledge backbone.
+- **LEG26 / 腿姐** is the **Memory Overlay**. It may upgrade a Chengfeng-grounded stable concept, identity, list, boundary or relation into an explicit durable Memory target when the same semantic claim is supported by Current Knowledge. It does not replace Chengfeng as semantic owner.
+- **Xiao1000** is validation and transfer evidence. It may bind to one or more Natural Units/KPs but must not determine first-round learning order or decide whether a stable Memory target exists.
+- Different teachers may use different frameworks. Distinguish factual conflict, wording difference, method preference and memory-priority emphasis. Chat decides the learner-facing result; do not hard-merge teachers into a false unified framework.
+
+### Three-layer content model
+
+Politics uses one backbone with two overlays:
+
+```text
+Chengfeng Current Knowledge
+= what the content is / where it belongs / how it relates
+
++ Suyi Framework Overlay
+= how the Chengfeng content is oriented, organized and compressed
+
++ LEG26 Memory Overlay
+= which Chengfeng-grounded stable objects deserve deliberate retention
+```
+
+Hard rules:
+
+1. an overlay never creates a parallel learner course;
+2. Suyi may reorganize presentation/understanding but cannot silently replace Chengfeng semantics;
+3. LEG26 may promote **memory priority** only when the promoted object remains supported by Current Chengfeng-grounded Knowledge;
+4. Xiao1000 Wrong/Uncertain evidence changes **learner-specific review priority**, not the existence of a stable shared Memory object;
+5. annual freshness is scoped only to content whose semantics, membership, legal status, policy wording or exact formulation can materially change.
+
+### Memory admission and Precision admission are different
+
+Do not use one admission bit for two different questions.
+
+```text
+Memory admission
+= is this Current-grounded object worth deliberately retaining/reconstructing?
+
+Precision admission
+= is this exact wording / hat / date / list membership safe to demand exactly?
+```
+
+A stable Memory object may therefore be admitted while its exact wording remains Precision-candidate only.
+
+Default domain direction:
+
+- **Marxism** — stable Memory may be admitted from Current Chengfeng grounding + LEG26 memory-priority support; exact wording stays separately precision-gated when needed.
+- **History** — stable historical horizontal identities/relations may be admitted to Memory; genuinely recent-history membership/delta remains freshness-gated.
+- **Mao** — stable classical theory/identity content may be admitted to Memory; thin or current-sensitive exactness stays Precision-candidate.
+- **Xi** — Current role/hierarchy/boundary models may be Memory-worthy, while current-policy wording, current-affairs membership and high-delta exact hats remain freshness-gated Precision.
+- **Ethics/Law** — stable ethics/value concepts may be admitted to Memory; current legal/normative exactness keeps a stronger source/freshness gate.
+
+Wrong/Uncertain evidence may increase repetition weight, expose a missed stable Memory target, or justify exactness work. It is not required to create the stable Memory layer itself.
 
 ### Surface roles
 

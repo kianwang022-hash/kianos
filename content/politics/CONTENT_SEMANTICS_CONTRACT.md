@@ -183,6 +183,7 @@ A chapter may therefore add one **chapter-owned** later-stage Knowledge object:
     "schema": "kianos.politics.later_stage_knowledge.v1",
     "status": "CURRENT_K_CALIBRATION",
     "compression_model": {},
+    "memory_knowledge": {},
     "precision_knowledge": {},
     "analysis_output_hooks": []
   }
@@ -204,18 +205,57 @@ It may contain:
 
 A compression model is valid only when it removes future rereading/reconstruction work. A shorter summary that creates a second course is not compression.
 
+#### `memory_knowledge`
+
+Owns the **Memory Overlay** on top of Chengfeng-grounded Knowledge.
+
+It answers:
+
+> Which already-valid Current object is worth deliberately carrying forward?
+
+It may use LEG26 / 腿姐 as memory-priority evidence, but the semantic claim must still resolve to Current Chengfeng-grounded Knowledge.
+
+Allowed admission states:
+
+- `ADMITTED_STABLE` — stable Current-grounded Memory object; may be selected by Chat for later recall/reconstruction;
+- `CANDIDATE_FRESHNESS` — memory value exists but current-year membership/meaning may change;
+- `REFERENCE_ONLY` — useful source/reference, not a durable learner Memory target.
+
+Memory admission does **not** mean verbatim recitation.
+
+Wrong/Uncertain evidence is private learner evidence that changes selection/repetition weight. It does not create shared Memory truth.
+
 #### `precision_knowledge`
 
-References sparse source-grounded Memory / Precision candidates owned by an existing `*.memory.json` sidecar when one exists.
+Owns **exactness admission**, separately from Memory admission.
 
-It may declare:
+It answers:
 
-- the sidecar owner;
-- candidate ids;
-- candidate-only vs admitted status;
-- the source/current-year blocker.
+> Is the exact wording / hat / date / list membership safe to demand exactly?
 
-It must not duplicate the full candidate wording back into the chapter object.
+Allowed directions:
+
+- `ADMITTED_STABLE` — exact target is Current-grounded and sufficiently stable;
+- `CANDIDATE_EXACTNESS` — semantic Memory is valid, but exact wording/normalization is not yet owned;
+- `CANDIDATE_FRESHNESS` — exact target depends on current-year / legal / policy refresh;
+- `NOT_APPLICABLE` — object is worth understanding/remembering but not exact recitation.
+
+A `*.memory.json` sidecar may therefore carry both:
+
+```json
+{
+  "memory_admission": "ADMITTED_STABLE",
+  "precision_admission": "CANDIDATE_EXACTNESS"
+}
+```
+
+This means “remember the distinction/model” without claiming “recite this sentence verbatim.”
+
+Historical LEG26 presence alone cannot create a new semantic claim. But when Current Chengfeng-grounded Knowledge already supports the claim, LEG26 may legitimately supply the **memory-priority overlay** without waiting for an annual handbook refresh.
+
+Freshness gates remain mandatory for genuinely time-sensitive membership, legal/normative exactness, current-policy wording and other high-delta targets.
+
+Chapter objects may reference sidecar ids and admission state, but must not duplicate the full wording back into the chapter object.
 
 #### `analysis_output_hooks`
 

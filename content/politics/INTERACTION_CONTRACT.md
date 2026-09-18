@@ -217,15 +217,17 @@ Every explicit target ref keeps its canonical eligibility / freshness / phase bo
 Hard rule:
 
 ```text
-target is candidate-only / freshness-gated / phase-gated
-→ that guard still applies inside RECONSTRUCT / TARGETED_RECALL / PRECISION / REPAIR / any other action
+target has Memory / Precision / freshness / phase eligibility
+→ the applicable guard still follows the target inside RECONSTRUCT / TARGETED_RECALL / PRECISION / REPAIR / any other action
 → changing the action label cannot bypass the target's own gate
 ```
 
 Examples:
 
-- a candidate-only Memory object cannot be surfaced through `TARGETED_RECALL` merely to avoid a `PRECISION` guard;
-- Xi high-delta exact wording cannot be surfaced in Consolidation until its current-year source gate passes;
+- a target with `memory_admission=ADMITTED_STABLE` may be used for semantic `TARGETED_RECALL` even when its `precision_admission` is still candidate-only;
+- a target whose Memory itself is freshness-gated cannot be surfaced through `TARGETED_RECALL`;
+- a stable Memory target cannot be relabeled as `PRECISION` unless its separate Precision admission passes;
+- Xi high-delta exact wording cannot be surfaced as Precision until its current-year source gate passes;
 - current legal/normative exactness cannot be surfaced until the applicable legal/source recheck passes;
 - an `ANALYSIS_OUTPUT`-only hook cannot be used as ordinary Consolidation recall merely because Chat referenced it.
 
@@ -248,7 +250,9 @@ generic Politics Memory/Review policy
 Therefore:
 
 - an `analysis_output_hooks` target remains Analysis-Output-only even when its parent `later_stage_knowledge.phase_scope` also contains `CONSOLIDATION`;
-- an explicit target `admission_blocker` or freshness gate must be resolved before exposure, even when a generic admission policy lists W/U as a possible reason to create future debt;
+- an explicit **Memory** blocker/freshness gate must be resolved before semantic recall exposure;
+- an explicit **Precision** blocker/freshness gate blocks exact recall but does not suppress an independently admitted stable Memory representation;
+- W/U may change selection/repetition priority or justify exactness work, but cannot override an unresolved current-year/legal Precision freshness gate;
 - a parent object saying a phase is supported is permission for that owner family to participate in the phase, not permission to surface every child object in that phase.
 
 This precedence is target-boundary validation, not Web review strategy.
@@ -284,10 +288,11 @@ This keeps the interface generic without making Web decide review granularity.
 
 `PRECISION`
 - Chat supplies the exact source-grounded target ref;
-- Chat supplies the activation basis, for example real W/U evidence or active phase requirement;
-- when Current K marks the domain as high-delta/current-law sensitive, Chat also supplies the applicable current-source/freshness evidence ref;
+- the target must already have an accepted `precision_admission`; Memory admission alone is insufficient;
+- Chat may supply the activation basis, for example real W/U evidence or active phase requirement, to decide whether exact work is worth doing now;
+- when Current K marks the domain as high-delta/current-law sensitive, the applicable current-source/freshness evidence must already satisfy the target guard;
 - Web validates the supplied refs/state shape and fails closed when required guard data is absent;
-- Web does not decide whether a candidate deserves activation.
+- Web does not promote Memory into Precision and does not decide whether a candidate deserves activation.
 
 `QUESTION_RETEST`
 - Chat supplies explicit stable Xiao1000 `question_id` values;

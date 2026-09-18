@@ -78,7 +78,7 @@ generic timed-task / Mock timer composition
 → not yet accepted
 ```
 
-**Next active gate: Politics L3 learner-surface UI acceptance — Home → Learn → Review → Practice visual convergence, while preserving the accepted direct-mapping and Session boundaries.**
+**Next active gate: Memory Overlay content + Runtime closure.** UI work is paused until the corrected Chengfeng / Suyi / LEG26 three-layer model and separate Memory-vs-Precision admission are fully migrated and accepted.
 
 Exact rules and scenario proof live in `INTERACTION_CONTRACT.md` and `ACCEPTANCE.md`.
 

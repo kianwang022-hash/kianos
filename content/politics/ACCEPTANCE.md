@@ -1249,3 +1249,37 @@ Politics Analysis-Output L                 PASS / Chat-primary
 Politics Mock/Final L                      PASS / Chat-primary + source-paper primary
 Politics Exam-Horizon readiness            UNTESTED
 ```
+
+
+---
+
+## Memory Overlay model correction — 2026-09-18
+
+Status: **RULE CORRECTED / CONTENT MIGRATION ACTIVE**
+
+The earlier later-stage K model over-coupled stable Memory admission with current-year exactness admission. This was too conservative for stable domains such as Marxism and most History.
+
+Corrected model:
+
+```text
+Chengfeng = canonical Knowledge backbone
+Suyi      = Framework Overlay
+LEG26     = Memory Overlay
+Xiao1000  = learner evidence / priority modulation
+```
+
+And:
+
+```text
+Memory admission ≠ Precision admission
+```
+
+Consequences:
+
+1. Current-grounded + LEG26-supported stable Marxism / History / classical Mao / stable Ethics objects may enter shared durable Memory without waiting for a new annual handbook.
+2. Exact wording, exact hats, OCR-sensitive text, current-policy wording, recent-history membership and legal/normative exactness remain separately Precision/freshness gated.
+3. Wrong/Uncertain evidence changes private review priority; it no longer serves as a prerequisite for the existence of stable shared Memory.
+4. Website/Runtime may execute only explicit Chat-selected targets and must respect the separate Memory vs Precision admission state.
+5. No overlay may replace Chengfeng semantic ownership or create a parallel course.
+
+This correction reopens only the bounded Memory-admission content/runtime layer. First-round Chengfeng learning order and accepted direct Surface Mapping remain unchanged.
