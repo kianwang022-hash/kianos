@@ -124,19 +124,27 @@ try {
     const auxHost = root.locator('[data-xizong-aux-surface] [data-learner-object-slot]');
 
     check(await answer.isHidden(), `answer_hidden_before_reveal_${item.kpId}`);
-    check((await auxHost.getAttribute('data-learner-object-slot')) !== 'kp_recall_post_reveal',
-      `precision_slot_absent_before_reveal_${item.kpId}`);
-    check(await root.locator('[data-xizong-aux-surface] [data-learner-asset="precision"]').count() === 0,
-      `precision_not_instantiated_before_reveal_${item.kpId}`);
-    check(await root.locator('[data-kp-recall-card]:not([hidden]) [data-learner-asset="precision"]:visible').count() === 0,
-      `recall_front_has_no_visible_precision_${item.kpId}`);
+    check((await auxHost.getAttribute('data-learner-object-slot')) === 'kp_recall_aux',
+      `precision_recall_context_slot_bound_${item.kpId}`);
+    check((await auxHost.getAttribute('data-representation-stage')) === 'KP_RECALL_FRONT',
+      `precision_recall_front_stage_${item.kpId}`);
+    const frontCue = auxHost.locator(`[data-learner-asset="precision"][data-learner-asset-id="${item.cueId}"]`);
+    check(await frontCue.count() === 1, `precision_context_cue_bound_before_reveal_${item.kpId}`);
+    check((await frontCue.getAttribute('data-precision-resolution')) === 'CUE_ONLY',
+      `precision_context_remains_cue_only_${item.kpId}`);
+    check((await frontCue.textContent() || '').includes(item.cue), `precision_context_text_unchanged_${item.kpId}`);
+    check(await frontCue.isVisible(), `precision_context_visible_before_reveal_${item.kpId}`);
+    check(await frontCue.locator('.xv6LearnerPrecisionExact').count() === 0,
+      `precision_context_has_no_exact_answer_before_reveal_${item.kpId}`);
 
     await card.locator('[data-kp-reveal]').click();
-    const stack = root.locator('[data-xizong-aux-surface] [data-learner-object-slot="kp_recall_post_reveal"]');
-    await stack.waitFor({ state: 'visible' });
+    await root.locator('[data-xizong-aux-surface] [data-learner-object-slot="kp_recall_aux"][data-representation-stage="KP_RECALL_REVEAL"]').waitFor({ state: 'visible' });
+    const stack = root.locator('[data-xizong-aux-surface] [data-learner-object-slot="kp_recall_aux"]');
     const cue = stack.locator(`[data-learner-asset="precision"][data-learner-asset-id="${item.cueId}"]`);
     check(await answer.isVisible(), `answer_visible_after_reveal_${item.kpId}`);
-    check(await stack.count() === 1, `precision_post_reveal_slot_bound_${item.kpId}`);
+    check(await stack.count() === 1, `precision_recall_aux_remains_bound_after_reveal_${item.kpId}`);
+    check((await stack.getAttribute('data-representation-stage')) === 'KP_RECALL_REVEAL',
+      `precision_recall_reveal_stage_${item.kpId}`);
     check(await cue.count() === 1, `precision_cue_id_bound_${item.kpId}`);
     check((await cue.textContent() || '').includes(item.cue), `precision_text_unchanged_${item.kpId}`);
     check(await cue.isVisible(), `precision_cue_visible_after_reveal_${item.kpId}`);
