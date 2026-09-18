@@ -273,3 +273,46 @@ export function buildEnglishEvidencePacket(storage, { day, now = Date.now() } = 
     exam_session: summarizeEnglishExamSession(readEnglishExamSession(storage))
   };
 }
+
+export function buildEnglishChatHandoffText(storage, { day, now = Date.now() } = {}) {
+  const evidence = buildEnglishEvidencePacket(storage, { day, now });
+  const generatedAt = new Date(now).toISOString();
+  const returnShape = {
+    schema: ENGLISH_SESSION_SCHEMA,
+    session_id: `english-${day}-chat`,
+    study_day: day,
+    generated_at: generatedAt,
+    current_step: 0,
+    steps: [{
+      step_id: 'step-1',
+      task: 'reading_a',
+      object_id: '<replace with an exact Current object id justified by the evidence>',
+      label: '<learner-facing next task label>',
+      note: '<brief reason this is the next useful action>'
+    }],
+    return_policy: { on_finish: 'english_home' }
+  };
+
+  return [
+    'KIANOS_ENGLISH_HANDOFF_V1',
+    'This packet was exported by the KianOS learner website for Chat.',
+    '',
+    'HOW TO READ IT',
+    '- EVIDENCE_JSON is factual learner/runtime state, not a recommendation, mastery claim, or task priority table.',
+    '- If GitHub access is available, first read kianwang022-hash/kianos@main content/english/CURRENT.md, then only the exact child owner needed for the task. Do not revive legacy architecture.',
+    '- Apply the current English Learning Contract: stable work stays cheap; real problems get the smallest useful repair; Chat owns cross-task next-step selection; the website only executes the selected task.',
+    '- Missing evidence means unknown, not failed. Finished work must not be turned back into Resume debt.',
+    '',
+    'WHAT CHAT SHOULD DO',
+    '- Explain the current English situation in normal language and choose a next action only when that is useful.',
+    '- If the learner only asked for review/diagnosis, answer normally; no website return object is required.',
+    '- If the learner wants the website to Resume an exact next task, include ONE JSON object matching RETURN_SHAPE. Replace the angle-bracket placeholders; task must be one of reading_a, cloze, reading_b, translation, writing, full_paper. Use exact Current object ids; never invent ids.',
+    '',
+    'RETURN_SHAPE',
+    JSON.stringify(returnShape, null, 2),
+    '',
+    'EVIDENCE_JSON',
+    JSON.stringify(evidence, null, 2)
+  ].join('\n');
+}
+
