@@ -62,6 +62,13 @@ async function setJson(page, key, value) {
   }, [key, value]);
 }
 
+async function assertNoVisibleEngineering(page, name) {
+  const text = String(await page.locator('[data-writing-runtime]').innerText()).replace(/\s+/g, ' ');
+  const forbidden = ['KIANOS_', 'Current provenance', 'sha256:', 'Private evidence ledger', 'TRANSFER_PENDING', 'REPAIR_COMPLETE'];
+  const hits = forbidden.filter((term) => text.includes(term));
+  check(hits.length === 0, name, hits.join('|'));
+}
+
 async function clearEnglishResumeFixtures(page) {
   await page.evaluate(() => {
     [
@@ -138,6 +145,7 @@ async function cleanPassJourney(browser, task) {
     check(record?.planMode === 'direct' && !record?.firstPlan, 'direct_mode_does_not_manufacture_plan');
     check(Boolean(record?.firstDraft), 'clean_first_draft_is_preserved');
     check(await page.locator('[data-writing-evidence-panel]').isHidden(), 'review_pending_has_no_transfer_attention');
+    await assertNoVisibleEngineering(page, 'review_default_surface_has_no_engineering_language');
 
     // Normal learner path: stable work exits directly without a JSON round-trip.
     await page.getByRole('button', { name: '这篇可以了', exact: true }).click();
@@ -183,6 +191,7 @@ async function repairReturnJourney(browser, task) {
     check(record?.state === 'REPAIR_NEEDED', 'problem_enters_smallest_repair');
     check(record?.reviewReturn?.firstFailureLayer === 'Content', 'repair_preserves_first_meaningful_failure');
     check(await page.locator('[data-writing-evidence-panel]').isHidden(), 'active_repair_has_no_transfer_attention');
+    await assertNoVisibleEngineering(page, 'repair_default_surface_has_no_engineering_language');
 
     await page.goto(`${BASE}/english/`, { waitUntil: 'domcontentloaded' });
     check(await page.locator('[data-english-resume]').isHidden(), 'website_does_not_auto_rank_active_writing_repair');
@@ -226,6 +235,7 @@ async function repairReturnJourney(browser, task) {
     check(record?.state === 'REPAIR_COMPLETE', 'repair_return_can_finish_without_durable_debt');
     check(record?.transferCandidate === null, 'one_off_repair_does_not_manufacture_transfer_target');
     check(await page.locator('[data-writing-evidence-panel]').isHidden(), 'repair_complete_without_target_keeps_evidence_panel_silent');
+    await assertNoVisibleEngineering(page, 'repair_complete_surface_has_no_engineering_language');
 
     await page.reload({ waitUntil: 'domcontentloaded' });
     await page.locator('[data-runtime-stage="repair-complete"]').waitFor({ state: 'visible' });
