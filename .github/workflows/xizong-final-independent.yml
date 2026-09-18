@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Preserve exact-head runtime inputs (transport only, no old verdicts)
+      - name: Preserve exact-head runtime inputs
         run: |
           mkdir -p /tmp/xizong-independent
           git rev-parse HEAD > /tmp/xizong-independent/head.txt
@@ -21,10 +21,13 @@ jobs:
       - name: Prepare current runtime dependencies
         working-directory: static-web
         run: |
-          npm ci
+          npm install --no-package-lock --no-audit --no-fund
+          npm ls astro marked --json > /tmp/xizong-independent/dependency-versions.json
           tar -czf /tmp/xizong-independent/node-modules.tar.gz node_modules
       - name: Run fresh contract-derived probes when present
+        shell: bash
         run: |
+          set -o pipefail
           if test -f static-web/scripts/test-xizong-final-independent.mjs; then
             cd static-web
             node scripts/test-xizong-final-independent.mjs 2>&1 | tee /tmp/xizong-independent/independent.txt
