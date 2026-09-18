@@ -7,9 +7,19 @@
   "teaching_shape": "CONCEPT_BOUNDARY_NORMATIVE_JUDGMENT_IDENTITY_AND_SITUATIONAL_APPLICATION",
   "canonical_mainline": "CHENGFENG",
   "source_bindings": {
-    "region_ids": ["POL27-REGION-ETHICS-C03-S01", "POL27-REGION-ETHICS-C03-S02", "POL27-REGION-ETHICS-C03-S03"],
-    "natural_unit_ids": ["POL27-CF-ETHICS-C03-S01", "POL27-CF-ETHICS-C03-S02", "POL27-CF-ETHICS-C03-S03"],
-    "suyi_refs": ["POL27-SY-ETHICS-P131-B006-Y2020"]
+    "region_ids": [
+      "POL27-REGION-ETHICS-C03-S01",
+      "POL27-REGION-ETHICS-C03-S02",
+      "POL27-REGION-ETHICS-C03-S03"
+    ],
+    "natural_unit_ids": [
+      "POL27-CF-ETHICS-C03-S01",
+      "POL27-CF-ETHICS-C03-S02",
+      "POL27-CF-ETHICS-C03-S03"
+    ],
+    "suyi_refs": [
+      "POL27-SY-ETHICS-P131-B006-Y2020"
+    ]
   },
   "chapter_orientation": {
     "core_problem": "个体理想为什么会进一步进入国家民族层面的精神共同体？",
@@ -49,28 +59,53 @@
       {
         "natural_unit_id": "POL27-CF-ETHICS-C03-S01",
         "name": "中国精神丰富内涵｜四个伟大",
-        "items": ["伟大创造精神", "伟大奋斗精神", "伟大团结精神", "伟大梦想精神"],
-        "source_refs": ["POL27-CF-ETHICS-C03-K02-N01"]
+        "items": [
+          "伟大创造精神",
+          "伟大奋斗精神",
+          "伟大团结精神",
+          "伟大梦想精神"
+        ],
+        "source_refs": [
+          "POL27-CF-ETHICS-C03-K02-N01"
+        ]
       },
       {
         "natural_unit_id": "POL27-CF-ETHICS-C03-S01",
         "name": "民族精神—时代精神核心",
-        "items": ["民族精神的核心：爱国主义", "时代精神的核心：改革创新", "民族精神与时代精神共同构成当今时代的中国精神"],
-        "source_refs": ["POL27-CF-ETHICS-C03-K03-N02", "POL27-CF-ETHICS-C03-K03-N04"]
+        "items": [
+          "民族精神的核心：爱国主义",
+          "时代精神的核心：改革创新",
+          "民族精神与时代精神共同构成当今时代的中国精神"
+        ],
+        "source_refs": [
+          "POL27-CF-ETHICS-C03-K03-N02",
+          "POL27-CF-ETHICS-C03-K03-N04"
+        ]
       },
       {
         "natural_unit_id": "POL27-CF-ETHICS-C03-S02",
         "name": "新时代爱国主义本质",
-        "items": ["坚持爱国和爱党、爱社会主义高度统一"],
-        "source_refs": ["POL27-SY-ETHICS-P131-B006-Y2020", "POL27-SY-ETHICS-P131-B007"]
+        "items": [
+          "坚持爱国和爱党、爱社会主义高度统一"
+        ],
+        "source_refs": [
+          "POL27-SY-ETHICS-P131-B006-Y2020",
+          "POL27-SY-ETHICS-P131-B007"
+        ]
       }
     ],
     "role_support": [
       {
         "natural_unit_id": "POL27-CF-ETHICS-C03-S01",
         "name": "中国精神的作用定位",
-        "items": ["凝聚中国力量的精神纽带", "激发创新创造的精神动力", "推进复兴伟业的精神支柱"],
-        "source_refs": ["POL27-CF-ETHICS-C03-K03-N01"]
+        "items": [
+          "凝聚中国力量的精神纽带",
+          "激发创新创造的精神动力",
+          "推进复兴伟业的精神支柱"
+        ],
+        "source_refs": [
+          "POL27-CF-ETHICS-C03-K03-N01"
+        ]
       }
     ],
     "deferred_precision": [
@@ -81,5 +116,93 @@
   "chapter_compression": {
     "reconstruction": "四个伟大概括中国精神丰富内涵 → 爱国主义是民族精神核心、改革创新是时代精神核心 → 民族精神 + 时代精神共同构成当代中国精神 → 爱国和爱党/爱社会主义高度统一 → 中国精神为复兴提供纽带、动力和支柱",
     "review_prompt": "闭卷回答：四个伟大是哪四个？民族精神和时代精神各自的核心是什么？它们与中国精神是什么关系？"
+  },
+  "later_stage_knowledge": {
+    "schema": "kianos.politics.later_stage_knowledge.v1",
+    "status": "CURRENT_K_REVIEWED",
+    "phase_scope": [
+      "CONSOLIDATION",
+      "PRECISION",
+      "ANALYSIS_OUTPUT"
+    ],
+    "compression_model": {
+      "cognition": "CHINESE_SPIRIT_HAT_HIERARCHY",
+      "purpose": "Reuse Current concept/boundary Knowledge as the later reconstruction owner; later review should discriminate concepts and situations rather than replay the chapter.",
+      "reconstruction_source": "chapter_compression",
+      "chapter_compression": {
+        "reconstruction": "四个伟大概括中国精神丰富内涵 → 爱国主义是民族精神核心、改革创新是时代精神核心 → 民族精神 + 时代精神共同构成当代中国精神 → 爱国和爱党/爱社会主义高度统一 → 中国精神为复兴提供纽带、动力和支柱",
+        "review_prompt": "闭卷回答：四个伟大是哪四个？民族精神和时代精神各自的核心是什么？它们与中国精神是什么关系？"
+      },
+      "decisive_boundaries": [
+        {
+          "boundary": "中国精神 ≠ 只有民族精神；民族精神 ≠ 时代精神；‘四个伟大’ ≠ 四个互不相干的课程模块。",
+          "owner_ids": [
+            "POL27-CF-ETHICS-C03-S01"
+          ]
+        },
+        {
+          "boundary": "爱国主义 ≠ 狭隘民族主义；爱国 ≠ 排斥开放合作；爱国、爱党、爱社会主义在当代中国不能被人为割裂。",
+          "owner_ids": [
+            "POL27-CF-ETHICS-C03-S02"
+          ]
+        },
+        {
+          "boundary": "创新 ≠ 为新而新；改革创新 ≠ 无视规律或否定一切传统。真正的创新要服务现实问题解决和社会进步。",
+          "owner_ids": [
+            "POL27-CF-ETHICS-C03-S03"
+          ]
+        }
+      ]
+    },
+    "precision_knowledge": {
+      "policy": "CURRENT_GROUNDED_CANDIDATE_MAP",
+      "candidate_domains": [
+        "民族精神/时代精神 core identities",
+        "中国精神 role hats",
+        "爱国主义与爱党爱社会主义关系边界",
+        "改革创新相关时代精神定位"
+      ],
+      "historical_source_slices": [
+        {
+          "from": "LEG26-UPPER-ETHICS-P208",
+          "through": "LEG26-UPPER-ETHICS-P211",
+          "scope": "专题三中国精神 + 专题四爱国主义"
+        },
+        {
+          "from": "LEG26-LOWER-ETHICS-P081",
+          "through": "LEG26-LOWER-ETHICS-P082",
+          "scope": "中国精神/爱国主义/改革创新分析题模板"
+        }
+      ],
+      "materialization_status": "CANDIDATE_OBJECTS_TO_BE_MATERIALIZED",
+      "freshness_gate": "NORMAL_CURRENT_YEAR_CORROBORATION"
+    },
+    "analysis_output_hooks": [
+      {
+        "id": "ETHICS-C03-OUT-CHINESE-SPIRIT",
+        "title": "中国精神 / 爱国主义 / 改革创新",
+        "material_cues": [
+          "中国精神",
+          "爱国主义",
+          "改革创新",
+          "民族复兴"
+        ],
+        "retrieval_target": "先分民族精神与时代精神，再选材料命中的爱国主义或改革创新展开。",
+        "answer_skeleton": [
+          "民族精神与时代精神共同构成中国精神",
+          "爱国主义是民族精神核心",
+          "改革创新是时代精神核心",
+          "新时代爱国与爱党爱社会主义高度统一",
+          "回扣材料中的责任与创新实践"
+        ],
+        "current_year_status": "STABLE_WITH_CURRENT_YEAR_WORDING_CHECK"
+      }
+    ],
+    "output_source_role": "VERY_HIGH_VALUE_CHAT_FIRST_OUTPUT_BASELINE",
+    "historical_output_value": [
+      "中国精神与爱国主义",
+      "改革创新"
+    ],
+    "first_round_effect": "NONE"
   }
 }
