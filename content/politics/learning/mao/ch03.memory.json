@@ -1,0 +1,101 @@
+{
+  "schema": "kianos.politics.memory_projection.v1",
+  "status": "CURRENT_K_REVIEWED",
+  "chapter_id": "POL27-LEARN-MAO-C03",
+  "policy": "SOURCE_GROUNDED_SELECTIVE",
+  "principle": "Candidate existence is Knowledge; durable review debt remains admission-gated.",
+  "preferred_memory_reference": {
+    "role": "DESIGNATED_MEMORY_HANDBOOK",
+    "label": "腿姐《冲刺背诵手册》",
+    "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+    "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MAO.md",
+    "rule": "Current Mao Knowledge must independently own the relation. LEG26 supports historical retention priority; current-year source/WU evidence controls durable admission."
+  },
+  "admission_gate": {
+    "default": "NOT_ADMITTED",
+    "requires_source_grounding": true,
+    "admit_when_any": [
+      "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+      "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED"
+    ],
+    "do_not_admit_for": [
+      "historical handbook presence alone",
+      "chapter importance alone",
+      "one stable correct answer"
+    ]
+  },
+  "units": {
+    "POL27-CF-MAO-C03-S01": {
+      "title": "从新民主主义到社会主义的转变",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MAO-C03-S01-M01",
+          "form": "stage_boundary",
+          "statement": "新民主主义社会是由新民主主义向社会主义转变的过渡性社会，不是一个独立的长期社会形态。",
+          "source_refs": [
+            "POL27-CF-MAO-C03-S01"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MAO-P087",
+            "LEG26-UPPER-MAO-P095"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        },
+        {
+          "id": "POL27-MEM-MAO-C03-S01-M02",
+          "form": "fixed_structure",
+          "statement": "过渡时期总路线以社会主义工业化为主体，并对农业、手工业和资本主义工商业进行社会主义改造，可压缩为‘一化三改’。",
+          "source_refs": [
+            "POL27-CF-MAO-C03-S01"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MAO-P088",
+            "LEG26-UPPER-MAO-P089"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    },
+    "POL27-CF-MAO-C03-S02": {
+      "title": "社会主义改造道路和历史经验",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MAO-C03-S02-M01",
+          "form": "path_compare",
+          "statement": "农业和手工业主要通过互助合作、由低到高的合作化形式逐步改造；资本主义工商业主要通过国家资本主义并结合和平赎买等形式逐步改造。",
+          "source_refs": [
+            "POL27-CF-MAO-C03-S02"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MAO-P089",
+            "LEG26-UPPER-MAO-P090",
+            "LEG26-UPPER-MAO-P091"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    },
+    "POL27-CF-MAO-C03-S03": {
+      "title": "社会主义制度在中国的确立",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MAO-C03-S03-M01",
+          "form": "time_identity",
+          "statement": "1956年底社会主义改造基本完成，社会主义基本制度在我国初步确立，中国进入社会主义初级阶段。",
+          "source_refs": [
+            "POL27-CF-MAO-C03-S03"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MAO-P092"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    }
+  },
+  "deferred_candidate_domains": []
+}
