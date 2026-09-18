@@ -10,6 +10,9 @@ import {
   startNextXizongQuestionRound,
   deriveXizongQuestionIdsForCurrentRound
 } from '../src/lib/xizongQuestionAttempts.mjs';
+import {
+  collectXizongRetainedEvidence
+} from '../src/lib/xizongRetainedPractice.mjs';
 
 const PORT = 4338;
 const BASE = `http://127.0.0.1:${PORT}`;
@@ -20,6 +23,8 @@ const recallShot = path.join(auditDir, 'xizong-system-exit-recall.png');
 const recallRevealShot = path.join(auditDir, 'xizong-system-exit-recall-reveal.png');
 const practiceFrontShot = path.join(auditDir, 'xizong-practice-workbench-front.png');
 const practiceShot = path.join(auditDir, 'xizong-practice-workbench.png');
+const retainedEntryShot = path.join(auditDir, 'xizong-practice-retained-entry.png');
+const retainedWorkbenchShot = path.join(auditDir, 'xizong-practice-retained-workbench.png');
 const report = {
   schema:'kianos.xizong.recall_practice_workspace.v2',
   representative:'A1/circulation',
@@ -101,6 +106,31 @@ secondPassState=startNextXizongQuestionRound(
 );
 const targetedIds=deriveXizongQuestionIdsForCurrentRound(secondPassState,sweep.questions,[holdoutYear]);
 check(targetedIds.length===2,'fixture_second_pass_two_targets',targetedIds.join(','));
+
+const respiratorySystem=loadXizongSystem('respiratory');
+const respiratorySweep=loadXizongSystemQuestionSweep(respiratorySystem);
+check(Boolean(respiratorySweep?.questions?.length),'fixture_respiratory_question_truth',String(respiratorySweep?.questions?.length||0));
+const respiratoryQuestion=respiratorySweep.questions.find((q)=>Number(q.year)!==holdoutYear);
+check(Boolean(respiratoryQuestion),'fixture_respiratory_non_holdout_question');
+const respiratoryContext={
+  systemId:respiratorySweep.systemId,
+  canonicalId:respiratorySweep.canonicalId,
+  scopeHash:respiratorySweep.scopeHash,
+  questionInventoryHash:respiratorySweep.questionInventoryHash,
+  questions:respiratorySweep.questions,
+  holdoutYears:[holdoutYear]
+};
+const respiratoryMakeId=makeIdFactory();
+let respiratoryState=ensureXizongQuestionSweepState({results:{}},respiratoryContext,{now:'2026-09-18T05:00:00.000Z',makeId:respiratoryMakeId});
+respiratoryState=recordXizongQuestionAttempt(respiratoryState,{
+  question:respiratoryQuestion,
+  status:'uncertain',
+  selected:answerLetters(respiratoryQuestion.correctAnswer),
+  context:respiratoryContext,
+  holdoutYears:[holdoutYear]
+},{now:'2026-09-18T05:10:00.000Z',makeId:respiratoryMakeId});
+const markedFixture=eligible.find((q)=>![reviewedTarget.questionId,missingTarget.questionId].includes(q.questionId));
+check(Boolean(markedFixture),'fixture_global_mark_question');
 
 const server=spawn('npm',['run','preview','--','--host','127.0.0.1','--port',String(PORT)],{
   cwd:process.cwd(),stdio:['ignore','pipe','pipe'],detached:process.platform!=='win32'
@@ -282,6 +312,72 @@ try {
     check(!(await practice2.locator('[data-relation-wrap]').isVisible()),'missing_relation_stays_silent');
     check(await practice2.locator('[data-relation-fallback]').count()===0,'missing_relation_has_no_engineering_fallback');
   }
+
+  const currentCirculationState=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),sweepKey);
+  const retainedMarkOverrides={ [markedFixture.questionId]:true };
+  const expectedRetained=collectXizongRetainedEvidence([
+    [sweepKey,currentCirculationState],
+    ['kianos:xizong:system-question-sweep:respiratory:v1',respiratoryState]
+  ],{holdoutYears:[holdoutYear],markOverrides:retainedMarkOverrides});
+  check(expectedRetained.wrongUncertainIds.length>=2,'fixture_retained_wu_cross_scope',String(expectedRetained.wrongUncertainIds.length));
+  check(expectedRetained.markedIds.includes(markedFixture.questionId),'fixture_retained_marked_scope',markedFixture.questionId);
+
+  await page.evaluate(({respiratoryState,holdoutYear,markedId})=>{
+    localStorage.setItem('kianos:xizong:system-question-sweep:respiratory:v1',JSON.stringify(respiratoryState));
+    localStorage.setItem('kianos:xizong:full-paper-holdout-years:v1',JSON.stringify([holdoutYear]));
+    const prefs=JSON.parse(localStorage.getItem('kianos:xizong:question-preferences:v1')||'{}');
+    localStorage.setItem('kianos:xizong:question-preferences:v1',JSON.stringify({
+      ...prefs,
+      questionMarks:{...(prefs.questionMarks||{}),[markedId]:true}
+    }));
+  },{respiratoryState,holdoutYear,markedId:markedFixture.questionId});
+
+  await page.goto(`${BASE}/xizong/practice/`,{waitUntil:'networkidle'});
+  const retainedEntry=page.locator('[data-retained-entry]');
+  await retainedEntry.waitFor({state:'visible'});
+  check(Number(await retainedEntry.locator('[data-retained-count="WU"]').textContent())===expectedRetained.wrongUncertainIds.length,'retained_landing_wu_count');
+  check(Number(await retainedEntry.locator('[data-retained-count="MARKED"]').textContent())===expectedRetained.markedIds.length,'retained_landing_marked_count');
+  await page.screenshot({path:retainedEntryShot,fullPage:false});
+
+  await retainedEntry.locator('[data-retained-mode="WU"]').click();
+  await page.waitForURL(/\/xizong\/practice\/retained\//);
+  const retainedPractice=page.locator('[data-xizong-practice="retained"]');
+  await retainedPractice.locator('[data-question-card]').waitFor({state:'visible'});
+  check((await retainedPractice.locator('[data-practice-scope-title]').textContent()||'').includes('错题 / 不确定'),'retained_wu_title');
+  check(await retainedPractice.locator('.xzpMapItem').count()===expectedRetained.wrongUncertainIds.length,'retained_wu_map_exact_count');
+  const firstRetainedId=expectedRetained.wrongUncertainIds[0];
+  const firstRetainedMatch=firstRetainedId.match(/official-(\d{4})-n(\d{3})/);
+  const retainedMeta=(await retainedPractice.locator('[data-question-meta]').textContent()||'').trim();
+  check(Boolean(firstRetainedMatch)&&retainedMeta.includes(firstRetainedMatch[1])&&retainedMeta.includes(`第 ${Number(firstRetainedMatch[2])} 题`),'retained_wu_preserves_recency_order',retainedMeta);
+  await scanVisibleType(retainedPractice,'practice_retained_wu');
+  await page.screenshot({path:retainedWorkbenchShot,fullPage:false});
+
+  const currentRetainedMeta=retainedMeta;
+  const currentRetainedQuestion=sweep.questions.find((q)=>currentRetainedMeta.includes(String(q.year))&&currentRetainedMeta.includes(`第 ${q.number} 题`))
+    || respiratorySweep.questions.find((q)=>currentRetainedMeta.includes(String(q.year))&&currentRetainedMeta.includes(`第 ${q.number} 题`));
+  check(Boolean(currentRetainedQuestion),'retained_current_question_resolves_for_mark_toggle',currentRetainedMeta);
+  await retainedPractice.locator('[data-question-mark]').click();
+  let globalPreferences=await page.evaluate(()=>JSON.parse(localStorage.getItem('kianos:xizong:question-preferences:v1')||'{}'));
+  check(globalPreferences?.questionMarks?.[currentRetainedQuestion.questionId]===true,'retained_mark_toggle_sets_global_override');
+  await retainedPractice.locator('[data-question-mark]').click();
+  globalPreferences=await page.evaluate(()=>JSON.parse(localStorage.getItem('kianos:xizong:question-preferences:v1')||'{}'));
+  check(globalPreferences?.questionMarks?.[currentRetainedQuestion.questionId]===false,'retained_unmark_toggle_sets_global_override_false');
+
+  await page.goto(`${BASE}/xizong/practice/`,{waitUntil:'networkidle'});
+  const retainedEntry2=page.locator('[data-retained-entry]');
+  check(Number(await retainedEntry2.locator('[data-retained-count="MARKED"]').textContent())===expectedRetained.markedIds.length,'retained_marked_count_stable_after_other_unmark');
+  await retainedEntry2.locator('[data-retained-mode="MARKED"]').click();
+  await page.waitForURL(/\/xizong\/practice\/retained\//);
+  const markedPractice=page.locator('[data-xizong-practice="retained"]');
+  await markedPractice.locator('[data-question-card]').waitFor({state:'visible'});
+  check((await markedPractice.locator('[data-practice-scope-title]').textContent()||'').includes('已标记'),'retained_marked_title');
+  check(await markedPractice.locator('.xzpMapItem').count()===expectedRetained.markedIds.length,'retained_marked_map_exact_count');
+
+  report.retained={
+    wu_count:expectedRetained.wrongUncertainIds.length,
+    marked_count:expectedRetained.markedIds.length,
+    cross_system_question:respiratoryQuestion.questionId
+  };
 
   report.status='PASS';
   report.finished_at=new Date().toISOString();
