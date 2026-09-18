@@ -172,10 +172,11 @@ this Logic Group's original Lecture contact is complete
 this Logic Group's original Lecture contact is complete
 → real reviewed Source boundary + reviewed TTSX binding
 → lightweight TTSX checkpoint
-   - remind: complete the bound questions in the original MarginNote/Lecture location
+   - show the real reviewed bound question list: question id / short stem-or-title / source page
+   - complete the questions in the original MarginNote/Lecture location
    - read answer, all options and question-side expansion there
-   - optional one-line learner note; empty is valid
-   - no per-question web answer entry
+   - every question may expose its own low-friction `+写一句` note; all notes are optional
+   - no web answer entry, scoring, classification or Question Attempt
 → start this Logic Group's KP Recall
 ```
 
