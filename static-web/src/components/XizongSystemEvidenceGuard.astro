@@ -48,13 +48,18 @@ const evidenceVersion = [
   questionEvidenceHash.toString(16)
 ].join(':');
 const blockIds = (system?.blocks || []).map((block) => block.blockId).filter(Boolean);
+const evidenceQuestions = (sweep?.questions || []).map((question) => ({
+  questionId: question.questionId,
+  year: question.year
+}));
 ---
 <span data-xizong-system-evidence-guard data-system-id={system.systemId} data-evidence-version={evidenceVersion} hidden></span>
 <script type="application/json" data-evidence-block-ids set:html={JSON.stringify(blockIds)}></script>
+<script type="application/json" data-evidence-questions set:html={JSON.stringify(evidenceQuestions).replace(/</g, '\\u003c')}></script>
 
 <script>
   const marker = document.querySelector('[data-xizong-system-evidence-guard]');
-  const root = document.querySelector('[data-xizong-system-exit]');
+  const root = document.querySelector('[data-xizong-system-exit], [data-xizong-practice]');
   if (marker instanceof HTMLElement && root instanceof HTMLElement) {
     const systemId = marker.getAttribute('data-system-id') || '';
     const version = marker.getAttribute('data-evidence-version') || '';
@@ -130,8 +135,8 @@ const blockIds = (system?.blocks || []).map((block) => block.blockId).filter(Boo
         }
       } catch {}
 
-      let data = null;
-      try { data = JSON.parse(root.querySelector('[data-sweep-payload]')?.textContent || 'null'); } catch {}
+      let evidenceQuestions = [];
+      try { evidenceQuestions = JSON.parse(document.querySelector('[data-evidence-questions]')?.textContent || '[]'); } catch {}
       const append = (event) => {
         const ledger = readJson(ledgerKey, { events: [] });
         ledger.events = [...(Array.isArray(ledger.events) ? ledger.events : []), { at: new Date().toISOString(), ...event }].slice(-300);
@@ -140,7 +145,7 @@ const blockIds = (system?.blocks || []).map((block) => block.blockId).filter(Boo
       const activeQuestionCounts = () => {
         const years = Array.isArray(readJson(holdoutKey, [])) ? readJson(holdoutKey, []) : [];
         const held = new Set(years.map(Number));
-        const active = (data?.questions || []).filter((question) => !held.has(Number(question.year)));
+        const active = evidenceQuestions.filter((question) => !held.has(Number(question.year)));
         const results = readJson(sweepKey, { results: {} })?.results || {};
         const answered = active.filter((question) => Boolean(results?.[question.questionId])).length;
         return { answered, total: active.length };
