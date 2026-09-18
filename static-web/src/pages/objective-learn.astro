@@ -13,8 +13,8 @@ const html = await marked.parse(markdown, { gfm: true, breaks: false });
 const base = import.meta.env.BASE_URL;
 ---
 <Base
-  title="Objective First Learning"
-  kicker="English · First Learning"
+  title="Objective Guide"
+  kicker="English · Guide"
   description="先掌握共同决策骨架；会的直接跳过，真题卡住再回对应 Core / Skill。"
   sourcePath={sourcePath}
   sourceHash={sourceHash}
@@ -23,13 +23,13 @@ const base = import.meta.env.BASE_URL;
 >
   <section class="objectiveLearnShell">
     <nav class="objectiveLearnNav" aria-label="Objective first learning navigation">
-      <a href="#global-map"><strong>Global Map</strong><span>共同决策骨架</span></a>
+      <a href="#global-map"><strong>整体方法</strong><span>共同决策骨架</span></a>
 
       <details open>
         <summary>Reading A</summary>
         <a href="#reading-a">Global Model</a>
         <a href="#ra-core-1">Question Demand</a>
-        <a href="#ra-core-2">Evidence Boundary</a>
+        <a href="#ra-core-2">关键证据</a>
         <a href="#ra-core-3">Option Proposition</a>
         <a href="#ra-core-4">Adjudication</a>
         <a href="#ra-skill-map">Skill Map</a>
@@ -69,7 +69,7 @@ const base = import.meta.env.BASE_URL;
         <a href="#rb-execution">Execution</a>
       </details>
 
-      <a href="#runtime-bridge"><strong>Runtime Bridge</strong><span>学完以后怎么进入真实训练</span></a>
+      <a href="#runtime-bridge"><strong>进入真题</strong><span>学到够用以后立即回到训练</span></a>
 
       <div class="objectiveLearnPractice">
         <span>回到训练</span>
@@ -85,7 +85,7 @@ const base = import.meta.env.BASE_URL;
           <span>可跳过 · 使用方式</span>
           <strong>会的跳过，卡住再回来。</strong>
         </div>
-        <p>Core Blocks 和 Deep Skill 都完整保留。已经会的直接跳过；能稳定解释并在真题里执行的机制不重复学习；只有真实题暴露卡点时才回对应节点。</p>
+        <p>核心内容和进阶内容都完整保留。已经会的直接跳过；能稳定解释并在真题里执行的机制不重复学习；只有真实题暴露卡点时才回对应节点。</p>
         <div class="objectiveFastTrackRules">
           <b>不会 → 连续学</b>
           <b>会 → 直接跳</b>
