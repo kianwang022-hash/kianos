@@ -269,21 +269,19 @@
       "cross_unit_confusables": []
     },
     "precision_knowledge": {
-      "policy": "CURRENT_GROUNDED_CANDIDATE_DOMAIN",
-      "candidate_domains": [
-        "第二次结合 identity",
-        "《论十大关系》定位/基本方针",
-        "社会主义社会矛盾 identities",
-        "中国工业化道路 fixed structure",
-        "改革开放前后历史时期 relation"
+      "policy": "REFERENCE_MEMORY_SIDECAR",
+      "owner_path": "content/politics/learning/mao/ch04.memory.json",
+      "candidate_ids": [
+        "POL27-MEM-MAO-C04-S01-M01",
+        "POL27-MEM-MAO-C04-S01-M02",
+        "POL27-MEM-MAO-C04-S01-M03"
       ],
-      "historical_source_refs": [
-        "LEG26-UPPER-MAO-P093",
-        "LEG26-UPPER-MAO-P094",
-        "LEG26-UPPER-MAO-P095",
-        "LEG26-UPPER-MAO-P096"
+      "admission_state": "CANDIDATE_ONLY",
+      "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+      "deferred_domains": [
+        "中国工业化道路完整‘农轻重/两条腿走路’固定列表"
       ],
-      "materialization_status": "CANDIDATE_OBJECTS_TO_BE_MATERIALIZED_BELOW"
+      "rule": "Current Knowledge + inspected historical handbook support creates candidate-only precision; durable Memory remains admission-gated."
     },
     "analysis_output_hooks": [],
     "analysis_output_status": "NO_DEDICATED_LEG26_OUTPUT_BANK_DO_NOT_INVENT",
