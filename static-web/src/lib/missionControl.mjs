@@ -47,6 +47,59 @@ function firstParagraph(text) {
   return clean(String(text || '').split(/\n\s*\n/).find(part => part.trim() && !part.trim().startsWith('```')) || '');
 }
 
+function markdownTable(sectionText) {
+  const rows = [];
+  for (const raw of String(sectionText || '').split('\n')) {
+    const line = raw.trim();
+    if (!line.startsWith('|') || /^\|\s*-/.test(line)) continue;
+    const cells = line.split('|').slice(1, -1).map(clean);
+    if (cells.length < 3 || /^program$/i.test(cells[0])) continue;
+    rows.push(cells);
+  }
+  return rows;
+}
+
+function activeProgramRows(rootText) {
+  return markdownTable(section(rootText, 'Active programs')).map(([name, state, continueFrom]) => ({
+    name,
+    state,
+    continueFrom
+  }));
+}
+
+function rootRole(rootText) {
+  const match = rootText.match(/Role:\s*\*\*([^*]+)\*\*/i);
+  return clean(match?.[1] || 'Control Tower + root router');
+}
+
+function firstCodeLineAfter(text, phrase) {
+  const index = String(text || '').indexOf(phrase);
+  if (index < 0) return '';
+  const tail = String(text).slice(index);
+  const match = tail.match(/```text\s*\n([\s\S]*?)```/);
+  if (!match) return '';
+  return clean(match[1].split('\n').find(line => line.trim()) || '');
+}
+
+function programRow(rows, matcher) {
+  return rows.find(row => matcher.test(row.name)) || null;
+}
+
+function laneSnapshot({ id, label, row, text: laneText, stateHeading, source, fallbackNext }) {
+  const state = clean(row?.state || 'router-only');
+  const blocked = /\bBLOCKED\b|阻塞/i.test(state);
+  return {
+    id,
+    label,
+    active: state,
+    engineering: firstParagraph(section(laneText, stateHeading)) || '按该科 Current 路由维护',
+    learner: 'Learner Truth 仅来自私有真实学习 / runtime evidence',
+    blocker: blocked ? state : 'none',
+    next: fallbackNext || (row ? `按 ${row.name} Current 继续` : '按该科 Current 继续'),
+    source
+  };
+}
+
 function lexicalTruth(text) {
   const match = text.match(/## Current truth\s*\n\s*```text\s*\n([\s\S]*?)```/);
   const rows = {};
@@ -78,64 +131,70 @@ export function buildMissionControlSnapshot() {
   const englishText = read(SOURCES.english);
   const politicsText = read(SOURCES.politics);
   const lexicalText = read(SOURCES.lexical);
-  const lex = lexicalTruth(lexicalText);
+
+  const rows = activeProgramRows(rootText);
   const xProgram = xizongProgram(xizongProgramText);
+  const activeRows = rows.filter(row => /\bACTIVE\b/i.test(row.state));
+  const blockedRows = rows.filter(row => /\bBLOCKED\b|阻塞/i.test(row.state));
+
+  const xRow = programRow(rows, /Xizong Content/i);
+  const eRow = programRow(rows, /English Content/i);
+  const pRow = programRow(rows, /Politics Content/i);
+  const lRow = programRow(rows, /Lexical backend Content/i);
+
+  const xNext = firstCodeLineAfter(xizongProgramText, 'Required sequence now:')
+    || '按 Xizong Content Mainline 的 active branch / exact cursor 继续';
 
   return {
     project: {
-      active: field(rootText, ['Active scope']) || 'router-only',
-      stage: field(rootText, ['Current stage']),
-      blocker: field(rootText, ['Blocker']) || 'none',
-      next: field(rootText, ['Next action']),
+      active: activeRows.length ? activeRows.map(row => row.name).join(' / ') : 'router-only',
+      stage: rootRole(rootText),
+      blocker: blockedRows.length ? blockedRows.map(row => row.name).join(' / ') : 'none',
+      next: activeRows.length ? `继续：${activeRows.map(row => row.name).join(' / ')}` : '按各 program Current 继续',
       source: SOURCES.root
     },
     lanes: [
       {
-        id: 'xizong',
-        label: '西综',
-        active: xProgram.priority || field(xizongText, ['Active lane-level scope']),
-        engineering: xProgram.phase || '按各 System Current 推进',
-        learner: '真实学习进度只来自私有 learner evidence',
-        blocker: field(xizongText, ['Blocker']) || 'none',
-        next: field(xizongText, ['Next action']),
-        source: SOURCES.xizong,
+        ...laneSnapshot({
+          id: 'xizong',
+          label: '西综',
+          row: xRow,
+          text: xizongText,
+          stateHeading: 'Current state',
+          source: SOURCES.xizong,
+          fallbackNext: xNext
+        }),
+        active: xProgram.priority || clean(xRow?.state || 'router-only'),
+        engineering: xProgram.phase || firstParagraph(section(xizongText, 'Current state')) || '按各 System Current 推进',
         detailSource: SOURCES.xizongProgram
       },
-      {
+      laneSnapshot({
         id: 'english',
         label: '英语',
-        active: field(englishText, ['Active lane-level scope']) || 'router-only',
-        engineering: field(englishText, ['Module engineering state']),
-        learner: field(englishText, ['Learner state']),
-        blocker: field(englishText, ['Blocker']) || 'none',
-        next: field(englishText, ['Next action']),
-        source: SOURCES.english
-      },
-      {
+        row: eRow,
+        text: englishText,
+        stateHeading: 'Current engineering state',
+        source: SOURCES.english,
+        fallbackNext: '真实学习优先；工程只修 concrete learner-visible defect'
+      }),
+      laneSnapshot({
         id: 'politics',
         label: '政治',
-        active: field(politicsText, ['Current product task']) || field(politicsText, ['Learning-engineering scope']),
-        engineering: field(politicsText, ['Learning-engineering scope']),
-        learner: '五科 S/K/L/P/R/E 已收口；U 仍需真实使用',
-        blocker: field(politicsText, ['Learning blocker']) || 'none',
-        next: field(politicsText, ['Learning next action']),
-        source: SOURCES.politics
-      },
-      {
+        row: pRow,
+        text: politicsText,
+        stateHeading: 'Current state',
+        source: SOURCES.politics,
+        fallbackNext: '正常 learner use 优先；只按 concrete defect reopen 最小 owner'
+      }),
+      laneSnapshot({
         id: 'lexical',
         label: 'Lexical',
-        active: lex['active Lexical engineering gate'] || 'NONE',
-        engineering: [
-          lex['full-catalog K acceptance'],
-          lex['Projection acceptance'],
-          lex['Runtime acceptance'],
-          lex['Evidence acceptance']
-        ].filter(Boolean).join(' · '),
-        learner: lex['Learner validation'] || '',
-        blocker: lex['active Lexical engineering gate'] === 'NONE' ? 'none' : lex['active Lexical engineering gate'],
-        next: firstParagraph(section(lexicalText, 'Exact next action')),
-        source: SOURCES.lexical
-      }
+        row: lRow,
+        text: lexicalText,
+        stateHeading: 'Current state',
+        source: SOURCES.lexical,
+        fallbackNext: firstParagraph(section(lexicalText, 'Exact next action')) || '真实 learner use'
+      })
     ]
   };
 }
