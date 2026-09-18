@@ -150,26 +150,17 @@
       ]
     },
     "precision_knowledge": {
-      "policy": "CURRENT_GROUNDED_CANDIDATE_MAP",
-      "candidate_domains": [
-        "理想/信念 traits",
-        "理想与现实 dialectical relation",
-        "个人理想/共同理想 layers"
+      "policy": "REFERENCE_MEMORY_SIDECAR",
+      "owner_path": "content/politics/learning/ethics-law/ch02.memory.json",
+      "candidate_ids": [
+        "POL27-MEM-ETHICS-C02-S01-M01",
+        "POL27-MEM-ETHICS-C02-S03-M01"
       ],
-      "historical_source_slices": [
-        {
-          "from": "LEG26-UPPER-ETHICS-P206",
-          "through": "LEG26-UPPER-ETHICS-P208",
-          "scope": "专题二：理想信念选择题压缩"
-        },
-        {
-          "from": "LEG26-LOWER-ETHICS-P079",
-          "through": "LEG26-LOWER-ETHICS-P080",
-          "scope": "理想专题分析题模板"
-        }
-      ],
-      "materialization_status": "CANDIDATE_OBJECTS_TO_BE_MATERIALIZED",
-      "freshness_gate": "NORMAL_CURRENT_YEAR_CORROBORATION"
+      "admission_state": "CANDIDATE_ONLY",
+      "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+      "deferred_domains": [],
+      "freshness_gate": "NORMAL",
+      "rule": "Current concept/boundary Knowledge plus inspected historical support creates candidate-only precision; durable Memory remains admission-gated."
     },
     "analysis_output_hooks": [
       {
