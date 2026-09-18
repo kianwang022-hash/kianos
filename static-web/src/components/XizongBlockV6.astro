@@ -200,7 +200,7 @@ const ttsx = block?.ttsx || { checkpoints: [] };
             <div>
               <button type="button" data-block-recall-complete disabled>完成 Block Recall</button>
               <button type="button" class="portedPrimaryAction" data-block-complete disabled>确认 Block 第一轮完成</button>
-              <a href={`${base}xizong/${block.systemId}/`} data-block-return-system>返回 System</a>
+              <a href={`${base}xizong/${block.systemId}/`} data-block-return-system hidden>返回 System</a>
             </div>
           </footer>
         </section>
@@ -333,6 +333,8 @@ const ttsx = block?.ttsx || { checkpoints: [] };
       }
       const completeButton = root.querySelector('[data-block-complete]');
       if (completeButton) completeButton.disabled = !canComplete() || state.completed;
+      const returnSystem = root.querySelector('[data-block-return-system]');
+      if (returnSystem instanceof HTMLElement) returnSystem.hidden = !state.completed;
       root.querySelector('[data-block-complete-title]')?.replaceChildren(document.createTextNode(state.completed ? '本 Block 第一轮已在本机记录完成' : canComplete() ? '本轮检查点已满足' : '还没有满足本轮检查点'));
       const contactText = sourcePerGroup ? `学习接触 ${learnedCount()}/${totalKp}` : `连续 Source ${state.sourceContactDone ? '已确认' : '未确认'}`;
       root.querySelector('[data-block-complete-detail]')?.replaceChildren(document.createTextNode(`${contactText} · Recall ${recallCount()}/${totalKp} · Block Recall ${state.blockRecallDone ? '完成' : '未完成'}`));
