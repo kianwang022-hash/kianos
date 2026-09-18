@@ -149,7 +149,7 @@
     const referencePanel = diagnosis.querySelector('[data-reference-panel]');
     if (returnBox || importActions || copyActions) {
       const advanced = node('details', 'productiveAdvanced');
-      const summary = node('summary', '', '高级：结构化证据 / Transfer');
+      const summary = node('summary', '', '高级：结构化回写（一般不需要）');
       advanced.appendChild(summary);
       if (copyActions) advanced.appendChild(copyActions);
       if (returnBox) advanced.appendChild(returnBox);
@@ -307,7 +307,7 @@
     const importReview = review.querySelector('[data-import-review]')?.closest('.writingActions');
     if (reviewPacket || returnField || importReview) {
       const advanced = node('details', 'productiveAdvanced');
-      advanced.appendChild(node('summary', '', '高级：结构化证据 / Transfer'));
+      advanced.appendChild(node('summary', '', '高级：结构化回写（一般不需要）'));
       if (reviewPacket) advanced.appendChild(reviewPacket);
       if (returnField) advanced.appendChild(returnField);
       if (importReview) advanced.appendChild(importReview);
