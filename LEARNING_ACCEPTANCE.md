@@ -355,6 +355,27 @@ Learner order is not automatically construction order. Two independently owned a
 
 ---
 
+### Pre-P condition: realized Content must be closed
+
+When a module uses a distinct Content-realization step after K/L acceptance, P does not become eligible merely because the files exist.
+
+Before P starts, the realized Content must receive a bounded closure/readback proving that it still faithfully carries the accepted K/L semantics and has not introduced schema/UI-driven drift.
+
+This is **not an eighth S/K/L/P/R/E/U gate**. It is the completion condition of the upstream Content-realization work that P consumes.
+
+A substantial realization should challenge at least:
+
+- semantic fidelity to K;
+- learner timing/priority fidelity to L;
+- content sufficiency without uniform-field formalism;
+- negative space / reference-only boundaries;
+- single-owner/provenance discipline;
+- absence of page-geometry semantics inside Content.
+
+If this readback finds a material defect, reopen the smallest upstream Content/K/L owner and keep affected P frozen.
+
+---
+
 ## P｜Projection — Does the learner-facing display serve the learning path?
 
 > **Content structure ≠ page structure.**
