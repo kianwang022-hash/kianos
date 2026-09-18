@@ -10,11 +10,11 @@ Rule: current website work only. Long-lived Visual rules live in Presentation/St
 ```text
 Shared Visual / Shell landed
 → Home accepted
-→ English vertical landed
-→ Xizong + Politics learner surfaces active
-→ representative browser proof
-→ Human Gate
+→ English + Lexical landed
+→ Xizong material learner surfaces landed
+→ Politics learner surface closure active
 → UI Closure / CSS ownership consolidation
+→ Learner Data / Chat Handoff closure
 → final regression
 → launch
 ```
@@ -27,10 +27,10 @@ Architecture-level website blocker: **none**.
 
 | Lane | State | Active ref / continue from |
 | --- | --- | --- |
-| Xizong UI | **ACTIVE · BLOCK/TTSX + SYSTEM RECALL + PRACTICE HUMAN GATES CLOSED** | `main` → `XIZONG_VISUAL_LANGUAGE.md` (L2) → exact L3 surface owner |
-| Politics UI | **ACTIVE** | formal `#395` / `work/ui-politics-vertical-20260918`; preview `#397` stays isolated until Human Gate |
+| Xizong UI | **LANDED · MATERIAL HUMAN GATES CLOSED** | `main` → exact accepted Xizong surface owner; reopen only concrete defects |
+| Politics UI | **ACTIVE · ONLY MATERIAL SUBJECT UI REMAINING** | `main` → `POLITICS_PRODUCT_BRIEF.md` → current Politics renderer; old #395 is stale evidence, not a merge target |
 | English UI | **LANDED** | `content/english/CURRENT.md` |
-| Lexical Architecture v2 | **ACTIVE** | `content/lexical/CURRENT.md` → `static-web/LEXICAL_PRODUCT_BRIEF.md` → representative learner surfaces |
+| Lexical / Vocabulary UI | **LANDED · HUMAN GATES CLOSED** | `content/lexical/CURRENT.md` → normal use / concrete defects only |
 
 Do not revive historical UI migrations merely because old branches/PRs still exist.
 
@@ -40,13 +40,11 @@ Do not revive historical UI migrations merely because old branches/PRs still exi
 
 ### UI Closure / CSS ownership consolidation — **WAITING FOR SUBJECT HUMAN GATES**
 
-This is the next website-wide engineering mainline after the active Xizong and Politics material visuals are accepted.
+This is the next website-wide engineering mainline after the remaining Politics material visual is accepted.
 
 Start condition:
 
 ```text
-Xizong material UI Human Gate closed
-+
 Politics material UI Human Gate closed
 +
 accepted Surface Blueprints recorded
@@ -182,10 +180,11 @@ CI green is not visual acceptance.
 
 ## Current next actions
 
-- **Xizong:** Block/TTSX, dedicated System Recall, Practice front/back, and global retained W/U/Marked are in `main` with real macOS Human Gates closed. Whole-paper/year scope + Hidden result + Seal → unified score → same-Workbench Review is implemented in **PR #455** and is at the final real-macOS Human Gate; do not merge it until Kian accepts the exact-head Front + sealed Result surfaces. Historical years keep their own real paper shape; Website must not normalize all years to one question count. CHAT_SET manual import already exists; typed Chat Return integration stays with the separate Learner Data / Chat Handoff lane.
-- **Politics:** continue from the cleaned SurfacePlan-only renderer path; Visual may arrange mapped objects but must not author semantic grouping/relations.
-- **English:** only concrete launch-visible defects; do not reopen accepted task geometry.
-- **Lexical:** execute Architecture-v2 adaptation from current Rule + canonical Content; first Human Gates are Vocabulary Home and representative SAFE_SIMPLE / DEPTH_READY Word surfaces. Do not treat prior P/R/E PASS as current visual Human-Gate approval.
+- **Xizong:** learner-facing material UI is landed through whole-paper/year Hidden → Seal → score → same-Workbench Review. Block/TTSX, System Recall, Practice front/back, global retained W/U/Marked and whole-paper are all in `main` with real macOS Human Gates closed. Reopen only concrete defects. Typed Chat Return and durable learner-data recovery stay with the shared Learner Data / Chat Handoff lane.
+- **Politics:** this is the only remaining material subject-UI closure. The old #395 branch is heavily diverged from Current main and must not be merged as-is; replay only still-valid Politics surface behavior from current `main`, then obtain real-browser Human Gate.
+- **English:** landed; fix only concrete launch-visible defects.
+- **Lexical:** Vocabulary v2 learner-surface closure and English exact handoff/return are accepted; normal use only unless a concrete defect appears.
+- **Platform:** after Politics Human Gate, close learner-data durability / typed Chat Return and run final cross-subject regression. UI/CSS ownership cleanup is maintenance, not a new learner product.
 
 Exact branch/PR/cursor state must be read from the active owner/ref before work.
 
