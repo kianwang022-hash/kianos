@@ -300,6 +300,25 @@ const payload = JSON.stringify({
     const showChatSetError = (title, body) => showScopeError('Chat 训练', title, body);
     const showRetainedError = (title, body) => showScopeError('回收训练', title, body);
 
+    if (data?.scopeKind === 'SYSTEM') {
+      const recallState = readJson(`kianos:xizong:system-recall:${initialSystemId}:v1`, null);
+      if (!recallState?.completedAt) {
+        showScopeError(
+          '系统训练',
+          '先完成 System Recall',
+          '系统真题只在整个 System 学完并完成一次系统级闭卷重建后释放。当前先回到 System Recall。'
+        );
+        const controls = root.querySelector('.xzpControls');
+        if (controls instanceof HTMLElement) controls.hidden = true;
+        const returnLink = root.querySelector('[data-chat-set-gate] a');
+        if (returnLink instanceof HTMLAnchorElement) {
+          returnLink.href = `${data.base}xizong/${initialSystemId}/recall/`;
+          returnLink.textContent = '去 System Recall';
+        }
+        return;
+      }
+    }
+
     const hydrateQuestionIds = async (ids) => {
       const years = [...new Set(ids.map((id) => id.match(/official-(\d{4})-/)?.[1]).filter(Boolean))];
       const banks = await Promise.all(years.map(async (year) => {
