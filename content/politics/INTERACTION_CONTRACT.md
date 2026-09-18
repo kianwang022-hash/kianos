@@ -207,6 +207,26 @@ The Web is not deciding whether the target is worth learning. It is only enforci
 
 If the runtime cannot verify a referenced target's eligibility / phase / freshness boundary, it must fail closed and return a bounded blocker to Chat rather than infer permission.
 
+Guard precedence is specific-to-general:
+
+```text
+target-local admission_blocker / freshness_gate / semantic role
+>
+target-owner local policy
+>
+parent phase_scope
+>
+generic Politics Memory/Review policy
+```
+
+Therefore:
+
+- an `analysis_output_hooks` target remains Analysis-Output-only even when its parent `later_stage_knowledge.phase_scope` also contains `CONSOLIDATION`;
+- an explicit target `admission_blocker` or freshness gate must be resolved before exposure, even when a generic admission policy lists W/U as a possible reason to create future debt;
+- a parent object saying a phase is supported is permission for that owner family to participate in the phase, not permission to surface every child object in that phase.
+
+This precedence is target-boundary validation, not Web review strategy.
+
 #### Scope is not chapter-only
 
 The scope model must support cross-chapter consolidation when Current K owns a genuine cross-chapter structure.
