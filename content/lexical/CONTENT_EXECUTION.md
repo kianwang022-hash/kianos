@@ -70,6 +70,51 @@ This matrix belongs in the receipt / audit evidence, not in semantic Natural Own
 
 ---
 
+## 3B. Pre-change Kian Human Gate
+
+Baseline-v2 review is **read-first, report-first, mutate-second**.
+
+A worker may inspect and classify a bounded shard without approval. It must not mutate canonical lexical Content merely because it found a defect.
+
+Required sequence:
+
+```text
+fresh read
+→ identify exact problem(s)
+→ report to Kian in plain language
+→ show why each problem violates a frozen module rule
+→ show the smallest proposed fix
+→ Kian approves
+→ mutate only the approved modules / owners
+→ final-object readback
+→ report what actually changed
+```
+
+The pre-change report must include, for every proposed mutation:
+
+- exact word;
+- exact module;
+- what is wrong now;
+- why it matters to learning / transfer / testing;
+- allowed gap reason from §4A;
+- smallest proposed change;
+- whether learner-page/UI is affected (normally **no**).
+
+Hard rules:
+
+- no semantic Content mutation before Kian approval;
+- no bundling hidden extra fixes into an approved change;
+- approval for one shard does not authorize later shards;
+- `PRESERVE` / `NOT_NEEDED` decisions may be recorded without mutation;
+- mechanical derived materialization after an approved semantic change does not need a second approval;
+- a critical correctness defect may be reported immediately, but still waits for approval unless leaving it unmodified would corrupt already-running data.
+
+This Human Gate applies to Word / Relation / Form truth and derived Repair Test blueprint edits.
+
+Learner-page / UI changes remain governed separately and are never implied by Content approval.
+
+---
+
 ## 4. Fresh judgment and readback
 
 Each owner in a shard receives exactly one current-generation decision:

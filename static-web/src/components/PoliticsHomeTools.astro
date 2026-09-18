@@ -6,18 +6,47 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
 ---
 <section class="politicsHomeTools" data-politics-home-tools data-base={base} data-has-handoff="false">
   <script type="application/json" data-politics-home-catalog set:html={JSON.stringify(catalog).replace(/</g, '\\u003c')} />
-  <a class="politicsContinue" data-politics-continue href={firstHref}>
-    <span>Continue</span>
+
+  <a class="politicsContinueCard" data-politics-continue href={firstHref}>
+    <span class="politicsHomeEyebrow">继续学习</span>
     <strong data-politics-continue-title>{firstLabel}</strong>
-    <small data-politics-continue-meta>先选学习单元；之后回到原题、原学习位置。</small>
+    <small data-politics-continue-meta>先选科目和章节；之后会准确回到原题或原学习位置。</small>
+    <b>继续 →</b>
   </a>
-  <section class="politicsHandoff" data-politics-handoff hidden>
-    <div>
-      <span>需要带回 Chat</span>
-      <a class="politicsReviewEntry" data-politics-review-entry href={`${base}politics/review/`}>今日回访 →</a>
-      <p data-politics-handoff-summary>今天还没有需要带回 Chat 的政治证据。</p>
+
+  <section class="politicsTodayCard" aria-labelledby="politics-today-title">
+    <header>
+      <div>
+        <span class="politicsHomeEyebrow">今天</span>
+        <h2 id="politics-today-title">今日记录</h2>
+      </div>
+      <a href={`${base}politics/review/`} data-politics-review-entry>复习 →</a>
+    </header>
+
+    <div class="politicsTodayMetrics">
+      <div><strong data-politics-today-attempts>0</strong><span>题</span></div>
+      <div><strong data-politics-today-wrong>0</strong><span>错题</span></div>
+      <div><strong data-politics-today-uncertain>0</strong><span>不确定</span></div>
     </div>
-    <button type="button" data-politics-copy-handoff hidden>Copy Today's Handoff</button>
+
+    <section class="politicsHandoff" data-politics-handoff hidden>
+      <p data-politics-handoff-summary>今天还没有需要处理的政治证据。</p>
+      <button type="button" data-politics-copy-handoff hidden>复制学习包</button>
+    </section>
+    <p class="politicsTodayQuiet" data-politics-today-quiet>今天还没有做题记录。</p>
+  </section>
+
+  <section class="politicsRecentCard" aria-labelledby="politics-recent-title">
+    <header>
+      <div>
+        <span class="politicsHomeEyebrow">最近</span>
+        <h2 id="politics-recent-title">学习痕迹</h2>
+      </div>
+      <a href={`${base}politics/learn/`}>进入学习 →</a>
+    </header>
+    <div class="politicsRecentList" data-politics-recent-list>
+      <p>还没有政治学习记录。第一次进入后，这里会保留最近的位置和题目痕迹。</p>
+    </div>
   </section>
 </section>
 
@@ -29,9 +58,11 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
     const catalog = JSON.parse(catalogNode?.textContent || '{}');
     catalogNode?.remove();
     const base = root.dataset.base || '/';
-    const firstHref = root.querySelector('[data-politics-continue]')?.getAttribute('href') || `${base}politics/`;
-    const firstTitle = root.querySelector('[data-politics-continue-title]')?.textContent || '开始政治学习';
+    const firstHref = root.querySelector('[data-politics-continue]')?.getAttribute('href') || `${base}politics/learn/`;
+    const firstTitle = root.querySelector('[data-politics-continue-title]')?.textContent || '选择科目和章节';
     const localStudyDay = () => new Date().toLocaleDateString('en-CA');
+
+    const outcomeLabel = (outcome) => outcome === 'WRONG' ? '错题' : outcome === 'UNCERTAIN' ? '不确定' : '已完成';
 
     const renderContinue = (snapshot) => {
       const target = snapshot.errors.length ? null : resolvePoliticsContinue(catalog, snapshot, base);
@@ -40,39 +71,108 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
       const title = root.querySelector('[data-politics-continue-title]');
       const meta = root.querySelector('[data-politics-continue-meta]');
       if (title) title.textContent = target?.title || firstTitle;
-      if (meta) meta.textContent = snapshot.errors.length ? '记录未能完整读取，先核对存储。' : target?.detail || '先选学习单元；之后准确回到原位置。';
+      if (meta) meta.textContent = snapshot.errors.length
+        ? '记录未能完整读取，先进入复习核对。'
+        : target?.detail || '先选科目和章节；之后会准确回到原位置。';
     };
 
     const actionableItems = (review) => review.items.filter((item) => item.needsReview);
 
-    const renderHandoff = (snapshot, todayReview) => {
+    const todayAttemptIds = (snapshot, day) => {
+      const ids = new Set();
+      for (const unit of Object.values(snapshot.attempts?.units || {})) {
+        for (const attempt of Object.values(unit?.attempts || {})) {
+          if (attempt?.study_day === day && attempt?.question_id) ids.add(attempt.question_id);
+        }
+      }
+      return ids;
+    };
+
+    const renderToday = (snapshot, todayReview) => {
+      const day = localStudyDay();
+      const items = actionableItems(todayReview);
+      const attempts = todayAttemptIds(snapshot, day);
+      const wrong = items.filter((item) => item.outcome === 'WRONG').length;
+      const uncertain = items.filter((item) => item.outcome === 'UNCERTAIN').length;
       const handoff = root.querySelector('[data-politics-handoff]');
       const summary = root.querySelector('[data-politics-handoff-summary]');
       const button = root.querySelector('[data-politics-copy-handoff]');
-      if (!(handoff instanceof HTMLElement) || !(button instanceof HTMLButtonElement) || !summary) return;
+      const quiet = root.querySelector('[data-politics-today-quiet]');
 
+      root.querySelector('[data-politics-today-attempts]')?.replaceChildren(String(attempts.size));
+      root.querySelector('[data-politics-today-wrong]')?.replaceChildren(String(wrong));
+      root.querySelector('[data-politics-today-uncertain]')?.replaceChildren(String(uncertain));
+
+      if (!(handoff instanceof HTMLElement) || !(button instanceof HTMLButtonElement) || !summary || !quiet) return;
       if (snapshot.errors.length) {
         root.dataset.hasHandoff = 'error';
         handoff.hidden = false;
         button.hidden = true;
-        summary.textContent = '回访记录未能完整读取，当前不生成 Handoff；先进入回访核对。';
+        quiet.setAttribute('hidden', '');
+        summary.textContent = '记录未能完整读取，先进入复习核对。';
         return;
       }
-
-      const items = actionableItems(todayReview);
       if (!items.length) {
         root.dataset.hasHandoff = 'false';
         handoff.hidden = true;
         button.hidden = true;
+        quiet.toggleAttribute('hidden', attempts.size > 0);
+        quiet.textContent = attempts.size ? '今天没有待处理的错题或不确定题。' : '今天还没有做题记录。';
         return;
       }
 
-      const wrong = items.filter((item) => item.outcome === 'WRONG').length;
-      const uncertain = items.filter((item) => item.outcome === 'UNCERTAIN').length;
       root.dataset.hasHandoff = 'true';
       handoff.hidden = false;
       button.hidden = false;
-      summary.textContent = `今天 ${items.length} 条需要处理 · ${wrong} Wrong · ${uncertain} Uncertain。`;
+      quiet.setAttribute('hidden', '');
+      summary.textContent = `还有 ${items.length} 题值得回看。`;
+    };
+
+    const renderRecent = (snapshot) => {
+      const list = root.querySelector('[data-politics-recent-list]');
+      if (!(list instanceof HTMLElement)) return;
+      const rows = [];
+      const seen = new Set();
+      const events = [...(snapshot.events || [])]
+        .filter((event) => event?.question_id)
+        .sort((a, b) => String(b.observed_at || '').localeCompare(String(a.observed_at || '')));
+      for (const event of events) {
+        if (seen.has(event.question_id)) continue;
+        seen.add(event.question_id);
+        const q = catalog.questions?.find((candidate) => candidate.id === event.question_id);
+        if (!q) continue;
+        const currentOutcome = snapshot.meta?.latestOutcome?.[q.id] || event.outcome;
+        rows.push({
+          title: `${q.subjectLabel} · ${q.chapterTitle}`,
+          meta: `第 ${q.number} 题 · ${outcomeLabel(currentOutcome)}`,
+          href: `${base}politics/practice/`
+        });
+        if (rows.length === 3) break;
+      }
+
+      if (!rows.length && snapshot.last?.href) {
+        rows.push({
+          title: snapshot.last.title || '上次学习位置',
+          meta: '上次停在这里',
+          href: snapshot.last.href
+        });
+      }
+
+      if (!rows.length) {
+        list.innerHTML = '<p>还没有政治学习记录。第一次进入后，这里会保留最近的位置和题目痕迹。</p>';
+        return;
+      }
+
+      list.replaceChildren(...rows.map((row) => {
+        const link = document.createElement('a');
+        link.href = row.href;
+        const strong = document.createElement('strong');
+        strong.textContent = row.title;
+        const span = document.createElement('span');
+        span.textContent = row.meta;
+        link.append(strong, span);
+        return link;
+      }));
     };
 
     const buildActionablePacket = (snapshot, todayReview) => {
@@ -94,11 +194,11 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
       const text = JSON.stringify(buildActionablePacket(snapshot, todayReview), null, 2);
       try {
         await navigator.clipboard.writeText(text);
-        button.textContent = 'Copied';
+        button.textContent = '已复制';
       } catch {
-        window.prompt('Copy Politics Handoff', text);
+        window.prompt('复制 Politics 学习包', text);
       }
-      window.setTimeout(() => { button.textContent = "Copy Today's Handoff"; }, 1200);
+      window.setTimeout(() => { button.textContent = '复制学习包'; }, 1200);
     });
 
     const update = () => {
@@ -106,27 +206,16 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
       const allReview = selectPoliticsReview(catalog, snapshot);
       const todayReview = selectPoliticsReview(catalog, snapshot, { day: localStudyDay(), filter: 'today' });
       renderContinue(snapshot);
-      renderHandoff(snapshot, todayReview);
+      renderToday(snapshot, todayReview);
+      renderRecent(snapshot);
       const link = root.querySelector('[data-politics-review-entry]');
-      if (link) link.textContent = snapshot.errors.length ? '核对回访记录 →' : allReview.items.length ? `今日回访 · ${allReview.items.length} 题 →` : '回访与讨论 →';
+      if (link) link.textContent = snapshot.errors.length
+        ? '核对记录 →'
+        : allReview.items.length ? `复习 · ${allReview.items.length} 题 →` : '复习 →';
     };
-    update(); addEventListener('storage', update); addEventListener('focus', update);
+
+    update();
+    addEventListener('storage', update);
+    addEventListener('focus', update);
   }
 </script>
-
-<style is:global>
-  body#kianos-workspace.surfaceBody-politics [data-politics-home-tools][data-has-handoff="false"]{grid-template-columns:minmax(0,1fr)}
-  body#kianos-workspace.surfaceBody-politics [data-politics-home-tools] .politicsHandoff[hidden]{display:none}
-  body#kianos-workspace.surfaceBody-politics [data-politics-home-tools] .politicsContinue>small{font-size:16px;line-height:1.65}
-  body#kianos-workspace.surfaceBody-politics [data-politics-home-tools] .politicsHandoff p{font-size:16px;line-height:1.65}
-  body#kianos-workspace.surfaceBody-politics [data-politics-home-tools] .politicsReviewEntry{font-size:15px;line-height:1.5;color:#356c50;text-decoration:none}
-  body#kianos-workspace.surfaceBody-politics [data-politics-home-tools] .politicsReviewEntry:hover{text-decoration:underline}
-  body#kianos-workspace.surfaceBody-politics [data-politics-home-tools] .politicsHandoff button{font-size:14px;line-height:1.4}
-  body#kianos-workspace.surfaceBody-politics [data-politics-home-tools][data-has-handoff="error"] .politicsHandoff{background:#fbfaf4}
-  @media(max-width:760px){
-    body#kianos-workspace.surfaceBody-politics [data-politics-home-tools]{grid-template-columns:1fr}
-    body#kianos-workspace.surfaceBody-politics .politicsOverviewActions{width:100%;min-width:0;flex-direction:column;align-items:stretch;gap:8px}
-    body#kianos-workspace.surfaceBody-politics .politicsOverviewActions>a{max-width:100%;min-width:0;box-sizing:border-box;overflow-wrap:anywhere}
-    body#kianos-workspace.surfaceBody-politics .politicsOverviewActions .politicsPracticeEntry{flex-shrink:1;justify-content:space-between;gap:12px}
-  }
-</style>

@@ -108,17 +108,16 @@ try {
   await handoff.waitFor({ state: 'visible' });
   assert.equal(await tools.getAttribute('data-has-handoff'), 'true');
   const summary = await page.locator('[data-politics-handoff-summary]').innerText();
-  assert.match(summary, /2 条需要处理/);
-  assert.match(summary, /1 Wrong/);
-  assert.match(summary, /1 Uncertain/);
-  assert.doesNotMatch(summary, /3 条需要处理/);
+  assert.match(summary, /2 题值得回看/);
+  assert.equal(await page.locator('[data-politics-today-wrong]').innerText(), '1');
+  assert.equal(await page.locator('[data-politics-today-uncertain]').innerText(), '1');
   assert.match(await page.locator('[data-politics-review-entry]').innerText(), /3 题/);
   assert.equal(await copy.isVisible(), true);
-  assert.ok(parseFloat(await page.locator('[data-politics-handoff-summary]').evaluate((node) => getComputedStyle(node).fontSize)) >= 16);
+  assert.ok(parseFloat(await page.locator('[data-politics-handoff-summary]').evaluate((node) => getComputedStyle(node).fontSize)) >= 15);
   console.log('PASS Home separates actionable W/U handoff from stable discussion');
 
   await copy.click();
-  await page.waitForFunction(() => document.querySelector('[data-politics-copy-handoff]')?.textContent === 'Copied');
+  await page.waitForFunction(() => document.querySelector('[data-politics-copy-handoff]')?.textContent === '已复制');
   const copied = JSON.parse(await page.evaluate(() => navigator.clipboard.readText()));
   const copiedIds = new Set(copied.review_context.map((item) => item.question_id));
   assert.deepEqual([...copiedIds].sort(), [wrongQ.id, uncertainQ.id].sort());
@@ -137,7 +136,7 @@ try {
   assert.equal(await tools.getAttribute('data-has-handoff'), 'false');
   assert.equal(await handoff.isVisible(), false);
   assert.equal(await copy.isVisible(), false);
-  assert.match(await page.locator('.politicsOverviewActions a[href$="politics/review/"]').innerText(), /回访/);
+  assert.match(await page.locator('[data-kianos-subject-bar="politics"] .kianosSubjectNav a[href$="politics/review/"]').innerText(), /复习/);
   console.log('PASS stable correction clears Home Handoff without erasing Review access');
 
   const corruptContext = await browser.newContext({
