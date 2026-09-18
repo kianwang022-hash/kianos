@@ -284,7 +284,7 @@ const familyTextRows = (item = {}) => uniqueTextRows([
                     <div class="lexicalPatternText">
                       {constructionTextRows(item).map((text) => <span class={lexicalTextClass(text)}>{text}</span>)}
                     </div>
-                    <button type="button" data-vocab-repair data-target-kind="construction" data-target-id={item.fact_id || item.construction_id || ''} data-target-locator={`record.constructions[${index}]`} data-target-label={`${item.pattern || item.boundary || item.label_en || card.word}`} aria-pressed="false">+</button>
+                    <button type="button" data-vocab-repair data-target-kind="construction" data-target-id={item.fact_id || item.construction_id || ''} data-target-locator={item.learner_source_locator || `record.constructions[${index}]`} data-target-label={`${item.pattern || item.boundary || item.label_en || card.word}`} aria-pressed="false">+</button>
                   </article>
                 ))}
               </div>
