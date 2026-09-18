@@ -239,6 +239,7 @@ export function appendPoliticsSessionEvidence(store, instruction, event, resume 
     target_refs: stringList(event?.target_refs || [], 'EVIDENCE_TARGET_REFS'),
     question_ids: stringList(event?.question_ids || [], 'EVIDENCE_QUESTION_IDS'),
     response: event?.response == null ? null : String(event.response),
+    deterministic_result: plain(event?.deterministic_result) ? JSON.parse(JSON.stringify(event.deterministic_result)) : null,
     mark: event?.mark == null ? null : text(event.mark).toUpperCase(),
     revealed: Boolean(event?.revealed),
     elapsed_ms: Number.isFinite(event?.elapsed_ms) ? Math.max(0, Math.round(event.elapsed_ms)) : null,
