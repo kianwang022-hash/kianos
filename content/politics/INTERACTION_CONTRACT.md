@@ -160,6 +160,30 @@ Allowed action types:
 - `CHAT_REPAIR_RETURN`
 - `CLOSE`
 
+#### Target addressing is explicit, never inferred
+
+Chat must address learner content explicitly.
+
+Preferred addressing:
+
+1. a stable canonical object id when the Current object owns one;
+2. otherwise, the exact Current owner path + an exact JSON Pointer / equivalent deterministic subpath selected by Chat.
+
+Examples:
+
+```text
+stable id:
+POL27-MEM-MARX-C02-K03-M01
+
+owner + subpath:
+content/politics/learning/ethics-law/ch06.json
+#/later_stage_knowledge/compression_model/decisive_boundaries/0
+```
+
+The runtime resolves the supplied address literally. It must not search neighboring fields, infer a 'similar' object, or choose a sibling item because the requested object lacks a dedicated id.
+
+A future Content/K repair may add better stable ids, but the Runtime must not require that cleanup before it can faithfully execute an explicit Chat plan.
+
 #### Target guards follow the target, not the action label
 
 Every explicit target ref keeps its canonical eligibility / freshness / phase boundary regardless of which action type references it.
@@ -202,11 +226,14 @@ This keeps the interface generic without making Web decide review granularity.
 
 `RECONSTRUCT`
 - Chat supplies the learner-facing reconstruction prompt;
-- Chat supplies the Current K refs that may be used for reveal/check;
+- the prompt is an instruction/question, not a hidden answer-bearing substitute for gated Current content;
+- Chat supplies the explicit Current K refs that may be used for reveal/check;
+- any answer-bearing reveal/check payload must resolve through those refs and inherit their target guards;
 - Web must not expand the prompt into additional chapter topics.
 
 `TARGETED_RECALL`
 - Chat supplies the exact Current object/group refs to retrieve now;
+- if no stable id exists, Chat supplies owner path + exact deterministic subpath;
 - Web must not append sibling objects because they are nearby or share a field.
 
 `PRECISION`
