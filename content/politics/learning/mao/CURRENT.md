@@ -7,6 +7,33 @@ This file does not own Mao Source Truth, Politics-wide learning/interaction sema
 
 ---
 
+## Bounded Source→Knowledge lane｜LEG26 historical baseline
+
+The imported LEG26 historical handbook has now been reconciled against Current Mao Knowledge without reopening first-round Chengfeng ownership or the accepted S/K/L/P/R/E engineering chain.
+
+Completed boundary:
+
+```text
+LEG26 historical Source
+→ Mao C00–C08 Current Knowledge reconciliation
+→ Memory candidate discovery / second-round objective compression
+→ no current-year promotion
+→ no UI / Projection change
+```
+
+Results:
+
+- C00–C06 contain useful historical fixed-formulation / identity / boundary / timeline compression;
+- C03 and C06 are especially precision-rich, but remain historical candidates until current-year corroboration;
+- C07/C08 have only thin theory-succession identity coverage in LEG26-MAO, so they remain reference-only rather than being expanded by inference;
+- LEG26-MAO contains no dedicated lower-volume analysis-output bank comparable to Marxism, so **no Mao Analysis Output layer was invented**;
+- no chapter-level Memory sidecar was created merely for completeness;
+- **zero** candidate was admitted to 2027 durable Memory solely from LEG26.
+
+Reopen this bounded lane only for a 2027 designated-memory delta, learner Wrong/Uncertain evidence requiring exact retention, or a later approved analysis-output source.
+
+---
+
 ## Work Cursor
 
 **Scope:** Mao whole-module continuation after fresh Evidence re-acceptance  
