@@ -18,6 +18,7 @@ const pendingDescription = sourceState.status === 'invalid'
   sourcePath="content/english/manifest.json"
   objectId="english:cloze-home"
   active="cloze"
+  showLead={sourceState.status !== 'ready'}
 >
   <EnglishObjectiveLocalNav active="cloze" />
   {sourceState.status === 'ready' ? (
@@ -25,11 +26,13 @@ const pendingDescription = sourceState.status === 'invalid'
       sets={sets}
       route="cloze"
       label="Cloze"
-      description="整篇完成后统一提交。错空只作为内部 evidence；Chat 先看整篇，再合并共同根因。"
-      unitLabel="passages"
+      learnerLabel="完形填空"
+      headline="按整篇完成真题"
+      description="一篇做完后统一提交；提交前不看答案，提交后再进入复盘。"
+      unitLabel="套"
       lastLocationKey="kianos-cloze-last-location-v1"
       learningHref={`${base}objective-learn/#cloze`}
-      learningSummary="第一次系统学完形时，先建立 Slot Demand → Constraint Stack → Candidate Competition → Passage Execution。"
+      learningSummary="第一次系统学习时，先把空格需求、上下文约束、候选比较和整篇检查的做题链学清楚。"
     />
   ) : (
     <section class="migrationPending">
