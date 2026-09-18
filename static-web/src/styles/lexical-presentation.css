@@ -500,7 +500,10 @@ body#kianos-workspace.uiWordStudy .portedVocabWordHeader{
   position:sticky;
   top:0;
   z-index:12;
-  display:block;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:24px;
   min-width:0;
   padding:13px 18px 11px;
   border:0;
@@ -532,6 +535,28 @@ body#kianos-workspace.uiWordStudy .lexicalWordIdentity h2{
 body#kianos-workspace.uiWordStudy .lexicalDepthPronunciation{
   margin-top:7px;
 }
+
+body#kianos-workspace.uiWordStudy .lexicalDepthKeyHint{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 8px;
+  border:1px solid #dce5e1;
+  border-radius:7px;
+  background:rgba(255,255,255,.58);
+  color:#73817b;
+  font-size:15px;
+  line-height:1.25;
+  white-space:nowrap;
+}
+body#kianos-workspace.uiWordStudy .lexicalDepthKeyHint b{
+  color:#365f52;
+  font-weight:820;
+}
+body#kianos-workspace.uiWordStudy .lexicalDepthKeyHint span{
+  color:#a0aaa5;
+}
+
 body#kianos-workspace.uiWordStudy .portedVocabBody{
   display:grid;
   grid-template-columns:minmax(0,1fr) minmax(270px,23%);
@@ -657,8 +682,12 @@ body#kianos-workspace.uiWordStudy .lexicalSenseRow>header>small{
 body#kianos-workspace.uiWordStudy .lexicalSenseMeaning{
   grid-column:2;
   min-width:0;
+  display:flex;
+  flex-direction:column;
 }
-body#kianos-workspace.uiWordStudy .lexicalSenseMeaning>p{
+body#kianos-workspace.uiWordStudy .lexicalSenseMeaning>strong{
+  order:-1;
+  display:block;
   margin:0;
   color:#111;
   font-family:Georgia,"Times New Roman",serif;
@@ -666,10 +695,10 @@ body#kianos-workspace.uiWordStudy .lexicalSenseMeaning>p{
   font-weight:750;
   line-height:1.34;
 }
-body#kianos-workspace.uiWordStudy .lexicalSenseMeaning>strong{
-  display:block;
-  margin-top:2px;
+body#kianos-workspace.uiWordStudy .lexicalSenseMeaning>p{
+  margin:3px 0 0;
   color:#455f56;
+  font-family:var(--study-font-cjk);
   font-size:17px;
   font-weight:650;
   line-height:1.36;
@@ -1020,3 +1049,11 @@ body#kianos-workspace.uiWordStudy .lexicalNoteDrawer>div button.primary{
 }
 
 /* Lexical v2 visual contract marker: Legacy visual DNA, semantic blocks, no generic card shadows. */
+
+@media (max-width:1320px){
+  body#kianos-workspace.uiWordStudy .lexicalDepthKeyHint{
+    font-size:14px;
+    gap:4px;
+    padding-inline:6px;
+  }
+}
