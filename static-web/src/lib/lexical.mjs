@@ -1,7 +1,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import { compileLexicalStudyObject } from '../../../content/lexical/tools/final-learner-object.mjs';
+import { compileLexicalStudyObject, compileLexicalFinalLearnerObject } from '../../../content/lexical/tools/final-learner-object.mjs';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT
   ? path.resolve(process.env.KIANOS_REPO_ROOT)
@@ -209,11 +209,13 @@ export function loadLexicalWordByOrdinal(ordinal) {
   const senseLineage = senseLineageForOwner(owner);
   const decisions = finalObjectDecisions?.words?.[owner.word_id] || {};
   const record = compileLexicalStudyObject(hydratedRecord, decisions);
+  const learnerObject = compileLexicalFinalLearnerObject(hydratedRecord, decisions);
 
   return {
     objectId: owner.word_id,
     ordinal,
     record,
+    learnerObject,
     sourcePath,
     sourceHash,
     relationPaths,
@@ -222,6 +224,7 @@ export function loadLexicalWordByOrdinal(ordinal) {
       objectId: owner.word_id,
       ordinal,
       record,
+      learnerObject,
       sourcePath,
       sourceHash
     }]
