@@ -201,5 +201,187 @@
     "xiao1000_default": "INLINE_VERIFICATION_AFTER_RELEVANT_UNIT",
     "memory_default": "NOT_PRIMARY_FIRST_ROUND_SURFACE",
     "astro_rule": "Prefer content-driven rendering; do not hard-code this chapter's political semantics in components."
+  },
+  "later_stage_knowledge": {
+    "schema": "kianos.politics.later_stage_knowledge.v1",
+    "status": "CURRENT_K_CANDIDATE",
+    "phase_scope": [
+      "CONSOLIDATION",
+      "PRECISION",
+      "ANALYSIS_OUTPUT"
+    ],
+    "compression_model": {
+      "cognition": "SOCIAL_STRUCTURE_HIERARCHY_AND_DRIVERS",
+      "purpose": "Keep structure, driver hierarchy and historical subject roles distinct.",
+      "reconstruction_prompt": "分三层恢复：社会结构怎么搭；社会为什么发展；谁在现实中创造历史。",
+      "reconstruction_targets": [
+        {
+          "id": "MARX-C04-LK-C01",
+          "claim": "社会存在决定社会意识，同时社会意识具有相对独立性并反作用。",
+          "owner_ids": [
+            "POL27-CF-MARX-C04-S01"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        },
+        {
+          "id": "MARX-C04-LK-C02",
+          "claim": "生产力—生产关系、经济基础—上层建筑构成社会基本结构；前者更基础。",
+          "owner_ids": [
+            "POL27-CF-MARX-C04-S01"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        },
+        {
+          "id": "MARX-C04-LK-C03",
+          "claim": "生产力是最终决定力量，社会基本矛盾是根本动力；阶级斗争、革命、改革、科技等处于不同具体动力层级。",
+          "owner_ids": [
+            "POL27-CF-MARX-C04-S01",
+            "POL27-CF-MARX-C04-S02"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        },
+        {
+          "id": "MARX-C04-LK-C04",
+          "claim": "人民群众通过现实实践创造历史，个人/历史人物只能在具体社会历史条件中发挥作用。",
+          "owner_ids": [
+            "POL27-CF-MARX-C04-S03"
+          ],
+          "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+        }
+      ],
+      "decisive_boundaries": [
+        {
+          "id": "MARX-C04-LK-B01",
+          "boundary": "社会存在决定社会意识 ≠ 社会意识无反作用",
+          "owner_ids": [
+            "POL27-CF-MARX-C04-S01"
+          ]
+        },
+        {
+          "id": "MARX-C04-LK-B02",
+          "boundary": "生产力最终决定力量 ≠ 社会基本矛盾根本动力",
+          "owner_ids": [
+            "POL27-CF-MARX-C04-S01",
+            "POL27-CF-MARX-C04-S02"
+          ]
+        },
+        {
+          "id": "MARX-C04-LK-B03",
+          "boundary": "经济基础 ≠ 全部经济活动 ≠ 生产力",
+          "owner_ids": [
+            "POL27-CF-MARX-C04-S01"
+          ]
+        },
+        {
+          "id": "MARX-C04-LK-B04",
+          "boundary": "人民群众创造历史 ≠ 个人毫无作用",
+          "owner_ids": [
+            "POL27-CF-MARX-C04-S03"
+          ]
+        }
+      ],
+      "cross_unit_confusables": [
+        {
+          "id": "MARX-C04-LK-X01",
+          "items": [
+            "最终决定力量",
+            "根本动力",
+            "重要动力"
+          ],
+          "reason": "都在解释社会发展，但帽子对应层级不同，是高频串帽子风险。"
+        }
+      ]
+    },
+    "precision_knowledge": {
+      "policy": "PENDING_EXACT_CANDIDATE_MATERIALIZATION",
+      "candidate_domains": [
+        "社会存在/社会意识 relation hats",
+        "最终决定力量/根本动力/重要动力 identity",
+        "人民群众/历史人物 boundaries",
+        "改革与科技作用 fixed positions"
+      ],
+      "materialization_status": "WAIT_CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_OR_WU_EVIDENCE",
+      "historical_source_refs": [
+        "LEG26-UPPER-MARX-P036",
+        "LEG26-UPPER-MARX-P038",
+        "LEG26-UPPER-MARX-P039"
+      ]
+    },
+    "analysis_output_hooks": [
+      {
+        "id": "MARX-C04-OUT-TECH",
+        "title": "科学技术与社会发展",
+        "material_cues": [
+          "人工智能",
+          "互联网",
+          "科技创新",
+          "生产力变化"
+        ],
+        "owner_ids": [
+          "POL27-CF-MARX-C04-S02"
+        ],
+        "retrieval_target": "科技是重要推动力量，但不要越级替代生产力/基本矛盾的层级。",
+        "answer_skeleton": [
+          "说明科技可转化为现实生产力并推动社会发展",
+          "说明其作用受客观社会条件制约",
+          "指出科技可能具有双重社会效应",
+          "回扣材料中的制度/实践条件"
+        ],
+        "historical_output_refs": [
+          "LEG26-LOWER-MARX-P059"
+        ],
+        "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
+      },
+      {
+        "id": "MARX-C04-OUT-REFORM",
+        "title": "改革与社会基本矛盾",
+        "material_cues": [
+          "改革",
+          "制度调整",
+          "生产关系/上层建筑",
+          "生产力释放"
+        ],
+        "owner_ids": [
+          "POL27-CF-MARX-C04-S02"
+        ],
+        "retrieval_target": "把改革定位为同一社会形态内部解决基本矛盾的调整，而不是社会革命的同义词。",
+        "answer_skeleton": [
+          "指出改革针对不适应生产力/社会发展的关系环节",
+          "说明其属于制度自我调整完善",
+          "说明其推动生产力和社会进步",
+          "回扣材料中的具体改革对象"
+        ],
+        "historical_output_refs": [
+          "LEG26-LOWER-MARX-P059",
+          "LEG26-LOWER-MARX-P060"
+        ],
+        "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
+      },
+      {
+        "id": "MARX-C04-OUT-PEOPLE",
+        "title": "人民群众与历史创造",
+        "material_cues": [
+          "人民主体",
+          "群众实践",
+          "依靠人民",
+          "历史创造"
+        ],
+        "owner_ids": [
+          "POL27-CF-MARX-C04-S03"
+        ],
+        "retrieval_target": "先写人民群众的历史主体地位，再落到物质/精神财富和社会变革实践。",
+        "answer_skeleton": [
+          "指出人民群众是历史主体和创造者",
+          "说明其物质/精神财富创造作用",
+          "说明其社会变革决定力量",
+          "回扣材料中的群众实践/人民立场"
+        ],
+        "historical_output_refs": [
+          "LEG26-LOWER-MARX-P060"
+        ],
+        "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
+      }
+    ],
+    "first_round_effect": "NONE"
   }
 }
