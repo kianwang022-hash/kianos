@@ -19,6 +19,7 @@ Practice Workbench
 │  ├─ one System
 │  ├─ Wrong / Uncertain / Marked
 │  ├─ whole paper / year
+│  ├─ CHAT_SET — explicit qids selected by Chat
 │  └─ later explicit custom scope
 ├─ Phase
 │  ├─ FIRST_PASS
@@ -36,7 +37,7 @@ These are parameters of one task family, not separate question products.
 
 **Chat owns strategic judgment.** Practice does not decide when Xizong moves from FIRST_PASS to SECOND_PASS or LATE_REVIEW, does not diagnose the cause of a Wrong/Uncertain result, and does not manufacture the next learning task. It executes an explicit learner/Chat plan and preserves the resulting evidence.
 
-System Recall hands into Practice with `scope=SYSTEM:<id>`; whole paper later uses the same Workbench with `scope=PAPER:<year>`.
+System Recall hands into Practice with `scope=SYSTEM:<id>`; whole paper later uses the same Workbench with `scope=PAPER:<year>`; Chat-guided review uses `scope=CHAT_SET:<set-id>` and an explicit ordered qid list.
 
 ## 2｜Mac-wide one-screen geometry
 
@@ -156,7 +157,52 @@ No second question store and no second “二轮题库” is created.
 
 LATE_REVIEW remains a thinner mode of the same Runtime. It must not silently become a full System resweep; the learner/Chat must explicitly choose the late-review scope or opt into a full resweep.
 
-## 7｜Reviewed Question→Knowledge relation
+## 7｜Chat-selected question set
+
+Chat may create an explicit review/practice set by selecting canonical Question Truth IDs.
+
+```text
+Chat judgment
+→ ordered canonical qids
+→ Practice validates identity only
+→ same Workbench executes
+→ append-preserved evidence
+→ evidence returns to Chat
+```
+
+This is a first-class Practice scope, not a recommendation engine.
+
+Minimum handoff semantics:
+
+```text
+scope_type = CHAT_SET
+set_id
+label
+question_ids[]        # ordered canonical qids
+study_phase           # explicit context from Chat/learner
+result_visibility     # immediate / hidden
+speed                  # normal / fast
+```
+
+Optional execution metadata may include a short learner-facing intent label such as `鉴别回收` or `考前弱项`. The website must not interpret that label into additional questions or medical semantics.
+
+Hard rules:
+
+- Question content/options/answers/explanations are always resolved from Current Question Truth; Chat supplies IDs, not copied medical truth.
+- Unknown / malformed qids fail closed and are reported; no fuzzy matching or replacement question is allowed.
+- Input order is preserved unless Chat explicitly requests another order.
+- Cross-System sets are legal.
+- Any set size is legal; the website does not pad to a target count.
+- The website never expands a CHAT_SET with “similar”, “recommended” or “related” questions on its own.
+- Reviewed Question→Knowledge mapping remains optional and may not be inferred to build the set.
+- Chat-selected sets are private learner execution state / handoff data and must not be committed as personal learner state into the public `kianos` repository.
+- Completing a CHAT_SET creates attempt evidence only; it does not itself decide the next set, Phase transition or learner diagnosis.
+
+Implementation should reuse the existing Practice Workbench rather than create a separate Chat-review question page.
+
+---
+
+## 8｜Reviewed Question→Knowledge relation
 
 Explanation and mapping are separate owners.
 
@@ -167,7 +213,7 @@ UI rules:
 - if no safe relation exists, keep the question-scoped evidence;
 - never infer Block/KP from explanation text, title similarity or model intuition.
 
-## 8｜Whole-paper boundary
+## 9｜Whole-paper boundary
 
 Whole paper is a scope of Practice, not a separate product.
 
@@ -183,7 +229,7 @@ timer = exam mode when enabled
 
 Hidden-result Evidence/score compatibility remains a later bounded implementation slice. SYSTEM-scope Practice may ship before it.
 
-## 9｜Evidence
+## 10｜Evidence
 
 One append-preserved Question Attempt model remains authoritative across scopes and phases.
 
@@ -196,7 +242,7 @@ correctness
 
 Explanation Content changes are included in evidence freshness/version guards so stale reviewed state is not silently treated as Current.
 
-## 10｜Current implementation slice
+## 11｜Current implementation slice
 
 Current candidate implements:
 - dedicated Xizong `训练` navigation entry;
@@ -212,6 +258,7 @@ Current candidate implements:
 - Marked preserved independently from the default W/U queue.
 
 Still separate:
+- CHAT_SET import/validation + cross-System execution on the same Workbench;
 - whole-paper scope + Hidden result;
 - global retained W/U/Marked entry independent of one System;
 - durable learner-data closure;
