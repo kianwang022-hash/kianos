@@ -14,6 +14,7 @@ Preserve the existing mature learner chain:
 Block orientation
 → current Logic Group purpose / closure shown inside the persistent Logic Map
 → iPad / MarginNote continuous original-Lecture study while Mac stays on KP Learn
+→ at a real reviewed Source boundary, when a reviewed Lecture-attached TTSX binding exists: lightweight TTSX checkpoint
 → current KP marked learned as the learner advances
 → that Logic Group's KP Recall on the same KP card with Core hidden
 → last KP rating automatically closes the Logic Group in the Logic Map
@@ -139,7 +140,7 @@ Rules:
 - group-level Visual / Connection / Precision remain conditional Context when Current owns them;
 - no permanent empty Context rail when no contextual object exists.
 
-## 7｜MarginNote handoff / one return — ACCEPTED
+## 7｜MarginNote handoff / bound TTSX checkpoint / one return — ACCEPTED
 
 The external-Lecture handoff is a real surface transition and should be low-friction.
 
@@ -161,12 +162,26 @@ The handoff must continue to say, in learner-facing language, that original figu
 
 ### Return evidence
 
-Preserve one meaningful learner confirmation:
+Preserve one meaningful learner confirmation. The exact path is conditional:
 
 ```text
 this Logic Group's original Lecture contact is complete
+→ no reviewed TTSX binding here
+→ start this Logic Group's KP Recall
+
+this Logic Group's original Lecture contact is complete
+→ real reviewed Source boundary + reviewed TTSX binding
+→ lightweight TTSX checkpoint
+   - remind: complete the bound questions in the original MarginNote/Lecture location
+   - read answer, all options and question-side expansion there
+   - optional one-line learner note; empty is valid
+   - no per-question web answer entry
 → start this Logic Group's KP Recall
 ```
+
+The TTSX checkpoint is a **conditional companion surface**, not a second question runtime. Boundary decides **when**; reviewed binding decides **which**. If Current has no real reviewed binding, the renderer must fail closed and skip the checkpoint rather than infer questions from the official corpus, title, page or Block membership.
+
+For whole-Logic-Group source flow, a checkpoint may interrupt that group's return only when the normalized binding explicitly identifies that group/source segment. The UI must not smear a Block-wide binding across every Logic Group.
 
 This confirmation is not UI ceremony; it records formal Lecture contact required by the accepted Runtime/completion semantics.
 
@@ -489,6 +504,7 @@ The accepted first-pass Block mainline is now:
 Block Guide
 → Logic Group orientation in Logic Map
 → MarginNote handoff / KP Learn companion
+→ bound TTSX checkpoint only where Current owns a real reviewed boundary + binding
 → KP Recall Front / Reveal on the same KP card
 → last KP rating auto-closes the Logic Group in Logic Map
 → next Logic Group
