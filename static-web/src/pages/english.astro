@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import EnglishResume from '../components/EnglishResume.astro';
+import EnglishSessionControl from '../components/EnglishSessionControl.astro';
 import { inspectReadingSources } from '../lib/englishReadingSourceTruth.mjs';
 import { inspectTranslationSources } from '../lib/englishTranslationSourceTruth.mjs';
 import { inspectWritingSyntheticTasks } from '../lib/englishWritingSynthetic.mjs';
@@ -43,6 +44,7 @@ const statusLabel = (status) => status === 'ready' ? '可进入' : status === 'i
         </section>
       </main>
       <aside class="englishContextRail">
+        <EnglishSessionControl />
         <section class="englishGuideWorkbench">
           <header><span>GUIDES</span><h2>需要时，回到模型。</h2><p>首次建立框架，或针对当前问题查阅。</p></header>
           <nav class="englishGuideLinks" aria-label="English Guides">
