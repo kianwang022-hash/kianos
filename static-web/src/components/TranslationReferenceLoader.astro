@@ -7,9 +7,11 @@ const { referenceUrl = '' } = Astro.props;
   const marker = document.querySelector('[data-translation-reference-loader]');
   const root = document.querySelector('[data-translation-runtime]');
 
-  if (marker instanceof HTMLElement && root instanceof HTMLElement) {
-    const examMode = Boolean(new URLSearchParams(location.search).get('exam_session'));
-    if (examMode) return;
+  if (
+    marker instanceof HTMLElement
+    && root instanceof HTMLElement
+    && !new URLSearchParams(location.search).get('exam_session')
+  ) {
     const referenceUrl = marker.getAttribute('data-reference-url') || '';
     const objectId = root.getAttribute('data-object-id') || 'translation';
     const paperId = root.getAttribute('data-paper-id') || 'English I';
