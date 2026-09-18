@@ -8,14 +8,14 @@ const routes = Object.fromEntries((system?.blocks || []).map((block) => [block.b
 }]));
 const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
 ---
-<details class="xrr" data-xizong-repair-return={system.systemId}>
+<details class="xrr" data-xizong-repair-return={system.systemId} data-practice-href={`${base}xizong/practice/${system.systemId}/`}>
   <summary>
     <span>Wrong / Uncertain 修补</span>
     <strong>Chat 修完后回到对应 Block，再继续真题</strong>
     <small>只走审核过的精确回链；没有就不猜。</small>
   </summary>
   <div class="xrrBody">
-    <p>需要集中修补时，用这里把当前 Wrong / Uncertain 交给 Chat。返回计划只接受本轮真实题号；能精确回链的任务会送到对应 Block 的 Review，原始 Recall 不会被覆盖。</p>
+    <p>需要集中修补时，用这里把当前 Wrong / Uncertain 交给 Chat。返回计划只接受本轮真实题号；能精确回链的任务会进入 Memory · Repair，并保留对应 Block/KP 回链。原始 Recall 不会被覆盖。</p>
     <div class="xrrActions">
       <button type="button" data-copy-chat>复制 W/U + 返回格式给 Chat</button>
       <button type="button" class="secondary" data-return-sweep>回到当前真题</button>
@@ -34,11 +34,18 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
 </details>
 
 <script>
+  import {
+    XIZONG_MEMORY_STORAGE_KEY,
+    normalizeXizongMemoryState,
+    setRepairTasks
+  } from '../lib/xizongMemoryModel.mjs';
+
   const root = document.querySelector('[data-xizong-repair-return]');
   if (root instanceof HTMLElement) {
     const systemId = root.getAttribute('data-xizong-repair-return') || '';
     const sweepKey = `kianos:xizong:system-question-sweep:${systemId}:v1`;
     const repairKey = `kianos:xizong:system-repair-return:${systemId}:v1`;
+    const practiceHref = root.getAttribute('data-practice-href') || '';
     const status = root.querySelector('[data-plan-status]');
     const list = root.querySelector('[data-plan-list]');
     let routes = {};
@@ -99,25 +106,53 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
         byBlockKp.set(key, old);
       });
 
+      const importedAt = new Date().toISOString();
+      const repairTasks = [];
       byBlockKp.forEach((item) => {
         const objectId = `xizong:${item.blockId}`;
         const inboxKey = `kianos-xizong-repair-inbox-v1:${objectId}`;
         const inbox = readJson(inboxKey, { plans: [] });
         const existing = Array.isArray(inbox?.plans) ? inbox.plans : [];
+        const route = routes?.[item.blockId];
         const plan = {
           kpId: item.kpId,
           reason: [...new Set(item.reasons)].join('；') || `来自 ${item.questionIds.length} 道 W/U 题`,
           action: [...new Set(item.actions)].join('；') || '重新运行这一 KP 所属机制链，再回到题目主线。',
           priority: item.priority || 'high',
-          sourceQuestionIds: item.questionIds
+          sourceQuestionIds: item.questionIds,
+          blockHref: route?.href || '',
+          returnHref: practiceHref
         };
         const withoutSameKp = existing.filter((row) => String(row?.kpId || row?.kp_id || row || '') !== item.kpId);
         writeJson(inboxKey, {
-          importedAt: new Date().toISOString(),
+          importedAt,
           sourceSystemId: systemId,
           plans: [...withoutSameKp, plan]
         });
+        repairTasks.push({
+          id: `repair:system-wu:${systemId}:${item.blockId}:${item.kpId}`,
+          kpId: item.kpId,
+          blockId: item.blockId,
+          title: [route?.label, item.kpId].filter(Boolean).join(' · '),
+          reason: plan.reason,
+          action: plan.action,
+          priority: plan.priority,
+          origin: 'SYSTEM_WU_CHAT_RETURN',
+          sourceQuestionIds: item.questionIds,
+          blockHref: plan.blockHref,
+          returnHref: plan.returnHref,
+          createdAt: importedAt,
+          status: 'ACTIVE'
+        });
       });
+
+      if (repairTasks.length) {
+        const memory = normalizeXizongMemoryState(readJson(XIZONG_MEMORY_STORAGE_KEY, null));
+        const incomingIds = new Set(repairTasks.map((task) => task.id));
+        const preserved = (memory.repairTasks || []).filter((task) => !incomingIds.has(String(task?.id || '')));
+        const nextMemory = setRepairTasks(memory, [...preserved, ...repairTasks]);
+        writeJson(XIZONG_MEMORY_STORAGE_KEY, nextMemory);
+      }
     };
 
     const render = (rows) => {
@@ -140,7 +175,7 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
         article.append(head, body);
         if (route && relation?.primaryKpId) {
           const meta = document.createElement('small');
-          meta.textContent = `已送往 ${route.label} · ${relation.primaryKpId} 的 Repair Inbox；打开或已打开该 Block 时会接入 Review。`;
+          meta.textContent = `已加入 Memory · Repair，并保留 ${route.label} · ${relation.primaryKpId} 的精确回链。`;
           const link = document.createElement('a');
           link.href = route.href;
           link.target = '_blank';
@@ -201,7 +236,7 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
         }
         deliverToBlock(rows);
         writeJson(repairKey, { importedAt: new Date().toISOString(), plan: rows });
-        if (status) status.textContent = `已接收 ${rows.length} 个修补任务；有审核回链的已送往对应 Block Repair Inbox。`;
+        if (status) status.textContent = `已接收 ${rows.length} 个修补任务；有审核回链的已加入 Memory · Repair。`;
         render(rows);
       } catch {
         if (status) status.textContent = '返回计划无法解析；没有改动任何学习状态。';
