@@ -46,9 +46,10 @@ function latestAttemptByQuestion(history, phase = null) {
 export function deriveXizongSecondPassQuestionIds(input, questions, holdoutYears = []) {
   const state = isObject(input) ? input : {};
   const firstPassLatest = latestAttemptByQuestion(state.attemptHistory, 'FIRST_PASS');
+  const marks = isObject(state.marks) ? state.marks : {};
   return eligibleQuestions(questions, holdoutYears)
     .map((question) => String(question.questionId))
-    .filter((questionId) => ['wrong', 'uncertain'].includes(String(firstPassLatest.get(questionId)?.status || '')));
+    .filter((questionId) => Boolean(marks[questionId]) || ['wrong', 'uncertain'].includes(String(firstPassLatest.get(questionId)?.status || '')));
 }
 
 export function deriveXizongQuestionIdsForCurrentRound(input, questions, holdoutYears = []) {
@@ -96,6 +97,7 @@ function attemptEvent({
     scope_hash: String(context?.scopeHash || ''),
     question_inventory_hash: String(context?.questionInventoryHash || ''),
     holdout_years: [...new Set((Array.isArray(holdoutYears) ? holdoutYears : []).map(Number).filter(Number.isFinite))].sort((a, b) => a - b),
+    marked: Boolean(result?.marked),
     submitted_at: submittedAt
   };
 }
@@ -105,6 +107,7 @@ export function ensureXizongQuestionSweepState(input, context = {}, runtime = {}
   const makeId = runtime.makeId || fallbackId;
   const state = isObject(input) ? { ...input } : {};
   state.results = isObject(state.results) ? { ...state.results } : {};
+  state.marks = isObject(state.marks) ? { ...state.marks } : {};
   state.attemptHistory = Array.isArray(state.attemptHistory) ? [...state.attemptHistory] : [];
 
   const validRound = isObject(state.round)
@@ -182,6 +185,7 @@ export function recordXizongQuestionAttempt(input, payload, runtime = {}) {
     status: String(payload?.status || ''),
     selected: [...new Set(Array.from(payload?.selected || []).map(String))].sort(),
     correctAnswer: question.correctAnswer,
+    marked: Boolean(payload?.marked ?? state.marks?.[questionId]),
     updatedAt: now
   };
   if (!['stable', 'uncertain', 'wrong'].includes(result.status)) {
@@ -213,6 +217,20 @@ export function recordXizongQuestionAttempt(input, payload, runtime = {}) {
     },
     attemptHistory: [...state.attemptHistory, event]
   };
+}
+
+export function setXizongQuestionMarked(input, questionId, marked = true) {
+  const id = String(questionId || '');
+  if (!id) throw new Error('XIZONG_QUESTION_MARK_ID_MISSING');
+  const state = isObject(input) ? { ...input } : {};
+  state.marks = isObject(state.marks) ? { ...state.marks } : {};
+  if (marked) state.marks[id] = true;
+  else delete state.marks[id];
+  return state;
+}
+
+export function isXizongQuestionMarked(input, questionId) {
+  return Boolean(isObject(input?.marks) && input.marks[String(questionId || '')]);
 }
 
 export function startNextXizongQuestionRound(input, activeQuestionIds, runtime = {}, options = {}) {
