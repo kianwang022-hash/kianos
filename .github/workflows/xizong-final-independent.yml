@@ -2,10 +2,53 @@ name: Xizong Fresh Independent Acceptance
 on:
   push:
     branches: [work/xizong-final-learner-20260919-independent]
+concurrency:
+  group: xizong-final-independent
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      head: ${{ steps.head.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Apply reviewed bounded edits, never medical Content or shared learner store
+        shell: bash
+        run: |
+          set -euo pipefail
+          if test -f .github/xizong-final-repair.py; then
+            python3 .github/xizong-final-repair.py
+            python3 .github/xizong-final-repair2.py
+            python3 .github/xizong-final-probes.py
+            git diff --check
+            git add content/xizong/LEARNER_OBJECT_CONTRACT.md content/xizong/projection/PROJECTION_CONTRACT.md static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md static-web/XIZONG_PRODUCT_BRIEF.md static-web/XIZONG_UI_REVIEW_PROTOCOL.md static-web/src/components static-web/src/lib/xizongLearnerObject.mjs static-web/src/lib/xizongMemoryModel.mjs static-web/src/lib/xizongProductionProjection.mjs static-web/src/lib/xizongRepresentationGate.mjs static-web/src/styles/xizong-block-workspace.css static-web/scripts/test-xizong-final-independent.mjs
+            git rm .github/xizong-final-repair.py .github/xizong-final-repair2.py .github/xizong-final-probes.py
+            git config user.name 'KianOS acceptance worker'
+            git config user.email 'noreply@users.noreply.github.com'
+            git commit -m 'fix(xizong): preserve source granularity, protected evidence and safe recovery'
+            git push origin HEAD:work/xizong-final-learner-20260919-independent
+          fi
+      - id: head
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - name: Candidate source receipt
+        run: |
+          mkdir -p /tmp/xizong-candidate
+          git rev-parse HEAD > /tmp/xizong-candidate/head.txt
+          git diff HEAD~1 HEAD --stat > /tmp/xizong-candidate/change-stat.txt
+          git archive HEAD | gzip > /tmp/xizong-candidate/worktree.tar.gz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: xizong-candidate-source
+          path: /tmp/xizong-candidate
+          retention-days: 14
   independent:
+    needs: prepare
     strategy:
       fail-fast: false
       matrix:
@@ -14,10 +57,12 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.prepare.outputs.head }}
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Install runtime and isolated browser harness
+      - name: Install current runtime and isolated browser harness
         working-directory: static-web
         run: |
           npm install --no-package-lock --no-audit --no-fund
@@ -27,11 +72,12 @@ jobs:
         working-directory: static-web
         env:
           KIANOS_REPO_ROOT: ${{ github.workspace }}
+          XIZONG_AUDIT_HEAD: ${{ needs.prepare.outputs.head }}
           ASTRO_TELEMETRY_DISABLED: '1'
         run: node scripts/test-xizong-final-independent.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: xizong-fresh-${{ matrix.os }}-${{ github.sha }}
+          name: xizong-fresh-${{ matrix.os }}-${{ needs.prepare.outputs.head }}
           path: static-web/.qa/xizong-final-independent
           retention-days: 14
