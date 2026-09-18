@@ -390,7 +390,10 @@ try {
   };
 
   const paperKey='kianos:xizong:paper-question-sweep:paper-2026:v1';
-  await page.evaluate((key)=>localStorage.removeItem(key),paperKey);
+  await page.evaluate(({paperKey,holdoutKey,otherYear})=>{
+    localStorage.removeItem(paperKey);
+    localStorage.setItem(holdoutKey,JSON.stringify([otherYear,2026]));
+  },{paperKey,holdoutKey,otherYear:holdoutYear});
   await page.goto(`${BASE}/xizong/practice/paper/2026/`,{waitUntil:'networkidle'});
   const paperPractice=page.locator('[data-xizong-practice="paper-2026"]');
   await paperPractice.locator('[data-question-card]').waitFor({state:'visible'});
@@ -461,6 +464,9 @@ try {
   check(paperAfterSeal?.results?.[paperFirst.questionId]?.status==='wrong','paper_seal_materializes_wrong_attempt');
   check(paperAfterSeal?.results?.[paperSecond.questionId]?.status==='stable','paper_seal_materializes_stable_attempt');
   check((paperAfterSeal?.attemptHistory||[]).filter((event)=>event.result_visibility==='hidden').length===2,'paper_seal_materializes_hidden_attempt_events');
+  const holdoutAfterPaperSeal=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'[]'),holdoutKey);
+  check(!holdoutAfterPaperSeal.map(Number).includes(2026),'paper_seal_releases_consumed_year_from_holdout');
+  check(holdoutAfterPaperSeal.map(Number).includes(holdoutYear),'paper_seal_preserves_other_holdout_years');
   await paperPractice.locator('[data-paper-review-start]').click();
   await paperPractice.locator('[data-question-card]').waitFor({state:'visible'});
   check(await paperPractice.locator('.xzpOption.correct').count()>=1,'paper_review_releases_correct_option');
