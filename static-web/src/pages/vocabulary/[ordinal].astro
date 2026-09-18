@@ -8,7 +8,7 @@ export function getStaticPaths(){return listLexicalOrdinals().map((ordinal)=>({p
 const { ordinal }=Astro.props;const answer=loadLexicalWordByOrdinal(Number(ordinal));const total=listLexicalOrdinals().length;const previousOrdinal=answer.ordinal>1?answer.ordinal-1:null;const nextOrdinal=answer.ordinal<total?answer.ordinal+1:null;const base=import.meta.env.BASE_URL;const nextHref=nextOrdinal?`${base}vocabulary/${nextOrdinal}/`:`${base}vocabulary/`;
 ---
 <Base title={answer.record.word} kicker={`LexicalOS · Study · ${answer.ordinal} / ${total}`} description="先做整词 Known/Fuzzy/Unknown routing；需要时进入 Recall → Reveal。Reveal 后只对真正值得未来 attention 的具体分支按 +；整卡 Depth 本身不会制造 Repair。" sourcePath={answer.sourcePath} sourceHash={answer.sourceHash} objectId={answer.objectId} active="lexical" showLead={false}>
-  <nav class="lexicalStudyNav" data-lexical-study-nav data-ordinal={answer.ordinal}><a href={`${base}vocabulary/`}>Vocabulary</a><span>{answer.ordinal} / {total}</span><div>{previousOrdinal?<a href={`${base}vocabulary/${previousOrdinal}/`}>← Prev</a>:<span>← Prev</span>}{nextOrdinal?<a class="next" data-lexical-next href={`${base}vocabulary/${nextOrdinal}/`}>Next →</a>:<a class="next" data-lexical-next href={`${base}vocabulary/`}>Finish</a>}</div></nav>
+  <nav class="lexicalStudyNav" data-lexical-study-nav data-ordinal={answer.ordinal}><a href={`${base}vocabulary/`}>‹ 返回词汇</a><span>Coverage · {answer.ordinal} / {total}</span><div>{previousOrdinal?<a href={`${base}vocabulary/${previousOrdinal}/`} aria-label="上一词">←</a>:<span aria-hidden="true">←</span>}{nextOrdinal?<a class="next" data-lexical-next href={`${base}vocabulary/${nextOrdinal}/`} aria-label="下一词">→</a>:<a class="next" data-lexical-next href={`${base}vocabulary/`}>完成</a>}</div></nav>
   <VocabularyIdentityLineageBridge lineage={answer.senseLineage}/>
   <VocabularyWordRuntime answer={answer}/><VocabularyEvidenceBridge nextHref={nextHref}/>
   <nav class="lexicalStudyNav lexicalStudyNavBottom"><a href={`${base}vocabulary/`}>Back to Vocabulary</a><div>{previousOrdinal&&<a href={`${base}vocabulary/${previousOrdinal}/`}>← Prev</a>}{nextOrdinal?<a class="next" href={`${base}vocabulary/${nextOrdinal}/`}>Next →</a>:<a class="next" href={`${base}vocabulary/`}>Finish</a>}</div></nav>
@@ -29,15 +29,4 @@ const { ordinal }=Astro.props;const answer=loadLexicalWordByOrdinal(Number(ordin
     }
   }
   document.body.dataset.lexicalMode=mode;
-  document.addEventListener('keydown',(event)=>{
-    if(mode!=='study'||event.defaultPrevented||event.code!=='Space')return;
-    const target=event.target;
-    if(target instanceof HTMLElement&&target.closest('input,textarea,select,button,a,[contenteditable="true"]'))return;
-    const details=document.querySelector('[data-local-port="vocabulary"] [data-vocab-details]');
-    if(!(details instanceof HTMLElement)||details.hidden)return;
-    const next=nav?.querySelector('[data-lexical-next]');
-    if(!(next instanceof HTMLAnchorElement))return;
-    event.preventDefault();
-    window.location.href=next.href;
-  });
 </script>
