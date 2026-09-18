@@ -14,13 +14,18 @@
 .englishSelectionMenu small{min-width:0;max-width:130px;padding:0 7px;color:#8a949e;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
 .englishLexicalReturn{
-  position:fixed;right:22px;top:74px;z-index:130;display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:12px;
-  width:min(470px,calc(100vw - 44px));padding:10px 11px 10px 14px;border:1px solid #cad8e5;border-radius:9px;background:rgba(250,252,254,.97);
-  box-shadow:0 10px 28px rgba(39,56,74,.13);backdrop-filter:blur(12px);font-family:var(--study-font,inherit)
+  position:fixed;right:28px;top:86px;z-index:130;display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:14px;
+  width:min(590px,calc(100vw - 56px));padding:13px 14px 13px 16px;border:1px solid var(--study-line);border-radius:10px;background:rgba(255,255,255,.98);
+  box-shadow:0 8px 24px rgba(27,42,55,.10);backdrop-filter:blur(12px);font-family:var(--study-font,inherit)
 }
 .englishLexicalReturn[hidden]{display:none!important}
-.englishLexicalReturn>div{min-width:0;display:grid;gap:1px}.englishLexicalReturn span{color:#55799f;font-size:9px;font-weight:750;letter-spacing:.08em}.englishLexicalReturn strong{font-size:13px;color:#2b4057}.englishLexicalReturn small{font-size:10px;color:#77899a;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.englishLexicalReturn button{border:1px solid #b9cbda;border-radius:6px;padding:7px 9px;background:#fff;color:#426b97;font:inherit;font-size:11px;font-weight:700;cursor:pointer;white-space:nowrap}.englishLexicalReturn button.dismiss{border:0;padding:4px 6px;background:transparent;color:#8a98a6;font-size:16px;font-weight:450}
+.englishLexicalReturn>div{min-width:0;display:grid;gap:2px}
+.englishLexicalReturn span{color:var(--study-green);font-size:15px;font-weight:760;letter-spacing:.045em}
+.englishLexicalReturn strong{font-size:18px;line-height:1.3;color:var(--study-ink)}
+.englishLexicalReturn small{font-size:15px;line-height:1.45;color:var(--study-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.englishLexicalReturn button{min-height:38px;border:1px solid var(--study-line);border-radius:7px;padding:0 11px;background:var(--study-surface);color:var(--study-ink);font:inherit;font-size:15px;font-weight:700;cursor:pointer;white-space:nowrap}
+.englishLexicalReturn button:hover{border-color:#a9bbb1;background:var(--study-green-soft)}
+.englishLexicalReturn button.dismiss{min-height:32px;border:0;padding:2px 6px;background:transparent;color:var(--study-muted);font-size:20px;font-weight:450}
 
 /* Home keeps the accepted map, but spends less of the first viewport on orientation chrome. */
 @media (min-width:1180px){

@@ -1,35 +1,647 @@
-<section class="portedVocabRuntime portedVocabChallengeRuntime" data-vocab-challenge-runtime data-challenge-active="false">
-  <header class="portedVocabPreviewBar"><div><span>Lexical Challenge</span><b>Evidence-based Repair</b><small data-challenge-status>Import a Challenge Packet</small></div></header>
-  <section class="portedVocabStudySheet">
-    <section data-challenge-import-panel><h3>Import Challenge Packet</h3><p>粘贴 Chat 根据当前 evidence 生成的 <code>kianos.lexical.challenge_packet.v1</code>。Challenge 是按需验证，不是每日到期队列。</p><textarea data-challenge-packet-input rows="8" placeholder="Paste Challenge Packet JSON"></textarea><div class="portedVocabPreviewActions"><button type="button" class="portedPrimaryAction" data-challenge-import>Import & Start</button><button type="button" data-challenge-resume hidden>Continue saved packet</button></div><small data-challenge-import-status></small></section>
-    <section data-challenge-question-panel hidden><header class="portedVocabWordHeader"><div><span data-challenge-progress>Challenge</span><h2 data-challenge-word>—</h2></div><aside><b data-challenge-source>Repair</b><small>← ↑ ↓ → 直接作答</small></aside></header><div class="lexicalChallengeStage"><p class="lexicalChallengeStem" data-challenge-stem></p><div class="lexicalChallengeOptions"><button type="button" data-challenge-choice="up" data-pos="up" hidden></button><button type="button" data-challenge-choice="left" data-pos="left" hidden></button><button type="button" data-challenge-choice="right" data-pos="right" hidden></button><button type="button" data-challenge-choice="down" data-pos="down" hidden></button></div><div class="lexicalChallengeFeedback" data-challenge-feedback hidden></div><div class="portedVocabPreviewActions"><button type="button" data-challenge-question-issue>Q · 题目有问题</button><button type="button" class="portedPrimaryAction" data-challenge-continue hidden>Space · Continue</button></div></div></section>
-    <section data-challenge-complete-panel hidden><h3>Challenge complete</h3><p data-challenge-complete-summary></p><div class="portedVocabPreviewActions"><button type="button" class="portedPrimaryAction" data-challenge-copy-return>Copy Return Packet</button><button type="button" data-challenge-clear>Clear Challenge Packet</button></div></section>
+---
+const base = import.meta.env.BASE_URL;
+---
+<section
+  class="portedVocabRuntime portedVocabChallengeRuntime lexicalRepairChallenge"
+  data-vocab-challenge-runtime
+  data-challenge-active="false"
+  data-challenge-outcome="idle"
+  data-base={base}
+>
+  <section class="lexicalRepairWaiting" data-challenge-import-panel>
+    <div class="lexicalRepairWaitingCopy">
+      <span>REPAIR TEST</span>
+      <h3 data-challenge-waiting-title>等待下一组 Repair Test</h3>
+      <p data-challenge-waiting-copy>Chat 根据当前 Repair 对象决定测什么；网页只负责连续执行和记录结果。</p>
+      <a data-challenge-empty-learn href={base + 'vocabulary/'} hidden>继续 Learn →</a>
+    </div>
+
+    <div class="lexicalRepairWaitingStatus">
+      <small data-challenge-status>Waiting</small>
+      <b>← ↑ ↓ →</b>
+      <span>Test 到达后直接开始</span>
+    </div>
+
+    <details class="lexicalRepairManualTools" data-challenge-manual-tools>
+      <summary>手动载入 / 调试</summary>
+      <p>仅作为兼容入口。正常学习不需要在这里粘贴 JSON。</p>
+      <textarea data-challenge-packet-input rows="7" placeholder="Paste Challenge Packet JSON"></textarea>
+      <div>
+        <button type="button" data-challenge-import>载入 Test</button>
+        <button type="button" data-challenge-resume hidden>继续已保存 Test</button>
+      </div>
+      <small data-challenge-import-status></small>
+    </details>
+  </section>
+
+  <section class="lexicalRepairActive" data-challenge-question-panel hidden>
+    <aside class="lexicalRepairCurrent">
+      <span>CURRENT OBJECT</span>
+      <h3 data-challenge-word>—</h3>
+      <b data-challenge-current-kind>Repair target</b>
+      <div class="lexicalRepairCurrentMeta">
+        <small>来源</small>
+        <p data-challenge-source>Repair</p>
+      </div>
+      <div class="lexicalRepairCurrentMeta" data-challenge-demand-wrap hidden>
+        <small>当前要求</small>
+        <p data-challenge-demand></p>
+      </div>
+      <a data-challenge-open-word href={base + 'vocabulary/'}>查看完整词义 →</a>
+    </aside>
+
+    <main class="lexicalRepairQuestion">
+      <header>
+        <span data-challenge-progress>1 / 1</span>
+        <small>← ↑ ↓ → 直接作答</small>
+      </header>
+
+      <p class="lexicalChallengeStem" data-challenge-stem></p>
+
+      <div class="lexicalChallengeOptions" aria-label="Repair Test choices">
+        <button type="button" data-challenge-choice="up" data-pos="up" hidden></button>
+        <button type="button" data-challenge-choice="left" data-pos="left" hidden></button>
+        <button type="button" data-challenge-choice="right" data-pos="right" hidden></button>
+        <button type="button" data-challenge-choice="down" data-pos="down" hidden></button>
+      </div>
+
+      <div class="lexicalChallengeFeedback" data-challenge-feedback hidden></div>
+
+      <footer class="lexicalRepairQuestionActions">
+        <button type="button" data-challenge-question-issue>Q · 题目有问题</button>
+        <button type="button" class="primary" data-challenge-continue hidden>Space · Continue</button>
+      </footer>
+    </main>
+
+    <div class="lexicalRepairSessionStrip" data-challenge-session-strip aria-label="Repair Test progress"></div>
+  </section>
+
+  <section class="lexicalRepairComplete" data-challenge-complete-panel hidden>
+    <span>SESSION COMPLETE</span>
+    <h3>本组 Repair Test 完成</h3>
+    <p data-challenge-complete-summary></p>
+    <div>
+      <button type="button" class="primary" data-challenge-copy-return>复制结果给 Chat</button>
+      <button type="button" data-challenge-clear>结束并清除本组 Test</button>
+    </div>
   </section>
 </section>
+
 <style>
-.lexicalChallengeStage{padding:1rem 0}.lexicalChallengeStem{font-size:1.35rem;line-height:1.6;max-width:52rem;margin:1.5rem auto;text-align:center}.lexicalChallengeOptions{display:grid;grid-template-columns:minmax(0,1fr) minmax(8rem,1.2fr) minmax(0,1fr);grid-template-areas:". up ." "left . right" ". down .";gap:.7rem;max-width:48rem;margin:1.5rem auto}.lexicalChallengeOptions [data-pos="up"]{grid-area:up}.lexicalChallengeOptions [data-pos="left"]{grid-area:left}.lexicalChallengeOptions [data-pos="right"]{grid-area:right}.lexicalChallengeOptions [data-pos="down"]{grid-area:down}.lexicalChallengeOptions button{min-height:4.2rem;padding:.8rem 1rem;border:1px solid currentColor;border-radius:.7rem;background:transparent;font:inherit;cursor:pointer}.lexicalChallengeFeedback{max-width:48rem;margin:1rem auto;padding:.9rem 1rem;border:1px solid currentColor;border-radius:.7rem;line-height:1.55;white-space:pre-wrap}[data-challenge-packet-input]{width:100%;box-sizing:border-box;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  .lexicalRepairChallenge{
+    min-width:0;
+    color:var(--study-ink);
+    font-family:var(--study-font-cjk);
+  }
+  .lexicalRepairWaiting{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:28px;
+    align-items:center;
+    min-height:310px;
+    padding:34px 38px;
+    border:1px solid var(--study-line);
+    border-radius:9px;
+    background:var(--study-surface);
+  }
+  .lexicalRepairWaitingCopy{display:grid;gap:7px;max-width:700px;}
+  .lexicalRepairWaitingCopy>span,
+  .lexicalRepairComplete>span{
+    color:#4a765f;
+    font-size:12.5px;
+    font-weight:700;
+    letter-spacing:.07em;
+  }
+  .lexicalRepairWaitingCopy h3,
+  .lexicalRepairComplete h3{
+    margin:0;
+    font-size:27px;
+    line-height:1.28;
+    font-weight:720;
+  }
+  .lexicalRepairWaitingCopy p,
+  .lexicalRepairComplete p{
+    margin:0;
+    color:var(--study-muted);
+    font-size:16px;
+    line-height:1.6;
+  }
+  .lexicalRepairWaitingCopy>a{
+    width:max-content;
+    margin-top:8px;
+    color:var(--study-ink);
+    font-size:15px;
+    font-weight:700;
+    text-decoration:none;
+  }
+  .lexicalRepairWaitingStatus{
+    display:grid;
+    min-width:180px;
+    justify-items:end;
+    gap:5px;
+    padding-left:24px;
+    border-left:1px solid var(--study-line);
+  }
+  .lexicalRepairWaitingStatus small{color:var(--study-muted);font-size:13px;}
+  .lexicalRepairWaitingStatus b{font-size:20px;letter-spacing:.13em;font-weight:650;}
+  .lexicalRepairWaitingStatus span{color:var(--study-muted);font-size:13px;}
+  .lexicalRepairManualTools{
+    grid-column:1 / -1;
+    margin-top:2px;
+    border-top:1px solid var(--study-line);
+    padding-top:12px;
+    color:var(--study-muted);
+  }
+  .lexicalRepairManualTools summary{
+    width:max-content;
+    cursor:pointer;
+    font-size:13px;
+    font-weight:650;
+  }
+  .lexicalRepairManualTools p{margin:10px 0;color:var(--study-muted);font-size:13px;}
+  .lexicalRepairManualTools textarea{
+    width:100%;
+    box-sizing:border-box;
+    resize:vertical;
+    padding:10px 12px;
+    border:1px solid var(--study-line);
+    border-radius:7px;
+    background:var(--study-surface-muted);
+    color:var(--study-ink);
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:12px;
+  }
+  .lexicalRepairManualTools>div{display:flex;gap:8px;margin-top:8px;}
+  .lexicalRepairManualTools button,
+  .lexicalRepairQuestionActions button,
+  .lexicalRepairComplete button{
+    min-height:36px;
+    padding:0 12px;
+    border:1px solid var(--study-line);
+    border-radius:7px;
+    background:var(--study-surface);
+    color:var(--study-ink);
+    font:inherit;
+    font-size:14px;
+    font-weight:650;
+    cursor:pointer;
+  }
+  .lexicalRepairActive{
+    display:grid;
+    grid-template-columns:minmax(220px,250px) minmax(0,1fr);
+    grid-template-rows:minmax(500px,auto) auto;
+    border:1px solid var(--study-line);
+    border-radius:9px;
+    overflow:hidden;
+    background:var(--study-surface);
+  }
+  .lexicalRepairCurrent{
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+    padding:28px 24px;
+    border-right:1px solid var(--study-line);
+    background:var(--study-surface-muted);
+  }
+  .lexicalRepairCurrent>span{
+    color:#4a765f;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.07em;
+  }
+  .lexicalRepairCurrent h3{
+    margin:13px 0 5px;
+    font-family:var(--lexical-serif);
+    font-size:32px;
+    line-height:1.15;
+    font-weight:600;
+  }
+  .lexicalRepairCurrent>b{
+    color:var(--study-muted);
+    font-size:14px;
+    font-weight:700;
+  }
+  .lexicalRepairCurrentMeta{
+    display:grid;
+    gap:3px;
+    margin-top:22px;
+    padding-top:14px;
+    border-top:1px solid var(--study-line);
+  }
+  .lexicalRepairCurrentMeta small{color:var(--study-muted);font-size:12px;font-weight:650;}
+  .lexicalRepairCurrentMeta p{margin:0;font-size:14px;line-height:1.5;}
+  .lexicalRepairCurrent>a{
+    margin-top:auto;
+    padding-top:24px;
+    color:var(--study-ink);
+    font-size:14px;
+    font-weight:700;
+    text-decoration:none;
+  }
+  .lexicalRepairQuestion{
+    display:grid;
+    grid-template-rows:auto auto minmax(270px,1fr) auto auto;
+    min-width:0;
+    padding:26px 34px 22px;
+  }
+  .lexicalRepairQuestion>header{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    align-items:center;
+  }
+  .lexicalRepairQuestion>header span{
+    color:var(--study-muted);
+    font-size:14px;
+    font-weight:700;
+  }
+  .lexicalRepairQuestion>header small{
+    color:var(--study-muted);
+    font-size:13px;
+  }
+  .lexicalChallengeStem{
+    max-width:760px;
+    margin:26px auto 8px;
+    text-align:center;
+    color:var(--study-ink);
+    font-size:22px;
+    line-height:1.58;
+    font-weight:600;
+  }
+  .lexicalChallengeOptions{
+    display:grid;
+    grid-template-columns:minmax(160px,1fr) minmax(190px,1.15fr) minmax(160px,1fr);
+    grid-template-areas:". up ." "left . right" ". down .";
+    align-content:center;
+    gap:12px 16px;
+    width:min(760px,100%);
+    margin:8px auto 16px;
+  }
+  .lexicalChallengeOptions [data-pos="up"]{grid-area:up}
+  .lexicalChallengeOptions [data-pos="left"]{grid-area:left}
+  .lexicalChallengeOptions [data-pos="right"]{grid-area:right}
+  .lexicalChallengeOptions [data-pos="down"]{grid-area:down}
+  .lexicalChallengeOptions button{
+    min-height:76px;
+    padding:13px 18px;
+    border:1px solid #cad5cf;
+    border-radius:9px;
+    background:#fff;
+    color:var(--study-ink);
+    font:inherit;
+    font-size:16px;
+    font-weight:650;
+    line-height:1.4;
+    cursor:pointer;
+  }
+  .lexicalChallengeOptions button:hover{border-color:#97aa9f;background:#fafcfb;}
+  .lexicalChallengeOptions button.selected,
+  .lexicalChallengeOptions button.correct{border-color:#698f7c;background:#f4f8f6;}
+  .lexicalChallengeOptions button.wrong{border-color:#b68b86;background:#fbf6f5;}
+  .lexicalChallengeFeedback{
+    width:min(760px,100%);
+    box-sizing:border-box;
+    margin:2px auto 12px;
+    padding:13px 16px;
+    border:1px solid var(--study-line);
+    border-radius:8px;
+    background:var(--study-surface-muted);
+    color:var(--study-ink);
+    font-size:15px;
+    line-height:1.6;
+    white-space:pre-wrap;
+  }
+  .lexicalRepairChallenge[data-challenge-outcome="wrong"] .lexicalChallengeFeedback{
+    border-color:#d8c5c1;
+    background:#fcf8f7;
+  }
+  .lexicalRepairQuestionActions{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    align-items:center;
+  }
+  .lexicalRepairQuestionActions button{background:transparent;}
+  .lexicalRepairQuestionActions button.primary,
+  .lexicalRepairComplete button.primary{
+    border-color:#9ab0a4;
+    background:#f5f8f6;
+  }
+  .lexicalRepairSessionStrip{
+    grid-column:1 / -1;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    min-height:44px;
+    padding:0 18px;
+    border-top:1px solid var(--study-line);
+    background:#fafbfa;
+    overflow:hidden;
+  }
+  .lexicalRepairSessionStrip span{
+    flex:0 0 auto;
+    max-width:190px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    color:var(--study-muted);
+    font-size:12.5px;
+  }
+  .lexicalRepairSessionStrip span.active{
+    color:var(--study-ink);
+    font-weight:700;
+  }
+  .lexicalRepairSessionStrip span.active::before{content:'● ';font-size:9px;}
+  .lexicalRepairSessionStrip span:not(.active)::before{content:'○ ';font-size:9px;}
+  .lexicalRepairComplete{
+    display:grid;
+    gap:8px;
+    min-height:300px;
+    align-content:center;
+    justify-items:start;
+    padding:34px 38px;
+    border:1px solid var(--study-line);
+    border-radius:9px;
+    background:var(--study-surface);
+  }
+  .lexicalRepairComplete>div{display:flex;gap:8px;margin-top:12px;}
+  @media(max-width:980px){
+    .lexicalRepairActive{grid-template-columns:1fr;grid-template-rows:auto auto auto;}
+    .lexicalRepairCurrent{border-right:0;border-bottom:1px solid var(--study-line);}
+    .lexicalRepairQuestion{min-height:520px;padding-inline:22px;}
+    .lexicalRepairSessionStrip{grid-column:1;}
+    .lexicalRepairWaiting{grid-template-columns:1fr;}
+    .lexicalRepairWaitingStatus{justify-items:start;border-left:0;border-top:1px solid var(--study-line);padding:14px 0 0;}
+  }
 </style>
 <script>
 import {LEXICAL_LEDGER_STORAGE_KEY,appendEvidenceEvent,emptyLexicalLedger,exportReturnEvents,legacyEventId,normalizeLexicalLedger,repairStateForEvent} from '../lib/lexicalEvidence.mjs';
 const root=document.querySelector('[data-vocab-challenge-runtime]');
 if(root instanceof HTMLElement){
   const PACKET_KEY='kianos-lexical-challenge-packet-v1',PROGRESS_KEY='kianos-lexical-challenge-progress-v1',EVENTS_KEY='kianos-lexical-challenge-events-v1',WORD_PREFIX='kianos-vocabulary-astro-v2:';
-  const importPanel=root.querySelector('[data-challenge-import-panel]'),questionPanel=root.querySelector('[data-challenge-question-panel]'),completePanel=root.querySelector('[data-challenge-complete-panel]'),packetInput=root.querySelector('[data-challenge-packet-input]'),importStatus=root.querySelector('[data-challenge-import-status]'),status=root.querySelector('[data-challenge-status]'),resumeButton=root.querySelector('[data-challenge-resume]'),continueButton=root.querySelector('[data-challenge-continue]'),feedback=root.querySelector('[data-challenge-feedback]'),issueButton=root.querySelector('[data-challenge-question-issue]'),choiceButtons=[...root.querySelectorAll('[data-challenge-choice]')];
+  const base=root.getAttribute('data-base')||'/';
+  const repairPanel=root.closest('[data-lexical-panel="repair"]');
+  const isRepairVisible=()=>repairPanel instanceof HTMLElement&&!repairPanel.hidden;
+  const importPanel=root.querySelector('[data-challenge-import-panel]'),questionPanel=root.querySelector('[data-challenge-question-panel]'),completePanel=root.querySelector('[data-challenge-complete-panel]'),packetInput=root.querySelector('[data-challenge-packet-input]'),importStatus=root.querySelector('[data-challenge-import-status]'),status=root.querySelector('[data-challenge-status]'),resumeButton=root.querySelector('[data-challenge-resume]'),continueButton=root.querySelector('[data-challenge-continue]'),feedback=root.querySelector('[data-challenge-feedback]'),issueButton=root.querySelector('[data-challenge-question-issue]'),choiceButtons=[...root.querySelectorAll('[data-challenge-choice]')],currentKind=root.querySelector('[data-challenge-current-kind]'),currentDemand=root.querySelector('[data-challenge-demand]'),currentDemandWrap=root.querySelector('[data-challenge-demand-wrap]'),openWord=root.querySelector('[data-challenge-open-word]'),sessionStrip=root.querySelector('[data-challenge-session-strip]'),waitingTitle=root.querySelector('[data-challenge-waiting-title]'),waitingCopy=root.querySelector('[data-challenge-waiting-copy]'),emptyLearn=root.querySelector('[data-challenge-empty-learn]'),manualTools=root.querySelector('[data-challenge-manual-tools]');
   const readJson=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key)||'null')||fallback}catch{return fallback}},saveJson=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value))}catch{}},readLedger=()=>normalizeLexicalLedger(readJson(LEXICAL_LEDGER_STORAGE_KEY,emptyLexicalLedger())),saveLedger=(ledger)=>saveJson(LEXICAL_LEDGER_STORAGE_KEY,ledger),eventId=(prefix)=>`${prefix}:${globalThis.crypto?.randomUUID?.()||`${Date.now()}-${Math.random().toString(36).slice(2)}`}`,localDay=()=>new Date().toLocaleDateString('en-CA'),eventLocalDay=(iso)=>{const d=new Date(iso);return Number.isNaN(d.getTime())?'':d.toLocaleDateString('en-CA')};
   let packet=null,progress={packetSignature:'',index:0,mode:'main',answered:false,pendingReconstruction:false,lastAnswerEventId:null},sessionEvents=[];
   const validateQuestion=(q)=>{if(!q||typeof q.stem!=='string'||!q.stem.trim()||!Array.isArray(q.options)||q.options.length<2||q.options.length>4)return false;const keys=q.options.map((o)=>o?.key);return !keys.some((k)=>!['left','up','right','down'].includes(k))&&new Set(keys).size===keys.length&&keys.includes(q.correct_key)},validatePacket=(value)=>{if(value?.schema!=='kianos.lexical.challenge_packet.v1')return 'schema 必须是 kianos.lexical.challenge_packet.v1';if(!Array.isArray(value.challenges)||!value.challenges.length)return 'challenges 不能为空';for(const item of value.challenges){if(!item?.challenge_id||!item?.word_id||!Number.isInteger(Number(item.ordinal))||!item?.target_kind)return 'Challenge identity 不完整';if(item.question_type!=='spatial_choice'||!validateQuestion(item))return `Challenge ${item.challenge_id||''} 不是有效 spatial_choice`;if(item.reconstruction&&!validateQuestion(item.reconstruction))return `Challenge ${item.challenge_id||''} reconstruction 无效`}return ''},signature=(value)=>`${value?.study_day||''}|${value?.generated_at||''}|${value?.challenges?.map((x)=>x.challenge_id).join(',')||''}`,currentItem=()=>packet?.challenges?.[progress.index]||null,currentQuestion=()=>{const item=currentItem();return progress.mode==='reconstruction'?item?.reconstruction:item},saveProgress=()=>saveJson(PROGRESS_KEY,progress),saveEvents=()=>saveJson(EVENTS_KEY,sessionEvents),setActive=(active)=>root.setAttribute('data-challenge-active',String(Boolean(active)));
+  const targetKindLabel=(kind)=>({
+    core:'Core / Word Feel',
+    sense:'Sense',
+    secondary_sense:'熟词新用',
+    construction:'构式',
+    collocation:'搭配 / Phrase',
+    relation:'近义 / 关系边界',
+    confusable:'近义 / 关系边界',
+    form_identity:'形式 / 发音边界',
+    lexical:'Lexical target'
+  }[String(kind||'')]||String(kind||'Repair target'));
+  const demandLabel=(demand)=>({recognition:'识别',discrimination:'区分',production:'产出'}[String(demand||'')]||String(demand||''));
+  const repairCountNode=document.querySelector('.lexicalRepairHeader [data-lexical-repair-count]');
+  const syncWaitingState=()=>{
+    const count=Number(repairCountNode?.textContent||0);
+    if(waitingTitle)waitingTitle.textContent=count>0?'等待 Chat 编译下一组 Test':'当前没有需要处理的 Repair';
+    if(waitingCopy)waitingCopy.textContent=count>0
+      ? '当前有 '+count+' 个局部 Repair 对象；Chat 决定下一组测什么，Test 到达后这里直接开始。'
+      : '没有需要优先处理的局部问题。可以继续 Learn；以后有新的有效 evidence 再回来。';
+    if(emptyLearn instanceof HTMLAnchorElement){
+      const learnNav=document.querySelector('[data-lexical-learn-nav]');
+      emptyLearn.href=learnNav instanceof HTMLAnchorElement?learnNav.href:base+'vocabulary/';
+      emptyLearn.hidden=count>0;
+    }
+    if(manualTools instanceof HTMLElement)manualTools.hidden=count===0;
+    if(!packet&&status)status.textContent=count>0?'Waiting for Test':'No Repair';
+  };
+  if(repairCountNode){
+    new MutationObserver(syncWaitingState).observe(repairCountNode,{childList:true,subtree:true});
+  }
+  window.addEventListener('kianos:lexical-evidence-changed',syncWaitingState);
   const migrateLegacyTargets=()=>{let ledger=readLedger();for(let i=0;i<localStorage.length;i+=1){const key=localStorage.key(i)||'';if(!key.startsWith(WORD_PREFIX))continue;const state=readJson(key,null);if(!state?.meta||!state?.repairTargets)continue;for(const target of Object.values(state.repairTargets)){const e={word_id:state.meta.word_id,ordinal:Number(state.meta.ordinal),word:state.meta.word||null,target_kind:target.target_kind||'lexical',target_id:target.target_id||null,target_locator:target.target_locator||null,target_revision:target.target_id?null:(target.target_revision||state.meta.source_hash||null),source:'depth_plus',outcome:'ADDED',observed_at:target.observed_at||state.lastSeenAt||new Date().toISOString()};e.event_id=`migration:${legacyEventId(e)}`;ledger=appendEvidenceEvent(ledger,e).ledger}}saveLedger(ledger)};migrateLegacyTargets();
   const baseEvent=(item)=>{const quality=item.evidence_quality||{};return {event_id:eventId(progress.mode==='reconstruction'?'reconstruction':'challenge'),word_id:item.word_id,ordinal:Number(item.ordinal),word:item.word||null,target_kind:item.target_kind,target_id:item.target_id||null,target_locator:item.target_locator||null,target_revision:item.target_revision||quality.target_revision||null,challenge_id:item.challenge_id,source_task_id:item.source_task_id||null,context_id:item.context_id||item.challenge_id,demand:item.demand||quality.demand||null,assistance:progress.mode==='reconstruction'?'assisted':(quality.assistance||item.assistance||null),context_novelty:progress.mode==='reconstruction'?'repeated':(quality.context_novelty||item.context_novelty||null),delayed:progress.mode==='reconstruction'?false:(quality.delayed===true||item.delayed===true),question_valid:true,observed_at:new Date().toISOString()}},pushEvent=(item,source,outcome,extra={})=>{const event={...baseEvent(item),source,outcome,...extra},result=appendEvidenceEvent(readLedger(),event);saveLedger(result.ledger);window.dispatchEvent(new CustomEvent('kianos:lexical-evidence-changed'));sessionEvents.push(event);saveEvents();return {event,ledger:result.ledger}},cacheKey=(item)=>item.target_id||`${item.target_kind}:${item.target_locator||''}`;
   const syncLegacyCache=(item,active,at)=>{const key=`${WORD_PREFIX}${item.word_id}`,state=readJson(key,{revealed:false,repairTargets:{},lastSeenAt:'',meta:{word_id:item.word_id,ordinal:Number(item.ordinal),word:item.word||null,source_hash:item.target_revision||null}});if(!state.repairTargets||typeof state.repairTargets!=='object')state.repairTargets={};if(active)state.repairTargets[cacheKey(item)]={target_kind:item.target_kind,target_id:item.target_id||null,target_locator:item.target_locator||null,target_revision:item.target_revision||item.evidence_quality?.target_revision||null,label:item.word||item.target_id||item.target_locator||item.target_kind,source:'evidence_reducer',outcome:'ADDED',observed_at:at};else delete state.repairTargets[cacheKey(item)];state.lastSeenAt=at;state.meta={...state.meta,word_id:item.word_id,ordinal:Number(item.ordinal),word:item.word||state.meta?.word||null};saveJson(key,state)},reconcile=(item,event,ledger)=>{const derived=repairStateForEvent(ledger,event);if(!derived)return 'unresolved';if(derived.state==='ACTIVE')syncLegacyCache(item,true,event.observed_at);if(derived.state==='DORMANT')syncLegacyCache(item,false,event.observed_at);return derived.state};
-  const renderOptions=(q)=>{const byKey=new Map((q?.options||[]).map((o)=>[o.key,o]));choiceButtons.forEach((b)=>{const option=byKey.get(b.getAttribute('data-challenge-choice'));b.hidden=!option;b.disabled=Boolean(progress.answered);b.textContent=option?.text||'';b.classList.remove('selected','correct','wrong')})},renderQuestion=()=>{const item=currentItem(),q=currentQuestion();if(!item||!q){finish();return}importPanel.hidden=true;completePanel.hidden=true;questionPanel.hidden=false;setActive(true);root.querySelector('[data-challenge-progress]').textContent=`${progress.index+1} / ${packet.challenges.length}${progress.mode==='reconstruction'?' · Reconstruct':''}`;root.querySelector('[data-challenge-word]').textContent=item.word||item.word_id;root.querySelector('[data-challenge-source]').textContent=item.source_evidence||'Repair';root.querySelector('[data-challenge-stem]').textContent=q.stem;feedback.hidden=true;feedback.textContent='';continueButton.hidden=true;issueButton.textContent='Q · 题目有问题';renderOptions(q);status.textContent=`${progress.index+1} / ${packet.challenges.length}`},advance=()=>{progress={...progress,index:progress.index+1,mode:'main',answered:false,pendingReconstruction:false,lastAnswerEventId:null};saveProgress();if(progress.index>=packet.challenges.length)finish();else renderQuestion()},showRepair=(item)=>{const repair=typeof item.repair==='string'?item.repair:(item.repair?.brief||item.repair?.text||'');feedback.hidden=false;feedback.textContent=repair||'这次失败保留在当前 target；下一次动作由当前 evidence 重新编译。';progress.pendingReconstruction=Boolean(item.reconstruction);continueButton.hidden=false;continueButton.textContent=item.reconstruction?'Space · Reconstruct':'Space · Next';saveProgress()};
-  const answer=(key)=>{if(progress.answered)return;const item=currentItem(),q=currentQuestion();if(!item||!q||!q.options.some((o)=>o.key===key))return;progress.answered=true;saveProgress();const correct=key===q.correct_key,source=progress.mode==='reconstruction'?'reconstruction':'challenge',pushed=pushEvent(item,source,correct?'CORRECT':'WRONG',{selected_key:key,correct_key:q.correct_key,question_trace:{stem:q.stem,options:q.options.map((o)=>({key:o.key,text:o.text}))}});progress.lastAnswerEventId=pushed.event.event_id;saveProgress();const derived=reconcile(item,pushed.event,pushed.ledger);choiceButtons.forEach((b)=>{const k=b.getAttribute('data-challenge-choice');b.disabled=true;if(k===q.correct_key)b.classList.add('correct');if(k===key)b.classList.add(correct?'selected':'wrong')});feedback.hidden=false;if(correct){feedback.textContent=derived==='DORMANT'?'✓ · 当前 evidence 足以让这个 target 暂时退出 Repair。':'✓ · 正确已记录；这一次本身不足以自动退出 Repair。';continueButton.hidden=false;continueButton.textContent='Space · Next'}else if(progress.mode==='reconstruction'){feedback.textContent='重建仍未稳定；保留 target，后续换诊断/测试方式，不机械加次数。';continueButton.hidden=false;continueButton.textContent='Space · Next'}else showRepair(item)};
+  const renderOptions=(q)=>{
+    const byKey=new Map((q?.options||[]).map((o)=>[o.key,o]));
+    choiceButtons.forEach((b)=>{
+      const option=byKey.get(b.getAttribute('data-challenge-choice'));
+      b.hidden=!option;
+      b.disabled=Boolean(progress.answered);
+      b.textContent=option?.text||'';
+      b.classList.remove('selected','correct','wrong');
+    });
+  };
+
+  const renderSessionStrip=()=>{
+    if(!(sessionStrip instanceof HTMLElement))return;
+    sessionStrip.replaceChildren();
+    const items=Array.isArray(packet?.challenges)?packet.challenges:[];
+    const visible=items.slice(0,10);
+    visible.forEach((item,index)=>{
+      const node=document.createElement('span');
+      node.classList.toggle('active',index===progress.index);
+      node.textContent=(item.word||item.word_id||'Word')+' · '+targetKindLabel(item.target_kind);
+      sessionStrip.appendChild(node);
+    });
+    if(items.length>visible.length){
+      const more=document.createElement('span');
+      more.textContent='+'+(items.length-visible.length);
+      sessionStrip.appendChild(more);
+    }
+  };
+
+  const renderQuestion=()=>{
+    const item=currentItem(),q=currentQuestion();
+    if(!item||!q){finish();return;}
+    importPanel.hidden=true;
+    completePanel.hidden=true;
+    questionPanel.hidden=false;
+    root.dataset.challengeOutcome='idle';
+    setActive(isRepairVisible());
+    root.querySelector('[data-challenge-progress]').textContent=(progress.index+1)+' / '+packet.challenges.length+(progress.mode==='reconstruction'?' · Reconstruct':'');
+    root.querySelector('[data-challenge-word]').textContent=item.word||item.word_id;
+    if(currentKind)currentKind.textContent=targetKindLabel(item.target_kind);
+    root.querySelector('[data-challenge-source]').textContent=item.source_evidence||'当前 Repair evidence';
+    const demand=demandLabel(item.demand||item.evidence_quality?.demand||'');
+    if(currentDemand)currentDemand.textContent=demand;
+    if(currentDemandWrap instanceof HTMLElement)currentDemandWrap.hidden=!demand;
+    if(openWord instanceof HTMLAnchorElement)openWord.href=base+'vocabulary/'+Number(item.ordinal)+'/';
+    root.querySelector('[data-challenge-stem]').textContent=q.stem;
+    feedback.hidden=true;
+    feedback.textContent='';
+    continueButton.hidden=true;
+    issueButton.textContent='Q · 题目有问题';
+    renderOptions(q);
+    renderSessionStrip();
+    status.textContent=(progress.index+1)+' / '+packet.challenges.length;
+  };
+
+  const advance=()=>{
+    progress={...progress,index:progress.index+1,mode:'main',answered:false,pendingReconstruction:false,lastAnswerEventId:null};
+    saveProgress();
+    if(progress.index>=packet.challenges.length)finish();
+    else renderQuestion();
+  };
+
+  const showRepair=(item)=>{
+    const repair=typeof item.repair==='string'?item.repair:(item.repair?.brief||item.repair?.text||'');
+    root.dataset.challengeOutcome='wrong';
+    feedback.hidden=false;
+    feedback.textContent=repair||'这次失败保留在当前对象；后续由新的 evidence 决定是否继续 Repair。';
+    progress.pendingReconstruction=Boolean(item.reconstruction);
+    continueButton.hidden=false;
+    continueButton.textContent=item.reconstruction?'Space · Reconstruct':'Space · Next';
+    saveProgress();
+  };
+  const answer=(key)=>{
+    if(progress.answered)return;
+    const item=currentItem(),q=currentQuestion();
+    if(!item||!q||!q.options.some((o)=>o.key===key))return;
+    progress.answered=true;
+    saveProgress();
+    const correct=key===q.correct_key,source=progress.mode==='reconstruction'?'reconstruction':'challenge',pushed=pushEvent(item,source,correct?'CORRECT':'WRONG',{selected_key:key,correct_key:q.correct_key,question_trace:{stem:q.stem,options:q.options.map((o)=>({key:o.key,text:o.text}))}});
+    progress.lastAnswerEventId=pushed.event.event_id;
+    saveProgress();
+    const derived=reconcile(item,pushed.event,pushed.ledger);
+    root.dataset.challengeOutcome=correct?'correct':'wrong';
+    choiceButtons.forEach((b)=>{
+      const k=b.getAttribute('data-challenge-choice');
+      b.disabled=true;
+      if(k===q.correct_key)b.classList.add('correct');
+      if(k===key)b.classList.add(correct?'selected':'wrong');
+    });
+    feedback.hidden=false;
+    if(correct){
+      feedback.textContent=derived==='DORMANT'
+        ? '✓ · 这次表现足以让这个局部问题暂时退出 Repair。'
+        : '✓ · 已记录。这一次正确还不足以单独结束这个 Repair。';
+      continueButton.hidden=false;
+      continueButton.textContent='Space · Next';
+    }else if(progress.mode==='reconstruction'){
+      feedback.textContent='重建仍不稳定；保留这个局部问题，后续换方式再测。';
+      continueButton.hidden=false;
+      continueButton.textContent='Space · Next';
+    }else showRepair(item);
+  };
   const continueFlow=()=>{if(!progress.answered)return;if(progress.mode==='main'&&progress.pendingReconstruction){progress.mode='reconstruction';progress.answered=false;progress.pendingReconstruction=false;progress.lastAnswerEventId=null;saveProgress();renderQuestion();return}advance()};
   issueButton.addEventListener('click',()=>{const item=currentItem(),q=currentQuestion();if(!item||!q)return;const correction=progress.lastAnswerEventId||null,pushed=pushEvent(item,progress.mode==='reconstruction'?'reconstruction':'challenge','QUESTION_ISSUE',{question_valid:false,corrects_event_id:correction,question_trace:{stem:q.stem,options:q.options.map((o)=>({key:o.key,text:o.text}))}});if(correction)reconcile(item,pushed.event,pushed.ledger);advance()});
   const buildReturnPacket=()=>{const day=localDay();return {schema:'kianos.lexical.return_packet.v1',study_day:day,exported_at:new Date().toISOString(),events:exportReturnEvents(readLedger(),day,eventLocalDay)}};
-  function finish(){setActive(false);importPanel.hidden=true;questionPanel.hidden=true;completePanel.hidden=false;const wrong=sessionEvents.filter((e)=>e.source==='challenge'&&e.outcome==='WRONG').length,correct=sessionEvents.filter((e)=>e.source==='challenge'&&e.outcome==='CORRECT').length,dormant=sessionEvents.filter((e)=>e.source==='challenge'&&e.outcome==='CORRECT'&&repairStateForEvent(readLedger(),e)?.state==='DORMANT').length;root.querySelector('[data-challenge-complete-summary]').textContent=`${correct} correct · ${wrong} wrong · ${dormant} target 暂时退出 Repair；没有日历欠债。`;status.textContent='Complete'}
-  const startPacket=(value,reset=true)=>{const error=validatePacket(value);if(error){importStatus.textContent=error;return}packet=value;saveJson(PACKET_KEY,packet);const sig=signature(packet);if(reset||progress.packetSignature!==sig){progress={packetSignature:sig,index:0,mode:'main',answered:false,pendingReconstruction:false,lastAnswerEventId:null};sessionEvents=[];saveProgress();saveEvents()}renderQuestion()};
-  root.querySelector('[data-challenge-import]').addEventListener('click',()=>{let value;try{value=JSON.parse(packetInput.value||'')}catch{importStatus.textContent='JSON 无法解析';return}startPacket(value,true)});resumeButton.addEventListener('click',()=>{const saved=readJson(PACKET_KEY,null);if(saved)startPacket(saved,false)});choiceButtons.forEach((b)=>b.addEventListener('click',()=>answer(b.getAttribute('data-challenge-choice')||'')));continueButton.addEventListener('click',continueFlow);root.querySelector('[data-challenge-copy-return]').addEventListener('click',async(event)=>{const button=event.currentTarget,text=JSON.stringify(buildReturnPacket(),null,2);try{await navigator.clipboard.writeText(text);button.textContent='Copied'}catch{window.prompt('Copy Return Packet',text)}window.setTimeout(()=>{button.textContent='Copy Return Packet'},1200)});root.querySelector('[data-challenge-clear]').addEventListener('click',()=>{try{localStorage.removeItem(PACKET_KEY);localStorage.removeItem(PROGRESS_KEY);localStorage.removeItem(EVENTS_KEY)}catch{}packet=null;progress={packetSignature:'',index:0,mode:'main',answered:false,pendingReconstruction:false,lastAnswerEventId:null};sessionEvents=[];setActive(false);questionPanel.hidden=true;completePanel.hidden=true;importPanel.hidden=false;resumeButton.hidden=true;status.textContent='Import a Challenge Packet'});
-  document.addEventListener('keydown',(event)=>{if(root.getAttribute('data-challenge-active')!=='true')return;const target=event.target;if(target instanceof HTMLElement&&target.closest('input,textarea,select,[contenteditable="true"]'))return;const arrows={ArrowLeft:'left',ArrowUp:'up',ArrowRight:'right',ArrowDown:'down'};if(arrows[event.key]&&!progress.answered){event.preventDefault();answer(arrows[event.key]);return}if((event.code==='Space'||event.key==='Enter')&&progress.answered&&!continueButton.hidden){event.preventDefault();continueFlow();return}if(event.key.toLowerCase()==='q'){event.preventDefault();issueButton.click()}});
-  const savedPacket=readJson(PACKET_KEY,null),savedProgress=readJson(PROGRESS_KEY,null),savedEvents=readJson(EVENTS_KEY,[]);if(savedPacket&&!validatePacket(savedPacket)){packet=savedPacket;progress=savedProgress?.packetSignature===signature(savedPacket)?savedProgress:{packetSignature:signature(savedPacket),index:0,mode:'main',answered:false,pendingReconstruction:false,lastAnswerEventId:null};sessionEvents=Array.isArray(savedEvents)?savedEvents:[];resumeButton.hidden=false;importStatus.textContent=`已有 ${savedPacket.challenges.length} 道本地 Challenge，可继续。`}
+  function finish(){
+    setActive(false);
+    root.dataset.challengeOutcome='complete';
+    importPanel.hidden=true;
+    questionPanel.hidden=true;
+    completePanel.hidden=false;
+    const wrong=sessionEvents.filter((e)=>e.source==='challenge'&&e.outcome==='WRONG').length;
+    const correct=sessionEvents.filter((e)=>e.source==='challenge'&&e.outcome==='CORRECT').length;
+    const dormant=sessionEvents.filter((e)=>e.source==='challenge'&&e.outcome==='CORRECT'&&repairStateForEvent(readLedger(),e)?.state==='DORMANT').length;
+    root.querySelector('[data-challenge-complete-summary]').textContent=correct+' correct · '+wrong+' wrong · '+dormant+' 个局部问题暂时退出 Repair。';
+    status.textContent='Complete';
+    renderSessionStrip();
+  }
+  const hydrateSavedPacket=()=>{
+    const saved=readJson(PACKET_KEY,null);
+    if(!saved||validatePacket(saved))return null;
+    const savedProgress=readJson(PROGRESS_KEY,null),savedEvents=readJson(EVENTS_KEY,[]);
+    packet=saved;
+    progress=savedProgress?.packetSignature===signature(saved)
+      ? savedProgress
+      : {packetSignature:signature(saved),index:0,mode:'main',answered:false,pendingReconstruction:false,lastAnswerEventId:null};
+    sessionEvents=Array.isArray(savedEvents)?savedEvents:[];
+    return saved;
+  };
+
+  const startPacket=(value,reset=true)=>{
+    const error=validatePacket(value);
+    if(error){importStatus.textContent=error;return;}
+    packet=value;
+    saveJson(PACKET_KEY,packet);
+    const sig=signature(packet);
+    if(reset||progress.packetSignature!==sig){
+      progress={packetSignature:sig,index:0,mode:'main',answered:false,pendingReconstruction:false,lastAnswerEventId:null};
+      sessionEvents=[];
+      saveProgress();
+      saveEvents();
+    }
+    renderQuestion();
+  };
+
+  const openRepairSession=()=>{
+    const saved=packet||hydrateSavedPacket();
+    if(saved&&!validatePacket(saved)){
+      startPacket(saved,false);
+      return;
+    }
+    setActive(false);
+    root.dataset.challengeOutcome='idle';
+    questionPanel.hidden=true;
+    completePanel.hidden=true;
+    importPanel.hidden=false;
+    syncWaitingState();
+  };
+
+  root.querySelector('[data-challenge-import]')?.addEventListener('click',()=>{
+    let value;
+    try{value=JSON.parse(packetInput.value||'')}catch{importStatus.textContent='JSON 无法解析';return;}
+    startPacket(value,true);
+  });
+  resumeButton?.addEventListener('click',()=>{
+    const saved=hydrateSavedPacket();
+    if(saved)startPacket(saved,false);
+  });
+  choiceButtons.forEach((b)=>b.addEventListener('click',()=>answer(b.getAttribute('data-challenge-choice')||'')));
+  continueButton?.addEventListener('click',continueFlow);
+  root.querySelector('[data-challenge-copy-return]')?.addEventListener('click',async(event)=>{
+    const button=event.currentTarget,text=JSON.stringify(buildReturnPacket(),null,2);
+    try{await navigator.clipboard.writeText(text);button.textContent='已复制'}
+    catch{window.prompt('Copy Return Packet',text)}
+    window.setTimeout(()=>{button.textContent='复制结果给 Chat'},1200);
+  });
+  root.querySelector('[data-challenge-clear]')?.addEventListener('click',()=>{
+    try{localStorage.removeItem(PACKET_KEY);localStorage.removeItem(PROGRESS_KEY);localStorage.removeItem(EVENTS_KEY)}catch{}
+    packet=null;
+    progress={packetSignature:'',index:0,mode:'main',answered:false,pendingReconstruction:false,lastAnswerEventId:null};
+    sessionEvents=[];
+    setActive(false);
+    root.dataset.challengeOutcome='idle';
+    questionPanel.hidden=true;
+    completePanel.hidden=true;
+    importPanel.hidden=false;
+    if(resumeButton)resumeButton.hidden=true;
+    syncWaitingState();
+  });
+
+  document.addEventListener('keydown',(event)=>{
+    if(root.getAttribute('data-challenge-active')!=='true'||!isRepairVisible())return;
+    const target=event.target;
+    if(target instanceof HTMLElement&&target.closest('input,textarea,select,[contenteditable="true"]'))return;
+    const arrows={ArrowLeft:'left',ArrowUp:'up',ArrowRight:'right',ArrowDown:'down'};
+    if(arrows[event.key]&&!progress.answered){event.preventDefault();answer(arrows[event.key]);return;}
+    if((event.code==='Space'||event.key==='Enter')&&progress.answered&&!continueButton.hidden){event.preventDefault();continueFlow();return;}
+    if(event.key.toLowerCase()==='q'){event.preventDefault();issueButton.click();}
+  });
+
+  window.addEventListener('kianos:lexical-home-tab',(event)=>{
+    const tab=event?.detail?.tab||'';
+    if(tab==='repair')openRepairSession();
+    else setActive(false);
+  });
+
+  window.addEventListener('storage',(event)=>{
+    if(event.key!==PACKET_KEY)return;
+    const saved=hydrateSavedPacket();
+    if(saved&&isRepairVisible())startPacket(saved,false);
+    else if(saved&&status)status.textContent=saved.challenges.length+' tests ready';
+  });
+
+  const initialSaved=hydrateSavedPacket();
+  if(initialSaved){
+    if(resumeButton)resumeButton.hidden=true;
+    importStatus.textContent='已载入 '+initialSaved.challenges.length+' 道 Test；进入 Repair 后自动继续。';
+    status.textContent=initialSaved.challenges.length+' tests ready';
+  }
+  queueMicrotask(()=>{
+    syncWaitingState();
+    if(initialSaved&&isRepairVisible())startPacket(initialSaved,false);
+  });
 }
 </script>

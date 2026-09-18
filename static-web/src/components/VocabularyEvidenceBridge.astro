@@ -7,6 +7,18 @@ const { nextHref = '/vocabulary/' } = Astro.props;
 </style>
 <script>
   import { LEXICAL_LEDGER_STORAGE_KEY, appendEvidenceEvent, compileRepairTargets, emptyLexicalLedger, legacyEventId, normalizeLexicalLedger } from '../lib/lexicalEvidence.mjs';
+  import {
+    DEFAULT_DAILY_NEW_LIMIT,
+    LEXICAL_INTAKE_STORAGE_KEY,
+    LEXICAL_ROUTING_STORAGE_KEY,
+    LEXICAL_SETTINGS_STORAGE_KEY,
+    introducedCountForDay,
+    introductionDayFor,
+    localLexicalDay,
+    normalizeLexicalIntake,
+    normalizeLexicalSettings,
+    registerLexicalIntroduction
+  } from '../lib/lexicalSettings.mjs';
   const bridge=document.querySelector('[data-vocab-evidence-bridge]');
   const root=document.querySelector('[data-local-port="vocabulary"]');
   if(bridge instanceof HTMLElement&&root instanceof HTMLElement){
@@ -42,10 +54,18 @@ const { nextHref = '/vocabulary/' } = Astro.props;
     const reveal=root.querySelector('[data-vocab-reveal]');
     const routeButtons=[...root.querySelectorAll('[data-vocab-route]')];
     const undoButton=root.querySelector('[data-vocab-undo]');
-    const ROUTING_KEY='kianos-lexical-card-routing-v1';
     const emptyRouting=()=>({schema:'kianos.lexical.card_routing.v1',history:[],latest_by_word:{}});
-    const readRouting=()=>{const value=readJson(ROUTING_KEY,emptyRouting());return value?.schema==='kianos.lexical.card_routing.v1'?value:emptyRouting()};
-    const saveRouting=(value)=>saveJson(ROUTING_KEY,value);
+    const readRouting=()=>{const value=readJson(LEXICAL_ROUTING_STORAGE_KEY,emptyRouting());return value?.schema==='kianos.lexical.card_routing.v1'?value:emptyRouting()};
+    const saveRouting=(value)=>saveJson(LEXICAL_ROUTING_STORAGE_KEY,value);
+    const readSettings=()=>normalizeLexicalSettings(readJson(LEXICAL_SETTINGS_STORAGE_KEY,{daily_new_limit:DEFAULT_DAILY_NEW_LIMIT}));
+    const readIntake=()=>normalizeLexicalIntake(readJson(LEXICAL_INTAKE_STORAGE_KEY,null));
+    const saveIntake=(value)=>saveJson(LEXICAL_INTAKE_STORAGE_KEY,value);
+    const homeHref=()=>{const url=new URL('../',location.href);url.searchParams.set('limit','reached');return url.href};
+    const newWordBlocked=()=>{
+      if(mode!=='study'||introductionDayFor(readIntake(),objectId))return false;
+      return introducedCountForDay(readIntake(),localLexicalDay())>=readSettings().daily_new_limit;
+    };
+    if(newWordBlocked())location.replace(homeHref());
     const updateUndoState=()=>{if(undoButton instanceof HTMLButtonElement)undoButton.disabled=readRouting().history.length===0};
 
     const recordRouting=(route)=>{
@@ -77,13 +97,37 @@ const { nextHref = '/vocabulary/' } = Astro.props;
       if(previous)routing.latest_by_word[last.word_id]=previous;
       else delete routing.latest_by_word[last.word_id];
       saveRouting(routing);
+      if(!previous){
+        const intake=readIntake();
+        if(intake.introduced?.[last.word_id]){
+          delete intake.introduced[last.word_id];
+          saveIntake(intake);
+        }
+      }
       updateUndoState();
       if(last.return_href)location.href=last.return_href;
     };
 
     const submitRoute=(route)=>{
       if(mode!=='study')return;
+      const routingBefore=readRouting();
+      const prior=routingBefore.latest_by_word?.[objectId]||null;
+      let intake=readIntake();
+      let introducedNow=false;
+      if(!introductionDayFor(intake,objectId)){
+        const registered=registerLexicalIntroduction(intake,objectId,prior?.observed_at||new Date());
+        intake=registered.intake;
+        introducedNow=registered.added&&!prior&&registered.studyDay===localLexicalDay();
+        if(registered.added)saveIntake(intake);
+      }
       recordRouting(route);
+      const reached=introducedNow&&introducedCountForDay(intake,localLexicalDay())>=readSettings().daily_new_limit;
+      if(reached){
+        const nextOrdinal=String(nextHref||'').match(/\/vocabulary\/(\d+)\/?/i)?.[1]||'';
+        if(nextOrdinal)try{localStorage.setItem('kianos-vocabulary-last-ordinal',nextOrdinal)}catch{}
+        location.href=homeHref();
+        return;
+      }
       location.href=nextHref;
     };
 

@@ -87,7 +87,8 @@ try {
   };
 
   await goto(page, '/vocabulary/');
-  await page.locator('[data-lexical-tab="challenge"]').click();
+  await page.locator('[data-lexical-tab="repair"]').click();
+  await page.locator('[data-challenge-manual-tools] summary').click();
   await page.locator('[data-challenge-packet-input]').fill(JSON.stringify(packet));
   await page.locator('[data-challenge-import]').click();
   await page.locator('[data-challenge-question-panel]').waitFor({ state: 'visible' });
@@ -101,11 +102,9 @@ try {
   check(savedBeforeReload?.index === 1 && savedBeforeReload?.answered === false, 'progress_persisted_before_reload', JSON.stringify(savedBeforeReload || {}));
   await page.reload({ waitUntil: 'domcontentloaded' });
   await page.waitForTimeout(80);
-  await page.locator('[data-lexical-tab="challenge"]').click();
-  const resume = page.locator('[data-challenge-resume]');
-  check(await resume.isVisible(), 'resume_control_visible_after_reload');
-  await resume.click();
+  await page.locator('[data-lexical-tab="repair"]').click();
   await page.locator('[data-challenge-question-panel]').waitFor({ state: 'visible' });
+  check(await page.locator('[data-challenge-resume]').isHidden(), 'saved_packet_auto_resumes_without_extra_control');
   check((await page.locator('[data-challenge-progress]').innerText()).startsWith('2 / 2'), 'resume_returns_exact_second_item');
   check((await page.locator('[data-challenge-stem]').innerText()).includes('Second resume acceptance question.'), 'resume_restores_question_identity');
 

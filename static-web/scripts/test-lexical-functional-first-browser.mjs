@@ -63,7 +63,9 @@ const challengePacket = (target, id, extra = {}) => ({
 });
 async function openChallenge(page, packet) {
   await goto(page, '/vocabulary/');
-  await page.locator('[data-lexical-tab="challenge"]').click();
+  await page.locator('[data-lexical-tab="repair"]').click();
+  const tools = page.locator('[data-challenge-manual-tools]');
+  if (!(await tools.getAttribute('open'))) await tools.locator('summary').click();
   await page.locator('[data-challenge-packet-input]').fill(JSON.stringify(packet));
   await page.locator('[data-challenge-import]').click();
   await page.locator('[data-challenge-question-panel]').waitFor({ state: 'visible' });
@@ -123,9 +125,9 @@ try {
   let l = await ledger(page);
   check(!l?.events?.some((event) => event.target_kind === 'card'), 'card_routing_stays_out_of_repair_ledger');
   await goto(page, '/vocabulary/');
-  await page.locator('[data-lexical-tab="review"]').click();
+  await page.locator('[data-lexical-tab="repair"]').click();
   await page.waitForTimeout(40);
-  check((await page.locator('[data-lexical-review-list]').innerText()).includes('没有 evidence-backed Repair'), 'home_no_repair_after_fuzzy');
+  check((String(await page.locator('[data-lexical-review-list]').textContent() || '')).includes('当前没有需要处理的 Repair 对象'), 'home_no_repair_after_fuzzy');
 
   // Local + admits exactly one target.
   await goto(page, '/vocabulary/4/');
@@ -144,16 +146,16 @@ try {
   l = await ledger(page);
   check(l?.events?.filter((event) => event.source === 'depth_plus' && event.outcome === 'ADDED').length === 1, 'local_plus_one_admission_event');
   await goto(page, '/vocabulary/');
-  await page.locator('[data-lexical-tab="review"]').click();
+  await page.locator('[data-lexical-tab="repair"]').click();
   await page.waitForTimeout(40);
-  const repairText = await page.locator('[data-lexical-review-list]').innerText();
-  check(repairText.includes(word) && repairText.includes('1 exact Repair target'), 'home_projects_exact_repair', repairText);
+  const repairText = String(await page.locator('[data-lexical-review-list]').textContent() || '');
+  check(repairText.includes(word) && repairText.includes('1 个 Repair 对象'), 'home_projects_exact_repair', repairText);
 
   // A correct Challenge without quality evidence must NOT auto-retire.
   await openChallenge(page, challengePacket(target, 'browser-single-correct'));
   await page.locator('[data-challenge-choice="right"]').click();
   const weakCorrectFeedback = await page.locator('[data-challenge-feedback]').innerText();
-  check(weakCorrectFeedback.includes('不足以自动退出 Repair'), 'single_correct_does_not_retire', weakCorrectFeedback);
+  check(weakCorrectFeedback.includes('不足以单独结束这个 Repair'), 'single_correct_does_not_retire', weakCorrectFeedback);
   check(await repairCount(page, objectId) === 1, 'single_correct_target_still_active');
   await page.locator('[data-challenge-continue]').click();
   await page.locator('[data-challenge-complete-panel]').waitFor({ state: 'visible' });
@@ -189,7 +191,7 @@ try {
   await page.locator('[data-challenge-continue]').click();
   check((await page.locator('[data-challenge-progress]').innerText()).includes('Reconstruct'), 'enters_reconstruction');
   await page.locator('[data-challenge-choice="right"]').click();
-  check((await page.locator('[data-challenge-feedback]').innerText()).includes('不足以自动退出 Repair'), 'reconstruction_correct_not_transfer');
+  check((await page.locator('[data-challenge-feedback]').innerText()).includes('不足以单独结束这个 Repair'), 'reconstruction_correct_not_transfer');
   await page.locator('[data-challenge-continue]').click();
   await page.locator('[data-challenge-complete-panel]').waitFor({ state: 'visible' });
   check(await repairCount(page, objectId) === 1, 'reconstruction_target_remains_active');
@@ -205,13 +207,13 @@ try {
   l = await ledger(page);
   check(l?.events?.some((event) => event.source === 'manual_clear' && event.outcome === 'CLEAR'), 'manual_clear_event_recorded');
   await goto(page, '/vocabulary/');
-  const continueHref = await page.locator('[data-lexical-continue]').getAttribute('href');
+  const continueHref = await page.locator('[data-lexical-learn-nav]').getAttribute('href');
   check(String(continueHref).endsWith('/vocabulary/4/'), 'coverage_resume_keeps_last_cursor', continueHref);
   const bodyText = await page.locator('body').innerText();
   check(!/overdue|next-day repair|明天继续|必须先清/i.test(bodyText), 'no_overdue_wall_language');
-  await page.locator('[data-lexical-tab="review"]').click();
+  await page.locator('[data-lexical-tab="repair"]').click();
   await page.waitForTimeout(40);
-  check((await page.locator('[data-lexical-review-list]').innerText()).includes('没有 evidence-backed Repair'), 'manual_clear_home_dormant');
+  check((String(await page.locator('[data-lexical-review-list]').textContent() || '')).includes('当前没有需要处理的 Repair 对象'), 'manual_clear_home_dormant');
 
   await page.screenshot({ path: path.join(AUDIT, 'final-home.png'), fullPage: true });
   const finalLedger = await ledger(page);

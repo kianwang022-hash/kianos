@@ -5,104 +5,266 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
 ---
 <section class="lexicalHome" data-lexical-home data-base={base}>
   <header class="lexicalHomeHeader">
-    <div>
+    <div class="lexicalHomeTitle">
       <span>LEXICAL / VOCABULARY</span>
-      <h2>把词学透，也能快速扫过。</h2>
-      <p>熟悉的词快速继续；需要时展开词义，留下真正不稳的具体分支。</p>
+      <h2>Vocabulary</h2>
+      <p>学新词、修薄弱点、查完整词义。默认从总览开始。</p>
     </div>
-    <nav aria-label="Vocabulary modes">
-      <button type="button" class="active" data-lexical-tab="study">Study</button>
-      <button type="button" data-lexical-tab="search">Search</button>
-      <button type="button" data-lexical-tab="review">Repair</button>
-      <button type="button" data-lexical-tab="challenge">Challenge</button>
+    <nav class="lexicalLocalNav" aria-label="Vocabulary local navigation">
+      <a class="lexicalBackEnglish" href={base + 'english/'}>← English</a>
+      <span class="lexicalLocalDivider" aria-hidden="true"></span>
+      <button type="button" class="active" data-lexical-tab="overview">Overview</button>
+      <a class="lexicalLearnNav" data-lexical-learn-nav href={base + 'vocabulary/1/'}>Learn</a>
+      <button type="button" data-lexical-tab="repair">Repair</button>
+      <button type="button" data-lexical-tab="research">Research</button>
+      <span class="lexicalLocalDivider" aria-hidden="true"></span>
+      <button type="button" class="lexicalSettingsOpen" data-lexical-settings-open>我的 / 设置</button>
     </nav>
   </header>
 
-  <section class="lexicalHomePanel" data-lexical-panel="study">
-    <a class="lexicalContinueCard" data-lexical-continue href={`${base}vocabulary/1/`}>
-      <span>CONTINUE / 继续学习</span>
-      <strong data-lexical-continue-word>开始 Vocabulary</strong>
-      <p data-lexical-continue-core>顺序只是遍历入口；当前 English performance 或 Repair 更值钱时，可以随时停。</p>
-      <small data-lexical-continue-meta>{rows.length} Current Words</small>
-      <span class="lexicalContinueArrow" aria-hidden="true">↗</span>
-    </a>
+  <section class="lexicalHomePanel lexicalOverview" data-lexical-panel="overview">
+    <section class="lexicalOverviewHero">
+      <div>
+        <span>TODAY / 今日词汇</span>
+        <h3>今天继续推进</h3>
+        <p>新词上限只控制今天首次进入学习的词，不清空进度，也不会形成欠账。</p>
+      </div>
+      <a class="lexicalOverviewContinue" data-lexical-overview-continue href={base + 'vocabulary/1/'}>
+        <small>继续学习</small>
+        <strong data-lexical-overview-continue-word>开始 Vocabulary</strong>
+        <span data-lexical-overview-continue-meta>#1 / {rows.length}</span>
+      </a>
+    </section>
 
-    <section class="lexicalRecent">
-      <header><strong>最近学习</strong><span>回到最近的位置</span></header>
-      <div data-lexical-recent-list><p class="lexicalEmpty">还没有本地学习记录。</p></div>
+    <section class="lexicalOverviewMetrics" aria-label="Vocabulary overview metrics">
+      <article>
+        <span>今日新词</span>
+        <strong><b data-lexical-today-new>0</b><small> / <i data-lexical-daily-limit-view>50</i></small></strong>
+        <p>首次进入 Learn 的新词 · 今日还可 <span data-lexical-new-remaining>50</span></p>
+        <label>每日新词上限
+          <select data-lexical-daily-limit>
+            <option value="20">20 词</option>
+            <option value="30">30 词</option>
+            <option value="50" selected>50 词</option>
+            <option value="80">80 词</option>
+            <option value="100">100 词</option>
+          </select>
+        </label>
+      </article>
+      <article>
+        <span>同日待重学</span>
+        <strong data-lexical-same-day-count>0</strong>
+        <p data-lexical-same-day-note>今天最新判断仍是 Unknown / Fuzzy</p>
+        <a href="#" data-lexical-same-day-start aria-disabled="true">去重学 →</a>
+      </article>
+      <article>
+        <span>Repair</span>
+        <strong data-lexical-repair-count>0</strong>
+        <p><span data-lexical-repair-word-count>0</span> 个词存在当前 exact Repair 对象</p>
+        <button type="button" data-lexical-go-tab="repair">去 Repair →</button>
+      </article>
+      <article>
+        <span>已进入学习</span>
+        <strong><b data-lexical-introduced-total>0</b><small> / {rows.length}</small></strong>
+        <p>这是已进入学习的词数，不代表掌握率。</p>
+        <button type="button" data-lexical-go-tab="research">查词库 →</button>
+      </article>
+    </section>
+
+    <section class="lexicalOverviewLower">
+      <section class="lexicalOverviewRecent">
+        <header>
+          <div><span>RECENT</span><strong>最近学习</strong></div>
+        </header>
+        <div data-lexical-overview-recent><p class="lexicalEmpty">还没有本地学习记录。</p></div>
+      </section>
+
+      <section class="lexicalOverviewResearch">
+        <span>RESEARCH</span>
+        <strong>查词，也可以按语义结构浏览</strong>
+        <p>查词和浏览都不会推进今日学习进度，也不会自动加入复习。</p>
+        <nav class="lexicalResearchQuick" aria-label="Research quick entries">
+          <button type="button" data-lexical-open-research="search">Search</button>
+          <button type="button" data-lexical-open-research="familiar">熟词新用</button>
+          <button type="button" data-lexical-open-research="relations">近义边界</button>
+          <button type="button" data-lexical-open-research="constructions">构式</button>
+          <button type="button" data-lexical-open-research="family">词族</button>
+          <button type="button" data-lexical-open-research="form">Form</button>
+        </nav>
+      </section>
     </section>
 
     <section class="lexicalHandoff" data-lexical-handoff hidden>
       <div>
-        <span>Meaningful evidence</span>
-        <strong>Return to Chat</strong>
+        <span>RETURN</span>
+        <strong>有学习证据可返回 Chat</strong>
         <p data-lexical-return-summary></p>
       </div>
       <button type="button" data-lexical-copy-return>Copy Return Packet</button>
     </section>
   </section>
 
-  <section class="lexicalHomePanel" data-lexical-panel="search" hidden>
-    <label class="lexicalSearchBox">
+  <section class="lexicalHomePanel lexicalRepairPanel" data-lexical-panel="repair" hidden>
+    <header class="lexicalRepairHeader">
+      <div>
+        <span>REPAIR SESSION</span>
+        <strong>Chat 决定测什么，网页负责连续执行</strong>
+        <p>只处理当前真正留下来的局部问题；没有日历欠账，也不要求逐个打开词卡。</p>
+      </div>
+      <div class="lexicalRepairCount">
+        <b data-lexical-repair-count>0</b>
+        <span>Repair 对象</span>
+      </div>
+    </header>
+
+    <section class="lexicalRepairRuntime">
+      <slot name="challenge" />
+    </section>
+
+    <details class="lexicalRepairQueue">
+      <summary>
+        <span>查看当前 Repair 对象</span>
+        <small>仅用于确认 / 定位，不是操作主路径</small>
+      </summary>
+      <div data-lexical-review-list><p class="lexicalEmpty">当前没有 Repair 对象。</p></div>
+    </details>
+  </section>
+
+  <section class="lexicalHomePanel lexicalResearchPanel" data-lexical-panel="research" hidden>
+    <header>
+      <span>RESEARCH / LOOKUP</span>
+      <h3>完整词库查询与探索</h3>
+      <p>这里用于查词和比较。搜索或浏览不会推进今日学习进度，也不会自动加入 Repair。</p>
+    </header>
+    <nav class="lexicalResearchModes" aria-label="Research modes">
+      <button type="button" class="active" data-lexical-research-mode="search">Search</button>
+      <button type="button" data-lexical-research-mode="familiar">熟词新用</button>
+      <button type="button" data-lexical-research-mode="relations">近义边界</button>
+      <button type="button" data-lexical-research-mode="constructions">构式</button>
+      <button type="button" data-lexical-research-mode="family">词族</button>
+      <button type="button" data-lexical-research-mode="form">Form</button>
+    </nav>
+    <label class="lexicalSearchBox" data-lexical-search-box>
       <span>Search all Current Words</span>
       <input type="search" autocomplete="off" spellcheck="false" data-lexical-search placeholder="输入单词，例如 default / account / observe" />
     </label>
+    <div class="lexicalResearchBrowseMeta" data-lexical-research-browse-meta hidden></div>
     <div class="lexicalSearchResults" data-lexical-search-results>
-      <p class="lexicalEmpty">输入词形后直接打开对应 Depth Card。</p>
+      <p class="lexicalEmpty">输入词形后直接打开 Lookup。</p>
     </div>
   </section>
 
-  <section class="lexicalHomePanel" data-lexical-panel="review" hidden>
-    <section class="lexicalRecent">
-      <header><strong>Repair</strong><span>只保留有真实 evidence 的具体对象</span></header>
-      <div data-lexical-review-list><p class="lexicalEmpty">当前没有 Repair 对象。</p></div>
-    </section>
-  </section>
+  <dialog class="lexicalSettingsDialog" data-lexical-settings-dialog>
+    <form method="dialog" class="lexicalSettingsSheet">
+      <header>
+        <div>
+          <span>MY VOCABULARY</span>
+          <h3>我的 / 设置</h3>
+          <p>只放稳定偏好、可解释的个人状态和本地数据安全工具。</p>
+        </div>
+        <button type="submit" class="lexicalSettingsClose" aria-label="关闭设置">×</button>
+      </header>
 
-  <section class="lexicalHomePanel" data-lexical-panel="challenge" hidden>
-    <slot name="challenge" />
-  </section>
+      <section class="lexicalSettingsSection">
+        <div class="lexicalSettingsLabel">
+          <strong>默认发音</strong>
+          <span>决定单词页主发音按钮和键盘 S 的默认口音。</span>
+        </div>
+        <div class="lexicalPronunciationSetting" role="radiogroup" aria-label="默认发音">
+          <button type="button" data-lexical-pronunciation="en-US" aria-pressed="true">美音</button>
+          <button type="button" data-lexical-pronunciation="en-GB" aria-pressed="false">英音</button>
+        </div>
+      </section>
+
+      <section class="lexicalSettingsSection">
+        <div class="lexicalSettingsLabel">
+          <strong>当前 Mastered</strong>
+          <span>只表示最近一次整词判断为 Mastered，不代表永久掌握。</span>
+        </div>
+        <div class="lexicalMasteredSummary"><b data-lexical-mastered-count>0</b><span> 个词</span></div>
+        <label class="lexicalMasteredSearch">
+          <span>筛选已掌握词</span>
+          <input type="search" data-lexical-mastered-search placeholder="Search mastered words" />
+        </label>
+        <div class="lexicalMasteredList" data-lexical-mastered-list>
+          <p class="lexicalEmpty">还没有 Mastered 记录。</p>
+        </div>
+      </section>
+
+      <section class="lexicalSettingsSection">
+        <div class="lexicalSettingsLabel">
+          <strong>本地学习数据</strong>
+          <span>只备份你的学习记录和设置，不重复导出词库内容。</span>
+        </div>
+        <div class="lexicalBackupActions">
+          <button type="button" data-lexical-export-state>导出学习数据 JSON</button>
+          <button type="button" data-lexical-import-state>恢复学习数据</button>
+          <input type="file" accept="application/json,.json" data-lexical-import-file hidden />
+        </div>
+        <p class="lexicalBackupStatus" data-lexical-backup-status>当前学习状态保存在本机浏览器。</p>
+      </section>
+    </form>
+  </dialog>
 
   <script type="application/json" data-lexical-catalog set:html={payload}></script>
 </section>
 
 <script>
+  import {
+    DAILY_NEW_LIMIT_OPTIONS,
+    DEFAULT_DAILY_NEW_LIMIT,
+    DEFAULT_PRONUNCIATION,
+    LEXICAL_INTAKE_STORAGE_KEY,
+    LEXICAL_ROUTING_STORAGE_KEY,
+    LEXICAL_SETTINGS_STORAGE_KEY,
+    introducedCountForDay,
+    introducedTotal,
+    introductionDayFor,
+    localLexicalDay,
+    normalizeLexicalIntake,
+    normalizeLexicalRouting,
+    normalizeLexicalSettings,
+    registerLexicalIntroduction,
+    sameDayLexicalRevisits
+  } from '../lib/lexicalSettings.mjs';
+
   const root = document.querySelector('[data-lexical-home]');
   if (root instanceof HTMLElement) {
     const base = root.getAttribute('data-base') || '/';
     const prefix = 'kianos-vocabulary-astro-v2:';
-    const challengeEventsKey = 'kianos-lexical-challenge-events-v1';
     let rows = [];
     try { rows = JSON.parse(root.querySelector('[data-lexical-catalog]')?.textContent || '[]'); } catch {}
 
     const byObjectId = new Map(rows.map((row) => [row.objectId, row]));
     const hrefFor = (ordinal, mode = 'study') => {
-      const href = `${base}vocabulary/${ordinal}/`;
-      return mode === 'study' ? href : `${href}?mode=${encodeURIComponent(mode)}`;
+      const href = base + 'vocabulary/' + ordinal + '/';
+      return mode === 'study' ? href : href + '?mode=' + encodeURIComponent(mode);
     };
     const readJson = (key, fallback = {}) => {
       try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; } catch { return fallback; }
     };
-    const stateFor = (row) => readJson(`${prefix}${row.objectId}`, {});
-    const localStudyDay = () => new Date().toLocaleDateString('en-CA');
-    const eventStudyDay = (event) => {
-      const observedAt = event?.observed_at;
-      if (!observedAt) return '';
-      const date = new Date(observedAt);
-      return Number.isNaN(date.getTime()) ? '' : date.toLocaleDateString('en-CA');
-    };
+    const saveJson = (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); } catch {} };
+    const stateFor = (row) => readJson(prefix + row.objectId, {});
 
     const tabs = [...root.querySelectorAll('[data-lexical-tab]')];
     const panels = [...root.querySelectorAll('[data-lexical-panel]')];
-    const switchTab = (name) => {
-      tabs.forEach((button) => button.classList.toggle('active', button.getAttribute('data-lexical-tab') === name));
-      panels.forEach((panel) => { panel.hidden = panel.getAttribute('data-lexical-panel') !== name; });
-      if (name === 'review') renderReview();
-      if (name === 'search') root.querySelector('[data-lexical-search]')?.focus();
+    const switchTab = (name, options = {}) => {
+      const focus = options.focus !== false;
+      const allowed = ['overview', 'repair', 'research'];
+      const next = allowed.includes(name) ? name : 'overview';
+      tabs.forEach((button) => button.classList.toggle('active', button.getAttribute('data-lexical-tab') === next));
+      panels.forEach((panel) => { panel.hidden = panel.getAttribute('data-lexical-panel') !== next; });
+      const url = new URL(location.href);
+      if (next === 'overview') url.searchParams.delete('tab');
+      else url.searchParams.set('tab', next);
+      history.replaceState(null, '', url);
+      if (next === 'research' && focus) root.querySelector('[data-lexical-search]')?.focus();
+      window.dispatchEvent(new CustomEvent('kianos:lexical-home-tab', { detail: { tab: next } }));
     };
-    tabs.forEach((button) => button.addEventListener('click', () => switchTab(button.getAttribute('data-lexical-tab') || 'study')));
+    tabs.forEach((button) => button.addEventListener('click', () => switchTab(button.getAttribute('data-lexical-tab') || 'overview')));
+    root.querySelectorAll('[data-lexical-go-tab]').forEach((button) => button.addEventListener('click', () => switchTab(button.getAttribute('data-lexical-go-tab') || 'overview')));
 
-    const makeWordRow = (row, state = {}, mode = 'lookup') => {
+    const makeWordRow = (row, state = {}, mode = 'lookup', metaOverride = '') => {
       const link = document.createElement('a');
       link.className = 'lexicalWordRow';
       link.href = hrefFor(row.ordinal, mode);
@@ -113,7 +275,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
       const meta = document.createElement('small');
       const repairCount = Object.keys(state.repairTargets || {}).length;
       const promptCount = Number(row.promptCount || 0) + Number(row.relationCount || 0);
-      meta.textContent = repairCount ? `${repairCount} Repair` : `${row.senseCount || 0} senses${promptCount ? ` · ${promptCount} prompts` : ''}`;
+      meta.textContent = metaOverride || (repairCount ? repairCount + ' Repair' : (row.senseCount || 0) + ' senses' + (promptCount ? ' · ' + promptCount + ' prompts' : ''));
       link.append(copy, meta);
       return link;
     };
@@ -133,85 +295,155 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
       return entries.sort((a, b) => b.seen - a.seen);
     };
 
-    const collectDepthEvents = (studyDay) => {
-      const result = [];
-      for (let index = 0; index < localStorage.length; index += 1) {
-        const key = localStorage.key(index) || '';
-        if (!key.startsWith(prefix)) continue;
-        const state = readJson(key, null);
-        if (!state?.meta || !state?.repairTargets) continue;
-        Object.values(state.repairTargets).forEach((target) => {
-          if ((target.study_day || studyDay) !== studyDay) return;
-          result.push({
-            word_id: state.meta.word_id,
-            ordinal: Number(state.meta.ordinal),
-            word: state.meta.word || null,
-            target_kind: target.target_kind,
-            target_id: target.target_id || null,
-            target_locator: target.target_locator || null,
-            source: 'depth_plus',
-            outcome: 'ADDED',
-            observed_at: target.observed_at || state.lastSeenAt || new Date().toISOString()
-          });
-        });
+    const migrateLegacyIntake = () => {
+      const routing = readJson(LEXICAL_ROUTING_STORAGE_KEY, { latest_by_word: {} });
+      let intake = normalizeLexicalIntake(readJson(LEXICAL_INTAKE_STORAGE_KEY, null));
+      let changed = false;
+      for (const [wordId, event] of Object.entries(routing?.latest_by_word || {})) {
+        if (introductionDayFor(intake, wordId)) continue;
+        const registered = registerLexicalIntroduction(intake, wordId, event?.observed_at || new Date());
+        intake = registered.intake;
+        changed = changed || registered.added;
       }
-      return result;
-    };
-    const collectChallengeEvents = (studyDay) => {
-      const events = readJson(challengeEventsKey, []);
-      return Array.isArray(events) ? events.filter((event) => eventStudyDay(event) === studyDay) : [];
-    };
-    const buildReturnPacket = () => {
-      const studyDay = localStudyDay();
-      return { schema: 'kianos.lexical.return_packet.v1', study_day: studyDay, exported_at: new Date().toISOString(), events: [...collectDepthEvents(studyDay), ...collectChallengeEvents(studyDay)] };
-    };
-
-    const renderReturnSummary = () => {
-      const handoff = root.querySelector('[data-lexical-handoff]');
-      const summary = root.querySelector('[data-lexical-return-summary]');
-      const button = root.querySelector('[data-lexical-copy-return]');
-      const packet = buildReturnPacket();
-      if (handoff instanceof HTMLElement) handoff.hidden = packet.events.length === 0;
-      if (button instanceof HTMLButtonElement) button.disabled = packet.events.length === 0;
-      if (!summary || !packet.events.length) return;
-      const depthCount = packet.events.filter((event) => event.source === 'depth_plus').length;
-      const challengeCount = packet.events.length - depthCount;
-      summary.textContent = `今天 ${packet.events.length} 条真正会改变下一次动作的 evidence · ${depthCount} Depth + · ${challengeCount} Challenge/重建。`;
+      if (changed) saveJson(LEXICAL_INTAKE_STORAGE_KEY, intake);
+      return intake;
     };
 
     const lastOrdinalRaw = Number(localStorage.getItem('kianos-vocabulary-last-ordinal') || 1);
     const lastOrdinal = Number.isInteger(lastOrdinalRaw) && lastOrdinalRaw >= 1 && lastOrdinalRaw <= rows.length ? lastOrdinalRaw : 1;
     const continueRow = rows.find((row) => row.ordinal === lastOrdinal) || rows[0];
-    const continueLink = root.querySelector('[data-lexical-continue]');
-    if (continueLink && continueRow) {
-      continueLink.href = hrefFor(continueRow.ordinal, 'study');
-      const word = root.querySelector('[data-lexical-continue-word]');
-      const core = root.querySelector('[data-lexical-continue-core]');
-      const meta = root.querySelector('[data-lexical-continue-meta]');
-      if (word) word.textContent = continueRow.word;
-      if (core) core.textContent = continueRow.coreCn || continueRow.coreEn || '继续上次的 Depth Scan';
-      if (meta) meta.textContent = `#${continueRow.ordinal} / ${rows.length} · traversal, not debt`;
-    }
 
-    const recentHost = root.querySelector('[data-lexical-recent-list]');
-    const renderRecent = () => {
-      if (!recentHost) return;
-      recentHost.replaceChildren();
-      const recent = studiedRows().slice(0, 8);
-      if (!recent.length) {
-        const empty = document.createElement('p'); empty.className = 'lexicalEmpty'; empty.textContent = '还没有本地学习记录。'; recentHost.appendChild(empty); return;
+    const renderOverview = () => {
+      const settings = normalizeLexicalSettings(readJson(LEXICAL_SETTINGS_STORAGE_KEY, { daily_new_limit: DEFAULT_DAILY_NEW_LIMIT }));
+      const intake = migrateLegacyIntake();
+      const today = localLexicalDay();
+      const todayNew = introducedCountForDay(intake, today);
+      const total = introducedTotal(intake);
+      const remaining = Math.max(0, settings.daily_new_limit - todayNew);
+      const sameDay = sameDayLexicalRevisits(readJson(LEXICAL_ROUTING_STORAGE_KEY, { latest_by_word: {} }), today);
+
+      root.querySelectorAll('[data-lexical-today-new]').forEach((node) => { node.textContent = String(todayNew); });
+      root.querySelectorAll('[data-lexical-daily-limit-view]').forEach((node) => { node.textContent = String(settings.daily_new_limit); });
+      root.querySelectorAll('[data-lexical-new-remaining]').forEach((node) => { node.textContent = String(remaining); });
+      root.querySelectorAll('[data-lexical-same-day-count]').forEach((node) => { node.textContent = String(sameDay.length); });
+      root.querySelectorAll('[data-lexical-introduced-total]').forEach((node) => { node.textContent = String(total); });
+      const sameDayNote = root.querySelector('[data-lexical-same-day-note]');
+      if (sameDayNote) sameDayNote.textContent = sameDay.length
+        ? sameDay.filter((event) => String(event.route || '').toUpperCase() === 'UNKNOWN').length + ' Unknown · '
+          + sameDay.filter((event) => String(event.route || '').toUpperCase() === 'FUZZY').length + ' Fuzzy'
+        : '今天没有需要整词回看的对象';
+      const sameDayStart = root.querySelector('[data-lexical-same-day-start]');
+      if (sameDayStart instanceof HTMLAnchorElement) {
+        const firstRevisit = sameDay.map((event) => byObjectId.get(String(event.word_id || ''))).find(Boolean);
+        sameDayStart.href = firstRevisit ? hrefFor(firstRevisit.ordinal, 'study') : '#';
+        sameDayStart.setAttribute('aria-disabled', String(!firstRevisit));
       }
-      recent.forEach(({ row, state }) => recentHost.appendChild(makeWordRow(row, state, 'study')));
+
+      const select = root.querySelector('[data-lexical-daily-limit]');
+      if (select instanceof HTMLSelectElement) select.value = String(settings.daily_new_limit);
+
+      const currentAlreadyIntroduced = continueRow ? Boolean(introductionDayFor(intake, continueRow.objectId)) : false;
+      const blocked = Boolean(continueRow && !currentAlreadyIntroduced && remaining <= 0);
+      const overviewLink = root.querySelector('[data-lexical-overview-continue]');
+      const learnNav = root.querySelector('[data-lexical-learn-nav]');
+      for (const link of [overviewLink, learnNav]) {
+        if (!(link instanceof HTMLAnchorElement) || !continueRow) continue;
+        link.href = blocked ? '#' : hrefFor(continueRow.ordinal, 'study');
+        link.classList.toggle('isLimitReached', blocked);
+        link.setAttribute('aria-disabled', String(blocked));
+      }
+
+      const overviewWord = root.querySelector('[data-lexical-overview-continue-word]');
+      const overviewMeta = root.querySelector('[data-lexical-overview-continue-meta]');
+      if (continueRow) {
+        if (overviewWord) overviewWord.textContent = blocked ? '今日新词已到上限' : continueRow.word;
+        if (overviewMeta) overviewMeta.textContent = blocked ? '新词入口已暂停' : '#' + continueRow.ordinal + ' / ' + rows.length;
+      }
+    };
+
+    const limitSelect = root.querySelector('[data-lexical-daily-limit]');
+    limitSelect?.addEventListener('change', (event) => {
+      const raw = Number(event.currentTarget.value);
+      const limit = DAILY_NEW_LIMIT_OPTIONS.includes(raw) ? raw : DEFAULT_DAILY_NEW_LIMIT;
+      const current = normalizeLexicalSettings(readJson(LEXICAL_SETTINGS_STORAGE_KEY, {
+        daily_new_limit: DEFAULT_DAILY_NEW_LIMIT,
+        default_pronunciation: DEFAULT_PRONUNCIATION
+      }));
+      saveJson(LEXICAL_SETTINGS_STORAGE_KEY, normalizeLexicalSettings({ ...current, daily_new_limit: limit }));
+      renderOverview();
+      window.dispatchEvent(new CustomEvent('kianos:lexical-settings-changed'));
+    });
+
+    root.addEventListener('click', (event) => {
+      const link = event.target instanceof HTMLElement ? event.target.closest('a[aria-disabled="true"]') : null;
+      if (link) event.preventDefault();
+    });
+
+    const overviewRecentHost = root.querySelector('[data-lexical-overview-recent]');
+    const renderRecent = () => {
+      const recent = studiedRows();
+      if (!overviewRecentHost) return;
+      overviewRecentHost.replaceChildren();
+      const subset = recent.slice(0, 4);
+      if (!subset.length) {
+        const empty = document.createElement('p');
+        empty.className = 'lexicalEmpty';
+        empty.textContent = '还没有本地学习记录。';
+        overviewRecentHost.appendChild(empty);
+        return;
+      }
+      subset.forEach(({ row, state }) => overviewRecentHost.appendChild(makeWordRow(row, state, 'study')));
     };
 
     const searchInput = root.querySelector('[data-lexical-search]');
+    const searchBox = root.querySelector('[data-lexical-search-box]');
     const searchHost = root.querySelector('[data-lexical-search-results]');
+    const browseMeta = root.querySelector('[data-lexical-research-browse-meta]');
+    const researchModeButtons = [...root.querySelectorAll('[data-lexical-research-mode]')];
+    const researchModeConfig = {
+      familiar: {
+        label: '熟词新用',
+        description: '常见词形下还有容易漏掉、值得单独识别的义项。',
+        filter: (row) => Number(row.secondarySenseCount || 0) > 0,
+        score: (row) => Number(row.secondarySenseCount || 0),
+        meta: (row) => Number(row.secondarySenseCount || 0) + ' 个新用义项'
+      },
+      relations: {
+        label: '近义边界',
+        description: '和近义或相关词容易混，需要把边界看清的词。',
+        filter: (row) => Number(row.relationCount || 0) > 0,
+        score: (row) => Number(row.relationCount || 0),
+        meta: (row) => Number(row.relationCount || 0) + ' 个关系边界'
+      },
+      constructions: {
+        label: '构式',
+        description: '有值得直接带走的构式或固定结构。',
+        filter: (row) => Number(row.promptCount || 0) > 0,
+        score: (row) => Number(row.promptCount || 0),
+        meta: (row) => Number(row.constructionCount || 0) + ' 个构式 · ' + Number(row.fixedPatternCount || 0) + ' 个固定结构'
+      },
+      family: {
+        label: '词族',
+        description: '有值得一起看的派生或词族关系。',
+        filter: (row) => Number(row.familyCount || 0) > 0,
+        score: (row) => Number(row.familyCount || 0),
+        meta: (row) => Number(row.familyCount || 0) + ' 个词族关系'
+      },
+      form: {
+        label: 'Form',
+        description: '词性、发音或词形之间有需要单独区分的形式边界。',
+        filter: (row) => Boolean(row.hasForm),
+        score: () => 1,
+        meta: () => '形式 / 发音边界'
+      }
+    };
+
     const renderSearch = (query = '') => {
       if (!searchHost) return;
       searchHost.replaceChildren();
       const q = String(query || '').trim().toLowerCase();
       if (!q) {
-        const empty = document.createElement('p'); empty.className = 'lexicalEmpty'; empty.textContent = '输入词形后直接打开对应 Depth Card。'; searchHost.appendChild(empty); return;
+        const empty = document.createElement('p'); empty.className = 'lexicalEmpty'; empty.textContent = '输入词形后直接打开 Lookup。'; searchHost.appendChild(empty); return;
       }
       const matches = rows.filter((row) => String(row.word || '').toLowerCase().includes(q)).sort((a, b) => {
         const aw = String(a.word || '').toLowerCase();
@@ -227,32 +459,179 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
     };
     searchInput?.addEventListener('input', (event) => renderSearch(event.currentTarget.value || ''));
 
-    const reviewHost = root.querySelector('[data-lexical-review-list]');
-    const renderReview = () => {
-      if (!reviewHost) return;
-      reviewHost.replaceChildren();
-      const repairRows = studiedRows().filter(({ state }) => Object.keys(state.repairTargets || {}).length > 0);
-      if (!repairRows.length) {
-        const empty = document.createElement('p'); empty.className = 'lexicalEmpty'; empty.textContent = '当前没有 Repair 对象。'; reviewHost.appendChild(empty); return;
+    const renderResearchBrowse = (mode) => {
+      if (!searchHost) return;
+      const config = researchModeConfig[mode];
+      if (!config) {
+        if (searchBox instanceof HTMLElement) searchBox.hidden = false;
+        if (browseMeta instanceof HTMLElement) browseMeta.hidden = true;
+        searchHost.classList.remove('isBrowse');
+        renderSearch(searchInput?.value || '');
+        return;
       }
-      repairRows.forEach(({ row, state }) => reviewHost.appendChild(makeWordRow(row, state, 'repair')));
+      if (searchBox instanceof HTMLElement) searchBox.hidden = true;
+      searchHost.classList.add('isBrowse');
+      if (browseMeta instanceof HTMLElement) {
+        browseMeta.hidden = false;
+        browseMeta.textContent = config.label + ' · ' + config.description;
+      }
+      searchHost.replaceChildren();
+      const matches = rows
+        .filter(config.filter)
+        .sort((a, b) => config.score(b) - config.score(a) || Number(a.ordinal || 0) - Number(b.ordinal || 0))
+        .slice(0, 60);
+      if (!matches.length) {
+        const empty = document.createElement('p');
+        empty.className = 'lexicalEmpty';
+        empty.textContent = '当前 Final Learner Object 中没有这一类对象。';
+        searchHost.appendChild(empty);
+        return;
+      }
+      matches.forEach((row) => searchHost.appendChild(makeWordRow(row, stateFor(row), 'lookup', config.meta(row))));
     };
 
-    root.querySelector('[data-lexical-copy-return]')?.addEventListener('click', async (event) => {
-      const packet = buildReturnPacket();
-      if (!packet.events.length) return;
-      const button = event.currentTarget;
-      const text = JSON.stringify(packet, null, 2);
-      try { await navigator.clipboard.writeText(text); button.textContent = 'Copied'; }
-      catch { window.prompt('Copy Return Packet', text); }
-      window.setTimeout(() => { button.textContent = 'Copy Return Packet'; }, 1200);
+    const setResearchMode = (mode = 'search', options = {}) => {
+      const next = mode === 'search' || researchModeConfig[mode] ? mode : 'search';
+      researchModeButtons.forEach((button) => button.classList.toggle('active', button.getAttribute('data-lexical-research-mode') === next));
+      const url = new URL(location.href);
+      if (next === 'search') url.searchParams.delete('research');
+      else url.searchParams.set('research', next);
+      history.replaceState(null, '', url);
+      renderResearchBrowse(next);
+      if (next === 'search' && options.focus !== false) searchInput?.focus();
+    };
+    researchModeButtons.forEach((button) => button.addEventListener('click', () => setResearchMode(button.getAttribute('data-lexical-research-mode') || 'search')));
+    root.querySelectorAll('[data-lexical-open-research]').forEach((button) => button.addEventListener('click', () => {
+      switchTab('research', { focus: false });
+      setResearchMode(button.getAttribute('data-lexical-open-research') || 'search');
+    }));
+
+    const settingsDialog = root.querySelector('[data-lexical-settings-dialog]');
+    const settingsOpen = root.querySelector('[data-lexical-settings-open]');
+    const masteredSearch = root.querySelector('[data-lexical-mastered-search]');
+    const masteredList = root.querySelector('[data-lexical-mastered-list]');
+    const masteredCount = root.querySelector('[data-lexical-mastered-count]');
+    const backupStatus = root.querySelector('[data-lexical-backup-status]');
+    const importFile = root.querySelector('[data-lexical-import-file]');
+
+    const lexicalBackupKeyAllowed = (key) => key.startsWith('kianos-lexical-') || key.startsWith('kianos-vocabulary-');
+
+    const renderSettings = () => {
+      const settings = normalizeLexicalSettings(readJson(LEXICAL_SETTINGS_STORAGE_KEY, {
+        daily_new_limit: DEFAULT_DAILY_NEW_LIMIT,
+        default_pronunciation: DEFAULT_PRONUNCIATION
+      }));
+      root.querySelectorAll('[data-lexical-pronunciation]').forEach((button) => {
+        const active = button.getAttribute('data-lexical-pronunciation') === settings.default_pronunciation;
+        button.setAttribute('aria-pressed', String(active));
+        button.classList.toggle('active', active);
+      });
+
+      const routing = normalizeLexicalRouting(readJson(LEXICAL_ROUTING_STORAGE_KEY, null));
+      const mastered = Object.values(routing.latest_by_word)
+        .filter((event) => String(event?.route || '').toUpperCase() === 'MASTERED')
+        .map((event) => ({ event, row: byObjectId.get(String(event.word_id || '')) }))
+        .filter(({ row }) => Boolean(row))
+        .sort((a, b) => String(a.row.word || '').localeCompare(String(b.row.word || '')));
+      if (masteredCount) masteredCount.textContent = String(mastered.length);
+
+      const query = String(masteredSearch?.value || '').trim().toLowerCase();
+      const visible = mastered
+        .filter(({ row }) => !query || String(row.word || '').toLowerCase().includes(query))
+        .slice(0, 120);
+      if (masteredList) {
+        masteredList.replaceChildren();
+        if (!visible.length) {
+          const empty = document.createElement('p');
+          empty.className = 'lexicalEmpty';
+          empty.textContent = mastered.length ? '没有匹配的 Mastered 词。' : '还没有 Mastered 记录。';
+          masteredList.appendChild(empty);
+        } else {
+          visible.forEach(({ row }) => masteredList.appendChild(makeWordRow(row, stateFor(row), 'lookup', 'Mastered')));
+        }
+      }
+    };
+
+    settingsOpen?.addEventListener('click', () => {
+      renderSettings();
+      if (settingsDialog instanceof HTMLDialogElement) settingsDialog.showModal();
+    });
+    masteredSearch?.addEventListener('input', renderSettings);
+
+    root.querySelectorAll('[data-lexical-pronunciation]').forEach((button) => button.addEventListener('click', () => {
+      const settings = normalizeLexicalSettings(readJson(LEXICAL_SETTINGS_STORAGE_KEY, {
+        daily_new_limit: DEFAULT_DAILY_NEW_LIMIT,
+        default_pronunciation: DEFAULT_PRONUNCIATION
+      }));
+      settings.default_pronunciation = button.getAttribute('data-lexical-pronunciation') || DEFAULT_PRONUNCIATION;
+      saveJson(LEXICAL_SETTINGS_STORAGE_KEY, normalizeLexicalSettings(settings));
+      renderSettings();
+      window.dispatchEvent(new CustomEvent('kianos:lexical-settings-changed'));
+    }));
+
+    root.querySelector('[data-lexical-export-state]')?.addEventListener('click', () => {
+      const data = {};
+      for (let index = 0; index < localStorage.length; index += 1) {
+        const key = localStorage.key(index) || '';
+        if (!lexicalBackupKeyAllowed(key)) continue;
+        data[key] = localStorage.getItem(key);
+      }
+      const packet = {
+        schema: 'kianos.lexical.local_backup.v1',
+        exported_at: new Date().toISOString(),
+        data
+      };
+      const blob = new Blob([JSON.stringify(packet, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'kianos-lexical-backup-' + localLexicalDay() + '.json';
+      link.click();
+      URL.revokeObjectURL(url);
+      if (backupStatus) backupStatus.textContent = '已导出 Lexical 本地学习数据。';
     });
 
+    root.querySelector('[data-lexical-import-state]')?.addEventListener('click', () => {
+      if (importFile instanceof HTMLInputElement) importFile.click();
+    });
+
+    importFile?.addEventListener('change', async () => {
+      const file = importFile instanceof HTMLInputElement ? importFile.files?.[0] : null;
+      if (!file) return;
+      try {
+        const packet = JSON.parse(await file.text());
+        if (packet?.schema !== 'kianos.lexical.local_backup.v1' || !packet?.data || typeof packet.data !== 'object') {
+          throw new Error('INVALID_BACKUP');
+        }
+        let restored = 0;
+        for (const [key, value] of Object.entries(packet.data)) {
+          if (!lexicalBackupKeyAllowed(String(key)) || typeof value !== 'string') continue;
+          localStorage.setItem(String(key), value);
+          restored += 1;
+        }
+        if (backupStatus) backupStatus.textContent = '已恢复 ' + restored + ' 条 Lexical 本地状态。';
+        renderOverview();
+        renderRecent();
+        renderSettings();
+      } catch {
+        if (backupStatus) backupStatus.textContent = '恢复失败：这不是有效的 KianOS Lexical 备份。';
+      } finally {
+        if (importFile instanceof HTMLInputElement) importFile.value = '';
+      }
+    });
+
+    renderOverview();
     renderRecent();
-    renderReturnSummary();
+    const requestUrl = new URL(location.href);
+    const requestedTab = requestUrl.searchParams.get('tab')
+      || (requestUrl.searchParams.has('lookup') ? 'research' : 'overview');
+    switchTab(requestedTab, { focus: false });
+    setResearchMode(requestUrl.searchParams.get('research') || 'search', { focus: false });
+    if (requestUrl.searchParams.has('lookup')) renderSearch(searchInput?.value || requestUrl.searchParams.get('lookup') || '');
+    window.addEventListener('storage', (event) => {
+      if ([LEXICAL_SETTINGS_STORAGE_KEY, LEXICAL_INTAKE_STORAGE_KEY, LEXICAL_ROUTING_STORAGE_KEY].includes(event.key || '')) {
+        renderOverview();
+      }
+    });
   }
 </script>
-
-<style is:global>
-  .lexicalHome{max-width:72rem;margin:0 auto;display:grid;gap:1rem}.lexicalHomeHeader{display:flex;justify-content:space-between;gap:1.2rem;align-items:end;padding:1.2rem;border:1px solid var(--line,#d7d7d7);border-radius:1rem;background:var(--panel,#fff)}.lexicalHomeHeader span{font-size:.78rem;opacity:.62}.lexicalHomeHeader h2{margin:.2rem 0 .45rem;font-size:clamp(1.7rem,3vw,2.45rem)}.lexicalHomeHeader p{margin:0;max-width:46rem;line-height:1.6;opacity:.76}.lexicalHomeHeader nav{display:flex;gap:.45rem;flex-wrap:wrap}.lexicalHomeHeader button{border:1px solid var(--line,#d7d7d7);background:transparent;padding:.55rem .82rem;border-radius:999px;cursor:pointer;color:inherit}.lexicalHomeHeader button.active{border-color:currentColor;font-weight:700}.lexicalHomePanel{display:grid;gap:1rem}.lexicalContinueCard{display:grid;gap:.38rem;padding:1.35rem;border:1px solid var(--line,#d7d7d7);border-radius:1rem;text-decoration:none;color:inherit;background:var(--panel,#fff)}.lexicalContinueCard>span{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;opacity:.58}.lexicalContinueCard strong{font-size:clamp(1.8rem,4vw,3rem)}.lexicalContinueCard p{margin:0;line-height:1.55}.lexicalContinueCard small{opacity:.58}.lexicalRecent,.lexicalHandoff{padding:1.1rem;border:1px solid var(--line,#d7d7d7);border-radius:1rem;background:var(--panel,#fff)}.lexicalRecent>header{display:flex;justify-content:space-between;gap:1rem;margin-bottom:.75rem}.lexicalRecent>header span{opacity:.58;font-size:.84rem}.lexicalHandoff{display:flex;justify-content:space-between;gap:1rem;align-items:center}.lexicalHandoff>div{display:grid;gap:.18rem}.lexicalHandoff span{font-size:.76rem;text-transform:uppercase;letter-spacing:.07em;opacity:.58}.lexicalHandoff p{margin:0;opacity:.72}.lexicalHandoff button{padding:.68rem .9rem;border:1px solid currentColor;border-radius:.72rem;background:transparent;color:inherit;cursor:pointer}.lexicalSearchBox{display:grid;gap:.5rem;padding:1rem;border:1px solid var(--line,#d7d7d7);border-radius:1rem;background:var(--panel,#fff)}.lexicalSearchBox input{font:inherit;font-size:1.08rem;padding:.72rem .8rem;border:1px solid var(--line,#d7d7d7);border-radius:.7rem}.lexicalSearchResults,.lexicalRecent>div{display:grid;gap:.5rem}.lexicalWordRow{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem .85rem;border:1px solid var(--line,#d7d7d7);border-radius:.72rem;text-decoration:none;color:inherit}.lexicalWordRow>div{display:grid}.lexicalWordRow span,.lexicalWordRow small{opacity:.64}.lexicalEmpty{margin:0;opacity:.58}@media(max-width:760px){.lexicalHomeHeader,.lexicalHandoff{display:grid;align-items:start}}
-</style>
