@@ -28,14 +28,14 @@ for (const [name, source] of [['SystemExit', exit], ['Crosswalk', crosswalk], ['
   check(!/\sstyle\s*=/.test(source), `${name}_has_no_inline_visual_patch`);
 }
 
-check(hasClassToken(exit, 'xzExitCard'), 'exit_cards_use_current_visual_namespace');
+check(hasClassToken(exit, 'xseCompletionWorkbench'), 'exit_uses_single_completion_workbench');
 check(hasClassToken(exit, 'xzExitStem'), 'exit_stem_uses_current_visual_namespace');
 check(hasClassToken(exit, 'xzExitOptions'), 'exit_options_use_current_visual_namespace');
 check(!hasClassToken(exit, 'xseCard'), 'exit_retired_broad_card_selector');
 check(!hasClassToken(exit, 'xseStem'), 'exit_retired_broad_stem_selector');
 check(!hasClassToken(exit, 'xseOptions'), 'exit_retired_broad_options_selector');
 
-for (const token of ['.xzExitStage', '.xse', '.xzExitCard', '.xzExitStem', '.xzExitOptions', '.xqc', '.xrr']) {
+for (const token of ['.xzExitStage', '.xse', '.xseCompletionWorkbench', '.xseRecallWorkspace', '.xseQuestionLayout', '.xzExitStem', '.xzExitOptions', '.xqc', '.xrr']) {
   check(owner.includes(token), 'owner_contains_surface_family', token);
 }
 check(!/!\s*important\b/i.test(stripCssComments(owner)), 'owner_has_no_cascade_recovery');
@@ -65,7 +65,8 @@ for (const token of [
   "startSweep?.addEventListener('click'",
   'recordXizongQuestionAttempt',
   'startNextXizongQuestionRound',
-  "['wrong', 'uncertain'].includes(result.status)",
+  "['wrong', 'uncertain'].includes(result.status) || marked",
+  'setXizongQuestionMarked',
   '暂无审核过的精确 KP 回链：保留题号给 Chat，不让网页自己猜。'
 ]) check(exit.includes(token), 'exit_runtime_contract_preserved', token);
 check(crosswalk.includes("currentPhase() !== 'SECOND_PASS'"), 'crosswalk_second_pass_gate_preserved');
