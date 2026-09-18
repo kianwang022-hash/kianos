@@ -99,7 +99,8 @@ Visual rules:
 - Back uses one mature review surface with a roughly 32% / 68% internal split.
 - Chinese typography, radius, spacing and panel treatment inherit Xizong L2 / shared visual rules.
 - Do not reintroduce the old Map | Question | Explanation three-column composition.
-- Linux CI validates geometry/runtime and uses the shared broad-CJK QA fallback; Mac production remains PingFang-first through the shared L1 font owner.
+- Linux CI validates geometry/runtime only; it is not typography evidence.
+- Mac typography/aesthetic evidence comes from the dedicated macOS Visual Gate, which must prove real PingFang availability/rendering before screenshots are accepted.
 
 ## 3｜Explanation is adaptive, not a field checklist
 
@@ -362,3 +363,21 @@ shared L1 CJK owner (PingFang-first on Mac; broad CJK QA fallback)
 ```
 
 The replacement removes the rejected three-column field-viewer composition, preserves low-cost Stable flow, and records learner cause/note without letting Website diagnose the learner.
+
+### Mac Visual Human Gate accepted｜2026-09-18
+
+Kian accepted the real macOS screenshot pair after the dedicated Mac Visual Gate proved:
+
+```text
+platform   = MacIntel
+fontFamily = "PingFang SC"
+fontWeight = 600
+fontCheck  = true
+```
+
+Accepted Practice visual baseline:
+- Front = Question + Progress;
+- Back = Quick learner feedback + Knowledge Review;
+- Chinese family = shared L1 PingFang-first owner;
+- normal learner-facing Chinese is optically substantial rather than thin;
+- future Linux screenshots cannot reopen or override this typography decision.
