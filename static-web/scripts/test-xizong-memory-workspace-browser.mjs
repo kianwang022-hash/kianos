@@ -269,6 +269,8 @@ try {
   check((await page.locator('[data-repair-block-link]').getAttribute('href'))?.includes('/xizong/respiratory/r01/'), 'repair_block_return_exact');
   check(await page.locator('[data-repair-return-link]').isVisible(), 'repair_question_return_visible');
   check((await page.locator('[data-repair-return-link]').getAttribute('href'))?.includes('/xizong/practice/respiratory/'), 'repair_question_return_exact');
+  const repairVisibleText = await root.innerText();
+  check(!repairVisibleText.includes('BROWSER_FIXTURE') && !repairVisibleText.includes('SYSTEM_WU_CHAT_RETURN'), 'repair_internal_origin_hidden');
   await scanVisibleType(root, 'repair');
   await page.locator('[data-repair-complete]').click();
   stored = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), STORAGE_KEY);
