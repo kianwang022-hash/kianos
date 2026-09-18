@@ -152,7 +152,7 @@ export function initPoliticsPractice(root) {
     hide('[data-result-discussion]', !meta.discussion?.[question().id]);
   };
   const validateReview = (payload, q) => {
-    if (payload?.schema !== 'kianos.politics.practice_review.v1' || (payload.revision !== catalog.revision && (!q.taskRevision || payload.taskRevision !== q.taskRevision)) || payload.id !== q.id || payload.sourceId !== q.sourceId || payload.unitKey !== q.unitKey || !payload.takeaway?.trim() || !payload.chatExplanation?.trim() || !/^[A-D]+$/.test(payload.answer) || new Set(payload.answer).size !== payload.answer.length || [...payload.answer].some((l) => !q.options.some((o) => o.label === l)) || (q.type === 'single' && payload.answer.length !== 1)) throw new Error('本题解析缺失、绑定不符或已更新；当前题未提交。请等待内容对账后重试。');
+    if (payload?.schema !== 'kianos.politics.practice_review.v1' || (!q.taskRevision ? payload.revision !== catalog.revision : payload.taskRevision !== q.taskRevision) || payload.id !== q.id || payload.sourceId !== q.sourceId || payload.unitKey !== q.unitKey || !payload.takeaway?.trim() || !payload.chatExplanation?.trim() || !/^[A-D]+$/.test(payload.answer) || new Set(payload.answer).size !== payload.answer.length || [...payload.answer].some((l) => !q.options.some((o) => o.label === l)) || (q.type === 'single' && payload.answer.length !== 1)) throw new Error('本题解析缺失、绑定不符或已更新；当前题未提交。请等待内容对账后重试。');
   };
   const renderResult = () => {
     const q = question(), r = result(), payload = r.review;
@@ -291,7 +291,7 @@ export function initPoliticsPractice(root) {
       if (!response.ok) throw new Error('本题解析暂不可用；当前题未提交，请稍后重试。');
       const review = await response.json(); validateReview(review, q);
       const answer = sorted(selected), correct = answer === sorted(review.answer);
-      const pending = { questionId: q.id, eventId: `${session.id}:${q.id}`, selected: answer, correct, uncertain, outcome: correct ? (uncertain ? 'UNCERTAIN' : 'STABLE') : 'WRONG', elapsedMs: totalMs(), answerChanges: trajectory.filter((t) => t.from && t.from !== t.to).length, trajectory: [...trajectory], observedAt: iso(), studyDay: new Date().toLocaleDateString('en-CA'), review, sourceContext: { subject: q.subject, chapter: q.chapter, unit_id: q.unitId, unit_key: q.unitKey, source_id: q.sourceId, source_href: q.unitHref, unit_role: review.unitRole, semantic_unit_ids: review.semanticUnitIds || [], source_owner_ids: (review.source || []).map(row => row.id), locator: review.chengfengLocator || null, content_revision: catalog.revision, task_revision: q.taskRevision } };
+      const pending = { questionId: q.id, eventId: `${session.id}:${q.id}`, selected: answer, correct, uncertain, outcome: correct ? (uncertain ? 'UNCERTAIN' : 'STABLE') : 'WRONG', elapsedMs: totalMs(), answerChanges: trajectory.filter((t) => t.from && t.from !== t.to).length, trajectory: [...trajectory], observedAt: iso(), studyDay: new Date().toLocaleDateString('en-CA'), review, sourceContext: { subject: q.subject, chapter: q.chapter, unit_id: q.unitId, unit_key: q.unitKey, source_id: q.sourceId, source_href: q.unitHref, unit_role: review.unitRole, semantic_unit_ids: review.semanticUnitIds || [], source_owner_ids: (review.source || []).map(row => row.id), locator: review.chengfengLocator || null, content_revision: review.revision, task_revision: q.taskRevision } };
       saveSession({ ...session, pending }); activeSince = 0;
       flushPending();
     } catch (e) {

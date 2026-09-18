@@ -15,11 +15,11 @@ const EXPECTED_COUNTS = new Map(Object.entries({
   'POL27-CF-MARX-C00-S02': 3,
   'POL27-CF-MARX-C01-S01': 6,
   'POL27-CF-MARX-C01-S02': 26,
-  'POL27-CF-MARX-C02-S01': 28,
-  [K03]: 11,
-  'POL27-CF-MARX-C02-S02': 8,
+  'POL27-CF-MARX-C02-S01': 30,
+  [K03]: 5,
+  'POL27-CF-MARX-C02-S02': 10,
   'POL27-CF-MARX-C03-S01': 31,
-  'POL27-CF-MARX-C03-S02': 22,
+  'POL27-CF-MARX-C03-S02': 24,
   'POL27-CF-MARX-C03-S03': 6,
   'POL27-CF-MARX-C04-S01': 43,
   'POL27-CF-MARX-C04-S02': 6,
@@ -84,7 +84,7 @@ for (const [unitId, expectedCount] of EXPECTED_COUNTS.entries()) {
 
   if (unitId === K03) {
     if (config.evidence_precision !== 'CANONICAL_NODE_MAPPING') fail('K03 lost canonical-node precision');
-    if (config.nodes.length !== 4) fail(`K03 expected 4 nodes, got ${config.nodes.length}`);
+    if (config.nodes.length !== 3) fail(`K03 expected 3 currently evidenced nodes, got ${config.nodes.length}`);
   } else {
     if (config.evidence_precision !== 'NATURAL_UNIT_SAFE_FALLBACK') fail(`${unitId} falsely claims fine precision`);
     if (config.nodes.length !== 1) fail(`${unitId} safe fallback must have exactly one node`);

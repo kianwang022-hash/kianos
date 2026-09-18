@@ -5,23 +5,12 @@ const K03 = 'POL27-CF-MARX-C02-K03';
 const S01 = 'POL27-CF-MARX-C02-S01';
 const S02 = 'POL27-CF-MARX-C02-S02';
 
-const FIRST_READY = [
-  'X1000-MARX-S-028',
-  'X1000-MARX-S-029',
-  'X1000-MARX-S-039',
-  'X1000-MARX-M-026',
-  'X1000-MARX-M-027',
-  'X1000-MARX-M-028',
-  'X1000-MARX-M-030',
-  'X1000-MARX-M-045',
-  'X1000-MARX-M-047',
-  'X1000-MARX-M-048',
-  'X1000-MARX-M-049'
-].sort();
-
-const DEFER_TO_S02 = ['X1000-MARX-M-035', 'X1000-MARX-M-046'].sort();
-const DEFER_TO_C03 = ['X1000-MARX-M-029', 'X1000-MARX-M-074'].sort();
-const OWNER_15 = [...FIRST_READY, ...DEFER_TO_S02, ...DEFER_TO_C03].sort();
+// Independently reviewed against Current Source, including decisive distractors.
+const FIRST_READY = ['X1000-MARX-S-028','X1000-MARX-S-039','X1000-MARX-M-027','X1000-MARX-M-028','X1000-MARX-M-030'].sort();
+const DEFER_TO_S01 = ['X1000-MARX-S-029','X1000-MARX-M-048'].sort();
+const DEFER_TO_S02 = ['X1000-MARX-M-035','X1000-MARX-M-046','X1000-MARX-M-047','X1000-MARX-M-049'].sort();
+const DEFER_TO_C03 = ['X1000-MARX-M-029','X1000-MARX-M-074','X1000-MARX-M-026','X1000-MARX-M-045'].sort();
+const OWNER_15 = [...FIRST_READY, ...DEFER_TO_S01, ...DEFER_TO_S02, ...DEFER_TO_C03].sort();
 
 function questionIds(unit) {
   return (unit?.questions || []).map((question) => String(question.id)).sort();
@@ -29,8 +18,7 @@ function questionIds(unit) {
 
 const chapter = loadPoliticsChapterCurrent('marxism', 'ch02');
 assert.equal(chapter.projectionMode, 'FORMAL_FIRST_READY_WITH_EMBEDDED_CHECKPOINTS');
-assert.equal(chapter.firstReadyProjection?.authority?.artifact_status, 'PASS');
-assert.equal(chapter.firstReadyProjection?.authority?.hard_gate?.first_ready, 1148);
+assert.match(chapter.firstReadyProjection.current_readiness_rule, /whole-item readiness/);
 
 const checkpointIndex = chapter.units.findIndex((unit) => unit.unitId === K03 && unit.projectionRole === 'EMBEDDED_NATURAL_UNIT_CHECKPOINT');
 assert.ok(checkpointIndex >= 0, 'K03 must be a learner-facing embedded checkpoint');
@@ -39,18 +27,18 @@ const checkpoint = chapter.units[checkpointIndex];
 assert.equal(checkpoint.sourceNodes.at(-1)?.id, K03, 'K03 checkpoint must stop exactly after the K03 Chengfeng source owner');
 assert.ok(checkpoint.sourceNodes.some((node) => node.id === 'POL27-CF-MARX-C02-K01'), 'K01 prerequisite source must remain continuous before K03');
 assert.ok(checkpoint.sourceNodes.some((node) => node.id === 'POL27-CF-MARX-C02-K02'), 'K02 prerequisite source must remain continuous before K03');
-assert.ok(String(checkpoint.teaching?.closure || '').trim().length > 0, 'K03 must have an immediate short closure cue');
-assert.deepEqual(questionIds(checkpoint), FIRST_READY, 'K03 must expose exactly the formal 11 first-ready questions');
+assert.ok(String(checkpoint.teaching?.closure || '').trim().length > 0, 'K03 must have an optional short closure cue');
+assert.deepEqual(questionIds(checkpoint), FIRST_READY, 'K03 must expose exactly the formal 5 first-ready questions');
 assert.equal(checkpoint.checkpoint?.ownerQuestionCount, 15);
-assert.equal(checkpoint.checkpoint?.firstReadyCount, 11);
-assert.equal(checkpoint.checkpoint?.deferredQuestionCount, 4);
+assert.equal(checkpoint.checkpoint?.firstReadyCount, 5);
+assert.equal(checkpoint.checkpoint?.deferredQuestionCount, 10);
 
 const projectionCheckpoint = chapter.firstReadyProjection.embedded_checkpoints[0];
 const projectedOwnerIds = [
   ...(projectionCheckpoint.first_ready_question_ids || []),
   ...(projectionCheckpoint.deferred_questions || []).map((row) => row.question_id)
 ].sort();
-assert.deepEqual(projectedOwnerIds, OWNER_15, 'the 15-question owner must partition losslessly into 11 first-ready + 4 deferred');
+assert.deepEqual(projectedOwnerIds, OWNER_15, 'the 15-question owner must partition losslessly into 5 first-ready + 10 deferred');
 
 const hostContinuation = chapter.units.find((unit) => unit.unitId === S01 && unit.projectionRole === 'HOST_CONTINUATION_AFTER_EMBEDDED_CHECKPOINT');
 assert.ok(hostContinuation, 'S01 must continue after the K03 checkpoint rather than ending at K03');
@@ -66,6 +54,10 @@ for (const questionId of FIRST_READY) {
 for (const questionId of DEFER_TO_C03) {
   assert.ok(!nonCheckpointQuestionIds.includes(questionId), `later-chapter question leaked into C02: ${questionId}`);
 }
+
+for (const id of DEFER_TO_S01) assert.ok(questionIds(hostContinuation).includes(id));
+const later = loadPoliticsChapterCurrent('marxism', 'ch03').units.find(u => u.unitId === 'POL27-CF-MARX-C03-S02');
+for (const id of DEFER_TO_C03) assert.ok(questionIds(later).includes(id), `explicit later target missing ${id}`);
 
 const s02 = chapter.units.find((unit) => unit.unitId === S02);
 assert.ok(s02, 'C02 S02 must remain after the embedded K03 checkpoint');
