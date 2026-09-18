@@ -15,15 +15,6 @@
         "level": "L1",
         "pos": "phrase",
         "source": "semantic-review-handoff-v1"
-      },
-      {
-        "construction_id": "construction:alternate:handoff-8fb61b1683c436a6",
-        "pattern": "alternate verb/adjective",
-        "meaning_cn": "动词与形容词/名词的重音和词性区别",
-        "definition_en": "pronunciation and part-of-speech boundary",
-        "level": "L1",
-        "pos": "phrase",
-        "source": "semantic-review-handoff-v1"
       }
     ],
     "content_hash": "0712d37a9a8cefd08de0e4f222ef682a166b2ced8b5d1996cc321b4a5185ab6d",
@@ -94,14 +85,7 @@
         "sense_id": "sense:alternate:fd5c1dcecfba5969",
         "sense_label_en": "go back and forth; swing back and forth between two states or conditions",
         "sort_order": 0,
-        "transitivity": "vi",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "alternate",
-          "paired_form": "alternate verb vs adjective/noun",
-          "note": "alternate verb has verb stress/pronunciation; adjective/noun uses differ"
-        }
+        "transitivity": "vi"
       },
       {
         "collocations": [
@@ -125,14 +109,7 @@
         "sense_id": "sense:alternate:ba24afe407cc56b8",
         "sense_label_en": "do something in turns",
         "sort_order": 1,
-        "transitivity": "vt",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "alternate",
-          "paired_form": "alternate verb vs adjective/noun",
-          "note": "alternate verb has verb stress/pronunciation; adjective/noun uses differ"
-        }
+        "transitivity": "vt"
       },
       {
         "collocations": [
@@ -156,14 +133,7 @@
         "sense_id": "sense:alternate:faf2eae5accf541f",
         "sense_label_en": "every second one of a series",
         "sort_order": 2,
-        "transitivity": "nonverb",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "alternate",
-          "paired_form": "alternate verb vs adjective/noun",
-          "note": "alternate adjective differs in stress/pronunciation from the verb"
-        }
+        "transitivity": "nonverb"
       },
       {
         "collocations": [
@@ -187,14 +157,7 @@
         "sense_id": "sense:alternate:21a6960e68f905c2",
         "sense_label_en": "a substitute or stand-in person or thing",
         "sort_order": 3,
-        "transitivity": "nonverb",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "alternate",
-          "paired_form": "alternate verb vs adjective/noun",
-          "note": "alternate noun follows the adjective/noun stress pattern, distinct from the verb"
-        }
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -213,16 +176,77 @@
       "runtime_model_calls": false
     },
     "word": "alternate",
-    "word_family": [
-      {
-        "form_boundary": true,
-        "pattern": "alternate verb / adjective-noun",
-        "meaning_cn": "动词与形容词/名词的发音和词性边界",
-        "definition_en": "part-of-speech and pronunciation boundary",
-        "source": "semantic-review-handoff-v1"
-      }
-    ],
-    "word_id": "word:alternate"
+    "word_family": [],
+    "word_id": "word:alternate",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_pronunciation",
+      "spelling": "alternate",
+      "identity_rule": "part_of_speech_selects_pronunciation",
+      "boundary": "The verb alternate ends in /-neɪt/; the adjective and noun end in /-nət/.",
+      "boundaries": [
+        {
+          "surface": "alternate",
+          "condition": "verb",
+          "note": "verb reading ends in /-neɪt/"
+        },
+        {
+          "surface": "alternate",
+          "condition": "adjective or noun",
+          "note": "adjective/noun reading ends in /-nət/"
+        }
+      ],
+      "variants": [
+        {
+          "variant_id": "form:alternate:verb-uk",
+          "pos": [
+            "verb"
+          ],
+          "learner_key": "verb · UK",
+          "ipa": "/ˈɒl.tə.neɪt/"
+        },
+        {
+          "variant_id": "form:alternate:verb-us",
+          "pos": [
+            "verb"
+          ],
+          "learner_key": "verb · US",
+          "ipa": "/ˈɑːl.tɚ.neɪt/"
+        },
+        {
+          "variant_id": "form:alternate:adjective-uk",
+          "pos": [
+            "adjective"
+          ],
+          "learner_key": "adjective · UK",
+          "ipa": "/ɒlˈtɜː.nət/"
+        },
+        {
+          "variant_id": "form:alternate:adjective-us",
+          "pos": [
+            "adjective"
+          ],
+          "learner_key": "adjective · US",
+          "ipa": "/ˈɑːl.tɝː.nət/"
+        },
+        {
+          "variant_id": "form:alternate:noun-uk",
+          "pos": [
+            "noun"
+          ],
+          "learner_key": "noun · UK",
+          "ipa": "/ˈɒl.tə.nət/"
+        },
+        {
+          "variant_id": "form:alternate:noun-us",
+          "pos": [
+            "noun"
+          ],
+          "learner_key": "noun · US",
+          "ipa": "/ˈɑːl.tɝː.nət/"
+        }
+      ],
+      "authority": "Cambridge Dictionary pronunciation check + Baseline v2 2026-09-19"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],

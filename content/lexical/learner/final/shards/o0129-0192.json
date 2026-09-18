@@ -2946,7 +2946,7 @@
     "ordinal": 151,
     "word": "allow",
     "source_owner_path": "content/lexical/words/by-ordinal/o0151.json",
-    "source_fingerprint": "2b91fbec744c412f3cccff560fc44d37e91e1db55533a7b6647bd41c3b802825",
+    "source_fingerprint": "417135a8c5d2ebe8ec7b9fc303a29caf441dbc8c58e0c6791e6cd617b3570c40",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2955,13 +2955,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "允许或使某事发生",
-      "decision_cn": "",
+      "summary_cn": "允许某人/某事发生；也可留出资源、承认事实或把某因素考虑进去",
+      "decision_cn": "看结构选分支：allow sb to do / allow doing → 允许；allow time/money → 留出；allow that ... → 承认；allow for ... → 考虑到。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "允许或使某事发生"
+        "target_label": "允许某人/某事发生；也可留出资源、承认事实或把某因素考虑进去"
       }
     },
     "senses": [
@@ -3119,24 +3119,87 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "construction:allow:handoff-5e936063fae81002",
+        "id": "construction:allow:baseline-v2-sb-to-do",
         "source_locator": "record.constructions[0]",
-        "pattern": "allow doing sth; be allowed to do sth",
+        "pattern": "allow sb to do sth",
         "lines": [
           {
-            "text": "允许做某事；被允许做某事",
+            "text": "允许某人做某事",
             "lang": "cn"
           },
           {
-            "text": "permit an activity or permit someone to act",
+            "text": "permit someone to do something",
             "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:allow:handoff-5e936063fae81002",
+          "target_id": "construction:allow:baseline-v2-sb-to-do",
           "target_locator": "record.constructions[0]",
-          "target_label": "allow doing sth; be allowed to do sth"
+          "target_label": "allow sb to do sth"
+        }
+      },
+      {
+        "id": "construction:allow:baseline-v2-doing",
+        "source_locator": "record.constructions[1]",
+        "pattern": "allow doing sth",
+        "lines": [
+          {
+            "text": "允许做某事",
+            "lang": "cn"
+          },
+          {
+            "text": "permit an activity in general",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:allow:baseline-v2-doing",
+          "target_locator": "record.constructions[1]",
+          "target_label": "allow doing sth"
+        }
+      },
+      {
+        "id": "construction:allow:baseline-v2-be-allowed-to",
+        "source_locator": "record.constructions[2]",
+        "pattern": "be allowed to do sth",
+        "lines": [
+          {
+            "text": "被允许做某事",
+            "lang": "cn"
+          },
+          {
+            "text": "have permission to do something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:allow:baseline-v2-be-allowed-to",
+          "target_locator": "record.constructions[2]",
+          "target_label": "be allowed to do sth"
+        }
+      },
+      {
+        "id": "construction:allow:baseline-v2-for",
+        "source_locator": "record.constructions[3]",
+        "pattern": "allow for sth",
+        "lines": [
+          {
+            "text": "考虑到；顾及某因素",
+            "lang": "cn"
+          },
+          {
+            "text": "take a factor or circumstance into account",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:allow:baseline-v2-for",
+          "target_locator": "record.constructions[3]",
+          "target_label": "allow for sth"
         }
       }
     ],
@@ -3709,7 +3772,7 @@
     "ordinal": 156,
     "word": "alone",
     "source_owner_path": "content/lexical/words/by-ordinal/o0156.json",
-    "source_fingerprint": "3aa467f33c863fec9ad20287ccfaaede21a6ef742c661719d1d9f2e0e21ab2a6",
+    "source_fingerprint": "78b751b03c56ce0c31cdbf71d7e34a5f4c1bfb3dacc65fca275ddc6172c513b6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3844,24 +3907,45 @@
         }
       },
       {
-        "id": "construction:alone:handoff-89afd17edec00fea",
+        "id": "construction:alone:baseline-v2-leave-let-alone",
         "source_locator": "record.constructions[1]",
-        "pattern": "leave/let sb alone; go it alone",
+        "pattern": "leave/let sb alone",
         "lines": [
           {
-            "text": "不打扰某人；独自做事",
+            "text": "别打扰某人；让某人自己待着",
             "lang": "cn"
           },
           {
-            "text": "leave someone undisturbed or act without help",
+            "text": "leave someone undisturbed or stop interfering with them",
             "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:alone:handoff-89afd17edec00fea",
+          "target_id": "construction:alone:baseline-v2-leave-let-alone",
           "target_locator": "record.constructions[1]",
-          "target_label": "leave/let sb alone; go it alone"
+          "target_label": "leave/let sb alone"
+        }
+      },
+      {
+        "id": "construction:alone:baseline-v2-go-it-alone",
+        "source_locator": "record.constructions[2]",
+        "pattern": "go it alone",
+        "lines": [
+          {
+            "text": "独自行动；不靠别人做某事",
+            "lang": "cn"
+          },
+          {
+            "text": "act or proceed without help from others",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:alone:baseline-v2-go-it-alone",
+          "target_locator": "record.constructions[2]",
+          "target_label": "go it alone"
         }
       }
     ],
@@ -3896,7 +3980,7 @@
     "ordinal": 157,
     "word": "along",
     "source_owner_path": "content/lexical/words/by-ordinal/o0157.json",
-    "source_fingerprint": "cb7751c9fae5afd6e478386199a71e31f9677b6c0cae610f7875ea0131416638",
+    "source_fingerprint": "63705e435765b31373483c42356ee35b80cd628c252ad12d3213b6e955f70d9b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4027,24 +4111,45 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "construction:along:handoff-0eab4378d7d5b194",
+        "id": "construction:along:baseline-v2-along-with",
         "source_locator": "record.constructions[0]",
-        "pattern": "along with ...; all along",
+        "pattern": "along with sb/sth",
         "lines": [
           {
-            "text": "连同……；一直以来",
+            "text": "连同；和……一起",
             "lang": "cn"
           },
           {
-            "text": "together with or from the beginning throughout",
+            "text": "together with someone or something",
             "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:along:handoff-0eab4378d7d5b194",
+          "target_id": "construction:along:baseline-v2-along-with",
           "target_locator": "record.constructions[0]",
-          "target_label": "along with ...; all along"
+          "target_label": "along with sb/sth"
+        }
+      },
+      {
+        "id": "construction:along:baseline-v2-all-along",
+        "source_locator": "record.constructions[1]",
+        "pattern": "all along",
+        "lines": [
+          {
+            "text": "一直；自始至终",
+            "lang": "cn"
+          },
+          {
+            "text": "from the beginning and throughout the whole time",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:along:baseline-v2-all-along",
+          "target_locator": "record.constructions[1]",
+          "target_label": "all along"
         }
       }
     ],
@@ -4460,7 +4565,7 @@
     "ordinal": 163,
     "word": "alter",
     "source_owner_path": "content/lexical/words/by-ordinal/o0163.json",
-    "source_fingerprint": "895b76dd20ddc43ea61be8b0457e07c10fbb3077dd4b28bf4df7a960ab50345c",
+    "source_fingerprint": "7d45a271882c84f377ab598f57a0bb427c18b2ed02e9f0685eee0c55f554cc21",
     "sense_lineage": [
       {
         "word_id": "word:alter",
@@ -4556,8 +4661,16 @@
           "target_word": "alterable",
           "lines": [
             {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+              "text": "可改变的；可修改的",
               "lang": "cn"
+            },
+            {
+              "text": "alter → alterable：表示某物能够被改变或修改。",
+              "lang": "cn"
+            },
+            {
+              "text": "able to be changed or modified",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -4566,8 +4679,16 @@
           "target_word": "alteration",
           "lines": [
             {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+              "text": "改变；改动；修改",
               "lang": "cn"
+            },
+            {
+              "text": "alter → alteration：把“改变/修改”名词化，可指改变过程或具体改动。",
+              "lang": "cn"
+            },
+            {
+              "text": "a change or the act of changing something",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[1]"
@@ -4581,7 +4702,7 @@
     "ordinal": 164,
     "word": "alternate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0164.json",
-    "source_fingerprint": "4b5d830b04e443ece8d6bd7996366bc52d2b79cc7cb6a0363ec7a37c4668908e",
+    "source_fingerprint": "2647b440e230d4d6ae0c2a316ed8644fdfe3f485f671ca09dbbf6ea84ca63f2b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4610,15 +4731,7 @@
         "definition_cn": "交替，轮流",
         "definition_en": "go back and forth; swing back and forth between two states or conditions",
         "note": "",
-        "identity_overlay": {
-          "text": "alternate verb has verb stress/pronunciation; adjective/noun uses differ",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "alternate verb has verb stress/pronunciation; adjective/noun uses differ"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:c105db54320e6dbfeb26",
@@ -4662,15 +4775,7 @@
         "definition_cn": "轮流做",
         "definition_en": "do something in turns",
         "note": "",
-        "identity_overlay": {
-          "text": "alternate verb has verb stress/pronunciation; adjective/noun uses differ",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "alternate verb has verb stress/pronunciation; adjective/noun uses differ"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:90b4d919ba0df9b07cfc",
@@ -4696,15 +4801,7 @@
         "definition_cn": "间隔的，每隔一个的",
         "definition_en": "every second one of a series",
         "note": "",
-        "identity_overlay": {
-          "text": "alternate adjective differs in stress/pronunciation from the verb",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "alternate adjective differs in stress/pronunciation from the verb"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:a299ef8776bf9784f76b",
@@ -4735,15 +4832,7 @@
         "definition_cn": "替代者；候补者",
         "definition_en": "a substitute or stand-in person or thing",
         "note": "",
-        "identity_overlay": {
-          "text": "alternate noun follows the adjective/noun stress pattern, distinct from the verb",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[3].lexical_identity_overlay",
-            "target_label": "alternate noun follows the adjective/noun stress pattern, distinct from the verb"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:ec9f322c17a29fd0e1bd",
@@ -4789,49 +4878,77 @@
           "target_locator": "record.constructions[0]",
           "target_label": "an alternate"
         }
-      },
-      {
-        "id": "construction:alternate:handoff-8fb61b1683c436a6",
-        "source_locator": "record.constructions[1]",
-        "pattern": "alternate verb/adjective",
-        "lines": [
-          {
-            "text": "动词与形容词/名词的重音和词性区别",
-            "lang": "cn"
-          },
-          {
-            "text": "pronunciation and part-of-speech boundary",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:alternate:handoff-8fb61b1683c436a6",
-          "target_locator": "record.constructions[1]",
-          "target_label": "alternate verb/adjective"
-        }
       }
     ],
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
-      "family": [
-        {
-          "target_word": "",
-          "lines": [
-            {
-              "text": "动词与形容词/名词的发音和词性边界",
-              "lang": "cn"
-            },
-            {
-              "text": "part-of-speech and pronunciation boundary",
-              "lang": "en"
-            }
-          ],
-          "source_locator": "record.word_family[0]"
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "alternate",
+            "condition": "verb",
+            "note": "verb reading ends in /-neɪt/"
+          },
+          {
+            "surface": "alternate",
+            "condition": "adjective or noun",
+            "note": "adjective/noun reading ends in /-nət/"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "verb · UK",
+            "ipa": "/ˈɒl.tə.neɪt/"
+          },
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "verb · US",
+            "ipa": "/ˈɑːl.tɚ.neɪt/"
+          },
+          {
+            "pos": [
+              "adjective"
+            ],
+            "reading": "adjective · UK",
+            "ipa": "/ɒlˈtɜː.nət/"
+          },
+          {
+            "pos": [
+              "adjective"
+            ],
+            "reading": "adjective · US",
+            "ipa": "/ˈɑːl.tɝː.nət/"
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "noun · UK",
+            "ipa": "/ˈɒl.tə.nət/"
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "noun · US",
+            "ipa": "/ˈɑːl.tɝː.nət/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
         }
-      ]
+      },
+      "family": []
     }
   },
   {
@@ -5163,7 +5280,7 @@
     "ordinal": 168,
     "word": "altogether",
     "source_owner_path": "content/lexical/words/by-ordinal/o0168.json",
-    "source_fingerprint": "75a020eac666e3693aaaebf33d72f7cef949856b45587a5445e6bfb919652d3f",
+    "source_fingerprint": "de17c0e4f6fc30ceb3ddae4379992b95428fcd0576223353d5db27618b4250a5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5172,13 +5289,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "完全；总共",
-      "decision_cn": "",
+      "summary_cn": "完全；合计；或用于总结“总的来说”",
+      "decision_cn": "看句子角色：修饰性质 → 完全；计算数量 → 总共；句首总结 → 总的来说。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "完全；总共"
+        "target_label": "完全；合计；或用于总结“总的来说”"
       }
     },
     "senses": [
@@ -5881,7 +5998,7 @@
     "ordinal": 175,
     "word": "ambition",
     "source_owner_path": "content/lexical/words/by-ordinal/o0175.json",
-    "source_fingerprint": "1620acce8b7e6e7a1ffb107c794e398bb1ec057c8e65a8f8dee78ff4cb694fa9",
+    "source_fingerprint": "e153932c761a7b304ed10b4d07051378ec658e9b4be50a8d2594050341d99857",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5890,13 +6007,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "雄心，抱负",
-      "decision_cn": "",
+      "summary_cn": "强烈想实现某个目标：可以是正面的抱负，也可以带有追逐权力/地位的“野心”",
+      "decision_cn": "看目标和语气：career/life goal 常是抱负；power/status/political context 更容易带“野心”色彩。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "雄心，抱负"
+        "target_label": "强烈想实现某个目标：可以是正面的抱负，也可以带有追逐权力/地位的“野心”"
       }
     },
     "senses": [
@@ -5986,7 +6103,7 @@
     "ordinal": 176,
     "word": "ambitious",
     "source_owner_path": "content/lexical/words/by-ordinal/o0176.json",
-    "source_fingerprint": "df29627cfe2cfb9911dec1fbf6b60c739ed31ec8e5356376ffc9c0e37f3cc4b8",
+    "source_fingerprint": "642736e340f6b409ee926c00b5fa206352e79cdee4876facb05922ae80c81296",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5995,13 +6112,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "有强烈成功欲望的",
-      "decision_cn": "",
+      "summary_cn": "目标或要求很高：用于人时是雄心勃勃；用于计划/项目时是目标大、要求高、执行难",
+      "decision_cn": "看被修饰对象：person → 雄心勃勃；project/plan/target → 目标高、艰巨。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "有强烈成功欲望的"
+        "target_label": "目标或要求很高：用于人时是雄心勃勃；用于计划/项目时是目标大、要求高、执行难"
       }
     },
     "senses": [
@@ -6488,11 +6605,11 @@
     "ordinal": 182,
     "word": "amount",
     "source_owner_path": "content/lexical/words/by-ordinal/o0182.json",
-    "source_fingerprint": "836a59737552bf57768d2eaf7271b9a5997d326580191b7011e29405cc80aab6",
+    "source_fingerprint": "d2cd8005ce3ed02db061edc6e476bd7c83a89e2b3efc9b9bce325a6ae95fa9e4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(1+1)V",
+        "1V",
         "1N"
       ],
       "density": "rich"
@@ -6584,22 +6701,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:amount:a1b677c5dd8142bc",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "总计，等同于",
-        "definition_en": "to add up to or be equivalent to something",
-        "pattern": "amount to + 名词/数字",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:amount:a1b677c5dd8142bc",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "总计，等同于"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [
       {
         "id": "deep:constructions:amount:f719d6a7b1d44c65",
@@ -6708,7 +6810,7 @@
     "ordinal": 184,
     "word": "amplify",
     "source_owner_path": "content/lexical/words/by-ordinal/o0184.json",
-    "source_fingerprint": "6b2eefa58a859612da0bdc77ffc99f6ff86a109a1e9d1113d35b2b6873548856",
+    "source_fingerprint": "c11e96b26b478383f866d4d2e31f351767ccd736c095a043959f8702b28e176f",
     "sense_lineage": [
       {
         "word_id": "word:amplify",
@@ -6725,13 +6827,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "放大，增强",
-      "decision_cn": "",
+      "summary_cn": "把某种东西“放大”：可放大声音/信号、增强影响，也可把观点或说明展开得更充分",
+      "decision_cn": "看对象：sound/signal → 放大；effect/importance → 增强；point/story → 详述；DNA/gene → 扩增。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "放大，增强"
+        "target_label": "把某种东西“放大”：可放大声音/信号、增强影响，也可把观点或说明展开得更充分"
       }
     },
     "senses": [
@@ -6984,7 +7086,7 @@
     "ordinal": 186,
     "word": "analog",
     "source_owner_path": "content/lexical/words/by-ordinal/o0186.json",
-    "source_fingerprint": "1f987b6934fe841456e868d58415bd366100074344791988445d32b9cd6ea266",
+    "source_fingerprint": "9b873f13536a0fcb8a57651049329732edfc3b1480a1d24725ffddb90039333f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7085,14 +7187,14 @@
       {
         "id": "construction:analog:handoff-851570fc4e14df5d",
         "source_locator": "record.constructions[0]",
-        "pattern": "analog / analogue; analog ↔ digital",
+        "pattern": "analog ↔ digital",
         "lines": [
           {
-            "text": "模拟的/模拟设备；美式 analog 与英式 analogue；与 digital 对比",
+            "text": "模拟系统/信号与数字系统/信号的对比",
             "lang": "cn"
           },
           {
-            "text": "regional spelling and the contrast between continuous and digital systems",
+            "text": "contrast continuous analog representation with digital representation",
             "lang": "en"
           }
         ],
@@ -7100,7 +7202,7 @@
           "target_kind": "construction",
           "target_id": "construction:analog:handoff-851570fc4e14df5d",
           "target_locator": "record.constructions[0]",
-          "target_label": "analog / analogue; analog ↔ digital"
+          "target_label": "analog ↔ digital"
         }
       }
     ],
@@ -7126,22 +7228,7 @@
         }
       ],
       "form": null,
-      "family": [
-        {
-          "target_word": "",
-          "lines": [
-            {
-              "text": "美式 analog；英式 analogue",
-              "lang": "cn"
-            },
-            {
-              "text": "regional spelling variants",
-              "lang": "en"
-            }
-          ],
-          "source_locator": "record.word_family[0]"
-        }
-      ]
+      "family": []
     }
   },
   {
@@ -7260,7 +7347,7 @@
     "ordinal": 188,
     "word": "analyse",
     "source_owner_path": "content/lexical/words/by-ordinal/o0188.json",
-    "source_fingerprint": "288b391d77b56396e98cc79fa657ad03b242f6ec0e8333d8a38c015d94ea09f2",
+    "source_fingerprint": "ea917476f18fd5728280d0fe5614bda9a34eba599252958203c603a6b5f1ab50",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7359,49 +7446,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:analyse:handoff-7191372f8ec65208",
-        "source_locator": "record.constructions[0]",
-        "pattern": "analyse / analyze",
-        "lines": [
-          {
-            "text": "英式 analyse；美式 analyze",
-            "lang": "cn"
-          },
-          {
-            "text": "regional spelling variants",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:analyse:handoff-7191372f8ec65208",
-          "target_locator": "record.constructions[0]",
-          "target_label": "analyse / analyze"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
-      "family": [
-        {
-          "target_word": "",
-          "lines": [
-            {
-              "text": "英式 analyse；美式 analyze",
-              "lang": "cn"
-            },
-            {
-              "text": "regional spelling variants",
-              "lang": "en"
-            }
-          ],
-          "source_locator": "record.word_family[0]"
+      "form": {
+        "boundary": "analyse is the standard British spelling; analyze is the standard American spelling of the same verb.",
+        "boundaries": [
+          {
+            "surface": "analyse",
+            "condition": "British English",
+            "note": "英式拼写"
+          },
+          {
+            "surface": "analyze",
+            "condition": "American English",
+            "note": "美式拼写"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "analyse is the standard British spelling; analyze is the standard American spelling of the same verb."
         }
-      ]
+      },
+      "family": []
     }
   },
   {
@@ -7748,7 +7819,7 @@
     "ordinal": 192,
     "word": "anchor",
     "source_owner_path": "content/lexical/words/by-ordinal/o0192.json",
-    "source_fingerprint": "f12b24aba9d6f5b64ef235405591bfc4b17b7cbc1b1d04dcae0cb7d55324cc16",
+    "source_fingerprint": "9c7117fd3bfa619edf5ccecf190144cd8cb89931eca4c4ea363155c24c13a9ce",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7758,13 +7829,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "锚；固定",
-      "decision_cn": "",
+      "summary_cn": "提供“固定点”或稳定支撑：字面是船锚/固定，抽象可指支柱，媒体中可指主持整场新闻的主播",
+      "decision_cn": "共同点是“让某物稳定在一个点上”：ship/rope → 锚或固定；person/support → 支柱；news → 主播。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "锚；固定"
+        "target_label": "提供“固定点”或稳定支撑：字面是船锚/固定，抽象可指支柱，媒体中可指主持整场新闻的主播"
       }
     },
     "senses": [
