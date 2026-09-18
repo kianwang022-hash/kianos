@@ -152,11 +152,14 @@ try {
   assert(await page.locator('[data-card-routing-controls]').isVisible(), 'v2_safe_fast_pass_routing_visible');
   await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-safe-fast-pass-1440x900.png'), fullPage: false });
 
-  await page.goto(`${origin}/vocabulary/1/`, { waitUntil: 'networkidle' });
+  await page.goto(`${origin}/vocabulary/5477/`, { waitUntil: 'networkidle' });
   assert(await page.locator('[data-vocab-front][data-recall-density="rich"]').isVisible(), 'v2_rich_recall_front_visible');
+  assert((await page.locator('[data-vocab-front] h2').innerText()).trim() === 'write', 'v2_rich_fixture_is_write');
   await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-rich-recall-1440x900.png'), fullPage: false });
-  await page.locator('[data-vocab-reveal]').click();
+  await page.keyboard.press('Space');
   await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
+  assert(await page.locator('[data-vocab-action-dock] [data-vocab-route="unknown"]').isVisible(), 'v2_depth_dock_exposes_unknown');
+  assert(await page.locator('[data-vocab-action-dock] [data-vocab-route="fuzzy"]').isVisible(), 'v2_depth_dock_exposes_fuzzy');
   await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-rich-depth-1440x900.png'), fullPage: false });
 
   await page.evaluate(() => {
@@ -175,7 +178,55 @@ try {
   assert(lookupState.wordState === null, 'v2_lookup_does_not_create_word_state');
   await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-lookup-1440x900.png'), fullPage: false });
 
-  reports.push(await audit(page, { ordinal: 1, expectedWord: 'a', expectExpansion: true, sparse: false }));
+  // Legacy keyboard contract + v2 exact Repair contract.
+  const routingKey = 'kianos-lexical-card-routing-v1';
+  const routeCases = [
+    ['ArrowLeft', 'UNKNOWN'],
+    ['ArrowUp', 'FUZZY'],
+    ['ArrowRight', 'KNOWN'],
+    ['ArrowDown', 'MASTERED']
+  ];
+  for (const [key, expected] of routeCases) {
+    await page.goto(`${origin}/vocabulary/5477/`, { waitUntil: 'networkidle' });
+    await page.evaluate((routingKey) => localStorage.removeItem(routingKey), routingKey);
+    await page.keyboard.press('Space');
+    await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
+    await page.keyboard.press(key);
+    await page.waitForURL('**/vocabulary/5478/');
+    const route = await page.evaluate((routingKey) => {
+      const value = JSON.parse(localStorage.getItem(routingKey) || 'null');
+      return value?.history?.at(-1)?.route || '';
+    }, routingKey);
+    assert(route === expected, `v2_keyboard_${expected.toLowerCase()}`, route);
+  }
+
+  await page.goto(`${origin}/vocabulary/5477/`, { waitUntil: 'networkidle' });
+  await page.evaluate((routingKey) => localStorage.removeItem(routingKey), routingKey);
+  await page.keyboard.press('Space');
+  await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
+  await page.keyboard.press('ArrowRight');
+  await page.waitForURL('**/vocabulary/5478/');
+  await page.keyboard.press('Backspace');
+  await page.waitForURL('**/vocabulary/5477/');
+  const undoHistoryLength = await page.evaluate((routingKey) => {
+    const value = JSON.parse(localStorage.getItem(routingKey) || 'null');
+    return value?.history?.length || 0;
+  }, routingKey);
+  assert(undoHistoryLength === 0, 'v2_backspace_undo', String(undoHistoryLength));
+
+  await page.goto(`${origin}/vocabulary/5477/`, { waitUntil: 'networkidle' });
+  await page.keyboard.press('Space');
+  await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
+  await page.keyboard.press('j');
+  const selectedBeforeRepair = await page.locator('[data-vocab-target-row].keyboard-target [data-vocab-repair]').count();
+  assert(selectedBeforeRepair === 1, 'v2_j_selects_exact_object', String(selectedBeforeRepair));
+  await page.keyboard.press('+');
+  const selectedRepairPressed = await page.locator('[data-vocab-target-row].keyboard-target [data-vocab-repair]').getAttribute('aria-pressed');
+  assert(selectedRepairPressed === 'true', 'v2_plus_toggles_exact_repair', String(selectedRepairPressed));
+  await page.keyboard.press('k');
+  assert(await page.locator('[data-vocab-target-row].keyboard-target [data-vocab-repair]').count() === 1, 'v2_k_moves_exact_object');
+
+    reports.push(await audit(page, { ordinal: 1, expectedWord: 'a', expectExpansion: true, sparse: false }));
   reports.push(await audit(page, { ordinal: 2, expectedWord: 'abandon', expectExpansion: false, sparse: true }));
   reports.push(await audit(page, { ordinal: 13, expectedWord: 'abroad', expectExpansion: true, sparse: true }));
 
