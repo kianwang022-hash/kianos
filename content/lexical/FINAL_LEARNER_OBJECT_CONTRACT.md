@@ -89,9 +89,9 @@ A suppression / promotion is valid only when an explicit Content-owned role, mer
 
 Default rule is **preserve**. Exceptional default-Depth dispositions live in:
 
-`content/lexical/final-learner-object-decisions.json`
+`content/lexical/learner/final/overrides.json`
 
-This is derived Content, not semantic Truth. It may reference only stable Current identities and must remain sparse.
+This is derived Content, not semantic Truth. It may reference only stable Current identities, is consumed only by the canonical Final Learner Object materializer, and must remain sparse.
 
 Example:
 
@@ -101,7 +101,7 @@ word:abstract
 → sense:... verb pronunciation note      = EXPLORE_ONLY
 ```
 
-The builder may execute that exact ID-bound decision. It may not inspect the note text to decide that it "looks like Form".
+The canonical materializer `tools/lexical_build_final_learner_objects.py` may execute that exact ID-bound override. It may not inspect note text to decide that it "looks like Form".
 
 For structured `form_identity.variants`, the default Depth mapping is fixed rather than heuristic:
 
