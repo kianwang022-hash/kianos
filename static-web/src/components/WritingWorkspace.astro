@@ -208,7 +208,10 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
     try { task = JSON.parse(root.querySelector('[data-writing-task]')?.textContent || 'null'); } catch {}
     if (!task?.id) throw new Error('WRITING_RUNTIME_TASK_PAYLOAD_MISSING');
 
-    const storageKey = `kianos-writing-runtime-v1:${task.id}`;
+    const examSessionId = new URLSearchParams(location.search).get('exam_session') || '';
+    const storageKey = examSessionId
+      ? `kianos-english-exam-task-v1:${examSessionId}:writing:${task.id}`
+      : `kianos-writing-runtime-v1:${task.id}`;
     const lastLocationKey = 'kianos-writing-last-location-v1';
     let saved = null;
     try { saved = JSON.parse(localStorage.getItem(storageKey) || 'null'); } catch {}
@@ -242,15 +245,17 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
     function persist() {
       record.updatedAt = new Date().toISOString();
       try { localStorage.setItem(storageKey, JSON.stringify(record)); } catch {}
-      try {
-        localStorage.setItem(lastLocationKey, JSON.stringify({
-          id: task.id,
-          title: task.title,
-          state: record.state,
-          href: location.pathname,
-          updatedAt: record.updatedAt
-        }));
-      } catch {}
+      if (!examSessionId) {
+        try {
+          localStorage.setItem(lastLocationKey, JSON.stringify({
+            id: task.id,
+            title: task.title,
+            state: record.state,
+            href: location.pathname,
+            updatedAt: record.updatedAt
+          }));
+        } catch {}
+      }
     }
 
     function setStatus(selector, text, bad = false) {
