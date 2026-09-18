@@ -147,6 +147,9 @@ try {
   await page.locator('[data-session-question-start]').click();
 
   await page.locator('[data-scope-summary]').waitFor({ state: 'visible' });
+  await page.waitForFunction(() =>
+    document.querySelector('[data-scope-summary]')?.textContent?.includes('Chat 指定 2 题 · 不扩题')
+  );
   check((await page.locator('[data-scope-summary]').innerText()).includes('Chat 指定 2 题 · 不扩题'), 'practice_scope_exact_two');
   await page.locator('[data-start-session]').click();
 
