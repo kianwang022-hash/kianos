@@ -34,6 +34,8 @@ Practice Workbench
 
 These are parameters of one task family, not separate question products.
 
+**Chat owns strategic judgment.** Practice does not decide when Xizong moves from FIRST_PASS to SECOND_PASS or LATE_REVIEW, does not diagnose the cause of a Wrong/Uncertain result, and does not manufacture the next learning task. It executes an explicit learner/Chat plan and preserves the resulting evidence.
+
 System Recall hands into Practice with `scope=SYSTEM:<id>`; whole paper later uses the same Workbench with `scope=PAPER:<year>`.
 
 ## 2｜Mac-wide one-screen geometry
@@ -140,17 +142,19 @@ Fast Sweep controls input speed, not result visibility.
 
 The same Evidence history is reused.
 
-Default SECOND_PASS scope derives from prior:
+Default SECOND_PASS targeted scope derives from unresolved prior:
 
 ```text
-Wrong + Uncertain + Marked
+Wrong + Uncertain
 ```
 
-Stable unmarked correct work is skipped by default. Full resweep is explicit opt-in.
+A later fresh Stable attempt removes that question from the default targeted queue. `Marked` remains an independent learner-selected scope; marking a Stable question must not silently create default second-pass debt.
+
+Stable correct work is skipped by default. Full resweep is explicit opt-in.
 
 No second question store and no second “二轮题库” is created.
 
-LATE_REVIEW remains a thinner mode of the same Runtime.
+LATE_REVIEW remains a thinner mode of the same Runtime. It must not silently become a full System resweep; the learner/Chat must explicitly choose the late-review scope or opt into a full resweep.
 
 ## 7｜Reviewed Question→Knowledge relation
 
@@ -203,7 +207,9 @@ Current candidate implements:
 - Marked;
 - adaptive Current Explanation including restored `reasoning_chain`;
 - reviewed relation / fail-closed fallback;
-- FIRST_PASS → targeted SECOND_PASS → LATE_REVIEW reuse.
+- explicit FIRST_PASS / SECOND_PASS / LATE_REVIEW execution metadata with no automatic phase promotion;
+- targeted W/U queue and explicit full-resweep choice;
+- Marked preserved independently from the default W/U queue.
 
 Still separate:
 - whole-paper scope + Hidden result;
