@@ -14,6 +14,28 @@ const { ordinal }=Astro.props;const answer=loadLexicalWordByOrdinal(Number(ordin
   <nav class="lexicalStudyNav lexicalStudyNavBottom"><a href={`${base}vocabulary/`}>Back to Vocabulary</a><div>{previousOrdinal&&<a href={`${base}vocabulary/${previousOrdinal}/`}>← Prev</a>}{nextOrdinal?<a class="next" href={`${base}vocabulary/${nextOrdinal}/`}>Next →</a>:<a class="next" href={`${base}vocabulary/`}>Finish</a>}</div></nav>
 </Base>
 <script>
-  const nav=document.querySelector('[data-lexical-study-nav]');if(nav instanceof HTMLElement){const ordinal=Number(nav.getAttribute('data-ordinal')||0);if(Number.isInteger(ordinal)&&ordinal>0){try{localStorage.setItem('kianos-vocabulary-last-ordinal',String(ordinal))}catch{}}}
-  document.addEventListener('keydown',(event)=>{if(event.defaultPrevented||event.code!=='Space')return;const target=event.target;if(target instanceof HTMLElement&&target.closest('input,textarea,select,button,a,[contenteditable="true"]'))return;const details=document.querySelector('[data-local-port="vocabulary"] [data-vocab-details]');if(!(details instanceof HTMLElement)||details.hidden)return;const next=nav?.querySelector('[data-lexical-next]');if(!(next instanceof HTMLAnchorElement))return;event.preventDefault();window.location.href=next.href});
+  const nav=document.querySelector('[data-lexical-study-nav]');
+  const root=document.querySelector('[data-local-port="vocabulary"]');
+  const requestedMode=new URLSearchParams(location.search).get('mode');
+  const mode=['lookup','repair'].includes(String(requestedMode||''))?String(requestedMode):'study';
+  if(root instanceof HTMLElement) root.dataset.vocabMode=mode;
+  if(nav instanceof HTMLElement){
+    nav.dataset.lexicalMode=mode;
+    const ordinal=Number(nav.getAttribute('data-ordinal')||0);
+    if(mode==='study'&&Number.isInteger(ordinal)&&ordinal>0){
+      try{localStorage.setItem('kianos-vocabulary-last-ordinal',String(ordinal))}catch{}
+    }
+  }
+  document.body.dataset.lexicalMode=mode;
+  document.addEventListener('keydown',(event)=>{
+    if(mode!=='study'||event.defaultPrevented||event.code!=='Space')return;
+    const target=event.target;
+    if(target instanceof HTMLElement&&target.closest('input,textarea,select,button,a,[contenteditable="true"]'))return;
+    const details=document.querySelector('[data-local-port="vocabulary"] [data-vocab-details]');
+    if(!(details instanceof HTMLElement)||details.hidden)return;
+    const next=nav?.querySelector('[data-lexical-next]');
+    if(!(next instanceof HTMLAnchorElement))return;
+    event.preventDefault();
+    window.location.href=next.href;
+  });
 </script>
