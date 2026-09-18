@@ -11,7 +11,7 @@ export function publicPracticeCatalog(catalog) {
     subjects: catalog.subjects.map(({ id, label }) => ({ id, label })),
     chapters: catalog.chapters.map(({ key, subject, code, title, questionIds }) => ({ key, subject, code, title, questionIds })),
     units: catalog.units.map(({ key, id, title, subject, chapter, href, questionIds, returnConfig }) => ({ key, id, title, subject, chapter, href, questionIds, returnConfig })),
-    questions: catalog.questions.filter(practiceReady).map(({ id, sourceId, number, subject, subjectLabel, chapter, chapterTitle, unitKey, unitId, unitTitle, unitHref, type, stem, options }) => ({ id, sourceId, number, subject, subjectLabel, chapter, chapterTitle, unitKey, unitId, unitTitle, unitHref, type, stem, options }))
+    questions: catalog.questions.filter(practiceReady).map(({ id, sourceId, number, subject, subjectLabel, chapter, chapterTitle, unitKey, unitId, unitTitle, unitHref, type, stem, options, taskRevision }) => ({ id, sourceId, number, subject, subjectLabel, chapter, chapterTitle, unitKey, unitId, unitTitle, unitHref, type, stem, options, taskRevision }))
   };
 }
 
@@ -21,8 +21,10 @@ export function practiceReviewPayload(catalog, id) {
   if (!question || !practiceReady(question) || !unit || !question.refined?.takeaway || !question.refined?.chatExplanation) throw new Error(`PRACTICE_REVIEW_BINDING:${id}`);
   return {
     schema: 'kianos.politics.practice_review.v1', revision: catalog.revision,
-    id: question.id, sourceId: question.sourceId, unitKey: unit.key,
+    id: question.id, sourceId: question.sourceId, unitKey: unit.key, taskRevision: question.taskRevision,
     answer: question.answer,
+    semanticUnitIds: question.semanticUnitIds,
+    unitRole: 'FIRST_READY_NOT_EXCLUSIVE_KNOWLEDGE_OWNER',
     takeaway: question.refined.takeaway,
     chatExplanation: question.refined.chatExplanation,
     chengfengLocator: question.chengfengLocator || null,

@@ -519,6 +519,12 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
       const unitSection = node.closest('[data-politics-unit]');
       const unitId = unitIdForSection(unitSection);
       const current = sameChapterLast();
+      // A Workbench source-return query owns this visit. Passive scrolling must
+      // not erase its original question/session even when another Unit is visible.
+      const returnParams = new URLSearchParams(window.location.search);
+      if (current?.action === 'PRACTICE_REFERENCE'
+        && returnParams.get('practiceSession')
+        && returnParams.get('practiceQuestion') === current.question_id) return;
       // Passive visibility in this same Unit is not explicit learner navigation.
       if (current && current.unit_id === unitId && (
         String(current.action || '').startsWith('REPAIR')

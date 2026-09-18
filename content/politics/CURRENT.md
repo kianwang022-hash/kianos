@@ -11,6 +11,19 @@ A bare `继续政治 / 继续马原 / 继续史纲` is a learner request unless 
 
 ## Current state
 
+**Fresh final acceptance is executing on `work/politics-final-fresh-20260919`.**
+The independent baseline has reproduced corrupt metadata admission, lost exact
+source-return context, and missing first evidence in batch export on Linux and
+real macOS. Source readback also identified an over-strong History C02 bridge
+and six premature K03 whole-question releases. Candidate repairs are being
+validated with `static-web/scripts/audit-politics-final-fresh.mjs` and
+`static-web/scripts/test-politics-final-fresh-browser.mjs`; historical PASS
+labels below are not the result of this re-acceptance. The next action is
+candidate proof, bounded regression, then lane Acceptance reconciliation.
+Shared typed Chat Return / durable checkpoint closure and absent later-phase
+Source remain separate limits; this cursor creates no learner U.
+
+
 Politics learning engineering is closed through the current scoped `S/K/L/P/R/E` evidence for all five subjects. Real learner `U` remains real-use-only.
 
 There is no current reason to reopen Politics semantic engineering without a concrete defect.

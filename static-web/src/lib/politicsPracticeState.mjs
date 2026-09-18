@@ -1,3 +1,4 @@
+import { findPoliticsFirstAttempt } from './politicsUnitReturn.mjs';
 // Existing Politics storage identities. Shared by the native Workbench and its
 // read-only Home/Review consumers; this module never writes learner state.
 export const PRACTICE_KEYS = Object.freeze({
@@ -5,6 +6,37 @@ export const PRACTICE_KEYS = Object.freeze({
   session: 'kianos-politics-practice-session-v1', last: 'kianos-politics-last-location-v1',
   evidence: 'kianos-politics-evidence-v1'
 });
+const record = value => value !== null && typeof value === 'object' && !Array.isArray(value);
+export function isPoliticsStorageValue(key, value) {
+  if (key === PRACTICE_KEYS.evidence) return Array.isArray(value) && value.every(record);
+  if ([PRACTICE_KEYS.session, PRACTICE_KEYS.last].includes(key) && value === null) return true;
+  if (!record(value)) return false;
+  if (key === PRACTICE_KEYS.attempts) return record(value.units)
+    && Object.values(value.units).every(unit => record(unit) && record(unit.attempts)
+      && Object.values(unit.attempts).every(attempt => record(attempt) && typeof attempt.question_id === 'string' && ['WRONG','UNCERTAIN','STABLE'].includes(attempt.outcome)));
+  if (key === PRACTICE_KEYS.meta) return ['favorites','discussion','causes','notes','latestOutcome'].every(field => {
+    if (value[field] === undefined) return true;
+    if (!record(value[field])) return false;
+    return Object.values(value[field]).every(item => ['favorites','discussion'].includes(field)
+      ? typeof item === 'boolean' : field === 'latestOutcome'
+        ? ['WRONG','UNCERTAIN','STABLE'].includes(item) : typeof item === 'string');
+  });
+  return true;
+}
+
+export function politicsSessionMatchesCatalog(session, catalog) {
+  if (!record(session) || session.runtimeVersion !== 2 || !session.id
+    || !Array.isArray(session.ids) || !session.ids.length || new Set(session.ids).size !== session.ids.length
+    || !Number.isInteger(session.index) || session.index < 0 || session.index >= session.ids.length
+    || !['active','paused','completed'].includes(session.status)) return false;
+  const questions = new Map((catalog.questions || []).map(q => [q.id,q]));
+  if (session.ids.some(id => !questions.get(id)?.unitKey)) return false;
+  // Legacy sessions have no per-task snapshot: keep their conservative old guard.
+  if (!record(session.taskRevisions)) return session.revision === catalog.revision;
+  return session.ids.every(id => typeof questions.get(id).taskRevision === 'string'
+    && session.taskRevisions[id] === questions.get(id).taskRevision);
+}
+
 export function readPoliticsSnapshot(storage) {
   const errors = [];
   const read = (key, fallback, valid = v => v && typeof v === 'object' && !Array.isArray(v)) => {
@@ -13,7 +45,7 @@ export function readPoliticsSnapshot(storage) {
       if (raw === null) return fallback;
       const value = JSON.parse(raw);
       if (value === null && fallback === null) return null;
-      if (!valid(value)) throw new Error('shape');
+      if (!valid(value) || !isPoliticsStorageValue(key, value)) throw new Error('shape');
       return value;
     } catch { errors.push(key); return fallback; }
   };
@@ -31,14 +63,15 @@ export function selectPoliticsReview(catalog, snapshot, { day = '', filter = 'al
   for (const q of catalog.questions || []) {
     // Only an already attempted, currently admitted, exact owner may be revisited.
     if (!q.unitKey) continue;
-    const first = snapshot.attempts?.units?.[q.unitKey]?.attempts?.[q.id];
+    const observed = findPoliticsFirstAttempt(snapshot.attempts, q.id);
+    const first = observed?.attempt;
     if (!first || !validOutcomes.has(first.outcome) || first.question_id !== q.id) continue;
     const outcome = validOutcomes.has(snapshot.meta?.latestOutcome?.[q.id])
       ? snapshot.meta.latestOutcome[q.id] : first.outcome;
     const discussion = snapshot.meta?.discussion?.[q.id] === true;
     const needsReview = ['WRONG', 'UNCERTAIN'].includes(outcome);
     if (!needsReview && !discussion) continue;
-    const relevantEvents = events.filter(e => e?.question_id === q.id && e?.unit_id === q.unitId);
+    const relevantEvents = events.filter(e => e?.question_id === q.id);
     const latest = [...relevantEvents].sort((a,b) => String(a.observed_at || '').localeCompare(String(b.observed_at || ''))).at(-1);
     const observedDay = latest?.study_day || first.study_day || '';
     if (subject !== 'all' && q.subject !== subject) continue;
@@ -48,7 +81,7 @@ export function selectPoliticsReview(catalog, snapshot, { day = '', filter = 'al
     items.push({ id: q.id, subject: q.subject, subjectLabel: q.subjectLabel,
       number: q.number, type: q.type, chapter: q.chapter, chapterTitle: q.chapterTitle,
       unitKey: q.unitKey, unitId: q.unitId, unitTitle: q.unitTitle, unitHref: q.unitHref,
-      outcome, discussion, observedDay, needsReview, firstAttempt: first,
+      outcome, discussion, observedDay, needsReview, firstAttempt: first, firstAttemptOwnerKey: observed.unitKey,
       note: String(snapshot.meta?.notes?.[q.id] || ''),
       cause: String(snapshot.meta?.causes?.[q.id] || ''),
       events: relevantEvents });
@@ -71,7 +104,7 @@ export function resolvePoliticsContinue(catalog, snapshot, base = '/') {
   const session = snapshot.session;
   if (session && ['active', 'paused'].includes(session.status)) {
     const q = catalog.questions?.find(q => q.id === session.ids?.[session.index]);
-    if (session.runtimeVersion !== 2 || session.revision !== catalog.revision || !session.id || !Number.isInteger(session.index) || session.index < 0 || !Array.isArray(session.ids) || session.ids.some(id => !catalog.questions?.some(row => row.id === id)) || !q || !q.unitKey) {
+    if (!politicsSessionMatchesCatalog(session, catalog) || !q || !q.unitKey) {
       return { href: `${prefix}practice/`, title: '核对上次题组', detail: '原题组已变化，记录保留；不会跳到其他题。', stale: true };
     }
     // Exact repair-source return keeps the native location instead of dragging
@@ -81,7 +114,8 @@ export function resolvePoliticsContinue(catalog, snapshot, base = '/') {
       if (url.origin === 'https://kianos.invalid' && url.pathname.startsWith(prefix)
         && url.searchParams.get('practiceSession') === session.id
         && url.searchParams.get('practiceQuestion') === q.id
-        && url.pathname === new URL(q.unitHref, 'https://kianos.invalid').pathname) {
+        && url.pathname === new URL(q.unitHref, 'https://kianos.invalid').pathname
+        && url.hash === new URL(q.unitHref, 'https://kianos.invalid').hash) {
         return { href: url.pathname + url.search + url.hash, title: snapshot.last?.title || q.unitTitle, detail: '回到这道题的原讲义定位' };
       }
     } catch {}
@@ -108,13 +142,24 @@ export function resolvePoliticsContinue(catalog, snapshot, base = '/') {
 
 export function politicsReviewPacket(catalog, snapshot, options = {}) {
   const review = selectPoliticsReview(catalog, snapshot, options);
-  return { schema: 'kianos.politics.return_packet.v1', study_day: options.day || '',
+  if (review.errors.length) throw new Error('POLITICS_REVIEW_EVIDENCE_UNREADABLE');
+  return { schema: 'kianos.politics.return_packet.v1', direction: 'LEARNER_TO_CHAT',
+    catalog_revision: catalog.revision, study_day: options.day || '',
     exported_at: new Date().toISOString(), last_location: snapshot.last,
+    // Export is read-only transport, not a second queue or an accepted importer.
+    review_policy: { learner_triggered: true, group_by_underlying_failure: true,
+      keep_unrelated_failures_separate: true, no_follow_up_is_valid: true,
+      memory_requires_source_and_justification: true },
+    first_attempts: review.items.map(i => ({ question_id: i.id,
+      recorded_unit_key: i.firstAttemptOwnerKey, attempt: i.firstAttempt,
+      source_context_status: i.firstAttempt.source_context ? 'CAPTURED_AT_ATTEMPT' : 'LEGACY_SOURCE_CONTEXT_UNAVAILABLE' })),
     events: review.items.flatMap(i => i.events.length ? i.events : [{
-      ...i.firstAttempt, subject: i.subject, chapter: i.chapter, unit_id: i.unitId,
-      source: 'xiao1000', source_href: i.unitHref
+      ...i.firstAttempt, source: 'xiao1000', recorded_unit_key: i.firstAttemptOwnerKey,
+      source_context_status: i.firstAttempt.source_context ? 'CAPTURED_AT_ATTEMPT' : 'LEGACY_SOURCE_CONTEXT_UNAVAILABLE'
     }]),
     review_context: review.items.map(i => ({ question_id: i.id, unit_key: i.unitKey,
+      subject: i.subject, chapter: i.chapter, unit_id: i.unitId,
       current_outcome: i.outcome, discussion: i.discussion, note: i.note, cause: i.cause,
-      source_href: i.unitHref })) };
+      source_href: i.unitHref, source_href_role: 'CURRENT_NAVIGATION_NOT_HISTORICAL_PROVENANCE',
+      original_source_context: i.firstAttempt.source_context || null })) };
 }
