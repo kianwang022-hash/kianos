@@ -75,6 +75,33 @@ Do not copy System counts, batch counts, phase numbers, Crosswalk totals, or exa
 
 ---
 
+## Launch closure mainline
+
+Website launch now follows one fixed closure sequence:
+
+```text
+Gate 1  Subject Final Acceptance
+        Xizong / English / Politics fresh audits converge on truthful Current claims
+
+Gate 2  Shared Learner Data / Chat Handoff
+        Chat owns cross-subject strategy; typed plans/returns and private durable checkpoints close
+
+Gate 3  Home integration
+        Home consumes Chat plan + subject-owned Resume/evidence without inventing strategy
+
+Gate 4  Cross-subject final regression
+        Timer / Resume / sync / restart / handoff / three-subject switching prove one coherent runtime
+
+Gate 5  Launch / engineering freeze
+        broad website construction stops; reopen only concrete learner-visible defects
+```
+
+Gates 1 and 2 may proceed in parallel where write sets are independent. Gate 3 consumes their final interfaces; Gate 4 follows the relevant closures.
+
+This is a routing sequence, not a second progress dashboard. Exact subject findings stay in subject Current / Acceptance owners.
+
+---
+
 ## Control output
 
 For a whole-project status request, report only:
