@@ -1008,7 +1008,7 @@ Acceptance requires:
 
 ### B | Generic Runtime Atom closure
 
-**Current judgment: PARTIAL**
+**Current judgment: PARTIAL / CONSOLIDATION-REVIEW CORE PASS**
 
 Existing Politics/shared implementation already proves useful mechanics:
 
@@ -1062,11 +1062,35 @@ when those branches own distinct execution engines instead of composing existing
 | RETURN | Unit Return / last-location Resume exist | AVAILABLE |
 | CAPTURE | Politics question evidence/local state exists | AVAILABLE |
 
-So B is not a rewrite. The main missing Engineering work is to **extract/reuse the existing mechanics behind a phase-agnostic Session executor** and fill the genuinely absent generic pieces.
+So B is not a rewrite. The generic Session executor is now closed for the currently accepted Consolidation/Review core.
+
+Clean-head proof on `f6a9b93`:
+
+- `RECONSTRUCT / TARGETED_RECALL` execute as `SHOW + CONCEAL_REVEAL + MARK + CAPTURE`;
+- selected Final Learner Object targets are pre-resolved and rendered literally; the Session client does not read raw Politics Content owners;
+- `QUESTION_RETEST` reuses the existing Xiao1000 Practice runtime with exact Chat-provided question ids;
+- explicit retest does not expand, drop, randomize or reorder the Chat-selected question set;
+- exact question results return as deterministic facts in Session Evidence;
+- source handoff / return and explicit Chat return are available;
+- Session order / resume state is persisted without Web-authored review strategy;
+- Static Web Politics QA **PASS**;
+- Politics Functional First **PASS**, including the dedicated Politics Review Session browser journey.
+
+Still not closed at the generic atom level:
+
+- `PRECISION` remains fail-closed until its target admission/freshness guard can be verified from Current-year authority;
+- `TIMER` exists as shared infrastructure, but the generic timed-task Session recipe has not yet been accepted.
+
+Therefore the allowed claim is:
+
+```text
+Politics Consolidation/Review Runtime core = PASS
+Politics full exam-horizon Runtime atoms    = PARTIAL
+```
 
 ### C | Chat ↔ Website typed-control closure
 
-**Current judgment: PARTIAL**
+**Current judgment: PASS FOR CONSOLIDATION / REVIEW CORE; FULL EXAM-HORIZON PARTIAL**
 
 Existing useful pieces:
 
@@ -1087,7 +1111,33 @@ private learner evidence
 → Chat
 ```
 
-The current `consolidation_plan.v1` must not become a second permanent executor/import path. It is normalized into the generic session instruction with `phase=CONSOLIDATION`.
+The current `consolidation_plan.v1` does not become a second permanent executor/import path. It normalizes into the generic session instruction with `phase=CONSOLIDATION`.
+
+Accepted Consolidation/Review control loop:
+
+```text
+Chat explicit Session Instruction
+→ exact Final Learner Object refs / exact Xiao1000 ids / explicit order
+→ Website executes only those instructions
+→ learner response / reveal / W-U mark / deterministic question result
+→ kianos.politics.session-evidence.v1
+→ Chat
+```
+
+The dedicated browser journey proves:
+
+- Chat prompt is shown literally;
+- answer-bearing mapped content is absent before explicit reveal;
+- reveal clones only the Chat-selected mapped group;
+- learner free response is preserved as entered and is not semantically graded by Web;
+- self-mark is captured as evidence;
+- exactly two Chat-selected questions remain exactly two, in the same order;
+- completed retest results return to the owning Session step;
+- explicit `CLOSE` is Chat-owned, not inferred from counters;
+- Session Evidence contains facts only and no `recommended_next` / `mastery_claim`;
+- a guarded `PRECISION` step fails closed instead of exposing the target.
+
+This closes typed control for the accepted Review/Consolidation recipe subset. It does not imply Website execution for Analysis Output, Mock, timed tasks, or currently source-gated Precision.
 
 Acceptance requires:
 
@@ -1133,7 +1183,7 @@ Chat selects one chapter / horizontal line / specific gap
 → Chat decides whether to close/deepen
 ```
 
-Learning: **PASS_AFTER_REPAIR**. Website session execution remains downstream work.
+Learning: **PASS_AFTER_REPAIR**. The core Website Review Session path is now **browser-PASS** for explicit Reconstruction/Recall → self evidence → exact selected Xiao1000 retest → Evidence Return → explicit Close. Guarded Precision remains source/admission-gated and fail-closed.
 
 #### Scenario P3 — Analysis Output
 
@@ -1190,9 +1240,10 @@ Allowed current conclusion:
 
 ```text
 Politics first-round learner system        accepted for existing scoped path
-Politics Final Learner Object closure      IMPLEMENTED_CANDIDATE / VALIDATION_PENDING
-Politics Runtime Atom closure              PARTIAL
-Politics typed Chat control closure        PARTIAL
+Politics Final Learner Object closure      PASS
+Politics Consolidation/Review Runtime core PASS
+Politics Runtime Atom closure              PARTIAL — guarded Precision + timed-task remain
+Politics typed Chat control closure        PASS_FOR_CONSOLIDATION_REVIEW_CORE
 Politics Consolidation L                   PASS_AFTER_REPAIR
 Politics Analysis-Output L                 PASS / Chat-primary
 Politics Mock/Final L                      PASS / Chat-primary + source-paper primary
