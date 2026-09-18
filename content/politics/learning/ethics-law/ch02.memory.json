@@ -1,0 +1,69 @@
+{
+  "schema": "kianos.politics.memory_projection.v1",
+  "status": "CURRENT_K_REVIEWED",
+  "chapter_id": "POL27-LEARN-ETHICS-C02",
+  "policy": "SOURCE_GROUNDED_SELECTIVE",
+  "principle": "Candidate existence is Knowledge; durable review debt remains admission-gated.",
+  "freshness": "NORMAL",
+  "preferred_memory_reference": {
+    "role": "DESIGNATED_MEMORY_HANDBOOK",
+    "label": "腿姐《冲刺背诵手册》",
+    "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+    "historical_subject_source": "content/politics/source/historical/leg26/LEG26-ETHICS.md",
+    "rule": "Current Ethics Knowledge must independently own the relation. LEG26 supplies historical retention priority; current-year/source evidence governs admission."
+  },
+  "admission_gate": {
+    "default": "NOT_ADMITTED",
+    "requires_source_grounding": true,
+    "admit_when_any": [
+      "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+      "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED",
+      "LATER_ANALYSIS_OUTPUT_REQUIRES_EXACT_FORMULATION"
+    ],
+    "do_not_admit_for": [
+      "historical handbook presence alone",
+      "one stable correct answer",
+      "OCR reconstruction by guess"
+    ]
+  },
+  "units": {
+    "POL27-CF-ETHICS-C02-S01": {
+      "title": "理想信念",
+      "candidates": [
+        {
+          "id": "POL27-MEM-ETHICS-C02-S01-M01",
+          "form": "relation",
+          "statement": "理想是信念所指向的对象，信念是理想实现的重要保障；二者相互依存但不能互换。",
+          "source_refs": [
+            "POL27-CF-ETHICS-C02-S01"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-ETHICS-P208"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    },
+    "POL27-CF-ETHICS-C02-S03": {
+      "title": "理想与现实",
+      "candidates": [
+        {
+          "id": "POL27-MEM-ETHICS-C02-S03-M01",
+          "form": "dialectical_boundary",
+          "statement": "理想源于现实又超越现实；现实是理想形成和实现的基础，理想实现具有长期性、艰巨性和曲折性。",
+          "source_refs": [
+            "POL27-CF-ETHICS-C02-S03"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-LOWER-ETHICS-P079",
+            "LEG26-LOWER-ETHICS-P080"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    }
+  },
+  "deferred_candidate_domains": []
+}
