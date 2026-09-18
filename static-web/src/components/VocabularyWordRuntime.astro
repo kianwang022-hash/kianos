@@ -331,11 +331,13 @@ const relationDifferenceRows = (relation = {}) => {
     const mode = ['lookup', 'repair'].includes(String(requestedMode || '')) ? String(requestedMode) : 'study';
     const readOnlyLookup = mode === 'lookup';
     root.dataset.vocabMode = mode;
+    if (modeLabel) modeLabel.textContent = mode === 'lookup' ? 'Lookup' : mode === 'repair' ? 'Repair' : 'Depth';
     const storageKey = `kianos-vocabulary-astro-v2:${objectId}`;
     const front = root.querySelector('[data-vocab-front]');
     const details = root.querySelector('[data-vocab-details]');
     const reveal = root.querySelector('[data-vocab-reveal]');
     const stateLabel = root.querySelector('[data-vocab-state-label]');
+    const modeLabel = root.querySelector('.lexicalWordIdentity>span');
     const repairSummary = root.querySelector('[data-vocab-repair-summary]');
     const repairButtons = [...root.querySelectorAll('[data-vocab-repair]')];
     const localStudyDay = () => new Date().toLocaleDateString('en-CA');
