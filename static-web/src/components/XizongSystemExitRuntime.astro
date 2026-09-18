@@ -1,60 +1,31 @@
 ---
-const { system, sweep } = Astro.props;
-if (!sweep) throw new Error(`CURRENT_XIZONG_SYSTEM_SWEEP_MISSING:${system?.systemId || 'unknown'}`);
+const { system, practiceHref } = Astro.props;
 
 const recall = system?.systemRecall || {};
 const recallPrompt = typeof recall === 'string'
   ? recall
-  : String(recall?.neutral_front || recall?.prompt || recall?.question || '先闭卷恢复整个系统，再进入真题。');
+  : String(recall?.neutral_front || recall?.prompt || recall?.question || '先闭卷恢复整个系统，再核对模型。');
 const recallSteps = Array.isArray(recall?.reverse_case_algorithm)
   ? recall.reverse_case_algorithm
   : Array.isArray(recall?.algorithm) ? recall.algorithm : [];
-const blockLabels = Object.fromEntries((system?.blocks || []).map((block) => [block.blockId, `${block.label} · ${block.title}`]));
-const payload = JSON.stringify({
-  systemId: sweep.systemId,
-  canonicalId: sweep.canonicalId,
-  title: sweep.title,
-  questionCount: sweep.questionCount,
-  scopePath: sweep.scopePath,
-  scopeHash: sweep.scopeHash,
-  questionInventoryHash: sweep.questionInventoryHash,
-  years: sweep.years,
-  blockLabels,
-  questions: sweep.questions
-}).replace(/</g, '\u003c');
+const freeReconstruction = Array.isArray(recall?.free_reconstruction) ? recall.free_reconstruction : [];
+const spine = Array.isArray(system?.mentalModel?.spine) ? system.mentalModel.spine : [];
+const parallelControls = Array.isArray(system?.mentalModel?.parallelControls) ? system.mentalModel.parallelControls : [];
+const failureModes = Array.isArray(system?.failureModes) ? system.failureModes : [];
+const failureLabel = (mode) => Array.isArray(mode)
+  ? [mode[1], mode[2]].filter(Boolean).join('：')
+  : [mode?.label, mode?.chain].filter(Boolean).join('：');
 ---
-<section class="xse" id="system-exit" data-xizong-system-exit={system.systemId}>
+<section class="xse xseRecallOnly" id="system-exit" data-xizong-system-exit={system.systemId}>
   <header class="xseHero">
     <div>
-      <span>{system.canonicalId} · System Exit</span>
-      <h2>先闭卷恢复，再做系统真题</h2>
+      <span>{system.canonicalId} · System Recall</span>
+      <h2>闭卷恢复 {system.title}</h2>
     </div>
-    <p>System Recall 不拿题目替代自己的模型；随后用真题找缺口。正确且理由清楚就快过，只有 Wrong / Uncertain 值得停下来修。</p>
+    <p>这里只负责系统级重建。完成后进入独立训练板块；题目、解析、整卷和二轮不再塞进 System 页面。</p>
   </header>
 
-
-  <section class="xseCompletionWorkbench" data-completion-workbench>
-    <header class="xseCompletionHead">
-      <div class="xseCompletionIdentity">
-        <span>System Completion · <b data-study-phase>一轮</b></span>
-        <h3>{system.title}</h3>
-        <p data-sweep-summary>先闭卷恢复系统模型，再进入当前轮次的真题任务。</p>
-      </div>
-
-      <div class="xseHoldoutCompact" aria-label="Whole-paper holdout setting">
-        <div>
-          <span>整卷保留</span>
-          <strong data-holdout-current>尚未锁定整卷保留题</strong>
-        </div>
-        <div class="xseHoldoutEditor" data-holdout-editor>
-          <label for={`xse-holdout-${system.systemId}`}>年份</label>
-          <input id={`xse-holdout-${system.systemId}`} data-holdout-input inputmode="numeric" placeholder="例如 2025, 2026" />
-          <button type="button" data-save-holdout>保存</button>
-        </div>
-        <button class="xseTextButton" type="button" data-edit-holdout hidden>修改</button>
-      </div>
-    </header>
-
+  <section class="xseCompletionWorkbench">
     <section class="xseRecallWorkspace" data-recall-workspace>
       <aside class="xseRecallAxes" aria-label="Reconstruction dimensions">
         <span>RECONSTRUCTION</span>
@@ -62,14 +33,14 @@ const payload = JSON.stringify({
         <strong>并行控制</strong>
         <strong>Failure 定位</strong>
         <strong>病例判断顺序</strong>
-        <small>这里只给重建维度，不给答案。</small>
+        <small>只给重建维度，不提前给答案。</small>
       </aside>
 
       <div class="xseRecallStage">
         <header class="xseRecallStageHead">
           <div>
-            <span class="xseEyebrow">System Recall · Before Questions</span>
-            <h3>闭卷恢复 {system.title}</h3>
+            <span class="xseEyebrow">System Recall</span>
+            <h3>从自己的模型开始</h3>
           </div>
           <strong data-recall-status>还没完成本次 System Recall</strong>
         </header>
@@ -77,169 +48,78 @@ const payload = JSON.stringify({
         <section class="xseRecallFront" data-recall-front>
           <p class="xseRecallPrompt">{recallPrompt}</p>
           <div class="xseRecallInstruction">
-            <b>现在不要看 System Framework。</b>
-            <span>先恢复母链、关键控制、Failure 定位和陌生病例的判断顺序。可以口述、纸写，也可以用右侧草稿；草稿不是完成门槛。</span>
+            <b>先闭卷恢复，不回看 Framework。</b>
+            <span>脑内、口述或纸写都可以。网页不要求额外输入，也不把“写了草稿”当成学习证据。</span>
           </div>
-          <textarea data-recall-scratch aria-label="Optional System Recall scratch" placeholder="可选草稿：写几个关键词即可，不会作为完成条件。"></textarea>
           <div class="xseRecallActions">
             <button type="button" data-reveal-recall>Space · 核对模型</button>
           </div>
         </section>
 
         <section class="xseRecallReveal" data-recall-reveal hidden>
-          <div class="xseRecallModel">
-            <section>
-              <span>母链</span>
-              <ol>{system.mentalModel.spine.map((item) => <li>{item}</li>)}</ol>
-            </section>
-            <section>
-              <span>陌生病例顺序</span>
-              <ol>{recallSteps.map((item) => <li>{typeof item === 'string' ? item : JSON.stringify(item)}</li>)}</ol>
-            </section>
-            <section>
-              <span>Failure Modes</span>
-              <ul>{system.failureModes.map((mode) => <li><b>{mode.label}</b>{mode.chain ? `：${mode.chain}` : ''}</li>)}</ul>
-            </section>
+          <div class="xseRecallPaper">
+            {spine.length > 0 && (
+              <section>
+                <span>系统主链</span>
+                <ol>{spine.map((item) => <li>{item}</li>)}</ol>
+              </section>
+            )}
+
+            {parallelControls.length > 0 && (
+              <section>
+                <span>并行控制</span>
+                <ul>{parallelControls.map((item) => <li>{item}</li>)}</ul>
+              </section>
+            )}
+
+            {freeReconstruction.length > 0 && (
+              <section>
+                <span>自由重建核对</span>
+                <ol>{freeReconstruction.map((item) => <li>{item}</li>)}</ol>
+              </section>
+            )}
+
+            {failureModes.length > 0 && (
+              <section>
+                <span>Failure Modes</span>
+                <ul>{failureModes.map((mode) => <li>{failureLabel(mode)}</li>)}</ul>
+              </section>
+            )}
+
+            {recallSteps.length > 0 && (
+              <section>
+                <span>陌生病例顺序</span>
+                <ol>{recallSteps.map((item) => <li>{typeof item === 'string' ? item : JSON.stringify(item)}</li>)}</ol>
+              </section>
+            )}
           </div>
+
           <div class="xseRecallActions">
-            <button type="button" data-reveal-recall-back>Space · 重新闭卷</button>
-            <button type="button" data-complete-recall>Enter · 完成本次 System Recall</button>
+            <button type="button" class="secondary" data-reveal-recall-back>Space · 再闭卷一次</button>
+            <button type="button" data-complete-recall>Enter · 完成本次 Recall</button>
           </div>
         </section>
       </div>
     </section>
 
-    <section class="xseQuestionGate" data-question-gate hidden>
-      <div class="xseQuestionGateCopy">
-        <span class="xseEyebrow">Official Questions</span>
-        <h3><span data-sweep-count>{sweep.questionCount}</span> 道当前轮次题目</h3>
-        <p>Recall 已完成。稳定题快速通过；Wrong / Uncertain / Marked 才占用后续注意力。</p>
-      </div>
-      <div class="xseSweepStats" data-sweep-stats>
-        <span>稳 <b data-stat-stable>0</b></span>
-        <span>不确定 <b data-stat-uncertain>0</b></span>
-        <span>错 <b data-stat-wrong>0</b></span>
-        <span>标记 <b data-stat-marked>0</b></span>
-        <span>剩余 <b data-stat-remaining>—</b></span>
-      </div>
-      <div class="xseSweepActions">
-        <button type="button" data-start-sweep disabled>进入系统真题</button>
-        <button type="button" class="secondary" data-start-recall>再做一次 System Recall</button>
-        <button type="button" class="secondary" data-copy-wu>复制保留项给 Chat</button>
-      </div>
-    </section>
-  </section>
-
-  <section class="xseWorkspace" data-question-workspace hidden>
-    <header class="xseWorkspaceHead">
+    <section class="xsePracticeHandoff" data-practice-handoff hidden>
       <div>
-        <span data-question-meta>—</span>
-        <h3 data-question-progress>—</h3>
+        <span>System Recall 已完成</span>
+        <strong>现在进入训练，用题目验证模型。</strong>
+        <p>训练区会按当前 System 作为 scope；后续二轮、整卷和后期仍复用同一 Workbench。</p>
       </div>
-      <div class="xseWorkspaceControls">
-        <button type="button" class="xseTextButton" data-fast-sweep aria-pressed="false">Fast Sweep：关</button>
-        <span class="xseResultMode">结果：即时</span>
-        <button type="button" class="xseTextButton" data-question-mark aria-pressed="false">M · 标记</button>
-        <button type="button" class="xseTextButton" data-close-sweep>返回 System</button>
+      <div>
+        <button type="button" class="secondary" data-start-recall>再 Recall 一次</button>
+        <a href={practiceHref}>进入训练 · {system.canonicalId} →</a>
       </div>
-    </header>
-
-    <div class="xseQuestionLayout">
-      <nav class="xseQuestionMap" data-question-map aria-label="Question map"></nav>
-
-      <div class="xseQuestionMain">
-        <article class="xseQuestion">
-          <p class="xzExitStem" data-question-stem></p>
-          <div class="xzExitOptions" data-question-options></div>
-          <div class="xseSubmitRow">
-            <small data-selection-hint></small>
-            <button type="button" data-submit-answer disabled>提交答案</button>
-          </div>
-        </article>
-
-        <section class="xseAnswer" data-answer-panel hidden>
-          <div class="xseAnswerTop">
-            <strong data-answer-result></strong>
-            <span>官方答案：<b data-correct-answer></b></span>
-          </div>
-          <section class="xseSecondPassReview" data-second-pass-review hidden>
-            <span>二轮核对</span>
-            <strong data-second-pass-axis></strong>
-            <details data-second-pass-distractor-details hidden>
-              <summary>高价值干扰项</summary>
-              <ul data-second-pass-distractors></ul>
-            </details>
-            <p data-second-pass-transfer></p>
-            <p data-second-pass-empty hidden>当前没有审核过的二轮解析；保留这次作答证据，必要时交给 Chat，不补猜内容。</p>
-          </section>
-          <div class="xseRepair" data-repair-panel hidden>
-            <p data-repair-axis></p>
-            <p data-repair-reason></p>
-            <details>
-              <summary>再看一层</summary>
-              <p data-repair-failure></p>
-              <p data-repair-transfer></p>
-              <p data-repair-relation></p>
-            </details>
-          </div>
-          <div class="xseJudge" data-correct-judge hidden>
-            <button type="button" data-next-correct>Enter · 下一题</button>
-          </div>
-          <div class="xseJudge" data-wrong-judge hidden>
-            <button type="button" data-next-wrong>Enter · 下一题</button>
-          </div>
-        </section>
-
-        <section class="xseDone" data-sweep-done hidden>
-          <span>System sweep</span>
-          <h3>本轮可用题已经扫完</h3>
-          <p>保留项已经留下。需要时集中复盘，再做一次短 System Recall，把具体题目提示重新拿掉。</p>
-          <div class="xseRetainedReview" data-retained-review>
-            <div class="xseRetainedFilters">
-              <button type="button" data-retained-filter="all" aria-pressed="true">全部保留</button>
-              <button type="button" data-retained-filter="wrong">Wrong</button>
-              <button type="button" data-retained-filter="marked">Marked</button>
-            </div>
-            <div data-retained-list></div>
-          </div>
-          <div class="xseSweepActions">
-            <button type="button" data-copy-wu-done>复制详细学习包</button>
-            <button type="button" class="secondary" data-repeat-recall>题后 System Recall</button>
-            <button type="button" data-start-next-round>开始第二轮重点队列</button>
-            <button type="button" class="secondary" data-start-next-round-full>完整重刷本 System</button>
-          </div>
-        </section>
-      </div>
-    </div>
+    </section>
   </section>
-
-  <script type="application/json" data-sweep-payload set:html={payload}></script>
 </section>
 
 <script>
-  import {
-    ensureXizongQuestionSweepState,
-    recordXizongQuestionAttempt,
-    startNextXizongQuestionRound,
-    deriveXizongSecondPassQuestionIds,
-    deriveXizongQuestionIdsForCurrentRound,
-    xizongStudyPhaseLabel,
-    setXizongQuestionMarked,
-    isXizongQuestionMarked
-  } from '../lib/xizongQuestionAttempts.mjs';
-
-  const roots = [...document.querySelectorAll('[data-xizong-system-exit]')];
-  roots.forEach((root) => {
-    const systemId = root.getAttribute('data-xizong-system-exit') || 'system';
-    let data = null;
-    try { data = JSON.parse(root.querySelector('[data-sweep-payload]')?.textContent || 'null'); } catch {}
-    if (!data?.questions?.length) return;
-
+  document.querySelectorAll('[data-xizong-system-exit]').forEach((root) => {
+    const systemId = root.getAttribute('data-xizong-system-exit') || '';
     const recallKey = `kianos:xizong:system-recall:${systemId}:v1`;
-    const holdoutKey = 'kianos:xizong:full-paper-holdout-years:v1';
-    const sweepKey = `kianos:xizong:system-question-sweep:${systemId}:v1`;
-    const preferenceKey = 'kianos:xizong:question-preferences:v1';
-
     const readJson = (key, fallback) => {
       try { return JSON.parse(localStorage.getItem(key) || '') || fallback; } catch { return fallback; }
     };
@@ -248,688 +128,64 @@ const payload = JSON.stringify({
     };
 
     let recallState = readJson(recallKey, { completedAt: null });
-    let holdoutYears = readJson(holdoutKey, []);
-    let sweepState = readJson(sweepKey, { results: {} });
-    let preferences = readJson(preferenceKey, { fastSweep: false });
-    if (!sweepState || typeof sweepState !== 'object') sweepState = { results: {} };
-    if (!sweepState.results || typeof sweepState.results !== 'object') sweepState.results = {};
-    const attemptContext = {
-      systemId: data.systemId,
-      canonicalId: data.canonicalId,
-      scopeHash: data.scopeHash,
-      questionInventoryHash: data.questionInventoryHash,
-      questions: data.questions
-    };
-    sweepState = ensureXizongQuestionSweepState(sweepState, { ...attemptContext, holdoutYears });
-    writeJson(sweepKey, sweepState);
-
-
-    const recallStatus = root.querySelector('[data-recall-status]');
+    const workspace = root.querySelector('[data-recall-workspace]');
+    const front = root.querySelector('[data-recall-front]');
+    const reveal = root.querySelector('[data-recall-reveal]');
+    const status = root.querySelector('[data-recall-status]');
+    const handoff = root.querySelector('[data-practice-handoff]');
     const startRecall = root.querySelector('[data-start-recall]');
-    const recallWorkspace = root.querySelector('[data-recall-workspace]');
-    const questionGate = root.querySelector('[data-question-gate]');
-    const recallFront = root.querySelector('[data-recall-front]');
-    const recallReveal = root.querySelector('[data-recall-reveal]');
-    const recallScratch = root.querySelector('[data-recall-scratch]');
-    const revealRecall = root.querySelector('[data-reveal-recall]');
-    const revealRecallBack = root.querySelector('[data-reveal-recall-back]');
-    const completeRecall = root.querySelector('[data-complete-recall]');
+    const revealButton = root.querySelector('[data-reveal-recall]');
+    const revealBack = root.querySelector('[data-reveal-recall-back]');
+    const complete = root.querySelector('[data-complete-recall]');
 
-    const holdoutCurrent = root.querySelector('[data-holdout-current]');
-    const holdoutEditor = root.querySelector('[data-holdout-editor]');
-    const holdoutInput = root.querySelector('[data-holdout-input]');
-    const saveHoldout = root.querySelector('[data-save-holdout]');
-    const editHoldout = root.querySelector('[data-edit-holdout]');
-
-    const startSweep = root.querySelector('[data-start-sweep]');
-    const copyWuButtons = [...root.querySelectorAll('[data-copy-wu],[data-copy-wu-done]')];
-    const workspace = root.querySelector('[data-question-workspace]');
-    const closeSweep = root.querySelector('[data-close-sweep]');
-    const questionMap = root.querySelector('[data-question-map]');
-    const fastSweepButton = root.querySelector('[data-fast-sweep]');
-    const questionMarkButton = root.querySelector('[data-question-mark]');
-    const questionMeta = root.querySelector('[data-question-meta]');
-    const questionProgress = root.querySelector('[data-question-progress]');
-    const stem = root.querySelector('[data-question-stem]');
-    const optionsBox = root.querySelector('[data-question-options]');
-    const selectionHint = root.querySelector('[data-selection-hint]');
-    const submit = root.querySelector('[data-submit-answer]');
-    const answerPanel = root.querySelector('[data-answer-panel]');
-    const answerResult = root.querySelector('[data-answer-result]');
-    const correctAnswerNode = root.querySelector('[data-correct-answer]');
-    const secondPassReview = root.querySelector('[data-second-pass-review]');
-    const secondPassAxis = root.querySelector('[data-second-pass-axis]');
-    const secondPassDistractorDetails = root.querySelector('[data-second-pass-distractor-details]');
-    const secondPassDistractors = root.querySelector('[data-second-pass-distractors]');
-    const secondPassTransfer = root.querySelector('[data-second-pass-transfer]');
-    const secondPassEmpty = root.querySelector('[data-second-pass-empty]');
-    const repairPanel = root.querySelector('[data-repair-panel]');
-    const repairAxis = root.querySelector('[data-repair-axis]');
-    const repairReason = root.querySelector('[data-repair-reason]');
-    const repairFailure = root.querySelector('[data-repair-failure]');
-    const repairTransfer = root.querySelector('[data-repair-transfer]');
-    const repairRelation = root.querySelector('[data-repair-relation]');
-    const correctJudge = root.querySelector('[data-correct-judge]');
-    const wrongJudge = root.querySelector('[data-wrong-judge]');
-    const done = root.querySelector('[data-sweep-done]');
-    const retainedList = root.querySelector('[data-retained-list]');
-    const retainedFilterButtons = [...root.querySelectorAll('[data-retained-filter]')];
-    const nextRoundButton = root.querySelector('[data-start-next-round]');
-    const nextRoundFullButton = root.querySelector('[data-start-next-round-full]');
-
-    let activeQuestions = [];
-    let currentQuestion = null;
-    let currentSelection = new Set();
-    let currentCorrect = false;
-    let currentIndex = 0;
-    let retainedFilter = 'all';
-
-    const answerLetters = (value) => (String(value || '').toUpperCase().match(/[A-Z]/g) || []).sort();
-    const sameLetters = (a, b) => a.length === b.length && a.every((value, index) => value === b[index]);
-
-    const eligibleYears = new Set((data.years || []).map(Number));
-    const normalizeHoldout = (value) => [...new Set((Array.isArray(value) ? value : []).map(Number).filter((year) => eligibleYears.has(year)))].sort((a, b) => a - b);
-    holdoutYears = normalizeHoldout(holdoutYears);
-
-    const eligibleQuestions = () => data.questions.filter((question) => !holdoutYears.includes(Number(question.year)));
-    const computeActive = () => {
-      const eligible = eligibleQuestions();
-      const activeIds = new Set(deriveXizongQuestionIdsForCurrentRound(sweepState, eligible, []));
-      return eligible.filter((question) => activeIds.has(String(question.questionId)));
-    };
-    const resultFor = (questionId) => sweepState.results?.[questionId] || null;
-    const markedFor = (questionId) => isXizongQuestionMarked(sweepState, questionId);
-    const firstUnansweredIndex = () => activeQuestions.findIndex((question) => !resultFor(question.questionId));
-
-    const counts = () => {
-      const results = activeQuestions.map((question) => resultFor(question.questionId)).filter(Boolean);
-      return {
-        stable: results.filter((row) => row.status === 'stable').length,
-        uncertain: results.filter((row) => row.status === 'uncertain').length,
-        wrong: results.filter((row) => row.status === 'wrong').length,
-        marked: activeQuestions.filter((question) => markedFor(question.questionId)).length,
-        remaining: activeQuestions.length - results.length
-      };
-    };
-
-    const renderStats = () => {
-      activeQuestions = computeActive();
-      const stat = counts();
-      const phase = sweepState.round?.studyPhase || 'FIRST_PASS';
-      const phaseLabel = xizongStudyPhaseLabel(phase);
-      root.querySelector('[data-study-phase]').textContent = phaseLabel;
-      root.querySelector('[data-stat-stable]').textContent = String(stat.stable);
-      root.querySelector('[data-stat-uncertain]').textContent = String(stat.uncertain);
-      root.querySelector('[data-stat-wrong]').textContent = String(stat.wrong);
-      root.querySelector('[data-stat-marked]').textContent = String(stat.marked);
-      root.querySelector('[data-stat-remaining]').textContent = holdoutYears.length ? String(stat.remaining) : '—';
-      root.querySelector('[data-sweep-count]').textContent = holdoutYears.length ? String(activeQuestions.length) : String(data.questionCount);
-      const summary = root.querySelector('[data-sweep-summary]');
-      if (summary) {
-        if (phase === 'SECOND_PASS' && sweepState.round?.queueMode !== 'FULL_RESWEEP') {
-          summary.textContent = `二轮默认回收一轮 Wrong / Uncertain / Marked；当前重点队列 ${activeQuestions.length} 道。没有 reviewed Mapping 也不会阻塞作答。`;
-        } else {
-          summary.textContent = holdoutYears.length
-            ? `已保留整卷：${holdoutYears.join('、')}。${phaseLabel}实际可用 ${activeQuestions.length} / ${data.questionCount} 道。`
-            : `锁定整卷后，系统会自动排除这些年份；剩余题按${phaseLabel}任务做 sweep。`;
-        }
-      }
-      if (nextRoundButton) {
-        if (phase === 'FIRST_PASS') {
-          const targetCount = deriveXizongSecondPassQuestionIds(sweepState, data.questions, holdoutYears).length;
-          nextRoundButton.textContent = targetCount
-            ? `开始第二轮重点队列（${targetCount} 题）`
-            : '二轮重点队列为空';
-          nextRoundButton.disabled = targetCount === 0;
-        } else {
-          nextRoundButton.disabled = false;
-          nextRoundButton.textContent = phase === 'SECOND_PASS'
-            ? '开始后期复习轮（保留此前记录）'
-            : '再开一轮后期复习（保留此前记录）';
-        }
-      }
-      if (nextRoundFullButton) {
-        nextRoundFullButton.hidden = phase !== 'FIRST_PASS';
-        nextRoundFullButton.textContent = '二轮完整重刷（显式选择）';
-      }
-      if (startSweep) startSweep.disabled = !(recallState.completedAt && holdoutYears.length);
-    };
-
-    const renderRecall = () => {
-      if (!recallStatus) return;
+    const render = () => {
       const completed = Boolean(recallState.completedAt);
-      recallStatus.textContent = completed ? '本次 System Recall 已完成' : '还没完成本次 System Recall';
-      if (recallWorkspace instanceof HTMLElement) recallWorkspace.hidden = completed;
-      if (questionGate instanceof HTMLElement) questionGate.hidden = !completed;
-      renderStats();
+      if (workspace instanceof HTMLElement) workspace.hidden = completed;
+      if (handoff instanceof HTMLElement) handoff.hidden = !completed;
+      if (status) status.textContent = completed ? '本次 System Recall 已完成' : '还没完成本次 System Recall';
     };
 
-    const renderHoldout = () => {
-      if (holdoutYears.length) {
-        holdoutCurrent.textContent = `已锁定：${holdoutYears.join('、')} 完整试卷`;
-        holdoutEditor.hidden = true;
-        editHoldout.hidden = false;
-      } else {
-        holdoutCurrent.textContent = '尚未锁定整卷保留题';
-        holdoutEditor.hidden = false;
-        editHoldout.hidden = true;
-      }
-      if (holdoutInput) holdoutInput.value = holdoutYears.join(', ');
-      renderStats();
+    const openRecall = () => {
+      if (handoff instanceof HTMLElement) handoff.hidden = true;
+      if (workspace instanceof HTMLElement) workspace.hidden = false;
+      front.hidden = false;
+      reveal.hidden = true;
+      workspace?.scrollIntoView({ behavior:'smooth', block:'start' });
     };
 
-    const parseHoldoutInput = () => normalizeHoldout(String(holdoutInput?.value || '').split(/[,，\s]+/).filter(Boolean));
-
-    const persistResult = (question, status, selected) => {
-      let nextState;
-      try {
-        nextState = recordXizongQuestionAttempt(sweepState, {
-          question,
-          status,
-          selected,
-          marked: markedFor(question.questionId),
-          context: attemptContext,
-          holdoutYears
-        });
-      } catch (error) {
-        console.error(error);
-        return false;
-      }
-      if (!writeJson(sweepKey, nextState)) {
-        window.alert('本机保存失败：这次作答没有写入证据，请先不要继续下一题。');
-        return false;
-      }
-      sweepState = nextState;
-      renderStats();
-      return true;
-    };
-
-    const showSecondPassReview = (question) => {
-      const isSecondPass = sweepState.round?.studyPhase === 'SECOND_PASS';
-      secondPassReview.hidden = !isSecondPass;
-      if (!isSecondPass) return;
-
-      const explanation = question?.explanation || null;
-      const distractors = Array.isArray(explanation?.valuableDistractors) ? explanation.valuableDistractors : [];
-      const hasReviewedReview = Boolean(explanation && (explanation.decisionAxis || distractors.length || explanation.transferRule));
-      secondPassAxis.textContent = explanation?.decisionAxis ? `决定点：${explanation.decisionAxis}` : '';
-      secondPassTransfer.textContent = explanation?.transferRule ? `迁移 / 条件变化：${explanation.transferRule}` : '';
-      secondPassDistractors.replaceChildren();
-      distractors.forEach((item) => {
-        const row = document.createElement('li');
-        row.textContent = `${item.option}：${item.reason}`;
-        secondPassDistractors.appendChild(row);
-      });
-      secondPassDistractorDetails.hidden = distractors.length === 0;
-      secondPassEmpty.hidden = hasReviewedReview;
-    };
-
-    const showRepair = (question) => {
-      const explanation = question.explanation || {};
-      const isSecondPass = sweepState.round?.studyPhase === 'SECOND_PASS';
-      repairPanel.hidden = false;
-      repairAxis.textContent = isSecondPass
-        ? (explanation.commonFailureNode ? `修补点：${explanation.commonFailureNode}` : '这题继续保留为 W/U，交给 Chat 做最小修补。')
-        : (explanation.decisionAxis ? `判断轴：${explanation.decisionAxis}` : '这题先保留为 W/U，详细原因交给 Chat 继续判断。');
-      repairReason.textContent = explanation.correctOptionReason ? `为什么：${explanation.correctOptionReason}` : '';
-      repairFailure.textContent = !isSecondPass && explanation.commonFailureNode ? `常见断点：${explanation.commonFailureNode}` : '';
-      repairTransfer.textContent = !isSecondPass && explanation.transferRule ? `迁移：${explanation.transferRule}` : '';
-      const relation = question.relation;
-      if (relation?.primaryKpId) {
-        const blockLabel = data.blockLabels?.[relation.blockId] || relation.blockId;
-        repairRelation.textContent = `已有 Chat 审核回链：${blockLabel} · ${relation.primaryKpId}`;
-      } else {
-        repairRelation.textContent = '暂无审核过的精确 KP 回链：保留题号给 Chat，不让网页自己猜。';
-      }
-    };
-
-    const renderFastSweep = () => {
-      if (!(fastSweepButton instanceof HTMLElement)) return;
-      const on = Boolean(preferences.fastSweep);
-      fastSweepButton.setAttribute('aria-pressed', String(on));
-      fastSweepButton.textContent = `Fast Sweep：${on ? '开' : '关'}`;
-    };
-
-    const renderMarkControl = () => {
-      if (!(questionMarkButton instanceof HTMLElement)) return;
-      const marked = Boolean(currentQuestion && markedFor(currentQuestion.questionId));
-      questionMarkButton.setAttribute('aria-pressed', String(marked));
-      questionMarkButton.textContent = marked ? 'M · 已标记' : 'M · 标记';
-      questionMarkButton.classList.toggle('active', marked);
-    };
-
-    const retainedItems = () => activeQuestions
-      .map((question, index) => ({ question, index, result: resultFor(question.questionId), marked: markedFor(question.questionId) }))
-      .filter((row) => row.result && (['wrong', 'uncertain'].includes(row.result.status) || row.marked));
-
-    const renderRetainedReview = () => {
-      if (!(retainedList instanceof HTMLElement)) return;
-      retainedList.replaceChildren();
-      const rows = retainedItems().filter((row) => {
-        if (retainedFilter === 'wrong') return row.result?.status === 'wrong';
-        if (retainedFilter === 'marked') return row.marked;
-        return true;
-      });
-      if (!rows.length) {
-        const empty = document.createElement('p');
-        empty.className = 'xseRetainedEmpty';
-        empty.textContent = '当前没有这一类保留项。';
-        retainedList.appendChild(empty);
-        return;
-      }
-      rows.forEach(({ question, index, result, marked }) => {
-        const article = document.createElement('article');
-        article.className = 'xseRetainedItem';
-        const meta = document.createElement('div');
-        const title = document.createElement('strong');
-        title.textContent = `${question.year} · 第 ${question.number} 题`;
-        const tags = document.createElement('span');
-        const tagValues = [];
-        if (result?.status === 'wrong') tagValues.push('Wrong');
-        if (result?.status === 'uncertain') tagValues.push('Uncertain');
-        if (marked) tagValues.push('Marked');
-        tags.textContent = tagValues.join(' · ');
-        meta.append(title, tags);
-        const open = document.createElement('button');
-        open.type = 'button';
-        open.textContent = '查看';
-        open.addEventListener('click', () => {
-          done.hidden = true;
-          root.querySelector('.xseQuestion').hidden = false;
-          renderQuestion(index);
-          workspace.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-        article.append(meta, open);
-        retainedList.appendChild(article);
-      });
-    };
-
-    const renderQuestionMap = () => {
-      if (!(questionMap instanceof HTMLElement)) return;
-      questionMap.replaceChildren();
-      activeQuestions.forEach((question, index) => {
-        const result = resultFor(question.questionId);
-        const marked = markedFor(question.questionId);
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.className = 'xseMapItem';
-        button.dataset.mapIndex = String(index);
-        button.classList.toggle('current', currentQuestion?.questionId === question.questionId);
-        button.classList.toggle('answered', Boolean(result));
-        button.classList.toggle('wrong', result?.status === 'wrong');
-        button.classList.toggle('uncertain', result?.status === 'uncertain');
-        button.classList.toggle('marked', marked);
-        button.setAttribute('aria-label', `第 ${index + 1} 题${marked ? '，已标记' : ''}`);
-        const no = document.createElement('b');
-        no.textContent = String(index + 1);
-        const state = document.createElement('span');
-        state.textContent = marked ? 'M' : result?.status === 'wrong' ? '×' : result?.status === 'uncertain' ? '?' : result ? '·' : '';
-        button.append(no, state);
-        button.addEventListener('click', () => renderQuestion(index));
-        questionMap.appendChild(button);
-      });
-    };
-
-    const renderDone = () => {
-      currentQuestion = null;
-      root.querySelector('.xseQuestion').hidden = true;
-      answerPanel.hidden = true;
-      done.hidden = false;
-      renderStats();
-      renderQuestionMap();
-      renderRetainedReview();
-    };
-
-    const renderQuestion = (requestedIndex = null) => {
-      activeQuestions = computeActive();
-      if (!activeQuestions.length) {
-        renderDone();
-        return;
-      }
-
-      let index = Number.isInteger(requestedIndex) ? Number(requestedIndex) : firstUnansweredIndex();
-      if (index < 0) {
-        renderDone();
-        return;
-      }
-      currentIndex = Math.max(0, Math.min(activeQuestions.length - 1, index));
-      currentQuestion = activeQuestions[currentIndex];
-      const existing = resultFor(currentQuestion.questionId);
-      currentSelection = new Set(existing?.selected || []);
-      currentCorrect = existing ? existing.status !== 'wrong' : false;
-
-      answerPanel.hidden = true;
-      secondPassReview.hidden = true;
-      secondPassDistractorDetails.hidden = true;
-      secondPassDistractors.replaceChildren();
-      secondPassEmpty.hidden = true;
-      repairPanel.hidden = true;
-      correctJudge.hidden = true;
-      wrongJudge.hidden = true;
-      done.hidden = true;
-      root.querySelector('.xseQuestion').hidden = false;
-
-      questionMeta.textContent = `${currentQuestion.year} · 第 ${currentQuestion.number} 题 · ${currentQuestion.questionType || '题'}`;
-      questionProgress.textContent = `${xizongStudyPhaseLabel(sweepState.round?.studyPhase)} · 本轮 ${currentIndex + 1} / ${activeQuestions.length}`;
-      stem.textContent = currentQuestion.stem;
-      selectionHint.textContent = currentQuestion.questionType === 'X'
-        ? '多选题：1–5 切换选项，Enter 提交'
-        : preferences.fastSweep ? 'Fast Sweep：1–5 选择并提交' : '1–5 选择，Enter 提交';
-      submit.disabled = Boolean(existing) || currentSelection.size === 0;
-      submit.textContent = existing ? '本轮已作答' : '提交答案';
-      optionsBox.replaceChildren();
-
-      currentQuestion.options.forEach((option) => {
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.className = 'xseOption';
-        button.dataset.option = option.label;
-        const label = document.createElement('b');
-        label.textContent = option.label;
-        const text = document.createElement('span');
-        text.textContent = option.text;
-        button.append(label, text);
-        if (existing) button.disabled = true;
-        button.classList.toggle('selected', currentSelection.has(option.label));
-        button.addEventListener('click', () => {
-          if (resultFor(currentQuestion.questionId)) return;
-          if (currentQuestion.questionType === 'X') {
-            currentSelection.has(option.label) ? currentSelection.delete(option.label) : currentSelection.add(option.label);
-          } else {
-            currentSelection.clear();
-            currentSelection.add(option.label);
-          }
-          [...optionsBox.querySelectorAll('.xseOption')].forEach((node) => node.classList.toggle('selected', currentSelection.has(node.dataset.option || '')));
-          submit.disabled = currentSelection.size === 0;
-          if (preferences.fastSweep && currentQuestion.questionType !== 'X' && currentSelection.size) {
-            window.setTimeout(() => submitAnswer(), 0);
-          }
-        });
-        optionsBox.appendChild(button);
-      });
-
-      if (existing) {
-        const correct = answerLetters(currentQuestion.correctAnswer);
-        answerPanel.hidden = false;
-        correctAnswerNode.textContent = correct.join('、');
-        answerResult.textContent = existing.status === 'wrong' ? '答案错误' : existing.status === 'uncertain' ? '答案正确 · 已保留' : '答案正确';
-        answerResult.classList.toggle('isWrong', existing.status === 'wrong');
-        [...optionsBox.querySelectorAll('.xseOption')].forEach((node) => {
-          const label = node.dataset.option || '';
-          node.classList.toggle('correct', correct.includes(label));
-          node.classList.toggle('wrong', currentSelection.has(label) && !correct.includes(label));
-        });
-        showSecondPassReview(currentQuestion);
-        if (existing.status === 'wrong') {
-          showRepair(currentQuestion);
-          wrongJudge.hidden = false;
-        } else {
-          correctJudge.hidden = false;
-        }
-      }
-
-      renderMarkControl();
-      renderQuestionMap();
-      renderFastSweep();
-    };
-
-    const nextQuestion = () => {
-      activeQuestions = computeActive();
-      const after = activeQuestions.findIndex((question, index) => index > currentIndex && !resultFor(question.questionId));
-      const before = activeQuestions.findIndex((question) => !resultFor(question.questionId));
-      const next = after >= 0 ? after : before;
-      if (next < 0) {
-        renderDone();
-        return;
-      }
-      renderQuestion(next);
-      workspace.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    };
-
-    const submitAnswer = () => {
-      if (!currentQuestion || !currentSelection.size || resultFor(currentQuestion.questionId)) return;
-      const selected = [...currentSelection].sort();
-      const correct = answerLetters(currentQuestion.correctAnswer);
-      currentCorrect = sameLetters(selected, correct);
-      const status = currentCorrect ? 'stable' : 'wrong';
-      if (!persistResult(currentQuestion, status, currentSelection)) return;
-      renderQuestion(currentIndex);
-      if (currentCorrect && preferences.fastSweep) {
-        window.setTimeout(() => nextQuestion(), 220);
-      } else {
-        answerPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-    };
-
-
-    const toggleCurrentMark = () => {
-      if (!currentQuestion) return;
-      const nextMarked = !markedFor(currentQuestion.questionId);
-      const nextState = setXizongQuestionMarked(sweepState, currentQuestion.questionId, nextMarked);
-      if (!writeJson(sweepKey, nextState)) {
-        window.alert('本机保存失败：标记状态没有写入。');
-        return;
-      }
-      sweepState = nextState;
-      renderStats();
-      renderMarkControl();
-      renderQuestionMap();
-      if (!done.hidden) renderRetainedReview();
-    };
-
-    const wuPacket = () => {
-      const retained = activeQuestions
-        .map((question) => ({ question, result: resultFor(question.questionId), marked: markedFor(question.questionId) }))
-        .filter(({ result, marked }) => result && (['wrong', 'uncertain'].includes(result.status) || marked))
-        .map(({ question, result, marked }) => ({
-          question_id: question.questionId,
-          year: question.year,
-          number: question.number,
-          type: question.questionType,
-          status: result.status,
-          marked,
-          learner_answer: result.selected,
-          correct_answer: answerLetters(question.correctAnswer),
-          stem: question.stem,
-          explanation: question.explanation,
-          reviewed_relation: question.relation
-        }));
-      return {
-        schema: 'kianos.xizong.system_question_sweep_packet.v1',
-        learner_task: 'Review retained Wrong / Uncertain / Marked evidence. Distinguish memory lapse, mechanism gap, precision gap, distractor/condition error, or product/content issue. Use only reviewed precise Question-to-Knowledge relations when present; otherwise do not invent a KP mapping. Return a concise repair plan that Astro can execute if useful.',
-        system: { canonical_id: data.canonicalId, system_id: data.systemId, title: data.title },
-        question_scope: { path: data.scopePath, sha256: data.scopeHash, inventory_sha256: data.questionInventoryHash, full_count: data.questionCount },
-        study_phase: sweepState.round?.studyPhase || 'FIRST_PASS',
-        round_id: sweepState.round?.id || '',
-        round_ordinal: sweepState.round?.ordinal || 1,
-        holdout_years: holdoutYears,
-        active_question_count: activeQuestions.length,
-        stats: counts(),
-        wrong_uncertain: retained.filter((item) => ['wrong', 'uncertain'].includes(item.status)),
-        retained,
-        exported_at: new Date().toISOString()
-      };
-    };
-
-    const copyWu = async (button) => {
-      const text = JSON.stringify(wuPacket(), null, 2);
-      try {
-        await navigator.clipboard.writeText(text);
-        const old = button.textContent;
-        button.textContent = '已复制，粘给 Chat';
-        setTimeout(() => { button.textContent = old; }, 1800);
-      } catch {
-        window.prompt('复制下面内容给 Chat', text);
-      }
-    };
-
-    startRecall?.addEventListener('click', () => {
-      workspace.hidden = true;
-      if (questionGate instanceof HTMLElement) questionGate.hidden = true;
-      if (recallWorkspace instanceof HTMLElement) recallWorkspace.hidden = false;
-      recallFront.hidden = false;
-      recallReveal.hidden = true;
-      recallScratch?.focus();
-      recallWorkspace?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    startRecall?.addEventListener('click', openRecall);
+    revealButton?.addEventListener('click', () => {
+      front.hidden = true;
+      reveal.hidden = false;
     });
-
-    revealRecall?.addEventListener('click', () => {
-      recallFront.hidden = true;
-      recallReveal.hidden = false;
+    revealBack?.addEventListener('click', () => {
+      reveal.hidden = true;
+      front.hidden = false;
     });
-
-    revealRecallBack?.addEventListener('click', () => {
-      recallReveal.hidden = true;
-      recallFront.hidden = false;
-    });
-
-    completeRecall?.addEventListener('click', () => {
-      recallState = { completedAt: new Date().toISOString() };
+    complete?.addEventListener('click', () => {
+      recallState = { completedAt:new Date().toISOString() };
       if (!writeJson(recallKey, recallState)) {
         window.alert('本机保存失败：System Recall 没有记录完成。');
         return;
       }
-      renderRecall();
-      questionGate?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      render();
+      handoff?.scrollIntoView({ behavior:'smooth', block:'nearest' });
     });
-
-    saveHoldout?.addEventListener('click', () => {
-      const selected = parseHoldoutInput();
-      if (!selected.length) {
-        holdoutCurrent.textContent = '至少明确保留一套完整试卷；网站不会替你猜。';
-        return;
-      }
-      holdoutYears = selected;
-      writeJson(holdoutKey, holdoutYears);
-      renderHoldout();
-    });
-
-    editHoldout?.addEventListener('click', () => {
-      holdoutEditor.hidden = false;
-      editHoldout.hidden = true;
-      holdoutInput?.focus();
-    });
-
-    fastSweepButton?.addEventListener('click', () => {
-      preferences = { ...preferences, fastSweep: !preferences.fastSweep };
-      writeJson(preferenceKey, preferences);
-      renderFastSweep();
-      if (currentQuestion && !resultFor(currentQuestion.questionId)) {
-        selectionHint.textContent = currentQuestion.questionType === 'X'
-          ? '多选题：1–5 切换选项，Enter 提交'
-          : preferences.fastSweep ? 'Fast Sweep：1–5 选择并提交' : '1–5 选择，Enter 提交';
-      }
-    });
-
-    questionMarkButton?.addEventListener('click', toggleCurrentMark);
-
-    startSweep?.addEventListener('click', () => {
-      if (!recallState.completedAt || !holdoutYears.length) return;
-      if (questionGate instanceof HTMLElement) questionGate.hidden = true;
-      if (recallWorkspace instanceof HTMLElement) recallWorkspace.hidden = true;
-      workspace.hidden = false;
-      renderQuestion();
-      workspace.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-
-    closeSweep?.addEventListener('click', () => {
-      workspace.hidden = true;
-      if (questionGate instanceof HTMLElement) questionGate.hidden = !recallState.completedAt;
-      root.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-
-    submit?.addEventListener('click', submitAnswer);
-    root.querySelector('[data-next-correct]')?.addEventListener('click', nextQuestion);
-    root.querySelector('[data-next-wrong]')?.addEventListener('click', nextQuestion);
-
-    retainedFilterButtons.forEach((button) => button.addEventListener('click', () => {
-      retainedFilter = button.getAttribute('data-retained-filter') || 'all';
-      retainedFilterButtons.forEach((candidate) => candidate.setAttribute('aria-pressed', String(candidate === button)));
-      renderRetainedReview();
-    }));
-
-    copyWuButtons.forEach((button) => button.addEventListener('click', () => copyWu(button)));
-    root.querySelector('[data-repeat-recall]')?.addEventListener('click', () => startRecall?.click());
 
     document.addEventListener('keydown', (event) => {
       const target = event.target;
       if (target instanceof HTMLElement && target.closest('input,textarea,select,[contenteditable="true"]')) return;
-
-      const recallVisible = recallWorkspace instanceof HTMLElement && !recallWorkspace.hidden;
-      if (recallVisible) {
-        if (event.key.toLowerCase() === 'c') {
-          event.preventDefault();
-          recallScratch?.focus();
-          return;
-        }
-        if (event.code === 'Space') {
-          event.preventDefault();
-          if (!recallReveal.hidden) revealRecallBack?.click();
-          else revealRecall?.click();
-          return;
-        }
-        if (event.key === 'Enter' && !recallReveal.hidden) {
-          event.preventDefault();
-          completeRecall?.click();
-          return;
-        }
-      }
-
-      if (!(workspace instanceof HTMLElement) || workspace.hidden || !currentQuestion) return;
-
-      if (event.key.toLowerCase() === 'm') {
+      if (!(workspace instanceof HTMLElement) || workspace.hidden) return;
+      if (event.code === 'Space') {
         event.preventDefault();
-        toggleCurrentMark();
-        return;
-      }
-      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        if (!reveal.hidden) revealBack?.click();
+        else revealButton?.click();
+      } else if (event.key === 'Enter' && !reveal.hidden) {
         event.preventDefault();
-        const delta = event.key === 'ArrowLeft' ? -1 : 1;
-        renderQuestion(Math.max(0, Math.min(activeQuestions.length - 1, currentIndex + delta)));
-        return;
-      }
-      if (/^[1-5]$/.test(event.key) && !resultFor(currentQuestion.questionId)) {
-        const option = currentQuestion.options[Number(event.key) - 1];
-        if (option) {
-          event.preventDefault();
-          optionsBox.querySelector(`.xseOption[data-option="${option.label}"]`)?.click();
-        }
-        return;
-      }
-      if (event.key === 'Enter') {
-        event.preventDefault();
-        if (resultFor(currentQuestion.questionId)) nextQuestion();
-        else if (currentSelection.size) submitAnswer();
+        complete?.click();
       }
     });
 
-    const startNextRound = (queueMode = 'TARGETED') => {
-      activeQuestions = computeActive();
-      let nextState;
-      try {
-        nextState = startNextXizongQuestionRound(
-          sweepState,
-          activeQuestions.map((question) => question.questionId),
-          {},
-          { queueMode }
-        );
-      } catch (error) {
-        console.error(error);
-        return;
-      }
-      if (!writeJson(sweepKey, nextState)) {
-        window.alert('本机保存失败：没有开启下一轮，上一轮记录保持不变。');
-        return;
-      }
-      sweepState = nextState;
-      renderStats();
-      renderQuestion();
-      workspace.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    };
-    nextRoundButton?.addEventListener('click', () => startNextRound('TARGETED'));
-    nextRoundFullButton?.addEventListener('click', () => startNextRound('FULL_RESWEEP'));
-
-    renderRecall();
-    renderHoldout();
+    render();
   });
 </script>
