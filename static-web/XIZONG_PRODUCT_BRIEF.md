@@ -423,10 +423,10 @@ Block Workspace must preserve the already accepted Logic Projection behavior:
 
 ```text
 Logic Group orientation
-→ continuous original-Lecture contact for the whole Logic Group
-→ one return
-→ this Logic Group's KP Recall
-→ group closure
+→ continuous original-Lecture contact at System-specific accepted Source granularity
+→ one natural return at its retrieval point
+→ KP Recall in accepted LG order
+→ automatic group closure without mandatory Source re-entry
 ```
 
 Do not regress to KP-by-KP app switching. Accepted geometry and cue timing are owned by `XIZONG_BLOCK_WORKSPACE_DESIGN.md`, not pending rediscovery.
@@ -435,8 +435,8 @@ Do not regress to KP-by-KP app switching. Accepted geometry and cue timing are o
 
 Responsibilities:
 
-- neutral Recall front;
-- protect answer-type title / canonical answer until legitimate Reveal;
+- same-KP Recall front with approved title / Prompt / permitted Context;
+- protect canonical Core and any explicitly answer-bearing or POST_REVEAL payload until legitimate Reveal;
 - retain the accepted `Space / 1–4 / Enter / ← / →` Recall interaction grammar as governed by shared Presentation + domain Evidence semantics;
 - show canonical Current Core after Reveal without learner-facing semantic rewriting;
 - preserve the owning Logic Group context;

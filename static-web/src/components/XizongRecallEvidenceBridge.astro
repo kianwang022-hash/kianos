@@ -15,10 +15,23 @@ const kps = block?.kpRecords || [];
   const bridge = document.querySelector('[data-xizong-recall-evidence-bridge]');
   const kpPayload = document.querySelector('[data-xizong-recall-evidence-kps]');
 
-  if (root && bridge && kpPayload) {
+  if (root && !root.hasAttribute('data-xizong-state-blocked') && bridge && kpPayload) {
+   (() => {
     const objectId = bridge.getAttribute('data-study-object') || root.getAttribute('data-study-object') || 'xizong:unknown';
     const stateKey = `kianos-xizong-astro-v2:${objectId}`;
     const evidenceKey = `kianos-xizong-memory-review-v2:${objectId}`;
+    try {
+      const raw = localStorage.getItem(evidenceKey);
+      if (raw !== null) {
+        const value = JSON.parse(raw);
+        if (!value || typeof value !== 'object' || Array.isArray(value) || (value.evidenceHistory != null && !Array.isArray(value.evidenceHistory))) throw new Error('Invalid evidence');
+      }
+    } catch {
+      root.dataset.xizongStateBlocked = 'true'; root.inert = true;
+      const notice = document.createElement('p'); notice.setAttribute('role','alert');
+      notice.textContent = 'Recall 历史无法安全读取，已保留原数据并暂停写入；请先备份再恢复。'; root.before(notice);
+      return;
+    }
     let kpIds = [];
     try { kpIds = JSON.parse(kpPayload.textContent || '[]'); } catch {}
     const kpSet = new Set(Array.isArray(kpIds) ? kpIds : []);
@@ -37,8 +50,8 @@ const kps = block?.kpRecords || [];
       const ext = readEvidence();
       ext.evidenceHistory = [
         ...(Array.isArray(ext.evidenceHistory) ? ext.evidenceHistory : []),
-        { at: new Date().toISOString(), type: 'KP_RECALL', kp_id: kpId, rating, evidence_origin: evidenceOrigin }
-      ].slice(-400);
+        { at: new Date().toISOString(), type: 'KP_RECALL', kp_id: kpId, rating, evidence_origin: evidenceOrigin, core_revealed: true, source_hash: bridge.getAttribute('data-study-source-hash') || '', context_asset_ids: [...root.querySelectorAll('[data-xizong-aux-surface]:not([hidden]) [data-learner-asset-id]')].map((row) => row.getAttribute('data-learner-asset-id')).filter(Boolean) }
+      ];
       ext.lastRecallRatings = { ...(ext.lastRecallRatings || {}), [kpId]: rating };
       saveEvidence(ext);
     };
@@ -52,7 +65,7 @@ const kps = block?.kpRecords || [];
       existing.evidenceHistory = [
         ...(Array.isArray(existing.evidenceHistory) ? existing.evidenceHistory : []),
         { at: new Date().toISOString(), type: 'KP_RECALL', kp_id: kpId, rating, evidence_origin: 'BOOTSTRAP_EXISTING_STATE' }
-      ].slice(-400);
+      ];
       bootstrapped[kpId] = rating;
     });
     existing.lastRecallRatings = bootstrapped;
@@ -68,8 +81,9 @@ const kps = block?.kpRecords || [];
       const kpId = card?.getAttribute('data-kp-id') || '';
       const rating = ratingButton.getAttribute('data-rating') || '';
       const currentStudy = readJson(stateKey, {});
-      if (!kpId || !rating || !currentStudy?.learned?.[kpId]) return;
+      if (!kpId || !['unknown', 'fuzzy', 'known', 'mastered'].includes(rating) || currentStudy?.learned?.[kpId] !== true || card?.querySelector('[data-kp-answer]')?.hidden !== false) return;
       appendRecall(kpId, rating, 'USER_RECALL_ATTEMPT');
     });
+   })();
   }
 </script>

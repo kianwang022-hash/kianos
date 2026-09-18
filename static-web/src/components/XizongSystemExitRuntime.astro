@@ -165,6 +165,7 @@ const failureLabel = (mode) => Array.isArray(mode)
     });
 
     document.addEventListener('keydown', (event) => {
+      if (root.inert || event.repeat) return;
       const target = event.target;
       if (target instanceof HTMLElement && target.closest('input,textarea,select,[contenteditable="true"]')) return;
       if (!(workspace instanceof HTMLElement) || workspace.hidden) return;

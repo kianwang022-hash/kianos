@@ -73,18 +73,24 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
         : [];
       const allowed = new Set(currentWu().map((row) => row.question.questionId));
       const seen = new Set();
-      return raw.map((item) => typeof item === 'string'
-        ? { questionId: item, reason: '', action: '', priority: '' }
-        : {
-            questionId: String(item?.question_id || item?.questionId || ''),
-            reason: String(item?.reason || item?.why || ''),
-            action: String(item?.action || item?.task || ''),
-            priority: String(item?.priority || '')
-          })
-        .filter((row) => row.questionId && allowed.has(row.questionId) && !seen.has(row.questionId) && seen.add(row.questionId));
+      if (parsed?.system_id && parsed.system_id !== systemId) throw new Error('Wrong System');
+      if (parsed?.schema) throw new Error('Typed Return is not supported by this legacy importer');
+      if (!raw.length) return [];
+      return raw.map((item) => {
+        if (typeof item !== 'string' && (!item || typeof item !== 'object' || Array.isArray(item))) throw new Error('Malformed repair row');
+        if (typeof item === 'object' && ['block_id','blockId','kp_id','kpId','target','target_kp_id'].some((key) => key in item)) throw new Error('Untrusted mapping');
+        const row = typeof item === 'string' ? { questionId:item, reason:'', action:'', priority:'' } : {
+          questionId:String(item.question_id || item.questionId || ''),
+          reason:String(item.reason || item.why || ''), action:String(item.action || item.task || ''), priority:String(item.priority || '')
+        };
+        if (!allowed.has(row.questionId) || seen.has(row.questionId)) throw new Error('Unknown, stale, or duplicate W/U identity');
+        if (row.priority && !['high','medium','low'].includes(row.priority)) throw new Error('Unknown priority');
+        seen.add(row.questionId); return row;
+      });
     };
 
     const deliverToBlock = (rows) => {
+      const writes = [];
       const byBlockKp = new Map();
       rows.forEach((row) => {
         const question = questionById.get(row.questionId);
@@ -124,11 +130,11 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
           returnHref: practiceHref
         };
         const withoutSameKp = existing.filter((row) => String(row?.kpId || row?.kp_id || row || '') !== item.kpId);
-        writeJson(inboxKey, {
+        writes.push([inboxKey, {
           importedAt,
           sourceSystemId: systemId,
           plans: [...withoutSameKp, plan]
-        });
+        }]);
         repairTasks.push({
           id: `repair:system-wu:${systemId}:${item.blockId}:${item.kpId}`,
           kpId: item.kpId,
@@ -152,7 +158,21 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
         const incomingIds = new Set(repairTasks.map((task) => task.id));
         const preserved = (memory.repairTasks || []).filter((task) => !incomingIds.has(String(task?.id || '')));
         const nextMemory = setRepairTasks(memory, [...preserved, ...repairTasks]);
-        writeJson(XIZONG_MEMORY_STORAGE_KEY, nextMemory);
+        writes.push([XIZONG_MEMORY_STORAGE_KEY, nextMemory]);
+      }
+      writes.push([repairKey, { importedAt, plan: rows }]);
+      const prior = writes.map(([key]) => [key, localStorage.getItem(key)]);
+      try {
+        for (const [key, value] of writes) {
+          if (!writeJson(key, value)) throw new Error('Repair save failed');
+        }
+      } catch (error) {
+        let rollbackFailed = false;
+        for (const [key, value] of prior) {
+          try { if (value === null) localStorage.removeItem(key); else localStorage.setItem(key, value); } catch { rollbackFailed = true; }
+        }
+        if (rollbackFailed) throw new Error('REPAIR_ROLLBACK_INCOMPLETE');
+        throw error;
       }
     };
 
@@ -236,11 +256,10 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
           return;
         }
         deliverToBlock(rows);
-        writeJson(repairKey, { importedAt: new Date().toISOString(), plan: rows });
         if (status) status.textContent = `已接收 ${rows.length} 个修补任务；有审核回链的已加入 Memory · Repair。`;
         render(rows);
-      } catch {
-        if (status) status.textContent = '返回计划无法解析；没有改动任何学习状态。';
+      } catch (error) {
+        if (status) status.textContent = error?.message === 'REPAIR_ROLLBACK_INCOMPLETE' ? '导入失败且未能完整回滚，请先备份本机记录再恢复；不要继续重复导入。' : '返回计划无效、含非本轮 W/U 题号，或未能安全保存；未应用本次计划。';
       }
     });
 
