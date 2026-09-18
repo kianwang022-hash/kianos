@@ -16,17 +16,17 @@ export function getStaticPaths() {
 const paper = loadEnglishExamPaper(Astro.props.paperId);
 const payload = JSON.stringify(paper).replace(/</g, '\u003c');
 const serverTaskLabel = (step) => ({
-  cloze: 'Cloze',
-  reading_a: step.passage_index ? 'Reading A · P' + step.passage_index : 'Reading A',
-  reading_b: 'Part B',
-  translation: 'Translation',
-  writing: step.writing_kind === 'small' ? 'Writing A' : 'Writing B'
+  cloze: '完形填空',
+  reading_a: step.passage_index ? '阅读理解 · 第 ' + step.passage_index + ' 篇' : '阅读理解',
+  reading_b: '新题型',
+  translation: '翻译',
+  writing: step.writing_kind === 'small' ? '小作文' : '大作文'
 })[step.task] || step.task;
 ---
 <Base
-  title={`${paper.year} English I · Full Paper`}
-  kicker="English · Full Paper"
-  description="One 180-minute paper session using the existing task runtimes with delayed result release."
+  title={`${paper.year} 英语一 · 整卷模考`}
+  kicker="英语一 · 整卷模考"
+  description="180 分钟完整作答，交卷后统一查看结果。"
   objectId={`english-exam:${paper.paper_id}`}
   active="english"
   showLead={false}
@@ -34,9 +34,9 @@ const serverTaskLabel = (step) => ({
   <section class="englishExamHome" data-english-exam-home data-paper-id={paper.paper_id} data-base={import.meta.env.BASE_URL}>
     <header class="englishExamHero">
       <div>
-        <span>FULL PAPER · 180 MIN</span>
-        <h1>{paper.year} English I</h1>
-        <p>同一套 Reading / Cloze / Part B / Translation / Writing Runtime；整卷期间不看答案、不进 repair，交卷后统一 release。</p>
+        <span>英语一 · 整卷模考</span>
+        <h1>{paper.year} 英语一</h1>
+        <p>180 分钟完整作答。做题过程中不看答案；交卷后统一查看客观题结果，翻译和写作再交给 Chat 复盘。</p>
       </div>
       <aside>
         <strong data-exam-home-clock>180:00</strong>
@@ -48,37 +48,32 @@ const serverTaskLabel = (step) => ({
       <button type="button" class="primary" data-exam-start disabled>开始整卷</button>
       <button type="button" class="primary" data-exam-continue hidden>继续当前部分</button>
       <button type="button" data-exam-seal hidden>提前交卷</button>
-      <button type="button" class="primary" data-exam-release hidden>统一出 Objective 分</button>
-      <button type="button" data-exam-copy hidden>复制整卷 Evidence 给 Chat</button>
+      <button type="button" class="primary" data-exam-release hidden>查看客观题结果</button>
+      <button type="button" data-exam-copy hidden>把整卷交给 Chat 复盘</button>
       <small data-exam-home-status></small>
     </section>
 
     <section class="englishExamSteps">
-      <header><span>PAPER MAP</span><strong>100 pts · Objective 60 + Productive 40</strong></header>
+      <header><span>答题进度</span><strong>100 分 · 客观题 60 · 翻译与写作 40</strong></header>
       <div data-exam-step-list>
         {paper.steps.map((step, index) => (
           <div class="englishExamStep" data-complete="false">
             <span class="englishExamStepIndex">{String(index + 1).padStart(2, '0')}</span>
             <div class="englishExamStepCopy">
               <strong>{serverTaskLabel(step)}</strong>
-              <small>{step.label}</small>
+              <small>{step.task === 'reading_a' ? '阅读真题' : step.task === 'writing' ? '写作真题' : '英语一真题'}</small>
             </div>
-            <b class="englishExamStepMeta">{step.max_points} pts</b>
+            <b class="englishExamStepMeta">{step.max_points} 分</b>
           </div>
         ))}
       </div>
     </section>
 
     <section class="englishExamResult" data-exam-result hidden>
-      <span>OBJECTIVE RELEASE</span>
+      <span>客观题结果</span>
       <strong data-exam-objective-score>— / 60</strong>
-      <p>Translation + Writing 保留为整卷 productive evidence，由 Chat 结合原题做 semantic review；网站不自己发明主观题评分器。</p>
+      <p>翻译和写作保留你的原始作答，交给 Chat 结合原题继续复盘。</p>
       <div data-exam-objective-breakdown></div>
-    </section>
-
-    <section class="englishExamRule">
-      <strong>Runtime boundary</strong>
-      <p>Mock 只组合现有 task、封存作答、计时和延迟出分。它不决定你什么时候模考、不诊断错因、不生成下一轮学习任务。</p>
     </section>
 
     <script type="application/json" data-exam-paper set:html={payload}></script>
@@ -129,11 +124,11 @@ const serverTaskLabel = (step) => ({
     };
 
     const taskLabel = (step) => ({
-      cloze: 'Cloze',
-      reading_a: step.passage_index ? 'Reading A · P' + step.passage_index : 'Reading A',
-      reading_b: 'Part B',
-      translation: 'Translation',
-      writing: step.writing_kind === 'small' ? 'Writing A' : 'Writing B'
+      cloze: '完形填空',
+      reading_a: step.passage_index ? '阅读理解 · 第 ' + step.passage_index + ' 篇' : '阅读理解',
+      reading_b: '新题型',
+      translation: '翻译',
+      writing: step.writing_kind === 'small' ? '小作文' : '大作文'
     })[step.task] || step.task;
 
     const readTaskOrderFromChat = () => {
@@ -185,11 +180,15 @@ const serverTaskLabel = (step) => ({
         const strong = document.createElement('strong');
         strong.textContent = taskLabel(step);
         const small = document.createElement('small');
-        small.textContent = step.label;
+        small.textContent = step.task === 'reading_a'
+          ? '阅读真题'
+          : step.task === 'writing'
+            ? '写作真题'
+            : '英语一真题';
         copy.append(strong, small);
         const meta = document.createElement('b');
         meta.className = 'englishExamStepMeta';
-        meta.textContent = state?.captures?.[step.step_id] ? '已封存' : step.max_points + ' pts';
+        meta.textContent = state?.captures?.[step.step_id] ? '已完成' : step.max_points + ' 分';
         row.append(n, copy, meta);
         stepList.appendChild(row);
       });
@@ -225,8 +224,8 @@ const serverTaskLabel = (step) => ({
       if (stateLabel) {
         stateLabel.textContent = !state ? '尚未开始'
           : active ? '进行中 · ' + Object.keys(state.captures || {}).length + '/' + state.steps.length
-          : sealed ? '已交卷 · 等待统一出分'
-          : '已出分 · Productive 待 Chat review';
+          : sealed ? '已交卷 · 可查看客观题结果'
+          : '已出分 · 翻译和写作待复盘';
       }
 
       renderSteps(state);
@@ -243,7 +242,7 @@ const serverTaskLabel = (step) => ({
           taskOrder: readTaskOrderFromChat()
         });
         writeSession(state);
-        setStatus('整卷已开始。答案和复盘保持封存，直到交卷。');
+        setStatus('整卷已开始。交卷前不会显示答案和复盘。');
         render();
         location.href = hrefFor(state, 0);
       } catch (error) {
@@ -263,7 +262,7 @@ const serverTaskLabel = (step) => ({
       if (!state || state.status !== 'ACTIVE') return;
       if (!confirm('确认提前交卷？交卷后不能继续修改这次整卷作答。')) return;
       writeSession(sealEnglishExamSession(state));
-      setStatus('已交卷。现在可以统一 release Objective 结果。');
+      setStatus('已交卷。现在可以查看客观题结果。');
       render();
     });
     releaseButton?.addEventListener('click', async () => {
@@ -276,7 +275,7 @@ const serverTaskLabel = (step) => ({
         if (!response.ok) throw new Error('answer ' + response.status);
         const packet = await response.json();
         writeSession(releaseEnglishExamObjective(state, packet));
-        setStatus('Objective 已统一出分；Translation / Writing 保持为 productive evidence。');
+        setStatus('客观题已出分；翻译和写作可继续交给 Chat 复盘。');
         render();
       } catch (error) {
         setStatus(error instanceof Error ? error.message : String(error), true);
@@ -288,7 +287,7 @@ const serverTaskLabel = (step) => ({
       const value = 'KIANOS_ENGLISH_EXAM_EVIDENCE_V1\n' + JSON.stringify(buildEnglishExamEvidencePacket(state), null, 2);
       try {
         await navigator.clipboard.writeText(value);
-        setStatus('整卷 Evidence 已复制；Chat 可据此做 productive review 与后续调度。');
+        setStatus('整卷作答已复制，可以交给 Chat 继续复盘。');
       } catch {
         setStatus('复制失败，请重试。', true);
       }
