@@ -170,6 +170,7 @@ try {
 
   // Tighter Mac landscape evidence: same learning geometry, reduced secondary density.
   await page.setViewportSize({ width: 1280, height: 800 });
+  await page.evaluate(() => localStorage.removeItem('kianos-vocabulary-astro-v2:word:write'));
   await page.goto(`${origin}/vocabulary/5477/`, { waitUntil: 'networkidle' });
   assert(await page.locator('[data-vocab-front]').isVisible(), 'v2_mac_compact_recall_visible');
   const compactRecallOverflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
