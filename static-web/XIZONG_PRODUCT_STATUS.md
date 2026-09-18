@@ -70,7 +70,7 @@ Legend:
 | **A3 Urinary** | **PASS**; exact System sweep **243 qids** | **PASS** · 14 Blocks / 257 KP | **PASS** | accepted Current scope | Current Beginner Guide + Framework | **PARTIAL by design** · reviewed Source Visual + structured-table Extension | progressive reviewed subset | real learner U; additive Extension/Crosswalk only |
 | **B Digestive / Metabolic / Endocrine / Tumor** | **BLOCKED**: exact Current official-question membership not accepted | **PASS** · 38 Blocks / 600 KP | **PASS** · 170 LG | accepted substrate; no broad rewrite implied | Current Beginner Guide + Framework | **PARTIAL / candidate-rich**; no System-wide Visual quota | progressive reviewed subset | close exact question scope; dedicated downstream acceptance; materialize only high-value Visual/Extension |
 | **C Hematology / Immunity / Infection** | no accepted exact System question-scope claim | **PASS** · 27 Blocks / 423 KP | **PASS_AFTER_REPAIR** · 133 LG | downstream eligible from accepted K/L | no Guide required merely for symmetry | sparse absence is legal | progressive reviewed subset | dedicated downstream P; Visual only where cognition benefits |
-| **D Neuro / Sensory / Motor / Orthopedics** | S1 first-learning boundary candidate PASS; S2 exact official membership unaccepted | candidate 27 Blocks / 356 KP | candidate 128 LG | **frozen behind fresh L acceptance** | not Current | future Visual-heavy scope; visual-source debt must remain explicit | no scoped accepted mapping | **Fresh Independent L Audit → if PASS, Content Realization / Optimization → P/R/E** |
+| **D Neuro / Sensory / Motor / Orthopedics** | S1 first-learning boundary PASS; S2 exact official membership unaccepted | **PASS** · 27 Blocks / 356 KP | **PASS_AFTER_REPAIR** · 128 LG | **Content Realization / Optimization ACTIVE**; Content PASS not yet claimed | not Current | future Visual-heavy scope; visual-source debt remains explicit until Content closes | no scoped accepted mapping | finish Content realization → fresh Content closure/readback → then scoped P / high-value Visual / Runtime |
 | **E Reproductive / Breast** | **SUBSTRATE** | **SUBSTRATE** (`E1–E14` + `SR1–SR6`) | not accepted | not Current | not Current | not started / no coverage claim | no scoped claim | bounded **Source + Knowledge** construction / audit; L only after K is trustworthy |
 | **F Remaining Clinical** | **SUBSTRATE** | canonical block substrate exists | not accepted | not Current | not Current | not started / no coverage claim | no scoped claim | later bounded S/K construction after higher-priority D/E |
 
@@ -151,8 +151,8 @@ System membership does **not** imply Question→Block/KP mapping.
 
 Current snapshot baseline:
 
-- **701 REVIEWED relations**;
-- **70 shards**;
+- **727 REVIEWED relations**;
+- reviewed shard count follows `content/xizong/question-relations/manifest.json`; do not freeze a duplicate count here;
 - inferred relations = **0**;
 - missing mapping is legal and does not block practice;
 - reverse Block/KP→Question lookup derives only from reviewed positive rows;
@@ -253,8 +253,8 @@ LATER real learner-U acceptance
 ## Content mainline
 
 ```text
-D Fresh Independent L Audit
-→ if PASS: D Content Realization / Optimization
+D Content Realization / Optimization
+→ fresh Content acceptance / readback
 → D Projection / high-value Visual / Runtime acceptance
 
 parallel:
