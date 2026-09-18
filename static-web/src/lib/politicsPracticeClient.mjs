@@ -407,7 +407,7 @@ export function initPoliticsPractice(root) {
       if (missing.length) throw new Error(`Chat 指定题号已变化或不可用：${missing.join('、')}；未替换为其他题。`);
       if (session && ['active', 'paused'].includes(session.status)) throw new Error('已有未完成题组，请先恢复或结束原题组；未覆盖。');
       for (const control of Object.values(controls)) control.disabled = true;
-      $('[data-mode-value]').forEach((button) => { button.disabled = true; });
+      $$('[data-mode-value]').forEach((button) => { button.disabled = true; });
       $('[data-learned-scope]').checked = true;
       $('[data-learned-scope]').disabled = true;
     } else if (params.get('review') === 'problems') {
