@@ -831,17 +831,19 @@
       "cross_unit_confusables": []
     },
     "precision_knowledge": {
-      "policy": "PENDING_EXACT_CANDIDATE_MATERIALIZATION",
-      "candidate_domains": [
-        "经典著作—人物—理论标志 identity",
-        "马克思主义理论构成与基本特征 fixed formulations"
+      "policy": "REFERENCE_MEMORY_SIDECAR",
+      "owner_path": "content/politics/learning/marxism/ch00.memory.json",
+      "candidate_ids": [
+        "POL27-MEM-MARX-C00-S01-M01",
+        "POL27-MEM-MARX-C00-S02-M01"
       ],
-      "materialization_status": "WAIT_CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE",
-      "historical_source_refs": [
-        "LEG26-UPPER-MARX-P010",
-        "LEG26-UPPER-MARX-P011"
+      "admission_state": "CANDIDATE_ONLY",
+      "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+      "deferred_domains": [
+        "马恩列经典著作—人物—理论标志完整对应",
+        "基本特征完整逐项固定表述"
       ],
-      "rule": "Do not infer exact work/author/hat pairs from chapter compression; materialize only after exact Current/current-year source confirmation."
+      "rule": "Readable Current+historical candidates are materialized; OCR-uncertain works/features remain explicitly deferred rather than guessed."
     },
     "analysis_output_hooks": [],
     "analysis_output_status": "NONE_PRIMARY",
