@@ -411,10 +411,28 @@ try {
   check(await paperPractice.locator('.xzpOption.wrong').count()===0,'paper_hidden_no_wrong_option_leak');
   check(await paperPractice.locator('[data-practice-back]').isHidden(),'paper_hidden_back_locked');
   check(await paperPractice.locator('[data-review-toggle]').isHidden(),'paper_hidden_review_toggle_locked');
-  const paperBeforeSeal=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),paperKey);
-  check(paperBeforeSeal?.results?.[paperFirst.questionId]?.status==='wrong','paper_hidden_attempt_persisted_privately');
-  check((paperBeforeSeal?.attemptHistory||[]).some((event)=>event.question_id===paperFirst.questionId&&event.result_visibility==='hidden'),'paper_attempt_event_marks_hidden_visibility');
+  let paperBeforeSeal=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),paperKey);
+  check(Array.isArray(paperBeforeSeal?.paperDraftAnswers?.[paperFirst.questionId]?.selected),'paper_hidden_draft_persisted');
+  check(!paperBeforeSeal?.results?.[paperFirst.questionId],'paper_unsealed_has_no_formal_attempt_result');
+  check(!(paperBeforeSeal?.attemptHistory||[]).some((event)=>event.question_id===paperFirst.questionId),'paper_unsealed_has_no_attempt_event');
   check(!paperBeforeSeal?.paperSeal?.sealedAt,'paper_not_sealed_before_submit');
+  check(await paperPractice.locator('.xzpOption:disabled').count()===0,'paper_draft_answer_remains_editable');
+  check((await paperPractice.locator('[data-submit-answer]').textContent()||'').includes('更新答案'),'paper_draft_update_action_visible');
+
+  for(const label of answerLetters(paperFirst.correctAnswer)) {
+    await paperPractice.locator(`.xzpOption[data-option="${label}"]`).click();
+  }
+  await paperPractice.locator('[data-submit-answer]').click();
+  await page.waitForTimeout(240);
+  paperBeforeSeal=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),paperKey);
+  check(JSON.stringify(paperBeforeSeal?.paperDraftAnswers?.[paperFirst.questionId]?.selected||[])===JSON.stringify(answerLetters(paperFirst.correctAnswer)),'paper_draft_can_be_changed_before_seal');
+
+  await paperPractice.locator('.xzpMapItem').first().click();
+  await paperPractice.locator(`.xzpOption[data-option="${paperFirstWrong.label}"]`).click();
+  await paperPractice.locator('[data-submit-answer]').click();
+  await page.waitForTimeout(240);
+  paperBeforeSeal=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),paperKey);
+  check((paperBeforeSeal?.paperDraftAnswers?.[paperFirst.questionId]?.selected||[]).includes(paperFirstWrong.label),'paper_draft_final_wrong_selection_restored');
 
   await paperPractice.locator('.xzpMapItem').nth(1).click();
   for(const label of answerLetters(paperSecond.correctAnswer)) {
@@ -424,7 +442,7 @@ try {
   await page.waitForTimeout(260);
 
   const preSealState=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),paperKey);
-  const expectedPaperSummary=scoreXizongPaperResults(paper2026.paperFormat,paper2026.questions,preSealState?.results||{});
+  const expectedPaperSummary=scoreXizongPaperResults(paper2026.paperFormat,paper2026.questions,preSealState?.paperDraftAnswers||{});
   check(expectedPaperSummary.correctCount===1&&expectedPaperSummary.wrongCount===1,'paper_fixture_score_shape',JSON.stringify(expectedPaperSummary));
 
   await paperPractice.locator('[data-paper-seal]').click();
@@ -440,6 +458,9 @@ try {
 
   const paperAfterSeal=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),paperKey);
   check(Boolean(paperAfterSeal?.paperSeal?.sealedAt),'paper_seal_persisted');
+  check(paperAfterSeal?.results?.[paperFirst.questionId]?.status==='wrong','paper_seal_materializes_wrong_attempt');
+  check(paperAfterSeal?.results?.[paperSecond.questionId]?.status==='stable','paper_seal_materializes_stable_attempt');
+  check((paperAfterSeal?.attemptHistory||[]).filter((event)=>event.result_visibility==='hidden').length===2,'paper_seal_materializes_hidden_attempt_events');
   await paperPractice.locator('[data-paper-review-start]').click();
   await paperPractice.locator('[data-question-card]').waitFor({state:'visible'});
   check(await paperPractice.locator('.xzpOption.correct').count()>=1,'paper_review_releases_correct_option');
