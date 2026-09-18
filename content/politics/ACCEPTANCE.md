@@ -529,3 +529,67 @@ Fresh re-audit should therefore judge:
 5. whether all five Politics cognition shapes can travel through the same execution interface without being flattened.
 
 This is still **candidate evidence**, not independent L acceptance.
+
+
+### Current-head consolidation re-audit attack — interface defects repaired
+
+Status: **REVISION APPLIED / SAME-CHAT POST-REPAIR READBACK NEXT / INDEPENDENT ACCEPTANCE STILL PENDING**
+
+The corrected Chat-owned model was attacked against five representative K shapes and the real Interaction boundary. Six additional defects were found.
+
+1. **Action-label guard bypass**  
+   A candidate Precision target could theoretically be referenced through `TARGETED_RECALL` / `RECONSTRUCT` and bypass a guard that was written only under the `PRECISION` action.
+
+   Repair: target eligibility/freshness/phase guards now follow the **target**, not the action label.
+
+2. **Open-recall semantic grading leakage**  
+   The earlier capability wording could be read as permission for Web to judge whether a free-form Politics reconstruction was semantically sufficient.
+
+   Repair: Web may capture/reveal/self-check/return open recall; semantic sufficiency remains Chat-owned. Deterministic grading is limited to official questions or explicitly approved exact targets.
+
+3. **Chapter-only scope overfit**  
+   `subject + chapter` could not naturally represent History horizontal meeting / land-policy / person-document review.
+
+   Repair: plan scope now uses a required Current `anchor_ref`; `chapter_id` is optional context.
+
+4. **Fine-grained addressing ambiguity**  
+   Not every useful K subobject owns a standalone id. Without a rule, Runtime could search fields or choose nearby content.
+
+   Repair: Chat addresses by stable id when available, otherwise exact Current owner path + deterministic JSON Pointer/equivalent subpath. Runtime resolves literally and never searches for a substitute.
+
+5. **Guard precedence ambiguity**  
+   Parent `phase_scope` or generic Memory policy could incorrectly override a child target's specific role/blocker.
+
+   Repair: guard precedence is now target-local → owner-local → parent → generic. Output hooks remain Output-only; target blockers/freshness gates cannot be bypassed by generic W/U rules.
+
+6. **Missing pre-plan learner evidence input**  
+   Chat cannot adapt intelligently if it only sends plans but cannot receive the learner's prior W/U / Precision / resume facts.
+
+   Repair: consolidation planning explicitly reuses the private Politics evidence / `return_packet.v1` channel as a bounded fact snapshot. Web may export scoped facts but may not rank/recommend them.
+
+Current durable loop:
+
+```text
+private learner evidence facts
++ Current K
++ phase/time context
+→ Chat decides
+→ consolidation_plan.v1
+→ Web executes mechanically
+→ consolidation_return.v1
+→ Chat decides again
+```
+
+Web validation is limited to mechanical/canonical safety:
+
+- target exists;
+- target address resolves exactly;
+- target phase/role is eligible;
+- required admission/freshness guard is present;
+- state/evidence persistence is safe.
+
+It does **not** decide whether the target is pedagogically important.
+
+The five representative K shapes remain free of static `later_stage_learning` plans.
+
+No claim is made here that this same Chat constitutes the required fresh independent acceptance.
