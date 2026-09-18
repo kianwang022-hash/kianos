@@ -11,7 +11,7 @@ This file owns integration claims, not Source, Learning semantics, learner progr
 Execution brief: `FINAL_LEARNER_ACCEPTANCE_BRIEF.md`.
 Candidate: PR #486, `work/politics-final-fresh-20260919`.
 
-The first-round Learning model is re-accepted after narrow clarification and concrete source/content repairs. This is NOT an unconditional Politics-wide P/R/E PASS and NOT whole-exam readiness. Shared task-aware Chat Return/import and full private learner recovery are not proved closed. A material long-sequence geometry repair requires Kian's Mac Human Gate before promotion. No new learner U is claimed.
+The first-round Learning model is re-accepted after narrow clarification and concrete source/content repairs. This is NOT an unconditional Politics-wide P/R/E PASS and NOT whole-exam readiness. Shared task-aware Chat Return/import and full private learner recovery are not proved closed. The material long-sequence geometry repair passed Kian's Mac Human Gate on 2026-09-19 after direct before/after review. No new learner U is claimed.
 
 ### Executed evidence boundary
 
@@ -45,7 +45,7 @@ Counts describe coverage, not learning quality. Global mapping validation is not
 | First-round exact discrimination / no false Memory debt | PASS for tested model/runtime | Necessary first-round identities and boundaries remain available; four source-supported candidates are not automatically admitted; rich explanation, one stable correct or AI-only relation creates no permanent debt |
 | Same-profile refresh / process restart / source update | PASS for tested local durability | Private first evidence and session survive; failed persistence is visible and blocks false continuation; corrupt bytes preserved rather than silently reset |
 | Full backup/restore, profile loss, cross-device and GitHub-to-Mac end-to-end durability | UNTESTED / NOT YET ACCEPTABLE as full Politics closure | Shared control checkpoint foundation is not proof that all Politics attempts/notes/provenance are captured and restored; no public learner-data write was introduced |
-| Mac representative surfaces | Technical browser proof PASS; material delta Human Gate UNTESTED | Long directed sequences no longer crush CJK text into narrow columns; this changes visible task geometry and requires Kian acceptance |
+| Mac representative surfaces | PASS — technical browser proof + Kian Human Gate | Long directed sequences no longer crush CJK text into narrow columns; Kian accepted the vertical long-sequence geometry on 2026-09-19 after direct before/after review; this is product acceptance, not learner U |
 | Later analysis output / current affairs / recitation / Xiao4 / full Mock | BLOCKED — UPSTREAM SOURCE NOT YET AVAILABLE | No complete approved current-year Source chain is established for these claimed later paths; draft/history material remains provenance, not Current teaching authority |
 | Whole-exam readiness | BLOCKED / NOT YET ACCEPTABLE | First-round engineering cannot substitute for source-grounded timed analysis output, later sources and full-paper execution |
 | Learner U | UNTESTED for every newly audited learner path | Synthetic browser evidence, test notes and screenshots are not Kian learning evidence |
@@ -82,7 +82,7 @@ First-round exact discrimination is distinct from durable Memory/Precision. Sour
 6. **Exact return and resume:** validated task/unit/origin context; retained meaningful question/session position rather than navigating to an unrelated Unit or first page.
 7. **Backside failure safety:** exact prebuilt question/revision binding, with missing/mismatched/stale payload tests; no historical/OCR/runtime-Chat fallback.
 8. **Persistence failure:** visible storage failure, blocked false next/return and safe retry without duplicate durable evidence.
-9. **Long-sequence readability:** `PoliticsExplicitSurfacePlan.astro` lays out long sequences without one-character-wide CJK columns; preserves labels, mapped order, transitions and relation text. Font size remains 16px for body text. This material visual delta is pending Kian Human Gate.
+9. **Long-sequence readability:** `PoliticsExplicitSurfacePlan.astro` lays out long sequences without one-character-wide CJK columns; preserves labels, mapped order, transitions and relation text. Font size remains 16px for body text. Kian accepted this material visual delta on 2026-09-19 after direct before/after Mac review.
 
 ## Five-subject cognition and representation scope
 
