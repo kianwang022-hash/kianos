@@ -65,7 +65,7 @@ Shared authority routing:
 - Xizong material learner UI: landed through whole-paper Hidden/Seal/Review.
 - Politics learner UI: landed through final Practice Human Gate (#470).
 - All material subject learner UI is now landed; UI/CSS ownership consolidation is active maintenance.
-- Shared learner-data / Chat handoff durability and final regression remain launch work.
+- Chat-owned Home and the private durable checkpoint foundation are landed. Subject-owned durable evidence/Return reconciliation and final regression remain launch work.
 - Material Visual changes still require real-browser screenshot + Kian Human Gate before merge.
 
 Exact branch / PR / screenshot state belongs to `static-web/CURRENT.md` or the exact UI owner.
