@@ -144,6 +144,7 @@ try {
 
   let stage = await visibleStage(root);
   check(['kp_learn', 'source_contact'].includes(stage), 'first_learning_enters_kp_companion', stage);
+  check(await root.locator('[data-study-stage="ttsx_checkpoint"]').count() === 1, 'ttsx_checkpoint_surface_present');
 
   const learnCard = root.locator('[data-study-stage]:visible .xv6KpLearnCompanion[data-kp-id]');
   await learnCard.waitFor({ state: 'visible' });
@@ -231,10 +232,12 @@ try {
   }
   stage = await visibleStage(root);
   check(stage === 'kp_recall', 'enter_learning_advances_to_recall_after_real_kps', `stage=${stage};presses=${presses}`);
+  check(await root.locator('[data-study-stage="ttsx_checkpoint"]').isHidden(), 'unbound_ttsx_fails_closed_without_fake_release');
 
   const studyKey = `kianos-xizong-astro-v2:${objectId}`;
   const studyState = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || '{}'), studyKey);
   check(Object.values(studyState?.learned || {}).filter(Boolean).length >= 1, 'enter_records_learned_state');
+  check(Object.keys(studyState?.ttsxEvidence || {}).length === 0, 'unbound_ttsx_creates_no_fake_evidence');
 
   const recallCard = root.locator('[data-kp-recall-card]:not([hidden])');
   await recallCard.waitFor({ state: 'visible' });
