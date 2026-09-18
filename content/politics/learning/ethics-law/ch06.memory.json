@@ -13,18 +13,7 @@
     "rule": "LEG26 is the Memory Overlay: when Current Chengfeng-grounded Knowledge supports the same claim, LEG26 may establish durable memory priority. Precision exactness remains separately admitted."
   },
   "admission_gate": {
-    "default": "NOT_ADMITTED",
     "requires_source_grounding": true,
-    "admit_when_any": [
-      "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
-      "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED",
-      "LATER_ANALYSIS_OUTPUT_REQUIRES_EXACT_FORMULATION"
-    ],
-    "do_not_admit_for": [
-      "historical handbook presence alone",
-      "one stable correct answer",
-      "OCR reconstruction by guess"
-    ],
     "memory_admission": {
       "default": "ADMIT_WHEN_CURRENT_GROUNDED_AND_LEG26_SUPPORTED",
       "wrong_uncertain_role": "PRIVATE_PRIORITY_MODULATION_NOT_SHARED_MEMORY_EXISTENCE"
@@ -52,8 +41,6 @@
             "LEG26-UPPER-ETHICS-P224",
             "LEG26-UPPER-ETHICS-P225"
           ],
-          "admission": "CANDIDATE_ONLY",
-          "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION",
           "memory_admission": "ADMITTED_STABLE",
           "memory_mode": "SEMANTIC_RECALL",
           "memory_basis": [
@@ -79,8 +66,6 @@
             "LEG26-UPPER-ETHICS-P229",
             "LEG26-UPPER-ETHICS-P231"
           ],
-          "admission": "CANDIDATE_ONLY",
-          "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION",
           "memory_admission": "ADMITTED_STABLE",
           "memory_mode": "SEMANTIC_RECALL",
           "memory_basis": [
@@ -101,8 +86,6 @@
             "LEG26-UPPER-ETHICS-P231",
             "LEG26-UPPER-ETHICS-P232"
           ],
-          "admission": "CANDIDATE_ONLY",
-          "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION",
           "memory_admission": "ADMITTED_STABLE",
           "memory_mode": "SEMANTIC_RECALL",
           "memory_basis": [
@@ -128,8 +111,6 @@
             "LEG26-UPPER-ETHICS-P225",
             "LEG26-LOWER-ETHICS-P085"
           ],
-          "admission": "CANDIDATE_ONLY",
-          "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION",
           "memory_admission": "ADMITTED_STABLE",
           "memory_mode": "SEMANTIC_RECALL",
           "memory_basis": [
@@ -154,8 +135,6 @@
           "historical_handbook_refs": [
             "LEG26-UPPER-ETHICS-P232"
           ],
-          "admission": "CANDIDATE_ONLY",
-          "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION",
           "memory_admission": "ADMITTED_STABLE",
           "memory_mode": "SEMANTIC_RECALL",
           "memory_basis": [
@@ -176,8 +155,6 @@
             "LEG26-UPPER-ETHICS-P234",
             "LEG26-LOWER-ETHICS-P086"
           ],
-          "admission": "CANDIDATE_ONLY",
-          "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION",
           "memory_admission": "ADMITTED_STABLE",
           "memory_mode": "SEMANTIC_RECALL",
           "memory_basis": [
