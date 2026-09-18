@@ -535,7 +535,6 @@ const ttsx = block?.ttsx || { checkpoints: [] };
     document.addEventListener('keydown', (event) => {
       const target = event.target;
       if (target instanceof HTMLElement && target.closest('input,textarea,select,button,a,[contenteditable="true"]')) return;
-      if (state.stage === 'source_contact' && event.key === 'Enter') { event.preventDefault(); root.querySelector('[data-source-contact-done]')?.click(); return; }
       if (state.stage !== 'kp_recall') return;
       if (event.key === 'ArrowLeft') { event.preventDefault(); stepRecall(-1); }
       if (event.key === 'ArrowRight') { event.preventDefault(); stepRecall(1); }
