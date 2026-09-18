@@ -280,7 +280,7 @@ const payload = learnerObject || null;
           frame.append(prompt);
         }
         const locators = el('div', 'xv6KpLearnLocators');
-        if (kp?.source?.locator) locators.append(el('span', '', `Source · ${kp.source.locator}`));
+        if (kp?.source?.locator) locators.append(el('span', '', `Lecture · ${kp.source.locator}`));
         if (kp?.outline?.locator) locators.append(el('span', '', `Outline · ${kp.outline.locator}`));
         if (locators.childElementCount) frame.append(locators);
 
