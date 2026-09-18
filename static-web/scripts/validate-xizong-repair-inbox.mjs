@@ -23,6 +23,8 @@ assert(repairReturn.includes('!relation?.blockId || !relation?.primaryKpId'), 'r
 assert(repairReturn.includes('XIZONG_MEMORY_STORAGE_KEY'), 'system-return-does-not-update-current-memory-repair');
 assert(repairReturn.includes('setRepairTasks'), 'system-return-does-not-create-visible-repair-task');
 assert(repairReturn.includes("origin: 'SYSTEM_WU_CHAT_RETURN'"), 'visible-repair-origin-missing');
+assert(repairReturn.includes('systemId,'), 'visible-repair-system-identity-missing');
+assert(memoryModel.includes('systemId: text(task?.systemId'), 'repair-model-drops-system-identity');
 assert(memoryWorkspace.includes('data-repair-complete'), 'memory-repair-cannot-be-completed');
 assert(memoryWorkspace.includes('data-repair-block-link'), 'memory-repair-loses-block-return');
 assert(memoryWorkspace.includes('data-repair-return-link'), 'memory-repair-loses-question-return');
