@@ -35,7 +35,7 @@ jobs:
                   name = row['path']
                   p = pathlib.PurePosixPath(name)
                   assert not p.is_absolute() and '..' not in p.parts
-                  assert name.startswith(('content/politics/', 'static-web/src/'))
+                  assert name.startswith(('content/politics/', 'static-web/src/', 'static-web/scripts/'))
                   assert name not in plans
                   raw = pathlib.Path(name).read_bytes()
                   assert blob(raw) == row['old'], 'OLD_BLOB_MISMATCH:' + name
@@ -57,7 +57,7 @@ jobs:
               subprocess.run(['git', 'add', '--', *plans, str(transport)], check=True)
               subprocess.run(['git', 'config', 'user.name', 'KianOS Audit Worker'], check=True)
               subprocess.run(['git', 'config', 'user.email', 'audit-worker@example.invalid'], check=True)
-              subprocess.run(['git', 'commit', '-m', 'fix(politics): apply source-grounded fresh learner audit repairs'], check=True)
+              subprocess.run(['git', 'commit', '-m', 'test(politics): reconcile source-proven readiness and task revision guards'], check=True)
               subprocess.run(['git', 'push', 'origin', 'HEAD:work/politics-final-fresh-20260919'], check=True)
           head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()
           with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
@@ -73,7 +73,6 @@ jobs:
     timeout-minutes: 20
     env:
       POLITICS_FRESH_EVIDENCE: /tmp/politics-final-fresh
-      POLITICS_FRESH_ALLOW_FAILURES: '1'
     steps:
       - uses: actions/checkout@v4
         with:
@@ -104,6 +103,15 @@ jobs:
         if: always() && steps.build.outcome == 'success'
         working-directory: static-web
         run: node scripts/test-politics-final-fresh-browser.mjs > "$POLITICS_FRESH_EVIDENCE/browser.log" 2>&1
+      - name: Bounded heterogeneous regression after fresh attacks
+        if: always() && steps.build.outcome == 'success'
+        working-directory: static-web
+        run: |
+          failed=0
+          for f in audit-politics-explicit-surface-mapping audit-politics-history-content audit-politics-history-first-ready audit-politics-marxism-first-ready audit-politics-k03-learning-projection audit-politics-k03-runtime-evidence audit-politics-marxism-runtime-evidence audit-politics-mao-evidence audit-politics-xi-evidence audit-politics-ethics-evidence validate-politics-runtime validate-politics-repair-memory; do
+            if node "scripts/$f.mjs" > "$POLITICS_FRESH_EVIDENCE/$f.log" 2>&1; then echo "PASS $f"; else echo "FAIL $f"; failed=1; fi
+          done | tee "$POLITICS_FRESH_EVIDENCE/regression.log"
+          if grep -q '^FAIL ' "$POLITICS_FRESH_EVIDENCE/regression.log"; then exit 1; fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
