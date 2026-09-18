@@ -112,12 +112,23 @@ const blockIds = (system?.blocks || []).map((row) => row.blockId).filter(Boolean
     }, true);
   } else if (blockIds.length) {
     const root = document.querySelector('[data-xizong-system-exit]');
-    const laterStage = document.querySelector('[data-xizong-later-stage="system-exit"]');
+    const recallEntry = document.querySelector('[data-xizong-system-recall-entry]');
+    const recallLock = document.querySelector('[data-xizong-system-recall-lock]');
+    const recallLockStatus = document.querySelector('[data-xizong-system-recall-lock-status]');
     const completedBlocks = () => blockIds.filter((id) => Boolean(readBlockState(id)?.completed));
+    const syncSystemRelease = () => {
+      const completed = completedBlocks();
+      const ready = completed.length >= blockIds.length;
+      if (recallEntry instanceof HTMLElement) recallEntry.hidden = !ready;
+      if (root instanceof HTMLElement) root.hidden = !ready;
+      if (recallLock instanceof HTMLElement) recallLock.hidden = ready;
+      if (recallLockStatus) {
+        recallLockStatus.textContent = `当前已完成 ${completed.length}/${blockIds.length} Blocks。完成整个 System 后，这里会释放 System Recall。`;
+      }
+      return { completed, ready };
+    };
 
-    if (laterStage instanceof HTMLElement) {
-      laterStage.hidden = completedBlocks().length < blockIds.length;
-    }
+    syncSystemRelease();
 
     root?.addEventListener('click', (event) => {
       const target = event.target instanceof Element ? event.target : null;
@@ -129,8 +140,8 @@ const blockIds = (system?.blocks || []).map((row) => row.blockId).filter(Boolean
       const startingSweep = Boolean(target.closest('[data-start-sweep]'));
       if (!startingRecall && !revealingRecall && !completingRecall && !startingSweep) return;
 
-      const completed = completedBlocks();
-      if (completed.length < blockIds.length) {
+      const { completed, ready } = syncSystemRelease();
+      if (!ready) {
         stop(event);
         const status = root.querySelector('[data-recall-status]');
         if (status) {
