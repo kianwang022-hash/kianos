@@ -197,6 +197,7 @@ try {
       expectPatterns: true,
       expectReference: true,
       expectText: [
+        'Adjective/noun and verb remain one Word identity; POS selects the stress pattern.',
         'AB-stract',
         '/ˈæb.strækt/',
         'initial',
@@ -249,6 +250,24 @@ try {
         renderedText.includes(expectedText),
         `v2_direct_render_${fixture.word}_${expectedText}`,
         fixture.word === 'abstract' ? JSON.stringify(familyDebug) : ''
+      );
+    }
+    if (fixture.word === 'abstract') {
+      const formRows = await page.locator('.lexicalFormVariants article').evaluateAll((nodes) =>
+        nodes.map((node) => {
+          const r = node.getBoundingClientRect();
+          return { left:r.left, top:r.top, right:r.right, bottom:r.bottom, width:r.width, height:r.height };
+        })
+      );
+      assert(formRows.length >= 2, 'v2_abstract_form_rows_present', JSON.stringify(formRows));
+      assert(formRows[1].top >= formRows[0].bottom - 1, 'v2_abstract_form_rows_do_not_overlap', JSON.stringify(formRows));
+      assert(Math.abs(formRows[1].left - formRows[0].left) <= 1, 'v2_abstract_form_rows_align_left', JSON.stringify(formRows));
+      const leftTop = await page.locator('.lexicalSenseRow').first().boundingBox();
+      const rightTop = await page.locator('.portedVocabEvidenceColumn .lexicalExpansionSection').first().boundingBox();
+      assert(
+        Boolean(leftTop && rightTop && Math.abs(leftTop.y - rightTop.y) <= 2),
+        'v2_abstract_reference_top_aligns_with_first_sense',
+        JSON.stringify({leftTop,rightTop})
       );
     }
     const fixtureDock = await page.locator('[data-vocab-action-dock]').boundingBox();
