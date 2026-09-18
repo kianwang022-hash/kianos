@@ -38,7 +38,10 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
       const date = new Date(iso);
       return Number.isNaN(date.getTime()) ? '' : date.toLocaleDateString('en-CA');
     };
-    const hrefFor = (ordinal) => `${base}vocabulary/${ordinal}/`;
+    const hrefFor = (ordinal, mode = 'study') => {
+      const href = `${base}vocabulary/${ordinal}/`;
+      return mode === 'study' ? href : `${href}?mode=${encodeURIComponent(mode)}`;
+    };
 
     const renderReview = () => {
       const host = home.querySelector('[data-lexical-review-list]');
@@ -63,7 +66,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
       for (const { row, targets } of groups) {
         const link = document.createElement('a');
         link.className = 'lexicalWordRow';
-        link.href = hrefFor(row.ordinal);
+        link.href = hrefFor(row.ordinal, 'repair');
         const copy = document.createElement('div');
         const word = document.createElement('strong');
         word.textContent = row.word;
