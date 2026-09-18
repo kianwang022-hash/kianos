@@ -11,11 +11,22 @@ A bare `继续政治 / 继续马原 / 继续史纲` is a learner request unless 
 
 ## Current state
 
-Politics learning engineering is closed through the current scoped `S/K/L/P/R/E` evidence for all five subjects. Real learner `U` remains real-use-only.
+Politics **first-round** learning engineering remains closed through the current scoped `S/K/L/P/R/E` evidence for all five subjects. Real learner `U` remains real-use-only.
 
-There is no current reason to reopen Politics semantic engineering without a concrete defect.
+A separate exam-lifecycle Content task is now active: build the missing **later-stage Knowledge** required by the existing Learning Contract for consolidation / precision / analysis output / final preparation. This does not reopen or invalidate the accepted first-round path.
 
-The stable learner loop remains:
+Current later-stage dependency:
+
+```text
+historical/current-year later sources
+→ later-stage K realization
+→ later-stage L audit
+→ later Projection / Runtime only after K/L close
+```
+
+Marxism C02/C05 are the active K calibration pair. UI remains frozen.
+
+The stable first-round learner loop remains:
 
 ```text
 Orientation / current Natural Unit
