@@ -7,6 +7,36 @@ This file does not own Marxism Source Truth, teaching content, Politics learning
 
 ---
 
+## Active BUILD lane｜LEG26 Memory / Output realization
+
+This subject has been intentionally reopened for a bounded new Source→Knowledge task: integrate the imported LEG26 historical memory/output baseline without changing first-round Chengfeng ownership or resuming UI work.
+
+Current sequence:
+
+```text
+LEG26 historical Source
+→ reconcile against Current Marxism Knowledge
+→ classify Memory candidates / objective compression / analysis-output baseline
+→ keep current-year admission separate
+→ only later expose stage-specific Learn actions
+```
+
+First completed batch:
+
+- `POL27-CF-MARX-C02-K03` / 对立统一规律;
+- historical handbook alignment recorded for the existing Memory pilot;
+- lower-volume analysis material recorded as Chat-first output baseline;
+- no candidate was promoted to current-year Memory solely from LEG26.
+
+Next:
+
+- continue the same review across Marxism C00–C08;
+- keep Memory sparse;
+- do not build a second analysis-theory course;
+- do not resume Politics Visual/UI during this Content closure.
+
+---
+
 ## Work Cursor
 
 **Scope:** whole-subject Marxism acceptance under corrected Surface Ownership + topology-preserving C00 Cognitive Workspace reference calibration  
