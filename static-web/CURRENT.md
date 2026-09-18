@@ -30,7 +30,7 @@ Architecture-level website blocker: **none**.
 | Xizong UI | **ACTIVE** | `work/ui-xizong-vertical-20260918` → `content/xizong/CURRENT.md` → exact accepted surface owner |
 | Politics UI | **ACTIVE** | formal `#395` / `work/ui-politics-vertical-20260918`; preview `#397` stays isolated until Human Gate |
 | English UI | **LANDED** | `content/english/CURRENT.md` |
-| Lexical learner surface | **STEADY under English** | `content/lexical/CURRENT.md` when a concrete defect exists |
+| Lexical learner surface | **ACTIVE — bounded Final Object cutover** | `work/lexical-final-learner-object-20260918` → `content/lexical/CURRENT.md` |
 
 Do not revive historical UI migrations merely because old branches/PRs still exist.
 
@@ -185,6 +185,7 @@ CI green is not visual acceptance.
 - **Xizong:** continue the active System / Block learner-surface convergence from its exact UI owner; preserve medical semantics and the Guide ≠ Framework boundary.
 - **Politics:** continue from the cleaned SurfacePlan-only renderer path; Visual may arrange mapped objects but must not author semantic grouping/relations.
 - **English:** only concrete launch-visible defects; do not reopen accepted task geometry.
+- **Lexical:** close the bounded Final Learner Object cutover; preserve accepted UI geometry and existing Runtime/Evidence behavior.
 
 Exact branch/PR/cursor state must be read from the active owner/ref before work.
 
