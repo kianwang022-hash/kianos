@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import ReadingHome from '../components/ReadingHome.astro';
+import EnglishObjectiveLocalNav from '../components/EnglishObjectiveLocalNav.astro';
 import { inspectReadingSources, listReadingSets } from '../lib/englishReadingSourceTruth.mjs';
 
 const sourceState = inspectReadingSources();
@@ -18,6 +19,7 @@ const pendingDescription = sourceState.status === 'invalid'
   objectId="english:reading-home"
   active="reading"
 >
+  <EnglishObjectiveLocalNav active="reading" />
   {sourceState.status === 'ready' ? (
     <ReadingHome sets={sets} learningHref={`${base}objective-learn/#reading-a`} />
   ) : (
