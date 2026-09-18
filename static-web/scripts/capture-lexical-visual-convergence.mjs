@@ -44,9 +44,9 @@ async function reveal(page, ordinal) {
   await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
 }
 
-async function audit(page, { ordinal, expectedWord, expectExpansion, sparse }) {
+async function audit(page, { ordinal, expectedWord, sparse }) {
   await reveal(page, ordinal);
-  const result = await page.evaluate(({ expectedWord, expectExpansion, sparse }) => {
+  const result = await page.evaluate(({ expectedWord, sparse }) => {
     const css = (node) => node instanceof HTMLElement ? getComputedStyle(node) : null;
     const rect = (node) => node instanceof HTMLElement ? node.getBoundingClientRect() : null;
     const word = document.querySelector('.lexicalWordIdentity h2');
@@ -58,7 +58,9 @@ async function audit(page, { ordinal, expectedWord, expectExpansion, sparse }) {
     const pos = firstUsableRow?.querySelector('header>span');
     const meaning = firstUsableRow?.querySelector('.lexicalSenseMeaning>strong');
     const usage = firstUsableRow?.querySelector('.lexicalSenseUsage li>b');
-    const expansion = document.querySelector('.lexicalExpansionSection');
+    const body = document.querySelector('[data-vocab-body]');
+    const reference = document.querySelector('.portedVocabEvidenceColumn');
+    const patternSection = document.querySelector('.lexicalWordPatterns');
     const contentNodes = [...document.querySelectorAll(
       '.lexicalCoreHeadline>p,.lexicalCoreHeadline>b,.lexicalCoreHeadline>small,.lexicalSenseMeaning>p,.lexicalSenseMeaning>strong,.lexicalSenseNote,.lexicalSenseUsage li>b,.lexicalSenseUsage li>span,.lexicalExpansionSection>header>span,.portedVocabEvidenceList>article>b,.portedVocabEvidenceList>article>p,.portedVocabEvidenceList>article>small,.lexicalFormBoundary,.lexicalFormVariants b,.lexicalFormVariants span,.lexicalFamilyRows b'
     )].filter((node) => node instanceof HTMLElement && css(node).display !== 'none');
@@ -67,14 +69,13 @@ async function audit(page, { ordinal, expectedWord, expectExpansion, sparse }) {
     const usageRect = rect(usage);
     const tops = [posRect?.top, meaningRect?.top, usageRect?.top].filter((value) => Number.isFinite(value));
     const rowStyle = css(firstUsableRow);
-    const expansionStyle = css(expansion);
+    const referenceStyle = css(reference);
     const sheetRect = rect(sheet);
     const wordStyle = css(word);
     const definitionStyle = css(englishDefinition);
     const usageStyle = css(englishUsage);
     return {
       expectedWord,
-      expectExpansion,
       sparse,
       wordText:(word?.textContent || '').trim(),
       wordFont:wordStyle?.fontFamily || '',
@@ -92,11 +93,13 @@ async function audit(page, { ordinal, expectedWord, expectExpansion, sparse }) {
         posMeaning:posRect && meaningRect ? meaningRect.left-posRect.right : null,
         meaningUsage:meaningRect && usageRect ? usageRect.left-meaningRect.right : null
       },
-      expansionPresent:expansion instanceof HTMLElement,
-      expansion:{
-        radius:expansionStyle?.borderRadius || '',
-        shadow:expansionStyle?.boxShadow || ''
+      hasReferenceFlag:body instanceof HTMLElement && body.dataset.hasReference === 'true',
+      referencePresent:reference instanceof HTMLElement,
+      reference:{
+        radius:referenceStyle?.borderRadius || '',
+        shadow:referenceStyle?.boxShadow || ''
       },
+      patternPresent:patternSection instanceof HTMLElement,
       minContentFont:contentNodes.length ? Math.min(...contentNodes.map((node) => parseFloat(css(node).fontSize))) : null,
       sheetHeight:sheetRect?.height || null,
       viewport:{width:window.innerWidth,height:window.innerHeight},
@@ -123,10 +126,10 @@ async function audit(page, { ordinal, expectedWord, expectExpansion, sparse }) {
   assert(result.columnGaps.posMeaning === null || result.columnGaps.posMeaning >= 12, 'pos_meaning_no_collision', String(result.columnGaps.posMeaning));
   assert(result.columnGaps.meaningUsage === null || result.columnGaps.meaningUsage >= 12, 'meaning_usage_no_collision', String(result.columnGaps.meaningUsage));
   assert(result.minContentFont === null || result.minContentFont >= 15, 'learner_content_font_floor', String(result.minContentFont));
-  assert(result.expansionPresent === expectExpansion, 'earned_expansion', `${ordinal}:${result.expansionPresent}`);
-  if (result.expansionPresent) {
-    assert(parseFloat(result.expansion.radius || '0') <= 8, 'expansion_semantic_radius_bounded', result.expansion.radius);
-    assert(result.expansion.shadow === 'none', 'expansion_not_generic_card_shadow', result.expansion.shadow);
+  assert(result.referencePresent === result.hasReferenceFlag, 'earned_reference_rail', `${ordinal}:${result.referencePresent}/${result.hasReferenceFlag}`);
+  if (result.referencePresent) {
+    assert(parseFloat(result.reference.radius || '0') <= 1, 'reference_rail_is_not_card', result.reference.radius);
+    assert(result.reference.shadow === 'none', 'reference_rail_not_shadowed', result.reference.shadow);
   }
   if (sparse) assert(result.senseCount >= 1, 'sparse_surface_still_has_semantic_content', String(result.senseCount));
   assert(result.bodyScrollWidth <= result.bodyClientWidth + 2, 'no_horizontal_overflow', `${result.bodyScrollWidth}/${result.bodyClientWidth}`);
@@ -167,6 +170,27 @@ try {
   assert(await page.locator('[data-vocab-action-dock] [data-vocab-route="unknown"]').isVisible(), 'v2_depth_dock_exposes_unknown');
   assert(await page.locator('[data-vocab-action-dock] [data-vocab-route="fuzzy"]').isVisible(), 'v2_depth_dock_exposes_fuzzy');
   await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-rich-depth-1440x900.png'), fullPage: false });
+
+  // Rule → Content → Visual Human-Gate fixtures.
+  const depthFixtures = [
+    { ordinal: 4248, word: 'sanction', expectPatterns: true },
+    { ordinal: 19, word: 'abstract', expectPatterns: true },
+    { ordinal: 5477, word: 'write', expectPatterns: false }
+  ];
+  for (const fixture of depthFixtures) {
+    await page.goto(`${origin}/vocabulary/${fixture.ordinal}/`, { waitUntil: 'networkidle' });
+    await page.locator('[data-vocab-front]').waitFor({ state: 'visible' });
+    assert((await page.locator('[data-vocab-front] h2').innerText()).trim() === fixture.word, `v2_depth_fixture_${fixture.word}`);
+    await page.keyboard.press('Space');
+    await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
+    assert(await page.locator('.lexicalCoreHeadline').isVisible(), `v2_word_feel_header_${fixture.word}`);
+    assert(await page.locator('.lexicalCoreRow').count() === 0, `v2_no_duplicate_core_card_${fixture.word}`);
+    const patternVisible = await page.locator('.lexicalWordPatterns').isVisible().catch(() => false);
+    assert(patternVisible === fixture.expectPatterns, `v2_word_owned_patterns_${fixture.word}`, String(patternVisible));
+    const constructionInReference = await page.locator('.portedVocabEvidenceColumn .lexicalConstructionSection').count();
+    assert(constructionInReference === 0, `v2_no_construction_in_reference_${fixture.word}`, String(constructionInReference));
+    await page.screenshot({ path: path.join(outputRoot, `lexical-v2-depth-${fixture.word}-1440x900.png`), fullPage: false });
+  }
 
   // Tighter Mac landscape evidence: same learning geometry, reduced secondary density.
   await page.setViewportSize({ width: 1280, height: 800 });
@@ -249,9 +273,9 @@ try {
   await page.keyboard.press('k');
   assert(await page.locator('[data-vocab-target-row].keyboard-target [data-vocab-repair]').count() === 1, 'v2_k_moves_exact_object');
 
-    reports.push(await audit(page, { ordinal: 1, expectedWord: 'a', expectExpansion: true, sparse: false }));
-  reports.push(await audit(page, { ordinal: 2, expectedWord: 'abandon', expectExpansion: false, sparse: true }));
-  reports.push(await audit(page, { ordinal: 13, expectedWord: 'abroad', expectExpansion: true, sparse: true }));
+  reports.push(await audit(page, { ordinal: 1, expectedWord: 'a', sparse: false }));
+  reports.push(await audit(page, { ordinal: 2, expectedWord: 'abandon', sparse: true }));
+  reports.push(await audit(page, { ordinal: 13, expectedWord: 'abroad', sparse: true }));
 
   fs.writeFileSync(path.join(outputRoot, 'report.json'), `${JSON.stringify({ status:'PASS', reports }, null, 2)}\n`);
   console.log(`Lexical visual convergence PASS → ${outputRoot}`);
