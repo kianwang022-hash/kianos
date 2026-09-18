@@ -18,17 +18,41 @@ Politics exam-lifecycle **later-stage Knowledge is now closed at K with bounded 
 ```text
 later-stage Source baseline
 → K realization / audit                  PASS_WITH_DEBT
-→ Consolidation L                         PASS_AFTER_REPAIR
-→ Analysis-Output L                        PASS / Chat-primary
-→ Mock / Final L                           PASS / Chat-primary + source-paper primary
-→ later-stage L overall                    PASS
-→ Exam-Horizon adaptation                  ACTIVE NEXT GATE
+→ Consolidation L old static-rubric model  FAIL / REVISION_REQUIRED
+→ corrected Chat-owned strategy model       REPAIRED_AFTER_INTERFACE_ATTACK
+→ Consolidation L                            PASS_AFTER_REPAIR
+→ Analysis-Output L                           PASS / Chat-primary
+→ Mock / Final L                              PASS / Chat-primary + source-paper primary
+→ later-stage L overall                       PASS
+→ Exam-Horizon adaptation                     ACTIVE NEXT GATE
 ```
 
 K detail and source-refresh debt remain owned by `content/politics/ACCEPTANCE.md` and `manifest.json`; this cursor does not duplicate subject counts or candidate inventories.
 
-**Next active gate: Exam-Horizon adaptation.**  
-Fresh independent later-stage L acceptance is now closed: **Consolidation = PASS_AFTER_REPAIR; Analysis Output = PASS; Mock / Final = PASS.** Downstream work may proceed, but each downstream closure still requires its own proof.
+Analysis Output is now explicitly **Chat-primary**:
+
+```text
+chapter analysis_output_hooks in GitHub
+→ Chat practice / diagnosis / output coaching
+```
+
+No dedicated Analysis Output Website/Runtime is required. Routing/production rules live in `content/politics/analysis-output/README.md`. Real learner outputs remain private and never enter shared Current.
+
+
+Mock / Final is also explicitly **Chat-primary** around an authentic/exam-like paper/PDF execution surface:
+
+```text
+GitHub Mock/Final rules + Current assets
+→ Chat decides full Mock vs smaller timed practice
+→ learner executes on the owning paper/PDF/task surface
+→ private evidence
+→ Chat routes the smallest repair / builds the final queue
+```
+
+No dedicated Mock/Final Website is required. Routing/production rules live in `content/politics/mock-final/README.md`.
+
+**Next active gate: Politics Exam-Horizon adaptation.**  
+Later-stage Learning is now accepted across **Consolidation / Analysis Output / Mock-Final**. The next work is downstream: close Final Learner Object direct-consumption first, then the reusable execution/evidence boundary. Website/Runtime must continue to render already-resolved learner payload and must not infer learning strategy or learner-facing semantics from raw Current fields.
 
 The stable first-round learner loop remains:
 
