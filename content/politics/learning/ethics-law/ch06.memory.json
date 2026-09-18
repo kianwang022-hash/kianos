@@ -8,8 +8,9 @@
   "preferred_memory_reference": {
     "role": "DESIGNATED_MEMORY_HANDBOOK",
     "label": "腿姐《冲刺背诵手册》",
-    "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
-    "historical_subject_source": "content/politics/source/historical/leg26/LEG26-ETHICS.md"
+    "binding_status": "HISTORICAL_MEMORY_PRIORITY_BOUND_STABLE_MEMORY_ALLOWED_LEGAL_PRECISION_RECHECK_REQUIRED",
+    "historical_subject_source": "content/politics/source/historical/leg26/LEG26-ETHICS.md",
+    "rule": "LEG26 is the Memory Overlay: when Current Chengfeng-grounded Knowledge supports the same claim, LEG26 may establish durable memory priority. Precision exactness remains separately admitted."
   },
   "admission_gate": {
     "default": "NOT_ADMITTED",
@@ -23,7 +24,18 @@
       "historical handbook presence alone",
       "one stable correct answer",
       "OCR reconstruction by guess"
-    ]
+    ],
+    "memory_admission": {
+      "default": "ADMIT_WHEN_CURRENT_GROUNDED_AND_LEG26_SUPPORTED",
+      "wrong_uncertain_role": "PRIVATE_PRIORITY_MODULATION_NOT_SHARED_MEMORY_EXISTENCE"
+    },
+    "precision_admission": {
+      "default": "CANDIDATE_FRESHNESS",
+      "exactness_separate_from_memory": true,
+      "freshness_required_for": [
+        "CURRENT_LEGAL_OR_NORMATIVE_EXACTNESS"
+      ]
+    }
   },
   "units": {
     "POL27-CF-ETHICS-C06-S01": {
@@ -41,7 +53,15 @@
             "LEG26-UPPER-ETHICS-P225"
           ],
           "admission": "CANDIDATE_ONLY",
-          "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION"
+          "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION",
+          "memory_admission": "ADMITTED_STABLE",
+          "memory_mode": "SEMANTIC_RECALL",
+          "memory_basis": [
+            "CURRENT_CHENGFENG_GROUNDING",
+            "LEG26_MEMORY_PRIORITY"
+          ],
+          "precision_admission": "CANDIDATE_FRESHNESS",
+          "precision_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_FOR_EXACTNESS"
         }
       ]
     },
@@ -60,7 +80,15 @@
             "LEG26-UPPER-ETHICS-P231"
           ],
           "admission": "CANDIDATE_ONLY",
-          "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION"
+          "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION",
+          "memory_admission": "ADMITTED_STABLE",
+          "memory_mode": "SEMANTIC_RECALL",
+          "memory_basis": [
+            "CURRENT_CHENGFENG_GROUNDING",
+            "LEG26_MEMORY_PRIORITY"
+          ],
+          "precision_admission": "CANDIDATE_FRESHNESS",
+          "precision_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_FOR_EXACTNESS"
         },
         {
           "id": "POL27-MEM-ETHICS-C06-S02-M02",
@@ -74,7 +102,15 @@
             "LEG26-UPPER-ETHICS-P232"
           ],
           "admission": "CANDIDATE_ONLY",
-          "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION"
+          "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION",
+          "memory_admission": "ADMITTED_STABLE",
+          "memory_mode": "SEMANTIC_RECALL",
+          "memory_basis": [
+            "CURRENT_CHENGFENG_GROUNDING",
+            "LEG26_MEMORY_PRIORITY"
+          ],
+          "precision_admission": "CANDIDATE_FRESHNESS",
+          "precision_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_FOR_EXACTNESS"
         }
       ]
     },
@@ -93,7 +129,15 @@
             "LEG26-LOWER-ETHICS-P085"
           ],
           "admission": "CANDIDATE_ONLY",
-          "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION"
+          "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION",
+          "memory_admission": "ADMITTED_STABLE",
+          "memory_mode": "SEMANTIC_RECALL",
+          "memory_basis": [
+            "CURRENT_CHENGFENG_GROUNDING",
+            "LEG26_MEMORY_PRIORITY"
+          ],
+          "precision_admission": "CANDIDATE_FRESHNESS",
+          "precision_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_FOR_EXACTNESS"
         }
       ]
     },
@@ -111,7 +155,15 @@
             "LEG26-UPPER-ETHICS-P232"
           ],
           "admission": "CANDIDATE_ONLY",
-          "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION"
+          "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION",
+          "memory_admission": "ADMITTED_STABLE",
+          "memory_mode": "SEMANTIC_RECALL",
+          "memory_basis": [
+            "CURRENT_CHENGFENG_GROUNDING",
+            "LEG26_MEMORY_PRIORITY"
+          ],
+          "precision_admission": "CANDIDATE_FRESHNESS",
+          "precision_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_FOR_EXACTNESS"
         },
         {
           "id": "POL27-MEM-ETHICS-C06-S04-M02",
@@ -125,7 +177,15 @@
             "LEG26-LOWER-ETHICS-P086"
           ],
           "admission": "CANDIDATE_ONLY",
-          "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION"
+          "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION",
+          "memory_admission": "ADMITTED_STABLE",
+          "memory_mode": "SEMANTIC_RECALL",
+          "memory_basis": [
+            "CURRENT_CHENGFENG_GROUNDING",
+            "LEG26_MEMORY_PRIORITY"
+          ],
+          "precision_admission": "CANDIDATE_FRESHNESS",
+          "precision_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_FOR_EXACTNESS"
         }
       ]
     }
@@ -135,5 +195,12 @@
       "domain": "法治道路/法治体系详细原则与法律条文相关扩展",
       "reason": "Higher freshness risk. Exact legal/normative wording must be checked against current source before admission."
     }
-  ]
+  ],
+  "overlay_model": {
+    "core_owner": "CURRENT_CHENGFENG_KNOWLEDGE",
+    "framework_overlay": "SUYI",
+    "memory_overlay": "LEG26",
+    "memory_rule": "CURRENT_GROUNDED_STABLE_MEMORY",
+    "precision_rule": "CURRENT_LEGAL_FRESHNESS_REQUIRED_FOR_EXACTNESS"
+  }
 }

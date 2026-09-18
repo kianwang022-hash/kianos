@@ -7,9 +7,9 @@
   "preferred_memory_reference": {
     "role": "DESIGNATED_MEMORY_HANDBOOK",
     "label": "腿姐《冲刺背诵手册》",
-    "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+    "binding_status": "HISTORICAL_MEMORY_PRIORITY_BOUND_STABLE_MEMORY_ALLOWED_EXACTNESS_RECHECK_SEPARATE",
     "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MAO.md",
-    "rule": "Current Mao Knowledge must independently own the relation. LEG26 supports historical retention priority; current-year source/WU evidence controls durable admission."
+    "rule": "LEG26 is the Memory Overlay: when Current Chengfeng-grounded Knowledge supports the same claim, LEG26 may establish durable memory priority. Precision exactness remains separately admitted."
   },
   "admission_gate": {
     "default": "NOT_ADMITTED",
@@ -22,7 +22,16 @@
       "historical handbook presence alone",
       "chapter importance alone",
       "one stable correct answer"
-    ]
+    ],
+    "memory_admission": {
+      "default": "ADMIT_WHEN_CURRENT_GROUNDED_AND_LEG26_SUPPORTED",
+      "wrong_uncertain_role": "PRIVATE_PRIORITY_MODULATION_NOT_SHARED_MEMORY_EXISTENCE"
+    },
+    "precision_admission": {
+      "default": "CANDIDATE_EXACTNESS",
+      "exactness_separate_from_memory": true,
+      "freshness_required_for": []
+    }
   },
   "units": {
     "POL27-CF-MAO-C00": {
@@ -39,7 +48,15 @@
             "LEG26-UPPER-MAO-P073"
           ],
           "admission": "CANDIDATE_ONLY",
-          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "memory_admission": "ADMITTED_STABLE",
+          "memory_mode": "SEMANTIC_RECALL",
+          "memory_basis": [
+            "CURRENT_CHENGFENG_GROUNDING",
+            "LEG26_MEMORY_PRIORITY"
+          ],
+          "precision_admission": "CANDIDATE_EXACTNESS",
+          "precision_blocker": "EXACT_WORDING_OR_NORMALIZATION_NOT_SEPARATELY_ADMITTED"
         },
         {
           "id": "POL27-MEM-MAO-C00-M02",
@@ -53,10 +70,25 @@
             "LEG26-UPPER-MAO-P074"
           ],
           "admission": "CANDIDATE_ONLY",
-          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "memory_admission": "ADMITTED_STABLE",
+          "memory_mode": "SEMANTIC_RECALL",
+          "memory_basis": [
+            "CURRENT_CHENGFENG_GROUNDING",
+            "LEG26_MEMORY_PRIORITY"
+          ],
+          "precision_admission": "CANDIDATE_EXACTNESS",
+          "precision_blocker": "EXACT_WORDING_OR_NORMALIZATION_NOT_SEPARATELY_ADMITTED"
         }
       ]
     }
   },
-  "deferred_candidate_domains": []
+  "deferred_candidate_domains": [],
+  "overlay_model": {
+    "core_owner": "CURRENT_CHENGFENG_KNOWLEDGE",
+    "framework_overlay": "SUYI",
+    "memory_overlay": "LEG26",
+    "memory_rule": "CURRENT_GROUNDED_STABLE_MEMORY",
+    "precision_rule": "EXACTNESS_ADMISSION_SEPARATE_FROM_MEMORY"
+  }
 }
