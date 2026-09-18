@@ -14,6 +14,9 @@ on:
       - 'static-web/src/styles/viewport-workspaces.css'
       - 'static-web/scripts/validate-lexical-style-ownership.mjs'
       - 'static-web/scripts/capture-lexical-visual-convergence.mjs'
+      - 'static-web/src/lib/lexicalChatState.mjs'
+      - 'static-web/scripts/test-lexical-chat-state.mjs'
+      - 'static-web/scripts/test-lexical-real-use-loop-browser.mjs'
   push:
     branches: [main]
     paths:
@@ -28,6 +31,9 @@ on:
       - 'static-web/src/styles/viewport-workspaces.css'
       - 'static-web/scripts/validate-lexical-style-ownership.mjs'
       - 'static-web/scripts/capture-lexical-visual-convergence.mjs'
+      - 'static-web/src/lib/lexicalChatState.mjs'
+      - 'static-web/scripts/test-lexical-chat-state.mjs'
+      - 'static-web/scripts/test-lexical-real-use-loop-browser.mjs'
 
 permissions:
   contents: read
@@ -68,6 +74,14 @@ jobs:
           npm install --no-save --no-audit --no-fund playwright@1.56.1
           npx playwright install --with-deps chromium
 
+      - name: Prove Chat-readable Vocabulary state
+        working-directory: static-web
+        run: node scripts/test-lexical-chat-state.mjs
+
+      - name: Prove complete Vocabulary real-use loop
+        working-directory: static-web
+        run: node scripts/test-lexical-real-use-loop-browser.mjs
+
       - name: Capture and assert a / abandon / abroad
         working-directory: static-web
         run: node scripts/capture-lexical-visual-convergence.mjs
@@ -77,6 +91,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: lexical-visual-review-${{ github.sha }}
-          path: lexical-visual-review/
+          path: |
+            lexical-visual-review/
+            lexical-real-use-loop-audit/
           if-no-files-found: error
           retention-days: 14

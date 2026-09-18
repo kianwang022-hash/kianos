@@ -11,7 +11,7 @@ const base = import.meta.env.BASE_URL;
   <section class="lexicalRepairWaiting" data-challenge-import-panel>
     <div class="lexicalRepairWaitingCopy">
       <span>REPAIR TEST</span>
-      <h3 data-challenge-waiting-title>等待下一组 Repair Test</h3>
+      <h3 data-challenge-waiting-title>等待下一组练习</h3>
       <p data-challenge-waiting-copy>Chat 根据当前 Repair 对象决定测什么；网页只负责连续执行和记录结果。</p>
       <a data-challenge-empty-learn href={base + 'vocabulary/'} hidden>继续 Learn →</a>
     </div>
@@ -19,10 +19,22 @@ const base = import.meta.env.BASE_URL;
     <div class="lexicalRepairWaitingStatus">
       <small data-challenge-status>Waiting</small>
       <b>← ↑ ↓ →</b>
-      <span>Test 到达后直接开始</span>
+      <span>练习准备好后直接开始</span>
     </div>
 
-    <details class="lexicalRepairManualTools" data-challenge-manual-tools>
+    <div class="lexicalRepairChatLoad" data-challenge-chat-load hidden>
+      <button type="button" data-challenge-chat-load-button>载入 Chat 练习</button>
+      <small data-challenge-chat-load-status>复制 Chat 生成的练习后，在这里粘贴并开始。</small>
+      <div class="lexicalRepairChatPaste" data-challenge-chat-paste hidden>
+        <textarea rows="6" data-challenge-chat-paste-input placeholder="把 Chat 生成的练习粘贴到这里"></textarea>
+        <div>
+          <button type="button" class="primary" data-challenge-chat-paste-start>开始练习</button>
+          <button type="button" data-challenge-chat-paste-cancel>取消</button>
+        </div>
+      </div>
+    </div>
+
+    <details class="lexicalRepairManualTools" data-challenge-manual-tools hidden>
       <summary>手动载入 / 调试</summary>
       <p>仅作为兼容入口。正常学习不需要在这里粘贴 JSON。</p>
       <textarea data-challenge-packet-input rows="7" placeholder="Paste Challenge Packet JSON"></textarea>
@@ -36,9 +48,9 @@ const base = import.meta.env.BASE_URL;
 
   <section class="lexicalRepairActive" data-challenge-question-panel hidden>
     <aside class="lexicalRepairCurrent">
-      <span>CURRENT OBJECT</span>
+      <span>当前对象</span>
       <h3 data-challenge-word>—</h3>
-      <b data-challenge-current-kind>Repair target</b>
+      <b data-challenge-current-kind>待修对象</b>
       <div class="lexicalRepairCurrentMeta">
         <small>来源</small>
         <p data-challenge-source>Repair</p>
@@ -145,6 +157,56 @@ const base = import.meta.env.BASE_URL;
   .lexicalRepairWaitingStatus small{color:var(--study-muted);font-size:13px;}
   .lexicalRepairWaitingStatus b{font-size:20px;letter-spacing:.13em;font-weight:650;}
   .lexicalRepairWaitingStatus span{color:var(--study-muted);font-size:13px;}
+  .lexicalRepairChatLoad{
+    grid-column:1 / -1;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:12px;
+    padding-top:14px;
+    border-top:1px solid var(--study-line);
+  }
+  .lexicalRepairChatLoad>button{
+    min-height:38px;
+    padding:0 14px;
+    border:1px solid #9ab0a4;
+    border-radius:7px;
+    background:#f5f8f6;
+    color:var(--study-ink);
+    font:inherit;
+    font-size:14px;
+    font-weight:700;
+    cursor:pointer;
+  }
+  .lexicalRepairChatLoad>small{color:var(--study-muted);font-size:13px;}
+  .lexicalRepairChatPaste{display:grid;gap:8px;flex:1 1 100%;width:100%;}
+  .lexicalRepairChatPaste textarea{
+    width:100%;
+    box-sizing:border-box;
+    resize:vertical;
+    padding:10px 12px;
+    border:1px solid var(--study-line);
+    border-radius:7px;
+    background:var(--study-surface);
+    color:var(--study-ink);
+    font:inherit;
+    font-size:14px;
+    line-height:1.5;
+  }
+  .lexicalRepairChatPaste>div{display:flex;gap:8px;}
+  .lexicalRepairChatPaste button{
+    min-height:36px;
+    padding:0 12px;
+    border:1px solid var(--study-line);
+    border-radius:7px;
+    background:var(--study-surface);
+    color:var(--study-ink);
+    font:inherit;
+    font-size:14px;
+    font-weight:650;
+    cursor:pointer;
+  }
+  .lexicalRepairChatPaste button.primary{border-color:#9ab0a4;background:#f5f8f6;}
   .lexicalRepairManualTools{
     grid-column:1 / -1;
     margin-top:2px;
@@ -382,8 +444,9 @@ if(root instanceof HTMLElement){
   const base=root.getAttribute('data-base')||'/';
   const repairPanel=root.closest('[data-lexical-panel="repair"]');
   const isRepairVisible=()=>repairPanel instanceof HTMLElement&&!repairPanel.hidden;
-  const importPanel=root.querySelector('[data-challenge-import-panel]'),questionPanel=root.querySelector('[data-challenge-question-panel]'),completePanel=root.querySelector('[data-challenge-complete-panel]'),packetInput=root.querySelector('[data-challenge-packet-input]'),importStatus=root.querySelector('[data-challenge-import-status]'),status=root.querySelector('[data-challenge-status]'),resumeButton=root.querySelector('[data-challenge-resume]'),continueButton=root.querySelector('[data-challenge-continue]'),feedback=root.querySelector('[data-challenge-feedback]'),issueButton=root.querySelector('[data-challenge-question-issue]'),choiceButtons=[...root.querySelectorAll('[data-challenge-choice]')],currentKind=root.querySelector('[data-challenge-current-kind]'),currentDemand=root.querySelector('[data-challenge-demand]'),currentDemandWrap=root.querySelector('[data-challenge-demand-wrap]'),openWord=root.querySelector('[data-challenge-open-word]'),sessionStrip=root.querySelector('[data-challenge-session-strip]'),waitingTitle=root.querySelector('[data-challenge-waiting-title]'),waitingCopy=root.querySelector('[data-challenge-waiting-copy]'),emptyLearn=root.querySelector('[data-challenge-empty-learn]'),manualTools=root.querySelector('[data-challenge-manual-tools]');
+  const importPanel=root.querySelector('[data-challenge-import-panel]'),questionPanel=root.querySelector('[data-challenge-question-panel]'),completePanel=root.querySelector('[data-challenge-complete-panel]'),packetInput=root.querySelector('[data-challenge-packet-input]'),importStatus=root.querySelector('[data-challenge-import-status]'),status=root.querySelector('[data-challenge-status]'),resumeButton=root.querySelector('[data-challenge-resume]'),continueButton=root.querySelector('[data-challenge-continue]'),feedback=root.querySelector('[data-challenge-feedback]'),issueButton=root.querySelector('[data-challenge-question-issue]'),choiceButtons=[...root.querySelectorAll('[data-challenge-choice]')],currentKind=root.querySelector('[data-challenge-current-kind]'),currentDemand=root.querySelector('[data-challenge-demand]'),currentDemandWrap=root.querySelector('[data-challenge-demand-wrap]'),openWord=root.querySelector('[data-challenge-open-word]'),sessionStrip=root.querySelector('[data-challenge-session-strip]'),waitingTitle=root.querySelector('[data-challenge-waiting-title]'),waitingCopy=root.querySelector('[data-challenge-waiting-copy]'),emptyLearn=root.querySelector('[data-challenge-empty-learn]'),manualTools=root.querySelector('[data-challenge-manual-tools]'),chatLoad=root.querySelector('[data-challenge-chat-load]'),chatLoadButton=root.querySelector('[data-challenge-chat-load-button]'),chatLoadStatus=root.querySelector('[data-challenge-chat-load-status]'),chatPaste=root.querySelector('[data-challenge-chat-paste]'),chatPasteInput=root.querySelector('[data-challenge-chat-paste-input]'),chatPasteStart=root.querySelector('[data-challenge-chat-paste-start]'),chatPasteCancel=root.querySelector('[data-challenge-chat-paste-cancel]');
   const readJson=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key)||'null')||fallback}catch{return fallback}},saveJson=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value))}catch{}},readLedger=()=>normalizeLexicalLedger(readJson(LEXICAL_LEDGER_STORAGE_KEY,emptyLexicalLedger())),saveLedger=(ledger)=>saveJson(LEXICAL_LEDGER_STORAGE_KEY,ledger),eventId=(prefix)=>`${prefix}:${globalThis.crypto?.randomUUID?.()||`${Date.now()}-${Math.random().toString(36).slice(2)}`}`,localDay=()=>new Date().toLocaleDateString('en-CA'),eventLocalDay=(iso)=>{const d=new Date(iso);return Number.isNaN(d.getTime())?'':d.toLocaleDateString('en-CA')};
+  const debugMode=new URLSearchParams(location.search).get('debug')==='1';
   let packet=null,progress={packetSignature:'',index:0,mode:'main',answered:false,pendingReconstruction:false,lastAnswerEventId:null},sessionEvents=[];
   const validateQuestion=(q)=>{if(!q||typeof q.stem!=='string'||!q.stem.trim()||!Array.isArray(q.options)||q.options.length<2||q.options.length>4)return false;const keys=q.options.map((o)=>o?.key);return !keys.some((k)=>!['left','up','right','down'].includes(k))&&new Set(keys).size===keys.length&&keys.includes(q.correct_key)},validatePacket=(value)=>{if(value?.schema!=='kianos.lexical.challenge_packet.v1')return 'schema 必须是 kianos.lexical.challenge_packet.v1';if(!Array.isArray(value.challenges)||!value.challenges.length)return 'challenges 不能为空';for(const item of value.challenges){if(!item?.challenge_id||!item?.word_id||!Number.isInteger(Number(item.ordinal))||!item?.target_kind)return 'Challenge identity 不完整';if(item.question_type!=='spatial_choice'||!validateQuestion(item))return `Challenge ${item.challenge_id||''} 不是有效 spatial_choice`;if(item.reconstruction&&!validateQuestion(item.reconstruction))return `Challenge ${item.challenge_id||''} reconstruction 无效`}return ''},signature=(value)=>`${value?.study_day||''}|${value?.generated_at||''}|${value?.challenges?.map((x)=>x.challenge_id).join(',')||''}`,currentItem=()=>packet?.challenges?.[progress.index]||null,currentQuestion=()=>{const item=currentItem();return progress.mode==='reconstruction'?item?.reconstruction:item},saveProgress=()=>saveJson(PROGRESS_KEY,progress),saveEvents=()=>saveJson(EVENTS_KEY,sessionEvents),setActive=(active)=>root.setAttribute('data-challenge-active',String(Boolean(active)));
   const targetKindLabel=(kind)=>({
@@ -401,17 +464,18 @@ if(root instanceof HTMLElement){
   const repairCountNode=document.querySelector('.lexicalRepairHeader [data-lexical-repair-count]');
   const syncWaitingState=()=>{
     const count=Number(repairCountNode?.textContent||0);
-    if(waitingTitle)waitingTitle.textContent=count>0?'等待 Chat 编译下一组 Test':'当前没有需要处理的 Repair';
+    if(waitingTitle)waitingTitle.textContent=count>0?'等待 Chat 准备下一组练习':'当前没有需要处理的 Repair';
     if(waitingCopy)waitingCopy.textContent=count>0
-      ? '当前有 '+count+' 个局部 Repair 对象；Chat 决定下一组测什么，Test 到达后这里直接开始。'
+      ? '当前有 '+count+' 个局部 Repair 对象；Chat 决定下一组测什么，练习准备好后这里直接开始。'
       : '没有需要优先处理的局部问题。可以继续 Learn；以后有新的有效 evidence 再回来。';
     if(emptyLearn instanceof HTMLAnchorElement){
       const learnNav=document.querySelector('[data-lexical-learn-nav]');
       emptyLearn.href=learnNav instanceof HTMLAnchorElement?learnNav.href:base+'vocabulary/';
       emptyLearn.hidden=count>0;
     }
-    if(manualTools instanceof HTMLElement)manualTools.hidden=count===0;
-    if(!packet&&status)status.textContent=count>0?'Waiting for Test':'No Repair';
+    if(chatLoad instanceof HTMLElement)chatLoad.hidden=count===0;
+    if(manualTools instanceof HTMLElement)manualTools.hidden=!(debugMode&&count>0);
+    if(!packet&&status)status.textContent=count>0?'等待练习':'暂无 Repair';
   };
   if(repairCountNode){
     new MutationObserver(syncWaitingState).observe(repairCountNode,{childList:true,subtree:true});
@@ -578,6 +642,35 @@ if(root instanceof HTMLElement){
     importPanel.hidden=false;
     syncWaitingState();
   };
+
+  const startFromChatText=(raw)=>{
+    let value;
+    try{value=JSON.parse(String(raw||''))}catch{
+      if(chatLoadStatus)chatLoadStatus.textContent='没有识别到有效练习，请重新复制 Chat 生成的内容。';
+      return false;
+    }
+    const error=validatePacket(value);
+    if(error){
+      if(chatLoadStatus)chatLoadStatus.textContent='这份练习无法开始，请让 Chat 重新生成。';
+      return false;
+    }
+    startPacket(value,true);
+    if(chatPaste instanceof HTMLElement)chatPaste.hidden=true;
+    if(chatLoadStatus)chatLoadStatus.textContent='已载入，开始作答。';
+    return true;
+  };
+  chatLoadButton?.addEventListener('click',()=>{
+    if(chatPaste instanceof HTMLElement)chatPaste.hidden=false;
+    if(chatPasteInput instanceof HTMLTextAreaElement)requestAnimationFrame(()=>chatPasteInput.focus());
+  });
+  chatPasteCancel?.addEventListener('click',()=>{
+    if(chatPaste instanceof HTMLElement)chatPaste.hidden=true;
+    if(chatPasteInput instanceof HTMLTextAreaElement)chatPasteInput.value='';
+    if(chatLoadStatus)chatLoadStatus.textContent='复制 Chat 生成的练习后，在这里粘贴并开始。';
+  });
+  chatPasteStart?.addEventListener('click',()=>{
+    if(chatPasteInput instanceof HTMLTextAreaElement)startFromChatText(chatPasteInput.value);
+  });
 
   root.querySelector('[data-challenge-import]')?.addEventListener('click',()=>{
     let value;
