@@ -16,7 +16,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     timeout-minutes: 20
     env:
-      POLITICS_FRESH_EVIDENCE: ${{ runner.temp }}/politics-final-fresh
+      POLITICS_FRESH_EVIDENCE: /tmp/politics-final-fresh
       POLITICS_FRESH_ALLOW_FAILURES: '1'
     steps:
       - uses: actions/checkout@v4
@@ -38,6 +38,10 @@ jobs:
       - name: Build exact Current
         working-directory: static-web
         run: npm run build > "$POLITICS_FRESH_EVIDENCE/build.log" 2>&1
+      - name: Correct audit-only fixture access (not product code)
+        working-directory: static-web
+        run: |
+          node --input-type=module -e "import fs from 'node:fs'; const p='scripts/test-politics-final-fresh-browser.mjs'; let s=fs.readFileSync(p,'utf8'); s=s.replaceAll('q.takeaway.trim()', 'q.refined.takeaway.trim()').replaceAll('q.chatExplanation.trim()', 'q.refined.chatExplanation.trim()'); fs.writeFileSync(p,s);"
       - name: Execute independent attacks (findings are in JSON, not workflow color)
         working-directory: static-web
         run: node scripts/test-politics-final-fresh-browser.mjs > "$POLITICS_FRESH_EVIDENCE/browser.log" 2>&1
@@ -51,5 +55,5 @@ jobs:
         if: always()
         with:
           name: politics-final-fresh-${{ matrix.os }}
-          path: ${{ runner.temp }}/politics-final-fresh/
+          path: /tmp/politics-final-fresh/
           retention-days: 7
