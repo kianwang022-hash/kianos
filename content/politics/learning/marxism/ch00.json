@@ -838,15 +838,23 @@
         "POL27-MEM-MARX-C00-S02-M01"
       ],
       "admission_state": "CANDIDATE_ONLY",
-      "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+      "admission_blocker": "EXACT_WORDING_OR_NORMALIZATION_NOT_SEPARATELY_ADMITTED",
       "deferred_domains": [
         "马恩列经典著作—人物—理论标志完整对应",
         "基本特征完整逐项固定表述"
       ],
-      "rule": "Readable Current+historical candidates are materialized; OCR-uncertain works/features remain explicitly deferred rather than guessed."
+      "rule": "Stable semantic Memory is admitted through the sidecar. This precision_knowledge object governs only exactness; exact wording/normalization remains candidate-only until separately owned.",
+      "memory_admission_state": "ADMITTED_STABLE",
+      "precision_admission_state": "CANDIDATE_EXACTNESS"
     },
     "analysis_output_hooks": [],
     "analysis_output_status": "NONE_PRIMARY",
-    "first_round_effect": "NONE"
+    "first_round_effect": "NONE",
+    "memory_knowledge": {
+      "policy": "REFERENCE_MEMORY_SIDECAR",
+      "owner_path": "content/politics/learning/marxism/ch00.memory.json",
+      "memory_admission_state": "ADMITTED_STABLE",
+      "role": "LEG26 upgrades Current Chengfeng-grounded stable objects into durable semantic Memory; learner-specific W/U only changes priority."
+    }
   }
 }

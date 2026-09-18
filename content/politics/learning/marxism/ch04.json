@@ -302,9 +302,11 @@
         "POL27-MEM-MARX-C04-S03-M01"
       ],
       "admission_state": "CANDIDATE_ONLY",
-      "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+      "admission_blocker": "EXACT_WORDING_OR_NORMALIZATION_NOT_SEPARATELY_ADMITTED",
       "deferred_domains": [],
-      "rule": "Candidate-only Knowledge is materialized from Current P0/P1 recall needs plus historical handbook support; durable review debt remains admission-gated."
+      "rule": "Stable semantic Memory is admitted through the sidecar. This precision_knowledge object governs only exactness; exact wording/normalization remains candidate-only until separately owned.",
+      "memory_admission_state": "ADMITTED_STABLE",
+      "precision_admission_state": "CANDIDATE_EXACTNESS"
     },
     "analysis_output_hooks": [
       {
@@ -381,6 +383,12 @@
         "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
       }
     ],
-    "first_round_effect": "NONE"
+    "first_round_effect": "NONE",
+    "memory_knowledge": {
+      "policy": "REFERENCE_MEMORY_SIDECAR",
+      "owner_path": "content/politics/learning/marxism/ch04.memory.json",
+      "memory_admission_state": "ADMITTED_STABLE",
+      "role": "LEG26 upgrades Current Chengfeng-grounded stable objects into durable semantic Memory; learner-specific W/U only changes priority."
+    }
   }
 }
