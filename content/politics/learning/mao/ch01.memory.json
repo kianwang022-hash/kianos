@@ -1,0 +1,86 @@
+{
+  "schema": "kianos.politics.memory_projection.v1",
+  "status": "CURRENT_K_REVIEWED",
+  "chapter_id": "POL27-LEARN-MAO-C01",
+  "policy": "SOURCE_GROUNDED_SELECTIVE",
+  "principle": "Candidate existence is Knowledge; durable review debt remains admission-gated.",
+  "preferred_memory_reference": {
+    "role": "DESIGNATED_MEMORY_HANDBOOK",
+    "label": "腿姐《冲刺背诵手册》",
+    "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+    "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MAO.md",
+    "rule": "Current Mao Knowledge must independently own the relation. LEG26 supports historical retention priority; current-year source/WU evidence controls durable admission."
+  },
+  "admission_gate": {
+    "default": "NOT_ADMITTED",
+    "requires_source_grounding": true,
+    "admit_when_any": [
+      "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+      "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED"
+    ],
+    "do_not_admit_for": [
+      "historical handbook presence alone",
+      "chapter importance alone",
+      "one stable correct answer"
+    ]
+  },
+  "units": {
+    "POL27-CF-MAO-C01-S02": {
+      "title": "毛泽东思想的主要内容和活的灵魂",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MAO-C01-S02-M01",
+          "form": "fixed_list",
+          "statement": "毛泽东思想活的灵魂集中体现为实事求是、群众路线、独立自主。",
+          "source_refs": [
+            "POL27-CF-MAO-C01-S02"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MAO-P075",
+            "LEG26-UPPER-MAO-P076"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        },
+        {
+          "id": "POL27-MEM-MAO-C01-S02-M02",
+          "form": "hat_boundary",
+          "statement": "实事求是、群众路线、独立自主彼此相关但各有身份，不能把三者帽子互换。",
+          "source_refs": [
+            "POL27-CF-MAO-C01-S02"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MAO-P075",
+            "LEG26-UPPER-MAO-P076"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    },
+    "POL27-CF-MAO-C01-S03": {
+      "title": "毛泽东思想的历史地位",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MAO-C01-S03-M01",
+          "form": "identity",
+          "statement": "毛泽东思想是马克思主义中国化时代化第一个重大理论成果。",
+          "source_refs": [
+            "POL27-CF-MAO-C01-S03"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-MAO-P076"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    }
+  },
+  "deferred_candidate_domains": [
+    {
+      "domain": "形成/成熟/继续发展阶段的全部文献标志",
+      "reason": "Historically useful but exact milestone list should be rebound to current-year designated source before freezing."
+    }
+  ]
+}
