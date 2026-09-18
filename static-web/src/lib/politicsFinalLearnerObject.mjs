@@ -23,7 +23,7 @@ function textList(value) {
 }
 
 function headingFor(item) {
-  for (const key of ['label', 'role', 'name', 'left', 'from_label']) {
+  for (const key of ['label', 'role', 'name']) {
     if (present(item?.[key])) return String(item[key]);
   }
   return null;
