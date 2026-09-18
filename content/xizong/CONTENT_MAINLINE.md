@@ -105,6 +105,37 @@ F remains later than D/E unless exam priority or a real dependency justifies rep
 
 # 3｜Lane B — Questions
 
+## B0｜Bounded production-protocol recovery — ACTIVE ON RECOVERY BRANCH
+
+A Current-first recovery task is restoring production semantics that survived only in historical receipts while the final assets remained Current.
+
+Bounded scope:
+
+```text
+repository Learning-asset production
+→ restore substantial-L self-adversarial + fresh-independent acceptance rule
+
+Xizong Question Explanation
+→ restore adaptive FAST/deep production rule
+→ repair stale README/manifest process pointer
+→ add production-integrity validation
+
+then
+→ scan Current content owners for the same "artifact survived / production protocol disappeared" failure
+→ repair only confirmed cases
+→ close this temporary recovery task
+```
+
+Hard boundaries:
+
+- no medical Core rewrite;
+- no 3,750-question uniform enrichment campaign;
+- no UI / Runtime redesign;
+- no learner-state mutation;
+- no new durable architecture layer when an existing owner can carry the recovered rule.
+
+This is a temporary recovery task, not a fourth long-running Xizong content lane.
+
 Keep two truths separate.
 
 ## B1｜Exact official System question scope
