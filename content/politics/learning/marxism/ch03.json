@@ -322,19 +322,19 @@
       ]
     },
     "precision_knowledge": {
-      "policy": "PENDING_EXACT_CANDIDATE_MATERIALIZATION",
-      "candidate_domains": [
-        "实践与认识四重关系",
-        "真理客观性/一元性/绝对性相对性",
-        "真理谬误与真理价值 boundaries",
-        "实践检验真理标准确定性/不确定性"
+      "policy": "REFERENCE_MEMORY_SIDECAR",
+      "owner_path": "content/politics/learning/marxism/ch03.memory.json",
+      "candidate_ids": [
+        "POL27-MEM-MARX-C03-S01-M01",
+        "POL27-MEM-MARX-C03-S01-M02",
+        "POL27-MEM-MARX-C03-S02-M01",
+        "POL27-MEM-MARX-C03-S02-M02",
+        "POL27-MEM-MARX-C03-S02-M03"
       ],
-      "materialization_status": "WAIT_CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_OR_WU_EVIDENCE",
-      "historical_source_refs": [
-        "LEG26-UPPER-MARX-P026",
-        "LEG26-UPPER-MARX-P031",
-        "LEG26-UPPER-MARX-P033"
-      ]
+      "admission_state": "CANDIDATE_ONLY",
+      "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+      "deferred_domains": [],
+      "rule": "Candidate-only Knowledge is materialized from Current P0/P1 recall needs plus historical handbook support; durable review debt remains admission-gated."
     },
     "analysis_output_hooks": [
       {
