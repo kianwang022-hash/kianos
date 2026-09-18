@@ -275,7 +275,7 @@ body#kianos-workspace.uiWordStudy .kianosShellMain>.productCanvas{
   min-width:0;
   min-height:0;
   margin:0;
-  padding:8px 10px 9px;
+  padding:8px 10px 72px;
   flex-direction:column;
   overflow:hidden;
   box-sizing:border-box;
@@ -910,6 +910,11 @@ body#kianos-workspace.uiWordStudy .portedVocabFoot{
 
 /* Stable one-row bottom dock: visual legend for the keyboard contract. */
 body#kianos-workspace.uiWordStudy .lexicalActionDock{
+  position:fixed;
+  left:10px;
+  right:10px;
+  bottom:8px;
+  z-index:70;
   display:grid;
   grid-template-columns:1.5fr 1fr 1fr .72fr .86fr;
   gap:5px;
