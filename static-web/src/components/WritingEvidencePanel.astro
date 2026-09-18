@@ -5,9 +5,9 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
 <section class="writingEvidencePanel" data-writing-evidence-panel data-task-id={task.id} hidden>
   <header>
     <div>
-      <span>Optional · Later Fresh Transfer</span>
+      <span>可选 · 后续验证</span>
       <h2>这篇刚好测试了一个既有可复用问题</h2>
-      <p>same-prompt repair 不能关闭 target；这里只在当前完整 first draft 已经自然产生、且确实存在 eligible target 时出现。这个 panel 本身不是新的学习任务。</p>
+      <p>只有当前这篇刚好碰到以前反复出现的问题时，这里才会出现。它不是新的学习任务，也不会阻塞下一篇。</p>
     </div>
     <aside data-evidence-summary></aside>
   </header>
@@ -16,30 +16,28 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
 
   <section class="writingEvidenceTarget" data-evidence-target hidden>
     <div class="writingEvidenceTargetHead">
-      <span data-target-state>PENDING</span>
+      <span data-target-state>待验证</span>
       <strong data-target-label></strong>
-      <code data-target-id></code>
-    </div>
+     </div>
     <p data-target-demand></p>
-    <small data-target-origin></small>
-
+ 
     <div class="writingEvidenceActions">
-      <button type="button" class="primary" data-copy-transfer>可选：让 Chat 判断这条 fresh evidence</button>
-      <small data-copy-transfer-status>只判断 named target，不重做整篇 review。</small>
+      <button type="button" class="primary" data-copy-transfer>可选：让 Chat 判断这次表现</button>
+      <small data-copy-transfer-status>只判断这个问题，不重做整篇复盘。</small>
     </div>
 
     <label class="writingEvidenceField">
-      <span>Chat Transfer Return</span>
-      <textarea rows="10" data-transfer-return placeholder="粘贴 kianos.english.writing.transfer-return.v1 JSON…"></textarea>
+      <span>Chat 返回</span>
+      <textarea rows="10" data-transfer-return placeholder="把 Chat 返回的判断粘贴到这里…"></textarea>
     </label>
     <div class="writingEvidenceActions">
-      <button type="button" class="primary" data-import-transfer>导入 Transfer Evidence →</button>
-      <small data-import-transfer-status>回写只发生在本机 private evidence ledger。</small>
+      <button type="button" class="primary" data-import-transfer>应用 Chat 判断 →</button>
+      <small data-import-transfer-status>这次判断只保存在本机。</small>
     </div>
   </section>
 
   <details class="writingEvidenceLedger">
-    <summary>Private evidence ledger</summary>
+    <summary>本机验证记录</summary>
     <div data-ledger-list></div>
   </details>
 
@@ -104,16 +102,16 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
 
     function renderLedger() {
       const summary = summarizeWritingEvidenceLedger(ledger);
-      setText('[data-evidence-summary]', `${summary.pending} pending · ${summary.closed} closed`);
+      setText('[data-evidence-summary]', `${summary.pending} 待验证 · ${summary.closed} 已完成`);
       const list = evidenceRoot.querySelector('[data-ledger-list]');
       if (!(list instanceof HTMLElement)) return;
       list.replaceChildren();
       ledger.targets.forEach((target) => {
         const row = document.createElement('div');
         row.className = 'writingEvidenceLedgerRow';
-        const state = document.createElement('span'); state.textContent = target.status;
+        const state = document.createElement('span'); state.textContent = String(target.status || '').toLowerCase() === 'closed' ? '已完成' : '待验证';
         const label = document.createElement('strong'); label.textContent = target.label;
-        const meta = document.createElement('small'); meta.textContent = `${target.targetId} · ${target.events.length} fresh evidence event${target.events.length === 1 ? '' : 's'}`;
+        const meta = document.createElement('small'); meta.textContent = `${target.events.length} 次后续记录`;
         row.append(state, label, meta);
         list.append(row);
       });
@@ -140,13 +138,11 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
       activeTarget = eligible[0];
       evidenceRoot.hidden = false;
       targetPanel.hidden = false;
-      setStatus('[data-evidence-status]', `本篇 first draft 天然提供了 ${eligible.length} 个可检查 target；不判断也不会阻塞下一篇。`);
-      setText('[data-target-state]', activeTarget.status);
+      setStatus('[data-evidence-status]', `这篇刚好可以顺手检查 ${eligible.length} 个以前的问题；现在不判断也不会阻塞下一篇。`);
+      setText('[data-target-state]', String(activeTarget.status || '').toLowerCase() === 'closed' ? '已完成' : '待验证');
       setText('[data-target-label]', activeTarget.label);
-      setText('[data-target-id]', activeTarget.targetId);
-      setText('[data-target-demand]', activeTarget.underlyingDemand);
-      setText('[data-target-origin]', `Origin · ${activeTarget.originTaskId} · admitted ${activeTarget.admittedAt || 'unknown time'}`);
-    }
+            setText('[data-target-demand]', activeTarget.underlyingDemand);
+          }
 
     async function copyActivePacket() {
       try {
@@ -178,12 +174,12 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
         persistLedger();
         if (box instanceof HTMLTextAreaElement) box.value = '';
         const message = parsed.verdict === 'CLOSE'
-          ? 'Fresh evidence 已关闭该 target。'
+          ? '这次表现已经足够确认这个问题稳定。'
           : parsed.verdict === 'REOPEN'
-            ? 'Contradictory fresh evidence 已重新打开同一 target。'
+            ? '这次表现说明这个问题仍不稳定，保留到以后继续观察。'
             : parsed.verdict === 'IRRELEVANT'
-              ? '本篇与该 target 无关；未制造 mastery/failure 结论。'
-              : 'Fresh evidence 已记录；target 状态按证据保持。';
+              ? '这篇与这个问题无关，不做结论。'
+              : '这次表现已记录，后续再根据新作文判断。';
         setStatus('[data-import-transfer-status]', message);
         render();
       } catch (error) {
