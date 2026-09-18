@@ -7,6 +7,38 @@ This file does not own History Source Truth, teaching content, Politics learning
 
 ---
 
+## Bounded Source→Knowledge lane｜LEG26 historical baseline
+
+LEG26-HISTORY has now been reconciled against Current History C01–C10 without changing the accepted History causal learner model or S/K/L/P/R/E engineering chain.
+
+The historical package has three distinct uses:
+
+```text
+Upper 13 topical reviews
+→ stage-specific objective compression
+
+Lower four cross-cutting lines
+→ meetings / people-documents / land policy / ideological liberation
+→ second-round horizontal compression + precise repair
+
+Lower analysis templates
+→ later Chat-first answer organization
+```
+
+Hard boundary:
+
+- History first round remains **chronology → stage → turning point → cause → evaluation**;
+- the four horizontal lines are not a second History course and do not replace causal understanding;
+- no date/meeting/document table is promoted merely because it is compact;
+- recent-history C10 material is treated as high-delta and must be refreshed against current-year Xi/current-affairs material;
+- no new Memory sidecars were created;
+- **zero** LEG26-only candidates were admitted to durable current-year Memory;
+- UI / Projection / Runtime remains frozen.
+
+Reopen this lane only when real Wrong/Uncertain evidence exposes a precision problem, current-year recent-history material arrives, or the later analysis-output phase begins.
+
+---
+
 ## Work Cursor
 
 **Scope:** History whole-subject acceptance under current shared Politics Surface Ownership  
