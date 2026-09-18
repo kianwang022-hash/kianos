@@ -182,7 +182,7 @@ try {
   check(Boolean(reviewedBlockMeta), 'reviewed_relation_targets_current_a1_block', reviewedQuestion.relation.blockId);
   const targetObjectId = `xizong:${reviewedQuestion.relation.blockId}`;
   const targetStudyKey = `kianos-xizong-astro-v2:${targetObjectId}`;
-  await cdp.navigate(`${BASE}/xizong/circulation/`);
+  await cdp.navigate(`${BASE}/xizong/practice/circulation/`);
   await cdp.evaluate(`localStorage.setItem(${js(targetStudyKey)}, JSON.stringify({stage:'block_learn',groupIndex:0,kpIndex:0,learned:{${js(reviewedQuestion.relation.primaryKpId)}:true},ratings:{${js(reviewedQuestion.relation.primaryKpId)}:'unknown'},blockRecallDone:false,completed:false}))`);
   const sweepKey = 'kianos:xizong:system-question-sweep:circulation:v1';
   await cdp.evaluate(`localStorage.setItem(${js(sweepKey)}, JSON.stringify({results:{${js(stableQuestion.questionId)}:{status:'stable',selected:['A']},${js(reviewedQuestion.questionId)}:{status:'wrong',selected:['B']},${js(unresolvedQuestion.questionId)}:{status:'uncertain',selected:['C']}}}))`);
