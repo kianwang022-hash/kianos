@@ -234,19 +234,19 @@
       "cross_unit_confusables": []
     },
     "precision_knowledge": {
-      "policy": "CURRENT_GROUNDED_CANDIDATE_DOMAIN",
-      "candidate_domains": [
-        "活的灵魂三项 identity",
-        "实事求是/群众路线/独立自主各自帽子",
-        "历史地位 fixed formulations",
-        "形成发展阶段/代表文献 identity"
+      "policy": "REFERENCE_MEMORY_SIDECAR",
+      "owner_path": "content/politics/learning/mao/ch01.memory.json",
+      "candidate_ids": [
+        "POL27-MEM-MAO-C01-S02-M01",
+        "POL27-MEM-MAO-C01-S02-M02",
+        "POL27-MEM-MAO-C01-S03-M01"
       ],
-      "historical_source_refs": [
-        "LEG26-UPPER-MAO-P074",
-        "LEG26-UPPER-MAO-P075",
-        "LEG26-UPPER-MAO-P076"
+      "admission_state": "CANDIDATE_ONLY",
+      "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+      "deferred_domains": [
+        "形成/成熟/继续发展阶段的全部文献标志"
       ],
-      "materialization_status": "CANDIDATE_OBJECTS_TO_BE_MATERIALIZED_BELOW"
+      "rule": "Current Knowledge + inspected historical handbook support creates candidate-only precision; durable Memory remains admission-gated."
     },
     "analysis_output_hooks": [],
     "analysis_output_status": "NO_DEDICATED_LEG26_OUTPUT_BANK_DO_NOT_INVENT",
