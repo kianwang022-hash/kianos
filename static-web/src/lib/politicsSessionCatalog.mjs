@@ -171,9 +171,24 @@ function chapterMemoryModelLines(compression) {
     seen.add(text);
     lines.push({ field, text });
   };
+  const addJoined = (field, values) => {
+    const rows = Array.isArray(values) ? values.map(clean).filter(Boolean) : [];
+    if (rows.length) add(field, rows.join(' → '));
+  };
+  const chapter = compression?.chapter_compression || {};
 
   add('reconstruction', compression?.reconstruction);
-  add('reconstruction', compression?.chapter_compression?.reconstruction);
+  add('reconstruction', chapter?.reconstruction);
+
+  // History causal-movie shape: explicit fixed keys only.
+  addJoined('timeline', chapter?.timeline);
+  add('causal_chain', chapter?.causal_chain);
+  add('historical_direction', chapter?.historical_direction);
+  add('stage_shift', chapter?.stage_shift);
+  add('double_judgment', chapter?.double_judgment);
+  add('whole_course_bridge', chapter?.whole_course_bridge);
+  for (const row of chapter?.comparison || []) add('comparison', row);
+
   for (const row of compression?.reconstruction_targets || []) add('target', row);
   for (const row of compression?.decisive_boundaries || []) add('boundary', row);
   for (const row of compression?.cross_unit_confusables || []) add('confusable', row);
