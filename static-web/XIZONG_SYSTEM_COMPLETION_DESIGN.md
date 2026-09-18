@@ -12,6 +12,8 @@ This owner is intentionally narrow. It owns **System Recall and the handoff out 
 
 ```text
 whole System genuinely learned
+→ System Framework releases one quiet “进入 System Recall” handoff
+→ dedicated System Recall surface
 → System Recall Front
 → System Recall Reveal
 → complete this Recall
@@ -19,6 +21,10 @@ whole System genuinely learned
 ```
 
 System Recall is part of the learning/reconstruction chain and therefore **does not depend on exact official-question scope availability**. Question-scope availability controls only the Practice handoff.
+
+Hard surface rule:
+
+> **System Framework and System Recall are two different learner surfaces.** The System page may release the next-action handoff after every Block is genuinely complete, but it must not embed the Recall workspace inside the Framework page as an accordion, details region or bottom expansion. Recall owns its own full L3 route/workspace.
 
 ## 2｜Recall Front
 
@@ -96,7 +102,7 @@ System Recall completion is not:
 
 ## 6｜Mac visual direction
 
-Mac-wide origin:
+Mac-wide origin is a dedicated Recall page/workspace, not a region appended under System Framework:
 
 ```text
 ┌──────────────────┬──────────────────────────────────────────────────────┐
@@ -113,12 +119,13 @@ Use broad/full-bodied Chinese typography, readable 16–22px learner copy, moder
 ## 7｜Acceptance boundary
 
 Required before merge:
-1. System Recall appears only after real System completion;
-2. Front is answer-safe;
-3. Reveal consumes Current cognition without invention;
-4. no scratch-input dependency;
-5. System Recall exists even when exact question scope is absent;
-6. Practice handoff appears only when a real scope exists;
-7. browser screenshot + Kian Human Gate.
+1. System Framework releases the dedicated System Recall entry only after real System completion;
+2. System Recall is rendered on its own L3 route/workspace, not embedded under System Framework;
+3. Front is answer-safe;
+4. Reveal consumes Current cognition without invention;
+5. no scratch-input dependency;
+6. System Recall exists even when exact question scope is absent;
+7. Practice handoff appears only when a real scope exists;
+8. browser screenshot + Kian Human Gate.
 
 Real learner U remains separate.
