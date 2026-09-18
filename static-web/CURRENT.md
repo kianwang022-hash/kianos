@@ -36,6 +36,36 @@ Do not revive historical UI migrations merely because old branches/PRs still exi
 
 ---
 
+## Active platform lane — Exam-Horizon adaptation
+
+The learner Website is being adapted to one stable execution model through the 2026-12-20 exam horizon.
+
+Shared invariants:
+
+```text
+canonical Content
+→ accepted Final Learner Object
+→ Visual
+→ Runtime
+→ Website
+
+Website → factual learner Evidence → Chat
+Chat → typed private instruction / plan → Runtime
+```
+
+Hard boundaries:
+- Website/Runtime does not complete missing Content semantics;
+- adaptive selection, diagnosis, cross-subject allocation and next-action strategy belong to Chat;
+- missing/stale/invalid Chat control fails closed rather than triggering an automatic scheduler;
+- subject cognition remains subject-owned; shared Engineering is reused only when behavior is genuinely the same;
+- phase changes may compose existing task/runtime capabilities, but do not create a second phase-specific platform architecture.
+
+Current shared platform cutover:
+- `#436 / work/exam-chat-control-20260918` — remove production cross-subject auto-scheduling and consume typed private Chat plans.
+
+Subject-specific Final Object / exam-horizon work remains routed through each subject's own Current/active writer. Do not duplicate those child cursors here.
+
+
 ## Queued closure lane
 
 ### UI Closure / CSS ownership consolidation — **WAITING FOR SUBJECT HUMAN GATES**
