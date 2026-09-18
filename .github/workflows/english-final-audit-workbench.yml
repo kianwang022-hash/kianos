@@ -1,0 +1,39 @@
+name: English fresh audit workbench
+on:
+  push:
+    branches: [work/english-final-audit-20260919]
+    paths:
+      - .github/workflows/english-final-audit-workbench.yml
+      - static-web/scripts/english-final-fresh-audit*
+permissions:
+  contents: read
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Prepare exact source and locked execution dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          git rev-parse HEAD > "$RUNNER_TEMP/audit-head.txt"
+          git archive --format=tar HEAD | gzip > "$RUNNER_TEMP/kianos-source.tgz"
+          cd static-web
+          if test -f package-lock.json; then npm ci; else npm install --package-lock=false; fi
+          npm install --no-save --package-lock=false playwright
+          tar -czf "$RUNNER_TEMP/kianos-node-deps.tgz" node_modules
+      - uses: actions/upload-artifact@v4
+        with:
+          name: english-fresh-audit-workspace
+          path: |
+            ${{ runner.temp }}/audit-head.txt
+            ${{ runner.temp }}/kianos-source.tgz
+            ${{ runner.temp }}/kianos-node-deps.tgz
+          retention-days: 2
