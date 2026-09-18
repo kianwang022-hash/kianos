@@ -28,11 +28,20 @@ reliable raw material / provenance / question truth
 KNOWLEDGE RECONSTRUCTION
 AI turns Source into coherent learner-worthy Knowledge
         ↓
+K SEMANTIC FALSIFICATION / ACCEPTANCE
+attack the model; repair real defects; use fresh readback when material
+        ↓
 LEARNING LOGIC
 how this learner should form / retrieve / apply the capability
         ↓
+L SELF-ADVERSARIAL + FRESH INDEPENDENT ACCEPTANCE
+for substantial reconstructed Learning, attack before PASS
+        ↓
 CONTENT REALIZATION
-materialize the approved Knowledge + Learning decisions
+materialize the accepted Knowledge + Learning decisions
+        ↓
+CONTENT CLOSURE READBACK
+prove realization did not drift for schema / UI convenience
         ↓
 PRESENTATION / INTERACTION when needed
 how the accepted meaning should appear at the current learner state
