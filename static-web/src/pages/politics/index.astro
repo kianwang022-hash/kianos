@@ -1,51 +1,45 @@
 ---
 import '../../styles/product-closure.css';
+import '../../styles/politics-home-workspace.css';
 import Base from '../../layouts/Base.astro';
 import PoliticsHomeTools from '../../components/PoliticsHomeTools.astro';
-import { listPoliticsSubjectsCurrent, politicsCurrentHealth } from '../../lib/politicsCurrent.mjs';
+import { listPoliticsSubjectsCurrent } from '../../lib/politicsCurrent.mjs';
 
 const base = import.meta.env.BASE_URL;
 const subjects = listPoliticsSubjectsCurrent();
-const health = politicsCurrentHealth();
-const chapterCount = subjects.reduce((sum, subject) => sum + subject.chapters.length, 0);
-const firstSubject = subjects[0];
-const firstChapter = firstSubject?.chapters?.[0];
-const firstHref = firstSubject && firstChapter ? `${base}politics/${firstSubject.subject}/${firstChapter.code}/` : `${base}politics/`;
-const firstLabel = firstChapter ? `${firstSubject.label} · ${firstChapter.title}` : '开始政治学习';
+const firstHref = `${base}politics/learn/`;
+const firstLabel = '选择科目和章节';
 ---
 <Base title="政治" active="politics" showLead={false}>
-  <header class="politicsOverviewHeader">
-    <div><p class="pageKicker">POLITICS · STUDY WORKSPACE</p><h1>政治</h1><p>带着结构进入原讲义，用题目验证，再回到真正的缺口。</p></div>
-    <nav class="politicsOverviewActions"><a class="politicsPracticeEntry" href={`${base}politics/practice/`}>进入肖1000 <span>→</span></a><a href={`${base}politics/review/`}>今日回访 →</a></nav>
-  </header>
-  <PoliticsHomeTools firstHref={firstHref} firstLabel={firstLabel} />
-  <section class="politicsSubjectWorkbench" data-politics-subject-workbench>
-    <header><h2>五科与学习章节</h2><span>先定位 → 乘风原讲义 → 验证与修补</span></header>
-    <nav class="politicsSubjectTabs" aria-label="政治科目">
-      {subjects.map((subject, index) => <a href={`#subject-${subject.subject}`} class={index===0?'active':''} data-politics-subject-tab={subject.subject} aria-current={index===0?'true':undefined}><strong>{subject.label}</strong><span>{subject.shape}</span></a>)}
-    </nav>
-    {subjects.map((subject,index) => <section class="politicsSubjectPanel" id={`subject-${subject.subject}`} data-politics-subject-panel={subject.subject}>
-      <div class="politicsSubjectIdentity"><span>{subject.shape}</span><h2>{subject.label}</h2><p>{subject.description}</p><small>{subject.chapters.length} 个章节 · 自由定位</small></div>
-      <nav class="politicsChapterRows" aria-label={`${subject.label}章节`}>
-        {subject.chapters.map((chapter,i)=><a href={`${base}politics/${subject.subject}/${chapter.code}/`}><span>{String(i+1).padStart(2,'0')}</span><strong>{chapter.title}</strong><b>↗</b></a>)}
+  <section class="politicsHomeV2" data-politics-home-v2>
+    <header class="politicsHomeHeader">
+      <div>
+        <span>政治</span>
+        <h1>从上次位置继续，或进入五科</h1>
+      </div>
+      <p>Home 只负责下一步，不重复章节目录和学习说明。</p>
+    </header>
+
+    <PoliticsHomeTools firstHref={firstHref} firstLabel={firstLabel} />
+
+    <section class="politicsHomeSubjects" aria-labelledby="politics-home-subjects-title">
+      <header>
+        <div>
+          <span>五科</span>
+          <h2 id="politics-home-subjects-title">选择科目</h2>
+        </div>
+        <a href={`${base}politics/learn/`}>全部章节 →</a>
+      </header>
+
+      <nav aria-label="政治五科入口">
+        {subjects.map((subject) => (
+          <a href={`${base}politics/learn/#subject-${subject.subject}`}>
+            <strong>{subject.label}</strong>
+            <span>{subject.shape}</span>
+            <b>进入 →</b>
+          </a>
+        ))}
       </nav>
-    </section>)}
+    </section>
   </section>
-  <p class="politicsOverviewFoot">连续学习在 iPad / MarginNote 原讲义；这里保留框架、验证和准确返回。</p>
 </Base>
-<script>
-  // View selection only. No progress, scheduler, completion, or Resume writes.
-  const workbench=document.querySelector('[data-politics-subject-workbench]');
-  if(workbench){
-    const panels=[...workbench.querySelectorAll<HTMLElement>('[data-politics-subject-panel]')];
-    const links=[...workbench.querySelectorAll<HTMLAnchorElement>('[data-politics-subject-tab]')];
-    const select=(id:string)=>{
-      if(!panels.some(p=>p.dataset.politicsSubjectPanel===id))return;
-      panels.forEach(p=>{p.hidden=p.dataset.politicsSubjectPanel!==id;});
-      links.forEach(a=>{const active=a.dataset.politicsSubjectTab===id;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current');});
-    };
-    const readHash=()=>{const id=location.hash.replace('#subject-','');select(panels.some(p=>p.dataset.politicsSubjectPanel===id)?id:panels[0]?.dataset.politicsSubjectPanel||'');};
-    links.forEach(a=>a.addEventListener('click',()=>select(a.dataset.politicsSubjectTab||'')));
-    addEventListener('hashchange',readHash);readHash();
-  }
-</script>
