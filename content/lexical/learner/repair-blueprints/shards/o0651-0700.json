@@ -1,0 +1,410 @@
+{
+  "schema": "kianos.lexical.repair_blueprint_shard.v1",
+  "range": {
+    "start_ordinal": 651,
+    "end_ordinal": 700
+  },
+  "authority": "content/lexical/LEARNING_CONTRACT.md + CONTENT_ASSET_CONTRACT.md + approved shard Human Gate 2026-09-19",
+  "generation_rule": "Blueprints store stable diagnostic intent; concrete instances are generated fresh from latest canonical content + learner evidence.",
+  "entries": [
+    {
+      "blueprint_id": "repair-blueprint:o0654:calculate:v1",
+      "word_id": "word:calculate",
+      "ordinal": 654,
+      "word": "calculate",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:calculate:baseline-v2-be-calculated-to",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定使用 calculate 数值/风险 与 be calculated to do 的“旨在/设计为”结构。",
+      "decision_boundary_cn": "普通及物计算/估计与被动 intended-effect construction 必须按任务区分。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 calculate 的估计/意图结构。",
+      "reconstruction_rule_cn": "换一个风险估计和政策旨在产生效果的语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0656:call:v1",
+      "word_id": "word:call",
+      "ordinal": 656,
+      "word": "call",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "按意图稳定产出 call sb sth / call sb / call for sth / call on sb to do / call sth off。",
+      "decision_boundary_cn": "命名、打电话、要求、敦促、取消五类任务需要不同论元或 particle。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 call 的高价值结构选择。",
+      "reconstruction_rule_cn": "换一个命名、电话、政策呼吁与取消会议语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0657:calm:v1",
+      "word_id": "word:calm",
+      "ordinal": 657,
+      "word": "calm",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:calm:baseline-v2-down",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定产出 calm down / calm sb down。",
+      "decision_boundary_cn": "主体自己平静 vs 使他人平静由有无宾语决定。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 calm down 的及物/不及物切换。",
+      "reconstruction_rule_cn": "换一个自己冷静和安抚他人的语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0676:capable:v1",
+      "word_id": "word:capable",
+      "ordinal": 676,
+      "word": "capable",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:capable:baseline-v2-of",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定产出 be capable of sth/doing sth。",
+      "decision_boundary_cn": "capable 后接 of + noun/gerund；避免 *capable to do。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 capable of 的补语骨架。",
+      "reconstruction_rule_cn": "换一个能力、设备功能或风险潜力语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0677:capacity:v1",
+      "word_id": "word:capacity",
+      "ordinal": 677,
+      "word": "capacity",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:capacity:baseline-v2-as",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定产出 in one's capacity as + role，并区分 capacity for/to 的能力义。",
+      "decision_boundary_cn": "身份职位用 in ... capacity as；能力用 capacity for/to。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 capacity 的 role vs ability 结构。",
+      "reconstruction_rule_cn": "换一个以顾问身份行动与系统处理能力语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0689:care:v1",
+      "word_id": "word:care",
+      "ordinal": 689,
+      "word": "care",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "按意图稳定产出 care about / care for / would you care for。",
+      "decision_boundary_cn": "关心在意、照顾护理、礼貌询问想要三类任务必须区分。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 care 的三个高价值结构。",
+      "reconstruction_rule_cn": "换一个关心议题、护理病人和礼貌提供饮品语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0691:careful:v1",
+      "word_id": "word:careful",
+      "ordinal": 691,
+      "word": "careful",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:398dd9e6119547cf2a97",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定产出 be careful to do sth，并与 be careful with sth 区分。",
+      "decision_boundary_cn": "动作执行用 to do；对对象小心用 with。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 careful 的补语选择。",
+      "reconstruction_rule_cn": "换一个仔细核对和小心使用设备语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0697:carrot:v1",
+      "word_id": "word:carrot",
+      "ordinal": 697,
+      "word": "carrot",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:carrot:baseline-v2-dangle",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定使用 dangle a carrot / carrot and stick。",
+      "decision_boundary_cn": "单纯奖励诱导 vs 奖惩并用策略必须按语境选择。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 carrot 的两个熟词构式。",
+      "reconstruction_rule_cn": "换一个奖金激励和政策奖惩语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0698:carry:v1",
+      "word_id": "word:carry",
+      "ordinal": 698,
+      "word": "carry",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "按意图稳定产出 carry out / carry on / carry over，并理解普通 carry 的传播/承担/距离义。",
+      "decision_boundary_cn": "执行、继续、延续转移三类 phrasal task 以及普通及物义不能混用。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 carry 的高价值结构选择。",
+      "reconstruction_rule_cn": "换一个执行研究、继续工作、余额结转和声音传播语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0664:can:v1",
+      "word_id": "word:can",
+      "ordinal": 664,
+      "word": "can",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 modal can 的能力/许可/可能性与 noun/verb can 的罐/装罐。",
+      "decision_boundary_cn": "modal position、container noun、preserve-food verb context 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 can 的语法身份与语义分支。",
+      "reconstruction_rule_cn": "换一个能力、许可、可能性和食品罐装语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0675:cap:v1",
+      "word_id": "word:cap",
+      "ordinal": 675,
+      "word": "cap",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分帽/盖、上限名词、设上限动词以及 surpass/cap it all。",
+      "decision_boundary_cn": "physical cover、limit/price/spending、comparison context 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 cap 的 cover vs upper-limit boundary。",
+      "reconstruction_rule_cn": "换一个瓶盖、支出上限和限制价格语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0679:capital:v1",
+      "word_id": "word:capital",
+      "ordinal": 679,
+      "word": "capital",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分首都、金融资本、大写字母，并识别 capitalism/capitalist 只能从经济资本分支理解。",
+      "decision_boundary_cn": "city/government、finance/investment、orthography 三类领域决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 capital 的三大核心分支和 family anchor。",
+      "reconstruction_rule_cn": "换一个国家首都、融资和大写书写语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0682:captive:v1",
+      "word_id": "word:captive",
+      "ordinal": 682,
+      "word": "captive",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 literal 俘虏/被囚禁 与 figurative captive audience/market 的无法脱身或被牢牢吸引。",
+      "decision_boundary_cn": "prison/animal 与 audience/customer/market context 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 captive 的 literal vs figurative boundary。",
+      "reconstruction_rule_cn": "换一个囚禁动物和被迫持续听讲的观众语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0683:capture:v1",
+      "word_id": "word:capture",
+      "ordinal": 683,
+      "word": "capture",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分捕获/夺取、记录图像声音、吸引注意兴趣。",
+      "decision_boundary_cn": "person/place、image/sound/data、attention/imagination 三类对象决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 capture 的对象驱动 selector。",
+      "reconstruction_rule_cn": "换一个抓捕、摄影记录和吸引注意语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0690:career:v1",
+      "word_id": "word:career",
+      "ordinal": 690,
+      "word": "career",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 noun career=职业/生涯 与 verb career=猛冲疾驰。",
+      "decision_boundary_cn": "profession/life-path 与 high-speed uncontrolled movement context 决定词性。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 career 的 noun vs verb boundary。",
+      "reconstruction_rule_cn": "换一个职业发展与车辆猛冲语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0695:carriage:v1",
+      "word_id": "word:carriage",
+      "ordinal": 695,
+      "word": "carriage",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分马车、火车车厢、举止仪态、运输/运费。",
+      "decision_boundary_cn": "horse/rail/body-posture/freight context 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 carriage 的领域 selector。",
+      "reconstruction_rule_cn": "换一个马车、火车、仪态和运费语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0696:carrier:v1",
+      "word_id": "word:carrier",
+      "ordinal": 696,
+      "word": "carrier",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分运输者/公司、病原携带者、药物载体、通信运营商。",
+      "decision_boundary_cn": "transport/disease/drug-medium/telecom context 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 carrier 的领域 selector。",
+      "reconstruction_rule_cn": "换一个物流、感染、药物递送和手机运营商语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0662:campaign:v1",
+      "word_id": "word:campaign",
+      "ordinal": 662,
+      "word": "campaign",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "deep:constructions:campaign:c020a741eba1217f",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 campaign for/against 的持续组织行动与普通 effort/单次行动。",
+      "decision_boundary_cn": "organized sustained action + stance preposition 是关键。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 campaign 的组织持续性和 for/against 边界。",
+      "reconstruction_rule_cn": "换一个公共政策支持/反对运动语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0674:canvas:v1",
+      "word_id": "word:canvas",
+      "ordinal": 674,
+      "word": "canvas",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 canvas=帆布/画布 与 canvass=拉票、征求意见、详细讨论。",
+      "decision_boundary_cn": "material/art surface 与 solicitation/survey verb context 决定词形。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 canvas/canvass 近形边界。",
+      "reconstruction_rule_cn": "换一个绘画材料和选举拉票语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0688:cardinal:v1",
+      "word_id": "word:cardinal",
+      "ordinal": 688,
+      "word": "cardinal",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 cardinal adjective=最重要的、红衣主教、鲜红色与北美红雀。",
+      "decision_boundary_cn": "priority/religion/color/bird context 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 cardinal 的领域分支。",
+      "reconstruction_rule_cn": "换一个核心原则、宗教人物和鸟类语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0681:captain:v1",
+      "word_id": "word:captain",
+      "ordinal": 681,
+      "word": "captain",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分军衔、球队队长、船长/机长、警察分局负责人以及 verb 指挥率领。",
+      "decision_boundary_cn": "military/sports/ship-aircraft/police/verb context 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 captain 的领域/词性 selector。",
+      "reconstruction_rule_cn": "换一个军队、球队、航船和警务语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    }
+  ]
+}

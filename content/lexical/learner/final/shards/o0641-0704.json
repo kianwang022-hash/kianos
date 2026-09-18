@@ -1647,7 +1647,7 @@
     "ordinal": 654,
     "word": "calculate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0654.json",
-    "source_fingerprint": "cadeda4548095e87da7b883181c463b112d42cd36f876d11fc55ed0683c1eaa2",
+    "source_fingerprint": "2c8b2ab8d43e8c925ca45c076b7416ff35c466693db0408e576307769e672a07",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1656,13 +1656,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "通过数学或逻辑方法确定",
-      "decision_cn": "",
+      "summary_cn": "通过计算、估计或设计意图来确定某事",
+      "decision_cn": "numbers/data → 计算；risk/likelihood → 估计预测；be calculated to do → 被设计/旨在产生某效果。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "通过数学或逻辑方法确定"
+        "target_label": "通过计算、估计或设计意图来确定某事"
       }
     },
     "senses": [
@@ -1742,7 +1742,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:calculate:baseline-v2-be-calculated-to",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be calculated to do sth",
+        "lines": [
+          {
+            "text": "旨在做某事；被设计为产生某种效果",
+            "lang": "cn"
+          },
+          {
+            "text": "This is an intention/design construction, not ordinary numerical calculation.",
+            "lang": "en"
+          },
+          {
+            "text": "be designed or intended to produce a particular effect",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:calculate:baseline-v2-be-calculated-to",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be calculated to do sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1895,7 +1921,7 @@
     "ordinal": 656,
     "word": "call",
     "source_owner_path": "content/lexical/words/by-ordinal/o0656.json",
-    "source_fingerprint": "6ae80a72fcb291f30ac6d2d39fea14b56a2388ce42010f112838734ad2df2396",
+    "source_fingerprint": "583b36f994f31a54c0557654366d79f4ae76d0391f70227289d11fa6e41accbc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1905,13 +1931,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "呼叫；打电话；称呼",
-      "decision_cn": "",
+      "summary_cn": "通过“发出称呼/联系/要求”来触达对象：可命名、打电话、要求/呼吁；名词还可表示电话、拜访或召唤",
+      "decision_cn": "call sb sth → 称呼；call sb → 打电话；call for sth / call on sb to do → 要求/呼吁；call off → 取消；noun call → 电话/拜访/召唤。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "呼叫；打电话；称呼"
+        "target_label": "通过“发出称呼/联系/要求”来触达对象：可命名、打电话、要求/呼吁；名词还可表示电话、拜访或召唤"
       }
     },
     "senses": [
@@ -2035,19 +2061,6 @@
               "target_id": "collocation:d4c0d40c7ce4d2814cd1",
               "target_locator": "record.senses[2].collocations[2]",
               "target_label": "call on/upon sb to do sth"
-            }
-          },
-          {
-            "id": "collocation:c31aaf34c1b983108d23",
-            "source_locator": "record.senses[2].collocations[3]",
-            "phrase": "call off",
-            "meaning_cn": "取消",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c31aaf34c1b983108d23",
-              "target_locator": "record.senses[2].collocations[3]",
-              "target_label": "call off"
             }
           }
         ],
@@ -2198,6 +2211,27 @@
           "target_locator": "record.constructions[1]",
           "target_label": "call on/upon sb to do sth"
         }
+      },
+      {
+        "id": "construction:call:baseline-v2-off",
+        "source_locator": "record.constructions[2]",
+        "pattern": "call off sth / call sth off",
+        "lines": [
+          {
+            "text": "取消某项活动、安排或计划",
+            "lang": "cn"
+          },
+          {
+            "text": "cancel an event, arrangement, or planned activity",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:call:baseline-v2-off",
+          "target_locator": "record.constructions[2]",
+          "target_label": "call off sth / call sth off"
+        }
       }
     ],
     "reference": {
@@ -2213,7 +2247,7 @@
     "ordinal": 657,
     "word": "calm",
     "source_owner_path": "content/lexical/words/by-ordinal/o0657.json",
-    "source_fingerprint": "2549315be91d7fc13f58021e4b9261f94a5ac4e6fe7442f61b094999f10b92ec",
+    "source_fingerprint": "02703c74a10c38f1887956e4745cd3d1ba44ab9cfca7dc72101e98e1d1656e5d",
     "sense_lineage": [
       {
         "word_id": "word:calm",
@@ -2374,7 +2408,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:calm:baseline-v2-down",
+        "source_locator": "record.constructions[0]",
+        "pattern": "calm down / calm sb down",
+        "lines": [
+          {
+            "text": "平静下来；使某人平静下来",
+            "lang": "cn"
+          },
+          {
+            "text": "become calmer or cause someone to become calmer",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:calm:baseline-v2-down",
+          "target_locator": "record.constructions[0]",
+          "target_label": "calm down / calm sb down"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4421,7 +4477,7 @@
     "ordinal": 676,
     "word": "capable",
     "source_owner_path": "content/lexical/words/by-ordinal/o0676.json",
-    "source_fingerprint": "cf508651e9b6b315acbbf6c90b134ecdee6e61a8e8033e2460d1b531681dadba",
+    "source_fingerprint": "8d8f2e58f0f290bdfade6a8373e2060d05a7bded4c37436055b8f7b8546872e6",
     "sense_lineage": [
       {
         "word_id": "word:capable",
@@ -4481,7 +4537,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:capable:baseline-v2-of",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be capable of sth / doing sth",
+        "lines": [
+          {
+            "text": "有能力做某事；能够胜任某事",
+            "lang": "cn"
+          },
+          {
+            "text": "have the ability, power, or qualities needed for something or for doing something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:capable:baseline-v2-of",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be capable of sth / doing sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4495,7 +4573,7 @@
     "ordinal": 677,
     "word": "capacity",
     "source_owner_path": "content/lexical/words/by-ordinal/o0677.json",
-    "source_fingerprint": "07a5ca1518140dc0c47cd6a8ff0e6501d5ed9c418c64a90fcd777e913e44c226",
+    "source_fingerprint": "243cbf0df9d0509f0f1e262192fcadb58f1a3714d8dadc65ca2d533a489ff98e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4504,13 +4582,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "容量；能力",
-      "decision_cn": "",
+      "summary_cn": "某对象“能容纳/能做到/以某身份行动”的能力或容量",
+      "decision_cn": "container/system → 容量；person/organization → 能力；in one's capacity as... → 以某身份/职位。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "容量；能力"
+        "target_label": "某对象“能容纳/能做到/以某身份行动”的能力或容量"
       }
     },
     "senses": [
@@ -4617,7 +4695,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:capacity:baseline-v2-as",
+        "source_locator": "record.constructions[0]",
+        "pattern": "in one's capacity as + role",
+        "lines": [
+          {
+            "text": "以某人的某种身份、职位或职责",
+            "lang": "cn"
+          },
+          {
+            "text": "acting in a particular role, office, or official function",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:capacity:baseline-v2-as",
+          "target_locator": "record.constructions[0]",
+          "target_label": "in one's capacity as + role"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4718,7 +4818,7 @@
     "ordinal": 679,
     "word": "capital",
     "source_owner_path": "content/lexical/words/by-ordinal/o0679.json",
-    "source_fingerprint": "5ed7cb5fbdf3e5da72c76a4b3458fdb8606d44aa7ab2d223c121006a1546fcae",
+    "source_fingerprint": "478cbdc86e815a745343a104ccaeadfcfa72604aa9fd188450754f34bc3329fd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4870,8 +4970,16 @@
           "target_word": "capitalism",
           "lines": [
             {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+              "text": "capital（资本）→ capitalism（资本主义）",
               "lang": "cn"
+            },
+            {
+              "text": "只从金融/经济“资本”义理解，不从“首都”义推导。",
+              "lang": "cn"
+            },
+            {
+              "text": "capital in the economic sense is the base of the derivative capitalism",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -4880,21 +4988,19 @@
           "target_word": "capitalist",
           "lines": [
             {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+              "text": "capital（资本）→ capitalist（资本主义的/资本家）",
               "lang": "cn"
+            },
+            {
+              "text": "只从金融/经济“资本”义理解，不从“首都”义推导。",
+              "lang": "cn"
+            },
+            {
+              "text": "capital in the economic sense underlies capitalist",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[1]"
-        },
-        {
-          "target_word": "capitalize",
-          "lines": [
-            {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[2]"
         }
       ]
     }
@@ -5161,7 +5267,7 @@
     "ordinal": 682,
     "word": "captive",
     "source_owner_path": "content/lexical/words/by-ordinal/o0682.json",
-    "source_fingerprint": "3268b962356c3027e1dc8e3fdf2da9db6af94c01cece8efd3e722c7c83c98747",
+    "source_fingerprint": "76dfde9125976386b1bcb8bdeff5d91deb4759874ebf7d8eae781330b273cae6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5171,13 +5277,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "被俘的；俘虏",
-      "decision_cn": "",
+      "summary_cn": "核心是“失去自由”：可字面指被囚禁/俘虏，也可比喻为无法摆脱、被牢牢吸引",
+      "decision_cn": "prison/animal → 被囚禁；captive audience/market → 无法离开或被牢牢吸引。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "被俘的；俘虏"
+        "target_label": "核心是“失去自由”：可字面指被囚禁/俘虏，也可比喻为无法摆脱、被牢牢吸引"
       }
     },
     "senses": [
@@ -5203,14 +5309,6 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "take + sb/sth + captive"
             }
-          },
-          {
-            "id": "collocation:9ce355733bfbf7a5a704",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "a captive audience",
-            "meaning_cn": "被吸引的观众",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -5268,6 +5366,19 @@
               "target_locator": "record.senses[2].collocations[0]",
               "target_label": "hold + sb + captive"
             }
+          },
+          {
+            "id": "collocation:captive:baseline-v2-audience",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "a captive audience",
+            "meaning_cn": "被牢牢吸引、无法离开的听众/观众",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:captive:baseline-v2-audience",
+              "target_locator": "record.senses[2].collocations[1]",
+              "target_label": "a captive audience"
+            }
           }
         ],
         "repair": {
@@ -5293,23 +5404,23 @@
     "ordinal": 683,
     "word": "capture",
     "source_owner_path": "content/lexical/words/by-ordinal/o0683.json",
-    "source_fingerprint": "f82d5ef7a0623e2acec6297fe0d3bebb0010bff10f26d5acd59e9ff9c64b0fae",
+    "source_fingerprint": "2b4f6e6a3a3e23c2b26d0bfad164d06e5f5b6a6da5d3c5d9a969507d2646d224",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(3+1)V",
+        "3V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "捕获，夺取",
-      "decision_cn": "",
+      "summary_cn": "“把某物抓住并留下”：可物理捕获、记录画面/声音，也可抓住注意力和兴趣",
+      "decision_cn": "person/place → 捕获夺取；image/sound/data → 记录捕捉；attention/imagination → 吸引、抓住。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "捕获，夺取"
+        "target_label": "“把某物抓住并留下”：可物理捕获、记录画面/声音，也可抓住注意力和兴趣"
       }
     },
     "senses": [
@@ -5445,22 +5556,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:capture:a4023267f689a86e",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "吸引，迷住",
-        "definition_en": "to attract someone's attention or interest",
-        "pattern": "capture one's attention 吸引某人的注意",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:capture:a4023267f689a86e",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "吸引，迷住"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [
       {
         "id": "construction:3ccdcfef70e5ece5d570",
@@ -6017,7 +6113,7 @@
     "ordinal": 689,
     "word": "care",
     "source_owner_path": "content/lexical/words/by-ordinal/o0689.json",
-    "source_fingerprint": "16c5aec6fac938db26f75742901e7f07e378ec8b2bcedf158c5ceb9c6115f935",
+    "source_fingerprint": "1440cfb607ad8472ffd8859db971d773bf721ed094af25396f1c91704aec63a1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6202,7 +6298,71 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:care:baseline-v2-about",
+        "source_locator": "record.constructions[0]",
+        "pattern": "care about sb/sth",
+        "lines": [
+          {
+            "text": "关心、在意某人或某事",
+            "lang": "cn"
+          },
+          {
+            "text": "feel interest, concern, or emotional importance about someone or something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:care:baseline-v2-about",
+          "target_locator": "record.constructions[0]",
+          "target_label": "care about sb/sth"
+        }
+      },
+      {
+        "id": "construction:care:baseline-v2-for",
+        "source_locator": "record.constructions[1]",
+        "pattern": "care for sb",
+        "lines": [
+          {
+            "text": "照顾、护理某人；某些语境也可表示喜欢",
+            "lang": "cn"
+          },
+          {
+            "text": "look after someone who needs care; in some contexts, like someone or something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:care:baseline-v2-for",
+          "target_locator": "record.constructions[1]",
+          "target_label": "care for sb"
+        }
+      },
+      {
+        "id": "construction:care:baseline-v2-would-care-for",
+        "source_locator": "record.constructions[2]",
+        "pattern": "would you care for sth?",
+        "lines": [
+          {
+            "text": "你想要……吗？（礼貌询问）",
+            "lang": "cn"
+          },
+          {
+            "text": "a polite way to ask whether someone would like something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:care:baseline-v2-would-care-for",
+          "target_locator": "record.constructions[2]",
+          "target_label": "would you care for sth?"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6776,7 +6936,7 @@
     "ordinal": 695,
     "word": "carriage",
     "source_owner_path": "content/lexical/words/by-ordinal/o0695.json",
-    "source_fingerprint": "27b43e637b34556ce4a672688ad893587bd1a3e290ba8068e38110ae022cb02c",
+    "source_fingerprint": "6749f05736450f4d615f327801830d5c4a18e8e61bb9f1ea39c318e86b5a8f4f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6785,13 +6945,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "马车；运输",
-      "decision_cn": "",
+      "summary_cn": "表示“承载/呈现方式”：可指马车、火车车厢、人的仪态，也可指运输或运费",
+      "decision_cn": "horse → 马车；railway/train → 车厢；person/body posture → 举止仪态；goods/payment → 运输/运费。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "马车；运输"
+        "target_label": "表示“承载/呈现方式”：可指马车、火车车厢、人的仪态，也可指运输或运费"
       }
     },
     "senses": [
@@ -6938,7 +7098,7 @@
     "ordinal": 696,
     "word": "carrier",
     "source_owner_path": "content/lexical/words/by-ordinal/o0696.json",
-    "source_fingerprint": "31268ac04972b6693a059ce51f70093107616988659138e00038c4403b4113c2",
+    "source_fingerprint": "c7254d8e572fe8e0ff5ea530cd6b18921f43a5ab7bc805bc65e724131f818951",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6947,13 +7107,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "运送的人、工具或公司",
-      "decision_cn": "",
+      "summary_cn": "核心是“携带/承载某物的载体”：可指运输者/公司、病原携带者、药物载体或通信运营商",
+      "decision_cn": "transport/mail → 运输者或运输公司；virus/disease → 病原携带者；drug/tracer → 载体；mobile/network → 运营商。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "运送的人、工具或公司"
+        "target_label": "核心是“携带/承载某物的载体”：可指运输者/公司、病原携带者、药物载体或通信运营商"
       }
     },
     "senses": [
@@ -7144,7 +7304,7 @@
     "ordinal": 697,
     "word": "carrot",
     "source_owner_path": "content/lexical/words/by-ordinal/o0697.json",
-    "source_fingerprint": "25d60c9acf5b99dc78fd6b60ab8c032e06f929329b443608772310372047a2e3",
+    "source_fingerprint": "3d9e278e6139e6415799f9ccb4aaa6c66d5bd2a3b586c70647d252f632cc380e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7226,7 +7386,50 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:carrot:baseline-v2-dangle",
+        "source_locator": "record.constructions[0]",
+        "pattern": "dangle a carrot",
+        "lines": [
+          {
+            "text": "用好处、奖励或利益诱使某人行动",
+            "lang": "cn"
+          },
+          {
+            "text": "offer or promise a reward to persuade someone to act",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:carrot:baseline-v2-dangle",
+          "target_locator": "record.constructions[0]",
+          "target_label": "dangle a carrot"
+        }
+      },
+      {
+        "id": "construction:carrot:baseline-v2-stick",
+        "source_locator": "record.constructions[1]",
+        "pattern": "carrot and stick",
+        "lines": [
+          {
+            "text": "胡萝卜加大棒；奖惩并用、软硬兼施",
+            "lang": "cn"
+          },
+          {
+            "text": "a strategy combining rewards with threats or punishment",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:carrot:baseline-v2-stick",
+          "target_locator": "record.constructions[1]",
+          "target_label": "carrot and stick"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7240,7 +7443,7 @@
     "ordinal": 698,
     "word": "carry",
     "source_owner_path": "content/lexical/words/by-ordinal/o0698.json",
-    "source_fingerprint": "982d6c5ceed5379b07f5c05f4f82aaf6343bcf3212a11c9db3db95d63d3fc079",
+    "source_fingerprint": "f78e8cf4ee7740b885f0483ddeb35f634a5c6e9cc42a91d49e1bc9ff41d14520",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7250,13 +7453,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "携带，运送",
-      "decision_cn": "",
+      "summary_cn": "核心是“把东西带着并传到别处”：可携带运输、传播信息、承担重量/责任，也可表示声音等传到某距离",
+      "decision_cn": "object/person → 携带；message/signal → 传送；weight/responsibility → 承担；sound/range → 传到某距离；carry out/on/over → 各自独立的高频结构。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "携带，运送"
+        "target_label": "核心是“把东西带着并传到别处”：可携带运输、传播信息、承担重量/责任，也可表示声音等传到某距离"
       }
     },
     "senses": [
@@ -7316,32 +7519,6 @@
             "meaning_cn": "携带枪支",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:e6f9f727523f5cfc4ead",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "carry on",
-            "meaning_cn": "继续",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e6f9f727523f5cfc4ead",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "carry on"
-            }
-          },
-          {
-            "id": "collocation:0b6618c2c9e28a5cca6b",
-            "source_locator": "record.senses[1].collocations[2]",
-            "phrase": "carry over",
-            "meaning_cn": "延续或转移到之后的时间/情境",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:0b6618c2c9e28a5cca6b",
-              "target_locator": "record.senses[1].collocations[2]",
-              "target_label": "carry over"
-            }
           }
         ],
         "repair": {
@@ -7464,6 +7641,48 @@
           "target_id": "construction:98ba86a8f09b1ccaf485",
           "target_locator": "record.constructions[0]",
           "target_label": "carry out sth"
+        }
+      },
+      {
+        "id": "construction:carry:baseline-v2-on",
+        "source_locator": "record.constructions[1]",
+        "pattern": "carry on",
+        "lines": [
+          {
+            "text": "继续进行；继续做下去",
+            "lang": "cn"
+          },
+          {
+            "text": "continue doing something or continue an activity",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:carry:baseline-v2-on",
+          "target_locator": "record.constructions[1]",
+          "target_label": "carry on"
+        }
+      },
+      {
+        "id": "construction:carry:baseline-v2-over",
+        "source_locator": "record.constructions[2]",
+        "pattern": "carry over",
+        "lines": [
+          {
+            "text": "延续、保留或转移到下一时期/情境",
+            "lang": "cn"
+          },
+          {
+            "text": "continue or transfer something into a later period or different situation",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:carry:baseline-v2-over",
+          "target_locator": "record.constructions[2]",
+          "target_label": "carry over"
         }
       }
     ],
