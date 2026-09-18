@@ -90,8 +90,8 @@ function normalizeStep(step, index) {
   if (recipeType === 'RECONSTRUCT' && !prompt) {
     throw new Error(`POLITICS_SESSION_PROMPT_REQUIRED:${stepId}`);
   }
-  if (recipeType === 'PRECISION' && (!targetRefs.length || !guardEvidenceRefs.length)) {
-    throw new Error(`POLITICS_SESSION_PRECISION_GUARD_REQUIRED:${stepId}`);
+  if (recipeType === 'PRECISION' && !targetRefs.length) {
+    throw new Error(`POLITICS_SESSION_PRECISION_TARGET_REQUIRED:${stepId}`);
   }
   if (recipeType === 'QUESTION_RETEST' && !questionIds.length) {
     throw new Error(`POLITICS_SESSION_QUESTION_IDS_REQUIRED:${stepId}`);
