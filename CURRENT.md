@@ -57,8 +57,10 @@ Task creation, persistence, active-ref freshness and artifact+cursor atomicity a
 
 ### Website / UI
 - English UI vertical: landed.
-- Xizong UI: active.
-- Politics UI: active.
+- Lexical / Vocabulary learner surfaces: landed.
+- Xizong material learner UI: landed through whole-paper Hidden/Seal/Review.
+- Politics learner UI: the only remaining material subject-UI closure.
+- Shared learner-data / Chat handoff durability and final regression remain launch work.
 - Material Visual changes still require real-browser screenshot + Kian Human Gate before merge.
 
 Exact branch / PR / screenshot state belongs to `static-web/CURRENT.md` or the exact UI owner.
