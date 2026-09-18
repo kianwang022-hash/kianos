@@ -1,8 +1,15 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { listPoliticsChapterPathsCurrent, loadPoliticsChapterCurrent } from './politicsCurrent.mjs';
 import { loadPoliticsCompiledPresentation } from './politicsCompiledPresentation.mjs';
 
+const repoRoot = process.env.KIANOS_REPO_ROOT
+  ? path.resolve(process.env.KIANOS_REPO_ROOT)
+  : path.resolve(process.cwd(), '..');
+const learningRoot = path.join(repoRoot, 'content/politics/learning');
 const clean = (value) => String(value || '').trim();
+const routeSubject = (directory) => directory === 'ethics-law' ? 'ethics_law' : directory;
 
 export function politicsFinalTargetRef({ subject, chapter, unitId, state, groupId }) {
   return [
@@ -13,6 +20,133 @@ export function politicsFinalTargetRef({ subject, chapter, unitId, state, groupI
     encodeURIComponent(state),
     encodeURIComponent(groupId)
   ].join(':');
+}
+
+
+export function politicsMemoryTargetRef({ subject, owner, id }) {
+  return ['politics-memory', encodeURIComponent(subject), encodeURIComponent(owner), encodeURIComponent(id)].join(':');
+}
+
+function memoryItem(id, heading, lines) {
+  return {
+    id,
+    heading: heading || null,
+    lines: lines.filter((row) => row && row.text),
+    children: [],
+    locator: null,
+    lookFor: [],
+    relationClaim: null,
+    compare: null
+  };
+}
+
+function memoryGroup({ id, title, item }) {
+  return {
+    id,
+    zone: 'CORE',
+    primitive: 'STATEMENT',
+    title: title || null,
+    items: [item],
+    transitions: []
+  };
+}
+
+function chapterHref(base, subject, chapter) {
+  return chapter ? base + 'politics/' + subject + '/' + chapter + '/' : base + 'politics/';
+}
+
+function memorySidecarTargets(base) {
+  const targets = [];
+  if (!fs.existsSync(learningRoot)) return targets;
+
+  for (const entry of fs.readdirSync(learningRoot, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    const directory = entry.name;
+    const subject = routeSubject(directory);
+    const dir = path.join(learningRoot, directory);
+    for (const name of fs.readdirSync(dir).filter((row) => row.endsWith('.memory.json')).sort()) {
+      const data = JSON.parse(fs.readFileSync(path.join(dir, name), 'utf8'));
+      const chapter = name.replace(/\.memory\.json$/i, '');
+      for (const [unitId, unit] of Object.entries(data?.units || {})) {
+        for (const candidate of unit?.candidates || []) {
+          const id = clean(candidate?.id);
+          if (!id) continue;
+          const ref = politicsMemoryTargetRef({ subject, owner: chapter, id });
+          const group = memoryGroup({
+            id,
+            title: clean(unit?.title),
+            item: memoryItem(id, null, [
+              { field: 'statement', text: clean(candidate?.statement) }
+            ])
+          });
+          targets.push({
+            ref,
+            target_kind: 'MEMORY',
+            subject,
+            chapter,
+            unit_id: clean(unitId),
+            state: 'MEMORY',
+            group_id: id,
+            title: clean(unit?.title),
+            zone: group.zone,
+            primitive: group.primitive,
+            unit_href: chapterHref(base, subject, chapter),
+            memory_admission: clean(candidate?.memory_admission),
+            precision_admission: clean(candidate?.precision_admission),
+            precision_blocker: clean(candidate?.precision_blocker),
+            source_refs: Array.isArray(candidate?.source_refs) ? candidate.source_refs.map(String) : [],
+            group
+          });
+        }
+      }
+    }
+  }
+  return targets;
+}
+
+function historyHorizontalTargets(base) {
+  const file = path.join(learningRoot, 'history', 'later-stage-knowledge.json');
+  if (!fs.existsSync(file)) return [];
+  const data = JSON.parse(fs.readFileSync(file, 'utf8'));
+  const targets = [];
+
+  for (const [lineKey, line] of Object.entries(data?.horizontal_lines || {})) {
+    for (const candidate of line?.candidates || []) {
+      const id = clean(candidate?.id);
+      if (!id) continue;
+      const chapterRef = (candidate?.chapter_refs || [])[0] || '';
+      const chapter = /^C\d+$/i.test(chapterRef) ? 'ch' + chapterRef.slice(1).padStart(2, '0') : '';
+      const ref = politicsMemoryTargetRef({ subject: 'history', owner: lineKey, id });
+      const group = memoryGroup({
+        id,
+        title: clean(line?.role),
+        item: memoryItem(id, clean(candidate?.label), [
+          { field: 'year', text: clean(candidate?.year) },
+          { field: 'stage', text: clean(candidate?.stage) },
+          { field: 'hold', text: clean(candidate?.hold) }
+        ])
+      });
+      targets.push({
+        ref,
+        target_kind: 'MEMORY',
+        subject: 'history',
+        chapter,
+        unit_id: lineKey,
+        state: 'MEMORY',
+        group_id: id,
+        title: clean(candidate?.label),
+        zone: group.zone,
+        primitive: group.primitive,
+        unit_href: chapterHref(base, 'history', chapter),
+        memory_admission: clean(candidate?.memory_admission),
+        precision_admission: clean(candidate?.precision_admission),
+        precision_blocker: clean(candidate?.precision_blocker),
+        source_refs: Array.isArray(candidate?.source_refs) ? candidate.source_refs.map(String) : [],
+        group
+      });
+    }
+  }
+  return targets;
 }
 
 export function buildPoliticsSessionTargetCatalog(base = '/') {
@@ -46,6 +180,7 @@ export function buildPoliticsSessionTargetCatalog(base = '/') {
           });
           targets.push({
             ref,
+            target_kind: 'FINAL',
             subject,
             chapter,
             unit_id: unitId,
@@ -55,6 +190,10 @@ export function buildPoliticsSessionTargetCatalog(base = '/') {
             zone: group.zone,
             primitive: group.primitive,
             unit_href: unitHref,
+            memory_admission: '',
+            precision_admission: '',
+            precision_blocker: '',
+            source_refs: [],
             group
           });
         }
