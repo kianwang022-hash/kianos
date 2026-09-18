@@ -68,7 +68,7 @@ async function scanTypeFloor(root, label) {
   return result.min;
 }
 
-async function selectTextAndMark(page, selector, kind) {
+async function selectTextAndMark(page, selector, kind, { domClick = false } = {}) {
   const selected = await page.evaluate((targetSelector) => {
     const container = document.querySelector(targetSelector);
     if (!(container instanceof HTMLElement)) return false;
@@ -98,7 +98,8 @@ async function selectTextAndMark(page, selector, kind) {
   check(selected, `selection_${kind}_created`, selector);
   const menuButton = page.locator(`[data-xizong-mark-kind="${kind}"]`);
   await menuButton.waitFor({ state: 'visible' });
-  await menuButton.click();
+  if (domClick) await menuButton.evaluate((button) => button.click());
+  else await menuButton.click();
 }
 
 const server = spawn('npm', ['run', 'dev', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
@@ -281,7 +282,7 @@ try {
   const auxAfter = await aux.locator('[data-learner-asset]:visible').count();
   check(auxAfter > 0, 'reveal_keeps_context_visible', String(auxAfter));
 
-  await selectTextAndMark(page, '[data-kp-recall-card]:not([hidden]) [data-kp-learn-core] p', 'weak');
+  await selectTextAndMark(page, '[data-kp-recall-card]:not([hidden]) [data-kp-learn-core] p', 'weak', { domClick: true });
   const allMarks = await page.evaluate((key) => {
     const value = JSON.parse(localStorage.getItem(key) || '{}');
     return Object.values(value?.kp || {}).flatMap((row) => Array.isArray(row?.marks) ? row.marks : []);
