@@ -18,20 +18,28 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Export exact-head bounded audit workspace
+      - name: Exact audit identity
         run: |
           mkdir -p /tmp/politics-final-fresh
           git rev-parse HEAD > /tmp/politics-final-fresh/HEAD.txt
-          git ls-tree -r --name-only HEAD > /tmp/politics-final-fresh/repository-paths.txt
-          git ls-files -z -- AGENTS.md PROJECT_DEFINITION.md ARCHITECTURE.md LEARNING_ACCEPTANCE.md SYSTEM_CONTRACT.md content/politics static-web/src static-web/scripts static-web/package.json static-web/astro.config.mjs static-web/PRESENTATION_CONTRACT.md static-web/POLITICS_PRODUCT_BRIEF.md static-web/LOCAL_CURRENT_SYNC.md .github/workflows/static-web-politics-functional-journey.yml .github/workflows/static-web-politics-qa.yml .github/workflows/kianos-mac-visual-gate.yml | tar --null -T - -czf /tmp/politics-final-fresh/workspace.tar.gz
-      - name: Independent fresh assertions when present
+      - name: Install existing runtime
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+      - name: Build exact Current
+        working-directory: static-web
+        run: npm run build > /tmp/politics-final-fresh/build.log 2>&1
+      - name: Export bounded Politics browser surface
         run: |
-          if test -f static-web/scripts/audit-politics-final-fresh.mjs; then
-            node static-web/scripts/audit-politics-final-fresh.mjs | tee /tmp/politics-final-fresh/assertions.log
+          tar --exclude='*.woff*' --exclude='*.ttf' --exclude='*.otf' -czf /tmp/politics-final-fresh/site.tar.gz -C static-web/dist politics _astro
+      - name: Independent fresh assertions when present
+        working-directory: static-web
+        run: |
+          if test -f scripts/audit-politics-final-fresh.mjs; then
+            node scripts/audit-politics-final-fresh.mjs | tee /tmp/politics-final-fresh/assertions.log
           fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: politics-final-fresh-workspace
+          name: politics-final-fresh-browser
           path: /tmp/politics-final-fresh/
           retention-days: 7
