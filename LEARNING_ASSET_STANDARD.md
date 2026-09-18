@@ -57,6 +57,34 @@ This is a causal order **inside one real dependency chain**.
 
 It is not a repository-wide waterfall. Independent scopes may progress concurrently when they do not depend on one another.
 
+## 1.1 Production protocol durability
+
+When a Current asset family remains extendable, repairable, or evidence-driven, its **production semantics must remain recoverable from Current owners**.
+
+Production semantics include, when relevant:
+
+- who may author / review the asset;
+- what "sufficient" means;
+- when fast / shallow production is valid;
+- when deeper semantic review is required;
+- what source/owner boundaries must be preserved;
+- how continuation is selected;
+- what acceptance/readback closes a production batch or stage.
+
+Hard rules:
+
+- migrating or consolidating an owner may move these rules, but must not silently delete them while leaving the asset live;
+- a historical PR, receipt, Chat, branch, or Git history may preserve provenance but must not be the **only** place future workers can recover the active production rule;
+- a manifest/README pointer to a production owner must resolve to a real Current path or fail closed;
+- "full object coverage" must not be confused with "uniform semantic depth" when production is intentionally adaptive;
+- if an asset becomes truly frozen/read-only, say so explicitly instead of leaving a fake active continuation cursor.
+
+Anti-entropy test:
+
+> **Can a fresh worker extend or repair this Current asset at the intended quality without archaeology into old PRs/Chats?**
+
+If no, the production owner is incomplete even when the final data still exists.
+
 ---
 
 # 2｜Stage 0 — Source boundary
