@@ -6,7 +6,9 @@ import {
   startNextXizongQuestionRound,
   nextXizongStudyPhase,
   deriveXizongSecondPassQuestionIds,
-  deriveXizongQuestionIdsForCurrentRound
+  deriveXizongQuestionIdsForCurrentRound,
+  setXizongQuestionMarked,
+  isXizongQuestionMarked
 } from '../src/lib/xizongQuestionAttempts.mjs';
 
 let idCounter = 0;
@@ -141,7 +143,8 @@ const representativeQuestions = [
   { questionId: 'uncertain-unmapped', year: 2024, number: 11, questionType: 'A1', correctAnswer: 'B' },
   { questionId: 'wrong-case', year: 2024, number: 12, questionType: 'A2', correctAnswer: 'C', relation: { primaryKpId: 'KP09' } },
   { questionId: 'wrong-multiselect', year: 2024, number: 13, questionType: 'X', correctAnswer: 'AC' },
-  { questionId: 'wrong-heldout', year: 2025, number: 14, questionType: 'A1', correctAnswer: 'D' }
+  { questionId: 'wrong-heldout', year: 2025, number: 14, questionType: 'A1', correctAnswer: 'D' },
+  { questionId: 'stable-marked', year: 2024, number: 15, questionType: 'A1', correctAnswer: 'E' }
 ];
 const representativeHistory = [
   { type: 'QUESTION_ATTEMPT', question_id: 'stable-simple', study_phase: 'FIRST_PASS', status: 'stable' },
@@ -150,19 +153,21 @@ const representativeHistory = [
   { type: 'QUESTION_ATTEMPT', question_id: 'wrong-multiselect', study_phase: 'FIRST_PASS', status: 'wrong' },
   { type: 'QUESTION_ATTEMPT', question_id: 'wrong-heldout', study_phase: 'FIRST_PASS', status: 'wrong' }
 ];
-const representativeState = {
+let representativeState = {
   attemptHistory: representativeHistory,
   results: {},
   round: { id: 'round-2', studyPhase: 'SECOND_PASS', queueMode: 'TARGETED', ordinal: 2 }
 };
+representativeState = setXizongQuestionMarked(representativeState, 'stable-marked', true);
+assert.equal(isXizongQuestionMarked(representativeState, 'stable-marked'), true);
 assert.deepEqual(
   deriveXizongSecondPassQuestionIds(representativeState, representativeQuestions, [2025]),
-  ['uncertain-unmapped', 'wrong-case', 'wrong-multiselect'],
-  'targeted queue should include W/U regardless of mapping and exclude Stable/holdout'
+  ['uncertain-unmapped', 'wrong-case', 'wrong-multiselect', 'stable-marked'],
+  'targeted queue should include W/U/Marked regardless of mapping and exclude unmarked Stable/holdout'
 );
 assert.deepEqual(
   deriveXizongQuestionIdsForCurrentRound(representativeState, representativeQuestions, [2025]),
-  ['uncertain-unmapped', 'wrong-case', 'wrong-multiselect']
+  ['uncertain-unmapped', 'wrong-case', 'wrong-multiselect', 'stable-marked']
 );
 const fullRepresentative = {
   ...representativeState,
@@ -170,7 +175,7 @@ const fullRepresentative = {
 };
 assert.deepEqual(
   deriveXizongQuestionIdsForCurrentRound(fullRepresentative, representativeQuestions, [2025]),
-  ['stable-simple', 'uncertain-unmapped', 'wrong-case', 'wrong-multiselect'],
+  ['stable-simple', 'uncertain-unmapped', 'wrong-case', 'wrong-multiselect', 'stable-marked'],
   'explicit full re-sweep should include all non-holdout questions'
 );
 
@@ -179,7 +184,7 @@ console.log([
   'LegacyBootstrap=preserved+idempotent',
   'CurrentResults=round-scoped',
   'AttemptHistory=append-preserved',
-  'SecondPassDefault=targeted-W/U',
+  'SecondPassDefault=targeted-W/U/Marked',
   'StableDefault=excluded',
   'MissingMapping=non-blocking',
   'QuestionForms=A1+A2+X',
