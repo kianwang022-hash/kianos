@@ -162,8 +162,8 @@ const relationDifferenceRows = (relation = {}) => {
   return Object.entries(difference).filter(([, value]) => Boolean(value)).slice(0, 4);
 };
 ---
-<section class="portedVocabRuntime portedVocabRuntimeV2" data-local-port="vocabulary" data-vocab-mode="study" data-vocab-word={card.word} data-vocab-object={answer.objectId} data-vocab-ordinal={answer.ordinal} data-vocab-source-hash={answer.sourceHash}>
-  <header class="portedVocabPreviewBar">
+<section class="portedVocabRuntime portedVocabRuntimeV2" data-local-port="vocabulary" data-vocab-mode="study" data-vocab-revealed="false" data-vocab-word={card.word} data-vocab-object={answer.objectId} data-vocab-ordinal={answer.ordinal} data-vocab-source-hash={answer.sourceHash}>
+  <header class="portedVocabPreviewBar" aria-hidden="true">
     <a href="/">‹ Vocabulary</a>
     <div><span>Study · Depth</span><b>{card.word}</b><small data-vocab-state-label>Ready</small></div>
     <div class="portedVocabPreviewActions">
@@ -182,7 +182,7 @@ const relationDifferenceRows = (relation = {}) => {
       <div class="portedVocabRecallMap">
         <strong>{recallParts.length ? recallParts.join(' · ') : 'Core'}</strong>
         <small>当前 active 词义</small>
-        {recallPatterns.map((pattern) => <code>{pattern}</code>)}
+        {recallPatterns.length > 0 && <code>{recallPatterns.length}P</code>}
       </div>
       <p>点击任意空白处，或按 ← / ↑ / Space 查看完整词义</p>
     </section>
@@ -190,23 +190,26 @@ const relationDifferenceRows = (relation = {}) => {
     <div data-vocab-details hidden>
       <header class="portedVocabWordHeader">
         <div class="lexicalWordIdentity">
-          <span>Depth Reveal</span>
+          <span>Coverage · Word Study</span>
           <h2>{card.word}</h2>
+          <div class="lexicalDepthPronunciation">
+            <button type="button" data-vocab-speak="en-US">美音 · 点击播放</button>
+            <span><button type="button" data-vocab-speak="en-GB">英</button><button type="button" data-vocab-speak="en-US" class="active">美</button></span>
+          </div>
         </div>
-        <div class="lexicalCoreHeadline" data-vocab-target-row>
-          <p>{corePrimaryCn}</p>
-          {coreSecondaryCn && <b>{coreSecondaryCn}</b>}
-          {coreEnglish && <small>{coreEnglish}</small>}
-          <button type="button" data-vocab-repair data-target-kind="core" data-target-id="" data-target-locator="record.core_concept" data-target-label={`${core.core_meaning_cn || core.mental_model_cn || core.core_meaning_en || card.word}`} aria-pressed="false">+</button>
-        </div>
-        <aside>
-          <b>{recallParts.length ? recallParts.join(' · ') : 'Core'}</b>
-          <small>会的扫过；慢 / 模糊 / 漏掉的具体分支按 +</small>
-        </aside>
       </header>
 
       <div class="portedVocabBody" data-vocab-body data-has-expansion={hasImportantExpansion ? 'true' : 'false'} data-expansion-weight={expansionWeight}>
         <main class="portedVocabMeaningColumn">
+          <section class="lexicalCoreRow" data-vocab-target-row>
+            <header><span>核心语义模型</span><small>建立总方向</small></header>
+            <div>
+              {coreEnglish && <p>{coreEnglish}</p>}
+              <strong>{corePrimaryCn}</strong>
+              {coreSecondaryCn && <small>{coreSecondaryCn}</small>}
+            </div>
+            <button type="button" data-vocab-repair data-target-kind="core" data-target-id="" data-target-locator="record.core_concept" data-target-label={`${core.core_meaning_cn || core.mental_model_cn || core.core_meaning_en || card.word}`} aria-pressed="false">+</button>
+          </section>
           <div class="portedVocabSenseList" data-vocab-repair-list>
             {senses.map((sense, index) => {
               const collocations = allCollocationsWithIndex(sense);
