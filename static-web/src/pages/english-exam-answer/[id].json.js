@@ -1,13 +1,13 @@
 import {
   listEnglishExamPapers,
   loadEnglishExamPaper
-} from '../../../lib/englishExamPaper.mjs';
-import { loadReadingAnswersById } from '../../../lib/englishReadingSourceTruth.mjs';
+} from '../../lib/englishExamPaper.mjs';
+import { loadReadingAnswersById } from '../../lib/englishReadingSourceTruth.mjs';
 import {
   loadClozeAnswersById,
   loadReadingBAnswersById
-} from '../../../lib/englishObjectiveSourceTruth.mjs';
-import { ENGLISH_EXAM_ANSWER_SCHEMA } from '../../../lib/englishExamSession.mjs';
+} from '../../lib/englishObjectiveSourceTruth.mjs';
+import { ENGLISH_EXAM_ANSWER_SCHEMA } from '../../lib/englishExamSession.mjs';
 
 export function getStaticPaths() {
   return listEnglishExamPapers().map((paper) => ({
