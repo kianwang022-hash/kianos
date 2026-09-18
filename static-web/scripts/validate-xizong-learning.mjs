@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadXizongBlock, loadXizongSystem } from '../src/lib/xizong.mjs';
+import './validate-xizong-production-protocols.mjs';
 import { loadXizongSystemQuestionSweep } from '../src/lib/xizongQuestions.mjs';
 
 const webRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
