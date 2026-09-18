@@ -132,7 +132,7 @@
     "ordinal": 642,
     "word": "by",
     "source_owner_path": "content/lexical/words/by-ordinal/o0642.json",
-    "source_fingerprint": "84696fb8f88efdef73925afe49d761ad5f3a2f2ac9b76a1b35668041841476d3",
+    "source_fingerprint": "1f178e6787b53ca05b86ff40823dd1ea5f9f944452e3377aa5ecde695879c31c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -142,13 +142,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "在旁；通过；经过",
-      "decision_cn": "",
+      "summary_cn": "表示施事、方式、位置或截止时间：由/被、通过/用、在旁边，以及不迟于某时",
+      "decision_cn": "agent → 被/由；method → 通过/用；location → 在旁；by Friday/5 pm → 不迟于、截至。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "在旁；通过；经过"
+        "target_label": "表示施事、方式、位置或截止时间：由/被、通过/用、在旁边，以及不迟于某时"
       }
     },
     "senses": [
@@ -337,7 +337,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:by:baseline-v2-deadline",
+        "source_locator": "record.constructions[0]",
+        "pattern": "by + time/deadline",
+        "lines": [
+          {
+            "text": "不迟于某个时间；截至某时之前",
+            "lang": "cn"
+          },
+          {
+            "text": "by Friday includes any time up to Friday; it does not mean only during Friday.",
+            "lang": "en"
+          },
+          {
+            "text": "at or before a specified time; no later than the stated deadline",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:by:baseline-v2-deadline",
+          "target_locator": "record.constructions[0]",
+          "target_label": "by + time/deadline"
+        }
+      }
+    ],
     "reference": {
       "confusables": [
         {
