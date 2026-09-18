@@ -192,7 +192,9 @@ lacks(xizongLib, /record\.ordinal\s*!==\s*index\s*\+\s*1/, 'loader-still-forces-
 has(xizongLib, 'const intro = blockOpeningOrientation(markdown);', 'loader-bypasses-generic-opening');
 
 lacks(systemPage, /2025-2026-v1|writeJson\(holdoutKey,\s*\[2025,\s*2026\]\)/, 'shared-runtime-seeds-private-holdout');
-has(practiceUi, 'let holdoutYears = readJson(holdoutKey, []);', 'holdout-not-empty-by-default');
+has(practiceUi, "let holdoutYears = data.allowHoldout ? [] : readJson(holdoutKey, []);", 'system-holdout-empty-by-default-with-explicit-chat-override-only');
+has(practiceUi, "const allowHoldout = set?.allow_holdout === true;", 'chat-holdout-override-must-be-explicit');
+has(practiceUi, "if (selectedHoldoutYears.length && !allowHoldout)", 'chat-set-cannot-silently-consume-holdout');
 has(practiceUi, 'const normalizeHoldout = (value) =>', 'holdout-normalization-missing');
 has(practiceUi, 'eligibleYears.has(year)', 'holdout-normalization-does-not-restrict-to-eligible-years');
 has(practiceUi, 'holdoutYears = normalizeHoldout(holdoutYears);', 'persisted-holdout-not-normalized-before-use');
@@ -204,7 +206,7 @@ has(questionLib, 'reasoning_chain', 'reasoning-chain-source-projection-missing')
 has(questionLib, 'reasoningChain', 'reasoning-chain-runtime-field-missing');
 has(practiceUi, 'data-reasoning-chain', 'adaptive-reasoning-chain-surface-missing');
 has(practiceUi, 'renderReview(currentQuestion, existing);', 'adaptive-review-not-bound-to-submitted-question');
-has(practiceUi, 'if (!holdoutYears.length) { renderGate(); return; }', 'practice-gate-missing-explicit-holdout');
+has(practiceUi, "if (data.holdoutRequired !== false && !holdoutYears.length) { renderGate(); return; }", 'system-practice-gate-missing-explicit-holdout');
 
 matches(systemUi, /outlineCount\s*>\s*0\s*\?/, 'outline-absence-not-conditionally-projected');
 lacks(systemUi, /Outline\s*\$\{?0\}?/, 'literal-outline-zero');
