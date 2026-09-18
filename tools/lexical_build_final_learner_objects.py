@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 LEX = ROOT / "content" / "lexical"
 WORDS = LEX / "words" / "by-ordinal"
 OUT = LEX / "learner" / "final"
-OVERRIDES = OUT / "overrides.json"
+DECISIONS = LEX / "final-learner-object-decisions.json"
 SHARD_SIZE = 64
 
 def load(path: Path) -> Any:
@@ -112,23 +112,18 @@ def compile_relation(word: str, relation: dict[str, Any], locator: str) -> dict[
         "repair": repair("relation", locator, target_id, f"{word} ↔ {target}"),
     }
 
-def compile_form(form: Any, word_override: dict[str, Any]) -> dict[str, Any] | None:
+def compile_form(form: Any) -> dict[str, Any] | None:
     if not isinstance(form, dict):
         return None
-    suppress_variant_fields = set(word_override.get("suppress_form_variant_fields") or [])
     variants = []
     for variant in form.get("variants") or []:
         if not isinstance(variant, dict):
             continue
-        row = {
+        variants.append({
             "pos": list(variant.get("pos") or []),
             "reading": str(variant.get("learner_key") or variant.get("canonical_form") or variant.get("variant_id") or ""),
             "ipa": str(variant.get("ipa") or ""),
-            "stress": str(variant.get("stress") or ""),
-        }
-        for field in suppress_variant_fields:
-            row.pop(str(field), None)
-        variants.append(row)
+        })
     boundaries = []
     for boundary in form.get("boundaries") or []:
         if not isinstance(boundary, dict):
@@ -140,7 +135,7 @@ def compile_form(form: Any, word_override: dict[str, Any]) -> dict[str, Any] | N
         })
     if not variants and not boundaries and not form.get("boundary"):
         return None
-    boundary_text = "" if word_override.get("suppress_form_boundary") else str(form.get("boundary") or "")
+    boundary_text = "" if variants else str(form.get("boundary") or "")
     return {
         "boundary": boundary_text,
         "boundaries": boundaries,
@@ -148,12 +143,12 @@ def compile_form(form: Any, word_override: dict[str, Any]) -> dict[str, Any] | N
         "repair": repair("form_identity", "record.form_identity", None, boundary_text),
     }
 
-def compile_word(owner: dict[str, Any], overrides: dict[str, Any]) -> dict[str, Any]:
+def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, Any]:
     record, relation_paths = hydrate_relations(owner, owner["record"])
     word_id = str(owner["word_id"])
     word = str(record.get("word") or owner.get("word") or "")
-    word_override = (overrides.get("words") or {}).get(word_id) or {}
-    suppress_usage = set(word_override.get("suppress_sense_usage_note_ids") or [])
+    word_decision = (decisions.get("words") or {}).get(word_id) or {}
+    usage_note_decisions = word_decision.get("sense_usage_notes") or {}
 
     core = record.get("core_concept") or {}
     summary_cn = str(core.get("core_meaning_cn") or core.get("mental_model_cn") or "").strip()
@@ -211,7 +206,7 @@ def compile_word(owner: dict[str, Any], overrides: dict[str, Any]) -> dict[str, 
             "governing_pattern": str(sense.get("governing_pattern") or ""),
             "definition_cn": str(sense.get("definition_cn") or ""),
             "definition_en": str(sense.get("definition_en") or ""),
-            "note": "" if sense_id in suppress_usage else str(sense.get("usage_note") or ""),
+            "note": "" if (usage_note_decisions.get(sense_id) or {}).get("disposition") == "EXPLORE_ONLY" else str(sense.get("usage_note") or ""),
             "identity_overlay": overlay_object,
             "usage": usage,
             "repair": repair("sense", f"record.senses[{i}]", sense_id or None, str(sense.get("definition_cn") or sense.get("definition_en") or word)),
@@ -364,7 +359,7 @@ def compile_word(owner: dict[str, Any], overrides: dict[str, Any]) -> dict[str, 
         "reference": {
             "confusables": confusables,
             "relations": relations,
-            "form": compile_form(record.get("form_identity"), word_override),
+            "form": compile_form(record.get("form_identity")),
             "family": family,
         },
     }
@@ -375,7 +370,7 @@ def main() -> int:
     args = ap.parse_args()
 
     output_root = args.output_root
-    overrides = load(OVERRIDES) if OVERRIDES.exists() else {"words": {}}
+    decisions = load(DECISIONS) if DECISIONS.exists() else {"words": {}}
     shards_dir = output_root / "shards"
     if shards_dir.exists():
         shutil.rmtree(shards_dir)
@@ -384,7 +379,7 @@ def main() -> int:
     objects = []
     for path in sorted(WORDS.glob("o*.json")):
         owner = load(path)
-        objects.append(compile_word(owner, overrides))
+        objects.append(compile_word(owner, decisions))
 
     if len(objects) != 7946:
         raise RuntimeError(f"FINAL_LEARNER_OBJECT_COUNT:{len(objects)}")
@@ -411,7 +406,7 @@ def main() -> int:
         "source_authority": "content/lexical/manifest.json",
         "contract": "content/lexical/FINAL_LEARNER_OBJECT_CONTRACT.md",
         "builder": "tools/lexical_build_final_learner_objects.py",
-        "overrides": "content/lexical/learner/final/overrides.json",
+        "decisions": "content/lexical/final-learner-object-decisions.json",
         "object_count": len(objects),
         "shard_size": SHARD_SIZE,
         "shards": shard_rows,
