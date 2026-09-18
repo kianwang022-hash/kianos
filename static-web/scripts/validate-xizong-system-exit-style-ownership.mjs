@@ -9,6 +9,7 @@ const check = (condition, code, detail = '') => {
 const stripCssComments = (source) => source.replace(/\/\*[\s\S]*?\*\//g, '');
 
 const systemRoute = read('src/pages/xizong/[system]/index.astro');
+const recallRoute = read('src/pages/xizong/[system]/recall.astro');
 const practiceRoute = read('src/pages/xizong/practice/[system].astro');
 const exit = read('src/components/XizongSystemExitRuntime.astro');
 const practice = read('src/components/XizongPracticeWorkbench.astro');
@@ -20,7 +21,10 @@ const systemStyle = read('src/styles/xizong-system-workspace.css');
 const broadStyle = read('src/styles/xizong-presentation.css');
 const denseCalmStyle = read('src/styles/xizong-dense-calm.css');
 
-check(systemRoute.includes("../../../styles/xizong-system-exit-workspace.css"), 'system_route_imports_recall_owner');
+check(recallRoute.includes("../../../styles/xizong-system-exit-workspace.css"), 'recall_route_imports_recall_owner');
+check(recallRoute.includes('XizongSystemExitRuntime'), 'recall_route_owns_recall_runtime');
+check(systemRoute.includes('data-xizong-system-recall-entry'), 'system_route_owns_recall_release_handoff');
+check(!systemRoute.includes('XizongSystemExitRuntime'), 'system_route_does_not_embed_recall_runtime');
 check(practiceRoute.includes("../../../styles/xizong-practice-workspace.css"), 'practice_route_imports_practice_owner');
 check(!practiceRoute.includes('xizong-system-exit-workspace.css'), 'practice_does_not_import_recall_owner');
 check(!systemRoute.includes('XizongSystemRepairReturn'), 'system_route_does_not_own_repair');
@@ -46,7 +50,7 @@ for (const token of ['recordXizongQuestionAttempt', 'startNextXizongQuestionRoun
 check(questions.includes('reasoningChain'), 'question_loader_preserves_reasoning_chain');
 check(questions.includes('row.reasoning_chain'), 'question_loader_reads_canonical_reasoning_chain');
 
-for (const token of ['.xzExitStage', '.xseRecallWorkspace', '.xseRecallPaper', '.xsePracticeHandoff']) {
+for (const token of ['.xzSystemRecallPage', '.xseRecallWorkspace', '.xseRecallPaper', '.xsePracticeHandoff']) {
   check(exitOwner.includes(token), 'recall_owner_contains_surface_family', token);
 }
 check(!exitOwner.includes('.xzp'), 'recall_owner_cannot_style_practice_namespace');
@@ -55,7 +59,7 @@ check(!exitOwner.includes('.xrr'), 'recall_owner_cannot_style_practice_repair');
 for (const token of ['.xzp', '.xzpBody', '.xzpMap', '.xzpQuestionPane', '.xzpReviewPane', '.xrr']) {
   check(practiceOwner.includes(token), 'practice_owner_contains_surface_family', token);
 }
-check(!practiceOwner.includes('.xzExitStage'), 'practice_owner_cannot_style_recall_namespace');
+check(!practiceOwner.includes('.xzSystemRecallPage'), 'practice_owner_cannot_style_recall_namespace');
 
 check(/font-family\s*:\s*var\(--study-font\)/.test(practiceOwner), 'practice_inherits_shared_l1_font_token');
 check(!/"PingFang SC"|BlinkMacSystemFont|"SF Pro Text"/.test(practiceOwner), 'practice_has_no_local_font_stack');
@@ -68,7 +72,7 @@ for (const [name, source] of [['recall', exitOwner], ['practice', practiceOwner]
 }
 
 check(!systemStyle.includes('.xzExitStage'), 'first_pass_system_style_cannot_own_recall_namespace');
-check(!broadStyle.includes('.xzExitStage') && !broadStyle.includes('.xzp'), 'broad_presentation_cannot_own_recall_or_practice');
+check(!broadStyle.includes('.xzExitStage') && !broadStyle.includes('.xzSystemRecallPage') && !broadStyle.includes('.xzp'), 'broad_presentation_cannot_own_recall_or_practice');
 const dense = stripCssComments(denseCalmStyle);
 check(!/\.xzExit(?:\b|[A-Z])/.test(dense), 'dense_calm_cannot_own_recall_namespace');
 check(!/\.xzp(?:\b|[A-Z])/.test(dense), 'dense_calm_cannot_own_practice_namespace');
