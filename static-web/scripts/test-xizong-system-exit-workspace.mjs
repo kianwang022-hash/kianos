@@ -18,6 +18,7 @@ fs.mkdirSync(auditDir, { recursive: true });
 const reportPath = path.join(auditDir, 'xizong-system-exit-workspace.json');
 const questionShot = path.join(auditDir, 'xizong-system-exit-question.png');
 const recallShot = path.join(auditDir, 'xizong-system-exit-recall.png');
+const recallRevealShot = path.join(auditDir, 'xizong-system-exit-recall-reveal.png');
 const report = {
   schema: 'kianos.xizong.system_exit_workspace.v1',
   representative: 'A1/circulation',
@@ -180,11 +181,14 @@ try {
   check(await exit.locator('[data-recall-front]').isVisible(), 'recall_front_visible');
   check(await exit.locator('[data-recall-reveal]').isHidden(), 'recall_answer_protected');
   await scanVisibleType(recallWorkspace, 'recall_front');
+  await recallWorkspace.scrollIntoViewIfNeeded();
   await page.screenshot({ path: recallShot, fullPage: false });
   await exit.locator('[data-reveal-recall]').click();
   check(await exit.locator('[data-recall-front]').isHidden(), 'recall_front_hides_after_reveal');
   check(await exit.locator('[data-recall-reveal]').isVisible(), 'recall_reveal_visible');
   await scanVisibleType(recallWorkspace, 'recall_reveal');
+  await recallWorkspace.scrollIntoViewIfNeeded();
+  await page.screenshot({ path: recallRevealShot, fullPage: false });
   await exit.locator('[data-complete-recall]').click();
   check(await recallWorkspace.isHidden(), 'recall_workspace_hides_after_complete');
   check(await exit.locator('[data-question-gate]').isVisible(), 'question_gate_visible_after_recall');
@@ -202,6 +206,13 @@ try {
   check((await exit.locator('[data-question-stem]').textContent() || '').trim().length > 10, 'official_question_stem_visible');
   check(await exit.locator('.xseOption').count() >= 4, 'official_question_options_visible');
   check(await exit.locator('[data-question-map] .xseMapItem').count() > 10, 'question_map_populated');
+  const questionMapGeometry = await exit.locator('[data-question-map]').evaluate((node) => ({
+    clientHeight: node.clientHeight,
+    scrollHeight: node.scrollHeight,
+    overflowY: getComputedStyle(node).overflowY
+  }));
+  check(questionMapGeometry.scrollHeight > questionMapGeometry.clientHeight, 'large_question_map_uses_local_scroll', JSON.stringify(questionMapGeometry));
+  check(['auto', 'scroll'].includes(questionMapGeometry.overflowY), 'question_map_scroll_owner_is_local', JSON.stringify(questionMapGeometry));
   check((await exit.locator('[data-fast-sweep]').getAttribute('aria-pressed')) === 'false', 'fast_sweep_off_by_default');
   await exit.locator('[data-fast-sweep]').click();
   check((await exit.locator('[data-fast-sweep]').getAttribute('aria-pressed')) === 'true', 'fast_sweep_can_enable');
