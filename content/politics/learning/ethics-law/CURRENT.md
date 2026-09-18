@@ -7,6 +7,38 @@ This file does not own Ethics Source Truth, Politics-wide semantics, Acceptance 
 
 ---
 
+## Bounded Source→Knowledge lane｜LEG26 historical baseline
+
+LEG26-ETHICS has now been reconciled against Current Ethics-Law C00–C06 without changing the accepted first-round learner model or S/K/L/P/R/E engineering chain.
+
+Historical roles:
+
+```text
+Upper 15 topics
+→ concept / hat / confusable compression
+
+Lower 20 principle/output templates
+→ later Chat-first answer scaffolding
+
+Current Chengfeng/Knowledge
+→ still owns concept truth and first-round learning
+```
+
+Hard boundaries:
+
+- first round remains **concept layer → nearest boundary → relation/situational judgment**;
+- C00 has no standalone historical upper topic, so only actually supported cross-topic morality/law relations are retained;
+- classical sayings are not converted into an isolated poetry-memory dump;
+- legal/rule-of-law material carries a stronger freshness gate than stable moral concepts;
+- lower “万能答案” templates are later output scaffolds, not first-round compulsory recitation;
+- no new Memory sidecars were created;
+- **zero** LEG26-only candidates were admitted to durable current-year Memory;
+- UI / Projection / Runtime remains frozen.
+
+Reopen this lane only for real Wrong/Uncertain boundary evidence, a current-year legal/source update, or the later analysis-output phase.
+
+---
+
 ## Work Cursor
 
 **Scope:** Ethics-Law after fresh Evidence re-acceptance  
