@@ -307,6 +307,27 @@ export function compileLexicalFinalLearnerObject(record = {}, decisions = {}) {
   const coreMeaning = String(core.core_meaning_cn || core.mental_model_cn || '').trim();
   const decision = String(core.mental_model_cn || '').trim();
 
+  const posOrder = ['V', 'A', 'N', 'ADV', 'PREP', 'INTJ', 'NUM'];
+  const primaryCounts = {};
+  const secondaryCounts = {};
+  for (const sense of senses) {
+    const bucket = sense.kind === 'secondary' ? secondaryCounts : primaryCounts;
+    bucket[sense.pos_label] = (bucket[sense.pos_label] || 0) + 1;
+  }
+  const recallParts = [...new Set([...Object.keys(primaryCounts), ...Object.keys(secondaryCounts)])]
+    .sort((a, b) => {
+      const ai = posOrder.indexOf(a);
+      const bi = posOrder.indexOf(b);
+      return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi) || a.localeCompare(b);
+    })
+    .map((code) => {
+      const primary = primaryCounts[code] || 0;
+      const secondary = secondaryCounts[code] || 0;
+      if (primary && secondary) return `(${primary}+${secondary})${code}`;
+      if (secondary) return `${secondary}${code}+`;
+      return `${primary}${code}`;
+    });
+
   return {
     schema: 'kianos.lexical.final_learner_object.v1',
     word_id: String(study.word_id || ''),
@@ -320,6 +341,14 @@ export function compileLexicalFinalLearnerObject(record = {}, decisions = {}) {
     constructions,
     relations,
     form,
-    family
+    family,
+    recall_map: {
+      parts: recallParts,
+      density: senses.length > 1
+        || constructions.length > 0
+        || senses.some((sense) => sense.collocations.length > 0)
+        ? 'rich'
+        : 'light'
+    }
   };
 }
