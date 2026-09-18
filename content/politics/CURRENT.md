@@ -18,15 +18,16 @@ Politics exam-lifecycle **later-stage Knowledge is now closed at K with bounded 
 ```text
 later-stage Source baseline
 → K realization / audit                  PASS_WITH_DEBT
-→ L candidate + builder adversarial      PASS_AFTER_REPAIR
-→ fresh independent L audit              ACTIVE NEXT GATE
-→ later Projection / Runtime             FROZEN
+→ Consolidation L candidate              REPAIRED / same-Chat readback PASS
+→ fresh independent Consolidation L audit ACTIVE NEXT GATE
+→ Analysis-Output / Mock L                UNTESTED
+→ later Projection / Runtime              FROZEN
 ```
 
 K detail and source-refresh debt remain owned by `content/politics/ACCEPTANCE.md` and `manifest.json`; this cursor does not duplicate subject counts or candidate inventories.
 
-**Next active gate: fresh independent later-stage L audit.**  
-UI / Projection / Runtime remain frozen until that audit closes.
+**Next active gate: fresh independent Consolidation L audit on the current #433 head.**  
+The same builder Chat has already repaired duplicate recall, candidate-admission leakage, freshness bypass and later-stage surface ownership, but cannot manufacture independent acceptance. Analysis-Output / Mock L and downstream Projection / Runtime remain frozen.
 
 The stable first-round learner loop remains:
 
