@@ -121,6 +121,9 @@ repository learning-asset production
 → restore substantial-L self-adversarial + fresh-independent acceptance
 → restore substantial Content closure readback before P
 
+Xizong Extension authority
+→ replace nonexistent frozen-v6 parent pointer with Current Learning Contract + study policy
+
 Xizong Question Explanation
 → restore adaptive FAST/deep production rule
 → repair stale README/manifest process pointer
