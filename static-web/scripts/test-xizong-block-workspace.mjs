@@ -314,7 +314,7 @@ try {
     checkpoint.hidden = false;
 
     const progress = checkpoint.querySelector('[data-ttsx-progress]');
-    if (progress) progress.textContent = '0/9';
+    if (progress) progress.textContent = '9 道';
     const meta = checkpoint.querySelector('[data-ttsx-meta]');
     if (meta) meta.textContent = '9 道 · 每题都可以单独「+写一句」，也可以一题都不记。';
     const boundary = checkpoint.querySelector('[data-ttsx-boundary-label]');
