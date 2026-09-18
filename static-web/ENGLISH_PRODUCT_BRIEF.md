@@ -9,6 +9,32 @@ This file owns the accepted English subject/task Visual blueprint under Architec
 
 ## Shared boundary
 
+### Navigation hierarchy
+
+English uses the shared three-level learner navigation contract:
+
+```text
+L1  KianOS
+    Home | 西综 | 政治 | English
+
+L2  English
+    Overview | Objective | Translation | Writing | Vocabulary
+
+L3  Objective
+    Reading A | Cloze | Part B
+
+L3  Vocabulary
+    Overview | Learn | Repair | Research
+```
+
+Ownership rules:
+
+- Reading A / Cloze / Part B are task forms inside one Objective capability; they do not each become an L2 destination.
+- Vocabulary is one English L2 capability. Its local Overview / Learn / Repair / Research modes are L3 and remain owned by Lexical.
+- A local `← English` control is a parent return/breadcrumb, not another navigation level.
+- Objective L3 belongs on the Objective landing/workspace context; it must not become another full Subject Bar.
+- Once the learner enters a complete attempt object, the immersive Runtime may suppress the English L2 bar to protect vertical working height. This is a presentation exception only; task ownership does not change.
+
 - Primary environment: Mac wide landscape.
 - English remains Digital Workbook + Adaptive Coach.
 - Preserve each task's native cognitive geometry; do not force one template across Reading A / Cloze / Part B / Translation / Writing.
