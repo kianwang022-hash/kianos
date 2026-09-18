@@ -10,8 +10,8 @@ This cursor owns current engineering routing only. It does not own Rule / Model,
 
 ## Current state
 
-**Active lane:** Lexical Continuous Content + Repair Test Upgrade — ACTIVE  
-**Blocker:** none
+**Active lane:** Lexical Continuous Content + Repair Test Upgrade — PAUSED FOR GENERATION RULES  
+**Blocker:** module-level generation rules must be fixed before o0051–o0100 continues
 
 Stage:
 
@@ -450,7 +450,7 @@ Preserve:
 
 ## Continuous Content + Repair Test Upgrade — ACTIVE 2026-09-18
 
-Catalog execution: ACTIVE
+Catalog execution: PAUSED
 
 This is the durable rolling Content lane for the current 7,946 Main Words.
 
@@ -574,6 +574,6 @@ Representative final-object readback confirms upgraded learner summaries for `ac
 
 Derived Repair Test blueprints live under `content/lexical/learner/repair-blueprints/shards/` and remain diagnostic content, never semantic Truth.
 
-Next internal shard: **o0051–o0100**.
+Next internal shard: **o0051–o0100 — PAUSED**.
 
-For every owner, perform the complete semantic readback and the Repair Test judgment in the same close cycle.
+Do not continue catalog mutation until Core / Sense / Familiar-new / Construction / Phraseology / Decision Boundary / Relation / Register / Family / Form / Productive-use / Repair Test generation rules are explicitly accepted and the catalog directive returns to ACTIVE.
