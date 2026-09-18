@@ -1,41 +1,133 @@
-import { EXAM_PROFILE_KEY, SUBJECTS, TARGETS, emptyExamProfile, validateExamProfile, buildExamPlan, examDay, formatMinutes } from './examOrchestrator.mjs';
-import { readExamDemand, safeProductHref } from './examDemand.mjs';
+import {
+  EXAM_PROFILE_KEY,
+  SUBJECTS,
+  TARGETS,
+  GATES,
+  REFRESH_WINDOWS,
+  emptyExamProfile,
+  validateExamProfile,
+  examDay,
+  formatMinutes,
+  resolveExamPhase,
+  dayDistance
+} from './examOrchestrator.mjs';
+import {
+  EXAM_CHAT_PLAN_SCHEMA,
+  EXAM_CHAT_PLAN_KEY,
+  readExamChatPlan,
+  validateExamChatPlan,
+  writeExamChatPlan
+} from './examChatPlan.mjs';
 import { buildExamStudyTimeOverlay } from './examStudyTime.mjs';
-import { buildExamPlanReadModel } from './examPlanReadModel.mjs';
+import { buildChatControlledExamReadModel } from './examPlanReadModel.mjs';
 import { readPoliticsSnapshot, resolvePoliticsContinue } from './politicsPracticeState.mjs';
+
 const names = { xizong: '西综', english: '英语', politics: '政治' };
+const PRODUCT_FAMILIES = ['xizong', 'english', 'reading', 'cloze', 'reading-b', 'translation', 'writing', 'politics', 'vocabulary'];
+
+function safeProductHref(href, base = '/') {
+  if (typeof href !== 'string' || !href.startsWith(base) || href.startsWith('//')) return null;
+  try {
+    const url = new URL(href, 'https://kianos.invalid');
+    if (url.origin !== 'https://kianos.invalid') return null;
+    if (!PRODUCT_FAMILIES.some((family) => url.pathname.startsWith(`${base}${family}/`))) return null;
+    return url.pathname + url.search + url.hash;
+  } catch {
+    return null;
+  }
+}
+
+function dailyCapacity(profile, day) {
+  if (Object.hasOwn(profile?.capacityByDay || {}, day)) return profile.capacityByDay[day];
+  return profile?.defaultDailyMinutes ?? null;
+}
+
+function activeReminder(profile, day) {
+  return REFRESH_WINDOWS.find((window) =>
+    day >= window.start
+    && day <= window.end
+    && !profile?.reminders?.[window.id]
+  ) || null;
+}
+
 export function initExamHome(root) {
   if (!(root instanceof HTMLElement)) return;
-  const $ = s => root.querySelector(s), $$ = s => [...root.querySelectorAll(s)];
+  const $ = (selector) => root.querySelector(selector);
+  const $$ = (selector) => [...root.querySelectorAll(selector)];
   const catalog = JSON.parse($('[data-exam-catalog]').textContent);
   $('[data-exam-catalog]').remove();
-  let bytes = null, profile = emptyExamProfile(), plan, readable = true, pendingImport = null, timeOverlay = null;
+
+  let bytes = null;
+  let profile = emptyExamProfile();
+  let readable = true;
+  let pendingImport = null;
+  let timeOverlay = null;
+  let chatPlanState = { status: 'missing', plan: null, error: null };
+  let readModel = null;
+  let reminder = null;
+
   const day = () => examDay();
-  const error = message => { const el = $('[data-exam-error]'); el.hidden = !message; el.textContent = message || ''; };
+  const error = (message) => {
+    const element = $('[data-exam-error]');
+    element.hidden = !message;
+    element.textContent = message || '';
+  };
+
   function load() {
-    try { bytes = localStorage.getItem(EXAM_PROFILE_KEY); profile = bytes === null ? emptyExamProfile() : validateExamProfile(JSON.parse(bytes), day()); readable = true; error(''); }
-    catch { readable = false; error('本机调度记录暂时读不完整；原记录未被改动。恢复存储后刷新，三科入口仍可使用。'); }
+    try {
+      bytes = localStorage.getItem(EXAM_PROFILE_KEY);
+      profile = bytes === null ? emptyExamProfile() : validateExamProfile(JSON.parse(bytes), day());
+      readable = true;
+      error('');
+    } catch {
+      readable = false;
+      error('本机学习上下文暂时读不完整；原记录未被改动。恢复存储后刷新，三科入口仍可使用。');
+    }
+    chatPlanState = readExamChatPlan(localStorage, day());
   }
-  function persist(next) {
+
+  function persistProfile(next) {
     if (!readable) throw new Error('当前记录未能读取，未覆盖原记录。');
-    if (localStorage.getItem(EXAM_PROFILE_KEY) !== bytes) throw new Error('调度记录已在其他页面改变，请关闭窗口并刷新后再修改。');
-    const valid = validateExamProfile(next, day()), encoded = JSON.stringify(valid);
-    try { localStorage.setItem(EXAM_PROFILE_KEY, encoded); } catch { throw new Error('保存失败，安排未改变。请恢复本机存储后重试。'); }
-    bytes = encoded; profile = valid; render();
+    if (localStorage.getItem(EXAM_PROFILE_KEY) !== bytes) {
+      throw new Error('本机学习上下文已在其他页面改变，请关闭窗口并刷新后再修改。');
+    }
+    const valid = validateExamProfile(next, day());
+    const encoded = JSON.stringify(valid);
+    try {
+      localStorage.setItem(EXAM_PROFILE_KEY, encoded);
+    } catch {
+      throw new Error('保存失败，本机学习上下文未改变。请恢复本机存储后重试。');
+    }
+    bytes = encoded;
+    profile = valid;
+    render();
   }
+
+  function persistChatPlan(next) {
+    try {
+      writeExamChatPlan(localStorage, next, day());
+    } catch (cause) {
+      throw new Error(cause instanceof Error ? cause.message : String(cause));
+    }
+    chatPlanState = readExamChatPlan(localStorage, day());
+    render();
+  }
+
   const nativeLink = (selector, titleSelector, fallback, label) => {
     const node = document.querySelector(selector);
     const visible = node && !node.closest('[hidden]');
-    return visible && safeProductHref(node.getAttribute('href'), catalog.base)
-      ? { href: node.getAttribute('href'), title: document.querySelector(titleSelector)?.textContent?.trim() || label }
+    const href = visible ? safeProductHref(node.getAttribute('href'), catalog.base) : null;
+    return href
+      ? { href, title: document.querySelector(titleSelector)?.textContent?.trim() || label }
       : { href: fallback, title: label };
   };
+
   function publishPlanReadModel() {
-    const model = buildExamPlanReadModel(plan, { timeOverlay, readable });
-    root.__kianosExamPlanReadModel = model;
-    root.dispatchEvent(new CustomEvent('kianos:exam-plan-read-model', { detail: model, bubbles: true }));
-    return model;
+    root.__kianosExamPlanReadModel = readModel;
+    root.dispatchEvent(new CustomEvent('kianos:exam-plan-read-model', { detail: readModel, bubbles: true }));
+    return readModel;
   }
+
   function render() {
     const native = {
       xizong: nativeLink('[data-xizong-continue]', '[data-xizong-continue-title]', `${catalog.base}xizong/`, '选择西综学习位置'),
@@ -43,119 +135,332 @@ export function initExamHome(root) {
       politics: resolvePoliticsContinue(catalog.politics, readPoliticsSnapshot(localStorage), catalog.base)
         || nativeLink('[data-politics-continue]', '[data-politics-continue-title]', `${catalog.base}politics/`, '选择政治学习位置')
     };
-    const demand = readExamDemand(localStorage, catalog, native);
+
     const sourceProfile = readable ? profile : emptyExamProfile();
     timeOverlay = buildExamStudyTimeOverlay(localStorage, sourceProfile, day(), Date.now());
-    plan = buildExamPlan({ day: day(), profile: timeOverlay.profile, demands: demand.demands });
+    const phase = resolveExamPhase(day());
+    const nextGate = GATES.find((gate) => gate.date >= day()) || null;
+    const gate = nextGate ? { ...nextGate, daysRemaining: dayDistance(day(), nextGate.date) } : null;
+    const dayCapacity = dailyCapacity(timeOverlay.profile, day());
+
+    readModel = buildChatControlledExamReadModel({
+      day: day(),
+      phase,
+      gate,
+      chatPlanState,
+      dayCapacity,
+      actualBySubject: timeOverlay.effectiveBySubject,
+      nativeContinue: native,
+      timeOverlay,
+      readable
+    });
+
+    reminder = activeReminder(sourceProfile, day());
     root.dataset.studyTimeSource = timeOverlay.usesTimer ? 'timer' : 'manual';
-    const gate = document.querySelector('[data-exam-gate]');
-    const phase = document.querySelector('[data-exam-phase]');
-    if (gate) gate.textContent = plan.gate ? `${plan.gate.date.slice(5).replace('-', '/')} ${plan.gate.label} · ${plan.gate.daysRemaining === 0 ? '今天' : `还有 ${plan.gate.daysRemaining} 天`}` : '本轮考试已结束';
-    if (phase) phase.textContent = `${plan.phase.label} · 总目标 ${TARGETS.total}+`;
-    $('[data-exam-capacity]').textContent = !readable ? '先恢复记录，暂不推算安排。' : plan.capacity === null ? '设置可用时间后，三科一起分配。' : plan.phase.outsideCycle ? '本轮之外不自动安排考试学习。' : `今天可用 ${formatMinutes(plan.dayCapacity)}${plan.doneTotal ? ` · 已学 ${formatMinutes(plan.doneTotal)} · 下方为剩余安排` : ' · 含必要回访'}`;
-    $('[data-exam-settings]').textContent = plan.capacity === null ? '设置时间' : '调整时间';
-    const allocations = $('[data-exam-allocations]'); allocations.replaceChildren();
-    for (const r of plan.rows) {
-      const row = document.createElement('div'); row.className = 'examSubjectAllocation'; row.dataset.allocation = r.subject;
-      const label = document.createElement('strong'); label.textContent = names[r.subject];
-      const role = document.createElement('span'); role.textContent = !readable ? '记录待恢复' : r.minutes === 0 && plan.capacity === 0 ? '今天休息' : r.status === '需要加速' || r.status === '时间偏紧' ? r.status : r.role;
-      const amount = document.createElement('b'); amount.textContent = !readable || plan.phase.outsideCycle ? '—' : formatMinutes(r.minutes);
-      row.append(label, role, amount); allocations.append(row);
+    root.dataset.strategyOwner = 'chat';
+    root.dataset.chatPlanStatus = chatPlanState.status;
+
+    const gateNode = document.querySelector('[data-exam-gate]');
+    const phaseNode = document.querySelector('[data-exam-phase]');
+    if (gateNode) {
+      gateNode.textContent = readModel.gate
+        ? `${readModel.gate.date.slice(5).replace('-', '/')} ${readModel.gate.label} · ${readModel.gate.daysRemaining === 0 ? '今天' : `还有 ${readModel.gate.daysRemaining} 天`}`
+        : '本轮考试已结束';
     }
-    const best = plan.continue;
-    const link = $('[data-exam-next]'); link.href = best?.href || `${catalog.base}xizong/`; link.textContent = best ? `${names[best.subject]} · ${best.title} →` : '自由选择学习 →';
-    $('[data-exam-next-label]').textContent = plan.capacity === null || plan.capacity === 0 ? '自由进入' : '按当前安排继续';
-    const attention = $('[data-exam-attention]'); attention.hidden = !plan.attention || !readable;
-    if (plan.attention) { $('[data-exam-attention-text]').textContent = plan.attention.text; $('[data-exam-attention-action]').textContent = plan.attention.action; }
-    if (demand.errors.length && readable) error('有一科本机记录未读完整；相关回访量不参与重排，请先在科目页核对。');
-    const reminder = $('[data-exam-reminder]'); reminder.hidden = !plan.reminder || !readable;
-    if (plan.reminder) reminder.querySelector('p').textContent = plan.reminder.label;
+    if (phaseNode) phaseNode.textContent = `${readModel.phase?.label || '考试周期'} · 总目标 ${TARGETS.total}+`;
+
+    const capacityText = $('[data-exam-capacity]');
+    if (!readable) {
+      capacityText.textContent = '先恢复本机学习上下文；网页不会自行推算安排。';
+    } else if (readModel.capacity.dayMinutes === null) {
+      capacityText.textContent = '记录今天可用时间后，可把容量与学习证据交给 Chat；网页不自动分配三科。';
+    } else if (readModel.phase?.outsideCycle) {
+      capacityText.textContent = '本轮之外不自动安排考试学习。';
+    } else {
+      const planLabel = chatPlanState.status === 'ready' ? 'Chat 今日安排已载入' : '尚未导入 Chat 今日安排';
+      capacityText.textContent = `今天可用 ${formatMinutes(readModel.capacity.dayMinutes)} · 已学 ${formatMinutes(readModel.capacity.actualMinutes)} · ${planLabel}`;
+    }
+    $('[data-exam-settings]').textContent = readModel.capacity.dayMinutes === null ? '记录时间' : '调整时间';
+
+    const allocations = $('[data-exam-allocations]');
+    allocations.replaceChildren();
+    for (const subject of SUBJECTS) {
+      const rowModel = readModel.subjects[subject];
+      const row = document.createElement('div');
+      row.className = 'examSubjectAllocation';
+      row.dataset.allocation = subject;
+      const label = document.createElement('strong');
+      label.textContent = names[subject];
+      const role = document.createElement('span');
+      role.textContent = rowModel.role || '未安排';
+      const amount = document.createElement('b');
+      amount.textContent = rowModel.targetMinutes === null ? '—' : formatMinutes(rowModel.targetMinutes);
+      row.append(label, role, amount);
+      allocations.append(row);
+    }
+
+    const best = readModel.next;
+    const link = $('[data-exam-next]');
+    link.href = best?.href || `${catalog.base}xizong/`;
+    link.textContent = best
+      ? `${names[best.subject]} · ${best.title} →`
+      : '自由选择学习 →';
+    $('[data-exam-next-label]').textContent = best ? 'Chat 安排下一步' : '尚未安排';
+
+    const attention = $('[data-exam-attention]');
+    attention.hidden = !readModel.attention || !readable;
+    if (readModel.attention) {
+      $('[data-exam-attention-text]').textContent = readModel.attention.text;
+      $('[data-exam-attention-action]').textContent = readModel.attention.action || '查看依据';
+    }
+
+    const reminderNode = $('[data-exam-reminder]');
+    reminderNode.hidden = !reminder || !readable;
+    if (reminder) reminderNode.querySelector('p').textContent = reminder.label;
+
     root.dataset.ready = 'true';
     publishPlanReadModel();
   }
-  const open = name => { const dialog = $(`[data-exam-${name}-dialog]`); if (!dialog.open) dialog.showModal(); };
+
+  const open = (name) => {
+    const dialog = $(`[data-exam-${name}-dialog]`);
+    if (!dialog.open) dialog.showModal();
+  };
+
   function settings() {
-    $('[data-capacity-hours]').value = profile.capacityByDay[day()] != null ? profile.capacityByDay[day()] / 60 : profile.defaultDailyMinutes != null ? profile.defaultDailyMinutes / 60 : '';
+    $('[data-capacity-hours]').value = profile.capacityByDay[day()] != null
+      ? profile.capacityByDay[day()] / 60
+      : profile.defaultDailyMinutes != null ? profile.defaultDailyMinutes / 60 : '';
     $('[data-capacity-default]').checked = profile.defaultDailyMinutes == null;
     $('[data-maintenance]').value = profile.maintenanceByDay[day()] || '';
-    $('[data-exam-settings-form] [data-form-error]').hidden = true; open('settings');
+    $('[data-exam-settings-form] [data-form-error]').hidden = true;
+    open('settings');
   }
+
   function why() {
-    const target = $('[data-exam-reasons]'); target.replaceChildren();
-    const p = text => { const node = document.createElement('p'); node.textContent = text; target.append(node); };
-    if (plan.phase.id === 'A') p('分配的是接下来可用的时间，不是掌握程度。第一阶段先守住英语与政治连续性，余量主推西综。');
-    else p('分配的是接下来可用的时间，不是掌握程度。进入后续阶段后不再沿用第一阶段固定时长；已有工作量、回访与分数证据优先，其余容量只做临时保连续。');
-    p(plan.horizonKnown ? '已按未来七天可用时间分摊当前最低安排；不会把过去缺的小时累加成欠账。' : '尚无完整未来七天容量，先按今天安排；之后的容量仍留空。');
-    if (plan.provisional) p('当前阶段还没有新的三科最低安排；先按已有工作量、回访和分数证据分配，其余容量只做临时保连续，不代表新的固定比例。');
-    for (const r of plan.rows) {
-      const title = document.createElement('h3'); title.textContent = names[r.subject]; target.append(title);
-      p(r.why.length ? r.why.join(' ') : '没有足够证据推算剩余工作量；沿本科已开放主线继续。');
-      const observed = plan.confirmedWeek.find(x => x.subject === r.subject)?.minutes || 0;
-      if (observed) p(`最近七天有效学习时间记录：${formatMinutes(observed)}；时间不等于完成或掌握。`);
-      if (r.required !== null) p(`当前已报工作量需要日均约 ${formatMinutes(Math.ceil(r.required / 5) * 5)}，这里只是容量估计。`);
+    const target = $('[data-exam-reasons]');
+    target.replaceChildren();
+    const p = (value) => {
+      const node = document.createElement('p');
+      node.textContent = value;
+      target.append(node);
+    };
+    const heading = (value) => {
+      const node = document.createElement('h3');
+      node.textContent = value;
+      target.append(node);
+    };
+
+    p('三科分配、优先级和下一步由 Chat 决定；网页只校验并展示已经导入的计划，同时记录可用时间与真实学习证据。');
+    p(readModel.gate
+      ? `当前阶段：${readModel.phase?.label || '—'}；下一 Gate：${readModel.gate.date} ${readModel.gate.label}。`
+      : '当前没有后续考试 Gate。');
+    p(readModel.capacity.dayMinutes === null
+      ? '今天可用时间尚未记录。'
+      : `今天可用 ${formatMinutes(readModel.capacity.dayMinutes)}；已记录学习 ${formatMinutes(readModel.capacity.actualMinutes)}。`);
+
+    if (chatPlanState.status === 'ready') {
+      p(`Chat Plan：${chatPlanState.plan.study_day} · ${chatPlanState.plan.generated_at}。`);
+      for (const subject of SUBJECTS) {
+        const instruction = chatPlanState.plan.subjects[subject];
+        heading(names[subject]);
+        if (!instruction) {
+          p('Chat 本次没有给这一科分配目标。');
+          continue;
+        }
+        p([
+          instruction.target_minutes == null ? '未给定时长' : `目标 ${formatMinutes(instruction.target_minutes)}`,
+          instruction.role,
+          instruction.note
+        ].filter(Boolean).join(' · ') || '已纳入 Chat 安排。');
+      }
+    } else {
+      p('当前没有有效的 Chat 今日安排。网页不会根据阶段、错题数、估分或剩余工作量自行补算一个计划。');
     }
-    if (!plan.scores.length) p('尚无有依据的分数区间；不会由刷题数或单次正确率编造估分。');
-    for (const s of plan.scores) p(`${names[s.subject]} ${s.band.join('–')}；可信度 ${s.confidence}。${s.note}；${s.contamination}。依据：${s.evidenceRefs.join('、')}`);
-    if (plan.totalBand) p(`三科已报总区间 ${plan.totalBand.join('–')}，目标 ${TARGETS.total}+。仅反映所提供评估，不代表考试结果。`);
+
+    const reports = (profile.reports || []).filter((report) => report.day <= day() && report.validThrough >= day());
+    if (reports.length) {
+      heading('可供 Chat 使用的阶段证据');
+      reports.forEach((report) => p(`${names[report.subject]} · ${report.note} · 依据：${report.evidenceRefs.join('、')}`));
+    }
     open('why');
   }
-  $$('[data-close]').forEach(b => b.addEventListener('click', () => b.closest('dialog').close()));
+
+  $$('[data-close]').forEach((button) => button.addEventListener('click', () => button.closest('dialog').close()));
   $('[data-exam-settings]').addEventListener('click', settings);
   $('[data-exam-why]').addEventListener('click', why);
-  $('[data-exam-attention-action]').addEventListener('click', () => plan.attention?.type === 'capacity' ? settings() : why());
-  $('[data-exam-settings-form]').addEventListener('submit', event => {
-    event.preventDefault(); const form = event.currentTarget;
+  $('[data-exam-attention-action]').addEventListener('click', why);
+
+  $('[data-exam-settings-form]').addEventListener('submit', (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
     try {
-      const next = structuredClone(profile), hours = Number($('[data-capacity-hours]').value);
-      if ($('[data-capacity-hours]').value === '' || !Number.isFinite(hours) || hours < 0 || hours > 24) throw new Error('请填 0–24 小时之间的有效时间。');
+      const next = structuredClone(profile);
+      const hours = Number($('[data-capacity-hours]').value);
+      if ($('[data-capacity-hours]').value === '' || !Number.isFinite(hours) || hours < 0 || hours > 24) {
+        throw new Error('请填 0–24 小时之间的有效时间。');
+      }
       next.capacityByDay[day()] = Math.round(hours * 60);
       if ($('[data-capacity-default]').checked) next.defaultDailyMinutes = next.capacityByDay[day()];
-      const mode = $('[data-maintenance]').value; if (mode) next.maintenanceByDay[day()] = mode; else delete next.maintenanceByDay[day()];
-      persist(next); form.closest('dialog').close();
-    } catch (e) { const el = form.querySelector('[data-form-error]'); el.hidden = false; el.textContent = e.message; }
+      const mode = $('[data-maintenance]').value;
+      if (mode) next.maintenanceByDay[day()] = mode;
+      else delete next.maintenanceByDay[day()];
+      persistProfile(next);
+      form.closest('dialog').close();
+    } catch (cause) {
+      const element = form.querySelector('[data-form-error]');
+      element.hidden = false;
+      element.textContent = cause.message;
+    }
   });
+
   $('[data-exam-record]').addEventListener('click', () => {
-    SUBJECTS.forEach(s => { $(`[data-studied="${s}"]`).value = profile.observations.filter(o => o.day === day() && o.subject === s).reduce((n,o) => n + o.minutes, 0); });
-    $('[data-exam-record-form] [data-form-error]').hidden = true; open('record');
+    SUBJECTS.forEach((subject) => {
+      $("[data-studied=\"" + subject + "\"]").value = profile.observations
+        .filter((observation) => observation.day === day() && observation.subject === subject)
+        .reduce((sum, observation) => sum + observation.minutes, 0);
+    });
+    $('[data-exam-record-form] [data-form-error]').hidden = true;
+    open('record');
   });
-  $('[data-exam-record-form]').addEventListener('submit', event => {
-    event.preventDefault(); const form = event.currentTarget;
+
+  $('[data-exam-record-form]').addEventListener('submit', (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
     try {
-      const next = structuredClone(profile); next.observations = next.observations.filter(o => o.day !== day());
-      for (const s of SUBJECTS) next.observations.push({ id: `confirmed-${day()}-${s}`, day: day(), subject: s, minutes: Number($(`[data-studied="${s}"]`).value), confirmed: true });
-      persist(next); form.closest('dialog').close();
-    } catch (e) { const el = form.querySelector('[data-form-error]'); el.hidden = false; el.textContent = e.message; }
+      const next = structuredClone(profile);
+      next.observations = next.observations.filter((observation) => observation.day !== day());
+      for (const subject of SUBJECTS) {
+        next.observations.push({
+          id: `confirmed-${day()}-${subject}`,
+          day: day(),
+          subject,
+          minutes: Number($("[data-studied=\"" + subject + "\"]").value),
+          confirmed: true
+        });
+      }
+      persistProfile(next);
+      form.closest('dialog').close();
+    } catch (cause) {
+      const element = form.querySelector('[data-form-error]');
+      element.hidden = false;
+      element.textContent = cause.message;
+    }
   });
+
   $('[data-exam-reminder-dismiss]').addEventListener('click', () => {
-    try { const next = structuredClone(profile); next.reminders[plan.reminder.id] = day(); persist(next); } catch (e) { error(e.message); }
+    if (!reminder) return;
+    try {
+      const next = structuredClone(profile);
+      next.reminders[reminder.id] = day();
+      persistProfile(next);
+    } catch (cause) {
+      error(cause.message);
+    }
   });
+
   $('[data-exam-export]').addEventListener('click', () => {
     if (!readable) return;
-    const blob = new Blob([JSON.stringify(profile, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob), a = document.createElement('a'); a.href = url; a.download = `kianos-exam-${day()}.json`; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+    const bundle = {
+      schema: 'kianos.exam.local-context.v1',
+      study_day: day(),
+      profile,
+      chat_plan: chatPlanState.status === 'ready' ? chatPlanState.plan : null
+    };
+    const blob = new Blob([JSON.stringify(bundle, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = `kianos-exam-context-${day()}.json`;
+    anchor.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
   });
-  $('[data-exam-import]').addEventListener('change', async event => {
-    pendingImport = null; $('[data-exam-import-confirm]').hidden = true; $('[data-exam-import-preview]').hidden = true;
+
+  $('[data-exam-import]').addEventListener('change', async (event) => {
+    pendingImport = null;
+    $('[data-exam-import-confirm]').hidden = true;
+    $('[data-exam-import-preview]').hidden = true;
     try {
-      const file = event.target.files?.[0]; if (!file) return;
-      if (file.size > 1024 * 1024) throw new Error('调度文件过大，未读取。');
-      pendingImport = validateExamProfile(JSON.parse(await file.text()), day());
-      const preview = $('[data-exam-import-preview]'); preview.hidden = false;
-      preview.textContent = `将替换本机调度记录（不修改三科学习记录）\n通常可用：${formatMinutes(pendingImport.defaultDailyMinutes)}\n阶段评估 ${pendingImport.reports.length} 条 · 阶段结论 ${pendingImport.gateReports.length} 条 · 已学时间 ${pendingImport.observations.length} 条\n` + pendingImport.reports.map(r => `${names[r.subject]} · ${r.day}–${r.validThrough} · ${r.note}`).join('\n');
-      $('[data-exam-import-confirm]').hidden = false; $('[data-import-error]').hidden = true;
-    } catch (e) { const el = $('[data-import-error]'); el.hidden = false; el.textContent = e.message; }
+      const file = event.target.files?.[0];
+      if (!file) return;
+      if (file.size > 1024 * 1024) throw new Error('导入文件过大，未读取。');
+      const parsed = JSON.parse(await file.text());
+      const preview = $('[data-exam-import-preview]');
+
+      if (parsed?.schema === EXAM_CHAT_PLAN_SCHEMA) {
+        const value = validateExamChatPlan(parsed, day());
+        pendingImport = { kind: 'chat-plan', value };
+        preview.textContent = [
+          `将载入 Chat 今日安排：${value.study_day}`,
+          ...SUBJECTS.map((subject) => {
+            const row = value.subjects[subject];
+            return `${names[subject]} · ${row?.target_minutes == null ? '未给时长' : formatMinutes(row.target_minutes)} · ${row?.role || '未指定角色'}`;
+          }),
+          `下一步：${value.next_subject ? names[value.next_subject] : '未指定'}`
+        ].join('\n');
+      } else if (parsed?.schema === 'kianos.exam.local-context.v1') {
+        const nextProfile = validateExamProfile(parsed.profile, day());
+        const nextPlan = parsed.chat_plan ? validateExamChatPlan(parsed.chat_plan, day()) : null;
+        pendingImport = { kind: 'context', profile: nextProfile, plan: nextPlan };
+        preview.textContent = `将恢复本机学习上下文；Chat Plan：${nextPlan ? '有' : '无'}。`;
+      } else {
+        const value = validateExamProfile(parsed, day());
+        pendingImport = { kind: 'profile', value };
+        preview.textContent = `将载入旧版本机上下文（不自动生成学习安排）。\n阶段评估 ${value.reports.length} 条 · 阶段结论 ${value.gateReports.length} 条 · 已学时间 ${value.observations.length} 条`;
+      }
+
+      preview.hidden = false;
+      $('[data-exam-import-confirm]').hidden = false;
+      $('[data-import-error]').hidden = true;
+    } catch (cause) {
+      const element = $('[data-import-error]');
+      element.hidden = false;
+      element.textContent = cause.message;
+    }
   });
+
   $('[data-exam-import-confirm]').addEventListener('click', () => {
-    try { if (!pendingImport) return; persist(pendingImport); pendingImport = null; $('[data-exam-import-confirm]').hidden = true; $('[data-exam-why-dialog]').close(); }
-    catch (e) { const el = $('[data-import-error]'); el.hidden = false; el.textContent = e.message; }
+    try {
+      if (!pendingImport) return;
+      if (pendingImport.kind === 'chat-plan') {
+        persistChatPlan(pendingImport.value);
+      } else if (pendingImport.kind === 'profile') {
+        persistProfile(pendingImport.value);
+      } else if (pendingImport.kind === 'context') {
+        persistProfile(pendingImport.profile);
+        if (pendingImport.plan) persistChatPlan(pendingImport.plan);
+      }
+      pendingImport = null;
+      $('[data-exam-import-confirm]').hidden = true;
+      $('[data-exam-why-dialog]').close();
+    } catch (cause) {
+      const element = $('[data-import-error]');
+      element.hidden = false;
+      element.textContent = cause.message;
+    }
   });
+
   const refreshFromExternalTime = () => {
-    if (!$$('dialog').some(d => d.open)) render();
+    if (!$$('dialog').some((dialog) => dialog.open)) render();
   };
   window.addEventListener('kianos:study-timer-change', refreshFromExternalTime);
-  window.addEventListener('storage', () => { if ($$('dialog').some(d => d.open)) { error('另一页面的记录已改变；当前编辑未覆盖它。关闭窗口并刷新后再改。'); return; } load(); render(); });
-  window.addEventListener('focus', () => { if (!$$('dialog').some(d => d.open)) { load(); render(); } });
-  load(); render();
-  // Read subject Resume surfaces after their own modules hydrate; never duplicate their priority rules.
+  window.addEventListener('storage', (event) => {
+    if (![EXAM_PROFILE_KEY, EXAM_CHAT_PLAN_KEY, null].includes(event.key)) return;
+    if ($$('dialog').some((dialog) => dialog.open)) {
+      error('另一页面的本机学习上下文已改变；当前编辑未覆盖它。关闭窗口并刷新后再改。');
+      return;
+    }
+    load();
+    render();
+  });
+  window.addEventListener('focus', () => {
+    if (!$$('dialog').some((dialog) => dialog.open)) {
+      load();
+      render();
+    }
+  });
+
+  load();
+  render();
   setTimeout(render, 250);
 }

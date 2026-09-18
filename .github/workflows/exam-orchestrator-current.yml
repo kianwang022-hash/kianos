@@ -7,8 +7,11 @@ on:
       - 'EXAM_ORCHESTRATOR_CONTRACT.md'
       - 'EXAM_ORCHESTRATOR_CURRENT.json'
       - 'static-web/src/lib/examOrchestrator.mjs'
+      - 'static-web/src/lib/examChatPlan.mjs'
+      - 'static-web/src/lib/examOrchestratorClient.mjs'
+      - 'static-web/src/lib/examPlanReadModel.mjs'
+      - 'static-web/scripts/validate-exam-chat-control.mjs'
       - 'static-web/scripts/validate-exam-orchestrator-current.mjs'
-      - 'static-web/src/pages/current.astro'
       - 'static-web/src/components/ExamOrchestratorHome.astro'
   push:
     branches: [main]
@@ -17,8 +20,11 @@ on:
       - 'EXAM_ORCHESTRATOR_CONTRACT.md'
       - 'EXAM_ORCHESTRATOR_CURRENT.json'
       - 'static-web/src/lib/examOrchestrator.mjs'
+      - 'static-web/src/lib/examChatPlan.mjs'
+      - 'static-web/src/lib/examOrchestratorClient.mjs'
+      - 'static-web/src/lib/examPlanReadModel.mjs'
+      - 'static-web/scripts/validate-exam-chat-control.mjs'
       - 'static-web/scripts/validate-exam-orchestrator-current.mjs'
-      - 'static-web/src/pages/current.astro'
       - 'static-web/src/components/ExamOrchestratorHome.astro'
 
 permissions:
@@ -40,6 +46,9 @@ jobs:
       - name: Validate contract and runtime projection
         working-directory: static-web
         run: node scripts/validate-exam-orchestrator-current.mjs
+      - name: Validate Chat-owned orchestration boundary
+        working-directory: static-web
+        run: node scripts/validate-exam-chat-control.mjs
       - name: Build learner site
         working-directory: static-web
         run: |

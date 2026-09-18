@@ -1,6 +1,6 @@
 # KianOS Root Current
 
-Role: **Control Tower + root router**  
+Role: **Control Tower + root Work Cursor/router**  
 Rule: current routing/status only. No semantic Truth, Acceptance ledger, learner progress, or duplicated child-task cursor.
 
 ---
@@ -51,6 +51,10 @@ root CURRENT
 
 Task creation, persistence, active-ref freshness and artifact+cursor atomicity are operating rules owned by `AGENTS.md`; they are not duplicated here.
 
+Shared authority routing:
+- durable ownership / inheritance → `AUTHORITY_INHERITANCE_CONTRACT.md`;
+- machine owner topology → `AUTHORITY_OWNERSHIP.json`.
+
 ---
 
 ## Cross-program status
@@ -72,6 +76,33 @@ Exact branch / PR / screenshot state belongs to `static-web/CURRENT.md` or the e
 - Lexical broad architecture rebuild/audit remains closed. A bounded **Baseline-v2 lexical content re-validation** is active under frozen module rules; after that, Lexical returns to evidence-triggered maintenance rather than periodic full-catalog rewriting.
 
 Do not copy System counts, batch counts, phase numbers, Crosswalk totals, or exact next actions into Root. Read them from their canonical cursor on demand.
+
+---
+
+## Launch closure mainline
+
+Website launch now follows one fixed closure sequence:
+
+```text
+Gate 1  Subject Final Acceptance
+        Xizong / English / Politics fresh audits converge on truthful Current claims
+
+Gate 2  Shared Learner Data / Chat Handoff
+        Chat owns cross-subject strategy; typed plans/returns and private durable checkpoints close
+
+Gate 3  Home integration
+        Home consumes Chat plan + subject-owned Resume/evidence without inventing strategy
+
+Gate 4  Cross-subject final regression
+        Timer / Resume / sync / restart / handoff / three-subject switching prove one coherent runtime
+
+Gate 5  Launch / engineering freeze
+        broad website construction stops; reopen only concrete learner-visible defects
+```
+
+Gates 1 and 2 may proceed in parallel where write sets are independent. Gate 3 consumes their final interfaces; Gate 4 follows the relevant closures.
+
+This is a routing sequence, not a second progress dashboard. Exact subject findings stay in subject Current / Acceptance owners.
 
 ---
 
