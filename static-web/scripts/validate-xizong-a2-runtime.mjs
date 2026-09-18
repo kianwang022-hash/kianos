@@ -154,6 +154,8 @@ has(practiceUi, "let holdoutYears = data.allowHoldout ? [] : readJson(holdoutKey
 has(practiceUi, "if (data?.scopeKind === 'SYSTEM')", 'system-practice-release-gate-missing');
 has(practiceUi, "kianos:xizong:system-recall:", 'system-practice-does-not-read-recall-evidence');
 has(practiceUi, "if (!recallState?.completedAt)", 'system-practice-does-not-fail-closed-before-recall');
+has(practiceUi, 'data-question-uncertain', 'uncertain-control-missing');
+has(practiceUi, "currentUncertain ? 'uncertain' : 'stable'", 'correct-unsure-evidence-missing');
 has(practiceUi, "if (data.holdoutRequired !== false && !holdoutYears.length) { renderGate(); return; }", 'question-sweep-prerequisite-gate');
 has(repairReturn, ".filter(([, row]) => row && ['wrong', 'uncertain'].includes(row.status))", 'wu-only-handoff');
 has(repairReturn, '暂无审核过的精确 Block/KP 回链：保留题号给 Chat，不自动猜。', 'no-guessed-repair-route');
