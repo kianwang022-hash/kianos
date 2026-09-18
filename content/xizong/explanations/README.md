@@ -68,12 +68,12 @@ A question becomes a deep-review candidate when one or more are materially true:
 
 It is **not** technical debt merely because optional deep fields are absent.
 
-A thin explanation should normally preserve the smallest sufficient set, such as:
+A thin explanation must preserve the smallest sufficient learner decision:
 
 - `exam_target` — what is actually being tested;
-- `decision_axis` — the decisive check;
-- a short `reasoning_chain` or equivalent direct reasoning;
-- `transfer_rule` when there is a reusable rule worth carrying.
+- `decision_axis` — the decisive check.
+
+Additional fields such as a short `reasoning_chain`, `correct_option_reason`, or `transfer_rule` are added only when they materially improve understanding or reuse. They are not mandatory merely because the schema can hold them.
 
 Do not manufacture distractors, failure nodes or extra prose just to fill fields.
 
