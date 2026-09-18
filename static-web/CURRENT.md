@@ -27,7 +27,7 @@ Architecture-level website blocker: **none**.
 
 | Lane | State | Active ref / continue from |
 | --- | --- | --- |
-| Xizong UI | **ACTIVE** | `work/xizong-system-completion-final-20260918` → `XIZONG_SYSTEM_COMPLETION_DESIGN.md` + `XIZONG_PRACTICE_DESIGN.md` → exact implementation owners |
+| Xizong UI | **ACTIVE** | `work/xizong-system-completion-final-20260918` → `XIZONG_VISUAL_LANGUAGE.md` (L2) → exact L3 surface owner |
 | Politics UI | **ACTIVE** | formal `#395` / `work/ui-politics-vertical-20260918`; preview `#397` stays isolated until Human Gate |
 | English UI | **LANDED** | `content/english/CURRENT.md` |
 | Lexical learner surface | **STEADY under English** | `content/lexical/CURRENT.md` when a concrete defect exists |
@@ -182,7 +182,7 @@ CI green is not visual acceptance.
 
 ## Current next actions
 
-- **Xizong:** close Recall → dedicated Practice ownership and the Mac one-screen SYSTEM-scope Workbench first; then extend the same Practice Runtime to retained W/U/Marked and whole-paper/Hidden modes. Question Explanation production remains a separate Content-lane producer and is not a UI prerequisite.
+- **Xizong:** L2 visual language is now accepted. Re-review Practice first as the next L3 under `XIZONG_VISUAL_LANGUAGE.md`, then System Recall; preserve the already-green Runtime/ownership split while visual composition remains Human-Gate pending. Question Explanation production remains a separate Content lane.
 - **Politics:** continue from the cleaned SurfacePlan-only renderer path; Visual may arrange mapped objects but must not author semantic grouping/relations.
 - **English:** only concrete launch-visible defects; do not reopen accepted task geometry.
 
