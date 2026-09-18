@@ -31,7 +31,16 @@ const questionSweep = loadXizongSystemQuestionSweep(system);
   active="xizong"
   showLead={false}
 >
-  <XizongLastLocation system={system} />
+  <XizongLastLocation
+    system={system}
+    resumeKind="SYSTEM_RECALL"
+    resumeTitle={`System Recall · ${system.title}`}
+    resumeDetail="恢复系统级闭卷重建"
+    resumeStage="SYSTEM RECALL"
+    resumePosition={`${system.canonicalId} · ${system.title}`}
+    resumeAction="继续 Recall →"
+    requiredBlockIds={system.blocks.map((block) => block.blockId)}
+  />
   <main class="xzSystemRecallPage" data-xizong-system-recall-page>
     <nav class="xzSystemRecallNav" aria-label="System Recall navigation">
       <a href={`${base}xizong/${system.systemId}/`}>‹ 返回 System Framework</a>
