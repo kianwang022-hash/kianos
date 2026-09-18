@@ -60,16 +60,14 @@ const payload = JSON.stringify({
           </details>
           <div class="xzpMoreHelp">
             <span>快捷键</span>
-            <p>1–5 选择 · Enter 提交/继续 · M 标记 · ← → 切题</p>
+            <p>1–5 选择 · Enter 提交/继续 · Space 正反面 · M 标记 · ← → 切题</p>
           </div>
         </div>
       </details>
     </div>
   </header>
 
-  <div class="xzpBody">
-    <nav class="xzpMap" data-question-map aria-label="题号"></nav>
-
+  <div class="xzpBody" data-practice-front>
     <main class="xzpQuestionPane">
       <header class="xzpQuestionMeta">
         <span data-question-meta>—</span>
@@ -123,19 +121,46 @@ const payload = JSON.stringify({
       </section>
     </main>
 
-    <aside class="xzpReviewPane">
-      <section class="xzpReviewEmpty" data-review-empty>
-        <span>解析</span>
-        <strong>提交后在这里核对</strong>
-        <p>简单题保持简单；只有这道题真实拥有的高价值解析才会出现。</p>
+    <aside class="xzpProgressPane">
+      <header>
+        <span>本组进度</span>
+        <strong data-question-progress-side>准备中</strong>
+      </header>
+      <nav class="xzpMap" data-question-map aria-label="题号"></nav>
+    </aside>
+  </div>
+
+  <section class="xzpBack" data-practice-back hidden>
+    <aside class="xzpFeedbackPane">
+      <header class="xzpFeedbackResult">
+        <strong data-answer-result></strong>
+        <span>你的答案 <b data-user-answer></b></span>
+        <span>正确答案 <b data-correct-answer></b></span>
+      </header>
+
+      <section class="xzpCausePicker">
+        <span>你觉得主要是哪里出了问题？（可选）</span>
+        <div>
+          <button type="button" data-cause="memory">没记住</button>
+          <button type="button" data-cause="understanding">没想明白</button>
+          <button type="button" data-cause="options">选项没辨清</button>
+          <button type="button" data-cause="careless">看错 / 粗心</button>
+        </div>
       </section>
 
-      <section class="xzpReview" data-answer-panel hidden>
-        <header>
-          <strong data-answer-result></strong>
-          <span>你的答案 <b data-user-answer></b> · 正确答案 <b data-correct-answer></b></span>
-        </header>
+      <label class="xzpAttemptNote">
+        <span>备注</span>
+        <textarea rows="4" data-attempt-note placeholder="想问 Chat / 自己卡住的点……"></textarea>
+        <small data-attempt-note-status></small>
+      </label>
 
+      <div class="xzpBackTools">
+        <button type="button" class="xzpQuietControl" data-show-front>Space · 回正面</button>
+      </div>
+    </aside>
+
+    <main class="xzpReviewPane" aria-label="知识回看">
+      <section class="xzpReview" data-answer-panel hidden>
         <section data-exam-target-wrap hidden>
           <h3>考点</h3>
           <p data-exam-target></p>
@@ -180,8 +205,8 @@ const payload = JSON.stringify({
           <button type="button" class="xzpQuietControl" data-next-question>Enter · 下一题</button>
         </footer>
       </section>
-    </aside>
-  </div>
+    </main>
+  </section>
 
   <script type="application/json" data-sweep-payload set:html={payload}></script>
 </section>
@@ -333,16 +358,18 @@ const payload = JSON.stringify({
     sweepState = ensureXizongQuestionSweepState(sweepState, { ...attemptContext, holdoutYears });
     writeJson(sweepKey, sweepState);
 
+    const front = root.querySelector('[data-practice-front]');
+    const back = root.querySelector('[data-practice-back]');
     const mapNode = root.querySelector('[data-question-map]');
     const questionCard = root.querySelector('[data-question-card]');
     const holdoutGate = root.querySelector('[data-holdout-gate]');
     const questionMeta = root.querySelector('[data-question-meta]');
     const questionProgress = root.querySelector('[data-question-progress]');
+    const questionProgressSide = root.querySelector('[data-question-progress-side]');
     const stem = root.querySelector('[data-question-stem]');
     const optionsBox = root.querySelector('[data-question-options]');
     const submit = root.querySelector('[data-submit-answer]');
     const hint = root.querySelector('[data-selection-hint]');
-    const reviewEmpty = root.querySelector('[data-review-empty]');
     const answerPanel = root.querySelector('[data-answer-panel]');
     const answerResult = root.querySelector('[data-answer-result]');
     const userAnswer = root.querySelector('[data-user-answer]');
@@ -352,6 +379,10 @@ const payload = JSON.stringify({
     const markButton = root.querySelector('[data-question-mark]');
     const nextButton = root.querySelector('[data-next-question]');
     const reviewToggle = root.querySelector('[data-review-toggle]');
+    const showFrontButton = root.querySelector('[data-show-front]');
+    const causeButtons = [...root.querySelectorAll('[data-cause]')];
+    const attemptNote = root.querySelector('[data-attempt-note]');
+    const attemptNoteStatus = root.querySelector('[data-attempt-note-status]');
     const nextRoundButton = root.querySelector('[data-start-next-round]');
     const nextPhaseSelect = root.querySelector('[data-next-phase]');
     const nextQueueSelect = root.querySelector('[data-next-queue]');
@@ -375,6 +406,7 @@ const payload = JSON.stringify({
     let currentQuestion = null;
     let currentIndex = 0;
     let currentSelection = new Set();
+    let backVisible = false;
 
     const letters = (value) => (String(value || '').toUpperCase().match(/[A-Z]/g) || []).sort();
     const same = (a, b) => a.length === b.length && a.every((value, index) => value === b[index]);
@@ -390,6 +422,26 @@ const payload = JSON.stringify({
     };
     const resultFor = (id) => sweepState.results?.[id] || null;
     const markedFor = (id) => isXizongQuestionMarked(sweepState, id);
+
+    const reviewMetaFor = (id) => sweepState.reviewMeta?.[id] || {};
+    const persistReviewMeta = (patch = {}) => {
+      if (!currentQuestion) return;
+      const id = currentQuestion.questionId;
+      const current = reviewMetaFor(id);
+      const next = {
+        ...sweepState,
+        reviewMeta: {
+          ...(sweepState.reviewMeta || {}),
+          [id]: {
+            ...current,
+            ...patch,
+            updatedAt: new Date().toISOString()
+          }
+        }
+      };
+      if (!writeJson(sweepKey, next)) return;
+      sweepState = next;
+    };
 
     const renderTop = () => {
       activeQuestions = computeActive();
@@ -407,14 +459,31 @@ const payload = JSON.stringify({
       }
     };
 
-    const clearReview = () => {
-      root.classList.remove('is-reviewing');
-      reviewEmpty.hidden = false;
-      answerPanel.hidden = true;
+    const showFront = () => {
+      backVisible = false;
+      if (front) front.hidden = false;
+      if (back) back.hidden = true;
       if (reviewToggle) {
         reviewToggle.setAttribute('aria-pressed', 'false');
-        reviewToggle.textContent = '解析';
+        reviewToggle.textContent = '复盘';
       }
+    };
+
+    const showBack = () => {
+      if (!currentQuestion || !resultFor(currentQuestion.questionId)) return;
+      backVisible = true;
+      if (front) front.hidden = true;
+      if (back) back.hidden = false;
+      if (reviewToggle) {
+        reviewToggle.hidden = false;
+        reviewToggle.setAttribute('aria-pressed', 'true');
+        reviewToggle.textContent = '回正面';
+      }
+    };
+
+    const clearReview = () => {
+      showFront();
+      answerPanel.hidden = true;
       Object.values(field).forEach(([wrap, node]) => {
         if (wrap) wrap.hidden = true;
         if (node instanceof HTMLOListElement || node instanceof HTMLUListElement) node.replaceChildren();
@@ -434,18 +503,16 @@ const payload = JSON.stringify({
 
     const renderReview = (question, result) => {
       const explanation = question?.explanation || {};
-      root.classList.add('is-reviewing');
-      reviewEmpty.hidden = true;
+      const meta = reviewMetaFor(question.questionId);
       answerPanel.hidden = false;
-      if (reviewToggle) {
-        reviewToggle.hidden = false;
-        reviewToggle.setAttribute('aria-pressed', 'true');
-        reviewToggle.textContent = '收起解析';
-      }
-      answerResult.textContent = result.status === 'wrong' ? '答案错误' : result.status === 'uncertain' ? '答案正确 · 历史不确定' : '答案正确';
+      answerResult.textContent = result.status === 'wrong' ? '本题答错' : result.status === 'uncertain' ? '本题不确定' : '本题答对';
       answerResult.classList.toggle('wrong', result.status === 'wrong');
       userAnswer.textContent = letters(result.selected).join('、') || '—';
       correctAnswer.textContent = letters(question.correctAnswer).join('、');
+      causeButtons.forEach((button) => button.classList.toggle('active', button.dataset.cause === meta.cause));
+      if (attemptNote instanceof HTMLTextAreaElement) attemptNote.value = String(meta.note || '');
+      if (attemptNoteStatus) attemptNoteStatus.textContent = meta.note ? '已保存' : '';
+      showBack();
 
       setTextField('examTarget', explanation.examTarget);
       setTextField('decisionAxis', explanation.decisionAxis);
@@ -539,6 +606,7 @@ const payload = JSON.stringify({
       if (reviewToggle) reviewToggle.hidden = true;
       clearReview();
       questionProgress.textContent = '等待整卷保留设置';
+      if (questionProgressSide) questionProgressSide.textContent = '—';
       questionMeta.textContent = 'SYSTEM PRACTICE';
       renderMap();
       renderTop();
@@ -555,6 +623,7 @@ const payload = JSON.stringify({
       clearReview();
       questionMeta.textContent = 'ROUND COMPLETE';
       questionProgress.textContent = `${activeQuestions.length} / ${activeQuestions.length}`;
+      if (questionProgressSide) questionProgressSide.textContent = `${activeQuestions.length} / ${activeQuestions.length}`;
       const phase = sweepState.round?.studyPhase || 'FIRST_PASS';
       if (nextPhaseSelect) nextPhaseSelect.value = phase;
       if (nextQueueSelect) nextQueueSelect.value = 'TARGETED';
@@ -580,6 +649,7 @@ const payload = JSON.stringify({
       questionCard.hidden = false;
       questionMeta.textContent = `${currentQuestion.year} · 第 ${currentQuestion.number} 题 · ${currentQuestion.questionType || '题'}`;
       questionProgress.textContent = `${currentIndex + 1} / ${activeQuestions.length}`;
+      if (questionProgressSide) questionProgressSide.textContent = `${currentIndex + 1} / ${activeQuestions.length}`;
       stem.textContent = currentQuestion.stem;
       hint.textContent = currentQuestion.questionType === 'X'
         ? '1–5 切换选项 · Enter 提交 · M 标记'
@@ -627,9 +697,8 @@ const payload = JSON.stringify({
           node.classList.toggle('correct', correct.includes(key));
           node.classList.toggle('wrong', currentSelection.has(key) && !correct.includes(key));
         });
-        if (existing.status === 'wrong' || existing.status === 'uncertain') {
-          renderReview(currentQuestion, existing);
-        }
+        if (existing.status === 'wrong' || existing.status === 'uncertain') renderReview(currentQuestion, existing);
+        else showFront();
       }
 
       renderMap();
@@ -712,8 +781,24 @@ const payload = JSON.stringify({
       if (!currentQuestion) return;
       const existing = resultFor(currentQuestion.questionId);
       if (!existing) return;
-      if (root.classList.contains('is-reviewing')) clearReview();
+      if (backVisible) showFront();
       else renderReview(currentQuestion, existing);
+    });
+    showFrontButton?.addEventListener('click', showFront);
+    causeButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        if (!currentQuestion) return;
+        const cause = String(button.dataset.cause || '');
+        const current = reviewMetaFor(currentQuestion.questionId);
+        const nextCause = current.cause === cause ? '' : cause;
+        persistReviewMeta({ cause: nextCause });
+        causeButtons.forEach((node) => node.classList.toggle('active', node.dataset.cause === nextCause));
+      });
+    });
+    attemptNote?.addEventListener('change', () => {
+      if (!(attemptNote instanceof HTMLTextAreaElement)) return;
+      persistReviewMeta({ note: attemptNote.value.trim() });
+      if (attemptNoteStatus) attemptNoteStatus.textContent = attemptNote.value.trim() ? '已保存' : '';
     });
     submit.addEventListener('click', submitAnswer);
     nextButton.addEventListener('click', nextQuestion);
@@ -762,6 +847,15 @@ const payload = JSON.stringify({
         if (option) {
           event.preventDefault();
           optionsBox.querySelector(`.xzpOption[data-option="${option.label}"]`)?.click();
+        }
+        return;
+      }
+      if (event.code === 'Space') {
+        const existing = resultFor(currentQuestion.questionId);
+        if (existing) {
+          event.preventDefault();
+          if (backVisible) showFront();
+          else renderReview(currentQuestion, existing);
         }
         return;
       }
