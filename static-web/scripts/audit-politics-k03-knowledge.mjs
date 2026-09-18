@@ -71,8 +71,32 @@ if (repair?.k03_question_node_evidence?.coverage?.mapped_question_count !== 15) 
 if (repair?.k03_question_node_evidence?.unit_return_gate?.emit_mastery_states !== false) fail('repair projection is emitting mastery before learner evidence');
 
 const memoryCandidates = memory?.units?.[K03]?.candidates || [];
-if (memory?.admission_gate?.default !== 'NOT_ADMITTED') fail('Memory default is not NOT_ADMITTED');
-if (memoryCandidates.some((item) => item.admission !== 'CANDIDATE_ONLY')) fail('K03 Memory candidate was admitted before evidence');
+if (memory?.admission_gate?.memory_admission?.default !== 'ADMIT_WHEN_CURRENT_GROUNDED_AND_LEG26_SUPPORTED') {
+  fail('Memory admission gate does not use the stable Current+LEG26 rule');
+}
+if (memory?.admission_gate?.precision_admission?.default !== 'CANDIDATE_EXACTNESS') {
+  fail('Precision admission gate is not separated from Memory');
+}
+if (memoryCandidates.length !== 4) fail(`K03 Memory target count ${memoryCandidates.length}/4`);
+if (memoryCandidates.some((item) => item.memory_admission !== 'ADMITTED_STABLE')) {
+  fail('K03 stable Memory target is not admitted');
+}
+if (memoryCandidates.some((item) => item.precision_admission !== 'CANDIDATE_EXACTNESS')) {
+  fail('K03 Precision exactness must remain candidate-only until separately admitted');
+}
+if (memoryCandidates.some((item) =>
+  Object.prototype.hasOwnProperty.call(item, 'admission')
+  || Object.prototype.hasOwnProperty.call(item, 'admission_blocker')
+)) {
+  fail('K03 legacy combined admission fields remain');
+}
+if (memoryCandidates.some((item) =>
+  !Array.isArray(item.memory_basis)
+  || !item.memory_basis.includes('CURRENT_CHENGFENG_GROUNDING')
+  || !item.memory_basis.includes('LEG26_MEMORY_PRIORITY')
+)) {
+  fail('K03 stable Memory target lost Current+LEG26 grounding');
+}
 
 const chapter = loadPoliticsChapterCurrent('marxism', 'ch02');
 const learnerUnit = chapter.units.find((unit) => (unit.representedNaturalUnitIds || []).includes(K03));
@@ -102,8 +126,9 @@ console.log(JSON.stringify({
   questionNodeProjectionCount: projection.length,
   mappedQuestionCount: repair?.k03_question_node_evidence?.coverage?.mapped_question_count || 0,
   repairIsAdaptiveNotMastery: repair?.k03_question_node_evidence?.unit_return_gate?.emit_mastery_states === false,
-  memoryCandidateCount: memoryCandidates.length,
-  memoryPrematureAdmissions: memoryCandidates.filter((item) => item.admission !== 'CANDIDATE_ONLY').length,
+  memoryTargetCount: memoryCandidates.length,
+  stableMemoryAdmissions: memoryCandidates.filter((item) => item.memory_admission === 'ADMITTED_STABLE').length,
+  precisionCandidateCount: memoryCandidates.filter((item) => item.precision_admission === 'CANDIDATE_EXACTNESS').length,
   nonCrossEngineSourceRows: nonCrossEngine,
   criticalNonCrossEngineSourceRows: criticalNonCrossEngine
 }, null, 2));
