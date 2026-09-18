@@ -54,5 +54,46 @@
     ],
     "remaining_units": "REVIEWED_NO_ADDITIONAL_STABLE_TEACHING_DELTA"
   },
-  "acceptance_boundary": "Child table/example/tip nodes may retain source_bound_ocr_needs_review without blocking whole-subject Source acceptance when the Natural Unit owner remains resolvable and learner semantics do not depend on the corrupt fragment."
+  "acceptance_boundary": "Child table/example/tip nodes may retain source_bound_ocr_needs_review without blocking whole-subject Source acceptance when the Natural Unit owner remains resolvable and learner semantics do not depend on the corrupt fragment.",
+  "leg26_memory_output_review": {
+    "status": "IN_PROGRESS",
+    "source_package": "content/politics/source/historical/leg26/manifest.json",
+    "policy": "HISTORICAL_BASELINE_MUST_BE_RECONCILED_WITH_CURRENT_KNOWLEDGE_BEFORE_LEARNER_PROMOTION",
+    "first_batch": {
+      "id": "MARX_C02_K03_20260918",
+      "scope": "POL27-CF-MARX-C02-K03",
+      "current_source_status": "COVERED_BY_ACCEPTED_K03_SOURCE_GATE",
+      "historical_memory_source_refs": [
+        "LEG26-UPPER-MARX-P019",
+        "LEG26-UPPER-MARX-P020"
+      ],
+      "historical_analysis_output_source_refs": [
+        "LEG26-LOWER-MARX-P052"
+      ],
+      "memory_result": {
+        "direct_support": [
+          "POL27-MEM-MARX-C02-K03-M01",
+          "POL27-MEM-MARX-C02-K03-M04"
+        ],
+        "direct_support_with_visual_ocr_check": [
+          "POL27-MEM-MARX-C02-K03-M03"
+        ],
+        "semantic_support_but_not_exact_wording": [
+          "POL27-MEM-MARX-C02-K03-M02"
+        ],
+        "admitted_current_year": []
+      },
+      "analysis_output_result": {
+        "role": "CHAT_OUTPUT_BASELINE",
+        "learner_runtime_action": "NONE_YET",
+        "source_value": [
+          "material cue / principle recognition",
+          "source-grounded principle content",
+          "methodological bridge from principle to answer"
+        ],
+        "rule": "Do not create a second analysis-theory course. Later Chat packets may retrieve this output baseline only after the underlying Current Knowledge is accepted and the task phase calls for written output."
+      },
+      "decision": "KEEP_MEMORY_SPARSE_KEEP_OUTPUT_CHAT_FIRST"
+    }
+  }
 }
