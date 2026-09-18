@@ -285,6 +285,46 @@ def compile_word(owner: dict[str, Any], overrides: dict[str, Any]) -> dict[str, 
             "source_locator": f"record.word_family[{i}]",
         })
 
+    def pos_label(value: Any) -> str:
+        pos = str(value or "").lower()
+        if pos.startswith("verb") or pos == "v": return "V"
+        if pos.startswith("adj") or pos == "a": return "A"
+        if pos.startswith("noun") or pos == "n": return "N"
+        if pos.startswith("adv"): return "ADV"
+        if pos.startswith("prep"): return "PREP"
+        if pos.startswith("interj"): return "INTJ"
+        if pos.startswith("numeral"): return "NUM"
+        return str(value or "S").upper()
+
+    primary_counts: dict[str, int] = {}
+    secondary_counts: dict[str, int] = {}
+    for sense in senses:
+        code = pos_label(sense.get("pos"))
+        primary_counts[code] = primary_counts.get(code, 0) + 1
+    for sense in secondary:
+        code = pos_label(sense.get("pos"))
+        secondary_counts[code] = secondary_counts.get(code, 0) + 1
+    pos_order = ["V", "A", "N", "ADV", "PREP", "INTJ", "NUM"]
+    all_codes = sorted(
+        set(primary_counts) | set(secondary_counts),
+        key=lambda code: (pos_order.index(code) if code in pos_order else 99, code),
+    )
+    recall_parts = []
+    for code in all_codes:
+        primary = primary_counts.get(code, 0)
+        secondary_count = secondary_counts.get(code, 0)
+        if primary and secondary_count:
+            recall_parts.append(f"({primary}+{secondary_count}){code}")
+        elif secondary_count:
+            recall_parts.append(f"{secondary_count}{code}+")
+        else:
+            recall_parts.append(f"{primary}{code}")
+    recall_density = "rich" if (
+        len(senses) + len(secondary) > 1
+        or bool(constructions)
+        or any(bool(sense.get("usage")) for sense in senses)
+    ) else "light"
+
     source_fingerprint = sha256({"record": record, "relation_paths": relation_paths})
     sense_lineage = []
     for ref in ((owner.get("identity_refs") or {}).get("senses") or []):
@@ -309,6 +349,10 @@ def compile_word(owner: dict[str, Any], overrides: dict[str, Any]) -> dict[str, 
         "source_owner_path": f"content/lexical/words/by-ordinal/o{int(owner['ordinal']):04d}.json",
         "source_fingerprint": source_fingerprint,
         "sense_lineage": sense_lineage,
+        "recall_map": {
+            "parts": recall_parts,
+            "density": recall_density,
+        },
         "word_feel": {
             "summary_cn": summary_cn,
             "decision_cn": decision_cn,
