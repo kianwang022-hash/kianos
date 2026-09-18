@@ -105,5 +105,46 @@
         }
       }
     }
+  },
+  "exam_format": {
+    "schema": "kianos.english.exam_format.v1",
+    "duration_minutes": 180,
+    "total_points": 100,
+    "objective_points": 60,
+    "productive_points": 40,
+    "official_task_order": [
+      "cloze",
+      "reading_a",
+      "reading_b",
+      "translation",
+      "writing"
+    ],
+    "sections": {
+      "cloze": {
+        "points": 10,
+        "set_count": 1
+      },
+      "reading_a": {
+        "points": 40,
+        "set_count": 4,
+        "points_per_set": 10
+      },
+      "reading_b": {
+        "points": 10,
+        "set_count": 1
+      },
+      "translation": {
+        "points": 10,
+        "set_count": 1
+      },
+      "writing": {
+        "points": 30,
+        "set_count": 2,
+        "section_points": {
+          "writing_part_a": 10,
+          "writing_part_b": 20
+        }
+      }
+    }
   }
 }
