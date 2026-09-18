@@ -24,7 +24,6 @@
           "pos": "verb",
           "sense_ids": [
             "sense:articulate:812e1211820b52ca",
-            "sense:articulate:ea2082a5c6d057b3",
             "sense:articulate:ea2082a5c6d057b3"
           ]
         }
@@ -75,14 +74,7 @@
         "sense_id": "sense:articulate:710c46fcf15f578c",
         "sense_label_en": "able to express thoughts and feelings clearly in words",
         "sort_order": 0,
-        "transitivity": "nonverb",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "articulate",
-          "paired_form": "articulate adjective / verb",
-          "note": "articulate adjective ends /lət/; verb ends /leɪt/."
-        }
+        "transitivity": "nonverb"
       },
       {
         "collocations": [
@@ -115,14 +107,7 @@
         "sense_id": "sense:articulate:812e1211820b52ca",
         "sense_label_en": "to express or state clearly",
         "sort_order": 1,
-        "transitivity": "vt",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "articulate",
-          "paired_form": "articulate adjective / verb",
-          "note": "articulate adjective ends /lət/; verb ends /leɪt/."
-        }
+        "transitivity": "vt"
       },
       {
         "collocations": [
@@ -173,14 +158,7 @@
         "sense_id": "sense:articulate:ea2082a5c6d057b3",
         "sense_label_en": "to connect by joints",
         "sort_order": 2,
-        "transitivity": "I/T",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "articulate",
-          "paired_form": "articulate adjective / verb",
-          "note": "articulate adjective ends /lət/; verb ends /leɪt/."
-        }
+        "transitivity": "I/T"
       }
     ],
     "verification_summary": {
@@ -200,7 +178,60 @@
     },
     "word": "articulate",
     "word_family": [],
-    "word_id": "word:articulate"
+    "word_id": "word:articulate",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_pronunciation",
+      "spelling": "articulate",
+      "identity_rule": "part_of_speech_selects_final_syllable",
+      "boundary": "The adjective articulate ends in /-lət/; the verb articulate ends in /-leɪt/.",
+      "boundaries": [
+        {
+          "surface": "articulate",
+          "condition": "adjective",
+          "note": "形容词词尾读 /-lət/，表示“表达清晰的”"
+        },
+        {
+          "surface": "articulate",
+          "condition": "verb",
+          "note": "动词词尾读 /-leɪt/，表示“清楚表达/连接”"
+        }
+      ],
+      "variants": [
+        {
+          "variant_id": "form:articulate:adjective-uk",
+          "pos": [
+            "adjective"
+          ],
+          "learner_key": "adjective · UK",
+          "ipa": "/ɑːˈtɪk.jə.lət/"
+        },
+        {
+          "variant_id": "form:articulate:adjective-us",
+          "pos": [
+            "adjective"
+          ],
+          "learner_key": "adjective · US",
+          "ipa": "/ɑːrˈtɪk.jə.lət/"
+        },
+        {
+          "variant_id": "form:articulate:verb-uk",
+          "pos": [
+            "verb"
+          ],
+          "learner_key": "verb · UK",
+          "ipa": "/ɑːˈtɪk.jə.leɪt/"
+        },
+        {
+          "variant_id": "form:articulate:verb-us",
+          "pos": [
+            "verb"
+          ],
+          "learner_key": "verb · US",
+          "ipa": "/ɑːrˈtɪk.jə.leɪt/"
+        }
+      ],
+      "authority": "Cambridge Dictionary pronunciation check + Baseline v2 2026-09-19"
+    }
   },
   "relation_refs": [],
   "reference_senses": [

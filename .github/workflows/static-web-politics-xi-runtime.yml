@@ -45,11 +45,11 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Execute Xi Runtime journey
         working-directory: static-web
-        run: node scripts/test-politics-xi-runtime.mjs
+        run: POLITICS_SUBJECT=xi node scripts/test-politics-subject-workbench-journey.mjs
       - name: Save Xi Runtime evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: politics-xi-runtime-${{ github.sha }}
-          path: politics-xi-runtime-audit/
+          path: politics-xi-workbench-audit/
           retention-days: 7

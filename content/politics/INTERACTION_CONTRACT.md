@@ -67,16 +67,18 @@ The web owns the attempt interaction and evidence capture. Original question/opt
 Do not force a full explanation.
 
 ### Wrong / uncertain
-Open only enough information to resolve the first meaningful failure.
+Do not interrupt the question session with a mandatory Chat or repair workflow.
 
-Repair order:
-1. fixed wording / hat / identity confusion → show decisive `Exact` / `Boundary` distinction;
-2. concept boundary confusion → show the smallest relevant `Compare` / `Boundary`;
-3. relation / stage / theory-position confusion → reopen the relevant `Chain` / `Map` / teaching bridge;
-4. whole Natural Unit model broken → return to the owning Chengfeng segment on the original source surface;
-5. repeated cross-unit confusion → use compression/review.
+After submit, show the same question-bound backside Content used for every submitted result:
 
-After repair, return the learner to the interrupted path and surface.
+- `takeaway`;
+- refined explanation;
+- exact/safest Current Chengfeng locator when available;
+- learner cause / note / favorite / discussion controls.
+
+Record Wrong / Uncertain Evidence and let the learner continue. The Chengfeng locator is a reference/optional return, not an automatic redirect.
+
+Diagnosis happens later when the learner intentionally opens Review and exports a batch learning packet. Chat then looks across the accumulated questions and learner annotations, compresses them into the smallest real underlying problems, and decides whether any source return, reconstruction, Memory/Precision admission, retest, or Content correction is justified.
 
 ### 3.1 Politics cognitive state model
 
@@ -86,9 +88,13 @@ Politics uses the shared presentation contract through the following first-round
 ORIENT
 → EXTERNAL_LEARN
 → RETURN / CLOSE
-→ VERIFY
-→ stable correct → CONTINUE
-→ wrong / uncertain → REPAIR → VERIFY or CONTINUE
+→ WORKBENCH VERIFY
+→ submitted backside Content
+→ record Evidence / optional learner cause-note
+→ CONTINUE
+
+later, learner-triggered:
+REVIEW BATCH → CHAT DIAGNOSIS → optional targeted follow-up
 ```
 
 Later phases may add `REVIEW`, `PRECISION`, and `MOCK / TRANSFER` states when the applicable contract makes them learner-relevant.
@@ -172,7 +178,7 @@ Default composition should therefore behave like a cognitive workspace rather th
 
 Politics should use horizontal space to show relationships and discrimination, not to display more counters/cards.
 
-During a clean Xiao1000 attempt the Inspector must remain quiet enough to prevent answer leakage. After Wrong/Uncertain, the same space may become a bounded Repair surface.
+During a clean Xiao1000 attempt, answer-bearing Content remains hidden. After submit, the formal Workbench backside may show the prebuilt explanation and locator; Wrong/Uncertain alone does not turn the learning workspace into a mandatory Repair surface.
 
 ## 4. Subject-specific interaction shapes
 
@@ -304,11 +310,11 @@ The minimum Politics handoff evidence is:
 
 For cross-surface Chengfeng repair/return, also preserve a stable source locator when the Current source model provides one and it materially reduces resume friction.
 
-The default daily Politics handoff therefore carries only meaningful Wrong/Uncertain evidence plus last location. It is private learner evidence and must not be committed to shared Current.
+Politics does not auto-send a daily Chat handoff. Wrong/Uncertain evidence accumulates privately until the learner intentionally opens Review and exports a batch learning packet. Stable correct answers stay out of that packet by default.
 
-`kianos.politics.return_packet.v1` is a runtime handoff shape, not a political-knowledge owner. Chat consumes it to decide the smallest next repair, compression, or content/runtime correction.
+`kianos.politics.return_packet.v1` is the batch Review handoff shape, not a political-knowledge owner. Chat consumes the learner-triggered packet to identify recurring patterns and decide the smallest justified repair, compression, Memory/Precision admission, retest, or Content/runtime correction.
 
-Repeated failure may justify stronger reconstruction or review. A clean stable answer should not create ritual review debt merely because the question exists.
+Repeated failure may justify stronger reconstruction or review. One Wrong/Uncertain event does not automatically create a per-question Chat ritual, and a clean stable answer should not create review debt merely because the question exists.
 
 ## 9. Astro implementation rule
 
@@ -347,9 +353,9 @@ A Politics learner experience is good when:
 - the central Cognitive Stage has one dominant task and the Inspector remains secondary/contextual;
 - Xiao1000 questions enter Astro only after the owning Chengfeng content is learned;
 - clean attempts are not contaminated by framework/answer leakage;
-- switching between original source, Astro, and Chat is clear and low-friction;
+- switching between original source, Workbench, Review, and Chat is clear and low-friction;
 - a correct answer costs almost no extra time;
-- a failure sends the learner back to the smallest useful semantic object/source/action;
-- meaningful Wrong/Uncertain evidence can return to Chat without manual reconstruction;
+- Wrong/Uncertain is recorded without forcing an immediate context switch;
+- meaningful accumulated Wrong/Uncertain evidence can be exported to Chat as one batch without manual reconstruction;
 - the learner never has to wonder which of two competing surfaces is the real place to study the same content;
 - the KianOS surface feels simpler as the backend becomes richer.

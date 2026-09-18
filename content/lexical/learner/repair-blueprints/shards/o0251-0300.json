@@ -1,0 +1,391 @@
+{
+  "schema": "kianos.lexical.repair_blueprint_shard.v1",
+  "range": {
+    "start_ordinal": 251,
+    "end_ordinal": 300
+  },
+  "authority": "content/lexical/LEARNING_CONTRACT.md + CONTENT_ASSET_CONTRACT.md + approved shard Human Gate 2026-09-19",
+  "generation_rule": "Blueprints store stable diagnostic intent; concrete instances are generated fresh from latest canonical content + learner evidence.",
+  "entries": [
+    {
+      "blueprint_id": "repair-blueprint:o0252:apt:v1",
+      "word_id": "word:apt",
+      "ordinal": 252,
+      "word": "apt",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 apt to do=有倾向、apt description=贴切、apt pupil=聪敏。",
+      "decision_boundary_cn": "补语和被修饰名词决定三支，不靠中文近义硬猜。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 apt 的 selector。",
+      "reconstruction_rule_cn": "换一个行为倾向、描述或学习能力语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0257:architecture:v1",
+      "word_id": "word:architecture",
+      "ordinal": 257,
+      "word": "architecture",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分建筑学/建筑设计与计算机/系统架构。",
+      "decision_boundary_cn": "building/design 与 computer/system/software 领域线索决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 architecture 的领域分支。",
+      "reconstruction_rule_cn": "换一个建筑项目或技术系统语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0261:argue:v1",
+      "word_id": "word:argue",
+      "ordinal": 261,
+      "word": "argue",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分争吵、提出论证/主张、证据本身表明结论。",
+      "decision_boundary_cn": "argue with/over、argue that/for/against、evidence/facts argue ... 三类结构决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 argue 的主体/结构分支。",
+      "reconstruction_rule_cn": "换一个人际争论、学术论证或证据推导语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0262:argument:v1",
+      "word_id": "word:argument",
+      "ordinal": 262,
+      "word": "argument",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分论据、争吵、作品梗概与计算机参数。",
+      "decision_boundary_cn": "reason/debate、quarrel、book/play、function/program 四类领域线索决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 argument 的领域分支。",
+      "reconstruction_rule_cn": "换一个论文、冲突、文学或编程语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0266:army:v1",
+      "word_id": "word:army",
+      "ordinal": 266,
+      "word": "army",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分国家陆军与 an army of ... 的“大批有组织人群”比喻义。",
+      "decision_boundary_cn": "military organization 与 volunteers/workers/supporters 两类对象决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 army 的 literal vs figurative 分支。",
+      "reconstruction_rule_cn": "换一个军事或群众组织语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0267:around:v1",
+      "word_id": "word:around",
+      "ordinal": 267,
+      "word": "around",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分周围/旋转、附近/到处、过来、大约等 around 分支。",
+      "decision_boundary_cn": "空间关系、movement、vicinity、approximation 等语境决定含义。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 around 的高价值分支。",
+      "reconstruction_rule_cn": "换一个空间、移动或数字时间语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0270:array:v1",
+      "word_id": "word:array",
+      "ordinal": 270,
+      "word": "array",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分阵列/排列、an array of=大批一系列、动词排列部署。",
+      "decision_boundary_cn": "data/objects、range/choice、verb-object 三类句法和对象决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 array 的词性/对象分支。",
+      "reconstruction_rule_cn": "换一个数据、选择集合或部署语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0271:arrest:v1",
+      "word_id": "word:arrest",
+      "ordinal": 271,
+      "word": "arrest",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分逮捕、阻止进程、吸引注意。",
+      "decision_boundary_cn": "criminal/person、decline/process、attention/gaze 三类受事对象决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 arrest 的对象驱动分支。",
+      "reconstruction_rule_cn": "换一个法律、发展过程或注意力语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0279:article:v1",
+      "word_id": "word:article",
+      "ordinal": 279,
+      "word": "article",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分文章、物品、法律条款与语法冠词。",
+      "decision_boundary_cn": "journal/news、object/item、law/treaty、grammar 四类领域线索决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 article 的领域分支。",
+      "reconstruction_rule_cn": "换一个媒体、法律或语法语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0280:articulate:v1",
+      "word_id": "word:articulate",
+      "ordinal": 280,
+      "word": "articulate",
+      "target": {
+        "target_kind": "form_identity",
+        "target_id": null,
+        "target_locator": "record.form_identity"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "同时区分 articulate adjective=表达清晰的 与 verb=清楚表达/连接，并识别 /-lət/ vs /-leɪt/。",
+      "decision_boundary_cn": "形容词位置与动词谓语位置决定词性、意义和发音。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 articulate 的 POS/发音/语义边界。",
+      "reconstruction_rule_cn": "换一个人物表达能力和清楚表达观点语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0281:artificial:v1",
+      "word_id": "word:artificial",
+      "ordinal": 281,
+      "word": "artificial",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 literal 人造/人工 与 figurative 不自然、做作、虚假。",
+      "decision_boundary_cn": "material/system 与 smile/behavior/manner 两类被修饰对象决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 artificial 的 literal vs figurative 边界。",
+      "reconstruction_rule_cn": "换一个人工材料与社交表现语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0284:as:v1",
+      "word_id": "word:as",
+      "ordinal": 284,
+      "word": "as",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 as 的时间、方式/比较、原因、身份角色。",
+      "decision_boundary_cn": "when-like clause、manner/comparison、reason clause、as + role 四类结构决定含义。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 as 的句法角色分支。",
+      "reconstruction_rule_cn": "换一个时间、原因或身份语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0285:ascend:v1",
+      "word_id": "word:ascend",
+      "ordinal": 285,
+      "word": "ascend",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分物理上升/攀登、谱系追溯、登基。",
+      "decision_boundary_cn": "height/mountain、genealogy/order、throne/crown 三类语境决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 ascend 的空间/层级分支。",
+      "reconstruction_rule_cn": "换一个攀登、家谱或王位语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0293:asleep:v1",
+      "word_id": "word:asleep",
+      "ordinal": 293,
+      "word": "asleep",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分睡着与身体部位麻木，并知道 asleep 通常作表语/补语。",
+      "decision_boundary_cn": "person + be/fall asleep 与 body part + be asleep 两类语境，配合 attributive 位置干扰。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 asleep 的状态分支和位置规则。",
+      "reconstruction_rule_cn": "换一个睡眠场景与肢体麻木场景。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0294:aspect:v1",
+      "word_id": "word:aspect",
+      "ordinal": 294,
+      "word": "aspect",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分普通“方面/层面”、特征特点与语法 aspect。",
+      "decision_boundary_cn": "problem/topic、feature、grammar/tense-aspect 三类领域线索决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 aspect 的领域分支。",
+      "reconstruction_rule_cn": "换一个一般分析或语言学语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0263:arise:v1",
+      "word_id": "word:arise",
+      "ordinal": 263,
+      "word": "arise",
+      "target": {
+        "target_kind": "sense",
+        "target_id": "sense:arise:2f5d2e64e59a589c",
+        "target_locator": "record.senses[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定产出 arise from + cause，表达“由……引起/产生”。",
+      "decision_boundary_cn": "用 arise from 与 raise/rise 等近形/近义结构干扰，要求结构和及物性正确。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 arise from 的结构。",
+      "reconstruction_rule_cn": "换一个问题、冲突或症状来源语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0273:arrive:v1",
+      "word_id": "word:arrive",
+      "ordinal": 273,
+      "word": "arrive",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "deep:constructions:arrive:8894143c04455d26",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定选择 arrive at/in 地点，并与 arrive at a conclusion/decision/figure 区分。",
+      "decision_boundary_cn": "小地点 at、大地点 in、抽象结果 at 三类补语都自然。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 arrive 的介词/补语选择。",
+      "reconstruction_rule_cn": "换一个城市、建筑或抽象结论语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0289:ashamed:v1",
+      "word_id": "word:ashamed",
+      "ordinal": 289,
+      "word": "ashamed",
+      "target": {
+        "target_kind": "sense",
+        "target_id": "sense:ashamed:f9d3aa2b03675477",
+        "target_locator": "record.senses[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定产出 be ashamed of sth/sb 与 be ashamed to do sth。",
+      "decision_boundary_cn": "名词/对象与动作 infinitive 两类补语决定结构。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 ashamed 的补语骨架。",
+      "reconstruction_rule_cn": "换一个对行为羞愧与羞于采取动作的语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0292:ask:v1",
+      "word_id": "word:ask",
+      "ordinal": 292,
+      "word": "ask",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "按意图稳定产出 ask sb sth / ask for sth / ask sb to do / ask if/wh-clause / ask sth of sb。",
+      "decision_boundary_cn": "信息询问、请求、要求动作、从句提问、正式要求五类任务需要不同结构。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 ask 的结构选择。",
+      "reconstruction_rule_cn": "换一个信息问题、请求帮助或正式要求语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0300:assert:v1",
+      "word_id": "word:assert",
+      "ordinal": 300,
+      "word": "assert",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "区分并产出 assert that / assert one's innocence 与 assert one's rights。",
+      "decision_boundary_cn": "事实/命题断言与权利/立场维护两类宾语决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 assert 的断言 vs 维护结构。",
+      "reconstruction_rule_cn": "换一个陈述事实与维护权利语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    }
+  ]
+}

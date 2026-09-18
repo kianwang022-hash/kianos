@@ -49,11 +49,11 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Execute Ethics Evidence journey
         working-directory: static-web
-        run: node scripts/test-politics-ethics-evidence.mjs
+        run: POLITICS_SUBJECT=ethics_law node scripts/test-politics-subject-workbench-journey.mjs
       - name: Save Ethics Evidence evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: politics-ethics-evidence-${{ github.sha }}
-          path: politics-ethics-evidence-audit/
+          path: politics-ethics_law-workbench-audit/
           retention-days: 7

@@ -15,15 +15,19 @@ Politics learning engineering is closed through the current scoped `S/K/L/P/R/E`
 
 There is no current reason to reopen Politics semantic engineering without a concrete defect.
 
+The 2026-09-19 fresh learner-loop audit defect is closed in PR #477. Politics learning pages no longer expose a second inline Xiao1000 attempt surface; the formal Workbench is the only learner-facing Xiao1000 attempt/evidence/backside owner, and Review is the only learner-triggered batch Chat handoff. Kian accepted the real Mac Human Gate on 2026-09-19.
+
 The stable learner loop remains:
 
 ```text
 Orientation / current Natural Unit
 → Chengfeng continuous study on iPad / MarginNote
 → optional checkpoint
-→ Xiao1000 verification in Astro
-→ stable correct exits cheaply
-   OR Wrong / meaningful Uncertain → smallest useful repair → exact return
+→ single Xiao1000 Workbench
+→ prebuilt refined backside Content
+→ record Evidence / cause / note
+→ continue
+→ learner-triggered batch Review packet → Chat when wanted
 → meaningful Resume
 ```
 
@@ -54,14 +58,14 @@ Runtime / UI owns triggers, shell, responsive behavior, typography, spacing and 
 ```text
 Suyi       framework / orientation / exactness cross-check input
 Chengfeng  continuous first-round mainline on original iPad / MarginNote
-Xiao1000   verification / later evidence in Astro
-KianOS     orientation / selective presentation / verification / repair companion
-Chat       adaptive semantic repair when earned
+Xiao1000   verification / later evidence in the single formal Workbench
+KianOS     orientation / selective presentation / verification / Review companion
+Chat       batch Review diagnosis / durable content correction when learner-triggered
 ```
 
 - Source ownership ≠ surface ownership.
 - stable correct stays cheap;
-- Wrong/meaningful Uncertain opens the smallest useful repair;
+- Wrong/Uncertain records learner evidence without forcing an immediate Chat/repair context switch;
 - first-attempt Evidence and exact Return survive visual optimization;
 - `REFERENCE_ONLY` content remains non-teaching;
 - a missing/empty derived presentation is never permission for UI to synthesize Knowledge.
@@ -110,7 +114,7 @@ Do not rediscover Politics grammar from raw JSON or old screenshots.
 
 ```text
 SYSTEM_CONTRACT.md
-→ exact Politics runtime/evidence/repair owner
+→ exact Politics runtime/evidence/Review owner
 → targeted functional proof
 ```
 

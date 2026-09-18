@@ -121,17 +121,20 @@ assert.equal(wrong.nodes.find((node) => node.node_id.endsWith('N02'))?.state, 'S
 assert.equal(wrong.nodes.find((node) => node.node_id.endsWith('N03'))?.state, 'STABLE');
 
 const chapterRuntimeSource = fs.readFileSync(path.join(repoRoot, 'static-web/src/components/PoliticsChapterRuntime.astro'), 'utf8');
-const enhancerSource = fs.readFileSync(path.join(repoRoot, 'static-web/src/components/PoliticsUnitReturnEnhancer.astro'), 'utf8');
+const cognitiveWorkspaceSource = fs.readFileSync(path.join(repoRoot, 'static-web/src/components/PoliticsCognitiveWorkspace.astro'), 'utf8');
+const practiceClientSource = fs.readFileSync(path.join(repoRoot, 'static-web/src/lib/politicsPracticeClient.mjs'), 'utf8');
+const workbenchSource = fs.readFileSync(path.join(repoRoot, 'static-web/src/components/PoliticsPracticeWorkbench.astro'), 'utf8');
 const homeToolsSource = fs.readFileSync(path.join(repoRoot, 'static-web/src/components/PoliticsHomeTools.astro'), 'utf8');
-assert.ok(chapterRuntimeSource.includes("if (needsRepair) recordPoliticsEvidence"), 'durable daily evidence must remain Wrong/Uncertain-only');
-assert.ok(enhancerSource.includes("kianos-politics-attempts-v1"), 'Unit Return must use a distinct private attempt snapshot');
-assert.ok(!enhancerSource.includes("kianos-politics-evidence-v1"), 'Unit Return enhancer must not manufacture durable review debt');
-assert.ok(enhancerSource.includes("if (!saveJson(attemptKey, recorded.store))"), 'private attempt persistence failure must fail closed before Unit Return advances');
-assert.ok(enhancerSource.includes("data-politics-attempt-persistence-error"), 'persistence failure must be visible rather than silently discarded');
-assert.equal(PRACTICE_KEYS.evidence, 'kianos-politics-evidence-v1', 'durable daily evidence storage identity must remain owned by Politics practice state');
-assert.ok(homeToolsSource.includes("readPoliticsSnapshot"), 'Home handoff must read learner state through the shared Politics snapshot owner');
-assert.ok(homeToolsSource.includes("politicsReviewPacket"), 'Home handoff must use the shared review packet projection instead of reading raw evidence directly');
-assert.ok(!homeToolsSource.includes("kianos-politics-attempts-v1"), 'private clean-attempt storage identity must not be re-declared by the Home handoff');
+const reviewClientSource = fs.readFileSync(path.join(repoRoot, 'static-web/src/lib/politicsReviewClient.mjs'), 'utf8');
+assert.ok(!chapterRuntimeSource.includes('data-politics-question') && !cognitiveWorkspaceSource.includes('data-politics-question'), 'learning pages must not write question attempts');
+assert.ok(chapterRuntimeSource.includes('politics/practice/?unit='), 'learning page must hand exact Unit to formal Workbench');
+assert.ok(practiceClientSource.includes("if (p.outcome === 'WRONG' || p.uncertain)"), 'formal Workbench must keep durable W/U evidence admission');
+assert.ok(workbenchSource.includes('data-takeaway') && workbenchSource.includes('data-chat-explanation'), 'formal Workbench must own prebuilt refined backside Content');
+assert.equal(PRACTICE_KEYS.evidence, 'kianos-politics-evidence-v1', 'durable evidence storage identity remains owned by formal Politics practice');
+assert.ok(homeToolsSource.includes('readPoliticsSnapshot'), 'Home may read summary learner state');
+assert.ok(!homeToolsSource.includes('politicsReviewPacket') && !homeToolsSource.includes('data-politics-copy-handoff'), 'Home must not auto-export Chat handoff packets');
+assert.ok(reviewClientSource.includes('politicsReviewPacket'), 'Review must remain the learner-triggered batch packet owner');
+assert.ok(!homeToolsSource.includes('kianos-politics-attempts-v1'), 'private attempt storage identity must not be re-declared by Home');
 
 console.log(JSON.stringify({
   status: 'PASS',

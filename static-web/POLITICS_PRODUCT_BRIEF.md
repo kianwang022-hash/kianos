@@ -17,10 +17,11 @@ Preserve the Current first-round chain:
 Orientation / current Natural Unit
 → Chengfeng continuous study on iPad / MarginNote
 → optional close / checkpoint
-→ Xiao1000 verification in KianOS web
-→ stable correct → continue
-   OR Wrong / Uncertain → smallest repair → owning source / Chat → return
-→ resume meaningful position/action
+→ single Xiao1000 Workbench
+→ submitted backside = prebuilt refined Content
+→ record W/U + learner cause/note/signals when useful
+→ continue questions by default
+→ learner-triggered Review batch → export one learning packet to Chat when wanted
 ```
 
 Politics is not one generic content template. Subject cognitive shapes remain distinct:
@@ -61,14 +62,14 @@ Politics Home should answer only:
 ```text
 where do I meaningfully continue?
 → which Politics subject do I want to enter?
-→ is there meaningful Wrong / Uncertain evidence worth taking back to Chat today?
+→ is there accumulated Wrong / Uncertain evidence worth reviewing when I choose?
 ```
 
 ### Preserve
 
 - Current Continue / last-location behavior;
 - free entry into all five Politics subjects;
-- daily Wrong / Uncertain handoff behavior;
+- Review entry for accumulated Wrong / Uncertain evidence; Chat export happens only from learner-triggered Review;
 - stable/correct work does not create visible review debt;
 - original Chengfeng / iPad-MarginNote handoff remains authoritative when continuous study is the next action.
 
@@ -96,7 +97,7 @@ Use a quiet desktop-workspace composition rather than five large cards.
 │                                                           Continue →         │
 │                                                                              │
 │ Today                                                                        │
-│ <quiet when no repair; Wrong / Uncertain + Chat action only when useful>     │
+│ <quiet counts / Review entry; no automatic Chat action>                     │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
 │ 马原            史纲             毛中特           习思想          思修法基     │
@@ -168,6 +169,10 @@ The historical approximate 32/68 Mac-wide result composition is an accepted refe
 
 ### Xiao1000 explanation boundary
 
+**AI refined explanation is prebuilt Content.** It is generated/audited before study, stored as a question-bound learner-facing asset, and rendered after submit. The Workbench does not call Chat to generate or diagnose the current question during the attempt.
+
+Chat is a later batch-review surface: the learner intentionally exports accumulated Wrong/Uncertain evidence plus causes/notes from Review when a deeper diagnosis is wanted.
+
 Learner-facing explanation has exactly two derived semantic fields:
 
 - `takeaway` — 一句话带走（AI 精修）;
@@ -184,6 +189,8 @@ For this Workbench, do **not** add:
 - a new `结构` review step;
 - a new `易混` review step;
 - new mandatory diagnosis stages;
+- per-question Chat escalation as the default Wrong/Uncertain path;
+- a second inline Xiao1000 attempt surface inside learning pages;
 - new repair cards/panels merely because Cognitive Projection exists elsewhere;
 - extra learner confirmations before Next/Return;
 - a generic subject-cognitive diagram on every question.

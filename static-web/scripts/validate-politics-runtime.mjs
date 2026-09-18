@@ -95,8 +95,19 @@ for (const [label, pattern] of forbiddenProjectionPatterns) {
 if (!/去 iPad \/ MarginNote 学原讲义/.test(chapterRuntimeSource)) {
   fail('surface ownership regression: missing external-primary Chengfeng handoff');
 }
-if (!/肖1000 · Astro 验证/.test(chapterRuntimeSource)) {
-  fail('surface ownership regression: missing Astro Xiao1000 verification ownership');
+if (/data-politics-question|data-politics-quiz/.test(chapterRuntimeSource)) {
+  fail('surface ownership regression: learning page must not own a second Xiao1000 attempt surface');
+}
+if (!/politics\/practice\/\?unit=/.test(chapterRuntimeSource)) {
+  fail('surface ownership regression: missing exact Unit handoff to formal Xiao1000 Workbench');
+}
+const cognitiveWorkspaceSource = fs.readFileSync(new URL('../src/components/PoliticsCognitiveWorkspace.astro', import.meta.url), 'utf8');
+if (/data-politics-question|data-politics-quiz/.test(cognitiveWorkspaceSource)) {
+  fail('surface ownership regression: C00 must not own a second Xiao1000 attempt surface');
+}
+const practiceWorkbenchSource = fs.readFileSync(new URL('../src/components/PoliticsPracticeWorkbench.astro', import.meta.url), 'utf8');
+if (!/data-question-card/.test(practiceWorkbenchSource) || !/data-takeaway/.test(practiceWorkbenchSource) || !/data-chat-explanation/.test(practiceWorkbenchSource)) {
+  fail('surface ownership regression: formal Workbench must own attempt plus refined backside Content');
 }
 if (!/data-politics-external-source/.test(chapterRuntimeSource)) {
   fail('surface ownership regression: missing stable external-source return anchor');
@@ -115,7 +126,7 @@ if (!process.exitCode) {
     sourceRegistryRows: diagnostics.sourceRegistryRows,
     questionRows: diagnostics.questionRows,
     chengfengPrimarySurface: 'IPAD_MARGINNOTE_ORIGINAL_LECTURE',
-    xiao1000PrimarySurface: 'ASTRO_KIANOS_WEB'
+    xiao1000PrimarySurface: 'SINGLE_POLITICS_WORKBENCH'
   }));
 }
 
