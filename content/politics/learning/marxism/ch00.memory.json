@@ -13,17 +13,7 @@
     "rule": "LEG26 is the Memory Overlay: when Current Chengfeng-grounded Knowledge supports the same claim, LEG26 may establish durable memory priority. Exact wording/list Precision admission remains separate."
   },
   "admission_gate": {
-    "default": "NOT_ADMITTED",
     "requires_source_grounding": true,
-    "admit_when_any": [
-      "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
-      "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED"
-    ],
-    "do_not_admit_for": [
-      "historical handbook presence alone",
-      "OCR reconstruction by guess",
-      "chapter importance alone"
-    ],
     "memory_admission": {
       "default": "ADMIT_WHEN_CURRENT_GROUNDED_AND_LEG26_SUPPORTED",
       "wrong_uncertain_role": "PRIVATE_PRIORITY_MODULATION_NOT_SHARED_MEMORY_EXISTENCE"
@@ -55,8 +45,6 @@
             "LEG26-UPPER-MARX-P011"
           ],
           "historical_handbook_alignment": "DIRECT_READABLE_SUPPORT",
-          "admission": "CANDIDATE_ONLY",
-          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
           "memory_admission": "ADMITTED_STABLE",
           "memory_mode": "SEMANTIC_RECALL",
           "memory_basis": [
@@ -88,8 +76,6 @@
             "LEG26-UPPER-MARX-P011"
           ],
           "historical_handbook_alignment": "DIRECT_READABLE_SUPPORT",
-          "admission": "CANDIDATE_ONLY",
-          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
           "memory_admission": "ADMITTED_STABLE",
           "memory_mode": "SEMANTIC_RECALL",
           "memory_basis": [
