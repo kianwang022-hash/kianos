@@ -6,7 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:bell:baseline-v2-ring-a-bell",
+        "pattern": "ring a bell",
+        "meaning_cn": "听起来耳熟；使人隐约想起某人/某事",
+        "definition_en": "sound familiar or trigger a vague memory or recognition",
+        "boundary": "This is an idiom headed by ring; it is not an independent verb sense of bell.",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "baseline-v2-2026-09-19"
+      }
+    ],
     "content_hash": "89582112613329f8589a5bdbc9b96af727d6d1618749236b0ba9cbe7e5229716",
     "core_concept": {
       "core_clusters": [
@@ -19,14 +30,6 @@
           ]
         },
         {
-          "label_cn": "听起来熟悉",
-          "label_en": "to sound familiar or trigger vague recognition",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:bell:0d876d446557e4ea"
-          ]
-        },
-        {
           "label_cn": "铃声；钟状物",
           "label_en": "the sound or shape of a bell",
           "pos": "noun",
@@ -36,10 +39,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "铃；钟；听起来熟悉",
-      "core_meaning_en": "a bell or its sound; to sound familiar",
-      "mental_model_cn": "铃，钟",
-      "mental_model_en": ""
+      "core_meaning_cn": "铃；钟；铃声或钟状物",
+      "core_meaning_en": "a bell, its sound, or a bell-shaped object",
+      "mental_model_cn": "bell 本身是名词核心；“听起来耳熟”来自固定短语 ring a bell，不是 bell 的独立动词义。",
+      "mental_model_en": "Keep the noun senses separate from the idiom 'ring a bell'."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -129,30 +132,6 @@
         "sense_label_en": "the shape of a bell",
         "sort_order": 2,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:dcef81fc7f926267996e",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:bell:0d876d446557e4ea:collocation:new-69e2d9a4"
-            ],
-            "meaning_cn": "听起来熟悉；使人隐约想起某事",
-            "phrase": "ring a bell"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "听起来熟悉；引起模糊的认知",
-        "definition_en": "to sound familiar or trigger a vague recognition",
-        "governing_pattern": "ring a bell",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:bell:0d876d446557e4ea",
-        "sense_label_en": "to sound familiar or trigger a vague recognition",
-        "sort_order": 3,
-        "transitivity": "vi"
       }
     ],
     "verification_summary": {
