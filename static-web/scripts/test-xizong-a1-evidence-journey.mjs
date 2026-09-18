@@ -245,6 +245,35 @@ try {
   const sweepAfterRepairDone = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(sweepKey)})||'null')`);
   check(sweepAfterRepairDone?.results?.[reviewedQuestion.questionId]?.status === 'wrong', 'repair_completion_does_not_rewrite_question_attempt');
 
+  // System question/relation version changes must invalidate visible question-derived Repair
+  // while preserving unrelated systems and archiving the stale tasks.
+  const systemEvidenceMetaKey = 'kianos:xizong:system-evidence-meta:circulation:v1';
+  await cdp.navigate(`${BASE}/xizong/practice/circulation/`);
+  const currentSystemEvidenceVersion = await cdp.evaluate(`document.querySelector('[data-xizong-system-evidence-guard]')?.getAttribute('data-evidence-version') || ''`);
+  check(Boolean(currentSystemEvidenceVersion), 'system_evidence_version_present');
+  await cdp.evaluate(`(()=>{
+    const key=${js(XIZONG_MEMORY_STORAGE_KEY)};
+    const memory=JSON.parse(localStorage.getItem(key)||'null')||{schema:'kianos.xizong.memory.v1',revision:1,releasedBlocks:{},cards:{},promptOverrides:{},marks:{},evidence:[],attention:{},repairTasks:[]};
+    memory.repairTasks=[
+      ...(memory.repairTasks||[]),
+      {id:'stale-circulation-repair',systemId:'circulation',blockId:'circulation-b01',kpId:'circulation-b01-kp01',origin:'SYSTEM_WU_CHAT_RETURN',status:'ACTIVE',sourceQuestionIds:['old-q']},
+      {id:'keep-respiratory-repair',systemId:'respiratory',blockId:'respiratory-r01',kpId:'respiratory-r01-kp01',origin:'SYSTEM_WU_CHAT_RETURN',status:'ACTIVE',sourceQuestionIds:['other-q']}
+    ];
+    localStorage.setItem(key,JSON.stringify(memory));
+    localStorage.setItem(${js(systemEvidenceMetaKey)},JSON.stringify({version:'STALE_SYSTEM_VERSION'}));
+  })()`);
+  await cdp.reload();
+  await sleep(1200);
+  const memoryAfterSystemVersionChange = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(XIZONG_MEMORY_STORAGE_KEY)})||'null')`);
+  check(!(memoryAfterSystemVersionChange?.repairTasks||[]).some((task)=>task?.id==='stale-circulation-repair'), 'stale_visible_system_repair_invalidated');
+  check((memoryAfterSystemVersionChange?.repairTasks||[]).some((task)=>task?.id==='keep-respiratory-repair'), 'unrelated_system_repair_preserved');
+  const staleSystemArchive = await cdp.evaluate(`(()=>{
+    const keys=Object.keys(localStorage).filter((key)=>key.startsWith('kianos-xizong-stale-system-evidence:circulation:')).sort();
+    const key=keys[keys.length-1];
+    return key?JSON.parse(localStorage.getItem(key)||'null'):null;
+  })()`);
+  check((staleSystemArchive?.stale_visible_memory_repairs||[]).some((task)=>task?.id==='stale-circulation-repair'), 'stale_visible_system_repair_archived');
+
   // ----- Block content-version mutation: archive stale evidence, preserve notes only. -----
   const staleMeta = system.blocks.find((row) => row.blockId === 'circulation-b03');
   const staleBlock = loadXizongBlock('circulation', staleMeta.slug);
