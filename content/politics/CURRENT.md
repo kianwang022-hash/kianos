@@ -15,7 +15,7 @@ Politics learning engineering is closed through the current scoped `S/K/L/P/R/E`
 
 There is no current reason to reopen Politics semantic engineering without a concrete defect.
 
-A fresh learner-loop audit on 2026-09-19 identified one concrete closure defect: Politics learning pages still exposed a second inline Xiao1000 attempt surface with different backside semantics. Active repair is scoped to PR/branch `work/politics-batch-review-loop-20260919`: formal Workbench becomes the only learner-facing Xiao1000 attempt/evidence owner, while Review remains the learner-triggered batch Chat handoff.
+The 2026-09-19 fresh learner-loop audit defect is closed in PR #477. Politics learning pages no longer expose a second inline Xiao1000 attempt surface; the formal Workbench is the only learner-facing Xiao1000 attempt/evidence/backside owner, and Review is the only learner-triggered batch Chat handoff. Kian accepted the real Mac Human Gate on 2026-09-19.
 
 The stable learner loop remains:
 
@@ -58,8 +58,8 @@ Runtime / UI owns triggers, shell, responsive behavior, typography, spacing and 
 ```text
 Suyi       framework / orientation / exactness cross-check input
 Chengfeng  continuous first-round mainline on original iPad / MarginNote
-Xiao1000   verification / later evidence in Astro
-KianOS     orientation / selective presentation / verification / repair companion
+Xiao1000   verification / later evidence in the single formal Workbench
+KianOS     orientation / selective presentation / verification / Review companion
 Chat       batch Review diagnosis / durable content correction when learner-triggered
 ```
 
@@ -114,7 +114,7 @@ Do not rediscover Politics grammar from raw JSON or old screenshots.
 
 ```text
 SYSTEM_CONTRACT.md
-→ exact Politics runtime/evidence/repair owner
+→ exact Politics runtime/evidence/Review owner
 → targeted functional proof
 ```
 
