@@ -194,6 +194,7 @@ pass(sessionClient.includes("$('[data-session-copy-evidence]').forEach"), 'SESSI
 pass(!sessionClient.includes("if (runtime.status === 'PAUSED_CHAT') {\n      $('[data-session-step]').hidden = true;"), 'SESSION_PAUSED_CHAT_SURFACE_VISIBLE');
 pass(practiceClient.includes('if (explicitRetest) return explicitQuestionIds.map'), 'PRACTICE_EXPLICIT_RETEST_EXACT_POOL');
 pass(practiceClient.includes("const ids = (explicitRetest ? pool : pool.slice"), 'PRACTICE_EXPLICIT_RETEST_NO_COUNT_EXPANSION');
+pass(practiceClient.includes("if (!explicitRetest && controls.mode.value === 'random')"), 'PRACTICE_EXPLICIT_RETEST_ORDER_NOT_RANDOMIZED');
 pass(practiceClient.includes("mode: explicitRetest ? 'explicit_retest'"), 'PRACTICE_EXPLICIT_RETEST_IDENTITY');
 
 console.log(JSON.stringify({
