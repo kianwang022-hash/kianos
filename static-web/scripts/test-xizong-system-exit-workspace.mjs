@@ -170,6 +170,13 @@ try {
   await lock.waitFor({state:'visible'});
   check(await page.locator('[data-xizong-system-exit="circulation"]').isHidden(),'direct_recall_route_fails_closed_before_system_complete');
 
+  await page.goto(`${BASE}/xizong/practice/circulation/`,{waitUntil:'networkidle'});
+  const prematurePractice=page.locator('[data-xizong-practice="circulation"]');
+  await prematurePractice.locator('[data-chat-set-gate]').waitFor({state:'visible'});
+  check((await prematurePractice.locator('[data-chat-set-error-title]').textContent()||'').includes('System Recall'),'direct_system_practice_fails_closed_before_recall');
+  check(await prematurePractice.locator('[data-question-card]').isHidden(),'premature_system_practice_releases_no_question');
+  check((await prematurePractice.locator('[data-chat-set-gate] a').getAttribute('href')||'').includes('/xizong/circulation/recall/'),'premature_system_practice_returns_to_recall');
+
   await page.goto(`${BASE}/xizong/circulation/`,{waitUntil:'networkidle'});
   await page.evaluate((ids)=>{
     for(const id of ids) localStorage.setItem(`kianos-xizong-astro-v2:xizong:${id}`,JSON.stringify({completed:true}));
