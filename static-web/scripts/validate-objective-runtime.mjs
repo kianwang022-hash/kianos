@@ -84,6 +84,9 @@ function validateTask({ task, list, load, loadAnswers }) {
   }
   if (!sets.length) issues.push(`${task}: no resolved sets`);
   if (!state.sections?.length) issues.push(`${task}: no resolved Current section`);
+  if (state.sectionResolutionMode !== 'content-owned-task-map') {
+    issues.push(`${task}: task identity must come from Content-owned task map, got ${state.sectionResolutionMode || 'none'}`);
+  }
 
   for (const catalogItem of sets) {
     try {
@@ -258,6 +261,37 @@ function validateEvidenceRuntimeWiring() {
     issueCount: uiIssues.length,
     legacyQuestionWatchLoaded: uiIssues.some((issue) => issue.includes('legacy runtime still loaded'))
   };
+}
+
+try {
+  const manifest = JSON.parse(read('../../content/english/manifest.json'));
+  const map = manifest?.final_learner_objects?.objective_task_map;
+  if (map?.schema !== 'kianos.english.objective_task_map.v1') {
+    issues.push('objective task map: missing Content-owned schema');
+  }
+  const expected = {
+    reading_a: ['reading_part_a'],
+    cloze: ['cloze'],
+    reading_b: ['reading_part_b']
+  };
+  for (const [task, sections] of Object.entries(expected)) {
+    if (JSON.stringify(map?.tasks?.[task]?.sections || []) !== JSON.stringify(sections)) {
+      issues.push(`objective task map: ${task} sections drift`);
+    }
+  }
+
+  const objectiveLoader = read('../src/lib/englishObjective.mjs');
+  for (const forbidden of ['KIANOS_CLOZE_SECTIONS', 'KIANOS_READING_B_SECTIONS', 'sectionMatch(', 'idMatch(']) {
+    if (objectiveLoader.includes(forbidden)) {
+      issues.push(`objective loader: semantic task inference remains: ${forbidden}`);
+    }
+  }
+  const readingLoader = read('../src/lib/englishReading.mjs');
+  if (!readingLoader.includes("objectiveTaskSections(manifest, 'reading_a')")) {
+    issues.push('Reading A loader: Content-owned task identity not consumed');
+  }
+} catch (error) {
+  issues.push(`objective task map: ${error instanceof Error ? error.message : String(error)}`);
 }
 
 validateTask({ task: 'cloze', list: listClozeSets, load: loadClozeById, loadAnswers: loadClozeAnswersById });
