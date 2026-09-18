@@ -12,6 +12,30 @@ The active model is intentionally small:
 - `EXAM_ORCHESTRATOR_CONTRACT.md` owns cross-subject exam scheduling, hard Gates, capacity arbitration, score-closure, and material-refresh timing; it does not replace subject-local learning or learner truth.
 - `kianwang022-hash/kianos-legacy` is recovery/reference only and is never a normal input.
 
+## Where to start
+
+KianOS does **not** maintain a second hand-written progress overview.
+
+For live project status and continuation:
+
+```text
+work / routing rules
+→ AGENTS.md
+
+whole-project current status
+→ CURRENT.md
+
+exact subject / module status
+→ the routed lane CURRENT.md
+
+formal accepted readiness
+→ the exact ACCEPTANCE.md owner
+```
+
+If Kian wants a human-readable whole-system progress summary, Chat should read the current owners live and generate it on demand. Do not use historical Overview / Status / Migration documents as a substitute for Current.
+
+Historical PRs, migration ledgers, audits and retired design notes are evidence only unless a Current owner explicitly routes to them.
+
 ## Run locally
 
 From the repository root:
