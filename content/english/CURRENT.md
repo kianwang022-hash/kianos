@@ -13,6 +13,28 @@ A bare `继续英语 / 继续 Reading / 继续 Translation / 继续 Writing / �
 
 Objective / Translation / Writing remain accepted through their current scoped `S/K/L/P/R/E` evidence; real learner `U` remains real-use-only.
 
+### Exam-horizon migration cursor
+
+This is a bounded interface migration, not a new English learning architecture.
+
+```text
+A Content → task identity     #437 candidate / implemented
+B Chat → English Resume       ACTIVE on work/english-chat-control-20260918
+C Runtime → 12/20 coverage    NEXT after A/B closure
+```
+
+Current B rule:
+
+```text
+private factual English evidence
+→ Chat applies Resume priority from LEARNING_CONTRACT
+→ kianos.english.session-instruction.v1
+→ EnglishResume executes the selected task ref
+```
+
+Website/Runtime must not rank Reading / Cloze / Part B / Translation / Writing by its own score table. Without a valid current-day Chat Session, English Home keeps free navigation and does not infer a replacement Resume.
+
+
 Shared Visual Foundation + Shared Shell are now cross-system Current on `main` through #389. English is **not** the current owner/writer of Shared Shell merely because older UI work once used that assignment.
 
 Current English product work is therefore narrow:
