@@ -145,6 +145,7 @@ const payload = JSON.stringify({
               <option value="FULL_RESWEEP">完整重刷</option>
             </select>
           </label>
+          {scopeKind === 'SYSTEM' && <a data-post-system-recall hidden>题后系统重建 →</a>}
           <button type="button" data-start-next-round>按计划开始下一批</button>
           <a href={`${base}xizong/`}>回西综总览</a>
         </div>
@@ -919,6 +920,12 @@ const payload = JSON.stringify({
       questionMeta.textContent = 'ROUND COMPLETE';
       questionProgress.textContent = `${activeQuestions.length} / ${activeQuestions.length}`;
       if (questionProgressSide) questionProgressSide.textContent = `${activeQuestions.length} / ${activeQuestions.length}`;
+      const postRecall = root.querySelector('[data-post-system-recall]');
+      if (postRecall instanceof HTMLAnchorElement) {
+        const roundId = String(sweepState.round?.id || '');
+        postRecall.hidden = data.scopeKind !== 'SYSTEM' || !activeQuestions.length || !roundId;
+        postRecall.href = `${data.base}xizong/${initialSystemId}/recall/?after_round=${encodeURIComponent(roundId)}`;
+      }
       const phase = sweepState.round?.studyPhase || 'FIRST_PASS';
       if (nextPhaseSelect) nextPhaseSelect.value = phase;
       if (nextQueueSelect) nextQueueSelect.value = 'TARGETED';

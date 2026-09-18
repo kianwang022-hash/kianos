@@ -120,6 +120,11 @@ const failureLabel = (mode) => Array.isArray(mode)
     };
 
     let recallState = readJson(recallKey, { completedAt: null });
+    const requestedRound = new URLSearchParams(location.search).get('after_round') || '';
+    const sweepState = readJson(`kianos:xizong:system-question-sweep:${systemId}:v1`, {});
+    const afterRoundId = requestedRound && requestedRound === sweepState?.round?.id ? requestedRound : '';
+    root.dataset.systemRecallCommitted = 'false';
+    root.dataset.systemRecallEventId = globalThis.crypto?.randomUUID?.() || `system-recall-${Date.now()}`;
     const workspace = root.querySelector('[data-recall-workspace]');
     const front = root.querySelector('[data-recall-front]');
     const reveal = root.querySelector('[data-recall-reveal]');
@@ -138,6 +143,8 @@ const failureLabel = (mode) => Array.isArray(mode)
     };
 
     const openRecall = () => {
+      root.dataset.systemRecallCommitted = 'false';
+      root.dataset.systemRecallEventId = globalThis.crypto?.randomUUID?.() || `system-recall-${Date.now()}`;
       if (handoff instanceof HTMLElement) handoff.hidden = true;
       if (workspace instanceof HTMLElement) workspace.hidden = false;
       front.hidden = false;
@@ -155,11 +162,14 @@ const failureLabel = (mode) => Array.isArray(mode)
       front.hidden = false;
     });
     complete?.addEventListener('click', () => {
-      recallState = { completedAt:new Date().toISOString() };
-      if (!writeJson(recallKey, recallState)) {
+      if (root.inert || root.hidden || workspace?.hidden || reveal?.hidden !== false || root.dataset.systemRecallCommitted === 'true') return;
+      const nextState = { ...recallState, completedAt:new Date().toISOString(), afterRoundId: afterRoundId || null };
+      if (!writeJson(recallKey, nextState)) {
         window.alert('本机保存失败：System Recall 没有记录完成。');
         return;
       }
+      recallState = nextState;
+      root.dataset.systemRecallCommitted = 'true';
       render();
       handoff?.scrollIntoView({ behavior:'smooth', block:'nearest' });
     });
@@ -180,5 +190,6 @@ const failureLabel = (mode) => Array.isArray(mode)
     });
 
     render();
+    if (afterRoundId && recallState.afterRoundId !== afterRoundId) openRecall();
   });
 </script>

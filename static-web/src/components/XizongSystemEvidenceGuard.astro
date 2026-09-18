@@ -169,8 +169,10 @@ const evidenceQuestions = (sweep?.questions || []).map((question) => ({
       try { evidenceQuestions = JSON.parse(document.querySelector('[data-evidence-questions]')?.textContent || '[]'); } catch {}
       const append = (event) => {
         const ledger = readJson(ledgerKey, { events: [] });
-        ledger.events = [...(Array.isArray(ledger.events) ? ledger.events : []), { at: new Date().toISOString(), ...event }];
-        writeJson(ledgerKey, ledger);
+        const prior = Array.isArray(ledger.events) ? ledger.events : [];
+        if (event.event_id && prior.some((row) => row.event_id === event.event_id)) return true;
+        ledger.events = [...prior, { at: new Date().toISOString(), ...event }];
+        return writeJson(ledgerKey, ledger);
       };
       const activeQuestionCounts = () => {
         const years = Array.isArray(readJson(holdoutKey, [])) ? readJson(holdoutKey, []) : [];
@@ -184,14 +186,18 @@ const evidenceQuestions = (sweep?.questions || []).map((question) => ({
       root.addEventListener('click', (event) => {
         const target = event.target instanceof Element ? event.target : null;
         if (!target?.closest('[data-complete-recall]')) return;
-        window.setTimeout(() => {
-          const { answered, total } = activeQuestionCounts();
-          const phase = answered === 0 ? 'PRE_QUESTION'
-            : total > 0 && answered >= total ? 'POST_QUESTION'
-            : 'MID_SWEEP';
-          append({ type: 'SYSTEM_RECALL', phase, answered_questions: answered, active_questions: total });
-        }, 0);
-      });
+        if (root.inert || root.hidden || root.querySelector('[data-recall-workspace]')?.hidden || root.querySelector('[data-recall-reveal]')?.hidden !== false || root.dataset.systemRecallCommitted === 'true') {
+          event.preventDefault(); event.stopImmediatePropagation(); return;
+        }
+        const { answered, total } = activeQuestionCounts();
+        const phase = answered === 0 ? 'PRE_QUESTION'
+          : total > 0 && answered >= total ? 'POST_QUESTION' : 'MID_SWEEP';
+        if (!append({ event_id: root.dataset.systemRecallEventId || '', type: 'SYSTEM_RECALL', phase, answered_questions: answered, active_questions: total })) {
+          event.preventDefault(); event.stopImmediatePropagation(); root.inert = true;
+          const notice = document.createElement('p'); notice.setAttribute('role','alert');
+          notice.textContent = '本次 System Recall 证据未能保存，未记录完成；请先备份或释放空间再恢复。'; root.before(notice);
+        }
+      }, true);
     }
   }
 </script>
