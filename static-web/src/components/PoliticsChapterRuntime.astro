@@ -101,12 +101,12 @@ const workbenchHref = (unit) => `${base}politics/practice/?unit=${encodeURICompo
 
           <section class="politicsPracticeEntry" data-politics-practice-entry>
             <header>
-              <div><p class="politicsMicro">肖1000 · 配套验证</p><h3>原讲义学完，再进入统一题目工作台</h3></div>
+              <div><p class="politicsMicro">肖1000 · 配套验证</p><h3>原讲义学完，再做本单元配套题</h3></div>
               <span>{unit.questions.length ? `${unit.questions.length} 题` : unit.questionRefCount ? '题目待解析' : '本段无题'}</span>
             </header>
             {unit.questions.length > 0 ? (
               <>
-                <p>作答、预制精修解析、错因和备注都在同一个 Workbench 完成；这里不再维护第二套题目背面。</p>
+                <p>题面、精修解析、错因和备注都在同一个做题页完成。</p>
                 <a class="politicsPracticeEntryAction" href={workbenchHref(unit)}>做本单元配套题 →</a>
               </>
             ) : unit.questionRefCount > 0 ? (
@@ -132,14 +132,14 @@ const workbenchHref = (unit) => `${base}politics/practice/?unit=${encodeURICompo
                   <ol>
                     {unit.sourceNodes.map((node) => (
                       <li>
-                        <div>{node.title && node.title !== node.id ? <strong>{node.title}</strong> : <span>乘风 source owner</span>}</div>
+                        <div>{node.title && node.title !== node.id ? <strong>{node.title}</strong> : <span>乘风原讲义定位</span>}</div>
                         <code>{node.id}</code>
                       </li>
                     ))}
                   </ol>
                 </details>
               ) : (
-                <p class="politicsSourceFallback">当前没有可直接展示的 source owner 定位信息；按本页 Natural Unit 标题回原讲义继续，不用网页正文替代。</p>
+                <p class="politicsSourceFallback">当前没有更细的原讲义定位信息；按本页学习单元标题回原讲义继续。</p>
               )}
             </div>
           </section>
