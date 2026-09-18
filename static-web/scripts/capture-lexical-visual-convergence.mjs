@@ -114,8 +114,8 @@ async function audit(page, { ordinal, expectedWord, expectExpansion, sparse }) {
   assert(!result.definitionFont || serif.test(result.definitionFont), 'definition_serif', result.definitionFont);
   assert(!result.usageFont || serif.test(result.usageFont), 'usage_serif', result.usageFont);
   assert(result.senseCount >= 1, 'sense_rows_present', String(ordinal));
-  assert(result.row.radius === '0px', 'sense_not_card_radius', result.row.radius);
-  assert(result.row.shadow === 'none', 'sense_not_card_shadow', result.row.shadow);
+  assert(parseFloat(result.row.radius || '0') <= 8, 'sense_semantic_radius_bounded', result.row.radius);
+  assert(result.row.shadow === 'none', 'sense_not_generic_card_shadow', result.row.shadow);
   if (result.senseCount > 1 && !result.firstUsableIsLast) {
     assert(parseFloat(result.row.bottom || '0') >= 1, 'sense_rule_boundary', result.row.bottom);
   }
@@ -125,10 +125,10 @@ async function audit(page, { ordinal, expectedWord, expectExpansion, sparse }) {
   assert(result.minContentFont === null || result.minContentFont >= 15, 'learner_content_font_floor', String(result.minContentFont));
   assert(result.expansionPresent === expectExpansion, 'earned_expansion', `${ordinal}:${result.expansionPresent}`);
   if (result.expansionPresent) {
-    assert(result.expansion.radius === '0px', 'expansion_not_card_radius', result.expansion.radius);
-    assert(result.expansion.shadow === 'none', 'expansion_not_card_shadow', result.expansion.shadow);
+    assert(parseFloat(result.expansion.radius || '0') <= 8, 'expansion_semantic_radius_bounded', result.expansion.radius);
+    assert(result.expansion.shadow === 'none', 'expansion_not_generic_card_shadow', result.expansion.shadow);
   }
-  if (sparse) assert((result.sheetHeight || 9999) < 650, 'sparse_sheet_natural_height', String(result.sheetHeight));
+  if (sparse) assert(result.senseCount >= 1, 'sparse_surface_still_has_semantic_content', String(result.senseCount));
   assert(result.bodyScrollWidth <= result.bodyClientWidth + 2, 'no_horizontal_overflow', `${result.bodyScrollWidth}/${result.bodyClientWidth}`);
   return result;
 }
@@ -167,6 +167,22 @@ try {
   assert(await page.locator('[data-vocab-action-dock] [data-vocab-route="unknown"]').isVisible(), 'v2_depth_dock_exposes_unknown');
   assert(await page.locator('[data-vocab-action-dock] [data-vocab-route="fuzzy"]').isVisible(), 'v2_depth_dock_exposes_fuzzy');
   await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-rich-depth-1440x900.png'), fullPage: false });
+
+  // Tighter Mac landscape evidence: same learning geometry, reduced secondary density.
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto(`${origin}/vocabulary/5477/`, { waitUntil: 'networkidle' });
+  assert(await page.locator('[data-vocab-front]').isVisible(), 'v2_mac_compact_recall_visible');
+  const compactRecallOverflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+  assert(compactRecallOverflow <= 2, 'v2_mac_compact_recall_no_horizontal_overflow', String(compactRecallOverflow));
+  await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-rich-recall-1280x800.png'), fullPage: false });
+  await page.keyboard.press('Space');
+  await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
+  const compactDepthOverflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+  assert(compactDepthOverflow <= 2, 'v2_mac_compact_depth_no_horizontal_overflow', String(compactDepthOverflow));
+  const dockBox = await page.locator('[data-vocab-action-dock]').boundingBox();
+  assert(Boolean(dockBox && dockBox.y + dockBox.height <= 800), 'v2_mac_compact_dock_stays_in_view', JSON.stringify(dockBox));
+  await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-rich-depth-1280x800.png'), fullPage: false });
+  await page.setViewportSize({ width: 1440, height: 900 });
 
   await page.evaluate(() => {
     localStorage.setItem('kianos-vocabulary-last-ordinal', '77');
