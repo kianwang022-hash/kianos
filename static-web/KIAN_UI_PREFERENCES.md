@@ -83,17 +83,17 @@ Exact evidence:
 kianos-legacy@5cb002b4f775dbac0aa777ef8954f65db09904ab
 ```
 
-The accepted shared stack is:
+The accepted shared Chinese stack is:
 
 ```css
+"PingFang SC",
 -apple-system,
 BlinkMacSystemFont,
-"PingFang SC",
 "Noto Sans CJK SC",
 sans-serif
 ```
 
-On Mac, Chinese resolves to the PingFang system family. The active `错题` state is positive evidence for a visibly stronger weight, not for a different family.
+For Chinese learner-facing UI on Mac, `PingFang SC` is intentionally first rather than left to generic system fallback resolution. The accepted optical baseline is the 2026-09-18 real macOS Chromium proof with `fontFamily = "PingFang SC"`, `fontWeight = 600`, and `fontCheck = true`. The active legacy `错题` state remains positive evidence for a stronger current/active weight, not for a different family.
 
 Explicit preference:
 - this is the default Chinese UI / Chinese learner-text family across KianOS;
@@ -101,6 +101,8 @@ Explicit preference:
 - do **not** use the old `Georgia, "Songti SC", serif` Politics hero/title treatment as the shared Chinese direction;
 - active/current/important Chinese may be heavier, while normal body text stays comfortably Medium;
 - English typography is deliberately outside this rule for now.
+- Linux/Ubuntu screenshots are never valid evidence for Chinese typeface Human Gate. They may validate geometry/runtime only.
+- Chinese typography Human Gate requires macOS visual evidence with an explicit PingFang availability/rendering proof before the screenshot is accepted.
 
 This is an L1 preference. Subject L2/L3 may choose size, hierarchy and weight within the shared family, but must not silently replace the Chinese font family.
 
