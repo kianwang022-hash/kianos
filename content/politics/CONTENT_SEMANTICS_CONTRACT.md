@@ -171,6 +171,83 @@ It cannot request cards, columns, diagrams, colors, size, or placement.
 
 The defaults and hard promotion/demotion guards are owned by `CONTENT_HIERARCHY_CONTRACT.md`.
 
+### 3.2 Chapter-level `later_stage_knowledge`
+
+First-round Knowledge closure does not imply that later consolidation, precision or analysis-output Knowledge has been realized.
+
+A chapter may therefore add one **chapter-owned** later-stage Knowledge object:
+
+```json
+{
+  "later_stage_knowledge": {
+    "schema": "kianos.politics.later_stage_knowledge.v1",
+    "status": "CURRENT_K_CALIBRATION",
+    "compression_model": {},
+    "precision_knowledge": {},
+    "analysis_output_hooks": []
+  }
+}
+```
+
+This is still Knowledge, not Learn or UI.
+
+#### `compression_model`
+
+Owns the smallest reconstruction model worth carrying after first learning.
+
+It may contain:
+
+- a causal / mechanism / hierarchy / timeline / comparison reconstruction;
+- decisive cross-Unit boundaries;
+- cross-Unit confusables;
+- source-grounded reconstruction targets.
+
+A compression model is valid only when it removes future rereading/reconstruction work. A shorter summary that creates a second course is not compression.
+
+#### `precision_knowledge`
+
+References sparse source-grounded Memory / Precision candidates owned by an existing `*.memory.json` sidecar when one exists.
+
+It may declare:
+
+- the sidecar owner;
+- candidate ids;
+- candidate-only vs admitted status;
+- the source/current-year blocker.
+
+It must not duplicate the full candidate wording back into the chapter object.
+
+#### `analysis_output_hooks`
+
+Owns source-grounded **Knowledge for later written production**, for example:
+
+```text
+material cue
+→ owning principle / political position
+→ minimal answer skeleton
+→ required precise formulation, if any
+→ material return
+```
+
+An Output hook may include historical recitation-source support, but historical wording is not current-year authority unless corroborated.
+
+Output hooks do not own:
+
+- when the learner is asked to write;
+- timers;
+- reveal order;
+- scoring;
+- retry / review cadence;
+- UI components.
+
+Those are later Learning / Projection / Runtime decisions.
+
+#### Dormancy rule
+
+`later_stage_knowledge` creates **no first-round render entitlement** merely by existing.
+
+Until a later-phase Learning audit explicitly activates `REVIEW / PRECISION / OUTPUT / MOCK` consumption, first-round learner behavior remains unchanged.
+
 ---
 
 ## 4｜Evidence discipline
