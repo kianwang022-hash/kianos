@@ -7,35 +7,109 @@ This file does not own History Source Truth, teaching content, Politics learning
 
 ---
 
-## Bounded Source→Knowledge lane｜LEG26 historical baseline
+## Active BUILD lane｜Later-stage Knowledge
 
-LEG26-HISTORY has now been reconciled against Current History C01–C10 without changing the accepted History causal learner model or S/K/L/P/R/E engineering chain.
-
-The historical package has three distinct uses:
+History later-stage **K** is now realized without changing the accepted first-round causal learner model.
 
 ```text
-Upper 13 topical reviews
-→ stage-specific objective compression
-
-Lower four cross-cutting lines
-→ meetings / people-documents / land policy / ideological liberation
-→ second-round horizontal compression + precise repair
-
-Lower analysis templates
-→ later Chat-first answer organization
+Current chapter causal movie
++ LEG26 upper topical reviews
++ LEG26 lower four horizontal lines
++ LEG26 historical analysis templates
+↓
+Later-stage K
+  Chapter reconstruction     PASS C01–C10
+  Horizontal Precision K     PASS_WITH_DEBT
+  Analysis Output K          PASS_WITH_DEBT
+↓
+later-stage L               NOT STARTED
 ```
 
-Hard boundary:
+### First principle
 
-- History first round remains **chronology → stage → turning point → cause → evaluation**;
-- the four horizontal lines are not a second History course and do not replace causal understanding;
-- no date/meeting/document table is promoted merely because it is compact;
-- recent-history C10 material is treated as high-delta and must be refreshed against current-year Xi/current-affairs material;
-- no new Memory sidecars were created;
-- **zero** LEG26-only candidates were admitted to durable current-year Memory;
-- UI / Projection / Runtime remains frozen.
+History does **not** become a table course in round two.
 
-Reopen this lane only when real Wrong/Uncertain evidence exposes a precision problem, current-year recent-history material arrives, or the later analysis-output phase begins.
+The owning model remains:
+
+```text
+chronology
+→ stage
+→ turning point
+→ cause
+→ evaluation
+```
+
+The new later-stage K adds horizontal exactness only **after** that movie exists.
+
+### Four horizontal Knowledge lines
+
+A subject-level owner now exists at:
+
+`content/politics/learning/history/later-stage-knowledge.json`
+
+It contains **50 candidate-only precision objects**:
+
+- meetings: 24;
+- people/documents: 8;
+- land policy: 12;
+- ideological liberation: 6.
+
+Each object carries:
+- historical stage;
+- what identity/change to retain;
+- owning chapter(s);
+- historical source reference;
+- candidate-only admission state.
+
+Recent-history meetings after the stable reform-era core remain reference-only/current-year-refresh territory rather than being frozen from LEG26.
+
+### Chapter K
+
+C01–C10 now each own `later_stage_knowledge` that:
+
+- reuses the existing `chapter_compression` as the causal reconstruction owner;
+- points to only the horizontal candidates relevant to that chapter;
+- preserves the correct chapter cognition;
+- adds later Output hooks only where the historical package actually supports one.
+
+Chapter shapes remain distinct, e.g.:
+
+- C02 failed-scheme comparison;
+- C03 success/limit double judgment;
+- C04 revolutionary stage shift;
+- C05 revolutionary-road formation;
+- C06 Anti-Japanese War cause hierarchy;
+- C09 reform/opening stage breakthroughs;
+- C10 recent-history stage position.
+
+### Analysis Output
+
+Promoted later Output hooks exist for C02–C07, C09 and C10 where the LEG26 history templates or mapped cross-topic support are useful.
+
+They retrieve **stage / turning point / cause / evaluation from Current History first**. Historical templates only help organize the answer.
+
+### Audit
+
+- 10/10 chapters have later-stage K;
+- 50 subject-level horizontal Precision candidates;
+- every chapter keeps `chapter_compression` as reconstruction owner;
+- all horizontal refs resolve to real candidate ids;
+- C10 recent History is explicitly `REFERENCE_ONLY_HIGH_DELTA`;
+- no first-round behavior changes;
+- no Learn / UI / Runtime state is introduced.
+
+### Status
+
+```text
+History Compression K      PASS
+History Precision K        PASS_WITH_DEBT — visual/current-year exactness where required
+History Output K           PASS_WITH_DEBT — C10 current-year refresh
+Overall History later K    PASS_WITH_DEBT
+Later-stage L              NOT STARTED
+```
+
+Next program dependency: continue Politics later-stage **K** with Ethics-Law. Do not start History later-stage L yet.
+
 
 ---
 
