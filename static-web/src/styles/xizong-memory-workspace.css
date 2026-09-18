@@ -309,7 +309,7 @@ body#kianos-workspace.surfaceBody-xizong .xzMemoryPrompt>header {
   gap:12px;
   align-items:center;
 }
-body#kianos-workspace.surfaceBody-xizong :is(.xzMemoryPrompt>header button,.xzMemoryCardActions button,.xzMemoryMarkedCard button) {
+body#kianos-workspace.surfaceBody-xizong :is(.xzMemoryPrompt>header button,.xzMemoryCardActions button,.xzMemoryCardActions a,.xzMemoryMarkedCard button) {
   min-height:34px;
   border:0;
   border-radius:6px;
@@ -319,7 +319,7 @@ body#kianos-workspace.surfaceBody-xizong :is(.xzMemoryPrompt>header button,.xzMe
   font-size:15px;
   cursor:pointer;
 }
-body#kianos-workspace.surfaceBody-xizong :is(.xzMemoryPrompt>header button,.xzMemoryCardActions button,.xzMemoryMarkedCard button):hover {
+body#kianos-workspace.surfaceBody-xizong :is(.xzMemoryPrompt>header button,.xzMemoryCardActions button,.xzMemoryCardActions a,.xzMemoryMarkedCard button):hover {
   background:#f1f5f2;
   color:var(--study-ink,#15201b);
 }
@@ -430,8 +430,19 @@ body#kianos-workspace.surfaceBody-xizong .xzMemoryRatings button:hover {
 body#kianos-workspace.surfaceBody-xizong .xzMemoryCardActions {
   display:flex;
   justify-content:flex-end;
+  align-items:center;
   gap:8px;
   padding:9px 13px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryCardActions a {
+  display:inline-flex;
+  align-items:center;
+  min-height:34px;
+  border-radius:6px;
+  padding:6px 9px;
+  color:var(--xz-memory-muted);
+  font-size:15px;
+  text-decoration:none;
 }
 
 body#kianos-workspace.surfaceBody-xizong .xzMemoryMarkedCard blockquote {
