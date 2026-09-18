@@ -20,8 +20,8 @@ const task = loadWritingExamRuntimeTask(writingId);
 ---
 <Base
   title={task.title}
-  kicker="English · Full Paper Writing"
-  description="Full-paper Writing execution. Review remains sealed until the paper ends."
+  kicker="英语一 · 整卷写作"
+  description="整卷中的写作部分。交卷前不显示复盘内容。"
   sourcePath={task.sourcePath}
   sourceHash={task.sourceHash}
   objectId={task.id}
@@ -29,9 +29,9 @@ const task = loadWritingExamRuntimeTask(writingId);
 >
   <section class="englishExamWritingGate" data-english-exam-writing-gate data-task-id={task.id}>
     <section class="englishExamWritingLocked" data-exam-writing-locked>
-      <span>FULL PAPER · PROTECTED</span>
-      <h2>这篇 Writing 只在有效整卷 Session 中开放</h2>
-      <p>正常 Writing 入口仍服从原来的 protected true-exam gate；整卷模式不会提前暴露 Review、范文或评分。</p>
+      <span>整卷模考 · 写作</span>
+      <h2>这道写作题需要从当前整卷进入</h2>
+      <p>如果整卷已经结束或链接失效，请返回 English 重新进入当前试卷。</p>
       <a href="/english/">← English</a>
     </section>
     <div data-exam-writing-runtime hidden>
