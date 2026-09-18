@@ -30,6 +30,9 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     timeout-minutes: 20
+    defaults:
+      run:
+        shell: bash
     env:
       POLITICS_FRESH_EVIDENCE: /tmp/politics-final-fresh
     steps:
@@ -43,11 +46,13 @@ jobs:
         run: |
           mkdir -p "$POLITICS_FRESH_EVIDENCE"
           git rev-parse HEAD > "$POLITICS_FRESH_EVIDENCE/HEAD.txt"
+          git show -s --format=%P HEAD > "$POLITICS_FRESH_EVIDENCE/INTEGRATED_PARENTS.txt"
           printf '%s\n' '${{ github.event.pull_request.head.sha || github.sha }}' > "$POLITICS_FRESH_EVIDENCE/PR_HEAD.txt"
           printf '%s\n' '${{ github.event.pull_request.base.sha }}' > "$POLITICS_FRESH_EVIDENCE/BASE_HEAD.txt"
       - name: Bounded tracked-source readback for independent review
         run: |
-          git archive HEAD AGENTS.md PROJECT_DEFINITION.md ARCHITECTURE.md LEARNING_ACCEPTANCE.md SYSTEM_CONTRACT.md CURRENT.md content/politics static-web/src static-web/scripts static-web/package.json static-web/package-lock.json static-web/PRESENTATION_CONTRACT.md static-web/POLITICS_PRODUCT_BRIEF.md | gzip > "$POLITICS_FRESH_EVIDENCE/current-source-readback.tar.gz"
+          git archive HEAD AGENTS.md PROJECT_DEFINITION.md ARCHITECTURE.md LEARNING_ACCEPTANCE.md SYSTEM_CONTRACT.md CURRENT.md content/politics static-web/src static-web/scripts static-web/package.json static-web/PRESENTATION_CONTRACT.md static-web/POLITICS_PRODUCT_BRIEF.md | gzip > "$POLITICS_FRESH_EVIDENCE/current-source-readback.tar.gz"
+          test "$(gzip -dc "$POLITICS_FRESH_EVIDENCE/current-source-readback.tar.gz" | tar -tf - | wc -l | tr -d ' ')" -gt 100
       - name: Install existing runtime and browser test driver
         working-directory: static-web
         run: |
