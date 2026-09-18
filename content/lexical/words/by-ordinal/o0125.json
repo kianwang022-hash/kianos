@@ -6,17 +6,7 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [
-      {
-        "construction_id": "construction:agriculture:handoff-23def5ea38fe39fe",
-        "pattern": "agricultural industry/sector",
-        "meaning_cn": "农业产业；农业部门",
-        "definition_en": "natural adjective collocation for the farming sector",
-        "level": "L1",
-        "pos": "phrase",
-        "source": "semantic-review-handoff-v1"
-      }
-    ],
+    "constructions": [],
     "content_hash": "3e6fa91e65199609f0041c413497d3550947a3c1fc7315838ad80fdf5ff80909",
     "core_concept": {
       "core_clusters": [],
@@ -77,7 +67,25 @@
       "runtime_model_calls": false
     },
     "word": "agriculture",
-    "word_family": [],
+    "word_family": [
+      {
+        "fact_id": "deep:word_family:agriculture:baseline-v2-agricultural",
+        "module": "word_family",
+        "target_word": "agricultural",
+        "meaning_cn": "农业的；农学的",
+        "definition_en": "relating to farming or agriculture",
+        "boundary": "agriculture（名词）→ agricultural（形容词）；agricultural industry/sector 表示农业产业/部门。",
+        "dimensions": {
+          "morphology": "noun → adjective",
+          "productive_use": "agricultural + industry/sector/policy"
+        },
+        "direction": "R+P",
+        "publication_status": "publishable",
+        "verification_status": "verified",
+        "writing_safe": true,
+        "source": "baseline-v2-2026-09-19"
+      }
+    ],
     "word_id": "word:agriculture"
   },
   "relation_refs": [],
