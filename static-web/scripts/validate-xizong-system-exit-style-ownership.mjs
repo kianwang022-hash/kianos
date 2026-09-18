@@ -3,85 +3,82 @@ import path from 'node:path';
 
 const read = (relative) => fs.readFileSync(path.resolve(process.cwd(), relative), 'utf8');
 const check = (condition, code, detail = '') => {
-  if (!condition) throw new Error(`XIZONG_SYSTEM_EXIT_STYLE_OWNER:${code}${detail ? `:${detail}` : ''}`);
+  if (!condition) throw new Error(`XIZONG_RECALL_PRACTICE_OWNER:${code}${detail ? `:${detail}` : ''}`);
   console.log(`PASS ${code}${detail ? ` · ${detail}` : ''}`);
 };
-const hasClassToken = (source, token) => [...source.matchAll(/\bclass\s*=\s*["']([^"']+)["']/g)]
-  .some((match) => match[1].split(/\s+/).includes(token));
 const stripCssComments = (source) => source.replace(/\/\*[\s\S]*?\*\//g, '');
 
-const route = read('src/pages/xizong/[system]/index.astro');
+const systemRoute = read('src/pages/xizong/[system]/index.astro');
+const practiceRoute = read('src/pages/xizong/practice/[system].astro');
 const exit = read('src/components/XizongSystemExitRuntime.astro');
-const crosswalk = read('src/components/XizongQuestionCrosswalkConsumer.astro');
+const practice = read('src/components/XizongPracticeWorkbench.astro');
 const repair = read('src/components/XizongSystemRepairReturn.astro');
-const owner = read('src/styles/xizong-system-exit-workspace.css');
+const questions = read('src/lib/xizongQuestions.mjs');
+const exitOwner = read('src/styles/xizong-system-exit-workspace.css');
+const practiceOwner = read('src/styles/xizong-practice-workspace.css');
 const systemStyle = read('src/styles/xizong-system-workspace.css');
 const broadStyle = read('src/styles/xizong-presentation.css');
 const denseCalmStyle = read('src/styles/xizong-dense-calm.css');
 
-check(route.includes("../../../styles/xizong-system-exit-workspace.css"), 'route_imports_exact_owner');
-check(hasClassToken(route, 'xzExitStage'), 'route_uses_current_later_stage_namespace');
-check(!hasClassToken(route, 'xizongLaterStage'), 'route_retired_legacy_later_stage_namespace');
+check(systemRoute.includes("../../../styles/xizong-system-exit-workspace.css"), 'system_route_imports_recall_owner');
+check(practiceRoute.includes("../../../../styles/xizong-practice-workspace.css"), 'practice_route_imports_practice_owner');
+check(!practiceRoute.includes('xizong-system-exit-workspace.css'), 'practice_does_not_import_recall_owner');
+check(!systemRoute.includes('XizongSystemRepairReturn'), 'system_route_does_not_own_repair');
+check(practiceRoute.includes('XizongSystemRepairReturn'), 'practice_route_owns_repair_return');
 
-for (const [name, source] of [['SystemExit', exit], ['Crosswalk', crosswalk], ['RepairReturn', repair]]) {
+for (const [name, source] of [['SystemRecall', exit], ['Practice', practice], ['RepairReturn', repair]]) {
   check(!source.includes('<style'), `${name}_has_no_component_visual_owner`);
   check(!/\sstyle\s*=/.test(source), `${name}_has_no_inline_visual_patch`);
 }
 
-check(hasClassToken(exit, 'xseCompletionWorkbench'), 'exit_uses_single_completion_workbench');
-check(hasClassToken(exit, 'xzExitStem'), 'exit_stem_uses_current_visual_namespace');
-check(hasClassToken(exit, 'xzExitOptions'), 'exit_options_use_current_visual_namespace');
-check(!hasClassToken(exit, 'xseCard'), 'exit_retired_broad_card_selector');
-check(!hasClassToken(exit, 'xseStem'), 'exit_retired_broad_stem_selector');
-check(!hasClassToken(exit, 'xseOptions'), 'exit_retired_broad_options_selector');
+check(exit.includes('data-recall-workspace'), 'system_recall_workspace_present');
+check(exit.includes('data-practice-handoff'), 'system_recall_handoff_present');
+check(!exit.includes('data-question-map'), 'system_recall_has_no_question_map');
+check(!exit.includes('recordXizongQuestionAttempt'), 'system_recall_has_no_question_attempt_runtime');
+check(!exit.includes('data-recall-scratch'), 'system_recall_scratch_removed');
 
-for (const token of ['.xzExitStage', '.xse', '.xseCompletionWorkbench', '.xseRecallWorkspace', '.xseQuestionLayout', '.xzExitStem', '.xzExitOptions', '.xqc', '.xrr']) {
-  check(owner.includes(token), 'owner_contains_surface_family', token);
+for (const token of ['data-xizong-practice', 'data-question-map', 'data-fast-sweep', 'data-question-mark', 'data-answer-panel', 'data-reasoning-chain']) {
+  check(practice.includes(token), 'practice_runtime_surface_present', token);
 }
-check(!/!\s*important\b/i.test(stripCssComments(owner)), 'owner_has_no_cascade_recovery');
-
-const fontSizes = [...owner.matchAll(/font-size\s*:\s*(\d+(?:\.\d+)?)px/g)].map((match) => Number(match[1]));
-check(fontSizes.length > 0, 'owner_has_explicit_type_scale');
-check(fontSizes.every((size) => size >= 15), 'owner_type_floor_15', `min=${Math.min(...fontSizes)}`);
-
-// Current Exit presentation belongs only to the dedicated owner. Closed-surface
-// legacy selectors must be physically absent from broad, System and dense-calm styles.
-check(!systemStyle.includes('.xzExitStage'), 'first_pass_system_style_cannot_own_current_exit_namespace');
-check(!systemStyle.includes('.xizongLaterStage'), 'retired_system_workspace_exit_css_physically_removed');
-check(!broadStyle.includes('.xzExitStage') && !broadStyle.includes('.xzExitCard') && !broadStyle.includes('.xzExitStem') && !broadStyle.includes('.xzExitOptions'), 'broad_presentation_cannot_own_current_exit_namespace');
-for (const token of ['.xseCard', '.xseStem', '.xseOptions', '.xseRecall', '.xseNav', '.xseActions', '.xseToolbar', '.xizongRepairInbox']) {
-  check(!broadStyle.includes(token), 'legacy_broad_exit_css_physically_removed', token);
+for (const token of ['recordXizongQuestionAttempt', 'startNextXizongQuestionRound', 'setXizongQuestionMarked']) {
+  check(practice.includes(token), 'practice_runtime_contract_present', token);
 }
-const denseCalmNoComments = stripCssComments(denseCalmStyle);
-check(!/\.xzExit(?:\b|[A-Z])/.test(denseCalmNoComments), 'dense_calm_cannot_own_current_exit_namespace');
-check(!denseCalmNoComments.includes('.xizongLaterStage'), 'dense_calm_retired_later_stage_physically_removed');
-check(!/\.xse(?:\b|[A-Z])/.test(denseCalmNoComments), 'dense_calm_cannot_style_exit_behavior_classes');
-check(!/\.(?:xqc|xrr)(?:\b|[A-Z])/.test(denseCalmNoComments), 'dense_calm_cannot_style_crosswalk_or_repair_return');
+check(questions.includes('reasoningChain'), 'question_loader_preserves_reasoning_chain');
+check(questions.includes('row.reasoning_chain'), 'question_loader_reads_canonical_reasoning_chain');
 
-// Runtime semantics must remain owned by the original components.
-for (const token of [
-  "startRecall?.addEventListener('click'",
-  "completeRecall?.addEventListener('click'",
-  "startSweep?.addEventListener('click'",
-  'recordXizongQuestionAttempt',
-  'startNextXizongQuestionRound',
-  "['wrong', 'uncertain'].includes(result.status) || marked",
-  'setXizongQuestionMarked',
-  '暂无审核过的精确 KP 回链：保留题号给 Chat，不让网页自己猜。'
-]) check(exit.includes(token), 'exit_runtime_contract_preserved', token);
-check(crosswalk.includes("currentPhase() !== 'SECOND_PASS'"), 'crosswalk_second_pass_gate_preserved');
-check(crosswalk.includes('暂无 REVIEWED Crosswalk'), 'crosswalk_missing_mapping_fallback_preserved');
+for (const token of ['.xzExitStage', '.xseRecallWorkspace', '.xseRecallPaper', '.xsePracticeHandoff']) {
+  check(exitOwner.includes(token), 'recall_owner_contains_surface_family', token);
+}
+check(!exitOwner.includes('.xzp'), 'recall_owner_cannot_style_practice_namespace');
+check(!exitOwner.includes('.xrr'), 'recall_owner_cannot_style_practice_repair');
+
+for (const token of ['.xzp', '.xzpBody', '.xzpMap', '.xzpQuestionPane', '.xzpReviewPane', '.xrr']) {
+  check(practiceOwner.includes(token), 'practice_owner_contains_surface_family', token);
+}
+check(!practiceOwner.includes('.xzExitStage'), 'practice_owner_cannot_style_recall_namespace');
+
+for (const [name, source] of [['recall', exitOwner], ['practice', practiceOwner]]) {
+  check(!/!\s*important\b/i.test(stripCssComments(source)), `${name}_owner_has_no_cascade_recovery`);
+  const sizes = [...source.matchAll(/font-size\s*:\s*(\d+(?:\.\d+)?)px/g)].map((match) => Number(match[1]));
+  check(sizes.length > 0, `${name}_owner_has_explicit_type_scale`);
+  check(sizes.every((size) => size >= 15), `${name}_owner_type_floor_15`, `min=${Math.min(...sizes)}`);
+}
+
+check(!systemStyle.includes('.xzExitStage'), 'first_pass_system_style_cannot_own_recall_namespace');
+check(!broadStyle.includes('.xzExitStage') && !broadStyle.includes('.xzp'), 'broad_presentation_cannot_own_recall_or_practice');
+const dense = stripCssComments(denseCalmStyle);
+check(!/\.xzExit(?:\b|[A-Z])/.test(dense), 'dense_calm_cannot_own_recall_namespace');
+check(!/\.xzp(?:\b|[A-Z])/.test(dense), 'dense_calm_cannot_own_practice_namespace');
+
 check(repair.includes('allowed.has(row.questionId)'), 'repair_only_accepts_current_wu');
 check(repair.includes('!relation?.blockId || !relation?.primaryKpId'), 'repair_requires_reviewed_precise_relation');
 
 console.log(JSON.stringify({
   ok: true,
-  presentation_owner: 'src/styles/xizong-system-exit-workspace.css',
-  route_namespace: 'xzExitStage',
-  runtime_owners: ['XizongSystemExitRuntime', 'XizongQuestionCrosswalkConsumer', 'XizongSystemRepairReturn'],
-  broad_legacy_exit_css: 'physically removed',
-  system_workspace_legacy_exit_css: 'physically removed',
-  dense_calm_exit_css: 'physically removed',
-  remaining_cleanup_namespaces: [],
+  recall_owner: 'src/styles/xizong-system-exit-workspace.css',
+  practice_owner: 'src/styles/xizong-practice-workspace.css',
+  recall_runtime: 'XizongSystemExitRuntime',
+  practice_runtime: 'XizongPracticeWorkbench',
+  question_explanation_projection: 'reasoningChain+adaptive Current fields',
   visible_type_floor_px: 15
 }, null, 2));
