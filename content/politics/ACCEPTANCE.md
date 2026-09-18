@@ -40,15 +40,80 @@ Accepted shared journey:
 enter chapter / locate current Natural Unit
 → Chengfeng continuous study on original iPad / MarginNote surface
 → return / optional close
-→ Xiao1000 verification in Astro
-→ stable correct → continue
-   OR Wrong/Uncertain → smallest repair → owning source → return
-→ next question / Unit
+→ single formal Xiao1000 Workbench
+→ submitted backside = prebuilt refined Content
+→ record Wrong/Uncertain + learner cause/note/signals when useful
+→ continue questions by default
+→ learner-triggered Review batch → one packet to Chat when wanted
 → interrupt / resume meaningful position/action
 ```
 
 This closure is functional/semantic, not a claim that all Politics pages must look identical or that Astro becomes a second Chengfeng reader.
 
+---
+
+## 2026-09-19 single-Workbench / batch-Review closure — PASS
+
+A fresh real-loop audit found one shared learner-flow defect: Politics learning pages still exposed a second inline Xiao1000 attempt surface with different backside semantics. PR #477 closes that defect without changing Xiao1000 Source Truth, the 1148 refined explanation asset, first-attempt Evidence identity, or the Review packet schema.
+
+Current accepted ownership is:
+
+```text
+Politics learning page
+→ Orientation / Chengfeng handoff / optional closure only
+→ exact Natural Unit handoff
+→ single formal Xiao1000 Workbench
+   → question attempt
+   → immutable first-attempt Evidence
+   → prebuilt takeaway + refined explanation Content
+   → Chengfeng locator as optional reference
+   → learner cause / note / favorite / discussion
+   → continue questions
+→ Review
+   → accumulated W/U and explicit discussion
+   → learner-triggered one-shot learning packet
+→ Chat batch diagnosis only when the learner chooses
+```
+
+The Workbench does **not** call Chat to generate the submitted explanation. `takeaway` and the refined explanation are prebuilt question-bound Content. Wrong/Uncertain does not automatically trigger Chat or force a Chengfeng repair detour.
+
+Executable proof on the accepted branch includes:
+
+```text
+Validate Politics runtime                         PASS
+Politics Home meaningful attention               PASS
+Politics single Workbench batch-review loop      PASS
+Politics Golden learner surface                  PASS
+Marx C01 explicit surface ownership              PASS
+five-subject explicit surface matrix             PASS
+explicit content-to-surface browser mapping      PASS
+Mao single-Workbench Runtime/Evidence             PASS
+Mao Evidence model                               PASS
+Xi Runtime journey                               PASS
+Xi Evidence model + journey                      PASS
+Ethics Runtime journey                           PASS
+Ethics Evidence model + journey                  PASS
+Ethics Projection Audit                          PASS
+Semantic Base Validity                           PASS
+KianOS Mac Visual Gate / real PingFang capture   PASS
+```
+
+The browser loop specifically proved:
+
+```text
+learning page has no inline question attempt
+→ exact Unit opens formal Workbench
+→ uncertain-correct attempt records first Evidence
+→ submitted backside exposes prebuilt takeaway + refined explanation
+→ learner cause + note persist
+→ Home shows records / Review only, with no direct Chat export
+→ Review collects the question
+→ one return_packet export contains the learner cause + note
+```
+
+Kian accepted the real Mac Human Gate on 2026-09-19 for Politics Home, learning Unit, submitted Workbench backside, and Review.
+
+`U` remains real-use-only. This Human Gate accepts the learner-facing product/runtime arrangement; it does not manufacture mastery or real study progress.
 ---
 
 ## Explicit content-to-surface mapping reconciliation — PASS
@@ -158,14 +223,14 @@ This reconciliation repairs shared representation ownership only. It does not ma
 
 Across the subject-local engineering closures:
 
-1. **Surface ownership** — Chengfeng remains the only continuous first-round lecture surface; KianOS provides orientation, selective structure, verification and repair.
+1. **Surface ownership** — Chengfeng remains the only continuous first-round lecture surface; the formal Politics Workbench is the only learner-facing Xiao1000 attempt/evidence/backside surface; KianOS learning pages provide orientation, selective structure and handoff.
 2. **Explicit representation ownership** — accepted Politics learner payload is selected by Surface Mapping before UI; renderers do not infer semantic composition.
 3. **First-attempt truth** — first-attempt evidence is durable and immutable once recorded.
 4. **Evidence states** — `WRONG`, `UNCERTAIN`, and `STABLE` remain distinct; `STABLE` is this-pass evidence only.
 5. **No mastery manufacture** — engineering/runtime closure keeps `mastery_claim = NONE`; synthetic execution cannot create mastery or U.
-6. **Repair semantics** — repair never rewrites historical Wrong/Uncertain into first-attempt success.
-7. **Repair provenance** — meaningful W/U evidence can carry the owning source locator independently of mutable last-location state.
-8. **Return Packet semantics** — later navigation does not erase the original evidence event or its repair provenance.
+6. **Batch-review semantics** — Wrong/Uncertain records Evidence without forcing an immediate Chat or repair ritual; later Review/Chat may decide whether any targeted repair is justified.
+7. **Locator semantics** — the Chengfeng locator on the submitted backside is an optional reference/return aid, not an automatic repair redirect.
+8. **Return Packet semantics** — later navigation does not erase the original evidence event; the learner-triggered Review packet may carry current outcome, cause, note and source context for batch diagnosis.
 9. **Fail-closed persistence** — failed first-attempt persistence cannot silently manufacture Unit Return/completion.
 10. **Transfer boundary** — later fresh/holdout evidence may append, strengthen, or challenge earlier evidence but cannot overwrite first-attempt truth.
 
@@ -193,7 +258,7 @@ The final E repair reused the generic `PoliticsEvidenceEnhancer` for Ethics-Law 
 
 ## Politics-wide Functional First integration
 
-Politics-wide Functional First remains **PASS**. Shared integration evidence proves the common runtime can execute clean work, resume meaningful pending state, route Wrong/Uncertain to repair, return to interrupted work, and preserve private learner cursor semantics across heterogeneous subject teaching shapes.
+Politics-wide Functional First remains **PASS**. Shared integration evidence now proves the common runtime can hand an exact learned Natural Unit to the single formal Workbench, preserve immutable first-attempt Evidence, render prebuilt refined backside Content, record Wrong/Uncertain plus learner annotations without a forced context switch, resume meaningful pending state, and export accumulated Review evidence as one learner-triggered batch packet.
 
 Subject-local Runtime/Evidence PASS is not inferred from that shared journey; each independently continued subject owns its own acceptance history. The parent closure above reconciles those local truths after they were independently accepted.
 
