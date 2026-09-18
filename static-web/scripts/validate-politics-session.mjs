@@ -189,6 +189,9 @@ pass(registry.includes('PoliticsExplicitSurfacePlan groups={[target.group]}'), '
 pass(!sessionClient.includes('politicsCurrent') && !sessionClient.includes('loadPoliticsChapterCurrent') && !sessionClient.includes('loadPoliticsCompiledPresentation'), 'SESSION_CLIENT_NO_RAW_CONTENT_OWNER');
 pass(sessionClient.includes("step.recipe_type === 'PRECISION'") && sessionClient.includes('fail closed'), 'SESSION_PRECISION_RUNTIME_FAIL_CLOSED');
 pass(sessionClient.includes('timed-task executor 还未验收'), 'SESSION_TIMER_RUNTIME_FAIL_CLOSED');
+pass(sessionClient.includes("const completed = status === 'COMPLETED' || nextIndex >= instruction.steps.length"), 'SESSION_EXPLICIT_CLOSE_TERMINATES_PLAN');
+pass(sessionClient.includes("$('[data-session-copy-evidence]').forEach"), 'SESSION_ALL_EVIDENCE_COPY_CONTROLS_BOUND');
+pass(!sessionClient.includes("if (runtime.status === 'PAUSED_CHAT') {\n      $('[data-session-step]').hidden = true;"), 'SESSION_PAUSED_CHAT_SURFACE_VISIBLE');
 pass(practiceClient.includes('if (explicitRetest) return explicitQuestionIds.map'), 'PRACTICE_EXPLICIT_RETEST_EXACT_POOL');
 pass(practiceClient.includes("const ids = (explicitRetest ? pool : pool.slice"), 'PRACTICE_EXPLICIT_RETEST_NO_COUNT_EXPANSION');
 pass(practiceClient.includes("mode: explicitRetest ? 'explicit_retest'"), 'PRACTICE_EXPLICIT_RETEST_IDENTITY');
