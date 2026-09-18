@@ -1,0 +1,64 @@
+{
+  "schema": "kianos.politics.memory_projection.v1",
+  "status": "CURRENT_K_REVIEWED",
+  "chapter_id": "POL27-LEARN-ETHICS-C00",
+  "policy": "SOURCE_GROUNDED_SELECTIVE",
+  "principle": "Candidate existence is Knowledge; durable review debt remains admission-gated.",
+  "freshness": "NORMAL",
+  "preferred_memory_reference": {
+    "role": "DESIGNATED_MEMORY_HANDBOOK",
+    "label": "腿姐《冲刺背诵手册》",
+    "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+    "historical_subject_source": "content/politics/source/historical/leg26/LEG26-ETHICS.md",
+    "rule": "Current Ethics Knowledge must independently own the relation. LEG26 supplies historical retention priority; current-year/source evidence governs admission."
+  },
+  "admission_gate": {
+    "default": "NOT_ADMITTED",
+    "requires_source_grounding": true,
+    "admit_when_any": [
+      "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+      "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED",
+      "LATER_ANALYSIS_OUTPUT_REQUIRES_EXACT_FORMULATION"
+    ],
+    "do_not_admit_for": [
+      "historical handbook presence alone",
+      "one stable correct answer",
+      "OCR reconstruction by guess"
+    ]
+  },
+  "units": {
+    "POL27-CF-ETHICS-C00": {
+      "title": "思想道德与法律的关系",
+      "candidates": [
+        {
+          "id": "POL27-MEM-ETHICS-C00-M01",
+          "form": "boundary",
+          "statement": "思想道德与法律都是调节行为、协调关系、维护秩序的重要手段，但思想道德更偏价值引领和内在自觉，法律更偏制度规范并以国家强制力作保障。",
+          "source_refs": [
+            "POL27-CF-ETHICS-C00"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-LOWER-ETHICS-P085"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        },
+        {
+          "id": "POL27-MEM-ETHICS-C00-M02",
+          "form": "two_way_relation",
+          "statement": "思想道德建设为法治建设提供思想指引和价值基础；法治建设为思想道德建设提供制度支撑和法律保障。二者相互促进但不能互相替代。",
+          "source_refs": [
+            "POL27-CF-ETHICS-C00"
+          ],
+          "historical_handbook_refs": [
+            "LEG26-UPPER-ETHICS-P230",
+            "LEG26-LOWER-ETHICS-P085"
+          ],
+          "admission": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+        }
+      ]
+    }
+  },
+  "deferred_candidate_domains": []
+}
