@@ -205,8 +205,10 @@ has(exitUi, 'secondPassReview.hidden = true;', 'second-pass-review-not-reset-bef
 has(exitUi, '当前没有审核过的二轮解析；保留这次作答证据，必要时交给 Chat，不补猜内容。', 'missing-explanation-does-not-fail-closed');
 matches(exitUi, /startSweep\.disabled\s*=\s*!\(recallState\.completedAt\s*&&\s*holdoutYears\.length\)/, 'sweep-gate-missing-recall-or-explicit-holdout');
 
-matches(systemUi, /outlineCount\s*>\s*0\s*\?/, 'outline-absence-not-conditionally-projected');
-lacks(systemUi, /Outline\s*\$\{?0\}?/, 'literal-outline-zero');
+has(systemUi, 'framework.spine.items.length > 0', 'system-spine-absence-not-conditionally-projected');
+has(systemUi, '(variableRows.length > 0 || relationRows.length > 0 || axisRows.length > 0)', 'system-language-axes-absence-not-conditionally-projected');
+has(systemUi, 'framework.failures.length > 0', 'system-failure-map-absence-not-conditionally-projected');
+has(systemUi, 'framework.dependencies.items.length > 0', 'system-dependencies-absence-not-conditionally-projected');
 has(systemUi, 'class="xzSystemWorkspace"', 'current-system-workspace-namespace-missing');
 lacks(systemUi, /xv6System/, 'retired-system-workspace-namespace-returned');
 
