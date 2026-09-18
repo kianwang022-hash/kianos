@@ -26,6 +26,7 @@ const guideLabel = chapter.subject === 'history'
       : chapter.subject === 'ethics_law'
         ? '先分清边界和情境'
         : '先看这段关系怎么推';
+const workbenchHref = (unit) => `${base}politics/practice/?unit=${encodeURIComponent(`${chapter.subject}/${chapter.code || chapter.chapter}/${unit.unitId}`)}`;
 ---
 <section
   class={`politicsStudy subject-${chapter.subject}`}
@@ -98,35 +99,21 @@ const guideLabel = chapter.subject === 'history'
             </details>
           )}
 
-          <section class="politicsQuiz" data-politics-quiz>
-            <header><div><p class="politicsMicro">肖1000 · Astro 验证</p><h3>原讲义学完再做</h3></div><span>{unit.questions.length ? `${unit.questions.length} 题` : unit.questionRefCount ? '题目待解析' : '本段无题'}</span></header>
+          <section class="politicsPracticeEntry" data-politics-practice-entry>
+            <header>
+              <div><p class="politicsMicro">肖1000 · 配套验证</p><h3>原讲义学完，再进入统一题目工作台</h3></div>
+              <span>{unit.questions.length ? `${unit.questions.length} 题` : unit.questionRefCount ? '题目待解析' : '本段无题'}</span>
+            </header>
             {unit.questions.length > 0 ? (
-              <div class="politicsQuizDeck">
-                {unit.questions.map((q, qIndex) => <article
-                  class={`politicsQ ${qIndex === 0 ? 'active' : ''}`}
-                  data-politics-question
-                  data-question-id={q.id}
-                  data-unit-id={unit.unitId}
-                  data-answer={q.answer}
-                  data-index={qIndex}
-                >
-                  <div class="politicsQMeta"><span>{qIndex + 1} / {unit.questions.length}</span><code>{q.id}</code></div>
-                  <h4>{q.stem}</h4>
-                  <div class="politicsOptions">{q.options.map((opt) => <button type="button" data-politics-option={opt.label}><b>{opt.label}</b><span>{opt.text}</span></button>)}</div>
-                  <div class="politicsActions"><button type="button" data-politics-uncertain>△ 不确定</button><button type="button" class="primary" data-politics-submit>提交</button></div>
-                  <div class="politicsResult" data-politics-result hidden></div>
-                  <div class="politicsRepair" data-politics-repair hidden>
-                    <p class="politicsMicro">只修最小缺口</p>
-                    {t.boundaries?.length > 0 ? <ul>{t.boundaries.slice(0,3).map((item) => <li>{item}</li>)}</ul> : <p>回到刚才这段，重新确认决定性关系。</p>}
-                    <a href={`#source-${unit.unitId}`}>回到乘风原讲义定位 ↑</a>
-                  </div>
-                  {q.explanation && <details class="politicsExplain"><summary>需要时再看解析</summary><p>{q.explanation}</p></details>}
-                  <button type="button" class="politicsNextQ" data-politics-next hidden>下一题 →</button>
-                </article>)}
-              </div>
+              <>
+                <p>作答、预制精修解析、错因和备注都在同一个 Workbench 完成；这里不再维护第二套题目背面。</p>
+                <a class="politicsPracticeEntryAction" href={workbenchHref(unit)}>做本单元配套题 →</a>
+              </>
             ) : unit.questionRefCount > 0 ? (
               <div class="politicsBlocked"><strong>题目源当前没有可靠解析出来。</strong><p>不猜题干和答案；乘风原讲义学习不受影响。</p></div>
-            ) : null}
+            ) : (
+              <p class="politicsPracticeEntryQuiet">本单元当前没有配套题，继续后续学习即可。</p>
+            )}
           </section>
 
           </div>
@@ -186,92 +173,19 @@ const guideLabel = chapter.subject === 'history'
 <script is:inline>
   const politicsRuntime = document.querySelector('[data-politics-runtime]');
   const politicsLastKey = 'kianos-politics-last-location-v1';
-  const politicsEvidenceKey = 'kianos-politics-evidence-v1';
-  const localStudyDay = () => new Date().toLocaleDateString('en-CA');
-  const readJson = (key, fallback) => {
-    try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; } catch { return fallback; }
-  };
-  const saveJson = (key, value) => {
-    try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
-  };
-
   if (politicsRuntime) {
-    // Entry/reload must not demote an exact cursor within this chapter.
-    const previousLocation = readJson(politicsLastKey, null);
-    const sameLocation = previousLocation?.subject === politicsRuntime.dataset.subject
-      && previousLocation?.chapter === politicsRuntime.dataset.chapter;
-    saveJson(politicsLastKey, {
-      ...(sameLocation ? previousLocation : {}),
-      subject: politicsRuntime.getAttribute('data-subject') || '',
-      chapter: politicsRuntime.getAttribute('data-chapter') || '',
-      title: politicsRuntime.getAttribute('data-title') || '',
-      href: sameLocation && previousLocation?.href ? previousLocation.href : window.location.pathname,
-      observed_at: new Date().toISOString()
-    });
-  }
-
-  const recordPoliticsEvidence = (card, outcome, selected, correctAnswer) => {
-    if (!politicsRuntime || !card) return;
-    const events = readJson(politicsEvidenceKey, []);
-    const next = Array.isArray(events) ? events : [];
-    next.push({
-      subject: politicsRuntime.getAttribute('data-subject') || '',
-      chapter: politicsRuntime.getAttribute('data-chapter') || '',
-      chapter_title: politicsRuntime.getAttribute('data-title') || '',
-      unit_id: card.getAttribute('data-unit-id') || '',
-      question_id: card.getAttribute('data-question-id') || '',
-      source: 'xiao1000',
-      outcome,
-      selected,
-      correct_answer: correctAnswer,
-      study_day: localStudyDay(),
-      observed_at: new Date().toISOString()
-    });
-    saveJson(politicsEvidenceKey, next.slice(-500));
-  };
-
-  document.querySelectorAll('[data-politics-quiz]').forEach((quiz) => {
-    const cards = [...quiz.querySelectorAll('[data-politics-question]')];
-    const show = (index) => cards.forEach((card, i) => card.classList.toggle('active', i === index));
-    cards.forEach((card, index) => {
-      const selected = new Set();
-      const answer = String(card.dataset.answer || '').split('').sort().join('');
-      const result = card.querySelector('[data-politics-result]');
-      const repair = card.querySelector('[data-politics-repair]');
-      const submit = card.querySelector('[data-politics-submit]');
-      const next = card.querySelector('[data-politics-next]');
-      const uncertain = card.querySelector('[data-politics-uncertain]');
-      card.querySelectorAll('[data-politics-option]').forEach((button) => button.addEventListener('click', () => {
-        const label = button.dataset.politicsOption;
-        if (selected.has(label)) selected.delete(label); else selected.add(label);
-        button.classList.toggle('selected', selected.has(label));
+    try {
+      const previous = JSON.parse(localStorage.getItem(politicsLastKey) || 'null');
+      const sameChapter = previous?.subject === politicsRuntime.dataset.subject
+        && previous?.chapter === politicsRuntime.dataset.chapter;
+      localStorage.setItem(politicsLastKey, JSON.stringify({
+        ...(sameChapter ? previous : {}),
+        subject: politicsRuntime.dataset.subject || '',
+        chapter: politicsRuntime.dataset.chapter || '',
+        title: politicsRuntime.dataset.title || '',
+        href: sameChapter && previous?.href ? previous.href : window.location.pathname,
+        observed_at: new Date().toISOString()
       }));
-      uncertain?.addEventListener('click', () => uncertain.classList.toggle('active'));
-      submit?.addEventListener('click', () => {
-        const choice = [...selected].sort().join('');
-        if (!choice) return;
-        const correct = choice === answer;
-        const wasUncertain = Boolean(uncertain?.classList.contains('active'));
-        const needsRepair = !correct || wasUncertain;
-        result.hidden = false;
-        result.className = `politicsResult ${correct && !wasUncertain ? 'correct' : wasUncertain && correct ? 'uncertain' : 'wrong'}`;
-        result.textContent = correct
-          ? wasUncertain ? '△ 答对了，但你不确定。先补最小缺口，再继续。' : '✓ 对，继续。'
-          : `你的答案 ${choice} · 正确答案 ${answer}`;
-        repair.hidden = !needsRepair;
-        next.hidden = false;
-        if (needsRepair) recordPoliticsEvidence(card, correct ? 'UNCERTAIN' : 'WRONG', choice, answer);
-        card.querySelectorAll('[data-politics-option]').forEach((button) => {
-          button.disabled = true;
-          if (answer.includes(button.dataset.politicsOption)) button.classList.add('answer');
-        });
-        if (uncertain) uncertain.disabled = true;
-        submit.disabled = true;
-      });
-      next?.addEventListener('click', () => {
-        if (index < cards.length - 1) { show(index + 1); cards[index + 1].scrollIntoView({ behavior: 'smooth', block: 'center' }); }
-        else { next.textContent = '这一组完成 ✓'; next.disabled = true; }
-      });
-    });
-  });
+    } catch {}
+  }
 </script>
