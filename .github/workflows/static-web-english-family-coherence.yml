@@ -21,6 +21,8 @@ on:
       - 'static-web/src/components/Translation*.astro'
       - 'static-web/src/components/Vocabulary*.astro'
       - 'static-web/src/styles/english*.css'
+      - 'static-web/src/lib/englishSessionControl.mjs'
+      - 'static-web/scripts/validate-english-chat-control.mjs'
       - 'static-web/scripts/test-english-family-coherence.mjs'
       - 'static-web/scripts/test-objective-guide-visual.mjs'
       - '.github/workflows/static-web-english-family-coherence.yml'
@@ -43,6 +45,8 @@ on:
       - 'static-web/src/components/Translation*.astro'
       - 'static-web/src/components/Vocabulary*.astro'
       - 'static-web/src/styles/english*.css'
+      - 'static-web/src/lib/englishSessionControl.mjs'
+      - 'static-web/scripts/validate-english-chat-control.mjs'
       - 'static-web/scripts/test-english-family-coherence.mjs'
       - 'static-web/scripts/test-objective-guide-visual.mjs'
       - '.github/workflows/static-web-english-family-coherence.yml'
@@ -67,6 +71,9 @@ jobs:
       - name: Install runtime
         working-directory: static-web
         run: npm install --no-audit --no-fund
+      - name: Validate Chat-owned English control
+        working-directory: static-web
+        run: node scripts/validate-english-chat-control.mjs
       - name: Build Current site
         working-directory: static-web
         run: npm run build
