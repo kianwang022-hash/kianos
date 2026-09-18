@@ -13,11 +13,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Preserve exact-head scoped source (not prior acceptance evidence)
+      - name: Preserve exact-head runtime inputs (transport only, no old verdicts)
         run: |
           mkdir -p /tmp/xizong-independent
           git rev-parse HEAD > /tmp/xizong-independent/head.txt
-          git archive HEAD content/xizong static-web .github/workflows AGENTS.md PROJECT_DEFINITION.md ARCHITECTURE.md LEARNING_ACCEPTANCE.md LEARNING_ASSET_STANDARD.md SYSTEM_CONTRACT.md EXAM_ORCHESTRATOR_CONTRACT.md CURRENT.md README.md | gzip > /tmp/xizong-independent/worktree.tar.gz
+          git archive HEAD | gzip > /tmp/xizong-independent/worktree.tar.gz
+      - name: Prepare current runtime dependencies
+        working-directory: static-web
+        run: |
+          npm ci
+          tar -czf /tmp/xizong-independent/node-modules.tar.gz node_modules
       - name: Run fresh contract-derived probes when present
         run: |
           if test -f static-web/scripts/test-xizong-final-independent.mjs; then
