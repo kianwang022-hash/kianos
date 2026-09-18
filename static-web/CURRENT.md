@@ -28,7 +28,7 @@ Architecture-level website blocker: **none**.
 | Lane | State | Active ref / continue from |
 | --- | --- | --- |
 | Xizong UI | **BOUNDED LOOP AUDIT ACTIVE · PR #458** | `work/xizong-full-loop-audit-20260918` → live Study Packet + Memory Repair + exact-head QA |
-| Politics UI | **ACTIVE · ONLY MATERIAL SUBJECT UI REMAINING** | `main` → `POLITICS_PRODUCT_BRIEF.md` → current Politics renderer; old #395 is stale evidence, not a merge target |
+| Politics UI | **ACTIVE · HUMAN GATE READY** | PR #461 · `work/politics-l2-l3-replay-20260919` · L2 + Learn Index + chapter workspace accepted by automated gates; waiting only for Kian visual approval |
 | English UI | **LANDED** | `content/english/CURRENT.md` |
 | Lexical / Vocabulary UI | **LANDED · HUMAN GATES CLOSED** | `content/lexical/CURRENT.md` → normal use / concrete defects only |
 
@@ -181,7 +181,7 @@ CI green is not visual acceptance.
 ## Current next actions
 
 - **Xizong:** material UI remains accepted. Fresh full-loop audit #458 has now closed the bounded integration defects found during adversarial replay: live Block Study Packet v3 replaces the retired After Learn packet; System W/U Chat returns enter current Memory Repair with exact Block/question return and version invalidation; SYSTEM Practice fails closed until System Recall is completed; correct-but-unsure is first-class Uncertain evidence including whole-paper Seal; released Recall/Practice/Whole Paper own truthful Home Resume while locked stages cannot hijack it; learner-facing engineering diagnostics/protocol copy are removed and guarded by browser QA. Next = exact-head Static Web Xizong QA must execute through A1 browser Runtime + Evidence before merge. Durable learner-data recovery remains shared-platform work.
-- **Politics:** this is the only remaining material subject-UI closure. The old #395 branch is heavily diverged from Current main and must not be merged as-is; replay only still-valid Politics surface behavior from current `main`, then obtain real-browser Human Gate.
+- **Politics:** PR #461 is the Current replay on latest `main`: L2 = 总览 / 学习 / 肖1000 / 复习; `/politics/learn/` provides five-subject → chapter entry; generic chapter Learn uses left chapter path + main learner object + Chengfeng companion. Real macOS 1512×982 PingFang evidence, Functional First, Xi/Ethics Runtime+Evidence, navigation build and cross-subject regression are green. Politics QA / Authority reds are pre-existing `main` baselines outside this UI scope. **Next action: Kian Human Gate only; do not roll this visual language into Home / Review / Practice before approval.**
 - **English:** landed; fix only concrete launch-visible defects.
 - **Lexical:** Vocabulary v2 learner-surface closure and English exact handoff/return are accepted; normal use only unless a concrete defect appears.
 - **Platform:** after Politics Human Gate, close learner-data durability / typed Chat Return and run final cross-subject regression. UI/CSS ownership cleanup is maintenance, not a new learner product.
