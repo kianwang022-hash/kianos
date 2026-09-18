@@ -232,7 +232,7 @@ Memory Overlay realization has two canonical target shapes.
 
 **Chapter Memory Model**
 - owner: chapter `later_stage_knowledge.memory_knowledge`;
-- admission: `memory_admission_state = ADMITTED_STABLE` or an existing equivalent stable-semantic admission that is normalized upstream;
+- admission: `memory_admission_state = ADMITTED_STABLE`;
 - source payload: the already accepted chapter `compression_model`;
 - purpose: broad reconstruction / compressed review;
 - Precision behavior: `NOT_APPLICABLE` unless a separate exact target exists.
@@ -252,6 +252,18 @@ Runtime does not infer Memory worthiness from raw chapter fields.
 ```
 
 When a chapter Memory owner is admitted, the derived target compiler may compile its accepted `compression_model` into one literal learner payload. This is an upstream deterministic mapping rule, not a browser strategy decision.
+
+
+Canonical field rule for Memory Overlay:
+
+```text
+memory_knowledge.memory_admission_state
+precision_knowledge.memory_admission_state
+precision_knowledge.precision_admission_state
+precision_knowledge.precision_blocker   # only when candidate
+```
+
+Legacy combined fields such as `admission_state` / `admission_blocker` are not Current Truth and must fail validation if reintroduced.
 
 #### `precision_knowledge`
 

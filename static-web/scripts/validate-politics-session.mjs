@@ -56,6 +56,8 @@ pass(memoryModelTargets.every((row) =>
   && row.precision_admission === 'NOT_APPLICABLE'
   && row.group
 ), 'TARGET_MEMORY_MODEL_IS_STABLE_NON_PRECISION');
+pass(memoryModelTargets.every((row) => row.memory_shape === 'MODEL'), 'TARGET_MEMORY_MODEL_SHAPE_LITERAL');
+pass(memoryPointTargets.every((row) => row.memory_shape === 'POINT'), 'TARGET_MEMORY_POINT_SHAPE_LITERAL');
 const modelCounts = Object.fromEntries(['marxism','history','mao','xi','ethics_law'].map((subject) => [
   subject,
   memoryModelTargets.filter((row) => row.subject === subject).length

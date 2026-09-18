@@ -153,8 +153,7 @@ function historyHorizontalTargets(base) {
 
 
 function normalizedMemoryAdmission(memoryKnowledge) {
-  const raw = clean(memoryKnowledge?.memory_admission_state || memoryKnowledge?.admission_state);
-  return raw === 'ADMITTED_STABLE_SEMANTIC' ? 'ADMITTED_STABLE' : raw;
+  return clean(memoryKnowledge?.memory_admission_state);
 }
 
 function memoryModelLineText(value) {
@@ -209,6 +208,7 @@ function chapterMemoryModelTargets(base) {
     const memoryKnowledge = later?.memory_knowledge || null;
     const memoryAdmission = normalizedMemoryAdmission(memoryKnowledge);
     if (memoryAdmission !== 'ADMITTED_STABLE') continue;
+    if (clean(memoryKnowledge?.source_model) !== 'compression_model') continue;
 
     const compression = later?.compression_model || null;
     const lines = chapterMemoryModelLines(compression);

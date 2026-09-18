@@ -257,6 +257,16 @@ Therefore:
 
 This precedence is target-boundary validation, not Web review strategy.
 
+
+Hard admission distinction:
+
+```text
+Session evidence can select an admitted target.
+Session evidence cannot turn a candidate target into an admitted target.
+```
+
+A source/freshness refresh must first update canonical Content admission. Only then may a later Session execute that target as Precision.
+
 #### Scope is not chapter-only
 
 The scope model must support cross-chapter consolidation when Current K owns a genuine cross-chapter structure.

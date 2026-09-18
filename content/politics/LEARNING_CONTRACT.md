@@ -210,6 +210,29 @@ Rules:
 5. Website/Runtime never decides whether a chapter deserves Memory treatment; the chapter's `memory_knowledge` owner must admit it first;
 6. this materialization affects later Review/Consolidation only and creates no first-round render obligation.
 
+
+### Final Memory / Review operating order
+
+Later review should normally compress before it fragments:
+
+```text
+Chapter Memory Model / accepted horizontal owner
+→ learner reconstructs the large model
+→ Chat inspects actual missing/unstable parts
+→ selected Discrete Memory Target(s)
+→ admitted Precision only when exactness truly matters
+→ selected Xiao1000 retest when evidence value justifies it
+→ smallest repair
+→ exit
+```
+
+This means:
+
+- stable Memory may exist before the learner ever gets it wrong;
+- W/U changes what Chat selects and repeats, not shared Memory truth;
+- a correct/stable item should disappear from active review rather than become permanent ritual;
+- Precision is narrower than Memory and must never become the default form of political review.
+
 ### Surface roles
 
 Politics first-round learning uses explicit surface ownership rather than inferring it from implementation capability.

@@ -145,6 +145,61 @@ if (fs.existsSync(historyHorizontalPath)) {
   if (horizontalCount !== 50) fail(`history horizontal Memory count ${horizontalCount}/50`);
 }
 
+
+let chapterMemoryModelCount = 0;
+const chapterMemoryBySubject = new Map();
+
+for (const row of listPoliticsChapterPathsCurrent()) {
+  const directory = row.subject === 'ethics_law' ? 'ethics-law' : row.subject;
+  const file = path.join(learningRoot, directory, row.chapter + '.json');
+  const rel = path.relative(repoRoot, file);
+  const data = JSON.parse(fs.readFileSync(file, 'utf8'));
+  const later = data?.later_stage_knowledge || {};
+  const memoryKnowledge = later?.memory_knowledge || {};
+  const precisionKnowledge = later?.precision_knowledge || {};
+
+  if (Object.prototype.hasOwnProperty.call(memoryKnowledge, 'admission_state')) {
+    fail(`${rel} legacy memory_knowledge.admission_state remains`);
+  }
+  if (memoryKnowledge?.memory_admission_state !== 'ADMITTED_STABLE') {
+    fail(`${rel} chapter Memory model must be ADMITTED_STABLE`);
+  }
+  if (memoryKnowledge?.source_model !== 'compression_model') {
+    fail(`${rel} chapter Memory model must point to compression_model`);
+  }
+  if (!later?.compression_model) {
+    fail(`${rel} admitted chapter Memory model missing compression_model`);
+  }
+
+  if (
+    Object.prototype.hasOwnProperty.call(precisionKnowledge, 'admission_state')
+    || Object.prototype.hasOwnProperty.call(precisionKnowledge, 'admission_blocker')
+  ) {
+    fail(`${rel} legacy precision_knowledge combined admission fields remain`);
+  }
+
+  const precisionAdmission = String(precisionKnowledge?.precision_admission_state || '');
+  if (!['ADMITTED_STABLE', 'CANDIDATE_EXACTNESS', 'CANDIDATE_FRESHNESS', 'NOT_APPLICABLE'].includes(precisionAdmission)) {
+    fail(`${rel} invalid chapter precision_admission_state ${precisionAdmission || 'MISSING'}`);
+  }
+  if (precisionAdmission.startsWith('CANDIDATE_') && !precisionKnowledge?.precision_blocker) {
+    fail(`${rel} candidate chapter Precision must keep precision_blocker`);
+  }
+  if (String(precisionKnowledge?.memory_admission_state || '') !== 'ADMITTED_STABLE') {
+    fail(`${rel} precision_knowledge must reconcile to stable semantic Memory`);
+  }
+
+  chapterMemoryModelCount += 1;
+  chapterMemoryBySubject.set(row.subject, (chapterMemoryBySubject.get(row.subject) || 0) + 1);
+}
+
+if (chapterMemoryModelCount !== 53) fail(`chapter Memory model count ${chapterMemoryModelCount}/53`);
+for (const [subject, expected] of Object.entries({ marxism: 9, history: 10, mao: 9, xi: 18, ethics_law: 7 })) {
+  if ((chapterMemoryBySubject.get(subject) || 0) !== expected) {
+    fail(`chapter Memory model subject count ${subject} ${chapterMemoryBySubject.get(subject) || 0}/${expected}`);
+  }
+}
+
 const chapterIndex = new Map();
 for (const row of listPoliticsChapterPathsCurrent()) {
   const chapter = enrichPoliticsChapterCurrent(loadPoliticsChapterCurrent(row.subject, row.chapter));
