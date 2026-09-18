@@ -142,7 +142,8 @@ has(guardUi, "requested === 'block_recall'", 'premature-block-recall-stage-guard
 has(guardUi, "target.closest('[data-block-recall-complete]')", 'premature-block-recall-evidence-guard');
 has(guardUi, "target.closest('[data-start-recall]')", 'premature-system-recall-start-guard');
 has(guardUi, "target.closest('[data-reveal-recall]')", 'premature-system-recall-reveal-guard');
-has(guardUi, 'if (completed.length < blockIds.length)', 'premature-system-recall-guard');
+has(guardUi, 'const ready = completed.length >= blockIds.length;', 'premature-system-recall-readiness-missing');
+has(guardUi, 'if (!ready)', 'premature-system-recall-guard');
 has(guardUi, 'Free navigation among orientation/current-learning surfaces is preserved.', 'free-navigation-contract');
 has(blockPage, '<XizongRuntimeStageGuard system={system} block={block} />', 'block-guard-not-mounted');
 has(systemPage, '<XizongRuntimeStageGuard system={system} />', 'system-guard-not-mounted');
