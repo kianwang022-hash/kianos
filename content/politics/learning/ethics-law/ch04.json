@@ -188,26 +188,18 @@
       ]
     },
     "precision_knowledge": {
-      "policy": "CURRENT_GROUNDED_CANDIDATE_MAP",
-      "candidate_domains": [
-        "three-level twelve-term structure",
-        "国家/社会/个人层级 boundaries",
-        "核心价值观 role identities"
+      "policy": "REFERENCE_MEMORY_SIDECAR",
+      "owner_path": "content/politics/learning/ethics-law/ch04.memory.json",
+      "candidate_ids": [
+        "POL27-MEM-ETHICS-C04-S01-M01",
+        "POL27-MEM-ETHICS-C04-S01-M02",
+        "POL27-MEM-ETHICS-C04-S02-M01"
       ],
-      "historical_source_slices": [
-        {
-          "from": "LEG26-UPPER-ETHICS-P211",
-          "through": "LEG26-UPPER-ETHICS-P214",
-          "scope": "专题五：社会主义核心价值观及自测"
-        },
-        {
-          "from": "LEG26-LOWER-ETHICS-P082",
-          "through": "LEG26-LOWER-ETHICS-P083",
-          "scope": "核心价值观分析题模板"
-        }
-      ],
-      "materialization_status": "CANDIDATE_OBJECTS_TO_BE_MATERIALIZED",
-      "freshness_gate": "NORMAL_CURRENT_YEAR_CORROBORATION"
+      "admission_state": "CANDIDATE_ONLY",
+      "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+      "deferred_domains": [],
+      "freshness_gate": "NORMAL",
+      "rule": "Candidate-only precision is grounded in Current concept/boundary Knowledge plus inspected historical support; durable Memory remains admission-gated."
     },
     "analysis_output_hooks": [
       {
