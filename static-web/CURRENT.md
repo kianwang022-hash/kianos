@@ -182,7 +182,7 @@ CI green is not visual acceptance.
 
 ## Current next actions
 
-- **Xizong:** L2 visual language is accepted. Close Practice L3/Human Gate first, then finish execution scopes on the same Workbench: explicit W/U, Marked, CHAT_SET (Chat supplies ordered qids; web validates/executes only), and whole-paper/Hidden. System Recall visual re-review follows. Question Explanation production remains a separate Content lane.
+- **Xizong:** Practice function/runtime work is retained, but the 2026-09-18 Practice visual candidate **failed Kian Human Gate**. Re-derive presentation from L1 → Xizong L2 → Practice L3 before any merge. Do not treat Linux CI screenshots as Mac typography acceptance. After visual acceptance, continue explicit W/U, Marked, CHAT_SET and whole-paper/Hidden on the same Workbench.
 - **Politics:** continue from the cleaned SurfacePlan-only renderer path; Visual may arrange mapped objects but must not author semantic grouping/relations.
 - **English:** only concrete launch-visible defects; do not reopen accepted task geometry.
 
