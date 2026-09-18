@@ -10,7 +10,7 @@ This cursor owns current engineering routing only. It does not own Rule / Model,
 
 ## Current state
 
-**Active lane:** NONE — Lexical Architecture v2 + real-use loop closure accepted  
+**Active lane:** Lexical Continuous Content + Repair Test Upgrade — ACTIVE  
 **Blocker:** none
 
 Stage:
@@ -448,8 +448,113 @@ Preserve:
 
 ---
 
+## Continuous Content + Repair Test Upgrade — ACTIVE 2026-09-18
+
+Catalog execution: ACTIVE
+
+This is the durable rolling Content lane for the current 7,946 Main Words.
+
+It does not reopen Vocabulary UI / Runtime / Evidence architecture, and it must not fall back into an audit → debt inventory → later repair loop.
+
+### Primary goal
+
+Continuously improve the actual learner value of each lexical owner, especially:
+
+- Core / Word Feel — a real organizing summary, not stacked Chinese glosses;
+- Expansion — familiar-new / hidden high-value senses;
+- construction / argument skeletons;
+- collocation / phraseology / multiword units;
+- same-word branch decision boundaries;
+- cross-word confusable / contrast boundaries;
+- register / stance / intensity / valence;
+- morphology / productive word family;
+- pronunciation / stress / spelling / form distinctions;
+- useful Translation / Writing production distinctions.
+
+Simple words may remain simple. Rich words may remain rich.
+
+Quality question:
+
+> After reading the final learner object, is the word correctly summarized, complete enough to transfer, and worth the learner time it asks for?
+
+Field presence, old audit labels, prior receipts and green validators cannot manufacture this judgment.
+
+### Repair Test is a continuous derived-content job
+
+High-quality Repair Tests improve together with lexical content.
+
+Word / Relation / Form = semantic Truth.
+Repair Test = derived diagnostic content, not semantic authority.
+
+Do not build one permanent fixed question per Sense. The durable part is the Repair Test blueprint / diagnostic intent tied to the exact stable lexical target when such a target is worth testing. Concrete question instances should normally be generated fresh by Chat from latest canonical content + current learner evidence.
+
+A good Test blueprint should make clear:
+
+- exact word_id + target_kind + stable target_id/locator;
+- demand: Recognition / Discrimination / Production when material;
+- what hidden gap the Test is trying to expose;
+- the semantic / syntactic / collocational decision boundary;
+- what makes a distractor plausible rather than random;
+- context constraints that prevent answer leakage;
+- the smallest useful Repair if wrong;
+- how Reconstruction should change context instead of repeating the same item.
+
+Useful Test forms include contextual sense discrimination, familiar-new branch selection, confusable forced choice, construction slot selection, phrase completion, form/pronunciation distinction, and constrained mini-translation / production for genuinely productive targets.
+
+Hard Test rules:
+
+- fresh generated context is preferred over memorized fixed items;
+- one Test answers one diagnostic question;
+- distractors come from plausible neighboring branches / confusions;
+- no dictionary trivia as artificial difficulty;
+- no answer leakage through wording or option asymmetry;
+- wrong answer leads to minimum local Repair;
+- same-session Reconstruction correct does not prove delayed transfer;
+- a content change that changes the target invalidates stale Test assumptions;
+- SAFE_SIMPLE words do not need artificial Test content merely for coverage.
+
+### Per-owner fresh judgment
+
+Every owner in an active shard receives exactly one current semantic decision:
+
+- operation: NO_CHANGE or UPGRADED;
+- final quality: SAFE_SIMPLE, DEPTH_READY, or BLOCKED;
+- concise rationale grounded in the complete current object;
+- Test judgment: NO_TEST_NEEDED, TESTABLE_TARGETS_PRESENT, or TEST_BLUEPRINT_UPGRADED.
+
+For DEPTH_READY words, explicitly inspect whether important hidden risks can support a high-information Repair Test. If a good Test cannot be built without inventing missing meaning/boundary information, the semantic content is not finished.
+
+### Execution shape
+
+Use the existing CONTENT_EXECUTION.md local-close cycle.
+
+Read current shard → fresh semantic judgment → upgrade Core / Expansion / boundaries → generate / pressure-test Repair Test blueprints for meaningful targets → staged final object → complete readback → validate → close shard.
+
+Do not inspect a large range first and create a future repair backlog. Internal shards should normally stay at or below ~50 owners.
+
+### First rolling wave
+
+- Lane A: o0001–o0200
+- Lane B: o0201–o0400
+- Lane C: o0401–o0600
+- Lane D: o0601–o0800
+
+Each lane writes only inside its ordinal range plus genuinely shared Relation/Form dependencies required by those owners, closes small shards continuously, and includes Repair Test quality in the same fresh judgment rather than postponing Test work to a later catalog pass.
+
+Later waves continue sequentially until all 7,946 owners have received the current-generation continuous-upgrade pass.
+
+### Stop conditions
+
+Do not touch accepted Vocabulary UI merely because content becomes richer. Website continues to consume refreshed Final Learner Objects through the existing materialization chain.
+
+If richer content exposes a real renderer defect, record it separately; do not solve it inside this Content lane.
+
+---
+
 ## Exact next action
 
-Normal use.
+Start Lane A · o0001–o0200.
 
-Do not reopen accepted Vocabulary architecture, learner-state semantics or Chat transport for speculative polish. Reopen only for a concrete learner-visible defect, a broken contract, or an explicit new Kian request.
+First internal shard: o0001–o0050.
+
+For every owner, perform the complete semantic readback and the Repair Test judgment in the same close cycle.
