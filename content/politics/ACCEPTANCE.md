@@ -498,3 +498,34 @@ If that fresh re-audit passes, the allowed claim is:
 > **Politics later-stage Consolidation L = PASS_AFTER_REPAIR.**
 
 Only after that may the project proceed to later-stage Content/Projection/Runtime realization.
+
+
+### Adaptive interface closure candidate
+
+The corrected Consolidation L candidate now has one explicit Chat/Web execution boundary:
+
+```text
+Chat strategy owner
+→ kianos.politics.consolidation_plan.v1
+→ Web executor
+→ kianos.politics.consolidation_return.v1
+→ Chat next decision
+```
+
+The interface is intentionally thin.
+
+The plan may carry only explicit actions/refs/prompts already chosen by Chat. The Web may validate identity, availability, freshness/admission guard presence, state safety and evidence persistence; it may not infer what deserves review.
+
+The return carries observable learner evidence and resume identity only. It must not contain a Web-authored recommendation, mastery claim, inferred next review target or automatic chapter-completeness judgment.
+
+Existing `kianos.politics.return_packet.v1` remains the compact cross-session/daily handoff. `consolidation_return.v1` is the finer current-session execution result from which meaningful handoff evidence may be derived.
+
+Fresh re-audit should therefore judge:
+
+1. whether the interface lets Chat select any valid subset/order of Current K without per-chapter static planning;
+2. whether the Web can execute all required actions without semantic inference;
+3. whether Precision source/admission/freshness gates remain enforceable without moving strategy ownership into Runtime;
+4. whether return evidence is sufficient for Chat adaptation but contains no Web strategy;
+5. whether all five Politics cognition shapes can travel through the same execution interface without being flattened.
+
+This is still **candidate evidence**, not independent L acceptance.
