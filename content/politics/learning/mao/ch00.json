@@ -174,16 +174,16 @@
       "cross_unit_confusables": []
     },
     "precision_knowledge": {
-      "policy": "CURRENT_GROUNDED_CANDIDATE_DOMAIN",
-      "candidate_domains": [
-        "两个结合 fixed formulation",
-        "马克思主义中国化时代化理论成果接续 identity"
+      "policy": "REFERENCE_MEMORY_SIDECAR",
+      "owner_path": "content/politics/learning/mao/ch00.memory.json",
+      "candidate_ids": [
+        "POL27-MEM-MAO-C00-M01",
+        "POL27-MEM-MAO-C00-M02"
       ],
-      "historical_source_refs": [
-        "LEG26-UPPER-MAO-P073",
-        "LEG26-UPPER-MAO-P074"
-      ],
-      "materialization_status": "CANDIDATE_OBJECTS_TO_BE_MATERIALIZED_BELOW"
+      "admission_state": "CANDIDATE_ONLY",
+      "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+      "deferred_domains": [],
+      "rule": "Current Knowledge + inspected historical handbook support creates candidate-only precision; durable Memory remains admission-gated."
     },
     "analysis_output_hooks": [],
     "analysis_output_status": "NO_DEDICATED_LEG26_OUTPUT_BANK_DO_NOT_INVENT",
