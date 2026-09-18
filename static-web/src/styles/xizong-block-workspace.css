@@ -1047,3 +1047,68 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyLay
   overflow: hidden;
   border-right: 0;
 }
+
+
+/* Block tail: one reconstruction surface, two real state writes, no extra page. */
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzBlockRecallActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 18px;
+  padding: 14px 0 0;
+  border-top: 1px solid var(--xz-block-line);
+  background: transparent;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzBlockRecallActions > div:first-child {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzBlockRecallActions > div:first-child > span {
+  color: var(--xz-block-muted);
+  font-size: 15px;
+  line-height: 1.5;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzBlockRecallActions > div:first-child > strong {
+  font-size: 16px;
+  font-weight: 700;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzBlockRecallActions > div:first-child > small {
+  color: var(--xz-block-muted);
+  font-size: 15px;
+  line-height: 1.45;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzBlockRecallActions > div:last-child {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzBlockRecallActions button,
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzBlockRecallActions a {
+  min-height: 38px;
+  padding: 7px 11px;
+  border: 1px solid var(--xz-block-line-strong);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--study-ink,#20342c);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzBlockRecallActions .portedPrimaryAction {
+  border-color: var(--xz-block-green);
+  background: var(--xz-block-green);
+  color: #fff;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzBlockRecallActions button:disabled {
+  cursor: default;
+  opacity: .48;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzBlockRecallActions [data-block-return-system] {
+  color: var(--xz-block-green);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzBlockRecallActions [hidden] {
+  display: none !important;
+}
