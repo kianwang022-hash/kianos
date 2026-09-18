@@ -20,7 +20,7 @@ P — Presentation              PASS
 R — Runtime                   PASS_WITH_DEBT
 E — Evidence                  PASS
 U — real learner validation   UNTESTED
-Active Lexical engineering gate  NONE
+Active Lexical engineering gate  FINAL_LEARNER_OBJECT_CUTOVER
 ```
 
 There is no current reason to restart broad Production Review, full-catalog Content construction, K audit or P/R/E closure without a concrete Current defect.
@@ -28,6 +28,36 @@ There is no current reason to restart broad Production Review, full-catalog Cont
 Detailed proof remains in scoped Acceptance / reconciliation assets rather than this cursor.
 
 ---
+
+## Concrete reopened defect — Final Learner Object cutover
+
+The 7,946 canonical Word/Relation owners remain accepted Content. The reopened defect is downstream consumption:
+
+```text
+canonical Word + Relation owners
+→ website loader hydrates ownership
+→ Vocabulary renderer still re-checks verification / publication / merge / priority fields
+```
+
+That makes the learner surface a semantic decision-maker.
+
+Current bounded repair:
+
+```text
+canonical Word + Relation owners
+→ lexical Final Learner Object resolver
+→ Vocabulary renderer consumes only the resolved learner object
+```
+
+Scope boundaries:
+- no 7,946-word semantic rebuild;
+- no broad UI redesign;
+- no learner-state reset;
+- evidence identity/lineage may remain as typed migration metadata, but cannot decide learner visibility;
+- first acceptance proof is full-catalog Final Object readback + renderer no-inference guard + existing browser/runtime regression.
+
+Active ref: `work/lexical-final-learner-object-20260918`.
+
 
 ## Stable owners
 
@@ -101,8 +131,13 @@ Historical Issues, PRs, audit counts and branch aliases are evidence only.
 
 ## Exact next action
 
-**Real learner use.**
+Close the bounded Final Learner Object cutover:
 
-If real study reveals friction, weak transfer or a concrete defect, reopen only the smallest responsible Rule / Content / Visual / Engineering owner.
+```text
+full-catalog resolver readback
+→ Vocabulary renderer direct-consumption proof
+→ existing Lexical Runtime/browser regression
+→ restore Real learner use as the next action
+```
 
-Do not manufacture a new engineering project merely because `U` is still untested.
+This is an exact downstream defect repair, not a reopened broad Content program.
