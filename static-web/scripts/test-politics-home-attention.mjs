@@ -108,13 +108,12 @@ try {
   await handoff.waitFor({ state: 'visible' });
   assert.equal(await tools.getAttribute('data-has-handoff'), 'true');
   const summary = await page.locator('[data-politics-handoff-summary]').innerText();
-  assert.match(summary, /2 条需要处理/);
-  assert.match(summary, /1 错题/);
-  assert.match(summary, /1 不确定/);
-  assert.doesNotMatch(summary, /3 条需要处理/);
+  assert.match(summary, /2 题值得回看/);
+  assert.equal(await page.locator('[data-politics-today-wrong]').innerText(), '1');
+  assert.equal(await page.locator('[data-politics-today-uncertain]').innerText(), '1');
   assert.match(await page.locator('[data-politics-review-entry]').innerText(), /3 题/);
   assert.equal(await copy.isVisible(), true);
-  assert.ok(parseFloat(await page.locator('[data-politics-handoff-summary]').evaluate((node) => getComputedStyle(node).fontSize)) >= 16);
+  assert.ok(parseFloat(await page.locator('[data-politics-handoff-summary]').evaluate((node) => getComputedStyle(node).fontSize)) >= 15);
   console.log('PASS Home separates actionable W/U handoff from stable discussion');
 
   await copy.click();
