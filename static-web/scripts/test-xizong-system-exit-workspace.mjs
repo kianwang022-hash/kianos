@@ -96,7 +96,7 @@ secondPassState=startNextXizongQuestionRound(
   secondPassState,
   eligible.map((q)=>q.questionId),
   {now:'2026-09-18T03:00:00.000Z',makeId},
-  {queueMode:'TARGETED'}
+  {studyPhase:'SECOND_PASS',queueMode:'TARGETED'}
 );
 const targetedIds=deriveXizongQuestionIdsForCurrentRound(secondPassState,sweep.questions,[holdoutYear]);
 check(targetedIds.length===2,'fixture_second_pass_two_targets',targetedIds.join(','));
@@ -233,13 +233,13 @@ try {
   check(Boolean(wrong),'second_pass_wrong_option');
   await practice2.locator(`.xzpOption[data-option="${wrong.label}"]`).click();
   await practice2.locator('[data-submit-answer]').click();
-  check(await practice2.locator('[data-relation-wrap]').isVisible(),'relation_region_visible_after_review');
   if(target.relation?.knowledgePath) {
+    check(await practice2.locator('[data-relation-wrap]').isVisible(),'reviewed_relation_region_visible');
     check(await practice2.locator('[data-relation-link]').isVisible(),'reviewed_relation_link_visible');
     check((await practice2.locator('[data-relation-link]').getAttribute('href')||'').includes(String(target.relation.knowledgePath).replace(/^\/+/,'')),'reviewed_relation_exact_target');
   } else {
-    check(await practice2.locator('[data-relation-fallback]').isVisible(),'missing_relation_fallback_visible');
-    check((await practice2.locator('[data-relation-fallback]').textContent()||'').includes('不补猜映射'),'missing_relation_fail_closed');
+    check(!(await practice2.locator('[data-relation-wrap]').isVisible()),'missing_relation_stays_silent');
+    check(await practice2.locator('[data-relation-fallback]').count()===0,'missing_relation_has_no_engineering_fallback');
   }
 
   report.status='PASS';
