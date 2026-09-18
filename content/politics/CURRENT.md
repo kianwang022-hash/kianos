@@ -47,20 +47,38 @@ Current closure:
 
 ```text
 A Final Learner Object direct-consumption   PASS
-B reusable Runtime mechanics                PARTIAL
-C Chat ↔ Website typed control              PARTIAL
-D P1–P5 exam-horizon scenarios              UNTESTED
+B reusable Runtime mechanics                PARTIAL · Review core PASS
+C Chat ↔ Website typed control              PASS · Consolidation/Review core
+D P1–P5 exam-horizon scenarios              PARTIAL · P2 core browser-PASS
 ```
 
 A is accepted on clean-head static + browser evidence. All 151 PASS owners resolve Final Learner Objects; renderer consumption is literal/fail-closed and the old subject display adapters are not authoritative.
 
-Next active implementation:
+Accepted Review execution core:
+
 ```text
-reuse SHOW / CONCEAL_REVEAL / INPUT_SUBMIT / MARK / SEQUENCE
-+ TIMER / HANDOFF / RETURN / CAPTURE
-→ one typed session executor
-→ Review can execute Chat-selected reconstruction / recall / Precision / retest
+Chat Session Instruction
+→ RECONSTRUCT / TARGETED_RECALL
+→ literal Final Learner Object reveal
+→ learner W/U evidence
+→ exact Chat-selected Xiao1000 retest
+→ Session Evidence
+→ explicit Chat CLOSE / return
 ```
+
+The Website still does not choose review targets, priorities, question sets, Precision admission, or close readiness.
+
+Remaining capability debt:
+
+```text
+guarded Precision
+→ fail closed until Current-year admission / freshness can be verified
+
+generic timed-task / Mock timer composition
+→ not yet accepted
+```
+
+**Next active gate: Politics L3 learner-surface UI acceptance — Home → Learn → Review → Practice visual convergence, while preserving the accepted direct-mapping and Session boundaries.**
 
 Exact rules and scenario proof live in `INTERACTION_CONTRACT.md` and `ACCEPTANCE.md`.
 
