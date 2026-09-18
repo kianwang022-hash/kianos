@@ -293,19 +293,18 @@
       ]
     },
     "precision_knowledge": {
-      "policy": "PENDING_EXACT_CANDIDATE_MATERIALIZATION",
-      "candidate_domains": [
-        "社会存在/社会意识 relation hats",
-        "最终决定力量/根本动力/重要动力 identity",
-        "人民群众/历史人物 boundaries",
-        "改革与科技作用 fixed positions"
+      "policy": "REFERENCE_MEMORY_SIDECAR",
+      "owner_path": "content/politics/learning/marxism/ch04.memory.json",
+      "candidate_ids": [
+        "POL27-MEM-MARX-C04-S01-M01",
+        "POL27-MEM-MARX-C04-S02-M01",
+        "POL27-MEM-MARX-C04-S02-M02",
+        "POL27-MEM-MARX-C04-S03-M01"
       ],
-      "materialization_status": "WAIT_CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_OR_WU_EVIDENCE",
-      "historical_source_refs": [
-        "LEG26-UPPER-MARX-P036",
-        "LEG26-UPPER-MARX-P038",
-        "LEG26-UPPER-MARX-P039"
-      ]
+      "admission_state": "CANDIDATE_ONLY",
+      "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+      "deferred_domains": [],
+      "rule": "Candidate-only Knowledge is materialized from Current P0/P1 recall needs plus historical handbook support; durable review debt remains admission-gated."
     },
     "analysis_output_hooks": [
       {
