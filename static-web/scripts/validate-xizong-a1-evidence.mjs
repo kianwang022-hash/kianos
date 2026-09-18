@@ -41,7 +41,7 @@ const recallPage = read('static-web/src/pages/xizong/[system]/recall.astro');
 const practicePage = read('static-web/src/pages/xizong/practice/[system].astro');
 
 // Block Recall evidence has one live semantic writer and keeps every real attempt.
-assert(recallBridge.includes("evidence_origin: 'USER_RECALL_ATTEMPT'"), 'user-recall-attempt-ledger-missing');
+assert(recallBridge.includes("appendRecall(kpId, rating, 'USER_RECALL_ATTEMPT')"), 'user-recall-attempt-ledger-missing');
 assert(recallBridge.includes("evidence_origin: 'BOOTSTRAP_EXISTING_STATE'"), 'bootstrap-evidence-origin-missing');
 assert(recallBridge.includes("ext.evidenceHistory = ["), 'evidence-history-not-append-only');
 assert(recallBridge.includes(".slice(-400)"), 'evidence-history-not-bounded');
