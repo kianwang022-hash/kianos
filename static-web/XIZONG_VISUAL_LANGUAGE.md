@@ -75,15 +75,17 @@ The rendered screenshot outranks nominal CSS font-weight/family values.
 Preferred robust Mac-first stack:
 
 ```css
+"PingFang SC",
 -apple-system,
 BlinkMacSystemFont,
-"PingFang SC",
 "Hiragino Sans GB",
 "Microsoft YaHei",
 "Noto Sans CJK SC",
 "Noto Sans SC",
 sans-serif
 ```
+
+For Chinese learner-facing UI on Mac, `PingFang SC` is explicit and first. This inherits the accepted L1 owner rather than leaving Chinese glyph selection to a generic system-ui family.
 
 A fallback is unacceptable if the real Chinese glyph body becomes visibly condensed/narrow.
 
@@ -418,12 +420,12 @@ At the time this L2 is accepted:
 
 - Home has prior Human-Gate evidence;
 - System Framework has prior discussed/accepted product direction;
-- Block Workspace / Block Recall has prior Human-Gate evidence;
-- System Recall candidate has functional/runtime acceptance but requires visual re-review under this L2;
-- Practice front/back L3 has accepted visual/runtime evidence for main: Front = Question + Progress; Back = quick learner feedback + Knowledge Review; shared L1 CJK typography remains authoritative;
+- Block Workspace / Block Recall and the restored per-question TTSX checkpoint have accepted real-macOS Human-Gate evidence;
+- System Recall has accepted functional/runtime + L3 visual evidence as a dedicated learner surface, separate from System Framework;
+- Practice front/back L3 has accepted visual/runtime evidence for main: Front = Question + Progress; Back = quick learner feedback + Knowledge Review; shared L1 PingFang-first CJK typography remains authoritative;
 - Memory retains its accepted learning/evidence role; future material visual changes must also follow this L2.
 
-Do not infer that a green build/browser test means the new Recall/Practice visual composition is accepted.
+Do not infer that a green build/browser test alone means a future material Recall/Practice visual change is accepted; the current accepted baselines above were closed by real macOS Human Gate.
 
 ---
 
