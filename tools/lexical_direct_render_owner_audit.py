@@ -159,6 +159,7 @@ def main() -> int:
     retired_relations: list[dict[str, Any]] = []
     word_local_relations: list[dict[str, Any]] = []
     single_source_relation_candidates: list[dict[str, Any]] = []
+    relation_shape_by_id: dict[str, dict[str, Any]] = {}
 
     for path in relation_files:
         owner = load(path)
@@ -180,6 +181,26 @@ def main() -> int:
             for v in owner.get("word_views") or []
             if isinstance(v, dict) and isinstance(v.get("payload"), dict) and (v.get("payload") or {}).get("target_word")
         })
+        relation_types = sorted({
+            str((v.get("payload") or {}).get("relation_type"))
+            for v in owner.get("word_views") or []
+            if isinstance(v, dict) and isinstance(v.get("payload"), dict) and (v.get("payload") or {}).get("relation_type")
+        })
+        external_targets = sorted({
+            str(target)
+            for v in owner.get("word_views") or []
+            if isinstance(v, dict) and isinstance(v.get("payload"), dict)
+            for obj in ((v.get("payload") or {}).get("source_evidence_objects") or [])
+            if isinstance(obj, dict)
+            for target in (obj.get("relation_targets") or [])
+            if target
+        })
+        relation_shape_by_id[rid] = {
+            "relation_types": relation_types,
+            "source_word_ids": source_words,
+            "target_words": target_words,
+            "external_targets": external_targets,
+        }
 
         if retired:
             retired_relations.append({
@@ -202,6 +223,8 @@ def main() -> int:
                 "relation_id": rid,
                 "path": rel,
                 "source_word_id": source_words[0],
+                "relation_types": relation_types,
+                "external_targets": external_targets,
                 "retired": retired,
                 "explicit_word_local": bool(local_hits),
             })
@@ -213,6 +236,8 @@ def main() -> int:
     active_secondary_duplicates: list[dict[str, Any]] = []
     exact_surface_duplicate_candidates: list[dict[str, Any]] = []
     words_requiring_web_judgment: set[str] = set()
+    referenced_relation_ids: set[str] = set()
+    relation_ref_count = 0
 
     for path in word_files:
         owner = load(path)
@@ -294,6 +319,9 @@ def main() -> int:
                 words_requiring_web_judgment.add(wid)
                 continue
             rid = str(ref.get("relation_id") or "")
+            if rid:
+                referenced_relation_ids.add(rid)
+                relation_ref_count += 1
             owner_path = str(ref.get("owner_path") or "")
             field = str(ref.get("field") or "")
             index = ref.get("index")
@@ -350,6 +378,28 @@ def main() -> int:
             if token in text:
                 frontend_semantic_judgment_hits.append({"source": source, "token": token})
 
+    orphan_relation_owners = [
+        {
+            "relation_id": rid,
+            "path": rel,
+            **relation_shape_by_id.get(rid, {}),
+            "retired": relation_is_retired(owner),
+        }
+        for rid, (rel, owner) in sorted(relation_by_id.items())
+        if rid not in referenced_relation_ids
+    ]
+
+    relation_type_counts = Counter(
+        relation_type
+        for shape in relation_shape_by_id.values()
+        for relation_type in shape.get("relation_types", [])
+    )
+    single_source_relation_type_counts = Counter(
+        relation_type
+        for row in single_source_relation_candidates
+        for relation_type in row.get("relation_types", [])
+    )
+
     relation_count_actual = len(relation_files)
     word_count_actual = len(word_files)
     current_relation_manifest_count = int(relation_manifest.get("relation_count") or -1)
@@ -382,8 +432,16 @@ def main() -> int:
         "blocker_counts": blockers,
         "review_candidate_counts": {
             "single_source_relation_candidates": len(single_source_relation_candidates),
+            "orphan_relation_owners": len(orphan_relation_owners),
             "exact_construction_collocation_surface_duplicates": len(exact_surface_duplicate_candidates),
             "words_requiring_web_judgment_if_unfixed": len(words_requiring_web_judgment),
+        },
+        "relation_reference_closure": {
+            "word_relation_ref_count": relation_ref_count,
+            "referenced_relation_owner_count": len(referenced_relation_ids),
+            "orphan_relation_owner_count": len(orphan_relation_owners),
+            "relation_type_counts": dict(sorted(relation_type_counts.items())),
+            "single_source_relation_type_counts": dict(sorted(single_source_relation_type_counts.items())),
         },
         "findings": {
             "invalid_relation_refs": invalid_relation_refs,
@@ -394,6 +452,7 @@ def main() -> int:
             "active_secondary_duplicates": active_secondary_duplicates,
             "frontend_semantic_judgment_hits": frontend_semantic_judgment_hits,
             "single_source_relation_candidates": single_source_relation_candidates,
+            "orphan_relation_owners": orphan_relation_owners,
             "exact_construction_collocation_surface_duplicates": exact_surface_duplicate_candidates,
         },
     }
