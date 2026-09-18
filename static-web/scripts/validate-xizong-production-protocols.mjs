@@ -26,8 +26,8 @@ assert(
 );
 
 assert(
-  !explanationReadme.includes('learning/xizong/question-explanation-process.md'),
-  'explanation-readme-still-points-to-retired-process'
+  !/Process rules are governed by\s+`learning\/xizong\/question-explanation-process\.md`/i.test(explanationReadme),
+  'explanation-readme-active-pointer-still-retired'
 );
 assert(
   explanationReadme.includes('3,750 / 3,750'),
