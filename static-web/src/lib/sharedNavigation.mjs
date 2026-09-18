@@ -13,10 +13,13 @@ export function globalNavigation(base = '/') {
 export const ENGLISH_FAMILY_PREFIXES = [
   'english', 'reading', 'reading-answer', 'reading-review', 'reading-b', 'reading-b-answer',
   'cloze', 'cloze-answer', 'objective-learn', 'translation', 'translation-learn',
-  'translation-reference', 'writing', 'writing-learn', 'vocabulary'
+  'translation-reference', 'writing', 'writing-learn', 'vocabulary',
+  'english-exam', 'english-exam-writing'
 ];
 
-export const ENGLISH_RUNTIME_PREFIXES = ENGLISH_FAMILY_PREFIXES.filter((segment) => segment !== 'vocabulary');
+export const ENGLISH_RUNTIME_PREFIXES = ENGLISH_FAMILY_PREFIXES.filter(
+  (segment) => !['vocabulary', 'english-exam', 'english-exam-writing'].includes(segment)
+);
 
 export function englishNavigation(base = '/') {
   return [
@@ -86,7 +89,8 @@ export function isEnglishImmersiveTaskRuntime(localPath = '') {
     'reading-b-answer',
     'translation',
     'translation-reference',
-    'writing'
+    'writing',
+    'english-exam-writing'
   ].includes(segment);
 }
 
