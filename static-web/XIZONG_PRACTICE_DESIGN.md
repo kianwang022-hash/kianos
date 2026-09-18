@@ -1,6 +1,6 @@
 # Xizong Practice Workbench — accepted design
 
-Status: **FUNCTION/OWNERSHIP CANDIDATE · VISUAL HUMAN GATE FAIL 2026-09-18 — L3 PRESENTATION REWORK REQUIRED**
+Status: **ACCEPTED FOR MAIN — FUNCTION / RUNTIME / PRACTICE L3 VISUAL 2026-09-18 · REAL LEARNER U PENDING**
 
 Parent: `static-web/XIZONG_PRODUCT_BRIEF.md`  
 Visual L2: `static-web/XIZONG_VISUAL_LANGUAGE.md`  
@@ -99,7 +99,7 @@ Visual rules:
 - Back uses one mature review surface with a roughly 32% / 68% internal split.
 - Chinese typography, radius, spacing and panel treatment inherit Xizong L2 / shared visual rules.
 - Do not reintroduce the old Map | Question | Explanation three-column composition.
-- Linux CI may validate geometry/runtime; Mac-local Human Gate owns typography/aesthetic acceptance.
+- Linux CI validates geometry/runtime and uses the shared broad-CJK QA fallback; Mac production remains PingFang-first through the shared L1 font owner.
 
 ## 3｜Explanation is adaptive, not a field checklist
 
@@ -311,15 +311,14 @@ Still separate:
 - whole-paper scope + Hidden result;
 - global retained W/U/Marked entry independent of one System;
 - durable learner-data closure;
-- real Mac/PingFang Human Gate;
 - real learner U.
 
 
 ---
 
-## Visual rejection note｜2026-09-18
+## Superseded first-candidate visual rejection｜2026-09-18
 
-The first L2/L3 implementation candidate is **REJECTED by Kian at Human Gate**.
+The first L2/L3 implementation candidate was **REJECTED by Kian at Human Gate**. It is retained here only to prevent regression into that visual model.
 
 The rejection is visual/presentation-specific. Preserve the accepted functional/runtime work unless a separate defect is found.
 
@@ -352,4 +351,14 @@ stable correct remains cheap
 same fixed Practice runtime across scopes
 ```
 
-Next visual review must use a real Mac-local screenshot for typography/aesthetic Human Gate. Linux CI screenshots may prove layout/runtime but not Mac font acceptance.
+Replacement accepted for main on 2026-09-18:
+
+```text
+shared L1 CJK owner (PingFang-first on Mac; broad CJK QA fallback)
+→ Xizong L2 visual language
+→ Practice Front: Question | Progress
+→ Practice Back: Quick learner feedback | Knowledge Review
+→ Space Front ↔ Back
+```
+
+The replacement removes the rejected three-column field-viewer composition, preserves low-cost Stable flow, and records learner cause/note without letting Website diagnose the learner.
