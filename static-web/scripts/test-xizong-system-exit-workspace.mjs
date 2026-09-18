@@ -193,7 +193,26 @@ try {
 
   await practice.locator(`.xzpOption[data-option="${wrongOption.label}"]`).click();
   await practice.locator('[data-submit-answer]').click();
+  check(await practice.locator('[data-practice-back]').isVisible(),'wrong_auto_flips_to_back');
+  check(!(await practice.locator('[data-practice-front]').isVisible()),'front_hidden_on_wrong_back');
   check(await practice.locator('[data-answer-panel]').isVisible(),'adaptive_explanation_visible_after_wrong');
+
+  await practice.locator('[data-cause="options"]').click();
+  await practice.locator('[data-attempt-note]').fill('需要回看选项边界');
+  await practice.locator('[data-attempt-note]').blur();
+  let reviewMeta = await page.evaluate((key,id)=>{
+    const state=JSON.parse(localStorage.getItem(key)||'null');
+    return state?.reviewMeta?.[id]||null;
+  },sweepKey,firstQuestion.questionId);
+  check(reviewMeta?.cause==='options','quick_cause_persisted',String(reviewMeta?.cause||''));
+  check(reviewMeta?.note==='需要回看选项边界','quick_note_persisted',String(reviewMeta?.note||''));
+
+  await page.keyboard.press('Space');
+  check(await practice.locator('[data-practice-front]').isVisible(),'space_returns_to_front');
+  check(!(await practice.locator('[data-practice-back]').isVisible()),'back_hidden_after_space');
+  await page.keyboard.press('Space');
+  check(await practice.locator('[data-practice-back]').isVisible(),'space_reopens_back');
+  check((await practice.locator('[data-reasoning-chain] li').count())===firstQuestion.explanation.reasoningChain.length,'repeat_flip_keeps_reasoning_chain_idempotent');
   check(await practice.locator('[data-exam-target-wrap]').isVisible(),'exam_target_visible');
   check(await practice.locator('[data-decision-axis-wrap]').isVisible(),'decision_axis_visible');
   check(await practice.locator('[data-reasoning-chain-wrap]').isVisible(),'reasoning_chain_visible');
