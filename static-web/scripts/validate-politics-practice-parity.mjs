@@ -62,6 +62,7 @@ for (const question of questions) {
   if (!unit.returnConfig?.expected_question_ids?.includes(question.id)) fail(`return_config:${question.id}`);
   const review = practiceReviewPayload(catalog, question.id);
   if (review.answer !== question.answer || review.source.length !== unit.source.length) fail(`review_payload:${question.id}`);
+  if (JSON.stringify(review.chengfengLocator) !== JSON.stringify(question.chengfengLocator || null)) fail(`chengfeng_locator_payload:${question.id}`);
 }
 
 const component = fs.readFileSync(componentPath, 'utf8') + fs.readFileSync(path.join(staticRoot, 'src/lib/politicsPracticeClient.mjs'), 'utf8');
@@ -77,7 +78,7 @@ const requiredComponentTokens = [
   'data-favorite', 'data-uncertain', 'data-discussion', 'data-question-timer',
   'answerChanges', 'recordPoliticsFirstAttempt', 'data-result-status', 'data-takeaway',
   'data-result-selected', 'data-result-answer', 'data-cause-picker', 'data-note',
-  'data-chat-explanation', 'data-review-sources', 'data-next-question', 'data-return-unit',
+  'data-chat-explanation', 'data-chengfeng-locator', 'data-review-sources', 'data-next-question', 'data-return-unit',
   'kianos-politics-attempts-v1', 'kianos-politics-evidence-v1', 'kianos-politics-last-location-v1'
 ];
 for (const token of requiredComponentTokens) if (!requiredImplementation.includes(token)) fail(`component_token:${token}`);

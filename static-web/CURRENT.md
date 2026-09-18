@@ -12,8 +12,8 @@ Shared Visual / Shell landed
 → Home accepted
 → English + Lexical landed
 → Xizong material learner surfaces landed
-→ Politics learner surface closure active
-→ UI Closure / CSS ownership consolidation
+→ Politics learner surfaces landed
+→ UI Closure / CSS ownership consolidation active
 → Learner Data / Chat Handoff closure
 → final regression
 → launch
@@ -27,8 +27,8 @@ Architecture-level website blocker: **none**.
 
 | Lane | State | Active ref / continue from |
 | --- | --- | --- |
-| Xizong UI | **BOUNDED LOOP AUDIT ACTIVE · PR #458** | `work/xizong-full-loop-audit-20260918` → live Study Packet + Memory Repair + exact-head QA |
-| Politics UI | **ACTIVE · REVIEW HUMAN GATE READY** | PR #468 · `work/politics-review-human-gate-20260919` · populated Review candidate fully gated; waiting only for Kian visual approval |
+| Xizong UI | **LANDED · MATERIAL HUMAN GATES CLOSED** | `main` → exact accepted Xizong surface owner; reopen only concrete defects |
+| Politics UI | **LANDED · HUMAN GATE CLOSED** | PR #470 merged as `52ecaf1`; Practice result model and exact Chengfeng locator accepted; reopen only concrete defects |
 | English UI | **LANDED** | `content/english/CURRENT.md` |
 | Lexical / Vocabulary UI | **LANDED · HUMAN GATES CLOSED** | `content/lexical/CURRENT.md` → normal use / concrete defects only |
 
@@ -38,17 +38,20 @@ Do not revive historical UI migrations merely because old branches/PRs still exi
 
 ## Queued closure lane
 
-### UI Closure / CSS ownership consolidation — **WAITING FOR SUBJECT HUMAN GATES**
+### UI Closure / CSS ownership consolidation — **ACTIVE**
 
-This is the next website-wide engineering mainline after the remaining Politics material visual is accepted.
+Active ref: PR #472 · `ui-css-closure-20260919` · post-Human-Gate ownership cleanup, no redesign.
 
-Start condition:
+This is now the active website-wide engineering mainline. Politics Practice Human Gate closed on 2026-09-19 and PR #470 is merged.
+
+Activation basis:
 
 ```text
-Politics material UI Human Gate closed
+all material subject UI Human Gates closed
 +
 accepted Surface Blueprints recorded
-→ activate UI Closure
+→ post-gate CSS ownership inventory
+→ consolidation without redesign
 ```
 
 Purpose:
@@ -180,11 +183,11 @@ CI green is not visual acceptance.
 
 ## Current next actions
 
-- **Xizong:** material UI remains accepted. Fresh full-loop audit #458 has now closed the bounded integration defects found during adversarial replay: live Block Study Packet v3 replaces the retired After Learn packet; System W/U Chat returns enter current Memory Repair with exact Block/question return and version invalidation; SYSTEM Practice fails closed until System Recall is completed; correct-but-unsure is first-class Uncertain evidence including whole-paper Seal; released Recall/Practice/Whole Paper own truthful Home Resume while locked stages cannot hijack it; learner-facing engineering diagnostics/protocol copy are removed and guarded by browser QA. Next = exact-head Static Web Xizong QA must execute through A1 browser Runtime + Evidence before merge. Durable learner-data recovery remains shared-platform work.
-- **Politics:** L2 + Learn Index + chapter workspace + Home are landed in `main`. PR #468 closes Review visual structure while preserving W/U / discussion / source return / original-question behavior. Populated 1512×982 macOS evidence uses Wrong + Uncertain + discussion across multiple Units; Functional First, Xi/Ethics Runtime+Evidence and Mac visual gate are green. **Next action: Kian Human Gate on Review only; Practice visual closure waits behind approval.**
+- **Xizong:** learner-facing material UI is landed through whole-paper/year Hidden → Seal → score → same-Workbench Review. Block/TTSX, System Recall, Practice front/back, global retained W/U/Marked and whole-paper are all in `main` with real macOS Human Gates closed. Reopen only concrete defects. Typed Chat Return and durable learner-data recovery stay with the shared Learner Data / Chat Handoff lane.
+- **Politics:** learner-facing material UI is fully landed. PR #470 merged after Kian Human Gate; Practice preserves the proven Workbench, uses exact-ID AI `takeaway` + AI `chat_explanation`, forbids Xiao1000 historical explanation from learner-facing fallback, and returns to the safest exact Chengfeng locator when one exists. Reopen only a concrete learner-visible defect.
 - **English:** landed; fix only concrete launch-visible defects.
 - **Lexical:** Vocabulary v2 learner-surface closure and English exact handoff/return are accepted; normal use only unless a concrete defect appears.
-- **Platform:** after Politics Human Gate, close learner-data durability / typed Chat Return and run final cross-subject regression. UI/CSS ownership cleanup is maintenance, not a new learner product.
+- **Platform:** UI/CSS ownership consolidation is now active as non-redesign maintenance. Learner-data durability / typed Chat Return may proceed where write sets are independent; final cross-subject regression follows both closures.
 
 Exact branch/PR/cursor state must be read from the active owner/ref before work.
 

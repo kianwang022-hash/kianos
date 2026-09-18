@@ -577,8 +577,45 @@ Canonical Baseline-v2 receipt:
 
 Generation Rules + Page Freeze Human Gate — **ACCEPTED 2026-09-19**.
 
-Current internal shard: **o0051–o0100 — APPROVED CONTENT FIXES MATERIALIZED; REPAIR TEST DIAGNOSIS NEXT**.
+Closed internal shard: **o0051–o0100 — CLOSED**.
 
-Kian approved the previously reported content problems for this shard. The approved fixes are staged and Final Learner Object readback passes, with **0 learner-page/UI files changed**.
+```text
+50 / 50 owners carried through the approved shard gate
+approved semantic fixes already materialized from 8901b28
+29 Repair Test blueprints written and read back
+21 NO_TEST_NEEDED
+0 new semantic mutations during Test closure
+0 duplicate blueprint targets
+0 learner-page/UI files changed
+```
 
-Do not add further semantic changes in o0051–o0100 without a new Kian problem report. Next action is read-only Repair Test diagnosis: report which exact targets deserve a Test blueprint and why; do not write Test blueprints before approval.
+Canonical closure receipt:
+`content/lexical/audit/baseline-v2/lane-a/o0051-o0100.json`
+
+Repair Test blueprints:
+`content/lexical/learner/repair-blueprints/shards/o0051-0100.json`
+
+Closed internal shard: **o0101–o0150 — CLOSED**.
+
+```text
+50 / 50 fresh owner/module judgments
+18 approved Natural Owners upgraded
+32 owners NO_CHANGE after fresh read
+29 Repair Test blueprints written and read back
+21 NO_TEST_NEEDED
+0 BLOCKED
+0 learner-page/UI files changed
+Final Learner Object materialization PASS (7,946 objects)
+```
+
+Canonical Baseline-v2 receipt:
+`content/lexical/audit/baseline-v2/lane-a/o0101-o0150.json`
+
+Repair Test blueprints:
+`content/lexical/learner/repair-blueprints/shards/o0101-0150.json`
+
+Next internal shard: **o0151–o0200 — FRESH READ + COMBINED CONTENT/TEST REPORT**.
+
+Apply the one-shard Human Gate: fresh-read all 50 owners, combine real Content defects and worthwhile Repair Test candidates into one plain-language report, then wait for one Kian approval. After approval, automatically close all reported work and advance to the next shard.
+
+Interaction rule: **one bounded shard (normally 50 owners) = one Kian Human Gate**. The shard report combines Content fixes + Repair Test candidates. Once Kian approves that report, automatically write all reported/approved Content and Test changes, rebuild/read back/validate, advance the cursor, and begin the next shard without inserting another approval step.

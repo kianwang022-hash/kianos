@@ -159,13 +159,23 @@ left summary/evidence pane
 → learner note
 
 right knowledge-review pane
-→ 理解这道题
-→ 对应来源 / source text
-→ 肖1000原解析 or bounded supplemental reference
+→ 理解这道题（AI 精修解析）
+→ 对应乘风考点 / 原讲义定位
 → 下一题 / 返回当前 Unit / 返回原入口
 ```
 
 The historical approximate 32/68 Mac-wide result composition is an accepted reference. Do not create a new empty left region and do not move the existing knowledge-review content into a new workflow.
+
+### Xiao1000 explanation boundary
+
+Learner-facing explanation has exactly two derived semantic fields:
+
+- `takeaway` — 一句话带走（AI 精修）;
+- `chat_explanation` — 理解这道题（AI 精修解析）.
+
+The historical / OCR Xiao1000 source explanation is evidence/provenance only. It must **not** be rendered as learner-facing content, must **not** appear behind a “查看原解析” disclosure, and must **not** be used as a fallback when the refined learner explanation is missing. Answer truth may still be verified against the authenticated source package.
+
+The learner-facing `对应来源` region refers to the exact Current learning owner / Chengfeng source locator and source text needed for return-to-study, not the Xiao1000 historical explanation.
 
 ### Explicit non-goals
 
