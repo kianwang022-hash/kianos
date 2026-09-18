@@ -10,8 +10,8 @@ This cursor owns current engineering routing only. It does not own Rule / Model,
 
 ## Current state
 
-**Active lane:** Lexical Continuous Content + Repair Test Upgrade — PAUSED FOR GENERATION RULES  
-**Blocker:** module-level generation rules must be fixed before o0051–o0100 continues
+**Active lane:** Lexical Baseline v2 Re-validation — ACTIVE  
+**Blocker:** none
 
 Stage:
 
@@ -450,7 +450,7 @@ Preserve:
 
 ## Continuous Content + Repair Test Upgrade — ACTIVE 2026-09-18
 
-Catalog execution: PAUSED
+Catalog execution: ACTIVE
 
 This is the durable rolling Content lane for the current 7,946 Main Words.
 
@@ -576,4 +576,8 @@ Derived Repair Test blueprints live under `content/lexical/learner/repair-bluepr
 
 Next internal shard: **o0051–o0100 — PAUSED**.
 
-Do not continue catalog mutation until Core / Sense / Familiar-new / Construction / Phraseology / Decision Boundary / Relation / Register / Family / Form / Productive-use / Repair Test generation rules are explicitly accepted and the catalog directive returns to ACTIVE.
+Draft module-generation rules now live in `CONTENT_ASSET_CONTRACT.md §4A`, with a required per-owner stability matrix in `CONTENT_EXECUTION.md §3A`.
+
+Generation Rules Human Gate — **ACCEPTED 2026-09-19**.
+
+First re-validate **o0001–o0050** against the frozen module matrix (no stylistic rewrite), then continue **o0051–o0100**. Learner-page / UI changes remain out of scope throughout.
