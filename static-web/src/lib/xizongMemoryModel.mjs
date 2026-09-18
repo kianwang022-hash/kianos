@@ -333,11 +333,17 @@ export function setRepairTasks(stateInput, tasks) {
       id,
       cardId: state.cards[cardId] ? cardId : '',
       kpId: text(task?.kpId || (state.cards[cardId]?.kpId)),
+      blockId: text(task?.blockId || state.cards[cardId]?.blockId),
       title: text(task?.title),
       reason: text(task?.reason),
       action: text(task?.action),
       priority: text(task?.priority || 'normal'),
       origin: text(task?.origin || 'CHAT_OR_QUESTION_REPAIR'),
+      sourceQuestionIds: [...new Set((Array.isArray(task?.sourceQuestionIds) ? task.sourceQuestionIds : []).map(text).filter(Boolean))],
+      blockHref: text(task?.blockHref),
+      returnHref: text(task?.returnHref),
+      createdAt: text(task?.createdAt || task?.created_at),
+      completedAt: text(task?.completedAt || task?.completed_at),
       status: text(task?.status || 'ACTIVE')
     };
   });
@@ -347,6 +353,20 @@ export function setRepairTasks(stateInput, tasks) {
 export function activeRepairTasks(stateInput) {
   const state = normalizeXizongMemoryState(stateInput);
   return state.repairTasks.filter((task) => task?.status !== 'DONE');
+}
+
+export function completeRepairTask(stateInput, taskId, completedAt = null) {
+  const state = normalizeXizongMemoryState(stateInput);
+  const id = text(taskId);
+  let found = false;
+  const stamp = nowIso(completedAt);
+  const repairTasks = state.repairTasks.map((task) => {
+    if (task?.id !== id) return task;
+    found = true;
+    return { ...task, status: 'DONE', completedAt: stamp };
+  });
+  if (!found) fail('REPAIR_TASK_UNKNOWN', id);
+  return { ...state, repairTasks };
 }
 
 export function selectMemoryView(stateInput, view) {
