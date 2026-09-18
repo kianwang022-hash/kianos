@@ -7,11 +7,12 @@ Lane router: `content/xizong/CURRENT.md`
 Shared projection grammar: `static-web/PRESENTATION_CONTRACT.md`  
 **UI review safety protocol: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`**  
 Preference owner: `static-web/KIAN_UI_PREFERENCES.md`  
-Style owner: `static-web/UI_STYLE_BRIEF.md`
+Shared L1 style owner: `static-web/UI_STYLE_BRIEF.md`  
+**Xizong L2 visual owner: `static-web/XIZONG_VISUAL_LANGUAGE.md`**
 
 This file records accepted learner-visible Xizong product and Projection architecture decisions before Codex implementation. It does **not** change medical Content, Learning Logic, Evidence semantics, learner progress, or the S/K/L/P/R/E/U status of any System.
 
-For any mature Xizong surface discussion, `XIZONG_UI_REVIEW_PROTOCOL.md` is a mandatory companion read before local UI recommendation. Product decisions live here; the protocol owns the whole-flow-before-local-optimization review method.
+For any mature Xizong surface discussion, `XIZONG_UI_REVIEW_PROTOCOL.md` is a mandatory companion read before local UI recommendation. Product decisions live here; the protocol owns the whole-flow-before-local-optimization review method. Any learner-facing L3 visual proposal must additionally inherit `XIZONG_VISUAL_LANGUAGE.md`; local surface owners may vary geometry but may not silently create a separate Xizong aesthetic.
 
 The detailed surface owners in §6 now own accepted composition/interaction decisions. They must not be treated as still-undiscussed merely because an earlier version of this brief said so. Product acceptance, Projection validation, implementation acceptance and real Mac visual acceptance remain separate.
 
