@@ -289,22 +289,19 @@
       ]
     },
     "precision_knowledge": {
-      "policy": "CURRENT_GROUNDED_CANDIDATE_DOMAIN",
-      "candidate_domains": [
-        "革命对象/动力/领导/性质/前途 exact identities",
-        "纲领核心 fixed structure",
-        "农村革命道路 identity",
-        "三大法宝 list/relations"
+      "policy": "REFERENCE_MEMORY_SIDECAR",
+      "owner_path": "content/politics/learning/mao/ch02.memory.json",
+      "candidate_ids": [
+        "POL27-MEM-MAO-C02-S02-M01",
+        "POL27-MEM-MAO-C02-S02-M02",
+        "POL27-MEM-MAO-C02-S03-M01"
       ],
-      "historical_source_refs": [
-        "LEG26-UPPER-MAO-P077",
-        "LEG26-UPPER-MAO-P078",
-        "LEG26-UPPER-MAO-P079",
-        "LEG26-UPPER-MAO-P080",
-        "LEG26-UPPER-MAO-P081",
-        "LEG26-UPPER-MAO-P082"
+      "admission_state": "CANDIDATE_ONLY",
+      "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+      "deferred_domains": [
+        "政治/经济/文化纲领完整固定表述"
       ],
-      "materialization_status": "CANDIDATE_OBJECTS_TO_BE_MATERIALIZED_BELOW"
+      "rule": "Current Knowledge + inspected historical handbook support creates candidate-only precision; durable Memory remains admission-gated."
     },
     "analysis_output_hooks": [],
     "analysis_output_status": "NO_DEDICATED_LEG26_OUTPUT_BANK_DO_NOT_INVENT",
