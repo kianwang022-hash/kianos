@@ -88,28 +88,40 @@ try {
   check(homeResponse?.ok(), 'home_http_ok', String(homeResponse?.status()));
   await page.evaluate(() => document.fonts.ready);
   check(await activePoliticsNav(page) === '总览', 'home_l2_active');
-  await page.locator('[data-politics-home-v2]').waitFor({ state: 'visible' });
-  check(await page.locator('.politicsHomeSubjects>nav>a').count() === 5, 'home_five_subject_entries');
+  await page.locator('[data-politics-home-v3]').waitFor({ state: 'visible' });
+  check(await page.locator('.politicsHomeSubjects').count() === 0, 'home_does_not_duplicate_learn_navigation');
   check(await page.locator('.politicsChapterRows').count() === 0, 'home_has_no_chapter_directory');
+  check(await page.locator('.politicsTodayCard').count() === 1, 'home_has_today_card');
+  check(await page.locator('.politicsRecentCard').count() === 1, 'home_has_recent_card');
   const homeContinue = page.locator('[data-politics-continue]');
   check((await homeContinue.getAttribute('href') || '').includes('/politics/learn/'), 'home_clean_continue_routes_to_learn_index');
   check(await page.locator('[data-politics-handoff]').isHidden(), 'home_clean_handoff_quiet');
   const homeMetrics = await page.evaluate(() => {
-    const root = document.querySelector('[data-politics-home-v2]');
-    const subjects = document.querySelector('.politicsHomeSubjects>nav');
-    if (!root || !subjects) return null;
-    const rr = root.getBoundingClientRect();
-    const sr = subjects.getBoundingClientRect();
+    const root = document.querySelector('[data-politics-home-v3]');
+    const tools = document.querySelector('[data-politics-home-tools]');
+    const continueCard = document.querySelector('.politicsContinueCard');
+    const todayCard = document.querySelector('.politicsTodayCard');
+    const recentCard = document.querySelector('.politicsRecentCard');
+    if (!root || !tools || !continueCard || !todayCard || !recentCard) return null;
+    const rect = (node) => {
+      const r = node.getBoundingClientRect();
+      return { x: r.x, y: r.y, width: r.width, height: r.height, right: r.right, bottom: r.bottom };
+    };
     return {
-      rootWidth: rr.width,
-      subjectsWidth: sr.width,
-      subjectColumns: getComputedStyle(subjects).gridTemplateColumns
+      root: rect(root),
+      tools: rect(tools),
+      continueCard: rect(continueCard),
+      todayCard: rect(todayCard),
+      recentCard: rect(recentCard),
+      toolColumns: getComputedStyle(tools).gridTemplateColumns
     };
   });
   check(Boolean(homeMetrics), 'home_geometry_present');
-  check(homeMetrics.rootWidth >= 1100, 'home_uses_mac_width', JSON.stringify(homeMetrics));
-  check(homeMetrics.subjectColumns.split(' ').length === 5, 'home_five_column_subject_geometry', JSON.stringify(homeMetrics));
-  const homeType = await visibleTypeFloor(page, '[data-politics-home-v2]', 'home');
+  check(homeMetrics.root.width >= 1100, 'home_uses_mac_width', JSON.stringify(homeMetrics));
+  check(homeMetrics.toolColumns.split(' ').length >= 2, 'home_balanced_two_column_top', JSON.stringify(homeMetrics));
+  check(homeMetrics.continueCard.width > homeMetrics.todayCard.width * 1.5, 'home_continue_is_primary', JSON.stringify(homeMetrics));
+  check(homeMetrics.recentCard.width >= homeMetrics.root.width * 0.9, 'home_recent_uses_full_row', JSON.stringify(homeMetrics));
+  const homeType = await visibleTypeFloor(page, '[data-politics-home-v3]', 'home');
   report.routes.home = { route: '/politics/', metrics: homeMetrics, type: homeType };
   await page.screenshot({ path: path.join(auditDir, 'politics-home-mac.png') });
 
