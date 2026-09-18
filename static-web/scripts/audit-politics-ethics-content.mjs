@@ -167,7 +167,10 @@ if (ethicsLearningManifest?.status !== 'SOURCE_KNOWLEDGE_CONTENT_CLOSED_C00_TO_C
 if (ethicsLearningManifest?.content_closure !== 'PASS') blockers.push({ chapter: 'subject', code: 'LEARNING_MANIFEST_CONTENT_CLOSURE_NOT_PASS' });
 if (ethicsLearningManifest?.current !== 'content/politics/learning/ethics-law/CURRENT.md') blockers.push({ chapter: 'subject', code: 'LEARNING_MANIFEST_CURRENT_OWNER_MISMATCH' });
 if (ethicsLearningManifest?.acceptance !== 'content/politics/learning/ethics-law/ACCEPTANCE.md') blockers.push({ chapter: 'subject', code: 'LEARNING_MANIFEST_ACCEPTANCE_OWNER_MISMATCH' });
-if (politicsManifest?.learning?.subject_status?.ethics_law !== 'SOURCE_KNOWLEDGE_CONTENT_CLOSED_C00_TO_C06_WITH_SUBJECT_MAP') blockers.push({ chapter: 'subject', code: 'ROOT_MANIFEST_NOT_CONTENT_CLOSED' });
+const rootEthicsStatus = String(politicsManifest?.knowledge_and_learning_content?.subject_status?.ethics_law || '');
+if (!['SOURCE_KNOWLEDGE_CONTENT_CLOSED_C00_TO_C06_WITH_SUBJECT_MAP', 'FIRST_ROUND_CLOSED_LATER_STAGE_K_PASS_WITH_DEBT'].includes(rootEthicsStatus)) {
+  blockers.push({ chapter: 'subject', code: `ROOT_MANIFEST_NOT_CONTENT_CLOSED:${rootEthicsStatus || 'MISSING'}` });
+}
 if (politicsManifest?.readiness?.ethics_law_source_knowledge_content_closed !== true) blockers.push({ chapter: 'subject', code: 'ROOT_MANIFEST_CONTENT_CLOSURE_FLAG_MISSING' });
 if (!fs.existsSync(ETHICS_CURRENT)) blockers.push({ chapter: 'subject', code: 'SCOPED_CURRENT_MISSING' });
 if (!fs.existsSync(ETHICS_ACCEPTANCE)) blockers.push({ chapter: 'subject', code: 'SCOPED_ACCEPTANCE_MISSING' });
