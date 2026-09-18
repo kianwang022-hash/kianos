@@ -29,6 +29,28 @@ const scopes = listProjectableXizongSystems()
       <p>同一个题目工作台，只改变训练范围。System、二轮回收、整卷和后期训练共用同一套作答与解析逻辑。</p>
     </header>
 
+    <section class="xzpRetainedEntry" data-retained-entry data-retained-base={base}>
+      <div class="xzpLandingLabel">
+        <span>回收</span>
+        <small>跨 System 汇总本机最新 evidence；不复制题库</small>
+      </div>
+      <div class="xzpRetainedScopes">
+        <button type="button" data-retained-mode="WU" disabled>
+          <span>Wrong / Uncertain</span>
+          <strong>错题 / 不确定 <b data-retained-count="WU">0</b></strong>
+          <small>只保留最近一次仍为 Wrong / Uncertain 的题；后来已经 Stable 的会自动退出。</small>
+          <em>进入回收 →</em>
+        </button>
+        <button type="button" data-retained-mode="MARKED" disabled>
+          <span>Marked</span>
+          <strong>已标记 <b data-retained-count="MARKED">0</b></strong>
+          <small>独立于对错的 learner-owned 标记；在任何 Practice scope 取消后都会全局生效。</small>
+          <em>进入回收 →</em>
+        </button>
+      </div>
+      <p class="xzpRetainedStatus" data-retained-status>正在读取本机题目 evidence…</p>
+    </section>
+
     <section>
       <div class="xzpLandingLabel">
         <span>按 System</span>
@@ -69,13 +91,69 @@ const scopes = listProjectableXizongSystems()
     <section class="xzpLandingFuture">
       <div>
         <span>同一 Workbench 后续范围</span>
-        <p>Wrong / Uncertain / Marked、CHAT_SET、整卷年份和后期显式范围都接到这里，不再造第二套刷题页。</p>
+        <p>CHAT_SET 已接入；下一段只剩整卷年份 + Hidden result。所有范围继续复用同一个 Practice Workbench。</p>
       </div>
     </section>
   </section>
 </Base>
 
 <script>
+  import {
+    XIZONG_RETAINED_SET_KEY,
+    XIZONG_QUESTION_PREFERENCES_KEY,
+    collectXizongRetainedEvidence,
+    buildXizongRetainedSet,
+    xizongQuestionMarkOverrides
+  } from '../../../lib/xizongRetainedPractice.mjs';
+
+  document.querySelectorAll('[data-retained-entry]').forEach((root) => {
+    const status = root.querySelector('[data-retained-status]');
+    const base = root.getAttribute('data-retained-base') || '/';
+    const readJson = (key, fallback) => {
+      try { return JSON.parse(localStorage.getItem(key) || '') || fallback; } catch { return fallback; }
+    };
+    const entries = [];
+    try {
+      for (let index = 0; index < localStorage.length; index += 1) {
+        const key = localStorage.key(index);
+        if (key) entries.push([key, localStorage.getItem(key)]);
+      }
+    } catch {}
+
+    const holdoutYears = readJson('kianos:xizong:full-paper-holdout-years:v1', []);
+    const preferences = readJson(XIZONG_QUESTION_PREFERENCES_KEY, {});
+    const evidence = collectXizongRetainedEvidence(entries, {
+      holdoutYears,
+      markOverrides: xizongQuestionMarkOverrides(preferences)
+    });
+
+    const counts = {
+      WU: evidence.wrongUncertainIds.length,
+      MARKED: evidence.markedIds.length
+    };
+    root.querySelectorAll('[data-retained-mode]').forEach((button) => {
+      const mode = String(button.getAttribute('data-retained-mode') || '');
+      const count = counts[mode] || 0;
+      const countNode = root.querySelector(`[data-retained-count="${mode}"]`);
+      if (countNode) countNode.textContent = String(count);
+      if (button instanceof HTMLButtonElement) button.disabled = count === 0;
+      button.addEventListener('click', () => {
+        try {
+          const set = buildXizongRetainedSet(mode, evidence, { studyPhase: 'SECOND_PASS' });
+          localStorage.setItem(XIZONG_RETAINED_SET_KEY, JSON.stringify(set));
+          window.location.href = `${base}xizong/practice/retained/`;
+        } catch {
+          if (status) status.textContent = '当前没有可执行的回收题。';
+        }
+      });
+    });
+
+    if (status) {
+      const held = Array.isArray(holdoutYears) && holdoutYears.length ? ` · 已避开整卷保留年份 ${holdoutYears.join('、')}` : '';
+      status.textContent = `待回收 ${counts.WU} · 已标记 ${counts.MARKED}${held}`;
+    }
+  });
+
   document.querySelectorAll('[data-chat-set-import]').forEach((root) => {
     const input = root.querySelector('[data-chat-set-text]');
     const status = root.querySelector('[data-chat-set-status]');
