@@ -109,11 +109,13 @@ Exact cleanup inventory should be created **when this lane activates**, from the
 
 ### Chat-owned Home + Learner Data / Chat Handoff Closure — **ACTIVE · PARALLEL WITH CSS CLOSURE**
 
-Active ref: `work/platform-chat-home-cutover-20260919`.
+Chat-owned Home cutover: **LANDED on main via PR #483 (`d252157e`)**.
 
-The first cutover removes autonomous Website strategy: Home may display and execute a validated Chat plan, but it must not infer cross-subject allocation, priority or next-subject strategy when no valid plan exists.
+Current durability ref: PR #485 · `work/platform-private-checkpoint-foundation-v2-20260919`.
 
-The remaining learner-data work closes the same platform boundary; it is not a separate packet ecosystem.
+Home now consumes a validated Chat plan and subject-owned Resume projections; it does not infer cross-subject allocation, priority or next-subject strategy when no valid plan exists. Learner-facing Mission Control / project-status UI is retired.
+
+PR #485 adds the private durable checkpoint transport outside the disposable Git Current mirror. Shared Timer / Chat Plan / Exam context can be recovered without writing learner data to GitHub. Subject-specific durable payload selection remains intentionally deferred to each Final Audit interface.
 
 Existing pieces already exist: Shared Study Timer, Daily Learning Packet composition, subject Return/Handoff packets, and GitHub→Mac Current sync. The missing work is integration, not a new packet ecosystem.
 
