@@ -198,28 +198,21 @@
       ]
     },
     "precision_knowledge": {
-      "policy": "CURRENT_GROUNDED_CANDIDATE_MAP",
-      "candidate_domains": [
-        "道德起源/本质/功能 identities",
-        "社会主义道德核心/原则 hats",
-        "传统美德/革命道德 relations",
-        "社会公德/职业/家庭/个人品德 boundaries",
-        "古文诗句→道德主题 matching candidates"
+      "policy": "REFERENCE_MEMORY_SIDECAR",
+      "owner_path": "content/politics/learning/ethics-law/ch05.memory.json",
+      "candidate_ids": [
+        "POL27-MEM-ETHICS-C05-S01-M01",
+        "POL27-MEM-ETHICS-C05-S01-M02",
+        "POL27-MEM-ETHICS-C05-S03-M01",
+        "POL27-MEM-ETHICS-C05-S04-M01"
       ],
-      "historical_source_slices": [
-        {
-          "from": "LEG26-UPPER-ETHICS-P215",
-          "through": "LEG26-UPPER-ETHICS-P224",
-          "scope": "专题六至十：古文诗句、道德概念、革命/社会主义道德、公民道德规范、个人品德；专题九标题在OCR中不稳定"
-        },
-        {
-          "from": "LEG26-LOWER-ETHICS-P083",
-          "through": "LEG26-LOWER-ETHICS-P085",
-          "scope": "中华传统美德、革命道德、个人品德、社会公德、家庭美德、诚信、公共生活等模板"
-        }
+      "admission_state": "CANDIDATE_ONLY",
+      "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+      "deferred_domains": [
+        "古文诗句→道德主题配对"
       ],
-      "materialization_status": "CANDIDATE_OBJECTS_TO_BE_MATERIALIZED",
-      "freshness_gate": "NORMAL_CURRENT_YEAR_CORROBORATION"
+      "freshness_gate": "NORMAL",
+      "rule": "Candidate-only precision is grounded in Current concept/boundary Knowledge plus inspected historical support; durable Memory remains admission-gated."
     },
     "analysis_output_hooks": [
       {
