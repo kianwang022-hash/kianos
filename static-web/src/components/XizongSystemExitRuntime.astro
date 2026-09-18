@@ -98,7 +98,7 @@ const failureLabel = (mode) => Array.isArray(mode)
       <div>
         <span>System Recall 已完成</span>
         <strong>{practiceHref ? '现在进入训练，用题目验证模型。' : '本次系统重建已经闭合。'}</strong>
-        <p>{practiceHref ? '训练区会按当前 System 作为 scope；后续二轮、整卷和后期仍复用同一 Workbench。' : '训练范围和 System Recall 分开管理；这里不因为题目范围尚未进入 Current 而阻塞系统重建。'}</p>
+        <p>{practiceHref ? '训练区会按当前 System 作为 scope；后续二轮、整卷和后期仍复用同一 Workbench。' : '训练范围和 System Recall 分开管理；这里不会因为当前训练题还没准备好而阻塞系统重建。'}</p>
       </div>
       <div>
         <button type="button" class="secondary" data-start-recall>再 Recall 一次</button>
