@@ -3,38 +3,15 @@ const { answer } = Astro.props;
 const card = answer.record || {};
 const core = card.core_concept || {};
 const senses = Array.isArray(card.senses) ? card.senses : [];
-const activeSenseIds = new Set(senses.map((sense) => String(sense?.sense_id || '')).filter(Boolean));
 const secondarySenseRows = (Array.isArray(card.secondary_senses) ? card.secondary_senses : [])
-  .map((branch, index) => ({ branch, index }))
-  .filter(({ branch }) =>
-    ['verified', 'semantic_auditor_verified'].includes(String(branch?.verification_status || '')) &&
-    ['publishable', 'codex_reviewed', 'published'].includes(String(branch?.publication_status || '')) &&
-    (!branch?.source_sense_id || !activeSenseIds.has(String(branch.source_sense_id)))
-  );
+  .map((branch, index) => ({ branch, index }));
 const secondarySenses = secondarySenseRows.map(({ branch }) => branch);
 
-const normalizePhrase = (value = '') => String(value || '')
-  .toLowerCase()
-  .replace(/[’']/g, "'")
-  .replace(/\s+/g, ' ')
-  .trim();
-
-const allCollocationsWithIndex = (sense) => (sense.collocations || [])
-  .map((item, index) => ({ item, index }))
-  .filter(({ item }) => Boolean(item?.phrase));
-const fixedCollocationsWithIndex = (sense) => allCollocationsWithIndex(sense)
-  .filter(({ item }) => item.exam_value === 'fixed_pattern');
-const sensePhraseKeys = new Set(
-  senses.flatMap((sense) => allCollocationsWithIndex(sense).map(({ item }) => normalizePhrase(item.phrase)))
-);
+const allCollocationsWithIndex = (sense) => (Array.isArray(sense?.collocations) ? sense.collocations : [])
+  .map((item, index) => ({ item, index }));
 
 const constructionRows = (Array.isArray(card.constructions) ? card.constructions : [])
-  .map((construction, index) => ({ construction, index }))
-  .filter(({ construction }) =>
-    (!construction?.verification_status || ['verified', 'semantic_auditor_verified'].includes(String(construction.verification_status))) &&
-    !construction?.presentation_merge?.surviving_object_id &&
-    !sensePhraseKeys.has(normalizePhrase(construction?.pattern || construction?.boundary || ''))
-  );
+  .map((construction, index) => ({ construction, index }));
 const constructions = constructionRows.map(({ construction }) => construction);
 
 const semanticNeighbors = Array.isArray(card.semantic_neighbors) ? card.semantic_neighbors : [];
@@ -43,34 +20,23 @@ const relationRows = [
   ...semanticNeighbors.map((relation, index) => ({ relation, locator: `record.semantic_neighbors[${index}]`, kind: 'relation' })),
   ...confusables.map((relation, index) => ({ relation, locator: `record.confusables[${index}]`, kind: 'confusable' }))
 ];
-const importantRelationRows = relationRows.filter(({ relation, kind }) => {
-  if (kind === 'confusable') return true;
-  const priority = String(relation?.priority || relation?.tier || '').toUpperCase();
-  const learningValue = Number(relation?.learning_value_score || 0);
-  return ['S', 'A'].includes(priority) || learningValue >= 8.5;
-});
 
 const formIdentity = card.form_identity && typeof card.form_identity === 'object' ? card.form_identity : null;
 const formBoundaries = Array.isArray(formIdentity?.boundaries) ? formIdentity.boundaries : [];
 const formVariants = Array.isArray(formIdentity?.variants) ? formIdentity.variants : [];
 const wordFamilyRows = (Array.isArray(card.word_family) ? card.word_family : [])
-  .map((item, index) => ({ item, index }))
-  .filter(({ item }) =>
-    (!item?.verification_status || ['verified', 'semantic_auditor_verified'].includes(String(item.verification_status))) &&
-    (!item?.publication_status || ['publishable', 'codex_reviewed', 'published'].includes(String(item.publication_status))) &&
-    Boolean(item?.target_word)
-  );
+  .map((item, index) => ({ item, index }));
 
 const showFamilyInReference = wordFamilyRows.length > 0;
-const referenceModuleCount = [importantRelationRows.length > 0, Boolean(formIdentity), showFamilyInReference]
+const referenceModuleCount = [relationRows.length > 0, Boolean(formIdentity), showFamilyInReference]
   .filter(Boolean).length;
 const hasReferenceRail = referenceModuleCount > 0;
 const referenceWeight = referenceModuleCount >= 3 ? 'rich' : referenceModuleCount === 1 ? 'light' : 'standard';
 
 const identityOverlayText = (overlay = {}) => String(
-  overlay.note || overlay.label_cn || overlay.label_en || overlay.boundary || overlay.identity_type || overlay.canonical_form || 'Form / identity distinction'
+  overlay.note || overlay.label_cn || overlay.label_en || overlay.boundary || overlay.identity_type || overlay.canonical_form || ''
 );
-const corePrimaryCn = String(core.core_meaning_cn || core.mental_model_cn || '—');
+const corePrimaryCn = String(core.core_meaning_cn || core.mental_model_cn || '');
 const coreSecondaryCn = String(core.mental_model_cn || '').trim() && String(core.mental_model_cn).trim() !== corePrimaryCn.trim()
   ? String(core.mental_model_cn).trim()
   : '';
@@ -80,9 +46,7 @@ const coreClusterRows = (Array.isArray(core.core_clusters) ? core.core_clusters 
     labelCn: String(cluster?.label_cn || '').trim(),
     labelEn: String(cluster?.label_en || '').trim(),
     pos: String(cluster?.pos || '').trim()
-  }))
-  .filter((cluster) => cluster.labelCn || cluster.labelEn)
-  .slice(0, 4);
+  }));
 
 const posCode = (value = '') => {
   const pos = String(value).toLowerCase();
@@ -117,33 +81,12 @@ const recallParts = allPosCodes.map((code) => {
   if (hidden) return `${hidden}${code}+`;
   return `${primary}${code}`;
 });
-
-const escapeRegExp = (value = '') => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-const skeletonize = (value = '') => {
-  const text = String(value || '').trim();
-  if (!text) return '';
-  const word = String(card.word || '').trim();
-  if (!word) return text;
-  return text.replace(new RegExp(`\\b${escapeRegExp(word)}\\b`, 'gi'), '~');
-};
-
-const patternPrompts = [];
-for (const construction of constructions) {
-  const pattern = skeletonize(construction.pattern || construction.boundary || construction.label_en || '');
-  if (pattern) patternPrompts.push(pattern);
-}
-for (const sense of senses) {
-  for (const { item: collocation } of fixedCollocationsWithIndex(sense)) {
-    const pattern = skeletonize(collocation.phrase || '');
-    if (pattern) patternPrompts.push(pattern);
-  }
-}
-for (const branch of secondarySenses) {
-  const pattern = skeletonize(branch.pattern || branch.boundary || '');
-  if (pattern) patternPrompts.push(pattern);
-}
-const recallPatterns = [...new Set(patternPrompts)].slice(0, 5);
-const recallDensity = senses.length > 1 || secondarySenses.length > 0 || recallPatterns.length > 0 ? 'rich' : 'light';
+const recallDensity = senses.length > 1 ||
+  secondarySenses.length > 0 ||
+  constructions.length > 0 ||
+  senses.some((sense) => (sense.collocations || []).length > 0)
+  ? 'rich'
+  : 'light';
 
 const relationLead = (relation = {}) => String(
   relation.boundary ||
@@ -161,13 +104,13 @@ const relationExtraBoundaries = (relation = {}) => {
     relation.shared_core,
     relation.shared_meaning
   ].map((item) => String(item || '').trim()).filter(Boolean);
-  return [...new Set(candidates)].filter((item) => item !== lead).slice(0, 2);
+  return [...new Set(candidates)].filter((item) => item !== lead);
 };
 const relationDifferenceRows = (relation = {}) => {
   const objects = Array.isArray(relation.source_evidence_objects) ? relation.source_evidence_objects : [];
   const difference = objects.find((item) => item?.difference && typeof item.difference === 'object')?.difference;
   if (!difference) return [];
-  return Object.entries(difference).filter(([, value]) => Boolean(value)).slice(0, 4);
+  return Object.entries(difference).filter(([, value]) => Boolean(value));
 };
 ---
 <section class="portedVocabRuntime portedVocabRuntimeV2" data-local-port="vocabulary" data-vocab-mode="study" data-vocab-revealed="false" data-vocab-word={card.word} data-vocab-object={answer.objectId} data-vocab-ordinal={answer.ordinal} data-vocab-source-hash={answer.sourceHash}>
@@ -305,10 +248,10 @@ const relationDifferenceRows = (relation = {}) => {
         </main>
 
         {hasReferenceRail && <aside class="portedVocabEvidenceColumn" aria-label="Cross-sense lexical reference">
-          {importantRelationRows.length > 0 && <section class="lexicalExpansionSection lexicalRelationSection">
+          {relationRows.length > 0 && <section class="lexicalExpansionSection lexicalRelationSection">
             <header><span>易混辨析</span><small>Confusable / Contrast</small></header>
             <div class="portedVocabEvidenceList">
-              {importantRelationRows.map(({ relation, locator }) => (
+              {relationRows.map(({ relation, locator }) => (
                 <article data-vocab-target-row>
                   <b>{relation.target_expression || relation.target_word || relation.module || 'contrast'}</b>
                   {relationLead(relation) && <p>{relationLead(relation)}</p>}
