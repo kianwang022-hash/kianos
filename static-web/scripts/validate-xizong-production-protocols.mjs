@@ -10,6 +10,7 @@ const exists = (relativePath) => fs.existsSync(path.join(repoRoot, relativePath)
 const fail = (message) => { throw new Error(`XIZONG_PRODUCTION_PROTOCOL_FAIL:${message}`); };
 const assert = (condition, message) => { if (!condition) fail(message); };
 
+const agents = read('AGENTS.md');
 const assetStandard = read('LEARNING_ASSET_STANDARD.md');
 const acceptance = read('LEARNING_ACCEPTANCE.md');
 const explanationReadme = read('content/xizong/explanations/README.md');
@@ -40,6 +41,14 @@ assert(
 assert(
   acceptance.includes('Pre-P condition: realized Content must be closed'),
   'learning-acceptance-lost-pre-p-content-closure'
+);
+assert(
+  agents.includes('Production-protocol continuity during owner cleanup'),
+  'agents-lost-production-continuity-rule'
+);
+assert(
+  assetStandard.includes('Production continuity across migrations'),
+  'learning-asset-standard-lost-production-continuity-rule'
 );
 assert(
   !extensionContract.includes('XIZONG_STUDY_LEARNING_BASELINE_v6_FROZEN.md'),
