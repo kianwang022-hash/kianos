@@ -15,6 +15,10 @@ const targets = Array.isArray(catalog?.targets) ? catalog.targets : [];
       data-session-target-state={target.state}
       data-session-target-group={target.group_id}
       data-session-target-href={target.unit_href}
+      data-session-target-kind={target.target_kind || 'FINAL'}
+      data-session-memory-admission={target.memory_admission || ''}
+      data-session-precision-admission={target.precision_admission || ''}
+      data-session-precision-blocker={target.precision_blocker || ''}
     >
       <PoliticsExplicitSurfacePlan groups={[target.group]} />
     </template>
