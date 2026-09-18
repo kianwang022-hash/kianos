@@ -111,6 +111,13 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyLay
   border-radius: 0 0 var(--study-radius-medium, 16px) var(--study-radius-medium, 16px);
   background: #fff;
 }
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-aux-weight="light"] .portedStudyLayout {
+  grid-template-columns: 292px minmax(0,1fr) 280px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-aux-weight="rich"] .portedStudyLayout {
+  grid-template-columns: 292px minmax(0,1fr) minmax(380px,36%);
+}
+
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell :is(.portedStudyOutline,.portedStudyMain,.portedStudyChain) {
   min-height: 0;
   min-width: 0;
