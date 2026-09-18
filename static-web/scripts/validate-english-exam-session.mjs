@@ -158,7 +158,7 @@ assert.match(sourceChecks.readingGate, /examMode/);
 assert.match(sourceChecks.readingGate, /if \(!examMode && savedAttempt\.submitted\)/);
 assert.match(sourceChecks.objectiveGate, /examMode/);
 assert.match(sourceChecks.objectiveGate, /if \(!examMode && saved\.submitted\)/);
-assert.match(sourceChecks.translationReference, /if \(examMode\) return;/);
+assert.match(sourceChecks.translationReference, /!new URLSearchParams\(location\.search\)\.get\('exam_session'\)/);
 assert.match(sourceChecks.bridge, /stopImmediatePropagation/);
 assert.match(sourceChecks.bridge, /captureEnglishExamStep/);
 assert.match(sourceChecks.bridge, /sealEnglishExamSession/);
