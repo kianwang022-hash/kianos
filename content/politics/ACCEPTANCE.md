@@ -636,7 +636,7 @@ Analysis-Output L
 = CANDIDATE / CHAT-PRIMARY / FRESH AUDIT PENDING
 
 Mock/Final L
-= UNTESTED
+= CANDIDATE / CHAT-PRIMARY + SOURCE-PAPER PRIMARY / FRESH AUDIT PENDING
 ```
 
 
@@ -723,6 +723,129 @@ Allowed current claim:
 ```text
 Politics Analysis-Output L
 = CANDIDATE / CHAT-PRIMARY
+
+Fresh independent audit
+= PENDING
+
+Website/Runtime
+= NOT REQUIRED FOR THIS LANE
+
+Real learner U
+= UNTESTED
+```
+
+
+---
+
+## Mock / Final L — Chat-primary candidate
+
+Status: **CANDIDATE / FRESH AUDIT PENDING**
+
+Mock / Final does not create a fourth Politics course and does not require a dedicated Website.
+
+Durable model:
+
+```text
+GitHub Current
+= reusable Mock/Final rules + canonical learning assets
+
+authentic / exam-like paper or PDF
+= primary Mock execution surface
+
+Chat
+= decides full Mock vs smaller timed practice
+  diagnoses the first meaningful failure
+  routes repair to the smallest existing owner
+  builds / shrinks the final high-value queue
+
+private learner state
+= real answers / timing / W-U / completion / final queue
+```
+
+### Mock candidate rule
+
+Use a full Mock only when whole-paper evidence can change a real decision.
+
+Mock should test:
+- objective reliability;
+- analysis transfer;
+- pacing / switching;
+- answer completion.
+
+Preserve one clean first attempt. Do not repair in the middle of the paper.
+
+After the attempt:
+
+```text
+Mock evidence
+→ Chat diagnosis
+→ smallest existing owner
+→ repair
+→ later fresh evidence when needed
+```
+
+Do not create a generic Mock weakness when Consolidation / Precision / Analysis Output / execution already owns the failure.
+
+Same-paper correction is repair evidence, not fresh transfer.
+
+### Final candidate rule
+
+Final review starts from:
+
+```text
+admitted high-value Precision / Memory
++ current-year exact overlays
++ high-frequency Analysis Output skeletons
++ repeated / still-relevant W/U
++ Mock-exposed real weaknesses
++ critical source refreshes
+```
+
+It does not start from all chapters.
+
+Default exclusions:
+- stable chapter content;
+- candidate-only unadmitted Memory;
+- stale historical exact wording;
+- rich reference/explanation content;
+- automatic full Xiao1000 replay.
+
+Hard rule:
+
+> **Final compression is what is worth carrying into the exam, not a miniature fourth round.**
+
+### Website boundary
+
+No dedicated Mock page / final dashboard / fixed scheduler / Website semantic grading is required for this lane.
+
+The candidate must remain usable with:
+
+```text
+GitHub durable assets
++ source paper/PDF
++ Chat
++ private learner evidence
+```
+
+### Fresh audit target
+
+Fresh independent audit should test whether this candidate:
+
+1. uses full Mock only when whole-paper evidence is worth its cost;
+2. preserves a clean first attempt;
+3. distinguishes objective / analysis / execution failures;
+4. routes failures to existing smallest owners;
+5. avoids same-paper overfitting;
+6. builds Final only from admitted/current/high-value/evidence-backed items;
+7. keeps high-delta exactness freshness-gated;
+8. removes stable content instead of replaying the whole curriculum;
+9. does not manufacture a Website requirement.
+
+Allowed current claim:
+
+```text
+Politics Mock / Final L
+= CANDIDATE
 
 Fresh independent audit
 = PENDING
