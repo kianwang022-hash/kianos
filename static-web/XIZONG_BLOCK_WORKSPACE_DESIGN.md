@@ -1,6 +1,6 @@
 # Xizong Block Workspace — accepted design
 
-Status: **MAC-WIDE BLOCK / KP LEARN L3 HUMAN-GATE ACCEPTED 2026-09-18 — TARGETED CI / MERGE PENDING**
+Status: **MAC-WIDE BLOCK WORKSPACE + BLOCK TAIL HUMAN-GATE ACCEPTED 2026-09-18 — TARGETED CI / MERGE PENDING**
 Parent: `static-web/XIZONG_PRODUCT_BRIEF.md`
 Review safety: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`
 
@@ -16,10 +16,12 @@ Block orientation
 → iPad / MarginNote continuous original-Lecture study while Mac stays on KP Learn
 → current KP marked learned as the learner advances
 → that Logic Group's KP Recall on the same KP card with Core hidden
-→ Logic Group closure
+→ last KP rating automatically closes the Logic Group in the Logic Map
 → next Logic Group
-→ Block Recall
-→ Block Complete
+→ final Logic Group closes directly into Block Recall
+→ Reveal Block model
+→ complete Block Recall
+→ lightweight same-surface confirmation of Block first-pass completion
 → After Learn when useful
 ```
 
@@ -107,7 +109,7 @@ A shared Block change must not silently lose A2's Current Visual / Precision / C
 
 > **把点击用在切换认知对象，不要用在获得本来就该看到的信息。**
 
-Legitimate clicks/state changes include switching Logic Group, entering external Lecture, returning for Recall, moving through KP Recall, Closure, Block Recall, or an actually useful After-Learn task.
+Legitimate clicks/state changes include switching Logic Group, entering external Lecture, returning for Recall, moving through KP Recall, Block Recall, or an actually useful After-Learn task. Logic Group closure itself is derived automatically from completed KP Recall evidence.
 
 Important first-round Block Guide structure should normally be visible on Mac without repeated accordion/detail opening. Protected answers and truly secondary/later reference remain progressively disclosed.
 
@@ -243,7 +245,7 @@ Keep the interaction cheap:
 - Reveal first;
 - rating only after Reveal;
 - after rating, move to the next unrecalled KP in the same Logic Group;
-- after all owned KP in the Logic Group have real Recall evidence, move to Logic Group Closure;
+- after all owned KP in the Logic Group have real Recall evidence, mark that Logic Group closed in the Logic Map and move directly to the next Logic Group;
 - no per-KP `add to Memory`, `confirm answer read`, or other ceremony in the first-pass mainline.
 
 Keyboard / shortcut behavior must fail closed under the same gating: no hidden shortcut may rate or reveal content before the legitimate state permits it.
@@ -254,31 +256,22 @@ High-density Core stays complete after Reveal; density is organized spatially ra
 
 Do not turn a long accepted KP Core into a thin summary merely because it sits inside a Recall surface. The learner action is still `Recall → verify against canonical Core`, not `Recall → verify against an AI-generated abstract`.
 
-## 10｜Logic Group Closure — ACCEPTED
+## 10｜Logic Group Closure — ABSORBED INTO LOGIC MAP
 
-Logic Group Closure is a **local model closure**, not a second KP test and not a new mastery gate.
+Logic Group Closure has no standalone learner page/stage.
 
 After all owned KP in the Logic Group have real Recall evidence:
 
 ```text
-KP Recall complete
-→ return to the Logic Group problem
-→ confirm the group now closes around its Current closure target
-→ expose timing-appropriate Precision / outgoing Connection / Reserve when Current owns them
-→ continue the mainline
+last KP rating
+→ Logic Map marks current LG closed
+→ next LG opens directly
+→ after final LG closes, enter Block Recall
 ```
 
-Mac responsibilities:
+The Current `goal / closure` text remains visible in the Logic Map as the local model target. Weak Recall evidence stays preserved for later Memory/repair, but there is no extra Closure button, rating, checklist or confirmation ceremony.
 
-- keep the owning Logic Group visible in the Logic Map;
-- show the Current `goal` and `closure` as the local problem / closure target;
-- do not restate every KP or require another per-KP check;
-- weak Recall evidence remains preserved for later Memory/repair but does not block the first-pass mainline merely because one KP is not yet stable;
-- group-level Precision may appear here when its Current role is later exactness;
-- outgoing Connection / Reserve may appear here when Current explicitly owns the relation and timing;
-- no extra Closure rating, checklist, `mastered?` ceremony or forced Memory admission.
-
-Closure must remain cheap: the learner should be able to recognize that the local model closes and move on.
+Timing-appropriate group Precision / outgoing Connection / Reserve may still appear through the normal conditional Context owner when Current explicitly owns them; they do not justify a separate stage.
 
 ## 11｜Block Recall / Reconstruction — ACCEPTED
 
@@ -346,7 +339,7 @@ It is learner-controlled local recovery inside the accepted Block mainline.
 
 ### 11.4 Block Recall evidence and completion
 
-Preserve the Current distinction:
+Preserve the evidence distinction while merging the visual surface:
 
 ```text
 Block Recall done
@@ -354,7 +347,14 @@ Block Recall done
 Block completed
 ```
 
-Do not merge these state writes merely to remove one click without a dedicated Runtime/Evidence review.
+Both writes now live on the **same Block Recall Reveal surface**:
+
+```text
+Reveal Block model
+→ complete Block Recall
+→ confirm Block first-pass complete
+→ return to System / continue
+```
 
 Current completion semantics remain:
 
@@ -365,7 +365,7 @@ all owned KP formal Lecture contact
 = Block completion eligible
 ```
 
-The final completion action may be visually lightweight, but its accepted evidence meaning remains intact.
+The final completion action is visually lightweight but remains a distinct real state write. There is no standalone Block Complete page.
 
 ## 12｜After Learn — ACCEPTED
 
@@ -387,7 +387,7 @@ Chat Repair = explicit adaptive / specialist repair task, not the default queue 
 
 ### 12.1 First-pass timing
 
-During unfinished `kp_recall`, Logic Group Closure and Block Recall:
+During unfinished `kp_recall`, unfinished Logic Groups and Block Recall:
 
 - preserve weak Recall evidence and any legitimate Memory admission in state;
 - do not automatically open the full `Memory / 储备 / 回 Chat` workspace after each rating;
@@ -481,29 +481,27 @@ Preserve:
 
 UI productization may change timing / prominence / spatial composition but does not rewrite those contracts.
 
-## 13｜Block Workspace completion state
+## 13｜Block Workspace implementation / Human Gate state
 
-The Block family product logic is now accepted at responsibility / interaction level:
+The accepted first-pass Block mainline is now:
 
 ```text
 Block Guide
-→ Logic Group orientation
-→ MarginNote handoff
-→ one return
-→ KP Recall Front / Reveal
-→ Logic Group Closure
+→ Logic Group orientation in Logic Map
+→ MarginNote handoff / KP Learn companion
+→ KP Recall Front / Reveal on the same KP card
+→ last KP rating auto-closes the Logic Group in Logic Map
 → next Logic Group
-→ Block Recall Front / Reconstruction
-→ Block Complete
-→ selective After Learn
+→ final Logic Group closes directly into Block Recall Front
+→ Reveal Block model
+→ complete Block Recall
+→ same-surface lightweight confirmation of Block first-pass completion
+→ selective After Learn when useful
 → return to System
 ```
 
-Still open before implementation:
+There is **no standalone Logic Group Closure page** and **no standalone Block Complete page**.
 
-- responsive fallback details;
-- final typography / spacing / exact visual polish;
-- screenshot-level acceptance;
-- later Projection asset schema / compilation details.
+Human Gate acceptance on 2026-09-18 covers the Block Recall Front, Block Recall Reveal, and post-Recall completion-confirmation state on the real Mac-wide Chromium surface. The remaining merge gate is targeted CI on the final branch head plus a final Current-head check.
 
-These visual/implementation details must preserve the accepted Block logic above.
+Responsive fallback and future Projection compilation work may continue later, but they must preserve this accepted interaction geometry and may not reintroduce the removed closure/completion ceremony.

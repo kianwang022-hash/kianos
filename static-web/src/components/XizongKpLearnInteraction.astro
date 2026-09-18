@@ -271,6 +271,7 @@
 
       const syncLogicMap = () => {
         root.querySelectorAll('.xzLogicGroupDetail').forEach((node) => node.remove());
+        if (stageName() === 'block_recall') return;
         const study = readStudy();
         const card = activeUnifiedCard();
         const cardKpId = card?.getAttribute('data-kp-id') || '';

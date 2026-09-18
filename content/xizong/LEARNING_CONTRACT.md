@@ -269,7 +269,9 @@ This protection rule is specific to KP Recall. Block/System Recall may still use
 
 ### Logic Group closure
 
-Brief local reconstruction. It is not a large separate learner page or new Source-reading step.
+A lightweight state inside the persistent Logic Map, not a standalone learner stage.
+
+When all KPs in the Logic Group have real Recall evidence, the map marks that group closed and the learner proceeds directly to the next Logic Group. The existing `goal / closure` text remains the local model target; no extra confirmation page, rating or click is required.
 
 ---
 

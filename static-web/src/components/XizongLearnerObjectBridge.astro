@@ -386,12 +386,6 @@ const payload = learnerObject || null;
           representationStage = 'LOGIC_GROUP_ORIENT';
           title = '学习节辅助';
           slot = learner.slots?.logicGroupPrelearn?.[groupId] || {};
-        } else if (stage === 'group_close') {
-          const groupId = groupIds[activeGroupIndex()] || '';
-          slotName = 'logic_group_postlearn';
-          representationStage = 'GROUP_CLOSURE';
-          title = '收口辅助';
-          slot = learner.slots?.logicGroupPostlearn?.[groupId] || {};
         } else if (stage === 'kp_recall') {
           const kpId = activeRecallKpId();
           const kp = kpById.get(kpId);
