@@ -228,7 +228,8 @@ has(blockUi, '} catch {}', 'block-storage-error-containment-missing');
 has(enhancerUi, 'button.disabled = !coreReady || Boolean(study.completed);', 'block-completion-ui-gate');
 assert(!enhancerUi.includes('lectureRead'), 'legacy-block-lecture-confirmation-remains');
 
-has(recallEvidenceUi, "evidence_origin: 'USER_RECALL_ATTEMPT'", 'real-recall-attempt-not-preserved');
+has(recallEvidenceUi, "appendRecall(kpId, rating, 'USER_RECALL_ATTEMPT')", 'real-recall-attempt-not-preserved');
+has(recallEvidenceUi, 'evidence_origin: evidenceOrigin', 'recall-evidence-origin-not-persisted');
 lacks(recallEvidenceUi, /lastRecallRatings\[kpId\]\s*===\s*rating/, 'real-recall-attempt-still-collapsed-by-rating');
 has(enhancerUi, "schema: 'kianos.xizong.study_packet.v3'", 'live-study-packet-schema-missing');
 has(enhancerUi, 'source_contact:', 'study-packet-source-contact-missing');
