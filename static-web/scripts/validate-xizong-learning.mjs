@@ -208,7 +208,7 @@ has(practiceUi, 'data-reasoning-chain', 'adaptive-reasoning-chain-surface-missin
 has(practiceUi, 'renderReview(currentQuestion, existing);', 'adaptive-review-not-bound-to-submitted-question');
 has(practiceUi, "if (data.holdoutRequired !== false && !holdoutYears.length) { renderGate(); return; }", 'system-practice-gate-missing-explicit-holdout');
 
-matches(systemUi, /outlineCount\s*>\s*0\s*\?/, 'outline-absence-not-conditionally-projected');
+lacks(systemUi, /outlineCount/, 'retired-outline-count-returned');
 lacks(systemUi, /Outline\s*\$\{?0\}?/, 'literal-outline-zero');
 has(systemUi, 'class="xzSystemWorkspace"', 'current-system-workspace-namespace-missing');
 lacks(systemUi, /xv6System/, 'retired-system-workspace-namespace-returned');
