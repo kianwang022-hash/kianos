@@ -292,7 +292,7 @@
     "ordinal": 451,
     "word": "behavior",
     "source_owner_path": "content/lexical/words/by-ordinal/o0451.json",
-    "source_fingerprint": "f6431e483d1386331c2a405a6f1f29a043df9fd405aab60abba247739a26fc04",
+    "source_fingerprint": "5372eb4ab084346c22e317d152ba510862e10af16045a4d4f74de2b90c178468",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -301,13 +301,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "行为；举止",
-      "decision_cn": "",
+      "summary_cn": "某个主体在条件下呈现出的行为方式：可指人/动物的举止，也可指机器、材料或自然现象的运行特性",
+      "decision_cn": "person/animal → 行为举止；machine/material/chemical/system → 性能、特性、运行表现。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "行为；举止"
+        "target_label": "某个主体在条件下呈现出的行为方式：可指人/动物的举止，也可指机器、材料或自然现象的运行特性"
       }
     },
     "senses": [
@@ -398,7 +398,7 @@
     "ordinal": 452,
     "word": "behind",
     "source_owner_path": "content/lexical/words/by-ordinal/o0452.json",
-    "source_fingerprint": "d8cb2c3c251c7a03b42c26b8f0c7726b69818de67d69f20ca98c4bc7de82fc4b",
+    "source_fingerprint": "ec2d43b445e166dd55888602a7c4e51e40de508417615c7b9d9c26ed81c01e0c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -408,13 +408,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "在后面",
-      "decision_cn": "",
+      "summary_cn": "处在某物之后：可表示空间后方、进度/时间落后，也可表示支持、幕后推动或原因",
+      "decision_cn": "physical position → 在后面；schedule/progress → 落后；person/organization/force behind sth → 支持、幕后推动或原因。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "在后面"
+        "target_label": "处在某物之后：可表示空间后方、进度/时间落后，也可表示支持、幕后推动或原因"
       }
     },
     "senses": [
@@ -746,7 +746,7 @@
     "ordinal": 455,
     "word": "believe",
     "source_owner_path": "content/lexical/words/by-ordinal/o0455.json",
-    "source_fingerprint": "3cc8d84d65ddf4178b31486d84dd181f577727fe34c77a16648320ad2b4902a3",
+    "source_fingerprint": "1da45e08eb24a41545e8e4e66031557f9aae42c1eb1a17fa006d69f994aeb642",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -894,7 +894,71 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:believe:baseline-v2-in",
+        "source_locator": "record.constructions[0]",
+        "pattern": "believe in sb/sth",
+        "lines": [
+          {
+            "text": "信奉；相信其存在/价值；信任某人或某事",
+            "lang": "cn"
+          },
+          {
+            "text": "have faith, confidence, or belief in someone or something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:believe:baseline-v2-in",
+          "target_locator": "record.constructions[0]",
+          "target_label": "believe in sb/sth"
+        }
+      },
+      {
+        "id": "construction:believe:baseline-v2-that",
+        "source_locator": "record.constructions[1]",
+        "pattern": "believe (that) ...",
+        "lines": [
+          {
+            "text": "相信/认为……是真的",
+            "lang": "cn"
+          },
+          {
+            "text": "accept or suppose that a proposition is true",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:believe:baseline-v2-that",
+          "target_locator": "record.constructions[1]",
+          "target_label": "believe (that) ..."
+        }
+      },
+      {
+        "id": "construction:believe:baseline-v2-sb-to-be",
+        "source_locator": "record.constructions[2]",
+        "pattern": "believe sb/sth to be ...",
+        "lines": [
+          {
+            "text": "认为某人/某物是……",
+            "lang": "cn"
+          },
+          {
+            "text": "regard someone or something as having a stated identity or quality",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:believe:baseline-v2-sb-to-be",
+          "target_locator": "record.constructions[2]",
+          "target_label": "believe sb/sth to be ..."
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [
@@ -930,23 +994,22 @@
     "ordinal": 456,
     "word": "bell",
     "source_owner_path": "content/lexical/words/by-ordinal/o0456.json",
-    "source_fingerprint": "ded486c77f21b920867679b226f558a784393b0c3a4f72741593c272cc00f3ad",
+    "source_fingerprint": "7c4336b10e49912ce260e62e360718fdf22ef0e670065d55f8cd7a4594650428",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "铃；钟；听起来熟悉",
-      "decision_cn": "铃，钟",
+      "summary_cn": "铃；钟；铃声或钟状物",
+      "decision_cn": "bell 本身是名词核心；“听起来耳熟”来自固定短语 ring a bell，不是 bell 的独立动词义。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "铃；钟；听起来熟悉"
+        "target_label": "铃；钟；铃声或钟状物"
       }
     },
     "senses": [
@@ -1040,41 +1103,36 @@
           "target_locator": "record.senses[2]",
           "target_label": "钟状物"
         }
-      },
-      {
-        "id": "sense:bell:0d876d446557e4ea",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "ring a bell",
-        "definition_cn": "听起来熟悉；引起模糊的认知",
-        "definition_en": "to sound familiar or trigger a vague recognition",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:dcef81fc7f926267996e",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "ring a bell",
-            "meaning_cn": "听起来熟悉；使人隐约想起某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:dcef81fc7f926267996e",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "ring a bell"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bell:0d876d446557e4ea",
-          "target_locator": "record.senses[3]",
-          "target_label": "听起来熟悉；引起模糊的认知"
-        }
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:bell:baseline-v2-ring-a-bell",
+        "source_locator": "record.constructions[0]",
+        "pattern": "ring a bell",
+        "lines": [
+          {
+            "text": "听起来耳熟；使人隐约想起某人/某事",
+            "lang": "cn"
+          },
+          {
+            "text": "This is an idiom headed by ring; it is not an independent verb sense of bell.",
+            "lang": "en"
+          },
+          {
+            "text": "sound familiar or trigger a vague memory or recognition",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bell:baseline-v2-ring-a-bell",
+          "target_locator": "record.constructions[0]",
+          "target_label": "ring a bell"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1267,7 +1325,7 @@
     "ordinal": 458,
     "word": "belong",
     "source_owner_path": "content/lexical/words/by-ordinal/o0458.json",
-    "source_fingerprint": "b2a84f884d98800a4b6bc96d791c17341916210142298ba48b5400c03a8bae81",
+    "source_fingerprint": "e574798e08c4a1922ec300830bfbff1a0fcd0718e09182c07a509393d0dd1e48",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1449,7 +1507,50 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:belong:baseline-v2-to",
+        "source_locator": "record.constructions[0]",
+        "pattern": "belong to sb/sth",
+        "lines": [
+          {
+            "text": "属于某人/某物；归属于某群体或类别",
+            "lang": "cn"
+          },
+          {
+            "text": "be owned by, connected with, or correctly classified as part of someone/something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:belong:baseline-v2-to",
+          "target_locator": "record.constructions[0]",
+          "target_label": "belong to sb/sth"
+        }
+      },
+      {
+        "id": "construction:belong:baseline-v2-in-on-among",
+        "source_locator": "record.constructions[1]",
+        "pattern": "belong in/on/among ...",
+        "lines": [
+          {
+            "text": "应在某处；适合放在某处/某群体中",
+            "lang": "cn"
+          },
+          {
+            "text": "be in the right place, setting, or group",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:belong:baseline-v2-in-on-among",
+          "target_locator": "record.constructions[1]",
+          "target_label": "belong in/on/among ..."
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2251,18 +2352,7 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": [
-        {
-          "target_word": "beneficiary",
-          "lines": [
-            {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[0]"
-        }
-      ]
+      "family": []
     }
   },
   {
@@ -2271,7 +2361,7 @@
     "ordinal": 466,
     "word": "benefit",
     "source_owner_path": "content/lexical/words/by-ordinal/o0466.json",
-    "source_fingerprint": "55bf77cffbc26efd54e2ba6362280fe30acc1352244c145d905bc81101cabe69",
+    "source_fingerprint": "052188c921066317d2526f59ea7f7037b2d0fe1e53ae1837b2aa0a57d19c4c4e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2281,13 +2371,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "利益，好处",
-      "decision_cn": "",
+      "summary_cn": "“带来好处”有两个方向：某物使某人/某事受益，或某人从某物中受益；名词还可指好处、补助或慈善活动",
+      "decision_cn": "benefit sb/sth → 有益于；benefit from sth → 从……受益；noun benefit → 好处/补助/义演。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "利益，好处"
+        "target_label": "“带来好处”有两个方向：某物使某人/某事受益，或某人从某物中受益；名词还可指好处、补助或慈善活动"
       }
     },
     "senses": [
@@ -2438,7 +2528,50 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:benefit:baseline-v2-transitive",
+        "source_locator": "record.constructions[0]",
+        "pattern": "benefit sb/sth",
+        "lines": [
+          {
+            "text": "使某人/某物受益；对……有好处",
+            "lang": "cn"
+          },
+          {
+            "text": "be good for or give an advantage to someone or something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:benefit:baseline-v2-transitive",
+          "target_locator": "record.constructions[0]",
+          "target_label": "benefit sb/sth"
+        }
+      },
+      {
+        "id": "construction:benefit:baseline-v2-from",
+        "source_locator": "record.constructions[1]",
+        "pattern": "benefit from sth",
+        "lines": [
+          {
+            "text": "从某事中受益",
+            "lang": "cn"
+          },
+          {
+            "text": "receive an advantage or useful effect from something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:benefit:baseline-v2-from",
+          "target_locator": "record.constructions[1]",
+          "target_label": "benefit from sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2521,7 +2654,7 @@
     "ordinal": 468,
     "word": "benign",
     "source_owner_path": "content/lexical/words/by-ordinal/o0468.json",
-    "source_fingerprint": "9beadba375d99bfe7877ff75bb4b1d094d75b8f4b782c961fe6c656b2e65b2df",
+    "source_fingerprint": "2e6caf148dd6fcfed7b62bd24c45fe1c21371a364249000f6ddea9700f804c24",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2530,13 +2663,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "良性的；善良的",
-      "decision_cn": "",
+      "summary_cn": "核心是“无害/温和”：医学上指良性，环境或影响可指温和有益，用于人或神情可指慈祥善良",
+      "decision_cn": "tumor/condition → 良性；climate/influence → 温和、有益；person/smile/manner → 善良、慈祥。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "良性的；善良的"
+        "target_label": "核心是“无害/温和”：医学上指良性，环境或影响可指温和有益，用于人或神情可指慈祥善良"
       }
     },
     "senses": [
@@ -2634,7 +2767,7 @@
     "ordinal": 469,
     "word": "beside",
     "source_owner_path": "content/lexical/words/by-ordinal/o0469.json",
-    "source_fingerprint": "fb3cb36f1fe1166c29344e67fa50f6d42910bd6873117fcebfd50de5fc9d3d15",
+    "source_fingerprint": "56874779457afe3552926687b76e39801d6f3b44be0cb5cd10df1e2db604e8e8",
     "sense_lineage": [
       {
         "word_id": "word:beside",
@@ -2725,23 +2858,6 @@
             "target_kind": "relation",
             "target_id": "deep:confusables:beside:25b35653c7a51bd2",
             "target_locator": "record.confusables[0]",
-            "target_label": "beside ↔ besides"
-          }
-        },
-        {
-          "title": "beside ↔ besides",
-          "target_word": "besides",
-          "lines": [
-            {
-              "text": "beside = next to; besides = in addition to / moreover. Do not treat them as interchangeable.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "confusable:horizontal:2d6d0dc0f31aea8f24de",
-            "target_locator": "record.confusables[1]",
             "target_label": "beside ↔ besides"
           }
         }
@@ -3051,7 +3167,7 @@
     "ordinal": 472,
     "word": "bet",
     "source_owner_path": "content/lexical/words/by-ordinal/o0472.json",
-    "source_fingerprint": "d334465cee8f8cab70b4a6a3cc61cbb6351842b29ac0ff7d2672ea3617856cab",
+    "source_fingerprint": "d5e091961b484c4722a9bd3d79c583f78d255989a5ae28bacf1a293319577303",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3182,7 +3298,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:bet:baseline-v2-i-bet",
+        "source_locator": "record.constructions[0]",
+        "pattern": "I bet (that) ...",
+        "lines": [
+          {
+            "text": "我敢肯定……；我想……十有八九如此",
+            "lang": "cn"
+          },
+          {
+            "text": "used to express strong confidence or expectation, not necessarily a literal wager",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bet:baseline-v2-i-bet",
+          "target_locator": "record.constructions[0]",
+          "target_label": "I bet (that) ..."
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3740,7 +3878,7 @@
     "ordinal": 477,
     "word": "beware",
     "source_owner_path": "content/lexical/words/by-ordinal/o0477.json",
-    "source_fingerprint": "b794d5f9d4abe16570ef7e121b9f09dc87f6bca162d55e396e6734aad0348e9d",
+    "source_fingerprint": "afd4766d8ed4d530eb081016813cda0c981f54f6dfb87d042ba5749153b44670",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3800,7 +3938,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:beware:baseline-v2-of",
+        "source_locator": "record.constructions[0]",
+        "pattern": "beware of sb/sth",
+        "lines": [
+          {
+            "text": "当心；谨防某人/某事",
+            "lang": "cn"
+          },
+          {
+            "text": "be cautious or on guard against someone or something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:beware:baseline-v2-of",
+          "target_locator": "record.constructions[0]",
+          "target_label": "beware of sb/sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4196,7 +4356,7 @@
     "ordinal": 481,
     "word": "bible",
     "source_owner_path": "content/lexical/words/by-ordinal/o0481.json",
-    "source_fingerprint": "249346fcad2eba80cfee91164433142f14ee8aa08edd540c527e2b2190f28b5f",
+    "source_fingerprint": "749076af3e2f2cb586324846bfaf793898363d45d854a97b12695c0a8af8b333",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4223,15 +4383,7 @@
         "definition_cn": "基督教的圣经",
         "definition_en": "the sacred writings of the Christian religions",
         "note": "",
-        "identity_overlay": {
-          "text": "Proper Christian scripture: surface lemma Bible / the Bible; case-sensitive and distinct from common bible.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "Proper Christian scripture: surface lemma Bible / the Bible; case-sensitive and distinct from common bible."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:ba6bbe7b43008b18dbce",
@@ -4270,15 +4422,7 @@
         "definition_cn": "某一领域中的权威典籍",
         "definition_en": "a book regarded as authoritative in its field",
         "note": "",
-        "identity_overlay": {
-          "text": "Common lowercase bible = an authoritative book in a field; distinct from proper Bible.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "Common lowercase bible = an authoritative book in a field; distinct from proper Bible."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:c376b9655a6b7d553ef4",
@@ -4315,7 +4459,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "Capitalized Bible refers to the Christian scriptures; lowercase bible can mean an authoritative or indispensable book in a field.",
+        "boundaries": [
+          {
+            "surface": "Bible",
+            "condition": "capitalized proper name",
+            "note": "基督教《圣经》"
+          },
+          {
+            "surface": "bible",
+            "condition": "lowercase common noun",
+            "note": "某领域被奉为权威的典籍/指南"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "Capitalized Bible refers to the Christian scriptures; lowercase bible can mean an authoritative or indispensable book in a field."
+        }
+      },
       "family": []
     }
   },
@@ -4513,7 +4678,7 @@
     "ordinal": 484,
     "word": "bid",
     "source_owner_path": "content/lexical/words/by-ordinal/o0484.json",
-    "source_fingerprint": "5501484f4afddd0c78a32d3dce17dcddc73fca90d958930f1326017a493fd4b7",
+    "source_fingerprint": "51666d2f6d096ac71949331e8c39baa4be5e8ca63d0549b6ce046af45745adba",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4523,13 +4688,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "出价；尝试",
-      "decision_cn": "",
+      "summary_cn": "围绕“提出一个行动/条件”形成多支：出价或投标、为目标作尝试，以及较正式/旧式地命令某人做事",
+      "decision_cn": "bid for sth → 出价/投标；a bid to do / bid for power → 努力争取/尝试；bid sb do sth → 正式/旧式命令。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "出价；尝试"
+        "target_label": "围绕“提出一个行动/条件”形成多支：出价或投标、为目标作尝试，以及较正式/旧式地命令某人做事"
       }
     },
     "senses": [
@@ -4667,7 +4832,71 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:bid:baseline-v2-for",
+        "source_locator": "record.constructions[0]",
+        "pattern": "bid for sth",
+        "lines": [
+          {
+            "text": "为某物出价；投标；争取",
+            "lang": "cn"
+          },
+          {
+            "text": "offer a price or compete/try for something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bid:baseline-v2-for",
+          "target_locator": "record.constructions[0]",
+          "target_label": "bid for sth"
+        }
+      },
+      {
+        "id": "construction:bid:baseline-v2-to-do",
+        "source_locator": "record.constructions[1]",
+        "pattern": "a bid to do sth",
+        "lines": [
+          {
+            "text": "为了做某事而作的尝试；努力争取",
+            "lang": "cn"
+          },
+          {
+            "text": "an attempt to achieve or do something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bid:baseline-v2-to-do",
+          "target_locator": "record.constructions[1]",
+          "target_label": "a bid to do sth"
+        }
+      },
+      {
+        "id": "construction:bid:baseline-v2-sb-do",
+        "source_locator": "record.constructions[2]",
+        "pattern": "bid sb do sth",
+        "lines": [
+          {
+            "text": "命令/吩咐某人做某事（正式或旧式）",
+            "lang": "cn"
+          },
+          {
+            "text": "formally or old-fashionedly tell someone to do something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bid:baseline-v2-sb-do",
+          "target_locator": "record.constructions[2]",
+          "target_label": "bid sb do sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4811,7 +5040,7 @@
     "ordinal": 486,
     "word": "bill",
     "source_owner_path": "content/lexical/words/by-ordinal/o0486.json",
-    "source_fingerprint": "b54518fb1cd44be876998f75ad09a1853c4b296e8a4bda825f4a92f817fad5b4",
+    "source_fingerprint": "376a8b7d5d3b52f2eab39765abbbe862ccbf92c0616a4054b12f3d573839a443",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5032,19 +5261,6 @@
               "target_locator": "record.senses[5].collocations[0]",
               "target_label": "bill sb for sth"
             }
-          },
-          {
-            "id": "collocation:021c983fd63a9411e417",
-            "source_locator": "record.senses[5].collocations[1]",
-            "phrase": "bill sb/sth as ...",
-            "meaning_cn": "宣传、描述或呈现为…",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:021c983fd63a9411e417",
-              "target_locator": "record.senses[5].collocations[1]",
-              "target_label": "bill sb/sth as ..."
-            }
           }
         ],
         "repair": {
@@ -5056,7 +5272,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:bill:baseline-v2-as",
+        "source_locator": "record.constructions[0]",
+        "pattern": "bill sb/sth as ...",
+        "lines": [
+          {
+            "text": "把某人/某物宣传、描述或呈现为……",
+            "lang": "cn"
+          },
+          {
+            "text": "This construction is distinct from bill sb for sth = charge/invoice someone.",
+            "lang": "en"
+          },
+          {
+            "text": "advertise, describe, or present someone or something as having a stated identity or quality",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bill:baseline-v2-as",
+          "target_locator": "record.constructions[0]",
+          "target_label": "bill sb/sth as ..."
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5772,7 +6014,7 @@
     "ordinal": 493,
     "word": "birth",
     "source_owner_path": "content/lexical/words/by-ordinal/o0493.json",
-    "source_fingerprint": "49c06471ccbe51f987662d42ca7d170e9ec7b5ba2f88598d5eeeab8d8737b070",
+    "source_fingerprint": "6693af2fbf6e45ccd7f2f64a58265f5fcdde93da1bc02342353bfaea55660d76",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5781,13 +6023,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "出生",
-      "decision_cn": "",
+      "summary_cn": "“诞生”既可指人/动物出生，也可比喻为制度、思想或事物的起源与开端",
+      "decision_cn": "person/child/date → 出生；the birth of democracy/industry/idea → 起源、诞生。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "出生"
+        "target_label": "“诞生”既可指人/动物出生，也可比喻为制度、思想或事物的起源与开端"
       }
     },
     "senses": [
@@ -5858,7 +6100,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:birth:baseline-v2-give-birth-to",
+        "source_locator": "record.constructions[0]",
+        "pattern": "give birth to sb/sth",
+        "lines": [
+          {
+            "text": "生下；产生；孕育出",
+            "lang": "cn"
+          },
+          {
+            "text": "produce a child or, figuratively, bring something into existence",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:birth:baseline-v2-give-birth-to",
+          "target_locator": "record.constructions[0]",
+          "target_label": "give birth to sb/sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5946,7 +6210,7 @@
     "ordinal": 495,
     "word": "biscuit",
     "source_owner_path": "content/lexical/words/by-ordinal/o0495.json",
-    "source_fingerprint": "7dfd2c166b11172cf0a50725983db81409cd161683475e9ea2f11b77cbeb93b2",
+    "source_fingerprint": "ba146960e6a5d3cf52a10ef5c41ce6bb22b12bec4c1f566ff7f932af74c408f9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6044,7 +6308,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "In British English, biscuit typically means a cookie/cracker-like baked item; in American English, biscuit usually means a small soft bread roll.",
+        "boundaries": [
+          {
+            "surface": "biscuit",
+            "condition": "British English",
+            "note": "通常指饼干、薄脆类烘焙食品"
+          },
+          {
+            "surface": "biscuit",
+            "condition": "American English",
+            "note": "通常指松软的小面包/quick bread"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "In British English, biscuit typically means a cookie/cracker-like baked item; in American English, biscuit usually means a small soft bread roll."
+        }
+      },
       "family": []
     }
   },
@@ -6054,7 +6339,7 @@
     "ordinal": 496,
     "word": "bit",
     "source_owner_path": "content/lexical/words/by-ordinal/o0496.json",
-    "source_fingerprint": "d7ae83e4f08cad721e7da363e8dcd1718fe776a6b38b2cc40daf0ad4d4f5e668",
+    "source_fingerprint": "0c9cbc901ca2e2e6fd3659fac5bf4747348ea3618e9869ed3814169cb8d9ccf0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6211,7 +6496,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "bit can be an independent noun (a small amount/piece, computing bit, horse bit) or the past tense of bite.",
+        "boundaries": [
+          {
+            "surface": "bit",
+            "condition": "noun slot",
+            "note": "独立名词：少量/小块、比特、马嚼子等"
+          },
+          {
+            "surface": "bit",
+            "condition": "past-tense verb slot",
+            "note": "bite 的过去式 bit；其过去分词通常是 bitten"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "bit can be an independent noun (a small amount/piece, computing bit, horse bit) or the past tense of bite."
+        }
+      },
       "family": []
     }
   },
@@ -6423,7 +6729,7 @@
     "ordinal": 498,
     "word": "bitter",
     "source_owner_path": "content/lexical/words/by-ordinal/o0498.json",
-    "source_fingerprint": "1c70afbae5511452dbe686dfb1323fe9730aae0d22e2a3507d6329c30993a9a6",
+    "source_fingerprint": "67322536942cfa12d5292f03f61d2667a575b022cc8f479fdc2f7d2c8a1ad36d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6433,13 +6739,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "苦的",
-      "decision_cn": "",
+      "summary_cn": "从味觉“苦”扩展到心理体验：可指味道苦、经历痛苦难以接受，也可指人因怨恨而愤愤不平",
+      "decision_cn": "taste/food → 苦味；disappointment/defeat/truth → 痛苦、难接受；person/enemy/resentment → 怀恨、愤愤不平。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "苦的"
+        "target_label": "从味觉“苦”扩展到心理体验：可指味道苦、经历痛苦难以接受，也可指人因怨恨而愤愤不平"
       }
     },
     "senses": [
@@ -6628,7 +6934,7 @@
     "ordinal": 500,
     "word": "black",
     "source_owner_path": "content/lexical/words/by-ordinal/o0500.json",
-    "source_fingerprint": "56c832955414c8bca5a697284ad71609e51cdf2e96cf81fc5e5c614a2b3e4e2c",
+    "source_fingerprint": "0e559593ca29d63c409e31c42aa7d123dfd8a4798ee223e9938bb76c30cb5ee1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6638,13 +6944,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "黑色",
-      "decision_cn": "",
+      "summary_cn": "黑色；在部分复合词中也可表示非法、秘密或被禁止",
+      "decision_cn": "普通颜色义之外，black 在 black market / black economy 等复合词中可标记非法、秘密或被禁止的活动。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "黑色"
+        "target_label": "黑色；在部分复合词中也可表示非法、秘密或被禁止"
       }
     },
     "senses": [
