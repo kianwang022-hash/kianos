@@ -22,7 +22,7 @@ later-stage Source baseline
 → corrected Chat-owned strategy model       REPAIRED_AFTER_INTERFACE_ATTACK
 → fresh independent Consolidation L re-audit ACTIVE NEXT GATE
 → Analysis-Output L                         CANDIDATE / Chat-primary
-→ Mock / Final L                            UNTESTED
+→ Mock / Final L                            CANDIDATE / Chat-primary + source-paper primary
 → later Projection / Runtime                FROZEN
 ```
 
@@ -36,6 +36,19 @@ chapter analysis_output_hooks in GitHub
 ```
 
 No dedicated Analysis Output Website/Runtime is required. Routing/production rules live in `content/politics/analysis-output/README.md`. Real learner outputs remain private and never enter shared Current.
+
+
+Mock / Final is also explicitly **Chat-primary** around an authentic/exam-like paper/PDF execution surface:
+
+```text
+GitHub Mock/Final rules + Current assets
+→ Chat decides full Mock vs smaller timed practice
+→ learner executes on the owning paper/PDF/task surface
+→ private evidence
+→ Chat routes the smallest repair / builds the final queue
+```
+
+No dedicated Mock/Final Website is required. Routing/production rules live in `content/politics/mock-final/README.md`.
 
 **Next active gate: fresh independent Consolidation L re-audit on the current #433 head.**  
 The previous fresh audit rejected the static K→L rubric-coverage model. That model has now been removed: **Chat owns review selection; Web only executes an explicit Chat plan and returns evidence.** The five representative chapters no longer carry fixed later-stage review plans. Analysis-Output / Mock L and downstream Projection / Runtime remain frozen.
