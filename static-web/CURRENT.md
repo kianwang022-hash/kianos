@@ -28,7 +28,7 @@ Architecture-level website blocker: **none**.
 | Lane | State | Active ref / continue from |
 | --- | --- | --- |
 | Xizong UI | **LANDED · MATERIAL HUMAN GATES CLOSED** | `main` → exact accepted Xizong surface owner; reopen only concrete defects |
-| Politics UI | **ACTIVE · REVIEW HUMAN GATE READY** | PR #468 · `work/politics-review-human-gate-20260919` · populated Review candidate fully gated; waiting only for Kian visual approval |
+| Politics UI | **ACTIVE · PRACTICE HUMAN GATE READY** | PR #470 · `work/politics-practice-human-gate-20260919` · Practice polish + exact per-question Chengfeng locator fully gated; waiting only for Kian visual approval |
 | English UI | **LANDED** | `content/english/CURRENT.md` |
 | Lexical / Vocabulary UI | **LANDED · HUMAN GATES CLOSED** | `content/lexical/CURRENT.md` → normal use / concrete defects only |
 
@@ -181,7 +181,7 @@ CI green is not visual acceptance.
 ## Current next actions
 
 - **Xizong:** learner-facing material UI is landed through whole-paper/year Hidden → Seal → score → same-Workbench Review. Block/TTSX, System Recall, Practice front/back, global retained W/U/Marked and whole-paper are all in `main` with real macOS Human Gates closed. Reopen only concrete defects. Typed Chat Return and durable learner-data recovery stay with the shared Learner Data / Chat Handoff lane.
-- **Politics:** L2 + Learn Index + chapter workspace + Home are landed in `main`. PR #468 closes Review visual structure while preserving W/U / discussion / source return / original-question behavior. Populated 1512×982 macOS evidence uses Wrong + Uncertain + discussion across multiple Units; Functional First, Xi/Ethics Runtime+Evidence and Mac visual gate are green. **Next action: Kian Human Gate on Review only; Practice visual closure waits behind approval.**
+- **Politics:** L2 + Learn Index + chapter workspace + Home + Review are landed in `main`. PR #470 is the final Practice closure: the proven Legacy-parity Workbench remains intact; learner-facing result uses exact-ID AI `takeaway` + AI `chat_explanation`, and now prefers a safe exact per-question Chengfeng locator derived from the Current owner/source nodes. Xiao1000 historical/source explanation remains provenance-only and is forbidden from learner-facing fallback. For X1000-MARX-S-001 the exact gated locator is `乘风要点 P6【考点4】→2→（1）`. Functional First, Xi/Ethics Runtime+Evidence and real macOS visual gate are green. **Next action: Kian Human Gate on the refreshed Practice result screenshot only.**
 - **English:** landed; fix only concrete launch-visible defects.
 - **Lexical:** Vocabulary v2 learner-surface closure and English exact handoff/return are accepted; normal use only unless a concrete defect appears.
 - **Platform:** after Politics Human Gate, close learner-data durability / typed Chat Return and run final cross-subject regression. UI/CSS ownership cleanup is maintenance, not a new learner product.

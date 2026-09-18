@@ -25,6 +25,7 @@ export function practiceReviewPayload(catalog, id) {
     answer: question.answer,
     takeaway: question.refined.takeaway,
     chatExplanation: question.refined.chatExplanation,
+    chengfengLocator: question.chengfengLocator || null,
     source: (unit.source || []).map(({ id, title, text }) => ({ id, title, text }))
   };
 }

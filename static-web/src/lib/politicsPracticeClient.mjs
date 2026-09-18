@@ -173,15 +173,31 @@ export function initPoliticsPractice(root) {
     const face = $('[data-result-question]'); face.replaceChildren();
     for (const copy of [q.stem, ...q.options.map((o) => `${o.label}. ${o.text}`)]) { const p = document.createElement('p'); p.textContent = copy; face.append(p); }
     $('.practiceQuestionReference').open = false;
-    const sources = $('[data-review-sources]'); sources.replaceChildren();
-    for (const source of payload.source || []) {
-      const detail = document.createElement('details'), summary = document.createElement('summary');
-      summary.textContent = source.title || '对应原讲义'; detail.append(summary);
-      if (source.id) { const p = document.createElement('code'); p.textContent = source.id; detail.append(p); }
-      if (source.text) { const p = document.createElement('p'); p.textContent = source.text; detail.append(p); }
-      sources.append(detail);
+    const locator = $('[data-chengfeng-locator]');
+    const sources = $('[data-review-sources]');
+    locator.replaceChildren(); sources.replaceChildren();
+    const exactLocator = payload.chengfengLocator?.status === 'EXACT_SOURCE_NODE' ? payload.chengfengLocator : null;
+    locator.hidden = !exactLocator;
+    sources.hidden = !!exactLocator;
+    if (exactLocator) {
+      const strong = document.createElement('strong');
+      strong.textContent = exactLocator.display;
+      const p = document.createElement('p');
+      p.textContent = '精确对应当前题；回原讲义时按这个位置定位。';
+      locator.append(strong, p);
+    } else {
+      for (const source of payload.source || []) {
+        const detail = document.createElement('details'), summary = document.createElement('summary');
+        summary.textContent = source.title || '对应原讲义范围'; detail.append(summary);
+        if (source.text) { const p = document.createElement('p'); p.textContent = source.text; detail.append(p); }
+        sources.append(detail);
+      }
+      if (!(payload.source || []).length) {
+        const p = document.createElement('p');
+        p.textContent = '本题暂时只有所属学习单元定位；没有猜测更细的乘风考点。';
+        sources.append(p);
+      }
     }
-    if (!(payload.source || []).length) { const p = document.createElement('p'); p.textContent = '本题没有已绑定的精确来源；可回所属学习单元定位。'; sources.append(p); }
     const url = new URL(q.unitHref, location.origin);
     url.searchParams.set('practiceSession', session.id); url.searchParams.set('practiceQuestion', q.id);
     $('[data-return-unit]').href = url.pathname + url.search + url.hash;
@@ -192,7 +208,7 @@ export function initPoliticsPractice(root) {
     if (!q) throw new Error('保存的题目已不在当前目录；请先对账原题组。');
     hide('[data-submitted-result]'); $('[data-submitted-result]').removeAttribute('data-outcome'); hide('[data-question-card]', false); hide('[data-fast-feedback]');
     // Remove previous answer-bearing content even from hidden DOM before clean work.
-    for (const s of ['[data-result-status]', '[data-result-question]', '[data-takeaway]', '[data-chat-explanation]', '[data-result-answer]', '[data-result-selected]', '[data-result-delta]', '[data-review-sources]']) $(s).replaceChildren();
+    for (const s of ['[data-result-status]', '[data-result-question]', '[data-takeaway]', '[data-chat-explanation]', '[data-result-answer]', '[data-result-selected]', '[data-result-delta]', '[data-chengfeng-locator]', '[data-review-sources]']) $(s).replaceChildren();
     $('[data-note]').value = '';
     text('[data-session-current]', session.index + 1); text('[data-session-total]', session.ids.length);
     $('[data-session-progress]').style.width = `${session.index / session.ids.length * 100}%`;

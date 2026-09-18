@@ -3,6 +3,7 @@ import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
 import { politicsProductCatalog } from '../src/lib/productCatalog.mjs';
+import { buildPoliticsPracticeCatalogCurrent } from '../src/lib/politicsPractice.mjs';
 import { PRACTICE_KEYS as K } from '../src/lib/politicsPracticeState.mjs';
 
 const PORT = 4341;
@@ -18,6 +19,9 @@ for (const q of reviewCatalog.questions || []) {
   if (reviewQuestions.length === 3) break;
 }
 if (reviewQuestions.length < 3) throw new Error('POLITICS_REVIEW_VISUAL_FIXTURE_NEEDS_3_UNITS');
+const practiceCatalog = buildPoliticsPracticeCatalogCurrent('/');
+const practiceQuestion = practiceCatalog.questions.find((q) => q.id === 'X1000-MARX-S-001') || practiceCatalog.questions.find((q) => q.unitKey);
+if (!practiceQuestion) throw new Error('POLITICS_PRACTICE_VISUAL_FIXTURE_MISSING');
 const auditDir = path.resolve(process.cwd(), '.qa');
 fs.mkdirSync(auditDir, { recursive: true });
 
@@ -91,6 +95,7 @@ try {
   await waitFor('/politics/learn/');
   await waitFor('/politics/marxism/ch02/');
   await waitFor('/politics/review/');
+  await waitFor('/politics/practice/');
 
   browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({ viewport: VIEWPORT, locale: 'zh-CN' });
@@ -238,6 +243,75 @@ try {
   const reviewType = await visibleTypeFloor(page, '[data-politics-review]', 'review');
   report.routes.review = { route: '/politics/review/', metrics: reviewMetrics, type: reviewType };
   await page.screenshot({ path: path.join(auditDir, 'politics-review-mac.png') });
+
+  const practiceResponse = await page.goto(`${BASE}/politics/practice/?question=${encodeURIComponent(practiceQuestion.id)}`, { waitUntil: 'domcontentloaded' });
+  check(practiceResponse?.ok(), 'practice_http_ok', String(practiceResponse?.status()));
+  await page.evaluate(() => document.fonts.ready);
+  check(await activePoliticsNav(page) === '肖1000', 'practice_l2_active');
+  await page.locator('[data-politics-practice]').waitFor({ state: 'visible' });
+  await page.check('[data-learned-scope]');
+  await page.click('[data-start-session]');
+  await page.locator('[data-question-card]').waitFor({ state: 'visible' });
+  check(await page.locator('[data-submitted-result]').isHidden(), 'practice_clean_result_hidden');
+  check((await page.locator('[data-question-stem]').innerText()).trim().length > 0, 'practice_clean_stem_visible');
+  check(await page.locator('[data-question-options] button').count() >= 2, 'practice_clean_options_visible');
+  const practiceCleanType = await visibleTypeFloor(page, '[data-politics-practice]', 'practice_clean');
+  const practiceCleanMetrics = await page.evaluate(() => {
+    const root = document.querySelector('[data-politics-practice]');
+    const card = document.querySelector('[data-question-card]');
+    const options = document.querySelector('[data-question-options]');
+    if (!root || !card || !options) return null;
+    const rr = root.getBoundingClientRect(), cr = card.getBoundingClientRect();
+    return {
+      rootWidth: rr.width,
+      cardWidth: cr.width,
+      optionColumns: getComputedStyle(options).gridTemplateColumns
+    };
+  });
+  check(Boolean(practiceCleanMetrics), 'practice_clean_geometry_present');
+  check(practiceCleanMetrics.rootWidth >= 1100, 'practice_clean_uses_mac_width', JSON.stringify(practiceCleanMetrics));
+  report.routes.practice_clean = { route: '/politics/practice/', metrics: practiceCleanMetrics, type: practiceCleanType };
+  await page.screenshot({ path: path.join(auditDir, 'politics-practice-clean-mac.png') });
+
+  for (const label of String(practiceQuestion.answer)) {
+    await page.click(`[data-option="${label}"]`);
+  }
+  await page.click('[data-submit]');
+  await page.locator('[data-submitted-result]').waitFor({ state: 'visible' });
+  check(await page.locator('[data-question-card]').isHidden(), 'practice_result_clean_question_hidden');
+  check((await page.locator('[data-takeaway]').innerText()).trim().length > 0, 'practice_result_takeaway_visible');
+  check((await page.locator('[data-chat-explanation]').innerText()).trim().length > 0, 'practice_result_explanation_visible');
+  const exactLocator = page.locator('[data-chengfeng-locator]');
+  check(await exactLocator.isVisible(), 'practice_result_exact_chengfeng_locator_visible');
+  const exactLocatorText = await exactLocator.innerText();
+  check(/乘风要点\s*P6/.test(exactLocatorText), 'practice_result_locator_page_p6', exactLocatorText);
+  check(/【考点4】/.test(exactLocatorText), 'practice_result_locator_exam_point_4', exactLocatorText);
+  check(/→2→（1）/.test(exactLocatorText.replace(/\s+/g,'')), 'practice_result_locator_path_2_1', exactLocatorText);
+  check(await page.locator('[data-review-sources]').isHidden(), 'practice_result_hides_broad_source_range_when_exact');
+  const practiceResultText = await page.locator('[data-submitted-result]').innerText();
+  check(!/肖1000原解析|查看.*原解析|历史原解析/.test(practiceResultText), 'practice_result_excludes_xiao_source_explanation');
+  const practiceResultMetrics = await page.evaluate(() => {
+    const result = document.querySelector('[data-submitted-result]');
+    const layout = document.querySelector('.politicsResultLayout');
+    const summary = document.querySelector('.politicsResultSummaryPane');
+    const knowledge = document.querySelector('.politicsKnowledgeReview');
+    if (!result || !layout || !summary || !knowledge) return null;
+    const r = result.getBoundingClientRect(), s = summary.getBoundingClientRect(), k = knowledge.getBoundingClientRect();
+    return {
+      resultWidth: r.width,
+      resultColumns: getComputedStyle(layout).gridTemplateColumns,
+      summaryWidth: s.width,
+      knowledgeWidth: k.width
+    };
+  });
+  check(Boolean(practiceResultMetrics), 'practice_result_geometry_present');
+  check(practiceResultMetrics.resultColumns.split(' ').length >= 2, 'practice_result_two_column_geometry', JSON.stringify(practiceResultMetrics));
+  check(practiceResultMetrics.knowledgeWidth > practiceResultMetrics.summaryWidth, 'practice_result_knowledge_remains_primary', JSON.stringify(practiceResultMetrics));
+  const practiceResultType = await visibleTypeFloor(page, '[data-submitted-result]', 'practice_result');
+  report.routes.practice_result = { route: '/politics/practice/', metrics: practiceResultMetrics, type: practiceResultType };
+  await page.locator('[data-submitted-result]').evaluate((node) => window.scrollTo({ top: Math.max(0, node.getBoundingClientRect().top + window.scrollY - 118), behavior: 'auto' }));
+  await page.waitForTimeout(120);
+  await page.screenshot({ path: path.join(auditDir, 'politics-practice-result-mac.png') });
 
   const chapterResponse = await page.goto(`${BASE}/politics/marxism/ch02/`, { waitUntil: 'domcontentloaded' });
   check(chapterResponse?.ok(), 'chapter_http_ok', String(chapterResponse?.status()));
