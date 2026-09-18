@@ -1,3 +1,4 @@
+import { loadPoliticsQuestionCurrent } from './politicsRuntimeScoped.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -124,6 +125,16 @@ export function applyMarxismGlobalFirstReady(chapter, subject) {
       const owner = index.ownerByQuestion.get(String(question?.id || ''));
       return Boolean(owner && represented.has(owner));
     });
+    // A reviewed deferral may introduce a last prerequisite not named by the
+    // older region/question link inventory. Hydrate its exact Current question;
+    // never let the practice catalog fall back to an earlier parent Unit.
+    const seen = new Set(questions.map(q => q.id));
+    for (const [questionId, target] of index.deferrals) {
+      if (!represented.has(target) || seen.has(questionId)) continue;
+      const question = loadPoliticsQuestionCurrent(questionId);
+      if (!question.resolved) throw new Error(`POLITICS_MARXISM_DEFERRED_SOURCE_MISSING:${questionId}`);
+      questions.push(question); seen.add(questionId);
+    }
     return {
       ...unit,
       questions,

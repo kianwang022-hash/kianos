@@ -514,3 +514,6 @@ export function politicsRuntimeDiagnostics() {
     loadedQuestionShards: [...questionShardCache.keys()]
   };
 }
+
+// The existing Current Source loader is reused for explicit cross-chapter deferrals.
+export { questionView as loadPoliticsQuestionCurrent };

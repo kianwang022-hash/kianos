@@ -6,18 +6,30 @@
   "record": {
     "card_version": "v3",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:by:baseline-v2-deadline",
+        "pattern": "by + time/deadline",
+        "meaning_cn": "不迟于某个时间；截至某时之前",
+        "definition_en": "at or before a specified time; no later than the stated deadline",
+        "boundary": "by Friday includes any time up to Friday; it does not mean only during Friday.",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "baseline-v2-2026-09-19"
+      }
+    ],
     "content_hash": "6756c671f2f75e35e5b8a7a30ef66c58206513eeee6c13ae275045cd1817fb50",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "被；由；通过；用；在...旁边",
-          "label_en": "indicating the agent performing an action; indicating means or method; near or beside",
+          "label_cn": "被/由；通过/用；在旁边；不迟于/截至",
+          "label_en": "agent; means; beside; or not later than a deadline",
           "pos": "preposition",
           "sense_ids": [
             "sense:by:acecf67352475fd3",
             "sense:by:adca6c60f264521e",
-            "sense:by:28af549614925df9"
+            "sense:by:28af549614925df9",
+            "sense:by:aa6d42b94cc75d9b"
           ]
         },
         {
@@ -29,10 +41,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "在旁；通过；经过",
-      "core_meaning_en": "near; through the agency of; past",
-      "mental_model_cn": "在旁；通过；经过",
-      "mental_model_en": ""
+      "core_meaning_cn": "表示施事、方式、位置或截止时间：由/被、通过/用、在旁边，以及不迟于某时",
+      "core_meaning_en": "marks agent, means, location, or deadline: by someone, by a method, beside, or no later than a time",
+      "mental_model_cn": "agent → 被/由；method → 通过/用；location → 在旁；by Friday/5 pm → 不迟于、截至。",
+      "mental_model_en": "Use syntax to select agent, means, nearby position, or deadline."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,

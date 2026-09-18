@@ -162,6 +162,17 @@ function normalizedOutcome(value) {
   return ['STABLE', 'UNCERTAIN', 'WRONG'].includes(outcome) ? outcome : '';
 }
 
+export function findPoliticsFirstAttempt(snapshot, questionId) {
+  const candidates = Object.entries(snapshot?.units || {}).flatMap(([unitKey, unit]) => {
+    const first = unit?.attempts?.[questionId];
+    return first?.question_id === questionId && normalizedOutcome(first.outcome)
+      ? [{ unitKey, attempt: first }] : [];
+  });
+  // Rebinding changes where a question is taught, not its first observation.
+  // Preserve every stored row; choose the earliest dated observation for Review.
+  return candidates.sort((a, b) => String(a.attempt.observed_at || '').localeCompare(String(b.attempt.observed_at || '')))[0] || null;
+}
+
 export function recordPoliticsFirstAttempt(snapshot, config, attempt) {
   const base = normalizedSnapshot(snapshot);
   const unitKey = String(config?.unit_key || '');
@@ -171,6 +182,9 @@ export function recordPoliticsFirstAttempt(snapshot, config, attempt) {
   if (!unitKey || !questionId || !expected.has(questionId) || !outcome) {
     return { store: base, recorded: false, reason: 'INVALID_OR_OUT_OF_SCOPE' };
   }
+
+  const existingFirst = findPoliticsFirstAttempt(base, questionId);
+  if (existingFirst) return { store: base, recorded: false, reason: 'FIRST_ATTEMPT_ALREADY_RECORDED', attempt: existingFirst.attempt };
 
   const previousUnit = base.units?.[unitKey] && typeof base.units[unitKey] === 'object'
     ? base.units[unitKey]
@@ -189,7 +203,9 @@ export function recordPoliticsFirstAttempt(snapshot, config, attempt) {
     selected: String(attempt?.selected || ''),
     correct_answer: String(attempt?.correct_answer || ''),
     study_day: String(attempt?.study_day || ''),
-    observed_at: observedAt
+    observed_at: observedAt,
+    ...(typeof attempt.uncertain === 'boolean' ? { uncertain: attempt.uncertain } : {}),
+    ...(attempt.source_context ? { source_context: JSON.parse(JSON.stringify(attempt.source_context)) } : {})
   };
   const nextUnit = {
     unit_key: unitKey,

@@ -11,8 +11,8 @@ export function politicsProductCatalog(base = '/') {
     units: p.units.map(({ key, id, title, subject, chapter, href, questionIds, returnConfig }) =>
       ({ key, id, title, subject, chapter, href, questionIds, returnConfig })),
     questions: p.questions.map(({ id, sourceId, number, subject, subjectLabel, chapter,
-      chapterTitle, unitKey, unitId, unitTitle, unitHref, type }) =>
-      ({ id, sourceId, number, subject, subjectLabel, chapter, chapterTitle, unitKey, unitId, unitTitle, unitHref, type })) };
+      chapterTitle, unitKey, unitId, unitTitle, unitHref, type, taskRevision }) =>
+      ({ id, sourceId, number, subject, subjectLabel, chapter, chapterTitle, unitKey, unitId, unitTitle, unitHref, type, taskRevision })) };
   cache.set(base, result); return result;
 }
 export function examProductCatalog(base = '/') {
