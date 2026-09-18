@@ -28,7 +28,7 @@ Architecture-level website blocker: **none**.
 | Lane | State | Active ref / continue from |
 | --- | --- | --- |
 | Xizong UI | **LANDED · MATERIAL HUMAN GATES CLOSED** | `main` → exact accepted Xizong surface owner; reopen only concrete defects |
-| Politics UI | **ACTIVE · HUMAN GATE READY** | PR #461 · `work/politics-l2-l3-replay-20260919` · L2 + Learn Index + chapter workspace accepted by automated gates; waiting only for Kian visual approval |
+| Politics UI | **ACTIVE · HOME HUMAN GATE READY** | PR #466 · `work/politics-home-human-gate-20260919` · L2 / Learn / Chapter landed in main; Home candidate is fully gated and waiting only for Kian visual approval |
 | English UI | **LANDED** | `content/english/CURRENT.md` |
 | Lexical / Vocabulary UI | **LANDED · HUMAN GATES CLOSED** | `content/lexical/CURRENT.md` → normal use / concrete defects only |
 
@@ -181,7 +181,7 @@ CI green is not visual acceptance.
 ## Current next actions
 
 - **Xizong:** learner-facing material UI is landed through whole-paper/year Hidden → Seal → score → same-Workbench Review. Block/TTSX, System Recall, Practice front/back, global retained W/U/Marked and whole-paper are all in `main` with real macOS Human Gates closed. Reopen only concrete defects. Typed Chat Return and durable learner-data recovery stay with the shared Learner Data / Chat Handoff lane.
-- **Politics:** PR #461 is the Current replay on latest `main`: L2 = 总览 / 学习 / 肖1000 / 复习; `/politics/learn/` provides five-subject → chapter entry; generic chapter Learn uses left chapter path + main learner object + Chengfeng companion. Real macOS 1512×982 PingFang evidence, Functional First, Xi/Ethics Runtime+Evidence, navigation build and cross-subject regression are green. Politics QA / Authority reds are pre-existing `main` baselines outside this UI scope. **Next action: Kian Human Gate only; do not roll this visual language into Home / Review / Practice before approval.**
+- **Politics:** L2 + Learn Index + chapter workspace are landed in `main`. PR #466 now closes Home composition: exact Continue, actionable W/U Handoff, and five subject entries only; chapter browsing stays in `/politics/learn/`. Functional First, Xi/Ethics Runtime+Evidence, real macOS PingFang visual gate and cross-subject regression are green. **Next action: Kian Human Gate on the Home screenshot; do not merge or proceed to Review/Practice visual closure before approval.**
 - **English:** landed; fix only concrete launch-visible defects.
 - **Lexical:** Vocabulary v2 learner-surface closure and English exact handoff/return are accepted; normal use only unless a concrete defect appears.
 - **Platform:** after Politics Human Gate, close learner-data durability / typed Chat Return and run final cross-subject regression. UI/CSS ownership cleanup is maintenance, not a new learner product.
