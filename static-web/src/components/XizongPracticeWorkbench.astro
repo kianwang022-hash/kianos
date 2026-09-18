@@ -335,7 +335,7 @@ const payload = JSON.stringify({
         return;
       }
       if (ids.some((id) => !/^xizong-official-\d{4}-n\d{3}$/.test(id))) {
-        showChatSetError('Chat Set 含无效题号', '只接受 canonical xizong-official-YYYY-nNNN 题号。');
+        showChatSetError('Chat Set 含无效题号', '只接受标准 xizong-official-YYYY-nNNN 题号。');
         return;
       }
       const uniqueIds = [...new Set(ids)];
@@ -355,7 +355,7 @@ const payload = JSON.stringify({
       try {
         const { years, byId, missing } = await hydrateQuestionIds(ids);
         if (missing.length) {
-          showChatSetError('Chat Set 含不存在的 Current 题号', `未找到：${missing.slice(0, 6).join('、')}${missing.length > 6 ? '…' : ''}`);
+          showChatSetError('Chat Set 含当前题库不存在的题号', `未找到：${missing.slice(0, 6).join('、')}${missing.length > 6 ? '…' : ''}`);
           return;
         }
 
@@ -383,7 +383,7 @@ const payload = JSON.stringify({
         root.querySelector('[data-holdout-control]')?.setAttribute('hidden', '');
       } catch (error) {
         console.error(error);
-        showChatSetError('Chat Set 题目载入失败', 'Current Question Truth 没有完整载入；网页没有替换、补猜或跳过任何题。');
+        showChatSetError('Chat Set 题目载入失败', '当前题目数据没有完整载入；网页没有替换、补猜或跳过任何题。');
         return;
       }
     }
@@ -408,7 +408,7 @@ const payload = JSON.stringify({
         return;
       }
       if (ids.some((id) => !/^xizong-official-\d{4}-n\d{3}$/.test(id)) || new Set(ids).size !== ids.length) {
-        showRetainedError('回收范围含无效题号', '只接受唯一 canonical qid；网页不会模糊匹配或自行替换。');
+        showRetainedError('回收范围含无效题号', '只接受唯一标准题号；网页不会模糊匹配或自行替换。');
         return;
       }
 
@@ -423,7 +423,7 @@ const payload = JSON.stringify({
       try {
         const { years, byId, missing } = await hydrateQuestionIds(ids);
         if (missing.length) {
-          showRetainedError('回收范围含不存在的 Current 题号', `未找到：${missing.slice(0, 6).join('、')}${missing.length > 6 ? '…' : ''}`);
+          showRetainedError('回收范围含当前题库不存在的题号', `未找到：${missing.slice(0, 6).join('、')}${missing.length > 6 ? '…' : ''}`);
           return;
         }
         data = {
@@ -450,7 +450,7 @@ const payload = JSON.stringify({
         root.querySelector('[data-holdout-control]')?.setAttribute('hidden', '');
       } catch (error) {
         console.error(error);
-        showRetainedError('回收题载入失败', 'Current Question Truth 没有完整载入；网页没有替换、补猜或跳过任何题。');
+        showRetainedError('回收题载入失败', '当前题目数据没有完整载入；网页没有替换、补猜或跳过任何题。');
         return;
       }
     }
@@ -458,7 +458,7 @@ const payload = JSON.stringify({
     if (data?.scopeKind === 'PAPER') {
       const format = data?.paperFormat;
       if (!format || Number(format.year) !== Number(data.years?.[0]) || Number(format.question_count) !== Number(data.questions?.length) || Number(format.max_score) <= 0) {
-        showScopeError('整卷', '整卷评分规则不可用', '当前年份没有可验证的 exam-format owner；网页不会猜分。');
+        showScopeError('整卷', '整卷评分规则不可用', '当前年份的评分规则无法验证；网页不会猜分。');
         return;
       }
       data = {
