@@ -46,7 +46,7 @@ Bounded historical explanatory provenance:
 
 ## 2｜一张脑内主链
 
-先按 Current spine 建这一条：
+先按当前系统主链建这一条：
 
 ```text
 外界空气
@@ -61,7 +61,7 @@ Bounded historical explanatory provenance:
 
 CO₂ 沿组织→血液→肺泡→外界反向排出；呼吸控制器持续调整通气深度和频率。
 
-历史 Guide 的“先建立空气如何到达血液的正常链，再按 Failure Mode 学疾病”是值得保留的解释动作；这里已用 Current A2 spine / failure modes 重新校准。
+历史 Guide 的“先建立空气如何到达血液的正常链，再按 Failure Mode 学疾病”是值得保留的解释动作；这里已按现在的 A2 主链 / Failure Mode 重新校准。
 
 ---
 
@@ -100,7 +100,7 @@ VA = (VT - VD) × f
 
 ## 4｜按第一故障层看疾病
 
-Current A2 可以先压成 8 类 Failure：
+A2 可以先压成 8 类 Failure：
 
 1. **气道阻塞**：空气进出肺泡受阻；
 2. **通气机械 / 风箱失败**：肺、胸廓、胸膜或呼吸肌不能建立足够扩张；
@@ -163,10 +163,10 @@ System Guide 到 Block 入口就停止扩写。
 ```text
 中心问题
 → Block Framework / 最小模型
-→ 按 A2 learning owner 规定的连续原讲义接触
+→ 按当前 A2 学习路径完成连续原讲义接触
 → Logic Group / KP 理解与 Recall
 → Group / Block Closure
-→ Current-owned Memory Routing
+→ 进入 Memory Routing
 ```
 
 A2 已有 Precision / Visual / Connection 等选择性内容支持，但它们是辅助索引，不替代 Framework、Core 或原讲义。
@@ -175,12 +175,12 @@ A2 已有 Precision / Visual / Connection 等选择性内容支持，但它们�
 
 ## 7｜Memory 不是“把所有数字现在背完”
 
-若 Current Block 显式给出：
+若当前 Block 显式给出：
 
 - **MI-G**：会阻断后续理解或 Recall，当前必须带走；
 - **MI-D**：需要精确保留，但可以进入后续间隔记忆，不阻塞当前机制主线。
 
-对呼吸尤其重要：机械变量、VA/Q、气体运输与判别坐标属于模型底座；大量病原谱、阈值、检查数字和分期细节只有在 Current owner 明确归位后才进入对应 Memory 路径，不能让它们把正常链切碎。
+对呼吸尤其重要：机械变量、VA/Q、气体运输与判别坐标属于模型底座；大量病原谱、阈值、检查数字和分期细节只有在当前学习内容明确归位后才进入对应 Memory 路径，不能让它们把正常链切碎。
 
 ---
 
