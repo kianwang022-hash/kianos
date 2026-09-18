@@ -23,6 +23,8 @@ const payload = JSON.stringify({
   holdoutRequired: sweep.holdoutRequired !== false,
   years: sweep.years,
   questions: sweep.questions,
+  resultVisibility: sweep.resultVisibility || 'immediate',
+  paperFormat: sweep.paperFormat || null,
   scopeKind,
   base
 }).replace(/</g, '\\u003c');
@@ -37,6 +39,7 @@ const payload = JSON.stringify({
     <div class="xzpProgress" data-question-progress>准备中</div>
 
     <div class="xzpControls">
+      <button type="button" class="xzpPaperSealControl" data-paper-seal hidden>交卷</button>
       <button type="button" class="xzpQuietControl" data-fast-sweep aria-pressed="false">Fast</button>
       <button type="button" class="xzpQuietControl xzpMarkControl" data-question-mark aria-pressed="false">☆ 标记</button>
       <button type="button" class="xzpQuietControl" data-review-toggle aria-pressed="false" hidden>解析</button>
@@ -94,6 +97,32 @@ const payload = JSON.stringify({
           <button type="button" data-submit-answer disabled>提交答案</button>
         </footer>
       </article>
+
+      <section class="xzpPaperReady" data-paper-ready hidden>
+        <span>PAPER COMPLETE</span>
+        <h2>本卷已经答完</h2>
+        <p>答案仍然保持隐藏。确认交卷后才统一出分并开放复盘。</p>
+        <button type="button" data-paper-seal-ready>交卷并出分</button>
+      </section>
+
+      <section class="xzpPaperResult" data-paper-result hidden>
+        <span>PAPER SEALED</span>
+        <div class="xzpPaperScore">
+          <strong data-paper-earned>0</strong>
+          <em>/</em>
+          <b data-paper-max>0</b>
+        </div>
+        <p data-paper-year-label>整卷成绩</p>
+        <dl>
+          <div><dt>正确</dt><dd data-paper-correct>0</dd></div>
+          <div><dt>错误</dt><dd data-paper-wrong>0</dd></div>
+          <div><dt>未答</dt><dd data-paper-unanswered>0</dd></div>
+        </dl>
+        <div class="xzpPaperResultActions">
+          <button type="button" data-paper-review-start>进入复盘</button>
+          <a href={`${base}xizong/practice/`}>返回整卷目录</a>
+        </div>
+      </section>
 
       <section class="xzpDone" data-sweep-done hidden>
         <span>ROUND COMPLETE</span>
@@ -230,6 +259,11 @@ const payload = JSON.stringify({
     resolveXizongQuestionMarked,
     setXizongGlobalQuestionMark
   } from '../lib/xizongRetainedPractice.mjs';
+  import {
+    scoreXizongPaperResults,
+    sealXizongPaperState,
+    unlockXizongPaperReview
+  } from '../lib/xizongPaperScoring.mjs';
 
   document.querySelectorAll('[data-xizong-practice]').forEach(async (root) => {
     const initialSystemId = root.getAttribute('data-xizong-practice') || '';
@@ -256,6 +290,8 @@ const payload = JSON.stringify({
       root.querySelector('[data-question-card]')?.setAttribute('hidden', '');
       root.querySelector('[data-holdout-gate]')?.setAttribute('hidden', '');
       root.querySelector('[data-sweep-done]')?.setAttribute('hidden', '');
+      root.querySelector('[data-paper-ready]')?.setAttribute('hidden', '');
+      root.querySelector('[data-paper-result]')?.setAttribute('hidden', '');
       if (eyebrow) eyebrow.textContent = label;
       if (heading) heading.textContent = title;
       if (copy) copy.textContent = body;
@@ -419,6 +455,27 @@ const payload = JSON.stringify({
       }
     }
 
+    if (data?.scopeKind === 'PAPER') {
+      const format = data?.paperFormat;
+      if (!format || Number(format.year) !== Number(data.years?.[0]) || Number(format.question_count) !== Number(data.questions?.length) || Number(format.max_score) <= 0) {
+        showScopeError('WHOLE PAPER', '整卷评分规则不可用', '当前年份没有可验证的 exam-format owner；网页不会猜分。');
+        return;
+      }
+      data = {
+        ...data,
+        studyPhase: 'FIRST_PASS',
+        queueMode: 'EXPLICIT_SET',
+        attemptContext: 'PAPER',
+        resultVisibility: 'hidden',
+        fastSweep: false,
+        allowHoldout: true,
+        holdoutRequired: false
+      };
+      const titleNode = root.querySelector('[data-practice-scope-title]');
+      if (titleNode) titleNode.textContent = `${format.year} · 整卷`;
+      root.querySelector('[data-holdout-control]')?.setAttribute('hidden', '');
+    }
+
     if (!data?.questions?.length) return;
 
     const storageId = String(data.systemId || initialSystemId).replace(/[^a-zA-Z0-9:_-]+/g, '-');
@@ -426,7 +483,9 @@ const payload = JSON.stringify({
       ? `kianos:xizong:chat-set-question-sweep:${storageId}:v1`
       : data.scopeKind === 'RETAINED'
         ? `kianos:xizong:retained-question-sweep:${storageId}:v1`
-        : `kianos:xizong:system-question-sweep:${initialSystemId}:v1`;
+        : data.scopeKind === 'PAPER'
+          ? `kianos:xizong:paper-question-sweep:${storageId}:v1`
+          : `kianos:xizong:system-question-sweep:${initialSystemId}:v1`;
 
     let holdoutYears = data.allowHoldout ? [] : readJson(holdoutKey, []);
     let preferences = readJson(preferenceKey, { fastSweep: false, questionMarks: {} });
@@ -478,6 +537,18 @@ const payload = JSON.stringify({
     const holdoutInput = root.querySelector('[data-holdout-input]');
     const saveHoldout = root.querySelector('[data-save-holdout]');
     const moreMenu = root.querySelector('.xzpMore');
+    const resultModeNode = root.querySelector('.xzpResultMode');
+    const paperSealControl = root.querySelector('[data-paper-seal]');
+    const paperSealReady = root.querySelector('[data-paper-seal-ready]');
+    const paperReady = root.querySelector('[data-paper-ready]');
+    const paperResult = root.querySelector('[data-paper-result]');
+    const paperReviewStart = root.querySelector('[data-paper-review-start]');
+    const paperEarned = root.querySelector('[data-paper-earned]');
+    const paperMax = root.querySelector('[data-paper-max]');
+    const paperCorrect = root.querySelector('[data-paper-correct]');
+    const paperWrong = root.querySelector('[data-paper-wrong]');
+    const paperUnanswered = root.querySelector('[data-paper-unanswered]');
+    const paperYearLabel = root.querySelector('[data-paper-year-label]');
 
     const field = {
       examTarget: [root.querySelector('[data-exam-target-wrap]'), root.querySelector('[data-exam-target]')],
@@ -496,6 +567,9 @@ const payload = JSON.stringify({
     let currentIndex = 0;
     let currentSelection = new Set();
     let backVisible = false;
+    const paperMode = data.scopeKind === 'PAPER';
+    const paperSealed = () => Boolean(sweepState?.paperSeal?.sealedAt);
+    const paperReviewUnlocked = () => Boolean(sweepState?.paperSeal?.reviewUnlockedAt);
 
     const letters = (value) => (String(value || '').toUpperCase().match(/[A-Z]/g) || []).sort();
     const same = (a, b) => a.length === b.length && a.every((value, index) => value === b[index]);
@@ -534,11 +608,16 @@ const payload = JSON.stringify({
 
     const renderTop = () => {
       activeQuestions = computeActive();
-      root.querySelector('[data-study-phase]').textContent = xizongStudyPhaseLabel(sweepState.round?.studyPhase || 'FIRST_PASS');
+      root.querySelector('[data-study-phase]').textContent = paperMode ? '整卷' : xizongStudyPhaseLabel(sweepState.round?.studyPhase || 'FIRST_PASS');
       holdoutCurrent.textContent = holdoutYears.length ? holdoutYears.join('、') : '未设置';
       holdoutInput.value = holdoutYears.join(', ');
       fastButton.setAttribute('aria-pressed', String(Boolean(preferences.fastSweep)));
       fastButton.textContent = preferences.fastSweep ? 'Fast · On' : 'Fast';
+      if (resultModeNode) resultModeNode.textContent = paperMode ? (paperSealed() ? '已出分' : '隐藏') : '即时';
+      if (paperSealControl instanceof HTMLButtonElement) {
+        paperSealControl.hidden = !paperMode || paperSealed();
+        paperSealControl.textContent = paperMode ? `交卷 · ${Object.keys(sweepState.results || {}).length}/${data.questions.length}` : '交卷';
+      }
       if (currentQuestion) {
         markButton.setAttribute('aria-pressed', String(markedFor(currentQuestion.questionId)));
         markButton.textContent = markedFor(currentQuestion.questionId) ? '★ 已标记' : '☆ 标记';
@@ -560,6 +639,7 @@ const payload = JSON.stringify({
 
     const showBack = () => {
       if (!currentQuestion || !resultFor(currentQuestion.questionId)) return;
+      if (paperMode && !paperSealed()) return;
       backVisible = true;
       if (front) front.hidden = true;
       if (back) back.hidden = false;
@@ -677,7 +757,7 @@ const payload = JSON.stringify({
           button.className = 'xzpMapItem';
           button.classList.toggle('current', currentQuestion?.questionId === q.questionId);
           button.classList.toggle('answered', Boolean(result));
-          button.classList.toggle('wrong', result?.status === 'wrong');
+          button.classList.toggle('wrong', Boolean(result?.status === 'wrong' && (!paperMode || paperSealed())));
           button.classList.toggle('marked', marked);
           button.textContent = String(q.number || index + 1);
           button.title = `${year} · 第 ${q.number || index + 1} 题`;
@@ -698,6 +778,8 @@ const payload = JSON.stringify({
       currentQuestion = null;
       questionCard.hidden = true;
       done.hidden = true;
+      if (paperReady) paperReady.hidden = true;
+      if (paperResult) paperResult.hidden = true;
       holdoutGate.hidden = false;
       if (reviewToggle) reviewToggle.hidden = true;
       clearReview();
@@ -709,8 +791,69 @@ const payload = JSON.stringify({
     };
 
     const firstUnansweredIndex = () => activeQuestions.findIndex((q) => !resultFor(q.questionId));
+    const firstPaperReviewIndex = () => {
+      const wrongIndex = activeQuestions.findIndex((q) => resultFor(q.questionId)?.status === 'wrong');
+      return wrongIndex >= 0 ? wrongIndex : 0;
+    };
+
+    const renderPaperReady = () => {
+      currentQuestion = null;
+      if (front) front.hidden = false;
+      if (back) back.hidden = true;
+      questionCard.hidden = true;
+      holdoutGate.hidden = true;
+      done.hidden = true;
+      if (paperResult) paperResult.hidden = true;
+      if (paperReady) paperReady.hidden = false;
+      if (reviewToggle) reviewToggle.hidden = true;
+      questionMeta.textContent = 'WHOLE PAPER · READY TO SEAL';
+      questionProgress.textContent = `${activeQuestions.length} / ${activeQuestions.length}`;
+      if (questionProgressSide) questionProgressSide.textContent = `${activeQuestions.length} / ${activeQuestions.length}`;
+      renderMap();
+      renderTop();
+    };
+
+    const renderPaperResult = () => {
+      const summary = sweepState?.paperSeal?.summary || scoreXizongPaperResults(data.paperFormat, data.questions, sweepState.results || {});
+      currentQuestion = null;
+      if (front) front.hidden = false;
+      if (back) back.hidden = true;
+      questionCard.hidden = true;
+      holdoutGate.hidden = true;
+      done.hidden = true;
+      if (paperReady) paperReady.hidden = true;
+      if (paperResult) paperResult.hidden = false;
+      if (reviewToggle) reviewToggle.hidden = true;
+      if (paperEarned) paperEarned.textContent = String(summary.earnedScore);
+      if (paperMax) paperMax.textContent = String(summary.maxScore);
+      if (paperCorrect) paperCorrect.textContent = String(summary.correctCount);
+      if (paperWrong) paperWrong.textContent = String(summary.wrongCount);
+      if (paperUnanswered) paperUnanswered.textContent = String(summary.unansweredCount);
+      if (paperYearLabel) paperYearLabel.textContent = `${data.paperFormat?.year || ''} 整卷 · ${summary.answeredCount}/${summary.questionCount} 已作答`;
+      questionMeta.textContent = 'WHOLE PAPER · SEALED';
+      questionProgress.textContent = `${summary.earnedScore} / ${summary.maxScore}`;
+      if (questionProgressSide) questionProgressSide.textContent = `正确 ${summary.correctCount} · 错误 ${summary.wrongCount}`;
+      renderMap();
+      renderTop();
+    };
+
+    const sealPaper = () => {
+      if (!paperMode) return;
+      if (!paperSealed()) {
+        const summary = scoreXizongPaperResults(data.paperFormat, data.questions, sweepState.results || {});
+        const next = sealXizongPaperState(sweepState, summary);
+        if (!writeJson(sweepKey, next)) return;
+        sweepState = next;
+      }
+      renderPaperResult();
+    };
 
     const renderDone = () => {
+      if (paperMode) {
+        if (paperSealed()) renderPaperResult();
+        else renderPaperReady();
+        return;
+      }
       currentQuestion = null;
       questionCard.hidden = true;
       holdoutGate.hidden = true;
@@ -732,8 +875,16 @@ const payload = JSON.stringify({
       activeQuestions = computeActive();
       if (data.holdoutRequired !== false && !holdoutYears.length) { renderGate(); return; }
       if (!activeQuestions.length) { renderDone(); return; }
+      if (paperMode && paperSealed() && !paperReviewUnlocked() && !Number.isInteger(requestedIndex)) {
+        renderPaperResult();
+        return;
+      }
 
-      let index = Number.isInteger(requestedIndex) ? Number(requestedIndex) : firstUnansweredIndex();
+      let index = Number.isInteger(requestedIndex)
+        ? Number(requestedIndex)
+        : paperMode && paperSealed() && paperReviewUnlocked()
+          ? firstPaperReviewIndex()
+          : firstUnansweredIndex();
       if (index < 0) { renderDone(); return; }
       currentIndex = Math.max(0, Math.min(activeQuestions.length - 1, index));
       currentQuestion = activeQuestions[currentIndex];
@@ -742,6 +893,8 @@ const payload = JSON.stringify({
 
       holdoutGate.hidden = true;
       done.hidden = true;
+      if (paperReady) paperReady.hidden = true;
+      if (paperResult) paperResult.hidden = true;
       questionCard.hidden = false;
       questionMeta.textContent = `${currentQuestion.year} · 第 ${currentQuestion.number} 题 · ${currentQuestion.questionType || '题'}`;
       questionProgress.textContent = `${currentIndex + 1} / ${activeQuestions.length}`;
@@ -784,17 +937,20 @@ const payload = JSON.stringify({
       submit.disabled = Boolean(existing) || currentSelection.size === 0;
       submit.hidden = Boolean(existing);
       clearReview();
-      if (reviewToggle) reviewToggle.hidden = !existing;
+      const mayRevealResult = !paperMode || paperSealed();
+      if (reviewToggle) reviewToggle.hidden = !existing || !mayRevealResult;
 
-      if (existing) {
+      if (existing && mayRevealResult) {
         const correct = letters(currentQuestion.correctAnswer);
         optionsBox.querySelectorAll('.xzpOption').forEach((node) => {
           const key = node.dataset.option || '';
           node.classList.toggle('correct', correct.includes(key));
           node.classList.toggle('wrong', currentSelection.has(key) && !correct.includes(key));
         });
-        if (existing.status === 'wrong' || existing.status === 'uncertain') renderReview(currentQuestion, existing);
+        if (!paperMode && (existing.status === 'wrong' || existing.status === 'uncertain')) renderReview(currentQuestion, existing);
         else showFront();
+      } else if (existing) {
+        showFront();
       }
 
       renderMap();
@@ -823,6 +979,12 @@ const payload = JSON.stringify({
 
     const nextQuestion = () => {
       activeQuestions = computeActive();
+      if (paperMode && paperSealed()) {
+        const next = currentIndex + 1;
+        if (next >= activeQuestions.length) renderPaperResult();
+        else renderQuestion(next);
+        return;
+      }
       const after = activeQuestions.findIndex((q, index) => index > currentIndex && !resultFor(q.questionId));
       const first = firstUnansweredIndex();
       const next = after >= 0 ? after : first;
@@ -837,6 +999,10 @@ const payload = JSON.stringify({
       const isCorrect = same(selected, correct);
       if (!persistAttempt(isCorrect ? 'stable' : 'wrong')) return;
       renderQuestion(currentIndex);
+      if (paperMode && !paperSealed()) {
+        window.setTimeout(nextQuestion, preferences.fastSweep ? 90 : 180);
+        return;
+      }
       if (isCorrect) window.setTimeout(nextQuestion, preferences.fastSweep ? 120 : 520);
     };
 
@@ -878,6 +1044,16 @@ const payload = JSON.stringify({
       }
     });
     markButton.addEventListener('click', toggleMark);
+    paperSealControl?.addEventListener('click', sealPaper);
+    paperSealReady?.addEventListener('click', sealPaper);
+    paperReviewStart?.addEventListener('click', () => {
+      if (!paperMode || !paperSealed()) return;
+      const next = unlockXizongPaperReview(sweepState);
+      if (!writeJson(sweepKey, next)) return;
+      sweepState = next;
+      activeQuestions = computeActive();
+      renderQuestion(firstPaperReviewIndex());
+    });
     reviewToggle?.addEventListener('click', () => {
       if (!currentQuestion) return;
       const existing = resultFor(currentQuestion.questionId);
@@ -955,6 +1131,7 @@ const payload = JSON.stringify({
         const existing = resultFor(currentQuestion.questionId);
         if (existing) {
           event.preventDefault();
+          if (paperMode && !paperSealed()) return;
           if (backVisible) showFront();
           else renderReview(currentQuestion, existing);
         }
