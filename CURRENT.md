@@ -1,6 +1,6 @@
 # KianOS Root Current
 
-Role: **Control Tower + root router**  
+Role: **Control Tower + root Work Cursor/router**  
 Rule: current routing/status only. No semantic Truth, Acceptance ledger, learner progress, or duplicated child-task cursor.
 
 ---
@@ -50,6 +50,10 @@ root CURRENT
 ```
 
 Task creation, persistence, active-ref freshness and artifact+cursor atomicity are operating rules owned by `AGENTS.md`; they are not duplicated here.
+
+Shared authority routing:
+- durable ownership / inheritance → `AUTHORITY_INHERITANCE_CONTRACT.md`;
+- machine owner topology → `AUTHORITY_OWNERSHIP.json`.
 
 ---
 
