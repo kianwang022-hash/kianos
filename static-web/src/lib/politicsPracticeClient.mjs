@@ -38,6 +38,11 @@ export function initPoliticsPractice(root) {
   const qById = new Map(catalog.questions.map((q) => [q.id, q]));
   const uByKey = new Map(catalog.units.map((u) => [u.key, u]));
   const controls = Object.fromEntries(['subject', 'chapter', 'unit', 'type', 'count', 'mode'].map((name) => [name, $(`[data-filter-${name}]`)]));
+  const params = new URLSearchParams(location.search);
+  const explicitQuestionIds = params.has('questions')
+    ? params.get('questions').split(',').map((id) => id.trim()).filter(Boolean)
+    : [];
+  const explicitRetest = explicitQuestionIds.length > 0;
   let selected = new Set(), uncertain = false, trajectory = [], elapsedMs = 0, activeSince = 0;
   let busy = false, stale = false, blocked = false, noteTimer, advanceTimer, startQuestionId = null;
   const active = () => session?.status === 'active';
