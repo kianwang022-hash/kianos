@@ -16,33 +16,20 @@ jobs:
       head: ${{ steps.head.outputs.sha }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
-      - name: Apply bounded closeout, with no medical or shared-store changes
+      - name: Apply final bounded patch when present
         run: |
           if test -f .github/xizong-final-closeout.py; then
             python3 .github/xizong-final-closeout.py
             git diff --check
-            git add static-web/src/components/XizongRecallEvidenceBridge.astro static-web/src/components/XizongStudyEnhancer.astro static-web/src/components/XizongKpLearnInteraction.astro static-web/src/components/XizongPracticeWorkbench.astro static-web/scripts/test-xizong-final-independent.mjs
+            git add static-web/src/components/XizongPracticeWorkbench.astro static-web/src/components/XizongSystemExitRuntime.astro static-web/src/components/XizongSystemEvidenceGuard.astro static-web/scripts/test-xizong-final-independent.mjs
             git rm .github/xizong-final-closeout.py
             git config user.name 'KianOS acceptance worker'
             git config user.email 'noreply@users.noreply.github.com'
-            git commit -m 'fix(xizong): persist evidence before advance and unify complete packet export'
+            git commit -m 'fix(xizong): restore post-question reconstruction and preserve System Recall evidence'
             git push origin HEAD:work/xizong-final-learner-20260919-independent
           fi
       - id: head
         run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
-      - name: Candidate source receipt
-        run: |
-          mkdir -p /tmp/xizong-candidate
-          git rev-parse HEAD > /tmp/xizong-candidate/head.txt
-          git diff HEAD~1 HEAD --stat > /tmp/xizong-candidate/change-stat.txt
-          git archive HEAD | gzip > /tmp/xizong-candidate/worktree.tar.gz
-      - uses: actions/upload-artifact@v4
-        with:
-          name: xizong-candidate-source
-          path: /tmp/xizong-candidate
-          retention-days: 14
   independent:
     needs: prepare
     strategy:
@@ -58,19 +45,30 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Install current runtime and isolated browser harness
+      - name: Install runtime and browser harness
         working-directory: static-web
         run: |
           npm install --no-package-lock --no-audit --no-fund
           npm install --no-save --no-package-lock --no-audit --no-fund playwright
           npx playwright install chromium
-      - name: Fresh independent contract and browser probes
+      - name: Fresh independent learner probes
         working-directory: static-web
         env:
           KIANOS_REPO_ROOT: ${{ github.workspace }}
           XIZONG_AUDIT_HEAD: ${{ needs.prepare.outputs.head }}
           ASTRO_TELEMETRY_DISABLED: '1'
         run: node scripts/test-xizong-final-independent.mjs
+      - name: Bounded dependent regression, not broad CI
+        if: always()
+        working-directory: static-web
+        shell: bash
+        run: |
+          mkdir -p .qa/xizong-final-independent
+          status=0
+          for script in test-xizong-daily-learning-packet validate-xizong-paper-practice validate-xizong-retained-practice validate-xizong-projection-current validate-xizong-learner-object validate-xizong-representation-gate; do
+            node "scripts/$script.mjs" > ".qa/xizong-final-independent/$script.log" 2>&1 || status=1
+          done
+          exit "$status"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
