@@ -92,20 +92,17 @@
       ]
     },
     "precision_knowledge": {
-      "policy": "CURRENT_GROUNDED_CANDIDATE_MAP",
-      "candidate_domains": [
-        "思想道德与法治关系边界",
-        "德治/法治互补但不可互换"
+      "policy": "REFERENCE_MEMORY_SIDECAR",
+      "owner_path": "content/politics/learning/ethics-law/ch00.memory.json",
+      "candidate_ids": [
+        "POL27-MEM-ETHICS-C00-M01",
+        "POL27-MEM-ETHICS-C00-M02"
       ],
-      "historical_source_slices": [
-        {
-          "from": "LEG26-LOWER-ETHICS-P085",
-          "through": "LEG26-LOWER-ETHICS-P085",
-          "scope": "德治与法治关系模板，为绪论中的思想道德/法治共同性与差异提供跨章输出支持"
-        }
-      ],
-      "materialization_status": "CANDIDATE_OBJECTS_TO_BE_MATERIALIZED",
-      "freshness_gate": "NORMAL_CURRENT_YEAR_CORROBORATION"
+      "admission_state": "CANDIDATE_ONLY",
+      "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+      "deferred_domains": [],
+      "freshness_gate": "NORMAL",
+      "rule": "Current concept/boundary Knowledge plus inspected historical support creates candidate-only precision; durable Memory remains admission-gated."
     },
     "analysis_output_hooks": [
       {
