@@ -18,6 +18,7 @@ fs.mkdirSync(auditDir, { recursive:true });
 const reportPath = path.join(auditDir, 'xizong-system-exit-workspace.json');
 const recallShot = path.join(auditDir, 'xizong-system-exit-recall.png');
 const recallRevealShot = path.join(auditDir, 'xizong-system-exit-recall-reveal.png');
+const practiceFrontShot = path.join(auditDir, 'xizong-practice-workbench-front.png');
 const practiceShot = path.join(auditDir, 'xizong-practice-workbench.png');
 const report = {
   schema:'kianos.xizong.recall_practice_workspace.v2',
@@ -179,6 +180,7 @@ try {
   check(['auto','scroll'].includes(geometry.qOverflow),'practice_question_has_local_scroll',JSON.stringify(geometry));
   check(['auto','scroll'].includes(geometry.reviewOverflow),'practice_review_has_local_scroll',JSON.stringify(geometry));
   report.practice_geometry=geometry;
+  await page.screenshot({path:practiceFrontShot,fullPage:false});
 
   check((await practice.locator('[data-fast-sweep]').getAttribute('aria-pressed'))==='false','fast_off_default');
   await practice.locator('[data-fast-sweep]').click();
