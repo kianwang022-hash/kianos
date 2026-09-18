@@ -15,15 +15,19 @@ Politics learning engineering is closed through the current scoped `S/K/L/P/R/E`
 
 There is no current reason to reopen Politics semantic engineering without a concrete defect.
 
+A fresh learner-loop audit on 2026-09-19 identified one concrete closure defect: Politics learning pages still exposed a second inline Xiao1000 attempt surface with different backside semantics. Active repair is scoped to PR/branch `work/politics-batch-review-loop-20260919`: formal Workbench becomes the only learner-facing Xiao1000 attempt/evidence owner, while Review remains the learner-triggered batch Chat handoff.
+
 The stable learner loop remains:
 
 ```text
 Orientation / current Natural Unit
 → Chengfeng continuous study on iPad / MarginNote
 → optional checkpoint
-→ Xiao1000 verification in Astro
-→ stable correct exits cheaply
-   OR Wrong / meaningful Uncertain → smallest useful repair → exact return
+→ single Xiao1000 Workbench
+→ prebuilt refined backside Content
+→ record Evidence / cause / note
+→ continue
+→ learner-triggered batch Review packet → Chat when wanted
 → meaningful Resume
 ```
 
@@ -56,12 +60,12 @@ Suyi       framework / orientation / exactness cross-check input
 Chengfeng  continuous first-round mainline on original iPad / MarginNote
 Xiao1000   verification / later evidence in Astro
 KianOS     orientation / selective presentation / verification / repair companion
-Chat       adaptive semantic repair when earned
+Chat       batch Review diagnosis / durable content correction when learner-triggered
 ```
 
 - Source ownership ≠ surface ownership.
 - stable correct stays cheap;
-- Wrong/meaningful Uncertain opens the smallest useful repair;
+- Wrong/Uncertain records learner evidence without forcing an immediate Chat/repair context switch;
 - first-attempt Evidence and exact Return survive visual optimization;
 - `REFERENCE_ONLY` content remains non-teaching;
 - a missing/empty derived presentation is never permission for UI to synthesize Knowledge.
