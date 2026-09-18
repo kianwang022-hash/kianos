@@ -487,20 +487,158 @@ Optional chapter-level `*.memory.json` sidecars may hold sparse, source-grounded
 
 First-round understanding and Xiao1000 performance do not by themselves prove that the learner can produce high-scoring analysis answers.
 
-Later analysis preparation must deliberately train:
+Analysis Output is **Chat-primary**. It does not require a dedicated Website / Runtime path.
+
+Durable assets live in GitHub; adaptive practice happens in Chat:
 
 ```text
-material cue
-→ identify owning principle / political position
-→ choose a small answer framework
-→ retrieve source-grounded formulation
-→ connect formulation back to the material
-→ produce complete time-bounded prose
+Current analysis-output hooks / source-grounded overlays
+→ Chat
+→ material cue
+→ learner identifies owning principle / political position
+→ learner states a small answer skeleton
+→ retrieve only required source-grounded formulation
+→ connect back to material
+→ optional full prose when it earns the time
 ```
+
+Canonical topic hooks remain owned by:
+
+```text
+content/politics/learning/<subject>/<chapter>.json
+→ later_stage_knowledge.analysis_output_hooks[]
+```
+
+The lane-level routing / production rule lives at:
+
+```text
+content/politics/analysis-output/README.md
+```
+
+#### Default depth
+
+Chat normally trains:
+
+```text
+IDENTIFY
+→ SKELETON
+```
+
+Add `EXACT` only where source/current-year wording genuinely matters.
+
+Add full `DELIVER` only when:
+
+- first calibrating an important question family;
+- material → principle → skeleton conversion is unstable;
+- time-bounded delivery itself needs evidence;
+- Mock/final practice explicitly requires full prose.
+
+This keeps Politics analysis preparation low-cost and prevents a second recitation course.
+
+#### Source / freshness
 
 The later phase may proactively admit source-grounded formulations from an approved recitation/current-affairs source even before a Wrong event, because written production has different retrieval requirements from multiple-choice recognition.
 
+But historical output material is only scaffold when current-year wording is still pending.
+
+```text
+stable topic / skeleton
+≠ current exact formulation
+```
+
+Xi/current-affairs and legal/normative wording use the strongest current-source freshness gates.
+
+No source support → no exact formulation claim.
+
+#### Website boundary
+
+There is no requirement to create:
+
+- an Analysis Output page;
+- a dedicated Runtime;
+- an answer-template dashboard;
+- per-topic progress UI;
+- Website semantic grading.
+
+If later real learner use proves that a small helper materially reduces friction, that is a separate downstream decision.
+
 Do not import the full later recitation burden into first-round Chengfeng study merely to feel safe.
+
+
+### 6.4 Mock / Final is execution evidence + last-mile compression
+
+Mock / Final is a separate later Learning lane.
+
+It is intentionally **not** a fourth Politics course and does not require a dedicated Website.
+
+Durable routing / production rules live at:
+
+```text
+content/politics/mock-final/README.md
+```
+
+#### Mock
+
+Mock answers a whole-paper question that ordinary practice cannot answer cheaply:
+
+```text
+Can current objective knowledge/discrimination
++ analysis transfer
++ pacing/switching
++ answer completion
+
+survive under exam-like constraints?
+```
+
+Use full Mock only when that evidence can change a real learner decision. Use smaller timed sets when the real uncertainty is local.
+
+Preserve one clean first attempt. Do not interrupt the paper for mid-attempt semantic repair.
+
+Afterward:
+
+```text
+Mock evidence
+→ Chat identifies the first meaningful failure
+→ route to existing smallest owner
+→ repair
+→ return to ordinary learning
+```
+
+Do not create a generic Mock weakness when an existing Consolidation / Precision / Analysis Output / execution owner already explains the failure.
+
+Same-paper correction is repair evidence, not fresh transfer.
+
+#### Final
+
+Final review starts from a small evidence-backed queue:
+
+```text
+admitted high-value Precision / Memory
++ current-year exact overlays
++ high-frequency Analysis Output skeletons
++ repeated / still-relevant W/U
++ Mock-exposed real weaknesses
++ critical current-source refreshes
+```
+
+It does **not** start from the whole Politics chapter tree.
+
+Stable chapter content, candidate-only Memory, stale historical wording, rich reference content and full Xiao1000 replay are excluded by default.
+
+Hard rule:
+
+> **Final compression is what is worth carrying into the exam, not a miniature fourth round.**
+
+Chat owns the final queue and may shrink/re-open it as evidence changes.
+
+#### Surface boundary
+
+Mock execution may occur on an authentic/exam-like paper/PDF or other surface that preserves real timing and answer delivery.
+
+Chat owns Mock selection/diagnosis and Final prioritization.
+
+No dedicated Mock page, final-review dashboard, Website scheduler or Website semantic grading is required for Learning closure.
+
 
 ## 7. Astro boundary
 
