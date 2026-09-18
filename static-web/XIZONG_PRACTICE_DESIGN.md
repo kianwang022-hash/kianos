@@ -1,6 +1,6 @@
 # Xizong Practice Workbench — accepted design
 
-Status: **ACCEPTED FOR MAIN — FUNCTION / RUNTIME / PRACTICE L3 VISUAL 2026-09-18 · REAL LEARNER U PENDING**
+Status: **ACCEPTED PRACTICE BASELINE — WHOLE-PAPER EXTENSION AT HUMAN GATE 2026-09-18 · REAL LEARNER U PENDING**
 
 Parent: `static-web/XIZONG_PRODUCT_BRIEF.md`  
 Visual L2: `static-web/XIZONG_VISUAL_LANGUAGE.md`  
@@ -338,9 +338,17 @@ Global retained Practice is now in main:
 - Holdout years remain protected;
 - retained qids hydrate Current Question Truth and execute in the same Workbench.
 
+Whole-paper extension is implemented in PR #455 and is now at Human Gate:
+- year scope hydrates that year's exact canonical questions;
+- historical question count / score comes only from `exam-format.json`;
+- pre-Seal answers remain editable drafts and leak no result / answer / explanation;
+- Seal materializes formal hidden Question Attempts once;
+- score releases once after Seal;
+- Review reuses the same Practice Workbench and only unlocks after Seal;
+- exact-head Runtime / Semantic / Representation / macOS Visual gates pass; merge still waits for Kian's learner-facing screenshot acceptance.
+
 Still separate:
 - unified typed Chat Return Packet integration beyond the manual CHAT_SET fallback;
-- whole-paper/year scope + Hidden result + seal/reveal;
 - durable learner-data closure;
 - real learner U.
 
