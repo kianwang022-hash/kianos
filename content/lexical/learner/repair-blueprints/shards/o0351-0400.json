@@ -1,0 +1,391 @@
+{
+  "schema": "kianos.lexical.repair_blueprint_shard.v1",
+  "range": {
+    "start_ordinal": 351,
+    "end_ordinal": 400
+  },
+  "authority": "content/lexical/LEARNING_CONTRACT.md + CONTENT_ASSET_CONTRACT.md + approved shard Human Gate 2026-09-19",
+  "generation_rule": "Blueprints store stable diagnostic intent; concrete instances are generated fresh from latest canonical content + learner evidence.",
+  "entries": [
+    {
+      "blueprint_id": "repair-blueprint:o0352:avail:v1",
+      "word_id": "word:avail",
+      "ordinal": 352,
+      "word": "avail",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:avail:baseline-v2-oneself-of",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定产出 avail oneself of sth，并识别 to/of no avail 的整体义。",
+      "decision_boundary_cn": "利用机会/资源的 reflexive 结构与“徒劳无效”的 noun phrase 不能混用。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 avail oneself of 与 no avail 两个高价值结构。",
+      "reconstruction_rule_cn": "换一个利用服务/机会或徒劳尝试的语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0355:average:v1",
+      "word_id": "word:average",
+      "ordinal": 355,
+      "word": "average",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分平均数、普通/平常、计算平均值与平均达到。",
+      "decision_boundary_cn": "noun/adjective/transitive verb/intransitive-result 四类句法位置决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 average 的词性与语义分支。",
+      "reconstruction_rule_cn": "换一个统计值、普通水平或平均产量语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0356:avert:v1",
+      "word_id": "word:avert",
+      "ordinal": 356,
+      "word": "avert",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 avert=防止坏事发生 与 avert one's eyes/face=转开。",
+      "decision_boundary_cn": "risk/disaster 与 eyes/gaze/face 两类受事对象决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 avert 的对象驱动分支。",
+      "reconstruction_rule_cn": "换一个危机预防或转移视线语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0358:avoid:v1",
+      "word_id": "word:avoid",
+      "ordinal": 358,
+      "word": "avoid",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:avoid:baseline-v2-doing",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定产出 avoid doing sth，并避免 *avoid to do。",
+      "decision_boundary_cn": "noun/gerund complement 与 infinitive 干扰形成结构判断。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 avoid doing 的补语骨架。",
+      "reconstruction_rule_cn": "换一个避免犯错、避免接触或避免采取动作的语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0359:await:v1",
+      "word_id": "word:await",
+      "ordinal": 359,
+      "word": "await",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:b43e18ac0649aa4ecd1f",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定产出 await sb/sth，避免 *await for sb/sth。",
+      "decision_boundary_cn": "直接宾语与 wait for 的近义结构形成真实干扰。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 await 的及物结构。",
+      "reconstruction_rule_cn": "换一个等待结果、决定或某人的语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0360:awake:v1",
+      "word_id": "word:awake",
+      "ordinal": 360,
+      "word": "awake",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 awake adjective=醒着、verb=唤醒/使意识到、vi.=醒来/意识到。",
+      "decision_boundary_cn": "stay/wide awake、awake sb to sth、awake to sth 三类结构决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 awake 的词性/论元分支。",
+      "reconstruction_rule_cn": "换一个保持清醒、唤醒某人或意识觉醒语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0361:award:v1",
+      "word_id": "word:award",
+      "ordinal": 361,
+      "word": "award",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:award:baseline-v2-sth-to-sb",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定产出 award sth to sb，并兼顾法律判给/奖项授予。",
+      "decision_boundary_cn": "prize/payment/damages 等受事物 + recipient 的双宾语关系必须正确。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 award sth to sb 的结构。",
+      "reconstruction_rule_cn": "换一个奖项授予或法院判给赔偿的语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0362:aware:v1",
+      "word_id": "word:aware",
+      "ordinal": 362,
+      "word": "aware",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:aware:baseline-v2-of",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定产出 be aware of sth / be aware that...。",
+      "decision_boundary_cn": "名词补语用 of，从句补语直接 that；避免 *aware about。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 aware 的两个高价值补语骨架。",
+      "reconstruction_rule_cn": "换一个风险认知或事实意识到的语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0364:awe:v1",
+      "word_id": "word:awe",
+      "ordinal": 364,
+      "word": "awe",
+      "target": {
+        "target_kind": "collocation",
+        "target_id": "collocation:c33fc0beb2f7cf02dc7d",
+        "target_locator": "record.senses[0].collocations[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定产出 be/in awe of sb/sth，表达敬畏/惊叹。",
+      "decision_boundary_cn": "awe of 与 afraid of / admire 等近邻表达保持语义自然但功能不同。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 in awe of 的整体结构。",
+      "reconstruction_rule_cn": "换一个自然景观、人物或成就带来敬畏的语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0367:ax:v1",
+      "word_id": "word:ax",
+      "ordinal": 367,
+      "word": "ax",
+      "target": {
+        "target_kind": "form_identity",
+        "target_id": null,
+        "target_locator": "record.form_identity"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "识别 ax / axe 是同一词的区域拼写变体，并区分字面斧头与动词“削减/取消”。",
+      "decision_boundary_cn": "拼写地区信息与 noun/verb 语境共同决定正确理解。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 ax/axe spelling identity 和核心词性分支。",
+      "reconstruction_rule_cn": "换一个工具语境或削减预算/岗位语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0368:axis:v1",
+      "word_id": "word:axis",
+      "ordinal": 368,
+      "word": "axis",
+      "target": {
+        "target_kind": "form_identity",
+        "target_id": null,
+        "target_locator": "record.form_identity"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 axis / axes 单复数与 capitalized Axis 历史专名。",
+      "decision_boundary_cn": "number、capitalization、history/math context 三类线索共同决定形式与含义。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 axis 的 inflection/case identity。",
+      "reconstruction_rule_cn": "换一个坐标轴、多个轴或二战历史语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0371:back:v1",
+      "word_id": "word:back",
+      "ordinal": 371,
+      "word": "back",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:back:baseline-v2-back-up",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 back up 的后退/倒车、支持证实、备份数据。",
+      "decision_boundary_cn": "vehicle/movement、claim/person、files/data 三类对象决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 back up 的三个高价值分支。",
+      "reconstruction_rule_cn": "换一个停车、论据支持或文件备份语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0378:badly:v1",
+      "word_id": "word:badly",
+      "ordinal": 378,
+      "word": "badly",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 badly=严重地/非常需要 与 badly=糟糕地、差地。",
+      "decision_boundary_cn": "injured/needed/wanted 等程度语境与 performed/played 等方式语境决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 badly 的 degree vs manner 边界。",
+      "reconstruction_rule_cn": "换一个受伤程度或表现质量语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0381:baggage:v1",
+      "word_id": "word:baggage",
+      "ordinal": 381,
+      "word": "baggage",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分旅行行李、军队辎重与 emotional/cultural baggage 比喻义。",
+      "decision_boundary_cn": "travel、military logistics、psychological/cultural context 三类领域决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 baggage 的领域分支。",
+      "reconstruction_rule_cn": "换一个机场、军事或情感经验语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0382:bail:v1",
+      "word_id": "word:bail",
+      "ordinal": 382,
+      "word": "bail",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分保释金/保释、从船里舀水，以及 bail sb/sth out 的救助纾困。",
+      "decision_boundary_cn": "court/prison、boat/water、financial rescue 三类语境决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 bail 的领域与构式分支。",
+      "reconstruction_rule_cn": "换一个法院、船只或企业纾困语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0383:bait:v1",
+      "word_id": "word:bait",
+      "ordinal": 383,
+      "word": "bait",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分诱饵、用饵引诱与故意挑衅/惹怒。",
+      "decision_boundary_cn": "fishing/trap、entice into action、provoke person 三类对象决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 bait 的 literal lure vs provoke 边界。",
+      "reconstruction_rule_cn": "换一个钓鱼、网络诱导或人际挑衅语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0385:balance:v1",
+      "word_id": "word:balance",
+      "ordinal": 385,
+      "word": "balance",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分物理平衡、账户余额、权衡与结算。",
+      "decision_boundary_cn": "body/object、bank/account、pros and cons、books/accounts 四类对象决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 balance 的对象/领域分支。",
+      "reconstruction_rule_cn": "换一个身体平衡、财务或决策权衡语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0394:band:v1",
+      "word_id": "word:band",
+      "ordinal": 394,
+      "word": "band",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:band:baseline-v2-together",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "识别 band together=联合起来，并与 band 的乐队/带子/频带普通义分开。",
+      "decision_boundary_cn": "people/groups + together 与 noun domain 用法都自然。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 band together 的整体义和邻近分支。",
+      "reconstruction_rule_cn": "换一个组织联合或群体协作语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0397:bank:v1",
+      "word_id": "word:bank",
+      "ordinal": 397,
+      "word": "bank",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分银行、河岸/堆/一排、储备库以及 bank on=指望。",
+      "decision_boundary_cn": "money/account、river/snow/switches、blood reserve、bank on + expectation 四类语境决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 bank 的领域/构式分支。",
+      "reconstruction_rule_cn": "换一个金融、地形、储备或依赖预期语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0398:bankrupt:v1",
+      "word_id": "word:bankrupt",
+      "ordinal": 398,
+      "word": "bankrupt",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分财务破产与 morally/intellectually/politically bankrupt 的比喻“贫乏”。",
+      "decision_boundary_cn": "debt/company/person 与 ideas/morality/politics 两类对象决定 literal vs figurative。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 bankrupt 的 literal vs figurative 边界。",
+      "reconstruction_rule_cn": "换一个公司资不抵债或价值观贫乏语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    }
+  ]
+}
