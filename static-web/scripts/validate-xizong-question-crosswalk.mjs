@@ -51,7 +51,12 @@ check(bRelation?.targetStatus === 'UNRESOLVED_BLOCK' && !bRelation?.knowledgePat
 
 const practiceSource = fs.readFileSync(path.join(repoRoot, 'static-web/src/components/XizongPracticeWorkbench.astro'), 'utf8');
 const reverseSource = fs.readFileSync(path.join(repoRoot, 'static-web/src/components/XizongQuestionCrosswalkReverse.astro'), 'utf8');
-check(practiceSource.includes('暂无可安全消费的 REVIEWED 回链') && practiceSource.includes('不补猜映射'), 'practice_missing_mapping_fallback_explicit');
+check(
+  practiceSource.includes('relationWrap.hidden = true')
+    && !practiceSource.includes('暂无可安全消费的 REVIEWED 回链')
+    && !practiceSource.includes('不补猜映射'),
+  'practice_missing_mapping_stays_silent_fail_closed'
+);
 check(practiceSource.includes("['RESOLVED_KP','RESOLVED_BLOCK','BLOCK_ONLY'].includes(relation.targetStatus)"), 'practice_requires_reviewed_resolved_target');
 check(practiceSource.includes('relation?.knowledgePath'), 'practice_consumes_shared_relation_path');
 check(reverseSource.includes('canonical REVIEWED Question→Knowledge relation') && reverseSource.includes('不会被网页猜进来'), 'reverse_lookup_declares_derived_only');
