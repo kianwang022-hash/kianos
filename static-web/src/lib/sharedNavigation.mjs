@@ -32,13 +32,12 @@ export function englishNavigation(base = '/') {
 
 export function politicsNavigation(base = '/') {
   return [
-    { key: 'overview', label: '总览', href: `${base}politics/`, matchPath: /^politics\/?$/ },
-    { key: 'learn', label: '学习', href: `${base}politics/`, matchPath: /^politics\/(?!practice(?:\/|$)|review(?:\/|$)|practice-review(?:\/|$)).+/ },
-    { key: 'practice', label: '训练', href: `${base}politics/practice/`, matchPath: /^politics\/practice(?:\/|$)/ },
-    { key: 'review', label: '复习', href: `${base}politics/review/`, matchPath: /^politics\/(?:review|practice-review)(?:\/|$)/ }
+    { key: 'overview', label: '总览', href: `${base}politics/`, matchPath: /^politics\\/?$/ },
+    { key: 'learn', label: '学习', href: `${base}politics/learn/`, matchPath: /^politics\\/(?:learn(?:\\/|$)|(?!(?:practice|review|practice-review)(?:\\/|$))[^/]+\\/[^/]+\\/?$)/ },
+    { key: 'practice', label: '肖1000', href: `${base}politics/practice/`, matchPath: /^politics\\/practice(?:\\/|$)/ },
+    { key: 'review', label: '复习', href: `${base}politics/review/`, matchPath: /^politics\\/(?:review|practice-review)(?:\\/|$)/ }
   ];
 }
-
 export function xizongNavigation(base = '/') {
   return [
     { key: 'overview', label: '总览', href: `${base}xizong/`, matchPath: /^xizong\/?$/ },

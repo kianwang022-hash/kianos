@@ -1,0 +1,84 @@
+---
+import Base from '../../layouts/Base.astro';
+import { listPoliticsSubjectsCurrent } from '../../lib/politicsCurrent.mjs';
+import '../../styles/politics-learn.css';
+
+const base = import.meta.env.BASE_URL;
+const subjects = listPoliticsSubjectsCurrent();
+---
+
+<Base title="政治 · 学习" active="politics" showLead={false}>
+  <section class="politicsLearnIndex" data-politics-learn-index>
+    <header class="politicsLearnIndexHeader">
+      <div>
+        <h1>学习</h1>
+        <p>先定位这一章，再进入框架与乘风主线。这里不重复讲义，也不替你决定学习顺序。</p>
+      </div>
+      <span>{subjects.length} 科 · {subjects.reduce((sum, subject) => sum + subject.chapters.length, 0)} 章</span>
+    </header>
+
+    <div class="politicsLearnIndexBody">
+      <nav class="politicsLearnSubjectRail" aria-label="政治五科">
+        {subjects.map((subject, index) => (
+          <button
+            type="button"
+            class={index === 0 ? 'active' : ''}
+            data-politics-learn-subject={subject.subject}
+            aria-pressed={index === 0 ? 'true' : 'false'}
+          >
+            <strong>{subject.label}</strong>
+            <span>{subject.shape}</span>
+          </button>
+        ))}
+      </nav>
+
+      <div class="politicsLearnChapterStage">
+        {subjects.map((subject, index) => (
+          <section
+            class="politicsLearnSubjectPanel"
+            data-politics-learn-panel={subject.subject}
+            hidden={index !== 0}
+          >
+            <header>
+              <div>
+                <span>{subject.shape}</span>
+                <h2>{subject.label}</h2>
+                <p>{subject.description}</p>
+              </div>
+              <b>{subject.chapters.length} 章</b>
+            </header>
+
+            <nav class="politicsLearnChapterList" aria-label={`${subject.label}章节`}>
+              {subject.chapters.map((chapter, chapterIndex) => (
+                <a href={`${base}politics/${subject.subject}/${chapter.code}/`}>
+                  <span>{String(chapterIndex + 1).padStart(2, '0')}</span>
+                  <strong>{chapter.title}</strong>
+                  <i aria-hidden="true">→</i>
+                </a>
+              ))}
+            </nav>
+          </section>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const root = document.querySelector('[data-politics-learn-index]');
+  if (root) {
+    const buttons = [...root.querySelectorAll('[data-politics-learn-subject]')];
+    const panels = [...root.querySelectorAll('[data-politics-learn-panel]')];
+    const select = (subject) => {
+      buttons.forEach((button) => {
+        const active = button.dataset.politicsLearnSubject === subject;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+      panels.forEach((panel) => {
+        panel.hidden = panel.dataset.politicsLearnPanel !== subject;
+      });
+    };
+    buttons.forEach((button) => button.addEventListener('click', () => select(button.dataset.politicsLearnSubject || '')));
+  }
+</script>
