@@ -32,8 +32,10 @@ on:
       - 'static-web/scripts/test-english-exam-session-browser.mjs'
       - 'static-web/src/lib/englishSessionControl.mjs'
       - 'static-web/scripts/validate-english-chat-control.mjs'
+      - 'static-web/scripts/validate-lexical-english-handoff.mjs'
       - 'static-web/scripts/test-english-family-coherence.mjs'
       - 'static-web/scripts/test-objective-guide-visual.mjs'
+      - 'static-web/scripts/test-english-learner-language.mjs'
       - '.github/workflows/static-web-english-family-coherence.yml'
   pull_request:
     paths:
@@ -65,8 +67,10 @@ on:
       - 'static-web/scripts/test-english-exam-session-browser.mjs'
       - 'static-web/src/lib/englishSessionControl.mjs'
       - 'static-web/scripts/validate-english-chat-control.mjs'
+      - 'static-web/scripts/validate-lexical-english-handoff.mjs'
       - 'static-web/scripts/test-english-family-coherence.mjs'
       - 'static-web/scripts/test-objective-guide-visual.mjs'
+      - 'static-web/scripts/test-english-learner-language.mjs'
       - '.github/workflows/static-web-english-family-coherence.yml'
   workflow_dispatch:
 
@@ -92,6 +96,9 @@ jobs:
       - name: Validate Chat-owned English control
         working-directory: static-web
         run: node scripts/validate-english-chat-control.mjs
+      - name: Validate English ↔ Lexical Chat handoff
+        working-directory: static-web
+        run: node scripts/validate-lexical-english-handoff.mjs
       - name: Validate English full-paper runtime
         working-directory: static-web
         run: node scripts/validate-english-exam-session.mjs
@@ -112,10 +119,16 @@ jobs:
       - name: Assert Objective Guide readability and editorial geometry
         working-directory: static-web
         run: node scripts/test-objective-guide-visual.mjs
+      - name: Reject learner-facing engineering language
+        working-directory: static-web
+        run: node scripts/test-english-learner-language.mjs
       - name: Preserve fresh screenshots and report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: english-family-coherence-${{ github.sha }}
-          path: english-family-audit/
+          path: |
+            english-family-audit/
+            english-language-audit/
+            english-exam-audit/
           retention-days: 14
