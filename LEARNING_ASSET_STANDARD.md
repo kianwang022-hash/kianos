@@ -459,7 +459,32 @@ Hierarchy is ownership. Dependency is scheduling.
 
 ---
 
-# 10｜Existing mature downstream work
+# 10｜Production continuity across migrations
+
+A learning/content owner may be renamed, consolidated, sharded, or moved without preserving historical construction machinery. But if the resulting Current asset is still **live**—meaning future repairs, additions, admissions, or re-audits are allowed—the migration must preserve a recoverable production contract.
+
+Minimum live-owner continuity:
+
+```text
+what the asset owns
+→ how new or changed material is admitted
+→ how depth/quality is judged
+→ what closes the change
+→ how future work resumes
+```
+
+Do not preserve obsolete batch scripts merely for nostalgia. Preserve the semantic production rule and the narrow continuation/acceptance owner that a fresh worker needs.
+
+A frozen derived snapshot is different: it may keep only exact identity/provenance/validation and explicitly declare that no ongoing semantic production is authorized.
+
+This distinction prevents two opposite errors:
+
+- **artifact survives, production semantics disappear**;
+- **historical pipeline is revived even though the asset is intentionally frozen**.
+
+---
+
+# 11｜Existing mature downstream work
 
 When an upstream defect is found, do not delete mature downstream work by default.
 
