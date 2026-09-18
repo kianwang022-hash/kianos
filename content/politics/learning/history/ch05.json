@@ -223,20 +223,6 @@
             "POL27-CF-HISTORY-C05-S02"
           ],
           "tolerance": "CAUSAL_STORY_COMPLETE_DECISIVE_TURNING_POINTS_REQUIRED"
-        },
-        {
-          "id": "HISTORY-C05-LR-G03",
-          "title": "本章横向精确线",
-          "prompt": "只在需要时区分本章真正相关的会议与土地政策节点，不扫描整个史纲横向候选库。",
-          "owner_ids": [
-            "HIST-MTG-005",
-            "HIST-MTG-006",
-            "HIST-MTG-007",
-            "HIST-LAND-004",
-            "HIST-LAND-005",
-            "HIST-LAND-006"
-          ],
-          "tolerance": "ACTIVATE_RELEVANT_ITEMS_ONLY"
         }
       ]
     },
@@ -248,7 +234,34 @@
         "CHAPTER_RELEVANCE_AND_CURRENT_PHASE",
         "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_NEED",
         "DESIGNATED_MEMORY_SOURCE_CONFIRMS"
-      ]
+      ],
+      "candidate_refs": [
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-005"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-006"
+        },
+        {
+          "line": "meetings",
+          "id": "HIST-MTG-007"
+        },
+        {
+          "line": "land_policy",
+          "id": "HIST-LAND-004"
+        },
+        {
+          "line": "land_policy",
+          "id": "HIST-LAND-005"
+        },
+        {
+          "line": "land_policy",
+          "id": "HIST-LAND-006"
+        }
+      ],
+      "selection_rule": "ACTIVATE_ONLY_RELEVANT_HORIZONTAL_ITEMS_NOT_THE_WHOLE_SUBJECT_POOL"
     },
     "evidence": {
       "prior_wrong_uncertain": "PRIORITIZE_IF_PRESENT",
