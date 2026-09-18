@@ -14,8 +14,11 @@ Shared Visual / Shell landed
 → Xizong material learner surfaces landed
 → Politics learner surfaces landed
 → UI Closure / CSS ownership consolidation active
-→ Chat-owned Home cutover + Learner Data / Chat Handoff active in parallel
-→ Home integration
+→ Chat-owned Home landed
+→ private learner checkpoint foundation landed
+→ subject Final Audit interfaces
+→ subject-owned durable evidence / typed Return reconciliation
+→ Home final integration
 → final cross-subject regression
 → launch / broad engineering freeze
 ```
@@ -41,7 +44,7 @@ Do not revive historical UI migrations merely because old branches/PRs still exi
 
 ### UI Closure / CSS ownership consolidation — **ACTIVE**
 
-Active ref: PR #472 · `ui-css-closure-20260919` · post-Human-Gate ownership cleanup, no redesign.
+Active ref: PR #474 · `ui-css-base-deglobalize-20260919` · Base de-globalization / ownership cleanup, no redesign.
 
 This is now the active website-wide engineering mainline. Politics Practice Human Gate closed on 2026-09-19 and PR #470 is merged.
 
@@ -107,27 +110,27 @@ Exact cleanup inventory should be created **when this lane activates**, from the
 
 ## Active platform lane
 
-### Chat-owned Home + Learner Data / Chat Handoff Closure — **ACTIVE · PARALLEL WITH CSS CLOSURE**
+### Chat-owned Home + Learner Data / Chat Handoff Closure — **FOUNDATION LANDED · WAITING SUBJECT FINAL AUDIT INTERFACES**
 
 Chat-owned Home cutover: **LANDED on main via PR #483 (`d252157e`)**.
 
-Current durability ref: PR #485 · `work/platform-private-checkpoint-foundation-v2-20260919`.
+Private durability foundation: **LANDED on main via PR #485 (`53d05a95`)**.
 
 Home now consumes a validated Chat plan and subject-owned Resume projections; it does not infer cross-subject allocation, priority or next-subject strategy when no valid plan exists. Learner-facing Mission Control / project-status UI is retired.
 
-PR #485 adds the private durable checkpoint transport outside the disposable Git Current mirror. Shared Timer / Chat Plan / Exam context can be recovered without writing learner data to GitHub. Subject-specific durable payload selection remains intentionally deferred to each Final Audit interface.
+The private durable checkpoint transport now lives outside the disposable Git Current mirror. Shared Timer / Chat Plan / Exam context can be recovered without writing learner data to GitHub. Subject-specific durable payload selection remains intentionally deferred to each Final Audit interface.
 
 Existing pieces already exist: Shared Study Timer, Daily Learning Packet composition, subject Return/Handoff packets, and GitHub→Mac Current sync. The missing work is integration, not a new packet ecosystem.
 
 Current sequence:
 
 ```text
-Chat-owned plan boundary
-→ inventory existing subject packet producers / importers
+Chat-owned plan boundary ✅
+→ private local durable checkpoint transport + shared recovery ✅
+→ consume Xizong / English / Politics Final Audit interfaces
+→ subject-owned durable evidence adapters
 → one cross-subject Daily Learning Packet entry
-→ typed subject Return/import closure
-→ private local durable checkpoints
-→ recovery / migration proof
+→ typed subject Return/import reconciliation
 → Home consumes final interfaces
 ```
 
