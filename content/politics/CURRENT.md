@@ -46,23 +46,15 @@ Chat Session Instruction  Session Evidence
 Current closure:
 
 ```text
-A Final Learner Object direct-consumption   IMPLEMENTED_CANDIDATE / VALIDATION_PENDING
+A Final Learner Object direct-consumption   PASS
 B reusable Runtime mechanics                PARTIAL
 C Chat ↔ Website typed control              PARTIAL
 D P1–P5 exam-horizon scenarios              UNTESTED
 ```
 
-A candidate now:
-- compiles `kianos.politics.final_learner_object.v1` from resolved Surface Mapping;
-- requires all 151 PASS owners to resolve Final Learner Objects;
-- renders fixed final payload instead of arbitrary raw fields;
-- removes Mao / Xi / Ethics semantic display adapters from `politicsCurrent.mjs`;
-- suppresses mapped-state legacy learner payload;
-- fails closed if a PASS owner lacks the final object.
+A is accepted on clean-head static + browser evidence. All 151 PASS owners resolve Final Learner Objects; renderer consumption is literal/fail-closed and the old subject display adapters are not authoritative.
 
-A is not accepted until direct-consumption validation + Politics QA/build + representative browser proof pass.
-
-After A:
+Next active implementation:
 ```text
 reuse SHOW / CONCEAL_REVEAL / INPUT_SUBMIT / MARK / SEQUENCE
 + TIMER / HANDOFF / RETURN / CAPTURE
