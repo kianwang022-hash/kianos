@@ -149,7 +149,7 @@ export function initPoliticsSessionReview(root) {
     const step = currentStep();
     if (!step) throw new Error('当前步骤不存在；没有推进。');
     const nextIndex = runtime.step_index + 1;
-    const completed = nextIndex >= instruction.steps.length;
+    const completed = status === 'COMPLETED' || nextIndex >= instruction.steps.length;
     const nextStatus = status || (completed ? 'COMPLETED' : 'ACTIVE');
     const resume = {
       step_index: completed ? instruction.steps.length : nextIndex,
@@ -234,7 +234,7 @@ export function initPoliticsSessionReview(root) {
     }
 
     if (runtime.status === 'PAUSED_CHAT') {
-      $('[data-session-step]').hidden = true;
+      $('[data-session-step]').hidden = false;
       $('[data-session-mode="chat"]').hidden = false;
       return;
     }
