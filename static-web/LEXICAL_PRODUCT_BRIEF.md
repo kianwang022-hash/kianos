@@ -356,3 +356,43 @@ These are intentionally unresolved:
 - how much English-origin context should remain visible inside Lexical before it becomes distracting.
 
 Resolve these through the Rule + real learner screenshots, not legacy inheritance.
+
+
+---
+
+## 14｜Exam-cycle closure
+
+Lexical v2 must support the full 2026-09-18 → 2026-12-20 exam cycle without another functional architecture rebuild.
+
+```text
+Phase A / B
+→ Coverage / Fast Pass / chosen Depth
+→ contextual lookup as needed
+
+Phase C
+→ Coverage maintenance
+→ real English lexical failure → exact Repair
+→ later fresh evidence may fade/reactivate the same target
+
+Phase D
+→ targeted Repair / Challenge
+→ Translation / Writing productive lexical demand
+→ full-task English evidence remains primary transfer evidence
+
+Phase E
+→ no broad new lexical course
+→ high-value active Repair / fast lookup / output support only
+→ aggressive exit for stable material
+```
+
+Later phase changes may alter priority, subset and task demand. They must not require a separate Lexical second-pass site, sprint site or duplicate learner-state model.
+
+Architecture-v2 acceptance requires:
+
+1. Study / Lookup / Repair consume the same canonical Word owners;
+2. Lookup does not advance Coverage merely by opening a Word;
+3. Repair targets the exact unstable object rather than forcing whole-card relearning;
+4. Challenge tests recognition / discrimination / production without becoming semantic truth;
+5. English evidence activates / validates lexical targets through the shared evidence model;
+6. exact Resume / Return survives later-phase use;
+7. Final Sprint can shrink visible work to high-value active objects without new architecture.
