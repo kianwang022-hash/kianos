@@ -25,41 +25,49 @@ Content construction may continue independently through exact System owners. Lea
 
 ---
 
-## Final learner acceptance — executed; concrete closure work only
+## Final learner acceptance — **CLOSED / RETIRED**
 
-The fresh independent A/B/C model and production audit have been executed.
-Do not restart them from historical PASS labels or rerun broad CI as the next task.
+The fresh independent audit, bounded repairs and final integration are complete.
 
-- active candidate: `work/xizong-final-learner-20260919-independent`;
-- review: PR **#491** (draft; implementation is not merged);
-- exact result owner: this branch's `content/xizong/ACCEPTANCE.md`;
-- execution brief: `FINAL_LEARNER_ACCEPTANCE_BRIEF.md` remains the scope boundary.
+- final integration: **PR #496 merged to main** as
+  `00f1a87e04f684d87b695fc94d167e5c37f0e30f`;
+- result owner: `content/xizong/ACCEPTANCE.md`;
+- there is **no active Final Audit / Final Integration branch or PR** after
+  retirement;
+- mature Current learner/runtime paths are accepted at integration level;
+- real learner `U` remains real-use-only and is still UNTESTED by engineering.
 
-Read the candidate Acceptance for the executed path matrix, current proof refs,
-remaining dependencies and historical reconciliation. This cursor is routing,
-not a duplicate Acceptance ledger and not learner progress.
+Closed during this cycle:
 
-Post-audit closure state:
+1. shared private Xizong durability / failed-read write safety → **CLOSED**;
+2. typed Chat Return + exact interrupted Resume → **CLOSED**;
+3. A3 long System-spine Mac readability → **HUMAN GATE CLOSED**;
+4. final Ubuntu/macOS Fresh Independent and bounded/browser regressions →
+   **PASS**.
 
-1. shared private learner-data capture/restore + failed-read write safety → **CLOSED ON MAIN** via PR #492 / `b7dc77db`;
-2. typed Xizong Chat Return + exact interrupted Resume → **IN #491 CANDIDATE** with Ubuntu/macOS bounded proof; final latest-main merge-ref proof is active;
-3. B1 KP03 original inline PNGs → **SOURCE MISSING**; neither Current nor archived Git history ever contained the files, so engineering must not guess replacements;
-4. long System-spine readability → **HUMAN GATE PASS** on real macOS 14, 1512×982; accepted production files are in this candidate.
+Remaining known limitation:
 
-The next engineering action is therefore only:
+- B1 KP03 still references two authoritative original PNGs whose bytes never
+  entered Current or archived Git history. This is
+  **`UPSTREAM_SOURCE_MISSING` for those two figures only**. Do not generate,
+  guess or substitute them. If the original bytes are later recovered, reopen
+  only that Source/media owner.
+
+This closure does **not** promote unfinished B/C/D/E/F content or learner
+readiness. Exact System/content construction continues through its own Current
+owners. Shared Runtime availability is not a readiness label.
+
+Normal next state:
 
 ```text
-latest-main PR #491 merge-ref
-→ rerun fresh independent probes + bounded regression
-→ reconcile Acceptance headline
-→ merge if no new learner-facing blocker appears
+real study / normal content construction
+→ concrete defect or authoritative new Source appears
+→ reopen the smallest responsible owner
 ```
 
-The missing B1 originals remain a scoped upstream Source limitation and should
-be filled only if/when the authoritative files are recovered. Do not reopen the
-broad audit, build a Xizong shadow checkpoint store, or manufacture substitute
-media. Incomplete Systems retain their own readiness owners. Real learner `U`
-remains real-use-only.
+Do not restart the Final Learner Acceptance program, replay #491, or browse
+historical audit branches as Current work.
+
 
 ---
 
