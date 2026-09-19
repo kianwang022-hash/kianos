@@ -120,7 +120,7 @@ Home now consumes a validated Chat plan and subject-owned Resume projections; it
 
 The private durable checkpoint transport now lives outside the disposable Git Current mirror. Shared Timer / Chat Plan / Exam context can be recovered without writing learner data to GitHub.
 
-Xizong subject durability is now **LANDED via PR #492 (`b7dc77db`)**: its approved learner-state/evidence keys are captured through the shared private checkpoint, restore only into an empty Xizong durable store, and an unreadable existing checkpoint authorizes zero replacement writes. English / Politics subject payload adapters remain deferred to their Final Audit interfaces.
+Xizong Final Audit integration is now **CLOSED on main via PR #496 (`00f1a87e`)**. Its approved learner-state/evidence keys are captured through the shared private checkpoint, restore only into an empty Xizong durable store, an unreadable existing checkpoint authorizes zero replacement writes, and the typed Xizong Chat Return is integrated with exact object/Source/evidence/Resume binding. English / Politics subject payload adapters remain separate shared-platform follow-up.
 
 Existing pieces already exist: Shared Study Timer, Daily Learning Packet composition, subject Return/Handoff packets, and GitHub→Mac Current sync. The missing work is integration, not a new packet ecosystem.
 
@@ -129,9 +129,10 @@ Current sequence:
 ```text
 Chat-owned plan boundary ✅
 → private local durable checkpoint transport + shared recovery ✅
-→ consume Xizong / English / Politics Final Audit interfaces
-→ Xizong durable evidence adapter ✅
-→ English / Politics durable evidence adapters
+→ Xizong Final Audit interface consumed ✅
+→ Xizong durable evidence + typed Return ✅
+→ consume English / Politics Final Audit interfaces
+→ English / Politics durable evidence / Return adapters
 → one cross-subject Daily Learning Packet entry
 → typed subject Return/import reconciliation
 → Home consumes final interfaces
