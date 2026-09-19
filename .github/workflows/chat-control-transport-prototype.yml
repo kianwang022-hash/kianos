@@ -12,6 +12,12 @@ on:
       - "static-web/scripts/test-xizong-daily-evidence.mjs"
       - "static-web/src/lib/dailyLearningPacketRuntime.mjs"
       - "static-web/scripts/test-home-daily-learning-packet.mjs"
+      - "static-web/src/lib/xizongPrivateCheckpoint.mjs"
+      - "static-web/scripts/test-xizong-session-checkpoint.mjs"
+      - "static-web/src/components/XizongMemoryWorkspace.astro"
+      - "static-web/src/components/XizongHomeTools.astro"
+      - "static-web/src/components/XizongBlockV6.astro"
+      - "static-web/src/components/XizongSystemExitRuntime.astro"
       - ".github/workflows/chat-control-transport-prototype.yml"
 
 jobs:
@@ -32,3 +38,6 @@ jobs:
       - name: Home daily packet integration
         working-directory: static-web
         run: node scripts/test-home-daily-learning-packet.mjs
+      - name: Xizong session private durability
+        working-directory: static-web
+        run: node scripts/test-xizong-session-checkpoint.mjs
