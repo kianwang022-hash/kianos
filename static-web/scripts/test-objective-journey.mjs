@@ -160,10 +160,18 @@ async function chromiumJourney() {
   check(handoff?.objectId === repairId && handoff?.mode === 'OPTIONAL_ESCALATION', 'cloze_handoff_snapshot_saved');
 
   const repairQuestionId = qid(repairItem.questions[0], 0);
+  const repairAttempt = await page.evaluate((id) =>
+    JSON.parse(localStorage.getItem(`kianos-cloze-attempt-v1:${id}`) || 'null'), repairId);
+  const repairIdentity = {
+    attemptSubmittedAt: repairAttempt?.submittedAt,
+    sourceHash: repairAttempt?.binding?.source_hash
+  };
+  check(Boolean(repairIdentity.attemptSubmittedAt && repairIdentity.sourceHash), 'repair_attempt_identity_present');
 
   // Diagnosis alone and shared-owner repairs cannot manufacture Objective task debt.
   await importReturn(page, {
     schema: 'kianos.english.objective_review_return.v1', task: 'cloze', objectId: repairId,
+    ...repairIdentity,
     threads: [{
       threadId: 'diagnosis-only', scope: 'local', itemIds: [repairQuestionId], route: 'cloze',
       summary: 'diagnosed but not yet repaired', repairCompleted: false, repairEvidence: ''
@@ -191,6 +199,7 @@ async function chromiumJourney() {
 
   const completedReturn = {
     schema: 'kianos.english.objective_review_return.v1', task: 'cloze', objectId: repairId,
+    ...repairIdentity,
     threads: [{
       threadId: 't1', scope: 'local', itemIds: [repairQuestionId], route: 'cloze',
       summary: 'candidate competition procedure failed', repairCompleted: true,
@@ -232,6 +241,7 @@ async function chromiumJourney() {
   // Same historical object cannot close its own transfer target.
   await importReturn(page, {
     schema: 'kianos.english.objective_review_return.v1', task: 'cloze', objectId: repairId,
+    ...repairIdentity,
     threads: [], newClaims: [],
     claimUpdates: [{ claimId, status: 'CLOSED', evidence: 'same historical repair object is not fresh transfer evidence' }]
   }, { expectSuccess: false });
@@ -252,11 +262,19 @@ async function chromiumJourney() {
   const closeItem = loadClozeById(closeId);
   await page.goto(`${BASE}/cloze/${encodeURIComponent(closeId)}/`);
   await answerCloze(page, closeItem, loadClozeAnswersById(closeId), 0);
+  const closeAttempt = await page.evaluate((id) =>
+    JSON.parse(localStorage.getItem(`kianos-cloze-attempt-v1:${id}`) || 'null'), closeId);
+  const closeIdentity = {
+    attemptSubmittedAt: closeAttempt?.submittedAt,
+    sourceHash: closeAttempt?.binding?.source_hash
+  };
+  check(Boolean(closeIdentity.attemptSubmittedAt && closeIdentity.sourceHash), 'close_attempt_identity_present');
   const supportPacket = await copyHandoff(page, '[data-objective-copy-chat]');
   check(supportPacket.includes('ACTIVE TRANSFER CLAIMS · opportunistic only') && supportPacket.includes(claimId), 'problem_review_may_carry_relevant_pending_claim');
 
   await importReturn(page, {
     schema: 'kianos.english.objective_review_return.v1', task: 'cloze', objectId: closeId,
+    ...closeIdentity,
     threads: [], newClaims: [], claimUpdates: [{ claimId, status: 'CLOSED', evidence: '' }]
   });
   clozeClaims = await storeClaims(page, 'cloze');
@@ -264,6 +282,7 @@ async function chromiumJourney() {
 
   await importReturn(page, {
     schema: 'kianos.english.objective_review_return.v1', task: 'cloze', objectId: closeId,
+    ...closeIdentity,
     threads: [], newClaims: [], claimUpdates: [{ claimId, status: 'CLOSED', evidence: 'fresh problem set also directly tested the same best-fit procedure and the relevant execution was stable' }]
   });
   clozeClaims = await storeClaims(page, 'cloze');
@@ -272,6 +291,7 @@ async function chromiumJourney() {
   // The current handoff authorized the pending claim for possible close, not reopen.
   await importReturn(page, {
     schema: 'kianos.english.objective_review_return.v1', task: 'cloze', objectId: closeId,
+    ...closeIdentity,
     threads: [], newClaims: [],
     claimUpdates: [{ claimId, status: 'REOPENED', evidence: 'same packet is not a closed-claim reopen candidate' }]
   }, { expectSuccess: false });
@@ -283,10 +303,18 @@ async function chromiumJourney() {
   const reopenItem = loadClozeById(reopenId);
   await page.goto(`${BASE}/cloze/${encodeURIComponent(reopenId)}/`);
   await answerCloze(page, reopenItem, loadClozeAnswersById(reopenId), 0);
+  const reopenAttempt = await page.evaluate((id) =>
+    JSON.parse(localStorage.getItem(`kianos-cloze-attempt-v1:${id}`) || 'null'), reopenId);
+  const reopenIdentity = {
+    attemptSubmittedAt: reopenAttempt?.submittedAt,
+    sourceHash: reopenAttempt?.binding?.source_hash
+  };
+  check(Boolean(reopenIdentity.attemptSubmittedAt && reopenIdentity.sourceHash), 'reopen_attempt_identity_present');
   const reopenPacket = await copyHandoff(page, '[data-objective-copy-chat]');
   check(reopenPacket.includes('RECENT CLOSED CLAIMS · reopen only with direct contradiction') && reopenPacket.includes(claimId), 'problem_packet_can_surface_closed_reopen_candidate');
   await importReturn(page, {
     schema: 'kianos.english.objective_review_return.v1', task: 'cloze', objectId: reopenId,
+    ...reopenIdentity,
     threads: [], newClaims: [], claimUpdates: [{ claimId, status: 'REOPENED', evidence: 'fresh problem reproduced the same premature rough-meaning choice despite a decisive competing constraint' }]
   });
   clozeClaims = await storeClaims(page, 'cloze');
