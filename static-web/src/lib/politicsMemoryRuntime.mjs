@@ -124,6 +124,8 @@ export function recordPoliticsMemoryResponse(storage, catalog, {
   candidate_id,
   response,
   observed_at = new Date().toISOString()
+} = {}, {
+  expectedDay = null
 } = {}) {
   const planId = clean(plan_id, 160);
   const candidateId = clean(candidate_id, 220);
@@ -135,6 +137,7 @@ export function recordPoliticsMemoryResponse(storage, catalog, {
   try { current = JSON.parse(storage.getItem(POLITICS_MEMORY_PLAN_KEY) || 'null'); }
   catch { fail('CURRENT_PLAN_UNREADABLE'); }
   if (!current || current.plan_id !== planId) fail('RESPONSE_PLAN_NOT_CURRENT');
+  if (expectedDay && current.study_day !== expectedDay) fail('RESPONSE_STALE_DAY', current.study_day);
   const byId = catalogMap(catalog);
   if (!catalog?.revision || current.catalog_revision !== catalog.revision) fail('RESPONSE_CATALOG_STALE');
   if (!byId.has(candidateId)) fail('RESPONSE_CANDIDATE_STALE', candidateId);
@@ -158,11 +161,22 @@ export function recordPoliticsMemoryResponse(storage, catalog, {
   return row;
 }
 
-export function resolvePoliticsMemoryResume(storage, catalog) {
+export function resolvePoliticsMemoryResume(storage, catalog, {
+  expectedDay = null
+} = {}) {
   let plan;
   try { plan = JSON.parse(storage.getItem(POLITICS_MEMORY_PLAN_KEY) || 'null'); }
   catch { fail('CURRENT_PLAN_UNREADABLE'); }
   if (!plan) return null;
+
+  if (expectedDay && plan.study_day !== expectedDay) {
+    return {
+      status: 'STALE',
+      reason: 'study-day-changed',
+      plan_id: plan.plan_id,
+      study_day: plan.study_day
+    };
+  }
 
   const byId = catalogMap(catalog);
   if (!catalog?.revision || plan.catalog_revision !== catalog.revision) {
