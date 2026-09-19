@@ -49,15 +49,19 @@
     "A": {
       "role": "PRODUCTION_A_FINAL_SWEEP",
       "current_assignment": {
-        "candidate_id": "BF05",
+        "candidate_id": "BF06",
         "range": [
-          501,
-          600
+          601,
+          700
         ],
-        "state": "WAITING_BOUNDED_HUMAN_DELTA_GATE",
+        "state": "REVIEW_BUNDLE_NEEDED",
         "allowed_now": [
-          "consume only Kian approval for the exact displayed seven new material owners plus reported bounded corrections/Test changes",
-          "on p re-sync proposal identity and shared semantic claims, freeze BF05 backlog, then immediately continue A to o0601-o0700"
+          "freeze current main and export review bundle",
+          "fresh owner/module judgment",
+          "same-Chat Self-Adversarial Attack",
+          "write smallest stabilized proposal",
+          "request bounded Human delta Gate only if genuinely new material scope exists",
+          "if no new material delta, auto-freeze BF06 and mark A sweep complete"
         ],
         "forbidden_now": [
           "canonical semantic materialization",
@@ -67,34 +71,7 @@
           "invent a newer semantic standard"
         ],
         "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
-        "review_head": "e18c0853b5b7d1787a23bf8eeaf4797cde93ab72",
-        "review_branch": "work/lexical-final-backfill-a-o0501-o0600",
-        "review_request_commit": "704644b1d920c9e3f6f1a7fe5b502275f91ac38b",
-        "review_workflow_run": 35465831000,
-        "review_artifact_id": 10591485964,
-        "review_artifact_digest": "sha256:f03bc10cdad5ea65a3b1b75d322cad56a3ddad7b19b947d6d6f84c17917500ed",
-        "review_bundle_coverage": "100/100",
-        "proposal_commit": "28287c8e3ef13c3891322ebf4d97af249a8cc369",
-        "proposal_path": "content/lexical/execution/manifests/o0501-o0600.final-sweep-a-proposal.md",
-        "proposal_blob_sha": "def8c8d75f0358eeec7f2c31448544ad65d8a41a",
-        "fresh_read_coverage": "100/100",
-        "self_attack": "COMPLETE",
-        "content_affected_owners": 23,
-        "content_no_change": 77,
-        "blocked": 0,
-        "new_material_delta_owners": [
-          509,
-          520,
-          573,
-          575,
-          581,
-          592,
-          595
-        ],
-        "old_test_blueprints": 45,
-        "stabilized_test_blueprints": 22,
-        "canonical_semantic_mutation": false,
-        "next_action": "Kian reviews only the seven genuinely new material owners in the frozen BF05 proposal. On p, approve exactly those seven plus the reported bounded corrections/Test changes, freeze BF05 backlog, and immediately continue A to o0601-o0700."
+        "next_action": "Create/consume o0601-o0700 review bundle, perform Fresh Read + Self Attack, freeze proposal; if no new delta auto-close A Production sweep, otherwise stop only at the bounded Human delta gate."
       },
       "bootstrap_integration": {
         "candidate_id": "BF00",
@@ -207,12 +184,55 @@
             "sync_main_head": "3196c5d31e62702941b684bd907b898c7a48cb3d"
           },
           "next_action": "Frozen backlog. Do not materialize/audit until production_sweep.status is COMPLETE; refreeze latest main/dependencies before any future materialization."
+        },
+        {
+          "candidate_id": "BF05",
+          "range": [
+            501,
+            600
+          ],
+          "state": "DELTA_APPROVED_FROZEN_BACKLOG",
+          "review_head": "e18c0853b5b7d1787a23bf8eeaf4797cde93ab72",
+          "review_branch": "work/lexical-final-backfill-a-o0501-o0600",
+          "review_request_commit": "704644b1d920c9e3f6f1a7fe5b502275f91ac38b",
+          "review_workflow_run": 35465831000,
+          "review_artifact_id": 10591485964,
+          "review_artifact_digest": "sha256:f03bc10cdad5ea65a3b1b75d322cad56a3ddad7b19b947d6d6f84c17917500ed",
+          "review_bundle_coverage": "100/100",
+          "proposal_commit": "28287c8e3ef13c3891322ebf4d97af249a8cc369",
+          "proposal_path": "content/lexical/execution/manifests/o0501-o0600.final-sweep-a-proposal.md",
+          "proposal_blob_sha": "def8c8d75f0358eeec7f2c31448544ad65d8a41a",
+          "fresh_read_coverage": "100/100",
+          "self_attack": "COMPLETE",
+          "content_affected_owners": 23,
+          "content_no_change": 77,
+          "blocked": 0,
+          "new_material_delta_owners": [
+            509,
+            520,
+            573,
+            575,
+            581,
+            592,
+            595
+          ],
+          "old_test_blueprints": 45,
+          "stabilized_test_blueprints": 22,
+          "canonical_semantic_mutation": false,
+          "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
+          "semantic_dependency_policy": "Refreeze latest main and all related Word/Sense/Family/Form/Construction/Relation/Test dependencies before later materialization; emit exact semantic_dependency_read_set.",
+          "human_gate": {
+            "approved": true,
+            "approved_at": "2026-09-20",
+            "approval_ref": "Kian p on o0501-o0600 Production A proposal",
+            "proposal_path": "content/lexical/execution/manifests/o0501-o0600.final-sweep-a-proposal.md",
+            "proposal_blob_sha": "def8c8d75f0358eeec7f2c31448544ad65d8a41a",
+            "sync_main_head": "6f41656ad8aa2c97fb9c37712ca935938a88fbca"
+          },
+          "next_action": "Frozen backlog. Do not materialize/audit until production_sweep.status is COMPLETE; refreeze latest main/dependencies before any future materialization."
         }
       ],
-      "next_new_review_range": [
-        601,
-        700
-      ]
+      "next_new_review_range": null
     },
     "B": {
       "role": "FRESH_INDEPENDENT_AUDIT",
@@ -1129,13 +1149,16 @@
           500
         ],
         "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
+      },
+      {
+        "range": [
+          501,
+          600
+        ],
+        "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
       }
     ],
     "A_remaining": [
-      [
-        501,
-        600
-      ],
       [
         601,
         700
