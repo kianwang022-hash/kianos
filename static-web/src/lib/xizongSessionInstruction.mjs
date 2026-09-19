@@ -75,6 +75,27 @@ function normalizeStep(raw, index) {
     };
   }
 
+  if (kind === 'SYSTEM_RECALL') {
+    const systemId = clean(raw.system_id || raw.systemId, 160);
+    if (!systemId || !/^[A-Za-z0-9._-]+$/.test(systemId)) fail('SYSTEM_ID_INVALID', stepId);
+    return { ...base, system_id: systemId };
+  }
+
+  if (kind === 'REPAIR_TASK') {
+    const taskId = clean(raw.task_id || raw.taskId, 240);
+    const createdAt = clean(raw.created_at || raw.createdAt, 80);
+    const blockId = clean(raw.block_id || raw.blockId, 200);
+    const kpId = clean(raw.kp_id || raw.kpId, 200);
+    if (!taskId || !createdAt || Number.isNaN(Date.parse(createdAt))) fail('REPAIR_TARGET_IDENTITY_REQUIRED', stepId);
+    return {
+      ...base,
+      task_id: taskId,
+      created_at: new Date(createdAt).toISOString(),
+      block_id: blockId || null,
+      kp_id: kpId || null
+    };
+  }
+
   fail('STEP_KIND_INVALID', kind || String(index));
 }
 
@@ -167,6 +188,16 @@ function writeAtomically(storage, writes) {
   }
 }
 
+function validateRepairTarget(memory, step) {
+  const task = (memory.repairTasks || []).find((row) => String(row?.id || '') === step.task_id);
+  if (!task) fail('REPAIR_TASK_UNKNOWN', step.task_id);
+  if (String(task.createdAt || '') !== step.created_at) fail('REPAIR_TASK_REVISION_MISMATCH', step.task_id);
+  if (step.block_id && String(task.blockId || '') !== step.block_id) fail('REPAIR_TASK_BLOCK_MISMATCH', step.task_id);
+  if (step.kp_id && String(task.kpId || '') !== step.kp_id) fail('REPAIR_TASK_KP_MISMATCH', step.task_id);
+  if (String(task.status || 'ACTIVE') === 'DONE') fail('REPAIR_TASK_ALREADY_DONE', step.task_id);
+  return task;
+}
+
 function validateMemoryTargets(memory, step) {
   for (const target of step.targets) {
     const card = memory.cards?.[target.card_id];
@@ -215,6 +246,7 @@ export function applyXizongSessionInstruction(storage, input, {
   const memory = normalizeXizongMemoryState(parseJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
   for (const step of instruction.steps) {
     if (step.kind === 'MEMORY_REVIEW') validateMemoryTargets(memory, step);
+    if (step.kind === 'REPAIR_TASK') validateRepairTarget(memory, step);
   }
 
   const runtime = makeRuntime(instruction);
@@ -260,6 +292,27 @@ function stepComplete(storage, instruction, runtime, step) {
       Boolean(sweep?.results?.[id])
       || history.some((row) => row?.type === 'QUESTION_ATTEMPT' && row?.question_id === id)
     );
+  }
+
+  if (step.kind === 'SYSTEM_RECALL') {
+    const state = parseJson(storage, 'kianos:xizong:system-recall:' + step.system_id + ':v1', null);
+    const history = Array.isArray(state?.history) ? state.history : [];
+    const activatedAt = Date.parse(runtime.activated_at);
+    return history.some((row) =>
+      Number.isFinite(Date.parse(row?.completed_at))
+      && Date.parse(row.completed_at) >= activatedAt
+    );
+  }
+
+  if (step.kind === 'REPAIR_TASK') {
+    const memory = normalizeXizongMemoryState(parseJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
+    const task = (memory.repairTasks || []).find((row) => String(row?.id || '') === step.task_id);
+    if (!task) fail('REPAIR_TASK_UNKNOWN', step.task_id);
+    if (String(task.createdAt || '') !== step.created_at) fail('REPAIR_TASK_REVISION_MISMATCH', step.task_id);
+    const completedAt = Date.parse(task.completedAt || '');
+    return String(task.status || '') === 'DONE'
+      && Number.isFinite(completedAt)
+      && completedAt >= Date.parse(runtime.activated_at);
   }
 
   return false;
@@ -323,6 +376,11 @@ export function activateXizongSessionCurrentStep(storage, {
     validateMemoryTargets(memory, step);
     // Chat selection is session-local execution state, not durable weakness/attention.
     // The Memory page reads exact targets from the active Session instruction.
+  }
+
+  if (step.kind === 'REPAIR_TASK') {
+    const memory = normalizeXizongMemoryState(parseJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
+    validateRepairTarget(memory, step);
   }
 
   if (step.kind === 'PRACTICE_SET') {
@@ -423,6 +481,24 @@ export function resolveXizongSessionNext(storage, instructionInput = null, runti
   }
   if (step.kind === 'PRACTICE_SET') {
     return { index: runtime.current_step, step, href: '/xizong/practice/chat-set/' + suffix, active: Boolean(runtime.activated_at) };
+  }
+  if (step.kind === 'SYSTEM_RECALL') {
+    return {
+      index: runtime.current_step,
+      step,
+      href: '/xizong/' + encodeURIComponent(step.system_id) + '/recall/' + suffix,
+      active: Boolean(runtime.activated_at)
+    };
+  }
+  if (step.kind === 'REPAIR_TASK') {
+    const memory = normalizeXizongMemoryState(parseJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
+    validateRepairTarget(memory, step);
+    return {
+      index: runtime.current_step,
+      step,
+      href: '/xizong/memory/' + suffix + '&repair=' + encodeURIComponent(step.task_id),
+      active: Boolean(runtime.activated_at)
+    };
   }
   return null;
 }
