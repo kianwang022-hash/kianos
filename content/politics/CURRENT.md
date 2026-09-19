@@ -5,6 +5,8 @@ Parent: root `CURRENT.md`
 
 This file does not own Source, Knowledge, Learning semantics, Acceptance Truth, learner progress or shared platform policy. A bare learner continuation remains LEARN unless the conversation explicitly establishes engineering work.
 
+Shared-platform routing is inherited from `AUTHORITY_INHERITANCE_CONTRACT.md` and machine-registered in `AUTHORITY_OWNERSHIP.json`. This lane consumes shared Shell / navigation / Current Delivery from the registered upstream owner; it does not become their durable owner.
+
 ## Current state / actual restart point
 
 **Politics Final Learner Acceptance — CLOSED for audited first-round paths**
