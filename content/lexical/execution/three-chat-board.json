@@ -139,19 +139,24 @@
           201,
           300
         ],
-        "state": "READ_ONLY_PRODUCTION_ALLOWED",
-        "allowed_now": [
-          "freeze current main and export review bundle",
-          "fresh owner/module judgment",
-          "same-Chat Self-Adversarial Attack",
-          "write stabilized proposal/handoff metadata",
-          "request bounded Human delta Gate if genuinely new material scope exists"
-        ],
-        "forbidden_now": [
-          "mutate canonical Word/Relation/Form truth before frontier advances to this batch",
-          "materialize stale FLOB candidate",
-          "self-audit"
-        ]
+        "state": "POST_SELF_ATTACK_WAIT_FOR_FRONTIER",
+        "review_head": "2fd29bf2e32e7e09d4300948e42a59a2821fe59e",
+        "review_branch": "work/lexical-final-backfill-c-o0201-o0300",
+        "proposal_pr": 528,
+        "proposal_head": "7b316070a6a4b4b96e55f2784d7a0fec267e8ca7",
+        "proposal_path": "content/lexical/execution/manifests/o0201-o0300.production-c-lookahead.md",
+        "module_matrix_path": "content/lexical/execution/manifests/o0201-o0300.production-c-module-matrix.tsv",
+        "fresh_read_coverage": "100/100",
+        "self_attack": "COMPLETE",
+        "content_upgrades": 24,
+        "content_no_change": 76,
+        "blocked": 0,
+        "old_test_blueprints": 44,
+        "stabilized_test_blueprints": 15,
+        "new_material_delta": false,
+        "canonical_semantic_mutation": false,
+        "semantic_freshness_note": "main advanced after freeze, but comparison from review_head to current main showed no Word/Relation/Form/lexical-contract changes in o0201-o0300 scope; refreeze again when BF02 reaches frontier.",
+        "next_action": "Wait for BF02 to become the serialized frontier. Then refreeze latest main, reconcile changed/shared owners only, apply the stabilized proposal, materialize Final Learner Objects, and hand to a fresh B Chat for blind-first Independent Semantic Audit."
       },
       "scheduled_ranges": [
         [
