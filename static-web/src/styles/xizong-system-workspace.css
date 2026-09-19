@@ -401,6 +401,44 @@ body#kianos-workspace.surfaceBody-xizong .xzSystemSpine li.mechanism-dim {
   opacity: .28;
 }
 
+/* Dense sequence labels must keep readable line width. Short System spines stay
+   horizontal; only content-dense Current spines opt into the vertical sequence. */
+body#kianos-workspace.surfaceBody-xizong .xzSystemSpine[data-spine-layout="vertical"] {
+  display: grid;
+  overflow: visible;
+  padding: 4px 0 2px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemSpine[data-spine-layout="vertical"] li,
+body#kianos-workspace.surfaceBody-xizong .xzSystemSpine[data-spine-layout="vertical"] li + li {
+  min-width: 0;
+  min-height: 52px;
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 12px;
+  align-content: center;
+  padding: 11px 28px 17px 0;
+  border-top: 1px solid rgba(215, 223, 218, .72);
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemSpine[data-spine-layout="vertical"] li:first-child {
+  border-top: 0;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemSpine[data-spine-layout="vertical"] li b {
+  align-self: start;
+  padding-top: 2px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemSpine[data-spine-layout="vertical"] li span {
+  max-width: 72ch;
+  font-size: 16px;
+  line-height: 1.6;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemSpine[data-spine-layout="vertical"] li:not(:last-child)::after {
+  top: auto;
+  right: auto;
+  bottom: -2px;
+  left: 11px;
+  transform: none;
+  content: "↓";
+}
+
 body#kianos-workspace.surfaceBody-xizong .xzSystemParallelBlock {
   display: grid;
   grid-template-columns: 100px minmax(0, 1fr);
