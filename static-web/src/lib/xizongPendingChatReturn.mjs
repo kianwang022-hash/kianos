@@ -57,7 +57,7 @@ function writeState(storage, state) {
   );
 }
 
-function storedEnvelope(raw, handoff, now) {
+function storedEnvelope(raw, handoff, now, studyDay = null) {
   return {
     handoff_id: handoff.handoff_id,
     return_id: text(raw.return_id, 160),
@@ -67,6 +67,7 @@ function storedEnvelope(raw, handoff, now) {
     source_hash: handoff.origin.source_hash,
     evidence_version: handoff.origin.evidence_version,
     return_href: handoff.return_href,
+    study_day: studyDay ? text(studyDay, 20) : null,
     received_at: new Date(now).toISOString(),
     return_packet: clone(raw)
   };
@@ -74,7 +75,8 @@ function storedEnvelope(raw, handoff, now) {
 
 export function stageXizongChatReturn(storage, input, {
   now = Date.now(),
-  replace = false
+  replace = false,
+  studyDay = null
 } = {}) {
   if (!storage?.getItem || !storage?.setItem) fail('STORAGE_UNAVAILABLE');
   const raw = parseXizongChatReturn(input);
@@ -87,7 +89,7 @@ export function stageXizongChatReturn(storage, input, {
   const objectId = handoff.origin.object_id;
   const state = readXizongPendingChatReturnState(storage);
   const existing = state.pending_by_object[objectId] || null;
-  const incoming = storedEnvelope(raw, handoff, now);
+  const incoming = storedEnvelope(raw, handoff, now, studyDay);
 
   if (existing) {
     const same = existing.handoff_id === incoming.handoff_id
@@ -150,7 +152,8 @@ function consumeFailureStatus(error) {
 export function consumePendingXizongChatReturnForObject(storage, {
   objectId,
   currentPacket,
-  now = Date.now()
+  now = Date.now(),
+  expectedDay = null
 } = {}) {
   if (!storage?.getItem || !storage?.setItem) fail('STORAGE_UNAVAILABLE');
   const id = text(objectId, 240);
@@ -159,6 +162,17 @@ export function consumePendingXizongChatReturnForObject(storage, {
   const state = readXizongPendingChatReturnState(storage);
   const entry = state.pending_by_object[id] || null;
   if (!entry) return { status:'no_pending', receipt:state.last_receipt };
+
+  if (expectedDay && entry.study_day && entry.study_day !== expectedDay) {
+    const nextReceipt = receipt(entry, 'STALE', {
+      detail:'pending Return belongs to a different study day',
+      at:now
+    });
+    const pending = { ...state.pending_by_object };
+    delete pending[id];
+    writeState(storage, { ...state, pending_by_object:pending, last_receipt:nextReceipt });
+    return { status:'stale', receipt:clone(nextReceipt), apply_result:null };
+  }
 
   if (!currentPacket || currentPacket?.schema !== 'kianos.xizong.study_packet.v3') {
     return { status:'waiting_current_packet', entry:clone(entry), receipt:state.last_receipt };
