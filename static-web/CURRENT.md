@@ -266,10 +266,10 @@ Current proof:
 - Shared Study Timer PASS;
 - Authority Consistency PASS;
 - Semantic Base self-test remains the identical pre-existing main red and is not owned here;
-- Final Cross-subject Regression pending.
+- Final Cross-subject Regression PASS on prototype head `474bc49e`.
 
 Next:
-- finish cross-subject regression;
+- Human Gate for bounded promotion to `main`;
 - real Mac publish to private Personal runtime branch;
 - fresh three-subject Project `继续` proof;
 - Human Gate before merge/normal use.
