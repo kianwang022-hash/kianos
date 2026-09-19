@@ -9,7 +9,7 @@ Rule: current routing/status only. No semantic Truth, Acceptance ledger, learner
 
 | Program | State | Continue from |
 | --- | --- | --- |
-| Website / UI launch | **ACTIVE** | `static-web/CURRENT.md` |
+| Website / UI launch | **STEADY — launch closure complete; Gate 5 engineering freeze** | `static-web/CURRENT.md` |
 | Xizong Content | **ACTIVE** | `content/xizong/CONTENT_MAINLINE.md` |
 | English Content | **STEADY** — no broad rebuild | `content/english/CURRENT.md` |
 | Politics Content | **STEADY** — reopen only concrete defects | `content/politics/CURRENT.md` |
@@ -65,7 +65,7 @@ Shared authority routing:
 - Xizong material learner UI: landed through whole-paper Hidden/Seal/Review.
 - Politics learner UI: landed through final Practice Human Gate (#470).
 - All material subject learner UI is now landed; UI/CSS ownership consolidation is active maintenance.
-- Chat-owned Home and the private durable checkpoint foundation are landed. Subject-owned durable evidence/Return reconciliation and final regression remain launch work.
+- Chat-owned Home, subject-owned durable evidence/typed Return reconciliation and the private checkpoint layer are landed. Final cross-subject regression passed 31/31 after Current sync + Astro restart + fresh-browser restore; broad website engineering is frozen.
 - Material Visual changes still require real-browser screenshot + Kian Human Gate before merge.
 
 Exact branch / PR / screenshot state belongs to `static-web/CURRENT.md` or the exact UI owner.
@@ -100,7 +100,7 @@ Gate 5  Launch / engineering freeze
         broad website construction stops; reopen only concrete learner-visible defects
 ```
 
-Gates 1 and 2 may proceed in parallel where write sets are independent. Gate 3 consumes their final interfaces; Gate 4 follows the relevant closures.
+**Current state: Gates 1–4 are closed; Gate 5 engineering freeze is active.** Broad website construction stops here. Reopen only the smallest responsible owner for a concrete learner-visible or durability defect; bounded non-redesign maintenance may continue under its own cursor.
 
 This is a routing sequence, not a second progress dashboard. Exact subject findings stay in subject Current / Acceptance owners.
 
