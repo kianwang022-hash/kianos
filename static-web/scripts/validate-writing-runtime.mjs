@@ -69,6 +69,7 @@ planned = lockFirstAttempt(planned, {
 check(planned.state === WRITING_STATES.REVIEW_PENDING, `PLANNED_LOCK_STATE:${planned.state}`);
 check(planned.firstPlan === 'inform change -> bring device -> reply if absent', 'FIRST_PLAN_NOT_PRESERVED');
 check(planned.firstDraft.includes('complete synthetic first draft'), 'FIRST_DRAFT_NOT_PRESERVED');
+planned.binding = { source_hash: small.sourceHash };
 
 let direct = createInitialWritingRecord(big, [], t0);
 direct = lockFirstAttempt(direct, {
@@ -78,6 +79,7 @@ direct = lockFirstAttempt(direct, {
 }, t1);
 check(direct.state === WRITING_STATES.REVIEW_PENDING, `DIRECT_LOCK_STATE:${direct.state}`);
 check(direct.planMode === 'direct' && direct.firstPlan === '', 'DIRECT_MODE_MANUFACTURED_PLAN');
+direct.binding = { source_hash: big.sourceHash };
 
 const reviewPacket = buildWritingReviewPacket(small, planned);
 check(reviewPacket.reviewContract.learnerUnit === 'one complete essay', 'REVIEW_UNIT_NOT_WHOLE_ESSAY');
@@ -89,6 +91,8 @@ const passReturn = validateWritingReviewReturn({
   schema: WRITING_REVIEW_RETURN_SCHEMA,
   taskId: small.id,
   reviewOf: 'FIRST_DRAFT',
+  attemptSubmittedAt: reviewPacket.attemptSubmittedAt,
+  sourceHash: reviewPacket.sourceHash,
   verdict: 'PASS_ACCEPTABLE',
   firstFailureLayer: null,
   repairScope: null,
@@ -104,6 +108,8 @@ const repairReturn = validateWritingReviewReturn({
   schema: WRITING_REVIEW_RETURN_SCHEMA,
   taskId: big.id,
   reviewOf: 'FIRST_DRAFT',
+  attemptSubmittedAt: direct.firstSubmittedAt,
+  sourceHash: big.sourceHash,
   verdict: 'REPAIR_NEEDED',
   firstFailureLayer: 'Content',
   repairScope: 'development after the core message',
@@ -124,6 +130,9 @@ const completeNoDebt = validateWritingRepairReturn({
   schema: WRITING_REPAIR_RETURN_SCHEMA,
   taskId: big.id,
   repairOf: 'REGENERATION',
+  attemptSubmittedAt: repairRecord.firstSubmittedAt,
+  regenerationSubmittedAt: repairRecord.regenerationSubmittedAt,
+  sourceHash: repairRecord.binding.source_hash,
   verdict: 'REPAIR_COMPLETE',
   reason: 'The named development gap is now repaired.',
   memoryAdmission: { admit: false }
@@ -137,6 +146,9 @@ const completeWithTarget = validateWritingRepairReturn({
   schema: WRITING_REPAIR_RETURN_SCHEMA,
   taskId: big.id,
   repairOf: 'REGENERATION',
+  attemptSubmittedAt: repairRecord.firstSubmittedAt,
+  regenerationSubmittedAt: repairRecord.regenerationSubmittedAt,
+  sourceHash: repairRecord.binding.source_hash,
   verdict: 'REPAIR_COMPLETE',
   reason: 'The repair works, but the repeated generation problem is reusable across prompts.',
   memoryAdmission: {
@@ -155,6 +167,9 @@ const stillDownstream = validateWritingRepairReturn({
   schema: WRITING_REPAIR_RETURN_SCHEMA,
   taskId: big.id,
   repairOf: 'REGENERATION',
+  attemptSubmittedAt: repairRecord.firstSubmittedAt,
+  regenerationSubmittedAt: repairRecord.regenerationSubmittedAt,
+  sourceHash: repairRecord.binding.source_hash,
   verdict: 'REPAIR_STILL_NEEDED',
   continuation: WRITING_REPAIR_CONTINUATIONS.INDEPENDENT_DOWNSTREAM,
   nextFailureLayer: 'Language',
@@ -171,6 +186,9 @@ expectThrow(() => validateWritingRepairReturn({
   schema: WRITING_REPAIR_RETURN_SCHEMA,
   taskId: big.id,
   repairOf: 'REGENERATION',
+  attemptSubmittedAt: repairRecord.firstSubmittedAt,
+  regenerationSubmittedAt: repairRecord.regenerationSubmittedAt,
+  sourceHash: repairRecord.binding.source_hash,
   verdict: 'REPAIR_STILL_NEEDED',
   continuation: WRITING_REPAIR_CONTINUATIONS.INDEPENDENT_DOWNSTREAM,
   nextFailureLayer: 'Task',
