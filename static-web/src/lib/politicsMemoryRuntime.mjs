@@ -105,7 +105,7 @@ export function applyPoliticsMemoryPlan(storage, catalog, input, options = {}) {
     } catch {}
     throw error;
   }
-  return { status: current ? 'superseded' : 'applied', plan };
+  return { status: replacedStaleDay ? 'replaced_stale_day' : current ? 'superseded' : 'applied', plan };
 }
 
 function readEvidence(storage) {
@@ -260,12 +260,17 @@ export function stagePoliticsMemoryPlan(storage, input, {
     if (JSON.stringify(current) !== JSON.stringify(plan)) fail('PLAN_REPLAY_CONFLICT', plan.plan_id);
     return { status:'idempotent', plan: current };
   }
+  let replacedStaleDay = false;
   if (current) {
-    if (clean(plan.supersedes_plan_id, 160) !== clean(current.plan_id, 160)) {
-      fail('PLAN_SUPERSEDE_REQUIRED', current.plan_id);
-    }
     if (Date.parse(plan.generated_at) <= Date.parse(current.generated_at || 0)) {
       fail('PLAN_NOT_NEWER');
+    }
+    if (current.study_day !== plan.study_day) {
+      // A new study day may replace yesterday's current pointer without requiring
+      // Chat to recover an obsolete plan id. The exact historical plan remains stored.
+      replacedStaleDay = true;
+    } else if (clean(plan.supersedes_plan_id, 160) !== clean(current.plan_id, 160)) {
+      fail('PLAN_SUPERSEDE_REQUIRED', current.plan_id);
     }
   } else if (clean(plan.supersedes_plan_id, 160)) {
     fail('PLAN_SUPERSEDE_TARGET_MISSING', plan.supersedes_plan_id);
