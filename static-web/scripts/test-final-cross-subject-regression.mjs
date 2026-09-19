@@ -337,7 +337,8 @@ try {
   await page.locator('[data-exam-home][data-ready="true"]').waitFor();
   check(await page.locator('[data-exam-home]').getAttribute('data-chat-plan-status') === 'missing',
     'cold Home has no Chat Plan');
-  check((await page.locator('[data-exam-next-label]').innerText()).includes('尚未安排'),
+  check((await page.locator('[data-exam-next]').innerText()).includes('等待今日安排')
+      && (await page.locator('[data-exam-next]').getAttribute('href')) === null,
     'cold Home does not infer a next subject');
 
   // 2. Seed exact, subject-owned synthetic state.
