@@ -116,9 +116,25 @@ const polResult=await applyPrivateControlCommand(polStorage,polCommand,{day,now}
 assert.equal(polResult.status,'applied');
 assert.equal(JSON.parse(polStorage.getItem(POLITICS_MEMORY_PLAN_KEY)).plan_id,polMemory.plan_id);
 assert.equal(JSON.parse(polStorage.getItem('kianos-exam-chat-plan-v1')).subjects.politics.session_ref,polMemory.plan_id);
+polStorage.setItem('kianos-politics-memory-evidence-v1',JSON.stringify([{
+  schema:'kianos.politics.memory-recall-event.v1',
+  event_id:polMemory.plan_id+':polmem-fixture',
+  plan_id:polMemory.plan_id,
+  study_day:day,
+  candidate_id:'polmem-fixture',
+  catalog_revision:polMemory.catalog_revision,
+  candidate_snapshot:{
+    id:'polmem-fixture',subject:'xi',chapter_id:'fixture',natural_unit_id:null,
+    family:'ACTIVE_PRECISION',prompt:'fixture',answer_items:['fixture answer'],
+    source_refs:['fixture-source'],source_role:'CURRENT_REVIEWED'
+  },
+  response:'FUZZY',
+  observed_at:new Date(now).toISOString()
+}]));
 const politicsCheckpoint=exportPoliticsCheckpoint(polStorage);
 const politicsEntries=new Map(validatePoliticsPrivatePayload(politicsCheckpoint));
 assert.ok(politicsEntries.has(POLITICS_MEMORY_PLAN_KEY),'Politics Memory plan must be durable');
+assert.ok(politicsEntries.has('kianos-politics-memory-evidence-v1'),'Politics Memory recall evidence must be durable');
 
 assert.throws(()=>validateBrowserControlCommand({
   ...xzCommand,
