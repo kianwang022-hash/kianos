@@ -63,7 +63,10 @@ assert(systemWuReturn.includes('!relation?.blockId || !relation?.primaryKpId || 
 assert(systemWuReturn.includes("inboxKey:'kianos-xizong-repair-inbox-v1:xizong:'"), 'block-repair-inbox-delivery-missing');
 assert(!systemWuReturn.includes('kianos-xizong-memory-review-v2:'), 'system-page-still-writes-block-evidence-store');
 assert(component.includes("target = '_blank'"), 'repair-does-not-preserve-question-mainline');
-assert(component.includes('没有匹配到本轮真实 W/U 题号'), 'invalid-return-not-contained');
+assert(systemWuReturn.includes("fail('UNTRUSTED_MAPPING'"), 'invalid-return-mapping-not-contained');
+assert(systemWuReturn.includes("fail('QUESTION_NOT_CURRENT_WU'") && systemWuReturn.includes("fail('QUESTION_EVIDENCE_STALE'"), 'invalid-return-not-contained');
+assert(component.includes('W/U Return 未通过当前题目/映射校验；学习状态没有被改动。'), 'invalid-return-feedback-missing');
+assert(component.includes('Return 无效、作答已变化，或未能安全保存；没有应用本次计划。'), 'manual-invalid-return-feedback-missing');
 assert(page.includes('<XizongSystemRepairReturn system={system} />'), 'repair-return-not-mounted');
 assert(blockPage.includes('<XizongRepairInboxBridge block={projection} />'), 'repair-inbox-bridge-not-mounted');
 assert(bridge.includes('kianos-xizong-repair-inbox-v1:'), 'bridge-does-not-read-repair-inbox');
