@@ -10,9 +10,9 @@
     "content_hash": "225c3808182e43d852e4d27eb1149d213685bda9c660c8f26b6cd9e2334d164f",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "粗线或电线，或木材计量单位",
+      "core_meaning_cn": "细长、柔韧、像绳一样连接两端的结构：可指绳索、电线，也可用于脊髓、脐带等解剖结构",
       "core_meaning_en": "a thick string or wire, or a measure of wood",
-      "mental_model_cn": "粗线或电线，或木材计量单位",
+      "mental_model_cn": "rope/string → 绳索；power/electrical cord → 电线；spinal/umbilical cord → 细长连接性解剖结构。旧的木材计量单位不进主 Core。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -20,7 +20,21 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "fact_id": "baseline-v2:secondary_sense:cord:anatomy",
+        "source_sense_id": null,
+        "pos": "noun",
+        "definition_cn": "绳索状或索状的解剖结构，如脊髓、脐带",
+        "definition_en": "a cord-like anatomical structure, such as the spinal cord or umbilical cord",
+        "pattern": "spinal cord / umbilical cord",
+        "level": "L1",
+        "priority": "A",
+        "publication_status": "publishable",
+        "verification_status": "verified",
+        "writing_safe": true
+      }
+    ],
     "semantic_neighbors": [],
     "senses": [
       {
@@ -66,24 +80,6 @@
             ],
             "meaning_cn": "电源线",
             "phrase": "power/electrical cord"
-          },
-          {
-            "collocation_id": "collocation:68a5e634b067b012c638",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:cord:e34a12ae7bd85c6f:collocation:handoff-o0875-o1124"
-            ],
-            "meaning_cn": "脊髓",
-            "phrase": "spinal cord"
-          },
-          {
-            "collocation_id": "collocation:5dd87fab71276efd324c",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:cord:e34a12ae7bd85c6f:collocation:handoff-o0875-o1124"
-            ],
-            "meaning_cn": "脐带",
-            "phrase": "umbilical cord"
           }
         ],
         "confidence": "medium",
@@ -289,7 +285,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1089-1096.json",
     "source_content_hash": "225c3808182e43d852e4d27eb1149d213685bda9c660c8f26b6cd9e2334d164f",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
