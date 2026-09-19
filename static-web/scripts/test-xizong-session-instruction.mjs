@@ -42,7 +42,7 @@ const instruction = {
     {
       step_id: 'm1',
       kind: 'MEMORY_REVIEW',
-      card_ids: ['core:a1-b01-kp01'],
+      targets: [{ card_id:'core:a1-b01-kp01', source_hash:'h1' }],
       reason: 'Chat wants one bounded delayed recall'
     },
     {
@@ -115,8 +115,11 @@ assert.throws(() => applyXizongSessionInstruction(new MemoryStorage({
 }), {
   ...instruction,
   session_id: 'dup-memory',
-  steps: [{ step_id: 'm1', kind: 'MEMORY_REVIEW', card_ids: ['core:a1-b01-kp01','core:a1-b01-kp01'] }]
-}, { expectedDay: day, now }), /MEMORY_CARD_IDS_DUPLICATE/);
+  steps: [{ step_id: 'm1', kind: 'MEMORY_REVIEW', targets: [
+    { card_id:'core:a1-b01-kp01', source_hash:'h1' },
+    { card_id:'core:a1-b01-kp01', source_hash:'h1' }
+  ] }]
+}, { expectedDay: day, now }), /MEMORY_TARGET_DUPLICATE/);
 
 assert.throws(() => applyXizongSessionInstruction(new MemoryStorage({
   [XIZONG_MEMORY_STORAGE_KEY]: JSON.stringify(memory)
@@ -125,6 +128,29 @@ assert.throws(() => applyXizongSessionInstruction(new MemoryStorage({
   session_id: 'dup-question',
   steps: [{ step_id: 'q1', kind: 'PRACTICE_SET', question_ids: ['xizong-official-2024-n001','xizong-official-2024-n001'] }]
 }, { expectedDay: day, now }), /PRACTICE_IDS_DUPLICATE/);
+
+const staleMemoryStorage = new MemoryStorage({
+  [XIZONG_MEMORY_STORAGE_KEY]: JSON.stringify(memory)
+});
+const staleMemoryInstruction = {
+  ...instruction,
+  session_id:'stale-memory',
+  generated_at:new Date(now + 2000).toISOString(),
+  steps:[{
+    step_id:'m1',
+    kind:'MEMORY_REVIEW',
+    targets:[{card_id:'core:a1-b01-kp01',source_hash:'new-hash'}]
+  }]
+};
+applyXizongSessionInstruction(staleMemoryStorage, staleMemoryInstruction, {
+  expectedDay:day,
+  now:now + 2000
+});
+assert.throws(() => activateXizongSessionNext(staleMemoryStorage, staleMemoryInstruction, {
+  now:now + 2100
+}), /MEMORY_SOURCE_REVISION_MISMATCH/);
+assert.equal(JSON.parse(staleMemoryStorage.getItem(XIZONG_MEMORY_STORAGE_KEY)).attention['core:a1-b01-kp01'], undefined,
+  'stale Memory target must not mutate learner state');
 
 const holdoutStorage = new MemoryStorage({
   [XIZONG_MEMORY_STORAGE_KEY]: JSON.stringify(memory)
@@ -150,7 +176,7 @@ assert.throws(() => applyXizongSessionInstruction(new MemoryStorage({
   session_id:'bad-nav',
   steps:[
     {step_id:'n1',kind:'NAVIGATE',href:'/xizong/circulation/'},
-    {step_id:'m1',kind:'MEMORY_REVIEW',card_ids:['core:a1-b01-kp01']}
+    {step_id:'m1',kind:'MEMORY_REVIEW',targets:[{card_id:'core:a1-b01-kp01',source_hash:'h1'}]}
   ]
 }, {expectedDay:day,now}), /NAVIGATE_MUST_BE_TERMINAL/);
 
