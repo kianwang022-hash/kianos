@@ -75,6 +75,7 @@ const {
             href:row.return_href,
             object_id:row.object_id,
             block_id:row.block_id,
+            session_ref:row.return_id || row.return_packet?.return_id || null,
             received_at:row.received_at
           })),
         ...Object.values(systemPending.pending_by_system || {})
@@ -83,6 +84,7 @@ const {
             kind:'SYSTEM_WU_RETURN',
             href:'/xizong/practice/' + encodeURIComponent(row.system_id) + '/',
             system_id:row.system_id,
+            session_ref:row.return_id || row.return_packet?.return_id || null,
             received_at:row.received_at
           }))
       ].sort((a, b) => String(b.received_at || '').localeCompare(String(a.received_at || '')));
@@ -139,6 +141,8 @@ const {
 
     if (pendingReturnNext && link instanceof HTMLAnchorElement) {
       link.href = pendingReturnNext.href;
+      if (pendingReturnNext.session_ref) link.setAttribute('data-session-ref', pendingReturnNext.session_ref);
+      else link.removeAttribute('data-session-ref');
       setText(location, '西综 · Chat 更新');
       const isSystemWu = pendingReturnNext.kind === 'SYSTEM_WU_RETURN';
       setText(title, isSystemWu ? '核对当前 W/U' : '核对当前 Block');
