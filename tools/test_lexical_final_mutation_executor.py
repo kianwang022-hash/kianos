@@ -90,6 +90,7 @@ class ExecutorFixture:
             "lane": "A",
             "source_head": self.base,
             "human_gate": {"approved": True, "approval_ref": "proposal@approved"},
+            "semantic_dependency_read_set": {},
             "writes": [{
                 "path": path,
                 "mode": "patch_json",
@@ -159,6 +160,28 @@ class MutationExecutorTests(unittest.TestCase):
         try:
             fx.make_package(path="static-web/forbidden.json")
             with self.assertRaisesRegex(ValueError, "WRITE_SCOPE_VIOLATION"):
+                m.apply_package(fx.root, fx.package_path, "work/lexical-continuous-test")
+        finally:
+            fx.close()
+
+
+    def test_stale_semantic_dependency_fails_closed(self):
+        fx = ExecutorFixture()
+        try:
+            dep = fx.root / "content/lexical/words/by-ordinal/o9999.json"
+            write_json(dep, {"schema": "dep", "value": 1})
+            run(fx.root, "add", ".")
+            run(fx.root, "commit", "-m", "add dependency")
+            fx.base = run(fx.root, "rev-parse", "HEAD")
+            package = fx.make_package()
+            package["semantic_dependency_read_set"] = {
+                "content/lexical/words/by-ordinal/o9999.json": m.filehash(dep)
+            }
+            write_json(fx.package_path, package)
+            run(fx.root, "add", str(fx.package_path.relative_to(fx.root)))
+            run(fx.root, "commit", "--amend", "--no-edit")
+            write_json(dep, {"schema": "dep", "value": 2})
+            with self.assertRaisesRegex(ValueError, "STALE_SEMANTIC_DEPENDENCY"):
                 m.apply_package(fx.root, fx.package_path, "work/lexical-continuous-test")
         finally:
             fx.close()
