@@ -154,19 +154,22 @@ function currentWuObservation(state, questionId) {
   const byAttempt = result?.attemptId
     ? history.find((event) => event?.type === 'QUESTION_ATTEMPT' && event?.attempt_id === result.attemptId)
     : null;
-  const latest = byAttempt || [...history].reverse().find((event) =>
-    event?.type === 'QUESTION_ATTEMPT' && String(event?.question_id || '') === questionId
-  ) || null;
-  const submittedAtRaw = String(latest?.submitted_at || result?.updatedAt || result?.submitted_at || '');
+  const legacyLatest = !result?.attemptId
+    ? [...history].reverse().find((event) =>
+        event?.type === 'QUESTION_ATTEMPT' && String(event?.question_id || '') === questionId
+      ) || null
+    : null;
+  const evidenceEvent = byAttempt || legacyLatest;
+  const submittedAtRaw = String(result?.updatedAt || result?.submitted_at || evidenceEvent?.submitted_at || '');
   const submittedAt = submittedAtRaw && !Number.isNaN(Date.parse(submittedAtRaw))
     ? new Date(submittedAtRaw).toISOString()
     : '';
   return {
     question_id: questionId,
-    status: String(result?.status || latest?.status || ''),
-    attempt_id: String(result?.attemptId || latest?.attempt_id || ''),
+    status: String(result?.status || evidenceEvent?.status || ''),
+    attempt_id: String(result?.attemptId || evidenceEvent?.attempt_id || ''),
     submitted_at: submittedAt,
-    round_id: String(result?.roundId || latest?.round_id || '')
+    round_id: String(result?.roundId || evidenceEvent?.round_id || '')
   };
 }
 
