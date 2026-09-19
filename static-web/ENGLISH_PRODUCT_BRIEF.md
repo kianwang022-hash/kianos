@@ -86,6 +86,66 @@ After submit, Wrong/Uncertain review expands in place while passage + full quest
 
 ---
 
+## External Reading — Reading Growth content lane
+
+External Reading is an ongoing English Content lane, analogous to Vocabulary in longevity but not in cognition. It exists to add high-quality reading volume after English-I papers stop providing enough new stimulus.
+
+Current source order:
+
+```text
+TPO 56–65
+→ IELTS Academic 17–19
+→ later high-value additions only when they expand useful reading range
+```
+
+### Visual / interaction model
+
+Reuse the accepted Reading workspace skeleton where it helps:
+
+```text
+private source library / collection tree
+→ select one stable External object
+→ passage left
+→ source-native questions right when safely adapted
+→ or passage-only Reading mode
+```
+
+Do not reuse English-I Reading-A semantic labels merely because the screen has the same two-column geometry.
+
+- TPO keeps legacy TOEFL/TPO identity.
+- IELTS keeps IELTS Academic identity.
+- unsupported source-native question structures remain source-bound/free-text or reading-only; never invent multiple-choice controls.
+- questionless future material remains questionless.
+- all imported/current questions stay visible as one source set when the source interaction permits it; local focus may support keyboard use without hiding the rest.
+- formal answers remain protected before Submit.
+- pure Reading is a legitimate completion path and must not manufacture a quiz or review debt.
+- Wrong / Uncertain remain evidence only.
+- source-quality warnings may appear as a quiet optional Source note; engineering/source debt must not dominate the learner workspace.
+
+### Content / private boundary
+
+The learner must never see a manual JSON-import workflow as the normal product.
+
+```text
+public GitHub identity / manifest / compiler
++
+private Mac source bundle
+→ local read-only bridge
+→ External Reading workspace
+```
+
+The public repository does not redistribute copyrighted TPO / Cambridge source bytes. Learner exposure/answers/timing remain in the same private English evidence/checkpoint system as other English tasks.
+
+### Cross-task boundary
+
+External Reading may use the same exact Lexical lookup/return affordance as Reading A, but lookup remains state-neutral and return restores the exact External object.
+
+Chat may choose an External object as an explicit next task when the factual catalog is available. Website code must not rank TPO/IELTS passages or infer a cross-task next action by itself.
+
+Material learner-facing changes to this new surface require a real Mac Human Gate before final visual acceptance.
+
+---
+
 ## Cloze — accepted direction
 
 ### Preserve existing functions
