@@ -15,7 +15,7 @@ This file owns E-scoped readiness truth only. It does not own medical Core, lear
 | S1 — medical / first-learning Source boundary | **PASS** | 20/20 canonical Block Source readback; locator policy, visual gaps, Source gaps and clinical/version boundaries explicit |
 | S2 — exact official E System question membership | **UNTESTED** | separate later Source sub-boundary; no membership inferred from Block/Outline placement |
 | K — Knowledge | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent K audit; one bounded System repair separated local invasion from metastatic competence / spread |
-| L — Learning Logic | **UNTESTED / ACTIVE NEXT** | now eligible after K acceptance |
+| L — Learning Logic | **UNTESTED / CANDIDATE READY** | fresh 20-Block / 212-KP Learning candidate built with 78 LGs; requires fresh independent L acceptance |
 | Content Realization / Optimization | **NOT_STARTED / DOWNSTREAM-FROZEN** | not eligible before accepted Learning |
 | P — Projection | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | R — Runtime | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
@@ -107,15 +107,43 @@ No Source, Block or KP identity changed.
 
 ---
 
+## L candidate — BUILT / NOT ACCEPTED
+
+Candidate owner:
+
+`content/xizong/knowledge/learner/e-reproductive-breast-learning.json`
+
+Construction evidence:
+
+`content/xizong/knowledge/learner/E_PHASE2_LEARNING_RECONSTRUCTION.md`
+
+Fresh independent audit brief:
+
+`content/xizong/knowledge/learner/E_PHASE3_FRESH_INDEPENDENT_L_AUDIT_BRIEF.md`
+
+Builder accounting:
+
+```text
+20 Blocks / 212 KP
+78 Logic Groups
+KP membership missing / duplicate = 0 / 0
+WHOLE_BLOCK_SOURCE = 12
+NATURAL_SOURCE_UNITS = 8
+proposed inside-E hard edge = E13 → E14 only
+non-gating PSR = 5
+```
+
+This is builder evidence only. It does **not** produce L PASS.
+
 ## Downstream freeze
 
-K is accepted. The next eligible stage is **Learning Logic construction**.
+K is accepted and Learning is now candidate-ready. The next eligible stage is **fresh independent L acceptance**.
 
 Until Learning passes:
 
-- do not treat any proposed learner route / Logic Group / Source-contact unit as accepted;
+- do not treat the proposed route / LG partition / Source-contact units as accepted;
 - do not clean/optimize E Content wrappers;
 - do not start E Projection/Runtime/Evidence;
 - do not infer official question membership.
 
-The existing 20 Block Markdown files remain canonical medical Core substrate. Accepted K does not itself prove E Learning or Content closure.
+The existing 20 Block Markdown files remain canonical medical Core substrate. Accepted K plus a builder L candidate does not itself prove E Learning or Content closure.
