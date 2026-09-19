@@ -438,7 +438,9 @@ try {
       }
     }));
   }, studyKey);
-  await page.reload({ waitUntil: 'networkidle' });
+  // KianOS Current/runtime performs periodic background polling, so networkidle is
+  // no longer a valid page-readiness signal. The learner surface itself is the gate.
+  await page.reload({ waitUntil: 'domcontentloaded' });
   const failClosedRoot = page.locator('[data-xizong-v6-block]');
   await failClosedRoot.waitFor({ state: 'visible' });
   check((await visibleStage(failClosedRoot)) !== 'ttsx_checkpoint', 'corrupt_unreviewed_ttsx_state_cannot_release_checkpoint');
