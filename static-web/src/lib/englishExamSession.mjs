@@ -61,16 +61,27 @@ export function startEnglishExamSession(paper, {
   const steps = reorderExamSteps(paper, taskOrder).map(validateStep);
   if (!steps.length) throw new Error('ENGLISH_EXAM_STEPS_EMPTY');
   const durationMinutes = Number(paper.duration_minutes || 0);
-  if (!Number.isFinite(durationMinutes) || durationMinutes <= 0) {
+  if (durationMinutes !== 180 || steps.length !== 9 || Number(paper.total_points) !== 100
+    || ['cloze','reading_a','reading_b','translation','writing'].some((task,i) => steps.filter(s=>s.task===task).length !== [1,4,1,1,2][i])
+    || steps.reduce((sum,s)=>sum+s.max_points,0)!==100) {
     throw new Error('ENGLISH_EXAM_DURATION_INVALID');
   }
+  if (new Set(steps.map(s=>s.step_id)).size!==9 || new Set(steps.map(s=>s.object_id)).size!==9
+      || Number(paper.objective_max_points)!==60 || Number(paper.productive_max_points)!==40
+      || steps.some(s=>!s.source_hash || !Array.isArray(s.question_ids))) throw new Error('ENGLISH_EXAM_PAPER_IDENTITY_INVALID');
+  const small=steps.filter(s=>s.task==='writing'&&s.writing_kind==='small'),big=steps.filter(s=>s.task==='writing'&&s.writing_kind==='big');
+  if(small.length!==1||big.length!==1||small[0].max_points!==10||big[0].max_points!==20
+     ||steps.filter(s=>s.task!=='writing').some(s=>s.max_points!==10)
+     ||steps.filter(s=>OBJECTIVE_TASKS.has(s.task)).some(s=>s.question_ids.length!==(s.task==='cloze'?20:5))) throw new Error('ENGLISH_EXAM_SECTION_STRUCTURE_INVALID');
 
   return {
     schema: ENGLISH_EXAM_SESSION_SCHEMA,
     session_id: sessionId || `${paper.paper_id}:${new Date(started).toISOString()}`,
     paper_id: String(paper.paper_id),
+    source_hash: paper.source_hash || null,
     year: Number(paper.year),
     status: 'ACTIVE',
+    revision: 0,
     started_at: iso(started),
     deadline_at: iso(started + durationMinutes * 60_000),
     sealed_at: null,
@@ -99,6 +110,14 @@ export function validateEnglishExamSession(value) {
     throw new Error(`ENGLISH_EXAM_SESSION_STATUS_INVALID:${value.status}`);
   }
   value.steps.forEach(validateStep);
+  const started = Date.parse(value.started_at), deadline = Date.parse(value.deadline_at);
+  if (!Number.isFinite(started) || !Number.isFinite(deadline) || deadline-started !== 180*60_000 || Number(value.duration_minutes)!==180) throw new Error('ENGLISH_EXAM_CLOCK_INVALID');
+  if (new Set(value.steps.map(s=>s.step_id)).size!==value.steps.length) throw new Error('ENGLISH_EXAM_DUPLICATE_STEP');
+  if (!value.captures || typeof value.captures!=='object' || Array.isArray(value.captures)) throw new Error('ENGLISH_EXAM_CAPTURES_INVALID');
+  for(const [id,capture] of Object.entries(value.captures)) {
+    const step=value.steps.find(s=>s.step_id===id);
+    if(!step || capture.step_id!==id || capture.task!==step.task || capture.object_id!==step.object_id) throw new Error('ENGLISH_EXAM_CAPTURE_IDENTITY_INVALID');
+  }
   if (!Number.isInteger(Number(value.current_step)) || Number(value.current_step) < 0 || Number(value.current_step) > value.steps.length) {
     throw new Error('ENGLISH_EXAM_CURRENT_STEP_INVALID');
   }
@@ -119,7 +138,24 @@ export function readEnglishExamSession(storage) {
 export function writeEnglishExamSession(storage, state) {
   if (!storage?.setItem) throw new Error('ENGLISH_EXAM_STORAGE_UNAVAILABLE');
   const valid = validateEnglishExamSession(state);
-  storage.setItem(ENGLISH_EXAM_SESSION_KEY, JSON.stringify(valid));
+  const raw = storage.getItem(ENGLISH_EXAM_SESSION_KEY);
+  let prior = null;
+  if(raw) { try {prior=validateEnglishExamSession(JSON.parse(raw));} catch {throw new Error('ENGLISH_EXAM_EXISTING_DATA_UNREADABLE_EXPORT_BEFORE_REPLACE');} }
+  if(prior?.session_id===valid.session_id) {
+    if(JSON.stringify(prior)===JSON.stringify(valid))return prior;
+    if(prior.status !== 'ACTIVE' && (valid.status==='ACTIVE' || JSON.stringify(prior.captures)!==JSON.stringify(valid.captures))) throw new Error('ENGLISH_EXAM_SEALED_IMMUTABLE');
+    if(prior.status==='RELEASED')throw new Error('ENGLISH_EXAM_RELEASE_IMMUTABLE');
+    if(Number(valid.revision||0)!==Number(prior.revision||0)+1)throw new Error('ENGLISH_EXAM_STALE_WRITE');
+  }
+  const archiveKey=prior && prior.session_id!==valid.session_id ? 'kianos-english-exam-archive-v1:'+prior.session_id : null;
+  const previousArchive=archiveKey?storage.getItem(archiveKey):null;
+  try {
+    if(archiveKey)storage.setItem(archiveKey,raw);
+    storage.setItem(ENGLISH_EXAM_SESSION_KEY, JSON.stringify(valid));
+  } catch(error) {
+    if(archiveKey) {if(previousArchive==null)storage.removeItem(archiveKey);else storage.setItem(archiveKey,previousArchive);}
+    throw error;
+  }
   return valid;
 }
 
@@ -151,6 +187,7 @@ export function captureEnglishExamStep(state, {
 } = {}) {
   const current = validateEnglishExamSession(state);
   if (current.status !== 'ACTIVE') throw new Error('ENGLISH_EXAM_NOT_ACTIVE');
+  if (englishExamRemainingMs(current, now)<=0) throw new Error('ENGLISH_EXAM_DEADLINE_REACHED');
   const index = current.steps.findIndex((step) => step.step_id === stepId);
   if (index < 0) throw new Error(`ENGLISH_EXAM_STEP_UNKNOWN:${stepId}`);
   const step = current.steps[index];
@@ -168,12 +205,14 @@ export function captureEnglishExamStep(state, {
   };
   updated.current_step = nextUncapturedIndex(updated, index);
   updated.updated_at = iso(now);
+  updated.revision = Number(current.revision||0)+1;
   return updated;
 }
 
 export function selectEnglishExamStep(state, index, now = Date.now()) {
   const current = validateEnglishExamSession(state);
   if (current.status !== 'ACTIVE') throw new Error('ENGLISH_EXAM_NOT_ACTIVE');
+  if (englishExamRemainingMs(current, now)<=0) throw new Error('ENGLISH_EXAM_DEADLINE_REACHED');
   const target = Number(index);
   if (!Number.isInteger(target) || target < 0 || target >= current.steps.length) {
     throw new Error('ENGLISH_EXAM_STEP_INDEX_INVALID');
@@ -181,17 +220,30 @@ export function selectEnglishExamStep(state, index, now = Date.now()) {
   const updated = clone(current);
   updated.current_step = target;
   updated.updated_at = iso(now);
+  updated.revision = Number(current.revision||0)+1;
   return updated;
 }
 
-export function sealEnglishExamSession(state, now = Date.now()) {
+export function sealEnglishExamSession(state, now = Date.now(), {storage=null} = {}) {
   const current = validateEnglishExamSession(state);
   if (current.status !== 'ACTIVE') return current;
   const updated = clone(current);
+  // Seal freezes all autosaved work, not only sections whose Complete button was clicked.
+  if(storage) {
+    for(const step of current.steps) {
+      const raw=storage.getItem(englishExamTaskStorageKey(current.session_id,step.task,step.object_id));
+      if(raw==null)continue;
+      let local;try{local=JSON.parse(raw);}catch{throw new Error('ENGLISH_EXAM_UNREADABLE_TASK:'+step.step_id);}
+      const savedAt=Date.parse(local.saved_at || local.updatedAt || '');
+      if(Number.isFinite(savedAt) && savedAt>Date.parse(current.deadline_at))throw new Error('ENGLISH_EXAM_LATE_TASK_WRITE:'+step.step_id);
+      updated.captures[step.step_id]={step_id:step.step_id,task:step.task,object_id:step.object_id,completed_at:current.captures[step.step_id]?.completed_at||null,sealed_snapshot_at:iso(Math.min(Number(now),Date.parse(current.deadline_at))),payload:englishExamPayload(step.task,local)};
+    }
+  }
   updated.status = 'SEALED';
   updated.current_step = updated.steps.length;
   updated.sealed_at = iso(now);
   updated.updated_at = iso(now);
+  updated.revision = Number(current.revision||0)+1;
   return updated;
 }
 
@@ -205,6 +257,7 @@ function normalizeAnswers(value) {
 export function releaseEnglishExamObjective(state, answerPacket, now = Date.now()) {
   const current = validateEnglishExamSession(state);
   if (current.status === 'ACTIVE') throw new Error('ENGLISH_EXAM_MUST_BE_SEALED');
+  if (current.status === 'RELEASED') return current;
   if (answerPacket?.schema !== ENGLISH_EXAM_ANSWER_SCHEMA || answerPacket?.paper_id !== current.paper_id) {
     throw new Error('ENGLISH_EXAM_ANSWER_PACKET_INVALID');
   }
@@ -217,6 +270,10 @@ export function releaseEnglishExamObjective(state, answerPacket, now = Date.now(
 
   for (const step of current.steps.filter((row) => OBJECTIVE_TASKS.has(row.task))) {
     const expected = normalizeAnswers(byStep[step.step_id]?.answers);
+    const keyStep=byStep[step.step_id];
+    if(step.source_hash && keyStep.source_hash!==step.source_hash) throw new Error('ENGLISH_EXAM_ANSWER_REVISION_MISMATCH:'+step.step_id);
+    if(keyStep?.task && (keyStep.task!==step.task || keyStep.object_id!==step.object_id)) throw new Error('ENGLISH_EXAM_ANSWER_IDENTITY_MISMATCH');
+    if(step.question_ids && JSON.stringify([...step.question_ids].sort())!==JSON.stringify(Object.keys(expected).sort())) throw new Error('ENGLISH_EXAM_ANSWER_SET_INCOMPLETE:'+step.step_id);
     const actual = normalizeAnswers(current.captures?.[step.step_id]?.payload?.answers);
     const ids = Object.keys(expected);
     if (!ids.length) throw new Error(`ENGLISH_EXAM_ANSWERS_MISSING:${step.step_id}`);
@@ -238,6 +295,7 @@ export function releaseEnglishExamObjective(state, answerPacket, now = Date.now(
   updated.status = 'RELEASED';
   updated.released_at = iso(now);
   updated.updated_at = iso(now);
+  updated.revision = Number(current.revision||0)+1;
   updated.release = {
     objective: {
       points: Number(objectivePoints.toFixed(2)),
@@ -311,4 +369,27 @@ export function buildEnglishExamEvidencePacket(state) {
     })),
     release: clone(current.release)
   };
+}
+
+
+export function englishExamTaskStorageKey(sessionId, task, objectId) {
+  return `kianos-english-exam-task-v1:${sessionId}:${task}:${objectId}`;
+}
+
+export function englishExamPayload(task, local) {
+  const common={started_at:local.startedAt||local.createdAt||null,source_hash:local.binding?.source_hash||local.sourceHash||null,attempt_id:local.binding?.attempt_id||null};
+  if(['reading_a','cloze','reading_b'].includes(task))return {...common,answers:clone(local.answers||{}),uncertain:clone(local.uncertain||[]),trajectory:clone(local.trajectory||{})};
+  if(task==='translation')return {...common,answers:clone(local.drafts||{}),first_attempts:clone(local.firstAttempts||{})};
+  if(task==='writing')return {...common,plan_mode:local.planMode||'direct',plan:local.planMode==='planned'?local.draftPlan||'':'',essay:local.draftEssay||'',first_draft:local.firstDraft||''};
+  throw new Error('ENGLISH_EXAM_TASK_UNSUPPORTED');
+}
+
+export function assertEnglishExamTaskAccess(storage, {sessionId,task,objectId,sourceHash=null,now=Date.now()}={}) {
+  const state=readEnglishExamSession(storage);
+  if(!state || state.session_id!==sessionId || state.status!=='ACTIVE')throw new Error('ENGLISH_EXAM_CONTEXT_INVALID_OR_SEALED');
+  if(englishExamRemainingMs(state,now)<=0)throw new Error('ENGLISH_EXAM_DEADLINE_REACHED');
+  const step=state.steps.find(s=>s.task===task && s.object_id===objectId);
+  if(!step)throw new Error('ENGLISH_EXAM_EXACT_TASK_REQUIRED');
+  if(sourceHash && step.source_hash && sourceHash!==step.source_hash)throw new Error('ENGLISH_EXAM_SOURCE_CHANGED_EXPORT_REQUIRED');
+  return {state,step};
 }

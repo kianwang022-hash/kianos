@@ -75,6 +75,8 @@ function evidenceIdOf(record) {
 }
 
 function assertFreshRecord(task, record) {
+  const observed=record?.firstEvidenceMeta||record?.binding;
+  if(observed?.prior_exposure!=='unseen'||observed?.assistance!=='unassisted'||observed?.legacy_unversioned||observed?.timing_status==='budget_exceeded')throw new Error('WRITING_TRANSFER_FRESHNESS_NOT_ESTABLISHED');
   if (!task || !nonEmpty(task.id)) throw new Error('WRITING_TRANSFER_TASK_REQUIRED');
   if (!record || clean(record.taskId) !== clean(task.id)) throw new Error('WRITING_TRANSFER_RECORD_TASK_MISMATCH');
   if (!WRITING_TERMINAL_STATES.has(record.state)) throw new Error(`WRITING_TRANSFER_FRESH_TASK_NOT_COMPLETE:${record.state || 'missing'}`);
@@ -130,6 +132,7 @@ function normalizeTarget(target) {
 }
 
 export function createWritingEvidenceLedger(saved = null) {
+  if(saved&&(saved.schema!==WRITING_EVIDENCE_LEDGER_SCHEMA||Number(saved.version)!==1||!Array.isArray(saved.targets)))throw new Error('WRITING_EVIDENCE_SCHEMA_MISMATCH_PRESERVE_DATA');
   const targets = Array.isArray(saved?.targets)
     ? saved.targets.map(normalizeTarget).filter(Boolean)
     : [];

@@ -13,7 +13,7 @@ export function globalNavigation(base = '/') {
 export const ENGLISH_FAMILY_PREFIXES = [
   'english', 'reading', 'reading-answer', 'reading-review', 'reading-b', 'reading-b-answer',
   'cloze', 'cloze-answer', 'objective-learn', 'translation', 'translation-learn',
-  'translation-reference', 'writing', 'writing-learn', 'vocabulary',
+  'translation-reference', 'writing', 'writing-learn', 'vocabulary', 'external-reading',
   'english-exam', 'english-exam-writing'
 ];
 
@@ -123,7 +123,7 @@ export function subjectShell(localPath = '', base = '/') {
   // Vocabulary is an English child workspace, but once entered it owns one local top bar.
   // Keep English active in L1 and return through the explicit ← English control instead
   // of stacking the parent English L2 above Vocabulary's own navigation.
-  if (topSegment(localPath) === 'vocabulary') return null;
+  if (['vocabulary', 'external-reading'].includes(topSegment(localPath))) return null;
 
   if (isEnglishFamily(localPath)) {
     if (isEnglishImmersiveTaskRuntime(localPath)) return null;

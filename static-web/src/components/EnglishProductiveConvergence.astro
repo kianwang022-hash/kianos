@@ -1,4 +1,5 @@
 <script>
+  import {saveEnglishAttempt,taskMetadata} from "../lib/englishLearnerEvidence.mjs";
   import {
     startManualTranslationReconstruction,
     saveManualWritingRevision,
@@ -16,7 +17,13 @@
   };
 
   const writeJson = (key, value) => {
-    try { localStorage.setItem(key, JSON.stringify(value)); return true; }
+    try {
+      const root = document.querySelector('[data-translation-runtime], [data-writing-runtime]');
+      const task = root?.hasAttribute('data-translation-runtime') ? 'translation' : 'writing';
+      const id = task === 'translation' ? root.getAttribute('data-object-id') : JSON.parse(root.querySelector('[data-writing-task]').textContent).id;
+      saveEnglishAttempt(localStorage,key,value,taskMetadata(root,task,id),{root});
+      return true;
+    }
     catch { return false; }
   };
 
@@ -46,7 +53,7 @@
 
   function enhanceTranslation() {
     const root = document.querySelector('[data-translation-runtime]');
-    if (!(root instanceof HTMLElement) || root.dataset.simpleReviewReady === 'true') return;
+    if (!(root instanceof HTMLElement) || root.dataset.simpleReviewReady === 'true' || new URLSearchParams(location.search).has('exam_session') || root.closest('[data-exam-runtime]')?.hidden) return;
     root.dataset.simpleReviewReady = 'true';
 
     const objectId = root.getAttribute('data-object-id') || '';
@@ -109,7 +116,10 @@
         '先看整套是否已经稳定；如果有问题，只指出最重要、最上游的问题和最小修正方向。',
         '不要替我整套重写，也不需要返回 JSON；我会回网页自己重译。',
         '',
-        '原文：', source,
+        `任务：${objectId} · 首答：${state.firstSubmittedAt || 'unknown'} · 版本：${state.binding?.source_hash || 'unknown'}`,
+        '首答条件（未知不等于未见；退出不等于掌握）：', JSON.stringify(state.firstEvidenceMeta || state.binding || null),
+        '完整原文背景：', JSON.stringify(state.binding?.source_snapshot || {}, null, 2),
+        '目标句段：', source,
         '',
         '我的第一版：', first
       ].join('\n');
@@ -161,7 +171,7 @@
 
   function enhanceWriting() {
     const root = document.querySelector('[data-writing-runtime]');
-    if (!(root instanceof HTMLElement) || root.dataset.simpleReviewReady === 'true') return;
+    if (!(root instanceof HTMLElement) || root.dataset.simpleReviewReady === 'true' || new URLSearchParams(location.search).has('exam_session') || root.closest('[data-exam-runtime]')?.hidden) return;
     root.dataset.simpleReviewReady = 'true';
 
     let task = null;
@@ -258,8 +268,13 @@
         '不要替我整篇重写，也不需要返回 JSON；我会回网页自己修改。',
         '',
         '题目：', prompt,
+        '完整任务与原图引用：', JSON.stringify(task.learnerTask || {}),
+        '如题目依赖原图，必须先取得该精确原图；文件路径不是图像，不得猜测图意。',
+        '首稿条件（未知不等于未见；退出不等于掌握）：', JSON.stringify(state.firstEvidenceMeta || state.binding || null),
         '',
-        '我的作文：', currentEssay
+        `任务：${task.id} · 首稿：${state.firstSubmittedAt || 'unknown'} · 版本：${state.binding?.source_hash || 'unknown'}`,
+        '不可覆盖的第一版：', state.firstDraft || '',
+        '我的当前作文：', currentEssay
       ].join('\n');
       status.textContent = await copyText(text) ? '已复制。直接在 Chat 讨论；回来改这篇就行。' : '复制失败，请手动复制。';
     });
@@ -315,10 +330,8 @@
     }
   }
 
-  onReady(() => {
-    enhanceTranslation();
-    enhanceWriting();
-  });
+  onReady(() => { enhanceTranslation(); enhanceWriting(); });
+  window.addEventListener('kianos:writing-task-opened', enhanceWriting);
 </script>
 
 <style>

@@ -48,8 +48,7 @@ function repairSignature(payload) {
 }
 
 function freshTransferClosureEligible(target, context = {}) {
-  const historyCount = Number(context.taskHistoryCount);
-  if (!Number.isFinite(historyCount) || historyCount !== 0) return false;
+  if(context.binding?.prior_exposure!=='unseen' || context.binding?.assistance!=='unassisted' || context.binding?.legacy_unversioned || context.binding?.timing_status==='budget_exceeded')return false;
   const attemptAt = isoMillis(context.attemptFirstSubmittedAt);
   const targetCreatedAt = isoMillis(target?.createdAt);
   if (!Number.isFinite(attemptAt) || !Number.isFinite(targetCreatedAt)) return false;
@@ -87,6 +86,8 @@ export function blankTranslationState(prompts = [], history = []) {
 
 export function normalizeTranslationState(prompts = [], saved = null) {
   const ids = translationPromptIds(prompts);
+  if (saved && saved.version != null && ![1, TRANSLATION_RUNTIME_VERSION].includes(Number(saved.version))) throw new Error('TRANSLATION_SCHEMA_MISMATCH_PRESERVE_DATA');
+  if (saved?.firstAttempts && Object.keys(saved.firstAttempts).some(id => !ids.includes(id))) throw new Error('TRANSLATION_SOURCE_CHANGED_PRESERVE_DATA');
   if (!saved || Number(saved?.version) !== TRANSLATION_RUNTIME_VERSION) {
     const history = Array.isArray(saved?.history) ? [...saved.history] : [];
     if (saved?.firstAttempt) {
@@ -143,6 +144,7 @@ export function wholeAttemptMissing(prompts = [], drafts = {}) {
 }
 
 export function freezeWholeAttempt(state, prompts = [], now) {
+  if (state?.stage !== 'attempt' || Object.keys(state?.firstAttempts || {}).length) throw new Error('TRANSLATION_FIRST_ATTEMPT_IMMUTABLE');
   const missing = wholeAttemptMissing(prompts, state?.drafts || {});
   if (missing.length) return { ok: false, missing, state };
   const next = structuredClone(state);
@@ -156,6 +158,7 @@ export function freezeWholeAttempt(state, prompts = [], now) {
 }
 
 export function passCleanAttempt(state, now) {
+  if (!state?.firstSubmittedAt || !Object.keys(state?.firstAttempts || {}).length) throw new Error('TRANSLATION_FIRST_ATTEMPT_REQUIRED');
   const next = structuredClone(state);
   next.stage = 'passed';
   next.decision = 'PASS';
@@ -181,7 +184,8 @@ export function blankTransferLedger() {
 }
 
 export function normalizeTransferLedger(saved = null) {
-  if (!saved || Number(saved?.version) !== 1 || !Array.isArray(saved?.targets)) return blankTransferLedger();
+  if (!saved) return blankTransferLedger();
+  if(Number(saved.version)!==1 || !Array.isArray(saved.targets))throw new Error('TRANSLATION_TRANSFER_SCHEMA_MISMATCH_PRESERVE_DATA');
   return {
     version: 1,
     targets: saved.targets.map((target) => ({
@@ -232,6 +236,8 @@ export function parseTranslationReturn(text, expectedTaskId = '') {
       throw new Error('RETURN_PACKET_TRANSFER_TARGET_LEXICAL_OWNER');
     }
   }
+  if(payload.transfer_updates!=null&&!Array.isArray(payload.transfer_updates))throw new Error('RETURN_TRANSFER_UPDATES_INVALID');
+  if(payload.lexicalThreads!=null&&!Array.isArray(payload.lexicalThreads))throw new Error('RETURN_LEXICAL_THREADS_INVALID');
   const updates = Array.isArray(payload?.transfer_updates) ? payload.transfer_updates : [];
   const seenUpdateTargets = new Set();
   for (const update of updates) {
@@ -306,11 +312,17 @@ function normalizedAffectedSegments(payload, prompts) {
 }
 
 export function applyTranslationReturn(state, payload, prompts = [], ledger = null, context = {}) {
+  payload=parseTranslationReturn(JSON.stringify(payload),context.task);
+  if(!state.firstSubmittedAt || payload.attemptSubmittedAt!==state.firstSubmittedAt)throw new Error('TRANSLATION_RETURN_STALE_ATTEMPT');
+  if(!payload.sourceHash || payload.sourceHash!==state.binding?.source_hash)throw new Error('TRANSLATION_RETURN_SOURCE_MISMATCH');
+  if(JSON.stringify(state.chatReturn)===JSON.stringify(payload))return {state:structuredClone(state),ledger:normalizeTransferLedger(ledger)};
+  if(!['triage','diagnosis','reconstruct'].includes(state.stage))throw new Error('TRANSLATION_RETURN_STAGE_INVALID');
   const affectedSegments = payload?.decision === 'REPAIR_NEEDED'
     ? normalizedAffectedSegments(payload, prompts)
     : [];
   const evidenceContext = {
     ...context,
+    binding:state.firstEvidenceMeta||state.binding,
     taskHistoryCount: context.taskHistoryCount ?? (Array.isArray(state?.history) ? state.history.length : 0),
     attemptFirstSubmittedAt: context.attemptFirstSubmittedAt || clean(state?.firstSubmittedAt)
   };

@@ -32,18 +32,23 @@ const statusLabel = (status) => status === 'ready' ? '可进入' : status === 'i
           </div>
           <small class="englishAvailability">{statusLabel(objectiveSource.status)}</small>
         </section>
+        <section class="englishCapabilityGroup" data-capability="external-reading">
+          <div class="englishCapabilityLead"><span>02 · READING GROWTH</span><h2>额外阅读</h2><p>真题之外继续增加高质量阅读量；TPO 优先，IELTS 次之。</p></div>
+          <div class="englishCapabilityRoutes"><a href={`${base}external-reading/`}><span>+</span><div><strong>External Reading</strong><small>TPO 56–65 · IELTS Academic 17–19 · source-native</small></div><b>→</b></a></div>
+          <small class="englishAvailability">私有 Source 按需加载 · 不改写 Reading A 做题逻辑</small>
+        </section>
         <section class="englishCapabilityGroup" data-capability="translation">
-          <div class="englishCapabilityLead"><span>02 · TRANSLATION</span><h2>忠实重建</h2><p>保留英文意义与关系，形成自然中文。</p></div>
+          <div class="englishCapabilityLead"><span>03 · TRANSLATION</span><h2>忠实重建</h2><p>保留英文意义与关系，形成自然中文。</p></div>
           <div class="englishCapabilityRoutes"><a href={`${base}translation/`}><span>10 <small>pts</small></span><div><strong>Translation</strong><small>原文与自己的完整译文同时可见</small></div><b>→</b></a></div>
           <small class="englishAvailability">{statusLabel(translation.status)}</small>
         </section>
         <section class="englishCapabilityGroup" data-capability="writing">
-          <div class="englishCapabilityLead"><span>03 · WRITING</span><h2>从任务到成文</h2><p>Small / Big 两种任务，保留自己的第一版。</p></div>
+          <div class="englishCapabilityLead"><span>04 · WRITING</span><h2>从任务到成文</h2><p>Small / Big 两种任务，保留自己的第一版。</p></div>
           <div class="englishCapabilityRoutes"><a href={`${base}writing/`}><span>30 <small>pts</small></span><div><strong>Writing</strong><small>先规划或直接写 · 完整表达</small></div><b>→</b></a></div>
           <small class="englishAvailability">{statusLabel(writingRuntime.status)}</small>
         </section>
         <section class="englishCapabilityGroup" data-capability="full-paper">
-          <div class="englishCapabilityLead"><span>04 · FULL PAPER</span><h2>整卷执行</h2><p>180 分钟连续完成；交卷后再统一查看客观题结果。</p></div>
+          <div class="englishCapabilityLead"><span>05 · FULL PAPER</span><h2>整卷执行</h2><p>180 分钟连续完成；交卷后再统一查看客观题结果。</p></div>
           <div class="englishCapabilityRoutes"><a href={`${base}english-exam/`}><span>100 <small>pts</small></span><div><strong>Full Paper / Mock</strong><small>Cloze · Reading · Part B · Translation · Writing</small></div><b>→</b></a></div>
           <small class="englishAvailability">按需要进入</small>
         </section>

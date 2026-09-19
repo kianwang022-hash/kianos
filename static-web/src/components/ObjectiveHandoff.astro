@@ -171,7 +171,7 @@
         'newClaims may only reference a reusable task-specific thread whose repairCompleted=true and repairEvidence is non-empty. Do not duplicate Lexical or Reading objects. CLOSED and REOPENED require relevant fresh evidence; otherwise leave the claim unchanged.',
         'KIANOS_OBJECTIVE_RETURN_V1',
         '```json',
-        JSON.stringify({ schema: 'kianos.english.objective_review_return.v1', task, objectId, threads: [], newClaims: [], claimUpdates: [] }, null, 2),
+        JSON.stringify({ schema: 'kianos.english.objective_review_return.v1', task, objectId, attemptSubmittedAt: attempt.submittedAt, sourceHash: attempt.binding?.source_hash, threads: [], newClaims: [], claimUpdates: [] }, null, 2),
         '```'
       );
 

@@ -98,6 +98,7 @@ export function createInitialWritingRecord(task, history = [], now) {
 export function normalizeWritingRecord(task, saved = null, now) {
   assertTask(task);
   const preservedHistory = Array.isArray(saved?.history) ? saved.history : [];
+  if (saved && (Number(saved.version) !== WRITING_RUNTIME_VERSION || saved.taskId !== task.id)) throw new Error('WRITING_SCHEMA_OR_TASK_MISMATCH_PRESERVE_DATA');
   if (!saved || Number(saved?.version) !== WRITING_RUNTIME_VERSION || saved?.taskId !== task.id) {
     return createInitialWritingRecord(task, preservedHistory, now);
   }
@@ -107,10 +108,10 @@ export function normalizeWritingRecord(task, saved = null, now) {
     history: preservedHistory,
     repairHistory: Array.isArray(saved?.repairHistory) ? saved.repairHistory : []
   };
-  if (!Object.values(WRITING_STATES).includes(next.state)) next.state = WRITING_STATES.ATTEMPT;
+  if (!Object.values(WRITING_STATES).includes(next.state)) throw new Error('WRITING_STATE_INVALID_PRESERVE_DATA');
   if (!['planned', 'direct'].includes(next.planMode)) next.planMode = 'direct';
   if (!nonEmpty(next.firstDraft) && next.state !== WRITING_STATES.ATTEMPT) {
-    return createInitialWritingRecord(task, preservedHistory, now);
+    throw new Error('WRITING_FIRST_DRAFT_MISSING_PRESERVE_DATA');
   }
   return next;
 }
@@ -159,6 +160,9 @@ export function buildWritingReviewPacket(task, record) {
       text: record.planMode === 'planned' ? record.firstPlan : null
     },
     firstDraft: record.firstDraft,
+    attemptEvidence: clone(record.firstEvidenceMeta || record.binding || null),
+    attemptSubmittedAt: record.firstSubmittedAt,
+    sourceHash: task.sourceHash,
     reviewContract: {
       learnerUnit: 'one complete essay',
       judgeWholeEssayFirst: true,
@@ -172,6 +176,8 @@ export function buildWritingReviewPacket(task, record) {
         schema: WRITING_REVIEW_RETURN_SCHEMA,
         taskId: task.id,
         reviewOf: 'FIRST_DRAFT',
+        attemptSubmittedAt: record.firstSubmittedAt,
+        sourceHash: task.sourceHash,
         verdict: 'PASS_ACCEPTABLE | REPAIR_NEEDED',
         firstFailureLayer: 'null on PASS; otherwise one allowed layer',
         repairScope: 'null on PASS; otherwise the smallest scope that must be regenerated',
@@ -209,6 +215,7 @@ export function validateWritingReviewReturn(input, taskId) {
   if (value?.reviewOf !== 'FIRST_DRAFT') throw new Error(`WRITING_REVIEW_RETURN_REVIEW_OF:${value?.reviewOf || 'missing'}`);
   if (!['PASS_ACCEPTABLE', 'REPAIR_NEEDED'].includes(value?.verdict)) throw new Error(`WRITING_REVIEW_RETURN_VERDICT:${value?.verdict || 'missing'}`);
   if (!nonEmpty(value?.reason)) throw new Error('WRITING_REVIEW_RETURN_REASON_REQUIRED');
+  if(value.lexicalThreads!=null&&!Array.isArray(value.lexicalThreads))throw new Error('WRITING_LEXICAL_THREADS_INVALID');
 
   if (value.verdict === 'PASS_ACCEPTABLE') {
     if (nonEmpty(value?.firstFailureLayer) || nonEmpty(value?.repairScope) || nonEmpty(value?.smallestRepair)) {
@@ -218,6 +225,9 @@ export function validateWritingReviewReturn(input, taskId) {
       schema: WRITING_REVIEW_RETURN_SCHEMA,
       taskId: clean(taskId),
       reviewOf: 'FIRST_DRAFT',
+      attemptSubmittedAt: clean(value.attemptSubmittedAt),
+      sourceHash:clean(value.sourceHash),
+      lexicalThreads:clone(value.lexicalThreads||[]),
       verdict: 'PASS_ACCEPTABLE',
       firstFailureLayer: null,
       repairScope: null,
@@ -233,6 +243,9 @@ export function validateWritingReviewReturn(input, taskId) {
     schema: WRITING_REVIEW_RETURN_SCHEMA,
     taskId: clean(taskId),
     reviewOf: 'FIRST_DRAFT',
+    attemptSubmittedAt: clean(value.attemptSubmittedAt),
+      sourceHash:clean(value.sourceHash),
+      lexicalThreads:clone(value.lexicalThreads||[]),
     verdict: 'REPAIR_NEEDED',
     firstFailureLayer: value.firstFailureLayer,
     repairScope: clean(value.repairScope),
@@ -242,6 +255,10 @@ export function validateWritingReviewReturn(input, taskId) {
 }
 
 export function applyWritingReviewReturn(record, reviewReturn, now) {
+  reviewReturn = validateWritingReviewReturn(reviewReturn, record?.taskId);
+  if (!reviewReturn.attemptSubmittedAt || reviewReturn.attemptSubmittedAt !== record?.firstSubmittedAt) throw new Error('WRITING_REVIEW_STALE_ATTEMPT');
+  if(!reviewReturn.sourceHash || reviewReturn.sourceHash!==record.binding?.source_hash)throw new Error('WRITING_REVIEW_SOURCE_MISMATCH');
+  if (record?.reviewReturn && JSON.stringify(record.reviewReturn) === JSON.stringify(reviewReturn)) return clone(record);
   if (!record || record.state !== WRITING_STATES.REVIEW_PENDING) {
     throw new Error(`WRITING_REVIEW_IMPORT_INVALID_STATE:${record?.state || 'missing'}`);
   }
@@ -273,6 +290,7 @@ export function lockWritingRegeneration(record, regeneration, now) {
   if (!record.reviewReturn || record.reviewReturn.verdict !== 'REPAIR_NEEDED') throw new Error('WRITING_REGEN_MISSING_ROOT_REPAIR');
   if (!nonEmpty(regeneration)) throw new Error('WRITING_REGEN_REQUIRED');
   const next = clone(record);
+  next.regenerationSubmittedAt = nowIso(now);
   next.regeneration = clean(regeneration);
   next.regenerationDraft = clean(regeneration);
   next.repairReturn = null;
@@ -298,6 +316,8 @@ export function buildWritingRepairCheckPacket(task, record) {
       text: record.planMode === 'planned' ? record.firstPlan : null
     },
     firstDraft: record.firstDraft,
+    attemptEvidence: clone(record.firstEvidenceMeta || record.binding || null),
+    attemptSubmittedAt: record.firstSubmittedAt,
     rootDiagnosis: {
       firstFailureLayer: record.reviewReturn.firstFailureLayer,
       repairScope: record.reviewReturn.repairScope,
@@ -305,6 +325,7 @@ export function buildWritingRepairCheckPacket(task, record) {
       reason: record.reviewReturn.reason
     },
     learnerRegeneration: record.regeneration,
+    regenerationSubmittedAt: record.regenerationSubmittedAt,
     repairCheckContract: {
       judgeOnlyTheNamedRepairFirst: true,
       samePromptSuccessIsRepairEvidenceNotTransferClosure: true,
@@ -315,6 +336,9 @@ export function buildWritingRepairCheckPacket(task, record) {
         schema: WRITING_REPAIR_RETURN_SCHEMA,
         taskId: task.id,
         repairOf: 'REGENERATION',
+        attemptSubmittedAt: record.firstSubmittedAt,
+        regenerationSubmittedAt: record.regenerationSubmittedAt,
+        sourceHash: task.sourceHash,
         verdict: 'REPAIR_COMPLETE | REPAIR_STILL_NEEDED',
         reason: 'brief rationale',
         whenComplete: {
@@ -345,6 +369,8 @@ export function validateWritingRepairReturn(input, record) {
   const value = parseJsonInput(input);
   if (value?.schema !== WRITING_REPAIR_RETURN_SCHEMA) throw new Error(`WRITING_REPAIR_RETURN_SCHEMA:${value?.schema || 'missing'}`);
   if (clean(value?.taskId) !== clean(record.taskId)) throw new Error(`WRITING_REPAIR_RETURN_TASK_MISMATCH:${value?.taskId || 'missing'}`);
+  if(value.attemptSubmittedAt!==record.firstSubmittedAt || value.regenerationSubmittedAt!==record.regenerationSubmittedAt)throw new Error('WRITING_REPAIR_STALE_ATTEMPT');
+  if(!value.sourceHash||value.sourceHash!==record.binding?.source_hash)throw new Error('WRITING_REPAIR_SOURCE_MISMATCH');
   if (value?.repairOf !== 'REGENERATION') throw new Error(`WRITING_REPAIR_RETURN_REPAIR_OF:${value?.repairOf || 'missing'}`);
   if (!['REPAIR_COMPLETE', 'REPAIR_STILL_NEEDED'].includes(value?.verdict)) throw new Error(`WRITING_REPAIR_RETURN_VERDICT:${value?.verdict || 'missing'}`);
   if (!nonEmpty(value?.reason)) throw new Error('WRITING_REPAIR_RETURN_REASON_REQUIRED');
@@ -354,6 +380,7 @@ export function validateWritingRepairReturn(input, record) {
       schema: WRITING_REPAIR_RETURN_SCHEMA,
       taskId: record.taskId,
       repairOf: 'REGENERATION',
+      attemptSubmittedAt:clean(value.attemptSubmittedAt),regenerationSubmittedAt:clean(value.regenerationSubmittedAt),sourceHash:clean(value.sourceHash),
       verdict: 'REPAIR_COMPLETE',
       reason: clean(value.reason),
       memoryAdmission: normalizeMemoryAdmission(value.memoryAdmission)
@@ -380,6 +407,7 @@ export function validateWritingRepairReturn(input, record) {
     schema: WRITING_REPAIR_RETURN_SCHEMA,
     taskId: record.taskId,
     repairOf: 'REGENERATION',
+    attemptSubmittedAt:clean(value.attemptSubmittedAt),regenerationSubmittedAt:clean(value.regenerationSubmittedAt),sourceHash:clean(value.sourceHash),
     verdict: 'REPAIR_STILL_NEEDED',
     continuation: value.continuation,
     nextFailureLayer: value.nextFailureLayer,
@@ -390,6 +418,8 @@ export function validateWritingRepairReturn(input, record) {
 }
 
 export function applyWritingRepairReturn(record, repairReturn, now) {
+  repairReturn=validateWritingRepairReturn(repairReturn,record);
+  if(JSON.stringify(record.repairReturn)===JSON.stringify(repairReturn))return clone(record);
   if (!record || record.state !== WRITING_STATES.REPAIR_CHECK_PENDING) {
     throw new Error(`WRITING_REPAIR_IMPORT_INVALID_STATE:${record?.state || 'missing'}`);
   }
@@ -442,6 +472,8 @@ export function archiveWritingAttempt(record, now) {
     planMode: record.planMode,
     firstPlan: record.firstPlan,
     firstDraft: record.firstDraft,
+    attemptEvidence: clone(record.firstEvidenceMeta || record.binding || null),
+    attemptSubmittedAt: record.firstSubmittedAt,
     firstSubmittedAt: record.firstSubmittedAt,
     finalState: record.state,
     reviewReturn: record.reviewReturn,

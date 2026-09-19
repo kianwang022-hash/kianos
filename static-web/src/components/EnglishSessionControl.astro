@@ -1,3 +1,7 @@
+---
+import {englishSessionCatalog} from "../lib/englishSessionCatalog.mjs";
+const catalogPayload=JSON.stringify(englishSessionCatalog()).replace(/</g,"\\u003c");
+---
 
 <details class="englishSessionControl" data-english-session-control>
   <summary>
@@ -22,6 +26,8 @@
   </div>
 </details>
 
+<script type="application/json" data-english-session-catalog set:html={catalogPayload}></script>
+
 <script>
   import {
     ENGLISH_SESSION_SCHEMA,
@@ -34,11 +40,31 @@
 
   const root = document.querySelector('[data-english-session-control]');
   if (root instanceof HTMLDetailsElement) {
+    let catalog = JSON.parse(document.querySelector('[data-english-session-catalog]')?.textContent || '[]');
+    let externalCatalogLoaded = false;
+    const loadCatalog = async () => {
+      if (externalCatalogLoaded) return catalog;
+      externalCatalogLoaded = true;
+      try {
+        const response = await fetch('/__kianos-private/external-reading/catalog', { cache: 'no-store' });
+        if (response.ok) {
+          const data = await response.json();
+          const rows = (data.collections || []).flatMap(group => group.passages || []).map(row => ({
+            task: 'external_reading',
+            object_id: row.object_id,
+            source_hash: row.content_hash,
+            label: row.title || row.object_id
+          }));
+          catalog = [...catalog, ...rows];
+        }
+      } catch {}
+      return catalog;
+    };
     const status = root.querySelector('[data-english-session-status]');
     const importBox = root.querySelector('[data-english-session-import]');
     const input = root.querySelector('[data-english-session-input]');
     const localDay = () => new Date().toLocaleDateString('en-CA');
-    const taskLabels = { reading_a: 'Reading A', cloze: 'Cloze', reading_b: 'Part B', translation: 'Translation', writing: 'Writing', full_paper: 'Full Paper' };
+    const taskLabels = { reading_a: 'Reading A', cloze: 'Cloze', reading_b: 'Part B', external_reading: 'External Reading', translation: 'Translation', writing: 'Writing', full_paper: 'Full Paper' };
 
     const setStatus = (text, bad = false) => {
       if (!(status instanceof HTMLElement)) return;
@@ -85,7 +111,8 @@
 
     root.querySelector('[data-english-copy-evidence]')?.addEventListener('click', async () => {
       try {
-        const text = buildEnglishChatHandoffText(localStorage, { day: localDay() });
+        await loadCatalog();
+        const text = buildEnglishChatHandoffText(localStorage, { day: localDay(), catalog });
         setStatus(await copyText(text)
           ? '当前英语进度已复制；把它发给 Chat 即可继续安排下一步。'
           : '复制失败，请稍后再试。', false);
@@ -103,10 +130,11 @@
       if (importBox instanceof HTMLElement) importBox.hidden = true;
     });
 
-    root.querySelector('[data-english-apply-session]')?.addEventListener('click', () => {
+    root.querySelector('[data-english-apply-session]')?.addEventListener('click', async () => {
       try {
         const raw = input instanceof HTMLTextAreaElement ? input.value : '';
-        const instruction = writeEnglishSessionInstruction(localStorage, raw, localDay());
+        await loadCatalog();
+        const instruction = writeEnglishSessionInstruction(localStorage, raw, localDay(), {catalog});
         if (input instanceof HTMLTextAreaElement) input.value = '';
         if (importBox instanceof HTMLElement) importBox.hidden = true;
         setStatus('学习安排已导入。');
