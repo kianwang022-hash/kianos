@@ -6,6 +6,11 @@ import {
 } from './xizongMemoryModel.mjs';
 import { studyDayAt } from './studyTimer.mjs';
 import { readXizongPendingChatReturnState } from './xizongPendingChatReturn.mjs';
+import {
+  XIZONG_SYSTEM_WU_RETURN_SCHEMA,
+  currentXizongSystemWuEvidence,
+  readXizongSystemWuPendingState
+} from './xizongSystemWuReturn.mjs';
 
 export const XIZONG_DAILY_EVIDENCE_SCHEMA = 'kianos.xizong.daily_evidence.v1';
 
@@ -58,6 +63,7 @@ export function buildXizongDailyEvidencePacket(storage, {
   const keys = listKeys(storage);
   const memory = normalizeXizongMemoryState(readJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
   const pendingReturnState = readXizongPendingChatReturnState(storage);
+  const systemWuPendingState = readXizongSystemWuPendingState(storage);
   const chatReturnReceipt = pendingReturnState.last_receipt && onDay(pendingReturnState.last_receipt.at, day)
     ? clone(pendingReturnState.last_receipt)
     : null;
@@ -75,6 +81,48 @@ export function buildXizongDailyEvidencePacket(storage, {
     }))
     .filter((row) => row.object_id && row.return_id)
     .sort((a, b) => a.received_at.localeCompare(b.received_at));
+
+  const currentSystemWu = [];
+  for (const key of keys.filter((value) => /^kianos:xizong:system-question-sweep:[^:]+:v1$/.test(value))) {
+    const systemId = key.match(/^kianos:xizong:system-question-sweep:([^:]+):v1$/)?.[1] || '';
+    if (!systemId) continue;
+    const rows = currentXizongSystemWuEvidence(storage, systemId);
+    if (!rows.length) continue;
+    currentSystemWu.push({
+      system_id: systemId,
+      items: rows,
+      return_contract: {
+        schema: XIZONG_SYSTEM_WU_RETURN_SCHEMA,
+        system_id: systemId,
+        decision: 'NO_ACTION | REPAIR',
+        plan_shape: {
+          question_id: '<must be one of items.question_id>',
+          status: '<echo exact items.status>',
+          attempt_id: '<echo exact items.attempt_id when present>',
+          submitted_at: '<echo exact items.submitted_at when present>',
+          round_id: '<echo exact items.round_id when present>',
+          reason: '<why repair is justified>',
+          action: '<smallest useful repair>',
+          priority: 'high | medium | low | normal'
+        },
+        rule: 'Do not provide Block/KP mapping. KianOS resolves only current reviewed Question→Knowledge relations and rejects stale attempt evidence.'
+      }
+    });
+  }
+  currentSystemWu.sort((a, b) => a.system_id.localeCompare(b.system_id));
+
+  const pendingSystemWuReturns = Object.values(systemWuPendingState.pending_by_system || {})
+    .map((row) => ({
+      return_id: String(row?.return_id || ''),
+      system_id: String(row?.system_id || ''),
+      received_at: String(row?.received_at || '')
+    }))
+    .filter((row) => row.return_id && row.system_id);
+
+  const systemWuReceipt = systemWuPendingState.last_receipt
+    && onDay(systemWuPendingState.last_receipt.at, day)
+      ? clone(systemWuPendingState.last_receipt)
+      : null;
 
   const memoryEvents = (memory.evidence || [])
     .filter((row) => onDay(row?.at, day))
@@ -260,6 +308,9 @@ export function buildXizongDailyEvidencePacket(storage, {
     current: {
       pending_chat_returns: pendingChatReturns,
       chat_return_receipt: chatReturnReceipt,
+      current_system_wu: currentSystemWu,
+      pending_system_wu_returns: pendingSystemWuReturns,
+      system_wu_return_receipt: systemWuReceipt,
       memory_today: todayMemoryQueue(memory).map((card) => ({
         card_id: String(card?.id || ''),
         family: String(card?.family || ''),
@@ -306,7 +357,8 @@ export function buildXizongDailyEvidencePacket(storage, {
       system_recall: 'append-preserved System reconstruction event when current prototype history exists; legacy latest-only state remains labeled',
       memory_today: 'current native attention queue only; presence is not mastery debt and Chat may thin, defer, or ignore it based on current evidence',
       chat_return_receipt: 'subject-level typed Return validation result; APPLIED/STALE/REJECTED is transport/repair-routing state, not mastery evidence',
-      chat_return_control: 'pending_chat_returns and chat_return_receipt are transport/control state only; APPLIED/STALE never equals learner mastery or Repair success'
+      chat_return_control: 'pending_chat_returns and chat_return_receipt are transport/control state only; APPLIED/STALE never equals learner mastery or Repair success',
+      system_wu_return: 'current_system_wu binds exact current Wrong/Uncertain attempts; Chat may diagnose them but must not invent Block/KP mapping. Subject receipt is routing state, never mastery.'
     }
   };
 
@@ -321,6 +373,9 @@ export function buildXizongDailyEvidencePacket(storage, {
     repair_events: repairEvents.length,
     system_recall_events: systemRecallEvents.length,
     pending_chat_returns: packet.current.pending_chat_returns.length,
+    current_system_wu: packet.current.current_system_wu.reduce((sum, row) => sum + (row.items?.length || 0), 0),
+    pending_system_wu_returns: packet.current.pending_system_wu_returns.length,
+    system_wu_return_receipt: packet.current.system_wu_return_receipt ? 1 : 0,
     memory_today: packet.current.memory_today.length,
     chat_return_receipt: packet.current.chat_return_receipt ? 1 : 0,
     active_repairs: packet.current.active_repairs.length
