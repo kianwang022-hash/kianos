@@ -229,6 +229,11 @@ try{
     check(await page.locator('.homeL3Subjects').count()===0,'legacy_three_subject_dashboard_removed');
     check(await page.locator('.homeFallbackNav').count()===1,'subject_homes_reduced_to_fallback_nav');
     check(await page.locator('[data-exam-next]').count()===1,'single_next_action_surface');
+    check(await page.locator('[data-home-subject-route-bridge]').count()===1,'one_headless_route_bridge');
+    check(await page.locator('[data-home-subject-route-bridge]').isHidden(),'headless_route_bridge_not_learner_visible');
+    check(await page.locator('[data-english-resume-link]').count()===1,'one_english_route_owner');
+    check(await page.locator('[data-xizong-home-tools]').count()===1,'one_xizong_route_owner');
+    check(await page.locator('[data-politics-home-tools]').count()===1,'one_politics_route_owner');
     await ctx.close();
   }
 
