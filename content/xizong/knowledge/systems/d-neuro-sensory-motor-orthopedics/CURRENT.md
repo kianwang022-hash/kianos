@@ -13,8 +13,8 @@ This file owns Work Cursor only. It does not own medical Core, accepted Learning
 **Scope:** D — Neuro / Sensory / Motor / Orthopedics  
 **Accepted upstream:** **S1 + K + L closed**  
 **Active construction stage:** **Content Realization / Optimization**  
-**Content state:** **PHASE 7B WRAPPER CLEANUP CLOSED + PHASE 7C NEURAL LG SUFFICIENCY CLOSED · CONTENT NOT CLOSED**  
-**Earliest eligible next action:** **Phase 7D — O1–O16 / 72 LG content sufficiency + density audit**  
+**Content state:** **PHASE 7B WRAPPER CLEANUP CLOSED + PHASE 7C NEURAL LG SUFFICIENCY CLOSED + PHASE 7D O1–O2 / 10 LG CLOSED AFTER TARGETED REPAIR · CONTENT NOT CLOSED**  
+**Earliest eligible next action:** **Phase 7D — O3-LG01 onward / remaining O3–O16 / 62 LG content sufficiency + density audit**  
 **Parallel Source boundary:** exact official D System question membership remains **UNTESTED** and gates the later trusted official-question sweep only
 
 ```text
@@ -58,6 +58,7 @@ Content realization evidence:
 - `content/xizong/knowledge/learner/D_PHASE7B_BLOCK_WRAPPER_CLEANUP_SPEC.md`
 - `content/xizong/knowledge/learner/D_PHASE7B_BLOCK_WRAPPER_CLEANUP_EXECUTION.md`
 - `content/xizong/knowledge/learner/D_PHASE7C_NEURAL_CONTENT_SUFFICIENCY_AUDIT.md`
+- `content/xizong/knowledge/learner/D_PHASE7D_ORTHOPEDIC_CONTENT_SUFFICIENCY_AUDIT.md`
 
 Fresh independent L evidence:
 
@@ -181,7 +182,7 @@ Earliest Content question now becomes:
 
 > Does every accepted O1–O16 Logic Group have enough canonical learner-facing Core, retrieval cue and closure support after its accepted Source contact, without turning KianOS into a second orthopedic Lecture or importing external guideline knowledge?
 
-Audit **all 72 accepted orthopedic LGs** against their actual canonical KP owners.
+Audit **all 72 accepted orthopedic LGs** against their actual canonical KP owners. O1–O2 / 10 LGs are now reviewed; the remaining scope starts at **O3-LG01**.
 
 For every LG test at least:
 
@@ -204,7 +205,39 @@ Possible outcomes:
 
 Do not reopen accepted Learning topology merely because orthopedic prose could be stylistically improved.
 
-After orthopedic Content sufficiency closes:
+### O1–O2 batch result — 2026-09-19
+
+The common orthopedic-entry and fracture-principles batch is closed after bounded repair and same-worker readback:
+
+```text
+O1: 4 LG / 10 KP reviewed
+O2: 6 LG / 16 KP reviewed
+Total: 10 / 72 orthopedic LG; 26 canonical KP examined
+LG-local PASS_NO_CHANGE: 3
+LG-local TARGETED_CONTENT_REPAIR + readback PASS: 7
+Remaining: O3–O16 / 62 LG
+```
+
+Actual changes:
+
+- 14 KPs received front-only title/prompt repairs where the old cue supplied the requested answer, threshold/timeline or near-complete list;
+- both Block Exit introductions now treat their question lists as Block Recall checks, not sufficient authorization to bypass real local retrieval or necessary original-visual learning;
+- O1 remains integration-primary; O2 retains one continuous original-Lecture contact;
+- viewing original images directly in Lecture/MarginNote remains valid; no website-upload gate was added.
+
+Readback of the two content commit diffs confirmed that medical explanation bodies, Source locators, KP anchors, visual declarations, ownership boundaries and accepted Learning topology were unchanged. No new textual Source blocker was found in this batch. Existing visual-source gaps remain live; no original PDF/image inspection, browser/test-suite proof, learner-use evidence or fresh independent Phase 7E acceptance is claimed.
+
+Formal LG-by-LG receipt and exact repair evidence:
+
+`content/xizong/knowledge/learner/D_PHASE7D_ORTHOPEDIC_CONTENT_SUFFICIENCY_AUDIT.md`
+
+### Next bounded continuation
+
+Start at **O3-LG01**, then continue the remaining O3–O16 / 62 accepted orthopedic LGs against their own canonical Core and Source-contact units. Use A/B/C and prior D work as quality calibration, not a shape or prompt template.
+
+Within each remaining Block, also check that its existing Block Exit does not contradict its accepted Source-contact and real closure requirements. This follows the concrete O1/O2 defect; it does not reopen the closed neural audit, redesign Learning or authorize broad UI/Runtime work.
+
+After all orthopedic Content sufficiency closes:
 
 ```text
 Phase 7E — fresh independent Content closure audit
@@ -223,7 +256,7 @@ Content remains open until:
 - Page-disappearance test passes;
 - no Projection/UI decisions have been smuggled into Content.
 
-Phase 7B closed wrapper-route / first-pass-role debt. Phase 7C closed neural LG sufficiency/density.
+Phase 7B closed wrapper-route / first-pass-role debt. Phase 7C closed neural LG sufficiency/density. Phase 7D is partial at 10/72 orthopedic LGs; neither Phase 7D as a whole nor final Content acceptance is closed.
 
 ---
 
