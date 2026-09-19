@@ -625,7 +625,7 @@ export function initExamHome(root) {
     }));
   };
   const refreshFromControl = () => {
-    if ($('dialog').some((dialog) => dialog.open)) return;
+    if ($$('dialog').some((dialog) => dialog.open)) return;
     load();
     render();
     requestSubjectContinues();
