@@ -70,6 +70,7 @@ const packetMeta = {
   import {
     consumePendingXizongChatReturnForObject
   } from '../lib/xizongPendingChatReturn.mjs';
+  import { studyDayAt } from '../lib/studyTimer.mjs';
 
   const dock = document.querySelector('[data-xizong-study-dock]');
   const root = document.querySelector('[data-xizong-v6-block]');
@@ -187,7 +188,8 @@ const packetMeta = {
         const result = consumePendingXizongChatReturnForObject(localStorage, {
           objectId,
           currentPacket: packet,
-          now: Date.now()
+          now: Date.now(),
+          expectedDay: studyDayAt(Date.now())
         });
         if (result.status === 'no_pending' || result.status === 'waiting_current_packet') return result;
 
