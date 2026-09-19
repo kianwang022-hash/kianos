@@ -38,9 +38,20 @@ const prompts = [{ id: 's1', ordinal: 1, sourceText: 'Fresh source.' }];
 
 function frozenTask(answer, firstSubmittedAt, history = []) {
   const state = blankTranslationState(prompts, history);
+  state.binding = {
+    source_hash: 'translation-evidence-source-v1',
+    prior_exposure: history.length ? 'exposed' : 'unseen',
+    assistance: 'unassisted',
+    legacy_unversioned: false,
+    timing_status: 'uncalibrated'
+  };
   state.drafts.s1 = answer;
   return freezeWholeAttempt(state, prompts, firstSubmittedAt).state;
 }
+const returnIdentity = (state) => ({
+  attemptSubmittedAt: state.firstSubmittedAt,
+  sourceHash: state.binding?.source_hash
+});
 
 // Shared evidence semantics must remain explicit in canonical content/UI.
 const contract = read('../../content/english/modules/translation/learning.md');
@@ -60,6 +71,7 @@ let source = frozenTask('source answer', '2026-09-12T10:00:00.000Z');
 source = routeAttemptToReview(source);
 const reusableRepair = parseTranslationReturn(packet({
   task: 'task-source',
+  ...returnIdentity(source),
   decision: 'REPAIR_NEEDED',
   primary_failure: {
     layer: 'English Representation',
@@ -85,8 +97,9 @@ check(repaired.state.stage === 'transfer_pending', 'reusable repaired failure mu
 check(pendingTransferTargets(repaired.ledger).length === 1, 'durable reusable target must exist after admitted repair');
 check((repaired.ledger.targets[0]?.evidence || []).length === 0, 'source-task Reconstruction must not count as fresh transfer evidence');
 
-const closeUpdate = (task) => parseTranslationReturn(packet({
+const closeUpdate = (task, state) => parseTranslationReturn(packet({
   task,
+  ...returnIdentity(state),
   decision: 'PASS',
   transfer_updates: [{
     target_id: 'translation:r4:scope-strength',
@@ -100,7 +113,7 @@ const closeUpdate = (task) => parseTranslationReturn(packet({
 let oldTask = frozenTask('old answer', '2026-09-12T09:00:00.000Z');
 oldTask = routeAttemptToReview(oldTask);
 expectThrows(
-  () => applyTranslationReturn(oldTask, closeUpdate('task-old'), prompts, repaired.ledger, { task: 'task-old', now: '2026-09-12T11:00:00.000Z' }),
+  () => applyTranslationReturn(oldTask, closeUpdate('task-old', oldTask), prompts, repaired.ledger, { task: 'task-old', now: '2026-09-12T11:00:00.000Z' }),
   'RETURN_PACKET_TRANSFER_CLOSE_REQUIRES_FRESH_TASK',
   'task first attempted before target creation must not close the target'
 );
@@ -108,7 +121,7 @@ expectThrows(
 let repeatedTask = frozenTask('repeat answer', '2026-09-12T11:00:00.000Z', [{ archivedAt: '2026-09-12T08:00:00.000Z' }]);
 repeatedTask = routeAttemptToReview(repeatedTask);
 expectThrows(
-  () => applyTranslationReturn(repeatedTask, closeUpdate('task-repeat'), prompts, repaired.ledger, { task: 'task-repeat', now: '2026-09-12T11:05:00.000Z' }),
+  () => applyTranslationReturn(repeatedTask, closeUpdate('task-repeat', repeatedTask), prompts, repaired.ledger, { task: 'task-repeat', now: '2026-09-12T11:05:00.000Z' }),
   'RETURN_PACKET_TRANSFER_CLOSE_REQUIRES_FRESH_TASK',
   'repeated/exposed task with prior history must not close the target'
 );
@@ -118,6 +131,7 @@ let freshB = frozenTask('fresh B', '2026-09-12T11:30:00.000Z');
 freshB = routeAttemptToReview(freshB);
 const irrelevant = parseTranslationReturn(packet({
   task: 'task-b',
+  ...returnIdentity(freshB),
   decision: 'PASS',
   transfer_updates: [{
     target_id: 'translation:r4:scope-strength',
@@ -133,6 +147,7 @@ check(applied.ledger.targets[0].evidence.length === 1 && applied.ledger.targets[
 // Re-import from the same later task must replace, not stack, evidence.
 const supportNoClose = parseTranslationReturn(packet({
   task: 'task-b',
+  ...returnIdentity(freshB),
   decision: 'PASS',
   transfer_updates: [{
     target_id: 'translation:r4:scope-strength',
@@ -149,7 +164,7 @@ check(applied.ledger.targets[0].evidence.length === sameTaskCount, 'same later t
 // Fresh first attempt after target creation may close only when Chat semantically marks support+close.
 let freshC = frozenTask('fresh C', '2026-09-12T12:00:00.000Z');
 freshC = routeAttemptToReview(freshC);
-applied = applyTranslationReturn(freshC, closeUpdate('task-c'), prompts, applied.ledger, { task: 'task-c', now: '2026-09-12T12:01:00.000Z' });
+applied = applyTranslationReturn(freshC, closeUpdate('task-c', freshC), prompts, applied.ledger, { task: 'task-c', now: '2026-09-12T12:01:00.000Z' });
 check(applied.ledger.targets[0].status === 'closed', 'fresh independent support with semantic close may close the target');
 check(applied.ledger.targets[0].closedByTask === 'task-c', 'closure must preserve the actual closing task');
 const closingEvidence = applied.ledger.targets[0].evidence.find((row) => row.task === 'task-c');
@@ -161,6 +176,7 @@ let freshD = frozenTask('fresh D', '2026-09-12T13:00:00.000Z');
 freshD = routeAttemptToReview(freshD);
 const contradict = parseTranslationReturn(packet({
   task: 'task-d',
+  ...returnIdentity(freshD),
   decision: 'PASS',
   transfer_updates: [{
     target_id: 'translation:r4:scope-strength',
@@ -178,6 +194,7 @@ let localOnly = frozenTask('local only', '2026-09-12T14:00:00.000Z');
 localOnly = routeAttemptToReview(localOnly);
 const localRepair = parseTranslationReturn(packet({
   task: 'task-local',
+  ...returnIdentity(localOnly),
   decision: 'REPAIR_NEEDED',
   primary_failure: {
     layer: 'Chinese Reconstruction',
