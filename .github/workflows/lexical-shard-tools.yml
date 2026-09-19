@@ -16,7 +16,7 @@ on:
         default: '48000'
   push:
     branches: [main, 'lexical/continuity-throughput-*']
-    paths: ['tools/lexical_shard.py', 'tools/test_lexical*.py', 'content/lexical/**', '.github/workflows/lexical-shard-tools.yml']
+    paths: ['tools/lexical_shard.py', 'tools/lexical_apply_final_mutation_package.py', 'tools/test_lexical*.py', 'content/lexical/**', '.github/workflows/lexical-shard-tools.yml']
   pull_request:
     paths: ['tools/lexical_shard.py', 'tools/test_lexical*.py', 'content/lexical/**', '.github/workflows/lexical-shard-tools.yml']
 permissions:
@@ -38,6 +38,7 @@ jobs:
         run: |
           mkdir -p /tmp/lexical-shard-evidence
           python tools/test_lexical_transport_guards.py 2>&1 | tee /tmp/lexical-shard-evidence/tests.txt
+          python tools/test_lexical_final_mutation_executor.py 2>&1 | tee /tmp/lexical-shard-evidence/mutation-executor-tests.txt
       - name: Transport-only pilot on 50 Current owners
         if: github.event_name != 'workflow_dispatch'
         run: |
