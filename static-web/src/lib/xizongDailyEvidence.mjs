@@ -95,10 +95,25 @@ export function buildXizongDailyEvidencePacket(storage, {
 
   const sourceContactEvents = [];
   const ttsxEvents = [];
+  const blockRecallEvents = [];
+  const blockCompleteEvents = [];
   for (const key of keys.filter((value) => value.startsWith('kianos-xizong-astro-v2:xizong:'))) {
     const state = readJson(storage, key, null);
     if (!record(state)) continue;
     const blockId = blockIdFromObjectKey(key, 'kianos-xizong-astro-v2:');
+
+    if (onDay(state.blockRecallCompletedAt, day)) {
+      blockRecallEvents.push({
+        block_id: blockId,
+        completed_at: String(state.blockRecallCompletedAt || '')
+      });
+    }
+    if (onDay(state.completedAt, day)) {
+      blockCompleteEvents.push({
+        block_id: blockId,
+        completed_at: String(state.completedAt || '')
+      });
+    }
 
     for (const row of Array.isArray(state.sourceContactEvidence) ? state.sourceContactEvidence : []) {
       if (!onDay(row?.completed_at, day)) continue;
@@ -180,13 +195,30 @@ export function buildXizongDailyEvidencePacket(storage, {
   const systemRecallEvents = [];
   for (const key of keys.filter((value) => /^kianos:xizong:system-recall:[^:]+:v1$/.test(value))) {
     const state = readJson(storage, key, null);
-    if (!record(state) || !onDay(state.completedAt, day)) continue;
+    if (!record(state)) continue;
     const systemId = key.match(/^kianos:xizong:system-recall:([^:]+):v1$/)?.[1] || '';
-    systemRecallEvents.push({
-      system_id: systemId,
-      completed_at: String(state.completedAt || ''),
-      after_round_id: state.afterRoundId || null
-    });
+    const history = Array.isArray(state.history) ? state.history : [];
+    if (history.length) {
+      for (const row of history) {
+        if (!onDay(row?.completed_at, day)) continue;
+        systemRecallEvents.push({
+          system_id: systemId,
+          event_id: String(row?.event_id || ''),
+          completed_at: String(row?.completed_at || ''),
+          after_round_id: row?.after_round_id || null
+        });
+      }
+    } else if (onDay(state.completedAt, day)) {
+      // Legacy latest-only compatibility. Preserve the observation but expose that
+      // it has weaker provenance than append-preserved history.
+      systemRecallEvents.push({
+        system_id: systemId,
+        event_id: '',
+        completed_at: String(state.completedAt || ''),
+        after_round_id: state.afterRoundId || null,
+        evidence_origin: 'LEGACY_LATEST_ONLY'
+      });
+    }
   }
 
   const packet = {
@@ -198,6 +230,8 @@ export function buildXizongDailyEvidencePacket(storage, {
       source_contact: sourceContactEvents,
       ttsx: ttsxEvents,
       kp_recall: kpRecallEvents,
+      block_recall: blockRecallEvents,
+      block_complete: blockCompleteEvents,
       memory_recall: memoryEvents,
       question_attempt: questionEvents,
       repair_lifecycle: repairEvents,
@@ -214,9 +248,9 @@ export function buildXizongDailyEvidencePacket(storage, {
       }))
     },
     coverage: {
-      block_recall_timestamp_history: 'MISSING_IN_CURRENT_RUNTIME',
-      block_complete_timestamp_history: 'MISSING_IN_CURRENT_RUNTIME',
-      system_recall_history: 'LATEST_COMPLETION_ONLY'
+      block_recall_timestamp_history: 'PROTOTYPE_FIRST_COMPLETION_TIMESTAMP',
+      block_complete_timestamp_history: 'PROTOTYPE_FIRST_COMPLETION_TIMESTAMP',
+      system_recall_history: 'PROTOTYPE_APPEND_PRESERVED_WITH_LEGACY_FALLBACK'
     },
     evidence_semantics: {
       chat_command: 'not learner evidence',
@@ -225,7 +259,9 @@ export function buildXizongDailyEvidencePacket(storage, {
       kp_recall: 'real KP retrieval observation; bootstrap compatibility events excluded',
       question_attempt: 'formal question attempt; bootstrap compatibility events excluded',
       source_contact: 'original Lecture contact confirmation',
-      system_recall: 'latest recorded System reconstruction completion; historical attempts are not yet append-preserved'
+      block_recall: 'first-pass Block reconstruction completion timestamp; repeated later-pass Block Recall is not yet a separate executor',
+      block_complete: 'first-pass Block completion timestamp; not a mastery claim beyond the existing completion contract',
+      system_recall: 'append-preserved System reconstruction event when current prototype history exists; legacy latest-only state remains labeled'
     }
   };
 
@@ -233,6 +269,8 @@ export function buildXizongDailyEvidencePacket(storage, {
     source_contact_events: sourceContactEvents.length,
     ttsx_events: ttsxEvents.length,
     kp_recall_events: kpRecallEvents.length,
+    block_recall_events: blockRecallEvents.length,
+    block_complete_events: blockCompleteEvents.length,
     memory_recall_events: memoryEvents.length,
     question_attempts: questionEvents.length,
     repair_events: repairEvents.length,
