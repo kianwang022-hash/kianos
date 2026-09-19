@@ -164,6 +164,7 @@ const currentStatusUrl = `${base}__kianos-current.json`;
     initPrivateCheckpointAutosave,
     restoreSharedControlFromPrivate
   } from '../lib/privateCheckpointRuntime.mjs';
+  import { initPrivateControlClient } from '../lib/privateControlClient.mjs';
 
   void (async () => {
     let restored = null;
@@ -180,5 +181,18 @@ const currentStatusUrl = `${base}__kianos-current.json`;
     const dock = document.querySelector('[data-study-timer-dock]');
     if (dock instanceof HTMLElement) initStudyTimerDock(dock, timer);
     initPrivateCheckpointAutosave(localStorage);
+    initPrivateControlClient(localStorage);
+
+    window.addEventListener('kianos:private-control-consumed', (event) => {
+      const detail = event instanceof CustomEvent ? event.detail : null;
+      if (!detail?.fresh || detail.status !== 'APPLIED') return;
+      const path = window.location.pathname.replace(/\/+$/, '') || '/';
+      const onExamHome = path === '/';
+      const onXizongHome = path === '/xizong';
+      if ((detail.target === 'exam.chat_plan' && onExamHome)
+          || (detail.target === 'xizong.session' && onXizongHome)) {
+        window.location.reload();
+      }
+    });
   })();
 </script>
