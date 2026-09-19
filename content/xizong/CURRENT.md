@@ -7,6 +7,11 @@ This file does not own medical Knowledge, Xizong Learning Logic, Acceptance Trut
 
 A bare `继续西综 / 继续循环 / 继续呼吸` is a learner request unless the active conversation is clearly BUILD / UI / CONTROL work.
 
+
+Shared-platform routing:
+- durable authority / inheritance → `AUTHORITY_INHERITANCE_CONTRACT.md`;
+- machine owner topology / exact shared writer → `AUTHORITY_OWNERSHIP.json`.
+
 ---
 
 ## Current state
