@@ -876,7 +876,40 @@ Repair Test blueprints:
 - `content/lexical/learner/repair-blueprints/shards/o0751-0800.json`
 - `content/lexical/learner/repair-blueprints/shards/o0801-0850.json`
 
-Next Human-Gate batch: **o0851–o0950 — FRESH READ + COMBINED CONTENT/TEST REPORT**.
+Closed Human-Gate batch: **o0851–o0950 — CLOSED**.
+
+```text
+100 / 100 fresh owner/module judgments
+28 Word Content owners upgraded
+72 Word Content owners NO_CHANGE
+3 cross-word Relation owners added/corrected
+28 Repair Test blueprints written and read back
+72 NO_TEST_NEEDED words
+0 BLOCKED
+0 learner-page/UI files changed
+Final Learner Object materialization PASS (7,946 objects)
+```
+
+Notable learner-facing closures:
+- close: verb /kloʊz/ vs adjective /kloʊs/
+- cloth / clothes / clothing: material vs plural garments vs uncountable collective
+- clothe / dress: corrected scope; clothe also permits figurative covering
+- cloud: smoke/dust no longer lives under cloud-computing Sense
+- coach: long-distance bus added as current learner content
+- colonel: irregular pronunciation made explicit
+- color / colour: AmE / BrE spelling relation
+- come / command / commission / commit / compare / complain: high-value structures deduplicated and promoted
+- complement / compliment: existing cross-word Relation reused for Repair Test
+
+Canonical Baseline-v2 receipts:
+- `content/lexical/audit/baseline-v2/lane-d/o0851-o0900.json`
+- `content/lexical/audit/baseline-v2/lane-d/o0901-o0950.json`
+
+Repair Test blueprints:
+- `content/lexical/learner/repair-blueprints/shards/o0851-0900.json`
+- `content/lexical/learner/repair-blueprints/shards/o0901-0950.json`
+
+Next Human-Gate batch: **o0951–o1050 — FRESH READ + COMBINED CONTENT/TEST REPORT**.
 
 Apply one Human Gate per ~100 owners: internally fresh-read in bounded ~50-owner slices, then combine real Content defects and worthwhile Repair Test candidates into one plain-language 100-owner report and wait for one Kian approval. After approval, automatically close the approved slices and advance to the next 100-owner batch.
 
