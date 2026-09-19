@@ -84,6 +84,7 @@ assert(currentBlockEvidenceHash !== changedBlockEvidenceHash, 'block-version-mut
 
 const blockUi = read('static-web/src/components/XizongBlockV6.astro');
 const enhancerUi = read('static-web/src/components/XizongStudyEnhancer.astro');
+const studyPacketLib = read('static-web/src/lib/xizongStudyPacket.mjs');
 const stageGuard = read('static-web/src/components/XizongRuntimeStageGuard.astro');
 const blockEvidenceGuard = read('static-web/src/components/XizongBlockEvidenceGuard.astro');
 const systemEvidenceGuard = read('static-web/src/components/XizongSystemEvidenceGuard.astro');
@@ -157,7 +158,7 @@ has(repairUi, "origin: 'SYSTEM_WU_CHAT_RETURN'", 'visible-memory-repair-origin-m
 has(memoryModel, 'export function completeRepairTask', 'visible-repair-completion-owner-missing');
 has(memoryWorkspace, 'data-repair-complete', 'visible-repair-completion-control-missing');
 has(systemEvidenceGuard, 'stale_visible_memory_repairs', 'stale-visible-repair-not-versioned');
-has(enhancerUi, "schema: 'kianos.xizong.study_packet.v3'", 'live-study-packet-missing');
+has(studyPacketLib, "schema: 'kianos.xizong.study_packet.v3'", 'live-study-packet-missing');
 has(lastLocation, "localStorage.setItem('kianos-xizong-last-location-v1', JSON.stringify(value))", 'resume-location-not-persisted');
 has(lastLocation, 'requiredSystemRecall', 'practice-resume-release-guard-missing');
 has(homeTools, 'if (last.resumeKind)', 'resume-stage-kind-not-rendered');
