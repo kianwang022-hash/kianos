@@ -84,6 +84,7 @@ export function serializeDailyLearningPacketForChat(packet) {
     '- If the learner asks to start, continue, or arrange today, return one valid kianos.exam.chat-plan.v1 for this packet\'s study_day using EXAM_ORCHESTRATOR_CONTRACT as the planning policy owner.',
     '- The Chat Plan must remain importable without rewriting: preserve the same study_day, use only xizong/english/politics, and do not invent mastery, score evidence, or hidden learner events.',
     '- When file generation is available, attach the plan as kianos-chat-plan-<study_day>.json containing only the Chat Plan object. Otherwise provide that exact JSON object with the filename so it can be saved unchanged.',
+    '- Tell the learner exactly where to import it: Home → 安排说明 → expand “Chat Plan / 阶段证据 / 本机备份” → “载入 Chat Plan / 本机学习上下文” → confirm.',
     '- If a subject-specific structured diagnosis/repair return is needed, use that subject\'s existing return contract separately. Do not invent a universal mutation schema.',
     '',
     'DAILY_PACKET_JSON',
