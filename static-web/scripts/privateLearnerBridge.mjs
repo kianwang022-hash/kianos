@@ -4,6 +4,7 @@ import {
   resolvePrivateLearnerDir,
   writePrivateLearnerCheckpoint
 } from './privateLearnerStore.mjs';
+import { syncPrivateResumeRelayOnce } from './privateResumeRelaySync.mjs';
 
 const ROUTE = '/__kianos-private/checkpoint';
 const MAX_BYTES = 24 * 1024 * 1024;
@@ -38,6 +39,26 @@ export function privateLearnerBridge({ privateDir = resolvePrivateLearnerDir() }
     name: 'kianos-private-learner-bridge',
     apply: 'serve',
     configureServer(server) {
+      let resumeSyncBusy = false;
+      let resumeSyncQueued = false;
+      const syncResume = () => {
+        if (resumeSyncBusy) {
+          resumeSyncQueued = true;
+          return;
+        }
+        resumeSyncBusy = true;
+        void syncPrivateResumeRelayOnce()
+          .catch(() => null)
+          .finally(() => {
+            resumeSyncBusy = false;
+            if (resumeSyncQueued) {
+              resumeSyncQueued = false;
+              syncResume();
+            }
+          });
+      };
+      syncResume();
+
       server.middlewares.use(async (req, res, next) => {
         const pathname = new URL(req.url || '/', 'http://127.0.0.1').pathname;
         if (pathname !== ROUTE) return next();
@@ -57,6 +78,7 @@ export function privateLearnerBridge({ privateDir = resolvePrivateLearnerDir() }
           if (req.method === 'PUT') {
             const input = await readBody(req);
             const checkpoint = writePrivateLearnerCheckpoint(input, privateDir);
+            syncResume();
             return json(res, 200, {
               status: 'saved',
               schema: PRIVATE_CHECKPOINT_SCHEMA,
