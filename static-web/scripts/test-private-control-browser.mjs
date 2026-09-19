@@ -4,6 +4,7 @@ import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
 import { studyDayAt } from '../src/lib/studyTimer.mjs';
+import { writePrivateControlCommand } from './privateControlStore.mjs';
 
 const PORT=4344;
 const BASE=`http://127.0.0.1:${PORT}`;
@@ -110,12 +111,19 @@ try{
     }
   };
 
-  const put=await fetch(BASE+'/__kianos-private/control',{
+  // Simulate the background relay writing the already-validated private command.
+  // Browser/network ingress remains read-only for commands.
+  writePrivateControlCommand(command,privateDir);
+  const forbiddenPut=await fetch(BASE+'/__kianos-private/control',{
     method:'PUT',
     headers:{'content-type':'application/json'},
     body:JSON.stringify(command)
   });
-  check(put.ok,'loopback_bridge_accepts_typed_command',String(put.status));
+  check(forbiddenPut.status===405,'browser_cannot_inject_control_command',String(forbiddenPut.status));
+  const served=await fetch(BASE+'/__kianos-private/control?t='+Date.now(),{cache:'no-store'});
+  const servedBody=await served.json().catch(()=>({}));
+  check(served.ok && servedBody?.command?.command_id===commandId,
+    'loopback_bridge_serves_background_relay_command',String(served.status));
 
   await page.waitForFunction(
     ({sessionId})=>JSON.parse(localStorage.getItem('kianos:xizong:session-instruction:v1')||'null')?.session_id===sessionId,
