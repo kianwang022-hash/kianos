@@ -504,10 +504,19 @@ export function initExamHome(root) {
     render();
   });
   window.addEventListener('focus', () => {
-    if (!$$('dialog').some((dialog) => dialog.open)) {
+    if (!$('dialog').some((dialog) => dialog.open)) {
       load();
       render();
     }
+  });
+
+  window.addEventListener('kianos:private-control-consumed', (event) => {
+    const detail = event instanceof CustomEvent ? event.detail : null;
+    if (detail?.fresh !== true || detail?.target !== 'exam.chat_plan') return;
+    if (!['APPLIED','IDEMPOTENT'].includes(String(detail?.status || ''))) return;
+    if ($('dialog').some((dialog) => dialog.open)) return;
+    load();
+    render();
   });
 
   load();
