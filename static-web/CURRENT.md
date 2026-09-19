@@ -13,7 +13,7 @@ Shared Visual / Shell landed
 → English + Lexical landed
 → Xizong material learner surfaces landed
 → Politics learner surfaces landed
-→ UI/CSS ownership cleanup ACTIVE · non-redesign closure
+→ UI/CSS ownership cleanup CLOSED
 → Chat-owned Home landed
 → private learner checkpoint foundation landed
 → subject Final Audit interfaces
@@ -42,11 +42,34 @@ Do not revive historical UI migrations merely because old branches/PRs still exi
 
 ## Queued closure lane
 
-### UI Closure / CSS ownership consolidation — **ACTIVE · FRESH CURRENT BRANCH**
+### UI Closure / CSS ownership consolidation — **CLOSED · FINAL NON-REDESIGN CLOSURE**
 
-Current ref: `work/ui-css-closure-20260919-v2` · fresh from post-gate `main`. Historical closed PR #474 is evidence only, not the active implementation.
+Closure PR: **#524** · fresh post-gate non-redesign ownership cleanup.
 
-Kian explicitly reopened the final non-redesign ownership closure on 2026-09-19. The accepted learner presentation remains frozen: this lane may move CSS ownership and remove superseded writers, but it may not redesign accepted surfaces. Work restarts from fresh `main`, not the historical draft.
+Final closure result:
+
+- shared Base is now genuinely shared-only through a style-free `BaseFrame`;
+- English / Politics / Xizong / Lexical load subject presentation through their own subject layouts;
+- historical `stage-one-composition.css`, `viewport-workspaces.css`, and mixed `site-visual-tuning.css` are retired;
+- shared workspace composition is byte-equivalent to the two retired shared layers in the original cascade order;
+- mixed Politics/Xizong tuning retained all **199 / 199 unique rules** with **0 missing / 0 extra semantic rules**;
+- Objective Guide's hidden dependency on legacy `english.css` was exposed and removed, restoring its accepted single visual owner;
+- CSS ownership is protected by `test-ui-css-ownership.mjs`.
+
+Exact-head acceptance evidence:
+
+- Final Cross-subject Regression **PASS**;
+- KianOS Mac Visual Gate **PASS**;
+- English Family Coherence **PASS**;
+- Xizong QA **PASS**;
+- Objective Learner Journey **PASS**;
+- Translation QA **PASS**;
+- Writing QA **PASS**;
+- Lexical Current Runtime **PASS**.
+
+Politics broad QA remains red on the pre-existing **Ethics content closure** audit; the same workflow was already failing on `main` before #524 and is not a CSS-closure regression.
+
+No material learner-facing redesign was introduced. The final CSS ownership lane is closed; reopen only for a concrete learner-visible defect.
 
 Activation basis:
 
@@ -213,7 +236,7 @@ CI green is not visual acceptance.
 - **Politics:** learner-facing material UI is fully landed. PR #470 merged after Kian Human Gate; Practice preserves the proven Workbench, uses exact-ID AI `takeaway` + AI `chat_explanation`, forbids Xiao1000 historical explanation from learner-facing fallback, and returns to the safest exact Chengfeng locator when one exists. Reopen only a concrete learner-visible defect.
 - **English:** landed; fix only concrete launch-visible defects.
 - **Lexical:** Vocabulary v2 learner-surface closure and English exact handoff/return are accepted; normal use only unless a concrete defect appears.
-- **Platform:** Gates 1–4 are closed and Gate 5 engineering freeze is active. Shared learner-data / Chat handoff + Home integration are landed through #498/#499; the reconciled #500 candidate passed final cross-subject regression 31/31. Broad platform construction is closed. Continue only concrete learner-visible/durability defects or the now-active bounded non-redesign CSS ownership consolidation lane.
+- **Platform:** Gates 1–5 are closed and Gate 5 engineering freeze is active. Shared learner-data / Chat handoff + Home integration are landed through #498/#499; #500 closed the original cross-subject integration and #524 closed the final CSS ownership lane with post-cleanup cross-subject + Mac visual proof. Continue only concrete learner-visible/durability defects.
 
 Exact branch/PR/cursor state must be read from the active owner/ref before work.
 
