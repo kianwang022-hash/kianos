@@ -80,7 +80,8 @@ export function initPoliticsMemoryWorkspace(root) {
     }
 
     if (next.status === 'COMPLETE') {
-      setHidden(complete, false);
+      if (Number(next.total || 0) === 0) setHidden(empty, false);
+      else setHidden(complete, false);
       if (progress) progress.textContent = String(next.total || 0);
       return;
     }
