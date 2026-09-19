@@ -18,8 +18,8 @@ On a fresh Chat triggered only by **词义C**:
 
 After the already-completed o0201–o0300 lookahead is preserved, C reviews new unreviewed backfill ranges from the high end downward.
 
-This opposite direction reduces Word-batch overlap only. It does not grant C ownership of cross-word Relation/Form truth.
+This opposite direction reduces Word-batch overlap only. It does not grant C ownership of semantically related truth outside its primary Word range.
 
-Before consuming any `p`, changing a proposal state, or emitting a mutation package, C must reread current main, the live board, current B Audit Pack state, A's shared write-set, and shared-owner claims.
+Before consuming any `p`, changing a proposal state, or emitting a mutation package, C must reread current main, the live board, current B Audit Pack state, A's write-set / semantic dependency set, and shared semantic claims.
 
-Cross-word Relation/Form proposals must coalesce through the shared-owner claim protocol; a stale C proposal may never overwrite newer main truth.
+Any shared semantic dependency must coalesce/reconcile through the shared-semantic-claim protocol; a stale C proposal may never overwrite newer main truth, even when it writes a different file.
