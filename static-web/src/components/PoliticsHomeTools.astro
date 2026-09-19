@@ -184,6 +184,20 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
 
 
 
+    const publishContinue = () => {
+      const link = root.querySelector('[data-politics-continue]');
+      const title = root.querySelector('[data-politics-continue-title]');
+      if (!(link instanceof HTMLAnchorElement)) return;
+      window.dispatchEvent(new CustomEvent('kianos:subject-continue-updated', {
+        detail: {
+          subject:'politics',
+          href:link.getAttribute('href'),
+          title:title?.textContent?.trim() || '政治',
+          session_ref:link.getAttribute('data-session-ref') || null
+        }
+      }));
+    };
+
     const update = () => {
       const snapshot = readPoliticsSnapshot(localStorage);
       const allReview = selectPoliticsReview(catalog, snapshot);
@@ -195,10 +209,16 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
       if (link) link.textContent = snapshot.errors.length
         ? '核对记录 →'
         : allReview.items.length ? `复习 · ${allReview.items.length} 题 →` : '复习 →';
+      publishContinue();
     };
 
     update();
     addEventListener('storage', update);
     addEventListener('focus', update);
+    addEventListener('kianos:politics-memory-plan-updated', update);
+    addEventListener('kianos:subject-continue-requested', (event) => {
+      const subject = event?.detail?.subject || null;
+      if (!subject || subject === 'politics') update();
+    });
   }
 </script>
