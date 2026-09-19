@@ -104,17 +104,6 @@ export function stageXizongChatReturn(storage, input, {
       [objectId]: incoming
     }
   });
-  try {
-    if (typeof globalThis.CustomEvent === 'function') {
-      globalThis.dispatchEvent?.(new CustomEvent('kianos:xizong-pending-chat-return', {
-        detail: {
-          object_id: objectId,
-          handoff_id: incoming.handoff_id,
-          return_id: incoming.return_id
-        }
-      }));
-    }
-  } catch {}
   return { status:existing ? 'replaced' : 'staged', entry:clone(incoming) };
 }
 
