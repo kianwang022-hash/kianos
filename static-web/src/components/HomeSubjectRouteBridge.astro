@@ -17,7 +17,7 @@ const politicsCatalog = politicsProductCatalog(base);
 const politicsMemoryCatalog = buildPoliticsMemoryCandidateCatalogCurrent();
 ---
 
-<div class="homeSubjectRouteBridge" data-home-subject-route-bridge aria-hidden="true">
+<div class="homeSubjectRouteBridge" data-home-subject-route-bridge data-base={base} aria-hidden="true">
   <section data-xizong-home-tools>
     <a data-xizong-continue href={xizongFirstHref}>
       <strong data-xizong-continue-title>{xizongFirstLabel}</strong>
@@ -80,6 +80,7 @@ const politicsMemoryCatalog = buildPoliticsMemoryCandidateCatalogCurrent();
       try { return JSON.parse(raw || '') ?? fallback; } catch { return fallback; }
     };
     const localDay = () => new Date().toLocaleDateString('en-CA');
+    const base = bridge.getAttribute('data-base') || '/';
 
     const publish = (subject, link, title) => {
       if (!(link instanceof HTMLAnchorElement)) return;
@@ -128,7 +129,7 @@ const politicsMemoryCatalog = buildPoliticsMemoryCandidateCatalogCurrent();
       await loadExternalEnglishCatalog();
       const state = readEnglishSessionInstruction(localStorage, localDay());
       if (state.status !== 'ready' || !state.instruction) {
-        englishLink.href = '/english/';
+        englishLink.href = `${base}english/`;
         englishLink.removeAttribute('data-session-ref');
         englishTitle.textContent = '选择英语完整任务';
         publish('english', englishLink, englishTitle);
@@ -136,9 +137,9 @@ const politicsMemoryCatalog = buildPoliticsMemoryCandidateCatalogCurrent();
       }
       const selected = resolveEnglishSessionStep(localStorage, state.instruction, englishCatalog);
       const step = selected?.step || null;
-      const href = englishSessionStepHref(step, '/');
+      const href = englishSessionStepHref(step, base);
       if (!step || !href) {
-        englishLink.href = '/english/';
+        englishLink.href = `${base}english/`;
         englishLink.removeAttribute('data-session-ref');
         englishTitle.textContent = '选择英语完整任务';
         publish('english', englishLink, englishTitle);
