@@ -161,7 +161,7 @@
           901,
           1000
         ],
-        "state": "REVIEW_BUNDLE_NEEDED",
+        "state": "WAITING_BOUNDED_HUMAN_DELTA_GATE",
         "allowed_now": [
           "freeze current main and export review bundle",
           "fresh owner/module judgment",
@@ -178,7 +178,37 @@
           "invent a newer semantic standard"
         ],
         "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
-        "next_action": "Create/consume o0901-o1000 review bundle, perform Fresh Read + Self Attack, freeze proposal, then continue to o0801-o0900."
+        "next_action": "Kian reviews only the three genuinely new material deltas in PR #546. On p, freeze BF09 as approved backlog and immediately continue C to o0801-o0900.",
+        "review_head": "f860eff88e88e85bbc687dfbe8e7f4c5f6e55c5f",
+        "review_branch": "work/lexical-final-backfill-c-o0901-o1000",
+        "review_request_commit": "e959927b9b73d0f90dadfc6fcf8fd3d5eb7026df",
+        "review_workflow_run": 35453275449,
+        "review_artifact_id": 10586798922,
+        "review_artifact_digest": "sha256:181f65c03cf1dfcbed53ff229f89a90119ce57d20d0ce765badda18257c9b0e0",
+        "review_bundle_coverage": "100/100",
+        "proposal_pr": 546,
+        "proposal_head": "42ffb0a65a72a401e70c3926bae06ce1225bb438",
+        "proposal_path": "content/lexical/execution/manifests/o0901-o1000.final-semantic-sweep-c-proposal.md",
+        "module_matrix_path": "content/lexical/execution/manifests/o0901-o1000.final-semantic-sweep-c-module-matrix.tsv",
+        "fresh_read_coverage": "100/100",
+        "self_attack": "COMPLETE",
+        "content_affected_owners": 27,
+        "content_no_change": 73,
+        "blocked": 0,
+        "new_material_delta_owners": [
+          909,
+          922,
+          1000
+        ],
+        "old_test_blueprints": 24,
+        "stabilized_test_blueprints": 15,
+        "canonical_semantic_mutation": false,
+        "shared_write_set_if_approved": [
+          "existing compel↔oblige Relation reciprocal ownership",
+          "duplicate complement↔compliment Relations coalesced to one shared owner",
+          "commonwealth/Commonwealth identity boundary"
+        ],
+        "semantic_freshness_note": "Since BF09 freeze, main advanced only in the live board and Xizong files; no o0901-o1000 Word/Relation/Form semantic owner or Lexical semantic contract changed. Proposal remains current under FINAL_SEMANTIC_FREEZE v1."
       },
       "scheduled_ranges": [
         [
@@ -676,6 +706,34 @@
       "state": "PROPOSED_SHARED_SEMANTIC",
       "write_lease_candidate": null,
       "semantic_scope": "existing award/grant boundary; reciprocal ownership cleanup"
+    },
+    {
+      "claim_key": "RELATION:compel|oblige:semantic_contrast",
+      "kind": "RELATION",
+      "participants": [
+        "word:compel",
+        "word:oblige"
+      ],
+      "claimants": [
+        "BF09"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "existing force/obligation boundary; reciprocal ownership cleanup"
+    },
+    {
+      "claim_key": "RELATION:complement|compliment:confusable",
+      "kind": "RELATION",
+      "participants": [
+        "word:complement",
+        "word:compliment"
+      ],
+      "claimants": [
+        "BF09"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "coalesce duplicate accepted confusable owners into one reciprocal relation"
     }
   ],
   "last_closed": {
