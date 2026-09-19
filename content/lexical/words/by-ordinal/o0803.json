@@ -91,7 +91,14 @@
     "word_family": [],
     "word_id": "word:chronic"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:baseline-v2:acute-chronic:semantic_contrast",
+      "owner_path": "content/lexical/relations/by-id/33/337d8a709a25948c29d8a5fecbec720b09048b3411f764e8f884ef6f14f1d33f.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -165,7 +172,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0801-0808.json",
     "source_content_hash": "67d3ab5aeb259776e1fd93fda7d7471800d98d05834b0df3acd07f8f3736c00f",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

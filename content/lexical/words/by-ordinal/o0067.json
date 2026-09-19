@@ -6,26 +6,7 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [
-      {
-        "construction_id": "construction:addict:handoff-c4cc91f300f01f6c",
-        "pattern": "be addicted to ...",
-        "meaning_cn": "沉溺于……",
-        "definition_en": "be unable to stop using or doing something",
-        "level": "L1",
-        "pos": "phrase",
-        "source": "semantic-review-handoff-v1"
-      },
-      {
-        "construction_id": "construction:addict:handoff-b90316fb8412a5f9",
-        "pattern": "an addict",
-        "meaning_cn": "对某物或某活动上瘾的人；爱好者",
-        "definition_en": "a person dependent on or devoted to a substance or activity",
-        "level": "L1",
-        "pos": "phrase",
-        "source": "semantic-review-handoff-v1"
-      }
-    ],
+    "constructions": [],
     "content_hash": "cf36d54c686378e5ec81277f909bfe7662697fe312bc583e20a5dc914f96db68",
     "core_concept": {
       "core_clusters": [
@@ -85,7 +66,42 @@
       "runtime_model_calls": false
     },
     "word": "addict",
-    "word_family": [],
+    "word_family": [
+      {
+        "boundary": "addict (noun) ↔ addicted (adjective): 人是 an addict；状态通常表达为 be addicted to + noun/V-ing。不要把 be addicted to 当作 noun addict 自己的构式。",
+        "codex_reviewed": false,
+        "definition_cn": null,
+        "definition_en": "unable to stop using or doing something; dependent on it",
+        "dimensions": {
+          "morphology": "noun → adjective",
+          "semantic_continuity": "preserves the core lexical family"
+        },
+        "direction": "R+P",
+        "evidence": [],
+        "fact_id": "deep:word_family:addict:addicted:final-standard",
+        "family_sources": [
+          "Baseline-v2 final-standard backfill"
+        ],
+        "label_en": "addicted",
+        "level": null,
+        "meaning_cn": null,
+        "module": "word_family",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": null,
+        "source_sense_id": "sense:addict:5bea133841d55e16",
+        "target_sense_id": null,
+        "target_word": "addicted",
+        "task_tags": [
+          "reading",
+          "writing"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true
+      }
+    ],
     "word_id": "word:addict"
   },
   "relation_refs": [],
@@ -212,7 +228,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0065-0072.json",
     "source_content_hash": "ced65e155605125a0e3a9c2804226f9084e24733facb1d416e6dbe6df792ff6e",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

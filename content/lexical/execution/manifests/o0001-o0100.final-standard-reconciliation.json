@@ -1,0 +1,47 @@
+{
+  "schema": "kianos.lexical.final_standard_reconciliation.v1",
+  "candidate_id": "BF00",
+  "range": [
+    1,
+    100
+  ],
+  "audit_pack": "content/lexical/semantic-audit/O0001_O0100_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
+  "audit_pack_commit": "53a871f1a54b053161c141c546432c51bb0e2b1a",
+  "findings": [
+    {
+      "ordinal": 29,
+      "word": "access",
+      "decision": "ACCEPT_AUDIT_CORRECTION",
+      "scope": "retire false standalone access-code sense; preserve access code as collocation truth"
+    },
+    {
+      "ordinal": 57,
+      "word": "act",
+      "decision": "ACCEPT_AUDIT_IDENTITY_FIX",
+      "scope": "retire aggregate historical perform/pretend sense without false noun merge target"
+    },
+    {
+      "ordinal": 66,
+      "word": "add",
+      "decision": "ACCEPT_AUDIT_CORRECTION",
+      "scope": "correct arithmetic add to ordinary I/T pattern; preserve add up/add up to separately"
+    },
+    {
+      "ordinal": 84,
+      "word": "adult",
+      "decision": "ACCEPT_AUDIT_CORRECTION",
+      "scope": "general mature-animal Chinese label; insect-specific 成虫 only by context"
+    },
+    {
+      "ordinal": 85,
+      "word": "advance",
+      "decision": "ACCEPT_IDENTITY_FIX_NO_NEW_SCOPE",
+      "scope": "retire false historical merge targets; keep romantic/sexual advances reference-only and not learner-visible"
+    }
+  ],
+  "new_material_semantic_scope": false,
+  "human_delta_gate_required": false,
+  "repair_test_change": false,
+  "learner_ui_runtime_change": false,
+  "post_reconcile_requirement": "Rebuild 7,946 Final Learner Objects, read back five corrected owners, run bounded validation, then merge PR #525 if clean."
+}

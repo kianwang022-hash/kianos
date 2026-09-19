@@ -78,34 +78,7 @@
       "semantic-review:0057",
       "semantic-reconciliation:o0025-o0224"
     ],
-    "secondary_senses": [
-      {
-        "source_sense_id": "sense:act:73a74867a0775de3",
-        "module": "secondary_senses",
-        "pos": "verb",
-        "level": "L2",
-        "definition_cn": "表演；扮演（戏剧、电影等中的角色）",
-        "definition_en": "to perform or play a role in a play, film, or other performance",
-        "boundary": "看到 play/film/role/part 等表演语境时，act 是“演、扮演”，不是一般“行动”。",
-        "direction": "R",
-        "publication_status": "publishable",
-        "verification_status": "verified",
-        "writing_safe": true
-      },
-      {
-        "source_sense_id": "sense:act:9669b64cf18054d4",
-        "module": "secondary_senses",
-        "pos": "noun",
-        "level": "L2",
-        "definition_cn": "（戏剧、歌剧等的）一幕",
-        "definition_en": "one of the main parts into which a play or opera is divided",
-        "boundary": "Act + number / the first or second act 指戏剧结构中的“一幕”。",
-        "direction": "R",
-        "publication_status": "publishable",
-        "verification_status": "verified",
-        "writing_safe": true
-      }
-    ],
+    "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
       {
@@ -159,6 +132,34 @@
         "sense_label_en": "a law or statute enacted by a legislature",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "表演；扮演（戏剧、电影等中的角色）",
+        "definition_en": "to perform or play a role in a play, film, or other performance",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:act:73a74867a0775de3",
+        "sense_label_en": "to perform or play a role in a play, film, or other performance",
+        "sort_order": 3,
+        "transitivity": "vi/vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "（戏剧、歌剧等的）一幕",
+        "definition_en": "one of the main parts into which a play or opera is divided",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:act:9669b64cf18054d4",
+        "sense_label_en": "one of the main parts into which a play or opera is divided",
+        "sort_order": 4,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -183,59 +184,9 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:act:73a74867a0775de3",
-      "status": "merged",
-      "merged_into_sense_id": "sense:act:601bb18249c95285",
-      "pos": "verb",
-      "definition_cn": "扮演",
-      "definition_en": "to play the role of (in a play or film)",
-      "semantic_key": "1f4c7abd0161af0b9bdbfa35479f5e3e4df768fe3c8de632f8dffe4ec021f21d",
-      "semantic_key_history": [
-        "def4b2b88092c97d309a799ed7b960732bac35944aa4d5007cfdc455e00f0d05"
-      ],
-      "legacy_aliases": [
-        "act:l3:6"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "act:l3:6",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 153,
-      "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:act:9669b64cf18054d4",
-      "status": "merged",
-      "merged_into_sense_id": "sense:act:601bb18249c95285",
-      "pos": "noun",
-      "definition_cn": "（戏剧的）幕",
-      "definition_en": "a part of a play or opera",
-      "semantic_key": "16fabf40aa91a053d6216dd0c2790f4658115dbbd1c1d2ab3774dab59bed160b",
-      "semantic_key_history": [
-        "3ede000f50e67ae72d18e7a785026dcd3363d0324c7fbb499c8e7f4460a18fe1"
-      ],
-      "legacy_aliases": [
-        "act:l3:5"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "act:l3:5",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 155,
-      "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:act:9b6dec4acd3151a9",
-      "status": "merged",
-      "merged_into_sense_id": "sense:act:601bb18249c95285",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
       "pos": "verb",
       "definition_cn": "表演，假装",
       "definition_en": "to perform a role in a play or film; to pretend",
@@ -276,8 +227,8 @@
       },
       {
         "sense_id": "sense:act:73a74867a0775de3",
-        "status": "merged",
-        "merged_into_sense_id": "sense:act:601bb18249c95285",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 153,
         "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
       },
@@ -290,15 +241,15 @@
       },
       {
         "sense_id": "sense:act:9669b64cf18054d4",
-        "status": "merged",
-        "merged_into_sense_id": "sense:act:601bb18249c95285",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 155,
         "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
       },
       {
         "sense_id": "sense:act:9b6dec4acd3151a9",
-        "status": "merged",
-        "merged_into_sense_id": "sense:act:601bb18249c95285",
+        "status": "deprecated",
+        "merged_into_sense_id": null,
         "source_row": 156,
         "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
       }
@@ -381,7 +332,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0057-0064.json",
     "source_content_hash": "9f0e5c3a11b9278c5690f5feef0b3767e3e5991f1a8706ba67be0d688de52c35",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

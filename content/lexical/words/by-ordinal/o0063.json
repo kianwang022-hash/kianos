@@ -6,17 +6,7 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [
-      {
-        "construction_id": "construction:actual:handoff-2b86708ff8ad545b",
-        "pattern": "actual vs current/present",
-        "meaning_cn": "actual 表示真实的、事实上的，不表示当前的",
-        "definition_en": "actual means real or in fact; current means of the present time",
-        "level": "L1",
-        "pos": "phrase",
-        "source": "semantic-review-handoff-v1"
-      }
-    ],
+    "constructions": [],
     "content_hash": "11aacd17cacb3102ec335026bb1963fd4e2d93285d7e5975cb02556eb5f741fa",
     "core_concept": {
       "core_clusters": [],
@@ -88,7 +78,14 @@
     "word_family": [],
     "word_id": "word:actual"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:baseline-v2:actual-current:semantic_contrast",
+      "owner_path": "content/lexical/relations/by-id/c6/c68c092f1f2ff97da0e9bccf03347e2be972088f46ce1ff43d5ad13eb97422cd.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -154,7 +151,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0057-0064.json",
     "source_content_hash": "11aacd17cacb3102ec335026bb1963fd4e2d93285d7e5975cb02556eb5f741fa",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

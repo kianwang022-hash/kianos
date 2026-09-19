@@ -148,7 +148,14 @@
     "word_family": [],
     "word_id": "word:acute"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:baseline-v2:acute-chronic:semantic_contrast",
+      "owner_path": "content/lexical/relations/by-id/33/337d8a709a25948c29d8a5fecbec720b09048b3411f764e8f884ef6f14f1d33f.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -253,7 +260,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0057-0064.json",
     "source_content_hash": "e8cf5c09d29c3539613d706fe7aed36c7adf9eaa7bf7894c4261ebefcadb1bde",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

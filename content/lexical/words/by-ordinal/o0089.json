@@ -6,17 +6,7 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [
-      {
-        "construction_id": "construction:adventure:handoff-f0398ff28942817c",
-        "pattern": "adventure into ...",
-        "meaning_cn": "冒险进入……（低优先级）",
-        "definition_en": "go somewhere or do something risky; reference-level verb use",
-        "level": "L1",
-        "pos": "phrase",
-        "source": "semantic-review-handoff-v1"
-      }
-    ],
+    "constructions": [],
     "content_hash": "571f8c5796efe3d4cfd32afdc737a68892cd704c2be69887ec3c838a5feebbcf",
     "core_concept": {
       "core_clusters": [
@@ -27,17 +17,11 @@
           "sense_ids": [
             "sense:adventure:ff80061b0598533b"
           ]
-        },
-        {
-          "label_cn": "冒险；大胆尝试",
-          "label_en": "to take a risk; to dare to do something",
-          "pos": "verb",
-          "sense_ids": []
         }
       ],
-      "core_meaning_cn": "冒险；冒险经历",
-      "core_meaning_en": "an exciting or dangerous experience; to take a risk",
-      "mental_model_cn": "冒险；冒险经历",
+      "core_meaning_cn": "冒险；惊险刺激的经历",
+      "core_meaning_en": "an exciting, unusual, or dangerous experience",
+      "mental_model_cn": "默认学习名词：一次带有未知、刺激或风险的经历。低频动词义保留在 Reference，不占默认注意力。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -201,7 +185,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0089-0096.json",
     "source_content_hash": "c0e5cccf92872a2f44e4bb6896633c2e40e54f0ab2e4b7dc4061bb048b98fc1d",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
