@@ -13,8 +13,8 @@ class MemoryStorage {
 
 const day='2026-09-20';
 const memory=createXizongMemoryState();
-memory.cards['core:a1-b01-kp01']={id:'core:a1-b01-kp01',family:'CORE',systemId:'circulation',blockId:'a1-b01',kpId:'a1-b01-kp01'};
-memory.cards['precision:p2']={id:'precision:p2',family:'PRECISION',systemId:'respiratory',blockId:'a2-b03',kpId:'a2-b03-kp02'};
+memory.cards['core:a1-b01-kp01']={id:'core:a1-b01-kp01',family:'CORE',systemId:'circulation',blockId:'a1-b01',kpId:'a1-b01-kp01',sourceHash:'h1'};
+memory.cards['precision:p2']={id:'precision:p2',family:'PRECISION',systemId:'respiratory',blockId:'a2-b03',kpId:'a2-b03-kp02',sourceHash:'h2'};
 memory.evidence=[
   {id:'m1',cardId:'core:a1-b01-kp01',family:'CORE',rating:'fuzzy',origin:'CORE_MEMORY_RECALL',at:'2026-09-20T02:00:00.000Z'},
   {id:'m-old',cardId:'precision:p2',family:'PRECISION',rating:'known',origin:'PRECISION_MEMORY_RECALL',at:'2026-09-18T02:00:00.000Z'}
@@ -85,5 +85,10 @@ assert.equal(packet.coverage.block_recall_timestamp_history,'PROTOTYPE_FIRST_COM
 assert.equal(packet.coverage.block_complete_timestamp_history,'PROTOTYPE_FIRST_COMPLETION_TIMESTAMP');
 assert.equal(packet.coverage.system_recall_history,'PROTOTYPE_APPEND_PRESERVED_WITH_LEGACY_FALLBACK');
 assert.equal(packet.evidence_semantics.repair_completed.includes('not mastery'),true);
+assert.equal(packet.current.memory_today.some((row)=>row.card_id==='core:a1-b01-kp01'),true);
+assert.equal(packet.current.memory_today.find((row)=>row.card_id==='core:a1-b01-kp01')?.source_hash,'h1');
+assert.equal(packet.current.active_repairs[0].task_id,'r1');
+assert.equal(packet.current.active_repairs[0].created_at,'2026-09-20T02:10:00.000Z');
+assert.equal(packet.evidence_semantics.memory_today.includes('not mastery debt'),true);
 
 console.log('PASS Xizong daily evidence prototype: cross-Block same-day evidence with bootstrap filtering and explicit coverage gaps');
