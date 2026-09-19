@@ -32,6 +32,45 @@ function emptyState() {
   };
 }
 
+export function validatePrivateControlRuntimeState(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)
+      || value.schema !== PRIVATE_CONTROL_RUNTIME_STATE_SCHEMA
+      || !value.active_by_target || typeof value.active_by_target !== 'object'
+      || Array.isArray(value.active_by_target)
+      || !Array.isArray(value.receipts)) {
+    fail('STATE_INVALID');
+  }
+  const activeByTarget = {};
+  for (const [target, row] of Object.entries(value.active_by_target)) {
+    if (!row || typeof row !== 'object' || Array.isArray(row)
+        || !row.command_id || !row.command_signature || !row.issued_at || !row.applied_at) {
+      fail('STATE_ACTIVE_INVALID', target);
+    }
+    activeByTarget[target] = {
+      command_id: String(row.command_id),
+      command_signature: String(row.command_signature),
+      issued_at: new Date(row.issued_at).toISOString(),
+      applied_at: new Date(row.applied_at).toISOString(),
+      study_day: row.study_day ? String(row.study_day) : null
+    };
+  }
+  return {
+    schema: PRIVATE_CONTROL_RUNTIME_STATE_SCHEMA,
+    active_by_target: activeByTarget,
+    receipts: value.receipts.slice(-100).map((row) => ({ ...row }))
+  };
+}
+
+export function privateControlRuntimeForDay(value, studyDay) {
+  const state = validatePrivateControlRuntimeState(value);
+  return {
+    ...state,
+    active_by_target: Object.fromEntries(
+      Object.entries(state.active_by_target).filter(([, row]) => row.study_day === studyDay)
+    )
+  };
+}
+
 export function readPrivateControlRuntimeState(storage) {
   if (!storage?.getItem) fail('STORAGE_UNAVAILABLE');
   let raw;
@@ -42,19 +81,7 @@ export function readPrivateControlRuntimeState(storage) {
   let value;
   try { value = JSON.parse(raw); }
   catch { fail('STATE_JSON_INVALID'); }
-  if (!value || typeof value !== 'object' || Array.isArray(value)
-      || value.schema !== PRIVATE_CONTROL_RUNTIME_STATE_SCHEMA
-      || !value.active_by_target || typeof value.active_by_target !== 'object'
-      || Array.isArray(value.active_by_target)
-      || !Array.isArray(value.receipts)) {
-    fail('STATE_INVALID');
-  }
-
-  return {
-    schema: PRIVATE_CONTROL_RUNTIME_STATE_SCHEMA,
-    active_by_target: { ...value.active_by_target },
-    receipts: value.receipts.slice(-100)
-  };
+  return validatePrivateControlRuntimeState(value);
 }
 
 function stateWithReceipt(state, receipt, { activate = false } = {}) {
@@ -68,7 +95,8 @@ function stateWithReceipt(state, receipt, { activate = false } = {}) {
       command_id: receipt.command_id,
       command_signature: receipt.command_signature,
       issued_at: receipt.issued_at,
-      applied_at: receipt.applied_at
+      applied_at: receipt.applied_at,
+      study_day: receipt.study_day
     };
   }
   return next;
@@ -76,6 +104,13 @@ function stateWithReceipt(state, receipt, { activate = false } = {}) {
 
 function persistState(storage, state) {
   storage.setItem(PRIVATE_CONTROL_RUNTIME_STATE_KEY, JSON.stringify(state));
+  try {
+    if (typeof globalThis.CustomEvent === 'function') {
+      globalThis.dispatchEvent?.(new CustomEvent('kianos:private-control-change', {
+        detail: { key: PRIVATE_CONTROL_RUNTIME_STATE_KEY }
+      }));
+    }
+  } catch {}
 }
 
 function targetKeys(target) {
