@@ -109,10 +109,10 @@ assert.match(home, /data-writing-exam-select/, 'source-ready exam identities mus
 assert.doesNotMatch(home, /data-synthetic-gate/, 'manual first-learning checkbox must not own true-exam qualification');
 assert.match(route, /WritingProtectedExamGate/);
 assert.match(route, /listWritingRuntimeTasks/);
-assert.match(gate, /PASS_ACCEPTABLE/);
-assert.match(gate, /REPAIR_COMPLETE/);
-assert.match(gate, /TRANSFER_PENDING/);
+assert.match(gate, /data-writing-open-task/, 'protected prompt must require an explicit open action');
 assert.match(gate, /data-exam-runtime/);
+assert.match(gate, /kianos:writing-task-opened/, 'opening must explicitly release the existing runtime');
+assert.doesNotMatch(gate, /localStorage\.setItem/, 'unopened protected gate must not create learner state or exposure');
 
 console.log(JSON.stringify({
   schema: 'kianos.english.writing.true-exam-entry-validation.v2',
