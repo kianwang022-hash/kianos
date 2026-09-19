@@ -28,6 +28,8 @@ function xizongEvidencePresent(packet) {
   if (Number(packet?.summary?.pending_chat_returns || 0) > 0) return true;
   if (packet?.current?.chat_return_receipt) return true;
   if (Number(packet?.summary?.memory_today || 0) > 0) return true;
+  if (Number(packet?.summary?.pending_chat_returns || 0) > 0) return true;
+  if (Number(packet?.summary?.chat_return_receipt || 0) > 0) return true;
   if (Number(packet?.summary?.active_repairs || 0) > 0) return true;
   return Object.entries(packet.summary || {})
     .some(([key, value]) => key.endsWith('_events') || key === 'question_attempts'
