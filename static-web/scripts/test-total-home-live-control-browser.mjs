@@ -91,6 +91,62 @@ try{
     await ctx.close();
   }
 
+  // English: a normal source-native task arrives through the same shared control relay.
+  {
+    const ctx=await browser.newContext({viewport:{width:1512,height:982},timezoneId:'Asia/Shanghai'});
+    const page=await ctx.newPage();
+    await page.goto(BASE+'/',{waitUntil:'networkidle'});
+    check((await page.locator('[data-exam-next]').getAttribute('aria-disabled'))==='true','english_home_starts_without_fake_next');
+    const row=await page.evaluate(()=>{
+      const rows=JSON.parse(document.querySelector('[data-english-resume-catalog]')?.textContent||'[]');
+      return rows.find(x=>x.task==='reading_a')||rows[0]||null;
+    });
+    check(Boolean(row?.object_id&&row?.source_hash),'english_static_catalog_available');
+
+    const generatedAt='2026-09-19T21:18:30.000Z';
+    const sessionId='live-english-session';
+    const command={
+      schema:'kianos.control-browser-command.v1',
+      command_id:'live-english-command-001',command_hash:'live-english',
+      study_day:studyDay,generated_at:generatedAt,expires_at:null,
+      operations:[
+        {kind:'english.session',payload:{
+          schema:'kianos.english.session-instruction.v1',session_id:sessionId,
+          study_day:studyDay,generated_at:generatedAt,current_step:0,
+          steps:[{
+            step_id:'e1',task:row.task,object_id:row.object_id,source_hash:row.source_hash,
+            label:'实时 English exact task',note:'live control proof',params:{}
+          }],
+          return_policy:{on_finish:'english_home'}
+        }},
+        {kind:'exam.chat_plan',payload:{
+          schema:'kianos.exam.chat-plan.v1',study_day:studyDay,generated_at:generatedAt,
+          subjects:{xizong:null,english:{target_minutes:60,role:'保连续',note:'实时 English exact task',session_ref:sessionId},politics:null},
+          next_subject:'english',attention:null
+        }}
+      ]
+    };
+    await page.evaluate(async ({command,studyDay,now})=>{
+      const mod=await import('/src/lib/privateControlRuntime.mjs');
+      await mod.applyPrivateControlCommand(localStorage,command,{day:studyDay,now});
+    },{command,studyDay,now});
+    await page.waitForFunction((sessionId)=>{
+      const link=document.querySelector('[data-exam-next]');
+      return link?.getAttribute('data-session-ref')===null
+        ? Boolean(link?.getAttribute('href') && !/^\/english\/?$/.test(link.getAttribute('href')))
+        : true;
+    },sessionId).catch(()=>{});
+    await page.waitForFunction(()=> {
+      const href=document.querySelector('[data-exam-next]')?.getAttribute('href')||'';
+      return href.startsWith('/reading/') || href.startsWith('/cloze/') || href.startsWith('/reading-b/')
+        || href.startsWith('/translation/') || href.startsWith('/writing/') || href.startsWith('/english-exam/');
+    });
+    const href=await page.locator('[data-exam-next]').getAttribute('href');
+    check(Boolean(href&&!/^\/english\/?$/.test(href)),'english_live_command_updates_home_directly',href||'');
+    await page.screenshot({path:path.join(out,'02-live-english.png'),fullPage:true});
+    await ctx.close();
+  }
+
   // Politics: same-window Memory plan arrival updates the current Next Action in-place.
   {
     const catalog=buildPoliticsMemoryCandidateCatalogCurrent();
@@ -128,7 +184,7 @@ try{
     await page.waitForFunction(()=>document.querySelector('[data-exam-next]')?.getAttribute('href')==='/politics/memory/');
     const href=await page.locator('[data-exam-next]').getAttribute('href');
     check(href==='/politics/memory/','politics_live_command_updates_home_directly',href||'');
-    await page.screenshot({path:path.join(out,'02-live-politics.png'),fullPage:true});
+    await page.screenshot({path:path.join(out,'03-live-politics.png'),fullPage:true});
     await ctx.close();
   }
 
