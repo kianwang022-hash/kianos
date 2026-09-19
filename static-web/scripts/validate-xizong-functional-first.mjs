@@ -65,11 +65,13 @@ const homeTools = read('static-web/src/components/XizongHomeTools.astro');
 assert(lastLocation.includes("localStorage.setItem('kianos-xizong-last-location-v1'"), 'last-location-not-persisted');
 assert(lastLocation.includes('href: window.location.pathname'), 'last-location-missing-route');
 assert(lastLocation.includes('requiredSystemRecall'), 'practice-resume-release-guard-missing');
-assert(lastLocation.includes('requiredBlocks.every'), 'system-recall-resume-release-guard-missing');
+assert(lastLocation.includes('inspectXizongSystemCompletion(requiredBlocks, localStorage).complete'), 'system-recall-resume-exact-completion-guard-missing');
+assert(lastLocation.includes('hasXizongSystemRecall(localStorage, requiredSystemRecall)'), 'practice-resume-system-recall-guard-missing');
 assert(homeTools.includes("localStorage.getItem('kianos-xizong-last-location-v1')"), 'home-resume-does-not-read-last-location');
 assert(homeTools.includes('link.href = last.href;'), 'home-resume-does-not-return-to-last-route');
 assert(homeTools.includes('if (last.resumeKind)'), 'home-resume-does-not-render-explicit-stage-kind');
-assert(blockRuntime.includes("JSON.parse(localStorage.getItem(storageKey) || 'null')"), 'block-resume-does-not-restore-state');
+assert(blockRuntime.includes('const raw = localStorage.getItem(storageKey);') && blockRuntime.includes('const saved = JSON.parse(raw);'), 'block-resume-does-not-read-validated-state');
+assert(blockRuntime.includes("suspend('本机学习记录无法安全读取"), 'block-resume-corrupt-state-not-fail-closed');
 assert(blockRuntime.includes("setKpIndex(state.kpIndex || 0); setStage(state.stage || 'block_learn');"), 'block-resume-does-not-restore-stage-and-kp');
 
 // Completion evidence is enforced at the transition owner. Logic Group lecture contact
@@ -80,7 +82,7 @@ assert(!stageGuard.includes('personal?.lectureRead'), 'legacy-block-lecture-conf
 assert(stageGuard.includes("target.closest('[data-block-complete]')"), 'block-complete-transition-not-guarded');
 assert(stageGuard.includes('counts.learned >= counts.total'), 'block-complete-does-not-require-formal-contact');
 assert(stageGuard.includes('counts.recalled >= counts.total'), 'block-complete-does-not-require-kp-recall');
-assert(stageGuard.includes('Boolean(state?.blockRecallDone)'), 'block-complete-does-not-require-block-recall-evidence');
+assert(stageGuard.includes('(state?.blockRecallDone === true)'), 'block-complete-does-not-require-block-recall-evidence');
 
 console.log([
   'Xizong Functional First regression PASS',

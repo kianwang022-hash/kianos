@@ -11,7 +11,7 @@ const payload = learnerObject || null;
 
   const root = document.querySelector('[data-xizong-v6-block]');
   const payloadNode = document.querySelector('[data-xizong-learner-object-payload]');
-  if (root && payloadNode) {
+  if (root && !root.hasAttribute('data-xizong-state-blocked') && payloadNode) {
     let learner = null;
     try { learner = JSON.parse(payloadNode.textContent || 'null'); } catch {}
     if (learner?.schema === 'kianos.xizong.learner_object.v1') {
@@ -247,6 +247,16 @@ const payload = learnerObject || null;
         const answer = activeRecallCard()?.querySelector('[data-kp-answer]');
         return Boolean(answer && !answer.hasAttribute('hidden'));
       };
+      const postlearnForGroup = (groupId) => {
+        const slot = learner.slots?.logicGroupPostlearn?.[groupId] || {};
+        let study = {};
+        try { study = JSON.parse(localStorage.getItem(`kianos-xizong-astro-v2:${root.getAttribute('data-study-object')}`) || '{}'); } catch {}
+        const ids = groups.find((group) => group?.identity?.logicGroupId === groupId)?.kpIds || [];
+        const closed = ids.length > 0 && ids.every((id) => study.learned?.[id] === true && study.ratings?.[id]);
+        // POST_REVEAL extensions have explicit reveal timing; group precision and
+        // outgoing connections are not moved earlier merely because a KP is revealed.
+        return { extension: slot.extension || [], precision: closed ? slot.precision || [] : [], connection: closed ? slot.connection || [] : [] };
+      };
       const sourceCompanionKp = () => allKps[Math.max(0, Math.min(allKps.length - 1, sourceLearnIndex))] || allKps[0] || null;
       const groupCompanionIds = () => array(activeGroup()?.kpIds);
       const groupCompanionKp = () => {
@@ -305,7 +315,7 @@ const payload = learnerObject || null;
         const footerText = sourceStage.querySelector(':scope > footer > span');
         if (footerText) footerText.textContent = '保持原讲义连续学习；KP Learn 只是 Mac 侧伴读，不要求逐 KP 完成仪式。';
         const done = sourceStage.querySelector('[data-source-contact-done]');
-        if (done) done.textContent = '本段原讲义已完成，回来做学习节 Recall';
+        if (done) done.textContent = '本 Block 对应原讲义已学完，开始 Recall';
       }
       if (groupLearnStage) {
         groupLearnStage.classList.add('xv6LearnerCompanionStage');
@@ -369,7 +379,7 @@ const payload = learnerObject || null;
           slotName = 'kp_learn_aux';
           representationStage = 'KP_LEARN';
           title = kp ? `${kp.identity.displayId} · 学习辅助` : 'KP Learn 辅助';
-          slot = learner.slots?.kpLearnAux?.[kp?.identity?.kpId] || {};
+          slot = mergeSlots(learner.slots?.logicGroupPrelearn?.[kp?.identity?.logicGroupId] || {}, learner.slots?.kpLearnAux?.[kp?.identity?.kpId] || {});
         } else if (stage === 'kp_learn') {
           const kp = groupCompanionKp();
           const groupId = groupIds[activeGroupIndex()] || '';
@@ -395,7 +405,8 @@ const payload = learnerObject || null;
           title = kp ? `${kp.identity.displayId} · 当前辅助` : '当前辅助';
           slot = mergeSlots(
             learner.slots?.logicGroupPrelearn?.[groupId] || {},
-            learner.slots?.kpRecallContext?.[kpId] || learner.slots?.kpLearnAux?.[kpId] || {}
+            learner.slots?.kpRecallContext?.[kpId] || learner.slots?.kpLearnAux?.[kpId] || {},
+            recallAnswerVisible() ? postlearnForGroup(groupId) : {}
           );
         }
         const rendered = renderSlot(slot, { stage: representationStage });

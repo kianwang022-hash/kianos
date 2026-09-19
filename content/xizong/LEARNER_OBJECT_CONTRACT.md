@@ -149,7 +149,7 @@ Before Reveal, the learner may still see:
 - Current-owned Precision / Visual / Extension / Connection Context;
 - normal navigation/runtime chrome.
 
-The canonical KP Core itself stays hidden until Reveal.
+The canonical KP Core itself stays hidden until Reveal. Context membership is not blanket permission for every payload: an explicit answer-bearing flag or owned `POST_REVEAL` policy remains binding. The compiled Projection Front is a separate, stricter output channel; it cannot suppress the learner object's approved non-answer Context or be used to smuggle Core back into it.
 
 The learner object therefore separates:
 

@@ -416,3 +416,16 @@ export function loadXizongBlock(systemId, blockSlugOrId) {
     sourceHash: sha256(markdown)
   };
 }
+
+// Identity-only Current requirements; never ship medical Core to a stage guard.
+export function loadXizongSystemCompletionRequirements(system) {
+  return (system?.blocks || []).map((ref) => {
+    const block = loadXizongBlock(system.systemId, ref.slug);
+    return {
+      schema: 'kianos.xizong.learner_object.v1', objectType: 'BLOCK',
+      identity: { blockId: block.blockId },
+      kps: block.kpRecords.map((kp) => ({ identity: { kpId: kp.kpId } })),
+      evidenceVersion: [block.sourceHash, block.systemSourceHash, block.learningSupportSourceHash].join(':')
+    };
+  });
+}

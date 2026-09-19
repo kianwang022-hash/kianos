@@ -13,15 +13,15 @@ const firstGroupSource = firstGroupLocators.length === 0
   ? 'MarginNote · 原讲义对应连续小节'
   : firstGroupLocators.length === 1
     ? `MarginNote · ${firstGroupLocators[0]}`
-    : `MarginNote · ${firstGroupLocators[0]} → ${firstGroupLocators[firstGroupLocators.length - 1]}`;
+    : `MarginNote · 相关定位：${firstGroupLocators.join('；')}`;
 const allSourceLocators = [...new Set(kps.map((kp) => kp.sourceLocator).filter(Boolean))];
 const continuousSource = allSourceLocators.length === 0
   ? 'MarginNote · 按原讲义自然边界连续学习'
   : allSourceLocators.length === 1
     ? `MarginNote · ${allSourceLocators[0]}`
-    : `MarginNote · ${allSourceLocators[0]} → ${allSourceLocators[allSourceLocators.length - 1]}`;
+    : `MarginNote · 相关定位：${allSourceLocators.join('；')}`;
 const sourceContact = block?.sourceContact || {};
-const sourceContactMode = String(sourceContact.mode || 'WHOLE_LOGIC_GROUP');
+const sourceContactMode = String(sourceContact.mode || 'NATURAL_SOURCE_UNIT');
 const sourcePerGroup = sourceContact.logicGroupIsAutomaticSourceChunk === true;
 const attention = block?.attention || {};
 const carryNow = attention.carryNow || [];
@@ -66,6 +66,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
   class="portedStudyRuntime portedStudyRuntimeV2 xv6Block"
   data-xizong-v6-block
   data-study-object={block.objectId}
+  data-study-source-hash={block.sourceHash || ''}
   data-block-label={block.label}
   data-source-contact-mode={sourceContactMode}
   data-semantic-adapter={block.semanticAdapterSchema || ''}
@@ -75,7 +76,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
       <a href={`${base}xizong/${block.systemId}/`}>‹ {block.systemTitle}</a>
       <span>{block.systemTitle} › {block.label}</span>
       <div class="portedStudyShellActions" aria-label="Block keyboard hints">
-        <span>← → 切换 · Space 隐藏 Core · Enter 学好并继续</span>
+        <span data-block-keyboard-hint>← → 切换 · Space 显示 / 隐藏 Core</span>
       </div>
     </div>
     <div class="portedStudyIdentity">
@@ -279,6 +280,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
 }}>
   const root = document.querySelector('[data-xizong-v6-block]');
   if (root) {
+   (() => {
     const objectId = root.getAttribute('data-study-object') || 'xizong:unknown';
     const blockLabel = root.getAttribute('data-block-label') || 'Block';
     const storageKey = `kianos-xizong-astro-v2:${objectId}`;
@@ -298,15 +300,56 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
     const statusLabel = root.querySelector('[data-study-local-status]');
     const totalKp = kpData.length;
     let state = { stage: 'block_learn', groupIndex: 0, kpIndex: 0, learned: {}, ratings: {}, ttsxEvidence: {}, ttsxAnnotations: {}, pendingTtsx: null, blockRecallDone: false, completed: false };
-    try { state = { ...state, ...(JSON.parse(localStorage.getItem(storageKey) || 'null') || {}) }; } catch {}
+    const suspend = (message) => {
+      root.dataset.xizongStateBlocked = 'true';
+      root.inert = true;
+      if (!document.querySelector('[data-xizong-state-recovery]')) {
+        const notice = document.createElement('p');
+        notice.dataset.xizongStateRecovery = '';
+        notice.setAttribute('role', 'alert');
+        notice.textContent = message;
+        root.before(notice);
+      }
+    };
+    try {
+      const raw = localStorage.getItem(storageKey);
+      if (raw !== null) {
+        const saved = JSON.parse(raw);
+        const object = (v) => v && typeof v === 'object' && !Array.isArray(v);
+        if (!object(saved) || (saved.schema && saved.schema !== 'kianos.xizong.block-state.v2')) throw new Error('Unsupported state');
+        if (saved.learned != null && (!object(saved.learned) || Object.values(saved.learned).some((v) => typeof v !== 'boolean'))) throw new Error('Invalid contact evidence');
+        if (saved.ratings != null && (!object(saved.ratings) || Object.values(saved.ratings).some((v) => !['unknown','fuzzy','known','mastered'].includes(v)))) throw new Error('Invalid Recall evidence');
+        if (['completed', 'blockRecallDone', 'sourceContactDone'].some((key) => saved[key] != null && typeof saved[key] !== 'boolean')) throw new Error('Invalid completion evidence');
+        state = { ...state, ...saved };
+      }
+    } catch {
+      suspend('本机学习记录无法安全读取，原数据已保留，本页暂停写入。请先备份记录再恢复；不要直接清除浏览器数据。');
+      return;
+    }
     if (typeof state.sourceContactDone !== 'boolean') {
-      const legacyLearned = Object.values(state.learned || {}).filter(Boolean).length;
+      const legacyLearned = kpData.filter((kp) => state.learned?.[kp.kpId] === true).length;
       state.sourceContactDone = !sourcePerGroup && totalKp > 0 && legacyLearned >= totalKp;
     }
 
-    const save = () => { try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch {} };
-    const learnedCount = () => Object.values(state.learned || {}).filter(Boolean).length;
-    const recallCount = () => Object.keys(state.ratings || {}).length;
+    const save = () => {
+      if (root.dataset.xizongStateBlocked === 'true') return false;
+      try { localStorage.setItem(storageKey, JSON.stringify(state)); return true; }
+      catch { suspend('本次学习状态未能保存，本页已暂停。之前记录仍保留，请先备份或释放本机空间后重新打开。'); return false; }
+    };
+    const recordSourceContact = (segmentId, ids, cumulative = false) => {
+      const history = Array.isArray(state.sourceContactEvidence) ? state.sourceContactEvidence : [];
+      if (history.some((entry) => entry.segment_id === segmentId)) return;
+      state.sourceContactEvidence = [...history, {
+        segment_id: segmentId,
+        source_contact_mode: sourceContactMode,
+        coverage_kind: cumulative ? 'EXPLICIT_BLOCK_CUMULATIVE_CONFIRMATION' : 'ACCEPTED_SOURCE_SEGMENT',
+        kp_ids: [...ids],
+        completed_at: new Date().toISOString(),
+        source_hash: root.getAttribute('data-study-source-hash') || ''
+      }];
+    };
+    const learnedCount = () => kpData.filter((kp) => state.learned?.[kp.kpId] === true).length;
+    const recallCount = () => kpData.filter((kp) => ['unknown', 'fuzzy', 'known', 'mastered'].includes(state.ratings?.[kp.kpId])).length;
     const canComplete = () => totalKp > 0 && learnedCount() >= totalKp && recallCount() >= totalKp && Boolean(state.blockRecallDone);
     const currentGroup = () => groups[Math.max(0, Math.min(groups.length - 1, Number(state.groupIndex || 0)))] || groups[0];
     const ttsxRowsForGroup = (group = currentGroup()) => {
@@ -357,7 +400,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
       const locators = [...new Set(groupKps(group).map((kp) => kp.sourceLocator).filter(Boolean))];
       if (!locators.length) return 'MarginNote · 原讲义对应连续小节';
       if (locators.length === 1) return `MarginNote · ${locators[0]}`;
-      return `MarginNote · ${locators[0]} → ${locators[locators.length - 1]}`;
+      return `MarginNote · 相关定位：${locators.join('；')}`;
     };
     const firstUnrecalledIndexForGroup = (group = currentGroup()) => {
       const item = groupKps(group).find((kp) => !state.ratings?.[kp.kpId]);
@@ -497,6 +540,8 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
     };
 
     const syncState = () => {
+      const shortcutHint = root.querySelector('[data-block-keyboard-hint]');
+      if (shortcutHint) shortcutHint.textContent = state.stage === 'kp_recall' ? 'Space 核对 Core · 1–4 记录回忆并继续 · ← → 切换' : '← → 切换伴读 · Source 单元学完后一次确认';
       kpRailButtons.forEach((button, index) => {
         const kpId = kpData[index]?.kpId || '';
         const small = button.querySelector('[data-kp-state]');
@@ -531,6 +576,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
 
     const resetRecallCard = (card) => {
       if (!(card instanceof HTMLElement)) return;
+      card.dataset.ratingCommitted = 'false';
       const answer = card.querySelector('[data-kp-answer]');
       const rating = card.querySelector('[data-kp-rating]');
       const reveal = card.querySelector('[data-kp-reveal]');
@@ -625,6 +671,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
     }));
 
     root.querySelector('[data-source-contact-done]')?.addEventListener('click', () => {
+      recordSourceContact(`block-cumulative:${objectId}`, kpData.map((kp) => kp.kpId), true);
       state.sourceContactDone = true;
       state.learned = Object.fromEntries(kpData.map((kp) => [kp.kpId, true]));
       state.groupIndex = 0;
@@ -646,6 +693,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
       const group = currentGroup();
       const ids = Array.isArray(group?.kpIds) ? group.kpIds : [];
       const learned = { ...(state.learned || {}) };
+      recordSourceContact(`source:${group.groupId}`, ids);
       ids.forEach((id) => { learned[id] = true; });
       state.learned = learned;
       state.kpIndex = firstUnrecalledIndexForGroup(group);
@@ -713,6 +761,9 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
       card.querySelectorAll('[data-rating]').forEach((button) => button.addEventListener('click', () => {
         const kpId = card.getAttribute('data-kp-id') || '';
         const value = button.getAttribute('data-rating') || '';
+        if (state.stage !== 'kp_recall' || card.hidden || answer?.hidden !== false || state.learned?.[kpId] !== true || card.dataset.ratingCommitted === 'true') return;
+        if (!['unknown', 'fuzzy', 'known', 'mastered'].includes(value)) return;
+        card.dataset.ratingCommitted = 'true';
         state.ratings = { ...(state.ratings || {}), [kpId]: value };
         card.querySelectorAll('[data-rating]').forEach((candidate) => candidate.classList.toggle('selected', candidate === button));
         save(); syncState();
@@ -786,10 +837,15 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
     document.addEventListener('keydown', (event) => {
       const target = event.target;
       if (target instanceof HTMLElement && target.closest('input,textarea,select,button,a,[contenteditable="true"]')) return;
-      if (state.stage !== 'kp_recall') return;
+      if (root.dataset.xizongStateBlocked === 'true' || root.inert || state.stage !== 'kp_recall' || event.repeat) return;
       if (event.key === 'ArrowLeft') { event.preventDefault(); stepRecall(-1); }
       if (event.key === 'ArrowRight') { event.preventDefault(); stepRecall(1); }
-      if (event.code === 'Space') { event.preventDefault(); kpRecallCards[state.kpIndex]?.querySelector('[data-kp-reveal]')?.click(); }
+      if (event.code === 'Space') {
+        event.preventDefault();
+        const card = kpRecallCards[state.kpIndex];
+        if (card?.querySelector('[data-kp-answer]')?.hidden === false) resetRecallCard(card);
+        else card?.querySelector('[data-kp-reveal]')?.click();
+      }
       if (/^[1-4]$/.test(event.key)) {
         const values = ['unknown', 'fuzzy', 'known', 'mastered'];
         kpRecallCards[state.kpIndex]?.querySelector(`[data-rating="${values[Number(event.key) - 1]}"]`)?.click();
@@ -800,6 +856,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
     if (state.blockRecallDone) { const button = root.querySelector('[data-block-recall-complete]'); if (button) { button.textContent = 'Block Recall 已完成'; button.classList.add('completed'); } }
     normalizeLegacyStage();
     setKpIndex(state.kpIndex || 0); setStage(state.stage || 'block_learn'); syncState();
+   })();
   }
 </script>
 

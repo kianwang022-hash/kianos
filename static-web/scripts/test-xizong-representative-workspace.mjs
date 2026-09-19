@@ -147,7 +147,8 @@ try {
     if (item.evidenceRole === 'CURRENT_PROJECTED_ROUTE') {
       const framework = root.locator('[data-xizong-cognitive-projection]');
       check(await framework.count() === 1, `${item.lane}_human_framework_unique`);
-      check(!(await framework.first().evaluate((node) => node.hasAttribute('open'))), `${item.lane}_framework_compact_by_default`);
+      check(await framework.first().evaluate((node) => node.hasAttribute('open')), `${item.lane}_framework_visible_by_default`);
+      check(await framework.first().locator(':scope > summary').count() === 1, `${item.lane}_framework_still_collapsible`);
       check(await page.locator('[data-xizong-legacy-crosswalk-bridge]').evaluate((node) => node.hasAttribute('hidden')), `${item.lane}_crosswalk_query_only`);
       check(await page.locator('.xv6MemoryReview').count() === 0, `${item.lane}_legacy_after_learn_absent`);
       check(await page.locator('[data-xizong-memory-release-bridge]').evaluate((node) => node.hasAttribute('hidden')), `${item.lane}_standalone_memory_release_bridge_hidden`);

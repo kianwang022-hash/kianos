@@ -1,4 +1,5 @@
 ---
+import { loadXizongSystemCompletionRequirements } from '../lib/xizong.mjs';
 const {
   system = null,
   block = null,
@@ -12,7 +13,7 @@ const {
   requiredSystemRecall = ''
 } = Astro.props;
 const systemId = system?.systemId || '';
-const requiredBlocks = Array.isArray(requiredBlockIds) ? requiredBlockIds.filter(Boolean) : [];
+const requiredBlocks = (requiredBlockIds?.length || requiredSystemRecall) ? loadXizongSystemCompletionRequirements(system) : [];
 ---
 <span
   data-xizong-last-location
@@ -34,6 +35,7 @@ const requiredBlocks = Array.isArray(requiredBlockIds) ? requiredBlockIds.filter
 <script type="application/json" data-xizong-last-location-required-blocks set:html={JSON.stringify(requiredBlocks)}></script>
 
 <script>
+  import { inspectXizongSystemCompletion, hasXizongSystemRecall } from '../lib/xizongMemoryAutoRelease.mjs';
   const node = document.querySelector('[data-xizong-last-location]');
   if (node instanceof HTMLElement) {
     const readJson = (key, fallback = null) => {
@@ -43,12 +45,8 @@ const requiredBlocks = Array.isArray(requiredBlockIds) ? requiredBlockIds.filter
     try { requiredBlocks = JSON.parse(document.querySelector('[data-xizong-last-location-required-blocks]')?.textContent || '[]'); } catch {}
 
     const requiredSystemRecall = node.getAttribute('data-required-system-recall') || '';
-    const blocksReady = !requiredBlocks.length || requiredBlocks.every((blockId) =>
-      Boolean(readJson(`kianos-xizong-astro-v2:xizong:${blockId}`, {})?.completed)
-    );
-    const recallReady = !requiredSystemRecall || Boolean(
-      readJson(`kianos:xizong:system-recall:${requiredSystemRecall}:v1`, {})?.completedAt
-    );
+    const blocksReady = !requiredBlocks.length || inspectXizongSystemCompletion(requiredBlocks, localStorage).complete;
+    const recallReady = !requiredSystemRecall || hasXizongSystemRecall(localStorage, requiredSystemRecall);
 
     const value = {
       systemId: node.getAttribute('data-system-id') || '',

@@ -82,7 +82,8 @@ try {
   check(geometry.mainWidth > geometry.leftWidth * 2.5, 'central_learning_surface_is_dominant', JSON.stringify(geometry));
   check(geometry.rootBottom <= geometry.viewportHeight + 2, 'block_workspace_fits_viewport', `${geometry.rootBottom}/${geometry.viewportHeight}`);
   check(geometry.pageScrollHeight <= geometry.pageClientHeight + 4, 'block_route_does_not_become_endless_page', `${geometry.pageScrollHeight}/${geometry.pageClientHeight}`);
-  check(geometry.frameworkCount === 1 && geometry.frameworkOpen === false, 'block_framework_is_compact_entry_by_default');
+  check(geometry.frameworkCount === 1 && geometry.frameworkOpen === true, 'block_framework_is_visible_by_default');
+  check(await root.locator('[data-xizong-cognitive-projection] > summary').count() === 1, 'block_framework_remains_collapsible');
   check(geometry.crosswalkBridgeHidden, 'crosswalk_exits_visible_first_pass_workspace');
   check(geometry.legacyMemoryUiCount === 0 && geometry.recallEvidenceBridgeHidden, 'legacy_after_learn_ui_is_replaced_by_evidence_only_bridge');
 
@@ -96,7 +97,13 @@ try {
   const companionLocatorText = (await companion.locator('.xv6KpLearnLocators').textContent()) || '';
   check(companionLocatorText.includes(firstSourceLocator), 'kp_learn_companion_preserves_source_locator', companionLocatorText);
   check(await root.locator('[data-study-stage="source_contact"] .xv6LectureFirst').isHidden(), 'blank_source_handoff_body_is_retired');
-  check(await visualRoot.count() === 0, 'logic_group_visual_not_shown_during_continuous_source_contact');
+  check(await visualRoot.count() === 1 && await visualRoot.isVisible(), 'reviewed_visual_available_during_kp_learn_source_contact');
+  check(await visualRoot.locator('xpath=ancestor::*[@data-learner-object-slot="kp_learn_aux"]').count() === 1,
+    'source_contact_visual_uses_kp_learn_aux_slot');
+  check((await root.locator('[data-xizong-aux-surface] [data-learner-object-slot]').getAttribute('data-representation-stage')) === 'KP_LEARN',
+    'source_contact_visual_uses_kp_learn_stage');
+  check(await root.locator('[data-kp-answer]:visible').count() === 0,
+    'source_contact_visual_does_not_expose_recall_answer_surface');
 
   await root.locator('[data-source-contact-done]').click();
   await page.waitForFunction(() => {

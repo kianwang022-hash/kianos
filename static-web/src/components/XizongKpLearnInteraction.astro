@@ -206,58 +206,14 @@
       });
 
       const downloadPacket = () => {
-        const study = readStudy();
-        const personal = readPersonal();
-        const memory = readMemory();
-        const packet = {
-          schema: 'kianos.xizong.study_packet.v2',
-          packet_scope: 'LIVE_BLOCK_LEARN',
-          exported_at: new Date().toISOString(),
-          object_id: objectId,
-          current: {
-            system_id: learner.identity?.systemId || '',
-            canonical_id: learner.identity?.canonicalId || '',
-            block_id: learner.identity?.blockId || '',
-            block_label: learner.identity?.blockLabel || '',
-            block_title: learner.identity?.title || '',
-            current_stage: study.stage || '',
-            current_kp_id: activeKpId()
-          },
-          learning_state: {
-            learned_kp_ids: Object.entries(study.learned || {}).filter(([, done]) => Boolean(done)).map(([id]) => id),
-            recall_ratings: study.ratings || {},
-            block_recall_done: Boolean(study.blockRecallDone),
-            block_complete: Boolean(study.completed)
-          },
-          kp_evidence: (learner.kps || []).map((kp) => {
-            const kpId = kp?.identity?.kpId || '';
-            const local = personal?.kp?.[kpId] || {};
-            return {
-              kp_id: kpId,
-              display_id: kp?.identity?.displayId || '',
-              title: kp?.identity?.title || '',
-              prompt_canonical: kp?.prompt?.canonical || '',
-              prompt_override: memory.promptOverrides?.[kpId] || '',
-              learned: Boolean(study.learned?.[kpId]),
-              recall_rating: study.ratings?.[kpId] || '',
-              marks: Array.isArray(local.marks) ? local.marks : [],
-              note: local.comment || '',
-              source_locator: kp?.source?.locator || '',
-              outline_locator: kp?.outline?.locator || '',
-              precision_ids: (kp?.precision || []).map((row) => row.id),
-              visual_ids: (kp?.visual || []).map((row) => row.id),
-              connection_ids: [
-                ...(kp?.connection?.incoming || []).map((row) => row.id),
-                ...(kp?.connection?.outgoing || []).map((row) => row.id)
-              ]
-            };
-          }),
-          request_to_chat: [
-            '结合 Current owner 和这个学习包，优先看我主动标出的“不熟 / 重点”、Prompt override 与真实 Recall evidence。',
-            '区分：机制理解断点、暂时记忆不稳、Precision 不稳、主动提示设计问题、页面出现时机问题或 canonical 内容疑点。',
-            '稳定内容不要制造额外复习；只返回最有价值的少数注意点或修补任务。'
-          ]
-        };
+        let packet = null;
+        root.dispatchEvent(new CustomEvent('kianos:xizong-request-study-packet', {
+          detail: { accept: (value) => { packet = value; } }
+        }));
+        if (!packet) {
+          window.alert('完整学习包暂未就绪，未导出不完整数据。请重新打开当前学习页。');
+          return;
+        }
         const blob = new Blob([JSON.stringify(packet, null, 2)], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
         const anchor = document.createElement('a');

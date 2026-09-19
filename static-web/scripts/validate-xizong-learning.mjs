@@ -222,9 +222,13 @@ lacks(systemUi, /xv6System/, 'retired-system-workspace-namespace-returned');
 has(blockUi, 'data-kp-answer hidden', 'recall-answer-not-hidden');
 has(blockUi, 'data-kp-reveal', 'recall-reveal-missing');
 matches(blockUi, /learnedCount\(\)\s*>=\s*totalKp\s*&&\s*recallCount\(\)\s*>=\s*totalKp\s*&&\s*Boolean\(state\.blockRecallDone\)/, 'block-core-close-gate');
-has(blockUi, "JSON.parse(localStorage.getItem(storageKey) || 'null')", 'block-persistence-read-missing');
+has(blockUi, 'const raw = localStorage.getItem(storageKey);', 'block-persistence-raw-read-missing');
+has(blockUi, 'const saved = JSON.parse(raw);', 'block-persistence-json-parse-missing');
+has(blockUi, "saved.schema !== 'kianos.xizong.block-state.v2'", 'block-persistence-schema-guard-missing');
+has(blockUi, "suspend('本机学习记录无法安全读取", 'block-persistence-read-fail-closed-missing');
+has(blockUi, "if (root.dataset.xizongStateBlocked === 'true') return false;", 'block-persistence-blocked-write-guard-missing');
 has(blockUi, 'localStorage.setItem(storageKey, JSON.stringify(state))', 'block-persistence-write-missing');
-has(blockUi, '} catch {}', 'block-storage-error-containment-missing');
+has(blockUi, "suspend('本次学习状态未能保存", 'block-persistence-write-fail-closed-missing');
 has(enhancerUi, 'button.disabled = !coreReady || Boolean(study.completed);', 'block-completion-ui-gate');
 assert(!enhancerUi.includes('lectureRead'), 'legacy-block-lecture-confirmation-remains');
 

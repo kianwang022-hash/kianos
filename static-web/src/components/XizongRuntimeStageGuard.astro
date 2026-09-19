@@ -1,11 +1,16 @@
 ---
+import { loadXizongSystemCompletionRequirements } from '../lib/xizong.mjs';
 const { system, block = null } = Astro.props;
 const blockId = block?.blockId || '';
 const blockIds = (system?.blocks || []).map((row) => row.blockId).filter(Boolean);
+const requirements = block ? [] : loadXizongSystemCompletionRequirements(system);
 ---
 <span data-xizong-runtime-stage-guard hidden></span>
 
-<script define:vars={{ blockId, blockIds }}>
+<script type="application/json" data-xizong-completion-input set:html={JSON.stringify({ blockId, blockIds, requirements }).replace(/</g, String.fromCharCode(92) + 'u003c')}></script>
+<script>
+  import { inspectXizongSystemCompletion } from '../lib/xizongMemoryAutoRelease.mjs';
+  const { blockId, blockIds, requirements } = JSON.parse(document.querySelector('[data-xizong-completion-input]')?.textContent || '{}');
   const readBlockState = (id) => {
     if (!id) return {};
     try {
@@ -27,11 +32,12 @@ const blockIds = (system?.blocks || []).map((row) => row.blockId).filter(Boolean
   };
 
   const blockCounts = (root, state) => {
-    const total = root?.querySelectorAll('[data-kp-recall-card]').length || 0;
+    const ids = [...(root?.querySelectorAll('[data-kp-recall-card]') || [])].map((card) => card.getAttribute('data-kp-id'));
+    const total = ids.length;
     return {
       total,
-      learned: Object.values(state?.learned || {}).filter(Boolean).length,
-      recalled: Object.keys(state?.ratings || {}).length
+      learned: ids.filter((id) => state?.learned?.[id] === true).length,
+      recalled: ids.filter((id) => ['unknown', 'fuzzy', 'known', 'mastered'].includes(state?.ratings?.[id])).length
     };
   };
 
@@ -43,6 +49,7 @@ const blockIds = (system?.blocks || []).map((row) => row.blockId).filter(Boolean
     root?.addEventListener('click', (event) => {
       const target = event.target instanceof Element ? event.target : null;
       if (!target) return;
+      if (root.inert || root.dataset.xizongStateBlocked === 'true') { stop(event); return; }
 
       const state = readBlockState(blockId);
       const counts = blockCounts(root, state);
@@ -64,7 +71,7 @@ const blockIds = (system?.blocks || []).map((row) => row.blockId).filter(Boolean
         }
 
         if (requested === 'block_complete') {
-          const ready = counts.total > 0 && counts.learned >= counts.total && counts.recalled >= counts.total && Boolean(state?.blockRecallDone);
+          const ready = counts.total > 0 && counts.learned >= counts.total && counts.recalled >= counts.total && (state?.blockRecallDone === true);
           if (!ready) {
             stop(event);
             setBlockStatus(root, `Block 完成证据未闭合（学习接触 ${counts.learned}/${counts.total} · Recall ${counts.recalled}/${counts.total} · Block Recall ${state?.blockRecallDone ? '完成' : '未完成'}）`);
@@ -85,15 +92,19 @@ const blockIds = (system?.blocks || []).map((row) => row.blockId).filter(Boolean
 
       const rating = target.closest('[data-rating]');
       if (rating) {
-        const kpId = rating.closest('[data-kp-id]')?.getAttribute('data-kp-id') || '';
-        if (kpId && !state?.learned?.[kpId]) {
+        const card = rating.closest('[data-kp-recall-card]');
+        const kpId = card?.getAttribute('data-kp-id') || '';
+        if (!kpId || state?.stage !== 'kp_recall' || card?.hidden || card?.querySelector('[data-kp-answer]')?.hidden !== false || card?.dataset.ratingCommitted === 'true' || state?.learned?.[kpId] !== true) {
           stop(event);
-          setBlockStatus(root, '先完成这个 KP 的正式学习，再记录 Recall');
+          setBlockStatus(root, '先完成对应原讲义接触并 Reveal 当前 Core，再记录本次 Recall');
           return;
         }
       }
 
+      const blockReveal = target.closest('[data-block-recall-reveal]');
+      if (blockReveal && (!counts.total || counts.learned < counts.total || counts.recalled < counts.total)) { stop(event); return; }
       const blockRecallDone = target.closest('[data-block-recall-complete]');
+      if (blockRecallDone && root.querySelector('[data-block-recall-answer]')?.hidden !== false) { stop(event); return; }
       if (blockRecallDone && (!counts.total || counts.learned < counts.total || counts.recalled < counts.total)) {
         stop(event);
         setBlockStatus(root, `Block Recall 完成证据需先走完正式学习接触 + KP Recall（${counts.learned}/${counts.total} · ${counts.recalled}/${counts.total}）`);
@@ -102,7 +113,7 @@ const blockIds = (system?.blocks || []).map((row) => row.blockId).filter(Boolean
 
       const blockComplete = target.closest('[data-block-complete]');
       if (blockComplete) {
-        const ready = counts.total > 0 && counts.learned >= counts.total && counts.recalled >= counts.total && Boolean(state?.blockRecallDone);
+        const ready = counts.total > 0 && counts.learned >= counts.total && counts.recalled >= counts.total && (state?.blockRecallDone === true);
         if (!ready) {
           stop(event);
           setBlockStatus(root, `Block 完成证据未闭合（学习接触 ${counts.learned}/${counts.total} · Recall ${counts.recalled}/${counts.total} · Block Recall ${state?.blockRecallDone ? '完成' : '未完成'}）`);
@@ -115,10 +126,11 @@ const blockIds = (system?.blocks || []).map((row) => row.blockId).filter(Boolean
     const recallEntry = document.querySelector('[data-xizong-system-recall-entry]');
     const recallLock = document.querySelector('[data-xizong-system-recall-lock]');
     const recallLockStatus = document.querySelector('[data-xizong-system-recall-lock-status]');
-    const completedBlocks = () => blockIds.filter((id) => Boolean(readBlockState(id)?.completed));
+    const completedBlocks = () => inspectXizongSystemCompletion(requirements, localStorage);
     const syncSystemRelease = () => {
-      const completed = completedBlocks();
-      const ready = completed.length >= blockIds.length;
+      const check = completedBlocks();
+      const completed = { length: check.completed };
+      const ready = check.complete;
       if (recallEntry instanceof HTMLElement) recallEntry.hidden = !ready;
       if (root instanceof HTMLElement) root.hidden = !ready;
       if (recallLock instanceof HTMLElement) recallLock.hidden = ready;

@@ -1040,9 +1040,9 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell [data-study-sta
   display: none !important;
 }
 
-/* The source/LG footer no longer competes with the per-KP Enter action. */
+/* Keep one accepted Source-unit confirmation reachable; per-KP Enter is optional. */
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell [data-study-stage="kp_learn"].xv6LearnerCompanionStage > footer {
-  display: none;
+  display: flex;
 }
 
 /* Collapsed Logic Map returns width to the KP card. */

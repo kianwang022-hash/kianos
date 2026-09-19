@@ -44,7 +44,7 @@ const practicePage = read('static-web/src/pages/xizong/practice/[system].astro')
 assert(recallBridge.includes("appendRecall(kpId, rating, 'USER_RECALL_ATTEMPT')"), 'user-recall-attempt-ledger-missing');
 assert(recallBridge.includes("evidence_origin: 'BOOTSTRAP_EXISTING_STATE'"), 'bootstrap-evidence-origin-missing');
 assert(recallBridge.includes("ext.evidenceHistory = ["), 'evidence-history-not-append-only');
-assert(recallBridge.includes(".slice(-400)"), 'evidence-history-not-bounded');
+assert(!/ext\.evidenceHistory\s*=\s*\[[\s\S]{0,1800}?\]\.slice\(/.test(recallBridge), 'real-recall-history-must-not-truncate-old-observations');
 assert(memoryModel.includes('export function appendMemoryEvidence'), 'memory-evidence-owner-missing');
 assert(memoryWorkspace.includes('appendMemoryEvidence(state,'), 'memory-workspace-bypasses-memory-evidence-owner');
 assert(memoryModel.includes('export function completeRepairTask'), 'repair-completion-evidence-owner-missing');

@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
+import { loadXizongSystem, loadXizongBlock } from '../src/lib/xizong.mjs';
 
 const PORT = 4328;
 const BASE = `http://127.0.0.1:${PORT}`;
@@ -49,13 +50,19 @@ async function runJourney(page) {
   const holdoutYear = payload.years.find((year) => Number(year) !== Number(mapped.year) && Number(year) !== Number(unmapped.year));
   check(Boolean(holdoutYear), 'independent_holdout_year_exists', String(holdoutYear || 'none'));
 
-  const blockIds = [
-    'respiratory-r01','respiratory-r02','respiratory-r03','respiratory-r04','respiratory-r05','respiratory-r06',
-    'respiratory-r07','respiratory-r08','respiratory-r09','respiratory-r10','respiratory-r11','respiratory-r12'
-  ];
-  await page.evaluate(({ ids, mappedId, unmappedId, heldYear }) => {
-    ids.forEach((id) => {
-      localStorage.setItem(`kianos-xizong-astro-v2:xizong:${id}`, JSON.stringify({ completed: true }));
+  const respiratory = loadXizongSystem('respiratory');
+  const completedBlocks = Object.fromEntries(respiratory.blocks.map((ref) => {
+    const block = loadXizongBlock('respiratory', ref.slug);
+    return [block.blockId, {
+      completed: true,
+      blockRecallDone: true,
+      learned: Object.fromEntries(block.kpRecords.map((kp) => [kp.kpId, true])),
+      ratings: Object.fromEntries(block.kpRecords.map((kp) => [kp.kpId, 'known']))
+    }];
+  }));
+  await page.evaluate(({ rows, mappedId, unmappedId, heldYear }) => {
+    Object.entries(rows).forEach(([id, state]) => {
+      localStorage.setItem(`kianos-xizong-astro-v2:xizong:${id}`, JSON.stringify(state));
     });
     const now = new Date().toISOString();
     localStorage.setItem('kianos:xizong:system-recall:respiratory:v1', JSON.stringify({ completedAt: now }));
@@ -76,7 +83,7 @@ async function runJourney(page) {
         evidenceOrigin: 'BROWSER_ACCEPTANCE_FIXTURE'
       }
     }));
-  }, { ids: blockIds, mappedId: mapped.questionId, unmappedId: unmapped.questionId, heldYear: holdoutYear });
+  }, { rows: completedBlocks, mappedId: mapped.questionId, unmappedId: unmapped.questionId, heldYear: holdoutYear });
   await page.reload({ waitUntil: 'domcontentloaded' });
 
   practice = page.locator('[data-xizong-practice="respiratory"]');

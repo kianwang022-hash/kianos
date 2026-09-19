@@ -151,6 +151,13 @@ export function resolveXizongLearnerAssetRepresentation(asset, { stage = 'LEARN'
     };
   }
 
+  const timing = upper(asset?.displayPolicy?.timing || asset?.display_policy?.timing || asset?.raw?.display_policy?.timing);
+  const answerBearing = asset?.answerBearing === true || asset?.answer_bearing === true || asset?.raw?.answer_bearing === true || asset?.raw?.answerBearing === true;
+  if (normalizedStage === 'KP_RECALL_FRONT' && (answerBearing || timing === 'POST_REVEAL')) {
+    return { schema: XIZONG_REPRESENTATION_SCHEMA, kind: 'STRUCTURED_TEXT', visible: false,
+      reason: answerBearing ? 'KP_ANSWER_PAYLOAD_PROTECTED' : 'OWNED_POST_REVEAL_TIMING', sourceAssetId: text(asset?.id) };
+  }
+
   if ((type === 'VISUAL' || type === 'SOURCE_VISUAL') && hasSourceVisual(asset)) {
     return {
       schema: XIZONG_REPRESENTATION_SCHEMA,

@@ -46,7 +46,13 @@ try {
 
   await root.locator('[data-stage-next="logic_group"]').click();
   await root.locator('[data-study-stage="source_contact"]').waitFor({ state: 'visible' });
-  check(await visualRoot.isHidden(), 'group_visual_waits_until_source_contact_is_complete');
+  check(await visualRoot.isVisible(), 'reviewed_group_visual_available_during_kp_learn_source_contact');
+  check(await visualRoot.locator('xpath=ancestor::*[@data-learner-object-slot="kp_learn_aux"]').count() === 1,
+    'source_contact_group_visual_uses_kp_learn_aux_slot');
+  check((await root.locator('[data-xizong-aux-surface] [data-learner-object-slot]').getAttribute('data-representation-stage')) === 'KP_LEARN',
+    'source_contact_group_visual_uses_kp_learn_stage');
+  check(await root.locator('[data-kp-answer]:visible').count() === 0,
+    'source_contact_group_visual_does_not_expose_recall_answer_surface');
   await root.locator('[data-source-contact-done]').click();
   await page.waitForFunction(() => {
     const host = document.querySelector('[data-xizong-v6-block]');

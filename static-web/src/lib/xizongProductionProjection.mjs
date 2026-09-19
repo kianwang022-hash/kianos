@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 import { marked } from 'marked';
 import { loadXizongSemanticBlock, XIZONG_SEMANTIC_ADAPTER_SCHEMA } from './xizongSemanticAdapter.mjs';
 
@@ -172,6 +173,7 @@ function resolveBinding(asset, binding, canonicalBlock, semanticBlock) {
   const sources = sourceRegistry(asset);
 
   if (binding.kind === 'OWNER_REF') {
+    if (binding.owner_type === 'BLOCK' && binding.id !== canonicalBlock.blockId) fail('OWNER_ID_MISMATCH', String(binding.id));
     if (binding.owner_type === 'BLOCK' && binding.role === 'CENTER_QUESTION') return canonicalBlock.centerQuestion;
     if (binding.owner_type === 'BLOCK' && binding.role === 'CANONICAL_GUIDE') {
       return {
@@ -187,6 +189,13 @@ function resolveBinding(asset, binding, canonicalBlock, semanticBlock) {
 
   const source = sources.get(binding.source_id);
   if (!source?.path || !exists(source.path)) fail('SOURCE_UNRESOLVED', String(binding.source_id || ''));
+  const sourceBytes = fs.readFileSync(absolute(source.path));
+  if (binding.kind === 'DERIVED_FRAGMENT' || source.kind === 'EXTERNAL_SOURCE_CONTRACT' || source.freshness === 'STRICT_BLOB') {
+    const expected = source.blob_sha || source.baseline_blob_sha;
+    const actual = crypto.createHash('sha1').update(`blob ${sourceBytes.length}\0`).update(sourceBytes).digest('hex');
+    if (!/^[a-f0-9]{40}$/.test(String(expected || '')) || expected !== actual) fail('STRICT_SOURCE_STALE', source.path);
+  }
+
 
   if (binding.kind === 'FIELD_REF') {
     const pointer = binding?.selector?.value;
@@ -195,7 +204,10 @@ function resolveBinding(asset, binding, canonicalBlock, semanticBlock) {
     if (typeof pointer === 'string' && pointer.includes('/logic_index/') && pointer.endsWith(`/${semanticBlock.blockId}`)) {
       return semanticLogicMap(semanticBlock);
     }
-    return jsonPointer(readJson(source.path), pointer);
+    const value = jsonPointer(JSON.parse(sourceBytes.toString('utf8')), pointer);
+    const actualType = Array.isArray(value) ? 'array' : value === null ? 'null' : typeof value;
+    if (!binding.value_type || actualType !== binding.value_type) fail('FIELD_TYPE_MISMATCH', `${source.path}:${pointer}`);
+    return value;
   }
 
   if (binding.kind === 'DERIVED_FRAGMENT') {
@@ -269,6 +281,7 @@ export function resolveXizongBlockCognitiveProjection(canonicalBlock, semanticBl
     };
   }
 
+  if (found.asset.system_id !== canonicalBlock.systemId || found.asset.canonical_scope?.id !== canonicalBlock.blockId) fail('ASSET_SCOPE_MISMATCH', canonicalBlock.blockId);
   const view = found.asset?.views?.BLOCK_ORIENT;
   if (!view || !Array.isArray(view.object_ids)) fail('BLOCK_ORIENT_VIEW_MISSING', canonicalBlock.blockId);
   const objectById = new Map((found.asset.objects || []).map((row) => [row.object_id, row]));
