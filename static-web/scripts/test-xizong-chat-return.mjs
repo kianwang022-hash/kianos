@@ -101,10 +101,23 @@ assert.equal(inbox.plans.length, 1);
 assert.equal(inbox.plans[0].kpId, 'kp01');
 assert.equal(inbox.plans[0].sourceHandoffId, handoff.handoff_id);
 
+const memoryAfterReturn = JSON.parse(storage.getItem('kianos-xizong-memory-v1'));
+assert.equal(memoryAfterReturn.repairTasks.length, 1);
+assert.equal(memoryAfterReturn.repairTasks[0].id, 'repair:block-chat:circulation-b01:kp01');
+assert.equal(memoryAfterReturn.repairTasks[0].origin, 'BLOCK_CHAT_RETURN');
+assert.equal(memoryAfterReturn.repairTasks[0].kpId, 'kp01');
+assert.equal(memoryAfterReturn.repairTasks[0].blockId, 'circulation-b01');
+assert.equal(memoryAfterReturn.repairTasks[0].systemId, 'circulation');
+assert.equal(memoryAfterReturn.repairTasks[0].sourceQuestionIds[0], 'xizong-official-2025-n101');
+assert.equal(memoryAfterReturn.repairTasks[0].blockHref, '/xizong/circulation/b01/');
+assert.equal(first.repair_tasks[0].createdAt, memoryAfterReturn.repairTasks[0].createdAt);
+
 const repeated = applyXizongChatReturn(storage, repairReturn, { currentPacket: packet });
 assert.equal(repeated.status, 'already_applied');
 assert.equal(JSON.parse(storage.getItem('kianos-xizong-repair-inbox-v1:xizong:circulation-b01')).plans.length, 1,
   'idempotent re-import must not duplicate repair debt');
+assert.equal(JSON.parse(storage.getItem('kianos-xizong-memory-v1')).repairTasks.length, 1,
+  'idempotent re-import must not duplicate visible Memory Repair');
 
 assert.throws(
   () => applyXizongChatReturn(storage, { ...repairReturn, return_id: 'return-conflict' }, { currentPacket: packet }),
@@ -160,5 +173,58 @@ const noAction = applyXizongChatReturn(noActionStorage, {
 }, { currentPacket: packet });
 assert.equal(noAction.status, 'applied');
 assert.equal(noActionStorage.getItem('kianos-xizong-repair-inbox-v1:xizong:circulation-b01'), null);
+assert.equal(noActionStorage.getItem('kianos-xizong-memory-v1'), null,
+  'NO_ACTION must not manufacture Memory Repair state');
 
-console.log('PASS Xizong typed Chat Return: exact identity/version + resume + idempotency + conflict fail-closed');
+const preserveStorage = new MemoryStorage({
+  'kianos-xizong-memory-v1': JSON.stringify({
+    schema:'kianos.xizong.memory.v1',
+    revision:1,
+    releasedBlocks:{},
+    cards:{},
+    promptOverrides:{},
+    marks:{},
+    evidence:[],
+    attention:{},
+    repairTasks:[{
+      id:'repair:existing',
+      kpId:'other-kp',
+      blockId:'other-block',
+      systemId:'other-system',
+      createdAt:'2026-09-18T00:00:00.000Z',
+      status:'ACTIVE'
+    }]
+  })
+});
+writeXizongChatHandoff(preserveStorage, handoff);
+applyXizongChatReturn(preserveStorage, repairReturn, {
+  currentPacket:packet,
+  now:Date.parse('2026-09-19T01:06:00Z')
+});
+assert.equal(JSON.parse(preserveStorage.getItem('kianos-xizong-memory-v1')).repairTasks.length,2,
+  'typed Return must preserve unrelated existing Repair tasks');
+
+class FailingStorage extends MemoryStorage {
+  constructor(entries={}, failKey='') { super(entries); this.failKey=failKey; this.failed=false; }
+  setItem(key,value) {
+    if(key===this.failKey && !this.failed){ this.failed=true; throw new Error('SYNTHETIC_WRITE_FAIL'); }
+    super.setItem(key,value);
+  }
+}
+const rollbackStorage = new FailingStorage(
+  {},
+  'kianos-xizong-chat-return-v1:handoff-test-1'
+);
+writeXizongChatHandoff(rollbackStorage, handoff);
+assert.throws(
+  ()=>applyXizongChatReturn(rollbackStorage, repairReturn, {
+    currentPacket:packet,
+    now:Date.parse('2026-09-19T01:07:00Z')
+  }),
+  /SYNTHETIC_WRITE_FAIL/
+);
+assert.equal(rollbackStorage.getItem('kianos-xizong-repair-inbox-v1:xizong:circulation-b01'),null);
+assert.equal(rollbackStorage.getItem('kianos-xizong-memory-v1'),null);
+assert.equal(rollbackStorage.getItem('kianos-xizong-chat-return-v1:handoff-test-1'),null);
+
+console.log('PASS Xizong typed Chat Return: exact identity/version + visible Memory Repair + resume + atomic/idempotent fail-closed');
