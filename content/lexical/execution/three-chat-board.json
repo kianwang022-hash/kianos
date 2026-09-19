@@ -279,7 +279,7 @@
           901,
           1000
         ],
-        "state": "HUMAN_GATE_RECONCILIATION_REQUIRED_PAUSED",
+        "state": "PARTIAL_HUMAN_APPROVAL_PENDING_3_PAUSED",
         "allowed_now": [
           "freeze current main and export review bundle",
           "fresh owner/module judgment",
@@ -296,7 +296,7 @@
           "invent a newer semantic standard"
         ],
         "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
-        "next_action": "Pause C here. Reconcile BF09 proposal drift against frozen review evidence and FINAL_SEMANTIC_FREEZE v1. Do not advance to o0801-o0900 unless Kian later asks to continue.",
+        "next_action": "Stay on BF09. Present only the three remaining pending deltas (comfort zone, common sense, conflict of interest). Do not advance to o0801-o0900 unless Kian explicitly approves/rejects them and then asks to continue.",
         "review_head": "f860eff88e88e85bbc687dfbe8e7f4c5f6e55c5f",
         "review_branch": "work/lexical-final-backfill-c-o0901-o1000",
         "review_request_commit": "e959927b9b73d0f90dadfc6fcf8fd3d5eb7026df",
@@ -305,17 +305,20 @@
         "review_artifact_digest": "sha256:181f65c03cf1dfcbed53ff229f89a90119ce57d20d0ce765badda18257c9b0e0",
         "review_bundle_coverage": "100/100",
         "proposal_pr": 546,
-        "proposal_head": "42ffb0a65a72a401e70c3926bae06ce1225bb438",
+        "proposal_head": "8b24b95e6ad2af4271572a0027603e5dab40e912",
         "proposal_path": "content/lexical/execution/manifests/o0901-o1000.final-semantic-sweep-c-proposal.md",
         "module_matrix_path": "content/lexical/execution/manifests/o0901-o1000.final-semantic-sweep-c-module-matrix.tsv",
         "fresh_read_coverage": "100/100",
         "self_attack": "COMPLETE",
-        "content_affected_owners": 27,
-        "content_no_change": 77,
+        "content_affected_owners": 28,
+        "content_no_change": 72,
         "blocked": 0,
         "new_material_delta_owners": [
+          909,
           913,
-          999
+          922,
+          999,
+          1000
         ],
         "old_test_blueprints": 24,
         "stabilized_test_blueprints": 15,
@@ -339,19 +342,35 @@
           "advance_after_approval": false
         },
         "gate_reconciliation": {
-          "reason": "Current PR #546 Section B drifted after the displayed user-facing gate. Current branch now gates comfort zone / common sense / conflict of interest instead of the two items shown to Kian.",
-          "current_proposal_pr": 546,
-          "current_proposal_path": "content/lexical/execution/manifests/o0901-o1000.final-semantic-sweep-c-proposal.md",
-          "current_unapproved_delta_owners": [
+          "status": "RESOLVED",
+          "conclusion": "Both earlier partial proposals contained valid subsets. Frozen-artifact reconciliation under FINAL_SEMANTIC_FREEZE v1 yields five genuine new deltas total.",
+          "approved_owners": [
+            913,
+            999
+          ],
+          "pending_owners": [
             909,
             922,
             1000
           ],
-          "user_approved_displayed_delta_owners": [
+          "final_delta_count": 5,
+          "rule": "Do not authorize pending owners without a fresh bounded Human Gate."
+        },
+        "proposal_blob_sha": "36ae058c14377abb77af6474371a19443f7acb6d",
+        "module_matrix_blob_sha": "38b87b74e591b8b4a91a91369e1b338382badc93",
+        "human_gate": {
+          "status": "PARTIALLY_APPROVED",
+          "approved_owners": [
             913,
             999
           ],
-          "rule": "Do not treat Kian's approval as authorizing unseen current proposal items. Reconcile semantic proposal against the frozen review evidence before any approval write or canonical mutation."
+          "pending_owners": [
+            909,
+            922,
+            1000
+          ],
+          "approval_ref": "Kian approved the displayed commence→commencement and confirm booking/arrangement deltas; asked not to advance.",
+          "advance_after_approval": false
         }
       },
       "scheduled_ranges": [
