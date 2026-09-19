@@ -27,6 +27,7 @@ on:
       - "static-web/scripts/privateControlBridge.mjs"
       - "static-web/scripts/privateControlStore.mjs"
       - "static-web/scripts/test-private-control-browser.mjs"
+      - "static-web/scripts/test-xizong-chat-session-browser.mjs"
       - "static-web/scripts/test-xizong-native-session-actions-browser.mjs"
       - "static-web/scripts/test-xizong-auto-chat-return-browser.mjs"
       - "static-web/scripts/privateControlRelay.mjs"
@@ -97,8 +98,12 @@ jobs:
         run: |
           npm install --no-save --no-audit --no-fund playwright@1.56.1
           npx playwright install --with-deps chromium
+      - name: Build Subject Session browser candidate
+        run: npm run build
       - name: Execute private control round trip
         run: node scripts/test-private-control-browser.mjs
+      - name: Execute Chat-controlled Xizong Subject Session
+        run: node scripts/test-xizong-chat-session-browser.mjs
       - name: Execute native Xizong session actions
         run: node scripts/test-xizong-native-session-actions-browser.mjs
       - name: Execute automatic typed Xizong Return round trip
@@ -112,6 +117,7 @@ jobs:
           name: private-control-browser
           path: |
             static-web/.qa/private-control-browser.json
+            static-web/.qa/xizong-chat-session-browser.json
             static-web/.qa/xizong-native-session-actions-browser.json
             static-web/.qa/xizong-auto-chat-return-browser.json
             static-web/.qa/xizong-system-wu-auto-browser.json

@@ -400,7 +400,8 @@ export function consumePendingXizongSystemWuReturn(storage, {
   questions = [],
   routes = {},
   practiceHref = '',
-  now = Date.now()
+  now = Date.now(),
+  expectedDay = null
 } = {}) {
   const id=clean(systemId,160);
   const state=readXizongSystemWuPendingState(storage);

@@ -257,4 +257,32 @@ assert.throws(()=>applyXizongSystemWuReturn(new MemoryStorage({
 
 assert.equal(JSON.parse(pendingStorage.getItem(XIZONG_SYSTEM_WU_PENDING_KEY)).last_receipt.status,'APPLIED');
 
+// Cross-day pending Return expires before any learner Repair mutation.
+const priorDayPending=new MemoryStorage({
+  [XIZONG_MEMORY_STORAGE_KEY]:JSON.stringify(memory),
+  [sweepKey]:JSON.stringify({
+    results:{'xizong-official-2024-n001':{status:'wrong',attemptId:'a-2024',roundId:'round-1',updatedAt:'2026-09-20T00:50:00.000Z'}},
+    attemptHistory:[{type:'QUESTION_ATTEMPT',question_id:'xizong-official-2024-n001',attempt_id:'a-2024',round_id:'round-1',status:'wrong',submitted_at:'2026-09-20T00:50:00.000Z'}]
+  })
+});
+stageXizongSystemWuReturn(priorDayPending,{
+  ...returned,
+  return_id:'prior-day-pending',
+  plan:[returned.plan[0]]
+},{
+  now:Date.parse('2026-09-19T15:00:00Z'),
+  studyDay:'2026-09-19'
+});
+const expiredDay=consumePendingXizongSystemWuReturn(priorDayPending,{
+  systemId,
+  questions,
+  routes,
+  practiceHref:'/xizong/practice/circulation/',
+  now:Date.parse('2026-09-20T02:00:00Z'),
+  expectedDay:'2026-09-20'
+});
+assert.equal(expiredDay.status,'stale');
+assert.equal(JSON.parse(priorDayPending.getItem(XIZONG_MEMORY_STORAGE_KEY)).repairTasks.length,0);
+assert.equal(readXizongSystemWuPendingState(priorDayPending).pending_by_system[systemId],undefined);
+
 console.log('PASS Xizong typed System W/U Return: current-W/U validation + reviewed-relation-only routing + canonical Memory Repair + stale/idempotent/fail-closed semantics');
