@@ -185,30 +185,63 @@ try {
   await cdp.navigate(`${BASE}/xizong/practice/circulation/`);
   await cdp.evaluate(`localStorage.setItem(${js(targetStudyKey)}, JSON.stringify({stage:'block_learn',groupIndex:0,kpIndex:0,learned:{${js(reviewedQuestion.relation.primaryKpId)}:true},ratings:{${js(reviewedQuestion.relation.primaryKpId)}:'unknown'},blockRecallDone:false,completed:false}))`);
   const sweepKey = 'kianos:xizong:system-question-sweep:circulation:v1';
-  await cdp.evaluate(`localStorage.setItem(${js(sweepKey)}, JSON.stringify({results:{${js(stableQuestion.questionId)}:{status:'stable',selected:['A']},${js(reviewedQuestion.questionId)}:{status:'wrong',selected:['B']},${js(unresolvedQuestion.questionId)}:{status:'uncertain',selected:['C']}}}))`);
+  const repairRoundId = 'browser-wu-round-1';
+  const stableAttemptId = 'browser-stable-attempt';
+  const reviewedAttemptId = 'browser-reviewed-attempt';
+  const unresolvedAttemptId = 'browser-unresolved-attempt';
+  const stableSubmittedAt = '2026-09-20T00:40:00.000Z';
+  const reviewedSubmittedAt = '2026-09-20T00:50:00.000Z';
+  const unresolvedSubmittedAt = '2026-09-20T00:55:00.000Z';
+  const seededSweep = {
+    results: {
+      [stableQuestion.questionId]: { status:'stable', selected:['A'], attemptId:stableAttemptId, roundId:repairRoundId, updatedAt:stableSubmittedAt },
+      [reviewedQuestion.questionId]: { status:'wrong', selected:['B'], attemptId:reviewedAttemptId, roundId:repairRoundId, updatedAt:reviewedSubmittedAt },
+      [unresolvedQuestion.questionId]: { status:'uncertain', selected:['C'], attemptId:unresolvedAttemptId, roundId:repairRoundId, updatedAt:unresolvedSubmittedAt }
+    },
+    attemptHistory: [
+      { type:'QUESTION_ATTEMPT', question_id:stableQuestion.questionId, attempt_id:stableAttemptId, round_id:repairRoundId, status:'stable', submitted_at:stableSubmittedAt },
+      { type:'QUESTION_ATTEMPT', question_id:reviewedQuestion.questionId, attempt_id:reviewedAttemptId, round_id:repairRoundId, status:'wrong', submitted_at:reviewedSubmittedAt },
+      { type:'QUESTION_ATTEMPT', question_id:unresolvedQuestion.questionId, attempt_id:unresolvedAttemptId, round_id:repairRoundId, status:'uncertain', submitted_at:unresolvedSubmittedAt }
+    ]
+  };
+  await cdp.evaluate(`localStorage.setItem(${js(sweepKey)}, ${js(JSON.stringify(seededSweep))})`);
   const repairKey = 'kianos:xizong:system-repair-return:circulation:v1';
-  const mixedInvalidPayload = { plan: [
-    { question_id: reviewedQuestion.questionId, reason: 'reviewed W/U', action: 'repair reviewed owner', priority: 'high' },
-    { question_id: unresolvedQuestion.questionId, reason: 'unresolved W/U', action: 'keep unresolved', priority: 'medium' },
-    { question_id: stableQuestion.questionId, reason: 'stable must not repair', action: 'must reject whole packet', priority: 'low' },
-    { question_id: 'xizong-official-fake', reason: 'fake', action: 'must reject whole packet', priority: 'low' }
-  ] };
+  const mixedInvalidPayload = {
+    schema: 'kianos.xizong.system_wu_return.v1',
+    return_id: 'browser-a1-mixed-invalid',
+    system_id: 'circulation',
+    decision: 'REPAIR',
+    plan: [
+      { question_id: reviewedQuestion.questionId, status:'wrong', attempt_id:reviewedAttemptId, submitted_at:reviewedSubmittedAt, round_id:repairRoundId, reason:'reviewed W/U', action:'repair reviewed owner', priority:'high' },
+      { question_id: unresolvedQuestion.questionId, status:'uncertain', attempt_id:unresolvedAttemptId, submitted_at:unresolvedSubmittedAt, round_id:repairRoundId, reason:'unresolved W/U', action:'keep unresolved', priority:'medium' },
+      { question_id: stableQuestion.questionId, status:'wrong', attempt_id:stableAttemptId, submitted_at:stableSubmittedAt, round_id:repairRoundId, reason:'stable must not repair', action:'must reject whole packet', priority:'low' },
+      { question_id: 'xizong-official-fake', status:'wrong', attempt_id:'fake-attempt', submitted_at:reviewedSubmittedAt, round_id:repairRoundId, reason:'fake', action:'must reject whole packet', priority:'low' }
+    ]
+  };
   await cdp.evaluate(`(()=>{const e=document.querySelector('[data-plan-text]');e.value=${js(JSON.stringify(mixedInvalidPayload))};})()`);
   await cdp.evaluate(clickExpr('[data-apply-plan]'));
   await sleep(120);
   check((await cdp.evaluate(`localStorage.getItem(${js(repairKey)})`)) === null, 'mixed_invalid_repair_packet_fails_closed_atomically');
 
-  const validWuPayload = { plan: [
-    { question_id: reviewedQuestion.questionId, reason: 'reviewed W/U', action: 'repair reviewed owner', priority: 'high' },
-    { question_id: unresolvedQuestion.questionId, reason: 'unresolved W/U', action: 'keep unresolved', priority: 'medium' }
-  ] };
+  const validWuPayload = {
+    schema: 'kianos.xizong.system_wu_return.v1',
+    return_id: 'browser-a1-valid-wu',
+    system_id: 'circulation',
+    decision: 'REPAIR',
+    plan: [
+      { question_id: reviewedQuestion.questionId, status:'wrong', attempt_id:reviewedAttemptId, submitted_at:reviewedSubmittedAt, round_id:repairRoundId, reason:'reviewed W/U', action:'repair reviewed owner', priority:'high' },
+      { question_id: unresolvedQuestion.questionId, status:'uncertain', attempt_id:unresolvedAttemptId, submitted_at:unresolvedSubmittedAt, round_id:repairRoundId, reason:'unresolved W/U', action:'keep unresolved', priority:'medium' }
+    ]
+  };
   await cdp.evaluate(`(()=>{const e=document.querySelector('[data-plan-text]');e.value=${js(JSON.stringify(validWuPayload))};})()`);
   await cdp.evaluate(clickExpr('[data-apply-plan]'));
   await sleep(120);
   const repair = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(repairKey)})||'null')`);
-  const repairIds = (repair?.plan || []).map((row) => row.questionId).sort();
+  const repairIds = (repair?.return_packet?.plan || []).map((row) => row.question_id).sort();
+  check(repair?.receipt?.status === 'APPLIED', 'typed_system_repair_receipt_applied', String(repair?.receipt?.status || ''));
   check(repairIds.length === 2 && repairIds.includes(reviewedQuestion.questionId) && repairIds.includes(unresolvedQuestion.questionId), 'system_repair_accepts_exact_current_wrong_uncertain_only', repairIds.join(','));
   check(!repairIds.includes(stableQuestion.questionId), 'stable_question_creates_no_repair_debt');
+  check((repair?.receipt?.unmapped_question_ids || []).includes(unresolvedQuestion.questionId), 'unresolved_wu_preserved_without_guessed_mapping');
 
   const memoryAfterPlan = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(XIZONG_MEMORY_STORAGE_KEY)})||'null')`);
   const activeSystemRepairs = (memoryAfterPlan?.repairTasks || []).filter((task) => task?.status !== 'DONE');
@@ -230,17 +263,23 @@ try {
   check(inboxQuestionIds.includes(reviewedQuestion.questionId), 'reviewed_relation_creates_block_inbox');
   check(!inboxQuestionIds.includes(unresolvedQuestion.questionId), 'unresolved_relation_not_guessed_into_block_inbox');
 
-  // Consume inbox in the reviewed target Block. Original Recall state must survive repair import.
-  const targetExtKey = `kianos-xizong-memory-review-v2:${targetObjectId}`;
+  // Consume inbox in the reviewed target Block. Original Recall state must survive,
+  // and inbox transport must remain Repair-only rather than manufacturing mastery evidence.
   const targetInboxKey = `kianos-xizong-repair-inbox-v1:${targetObjectId}`;
+  const memoryEvidenceCountBeforeInboxConsume = (memoryAfterPlan?.evidence || []).length;
   await cdp.navigate(`${BASE}/xizong/circulation/${reviewedBlockMeta.slug}/`);
   await sleep(900);
   const targetStudy = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(targetStudyKey)})||'null')`);
-  const targetExt = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(targetExtKey)})||'null')`);
+  const memoryAfterInboxConsume = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(XIZONG_MEMORY_STORAGE_KEY)})||'null')`);
+  const importedRepair = (memoryAfterInboxConsume?.repairTasks || []).find((task) =>
+    task?.status !== 'DONE'
+    && task?.kpId === reviewedQuestion.relation.primaryKpId
+    && (task?.sourceQuestionIds || []).includes(reviewedQuestion.questionId)
+  );
   check(targetStudy?.ratings?.[reviewedQuestion.relation.primaryKpId] === 'unknown', 'system_repair_import_preserves_original_block_recall');
-  check(await cdp.evaluate(`localStorage.getItem(${js(targetInboxKey)})`) === null, 'repair_inbox_cleared_only_after_block_import');
-  check((targetExt?.reviewPlan || []).some((row) => row.kpId === reviewedQuestion.relation.primaryKpId && (row.sourceQuestionIds || []).includes(reviewedQuestion.questionId)), 'reviewed_wu_plan_imported_to_exact_block_kp');
-  check((targetExt?.evidenceHistory || []).some((row) => row.type === 'SYSTEM_WU_PLAN_IMPORTED' && row.evidence_role === 'REPAIR_ONLY' && (row.source_question_ids || []).includes(reviewedQuestion.questionId)), 'repair_inbox_import_evidence_is_repair_only');
+  check(await cdp.evaluate(`localStorage.getItem(${js(targetInboxKey)})`) === null, 'repair_inbox_cleared_only_after_memory_repair_import');
+  check(Boolean(importedRepair), 'reviewed_wu_plan_remains_exact_visible_memory_repair');
+  check((memoryAfterInboxConsume?.evidence || []).length === memoryEvidenceCountBeforeInboxConsume, 'repair_inbox_import_manufactures_no_mastery_evidence');
   const sweepAfterRepair = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(sweepKey)})||'null')`);
   check(sweepAfterRepair?.results?.[reviewedQuestion.questionId]?.status === 'wrong' && sweepAfterRepair?.results?.[stableQuestion.questionId]?.status === 'stable', 'repair_return_does_not_rewrite_original_question_evidence');
 
