@@ -30,12 +30,15 @@ jobs:
           data=base64.b64decode(''.join(p.read_text().strip() for p in paths),validate=True)
           assert hashlib.sha256(data).hexdigest()==config['sha256'], 'TRANSPORT_HASH_MISMATCH'
           ops=json.loads(lzma.decompress(data))
+          excluded_workflows={'.github/workflows/english-final-acceptance.yml'}
           for name,op in ops.items():
+            if name in excluded_workflows: continue
             p=pathlib.Path(name)
             assert not p.is_absolute() and '..' not in p.parts, 'INVALID_PATH'
             before=p.read_text() if p.exists() else ''
             assert hashlib.sha256(before.encode()).hexdigest()==op['before'], 'BEFORE_MISMATCH:'+name
           for name,op in ops.items():
+            if name in excluded_workflows: continue
             p=pathlib.Path(name); lines=(p.read_text() if p.exists() else '').splitlines(keepends=True)
             for start,end,text in reversed(op['changes']): lines[start:end]=[text]
             after=''.join(lines)
@@ -51,9 +54,10 @@ jobs:
               assert hashlib.sha256(src.read_bytes()).hexdigest()==asset['asset_sha256'], 'SOURCE_HASH_MISMATCH:'+key
               target=pathlib.Path('static-web/public')/asset['asset_path'];target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(src,target);restored.append(str(target))
           assert len(restored)==25 and set(missing)=={'english1-2011-writing-b-main','english1-2026-writing-b-main'}, 'UNEXPECTED_SOURCE_COVERAGE'
-          obsolete=[str(p) for p in paths]+['.github/english-audit-ready.json','.github/workflows/english-final-independent.yml']
+          obsolete=[str(p) for p in paths]+['.github/english-audit-ready.json']
           for name in obsolete:pathlib.Path(name).unlink()
-          subprocess.run(['git','add','-A','--',*ops.keys(),*restored,*obsolete],check=True)
+          staged=[name for name in ops.keys() if name not in excluded_workflows]
+          subprocess.run(['git','add','-A','--',*staged,*restored,*obsolete],check=True)
           print('Validated',len(ops),'text owners and',len(restored),'exact original source assets; two source blockers retained.')
           PY
       - name: Commit candidate and cursors together (never main)
