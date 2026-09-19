@@ -278,18 +278,24 @@ export function applyXizongChatReturn(storage, input, {
   if (!storage?.getItem || !storage?.setItem) fail('STORAGE_UNAVAILABLE');
   const raw = parseXizongChatReturn(input);
   const handoff = readXizongChatHandoff(storage, raw.handoff_id);
-  const validated = validateXizongChatReturn(raw, handoff, currentPacket);
   const receiptKey = XIZONG_CHAT_RETURN_PREFIX + handoff.handoff_id;
   const existingReceiptRaw = storage.getItem(receiptKey);
+  const rawSignature = fingerprint(raw);
   if (existingReceiptRaw != null) {
     let existing;
     try { existing = JSON.parse(existingReceiptRaw); } catch { fail('RECEIPT_CORRUPT'); }
-    if (existing?.return_id === validated.return_id) {
-      return { status: 'already_applied', return_packet: validated, resume: clone(handoff.resume), return_href: handoff.return_href };
+    if (existing?.return_id === clean(raw.return_id, 160) && existing?.return_signature === rawSignature) {
+      return {
+        status: 'already_applied',
+        return_packet: clone(existing.return_packet || raw),
+        resume: clone(handoff.resume),
+        return_href: handoff.return_href
+      };
     }
     fail('RETURN_CONFLICT');
   }
 
+  const validated = validateXizongChatReturn(raw, handoff, currentPacket);
   const inboxKey = 'kianos-xizong-repair-inbox-v1:' + handoff.origin.object_id;
   const beforeInbox = storage.getItem(inboxKey);
   const beforeReceipt = existingReceiptRaw;
@@ -331,7 +337,9 @@ export function applyXizongChatReturn(storage, input, {
       applied_at: new Date(now).toISOString(),
       decision: validated.decision,
       repair_kp_ids: validated.repairs.map((row) => row.kp_id),
-      evidence_version: handoff.origin.evidence_version
+      evidence_version: handoff.origin.evidence_version,
+      return_signature: rawSignature,
+      return_packet: validated
     }));
   } catch (error) {
     try {
