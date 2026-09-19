@@ -15,15 +15,16 @@ This file owns work cursor only. It does not own medical Core, accepted Learning
 **Lane-A role:** **ACTIVE CONTENT PRIORITY**  
 **Source boundary:** **S1 PASS**  
 **Knowledge state:** **K PASS_AFTER_BOUNDED_REPAIR · accepted Knowledge frozen**  
-**Earliest eligible next action:** **Learning Logic construction**  
-**Downstream:** Learning is eligible next; Content / Projection / Runtime / Evidence remain frozen behind accepted Learning
+**Learning state:** **fresh E Learning candidate built · L NOT YET ACCEPTED**  
+**Earliest eligible next action:** **fresh independent L audit**  
+**Downstream:** Content / Projection / Runtime / Evidence remain frozen behind accepted Learning
 
 ```text
 S1 Source boundary                     = PASS
 S2 exact official-question membership  = UNTESTED / separate later boundary
 K  Knowledge                           = PASS_AFTER_BOUNDED_REPAIR
-L  Learning Logic                      = UNTESTED / ACTIVE NEXT
-Content                                = NOT_STARTED
+L  Learning Logic                      = UNTESTED / CANDIDATE_READY_FOR_INDEPENDENT_AUDIT
+Content                                = NOT_STARTED / downstream-frozen
 P / R / E                              = downstream-frozen
 U                                      = no claim
 ```
@@ -137,16 +138,41 @@ E9 remains an independent male-development surgical interface. It is not forced 
 
 ---
 
-## Next gate — Learning Logic construction
+## Learning candidate — BUILT / NOT ACCEPTED
 
-Fresh independent K audit result:
+Candidate owner:
+
+`content/xizong/knowledge/learner/e-reproductive-breast-learning.json`
+
+Construction receipt:
+
+`content/xizong/knowledge/learner/E_PHASE2_LEARNING_LOGIC_CONSTRUCTION.md`
+
+Fresh audit entry:
+
+`content/xizong/knowledge/learner/E_PHASE3_FRESH_INDEPENDENT_L_AUDIT_BRIEF.md`
+
+Current candidate shape:
 
 ```text
-FRESH_K_PASS_AFTER_BOUNDED_REPAIR
+20 Blocks / 212 canonical KP
+67 Logic Groups
+11 WHOLE_BLOCK_SOURCE
+9 NATURAL_SOURCE_UNITS
+0 inside-E hard prerequisite edges
+3 non-gating Partial-System Reconstructions
 ```
 
-The bounded repair separates **local barrier/stromal invasion** from **metastatic competence / spread extent**. E6 invasive mole is the explicit Current counterexample that prevents these from being modeled as one automatic linear progression.
+The candidate preserves the accepted K repair that keeps **local invasion** separate from **metastatic competence / spread extent**. It also keeps E9/E10/E11 visual gaps, E13/E14 partial visual support and Current-Study staging/treatment version boundaries live.
 
-Learning may now construct E-specific learner order, Logic Groups and Source-contact granularity from the accepted K owner. It must not copy the historical Guide DAG or D topology for symmetry.
+The zero-hard-edge route is a candidate claim, not accepted truth. A fresh auditor must attack it for both false-gating and under-gating.
 
-Content / Projection / Runtime / Evidence remain downstream-frozen until their own upstream gates are accepted.
+## Next gate — fresh independent L acceptance
+
+```text
+fresh independent L audit
+→ PASS / bounded repair / BLOCKED
+→ only on L PASS: Content Realization becomes eligible
+```
+
+Do not start E Content, Projection, Runtime or Evidence before L acceptance. S2 exact official-question membership remains separately UNTESTED.
