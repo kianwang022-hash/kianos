@@ -53,7 +53,7 @@ async function ensureRepo(config,{gitBin='git'}={}){
 async function readRemoteMailbox(config,{gitBin='git'}={}){
   await ensureRepo(config,{gitBin});
   const ref='refs/remotes/origin/kianos-learner-resume-runtime';
-  const fetched=await run(gitBin,['fetch','--depth','1','origin','refs/heads/'+config.branch+':'+ref],{cwd:config.repoDir,allowFailure:true});
+  const fetched=await run(gitBin,['fetch','--depth','1','origin','+refs/heads/'+config.branch+':'+ref],{cwd:config.repoDir,allowFailure:true});
   if(fetched===null)return null;
   return await run(gitBin,['show',ref+':'+config.mailboxPath],{cwd:config.repoDir,allowFailure:true});
 }
