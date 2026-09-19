@@ -178,14 +178,22 @@ export function applyPrivateControlCommand(storage, rawCommand, {
   holdoutYears = []
 } = {}) {
   if (!storage?.getItem || !storage?.setItem) fail('STORAGE_UNAVAILABLE');
-  const state = readPrivateControlRuntimeState(storage);
-  const command = validatePrivateControlCommand(rawCommand, expectedDay);
+  const rawState = readPrivateControlRuntimeState(storage);
+  const state = expectedDay ? privateControlRuntimeForDay(rawState, expectedDay) : rawState;
+  const command = validatePrivateControlCommand(rawCommand);
   const signature = privateControlCommandSignature(command);
 
   const sameId = state.receipts.find((row) => row.command_id === command.command_id);
   if (sameId) {
     if (sameId.command_signature !== signature) fail('COMMAND_ID_CONFLICT');
     return sameId;
+  }
+
+  if (expectedDay && command.study_day !== expectedDay) {
+    return persistNonAppliedReceipt(
+      storage, state, command, 'STALE',
+      'command study_day does not match current study day', now
+    );
   }
 
   const active = state.active_by_target?.[command.target] || null;
