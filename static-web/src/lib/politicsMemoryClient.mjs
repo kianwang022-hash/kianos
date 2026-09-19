@@ -102,6 +102,8 @@ export function initPoliticsMemoryWorkspace(root) {
     if (reason) {
       reason.textContent = next.item.reason || '';
       reason.hidden = !next.item.reason;
+      const fallback = root.querySelector('.politicsMemoryReasonFallback');
+      if (fallback instanceof HTMLElement) fallback.hidden = Boolean(next.item.reason);
     }
     setHidden(reveal, false);
     reveal?.focus({ preventScroll: true });
