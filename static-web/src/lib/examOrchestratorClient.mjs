@@ -184,14 +184,15 @@ export function initExamHome(root) {
     }
   };
 
-  const xizongChatContinue = (fallback) => {
+  const xizongChatContinue = (fallback, expectedRef = null) => {
     const typedReturn = latestXizongTypedReturn();
-    if (typedReturn) return typedReturn;
+    if (typedReturn && (!expectedRef || typedReturn.sessionRef === expectedRef)) return typedReturn;
 
     try {
       const raw = JSON.parse(localStorage.getItem(XIZONG_SESSION_KEY) || 'null');
       if (!raw) return fallback;
       const instruction = validateXizongSessionInstruction(raw, day());
+      if (expectedRef && instruction.session_id !== expectedRef) return fallback;
       let holdoutYears = [];
       try {
         const parsed = JSON.parse(localStorage.getItem('kianos:xizong:full-paper-holdout-years:v1') || '[]');
@@ -220,16 +221,18 @@ export function initExamHome(root) {
     }
   };
 
-  const politicsChatContinue = (fallback) => {
+  const politicsChatContinue = (fallback, expectedRef = null) => {
     try {
       const memory = resolvePoliticsMemoryResume(localStorage, politicsMemoryCatalog, { expectedDay: day() });
       if (memory?.status !== 'ACTIVE') return fallback;
+      const sessionRef = memory.plan?.plan_id || memory.plan_id || null;
+      if (expectedRef && sessionRef !== expectedRef) return fallback;
       const href = safeControlledHref(`${catalog.base}politics/memory/`);
       if (!href) return fallback;
       return {
         href,
         title: memory.candidate?.prompt ? `今日记忆 · ${memory.candidate.prompt}` : '今日记忆',
-        sessionRef: memory.plan?.plan_id || memory.plan_id || null
+        sessionRef
       };
     } catch {
       return fallback;
@@ -255,10 +258,17 @@ export function initExamHome(root) {
       `${catalog.base}politics/`,
       '选择政治学习位置'
     );
+    const plan = chatPlanState.status === 'ready' ? chatPlanState.plan : null;
     const native = {
-      xizong: { subject: 'xizong', ...xizongChatContinue(xizongNative) },
+      xizong: {
+        subject: 'xizong',
+        ...xizongChatContinue(xizongNative, plan?.subjects?.xizong?.session_ref || null)
+      },
       english: { subject: 'english', ...nativeLink('[data-english-resume-link]', '[data-english-resume-title]', `${catalog.base}english/`, '选择英语完整任务') },
-      politics: { subject: 'politics', ...politicsChatContinue(politicsNative) }
+      politics: {
+        subject: 'politics',
+        ...politicsChatContinue(politicsNative, plan?.subjects?.politics?.session_ref || null)
+      }
     };
 
     const sourceProfile = readable ? profile : emptyExamProfile();
