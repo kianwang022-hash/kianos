@@ -83,7 +83,7 @@ Current state:
 S1 Source boundary                     PASS
 S2 exact official-question membership  UNTESTED / separate later boundary
 K  Knowledge                           PASS_AFTER_BOUNDED_REPAIR
-L  Learning Logic                      UNTESTED / ACTIVE NEXT
+L  Learning Logic                      CANDIDATE / independent acceptance active
 Content                                downstream-frozen
 ```
 
@@ -100,11 +100,20 @@ Acceptance evidence:
 
 The historical E System Guide remains reference-only; its old DAG is not accepted Learning truth.
 
+Learning candidate is now built from the accepted K owner:
+
+```text
+20 Blocks / 212 KP
+→ 78 Logic Groups
+→ 12 whole-Block + 8 natural-unit Source-contact classifications
+→ sparse readiness (builder proposes only E13 → E14 as hard)
+→ 5 non-gating progressive-compression checkpoints
+```
+
 Required sequence now:
 
 ```text
-Learning Logic construction
-→ independent L acceptance
+fresh independent L acceptance
 → Content Realization
 → LG-by-LG Content sufficiency / density audit
 → fresh independent Content closure
@@ -292,8 +301,8 @@ Do not reopen the generation standard unless fresh evidence shows the shared met
 
 ```text
 Medical:
-E Learning Logic construction = sole active medical-content priority
-→ finish E independent L + Content + fresh Content closure
+E fresh independent L acceptance = sole active medical-content priority
+→ finish E Content + fresh Content closure
 → then resume F at fresh independent K acceptance
 D scoped Projection may proceed independently downstream only when it does not consume E/F semantic attention
 
@@ -353,8 +362,8 @@ D Content PASS / CLOSED
 ACTIVE CONTENT PRIORITY
 E S1 PASS
 → K PASS_AFTER_BOUNDED_REPAIR
-→ Learning Logic construction ACTIVE NEXT
-→ independent L acceptance
+→ Learning candidate built
+→ fresh independent L acceptance ACTIVE
 → Content
 
 NEXT MEDICAL AFTER E CLOSURE
