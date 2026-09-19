@@ -113,29 +113,6 @@ jobs:
       - name: Install runtime
         working-directory: static-web
         run: npm install --no-audit --no-fund
-      - name: One-shot verify missing Writing source bytes
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p /tmp/kianos-source-recovery
-          curl -L --fail --retry 3 -A 'Mozilla/5.0' 'https://img-paper.lazynote.cn/2025/08/08/VuTgNBQV.jpg' -o /tmp/kianos-source-recovery/2011.bin
-          curl -L --fail --retry 3 -A 'Mozilla/5.0' 'https://img-paper.lazynote.cn/2026/06/06/ivlMn0vD.jpg' -o /tmp/kianos-source-recovery/2026.bin
-          echo "2011 bytes=$(wc -c < /tmp/kianos-source-recovery/2011.bin)"
-          echo "2011 sha=$(sha256sum /tmp/kianos-source-recovery/2011.bin | awk '{print $1}')"
-          echo "2026 bytes=$(wc -c < /tmp/kianos-source-recovery/2026.bin)"
-          echo "2026 sha=$(sha256sum /tmp/kianos-source-recovery/2026.bin | awk '{print $1}')"
-          EXPECT_2011='dc85eace135fee376e1b21c02d963438256158855a0c720d873805b8163bc461'
-          EXPECT_2026='c46e6f7af0a61816a0293440a6ad362d0dcfe64263df3747cb49cb684163b46b'
-          GOT_2011=$(sha256sum /tmp/kianos-source-recovery/2011.bin | awk '{print $1}')
-          GOT_2026=$(sha256sum /tmp/kianos-source-recovery/2026.bin | awk '{print $1}')
-          [[ "$GOT_2011" == "$EXPECT_2011" ]] && echo EXACT_2011=YES || echo EXACT_2011=NO
-          [[ "$GOT_2026" == "$EXPECT_2026" ]] && echo EXACT_2026=YES || echo EXACT_2026=NO
-          if [[ "$GOT_2011" == "$EXPECT_2011" ]]; then
-            echo B64_2011_BEGIN; base64 -w 0 /tmp/kianos-source-recovery/2011.bin; echo; echo B64_2011_END
-          fi
-          if [[ "$GOT_2026" == "$EXPECT_2026" ]]; then
-            echo B64_2026_BEGIN; base64 -w 0 /tmp/kianos-source-recovery/2026.bin; echo; echo B64_2026_END
-          fi
       - name: Validate External Reading private-content boundary
         working-directory: static-web
         run: node scripts/test-external-reading-content.mjs

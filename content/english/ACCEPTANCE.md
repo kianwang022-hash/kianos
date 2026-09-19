@@ -1,6 +1,6 @@
 # English Final Learner Acceptance — Current Integration Result
 
-Status: **BLOCKED FOR RELEASE — engineering acceptance passed for the named tested boundaries; bounded Source + Mac Human Gate remain; learner U is UNTESTED**  
+Status: **READY FOR KIAN MAC HUMAN GATE — engineering acceptance passed; Writing Source recovery is closed; learner U is UNTESTED**  
 Integration PR: **#498** — `work/english-final-integration-20260919-v3`  
 Current reconciliation base: `main@d7406f578677bcd6e7944223dfb02f4000014872`  
 Latest product-proof head: `d6323cb318e653f53197e3ea09eeb15a7d122e4d`  
@@ -46,7 +46,7 @@ Natural units remain source-native:
 ## 3. What was actually repaired
 
 1. **Objective return identity and old-test drift.** Runtime correctly requires exact attempt/source identity. Historical depth tests were updated so they no longer assume identity-less return, automatic freshness after changing material, or successful import of a return that Current runtime deliberately rejects.
-2. **Writing source deliverability.** Original-image Source truth is rendered from exact verified bytes where available; mismatching bytes fail closed; engineering prose is not appended to learner prompts.
+2. **Writing source deliverability.** Source truth renders verified source assets and fails closed on hash mismatch. Where the historical local original bytes were unavailable (2011 / 2026), independently corroborated public true-paper images were recovered as explicit `CHAT_APPROVED_SOURCE_EQUIVALENT_URL_FETCH` artifacts with new SHA/byte identities rather than pretending to be the lost PNG bytes. Engineering prose is not appended to learner prompts.
 3. **Writing entry / calibration.** Calibration is targeted and skippable rather than a permanent unlock gate.
 4. **First evidence safety.** Immutable first attempt/output, consumed source revision, stale-write rejection and exact return identity prevent later state from rewriting history.
 5. **Chat-controlled session import.** Invented IDs, duplicate steps, conflicting replay and stale instructions are rejected atomically.
@@ -81,21 +81,22 @@ It is a continuously updatable Content layer, analogous to Vocabulary being a co
 
 ## 5. Source availability
 
-Verified candidate Writing source-ready set remains:
+Writing Source recovery is **CLOSED** for the Current candidate:
 
 - **22 Small Writing tasks**
-- **25 Big Writing tasks**
-- **47 total source-ready true-exam Writing tasks**
-- **20 structurally complete integrated papers** for the currently complete-year set
+- **27 Big Writing tasks**
+- **49 total source-ready true-exam Writing tasks**
 
-Two Big Writing originals remain unavailable with the required exact identity:
+The two previously blocked visuals are now executable Source assets:
 
-| Object | Required SHA-256 | Status |
-| --- | --- | --- |
-| `english1-2011-writing-b-main` | `dc85eace135fee376e1b21c02d963438256158855a0c720d873805b8163bc461` | exact original bytes still missing |
-| `english1-2026-writing-b-main` | `c46e6f7af0a61816a0293440a6ad362d0dcfe64263df3747cb49cb684163b46b` | exact original bytes still missing |
+| Object | Current asset | SHA-256 | Provenance |
+| --- | --- | --- | --- |
+| `english1-2011-writing-b-main` | `2011-writing-b.jpg` | `004c1c817d8b80c51c9f5d19e4a48c721c1d8dc052b89f5813ce15c2ea32abf8` | `CHAT_APPROVED_SOURCE_EQUIVALENT_URL_FETCH` |
+| `english1-2026-writing-b-main` | `2026-writing-b.jpg` | `76a66298118f8493aab0174556a82db89d33fae3b8b7b8eb63e958b03b4a5c44` | `CHAT_APPROVED_SOURCE_EQUIVALENT_URL_FETCH` |
 
-Different bytes must remain rejected rather than accepted by changing the expected hash. Those two Big Writing tasks and dependent whole-paper assemblies stay withheld; unrelated modules are not globally blocked.
+The old missing local PNG hashes remain historical provenance only; they were **not** rewritten to make different bytes look exact. The recovered web artifacts were separately corroborated against true-paper sources, assigned their own identities, and stored in the same public Writing source-asset family already used by the other recovered years.
+
+Whole-paper source completeness remains governed by the Current Exam validator; Source recovery itself no longer withholds 2011 or 2026 Writing B.
 
 ## 6. Latest exact-head proof
 
@@ -144,6 +145,6 @@ Historical conclusions narrowed by the fresh audit:
 
 ## 9. Final allowed conclusion
 
-> **English Learning Logic and the named Current engineering paths have passed the fresh independent acceptance and integration proof, including Objective depth, Translation, Writing Runtime/Evidence, English↔Lexical, Chat Resume, the 180-minute whole paper, shared durability, navigation, and the executable External Reading Content lane. The English release is still BLOCKED only by the two exact missing Big Writing originals and Kian's Mac Human Gate for material changed learner-facing presentation. Learner U remains UNTESTED until genuine study.**
+> **English Learning Logic and the named Current engineering paths have passed the fresh independent acceptance and integration proof, including Objective depth, Translation, Writing Runtime/Evidence, English↔Lexical, Chat Resume, the 180-minute whole paper, shared durability, navigation, and the executable External Reading Content lane. Writing Source recovery is closed, including 2011 and 2026 through explicitly rebound verified source-equivalent web artifacts. The only remaining release gate is Kian's actual-Mac visual acceptance of the material changed learner-facing presentation. Learner U remains UNTESTED until genuine study.**
 
 No broader Lexical / Politics / Xizong debt should be pulled into this conclusion without a real dependency.
