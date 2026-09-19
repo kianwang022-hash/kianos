@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import {
   XIZONG_SESSION_SCHEMA,
   XIZONG_SESSION_KEY,
+  acknowledgeXizongBlockReturn,
   XIZONG_SESSION_RUNTIME_KEY,
   XIZONG_CHAT_SET_KEY,
   applyXizongSessionInstruction,
@@ -352,3 +353,79 @@ assert.throws(() => applyXizongSessionInstruction(staleRepairStorage, {
 }, { expectedDay:day, now:now + 41_000 }), /REPAIR_TASK_REVISION_MISMATCH/);
 
 console.log('PASS Xizong native session extensions: System Recall + exact existing Repair');
+
+
+// BLOCK_RETURN is terminal transport only: exact arrival, zero learner-evidence mutation.
+const blockReturnStorage = makeStorage();
+const memoryBeforeBlockReturn = blockReturnStorage.getItem(XIZONG_MEMORY_STORAGE_KEY);
+const blockReturnInstruction = {
+  schema:XIZONG_SESSION_SCHEMA,
+  session_id:'xz-block-return',
+  study_day:day,
+  generated_at:new Date(now + 50_000).toISOString(),
+  steps:[{
+    step_id:'b1',
+    kind:'BLOCK_RETURN',
+    system_id:'circulation',
+    block_id:'a1-b01',
+    block_slug:'b01',
+    source_hash:'h1',
+    label:'回 B1 原讲义'
+  }]
+};
+applyXizongSessionInstruction(blockReturnStorage, blockReturnInstruction, {
+  expectedDay:day,
+  now:now + 50_000
+});
+const blockActivated = activateXizongSessionCurrentStep(blockReturnStorage, {
+  now:now + 51_000
+});
+assert.equal(blockActivated.next.step.kind,'BLOCK_RETURN');
+assert.equal(blockActivated.next.terminal,true);
+assert.match(blockActivated.next.href,/\/xizong\/circulation\/b01\//);
+
+assert.throws(() => acknowledgeXizongBlockReturn(blockReturnStorage, {
+  sessionId:'xz-block-return',
+  stepId:'b1',
+  systemId:'circulation',
+  blockId:'a1-b01',
+  blockSlug:'b01',
+  sourceHash:'wrong-hash',
+  now:now + 52_000
+}), /BLOCK_RETURN_TARGET_MISMATCH/);
+assert.equal(
+  JSON.parse(blockReturnStorage.getItem(XIZONG_SESSION_RUNTIME_KEY)).status,
+  'ACTIVE',
+  'wrong landing identity must not complete transport'
+);
+
+const blockAck = acknowledgeXizongBlockReturn(blockReturnStorage, {
+  sessionId:'xz-block-return',
+  stepId:'b1',
+  systemId:'circulation',
+  blockId:'a1-b01',
+  blockSlug:'b01',
+  sourceHash:'h1',
+  now:now + 53_000
+});
+assert.equal(blockAck.status,'complete');
+assert.equal(
+  JSON.parse(blockReturnStorage.getItem(XIZONG_SESSION_RUNTIME_KEY)).status,
+  'COMPLETE'
+);
+assert.equal(
+  blockReturnStorage.getItem(XIZONG_MEMORY_STORAGE_KEY),
+  memoryBeforeBlockReturn,
+  'transport arrival must not mutate learner Memory evidence'
+);
+
+assert.throws(() => validateXizongSessionInstruction({
+  ...blockReturnInstruction,
+  session_id:'xz-block-return-invalid-order',
+  steps:[
+    blockReturnInstruction.steps[0],
+    {step_id:'q-after',kind:'PRACTICE_SET',question_ids:['xizong-official-2024-n001']}
+  ]
+}, day), /BLOCK_RETURN_MUST_BE_TERMINAL/);
+
+console.log('PASS Xizong terminal Block return: exact target arrival without learner-evidence mutation');
