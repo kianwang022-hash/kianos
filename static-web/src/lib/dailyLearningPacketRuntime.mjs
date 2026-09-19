@@ -9,6 +9,10 @@ import {
 } from './politicsPracticeState.mjs';
 import { buildXizongStudyPacketFromStorage } from './xizongStudyPacket.mjs';
 
+// Subject evidence remains opaque at this integration layer. Fields such as
+// evidence.resume / forecast_progress are produced and owned by each subject.
+// Daily Packet runtime may transport them but must not infer cross-subject
+// priority, mastery, or remaining-work semantics from those fields.
 const record = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
 
 function readJson(storage, key, fallback = null) {
