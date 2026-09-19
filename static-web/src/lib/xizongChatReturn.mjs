@@ -153,6 +153,46 @@ export function writeXizongChatHandoff(storage, value) {
   return handoff;
 }
 
+export function ensureXizongChatHandoff(storage, packet, {
+  returnHref = '',
+  now = Date.now()
+} = {}) {
+  if (!storage?.getItem || !storage?.setItem) fail('STORAGE_UNAVAILABLE');
+  const identity = validateStudyPacketIdentity(packet);
+  const version = xizongStudyPacketEvidenceVersion(packet);
+  const stableId = [
+    'xz',
+    identity.blockId,
+    version
+  ].join('-').replace(/[^A-Za-z0-9._:-]+/g, '-').slice(0, 160);
+
+  const key = XIZONG_CHAT_HANDOFF_PREFIX + stableId;
+  const raw = storage.getItem(key);
+  if (raw != null) {
+    let existing;
+    try { existing = validateXizongChatHandoff(JSON.parse(raw)); }
+    catch { fail('HANDOFF_CORRUPT', stableId); }
+    if (existing.origin.object_id !== identity.objectId
+        || existing.origin.source_hash !== identity.sourceHash
+        || existing.origin.evidence_version !== version) {
+      fail('HANDOFF_STABLE_ID_CONFLICT', stableId);
+    }
+    return existing;
+  }
+
+  const handoff = buildXizongChatHandoff(packet, {
+    returnHref,
+    now,
+    makeId: () => stableId
+  });
+  return writeXizongChatHandoff(storage, handoff);
+}
+
+export function attachXizongChatReturnContract(storage, packet, options = {}) {
+  const handoff = ensureXizongChatHandoff(storage, packet, options);
+  return buildXizongChatExport(packet, handoff);
+}
+
 export function readXizongChatHandoff(storage, handoffId) {
   if (!storage?.getItem) fail('STORAGE_UNAVAILABLE');
   const id = clean(handoffId, 160);
