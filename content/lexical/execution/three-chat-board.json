@@ -116,7 +116,7 @@
           1001,
           1100
         ],
-        "state": "REVIEW_BUNDLE_READY",
+        "state": "WAITING_BOUNDED_HUMAN_DELTA_GATE",
         "allowed_now": [
           "freeze current main and export review bundle",
           "fresh owner/module judgment",
@@ -147,7 +147,31 @@
           "semantic_delta": false,
           "merge_to_main": false
         },
-        "next_action": "Finish o1001-o1100 Fresh Read + Self Attack now; freeze proposal; gate only genuine new material; then immediately continue to o0901-o1000."
+        "next_action": "Kian reviews only the three genuinely new material deltas in PR #542. A new p approves exactly those three plus the already-reported bounded corrections/Test changes; then freeze BF10 and immediately continue C to o0901-o1000.",
+        "proposal_pr": 542,
+        "proposal_head": "e96f1750ddaab91bfa86277520eb295a7b6916b3",
+        "proposal_path": "content/lexical/execution/manifests/o1001-o1100.final-standard-backfill-c-proposal.md",
+        "module_matrix_path": "content/lexical/execution/manifests/o1001-o1100.final-standard-backfill-c-module-matrix.tsv",
+        "fresh_read_coverage": "100/100",
+        "self_attack": "COMPLETE",
+        "content_upgrades": 18,
+        "content_no_change": 82,
+        "blocked": 0,
+        "new_material_delta_owners": [
+          1040,
+          1060,
+          1095
+        ],
+        "old_test_blueprints": 25,
+        "stabilized_test_blueprints": 21,
+        "canonical_semantic_mutation": false,
+        "shared_write_set_if_approved": [
+          "existing contagious↔infectious Relation identity/path + reciprocal view",
+          "word:infectious@o2521",
+          "existing continual↔continuous Relation",
+          "contest same-word Form / redundant Relation cleanup"
+        ],
+        "semantic_freshness_note": "The final semantic freeze and orchestration contracts were added after the BF10 review freeze, but no o1001-o1100 Word/Relation/Form semantic owner changed. Proposal remains valid under FINAL_SEMANTIC_FREEZE v1. Refreeze dependencies again before future materialization."
       },
       "scheduled_ranges": [
         [
@@ -475,6 +499,34 @@
       "state": "PROPOSED_SHARED_SEMANTIC",
       "write_lease_candidate": null,
       "semantic_scope": "register/source-definition reconciliation while preserving accepted crazy↔mad boundary"
+    },
+    {
+      "claim_key": "RELATION:contagious|infectious:semantic_contrast",
+      "kind": "RELATION",
+      "participants": [
+        "word:contagious",
+        "word:infectious"
+      ],
+      "claimants": [
+        "BF10"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "repair relation owner identity/path drift and add reciprocal accepted contrast without changing semantic boundary"
+    },
+    {
+      "claim_key": "RELATION:continual|continuous:selection_boundary",
+      "kind": "RELATION",
+      "participants": [
+        "word:continual",
+        "word:continuous"
+      ],
+      "claimants": [
+        "BF10"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "existing repeated/interrupted vs uninterrupted continuity boundary; reciprocal ownership cleanup"
     }
   ],
   "last_closed": {
