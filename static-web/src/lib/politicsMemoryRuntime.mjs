@@ -140,7 +140,8 @@ export function recordPoliticsMemoryResponse(storage, catalog, {
   if (expectedDay && current.study_day !== expectedDay) fail('RESPONSE_STALE_DAY', current.study_day);
   const byId = catalogMap(catalog);
   if (!catalog?.revision || current.catalog_revision !== catalog.revision) fail('RESPONSE_CATALOG_STALE');
-  if (!byId.has(candidateId)) fail('RESPONSE_CANDIDATE_STALE', candidateId);
+  const candidate = byId.get(candidateId);
+  if (!candidate) fail('RESPONSE_CANDIDATE_STALE', candidateId);
   if (!(current.items || []).some((item) => item.candidate_id === candidateId)) {
     fail('RESPONSE_CANDIDATE_OUT_OF_PLAN', candidateId);
   }
@@ -154,6 +155,20 @@ export function recordPoliticsMemoryResponse(storage, catalog, {
     plan_id: planId,
     study_day: current.study_day,
     candidate_id: candidateId,
+    catalog_revision: current.catalog_revision,
+    candidate_snapshot: {
+      id: candidateId,
+      subject: clean(candidate.subject, 80),
+      chapter_id: clean(candidate.chapter_id, 180),
+      natural_unit_id: clean(candidate.natural_unit_id, 220) || null,
+      family: clean(candidate.family, 100),
+      prompt: clean(candidate.prompt, 500),
+      answer_items: (Array.isArray(candidate.answer_items) ? candidate.answer_items : [])
+        .map((item) => clean(item, 2400)).filter(Boolean),
+      source_refs: (Array.isArray(candidate.source_refs) ? candidate.source_refs : [])
+        .map((item) => clean(item, 240)).filter(Boolean),
+      source_role: clean(candidate.source_role, 120)
+    },
     response: value,
     observed_at: new Date(observed_at).toISOString()
   };
@@ -255,6 +270,11 @@ function validateStoredEvidenceShape(value) {
         || !clean(row.plan_id, 160)
         || !validDay(row.study_day)
         || !clean(row.candidate_id, 220)
+        || !clean(row.catalog_revision, 200)
+        || !record(row.candidate_snapshot)
+        || clean(row.candidate_snapshot.id, 220) !== clean(row.candidate_id, 220)
+        || !Array.isArray(row.candidate_snapshot.answer_items)
+        || !Array.isArray(row.candidate_snapshot.source_refs)
         || !RESPONSES.has(clean(row.response, 20).toUpperCase())
         || !clean(row.observed_at, 80)
         || Number.isNaN(Date.parse(row.observed_at))) {
@@ -271,4 +291,49 @@ export function validatePoliticsMemoryCheckpointValue(key, value) {
     return validateStoredPlanShape(value);
   }
   fail('CHECKPOINT_KEY_INVALID', k);
+}
+
+
+export function politicsMemoryDailyEvidence(storage, {
+  day,
+  now = Date.now()
+} = {}) {
+  if (!validDay(day)) fail('DAILY_EVIDENCE_DAY_INVALID');
+  const events = readEvidence(storage)
+    .filter((row) => row?.study_day === day)
+    .sort((a, b) => String(a.observed_at || '').localeCompare(String(b.observed_at || '')));
+
+  let currentPlan = null;
+  try {
+    const raw = storage?.getItem?.(POLITICS_MEMORY_PLAN_KEY);
+    currentPlan = raw ? validateStoredPlanShape(JSON.parse(raw)) : null;
+  } catch {
+    fail('DAILY_EVIDENCE_PLAN_UNREADABLE');
+  }
+
+  const count = (response) => events.filter((row) => row.response === response).length;
+  const currentDayPlan = currentPlan?.study_day === day ? currentPlan : null;
+  const completedIds = new Set(events
+    .filter((row) => row.plan_id === currentDayPlan?.plan_id)
+    .map((row) => row.candidate_id));
+
+  return {
+    schema: 'kianos.politics.memory-evidence.v1',
+    study_day: day,
+    generated_at: new Date(now).toISOString(),
+    summary: {
+      recall_count: events.length,
+      forgot_count: count('FORGOT'),
+      fuzzy_count: count('FUZZY'),
+      stable_count: count('STABLE')
+    },
+    current_plan: currentDayPlan ? {
+      plan_id: currentDayPlan.plan_id,
+      catalog_revision: currentDayPlan.catalog_revision,
+      phase: currentDayPlan.phase || null,
+      planned_count: currentDayPlan.items.length,
+      completed_count: currentDayPlan.items.filter((item) => completedIds.has(item.candidate_id)).length
+    } : null,
+    events: events.map((row) => JSON.parse(JSON.stringify(row)))
+  };
 }
