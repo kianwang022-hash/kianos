@@ -1,3 +1,4 @@
+import { englishSessionCatalog } from '../src/lib/englishSessionCatalog.mjs';
 import { syncPrivateControlRelayOnce } from './privateControlRelaySync.mjs';
 import {
   readPrivateControlCurrent,
@@ -67,6 +68,9 @@ export function privateControlBridge({privateDir=resolvePrivateControlDir()}={})
             return command
               ? json(res,200,{status:'ready',command,receipt})
               : json(res,404,{status:'missing',command:null,receipt});
+          }
+          if(req.method==='GET'&&url.pathname===ROOT+'/english-session-catalog'){
+            return json(res,200,{status:'ready',rows:englishSessionCatalog()});
           }
           if(req.method==='PUT'&&url.pathname===ROOT+'/receipt'){
             const receipt=writePrivateControlReceipt(await readBody(req),privateDir);
