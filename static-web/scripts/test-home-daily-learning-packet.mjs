@@ -129,6 +129,15 @@ const storage = new MemoryStorage({
     href: '/xizong/a1/r01/',
     observed_at: '2026-09-19T02:20:00.000Z'
   }),
+  ['kianos-xizong-memory-review-v2:xizong:a2-r03']: JSON.stringify({
+    evidenceHistory: [{
+      type: 'KP_RECALL',
+      kp_id: 'a2-r03-kp01',
+      rating: 'fuzzy',
+      evidence_origin: 'USER_RECALL_ATTEMPT',
+      at: '2026-09-19T02:15:00.000Z'
+    }]
+  }),
   [xizongStateKey]: JSON.stringify({
     schema: 'kianos.xizong.block-state.v2',
     stage: 'kp_recall',
@@ -207,9 +216,12 @@ assert.deepEqual(result.coverage, {
   politics: 'attached'
 });
 assert.deepEqual(result.warnings, []);
-assert.equal(result.packet.subjects.xizong.evidence.schema, 'kianos.xizong.study_packet.v3');
-assert.equal(result.packet.subjects.xizong.evidence.learning_state.resume.kp_id, 'a1-r01-kp02');
-assert.equal(result.packet.subjects.xizong.evidence.learning_state.recall_ratings['a1-r01-kp02'], 'fuzzy');
+assert.equal(result.packet.subjects.xizong.evidence.schema, 'kianos.xizong.daily_evidence.v1');
+assert.equal(result.packet.subjects.xizong.evidence.current_block.schema, 'kianos.xizong.study_packet.v3');
+assert.equal(result.packet.subjects.xizong.evidence.current_block.learning_state.resume.kp_id, 'a1-r01-kp02');
+assert.equal(result.packet.subjects.xizong.evidence.current_block.learning_state.recall_ratings['a1-r01-kp02'], 'fuzzy');
+assert.equal(result.packet.subjects.xizong.evidence.events.kp_recall.some((row) => row.block_id === 'a2-r03'), true,
+  'Home packet must preserve same-day Xizong evidence outside the current Block');
 assert.equal(result.packet.subjects.english.evidence.schema, 'kianos.english.evidence.v1');
 assert.equal(result.packet.subjects.politics.evidence.schema, 'kianos.politics.study_packet.v1');
 assert.equal(result.packet.subjects.xizong.time.minutes, 40);
@@ -259,4 +271,4 @@ assert.equal(partial.coverage.politics, 'unknown');
 assert.equal(partial.packet.subjects.politics.evidence, null);
 assert.ok(partial.warnings.some((row) => row.includes('POLITICS_EVIDENCE_UNREADABLE')));
 
-console.log('PASS Home daily packet: one envelope + three subject evidence adapters + unknown fail-closed');
+console.log('PASS Home daily packet: subject-level Xizong evidence + English/Politics adapters + unknown fail-closed');
