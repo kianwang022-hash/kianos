@@ -17,6 +17,10 @@ const check = (condition, name, detail = '') => {
   if (!condition) throw new Error(`XIZONG_CHAT_SESSION_BROWSER_FAIL:${name}${detail ? ':' + detail : ''}`);
   report.checks.push({ name, pass: true, detail });
 };
+const shot = (page, name) => page.screenshot({
+  path: path.resolve(process.cwd(), `.qa/${name}.png`),
+  fullPage: true
+});
 const studyDay = () => new Intl.DateTimeFormat('en-CA', {
   timeZone:'Asia/Shanghai', year:'numeric', month:'2-digit', day:'2-digit'
 }).format(new Date());
@@ -115,6 +119,7 @@ try {
     'home_names_current_chat_step');
   const memoryHref=await page.locator('[data-xizong-continue]').getAttribute('href');
   check(memoryHref?.includes('/xizong/memory/?session='),'home_points_to_exact_memory_session',memoryHref||'');
+  await shot(page, 'xizong-chat-session-home-memory');
 
   const runtimeAfterHome=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),runtimeKey);
   check(runtimeAfterHome?.current_step===0 && Boolean(runtimeAfterHome?.activated_at),
@@ -133,6 +138,7 @@ try {
     'chat_selection_does_not_pollute_today_before_evidence');
   check(await page.locator('[data-memory-review-request]').isHidden(),
     'manual_today_control_hidden_in_chat_view');
+  await shot(page, 'xizong-chat-session-memory');
 
   await page.keyboard.press('Space');
   check(await page.locator('[data-memory-answer]').isVisible(),'chat_memory_uses_native_reveal');
@@ -148,6 +154,7 @@ try {
     'home_advances_to_practice_after_memory_evidence');
   const practiceHref=await page.locator('[data-xizong-continue]').getAttribute('href');
   check(practiceHref?.includes('/xizong/practice/chat-set/'),'home_points_to_native_chat_set',practiceHref||'');
+  await shot(page, 'xizong-chat-session-home-practice');
 
   const chatSet=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),chatSetKey);
   check(chatSet?.question_ids?.length===1 && chatSet.question_ids[0]==='xizong-official-2024-n001',
@@ -171,6 +178,7 @@ try {
   await page.goto(`${BASE}/xizong/`,{waitUntil:'networkidle'});
   check(!(await page.locator('[data-xizong-continue-location]').textContent()||'').includes('Chat 安排'),
     'completed_chat_session_releases_home_back_to_native_resume');
+  await shot(page, 'xizong-chat-session-home-native');
 
   report.status='PASS';
   report.completed_at=new Date().toISOString();
