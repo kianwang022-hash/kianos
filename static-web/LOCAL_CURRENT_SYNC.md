@@ -16,8 +16,9 @@ Chat / GitHub change
 → dedicated Mac Current mirror detects the new main SHA
 → the whole repository updates atomically to origin/main
 → Astro restarts against that exact Current
-→ the already-open localhost page detects the new SHA and reloads
-→ learner sees the new Current
+→ the already-open localhost page detects the new SHA without interrupting an active foreground task
+→ the page reloads when the learner leaves that tab/window and returns, or the next natural navigation loads the new document
+→ learner sees the new Current without a forced mid-task refresh
 ```
 
 This is a whole-repository contract. It is not Lexical-only. Changes under Xizong, English, Politics, Lexical, shared Runtime, shared UI, manifests and other canonical content all travel through the same mirror.
@@ -45,8 +46,9 @@ This prevents a GitHub update from destroying local development changes and remo
 4. refreshes npm dependencies only when package inputs changed;
 5. restarts Astro so canonical files outside `static-web/src/` cannot remain stale through an HMR/watch-boundary miss;
 6. writes the exact local Current SHA to `static-web/public/__kianos-current.json` inside the disposable mirror;
-7. the shared Base polls that localhost-only status and reloads an already-open page when the synced SHA changes;
-8. transient network failure keeps the last successfully synced site usable.
+7. the shared Base polls that localhost-only status and records a pending browser refresh when the synced SHA changes;
+8. an active foreground learner page is never force-reloaded solely because main advanced; returning to the page after leaving it performs the pending refresh, while natural navigation already loads the newest Current;
+9. transient network failure keeps the last successfully synced site usable.
 
 Default main check interval: **8 seconds**.  
 Default browser Current check interval: **3 seconds**.
@@ -122,6 +124,6 @@ Actual learner data must not be committed to the public `kianos` repository. Rep
 
 ## Product expectation
 
-For normal learning, Kian should not need to run `git pull`, choose a branch, resolve a worktree state, restart Astro, or manually refresh the browser after Chat lands an accepted update on main.
+For normal learning, Kian should not need to run `git pull`, choose a branch, resolve a worktree state, restart Astro, or manually refresh the browser after Chat lands an accepted update on main. Current delivery must also not interrupt an active foreground task merely to display that update a few seconds sooner.
 
 Manual Git remains an engineering activity, not a learner workflow.

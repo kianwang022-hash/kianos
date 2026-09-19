@@ -8,6 +8,8 @@ on:
       - 'static-web/package.json'
       - 'static-web/scripts/install-current-macos.sh'
       - 'static-web/scripts/kianos-current-sync.mjs'
+      - 'static-web/src/lib/currentRefreshPolicy.mjs'
+      - 'static-web/scripts/test-current-refresh-policy.mjs'
       - 'static-web/src/layouts/Base.astro'
   push:
     branches: [main]
@@ -17,6 +19,8 @@ on:
       - 'static-web/package.json'
       - 'static-web/scripts/install-current-macos.sh'
       - 'static-web/scripts/kianos-current-sync.mjs'
+      - 'static-web/src/lib/currentRefreshPolicy.mjs'
+      - 'static-web/scripts/test-current-refresh-policy.mjs'
       - 'static-web/src/layouts/Base.astro'
 
 permissions:
@@ -42,8 +46,13 @@ jobs:
       - name: Syntax check supervisor and installer
         run: |
           node --check static-web/scripts/kianos-current-sync.mjs
+          node --check static-web/src/lib/currentRefreshPolicy.mjs
+          node --check static-web/scripts/test-current-refresh-policy.mjs
           bash -n static-web/scripts/install-current-macos.sh
           node -e "JSON.parse(require('fs').readFileSync('static-web/package.json','utf8'))"
+
+      - name: Prove browser refresh does not interrupt foreground study
+        run: node static-web/scripts/test-current-refresh-policy.mjs
 
       - name: Prove destructive sync fails closed outside Current mirror
         shell: bash
