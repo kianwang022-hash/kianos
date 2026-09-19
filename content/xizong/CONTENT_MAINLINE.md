@@ -44,58 +44,52 @@ Precision, Guide/Framework and Projection are downstream/content-attached capabi
 
 # 2｜Lane A — Main medical content
 
-## D｜Neuro / Sensory / Motor / Orthopedics — ACTIVE PRIORITY
+## D｜Neuro / Sensory / Motor / Orthopedics — CONTENT CLOSED / DOWNSTREAM HANDOFF
 
-Upstream candidate owner: PR #284 / `work/xizong-d-content-20260916`.
-
-Current accepted candidate state:
+Current accepted state:
 
 ```text
 S1 Source boundary                     PASS
 S2 exact official-question membership  UNTESTED / separate later boundary
 K  Knowledge                           PASS
 L  Learning Logic                      PASS_AFTER_REPAIR
-Content Realization / Optimization     ACTIVE
-P / R / E                              downstream-frozen
+Content Realization / Optimization     PASS
+P  Projection                          UNTESTED / next eligible D gate
+R / E                                  downstream-frozen
 U                                      no claim
 ```
 
-Stable candidate identity remains 27 Blocks / 356 KP / 128 LG.
+Stable D identity remains 27 Blocks / 356 KP / 128 LG.
 
-Fresh independent L is **no longer the active gate**. Phase 6 found and repaired readiness/prerequisite defects, then fresh re-acceptance passed. The active medical-content branch is:
+Fresh independent Content closure is recorded in:
 
-`work/xizong-d-content-realization-20260917`
+`content/xizong/knowledge/learner/D_PHASE7E_FRESH_INDEPENDENT_CONTENT_CLOSURE.md`
 
-Current Content stage is Phase 7 realization/cleanup. It is removing stale learner-route wrappers, realizing accepted readiness/source-unit roles, and auditing LG/Block content sufficiency without broad medical-Core rewriting.
+D is no longer the active Lane-A **content** construction task. The next D dependency is scoped Projection; do not reopen D Content without a concrete Source/Knowledge/Learning/Content defect.
 
-Important boundary:
+## E｜Reproductive / Breast — ACTIVE CONTENT PRIORITY
 
-> Active realization candidate ≠ Content PASS.
+E now owns the earliest unblocked Lane-A medical-content work.
 
-Required sequence now:
+Current durable substrate exists under:
 
-```text
-finish D Content Realization / Optimization
-→ fresh Content acceptance / readback
-→ only then scoped P / Projection
-→ high-value D Visual / Extension realization
-→ Runtime / downstream acceptance
-```
+- `content/xizong/knowledge/systems/e-reproductive-breast/e-e1-e14/`
+- `content/xizong/knowledge/systems/e-reproductive-breast/sr-sr1-sr6/`
 
-Do not start formal D Projection/Runtime or promote candidate Visual debt merely because shared infrastructure already exists.
-
-## E｜Reproductive / Breast — PARALLEL GROUNDWORK
-
-E may proceed independently while D realization runs:
+E does **not** yet have its own accepted scoped `CURRENT / ACCEPTANCE / system.json`. Therefore the true next stage is not “copy D Phase 7”; it is:
 
 ```text
-bounded Source reconstruction / audit
-→ Knowledge construction / audit
+bounded Source reconstruction / boundary
+→ Knowledge reconstruction
 → independent K acceptance
-→ Learning construction
+→ Learning Logic construction
+→ independent L acceptance
+→ Content Realization
+→ LG-by-LG Content sufficiency / density audit
+→ fresh independent Content closure
 ```
 
-Do not copy D topology into E for symmetry.
+Use D Phase 7 only to calibrate realization quality and failure modes after E reaches Content. Do not copy D Block/LG/Source-contact topology for symmetry.
 
 ## F｜Remaining Clinical — LATER
 
@@ -244,8 +238,8 @@ Do not reopen the generation standard unless fresh evidence shows the shared met
 
 ```text
 Medical:
-D Content Realization / acceptance
-+ E Source / Knowledge groundwork
+E Source / Knowledge reconstruction = active content priority
++ D scoped Projection may proceed independently downstream
 
 Questions:
 Crosswalk C2 batches
@@ -297,15 +291,15 @@ Do not update this file for each Crosswalk batch, image crop, CI rerun, PR numbe
 
 ```text
 MAIN MEDICAL CONTENT
-D L PASS_AFTER_REPAIR
-→ D Content Realization / Optimization ACTIVE
-→ Content acceptance
+D Content PASS / CLOSED
 → D P / high-value Visual / Runtime downstream
 
-PARALLEL MEDICAL
-E Source + Knowledge
+ACTIVE CONTENT PRIORITY
+E Source reconstruction / boundary
+→ Knowledge
 → K acceptance
 → Learning
+→ Content
 
 LATER
 F Source + Knowledge
