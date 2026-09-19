@@ -136,10 +136,13 @@ export function initExamHome(root) {
 
   function render() {
     const native = {
-      xizong: nativeLink('[data-xizong-continue]', '[data-xizong-continue-title]', `${catalog.base}xizong/`, '选择西综学习位置'),
-      english: nativeLink('[data-english-resume-link]', '[data-english-resume-title]', `${catalog.base}english/`, '选择英语完整任务'),
-      politics: resolvePoliticsContinue(catalog.politics, readPoliticsSnapshot(localStorage), catalog.base)
-        || nativeLink('[data-politics-continue]', '[data-politics-continue-title]', `${catalog.base}politics/`, '选择政治学习位置')
+      xizong: { subject: 'xizong', ...nativeLink('[data-xizong-continue]', '[data-xizong-continue-title]', `${catalog.base}xizong/`, '选择西综学习位置') },
+      english: { subject: 'english', ...nativeLink('[data-english-resume-link]', '[data-english-resume-title]', `${catalog.base}english/`, '选择英语完整任务') },
+      politics: {
+        subject: 'politics',
+        ...(resolvePoliticsContinue(catalog.politics, readPoliticsSnapshot(localStorage), catalog.base)
+          || nativeLink('[data-politics-continue]', '[data-politics-continue-title]', `${catalog.base}politics/`, '选择政治学习位置'))
+      }
     };
 
     const sourceProfile = readable ? profile : emptyExamProfile();
