@@ -233,6 +233,58 @@ The resulting receipt is `LOCAL_CLOSED_PENDING_INTEGRATION`, **not main acceptan
 
 Initial implementation supports Word-local edits only. Relation/Form changes require a narrow shared-owner handoff; they are not silently patched by ordinal workers. This is an explicit capability boundary, not permission to bury cross-owner debt.
 
+## 5A. Baseline-v2 fast transport path
+
+The first o1151–o1250 run proved the semantic protocol but also exposed an avoidable transport bottleneck. From the next Human-Gate batch onward, **remote per-owner GitHub reads/writes are fallback only**, not the normal execution path.
+
+### Pre-Gate review transport
+
+For one ~100-owner Human-Gate batch:
+
+1. freeze one exact branch/head;
+2. generate bounded review bundles with `tools/lexical_shard.py export`;
+3. normally consume two ≤50-owner bundles; if byte limits force smaller bundles, continue deterministically until the full range is covered;
+4. include shared Relation dependencies once per bundle and preserve exact read-set hashes;
+5. Production reads the bundles, performs fresh judgment + self-attack, and only fetches an individual owner again for an oversized object, missing dependency, or explicit evidence escalation.
+
+A Chat must not simulate bundling by issuing dozens of sequential `fetch_file` calls when the bundle path is available.
+
+The repository workflow `.github/workflows/lexical-review-bundle-export.yml` is the normal remote wrapper. A batch Chat writes one request file on its working branch, downloads the resulting artifact, and reviews that artifact as the frozen transport projection. The artifact is not semantic authority.
+
+### Post-Gate write transport
+
+After the single Human Gate:
+
+- accumulate all approved mutations before writing;
+- preserve untouched operational metadata such as existing `card_version`, stable IDs, provenance fields and lifecycle placement;
+- apply Word-local edits through the staged patch / replay path where supported;
+- reconcile shared Relation writes in one bounded shared-owner pass;
+- write Repair Test blueprints in one bounded pass;
+- use Git Data batching so normal landing is **category-batched**, not one remote write per owner;
+- rebuild Final Learner Objects with the existing materializer workflow only after the approved canonical candidate is complete.
+
+Normal target for one ~100-owner batch is at most a few branch commits for semantic materialization, not dozens of per-file commits.
+
+### Readback reuse
+
+Unchanged owners whose bundle owner/dependency hashes still match do not require another remote fetch merely to prove they are unchanged. Modified owners and changed dependencies require complete staged final-view readback. This is the same semantic standard as §4 with less transport duplication.
+
+### Failure fallback
+
+Per-owner remote reads/writes are allowed only when one of these is true:
+
+- `BUNDLE_OVERSIZED`;
+- shared dependency cannot be represented safely in the bundle;
+- relevant main/contract/read-set drift invalidates the frozen packet;
+- GitHub artifact transport is unavailable;
+- a bounded debugging read is required after a failed validation.
+
+A fallback must stay bounded and must not silently become the default for the rest of the batch.
+
+This section changes **transport only**. It does not reduce fresh-read coverage, the self-adversarial pass, Human Gate scope, Independent Audit coverage, or final readback requirements.
+
+---
+
 ## 6. Continuation without a long Chat
 
 For an activated package, its machine manifest owns only range allocation and shard checkpoints, not a second human Work Cursor. It records: package ID, acceptance generation, baseline/contract fingerprints, claimed nonoverlapping ranges, exact write/read sets, shard statuses, receipt/commit identities, unresolved holes and the next smallest action.
