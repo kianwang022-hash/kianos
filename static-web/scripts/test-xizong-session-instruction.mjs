@@ -25,12 +25,20 @@ class MemoryStorage {
 const day = '2026-09-20';
 const now = Date.parse('2026-09-20T01:00:00Z');
 const memory = createXizongMemoryState();
+memory.releasedBlocks['a1-b01'] = {
+  blockId: 'a1-b01',
+  systemId: 'circulation',
+  sourceHash: 'h1',
+  releasedAt: new Date(now).toISOString(),
+  refreshedAt: new Date(now).toISOString(),
+  coreCardIds: ['core:a1-b01-kp01'],
+  precisionCardIds: []
+};
 memory.cards['core:a1-b01-kp01'] = {
   id: 'core:a1-b01-kp01',
   family: 'CORE',
   blockId: 'a1-b01',
-  kpId: 'a1-b01-kp01',
-  sourceHash: 'h1'
+  kpId: 'a1-b01-kp01'
 };
 
 const makeStorage = () => new MemoryStorage({
@@ -75,10 +83,10 @@ assert.equal(replay.status, 'idempotent');
 const activated = activateXizongSessionCurrentStep(storage, { now });
 assert.equal(activated.status, 'activated');
 let memoryState = JSON.parse(storage.getItem(XIZONG_MEMORY_STORAGE_KEY));
-assert.equal(memoryState.attention['core:a1-b01-kp01'].reviewRequested, true);
 assert.equal(
-  memoryState.attention['core:a1-b01-kp01'].reason,
-  'CHAT_SESSION:xz-20260920-1:m1'
+  memoryState.attention['core:a1-b01-kp01'],
+  undefined,
+  'activating a Chat-selected Memory step must not manufacture Weak/Today attention'
 );
 assert.equal(storage.getItem(XIZONG_CHAT_SET_KEY), null, 'only current Memory step should be active');
 
@@ -114,17 +122,18 @@ assert.equal(
   'completion must use the exact Runtime storage identity'
 );
 storage.setItem(sweepKey, JSON.stringify({
-  results: {
-    'xizong-official-2024-n001': { status: 'stable' },
-    'xizong-official-2023-n002': { status: 'wrong' }
-  }
+  results: {},
+  attemptHistory: [
+    { type:'QUESTION_ATTEMPT', question_id:'xizong-official-2024-n001', status:'stable' },
+    { type:'QUESTION_ATTEMPT', question_id:'xizong-official-2023-n002', status:'wrong' }
+  ]
 }));
 const completed = advanceXizongSessionIfComplete(storage);
 assert.equal(completed.status, 'complete');
 assert.equal(JSON.parse(storage.getItem(XIZONG_SESSION_RUNTIME_KEY)).status, 'COMPLETE');
 assert.equal(resolveXizongSessionNext(storage), null);
 
-// Newer session supersedes active session and removes only Chat-owned attention.
+// Newer session supersedes active session without mutating long-term Memory attention.
 const supersedeStorage = makeStorage();
 applyXizongSessionInstruction(supersedeStorage, instruction, { expectedDay: day, now });
 activateXizongSessionCurrentStep(supersedeStorage, { now });
@@ -145,9 +154,9 @@ const superseded = applyXizongSessionInstruction(supersedeStorage, newer, {
 });
 assert.equal(superseded.status, 'superseded');
 assert.equal(
-  JSON.parse(supersedeStorage.getItem(XIZONG_MEMORY_STORAGE_KEY)).attention['core:a1-b01-kp01'].reviewRequested,
-  false,
-  'superseding a session should remove its own pending Memory attention'
+  JSON.parse(supersedeStorage.getItem(XIZONG_MEMORY_STORAGE_KEY)).attention['core:a1-b01-kp01'],
+  undefined,
+  'superseding a session must not create or clear learner weakness state'
 );
 
 // Learner-owned attention must survive supersede.
