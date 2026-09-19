@@ -49,6 +49,7 @@ assert.equal(extracted[0].admission, 'CANDIDATE_ONLY');
 
 const catalog = {
   schema: 'kianos.politics.memory-candidate-catalog.v1',
+  revision: 'catalog-r1',
   candidates: extracted
 };
 
@@ -59,6 +60,7 @@ const first = {
   plan_id: 'p1',
   study_day: day,
   generated_at: new Date(now).toISOString(),
+  catalog_revision: catalog.revision,
   phase: 'FIRST_ROUND',
   items: extracted.map((row) => ({ candidate_id: row.id, reason: 'Chat selected' }))
 };
@@ -72,7 +74,7 @@ const resume1 = resolvePoliticsMemoryResume(storage, catalog);
 assert.equal(resume1.status, 'ACTIVE');
 assert.equal(resume1.index, 0);
 
-recordPoliticsMemoryResponse(storage, {
+recordPoliticsMemoryResponse(storage, catalog, {
   plan_id: 'p1',
   candidate_id: resume1.candidate.id,
   response: 'FUZZY',
@@ -82,7 +84,7 @@ const resume2 = resolvePoliticsMemoryResume(storage, catalog);
 assert.equal(resume2.status, 'ACTIVE');
 assert.equal(resume2.index, 1);
 
-recordPoliticsMemoryResponse(storage, {
+recordPoliticsMemoryResponse(storage, catalog, {
   plan_id: 'p1',
   candidate_id: resume2.candidate.id,
   response: 'STABLE',
@@ -90,7 +92,7 @@ recordPoliticsMemoryResponse(storage, {
 });
 assert.equal(resolvePoliticsMemoryResume(storage, catalog).status, 'COMPLETE');
 
-assert.throws(() => recordPoliticsMemoryResponse(storage, {
+assert.throws(() => recordPoliticsMemoryResponse(storage, catalog, {
   plan_id: 'p1',
   candidate_id: resume2.candidate.id,
   response: 'STABLE'
@@ -117,4 +119,19 @@ assert.throws(() => applyPoliticsMemoryPlan(new MemoryStorage(), catalog, {
 }, { expectedDay: day, now }), /PLAN_UNKNOWN_CANDIDATE/);
 
 assert.equal(JSON.parse(storage.getItem(POLITICS_MEMORY_EVIDENCE_KEY)).length, 2);
-console.log('PASS politics memory prototype: source-grounded candidates, explicit supersede, recall evidence, resume');
+
+const staleCatalog = { ...catalog, revision: 'catalog-r2' };
+assert.equal(resolvePoliticsMemoryResume(storage, staleCatalog).status, 'STALE');
+assert.throws(() => recordPoliticsMemoryResponse(storage, staleCatalog, {
+  plan_id: 'p2',
+  candidate_id: extracted[0].id,
+  response: 'STABLE'
+}), /RESPONSE_CATALOG_STALE/);
+
+assert.throws(() => applyPoliticsMemoryPlan(new MemoryStorage(), catalog, {
+  ...first,
+  plan_id: 'wrong-revision',
+  catalog_revision: 'catalog-old'
+}, { expectedDay: day, now }), /PLAN_CATALOG_MISMATCH/);
+
+console.log('PASS politics memory prototype: stable candidate identity, catalog-bound plan, explicit supersede, recall evidence, resume');
