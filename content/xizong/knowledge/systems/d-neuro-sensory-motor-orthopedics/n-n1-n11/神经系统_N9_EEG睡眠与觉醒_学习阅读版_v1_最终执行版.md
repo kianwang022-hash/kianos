@@ -28,12 +28,6 @@ outline_units:
   - PHY-U033-EEG-SLEEP-SUBSET
 outline_primary_count: 7
 kp_count: 9
-prerequisites:
-  - neuro-n02
-  - neuro-n05
-next_blocks:
-  - neuro-n10
-  - neuro-n11
 visual_gates:
   - physiology-p385-eeg-four-waves-alpha-block
   - physiology-p385-p386-nrem-rem-table
@@ -53,13 +47,16 @@ parent_system_final: false
 # N9｜EEG、睡眠与觉醒
 ## 大脑怎样在清醒、慢波睡眠和异相睡眠之间切换全局网络状态
 
-> **FIRST PASS 固定流程**  
-> `Framework → 生理 Lecture 与原图 → Framework Reconstruction → KP Active Recall → Outline optional / low-pressure → TTSX Lecture-attached Questions → Block Complete`
->
 > **中心问题**：脑电图为什么能反映大脑皮层神经元群体的同步程度；NREM、REM和觉醒状态为什么同时表现出不同的脑电、眼球运动、肌张力、唤醒阈与生理意义？
 >
 > **Primary Study**：`生理学讲义_AI阅读版.md` 原 PDF **P385–386**，书页 P335–336。  
 > **Primary Outline**：`PHY-U033` 中脑电与睡眠子集，**7 / 7**。
+>
+> N2 的网络整合语言和 N5 的非特异投射语言都可直接调用；若当前尚未形成，只做理解 EEG/觉醒所需的最小 reactivation，不构成 N9 hard readiness。
+>
+> **Source contact｜WHOLE_BLOCK_SOURCE**：P385–386 是一个紧凑完整 Source Unit。第一次学习一次连续读完原 Lecture 与原图，再回 KianOS 完成 `N9-LG01–LG03` retrieval / closure；不要按 LG 重新往返 Source。
+>
+> KianOS Framework 只负责定向与重建；Canonical KP Detailed Expansion 用于 Recall 后核对、修复与参考，不作为第二次连续 Lecture。
 
 ---
 
@@ -137,8 +134,8 @@ G｜内源性调节
 
 | 内容 | 本 Block 动作 | 边界 |
 |---|---|---|
-| 特异 / 非特异投射 | Recall / Apply | N5 已建立最低语言 |
-| 突触总和、抑制与网络活动 | Recall | N2 已建立 |
+| 特异 / 非特异投射 | Recall / Apply | N5 可调用；缺失时只回激当前觉醒链所需最低语言 |
+| 突触总和、抑制与网络活动 | Recall | N2 可调用；不要求先完成整个 N2 |
 | 四种脑电波、α阻断 | **Primary Learn** | 本 Block |
 | NREM / REM、睡眠周期、觉醒系统 | **Primary Learn** | 本 Block |
 | 睡眠物质 | Source-bound Learn / MI-D | 不扩写完整神经化学 |
@@ -524,7 +521,7 @@ silent_source_correction = 0
 
 # 10｜Framework Reconstruction
 
-读完 Lecture 后，不看正文，重建七节点：
+一次连续完成 P385–386 后再闭卷重建七节点：
 
 ```text
 ① EEG = 皮层群体活动
@@ -592,7 +589,8 @@ canonical_freeze_ready = YES_WITH_EXPLICIT_SOURCE_BOUNDARY
 
 ```text
 Framework已定位
-→ 生理 Lecture P385–386及原图完整学习
+→ 生理 Lecture P385–386与原图一次连续完成首次接触
+→ 回到 KianOS 后完成 N9-LG01–LG03 retrieval / closure；LG 不单独触发 Source 往返
 → 能用同步性解释脑电频率与幅度
 → 能闭卷重建四波和α阻断
 → 能比较NREM/REM并解释REM异相
