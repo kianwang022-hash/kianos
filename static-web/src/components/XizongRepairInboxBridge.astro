@@ -2,17 +2,35 @@
 const { block } = Astro.props;
 const allowedKpIds = (block?.kpRecords || []).map((kp) => kp.kpId).filter(Boolean);
 ---
-<span data-xizong-repair-inbox-bridge data-object-id={block.objectId} hidden></span>
+<span
+  data-xizong-repair-inbox-bridge
+  data-object-id={block.objectId}
+  data-block-id={block.blockId || ''}
+  data-system-id={block.systemId || ''}
+  data-block-label={block.label || ''}
+  hidden
+></span>
 <script type="application/json" data-repair-inbox-kp-ids set:html={JSON.stringify(allowedKpIds)}></script>
 
 <script>
+  import {
+    XIZONG_MEMORY_STORAGE_KEY,
+    normalizeXizongMemoryState,
+    setRepairTasks
+  } from '../lib/xizongMemoryModel.mjs';
+
   const marker = document.querySelector('[data-xizong-repair-inbox-bridge]');
   if (marker instanceof HTMLElement) {
     const objectId = marker.getAttribute('data-object-id') || 'xizong:unknown';
-    const extensionKey = `kianos-xizong-memory-review-v2:${objectId}`;
+    const blockId = marker.getAttribute('data-block-id') || objectId.replace(/^xizong:/, '');
+    const systemId = marker.getAttribute('data-system-id') || '';
+    const blockLabel = marker.getAttribute('data-block-label') || blockId;
     const inboxKey = `kianos-xizong-repair-inbox-v1:${objectId}`;
+
     let allowedKpIds = [];
-    try { allowedKpIds = JSON.parse(document.querySelector('[data-repair-inbox-kp-ids]')?.textContent || '[]'); } catch {}
+    try {
+      allowedKpIds = JSON.parse(document.querySelector('[data-repair-inbox-kp-ids]')?.textContent || '[]');
+    } catch {}
     const allowed = new Set(allowedKpIds);
 
     const readJson = (key, fallback = null) => {
@@ -22,73 +40,82 @@ const allowedKpIds = (block?.kpRecords || []).map((kp) => kp.kpId).filter(Boolea
       try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch { return false; }
     };
 
+    const taskFromPlan = (inbox, plan) => {
+      const kpId = String(plan?.kpId || plan?.kp_id || '');
+      if (!kpId || !allowed.has(kpId)) return null;
+      const sourceQuestionIds = Array.isArray(plan?.sourceQuestionIds)
+        ? [...new Set(plan.sourceQuestionIds.map(String).filter(Boolean))]
+        : [];
+      const blockChat = Boolean(inbox?.sourceHandoffId || inbox?.sourceReturnId);
+      const systemWu = !blockChat && sourceQuestionIds.length > 0;
+      const origin = blockChat ? 'BLOCK_CHAT_RETURN'
+        : systemWu ? 'SYSTEM_WU_CHAT_RETURN'
+          : 'CHAT_OR_QUESTION_REPAIR';
+      const id = blockChat
+        ? `repair:block-chat:${blockId}:${kpId}`
+        : systemWu
+          ? `repair:system-wu:${String(inbox?.sourceSystemId || systemId)}:${blockId}:${kpId}`
+          : `repair:block-inbox:${blockId}:${kpId}`;
+      return {
+        id,
+        kpId,
+        blockId,
+        systemId: String(inbox?.sourceSystemId || systemId),
+        title: [blockLabel, kpId].filter(Boolean).join(' · '),
+        reason: String(plan?.reason || 'Chat identified a bounded repair target.'),
+        action: String(plan?.action || 'Repair only this KP before returning to the interrupted path.'),
+        priority: String(plan?.priority || 'normal'),
+        origin,
+        sourceQuestionIds,
+        blockHref: String(plan?.blockHref || ''),
+        returnHref: String(plan?.returnHref || ''),
+        createdAt: String(inbox?.importedAt || new Date().toISOString()),
+        status: 'ACTIVE'
+      };
+    };
+
     const consumeInbox = () => {
       const inbox = readJson(inboxKey, null);
       if (!inbox) return false;
-      const seen = new Set();
-      const incoming = (Array.isArray(inbox?.plans) ? inbox.plans : [])
-        .map((row) => ({
-          kpId: String(row?.kpId || row?.kp_id || ''),
-          reason: String(row?.reason || ''),
-          action: String(row?.action || ''),
-          priority: String(row?.priority || ''),
-          sourceQuestionIds: Array.isArray(row?.sourceQuestionIds) ? [...new Set(row.sourceQuestionIds.map(String).filter(Boolean))] : []
-        }))
-        .filter((row) => row.kpId && allowed.has(row.kpId) && !seen.has(row.kpId) && seen.add(row.kpId));
+      const plans = Array.isArray(inbox?.plans) ? inbox.plans : [];
+      const incoming = plans.map((plan) => taskFromPlan(inbox, plan)).filter(Boolean);
 
       if (!incoming.length) {
         try { localStorage.removeItem(inboxKey); } catch {}
         return false;
       }
 
-      const ext = readJson(extensionKey, {
-        memory: {}, memoryIndex: 0, reviewPlan: [], reviewIndex: 0,
-        reviewRatings: {}, evidenceHistory: [], lastRecallRatings: {}
-      });
-      const incomingIds = new Set(incoming.map((row) => row.kpId));
-      const existing = (Array.isArray(ext.reviewPlan) ? ext.reviewPlan : [])
-        .filter((row) => !incomingIds.has(String(row?.kpId || row?.kp_id || row || '')));
-      ext.reviewPlan = [...existing, ...incoming];
-      ext.reviewIndex = 0;
-      const sourceHandoffId = String(inbox?.sourceHandoffId || '');
-      const sourceSystemId = String(inbox?.sourceSystemId || '');
-      const eventType = sourceHandoffId ? 'BLOCK_CHAT_RETURN_IMPORTED' : 'SYSTEM_WU_PLAN_IMPORTED';
-      const evidenceOrigin = sourceHandoffId ? 'BLOCK_CHAT_RETURN' : 'SYSTEM_WU_CHAT_RETURN';
-      const inboxId = sourceHandoffId || `${sourceSystemId}:${String(inbox?.importedAt || '')}`;
-      const history = Array.isArray(ext.evidenceHistory) ? ext.evidenceHistory : [];
-      const alreadyRecorded = inboxId && history.some((row) => row?.type === eventType && row?.inbox_id === inboxId);
-      if (!alreadyRecorded) {
-        ext.evidenceHistory = [...history, {
-          at: new Date().toISOString(),
-          type: eventType,
-          evidence_role: 'REPAIR_ONLY',
-          evidence_origin: evidenceOrigin,
-          inbox_id: inboxId,
-          source_handoff_id: sourceHandoffId || null,
-          source_return_id: String(inbox?.sourceReturnId || '') || null,
-          kp_ids: incoming.map((row) => row.kpId),
-          source_question_ids: [...new Set(incoming.flatMap((row) => row.sourceQuestionIds || []))]
-        }].slice(-400);
+      const memory = normalizeXizongMemoryState(readJson(XIZONG_MEMORY_STORAGE_KEY, null));
+      const incomingIds = new Set(incoming.map((task) => task.id));
+      const preserved = (memory.repairTasks || []).filter((task) => !incomingIds.has(String(task?.id || '')));
+      const next = setRepairTasks(memory, [...preserved, ...incoming]);
+
+      const beforeMemory = localStorage.getItem(XIZONG_MEMORY_STORAGE_KEY);
+      const beforeInbox = localStorage.getItem(inboxKey);
+      try {
+        if (!writeJson(XIZONG_MEMORY_STORAGE_KEY, next)) throw new Error('Repair save failed');
+        localStorage.removeItem(inboxKey);
+      } catch {
+        try {
+          if (beforeMemory == null) localStorage.removeItem(XIZONG_MEMORY_STORAGE_KEY);
+          else localStorage.setItem(XIZONG_MEMORY_STORAGE_KEY, beforeMemory);
+          if (beforeInbox == null) localStorage.removeItem(inboxKey);
+          else localStorage.setItem(inboxKey, beforeInbox);
+        } catch {}
+        return false;
       }
-      if (!writeJson(extensionKey, ext)) return false;
-      try { localStorage.removeItem(inboxKey); } catch {}
-      try { sessionStorage.setItem(`kianos-xizong-repair-inbox-consumed:${objectId}`, '1'); } catch {}
+
+      window.dispatchEvent(new CustomEvent('kianos:xizong-repair-inbox-migrated', {
+        detail: { object_id: objectId, repair_task_ids: incoming.map((task) => task.id) }
+      }));
       return true;
     };
 
-    const consumeAndReload = () => {
-      if (!consumeInbox()) return;
-      window.location.reload();
-    };
-
     window.setTimeout(() => {
-      if (readJson(inboxKey, null)) {
-        consumeAndReload();
-        return;
-      }
+      consumeInbox();
       window.addEventListener('storage', (event) => {
         if (event.key !== inboxKey || !event.newValue) return;
-        consumeAndReload();
+        consumeInbox();
       });
     }, 0);
   }
