@@ -59,52 +59,22 @@
       "semantic-review:0096",
       "semantic-reconciliation:o0025-o0224"
     ],
-    "secondary_senses": [
-      {
-        "source_sense_id": "sense:advocate:1cb3acc010745c21",
-        "module": "secondary_senses",
-        "pos": "noun",
-        "level": "L2",
-        "definition_cn": "（法律）律师；出庭辩护人",
-        "definition_en": "a lawyer who represents or defends someone in court",
-        "boundary": "法律/法庭语境中的 advocate 可指为当事人出庭辩护或陈述意见的律师；不要和一般“倡导者”混在一起。",
-        "direction": "R",
-        "publication_status": "publishable",
-        "verification_status": "verified",
-        "writing_safe": false,
-        "evidence": [
-          {
-            "evidence_id": "evidence:baseline-v2:advocate:lawyer",
-            "evidence_status": "source_checked",
-            "source_locator": "advocate noun LAWYER",
-            "source_path": "https://dictionary.cambridge.org/us/dictionary/learner-english/advocate?q=advocate_2",
-            "source_type": "learner_dictionary"
-          }
-        ]
-      }
-    ],
+    "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
       {
         "confidence": "high",
         "definition_cn": "公开支持；主张",
         "definition_en": "publicly support or recommend a cause or action",
-        "governing_pattern": "",
+        "governing_pattern": "advocate + sth/doing; advocate for + sb/sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:advocate:ef64940b713b57c7",
         "sense_label_en": "advocate (verb)",
         "sort_order": 0,
-        "transitivity": "vi",
-        "collocations": [],
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "form_boundary",
-          "surface_lemma": "advocate",
-          "paired_form": "advocate noun/verb",
-          "note": "verb advocate has different stress/pronunciation from the noun"
-        }
+        "transitivity": "vt/vi",
+        "collocations": []
       },
       {
         "confidence": "high",
@@ -118,14 +88,7 @@
         "sense_label_en": "advocate (noun)",
         "sort_order": 1,
         "transitivity": "nonverb",
-        "collocations": [],
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "form_boundary",
-          "surface_lemma": "advocate",
-          "paired_form": "advocate noun/verb",
-          "note": "noun advocate has initial stress; verb advocate shifts stress/pronunciation"
-        }
+        "collocations": []
       }
     ],
     "verification_summary": {
@@ -145,7 +108,46 @@
     },
     "word": "advocate",
     "word_family": [],
-    "word_id": "word:advocate"
+    "word_id": "word:advocate",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_pronunciation",
+      "spelling": "advocate",
+      "identity_rule": "same_word_owner_no_semantic_split",
+      "boundary": "Noun and verb remain one Word identity. Both normally keep initial stress; the final syllable differs: noun /-kət/, verb /-keɪt/.",
+      "variants": [
+        {
+          "variant_id": "form:advocate:noun",
+          "pos": [
+            "noun"
+          ],
+          "ipa": "/ˈæd.və.kət/",
+          "stress": "initial",
+          "learner_key": "ADVOCATE (noun): /-kət/"
+        },
+        {
+          "variant_id": "form:advocate:verb",
+          "pos": [
+            "verb"
+          ],
+          "ipa": "/ˈæd.və.keɪt/",
+          "stress": "initial",
+          "learner_key": "ADVOCATE (verb): /-keɪt/"
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "advocate",
+          "condition": "noun: supporter/proponent",
+          "note": "名词词尾读 /kət/。"
+        },
+        {
+          "surface": "advocate",
+          "condition": "verb: support/recommend publicly",
+          "note": "动词词尾读 /keɪt/；重音仍在第一音节。"
+        }
+      ],
+      "authority": "Baseline-v2 final-standard backfill o0001-o0100"
+    }
   },
   "relation_refs": [],
   "reference_senses": [
@@ -316,7 +318,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0089-0096.json",
     "source_content_hash": "6641861ed674d24c039b566575bd26f1c304a5cc0ba0ca68504fdde9547822da",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
