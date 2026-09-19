@@ -104,15 +104,15 @@ export function archiveEnglishAttempt(storage,key,now=Date.now()){
 }
 
 export function markEnglishAssistance(storage,task,objectId,now=Date.now()){
- task=({'Reading A':'reading_a',Cloze:'cloze',Translation:'translation',Writing:'writing'})[task]||task;
- const prefix={reading_a:'kianos-reading-attempt-v1:',cloze:'kianos-cloze-attempt-v1:',reading_b:'kianos-reading-b-attempt-v1:',translation:'kianos-translation-attempt-v2:',writing:'kianos-writing-runtime-v1:'}[task];
+ task=({'Reading A':'reading_a',Cloze:'cloze','External Reading':'external_reading',Translation:'translation',Writing:'writing'})[task]||task;
+ const prefix={reading_a:'kianos-reading-attempt-v1:',cloze:'kianos-cloze-attempt-v1:',reading_b:'kianos-reading-b-attempt-v1:',external_reading:'kianos-english-external-reading-attempt-v1:',translation:'kianos-translation-attempt-v2:',writing:'kianos-writing-runtime-v1:'}[task];
  if(!prefix)return;const key=prefix+objectId;const state=readEnglishJson(storage,key);if(!state?.binding)return;
  // Fact about this attempt only. Lookup never changes Lexical Coverage/Repair/mastery.
  state.binding.assistance='assisted';
  atomicEnglishWrites(storage,[[key,state],[ENGLISH_MATERIAL_EXPOSURE_KEY,exposureUpdate(storage,state.binding,'assisted',now)]]);
 }
 
-const ENGLISH_KEYS=/^kianos-(?:reading-(?:attempt|session|continuous|last-location)|cloze-(?:attempt|last-location)|reading-b-(?:attempt|last-location)|translation-(?:attempt|transfer|last-location)|writing-(?:runtime|evidence|last-location)|english-(?:exam|session|objective|material|attempt))/;
+const ENGLISH_KEYS=/^kianos-(?:reading-(?:attempt|session|continuous|last-location)|cloze-(?:attempt|last-location)|reading-b-(?:attempt|last-location)|translation-(?:attempt|transfer|last-location)|writing-(?:runtime|evidence|last-location)|english-(?:exam|session|objective|material|attempt|external-reading))/;
 export function englishCheckpointKeyAllowed(key){return ENGLISH_KEYS.test(String(key||''));}
 export function exportEnglishCheckpoint(storage){
  const entries={};for(let i=0;i<storage.length;i++){const key=storage.key(i);if(englishCheckpointKeyAllowed(key)){const raw=storage.getItem(key);JSON.parse(raw);entries[key]=raw;}}
