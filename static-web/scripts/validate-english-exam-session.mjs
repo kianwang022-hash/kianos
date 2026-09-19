@@ -162,7 +162,7 @@ assert.match(sourceChecks.translationReference, /!new URLSearchParams\(location\
 assert.match(sourceChecks.bridge, /stopImmediatePropagation/);
 assert.match(sourceChecks.bridge, /captureEnglishExamStep/);
 assert.match(sourceChecks.bridge, /sealEnglishExamSession/);
-assert.match(sourceChecks.home, /04 · FULL PAPER/);
+assert.match(sourceChecks.home, /data-capability="full-paper"/);
 assert.match(sourceChecks.home, /english-exam\//);
 assert.match(sourceChecks.examHome, /查看客观题结果/);
 assert.match(sourceChecks.examWriting, /整卷模考 · 写作/);
