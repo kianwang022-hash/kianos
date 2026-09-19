@@ -54,14 +54,10 @@
           401,
           500
         ],
-        "state": "REVIEW_BUNDLE_NEEDED",
+        "state": "WAITING_BOUNDED_HUMAN_DELTA_GATE",
         "allowed_now": [
-          "freeze current main and export review bundle",
-          "fresh owner/module judgment",
-          "same-Chat Self-Adversarial Attack",
-          "write smallest stabilized proposal",
-          "request bounded Human delta Gate only if genuinely new material scope exists",
-          "after approval or no-delta freeze immediately continue to o0501-o0600"
+          "consume only Kian approval for the exact displayed eight new material deltas plus reported bounded corrections/Test changes",
+          "on p re-sync proposal identity and shared semantic claims, freeze BF04 backlog, then immediately continue A to o0501-o0600"
         ],
         "forbidden_now": [
           "canonical semantic materialization",
@@ -71,7 +67,35 @@
           "invent a newer semantic standard"
         ],
         "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
-        "next_action": "Create/consume o0401-o0500 review bundle, perform Fresh Read + Self Attack, freeze proposal, then continue to o0501-o0600."
+        "review_head": "654227a871ddacba46d5e272386c811fed44b3e5",
+        "review_branch": "work/lexical-final-backfill-a-o0401-o0500",
+        "review_request_commit": "cfa352d687a9b1a7af823cb125e3bc148ffb7fed",
+        "review_workflow_run": 35453833595,
+        "review_artifact_id": 10587194399,
+        "review_artifact_digest": "sha256:c248a91e8f305225125502fa26ea175bf4a297bfa03c193a1dd8dd633bd4fdc7",
+        "review_bundle_coverage": "100/100",
+        "proposal_commit": "fa8d74c444f8494ccd6fcf8aa13e9c7f4047cbd3",
+        "proposal_path": "content/lexical/execution/manifests/o0401-o0500.final-sweep-a-proposal.md",
+        "proposal_blob_sha": "55dd1d2dfa5b3d87c7de6ca3dd47ab68a5bce013",
+        "fresh_read_coverage": "100/100",
+        "self_attack": "COMPLETE",
+        "content_affected_owners": 24,
+        "content_no_change": 76,
+        "blocked": 0,
+        "new_material_delta_owners": [
+          412,
+          432,
+          436,
+          440,
+          447,
+          451,
+          463,
+          489
+        ],
+        "old_test_blueprints": 43,
+        "stabilized_test_blueprints": 22,
+        "canonical_semantic_mutation": false,
+        "next_action": "Kian reviews only the eight genuinely new material deltas in the frozen BF04 proposal. On p, approve exactly those eight plus the reported bounded corrections/Test changes, freeze BF04 backlog, and immediately continue A to o0501-o0600."
       },
       "bootstrap_integration": {
         "candidate_id": "BF00",
@@ -520,7 +544,8 @@
         "word:between"
       ],
       "claimants": [
-        "BF01"
+        "BF01",
+        "BF04"
       ],
       "state": "PROPOSED_SHARED_SEMANTIC",
       "write_lease_candidate": null,
@@ -793,6 +818,76 @@
       "state": "PROPOSED_SHARED_SEMANTIC",
       "write_lease_candidate": null,
       "semantic_scope": "reciprocal confirm=verify/make definite vs conform=comply/match boundary"
+    },
+    {
+      "claim_key": "RELATION:bathroom|toilet:usage_boundary",
+      "kind": "RELATION",
+      "participants": [
+        "word:bathroom",
+        "word:toilet"
+      ],
+      "claimants": [
+        "BF04"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "existing bathroom/toilet regional and referent boundary; reciprocal owner cleanup"
+    },
+    {
+      "claim_key": "RELATION:believe|think:semantic_contrast",
+      "kind": "RELATION",
+      "participants": [
+        "word:believe",
+        "word:think"
+      ],
+      "claimants": [
+        "BF04"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "existing belief-as-true vs opinion/judgment selection boundary; reciprocal owner cleanup"
+    },
+    {
+      "claim_key": "RELATION:beside|besides:confusable",
+      "kind": "RELATION",
+      "participants": [
+        "word:beside",
+        "word:besides"
+      ],
+      "claimants": [
+        "BF04"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "existing near-form confusable boundary; reciprocal owner cleanup"
+    },
+    {
+      "claim_key": "RELATION:bias|prejudice:semantic_contrast",
+      "kind": "RELATION",
+      "participants": [
+        "word:bias",
+        "word:prejudice"
+      ],
+      "claimants": [
+        "BF04"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "existing broader inclination/skew vs prejudged unfair/negative attitude boundary; reciprocal owner cleanup"
+    },
+    {
+      "claim_key": "FORM:bit|bite:inflection_identity",
+      "kind": "FORM",
+      "participants": [
+        "word:bit",
+        "word:bite"
+      ],
+      "claimants": [
+        "BF04"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "existing bit noun vs bite-past identity plus reciprocal bite→bit→bitten projection"
     }
   ],
   "last_closed": {
