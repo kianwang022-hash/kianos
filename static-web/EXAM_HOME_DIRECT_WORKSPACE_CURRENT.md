@@ -1,6 +1,6 @@
 # Exam Total Home Direct Workspace — CURRENT
 
-Status: **HUMAN GATE PASS / READY TO MERGE**  
+Status: **MERGED / CURRENT**  
 Updated: 2026-09-20 (Asia/Shanghai)
 
 ## Current-first rule
@@ -173,19 +173,17 @@ Known unrelated broad reds remain outside this integration scope:
 
 Do not expand this Total Home integration to repair those subject-learning/content debts.
 
-## Merge boundary
+## Merge result
 
 PR: **#559**  
-Branch: `work/exam-home-direct-workspace-20260920`  
-Base: `main`
+Human Gate: **PASS**  
+Merged into `main`: **2026-09-20 (Asia/Shanghai)**  
+Merge commit: `f25d6438ea4c160374e2ba50ea7ec44e3881f7d5`
 
-Human Gate: **PASS**.
+Current product contract:
 
-The next action is merge #559 into `main` once the current PR head is confirmed to contain only this documentation cursor change beyond the exact-tested code head.
-
-After merge:
-
-- GitHub `main` becomes the Current source;
-- Kian's `~/KianOS-current` mirror should auto-sync;
-- learner-facing Home should remain visually unchanged;
-- only the right-side Next Action gains the Chat-controlled exact-route behavior.
+- GitHub `main` is the canonical Current source;
+- Kian's `~/KianOS-current` mirror auto-syncs from `main`;
+- learner-facing Home remains visually unchanged;
+- the existing right-side Next Action now gains the Chat-controlled exact-route behavior;
+- do not reopen #559 or rebuild the Home UI unless a new concrete defect is found.
