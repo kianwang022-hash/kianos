@@ -140,14 +140,14 @@ test('reading recognition success cannot retire production demand', () => {
 test('browser compatibility bridge delegates mutation to the atomic English return owner', () => {
   const bridge = read('src/components/VocabularyEnglishEvidenceBridge.astro');
   const returnOwner = read('src/lib/englishLexicalReturn.mjs');
-  const base = read('src/layouts/Base.astro');
+  const frame = read('src/layouts/BaseFrame.astro');
   assert.match(bridge, /englishLexicalReturn\.mjs/);
   assert.match(bridge, /No second post-click writer may partially apply/);
   assert.match(returnOwner, /appendEvidenceEvent/);
   assert.match(returnOwner, /repairStateForEvent/);
   assert.match(returnOwner, /DUPLICATE_IGNORED/);
   assert.match(returnOwner, /guards/);
-  assert.match(base, /VocabularyEnglishEvidenceBridge/);
+  assert.match(frame, /VocabularyEnglishEvidenceBridge/);
 });
 
 console.log(JSON.stringify({

@@ -173,11 +173,11 @@ body#kianos-workspace.uiEnglish :is(.readingContinue,.translationContinue) stron
 body#kianos-workspace.uiEnglish .writingTaskCard h3 { font-size:22px; }body#kianos-workspace.uiEnglish .writingTaskCard p { font-size:16px;line-height:1.7; }
 body#kianos-workspace.uiEnglish :is(.readingSetRow,.translationSetRow) { padding:14px 18px;border-radius:5px; }
 body#kianos-workspace.uiEnglish :is(.readingSetRow,.translationSetRow) strong { font-size:18px; }
-body#kianos-workspace.uiEnglish :is(.objectiveLearnShell,.translationLearnShell,.writingLearnShell) { max-width:none; }
-body#kianos-workspace.uiEnglish :is(.objectiveLearnShell,.translationLearnShell) { grid-template-columns:218px minmax(0,1fr);gap:18px; }
-body#kianos-workspace.uiEnglish :is(.objectiveLearnContent,.translationLearnIntro,.translationLearnContent,.writingPanel) { padding:26px 32px;border-radius:9px;box-shadow:none; }
-body#kianos-workspace.uiEnglish :is(.objectiveLearnNav,.translationLearnNav) { border-radius:8px; }
-body#kianos-workspace.uiEnglish :is(.objectiveLearnNav,.translationLearnNav) a { font-size:15px;line-height:1.6; }
+body#kianos-workspace.uiEnglish :is(.translationLearnShell,.writingLearnShell) { max-width:none; }
+body#kianos-workspace.uiEnglish .translationLearnShell { grid-template-columns:218px minmax(0,1fr);gap:18px; }
+body#kianos-workspace.uiEnglish :is(.translationLearnIntro,.translationLearnContent,.writingPanel) { padding:26px 32px;border-radius:9px;box-shadow:none; }
+body#kianos-workspace.uiEnglish .translationLearnNav { border-radius:8px; }
+body#kianos-workspace.uiEnglish .translationLearnNav a { font-size:15px;line-height:1.6; }
 body#kianos-workspace.uiEnglish .markdownBody :is(p,li) { font-size:17px;line-height:1.85; }
 body#kianos-workspace.uiEnglish .markdownBody h1 { font-size:29px;line-height:1.4; }body#kianos-workspace.uiEnglish .markdownBody h2 { font-size:24px;line-height:1.45; }body#kianos-workspace.uiEnglish .markdownBody h3 { font-size:20px;line-height:1.5; }
 body#kianos-workspace.uiEnglish .markdownBody :is(td,th) { font-size:15px;line-height:1.75;padding:12px 14px; }
@@ -206,7 +206,7 @@ body#kianos-workspace.uiEnglish :is(.writingRuntimeBoundary,.translationContract
  body#kianos-workspace.uiEnglish :is(.portedReadingQuestions,.clozeDecision,.translationWork,.writingWork) { border-top:1px solid var(--study-line); }
  body#kianos-workspace.uiEnglish .portedReadingQuestionFooter { position:static; }
  body#kianos-workspace.uiEnglish .clozeQuestions { overflow:visible; }
- body#kianos-workspace.uiEnglish :is(.objectiveLearnShell,.translationLearnShell) { grid-template-columns:1fr; }
+ body#kianos-workspace.uiEnglish .translationLearnShell { grid-template-columns:1fr; }
  body#kianos-workspace.uiEnglish .englishCapabilityLayout { grid-template-columns:minmax(0,1fr) 250px; }
  body#kianos-workspace.uiEnglish .englishCapabilityGroup { grid-template-columns:1fr;gap:14px; }body#kianos-workspace.uiEnglish .englishAvailability { display:none; }
 }
@@ -215,7 +215,7 @@ body#kianos-workspace.uiEnglish :is(.writingRuntimeBoundary,.translationContract
  body#kianos-workspace.uiEnglish .englishCapabilityLayout { grid-template-columns:1fr; }body#kianos-workspace.uiEnglish .englishContextRail { border-left:0;border-top:1px solid var(--study-line); }
  body#kianos-workspace.uiEnglish .englishOverview h1 { font-size:29px; }.englishTaskTabs { gap:20px; }
  body#kianos-workspace.uiEnglish .englishWorkbenchHeading>span { display:none; }
- body#kianos-workspace.uiEnglish :is(.portedReadingPassage,.portedReadingQuestion,.clozePassage,.translationSource,.writingPrompt,.objectiveLearnContent,.translationLearnIntro,.translationLearnContent,.writingPanel) { padding:20px; }
+ body#kianos-workspace.uiEnglish :is(.portedReadingPassage,.portedReadingQuestion,.clozePassage,.translationSource,.writingPrompt,.translationLearnIntro,.translationLearnContent,.writingPanel) { padding:20px; }
  body#kianos-workspace.uiEnglish .portedReadingHeaderCenter>b { white-space:normal; }
  body#kianos-workspace.uiEnglish .portedReadingSessionHeader { flex-wrap:wrap; }
  body#kianos-workspace.uiEnglish .clozeOptions { grid-template-columns:repeat(2,minmax(0,1fr)); }

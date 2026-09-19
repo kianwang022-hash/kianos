@@ -1,3 +1,92 @@
+/* Final composition pass for the first visual family. Native visibility,
+   navigation, target identity and evidence reducers remain authoritative. */
+body#kianos-workspace .commandSubject .englishResume {
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+body#kianos-workspace .commandSubject .englishResume>div {
+  display:grid;gap:3px;min-width:0;
+}
+body#kianos-workspace .commandSubject .englishResume strong { line-height:1.4; }
+body#kianos-workspace .commandSubject .englishResume small { display:block;line-height:1.5; }
+body#kianos-workspace .commandSubject .englishResume a { flex:0 0 auto; }
+body#kianos-workspace.uiEnglish .englishOverview { padding-block:19px 17px; }
+body#kianos-workspace.uiEnglish .englishWorkbenchHeading { padding-block:14px; }
+body#kianos-workspace.uiEnglish .englishCapabilityGroup {
+  grid-template-columns:210px minmax(0,1fr);padding-top:16px;padding-bottom:24px;
+}
+body#kianos-workspace.uiEnglish .englishCapabilityRoutes>a { padding-block:10px; }
+body#kianos-workspace.uiEnglish .englishCapabilityLead p { color:#65778b; }
+body#kianos-workspace.uiEnglish .englishCapabilityRoutes>a>div>small { color:#667b91; }
+body#kianos-workspace.uiEnglish .englishGuideWorkbench { padding:20px 24px; }
+body#kianos-workspace.uiEnglish .englishGuideLinks>a { padding-block:12px; }
+body#kianos-workspace.uiEnglish .englishLexicalCompanion { padding-block:19px; }
+body#kianos-workspace.uiEnglish .englishGuideWorkbench p,
+body#kianos-workspace.uiEnglish .englishLexicalCompanion p { color:#6a7d90; }
+/* An entire Cloze set is a ruled exam matrix. Number, A–D and context are
+   simultaneously visible; formal-answer/repair sections retain native gating. */
+@media(min-width:1051px) {
+  body#kianos-workspace.uiEnglish .clozeQuestion {
+    display:grid;grid-template-columns:52px minmax(0,1fr);gap:5px 8px;
+    padding:11px 17px;align-items:center;
+  }
+  body#kianos-workspace.uiEnglish .clozeQuestion>p:first-child { margin:0;font-size:12px; }
+  body#kianos-workspace.uiEnglish .clozeQuestion>.clozeOptions { margin:0; }
+  body#kianos-workspace.uiEnglish .clozeQuestion>[data-objective-formal],
+  body#kianos-workspace.uiEnglish .clozeQuestion>[data-objective-repair],
+  body#kianos-workspace.uiEnglish .clozeQuestion>.clozeFormal,
+  body#kianos-workspace.uiEnglish .clozeQuestion>.clozeRepair { grid-column:1/-1; }
+}
+body#kianos-workspace.uiWordStudy:has([data-vocab-details][hidden]) .lexicalStudyNavBottom { display:none; }
+body#kianos-workspace.uiWordStudy .portedVocabWordHeader { padding:15px 30px 17px; }
+body#kianos-workspace.uiWordStudy .portedVocabWordHeader h2 { font-size:43px;margin:5px 0 7px; }
+body#kianos-workspace.uiWordStudy .portedVocabWordHeader p { font-size:17px;color:#5c785f; }
+body#kianos-workspace.uiWordStudy .portedVocabCoreSense { padding:18px 30px; }
+body#kianos-workspace.uiWordStudy .portedVocabCoreSense>div strong { color:#657f65; }
+body#kianos-workspace.uiWordStudy .lexicalSenseRow { padding-block:18px; }
+body#kianos-workspace.uiWordStudy .lexicalSenseMeaning>strong { font-size:18px; }
+body#kianos-workspace.uiWordStudy .lexicalSenseMeaning>p { color:#607b62; }
+body#kianos-workspace.uiWordStudy .lexicalSenseUsage li>span { color:#6c8068; }
+body#kianos-workspace.uiWordStudy .portedVocabEvidenceList>article>p { color:#6f8068; }
+@media(min-width:821px) {
+  /* A real grid column, rather than overlaid badges, keeps long definitions
+     and focus/Repair controls from colliding. The main semantic split stays 50/50. */
+  body#kianos-workspace.uiWordStudy .lexicalSenseRow {
+    grid-template-columns:28px minmax(0,1fr) minmax(0,1fr);column-gap:22px;
+  }
+  body#kianos-workspace.uiWordStudy .lexicalSenseRow>header {
+    position:static;grid-column:1;grid-row:1;display:flex;flex-direction:column;
+    align-items:flex-start;justify-content:flex-start;gap:10px;margin:0;padding:0;
+  }
+  body#kianos-workspace.uiWordStudy .lexicalSenseMeaning { grid-column:2;grid-row:1;padding:0; }
+  body#kianos-workspace.uiWordStudy .lexicalSenseRow:not(:has(.lexicalSenseUsage)) .lexicalSenseMeaning {
+    grid-column:2/-1;padding:0;
+  }
+  body#kianos-workspace.uiWordStudy .lexicalSenseUsage { grid-column:3;grid-row:1; }
+}
+@media(min-width:1000px) and (max-height:790px) {
+  body#kianos-workspace.uiHub.surfaceBody-home .productCanvas { padding-top:16px;padding-bottom:6px; }
+  body#kianos-workspace .commandHeader { padding-bottom:12px; }
+  body#kianos-workspace .commandSubject { padding-block:10px; }
+  body#kianos-workspace .commandFoot { margin-top:8px; }
+}
+@media(min-width:1000px) and (max-height:740px) {
+  body#kianos-workspace .commandSectionHead { padding-block:9px; }
+  body#kianos-workspace .commandSupportSection { padding-block:17px; }
+  body#kianos-workspace .commandSubject .englishResume { padding-block:7px; }
+}
+@media(min-width:1000px) and (max-width:1300px) {
+  body#kianos-workspace.uiEnglish .englishCapabilityGroup { grid-template-columns:175px minmax(0,1fr); }
+}
+@media(max-width:1050px) {
+  body#kianos-workspace.uiEnglish .englishCapabilityGroup { grid-template-columns:1fr; }
+}
+@media(max-width:600px) {
+  body#kianos-workspace.uiWordStudy .portedVocabWordHeader { padding:18px 20px; }
+  body#kianos-workspace.uiWordStudy .portedVocabWordHeader h2 { font-size:40px; }
+  body#kianos-workspace.uiWordStudy .portedVocabCoreSense { padding:20px; }
+  body#kianos-workspace .commandSubject .englishResume { align-items:flex-start;gap:10px; }
+}
+
 /* Desktop is a stable workspace, not a scaled-down long document.
    Each task retains its native geometry and native permission/visibility state.
    Long content scrolls in its own pane; no max-height clipping without a scroll
