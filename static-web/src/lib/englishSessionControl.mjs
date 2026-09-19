@@ -223,7 +223,7 @@ export function writeEnglishSessionInstruction(storage, input, expectedDay = nul
       if(!ids?.length)throw new Error('ENGLISH_MATERIAL_DECLARATION_IDENTITIES_REQUIRED');
       for(const id of ids){
         const m=exposure.materials[id]||{object_id:id,events:[]};
-        if(d.state==='unseen'&&(m.events.length||m.declaration?.state==='exposed'||['kianos-reading-attempt-v1:','kianos-cloze-attempt-v1:','kianos-reading-b-attempt-v1:','kianos-translation-attempt-v2:','kianos-writing-runtime-v1:'].some(prefix=>storage.getItem(prefix+id)!=null)))throw new Error('ENGLISH_MATERIAL_ALREADY_EXPOSED:'+id);
+        if(d.state==='unseen'&&(m.events.length||m.declaration?.state==='exposed'||['kianos-reading-attempt-v1:','kianos-cloze-attempt-v1:','kianos-reading-b-attempt-v1:','kianos-english-external-reading-attempt-v1:','kianos-translation-attempt-v2:','kianos-writing-runtime-v1:'].some(prefix=>storage.getItem(prefix+id)!=null)))throw new Error('ENGLISH_MATERIAL_ALREADY_EXPOSED:'+id);
         if(m.declaration&&Date.parse(d.observed_at)<Date.parse(m.declaration.observed_at))throw new Error('ENGLISH_MATERIAL_DECLARATION_STALE');
         m.declaration={...d,session_instruction_id:instruction.session_id};exposure.materials[id]=m;
       }
@@ -245,6 +245,7 @@ export function englishStepIsComplete(storage, step) {
   if (!value) return false;
   if (!value.binding || value.binding.source_hash !== step.source_hash) return false;
   if (['reading_a','cloze','reading_b'].includes(step.task)) return value.submitted === true && (problemCount(value) === 0 || value.reviewResolved === true);
+  if (step.task === 'external_reading') return value.stage === 'completed';
   if (step.task === 'translation') return ['passed','repaired','transfer_pending'].includes(value.stage);
   return ['PASS_ACCEPTABLE','REPAIR_COMPLETE','TRANSFER_PENDING'].includes(value.state);
 }
