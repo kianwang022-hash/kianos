@@ -177,14 +177,14 @@ export function initExamHome(root) {
 
     const capacityText = $('[data-exam-capacity]');
     if (!readable) {
-      capacityText.textContent = '先恢复本机学习上下文；网页不会自行推算安排。';
+      capacityText.textContent = '本机学习记录暂时没有完整恢复。';
     } else if (readModel.capacity.dayMinutes === null) {
-      capacityText.textContent = '记录今天可用时间后，可把容量与学习证据交给 Chat；网页不自动分配三科。';
+      capacityText.textContent = '记录今天可用时间后，这里会显示今天的安排。';
     } else if (readModel.phase?.outsideCycle) {
-      capacityText.textContent = '本轮之外不自动安排考试学习。';
+      capacityText.textContent = '今天没有考试学习安排。';
     } else {
-      const planLabel = chatPlanState.status === 'ready' ? 'Chat 今日安排已载入' : '尚未导入 Chat 今日安排';
-      capacityText.textContent = `今天可用 ${formatMinutes(readModel.capacity.dayMinutes)} · 已学 ${formatMinutes(readModel.capacity.actualMinutes)} · ${planLabel}`;
+      const planLabel = chatPlanState.status === 'ready' ? '' : ' · 今日安排待同步';
+      capacityText.textContent = `可用 ${formatMinutes(readModel.capacity.dayMinutes)} · 已学 ${formatMinutes(readModel.capacity.actualMinutes)}${planLabel}`;
     }
     $('[data-exam-settings]').textContent = readModel.capacity.dayMinutes === null ? '记录时间' : '调整时间';
 
@@ -211,7 +211,7 @@ export function initExamHome(root) {
     link.textContent = best
       ? `${names[best.subject]} · ${best.title} →`
       : '自由选择学习 →';
-    $('[data-exam-next-label]').textContent = best ? 'Chat 安排下一步' : '尚未安排';
+    $('[data-exam-next-label]').textContent = '下一步';
 
     const attention = $('[data-exam-attention]');
     attention.hidden = !readModel.attention || !readable;
@@ -323,10 +323,10 @@ export function initExamHome(root) {
         .map(([subject]) => names[subject] || subject);
       if (status) {
         status.textContent = result.warnings.length
-          ? `已复制；${unknown.join('、') || '部分科目'}证据未能安全读取，已按 unknown 留空。`
+          ? '已复制；部分学习记录暂时没有完整读取。'
           : unknown.length
-            ? `已复制 · 已带 ${attached.join('、') || '当前'}证据；${unknown.join('、')}暂无可验证 evidence，保持 unknown。`
-            : '已复制今日学习包 · 三科 evidence 已附带。';
+            ? `已复制；${unknown.join('、')}今天还没有可带走的学习记录。`
+            : '已复制今日学习包。';
       }
     } catch (cause) {
       if (status) status.textContent = '今日学习包未生成：' + String(cause?.message || cause);
