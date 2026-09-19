@@ -30,13 +30,12 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "使用权；接近或进入的机会；通路；入口；访问代码；口令；（计算机）存取；访问",
-          "label_en": "the right or opportunity to use or benefit from something; a way of entering or leaving a place; a code or password that allows entry to a computer system or network; the operation of reading or writing data in a computer system",
+          "label_cn": "使用权；接近或进入的机会；通路；入口；（计算机）存取；访问",
+          "label_en": "the right or opportunity to use or benefit from something; a way of entering or leaving a place; the operation of reading or writing data in a computer system",
           "pos": "noun",
           "sense_ids": [
             "sense:access:19bed9a501315d9d",
             "sense:access:eebda8857a67598d",
-            "sense:access:a2c075e1f92758c0",
             "sense:access:c2ad21ce22535191"
           ]
         },
@@ -154,30 +153,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:4f120d04fa51e2d40ddd",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:access:a2c075e1f92758c0:collocation:0"
-            ],
-            "meaning_cn": "访问代码",
-            "phrase": "access code"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "访问代码；口令",
-        "definition_en": "a code or password that allows entry to a computer system or network",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:access:a2c075e1f92758c0",
-        "sense_label_en": "a code or password that allows entry to a computer system or network",
-        "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
             "collocation_id": "collocation:76433c2d285df2e4510b",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -185,6 +160,15 @@
             ],
             "meaning_cn": "随机存取存储器",
             "phrase": "random access memory"
+          },
+          {
+            "collocation_id": "collocation:4f120d04fa51e2d40ddd",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:access:a2c075e1f92758c0:collocation:0"
+            ],
+            "meaning_cn": "访问代码",
+            "phrase": "access code"
           }
         ],
         "confidence": "medium",
@@ -327,7 +311,31 @@
     "word_id": "word:access"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:access:a2c075e1f92758c0",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "访问代码；口令",
+      "definition_en": "a code or password that allows entry to a computer system or network",
+      "semantic_key": "d22cef1905536d688f733b44e3d915d2b0e1223ae9485471b890589732458a00",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "access:l2:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "access:l2:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-08-13T21:08:34+00:00",
+      "source_row": 80,
+      "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -339,7 +347,7 @@
       },
       {
         "sense_id": "sense:access:a2c075e1f92758c0",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 80,
         "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json"
@@ -489,7 +497,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0025-0032.json",
     "source_content_hash": "d9a8cf0ea15ea2dd946640c2bc0ab3ea1e3b7c932f1b5079dcebbc8ee53b5f89",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

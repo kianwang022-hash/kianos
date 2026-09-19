@@ -4437,12 +4437,20 @@
     "ordinal": 29,
     "word": "access",
     "source_owner_path": "content/lexical/words/by-ordinal/o0029.json",
-    "source_fingerprint": "0ea68e3699604be04415d53d1a74bb06a0bbfbb0174d885cd3f4f12870096616",
-    "sense_lineage": [],
+    "source_fingerprint": "4a90d05e01803ddf3093344888d4da35d3383f6509ac30916394db201fd4799c",
+    "sense_lineage": [
+      {
+        "word_id": "word:access",
+        "target_kind": "sense",
+        "from_target_id": "sense:access:a2c075e1f92758c0",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
-        "4N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -4554,34 +4562,8 @@
         }
       },
       {
-        "id": "sense:access:a2c075e1f92758c0",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "访问代码；口令",
-        "definition_en": "a code or password that allows entry to a computer system or network",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:4f120d04fa51e2d40ddd",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "access code",
-            "meaning_cn": "访问代码",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:access:a2c075e1f92758c0",
-          "target_locator": "record.senses[3]",
-          "target_label": "访问代码；口令"
-        }
-      },
-      {
         "id": "sense:access:c2ad21ce22535191",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "（计算机）存取；访问",
@@ -4591,9 +4573,17 @@
         "usage": [
           {
             "id": "collocation:76433c2d285df2e4510b",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "random access memory",
             "meaning_cn": "随机存取存储器",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:4f120d04fa51e2d40ddd",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "access code",
+            "meaning_cn": "访问代码",
             "kind": "usage_example",
             "repair": null
           }
@@ -4601,13 +4591,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:access:c2ad21ce22535191",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "（计算机）存取；访问"
         }
       },
       {
         "id": "sense:access:facb20d742a655ab",
-        "source_locator": "record.senses[5]",
+        "source_locator": "record.senses[4]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "进入；到达",
@@ -4617,7 +4607,7 @@
         "usage": [
           {
             "id": "collocation:02a91811a7ca2acd830d",
-            "source_locator": "record.senses[5].collocations[0]",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "access the building",
             "meaning_cn": "进入大楼",
             "kind": "usage_example",
@@ -4627,7 +4617,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:access:facb20d742a655ab",
-          "target_locator": "record.senses[5]",
+          "target_locator": "record.senses[4]",
           "target_label": "进入；到达"
         }
       }
@@ -8729,8 +8719,8 @@
         "word_id": "word:act",
         "target_kind": "sense",
         "from_target_id": "sense:act:9b6dec4acd3151a9",
-        "status": "merged",
-        "to_target_id": "sense:act:601bb18249c95285"
+        "status": "deprecated",
+        "to_target_id": null
       }
     ],
     "recall_map": {
