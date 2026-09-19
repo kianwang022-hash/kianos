@@ -267,16 +267,18 @@ export function clearEnglishSessionInstruction(storage) {
 
 export function englishSessionStepHref(step, base = '/') {
   if (!step || !ENGLISH_SESSION_TASKS.includes(step.task) || !step.object_id) return null;
+  const normalizedBase = String(base || '/').endsWith('/') ? String(base || '/') : String(base || '/') + '/';
+  if (step.task === 'external_reading') {
+    return normalizedBase + 'external-reading/?id=' + encodeURIComponent(step.object_id);
+  }
   const prefix = ({
     reading_a: 'reading',
     cloze: 'cloze',
     reading_b: 'reading-b',
-    external_reading: 'external-reading',
     translation: 'translation',
     writing: 'writing',
     full_paper: 'english-exam'
   })[step.task];
-  const normalizedBase = String(base || '/').endsWith('/') ? String(base || '/') : String(base || '/') + '/';
   return normalizedBase + prefix + '/' + encodeURIComponent(step.object_id) + '/';
 }
 
