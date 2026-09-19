@@ -403,3 +403,31 @@ At most one retry of an unchanged transport/CI operation. Then change method or 
 Differentiate `SEMANTIC_BLOCKED`, `SHARED_OWNER_HANDOFF`, `STALE_READ_SET`, `BUNDLE_OVERSIZED`, `TRANSPORT_UNAVAILABLE`, `CI_EXECUTION_UNAVAILABLE` and `INTEGRATION_PENDING`. An infrastructure failure cannot become a semantic failure or a false PASS.
 
 Stop the turn while there is still room to checkpoint and explain the result. Measure semantic decisions, accepted/integrated owners, payload bytes, remote round trips, repetitions and failure recovery separately. A transport-only pilot on 50 current owners proves transport only: semantic acceptance delta and learner-state mutation remain zero.
+
+
+---
+
+## Production-first final sweep
+
+Current campaign phase is `PRODUCTION_SWEEP_ONLY` under `FINAL_SEMANTIC_FREEZE.md`.
+
+Execution order is temporarily:
+
+```text
+A/C complete all remaining o0001–o1150 Production reviews
+→ freeze approved/no-delta proposals into backlog
+→ only after Production sweep COMPLETE:
+   materialize serialized candidates
+   → Fresh B audit
+   → bounded reconciliation
+   → merge
+```
+
+During `PRODUCTION_SWEEP_ONLY`:
+- no backfill mutation package is emitted;
+- no FLOB rebuild is triggered for a backfill batch;
+- no new B audit is launched;
+- no backfill merge is performed;
+- `p` records the exact current delta approval and immediately advances the producer to its next review batch.
+
+This phase rule supersedes normal frontier materialization scheduling until the Production sweep is complete.
