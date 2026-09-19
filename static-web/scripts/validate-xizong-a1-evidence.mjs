@@ -82,7 +82,7 @@ assert(systemWuReturn.includes('currentXizongSystemWuEvidence(storage, value.sys
 assert(systemWuReturn.includes('assertCurrentWuBinding(row, currentWu.get(row.question_id) || null)'), 'repair-plan-not-bound-to-current-wu-observation');
 assert(practiceUi.includes("let holdoutYears = data.allowHoldout ? [] : readJson(holdoutKey, []);"), 'holdout-not-private-empty-default');
 assert(practiceUi.includes('const eligibleQuestions = () => data.questions.filter((q) => !holdoutYears.includes(Number(q.year)));'), 'holdout-not-excluded-from-sweep');
-assert(repairReturn.includes('暂无审核过的精确 Block/KP 回链：保留题号，不自动猜。'), 'missing-relation-guessed');
+assert(repairReturn.includes('当前没有审核过的精确 Block/KP 回链：保留题号，不自动猜。'), 'missing-relation-guessed');
 assert(questionLib.includes('loadReviewedXizongQuestionRelation(questionId)'), 'question-runtime-bypasses-crosswalk-owner');
 assert(crosswalkLib.includes("if (!row || row.review_status !== 'REVIEWED') return null;"), 'unreviewed-question-relation-accepted');
 assert(systemWuReturn.includes('!relation?.blockId || !relation?.primaryKpId || !route'), 'repair-return-not-reviewed-only');
