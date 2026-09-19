@@ -5,6 +5,18 @@ on:
   pull_request:
     paths:
       - 'static-web/src/styles/shared-visual-foundation.css'
+      - 'static-web/src/styles/home-workbench.css'
+      - 'static-web/src/pages/index.astro'
+      - 'static-web/src/components/ExamOrchestratorHome.astro'
+      - 'static-web/src/components/XizongHomeTools.astro'
+      - 'static-web/src/lib/examOrchestratorClient.mjs'
+      - 'static-web/scripts/test-home-mac-visual.mjs'
+      - 'static-web/src/styles/home-workbench.css'
+      - 'static-web/src/pages/index.astro'
+      - 'static-web/src/components/ExamOrchestratorHome.astro'
+      - 'static-web/src/components/XizongHomeTools.astro'
+      - 'static-web/src/lib/examOrchestratorClient.mjs'
+      - 'static-web/scripts/test-home-mac-visual.mjs'
       - 'static-web/src/styles/visual-convergence.css'
       - 'static-web/src/styles/shared-shell.css'
       - 'static-web/src/styles/xizong-practice-workspace.css'
@@ -100,6 +112,9 @@ jobs:
       - name: Verify Chromium can use PingFang
         run: node scripts/verify-macos-pingfang.mjs
 
+      - name: Capture Home Mac visual evidence
+        run: node scripts/test-home-mac-visual.mjs
+
       - name: Capture Politics Learn Mac visual evidence
         run: node scripts/test-politics-learn-mac-visual.mjs
 
@@ -108,6 +123,16 @@ jobs:
 
       - name: Capture Xizong Block Mac visual evidence
         run: node scripts/test-xizong-block-workspace.mjs
+
+      - name: Upload Home Mac visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: home-mac-visual-gate
+          path: |
+            static-web/.qa/home-mac.png
+            static-web/.qa/home-mac-visual.json
+          if-no-files-found: error
 
       - name: Upload Politics Mac visual evidence
         if: always()
