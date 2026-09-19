@@ -102,45 +102,16 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
   />
 
   <div class="homeL3Grid">
-    <section class="homeL3Subjects" aria-label="三科状态与备用入口">
-      <header class="homeL3SectionHead">
-        <h2>三科状态</h2>
-        <span>正常按右侧「下一步」执行；这里用于查看科内状态</span>
-      </header>
-
-      <article class="homeL3Subject" data-home-subject="xizong">
-        <header class="homeL3SubjectHead">
-          <div class="homeL3SubjectIdentity">
-            <div class="homeL3SubjectTitle"><h2>西医综合</h2></div>
-          </div>
-          <a class="homeL3OverviewLink" href={`${base}xizong/`}>西综 Home →</a>
-        </header>
-        <p class="homeL3Meta">原讲义连续学习 · 框架定位 · 主动回忆</p>
-      </article>
-
-      <article class="homeL3Subject" data-home-subject="english">
-        <header class="homeL3SubjectHead">
-          <div class="homeL3SubjectIdentity">
-            <div class="homeL3SubjectTitle"><h2>English</h2></div>
-          </div>
-          <a class="homeL3OverviewLink" href={`${base}english/`}>英语 Home →</a>
-        </header>
-        <p class="homeL3Meta">完整任务优先 · 阅读、翻译与写作</p>
-      </article>
-
-      <article class="homeL3Subject" data-home-subject="politics">
-        <header class="homeL3SubjectHead">
-          <div class="homeL3SubjectIdentity">
-            <div class="homeL3SubjectTitle"><h2>政治</h2></div>
-          </div>
-          <a class="homeL3OverviewLink" href={`${base}politics/`}>政治 Home →</a>
-        </header>
-        <p class="homeL3Meta">乘风原讲义 → 肖1000 验证 → 精准回源</p>
-      </article>
-    </section>
-
-    <aside class="homeL3Support" aria-label="今日安排与学习支持">
+    <main class="homeL3Support" aria-label="今日安排与唯一下一步">
       <ExamOrchestratorHome xizongPacketIndex={xizongPacketIndex} />
-    </aside>
+    </main>
+
+    <nav class="homeFallbackNav" aria-label="学科 Home 备用入口">
+      <span>备用入口</span>
+      <p>需要手动浏览学科时再进入。</p>
+      <a href={`${base}xizong/`}>西综 Home →</a>
+      <a href={`${base}english/`}>英语 Home →</a>
+      <a href={`${base}politics/`}>政治 Home →</a>
+    </nav>
   </div>
 </Base>
