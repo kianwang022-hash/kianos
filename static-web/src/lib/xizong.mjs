@@ -338,6 +338,26 @@ function normalizeSystem(record) {
 
 
 function xizongForecastBlockRecords(record) {
+  const expectedBlocks = Number(record.system?.identity?.block_count || 0);
+  const expectedKp = Number(record.system?.identity?.canonical_kp_count || 0);
+
+  const direct = directBlockRoute(record.system);
+  if (direct.length && (!expectedBlocks || direct.length === expectedBlocks)) {
+    const rows = direct.map((row, index) => ({
+      blockId: String(row.id || ''),
+      order: index + 1,
+      kpCount: Number(row.kp || 0)
+    }));
+    if (rows.some((row) => !row.blockId || !Number.isInteger(row.kpCount) || row.kpCount < 1)) {
+      throw new Error('CURRENT_XIZONG_FORECAST_DIRECT_ROUTE_INVALID:' + record.identity.systemId);
+    }
+    const kpSum = rows.reduce((sum, row) => sum + row.kpCount, 0);
+    if (expectedKp && kpSum !== expectedKp) {
+      throw new Error('CURRENT_XIZONG_FORECAST_KP_COUNT_MISMATCH:' + record.identity.systemId + ':' + kpSum + '/' + expectedKp);
+    }
+    return rows;
+  }
+
   const blocksPath = SYSTEMS_ROOT + '/' + record.dirName + '/blocks';
   if (!fs.existsSync(absolute(blocksPath))) {
     throw new Error('CURRENT_XIZONG_FORECAST_BLOCKS_MISSING:' + record.identity.systemId);
@@ -361,13 +381,11 @@ function xizongForecastBlockRecords(record) {
       if (!blockId || !Number.isInteger(order) || order < 1 || !Number.isInteger(kpCount) || kpCount < 1) {
         return null;
       }
-      return { blockId, order, kpCount, sourcePath: relativePath };
+      return { blockId, order, kpCount };
     })
     .filter(Boolean)
     .sort((a, b) => a.order - b.order);
 
-  const expectedBlocks = Number(record.system?.identity?.block_count || 0);
-  const expectedKp = Number(record.system?.identity?.canonical_kp_count || 0);
   if (expectedBlocks && rows.length !== expectedBlocks) {
     throw new Error('CURRENT_XIZONG_FORECAST_BLOCK_COUNT_MISMATCH:' + record.identity.systemId + ':' + rows.length + '/' + expectedBlocks);
   }
