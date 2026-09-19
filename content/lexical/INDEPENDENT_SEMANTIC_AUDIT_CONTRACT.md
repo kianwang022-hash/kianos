@@ -36,6 +36,46 @@ A field being populated, a validator being green, a prior audit being green, or 
 
 ---
 
+### 0.1 Production self-attack does not satisfy independent audit
+
+Production may and should attack its own candidate before Human Gate under CONTENT_EXECUTION.md §3C.
+
+That pass is intentionally **SELF** evidence:
+
+```text
+fresh production judgment
+→ same-actor self-adversarial attack
+= stronger production candidate
+≠ independent semantic acceptance
+```
+
+Independent Audit must still use the blind-first protocol in §6.
+
+For the current Baseline-v2 flow, the strongest normal closure sequence is:
+
+```text
+Production fresh judgment
+→ Production self-adversarial attack
+→ Kian Human Gate
+→ approved candidate materialization on branch
+→ fresh Independent Audit
+→ reconciliation
+→ merge / Current advancement
+```
+
+The Independent Auditor specifically challenges:
+
+- unnecessary dictionary-completeness upgrades;
+- missed high-leverage Expansion caused by exam-only over-pruning;
+- wrong Core / Expansion / Reference placement;
+- wrong Word / Relation / Form ownership;
+- mis-ranked ordinary branches;
+- Test blueprints that do not change a future Repair decision.
+
+If Independent Audit finds a **new semantic scope** that was not in the approved Human-Gate report, do not silently mutate it under the old approval. Surface that scope at the next Human Gate or explicitly re-gate the current batch when it is material enough to block closure.
+
+An Independent finding may automatically **narrow or remove** an approved mutation (`FLIP_TO_NO_CHANGE`, or a bounded `REFINE_UPGRADE` that preserves the already-approved learner intent). It may not silently broaden learner scope.
+
 ## 1. Frozen audit decision vocabulary
 
 Every independently audited owner must terminate with exactly one audit decision:

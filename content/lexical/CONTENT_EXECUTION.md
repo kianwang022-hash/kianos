@@ -81,6 +81,8 @@ Required sequence:
 ```text
 fresh-read the whole shard
 → judge Content + Repair Test needs together
+→ run the mandatory Production self-adversarial attack in §3C
+→ freeze the post-attack proposal
 → give Kian one plain-language shard report
 → Kian approves once
 → automatically apply only the reported/approved Content fixes
@@ -122,6 +124,68 @@ Hard rules:
 Learner-page / UI changes remain governed separately and are never implied by Content approval.
 
 ---
+
+## 3C. Production self-adversarial attack — mandatory before Human Gate
+
+Baseline-v2 production must not send its first draft judgment directly to Kian.
+
+After the whole Human-Gate batch has received a fresh owner/module judgment, the **same Production Chat** performs one bounded self-adversarial pass before writing the report.
+
+This is stronger than casual self-review, but it is **not independent audit evidence**.
+
+Required challengers:
+
+```text
+A. OVER-UPGRADE
+   If we do nothing, would the learner actually lose a material decision,
+   transfer advantage, or high-leverage Expansion?
+   If no, remove/narrow the proposed mutation.
+
+B. UNDER-UPGRADE
+   What is the strongest plausible missed Core/Decision or high-leverage Expansion?
+   Look especially for familiar-new branches, non-obvious Form, morphology,
+   academic/professional use, and real cross-word boundaries.
+
+C. LAYER PLACEMENT
+   Is this truth correctly placed in Core / Expansion / Reference?
+   Good knowledge in the wrong attention layer is still a defect.
+
+D. OWNER PLACEMENT
+   Does the truth belong to Word, Relation, or Form/Identity?
+   Do not manufacture a Relation because a Form boundary exists, or a fake Sense
+   because pronunciation/capitalization owns the distinction.
+
+E. NEGATIVE SPACE
+   What should deliberately stay out of default Study?
+   Attack dictionary-completeness inflation, rare specialist micro-senses,
+   historical trivia, and decorative family trees.
+
+F. TEST INFLATION
+   If the learner answered the proposed Test wrong, would that change the next
+   Repair decision?
+   If no, do not prebuild the Test merely because the Content is worth learning.
+
+G. EXAM-ONLY OVERPRUNING
+   Did exam priority cause us to discard a genuinely high-leverage lexical asset
+   that supports broader vocabulary growth, academic English, morphology,
+   pronunciation/form recognition, or productive transfer?
+```
+
+The post-attack judgment supersedes the first draft.
+
+Record at batch level:
+
+```text
+draft upgrades/tests
+→ self-attack removals
+→ self-attack additions
+→ self-attack re-layerings / owner corrections
+→ final proposed Human-Gate set
+```
+
+The learner-facing Human Gate sees only the **post-attack** proposal, with plain-language before → after examples.
+
+Same-Chat self-attack may never be described as fresh or independent acceptance.
 
 ## 4. Fresh judgment and readback
 
