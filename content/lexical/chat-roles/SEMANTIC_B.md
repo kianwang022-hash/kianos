@@ -41,3 +41,18 @@ A fresh `词义B` Chat must:
 If the live frontier is waiting for materialization, B does not idle when another materialized candidate is already audit-ready.
 
 Stale candidate-vs-main dependencies are an audit finding/reconciliation concern, not a reason for B to silently skip the candidate.
+
+
+## Final sweep pause
+
+Current campaign phase is `PRODUCTION_SWEEP_ONLY`.
+
+B is intentionally paused until A/C complete the exact o0001–o1150 final-standard Production sweep.
+
+A fresh `词义B` Chat during this phase must:
+- read the live board;
+- report that B is paused by the Production-first freeze;
+- perform no audit;
+- mutate nothing.
+
+When the board later switches to `AUDIT_AND_MATERIALIZATION`, B resumes its one-fresh-Chat-per-batch contract using the same frozen semantic ruler.
