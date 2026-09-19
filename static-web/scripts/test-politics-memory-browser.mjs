@@ -63,7 +63,10 @@ async function check(name, fn) {
 }
 
 async function contextWith(plan = null, evidence = null) {
-  const context = await browser.newContext({ viewport: { width: 1512, height: 982 } });
+  const context = await browser.newContext({
+    viewport: { width: 1512, height: 982 },
+    timezoneId: 'Asia/Shanghai'
+  });
   await context.addInitScript(({ plan, evidence, planKey, evidenceKey }) => {
     if (plan) localStorage.setItem(planKey, JSON.stringify(plan));
     if (evidence) localStorage.setItem(evidenceKey, JSON.stringify(evidence));
