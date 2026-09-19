@@ -37,17 +37,30 @@ const localDay=()=>new Date().toLocaleDateString('en-CA');
 const readJson=(storage,key)=>{try{return JSON.parse(storage.getItem(key)||'null');}catch{return null;}};
 
 async function loadEnglishCatalog(){
-  const response=await fetch('/__kianos-private/external-reading/catalog',{cache:'no-store'});
-  if(!response.ok)throw new Error('KIANOS_CONTROL_ENGLISH_CATALOG_UNAVAILABLE:'+response.status);
-  const data=await response.json();
-  return(data.collections||[]).flatMap(group=>group.passages||[]).map(row=>({
-    task:'external_reading',
-    object_id:row.object_id,
-    source_hash:row.content_hash,
-    label:row.title||row.object_id,
-    study_day:row.study_day||null,
-    origin:row.origin||null
-  }));
+  let staticRows=[];
+  try{
+    const node=document.querySelector('[data-english-resume-catalog]');
+    const parsed=JSON.parse(node?.textContent||'[]');
+    staticRows=Array.isArray(parsed)?parsed:[];
+  }catch{}
+  let externalRows=[];
+  try{
+    const response=await fetch('/__kianos-private/external-reading/catalog',{cache:'no-store'});
+    if(response.ok){
+      const data=await response.json();
+      externalRows=(data.collections||[]).flatMap(group=>group.passages||[]).map(row=>({
+        task:'external_reading',
+        object_id:row.object_id,
+        source_hash:row.content_hash,
+        label:row.title||row.object_id,
+        study_day:row.study_day||null,
+        origin:row.origin||null
+      }));
+    }
+  }catch{}
+  const rows=[...staticRows,...externalRows];
+  if(!rows.length)throw new Error('KIANOS_CONTROL_ENGLISH_CATALOG_UNAVAILABLE');
+  return rows;
 }
 
 function changesBetween(real,shadow){
