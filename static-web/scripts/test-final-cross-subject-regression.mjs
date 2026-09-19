@@ -56,10 +56,10 @@ const check = (condition, name, detail = '') => {
 let server = null;
 let serverOutput = '';
 
-async function startServer() {
+async function startServer(cwd = sourceWebRoot) {
   serverOutput = '';
   server = spawn('npm', ['run', 'dev', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
-    cwd: process.cwd(),
+    cwd,
     env: { ...process.env, KIANOS_PRIVATE_DIR: privateDir },
     stdio: ['ignore', 'pipe', 'pipe'],
     detached: process.platform !== 'win32'
@@ -91,6 +91,44 @@ async function stopServer() {
     sleep(1500)
   ]);
   server = null;
+}
+
+function prepareSyncedCurrentMirror() {
+  execFileSync('git', ['clone', '--bare', repoRoot, currentSyncRemoteDir], { stdio: 'pipe' });
+  execFileSync('git', [`--git-dir=${currentSyncRemoteDir}`, 'update-ref', 'refs/heads/main', report.tested_commit], { stdio: 'pipe' });
+  execFileSync('git', ['clone', '--branch', 'main', currentSyncRemoteDir, currentSyncMirrorDir], { stdio: 'pipe' });
+  execFileSync('git', ['config', 'user.email', 'regression@kianos.local'], { cwd: currentSyncMirrorDir });
+  execFileSync('git', ['config', 'user.name', 'KianOS Regression'], { cwd: currentSyncMirrorDir });
+  execFileSync('git', ['commit', '--allow-empty', '-m', 'synthetic pre-sync Current state'], {
+    cwd: currentSyncMirrorDir,
+    stdio: 'pipe'
+  });
+  fs.writeFileSync(path.join(currentSyncMirrorDir, '.git', 'kianos-current-mirror'), 'regression\n');
+
+  const mirrorWebRoot = path.join(currentSyncMirrorDir, 'static-web');
+  execFileSync(process.execPath, ['scripts/kianos-current-sync.mjs'], {
+    cwd: mirrorWebRoot,
+    env: {
+      ...process.env,
+      KIANOS_SYNC_ONCE: '1',
+      KIANOS_SKIP_ASTRO: '1',
+      KIANOS_PRIVATE_DIR: privateDir
+    },
+    stdio: 'pipe'
+  });
+
+  const syncedSha = execFileSync('git', ['rev-parse', 'HEAD'], {
+    cwd: currentSyncMirrorDir,
+    encoding: 'utf8'
+  }).trim();
+
+  const sourceModules = path.join(sourceWebRoot, 'node_modules');
+  const mirrorModules = path.join(mirrorWebRoot, 'node_modules');
+  if (!fs.existsSync(sourceModules)) throw new Error('FINAL_CROSS_SUBJECT_NODE_MODULES_MISSING');
+  if (!fs.existsSync(mirrorModules)) {
+    fs.symlinkSync(sourceModules, mirrorModules, process.platform === 'win32' ? 'junction' : 'dir');
+  }
+  return { mirrorWebRoot, syncedSha };
 }
 
 function freezeAndCaptureClipboard(context) {
@@ -445,12 +483,26 @@ try {
     && Boolean(remote.body.checkpoint?.payload?.subjects?.politics),
     'Private checkpoint captures Xizong + English + Politics subject payloads');
 
-  // 7. Restart Astro itself, then use a clean browser profile. Durable truth must survive both.
+  // 7. Simulate the real Current mirror lifecycle: Git replaces the disposable mirror,
+  // Astro restarts from the synced checkout, and private learner truth stays outside Git.
+  const checkpointBeforeSync = readCheckpointFile(privateDir);
+  check(!path.resolve(privateDir).startsWith(path.resolve(currentSyncMirrorDir) + path.sep),
+    'Private checkpoint lives outside the disposable Current mirror');
+
   await context.close();
   await stopServer();
-  await startServer();
+
+  const syncedCurrent = prepareSyncedCurrentMirror();
+  check(syncedCurrent.syncedSha === report.tested_commit,
+    'Current sync advances the disposable mirror to the tested commit');
+
+  const checkpointAfterSync = readCheckpointFile(privateDir);
+  check(checkpointAfterSync.checkpoint_id === checkpointBeforeSync.checkpoint_id,
+    'Current sync leaves the private checkpoint intact');
+
+  await startServer(syncedCurrent.mirrorWebRoot);
   check(fs.existsSync(path.join(privateDir, 'latest.json')),
-    'private checkpoint survives Astro process restart');
+    'private checkpoint survives Current sync and Astro process restart');
 
   const restoredContext = await browser.newContext({ viewport: { width: 1512, height: 982 }, timezoneId: 'Asia/Shanghai' });
   await freezeAndCaptureClipboard(restoredContext);
@@ -472,7 +524,7 @@ try {
     PRACTICE_KEYS.attempts
   ]);
   check(Object.values(restored).every((value) => typeof value === 'string' && value.length > 0),
-    'Astro restart + fresh browser profile restore shared + three-subject durable state');
+    'Current sync + Astro restart + fresh browser restore shared + three-subject durable state');
   check(JSON.parse(restored[EXAM_CHAT_PLAN_KEY]).next_subject === 'xizong',
     'Restored Home keeps exact Chat Plan');
 
@@ -507,4 +559,5 @@ try {
   try { await browser?.close(); } catch {}
   await stopServer();
   fs.rmSync(privateDir, { recursive: true, force: true });
+  fs.rmSync(currentSyncScratch, { recursive: true, force: true });
 }
