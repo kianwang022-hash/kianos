@@ -27,6 +27,7 @@ on:
       - "static-web/scripts/test-private-daily-learning-packet.mjs"
       - "static-web/scripts/test-private-daily-learning-packet-relay.mjs"
       - "static-web/scripts/test-private-daily-learning-packet-bridge.mjs"
+      - "static-web/scripts/test-private-checkpoint-blur-flush.mjs"
       - ".github/workflows/private-chat-control.yml"
   pull_request:
     branches: [main]
@@ -72,6 +73,7 @@ jobs:
           node scripts/test-daily-learning-packet.mjs
           node scripts/test-private-daily-learning-packet-relay.mjs
           node scripts/test-private-daily-learning-packet-bridge.mjs
+          node scripts/test-private-checkpoint-blur-flush.mjs
           node scripts/test-english-generated-daily-packet.mjs
           node scripts/test-english-evidence-resume.mjs
           node scripts/test-english-generated-drill-store.mjs
