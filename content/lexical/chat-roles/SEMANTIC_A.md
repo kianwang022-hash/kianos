@@ -24,9 +24,9 @@ Before consuming `p` or emitting a mutation package, reread:
 - current main;
 - live board;
 - current frontier PR head and newest Audit Pack on that candidate branch;
-- C's shared write-set / shared-owner claims;
+- C's current write-set / semantic dependency set / shared semantic claims;
 - A's own proposal identity.
 
 If B has completed the live frontier audit, A records any still-valid approval for its own proposal, then prioritizes frontier reconciliation before later-batch materialization.
 
-Cross-word Relation/Form work follows the live shared-owner claim protocol. A's ordinal range never gives it private ownership of a Relation.
+Any cross-batch semantic dependency follows the live shared-semantic-claim protocol. A's ordinal range never gives it private ownership of related Word/Sense/Family/Form/Construction/Relation/Test truth.
