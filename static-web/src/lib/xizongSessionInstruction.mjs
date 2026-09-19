@@ -1,7 +1,6 @@
 import {
   XIZONG_MEMORY_STORAGE_KEY,
-  normalizeXizongMemoryState,
-  requestMemoryReview
+  normalizeXizongMemoryState
 } from './xizongMemoryModel.mjs';
 
 export const XIZONG_SESSION_SCHEMA = 'kianos.xizong.session-instruction.v1';
@@ -89,6 +88,8 @@ export function validateXizongSessionInstruction(value, expectedDay = null) {
   const steps = Array.isArray(value.steps) ? value.steps.map(normalizeStep) : [];
   if (!steps.length || steps.length > 20) fail('STEP_COUNT_INVALID', String(steps.length));
   if (new Set(steps.map((step) => step.step_id)).size !== steps.length) fail('STEP_ID_DUPLICATE');
+  const navigateIndex = steps.findIndex((step) => step.kind === 'NAVIGATE');
+  if (navigateIndex >= 0 && navigateIndex !== steps.length - 1) fail('NAVIGATE_MUST_BE_TERMINAL');
 
   const currentStep = Number(value.current_step ?? value.currentStep ?? 0);
   if (!Number.isInteger(currentStep) || currentStep < 0 || currentStep >= steps.length) {
@@ -136,7 +137,8 @@ export function applyXizongSessionInstruction(storage, input, {
       schema: 'kianos.xizong.session-runtime.v1',
       session_id: instruction.session_id,
       installed_at: new Date(now).toISOString(),
-      activated_steps: []
+      activated_steps: [],
+      activated_at_by_step: {}
     }));
   } catch (error) {
     try {
@@ -158,12 +160,16 @@ function sessionRuntime(storage, instruction) {
       schema: 'kianos.xizong.session-runtime.v1',
       session_id: instruction.session_id,
       installed_at: instruction.generated_at,
-      activated_steps: []
+      activated_steps: [],
+      activated_at_by_step: {}
     };
   }
   return {
     ...raw,
-    activated_steps: Array.isArray(raw.activated_steps) ? [...raw.activated_steps] : []
+    activated_steps: Array.isArray(raw.activated_steps) ? [...raw.activated_steps] : [],
+    activated_at_by_step: raw.activated_at_by_step && typeof raw.activated_at_by_step === 'object'
+      ? { ...raw.activated_at_by_step }
+      : {}
   };
 }
 
@@ -177,7 +183,8 @@ function practiceSweepKey(instruction, step) {
 }
 
 function stepIsComplete(storage, instruction, step) {
-  const issuedAt = Date.parse(instruction.generated_at);
+  const runtime = sessionRuntime(storage, instruction);
+  const activatedAt = Date.parse(runtime.activated_at_by_step?.[step.step_id] || instruction.generated_at);
 
   if (step.kind === 'MEMORY_REVIEW') {
     const memory = normalizeXizongMemoryState(readJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
@@ -185,14 +192,18 @@ function stepIsComplete(storage, instruction, step) {
       memory.evidence.some((row) =>
         row?.cardId === cardId
         && Number.isFinite(Date.parse(row?.at))
-        && Date.parse(row.at) >= issuedAt
+        && Date.parse(row.at) >= activatedAt
       )
     );
   }
 
   if (step.kind === 'PRACTICE_SET') {
     const state = readJson(storage, practiceSweepKey(instruction, step), null);
-    return step.question_ids.every((id) => state?.results?.[id]);
+    const history = Array.isArray(state?.attemptHistory) ? state.attemptHistory : [];
+    return step.question_ids.every((id) =>
+      history.some((row) => row?.type === 'QUESTION_ATTEMPT' && row?.question_id === id)
+      || Boolean(state?.results?.[id])
+    );
   }
 
   // NAVIGATE is intentionally terminal/non-evidentiary in this prototype.
@@ -204,7 +215,14 @@ export function resolveXizongSessionNext(storage, instruction) {
   for (let i = value.current_step; i < value.steps.length; i += 1) {
     const step = value.steps[i];
     if (stepIsComplete(storage, value, step)) continue;
-    if (step.kind === 'MEMORY_REVIEW') return { index: i, step, href: '/xizong/memory/' };
+    if (step.kind === 'MEMORY_REVIEW') {
+      return {
+        index: i,
+        step,
+        href: '/xizong/memory/?session=' + encodeURIComponent(value.session_id)
+          + '&step=' + encodeURIComponent(step.step_id)
+      };
+    }
     if (step.kind === 'PRACTICE_SET') return { index: i, step, href: '/xizong/practice/chat-set/' };
     if (step.kind === 'NAVIGATE') return { index: i, step, href: step.href };
   }
@@ -233,12 +251,12 @@ export function activateXizongSessionNext(storage, instruction, {
 
   try {
     if (next.step.kind === 'MEMORY_REVIEW') {
-      let memory = normalizeXizongMemoryState(readJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
+      const memory = normalizeXizongMemoryState(readJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
       for (const cardId of next.step.card_ids) {
         if (!memory.cards[cardId]) fail('MEMORY_CARD_UNKNOWN', cardId);
-        memory = requestMemoryReview(memory, cardId, true, 'CHAT_SELECTED');
       }
-      storage.setItem(XIZONG_MEMORY_STORAGE_KEY, JSON.stringify(memory));
+      // Do not mutate attention / weakWeight. The Memory workspace should render the
+      // exact session-selected cards from the active Session instruction.
     }
 
     if (next.step.kind === 'PRACTICE_SET') {
@@ -260,6 +278,10 @@ export function activateXizongSessionNext(storage, instruction, {
     }
 
     runtime.activated_steps = [...runtime.activated_steps, next.step.step_id];
+    runtime.activated_at_by_step = {
+      ...(runtime.activated_at_by_step || {}),
+      [next.step.step_id]: new Date(now).toISOString()
+    };
     runtime.updated_at = new Date(now).toISOString();
     storage.setItem(XIZONG_SESSION_RUNTIME_KEY, JSON.stringify(runtime));
     return { status: 'activated', next };
