@@ -68,6 +68,27 @@ async function storeClaims(page, task) {
   }, task);
 }
 
+async function declareSyntheticUnseen(page, objectId) {
+  await page.evaluate((id) => {
+    const key = 'kianos-english-material-exposure-v1';
+    const ledger = JSON.parse(localStorage.getItem(key) || '{"schema":"kianos.english.material-exposure.v1","materials":{}}');
+    if (ledger?.materials?.[id]?.events?.length) throw new Error('SYNTHETIC_UNSEEN_ALREADY_EXPOSED:' + id);
+    ledger.schema = 'kianos.english.material-exposure.v1';
+    ledger.materials ||= {};
+    ledger.materials[id] = {
+      object_id: id,
+      events: [],
+      declaration: {
+        state: 'unseen',
+        basis: 'learner_statement',
+        observed_at: new Date().toISOString(),
+        note: 'SYNTHETIC TEST testimony only; not Kian learner evidence.'
+      }
+    };
+    localStorage.setItem(key, JSON.stringify(ledger));
+  }, objectId);
+}
+
 async function openImporter(page) {
   const toggle = page.locator('[data-transfer-toggle]');
   await toggle.waitFor({ state: 'visible' });
@@ -263,7 +284,9 @@ async function chromiumJourney() {
   check(clozeClaims.find((claim) => claim.claimId === claimId)?.status === 'TRANSFER_PENDING', 'clean_task_leaves_dormant_claim_unchanged');
 
   // Later normal work can update a claim opportunistically when an actual problem already justifies deep review.
+  // Fresh closure is allowed only after explicit unseen testimony; missing history remains unknown.
   const closeItem = loadClozeById(closeId);
+  await declareSyntheticUnseen(page, closeId);
   await page.goto(`${BASE}/cloze/${encodeURIComponent(closeId)}/`);
   await answerCloze(page, closeItem, loadClozeAnswersById(closeId), 0);
   const closeAttempt = await page.evaluate((id) =>
@@ -305,6 +328,7 @@ async function chromiumJourney() {
 
   // A later contradictory fresh problem can conservatively reopen the exact closed claim.
   const reopenItem = loadClozeById(reopenId);
+  await declareSyntheticUnseen(page, reopenId);
   await page.goto(`${BASE}/cloze/${encodeURIComponent(reopenId)}/`);
   await answerCloze(page, reopenItem, loadClozeAnswersById(reopenId), 0);
   const reopenAttempt = await page.evaluate((id) =>
