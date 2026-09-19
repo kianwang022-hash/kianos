@@ -105,7 +105,7 @@ export function applyPoliticsMemoryPlan(storage, catalog, input, options = {}) {
     } catch {}
     throw error;
   }
-  return { status: replacedStaleDay ? 'replaced_stale_day' : current ? 'superseded' : 'applied', plan };
+  return { status: current ? 'superseded' : 'applied', plan };
 }
 
 function readEvidence(storage) {
@@ -291,7 +291,7 @@ export function stagePoliticsMemoryPlan(storage, input, {
     } catch {}
     throw error;
   }
-  return { status: current ? 'superseded' : 'applied', plan };
+  return { status: replacedStaleDay ? 'replaced_stale_day' : current ? 'superseded' : 'applied', plan };
 }
 
 
