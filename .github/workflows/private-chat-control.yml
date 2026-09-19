@@ -16,6 +16,8 @@ on:
       - "static-web/src/lib/examPlanReadModel.mjs"
       - "static-web/src/lib/examOrchestratorClient.mjs"
       - "static-web/src/lib/dailyLearningPacket.mjs"
+      - "static-web/src/lib/politicsPracticeState.mjs"
+      - "static-web/src/lib/xizong.mjs"
       - "static-web/src/layouts/BaseFrame.astro"
       - "static-web/astro.config.mjs"
       - "static-web/scripts/test-private-control-*.mjs"
@@ -45,6 +47,8 @@ on:
       - "static-web/src/lib/examPlanReadModel.mjs"
       - "static-web/src/lib/examOrchestratorClient.mjs"
       - "static-web/src/lib/dailyLearningPacket.mjs"
+      - "static-web/src/lib/politicsPracticeState.mjs"
+      - "static-web/src/lib/xizong.mjs"
       - "static-web/src/layouts/BaseFrame.astro"
       - "static-web/astro.config.mjs"
       - "static-web/scripts/test-private-control-*.mjs"
@@ -95,6 +99,10 @@ jobs:
       - name: Private packet projection proof
         working-directory: static-web
         run: node scripts/test-private-daily-learning-packet.mjs
+
+      - name: Xizong representation proof
+        working-directory: static-web
+        run: npm run validate:xizong-representation
 
       - name: Build candidate site
         working-directory: static-web
