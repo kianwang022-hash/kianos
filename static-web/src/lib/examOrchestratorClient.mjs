@@ -23,6 +23,7 @@ import { buildChatControlledExamReadModel } from './examPlanReadModel.mjs';
 import { readPoliticsSnapshot, resolvePoliticsContinue } from './politicsPracticeState.mjs';
 import { buildHomeDailyLearningPacket } from './dailyLearningPacketRuntime.mjs';
 import { serializeDailyLearningPacketForChat } from './dailyLearningPacket.mjs';
+import { attachXizongChatReturnContract } from './xizongChatReturn.mjs';
 
 const names = { xizong: '西综', english: '英语', politics: '政治' };
 const PRODUCT_FAMILIES = ['xizong', 'english', 'reading', 'cloze', 'reading-b', 'translation', 'writing', 'politics', 'vocabulary'];
@@ -317,6 +318,21 @@ export function initExamHome(root) {
         politicsCatalog,
         base: catalog.base || '/'
       });
+      const xizongEvidence = result.packet?.subjects?.xizong?.evidence || null;
+      const currentBlock = xizongEvidence?.current_block || null;
+      if (currentBlock?.schema === 'kianos.xizong.study_packet.v3') {
+        const blockId = String(currentBlock.current?.block_id || '');
+        const row = xizongPacketIndex.find((item) => String(item?.blockId || '') === blockId) || null;
+        const returnHref = row
+          ? `${catalog.base || '/'}xizong/${row.systemId}/${row.slug}/`
+          : '';
+        if (returnHref) {
+          xizongEvidence.current_block = attachXizongChatReturnContract(localStorage, currentBlock, {
+            returnHref,
+            now: Date.now()
+          });
+        }
+      }
       const text = serializeDailyLearningPacketForChat(result.packet);
       try {
         await navigator.clipboard.writeText(text);
