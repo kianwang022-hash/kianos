@@ -47,10 +47,15 @@ const storage=new MemoryStorage({
   [XIZONG_MEMORY_STORAGE_KEY]:JSON.stringify(memory),
   [sweepKey]:JSON.stringify({
     results:{
-      'xizong-official-2024-n001':{status:'wrong',selected:['A']},
-      'xizong-official-2023-n002':{status:'uncertain',selected:['B']},
-      'xizong-official-2022-n003':{status:'stable',selected:['C']}
-    }
+      'xizong-official-2024-n001':{status:'wrong',selected:['A'],attemptId:'a-2024',roundId:'round-1',updatedAt:'2026-09-20T00:50:00.000Z'},
+      'xizong-official-2023-n002':{status:'uncertain',selected:['B'],attemptId:'a-2023',roundId:'round-1',updatedAt:'2026-09-20T00:55:00.000Z'},
+      'xizong-official-2022-n003':{status:'stable',selected:['C'],attemptId:'a-2022',roundId:'round-1',updatedAt:'2026-09-20T00:40:00.000Z'}
+    },
+    attemptHistory:[
+      {type:'QUESTION_ATTEMPT',question_id:'xizong-official-2024-n001',attempt_id:'a-2024',round_id:'round-1',status:'wrong',submitted_at:'2026-09-20T00:50:00.000Z'},
+      {type:'QUESTION_ATTEMPT',question_id:'xizong-official-2023-n002',attempt_id:'a-2023',round_id:'round-1',status:'uncertain',submitted_at:'2026-09-20T00:55:00.000Z'},
+      {type:'QUESTION_ATTEMPT',question_id:'xizong-official-2022-n003',attempt_id:'a-2022',round_id:'round-1',status:'stable',submitted_at:'2026-09-20T00:40:00.000Z'}
+    ]
   })
 });
 
@@ -62,12 +67,20 @@ const returned={
   plan:[
     {
       question_id:'xizong-official-2024-n001',
+      status:'wrong',
+      attempt_id:'a-2024',
+      submitted_at:'2026-09-20T00:50:00.000Z',
+      round_id:'round-1',
       reason:'机制链断点',
       action:'只修这个机制',
       priority:'high'
     },
     {
       question_id:'xizong-official-2023-n002',
+      status:'uncertain',
+      attempt_id:'a-2023',
+      submitted_at:'2026-09-20T00:55:00.000Z',
+      round_id:'round-1',
       reason:'仍然不确定',
       action:'保留题号，不能猜映射',
       priority:'medium'
@@ -80,7 +93,7 @@ assert.equal(valid.plan.length,2);
 assert.throws(()=>validateXizongSystemWuReturn({
   ...returned,
   return_id:'bad-mapping',
-  plan:[{question_id:'xizong-official-2024-n001',block_id:'circulation-b01',kp_id:'circulation-b01-kp01'}]
+  plan:[{question_id:'xizong-official-2024-n001',status:'wrong',attempt_id:'a-2024',submitted_at:'2026-09-20T00:50:00.000Z',block_id:'circulation-b01',kp_id:'circulation-b01-kp01'}]
 },systemId),/UNTRUSTED_MAPPING/);
 
 const first=applyXizongSystemWuReturn(storage,returned,{
@@ -112,7 +125,8 @@ assert.equal(JSON.parse(storage.getItem(XIZONG_MEMORY_STORAGE_KEY)).repairTasks.
 const staleStorage=new MemoryStorage({
   [XIZONG_MEMORY_STORAGE_KEY]:JSON.stringify(memory),
   [sweepKey]:JSON.stringify({
-    results:{'xizong-official-2024-n001':{status:'stable'}}
+    results:{'xizong-official-2024-n001':{status:'stable',attemptId:'a-new',roundId:'round-2',updatedAt:'2026-09-20T03:00:00.000Z'}},
+    attemptHistory:[{type:'QUESTION_ATTEMPT',question_id:'xizong-official-2024-n001',attempt_id:'a-new',round_id:'round-2',status:'stable',submitted_at:'2026-09-20T03:00:00.000Z'}]
   })
 });
 assert.throws(()=>applyXizongSystemWuReturn(staleStorage,{
@@ -122,9 +136,24 @@ assert.throws(()=>applyXizongSystemWuReturn(staleStorage,{
 },{questions,routes,practiceHref:'/xizong/practice/circulation/'}),/QUESTION_NOT_CURRENT_WU/);
 assert.equal(JSON.parse(staleStorage.getItem(XIZONG_MEMORY_STORAGE_KEY)).repairTasks.length,0);
 
+// Same status with a newer attempt is still stale: diagnosis binds to one observation, not just question/status.
+const newerWrongStorage=new MemoryStorage({
+  [XIZONG_MEMORY_STORAGE_KEY]:JSON.stringify(memory),
+  [sweepKey]:JSON.stringify({
+    results:{'xizong-official-2024-n001':{status:'wrong',attemptId:'a-2024-new',roundId:'round-2',updatedAt:'2026-09-20T03:30:00.000Z'}},
+    attemptHistory:[{type:'QUESTION_ATTEMPT',question_id:'xizong-official-2024-n001',attempt_id:'a-2024-new',round_id:'round-2',status:'wrong',submitted_at:'2026-09-20T03:30:00.000Z'}]
+  })
+});
+assert.throws(()=>applyXizongSystemWuReturn(newerWrongStorage,{
+  ...returned,
+  return_id:'same-status-newer-attempt',
+  plan:[returned.plan[0]]
+},{questions,routes,practiceHref:'/xizong/practice/circulation/'}),/QUESTION_EVIDENCE_STALE/);
+assert.equal(JSON.parse(newerWrongStorage.getItem(XIZONG_MEMORY_STORAGE_KEY)).repairTasks.length,0);
+
 // NO_ACTION never creates Repair.
 const noActionStorage=new MemoryStorage({
-  [sweepKey]:JSON.stringify({results:{'xizong-official-2024-n001':{status:'wrong'}}})
+  [sweepKey]:JSON.stringify({results:{'xizong-official-2024-n001':{status:'wrong',attemptId:'a-2024',roundId:'round-1',updatedAt:'2026-09-20T00:50:00.000Z'}},attemptHistory:[{type:'QUESTION_ATTEMPT',question_id:'xizong-official-2024-n001',attempt_id:'a-2024',round_id:'round-1',status:'wrong',submitted_at:'2026-09-20T00:50:00.000Z'}]})
 });
 const noAction=applyXizongSystemWuReturn(noActionStorage,{
   schema:XIZONG_SYSTEM_WU_RETURN_SCHEMA,
@@ -143,9 +172,13 @@ const pendingStorage=new MemoryStorage({
   [XIZONG_MEMORY_STORAGE_KEY]:JSON.stringify(memory),
   [sweepKey]:JSON.stringify({
     results:{
-      'xizong-official-2024-n001':{status:'wrong'},
-      'xizong-official-2023-n002':{status:'uncertain'}
-    }
+      'xizong-official-2024-n001':{status:'wrong',attemptId:'a-2024',roundId:'round-1',updatedAt:'2026-09-20T00:50:00.000Z'},
+      'xizong-official-2023-n002':{status:'uncertain',attemptId:'a-2023',roundId:'round-1',updatedAt:'2026-09-20T00:55:00.000Z'}
+    },
+    attemptHistory:[
+      {type:'QUESTION_ATTEMPT',question_id:'xizong-official-2024-n001',attempt_id:'a-2024',round_id:'round-1',status:'wrong',submitted_at:'2026-09-20T00:50:00.000Z'},
+      {type:'QUESTION_ATTEMPT',question_id:'xizong-official-2023-n002',attempt_id:'a-2023',round_id:'round-1',status:'uncertain',submitted_at:'2026-09-20T00:55:00.000Z'}
+    ]
   })
 });
 const staged=stageXizongSystemWuReturn(pendingStorage,returned,{now:Date.parse('2026-09-20T02:00:00Z')});
@@ -169,14 +202,20 @@ assert.equal(readXizongSystemWuPendingState(pendingStorage).pending_by_system[sy
 // Pending Return becomes STALE if learner state changes before System page consumes it.
 const pendingStale=new MemoryStorage({
   [XIZONG_MEMORY_STORAGE_KEY]:JSON.stringify(memory),
-  [sweepKey]:JSON.stringify({results:{'xizong-official-2024-n001':{status:'wrong'}}})
+  [sweepKey]:JSON.stringify({
+    results:{'xizong-official-2024-n001':{status:'wrong',attemptId:'a-2024',roundId:'round-1',updatedAt:'2026-09-20T00:50:00.000Z'}},
+    attemptHistory:[{type:'QUESTION_ATTEMPT',question_id:'xizong-official-2024-n001',attempt_id:'a-2024',round_id:'round-1',status:'wrong',submitted_at:'2026-09-20T00:50:00.000Z'}]
+  })
 });
 stageXizongSystemWuReturn(pendingStale,{
   ...returned,
   return_id:'pending-stale',
   plan:[returned.plan[0]]
 });
-pendingStale.setItem(sweepKey,JSON.stringify({results:{'xizong-official-2024-n001':{status:'stable'}}}));
+pendingStale.setItem(sweepKey,JSON.stringify({
+  results:{'xizong-official-2024-n001':{status:'stable',attemptId:'a-new',roundId:'round-2',updatedAt:'2026-09-20T04:00:00.000Z'}},
+  attemptHistory:[{type:'QUESTION_ATTEMPT',question_id:'xizong-official-2024-n001',attempt_id:'a-new',round_id:'round-2',status:'stable',submitted_at:'2026-09-20T04:00:00.000Z'}]
+}));
 const staleConsume=consumePendingXizongSystemWuReturn(pendingStale,{
   systemId,questions,routes,practiceHref:'/xizong/practice/circulation/'
 });
@@ -197,7 +236,7 @@ assert.throws(()=>stageXizongSystemWuReturn(conflictStorage,{
 // Corrupt Memory must fail closed and preserve bytes.
 const corruptMemoryStorage=new MemoryStorage({
   [XIZONG_MEMORY_STORAGE_KEY]:'{bad-json',
-  [sweepKey]:JSON.stringify({results:{'xizong-official-2024-n001':{status:'wrong'}}})
+  [sweepKey]:JSON.stringify({results:{'xizong-official-2024-n001':{status:'wrong',attemptId:'a-2024',roundId:'round-1',updatedAt:'2026-09-20T00:50:00.000Z'}},attemptHistory:[{type:'QUESTION_ATTEMPT',question_id:'xizong-official-2024-n001',attempt_id:'a-2024',round_id:'round-1',status:'wrong',submitted_at:'2026-09-20T00:50:00.000Z'}]})
 });
 assert.throws(()=>applyXizongSystemWuReturn(corruptMemoryStorage,{
   ...returned,
@@ -213,7 +252,7 @@ assert.throws(()=>applyXizongSystemWuReturn(new MemoryStorage({
 }),{
   ...returned,
   return_id:'unknown-q',
-  plan:[{question_id:'unknown-q',reason:'x',action:'y',priority:'high'}]
+  plan:[{question_id:'unknown-q',status:'wrong',attempt_id:'unknown-attempt',submitted_at:'2026-09-20T05:00:00.000Z',reason:'x',action:'y',priority:'high'}]
 },{questions,routes,practiceHref:'/xizong/practice/circulation/'}),/QUESTION_NOT_CURRENT_WU/);
 
 assert.equal(JSON.parse(pendingStorage.getItem(XIZONG_SYSTEM_WU_PENDING_KEY)).last_receipt.status,'APPLIED');
