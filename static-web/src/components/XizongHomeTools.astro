@@ -8,17 +8,17 @@ const {
 
 <section class="xzHomeSection xzHomeContinueBand" data-xizong-home-tools>
   <header class="xzHomeSectionHead">
-    <span>CONTINUE</span>
+    <span>继续学习</span>
   </header>
 
   <a class="xzHomeContinue" data-xizong-continue href={firstHref}>
     <div class="xzHomeContinueCopy">
       <span data-xizong-continue-location>{firstLabel}</span>
-      <strong data-xizong-continue-title>从 System Guide 开始</strong>
+      <strong data-xizong-continue-title>从系统导学开始</strong>
       <p data-xizong-continue-detail>第一次进入西综</p>
     </div>
     <div class="xzHomeContinueState">
-      <span data-xizong-continue-stage>SYSTEM GUIDE</span>
+      <span data-xizong-continue-stage>系统导学</span>
       <strong data-xizong-continue-position>{firstLabel}</strong>
       <b data-xizong-continue-action>开始 →</b>
     </div>
@@ -62,16 +62,16 @@ const {
       const kpNo = Math.max(1, Number(state?.kpIndex || 0) + 1);
       const kpTotal = Math.max(0, Number(block?.kpCount || 0));
       const views = {
-        block_learn: ['BLOCK FRAMEWORK', block?.label || 'Block', '继续 Block →'],
-        source_contact: ['KP LEARN', '原讲义 + KP Learn', '继续学习 →'],
-        logic_group: ['LOGIC GROUP', `学习节 ${groupNo}`, '继续学习 →'],
-        kp_learn: ['KP LEARN', `学习节 ${groupNo}`, '继续学习 →'],
-        kp_recall: ['KP RECALL', kpTotal ? `KP ${Math.min(kpNo, kpTotal)} / ${kpTotal}` : `KP ${kpNo}`, '继续 Recall →'],
-        group_close: ['LG CLOSURE', `学习节 ${groupNo}`, '继续收口 →'],
-        block_recall: ['BLOCK RECALL', state?.blockRecallDone ? '本轮已完成' : '等待重建', '继续 Recall →'],
-        block_complete: ['BLOCK COMPLETE', state?.completed ? '第一轮已完成' : '等待确认', state?.completed ? '查看 Block →' : '完成本轮 →']
+        block_learn: ['模块框架', block?.label || '当前模块', '继续 →'],
+        source_contact: ['原讲义学习', '原讲义 + 知识点', '继续 →'],
+        logic_group: ['学习节', `第 ${groupNo} 节`, '继续 →'],
+        kp_learn: ['知识点学习', `第 ${groupNo} 节`, '继续 →'],
+        kp_recall: ['主动回忆', kpTotal ? `第 ${Math.min(kpNo, kpTotal)} / ${kpTotal} 个知识点` : `第 ${kpNo} 个知识点`, '继续回忆 →'],
+        group_close: ['学习节收口', `第 ${groupNo} 节`, '继续 →'],
+        block_recall: ['模块回忆', state?.blockRecallDone ? '本轮已完成' : '等待重建', '继续回忆 →'],
+        block_complete: ['模块完成', state?.completed ? '第一轮已完成' : '等待确认', state?.completed ? '查看模块 →' : '完成本轮 →']
       };
-      return views[current] || ['CONTINUE', block?.label || '当前 Block', '继续 →'];
+      return views[current] || ['继续学习', block?.label || '当前模块', '继续 →'];
     };
 
     if (last?.href && link instanceof HTMLAnchorElement) {
@@ -92,16 +92,16 @@ const {
         const blockState = parse(localStorage.getItem(stateKey), {});
         const [stageLabel, stagePosition, actionLabel] = stageView(blockState, block);
         setText(title, `${block.label} · ${block.title}`);
-        setText(detail, '恢复最近的 Block 学习现场');
+        setText(detail, '回到最近学习位置');
         setText(stage, stageLabel);
         setText(position, stagePosition);
         setText(action, actionLabel);
       } else {
-        setText(title, '继续 System Guide');
-        setText(detail, '恢复最近的 System');
-        setText(stage, 'SYSTEM GUIDE');
+        setText(title, '继续系统导学');
+        setText(detail, '回到最近学习位置');
+        setText(stage, '系统导学');
         setText(position, `${system?.canonicalId || last.systemCanonical || ''} · ${system?.title || last.systemTitle || last.systemId}`);
-        setText(action, '继续 System →');
+        setText(action, '继续 →');
       }
 
       document.querySelectorAll('[data-xizong-system-entry]').forEach((entry) => {
