@@ -1014,3 +1014,68 @@ Next Human-Gate batch: **o1151–o1250 — FRESH READ + COMBINED CONTENT/TEST RE
 Apply one Human Gate per ~100 owners: internally fresh-read in bounded ~50-owner slices, then combine real Content defects and worthwhile Repair Test candidates into one plain-language 100-owner report and wait for one Kian approval. After approval, automatically close the approved slices and advance to the next 100-owner batch.
 
 Interaction rule: **one Human Gate = ~100 owners**, while backend semantic review remains bounded in ~50-owner slices. The combined report merges Content fixes + Repair Test candidates across both slices. Once Kian approves that report, automatically write all reported/approved Content and Test changes, rebuild/read back/validate, advance the cursor, and begin the next 100-owner batch without inserting another approval step.
+
+
+---
+
+## Three-Chat final-standard runtime — ACTIVE 2026-09-19
+
+This section is the **current scheduling authority** for the Lexical final-standard backfill. It supersedes older single-Chat “Next Human-Gate batch” scheduling text, but does not replace semantic/audit contracts.
+
+Canonical runtime:
+`content/lexical/THREE_CHAT_RUNTIME.md`
+
+Live allocation board:
+`content/lexical/execution/three-chat-board.json`
+
+Fresh-chat trigger aliases:
+
+```text
+词义A
+→ Production A + frontier integration
+→ role file: content/lexical/chat-roles/SEMANTIC_A.md
+
+词义B
+→ Fresh Independent Semantic Audit
+→ exactly one candidate batch per fresh Chat
+→ role file: content/lexical/chat-roles/SEMANTIC_B.md
+
+词义C
+→ Production C + one-batch lookahead
+→ role file: content/lexical/chat-roles/SEMANTIC_C.md
+```
+
+Kian should not need to restate the batch, prior progress, or rules after using one of those three trigger names. Each Chat must read the live board and execute its assigned action directly.
+
+### Active bootstrap
+
+```text
+词义B:
+  audit PR #525
+  o0001–o0100
+  fresh blind-first only
+
+词义A:
+  prepare o0101–o0200
+  fresh read + Self Attack + bounded delta proposal
+  canonical semantic mutation is not yet allowed
+  also owns PR #525 reconciliation after B returns
+
+词义C:
+  prepare o0201–o0300
+  fresh read + Self Attack + bounded delta proposal
+  canonical semantic mutation is not yet allowed
+```
+
+The existing o1151–o1250 candidate PR #520 remains preserved and audit-pending. It must receive its own fresh B audit and later reconcile/rematerialize against the then-current main before merge.
+
+### Concurrency safety
+
+A and C may review different batches at the same time. They may not independently land stale canonical semantic candidates.
+
+Only the live frontier may materialize semantic owners / shared Relations / Final Learner Objects.
+
+A later batch may reach `WAIT_FOR_FRONTIER` after its stabilized proposal and Human delta Gate, then must re-freeze against latest main before materialization.
+
+If two producer lanes touch the same shared Word / Relation / Form owner, the later lane enters `SHARED_OWNER_WAIT`; shared truth is reconciled only against latest accepted main.
+
