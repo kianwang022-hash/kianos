@@ -5,6 +5,9 @@ import {
   EXAM_PROFILE_KEY
 } from './examOrchestrator.mjs';
 import {
+  PRIVATE_CONTROL_RUNTIME_STATE_KEY
+} from './privateControlRuntime.mjs';
+import {
   PRIVATE_CHECKPOINT_SCHEMA,
   buildPrivateLearnerCheckpoint,
   readPrivateLearnerCheckpoint,
@@ -31,6 +34,7 @@ export const PRIVATE_CHECKPOINT_RUNTIME_SCHEMA = 'kianos.private-checkpoint-runt
 const SHARED_STORAGE_KEYS = Object.freeze([
   EXAM_PROFILE_KEY,
   EXAM_CHAT_PLAN_KEY,
+  PRIVATE_CONTROL_RUNTIME_STATE_KEY,
   STUDY_TIMER_STATE_KEY,
   STUDY_TIMER_LEDGER_KEY
 ]);
@@ -224,6 +228,7 @@ export function initPrivateCheckpointAutosave(storage, {
 
   globalThis.addEventListener?.('kianos:study-timer-change', schedule);
   globalThis.addEventListener?.('kianos:exam-plan-read-model', schedule);
+  globalThis.addEventListener?.('kianos:private-control-change', schedule);
   globalThis.addEventListener?.('storage', storageHandler);
   globalThis.addEventListener?.('focus', schedule);
   globalThis.document?.addEventListener?.('visibilitychange', visibilityHandler);
@@ -240,6 +245,7 @@ export function initPrivateCheckpointAutosave(storage, {
       if (interval) clearInterval(interval);
       globalThis.removeEventListener?.('kianos:study-timer-change', schedule);
       globalThis.removeEventListener?.('kianos:exam-plan-read-model', schedule);
+      globalThis.removeEventListener?.('kianos:private-control-change', schedule);
       globalThis.removeEventListener?.('storage', storageHandler);
       globalThis.removeEventListener?.('focus', schedule);
       globalThis.document?.removeEventListener?.('visibilitychange', visibilityHandler);
