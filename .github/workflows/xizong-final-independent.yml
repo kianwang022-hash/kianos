@@ -1,7 +1,7 @@
 name: Xizong Fresh Independent Acceptance
 on:
   push:
-    branches: [work/xizong-final-learner-20260919-independent]
+    branches: [work/xizong-final-learner-20260919-independent, work/xizong-typed-chat-return-20260919]
     paths:
       - '.github/workflows/xizong-final-independent.yml'
       - 'static-web/src/**'
@@ -56,7 +56,7 @@ jobs:
         run: |
           mkdir -p .qa/xizong-final-independent
           status=0
-          for script in test-xizong-daily-learning-packet validate-xizong-paper-practice validate-xizong-retained-practice validate-xizong-projection-current validate-xizong-learner-object validate-xizong-representation-gate; do
+          for script in test-xizong-chat-return test-xizong-daily-learning-packet validate-xizong-paper-practice validate-xizong-retained-practice validate-xizong-projection-current validate-xizong-learner-object validate-xizong-representation-gate; do
             node "scripts/$script.mjs" > ".qa/xizong-final-independent/$script.log" 2>&1 || status=1
           done
           python3 ../content/xizong/projection/tools/validate_projection.py --json .qa/xizong-final-independent/projection-assets.json > .qa/xizong-final-independent/projection-assets.log 2>&1 || status=1
