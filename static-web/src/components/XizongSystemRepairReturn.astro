@@ -21,11 +21,11 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
       <button type="button" class="secondary" data-return-sweep>回到当前真题</button>
     </div>
     <label>
-      <span>粘贴 Chat 返回计划</span>
-      <textarea rows="6" data-plan-text placeholder='{"plan":[{"question_id":"xizong-official-2026-n129","reason":"为什么要修","action":"怎么修","priority":"high"}]}'></textarea>
+      <span>粘贴 typed Chat Return（仅作为故障 fallback）</span>
+      <textarea rows="6" data-plan-text placeholder='{"schema":"kianos.xizong.system_wu_return.v1","return_id":"...","system_id":"...","decision":"REPAIR","plan":[{"question_id":"...","status":"wrong","attempt_id":"...","submitted_at":"...","round_id":"...","reason":"...","action":"...","priority":"high"}]}'></textarea>
     </label>
     <div class="xrrApplyRow">
-      <button type="button" data-apply-plan>导入修补计划</button>
+      <button type="button" data-apply-plan>导入 typed Return</button>
       <small data-plan-status>尚未导入。</small>
     </div>
     <div class="xrrList" data-plan-list></div>
