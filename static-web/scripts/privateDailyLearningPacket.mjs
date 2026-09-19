@@ -122,9 +122,20 @@ export function buildDailyLearningPacketFromPrivateCheckpoint(input, {
   restoreSharedControlCheckpoint(storage, checkpoint.payload.shared, {
     expectedDay: checkpoint.study_day
   });
-  restorePrivateSubjectCheckpoints(storage, checkpoint.payload.subjects || {}, {
-    onlyIfEmpty: true
-  });
+  const restoreWarnings = [];
+  for (const subject of ['xizong', 'english', 'politics']) {
+    const payload = checkpoint.payload.subjects?.[subject];
+    if (payload == null) continue;
+    try {
+      restorePrivateSubjectCheckpoints(storage, { [subject]: payload }, {
+        onlyIfEmpty: true
+      });
+    } catch (error) {
+      restoreWarnings.push(
+        'checkpoint:' + subject + ':' + String(error?.message || error)
+      );
+    }
+  }
 
   const plan = buildPlanReadModel(storage, checkpoint.study_day, timestamp);
   const result = buildHomeDailyLearningPacket({
@@ -147,7 +158,7 @@ export function buildDailyLearningPacketFromPrivateCheckpoint(input, {
   return {
     packet: result.packet,
     coverage: result.coverage,
-    warnings: result.warnings,
+    warnings: [...restoreWarnings, ...result.warnings],
     source_checkpoint_id: checkpoint.checkpoint_id,
     source_generated_at: checkpoint.generated_at
   };
