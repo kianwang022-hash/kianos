@@ -1,7 +1,7 @@
 {
   "schema": "kianos.lexical.three_chat_board.v1",
   "status": "ACTIVE",
-  "updated_at": "2026-09-19",
+  "updated_at": "2026-09-20",
   "orchestration": "content/lexical/THREE_CHAT_RUNTIME.md",
   "trigger_aliases": {
     "词义A": "content/lexical/chat-roles/SEMANTIC_A.md",
@@ -49,38 +49,29 @@
     "A": {
       "role": "PRODUCTION_A_FINAL_SWEEP",
       "current_assignment": {
-        "candidate_id": "BF03",
+        "candidate_id": "BF04",
         "range": [
-          301,
-          400
+          401,
+          500
         ],
-        "state": "WAITING_BOUNDED_HUMAN_DELTA_GATE",
-        "review_head": "4b91ee9d2efd7f47f9ff999c0a0680b7a50bbbe3",
-        "review_branch": "work/lexical-final-backfill-a-o0301-o0400",
-        "review_request_commit": "a4d6e3b85d897658cca6e96cf916f292070c1075",
-        "review_workflow_run": 35452826254,
-        "review_artifact_id": 10586689978,
-        "review_bundle_coverage": "100/100",
-        "proposal_commit": "ae7c5761c7f1a08843c3394cc14d0a9557d0ab2b",
-        "proposal_path": "content/lexical/execution/manifests/o0301-o0400.final-sweep-a-proposal.md",
-        "fresh_read_coverage": "100/100",
-        "self_attack": "COMPLETE",
-        "content_affected_owners": 22,
-        "content_no_change": 78,
-        "blocked": 0,
-        "new_material_delta_owners": [
-          333,
-          343,
-          349,
-          367,
-          368,
-          398
+        "state": "REVIEW_BUNDLE_NEEDED",
+        "allowed_now": [
+          "freeze current main and export review bundle",
+          "fresh owner/module judgment",
+          "same-Chat Self-Adversarial Attack",
+          "write smallest stabilized proposal",
+          "request bounded Human delta Gate only if genuinely new material scope exists",
+          "after approval or no-delta freeze immediately continue to o0501-o0600"
         ],
-        "old_test_blueprints": 20,
-        "stabilized_test_blueprints": 10,
-        "canonical_semantic_mutation": false,
+        "forbidden_now": [
+          "canonical semantic materialization",
+          "FLOB rebuild",
+          "launch B audit",
+          "merge backfill candidate",
+          "invent a newer semantic standard"
+        ],
         "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
-        "next_action": "Kian reviews only the six genuinely new material deltas. On p, freeze BF03 into approved backlog and immediately advance A to o0401-o0500. Do not materialize during PRODUCTION_SWEEP_ONLY."
+        "next_action": "Create/consume o0401-o0500 review bundle, perform Fresh Read + Self Attack, freeze proposal, then continue to o0501-o0600."
       },
       "bootstrap_integration": {
         "candidate_id": "BF00",
@@ -106,6 +97,51 @@
           601,
           700
         ]
+      ],
+      "preserved_assignments": [
+        {
+          "candidate_id": "BF03",
+          "range": [
+            301,
+            400
+          ],
+          "state": "DELTA_APPROVED_FROZEN_BACKLOG",
+          "review_head": "4b91ee9d2efd7f47f9ff999c0a0680b7a50bbbe3",
+          "review_branch": "work/lexical-final-backfill-a-o0301-o0400",
+          "proposal_commit": "ae7c5761c7f1a08843c3394cc14d0a9557d0ab2b",
+          "proposal_path": "content/lexical/execution/manifests/o0301-o0400.final-sweep-a-proposal.md",
+          "fresh_read_coverage": "100/100",
+          "self_attack": "COMPLETE",
+          "content_affected_owners": 22,
+          "content_no_change": 78,
+          "blocked": 0,
+          "new_material_delta_owners": [
+            333,
+            343,
+            349,
+            367,
+            368,
+            398
+          ],
+          "old_test_blueprints": 20,
+          "stabilized_test_blueprints": 10,
+          "canonical_semantic_mutation": false,
+          "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
+          "semantic_dependency_policy": "Refreeze latest main and all related Word/Sense/Family/Form/Construction/Relation/Test dependencies before later materialization; emit exact semantic_dependency_read_set.",
+          "human_gate": {
+            "approved": true,
+            "approved_at": "2026-09-20",
+            "approval_ref": "Kian p on o0301-o0400 Production A proposal",
+            "proposal_path": "content/lexical/execution/manifests/o0301-o0400.final-sweep-a-proposal.md",
+            "proposal_blob_sha": "920c67aa20baad3d521e540fd2ff82cfb52eb2e7",
+            "sync_main_head": "26d3caf35b734e457bdbcf57090ad3ea91177194"
+          },
+          "next_action": "Frozen backlog. Do not materialize/audit until production_sweep.status is COMPLETE; refreeze latest main/dependencies before any future materialization."
+        }
+      ],
+      "next_new_review_range": [
+        501,
+        600
       ]
     },
     "B": {
@@ -352,7 +388,7 @@
       1101,
       1150
     ],
-    "next_unallocated_start": 301,
+    "next_unallocated_start": 401,
     "allocation_rule": "Preserve BF01/BF02 work. A reviews remaining low side upward; C reviews remaining high side downward. Primary Word allocation does not own shared semantic dependencies.",
     "a_direction": "LOW_TO_HIGH",
     "c_direction": "HIGH_TO_LOW"
@@ -569,6 +605,77 @@
       "state": "PROPOSED_SHARED_SEMANTIC",
       "write_lease_candidate": null,
       "semantic_scope": "existing repeated/interrupted vs uninterrupted continuity boundary; reciprocal ownership cleanup"
+    },
+    {
+      "claim_key": "RELATION:assure|ensure|insure:usage_boundary",
+      "kind": "RELATION",
+      "participants": [
+        "word:assure",
+        "word:ensure",
+        "word:insure"
+      ],
+      "claimants": [
+        "BF03"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "shared assure/ensure/insure semantic-syntax boundary and reciprocal ownership cleanup"
+    },
+    {
+      "claim_key": "RELATION:attack|assault:semantic_contrast",
+      "kind": "RELATION",
+      "participants": [
+        "word:attack",
+        "word:assault"
+      ],
+      "claimants": [
+        "BF03"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "existing contrast; reciprocal ownership cleanup"
+    },
+    {
+      "claim_key": "RELATION:attribute|ascribe:semantic_contrast",
+      "kind": "RELATION",
+      "participants": [
+        "word:attribute",
+        "word:ascribe"
+      ],
+      "claimants": [
+        "BF03"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "existing verb attribution/ascription boundary; reciprocal ownership cleanup"
+    },
+    {
+      "claim_key": "RELATION:aural|oral:confusable",
+      "kind": "RELATION",
+      "participants": [
+        "word:aural",
+        "word:oral"
+      ],
+      "claimants": [
+        "BF03"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "existing high-value confusable; reciprocal ownership cleanup"
+    },
+    {
+      "claim_key": "RELATION:award|grant:semantic_contrast",
+      "kind": "RELATION",
+      "participants": [
+        "word:award",
+        "word:grant"
+      ],
+      "claimants": [
+        "BF03"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "existing award/grant boundary; reciprocal ownership cleanup"
     }
   ],
   "last_closed": {
@@ -676,13 +783,16 @@
           1100
         ],
         "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
+      },
+      {
+        "range": [
+          301,
+          400
+        ],
+        "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
       }
     ],
     "A_remaining": [
-      [
-        301,
-        400
-      ],
       [
         401,
         500
