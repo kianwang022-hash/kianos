@@ -210,10 +210,15 @@ export function initExamHome(root) {
 
     const best = readModel.next;
     const link = $('[data-exam-next]');
-    link.href = best?.href || `${catalog.base}xizong/`;
-    link.textContent = best
-      ? `${names[best.subject]} · ${best.title} →`
-      : '自由选择学习 →';
+    if (best) {
+      link.href = best.href;
+      link.removeAttribute('aria-disabled');
+      link.textContent = `${names[best.subject]} · ${best.title} →`;
+    } else {
+      link.removeAttribute('href');
+      link.setAttribute('aria-disabled', 'true');
+      link.textContent = '等待今日安排';
+    }
     $('[data-exam-next-label]').textContent = '下一步';
 
     const attention = $('[data-exam-attention]');
