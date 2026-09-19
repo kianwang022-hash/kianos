@@ -18,7 +18,10 @@
     "mechanical_layer_semantic_authority": false,
     "producer_allocation": "A_LOW_TO_HIGH__C_HIGH_TO_LOW",
     "human_gate_sync_barrier": true,
-    "shared_semantic_dependency_control": "BOARD_CLAIM_PLUS_LATEST_MAIN_REFREEZE_PLUS_EXECUTOR_HASH_GUARD"
+    "shared_semantic_dependency_control": "BOARD_CLAIM_PLUS_LATEST_MAIN_REFREEZE_PLUS_EXECUTOR_HASH_GUARD",
+    "c_lookahead_mode": "CONTINUOUS_CONVEYOR",
+    "c_human_gate_behavior": "P_APPROVES_CURRENT_DELTA_THEN_IMMEDIATE_NEXT_BATCH",
+    "c_no_new_delta_behavior": "AUTO_FREEZE_AND_CONTINUE"
   },
   "frontier": {
     "accepted_main_head": "a8968c6abb5409acee1971808e6e30944f155e39",
@@ -184,7 +187,7 @@
           "semantic_delta": false,
           "merge_to_main": false
         },
-        "next_action": "Consume the frozen 100-owner review artifact, perform fresh owner/module judgment + same-Chat Self-Adversarial Attack, declare any shared semantic claims, then freeze the smallest proposal. Do not treat the branch-only relation path shim as canonical truth."
+        "next_action": "Consume the frozen o1001-o1100 bundle now, Fresh Read + Self Attack, freeze the smallest proposal, gate only genuinely new material delta, then immediately continue to o0901-o1000 after approval (or automatically if no new delta)."
       },
       "scheduled_ranges": [
         [
@@ -288,7 +291,16 @@
             "sync_main_head": "e372c70eefedb4768247faef4198883afa698425"
           }
         }
-      ]
+      ],
+      "operating_mode": {
+        "mode": "CONTINUOUS_LOOKAHEAD_CONVEYOR",
+        "rule": "For non-frontier C batches: review→Self Attack→freeze proposal→gate only genuinely new material delta→after p immediately continue to next high→low batch. Approved backlog waits for frontier; C Chat does not.",
+        "stop_only_for": [
+          "genuinely new material delta awaiting Kian",
+          "real semantic/source/identity blocker",
+          "no remaining assigned C review range"
+        ]
+      }
     }
   },
   "preserved_candidates": [
