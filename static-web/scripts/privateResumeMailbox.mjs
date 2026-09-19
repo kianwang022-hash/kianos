@@ -1,6 +1,8 @@
 import { readEnglishSessionInstruction, englishSessionStepHref, englishStepIsComplete } from '../src/lib/englishSessionControl.mjs';
 import { readPoliticsSnapshot } from '../src/lib/politicsPracticeState.mjs';
-import { preparePrivateSubjectCheckpointRestore } from '../src/lib/privateSubjectCheckpoints.mjs';
+import { englishCheckpointKeyAllowed } from '../src/lib/englishLearnerEvidence.mjs';
+import { validatePoliticsPrivatePayload } from '../src/lib/politicsChatReturn.mjs';
+import { validateXizongPrivateCheckpoint } from '../src/lib/xizongPrivateCheckpoint.mjs';
 import { validatePrivateLearnerCheckpoint } from './privateLearnerStore.mjs';
 
 export const SUBJECT_RESUME_MAILBOX_SCHEMA='kianos.subject-resume-mailbox.v1';
@@ -31,7 +33,23 @@ function pick(v,keys){
   return Object.keys(out).length?out:null;
 }
 
+
+function validateEnglishPayload(value){
+  if(!record(value)||value.schema!=='kianos.english.private-payload.v1'||!record(value.entries))throw new Error('RESUME_ENGLISH_SCHEMA_INVALID');
+  for(const [key,raw] of Object.entries(value.entries)){
+    if(!englishCheckpointKeyAllowed(key)||typeof raw!=='string')throw new Error('RESUME_ENGLISH_KEY_INVALID');
+    JSON.parse(raw);
+  }
+  return value;
+}
+
+const isolated=(fn)=>{
+  try{return fn();}
+  catch{return{status:'invalid',continuation:null};}
+};
+
 function projectXizong(payload){
+  validateXizongPrivateCheckpoint(payload);
   const entries=new Map(listEntries(payload));
   const last=parse(entries.get('kianos-xizong-last-location-v1'));
   if(!record(last))return{status:'missing',continuation:null};
@@ -45,6 +63,7 @@ const ENGLISH_LAST=['kianos-reading-last-location-v1','kianos-cloze-last-locatio
 const time=v=>{const s=v?.updatedAt||v?.updated_at||v?.observed_at||v?.saved_at||'';return Number.isNaN(Date.parse(s))?0:Date.parse(s);};
 
 function projectEnglish(payload,day){
+  validateEnglishPayload(payload);
   const storage=new MemoryStorage(objEntries(payload));
   const state=readEnglishSessionInstruction(storage,day);
   if(state.status==='ready'&&state.instruction){
@@ -62,6 +81,7 @@ function projectEnglish(payload,day){
 }
 
 function projectPolitics(payload){
+  validatePoliticsPrivatePayload(payload);
   const snapshot=readPoliticsSnapshot(new MemoryStorage(objEntries(payload)));
   if(snapshot.errors.length)return{status:'invalid',continuation:null};
   const session=record(snapshot.session)?snapshot.session:null;
@@ -74,6 +94,5 @@ function projectPolitics(payload){
 export function buildSubjectResumeMailbox(input,{now=Date.now()}={}){
   const checkpoint=validatePrivateLearnerCheckpoint(input);
   const subjects=checkpoint.payload?.subjects||{};
-  preparePrivateSubjectCheckpointRestore(new MemoryStorage(),subjects,{onlyIfEmpty:true});
-  return{schema:SUBJECT_RESUME_MAILBOX_SCHEMA,generated_at:checkpoint.generated_at,expires_at:new Date(Date.parse(checkpoint.generated_at)+SUBJECT_RESUME_MAILBOX_TTL_MS).toISOString(),study_day:checkpoint.study_day,source_checkpoint_id:checkpoint.checkpoint_id,source_generated_at:checkpoint.generated_at,subjects:{xizong:subjects.xizong?projectXizong(subjects.xizong):{status:'missing',continuation:null},english:subjects.english?projectEnglish(subjects.english,checkpoint.study_day):{status:'missing',continuation:null},politics:subjects.politics?projectPolitics(subjects.politics):{status:'missing',continuation:null}}};
+  return{schema:SUBJECT_RESUME_MAILBOX_SCHEMA,generated_at:checkpoint.generated_at,expires_at:new Date(Date.parse(checkpoint.generated_at)+SUBJECT_RESUME_MAILBOX_TTL_MS).toISOString(),study_day:checkpoint.study_day,source_checkpoint_id:checkpoint.checkpoint_id,source_generated_at:checkpoint.generated_at,subjects:{xizong:subjects.xizong?isolated(()=>projectXizong(subjects.xizong)):{status:'missing',continuation:null},english:subjects.english?isolated(()=>projectEnglish(subjects.english,checkpoint.study_day)):{status:'missing',continuation:null},politics:subjects.politics?isolated(()=>projectPolitics(subjects.politics)):{status:'missing',continuation:null}}};
 }
