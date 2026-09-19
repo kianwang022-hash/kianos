@@ -86,7 +86,7 @@ try {
         {
           step_id:'m1',kind:'MEMORY_REVIEW',label:'先回收一个核心机制',
           reason:'验证一次延迟恢复',
-          targets:[{card_id:cardId,source_hash:'session-source-v1'}]
+          targets:[{card_id:cardId,block_id:'circulation-b01',source_hash:'session-source-v1'}]
         },
         {
           step_id:'q1',kind:'PRACTICE_SET',label:'再做一道迁移题',
