@@ -39,7 +39,7 @@ jobs:
           request_id = str(req["request_id"]).strip()
           assert request_id and "/" not in request_id
 
-          out = Path("review-bundle-artifact")
+          out = Path("/tmp/lexical-review-bundle")
           out.mkdir(exist_ok=False)
           rows = []
           cursor = start
@@ -97,6 +97,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: lexical-review-bundle
-          path: review-bundle-artifact/
+          path: /tmp/lexical-review-bundle/
           if-no-files-found: error
           retention-days: 7
