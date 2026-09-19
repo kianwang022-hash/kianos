@@ -8,6 +8,13 @@ on:
       - 'static-web/scripts/test-xizong-final-*.mjs'
       - 'content/xizong/knowledge/**'
       - 'content/xizong/projection/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/xizong-final-independent.yml'
+      - 'static-web/src/**'
+      - 'static-web/scripts/test-xizong-final-*.mjs'
+      - 'content/xizong/**'
 permissions:
   contents: read
 concurrency:
