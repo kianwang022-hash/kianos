@@ -12,6 +12,8 @@ LABEL="com.kianos.current-mirror"
 PLIST="$HOME/Library/LaunchAgents/$LABEL.plist"
 LOG_DIR="$HOME/Library/Logs/KianOS"
 PRIVATE_DIR="${KIANOS_PRIVATE_DIR:-$HOME/Library/Application Support/KianOS/learner-state}"
+CONTROL_DIR="${KIANOS_CONTROL_DIR:-$HOME/Library/Application Support/KianOS/control}"
+CONTROL_REPO_DIR="${KIANOS_CONTROL_REPO_DIR:-$HOME/Library/Application Support/KianOS/control-repo}"
 INTERVAL_MS="${KIANOS_SYNC_INTERVAL_MS:-8000}"
 PORT="${KIANOS_PORT:-4321}"
 
@@ -29,8 +31,10 @@ for pair in "git:$GIT_BIN" "node:$NODE_BIN" "npm:$NPM_BIN"; do
   fi
 done
 
-mkdir -p "$HOME/Library/LaunchAgents" "$LOG_DIR" "$PRIVATE_DIR"
-chmod 700 "$PRIVATE_DIR"
+mkdir -p "$HOME/Library/LaunchAgents" "$LOG_DIR" "$PRIVATE_DIR" "$CONTROL_DIR"
+chmod 700 "$PRIVATE_DIR" "$CONTROL_DIR"
+mkdir -p "$(dirname "$CONTROL_REPO_DIR")"
+chmod 700 "$(dirname "$CONTROL_REPO_DIR")" || true
 DOMAIN="gui/$(id -u)"
 launchctl bootout "$DOMAIN/$LABEL" >/dev/null 2>&1 || true
 
@@ -140,6 +144,8 @@ Sync interval: $((INTERVAL_MS / 1000))s
 LaunchAgent: $PLIST
 Logs: $LOG_DIR/current.out.log
 Private learner checkpoints: $PRIVATE_DIR
+Private Chat control inbox: $CONTROL_DIR
+Private control mirror: $CONTROL_REPO_DIR
 
 This mirror is intentionally disposable/read-only. Do not develop in it.
 Your normal development worktree can remain separate.

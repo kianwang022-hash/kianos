@@ -27,22 +27,27 @@ const base = import.meta.env.BASE_URL;
   const root = document.querySelector('[data-english-resume-surface]');
   if (root instanceof HTMLElement) {
     let catalog = JSON.parse(document.querySelector('[data-english-resume-catalog]')?.textContent || '[]');
-    let externalCatalogLoaded = false;
-    const loadExternalCatalog = async () => {
-      if (externalCatalogLoaded) return;
-      externalCatalogLoaded = true;
-      try {
-        const response = await fetch('/__kianos-private/external-reading/catalog', { cache: 'no-store' });
-        if (!response.ok) return;
-        const data = await response.json();
-        const rows = (data.collections || []).flatMap(group => group.passages || []).map(row => ({
-          task: 'external_reading',
-          object_id: row.object_id,
-          source_hash: row.content_hash,
-          label: row.title || row.object_id
-        }));
-        catalog = [...catalog, ...rows];
-      } catch {}
+    let externalCatalogPromise = null;
+    const loadExternalCatalog = () => {
+      if (externalCatalogPromise) return externalCatalogPromise;
+      externalCatalogPromise = (async () => {
+        try {
+          const response = await fetch('/__kianos-private/external-reading/catalog', { cache: 'no-store' });
+          if (!response.ok) return catalog;
+          const data = await response.json();
+          const rows = (data.collections || []).flatMap(group => group.passages || []).map(row => ({
+            task: 'external_reading',
+            object_id: row.object_id,
+            source_hash: row.content_hash,
+            label: row.title || row.object_id,
+            study_day: row.study_day || null,
+            origin: row.origin || null
+          }));
+          catalog = [...catalog, ...rows];
+        } catch {}
+        return catalog;
+      })();
+      return externalCatalogPromise;
     };
     const base = root.getAttribute('data-base') || '/';
     const resume = root.querySelector('[data-english-resume]');
@@ -67,6 +72,11 @@ const base = import.meta.env.BASE_URL;
       const record = readJson(`kianos-writing-runtime-v1:${step.object_id}`);
       return [WRITING_STATES.PASS_ACCEPTABLE, WRITING_STATES.REPAIR_COMPLETE].includes(record?.state);
     };
+    const publishContinue = (detail) => {
+      window.dispatchEvent(new CustomEvent('kianos:subject-continue-updated', {
+        detail: { subject: 'english', ...detail }
+      }));
+    };
 
     const render = async () => {
       if (!(resume instanceof HTMLElement)
@@ -78,6 +88,8 @@ const base = import.meta.env.BASE_URL;
       const state = readEnglishSessionInstruction(localStorage, localDay());
       if (state.status !== 'ready' || !state.instruction) {
         resume.hidden = true;
+        link.removeAttribute('data-session-ref');
+        publishContinue({ href: null, title: null, session_ref: null });
         return;
       }
 
@@ -87,6 +99,8 @@ const base = import.meta.env.BASE_URL;
       const href = englishSessionStepHref(step, base);
       if (!step || !href) {
         resume.hidden = true;
+        link.removeAttribute('data-session-ref');
+        publishContinue({ href: null, title: null, session_ref: instruction.session_id });
         return;
       }
 
@@ -95,9 +109,19 @@ const base = import.meta.env.BASE_URL;
       meta.textContent = step.note
         || `Session ${selected.index + 1} / ${instruction.steps.length} · Chat 已选择，本页不重新排序`;
       link.href = href;
+      link.setAttribute('data-session-ref', instruction.session_id);
+      publishContinue({
+        href,
+        title: step.label || taskLabels[step.task] || step.object_id,
+        session_ref: instruction.session_id
+      });
     };
 
     window.addEventListener('kianos:english-session-updated', () => void render());
+    window.addEventListener('kianos:subject-continue-requested', (event) => {
+      const subject = event?.detail?.subject || null;
+      if (!subject || subject === 'english') void render();
+    });
     window.addEventListener('storage', (event) => {
       if (event.key === ENGLISH_SESSION_KEY || event.key === null) void render();
     });

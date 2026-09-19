@@ -95,12 +95,15 @@ def audit_conditional_capabilities(registry: dict) -> None:
             check((REPO / owner_s).is_file(), "CONDITIONAL_OWNER_MISSING", f"{name}.{role}={owner_s}")
 
         if name == "study_timer":
-            base = REPO / "static-web/src/layouts/Base.astro"
-            check(base.is_file(), "STUDY_TIMER_BASE_MISSING")
-            if base.is_file():
-                text = base.read_text(encoding="utf-8")
-                check(text.count("<StudyTimerDock") == 1, "STUDY_TIMER_DOCK_NOT_SINGLE_GLOBAL_CONSUMER")
-                check("StudyTimerDock.astro" in text, "STUDY_TIMER_DOCK_IMPORT_MISSING")
+            shell_owner_s = registry.get("shared_platform", {}).get("shell_markup_owner")
+            check(isinstance(shell_owner_s, str), "STUDY_TIMER_SHELL_OWNER_UNREGISTERED")
+            if isinstance(shell_owner_s, str):
+                shell_owner = REPO / shell_owner_s
+                check(shell_owner.is_file(), "STUDY_TIMER_BASE_MISSING", shell_owner_s)
+                if shell_owner.is_file():
+                    text = shell_owner.read_text(encoding="utf-8")
+                    check(text.count("<StudyTimerDock") == 1, "STUDY_TIMER_DOCK_NOT_SINGLE_GLOBAL_CONSUMER")
+                    check("StudyTimerDock.astro" in text, "STUDY_TIMER_DOCK_IMPORT_MISSING")
 
     check(len(active_owner_paths) == len(set(active_owner_paths)), "CONDITIONAL_ACTIVE_OWNER_DUPLICATED")
 

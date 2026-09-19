@@ -18,14 +18,15 @@
     "lexical": "content/lexical/CURRENT.md"
   },
   "shared_platform": {
-    "shell_markup_owner": "static-web/src/layouts/Base.astro",
+    "shell_markup_owner": "static-web/src/layouts/BaseFrame.astro",
     "navigation_owner": "static-web/src/lib/sharedNavigation.mjs",
     "shared_visual_foundation_owner": "static-web/src/styles/shared-visual-foundation.css",
     "shell_style_owner": "static-web/src/styles/shared-shell.css",
     "exam_orchestrator_runtime_owner": "static-web/src/lib/examOrchestrator.mjs",
     "current_sync_mutation_owner": "static-web/scripts/kianos-current-sync.mjs",
     "current_sync_bootstrap_installer": "static-web/scripts/install-current-macos.sh",
-    "current_delivery_workflow": ".github/workflows/current-delivery.yml"
+    "current_delivery_workflow": ".github/workflows/current-delivery.yml",
+    "private_control_sync_mutation_owner": "static-web/scripts/privateControlRelaySync.mjs"
   },
   "derived_projections": {
     "exam_orchestrator_current": {

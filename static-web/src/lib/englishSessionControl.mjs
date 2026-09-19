@@ -191,6 +191,7 @@ export function writeEnglishSessionInstruction(storage, input, expectedDay = nul
   for (const step of instruction.steps) {
     const owner = catalog.find(row => row.task === step.task && row.object_id === step.object_id);
     if (!owner) throw new Error('ENGLISH_SESSION_OBJECT_NOT_CURRENT:' + step.object_id);
+    if (owner.study_day && expectedDay && owner.study_day !== expectedDay) throw new Error('ENGLISH_SESSION_OBJECT_STALE_DAY:' + step.object_id);
     if (!step.source_hash || step.source_hash !== owner.source_hash) throw new Error('ENGLISH_SESSION_SOURCE_REVISION_MISMATCH:' + step.object_id);
     if (step.task === 'full_paper' && step.params.task_order) {
       const order = step.params.task_order;
@@ -245,7 +246,11 @@ export function englishStepIsComplete(storage, step) {
   if (!value) return false;
   if (!value.binding || value.binding.source_hash !== step.source_hash) return false;
   if (['reading_a','cloze','reading_b'].includes(step.task)) return value.submitted === true && (problemCount(value) === 0 || value.reviewResolved === true);
-  if (step.task === 'external_reading') return value.stage === 'completed';
+  if (step.task === 'external_reading') {
+    const requirement = value?.binding?.source_snapshot?.completion_requirement || 'READ_ONLY_OK';
+    if (requirement === 'QUESTIONS_SUBMITTED') return value.submitted === true;
+    return value.stage === 'completed';
+  }
   if (step.task === 'translation') return ['passed','repaired','transfer_pending'].includes(value.stage);
   return ['PASS_ACCEPTABLE','REPAIR_COMPLETE','TRANSFER_PENDING'].includes(value.state);
 }
@@ -310,7 +315,18 @@ function objectiveEvidence(storage, lastKey, attemptPrefix) {
       uncertain_count: Array.isArray(attempt.uncertain) ? attempt.uncertain.length : 0,
       started_at: clean(attempt.startedAt, 80) || null,
       submitted_at: clean(attempt.submittedAt, 80) || null,
-      review_unlocked: attempt.reviewUnlocked !== false
+      review_unlocked: attempt.reviewUnlocked !== false,
+      generated_drill: attempt?.binding?.source_snapshot?.question_origin === 'CHAT_GENERATED' ? {
+        question_origin: 'CHAT_GENERATED',
+        drill_origin: clean(attempt.binding.source_snapshot.drill_origin, 100) || null,
+        completion_requirement: clean(attempt.binding.source_snapshot.completion_requirement, 80) || null,
+        training_target: attempt.binding.source_snapshot.training_target && typeof attempt.binding.source_snapshot.training_target === 'object'
+          ? {
+              kind: clean(attempt.binding.source_snapshot.training_target.kind, 120) || null,
+              note: clean(attempt.binding.source_snapshot.training_target.note, 800) || null
+            }
+          : null
+      } : null
     } : null
   };
 }
