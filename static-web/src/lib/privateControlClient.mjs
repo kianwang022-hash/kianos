@@ -3,7 +3,10 @@ import {
   privateControlCommandSignature,
   validatePrivateControlCommand
 } from './privateControlCommand.mjs';
-import { applyPrivateControlCommand } from './privateControlRuntime.mjs';
+import {
+  applyPrivateControlCommand,
+  readPrivateControlRuntimeState
+} from './privateControlRuntime.mjs';
 import { studyDayAt } from './studyTimer.mjs';
 
 export const PRIVATE_CONTROL_ENDPOINT = '/__kianos-private/control';
@@ -59,6 +62,21 @@ export async function consumePrivateControlOnce(storage, {
   }
 
   const expectedDay = studyDayAt(now);
+  const signature = privateControlCommandSignature(command);
+  let alreadyLocal = false;
+  try {
+    const runtime = readPrivateControlRuntimeState(storage);
+    alreadyLocal = runtime.receipts.some((row) =>
+      row?.command_id === command.command_id && row?.command_signature === signature
+    );
+  } catch (error) {
+    return {
+      status:'invalid_local_control_state',
+      receipt:null,
+      error:error instanceof Error ? error.message : String(error)
+    };
+  }
+
   let receipt;
   try {
     if (command.study_day !== expectedDay) {
@@ -101,13 +119,14 @@ export async function consumePrivateControlOnce(storage, {
           command_id: receipt.command_id,
           target: receipt.target,
           status: receipt.status,
-          command_signature: privateControlCommandSignature(command)
+          command_signature: signature,
+          fresh: !alreadyLocal
         }
       }));
     }
   } catch {}
 
-  return { status:'consumed', receipt, error:null };
+  return { status:alreadyLocal ? 'already_consumed' : 'consumed', receipt, error:null };
 }
 
 export function initPrivateControlClient(storage, {
