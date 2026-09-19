@@ -18,7 +18,7 @@
     "mechanical_layer_semantic_authority": false,
     "producer_allocation": "A_LOW_TO_HIGH__C_HIGH_TO_LOW",
     "human_gate_sync_barrier": true,
-    "shared_relation_ownership": "BOARD_CLAIM_PLUS_SERIALIZED_LATEST_MAIN_WRITE"
+    "shared_semantic_dependency_control": "BOARD_CLAIM_PLUS_LATEST_MAIN_REFREEZE_PLUS_EXECUTOR_HASH_GUARD"
   },
   "frontier": {
     "accepted_main_head": "0e653cf9d67a44b96d85ba35c1913cc6add267d0",
@@ -132,7 +132,8 @@
           "new relation among↔between",
           "new relation amount↔number"
         ],
-        "next_action": "Kian reviews only the genuinely new material delta in the proposal. On p, mark DELTA_APPROVED_WAIT_FOR_FRONTIER; do not materialize until BF00 closes and BF01 is promoted to frontier."
+        "next_action": "Kian reviews only the genuinely new material delta in the proposal. On p, mark DELTA_APPROVED_WAIT_FOR_FRONTIER; do not materialize until BF00 closes and BF01 is promoted to frontier.",
+        "semantic_dependency_policy": "Before p/materialization, refresh all related Word/Sense/Family/Form/Construction/Relation/Test dependencies and emit exact semantic_dependency_read_set in the mutation package."
       },
       "bootstrap_integration": {
         "candidate_id": "BF00",
@@ -194,7 +195,8 @@
         "new_material_delta": false,
         "canonical_semantic_mutation": false,
         "semantic_freshness_note": "main advanced after freeze, but comparison from review_head to current main showed no Word/Relation/Form/lexical-contract changes in o0201-o0300 scope; refreeze again when BF02 reaches frontier.",
-        "next_action": "Wait for BF02 to become the serialized frontier. Then refreeze latest main, reconcile changed/shared owners only, apply the stabilized proposal, materialize Final Learner Objects, and hand to a fresh B Chat for blind-first Independent Semantic Audit."
+        "next_action": "Wait for BF02 to become the serialized frontier. Then refreeze latest main, reconcile changed/shared owners only, apply the stabilized proposal, materialize Final Learner Objects, and hand to a fresh B Chat for blind-first Independent Semantic Audit.",
+        "semantic_dependency_policy": "Before frontier materialization, refreeze all related Word/Sense/Family/Form/Construction/Relation/Test dependencies and emit exact semantic_dependency_read_set in the mutation package."
       },
       "scheduled_ranges": [
         [
@@ -253,14 +255,9 @@
       1150
     ],
     "next_unallocated_start": 301,
-    "allocation_rule": "Preserve BF01/BF02 work. A reviews remaining low side upward; C reviews remaining high side downward. Relation/Form ownership is independent of ordinal direction.",
+    "allocation_rule": "Preserve BF01/BF02 work. A reviews remaining low side upward; C reviews remaining high side downward. Primary Word allocation does not own shared semantic dependencies.",
     "a_direction": "LOW_TO_HIGH",
     "c_direction": "HIGH_TO_LOW"
-  },
-  "shared_owner_rule": {
-    "mode": "LATEST_MAIN_RECONCILIATION_ONLY",
-    "collision_state": "SHARED_OWNER_WAIT",
-    "instruction": "If A and C touch the same shared Word/Relation/Form owner, the later lane must wait; do not land competing shared-owner versions."
   },
   "sync_barrier": {
     "trigger": "every user p; every candidate materialization; every post-audit reconciliation",
@@ -269,13 +266,30 @@
       "live three-chat-board.json",
       "frontier candidate PR head",
       "newest Audit Pack on audit-target candidate branch/PR",
-      "other producer lane shared write-set",
-      "shared_owner_claims",
+      "other producer lane write-set",
+      "other producer lane semantic dependency set",
+      "shared_semantic_claims",
       "own proposal identity"
     ],
-    "rule": "Record approval only against the still-current proposal. If B completed the live frontier audit, prioritize frontier reconciliation before later-batch materialization. Materially changed proposal delta requires a new bounded Gate."
+    "rule": "Record approval only against the still-current proposal. If B completed the live frontier audit, prioritize frontier reconciliation before later-batch materialization. Reconcile any changed material semantic dependency. Materially changed proposal delta requires a new bounded Gate."
   },
-  "shared_owner_claims": [
+  "shared_semantic_dependency_rule": {
+    "mode": "CLAIM_COALESCE_RECONCILE_AND_HASH_GUARD",
+    "conflict_state": "SHARED_SEMANTIC_RECONCILE_REQUIRED",
+    "scope": [
+      "related Word/Sense truth",
+      "Family/morphology target",
+      "Form/identity",
+      "Construction/phraseology ownership",
+      "Relation/confusable/semantic-neighbor truth",
+      "Repair Test target identity",
+      "layer/lifecycle truth materially relied on by another batch"
+    ],
+    "proposal_rule": "A/C may review independently, but before freeze they must declare material cross-batch dependencies and coalesce equivalent claims.",
+    "landing_rule": "Before every mutation package, refreeze latest main and include exact semantic_dependency_read_set SHA256 hashes. Any drift fails closed as STALE_SEMANTIC_DEPENDENCY.",
+    "instruction": "Opposite-direction review is only a throughput optimization. Correctness comes from dependency reconciliation, latest-main refreeze, and executor hash guards."
+  },
+  "shared_semantic_claims": [
     {
       "claim_key": "RELATION:alert|alter:confusable",
       "kind": "RELATION",
@@ -286,8 +300,9 @@
       "claimants": [
         "BF01"
       ],
-      "state": "PROPOSED_SHARED_OWNER",
-      "write_lease_candidate": null
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "cross-word semantic boundary"
     },
     {
       "claim_key": "RELATION:alternate|alternative:confusable",
@@ -299,8 +314,9 @@
       "claimants": [
         "BF01"
       ],
-      "state": "PROPOSED_SHARED_OWNER",
-      "write_lease_candidate": null
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "cross-word semantic boundary"
     },
     {
       "claim_key": "RELATION:analog|digital:semantic_contrast",
@@ -312,8 +328,9 @@
       "claimants": [
         "BF01"
       ],
-      "state": "PROPOSED_SHARED_OWNER",
-      "write_lease_candidate": null
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "cross-word semantic boundary"
     },
     {
       "claim_key": "RELATION:analytic|analytical:usage_boundary",
@@ -325,8 +342,9 @@
       "claimants": [
         "BF01"
       ],
-      "state": "PROPOSED_SHARED_OWNER",
-      "write_lease_candidate": null
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "cross-word semantic boundary"
     },
     {
       "claim_key": "RELATION:among|between:selection_boundary",
@@ -338,8 +356,9 @@
       "claimants": [
         "BF01"
       ],
-      "state": "PROPOSED_SHARED_OWNER",
-      "write_lease_candidate": null
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "cross-word semantic boundary"
     },
     {
       "claim_key": "RELATION:amount|number:countability_boundary",
@@ -351,8 +370,9 @@
       "claimants": [
         "BF01"
       ],
-      "state": "PROPOSED_SHARED_OWNER",
-      "write_lease_candidate": null
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "cross-word semantic boundary"
     },
     {
       "claim_key": "RELATION:answer|respond:redundancy_cleanup",
@@ -364,8 +384,9 @@
       "claimants": [
         "BF02"
       ],
-      "state": "PROPOSED_SHARED_OWNER",
-      "write_lease_candidate": null
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "cross-word semantic boundary"
     },
     {
       "claim_key": "RELATION:apartment|flat:regional_choice",
@@ -377,8 +398,9 @@
       "claimants": [
         "BF02"
       ],
-      "state": "PROPOSED_SHARED_OWNER",
-      "write_lease_candidate": null
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "cross-word semantic boundary"
     },
     {
       "claim_key": "FORM:archaeology|archeology:regional_spelling_identity",
@@ -390,8 +412,9 @@
       "claimants": [
         "BF02"
       ],
-      "state": "PROPOSED_SHARED_OWNER",
-      "write_lease_candidate": null
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "Form/identity boundary"
     }
   ]
 }
