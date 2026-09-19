@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {
   XIZONG_SESSION_SCHEMA,
   XIZONG_SESSION_KEY,
-  XIZONG_SESSION_STATE_KEY,
+  XIZONG_SESSION_RUNTIME_KEY,
   XIZONG_CHAT_SET_KEY,
   applyXizongSessionInstruction,
   activateXizongSessionCurrentStep,
@@ -46,7 +46,7 @@ const instruction = {
     {
       step_id: 'm1',
       kind: 'MEMORY_REVIEW',
-      card_ids: ['core:a1-b01-kp01'],
+      targets: [{ card_id: 'core:a1-b01-kp01', block_id: 'a1-b01', source_hash: 'h1' }],
       reason: 'Chat wants one bounded delayed recall'
     },
     {
@@ -61,7 +61,7 @@ const instruction = {
 const storage = makeStorage();
 const applied = applyXizongSessionInstruction(storage, instruction, { expectedDay: day, now });
 assert.equal(applied.status, 'applied');
-assert.equal(JSON.parse(storage.getItem(XIZONG_SESSION_STATE_KEY)).current_step, 0);
+assert.equal(JSON.parse(storage.getItem(XIZONG_SESSION_RUNTIME_KEY)).current_step, 0);
 assert.equal(
   JSON.parse(storage.getItem(XIZONG_MEMORY_STORAGE_KEY)).attention['core:a1-b01-kp01'],
   undefined,
@@ -99,7 +99,7 @@ storage.setItem(XIZONG_MEMORY_STORAGE_KEY, JSON.stringify(memoryState));
 
 const advanced = advanceXizongSessionIfComplete(storage);
 assert.equal(advanced.status, 'advanced');
-assert.equal(JSON.parse(storage.getItem(XIZONG_SESSION_STATE_KEY)).current_step, 1);
+assert.equal(JSON.parse(storage.getItem(XIZONG_SESSION_RUNTIME_KEY)).current_step, 1);
 
 const practiceActivated = activateXizongSessionCurrentStep(storage, { now: now + 2000, holdoutYears: [] });
 assert.equal(practiceActivated.status, 'activated');
@@ -121,7 +121,7 @@ storage.setItem(sweepKey, JSON.stringify({
 }));
 const completed = advanceXizongSessionIfComplete(storage);
 assert.equal(completed.status, 'complete');
-assert.equal(JSON.parse(storage.getItem(XIZONG_SESSION_STATE_KEY)).status, 'COMPLETE');
+assert.equal(JSON.parse(storage.getItem(XIZONG_SESSION_RUNTIME_KEY)).status, 'COMPLETE');
 assert.equal(resolveXizongSessionNext(storage), null);
 
 // Newer session supersedes active session and removes only Chat-owned attention.
@@ -176,7 +176,7 @@ assert.throws(() => applyXizongSessionInstruction(storage, {
 assert.throws(() => applyXizongSessionInstruction(makeStorage(), {
   ...instruction,
   session_id: 'bad-card',
-  steps: [{ step_id: 'm1', kind: 'MEMORY_REVIEW', card_ids: ['core:missing'] }]
+  steps: [{ step_id: 'm1', kind: 'MEMORY_REVIEW', targets: [{ card_id:'core:missing', block_id:'a1-b01', source_hash:'h1' }] }]
 }, { expectedDay: day, now }), /MEMORY_CARD_UNKNOWN/);
 
 // Holdout is checked at activation, before Practice Set mutation.
@@ -193,7 +193,7 @@ assert.throws(
 );
 assert.equal(holdoutStorage.getItem(XIZONG_CHAT_SET_KEY), null);
 assert.equal(
-  JSON.parse(holdoutStorage.getItem(XIZONG_SESSION_STATE_KEY)).activated_at,
+  JSON.parse(holdoutStorage.getItem(XIZONG_SESSION_RUNTIME_KEY)).activated_at,
   null,
   'failed activation must not advance runtime state'
 );
@@ -208,3 +208,16 @@ assert.throws(() => applyXizongSessionInstruction(makeStorage(), {
 assert.equal(JSON.parse(storage.getItem(XIZONG_SESSION_KEY)).session_id, instruction.session_id);
 
 console.log('PASS Xizong session prototype v2: ordered activation + evidence completion + exact sweep key + supersede/stale/holdout guards');
+
+
+const revisionStorage = makeStorage();
+assert.throws(() => applyXizongSessionInstruction(revisionStorage, {
+  ...instruction,
+  session_id:'stale-memory-revision',
+  steps:[{
+    step_id:'m1',
+    kind:'MEMORY_REVIEW',
+    targets:[{card_id:'core:a1-b01-kp01',block_id:'a1-b01',source_hash:'old-hash'}]
+  }]
+}, { expectedDay: day, now }), /MEMORY_SOURCE_REVISION_MISMATCH/);
+
