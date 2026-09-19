@@ -146,6 +146,12 @@ const inbox=JSON.parse(goodStorage.getItem('kianos-xizong-repair-inbox-v1:xizong
 assert.equal(inbox.plans.length,1);
 assert.equal(inbox.plans[0].kpId,'kp01');
 assert.equal(inbox.plans[0].sourceHandoffId,goodExport.chat_return_contract.handoff_id);
+const visibleRepair = JSON.parse(goodStorage.getItem('kianos-xizong-memory-v1')).repairTasks[0];
+assert.equal(visibleRepair.id,'repair:block-chat:circulation-b01:kp01');
+assert.equal(visibleRepair.origin,'BLOCK_CHAT_RETURN');
+assert.equal(applied.receipt.repair_tasks.length,1);
+assert.equal(applied.receipt.repair_tasks[0].task_id,visibleRepair.id);
+assert.equal(applied.receipt.repair_tasks[0].created_at,visibleRepair.createdAt);
 assert.equal(pendingXizongChatReturnForObject(goodStorage,'xizong:circulation-b01'),null);
 
 // Re-staging the already-applied exact Return is harmless and idempotent at apply time.
@@ -157,6 +163,7 @@ const repeated=consumePendingXizongChatReturnForObject(goodStorage,{
 });
 assert.equal(repeated.status,'already_applied');
 assert.equal(JSON.parse(goodStorage.getItem('kianos-xizong-repair-inbox-v1:xizong:circulation-b01')).plans.length,1);
+assert.equal(JSON.parse(goodStorage.getItem('kianos-xizong-memory-v1')).repairTasks.length,1);
 
 // NO_ACTION clears pending with no repair mutation.
 const noActionStorage=new MemoryStorage();
