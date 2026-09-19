@@ -20,6 +20,11 @@ import {
   STUDY_TIMER_STATE_KEY,
   studyDayAt
 } from './studyTimer.mjs';
+import {
+  capturePrivateSubjectCheckpoints,
+  privateSubjectRestoreNeeded,
+  restorePrivateSubjectCheckpoints
+} from './privateSubjectCheckpoints.mjs';
 
 export const PRIVATE_CHECKPOINT_RUNTIME_SCHEMA = 'kianos.private-checkpoint-runtime.v1';
 
@@ -55,27 +60,40 @@ export async function restoreSharedControlFromPrivate(storage, {
   readCheckpoint = readPrivateLearnerCheckpoint
 } = {}) {
   const studyDay = studyDayAt(now);
-  if (!sharedControlStorageIsEmpty(storage)) {
-    return { status: 'skipped', reason: 'shared-local-state-present', study_day: studyDay };
-  }
+  const sharedEmpty = sharedControlStorageIsEmpty(storage);
 
   const remote = await readCheckpoint();
   if (remote?.status !== 'ready' || remote?.checkpoint?.schema !== PRIVATE_CHECKPOINT_SCHEMA) {
     return { status: remote?.status || 'unavailable', reason: remote?.error || null, study_day: studyDay };
   }
 
-  const shared = remote.checkpoint?.payload?.shared;
-  if (!shared || shared.schema !== SHARED_CONTROL_CHECKPOINT_SCHEMA) {
-    return { status: 'invalid', reason: 'shared-control-payload-missing', study_day: studyDay };
+  const subjects = remote.checkpoint?.payload?.subjects || {};
+  const subjectNeeded = privateSubjectRestoreNeeded(storage, subjects);
+  if (!sharedEmpty && !subjectNeeded) {
+    return { status: 'skipped', reason: 'local-state-present', study_day: studyDay };
   }
 
-  const prepared = sharedForCurrentDay(shared, studyDay);
-  restoreSharedControlCheckpoint(storage, prepared, { expectedDay: studyDay });
+  let sharedStatus = 'skipped';
+  if (sharedEmpty) {
+    const shared = remote.checkpoint?.payload?.shared;
+    if (!shared || shared.schema !== SHARED_CONTROL_CHECKPOINT_SCHEMA) {
+      return { status: 'invalid', reason: 'shared-control-payload-missing', study_day: studyDay };
+    }
+    const prepared = sharedForCurrentDay(shared, studyDay);
+    restoreSharedControlCheckpoint(storage, prepared, { expectedDay: studyDay });
+    sharedStatus = 'restored';
+  }
+
+  const subjectResults = restorePrivateSubjectCheckpoints(storage, subjects, { onlyIfEmpty: true });
+  const subjectRestored = Object.values(subjectResults).some((row) => row?.status === 'restored');
+
   return {
-    status: 'restored',
+    status: sharedStatus === 'restored' || subjectRestored ? 'restored' : 'skipped',
     study_day: studyDay,
     checkpoint_id: remote.checkpoint.checkpoint_id,
-    source_day: remote.checkpoint.study_day
+    source_day: remote.checkpoint.study_day,
+    shared: sharedStatus,
+    subjects: subjectResults
   };
 }
 
@@ -87,15 +105,22 @@ export async function saveSharedControlToPrivate(storage, {
   const studyDay = studyDayAt(now);
   const shared = captureSharedControlCheckpoint(storage, { studyDay, now });
 
-  let subjects = {};
   const existing = await readCheckpoint();
-  if (existing?.status === 'ready'
-      && existing?.checkpoint?.schema === PRIVATE_CHECKPOINT_SCHEMA
-      && existing?.checkpoint?.payload?.subjects
-      && typeof existing.checkpoint.payload.subjects === 'object'
-      && !Array.isArray(existing.checkpoint.payload.subjects)) {
-    subjects = existing.checkpoint.payload.subjects;
+  let existingSubjects = {};
+  if (existing?.status === 'ready') {
+    if (existing?.checkpoint?.schema !== PRIVATE_CHECKPOINT_SCHEMA) {
+      throw new Error('PRIVATE_CHECKPOINT_EXISTING_SCHEMA_INVALID');
+    }
+    const rawSubjects = existing.checkpoint?.payload?.subjects;
+    if (!rawSubjects || typeof rawSubjects !== 'object' || Array.isArray(rawSubjects)) {
+      throw new Error('PRIVATE_CHECKPOINT_EXISTING_SUBJECTS_INVALID');
+    }
+    existingSubjects = rawSubjects;
+  } else if (existing?.status !== 'missing') {
+    throw new Error('PRIVATE_CHECKPOINT_EXISTING_READ_UNSAFE:' + (existing?.status || 'unknown'));
   }
+
+  const subjects = capturePrivateSubjectCheckpoints(storage, existingSubjects, { now });
 
   const checkpoint = buildPrivateLearnerCheckpoint({
     studyDay,
