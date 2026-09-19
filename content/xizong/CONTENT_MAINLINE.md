@@ -69,19 +69,37 @@ D is no longer the active Lane-A **content** construction task. The next D depen
 
 ## E｜Reproductive / Breast — ACTIVE CONTENT PRIORITY
 
-E now owns the earliest unblocked Lane-A medical-content work.
+E Source reconstruction and fresh Knowledge reconstruction are now complete at candidate level.
 
-Current durable substrate exists under:
+Current exact owners:
 
-- `content/xizong/knowledge/systems/e-reproductive-breast/e-e1-e14/`
-- `content/xizong/knowledge/systems/e-reproductive-breast/sr-sr1-sr6/`
+- `content/xizong/knowledge/systems/e-reproductive-breast/CURRENT.md`
+- `content/xizong/knowledge/systems/e-reproductive-breast/ACCEPTANCE.md`
+- `content/xizong/knowledge/systems/e-reproductive-breast/system.json`
 
-E does **not** yet have its own accepted scoped `CURRENT / ACCEPTANCE / system.json`. Therefore the true next stage is not “copy D Phase 7”; it is:
+Current state:
 
 ```text
-bounded Source reconstruction / boundary
-→ Knowledge reconstruction
-→ independent K acceptance
+S1 Source boundary                     PASS
+S2 exact official-question membership  UNTESTED / separate later boundary
+K  Knowledge                           CANDIDATE / independent acceptance active
+L  Learning Logic                      downstream-frozen
+Content                                downstream-frozen
+```
+
+Fresh identity = **20 Blocks / 212 KP**.
+
+The K candidate was reconstructed from Current Block Source/Primary ownership and uses a two-trunk model:
+
+- control/time physiology;
+- tissue-identity / barrier / evidence pathology.
+
+The historical E System Guide remains reference-only; its old DAG is not accepted Learning truth.
+
+Required sequence now:
+
+```text
+fresh independent K acceptance
 → Learning Logic construction
 → independent L acceptance
 → Content Realization
@@ -89,7 +107,7 @@ bounded Source reconstruction / boundary
 → fresh independent Content closure
 ```
 
-Use D Phase 7 only to calibrate realization quality and failure modes after E reaches Content. Do not copy D Block/LG/Source-contact topology for symmetry.
+Do not start E Learning or Content before K acceptance. Do not copy D topology for symmetry.
 
 ## F｜Remaining Clinical — LATER
 
@@ -295,9 +313,9 @@ D Content PASS / CLOSED
 → D P / high-value Visual / Runtime downstream
 
 ACTIVE CONTENT PRIORITY
-E Source reconstruction / boundary
-→ Knowledge
-→ K acceptance
+E S1 PASS
+→ K candidate built
+→ independent K acceptance ACTIVE
 → Learning
 → Content
 
