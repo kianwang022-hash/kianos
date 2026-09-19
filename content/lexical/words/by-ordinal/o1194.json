@@ -4,7 +4,7 @@
   "word_id": "word:curriculum",
   "word": "curriculum",
   "record": {
-    "card_version": "v1",
+    "card_version": "v2",
     "confusables": [],
     "constructions": [],
     "content_hash": "0cf4e234edd33e016d87277fb9d28243d22ef1dbb623492c4755800108583fdf",
@@ -16,7 +16,7 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": false,
+    "needs_delta_review": true,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
@@ -81,7 +81,56 @@
     },
     "word": "curriculum",
     "word_family": [],
-    "word_id": "word:curriculum"
+    "word_id": "word:curriculum",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:curriculum:singular",
+          "canonical_form": "curriculum",
+          "learner_key": "curriculum (singular)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": ""
+        },
+        {
+          "variant_id": "form:curriculum:plural-latin",
+          "canonical_form": "curricula",
+          "learner_key": "curricula (plural)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": ""
+        },
+        {
+          "variant_id": "form:curriculum:plural-regularized",
+          "canonical_form": "curriculums",
+          "learner_key": "curriculums (plural)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": ""
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "curriculum",
+          "condition": "singular",
+          "note": "单数 curriculum。"
+        },
+        {
+          "surface": "curricula",
+          "condition": "plural",
+          "note": "常见拉丁式复数 curricula。"
+        },
+        {
+          "surface": "curriculums",
+          "condition": "plural",
+          "note": "规则化复数 curriculums 也被接受；正式阅读中 curricula 很常见。"
+        }
+      ],
+      "boundary": "curriculum 有 curricula 和 curriculums 两种可接受复数。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -139,7 +188,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1193-1200.json",
     "source_content_hash": "0cf4e234edd33e016d87277fb9d28243d22ef1dbb623492c4755800108583fdf",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

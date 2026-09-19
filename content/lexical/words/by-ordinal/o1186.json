@@ -4,7 +4,7 @@
   "word_id": "word:cupboard",
   "word": "cupboard",
   "record": {
-    "card_version": "v1",
+    "card_version": "v2",
     "confusables": [],
     "constructions": [],
     "content_hash": "6c1f5aa021b37720ea1fe8cb853494b57e51a49bdc103a04d786296c1344a201",
@@ -16,7 +16,7 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": false,
+    "needs_delta_review": true,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
@@ -74,7 +74,37 @@
     },
     "word": "cupboard",
     "word_family": [],
-    "word_id": "word:cupboard"
+    "word_id": "word:cupboard",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:cupboard:bre",
+          "canonical_form": "cupboard",
+          "learner_key": "cupboard (BrE)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": "/ˈkʌb.əd/"
+        },
+        {
+          "variant_id": "form:cupboard:ame",
+          "canonical_form": "cupboard",
+          "learner_key": "cupboard (AmE)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": "/ˈkʌb.ɚd/"
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "cupboard",
+          "condition": "ordinary noun",
+          "note": "拼写里有 p 和 board，但正常发音压缩，不按 cup + board 两部分逐字读。"
+        }
+      ],
+      "boundary": "cupboard 是典型拼写—发音不透明词。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -137,7 +167,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1185-1192.json",
     "source_content_hash": "6c1f5aa021b37720ea1fe8cb853494b57e51a49bdc103a04d786296c1344a201",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

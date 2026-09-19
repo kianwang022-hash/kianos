@@ -4,7 +4,7 @@
   "word_id": "word:curb",
   "word": "curb",
   "record": {
-    "card_version": "v4",
+    "card_version": "v2",
     "confusables": [],
     "constructions": [],
     "content_hash": "bb1863c80563d23b12fe4e8ff631d98cc6ea57f9f67ab1d3ea67c9df60ea99e8",
@@ -33,7 +33,7 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": false,
+    "needs_delta_review": true,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
@@ -134,6 +134,12 @@
       "owner_path": "content/lexical/relations/by-id/77/77b440871136eee268a35dbb2f375b6b2336adef914e3fdd6287aaae70d158bc.json",
       "field": "semantic_neighbors",
       "index": 0
+    },
+    {
+      "relation_id": "relation:baseline-v2:curb-kerb:regional_spelling_variant",
+      "owner_path": "content/lexical/relations/by-id/8d/8d783717599ab70ea8a42218e6a88ff76a0b1839c9ef390a906ccd82402ae38e.json",
+      "field": "semantic_neighbors",
+      "index": 1
     }
   ],
   "reference_senses": [],
@@ -215,7 +221,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1185-1192.json",
     "source_content_hash": "bb1863c80563d23b12fe4e8ff631d98cc6ea57f9f67ab1d3ea67c9df60ea99e8",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

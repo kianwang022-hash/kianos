@@ -4,7 +4,7 @@
   "word_id": "word:cure",
   "word": "cure",
   "record": {
-    "card_version": "v1",
+    "card_version": "v2",
     "confusables": [],
     "constructions": [],
     "content_hash": "99e7a0866c5d95c6c3710a61eccb0676e7e37e8b8c1679226fcf8550f3e37424",
@@ -35,7 +35,7 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": false,
+    "needs_delta_review": true,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
@@ -176,7 +176,14 @@
     "word_family": [],
     "word_id": "word:cure"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:baseline-v2:cure-treat:semantic_contrast",
+      "owner_path": "content/lexical/relations/by-id/e2/e25022c0edd759a6e7fb2588ac0911c4e93a8fec6edc050bd7c42ab979d625d3.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -282,7 +289,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1185-1192.json",
     "source_content_hash": "99e7a0866c5d95c6c3710a61eccb0676e7e37e8b8c1679226fcf8550f3e37424",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
