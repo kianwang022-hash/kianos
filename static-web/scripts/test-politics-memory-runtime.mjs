@@ -21,33 +21,40 @@ class MemoryStorage {
 }
 
 const chapter = {
-  subject: 'XI',
-  chapter_id: 'POL27-LEARN-XI-C03',
-  teaching_title: '党的领导',
-  content_support: {
-    active_precision: [{
-      natural_unit_id: 'POL27-CF-XI-C03-S01',
-      name: '党的领导四组高频身份',
-      items: ['最本质特征', '最大优势', '最高政治领导力量', '根本保证'],
-      source_refs: ['SRC-1']
-    }],
-    active_boundaries: [{
-      natural_unit_id: 'POL27-CF-XI-C03-S01',
-      name: '全面领导边界',
-      items: ['全面领导 ≠ 替代具体履职'],
-      source_refs: ['SRC-2']
-    }, {
-      natural_unit_id: 'POL27-CF-XI-C03-S01',
-      name: '无来源的边界',
-      items: ['should not be admitted'],
-      source_refs: []
-    }]
+  subject: 'xi',
+  chapter: 'ch03',
+  title: '党的领导',
+  raw: {
+    subject: 'XI',
+    chapter_id: 'POL27-LEARN-XI-C03',
+    teaching_title: '党的领导',
+    content_support: {
+      active_precision: [{
+        natural_unit_id: 'POL27-CF-XI-C03-S01',
+        name: '党的领导四组高频身份',
+        items: ['最本质特征', '最大优势', '最高政治领导力量', '根本保证'],
+        source_refs: ['SRC-1']
+      }],
+      active_boundaries: [{
+        natural_unit_id: 'POL27-CF-XI-C03-S01',
+        name: '全面领导边界',
+        items: ['全面领导 ≠ 替代具体履职'],
+        source_refs: ['SRC-2']
+      }, {
+        natural_unit_id: 'POL27-CF-XI-C03-S01',
+        name: '无来源的边界',
+        items: ['should not be admitted'],
+        source_refs: []
+      }]
+    }
   }
 };
 
 const extracted = extractPoliticsMemoryCandidates(chapter);
 assert.equal(extracted.length, 2, 'only explicit source-grounded active memory shapes are admitted');
 assert.equal(extracted[0].admission, 'CANDIDATE_ONLY');
+assert.equal(extracted[0].subject, 'xi');
+assert.equal(extracted[0].chapter_id, 'POL27-LEARN-XI-C03');
 
 const catalog = {
   schema: 'kianos.politics.memory-candidate-catalog.v1',
