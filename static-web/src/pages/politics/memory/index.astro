@@ -4,6 +4,7 @@ import { buildPoliticsMemoryCandidateCatalogCurrent } from '../../../lib/politic
 import '../../../styles/product-closure.css';
 
 const catalog = buildPoliticsMemoryCandidateCatalogCurrent();
+const base = import.meta.env.BASE_URL;
 ---
 
 <Base title="政治 · 今日记忆" active="politics" showLead={false}>
@@ -33,10 +34,10 @@ const catalog = buildPoliticsMemoryCandidateCatalogCurrent();
     <section class="memoryPrototypeComplete" data-memory-complete hidden>
       <h2>这组完成了。</h2>
       <p>结果已经留在本机 Evidence。下一步由 Chat 结合题目和后续学习再决定。</p>
-      <a href="/politics/">回政治 →</a>
+      <a href={`${base}politics/`}>回政治 →</a>
     </section>
 
-    <article class="memoryPrototypeCard">
+    <article class="memoryPrototypeCard" data-memory-card hidden>
       <p data-memory-reason hidden></p>
       <h2 data-memory-prompt></h2>
       <button type="button" data-memory-reveal>显示</button>
