@@ -22,7 +22,7 @@ const source=new MemoryStorage({
     study_day:'2026-09-20',
     generated_at:'2026-09-20T01:00:00.000Z',
     current_step:0,
-    steps:[{step_id:'m1',kind:'MEMORY_REVIEW',card_ids:['core:a1-b01-kp01']}]
+    steps:[{step_id:'m1',kind:'MEMORY_REVIEW',targets:[{card_id:'core:a1-b01-kp01',source_hash:'h1'}]}]
   }),
   [runtimeKey]:JSON.stringify({
     schema:'kianos.xizong.session-runtime.v1',
