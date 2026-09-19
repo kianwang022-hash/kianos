@@ -211,4 +211,54 @@ const stalePlanReceipt = applyPrivateControlCommand(planStorage, stalePlanComman
 assert.equal(stalePlanReceipt.status, 'REJECTED');
 assert.equal(JSON.parse(planStorage.getItem(EXAM_CHAT_PLAN_KEY)).generated_at, new Date(t0).toISOString());
 
-console.log('PASS private control prototype: transactional per-target dispatch + replay/stale/supersede isolation');
+// A previous-day active slot must not force today's first command to supersede yesterday.
+const crossDayStorage = new MemoryStorage({
+  'kianos:private-control-runtime:v1': JSON.stringify({
+    schema:'kianos.private-control-runtime-state.v1',
+    active_by_target:{
+      'exam.chat_plan':{
+        command_id:'yesterday-plan',
+        command_signature:'cmd-deadbeef',
+        issued_at:'2026-09-19T01:00:00.000Z',
+        applied_at:'2026-09-19T01:00:01.000Z',
+        study_day:'2026-09-19'
+      }
+    },
+    receipts:[]
+  })
+});
+const todayPlanCommand = {
+  ...c1,
+  command_id:'today-plan',
+  issued_at:new Date(t0 + 30_000).toISOString(),
+  payload:{...planPayload, generated_at:new Date(t0 + 30_000).toISOString()}
+};
+const todayPlanReceipt = applyPrivateControlCommand(crossDayStorage, todayPlanCommand, {
+  expectedDay:day,
+  now:t0 + 31_000
+});
+assert.equal(todayPlanReceipt.status,'APPLIED');
+assert.equal(readPrivateControlRuntimeState(crossDayStorage).active_by_target['exam.chat_plan'].command_id,'today-plan');
+
+// Stale-day command is recorded once, then replays the same STALE receipt.
+const staleDayStorage = new MemoryStorage();
+const staleDayCommand = {
+  ...c1,
+  command_id:'yesterday-arrived-late',
+  study_day:'2026-09-19',
+  issued_at:'2026-09-19T02:00:00.000Z',
+  payload:{...planPayload,study_day:'2026-09-19',generated_at:'2026-09-19T02:00:00.000Z'}
+};
+const staleDayReceipt = applyPrivateControlCommand(staleDayStorage, staleDayCommand, {
+  expectedDay:day,
+  now:t0 + 40_000
+});
+assert.equal(staleDayReceipt.status,'STALE');
+const staleDayReplay = applyPrivateControlCommand(staleDayStorage, staleDayCommand, {
+  expectedDay:day,
+  now:t0 + 50_000
+});
+assert.equal(staleDayReplay.status,'STALE');
+assert.equal(readPrivateControlRuntimeState(staleDayStorage).receipts.length,1);
+
+console.log('PASS private control prototype: transactional per-target dispatch + replay/stale/supersede/cross-day isolation');
