@@ -8,7 +8,9 @@ import {
   POLITICS_MEMORY_EVIDENCE_KEY,
   applyPoliticsMemoryPlan,
   recordPoliticsMemoryResponse,
-  resolvePoliticsMemoryResume
+  resolvePoliticsMemoryResume,
+  politicsMemoryCheckpointKeyAllowed,
+  validatePoliticsMemoryCheckpointValue
 } from '../src/lib/politicsMemoryRuntime.mjs';
 
 class MemoryStorage {
@@ -120,6 +122,10 @@ assert.throws(() => applyPoliticsMemoryPlan(new MemoryStorage(), catalog, {
 }, { expectedDay: day, now }), /PLAN_UNKNOWN_CANDIDATE/);
 
 assert.equal(JSON.parse(storage.getItem(POLITICS_MEMORY_EVIDENCE_KEY)).length, 2);
+assert.equal(politicsMemoryCheckpointKeyAllowed(POLITICS_MEMORY_PLAN_KEY), true);
+assert.equal(politicsMemoryCheckpointKeyAllowed(POLITICS_MEMORY_EVIDENCE_KEY), true);
+validatePoliticsMemoryCheckpointValue(POLITICS_MEMORY_PLAN_KEY, JSON.parse(storage.getItem(POLITICS_MEMORY_PLAN_KEY)));
+validatePoliticsMemoryCheckpointValue(POLITICS_MEMORY_EVIDENCE_KEY, JSON.parse(storage.getItem(POLITICS_MEMORY_EVIDENCE_KEY)));
 
 const staleCatalog = { ...catalog, revision: 'catalog-r2' };
 assert.equal(resolvePoliticsMemoryResume(storage, staleCatalog).status, 'STALE');
