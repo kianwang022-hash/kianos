@@ -32,16 +32,22 @@ Proof: `static-web/scripts/test-politics-sequence-readability.mjs`; macOS artifa
 
 **Kian accepted this changed long-sequence geometry on 2026-09-19 after direct before/after Mac review.** The acceptance covers the visible layout change only; it does not manufacture learner U or close shared Return/durability limits.
 
-### Next owner after final acceptance
+### Normal next state after final acceptance
 
-Resolve only actual PR/main write conflicts and relevant inherited integration assertions, then rerun the smallest affected proof on the resulting exact head. If the resulting candidate is clean, merge PR #486 and advance this cursor to the remaining shared platform/source limits rather than reopening first-round Politics semantics. Do not claim current main already contains this candidate; do not rerun unrelated subjects or the initial A/B/C model by ritual.
+Politics first-round engineering and the shared platform dependencies it needed are landed. Typed Politics diagnosis Return/import and shared private checkpoint recovery were subsequently closed through the shared platform lane and final cross-subject regression.
 
-The inspected PR state had merge conflicts and inherited Politics QA failures despite the fresh exact-head suite passing. These are technical promotion work, not requests for Kian to debug CI. Do not silently waive them or describe all CI as green.
+Normal continuation is therefore:
+
+```text
+real Politics study
+→ concrete learner-visible / source / content defect
+→ reopen the smallest exact owner
+```
+
+Do not reopen first-round Politics semantics, redo the initial audit model, or build a Politics-only second handoff/recovery stack.
 
 ### Separate real limits — not first-round content rebuilding
 
-- **Shared task-aware Chat Return/import:** outbound Politics batch export and exact local Unit Return are proved; typed diagnosis import/reconciliation/replay is not. Route through `static-web/CURRENT.md` to the existing shared owner. Do not build a Politics-only second return protocol or storage system.
-- **Full private recovery:** same-profile refresh/restart, failed persistence and provenance protections are proved for tested paths. Complete Politics backup/profile-loss/cross-device/GitHub-to-Mac restoration is not. Shared checkpoint foundation PASS is not complete subject-payload closure.
 - **Later Source:** no complete approved current-year analysis/current-affairs/recitation/Xiao4/Mock Source chain. Affected paths remain `UPSTREAM SOURCE NOT YET AVAILABLE / NOT YET ACCEPTABLE`; draft/history remains provenance only. Do not fabricate material.
 - **U:** all newly audited learner paths remain `UNTESTED` until Kian actually uses them. Synthetic test evidence is not private learner progress.
 
