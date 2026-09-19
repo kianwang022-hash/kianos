@@ -31,6 +31,11 @@ on:
       - "static-web/scripts/test-xizong-auto-chat-return-browser.mjs"
       - "static-web/scripts/privateControlRelay.mjs"
       - "static-web/scripts/test-private-control-relay.mjs"
+      - "static-web/src/lib/xizongChatReturn.mjs"
+      - "static-web/src/lib/xizongPendingChatReturn.mjs"
+      - "static-web/src/components/XizongStudyEnhancer.astro"
+      - "static-web/src/components/XizongRepairInboxBridge.astro"
+      - "static-web/src/lib/examOrchestratorClient.mjs"
       - ".github/workflows/chat-control-transport-prototype.yml"
 
 jobs:
@@ -96,5 +101,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: private-control-browser
-          path: static-web/.qa/private-control-browser.json
+          path: |
+            static-web/.qa/private-control-browser.json
+            static-web/.qa/xizong-native-session-actions-browser.json
+            static-web/.qa/xizong-auto-chat-return-browser.json
           if-no-files-found: warn
