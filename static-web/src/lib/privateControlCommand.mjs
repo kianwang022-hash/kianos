@@ -80,6 +80,16 @@ export function validateControlCommand(value){
       fail('XIZONG_SESSION_REF_MISMATCH');
     }
   }
+  if(!xizongSession&&xizongChatReturn&&examPlan?.subjects?.xizong?.session_ref){
+    if(String(examPlan.subjects.xizong.session_ref)!==String(xizongChatReturn.return_id||'')){
+      fail('XIZONG_RETURN_REF_MISMATCH');
+    }
+  }
+  if(!xizongSession&&!xizongChatReturn&&xizongSystemWuReturn&&examPlan?.subjects?.xizong?.session_ref){
+    if(String(examPlan.subjects.xizong.session_ref)!==String(xizongSystemWuReturn.return_id||'')){
+      fail('XIZONG_SYSTEM_RETURN_REF_MISMATCH');
+    }
+  }
   if(politicsMemoryPlan&&examPlan?.subjects?.politics?.session_ref){
     if(String(examPlan.subjects.politics.session_ref)!==String(politicsMemoryPlan.plan_id||'')){
       fail('POLITICS_SESSION_REF_MISMATCH');
@@ -151,6 +161,14 @@ export function validateBrowserControlCommand(value,expectedDay=null){
   if(xizongSession&&examPlan?.subjects?.xizong?.session_ref
     && String(examPlan.subjects.xizong.session_ref)!==String(xizongSession.session_id||'')){
     fail('XIZONG_SESSION_REF_MISMATCH');
+  }
+  if(!xizongSession&&xizongChatReturn&&examPlan?.subjects?.xizong?.session_ref
+    && String(examPlan.subjects.xizong.session_ref)!==String(xizongChatReturn.return_id||'')){
+    fail('XIZONG_RETURN_REF_MISMATCH');
+  }
+  if(!xizongSession&&!xizongChatReturn&&xizongSystemWuReturn&&examPlan?.subjects?.xizong?.session_ref
+    && String(examPlan.subjects.xizong.session_ref)!==String(xizongSystemWuReturn.return_id||'')){
+    fail('XIZONG_SYSTEM_RETURN_REF_MISMATCH');
   }
   if(politicsMemoryPlan&&examPlan?.subjects?.politics?.session_ref
     && String(examPlan.subjects.politics.session_ref)!==String(politicsMemoryPlan.plan_id||'')){
