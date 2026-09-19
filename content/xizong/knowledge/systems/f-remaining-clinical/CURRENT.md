@@ -12,17 +12,17 @@ This file owns work cursor only. It does not own medical Core, Learning semantic
 ## Current Work Cursor
 
 **Scope:** F — Remaining Clinical  
-**Lane-A role:** **parallel Source groundwork while E waits on independent K acceptance**  
+**Lane-A role:** **parallel Knowledge candidate while E waits on independent K acceptance**  
 **Stable Current identity:** **9 Blocks / 121 canonical KP**  
-**Active gate:** **K — Knowledge reconstruction**  
+**Active gate:** **K — fresh independent Knowledge acceptance**  
 **Source state:** **S1 PASS after approved Source rebind; bounded unresolved exact fields remain explicit / fail-closed**  
-**Earliest eligible next action:** **fresh F Knowledge reconstruction over F1–F9 / 121 KP without filling unresolved exact Source gaps**  
+**Earliest eligible next action:** **fresh independent K audit of the F candidate; do not begin Learning before K PASS**  
 **Downstream:** L / Content / P / R / E frozen behind K
 
 ```text
 S1 medical / first-learning Source boundary = PASS
 S2 exact official-question membership        = UNTESTED / separate later boundary
-K Knowledge                                  = UNTESTED / ACTIVE NEXT
+K Knowledge                                  = UNTESTED / CANDIDATE_READY_FOR_INDEPENDENT_AUDIT
 L Learning Logic                             = UNTESTED / downstream-frozen
 Content                                      = NOT_STARTED
 P / R / E                                    = downstream-frozen
@@ -31,7 +31,7 @@ U Learner Use                                = no claim
 
 Active construction branch:
 
-`work/xizong-f-source-reconstruction-20260919-v1`
+`work/xizong-f-knowledge-20260919-v1`
 
 ---
 

@@ -14,7 +14,7 @@ This file owns F-scoped readiness truth only. It does not own medical Core, lear
 | --- | --- | --- |
 | S1 — medical / first-learning Source boundary | **PASS** | approved original/current Lecture sources were re-bound from File Library by title/page locator; F6/F8 stale reading gaps closed; remaining exact gaps explicit and fail-closed |
 | S2 — exact official F System question membership | **UNTESTED** | separate later boundary; no membership inferred from Outline placement |
-| K — Knowledge | **UNTESTED / ACTIVE NEXT** | Source is now sufficient for fresh System Knowledge reconstruction without guessing bounded unresolved exact fields |
+| K — Knowledge | **UNTESTED / CANDIDATE READY** | fresh F System Knowledge candidate built from F1–F9 / 121 KP; independent K acceptance required |
 | L — Learning Logic | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | Content Realization / Optimization | **NOT_STARTED / DOWNSTREAM-FROZEN** | downstream |
 | P — Projection | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
@@ -82,18 +82,53 @@ F5 Study wording conflicts and other live conflicts remain explicit rather than 
 
 ---
 
-## Downstream activation / freeze
+## K candidate — BUILT / NOT ACCEPTED
 
-K is now the earliest eligible F gate.
+Candidate owner:
 
-Knowledge reconstruction may create a **candidate** `system.json`, provided it preserves all bounded Source gaps and does not infer missing exact facts.
+`content/xizong/knowledge/systems/f-remaining-clinical/system.json`
 
-Until independent K acceptance:
+Construction evidence:
 
-- do not construct F hard readiness / default route;
-- do not construct Logic Groups or Source-contact units;
-- do not redesign existing Block Content;
-- do not start F Projection / Runtime / Evidence;
+`content/xizong/knowledge/learner/F_PHASE1_KNOWLEDGE_RECONSTRUCTION.md`
+
+Candidate identity:
+
+```text
+9 stable Blocks
+121 stable KP identities
+5 descriptive Knowledge families
+0 accepted learner DAG
+0 accepted LG decomposition
+0 accepted Source-contact choreography
+```
+
+The candidate uses a disturbance-control-recovery network rather than an organ-style causal chain:
+
+```text
+harmful input / intervention
+→ immediate threat
+→ support + source control
+→ specific bounded control
+→ iatrogenic risk
+→ recovery / deviation
+```
+
+F9 remains low-connectivity by design.
+
+### Independence requirement
+
+K must receive a fresh independent semantic audit before PASS. Construction receipts, the historical Guide and the current five candidate families are not evidence that the model is correct merely because they exist.
+
+### Downstream freeze
+
+Until K passes:
+
+- do not construct hard readiness/default route;
+- do not construct Logic Groups;
+- do not decide Source-contact units;
+- do not redesign F Block Content;
+- do not start Projection/Runtime/Evidence;
 - do not infer official question membership.
 
 A later Source repair should reopen only the named missing field, not the whole System.
