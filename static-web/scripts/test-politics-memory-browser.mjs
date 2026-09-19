@@ -160,7 +160,9 @@ await check('keyboard-response-records-one-event-and-refresh-resumes-next', asyn
   const { context, page } = await contextWith(plan);
   try {
     await page.goto(base + '/politics/memory/');
+    await page.locator('[data-memory-card]').waitFor({ state: 'visible' });
     await page.keyboard.press('Space');
+    await page.locator('[data-memory-controls]').waitFor({ state: 'visible' });
     await page.keyboard.press('2');
 
     let events = JSON.parse(await page.evaluate((key) => localStorage.getItem(key) || '[]', POLITICS_MEMORY_EVIDENCE_KEY));
@@ -212,7 +214,9 @@ await check('second-response-completes-without-auto-extra-round', async () => {
   const { context, page } = await contextWith(plan, [firstEvent]);
   try {
     await page.goto(base + '/politics/memory/');
+    await page.locator('[data-memory-card]').waitFor({ state: 'visible' });
     await page.keyboard.press('Enter');
+    await page.locator('[data-memory-controls]').waitFor({ state: 'visible' });
     await page.keyboard.press('3');
     await page.locator('[data-memory-complete]').waitFor({ state: 'visible' });
     assert.equal(await page.locator('[data-memory-card]').isVisible(), false);
