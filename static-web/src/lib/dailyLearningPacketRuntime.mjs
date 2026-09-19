@@ -8,6 +8,7 @@ import {
   readPoliticsSnapshot
 } from './politicsPracticeState.mjs';
 import { buildXizongStudyPacketFromStorage } from './xizongStudyPacket.mjs';
+import { buildXizongDailyEvidencePacket } from './xizongDailyEvidence.mjs';
 
 const record = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
 
@@ -19,6 +20,16 @@ function readJson(storage, key, fallback = null) {
   } catch {
     return fallback;
   }
+}
+
+function xizongEvidencePresent(packet) {
+  if (!record(packet)) return false;
+  if (packet.current_block) return true;
+  if (Number(packet?.summary?.active_repairs || 0) > 0) return true;
+  return Object.entries(packet.summary || {})
+    .some(([key, value]) => key.endsWith('_events') || key === 'question_attempts'
+      ? Number(value || 0) > 0
+      : false);
 }
 
 function englishEvidencePresent(packet) {
@@ -86,23 +97,28 @@ export function buildHomeDailyLearningPacket({
 
   const lastXizong = readJson(storage, 'kianos-xizong-last-location-v1', null);
   const xizongIndex = resolveXizongPacketIndex(xizongPacketIndex, lastXizong);
-  if (xizongIndex) {
-    try {
-      const xizong = buildXizongStudyPacketFromStorage({
-        storage,
-        packetMeta: xizongIndex.packetMeta,
-        kpRows: xizongIndex.kpRows,
-        currentStage: '',
-        currentIndex: null,
-        now
-      });
-      if (xizong) {
-        packet = attachDailySubjectPacket(packet, 'xizong', xizong);
-        coverage.xizong = 'attached';
-      }
-    } catch (error) {
-      warnings.push('xizong:' + String(error?.message || error));
+  try {
+    const currentBlock = xizongIndex
+      ? buildXizongStudyPacketFromStorage({
+          storage,
+          packetMeta: xizongIndex.packetMeta,
+          kpRows: xizongIndex.kpRows,
+          currentStage: '',
+          currentIndex: null,
+          now
+        })
+      : null;
+    const xizong = buildXizongDailyEvidencePacket(storage, {
+      day,
+      now,
+      currentBlockPacket: currentBlock
+    });
+    if (xizongEvidencePresent(xizong)) {
+      packet = attachDailySubjectPacket(packet, 'xizong', xizong);
+      coverage.xizong = 'attached';
     }
+  } catch (error) {
+    warnings.push('xizong:' + String(error?.message || error));
   }
 
   try {
