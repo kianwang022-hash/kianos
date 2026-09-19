@@ -26,6 +26,8 @@ function normalizeCue(row, kind) {
   return {
     id: text(row?.id || row?.cueId),
     kind,
+    answerBearing: row?.answer_bearing === true || row?.answerBearing === true,
+    displayPolicy: row?.display_policy || row?.displayPolicy || null,
     anchor: row?.anchor ? { ...row.anchor } : {},
     cue: text(row?.cue || row?.task || row?.micro_task),
     task: text(row?.task || row?.micro_task),
@@ -41,6 +43,7 @@ function normalizeExtension(row) {
     id: text(row?.slot_id || row?.slotId),
     revision: Number(row?.revision || 0) || null,
     kind: 'EXTENSION',
+    answerBearing: row?.answer_bearing === true || row?.answerBearing === true,
     assetType: text(row?.asset_type || row?.assetType),
     title: text(row?.title),
     task: text(row?.task),

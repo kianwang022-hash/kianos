@@ -1,0 +1,76 @@
+name: Xizong Fresh Independent Acceptance
+on:
+  push:
+    branches: [work/xizong-final-learner-20260919-independent, work/xizong-typed-chat-return-20260919]
+    paths:
+      - '.github/workflows/xizong-final-independent.yml'
+      - 'static-web/src/**'
+      - 'static-web/scripts/test-xizong-final-*.mjs'
+      - 'content/xizong/knowledge/**'
+      - 'content/xizong/projection/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/xizong-final-independent.yml'
+      - 'static-web/src/**'
+      - 'static-web/scripts/test-xizong-final-*.mjs'
+      - 'content/xizong/**'
+permissions:
+  contents: read
+concurrency:
+  group: xizong-final-independent
+  cancel-in-progress: true
+jobs:
+  independent:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-14]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install runtime and browser harness
+        working-directory: static-web
+        run: |
+          npm install --no-package-lock --no-audit --no-fund
+          npm install --no-save --no-package-lock --no-audit --no-fund playwright
+          npx playwright install chromium
+      - name: Fresh independent learner probes
+        working-directory: static-web
+        env:
+          KIANOS_REPO_ROOT: ${{ github.workspace }}
+          XIZONG_AUDIT_HEAD: ${{ github.sha }}
+          ASTRO_TELEMETRY_DISABLED: '1'
+        run: node scripts/test-xizong-final-independent.mjs
+      - name: Separate Block Recall and paper visual states
+        if: always()
+        working-directory: static-web
+        env:
+          KIANOS_REPO_ROOT: ${{ github.workspace }}
+          XIZONG_AUDIT_HEAD: ${{ github.sha }}
+          ASTRO_TELEMETRY_DISABLED: '1'
+        run: node scripts/test-xizong-final-visual-states.mjs
+      - name: Bounded dependent regression, not broad CI
+        if: always()
+        working-directory: static-web
+        shell: bash
+        run: |
+          mkdir -p .qa/xizong-final-independent
+          status=0
+          for script in test-xizong-chat-return test-xizong-daily-learning-packet validate-xizong-paper-practice validate-xizong-retained-practice validate-xizong-projection-current validate-xizong-learner-object validate-xizong-representation-gate; do
+            node "scripts/$script.mjs" > ".qa/xizong-final-independent/$script.log" 2>&1 || status=1
+          done
+          python3 ../content/xizong/projection/tools/validate_projection.py --json .qa/xizong-final-independent/projection-assets.json > .qa/xizong-final-independent/projection-assets.log 2>&1 || status=1
+          exit "$status"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: xizong-fresh-${{ matrix.os }}-${{ github.sha }}
+          path: static-web/.qa/xizong-final-independent
+          retention-days: 14

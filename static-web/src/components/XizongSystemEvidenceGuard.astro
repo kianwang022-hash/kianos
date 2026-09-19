@@ -86,13 +86,14 @@ const evidenceQuestions = (sweep?.questions || []).map((question) => ({
 
     const previousMeta = readJson(metaKey, null);
     if (previousMeta?.version && previousMeta.version !== version) {
+      const cleanup = [];
       const staleBlockQuestionPlans = {};
       const staleBlockRepairInboxes = {};
       blockIds.forEach((blockId) => {
         const inboxKey = `kianos-xizong-repair-inbox-v1:xizong:${blockId}`;
         const inbox = readJson(inboxKey, null);
         if (inbox) staleBlockRepairInboxes[blockId] = inbox;
-        try { localStorage.removeItem(inboxKey); } catch {}
+        cleanup.push(() => { try { localStorage.removeItem(inboxKey); } catch {} });
 
         const key = `kianos-xizong-memory-review-v2:xizong:${blockId}`;
         const ext = readJson(key, null);
@@ -103,7 +104,7 @@ const evidenceQuestions = (sweep?.questions || []).map((question) => ({
         if (kept.length !== ext.reviewPlan.length) {
           ext.reviewPlan = kept;
           ext.reviewIndex = 0;
-          writeJson(key, ext);
+          cleanup.push(() => writeJson(key, ext));
         }
       });
 
@@ -112,16 +113,16 @@ const evidenceQuestions = (sweep?.questions || []).map((question) => ({
         String(task?.systemId || '') === systemId && String(task?.origin || '') === 'SYSTEM_WU_CHAT_RETURN'
       );
       if (staleVisibleRepairs.length) {
-        writeJson(XIZONG_MEMORY_STORAGE_KEY, {
+        cleanup.push(() => writeJson(XIZONG_MEMORY_STORAGE_KEY, {
           ...oldMemory,
           repairTasks: (oldMemory.repairTasks || []).filter((task) =>
             !(String(task?.systemId || '') === systemId && String(task?.origin || '') === 'SYSTEM_WU_CHAT_RETURN')
           )
-        });
+        }));
       }
 
       const archiveKey = `kianos-xizong-stale-system-evidence:${systemId}:${Date.now()}`;
-      writeJson(archiveKey, {
+      const archived = writeJson(archiveKey, {
         archived_at: new Date().toISOString(),
         previous_version: previousMeta.version,
         current_version: version,
@@ -133,6 +134,15 @@ const evidenceQuestions = (sweep?.questions || []).map((question) => ({
         stale_block_repair_inboxes: staleBlockRepairInboxes,
         stale_visible_memory_repairs: staleVisibleRepairs
       });
+      if (!archived) {
+        root.inert = true;
+        document.querySelectorAll('[data-xizong-repair-return]').forEach((node) => { node.inert = true; });
+        const notice = document.createElement('p');
+        notice.setAttribute('role', 'alert');
+        notice.textContent = '旧系统学习记录未能安全归档，原记录未删除，本页暂停。请先备份或释放存储，再重新打开；不要清除浏览器数据。';
+        root.before(notice);
+      } else {
+      cleanup.forEach((apply) => apply());
       try {
         localStorage.removeItem(recallKey);
         localStorage.removeItem(sweepKey);
@@ -142,6 +152,7 @@ const evidenceQuestions = (sweep?.questions || []).map((question) => ({
       writeJson(metaKey, { version, observed_at: new Date().toISOString() });
       try { sessionStorage.setItem(`kianos-xizong-system-evidence-reset:${systemId}`, '1'); } catch {}
       window.location.reload();
+      }
     } else {
       if (!previousMeta?.version) writeJson(metaKey, { version, observed_at: new Date().toISOString() });
 
@@ -158,8 +169,10 @@ const evidenceQuestions = (sweep?.questions || []).map((question) => ({
       try { evidenceQuestions = JSON.parse(document.querySelector('[data-evidence-questions]')?.textContent || '[]'); } catch {}
       const append = (event) => {
         const ledger = readJson(ledgerKey, { events: [] });
-        ledger.events = [...(Array.isArray(ledger.events) ? ledger.events : []), { at: new Date().toISOString(), ...event }].slice(-300);
-        writeJson(ledgerKey, ledger);
+        const prior = Array.isArray(ledger.events) ? ledger.events : [];
+        if (event.event_id && prior.some((row) => row.event_id === event.event_id)) return true;
+        ledger.events = [...prior, { at: new Date().toISOString(), ...event }];
+        return writeJson(ledgerKey, ledger);
       };
       const activeQuestionCounts = () => {
         const years = Array.isArray(readJson(holdoutKey, [])) ? readJson(holdoutKey, []) : [];
@@ -173,14 +186,18 @@ const evidenceQuestions = (sweep?.questions || []).map((question) => ({
       root.addEventListener('click', (event) => {
         const target = event.target instanceof Element ? event.target : null;
         if (!target?.closest('[data-complete-recall]')) return;
-        window.setTimeout(() => {
-          const { answered, total } = activeQuestionCounts();
-          const phase = answered === 0 ? 'PRE_QUESTION'
-            : total > 0 && answered >= total ? 'POST_QUESTION'
-            : 'MID_SWEEP';
-          append({ type: 'SYSTEM_RECALL', phase, answered_questions: answered, active_questions: total });
-        }, 0);
-      });
+        if (root.inert || root.hidden || root.querySelector('[data-recall-workspace]')?.hidden || root.querySelector('[data-recall-reveal]')?.hidden !== false || root.dataset.systemRecallCommitted === 'true') {
+          event.preventDefault(); event.stopImmediatePropagation(); return;
+        }
+        const { answered, total } = activeQuestionCounts();
+        const phase = answered === 0 ? 'PRE_QUESTION'
+          : total > 0 && answered >= total ? 'POST_QUESTION' : 'MID_SWEEP';
+        if (!append({ event_id: root.dataset.systemRecallEventId || '', type: 'SYSTEM_RECALL', phase, answered_questions: answered, active_questions: total })) {
+          event.preventDefault(); event.stopImmediatePropagation(); root.inert = true;
+          const notice = document.createElement('p'); notice.setAttribute('role','alert');
+          notice.textContent = '本次 System Recall 证据未能保存，未记录完成；请先备份或释放空间再恢复。'; root.before(notice);
+        }
+      }, true);
     }
   }
 </script>

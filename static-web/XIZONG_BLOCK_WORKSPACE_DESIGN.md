@@ -64,8 +64,8 @@ Visual ownership rule:
 Preserve semantically:
 
 - Logic Group navigation;
-- Logic Group continuous-Lecture model;
-- one return after the whole Logic Group;
+- accepted System-specific continuous Source-contact model;
+- one return at the accepted Source boundary, not an automatic trip per LG;
 - same-card KP Recall with Core-only reveal gating;
 - KP Recall evidence semantics;
 - Logic Group closure;
@@ -146,51 +146,19 @@ Rules:
 
 ## 7｜MarginNote handoff / bound TTSX checkpoint / one return — ACCEPTED
 
-The external-Lecture handoff is a real surface transition and should be low-friction.
+Source-contact authority remains `LEARNING_CONTRACT.md` plus the exact System Learning owner. This workspace consumes that decision; it does not set whole-LG as a lane-wide default.
 
-Before leaving KianOS, show directly:
+Before leaving, expose the exact owned Source locator / bounded instruction and the retrieval return map. Missing exact locators stay explicitly unavailable; do not infer ranges from KP order.
 
-```text
-current Logic Group
-→ exact Current source locator or bounded continuous source range when available
-→ KP return roadmap for this Logic Group
-→ relevant source-local Visual task when Current owns one
-→ one clear instruction: learn this whole Logic Group continuously in MarginNote
-```
+- Whole-LG source mode: one group confirmation covers that accepted segment's exact KP IDs.
+- Block / canonical Source-unit mode: continuous Source contact may span multiple retrieval LGs. Returning starts the accepted retrieval order, without reopening Source for every LG.
+- Multiple natural sections may be studied across sittings. A Block-wide completion confirmation means all owned Source coverage is complete, not that any arbitrary partial section covers the whole Block.
 
-Do not hide the return roadmap behind a disclosure control.
+Formal Lecture contact is per-KP evidence, but may be derived from confirmed accepted Source coverage. The normal path must not require one click per KP or per retrieval LG. Optional per-KP companion navigation/marking never replaces the one-source-unit confirmation.
 
-Do not fabricate source locators. If Current lacks an exact locator, show a bounded generic continuous-source instruction rather than guessing.
+A real reviewed Source boundary plus reviewed TTSX binding may insert one lightweight checkpoint. Answering, options, explanation and question-side expansion stay in original Lecture / MarginNote. Each bound question may have an optional short note; no default web answer entry, scoring or formal Question Attempt is created. Boundary decides WHEN, binding decides WHICH. Missing binding creates no checkpoint and no guessed question list.
 
-The handoff must continue to say, in learner-facing language, that original figures/tables/examples/Lecture-attached questions remain on the original Lecture surface and KianOS is the return surface for retrieval/closure.
-
-### Return evidence
-
-Preserve one meaningful learner confirmation. The exact path is conditional:
-
-```text
-this Logic Group's original Lecture contact is complete
-→ no reviewed TTSX binding here
-→ start this Logic Group's KP Recall
-
-this Logic Group's original Lecture contact is complete
-→ real reviewed Source boundary + reviewed TTSX binding
-→ lightweight TTSX checkpoint
-   - show the real reviewed bound question list: question id / short stem-or-title / source page
-   - complete the questions in the original MarginNote/Lecture location
-   - read answer, all options and question-side expansion there
-   - every question may expose its own low-friction `+写一句` note; all notes are optional
-   - no web answer entry, scoring, classification or Question Attempt
-→ start this Logic Group's KP Recall
-```
-
-The TTSX checkpoint is a **conditional companion surface**, not a second question runtime. Boundary decides **when**; reviewed binding decides **which**. If Current has no real reviewed binding, the renderer must fail closed and skip the checkpoint rather than infer questions from the official corpus, title, page or Block membership.
-
-For whole-Logic-Group source flow, a checkpoint may interrupt that group's return only when the normalized binding explicitly identifies that group/source segment. The UI must not smear a Block-wide binding across every Logic Group.
-
-This confirmation is not UI ceremony; it records formal Lecture contact required by the accepted Runtime/completion semantics.
-
-Do not add extra `I am back`, double-confirmation, or modal rituals.
+For whole-LG mode, a checkpoint can interrupt the group's return only when its reviewed binding explicitly owns that LG / Source segment. Never spread a Block-wide binding across every LG. After the checkpoint, return to the interrupted retrieval mainline. Do not add a second “I am back” confirmation.
 
 ## 8｜Visual / Precision timing boundary — ACCEPTED AT RESPONSIBILITY LEVEL
 

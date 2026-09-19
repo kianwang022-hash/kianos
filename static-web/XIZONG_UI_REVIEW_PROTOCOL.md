@@ -60,12 +60,12 @@ The lane-level first-pass journey is:
 System orientation
 → choose Block
 → Block orientation
-→ current Logic Group orientation
-→ original Lecture / MarginNote continuous study for the whole Logic Group
-→ one return to KianOS
-→ KP Recall for that Logic Group
-→ Logic Group closure
-→ next Logic Group
+→ current Source-contact orientation under the System Learning owner
+→ original Lecture / MarginNote continuous study at that accepted granularity
+→ return at the accepted retrieval point
+→ KP Recall in the accepted Logic Group order
+→ automatic Logic Group closure
+→ next retrieval group; reopen Source only when the owning Source unit requires it
 → Block Recall
 → Block Complete
 → after the System has actually been learned: System Recall
@@ -76,6 +76,8 @@ System orientation
 → short post-question System reconstruction
 → later selective Memory / Review / subsequent-pass compression
 ```
+
+Source-contact granularity is System-specific, not a global whole-LG rule. A confirmed accepted segment may supply formal contact evidence for all of its exact member KPs; evidence granularity never requires one learner click per KP/LG. Whole-LG handoff applies only where the System Learning owner explicitly chooses it.
 
 This journey is not a UI proposal. It is inherited Current Learning behavior. Local product work must fit it rather than reconstruct it from scratch.
 
@@ -124,8 +126,8 @@ UI work must not create a visually convenient shortcut that bypasses a legitimat
 
 ## 3.4 Recall / answer protection
 
-- neutral Recall front remains neutral;
-- answer-type title / canonical answer remains protected until legitimate Reveal;
+- KP Recall keeps its approved title, Prompt and permitted Context; canonical Core and explicitly answer-bearing / POST_REVEAL payload stay protected;
+- Block/System Recall retains its stricter neutral-front reconstruction boundary;
 - future-stage content must fail closed when learner prerequisites are not met;
 - visual reorganization must not leak the answer through sidebars, previews, maps or inspectors.
 

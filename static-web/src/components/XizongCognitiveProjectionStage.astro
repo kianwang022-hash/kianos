@@ -13,13 +13,13 @@ const regions = [
 const hasFramework = projection?.compiled && (plan.objectCount > 0 || referenceObjects.length > 0);
 ---
 {hasFramework && (
-  <details class="xv6CognitiveProjection xv6FrameworkEntry" data-xizong-cognitive-projection data-projection-asset={projection.assetPath || ''}>
+  <details open class="xv6CognitiveProjection xv6FrameworkEntry" data-xizong-cognitive-projection data-projection-asset={projection.assetPath || ''}>
     <summary class="xv6FrameworkEntrySummary">
       <div>
         <span>Block Framework</span>
-        <strong>打开当前 Block 框架</strong>
+        <strong>当前 Block 框架</strong>
       </div>
-      <small>按需展开</small>
+      <small>可收起</small>
     </summary>
     <div class="xv6FrameworkEntryBody" data-framework-representation-plan={plan.schema}>
       {regions.map((region) => (

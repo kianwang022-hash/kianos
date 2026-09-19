@@ -248,7 +248,7 @@ export function appendMemoryEvidence(stateInput, event, at = null) {
       origin: text(event?.origin || 'MEMORY_RECALL'),
       at: stamp
     }
-  ].slice(-3000);
+  ];
   const attention = { ...state.attention };
   const current = { ...(attention[cardId] || {}) };
   if (rating === 'unknown' || rating === 'fuzzy') {

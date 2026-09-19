@@ -287,17 +287,19 @@ Future passes may add `SECOND_PASS_REVIEW` / `LATE_REVIEW`, but this compilation
 
 ## 9｜Neutral-front safety
 
-Protected Recall is workspace-wide. Each cognitive object declares an explicit boolean `answer_bearing`. A false flag alone is never sufficient evidence of safety.
+This section constrains the **compiled cognitive-object Front channel**, not the complete KP learner-object workspace. Its objects may not smuggle answer payloads through maps, labels, inspectors or hidden semantic slots. Each cognitive object declares an explicit boolean `answer_bearing`. A false flag alone is never sufficient evidence of safety.
 
 The named Recall Front states remain protected even if a producer omits their `protection` flag; omission must fail validation rather than disable validation.
 
-The current declarative allowlist is:
+The KP learner object separately follows `LEARNER_OBJECT_CONTRACT.md` / Block Workspace §9: same identity/title, Prompt, exact locators and Current-approved Context may remain visible. That permission does not override an asset's explicit `answer_bearing` or `POST_REVEAL` restriction, nor authorize copying canonical Core into an auxiliary slot. Block/System reconstruction remains stricter. These are different output layers, not rival Learning models.
+
+The current **compiled-channel** declarative allowlist is:
 
 - `SYSTEM_RECALL_FRONT`: only the Current System's neutral prompt / generic attempt instruction, never a medical answer object;
 - `KP_RECALL_FRONT`: `ID_AND_NEUTRAL_PROMPT_ONLY`, no Block answer objects;
 - `BLOCK_RECALL_FRONT`: Current center question and the already accepted optional LG label map; `logic_map_policy: LABELS_AND_IDS_ONLY` restricts that map to IDs/labels, never its closures, goals, KP answers or future added answer fields.
 
-No protected view may expose canonical Guide/Core, recall spine, Precision, answer-bearing Visual, Failure answer, source/provenance payload or answer-type title through a second channel. Learning-support and handoff payloads are forbidden on the Front. Enriched assets require explicit `NO_ANSWER_LEAK` front policy.
+No protected compiled view may expose canonical Guide/Core, recall spine, Precision, answer-bearing Visual, Failure answer, source/provenance payload or answer-type title through a second channel. Learning-support and handoff payloads are forbidden on the Front. Enriched assets require explicit `NO_ANSWER_LEAK` front policy.
 
 The asset validator checks declarations and provides a bounded testable neutral payload projection. It does not execute the production browser renderer. DOM, accessibility text, tooltips, hidden inspectors, keyboard actions and real runtime-state transitions still require downstream browser tests.
 
