@@ -96,6 +96,24 @@ function normalizeStep(raw, index) {
     };
   }
 
+  if (kind === 'BLOCK_RETURN') {
+    const systemId = clean(raw.system_id || raw.systemId, 160);
+    const blockId = clean(raw.block_id || raw.blockId, 200);
+    const blockSlug = clean(raw.block_slug || raw.blockSlug, 160);
+    const sourceHash = clean(raw.source_hash || raw.sourceHash, 180);
+    if (!systemId || !/^[A-Za-z0-9._-]+$/.test(systemId)) fail('BLOCK_RETURN_SYSTEM_INVALID', stepId);
+    if (!blockId || !blockSlug || !/^[A-Za-z0-9._-]+$/.test(blockSlug) || !sourceHash) {
+      fail('BLOCK_RETURN_IDENTITY_REQUIRED', stepId);
+    }
+    return {
+      ...base,
+      system_id: systemId,
+      block_id: blockId,
+      block_slug: blockSlug,
+      source_hash: sourceHash
+    };
+  }
+
   fail('STEP_KIND_INVALID', kind || String(index));
 }
 
@@ -113,6 +131,10 @@ export function validateXizongSessionInstruction(value, expectedDay = null) {
   const steps = Array.isArray(value.steps) ? value.steps.map(normalizeStep) : [];
   if (!steps.length || steps.length > 20) fail('STEP_COUNT_INVALID', String(steps.length));
   if (new Set(steps.map((step) => step.step_id)).size !== steps.length) fail('STEP_ID_DUPLICATE');
+  const blockReturnIndex = steps.findIndex((step) => step.kind === 'BLOCK_RETURN');
+  if (blockReturnIndex >= 0 && blockReturnIndex !== steps.length - 1) {
+    fail('BLOCK_RETURN_MUST_BE_TERMINAL');
+  }
 
   return {
     schema: XIZONG_SESSION_SCHEMA,
@@ -131,6 +153,7 @@ function makeRuntime(instruction) {
     instruction_generated_at: instruction.generated_at,
     current_step: 0,
     activated_at: null,
+    handoff_completed_at: null,
     status: 'ACTIVE'
   };
 }
@@ -155,6 +178,9 @@ function validateRuntime(value, instruction) {
     current_step: currentStep,
     activated_at: value.activated_at && !Number.isNaN(Date.parse(value.activated_at))
       ? new Date(value.activated_at).toISOString()
+      : null,
+    handoff_completed_at: value.handoff_completed_at && !Number.isNaN(Date.parse(value.handoff_completed_at))
+      ? new Date(value.handoff_completed_at).toISOString()
       : null,
     status: value.status
   };
@@ -342,6 +368,7 @@ export function advanceXizongSessionIfComplete(storage) {
     ...runtime,
     current_step: nextIndex,
     activated_at: null,
+    handoff_completed_at: null,
     status: done ? 'COMPLETE' : 'ACTIVE'
   };
   writes.push([XIZONG_SESSION_RUNTIME_KEY, nextRuntime]);
@@ -368,7 +395,7 @@ export function activateXizongSessionCurrentStep(storage, {
   }
 
   const activatedAt = new Date(now).toISOString();
-  const nextRuntime = { ...runtime, activated_at: activatedAt };
+  const nextRuntime = { ...runtime, activated_at: activatedAt, handoff_completed_at: null };
   const writes = [];
 
   if (step.kind === 'MEMORY_REVIEW') {
@@ -426,6 +453,40 @@ export function activateXizongSessionNext(storage, instructionInput = null, {
   while (result.status === 'advanced') result = advanceXizongSessionIfComplete(storage);
   if (result.status === 'complete' || result.status === 'missing') return result;
   return activateXizongSessionCurrentStep(storage, { now, holdoutYears });
+}
+
+export function acknowledgeXizongBlockReturn(storage, {
+  sessionId,
+  stepId,
+  systemId,
+  blockId,
+  blockSlug,
+  sourceHash,
+  now = Date.now()
+} = {}) {
+  const { instruction, runtime } = readPair(storage);
+  if (!instruction || !runtime || runtime.status === 'COMPLETE') return { status:'missing' };
+  const step = instruction.steps[runtime.current_step];
+  if (step?.kind !== 'BLOCK_RETURN') fail('BLOCK_RETURN_NOT_ACTIVE');
+  if (instruction.session_id !== String(sessionId || '') || step.step_id !== String(stepId || '')) {
+    fail('BLOCK_RETURN_SESSION_MISMATCH');
+  }
+  if (step.system_id !== String(systemId || '')
+      || step.block_id !== String(blockId || '')
+      || step.block_slug !== String(blockSlug || '')
+      || step.source_hash !== String(sourceHash || '')) {
+    fail('BLOCK_RETURN_TARGET_MISMATCH');
+  }
+  if (!runtime.activated_at) fail('BLOCK_RETURN_NOT_ACTIVATED');
+  const completedAt = new Date(now).toISOString();
+  const nextRuntime = {
+    ...runtime,
+    current_step: instruction.steps.length,
+    handoff_completed_at: completedAt,
+    status: 'COMPLETE'
+  };
+  writeAtomically(storage, [[XIZONG_SESSION_RUNTIME_KEY, nextRuntime]]);
+  return { status:'complete', completed_at:completedAt };
 }
 
 export function installAndActivateXizongSessionInstruction(storage, input, {
@@ -498,6 +559,15 @@ export function resolveXizongSessionNext(storage, instructionInput = null, runti
       step,
       href: '/xizong/memory/' + suffix + '&repair=' + encodeURIComponent(step.task_id),
       active: Boolean(runtime.activated_at)
+    };
+  }
+  if (step.kind === 'BLOCK_RETURN') {
+    return {
+      index: runtime.current_step,
+      step,
+      href: '/xizong/' + encodeURIComponent(step.system_id) + '/' + encodeURIComponent(step.block_slug) + '/' + suffix,
+      active: Boolean(runtime.activated_at),
+      terminal: true
     };
   }
   return null;
