@@ -42,6 +42,8 @@ class MemoryStorage {
   getItem(key) { return this.map.has(key) ? this.map.get(key) : null; }
   setItem(key, value) { this.map.set(key, String(value)); }
   removeItem(key) { this.map.delete(key); }
+  key(index) { return [...this.map.keys()][index] ?? null; }
+  get length() { return this.map.size; }
 }
 
 const day = '2026-09-19';
@@ -185,4 +187,79 @@ await saveSharedControlToPrivate(source, {
 });
 assert.equal(writtenCheckpoint.payload.subjects.xizong.keep, true, 'shared autosave must preserve future subject-owned payloads');
 
-console.log('PASS private learner checkpoint foundation: external durable store + shared control capture/restore + safe autosave');
+const xizongStudyKey = 'kianos-xizong-astro-v2:xizong:circulation-b01';
+const xizongEvidenceKey = 'kianos-xizong-memory-review-v2:xizong:circulation-b01';
+const xizongLastKey = 'kianos-xizong-last-location-v1';
+const xizongSource = new MemoryStorage({
+  [xizongStudyKey]: JSON.stringify({
+    stage: 'kp_recall',
+    kpIndex: 0,
+    ratings: { 'circulation-b01-kp01': 'fuzzy' },
+    learned: { 'circulation-b01-kp01': true }
+  }),
+  [xizongEvidenceKey]: JSON.stringify({
+    evidenceHistory: [{ type: 'KP_RECALL', kp_id: 'circulation-b01-kp01', rating: 'fuzzy' }]
+  }),
+  [xizongLastKey]: JSON.stringify({
+    href: '/xizong/circulation/b01/',
+    systemId: 'circulation',
+    blockSlug: 'b01'
+  })
+});
+let xizongSaved = null;
+await saveSharedControlToPrivate(xizongSource, {
+  now,
+  readCheckpoint: async () => ({ status: 'missing', checkpoint: null }),
+  writeCheckpoint: async (value) => { xizongSaved = value; return { status: 'saved' }; }
+});
+assert.equal(xizongSaved.payload.subjects.xizong.schema, 'kianos.xizong.private-checkpoint.v1');
+assert.equal(xizongSaved.payload.subjects.xizong.entry_count, 3);
+assert.ok(xizongSaved.payload.subjects.xizong.entries.some((row) => row.key === xizongStudyKey));
+
+const wiped = new MemoryStorage();
+const restoreXizong = await restoreSharedControlFromPrivate(wiped, {
+  now,
+  readCheckpoint: async () => ({ status: 'ready', checkpoint: xizongSaved })
+});
+assert.equal(restoreXizong.status, 'restored');
+assert.equal(restoreXizong.subjects.xizong.status, 'restored');
+assert.equal(JSON.parse(wiped.getItem(xizongStudyKey)).ratings['circulation-b01-kp01'], 'fuzzy');
+assert.equal(JSON.parse(wiped.getItem(xizongLastKey)).href, '/xizong/circulation/b01/');
+
+const existingXizong = new MemoryStorage({
+  [xizongStudyKey]: JSON.stringify({ stage: 'kp_recall', ratings: { 'circulation-b01-kp01': 'mastered' } })
+});
+const noOverwrite = await restoreSharedControlFromPrivate(existingXizong, {
+  now,
+  readCheckpoint: async () => ({ status: 'ready', checkpoint: xizongSaved })
+});
+assert.notEqual(JSON.parse(existingXizong.getItem(xizongStudyKey)).ratings['circulation-b01-kp01'], 'fuzzy',
+  'automatic restore must not overwrite existing Xizong learner state');
+assert.equal(noOverwrite.subjects?.xizong?.status || 'skipped', 'skipped');
+
+let failedReadWrites = 0;
+await assert.rejects(
+  () => saveSharedControlToPrivate(xizongSource, {
+    now,
+    readCheckpoint: async () => ({ status: 'unavailable', checkpoint: null, error: 'disk temporarily unreadable' }),
+    writeCheckpoint: async () => { failedReadWrites += 1; }
+  }),
+  /PRIVATE_CHECKPOINT_EXISTING_READ_UNSAFE/
+);
+assert.equal(failedReadWrites, 0, 'failed existing-checkpoint read must authorize zero writes');
+
+const corruptXizong = new MemoryStorage({
+  [xizongStudyKey]: '{not-json'
+});
+let corruptWrites = 0;
+await assert.rejects(
+  () => saveSharedControlToPrivate(corruptXizong, {
+    now,
+    readCheckpoint: async () => ({ status: 'missing', checkpoint: null }),
+    writeCheckpoint: async () => { corruptWrites += 1; }
+  }),
+  /XIZONG_CHECKPOINT_ENTRY_JSON_INVALID/
+);
+assert.equal(corruptWrites, 0, 'corrupt Xizong source state must not produce a partial checkpoint');
+
+console.log('PASS private learner checkpoint foundation: safe existing-read semantics + Xizong capture/restore + no overwrite');
