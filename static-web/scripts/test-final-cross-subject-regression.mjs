@@ -263,7 +263,7 @@ try {
   const pageErrors = [];
   page.on('pageerror', (error) => pageErrors.push(error.message));
 
-  await page.goto(BASE, { waitUntil: 'networkidle' });
+  await page.goto(BASE, { waitUntil: 'domcontentloaded' });
   await page.locator('[data-exam-home][data-ready="true"]').waitFor();
   check(await page.locator('[data-exam-home]').getAttribute('data-chat-plan-status') === 'missing',
     'cold Home has no Chat Plan');
@@ -289,7 +289,7 @@ try {
     [PRACTICE_KEYS.last]: politicsLast
   });
 
-  await page.reload({ waitUntil: 'networkidle' });
+  await page.reload({ waitUntil: 'domcontentloaded' });
   await page.locator('[data-exam-home][data-ready="true"]').waitFor();
   check(await page.locator('[data-exam-home]').getAttribute('data-chat-plan-status') === 'ready',
     'Home consumes exact Chat Plan');
@@ -319,17 +319,17 @@ try {
   report.screenshots.push('home-daily-packet.png');
 
   // 4. Real route switching must preserve one global Timer and hand control to the active subject.
-  await page.goto(`${BASE}/xizong/${canonicalBlock.systemId}/${canonicalBlock.slug}/`, { waitUntil: 'networkidle' });
+  await page.goto(`${BASE}/xizong/${canonicalBlock.systemId}/${canonicalBlock.slug}/`, { waitUntil: 'domcontentloaded' });
   await page.waitForTimeout(1200);
   let timer = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), STUDY_TIMER_STATE_KEY);
   check(timer?.subject === 'xizong', 'Timer follows Xizong route');
 
-  await page.goto(`${BASE}/reading/`, { waitUntil: 'networkidle' });
+  await page.goto(`${BASE}/reading/`, { waitUntil: 'domcontentloaded' });
   await page.waitForTimeout(1200);
   timer = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), STUDY_TIMER_STATE_KEY);
   check(timer?.subject === 'english', 'Timer follows English route');
 
-  await page.goto(`${BASE}${politicsQuestion.unitHref}`, { waitUntil: 'networkidle' });
+  await page.goto(`${BASE}${politicsQuestion.unitHref}`, { waitUntil: 'domcontentloaded' });
   await page.waitForTimeout(1200);
   timer = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), STUDY_TIMER_STATE_KEY);
   check(timer?.subject === 'politics', 'Timer follows Politics route');
@@ -339,7 +339,7 @@ try {
     'Timer closes prior subject segments during cross-subject switching');
 
   // 5. Politics Review typed Chat Return must be batch-bound, replay-safe and conflict-safe in the real UI.
-  await page.goto(`${BASE}/politics/review/`, { waitUntil: 'networkidle' });
+  await page.goto(`${BASE}/politics/review/`, { waitUntil: 'domcontentloaded' });
   await page.locator('[data-politics-review][data-ready="true"]').waitFor();
   await page.locator('[data-review-question]').first().waitFor();
   await page.locator('[data-review-copy]').click();
@@ -411,7 +411,7 @@ try {
   const restoredPage = await restoredContext.newPage();
   const restoredErrors = [];
   restoredPage.on('pageerror', (error) => restoredErrors.push(error.message));
-  await restoredPage.goto(BASE, { waitUntil: 'networkidle' });
+  await restoredPage.goto(BASE, { waitUntil: 'domcontentloaded' });
   await restoredPage.locator('[data-exam-home][data-ready="true"]').waitFor();
   await restoredPage.waitForTimeout(500);
 
