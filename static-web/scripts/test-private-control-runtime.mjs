@@ -100,8 +100,16 @@ const x1 = {
 const xr1 = applyPrivateControlCommand(storage, x1, { expectedDay: day, now: t0 + 4000 });
 assert.equal(xr1.status, 'APPLIED');
 assert.equal(JSON.parse(storage.getItem(XIZONG_SESSION_KEY)).session_id, 'xz-session-1');
-assert.equal(JSON.parse(storage.getItem(XIZONG_MEMORY_STORAGE_KEY)).attention['core:a1-b01-kp01'], undefined,
-  'control layer must not convert Chat selection into weak/attention evidence');
+assert.equal(
+  JSON.parse(storage.getItem(XIZONG_MEMORY_STORAGE_KEY)).attention['core:a1-b01-kp01'].reviewRequested,
+  true,
+  'Chat control should activate the selected existing Memory object'
+);
+assert.equal(
+  JSON.parse(storage.getItem(XIZONG_MEMORY_STORAGE_KEY)).evidence.length,
+  0,
+  'transport attention is not learner Recall evidence'
+);
 assert.equal(storage.getItem(XIZONG_CHAT_SET_KEY), null,
   'control receipt may activate current step but must not pre-project later step');
 
@@ -150,4 +158,57 @@ const stale = applyPrivateControlCommand(storage, staleX, { expectedDay: day, no
 assert.equal(stale.status, 'STALE');
 assert.equal(JSON.parse(storage.getItem(XIZONG_SESSION_KEY)).session_id, 'xz-session-2');
 
-console.log('PASS private control prototype: per-target control slots, signature replay guard, stale/supersede isolation');
+// A rejected activation must roll back both Xizong target state and active command state.
+const holdoutStorage = new MemoryStorage();
+holdoutStorage.setItem(XIZONG_MEMORY_STORAGE_KEY, JSON.stringify(memory));
+const holdoutCommand = {
+  schema: PRIVATE_CONTROL_COMMAND_SCHEMA,
+  command_id: 'cmd-xz-holdout',
+  issued_at: new Date(t0 + 10_000).toISOString(),
+  study_day: day,
+  target: 'xizong.session',
+  payload: {
+    schema: 'kianos.xizong.session-instruction.v1',
+    session_id: 'xz-holdout',
+    study_day: day,
+    generated_at: new Date(t0 + 10_000).toISOString(),
+    steps: [{ step_id:'q1', kind:'PRACTICE_SET', question_ids:['xizong-official-2024-n001'] }]
+  }
+};
+const holdoutReceipt = applyPrivateControlCommand(holdoutStorage, holdoutCommand, {
+  expectedDay: day,
+  now: t0 + 11_000,
+  holdoutYears: [2024]
+});
+assert.equal(holdoutReceipt.status, 'REJECTED');
+assert.equal(holdoutStorage.getItem(XIZONG_SESSION_KEY), null, 'rejected activation must roll back session install');
+assert.equal(holdoutStorage.getItem(XIZONG_CHAT_SET_KEY), null, 'rejected activation must not leave a Chat Set');
+assert.equal(readPrivateControlRuntimeState(holdoutStorage).active_by_target['xizong.session'], undefined);
+
+// Corrupt replay state must fail closed rather than silently resetting replay protection.
+const corruptStateStorage = new MemoryStorage({
+  'kianos:private-control-runtime:v1': '{bad-json'
+});
+assert.throws(
+  () => readPrivateControlRuntimeState(corruptStateStorage),
+  /STATE_JSON_INVALID/
+);
+
+// A stale plan payload cannot be smuggled inside a newer command envelope.
+const planStorage = new MemoryStorage();
+applyPrivateControlCommand(planStorage, c1, { expectedDay: day, now: t0 + 1000 });
+const stalePlanCommand = {
+  ...c1,
+  command_id: 'cmd-plan-2',
+  issued_at: new Date(t0 + 20_000).toISOString(),
+  supersedes: 'cmd-plan-1',
+  payload: { ...planPayload, generated_at: new Date(t0 - 1000).toISOString() }
+};
+const stalePlanReceipt = applyPrivateControlCommand(planStorage, stalePlanCommand, {
+  expectedDay: day,
+  now: t0 + 21_000
+});
+assert.equal(stalePlanReceipt.status, 'REJECTED');
+assert.equal(JSON.parse(planStorage.getItem(EXAM_CHAT_PLAN_KEY)).generated_at, new Date(t0).toISOString());
+
+console.log('PASS private control prototype: transactional per-target dispatch + replay/stale/supersede isolation');
