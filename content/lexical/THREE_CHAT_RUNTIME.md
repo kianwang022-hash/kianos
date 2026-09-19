@@ -234,6 +234,73 @@ After B finishes o0001–o0100, A reconciles/merges that candidate and advances 
 
 The already-built o1151–o1250 candidate PR #520 remains preserved and must receive its own fresh B audit/reconciliation before merge. It must be re-materialized against the then-current main if prior accepted backfill changed relevant owners or derived Final Learner Objects.
 
+## 7A. B audit queue
+
+B is **not tied to the live materialization frontier**.
+
+B's job is to consume the next candidate that satisfies all of:
+
+```text
+candidate branch exists
++ semantic candidate is materialized
++ fresh audit brief exists
++ Fresh Independent Audit is not yet complete
+```
+
+Therefore B uses the live `audit_queue`, not ordinal order and not “whatever frontier is currently waiting for materialization”.
+
+Scheduler:
+
+```text
+take highest-priority READY_FOR_FRESH_B candidate
+→ freeze exact candidate head
+→ one fresh B Chat performs one blind-first audit
+→ commit Audit Pack
+→ stop
+→ next fresh B Chat takes the next READY candidate
+```
+
+A candidate that is merely `WAITING_CANDIDATE_MATERIALIZATION` does **not** block B from auditing another already-materialized candidate.
+
+An older candidate may be semantically stale relative to current main. That is allowed for audit as long as B:
+- freezes the exact candidate head;
+- reads current main for dependency drift;
+- reports any stale dependency explicitly;
+- does not reconcile or mutate;
+- leaves latest-main reconciliation/rematerialization to A/C before merge.
+
+This keeps B productive without weakening fresh-audit independence.
+
+## 8A. C lookahead conveyor
+
+C is a **continuous lookahead producer**, not a parked waiter.
+
+For any C-owned batch that is not the live serialized frontier:
+
+```text
+Fresh Read
+→ Self Attack
+→ if no genuinely new material delta: auto-freeze proposal
+→ if new material delta exists: show only that delta to Kian
+→ Kian p
+→ record approval durably
+→ move batch into approved/frozen backlog
+→ immediately start C's next unreviewed high→low batch
+```
+
+C must **not** stop merely because the approved batch is waiting for frontier materialization.
+
+C stops only when:
+- a genuinely new material delta is waiting for Kian's decision;
+- a real semantic/source/identity blocker prevents a stable proposal;
+- no assigned C review batch remains.
+
+A non-frontier batch may never materialize canonical semantic truth. It stays frozen as a proposal/backlog item until it reaches frontier, at which point C/A refreezes latest main and dependencies before emitting the mutation package.
+
+If a batch has **no genuinely new material scope**, no Human Gate is required and C should advance automatically after freezing the proposal.
+
+This rule optimizes review throughput without weakening serialized write safety.
+
 ## 9. Mechanical executor is not a fourth semantic Chat
 
 Mechanical GitHub workflows/scripts do not count as a semantic reviewer and may not decide meanings, layer placement, owner placement, or Test worth.
