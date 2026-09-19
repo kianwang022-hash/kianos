@@ -149,6 +149,7 @@ const base = import.meta.env.BASE_URL;
     };
     let state = read();
     let chatCardIds = [];
+    let chatRepairTaskId = '';
     const params = new URLSearchParams(window.location.search);
     const requestedSessionId = params.get('session') || '';
     const requestedStepId = params.get('step') || '';
@@ -159,13 +160,19 @@ const base = import.meta.env.BASE_URL;
         const current = session.session_id === requestedSessionId
           ? resolveXizongSessionNext(localStorage, session)
           : null;
-        const step = current?.step?.step_id === requestedStepId && current.step.kind === 'MEMORY_REVIEW'
-          ? current.step
-          : null;
-        if (step) chatCardIds = step.targets.map((target) => target.card_id).filter((id) => Boolean(state.cards[id]));
+        const step = current?.step?.step_id === requestedStepId ? current.step : null;
+        if (step?.kind === 'MEMORY_REVIEW') {
+          chatCardIds = step.targets.map((target) => target.card_id).filter((id) => Boolean(state.cards[id]));
+        } else if (step?.kind === 'REPAIR_TASK') {
+          const requestedRepairId = params.get('repair') || '';
+          if (requestedRepairId === step.task_id
+              && state.repairTasks.some((task) => task?.id === step.task_id && task?.status !== 'DONE')) {
+            chatRepairTaskId = step.task_id;
+          }
+        }
       } catch {}
     }
-    let view = chatCardIds.length ? 'CHAT' : 'TODAY';
+    let view = chatCardIds.length ? 'CHAT' : chatRepairTaskId ? 'REPAIR' : 'TODAY';
     let precisionMode = 'BROWSE';
     let index = 0;
     let currentItems = [];
@@ -324,11 +331,20 @@ const base = import.meta.env.BASE_URL;
     };
 
     const currentViewResult = () => {
-      if (view !== 'CHAT') return selectMemoryView(state, view);
-      return {
-        kind: 'CARDS',
-        items: chatCardIds.map((id) => state.cards[id]).filter(Boolean)
-      };
+      if (view === 'CHAT') {
+        return {
+          kind: 'CARDS',
+          items: chatCardIds.map((id) => state.cards[id]).filter(Boolean)
+        };
+      }
+      const result = selectMemoryView(state, view);
+      if (view === 'REPAIR' && chatRepairTaskId) {
+        return {
+          ...result,
+          items: (result.items || []).filter((item) => item?.id === chatRepairTaskId)
+        };
+      }
+      return result;
     };
 
     const renderCurrent = () => {
@@ -349,8 +365,10 @@ const base = import.meta.env.BASE_URL;
 
     const rebuild = () => {
       const note = viewNotes[view] || viewNotes.TODAY;
-      setText('[data-memory-view-title]', note[0]);
-      setText('[data-memory-view-note]', note[1]);
+      setText('[data-memory-view-title]', chatRepairTaskId && view === 'REPAIR' ? 'Chat 安排 · Repair' : note[0]);
+      setText('[data-memory-view-note]', chatRepairTaskId && view === 'REPAIR'
+        ? '只执行 Chat 选中的这个现有 Repair；完成修补不会自动写成 mastery。'
+        : note[1]);
       tabs.forEach((button) => button.classList.toggle('active', button.getAttribute('data-memory-view') === view));
       const precisionModeRoot = q('[data-memory-precision-mode]');
       if (precisionModeRoot) precisionModeRoot.hidden = view !== 'PRECISION';
@@ -474,8 +492,14 @@ const base = import.meta.env.BASE_URL;
       if (!item?.id || view !== 'REPAIR') return;
       state = completeRepairTask(state, item.id);
       save();
+      const completedId = item.id;
       index = Math.min(index, Math.max(0, currentItems.length - 2));
       rebuild();
+      if (chatRepairTaskId === completedId) {
+        window.dispatchEvent(new CustomEvent('kianos:xizong-session-step-progress', {
+          detail: { session_id: requestedSessionId, step_id: requestedStepId, repair_task_id: completedId }
+        }));
+      }
     });
 
     q('[data-marked-remove]')?.addEventListener('click', () => {
