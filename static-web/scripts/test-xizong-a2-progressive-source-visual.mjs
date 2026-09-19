@@ -82,7 +82,8 @@ try {
   check(geometry.mainWidth > geometry.leftWidth * 2.5, 'central_learning_surface_is_dominant', JSON.stringify(geometry));
   check(geometry.rootBottom <= geometry.viewportHeight + 2, 'block_workspace_fits_viewport', `${geometry.rootBottom}/${geometry.viewportHeight}`);
   check(geometry.pageScrollHeight <= geometry.pageClientHeight + 4, 'block_route_does_not_become_endless_page', `${geometry.pageScrollHeight}/${geometry.pageClientHeight}`);
-  check(geometry.frameworkCount === 1 && geometry.frameworkOpen === false, 'block_framework_is_compact_entry_by_default');
+  check(geometry.frameworkCount === 1 && geometry.frameworkOpen === true, 'block_framework_is_visible_by_default');
+  check(await root.locator('[data-xizong-cognitive-projection] > summary').count() === 1, 'block_framework_remains_collapsible');
   check(geometry.crosswalkBridgeHidden, 'crosswalk_exits_visible_first_pass_workspace');
   check(geometry.legacyMemoryUiCount === 0 && geometry.recallEvidenceBridgeHidden, 'legacy_after_learn_ui_is_replaced_by_evidence_only_bridge');
 
