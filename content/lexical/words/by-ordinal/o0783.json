@@ -6,7 +6,22 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:chew:baseline-v2-on",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "仔细考虑某个问题或想法",
+        "pattern": "chew on sth"
+      },
+      {
+        "construction_id": "construction:chew:baseline-v2-over",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "反复思考、仔细琢磨某事",
+        "pattern": "chew over sth"
+      }
+    ],
     "content_hash": "d9eb7a0253fab413f277bfac11dfcadc2f235a6d68f7df8ba4ae6b274b183e93",
     "core_concept": {
       "core_clusters": [
@@ -28,9 +43,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "用牙齿咬碎",
+      "core_meaning_cn": "反复咬碎；由“反复咀嚼”引申为把一个想法在脑中反复琢磨",
       "core_meaning_en": "bite and grind with teeth",
-      "mental_model_cn": "用牙齿咬碎",
+      "mental_model_cn": "food/gum → 真正咀嚼；chew on/over an idea/problem → 反复考虑、琢磨。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -75,26 +90,7 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:35c55c774357e43655b2",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:chew:a879cd051fde5965:collocation:0"
-            ],
-            "meaning_cn": "仔细考虑某事",
-            "phrase": "chew on + sth"
-          },
-          {
-            "collocation_id": "collocation:2e88155f9914f8631113",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:chew:a879cd051fde5965:collocation:1"
-            ],
-            "meaning_cn": "反复思考某事",
-            "phrase": "chew over + sth"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "细想，深思",
         "definition_en": "to think about something carefully",
@@ -244,7 +240,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0777-0784.json",
     "source_content_hash": "d9eb7a0253fab413f277bfac11dfcadc2f235a6d68f7df8ba4ae6b274b183e93",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
