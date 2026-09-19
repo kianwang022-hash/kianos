@@ -6,6 +6,8 @@ on:
       - "static-web/src/lib/privateControl*.mjs"
       - "static-web/scripts/privateControl*.mjs"
       - "static-web/scripts/privateEnglish*.mjs"
+      - "static-web/scripts/privateDaily*.mjs"
+      - "static-web/scripts/privateLearner*.mjs"
       - "static-web/scripts/privateExternalReadingBridge.mjs"
       - "static-web/src/components/EnglishResume.astro"
       - "static-web/src/components/EnglishSessionControl.astro"
@@ -18,9 +20,14 @@ on:
       - "static-web/astro.config.mjs"
       - "static-web/scripts/test-private-control-*.mjs"
       - "static-web/scripts/test-english-generated-*.mjs"
+      - "static-web/scripts/test-english-evidence-resume.mjs"
       - "static-web/scripts/test-english-external-combined-store.mjs"
       - "static-web/scripts/test-english-home-*.mjs"
       - "static-web/scripts/test-daily-learning-packet.mjs"
+      - "static-web/scripts/test-private-daily-learning-packet.mjs"
+      - "static-web/scripts/test-private-daily-learning-packet-relay.mjs"
+      - "static-web/scripts/test-private-daily-learning-packet-bridge.mjs"
+      - "static-web/scripts/test-private-checkpoint-blur-flush.mjs"
       - ".github/workflows/private-chat-control.yml"
   pull_request:
     branches: [main]
@@ -28,6 +35,8 @@ on:
       - "static-web/src/lib/privateControl*.mjs"
       - "static-web/scripts/privateControl*.mjs"
       - "static-web/scripts/privateEnglish*.mjs"
+      - "static-web/scripts/privateDaily*.mjs"
+      - "static-web/scripts/privateLearner*.mjs"
       - "static-web/scripts/privateExternalReadingBridge.mjs"
       - "static-web/src/components/EnglishResume.astro"
       - "static-web/src/components/EnglishSessionControl.astro"
@@ -40,9 +49,14 @@ on:
       - "static-web/astro.config.mjs"
       - "static-web/scripts/test-private-control-*.mjs"
       - "static-web/scripts/test-english-generated-*.mjs"
+      - "static-web/scripts/test-english-evidence-resume.mjs"
       - "static-web/scripts/test-english-external-combined-store.mjs"
       - "static-web/scripts/test-english-home-*.mjs"
       - "static-web/scripts/test-daily-learning-packet.mjs"
+      - "static-web/scripts/test-private-daily-learning-packet.mjs"
+      - "static-web/scripts/test-private-daily-learning-packet-relay.mjs"
+      - "static-web/scripts/test-private-daily-learning-packet-bridge.mjs"
+      - "static-web/scripts/test-private-checkpoint-blur-flush.mjs"
       - ".github/workflows/private-chat-control.yml"
 
 concurrency:
@@ -64,7 +78,11 @@ jobs:
         run: |
           node scripts/test-private-control-relay.mjs
           node scripts/test-daily-learning-packet.mjs
+          node scripts/test-private-daily-learning-packet-relay.mjs
+          node scripts/test-private-daily-learning-packet-bridge.mjs
+          node scripts/test-private-checkpoint-blur-flush.mjs
           node scripts/test-english-generated-daily-packet.mjs
+          node scripts/test-english-evidence-resume.mjs
           node scripts/test-english-generated-drill-store.mjs
           node scripts/test-english-external-combined-store.mjs
           node scripts/test-exam-plan-read-model.mjs
@@ -73,6 +91,10 @@ jobs:
       - name: Install runtime
         working-directory: static-web
         run: npm install --no-audit --no-fund
+
+      - name: Private packet projection proof
+        working-directory: static-web
+        run: node scripts/test-private-daily-learning-packet.mjs
 
       - name: Build candidate site
         working-directory: static-web

@@ -24,11 +24,13 @@ function readJson(storage, key, fallback = null) {
 function englishEvidencePresent(packet) {
   if (!record(packet)) return false;
   if (Array.isArray(packet.inventory) && packet.inventory.length) return true;
+  if (record(packet.resume) && packet.resume.status && packet.resume.status !== 'missing') return true;
   if (packet.exam_session) return true;
   return Object.values(packet.tasks || {}).some((row) => {
     if (!record(row)) return false;
     return Boolean(
       row.last_location
+      || row.last_object
       || row.attempt
       || row.current
       || row.first_evidence

@@ -374,6 +374,68 @@ export function englishAttemptInventory(storage) {
   return rows; // Facts, never a recommendation or a priority score.
 }
 
+
+function englishResumeEvidence(storage, day) {
+  const sessionState = readEnglishSessionInstruction(storage, day);
+  if (sessionState.status === 'ready' && sessionState.instruction) {
+    const instruction = sessionState.instruction;
+    for (let index = instruction.current_step; index < instruction.steps.length; index += 1) {
+      const step = instruction.steps[index];
+      if (englishStepIsComplete(storage, step)) continue;
+      return {
+        status: 'ready',
+        session_id: instruction.session_id,
+        session_generated_at: instruction.generated_at,
+        step_index: index,
+        step_count: instruction.steps.length,
+        task: step.task,
+        object_id: step.object_id,
+        source_hash: step.source_hash || null,
+        label: step.label || null,
+        note: step.note || null,
+        href: englishSessionStepHref(step, '/')
+      };
+    }
+    return {
+      status: 'session_complete',
+      session_id: instruction.session_id,
+      session_generated_at: instruction.generated_at
+    };
+  }
+
+  const candidates = Object.entries(LAST_LOCATION_KEYS)
+    .map(([task, key]) => ({ task, value: readJson(storage, key) }))
+    .filter((row) => row.value?.id)
+    .map((row) => ({
+      task: row.task,
+      value: row.value,
+      timestamp: Date.parse(
+        row.value?.updatedAt
+        || row.value?.updated_at
+        || row.value?.observed_at
+        || row.value?.saved_at
+        || ''
+      )
+    }))
+    .sort((a, b) => (Number.isFinite(b.timestamp) ? b.timestamp : 0) - (Number.isFinite(a.timestamp) ? a.timestamp : 0));
+
+  const recent = candidates[0];
+  if (!recent) {
+    return {
+      status: sessionState.status === 'invalid' ? 'invalid' : 'missing'
+    };
+  }
+
+  return {
+    status: 'recent_only',
+    task: recent.task,
+    object_id: String(recent.value.id),
+    label: clean(recent.value.title, 180) || null,
+    href: clean(recent.value.href, 280) || null,
+    updated_at: clean(recent.value.updatedAt || recent.value.updated_at, 80) || null
+  };
+}
+
 export function buildEnglishEvidencePacket(storage, { day, now = Date.now(), catalog = [] } = {}) {
   if (!storage?.getItem) throw new Error('ENGLISH_EVIDENCE_STORAGE_UNAVAILABLE');
   if (!validDay(day)) throw new Error('ENGLISH_EVIDENCE_DAY_INVALID');
@@ -383,6 +445,7 @@ export function buildEnglishEvidencePacket(storage, { day, now = Date.now(), cat
     study_day: day,
     generated_at: new Date(now).toISOString(),
     inventory: englishAttemptInventory(storage),
+    resume: englishResumeEvidence(storage, day),
     tasks: clone({
       reading_a: objectiveEvidence(storage, LAST_LOCATION_KEYS.reading_a, 'kianos-reading-attempt-v1:'),
       cloze: objectiveEvidence(storage, LAST_LOCATION_KEYS.cloze, 'kianos-cloze-attempt-v1:'),

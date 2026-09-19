@@ -199,6 +199,69 @@ This lane may proceed in parallel with CSS Closure where write sets are independ
 
 ---
 
+## Concrete reopened durability defect — automatic Daily Learning Packet relay
+
+State: **ACTIVE PROTOTYPE · PR #560 · NOT MERGED**
+
+Real learner friction found during fresh ChatGPT Project smoke testing:
+
+```text
+KianOS already owns exact local learner/runtime state
++ Home already exports kianos.daily-learning-packet.v1
+→ fresh Projects still require manual packet/Resume shuttling
+```
+
+Accepted bounded architecture:
+
+```text
+KianOS private local truth
+→ the existing kianos.daily-learning-packet.v1 only
+→ private Personal GitHub runtime ref
+→ five ChatGPT Projects consume bounded slices
+```
+
+No separate Resume mailbox/protocol is allowed. PR #558 was superseded and closed without merge.
+
+Implementation target:
+
+```text
+runtime/kianos-learning/current.json
+runtime/kianos-learning/daily/YYYY-MM-DD.json
+```
+
+on private Personal ref `runtime/kianos-learning`.
+
+Hard boundaries:
+- KianOS remains Learner Truth;
+- no raw learner ledger is moved to GitHub;
+- no intraday packet files;
+- runtime ref is root-snapshot replacement, not append-only event history;
+- at most one sealed packet per study_day;
+- Timer owns Asia/Shanghai day attribution/cross-midnight splitting;
+- one subject projection failure must not fabricate other subjects;
+- Git relay failure must never fail or roll back local checkpoint saving.
+
+Implemented candidate:
+- explicit English `evidence.resume` inside existing English evidence schema;
+- private checkpoint → existing Daily Learning Packet reconstruction;
+- per-subject reconstruction containment;
+- private Git current/one-final-per-day relay;
+- prior-day sealing on study_day advance;
+- stale rollback/conflict guards;
+- packet sync piggybacks on the existing private checkpoint lifecycle.
+
+Current proof target:
+1. unit transport proof;
+2. full packet projection after runtime install;
+3. build;
+4. browser acceptance;
+5. English family/exam regression;
+6. Shared Timer / cross-midnight proof;
+7. Xizong acceptance;
+8. Final Cross-subject Regression;
+9. real Mac → private Personal runtime ref;
+10. fresh five-Project learner pilot.
+
 ## Website boundary
 
 ```text
