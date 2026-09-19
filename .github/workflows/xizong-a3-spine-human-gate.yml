@@ -1,0 +1,43 @@
+name: Xizong A3 Spine Human Gate
+on:
+  push:
+    branches: [work/xizong-a3-spine-readability-20260919]
+    paths:
+      - '.github/workflows/xizong-a3-spine-human-gate.yml'
+      - 'static-web/src/components/XizongSystemWorkspace.astro'
+      - 'static-web/src/styles/xizong-system-workspace.css'
+      - 'static-web/scripts/capture-xizong-a3-spine-human-gate.mjs'
+permissions:
+  contents: read
+concurrency:
+  group: xizong-a3-spine-human-gate
+  cancel-in-progress: true
+jobs:
+  mac-human-gate:
+    runs-on: macos-14
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Current runtime and browser harness
+        working-directory: static-web
+        run: |
+          npm install --no-package-lock --no-audit --no-fund
+          npm install --no-save --no-package-lock --no-audit --no-fund playwright
+          npx playwright install chromium
+      - name: Build exact candidate
+        working-directory: static-web
+        run: npm run build
+      - name: Capture A2/A3 Mac-wide framework evidence
+        working-directory: static-web
+        run: node scripts/capture-xizong-a3-spine-human-gate.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: xizong-a3-spine-human-gate-${{ github.sha }}
+          path: static-web/.qa/xizong-a3-spine-human-gate
+          retention-days: 14
