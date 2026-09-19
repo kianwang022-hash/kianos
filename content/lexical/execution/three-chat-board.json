@@ -23,7 +23,13 @@
     "c_human_gate_behavior": "P_APPROVES_CURRENT_DELTA_THEN_IMMEDIATE_NEXT_BATCH",
     "c_no_new_delta_behavior": "AUTO_FREEZE_AND_CONTINUE",
     "b_audit_scheduler": "NEXT_READY_MATERIALIZED_CANDIDATE",
-    "b_may_audit_non_frontier_candidate": true
+    "b_may_audit_non_frontier_candidate": true,
+    "final_semantic_standard": "FROZEN_V1",
+    "broad_reopen_requires_explicit_kian_revocation": true,
+    "production_first": true,
+    "b_audit_paused_until_production_sweep_complete": true,
+    "materialization_paused_until_production_sweep_complete": true,
+    "p_behavior": "APPROVE_EXACT_SHOWN_DELTA__FREEZE_BACKLOG__IMMEDIATE_NEXT_PRODUCTION_BATCH"
   },
   "frontier": {
     "accepted_main_head": "a8968c6abb5409acee1971808e6e30944f155e39",
@@ -32,89 +38,40 @@
       101,
       200
     ],
-    "candidate_pr": null,
-    "state": "MATERIALIZE_ALLOWED",
-    "integration_owner": "A",
-    "proposal_path": "content/lexical/execution/manifests/o0101-o0200.final-standard-backfill-proposal.md",
-    "human_gate": {
-      "approved": true,
-      "approved_at": "2026-09-19",
-      "approval_ref": "Kian p on o0101-o0200 final-standard proposal",
-      "proposal_path": "content/lexical/execution/manifests/o0101-o0200.final-standard-backfill-proposal.md",
-      "proposal_blob_sha": "4d83a7b22341a56a7b577b6861843a307a33b246"
-    }
+    "state": "PARKED_DURING_PRODUCTION_SWEEP",
+    "note": "Semantic materialization is intentionally paused until A/C finish the o0001-o1150 Production sweep."
   },
   "audit_target": {
-    "candidate_id": "F1151_1250",
-    "range": [
-      1151,
-      1250
-    ],
-    "candidate_pr": 520,
-    "candidate_branch": "work/lexical-continuous-o1151-o1250",
-    "brief": "content/lexical/semantic-audit/O1151_O1250_FRESH_INDEPENDENT_AUDIT_BRIEF.md",
-    "state": "READY_FOR_FRESH_B",
-    "candidate_head": "d3972636a131c3bd495c64bdcff26e3cfdef68b8",
-    "after_completion": "WRITE_AUDIT_PACK_AND_STOP; A/C later reconciles against latest main before merge"
+    "state": "PAUSED_DURING_PRODUCTION_SWEEP",
+    "note": "No B audit launches until Production sweep completion."
   },
   "lanes": {
     "A": {
-      "role": "PRODUCTION_AND_FRONTIER_INTEGRATION",
+      "role": "PRODUCTION_A_FINAL_SWEEP",
       "current_assignment": {
-        "candidate_id": "BF01",
+        "candidate_id": "BF03",
         "range": [
-          101,
-          200
+          301,
+          400
         ],
-        "state": "MATERIALIZE_ALLOWED",
-        "review_head": "2fd29bf2e32e7e09d4300948e42a59a2821fe59e",
-        "review_branch": "lexical-final-standard-review-a-o0101-o0200",
-        "proposal_commit": "bfb959126bc12f98861081114ee5fbe032d0c541",
-        "proposal_path": "content/lexical/execution/manifests/o0101-o0200.final-standard-backfill-proposal.md",
-        "fresh_read_coverage": "100/100",
-        "self_attack": "COMPLETE",
-        "new_material_delta_owners": [
-          102,
-          104,
-          111,
-          118,
-          130,
-          142,
-          146,
-          150,
-          153,
-          154,
-          174,
-          178,
-          181,
-          182,
-          187,
-          189,
-          195
+        "state": "REVIEW_BUNDLE_NEEDED",
+        "allowed_now": [
+          "freeze current main and export review bundle",
+          "fresh owner/module judgment",
+          "same-Chat Self-Adversarial Attack",
+          "write smallest stabilized proposal",
+          "request bounded Human delta Gate only if genuinely new material scope exists",
+          "after approval or no-delta freeze immediately continue to o0401-o0500"
         ],
-        "old_test_blueprints": 48,
-        "stabilized_test_blueprints": 25,
-        "shared_write_set_if_approved": [
-          "word:between@o0475",
-          "word:digital@o1378",
-          "word:number@o3277",
-          "word:analytical@o7720",
-          "existing relation alter↔alert",
-          "existing relation alternative↔alternate",
-          "new relation analog↔digital",
-          "new relation analytic↔analytical",
-          "new relation among↔between",
-          "new relation amount↔number"
+        "forbidden_now": [
+          "canonical semantic materialization",
+          "FLOB rebuild",
+          "launch B audit",
+          "merge backfill candidate",
+          "invent a newer semantic standard"
         ],
-        "next_action": "Refreeze latest main and all material semantic dependencies, reconcile any drift/shared claims, emit one Final Mutation Package on work/lexical-continuous-backfill-o0101-o0200, rebuild/read back 7,946 FLOBs, then create the fresh B audit brief.",
-        "semantic_dependency_policy": "Before p/materialization, refresh all related Word/Sense/Family/Form/Construction/Relation/Test dependencies and emit exact semantic_dependency_read_set in the mutation package.",
-        "human_gate": {
-          "approved": true,
-          "approved_at": "2026-09-19",
-          "approval_ref": "Kian p on o0101-o0200 final-standard proposal",
-          "proposal_path": "content/lexical/execution/manifests/o0101-o0200.final-standard-backfill-proposal.md",
-          "proposal_blob_sha": "4d83a7b22341a56a7b577b6861843a307a33b246"
-        }
+        "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
+        "next_action": "Create/consume o0301-o0400 review bundle, perform Fresh Read + Self Attack, freeze proposal, then continue to o0401-o0500."
       },
       "bootstrap_integration": {
         "candidate_id": "BF00",
@@ -124,10 +81,6 @@
         "action": "No further BF00 work."
       },
       "scheduled_ranges": [
-        [
-          101,
-          200
-        ],
         [
           301,
           400
@@ -148,15 +101,15 @@
     },
     "B": {
       "role": "FRESH_INDEPENDENT_AUDIT",
-      "current_assignment": "audit_queue[0]",
-      "state": "READY_FOR_FRESH_B",
+      "current_assignment": null,
+      "state": "PAUSED_DURING_PRODUCTION_SWEEP",
       "may_mutate_semantic_truth": false,
       "must_stop_after_one_audit_pack": true,
       "scheduler": "NEXT_READY_MATERIALIZED_CANDIDATE",
-      "next_action": "Audit F1151_1250 / PR #520 now in a fresh B Chat. Do not wait for BF01 materialization."
+      "next_action": "Do nothing until production_sweep.status becomes COMPLETE."
     },
     "C": {
-      "role": "PRODUCTION_LOOKAHEAD",
+      "role": "PRODUCTION_C_FINAL_SWEEP",
       "current_assignment": {
         "candidate_id": "BF10",
         "range": [
@@ -172,9 +125,11 @@
           "request bounded Human delta Gate if genuinely new material scope exists"
         ],
         "forbidden_now": [
-          "mutate canonical Word/Relation/Form truth before frontier advances to this batch",
-          "materialize stale FLOB candidate",
-          "self-audit"
+          "canonical semantic materialization",
+          "FLOB rebuild",
+          "launch B audit",
+          "merge backfill candidate",
+          "invent a newer semantic standard"
         ],
         "semantic_dependency_policy": "Before proposal freeze, inspect shared_semantic_claims and other producer dependencies; before any later materialization, refreeze latest main and emit exact semantic_dependency_read_set.",
         "review_head": "16deb26e4777dc200c4b4e871c521410acb6dc99",
@@ -192,7 +147,7 @@
           "semantic_delta": false,
           "merge_to_main": false
         },
-        "next_action": "Consume the frozen o1001-o1100 bundle now, Fresh Read + Self Attack, freeze the smallest proposal, gate only genuinely new material delta, then immediately continue to o0901-o1000 after approval (or automatically if no new delta)."
+        "next_action": "Finish o1001-o1100 Fresh Read + Self Attack now; freeze proposal; gate only genuine new material; then immediately continue to o0901-o1000."
       },
       "scheduled_ranges": [
         [
@@ -298,12 +253,12 @@
         }
       ],
       "operating_mode": {
-        "mode": "CONTINUOUS_LOOKAHEAD_CONVEYOR",
-        "rule": "For non-frontier C batches: review→Self Attack→freeze proposal→gate only genuinely new material delta→after p immediately continue to next high→low batch. Approved backlog waits for frontier; C Chat does not.",
+        "mode": "PRODUCTION_SWEEP_CONVEYOR",
+        "rule": "Fresh Read→Self Attack→freeze smallest proposal→gate only genuine new material→after p immediate next batch; no materialization/audit until sweep closes.",
         "stop_only_for": [
-          "genuinely new material delta awaiting Kian",
+          "genuine new material delta awaiting Kian",
           "real semantic/source/identity blocker",
-          "no remaining assigned C review range"
+          "no remaining C batch"
         ]
       }
     }
@@ -544,9 +499,10 @@
       "candidate_branch": "work/lexical-continuous-o1151-o1250",
       "candidate_head": "d3972636a131c3bd495c64bdcff26e3cfdef68b8",
       "brief": "content/lexical/semantic-audit/O1151_O1250_FRESH_INDEPENDENT_AUDIT_BRIEF.md",
-      "state": "READY_FOR_FRESH_B",
+      "state": "PAUSED_DURING_PRODUCTION_SWEEP",
       "priority": 1,
-      "note": "Materialized candidate already exists. Audit now; latest-main reconciliation/rematerialization remains required before merge."
+      "note": "Materialized candidate already exists. Audit now; latest-main reconciliation/rematerialization remains required before merge.",
+      "previous_state": "READY_FOR_FRESH_B"
     },
     {
       "candidate_id": "BF01",
@@ -557,9 +513,10 @@
       "candidate_pr": null,
       "candidate_branch": "work/lexical-continuous-backfill-o0101-o0200",
       "brief": null,
-      "state": "WAITING_CANDIDATE_MATERIALIZATION",
+      "state": "PAUSED_DURING_PRODUCTION_SWEEP",
       "priority": 2,
-      "note": "Insert/activate after A materializes BF01 and writes its fresh audit brief."
+      "note": "Insert/activate after A materializes BF01 and writes its fresh audit brief.",
+      "previous_state": "WAITING_CANDIDATE_MATERIALIZATION"
     },
     {
       "candidate_id": "BF02",
@@ -570,9 +527,92 @@
       "candidate_pr": 528,
       "candidate_branch": "work/lexical-final-backfill-c-o0201-o0300",
       "brief": null,
-      "state": "WAITING_FRONTIER_MATERIALIZATION",
+      "state": "PAUSED_DURING_PRODUCTION_SWEEP",
       "priority": 3,
-      "note": "Production proposal exists but canonical candidate is not yet materialized."
+      "note": "Production proposal exists but canonical candidate is not yet materialized.",
+      "previous_state": "WAITING_FRONTIER_MATERIALIZATION"
     }
-  ]
+  ],
+  "campaign_phase": "PRODUCTION_SWEEP_ONLY",
+  "semantic_freeze": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
+  "final_broad_review_scope": [
+    1,
+    1150
+  ],
+  "production_sweep": {
+    "scope": [
+      1,
+      1150
+    ],
+    "mode": "A_LOW_TO_HIGH__C_HIGH_TO_LOW",
+    "status": "ACTIVE",
+    "broad_semantic_reopen_after_closure": "FORBIDDEN_WITHOUT_EXPLICIT_KIAN_REVOCATION",
+    "completed_or_frozen": [
+      {
+        "range": [
+          1,
+          100
+        ],
+        "state": "PRODUCTION_CLOSED_AND_MERGED"
+      },
+      {
+        "range": [
+          101,
+          200
+        ],
+        "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
+      },
+      {
+        "range": [
+          201,
+          300
+        ],
+        "state": "PRODUCTION_FROZEN_BACKLOG_NO_NEW_DELTA"
+      },
+      {
+        "range": [
+          1101,
+          1150
+        ],
+        "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
+      }
+    ],
+    "A_remaining": [
+      [
+        301,
+        400
+      ],
+      [
+        401,
+        500
+      ],
+      [
+        501,
+        600
+      ],
+      [
+        601,
+        700
+      ]
+    ],
+    "C_remaining": [
+      [
+        1001,
+        1100
+      ],
+      [
+        901,
+        1000
+      ],
+      [
+        801,
+        900
+      ],
+      [
+        701,
+        800
+      ]
+    ],
+    "completion_condition": "All A_remaining and C_remaining batches have stabilized frozen proposals; no unresolved Human Gate or semantic/source/identity blocker."
+  }
 }
