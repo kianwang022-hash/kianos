@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
-import { loadXizongSystem } from '../src/lib/xizong.mjs';
+import { loadXizongSystem, loadXizongBlock } from '../src/lib/xizong.mjs';
 import { loadXizongSystemQuestionSweep, loadXizongWholePaper } from '../src/lib/xizongQuestions.mjs';
 import {
   ensureXizongQuestionSweepState,
@@ -184,9 +184,18 @@ try {
   check(afterPrematurePractice?.href===beforePrematureRoute?.href,'locked_practice_does_not_hijack_resume');
 
   await page.goto(`${BASE}/xizong/circulation/`,{waitUntil:'networkidle'});
-  await page.evaluate((ids)=>{
-    for(const id of ids) localStorage.setItem(`kianos-xizong-astro-v2:xizong:${id}`,JSON.stringify({completed:true}));
-  },blockIds);
+  const completedBlockStates=Object.fromEntries(system.blocks.map((ref)=>{
+    const block=loadXizongBlock('circulation',ref.slug);
+    return [block.blockId,{
+      completed:true,
+      blockRecallDone:true,
+      learned:Object.fromEntries(block.kpRecords.map((kp)=>[kp.kpId,true])),
+      ratings:Object.fromEntries(block.kpRecords.map((kp)=>[kp.kpId,'known']))
+    }];
+  }));
+  await page.evaluate((rows)=>{
+    for(const [id,state] of Object.entries(rows)) localStorage.setItem(`kianos-xizong-astro-v2:xizong:${id}`,JSON.stringify(state));
+  },completedBlockStates);
   await page.reload({waitUntil:'networkidle'});
   await entry.waitFor({state:'visible'});
   const recallHref=await entry.locator('a').getAttribute('href');
