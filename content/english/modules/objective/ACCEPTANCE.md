@@ -22,10 +22,10 @@ Complete Reading A, Cloze and all four Part B forms remain valid; currentIndex i
 | S | Prior source boundary preserved; bounded Current readback found no new source defect in this scope. |
 | K / L | PASS for the freshly re-accepted capability model, natural task unit and targeted/skippable learning design. |
 | P | Existing task geometry preserved; representative synthetic browser context inspected. Actual Kian use is not inferred. |
-| R / E | Fresh candidate tests PASS only for the named browser-local paths. Shared automatic private recovery remains BLOCKED, and candidate fixes are not a deployed main claim. |
+| R / E | Fresh candidate tests PASS for the named browser-local paths plus the repaired shared English+Lexical private-checkpoint boundary. Candidate fixes remain audit-branch evidence until integrated. |
 | U | UNTESTED for every path in this audit. |
 
-Allowed statement: **Objective has path-scoped candidate evidence, not an unqualified English-wide readiness PASS.** See the English integration owner for Source, shared durability, Mac Human Gate and precise test boundaries.
+Allowed statement: **Objective has path-scoped candidate evidence, not an unqualified English-wide readiness PASS.** See the English integration owner for Source, Mac Human Gate and precise test boundaries.
 
 ## Historical evidence below
 
