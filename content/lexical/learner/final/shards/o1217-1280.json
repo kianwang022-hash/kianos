@@ -101,7 +101,7 @@
     "ordinal": 1218,
     "word": "dash",
     "source_owner_path": "content/lexical/words/by-ordinal/o1218.json",
-    "source_fingerprint": "d613e5b2760c385df2d977b7d9e670372408695f9c9464b5f41e1aca7ad842b3",
+    "source_fingerprint": "3c22dea733c74fc5dc291aab836c1c5f78eff6fb94d8f8e61528c2d6c3d062ad",
     "sense_lineage": [
       {
         "word_id": "word:dash",
@@ -147,7 +147,7 @@
         "id": "sense:dash:04a644c1f4bc5b77",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi.",
         "definition_cn": "迅速奔跑或移动",
         "definition_en": "to run or move quickly and suddenly",
         "note": "",
@@ -224,7 +224,7 @@
     "ordinal": 1219,
     "word": "data",
     "source_owner_path": "content/lexical/words/by-ordinal/o1219.json",
-    "source_fingerprint": "d2e001b076b04ff7ae91de9b8d519a565244de4c0cda3b69a65fe8ff3855706b",
+    "source_fingerprint": "ca95376bb6ccc17123cc865d6ff39f324ff0f5002c49f9ff4ef9b1bcbe07ef83",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -296,7 +296,55 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "data",
+            "condition": "modern general/computing use",
+            "note": "现代英语中 data 常作为集合/质量名词使用，可搭配单数谓语。"
+          },
+          {
+            "surface": "data",
+            "condition": "formal/scientific plural use",
+            "note": "在较正式或科学语境中，data 仍可作为 datum 的复数，搭配复数谓语。"
+          },
+          {
+            "surface": "datum",
+            "condition": "one individual item of data",
+            "note": "datum 是传统单数形式，现代普通语境中相对少见。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "data (modern general use)",
+            "ipa": ""
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "data (formal/scientific plural)",
+            "ipa": ""
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "datum (singular item)",
+            "ipa": ""
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -703,7 +751,7 @@
     "ordinal": 1224,
     "word": "dawn",
     "source_owner_path": "content/lexical/words/by-ordinal/o1224.json",
-    "source_fingerprint": "f28410ac3eafe9662d65fb4d0c31b4ed382901e812fc82561da6f47c0df042e4",
+    "source_fingerprint": "8efcb7bfd519f1e2af5c533e73b24baa121af5ab5de1a04db6f9cf0405a92e96",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -813,7 +861,7 @@
         "id": "sense:dawn:08a2ea2af7265f2f",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "dawn on sb",
+        "governing_pattern": "vi. + on",
         "definition_cn": "逐渐被某人理解或意识到",
         "definition_en": "to become clear or understood by someone",
         "note": "",
@@ -1453,7 +1501,7 @@
     "ordinal": 1230,
     "word": "deadly",
     "source_owner_path": "content/lexical/words/by-ordinal/o1230.json",
-    "source_fingerprint": "97d81a93825cb31defeede302a82f63e923bb77195b0b1c6aba839281ba89893",
+    "source_fingerprint": "c6ce1e6df8bcef5fe465def81892d1c5543e43ff6756e8034e9668db1583f6fc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1508,16 +1556,7 @@
         "definition_en": "extreme or very great",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:8c513bdb6faed99e185e",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "deadly serious",
-            "meaning_cn": "极其严肃",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:deadly:297c05a329735990",
@@ -1536,8 +1575,16 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:05f0b713b58f3204ff5f",
+            "id": "collocation:8c513bdb6faed99e185e",
             "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "deadly serious",
+            "meaning_cn": "极其严肃；非常认真",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:05f0b713b58f3204ff5f",
+            "source_locator": "record.senses[2].collocations[1]",
             "phrase": "deadly dull",
             "meaning_cn": "极其乏味",
             "kind": "usage_example",
@@ -1691,7 +1738,7 @@
     "ordinal": 1232,
     "word": "deal",
     "source_owner_path": "content/lexical/words/by-ordinal/o1232.json",
-    "source_fingerprint": "364850b844014efd012b97802b723387b1429ea16a752b16890b8dc4c26adab3",
+    "source_fingerprint": "62712fb7cb5d590de7cea583010a0bb61259751996a746e5405142bb8a6bf78f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1701,13 +1748,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "处理；交易",
-      "decision_cn": "",
+      "summary_cn": "交易；处理/应对；a great deal (of) 大量",
+      "decision_cn": "先分结构：deal with sb/sth = 处理、应对；make a deal = 达成交易；a great deal (of) = 大量。发牌是同词的另一常见动作义。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "处理；交易"
+        "target_label": "交易；处理/应对；a great deal (of) 大量"
       }
     },
     "senses": [
@@ -2529,7 +2576,7 @@
     "ordinal": 1238,
     "word": "debt",
     "source_owner_path": "content/lexical/words/by-ordinal/o1238.json",
-    "source_fingerprint": "5ea0b4329104d0f37cf718daa39479566b5a42f6837af459cf253100b6c8427c",
+    "source_fingerprint": "9a2d49a32c8ad59f1c59393431d76eeb53ede8be4811642395fc5670a02ff542",
     "sense_lineage": [
       {
         "word_id": "word:debt",
@@ -2588,7 +2635,31 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "debt",
+            "condition": "all ordinary uses",
+            "note": "b 不发音；不要按拼写读出 /b/。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "debt",
+            "ipa": "/det/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
