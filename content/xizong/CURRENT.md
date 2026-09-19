@@ -25,26 +25,33 @@ Content construction may continue independently through exact System owners. Lea
 
 ---
 
-## Active final acceptance task
+## Final learner acceptance — executed; concrete closure work only
 
-Kian explicitly requested a **fresh, higher-quality Xizong Final Learner Acceptance**.
+The fresh independent A/B/C model and production audit have been executed.
+Do not restart them from historical PASS labels or rerun broad CI as the next task.
 
-Durable execution brief:
+- active candidate: `work/xizong-final-learner-20260919-independent`;
+- review: PR **#491** (draft; implementation is not merged);
+- exact result owner: this branch's `content/xizong/ACCEPTANCE.md`;
+- execution brief: `FINAL_LEARNER_ACCEPTANCE_BRIEF.md` remains the scope boundary.
 
-`FINAL_LEARNER_ACCEPTANCE_BRIEF.md`
+Read the candidate Acceptance for the executed path matrix, current proof refs,
+remaining dependencies and historical reconciliation. This cursor is routing,
+not a duplicate Acceptance ledger and not learner progress.
 
-This task is lane-wide integration re-acceptance, not a synthetic aggregate of child System gates and not a broad UI redesign.
+Next work is bounded to the named closures:
 
-Execution rules:
+1. shared private learner-data capture/restore and failed-read write safety;
+2. accepted typed Xizong Chat Return plus exact interrupted-task Resume;
+3. authoritative recovery of the unresolved B1 inline original-image references;
+4. remaining actual-Mac visual/Human Gate, including long System-spine readability.
 
-- form an independent model from Current Rule / canonical owners before reconciling old PASS evidence;
-- treat PR #458 and historical CI as later evidence, not authority;
-- pressure-test heterogeneous mature Systems and incomplete-System fail-closed behavior;
-- include real Runtime / Evidence / Practice / Chat Return / learner-data durability / Mac-wide presentation;
-- repair only the earliest responsible owner when a real defect is found;
-- never manufacture learner `U`.
+The shared-data defect belongs to the shared platform. Do not create a Xizong
+shadow checkpoint store. Incomplete Systems retain their own readiness owners.
 
-The eventual lane-wide claims belong in `ACCEPTANCE.md` only after executed evidence supports them.
+Revalidate only the affected paths after each real closure, then reconsider
+integration readiness. A synthetic browser run, screenshot, merge or work cursor
+never creates learner `U`.
 
 ---
 
