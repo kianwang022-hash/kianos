@@ -34,6 +34,14 @@ const {
     markedFragments,
     activeRepairTasks
   } from '../lib/xizongMemoryModel.mjs';
+  import {
+    XIZONG_SESSION_KEY,
+    activateXizongSessionNext,
+    validateXizongSessionInstruction
+  } from '../lib/xizongSessionInstruction.mjs';
+  import { studyDayAt } from '../lib/studyTimer.mjs';
+  import { readXizongPendingChatReturnState } from '../lib/xizongPendingChatReturn.mjs';
+  import { readXizongSystemWuPendingState } from '../lib/xizongSystemWuReturn.mjs';
 
   const root = document.querySelector('[data-xizong-home-tools]');
   if (root instanceof HTMLElement) {
@@ -51,6 +59,49 @@ const {
     const stage = root.querySelector('[data-xizong-continue-stage]');
     const position = root.querySelector('[data-xizong-continue-position]');
     const action = root.querySelector('[data-xizong-continue-action]');
+
+    let pendingReturnNext = null;
+    try {
+      const today = studyDayAt(Date.now());
+      const blockPending = readXizongPendingChatReturnState(localStorage);
+      const systemPending = readXizongSystemWuPendingState(localStorage);
+      const candidates = [
+        ...Object.values(blockPending.pending_by_object || {})
+          .filter((row) => (!row?.study_day || row.study_day === today)
+            && typeof row?.return_href === 'string'
+            && row.return_href.startsWith('/xizong/'))
+          .map((row) => ({
+            kind:'BLOCK_RETURN',
+            href:row.return_href,
+            object_id:row.object_id,
+            block_id:row.block_id,
+            received_at:row.received_at
+          })),
+        ...Object.values(systemPending.pending_by_system || {})
+          .filter((row) => (!row?.study_day || row.study_day === today) && row?.system_id)
+          .map((row) => ({
+            kind:'SYSTEM_WU_RETURN',
+            href:'/xizong/practice/' + encodeURIComponent(row.system_id) + '/',
+            system_id:row.system_id,
+            received_at:row.received_at
+          }))
+      ].sort((a, b) => String(b.received_at || '').localeCompare(String(a.received_at || '')));
+      pendingReturnNext = candidates[0] || null;
+    } catch {}
+
+    let chatSessionNext = null;
+    let chatSessionRef = null;
+    try {
+      const raw = JSON.parse(localStorage.getItem(XIZONG_SESSION_KEY) || 'null');
+      const instruction = validateXizongSessionInstruction(raw, studyDayAt(Date.now()));
+      const holdoutYears = parse(localStorage.getItem('kianos:xizong:full-paper-holdout-years:v1'), []);
+      chatSessionRef = instruction.session_id;
+      const result = activateXizongSessionNext(localStorage, instruction, {
+        holdoutYears: Array.isArray(holdoutYears) ? holdoutYears : [],
+        now: Date.now()
+      });
+      chatSessionNext = result?.next || null;
+    } catch {}
 
     const setText = (node, value) => {
       if (node) node.textContent = String(value || '');
@@ -86,7 +137,32 @@ const {
       return views[current] || ['继续学习', block?.label || '当前模块', '继续 →'];
     };
 
-    if (last?.href && link instanceof HTMLAnchorElement) {
+    if (pendingReturnNext && link instanceof HTMLAnchorElement) {
+      link.href = pendingReturnNext.href;
+      setText(location, '西综 · Chat 更新');
+      const isSystemWu = pendingReturnNext.kind === 'SYSTEM_WU_RETURN';
+      setText(title, isSystemWu ? '核对当前 W/U' : '核对当前 Block');
+      setText(detail, isSystemWu
+        ? 'W/U Return 已到达；进入当前 System 训练后会用最新作答和审核映射重新校验。'
+        : 'Chat Return 已到达；进入当前 Block 后会用最新学习证据重新校验。');
+      setText(stage, '待安全应用');
+      setText(position, isSystemWu ? (pendingReturnNext.system_id || '当前 System') : (pendingReturnNext.block_id || '当前 Block'));
+      setText(action, '继续 →');
+    } else if (chatSessionNext && link instanceof HTMLAnchorElement) {
+      link.href = chatSessionNext.href;
+      link.setAttribute('data-session-ref', chatSessionRef || '');
+      setText(location, '西综 · Chat 安排');
+      setText(title, chatSessionNext.step?.label || (
+        chatSessionNext.step?.kind === 'MEMORY_REVIEW' ? 'Memory 回收'
+          : chatSessionNext.step?.kind === 'PRACTICE_SET' ? 'Chat 自选题'
+            : '继续当前复习'
+      ));
+      setText(detail, chatSessionNext.step?.reason || '按当前 Chat 安排继续');
+      setText(stage, '当前复习');
+      setText(position, `第 ${chatSessionNext.index + 1} 步`);
+      setText(action, '继续 →');
+    } else if (last?.href && link instanceof HTMLAnchorElement) {
+      link.removeAttribute('data-session-ref');
       const system = systems.find((row) => row?.systemId === last.systemId);
       const block = system?.blocks?.find((row) => row?.slug === last.blockSlug || row?.label === last.blockLabel);
 
@@ -124,6 +200,8 @@ const {
       });
     }
 
+    if (!chatSessionNext && !pendingReturnNext && link instanceof HTMLAnchorElement) link.removeAttribute('data-session-ref');
+
     const attentionRoot = document.querySelector('[data-xizong-home-attention]');
     if (attentionRoot instanceof HTMLElement) {
       const rawMemory = parse(localStorage.getItem('kianos-xizong-memory-v1'), null);
@@ -149,5 +227,13 @@ const {
         attentionRoot.hidden = !visible;
       }
     }
+
+    window.addEventListener('kianos:private-control-consumed', (event) => {
+      const detail = event instanceof CustomEvent ? event.detail : null;
+      if (detail?.fresh !== true) return;
+      if (!['APPLIED','IDEMPOTENT'].includes(String(detail?.status || ''))) return;
+      if (!['xizong.session','xizong.chat_return','xizong.system_wu_return'].includes(String(detail?.target || ''))) return;
+      window.location.reload();
+    });
   }
 </script>
