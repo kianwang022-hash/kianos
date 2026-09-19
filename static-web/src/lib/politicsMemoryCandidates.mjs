@@ -34,7 +34,7 @@ function subjectId(value) {
   return map[v] || v;
 }
 
-function groupCandidate({ chapter, family, group, index }) {
+function groupCandidate({ chapter, family, group }) {
   const items = list(group?.items).map((item) => clean(item, 2000)).filter(Boolean);
   const sourceRefs = list(group?.source_refs).map((ref) => clean(ref, 240)).filter(Boolean);
   if (!items.length || !sourceRefs.length) return null;
@@ -42,7 +42,7 @@ function groupCandidate({ chapter, family, group, index }) {
   const chapterId = clean(chapter?.chapter_id || chapter?.code || chapter?.chapter, 160);
   const naturalUnitId = clean(group?.natural_unit_id, 200);
   const prompt = clean(group?.name || family, 240);
-  const basis = [chapterId, family, naturalUnitId, prompt, index, ...sourceRefs].join('|');
+  const basis = [chapterId, family, naturalUnitId, prompt, ...sourceRefs].join('|');
   return {
     id: `polmem-${stableHash(basis)}`,
     subject,
@@ -97,8 +97,8 @@ export function extractPoliticsMemoryCandidates(chapterInput) {
     ['PRECISION', support.active_precision],
     ['BOUNDARY', support.active_boundaries]
   ].forEach(([family, groups]) => {
-    list(groups).forEach((group, index) => {
-      const candidate = groupCandidate({ chapter, family, group, index });
+    list(groups).forEach((group) => {
+      const candidate = groupCandidate({ chapter, family, group });
       if (candidate) out.push(candidate);
     });
   });
@@ -123,8 +123,16 @@ export function buildPoliticsMemoryCandidateCatalogCurrent() {
     [a.subject, a.chapter_id, a.family, a.prompt, a.id].join('|')
       .localeCompare([b.subject, b.chapter_id, b.family, b.prompt, b.id].join('|'))
   );
+  const revisionBasis = candidates.map((row) => ({
+    id: row.id,
+    family: row.family,
+    prompt: row.prompt,
+    answer_items: row.answer_items,
+    source_refs: row.source_refs
+  }));
   return {
     schema: 'kianos.politics.memory-candidate-catalog.v1',
+    revision: 'politics-memory-' + stableHash(JSON.stringify(revisionBasis)),
     candidates
   };
 }
