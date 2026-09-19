@@ -4452,7 +4452,7 @@
     "ordinal": 803,
     "word": "chronic",
     "source_owner_path": "content/lexical/words/by-ordinal/o0803.json",
-    "source_fingerprint": "0ffeb6d3a0a676e769dd289263cb91ac8ae291f4161f0a015f0708d70ee4a524",
+    "source_fingerprint": "8f97f5d75f74b672865d52fe9c35f6d3425ea46ac0c72d00ef1c44236aa5ac99",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4528,7 +4528,33 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "chronic ↔ acute",
+          "target_word": "acute",
+          "lines": [
+            {
+              "text": "chronic 指长期持续或反复；acute 通常指起病快、病程短。核心区别首先是病程时间轴，不是单纯严重程度。",
+              "lang": "cn"
+            },
+            {
+              "text": "chronic = persistent, long-lasting, or recurrent; acute = rapid onset/short course and may be severe. The contrast is mainly time course, not a simple severity scale.",
+              "lang": "en"
+            },
+            {
+              "text": "Use time-course first: chronic = persistent/long-term or recurrent; acute = rapid/short course.",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:baseline-v2:acute-chronic:semantic_contrast",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "chronic ↔ acute"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }

@@ -486,7 +486,7 @@
     "ordinal": 67,
     "word": "addict",
     "source_owner_path": "content/lexical/words/by-ordinal/o0067.json",
-    "source_fingerprint": "641d086e0f7202202d92fd23985bad002c3a8cf0d3dbbeb76328b36fe7b193ca",
+    "source_fingerprint": "8fe3e7bc70713e8ac98130e8d88b950d4c61f12ade2bf0777d045353738e9b9d",
     "sense_lineage": [
       {
         "word_id": "word:addict",
@@ -507,7 +507,7 @@
       "parts": [
         "1N"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
       "summary_cn": "上瘾者；沉迷某活动的人",
@@ -539,55 +539,27 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:addict:handoff-c4cc91f300f01f6c",
-        "source_locator": "record.constructions[0]",
-        "pattern": "be addicted to ...",
-        "lines": [
-          {
-            "text": "沉溺于……",
-            "lang": "cn"
-          },
-          {
-            "text": "be unable to stop using or doing something",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:addict:handoff-c4cc91f300f01f6c",
-          "target_locator": "record.constructions[0]",
-          "target_label": "be addicted to ..."
-        }
-      },
-      {
-        "id": "construction:addict:handoff-b90316fb8412a5f9",
-        "source_locator": "record.constructions[1]",
-        "pattern": "an addict",
-        "lines": [
-          {
-            "text": "对某物或某活动上瘾的人；爱好者",
-            "lang": "cn"
-          },
-          {
-            "text": "a person dependent on or devoted to a substance or activity",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:addict:handoff-b90316fb8412a5f9",
-          "target_locator": "record.constructions[1]",
-          "target_label": "an addict"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [
+        {
+          "target_word": "addicted",
+          "lines": [
+            {
+              "text": "addict (noun) ↔ addicted (adjective): 人是 an addict；状态通常表达为 be addicted to + noun/V-ing。不要把 be addicted to 当作 noun addict 自己的构式。",
+              "lang": "cn"
+            },
+            {
+              "text": "unable to stop using or doing something; dependent on it",
+              "lang": "en"
+            }
+          ],
+          "source_locator": "record.word_family[0]"
+        }
+      ]
     }
   },
   {
@@ -2526,7 +2498,7 @@
     "ordinal": 81,
     "word": "adolescent",
     "source_owner_path": "content/lexical/words/by-ordinal/o0081.json",
-    "source_fingerprint": "a06c34dcf267f7bc8c87191f037e86e803c42e5c5969bac47339d1ec8904454e",
+    "source_fingerprint": "f279164130c979eeca685990cfeacd674b124cbba6c1b67a24a85636f78a64c9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2604,7 +2576,22 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [
+        {
+          "target_word": "adolescence",
+          "lines": [
+            {
+              "text": "adolescent (noun/adjective) → adolescence (noun): 把“青少年/青春期的”转为“青春期、青少年阶段”。",
+              "lang": "cn"
+            },
+            {
+              "text": "the period between childhood and adulthood",
+              "lang": "en"
+            }
+          ],
+          "source_locator": "record.word_family[0]"
+        }
+      ]
     }
   },
   {
@@ -3640,7 +3627,7 @@
     "ordinal": 89,
     "word": "adventure",
     "source_owner_path": "content/lexical/words/by-ordinal/o0089.json",
-    "source_fingerprint": "ccdab093ef55c3d747a087ea9d6b986bdcb8359d1b0871e3b67b9b3ae7d39932",
+    "source_fingerprint": "aedb14f10b4c142b9362b7e994db7bbbf951f6fb4a826fb9190004a92211fa80",
     "sense_lineage": [
       {
         "word_id": "word:adventure",
@@ -3657,13 +3644,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "冒险；冒险经历",
-      "decision_cn": "",
+      "summary_cn": "冒险；惊险刺激的经历",
+      "decision_cn": "默认学习名词：一次带有未知、刺激或风险的经历。低频动词义保留在 Reference，不占默认注意力。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "冒险；冒险经历"
+        "target_label": "冒险；惊险刺激的经历"
       }
     },
     "senses": [
@@ -3708,29 +3695,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:adventure:handoff-f0398ff28942817c",
-        "source_locator": "record.constructions[0]",
-        "pattern": "adventure into ...",
-        "lines": [
-          {
-            "text": "冒险进入……（低优先级）",
-            "lang": "cn"
-          },
-          {
-            "text": "go somewhere or do something risky; reference-level verb use",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:adventure:handoff-f0398ff28942817c",
-          "target_locator": "record.constructions[0]",
-          "target_label": "adventure into ..."
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4480,7 +4445,7 @@
     "ordinal": 96,
     "word": "advocate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0096.json",
-    "source_fingerprint": "0858e2fe46fc76e193461a529688666f02825ac23e3be50e7cb529f46dfb3b8a",
+    "source_fingerprint": "53fdc2741d26e1418be6ddc4cb4c9de5f460992ed889740a0574b318c376cc94",
     "sense_lineage": [
       {
         "word_id": "word:advocate",
@@ -4507,7 +4472,7 @@
     "recall_map": {
       "parts": [
         "1V",
-        "(1+1)N"
+        "1N"
       ],
       "density": "rich"
     },
@@ -4526,19 +4491,11 @@
         "id": "sense:advocate:ef64940b713b57c7",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "advocate + sth/doing; advocate for + sb/sth",
         "definition_cn": "公开支持；主张",
         "definition_en": "publicly support or recommend a cause or action",
         "note": "",
-        "identity_overlay": {
-          "text": "verb advocate has different stress/pronunciation from the noun",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "verb advocate has different stress/pronunciation from the noun"
-          }
-        },
+        "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -4555,15 +4512,7 @@
         "definition_cn": "支持者；倡导者",
         "definition_en": "a person who publicly supports a cause",
         "note": "",
-        "identity_overlay": {
-          "text": "noun advocate has initial stress; verb advocate shifts stress/pronunciation",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "noun advocate has initial stress; verb advocate shifts stress/pronunciation"
-          }
-        },
+        "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -4573,22 +4522,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "sense:advocate:1cb3acc010745c21",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "noun",
-        "definition_cn": "（法律）律师；出庭辩护人",
-        "definition_en": "a lawyer who represents or defends someone in court",
-        "pattern": "法律/法庭语境中的 advocate 可指为当事人出庭辩护或陈述意见的律师；不要和一般“倡导者”混在一起。",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "sense:advocate:1cb3acc010745c21",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "（法律）律师；出庭辩护人"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [
       {
         "id": "construction:advocate:handoff-0bdf3a61a2bcdf09",
@@ -4636,7 +4570,43 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "advocate",
+            "condition": "noun: supporter/proponent",
+            "note": "名词词尾读 /kət/。"
+          },
+          {
+            "surface": "advocate",
+            "condition": "verb: support/recommend publicly",
+            "note": "动词词尾读 /keɪt/；重音仍在第一音节。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "ADVOCATE (noun): /-kət/",
+            "ipa": "/ˈæd.və.kət/"
+          },
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "ADVOCATE (verb): /-keɪt/",
+            "ipa": "/ˈæd.və.keɪt/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -5004,7 +4974,7 @@
     "ordinal": 100,
     "word": "affect",
     "source_owner_path": "content/lexical/words/by-ordinal/o0100.json",
-    "source_fingerprint": "943efd05d89728ee57e27b1a0a75fbe4b94a5bd4dc5293fd0f0c68870d4f29c9",
+    "source_fingerprint": "8c5d72389ccfb9ac4a76b54fc73c026ecbeca714a04b6b044a37ca9eafca2738",
     "sense_lineage": [
       {
         "word_id": "word:affect",
@@ -5016,7 +4986,7 @@
     ],
     "recall_map": {
       "parts": [
-        "(2+1)V",
+        "2V",
         "1N"
       ],
       "density": "rich"
@@ -5120,22 +5090,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:affect:e1e4014481d6b01f",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "假装；佯装",
-        "definition_en": "to pretend to have a feeling or way of behaving",
-        "pattern": "仅指刻意装出某种态度，如 affect indifference",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:affect:e1e4014481d6b01f",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "假装；佯装"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [
       {
         "id": "construction:affect:handoff-18178801990bc05e",

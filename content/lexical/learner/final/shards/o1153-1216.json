@@ -5129,7 +5129,7 @@
     "ordinal": 1193,
     "word": "current",
     "source_owner_path": "content/lexical/words/by-ordinal/o1193.json",
-    "source_fingerprint": "361d7e3aae41558437e6b06f6981068cf87299184aee3632ea2089ad75f8d42b",
+    "source_fingerprint": "5b9e2c6f9e7c757b9761826f2480ffb04c1687d12a2bcdb73b4465bb455c0ea7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5264,6 +5264,31 @@
             "target_id": "relation:horizontal:104bfa2d0e54fcd9196b",
             "target_locator": "record.semantic_neighbors[0]",
             "target_label": "current ↔ present"
+          }
+        },
+        {
+          "title": "current ↔ actual",
+          "target_word": "actual",
+          "lines": [
+            {
+              "text": "current 强调“当前、现行的”；actual 强调“真实、事实上的”。",
+              "lang": "cn"
+            },
+            {
+              "text": "current = belonging to the present time; actual = real/in fact. They may overlap in Chinese translation but answer different semantic questions.",
+              "lang": "en"
+            },
+            {
+              "text": "current is a time-axis word; actual is a reality-axis word.",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:baseline-v2:actual-current:semantic_contrast",
+            "target_locator": "record.semantic_neighbors[1]",
+            "target_label": "current ↔ actual"
           }
         }
       ],
