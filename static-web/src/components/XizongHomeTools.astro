@@ -228,13 +228,6 @@ const {
       }
     }
 
-    let controlReloadScheduled = false;
-    window.addEventListener('kianos:xizong-control-updated', () => {
-      if (controlReloadScheduled) return;
-      controlReloadScheduled = true;
-      window.setTimeout(() => window.location.reload(), 0);
-    });
-
     window.addEventListener('kianos:private-control-consumed', (event) => {
       const detail = event instanceof CustomEvent ? event.detail : null;
       if (detail?.fresh !== true) return;
