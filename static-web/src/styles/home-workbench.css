@@ -963,3 +963,14 @@ body#kianos-workspace.surfaceBody-home .homeRouteProbes {
 body#kianos-workspace.surfaceBody-home .homeSubjectRouteBridge {
   display:none !important;
 }
+
+
+/* Mac Human-Gate readability floor: every visible Total Home control is >=16px. */
+body#kianos-workspace.surfaceBody-home .homeDirect .examQuiet,
+body#kianos-workspace.surfaceBody-home .homeDirect .examCapacity,
+body#kianos-workspace.surfaceBody-home .homeDirect .examSubjectAllocation > span,
+body#kianos-workspace.surfaceBody-home .homeDirect .examNext > span,
+body#kianos-workspace.surfaceBody-home .homeDirect .homeFallbackNav,
+body#kianos-workspace.surfaceBody-home .homeDirect .homeFallbackNav a {
+  font-size:16px;
+}
