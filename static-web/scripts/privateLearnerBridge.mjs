@@ -47,7 +47,7 @@ export function privateLearnerBridge({ privateDir = resolvePrivateLearnerDir(), 
           return;
         }
         packetSyncBusy = true;
-        void packetSync()
+        void packetSync({ privateDir })
           .catch(() => null)
           .finally(() => {
             packetSyncBusy = false;
