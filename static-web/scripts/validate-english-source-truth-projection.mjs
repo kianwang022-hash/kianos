@@ -207,6 +207,16 @@ for (const id of samples(listReadingBSets())) {
   }
 }
 
+{
+  const id = 'english1-2026-reading-b-main';
+  const item = loadReadingBById(id);
+  assert(Array.isArray(item.candidates) && item.candidates.length > 0, 'reading_b_empty_source_pool_must_preserve_candidates', id);
+  assert((item.questions || []).every((question) => {
+    const options = question?.options;
+    return Array.isArray(options) ? options.length > 0 : options && typeof options === 'object' && Object.keys(options).length > 0;
+  }), 'reading_b_empty_overlay_must_preserve_question_options', id);
+}
+
 for (const id of samples(listTranslationSets())) {
   const item = loadTranslationById(id);
   const unit = sourceTruthFor(id);
