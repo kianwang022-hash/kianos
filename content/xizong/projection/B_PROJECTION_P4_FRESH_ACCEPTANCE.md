@@ -1,6 +1,6 @@
 # B Projection P4 — Fresh Independent Acceptance
 
-Status: **FRESH P ACCEPTANCE CANDIDATE — PASS pending exact-head promotion proof**  
+Status: **PASS — fresh independent P acceptance; promotion still requires exact-head proof**  
 Scope: **B — Digestive / Metabolic / Endocrine / Tumor · P only**  
 Acceptance owner: `content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/ACCEPTANCE.md`  
 Work cursor: `content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/CURRENT.md`
@@ -311,7 +311,7 @@ Not meaning:
 - a new B-specific learner surface is needed;
 - Kian has used or validated B.
 
-If exact-head QA remains green after cursor/Acceptance promotion, the legal next gate becomes:
+After exact-head promotion proof, the legal next gate becomes:
 
 ```text
 R — Runtime fresh acceptance
