@@ -218,9 +218,22 @@ await check('second-response-completes-without-auto-extra-round', async () => {
     await page.keyboard.press('Enter');
     await page.locator('[data-memory-controls]').waitFor({ state: 'visible' });
     await page.locator('[data-memory-response="STABLE"]').click();
+    await page.waitForTimeout(120);
+    const completionDebug = await page.evaluate(({ planKey, evidenceKey }) => ({
+      plan: JSON.parse(localStorage.getItem(planKey) || 'null'),
+      events: JSON.parse(localStorage.getItem(evidenceKey) || '[]'),
+      status: document.querySelector('[data-memory-status]')?.textContent || '',
+      prompt: document.querySelector('[data-memory-prompt]')?.textContent || '',
+      cardHidden: document.querySelector('[data-memory-card]')?.hidden ?? null,
+      completeHidden: document.querySelector('[data-memory-complete]')?.hidden ?? null
+    }), { planKey: POLITICS_MEMORY_PLAN_KEY, evidenceKey: POLITICS_MEMORY_EVIDENCE_KEY });
+    if (completionDebug.completeHidden) {
+      await shot(page, '03-complete-failure-debug');
+      throw new Error('POLITICS_MEMORY_COMPLETE_DEBUG:' + JSON.stringify(completionDebug));
+    }
     await page.locator('[data-memory-complete]').waitFor({ state: 'visible' });
     assert.equal(await page.locator('[data-memory-card]').isVisible(), false);
-    const events = JSON.parse(await page.evaluate((key) => localStorage.getItem(key) || '[]', POLITICS_MEMORY_EVIDENCE_KEY));
+    const events = completionDebug.events;
     assert.equal(events.length, 2);
     assert.equal(events[1].candidate_id, chosen[1].id);
     assert.equal(events[1].response, 'STABLE');
