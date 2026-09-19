@@ -48,58 +48,7 @@
   "lanes": {
     "A": {
       "role": "PRODUCTION_A_FINAL_SWEEP",
-      "current_assignment": {
-        "candidate_id": "BF06",
-        "range": [
-          601,
-          700
-        ],
-        "state": "WAITING_BOUNDED_HUMAN_DELTA_GATE",
-        "allowed_now": [
-          "consume only Kian approval for the exact displayed seven new material owners plus reported bounded corrections/Test changes",
-          "on p re-sync proposal identity and shared semantic claims, freeze BF06 backlog, mark Production A complete, and do not enter o0701+"
-        ],
-        "forbidden_now": [
-          "canonical semantic materialization",
-          "FLOB rebuild",
-          "launch B audit",
-          "merge backfill candidate",
-          "invent a newer semantic standard",
-          "advance Production A beyond o0700"
-        ],
-        "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
-        "review_head": "887076790cada8569a772451ab19366ec76f23d5",
-        "review_branch": "work/lexical-final-backfill-a-o0601-o0700",
-        "review_request_commit": "10c05dc259add2a6ab2948ef842eac54bafa0bd5",
-        "review_workflow_run": 35466297135,
-        "review_artifact_id": 10591716235,
-        "review_artifact_digest": "sha256:a22e8e58be558af0de8a185ae12a177b06d6946775e84395a9ccb1c0f7db0370",
-        "review_bundle_coverage": "100/100",
-        "proposal_commit": "1576465cb4a0436787aa36bb69cba56d7da41e47",
-        "proposal_path": "content/lexical/execution/manifests/o0601-o0700.final-sweep-a-proposal.md",
-        "proposal_blob_sha": "ed48bb4c82f42c3054e20875a8e9be0e78707b15",
-        "fresh_read_coverage": "100/100",
-        "self_attack": "COMPLETE",
-        "content_affected_owners": 14,
-        "content_no_change": 86,
-        "blocked": 0,
-        "new_material_delta_owners": [
-          614,
-          629,
-          640,
-          656,
-          666,
-          679,
-          698
-        ],
-        "old_test_blueprints": 43,
-        "stabilized_test_blueprints": 18,
-        "canonical_semantic_mutation": false,
-        "semantic_read_dependencies": [
-          "BF11 approved could modal decision model; do not collapse can→could into a simplistic Form relation"
-        ],
-        "next_action": "Kian reviews only the seven genuinely new material owners in the frozen BF06 proposal. On p, approve exactly those seven plus the reported bounded corrections/Test changes, freeze BF06 backlog, mark Production A complete, and do not enter o0701+."
-      },
+      "current_assignment": null,
       "bootstrap_integration": {
         "candidate_id": "BF00",
         "pr": 525,
@@ -257,9 +206,61 @@
             "sync_main_head": "6f41656ad8aa2c97fb9c37712ca935938a88fbca"
           },
           "next_action": "Frozen backlog. Do not materialize/audit until production_sweep.status is COMPLETE; refreeze latest main/dependencies before any future materialization."
+        },
+        {
+          "candidate_id": "BF06",
+          "range": [
+            601,
+            700
+          ],
+          "state": "DELTA_APPROVED_FROZEN_BACKLOG",
+          "review_head": "887076790cada8569a772451ab19366ec76f23d5",
+          "review_branch": "work/lexical-final-backfill-a-o0601-o0700",
+          "review_request_commit": "10c05dc259add2a6ab2948ef842eac54bafa0bd5",
+          "review_workflow_run": 35466297135,
+          "review_artifact_id": 10591716235,
+          "review_artifact_digest": "sha256:a22e8e58be558af0de8a185ae12a177b06d6946775e84395a9ccb1c0f7db0370",
+          "review_bundle_coverage": "100/100",
+          "proposal_commit": "1576465cb4a0436787aa36bb69cba56d7da41e47",
+          "proposal_path": "content/lexical/execution/manifests/o0601-o0700.final-sweep-a-proposal.md",
+          "proposal_blob_sha": "ed48bb4c82f42c3054e20875a8e9be0e78707b15",
+          "fresh_read_coverage": "100/100",
+          "self_attack": "COMPLETE",
+          "content_affected_owners": 14,
+          "content_no_change": 86,
+          "blocked": 0,
+          "new_material_delta_owners": [
+            614,
+            629,
+            640,
+            656,
+            666,
+            679,
+            698
+          ],
+          "old_test_blueprints": 43,
+          "stabilized_test_blueprints": 18,
+          "canonical_semantic_mutation": false,
+          "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
+          "semantic_read_dependencies": [
+            "BF11 approved could modal decision model; do not collapse can→could into a simplistic Form relation"
+          ],
+          "semantic_dependency_policy": "Refreeze latest main and all related Word/Sense/Family/Form/Construction/Relation/Test dependencies before later materialization; emit exact semantic_dependency_read_set.",
+          "human_gate": {
+            "approved": true,
+            "approved_at": "2026-09-20",
+            "approval_ref": "Kian p on o0601-o0700 Production A proposal",
+            "proposal_path": "content/lexical/execution/manifests/o0601-o0700.final-sweep-a-proposal.md",
+            "proposal_blob_sha": "ed48bb4c82f42c3054e20875a8e9be0e78707b15",
+            "sync_main_head": "57bbe8ae73b86d687e1adec32d76feb9265cf47b"
+          },
+          "next_action": "Frozen backlog. Production A is complete. Do not enter o0701+ from lane A; later materialization waits for the overall Production sweep to close and then follows latest-main refreeze/dependency guards."
         }
       ],
-      "next_new_review_range": null
+      "next_new_review_range": null,
+      "state": "PRODUCTION_SWEEP_COMPLETE",
+      "completed_through_ordinal": 700,
+      "next_action": "No further Production review. A must not enter o0701+. Wait for overall A/C Production sweep closure and subsequent serialized materialization/audit phase."
     },
     "B": {
       "role": "FRESH_INDEPENDENT_AUDIT",
@@ -1249,14 +1250,16 @@
           600
         ],
         "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
+      },
+      {
+        "range": [
+          601,
+          700
+        ],
+        "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
       }
     ],
-    "A_remaining": [
-      [
-        601,
-        700
-      ]
-    ],
+    "A_remaining": [],
     "C_remaining": [
       [
         901,
@@ -1271,6 +1274,7 @@
         800
       ]
     ],
-    "completion_condition": "All A_remaining and C_remaining batches have stabilized frozen proposals; no unresolved Human Gate or semantic/source/identity blocker."
+    "completion_condition": "All A_remaining and C_remaining batches have stabilized frozen proposals; no unresolved Human Gate or semantic/source/identity blocker.",
+    "A_status": "COMPLETE"
   }
 }
