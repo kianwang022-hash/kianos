@@ -35,7 +35,7 @@ A pending target does not summon a task. Chat owns cross-task strategy and seman
 | Whole paper | **PASS for tested session mechanics and structurally complete Current papers, not actual learner exam validation.** Nine task instances, one absolute 180-minute deadline, navigation/restart, unfinished autosave capture, irreversible Seal, idempotent objective release out of 60, original productive outputs for Chat. Deadline was simulated; no three-hour learner attempt was claimed. |
 | Current content evolution | **PASS for bounded source-binding and mirror tests.** Existing reader consumes canonical content; old first evidence is not silently reinterpreted after a hash change. Legacy unversioned records are kept raw and blocked rather than guessed. |
 | Refresh / process restart | **PASS for tested browser-local evidence and exam deadline.** Not a claim of browser-storage disaster recovery. |
-| Shared durability | **BLOCKED.** English adapter and existing private disk store roundtrip work when explicitly composed; shared autosave/restore does not yet dispatch subject payloads safely. See section 5. |
+| Shared durability | **PASS for the tested shared checkpoint boundary.** Shared autosave now captures English + Lexical private subject payloads, refuses to write when the existing remote checkpoint cannot be read safely, restores subject payloads through one prepared atomic boundary, and preserves local conflicting evidence rather than partially restoring remote data. This is shared-platform repair, not an English-only persistence fork. See section 5. |
 | Mac presentation / Human Gate | **BLOCKED until Kian's actual Mac review.** Linux/macOS runner screenshots, when available, are engineering evidence only. They cannot accept material visual changes on Kian's behalf. |
 | U | **UNTESTED on every path in this audit.** Synthetic behavior, source recovery and screenshots manufacture no learner history. |
 
@@ -69,18 +69,20 @@ The source-owned URLs currently return different bytes. They were rejected, not 
 
 Retrieving/verifying canonical image bytes is Source inspection, not a learner attempt. No protected prompt/answer was used for synthetic learner verification.
 
-## 5. Exact shared blocker handoff
+## 5. Shared durability repair closure
 
-Responsible owner: `static-web/src/lib/privateCheckpointRuntime.mjs` and the shared learner-data subject-adapter integration; private disk transport remains `static-web/scripts/privateLearnerStore.mjs`.
+Responsible owner remains shared: `static-web/src/lib/privateCheckpointRuntime.mjs` plus `static-web/src/lib/privateSubjectCheckpoint.mjs`; private disk transport remains `static-web/scripts/privateLearnerStore.mjs`. No English-only persistence service was added.
 
-Executed failures:
+Fresh failure → repair → proof:
 
-- `saveSharedControlToPrivate` writes after its checkpoint read reports unavailable, with empty subject payloads. This can replace a prior subject checkpoint rather than fail closed.
-- `restoreSharedControlFromPrivate` receives a valid checkpoint containing an English payload but does not restore its English keys. Saving the shared control state is not complete subject recovery.
+- **Failure:** `saveSharedControlToPrivate` could write after the prior checkpoint read was unavailable, allowing an empty/new subject map to replace older private subject payloads. **Repair:** unreadable/invalid remote state now fails closed before any write. Targeted adversarial proof asserts zero writes.
+- **Failure:** `restoreSharedControlFromPrivate` restored shared controls but ignored valid English subject payloads. **Repair:** shared subject capture/prepare/apply now includes English and Lexical private payload adapters. Restore validates all subject entries before mutation, snapshots every touched shared/subject key, and rolls back the whole touched set on failure.
+- **Conflict boundary:** if local English/Lexical evidence conflicts with remote payload bytes, restore keeps local truth and rejects the remote restore rather than merging or partially applying it.
+- **Capture boundary:** English checkpoint keys use the existing English allowlist; Lexical capture is limited to existing private `kianos-lexical-*` / `kianos-vocabulary-*` state. Semantic truth remains in canonical Content; these payloads are learner evidence only.
 
-Required shared repair: preserve/reject on unreadable remote state; capture and restore the appropriate subject adapters with one recoverable atomic boundary, including the Lexical/English relationship. This English task does **not** add an English-only server, backup transport or auto-sync fork.
+Targeted proof passes in `static-web/scripts/test-private-learner-checkpoint.mjs` and the independent adversarial suite: unavailable-read zero-write, English+Lexical subject roundtrip, conflict atomicity, invalid-return no partial restore, and existing-evidence preservation. Browser-local refresh/restart evidence remains separately proven by the existing fresh browser run.
 
-Proven separately: an explicit English payload survives the existing private store with file mode 0600 and an actual destructive Current-mirror update in a disposable local Git origin/mirror. This proves filesystem separation and adapter roundtrip, **not shared automatic end-to-end durability**.
+Boundary: this PASS is for the Current shared private-checkpoint path exercised by English/Lexical adapters. It is not a claim that every future subject adapter or every storage disaster has been tested.
 
 ## 6. Executed evidence and reconciliation
 
@@ -101,8 +103,8 @@ No unrelated broad CI failure was repaired. No result below this candidate is as
 
 ## 7. Remaining human/source gates and allowed conclusion
 
-Necessary next inputs are bounded: the two exact missing original files; Kian's Human Gate for Writing entry/original-image presentation and material changed controls on an actual Mac. U can only follow genuine study. Shared durability has a separate exact owner and remains a release blocker regardless of screenshot approval.
+Necessary next inputs are now bounded to the two exact missing original files and Kian's Human Gate for Writing entry/original-image presentation and material changed controls on an actual Mac. U can only follow genuine study. Shared durability is no longer the English-wide blocker for the tested checkpoint boundary.
 
 Allowed conclusion:
 
-> **English Learning Logic has passed fresh independent design re-acceptance. A bounded repair candidate has executed evidence for the named browser-local and integration paths. English-wide final learner readiness is BLOCKED, not PASS, until source, material Mac Human Gate and shared durability boundaries are closed. U remains UNTESTED.**
+> **English Learning Logic has passed fresh independent design re-acceptance. A bounded repair candidate has executed evidence for the named browser-local and integration paths, including the repaired shared durability boundary. English-wide final learner readiness is still BLOCKED, not PASS, until the exact missing Source and material Mac Human Gate are closed. External Reading remains inventory-only rather than an executable learner path, and U remains UNTESTED.**
