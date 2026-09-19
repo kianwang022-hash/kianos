@@ -1,0 +1,295 @@
+---
+import { englishSessionCatalog } from '../lib/englishSessionCatalog.mjs';
+import { politicsProductCatalog } from '../lib/productCatalog.mjs';
+import { buildPoliticsMemoryCandidateCatalogCurrent } from '../lib/politicsMemoryCandidates.mjs';
+
+const base = import.meta.env.BASE_URL;
+const {
+  xizongFirstHref = `${base}xizong/`,
+  xizongFirstLabel = '选择西综学习位置',
+  xizongResumeIndex = [],
+  politicsFirstHref = `${base}politics/`,
+  politicsFirstLabel = '选择政治学习位置'
+} = Astro.props;
+
+const englishCatalog = englishSessionCatalog();
+const politicsCatalog = politicsProductCatalog(base);
+const politicsMemoryCatalog = buildPoliticsMemoryCandidateCatalogCurrent();
+---
+
+<div class="homeSubjectRouteBridge" data-home-subject-route-bridge aria-hidden="true">
+  <section data-xizong-home-tools>
+    <a data-xizong-continue href={xizongFirstHref}>
+      <strong data-xizong-continue-title>{xizongFirstLabel}</strong>
+    </a>
+    <script
+      type="application/json"
+      data-xizong-home-resume-index
+      set:html={JSON.stringify(xizongResumeIndex).replace(/</g, '\\u003c')}
+    />
+  </section>
+
+  <section data-english-resume-surface>
+    <strong data-english-resume-title>选择英语完整任务</strong>
+    <a data-english-resume-link href={`${base}english/`}>进入 →</a>
+  </section>
+  <script
+    type="application/json"
+    data-english-resume-catalog
+    set:html={JSON.stringify(englishCatalog).replace(/</g, '\\u003c')}
+  />
+
+  <section data-politics-home-tools data-base={base}>
+    <a data-politics-continue href={politicsFirstHref}>
+      <strong data-politics-continue-title>{politicsFirstLabel}</strong>
+    </a>
+    <script
+      type="application/json"
+      data-politics-home-catalog
+      set:html={JSON.stringify(politicsCatalog).replace(/</g, '\\u003c')}
+    />
+    <script
+      type="application/json"
+      data-politics-memory-catalog
+      set:html={JSON.stringify(politicsMemoryCatalog).replace(/</g, '\\u003c')}
+    />
+  </section>
+</div>
+
+<script>
+  import {
+    ENGLISH_SESSION_KEY,
+    readEnglishSessionInstruction,
+    resolveEnglishSessionStep,
+    englishSessionStepHref
+  } from '../lib/englishSessionControl.mjs';
+  import {
+    XIZONG_SESSION_KEY,
+    activateXizongSessionNext,
+    validateXizongSessionInstruction
+  } from '../lib/xizongSessionInstruction.mjs';
+  import { readXizongPendingChatReturnState } from '../lib/xizongPendingChatReturn.mjs';
+  import { readXizongSystemWuPendingState } from '../lib/xizongSystemWuReturn.mjs';
+  import { studyDayAt } from '../lib/studyTimer.mjs';
+  import { readPoliticsSnapshot, resolvePoliticsContinue } from '../lib/politicsPracticeState.mjs';
+  import { resolvePoliticsMemoryResume } from '../lib/politicsMemoryRuntime.mjs';
+
+  const bridge = document.querySelector('[data-home-subject-route-bridge]');
+  if (bridge instanceof HTMLElement) {
+    const parse = (raw, fallback = null) => {
+      try { return JSON.parse(raw || '') ?? fallback; } catch { return fallback; }
+    };
+    const localDay = () => new Date().toLocaleDateString('en-CA');
+
+    const publish = (subject, link, title) => {
+      if (!(link instanceof HTMLAnchorElement)) return;
+      window.dispatchEvent(new CustomEvent('kianos:subject-continue-updated', {
+        detail: {
+          subject,
+          href: link.getAttribute('href'),
+          title: title?.textContent?.trim() || null,
+          session_ref: link.getAttribute('data-session-ref') || null
+        }
+      }));
+    };
+
+    // English route owner.
+    const englishSurface = bridge.querySelector('[data-english-resume-surface]');
+    const englishLink = bridge.querySelector('[data-english-resume-link]');
+    const englishTitle = bridge.querySelector('[data-english-resume-title]');
+    let englishCatalog = parse(bridge.querySelector('[data-english-resume-catalog]')?.textContent, []);
+    let externalCatalogPromise = null;
+
+    const loadExternalEnglishCatalog = () => {
+      if (externalCatalogPromise) return externalCatalogPromise;
+      externalCatalogPromise = (async () => {
+        try {
+          const response = await fetch('/__kianos-private/external-reading/catalog', { cache:'no-store' });
+          if (!response.ok) return englishCatalog;
+          const data = await response.json();
+          const rows = (data.collections || []).flatMap(group => group.passages || []).map(row => ({
+            task:'external_reading',
+            object_id:row.object_id,
+            source_hash:row.content_hash,
+            label:row.title || row.object_id,
+            study_day:row.study_day || null,
+            origin:row.origin || null
+          }));
+          const byKey = new Map([...englishCatalog, ...rows].map(row => [`${row.task}:${row.object_id}`, row]));
+          englishCatalog = [...byKey.values()];
+        } catch {}
+        return englishCatalog;
+      })();
+      return externalCatalogPromise;
+    };
+
+    const refreshEnglish = async () => {
+      if (!(englishLink instanceof HTMLAnchorElement) || !(englishTitle instanceof HTMLElement)) return;
+      await loadExternalEnglishCatalog();
+      const state = readEnglishSessionInstruction(localStorage, localDay());
+      if (state.status !== 'ready' || !state.instruction) {
+        englishLink.href = '/english/';
+        englishLink.removeAttribute('data-session-ref');
+        englishTitle.textContent = '选择英语完整任务';
+        publish('english', englishLink, englishTitle);
+        return;
+      }
+      const selected = resolveEnglishSessionStep(localStorage, state.instruction, englishCatalog);
+      const step = selected?.step || null;
+      const href = englishSessionStepHref(step, '/');
+      if (!step || !href) {
+        englishLink.href = '/english/';
+        englishLink.removeAttribute('data-session-ref');
+        englishTitle.textContent = '选择英语完整任务';
+        publish('english', englishLink, englishTitle);
+        return;
+      }
+      englishLink.href = href;
+      englishLink.setAttribute('data-session-ref', state.instruction.session_id);
+      englishTitle.textContent = step.label || step.object_id;
+      publish('english', englishLink, englishTitle);
+    };
+
+    // Xizong route owner.
+    const xzRoot = bridge.querySelector('[data-xizong-home-tools]');
+    const xzLink = bridge.querySelector('[data-xizong-continue]');
+    const xzTitle = bridge.querySelector('[data-xizong-continue-title]');
+    const xzSystems = parse(bridge.querySelector('[data-xizong-home-resume-index]')?.textContent, []);
+
+    const refreshXizong = () => {
+      if (!(xzLink instanceof HTMLAnchorElement) || !(xzTitle instanceof HTMLElement)) return;
+
+      let pending = null;
+      try {
+        const today = studyDayAt(Date.now());
+        const blockPending = readXizongPendingChatReturnState(localStorage);
+        const systemPending = readXizongSystemWuPendingState(localStorage);
+        pending = [
+          ...Object.values(blockPending.pending_by_object || {})
+            .filter((row) => (!row?.study_day || row.study_day === today)
+              && typeof row?.return_href === 'string'
+              && row.return_href.startsWith('/xizong/'))
+            .map((row) => ({
+              href:row.return_href,
+              title:'核对当前 Block',
+              session_ref:row.return_id || row.return_packet?.return_id || null,
+              received_at:row.received_at
+            })),
+          ...Object.values(systemPending.pending_by_system || {})
+            .filter((row) => (!row?.study_day || row.study_day === today) && row?.system_id)
+            .map((row) => ({
+              href:'/xizong/practice/' + encodeURIComponent(row.system_id) + '/',
+              title:'核对当前 W/U',
+              session_ref:row.return_id || row.return_packet?.return_id || null,
+              received_at:row.received_at
+            }))
+        ].sort((a,b) => String(b.received_at || '').localeCompare(String(a.received_at || '')))[0] || null;
+      } catch {}
+
+      if (pending) {
+        xzLink.href = pending.href;
+        if (pending.session_ref) xzLink.setAttribute('data-session-ref', pending.session_ref);
+        else xzLink.removeAttribute('data-session-ref');
+        xzTitle.textContent = pending.title;
+        publish('xizong', xzLink, xzTitle);
+        return;
+      }
+
+      try {
+        const raw = parse(localStorage.getItem(XIZONG_SESSION_KEY), null);
+        const instruction = validateXizongSessionInstruction(raw, studyDayAt(Date.now()));
+        const holdoutYears = parse(localStorage.getItem('kianos:xizong:full-paper-holdout-years:v1'), []);
+        const result = activateXizongSessionNext(localStorage, instruction, {
+          holdoutYears:Array.isArray(holdoutYears) ? holdoutYears : [],
+          now:Date.now()
+        });
+        if (result?.next?.href) {
+          xzLink.href = result.next.href;
+          xzLink.setAttribute('data-session-ref', instruction.session_id);
+          xzTitle.textContent = result.next.step?.label
+            || (result.next.step?.kind === 'MEMORY_REVIEW' ? 'Memory 回收'
+              : result.next.step?.kind === 'PRACTICE_SET' ? 'Chat 自选题'
+                : '继续当前复习');
+          publish('xizong', xzLink, xzTitle);
+          return;
+        }
+      } catch {}
+
+      const last = parse(localStorage.getItem('kianos-xizong-last-location-v1'), null);
+      if (last?.href) {
+        const system = Array.isArray(xzSystems)
+          ? xzSystems.find(row => row?.systemId === last.systemId)
+          : null;
+        const block = system?.blocks?.find(row => row?.slug === last.blockSlug || row?.label === last.blockLabel);
+        xzLink.href = last.href;
+        xzLink.removeAttribute('data-session-ref');
+        xzTitle.textContent = last.resumeTitle
+          || (block ? `${block.label} · ${block.title}` : '继续上次西综学习');
+        publish('xizong', xzLink, xzTitle);
+        return;
+      }
+
+      xzLink.removeAttribute('data-session-ref');
+      publish('xizong', xzLink, xzTitle);
+    };
+
+    // Politics route owner.
+    const politicsRoot = bridge.querySelector('[data-politics-home-tools]');
+    const politicsLink = bridge.querySelector('[data-politics-continue]');
+    const politicsTitle = bridge.querySelector('[data-politics-continue-title]');
+    const politicsCatalog = parse(bridge.querySelector('[data-politics-home-catalog]')?.textContent, {});
+    const politicsMemoryCatalog = parse(bridge.querySelector('[data-politics-memory-catalog]')?.textContent, {});
+    const politicsBase = politicsRoot?.getAttribute('data-base') || '/';
+
+    const refreshPolitics = () => {
+      if (!(politicsLink instanceof HTMLAnchorElement) || !(politicsTitle instanceof HTMLElement)) return;
+      let memory = null;
+      try {
+        memory = resolvePoliticsMemoryResume(localStorage, politicsMemoryCatalog, { expectedDay:localDay() });
+      } catch {}
+      if (memory?.status === 'ACTIVE') {
+        politicsLink.href = `${politicsBase}politics/memory/`;
+        politicsLink.setAttribute('data-session-ref', memory.plan?.plan_id || memory.plan_id || '');
+        politicsTitle.textContent = memory.candidate?.prompt
+          ? `今日记忆 · ${memory.candidate.prompt}`
+          : '今日记忆';
+        publish('politics', politicsLink, politicsTitle);
+        return;
+      }
+
+      const snapshot = readPoliticsSnapshot(localStorage);
+      const target = snapshot.errors.length ? null : resolvePoliticsContinue(politicsCatalog, snapshot, politicsBase);
+      if (target?.href) {
+        politicsLink.href = target.href;
+        politicsTitle.textContent = target.title || '继续政治学习';
+      }
+      politicsLink.removeAttribute('data-session-ref');
+      publish('politics', politicsLink, politicsTitle);
+    };
+
+    const refreshAll = () => {
+      refreshXizong();
+      void refreshEnglish();
+      refreshPolitics();
+    };
+
+    window.addEventListener('kianos:english-session-updated', () => void refreshEnglish());
+    window.addEventListener('kianos:politics-memory-plan-updated', refreshPolitics);
+    window.addEventListener('kianos:private-control-consumed', (event) => {
+      const detail = event instanceof CustomEvent ? event.detail : null;
+      if (detail?.fresh !== true || !['APPLIED','IDEMPOTENT'].includes(String(detail?.status || ''))) return;
+      if (String(detail?.target || '').startsWith('xizong.')) refreshXizong();
+    });
+    window.addEventListener('kianos:subject-continue-requested', (event) => {
+      const subject = event instanceof CustomEvent ? event.detail?.subject || null : null;
+      if (!subject) refreshAll();
+      else if (subject === 'xizong') refreshXizong();
+      else if (subject === 'english') void refreshEnglish();
+      else if (subject === 'politics') refreshPolitics();
+    });
+    window.addEventListener('storage', refreshAll);
+    window.addEventListener('focus', refreshAll);
+
+    refreshAll();
+  }
+</script>
