@@ -1,10 +1,11 @@
 ---
-
 import '../styles/product-closure.css';
 import '../styles/home-workbench.css';
 import ExamOrchestratorHome from '../components/ExamOrchestratorHome.astro';
 import Base from '../layouts/Base.astro';
-import HomeSubjectRouteBridge from '../components/HomeSubjectRouteBridge.astro';
+import XizongHomeTools from '../components/XizongHomeTools.astro';
+import PoliticsHomeTools from '../components/PoliticsHomeTools.astro';
+import EnglishResume from '../components/EnglishResume.astro';
 import { inspectReadingSources } from '../lib/current.mjs';
 import { inspectLexicalSources } from '../lib/lexical.mjs';
 import { listProjectableXizongSystems, loadXizongBlock } from '../lib/xizong.mjs';
@@ -78,14 +79,13 @@ const xizongPacketIndex = xizongSystems.flatMap((system) => system.blocks.map((b
 }));
 const xizongHref = firstSystem ? `${base}xizong/${firstSystem.systemId}/` : `${base}xizong/`;
 const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubject.subject}/${firstChapter.code}/` : `${base}politics/`;
-
 ---
 <Base title="学习工作台" active="home" showLead={false}>
   <header class="homeL3Header">
     <div class="homeL3HeaderCopy">
       <p class="pageKicker" data-exam-phase>一轮收口 · 总目标 425+</p>
       <h1>学习工作台</h1>
-      <p class="homeL3Subtitle">按今天的安排，回到正在做的事。</p>
+      <p class="homeL3Subtitle">选一条主线，回到正在做的事。</p>
     </div>
     <div class="homeL3Gate examGate">
       <span>下个关键节点</span>
@@ -93,25 +93,68 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
     </div>
   </header>
 
-  <HomeSubjectRouteBridge
-    xizongFirstHref={xizongHref}
-    xizongFirstLabel={firstSystem ? `${firstSystem.canonicalId} · ${firstSystem.title}` : '选择西综学习位置'}
-    xizongResumeIndex={xizongResumeIndex}
-    politicsFirstHref={politicsHref}
-    politicsFirstLabel={firstChapter ? `${firstSubject.label} · ${firstChapter.title}` : '选择政治学习位置'}
-  />
-
   <div class="homeL3Grid">
-    <main class="homeL3Support" aria-label="今日安排与唯一下一步">
-      <ExamOrchestratorHome xizongPacketIndex={xizongPacketIndex} />
-    </main>
+    <section class="homeL3Subjects" aria-label="三科状态与 Continue">
+      <header class="homeL3SectionHead">
+        <h2>继续学习</h2>
+        <span>回到上次停下的位置，或直接开始新的任务</span>
+      </header>
 
-    <nav class="homeFallbackNav" aria-label="学科 Home 备用入口">
-      <span>备用入口</span>
-      <p>需要手动浏览学科时再进入。</p>
-      <a href={`${base}xizong/`}>西综 Home →</a>
-      <a href={`${base}english/`}>英语 Home →</a>
-      <a href={`${base}politics/`}>政治 Home →</a>
-    </nav>
+      <article class="homeL3Subject" data-home-subject="xizong">
+        <header class="homeL3SubjectHead">
+          <div class="homeL3SubjectIdentity">
+            <div class="homeL3SubjectTitle">
+              <h2>西医综合</h2>
+            </div>
+          </div>
+          <a class="homeL3OverviewLink" href={`${base}xizong/`}>知识地图 →</a>
+        </header>
+        <p class="homeL3Meta">原讲义连续学习 · 框架定位 · 主动回忆</p>
+        <div class="homeL3ActionSurface">
+          <XizongHomeTools firstHref={xizongHref} firstLabel={firstSystem ? `${firstSystem.canonicalId} · ${firstSystem.title}` : '查看西综入口'} resumeIndex={xizongResumeIndex} />
+        </div>
+      </article>
+
+      <article class="homeL3Subject" data-home-subject="english">
+        <header class="homeL3SubjectHead">
+          <div class="homeL3SubjectIdentity">
+            <div class="homeL3SubjectTitle">
+              <h2>English</h2>
+            </div>
+          </div>
+          <a class="homeL3OverviewLink" href={`${base}english/`}>英语工作台 →</a>
+        </header>
+        <p class="homeL3Meta">完整任务优先 · 阅读、翻译与写作</p>
+        <div class="homeL3ActionSurface">
+          <EnglishResume />
+        </div>
+        <nav class="homeL3TaskLinks" aria-label="英语任务">
+          <a href={`${base}reading/`}>Reading A</a>
+          <a href={`${base}cloze/`}>Cloze</a>
+          <a href={`${base}reading-b/`}>Part B</a>
+          <a href={`${base}translation/`}>Translation</a>
+          <a href={`${base}writing/`}>Writing</a>
+        </nav>
+      </article>
+
+      <article class="homeL3Subject" data-home-subject="politics">
+        <header class="homeL3SubjectHead">
+          <div class="homeL3SubjectIdentity">
+            <div class="homeL3SubjectTitle">
+              <h2>政治</h2>
+            </div>
+          </div>
+          <a class="homeL3OverviewLink" href={`${base}politics/`}>五科总览 →</a>
+        </header>
+        <p class="homeL3Meta">乘风原讲义 → 肖1000 验证 → 精准回源</p>
+        <div class="homeL3ActionSurface">
+          <PoliticsHomeTools firstHref={politicsHref} firstLabel={firstChapter ? `${firstSubject.label} · ${firstChapter.title}` : '查看政治入口'} />
+        </div>
+      </article>
+    </section>
+
+    <aside class="homeL3Support" aria-label="今日安排与学习支持">
+      <ExamOrchestratorHome xizongPacketIndex={xizongPacketIndex} />
+    </aside>
   </div>
 </Base>
