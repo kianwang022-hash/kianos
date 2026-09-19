@@ -1,76 +1,1008 @@
 {
-  "schema": "kianos.english.external_manifest.v3",
-  "status": "IMPORT_ADAPTER_TARGET",
+  "schema": "kianos.english.external_manifest.v4",
+  "status": "CURRENT_PRIVATE_SOURCE_LANE",
   "owner_path": "content/english/external/",
-  "object_schema": "content/english/external/schema.json",
+  "work_cursor": "content/english/external/CURRENT.md",
   "learning_owner": "content/english/LEARNING_CONTRACT.md",
-  "purpose": "High-quality reading-growth input beyond English-I true papers. Reuse Reading workspace geometry where useful without importing English-I Reading-A question strategy into TOEFL/IELTS material.",
-  "source_priority": [
-    "legacy TOEFL / TPO academic reading (TPO 56-65)",
-    "IELTS Academic reading (IELTS 17-19)",
-    "selected periodicals only for additional breadth"
-  ],
-  "import_policy": {
-    "runtime_model": "LOCAL_PRIVATE_IMPORT",
-    "content_bytes_in_shared_repo": false,
-    "preserve_source_locator": true,
-    "preserve_source_kind_and_format": true,
-    "allow_passage_only": true,
-    "allow_source_native_questions_when_supported": true,
-    "unsupported_question_forms": "FAIL_CLOSED",
-    "never_invent_questions": true,
-    "exposure_truth_owner": "private English material exposure ledger",
-    "do_not_build_corpus_for_completeness": true
+  "purpose": "Continuously growing Reading Growth content lane under English. TPO/IELTS expand reading volume; they do not redefine English-I Reading-A cognition.",
+  "public_private_split": {
+    "public_git_owns": [
+      "stable object identity",
+      "source family/collection topology",
+      "expected counts",
+      "source-quality flags",
+      "compiler/adapter code",
+      "runtime capability"
+    ],
+    "private_source_owns": [
+      "copyrighted passage bytes",
+      "source-native question bytes",
+      "answer-key bytes",
+      "page-level source artifacts"
+    ],
+    "private_learner_owns": [
+      "exposure history",
+      "answers",
+      "timing",
+      "uncertainty",
+      "notes",
+      "repair state"
+    ],
+    "hard_rule": "Public kianos must not become a redistribution store for copyrighted TOEFL/IELTS source bytes."
   },
-  "pools": [
+  "source_runtime": {
+    "private_source_root_env": "KIANOS_EXTERNAL_READING_SOURCE_ROOT",
+    "default_mac_source_root": "~/Documents/Study/英语资料库/EnglishOS/External_Reading_Corpus",
+    "private_bundle_env": "KIANOS_EXTERNAL_READING_DIR",
+    "default_mac_bundle_root": "~/Library/Application Support/KianOS/external-reading",
+    "compiler": "tools/english-external/compile_external_reading.py",
+    "normalizer": "tools/english-external/external_normalization.py",
+    "bridge": "static-web/scripts/privateExternalReadingBridge.mjs",
+    "runtime_route": "/external-reading/",
+    "compile_policy": "ON_DEMAND_WHEN_PRIVATE_SOURCE_NEWER",
+    "failure_policy": "FAIL_CLOSED_NO_LEGACY_FALLBACK"
+  },
+  "source_priority": [
     {
+      "rank": 1,
       "id": "tpo-56-65",
-      "kind": "TPO_READING",
-      "range": "56-65",
-      "priority": 1,
-      "source_format": "TOEFL_LEGACY",
-      "status": "IMPORT_WHEN_SELECTED",
-      "default_role": "READING_GROWTH",
-      "notes": "Primary academic-reading growth pool. Keep legacy TOEFL/TPO source identity. Useful later for TOEFL preparation, but do not apply current English-I Reading-A option strategy unless the task is actually English-I."
+      "family": "TOEFL_TPO",
+      "role": "READING_GROWTH",
+      "note": "Primary academic reading-growth pool; keep legacy TOEFL/TPO identity for possible later TOEFL preparation."
     },
     {
+      "rank": 2,
       "id": "ielts-17-19",
-      "kind": "IELTS_READING",
-      "range": "17-19",
-      "priority": 2,
-      "source_format": "IELTS_ACADEMIC",
-      "status": "IMPORT_WHEN_SELECTED",
-      "default_role": "READING_GROWTH",
-      "notes": "Secondary authoritative reading-growth pool. Preserve IELTS-native task identity when source questions are imported; passage-only use is valid."
+      "family": "IELTS_ACADEMIC",
+      "role": "READING_GROWTH",
+      "note": "Secondary authoritative reading-growth pool; preserve IELTS-native task identity."
     },
     {
-      "id": "periodicals",
-      "kind": "PERIODICAL_READING",
-      "range": "OPEN_ENDED",
-      "priority": 3,
-      "source_format": "ARTICLE",
-      "status": "OPTIONAL_INCREMENTAL",
-      "default_role": "READING_GROWTH",
-      "notes": "Optional breadth after TPO/IELTS. Questionless reading remains questionless."
+      "rank": 3,
+      "id": "future-reading",
+      "family": "FUTURE_INCREMENTAL",
+      "role": "READING_GROWTH",
+      "note": "Add only when it expands useful reading range. Questionless material remains questionless."
     }
   ],
-  "exposure_policy": {
-    "principle": "Source metadata is not learner exposure testimony.",
-    "content_object_may_claim_private_exposure": false,
-    "missing_private_record_means": "unknown",
-    "ordinary_external_mock_share_material_identity": true,
-    "recorded_exposure_cannot_be_erased_by_reimport": true
-  },
   "cognition_boundary": {
     "shared_transferable_primitives": [
       "proposition representation",
-      "reference and relation tracking",
+      "reference/relation tracking",
       "discourse structure",
       "lexical access",
-      "reading speed and stamina"
+      "reading speed",
+      "long-passage stamina"
     ],
     "english1_reading_a_strategy_owner": "content/english/modules/reading-a.md",
-    "external_source_question_semantics": "source-native only",
-    "future_toefl_note": "A future TOEFL-prep layer may add TOEFL-native task semantics without changing English-I Reading-A logic."
+    "source_native_question_semantics": "preserve source identity; do not reinterpret TOEFL/IELTS tasks as English-I question types",
+    "future_toefl_bridge": "Future TOEFL preparation may add TOEFL-native task logic over the same TPO identities without changing English-I Reading-A logic."
+  },
+  "exposure_boundary": {
+    "content_metadata_is_learner_testimony": false,
+    "missing_private_record_means": "UNKNOWN",
+    "truth_owner": "kianos-english-material-exposure-v1 private learner ledger",
+    "ordinary_external_mock_share_material_identity": true
+  },
+  "inventory": {
+    "object_count": 66,
+    "tpo": {
+      "collections": 10,
+      "passages": 30,
+      "questions": 395
+    },
+    "ielts": {
+      "books": 3,
+      "tests": 12,
+      "passages": 36,
+      "questions": 480
+    },
+    "objects": [
+      {
+        "object_id": "tpo56-p1",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO56",
+        "test": null,
+        "passage_number": 1,
+        "question_count": 14,
+        "source_owner": "TOEFL/TPO56.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "KNOWN_OCR_DEBT"
+        ]
+      },
+      {
+        "object_id": "tpo56-p2",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO56",
+        "test": null,
+        "passage_number": 2,
+        "question_count": 13,
+        "source_owner": "TOEFL/TPO56.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "KNOWN_OCR_DEBT"
+        ]
+      },
+      {
+        "object_id": "tpo56-p3",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO56",
+        "test": null,
+        "passage_number": 3,
+        "question_count": 14,
+        "source_owner": "TOEFL/TPO56.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "KNOWN_OCR_DEBT"
+        ]
+      },
+      {
+        "object_id": "tpo57-p1",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO57",
+        "test": null,
+        "passage_number": 1,
+        "question_count": 14,
+        "source_owner": "TOEFL/TPO57.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "tpo57-p2",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO57",
+        "test": null,
+        "passage_number": 2,
+        "question_count": 14,
+        "source_owner": "TOEFL/TPO57.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "tpo57-p3",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO57",
+        "test": null,
+        "passage_number": 3,
+        "question_count": 14,
+        "source_owner": "TOEFL/TPO57.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "tpo58-p1",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO58",
+        "test": null,
+        "passage_number": 1,
+        "question_count": 14,
+        "source_owner": "TOEFL/TPO58.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "tpo58-p2",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO58",
+        "test": null,
+        "passage_number": 2,
+        "question_count": 14,
+        "source_owner": "TOEFL/TPO58.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "tpo58-p3",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO58",
+        "test": null,
+        "passage_number": 3,
+        "question_count": 14,
+        "source_owner": "TOEFL/TPO58.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "tpo59-p1",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO59",
+        "test": null,
+        "passage_number": 1,
+        "question_count": 14,
+        "source_owner": "TOEFL/TPO59.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "KNOWN_OCR_DEBT"
+        ]
+      },
+      {
+        "object_id": "tpo59-p2",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO59",
+        "test": null,
+        "passage_number": 2,
+        "question_count": 14,
+        "source_owner": "TOEFL/TPO59.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "KNOWN_OCR_DEBT"
+        ]
+      },
+      {
+        "object_id": "tpo59-p3",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO59",
+        "test": null,
+        "passage_number": 3,
+        "question_count": 14,
+        "source_owner": "TOEFL/TPO59.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "KNOWN_OCR_DEBT"
+        ]
+      },
+      {
+        "object_id": "tpo60-p1",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO60",
+        "test": null,
+        "passage_number": 1,
+        "question_count": 14,
+        "source_owner": "TOEFL/TPO60.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "tpo60-p2",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO60",
+        "test": null,
+        "passage_number": 2,
+        "question_count": 14,
+        "source_owner": "TOEFL/TPO60.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "tpo60-p3",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO60",
+        "test": null,
+        "passage_number": 3,
+        "question_count": 14,
+        "source_owner": "TOEFL/TPO60.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "tpo61-p1",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO61",
+        "test": null,
+        "passage_number": 1,
+        "question_count": 14,
+        "source_owner": "TOEFL/TPO61.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "tpo61-p2",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO61",
+        "test": null,
+        "passage_number": 2,
+        "question_count": 14,
+        "source_owner": "TOEFL/TPO61.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "tpo61-p3",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO61",
+        "test": null,
+        "passage_number": 3,
+        "question_count": 14,
+        "source_owner": "TOEFL/TPO61.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "tpo62-p1",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO62",
+        "test": null,
+        "passage_number": 1,
+        "question_count": 14,
+        "source_owner": "TOEFL/TPO62.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "SOURCE_REVIEW_MARKER"
+        ]
+      },
+      {
+        "object_id": "tpo62-p2",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO62",
+        "test": null,
+        "passage_number": 2,
+        "question_count": 14,
+        "source_owner": "TOEFL/TPO62.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "SOURCE_REVIEW_MARKER"
+        ]
+      },
+      {
+        "object_id": "tpo62-p3",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO62",
+        "test": null,
+        "passage_number": 3,
+        "question_count": 14,
+        "source_owner": "TOEFL/TPO62.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "SOURCE_REVIEW_MARKER"
+        ]
+      },
+      {
+        "object_id": "tpo63-p1",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO63",
+        "test": null,
+        "passage_number": 1,
+        "question_count": 14,
+        "source_owner": "TOEFL/TPO63.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "tpo63-p2",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO63",
+        "test": null,
+        "passage_number": 2,
+        "question_count": 14,
+        "source_owner": "TOEFL/TPO63.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "tpo63-p3",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO63",
+        "test": null,
+        "passage_number": 3,
+        "question_count": 14,
+        "source_owner": "TOEFL/TPO63.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "tpo64-p1",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO64",
+        "test": null,
+        "passage_number": 1,
+        "question_count": 10,
+        "source_owner": "TOEFL/TPO64.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "tpo64-p2",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO64",
+        "test": null,
+        "passage_number": 2,
+        "question_count": 10,
+        "source_owner": "TOEFL/TPO64.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "tpo64-p3",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO64",
+        "test": null,
+        "passage_number": 3,
+        "question_count": 10,
+        "source_owner": "TOEFL/TPO64.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "tpo65-p1",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO65",
+        "test": null,
+        "passage_number": 1,
+        "question_count": 10,
+        "source_owner": "TOEFL/TPO65.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "KNOWN_PRESENTATION_OCR_DEBT"
+        ]
+      },
+      {
+        "object_id": "tpo65-p2",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO65",
+        "test": null,
+        "passage_number": 2,
+        "question_count": 10,
+        "source_owner": "TOEFL/TPO65.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "KNOWN_PRESENTATION_OCR_DEBT"
+        ]
+      },
+      {
+        "object_id": "tpo65-p3",
+        "source_family": "TOEFL_TPO",
+        "source_format": "TOEFL_LEGACY",
+        "collection": "TPO65",
+        "test": null,
+        "passage_number": 3,
+        "question_count": 10,
+        "source_owner": "TOEFL/TPO65.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "KNOWN_PRESENTATION_OCR_DEBT"
+        ]
+      },
+      {
+        "object_id": "ielts17-t1-p1",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 17",
+        "test": 1,
+        "passage_number": 1,
+        "question_count": 13,
+        "source_owner": "IELTS/Cambridge_IELTS_17_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "ielts17-t1-p2",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 17",
+        "test": 1,
+        "passage_number": 2,
+        "question_count": 13,
+        "source_owner": "IELTS/Cambridge_IELTS_17_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "ielts17-t1-p3",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 17",
+        "test": 1,
+        "passage_number": 3,
+        "question_count": 14,
+        "source_owner": "IELTS/Cambridge_IELTS_17_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "ielts17-t2-p1",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 17",
+        "test": 2,
+        "passage_number": 1,
+        "question_count": 13,
+        "source_owner": "IELTS/Cambridge_IELTS_17_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "ielts17-t2-p2",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 17",
+        "test": 2,
+        "passage_number": 2,
+        "question_count": 13,
+        "source_owner": "IELTS/Cambridge_IELTS_17_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "ielts17-t2-p3",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 17",
+        "test": 2,
+        "passage_number": 3,
+        "question_count": 14,
+        "source_owner": "IELTS/Cambridge_IELTS_17_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "ielts17-t3-p1",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 17",
+        "test": 3,
+        "passage_number": 1,
+        "question_count": 13,
+        "source_owner": "IELTS/Cambridge_IELTS_17_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "ielts17-t3-p2",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 17",
+        "test": 3,
+        "passage_number": 2,
+        "question_count": 13,
+        "source_owner": "IELTS/Cambridge_IELTS_17_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "ielts17-t3-p3",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 17",
+        "test": 3,
+        "passage_number": 3,
+        "question_count": 14,
+        "source_owner": "IELTS/Cambridge_IELTS_17_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "ielts17-t4-p1",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 17",
+        "test": 4,
+        "passage_number": 1,
+        "question_count": 13,
+        "source_owner": "IELTS/Cambridge_IELTS_17_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "ielts17-t4-p2",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 17",
+        "test": 4,
+        "passage_number": 2,
+        "question_count": 13,
+        "source_owner": "IELTS/Cambridge_IELTS_17_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "ielts17-t4-p3",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 17",
+        "test": 4,
+        "passage_number": 3,
+        "question_count": 14,
+        "source_owner": "IELTS/Cambridge_IELTS_17_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": []
+      },
+      {
+        "object_id": "ielts18-t1-p1",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 18",
+        "test": 1,
+        "passage_number": 1,
+        "question_count": 13,
+        "source_owner": "IELTS/Cambridge_IELTS_18_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "OCR_UNCERTAIN",
+          "VISUAL_STRUCTURE_REQUIRED"
+        ]
+      },
+      {
+        "object_id": "ielts18-t1-p2",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 18",
+        "test": 1,
+        "passage_number": 2,
+        "question_count": 13,
+        "source_owner": "IELTS/Cambridge_IELTS_18_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "OCR_UNCERTAIN",
+          "VISUAL_STRUCTURE_REQUIRED"
+        ]
+      },
+      {
+        "object_id": "ielts18-t1-p3",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 18",
+        "test": 1,
+        "passage_number": 3,
+        "question_count": 14,
+        "source_owner": "IELTS/Cambridge_IELTS_18_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "OCR_UNCERTAIN",
+          "VISUAL_STRUCTURE_REQUIRED"
+        ]
+      },
+      {
+        "object_id": "ielts18-t2-p1",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 18",
+        "test": 2,
+        "passage_number": 1,
+        "question_count": 13,
+        "source_owner": "IELTS/Cambridge_IELTS_18_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "OCR_UNCERTAIN",
+          "VISUAL_STRUCTURE_REQUIRED"
+        ]
+      },
+      {
+        "object_id": "ielts18-t2-p2",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 18",
+        "test": 2,
+        "passage_number": 2,
+        "question_count": 13,
+        "source_owner": "IELTS/Cambridge_IELTS_18_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "OCR_UNCERTAIN",
+          "VISUAL_STRUCTURE_REQUIRED"
+        ]
+      },
+      {
+        "object_id": "ielts18-t2-p3",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 18",
+        "test": 2,
+        "passage_number": 3,
+        "question_count": 14,
+        "source_owner": "IELTS/Cambridge_IELTS_18_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "OCR_UNCERTAIN",
+          "VISUAL_STRUCTURE_REQUIRED"
+        ]
+      },
+      {
+        "object_id": "ielts18-t3-p1",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 18",
+        "test": 3,
+        "passage_number": 1,
+        "question_count": 13,
+        "source_owner": "IELTS/Cambridge_IELTS_18_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "OCR_UNCERTAIN",
+          "VISUAL_STRUCTURE_REQUIRED"
+        ]
+      },
+      {
+        "object_id": "ielts18-t3-p2",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 18",
+        "test": 3,
+        "passage_number": 2,
+        "question_count": 13,
+        "source_owner": "IELTS/Cambridge_IELTS_18_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "OCR_UNCERTAIN",
+          "VISUAL_STRUCTURE_REQUIRED"
+        ]
+      },
+      {
+        "object_id": "ielts18-t3-p3",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 18",
+        "test": 3,
+        "passage_number": 3,
+        "question_count": 14,
+        "source_owner": "IELTS/Cambridge_IELTS_18_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "OCR_UNCERTAIN",
+          "VISUAL_STRUCTURE_REQUIRED"
+        ]
+      },
+      {
+        "object_id": "ielts18-t4-p1",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 18",
+        "test": 4,
+        "passage_number": 1,
+        "question_count": 13,
+        "source_owner": "IELTS/Cambridge_IELTS_18_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "OCR_UNCERTAIN",
+          "VISUAL_STRUCTURE_REQUIRED"
+        ]
+      },
+      {
+        "object_id": "ielts18-t4-p2",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 18",
+        "test": 4,
+        "passage_number": 2,
+        "question_count": 13,
+        "source_owner": "IELTS/Cambridge_IELTS_18_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "OCR_UNCERTAIN",
+          "VISUAL_STRUCTURE_REQUIRED"
+        ]
+      },
+      {
+        "object_id": "ielts18-t4-p3",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 18",
+        "test": 4,
+        "passage_number": 3,
+        "question_count": 14,
+        "source_owner": "IELTS/Cambridge_IELTS_18_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "OCR_UNCERTAIN",
+          "VISUAL_STRUCTURE_REQUIRED"
+        ]
+      },
+      {
+        "object_id": "ielts19-t1-p1",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 19",
+        "test": 1,
+        "passage_number": 1,
+        "question_count": 13,
+        "source_owner": "IELTS/Cambridge_IELTS_19_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "OCR_UNCERTAIN",
+          "VISUAL_STRUCTURE_REQUIRED",
+          "HISTORICAL_ANSWER_KEY_VARIANT"
+        ]
+      },
+      {
+        "object_id": "ielts19-t1-p2",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 19",
+        "test": 1,
+        "passage_number": 2,
+        "question_count": 13,
+        "source_owner": "IELTS/Cambridge_IELTS_19_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "OCR_UNCERTAIN",
+          "VISUAL_STRUCTURE_REQUIRED",
+          "HISTORICAL_ANSWER_KEY_VARIANT"
+        ]
+      },
+      {
+        "object_id": "ielts19-t1-p3",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 19",
+        "test": 1,
+        "passage_number": 3,
+        "question_count": 14,
+        "source_owner": "IELTS/Cambridge_IELTS_19_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "OCR_UNCERTAIN",
+          "VISUAL_STRUCTURE_REQUIRED",
+          "HISTORICAL_ANSWER_KEY_VARIANT"
+        ]
+      },
+      {
+        "object_id": "ielts19-t2-p1",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 19",
+        "test": 2,
+        "passage_number": 1,
+        "question_count": 13,
+        "source_owner": "IELTS/Cambridge_IELTS_19_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "OCR_UNCERTAIN",
+          "VISUAL_STRUCTURE_REQUIRED",
+          "HISTORICAL_ANSWER_KEY_VARIANT"
+        ]
+      },
+      {
+        "object_id": "ielts19-t2-p2",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 19",
+        "test": 2,
+        "passage_number": 2,
+        "question_count": 13,
+        "source_owner": "IELTS/Cambridge_IELTS_19_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "OCR_UNCERTAIN",
+          "VISUAL_STRUCTURE_REQUIRED",
+          "HISTORICAL_ANSWER_KEY_VARIANT"
+        ]
+      },
+      {
+        "object_id": "ielts19-t2-p3",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 19",
+        "test": 2,
+        "passage_number": 3,
+        "question_count": 14,
+        "source_owner": "IELTS/Cambridge_IELTS_19_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "OCR_UNCERTAIN",
+          "VISUAL_STRUCTURE_REQUIRED",
+          "HISTORICAL_ANSWER_KEY_VARIANT"
+        ]
+      },
+      {
+        "object_id": "ielts19-t3-p1",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 19",
+        "test": 3,
+        "passage_number": 1,
+        "question_count": 13,
+        "source_owner": "IELTS/Cambridge_IELTS_19_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "OCR_UNCERTAIN",
+          "VISUAL_STRUCTURE_REQUIRED",
+          "HISTORICAL_ANSWER_KEY_VARIANT"
+        ]
+      },
+      {
+        "object_id": "ielts19-t3-p2",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 19",
+        "test": 3,
+        "passage_number": 2,
+        "question_count": 13,
+        "source_owner": "IELTS/Cambridge_IELTS_19_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "OCR_UNCERTAIN",
+          "VISUAL_STRUCTURE_REQUIRED",
+          "HISTORICAL_ANSWER_KEY_VARIANT"
+        ]
+      },
+      {
+        "object_id": "ielts19-t3-p3",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 19",
+        "test": 3,
+        "passage_number": 3,
+        "question_count": 14,
+        "source_owner": "IELTS/Cambridge_IELTS_19_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "OCR_UNCERTAIN",
+          "VISUAL_STRUCTURE_REQUIRED",
+          "HISTORICAL_ANSWER_KEY_VARIANT"
+        ]
+      },
+      {
+        "object_id": "ielts19-t4-p1",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 19",
+        "test": 4,
+        "passage_number": 1,
+        "question_count": 13,
+        "source_owner": "IELTS/Cambridge_IELTS_19_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "OCR_UNCERTAIN",
+          "VISUAL_STRUCTURE_REQUIRED",
+          "HISTORICAL_ANSWER_KEY_VARIANT"
+        ]
+      },
+      {
+        "object_id": "ielts19-t4-p2",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 19",
+        "test": 4,
+        "passage_number": 2,
+        "question_count": 13,
+        "source_owner": "IELTS/Cambridge_IELTS_19_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "OCR_UNCERTAIN",
+          "VISUAL_STRUCTURE_REQUIRED",
+          "HISTORICAL_ANSWER_KEY_VARIANT"
+        ]
+      },
+      {
+        "object_id": "ielts19-t4-p3",
+        "source_family": "IELTS_ACADEMIC",
+        "source_format": "IELTS_ACADEMIC",
+        "collection": "Cambridge IELTS 19",
+        "test": 4,
+        "passage_number": 3,
+        "question_count": 14,
+        "source_owner": "IELTS/Cambridge_IELTS_19_Academic_Reading.md",
+        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "known_source_flags": [
+          "OCR_UNCERTAIN",
+          "VISUAL_STRUCTURE_REQUIRED",
+          "HISTORICAL_ANSWER_KEY_VARIANT"
+        ]
+      }
+    ]
+  },
+  "source_quality": {
+    "corpus_claim": "SOURCE_BYTES_KNOWN_PRESENT_HISTORICALLY; NOT PROVEN CLEAN",
+    "proven_clean_objects": 0,
+    "policy": "Mechanical or exact hash-bound presentation cleanup only; ambiguous OCR remains explicit debt until source-page evidence resolves it."
   }
 }
