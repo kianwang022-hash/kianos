@@ -58,6 +58,9 @@ export function buildXizongDailyEvidencePacket(storage, {
   const keys = listKeys(storage);
   const memory = normalizeXizongMemoryState(readJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
   const pendingReturnState = readXizongPendingChatReturnState(storage);
+  const chatReturnReceipt = pendingReturnState.last_receipt && onDay(pendingReturnState.last_receipt.at, day)
+    ? clone(pendingReturnState.last_receipt)
+    : null;
   const pendingChatReturns = Object.values(pendingReturnState.pending_by_object || {})
     .map((row) => ({
       handoff_id: String(row?.handoff_id || ''),
@@ -256,7 +259,7 @@ export function buildXizongDailyEvidencePacket(storage, {
     },
     current: {
       pending_chat_returns: pendingChatReturns,
-      chat_return_receipt: clone(pendingReturnState.last_receipt),
+      chat_return_receipt: chatReturnReceipt,
       memory_today: todayMemoryQueue(memory).map((card) => ({
         card_id: String(card?.id || ''),
         family: String(card?.family || ''),
