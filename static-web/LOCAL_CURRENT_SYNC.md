@@ -60,9 +60,10 @@ The status file is local delivery state, not a canonical repository owner and no
 From any trusted checkout of this repo, once:
 
 ```bash
-cd static-web
 npm run current:install
 ```
+
+The same command also exists inside `static-web/`, but normal learner operations should use the root command surface.
 
 The installer:
 
@@ -96,18 +97,32 @@ The disposable Current mirror and private learner data must never share lifecycl
 
 The learner-data root is **not** part of the Git worktree and must never be hard-reset when GitHub Current advances.
 
-The expected durable local shape is intentionally small:
+The actual durable local shape is intentionally small:
 
 ```text
-learner-data/
-├─ checkpoints/   compact daily / periodic recovery snapshots
-├─ handoff/
-│  ├─ outbox/     packets explicitly exported for Chat
-│  └─ returns/    validated Chat/domain return packets when locally retained
-└─ backups/       optional local export snapshots
+~/Library/Application Support/KianOS/
+├─ learner-state/
+│  ├─ latest.json            latest validated shared + subject checkpoint
+│  └─ restore-safety/        pre-restore safety copies when restore is used
+└─ external-reading/
+   └─ bundle.v2.json         private compiled TPO / IELTS runtime bundle when source is present
+
+~/Documents/KianOS Backups/
+└─ kianos-learner-*.json     explicit manual checkpoint copies created by current:backup
 ```
 
-High-frequency browser state may remain in browser storage when that is the cheapest correct owner. The filesystem root exists for information that is worth recovering across browser resets / migrations; it is not a requirement to mirror every localStorage key.
+There is no filesystem mirror of every browser event and no separate handoff outbox/returns store in Current V1. High-frequency learner state stays in browser storage; the filesystem checkpoint stores only the compact recovery payload worth surviving browser-profile loss / migration.
+
+Operational commands from the repo root:
+
+```bash
+npm run current:doctor
+npm run current:open
+npm run current:backup
+npm run current:restore -- --from "$HOME/Documents/KianOS Backups/<backup-file>.json"
+```
+
+Restore validates the backup first, preserves the previous private checkpoint under `restore-safety/`, and does not clear existing browser-local state. Existing local learner evidence wins by design.
 
 Actual learner data must not be committed to the public `kianos` repository. Repository files may define schemas and synthetic fixtures only.
 
