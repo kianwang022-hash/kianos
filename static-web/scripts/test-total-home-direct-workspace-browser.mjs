@@ -101,6 +101,11 @@ try{
     const href=await page.locator('[data-exam-next]').getAttribute('href');
     check(Boolean(href?.includes('/xizong/memory/?session=')),'xizong_total_home_points_exact_workspace',href||'');
     check(!/^\/xizong\/?$/.test(href||''),'xizong_does_not_stop_at_subject_home',href||'');
+    const leftXizong=page.locator('[data-xizong-continue]');
+    check(!(await leftXizong.getAttribute('href')||'').includes('/xizong/memory/'),
+      'xizong_left_continue_not_repurposed_by_chat');
+    check(!(await leftXizong.getAttribute('data-session-ref')),
+      'xizong_left_continue_has_no_chat_session_ref');
     await page.screenshot({path:path.join(out,'01-xizong-direct.png'),fullPage:true});
     await page.locator('[data-exam-next]').click();
     await page.waitForURL(/\/xizong\/memory\//);
@@ -221,6 +226,11 @@ try{
     const href=await page.locator('[data-exam-next]').getAttribute('href');
     check(href==='/politics/memory/'||href?.endsWith('/politics/memory/'),'politics_total_home_points_memory',href||'');
     check(!/^\/politics\/?$/.test(href||''),'politics_does_not_stop_at_subject_home',href||'');
+    const leftPolitics=page.locator('[data-politics-continue]');
+    check(!(await leftPolitics.getAttribute('href')||'').includes('/politics/memory/'),
+      'politics_left_continue_not_repurposed_by_chat');
+    check(!(await leftPolitics.getAttribute('data-session-ref')),
+      'politics_left_continue_has_no_chat_session_ref');
     await page.screenshot({path:path.join(out,'03-politics-direct.png'),fullPage:true});
     await page.locator('[data-exam-next]').click();
     await page.waitForURL(/\/politics\/memory\//);
