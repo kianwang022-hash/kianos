@@ -412,8 +412,9 @@ try {
   const restoredErrors = [];
   restoredPage.on('pageerror', (error) => restoredErrors.push(error.message));
   await restoredPage.goto(BASE, { waitUntil: 'domcontentloaded' });
+  await restoredPage.waitForFunction((key) => localStorage.getItem(key) !== null, EXAM_CHAT_PLAN_KEY, { timeout: 10000 });
   await restoredPage.locator('[data-exam-home][data-ready="true"]').waitFor();
-  await restoredPage.waitForTimeout(500);
+  await restoredPage.waitForTimeout(300);
 
   const restored = await restoredPage.evaluate((keys) => Object.fromEntries(
     keys.map((key) => [key, localStorage.getItem(key)])
