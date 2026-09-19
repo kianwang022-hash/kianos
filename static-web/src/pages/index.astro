@@ -118,17 +118,5 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
       <a href={`${base}politics/`}>政治 Home</a>
     </nav>
 
-    <div class="homeRouteProbes" aria-hidden="true">
-      <XizongHomeTools
-        firstHref={xizongHref}
-        firstLabel={firstSystem ? `${firstSystem.canonicalId} · ${firstSystem.title}` : '查看西综入口'}
-        resumeIndex={xizongResumeIndex}
-      />
-      <EnglishResume />
-      <PoliticsHomeTools
-        firstHref={politicsHref}
-        firstLabel={firstChapter ? `${firstSubject.label} · ${firstChapter.title}` : '查看政治入口'}
-      />
-    </div>
   </main>
 </Base>
