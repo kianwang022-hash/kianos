@@ -4,7 +4,7 @@
   "word_id": "word:dam",
   "word": "dam",
   "record": {
-    "card_version": "v4",
+    "card_version": "v2",
     "confusables": [],
     "constructions": [],
     "content_hash": "93e0c5166a1332512a30e238470c7980e6ce91c366e707829f14209d3e77365e",
@@ -16,7 +16,7 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": false,
+    "needs_delta_review": true,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
@@ -71,7 +71,14 @@
     "word_family": [],
     "word_id": "word:dam"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:baseline-v2:dam-damn:homophone_confusable",
+      "owner_path": "content/lexical/relations/by-id/b3/b308b83bd09639538cebe6b5855d4d525cb739c16d31535ea76c8a0e10b670b6.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
   "reference_senses": [
     {
       "stable_sense_id": "sense:dam:e771d2ba59165530",
@@ -184,7 +191,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1201-1208.json",
     "source_content_hash": "93e0c5166a1332512a30e238470c7980e6ce91c366e707829f14209d3e77365e",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

@@ -4,7 +4,7 @@
   "word_id": "word:data",
   "word": "data",
   "record": {
-    "card_version": "v1",
+    "card_version": "v2",
     "confusables": [],
     "constructions": [],
     "content_hash": "21c9e9c5b84f91b4af3420f5e42bf1413be7c069540b64656e8aa203f8e7831d",
@@ -16,7 +16,7 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": false,
+    "needs_delta_review": true,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
@@ -81,7 +81,56 @@
     },
     "word": "data",
     "word_family": [],
-    "word_id": "word:data"
+    "word_id": "word:data",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:data:modern",
+          "canonical_form": "data",
+          "learner_key": "data (modern general use)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": ""
+        },
+        {
+          "variant_id": "form:data:formal-plural",
+          "canonical_form": "data",
+          "learner_key": "data (formal/scientific plural)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": ""
+        },
+        {
+          "variant_id": "form:data:datum",
+          "canonical_form": "datum",
+          "learner_key": "datum (singular item)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": ""
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "data",
+          "condition": "modern general/computing use",
+          "note": "现代英语中 data 常作为集合/质量名词使用，可搭配单数谓语。"
+        },
+        {
+          "surface": "data",
+          "condition": "formal/scientific plural use",
+          "note": "在较正式或科学语境中，data 仍可作为 datum 的复数，搭配复数谓语。"
+        },
+        {
+          "surface": "datum",
+          "condition": "one individual item of data",
+          "note": "datum 是传统单数形式，现代普通语境中相对少见。"
+        }
+      ],
+      "boundary": "data 的数一致性依语域而变：现代普通用法常作集合/质量名词，正式科学用法也保留 data↔datum 的复数/单数关系。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -160,7 +209,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1217-1224.json",
     "source_content_hash": "21c9e9c5b84f91b4af3420f5e42bf1413be7c069540b64656e8aa203f8e7831d",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
