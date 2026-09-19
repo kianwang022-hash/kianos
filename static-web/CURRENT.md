@@ -201,17 +201,17 @@ This lane may proceed in parallel with CSS Closure where write sets are independ
 
 ## Concrete reopened durability defect — automatic Daily Learning Packet relay
 
-State: **ACTIVE PROTOTYPE · PR #560 · NOT MERGED**
+State: **LANDED ON MAIN · PR #560 / `f24c65a` · REAL MAC/PROJECT ACCEPTANCE PENDING**
 
-Real learner friction found during fresh ChatGPT Project smoke testing:
+Concrete learner friction:
 
 ```text
 KianOS already owns exact local learner/runtime state
 + Home already exports kianos.daily-learning-packet.v1
-→ fresh Projects still require manual packet/Resume shuttling
+→ fresh Projects previously required manual packet/Resume shuttling
 ```
 
-Accepted bounded architecture:
+Accepted and landed architecture:
 
 ```text
 KianOS private local truth
@@ -220,47 +220,59 @@ KianOS private local truth
 → five ChatGPT Projects consume bounded slices
 ```
 
-No separate Resume mailbox/protocol is allowed. PR #558 was superseded and closed without merge.
+No separate Resume mailbox/protocol exists in production. PR #558 was superseded and closed without merge.
 
-Implementation target:
+Transport target:
 
 ```text
+private Personal ref: runtime/kianos-learning
 runtime/kianos-learning/current.json
 runtime/kianos-learning/daily/YYYY-MM-DD.json
 ```
 
-on private Personal ref `runtime/kianos-learning`.
+Landed guarantees:
+- explicit English `evidence.resume` remains inside the existing English evidence schema;
+- private checkpoint rebuilds the existing Daily Learning Packet;
+- subject reconstruction failures are contained;
+- same-day packet updates replace current only;
+- study-day rollover seals at most one prior-day packet;
+- runtime ref is root-snapshot replacement rather than intraday reachable history;
+- force-with-lease prevents silent concurrent overwrite;
+- local relay Git object growth is bounded;
+- leaving KianOS/window blur flushes the checkpoint;
+- Git relay failure cannot fail or roll back local learner checkpoint saving.
 
-Hard boundaries:
-- KianOS remains Learner Truth;
-- no raw learner ledger is moved to GitHub;
-- no intraday packet files;
-- runtime ref is root-snapshot replacement, not append-only event history;
-- at most one sealed packet per study_day;
-- Timer owns Asia/Shanghai day attribution/cross-midnight splitting;
-- one subject projection failure must not fabricate other subjects;
-- Git relay failure must never fail or roll back local checkpoint saving.
+Pre-merge targeted proof:
+- packet transport / idempotency / day rollover PASS;
+- private checkpoint → Daily Learning Packet PASS;
+- cross-midnight Timer attribution PASS;
+- English Resume progression PASS;
+- build + browser acceptance PASS;
+- English Family / Exam PASS;
+- Shared Study Timer PASS;
+- Xizong Representation PASS;
+- Final Cross-subject Regression PASS;
+- Authority Consistency PASS.
 
-Implemented candidate:
-- explicit English `evidence.resume` inside existing English evidence schema;
-- private checkpoint → existing Daily Learning Packet reconstruction;
-- per-subject reconstruction containment;
-- private Git current/one-final-per-day relay;
-- prior-day sealing on study_day advance;
-- stale rollback/conflict guards;
-- packet sync piggybacks on the existing private checkpoint lifecycle.
+Semantic Base Validity still has the same pre-existing current-main self-test red:
+`shared shell must invalidate learner surface`.
+This transport lane does not own it.
 
-Current proof target:
-1. unit transport proof;
-2. full packet projection after runtime install;
-3. build;
-4. browser acceptance;
-5. English family/exam regression;
-6. Shared Timer / cross-midnight proof;
-7. Xizong acceptance;
-8. Final Cross-subject Regression;
-9. real Mac → private Personal runtime ref;
-10. fresh five-Project learner pilot.
+Xizong Fresh Independent runs were cancelled by that workflow's repository-global concurrency group when unrelated PRs triggered the same workflow; they did not report a test failure. Bounded Xizong representation + cross-subject regressions passed.
+
+Next real acceptance:
+
+```text
+real Mac KianOS
+→ real private packet appears on runtime/kianos-learning
+→ fresh Xizong / English / Politics Project "继续"
+→ Steward reads time/schedule without re-entry
+→ Review "复盘今天" reads the same packet
+```
+
+Until that real loop passes, engineering is landed but learner acceptance remains pending.
+
+---
 
 ## Website boundary
 
