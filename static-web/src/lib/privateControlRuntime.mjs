@@ -20,6 +20,10 @@ import {
   XIZONG_PENDING_CHAT_RETURN_KEY,
   stageXizongChatReturn
 } from './xizongPendingChatReturn.mjs';
+import {
+  XIZONG_SYSTEM_WU_PENDING_KEY,
+  stageXizongSystemWuReturn
+} from './xizongSystemWuReturn.mjs';
 
 export const PRIVATE_CONTROL_RUNTIME_STATE_KEY = 'kianos:private-control-runtime:v1';
 export const PRIVATE_CONTROL_RUNTIME_STATE_SCHEMA = 'kianos.private-control-runtime-state.v1';
@@ -136,6 +140,12 @@ function targetKeys(target) {
       PRIVATE_CONTROL_RUNTIME_STATE_KEY
     ];
   }
+  if (target === 'xizong.system_wu_return') {
+    return [
+      XIZONG_SYSTEM_WU_PENDING_KEY,
+      PRIVATE_CONTROL_RUNTIME_STATE_KEY
+    ];
+  }
   return [PRIVATE_CONTROL_RUNTIME_STATE_KEY];
 }
 
@@ -246,6 +256,9 @@ export function applyPrivateControlCommand(storage, rawCommand, {
       // The private control layer has already enforced command identity/replay/time ordering.
       // A newer trusted Return may replace an older unconsumed Return for the same Block.
       stageXizongChatReturn(storage, command.payload, { now, replace: true });
+    } else if (command.target === 'xizong.system_wu_return') {
+      // Stage only. The exact System Practice page owns current-W/U + reviewed-relation validation.
+      stageXizongSystemWuReturn(storage, command.payload, { now, replace: true });
     } else {
       fail('TARGET_UNIMPLEMENTED', command.target);
     }
