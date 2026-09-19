@@ -1,25 +1,30 @@
 from playwright.sync_api import sync_playwright
 from pathlib import Path
 import json, time, traceback, os, sys
-OUT=Path(os.environ.get('AUDIT_OUTPUT_DIR','.qa/english-fresh'));OUT.mkdir(parents=True,exist_ok=True);BASE=os.environ.get('AUDIT_BASE_URL','http://127.0.0.1:4333');results=[];errors=[]
+OUT=Path(os.environ.get('AUDIT_OUTPUT_DIR','.qa/english-fresh'));OUT.mkdir(parents=True,exist_ok=True);BASE=os.environ.get('AUDIT_BASE_URL','http://127.0.0.1:4333');results=[];errors=[];openpages=[]
 
 def record(name,fn):
  try:
   detail=fn();results.append({'name':name,'status':'PASS','detail':detail})
  except Exception as e:
-  results.append({'name':name,'status':'FAIL','message':str(e)[:1800]})
+  results.append({'name':name,'status':'FAIL','message':str(e)[:1800],'traceback':traceback.format_exc()[-2500:]})
+  for page in reversed(openpages):
+   if not page.is_closed():
+    try:
+     results[-1]['failure_url']=page.url;results[-1]['failure_body']=page.locator('body').inner_text()[-2200:];results[-1]['failure_storage']=page.evaluate('Object.fromEntries(Object.entries(localStorage))');page.screenshot(path=str(OUT/('failure-'+str(len(results))+'.png')));break
+    except Exception: pass
 
 def state(page,key):return page.evaluate('(k)=>JSON.parse(localStorage.getItem(k)||"null")',key)
 def shot(page,name):page.screenshot(path=str(OUT/(name+'.png')),full_page=False)
 def ctx(browser):
- c=browser.new_context(viewport={'width':1512,'height':982},permissions=['clipboard-read','clipboard-write']);p=c.new_page();p.set_default_timeout(6500);p.on('pageerror',lambda e:errors.append(str(e)));p.on('dialog',lambda d:d.accept());return c,p
+ c=browser.new_context(viewport={'width':1512,'height':982},permissions=['clipboard-read','clipboard-write']);p=c.new_page();openpages.append(p);p.on('dialog',lambda d:d.accept());p.set_default_timeout(6500);p.on('pageerror',lambda e:errors.append(str(e)));return c,p
 
 with sync_playwright() as pw:
  browser=pw.chromium.launch(executable_path=os.environ.get('AUDIT_CHROMIUM') or None,args=['--no-sandbox'])
  def reading():
   c,p=ctx(browser);requests=[];p.on('request',lambda r:requests.append(r.url));p.goto(BASE+'/reading/audit-ra1/');p.locator('[data-question]').first.wait_for()
   assert p.locator('[data-question]').count()==5
-  p.locator('[data-reading-next]').click()
+  p.locator('[data-question]').nth(1).locator('[data-option="A"]').click()
   assert p.locator('[data-question]').evaluate_all('(xs)=>xs.every(x=>!x.hidden&&getComputedStyle(x).display!=="none")')
   assert not any('/reading-answer/' in u for u in requests)
   assert p.locator('[data-question]').evaluate_all('(xs)=>xs.every(x=>JSON.parse(x.dataset.answer||\'""\')==="")')
@@ -70,11 +75,11 @@ with sync_playwright() as pw:
   p.evaluate('localStorage.setItem("kianos-writing-runtime-v1:writing-synthetic-small-v1",JSON.stringify({state:"PASS_ACCEPTABLE",firstDraft:"synthetic QA completion"}))');p.reload();assert p.locator('[data-english-resume-link]').get_attribute('href').endswith('/writing/writing-synthetic-big-v1/');shot(p,'fresh-english-resume');p.locator('[data-english-session-control] > summary').click();p.locator('[data-english-clear-session]').click();assert p.locator('[data-english-resume]').is_hidden();assert p.locator('a[href="/reading/"]').count()>0;c.close();return 'Invented ID rejected before write; exact current synthetic IDs accepted; follows only explicit order; no instruction still allows normal navigation.'
  record('Chat exact-ID import / atomic rejection / explicit-order Resume / free navigation',instructions)
  def examseal():
-  c,p=ctx(browser);req=[];p.on('request',lambda r:req.append(r.url));p.goto(BASE+'/english-exam/audit-synthetic/');p.locator('[data-exam-start]').click();p.wait_for_url('**/cloze/audit-cl/**');p.locator('[data-objective-question]').first.locator('[data-value="A"]').click();p.locator('[data-exam-return]').click();p.wait_for_url('**/english-exam/audit-synthetic/');p.locator('[data-exam-seal]').click();s=state(p,'kianos-english-exam-session-v1');assert s['status']=='SEALED';assert s['captures']['cl']['payload']['answers']['cl1']=='A';assert s['captures']['cl']['completed_at'] is None;assert not any('/cloze-answer/' in u or '/english-exam-answer/' in u for u in req)
+  c,p=ctx(browser);req=[];p.on('request',lambda r:req.append(r.url));p.goto(BASE+'/english-exam/audit-synthetic/');p.locator('[data-exam-start]').click();p.wait_for_url('**/cloze/audit-cl/**',wait_until='domcontentloaded');p.locator('[data-objective-question]').first.locator('[data-value="A"]').click();p.locator('[data-exam-return]').click();p.wait_for_url('**/english-exam/audit-synthetic/');p.locator('[data-exam-seal]').click();s=state(p,'kianos-english-exam-session-v1');assert s['status']=='SEALED';assert s['captures']['cl']['payload']['answers']['cl1']=='A';assert s['captures']['cl']['completed_at'] is None;assert not any('/cloze-answer/' in u or '/english-exam-answer/' in u for u in req)
   p.locator('[data-exam-release]').click();p.wait_for_function('JSON.parse(localStorage.getItem("kianos-english-exam-session-v1")).status==="RELEASED"');s=state(p,'kianos-english-exam-session-v1');assert s['release']['objective']['points']==0.5;assert 'points' not in s['release']['productive'];shot(p,'fresh-exam-partial-release');c.close();return 'Unfinished draft survived leaving task and early Seal; no answer HTTP requests before release; no invented subjective score.'
  record('Real exam page: unfinished-part capture / unified Seal / delayed release',examseal)
  def examfull():
-  c,p=ctx(browser);req=[];p.on('request',lambda r:req.append(r.url));p.goto(BASE+'/english-exam/audit-synthetic/');p.locator('[data-exam-start]').click();p.wait_for_url('**/cloze/audit-cl/**');deadline=state(p,'kianos-english-exam-session-v1')['deadline_at']
+  c,p=ctx(browser);req=[];p.on('request',lambda r:req.append(r.url));p.goto(BASE+'/english-exam/audit-synthetic/');p.locator('[data-exam-start]').click();p.wait_for_url('**/cloze/audit-cl/**',wait_until='domcontentloaded');deadline=state(p,'kianos-english-exam-session-v1')['deadline_at']
   for index in range(9):
    s=state(p,'kianos-english-exam-session-v1');step=s['steps'][s['current_step']];assert s['deadline_at']==deadline
    if step['task']=='cloze':
@@ -90,13 +95,13 @@ with sync_playwright() as pw:
   s=state(p,'kianos-english-exam-session-v1');assert len(s['captures'])==9;assert s['deadline_at']==deadline
   assert not any('/reading-answer/' in u or '/cloze-answer/' in u or '/reading-b-answer/' in u for u in req)
   ordinary=p.evaluate('Object.keys(localStorage).filter(k=>/^kianos-(reading-attempt|cloze-attempt|reading-b-attempt|translation-attempt|writing-runtime)/.test(k))');assert ordinary==[],ordinary
-  p.locator('[data-exam-seal]').click();p.locator('[data-exam-release]').click();p.wait_for_function('JSON.parse(localStorage.getItem("kianos-english-exam-session-v1")).status==="RELEASED"');s=state(p,'kianos-english-exam-session-v1');assert s['release']['objective']['points']==60;assert s['captures']['tr']['payload']['answers'];assert s['captures']['ws']['payload']['essay'];assert s['captures']['wb']['payload']['essay'];shot(p,'fresh-exam-complete-release');p.locator('[data-exam-copy]').click();packet=json.loads(p.evaluate('navigator.clipboard.readText()'));assert len(packet['steps'])==9;assert packet['steps'][-1]['capture']['payload']['essay'];c.close();return 'Nine actual Current template pages, one deadline, no ordinary-attempt writes, all output preserved, 60/60 objective and full productive Chat packet.'
+  p.locator('[data-exam-seal]').click();p.locator('[data-exam-release]').click();p.wait_for_function('JSON.parse(localStorage.getItem("kianos-english-exam-session-v1")).status==="RELEASED"');s=state(p,'kianos-english-exam-session-v1');assert s['release']['objective']['points']==60;assert s['captures']['tr']['payload']['answers'];assert s['captures']['ws']['payload']['essay'];assert s['captures']['wb']['payload']['essay'];shot(p,'fresh-exam-complete-release');p.locator('[data-exam-copy]').click();raw=p.evaluate('navigator.clipboard.readText()');assert raw.startswith('KIANOS_ENGLISH_EXAM_EVIDENCE_V1');packet=json.loads(raw[raw.index('{'):]);assert len(packet['steps'])==9;assert packet['steps'][-1]['capture']['payload']['essay'];c.close();return 'Nine actual Current template pages, one deadline, no ordinary-attempt writes, all output preserved, 60/60 objective and full productive Chat packet.'
  record('Integrated nine-part exam journey / state isolation / objective 60 / productive export',examfull)
  browser.close()
  # Real browser-profile restart, not copying a storage-state JSON into a fresh browser.
  def restart():
-  profile=OUT/'browser-profile';c=pw.chromium.launch_persistent_context(str(profile),executable_path=os.environ.get('AUDIT_CHROMIUM') or None,args=['--no-sandbox'],viewport={'width':1512,'height':982});p=c.new_page();p.set_default_timeout(8000);p.goto(BASE+'/english-exam/audit-synthetic/');p.locator('[data-exam-start]').click();p.wait_for_url('**/cloze/audit-cl/**');p.locator('[data-objective-question]').first.locator('[data-value="A"]').click();before=state(p,'kianos-english-exam-session-v1');url=p.url;c.close()
-  c=pw.chromium.launch_persistent_context(str(profile),executable_path=os.environ.get('AUDIT_CHROMIUM') or None,args=['--no-sandbox'],viewport={'width':1512,'height':982});p=c.new_page();p.set_default_timeout(8000);p.goto(url);assert state(p,'kianos-english-exam-session-v1')['deadline_at']==before['deadline_at'];assert state(p,f'kianos-english-exam-task-v1:{before["session_id"]}:cloze:audit-cl')['answers']['cl1']=='A'
+  profile=OUT/'browser-profile';c=pw.chromium.launch_persistent_context(str(profile),executable_path=os.environ.get('AUDIT_CHROMIUM') or None,args=['--no-sandbox'],viewport={'width':1512,'height':982});p=c.new_page();openpages.append(p);p.on('dialog',lambda d:d.accept());p.set_default_timeout(8000);p.goto(BASE+'/english-exam/audit-synthetic/');p.locator('[data-exam-start]').click();p.wait_for_url('**/cloze/audit-cl/**',wait_until='domcontentloaded');p.locator('[data-objective-question]').first.locator('[data-value="A"]').click();before=state(p,'kianos-english-exam-session-v1');url=p.url;c.close()
+  c=pw.chromium.launch_persistent_context(str(profile),executable_path=os.environ.get('AUDIT_CHROMIUM') or None,args=['--no-sandbox'],viewport={'width':1512,'height':982});p=c.new_page();openpages.append(p);p.on('dialog',lambda d:d.accept());p.set_default_timeout(8000);p.goto(url);assert state(p,'kianos-english-exam-session-v1')['deadline_at']==before['deadline_at'];assert state(p,f'kianos-english-exam-task-v1:{before["session_id"]}:cloze:audit-cl')['answers']['cl1']=='A'
   p.evaluate('''()=>{const k='kianos-english-exam-session-v1';const s=JSON.parse(localStorage.getItem(k));s.deadline_at=new Date(Date.now()-1).toISOString();s.started_at=new Date(Date.parse(s.deadline_at)-180*60000).toISOString();localStorage.setItem(k,JSON.stringify(s));}''');p.reload();p.wait_for_url('**/english-exam/audit-synthetic/');s=state(p,'kianos-english-exam-session-v1');assert s['status']=='SEALED';assert s['captures']['cl']['payload']['answers']['cl1']=='A';c.close();return 'Physical Chromium profile restart preserved deadline and in-progress answers; simulated deadline expiry then auto-Sealed without losing draft. Not a real three-hour learner trial.'
  record('Browser restart and accelerated deadline expiry preserve draft',restart)
 
