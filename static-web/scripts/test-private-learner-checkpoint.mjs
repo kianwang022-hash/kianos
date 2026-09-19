@@ -42,6 +42,8 @@ class MemoryStorage {
   getItem(key) { return this.map.has(key) ? this.map.get(key) : null; }
   setItem(key, value) { this.map.set(key, String(value)); }
   removeItem(key) { this.map.delete(key); }
+  key(index) { return [...this.map.keys()][index] ?? null; }
+  get length() { return this.map.size; }
 }
 
 const day = '2026-09-19';
@@ -83,6 +85,8 @@ const timerLedger = {
 };
 
 const source = new MemoryStorage({
+  'kianos-english-material-exposure-v1': JSON.stringify({ schema: 'kianos.english.material-exposure.v1', materials: { sample: { object_id: 'sample', events: [] } } }),
+  'kianos-lexical-evidence-ledger-v2': JSON.stringify({ schema: 'kianos.lexical.evidence_ledger.v2', events: [], conflicts: [], identity_lineage: {} }),
   [EXAM_PROFILE_KEY]: JSON.stringify(profile),
   [EXAM_CHAT_PLAN_KEY]: JSON.stringify(chatPlan),
   [STUDY_TIMER_STATE_KEY]: JSON.stringify(timerState),
@@ -154,7 +158,7 @@ assert.equal(JSON.parse(empty.getItem(EXAM_CHAT_PLAN_KEY)).next_subject, 'xizong
 const present = new MemoryStorage({ [STUDY_TIMER_STATE_KEY]: JSON.stringify(timerState) });
 const skippedRuntime = await restoreSharedControlFromPrivate(present, {
   now,
-  readCheckpoint: async () => { throw new Error('must not read private checkpoint when local shared state exists'); }
+  readCheckpoint: async () => ({ status: 'missing', checkpoint: null, error: null })
 });
 assert.equal(skippedRuntime.status, 'skipped');
 
@@ -184,5 +188,41 @@ await saveSharedControlToPrivate(source, {
   writeCheckpoint: async (value) => { writtenCheckpoint = value; return { status: 'saved' }; }
 });
 assert.equal(writtenCheckpoint.payload.subjects.xizong.keep, true, 'shared autosave must preserve future subject-owned payloads');
+assert.equal(writtenCheckpoint.payload.subjects.english.schema, 'kianos.english.private-payload.v1', 'autosave captures English subject payload');
+assert.equal(writtenCheckpoint.payload.subjects.lexical.schema, 'kianos.lexical.private-payload.v1', 'autosave captures Lexical subject payload');
+
+let unsafeWrite = false;
+await assert.rejects(() => saveSharedControlToPrivate(source, {
+  now,
+  readCheckpoint: async () => ({ status: 'unavailable', checkpoint: null, error: 'network down' }),
+  writeCheckpoint: async () => { unsafeWrite = true; }
+}), /PRIVATE_CHECKPOINT_READ_UNSAFE/);
+assert.equal(unsafeWrite, false, 'unreadable remote checkpoint must never be replaced by an empty/partial write');
+
+const subjectRestoreCheckpoint = buildPrivateLearnerCheckpoint({
+  studyDay: day,
+  now,
+  shared,
+  subjects: writtenCheckpoint.payload.subjects
+});
+const subjectTarget = new MemoryStorage();
+const subjectRestored = await restoreSharedControlFromPrivate(subjectTarget, {
+  now,
+  readCheckpoint: async () => ({ status: 'ready', checkpoint: subjectRestoreCheckpoint })
+});
+assert.equal(subjectRestored.status, 'restored');
+assert.equal(subjectRestored.restored_subject_entries >= 2, true, 'subject payload entries must restore with shared state');
+assert.equal(JSON.parse(subjectTarget.getItem('kianos-english-material-exposure-v1')).schema, 'kianos.english.material-exposure.v1');
+assert.equal(JSON.parse(subjectTarget.getItem('kianos-lexical-evidence-ledger-v2')).schema, 'kianos.lexical.evidence_ledger.v2');
+
+const conflictTarget = new MemoryStorage({
+  'kianos-english-material-exposure-v1': JSON.stringify({ schema: 'kianos.english.material-exposure.v1', materials: { local: true } })
+});
+await assert.rejects(() => restoreSharedControlFromPrivate(conflictTarget, {
+  now,
+  readCheckpoint: async () => ({ status: 'ready', checkpoint: subjectRestoreCheckpoint })
+}), /CONFLICT_KEEP_LOCAL/);
+assert.deepEqual(JSON.parse(conflictTarget.getItem('kianos-english-material-exposure-v1')).materials, { local: true }, 'conflict keeps local subject truth and prevents partial restore');
+assert.equal(conflictTarget.getItem(EXAM_CHAT_PLAN_KEY), null, 'subject conflict must not partially restore shared control');
 
 console.log('PASS private learner checkpoint foundation: external durable store + shared control capture/restore + safe autosave');
