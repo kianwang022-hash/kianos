@@ -39,6 +39,8 @@ jobs:
           npm install --no-audit --no-fund
           npm install --no-save playwright@1.56.1 --no-audit --no-fund
           npx playwright install --with-deps chromium
+      - name: Prove shared control transport
+        run: node scripts/test-shared-control-three-subjects.mjs
       - name: Build candidate
         run: npm run build
       - name: Prove Total Home one-click direct workspaces
