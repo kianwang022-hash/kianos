@@ -50,11 +50,26 @@ export function validatePrivateControlReceipt(value) {
   if (value.schema !== PRIVATE_CONTROL_RECEIPT_SCHEMA) throw new Error('PRIVATE_CONTROL_RECEIPT_SCHEMA_INVALID');
   if (!String(value.command_id || '').trim()) throw new Error('PRIVATE_CONTROL_RECEIPT_COMMAND_ID_REQUIRED');
   if (!String(value.target || '').trim()) throw new Error('PRIVATE_CONTROL_RECEIPT_TARGET_REQUIRED');
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(value.study_day || ''))) {
+    throw new Error('PRIVATE_CONTROL_RECEIPT_STUDY_DAY_INVALID');
+  }
+  if (!value.issued_at || Number.isNaN(Date.parse(value.issued_at))) {
+    throw new Error('PRIVATE_CONTROL_RECEIPT_ISSUED_AT_INVALID');
+  }
+  if (!/^cmd-[0-9a-f]{8}$/.test(String(value.command_signature || ''))) {
+    throw new Error('PRIVATE_CONTROL_RECEIPT_SIGNATURE_INVALID');
+  }
   if (!['APPLIED','IDEMPOTENT','STALE','REJECTED','SUPERSEDED','ERROR'].includes(String(value.status || ''))) {
     throw new Error('PRIVATE_CONTROL_RECEIPT_STATUS_INVALID');
   }
   if (!value.applied_at || Number.isNaN(Date.parse(value.applied_at))) throw new Error('PRIVATE_CONTROL_RECEIPT_APPLIED_AT_INVALID');
-  return JSON.parse(JSON.stringify(value));
+  return {
+    ...JSON.parse(JSON.stringify(value)),
+    study_day: String(value.study_day),
+    issued_at: new Date(value.issued_at).toISOString(),
+    applied_at: new Date(value.applied_at).toISOString(),
+    command_signature: String(value.command_signature)
+  };
 }
 
 export function readPrivateControlReceipt(privateDir = resolvePrivateLearnerDir()) {
