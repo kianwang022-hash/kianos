@@ -16,6 +16,10 @@ import {
   installAndActivateXizongSessionInstruction
 } from './xizongSessionInstruction.mjs';
 import { XIZONG_MEMORY_STORAGE_KEY } from './xizongMemoryModel.mjs';
+import {
+  XIZONG_PENDING_CHAT_RETURN_KEY,
+  stageXizongChatReturn
+} from './xizongPendingChatReturn.mjs';
 
 export const PRIVATE_CONTROL_RUNTIME_STATE_KEY = 'kianos:private-control-runtime:v1';
 export const PRIVATE_CONTROL_RUNTIME_STATE_SCHEMA = 'kianos.private-control-runtime-state.v1';
@@ -126,6 +130,12 @@ function targetKeys(target) {
       PRIVATE_CONTROL_RUNTIME_STATE_KEY
     ];
   }
+  if (target === 'xizong.chat_return') {
+    return [
+      XIZONG_PENDING_CHAT_RETURN_KEY,
+      PRIVATE_CONTROL_RUNTIME_STATE_KEY
+    ];
+  }
   return [PRIVATE_CONTROL_RUNTIME_STATE_KEY];
 }
 
@@ -232,6 +242,8 @@ export function applyPrivateControlCommand(storage, rawCommand, {
         now,
         holdoutYears
       });
+    } else if (command.target === 'xizong.chat_return') {
+      stageXizongChatReturn(storage, command.payload, { now });
     } else {
       fail('TARGET_UNIMPLEMENTED', command.target);
     }
