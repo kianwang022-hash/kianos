@@ -171,12 +171,13 @@ function currentWuObservation(state, questionId) {
 export function currentXizongSystemWuEvidence(storage, systemId, questions = []) {
   if (!storage?.getItem) fail('STORAGE_UNAVAILABLE');
   const id = clean(systemId, 160);
-  const questionById = new Map((Array.isArray(questions) ? questions : [])
-    .map((q) => [String(q?.questionId || ''), q])
-    .filter(([qid]) => qid));
+  const catalog = new Set((Array.isArray(questions) ? questions : [])
+    .map((q) => String(q?.questionId || ''))
+    .filter(Boolean));
   const state = readJsonStrict(storage, `kianos:xizong:system-question-sweep:${id}:v1`, {results:{}});
   return Object.keys(state?.results || {})
-    .filter((questionId) => questionById.has(questionId))
+    .filter((questionId) => (!catalog.size || catalog.has(questionId))
+      && /^xizong-official-\d{4}-n\d{3}$/.test(questionId))
     .map((questionId) => currentWuObservation(state, questionId))
     .filter(Boolean)
     .sort((a, b) => String(b.submitted_at || '').localeCompare(String(a.submitted_at || '')));
