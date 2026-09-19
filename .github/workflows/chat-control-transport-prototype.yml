@@ -10,6 +10,8 @@ on:
       - "static-web/scripts/test-private-control-runtime.mjs"
       - "static-web/scripts/test-xizong-session-instruction.mjs"
       - "static-web/scripts/test-xizong-daily-evidence.mjs"
+      - "static-web/src/lib/dailyLearningPacketRuntime.mjs"
+      - "static-web/scripts/test-home-daily-learning-packet.mjs"
       - ".github/workflows/chat-control-transport-prototype.yml"
 
 jobs:
@@ -27,3 +29,6 @@ jobs:
       - name: Xizong daily evidence semantics
         working-directory: static-web
         run: node scripts/test-xizong-daily-evidence.mjs
+      - name: Home daily packet integration
+        working-directory: static-web
+        run: node scripts/test-home-daily-learning-packet.mjs
