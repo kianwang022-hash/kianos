@@ -85,11 +85,14 @@ async function run(bin,args,{cwd,env=process.env,allowFailure=false}={}){
 }
 
 async function ensureRepo(config,{gitBin='git'}={}){
-  if(fs.existsSync(path.join(config.repoDir,'.git')))return;
-  fs.mkdirSync(config.repoDir,{recursive:true,mode:0o700});
-  await run(gitBin,['init'],{cwd:config.repoDir});
-  await run(gitBin,['remote','add','origin',config.repoUrl],{cwd:config.repoDir});
-  try{fs.chmodSync(config.repoDir,0o700);}catch{}
+  const exists=fs.existsSync(path.join(config.repoDir,'.git'));
+  if(!exists){
+    fs.mkdirSync(config.repoDir,{recursive:true,mode:0o700});
+    await run(gitBin,['init'],{cwd:config.repoDir});
+    await run(gitBin,['remote','add','origin',config.repoUrl],{cwd:config.repoDir});
+    try{fs.chmodSync(config.repoDir,0o700);}catch{}
+  }
+  await run(gitBin,['config','gc.auto','500'],{cwd:config.repoDir,allowFailure:true});
 }
 
 async function fetchRuntimeRef(config,{gitBin='git'}={}){
@@ -156,6 +159,11 @@ async function publishRootTree(config,{remote,newPacket,sealRaw=null,sealDay=nul
       'origin',
       commit+':'+remoteHead
     ],{cwd:config.repoDir,env});
+    await run(gitBin,['gc','--auto','--quiet'],{
+      cwd:config.repoDir,
+      env,
+      allowFailure:true
+    });
     return commit;
   }finally{
     fs.rmSync(temp,{recursive:true,force:true});
