@@ -56,10 +56,13 @@ function completeFreshTask(task, id, firstDraft, at) {
     firstPlan: '',
     firstDraft
   }, at);
+  record.binding = { source_hash: freshTask.sourceHash, prior_exposure: 'unseen', assistance: 'unassisted', legacy_unversioned: false };
   const passReturn = validateWritingReviewReturn({
     schema: WRITING_REVIEW_RETURN_SCHEMA,
     taskId: freshTask.id,
     reviewOf: 'FIRST_DRAFT',
+    attemptSubmittedAt: record.firstSubmittedAt,
+    sourceHash: freshTask.sourceHash,
     verdict: 'PASS_ACCEPTABLE',
     firstFailureLayer: null,
     repairScope: null,
@@ -76,10 +79,13 @@ origin = lockFirstAttempt(origin, {
   firstPlan: '',
   firstDraft: 'People should cooperate because cooperation is important. Cooperation helps everyone.'
 }, t1);
+origin.binding = { source_hash: big.sourceHash, prior_exposure: 'unseen', assistance: 'unassisted', legacy_unversioned: false };
 const rootReview = validateWritingReviewReturn({
   schema: WRITING_REVIEW_RETURN_SCHEMA,
   taskId: big.id,
   reviewOf: 'FIRST_DRAFT',
+  attemptSubmittedAt: origin.firstSubmittedAt,
+  sourceHash: big.sourceHash,
   verdict: 'REPAIR_NEEDED',
   firstFailureLayer: 'Content',
   repairScope: 'central claim development',
@@ -92,6 +98,9 @@ const originRepair = validateWritingRepairReturn({
   schema: WRITING_REPAIR_RETURN_SCHEMA,
   taskId: big.id,
   repairOf: 'REGENERATION',
+  attemptSubmittedAt: origin.firstSubmittedAt,
+  regenerationSubmittedAt: origin.regenerationSubmittedAt,
+  sourceHash: origin.binding.source_hash,
   verdict: 'REPAIR_COMPLETE',
   reason: 'The named content gap is repaired.',
   memoryAdmission: {
