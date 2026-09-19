@@ -44,10 +44,34 @@
     "eligibility_accounting": {
       "rule": "Projection eligibility requires accepted Current Knowledge and System-specific Learning authority; scoped Acceptance Truth controls eligibility rather than stale construction-status strings. Eligibility does not imply compilation or P acceptance.",
       "compiled": [
-        {"canonical_id":"A1","system_id":"circulation","status":"ELIGIBLE_COMPILED","block_count":12,"owner_root":"content/xizong/knowledge/systems/a1-circulation/"},
-        {"canonical_id":"A2","system_id":"respiratory","status":"ELIGIBLE_COMPILED","block_count":12,"owner_root":"content/xizong/knowledge/systems/a2-respiratory/"},
-        {"canonical_id":"A3","system_id":"urinary","status":"ELIGIBLE_COMPILED","block_count":14,"owner_root":"content/xizong/knowledge/systems/a3-urinary/"},
-        {"canonical_id":"B","system_id":"digestive-metabolic-endocrine-tumor","status":"ELIGIBLE_COMPILED_PENDING_FRESH_P_ACCEPTANCE","block_count":38,"owner_root":"content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/"}
+        {
+          "canonical_id": "A1",
+          "system_id": "circulation",
+          "status": "ELIGIBLE_COMPILED",
+          "block_count": 12,
+          "owner_root": "content/xizong/knowledge/systems/a1-circulation/"
+        },
+        {
+          "canonical_id": "A2",
+          "system_id": "respiratory",
+          "status": "ELIGIBLE_COMPILED",
+          "block_count": 12,
+          "owner_root": "content/xizong/knowledge/systems/a2-respiratory/"
+        },
+        {
+          "canonical_id": "A3",
+          "system_id": "urinary",
+          "status": "ELIGIBLE_COMPILED",
+          "block_count": 14,
+          "owner_root": "content/xizong/knowledge/systems/a3-urinary/"
+        },
+        {
+          "canonical_id": "B",
+          "system_id": "digestive-metabolic-endocrine-tumor",
+          "status": "ELIGIBLE_COMPILED",
+          "block_count": 38,
+          "owner_root": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/"
+        }
       ],
       "eligible_not_compiled": [
         {
@@ -64,9 +88,27 @@
         }
       ],
       "not_eligible": [
-        {"canonical_id":"D","scope":"neuro-sensory-motor-orthopedics","status":"NOT_ELIGIBLE","reason":"Current D Learning acceptance is not yet landed in main.","owner_root":"content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/"},
-        {"canonical_id":"E","scope":"reproductive-breast","status":"NOT_ELIGIBLE","reason":"No accepted System-level plus System-specific Learning authority yet.","owner_root":"content/xizong/knowledge/systems/e-reproductive-breast/"},
-        {"canonical_id":"F","scope":"remaining-clinical","status":"NOT_ELIGIBLE","reason":"No accepted System-level plus System-specific Learning authority yet.","owner_root":"content/xizong/knowledge/systems/f-remaining-clinical/"}
+        {
+          "canonical_id": "D",
+          "scope": "neuro-sensory-motor-orthopedics",
+          "status": "NOT_ELIGIBLE",
+          "reason": "Current D Learning acceptance is not yet landed in main.",
+          "owner_root": "content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/"
+        },
+        {
+          "canonical_id": "E",
+          "scope": "reproductive-breast",
+          "status": "NOT_ELIGIBLE",
+          "reason": "No accepted System-level plus System-specific Learning authority yet.",
+          "owner_root": "content/xizong/knowledge/systems/e-reproductive-breast/"
+        },
+        {
+          "canonical_id": "F",
+          "scope": "remaining-clinical",
+          "status": "NOT_ELIGIBLE",
+          "reason": "No accepted System-level plus System-specific Learning authority yet.",
+          "owner_root": "content/xizong/knowledge/systems/f-remaining-clinical/"
+        }
       ]
     },
     "null_policy": "Absent or unresolved Current semantics stay absent. Consumers must not synthesize missing medical relations, cues, locators or enrichment.",
@@ -91,7 +133,12 @@
       "systems": 4,
       "blocks": 76,
       "total_projection_assets": 80,
-      "expected": {"A1":12,"A2":12,"A3":14,"B":38},
+      "expected": {
+        "A1": 12,
+        "A2": 12,
+        "A3": 14,
+        "B": 38
+      },
       "current_eligible_systems": 5,
       "current_eligible_blocks": 103,
       "eligible_not_compiled_blocks": 27,
@@ -107,8 +154,24 @@
         "STALE": 0,
         "BLOCKED": 0
       },
-      "rich_calibration_blocks": ["circulation-b01","circulation-b07","circulation-b10","circulation-b11","respiratory-r01","urinary-b01","urinary-b05"],
-      "b_projection_calibration_blocks": ["D1","M2","D8","D15","D19","D21","G5"],
+      "rich_calibration_blocks": [
+        "circulation-b01",
+        "circulation-b07",
+        "circulation-b10",
+        "circulation-b11",
+        "respiratory-r01",
+        "urinary-b01",
+        "urinary-b05"
+      ],
+      "b_projection_calibration_blocks": [
+        "D1",
+        "M2",
+        "D8",
+        "D15",
+        "D19",
+        "D21",
+        "G5"
+      ],
       "baseline_projection_blocks": 69,
       "baseline_semantics": "Current-backed problem/focus/stop/Recall/LG map + protected views; B intentionally does not project its whole canonical Block Markdown at ORIENT. C is eligible but remains absent until a C-specific Projection compile is explicitly accepted."
     }
@@ -117,9 +180,30 @@
     "systems": 4,
     "blocks": 76,
     "total_projection_assets": 80,
-    "expected": {"A1":12,"A2":12,"A3":14,"B":38},
-    "rich_calibration_blocks": ["circulation-b01","circulation-b07","circulation-b10","circulation-b11","respiratory-r01","urinary-b01","urinary-b05"],
-    "b_projection_calibration_blocks": ["D1","M2","D8","D15","D19","D21","G5"],
+    "expected": {
+      "A1": 12,
+      "A2": 12,
+      "A3": 14,
+      "B": 38
+    },
+    "rich_calibration_blocks": [
+      "circulation-b01",
+      "circulation-b07",
+      "circulation-b10",
+      "circulation-b11",
+      "respiratory-r01",
+      "urinary-b01",
+      "urinary-b05"
+    ],
+    "b_projection_calibration_blocks": [
+      "D1",
+      "M2",
+      "D8",
+      "D15",
+      "D19",
+      "D21",
+      "G5"
+    ],
     "baseline_projection_blocks": 69,
     "baseline_semantics": "Compiled asset coverage ledger only; Current eligibility beyond the compiled set is tracked under validation.coverage and validation.eligibility_accounting."
   },
@@ -129,7 +213,18 @@
       "system_projection": "a1-circulation/system.projection.json",
       "block_count": 12,
       "blocks": [
-        "a1-circulation/blocks/b01.projection.json","a1-circulation/blocks/b02.projection.json","a1-circulation/blocks/b03.projection.json","a1-circulation/blocks/b04.projection.json","a1-circulation/blocks/b05.projection.json","a1-circulation/blocks/b06.projection.json","a1-circulation/blocks/b07.projection.json","a1-circulation/blocks/b08.projection.json","a1-circulation/blocks/b09.projection.json","a1-circulation/blocks/b10.projection.json","a1-circulation/blocks/b11.projection.json","a1-circulation/blocks/b12.projection.json"
+        "a1-circulation/blocks/b01.projection.json",
+        "a1-circulation/blocks/b02.projection.json",
+        "a1-circulation/blocks/b03.projection.json",
+        "a1-circulation/blocks/b04.projection.json",
+        "a1-circulation/blocks/b05.projection.json",
+        "a1-circulation/blocks/b06.projection.json",
+        "a1-circulation/blocks/b07.projection.json",
+        "a1-circulation/blocks/b08.projection.json",
+        "a1-circulation/blocks/b09.projection.json",
+        "a1-circulation/blocks/b10.projection.json",
+        "a1-circulation/blocks/b11.projection.json",
+        "a1-circulation/blocks/b12.projection.json"
       ]
     },
     "respiratory": {
@@ -137,7 +232,18 @@
       "system_projection": "a2-respiratory/system.projection.json",
       "block_count": 12,
       "blocks": [
-        "a2-respiratory/blocks/r01.projection.json","a2-respiratory/blocks/r02.projection.json","a2-respiratory/blocks/r03.projection.json","a2-respiratory/blocks/r04.projection.json","a2-respiratory/blocks/r05.projection.json","a2-respiratory/blocks/r06.projection.json","a2-respiratory/blocks/r07.projection.json","a2-respiratory/blocks/r08.projection.json","a2-respiratory/blocks/r09.projection.json","a2-respiratory/blocks/r10.projection.json","a2-respiratory/blocks/r11.projection.json","a2-respiratory/blocks/r12.projection.json"
+        "a2-respiratory/blocks/r01.projection.json",
+        "a2-respiratory/blocks/r02.projection.json",
+        "a2-respiratory/blocks/r03.projection.json",
+        "a2-respiratory/blocks/r04.projection.json",
+        "a2-respiratory/blocks/r05.projection.json",
+        "a2-respiratory/blocks/r06.projection.json",
+        "a2-respiratory/blocks/r07.projection.json",
+        "a2-respiratory/blocks/r08.projection.json",
+        "a2-respiratory/blocks/r09.projection.json",
+        "a2-respiratory/blocks/r10.projection.json",
+        "a2-respiratory/blocks/r11.projection.json",
+        "a2-respiratory/blocks/r12.projection.json"
       ]
     },
     "urinary": {
@@ -145,7 +251,20 @@
       "system_projection": "a3-urinary/system.projection.json",
       "block_count": 14,
       "blocks": [
-        "a3-urinary/blocks/b01.projection.json","a3-urinary/blocks/b02.projection.json","a3-urinary/blocks/b03.projection.json","a3-urinary/blocks/b04.projection.json","a3-urinary/blocks/b05.projection.json","a3-urinary/blocks/b06.projection.json","a3-urinary/blocks/b07.projection.json","a3-urinary/blocks/b08.projection.json","a3-urinary/blocks/b09.projection.json","a3-urinary/blocks/b10.projection.json","a3-urinary/blocks/b11.projection.json","a3-urinary/blocks/b12.projection.json","a3-urinary/blocks/b13.projection.json","a3-urinary/blocks/b14.projection.json"
+        "a3-urinary/blocks/b01.projection.json",
+        "a3-urinary/blocks/b02.projection.json",
+        "a3-urinary/blocks/b03.projection.json",
+        "a3-urinary/blocks/b04.projection.json",
+        "a3-urinary/blocks/b05.projection.json",
+        "a3-urinary/blocks/b06.projection.json",
+        "a3-urinary/blocks/b07.projection.json",
+        "a3-urinary/blocks/b08.projection.json",
+        "a3-urinary/blocks/b09.projection.json",
+        "a3-urinary/blocks/b10.projection.json",
+        "a3-urinary/blocks/b11.projection.json",
+        "a3-urinary/blocks/b12.projection.json",
+        "a3-urinary/blocks/b13.projection.json",
+        "a3-urinary/blocks/b14.projection.json"
       ]
     },
     "digestive-metabolic-endocrine-tumor": {
@@ -154,7 +273,44 @@
       "learning_source": "content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json",
       "block_count": 38,
       "blocks": [
-        "b-digestive-metabolic-endocrine-tumor/blocks/d01.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d02.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d03.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d04.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d05.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d06.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d07.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d08.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d09.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d10.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d11.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d12.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d13.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d14.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d15.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d16.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d17.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d18.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d19.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d20.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d21.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d22.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/d23.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m01.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m02.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m03.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m04.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m05.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m06.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m07.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m08.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m09.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/m10.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/g01.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/g02.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/g03.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/g04.projection.json","b-digestive-metabolic-endocrine-tumor/blocks/g05.projection.json"
+        "b-digestive-metabolic-endocrine-tumor/blocks/d01.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/d02.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/d03.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/d04.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/d05.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/d06.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/d07.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/d08.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/d09.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/d10.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/d11.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/d12.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/d13.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/d14.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/d15.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/d16.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/d17.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/d18.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/d19.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/d20.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/d21.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/d22.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/d23.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/m01.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/m02.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/m03.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/m04.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/m05.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/m06.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/m07.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/m08.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/m09.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/m10.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/g01.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/g02.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/g03.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/g04.projection.json",
+        "b-digestive-metabolic-endocrine-tumor/blocks/g05.projection.json"
       ]
     }
   },
