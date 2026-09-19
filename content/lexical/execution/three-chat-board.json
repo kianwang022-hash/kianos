@@ -1,0 +1,183 @@
+{
+  "schema": "kianos.lexical.three_chat_board.v1",
+  "status": "ACTIVE",
+  "updated_at": "2026-09-19",
+  "orchestration": "content/lexical/THREE_CHAT_RUNTIME.md",
+  "trigger_aliases": {
+    "词义A": "content/lexical/chat-roles/SEMANTIC_A.md",
+    "词义B": "content/lexical/chat-roles/SEMANTIC_B.md",
+    "词义C": "content/lexical/chat-roles/SEMANTIC_C.md"
+  },
+  "invariants": {
+    "producer_parallelism": 2,
+    "fresh_auditor_parallelism": 1,
+    "one_b_chat_per_batch": true,
+    "semantic_mutation_policy": "FRONTIER_SERIALIZED",
+    "later_batch_policy": "READ_AND_SELF_ATTACK_ALLOWED; CANONICAL_SEMANTIC_WRITE_FORBIDDEN_UNTIL_FRONTIER",
+    "user_gate": "ONLY_GENUINELY_NEW_MATERIAL_DELTA",
+    "mechanical_layer_semantic_authority": false
+  },
+  "frontier": {
+    "accepted_main_head": "0e653cf9d67a44b96d85ba35c1913cc6add267d0",
+    "current_candidate_id": "BF00",
+    "range": [
+      1,
+      100
+    ],
+    "candidate_pr": 525,
+    "state": "AUDIT_READY",
+    "integration_owner": "A",
+    "audit_brief": "content/lexical/semantic-audit/O0001_O0100_FINAL_STANDARD_FRESH_AUDIT_BRIEF.md"
+  },
+  "audit_target": {
+    "candidate_id": "BF00",
+    "range": [
+      1,
+      100
+    ],
+    "candidate_pr": 525,
+    "candidate_branch": "work/lexical-continuous-backfill-o0001-o0100",
+    "brief": "content/lexical/semantic-audit/O0001_O0100_FINAL_STANDARD_FRESH_AUDIT_BRIEF.md",
+    "state": "READY_FOR_FRESH_B",
+    "after_completion": "STOP_AND_RETURN_AUDIT_PACK_ONLY"
+  },
+  "lanes": {
+    "A": {
+      "role": "PRODUCTION_AND_FRONTIER_INTEGRATION",
+      "current_assignment": {
+        "candidate_id": "BF01",
+        "range": [
+          101,
+          200
+        ],
+        "state": "READ_ONLY_PRODUCTION_ALLOWED",
+        "allowed_now": [
+          "freeze current main and export review bundle",
+          "fresh owner/module judgment",
+          "same-Chat Self-Adversarial Attack",
+          "write stabilized proposal/handoff metadata",
+          "request bounded Human delta Gate if genuinely new material scope exists"
+        ],
+        "forbidden_now": [
+          "mutate canonical Word/Relation/Form truth before frontier advances",
+          "materialize stale FLOB candidate",
+          "self-audit"
+        ]
+      },
+      "bootstrap_integration": {
+        "candidate_id": "BF00",
+        "pr": 525,
+        "action": "after Fresh B Audit Pack, reconcile against latest main, rematerialize if needed, merge only if audit closure permits"
+      },
+      "scheduled_ranges": [
+        [
+          101,
+          200
+        ],
+        [
+          301,
+          400
+        ],
+        [
+          501,
+          600
+        ],
+        [
+          701,
+          800
+        ],
+        [
+          901,
+          1000
+        ],
+        [
+          1101,
+          1150
+        ]
+      ]
+    },
+    "B": {
+      "role": "FRESH_INDEPENDENT_AUDIT",
+      "current_assignment": "audit_target",
+      "state": "OPEN_FRESH_CHAT_PER_BATCH",
+      "may_mutate_semantic_truth": false,
+      "must_stop_after_one_audit_pack": true
+    },
+    "C": {
+      "role": "PRODUCTION_LOOKAHEAD",
+      "current_assignment": {
+        "candidate_id": "BF02",
+        "range": [
+          201,
+          300
+        ],
+        "state": "READ_ONLY_PRODUCTION_ALLOWED",
+        "allowed_now": [
+          "freeze current main and export review bundle",
+          "fresh owner/module judgment",
+          "same-Chat Self-Adversarial Attack",
+          "write stabilized proposal/handoff metadata",
+          "request bounded Human delta Gate if genuinely new material scope exists"
+        ],
+        "forbidden_now": [
+          "mutate canonical Word/Relation/Form truth before frontier advances to this batch",
+          "materialize stale FLOB candidate",
+          "self-audit"
+        ]
+      },
+      "scheduled_ranges": [
+        [
+          201,
+          300
+        ],
+        [
+          401,
+          500
+        ],
+        [
+          601,
+          700
+        ],
+        [
+          801,
+          900
+        ],
+        [
+          1001,
+          1100
+        ]
+      ]
+    }
+  },
+  "preserved_candidates": [
+    {
+      "candidate_id": "F1151_1250",
+      "range": [
+        1151,
+        1250
+      ],
+      "pr": 520,
+      "branch": "work/lexical-continuous-o1151-o1250",
+      "state": "PRESERVED_AUDIT_PENDING",
+      "rule": "must receive a fresh B audit and be reconciled/rematerialized against then-current main before merge"
+    }
+  ],
+  "backfill_plan": {
+    "target_range": [
+      1,
+      1150
+    ],
+    "batch_size": 100,
+    "final_partial_range": [
+      1101,
+      1150
+    ],
+    "next_unallocated_start": 301,
+    "allocation_rule": "A and C alternate disjoint batches; allocation does not grant mutation authority ahead of frontier"
+  },
+  "shared_owner_rule": {
+    "mode": "LATEST_MAIN_RECONCILIATION_ONLY",
+    "collision_state": "SHARED_OWNER_WAIT",
+    "instruction": "If A and C touch the same shared Word/Relation/Form owner, the later lane must wait; do not land competing shared-owner versions."
+  }
+}
