@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { XIZONG_MEMORY_STORAGE_KEY } from '../src/lib/xizongMemoryModel.mjs';
 import {
   XIZONG_CHAT_RETURN_SCHEMA,
   applyXizongChatReturn,
