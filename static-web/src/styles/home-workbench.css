@@ -655,6 +655,10 @@ body#kianos-workspace.surfaceBody-home .homeL3Subject .xzHomeContinue:hover {
   background: var(--study-green-soft);
 }
 
+body#kianos-workspace.surfaceBody-home .homeL3Subject .xzHomeContinue::after {
+  content: none;
+}
+
 body#kianos-workspace.surfaceBody-home .homeL3Subject .xzHomeContinueCopy {
   display: grid;
   min-width: 0;
@@ -723,6 +727,7 @@ body#kianos-workspace.surfaceBody-home .homeL3Subject .politicsContinueCard {
   background: #f7f6f1;
   color: var(--study-ink);
   text-decoration: none;
+  box-shadow: none;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Subject .politicsContinueCard .politicsHomeEyebrow {
