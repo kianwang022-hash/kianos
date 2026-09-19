@@ -9,10 +9,20 @@
     "constructions": [],
     "content_hash": "d626414a800de63100d266428c7da9d2732efa7f3c64fcff4a331ed2b68a4f7c",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "批评家；评论家",
-      "core_meaning_en": "a person who evaluates or judges something",
-      "mental_model_cn": "批评家；评论家",
+      "core_clusters": [
+        {
+          "label_cn": "评论家；批评者；反对者",
+          "label_en": "a person who reviews and evaluates works, or who expresses disapproval or opposition",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:critic:f86df58831375d86",
+            "sense:critic:bdf37b11b85257dd"
+          ]
+        }
+      ],
+      "core_meaning_cn": "对作品作专业评论的人，或对人、事物表达批评/反对的人",
+      "core_meaning_en": "a professional reviewer or a person who expresses criticism or opposition",
+      "mental_model_cn": "critic 不只是“评论家”：a critic of a policy/person 常指明确的批评者或反对者。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -62,24 +72,29 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:c512f059c000246e36ec",
+            "collocation_id": "collocation:critic:of:baseline-v2",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [],
+            "meaning_cn": "……的批评者/反对者",
+            "phrase": "a critic of + sb/sth"
+          },
+          {
+            "collocation_id": "collocation:critic:harsh:baseline-v2",
             "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:critic:bdf37b11b85257dd:collocation:0"
-            ],
-            "meaning_cn": "苛刻的批评者",
-            "phrase": "harsh critic"
+            "legacy_source_object_ids": [],
+            "meaning_cn": "严厉的批评者",
+            "phrase": "a harsh critic"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "爱挑剔的人",
-        "definition_en": "someone who often finds fault",
+        "definition_cn": "批评者；反对者",
+        "definition_en": "a person who expresses disapproval of or opposition to someone or something",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:critic:bdf37b11b85257dd",
-        "sense_label_en": "someone who often finds fault",
+        "sense_label_en": "a person who expresses disapproval of or opposition to someone or something",
         "sort_order": 1,
         "transitivity": "nonverb"
       }
@@ -228,7 +243,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1153-1160.json",
     "source_content_hash": "d626414a800de63100d266428c7da9d2732efa7f3c64fcff4a331ed2b68a4f7c",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

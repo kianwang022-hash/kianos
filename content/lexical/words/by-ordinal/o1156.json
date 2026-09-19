@@ -4,7 +4,7 @@
   "word_id": "word:crisis",
   "word": "crisis",
   "record": {
-    "card_version": "v1",
+    "card_version": "v2",
     "confusables": [],
     "constructions": [],
     "content_hash": "1868a21242afc77c5d5161ab55239991b78139886352d7fe14240b83d7cd3159",
@@ -16,7 +16,7 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": false,
+    "needs_delta_review": true,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
@@ -107,7 +107,42 @@
     },
     "word": "crisis",
     "word_family": [],
-    "word_id": "word:crisis"
+    "word_id": "word:crisis",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:crisis:singular",
+          "canonical_form": "crisis",
+          "learner_key": "crisis (singular)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": "/ˈkraɪ.sɪs/"
+        },
+        {
+          "variant_id": "form:crisis:plural",
+          "canonical_form": "crises",
+          "learner_key": "crises (plural)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": "/ˈkraɪ.siːz/"
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "crisis",
+          "condition": "singular",
+          "note": "单数 crisis。"
+        },
+        {
+          "surface": "crises",
+          "condition": "plural",
+          "note": "标准复数是 crises，拼写和词尾读音都会变化。"
+        }
+      ],
+      "boundary": "crisis 的标准复数是 crises。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -194,7 +229,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1153-1160.json",
     "source_content_hash": "1868a21242afc77c5d5161ab55239991b78139886352d7fe14240b83d7cd3159",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

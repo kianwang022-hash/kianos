@@ -150,7 +150,14 @@
     ],
     "word_id": "word:criticise"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:baseline-v2:criticise-criticize:regional_spelling_variant",
+      "owner_path": "content/lexical/relations/by-id/8f/8fa370fa71c3563708ea1973b5f8257d9699b706a519184dcdac428e262584b0.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -214,7 +221,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1161-1168.json",
     "source_content_hash": "989653c4c4ec474794f5117036a9cf564f81ba3dc577c34f39266fd0add55ef0",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
