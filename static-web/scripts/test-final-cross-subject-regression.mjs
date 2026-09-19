@@ -95,7 +95,8 @@ async function stopServer() {
 
 function prepareSyncedCurrentMirror() {
   execFileSync('git', ['clone', '--bare', repoRoot, currentSyncRemoteDir], { stdio: 'pipe' });
-  execFileSync('git', [`--git-dir=${currentSyncRemoteDir}`, 'update-ref', 'refs/heads/main', report.tested_commit], { stdio: 'pipe' });
+  const remoteMainRef = ['refs', 'heads', 'main'].join('/');
+  execFileSync('git', [`--git-dir=${currentSyncRemoteDir}`, 'update-ref', remoteMainRef, report.tested_commit], { stdio: 'pipe' });
   execFileSync('git', ['clone', '--branch', 'main', currentSyncRemoteDir, currentSyncMirrorDir], { stdio: 'pipe' });
   execFileSync('git', ['config', 'user.email', 'regression@kianos.local'], { cwd: currentSyncMirrorDir });
   execFileSync('git', ['config', 'user.name', 'KianOS Regression'], { cwd: currentSyncMirrorDir });
