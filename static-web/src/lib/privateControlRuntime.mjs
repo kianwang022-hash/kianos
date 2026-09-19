@@ -148,9 +148,11 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
   if(englishOp)window.dispatchEvent(new CustomEvent('kianos:english-session-updated',{
     detail:{schema:englishOp.payload?.schema||null,session_id:englishOp.payload?.session_id||null}
   }));
-  if(xizongSessionOp||xizongReturnOp||xizongSystemReturnOp)window.dispatchEvent(new CustomEvent('kianos:xizong-control-updated',{
-    detail:{session_id:xizongSessionOp?.payload?.session_id||null,has_return:Boolean(xizongReturnOp||xizongSystemReturnOp)}
-  }));
+  for(const op of [xizongSessionOp,xizongReturnOp,xizongSystemReturnOp].filter(Boolean)){
+    window.dispatchEvent(new CustomEvent('kianos:private-control-consumed',{
+      detail:{fresh:true,status:'APPLIED',target:op.kind,command_id:command.command_id}
+    }));
+  }
   if(politicsMemoryOp)window.dispatchEvent(new CustomEvent('kianos:politics-memory-plan-updated',{
     detail:{plan_id:politicsMemoryOp.payload?.plan_id||null}
   }));
