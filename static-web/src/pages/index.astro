@@ -8,7 +8,8 @@ import PoliticsHomeTools from '../components/PoliticsHomeTools.astro';
 import EnglishResume from '../components/EnglishResume.astro';
 import { inspectReadingSources } from '../lib/current.mjs';
 import { inspectLexicalSources } from '../lib/lexical.mjs';
-import { listProjectableXizongSystems } from '../lib/xizong.mjs';
+import { listProjectableXizongSystems, loadXizongBlock } from '../lib/xizong.mjs';
+import { buildXizongProductionBlock } from '../lib/xizongProductionProjection.mjs';
 import { listPoliticsSubjectsCurrent, politicsCurrentHealth } from '../lib/politicsCurrent.mjs';
 import { loadWritingLearningProjection } from '../lib/englishWritingLearning.mjs';
 import { inspectWritingSyntheticTasks } from '../lib/englishWritingSynthetic.mjs';
@@ -32,6 +33,50 @@ const englishReady = readingReady
 const firstSystem = xizongSystems[0];
 const firstSubject = politicsSubjects[0];
 const firstChapter = firstSubject?.chapters?.[0];
+const xizongResumeIndex = xizongSystems.map((system) => ({
+  systemId: system.systemId,
+  canonicalId: system.canonicalId,
+  title: system.title,
+  blocks: system.blocks.map((block) => ({
+    blockId: block.blockId,
+    slug: block.slug,
+    label: block.label,
+    title: block.title,
+    kpCount: block.kpCount
+  }))
+}));
+const xizongPacketIndex = xizongSystems.flatMap((system) => system.blocks.map((blockRef) => {
+  const canonical = loadXizongBlock(system.systemId, blockRef.slug);
+  const production = buildXizongProductionBlock(canonical);
+  return {
+    systemId: system.systemId,
+    slug: blockRef.slug,
+    blockId: canonical.blockId,
+    blockLabel: canonical.label,
+    packetMeta: {
+      objectId: canonical.objectId,
+      systemId: system.systemId,
+      canonicalId: system.canonicalId,
+      blockId: canonical.blockId,
+      blockLabel: canonical.label,
+      blockTitle: canonical.title,
+      sourcePath: canonical.sourcePath,
+      sourceHash: canonical.sourceHash,
+      sourceContactMode: String(production?.sourceContact?.mode || ''),
+      sourcePerGroup: production?.sourceContact?.logicGroupIsAutomaticSourceChunk === true,
+      reserveItems: []
+    },
+    kpRows: production.kpRecords.map((kp) => ({
+      kpId: kp.kpId,
+      displayId: kp.displayId,
+      title: kp.title,
+      groupId: kp.groupId,
+      groupLabel: kp.groupLabel,
+      sourceLocator: kp.sourceLocator || '',
+      prompt: kp.prompt || ''
+    }))
+  };
+}));
 const xizongHref = firstSystem ? `${base}xizong/${firstSystem.systemId}/` : `${base}xizong/`;
 const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubject.subject}/${firstChapter.code}/` : `${base}politics/`;
 ---
@@ -68,7 +113,7 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
         </header>
         <p class="homeL3Meta">原讲义连续学习 · 框架定位 · 主动 Recall</p>
         <div class="homeL3ActionSurface">
-          <XizongHomeTools firstHref={xizongHref} firstLabel={firstSystem ? `${firstSystem.canonicalId} · ${firstSystem.title}` : '查看西综入口'} />
+          <XizongHomeTools firstHref={xizongHref} firstLabel={firstSystem ? `${firstSystem.canonicalId} · ${firstSystem.title}` : '查看西综入口'} resumeIndex={xizongResumeIndex} />
         </div>
       </article>
 
@@ -115,7 +160,7 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
     </section>
 
     <aside class="homeL3Support" aria-label="今日安排与学习支持">
-      <ExamOrchestratorHome />
+      <ExamOrchestratorHome xizongPacketIndex={xizongPacketIndex} />
       <section class="homeL3SupportLinks">
         <a href={`${base}vocabulary/`}>Vocabulary →</a>
         <nav aria-label="英语 Guide">
