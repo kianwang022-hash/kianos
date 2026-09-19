@@ -180,8 +180,10 @@ export function resolvePoliticsMemoryResume(storage, catalog, {
   expectedDay = null
 } = {}) {
   let plan;
-  try { plan = JSON.parse(storage.getItem(POLITICS_MEMORY_PLAN_KEY) || 'null'); }
-  catch { fail('CURRENT_PLAN_UNREADABLE'); }
+  try {
+    const raw = JSON.parse(storage.getItem(POLITICS_MEMORY_PLAN_KEY) || 'null');
+    plan = raw ? validateStoredPlanShape(raw) : null;
+  } catch { fail('CURRENT_PLAN_UNREADABLE'); }
   if (!plan) return null;
 
   if (expectedDay && plan.study_day !== expectedDay) {
@@ -233,6 +235,58 @@ export function resolvePoliticsMemoryResume(storage, catalog, {
     plan_id: plan.plan_id,
     total: (plan.items || []).length
   };
+}
+
+
+// Browser-control staging: validates plan structure, day and ordering without trusting
+// Chat to supply the current catalog. Exact catalog/candidate validation is performed
+// again by the Politics Home/Memory consumer before the learner can act.
+export function stagePoliticsMemoryPlan(storage, input, {
+  expectedDay = null,
+  now = Date.now()
+} = {}) {
+  if (!storage?.getItem || !storage?.setItem) fail('STORAGE_UNAVAILABLE');
+  const plan = validateStoredPlanShape(input);
+  if (expectedDay && plan.study_day !== expectedDay) fail('PLAN_STALE_DAY', plan.study_day);
+  if (Date.parse(plan.generated_at) > Number(now) + 60_000) fail('PLAN_FUTURE');
+
+  let current = null;
+  try {
+    const raw = storage.getItem(POLITICS_MEMORY_PLAN_KEY);
+    current = raw ? validateStoredPlanShape(JSON.parse(raw)) : null;
+  } catch { fail('CURRENT_PLAN_UNREADABLE'); }
+
+  if (current?.plan_id === plan.plan_id) {
+    if (JSON.stringify(current) !== JSON.stringify(plan)) fail('PLAN_REPLAY_CONFLICT', plan.plan_id);
+    return { status:'idempotent', plan: current };
+  }
+  if (current) {
+    if (clean(plan.supersedes_plan_id, 160) !== clean(current.plan_id, 160)) {
+      fail('PLAN_SUPERSEDE_REQUIRED', current.plan_id);
+    }
+    if (Date.parse(plan.generated_at) <= Date.parse(current.generated_at || 0)) {
+      fail('PLAN_NOT_NEWER');
+    }
+  } else if (clean(plan.supersedes_plan_id, 160)) {
+    fail('PLAN_SUPERSEDE_TARGET_MISSING', plan.supersedes_plan_id);
+  }
+
+  const exactKey = POLITICS_MEMORY_PLAN_PREFIX + plan.plan_id;
+  const existingExact = storage.getItem(exactKey);
+  if (existingExact != null) fail('PLAN_ID_CONFLICT', plan.plan_id);
+  const beforeCurrent = storage.getItem(POLITICS_MEMORY_PLAN_KEY);
+  try {
+    storage.setItem(exactKey, JSON.stringify(plan));
+    storage.setItem(POLITICS_MEMORY_PLAN_KEY, JSON.stringify(plan));
+  } catch (error) {
+    try {
+      if (beforeCurrent == null) storage.removeItem?.(POLITICS_MEMORY_PLAN_KEY);
+      else storage.setItem(POLITICS_MEMORY_PLAN_KEY, beforeCurrent);
+      storage.removeItem?.(exactKey);
+    } catch {}
+    throw error;
+  }
+  return { status: current ? 'superseded' : 'applied', plan };
 }
 
 
