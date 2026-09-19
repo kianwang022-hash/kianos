@@ -9,6 +9,7 @@ import {
   activateXizongSessionCurrentStep,
   advanceXizongSessionIfComplete,
   resolveXizongSessionNext,
+  validateXizongSessionInstruction,
   xizongChatSetSweepKey
 } from '../src/lib/xizongSessionInstruction.mjs';
 import {
