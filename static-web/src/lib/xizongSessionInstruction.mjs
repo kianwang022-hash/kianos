@@ -30,16 +30,20 @@ function normalizeStep(raw, index) {
   };
 
   if (kind === 'MEMORY_REVIEW') {
-    const cardIds = [...new Set((Array.isArray(raw.card_ids) ? raw.card_ids : [])
-      .map((id) => clean(id, 240)).filter(Boolean))];
-    if (!cardIds.length) fail('MEMORY_CARD_IDS_REQUIRED', stepId);
+    const rawCardIds = (Array.isArray(raw.card_ids) ? raw.card_ids : [])
+      .map((id) => clean(id, 240)).filter(Boolean);
+    if (!rawCardIds.length) fail('MEMORY_CARD_IDS_REQUIRED', stepId);
+    if (new Set(rawCardIds).size !== rawCardIds.length) fail('MEMORY_CARD_IDS_DUPLICATE', stepId);
+    const cardIds = rawCardIds;
     return { ...base, card_ids: cardIds };
   }
 
   if (kind === 'PRACTICE_SET') {
-    const questionIds = [...new Set((Array.isArray(raw.question_ids) ? raw.question_ids : [])
-      .map((id) => clean(id, 160)).filter(Boolean))];
-    if (!questionIds.length) fail('PRACTICE_IDS_REQUIRED', stepId);
+    const rawQuestionIds = (Array.isArray(raw.question_ids) ? raw.question_ids : [])
+      .map((id) => clean(id, 160)).filter(Boolean);
+    if (!rawQuestionIds.length) fail('PRACTICE_IDS_REQUIRED', stepId);
+    if (new Set(rawQuestionIds).size !== rawQuestionIds.length) fail('PRACTICE_IDS_DUPLICATE', stepId);
+    const questionIds = rawQuestionIds;
     if (questionIds.some((id) => !/^xizong-official-\d{4}-n\d{3}$/.test(id))) {
       fail('PRACTICE_ID_INVALID', stepId);
     }
@@ -168,26 +172,41 @@ export function applyXizongSessionInstruction(storage, input, {
 
 export function resolveXizongSessionNext(storage, instruction) {
   const value = validateXizongSessionInstruction(instruction);
+  const issuedAt = Date.parse(value.generated_at);
+
   for (let i = value.current_step; i < value.steps.length; i += 1) {
     const step = value.steps[i];
+
     if (step.kind === 'MEMORY_REVIEW') {
       const memory = normalizeXizongMemoryState(JSON.parse(storage.getItem(XIZONG_MEMORY_STORAGE_KEY) || 'null'));
-      const pending = step.card_ids.filter((id) => memory.attention?.[id]?.reviewRequested === true);
-      if (pending.length) return { index: i, step, href: '/xizong/memory/' };
+      // Completion means the requested review action produced one new real Recall event
+      // for every selected card after this session was issued. Rating quality is evidence,
+      // not a completion gate or mastery claim.
+      const completed = step.card_ids.every((cardId) =>
+        memory.evidence.some((row) =>
+          row?.cardId === cardId
+          && Number.isFinite(Date.parse(row?.at))
+          && Date.parse(row.at) >= issuedAt
+        )
+      );
+      if (!completed) return { index: i, step, href: '/xizong/memory/' };
       continue;
     }
+
     if (step.kind === 'PRACTICE_SET') {
-      const key = 'kianos:xizong:chat-set-question-sweep:' + value.session_id + ':' + step.step_id + ':v1';
+      const storageId = ('chat-set:' + value.session_id + ':' + step.step_id)
+        .replace(/[^a-zA-Z0-9:_-]+/g, '-');
+      const key = 'kianos:xizong:chat-set-question-sweep:' + storageId + ':v1';
       let state = null;
       try { state = JSON.parse(storage.getItem(key) || 'null'); } catch {}
       const complete = step.question_ids.every((id) => state?.results?.[id]);
       if (!complete) return { index: i, step, href: '/xizong/practice/chat-set/' };
       continue;
     }
+
     if (step.kind === 'NAVIGATE') {
-      // Navigation is intentionally non-evidentiary. A session cannot infer completion
-      // merely because the learner visited a page. Return it until a newer Chat session
-      // supersedes the instruction.
+      // Navigation has no learner-evidence completion predicate. It is terminal guidance
+      // until a newer Chat instruction supersedes it.
       return { index: i, step, href: step.href };
     }
   }
