@@ -1,11 +1,16 @@
 ---
+import { loadXizongSystemCompletionRequirements } from '../lib/xizong.mjs';
 const { system, block = null } = Astro.props;
 const blockId = block?.blockId || '';
 const blockIds = (system?.blocks || []).map((row) => row.blockId).filter(Boolean);
+const requirements = block ? [] : loadXizongSystemCompletionRequirements(system);
 ---
 <span data-xizong-runtime-stage-guard hidden></span>
 
-<script define:vars={{ blockId, blockIds }}>
+<script type="application/json" data-xizong-completion-input set:html={JSON.stringify({ blockId, blockIds, requirements }).replace(/</g, String.fromCharCode(92) + 'u003c')}></script>
+<script>
+  import { inspectXizongSystemCompletion } from '../lib/xizongMemoryAutoRelease.mjs';
+  const { blockId, blockIds, requirements } = JSON.parse(document.querySelector('[data-xizong-completion-input]')?.textContent || '{}');
   const readBlockState = (id) => {
     if (!id) return {};
     try {
@@ -66,7 +71,7 @@ const blockIds = (system?.blocks || []).map((row) => row.blockId).filter(Boolean
         }
 
         if (requested === 'block_complete') {
-          const ready = counts.total > 0 && counts.learned >= counts.total && counts.recalled >= counts.total && Boolean(state?.blockRecallDone);
+          const ready = counts.total > 0 && counts.learned >= counts.total && counts.recalled >= counts.total && (state?.blockRecallDone === true);
           if (!ready) {
             stop(event);
             setBlockStatus(root, `Block 完成证据未闭合（学习接触 ${counts.learned}/${counts.total} · Recall ${counts.recalled}/${counts.total} · Block Recall ${state?.blockRecallDone ? '完成' : '未完成'}）`);
@@ -108,7 +113,7 @@ const blockIds = (system?.blocks || []).map((row) => row.blockId).filter(Boolean
 
       const blockComplete = target.closest('[data-block-complete]');
       if (blockComplete) {
-        const ready = counts.total > 0 && counts.learned >= counts.total && counts.recalled >= counts.total && Boolean(state?.blockRecallDone);
+        const ready = counts.total > 0 && counts.learned >= counts.total && counts.recalled >= counts.total && (state?.blockRecallDone === true);
         if (!ready) {
           stop(event);
           setBlockStatus(root, `Block 完成证据未闭合（学习接触 ${counts.learned}/${counts.total} · Recall ${counts.recalled}/${counts.total} · Block Recall ${state?.blockRecallDone ? '完成' : '未完成'}）`);
@@ -121,10 +126,11 @@ const blockIds = (system?.blocks || []).map((row) => row.blockId).filter(Boolean
     const recallEntry = document.querySelector('[data-xizong-system-recall-entry]');
     const recallLock = document.querySelector('[data-xizong-system-recall-lock]');
     const recallLockStatus = document.querySelector('[data-xizong-system-recall-lock-status]');
-    const completedBlocks = () => blockIds.filter((id) => Boolean(readBlockState(id)?.completed));
+    const completedBlocks = () => inspectXizongSystemCompletion(requirements, localStorage);
     const syncSystemRelease = () => {
-      const completed = completedBlocks();
-      const ready = completed.length >= blockIds.length;
+      const check = completedBlocks();
+      const completed = { length: check.completed };
+      const ready = check.complete;
       if (recallEntry instanceof HTMLElement) recallEntry.hidden = !ready;
       if (root instanceof HTMLElement) root.hidden = !ready;
       if (recallLock instanceof HTMLElement) recallLock.hidden = ready;

@@ -319,6 +319,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
         if (!object(saved) || (saved.schema && saved.schema !== 'kianos.xizong.block-state.v2')) throw new Error('Unsupported state');
         if (saved.learned != null && (!object(saved.learned) || Object.values(saved.learned).some((v) => typeof v !== 'boolean'))) throw new Error('Invalid contact evidence');
         if (saved.ratings != null && (!object(saved.ratings) || Object.values(saved.ratings).some((v) => !['unknown','fuzzy','known','mastered'].includes(v)))) throw new Error('Invalid Recall evidence');
+        if (['completed', 'blockRecallDone', 'sourceContactDone'].some((key) => saved[key] != null && typeof saved[key] !== 'boolean')) throw new Error('Invalid completion evidence');
         state = { ...state, ...saved };
       }
     } catch {

@@ -49,6 +49,7 @@ export function inspectXizongBlockCompletion(learnerObject, studyStateInput) {
   const study = studyStateInput && typeof studyStateInput === 'object' && !Array.isArray(studyStateInput)
     ? studyStateInput
     : {};
+  if (study.schema && study.schema !== 'kianos.xizong.block-state.v2') return { complete: false, reason: 'UNSUPPORTED_STUDY_SCHEMA', blockId, kpIds: ids };
   if (study.completed !== true) return { complete: false, reason: 'BLOCK_NOT_CONFIRMED', blockId, kpIds: ids };
   if (study.blockRecallDone !== true) return { complete: false, reason: 'BLOCK_RECALL_MISSING', blockId, kpIds: ids };
   const learned = study.learned && typeof study.learned === 'object' ? study.learned : {};
@@ -125,4 +126,32 @@ export function releaseCompletedBlockToMemory(memoryStateInput, learnerObject, s
     precisionCardIds: descriptor.precisionCards.map((card) => card.id),
     attentionCardIds: descriptor.attentionSignals.map((signal) => signal.cardId)
   };
+}
+
+// One completion predicate for Memory, System release and learner Resume.
+export function inspectXizongSystemCompletion(requirements, storage) {
+  const rows = Array.isArray(requirements) ? requirements : [];
+  if (!rows.length) return { complete: false, completed: 0, total: 0 };
+  const seen = new Set();
+  const checks = rows.map((row) => {
+    const id = row?.identity?.blockId;
+    if (!id || seen.has(id)) return false;
+    seen.add(id);
+    try {
+      const study = JSON.parse(storage.getItem(`kianos-xizong-astro-v2:xizong:${id}`) || 'null');
+      const rawMeta = storage.getItem(`kianos-xizong-evidence-meta-v1:xizong:${id}`);
+      if (rawMeta !== null) {
+        const meta = JSON.parse(rawMeta);
+        if (!meta || typeof meta.version !== 'string' || meta.version !== row.evidenceVersion) return false;
+      }
+      return inspectXizongBlockCompletion(row, study).complete;
+    } catch { return false; }
+  });
+  return { complete: checks.every(Boolean), completed: checks.filter(Boolean).length, total: rows.length };
+}
+export function hasXizongSystemRecall(storage, systemId) {
+  try {
+    const row = JSON.parse(storage.getItem(`kianos:xizong:system-recall:${systemId}:v1`) || 'null');
+    return typeof row?.completedAt === 'string' && Number.isFinite(Date.parse(row.completedAt));
+  } catch { return false; }
 }
