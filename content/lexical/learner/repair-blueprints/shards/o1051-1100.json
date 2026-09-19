@@ -1,0 +1,277 @@
+{
+  "schema": "kianos.lexical.repair_blueprint_shard.v1",
+  "range": {
+    "start_ordinal": 1051,
+    "end_ordinal": 1100
+  },
+  "authority": "content/lexical/LEARNING_CONTRACT.md + CONTENT_ASSET_CONTRACT.md + approved 100-owner Human Gate 2026-09-19",
+  "generation_rule": "Stable diagnostic intent only; concrete instances generated fresh.",
+  "entries": [
+    {
+      "blueprint_id": "repair-blueprint:o1051:contest:v1",
+      "word_id": "word:contest",
+      "ordinal": 1051,
+      "word": "contest",
+      "target": {
+        "target_kind": "form_identity",
+        "target_id": null,
+        "target_locator": "record.form_identity"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "根据词性区分 contest 的重音与含义。",
+      "decision_boundary_cn": "noun CONtest=比赛/争夺；verb conTEST=竞选/质疑。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 contest 词性-重音边界。",
+      "reconstruction_rule_cn": "换比赛、选举和质疑决定语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1055:continual:v1",
+      "word_id": "word:continual",
+      "ordinal": 1055,
+      "word": "continual",
+      "target": {
+        "target_kind": "relation",
+        "target_id": "relation:horizontal:34e9c7f7bb2ed7e1a52a",
+        "target_locator": "record.semantic_neighbors[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 continual / continuous。",
+      "decision_boundary_cn": "continual 常强调反复发生、可有间断；continuous 强调不中断的连续。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修两词时间结构边界。",
+      "reconstruction_rule_cn": "换反复打扰与连续流动语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1058:contract:v1",
+      "word_id": "word:contract",
+      "ordinal": 1058,
+      "word": "contract",
+      "target": {
+        "target_kind": "form_identity",
+        "target_id": null,
+        "target_locator": "record.form_identity"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "根据词性区分 contract 重音，并识别 contract a disease。",
+      "decision_boundary_cn": "noun CONtract；verb conTRACT。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修重音-词性与感染义。",
+      "reconstruction_rule_cn": "换签合同、肌肉收缩和感染疾病语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1061:contrast:v1",
+      "word_id": "word:contrast",
+      "ordinal": 1061,
+      "word": "contrast",
+      "target": {
+        "target_kind": "form_identity",
+        "target_id": null,
+        "target_locator": "record.form_identity"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "根据词性区分 contrast 重音。",
+      "decision_boundary_cn": "noun CONtrast；verb conTRAST。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修重音-词性边界。",
+      "reconstruction_rule_cn": "换名词对比与动词比较语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1062:contribute:v1",
+      "word_id": "word:contribute",
+      "ordinal": 1062,
+      "word": "contribute",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分贡献、促成/导致与投稿。",
+      "decision_boundary_cn": "contribute sth to / contribute to result / contribute to publication。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 contribute 三分支。",
+      "reconstruction_rule_cn": "换慈善、因果和杂志投稿语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1064:contrive:v1",
+      "word_id": "word:contrive",
+      "ordinal": 1064,
+      "word": "contrive",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:contrive:baseline-v2-to",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定使用 contrive to do sth。",
+      "decision_boundary_cn": "表示通过巧思或努力设法做到，不只是“构思”。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 contrive to。",
+      "reconstruction_rule_cn": "换在困难下设法完成任务的语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1076:convert:v1",
+      "word_id": "word:convert",
+      "ordinal": 1076,
+      "word": "convert",
+      "target": {
+        "target_kind": "form_identity",
+        "target_id": null,
+        "target_locator": "record.form_identity"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "根据词性区分 convert 的重音和含义。",
+      "decision_boundary_cn": "verb conVERT=转换/皈依；noun CONvert=皈依者。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 convert 同形异重音。",
+      "reconstruction_rule_cn": "换格式转换和信仰改变语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1078:convict:v1",
+      "word_id": "word:convict",
+      "ordinal": 1078,
+      "word": "convict",
+      "target": {
+        "target_kind": "form_identity",
+        "target_id": null,
+        "target_locator": "record.form_identity"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "根据词性区分 convict 的重音。",
+      "decision_boundary_cn": "verb conVICT=定罪；noun CONvict=罪犯/服刑者。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 convict 词性-重音。",
+      "reconstruction_rule_cn": "换法庭判决和囚犯语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1081:cook:v1",
+      "word_id": "word:cook",
+      "ordinal": 1081,
+      "word": "cook",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:cook:baseline-v2-books",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分字面 cook 与 cook the books。",
+      "decision_boundary_cn": "books 在该固定短语中指账目，整体义为篡改财务记录。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 cook the books。",
+      "reconstruction_rule_cn": "换厨房与财务舞弊语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1082:cool:v1",
+      "word_id": "word:cool",
+      "ordinal": 1082,
+      "word": "cool",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分温度、情绪冷静、冷淡与 informal cool。",
+      "decision_boundary_cn": "temperature/emotion/social attitude/evaluation 决定分支。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 cool 的高价值多义。",
+      "reconstruction_rule_cn": "换天气、压力、接待和口语评价语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1085:coordinate:v1",
+      "word_id": "word:coordinate",
+      "ordinal": 1085,
+      "word": "coordinate",
+      "target": {
+        "target_kind": "form_identity",
+        "target_id": null,
+        "target_locator": "record.form_identity"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "根据词性区分 coordinate 的结尾读音与意义。",
+      "decision_boundary_cn": "verb -nate /neɪt/；noun/adjective -nate /nət/。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 coordinate form boundary。",
+      "reconstruction_rule_cn": "换项目协调、坐标与并列分句语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1087:cope:v1",
+      "word_id": "word:cope",
+      "ordinal": 1087,
+      "word": "cope",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:cope:baseline-v2-with",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定使用 cope with sth。",
+      "decision_boundary_cn": "默认是应对困难；宗教长袍义低频。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 cope with 主线。",
+      "reconstruction_rule_cn": "换压力、疾病和工作负荷语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1094:corn:v1",
+      "word_id": "word:corn",
+      "ordinal": 1094,
+      "word": "corn",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "理解 corn 的美英地区差异。",
+      "decision_boundary_cn": "AmE 通常=maize；BrE/较旧一般用法可泛指 cereal grain。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修地区词义边界。",
+      "reconstruction_rule_cn": "换美国超市与英国农业文本语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1100:correlate:v1",
+      "word_id": "word:correlate",
+      "ordinal": 1100,
+      "word": "correlate",
+      "target": {
+        "target_kind": "form_identity",
+        "target_id": null,
+        "target_locator": "record.form_identity"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 correlate 动词/名词结尾读音并掌握关联结构。",
+      "decision_boundary_cn": "verb /-leɪt/；noun /-lət/；A correlates with B。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 correlate form + syntax。",
+      "reconstruction_rule_cn": "换统计关系与相关变量语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    }
+  ]
+}

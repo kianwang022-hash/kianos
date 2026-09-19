@@ -1,0 +1,315 @@
+{
+  "schema": "kianos.lexical.repair_blueprint_shard.v1",
+  "range": {
+    "start_ordinal": 1101,
+    "end_ordinal": 1150
+  },
+  "authority": "content/lexical/LEARNING_CONTRACT.md + CONTENT_ASSET_CONTRACT.md + approved 100-owner Human Gate 2026-09-19",
+  "generation_rule": "Stable diagnostic intent only; concrete instances generated fresh.",
+  "entries": [
+    {
+      "blueprint_id": "repair-blueprint:o1101:correspond:v1",
+      "word_id": "word:correspond",
+      "ordinal": 1101,
+      "word": "correspond",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 correspond with / to / with sb。",
+      "decision_boundary_cn": "with sth=相符；to sth=对应；with sb=通信。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修介词选义。",
+      "reconstruction_rule_cn": "换数据匹配、编号对应与书信往来语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1111:cosy:v1",
+      "word_id": "word:cosy",
+      "ordinal": 1111,
+      "word": "cosy",
+      "target": {
+        "target_kind": "relation",
+        "target_id": "relation:horizontal:75204231b048cc569811",
+        "target_locator": "record.semantic_neighbors[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 BrE cosy / AmE cozy。",
+      "decision_boundary_cn": "同一常用形容词概念，仅地区拼写不同。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修地区拼写边界。",
+      "reconstruction_rule_cn": "换英式与美式住宿评价语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1115:cough:v1",
+      "word_id": "word:cough",
+      "ordinal": 1115,
+      "word": "cough",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:cough:baseline-v2-up",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 cough up 的字面咳出与引申勉强交出。",
+      "decision_boundary_cn": "blood/phlegm=字面；money/information=引申。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 cough up。",
+      "reconstruction_rule_cn": "换医学与支付/交代信息语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1117:council:v1",
+      "word_id": "word:council",
+      "ordinal": 1117,
+      "word": "council",
+      "target": {
+        "target_kind": "relation",
+        "target_id": "deep:confusables:council:4450314ab8b6d7c5",
+        "target_locator": "record.confusables[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分同音 council / counsel。",
+      "decision_boundary_cn": "council=委员会；counsel=建议/法律顾问。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修同音拼写陷阱。",
+      "reconstruction_rule_cn": "换市政委员会与律师建议语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1118:counsel:v1",
+      "word_id": "word:counsel",
+      "ordinal": 1118,
+      "word": "counsel",
+      "target": {
+        "target_kind": "relation",
+        "target_id": "deep:semantic_contrast:counsel:e93cb931eb3a59aa",
+        "target_locator": "record.semantic_neighbors[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 counsel / advise。",
+      "decision_boundary_cn": "counsel 较正式、常见于法律/专业建议；advise 更通用。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修正式度和语域边界。",
+      "reconstruction_rule_cn": "换法律顾问与日常建议语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1119:count:v1",
+      "word_id": "word:count",
+      "ordinal": 1119,
+      "word": "count",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 count / count as / count on / count for。",
+      "decision_boundary_cn": "计数、视为、依靠、重要由补语结构决定。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 count 熟词多义。",
+      "reconstruction_rule_cn": "换数量、身份判断、依靠和重要性语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1120:counter:v1",
+      "word_id": "word:counter",
+      "ordinal": 1120,
+      "word": "counter",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分柜台/计数器、counter=反对以及 over-the-counter。",
+      "decision_boundary_cn": "实体名词、反向意义和 OTC 固定搭配由语境决定。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 counter 多义与高频短语。",
+      "reconstruction_rule_cn": "换商店、论证、药品零售语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1125:couple:v1",
+      "word_id": "word:couple",
+      "ordinal": 1125,
+      "word": "couple",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "理解 couple 与 a couple of 的数量范围。",
+      "decision_boundary_cn": "核心接近 two；口语 a couple of 可宽泛表示少数几个。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修数量边界。",
+      "reconstruction_rule_cn": "换情侣、一对物品和时间数量语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1128:course:v1",
+      "word_id": "word:course",
+      "ordinal": 1128,
+      "word": "course",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分课程、路线、进程、一道菜及 in the course of。",
+      "decision_boundary_cn": "领域和固定结构决定分支。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 course 多义与重复结构。",
+      "reconstruction_rule_cn": "换选课、航向、事件进程和餐饮语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1133:cover:v1",
+      "word_id": "word:cover",
+      "ordinal": 1133,
+      "word": "cover",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分物理覆盖、话题覆盖、支付费用与媒体报道。",
+      "decision_boundary_cn": "共同模型是把某范围纳入覆盖。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 cover 熟词多义。",
+      "reconstruction_rule_cn": "换桌面、课程大纲、保险费用和新闻语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1134:cow:v1",
+      "word_id": "word:cow",
+      "ordinal": 1134,
+      "word": "cow",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分母牛、cow sb into doing 与侮辱性称呼。",
+      "decision_boundary_cn": "动物义/恐吓结构/贬损用法需分开。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 cow 多义和 usage safety。",
+      "reconstruction_rule_cn": "换牧场、恐吓迫使和对话识别语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1137:crack:v1",
+      "word_id": "word:crack",
+      "ordinal": 1137,
+      "word": "crack",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分裂缝/破裂、破解难题和 crack down on。",
+      "decision_boundary_cn": "object + pattern 决定 physical / solve / suppress。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 crack 高价值熟词生义。",
+      "reconstruction_rule_cn": "换墙裂缝、破解代码和执法语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1141:crash:v1",
+      "word_id": "word:crash",
+      "ordinal": 1141,
+      "word": "crash",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分碰撞、系统/市场崩溃与 crash course。",
+      "decision_boundary_cn": "vehicle/system/market/course 领域决定分支。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 crash 多义并避免 noun/verb 搭配错挂。",
+      "reconstruction_rule_cn": "换车祸、电脑、股市和速成课程语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1143:crazy:v1",
+      "word_id": "word:crazy",
+      "ordinal": 1143,
+      "word": "crazy",
+      "target": {
+        "target_kind": "relation",
+        "target_id": "deep:semantic_contrast:crazy:2ed30a33b9bf1a5a",
+        "target_locator": "record.semantic_neighbors[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "理解 crazy / mad 的重叠、BrE mad=angry 与语域限制。",
+      "decision_boundary_cn": "两词都偏非正式；真实精神健康描述不宜作临床标签。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修语域和地区义边界。",
+      "reconstruction_rule_cn": "换口语夸张、英式生气和健康描述语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1149:credit:v1",
+      "word_id": "word:credit",
+      "ordinal": 1149,
+      "word": "credit",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分信用赊购、荣誉归功、学分和 credit A to/with。",
+      "decision_boundary_cn": "financial/recognition/academic/attribution 领域决定。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 credit 熟词多义。",
+      "reconstruction_rule_cn": "换信用卡、论文致谢、学分和归因语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1150:creep:v1",
+      "word_id": "word:creep",
+      "ordinal": 1150,
+      "word": "creep",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分缓慢移动/蔓延与 noun creep。",
+      "decision_boundary_cn": "movement/spread/person 语境决定；creepy 是另一个形容词。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 creep 分支。",
+      "reconstruction_rule_cn": "换悄悄接近、藤蔓蔓延和人物评价语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    }
+  ]
+}
