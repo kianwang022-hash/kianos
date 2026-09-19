@@ -1,0 +1,113 @@
+name: English Exact Return Verification
+on:
+  push:
+    branches: [work/english-final-independent-audit-20260919-r2]
+    paths: [.github/workflows/english-return-delta.yml]
+permissions:
+  contents: write
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify original owner hashes and apply bounded repair
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,base64,lzma,subprocess,re
+          patch=lzma.decompress(base64.b64decode(Path('.github/english-return-delta.b64').read_text().strip(),validate=True))
+          assert hashlib.sha256(patch).hexdigest()=='2e3e1baa6d8eff7fed347731d4a6bb3150cdbaaf5dd368f8278f49b8152e47ac'
+          for section in patch.decode().split('diff --git ')[1:]:
+            name=section.splitlines()[0].split(' b/',1)[1]
+            match=re.search(r'^index ([0-9a-f]+)\.\.',section,re.M)
+            if match and set(match[1])!={'0'}:
+              actual=subprocess.check_output(['git','hash-object',name],text=True).strip()
+              assert actual.startswith(match[1]),(name,actual,match[1])
+          Path('/tmp/return.patch').write_bytes(patch)
+          subprocess.run(['git','apply','--unidiff-zero','--check','/tmp/return.patch'],check=True)
+          subprocess.run(['git','apply','--unidiff-zero','--index','/tmp/return.patch'],check=True)
+          bridge=Path('static-web/src/components/VocabularyEnglishEvidenceBridge.astro')
+          bridge.write_text('<!-- Formal lexical writes are now prepared and committed by the owning Objective Return transaction. -->\n<span data-vocab-english-evidence-bridge hidden></span>\n')
+          test=Path('static-web/scripts/test-english-fresh-integration.py')
+          text=test.read_text()
+          old='before=filtered(snapshot(p));p.locator'
+          assert text.count(old)==1
+          text=text.replace(old,"packet['attemptSubmittedAt']=json.loads(snapshot(p)['kianos-reading-attempt-v1:audit-ra1'])['submittedAt'];before=filtered(snapshot(p));p.locator")
+          test.write_text(text)
+          flow=Path('.github/workflows/english-fresh-independent.yml')
+          text=flow.read_text().replace('          node scripts/test-english-fresh-boundaries.mjs | tee', '          node scripts/test-english-fresh-return.mjs\n          node scripts/test-english-fresh-boundaries.mjs | tee')
+          text=text.replace('          python scripts/test-english-fresh-integration.py | tee .qa/english-fresh/integration.log', '          python scripts/test-english-fresh-integration.py | tee .qa/english-fresh/integration.log\n          python scripts/test-english-fresh-return-browser.py | tee .qa/english-fresh/formal-return.log')
+          flow.write_text(text)
+          PY
+          git add static-web/src/components/VocabularyEnglishEvidenceBridge.astro static-web/scripts/test-english-fresh-integration.py .github/workflows/english-fresh-independent.yml
+          git rm .github/english-return-delta.b64 .github/workflows/english-return-delta.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'fix(english): validate Current lexical targets and commit formal Returns atomically; make lookup read-only'
+          git push origin HEAD:work/english-final-independent-audit-20260919-r2
+          mkdir -p static-web/.qa/english-fresh
+          git rev-parse HEAD > static-web/.qa/english-fresh/TESTED_HEAD.txt
+      - name: Independent unit proofs
+        working-directory: static-web
+        env:
+          AUDIT_OUTPUT: .qa/english-fresh/boundaries.json
+        run: |
+          set -euo pipefail
+          node scripts/test-english-fresh-return.mjs | tee .qa/english-fresh/formal-unit.log
+          node scripts/test-english-fresh-boundaries.mjs | tee .qa/english-fresh/boundaries.log
+      - name: Install execution dependencies
+        working-directory: static-web
+        run: |
+          set -euo pipefail
+          npm install --no-audit --no-fund
+          cp package-lock.json .qa/english-fresh/resolved-package-lock.json
+          pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Current browser, exact Return and physical restart
+        working-directory: static-web
+        env:
+          AUDIT_OUTPUT_DIR: .qa/english-fresh
+        run: |
+          set -euo pipefail
+          node scripts/prepare-english-fresh-browser.mjs
+          npm run dev -- --host 127.0.0.1 --port 4333 > .qa/english-fresh/server.log 2>&1 &
+          python - <<'PY'
+          import time,urllib.request
+          for i in range(60):
+            try:
+              urllib.request.urlopen('http://127.0.0.1:4333/english-exam/audit-synthetic/',timeout=5)
+              break
+            except Exception:time.sleep(1)
+          else:raise RuntimeError('Synthetic Current server unavailable')
+          PY
+          python scripts/test-english-fresh-browser.py | tee .qa/english-fresh/browser.log
+          python scripts/test-english-fresh-integration.py | tee .qa/english-fresh/integration.log
+          python scripts/test-english-fresh-return-browser.py | tee .qa/english-fresh/formal-return.log
+      - name: Remove synthetic overlays and build actual Current
+        if: always()
+        working-directory: static-web
+        run: |
+          set -euo pipefail
+          node scripts/prepare-english-fresh-browser.mjs --clean
+          npm run build > .qa/english-fresh/build.log 2>&1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: english-exact-return-verified
+          path: |
+            static-web/.qa/english-fresh/*.json
+            static-web/.qa/english-fresh/*.txt
+            static-web/.qa/english-fresh/*.log
+            static-web/.qa/english-fresh/*.png
+          retention-days: 14
