@@ -3,9 +3,7 @@ import '../styles/product-closure.css';
 import '../styles/home-workbench.css';
 import ExamOrchestratorHome from '../components/ExamOrchestratorHome.astro';
 import Base from '../layouts/Base.astro';
-import XizongHomeTools from '../components/XizongHomeTools.astro';
-import PoliticsHomeTools from '../components/PoliticsHomeTools.astro';
-import EnglishResume from '../components/EnglishResume.astro';
+import HomeSubjectRouteBridge from '../components/HomeSubjectRouteBridge.astro';
 import { inspectReadingSources } from '../lib/current.mjs';
 import { inspectLexicalSources } from '../lib/lexical.mjs';
 import { listProjectableXizongSystems, loadXizongBlock } from '../lib/xizong.mjs';
@@ -94,18 +92,13 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
       </div>
     </header>
 
-    <div class="homeRouteProbes" aria-hidden="true">
-      <XizongHomeTools
-        firstHref={xizongHref}
-        firstLabel={firstSystem ? `${firstSystem.canonicalId} · ${firstSystem.title}` : '查看西综入口'}
-        resumeIndex={xizongResumeIndex}
-      />
-      <EnglishResume />
-      <PoliticsHomeTools
-        firstHref={politicsHref}
-        firstLabel={firstChapter ? `${firstSubject.label} · ${firstChapter.title}` : '查看政治入口'}
-      />
-    </div>
+    <HomeSubjectRouteBridge
+      xizongFirstHref={xizongHref}
+      xizongFirstLabel={firstSystem ? `${firstSystem.canonicalId} · ${firstSystem.title}` : '选择西综学习位置'}
+      xizongResumeIndex={xizongResumeIndex}
+      politicsFirstHref={politicsHref}
+      politicsFirstLabel={firstChapter ? `${firstSubject.label} · ${firstChapter.title}` : '选择政治学习位置'}
+    />
 
     <section class="homeDirectControl" aria-label="今日总控">
       <ExamOrchestratorHome xizongPacketIndex={xizongPacketIndex} />
