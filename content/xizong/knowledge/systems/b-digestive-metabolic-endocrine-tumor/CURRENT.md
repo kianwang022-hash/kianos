@@ -10,12 +10,13 @@ This file does not own medical Core, Xizong Learning semantics, Acceptance Truth
 ## Work Cursor
 
 **Scope:** B — Digestive / Metabolic / Endocrine / Tumor  
-**Active / earliest unresolved eligible gate:** `P — Projection`.  
+**Active / earliest unresolved eligible gate:** `R — Runtime`.  
 **S status:** BLOCKED only on the separate exact official-question-membership sub-boundary required for the later official System question sweep.  
 **K status:** PASS — 38 stable Blocks / 600 stable KPs + accepted System model.  
 **L status:** PASS — fresh independent Phase-6 acceptance complete.  
-**P status:** UNTESTED / ACTIVE.  
-**R/E:** downstream-frozen behind P; exact official-sweep evidence also remains S-gated.  
+**P status:** PASS — fresh independent Projection acceptance complete.  
+**R status:** UNTESTED / ACTIVE.  
+**E:** downstream-frozen behind R; exact official-sweep evidence also remains S-gated.  
 **U:** UNTESTED — real learner validation only.
 
 ```text
@@ -30,7 +31,7 @@ Phase 6  Fresh independent L acceptance                PASS
 
 Learning construction / acceptance task: GitHub Issue `#135` — completed.
 
-**Next action:** enter **B Projection (P) only**. Inspect Current shared Xizong Projection authority and any existing B projection assets against the accepted B Learning owner. Do not infer P PASS from old UI/pages, do not start Runtime/Evidence, and do not load/guess the official B System question sweep while S exact qid membership is unresolved.
+**Next action:** enter **B Runtime (R) fresh acceptance only**. Start from the existing shared production semantic presenter / V6 runtime and prove that B's accepted P model is executable without A-shape normalization, premature Recall, duplicate state or a B-specific second runtime. Do not infer R PASS from historical compatibility alone, do not start Evidence, and do not load/guess the official B System question sweep while S exact qid membership is unresolved.
 
 ---
 
@@ -123,7 +124,8 @@ Verdict:
 
 ```text
 L = PASS
-P = ACTIVE / eligible
+P = PASS
+R = ACTIVE / eligible
 ```
 
 This is a shared Learning-design acceptance claim only. It creates **no Learner Truth** about what Kian has actually studied.
@@ -143,25 +145,29 @@ Until S closes honestly:
 
 ---
 
-## Active P boundary
+## Accepted P boundary
 
-Projection must now answer only:
+Fresh P evidence:
 
-> How should the accepted B Learning semantics be represented on learner-facing KianOS surfaces without stealing actions from MarginNote or changing cognition?
+`content/xizong/projection/B_PROJECTION_P4_FRESH_ACCEPTANCE.md`
 
-P must preserve, at minimum:
+Current B Projection is accepted for its derived semantic/presentation role:
 
-- external-primary Lecture ownership;
-- whole-LG handoff and clear source-return semantics;
-- the readiness DAG without rendering backend dependencies as compulsory curriculum;
-- learner-order exceptions such as G5;
-- conditional Precision / Visual / Reserve / Hook display;
-- backend-only engineering metadata;
-- LG closure → Block Recall → non-gating PSR → final System Reconstruction compression ladder;
-- Learner-Truth gating for Recall/System actions;
-- S-gated official question sweep.
+- 1 SystemProjection + 38 BlockProjection assets;
+- bounded orientation rather than a second web Lecture;
+- exact Learning-owned LG identity/order;
+- protected KP / Block / System Recall fronts;
+- optional non-gating PSR representation;
+- no guessed official-question scope;
+- additive Visual/Extension support only when separately reviewed.
 
-Historical D/M/G directory structure, Markdown headings and any existing Astro component do not own page structure.
+## Active R boundary
+
+Runtime must now answer only:
+
+> Can the accepted B learning/projection path be executed in the existing shared Xizong runtime with exact Resume/state/evidence boundaries and without normalizing B into A semantics?
+
+Fresh R acceptance must directly test the one Current runtime. Historical renderer compatibility is supporting evidence, not the acceptance verdict. No B-specific runtime/state store may be introduced merely because R is active.
 
 ---
 
@@ -176,6 +182,7 @@ Historical D/M/G directory structure, Markdown headings and any existing Astro c
 - lane Learning constitution → `content/xizong/LEARNING_CONTRACT.md`
 - shared study policy → `content/xizong/knowledge/learner/study-policy.json`
 - Phase-6 evidence → `content/xizong/knowledge/learner/B_PHASE6_INDEPENDENT_L_ACCEPTANCE.md`
+- fresh P evidence → `content/xizong/projection/B_PROJECTION_P4_FRESH_ACCEPTANCE.md`
 - Current Question Truth → `content/xizong/questions/`
 - reviewed Question→Knowledge relations → `content/xizong/question-relations/`
 

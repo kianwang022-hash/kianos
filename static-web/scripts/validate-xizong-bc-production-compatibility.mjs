@@ -49,8 +49,9 @@ const projectableIds = new Set(listProjectableXizongSystems().map((system) => sy
 const blockUi = read('static-web/src/components/XizongBlockV6.astro');
 
 // B compatibility: preserve accepted whole-LG Source contact all the way through
-// the shared semantic presenter. Compiled B Projection exists, but this acceptance
-// must not silently promote B's separate scoped P/product-route gate.
+// the shared semantic presenter. Fresh P acceptance may promote the manifest from
+// pending-P to ELIGIBLE_COMPILED, but it must not silently promote the separate
+// Runtime/product-route gate.
 const { block: semanticBD1 } = loadXizongSemanticBlock('digestive-metabolic-endocrine-tumor', 'D1');
 const bProduction = buildXizongProductionBlock(
   compatibilityCanonicalBlock('digestive-metabolic-endocrine-tumor', semanticBD1)
@@ -65,8 +66,8 @@ assert(bProduction.cognitiveProjection.compiled === true, 'B:D1:compiled-project
 assert(Boolean(loadCompiledXizongProjectionAsset('digestive-metabolic-endocrine-tumor', 'D1')?.asset), 'B:D1:compiled-asset-missing');
 assert(JSON.stringify(bProduction.logicGroups[0].kpOrdinals) === JSON.stringify(semanticBD1.logicGroups[0].kpOrdinals), 'B:D1:membership-normalized');
 assert(bProduction.cognitiveProjection.locationObjects.some((row) => row.role === 'MAP'), 'B:D1:semantic-lg-map-not-renderable');
-assert(manifest.validation?.eligibility_accounting?.compiled?.some((row) => row.canonical_id === 'B' && row.status === 'ELIGIBLE_COMPILED_PENDING_FRESH_P_ACCEPTANCE'), 'B:manifest-fresh-p-boundary-lost');
-assert(!projectableIds.has('digestive-metabolic-endocrine-tumor'), 'B:compatibility-illegally-promoted-product-route');
+assert(manifest.validation?.eligibility_accounting?.compiled?.some((row) => row.canonical_id === 'B' && row.status === 'ELIGIBLE_COMPILED'), 'B:manifest-fresh-p-acceptance-not-recorded');
+assert(!projectableIds.has('digestive-metabolic-endocrine-tumor'), 'B:P-pass-illegally-promoted-runtime-product-route');
 
 // C compatibility: explicit/non-contiguous LG membership must survive the same
 // production presenter. Missing compiled Projection is a legal Current state and

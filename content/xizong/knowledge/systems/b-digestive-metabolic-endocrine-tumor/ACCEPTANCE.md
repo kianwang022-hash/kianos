@@ -15,15 +15,15 @@ This file owns B's current S/K/L/P/R/E/U readiness claims. It does not own medic
 S  BLOCKED — separate exact Current official-question membership sub-boundary
 K  PASS — 38 stable Blocks / 600 stable KPs + accepted System model
 L  PASS — fresh independent Learning acceptance complete
-P  UNTESTED — ACTIVE / earliest unresolved eligible learner-surface gate
-R  UNTESTED — downstream-frozen behind P
+P  PASS — fresh independent Projection acceptance; Current B derived presentation is faithful and protected
+R  UNTESTED — ACTIVE / earliest unresolved eligible gate
 E  UNTESTED — downstream-frozen behind R; exact official sweep evidence also depends on S
 U  UNTESTED — real learner use only
 ```
 
 Current allowed conclusion:
 
-> **B Knowledge and Learning are accepted. Projection is now eligible and active. B is still not learner-ready: P/R/E are unaccepted, U requires real use, and the exact official-question sweep remains separately blocked by S question-scope closure.**
+> **B Knowledge, Learning and Projection are accepted. Runtime is now the earliest unresolved eligible gate. B is still not learner-ready: R/E remain unaccepted, U requires real use, and the exact official-question sweep remains separately blocked by S question-scope closure.**
 
 Dependency-scoped rule:
 
@@ -172,31 +172,54 @@ L PASS proves the shared B learning design is accepted. It does **not** prove Ki
 
 ---
 
-## P — UNTESTED / ACTIVE
+## P — PASS｜fresh independent Projection acceptance
 
-Projection is now the earliest unresolved eligible learner-surface gate.
+Accepted derived Projection owners:
 
-P must project the accepted Learning semantics without changing them. In particular it must preserve:
+- `content/xizong/projection/b-digestive-metabolic-endocrine-tumor/system.projection.json`;
+- 38 B BlockProjection assets under `content/xizong/projection/b-digestive-metabolic-endocrine-tumor/blocks/`.
 
-- MarginNote as external-primary Lecture surface;
-- KianOS as orientation / retrieval / closure / compression surface rather than a second reader;
-- whole-LG handoff and natural return cues without forced KP-by-KP switching;
-- conditional display of Precision / Visual / Reserve / Connection context;
-- backend-only engineering metadata;
-- readiness DAG and learner-order semantics without turning backend route metadata into compulsory navigation;
-- six PSRs as optional/non-gating compression checkpoints;
-- System Recall timing based on Learner Truth rather than engineering readiness;
-- S-gated official-question sweep without guessed qids.
+Fresh acceptance evidence:
 
-The historical D/M/G file layout and rich medical Markdown do not own page structure.
+`content/xizong/projection/B_PROJECTION_P4_FRESH_ACCEPTANCE.md`
+
+Accepted physical scope:
+
+```text
+1 SystemProjection
+38 BlockProjection
+39 B Projection assets
+38 Blocks / 170 Logic Groups / 600 stable KPs preserved upstream
+```
+
+Fresh audit challenged second-Lecture drift, protected-answer leakage, G5 learner-order corruption, A1-shape copying, Projection becoming a second semantic owner, PSR hidden hierarchy and S question-scope contamination.
+
+Current accepted Projection boundary:
+
+- MarginNote/original Lecture remains the continuous first-learning owner;
+- B `BLOCK_ORIENT` does not render the whole rich D/M/G canonical Markdown;
+- complete KP Core remains upstream-owned and appears only through legitimate Reveal/repair paths;
+- `KP_RECALL_FRONT` is empty of B answer objects/support;
+- `BLOCK_RECALL_FRONT` exposes only the center problem plus exact LG IDs/labels;
+- B `SYSTEM_RECALL_FRONT` contains no B medical answer object;
+- Learning-owned `learner_order` is preserved, including G5 `KP01–05 → KP12–13 → KP06–11`;
+- six PSRs remain optional/non-gating and absent from the default System Guide;
+- no official B qid membership or Question→Knowledge relation is guessed;
+- optional Visual/Extension richness remains additive and is not required for P completeness.
+
+Executed Current proof includes compiled Projection validation at **4 Systems / 76 Blocks / 80 assets / 1405 KP identities** with **95/95 mutation/control tests PASS**, plus Current topology reconciliation and B-specific learner-order/front-safety adversarial tests.
+
+P PASS is a semantic/presentation acceptance claim. It does not claim rich visual completeness, Runtime/Evidence acceptance, Mac acceptance of a new material layout, official-question membership or learner U.
 
 ---
 
 ## R / E
 
-`R` remains downstream-frozen behind P. `E` remains downstream-frozen behind R, and evidence for the exact official System question sweep additionally depends on S scope closure.
+`R` is now **UNTESTED / ACTIVE** as the earliest unresolved eligible gate. Fresh R work must inspect the existing shared production presenter/runtime first; P closure is not permission to build a second B runtime.
 
-Old web/runtime existence is not acceptance evidence.
+`E` remains downstream-frozen behind R, and evidence for the exact official System question sweep additionally depends on S scope closure.
+
+Historical runtime existence and compatibility evidence may support R audit but cannot manufacture R PASS.
 
 ---
 
@@ -219,6 +242,7 @@ No repository state implies Kian has started, completed, recalled, answered, rep
 - lane Learning constitution → `content/xizong/LEARNING_CONTRACT.md`
 - shared study policy → `content/xizong/knowledge/learner/study-policy.json`
 - Phase-6 independent L evidence → `content/xizong/knowledge/learner/B_PHASE6_INDEPENDENT_L_ACCEPTANCE.md`
+- fresh P evidence → `content/xizong/projection/B_PROJECTION_P4_FRESH_ACCEPTANCE.md`
 - Current Question Truth → `content/xizong/questions/`
 - reviewed Question→Knowledge relations → `content/xizong/question-relations/`
 
