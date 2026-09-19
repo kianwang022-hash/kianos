@@ -27,9 +27,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "安慰；控制台",
+      "core_meaning_cn": "两个同形但来源不同的词：verb console = 安慰；noun console = 控制台/游戏机",
       "core_meaning_en": "to comfort someone in distress; a control panel",
-      "mental_model_cn": "安慰；控制台",
+      "mental_model_cn": "verb conSOLE → console someone；noun CONsole → game/control console。词性和重音一起选义。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -130,7 +130,42 @@
     },
     "word": "console",
     "word_family": [],
-    "word_id": "word:console"
+    "word_id": "word:console",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:console:verb",
+          "canonical_form": "console",
+          "learner_key": "console (verb)",
+          "pos": [
+            "verb"
+          ],
+          "ipa": "/kənˈsoʊl/"
+        },
+        {
+          "variant_id": "form:console:noun",
+          "canonical_form": "console",
+          "learner_key": "console (noun)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": "/ˈkɑːnsoʊl/"
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "console",
+          "condition": "verb: comfort",
+          "note": "动词重音在第二音节：conSOLE。"
+        },
+        {
+          "surface": "console",
+          "condition": "noun: control/game unit",
+          "note": "名词重音在第一音节：CONsole。"
+        }
+      ],
+      "boundary": "console 的名词/动词读音靠重音区分。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -212,7 +247,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1025-1032.json",
     "source_content_hash": "24009ec2e5b3818c5c3e64dbfa1111e70f0814bc13ba6e72b838174e6d159c7c",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

@@ -29,9 +29,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "指挥；行为；传导",
+      "core_meaning_cn": "把人、活动或能量按某种路径“带过去”：可实施活动、指挥乐队、传导热电；名词 conduct 指行为举止",
       "core_meaning_en": "to direct or manage; behavior; to transmit (e.g., heat, electricity)",
-      "mental_model_cn": "指挥；行为；传导",
+      "mental_model_cn": "verb conDUCT → conduct research/orchestra/electricity；noun CONduct → behavior。词性变化同时带来重音变化。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -282,7 +282,42 @@
         "writing_safe": false
       }
     ],
-    "word_id": "word:conduct"
+    "word_id": "word:conduct",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:conduct:verb",
+          "canonical_form": "conduct",
+          "learner_key": "conduct (verb)",
+          "pos": [
+            "verb"
+          ],
+          "ipa": "/kənˈdʌkt/"
+        },
+        {
+          "variant_id": "form:conduct:noun",
+          "canonical_form": "conduct",
+          "learner_key": "conduct (noun)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": "/ˈkɑːndʌkt/"
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "conduct",
+          "condition": "verb",
+          "note": "动词重音在第二音节：conDUCT。"
+        },
+        {
+          "surface": "conduct",
+          "condition": "noun",
+          "note": "名词重音在第一音节：CONduct。"
+        }
+      ],
+      "boundary": "conduct 的名词/动词读音靠重音区分。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -423,7 +458,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0985-0992.json",
     "source_content_hash": "e97965392e2dd5dcd30d8b08e3d88cd48e526f5baf26fbe985396a2d11f4942b",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

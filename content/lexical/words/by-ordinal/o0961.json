@@ -36,9 +36,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "复合；化合物",
+      "core_meaning_cn": "把多个部分结合成一个整体；名词可指化合物/围地，形容词指复合的，动词还可表示叠加使问题更严重",
       "core_meaning_en": "a combination of parts; to combine",
-      "mental_model_cn": "复合；化合物",
+      "mental_model_cn": "noun/adjective COMpound → 化合物、复合的；verb comPOUND → 混合/叠加，compound a problem = 使问题进一步恶化。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -215,7 +215,43 @@
     },
     "word": "compound",
     "word_family": [],
-    "word_id": "word:compound"
+    "word_id": "word:compound",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:compound:noun-adj",
+          "canonical_form": "compound",
+          "learner_key": "compound (noun/adjective)",
+          "pos": [
+            "noun",
+            "adjective"
+          ],
+          "ipa": "/ˈkɑːmpaʊnd/"
+        },
+        {
+          "variant_id": "form:compound:verb",
+          "canonical_form": "compound",
+          "learner_key": "compound (verb)",
+          "pos": [
+            "verb"
+          ],
+          "ipa": "/kəmˈpaʊnd/"
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "compound",
+          "condition": "noun/adjective",
+          "note": "名词/形容词重音在第一音节。"
+        },
+        {
+          "surface": "compound",
+          "condition": "verb",
+          "note": "动词重音在第二音节。"
+        }
+      ],
+      "boundary": "compound 的词性会改变重音：noun/adjective first stress；verb second stress。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -328,7 +364,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0961-0968.json",
     "source_content_hash": "5bd5d3d4ee85c7c7dcb0f1e04c6cf3bb455c768682ad265d6a3ea72bf1ee558a",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

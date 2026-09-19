@@ -5,7 +5,7 @@
     "ordinal": 961,
     "word": "compound",
     "source_owner_path": "content/lexical/words/by-ordinal/o0961.json",
-    "source_fingerprint": "69d58ac32e4bfe36cd6137c1603d60b645f8379f2e046e7384ff8dee373d46e0",
+    "source_fingerprint": "2894c2ba014224b61820ffdde7dcb399caf0351afb2eba8454e446c8a782bd54",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -16,13 +16,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "复合；化合物",
-      "decision_cn": "",
+      "summary_cn": "把多个部分结合成一个整体；名词可指化合物/围地，形容词指复合的，动词还可表示叠加使问题更严重",
+      "decision_cn": "noun/adjective COMpound → 化合物、复合的；verb comPOUND → 混合/叠加，compound a problem = 使问题进一步恶化。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "复合；化合物"
+        "target_label": "把多个部分结合成一个整体；名词可指化合物/围地，形容词指复合的，动词还可表示叠加使问题更严重"
       }
     },
     "senses": [
@@ -193,7 +193,44 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "compound",
+            "condition": "noun/adjective",
+            "note": "名词/形容词重音在第一音节。"
+          },
+          {
+            "surface": "compound",
+            "condition": "verb",
+            "note": "动词重音在第二音节。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun",
+              "adjective"
+            ],
+            "reading": "compound (noun/adjective)",
+            "ipa": "/ˈkɑːmpaʊnd/"
+          },
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "compound (verb)",
+            "ipa": "/kəmˈpaʊnd/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -203,7 +240,7 @@
     "ordinal": 962,
     "word": "comprehend",
     "source_owner_path": "content/lexical/words/by-ordinal/o0962.json",
-    "source_fingerprint": "a239fc7db9201603f9a780ce60dd6245802db7f678ef8934f7e870b9a43c055b",
+    "source_fingerprint": "a5abe43baea5cebcd4282e59ed5e3ea49bd84be21ab4328e8520a08783ccd585",
     "sense_lineage": [
       {
         "word_id": "word:comprehend",
@@ -220,13 +257,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "理解，包括",
-      "decision_cn": "",
+      "summary_cn": "理解、领会某事的意义或整体关系",
+      "decision_cn": "当前主学习义就是“理解、领会”；旧的“包括、包含”义仅保留历史参考，不进入主 Core。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "理解，包括"
+        "target_label": "理解、领会某事的意义或整体关系"
       }
     },
     "senses": [
@@ -1254,7 +1291,7 @@
     "ordinal": 973,
     "word": "concede",
     "source_owner_path": "content/lexical/words/by-ordinal/o0973.json",
-    "source_fingerprint": "0662790455278d9245c90ec22ed2e955ec14383a6eaa57adb1156f9eedea84db",
+    "source_fingerprint": "9699b6cdd34e3271ab6a6f671d8fe023e55f8615bb1fc9e315ef6134952880f1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1263,13 +1300,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "承认；让步",
-      "decision_cn": "",
+      "summary_cn": "在对抗或争论中让出一部分：可承认事实、作出让步，也可在比赛中失球/丢分或承认失败",
+      "decision_cn": "concede that → 不情愿地承认；concede to sb → 让步；concede a goal/point → 让对方得分、失球/丢分；concede defeat → 认输。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "承认；让步"
+        "target_label": "在对抗或争论中让出一部分：可承认事实、作出让步，也可在比赛中失球/丢分或承认失败"
       }
     },
     "senses": [
@@ -1340,35 +1377,35 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "承认失败",
-        "definition_en": "to admit defeat in a competition or election",
+        "definition_cn": "承认失败；（比赛中）失球、丢分或让对方得分",
+        "definition_en": "to admit defeat, or in sport to allow the opposing side to score a goal or point",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:2a1e1a320bbf160cb121",
+            "id": "collocation:concede:baseline-v2-defeat",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "concede defeat",
-            "meaning_cn": "认输",
+            "meaning_cn": "承认失败；认输",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
-              "target_id": "collocation:2a1e1a320bbf160cb121",
+              "target_id": "collocation:concede:baseline-v2-defeat",
               "target_locator": "record.senses[2].collocations[0]",
               "target_label": "concede defeat"
             }
           },
           {
-            "id": "collocation:4ccc0b3010234f6ecea0",
+            "id": "collocation:concede:baseline-v2-goal",
             "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "concede a goal/point/defeat",
-            "meaning_cn": "承认对方进球/得分或接受失败",
+            "phrase": "concede a goal / point",
+            "meaning_cn": "失球；让对方进球/得分",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
-              "target_id": "collocation:4ccc0b3010234f6ecea0",
+              "target_id": "collocation:concede:baseline-v2-goal",
               "target_locator": "record.senses[2].collocations[1]",
-              "target_label": "concede a goal/point/defeat"
+              "target_label": "concede a goal / point"
             }
           }
         ],
@@ -1376,7 +1413,7 @@
           "target_kind": "sense",
           "target_id": "sense:concede:754405db530d5c91",
           "target_locator": "record.senses[2]",
-          "target_label": "承认失败"
+          "target_label": "承认失败；（比赛中）失球、丢分或让对方得分"
         }
       }
     ],
@@ -1539,7 +1576,7 @@
     "ordinal": 975,
     "word": "concentrate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0975.json",
-    "source_fingerprint": "99167db98558e2e5694e4d3214bacc1497b5d792ed7499d35f62a24d735a57fa",
+    "source_fingerprint": "56db16c55679287e38c0894a297a53bf38cd52733f456925851190ee0cccf438",
     "sense_lineage": [
       {
         "word_id": "word:concentrate",
@@ -1557,13 +1594,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "集中，专心；浓缩",
-      "decision_cn": "",
+      "summary_cn": "把分散的东西集中到更小范围：可以集中注意力/努力，也可以把物质浓缩得更密",
+      "decision_cn": "attention/effort → 把心理资源集中到一点；solution/material → 把物质集中、浓缩。两义共享“从分散到集中”。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "集中，专心；浓缩"
+        "target_label": "把分散的东西集中到更小范围：可以集中注意力/努力，也可以把物质浓缩得更密"
       }
     },
     "senses": [
@@ -1869,18 +1906,18 @@
     "ordinal": 978,
     "word": "concern",
     "source_owner_path": "content/lexical/words/by-ordinal/o0978.json",
-    "source_fingerprint": "4b16488aa44e2ea2f2d12e80121717dd8cd8a75c67db65f6f47d4537774fb262",
+    "source_fingerprint": "51426c49e2a04bba9bac3e909e5fd698af0a1f10b9847d850eace2903f620f4c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(2+1)V",
+        "2V",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "涉及/关于；关切事项；担忧",
-      "decision_cn": "",
+      "decision_cn": "concern 的核心是“把注意力拉过来”：topic concerns X → 涉及；X is a concern → 值得关切；X concerns me → 使我担心；going concern → 仍在经营的企业。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2028,22 +2065,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:concern:11c40239fe66c637",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "使担忧；担心",
-        "definition_en": "to cause worry, or to feel worried about something",
-        "pattern": "concern在此义项作动词，表示使担忧或与……有关；concerned作形容词时属于不同语法实现",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:concern:11c40239fe66c637",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "使担忧；担心"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [
       {
         "id": "construction:7ccab96eaf2a53822cbe",
@@ -2076,7 +2098,7 @@
     "ordinal": 979,
     "word": "concert",
     "source_owner_path": "content/lexical/words/by-ordinal/o0979.json",
-    "source_fingerprint": "aab21fef50fbac4922a96dad67b5024eb139bce51e3c4f97a1f3fb6f68f65968",
+    "source_fingerprint": "bb65d92b99d48759cd5a0ef98b622895e3509c547e9ebebac082ed82bbd4cdd5",
     "sense_lineage": [
       {
         "word_id": "word:concert",
@@ -2093,13 +2115,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "音乐会；协调",
-      "decision_cn": "",
+      "summary_cn": "音乐会；或共同协调、一致行动（in concert with）",
+      "decision_cn": "concert 最常见是“音乐会”；in concert (with) 是固定表达，表示协同、一致行动。旧的动词“协调安排”不进入主 Core。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "音乐会；协调"
+        "target_label": "音乐会；或共同协调、一致行动（in concert with）"
       }
     },
     "senses": [
@@ -2184,7 +2206,7 @@
     "ordinal": 980,
     "word": "concession",
     "source_owner_path": "content/lexical/words/by-ordinal/o0980.json",
-    "source_fingerprint": "5958e87a4c24f05c6453c841fec87ae58016f32a4411d6a272bb5c36bc5e5e1a",
+    "source_fingerprint": "f311af82d92a44aac63bfc846fd9f6e70e3c0d988ce45aff3b8417779648fd8b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2193,13 +2215,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "让步，特许",
-      "decision_cn": "",
+      "summary_cn": "从原有立场、权利或价格上“让出一部分”：可指谈判让步、特许权，也可指特定人群享有的优惠价",
+      "decision_cn": "make a concession / concessions to sb → 作出让步；grant a concession → 授予特许权；concession fare/price → 学生、老人等优惠票价/价格。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "让步，特许"
+        "target_label": "从原有立场、权利或价格上“让出一部分”：可指谈判让步、特许权，也可指特定人群享有的优惠价"
       }
     },
     "senses": [
@@ -2224,6 +2246,19 @@
               "target_id": "collocation:a17336db4679f8ca7a9b",
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "make a concession"
+            }
+          },
+          {
+            "id": "collocation:concession:baseline-v2-to-sb",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "make concessions to sb",
+            "meaning_cn": "向某人作出让步",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:concession:baseline-v2-to-sb",
+              "target_locator": "record.senses[0].collocations[1]",
+              "target_label": "make concessions to sb"
             }
           }
         ],
@@ -2276,16 +2311,16 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:05976fa695b08c8161a2",
+            "id": "collocation:concession:baseline-v2-fare",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "make concessions to sb",
-            "meaning_cn": "向某人作出让步",
+            "phrase": "concession fare / price",
+            "meaning_cn": "优惠票价/优惠价格",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
-              "target_id": "collocation:05976fa695b08c8161a2",
+              "target_id": "collocation:concession:baseline-v2-fare",
               "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "make concessions to sb"
+              "target_label": "concession fare / price"
             }
           }
         ],
@@ -3359,7 +3394,7 @@
     "ordinal": 989,
     "word": "conduct",
     "source_owner_path": "content/lexical/words/by-ordinal/o0989.json",
-    "source_fingerprint": "cdeb5ae1bc97e931789fc127a61f7c962c5dc33ae5f70b8b84c4ef977e258590",
+    "source_fingerprint": "e75622af96ccfa4f4985422088ee930d80c369fccdd445cce86e2a73855c16bb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3369,13 +3404,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "指挥；行为；传导",
-      "decision_cn": "",
+      "summary_cn": "把人、活动或能量按某种路径“带过去”：可实施活动、指挥乐队、传导热电；名词 conduct 指行为举止",
+      "decision_cn": "verb conDUCT → conduct research/orchestra/electricity；noun CONduct → behavior。词性变化同时带来重音变化。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "指挥；行为；传导"
+        "target_label": "把人、活动或能量按某种路径“带过去”：可实施活动、指挥乐队、传导热电；名词 conduct 指行为举止"
       }
     },
     "senses": [
@@ -3534,7 +3569,43 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "conduct",
+            "condition": "verb",
+            "note": "动词重音在第二音节：conDUCT。"
+          },
+          {
+            "surface": "conduct",
+            "condition": "noun",
+            "note": "名词重音在第一音节：CONduct。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "conduct (verb)",
+            "ipa": "/kənˈdʌkt/"
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "conduct (noun)",
+            "ipa": "/ˈkɑːndʌkt/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": [
         {
           "target_word": "conductor",
@@ -4038,7 +4109,7 @@
     "ordinal": 994,
     "word": "confidence",
     "source_owner_path": "content/lexical/words/by-ordinal/o0994.json",
-    "source_fingerprint": "e954cadb79cb8c54d157643d183779f42e7e741184bec5324af0d0e683e45cbd",
+    "source_fingerprint": "70b9e2d6148e403971443aeec209d0e3e8ec628eb36139001eac6a965f919c00",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4047,13 +4118,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "信心；信任",
-      "decision_cn": "",
+      "summary_cn": "对人、判断或自己能力的信任/把握；也可指私下托付的秘密",
+      "decision_cn": "confidence in sb/sth → 信任/信心；self-confidence → 自信；in confidence → 私下、保密地。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "信心；信任"
+        "target_label": "对人、判断或自己能力的信任/把握；也可指私下托付的秘密"
       }
     },
     "senses": [
@@ -4157,14 +4228,6 @@
               "target_locator": "record.senses[2].collocations[0]",
               "target_label": "in confidence"
             }
-          },
-          {
-            "id": "collocation:0c34efd0cafbde379c2d",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "confide a confidence",
-            "meaning_cn": "吐露秘密",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -4480,7 +4543,7 @@
     "ordinal": 998,
     "word": "confine",
     "source_owner_path": "content/lexical/words/by-ordinal/o0998.json",
-    "source_fingerprint": "652a6be8dad9f8d2faed3abc37171c6d8174609b0bd7b83b8461f36c48688374",
+    "source_fingerprint": "34a4d358a0d585dbc1246923bd9700926524ce151c40949f0cd1ac42682ed3a2",
     "sense_lineage": [
       {
         "word_id": "word:confine",
@@ -4497,19 +4560,50 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "限制在范围内",
-      "decision_cn": "",
+      "summary_cn": "把人或事物限制在某个边界/范围内；较低频还可表示与某地接壤",
+      "decision_cn": "confine sb/sth to X / be confined to X → 限制、局限；border geography → 接壤。默认先学“限制在范围内”。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "限制在范围内"
+        "target_label": "把人或事物限制在某个边界/范围内；较低频还可表示与某地接壤"
       }
     },
     "senses": [
       {
-        "id": "sense:confine:f533ff512a24534e",
+        "id": "sense:confine:3ec742797c75560d",
         "source_locator": "record.senses[0]",
+        "pos": "verb",
+        "governing_pattern": "confine sb/sth to ... / be confined to ...",
+        "definition_cn": "限制、使局限于一定范围",
+        "definition_en": "to restrict or keep someone or something within limits or bounds",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:confine:baseline-v2-to",
+            "source_locator": "record.senses[0].collocations[0]",
+            "phrase": "confine sb/sth to sth / be confined to sth",
+            "meaning_cn": "把某人/某物限制在某范围内；仅限于",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:confine:baseline-v2-to",
+              "target_locator": "record.senses[0].collocations[0]",
+              "target_label": "confine sb/sth to sth / be confined to sth"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:confine:3ec742797c75560d",
+          "target_locator": "record.senses[0]",
+          "target_label": "限制、使局限于一定范围"
+        }
+      },
+      {
+        "id": "sense:confine:f533ff512a24534e",
+        "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "邻接，交界",
@@ -4520,25 +4614,8 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:confine:f533ff512a24534e",
-          "target_locator": "record.senses[0]",
-          "target_label": "邻接，交界"
-        }
-      },
-      {
-        "id": "sense:confine:3ec742797c75560d",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "confine sb/sth to ... / be confined to ...",
-        "definition_cn": "限制、使局限于一定范围",
-        "definition_en": "to restrict or keep someone or something within limits or bounds",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:confine:3ec742797c75560d",
           "target_locator": "record.senses[1]",
-          "target_label": "限制、使局限于一定范围"
+          "target_label": "邻接，交界"
         }
       }
     ],
@@ -4660,7 +4737,7 @@
     "ordinal": 1000,
     "word": "conflict",
     "source_owner_path": "content/lexical/words/by-ordinal/o1000.json",
-    "source_fingerprint": "2745cf00f6fed9d231fbc9b9b482acbbf07720496f2ee1b83e609db8bf81e259",
+    "source_fingerprint": "ad10ecdfa97a8f44b0420b4c6e09f0462b5e2aad1f1c2ccf739566b62964ae5f",
     "sense_lineage": [
       {
         "word_id": "word:conflict",
@@ -4678,13 +4755,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "冲突",
-      "decision_cn": "",
+      "summary_cn": "两个力量、利益或说法彼此不相容：名词是“冲突”，动词是“相冲突/不一致”",
+      "decision_cn": "noun CONflict → a conflict between A and B；verb conFLICT → conflict with sth。词性改变重音。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "冲突"
+        "target_label": "两个力量、利益或说法彼此不相容：名词是“冲突”，动词是“相冲突/不一致”"
       }
     },
     "senses": [
@@ -4761,7 +4838,43 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "conflict",
+            "condition": "noun",
+            "note": "名词重音在第一音节：CONflict。"
+          },
+          {
+            "surface": "conflict",
+            "condition": "verb",
+            "note": "动词重音在第二音节：conFLICT。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "conflict (noun)",
+            "ipa": "/ˈkɑːnflɪkt/"
+          },
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "conflict (verb)",
+            "ipa": "/kənˈflɪkt/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -4771,7 +4884,7 @@
     "ordinal": 1001,
     "word": "conform",
     "source_owner_path": "content/lexical/words/by-ordinal/o1001.json",
-    "source_fingerprint": "1744764ee2d918d6ebf9a8915df6bf3ad9bfc42cbb03ebce81708cedc711145d",
+    "source_fingerprint": "a677348e59a8fec15d1a80e5975084f9345f0734f0f71469fd7a6d7d8edbfa79",
     "sense_lineage": [
       {
         "word_id": "word:conform",
@@ -4788,13 +4901,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "符合；遵守",
-      "decision_cn": "",
+      "summary_cn": "让行为、形式或结果与某个规则/标准一致",
+      "decision_cn": "最稳定结构是 conform to + standard/rule/pattern。不要让历史重复 Construction 把同一规则学两遍。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "符合；遵守"
+        "target_label": "让行为、形式或结果与某个规则/标准一致"
       }
     },
     "senses": [
@@ -4819,57 +4932,20 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "deep:constructions:conform:dd5fe8283508700d",
+        "id": "construction:conform:baseline-v2-to",
         "source_locator": "record.constructions[0]",
-        "pattern": "vi. + to",
+        "pattern": "conform to sth",
         "lines": [
           {
-            "text": "符合；一致",
+            "text": "符合、遵守或与某标准/规则/模式一致",
             "lang": "cn"
-          },
-          {
-            "text": "表示符合或遵从用 conform to",
-            "lang": "cn"
-          },
-          {
-            "text": "to be similar or in line with something",
-            "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "deep:constructions:conform:dd5fe8283508700d",
+          "target_id": "construction:conform:baseline-v2-to",
           "target_locator": "record.constructions[0]",
-          "target_label": "vi. + to"
-        }
-      },
-      {
-        "id": "deep:constructions:conform:58badbb2ea3eaa0a",
-        "source_locator": "record.constructions[1]",
-        "pattern": "conform to + sth",
-        "lines": [
-          {
-            "text": "符合某事物",
-            "lang": "cn"
-          },
-          {
-            "text": "符合；一致",
-            "lang": "cn"
-          },
-          {
-            "text": "仅用于conform to sth",
-            "lang": "cn"
-          },
-          {
-            "text": "to be similar or in line with something",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:conform:58badbb2ea3eaa0a",
-          "target_locator": "record.constructions[1]",
-          "target_label": "conform to + sth"
+          "target_label": "conform to sth"
         }
       }
     ],
@@ -5313,7 +5389,7 @@
     "ordinal": 1005,
     "word": "congratulate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1005.json",
-    "source_fingerprint": "481bc89c8364038f27dc7946ac782e38eafa9d1867a77502457030e956da77dd",
+    "source_fingerprint": "0d6c5220caaf5d9cff646d288e7559196e09aa1e95c5a121d139003808d20367",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5322,13 +5398,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "祝贺",
-      "decision_cn": "",
+      "summary_cn": "因某人的成就、好运或重要事件向其表达喜悦和祝贺",
+      "decision_cn": "标准高价值结构是 congratulate sb on sth/doing sth。for 偶有语境使用，但不作为和 on 等价的默认考试构式。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "祝贺"
+        "target_label": "因某人的成就、好运或重要事件向其表达喜悦和祝贺"
       }
     },
     "senses": [
@@ -5354,19 +5430,6 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "congratulate sb on sth"
             }
-          },
-          {
-            "id": "collocation:2928ca8667dc870b7232",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "congratulate sb for sth",
-            "meaning_cn": "因某事祝贺某人",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:2928ca8667dc870b7232",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "congratulate sb for sth"
-            }
           }
         ],
         "repair": {
@@ -5380,20 +5443,20 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "construction:41cfa00589fa71fdf730",
+        "id": "construction:congratulate:baseline-v2-on",
         "source_locator": "record.constructions[0]",
-        "pattern": "congratulate sb on sth/doing sth",
+        "pattern": "congratulate sb on sth / doing sth",
         "lines": [
           {
-            "text": "express pleasure at someone's success using on, not for as the equal default",
-            "lang": "en"
+            "text": "就某事或某项成就祝贺某人",
+            "lang": "cn"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:41cfa00589fa71fdf730",
+          "target_id": "construction:congratulate:baseline-v2-on",
           "target_locator": "record.constructions[0]",
-          "target_label": "congratulate sb on sth/doing sth"
+          "target_label": "congratulate sb on sth / doing sth"
         }
       }
     ],
@@ -5410,7 +5473,7 @@
     "ordinal": 1006,
     "word": "congratulation",
     "source_owner_path": "content/lexical/words/by-ordinal/o1006.json",
-    "source_fingerprint": "f2669e207fda683da76efe2c0b966a582e4b7f6c5691a95dc22c0bec83db6393",
+    "source_fingerprint": "bd0a5f955820e3f1b37e1ac3f6966c587a5f0b73147175cadfd8e909fcd335e4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5419,13 +5482,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "祝贺",
-      "decision_cn": "",
+      "summary_cn": "祝贺；日常表达通常用复数 congratulations",
+      "decision_cn": "Congratulations on + achievement/event 是最常见表达；offer/send one's congratulations 可作较正式表达。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "祝贺"
+        "target_label": "祝贺；日常表达通常用复数 congratulations"
       }
     },
     "senses": [
@@ -5464,19 +5527,6 @@
               "target_locator": "record.senses[0].collocations[1]",
               "target_label": "offer one's congratulations"
             }
-          },
-          {
-            "id": "collocation:507963af9daa4315de57",
-            "source_locator": "record.senses[0].collocations[2]",
-            "phrase": "congratulations on sth",
-            "meaning_cn": "祝贺某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:507963af9daa4315de57",
-              "target_locator": "record.senses[0].collocations[2]",
-              "target_label": "congratulations on sth"
-            }
           }
         ],
         "repair": {
@@ -5502,7 +5552,7 @@
     "ordinal": 1007,
     "word": "congress",
     "source_owner_path": "content/lexical/words/by-ordinal/o1007.json",
-    "source_fingerprint": "fbb30d77ce87c6c4aeff925abf95f852abb4cf59f281e9c8a8c88b7947d708a1",
+    "source_fingerprint": "b5984af45bb50080bb7823418c5019ba109ce7ee7c3e87b91a85086dfde7a0ae",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5511,13 +5561,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "国会；会议",
-      "decision_cn": "",
+      "summary_cn": "Congress：美国国会这一专名；congress：一般性的代表大会、会议",
+      "decision_cn": "大写 Congress 在美国政治语境中是专名；小写 congress 可泛指代表大会或大型正式会议。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "国会；会议"
+        "target_label": "Congress：美国国会这一专名；congress：一般性的代表大会、会议"
       }
     },
     "senses": [
@@ -5587,7 +5637,43 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "Congress",
+            "condition": "proper name for the U.S. legislature",
+            "note": "专名首字母大写。"
+          },
+          {
+            "surface": "congress",
+            "condition": "general representative meeting/assembly",
+            "note": "一般名词可小写。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "Congress",
+            "ipa": ""
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "congress",
+            "ipa": ""
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -7212,7 +7298,7 @@
     "ordinal": 1022,
     "word": "conservative",
     "source_owner_path": "content/lexical/words/by-ordinal/o1022.json",
-    "source_fingerprint": "14bdfd196173a5387dca38387d317293ae2ef2030c21ee311ff52edc242fa3b9",
+    "source_fingerprint": "daafc706a63b78716ed93f0c06e11779dd7275d166e3a4538bfbbe0105058fda",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7222,13 +7308,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "保守的，守旧的",
-      "decision_cn": "",
+      "summary_cn": "倾向避免过度冒进、保留余量或维持既有做法；具体可落到谨慎估计、一般态度或政治语境",
+      "decision_cn": "conservative estimate/forecast → 谨慎、不过度夸大的估计；general attitude → 倾向少变动；政治义需要结合具体政治语境理解，不把所有 conservative 都自动政治化。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "保守的，守旧的"
+        "target_label": "倾向避免过度冒进、保留余量或维持既有做法；具体可落到谨慎估计、一般态度或政治语境"
       }
     },
     "senses": [
@@ -7321,17 +7407,17 @@
     "ordinal": 1023,
     "word": "consider",
     "source_owner_path": "content/lexical/words/by-ordinal/o1023.json",
-    "source_fingerprint": "be2f0538466446c6fecc1f4ec759add4dcb9bb64cf7e591d4973e5ed3c646d42",
+    "source_fingerprint": "6af320fff9ff20dbbf569856c3029459a90c968a912ead9fe73030defee31894",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(3+1)V"
+        "3V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "思考；认为",
-      "decision_cn": "",
+      "decision_cn": "consider options/doing → 审慎考虑；consider A (as) B → 认为/看作；consider someone's feelings → 顾及、体谅。现有 consider/regard/believe 对比继续作为跨词边界。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7476,22 +7562,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:consider:41347f21aa0f61b8",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "体谅，顾及",
-        "definition_en": "to show consideration for someone or something; to take into account",
-        "pattern": "consider + sb/sth 体谅",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:consider:41347f21aa0f61b8",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "体谅，顾及"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],

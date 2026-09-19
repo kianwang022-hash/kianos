@@ -28,9 +28,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "建造；构建",
+      "core_meaning_cn": "把部分组织起来形成一个整体：动词可建造实体或构建理论；名词 construct 是被构造出的概念/理论对象",
       "core_meaning_en": "to build or create something",
-      "mental_model_cn": "建造；构建",
+      "mental_model_cn": "verb conSTRUCT → construct a bridge/argument；noun CONstruct → a social/theoretical construct。词性改变重音。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -40,45 +40,7 @@
     "review_signature": [
       "deep:deep:secondary_senses:construct:8153018d8b8e02a6"
     ],
-    "secondary_senses": [
-      {
-        "boundary": "construct an argument/theory",
-        "codex_reviewed": false,
-        "definition_cn": "构思；构建（理论、论点等）",
-        "definition_en": "to create something such as a theory or argument by putting ideas together",
-        "dimensions": {},
-        "direction": "R+P",
-        "evidence": [
-          {
-            "evidence_id": "evidence:core-card:construct:2d83c125ea02",
-            "evidence_status": "source_checked",
-            "source_labels": [],
-            "source_locator": "construct:l1:2",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:secondary_senses:construct:8153018d8b8e02a6",
-        "family_sources": [],
-        "label_en": "to create something such as a theory or argument by putting ideas togeth",
-        "level": "L1",
-        "meaning_cn": null,
-        "module": "secondary_senses",
-        "pattern": null,
-        "pos": "verb",
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:construct:b9bce386f426509a",
-        "target_sense_id": null,
-        "target_word": null,
-        "task_tags": [
-          "reading"
-        ],
-        "verification_status": "verified",
-        "writing_safe": true
-      }
-    ],
+    "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
       {
@@ -201,7 +163,42 @@
     },
     "word": "construct",
     "word_family": [],
-    "word_id": "word:construct"
+    "word_id": "word:construct",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:construct:verb",
+          "canonical_form": "construct",
+          "learner_key": "construct (verb)",
+          "pos": [
+            "verb"
+          ],
+          "ipa": "/kənˈstrʌkt/"
+        },
+        {
+          "variant_id": "form:construct:noun",
+          "canonical_form": "construct",
+          "learner_key": "construct (noun)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": "/ˈkɑːnstrʌkt/"
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "construct",
+          "condition": "verb",
+          "note": "动词重音在第二音节：conSTRUCT。"
+        },
+        {
+          "surface": "construct",
+          "condition": "noun",
+          "note": "名词重音在第一音节：CONstruct。"
+        }
+      ],
+      "boundary": "construct 的名词/动词重音不同。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -312,7 +309,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1033-1040.json",
     "source_content_hash": "ff479ff2b9e410de24f5054737385dcb37b92e4b7641914988e9ad7d324aea6d",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

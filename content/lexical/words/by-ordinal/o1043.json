@@ -10,9 +10,9 @@
     "content_hash": "5c971133d6f0725c53b94a6d12f7c229b8811b7aa657b86e79345bc9877796ae",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "易传播的，接触传染的",
+      "core_meaning_cn": "容易从一个人/个体传播给另一个人的；也可比喻情绪、笑声、热情等迅速感染他人",
       "core_meaning_en": "spreading easily from person to person",
-      "mental_model_cn": "易传播的，接触传染的",
+      "mental_model_cn": "contagious 强调“在人或群体间传播”；infectious 更宽，可强调由感染性病原体引起/具有感染性。日常疾病语境两词会有重叠，但不是完全等价。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -42,15 +42,6 @@
             ],
             "meaning_cn": "有感染力的笑声",
             "phrase": "contagious laughter"
-          },
-          {
-            "collocation_id": "collocation:5ca1779a74d3370054c4",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:contagious:1c775ea3695659df:collocation:handoff-o0875-o1124"
-            ],
-            "meaning_cn": "contagious concerns spread between people; infectious concerns infection or disease-causing agents",
-            "phrase": "contagious vs infectious"
           },
           {
             "collocation_id": "collocation:4fe658ad3edf012dc67a",
@@ -94,7 +85,14 @@
     "word_family": [],
     "word_id": "word:contagious"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:semantic_contrast:contagious-infectious",
+      "owner_path": "content/lexical/relations/by-id/2d/2df3fb0a31b5e6c5c9a4b8230d8c6d187e4e5fe0262c019d53f4bd2a8ed248e7.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -162,7 +160,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1041-1048.json",
     "source_content_hash": "5c971133d6f0725c53b94a6d12f7c229b8811b7aa657b86e79345bc9877796ae",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
