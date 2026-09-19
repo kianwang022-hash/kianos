@@ -13,7 +13,7 @@ Shared Visual / Shell landed
 → English + Lexical landed
 → Xizong material learner surfaces landed
 → Politics learner surfaces landed
-→ UI Closure / CSS ownership consolidation active
+→ UI/CSS ownership cleanup deferred during real-use stabilization
 → Chat-owned Home landed
 → private learner checkpoint foundation landed
 → subject Final Audit interfaces
@@ -42,11 +42,11 @@ Do not revive historical UI migrations merely because old branches/PRs still exi
 
 ## Queued closure lane
 
-### UI Closure / CSS ownership consolidation — **PAUSED FOR REAL-USE STABILIZATION**
+### UI Closure / CSS ownership consolidation — **DEFERRED · NO ACTIVE PR**
 
-Paused ref: PR #474 · `ui-css-base-deglobalize-20260919`.
+Historical ref: closed PR #474 · `ui-css-base-deglobalize-20260919`.
 
-Kian is switching the accepted website into genuine learner use. Do not promote or continue broad CSS ownership cleanup before real-use evidence exists. Reopen only if a concrete learner-visible defect or later maintenance decision justifies it; accepted learner presentation stays frozen in the meantime.
+KianOS is entering genuine learner use. Broad CSS ownership cleanup is not an active lane during this stabilization window. The accepted learner presentation is frozen; if real-use evidence later justifies maintenance, restart from fresh `main` with the smallest bounded non-redesign scope rather than reopening the historical draft.
 
 Activation basis:
 

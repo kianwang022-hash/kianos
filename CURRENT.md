@@ -64,7 +64,7 @@ Shared authority routing:
 - Lexical / Vocabulary learner surfaces: landed.
 - Xizong material learner UI: landed through whole-paper Hidden/Seal/Review.
 - Politics learner UI: landed through final Practice Human Gate (#470).
-- All material subject learner UI is now landed; UI/CSS ownership consolidation is active maintenance.
+- All material subject learner UI is landed; broad UI/CSS ownership cleanup is deferred during the first real-use stabilization window.
 - Chat-owned Home, subject-owned durable evidence/typed Return reconciliation and the private checkpoint layer are landed. Final cross-subject regression passed 31/31 after Current sync + Astro restart + fresh-browser restore; broad website engineering is frozen.
 - Material Visual changes still require real-browser screenshot + Kian Human Gate before merge.
 
