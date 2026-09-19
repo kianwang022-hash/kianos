@@ -1,0 +1,90 @@
+---
+import Base from '../../../layouts/PoliticsBase.astro';
+import { buildPoliticsMemoryCandidateCatalogCurrent } from '../../../lib/politicsMemoryCandidates.mjs';
+import '../../../styles/product-closure.css';
+
+const catalog = buildPoliticsMemoryCandidateCatalogCurrent();
+---
+
+<Base title="政治 · 今日记忆" active="politics" showLead={false}>
+  <section class="politicsMemoryPrototype" data-politics-memory-workspace>
+    <script type="application/json" data-memory-catalog set:html={JSON.stringify(catalog).replace(/</g, '\\u003c')} />
+
+    <header>
+      <div>
+        <span>政治 · 今日记忆</span>
+        <h1>只背 Chat 今天安排的内容</h1>
+      </div>
+      <strong data-memory-progress>0</strong>
+    </header>
+
+    <p class="memoryPrototypeHint">空格 / Enter 显示答案 · 1 忘了 · 2 模糊 · 3 稳定</p>
+
+    <section class="memoryPrototypeEmpty" data-memory-empty hidden>
+      <h2>今天没有安排记忆任务。</h2>
+      <p>继续当前政治主线即可；网页不会自己制造背诵债。</p>
+    </section>
+
+    <section class="memoryPrototypeStale" data-memory-stale hidden>
+      <h2>今天的计划已经过期。</h2>
+      <p>政治 Current 已变化，旧计划不会自动替换成“差不多”的内容。</p>
+    </section>
+
+    <section class="memoryPrototypeComplete" data-memory-complete hidden>
+      <h2>这组完成了。</h2>
+      <p>结果已经留在本机 Evidence。下一步由 Chat 结合题目和后续学习再决定。</p>
+      <a href="/politics/">回政治 →</a>
+    </section>
+
+    <article class="memoryPrototypeCard">
+      <p data-memory-reason hidden></p>
+      <h2 data-memory-prompt></h2>
+      <button type="button" data-memory-reveal>显示</button>
+
+      <section data-memory-answer hidden>
+        <ul data-memory-answer-items></ul>
+      </section>
+
+      <nav data-memory-controls hidden aria-label="回忆结果">
+        <button type="button" data-memory-response="FORGOT"><kbd>1</kbd> 忘了</button>
+        <button type="button" data-memory-response="FUZZY"><kbd>2</kbd> 模糊</button>
+        <button type="button" data-memory-response="STABLE"><kbd>3</kbd> 稳定</button>
+      </nav>
+    </article>
+
+    <p data-memory-status aria-live="polite"></p>
+  </section>
+</Base>
+
+<script>
+  import { initPoliticsMemoryWorkspace } from '../../../lib/politicsMemoryClient.mjs';
+  initPoliticsMemoryWorkspace(document.querySelector('[data-politics-memory-workspace]'));
+</script>
+
+<style>
+  .politicsMemoryPrototype{max-width:920px;margin:0 auto;padding:34px 28px 80px}
+  .politicsMemoryPrototype>header{display:flex;justify-content:space-between;gap:24px;align-items:end;border-bottom:1px solid var(--study-line);padding-bottom:18px}
+  .politicsMemoryPrototype>header span{font-size:13px;color:var(--study-muted)}
+  .politicsMemoryPrototype>header h1{margin:6px 0 0;font-size:30px;letter-spacing:-.025em}
+  .politicsMemoryPrototype>header>strong{font-size:15px;color:var(--study-muted);font-variant-numeric:tabular-nums}
+  .memoryPrototypeHint{margin:14px 0 26px;color:var(--study-faint);font-size:12px}
+  .memoryPrototypeCard{min-height:380px;padding:38px;border:1px solid var(--study-line);border-radius:18px;background:#fff;box-shadow:0 16px 42px rgba(20,30,25,.045)}
+  .memoryPrototypeCard>p{margin:0 0 18px;color:var(--study-muted);font-size:13px}
+  .memoryPrototypeCard h2{max-width:760px;margin:0 0 34px;font-size:27px;line-height:1.45;letter-spacing:-.018em}
+  .memoryPrototypeCard>[data-memory-reveal]{padding:11px 18px;border:1px solid currentColor;border-radius:10px;background:#fff;color:var(--study-green);font:inherit;font-weight:800;cursor:pointer}
+  [data-memory-answer]{margin-top:8px;padding-top:24px;border-top:1px solid var(--study-line)}
+  [data-memory-answer] ul{display:grid;gap:12px;margin:0;padding-left:22px;font-size:18px;line-height:1.75}
+  [data-memory-controls]{display:flex;gap:10px;margin-top:30px}
+  [data-memory-controls] button{flex:1;padding:13px 16px;border:1px solid var(--study-line);border-radius:11px;background:#fff;font:inherit;font-weight:750;cursor:pointer}
+  [data-memory-controls] kbd{font:inherit;color:var(--study-faint);margin-right:6px}
+  .memoryPrototypeEmpty,.memoryPrototypeStale,.memoryPrototypeComplete{margin:24px 0;padding:24px;border:1px solid var(--study-line);border-radius:14px;background:#fff}
+  .memoryPrototypeEmpty h2,.memoryPrototypeStale h2,.memoryPrototypeComplete h2{margin:0 0 6px;font-size:20px}
+  .memoryPrototypeEmpty p,.memoryPrototypeStale p,.memoryPrototypeComplete p{margin:0;color:var(--study-muted);line-height:1.65}
+  [data-memory-status]{min-height:22px;margin-top:14px;color:var(--study-muted);font-size:12px}
+  @media(max-width:680px){
+    .politicsMemoryPrototype{padding:24px 16px 60px}
+    .memoryPrototypeCard{min-height:330px;padding:24px}
+    .memoryPrototypeCard h2{font-size:23px}
+    [data-memory-controls]{flex-direction:column}
+  }
+</style>
