@@ -15,6 +15,10 @@ import {
   XIZONG_PENDING_CHAT_RETURN_KEY,
   consumePendingXizongChatReturnForObject
 } from '../src/lib/xizongPendingChatReturn.mjs';
+import {
+  XIZONG_SYSTEM_WU_PENDING_KEY,
+  consumePendingXizongSystemWuReturn
+} from '../src/lib/xizongSystemWuReturn.mjs';
 
 class MemoryStorage {
   constructor(entries = {}) { this.map = new Map(Object.entries(entries)); }
@@ -324,6 +328,85 @@ const replaceMemory = JSON.parse(replaceReturnStorage.getItem(XIZONG_MEMORY_STOR
 assert.equal(replaceMemory.repairTasks.length,1);
 assert.equal(replaceMemory.repairTasks[0].reason,'new authoritative pending reason');
 assert.equal(replaceMemory.repairTasks.some((task)=>task.reason==='old pending reason'),false);
+
+// System W/U control is stage-only until exact System Practice validates current attempts + reviewed relations.
+const wuStorage = new MemoryStorage({
+  [XIZONG_MEMORY_STORAGE_KEY]: JSON.stringify(memory),
+  'kianos:xizong:system-question-sweep:circulation:v1': JSON.stringify({
+    results:{
+      'xizong-official-2024-n001':{
+        status:'wrong',
+        attemptId:'wu-attempt-1',
+        roundId:'wu-round-1',
+        updatedAt:new Date(t0 + 22_000).toISOString()
+      }
+    },
+    attemptHistory:[{
+      type:'QUESTION_ATTEMPT',
+      question_id:'xizong-official-2024-n001',
+      attempt_id:'wu-attempt-1',
+      round_id:'wu-round-1',
+      status:'wrong',
+      submitted_at:new Date(t0 + 22_000).toISOString()
+    }]
+  })
+});
+const wuPayload = {
+  schema:'kianos.xizong.system_wu_return.v1',
+  return_id:'wu-return-control-1',
+  system_id:'circulation',
+  decision:'REPAIR',
+  plan:[{
+    question_id:'xizong-official-2024-n001',
+    status:'wrong',
+    attempt_id:'wu-attempt-1',
+    submitted_at:new Date(t0 + 22_000).toISOString(),
+    round_id:'wu-round-1',
+    reason:'current W/U diagnosis',
+    action:'repair only reviewed relation',
+    priority:'high'
+  }]
+};
+const wuCommand = {
+  schema:PRIVATE_CONTROL_COMMAND_SCHEMA,
+  command_id:'cmd-xz-system-wu-1',
+  issued_at:new Date(t0 + 23_000).toISOString(),
+  study_day:day,
+  target:'xizong.system_wu_return',
+  payload:wuPayload
+};
+const wuMemoryBefore = wuStorage.getItem(XIZONG_MEMORY_STORAGE_KEY);
+const wuTransport = applyPrivateControlCommand(wuStorage, wuCommand, {
+  expectedDay:day,
+  now:t0 + 24_000
+});
+assert.equal(wuTransport.status,'APPLIED');
+assert.equal(
+  JSON.parse(wuStorage.getItem(XIZONG_SYSTEM_WU_PENDING_KEY)).pending_by_system.circulation.return_id,
+  'wu-return-control-1'
+);
+assert.equal(wuStorage.getItem(XIZONG_MEMORY_STORAGE_KEY),wuMemoryBefore,
+  'System W/U transport must not create Repair before subject validation');
+
+const wuSubject = consumePendingXizongSystemWuReturn(wuStorage, {
+  systemId:'circulation',
+  questions:[{
+    questionId:'xizong-official-2024-n001',
+    relation:{blockId:'a1-b01',primaryKpId:'a1-b01-kp01'}
+  }],
+  routes:{'a1-b01':{label:'B1',href:'/xizong/circulation/b01/'}},
+  practiceHref:'/xizong/practice/circulation/',
+  now:t0 + 25_000,
+  expectedDay:day
+});
+assert.equal(wuSubject.status,'applied');
+assert.equal(
+  JSON.parse(wuStorage.getItem(XIZONG_MEMORY_STORAGE_KEY)).repairTasks.some(
+    (task)=>task.id==='repair:system-wu:circulation:a1-b01:a1-b01-kp01'
+  ),
+  true,
+  'only subject resolver creates System W/U Repair'
+);
 
 // A rejected activation must roll back both Xizong target state and active command state.
 const holdoutStorage = new MemoryStorage();
