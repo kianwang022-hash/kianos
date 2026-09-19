@@ -1,4 +1,6 @@
 ---
+import {englishSessionCatalog} from "../lib/englishSessionCatalog.mjs";
+const catalogPayload=JSON.stringify(englishSessionCatalog()).replace(/</g,"\\u003c");
 const base = import.meta.env.BASE_URL;
 ---
 <div data-english-resume-surface data-base={base}>
@@ -12,16 +14,19 @@ const base = import.meta.env.BASE_URL;
   </section>
 </div>
 
+<script type="application/json" data-english-resume-catalog set:html={catalogPayload}></script>
 <script>
   import {
     ENGLISH_SESSION_KEY,
     readEnglishSessionInstruction,
+    resolveEnglishSessionStep,
     englishSessionStepHref
   } from '../lib/englishSessionControl.mjs';
   import { WRITING_STATES } from '../lib/writingRuntimeModel.mjs';
 
   const root = document.querySelector('[data-english-resume-surface]');
   if (root instanceof HTMLElement) {
+    const catalog = JSON.parse(document.querySelector('[data-english-resume-catalog]')?.textContent || '[]');
     const base = root.getAttribute('data-base') || '/';
     const resume = root.querySelector('[data-english-resume]');
     const title = root.querySelector('[data-english-resume-title]');
@@ -58,9 +63,10 @@ const base = import.meta.env.BASE_URL;
       }
 
       const instruction = state.instruction;
-      const step = instruction.steps[instruction.current_step];
+      const selected = resolveEnglishSessionStep(localStorage, instruction, catalog);
+      const step = selected?.step;
       const href = englishSessionStepHref(step, base);
-      if (!step || !href || selectedStepIsComplete(step)) {
+      if (!step || !href) {
         resume.hidden = true;
         return;
       }
@@ -68,7 +74,7 @@ const base = import.meta.env.BASE_URL;
       resume.hidden = false;
       title.textContent = step.label || `${taskLabels[step.task] || step.task} · ${step.object_id}`;
       meta.textContent = step.note
-        || `Session ${instruction.current_step + 1} / ${instruction.steps.length} · Chat 已选择，本页不重新排序`;
+        || `Session ${selected.index + 1} / ${instruction.steps.length} · Chat 已选择，本页不重新排序`;
       link.href = href;
     };
 

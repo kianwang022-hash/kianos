@@ -11,27 +11,25 @@ This file owns current **Acceptance Truth** for Translation. It does not own con
 > **Architecture-v2 interpretation:** the S/K/L/P/R/E labels below are preserved as historical Acceptance dimensions only. They do not define Current architecture layers or canonical owners. Current ownership remains Rule / Model → Content / Visual / Engineering; this file owns Acceptance Truth only.
 
 
-## Gate status
+## Fresh final-audit boundary — 2026-09-19
 
-| Gate | Status | Current evidence / boundary |
-| --- | --- | --- |
-| S — Source | **PASS** | 27 sets / 135 stable prompts / 27 complete-reference sets / 0 partial sets / 0 pending reference debt. Cross-verified bounded replacements remain explicitly `official: false`. |
-| K — Knowledge | **PASS** | Knowledge truth is conserved across `learning.md` plus the verbatim deep reservoir `learning.reference.md`. Current learner model is Representation / Reconstruction / Execution with Fidelity as a cross-cutting invariant; Lexical durable knowledge remains owned by LexicalOS. |
-| L — Learning | **PASS** | Performance first. First Learning is targeted/skippable; stable work may enter real Translation directly. Wrong/Uncertain do not automatically create deep review or transfer debt. Repair does not automatically require a later test. |
-| P — Projection | **PASS** | Current projection exposes three productive cores, keeps Fidelity as an invariant rather than a compulsory stage, protects clean-attempt reference text, and keeps backend pending claims off the learner home. Current Translation QA passed Source → Runtime → Evidence → build → Projection on PR #52 head `c6c248e20ceb01071639e5a06b376ff11b77d883`. |
-| R — Runtime | **PASS** | Whole-task attempt/review context, explicit repair slices, atomic return application, clean PASS, Reconstruction, persistence, and same-task non-mastery semantics remain accepted. |
-| E — Evidence | **PASS** | Immutable first evidence, cascade/root-cause compression, fresh close requirements, contradiction reopen, non-reusable no-debt, lexical ownership, idempotence, and browser-local evidence remain accepted. Pending evidence does not summon learner work. |
-| U — User Validation | **UNTESTED** | Real Kian use only. Engineering/browser/model evidence cannot replace learner validation. |
+Candidate: `audit/english-final-independent-20260919`. English-wide result: `../../ACCEPTANCE.md` on the same ref.
 
----
+Whole-set first output, cheap PASS, Reference protection and learner Reconstruction remain valid; exact attempt/source return guards and raw-state preservation are freshly tested.
 
-## Current readiness claim
+| Gate | Current candidate boundary |
+| --- | --- |
+| S | Prior source boundary preserved; bounded Current readback found no new source defect in this scope. |
+| K / L | PASS for the freshly re-accepted capability model, natural task unit and targeted/skippable learning design. |
+| P | Existing task geometry preserved; representative synthetic browser context inspected. Actual Kian use is not inferred. |
+| R / E | Fresh candidate tests PASS only for the named browser-local paths. Shared automatic private recovery remains BLOCKED, and candidate fixes are not a deployed main claim. |
+| U | UNTESTED for every path in this audit. |
 
-Allowed statement:
+Allowed statement: **Translation has path-scoped candidate evidence, not an unqualified English-wide readiness PASS.** See the English integration owner for Source, shared durability, Mac Human Gate and precise test boundaries.
 
-> **Translation is Functional-First engineering ready for learner test. S/K/L/P/R/E PASS; U remains UNTESTED.**
+## Historical evidence below
 
-Do not call Translation learner-validated until Kian actually uses the path.
+The following records explain earlier conclusions. Their unqualified PASS language does not override the fresh boundary above. Valid cognition/geometry remains preserved; unsupported source/durability/freshness claims are narrowed or rejected rather than inherited.
 
 ---
 

@@ -6,13 +6,14 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
   <header>
     <div>
       <span>可选 · 后续验证</span>
-      <h2>这篇刚好测试了一个既有可复用问题</h2>
-      <p>只有当前这篇刚好碰到以前反复出现的问题时，这里才会出现。它不是新的学习任务，也不会阻塞下一篇。</p>
+      <h2>按需判断后续证据</h2>
+      <p>只有你或 Chat 认为本次作文涉及已有问题时，再选择它。相同题型不代表相同能力已被测试；可以直接跳过。</p>
     </div>
     <aside data-evidence-summary></aside>
   </header>
 
   <section class="writingEvidenceStatus" data-evidence-status></section>
+  <label>选择要请 Chat 判断的问题（可跳过）<select data-evidence-select><option value="">不选择</option></select></label>
 
   <section class="writingEvidenceTarget" data-evidence-target hidden>
     <div class="writingEvidenceTargetHead">
@@ -45,6 +46,7 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
 </section>
 
 <script>
+  import {readEnglishJson} from "../lib/englishLearnerEvidence.mjs";
   import {
     createWritingEvidenceLedger,
     summarizeWritingEvidenceLedger,
@@ -56,7 +58,7 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
   } from '../lib/writingEvidenceModel.mjs';
 
   const evidenceRoot = document.querySelector('[data-writing-evidence-panel]');
-  if (evidenceRoot instanceof HTMLElement) {
+  if (evidenceRoot instanceof HTMLElement && !new URLSearchParams(location.search).has('exam_session')) {
     let task = null;
     try { task = JSON.parse(evidenceRoot.querySelector('[data-writing-evidence-task]')?.textContent || 'null'); } catch {}
     if (!task?.id) throw new Error('WRITING_EVIDENCE_TASK_PAYLOAD_MISSING');
@@ -67,18 +69,15 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
     let activeTarget = null;
 
     function loadLedger() {
-      let saved = null;
-      try { saved = JSON.parse(localStorage.getItem(ledgerKey) || 'null'); } catch {}
-      return createWritingEvidenceLedger(saved);
+      return createWritingEvidenceLedger(readEnglishJson(localStorage,ledgerKey));
     }
 
     function loadRuntimeRecord() {
-      try { return JSON.parse(localStorage.getItem(runtimeKey) || 'null'); }
-      catch { return null; }
+      return readEnglishJson(localStorage,runtimeKey);
     }
 
     function persistLedger() {
-      try { localStorage.setItem(ledgerKey, JSON.stringify(ledger)); } catch {}
+      localStorage.setItem(ledgerKey, JSON.stringify(ledger));
     }
 
     function setText(selector, text) {
@@ -91,13 +90,6 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
       if (!node) return;
       node.textContent = text;
       node.classList.toggle('isBad', bad);
-    }
-
-    function syncCurrentAdmission(record) {
-      if (!record || record.state !== 'TRANSFER_PENDING' || !record.transferCandidate) return;
-      const before = JSON.stringify(ledger);
-      ledger = admitWritingTransferCandidate(ledger, task, record);
-      if (JSON.stringify(ledger) !== before) persistLedger();
     }
 
     function renderLedger() {
@@ -121,8 +113,9 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
       evidenceRoot.hidden = true;
       ledger = loadLedger();
       const record = loadRuntimeRecord();
-      syncCurrentAdmission(record);
+
       renderLedger();
+      const selectedId = activeTarget?.targetId || "";
       activeTarget = null;
 
       const targetPanel = evidenceRoot.querySelector('[data-evidence-target]');
@@ -130,15 +123,25 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
       targetPanel.hidden = true;
 
       if (!record?.firstDraft) return;
+      // Relevance is a Chat semantic decision, not implied by 'another task'.
+      // Only an explicit active repair/return makes this optional control relevant.
+      if(!record.reviewReturn && !record.manualRevisions?.length)return;
       if (!['PASS_ACCEPTABLE', 'REPAIR_COMPLETE', 'TRANSFER_PENDING'].includes(record.state)) return;
 
       const eligible = listEligibleWritingTransferTargets(ledger, task, record);
       if (!eligible.length) return;
 
-      activeTarget = eligible[0];
       evidenceRoot.hidden = false;
+      const select = evidenceRoot.querySelector('[data-evidence-select]');
+      if (select instanceof HTMLSelectElement) {
+        select.replaceChildren(new Option('不选择', ''));
+        eligible.forEach(target => select.add(new Option(target.label, target.targetId)));
+        select.value = eligible.some(target => target.targetId === selectedId) ? selectedId : '';
+      }
+      activeTarget = eligible.find(target => target.targetId === selectedId) || null;
+      setStatus('[data-evidence-status]', '已有观察目标仅供选择；是否真正相关由你与 Chat 判断。');
+      if (!activeTarget) return;
       targetPanel.hidden = false;
-      setStatus('[data-evidence-status]', `这篇刚好可以顺手检查 ${eligible.length} 个以前的问题；现在不判断也不会阻塞下一篇。`);
       setText('[data-target-state]', String(activeTarget.status || '').toLowerCase() === 'closed' ? '已完成' : '待验证');
       setText('[data-target-label]', activeTarget.label);
             setText('[data-target-demand]', activeTarget.underlyingDemand);
@@ -164,6 +167,8 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
 
     function importActiveReturn() {
       try {
+        ledger=loadLedger();
+        if(activeTarget)activeTarget=ledger.targets.find(t=>t.targetId===activeTarget.targetId)||null;
         const record = loadRuntimeRecord();
         if (!activeTarget || !record) throw new Error('WRITING_TRANSFER_NO_ACTIVE_TARGET');
         const box = evidenceRoot.querySelector('[data-transfer-return]');
@@ -187,6 +192,10 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
       }
     }
 
+    evidenceRoot.querySelector('[data-evidence-select]')?.addEventListener('change', (event) => {
+      activeTarget = ledger.targets.find(target => target.targetId === event.target.value) || null;
+      render();
+    });
     evidenceRoot.querySelector('[data-copy-transfer]')?.addEventListener('click', copyActivePacket);
     evidenceRoot.querySelector('[data-import-transfer]')?.addEventListener('click', importActiveReturn);
 

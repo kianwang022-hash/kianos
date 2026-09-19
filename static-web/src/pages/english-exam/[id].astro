@@ -92,7 +92,7 @@ const serverTaskLabel = (step) => ({
     startEnglishExamSession,
     writeEnglishExamSession
   } from '../../lib/englishExamSession.mjs';
-  import { readEnglishSessionInstruction } from '../../lib/englishSessionControl.mjs';
+  import { readEnglishSessionInstruction, englishStepIsComplete } from '../../lib/englishSessionControl.mjs';
 
   const root = document.querySelector('[data-english-exam-home]');
   if (root instanceof HTMLElement) {
@@ -133,8 +133,9 @@ const serverTaskLabel = (step) => ({
     const readTaskOrderFromChat = () => {
       const control = readEnglishSessionInstruction(localStorage, localDay());
       if (control.status !== 'ready' || !control.instruction) return null;
-      const step = control.instruction.steps[control.instruction.current_step];
+      const step = control.instruction.steps.slice(control.instruction.current_step).find(candidate => !englishStepIsComplete(localStorage, candidate));
       if (step?.task !== 'full_paper' || step?.object_id !== paperId) return null;
+      if(step.source_hash!==paper.source_hash)throw new Error('ENGLISH_EXAM_INSTRUCTION_SOURCE_CHANGED');
       return Array.isArray(step?.params?.task_order) && step.params.task_order.length
         ? step.params.task_order
         : null;
@@ -164,11 +165,11 @@ const serverTaskLabel = (step) => ({
       source.forEach((step, index) => {
         const row = document.createElement(state?.status === 'ACTIVE' ? 'a' : 'div');
         row.className = 'englishExamStep';
-        row.dataset.complete = state?.captures?.[step.step_id] ? 'true' : 'false';
+        row.dataset.complete = state?.captures?.[step.step_id]?.completed_at ? 'true' : 'false';
         if (state?.status === 'ACTIVE' && row instanceof HTMLAnchorElement) {
           row.href = hrefFor(state, index);
           row.addEventListener('click', () => {
-            try { writeSession(selectEnglishExamStep(state, index)); } catch {}
+            try { writeSession(selectEnglishExamStep(currentSession(), index)); } catch {}
           });
         }
         const n = document.createElement('span');
@@ -181,7 +182,7 @@ const serverTaskLabel = (step) => ({
         copy.append(strong);
         const meta = document.createElement('b');
         meta.className = 'englishExamStepMeta';
-        meta.textContent = state?.captures?.[step.step_id] ? '已完成' : step.max_points + ' 分';
+        meta.textContent = state?.captures?.[step.step_id]?.completed_at ? '已交付' : state?.captures?.[step.step_id] ? '已保存 · 未交付' : step.max_points + ' 分';
         row.append(n, copy, meta);
         stepList.appendChild(row);
       });
@@ -254,7 +255,7 @@ const serverTaskLabel = (step) => ({
       const state = currentSession();
       if (!state || state.status !== 'ACTIVE') return;
       if (!confirm('确认提前交卷？交卷后不能继续修改这次整卷作答。')) return;
-      writeSession(sealEnglishExamSession(state));
+      writeSession(sealEnglishExamSession(state,Date.now(),{storage:localStorage}));
       setStatus('已交卷。现在可以查看客观题结果。');
       render();
     });
@@ -298,7 +299,7 @@ const serverTaskLabel = (step) => ({
       const rest = seconds % 60;
       if (clock) clock.textContent = String(minutes).padStart(3, '0') + ':' + String(rest).padStart(2, '0');
       if (ms <= 0) {
-        writeSession(sealEnglishExamSession(state));
+        writeSession(sealEnglishExamSession(state,Date.now(),{storage:localStorage}));
         setStatus('180 分钟到，整卷已自动交卷。');
         render();
       }

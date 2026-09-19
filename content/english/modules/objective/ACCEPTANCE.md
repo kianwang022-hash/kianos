@@ -11,27 +11,25 @@ This file owns current **Acceptance Truth** for the Objective learner-facing sco
 > **Architecture-v2 interpretation:** the S/K/L/P/R/E labels below are preserved as historical Acceptance dimensions only. They do not define Current architecture layers or canonical owners. Current ownership remains Rule / Model → Content / Visual / Engineering; this file owns Acceptance Truth only.
 
 
-## Gate status
+## Fresh final-audit boundary — 2026-09-19
 
-| Gate | Status | Current evidence / boundary |
-| --- | --- | --- |
-| S — Source | **PASS** | Independent Current-first source/provenance sampling found no material Objective source gap. Current source coverage remains 2000–2026 and all four real Reading B form families are represented. |
-| K — Knowledge | **PASS** | Reading A, Cloze and Reading B preserve distinct cognitive objects; Lexical/Reading root causes route to canonical owners instead of becoming duplicate Objective knowledge. |
-| L — Learning | **PASS** | Whole passage/set remains the learner-facing attempt/review unit; stable clean work fast-passes; only a real problem justifies optional deeper review; smallest sufficient repair beats per-question ritual. |
-| P — Projection | **PASS** | Executed Chromium/WebKit evidence plus fresh adversarial inspection protect answer gating, whole-unit continuity, Reading B source directions/forms, fixed givens and single-use constraints. |
-| R — Runtime | **PASS** | Fresh bounded Reading A + Reading B browser closure. Clean attempts do not manufacture Chat/debt, pending claims remain dormant on clean fresh work, repair-return persistence/idempotence works, Reading A continuous sealed mode preserves state, and Reading B single-use survives the problem journey. |
-| E — Evidence | **PASS** | Fresh task-specific adversarial execution on PR #52 head `575c4276e5e298901f3a68becfe6dc511176db44`, workflow run `34750636064`. `objective-evidence-depth.json` passed 31/31 checks: diagnosis-only/routed repairs do not create Objective debt; completed task repair creates one claim; same-object cannot close; clean carry stays silent; fresh relevant evidence closes; contradictory fresh evidence reopens. |
-| U — User Validation | **UNTESTED** | Real Kian use only. Engineering/browser acceptance cannot replace learner validation. |
+Candidate: `audit/english-final-independent-20260919`. English-wide result: `../../ACCEPTANCE.md` on the same ref.
 
----
+Complete Reading A, Cloze and all four Part B forms remain valid; currentIndex is focus only. Candidate source/attempt guards and exact lexical return are freshly tested.
 
-## Current readiness claim
+| Gate | Current candidate boundary |
+| --- | --- |
+| S | Prior source boundary preserved; bounded Current readback found no new source defect in this scope. |
+| K / L | PASS for the freshly re-accepted capability model, natural task unit and targeted/skippable learning design. |
+| P | Existing task geometry preserved; representative synthetic browser context inspected. Actual Kian use is not inferred. |
+| R / E | Fresh candidate tests PASS only for the named browser-local paths. Shared automatic private recovery remains BLOCKED, and candidate fixes are not a deployed main claim. |
+| U | UNTESTED for every path in this audit. |
 
-Allowed statement:
+Allowed statement: **Objective has path-scoped candidate evidence, not an unqualified English-wide readiness PASS.** See the English integration owner for Source, shared durability, Mac Human Gate and precise test boundaries.
 
-> **Objective S/K/L/P/R/E are accepted. The module is engineering-ready for learner use; U remains real-use-only UNTESTED.**
+## Historical evidence below
 
-Do not claim learner validation, mastery, or that Kian has personally completed any Objective path.
+The following records explain earlier conclusions. Their unqualified PASS language does not override the fresh boundary above. Valid cognition/geometry remains preserved; unsupported source/durability/freshness claims are narrowed or rejected rather than inherited.
 
 ---
 

@@ -11,27 +11,25 @@ This file owns current **Acceptance Truth** for Writing. It does not own content
 > **Architecture-v2 interpretation:** the S/K/L/P/R/E labels below are preserved as historical Acceptance dimensions only. They do not define Current architecture layers or canonical owners. Current ownership remains Rule / Model → Content / Visual / Engineering; this file owns Acceptance Truth only.
 
 
-## Gate status
+## Fresh final-audit boundary — 2026-09-19
 
-| Gate | Status | Current evidence / boundary |
-| --- | --- | --- |
-| S — Source | **PASS** | 49 stable complete-essay prompts: Small Writing 2005–2026 (22) + Big Writing 2000–2026 (27). Protected true-exam source remains separate from synthetic engineering/calibration material. |
-| K — Knowledge | **PASS** | Current knowledge truth is conserved across the six-primitive canonical `learning.md` plus verbatim deep reservoir `learning.reference.md`. Small/Big are task specializations; integrated walkthrough/practice is not a base primitive. Lexical durable knowledge remains owned by LexicalOS. |
-| L — Learning | **PASS** | First Learning is targeted/skippable; stable learners can go directly to productive Writing. Active Checks are optional practice rather than mandatory gates. Whole essay remains attempt/review context; stable work may PASS; meaningful failure receives the smallest useful repair. |
-| P — Projection | **PASS** | First Learning projects six real primitives instead of an exact B1–B8 course, preserves Small/Big specialization, keeps Skill Map/deep reference folded, and lets the learner return directly to Runtime. Writing Home no longer exposes acceptance-dashboard noise or dormant pending-state language. |
-| R — Runtime | **PASS** | Whole-essay first evidence, direct/planned modes, semantic review, explicit PASS, smallest repair, learner re-generation, repair-check semantics, no automatic transfer debt, and protected true-exam reuse of the same Runtime remain accepted. |
-| E — Evidence | **PASS** | Private transfer ledger preserves origin/repair evidence, rejects same-prompt closure, accepts later fresh SUPPORT/CLOSE, permits contradiction REOPEN, treats IRRELEVANT as non-confirming, and keeps transfer UI silent unless current completed work naturally supplies eligible evidence. |
-| U — User Validation | **UNTESTED** | Real Kian use only. Engineering/browser/model evidence cannot replace learner validation. |
+Candidate: `audit/english-final-independent-20260919`. English-wide result: `../../ACCEPTANCE.md` on the same ref.
 
----
+Six primitives and whole-essay generation remain valid. Direct and Planned paths are freshly tested. Original-image delivery and non-compulsory calibration entry are material candidates awaiting Mac Human Gate; two exact Source visuals are missing.
 
-## Current readiness claim
+| Gate | Current candidate boundary |
+| --- | --- |
+| S | BLOCKED for 2011/2026 Big originals; 47 other true-exam Writing tasks have exact available Source. |
+| K / L | PASS for the freshly re-accepted capability model, natural task unit and targeted/skippable learning design. |
+| P | BLOCKED pending material Writing Mac Human Gate. |
+| R / E | Fresh candidate tests PASS only for the named browser-local paths. Shared automatic private recovery remains BLOCKED, and candidate fixes are not a deployed main claim. |
+| U | UNTESTED for every path in this audit. |
 
-Allowed statement:
+Allowed statement: **Writing has path-scoped candidate evidence, not an unqualified English-wide readiness PASS.** See the English integration owner for Source, shared durability, Mac Human Gate and precise test boundaries.
 
-> **Writing is Functional-First engineering ready for learner test. S/K/L/P/R/E PASS; U remains UNTESTED.**
+## Historical evidence below
 
-Do not infer Writing learner progress from repository state.
+The following records explain earlier conclusions. Their unqualified PASS language does not override the fresh boundary above. Valid cognition/geometry remains preserved; unsupported source/durability/freshness claims are narrowed or rejected rather than inherited.
 
 ---
 

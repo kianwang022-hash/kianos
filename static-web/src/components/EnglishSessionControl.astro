@@ -1,3 +1,7 @@
+---
+import {englishSessionCatalog} from "../lib/englishSessionCatalog.mjs";
+const catalogPayload=JSON.stringify(englishSessionCatalog()).replace(/</g,"\\u003c");
+---
 
 <details class="englishSessionControl" data-english-session-control>
   <summary>
@@ -22,6 +26,8 @@
   </div>
 </details>
 
+<script type="application/json" data-english-session-catalog set:html={catalogPayload}></script>
+
 <script>
   import {
     ENGLISH_SESSION_SCHEMA,
@@ -34,6 +40,7 @@
 
   const root = document.querySelector('[data-english-session-control]');
   if (root instanceof HTMLDetailsElement) {
+    const catalog = JSON.parse(document.querySelector('[data-english-session-catalog]')?.textContent || '[]');
     const status = root.querySelector('[data-english-session-status]');
     const importBox = root.querySelector('[data-english-session-import]');
     const input = root.querySelector('[data-english-session-input]');
@@ -106,7 +113,7 @@
     root.querySelector('[data-english-apply-session]')?.addEventListener('click', () => {
       try {
         const raw = input instanceof HTMLTextAreaElement ? input.value : '';
-        const instruction = writeEnglishSessionInstruction(localStorage, raw, localDay());
+        const instruction = writeEnglishSessionInstruction(localStorage, raw, localDay(), {catalog});
         if (input instanceof HTMLTextAreaElement) input.value = '';
         if (importBox instanceof HTMLElement) importBox.hidden = true;
         setStatus('学习安排已导入。');

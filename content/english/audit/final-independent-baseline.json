@@ -1,0 +1,85 @@
+{
+  "synthetic_only": true,
+  "source_baseline": "c8ae5404fcaf57f3bf5f8c583b1a0249e0907f9b",
+  "checks": [
+    {
+      "id": "session.invented-id-rejected-without-write",
+      "status": "FAIL",
+      "error": "Missing expected exception."
+    },
+    {
+      "id": "session.duplicate-step-id-rejected",
+      "status": "FAIL",
+      "error": "Missing expected exception."
+    },
+    {
+      "id": "session.same-id-conflicting-replay-rejected",
+      "status": "FAIL",
+      "error": "Missing expected exception."
+    },
+    {
+      "id": "session.older-same-day-does-not-overwrite",
+      "status": "FAIL",
+      "error": "Missing expected exception."
+    },
+    {
+      "id": "exam.exact-180-minutes-structure",
+      "status": "FAIL",
+      "error": "Missing expected exception."
+    },
+    {
+      "id": "exam.capture-after-deadline-rejected",
+      "status": "FAIL",
+      "error": "Missing expected exception."
+    },
+    {
+      "id": "exam.malformed-clock-rejected",
+      "status": "FAIL",
+      "error": "Missing expected exception."
+    },
+    {
+      "id": "exam.old-tab-cannot-reopen-sealed-session",
+      "status": "FAIL",
+      "error": "Missing expected exception."
+    },
+    {
+      "id": "exam.release-replay-does-not-recalculate",
+      "status": "FAIL",
+      "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  {\n    captures: {},\n    current_step: 9,\n    deadline_at: '2026-09-19T12:00:00.000Z',\n    duration_minutes: 180,\n...\n    },\n+   released_at: '2026-09-19T09:00:03.000Z',\n-   released_at: '2026-09-19T09:00:02.000Z',\n    schema: 'kianos.english.exam-session.v1',\n    sealed_at: '2026-09-19T09:00:01.000Z',\n    session_id: 'synthetic-paper:2026-09-19T09:00:00.000Z',\n    started_at: '2026-09-19T09:00:00.000Z',\n    status: 'RELEASED',\n...\n    total_points: 100,\n+   updated_at: '2026-09-19T09:00:03.000Z',\n-   updated_at: '2026-09-19T09:00:02.000Z',\n    year: 0\n  }\n"
+    },
+    {
+      "id": "exam.seal-captures-unfinished-autosaved-work",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n\nundefined !== 'B'\n"
+    },
+    {
+      "id": "lexical.production-not-closed-by-recognition",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'DORMANT'\n- 'ACTIVE'\n"
+    },
+    {
+      "id": "lexical.distinct-attempts-have-distinct-event-identity",
+      "status": "FAIL",
+      "error": "Expected \"actual\" to be strictly unequal to:\n\n'english:reading_a:synthetic-reading:t1:synthetic-word:sense:synthetic-sense:WRONG'"
+    },
+    {
+      "id": "writing.direct-does-not-fabricate-plan",
+      "status": "PASS"
+    },
+    {
+      "id": "writing.stale-review-cannot-mutate-new-attempt",
+      "status": "FAIL",
+      "error": "Missing expected exception."
+    },
+    {
+      "id": "translation.freeze-cannot-overwrite-first-attempt",
+      "status": "FAIL",
+      "error": "The expression evaluated to a falsy value:\n\n  assert.ok(!second?.ok||second.state.firstAttempts.s1==='第一次')\n"
+    },
+    {
+      "id": "translation.schema-mismatch-preserves-raw-evidence",
+      "status": "FAIL",
+      "error": "Missing expected exception."
+    }
+  ]
+}

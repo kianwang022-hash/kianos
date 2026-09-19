@@ -19,6 +19,7 @@ const base = import.meta.env.BASE_URL;
 </div>
 
 <script>
+  import {markEnglishAssistance} from "../lib/englishLearnerEvidence.mjs";
   const menu = document.querySelector('[data-english-selection-menu]');
   const returnBar = document.querySelector('[data-english-lexical-return]');
   if (menu instanceof HTMLElement && returnBar instanceof HTMLElement) {
@@ -117,7 +118,7 @@ const base = import.meta.env.BASE_URL;
       if (lexical instanceof HTMLButtonElement) lexical.hidden = !activeSelection.word;
       const status = menu.querySelector('[data-selection-status]');
       if (status) status.textContent = activeSelection.word ? activeSelection.word : `${text.length} chars`;
-      menu.hidden = false;
+      menu.hidden = new URLSearchParams(location.search).has('exam_session');
       requestAnimationFrame(() => placeMenu(rect));
     };
 
@@ -162,7 +163,8 @@ const base = import.meta.env.BASE_URL;
     });
 
     menu.querySelector('[data-selection-chat]')?.addEventListener('click', async () => {
-      if (!activeSelection) return;
+      if (!activeSelection || new URLSearchParams(location.search).has('exam_session')) return;
+      markEnglishAssistance(localStorage,activeSelection.task,activeSelection.objectId);
       const packet = [
         '请结合这段考研英语上下文回答我接下来的问题。',
         `Task: ${activeSelection.task}${activeSelection.objectId ? ` · ${activeSelection.objectId}` : ''}`,
@@ -179,7 +181,8 @@ const base = import.meta.env.BASE_URL;
     });
 
     menu.querySelector('[data-selection-lexical]')?.addEventListener('click', () => {
-      if (!activeSelection?.word) return;
+      if (!activeSelection?.word || new URLSearchParams(location.search).has('exam_session')) return;
+      markEnglishAssistance(localStorage,activeSelection.task,activeSelection.objectId);
       const context = {
         schema: 'kianos.english.lexical_return.v1',
         returnHref: currentHref(),

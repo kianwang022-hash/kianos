@@ -4,6 +4,7 @@ const base = import.meta.env.BASE_URL;
 <span data-reading-answer-gate data-reading-base={base} hidden></span>
 
 <script>
+  import {readEnglishExamSession} from '../lib/englishExamSession.mjs';
   const root = document.querySelector('[data-local-port="reading"]');
   const gate = document.querySelector('[data-reading-answer-gate]');
 
@@ -73,6 +74,8 @@ const base = import.meta.env.BASE_URL;
     };
 
     const loadAnswers = async () => {
+      const activeExam=readEnglishExamSession(localStorage);
+      if(root.dataset.englishReadonly==='true' || (activeExam&&activeExam.status!=='RELEASED'&&activeExam.steps.some(s=>s.object_id===readingKey)))return false;
       if (ready) return true;
       if (loading) return loading;
       const originalText = submit?.textContent || 'Submit';

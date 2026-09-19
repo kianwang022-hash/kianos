@@ -163,7 +163,7 @@
         'Use the smallest useful repair and re-execution only when it changes future behavior or resolves genuine uncertainty. newClaims require a reusable, high-value repaired thread with real repairEvidence. Leave unrelated claims untouched.',
         'KIANOS_OBJECTIVE_RETURN_V1',
         '```json',
-        JSON.stringify({ schema: 'kianos.english.objective_review_return.v1', task: TASK, objectId: readingKey, threads: [], newClaims: [], claimUpdates: [] }, null, 2),
+        JSON.stringify({ schema: 'kianos.english.objective_review_return.v1', task: TASK, objectId: readingKey, attemptSubmittedAt: attempt.submittedAt, sourceHash: attempt.binding?.source_hash, threads: [], newClaims: [], claimUpdates: [] }, null, 2),
         '```'
       );
 

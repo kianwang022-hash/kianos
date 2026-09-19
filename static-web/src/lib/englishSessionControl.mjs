@@ -1,3 +1,4 @@
+import {atomicEnglishWrites,readEnglishExposure,ENGLISH_MATERIAL_EXPOSURE_KEY} from './englishLearnerEvidence.mjs';
 import {
   readEnglishExamSession,
   summarizeEnglishExamSession
@@ -66,10 +67,19 @@ function normalizeStep(step, index) {
       params.task_order = step.params.task_order.map((value) => clean(value, 40)).filter(Boolean);
     }
   }
+  if(step.params?.time_budget_seconds != null){
+    const n=Number(step.params.time_budget_seconds);if(!Number.isFinite(n)||n<=0||n>10800)throw new Error('ENGLISH_SESSION_TIME_BUDGET_INVALID');params.time_budget_seconds=n;
+  }
+  if(step.params?.material_exposure != null){
+    const declaration=step.params.material_exposure;
+    if(!['unseen','exposed','unknown'].includes(declaration.state)||declaration.basis!=='learner_statement'||!declaration.note||!Number.isFinite(Date.parse(declaration.observed_at)))throw new Error('ENGLISH_MATERIAL_DECLARATION_INVALID');
+    params.material_exposure={state:declaration.state,basis:'learner_statement',note:clean(declaration.note,400),observed_at:new Date(declaration.observed_at).toISOString()};
+  }
   return {
     step_id: clean(step.step_id || step.stepId || ('step-' + (index + 1)), 80),
     task,
     object_id: objectId,
+    source_hash: clean(step.source_hash, 128),
     label: clean(step.label, 180),
     note: clean(step.note, 800),
     params
@@ -101,6 +111,8 @@ export function validateEnglishSessionInstruction(value, expectedDay = null) {
   if (!steps.length || steps.length > 20) {
     throw new Error('ENGLISH_SESSION_STEP_COUNT_INVALID:' + steps.length);
   }
+
+  if (new Set(steps.map(step => step.step_id)).size !== steps.length) throw new Error('ENGLISH_SESSION_DUPLICATE_STEP');
 
   const currentStep = Number(value.current_step ?? value.currentStep ?? 0);
   if (!Number.isInteger(currentStep) || currentStep < 0 || currentStep >= steps.length) {
@@ -169,11 +181,80 @@ export function readEnglishSessionInstruction(storage, expectedDay = null) {
   }
 }
 
-export function writeEnglishSessionInstruction(storage, input, expectedDay = null) {
+export function writeEnglishSessionInstruction(storage, input, expectedDay = null, { catalog, now = Date.now() } = {}) {
   if (!storage?.setItem) throw new Error('ENGLISH_SESSION_STORAGE_UNAVAILABLE');
   const instruction = parseEnglishSessionInstruction(input, expectedDay);
-  storage.setItem(ENGLISH_SESSION_KEY, JSON.stringify(instruction));
+  if (!Array.isArray(catalog)) throw new Error('ENGLISH_SESSION_CURRENT_CATALOG_REQUIRED');
+  if (Date.parse(instruction.generated_at) > Number(now) + 60_000) throw new Error('ENGLISH_SESSION_FUTURE_INSTRUCTION');
+  for (const step of instruction.steps) {
+    const owner = catalog.find(row => row.task === step.task && row.object_id === step.object_id);
+    if (!owner) throw new Error('ENGLISH_SESSION_OBJECT_NOT_CURRENT:' + step.object_id);
+    if (!step.source_hash || step.source_hash !== owner.source_hash) throw new Error('ENGLISH_SESSION_SOURCE_REVISION_MISMATCH:' + step.object_id);
+    if (step.task === 'full_paper' && step.params.task_order) {
+      const order = step.params.task_order;
+      const expected = ['cloze','reading_a','reading_b','translation','writing'];
+      if (order.length !== expected.length || new Set(order).size !== expected.length || order.some(x => !expected.includes(x))) throw new Error('ENGLISH_SESSION_EXAM_ORDER_INVALID');
+    }
+  }
+  const raw = storage.getItem(ENGLISH_SESSION_KEY);
+  if (raw) {
+    let prior;
+    try { prior = validateEnglishSessionInstruction(JSON.parse(raw)); }
+    catch { throw new Error('ENGLISH_SESSION_EXISTING_DATA_UNREADABLE_EXPORT_BEFORE_REPLACE'); }
+    if (prior.session_id === instruction.session_id) {
+      // Progress is local execution of the same instruction; replay must not rewind it.
+      const body = value => JSON.stringify({...value, current_step:0});
+      if (body(prior) !== body(instruction)) throw new Error('ENGLISH_SESSION_REPLAY_CONFLICT');
+      return prior;
+    }
+    if (Date.parse(instruction.generated_at) <= Date.parse(prior.generated_at)) throw new Error('ENGLISH_SESSION_OLDER_INSTRUCTION');
+  }
+  const declarations=instruction.steps.filter(s=>s.params.material_exposure);
+  const changes=[[ENGLISH_SESSION_KEY,instruction]];
+  if(declarations.length){
+    const exposure=readEnglishExposure(storage);
+    for(const step of declarations){
+      const d=step.params.material_exposure;
+      if(Date.parse(d.observed_at)>Date.parse(instruction.generated_at))throw new Error('ENGLISH_MATERIAL_DECLARATION_FUTURE');
+      const owner=catalog.find(r=>r.task===step.task&&r.object_id===step.object_id);
+      const ids=step.task==='full_paper'?owner.material_ids:[step.object_id];
+      if(!ids?.length)throw new Error('ENGLISH_MATERIAL_DECLARATION_IDENTITIES_REQUIRED');
+      for(const id of ids){
+        const m=exposure.materials[id]||{object_id:id,events:[]};
+        if(d.state==='unseen'&&(m.events.length||m.declaration?.state==='exposed'||['kianos-reading-attempt-v1:','kianos-cloze-attempt-v1:','kianos-reading-b-attempt-v1:','kianos-translation-attempt-v2:','kianos-writing-runtime-v1:'].some(prefix=>storage.getItem(prefix+id)!=null)))throw new Error('ENGLISH_MATERIAL_ALREADY_EXPOSED:'+id);
+        if(m.declaration&&Date.parse(d.observed_at)<Date.parse(m.declaration.observed_at))throw new Error('ENGLISH_MATERIAL_DECLARATION_STALE');
+        m.declaration={...d,session_instruction_id:instruction.session_id};exposure.materials[id]=m;
+      }
+    }
+    changes.push([ENGLISH_MATERIAL_EXPOSURE_KEY,exposure]);
+  }
+  // Whole instruction + optional learner-supplied facts commit atomically.
+  atomicEnglishWrites(storage,changes);
   return instruction;
+}
+
+export function englishStepIsComplete(storage, step) {
+  const prefixes = {reading_a:'kianos-reading-attempt-v1:',cloze:'kianos-cloze-attempt-v1:',reading_b:'kianos-reading-b-attempt-v1:',translation:'kianos-translation-attempt-v2:',writing:'kianos-writing-runtime-v1:'};
+  if (step?.task === 'full_paper') {
+    const exam = readEnglishExamSession(storage);
+    return exam?.paper_id === step.object_id && Boolean(step.source_hash) && exam.source_hash === step.source_hash && exam.status === 'RELEASED';
+  }
+  const value = readJson(storage, (prefixes[step?.task] || '') + step?.object_id);
+  if (!value) return false;
+  if (!value.binding || value.binding.source_hash !== step.source_hash) return false;
+  if (['reading_a','cloze','reading_b'].includes(step.task)) return value.submitted === true && (problemCount(value) === 0 || value.reviewResolved === true);
+  if (step.task === 'translation') return ['passed','repaired','transfer_pending'].includes(value.stage);
+  return ['PASS_ACCEPTABLE','REPAIR_COMPLETE','TRANSFER_PENDING'].includes(value.state);
+}
+
+export function resolveEnglishSessionStep(storage, instruction, catalog) {
+  // Follow only Chat's explicit ordering; never rank unrelated tasks.
+  for (let i=instruction.current_step;i<instruction.steps.length;i+=1) {
+    const step=instruction.steps[i];
+    if (!catalog.some(row=>row.task===step.task && row.object_id===step.object_id && row.source_hash===step.source_hash)) return null;
+    if (!englishStepIsComplete(storage,step)) return {step,index:i};
+  }
+  return null;
 }
 
 export function clearEnglishSessionInstruction(storage) {
@@ -255,6 +336,21 @@ function productiveEvidence(storage, task) {
   };
 }
 
+
+export function englishAttemptInventory(storage) {
+  const prefixes={reading_a:'kianos-reading-attempt-v1:',cloze:'kianos-cloze-attempt-v1:',reading_b:'kianos-reading-b-attempt-v1:',translation:'kianos-translation-attempt-v2:',writing:'kianos-writing-runtime-v1:'};
+  const rows=[];
+  for(let i=0;i<Number(storage.length||0);i+=1){
+    const key=storage.key(i);
+    for(const [task,prefix] of Object.entries(prefixes)){
+      if(!key?.startsWith(prefix))continue;
+      const value=readJson(storage,key);if(!value) {rows.push({task,object_id:key.slice(prefix.length),data_status:'unreadable'});continue;}
+      rows.push({task,object_id:key.slice(prefix.length),source_hash:value.sourceHash||value.binding?.source_hash||null,attempt_id:value.attemptId||value.binding?.attempt_id||null,submitted:value.submitted===true,stage:value.stage||value.state||null,problem_count:problemCount(value),started_at:value.startedAt||value.createdAt||null,submitted_at:value.firstSubmittedAt||value.submittedAt||null,updated_at:value.updatedAt||value.saved_at||null,prior_exposure:value.binding?.prior_exposure||'unknown',assistance:value.binding?.assistance||'unknown',complete:englishStepIsComplete(storage,{task,object_id:key.slice(prefix.length),source_hash:value.binding?.source_hash}),first_evidence:value.firstEvidenceMeta||null});
+    }
+  }
+  return rows; // Facts, never a recommendation or a priority score.
+}
+
 export function buildEnglishEvidencePacket(storage, { day, now = Date.now() } = {}) {
   if (!storage?.getItem) throw new Error('ENGLISH_EVIDENCE_STORAGE_UNAVAILABLE');
   if (!validDay(day)) throw new Error('ENGLISH_EVIDENCE_DAY_INVALID');
@@ -263,6 +359,7 @@ export function buildEnglishEvidencePacket(storage, { day, now = Date.now() } = 
     schema: ENGLISH_EVIDENCE_SCHEMA,
     study_day: day,
     generated_at: new Date(now).toISOString(),
+    inventory: englishAttemptInventory(storage),
     tasks: clone({
       reading_a: objectiveEvidence(storage, LAST_LOCATION_KEYS.reading_a, 'kianos-reading-attempt-v1:'),
       cloze: objectiveEvidence(storage, LAST_LOCATION_KEYS.cloze, 'kianos-cloze-attempt-v1:'),
@@ -287,6 +384,7 @@ export function buildEnglishChatHandoffText(storage, { day, now = Date.now() } =
       step_id: 'step-1',
       task: 'reading_a',
       object_id: '<replace with an exact Current object id justified by the evidence>',
+      source_hash: '<exact Current rendered-object hash; do not infer from an old attempt>',
       label: '<learner-facing next task label>',
       note: '<brief reason this is the next useful action>'
     }],
@@ -302,6 +400,7 @@ export function buildEnglishChatHandoffText(storage, { day, now = Date.now() } =
     '- If GitHub access is available, first read kianwang022-hash/kianos@main content/english/CURRENT.md, then only the exact child owner needed for the task. Do not revive legacy architecture.',
     '- Apply the current English Learning Contract: stable work stays cheap; real problems get the smallest useful repair; Chat owns cross-task next-step selection; the website only executes the selected task.',
     '- Missing evidence means unknown, not failed. Finished work must not be turned back into Resume debt.',
+    '- Optional params.material_exposure={state:unseen|exposed|unknown,basis:learner_statement,observed_at:ISO,note:actual learner statement} may be supplied ONLY from real learner testimony before an attempt. Never infer unseen from missing storage or Content defaults.',
     '',
     'WHAT CHAT SHOULD DO',
     '- Explain the current English situation in normal language and choose a next action only when that is useful.',

@@ -29,7 +29,8 @@ const base = import.meta.env.BASE_URL;
     englishExamRemainingMs,
     captureEnglishExamStep,
     sealEnglishExamSession,
-    englishExamTaskHref
+    englishExamTaskHref,
+    englishExamPayload
   } from '../lib/englishExamSession.mjs';
 
   const bridge = document.querySelector('[data-english-exam-task-bridge]');
@@ -69,32 +70,7 @@ const base = import.meta.env.BASE_URL;
         catch { return {}; }
       };
 
-      const capturePayload = () => {
-        const local = readTaskState();
-        if (['reading_a', 'cloze', 'reading_b'].includes(task)) {
-          return {
-            answers: local.answers && typeof local.answers === 'object' ? local.answers : {},
-            uncertain: Array.isArray(local.uncertain) ? local.uncertain : [],
-            started_at: local.startedAt || null,
-            trajectory: local.trajectory && typeof local.trajectory === 'object' ? local.trajectory : {}
-          };
-        }
-        if (task === 'translation') {
-          return {
-            answers: local.drafts && typeof local.drafts === 'object' ? local.drafts : {},
-            started_at: local.startedAt || null
-          };
-        }
-        if (task === 'writing') {
-          return {
-            plan_mode: local.planMode || 'planned',
-            plan: local.draftPlan || '',
-            essay: local.draftEssay || '',
-            started_at: local.startedAt || null
-          };
-        }
-        return {};
-      };
+      const capturePayload = () => englishExamPayload(task,readTaskState());
 
       const routeNext = () => {
         if (state.current_step >= state.steps.length) {
@@ -114,8 +90,10 @@ const base = import.meta.env.BASE_URL;
         if (completing) return;
         completing = true;
         try {
+          state=readEnglishExamSession(localStorage);
+          if(!state || state.session_id!==querySession || state.status!=='ACTIVE') throw new Error('ENGLISH_EXAM_CONTEXT_INVALID_OR_SEALED');
           if (englishExamRemainingMs(state) <= 0) {
-            state = sealEnglishExamSession(state);
+            state = sealEnglishExamSession(state,Date.now(),{storage:localStorage});
             writeEnglishExamSession(localStorage, state);
             location.href = `${base}english-exam/${encodeURIComponent(state.paper_id)}/`;
             return;
@@ -158,19 +136,28 @@ const base = import.meta.env.BASE_URL;
       }, true);
 
       const renderTime = () => {
+        state=readEnglishExamSession(localStorage);
+        if(!state || state.session_id!==querySession || state.status!=='ACTIVE') { location.href=`${base}english-exam/${encodeURIComponent(state?.paper_id||'')}/`;return; }
         const ms = englishExamRemainingMs(state);
         const totalSeconds = Math.max(0, Math.ceil(ms / 1000));
         const minutes = Math.floor(totalSeconds / 60);
         const seconds = totalSeconds % 60;
         if (remaining) remaining.textContent = `${String(minutes).padStart(3, '0')}:${String(seconds).padStart(2, '0')}`;
         if (ms <= 0 && state.status === 'ACTIVE') {
-          state = sealEnglishExamSession(state);
+          state = sealEnglishExamSession(state,Date.now(),{storage:localStorage});
           writeEnglishExamSession(localStorage, state);
           location.href = `${base}english-exam/${encodeURIComponent(state.paper_id)}/`;
         }
       };
       renderTime();
       setInterval(renderTime, 1000);
+    } else if(querySession) {
+      document.documentElement.dataset.englishExamSession='true';
+      document.querySelectorAll('[data-local-port=reading],[data-objective-root],[data-translation-runtime],[data-writing-runtime]').forEach(node=>{node.inert=true;});
+      bridge.hidden=false;
+      bridge.querySelector('[data-exam-step-label]').textContent='这次模考已封存或不匹配，请返回整卷。';
+      bridge.querySelector('[data-exam-complete]').disabled=true;
+      bridge.querySelector('[data-exam-return]').setAttribute('href', `${base}english-exam/${encodeURIComponent(state?.paper_id||'')}/`);
     }
   }
 </script>
