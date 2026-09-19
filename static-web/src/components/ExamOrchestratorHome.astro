@@ -1,17 +1,26 @@
 ---
-import { examProductCatalog } from '../lib/productCatalog.mjs';
+import { examProductCatalog, politicsProductCatalog } from '../lib/productCatalog.mjs';
+const { xizongPacketIndex = [] } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const catalog = examProductCatalog(base);
+const politicsCatalog = politicsProductCatalog(base);
 ---
 <section class="examToday" data-exam-home>
   <script type="application/json" data-exam-catalog set:html={JSON.stringify(catalog).replace(/</g, '\\u003c')} />
-  <header class="examTodayHead"><div><span class="pageKicker">TODAY</span><h2>今天的安排</h2></div><button class="examQuiet" data-exam-settings>设置时间</button></header>
-  <p class="examCapacity" data-exam-capacity>网页只记录事实；具体安排由 Chat 决定。</p>
+  <script type="application/json" data-exam-daily-politics-catalog set:html={JSON.stringify(politicsCatalog).replace(/</g, '\\u003c')} />
+  <script type="application/json" data-exam-daily-xizong-index set:html={JSON.stringify(xizongPacketIndex).replace(/</g, '\\u003c')} />
+  <header class="examTodayHead"><div><h2>今天</h2></div><button class="examQuiet" data-exam-settings>调整时间</button></header>
+  <p class="examCapacity" data-exam-capacity>今天的时间与学习记录会汇总在这里。</p>
   <div class="examAllocation" data-exam-allocations aria-live="polite"></div>
   <div class="examNext"><span data-exam-next-label>下一步</span><a data-exam-next href={`${base}xizong/`}>进入学习 →</a></div>
   <section class="examAttention" data-exam-attention hidden><p data-exam-attention-text></p><button data-exam-attention-action class="examQuiet"></button></section>
   <p class="examError" data-exam-error role="alert" hidden></p>
-  <footer class="examTodayFoot"><button class="examQuiet" data-exam-why>为什么这样安排</button><button class="examQuiet" data-exam-record>记已学时间</button></footer>
+  <footer class="examTodayFoot">
+    <button class="examQuiet" data-exam-why>安排说明</button>
+    <button class="examQuiet" data-exam-record>补录时间</button>
+    <button class="examQuiet examDailyPacketButton" data-exam-copy-daily>复制今日学习包</button>
+  </footer>
+  <p class="examDailyPacketStatus" data-exam-daily-status aria-live="polite"></p>
   <section class="examMaterial" data-exam-reminder hidden><p></p><button class="examQuiet" data-exam-reminder-dismiss>记住了</button></section>
 
   <dialog class="examDialog" data-exam-settings-dialog aria-labelledby="exam-settings-title">

@@ -8,7 +8,8 @@ import PoliticsHomeTools from '../components/PoliticsHomeTools.astro';
 import EnglishResume from '../components/EnglishResume.astro';
 import { inspectReadingSources } from '../lib/current.mjs';
 import { inspectLexicalSources } from '../lib/lexical.mjs';
-import { listProjectableXizongSystems } from '../lib/xizong.mjs';
+import { listProjectableXizongSystems, loadXizongBlock } from '../lib/xizong.mjs';
+import { buildXizongProductionBlock } from '../lib/xizongProductionProjection.mjs';
 import { listPoliticsSubjectsCurrent, politicsCurrentHealth } from '../lib/politicsCurrent.mjs';
 import { loadWritingLearningProjection } from '../lib/englishWritingLearning.mjs';
 import { inspectWritingSyntheticTasks } from '../lib/englishWritingSynthetic.mjs';
@@ -32,6 +33,50 @@ const englishReady = readingReady
 const firstSystem = xizongSystems[0];
 const firstSubject = politicsSubjects[0];
 const firstChapter = firstSubject?.chapters?.[0];
+const xizongResumeIndex = xizongSystems.map((system) => ({
+  systemId: system.systemId,
+  canonicalId: system.canonicalId,
+  title: system.title,
+  blocks: system.blocks.map((block) => ({
+    blockId: block.blockId,
+    slug: block.slug,
+    label: block.label,
+    title: block.title,
+    kpCount: block.kpCount
+  }))
+}));
+const xizongPacketIndex = xizongSystems.flatMap((system) => system.blocks.map((blockRef) => {
+  const canonical = loadXizongBlock(system.systemId, blockRef.slug);
+  const production = buildXizongProductionBlock(canonical);
+  return {
+    systemId: system.systemId,
+    slug: blockRef.slug,
+    blockId: canonical.blockId,
+    blockLabel: canonical.label,
+    packetMeta: {
+      objectId: canonical.objectId,
+      systemId: system.systemId,
+      canonicalId: system.canonicalId,
+      blockId: canonical.blockId,
+      blockLabel: canonical.label,
+      blockTitle: canonical.title,
+      sourcePath: canonical.sourcePath,
+      sourceHash: canonical.sourceHash,
+      sourceContactMode: String(production?.sourceContact?.mode || ''),
+      sourcePerGroup: production?.sourceContact?.logicGroupIsAutomaticSourceChunk === true,
+      reserveItems: []
+    },
+    kpRows: production.kpRecords.map((kp) => ({
+      kpId: kp.kpId,
+      displayId: kp.displayId,
+      title: kp.title,
+      groupId: kp.groupId,
+      groupLabel: kp.groupLabel,
+      sourceLocator: kp.sourceLocator || '',
+      prompt: kp.prompt || ''
+    }))
+  };
+}));
 const xizongHref = firstSystem ? `${base}xizong/${firstSystem.systemId}/` : `${base}xizong/`;
 const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubject.subject}/${firstChapter.code}/` : `${base}politics/`;
 ---
@@ -51,34 +96,30 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
   <div class="homeL3Grid">
     <section class="homeL3Subjects" aria-label="三科状态与 Continue">
       <header class="homeL3SectionHead">
-        <h2>Continue</h2>
-        <span>回到最近位置，或自由选择任务</span>
+        <h2>继续学习</h2>
+        <span>回到上次停下的位置，或直接开始新的任务</span>
       </header>
 
       <article class="homeL3Subject" data-home-subject="xizong">
         <header class="homeL3SubjectHead">
           <div class="homeL3SubjectIdentity">
-            <span class="homeL3Ordinal">01</span>
             <div class="homeL3SubjectTitle">
               <h2>西医综合</h2>
-              <span class="homeL3Availability">{xizongSystems.length ? `${xizongSystems.length} 个 System 已开放` : '暂未开放'}</span>
             </div>
           </div>
           <a class="homeL3OverviewLink" href={`${base}xizong/`}>知识地图 →</a>
         </header>
-        <p class="homeL3Meta">原讲义连续学习 · 框架定位 · 主动 Recall</p>
+        <p class="homeL3Meta">原讲义连续学习 · 框架定位 · 主动回忆</p>
         <div class="homeL3ActionSurface">
-          <XizongHomeTools firstHref={xizongHref} firstLabel={firstSystem ? `${firstSystem.canonicalId} · ${firstSystem.title}` : '查看西综入口'} />
+          <XizongHomeTools firstHref={xizongHref} firstLabel={firstSystem ? `${firstSystem.canonicalId} · ${firstSystem.title}` : '查看西综入口'} resumeIndex={xizongResumeIndex} />
         </div>
       </article>
 
       <article class="homeL3Subject" data-home-subject="english">
         <header class="homeL3SubjectHead">
           <div class="homeL3SubjectIdentity">
-            <span class="homeL3Ordinal">02</span>
             <div class="homeL3SubjectTitle">
               <h2>English</h2>
-              <span class="homeL3Availability">{englishReady ? '可开始' : '部分任务已开放'}</span>
             </div>
           </div>
           <a class="homeL3OverviewLink" href={`${base}english/`}>英语工作台 →</a>
@@ -99,10 +140,8 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
       <article class="homeL3Subject" data-home-subject="politics">
         <header class="homeL3SubjectHead">
           <div class="homeL3SubjectIdentity">
-            <span class="homeL3Ordinal">03</span>
             <div class="homeL3SubjectTitle">
               <h2>政治</h2>
-              <span class="homeL3Availability">{politicsSubjects.length} 科 · {politicsChapters} 章{politicsHealth.status === 'ready' ? '可进入' : '，部分开放'}</span>
             </div>
           </div>
           <a class="homeL3OverviewLink" href={`${base}politics/`}>五科总览 →</a>
@@ -115,15 +154,7 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
     </section>
 
     <aside class="homeL3Support" aria-label="今日安排与学习支持">
-      <ExamOrchestratorHome />
-      <section class="homeL3SupportLinks">
-        <a href={`${base}vocabulary/`}>Vocabulary →</a>
-        <nav aria-label="英语 Guide">
-          <a href={`${base}objective-learn/`}>Objective Guide</a>
-          <a href={`${base}translation-learn/`}>Translation Guide</a>
-          <a href={`${base}writing-learn/`}>Writing Guide</a>
-        </nav>
-      </section>
+      <ExamOrchestratorHome xizongPacketIndex={xizongPacketIndex} />
     </aside>
   </div>
 </Base>

@@ -21,6 +21,8 @@ import {
 import { buildExamStudyTimeOverlay } from './examStudyTime.mjs';
 import { buildChatControlledExamReadModel } from './examPlanReadModel.mjs';
 import { readPoliticsSnapshot, resolvePoliticsContinue } from './politicsPracticeState.mjs';
+import { buildHomeDailyLearningPacket } from './dailyLearningPacketRuntime.mjs';
+import { serializeDailyLearningPacketForChat } from './dailyLearningPacket.mjs';
 
 const names = { xizong: '西综', english: '英语', politics: '政治' };
 const PRODUCT_FAMILIES = ['xizong', 'english', 'reading', 'cloze', 'reading-b', 'translation', 'writing', 'politics', 'vocabulary'];
@@ -55,7 +57,11 @@ export function initExamHome(root) {
   const $ = (selector) => root.querySelector(selector);
   const $$ = (selector) => [...root.querySelectorAll(selector)];
   const catalog = JSON.parse($('[data-exam-catalog]').textContent);
+  const politicsCatalog = JSON.parse($('[data-exam-daily-politics-catalog]')?.textContent || 'null');
+  const xizongPacketIndex = JSON.parse($('[data-exam-daily-xizong-index]')?.textContent || '[]');
   $('[data-exam-catalog]').remove();
+  $('[data-exam-daily-politics-catalog]')?.remove();
+  $('[data-exam-daily-xizong-index]')?.remove();
 
   let bytes = null;
   let profile = emptyExamProfile();
@@ -130,10 +136,13 @@ export function initExamHome(root) {
 
   function render() {
     const native = {
-      xizong: nativeLink('[data-xizong-continue]', '[data-xizong-continue-title]', `${catalog.base}xizong/`, '选择西综学习位置'),
-      english: nativeLink('[data-english-resume-link]', '[data-english-resume-title]', `${catalog.base}english/`, '选择英语完整任务'),
-      politics: resolvePoliticsContinue(catalog.politics, readPoliticsSnapshot(localStorage), catalog.base)
-        || nativeLink('[data-politics-continue]', '[data-politics-continue-title]', `${catalog.base}politics/`, '选择政治学习位置')
+      xizong: { subject: 'xizong', ...nativeLink('[data-xizong-continue]', '[data-xizong-continue-title]', `${catalog.base}xizong/`, '选择西综学习位置') },
+      english: { subject: 'english', ...nativeLink('[data-english-resume-link]', '[data-english-resume-title]', `${catalog.base}english/`, '选择英语完整任务') },
+      politics: {
+        subject: 'politics',
+        ...(resolvePoliticsContinue(catalog.politics, readPoliticsSnapshot(localStorage), catalog.base)
+          || nativeLink('[data-politics-continue]', '[data-politics-continue-title]', `${catalog.base}politics/`, '选择政治学习位置'))
+      }
     };
 
     const sourceProfile = readable ? profile : emptyExamProfile();
@@ -171,14 +180,14 @@ export function initExamHome(root) {
 
     const capacityText = $('[data-exam-capacity]');
     if (!readable) {
-      capacityText.textContent = '先恢复本机学习上下文；网页不会自行推算安排。';
+      capacityText.textContent = '本机学习记录暂时没有完整恢复。';
     } else if (readModel.capacity.dayMinutes === null) {
-      capacityText.textContent = '记录今天可用时间后，可把容量与学习证据交给 Chat；网页不自动分配三科。';
+      capacityText.textContent = '记录今天可用时间后，这里会显示今天的安排。';
     } else if (readModel.phase?.outsideCycle) {
-      capacityText.textContent = '本轮之外不自动安排考试学习。';
+      capacityText.textContent = '今天没有考试学习安排。';
     } else {
-      const planLabel = chatPlanState.status === 'ready' ? 'Chat 今日安排已载入' : '尚未导入 Chat 今日安排';
-      capacityText.textContent = `今天可用 ${formatMinutes(readModel.capacity.dayMinutes)} · 已学 ${formatMinutes(readModel.capacity.actualMinutes)} · ${planLabel}`;
+      const planLabel = chatPlanState.status === 'ready' ? '' : ' · 今日安排待同步';
+      capacityText.textContent = `可用 ${formatMinutes(readModel.capacity.dayMinutes)} · 已学 ${formatMinutes(readModel.capacity.actualMinutes)}${planLabel}`;
     }
     $('[data-exam-settings]').textContent = readModel.capacity.dayMinutes === null ? '记录时间' : '调整时间';
 
@@ -205,7 +214,7 @@ export function initExamHome(root) {
     link.textContent = best
       ? `${names[best.subject]} · ${best.title} →`
       : '自由选择学习 →';
-    $('[data-exam-next-label]').textContent = best ? 'Chat 安排下一步' : '尚未安排';
+    $('[data-exam-next-label]').textContent = '下一步';
 
     const attention = $('[data-exam-attention]');
     attention.hidden = !readModel.attention || !readable;
@@ -290,6 +299,42 @@ export function initExamHome(root) {
   $('[data-exam-settings]').addEventListener('click', settings);
   $('[data-exam-why]').addEventListener('click', why);
   $('[data-exam-attention-action]').addEventListener('click', why);
+
+  $('[data-exam-copy-daily]')?.addEventListener('click', async () => {
+    const status = $('[data-exam-daily-status]');
+    try {
+      const result = buildHomeDailyLearningPacket({
+        storage: localStorage,
+        day: day(),
+        now: Date.now(),
+        plan: readModel,
+        xizongPacketIndex,
+        politicsCatalog,
+        base: catalog.base || '/'
+      });
+      const text = serializeDailyLearningPacketForChat(result.packet);
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        window.prompt('复制今日学习包给 Chat', text);
+      }
+      const attached = Object.entries(result.coverage)
+        .filter(([, value]) => value === 'attached')
+        .map(([subject]) => names[subject] || subject);
+      const unknown = Object.entries(result.coverage)
+        .filter(([, value]) => value !== 'attached')
+        .map(([subject]) => names[subject] || subject);
+      if (status) {
+        status.textContent = result.warnings.length
+          ? '已复制；部分学习记录暂时没有完整读取。'
+          : unknown.length
+            ? `已复制；${unknown.join('、')}今天还没有可带走的学习记录。`
+            : '已复制今日学习包。';
+      }
+    } catch (cause) {
+      if (status) status.textContent = '今日学习包未生成：' + String(cause?.message || cause);
+    }
+  });
 
   $('[data-exam-settings-form]').addEventListener('submit', (event) => {
     event.preventDefault();

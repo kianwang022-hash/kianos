@@ -110,7 +110,7 @@ Exact cleanup inventory should be created **when this lane activates**, from the
 
 ## Active platform lane
 
-### Chat-owned Home + Learner Data / Chat Handoff Closure — **FOUNDATION LANDED · WAITING SUBJECT FINAL AUDIT INTERFACES**
+### Chat-owned Home + Learner Data / Chat Handoff Closure — **TARGETED CLOSURE PASS · FINAL REGRESSION ACTIVE**
 
 Chat-owned Home cutover: **LANDED on main via PR #483 (`d252157e`)**.
 
@@ -120,7 +120,9 @@ Home now consumes a validated Chat plan and subject-owned Resume projections; it
 
 The private durable checkpoint transport now lives outside the disposable Git Current mirror. Shared Timer / Chat Plan / Exam context can be recovered without writing learner data to GitHub.
 
-Xizong Final Audit integration is now **CLOSED on main via PR #496 (`00f1a87e`)**. Its approved learner-state/evidence keys are captured through the shared private checkpoint, restore only into an empty Xizong durable store, an unreadable existing checkpoint authorizes zero replacement writes, and the typed Xizong Chat Return is integrated with exact object/Source/evidence/Resume binding. English / Politics subject payload adapters remain separate shared-platform follow-up.
+Xizong Final Audit integration is now **CLOSED on main via PR #496 (`00f1a87e`)**. Its approved learner-state/evidence keys are captured through the shared private checkpoint, restore only into an empty Xizong durable store, an unreadable existing checkpoint authorizes zero replacement writes, and the typed Xizong Chat Return is integrated with exact object/Source/evidence/Resume binding.
+
+Shared handoff + Home integration is implemented in **PR #499** (`work/shared-handoff-closure-20260919`), stacked on English integration PR #498 so it can consume the accepted English evidence/private-checkpoint interfaces without duplicating them. Targeted proof is PASS: English + Politics attach to the one existing `kianos.daily-learning-packet.v1`; Politics private checkpoint and typed Chat diagnosis import are batch-bound, stale/conflict-safe and replay-idempotent; Home exposes one learner-facing `复制今日学习包` action and composes Xizong v3 + English evidence + Politics evidence without inventing missing evidence. Shared Study Timer run `35419390373` passed the exact candidate build, shared-handoff suite and browser timer regression.
 
 Existing pieces already exist: Shared Study Timer, Daily Learning Packet composition, subject Return/Handoff packets, and GitHub→Mac Current sync. The missing work is integration, not a new packet ecosystem.
 
@@ -131,11 +133,12 @@ Chat-owned plan boundary ✅
 → private local durable checkpoint transport + shared recovery ✅
 → Xizong Final Audit interface consumed ✅
 → Xizong durable evidence + typed Return ✅
-→ consume English / Politics Final Audit interfaces
-→ English / Politics durable evidence / Return adapters
-→ one cross-subject Daily Learning Packet entry
-→ typed subject Return/import reconciliation
-→ Home consumes final interfaces
+→ English evidence/private checkpoint interface consumed ✅ #498/#499
+→ Politics daily evidence + private checkpoint + typed Return ✅ #499
+→ one cross-subject Daily Learning Packet entry ✅ #499
+→ Home consumes final interfaces ✅ #499
+→ final cross-subject browser/restart regression ⏳ #500
+→ launch / broad engineering freeze
 ```
 
 Target flow:
@@ -204,7 +207,7 @@ CI green is not visual acceptance.
 - **Politics:** learner-facing material UI is fully landed. PR #470 merged after Kian Human Gate; Practice preserves the proven Workbench, uses exact-ID AI `takeaway` + AI `chat_explanation`, forbids Xiao1000 historical explanation from learner-facing fallback, and returns to the safest exact Chengfeng locator when one exists. Reopen only a concrete learner-visible defect.
 - **English:** landed; fix only concrete launch-visible defects.
 - **Lexical:** Vocabulary v2 learner-surface closure and English exact handoff/return are accepted; normal use only unless a concrete defect appears.
-- **Platform:** UI/CSS ownership consolidation is now active as non-redesign maintenance. Learner-data durability / typed Chat Return may proceed where write sets are independent; final cross-subject regression follows both closures.
+- **Platform:** UI/CSS ownership consolidation remains independent non-redesign maintenance. Shared learner-data / Chat handoff + Home integration have targeted PASS in PR #499. Final cross-subject learner regression is active in stacked PR #500; after English #498 promotion, reconcile the stack to `main`, rerun affected proof, then freeze broad website engineering.
 
 Exact branch/PR/cursor state must be read from the active owner/ref before work.
 

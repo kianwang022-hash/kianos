@@ -7,6 +7,11 @@ import {
   englishCheckpointKeyAllowed,
   exportEnglishCheckpoint
 } from './englishLearnerEvidence.mjs';
+import {
+  exportPoliticsCheckpoint,
+  politicsCheckpointKeyAllowed,
+  validatePoliticsPrivatePayload
+} from './politicsChatReturn.mjs';
 
 export const LEXICAL_PRIVATE_PAYLOAD_SCHEMA = 'kianos.lexical.private-payload.v1';
 const ENGLISH_PRIVATE_PAYLOAD_SCHEMA = 'kianos.english.private-payload.v1';
@@ -107,6 +112,26 @@ const ADAPTERS = Object.freeze({
         const existing = storage.getItem(key);
         if (existing != null && existing !== raw) {
           throw new Error('PRIVATE_CHECKPOINT_ENGLISH_CONFLICT_KEEP_LOCAL:' + key);
+        }
+        if (existing !== raw) changes.push([key, raw]);
+      }
+      return { status: 'prepared', changes };
+    }
+  }),
+  politics: Object.freeze({
+    capture(storage) {
+      const value = exportPoliticsCheckpoint(storage);
+      return Object.keys(value.entries || {}).length ? value : null;
+    },
+    validate: validatePoliticsPrivatePayload,
+    isEmpty: (storage) => subjectStorageIsEmpty(storage, politicsCheckpointKeyAllowed),
+    prepare(storage, value) {
+      const entries = validatePoliticsPrivatePayload(value);
+      const changes = [];
+      for (const [key, raw] of entries) {
+        const existing = storage.getItem(key);
+        if (existing != null && existing !== raw) {
+          throw new Error('PRIVATE_CHECKPOINT_POLITICS_CONFLICT_KEEP_LOCAL:' + key);
         }
         if (existing !== raw) changes.push([key, raw]);
       }

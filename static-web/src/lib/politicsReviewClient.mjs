@@ -1,4 +1,5 @@
 import { readPoliticsSnapshot, selectPoliticsReview, resolvePoliticsContinue, politicsReviewPacket } from './politicsPracticeState.mjs';
+import { applyPoliticsChatReturn, readPoliticsChatReturn } from './politicsChatReturn.mjs';
 const outcomes = { WRONG: '上次答错', UNCERTAIN: '上次不确定', STABLE: '本次稳定' };
 export function initPoliticsReview(root) {
   if (!(root instanceof HTMLElement)) return;
@@ -10,6 +11,41 @@ export function initPoliticsReview(root) {
   const options = () => ({ day: today(), filter, subject: $('[data-review-subject]').value });
   const make = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
   const link = (href, cls, text) => { const a = make('a', cls, text); a.href = href; return a; };
+  const actionLabels = {
+    SOURCE_RETURN: '回原讲义',
+    RETEST: '再测一次',
+    DISCUSS: '继续讨论',
+    MEMORY_CANDIDATE: '记忆候选'
+  };
+  function renderChatReturn(value) {
+    const target = $('[data-review-return-result]');
+    if (!(target instanceof HTMLElement)) return;
+    target.replaceChildren();
+    if (!value) return;
+    if (value.verdict === 'NO_ACTION') {
+      const note = make('p', 'reviewReturnNoAction', value.diagnosis_summary || 'Chat 判断本批次无需额外修补，继续主线即可。');
+      target.append(note);
+      return;
+    }
+    for (const item of value.follow_ups || []) {
+      const article = make('article', 'reviewReturnItem');
+      article.append(make('strong', '', actionLabels[item.action] || item.action));
+      article.append(make('p', '', item.reason));
+      article.append(make('p', 'reviewReturnInstruction', item.instruction));
+      const actions = make('nav', 'reviewReturnActions');
+      if (item.action === 'RETEST') {
+        for (const questionId of item.question_ids || []) {
+          actions.append(link(`${base}politics/practice/?question=${encodeURIComponent(questionId)}`, '', '打开题目 →'));
+        }
+      } else {
+        for (const targetRow of item.return_targets || []) {
+          if (targetRow?.href) actions.append(link(targetRow.href, '', '回原学习单元 ↗'));
+        }
+      }
+      if (actions.childElementCount) article.append(actions);
+      target.append(article);
+    }
+  }
   function render() {
     const snapshot = readPoliticsSnapshot(localStorage), review = selectPoliticsReview(catalog, snapshot, options());
     const error = $('[data-review-error]'); error.hidden = !snapshot.errors.length;
@@ -43,6 +79,12 @@ export function initPoliticsReview(root) {
       }
       groups.append(article);
     }
+    try {
+      const currentPacket = politicsReviewPacket(catalog, snapshot, options());
+      renderChatReturn(readPoliticsChatReturn(localStorage, currentPacket.batch_id));
+    } catch {
+      renderChatReturn(null);
+    }
     root.dataset.ready = 'true';
   }
   $$('[data-review-filter]').forEach(b => b.addEventListener('click', () => {
@@ -54,6 +96,20 @@ export function initPoliticsReview(root) {
     const text = JSON.stringify(politicsReviewPacket(catalog, snapshot, options()), null, 2);
     try { await navigator.clipboard.writeText(text); event.currentTarget.textContent = '已复制'; }
     catch { window.prompt('复制复习学习包', text); }
+  });
+  $('[data-review-return-apply]')?.addEventListener('click', () => {
+    const field = $('[data-review-return-text]');
+    const status = $('[data-review-return-status]');
+    try {
+      const parsed = JSON.parse(field?.value || '');
+      const result = applyPoliticsChatReturn(localStorage, catalog, parsed);
+      if (status) status.textContent = result.status === 'idempotent'
+        ? '这份返回已经导入过，没有重复创建任何跟进。'
+        : '已核对并导入；只保留与这批真实题目绑定的跟进。';
+      renderChatReturn(result.value);
+    } catch (error) {
+      if (status) status.textContent = '未导入：' + String(error?.message || error);
+    }
   });
   addEventListener('storage', render); addEventListener('focus', render); render();
 }

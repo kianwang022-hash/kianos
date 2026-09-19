@@ -36,6 +36,7 @@ import {
   STUDY_TIMER_SCHEMA,
   STUDY_TIMER_STATE_KEY
 } from '../src/lib/studyTimer.mjs';
+import { PRACTICE_KEYS } from '../src/lib/politicsPracticeState.mjs';
 
 class MemoryStorage {
   constructor(entries = {}) { this.map = new Map(Object.entries(entries)); }
@@ -294,6 +295,36 @@ const lexicalLedger = {
   conflicts: [],
   identity_lineage: {}
 };
+const politicsAttempts = {
+  schema: 'kianos.politics.attempt_snapshot.v1',
+  units: {
+    'marxism/c01/u01': {
+      unit_key: 'marxism/c01/u01',
+      attempts: {
+        P1: {
+          question_id: 'P1',
+          outcome: 'UNCERTAIN',
+          selected: 'A',
+          correct_answer: 'A',
+          uncertain: true,
+          study_day: day,
+          observed_at: new Date(now).toISOString()
+        }
+      }
+    }
+  }
+};
+const politicsMeta = {
+  latestOutcome: { P1: 'UNCERTAIN' },
+  notes: { P1: '保留这次犹豫点' },
+  causes: { P1: 'understanding' }
+};
+const politicsEvidence = [{
+  question_id: 'P1',
+  outcome: 'UNCERTAIN',
+  study_day: day,
+  observed_at: new Date(now).toISOString()
+}];
 const combinedSource = new MemoryStorage({
   [EXAM_PROFILE_KEY]: JSON.stringify(profile),
   [EXAM_CHAT_PLAN_KEY]: JSON.stringify(chatPlan),
@@ -304,7 +335,16 @@ const combinedSource = new MemoryStorage({
   [xizongLastKey]: xizongSource.getItem(xizongLastKey),
   [englishExposureKey]: JSON.stringify(englishExposure),
   [externalAttemptKey]: JSON.stringify(externalAttempt),
-  [lexicalLedgerKey]: JSON.stringify(lexicalLedger)
+  [lexicalLedgerKey]: JSON.stringify(lexicalLedger),
+  [PRACTICE_KEYS.attempts]: JSON.stringify(politicsAttempts),
+  [PRACTICE_KEYS.meta]: JSON.stringify(politicsMeta),
+  [PRACTICE_KEYS.evidence]: JSON.stringify(politicsEvidence),
+  [PRACTICE_KEYS.last]: JSON.stringify({
+    href: '/politics/marxism/c01/#u01',
+    subject: 'marxism',
+    chapter: 'c01',
+    title: '自然单元 1'
+  })
 });
 let combinedSaved = null;
 await saveSharedControlToPrivate(combinedSource, {
@@ -314,7 +354,10 @@ await saveSharedControlToPrivate(combinedSource, {
 });
 assert.equal(combinedSaved.payload.subjects.xizong.schema, 'kianos.xizong.private-checkpoint.v1');
 assert.equal(combinedSaved.payload.subjects.english.schema, 'kianos.english.private-payload.v1');
+assert.equal(combinedSaved.payload.subjects.politics.schema, 'kianos.politics.private-payload.v1');
 assert.equal(combinedSaved.payload.subjects.lexical.schema, 'kianos.lexical.private-payload.v1');
+assert.ok(combinedSaved.payload.subjects.politics.entries[PRACTICE_KEYS.attempts],
+  'Politics attempts must be captured by the shared Politics checkpoint');
 assert.ok(combinedSaved.payload.subjects.english.entries[externalAttemptKey],
   'External Reading private attempt must be captured by the shared English checkpoint');
 
@@ -326,10 +369,12 @@ const combinedRestored = await restoreSharedControlFromPrivate(combinedRestore, 
 assert.equal(combinedRestored.status, 'restored');
 assert.equal(combinedRestored.subjects.xizong.status, 'restored');
 assert.equal(combinedRestored.subjects.english.status, 'restored');
+assert.equal(combinedRestored.subjects.politics.status, 'restored');
 assert.equal(combinedRestored.subjects.lexical.status, 'restored');
 assert.equal(JSON.parse(combinedRestore.getItem(externalAttemptKey)).binding.object_id, 'tpo56-p1');
 assert.equal(JSON.parse(combinedRestore.getItem(englishExposureKey)).materials['tpo56-p1'].object_id, 'tpo56-p1');
 assert.equal(JSON.parse(combinedRestore.getItem(lexicalLedgerKey)).schema, 'kianos.lexical.evidence_ledger.v2');
+assert.equal(JSON.parse(combinedRestore.getItem(PRACTICE_KEYS.attempts)).units['marxism/c01/u01'].attempts.P1.outcome, 'UNCERTAIN');
 
 const englishConflict = new MemoryStorage({
   [englishExposureKey]: JSON.stringify({
@@ -354,6 +399,40 @@ assert.equal(englishConflict.getItem(xizongStudyKey), null,
 assert.equal(englishConflict.getItem(lexicalLedgerKey), null,
   'English conflict must reject before Lexical is partially restored');
 
+const politicsConflict = new MemoryStorage({
+  [PRACTICE_KEYS.attempts]: JSON.stringify({
+    schema: 'kianos.politics.attempt_snapshot.v1',
+    units: {
+      'marxism/c01/u01': {
+        unit_key: 'marxism/c01/u01',
+        attempts: {
+          P1: {
+            question_id: 'P1',
+            outcome: 'STABLE',
+            selected: 'A',
+            correct_answer: 'A',
+            study_day: day,
+            observed_at: new Date(now + 1000).toISOString()
+          }
+        }
+      }
+    }
+  })
+});
+await assert.rejects(
+  () => restoreSharedControlFromPrivate(politicsConflict, {
+    now,
+    readCheckpoint: async () => ({ status: 'ready', checkpoint: combinedSaved })
+  }),
+  /PRIVATE_CHECKPOINT_POLITICS_CONFLICT_KEEP_LOCAL/
+);
+assert.equal(JSON.parse(politicsConflict.getItem(PRACTICE_KEYS.attempts)).units['marxism/c01/u01'].attempts.P1.outcome, 'STABLE',
+  'Politics conflict must keep local truth');
+assert.equal(politicsConflict.getItem(EXAM_CHAT_PLAN_KEY), null,
+  'Politics conflict must reject before shared control is restored');
+assert.equal(politicsConflict.getItem(xizongStudyKey), null,
+  'Politics conflict must reject before Xizong is partially restored');
+
 const lexicalConflict = new MemoryStorage({
   [lexicalLedgerKey]: JSON.stringify({
     schema: 'kianos.lexical.evidence_ledger.v2',
@@ -374,5 +453,5 @@ assert.equal(lexicalConflict.getItem(EXAM_CHAT_PLAN_KEY), null,
 assert.equal(lexicalConflict.getItem(xizongStudyKey), null,
   'Lexical conflict must reject before Xizong is partially restored');
 
-console.log('PASS private learner checkpoint foundation: Xizong + English + Lexical atomic capture/restore + safe conflicts');
+console.log('PASS private learner checkpoint foundation: Xizong + English + Politics + Lexical atomic capture/restore + safe conflicts');
 
