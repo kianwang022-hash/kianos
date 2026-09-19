@@ -1,6 +1,6 @@
 const finiteOrNull = (value) => Number.isFinite(value) ? value : null;
-const cloneContinue = (value) => value?.href ? {
-  subject: value.subject || null,
+const cloneContinue = (value, fallbackSubject = null) => value?.href ? {
+  subject: value.subject || fallbackSubject || null,
   href: value.href,
   title: value.title || ''
 } : null;
@@ -131,7 +131,7 @@ export function buildChatControlledExamReadModel({
       requiredMinutes: null,
       scoreGap: null,
       confidence: plan ? 'chat-plan' : 'unknown',
-      continue: cloneContinue(nativeContinue?.[subject]),
+      continue: cloneContinue(nativeContinue?.[subject], subject),
       sessionRef: instruction?.session_ref || null,
       note: instruction?.note || ''
     };
@@ -140,7 +140,9 @@ export function buildChatControlledExamReadModel({
   const capacityRemaining = Number.isFinite(dayCapacity)
     ? Math.max(0, Math.round(dayCapacity) - actualTotal)
     : null;
-  const next = plan?.next_subject ? cloneContinue(nativeContinue?.[plan.next_subject]) : null;
+  const next = plan?.next_subject
+    ? cloneContinue(nativeContinue?.[plan.next_subject], plan.next_subject)
+    : null;
   const attention = plan?.attention?.text
     ? {
         type: 'chat_plan',

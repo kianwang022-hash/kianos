@@ -1,9 +1,8 @@
 # English Final Learner Acceptance — Current Integration Result
 
-Status: **READY FOR KIAN MAC HUMAN GATE — engineering acceptance passed; Writing Source recovery is closed; learner U is UNTESTED**  
-Integration PR: **#498** — `work/english-final-integration-20260919-v3`  
-Current reconciliation base: `main@d7406f578677bcd6e7944223dfb02f4000014872`  
-Latest product-proof head: `d6323cb318e653f53197e3ea09eeb15a7d122e4d`  
+Status: **RELEASED TO MAIN — engineering acceptance passed; Kian explicitly removed the final Mac-presentation release hold; learner U is UNTESTED**  
+Integration PR: **#498** — merged to `main` as `216165c05140e90c2ac0afbbf3cace1b956898d8`  
+Final integration head: `68749bf689fd130c385edc804121548994697b88`  
 Standard: `LEARNING_ACCEPTANCE.md`; execution brief: `FINAL_LEARNER_ACCEPTANCE_BRIEF.md`.
 
 This file records the English-wide Current integration result after fresh independent audit, repair, targeted proof, bounded regression and reconciliation. Child Acceptance owners still own local module claims. CI and synthetic fixtures are engineering evidence only; they never manufacture learner history.
@@ -33,14 +32,14 @@ Natural units remain source-native:
 | Part B | **PASS.** Gap / heading / ordering / comment forms retain distinct cognition, fixed-given rules and source-native candidate policy. |
 | Objective Runtime / Evidence | **PASS.** Old test assumptions were reconciled to Current rules: exact attempt/source identity, no automatic fresh-on-material-change, and rejected stale/invalid return is correctly treated as rejection. Latest Objective Learner Journey is green. |
 | Translation | **PASS for tested runtime/evidence paths.** Five-segment first attempt, whole-source context, reference gate, immutable first output, exact typed return and learner reconstruction remain intact. |
-| Writing | **Engineering PASS; release presentation still gated.** Direct mode does not invent a plan; Planned mode preserves the learner's real plan; first draft/regeneration/return identity persist; no automatic ghostwriting. Material entry/original-image presentation still needs Kian Mac Human Gate. |
+| Writing | **Engineering PASS; release hold removed by Kian.** Direct mode does not invent a plan; Planned mode preserves the learner's real plan; first draft/regeneration/return identity persist; no automatic ghostwriting. Kian explicitly authorized #498 for promotion without a separate final material-visual hold. |
 | English ↔ Lexical | **PASS for the tested handoff boundary.** Exact Current target / ordinal / revision / demand is preserved; lookup stays state-neutral; replay is idempotent; Recognition cannot close Production; return is exact and all-or-nothing. |
 | Chat Resume | **PASS.** Current catalog validation, stale/future/duplicate/conflict rejection, atomic import, idempotent replay, explicit ordering and free navigation are preserved. |
 | Whole paper | **PASS for tested session mechanics.** One absolute 180-minute session, nine task instances, autosave capture, irreversible Seal, objective release out of 60, and original productive outputs for Chat review. No fake subjective auto-score. |
 | Shared durability | **PASS for the tested English + Lexical private checkpoint boundary.** Unsafe remote read cannot write; subject payloads round-trip; conflicting local evidence wins; restore is atomic. |
 | Navigation | **PASS.** English hierarchy remains coherent after Objective / Translation / Writing / Vocabulary / External Reading integration. |
 | External Reading | **PASS as an executable continuous Content lane for the implemented boundary.** TPO 56–65 is the primary growth pool and IELTS Academic 17–19 secondary. Public repo owns identity/inventory/compiler/runtime; copyrighted bytes stay in the private Mac source bundle. Compatible surfaces reuse the Reading-family architecture while preserving source-native cognition. This does **not** replace 考研 Reading A strategy. |
-| Mac presentation | **BLOCKED pending Kian Human Gate.** Material changed learner-facing presentation cannot be accepted by CI on Kian's behalf. |
+| Mac presentation | **RELEASE HOLD REMOVED BY KIAN.** This records explicit promotion authorization, not a claim that CI or synthetic evidence performed a Human Gate on Kian's behalf. |
 | Learner U | **UNTESTED.** No synthetic fixture, recovered source, screenshot or CI run counts as Kian having learned or attempted the material. |
 
 ## 3. What was actually repaired
@@ -130,7 +129,7 @@ No learner rule was weakened merely to make a broad CI job green.
 
 ## 8. Reconciliation against Current main and prior evidence
 
-At final reconciliation, PR #498 is **ahead of `main@d7406f578677bcd6e7944223dfb02f4000014872` and behind by 0**. The integration preserves concurrent main work; the shared private-checkpoint overlap was reconciled rather than overwritten.
+PR #498 was explicitly released by Kian and merged to `main` as `216165c05140e90c2ac0afbbf3cace1b956898d8`. The merge preserved concurrent main work; the shared private-checkpoint overlap was reconciled rather than overwritten.
 
 Earlier child Acceptance remains useful only inside its proven local boundary. The final English-wide answer comes from this integration evidence, not from historical child PASS, old PR #493 status, or a static validator count.
 
@@ -145,6 +144,6 @@ Historical conclusions narrowed by the fresh audit:
 
 ## 9. Final allowed conclusion
 
-> **English Learning Logic and the named Current engineering paths have passed the fresh independent acceptance and integration proof, including Objective depth, Translation, Writing Runtime/Evidence, English↔Lexical, Chat Resume, the 180-minute whole paper, shared durability, navigation, and the executable External Reading Content lane. Writing Source recovery is closed, including 2011 and 2026 through explicitly rebound verified source-equivalent web artifacts. The only remaining release gate is Kian's actual-Mac visual acceptance of the material changed learner-facing presentation. Learner U remains UNTESTED until genuine study.**
+> **English Learning Logic and the named Current engineering paths have passed the fresh independent acceptance and integration proof, including Objective depth, Translation, Writing Runtime/Evidence, English↔Lexical, Chat Resume, the 180-minute whole paper, shared durability, navigation, and the executable External Reading Content lane. Writing Source recovery is closed, including 2011 and 2026 through explicitly rebound verified source-equivalent web artifacts. Kian explicitly removed the final Mac-presentation release hold and authorized #498 for promotion. Learner U remains UNTESTED until genuine study.**
 
 No broader Lexical / Politics / Xizong debt should be pulled into this conclusion without a real dependency.

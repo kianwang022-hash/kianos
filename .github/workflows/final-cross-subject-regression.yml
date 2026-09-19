@@ -1,0 +1,89 @@
+name: Final Cross-subject Regression
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/final-cross-subject-regression.yml'
+      - 'static-web/src/components/ExamOrchestratorHome.astro'
+      - 'static-web/src/lib/dailyLearningPacket.mjs'
+      - 'static-web/src/lib/dailyLearningPacketRuntime.mjs'
+      - 'static-web/src/lib/examChatPlan.mjs'
+      - 'static-web/src/lib/examPlanReadModel.mjs'
+      - 'static-web/src/lib/examOrchestratorClient.mjs'
+      - 'static-web/src/lib/privateCheckpointRuntime.mjs'
+      - 'static-web/src/lib/privateLearnerCheckpoint.mjs'
+      - 'static-web/src/lib/privateSubjectCheckpoints.mjs'
+      - 'static-web/src/lib/politicsChatReturn.mjs'
+      - 'static-web/src/lib/politicsPracticeState.mjs'
+      - 'static-web/src/lib/studyTimer.mjs'
+      - 'static-web/src/lib/xizongPrivateCheckpoint.mjs'
+      - 'static-web/src/lib/xizongStudyPacket.mjs'
+      - 'static-web/src/pages/index.astro'
+      - 'static-web/src/pages/politics/review.astro'
+      - 'static-web/scripts/privateLearnerBridge.mjs'
+      - 'static-web/scripts/privateLearnerStore.mjs'
+      - 'static-web/scripts/test-exam-plan-read-model.mjs'
+      - 'static-web/scripts/test-final-cross-subject-regression.mjs'
+      - 'static-web/package.json'
+  push:
+    paths:
+      - '.github/workflows/final-cross-subject-regression.yml'
+      - 'static-web/src/components/ExamOrchestratorHome.astro'
+      - 'static-web/src/lib/dailyLearningPacket.mjs'
+      - 'static-web/src/lib/dailyLearningPacketRuntime.mjs'
+      - 'static-web/src/lib/examChatPlan.mjs'
+      - 'static-web/src/lib/examPlanReadModel.mjs'
+      - 'static-web/src/lib/examOrchestratorClient.mjs'
+      - 'static-web/src/lib/privateCheckpointRuntime.mjs'
+      - 'static-web/src/lib/privateLearnerCheckpoint.mjs'
+      - 'static-web/src/lib/privateSubjectCheckpoints.mjs'
+      - 'static-web/src/lib/politicsChatReturn.mjs'
+      - 'static-web/src/lib/politicsPracticeState.mjs'
+      - 'static-web/src/lib/studyTimer.mjs'
+      - 'static-web/src/lib/xizongPrivateCheckpoint.mjs'
+      - 'static-web/src/lib/xizongStudyPacket.mjs'
+      - 'static-web/src/pages/index.astro'
+      - 'static-web/src/pages/politics/review.astro'
+      - 'static-web/scripts/privateLearnerBridge.mjs'
+      - 'static-web/scripts/privateLearnerStore.mjs'
+      - 'static-web/scripts/test-exam-plan-read-model.mjs'
+      - 'static-web/scripts/test-final-cross-subject-regression.mjs'
+      - 'static-web/package.json'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: final-cross-subject-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  final-cross-subject:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install learner site dependencies
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+      - name: Build exact candidate
+        working-directory: static-web
+        run: npm run build
+      - name: Install isolated Chromium
+        working-directory: static-web
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Run final cross-subject learner regression
+        working-directory: static-web
+        run: npm run test:final-cross-subject
+      - name: Save final regression evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: final-cross-subject-${{ github.sha }}
+          path: final-cross-subject-evidence/
+          retention-days: 14

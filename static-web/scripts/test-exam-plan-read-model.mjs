@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { buildExamPlanReadModel } from '../src/lib/examPlanReadModel.mjs';
+import { buildChatControlledExamReadModel, buildExamPlanReadModel } from '../src/lib/examPlanReadModel.mjs';
 
 const plan = {
   day: '2026-09-17',
@@ -40,5 +40,33 @@ assert.equal(model.attention.type, 'pace');
 assert.equal(model.time.usesTimer, true);
 assert.equal(model.time.sourceBySubject.english, 'timer');
 assert.deepEqual(Object.keys(model.subjects).sort(), ['english', 'politics', 'xizong']);
+
+const chatModel = buildChatControlledExamReadModel({
+  day: '2026-09-17',
+  chatPlanState: {
+    status: 'ready',
+    plan: {
+      schema: 'kianos.exam.chat-plan.v1',
+      study_day: '2026-09-17',
+      generated_at: '2026-09-17T01:00:00.000Z',
+      subjects: {
+        xizong: { target_minutes: 360, role: '主推进', note: '', session_ref: null },
+        english: null,
+        politics: null
+      },
+      next_subject: 'xizong',
+      attention: null
+    }
+  },
+  nativeContinue: {
+    xizong: { href: '/kianos/xizong/a1/', title: 'A1' },
+    english: { href: '/kianos/english/', title: 'English' },
+    politics: { href: '/kianos/politics/', title: '政治' }
+  }
+});
+assert.equal(chatModel.next.subject, 'xizong',
+  'Chat-selected next subject identity must survive even when native Continue omits subject');
+assert.equal(chatModel.subjects.xizong.continue.subject, 'xizong',
+  'subject Continue projection must preserve its owner identity');
 
 console.log('PASS exam plan read model');
