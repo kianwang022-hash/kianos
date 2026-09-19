@@ -28,6 +28,8 @@ on:
       - 'static-web/scripts/privateExternalReadingStore.mjs'
       - 'static-web/scripts/privateExternalReadingBridge.mjs'
       - 'static-web/scripts/test-external-reading-content.mjs'
+      - 'static-web/scripts/test-external-reading-browser.mjs'
+      - 'static-web/scripts/externalReadingSyntheticFixture.mjs'
       - 'tools/english-external/**'
       - 'static-web/src/lib/englishExamSession.mjs'
       - 'static-web/src/components/EnglishExamTaskBridge.astro'
@@ -70,6 +72,8 @@ on:
       - 'static-web/scripts/privateExternalReadingStore.mjs'
       - 'static-web/scripts/privateExternalReadingBridge.mjs'
       - 'static-web/scripts/test-external-reading-content.mjs'
+      - 'static-web/scripts/test-external-reading-browser.mjs'
+      - 'static-web/scripts/externalReadingSyntheticFixture.mjs'
       - 'tools/english-external/**'
       - 'static-web/src/lib/englishExamSession.mjs'
       - 'static-web/src/components/EnglishExamTaskBridge.astro'
@@ -127,6 +131,9 @@ jobs:
         run: |
           npm install --no-save --no-audit --no-fund playwright@1.56.1
           npx playwright install --with-deps chromium
+      - name: Execute External Reading browser journey
+        working-directory: static-web
+        run: node scripts/test-external-reading-browser.mjs
       - name: Execute English family coherence journey
         working-directory: static-web
         run: node scripts/test-english-family-coherence.mjs
