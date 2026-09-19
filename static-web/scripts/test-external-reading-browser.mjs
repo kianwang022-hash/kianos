@@ -54,36 +54,8 @@ try{
   assert.match(counts,/480 questions/);
 
   await page.goto(base+'/external-reading/?id=tpo56-p1',{waitUntil:'networkidle'});
-  const externalDebug = await page.evaluate(() => {
-    const workspace = document.querySelector('[data-external-workspace]');
-    const title = document.querySelector('[data-external-passage-title]');
-    const chain = [];
-    let node = title;
-    while (node && chain.length < 8) {
-      const style = getComputedStyle(node);
-      chain.push({
-        tag: node.tagName,
-        className: node.className || '',
-        hidden: node.hasAttribute?.('hidden') || false,
-        display: style.display,
-        visibility: style.visibility,
-        inert: Boolean(node.inert)
-      });
-      node = node.parentElement;
-    }
-    return {
-      workspaceHidden: workspace?.hasAttribute('hidden') ?? null,
-      workspaceDisplay: workspace ? getComputedStyle(workspace).display : null,
-      workspaceVisibility: workspace ? getComputedStyle(workspace).visibility : null,
-      rootInert: Boolean(document.querySelector('[data-external-reading-runtime]')?.inert),
-      status: document.querySelector('[data-external-status]')?.textContent || '',
-      title: title?.textContent || '',
-      chain
-    };
-  });
-  if (!(await page.locator('[data-external-passage-title]').filter({hasText:'Synthetic TPO 56 P1'}).isVisible())) {
-    throw new Error('EXTERNAL_WORKSPACE_NOT_VISIBLE:'+JSON.stringify(externalDebug));
-  }
+  await page.locator('[data-external-workspace]').waitFor({state:'visible'});
+  await page.locator('[data-external-title]').filter({hasText:'Synthetic TPO 56 P1'}).waitFor({state:'visible'});
   assert.equal(await page.locator('[data-external-questions] [data-question]').count(),14);
   assert.equal(requests.some(url=>url.includes('/external-reading/answers')),false,'formal answers must not be requested before Submit');
   assert.equal(await page.locator('[data-external-result]').isVisible(),false);
