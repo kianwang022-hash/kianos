@@ -36,6 +36,10 @@ on:
       - "static-web/src/components/XizongStudyEnhancer.astro"
       - "static-web/src/components/XizongRepairInboxBridge.astro"
       - "static-web/src/lib/examOrchestratorClient.mjs"
+      - "static-web/src/lib/xizongSystemWuReturn.mjs"
+      - "static-web/src/components/XizongSystemRepairReturn.astro"
+      - "static-web/scripts/test-xizong-system-wu-return.mjs"
+      - "static-web/scripts/test-xizong-system-wu-auto-browser.mjs"
       - ".github/workflows/chat-control-transport-prototype.yml"
 
 jobs:
@@ -65,6 +69,9 @@ jobs:
       - name: Xizong automatic typed Chat Return
         working-directory: static-web
         run: node scripts/test-xizong-auto-chat-return.mjs
+      - name: Xizong typed System W/U Return
+        working-directory: static-web
+        run: node scripts/test-xizong-system-wu-return.mjs
       - name: Home daily packet integration
         working-directory: static-web
         run: node scripts/test-home-daily-learning-packet.mjs
@@ -105,4 +112,5 @@ jobs:
             static-web/.qa/private-control-browser.json
             static-web/.qa/xizong-native-session-actions-browser.json
             static-web/.qa/xizong-auto-chat-return-browser.json
+            static-web/.qa/xizong-system-wu-auto-browser.json
           if-no-files-found: warn
