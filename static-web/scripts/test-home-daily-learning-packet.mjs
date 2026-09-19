@@ -7,6 +7,7 @@ import {
   STUDY_TIMER_STATE_KEY
 } from '../src/lib/studyTimer.mjs';
 import { PRACTICE_KEYS } from '../src/lib/politicsPracticeState.mjs';
+import { POLITICS_MEMORY_EVIDENCE_KEY } from '../src/lib/politicsMemoryRuntime.mjs';
 
 class MemoryStorage {
   constructor(entries = {}) { this.map = new Map(Object.entries(entries)); }
@@ -242,6 +243,22 @@ assert.deepEqual(empty.coverage, { xizong: 'unknown', english: 'unknown', politi
 assert.equal(empty.packet.subjects.xizong.evidence, null);
 assert.equal(empty.packet.subjects.english.evidence, null);
 assert.equal(empty.packet.subjects.politics.evidence, null);
+
+
+const corruptPoliticsMemory = new MemoryStorage(Object.fromEntries(storage.map.entries()));
+corruptPoliticsMemory.setItem(POLITICS_MEMORY_EVIDENCE_KEY, '{bad-json');
+const partialMemory = buildHomeDailyLearningPacket({
+  storage: corruptPoliticsMemory,
+  day,
+  now,
+  xizongPacketIndex,
+  politicsCatalog,
+  base: '/'
+});
+assert.equal(partialMemory.coverage.politics, 'attached');
+assert.equal(partialMemory.packet.subjects.politics.evidence.today.uncertain_count, 1);
+assert.equal(partialMemory.packet.subjects.politics.evidence.memory, null);
+assert.ok(partialMemory.warnings.some((row) => row.includes('politics-memory:POLITICS_MEMORY_EVIDENCE_INVALID')));
 
 const corruptPolitics = new MemoryStorage(Object.fromEntries(storage.map.entries()));
 corruptPolitics.setItem(PRACTICE_KEYS.meta, '{bad-json');
