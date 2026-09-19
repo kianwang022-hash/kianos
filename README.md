@@ -66,6 +66,14 @@ npm run current:backup
 
 The backup is written to `~/Documents/KianOS Backups/` with private file permissions. Before the first real learner checkpoint exists, the command exits cleanly and reports that there is nothing to back up.
 
+Restore one explicit backup into the private recovery store only when needed:
+
+```bash
+npm run current:restore -- --from "$HOME/Documents/KianOS Backups/<backup-file>.json"
+```
+
+Restore validates the backup before any write, preserves the current `latest.json` under a private `restore-safety/` copy first, then atomically installs the selected checkpoint. It intentionally does **not** clear current browser-local learner state: existing local evidence wins, and the private checkpoint is used when local state is empty (for example after a browser-profile loss or migration).
+
 After installation, the macOS LaunchAgent keeps the dedicated Current mirror synced to GitHub `main` and serves the learner site on `http://127.0.0.1:4321/`. Learner checkpoints live outside the disposable mirror in the private KianOS application-support directory.
 
 The development worktree remains separate and should not be used as the normal learner runtime.
