@@ -139,21 +139,6 @@
       },
       "stage_role": "SECONDARY_STAGE",
       "answer_bearing": true
-    },
-    {
-      "object_id": "respiratory-r01-measurement-language",
-      "role": "MAP",
-      "geometry": "TEXT_STRUCTURE",
-      "binding": {
-        "kind": "DERIVED_FRAGMENT",
-        "source_id": "core",
-        "selector": {
-          "type": "HEADING_EXACT",
-          "value": "Unit A｜先建立肺功能测量语言"
-        }
-      },
-      "stage_role": "PRIMARY_STAGE",
-      "answer_bearing": true
     }
   ],
   "enrichment_bindings": [
@@ -240,7 +225,6 @@
     "BLOCK_ORIENT": {
       "object_ids": [
         "respiratory-r01-problem",
-        "respiratory-r01-measurement-language",
         "respiratory-r01-ventilation-mechanics",
         "respiratory-r01-framework",
         "respiratory-r01-formula-language"

@@ -64,6 +64,15 @@ await test('All 38 mature Blocks preserve complete Core and exact LG members thr
  assert.equal(block.ttsx.checkpoints.length,0);count++;kps+=original.kpRecords.length;
  }return {blocks:count,kps,ttsx:'No reviewed release bound on these paths; absent is not fabricated'};
 });
+await test('Framework orientation never duplicates full canonical KP teaching sections',()=>{
+ let checked=0;for(const system of listProjectableXizongSystems())for(const ref of system.blocks){const b=buildXizongProductionBlock(loadXizongBlock(system.systemId,ref.slug));
+ for(const object of b.cognitiveProjection.stageObjects)assert.ok(!/<h[1-6][^>]*>\s*KP\d+[｜|]/i.test(object.html||''),`${b.blockId}:${object.objectId} duplicates KP teaching`);checked++;}
+ const b1=buildXizongProductionBlock(loadXizongBlock('circulation','b01'));
+ assert.ok(b1.cognitiveProjection.stageObjects.some(x=>x.objectId==='circulation-b01-framework'&&x.html.includes('泵周期')));
+ const r1=buildXizongProductionBlock(loadXizongBlock('respiratory','r01'));
+ assert.ok(r1.cognitiveProjection.stageObjects.some(x=>x.objectId==='respiratory-r01-framework'));
+ return {checked,canonicalCore:'unchanged',baselineCounterexample:'B1 heading swallowed 29 KP sections; R1 Unit A duplicated four KP bodies'};
+});
 await test('Memory availability is not scheduled debt; Repair never rewrites Recall',()=>{
  const {learnerObject}=resolveXizongLearnerProjection(loadXizongBlock('circulation','b01'));const ids=learnerObject.kps.map(k=>k.identity.kpId);
  const study={completed:true,blockRecallDone:true,learned:Object.fromEntries(ids.map(id=>[id,true])),ratings:Object.fromEntries(ids.map(id=>[id,'mastered']))};
@@ -170,6 +179,10 @@ try{
  const rows=[];for(const[s,b]of [['respiratory','r01'],['urinary','b01']]){const {c,page}=await context();try{await beginRecall(page,s,b);const block=loadXizongBlock(s,b),k=`kianos-xizong-astro-v2:${block.objectId}`;
  assert.equal(Object.keys((await state(page,k)).learned).length,block.kpRecords.length);await page.keyboard.press('Space');await page.keyboard.press('2');await page.waitForTimeout(180);assert.equal(Object.keys((await state(page,k)).ratings).length,1);await page.reload({waitUntil:'networkidle'});assert.equal(Object.keys((await state(page,k)).ratings).length,1);rows.push({system:s,contact:block.kpRecords.length,attempts:1});}finally{await c.close();}}return rows;
  });
+
+ await test('System Framework is sampled separately from Guide on all mature Systems',async()=>{const {c,page}=await context();try{
+ for(const system of ['circulation','respiratory','urinary']){await visit(page,`/xizong/${system}/`);const button=page.getByRole('button',{name:/^framework$/i});assert.equal(await button.count(),1);await button.click();await page.waitForTimeout(150);await page.screenshot({path:path.join(out,`${system}-framework.png`)});assert.ok(await page.locator('body').innerText());}
+ }finally{await c.close();}});
  await test('Current Mac-wide heterogeneous visible geometry and environment evidence',async()=>{const {c,page}=await context();try{const samples=['/xizong/','/xizong/circulation/','/xizong/respiratory/','/xizong/urinary/','/xizong/circulation/b07/','/xizong/circulation/b10/','/xizong/circulation/b11/','/xizong/respiratory/r01/','/xizong/urinary/b05/'];const rows=[];for(let i=0;i<samples.length;i++){await visit(page,samples[i]);const shape=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,platform:navigator.platform,fontCheck:document.fonts.check('18px "PingFang SC"')}));assert.ok(shape.scroll<=shape.width+1);await page.screenshot({path:path.join(out,`surface-${i}.png`),fullPage:false});rows.push({url:samples[i],...shape});}await beginRecall(page);await page.screenshot({path:path.join(out,'kp-front.png')});await page.keyboard.press('Space');await page.screenshot({path:path.join(out,'kp-reveal.png')});await page.evaluate(()=>{const root=document.querySelector('[data-kp-recall-card]:not([hidden])');const el=[...root.querySelectorAll('*')].find(n=>n.childElementCount===0&&/[\u4e00-\u9fff]/.test(n.textContent)&&n.getBoundingClientRect().height>0&&getComputedStyle(n).visibility==='visible');if(!el)throw Error('No visible CJK');el.setAttribute('data-audit-font-target','');});
  const cdp=await c.newCDPSession(page);await cdp.send('DOM.enable');await cdp.send('CSS.enable');const doc=await cdp.send('DOM.getDocument');const q=await cdp.send('DOM.querySelector',{nodeId:doc.root.nodeId,selector:'[data-audit-font-target]'});const fonts=await cdp.send('CSS.getPlatformFontsForNode',{nodeId:q.nodeId});if(process.platform==='darwin')assert.ok(fonts.fonts.some(f=>/PingFang/.test(f.familyName)&&f.glyphCount>0));return {os:process.platform,samples:rows,actualFonts:fonts};}finally{await c.close();}});
 }finally{await browser?.close();server.kill();for(const f of fixturePaths)fs.rmSync(f,{force:true});fs.closeSync(log);fs.writeFileSync(path.join(out,'results.json'),JSON.stringify({schema:'xizong.fresh-independent-evidence.v1',generatedAt:new Date().toISOString(),head:process.env.XIZONG_AUDIT_HEAD||process.env.GITHUB_SHA||'local',platform:process.platform,learnerU:false,results},null,2));}
