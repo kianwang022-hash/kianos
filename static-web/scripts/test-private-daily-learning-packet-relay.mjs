@@ -56,6 +56,27 @@ try{
   assert.equal(replay.status,'idempotent','timestamp-only refresh must not publish');
   assert.equal(execFileSync('git',['--git-dir',remote,'rev-parse',ref],{encoding:'utf8'}).trim(),sha1);
 
+  const timeOnlySoon=packet('2026-09-20','2026-09-20T01:02:00.000Z',31,31,0,0);
+  const deferred=await publishDailyLearningPacket(timeOnlySoon,{env,home:temp});
+  assert.equal(deferred.status,'deferred_time_only','minute-only change inside throttle window must not push');
+  assert.equal(execFileSync('git',['--git-dir',remote,'rev-parse',ref],{encoding:'utf8'}).trim(),sha1);
+
+  const timeOnlyDue=packet('2026-09-20','2026-09-20T01:06:00.000Z',36,36,0,0);
+  const timePublished=await publishDailyLearningPacket(timeOnlyDue,{env,home:temp});
+  assert.equal(timePublished.status,'published','time-only change after throttle window must publish');
+  const shaTime=execFileSync('git',['--git-dir',remote,'rev-parse',ref],{encoding:'utf8'}).trim();
+  assert.notEqual(shaTime,sha1);
+
+  const semanticSoon=packet('2026-09-20','2026-09-20T01:07:00.000Z',37,37,0,0);
+  semanticSoon.subjects.xizong.evidence={
+    schema:'synthetic.xizong.evidence.v1',
+    resume:{status:'ready',block_id:'B05',stage:'kp_recall'}
+  };
+  const semanticPublished=await publishDailyLearningPacket(semanticSoon,{env,home:temp});
+  assert.equal(semanticPublished.status,'published','semantic Resume/evidence change must bypass time throttle');
+  const shaSemantic=execFileSync('git',['--git-dir',remote,'rev-parse',ref],{encoding:'utf8'}).trim();
+  assert.notEqual(shaSemantic,shaTime);
+
   const d1b=packet('2026-09-20','2026-09-20T02:00:00.000Z',75,35,40,0);
   const changed=await publishDailyLearningPacket(d1b,{env,home:temp});
   assert.equal(changed.status,'published');
