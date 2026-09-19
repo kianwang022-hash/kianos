@@ -172,3 +172,15 @@ Engineering readiness never means Kian has studied or attempted the module.
 Do not restart legacy `4173` convergence, retired Shared-Shell writer assignments or old branch histories as Current work.
 
 For launch, preserve the accepted English task geometry, inherit current shared Visual, fix concrete learner-visible defects, prove representative behavior, and stop.
+
+
+## Active fresh independent audit — 2026-09-19
+
+Owner branch: `work/english-final-independent-audit-20260919-r2`.
+Base inspected: `0536e1563b2ad9c52551fefb7369995170a4e103`.
+
+Kian approved the independent learner model/failure hypotheses/acceptance plan in Chat and authorized the full English-wide audit and bounded repairs. The older FINAL_LEARNER_ACCEPTANCE_BRIEF is absent from this base; that does not cancel the explicit task.
+
+Current result: independent synthetic boundary tests reproduce exam draft-loss/stale writes, Session identity/replay failures, Lexical event/demand conflation, and Translation segment-change evidence loss. Narrow candidate repairs are under executed browser/regression verification; this is NOT an English-wide PASS.
+
+Required remaining closure: verify candidate browser journeys; reconcile child evidence last; write path-scoped final findings including External inventory-only, cross-mode exposure and shared subject checkpoint limitations. Real macOS Human Gate and learner U cannot be manufactured.

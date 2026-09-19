@@ -102,14 +102,15 @@
 
     chat.addEventListener('click', async () => {
       const state = readJson(storageKey, {});
-      const source = prompts.map((prompt) => `[S${prompt.ordinal || ''}] ${prompt.sourceText || ''}`).join('\n\n');
+      const source = root.querySelector('[data-translation-source-text]')?.textContent?.trim() || prompts.map((prompt) => `[S${prompt.ordinal || ''}] ${prompt.sourceText || ''}`).join('\n\n');
       const first = prompts.map((prompt) => `[S${prompt.ordinal || ''}] ${state?.firstAttempts?.[prompt.id] || '—'}`).join('\n\n');
       const text = [
         '请帮我复盘这套考研英语翻译。',
         '先看整套是否已经稳定；如果有问题，只指出最重要、最上游的问题和最小修正方向。',
         '不要替我整套重写，也不需要返回 JSON；我会回网页自己重译。',
         '',
-        '原文：', source,
+        `Task: ${objectId} · First submitted: ${state?.firstSubmittedAt || 'unknown'}`,
+        '完整原文背景与待译句：', source,
         '',
         '我的第一版：', first
       ].join('\n');
@@ -214,7 +215,7 @@
     const revisionHint = node('small', '', '需要修时直接改；第一版已经锁定，不会被覆盖。');
     const revision = document.createElement('textarea');
     revision.rows = 16;
-    revision.placeholder = '在这里修改整篇；如果只需局部修，也可以只写受影响部分。';
+    revision.placeholder = '保留整篇作文，只修改真正受影响的部分；不要用一个局部片段替换整篇。';
     const saved = readJson(storageKey, {});
     revision.value = saved?.manualRevisionDraft || saved?.manualRevisions?.at?.(-1)?.text || saved?.firstDraft || '';
     revision.addEventListener('input', () => {
@@ -250,7 +251,7 @@
       const currentEssay = revision.value || state.firstDraft || '';
       const learnerTask = task.learnerTask || {};
       const prompt = task.kind === 'small'
-        ? [learnerTask.role, learnerTask.audience, learnerTask.background, learnerTask.directions].filter(Boolean).join('\n')
+        ? [learnerTask.role, learnerTask.audience, learnerTask.background, learnerTask.directions, ...(learnerTask.facts || [])].filter(Boolean).join('\n')
         : [learnerTask.visual_scenario, learnerTask.directions, learnerTask.observation_boundary].filter(Boolean).join('\n');
       const text = [
         '请帮我复盘这篇考研英语作文。',
@@ -259,7 +260,9 @@
         '',
         '题目：', prompt,
         '',
-        '我的作文：', currentEssay
+        `Task: ${task.id} · First submitted: ${state.firstSubmittedAt || 'unknown'}`,
+        '我的第一版：', state.firstDraft || '',
+        '我的当前完整修订：', currentEssay
       ].join('\n');
       status.textContent = await copyText(text) ? '已复制。直接在 Chat 讨论；回来改这篇就行。' : '复制失败，请手动复制。';
     });

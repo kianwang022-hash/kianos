@@ -80,6 +80,7 @@ export function startEnglishExamSession(paper, {
     objective_max_points: Number(paper.objective_max_points || 60),
     productive_max_points: Number(paper.productive_max_points || 40),
     task_order: taskOrder ? [...taskOrder] : [...paper.default_task_order],
+    revision: 0,
     current_step: 0,
     steps,
     captures: {},
@@ -99,6 +100,26 @@ export function validateEnglishExamSession(value) {
     throw new Error(`ENGLISH_EXAM_SESSION_STATUS_INVALID:${value.status}`);
   }
   value.steps.forEach(validateStep);
+  if (new Set(value.steps.map(step => step.step_id)).size !== value.steps.length) {
+    throw new Error('ENGLISH_EXAM_STEP_DUPLICATE');
+  }
+  const started = Date.parse(value.started_at);
+  const deadline = Date.parse(value.deadline_at);
+  const duration = Number(value.duration_minutes);
+  if (!Number.isFinite(started) || !Number.isFinite(deadline)
+      || !Number.isFinite(duration) || duration <= 0
+      || deadline - started !== duration * 60_000) {
+    throw new Error('ENGLISH_EXAM_DEADLINE_INVALID');
+  }
+  if (!value.captures || typeof value.captures !== 'object' || Array.isArray(value.captures)) {
+    throw new Error('ENGLISH_EXAM_CAPTURES_INVALID');
+  }
+  for (const [key, capture] of Object.entries(value.captures)) {
+    const step = value.steps.find(row => row.step_id === key);
+    if (!step || capture?.step_id !== key || capture?.task !== step.task || capture?.object_id !== step.object_id) {
+      throw new Error('ENGLISH_EXAM_CAPTURE_IDENTITY_INVALID');
+    }
+  }
   if (!Number.isInteger(Number(value.current_step)) || Number(value.current_step) < 0 || Number(value.current_step) > value.steps.length) {
     throw new Error('ENGLISH_EXAM_CURRENT_STEP_INVALID');
   }
@@ -119,6 +140,23 @@ export function readEnglishExamSession(storage) {
 export function writeEnglishExamSession(storage, state) {
   if (!storage?.setItem) throw new Error('ENGLISH_EXAM_STORAGE_UNAVAILABLE');
   const valid = validateEnglishExamSession(state);
+  // A stale task tab must never overwrite a newer capture or undo Seal/release.
+  // Invalid existing bytes remain untouched for recovery, rather than becoming 'no exam'.
+  const raw = storage.getItem?.(ENGLISH_EXAM_SESSION_KEY);
+  if (raw != null) {
+    const prior = validateEnglishExamSession(JSON.parse(raw));
+    if (JSON.stringify(prior) === JSON.stringify(valid)) return prior;
+    if (prior.session_id === valid.session_id) {
+      const ranks = { ACTIVE: 0, SEALED: 1, RELEASED: 2 };
+      if (ranks[valid.status] < ranks[prior.status]
+          || (prior.status !== 'ACTIVE' && valid.status === prior.status)
+          || Number(valid.revision || 0) <= Number(prior.revision || 0)) {
+        throw new Error('ENGLISH_EXAM_STALE_WRITE');
+      }
+    } else if (Date.parse(valid.started_at) <= Date.parse(prior.updated_at)) {
+      throw new Error('ENGLISH_EXAM_STALE_SESSION');
+    }
+  }
   storage.setItem(ENGLISH_EXAM_SESSION_KEY, JSON.stringify(valid));
   return valid;
 }
@@ -151,6 +189,7 @@ export function captureEnglishExamStep(state, {
 } = {}) {
   const current = validateEnglishExamSession(state);
   if (current.status !== 'ACTIVE') throw new Error('ENGLISH_EXAM_NOT_ACTIVE');
+  if (englishExamRemainingMs(current, now) <= 0) throw new Error('ENGLISH_EXAM_DEADLINE_PASSED');
   const index = current.steps.findIndex((step) => step.step_id === stepId);
   if (index < 0) throw new Error(`ENGLISH_EXAM_STEP_UNKNOWN:${stepId}`);
   const step = current.steps[index];
@@ -167,6 +206,7 @@ export function captureEnglishExamStep(state, {
     payload: clone(payload)
   };
   updated.current_step = nextUncapturedIndex(updated, index);
+  updated.revision = Number(current.revision || 0) + 1;
   updated.updated_at = iso(now);
   return updated;
 }
@@ -174,12 +214,14 @@ export function captureEnglishExamStep(state, {
 export function selectEnglishExamStep(state, index, now = Date.now()) {
   const current = validateEnglishExamSession(state);
   if (current.status !== 'ACTIVE') throw new Error('ENGLISH_EXAM_NOT_ACTIVE');
+  if (englishExamRemainingMs(current, now) <= 0) throw new Error('ENGLISH_EXAM_DEADLINE_PASSED');
   const target = Number(index);
   if (!Number.isInteger(target) || target < 0 || target >= current.steps.length) {
     throw new Error('ENGLISH_EXAM_STEP_INDEX_INVALID');
   }
   const updated = clone(current);
   updated.current_step = target;
+  updated.revision = Number(current.revision || 0) + 1;
   updated.updated_at = iso(now);
   return updated;
 }
@@ -190,7 +232,8 @@ export function sealEnglishExamSession(state, now = Date.now()) {
   const updated = clone(current);
   updated.status = 'SEALED';
   updated.current_step = updated.steps.length;
-  updated.sealed_at = iso(now);
+  updated.sealed_at = iso(Math.min(finiteTime(now, 'seal'), Date.parse(current.deadline_at)));
+  updated.revision = Number(current.revision || 0) + 1;
   updated.updated_at = iso(now);
   return updated;
 }
@@ -205,6 +248,7 @@ function normalizeAnswers(value) {
 export function releaseEnglishExamObjective(state, answerPacket, now = Date.now()) {
   const current = validateEnglishExamSession(state);
   if (current.status === 'ACTIVE') throw new Error('ENGLISH_EXAM_MUST_BE_SEALED');
+  if (current.status === 'RELEASED') return current;
   if (answerPacket?.schema !== ENGLISH_EXAM_ANSWER_SCHEMA || answerPacket?.paper_id !== current.paper_id) {
     throw new Error('ENGLISH_EXAM_ANSWER_PACKET_INVALID');
   }
@@ -237,6 +281,7 @@ export function releaseEnglishExamObjective(state, answerPacket, now = Date.now(
   const updated = clone(current);
   updated.status = 'RELEASED';
   updated.released_at = iso(now);
+  updated.revision = Number(current.revision || 0) + 1;
   updated.updated_at = iso(now);
   updated.release = {
     objective: {
@@ -311,4 +356,56 @@ export function buildEnglishExamEvidencePacket(state) {
     })),
     release: clone(current.release)
   };
+}
+
+/** Extract learner output only; never load answer keys or ordinary-study records. */
+export function englishExamDraftPayload(task, local = {}) {
+  if (OBJECTIVE_TASKS.has(task)) return {
+    answers: clone(local.answers || {}),
+    uncertain: clone(local.uncertain || []),
+    trajectory: clone(local.trajectory || {}),
+    started_at: local.startedAt || null
+  };
+  if (task === 'translation') return {
+    answers: clone(local.drafts || {}),
+    started_at: local.startedAt || null
+  };
+  if (task === 'writing') return {
+    plan_mode: local.planMode === 'planned' ? 'planned' : 'direct',
+    plan: String(local.draftPlan || ''),
+    essay: String(local.draftEssay || ''),
+    started_at: local.startedAt || local.createdAt || null
+  };
+  throw new Error('ENGLISH_EXAM_DRAFT_TASK_INVALID');
+}
+
+/** Seal snapshots ALL saved exam drafts, including an unfinished current part.
+ * A snapshot is not a claim that the learner finished that part.
+ * This function prepares an atomic session value; the caller persists it once.
+ */
+export function sealEnglishExamFromStorage(storage, state, now = Date.now()) {
+  const current = validateEnglishExamSession(state);
+  if (current.status !== 'ACTIVE') return current;
+  const prepared = clone(current);
+  for (const step of current.steps) {
+    const key = `kianos-english-exam-task-v1:${current.session_id}:${step.task}:${step.object_id}`;
+    const raw = storage?.getItem?.(key);
+    if (raw == null) continue;
+    let local;
+    try { local = JSON.parse(raw); }
+    catch { throw new Error(`ENGLISH_EXAM_DRAFT_CORRUPT:${step.step_id}`); }
+    if (!local || typeof local !== 'object' || Array.isArray(local)) {
+      throw new Error(`ENGLISH_EXAM_DRAFT_INVALID:${step.step_id}`);
+    }
+    prepared.captures[step.step_id] = {
+      step_id: step.step_id,
+      task: step.task,
+      object_id: step.object_id,
+      completed_at: current.captures[step.step_id]?.completed_at || null,
+      captured_at: iso(now),
+      capture_kind: 'SEAL_SNAPSHOT',
+      payload: englishExamDraftPayload(step.task, local)
+    };
+  }
+  return sealEnglishExamSession(prepared, now);
 }

@@ -28,7 +28,8 @@ const base = import.meta.env.BASE_URL;
     writeEnglishExamSession,
     englishExamRemainingMs,
     captureEnglishExamStep,
-    sealEnglishExamSession,
+    sealEnglishExamFromStorage,
+    englishExamDraftPayload,
     englishExamTaskHref
   } from '../lib/englishExamSession.mjs';
 
@@ -69,32 +70,7 @@ const base = import.meta.env.BASE_URL;
         catch { return {}; }
       };
 
-      const capturePayload = () => {
-        const local = readTaskState();
-        if (['reading_a', 'cloze', 'reading_b'].includes(task)) {
-          return {
-            answers: local.answers && typeof local.answers === 'object' ? local.answers : {},
-            uncertain: Array.isArray(local.uncertain) ? local.uncertain : [],
-            started_at: local.startedAt || null,
-            trajectory: local.trajectory && typeof local.trajectory === 'object' ? local.trajectory : {}
-          };
-        }
-        if (task === 'translation') {
-          return {
-            answers: local.drafts && typeof local.drafts === 'object' ? local.drafts : {},
-            started_at: local.startedAt || null
-          };
-        }
-        if (task === 'writing') {
-          return {
-            plan_mode: local.planMode || 'planned',
-            plan: local.draftPlan || '',
-            essay: local.draftEssay || '',
-            started_at: local.startedAt || null
-          };
-        }
-        return {};
-      };
+      const capturePayload = () => englishExamDraftPayload(task, readTaskState());
 
       const routeNext = () => {
         if (state.current_step >= state.steps.length) {
@@ -114,8 +90,14 @@ const base = import.meta.env.BASE_URL;
         if (completing) return;
         completing = true;
         try {
+          const latest = readEnglishExamSession(localStorage);
+          if (!latest || latest.session_id !== querySession || latest.status !== 'ACTIVE') {
+            location.href = `${base}english-exam/${encodeURIComponent(state.paper_id)}/`;
+            return;
+          }
+          state = latest;
           if (englishExamRemainingMs(state) <= 0) {
-            state = sealEnglishExamSession(state);
+            state = sealEnglishExamFromStorage(localStorage, state);
             writeEnglishExamSession(localStorage, state);
             location.href = `${base}english-exam/${encodeURIComponent(state.paper_id)}/`;
             return;
@@ -158,17 +140,35 @@ const base = import.meta.env.BASE_URL;
       }, true);
 
       const renderTime = () => {
+        const latest = readEnglishExamSession(localStorage);
+        if (!latest || latest.session_id !== querySession || latest.status !== 'ACTIVE') {
+          location.href = `${base}english-exam/${encodeURIComponent(state.paper_id)}/`;
+          return;
+        }
+        state = latest;
         const ms = englishExamRemainingMs(state);
         const totalSeconds = Math.max(0, Math.ceil(ms / 1000));
         const minutes = Math.floor(totalSeconds / 60);
         const seconds = totalSeconds % 60;
         if (remaining) remaining.textContent = `${String(minutes).padStart(3, '0')}:${String(seconds).padStart(2, '0')}`;
         if (ms <= 0 && state.status === 'ACTIVE') {
-          state = sealEnglishExamSession(state);
+          state = sealEnglishExamFromStorage(localStorage, state);
           writeEnglishExamSession(localStorage, state);
           location.href = `${base}english-exam/${encodeURIComponent(state.paper_id)}/`;
         }
       };
+      // Fence input at the absolute deadline before workspace listeners can save it.
+      for (const type of ['beforeinput', 'keydown', 'click']) {
+        window.addEventListener(type, (event) => {
+          const latest = readEnglishExamSession(localStorage);
+          if (!latest || latest.session_id !== querySession || latest.status !== 'ACTIVE'
+              || englishExamRemainingMs(latest) <= 0) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            renderTime();
+          }
+        }, true);
+      }
       renderTime();
       setInterval(renderTime, 1000);
     }

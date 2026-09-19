@@ -59,12 +59,16 @@ export function lexicalEventFromObjectiveThread({
   if (!OUTCOMES.has(outcome)) return { status: 'REJECTED_INVALID_OUTCOME', event: null };
   if (!observedAt) return { status: 'REJECTED_MISSING_OCCURRENCE_TIME', event: null };
 
+  const origin = `${clean(task)}:${clean(objectId)}`;
+  if (evidence.source_task_id && clean(evidence.source_task_id) !== origin) return { status: 'REJECTED_SOURCE_IDENTITY', event: null };
+
   const threadId = clean(thread.threadId) || `t${Number(threadIndex) + 1}`;
   const targetIdentity = targetId || `${targetLocator}@${targetRevision}`;
   const explicitEventId = clean(evidence.event_id);
   const eventId = explicitEventId || [
     'english', eventPart(task), eventPart(objectId), eventPart(threadId),
-    eventPart(wordId), eventPart(targetKind), eventPart(targetIdentity), eventPart(outcome)
+    eventPart(wordId), eventPart(targetKind), eventPart(targetIdentity), eventPart(outcome),
+    eventPart(validIso(attemptSubmittedAt) || observedAt)
   ].join(':');
 
   const event = {

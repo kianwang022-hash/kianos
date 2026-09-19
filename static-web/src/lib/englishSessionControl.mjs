@@ -66,7 +66,12 @@ function normalizeStep(step, index) {
       params.task_order = step.params.task_order.map((value) => clean(value, 40)).filter(Boolean);
     }
   }
+  const intent = clean(step.intent || 'continue', 30);
+  if (!['continue', 'attempt', 'repair', 'review', 'retry'].includes(intent)) {
+    throw new Error('ENGLISH_SESSION_INTENT_INVALID:' + intent);
+  }
   return {
+    intent,
     step_id: clean(step.step_id || step.stepId || ('step-' + (index + 1)), 80),
     task,
     object_id: objectId,
@@ -102,6 +107,9 @@ export function validateEnglishSessionInstruction(value, expectedDay = null) {
     throw new Error('ENGLISH_SESSION_STEP_COUNT_INVALID:' + steps.length);
   }
 
+  if (new Set(steps.map(step => step.step_id)).size !== steps.length) {
+    throw new Error('ENGLISH_SESSION_STEP_ID_DUPLICATE');
+  }
   const currentStep = Number(value.current_step ?? value.currentStep ?? 0);
   if (!Number.isInteger(currentStep) || currentStep < 0 || currentStep >= steps.length) {
     throw new Error('ENGLISH_SESSION_CURRENT_STEP_INVALID:' + currentStep);
@@ -169,9 +177,39 @@ export function readEnglishSessionInstruction(storage, expectedDay = null) {
   }
 }
 
-export function writeEnglishSessionInstruction(storage, input, expectedDay = null) {
+export function assertEnglishSessionTargets(instruction, catalog) {
+  if (!catalog || typeof catalog !== 'object') throw new Error('ENGLISH_SESSION_CURRENT_CATALOG_REQUIRED');
+  for (const step of instruction.steps) {
+    if (!Array.isArray(catalog[step.task]) || !catalog[step.task].includes(step.object_id)) {
+      throw new Error(`ENGLISH_SESSION_CURRENT_OBJECT_UNKNOWN:${step.task}:${step.object_id}`);
+    }
+    if (step.task === 'full_paper' && step.params?.task_order) {
+      const order = step.params.task_order;
+      const tasks = ['cloze', 'reading_a', 'reading_b', 'translation', 'writing'];
+      if (order.length !== tasks.length || new Set(order).size !== tasks.length || order.some(task => !tasks.includes(task))) {
+        throw new Error('ENGLISH_SESSION_EXAM_ORDER_INVALID');
+      }
+    }
+  }
+  return instruction;
+}
+
+export function writeEnglishSessionInstruction(storage, input, expectedDay = null, catalog = null) {
   if (!storage?.setItem) throw new Error('ENGLISH_SESSION_STORAGE_UNAVAILABLE');
-  const instruction = parseEnglishSessionInstruction(input, expectedDay);
+  const instruction = assertEnglishSessionTargets(parseEnglishSessionInstruction(input, expectedDay), catalog);
+  const prior = readEnglishSessionInstruction(storage);
+  if (prior.status === 'invalid') throw new Error('ENGLISH_SESSION_EXISTING_INVALID_RECOVER_FIRST');
+  if (prior.instruction) {
+    const previous = prior.instruction;
+    if (previous.session_id === instruction.session_id) {
+      const signature = value => JSON.stringify({ ...value, current_step: 0 });
+      if (signature(previous) !== signature(instruction)) throw new Error('ENGLISH_SESSION_ID_CONFLICT');
+      return previous; // An identical replay never rewinds an already advanced cursor.
+    }
+    if (Date.parse(instruction.generated_at) <= Date.parse(previous.generated_at)) {
+      throw new Error('ENGLISH_SESSION_STALE_GENERATION');
+    }
+  }
   storage.setItem(ENGLISH_SESSION_KEY, JSON.stringify(instruction));
   return instruction;
 }
@@ -263,6 +301,8 @@ export function buildEnglishEvidencePacket(storage, { day, now = Date.now() } = 
     schema: ENGLISH_EVIDENCE_SCHEMA,
     study_day: day,
     generated_at: new Date(now).toISOString(),
+    attempt_inventory: collectEnglishAttemptInventory(storage),
+    coverage: 'available-local-records-only; missing evidence remains unknown',
     tasks: clone({
       reading_a: objectiveEvidence(storage, LAST_LOCATION_KEYS.reading_a, 'kianos-reading-attempt-v1:'),
       cloze: objectiveEvidence(storage, LAST_LOCATION_KEYS.cloze, 'kianos-cloze-attempt-v1:'),
@@ -299,7 +339,7 @@ export function buildEnglishChatHandoffText(storage, { day, now = Date.now() } =
     '',
     'HOW TO READ IT',
     '- EVIDENCE_JSON is factual learner/runtime state, not a recommendation, mastery claim, or task priority table.',
-    '- If GitHub access is available, first read kianwang022-hash/kianos@main content/english/CURRENT.md, then only the exact child owner needed for the task. Do not revive legacy architecture.',
+    '- Start with the supplied private learner evidence. If source/learning context is needed, read kianwang022-hash/kianos@main content/english/LEARNING_CONTRACT.md and the exact Current task owner. Engineering CURRENT is not learner progress.',
     '- Apply the current English Learning Contract: stable work stays cheap; real problems get the smallest useful repair; Chat owns cross-task next-step selection; the website only executes the selected task.',
     '- Missing evidence means unknown, not failed. Finished work must not be turned back into Resume debt.',
     '',
@@ -316,3 +356,66 @@ export function buildEnglishChatHandoffText(storage, { day, now = Date.now() } =
   ].join('\n');
 }
 
+
+/** All available task identities, not merely the most recently opened page.
+ * This is factual inventory, never a priority queue or a recommendation.
+ */
+export function collectEnglishAttemptInventory(storage) {
+  const prefixes = {
+    'kianos-reading-attempt-v1:': 'reading_a',
+    'kianos-cloze-attempt-v1:': 'cloze',
+    'kianos-reading-b-attempt-v1:': 'reading_b',
+    'kianos-translation-attempt-v2:': 'translation',
+    'kianos-writing-runtime-v1:': 'writing'
+  };
+  const rows = [];
+  for (let index = 0; index < Number(storage?.length || 0); index += 1) {
+    const key = storage.key(index);
+    const prefix = Object.keys(prefixes).find(value => key?.startsWith(value));
+    if (!prefix) continue;
+    const objectId = key.slice(prefix.length);
+    let value;
+    try { value = JSON.parse(storage.getItem(key)); }
+    catch { rows.push({ task: prefixes[prefix], object_id: objectId, record_status: 'unreadable' }); continue; }
+    rows.push({
+      task: prefixes[prefix], object_id: objectId,
+      record_status: value && typeof value === 'object' ? 'available' : 'invalid',
+      state: value?.stage || value?.state || null,
+      submitted: value?.submitted === true,
+      submitted_at: value?.submittedAt || value?.firstSubmittedAt || null,
+      has_first_attempt: Boolean(value?.firstDraft || Object.keys(value?.firstAttempts || {}).length),
+      problem_count: problemCount(value),
+      uncertain_count: Array.isArray(value?.uncertain) ? value.uncertain.length : 0,
+      started_at: value?.startedAt || value?.createdAt || null,
+      updated_at: value?.updatedAt || value?.updated_at || null
+    });
+  }
+  return rows.sort((a, b) => a.task.localeCompare(b.task) || a.object_id.localeCompare(b.object_id));
+}
+
+/** Follow only the order Chat explicitly supplied. Do not rank tasks here. */
+export function englishSessionResumeStep(storage, instruction) {
+  for (let index = instruction.current_step; index < instruction.steps.length; index += 1) {
+    const step = instruction.steps[index];
+    if (['review', 'repair', 'retry'].includes(step.intent)) return { step, index };
+    let complete = false;
+    if (step.task === 'writing') {
+      const record = readJson(storage, 'kianos-writing-runtime-v1:' + step.object_id);
+      complete = ['PASS_ACCEPTABLE', 'REPAIR_COMPLETE', 'TRANSFER_PENDING'].includes(record?.state);
+    } else if (step.task === 'translation') {
+      const record = readJson(storage, 'kianos-translation-attempt-v2:' + step.object_id);
+      complete = ['passed', 'repaired', 'transfer_pending'].includes(record?.stage);
+    } else if (['reading_a', 'cloze', 'reading_b'].includes(step.task)) {
+      const prefix = {reading_a:'kianos-reading-attempt-v1:',cloze:'kianos-cloze-attempt-v1:',reading_b:'kianos-reading-b-attempt-v1:'}[step.task];
+      const record = readJson(storage, prefix + step.object_id);
+      complete = record?.submitted === true && Object.keys(record.results || {}).length > 0
+        && Object.values(record.results).every(result => result === 'correct')
+        && !(record.uncertain || []).length;
+    } else if (step.task === 'full_paper') {
+      const record = readEnglishExamSession(storage);
+      complete = record?.paper_id === step.object_id && ['SEALED', 'RELEASED'].includes(record.status);
+    }
+    if (!complete) return { step, index };
+  }
+  return null;
+}

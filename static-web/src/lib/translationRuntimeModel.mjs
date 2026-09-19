@@ -119,6 +119,17 @@ export function normalizeTranslationState(prompts = [], saved = null) {
   }
   const hasFirst = ids.length > 0 && ids.every((id) => clean(state.firstAttempts?.[id]));
   if (!hasFirst) {
+    if (Object.keys(state.firstAttempts).length || state.firstSubmittedAt) {
+      state.history = [...state.history, {
+        reason: 'CURRENT_SEGMENT_IDENTITY_CHANGED',
+        firstAttempts: structuredClone(state.firstAttempts),
+        firstSubmittedAt: state.firstSubmittedAt,
+        drafts: structuredClone(state.drafts),
+        reconstructions: structuredClone(state.reconstructions),
+        previousStage: state.stage,
+        archivedAt: nowIso()
+      }];
+    }
     state.stage = 'attempt';
     state.firstAttempts = {};
     state.firstSubmittedAt = '';

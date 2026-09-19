@@ -87,7 +87,7 @@ const serverTaskLabel = (step) => ({
     englishExamTaskHref,
     readEnglishExamSession,
     releaseEnglishExamObjective,
-    sealEnglishExamSession,
+    sealEnglishExamFromStorage,
     selectEnglishExamStep,
     startEnglishExamSession,
     writeEnglishExamSession
@@ -254,7 +254,7 @@ const serverTaskLabel = (step) => ({
       const state = currentSession();
       if (!state || state.status !== 'ACTIVE') return;
       if (!confirm('确认提前交卷？交卷后不能继续修改这次整卷作答。')) return;
-      writeSession(sealEnglishExamSession(state));
+      writeSession(sealEnglishExamFromStorage(localStorage, state));
       setStatus('已交卷。现在可以查看客观题结果。');
       render();
     });
@@ -298,7 +298,7 @@ const serverTaskLabel = (step) => ({
       const rest = seconds % 60;
       if (clock) clock.textContent = String(minutes).padStart(3, '0') + ':' + String(rest).padStart(2, '0');
       if (ms <= 0) {
-        writeSession(sealEnglishExamSession(state));
+        writeSession(sealEnglishExamFromStorage(localStorage, state));
         setStatus('180 分钟到，整卷已自动交卷。');
         render();
       }

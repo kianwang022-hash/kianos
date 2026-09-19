@@ -16,6 +16,8 @@ const base = import.meta.env.BASE_URL;
   import {
     ENGLISH_SESSION_KEY,
     readEnglishSessionInstruction,
+    assertEnglishSessionTargets,
+    englishSessionResumeStep,
     englishSessionStepHref
   } from '../lib/englishSessionControl.mjs';
   import { WRITING_STATES } from '../lib/writingRuntimeModel.mjs';
@@ -39,11 +41,6 @@ const base = import.meta.env.BASE_URL;
       try { return JSON.parse(localStorage.getItem(key) || 'null'); }
       catch { return null; }
     };
-    const selectedStepIsComplete = (step) => {
-      if (step?.task !== 'writing' || !step?.object_id) return false;
-      const record = readJson(`kianos-writing-runtime-v1:${step.object_id}`);
-      return [WRITING_STATES.PASS_ACCEPTABLE, WRITING_STATES.REPAIR_COMPLETE].includes(record?.state);
-    };
 
     const render = () => {
       if (!(resume instanceof HTMLElement)
@@ -58,9 +55,14 @@ const base = import.meta.env.BASE_URL;
       }
 
       const instruction = state.instruction;
-      const step = instruction.steps[instruction.current_step];
+      try {
+        const catalog = JSON.parse(document.querySelector('[data-english-session-catalog]')?.textContent || 'null');
+        assertEnglishSessionTargets(instruction, catalog);
+      } catch { resume.hidden = true; return; }
+      const selected = englishSessionResumeStep(localStorage, instruction);
+      const step = selected?.step;
       const href = englishSessionStepHref(step, base);
-      if (!step || !href || selectedStepIsComplete(step)) {
+      if (!step || !href) {
         resume.hidden = true;
         return;
       }
@@ -68,7 +70,7 @@ const base = import.meta.env.BASE_URL;
       resume.hidden = false;
       title.textContent = step.label || `${taskLabels[step.task] || step.task} · ${step.object_id}`;
       meta.textContent = step.note
-        || `Session ${instruction.current_step + 1} / ${instruction.steps.length} · Chat 已选择，本页不重新排序`;
+        || `Session ${selected.index + 1} / ${instruction.steps.length} · Chat 已选择，本页不重新排序`;
       link.href = href;
     };
 

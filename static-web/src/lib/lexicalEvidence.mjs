@@ -343,6 +343,7 @@ export function deriveRepairStates(ledgerInput) {
       target_revision: identity.target_revision || null,
       state: 'NONE',
       required_demand: null,
+      required_demands: [],
       activated_at: null,
       last_evidence_at: null,
       last_event_id: null,
@@ -355,7 +356,8 @@ export function deriveRepairStates(ledgerInput) {
       state.activated_at = event.observed_at;
       state.last_evidence_at = event.observed_at;
       state.last_event_id = event.event_id;
-      if (event.demand) state.required_demand = event.demand;
+      if (!state.required_demands.includes(event.demand || 'unknown')) state.required_demands.push(event.demand || 'unknown');
+      state.required_demand = state.required_demands.length === 1 ? state.required_demands[0] : null;
       if (event.outcome === 'WRONG' || event.outcome === 'AGAIN') {
         state.failure_count_since_dormant += 1;
         if (state.failure_count_since_dormant >= 2) state.diagnosis_required = true;
@@ -369,16 +371,28 @@ export function deriveRepairStates(ledgerInput) {
         state.activated_at = state.activated_at || event.observed_at;
         state.last_evidence_at = event.observed_at;
         state.last_event_id = event.event_id;
-        if (event.demand) state.required_demand = event.demand;
+        if (!state.required_demands.includes(event.demand || 'unknown')) state.required_demands.push(event.demand || 'unknown');
+      state.required_demand = state.required_demands.length === 1 ? state.required_demands[0] : null;
       }
     } else if (event.outcome === 'CLEAR') {
+      state.required_demands = [];
+      state.required_demand = null;
       slowContexts.set(key, new Set());
       state.state = 'DORMANT';
       state.last_evidence_at = event.observed_at;
       state.last_event_id = event.event_id;
       state.failure_count_since_dormant = 0;
       state.diagnosis_required = false;
-    } else if (qualifiesForDormancy(event, state.required_demand)) {
+    } else if (qualifiesForDormancy(event, event.demand || null)
+        && (!state.required_demands.length || state.required_demands.includes(event.demand))) {
+      state.required_demands = state.required_demands.filter(demand => demand !== event.demand);
+      state.required_demand = state.required_demands.length === 1 ? state.required_demands[0] : null;
+      if (state.required_demands.length) {
+        state.last_evidence_at = event.observed_at;
+        state.last_event_id = event.event_id;
+        states.set(key, state);
+        continue;
+      }
       slowContexts.set(key, new Set());
       state.state = 'DORMANT';
       state.last_evidence_at = event.observed_at;
