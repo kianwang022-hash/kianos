@@ -210,9 +210,17 @@ def apply_package(root: Path, package_path: Path, branch_name: str | None):
     paths = [w.get("path") for w in writes]
     require(len(paths) == len(set(paths)), "DUPLICATE_WRITE_PATH")
 
+    relation_dir = root / "content/lexical/relations/by-id"
+    relation_manifest_path = safe(root, REL_MANIFEST)
+    before_relation_files = len(list(relation_dir.glob("*/*.json"))) if relation_dir.is_dir() else 0
+    before_manifest_count = None
+    if relation_manifest_path.is_file():
+        before_manifest_count = load_json(relation_manifest_path).get("relation_count")
+
     before_hashes = {}
     changed_words = []
     applied = []
+    created_relation_files = 0
 
     for w in writes:
         require(set(w) <= {"path", "mode", "expected_sha256", "expected_absent", "edits", "value"},
@@ -231,6 +239,8 @@ def apply_package(root: Path, package_path: Path, branch_name: str | None):
             path.parent.mkdir(parents=True, exist_ok=True)
             save_json(path, obj)
             before_hashes[rel] = None
+            if REL_RE.fullmatch(rel):
+                created_relation_files += 1
         else:
             require(path.is_file(), "PATCH_PATH_MISSING")
             expected = w.get("expected_sha256")
@@ -262,11 +272,23 @@ def apply_package(root: Path, package_path: Path, branch_name: str | None):
 
     validate_relation_refs(root, changed_words)
 
-    relation_manifest = safe(root, REL_MANIFEST)
-    if relation_manifest.is_file():
-        manifest = load_json(relation_manifest)
-        relation_files = list((root / "content/lexical/relations/by-id").glob("*/*.json"))
-        require(manifest.get("relation_count") == len(relation_files), "RELATION_MANIFEST_COUNT_MISMATCH")
+    after_relation_files = len(list(relation_dir.glob("*/*.json"))) if relation_dir.is_dir() else 0
+    after_manifest_count = load_json(relation_manifest_path).get("relation_count") if relation_manifest_path.is_file() else None
+    require(after_relation_files - before_relation_files == created_relation_files,
+            "UNDECLARED_RELATION_FILE_COUNT_CHANGE")
+    if created_relation_files:
+        require(before_manifest_count is not None and after_manifest_count is not None,
+                "RELATION_MANIFEST_REQUIRED_FOR_NEW_RELATION")
+        require(after_manifest_count - before_manifest_count == created_relation_files,
+                "RELATION_MANIFEST_DELTA_MISMATCH")
+    elif before_manifest_count is not None:
+        require(after_manifest_count == before_manifest_count,
+                "UNEXPECTED_RELATION_MANIFEST_CHANGE")
+    if before_manifest_count is not None and after_manifest_count is not None:
+        require(
+            (after_relation_files - after_manifest_count) == (before_relation_files - before_manifest_count),
+            "RELATION_MANIFEST_EXISTING_GAP_WORSENED",
+        )
 
     pkg_hash = filehash(package_path)
     receipt = {
