@@ -308,6 +308,62 @@ assert.equal(crossOnly.coverage.xizong, 'attached',
 assert.equal(crossOnly.packet.subjects.xizong.evidence.current_block, null);
 assert.equal(crossOnly.packet.subjects.xizong.evidence.events.memory_recall.length, 1);
 
+const queueOnlyStorage = new MemoryStorage({
+  [STUDY_TIMER_STATE_KEY]: JSON.stringify({
+    schema: STUDY_TIMER_SCHEMA,
+    running: false,
+    manualPaused: true,
+    subject: null,
+    context: null,
+    segmentStartedAt: null,
+    lastSeenAt: now,
+    revision: 1,
+    updatedAt: now
+  }),
+  [STUDY_TIMER_LEDGER_KEY]: JSON.stringify({ schema: STUDY_TIMER_SCHEMA, sessions: [] }),
+  ['kianos-xizong-memory-v1']: JSON.stringify({
+    schema: 'kianos.xizong.memory.v1',
+    revision: 1,
+    releasedBlocks: {
+      'a1-r01': {
+        blockId:'a1-r01', systemId:'a1', sourceHash:'queue-source',
+        releasedAt:'2026-09-18T00:00:00.000Z', refreshedAt:'2026-09-18T00:00:00.000Z',
+        coreCardIds:['core:a1-r01-kp01'], precisionCardIds:[]
+      }
+    },
+    cards: {
+      'core:a1-r01-kp01': {
+        id:'core:a1-r01-kp01', family:'CORE', systemId:'a1',
+        blockId:'a1-r01', kpId:'a1-r01-kp01', sourceHash:'queue-source'
+      }
+    },
+    promptOverrides:{},
+    marks:{},
+    evidence:[],
+    attention:{
+      'core:a1-r01-kp01':{
+        reviewRequested:true,
+        reason:'LEARNER_REQUESTED',
+        updatedAt:'2026-09-18T23:00:00.000Z'
+      }
+    },
+    repairTasks:[]
+  })
+});
+const queueOnly = buildHomeDailyLearningPacket({
+  storage: queueOnlyStorage,
+  day,
+  now,
+  xizongPacketIndex,
+  politicsCatalog,
+  base: '/'
+});
+assert.equal(queueOnly.coverage.xizong,'attached',
+  'current Xizong review targets must attach before any new study-day evidence exists');
+assert.equal(queueOnly.packet.subjects.xizong.evidence.events.memory_recall.length,0);
+assert.equal(queueOnly.packet.subjects.xizong.evidence.current.memory_today.length,1);
+assert.equal(queueOnly.packet.subjects.xizong.evidence.current.memory_today[0].source_hash,'queue-source');
+
 const corruptPolitics = new MemoryStorage(Object.fromEntries(storage.map.entries()));
 corruptPolitics.setItem(PRACTICE_KEYS.meta, '{bad-json');
 const partial = buildHomeDailyLearningPacket({
