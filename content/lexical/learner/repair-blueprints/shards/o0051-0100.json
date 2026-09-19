@@ -4,47 +4,9 @@
     "start_ordinal": 51,
     "end_ordinal": 100
   },
-  "authority": "content/lexical/LEARNING_CONTRACT.md + CONTENT_ASSET_CONTRACT.md + approved shard Human Gate 2026-09-19",
-  "generation_rule": "Blueprints store stable diagnostic intent; concrete instances are generated fresh from latest canonical content + learner evidence.",
+  "authority": "content/lexical/LEARNING_CONTRACT.md + CONTENT_ASSET_CONTRACT.md + approved final-standard backfill delta 2026-09-19",
+  "generation_rule": "Stable diagnostic intent only; concrete instances generated fresh. Content value and prebuilt Test value are judged separately.",
   "entries": [
-    {
-      "blueprint_id": "repair-blueprint:o0052:acquaintance:v1",
-      "word_id": "word:acquaintance",
-      "ordinal": 52,
-      "word": "acquaintance",
-      "target": {
-        "target_kind": "construction",
-        "target_id": "construction:acquaintance:handoff-a1e7e1af188a1fd1",
-        "target_locator": "record.constructions[0]"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "识别 a passing acquaintance with 是“对某事略有了解”，而不是“一个泛泛之交的人”。",
-      "decision_boundary_cn": "让 acquaintance 的“熟人/相识”分支与“有限了解”构式同时保持语法可行，必须靠 with + 知识对象选对。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然且不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 a passing acquaintance with 的整体构式义。",
-      "reconstruction_rule_cn": "换成不同领域的 knowledge/topic 对象，仍测试“略有了解”而非“熟人”。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0054:acquisition:v1",
-      "word_id": "word:acquisition",
-      "ordinal": 54,
-      "word": "acquisition",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "在“习得过程 / 新获得物 / 企业收购”三个 acquisition 分支间快速选义。",
-      "decision_boundary_cn": "用 knowledge/skill、collection/item、company/business 三类对象决定分支，不给中文提示。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然且不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 acquisition 的对象驱动分支模型。",
-      "reconstruction_rule_cn": "更换对象类别，在三分支中重新判断。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
     {
       "blueprint_id": "repair-blueprint:o0056:across:v1",
       "word_id": "word:across",
@@ -65,98 +27,22 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0057:act:v1",
-      "word_id": "word:act",
-      "ordinal": 57,
-      "word": "act",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "在行动/表现、表演、行为、戏剧一幕、法案几个 act 分支间靠场景快速分支。",
-      "decision_boundary_cn": "用 do/function、film/role、an act of、Act + number、legislature 等场景线索决定义项。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然且不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 act 的场景分支，不重学整词。",
-      "reconstruction_rule_cn": "换一个不同场景类别重新选择分支。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0058:action:v1",
-      "word_id": "word:action",
-      "ordinal": 58,
-      "word": "action",
-      "target": {
-        "target_kind": "sense",
-        "target_id": "sense:action:dff3f124f9e65911",
-        "target_locator": "record.senses[1]"
-      },
-      "demand": "recognition",
-      "diagnostic_intent_cn": "识别 scientific/technical 语境中 action 可指“作用、运作、机制”，不是“采取行动”。",
-      "decision_boundary_cn": "上下文出现 drug/enzyme/mechanism/process 等对象时，常规 action=措施作为合理干扰。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然且不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 action 的“作用/机制”学术分支。",
-      "reconstruction_rule_cn": "换成另一科学过程或药理语境重建。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0060:active:v1",
-      "word_id": "word:active",
-      "ordinal": 60,
-      "word": "active",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分积极主动、正在运行/使用、疾病活动性三个 active 分支。",
-      "decision_boundary_cn": "用 participant、account/system、disease/inflammation 等名词让分支由修饰对象决定。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然且不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 active 的对象驱动分支。",
-      "reconstruction_rule_cn": "更换被修饰名词，在三类语境重新判断。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0062:actor:v1",
-      "word_id": "word:actor",
-      "ordinal": 62,
-      "word": "actor",
-      "target": {
-        "target_kind": "sense",
-        "target_id": "sense:actor:f211191920865162",
-        "target_locator": "record.senses[1]"
-      },
-      "demand": "recognition",
-      "diagnostic_intent_cn": "识别 academic/policy/process 语境中的 actor 是“行动者/参与主体”，不一定是演员。",
-      "decision_boundary_cn": "用 institutional/market/political/process 等搭配，演员义作为最熟悉干扰。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然且不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 actor 的抽象行动者义。",
-      "reconstruction_rule_cn": "换成另一社会科学或系统过程语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0063:actual:v1",
       "word_id": "word:actual",
       "ordinal": 63,
       "word": "actual",
       "target": {
-        "target_kind": "construction",
-        "target_id": "construction:actual:handoff-2b86708ff8ad545b",
-        "target_locator": "record.constructions[0]"
+        "target_kind": "relation",
+        "target_id": "relation:baseline-v2:actual-current:semantic_contrast",
+        "target_locator": "record.semantic_neighbors[0]"
       },
       "demand": "discrimination",
-      "diagnostic_intent_cn": "稳定区分 actual=真实/实际 与 current/present=当前。",
-      "decision_boundary_cn": "设计时间维度与真实性维度都合理的句子，迫使判断语义轴而非中文近似。",
+      "diagnostic_intent_cn": "区分 actual / current。",
+      "decision_boundary_cn": "actual=真实、事实上的；current=当前、现行的。一个是现实轴，一个是时间轴。",
       "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然且不能靠长度、标签或生僻度排除。",
       "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 actual vs current/present 边界。",
-      "reconstruction_rule_cn": "换成 price/result/current policy 等新对象重复辨别。",
+      "minimum_repair_cn": "只修 reality-axis vs time-axis 边界。",
+      "reconstruction_rule_cn": "换 actual cost/number 与 current policy/situation 等新语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
@@ -165,17 +51,17 @@
       "ordinal": 64,
       "word": "acute",
       "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
+        "target_kind": "relation",
+        "target_id": "relation:baseline-v2:acute-chronic:semantic_contrast",
+        "target_locator": "record.semantic_neighbors[0]"
       },
       "demand": "discrimination",
-      "diagnostic_intent_cn": "在严重/剧烈、敏锐、急性、锐角四个 acute 分支间按对象选义。",
-      "decision_boundary_cn": "pain/problem、observer/sense、disease、angle 四类对象都可自然出现。",
+      "diagnostic_intent_cn": "区分医学语境中的 acute / chronic。",
+      "decision_boundary_cn": "acute 通常起病快、病程短且可很严重；chronic 长期持续或反复。核心是病程时间轴，不是简单严重程度。",
       "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然且不能靠长度、标签或生僻度排除。",
       "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 acute 的对象驱动多义分支。",
-      "reconstruction_rule_cn": "换到未用过的对象类型重新分支。",
+      "minimum_repair_cn": "只修 acute ↔ chronic 的病程边界。",
+      "reconstruction_rule_cn": "换症状、感染、炎症或疾病病程语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
@@ -184,17 +70,17 @@
       "ordinal": 65,
       "word": "adapt",
       "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
+        "target_kind": "relation",
+        "target_id": "deep:confusables:adapt:e21f1f63ef005b1e",
+        "target_locator": "record.confusables[0]"
       },
       "demand": "discrimination",
-      "diagnostic_intent_cn": "区分“使适应/自己适应/改编”，同时压住 adapt 与 adopt 混淆。",
-      "decision_boundary_cn": "用 environment、person/system、book/film 以及 adopt 近形干扰构成真实选择。",
+      "diagnostic_intent_cn": "区分 adapt / adopt。",
+      "decision_boundary_cn": "adapt=适应、改编；adopt=采纳、收养。拼写相近但对象与动作不同。",
       "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然且不能靠长度、标签或生僻度排除。",
       "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 adapt 的三分支与 adapt/adopt 边界。",
-      "reconstruction_rule_cn": "换成技术适应或作品改编的新语境。",
+      "minimum_repair_cn": "只修 adapt ↔ adopt 近形混淆。",
+      "reconstruction_rule_cn": "换环境适应、作品改编、政策采纳、收养等新语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
@@ -217,63 +103,6 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0070:address:v1",
-      "word_id": "word:address",
-      "ordinal": 70,
-      "word": "address",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "在处理问题、向人讲话、地址/网址、正式演说几个 address 分支间分流。",
-      "decision_boundary_cn": "问题/挑战、audience/person、postal/web、speech/event 四类对象作为线索。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然且不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 address 的“指向目标”分支模型。",
-      "reconstruction_rule_cn": "更换目标对象，要求重新选择词义。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0071:adequate:v1",
-      "word_id": "word:adequate",
-      "ordinal": 71,
-      "word": "adequate",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "判断 adequate 表示“足够/合格”，而不是“很好/优秀”，并识别 sometimes only satisfactory 的语气。",
-      "decision_boundary_cn": "用 sufficient/excellent/poor 等强度邻居制造强度轴判断。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然且不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 adequate 的阈值与强度边界。",
-      "reconstruction_rule_cn": "换成 evidence/resources/performance 等新对象测试强度。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0072:adhere:v1",
-      "word_id": "word:adhere",
-      "ordinal": 72,
-      "word": "adhere",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分物理粘附、遵守规则/原则、拥护立场三个 adhere 分支。",
-      "decision_boundary_cn": "surface/material、rule/protocol、belief/party 三类 to-宾语决定义项。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然且不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 adhere to 的对象驱动分支。",
-      "reconstruction_rule_cn": "更换 to 后对象类别重建。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0076:administer:v1",
       "word_id": "word:administer",
       "ordinal": 76,
@@ -290,44 +119,6 @@
       "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
       "minimum_repair_cn": "只修 administer 的对象分支。",
       "reconstruction_rule_cn": "换成新组织或医学/程序对象重建。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0077:administration:v1",
-      "word_id": "word:administration",
-      "ordinal": 77,
-      "word": "administration",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "在管理/行政、政府班子、给药/施用、法律/制度执行四个 administration 分支间选义。",
-      "decision_boundary_cn": "business/public、the X administration、drug/treatment、justice/law 四类搭配决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然且不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 administration 的对象驱动分支。",
-      "reconstruction_rule_cn": "换到另一个领域对象重新判断。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0079:admission:v1",
-      "word_id": "word:admission",
-      "ordinal": 79,
-      "word": "admission",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分入场/准入、承认/供认、学校或机构录取三个 admission 分支。",
-      "decision_boundary_cn": "fee/entry、statement/confession、university/program 三类语境决定义项。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然且不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 admission 的三分支。",
-      "reconstruction_rule_cn": "更换场所、陈述或录取语境重建。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
@@ -350,63 +141,6 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0082:adopt:v1",
-      "word_id": "word:adopt",
-      "ordinal": 82,
-      "word": "adopt",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分采纳方案/做法、收养、正式通过，并避免和 adapt 混淆。",
-      "decision_boundary_cn": "policy/method、child、law/resolution 作为对象；adapt 只作合理近形干扰。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然且不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 adopt 的对象分支与 adapt/adopt 边界。",
-      "reconstruction_rule_cn": "更换 policy/child/measure 场景重新判断。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0085:advance:v1",
-      "word_id": "word:advance",
-      "ordinal": 85,
-      "word": "advance",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分前进/推进、提出观点、预先、预付款/预付等 advance 分支。",
-      "decision_boundary_cn": "movement/progress、idea/theory、advance notice、payment/money 四类场景决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然且不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 advance 的多词性分支。",
-      "reconstruction_rule_cn": "换一个新的 movement/idea/time/payment 场景。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0086:advanced:v1",
-      "word_id": "word:advanced",
-      "ordinal": 86,
-      "word": "advanced",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "用“发展得更远”统一判断高级/先进与高龄/晚期两个 advanced 分支。",
-      "decision_boundary_cn": "technology/course 与 age/disease 同时出现，测试同一尺度模型而非背两个中文义。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然且不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 advanced 的尺度分支。",
-      "reconstruction_rule_cn": "换成新的 level/stage 对象重建。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0087:advantage:v1",
       "word_id": "word:advantage",
       "ordinal": 87,
@@ -426,41 +160,22 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0088:advent:v1",
-      "word_id": "word:advent",
-      "ordinal": 88,
-      "word": "advent",
-      "target": {
-        "target_kind": "form_identity",
-        "target_id": null,
-        "target_locator": "record.form_identity"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分 lower-case advent 的一般“重要事物到来”与 capitalized Advent 的基督教降临期。",
-      "decision_boundary_cn": "唯一关键线索是大小写与宗教日历语境，避免额外中文提示。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然且不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 advent/Advent 的 capitalization-conditioned meaning。",
-      "reconstruction_rule_cn": "换一个普通科技到来句与一个宗教日历句重建。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0091:adverse:v1",
       "word_id": "word:adverse",
       "ordinal": 91,
       "word": "adverse",
       "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
+        "target_kind": "relation",
+        "target_id": "confusable:horizontal:0401fe1e68179c25bc22",
+        "target_locator": "record.confusables[0]"
       },
       "demand": "discrimination",
-      "diagnostic_intent_cn": "区分 adverse=不利/有害 与 averse=反感/不愿，避免形近词误选。",
-      "decision_boundary_cn": "effects/conditions 与 be averse to + activity 两类结构都自然。",
+      "diagnostic_intent_cn": "区分 adverse / averse。",
+      "decision_boundary_cn": "adverse=不利的、有害的；averse=反感、不愿，典型结构 be averse to。",
       "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然且不能靠长度、标签或生僻度排除。",
       "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 adverse/averse 边界。",
-      "reconstruction_rule_cn": "换成 medical/economic adverse 场景或 attitude 场景。",
+      "minimum_repair_cn": "只修 adverse ↔ averse 近形语义与句法边界。",
+      "reconstruction_rule_cn": "换 adverse effects/conditions 与 be averse to doing 等新语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
@@ -502,60 +217,22 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0096:advocate:v1",
-      "word_id": "word:advocate",
-      "ordinal": 96,
-      "word": "advocate",
-      "target": {
-        "target_kind": "secondary_sense",
-        "target_id": "sense:advocate:1cb3acc010745c21",
-        "target_locator": "record.secondary_senses[0]"
-      },
-      "demand": "recognition",
-      "diagnostic_intent_cn": "识别法律/法庭语境中的 advocate 可指律师/出庭辩护人，而不是普通倡导者。",
-      "decision_boundary_cn": "court/client/defence 等法律线索与 cause/support 语境形成真实分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然且不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 advocate 的法律专业名词义。",
-      "reconstruction_rule_cn": "换一个新的法院或法律代理语境重建。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0099:affair:v1",
-      "word_id": "word:affair",
-      "ordinal": 99,
-      "word": "affair",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分事务/事情、婚外情/风流韵事、社交活动三个 affair 分支。",
-      "decision_boundary_cn": "state/business、romantic/secret、social/event 三类搭配决定义项。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然且不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 affair 的语境分支。",
-      "reconstruction_rule_cn": "更换事务、关系或社交事件语境重建。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0100:affect:v1",
       "word_id": "word:affect",
       "ordinal": 100,
       "word": "affect",
       "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
+        "target_kind": "relation",
+        "target_id": "deep:confusables:affect:6976333ca4ed4d47",
+        "target_locator": "record.confusables[0]"
       },
       "demand": "discrimination",
-      "diagnostic_intent_cn": "优先稳定 affect=影响 与 effect=结果 的高价值边界，同时保留情感/专业名词分支意识。",
-      "decision_boundary_cn": "用 verb slot 与 noun result slot 构造自然句；避免把规则绝对化，因为 affect 也有专业名词义。",
+      "diagnostic_intent_cn": "区分 affect / effect 的默认高频用法，同时保留例外意识。",
+      "decision_boundary_cn": "默认 affect 多作动词“影响”；effect 多作名词“结果/影响”。但 affect 有专业名词义、effect 也可作正式动词，所以不是绝对词性规则。",
       "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然且不能靠长度、标签或生僻度排除。",
       "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 affect/effect 默认边界；若错在专业名词 affect，再最小补充该分支。",
-      "reconstruction_rule_cn": "换一个全新的 influence/result 语境，必要时再换 psychology 专业语境。",
+      "minimum_repair_cn": "只修 affect ↔ effect 的高频默认边界及例外意识。",
+      "reconstruction_rule_cn": "换 health/policy/result/outcome 等新语境，不用死板词性口令。",
       "concrete_instance_policy": "GENERATE_FRESH"
     }
   ]

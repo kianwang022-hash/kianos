@@ -1,14 +1,11 @@
 {
-  "schema": "kianos.lexical.repair_test_blueprint_shard.v1",
+  "schema": "kianos.lexical.repair_blueprint_shard.v1",
   "range": {
     "start_ordinal": 1,
     "end_ordinal": 50
   },
-  "authority": {
-    "semantic_truth": "Current Word / Relation / Form owners",
-    "role": "derived diagnostic content; never semantic authority"
-  },
-  "generation_rule": "Use blueprint + latest canonical content + current private learner evidence to generate fresh Challenge instances. Do not treat one fixed question as permanent.",
+  "authority": "content/lexical/LEARNING_CONTRACT.md + CONTENT_ASSET_CONTRACT.md + approved final-standard backfill delta 2026-09-19",
+  "generation_rule": "Stable diagnostic intent only; concrete instances generated fresh. Content value and prebuilt Test value are judged separately.",
   "entries": [
     {
       "blueprint_id": "repair-blueprint:o0001:a:v1",
@@ -87,25 +84,6 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0008:aboard:v1",
-      "word_id": "word:aboard",
-      "ordinal": 8,
-      "word": "aboard",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "production",
-      "diagnostic_intent_cn": "区分 adverbial aboard 与 prepositional aboard + vehicle，并避免 *to/in aboard。",
-      "decision_boundary_cn": "用 to/in aboard 以及 abroad/board 的近形干扰；不靠交通工具词本身泄露答案。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式或合理混淆作为干扰；所有选项必须语法自然、长度近似，不靠生僻词或明显标签排除。",
-      "context_constraints_cn": "优先使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得使用未作答真题/TPO/IELTS 保留材料。",
-      "minimum_repair_cn": "只修 aboard 自带 on/onto 关系的语法。",
-      "reconstruction_rule_cn": "换另一交通工具，并在 go aboard 与 aboard the X 两种框架间切换。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0010:abound:v1",
       "word_id": "word:abound",
       "ordinal": 10,
@@ -144,25 +122,6 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0012:above:v1",
-      "word_id": "word:above",
-      "ordinal": 12,
-      "word": "above",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "在空间上方、数值高于阈值、文本上文三类“向上轴”之间按语境选义。",
-      "decision_boundary_cn": "用 threshold/text/location 三类自然语境互作近邻分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式或合理混淆作为干扰；所有选项必须语法自然、长度近似，不靠生僻词或明显标签排除。",
-      "context_constraints_cn": "优先使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得使用未作答真题/TPO/IELTS 保留材料。",
-      "minimum_repair_cn": "只修当前轴上的分支线索。",
-      "reconstruction_rule_cn": "从空间语境切到表格阈值或论文上文，避免复用关键词。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0013:abroad:v1",
       "word_id": "word:abroad",
       "ordinal": 13,
@@ -179,25 +138,6 @@
       "context_constraints_cn": "优先使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得使用未作答真题/TPO/IELTS 保留材料。",
       "minimum_repair_cn": "只修 abroad 是地点副词这一点。",
       "reconstruction_rule_cn": "换 live/work/study 等新动词，再测 from abroad 作为反向出口。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0014:abrupt:v1",
-      "word_id": "word:abrupt",
-      "ordinal": 14,
-      "word": "abrupt",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "把 no gradual transition 迁移到变化、言语举止和陡峭地形三个分支。",
-      "decision_boundary_cn": "干扰项来自 gradual/smooth 或其他 abrupt 分支，语境须能靠过渡方式判定。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式或合理混淆作为干扰；所有选项必须语法自然、长度近似，不靠生僻词或明显标签排除。",
-      "context_constraints_cn": "优先使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得使用未作答真题/TPO/IELTS 保留材料。",
-      "minimum_repair_cn": "只修“无缓冲/无渐变”的核心模型。",
-      "reconstruction_rule_cn": "换一个非原领域语境，例如从说话方式切到趋势变化。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
@@ -220,44 +160,6 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0016:absent:v1",
-      "word_id": "word:absent",
-      "ordinal": 16,
-      "word": "absent",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分 physical absence、mental absent look 与 formal absent oneself from。",
-      "decision_boundary_cn": "用同一主体但不同“位置/注意力/主动回避”线索，避免只看词性。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式或合理混淆作为干扰；所有选项必须语法自然、长度近似，不靠生僻词或明显标签排除。",
-      "context_constraints_cn": "优先使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得使用未作答真题/TPO/IELTS 保留材料。",
-      "minimum_repair_cn": "只修当前分支和 from 构式。",
-      "reconstruction_rule_cn": "把 classroom 缺席换成 attention 或 formal event 回避。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0018:absorb:v1",
-      "word_id": "word:absorb",
-      "ordinal": 18,
-      "word": "absorb",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "把 take in/take on 模型迁移到物质、信息、注意力、组织并入、成本冲击。",
-      "decision_boundary_cn": "干扰项来自同一核心的邻近分支，必须靠对象类型选义。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式或合理混淆作为干扰；所有选项必须语法自然、长度近似，不靠生僻词或明显标签排除。",
-      "context_constraints_cn": "优先使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得使用未作答真题/TPO/IELTS 保留材料。",
-      "minimum_repair_cn": "只修对象类型→分支的映射。",
-      "reconstruction_rule_cn": "换一个全新的对象类别，例如从 information 切到 cost/shock。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0022:abuse:v1",
       "word_id": "word:abuse",
       "ordinal": 22,
@@ -277,41 +179,22 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0023:academic:v1",
-      "word_id": "word:academic",
-      "ordinal": 23,
-      "word": "academic",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分 academic=学术/教育 与 purely academic=纯理论无实际影响，并识别 noun an academic。",
-      "decision_boundary_cn": "用 research/argument/person 三类语境互作分支，不用明显标签。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式或合理混淆作为干扰；所有选项必须语法自然、长度近似，不靠生僻词或明显标签排除。",
-      "context_constraints_cn": "优先使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得使用未作答真题/TPO/IELTS 保留材料。",
-      "minimum_repair_cn": "只修当前 adjective branch 或 noun person branch。",
-      "reconstruction_rule_cn": "换成 policy impact、career、question 等新语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0027:accept:v1",
       "word_id": "word:accept",
       "ordinal": 27,
       "word": "accept",
       "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
+        "target_kind": "relation",
+        "target_id": "deep:confusables:accept:09cf96291d1ea0be",
+        "target_locator": "record.confusables[0]"
       },
       "demand": "discrimination",
-      "diagnostic_intent_cn": "按宾语把 accept 分成收下、同意、承认为真、承担、容忍。",
-      "decision_boundary_cn": "干扰项来自 accept 的其他真实分支；句法都要自然，不能靠奇怪搭配排除。",
+      "diagnostic_intent_cn": "区分 accept / except 的拼写、词性和核心语义。",
+      "decision_boundary_cn": "accept 通常是动词“接受”；except 常表示“除外/除了”，可作介词/连词等。不要只靠发音近似。",
       "distractor_policy_cn": "只使用该词真实邻近义项、构式或合理混淆作为干扰；所有选项必须语法自然、长度近似，不靠生僻词或明显标签排除。",
       "context_constraints_cn": "优先使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得使用未作答真题/TPO/IELTS 保留材料。",
-      "minimum_repair_cn": "只修宾语类型→分支线索。",
-      "reconstruction_rule_cn": "换另一类宾语，例如从 proposal 切到 fact/responsibility/unpleasant reality。",
+      "minimum_repair_cn": "只修 accept ↔ except 这一条混淆关系。",
+      "reconstruction_rule_cn": "换 offer/claim 与 except for/except that 等新语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
@@ -334,82 +217,6 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0030:accessory:v1",
-      "word_id": "word:accessory",
-      "ordinal": 30,
-      "word": "accessory",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分普通配件/附属项与法律从犯，并识别 accessory to + crime。",
-      "decision_boundary_cn": "让“主物之外的附加物”与“主犯之外的协助者”成为真正近邻分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式或合理混淆作为干扰；所有选项必须语法自然、长度近似，不靠生僻词或明显标签排除。",
-      "context_constraints_cn": "优先使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得使用未作答真题/TPO/IELTS 保留材料。",
-      "minimum_repair_cn": "只修 principal item/act 的核心模型和法律构式。",
-      "reconstruction_rule_cn": "从 computer/fashion accessory 换到犯罪语境，或反向切回物理配件。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0031:accident:v1",
-      "word_id": "word:accident",
-      "ordinal": 31,
-      "word": "accident",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分造成损害的 accident 与 by accident=非故意/偶然。",
-      "decision_boundary_cn": "用 intentionality 与 damage 两个维度设计干扰，不把 chance 和 accident 简单做中译英。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式或合理混淆作为干扰；所有选项必须语法自然、长度近似，不靠生僻词或明显标签排除。",
-      "context_constraints_cn": "优先使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得使用未作答真题/TPO/IELTS 保留材料。",
-      "minimum_repair_cn": "只修 harmful event vs unintended manner。",
-      "reconstruction_rule_cn": "换一个无损害但非故意的场景，或一个真实损害事件。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0033:accommodate:v1",
-      "word_id": "word:accommodate",
-      "ordinal": 33,
-      "word": "accommodate",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "按宾语区分容纳人数、满足需求、调整使兼容、使自己适应。",
-      "decision_boundary_cn": "干扰项来自其他真实分支；尤其防止把 accommodate to 当首选普通产出。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式或合理混淆作为干扰；所有选项必须语法自然、长度近似，不靠生僻词或明显标签排除。",
-      "context_constraints_cn": "优先使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得使用未作答真题/TPO/IELTS 保留材料。",
-      "minimum_repair_cn": "只修 object-type→branch，并给出最自然的构式。",
-      "reconstruction_rule_cn": "从 guests 切到 request/plan/oneself，至少跨一个分支。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0034:accommodation:v1",
-      "word_id": "word:accommodation",
-      "ordinal": 34,
-      "word": "accommodation",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分住宿、为需要作出的合理调整、以及妥协/和解。",
-      "decision_boundary_cn": "用 hotel / disability-need / negotiation 三类自然场景互作干扰。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式或合理混淆作为干扰；所有选项必须语法自然、长度近似，不靠生僻词或明显标签排除。",
-      "context_constraints_cn": "优先使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得使用未作答真题/TPO/IELTS 保留材料。",
-      "minimum_repair_cn": "只修 concrete lodging vs adjustment/settlement。",
-      "reconstruction_rule_cn": "换到另一个领域，不能复用原场景关键词。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0037:accord:v1",
       "word_id": "word:accord",
       "ordinal": 37,
@@ -426,25 +233,6 @@
       "context_constraints_cn": "优先使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得使用未作答真题/TPO/IELTS 保留材料。",
       "minimum_repair_cn": "只修当前固定骨架。",
       "reconstruction_rule_cn": "换新名词宾语或主语，并切换 noun/verb 用法。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0039:accordingly:v1",
-      "word_id": "word:accordingly",
-      "ordinal": 39,
-      "word": "accordingly",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分修饰动作的“相应地”与连接前后因果的“因此”。",
-      "decision_boundary_cn": "保持语义都合理，只靠句法位置与逻辑关系判定。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式或合理混淆作为干扰；所有选项必须语法自然、长度近似，不靠生僻词或明显标签排除。",
-      "context_constraints_cn": "优先使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得使用未作答真题/TPO/IELTS 保留材料。",
-      "minimum_repair_cn": "只修 discourse role。",
-      "reconstruction_rule_cn": "从句首连接词换成 act/respond accordingly，或反向。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
@@ -502,63 +290,6 @@
       "context_constraints_cn": "优先使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得使用未作答真题/TPO/IELTS 保留材料。",
       "minimum_repair_cn": "只修介词 to + noun/V-ing 与主动/状态两套框架。",
       "reconstruction_rule_cn": "换新的 habit/environment，并在 accustom oneself 与 be accustomed 间切换。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0047:ache:v1",
-      "word_id": "word:ache",
-      "ordinal": 47,
-      "word": "ache",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分身体持续钝痛与 ache for 的持续情感渴望。",
-      "decision_boundary_cn": "干扰项来自 pain/longing 两个真实分支；避免简单把 want 当唯一对手。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式或合理混淆作为干扰；所有选项必须语法自然、长度近似，不靠生僻词或明显标签排除。",
-      "context_constraints_cn": "优先使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得使用未作答真题/TPO/IELTS 保留材料。",
-      "minimum_repair_cn": "只修 physical persistent pain vs emotional longing。",
-      "reconstruction_rule_cn": "换新的 body part 或 absent person/place，保持持续性线索。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0049:acid:v1",
-      "word_id": "word:acid",
-      "ordinal": 49,
-      "word": "acid",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分化学酸/酸性与 figurative acid remark/tone 的尖刻腐蚀感。",
-      "decision_boundary_cn": "用 chemical property 与 biting language 两类自然上下文互作分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式或合理混淆作为干扰；所有选项必须语法自然、长度近似，不靠生僻词或明显标签排除。",
-      "context_constraints_cn": "优先使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得使用未作答真题/TPO/IELTS 保留材料。",
-      "minimum_repair_cn": "只修 literal chemistry vs figurative tone。",
-      "reconstruction_rule_cn": "从 laboratory 语境换到 review/comment 语境，或反向。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0050:acknowledge:v1",
-      "word_id": "word:acknowledge",
-      "ordinal": 50,
-      "word": "acknowledge",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "按 complement 区分承认真相、确认收到、承认身份/存在、公开致谢。",
-      "decision_boundary_cn": "that/fact、receipt、sb as/authority/presence、help/contribution 互作真实近邻分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式或合理混淆作为干扰；所有选项必须语法自然、长度近似，不靠生僻词或明显标签排除。",
-      "context_constraints_cn": "优先使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得使用未作答真题/TPO/IELTS 保留材料。",
-      "minimum_repair_cn": "只修 complement→communicative act 的映射。",
-      "reconstruction_rule_cn": "至少切换到另一 complement 类型，并换掉原关键词。",
       "concrete_instance_policy": "GENERATE_FRESH"
     }
   ]
