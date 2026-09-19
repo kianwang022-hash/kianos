@@ -1,0 +1,24 @@
+name: Chat Control Transport Prototype
+
+on:
+  pull_request:
+    paths:
+      - "static-web/src/lib/privateControlCommand.mjs"
+      - "static-web/src/lib/privateControlRuntime.mjs"
+      - "static-web/src/lib/xizongSessionInstruction.mjs"
+      - "static-web/scripts/test-private-control-runtime.mjs"
+      - "static-web/scripts/test-xizong-session-instruction.mjs"
+      - ".github/workflows/chat-control-transport-prototype.yml"
+
+jobs:
+  semantic-prototype:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Xizong session semantics
+        working-directory: static-web
+        run: node scripts/test-xizong-session-instruction.mjs
+      - name: Private control dispatch semantics
+        working-directory: static-web
+        run: node scripts/test-private-control-runtime.mjs
