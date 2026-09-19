@@ -1,17 +1,25 @@
 {
-  "schema": "kianos.english.external_manifest.v2",
-  "status": "CURRENT_INVENTORY_ONLY",
+  "schema": "kianos.english.external_manifest.v3",
+  "status": "IMPORT_ADAPTER_TARGET",
   "owner_path": "content/english/external/",
   "object_schema": "content/english/external/schema.json",
-  "reading_contract": "content/english/modules/reading-a.md",
-  "purpose": "Fresh unseen English input and transfer testing when true-exam memory residue reduces diagnostic value.",
-  "materialization_policy": {
-    "current_step": "INVENTORY_ONLY",
-    "content_bytes_materialized": false,
-    "materialize_incrementally": true,
-    "materialize_only_when_selected_for_real_study_or_runtime_support": true,
+  "learning_owner": "content/english/LEARNING_CONTRACT.md",
+  "purpose": "High-quality reading-growth input beyond English-I true papers. Reuse Reading workspace geometry where useful without importing English-I Reading-A question strategy into TOEFL/IELTS material.",
+  "source_priority": [
+    "legacy TOEFL / TPO academic reading (TPO 56-65)",
+    "IELTS Academic reading (IELTS 17-19)",
+    "selected periodicals only for additional breadth"
+  ],
+  "import_policy": {
+    "runtime_model": "LOCAL_PRIVATE_IMPORT",
+    "content_bytes_in_shared_repo": false,
     "preserve_source_locator": true,
-    "preserve_clean_attempt_before_answer_exposure": true,
+    "preserve_source_kind_and_format": true,
+    "allow_passage_only": true,
+    "allow_source_native_questions_when_supported": true,
+    "unsupported_question_forms": "FAIL_CLOSED",
+    "never_invent_questions": true,
+    "exposure_truth_owner": "private English material exposure ledger",
     "do_not_build_corpus_for_completeness": true
   },
   "pools": [
@@ -19,37 +27,50 @@
       "id": "tpo-56-65",
       "kind": "TPO_READING",
       "range": "56-65",
-      "status": "CANDIDATE_NOT_MATERIALIZED",
-      "default_role": "UNSEEN_DIAGNOSTIC",
-      "notes": "Use as high-quality unseen academic reading and transfer material. Normal successful use may be read → answer → done; expand only when evidence requires repair."
+      "priority": 1,
+      "source_format": "TOEFL_LEGACY",
+      "status": "IMPORT_WHEN_SELECTED",
+      "default_role": "READING_GROWTH",
+      "notes": "Primary academic-reading growth pool. Keep legacy TOEFL/TPO source identity. Useful later for TOEFL preparation, but do not apply current English-I Reading-A option strategy unless the task is actually English-I."
     },
     {
       "id": "ielts-17-19",
       "kind": "IELTS_READING",
       "range": "17-19",
-      "status": "CANDIDATE_NOT_MATERIALIZED",
-      "default_role": "UNSEEN_DIAGNOSTIC",
-      "notes": "Use selectively for fresh reading exposure when it serves comprehension, discourse, or transfer goals."
+      "priority": 2,
+      "source_format": "IELTS_ACADEMIC",
+      "status": "IMPORT_WHEN_SELECTED",
+      "default_role": "READING_GROWTH",
+      "notes": "Secondary authoritative reading-growth pool. Preserve IELTS-native task identity when source questions are imported; passage-only use is valid."
     },
     {
       "id": "periodicals",
       "kind": "PERIODICAL_READING",
       "range": "OPEN_ENDED",
-      "status": "FUTURE_INCREMENTAL",
-      "default_role": "FRESH_INPUT",
-      "notes": "Add high-quality periodical articles incrementally. Articles do not need questions when pure comprehension/discourse transfer is the real learning objective. Prefer learner value and freshness over corpus size."
+      "priority": 3,
+      "source_format": "ARTICLE",
+      "status": "OPTIONAL_INCREMENTAL",
+      "default_role": "READING_GROWTH",
+      "notes": "Optional breadth after TPO/IELTS. Questionless reading remains questionless."
     }
   ],
-  "unseen_policy": {
-    "principle": "Unseen material is limited diagnostic capital.",
-    "default_states": [
-      "UNSEEN_HOLDOUT",
-      "PRACTICE_POOL",
-      "EXPOSED"
-    ],
-    "rule": "Do not reveal passage-specific answers, analysis, or decisive evidence before the first clean attempt when an item is held as unseen.",
-    "memory_residue_rule": "Once exam or external material carries substantial memory residue, use it for repair/exam-mechanics practice rather than treating its accuracy as clean unseen evidence."
+  "exposure_policy": {
+    "principle": "Source metadata is not learner exposure testimony.",
+    "content_object_may_claim_private_exposure": false,
+    "missing_private_record_means": "unknown",
+    "ordinary_external_mock_share_material_identity": true,
+    "recorded_exposure_cannot_be_erased_by_reimport": true
   },
-  "selection_rule": "Prefer the next text that best tests the learner's current reading bottleneck while remaining genuinely fresh. Do not consume unseen material merely to complete a fixed quota.",
-  "projection_rule": "Astro should project the same core clean-attempt and progressive-disclosure interaction semantics across exam and external reading, while allowing questionless periodical objects to use read → optional compression/repair flows."
+  "cognition_boundary": {
+    "shared_transferable_primitives": [
+      "proposition representation",
+      "reference and relation tracking",
+      "discourse structure",
+      "lexical access",
+      "reading speed and stamina"
+    ],
+    "english1_reading_a_strategy_owner": "content/english/modules/reading-a.md",
+    "external_source_question_semantics": "source-native only",
+    "future_toefl_note": "A future TOEFL-prep layer may add TOEFL-native task semantics without changing English-I Reading-A logic."
+  }
 }
