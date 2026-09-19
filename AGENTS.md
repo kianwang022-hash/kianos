@@ -73,6 +73,7 @@ Daily Learning Packet
 → return one valid kianos.exam.chat-plan.v1 for the same study_day
 → when file generation is available, attach it as kianos-chat-plan-<study_day>.json containing only that plan object
 → otherwise provide the exact JSON object with that filename so it can be saved unchanged
+→ tell Kian the exact import path: Home → 安排说明 → Chat Plan / 阶段证据 / 本机备份 → 载入 Chat Plan / 本机学习上下文 → 确认替换本机调度记录
 → learner imports that plan into Home
 → study
 ```
