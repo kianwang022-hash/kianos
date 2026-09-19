@@ -1,0 +1,87 @@
+{
+  "schema": "kianos.lexical.repair_blueprint_shard.v1",
+  "range": {
+    "start_ordinal": 1201,
+    "end_ordinal": 1250
+  },
+  "authority": "content/lexical/LEARNING_CONTRACT.md + CONTENT_ASSET_CONTRACT.md + approved 100-owner Human Gate 2026-09-19",
+  "generation_rule": "Stable diagnostic intent only; concrete instances generated fresh.",
+  "entries": [
+    {
+      "blueprint_id": "repair-blueprint:o1206:daily:v1",
+      "word_id": "word:daily",
+      "ordinal": 1206,
+      "word": "daily",
+      "target": {
+        "target_kind": "relation",
+        "target_id": "deep:confusables:daily:9c6a06dddcaccc79",
+        "target_locator": "record.confusables[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 daily / dairy。",
+      "decision_boundary_cn": "daily=每天的/每天；dairy=乳制品、乳业、奶牛场。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "concrete_instance_policy": "GENERATE_FRESH",
+      "minimum_repair_cn": "只修一字母拼写陷阱和词义边界。",
+      "reconstruction_rule_cn": "换日常安排与乳制品产业语境。"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1207:dairy:v1",
+      "word_id": "word:dairy",
+      "ordinal": 1207,
+      "word": "dairy",
+      "target": {
+        "target_kind": "relation",
+        "target_id": "confusable:horizontal:9f3920adab93765c1ea8",
+        "target_locator": "record.confusables[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 dairy / diary。",
+      "decision_boundary_cn": "dairy=乳制品/乳品业；diary=日记、个人记录。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "concrete_instance_policy": "GENERATE_FRESH",
+      "minimum_repair_cn": "只修字母顺序与词义边界。",
+      "reconstruction_rule_cn": "换奶制品供应链与个人日记记录语境。"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1208:dam:v1",
+      "word_id": "word:dam",
+      "ordinal": 1208,
+      "word": "dam",
+      "target": {
+        "target_kind": "relation",
+        "target_id": "relation:baseline-v2:dam-damn:homophone_confusable",
+        "target_locator": "record.confusables[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分同音 dam / damn。",
+      "decision_boundary_cn": "dam=水坝、阻水屏障；damn=诅咒/谴责或非正式情绪表达，带语域风险。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "concrete_instance_policy": "GENERATE_FRESH",
+      "minimum_repair_cn": "只修同音拼写、语义和语域边界。",
+      "reconstruction_rule_cn": "换水库工程与人物情绪/咒骂语境。"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1209:damage:v1",
+      "word_id": "word:damage",
+      "ordinal": 1209,
+      "word": "damage",
+      "target": {
+        "target_kind": "relation",
+        "target_id": "deep:semantic_contrast:damage:dc74076e0130c58e",
+        "target_locator": "record.semantic_neighbors[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 damage / harm。",
+      "decision_boundary_cn": "damage 更常聚焦物体、系统、价值或功能受损；harm 更广泛指对人、健康、利益等造成不良影响或伤害。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "concrete_instance_policy": "GENERATE_FRESH",
+      "minimum_repair_cn": "只修两个近义词的典型对象与语义重心。",
+      "reconstruction_rule_cn": "换设备功能、环境影响、健康风险和财产受损语境。"
+    }
+  ]
+}
