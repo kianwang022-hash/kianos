@@ -109,9 +109,28 @@ fresh independent K acceptance
 
 Do not start E Learning or Content before K acceptance. Do not copy D topology for symmetry.
 
-## F｜Remaining Clinical — LATER
+## F｜Remaining Clinical — S1 PASS / K RECONSTRUCTION ELIGIBLE
 
-F remains later than D/E unless exam priority or a real dependency justifies reprioritization.
+F Current identity has now been reconciled to **9 Blocks / 121 KP**.
+
+Exact cursor:
+
+- `content/xizong/knowledge/systems/f-remaining-clinical/CURRENT.md`
+- `content/xizong/knowledge/systems/f-remaining-clinical/ACCEPTANCE.md`
+
+Current state:
+
+```text
+S1 Source boundary  PASS_AFTER_SOURCE_REBIND
+K Knowledge         UNTESTED / eligible next
+L / Content         downstream-frozen
+```
+
+The old 12-Block transition Guide is not Current F identity; its first three physiology-foundation Blocks are historical substrate, while Current canonical F is F1–F9.
+
+Approved original/current Lecture sources were re-bound from the user's File Library by title/page locator. F6 postoperative timing and the F8 P270 matrix are now Source-verified. Narrow exact gaps remain in F1/F2/F3/F4/F9 and must stay fail-closed.
+
+F Knowledge reconstruction may now proceed in parallel while E waits on independent K acceptance. Do not infer missing exact Source facts and do not revive the historical 12-Block topology.
 
 ---
 
@@ -319,8 +338,10 @@ E S1 PASS
 → Learning
 → Content
 
-LATER
-F Source + Knowledge
+PARALLEL MEDICAL
+F 9 Blocks / 121 KP identity closed
+→ S1 PASS after Source rebind
+→ K reconstruction eligible
 
 QUESTIONS
 B exact official-question scope where unresolved
