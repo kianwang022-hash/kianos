@@ -5,6 +5,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { PRIVATE_CHECKPOINT_SCHEMA, writePrivateLearnerCheckpoint } from './privateLearnerStore.mjs';
 import { syncPrivateResumeRelayOnce } from './privateResumeRelaySync.mjs';
+import { buildSubjectResumeMailbox } from './privateResumeMailbox.mjs';
 
 const temp=fs.mkdtempSync(path.join(os.tmpdir(),'kianos-resume-relay-'));
 const privateDir=path.join(temp,'private');
@@ -81,6 +82,15 @@ function checkpoint(stage='kp_recall',generatedAt='2026-09-20T01:00:00.000Z'){
 }
 
 try{
+
+  const isolatedInput=checkpoint();
+  isolatedInput.payload.subjects.lexical={schema:'broken.lexical',entries:{bad:'{'}};
+  isolatedInput.payload.subjects.politics={schema:'kianos.politics.private-payload.v1',entries:{'not-a-politics-key':j({bad:true})}};
+  const isolatedMailbox=buildSubjectResumeMailbox(isolatedInput);
+  assert.equal(isolatedMailbox.subjects.xizong.status,'ready','unrelated Lexical/Politics damage must not block Xizong Resume');
+  assert.equal(isolatedMailbox.subjects.english.status,'ready','unrelated Lexical/Politics damage must not block English Resume');
+  assert.equal(isolatedMailbox.subjects.politics.status,'invalid','bad Politics payload must fail only Politics Resume');
+
   execFileSync('git',['init','--bare',remote]);
   writePrivateLearnerCheckpoint(checkpoint(),privateDir);
   const env={...process.env,KIANOS_PRIVATE_DIR:privateDir,KIANOS_RESUME_REPO_URL:remote,KIANOS_RESUME_REPO_DIR:relayRepo,KIANOS_RESUME_BRANCH:branch,KIANOS_RESUME_PATH:mailboxPath};
