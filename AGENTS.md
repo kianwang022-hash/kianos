@@ -71,6 +71,8 @@ Daily Learning Packet
 → preserve missing evidence as unknown
 → if Kian asks to start / continue / arrange today, apply EXAM_ORCHESTRATOR_CONTRACT planning policy
 → return one valid kianos.exam.chat-plan.v1 for the same study_day
+→ when file generation is available, attach it as kianos-chat-plan-<study_day>.json containing only that plan object
+→ otherwise provide the exact JSON object with that filename so it can be saved unchanged
 → learner imports that plan into Home
 → study
 ```
