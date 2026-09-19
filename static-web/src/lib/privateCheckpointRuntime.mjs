@@ -181,17 +181,24 @@ export function initPrivateCheckpointAutosave(storage, {
   let timer = null;
   let interval = null;
   let stopped = false;
+  let inFlight = null;
 
   const checkpoint = async () => {
     if (stopped) return;
-    try {
-      await saveSharedControlToPrivate(storage, { now: now() });
-      globalThis.dispatchEvent?.(new CustomEvent('kianos:private-checkpoint-saved'));
-    } catch (error) {
-      globalThis.dispatchEvent?.(new CustomEvent('kianos:private-checkpoint-error', {
-        detail: { message: error instanceof Error ? error.message : String(error) }
-      }));
-    }
+    if (inFlight) return inFlight;
+    inFlight = (async () => {
+      try {
+        await saveSharedControlToPrivate(storage, { now: now() });
+        globalThis.dispatchEvent?.(new CustomEvent('kianos:private-checkpoint-saved'));
+      } catch (error) {
+        globalThis.dispatchEvent?.(new CustomEvent('kianos:private-checkpoint-error', {
+          detail: { message: error instanceof Error ? error.message : String(error) }
+        }));
+      } finally {
+        inFlight = null;
+      }
+    })();
+    return inFlight;
   };
 
   const schedule = () => {
@@ -203,12 +210,23 @@ export function initPrivateCheckpointAutosave(storage, {
     }, debounceMs);
   };
 
+  const storageHandler = (event) => {
+    if (SHARED_STORAGE_KEYS.includes(event?.key)) schedule();
+  };
+  const visibilityHandler = () => {
+    if (globalThis.document?.visibilityState !== 'hidden') return;
+    if (timer) {
+      clearTimeout(timer);
+      timer = null;
+    }
+    void checkpoint();
+  };
+
   globalThis.addEventListener?.('kianos:study-timer-change', schedule);
   globalThis.addEventListener?.('kianos:exam-plan-read-model', schedule);
-  globalThis.addEventListener?.('storage', (event) => {
-    if (SHARED_STORAGE_KEYS.includes(event?.key)) schedule();
-  });
+  globalThis.addEventListener?.('storage', storageHandler);
   globalThis.addEventListener?.('focus', schedule);
+  globalThis.document?.addEventListener?.('visibilitychange', visibilityHandler);
 
   interval = setInterval(() => void checkpoint(), intervalMs);
   schedule();
@@ -220,6 +238,11 @@ export function initPrivateCheckpointAutosave(storage, {
       stopped = true;
       if (timer) clearTimeout(timer);
       if (interval) clearInterval(interval);
+      globalThis.removeEventListener?.('kianos:study-timer-change', schedule);
+      globalThis.removeEventListener?.('kianos:exam-plan-read-model', schedule);
+      globalThis.removeEventListener?.('storage', storageHandler);
+      globalThis.removeEventListener?.('focus', schedule);
+      globalThis.document?.removeEventListener?.('visibilitychange', visibilityHandler);
     }
   };
 }
