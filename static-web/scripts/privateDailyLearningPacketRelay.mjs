@@ -76,6 +76,70 @@ function differsOnlyByTime(a,b){
   return JSON.stringify(nonTimeMaterialPacket(a))===JSON.stringify(nonTimeMaterialPacket(b));
 }
 
+
+const LOCAL_SYNC_CACHE=new Map();
+
+function localSyncCacheKey(config){
+  return [
+    config.repoUrl,
+    config.branch,
+    config.currentPath
+  ].join('|');
+}
+
+function semanticFingerprint(packet){
+  return JSON.stringify(nonTimeMaterialPacket(packet));
+}
+
+export function localPacketSyncDecision(packet,{
+  prior=null,
+  timeOnlySyncMs=DEFAULT_TIME_ONLY_SYNC_MS
+}={}){
+  const current=validatePacket(packet);
+  const timestamp=Date.parse(current.generated_at);
+  const semantic=semanticFingerprint(current);
+
+  if(
+    prior
+    && prior.study_day===current.study_day
+    && prior.semantic===semantic
+    && Number.isFinite(prior.last_remote_attempt_at)
+    && timestamp>=prior.last_remote_attempt_at
+    && timestamp-prior.last_remote_attempt_at<timeOnlySyncMs
+  ){
+    return{
+      defer:true,
+      reason:'time_only_local_throttle',
+      retry_after_ms:Math.max(
+        0,
+        timeOnlySyncMs-(timestamp-prior.last_remote_attempt_at)
+      ),
+      semantic,
+      timestamp
+    };
+  }
+
+  return{
+    defer:false,
+    reason:null,
+    retry_after_ms:0,
+    semantic,
+    timestamp
+  };
+}
+
+export function resetPrivatePacketLocalSyncCacheForTest(){
+  LOCAL_SYNC_CACHE.clear();
+}
+
+function rememberRemoteAttempt(config,packet){
+  LOCAL_SYNC_CACHE.set(localSyncCacheKey(config),{
+    study_day:packet.study_day,
+    semantic:semanticFingerprint(packet),
+    last_remote_attempt_at:Date.parse(packet.generated_at)
+  });
+}
+
 function packetOrder(a,b){
   if(a.study_day!==b.study_day)return a.study_day.localeCompare(b.study_day);
   return Date.parse(a.generated_at)-Date.parse(b.generated_at);
@@ -289,5 +353,28 @@ export async function syncPrivateDailyLearningPacketOnce({
   if(!checkpoint)return{state:'missing',reason:'private-checkpoint-missing'};
   const { buildDailyLearningPacketFromPrivateCheckpoint } = await import('./privateDailyLearningPacket.mjs');
   const projection=buildDailyLearningPacketFromPrivateCheckpoint(checkpoint);
-  return publishDailyLearningPacket(projection.packet,{env,home,gitBin});
+  const packet=projection.packet;
+  const key=localSyncCacheKey(config);
+  const decision=localPacketSyncDecision(packet,{
+    prior:LOCAL_SYNC_CACHE.get(key)||null,
+    timeOnlySyncMs:config.timeOnlySyncMs
+  });
+  if(decision.defer){
+    return{
+      state:'ready',
+      status:'deferred_local_time_only',
+      study_day:packet.study_day,
+      retry_after_ms:decision.retry_after_ms
+    };
+  }
+
+  try{
+    const result=await publishDailyLearningPacket(packet,{env,home,gitBin});
+    rememberRemoteAttempt(config,packet);
+    return result;
+  }catch(error){
+    // Do not update the local success/attempt cache after a transport failure.
+    // The next private checkpoint is allowed to retry immediately.
+    throw error;
+  }
 }
