@@ -204,14 +204,11 @@ const {
       }
     }
 
-    window.addEventListener('kianos:xizong-pending-chat-return', () => {
-      window.location.reload();
-    });
-
     window.addEventListener('kianos:private-control-consumed', (event) => {
       const detail = event instanceof CustomEvent ? event.detail : null;
-      if (detail?.fresh !== true || detail?.target !== 'xizong.session') return;
+      if (detail?.fresh !== true) return;
       if (!['APPLIED','IDEMPOTENT'].includes(String(detail?.status || ''))) return;
+      if (!['xizong.session','xizong.chat_return'].includes(String(detail?.target || ''))) return;
       window.location.reload();
     });
   }
