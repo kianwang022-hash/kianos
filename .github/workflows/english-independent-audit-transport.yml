@@ -1,0 +1,25 @@
+name: English Independent Audit Transport
+on:
+  push:
+    branches: [work/english-final-independent-audit-20260919-r2]
+    paths: [.github/workflows/english-independent-audit-transport.yml]
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Archive tracked Current source only
+        run: |
+          mkdir -p /tmp/english-independent-audit
+          git rev-parse HEAD > /tmp/english-independent-audit/HEAD.txt
+          git archive --format=tar.gz -o /tmp/english-independent-audit/current-source.tar.gz HEAD
+      - uses: actions/upload-artifact@v4
+        with:
+          name: english-independent-audit-source
+          path: /tmp/english-independent-audit/
+          retention-days: 3
