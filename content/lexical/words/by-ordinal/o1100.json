@@ -23,7 +23,6 @@
           "label_en": "to have a mutual relationship, often in a statistical or logical sense; to bring two or more things into mutual relation",
           "pos": "verb",
           "sense_ids": [
-            "sense:correlate:6d74e3f723e55ac8",
             "sense:correlate:6d74e3f723e55ac8"
           ]
         },
@@ -36,9 +35,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "相互关联",
+      "core_meaning_cn": "两个变量或事物之间存在可追踪的关联，或主动把二者建立关联；名词 correlate 指相关物/相关变量",
       "core_meaning_en": "to have or bring into a mutual relation",
-      "mental_model_cn": "相互关联",
+      "mental_model_cn": "verb CORrelate /ˈkɔːrəleɪt/ → A correlates with B / correlate A with B；noun CORrelate /ˈkɔːrələt/ → a correlate of X。结尾读音随词性改变。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -159,7 +158,42 @@
     },
     "word": "correlate",
     "word_family": [],
-    "word_id": "word:correlate"
+    "word_id": "word:correlate",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:correlate:verb",
+          "canonical_form": "correlate",
+          "learner_key": "correlate (verb)",
+          "pos": [
+            "verb"
+          ],
+          "ipa": "/ˈkɔːrəleɪt/"
+        },
+        {
+          "variant_id": "form:correlate:noun",
+          "canonical_form": "correlate",
+          "learner_key": "correlate (noun)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": "/ˈkɔːrələt/"
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "correlate",
+          "condition": "verb",
+          "note": "动词结尾读 /-leɪt/。"
+        },
+        {
+          "surface": "correlate",
+          "condition": "noun",
+          "note": "名词结尾读 /-lət/。"
+        }
+      ],
+      "boundary": "correlate 的动词与名词结尾读音不同。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [
@@ -279,7 +313,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1097-1104.json",
     "source_content_hash": "9663de2dacbe87d4110df201437ebd797047a09da9fa7f9e437bea33a5088aa4",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

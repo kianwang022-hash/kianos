@@ -6,7 +6,15 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:cook:baseline-v2-books",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "篡改账目、伪造财务记录",
+        "pattern": "cook the books"
+      }
+    ],
     "content_hash": "59e1bb82c07b72bc426f30aced5c3d45a13f8a214a2fed496c4cf69ea750c507",
     "core_concept": {
       "core_clusters": [
@@ -30,7 +38,7 @@
       ],
       "core_meaning_cn": "通过加热准备食物，或做这件事的人",
       "core_meaning_en": "to prepare food by heating, or a person who does this",
-      "mental_model_cn": "通过加热准备食物，或做这件事的人",
+      "mental_model_cn": "literal cook → 用热加工食物；cook the books 是固定引申，表示篡改账目、做假账，不属于烹饪义本身。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -84,15 +92,6 @@
             ],
             "meaning_cn": "煮蔬菜",
             "phrase": "cook vegetables"
-          },
-          {
-            "collocation_id": "collocation:52ee6a696f82bb4346c1",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:cook:538a24bc25bc5b35:collocation:handoff-o0875-o1124"
-            ],
-            "meaning_cn": "falsify or manipulate financial records or accounts",
-            "phrase": "cook the books"
           }
         ],
         "confidence": "medium",
@@ -239,7 +238,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1081-1088.json",
     "source_content_hash": "59e1bb82c07b72bc426f30aced5c3d45a13f8a214a2fed496c4cf69ea750c507",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

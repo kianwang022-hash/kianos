@@ -6,7 +6,15 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:cough:baseline-v2-up",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "咳出某物；引申为不情愿地支付、交出金钱或信息",
+        "pattern": "cough up sth"
+      }
+    ],
     "content_hash": "4a40ac73e2a763521de893350cfa5e178934964c2311ce4670ba0b4558b2f2b6",
     "core_concept": {
       "core_clusters": [
@@ -30,7 +38,7 @@
       ],
       "core_meaning_cn": "咳嗽",
       "core_meaning_en": "to expel air from the lungs suddenly and noisily",
-      "mental_model_cn": "咳嗽",
+      "mental_model_cn": "literal cough → 咳嗽；cough up blood/phlegm → 咳出；figurative cough up money/information → 不情愿地掏钱或交出信息。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -60,15 +68,6 @@
             ],
             "meaning_cn": "干咳",
             "phrase": "a dry cough"
-          },
-          {
-            "collocation_id": "collocation:4bea37f8eb54d2248d70",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:cough:2a757b070a67568e:collocation:handoff-o0875-o1124"
-            ],
-            "meaning_cn": "不情愿地支付、提供金钱或信息",
-            "phrase": "cough up"
           }
         ],
         "confidence": "medium",
@@ -259,7 +258,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1113-1120.json",
     "source_content_hash": "4a40ac73e2a763521de893350cfa5e178934964c2311ce4670ba0b4558b2f2b6",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

@@ -3250,7 +3250,7 @@
     "ordinal": 1051,
     "word": "contest",
     "source_owner_path": "content/lexical/words/by-ordinal/o1051.json",
-    "source_fingerprint": "88930af250408cfcde195d511a0e9daa6d67c53aad09e6562d8269788a9bbb12",
+    "source_fingerprint": "d619e3fedf312739535c4e4359712a3d9fd69465be2d5ff8bbb798a1379ea408",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3260,13 +3260,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "竞赛或争夺；质疑或竞争",
-      "decision_cn": "",
+      "summary_cn": "围绕胜负、资格或决定发生竞争或争议：名词多指比赛/争夺，动词多指竞选、争夺或质疑",
+      "decision_cn": "noun CONtest → a contest for power / a beauty contest；verb conTEST → contest an election/decision。词性改变重音。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "竞赛或争夺；质疑或竞争"
+        "target_label": "围绕胜负、资格或决定发生竞争或争议：名词多指比赛/争夺，动词多指竞选、争夺或质疑"
       }
     },
     "senses": [
@@ -3388,7 +3388,43 @@
         }
       ],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "contest",
+            "condition": "noun",
+            "note": "名词通常重音在第一音节：CONtest。"
+          },
+          {
+            "surface": "contest",
+            "condition": "verb",
+            "note": "动词通常重音在第二音节：conTEST。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "contest (noun)",
+            "ipa": "/ˈkɑːntest/"
+          },
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "contest (verb)",
+            "ipa": "/kənˈtest/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -4077,23 +4113,23 @@
     "ordinal": 1058,
     "word": "contract",
     "source_owner_path": "content/lexical/words/by-ordinal/o1058.json",
-    "source_fingerprint": "27880d13aa4c82aa71e5d5c9a102262a132385baf3b63d42d385a57462894f56",
+    "source_fingerprint": "8b7db14fa10a0fd2b20e8c1ce3fe398c9207e8f3961907deb58c6f1d416d1108",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(3+1)V",
+        "3V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "合同；收缩；感染",
-      "decision_cn": "",
+      "summary_cn": "把双方“绑定”在一起的合同，或动词意义上的收缩、订约、感染疾病",
+      "decision_cn": "noun CONtract → 合同；verb conTRACT → 签约/承包、收缩、contract a disease 感染疾病。词性改变重音。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "合同；收缩；感染"
+        "target_label": "把双方“绑定”在一起的合同，或动词意义上的收缩、订约、感染疾病"
       }
     },
     "senses": [
@@ -4232,27 +4268,48 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:contract:65fdb297dc1b73b1",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "感染（疾病）",
-        "definition_en": "to become infected with a disease",
-        "pattern": "contract a disease",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:contract:65fdb297dc1b73b1",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "感染（疾病）"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "contract",
+            "condition": "noun",
+            "note": "名词重音在第一音节：CONtract。"
+          },
+          {
+            "surface": "contract",
+            "condition": "verb",
+            "note": "动词重音在第二音节：conTRACT。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "contract (noun)",
+            "ipa": "/ˈkɑːntrækt/"
+          },
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "contract (verb)",
+            "ipa": "/kənˈtrækt/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": [
         {
           "target_word": "contractor",
@@ -4513,7 +4570,7 @@
     "ordinal": 1061,
     "word": "contrast",
     "source_owner_path": "content/lexical/words/by-ordinal/o1061.json",
-    "source_fingerprint": "d7da92f0ae292cab2acfd1b9f11d8b5a690cdcaeaf3ff09a8cbacd565ee37096",
+    "source_fingerprint": "badb5d5ec563317edf48dacc9a5b232ea9a4ba457f17f2cab8b72c1de4427186",
     "sense_lineage": [
       {
         "word_id": "word:contrast",
@@ -4545,13 +4602,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "对比，差别",
-      "decision_cn": "",
+      "summary_cn": "把两个对象并列后凸显差异：名词是对比/差别，动词是进行对比",
+      "decision_cn": "noun CONtrast → in contrast / a sharp contrast；verb conTRAST → contrast A with B。词性改变重音。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "对比，差别"
+        "target_label": "把两个对象并列后凸显差异：名词是对比/差别，动词是进行对比"
       }
     },
     "senses": [
@@ -4648,7 +4705,43 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "contrast",
+            "condition": "noun",
+            "note": "名词重音在第一音节：CONtrast。"
+          },
+          {
+            "surface": "contrast",
+            "condition": "verb",
+            "note": "动词重音在第二音节：conTRAST。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "contrast (noun)",
+            "ipa": "/ˈkɑːntræst/"
+          },
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "contrast (verb)",
+            "ipa": "/kənˈtræst/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -4658,7 +4751,7 @@
     "ordinal": 1062,
     "word": "contribute",
     "source_owner_path": "content/lexical/words/by-ordinal/o1062.json",
-    "source_fingerprint": "64dc86050c0ac22c247696dae876da3be55a817cb62fbec86fe683255bba6396",
+    "source_fingerprint": "f5b22d73cd4a6a699030172b62fed0b269b521556cae5228f2ea8a03f51a8e6d",
     "sense_lineage": [
       {
         "word_id": "word:contribute",
@@ -4675,13 +4768,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "贡献；促成",
-      "decision_cn": "",
+      "summary_cn": "把某种东西加进一个更大的结果里：可贡献钱/时间/内容，也可促成结果，或向媒体投稿",
+      "decision_cn": "contribute sth to X → 向X贡献；contribute to X → 促成/导致X；contribute to a magazine/newspaper → 向媒体投稿。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "贡献；促成"
+        "target_label": "把某种东西加进一个更大的结果里：可贡献钱/时间/内容，也可促成结果，或向媒体投稿"
       }
     },
     "senses": [
@@ -5007,7 +5100,7 @@
     "ordinal": 1064,
     "word": "contrive",
     "source_owner_path": "content/lexical/words/by-ordinal/o1064.json",
-    "source_fingerprint": "e772be10faef6f4b873f068ad3b09c58444a31998f0ce8d17f4f41ef90ad4034",
+    "source_fingerprint": "61608f0fd9da163a078770146e23d0ace67d05f75fe9182909f8788a9efe3c6a",
     "sense_lineage": [
       {
         "word_id": "word:contrive",
@@ -5035,16 +5128,16 @@
       "parts": [
         "1V"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "巧妙设计或谋划",
-      "decision_cn": "",
+      "summary_cn": "通过巧思、安排或努力把某事“设法弄成”：可巧妙设计，也可设法做到",
+      "decision_cn": "contrive a plan/device → 巧妙设计；contrive to do sth → 尽管有困难仍设法做到，常带“费了些心思”的感觉。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "巧妙设计或谋划"
+        "target_label": "通过巧思、安排或努力把某事“设法弄成”：可巧妙设计，也可设法做到"
       }
     },
     "senses": [
@@ -5067,7 +5160,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:contrive:baseline-v2-to",
+        "source_locator": "record.constructions[0]",
+        "pattern": "contrive to do sth",
+        "lines": [
+          {
+            "text": "设法做到某事；通过巧妙安排或努力实现某事",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:contrive:baseline-v2-to",
+          "target_locator": "record.constructions[0]",
+          "target_label": "contrive to do sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6166,7 +6277,7 @@
     "ordinal": 1076,
     "word": "convert",
     "source_owner_path": "content/lexical/words/by-ordinal/o1076.json",
-    "source_fingerprint": "2fc05c3530e8cdb9d2453f0aeac38a4502939537b83d119ec1543e5caf5e58af",
+    "source_fingerprint": "6f254cc10b600599302ae9685e7b9a5fdabbb447afeca9b5fd2c9518d8686a89",
     "sense_lineage": [
       {
         "word_id": "word:convert",
@@ -6184,13 +6295,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "转变；转换",
-      "decision_cn": "",
+      "summary_cn": "从一种形式、用途或信仰转成另一种；名词 convert 指改变信仰的人",
+      "decision_cn": "verb conVERT → convert A into/to B / convert to a religion；noun CONvert → a convert to Buddhism。词性改变重音。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "转变；转换"
+        "target_label": "从一种形式、用途或信仰转成另一种；名词 convert 指改变信仰的人"
       }
     },
     "senses": [
@@ -6393,7 +6504,43 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "convert",
+            "condition": "verb",
+            "note": "动词重音在第二音节：conVERT。"
+          },
+          {
+            "surface": "convert",
+            "condition": "noun",
+            "note": "名词重音在第一音节：CONvert。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "convert (verb)",
+            "ipa": "/kənˈvɝːt/"
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "convert (noun)",
+            "ipa": "/ˈkɑːnvɝːt/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": [
         {
           "target_word": "convertible",
@@ -6501,7 +6648,7 @@
     "ordinal": 1078,
     "word": "convict",
     "source_owner_path": "content/lexical/words/by-ordinal/o1078.json",
-    "source_fingerprint": "c11d34c6f9f03d418e126e9bc2b75fa066be5c6a040acac2f9a8fbfc2b109df7",
+    "source_fingerprint": "9a2e156d0c7959fa510708f7fd8b0883e99f1634f2388494e542a3994ffaedc9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6511,13 +6658,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "定罪，罪犯",
-      "decision_cn": "",
+      "summary_cn": "法院判定有罪，或被判有罪、正在服刑的人",
+      "decision_cn": "verb conVICT → convict sb of sth；noun CONvict → prisoner/criminal serving a sentence。词性改变重音。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "定罪，罪犯"
+        "target_label": "法院判定有罪，或被判有罪、正在服刑的人"
       }
     },
     "senses": [
@@ -6604,7 +6751,43 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "convict",
+            "condition": "verb",
+            "note": "动词重音在第二音节：conVICT。"
+          },
+          {
+            "surface": "convict",
+            "condition": "noun",
+            "note": "名词重音在第一音节：CONvict。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "convict (verb)",
+            "ipa": "/kənˈvɪkt/"
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "convict (noun)",
+            "ipa": "/ˈkɑːnvɪkt/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -6798,7 +6981,7 @@
     "ordinal": 1081,
     "word": "cook",
     "source_owner_path": "content/lexical/words/by-ordinal/o1081.json",
-    "source_fingerprint": "6427d55f9f4a6b3c3bcae0019606df9381c34f7cb525a59203bdf08e439f4672",
+    "source_fingerprint": "54e70f2130fabbc46fa1bbccf0da170e6200fd0ec5e118496c4c937a0dc06028",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6809,7 +6992,7 @@
     },
     "word_feel": {
       "summary_cn": "通过加热准备食物，或做这件事的人",
-      "decision_cn": "",
+      "decision_cn": "literal cook → 用热加工食物；cook the books 是固定引申，表示篡改账目、做假账，不属于烹饪义本身。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6869,19 +7052,6 @@
             "meaning_cn": "煮蔬菜",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:52ee6a696f82bb4346c1",
-            "source_locator": "record.senses[1].collocations[2]",
-            "phrase": "cook the books",
-            "meaning_cn": "falsify or manipulate financial records or accounts",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:52ee6a696f82bb4346c1",
-              "target_locator": "record.senses[1].collocations[2]",
-              "target_label": "cook the books"
-            }
           }
         ],
         "repair": {
@@ -6919,7 +7089,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:cook:baseline-v2-books",
+        "source_locator": "record.constructions[0]",
+        "pattern": "cook the books",
+        "lines": [
+          {
+            "text": "篡改账目、伪造财务记录",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:cook:baseline-v2-books",
+          "target_locator": "record.constructions[0]",
+          "target_label": "cook the books"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6933,24 +7121,24 @@
     "ordinal": 1082,
     "word": "cool",
     "source_owner_path": "content/lexical/words/by-ordinal/o1082.json",
-    "source_fingerprint": "6259a5637d13fbc44d736bbfbe09d502f6c6321304853b850fa9b0442e1244a3",
+    "source_fingerprint": "ad492d0eeea7f6767efdcf5b26dd6dc51196475de5623724d0a16692b6e5b935",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "3V",
-        "3A",
+        "(3+1)A",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "凉爽；使冷却或变凉",
-      "decision_cn": "",
+      "summary_cn": "让温度、情绪或社交热度“降下来”：可指凉爽/冷却、冷淡、冷静，也可非正式表示时髦或不错",
+      "decision_cn": "temperature → 凉爽/冷却；emotion → cool down/off / keep cool = 冷静；social attitude → 冷淡；informal评价 → cool = 很酷、不错。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "凉爽；使冷却或变凉"
+        "target_label": "让温度、情绪或社交热度“降下来”：可指凉爽/冷却、冷淡、冷静，也可非正式表示时髦或不错"
       }
     },
     "senses": [
@@ -7129,21 +7317,7 @@
         "definition_en": "fashionable, impressive, good, or acceptable in informal use",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:69100246df4168cb6514",
-            "source_locator": "record.senses[6].collocations[0]",
-            "phrase": "keep/stay cool",
-            "meaning_cn": "保持冷静",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:69100246df4168cb6514",
-              "target_locator": "record.senses[6].collocations[0]",
-              "target_label": "keep/stay cool"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:cool:946333cf8ae7d199",
@@ -7152,7 +7326,22 @@
         }
       }
     ],
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "baseline-v2:secondary_sense:cool:calm",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "adjective",
+        "definition_cn": "冷静的；沉着的",
+        "definition_en": "calm and self-controlled, especially under pressure",
+        "pattern": "keep / stay cool",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "baseline-v2:secondary_sense:cool:calm",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "冷静的；沉着的"
+        }
+      }
+    ],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -7376,7 +7565,7 @@
     "ordinal": 1085,
     "word": "coordinate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1085.json",
-    "source_fingerprint": "30aa8cc5f8719d5dea669fc2cb29629ef195e8d35eb6883be02478c477caaad2",
+    "source_fingerprint": "f257fec9d83db33795ab6be7ff4ac7f6945255e580b7eb053463e30889fefec5",
     "sense_lineage": [
       {
         "word_id": "word:coordinate",
@@ -7395,13 +7584,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "协调或同等",
-      "decision_cn": "",
+      "summary_cn": "把多个部分安排成彼此配合；名词可指坐标，形容词可指同等/并列",
+      "decision_cn": "verb coordinate /koʊˈɔːrdəneɪt/ → 协调；noun/adjective coordinate /koʊˈɔːrdənət/ → 坐标、并列的。结尾读音随词性改变。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "协调或同等"
+        "target_label": "把多个部分安排成彼此配合；名词可指坐标，形容词可指同等/并列"
       }
     },
     "senses": [
@@ -7520,7 +7709,44 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "coordinate",
+            "condition": "verb",
+            "note": "动词结尾读 /-neɪt/。"
+          },
+          {
+            "surface": "coordinate",
+            "condition": "noun/adjective",
+            "note": "名词/形容词结尾读 /-nət/。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "coordinate (verb)",
+            "ipa": "/koʊˈɔːrdəneɪt/"
+          },
+          {
+            "pos": [
+              "noun",
+              "adjective"
+            ],
+            "reading": "coordinate (noun/adjective)",
+            "ipa": "/koʊˈɔːrdənət/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -7530,7 +7756,7 @@
     "ordinal": 1086,
     "word": "cop",
     "source_owner_path": "content/lexical/words/by-ordinal/o1086.json",
-    "source_fingerprint": "eae1b1630c4f7ed15b328ede90bb8035be288e302602454c305769529ea84950",
+    "source_fingerprint": "f2fc4e8a2760594364f0a75f262d65c2f5d3cf873a59f3d9937eabc194ad0ccd",
     "sense_lineage": [
       {
         "word_id": "word:cop",
@@ -7554,13 +7780,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "警察；抓住",
-      "decision_cn": "",
+      "summary_cn": "警察（非正式用语）",
+      "decision_cn": "当前主学习义就是非正式名词“警察”；旧的“偷窃/逮捕”动词义只保留历史参考，不进入主 Core。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "警察；抓住"
+        "target_label": "警察（非正式用语）"
       }
     },
     "senses": [
@@ -7597,7 +7823,7 @@
     "ordinal": 1087,
     "word": "cope",
     "source_owner_path": "content/lexical/words/by-ordinal/o1087.json",
-    "source_fingerprint": "743f28f9e05707c3d8cc9ace25ed487d5fc116db52c3fba5716505831822d728",
+    "source_fingerprint": "bc5f2555f917c02450a700c11b7f902d499238ed74fe0e8ab37843df4e0ae706",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7607,36 +7833,19 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "应付，处理",
-      "decision_cn": "",
+      "summary_cn": "成功应对困难、压力或不利局面；低频名词义是宗教礼服长袍",
+      "decision_cn": "默认先学 verb cope with sth = 应对困难；宗教礼服 cope 是低优先名词义。历史重复 Construction 合并为一条。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "应付，处理"
+        "target_label": "成功应对困难、压力或不利局面；低频名词义是宗教礼服长袍"
       }
     },
     "senses": [
       {
-        "id": "sense:cope:7e49b20a1bd45847",
-        "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "长袍",
-        "definition_en": "a long cloak worn by a priest or bishop on ceremonial occasions",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:cope:7e49b20a1bd45847",
-          "target_locator": "record.senses[0]",
-          "target_label": "长袍"
-        }
-      },
-      {
         "id": "sense:cope:5d10974250595c40",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "cope with sth",
         "definition_cn": "应对、处理（困难情况）",
@@ -7647,65 +7856,45 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:cope:5d10974250595c40",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "应对、处理（困难情况）"
+        }
+      },
+      {
+        "id": "sense:cope:7e49b20a1bd45847",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "长袍",
+        "definition_en": "a long cloak worn by a priest or bishop on ceremonial occasions",
+        "note": "低频宗教礼服义；当前阶段以识别为主。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:cope:7e49b20a1bd45847",
+          "target_locator": "record.senses[1]",
+          "target_label": "长袍"
         }
       }
     ],
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "deep:constructions:cope:566af4635aa26854",
+        "id": "construction:cope:baseline-v2-with",
         "source_locator": "record.constructions[0]",
-        "pattern": "vi. + with",
+        "pattern": "cope with sth",
         "lines": [
           {
-            "text": "应付，处理",
+            "text": "应对、处理困难、压力或复杂局面",
             "lang": "cn"
-          },
-          {
-            "text": "cope with + 困难局面",
-            "lang": "cn"
-          },
-          {
-            "text": "to deal successfully with a difficult situation",
-            "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "deep:constructions:cope:566af4635aa26854",
+          "target_id": "construction:cope:baseline-v2-with",
           "target_locator": "record.constructions[0]",
-          "target_label": "vi. + with"
-        }
-      },
-      {
-        "id": "deep:constructions:cope:b22a4838845e67a0",
-        "source_locator": "record.constructions[1]",
-        "pattern": "cope with + sth",
-        "lines": [
-          {
-            "text": "应付某事",
-            "lang": "cn"
-          },
-          {
-            "text": "应付，处理",
-            "lang": "cn"
-          },
-          {
-            "text": "cope with + 具体事物",
-            "lang": "cn"
-          },
-          {
-            "text": "to deal successfully with a difficult situation",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:cope:b22a4838845e67a0",
-          "target_locator": "record.constructions[1]",
-          "target_label": "cope with + sth"
+          "target_label": "cope with sth"
         }
       }
     ],
@@ -7722,7 +7911,7 @@
     "ordinal": 1088,
     "word": "copper",
     "source_owner_path": "content/lexical/words/by-ordinal/o1088.json",
-    "source_fingerprint": "d526901805fa944a823038ce6adf91ec913f423cb4e2cfcde64020b86484e952",
+    "source_fingerprint": "7d3ca72761de69fac1328e1a2fdddba2da373d70f414af126fb62d3b5be0fe1f",
     "sense_lineage": [
       {
         "word_id": "word:copper",
@@ -7753,13 +7942,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "铜；铜币；铜色；警察",
-      "decision_cn": "",
+      "summary_cn": "铜；具有良好导电和导热性的红棕色金属元素",
+      "decision_cn": "当前主学习义就是金属元素“铜”；旧的铜色、铜币、警察等义仅保留历史参考，不进入主 Core。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "铜；铜币；铜色；警察"
+        "target_label": "铜；具有良好导电和导热性的红棕色金属元素"
       }
     },
     "senses": [

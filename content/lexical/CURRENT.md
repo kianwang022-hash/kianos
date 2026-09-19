@@ -943,7 +943,41 @@ Repair Test blueprints:
 - `content/lexical/learner/repair-blueprints/shards/o0951-1000.json`
 - `content/lexical/learner/repair-blueprints/shards/o1001-1050.json`
 
-Next Human-Gate batch: **o1051–o1150 — FRESH READ + COMBINED CONTENT/TEST REPORT**.
+Closed Human-Gate batch: **o1051–o1150 — CLOSED**.
+
+```text
+100 / 100 fresh owner/module judgments
+32 Word Content owners upgraded
+68 Word Content owners NO_CHANGE
+1 existing cross-word Relation owner corrected (crazy ↔ mad)
+30 Repair Test blueprints written and read back
+70 NO_TEST_NEEDED words
+0 BLOCKED
+0 learner-page/UI files changed
+Final Learner Object materialization PASS (7,946 objects)
+```
+
+Notable learner-facing closures:
+- contest / contract / contrast / convert / convict: noun-verb stress boundaries made explicit
+- coordinate / correlate: part-of-speech ending-pronunciation boundaries made explicit
+- cook the books / cough up / contrive to / cope with: promoted to clean learner constructions
+- contract / count / course / credit: duplicate active projections removed
+- copper / cordial / cop / cosy: deprecated meanings removed from Core
+- cord: spinal/umbilical cord removed from electrical-cord Sense and represented as anatomy
+- corn: AmE maize vs broader BrE/older cereal usage clarified
+- cow: insulting sense marked as offensive/recognition-only
+- crazy ↔ mad: existing Relation corrected for informal/context-sensitive mental-health wording and BrE mad=angry
+- creature: common animal/living-being sense restored to first learner priority
+
+Canonical Baseline-v2 receipts:
+- `content/lexical/audit/baseline-v2/lane-d/o1051-o1100.json`
+- `content/lexical/audit/baseline-v2/lane-d/o1101-o1150.json`
+
+Repair Test blueprints:
+- `content/lexical/learner/repair-blueprints/shards/o1051-1100.json`
+- `content/lexical/learner/repair-blueprints/shards/o1101-1150.json`
+
+Next Human-Gate batch: **o1151–o1250 — FRESH READ + COMBINED CONTENT/TEST REPORT**.
 
 Apply one Human Gate per ~100 owners: internally fresh-read in bounded ~50-owner slices, then combine real Content defects and worthwhile Repair Test candidates into one plain-language 100-owner report and wait for one Kian approval. After approval, automatically close the approved slices and advance to the next 100-owner batch.
 

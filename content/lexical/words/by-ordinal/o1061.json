@@ -27,9 +27,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "对比，差别",
+      "core_meaning_cn": "把两个对象并列后凸显差异：名词是对比/差别，动词是进行对比",
       "core_meaning_en": "difference or comparison between things",
-      "mental_model_cn": "对比，差别",
+      "mental_model_cn": "noun CONtrast → in contrast / a sharp contrast；verb conTRAST → contrast A with B。词性改变重音。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -114,7 +114,42 @@
     },
     "word": "contrast",
     "word_family": [],
-    "word_id": "word:contrast"
+    "word_id": "word:contrast",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:contrast:noun",
+          "canonical_form": "contrast",
+          "learner_key": "contrast (noun)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": "/ˈkɑːntræst/"
+        },
+        {
+          "variant_id": "form:contrast:verb",
+          "canonical_form": "contrast",
+          "learner_key": "contrast (verb)",
+          "pos": [
+            "verb"
+          ],
+          "ipa": "/kənˈtræst/"
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "contrast",
+          "condition": "noun",
+          "note": "名词重音在第一音节：CONtrast。"
+        },
+        {
+          "surface": "contrast",
+          "condition": "verb",
+          "note": "动词重音在第二音节：conTRAST。"
+        }
+      ],
+      "boundary": "contrast 的名词/动词重音不同。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [
@@ -317,7 +352,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1057-1064.json",
     "source_content_hash": "864a764d0520a94486fa1e1e9cb978a732b97c59caab2def9dc762dd843ec5f3",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

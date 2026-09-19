@@ -17,7 +17,6 @@
           "sense_ids": [
             "sense:convert:d31a2d64864755bb",
             "sense:convert:08213c2a3fb55396",
-            "sense:convert:85fb00e6b2b35400",
             "sense:convert:85fb00e6b2b35400"
           ]
         },
@@ -30,9 +29,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "转变；转换",
+      "core_meaning_cn": "从一种形式、用途或信仰转成另一种；名词 convert 指改变信仰的人",
       "core_meaning_en": "to change from one form, use, or belief to another",
-      "mental_model_cn": "转变；转换",
+      "mental_model_cn": "verb conVERT → convert A into/to B / convert to a religion；noun CONvert → a convert to Buddhism。词性改变重音。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -265,7 +264,42 @@
         "writing_safe": true
       }
     ],
-    "word_id": "word:convert"
+    "word_id": "word:convert",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:convert:verb",
+          "canonical_form": "convert",
+          "learner_key": "convert (verb)",
+          "pos": [
+            "verb"
+          ],
+          "ipa": "/kənˈvɝːt/"
+        },
+        {
+          "variant_id": "form:convert:noun",
+          "canonical_form": "convert",
+          "learner_key": "convert (noun)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": "/ˈkɑːnvɝːt/"
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "convert",
+          "condition": "verb",
+          "note": "动词重音在第二音节：conVERT。"
+        },
+        {
+          "surface": "convert",
+          "condition": "noun",
+          "note": "名词重音在第一音节：CONvert。"
+        }
+      ],
+      "boundary": "convert 的名词/动词重音不同。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [
@@ -449,7 +483,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1073-1080.json",
     "source_content_hash": "c4716eaa6620dfcbdfe2ba9efc2bda2726ae72701ffe349f61eec36d12ccd734",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

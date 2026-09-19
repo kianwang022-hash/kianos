@@ -35,9 +35,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "定罪，罪犯",
+      "core_meaning_cn": "法院判定有罪，或被判有罪、正在服刑的人",
       "core_meaning_en": "to declare guilty or a person serving a sentence",
-      "mental_model_cn": "定罪，罪犯",
+      "mental_model_cn": "verb conVICT → convict sb of sth；noun CONvict → prisoner/criminal serving a sentence。词性改变重音。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -118,7 +118,42 @@
     },
     "word": "convict",
     "word_family": [],
-    "word_id": "word:convict"
+    "word_id": "word:convict",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:convict:verb",
+          "canonical_form": "convict",
+          "learner_key": "convict (verb)",
+          "pos": [
+            "verb"
+          ],
+          "ipa": "/kənˈvɪkt/"
+        },
+        {
+          "variant_id": "form:convict:noun",
+          "canonical_form": "convict",
+          "learner_key": "convict (noun)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": "/ˈkɑːnvɪkt/"
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "convict",
+          "condition": "verb",
+          "note": "动词重音在第二音节：conVICT。"
+        },
+        {
+          "surface": "convict",
+          "condition": "noun",
+          "note": "名词重音在第一音节：CONvict。"
+        }
+      ],
+      "boundary": "convict 的名词/动词重音不同。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -187,7 +222,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1073-1080.json",
     "source_content_hash": "be81b1512152765f22646c3dac51495b86dea146f191ff59aef56eb04cd96814",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
