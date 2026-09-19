@@ -67,6 +67,10 @@ const packetMeta = {
     buildXizongChatHandoff,
     writeXizongChatHandoff
   } from '../lib/xizongChatReturn.mjs';
+  import {
+    consumePendingXizongChatReturnForObject
+  } from '../lib/xizongPendingChatReturn.mjs';
+  import { studyDayAt } from '../lib/studyTimer.mjs';
 
   const dock = document.querySelector('[data-xizong-study-dock]');
   const root = document.querySelector('[data-xizong-v6-block]');
@@ -177,6 +181,55 @@ const packetMeta = {
           : 'Chat Return 未通过对象/版本校验；没有改动学习状态。';
       }
     });
+
+    const consumePendingReturn = () => {
+      try {
+        const packet = buildStudyPacket();
+        const result = consumePendingXizongChatReturnForObject(localStorage, {
+          objectId,
+          currentPacket: packet,
+          now: Date.now(),
+          expectedDay: studyDayAt(Date.now())
+        });
+        if (result.status === 'no_pending' || result.status === 'waiting_current_packet') return result;
+
+        const status = String(result.receipt?.status || '').toUpperCase();
+        if (status === 'APPLIED' || status === 'ALREADY_APPLIED') {
+          const repairCount = result.apply_result?.return_packet?.repairs?.length || 0;
+          if (packetStatus) packetStatus.textContent = repairCount
+            ? `Chat Return 已按当前最新证据安全应用；${repairCount} 个 Repair 正在进入现有 Repair 流程。`
+            : 'Chat Return 已按当前最新证据确认；当前无需 Repair。';
+          if (repairCount > 0 && status === 'APPLIED') {
+            window.setTimeout(() => window.location.reload(), 0);
+          }
+        } else if (status === 'STALE') {
+          if (packetStatus) packetStatus.textContent = 'Chat Return 到达时学习证据已经变化；未写入 Repair，等待 Chat 重新判断。';
+        } else if (status === 'REJECTED') {
+          if (packetStatus) packetStatus.textContent = 'Chat Return 未通过当前 Block 的对象/版本校验；学习状态没有被改动。';
+        }
+
+        window.dispatchEvent(new CustomEvent('kianos:xizong-pending-chat-return-consumed', {
+          detail: {
+            object_id: objectId,
+            handoff_id: result.receipt?.handoff_id || '',
+            return_id: result.receipt?.return_id || '',
+            status
+          }
+        }));
+        return result;
+      } catch (error) {
+        if (packetStatus) packetStatus.textContent = '待处理 Chat Return 无法安全读取；原学习状态未改动。';
+        return { status:'error', error };
+      }
+    };
+
+    window.addEventListener('kianos:private-control-consumed', (event) => {
+      const detail = event instanceof CustomEvent ? event.detail : null;
+      if (detail?.fresh !== true || detail?.target !== 'xizong.chat_return') return;
+      if (!['APPLIED','IDEMPOTENT'].includes(String(detail?.status || ''))) return;
+      consumePendingReturn();
+    });
+    window.setTimeout(consumePendingReturn, 0);
 
     const applyCompletionGate = () => {
       const button = root.querySelector('[data-block-complete]');
