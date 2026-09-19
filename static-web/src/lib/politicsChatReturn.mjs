@@ -174,7 +174,13 @@ export function validatePoliticsChatReturn(input, currentPacket) {
         chapter: String(context.chapter || ''),
         unit_id: String(context.unit_id || ''),
         current_outcome: String(context.current_outcome || ''),
-        source_href: String(context.source_href || '')
+        source_href: String(context.source_href || ''),
+        provenance: {
+          catalog_revision: revision,
+          recorded_unit_key: String(context.recorded_unit_key || ''),
+          source_context_status: String(context.source_context_status || 'LEGACY_SOURCE_CONTEXT_UNAVAILABLE'),
+          original_source_context: clone(context.original_source_context || null)
+        }
       };
     });
 
