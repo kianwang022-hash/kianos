@@ -18,6 +18,7 @@ const runtimeKey='kianos:xizong:session-runtime:v1';
 const handoffKey='kianos-xizong-chat-handoff-v1:handoff-durable';
 const returnReceiptKey='kianos-xizong-chat-return-v1:handoff-durable';
 const pendingReturnKey='kianos:xizong:pending-chat-return:v1';
+const pendingSystemWuKey='kianos:xizong:pending-system-wu-return:v1';
 const source=new MemoryStorage({
   [sessionKey]:JSON.stringify({
     schema:'kianos.xizong.session-instruction.v1',
@@ -76,6 +77,26 @@ const source=new MemoryStorage({
     },
     last_receipt:null
   })
+  ,
+  [pendingSystemWuKey]:JSON.stringify({
+    schema:'kianos.xizong.system_wu_pending.v1',
+    pending_by_system:{
+      circulation:{
+        return_id:'wu-pending',
+        system_id:'circulation',
+        study_day:'2026-09-20',
+        received_at:'2026-09-20T01:04:00.000Z',
+        return_packet:{
+          schema:'kianos.xizong.system_wu_return.v1',
+          return_id:'wu-pending',
+          system_id:'circulation',
+          decision:'NO_ACTION',
+          plan:[]
+        }
+      }
+    },
+    last_receipt:null
+  })
 });
 
 const checkpoint=captureXizongPrivateCheckpoint(source,{now:Date.parse('2026-09-20T02:00:00.000Z')});
@@ -84,6 +105,7 @@ assert.ok(checkpoint.entries.some((row)=>row.key===runtimeKey));
 assert.ok(checkpoint.entries.some((row)=>row.key===handoffKey));
 assert.ok(checkpoint.entries.some((row)=>row.key===returnReceiptKey));
 assert.ok(checkpoint.entries.some((row)=>row.key===pendingReturnKey));
+assert.ok(checkpoint.entries.some((row)=>row.key===pendingSystemWuKey));
 
 const target=new MemoryStorage();
 const restored=restoreXizongPrivateCheckpoint(target,checkpoint,{onlyIfEmpty:true});
@@ -94,5 +116,6 @@ assert.equal(JSON.parse(target.getItem(runtimeKey)).status,'ACTIVE');
 assert.equal(JSON.parse(target.getItem(handoffKey)).handoff_id,'handoff-durable');
 assert.equal(JSON.parse(target.getItem(returnReceiptKey)).return_id,'return-durable');
 assert.equal(JSON.parse(target.getItem(pendingReturnKey)).pending_by_object['xizong:a1-b01'].return_id,'return-pending');
+assert.equal(JSON.parse(target.getItem(pendingSystemWuKey)).pending_by_system.circulation.return_id,'wu-pending');
 
 console.log('PASS Xizong session durability: immutable instruction + execution runtime captured/restored');
