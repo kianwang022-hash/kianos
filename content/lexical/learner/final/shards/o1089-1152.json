@@ -247,7 +247,7 @@
     "ordinal": 1091,
     "word": "cord",
     "source_owner_path": "content/lexical/words/by-ordinal/o1091.json",
-    "source_fingerprint": "3d7cca0a7a2384991a767335cc8db7cdb3ebbdd3a95854b98449ecb9e6e36c6d",
+    "source_fingerprint": "86ac756199b454b300daf3c83442389ea1ab11cb71a8f0e9463d6bd24abbe14b",
     "sense_lineage": [
       {
         "word_id": "word:cord",
@@ -266,18 +266,18 @@
     ],
     "recall_map": {
       "parts": [
-        "2N"
+        "(2+1)N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "粗线或电线，或木材计量单位",
-      "decision_cn": "",
+      "summary_cn": "细长、柔韧、像绳一样连接两端的结构：可指绳索、电线，也可用于脊髓、脐带等解剖结构",
+      "decision_cn": "rope/string → 绳索；power/electrical cord → 电线；spinal/umbilical cord → 细长连接性解剖结构。旧的木材计量单位不进主 Core。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "粗线或电线，或木材计量单位"
+        "target_label": "细长、柔韧、像绳一样连接两端的结构：可指绳索、电线，也可用于脊髓、脐带等解剖结构"
       }
     },
     "senses": [
@@ -337,32 +337,6 @@
               "target_locator": "record.senses[1].collocations[0]",
               "target_label": "power/electrical cord"
             }
-          },
-          {
-            "id": "collocation:68a5e634b067b012c638",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "spinal cord",
-            "meaning_cn": "脊髓",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:68a5e634b067b012c638",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "spinal cord"
-            }
-          },
-          {
-            "id": "collocation:5dd87fab71276efd324c",
-            "source_locator": "record.senses[1].collocations[2]",
-            "phrase": "umbilical cord",
-            "meaning_cn": "脐带",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5dd87fab71276efd324c",
-              "target_locator": "record.senses[1].collocations[2]",
-              "target_label": "umbilical cord"
-            }
           }
         ],
         "repair": {
@@ -373,7 +347,22 @@
         }
       }
     ],
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "baseline-v2:secondary_sense:cord:anatomy",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "noun",
+        "definition_cn": "绳索状或索状的解剖结构，如脊髓、脐带",
+        "definition_en": "a cord-like anatomical structure, such as the spinal cord or umbilical cord",
+        "pattern": "spinal cord / umbilical cord",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "baseline-v2:secondary_sense:cord:anatomy",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "绳索状或索状的解剖结构，如脊髓、脐带"
+        }
+      }
+    ],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -388,7 +377,7 @@
     "ordinal": 1092,
     "word": "cordial",
     "source_owner_path": "content/lexical/words/by-ordinal/o1092.json",
-    "source_fingerprint": "86e133191f259e63c915b792b01fc087dacfd23d336f3abeb30ede331507b8a7",
+    "source_fingerprint": "adfd7f33cccc1fd66ca40692852353eed7eb517f2a81646524fdfefc967b9279",
     "sense_lineage": [
       {
         "word_id": "word:cordial",
@@ -405,13 +394,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "热忱的；兴奋剂",
-      "decision_cn": "",
+      "summary_cn": "热情、友好而真诚的",
+      "decision_cn": "当前主学习义是形容词 cordial：a cordial welcome / cordial relations。旧的甜饮料/兴奋剂名词义仅保留历史参考。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "热忱的；兴奋剂"
+        "target_label": "热情、友好而真诚的"
       }
     },
     "senses": [
@@ -631,7 +620,7 @@
     "ordinal": 1094,
     "word": "corn",
     "source_owner_path": "content/lexical/words/by-ordinal/o1094.json",
-    "source_fingerprint": "8d8c1a94a242dcf3e2d3de401e30b6f8d81d2beb62344c638bc758273455be25",
+    "source_fingerprint": "d26e893e9bb5564c30a706bc3bbdaffbae04fbd0d9879e714dd4e1bfc8801567",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -641,13 +630,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "玉米；谷物；鸡眼",
-      "decision_cn": "",
+      "summary_cn": "谷物类词；现代美式英语中通常特指玉米，英式和较旧用法中可泛指当地主要谷物",
+      "decision_cn": "AmE corn 通常=maize 玉米；BrE/较旧一般用法可按地区指主要 cereal grain。corn on the cob 明确是玉米棒；corn 还可指鸡眼。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "玉米；谷物；鸡眼"
+        "target_label": "谷物类词；现代美式英语中通常特指玉米，英式和较旧用法中可泛指当地主要谷物"
       }
     },
     "senses": [
@@ -700,7 +689,7 @@
         "governing_pattern": "",
         "definition_cn": "谷物；谷粒",
         "definition_en": "the dried grains or kernels of corn used as animal feed or ground for meal",
-        "note": "",
+        "note": "BrE/较旧一般用法中 corn 可泛指谷物；现代 AmE 中 corn 通常特指 maize（玉米）。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1367,7 +1356,7 @@
     "ordinal": 1100,
     "word": "correlate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1100.json",
-    "source_fingerprint": "78f9da79f94be72e1ab3534de86e0ae2a1e2032816dabca9bde1c4834d9205d4",
+    "source_fingerprint": "975ab70ba38ba8126eeb7cafd5f3ec54671cd9fbc308f0218fa31fa95eb8e0b1",
     "sense_lineage": [
       {
         "word_id": "word:correlate",
@@ -1385,13 +1374,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "相互关联",
-      "decision_cn": "",
+      "summary_cn": "两个变量或事物之间存在可追踪的关联，或主动把二者建立关联；名词 correlate 指相关物/相关变量",
+      "decision_cn": "verb CORrelate /ˈkɔːrəleɪt/ → A correlates with B / correlate A with B；noun CORrelate /ˈkɔːrələt/ → a correlate of X。结尾读音随词性改变。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "相互关联"
+        "target_label": "两个变量或事物之间存在可追踪的关联，或主动把二者建立关联；名词 correlate 指相关物/相关变量"
       }
     },
     "senses": [
@@ -1526,7 +1515,43 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "correlate",
+            "condition": "verb",
+            "note": "动词结尾读 /-leɪt/。"
+          },
+          {
+            "surface": "correlate",
+            "condition": "noun",
+            "note": "名词结尾读 /-lət/。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "correlate (verb)",
+            "ipa": "/ˈkɔːrəleɪt/"
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "correlate (noun)",
+            "ipa": "/ˈkɔːrələt/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -2612,7 +2637,7 @@
     "ordinal": 1109,
     "word": "costly",
     "source_owner_path": "content/lexical/words/by-ordinal/o1109.json",
-    "source_fingerprint": "70c37145ac8e611aed811b086a403c91e908640da92b914ce43fed79b927fd57",
+    "source_fingerprint": "adc41dc6aafcef498a32ffc2b6b4315d5593979a7eaab7d7fa5f19a340e6080f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2621,13 +2646,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "昂贵的",
-      "decision_cn": "",
+      "summary_cn": "成本很高：可以是价格昂贵，也可以是造成严重损失、牺牲或后果",
+      "decision_cn": "costly equipment → 金钱昂贵；costly mistake/war/error → 不一定价格高，而是造成巨大损失或代价。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "昂贵的"
+        "target_label": "成本很高：可以是价格昂贵，也可以是造成严重损失、牺牲或后果"
       }
     },
     "senses": [
@@ -2785,7 +2810,7 @@
     "ordinal": 1111,
     "word": "cosy",
     "source_owner_path": "content/lexical/words/by-ordinal/o1111.json",
-    "source_fingerprint": "29a9022258bcd06457e6d380ef87d2d46f1b0408c1f2646b30d4204023393b24",
+    "source_fingerprint": "d0c4d25201d75c7ef5817b4aaccba04a63c72b20119bdce3c53371389ae2d05c",
     "sense_lineage": [
       {
         "word_id": "word:cosy",
@@ -2802,13 +2827,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "舒适温暖的；茶壶保暖套",
-      "decision_cn": "",
+      "summary_cn": "温暖、舒适、让人有安全和放松感的",
+      "decision_cn": "当前主学习义是形容词 cosy：a cosy room/atmosphere。BrE 常写 cosy，AmE 常写 cozy；旧的 tea cosy 名词义只保留参考。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "舒适温暖的；茶壶保暖套"
+        "target_label": "温暖、舒适、让人有安全和放松感的"
       }
     },
     "senses": [
@@ -3192,7 +3217,7 @@
     "ordinal": 1115,
     "word": "cough",
     "source_owner_path": "content/lexical/words/by-ordinal/o1115.json",
-    "source_fingerprint": "bf7e1c69826cfa43deb84a64b4a7e48f438d74186b8cbeb47c0e1dc917634c59",
+    "source_fingerprint": "821e116f2b7afa8429a2d4257c322beb1118e62a5400f80a9d8d40f7b5127e5d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3203,7 +3228,7 @@
     },
     "word_feel": {
       "summary_cn": "咳嗽",
-      "decision_cn": "",
+      "decision_cn": "literal cough → 咳嗽；cough up blood/phlegm → 咳出；figurative cough up money/information → 不情愿地掏钱或交出信息。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3242,19 +3267,6 @@
             "meaning_cn": "干咳",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:4bea37f8eb54d2248d70",
-            "source_locator": "record.senses[0].collocations[2]",
-            "phrase": "cough up",
-            "meaning_cn": "不情愿地支付、提供金钱或信息",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:4bea37f8eb54d2248d70",
-              "target_locator": "record.senses[0].collocations[2]",
-              "target_label": "cough up"
-            }
           }
         ],
         "repair": {
@@ -3331,7 +3343,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:cough:baseline-v2-up",
+        "source_locator": "record.constructions[0]",
+        "pattern": "cough up sth",
+        "lines": [
+          {
+            "text": "咳出某物；引申为不情愿地支付、交出金钱或信息",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:cough:baseline-v2-up",
+          "target_locator": "record.constructions[0]",
+          "target_label": "cough up sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3690,23 +3720,23 @@
     "ordinal": 1119,
     "word": "count",
     "source_owner_path": "content/lexical/words/by-ordinal/o1119.json",
-    "source_fingerprint": "d886012bd556ab211c78a025193f6f99a3dcd78b5bcc4cec9c2840d418b64225",
+    "source_fingerprint": "8d1644a3f472865a635eff86cedec13c9c222d61c4bf6437cb3bec863f552ef0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(4+1)V",
+        "4V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "计数；计算",
-      "decision_cn": "",
+      "summary_cn": "把人或事物纳入“计算/判断”：可计数、视为、依靠，也可表示某事重要或算数",
+      "decision_cn": "count numbers → 计数；count A as B → 视为；count on sb/sth → 依靠；count for sth → 有分量/重要；noun count → 总数/计数。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "计数；计算"
+        "target_label": "把人或事物纳入“计算/判断”：可计数、视为、依靠，也可表示某事重要或算数"
       }
     },
     "senses": [
@@ -3912,22 +3942,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:count:31c22fabe7bf472a",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "依靠；指望",
-        "definition_en": "to rely on someone or something",
-        "pattern": "count on + sb/sth",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:count:31c22fabe7bf472a",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "依靠；指望"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -4525,7 +4540,7 @@
     "ordinal": 1125,
     "word": "couple",
     "source_owner_path": "content/lexical/words/by-ordinal/o1125.json",
-    "source_fingerprint": "e991ad494f8049aa9e365bc77e9d318cf9f6faf331c6bc6310708406c1f99f12",
+    "source_fingerprint": "ba1fb5fe6c81586cb4c481f75d46a8e3e3ae0ba7bdeb13fc42783ccc0adf8b2e",
     "sense_lineage": [
       {
         "word_id": "word:couple",
@@ -4543,13 +4558,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "一对；连接",
-      "decision_cn": "",
+      "summary_cn": "两个彼此关联的人或事物；a couple of 常指大约两个，也可在口语里宽泛表示少数几个",
+      "decision_cn": "a couple → 一对/情侣；a couple of days → 通常约两天，口语中可宽泛指少数几天；couple A with B → 把两者连接、结合。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "一对；连接"
+        "target_label": "两个彼此关联的人或事物；a couple of 常指大约两个，也可在口语里宽泛表示少数几个"
       }
     },
     "senses": [
@@ -4584,9 +4599,9 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "几个；两三个",
-        "definition_en": "a small number of things; a few",
-        "note": "",
+        "definition_cn": "两个左右；少数几个（口语）",
+        "definition_en": "about two, or informally a small number of things",
+        "note": "核心数量感仍接近 two；在非正式语境中可宽泛表示少数几个。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4602,7 +4617,7 @@
           "target_kind": "sense",
           "target_id": "sense:couple:ad6f9559e40d5d03",
           "target_locator": "record.senses[1]",
-          "target_label": "几个；两三个"
+          "target_label": "两个左右；少数几个（口语）"
         }
       },
       {
@@ -4855,23 +4870,23 @@
     "ordinal": 1128,
     "word": "course",
     "source_owner_path": "content/lexical/words/by-ordinal/o1128.json",
-    "source_fingerprint": "43cfe6e73c4de5d722502baf2d89349b1a84cf5e0db52b9e2486e7876498d9a6",
+    "source_fingerprint": "aebf88c9a6e5686ca69b1b76cc0afbce5bbee112568bd57fe66092943ea6a86a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "(4+1)N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "路线或一系列事件/课程",
-      "decision_cn": "",
+      "summary_cn": "沿着某条路线或序列向前：可指课程、方向、事情的发展过程，也可指一道菜",
+      "decision_cn": "course of study → 课程序列；change course → 改变路线/方向；in the course of → 在发展过程中；main course → 一道菜。重复投影只保留一份。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "路线或一系列事件/课程"
+        "target_label": "沿着某条路线或序列向前：可指课程、方向、事情的发展过程，也可指一道菜"
       }
     },
     "senses": [
@@ -5036,22 +5051,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:course:b1f0eb2ec6aec078",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "noun",
-        "definition_cn": "过程；进程",
-        "definition_en": "the way something develops over time",
-        "pattern": "in the course of(在…过程中)",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:course:b1f0eb2ec6aec078",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "过程；进程"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [
       {
         "id": "construction:79cc42d2263ae6386c47",
@@ -5505,7 +5505,7 @@
     "ordinal": 1133,
     "word": "cover",
     "source_owner_path": "content/lexical/words/by-ordinal/o1133.json",
-    "source_fingerprint": "d671f4023368ee4e65138aaaab4c0ba29fdee62f2328a48df1768dd5b4a3d384",
+    "source_fingerprint": "4f272596eca77ebea0d6b89a2c29ded8c751b8e0fcd5a20a2b4dfd91cab19bbe",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5515,13 +5515,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "覆盖",
-      "decision_cn": "",
+      "summary_cn": "把某个范围“盖住/包住”：可物理覆盖，也可覆盖话题、费用或新闻事件",
+      "decision_cn": "cover a table → 盖住表面；cover a topic → 涉及范围；cover costs → 足以支付；cover a story/event → 对事件进行新闻报道。核心都是“把某范围纳入覆盖”。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "覆盖"
+        "target_label": "把某个范围“盖住/包住”：可物理覆盖，也可覆盖话题、费用或新闻事件"
       }
     },
     "senses": [
@@ -5755,7 +5755,7 @@
     "ordinal": 1134,
     "word": "cow",
     "source_owner_path": "content/lexical/words/by-ordinal/o1134.json",
-    "source_fingerprint": "0fd06d4c93938dd74d5fa4bb23d85109775a812297a83e09417448153472e3e9",
+    "source_fingerprint": "a64461c34a7508d94c95b93275f930102cfd179be788c223b615937f132860ca",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5765,13 +5765,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "母牛；恐吓或威胁使屈服",
-      "decision_cn": "",
+      "summary_cn": "成年母牛；动词 cow 表示以恐吓压制某人；另有针对女性的侮辱性名词用法",
+      "decision_cn": "animal → 母牛；cow sb into doing sth → 恐吓迫使某人做某事；用 cow 指女性是冒犯性/贬损称呼，应以识别为主，不作为主动表达。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "母牛；恐吓或威胁使屈服"
+        "target_label": "成年母牛；动词 cow 表示以恐吓压制某人；另有针对女性的侮辱性名词用法"
       }
     },
     "senses": [
@@ -5825,7 +5825,7 @@
         "governing_pattern": "",
         "definition_cn": "讨厌的女人",
         "definition_en": "an unpleasant or contemptible woman",
-        "note": "UK offensive/insulting use; low-priority Expansion, not learner Core",
+        "note": "侮辱性、贬损性称呼，针对女性使用时可能冒犯；当前阶段以识别为主，不建议主动使用。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -5894,7 +5894,7 @@
     "ordinal": 1135,
     "word": "coward",
     "source_owner_path": "content/lexical/words/by-ordinal/o1135.json",
-    "source_fingerprint": "0a3963e89bb0608bc881a03f7461047f55ece6d55200b502a77f2e40ef4e1075",
+    "source_fingerprint": "1f402e73b5e5fbf8eeef6d9fa3380922d021f5a7c0a2e795be7d6dec75f36e98",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5904,7 +5904,7 @@
     },
     "word_feel": {
       "summary_cn": "缺乏勇气的人",
-      "decision_cn": "",
+      "decision_cn": "coward 是名词“懦夫、胆小的人”；cowardly 才是形容词“懦弱的”。不要用 cowardly act 当作 coward 本身的例子。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5924,10 +5924,10 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:3542c41687f02dea8723",
+            "id": "collocation:coward:baseline-v2-person",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "a cowardly act",
-            "meaning_cn": "懦弱的行为",
+            "phrase": "a coward",
+            "meaning_cn": "一个胆小鬼/懦夫",
             "kind": "usage_example",
             "repair": null
           }
@@ -6564,7 +6564,7 @@
     "ordinal": 1139,
     "word": "craft",
     "source_owner_path": "content/lexical/words/by-ordinal/o1139.json",
-    "source_fingerprint": "1408324f899ffb0a6eeb4fab0cd1f3e7086a5e13c8991e5d598104ef6518f208",
+    "source_fingerprint": "fca5fae62f433b931a9d949816b51c773b3355a03dbf3a36d7a958fa95a913fd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6574,13 +6574,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "技艺；飞行器",
-      "decision_cn": "",
+      "summary_cn": "凭技巧把材料、语言或方案“做成形”：可指手艺/技艺、船舶航空器，也可作动词表示精心制作或构建",
+      "decision_cn": "craft skills → 手艺；aircraft/spacecraft 的 craft → 船/飞行器；craft an argument/story/policy → 精心构建论点、故事或政策。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "技艺；飞行器"
+        "target_label": "凭技巧把材料、语言或方案“做成形”：可指手艺/技艺、船舶航空器，也可作动词表示精心制作或构建"
       }
     },
     "senses": [
@@ -6865,7 +6865,7 @@
     "ordinal": 1141,
     "word": "crash",
     "source_owner_path": "content/lexical/words/by-ordinal/o1141.json",
-    "source_fingerprint": "055f3b80fc2b79c9e93bf3c90ee9155a75d1d0cb873531aebfc6301140b7556e",
+    "source_fingerprint": "7ad38adf1967a816bc0f98b7e837fdb1d0cf4893b888bacd44e9dfaab6dc0d66",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6877,7 +6877,7 @@
     },
     "word_feel": {
       "summary_cn": "碰撞，崩溃",
-      "decision_cn": "",
+      "decision_cn": "vehicle/object crashes into X → 猛撞；system/market crashes → 突然崩溃；noun crash 是事故/崩盘；crash course = 短期高强度速成。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6903,19 +6903,6 @@
             "meaning_cn": "车祸",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:1a3ded26a89be2f40a72",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "crash into + sth",
-            "meaning_cn": "撞上某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:1a3ded26a89be2f40a72",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "crash into + sth"
-            }
           }
         ],
         "repair": {
@@ -7294,7 +7281,7 @@
     "ordinal": 1143,
     "word": "crazy",
     "source_owner_path": "content/lexical/words/by-ordinal/o1143.json",
-    "source_fingerprint": "82637465dc357aa4ed3c5e4fb38b85a6d50e8c00cb979938746801cc26e88b8b",
+    "source_fingerprint": "a87478255f30ad271e5d2f44f98aa8eab72b097e501476dcf891dddcd110538b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7303,13 +7290,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "疯狂，狂热",
-      "decision_cn": "",
+      "summary_cn": "非正式表达中的“疯狂/极端”：可表示失控、不理智或非常着迷；用于真实精神健康状态时语气可能冒犯或不准确",
+      "decision_cn": "go/drive crazy → 发疯般失控；crazy about X → 狂热喜欢；crazy idea → 不理智。谈真实精神疾病时避免把 crazy 当作临床标签。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "疯狂，狂热"
+        "target_label": "非正式表达中的“疯狂/极端”：可表示失控、不理智或非常着迷；用于真实精神健康状态时语气可能冒犯或不准确"
       }
     },
     "senses": [
@@ -7320,7 +7307,7 @@
         "governing_pattern": "",
         "definition_cn": "疯狂的，精神失常的",
         "definition_en": "mentally ill; insane",
-        "note": "",
+        "note": "非正式且语境敏感；指真实精神健康状况时可能冒犯或不准确，不宜当作临床标签。",
         "identity_overlay": null,
         "usage": [
           {
@@ -7425,7 +7412,7 @@
           "target_word": "mad",
           "lines": [
             {
-              "text": "均可表示疯狂；mad在英式英语还常表生气",
+              "text": "crazy 与 mad 都可在非正式语境表示“疯狂/失控”，但用于真实精神健康状态时都可能不准确或冒犯；mad 在英式英语还常表示“生气”。",
               "lang": "cn"
             },
             {
@@ -7790,7 +7777,7 @@
     "ordinal": 1147,
     "word": "creature",
     "source_owner_path": "content/lexical/words/by-ordinal/o1147.json",
-    "source_fingerprint": "447758e010a85f3d135133565abaab6a289092079b5cabed6a3f35b17fe5e7ec",
+    "source_fingerprint": "8cbb957571771c0b03250ec31486fea29a9c91ef7f25f102e804fb88e8090d57",
     "sense_lineage": [
       {
         "word_id": "word:creature",
@@ -7807,45 +7794,19 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "生物，动物",
-      "decision_cn": "",
+      "summary_cn": "生物；尤其指动物，也可在某些固定表达中指人",
+      "decision_cn": "animal/living being → 生物、动物（主学习义）；a poor creature 等表达中可指某个人。默认先学“生物/动物”。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "生物，动物"
+        "target_label": "生物；尤其指动物，也可在某些固定表达中指人"
       }
     },
     "senses": [
       {
-        "id": "sense:creature:2e116bc8f8f95d66",
-        "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "人（用于某些表达）",
-        "definition_en": "a human being; used in certain expressions",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:396925ec8143ed08c324",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "a poor creature",
-            "meaning_cn": "可怜的人",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:creature:2e116bc8f8f95d66",
-          "target_locator": "record.senses[0]",
-          "target_label": "人（用于某些表达）"
-        }
-      },
-      {
         "id": "sense:creature:6cb9877f43fb54f2",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "生物，尤指动物",
@@ -7856,8 +7817,34 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:creature:6cb9877f43fb54f2",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "生物，尤指动物"
+        }
+      },
+      {
+        "id": "sense:creature:2e116bc8f8f95d66",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "人（用于某些表达）",
+        "definition_en": "a human being; used in certain expressions",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:396925ec8143ed08c324",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "a poor creature",
+            "meaning_cn": "可怜的人",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:creature:2e116bc8f8f95d66",
+          "target_locator": "record.senses[1]",
+          "target_label": "人（用于某些表达）"
         }
       }
     ],
@@ -7950,23 +7937,23 @@
     "ordinal": 1149,
     "word": "credit",
     "source_owner_path": "content/lexical/words/by-ordinal/o1149.json",
-    "source_fingerprint": "a9bffc2eccdc6559aaf64cc931f3e1dbb1f4eb9cea022a31881f187c0d521a55",
+    "source_fingerprint": "a8390584fc7923453ec314b542515dab7b4a5016c9000ad1070f88f9c03bcd1d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "(3+1)N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "信用；归功",
-      "decision_cn": "",
+      "summary_cn": "被认可或允许先取得某物的“信任额度”：可落到信用赊购、荣誉归功、学分，以及把功劳归给某人",
+      "decision_cn": "on credit → 赊购；give/take credit → 认可/居功；earn credits → 学分；credit sb with sth / credit sth to sb → 归功于。学分义只保留一份正式 Sense。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "信用；归功"
+        "target_label": "被认可或允许先取得某物的“信任额度”：可落到信用赊购、荣誉归功、学分，以及把功劳归给某人"
       }
     },
     "senses": [
@@ -8150,22 +8137,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:credit:271552c7588925f9",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "noun",
-        "definition_cn": "学分",
-        "definition_en": "a unit of study counting toward a degree",
-        "pattern": "earn credits",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:credit:271552c7588925f9",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "学分"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -8191,7 +8163,7 @@
     "ordinal": 1150,
     "word": "creep",
     "source_owner_path": "content/lexical/words/by-ordinal/o1150.json",
-    "source_fingerprint": "5d2ecbeb2c057cd92543552443ff065ce21d61920bae47a5fb44d14e1f741a9f",
+    "source_fingerprint": "c8985e5794d609703287ff517808d016a4d37ead203f409d8dd2ddb3df2e52c7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8201,13 +8173,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "缓慢移动",
-      "decision_cn": "",
+      "summary_cn": "缓慢、悄悄地移动或蔓延；名词还可非正式指令人不舒服、讨厌的人",
+      "decision_cn": "creep along/up on → 悄悄移动；ivy/fear creeps over → 逐渐蔓延；He's a creep → 他是个令人讨厌/不舒服的人。creepy 是另一个形容词。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "缓慢移动"
+        "target_label": "缓慢、悄悄地移动或蔓延；名词还可非正式指令人不舒服、讨厌的人"
       }
     },
     "senses": [
@@ -8300,10 +8272,10 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:73ebf68ed457fdc4119e",
+            "id": "collocation:creep:baseline-v2-person",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "a creepy person",
-            "meaning_cn": "令人毛骨悚然的人",
+            "phrase": "He's a creep.",
+            "meaning_cn": "他是个令人讨厌、让人不舒服的人",
             "kind": "usage_example",
             "repair": null
           }
