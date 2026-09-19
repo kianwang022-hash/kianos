@@ -166,8 +166,30 @@ After B finishes o0001–o0100, A reconciles/merges that candidate and advances 
 
 The already-built o1151–o1250 candidate PR #520 remains preserved and must receive its own fresh B audit/reconciliation before merge. It must be re-materialized against the then-current main if prior accepted backfill changed relevant owners or derived Final Learner Objects.
 
-## 9. No hidden fourth semantic Chat
+## 9. Mechanical executor is not a fourth semantic Chat
 
-Mechanical GitHub workflows/scripts may export bundles, batch writes, rebuild 7,946 Final Learner Objects, and run validation.
+Mechanical GitHub workflows/scripts do not count as a semantic reviewer and may not decide meanings, layer placement, owner placement, or Test worth.
 
-They do not count as a semantic reviewer and may not decide meanings, layer placement, owner placement, or Test worth.
+The normal end of a semantic batch is now:
+
+```text
+A/C Production
+→ Kian bounded delta Gate
+→ candidate materialization when frontier allows
+→ fresh B Independent Audit
+→ A/C semantic reconciliation
+→ Final Mutation Package
+→ GitHub mechanical executor
+→ 7,946 FLOB rebuild + bounded validation
+→ candidate commit / PR
+→ explicit final merge
+```
+
+The mechanical executor is:
+
+- `tools/lexical_apply_final_mutation_package.py`
+- `.github/workflows/lexical-apply-final-mutation-package.yml`
+
+It is deliberately fail-closed and never merges `main`.
+
+Therefore A/C should not spend normal semantic turns manually transporting many JSON files after reconciliation. They emit one exact mutation package; GitHub performs the mechanical landing. Direct Chat writes are a fallback for executor defects, not the normal path.
