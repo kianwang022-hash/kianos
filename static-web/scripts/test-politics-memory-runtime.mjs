@@ -79,7 +79,7 @@ const applied = applyPoliticsMemoryPlan(storage, catalog, first, { expectedDay: 
 assert.equal(applied.status, 'applied');
 assert.equal(JSON.parse(storage.getItem(POLITICS_MEMORY_PLAN_KEY)).plan_id, 'p1');
 
-const resume1 = resolvePoliticsMemoryResume(storage, catalog);
+const resume1 = resolvePoliticsMemoryResume(storage, catalog, { expectedDay: day });
 assert.equal(resume1.status, 'ACTIVE');
 assert.equal(resume1.index, 0);
 
@@ -88,8 +88,8 @@ recordPoliticsMemoryResponse(storage, catalog, {
   candidate_id: resume1.candidate.id,
   response: 'FUZZY',
   observed_at: new Date(now + 1000).toISOString()
-});
-const resume2 = resolvePoliticsMemoryResume(storage, catalog);
+}, { expectedDay: day });
+const resume2 = resolvePoliticsMemoryResume(storage, catalog, { expectedDay: day });
 assert.equal(resume2.status, 'ACTIVE');
 assert.equal(resume2.index, 1);
 
@@ -98,14 +98,14 @@ recordPoliticsMemoryResponse(storage, catalog, {
   candidate_id: resume2.candidate.id,
   response: 'STABLE',
   observed_at: new Date(now + 2000).toISOString()
-});
-assert.equal(resolvePoliticsMemoryResume(storage, catalog).status, 'COMPLETE');
+}, { expectedDay: day });
+assert.equal(resolvePoliticsMemoryResume(storage, catalog, { expectedDay: day }).status, 'COMPLETE');
 
 assert.throws(() => recordPoliticsMemoryResponse(storage, catalog, {
   plan_id: 'p1',
   candidate_id: resume2.candidate.id,
   response: 'STABLE'
-}), /RESPONSE_ALREADY_RECORDED/);
+}, { expectedDay: day }), /RESPONSE_ALREADY_RECORDED/);
 
 const replacement = {
   schema: POLITICS_MEMORY_PLAN_SCHEMA,
@@ -135,12 +135,19 @@ validatePoliticsMemoryCheckpointValue(POLITICS_MEMORY_PLAN_KEY, JSON.parse(stora
 validatePoliticsMemoryCheckpointValue(POLITICS_MEMORY_EVIDENCE_KEY, JSON.parse(storage.getItem(POLITICS_MEMORY_EVIDENCE_KEY)));
 
 const staleCatalog = { ...catalog, revision: 'catalog-r2' };
-assert.equal(resolvePoliticsMemoryResume(storage, staleCatalog).status, 'STALE');
+assert.equal(resolvePoliticsMemoryResume(storage, staleCatalog, { expectedDay: day }).status, 'STALE');
 assert.throws(() => recordPoliticsMemoryResponse(storage, staleCatalog, {
   plan_id: 'p2',
   candidate_id: extracted[0].id,
   response: 'STABLE'
-}), /RESPONSE_CATALOG_STALE/);
+}, { expectedDay: day }), /RESPONSE_CATALOG_STALE/);
+
+assert.equal(resolvePoliticsMemoryResume(storage, catalog, { expectedDay: '2026-09-21' }).status, 'STALE');
+assert.throws(() => recordPoliticsMemoryResponse(storage, catalog, {
+  plan_id: 'p2',
+  candidate_id: extracted[0].id,
+  response: 'STABLE'
+}, { expectedDay: '2026-09-21' }), /RESPONSE_STALE_DAY/);
 
 assert.throws(() => applyPoliticsMemoryPlan(new MemoryStorage(), catalog, {
   ...first,
