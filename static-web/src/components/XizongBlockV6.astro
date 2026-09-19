@@ -77,8 +77,9 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
   <header class="portedStudyHeader">
     <div class="portedStudyContextRow">
       <a href={`${base}xizong/${block.systemId}/`}>‹ {block.systemTitle}</a>
-      <span>{block.systemTitle} › {block.label}</span>
-      <div class="portedStudyShellActions" aria-label="Block keyboard hints">
+      <span>{block.label}</span>
+      <div class="portedStudyShellActions" aria-label="Block controls">
+        <button type="button" class="xzBlockFrameworkPreviewButton" data-block-framework-preview-open>回看 Block 框架</button>
         <span data-block-keyboard-hint>← → 切换 · Space 显示 / 隐藏 Core</span>
       </div>
     </div>
@@ -96,6 +97,18 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
       <button type="button" class="active" data-study-tab="learn">Learn</button>
     </nav>
   </header>
+
+  <dialog class="xzBlockFrameworkDialog" data-block-framework-dialog>
+    <header>
+      <div>
+        <span>只读回看</span>
+        <strong>{block.label} · {block.title}</strong>
+      </div>
+      <button type="button" data-block-framework-preview-close>返回当前学习</button>
+    </header>
+    <div class="xzBlockFrameworkDialogBody" data-block-framework-dialog-body></div>
+    <footer>只读回看 · 不改变当前 stage、Resume 或学习证据。</footer>
+  </dialog>
 
   <div class="portedStudyLayout" data-study-layout>
     <aside class="portedStudyOutline" id="content-map">
@@ -867,6 +880,42 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
     setKpIndex(state.kpIndex || 0); setStage(state.stage || 'block_learn'); syncState();
    })();
   }
+</script>
+
+<script>
+  (() => {
+    const root = document.querySelector('[data-xizong-v6-block]');
+    if (!(root instanceof HTMLElement)) return;
+    const openButton = root.querySelector('[data-block-framework-preview-open]');
+    const dialog = root.querySelector('[data-block-framework-dialog]');
+    const dialogBody = root.querySelector('[data-block-framework-dialog-body]');
+    const closeButton = root.querySelector('[data-block-framework-preview-close]');
+    if (!(dialog instanceof HTMLDialogElement) || !(dialogBody instanceof HTMLElement)) return;
+
+    const renderPreview = () => {
+      if (dialogBody.childElementCount) return;
+      const source = root.querySelector('[data-study-stage="block_learn"]');
+      if (!(source instanceof HTMLElement)) return;
+      const clone = source.cloneNode(true);
+      if (!(clone instanceof HTMLElement)) return;
+      clone.removeAttribute('data-study-stage');
+      clone.removeAttribute('hidden');
+      clone.classList.add('xzBlockFrameworkPreviewContent');
+      clone.querySelector('.portedStudyStageAction')?.remove();
+      clone.querySelectorAll('[id]').forEach((node) => node.removeAttribute('id'));
+      clone.querySelectorAll('button,input,textarea,select').forEach((node) => node.remove());
+      dialogBody.append(clone);
+    };
+
+    openButton?.addEventListener('click', () => {
+      renderPreview();
+      if (!dialog.open) dialog.showModal();
+    });
+    closeButton?.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+  })();
 </script>
 
 <style>

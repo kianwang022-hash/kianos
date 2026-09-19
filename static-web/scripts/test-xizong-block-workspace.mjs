@@ -132,6 +132,38 @@ try {
   check(Array.isArray(payload?.logicGroups) && payload.logicGroups.length >= 3, 'representative_has_logic_groups', String(payload?.logicGroups?.length || 0));
   check(await visibleStage(root) === 'block_learn', 'clean_state_starts_at_block_learn');
 
+  const compactChrome = await page.evaluate(() => {
+    const subjectBarNode = document.querySelector('.kianosSubjectBar');
+    const headerNode = document.querySelector('[data-xizong-v6-block] .portedStudyHeader');
+    const contextNode = headerNode?.querySelector('.portedStudyContextRow');
+    const identityNode = headerNode?.querySelector('.portedStudyIdentity');
+    const row = (node) => {
+      if (!(node instanceof HTMLElement)) return null;
+      const rect = node.getBoundingClientRect();
+      const style = getComputedStyle(node);
+      return {
+        height: rect.height,
+        minHeight: style.minHeight,
+        paddingTop: style.paddingTop,
+        paddingBottom: style.paddingBottom,
+        display: style.display,
+        gridTemplateRows: style.gridTemplateRows
+      };
+    };
+    return {
+      subjectBarHeight: subjectBarNode?.getBoundingClientRect().height || 0,
+      blockHeaderHeight: headerNode?.getBoundingClientRect().height || 0,
+      header: row(headerNode),
+      context: row(contextNode),
+      identity: row(identityNode)
+    };
+  });
+  check(compactChrome.subjectBarHeight > 0 && compactChrome.subjectBarHeight <= 48.5,
+    'xizong_subject_strip_compact_height', JSON.stringify(compactChrome));
+  check(compactChrome.blockHeaderHeight > 0 && compactChrome.blockHeaderHeight <= 86,
+    'block_header_compact_height', JSON.stringify(compactChrome));
+  await page.screenshot({ path: path.join(auditDir, 'xizong-block-compact-header.png'), fullPage: false });
+
   const toggle = root.locator('[data-logic-map-toggle]');
   check(await toggle.count() === 1, 'logic_map_toggle_present');
 
@@ -145,6 +177,29 @@ try {
   let stage = await visibleStage(root);
   check(['kp_learn', 'source_contact'].includes(stage), 'first_learning_enters_kp_companion', stage);
   check(await root.locator('[data-study-stage="ttsx_checkpoint"]').count() === 1, 'ttsx_checkpoint_surface_present');
+
+  const previewButton = root.locator('[data-block-framework-preview-open]');
+  await previewButton.waitFor({ state: 'visible' });
+  const previewStateBefore = await page.evaluate(() => {
+    const root = document.querySelector('[data-xizong-v6-block]');
+    const key = `kianos-xizong-astro-v2:${root?.getAttribute('data-study-object') || ''}`;
+    return localStorage.getItem(key);
+  });
+  await previewButton.click();
+  const previewDialog = root.locator('[data-block-framework-dialog]');
+  await previewDialog.waitFor({ state: 'visible' });
+  check((await previewDialog.innerText()).includes('只读回看'), 'block_framework_preview_is_explicitly_read_only');
+  check((await previewDialog.innerText()).includes('这块现在抓什么'), 'block_framework_preview_contains_block_orientation');
+  check(await visibleStage(root) === stage, 'block_framework_preview_does_not_change_visible_learning_stage', stage);
+  const previewStateAfter = await page.evaluate(() => {
+    const root = document.querySelector('[data-xizong-v6-block]');
+    const key = `kianos-xizong-astro-v2:${root?.getAttribute('data-study-object') || ''}`;
+    return localStorage.getItem(key);
+  });
+  check(previewStateAfter === previewStateBefore, 'block_framework_preview_does_not_mutate_resume_or_evidence');
+  await page.screenshot({ path: path.join(auditDir, 'xizong-block-framework-preview.png'), fullPage: false });
+  await root.locator('[data-block-framework-preview-close]').click();
+  await previewDialog.waitFor({ state: 'hidden' });
 
   const learnCard = root.locator('[data-study-stage]:visible .xv6KpLearnCompanion[data-kp-id]');
   await learnCard.waitFor({ state: 'visible' });
@@ -383,7 +438,9 @@ try {
       }
     }));
   }, studyKey);
-  await page.reload({ waitUntil: 'networkidle' });
+  // KianOS Current/runtime performs periodic background polling, so networkidle is
+  // no longer a valid page-readiness signal. The learner surface itself is the gate.
+  await page.reload({ waitUntil: 'domcontentloaded' });
   const failClosedRoot = page.locator('[data-xizong-v6-block]');
   await failClosedRoot.waitFor({ state: 'visible' });
   check((await visibleStage(failClosedRoot)) !== 'ttsx_checkpoint', 'corrupt_unreviewed_ttsx_state_cannot_release_checkpoint');
