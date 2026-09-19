@@ -204,6 +204,13 @@ try{
         generated_at:generatedAt,catalog_revision:catalogRevision,phase:'FIRST_ROUND',
         supersedes_plan_id:null,items:[{candidate_id:candidateId,reason:'Total Home 直达验收'}]
       }));
+      // Deliberately preserve an old native Resume. Chat-selected Memory must still win.
+      localStorage.setItem('kianos-politics-last-location-v1',JSON.stringify({
+        href:'/politics/legacy-stale-location/',
+        subject:'legacy',
+        chapter:'legacy',
+        title:'旧政治位置'
+      }));
       localStorage.setItem('kianos-exam-chat-plan-v1',JSON.stringify({
         schema:'kianos.exam.chat-plan.v1',study_day:studyDay,generated_at:generatedAt,
         subjects:{xizong:null,english:null,politics:{target_minutes:45,role:'推进',note:'今日记忆',session_ref:planId}},
