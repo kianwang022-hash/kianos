@@ -112,6 +112,7 @@ assert(wu.length === 2 && wu.includes(q2) && wu.includes(q3) && !wu.includes(q1)
 // ---------- Actual runtime-source contracts ----------
 const blockUi = read('static-web/src/components/XizongBlockV6.astro');
 const enhancerUi = read('static-web/src/components/XizongStudyEnhancer.astro');
+const studyPacketLib = read('static-web/src/lib/xizongStudyPacket.mjs');
 const memoryWorkspace = read('static-web/src/components/XizongMemoryWorkspace.astro');
 const repairReturn = read('static-web/src/components/XizongSystemRepairReturn.astro');
 const practiceUi = read('static-web/src/components/XizongPracticeWorkbench.astro');
@@ -169,8 +170,8 @@ has(repairReturn, '暂无审核过的精确 Block/KP 回链：保留题号给 Ch
 has(questionLib, 'loadReviewedXizongQuestionRelation(questionId)', 'question-runtime-bypasses-crosswalk-owner');
 has(crosswalkLib, "if (!row || row.review_status !== 'REVIEWED') return null;", 'unreviewed-question-relation-accepted');
 
-has(enhancerUi, "schema: 'kianos.xizong.study_packet.v3'", 'live-study-packet-missing');
-has(enhancerUi, 'learning_state:', 'study-packet-learning-state-missing');
+has(studyPacketLib, "schema: 'kianos.xizong.study_packet.v3'", 'live-study-packet-missing');
+has(studyPacketLib, 'learning_state:', 'study-packet-learning-state-missing');
 has(repairReturn, 'const parsed = JSON.parse(text);', 'chat-return-json-parse');
 has(repairReturn, 'const allowed = new Set(currentWu().map', 'chat-return-not-scoped-to-current-wu');
 has(repairReturn, "origin: 'SYSTEM_WU_CHAT_RETURN'", 'chat-return-repair-role');
