@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import { privateLearnerBridge } from './scripts/privateLearnerBridge.mjs';
+import { privateControlBridge } from './scripts/privateControlBridge.mjs';
 import { privateExternalReadingBridge } from './scripts/privateExternalReadingBridge.mjs';
 
 export default defineConfig({
@@ -7,6 +8,6 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'always',
   vite: {
-    plugins: [privateLearnerBridge(), privateExternalReadingBridge()]
+    plugins: [privateLearnerBridge(), privateControlBridge(), privateExternalReadingBridge()]
   }
 });
