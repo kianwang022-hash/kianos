@@ -220,6 +220,10 @@ assert.equal(packet.subjects.english.evidence.resume.task,'reading_a');
 
 assert.equal(packet.subjects.politics.evidence.schema,'kianos.politics.study_packet.v1');
 assert.equal(packet.subjects.politics.evidence.resume.title,pChapter.title);
+assert.equal(packet.subjects.politics.evidence.forecast_progress.schema,'kianos.politics.forecast-progress.v1');
+assert.ok(packet.subjects.politics.evidence.forecast_progress.catalog_units>0);
+assert.equal(packet.subjects.politics.evidence.forecast_progress.units_with_complete_question_coverage,0);
+assert.match(packet.subjects.politics.evidence.forecast_progress.evidence_boundary,/does not prove/);
 
 assert.equal(packet.schedule.phase.id,'A');
 assert.equal(packet.subjects.xizong.plan.role,'主推');
