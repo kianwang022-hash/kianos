@@ -30,7 +30,7 @@
       ],
       "core_meaning_cn": "中国或瓷器",
       "core_meaning_en": "a country in East Asia or porcelain",
-      "mental_model_cn": "中国或瓷器",
+      "mental_model_cn": "大写 China = 国家“中国”；小写 china = 瓷器/瓷质器皿。大小写直接参与选义。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -156,7 +156,43 @@
     },
     "word": "china",
     "word_family": [],
-    "word_id": "word:china"
+    "word_id": "word:china",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:china:country",
+          "canonical_form": "China",
+          "learner_key": "China",
+          "pos": [
+            "noun",
+            "adjective"
+          ],
+          "ipa": ""
+        },
+        {
+          "variant_id": "form:china:porcelain",
+          "canonical_form": "china",
+          "learner_key": "china",
+          "pos": [
+            "noun"
+          ],
+          "ipa": ""
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "China",
+          "condition": "country / nationality-related proper name",
+          "note": "国家专名必须大写。"
+        },
+        {
+          "surface": "china",
+          "condition": "porcelain / tableware",
+          "note": "瓷器义通常小写。"
+        }
+      ],
+      "boundary": "China（中国）与 china（瓷器）通过大小写区分。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -241,7 +277,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0785-0792.json",
     "source_content_hash": "83044a06ef4dec81d91ad5eb3c5032c34e878cce0e2e3af4f948bb66f795aed9",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

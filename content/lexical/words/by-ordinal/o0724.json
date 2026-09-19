@@ -10,10 +10,10 @@
     "content_hash": "c8f0866197c829b01879bb15d90184629ae5e04ad2048464e27c8211f7f7cc03",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "顶部表面或上限",
-      "core_meaning_en": "the upper surface of a room or an upper limit",
-      "mental_model_cn": "顶部表面或上限",
-      "mental_model_en": ""
+      "core_meaning_cn": "上方的“顶”：可是真实天花板，也可抽象为价格、支出、债务等不能超过的上限",
+      "core_meaning_en": "an overhead top surface or an upper limit that cannot be exceeded",
+      "mental_model_cn": "physical ceiling 是空间顶部；price/debt/spending ceiling 把同一“顶住、不能再高”的图像抽象成上限。",
+      "mental_model_en": "The physical top extends naturally to an abstract upper limit."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -48,7 +48,20 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:ceiling:baseline-v2-price",
+            "exam_value": "fixed_pattern",
+            "meaning_cn": "价格上限",
+            "phrase": "price ceiling"
+          },
+          {
+            "collocation_id": "collocation:ceiling:baseline-v2-debt",
+            "exam_value": "fixed_pattern",
+            "meaning_cn": "债务上限",
+            "phrase": "debt ceiling"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "上限，尤指价格、支出或债务上限",
         "definition_en": "an upper limit, especially on prices, spending, or debt",
@@ -207,7 +220,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0721-0728.json",
     "source_content_hash": "c8f0866197c829b01879bb15d90184629ae5e04ad2048464e27c8211f7f7cc03",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

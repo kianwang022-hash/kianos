@@ -83,7 +83,14 @@
     "word_family": [],
     "word_id": "word:cheque"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:spelling_variant:cheque:check",
+      "owner_path": "content/lexical/relations/by-id/a8/a8ba8d1030ff30d1a9c3e21eab028b3bd43ee3f6cde7be0268a47d8ae89b0945.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -144,7 +151,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0777-0784.json",
     "source_content_hash": "7a758e359e9557441d956d3d2d04d40223b4d9f0ec267aa5014bfcdf38eabcff",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

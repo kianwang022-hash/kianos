@@ -5,7 +5,7 @@
     "ordinal": 897,
     "word": "colonel",
     "source_owner_path": "content/lexical/words/by-ordinal/o0897.json",
-    "source_fingerprint": "b82b5866a0415dd2b22e470f394bfe67459f18ca15378b31aa4a5e7d301f120a",
+    "source_fingerprint": "e9779a65741a5608e4c28f054bd2d15d65c3c80c01c97cf1d684abe9a894ccc3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -15,7 +15,7 @@
     },
     "word_feel": {
       "summary_cn": "军队中的上校军衔",
-      "decision_cn": "",
+      "decision_cn": "拼写看似 co-lo-nel，但现代英语通常读成类似 kernel：AmE /ˈkɝːnəl/，BrE /ˈkɜːnəl/。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -64,7 +64,38 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "colonel",
+            "condition": "all ordinary uses",
+            "note": "拼写与发音不透明；读音近似 kernel。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "colonel (AmE)",
+            "ipa": "/ˈkɝːnəl/"
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "colonel (BrE)",
+            "ipa": "/ˈkɜːnəl/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -305,7 +336,7 @@
     "ordinal": 900,
     "word": "color",
     "source_owner_path": "content/lexical/words/by-ordinal/o0900.json",
-    "source_fingerprint": "ea602af4d14b3856c89491f9c1bba66b251672365f15da71d44e7dc221863370",
+    "source_fingerprint": "29da7b6fa21ae1b87631c64281a9b0603738a001ebf5304626c9766dc4d1801b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -316,7 +347,7 @@
     },
     "word_feel": {
       "summary_cn": "颜色；着色",
-      "decision_cn": "",
+      "decision_cn": "color 是美式标准拼写；英式标准拼写为 colour。两者词义相同，阅读和写作时按英语变体保持一致。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -433,7 +464,33 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "color ↔ colour",
+          "target_word": "colour",
+          "lines": [
+            {
+              "text": "color 是美式标准拼写；colour 是英式标准拼写。词义相同，正式写作中应保持同一英语变体的一致性。",
+              "lang": "cn"
+            },
+            {
+              "text": "AmE color ↔ BrE colour。",
+              "lang": "en"
+            },
+            {
+              "text": "the visual property of things; color/colour",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:spelling_variant:color-colour",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "color ↔ colour"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }
@@ -604,7 +661,7 @@
     "ordinal": 902,
     "word": "comb",
     "source_owner_path": "content/lexical/words/by-ordinal/o0902.json",
-    "source_fingerprint": "74e5266baaf93064c5a5a6133c8d4aea9341cbceb5c5b5aea1febf6286845b5b",
+    "source_fingerprint": "6401cb0319cc8f0255d42afe2c18871b2b5188d00a3c63356eca2bce8d7eb158",
     "sense_lineage": [
       {
         "word_id": "word:comb",
@@ -622,13 +679,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "梳子",
-      "decision_cn": "",
+      "summary_cn": "用细密的“齿”逐段梳过：字面是梳理头发，也可引申为逐项、仔细地搜查",
+      "decision_cn": "comb hair → 梳头；comb through documents/area → 像梳子一齿齿扫过一样仔细搜查、检查。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "梳子"
+        "target_label": "用细密的“齿”逐段梳过：字面是梳理头发，也可引申为逐项、仔细地搜查"
       }
     },
     "senses": [
@@ -693,19 +750,6 @@
               "target_locator": "record.senses[1].collocations[0]",
               "target_label": "comb + sth + out"
             }
-          },
-          {
-            "id": "collocation:0763c836875d12f081f7",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "comb through + sth",
-            "meaning_cn": "仔细搜查",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:0763c836875d12f081f7",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "comb through + sth"
-            }
           }
         ],
         "repair": {
@@ -743,7 +787,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:comb:baseline-v2-through",
+        "source_locator": "record.constructions[0]",
+        "pattern": "comb through sth",
+        "lines": [
+          {
+            "text": "仔细、系统地搜查或检查某物",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:comb:baseline-v2-through",
+          "target_locator": "record.constructions[0]",
+          "target_label": "comb through sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1151,7 +1213,7 @@
     "ordinal": 906,
     "word": "come",
     "source_owner_path": "content/lexical/words/by-ordinal/o0906.json",
-    "source_fingerprint": "f0f9316608993407cca38690d65014625f2bf7452bd08d23c207f072ba6ffc7e",
+    "source_fingerprint": "17971753462fabb8ad39f55791f55f0fe37ef3080d93b7bc6c35edb9f8576ee7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1161,13 +1223,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "来，到达",
-      "decision_cn": "",
+      "summary_cn": "朝某个地点、状态或结果移动并“到达”：从实体移动延伸到事情发生、状态生效和想法产生",
+      "decision_cn": "come to/from → 到达/来自；come about → 发生；come into effect/being → 生效/产生；come across → 偶然遇到；come up with → 想出、提出。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "来，到达"
+        "target_label": "朝某个地点、状态或结果移动并“到达”：从实体移动延伸到事情发生、状态生效和想法产生"
       }
     },
     "senses": [
@@ -1206,32 +1268,6 @@
               "target_locator": "record.senses[0].collocations[1]",
               "target_label": "come from + sth"
             }
-          },
-          {
-            "id": "collocation:624770354e39154508f5",
-            "source_locator": "record.senses[0].collocations[2]",
-            "phrase": "come up with",
-            "meaning_cn": "想出、提出或产生",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:624770354e39154508f5",
-              "target_locator": "record.senses[0].collocations[2]",
-              "target_label": "come up with"
-            }
-          },
-          {
-            "id": "collocation:898b406ff01284a1b2d8",
-            "source_locator": "record.senses[0].collocations[3]",
-            "phrase": "come across",
-            "meaning_cn": "偶然遇到或发现",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:898b406ff01284a1b2d8",
-              "target_locator": "record.senses[0].collocations[3]",
-              "target_label": "come across"
-            }
           }
         ],
         "repair": {
@@ -1252,21 +1288,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:8ee67d821ecbccfd1b0b",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "come about",
-            "meaning_cn": "发生",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:8ee67d821ecbccfd1b0b",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "come about"
-            }
-          },
-          {
             "id": "collocation:f4903aa97f5e75137c1c",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "come to pass",
             "meaning_cn": "发生，实现",
             "kind": "usage_example",
@@ -1302,22 +1325,6 @@
               "target_locator": "record.senses[2].collocations[0]",
               "target_label": "come into + sth"
             }
-          },
-          {
-            "id": "collocation:032714a67c2bba6442a1",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "come into effect",
-            "meaning_cn": "生效",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:7e85489f67d7db2748bb",
-            "source_locator": "record.senses[2].collocations[2]",
-            "phrase": "come into being",
-            "meaning_cn": "产生，形成",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -1377,7 +1384,93 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:come:baseline-v2-up-with",
+        "source_locator": "record.constructions[0]",
+        "pattern": "come up with sth",
+        "lines": [
+          {
+            "text": "想出、提出或产生一个想法/方案",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:come:baseline-v2-up-with",
+          "target_locator": "record.constructions[0]",
+          "target_label": "come up with sth"
+        }
+      },
+      {
+        "id": "construction:come:baseline-v2-across",
+        "source_locator": "record.constructions[1]",
+        "pattern": "come across sb/sth",
+        "lines": [
+          {
+            "text": "偶然遇到、发现某人或某物",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:come:baseline-v2-across",
+          "target_locator": "record.constructions[1]",
+          "target_label": "come across sb/sth"
+        }
+      },
+      {
+        "id": "construction:come:baseline-v2-about",
+        "source_locator": "record.constructions[2]",
+        "pattern": "come about",
+        "lines": [
+          {
+            "text": "发生；产生",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:come:baseline-v2-about",
+          "target_locator": "record.constructions[2]",
+          "target_label": "come about"
+        }
+      },
+      {
+        "id": "construction:come:baseline-v2-into-effect",
+        "source_locator": "record.constructions[3]",
+        "pattern": "come into effect",
+        "lines": [
+          {
+            "text": "生效；开始实施",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:come:baseline-v2-into-effect",
+          "target_locator": "record.constructions[3]",
+          "target_label": "come into effect"
+        }
+      },
+      {
+        "id": "construction:come:baseline-v2-into-being",
+        "source_locator": "record.constructions[4]",
+        "pattern": "come into being",
+        "lines": [
+          {
+            "text": "产生；形成；开始存在",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:come:baseline-v2-into-being",
+          "target_locator": "record.constructions[4]",
+          "target_label": "come into being"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1862,7 +1955,7 @@
     "ordinal": 911,
     "word": "command",
     "source_owner_path": "content/lexical/words/by-ordinal/o0911.json",
-    "source_fingerprint": "e678126a68d16b4d389aca5d86f69f32a9610c4a2b8ab29caddbf38bc41d27d8",
+    "source_fingerprint": "3d7ec36ea0dda3d6d4a57e4b9a0914b468b152069ae4ca652081670c89b2d5c6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1872,13 +1965,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "命令；指挥",
-      "decision_cn": "",
+      "summary_cn": "凭权威发出指令或处于掌控地位；也可引申为因能力/地位而自然赢得注意或尊重",
+      "decision_cn": "command sb to do → 命令；command troops → 指挥；have/a good command of → 掌握、控制；command attention/respect → 自然吸引/赢得注意或尊重。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "命令；指挥"
+        "target_label": "凭权威发出指令或处于掌控地位；也可引申为因能力/地位而自然赢得注意或尊重"
       }
     },
     "senses": [
@@ -2007,28 +2100,15 @@
             }
           },
           {
-            "id": "collocation:0208fe2ec22e18077982",
-            "source_locator": "record.senses[3].collocations[1]",
-            "phrase": "command attention/respect",
-            "meaning_cn": "吸引或赢得注意/尊重",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:0208fe2ec22e18077982",
-              "target_locator": "record.senses[3].collocations[1]",
-              "target_label": "command attention/respect"
-            }
-          },
-          {
             "id": "collocation:3072b7921a3750e60e32",
-            "source_locator": "record.senses[3].collocations[2]",
+            "source_locator": "record.senses[3].collocations[1]",
             "phrase": "a good command of sth",
             "meaning_cn": "对某种技能或语言有良好掌握",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:3072b7921a3750e60e32",
-              "target_locator": "record.senses[3].collocations[2]",
+              "target_locator": "record.senses[3].collocations[1]",
               "target_label": "a good command of sth"
             }
           }
@@ -2059,7 +2139,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:command:baseline-v2-attention-respect",
+        "source_locator": "record.constructions[0]",
+        "pattern": "command attention / respect",
+        "lines": [
+          {
+            "text": "凭能力、地位或表现自然吸引注意或赢得尊重",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:command:baseline-v2-attention-respect",
+          "target_locator": "record.constructions[0]",
+          "target_label": "command attention / respect"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2667,7 +2765,7 @@
     "ordinal": 918,
     "word": "commission",
     "source_owner_path": "content/lexical/words/by-ordinal/o0918.json",
-    "source_fingerprint": "2fbebb6703c2a9c2bb81a33a2ce59ef26c58b521aecf0afe08a21adaeb1b0eaa",
+    "source_fingerprint": "46fec3b05158f52e59acb890f0b112c8cce6cf2475c0e77dd1a9b45bb9839ad8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2677,13 +2775,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "委托；佣金",
-      "decision_cn": "",
+      "summary_cn": "把任务或权力正式交付出去：可指正式委托/授权、受委托的委员会；商业上还可指佣金",
+      "decision_cn": "commission sb to do / commission a work → 正式委托；a commission → 委员会或授权；sales commission → 佣金；in/out of commission → 正在/停止运转。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "委托；佣金"
+        "target_label": "把任务或权力正式交付出去：可指正式委托/授权、受委托的委员会；商业上还可指佣金"
       }
     },
     "senses": [
@@ -2794,38 +2892,12 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:9823895bc39f0acd070c",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "commission + sb to do + sth",
-            "meaning_cn": "委托某人做某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:9823895bc39f0acd070c",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "commission + sb to do + sth"
-            }
-          },
-          {
             "id": "collocation:677330f135417ab4f803",
-            "source_locator": "record.senses[3].collocations[1]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "commission a portrait",
             "meaning_cn": "委托画一幅肖像",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:fc77808574f91b88f371",
-            "source_locator": "record.senses[3].collocations[2]",
-            "phrase": "in commission / out of commission",
-            "meaning_cn": "在运转中/停止使用",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:fc77808574f91b88f371",
-              "target_locator": "record.senses[3].collocations[2]",
-              "target_label": "in commission / out of commission"
-            }
           }
         ],
         "repair": {
@@ -2839,20 +2911,37 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "construction:2a677bcdedcac1ccd31f",
+        "id": "construction:commission:baseline-v2-sb-to",
         "source_locator": "record.constructions[0]",
         "pattern": "commission sb to do sth",
         "lines": [
           {
-            "text": "formally order or authorize someone to do something",
-            "lang": "en"
+            "text": "正式委托或授权某人完成某项任务",
+            "lang": "cn"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:2a677bcdedcac1ccd31f",
+          "target_id": "construction:commission:baseline-v2-sb-to",
           "target_locator": "record.constructions[0]",
           "target_label": "commission sb to do sth"
+        }
+      },
+      {
+        "id": "construction:commission:baseline-v2-in-out",
+        "source_locator": "record.constructions[1]",
+        "pattern": "in commission / out of commission",
+        "lines": [
+          {
+            "text": "在服役/运转中；停止使用、失灵",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:commission:baseline-v2-in-out",
+          "target_locator": "record.constructions[1]",
+          "target_label": "in commission / out of commission"
         }
       }
     ],
@@ -2869,7 +2958,7 @@
     "ordinal": 919,
     "word": "commit",
     "source_owner_path": "content/lexical/words/by-ordinal/o0919.json",
-    "source_fingerprint": "afa2b126156340ac079f12d9b5f6e1d2cc9b4a22933d700e58490de3399b7ab2",
+    "source_fingerprint": "31ef5f4afe3bdf474335b22bd5859d193b5bce19f73b9083df7bec9259105598",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2878,13 +2967,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "做（坏事）；承诺；投入",
-      "decision_cn": "",
+      "summary_cn": "把自己、资源或某个行为“交出去并锁定”：可犯下行为、承诺投入，也可把某人正式送交某机构",
+      "decision_cn": "commit a crime/error → 犯下；commit (oneself) to sth/doing → 承诺、投入；commit sb to prison/hospital → 正式送交。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "做（坏事）；承诺；投入"
+        "target_label": "把自己、资源或某个行为“交出去并锁定”：可犯下行为、承诺投入，也可把某人正式送交某机构"
       }
     },
     "senses": [
@@ -2983,37 +3072,20 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "construction:7ba35053a833f28dc622",
+        "id": "construction:commit:baseline-v2-to",
         "source_locator": "record.constructions[0]",
-        "pattern": "commit (oneself) to sth/doing sth",
+        "pattern": "commit (oneself) to sth / doing sth",
         "lines": [
           {
-            "text": "承诺；投入；致力于…",
+            "text": "承诺、投入或致力于某事/做某事",
             "lang": "cn"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:7ba35053a833f28dc622",
+          "target_id": "construction:commit:baseline-v2-to",
           "target_locator": "record.constructions[0]",
-          "target_label": "commit (oneself) to sth/doing sth"
-        }
-      },
-      {
-        "id": "construction:31bbf38f865aa45e6998",
-        "source_locator": "record.constructions[1]",
-        "pattern": "commit oneself to sth/doing sth",
-        "lines": [
-          {
-            "text": "pledge or dedicate oneself to something",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:31bbf38f865aa45e6998",
-          "target_locator": "record.constructions[1]",
-          "target_label": "commit oneself to sth/doing sth"
+          "target_label": "commit (oneself) to sth / doing sth"
         }
       }
     ],
@@ -3887,7 +3959,7 @@
     "ordinal": 928,
     "word": "community",
     "source_owner_path": "content/lexical/words/by-ordinal/o0928.json",
-    "source_fingerprint": "9d86f55971bbe8abc9c349c11245d5057b3c3d7673a3ccd7f2fc1257dc2cd55d",
+    "source_fingerprint": "f9120c2b760c7eda846a483d45560a75cb94c7e0fd8e27c9d7b775153561be5d",
     "sense_lineage": [
       {
         "word_id": "word:community",
@@ -3911,50 +3983,19 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "居住在同一地区或有共同利益的人群",
-      "decision_cn": "",
+      "summary_cn": "因地点、身份、兴趣或共同关系而形成的人群；也可抽象指这些人之间的共同性",
+      "decision_cn": "local/online/scientific community → 一个共同体/群体；community of interests → 彼此共享的利益或共同性。默认先学“人群共同体”。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "居住在同一地区或有共同利益的人群"
+        "target_label": "因地点、身份、兴趣或共同关系而形成的人群；也可抽象指这些人之间的共同性"
       }
     },
     "senses": [
       {
-        "id": "sense:community:98750c0f00b45932",
-        "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "共有，共同性",
-        "definition_en": "the condition of sharing things in common",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:5a5f06f91c970086bed3",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "community of interests",
-            "meaning_cn": "利益共同体",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5a5f06f91c970086bed3",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "community of interests"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:community:98750c0f00b45932",
-          "target_locator": "record.senses[0]",
-          "target_label": "共有，共同性"
-        }
-      },
-      {
         "id": "sense:community:6fdb4f37905f56a5",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "由地点、身份、兴趣或共同社会关系联系起来的人群",
@@ -3965,8 +4006,39 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:community:6fdb4f37905f56a5",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "由地点、身份、兴趣或共同社会关系联系起来的人群"
+        }
+      },
+      {
+        "id": "sense:community:98750c0f00b45932",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "共有，共同性",
+        "definition_en": "the condition of sharing things in common",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:5a5f06f91c970086bed3",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "community of interests",
+            "meaning_cn": "利益共同体",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:5a5f06f91c970086bed3",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "community of interests"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:community:98750c0f00b45932",
+          "target_locator": "record.senses[1]",
+          "target_label": "共有，共同性"
         }
       }
     ],
@@ -3985,7 +4057,7 @@
     "ordinal": 929,
     "word": "commute",
     "source_owner_path": "content/lexical/words/by-ordinal/o0929.json",
-    "source_fingerprint": "86e9db0bcfa94e5ba35fbc1817149ff688dd3745be8a5686c3eacec005b7fc6d",
+    "source_fingerprint": "0c06bc6f26809421d2b3eff541651620d8695c57975586bacf2be6ade5529888",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3995,13 +4067,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "通勤；交换；减轻",
-      "decision_cn": "",
+      "summary_cn": "在两个状态/地点之间规律转换：最常见是通勤；法律语境可把刑罚改轻，旧义还可指交换/折偿",
+      "decision_cn": "home ↔ work → 通勤；commute a sentence → 把刑罚改为较轻处罚；exchange/折偿义低频，只需识别。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "通勤；交换；减轻"
+        "target_label": "在两个状态/地点之间规律转换：最常见是通勤；法律语境可把刑罚改轻，旧义还可指交换/折偿"
       }
     },
     "senses": [
@@ -4058,47 +4130,8 @@
         }
       },
       {
-        "id": "sense:commute:013a0561af8d5a7c",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "交换；折偿",
-        "definition_en": "to exchange one thing for another, especially a payment or obligation",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:bd23fe0d7daac754feff",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "commute + sth + for + sth",
-            "meaning_cn": "用某物交换某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:bd23fe0d7daac754feff",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "commute + sth + for + sth"
-            }
-          },
-          {
-            "id": "collocation:fff9625cfe54374b2af6",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "commute a payment",
-            "meaning_cn": "折偿付款",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:commute:013a0561af8d5a7c",
-          "target_locator": "record.senses[1]",
-          "target_label": "交换；折偿"
-        }
-      },
-      {
         "id": "sense:commute:1406efa81ddc59cb",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "通勤路程；上下班往返",
@@ -4108,7 +4141,7 @@
         "usage": [
           {
             "id": "collocation:7018e6a58db029ae766b",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "a long commute",
             "meaning_cn": "长距离通勤",
             "kind": "usage_example",
@@ -4116,7 +4149,7 @@
           },
           {
             "id": "collocation:c9b7b0ba472fb6f81248",
-            "source_locator": "record.senses[2].collocations[1]",
+            "source_locator": "record.senses[1].collocations[1]",
             "phrase": "daily commute",
             "meaning_cn": "每日通勤",
             "kind": "usage_example",
@@ -4126,25 +4159,78 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:commute:1406efa81ddc59cb",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "通勤路程；上下班往返"
         }
       },
       {
         "id": "sense:commute:a03105aadbf15a69",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "减轻刑罚或判决",
         "definition_en": "to reduce a punishment or sentence to a less severe one",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:commute:baseline-v2-sentence",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "commute a sentence",
+            "meaning_cn": "减轻刑罚；将判决改为较轻处罚",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:commute:baseline-v2-sentence",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "commute a sentence"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:commute:a03105aadbf15a69",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "减轻刑罚或判决"
+        }
+      },
+      {
+        "id": "sense:commute:013a0561af8d5a7c",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "vt. + object",
+        "definition_cn": "交换；折偿",
+        "definition_en": "to exchange one thing for another, especially a payment or obligation",
+        "note": "低频正式旧义：交换、折偿；当前阶段识别即可。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:bd23fe0d7daac754feff",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "commute + sth + for + sth",
+            "meaning_cn": "用某物交换某物",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:bd23fe0d7daac754feff",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "commute + sth + for + sth"
+            }
+          },
+          {
+            "id": "collocation:fff9625cfe54374b2af6",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "commute a payment",
+            "meaning_cn": "折偿付款",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:commute:013a0561af8d5a7c",
+          "target_locator": "record.senses[3]",
+          "target_label": "交换；折偿"
         }
       }
     ],
@@ -4412,7 +4498,7 @@
     "ordinal": 932,
     "word": "company",
     "source_owner_path": "content/lexical/words/by-ordinal/o0932.json",
-    "source_fingerprint": "904e6aee109b58192b0ba26ed1bbcbd071cde42890d888730abbfd429c2f5c11",
+    "source_fingerprint": "44357cb06f4618027abee5c3596afb5a8a9d726e26ce751839a8dc9b11e79c04",
     "sense_lineage": [
       {
         "word_id": "word:company",
@@ -4431,13 +4517,13 @@
     ],
     "recall_map": {
       "parts": [
-        "(4+1)N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "一群人、组织或与人相伴的状态",
-      "decision_cn": "",
+      "decision_cn": "business organization → 公司；keep sb company / in the company of → 陪伴；military/theater → 连队或剧团。陪伴义只保留一份正式 Sense。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4577,22 +4663,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:company:46e99e2c4f233b36",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "noun",
-        "definition_cn": "陪伴；交往",
-        "definition_en": "the state of being with someone",
-        "pattern": "keep sb company 陪伴某人",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:company:46e99e2c4f233b36",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "陪伴；交往"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -4780,7 +4851,7 @@
     "ordinal": 935,
     "word": "compare",
     "source_owner_path": "content/lexical/words/by-ordinal/o0935.json",
-    "source_fingerprint": "415b6279b429637c2d51ff9451794c5d05d8233d1bd087874fdafcd0c4962a67",
+    "source_fingerprint": "dec10699920fc9f2a42eea35667234622f99a4436e3bccaa01f17a39cbb54178",
     "sense_lineage": [
       {
         "word_id": "word:compare",
@@ -4811,13 +4882,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "检查相似或不同之处",
-      "decision_cn": "",
+      "summary_cn": "把两个对象放到同一视野下看关系：可以比较异同，也可以把一物比作另一物",
+      "decision_cn": "compare A with/to B 都可用于比较；compare A to B 尤常用于“把A比作B”的类比。不要死记“with只能比较、to只能比作”。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "检查相似或不同之处"
+        "target_label": "把两个对象放到同一视野下看关系：可以比较异同，也可以把一物比作另一物"
       }
     },
     "senses": [
@@ -4859,86 +4930,37 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "deep:constructions:compare:441cdc458a8754fd",
+        "id": "construction:compare:baseline-v2-with-to",
         "source_locator": "record.constructions[0]",
-        "pattern": "vi. + to/with",
+        "pattern": "compare A with/to B",
         "lines": [
           {
-            "text": "比得上；相比",
+            "text": "比较 A 与 B 的相同点或不同点；实际英语中 with/to 均可出现",
             "lang": "cn"
-          },
-          {
-            "text": "compare with 相比",
-            "lang": "cn"
-          },
-          {
-            "text": "be comparable",
-            "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "deep:constructions:compare:441cdc458a8754fd",
+          "target_id": "construction:compare:baseline-v2-with-to",
           "target_locator": "record.constructions[0]",
-          "target_label": "vi. + to/with"
+          "target_label": "compare A with/to B"
         }
       },
       {
-        "id": "deep:constructions:compare:70f29e313efd2575",
+        "id": "construction:compare:baseline-v2-liken",
         "source_locator": "record.constructions[1]",
-        "pattern": "compare with + sth",
+        "pattern": "compare A to B",
         "lines": [
           {
-            "text": "与……相比",
+            "text": "把 A 比作 B，强调相似或类比关系",
             "lang": "cn"
-          },
-          {
-            "text": "比得上；相比",
-            "lang": "cn"
-          },
-          {
-            "text": "compare with 相比",
-            "lang": "cn"
-          },
-          {
-            "text": "be comparable",
-            "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "deep:constructions:compare:70f29e313efd2575",
+          "target_id": "construction:compare:baseline-v2-liken",
           "target_locator": "record.constructions[1]",
-          "target_label": "compare with + sth"
-        }
-      },
-      {
-        "id": "deep:constructions:compare:6785463f2304310f",
-        "source_locator": "record.constructions[2]",
-        "pattern": "compare to + sth",
-        "lines": [
-          {
-            "text": "比作……",
-            "lang": "cn"
-          },
-          {
-            "text": "比得上；相比",
-            "lang": "cn"
-          },
-          {
-            "text": "compare to 比作",
-            "lang": "cn"
-          },
-          {
-            "text": "be comparable",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:compare:6785463f2304310f",
-          "target_locator": "record.constructions[2]",
-          "target_label": "compare to + sth"
+          "target_label": "compare A to B"
         }
       }
     ],
@@ -5175,7 +5197,7 @@
     "ordinal": 938,
     "word": "compass",
     "source_owner_path": "content/lexical/words/by-ordinal/o0938.json",
-    "source_fingerprint": "f8070694419da5549b25730744c7f0799d1e9f30ee06fec2c25c209b2e4c60c0",
+    "source_fingerprint": "4bdf0b2cfbb1dc569fab1ef4c7b193ded486384e210cce24d9c5788f338ec230",
     "sense_lineage": [
       {
         "word_id": "word:compass",
@@ -5199,13 +5221,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "指南针；圆规；范围；包围；达到",
-      "decision_cn": "",
+      "summary_cn": "帮助确定方向、范围或圆形边界的工具/概念：指南针、圆规、范围；moral compass 指判断是非的内在准则",
+      "decision_cn": "navigation → 指南针；a pair of compasses → 圆规；within the compass of → 范围内；moral compass → 判断方向的价值准则。退役的“包围/达到”动词义不再进入 Core。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "指南针；圆规；范围；包围；达到"
+        "target_label": "帮助确定方向、范围或圆形边界的工具/概念：指南针、圆规、范围；moral compass 指判断是非的内在准则"
       }
     },
     "senses": [
@@ -6337,7 +6359,7 @@
     "ordinal": 948,
     "word": "complain",
     "source_owner_path": "content/lexical/words/by-ordinal/o0948.json",
-    "source_fingerprint": "bb669067cca9ee5abd23bf2a37085fb2601c30382d30ff1b83e9ad072caa59e1",
+    "source_fingerprint": "97e80cf3da4a8c571150c467f40fed23b83d86bb04b8a3c600c82ec91e96cc86",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6346,13 +6368,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "表达不满或正式指控",
-      "decision_cn": "",
+      "summary_cn": "把不满、问题或症状说出来：可向某人投诉某事，也可用较正式/医学的 complain of 报告症状",
+      "decision_cn": "complain to sb about sth → 向某人抱怨/投诉某事；complain of symptoms/pain → 较正式地诉说症状或不适。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "表达不满或正式指控"
+        "target_label": "把不满、问题或症状说出来：可向某人投诉某事，也可用较正式/医学的 complain of 报告症状"
       }
     },
     "senses": [
@@ -6365,34 +6387,7 @@
         "definition_en": "express complaints, discontent, displeasure, or unhappiness",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:1f34ac915eaf9d8a6afd",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "complain about + sth",
-            "meaning_cn": "抱怨某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:1f34ac915eaf9d8a6afd",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "complain about + sth"
-            }
-          },
-          {
-            "id": "collocation:f2c9f85a2cb314a4f483",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "complain of + sth",
-            "meaning_cn": "诉说（病痛等）",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f2c9f85a2cb314a4f483",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "complain of + sth"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:complain:bc24f42e187b5152",
@@ -6411,21 +6406,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:d8a1de463605c16e72fe",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "complain to + sb",
-            "meaning_cn": "向某人投诉",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d8a1de463605c16e72fe",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "complain to + sb"
-            }
-          },
-          {
             "id": "collocation:6aa76172e7e15efeb755",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "complain to the police",
             "meaning_cn": "向警方投诉",
             "kind": "usage_example",
@@ -6443,35 +6425,35 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "construction:9fd4bc063a8031d54a49",
+        "id": "construction:complain:baseline-v2-to-about",
         "source_locator": "record.constructions[0]",
         "pattern": "complain to sb about sth",
         "lines": [
           {
-            "text": "tell someone about a complaint or grievance",
-            "lang": "en"
+            "text": "向某人抱怨或投诉某事",
+            "lang": "cn"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:9fd4bc063a8031d54a49",
+          "target_id": "construction:complain:baseline-v2-to-about",
           "target_locator": "record.constructions[0]",
           "target_label": "complain to sb about sth"
         }
       },
       {
-        "id": "construction:73806c9e01ae5fa7bbf2",
+        "id": "construction:complain:baseline-v2-of",
         "source_locator": "record.constructions[1]",
         "pattern": "complain of sth",
         "lines": [
           {
-            "text": "formal or medical way to report a symptom or problem",
-            "lang": "en"
+            "text": "较正式地诉说问题，医学语境尤常指报告症状",
+            "lang": "cn"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:73806c9e01ae5fa7bbf2",
+          "target_id": "construction:complain:baseline-v2-of",
           "target_locator": "record.constructions[1]",
           "target_label": "complain of sth"
         }
@@ -6490,7 +6472,7 @@
     "ordinal": 949,
     "word": "complaint",
     "source_owner_path": "content/lexical/words/by-ordinal/o0949.json",
-    "source_fingerprint": "deb0a634a0002401ef5c1791a92b00a503f448ce3074f9b080519a9259856c32",
+    "source_fingerprint": "158b44079ca62b5db602298bb6ca6a8227db46853ffc6b8b652e169708b727ad",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6499,13 +6481,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "抱怨或控诉",
-      "decision_cn": "",
+      "summary_cn": "把不满正式表达出来形成的“投诉/抱怨”；法律中可指起诉或控诉，医学中还可指疾病/不适",
+      "decision_cn": "make/file/lodge a complaint → 提出投诉；legal complaint → 正式法律控诉；medical complaint → 病症、不适。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "抱怨或控诉"
+        "target_label": "把不满正式表达出来形成的“投诉/抱怨”；法律中可指起诉或控诉，医学中还可指疾病/不适"
       }
     },
     "senses": [
@@ -6520,42 +6502,16 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:9d3c8962a7e2e8947479",
+            "id": "collocation:complaint:baseline-v2-file",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "make a complaint about + sth",
-            "meaning_cn": "对某事提出投诉",
+            "phrase": "make / file / lodge a complaint",
+            "meaning_cn": "提出、提交投诉",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
-              "target_id": "collocation:9d3c8962a7e2e8947479",
+              "target_id": "collocation:complaint:baseline-v2-file",
               "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "make a complaint about + sth"
-            }
-          },
-          {
-            "id": "collocation:bd484b29b64a8b24e01e",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "file a complaint",
-            "meaning_cn": "提出投诉",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:bd484b29b64a8b24e01e",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "file a complaint"
-            }
-          },
-          {
-            "id": "collocation:2b978e763d1e49c5e999",
-            "source_locator": "record.senses[0].collocations[2]",
-            "phrase": "make/file/lodge a complaint",
-            "meaning_cn": "提出/提交投诉",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:2b978e763d1e49c5e999",
-              "target_locator": "record.senses[0].collocations[2]",
-              "target_label": "make/file/lodge a complaint"
+              "target_label": "make / file / lodge a complaint"
             }
           }
         ],
@@ -6575,21 +6531,7 @@
         "definition_en": "(civil law) the first pleading of the plaintiff setting out the facts on which the claim for relief is based",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:50f53ff6fc48e27b2e5e",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "lodge a complaint",
-            "meaning_cn": "提出控诉",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:50f53ff6fc48e27b2e5e",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "lodge a complaint"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:complaint:3385734b45cc5685",
@@ -7442,7 +7384,7 @@
     "ordinal": 956,
     "word": "comply",
     "source_owner_path": "content/lexical/words/by-ordinal/o0956.json",
-    "source_fingerprint": "1dd7cd5aab91187dffd80973500c8c34a57fe449d3ef3b80559f75b7b70e18dc",
+    "source_fingerprint": "d4c1312e7e4f6866807a62fba1117b163c4295011ab3d5794b44e2aacb7c9389",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7452,7 +7394,7 @@
     },
     "word_feel": {
       "summary_cn": "遵从；服从",
-      "decision_cn": "",
+      "decision_cn": "comply 不直接接规则作宾语；常用 comply with + rule/request/requirement，表示让自己的行为符合外部要求。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7472,21 +7414,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:405a1e8d5728f93525cc",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "comply with + sth",
-            "meaning_cn": "遵守；服从",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:405a1e8d5728f93525cc",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "comply with + sth"
-            }
-          },
-          {
             "id": "collocation:0770b14021df8d450d0e",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "comply with the rules",
             "meaning_cn": "遵守规则",
             "kind": "usage_example",
@@ -7504,28 +7433,20 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "deep:constructions:comply:155d93ea2c1fda61",
+        "id": "construction:comply:baseline-v2-with",
         "source_locator": "record.constructions[0]",
-        "pattern": "vi. + with",
+        "pattern": "comply with sth",
         "lines": [
           {
-            "text": "遵从；服从",
+            "text": "遵守、依照或服从规则、要求、标准等",
             "lang": "cn"
-          },
-          {
-            "text": "comply with + sth 遵守；服从",
-            "lang": "cn"
-          },
-          {
-            "text": "act in accordance with someone's rules, commands, or wishes",
-            "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "deep:constructions:comply:155d93ea2c1fda61",
+          "target_id": "construction:comply:baseline-v2-with",
           "target_locator": "record.constructions[0]",
-          "target_label": "vi. + with"
+          "target_label": "comply with sth"
         }
       }
     ],

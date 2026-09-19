@@ -6,13 +6,28 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:characterise:baseline-v2-as",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "把某人或某物描述、界定为某种性质或类别",
+        "pattern": "characterise sb/sth as + adj/n"
+      },
+      {
+        "construction_id": "construction:characterise:baseline-v2-by",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "以某个突出特征为特点",
+        "pattern": "be characterised by sth"
+      }
+    ],
     "content_hash": "70c9bd9235bef25ab11f73b3a6ebb701fa49965cdd9d0df940c7ebf62931d632",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "描述；成为...的特征",
       "core_meaning_en": "to describe or be typical of someone or something",
-      "mental_model_cn": "描述；成为...的特征",
+      "mental_model_cn": "characterise A as B = 你如何描述/界定 A；A is characterised by B = 哪个特征最能代表 A。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -27,17 +42,7 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:33541a4a932c24f5c98b",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:characterise:ac8a78c7303d5962:collocation:0"
-            ],
-            "meaning_cn": "把某人/某物描述为...",
-            "phrase": "characterise + sb/sth as + adj/n"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "描述，刻画",
         "definition_en": "to describe the character or qualities of someone or something",
@@ -58,17 +63,7 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:7bdcd6ddaeffc9216b8a",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:characterise:0ac1ec4c85c558ec:collocation:0"
-            ],
-            "meaning_cn": "以...为特征",
-            "phrase": "be characterised by + sth"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "成为...的特征",
         "definition_en": "to be a typical feature of someone or something",
@@ -205,7 +200,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0753-0760.json",
     "source_content_hash": "70c9bd9235bef25ab11f73b3a6ebb701fa49965cdd9d0df940c7ebf62931d632",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

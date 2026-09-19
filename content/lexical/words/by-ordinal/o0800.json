@@ -10,9 +10,9 @@
     "content_hash": "dcc3099b4606d7ccee54c132cfc177fb4ed53593d4b7ebbcba48be1859b170c9",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "耶稣的称号，或救世主",
+      "core_meaning_cn": "Christ：基督教中对耶稣的称号；作为专名/称号通常首字母大写",
       "core_meaning_en": "the title given to Jesus, or a savior figure",
-      "mental_model_cn": "耶稣的称号，或救世主",
+      "mental_model_cn": "宗教专名称号写作 Christ；普通小写 christ 不作为当前主学习形式。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -55,7 +55,28 @@
     },
     "word": "christ",
     "word_family": [],
-    "word_id": "word:christ"
+    "word_id": "word:christ",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:christ:title",
+          "canonical_form": "Christ",
+          "learner_key": "Christ",
+          "pos": [
+            "noun"
+          ],
+          "ipa": ""
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "Christ",
+          "condition": "Christian title/name for Jesus",
+          "note": "作为耶稣的宗教称号时首字母大写。"
+        }
+      ],
+      "boundary": "当前主学习形式为专名 Christ。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [
@@ -138,7 +159,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0793-0800.json",
     "source_content_hash": "dcc3099b4606d7ccee54c132cfc177fb4ed53593d4b7ebbcba48be1859b170c9",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

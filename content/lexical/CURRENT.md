@@ -831,8 +831,120 @@ Canonical Baseline-v2 receipt:
 Repair Test blueprints:
 `content/lexical/learner/repair-blueprints/shards/o0651-0700.json`
 
-Next internal shard: **o0701–o0750 — FRESH READ + COMBINED CONTENT/TEST REPORT**.
+Closed internal shard: **o0701–o0750 — CLOSED**.
 
-Apply the one-shard Human Gate: fresh-read all 50 owners, combine real Content defects and worthwhile Repair Test candidates into one plain-language report, then wait for one Kian approval. After approval, automatically close all reported work and advance to the next shard.
+```text
+50 / 50 fresh owner/module judgments
+18 approved Word Content owners upgraded
+1 cross-word spelling Relation owner written (catalog ↔ catalogue)
+18 Repair Test blueprints written and read back
+32 NO_TEST_NEEDED words
+0 BLOCKED
+0 default-Depth updates
+0 learner-page/UI files changed
+Final Learner Object materialization PASS (7,946 objects)
+```
 
-Interaction rule: **one bounded shard (normally 50 owners) = one Kian Human Gate**. The shard report combines Content fixes + Repair Test candidates. Once Kian approves that report, automatically write all reported/approved Content and Test changes, rebuild/read back/validate, advance the cursor, and begin the next shard without inserting another approval step.
+Canonical Baseline-v2 receipt:
+`content/lexical/audit/baseline-v2/lane-c/o0701-o0750.json`
+
+Repair Test blueprints:
+`content/lexical/learner/repair-blueprints/shards/o0701-0750.json`
+
+Closed Human-Gate batch: **o0751–o0850 — CLOSED**.
+
+```text
+100 / 100 fresh owner/module judgments
+35 Word Content owners upgraded
+65 Word Content owners NO_CHANGE
+1 cross-word spelling Relation owner written (cheque ↔ check)
+30 Repair Test blueprints written and read back
+70 NO_TEST_NEEDED words
+0 BLOCKED
+0 learner-page/UI files changed
+Final Learner Object materialization PASS (7,946 objects)
+```
+
+Bounded note:
+- `cheese` specialist textile Sense remains canonical active truth and is now explicitly marked low-frequency L3 recognition-only in Content. The accepted materializer has no safe whole-Sense Explore-only disposition, so this batch did **not** alter the builder merely to hide it.
+
+Canonical Baseline-v2 receipts:
+- `content/lexical/audit/baseline-v2/lane-c/o0751-o0800.json`
+- `content/lexical/audit/baseline-v2/lane-d/o0801-o0850.json`
+
+Repair Test blueprints:
+- `content/lexical/learner/repair-blueprints/shards/o0751-0800.json`
+- `content/lexical/learner/repair-blueprints/shards/o0801-0850.json`
+
+Closed Human-Gate batch: **o0851–o0950 — CLOSED**.
+
+```text
+100 / 100 fresh owner/module judgments
+28 Word Content owners upgraded
+72 Word Content owners NO_CHANGE
+3 cross-word Relation owners added/corrected
+28 Repair Test blueprints written and read back
+72 NO_TEST_NEEDED words
+0 BLOCKED
+0 learner-page/UI files changed
+Final Learner Object materialization PASS (7,946 objects)
+```
+
+Notable learner-facing closures:
+- close: verb /kloʊz/ vs adjective /kloʊs/
+- cloth / clothes / clothing: material vs plural garments vs uncountable collective
+- clothe / dress: corrected scope; clothe also permits figurative covering
+- cloud: smoke/dust no longer lives under cloud-computing Sense
+- coach: long-distance bus added as current learner content
+- colonel: irregular pronunciation made explicit
+- color / colour: AmE / BrE spelling relation
+- come / command / commission / commit / compare / complain: high-value structures deduplicated and promoted
+- complement / compliment: existing cross-word Relation reused for Repair Test
+
+Canonical Baseline-v2 receipts:
+- `content/lexical/audit/baseline-v2/lane-d/o0851-o0900.json`
+- `content/lexical/audit/baseline-v2/lane-d/o0901-o0950.json`
+
+Repair Test blueprints:
+- `content/lexical/learner/repair-blueprints/shards/o0851-0900.json`
+- `content/lexical/learner/repair-blueprints/shards/o0901-0950.json`
+
+Closed Human-Gate batch: **o0951–o1050 — CLOSED**.
+
+```text
+100 / 100 fresh owner/module judgments
+24 Word Content owners upgraded
+76 Word Content owners NO_CHANGE
+1 cross-word Relation owner added (contagious ↔ infectious)
+25 Repair Test blueprints written and read back
+75 NO_TEST_NEEDED words
+0 BLOCKED
+0 learner-page/UI files changed
+Final Learner Object materialization PASS (7,946 objects)
+```
+
+Notable learner-facing closures:
+- compound / conduct / conflict / console / construct / content: part-of-speech stress/pronunciation boundaries made explicit
+- comprehend / concert: deprecated meanings removed from Core
+- concede: concede a goal/point corrected to allow the opponent to score / concede a score
+- concentrate: duplicate Core Sense ID removed
+- concern / consider / construct: duplicate active Secondary projections removed
+- concession: negotiation concession separated from concession fare/price
+- confine: restriction sense restored as the primary learner branch
+- conform / congratulate / congratulation / contain: duplicate or contradictory structures consolidated
+- Congress / congress: capitalization boundary made explicit
+- contagious / infectious: moved from fake fixed phrase to a semantic Relation
+
+Canonical Baseline-v2 receipts:
+- `content/lexical/audit/baseline-v2/lane-d/o0951-o1000.json`
+- `content/lexical/audit/baseline-v2/lane-d/o1001-o1050.json`
+
+Repair Test blueprints:
+- `content/lexical/learner/repair-blueprints/shards/o0951-1000.json`
+- `content/lexical/learner/repair-blueprints/shards/o1001-1050.json`
+
+Next Human-Gate batch: **o1051–o1150 — FRESH READ + COMBINED CONTENT/TEST REPORT**.
+
+Apply one Human Gate per ~100 owners: internally fresh-read in bounded ~50-owner slices, then combine real Content defects and worthwhile Repair Test candidates into one plain-language 100-owner report and wait for one Kian approval. After approval, automatically close the approved slices and advance to the next 100-owner batch.
+
+Interaction rule: **one Human Gate = ~100 owners**, while backend semantic review remains bounded in ~50-owner slices. The combined report merges Content fixes + Repair Test candidates across both slices. Once Kian approves that report, automatically write all reported/approved Content and Test changes, rebuild/read back/validate, advance the cursor, and begin the next 100-owner batch without inserting another approval step.

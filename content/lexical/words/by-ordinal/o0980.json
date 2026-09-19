@@ -10,9 +10,9 @@
     "content_hash": "69ced00806d36e9c537fcf6522532f7d0223a1810d591285fcecec2fc11c2e24",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "让步，特许",
+      "core_meaning_cn": "从原有立场、权利或价格上“让出一部分”：可指谈判让步、特许权，也可指特定人群享有的优惠价",
       "core_meaning_en": "something granted or yielded",
-      "mental_model_cn": "让步，特许",
+      "mental_model_cn": "make a concession / concessions to sb → 作出让步；grant a concession → 授予特许权；concession fare/price → 学生、老人等优惠票价/价格。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -33,6 +33,12 @@
             ],
             "meaning_cn": "做出让步",
             "phrase": "make a concession"
+          },
+          {
+            "collocation_id": "collocation:concession:baseline-v2-to-sb",
+            "exam_value": "fixed_pattern",
+            "meaning_cn": "向某人作出让步",
+            "phrase": "make concessions to sb"
           }
         ],
         "confidence": "medium",
@@ -74,13 +80,10 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:05976fa695b08c8161a2",
+            "collocation_id": "collocation:concession:baseline-v2-fare",
             "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:concession:94792b3b2f6b9c46:collocation:handoff-o0875-o1124"
-            ],
-            "meaning_cn": "向某人作出让步",
-            "phrase": "make concessions to sb"
+            "meaning_cn": "优惠票价/优惠价格",
+            "phrase": "concession fare / price"
           }
         ],
         "confidence": "medium",
@@ -196,7 +199,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0977-0984.json",
     "source_content_hash": "69ced00806d36e9c537fcf6522532f7d0223a1810d591285fcecec2fc11c2e24",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

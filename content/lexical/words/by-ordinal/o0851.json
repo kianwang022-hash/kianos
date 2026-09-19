@@ -29,17 +29,31 @@
           ]
         }
       ],
-      "core_meaning_cn": "剪或夹",
+      "core_meaning_cn": "把东西夹住、剪下一小段，或指被剪取出来的一小段内容",
       "core_meaning_en": "to cut or fasten",
-      "mental_model_cn": "剪或夹",
-      "mental_model_en": ""
+      "mental_model_cn": "paper/hair clip → 夹子；clip hedge → 修剪；video/news/audio clip → 从较长内容中截出的短片段；a clip on the ear → 猛的一击。",
+      "mental_model_en": "The shared image is a small held or cut-off piece: fastener, trimming, short media segment, or sharp blow."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "fact_id": "baseline-v2:secondary_sense:clip:media",
+        "source_sense_id": null,
+        "pos": "noun",
+        "definition_cn": "短片段；短视频、音频或新闻片段",
+        "definition_en": "a short extract from a longer video, audio recording, film, or broadcast",
+        "pattern": "video/news/audio clip",
+        "level": "L1",
+        "priority": "A",
+        "publication_status": "publishable",
+        "verification_status": "verified",
+        "writing_safe": true
+      }
+    ],
     "semantic_neighbors": [],
     "senses": [
       {
@@ -61,15 +75,6 @@
             ],
             "meaning_cn": "发夹",
             "phrase": "hair clip"
-          },
-          {
-            "collocation_id": "collocation:9cf3ada9f34e220a7bd4",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:clip:b415ed32fbc95bb9:collocation:handoff-o0675-o0874"
-            ],
-            "meaning_cn": "电影、视频、音频或广播的短片段",
-            "phrase": "a video/news/audio clip"
           }
         ],
         "confidence": "medium",
@@ -297,7 +302,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0849-0856.json",
     "source_content_hash": "519df863c8d0ed871740860df34d2553bfb1767302a4646662578aa09886c151",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

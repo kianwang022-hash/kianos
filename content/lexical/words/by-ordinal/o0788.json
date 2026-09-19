@@ -6,7 +6,15 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:chill:baseline-v2-out",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "放松、冷静下来",
+        "pattern": "chill out"
+      }
+    ],
     "content_hash": "5b79c7af55bd1bd18a35cd042a1c1826edf7f49b76f7b18761cb0ba780a394ba",
     "core_concept": {
       "core_clusters": [
@@ -37,9 +45,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "寒冷，寒意",
+      "core_meaning_cn": "让温度或情绪降下来：可指寒冷/冰镇，也可指恐惧带来的寒意；chill out 则是放松、冷静",
       "core_meaning_en": "coldness or a feeling of cold",
-      "mental_model_cn": "寒冷，寒意",
+      "mental_model_cn": "cold air/body → 寒意；chill wine → 冰镇；a chill down one's spine → 恐惧发冷；chill out → 把紧张度降下来，放松。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -132,17 +140,7 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:17dcffcc0b946d3e9889",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:chill:01ce3214647854f7:collocation:0"
-            ],
-            "meaning_cn": "放松，冷静",
-            "phrase": "chill out"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "变冷",
         "definition_en": "to become cold",
@@ -312,7 +310,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0785-0792.json",
     "source_content_hash": "5b79c7af55bd1bd18a35cd042a1c1826edf7f49b76f7b18761cb0ba780a394ba",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

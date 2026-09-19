@@ -10,9 +10,9 @@
     "content_hash": "e297701cb300d1c46844ecc9735b0ae703b7e32ac65677ad2708e4a2c5a8df02",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "国会；会议",
+      "core_meaning_cn": "Congress：美国国会这一专名；congress：一般性的代表大会、会议",
       "core_meaning_en": "a formal meeting or legislative body",
-      "mental_model_cn": "国会；会议",
+      "mental_model_cn": "大写 Congress 在美国政治语境中是专名；小写 congress 可泛指代表大会或大型正式会议。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -96,7 +96,42 @@
     },
     "word": "congress",
     "word_family": [],
-    "word_id": "word:congress"
+    "word_id": "word:congress",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:congress:us",
+          "canonical_form": "Congress",
+          "learner_key": "Congress",
+          "pos": [
+            "noun"
+          ],
+          "ipa": ""
+        },
+        {
+          "variant_id": "form:congress:general",
+          "canonical_form": "congress",
+          "learner_key": "congress",
+          "pos": [
+            "noun"
+          ],
+          "ipa": ""
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "Congress",
+          "condition": "proper name for the U.S. legislature",
+          "note": "专名首字母大写。"
+        },
+        {
+          "surface": "congress",
+          "condition": "general representative meeting/assembly",
+          "note": "一般名词可小写。"
+        }
+      ],
+      "boundary": "Congress（专名）与 congress（一般代表大会）通过大小写和语境区分。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -166,7 +201,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1001-1008.json",
     "source_content_hash": "e297701cb300d1c46844ecc9735b0ae703b7e32ac65677ad2708e4a2c5a8df02",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

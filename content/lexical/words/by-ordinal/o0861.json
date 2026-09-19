@@ -10,9 +10,9 @@
     "content_hash": "d3bf467bf75c06393c6c2abccd4f8d08626e63a2470f33b28113d60695b61c47",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "衣服",
+      "core_meaning_cn": "衣服、服装这一不可数集合概念",
       "core_meaning_en": "items worn to cover the body",
-      "mental_model_cn": "衣服",
+      "mental_model_cn": "clothing 是不可数总称，常用于类别/正式表达：protective clothing；单件可说 an item/article/piece of clothing。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -85,7 +85,14 @@
     "word_family": [],
     "word_id": "word:clothing"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:horizontal:cloth-clothes-clothing",
+      "owner_path": "content/lexical/relations/by-id/0c/0ceee291018459faf28af6e1b02526ed21d44c2c7dd9d4993f398642bd52ed47.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -152,7 +159,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0857-0864.json",
     "source_content_hash": "d3bf467bf75c06393c6c2abccd4f8d08626e63a2470f33b28113d60695b61c47",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

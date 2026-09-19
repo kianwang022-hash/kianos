@@ -1,0 +1,64 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:spelling_variant:cheque:check",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:cheque",
+      "source_ordinal": 778,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "relation_id": "relation:spelling_variant:cheque:check",
+        "relation_type": "spelling_variant",
+        "relation_scope": "sense",
+        "direction": "C",
+        "priority": "A",
+        "publication_status": "publishable",
+        "verification_status": "verified",
+        "writing_safe": true,
+        "source_expression": "cheque",
+        "target_expression": "check",
+        "target_word": "check",
+        "boundary": "在“支票”义上，BrE 通常写 cheque，AmE 通常写 check；check 还另外有“检查、账单”等其他义。",
+        "learning_note": "BrE cheque ↔ AmE check，只在支票义对应。",
+        "shared_meaning": "written order to a bank to pay money",
+        "task_tags": [
+          "reading",
+          "writing"
+        ]
+      }
+    },
+    {
+      "source_word_id": "word:check",
+      "source_ordinal": 770,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "relation_id": "relation:spelling_variant:cheque:check",
+        "relation_type": "spelling_variant",
+        "relation_scope": "sense",
+        "direction": "C",
+        "priority": "A",
+        "publication_status": "publishable",
+        "verification_status": "verified",
+        "writing_safe": true,
+        "source_expression": "check",
+        "target_expression": "cheque",
+        "target_word": "cheque",
+        "boundary": "在“支票”义上，AmE 通常写 check，BrE 通常写 cheque；check 的其他义不与 cheque 对应。",
+        "learning_note": "AmE check ↔ BrE cheque，只在支票义对应。",
+        "shared_meaning": "written order to a bank to pay money",
+        "task_tags": [
+          "reading",
+          "writing"
+        ]
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "baseline-v2-fresh-content-upgrade",
+    "semantic_delta": 1
+  }
+}

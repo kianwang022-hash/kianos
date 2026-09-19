@@ -1,0 +1,353 @@
+{
+  "schema": "kianos.lexical.repair_blueprint_shard.v1",
+  "range": {
+    "start_ordinal": 851,
+    "end_ordinal": 900
+  },
+  "authority": "content/lexical/LEARNING_CONTRACT.md + CONTENT_ASSET_CONTRACT.md + approved 100-owner Human Gate 2026-09-19",
+  "generation_rule": "Stable diagnostic intent only; concrete instances generated fresh.",
+  "entries": [
+    {
+      "blueprint_id": "repair-blueprint:o0851:clip:v1",
+      "word_id": "word:clip",
+      "ordinal": 851,
+      "word": "clip",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分夹子、修剪与媒体短片段。",
+      "decision_boundary_cn": "对象域决定 fastener / cut / media extract。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式或跨词边界作干扰；选项自然，不靠长度或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 clip 的高价值多义。",
+      "reconstruction_rule_cn": "换办公、园艺和视频语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0856:close:v1",
+      "word_id": "word:close",
+      "ordinal": 856,
+      "word": "close",
+      "target": {
+        "target_kind": "form_identity",
+        "target_id": null,
+        "target_locator": "record.form_identity"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "同时判断 close 的词性、意义和发音。",
+      "decision_boundary_cn": "verb /kloʊz/；adjective /kloʊs/。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式或跨词边界作干扰；选项自然，不靠长度或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 close 的发音-词性边界。",
+      "reconstruction_rule_cn": "换关门/成交与距离/关系语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0857:closet:v1",
+      "word_id": "word:closet",
+      "ordinal": 857,
+      "word": "closet",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分美式壁橱名词与秘密/未公开形容词。",
+      "decision_boundary_cn": "词性和人/物对象决定分支。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式或跨词边界作干扰；选项自然，不靠长度或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 closet 的主次与形容词义。",
+      "reconstruction_rule_cn": "换住宅储物与隐藏立场语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0858:cloth:v1",
+      "word_id": "word:cloth",
+      "ordinal": 858,
+      "word": "cloth",
+      "target": {
+        "target_kind": "relation",
+        "target_id": "relation:horizontal:cloth-clothes-clothing",
+        "target_locator": "record.semantic_neighbors[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 cloth / clothes / clothing。",
+      "decision_boundary_cn": "材料、复数衣物总称、不可数集合名词三分。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式或跨词边界作干扰；选项自然，不靠长度或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修三词边界。",
+      "reconstruction_rule_cn": "换布料采购、穿衣与防护服语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0859:clothe:v1",
+      "word_id": "word:clothe",
+      "ordinal": 859,
+      "word": "clothe",
+      "target": {
+        "target_kind": "relation",
+        "target_id": "deep:semantic_contrast:clothe:87255301ceeaf150",
+        "target_locator": "record.semantic_neighbors[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 clothe 与 dress，并识别 clothe 的 figurative covering。",
+      "decision_boundary_cn": "clothe 更正式且可覆盖；dress 用法更广。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式或跨词边界作干扰；选项自然，不靠长度或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 clothe/dress 边界。",
+      "reconstruction_rule_cn": "换给人穿衣与抽象覆盖语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0860:clothes:v1",
+      "word_id": "word:clothes",
+      "ordinal": 860,
+      "word": "clothes",
+      "target": {
+        "target_kind": "relation",
+        "target_id": "relation:horizontal:cloth-clothes-clothing",
+        "target_locator": "record.semantic_neighbors[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "避免 *a clothes，并正确选择 clothes / clothing。",
+      "decision_boundary_cn": "clothes 按复数；单件用 item/piece of clothing。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式或跨词边界作干扰；选项自然，不靠长度或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 clothes 语法边界。",
+      "reconstruction_rule_cn": "换打包一套衣服与单件衣物语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0861:clothing:v1",
+      "word_id": "word:clothing",
+      "ordinal": 861,
+      "word": "clothing",
+      "target": {
+        "target_kind": "relation",
+        "target_id": "relation:horizontal:cloth-clothes-clothing",
+        "target_locator": "record.semantic_neighbors[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 clothing 与 clothes/cloth。",
+      "decision_boundary_cn": "clothing 不可数且偏类别表达。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式或跨词边界作干扰；选项自然，不靠长度或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 clothing 的集合名词边界。",
+      "reconstruction_rule_cn": "换服装类别和材料语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0862:cloud:v1",
+      "word_id": "word:cloud",
+      "ordinal": 862,
+      "word": "cloud",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分天气云/烟尘团、the cloud 云计算与疑云/模糊。",
+      "decision_boundary_cn": "领域和搭配决定分支。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式或跨词边界作干扰；选项自然，不靠长度或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 cloud 的三类高价值分支。",
+      "reconstruction_rule_cn": "换天气、IT 和调查语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0865:clue:v1",
+      "word_id": "word:clue",
+      "ordinal": 865,
+      "word": "clue",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:clue:baseline-v2-in-on",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定使用 clue sb in on sth。",
+      "decision_boundary_cn": "不是“给谜题线索”字面翻译，而是告知背景。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式或跨词边界作干扰；选项自然，不靠长度或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修该构式。",
+      "reconstruction_rule_cn": "换新员工获知内部情况的语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0869:coach:v1",
+      "word_id": "word:coach",
+      "ordinal": 869,
+      "word": "coach",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分教练/指导者、长途客车与旧式马车。",
+      "decision_boundary_cn": "运动/技能、现代交通、历史交通语境决定。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式或跨词边界作干扰；选项自然，不靠长度或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 coach 现代多义。",
+      "reconstruction_rule_cn": "换球队、跨城旅行和历史语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0872:coarse:v1",
+      "word_id": "word:coarse",
+      "ordinal": 872,
+      "word": "coarse",
+      "target": {
+        "target_kind": "relation",
+        "target_id": "deep:confusables:coarse:9534004ee96e3d1b",
+        "target_locator": "record.confusables[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分同音 coarse / course。",
+      "decision_boundary_cn": "coarse=粗糙/粗俗；course=课程/过程/路线。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式或跨词边界作干扰；选项自然，不靠长度或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修拼写语义陷阱。",
+      "reconstruction_rule_cn": "换材质与课程语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0873:coast:v1",
+      "word_id": "word:coast",
+      "ordinal": 873,
+      "word": "coast",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分靠惯性滑行与不费力推进/取胜。",
+      "decision_boundary_cn": "物理 momentum 与 figurative easy progress 共用模型。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式或跨词边界作干扰；选项自然，不靠长度或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 coast 动词边界。",
+      "reconstruction_rule_cn": "换下坡滑行与轻松通过考试语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0880:coherent:v1",
+      "word_id": "word:coherent",
+      "ordinal": 880,
+      "word": "coherent",
+      "target": {
+        "target_kind": "relation",
+        "target_id": "deep:confusables:coherent:48dc864573f5f432",
+        "target_locator": "record.confusables[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 coherent 与 inherent，并理解 coherent 的统一模型。",
+      "decision_boundary_cn": "coherent=连贯/一致；inherent=内在固有。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式或跨词边界作干扰；选项自然，不靠长度或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修跨词和多领域边界。",
+      "reconstruction_rule_cn": "换论证与固有属性语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0885:coke:v1",
+      "word_id": "word:coke",
+      "ordinal": 885,
+      "word": "coke",
+      "target": {
+        "target_kind": "form_identity",
+        "target_id": null,
+        "target_locator": "record.form_identity"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "按大小写/领域区分 coke 焦炭与 Coke 可乐品牌。",
+      "decision_boundary_cn": "工业 vs 饮料语境 + capitalization。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式或跨词边界作干扰；选项自然，不靠长度或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修主学习边界。",
+      "reconstruction_rule_cn": "换炼钢与饮料点单语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0887:collaborate:v1",
+      "word_id": "word:collaborate",
+      "ordinal": 887,
+      "word": "collaborate",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分普通合作与战争/占领语境中的通敌。",
+      "decision_boundary_cn": "partner/project vs enemy/occupier 决定评价色彩。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式或跨词边界作干扰；选项自然，不靠长度或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 collaborate 的 stance 分支。",
+      "reconstruction_rule_cn": "换科研合作与历史占领语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0894:college:v1",
+      "word_id": "word:college",
+      "ordinal": 894,
+      "word": "college",
+      "target": {
+        "target_kind": "relation",
+        "target_id": "deep:confusables:college:a3ae01ac2f4973d4",
+        "target_locator": "record.confusables[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 college / colleague。",
+      "decision_boundary_cn": "college=学院/大学；colleague=同事。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式或跨词边界作干扰；选项自然，不靠长度或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修拼写语义陷阱。",
+      "reconstruction_rule_cn": "换校园与工作场所语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0897:colonel:v1",
+      "word_id": "word:colonel",
+      "ordinal": 897,
+      "word": "colonel",
+      "target": {
+        "target_kind": "form_identity",
+        "target_id": null,
+        "target_locator": "record.form_identity"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "根据拼写稳定回忆 colonel 的异常读音。",
+      "decision_boundary_cn": "读音近 kernel，不按拼写逐音节读。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式或跨词边界作干扰；选项自然，不靠长度或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修 colonel 发音。",
+      "reconstruction_rule_cn": "换军衔称呼语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0900:color:v1",
+      "word_id": "word:color",
+      "ordinal": 900,
+      "word": "color",
+      "target": {
+        "target_kind": "relation",
+        "target_id": "relation:spelling_variant:color-colour",
+        "target_locator": "record.semantic_neighbors[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 AmE color / BrE colour，并保持写作变体一致。",
+      "decision_boundary_cn": "词义相同，仅地区拼写不同。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式或跨词边界作干扰；选项自然，不靠长度或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "minimum_repair_cn": "只修拼写变体。",
+      "reconstruction_rule_cn": "换美式与英式短文语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    }
+  ]
+}

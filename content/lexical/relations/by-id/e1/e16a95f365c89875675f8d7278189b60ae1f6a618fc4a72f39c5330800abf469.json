@@ -3,11 +3,11 @@
   "relation_id": "deep:semantic_contrast:clothe:87255301ceeaf150",
   "canonical_record": null,
   "fact_record": {
-    "boundary": "clothe较正式且只表给人穿衣；dress用法更广",
+    "boundary": "clothe 较正式，可指给人穿衣，也可比喻“给某物披上/覆盖”；dress 用法更广，常指穿衣、打扮或服饰状态。",
     "codex_boundary_corrected": true,
     "codex_disposition": "explicit_promote",
     "codex_disposition_status": "resolved",
-    "codex_review_rationale": "Sense-grounded relation retained with a corrected compact learning boundary.",
+    "codex_review_rationale": "Sense-grounded relation retained with corrected scope: clothe includes both literal dressing and figurative covering; dress remains broader.",
     "codex_reviewed": true,
     "content": {
       "shared_definition": "provide with clothes or put clothes on",
@@ -44,7 +44,7 @@
     "generation_checked": true,
     "high_risk_flags": [],
     "independent_verification_checked": true,
-    "learning_value_score": 9.0,
+    "learning_value_score": 9,
     "learning_value_status": "selected",
     "machine_checked": true,
     "module": "semantic_contrast",
@@ -98,14 +98,14 @@
       "field": "semantic_neighbors",
       "index": 0,
       "payload": {
-        "boundary": "clothe较正式且只表给人穿衣；dress用法更广",
+        "boundary": "clothe 较正式，可指给人穿衣，也可比喻“给某物披上/覆盖”；dress 用法更广，常指穿衣、打扮或服饰状态。",
         "codex_reviewed": true,
         "definition_cn": null,
         "definition_en": null,
         "dimensions": {
           "certainty": "高",
           "collocation": "clothe someone",
-          "core_meaning": "穿衣动作",
+          "core_meaning": "clothe=较正式地穿衣/覆盖；dress=更广的穿衣/打扮",
           "exam_trap": "dress可作名词",
           "register": "中性",
           "semantic_prosody": "中性",
@@ -146,7 +146,7 @@
     }
   ],
   "provenance": {
-    "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "materialized_from": "baseline-v2-fresh-content-upgrade",
+    "semantic_delta": 1
   }
 }

@@ -31,9 +31,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "关闭；结束；靠近",
+      "core_meaning_cn": "把距离或开口收拢到“没有空隙”：可表示关闭/结束，也可表示距离近、关系亲密",
       "core_meaning_en": "to shut or bring to an end; near in distance or relationship",
-      "mental_model_cn": "关闭；结束；靠近",
+      "mental_model_cn": "verb close /kloʊz/ → 关闭、结束、完成交易；adjective close /kloʊs/ → 接近、亲密。词性同时决定发音和意义。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -216,7 +216,42 @@
     },
     "word": "close",
     "word_family": [],
-    "word_id": "word:close"
+    "word_id": "word:close",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:close:verb",
+          "canonical_form": "close",
+          "learner_key": "close (verb)",
+          "pos": [
+            "verb"
+          ],
+          "ipa": "/kloʊz/"
+        },
+        {
+          "variant_id": "form:close:adjective",
+          "canonical_form": "close",
+          "learner_key": "close (adjective)",
+          "pos": [
+            "adjective"
+          ],
+          "ipa": "/kloʊs/"
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "close",
+          "condition": "verb: shut/end/complete",
+          "note": "动词读 /kloʊz/。"
+        },
+        {
+          "surface": "close",
+          "condition": "adjective: near/intimate",
+          "note": "形容词读 /kloʊs/。"
+        }
+      ],
+      "boundary": "同形词按词性分读音：verb /kloʊz/，adjective /kloʊs/。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [
@@ -374,7 +409,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0849-0856.json",
     "source_content_hash": "7f37c3bcc01fe0ab50eeb588f3abda6485a8f9c74c761efbec1f243f3b733368",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

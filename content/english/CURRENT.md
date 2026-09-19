@@ -33,11 +33,9 @@ The English engineering chain is accepted for the named tested boundaries:
 - English navigation hierarchy;
 - External Reading compiler / private-source bridge / synthetic browser journey.
 
-Release is still **BLOCKED** only by bounded non-synthetic gates:
+Writing Source recovery is now **CLOSED**. The missing 2011 and 2026 Big Writing visuals were recovered from independently corroborated public true-paper sources and rebound as explicit source-equivalent web artifacts with their own SHA/byte identities; they are not mislabeled as the lost local PNG bytes.
 
-1. exact Big Writing original bytes for 2011 and 2026 remain unavailable;
-2. material learner-facing presentation changes require Kian Human Gate on the actual Mac;
-3. learner U remains **UNTESTED** until genuine use.
+The only remaining release gate is the **Kian Human Gate on the actual Mac** for material learner-facing presentation. Learner U remains **UNTESTED** until genuine use; that is an evidence boundary, not an engineering defect.
 
 Do not reopen passed engineering paths merely because unrelated broad CI remains red.
 
@@ -141,17 +139,18 @@ A blocker in one child does not freeze siblings without a real shared dependency
 
 ## Next
 
-Only close bounded remaining gates:
+Only close the remaining human visual gate:
 
 ```text
-recover exact 2011 / 2026 Big Writing original bytes if available
-+
-Kian Mac Human Gate for material changed learner-facing presentation
-↓
-revalidate only affected Source / presentation slices
+Kian Mac Human Gate
+→ Writing true-exam entry
+→ Writing source-image presentation
+→ External Reading learner surface
 ↓
 release decision
 ```
+
+No code, Learning Logic or source-provenance review is required from Kian.
 
 Do not restart A/B/C, legacy 4173 convergence, broad historical CI cleanup, or unrelated Lexical / Politics / Xizong debt.
 

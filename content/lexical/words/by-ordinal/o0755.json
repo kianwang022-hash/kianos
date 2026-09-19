@@ -6,7 +6,15 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:channel:baseline-v2-into",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "把资源、精力、资金等导向某个用途或目标",
+        "pattern": "channel sth into sth"
+      }
+    ],
     "content_hash": "d8b0ae4b66dc328cd8fd24635fbd8230283b6c6badb223446939dce0dd1f8df2",
     "core_concept": {
       "core_clusters": [
@@ -29,9 +37,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "水道或信号通道；也指引导",
+      "core_meaning_cn": "让水、信号、信息或资源沿某条“通道”流动；名词是通道/渠道，动词是把东西导向某处或目的",
       "core_meaning_en": "a passage for water or signals; also to direct",
-      "mental_model_cn": "水道或信号通道；也指引导",
+      "mental_model_cn": "water/signal → 实体或信号通道；official/diplomatic channels → 沟通渠道；channel resources/energy into X → 把资源或精力导向某目标。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -143,15 +151,6 @@
       },
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:8fff1cf161ddb2760118",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:channel:01db418f9de45484:collocation:0"
-            ],
-            "meaning_cn": "把某物导入某处",
-            "phrase": "channel + sth into + sth"
-          },
           {
             "collocation_id": "collocation:48f8798ee112d5bcc41b",
             "exam_value": "usage_example",
@@ -327,7 +326,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0753-0760.json",
     "source_content_hash": "d8b0ae4b66dc328cd8fd24635fbd8230283b6c6badb223446939dce0dd1f8df2",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

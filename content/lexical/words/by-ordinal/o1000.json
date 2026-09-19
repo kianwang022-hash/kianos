@@ -19,9 +19,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "冲突",
+      "core_meaning_cn": "两个力量、利益或说法彼此不相容：名词是“冲突”，动词是“相冲突/不一致”",
       "core_meaning_en": "a serious disagreement or fight",
-      "mental_model_cn": "冲突",
+      "mental_model_cn": "noun CONflict → a conflict between A and B；verb conFLICT → conflict with sth。词性改变重音。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -113,7 +113,42 @@
     },
     "word": "conflict",
     "word_family": [],
-    "word_id": "word:conflict"
+    "word_id": "word:conflict",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:conflict:noun",
+          "canonical_form": "conflict",
+          "learner_key": "conflict (noun)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": "/ˈkɑːnflɪkt/"
+        },
+        {
+          "variant_id": "form:conflict:verb",
+          "canonical_form": "conflict",
+          "learner_key": "conflict (verb)",
+          "pos": [
+            "verb"
+          ],
+          "ipa": "/kənˈflɪkt/"
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "conflict",
+          "condition": "noun",
+          "note": "名词重音在第一音节：CONflict。"
+        },
+        {
+          "surface": "conflict",
+          "condition": "verb",
+          "note": "动词重音在第二音节：conFLICT。"
+        }
+      ],
+      "boundary": "conflict 的名词/动词读音靠重音区分。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [
@@ -236,7 +271,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0993-1000.json",
     "source_content_hash": "a998a55e30b05a133427d46d0479cfafb874822a17382154cf65aab19b745b9c",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

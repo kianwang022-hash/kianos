@@ -10,9 +10,9 @@
     "content_hash": "c1a82885cb07fb158709c3499dbe3a63f7a3e99b096b0c2c212103f069a44a69",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "焦炭；可乐",
-      "core_meaning_en": "a solid fuel from coal, or a brand of cola, or slang for cocaine",
-      "mental_model_cn": "焦炭；可乐",
+      "core_meaning_cn": "coke：煤经高温处理得到的焦炭；Coke：可口可乐品牌名，也常用于指可乐饮料",
+      "core_meaning_en": "coke as carbon-rich fuel; Coke as the Coca-Cola brand or informal cola reference",
+      "mental_model_cn": "小写 coke 在工业语境通常是焦炭；大写 Coke 在饮料语境通常指可口可乐。旧的 cocaine 俚语只保留低频参考，不进主 Core。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -76,7 +76,42 @@
     },
     "word": "coke",
     "word_family": [],
-    "word_id": "word:coke"
+    "word_id": "word:coke",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:coke:fuel",
+          "canonical_form": "coke",
+          "learner_key": "coke",
+          "pos": [
+            "noun"
+          ],
+          "ipa": ""
+        },
+        {
+          "variant_id": "form:coke:brand",
+          "canonical_form": "Coke",
+          "learner_key": "Coke",
+          "pos": [
+            "noun"
+          ],
+          "ipa": ""
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "coke",
+          "condition": "fuel / industrial material",
+          "note": "焦炭义通常小写。"
+        },
+        {
+          "surface": "Coke",
+          "condition": "Coca-Cola brand / cola drink",
+          "note": "品牌名通常大写。"
+        }
+      ],
+      "boundary": "coke（焦炭）与 Coke（可口可乐品牌）通过语境和大小写区分。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [
@@ -208,7 +243,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0881-0888.json",
     "source_content_hash": "c1a82885cb07fb158709c3499dbe3a63f7a3e99b096b0c2c212103f069a44a69",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

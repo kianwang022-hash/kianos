@@ -36,9 +36,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "内容；满足",
+      "core_meaning_cn": "两个读音分支：CONtent = 内容/含量；conTENT = 满足的、使满足",
       "core_meaning_en": "what is contained in something; being satisfied",
-      "mental_model_cn": "内容；满足",
+      "mental_model_cn": "noun CONtent → article content/fat content；adjective/verb conTENT → be content with / content oneself with。词性决定重音和意义。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -190,7 +190,43 @@
     },
     "word": "content",
     "word_family": [],
-    "word_id": "word:content"
+    "word_id": "word:content",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:content:noun",
+          "canonical_form": "content",
+          "learner_key": "content (noun)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": "/ˈkɑːntent/"
+        },
+        {
+          "variant_id": "form:content:adj-verb",
+          "canonical_form": "content",
+          "learner_key": "content (adjective/verb)",
+          "pos": [
+            "adjective",
+            "verb"
+          ],
+          "ipa": "/kənˈtent/"
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "content",
+          "condition": "noun: material/amount",
+          "note": "名词重音在第一音节：CONtent。"
+        },
+        {
+          "surface": "content",
+          "condition": "adjective/verb: satisfied/make satisfied",
+          "note": "形容词/动词重音在第二音节：conTENT。"
+        }
+      ],
+      "boundary": "content 的“内容”与“满意”分支通过词性和重音区分。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -302,7 +338,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1049-1056.json",
     "source_content_hash": "2c6fde1339ac7d147d3e7520ce92f305f40c5ebbde80ecf46141041b24175811",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

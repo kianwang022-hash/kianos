@@ -6,7 +6,29 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:check:baseline-v2-in-out",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "登记入住/退房、报到/离开；具体义由场景决定",
+        "pattern": "check in / check out"
+      },
+      {
+        "construction_id": "construction:check:baseline-v2-on",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "查看某人状态或某事进展",
+        "pattern": "check on sb/sth"
+      },
+      {
+        "construction_id": "construction:check:baseline-v2-check-out",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "查看、调查或检查某物；与不及物 check out 的退房义区分",
+        "pattern": "check out sth"
+      }
+    ],
     "content_hash": "0446823cde42f9a360908906522c66211efa34fb5c850a20b1514743c0cfb25e",
     "core_concept": {
       "core_clusters": [
@@ -31,9 +53,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "检查；支票",
+      "core_meaning_cn": "先确认、核实或控制状态：可检查、制止、登记/寄存；名词还可指检查、支票或餐厅账单",
       "core_meaning_en": "to examine or verify; a written order to pay money; a mark indicating verification",
-      "mental_model_cn": "检查；支票",
+      "mental_model_cn": "check facts → 核对；check for → 查有没有；check on → 查看状态；check in/out → 登记进入/离开；check out sth → 调查/检查；check spread → 抑制。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -63,33 +85,6 @@
             ],
             "meaning_cn": "检查某物是否存在",
             "phrase": "check for + sth"
-          },
-          {
-            "collocation_id": "collocation:9914a8c3217702496dce",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:check:e0c22bfa3a8852a4:collocation:handoff-o0675-o0874"
-            ],
-            "meaning_cn": "登记入住/退房或报到/离开",
-            "phrase": "check in/out"
-          },
-          {
-            "collocation_id": "collocation:8eb9849473774c001004",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:check:e0c22bfa3a8852a4:collocation:handoff-o0675-o0874"
-            ],
-            "meaning_cn": "核查某人的状态或某事进展",
-            "phrase": "check on sb/sth"
-          },
-          {
-            "collocation_id": "collocation:97763fd4e1d43caf0be9",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:check:e0c22bfa3a8852a4:collocation:handoff-o0675-o0874"
-            ],
-            "meaning_cn": "检查、调查；住店语境下退房",
-            "phrase": "check out sth"
           }
         ],
         "confidence": "medium",
@@ -252,7 +247,14 @@
     "word_family": [],
     "word_id": "word:check"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:spelling_variant:cheque:check",
+      "owner_path": "content/lexical/relations/by-id/a8/a8ba8d1030ff30d1a9c3e21eab028b3bd43ee3f6cde7be0268a47d8ae89b0945.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -402,7 +404,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0769-0776.json",
     "source_content_hash": "0446823cde42f9a360908906522c66211efa34fb5c850a20b1514743c0cfb25e",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

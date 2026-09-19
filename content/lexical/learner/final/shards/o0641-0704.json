@@ -7927,7 +7927,7 @@
     "ordinal": 701,
     "word": "carve",
     "source_owner_path": "content/lexical/words/by-ordinal/o0701.json",
-    "source_fingerprint": "93930aa2c1f72cd4499431e0ff40c35f9ee78d8d8e9b6eb62941dbc26f761ffa",
+    "source_fingerprint": "3ef79e24944879c5e64cda672182f209c0379bba83ca99ed7029c7ef2bbd913c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7936,13 +7936,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "雕刻；切",
-      "decision_cn": "",
+      "summary_cn": "切入材料并形成结果：雕刻、刻写、切片；也可抽象为靠努力开辟位置或空间",
+      "decision_cn": "核心是“切进去并形成结果”：wood/stone → 雕出形状，surface → 刻字，cooked meat → 切片；carve out → 从竞争环境中开辟出位置、事业或声誉。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "雕刻；切"
+        "target_label": "切入材料并形成结果：雕刻、刻写、切片；也可抽象为靠努力开辟位置或空间"
       }
     },
     "senses": [
@@ -8102,7 +8102,7 @@
     "ordinal": 702,
     "word": "case",
     "source_owner_path": "content/lexical/words/by-ordinal/o0702.json",
-    "source_fingerprint": "6e55b52eb816ce646126356250a2f522b8f93b849cd9d1e3f101008e68c6d6a9",
+    "source_fingerprint": "91d2d3b2bed5740f0849400530dc4274ce3e280bca63f1675bf68d79cf25bd39",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8112,13 +8112,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "实例或容器",
-      "decision_cn": "",
+      "summary_cn": "一个被界定出来的“个案/单位”：可是一种情况、病例/案件、论证依据，也可指容纳东西的盒/外壳",
+      "decision_cn": "先看它是在“谈一件事”还是“装一件东西”：situation → 情况；medical/legal → 病例/案件；case for/against → 一套论据；physical object → 盒、箱、外壳。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "实例或容器"
+        "target_label": "一个被界定出来的“个案/单位”：可是一种情况、病例/案件、论证依据，也可指容纳东西的盒/外壳"
       }
     },
     "senses": [
@@ -8231,16 +8231,16 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "病例，案例",
-        "definition_en": "a person requiring professional services",
+        "definition_cn": "病例；个案",
+        "definition_en": "a person or situation being dealt with by a professional, especially in medicine",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:bffc2ab3bfad74c41a80",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "a legal case",
-            "meaning_cn": "法律案件",
+            "phrase": "a medical case",
+            "meaning_cn": "医学病例",
             "kind": "usage_example",
             "repair": null
           }
@@ -8249,7 +8249,7 @@
           "target_kind": "sense",
           "target_id": "sense:case:d95ffe66cd45574b",
           "target_locator": "record.senses[2]",
-          "target_label": "病例，案例"
+          "target_label": "病例；个案"
         }
       },
       {
@@ -8346,7 +8346,7 @@
     "ordinal": 703,
     "word": "cash",
     "source_owner_path": "content/lexical/words/by-ordinal/o0703.json",
-    "source_fingerprint": "a49b03a6e8fa32868e62650b2ae05ee318f8c0fa2b4ded424c982e2c02e588de",
+    "source_fingerprint": "5b0db90f90dee756ecb31fc2655eff8d9f62d5e69268a6fa2f690247cba118c2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8417,19 +8417,6 @@
             "meaning_cn": "兑现支票",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:051d43fe159939083f17",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "cash in on sth",
-            "meaning_cn": "从某个机会或情形中获利、占便宜",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:051d43fe159939083f17",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "cash in on sth"
-            }
           }
         ],
         "repair": {
@@ -8441,7 +8428,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:cash:baseline-v2-cash-in-on",
+        "source_locator": "record.constructions[0]",
+        "pattern": "cash in on sth",
+        "lines": [
+          {
+            "text": "利用机会、趋势或处境获利/占便宜",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:cash:baseline-v2-cash-in-on",
+          "target_locator": "record.constructions[0]",
+          "target_label": "cash in on sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
