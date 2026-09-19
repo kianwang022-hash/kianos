@@ -51,6 +51,46 @@ const storage=new MemoryStorage({
       {type:'QUESTION_ATTEMPT',evidence_origin:'BOOTSTRAP_EXISTING_RESULT',question_id:'xizong-official-2023-n001',status:'stable',submitted_at:'2026-09-20T05:01:00.000Z'}
     ]
   }),
+  'kianos:xizong:pending-chat-return:v1':JSON.stringify({
+    schema:'kianos.xizong.pending-chat-return.v1',
+    pending_by_object:{
+      'xizong:a2-b03':{
+        handoff_id:'h-pending',
+        return_id:'r-pending',
+        object_id:'xizong:a2-b03',
+        system_id:'respiratory',
+        block_id:'a2-b03',
+        source_hash:'h2',
+        evidence_version:'ev-pending',
+        return_href:'/xizong/respiratory/b03/',
+        received_at:'2026-09-19T23:30:00.000Z',
+        return_packet:{schema:'kianos.xizong.chat_return.v1'}
+      }
+    },
+    last_receipt:{
+      schema:'kianos.xizong.pending-chat-return-receipt.v1',
+      handoff_id:'h-applied',
+      return_id:'r-applied',
+      object_id:'xizong:a1-b01',
+      system_id:'circulation',
+      block_id:'a1-b01',
+      source_hash:'h1',
+      evidence_version:'ev-1',
+      status:'APPLIED',
+      decision:'REPAIR',
+      repair_kp_ids:['a1-b01-kp01'],
+      repair_tasks:[{
+        task_id:'repair:block-chat:a1-b01:a1-b01-kp01',
+        created_at:'2026-09-20T06:10:00.000Z',
+        system_id:'circulation',
+        block_id:'a1-b01',
+        kp_id:'a1-b01-kp01',
+        origin:'BLOCK_CHAT_RETURN'
+      }],
+      detail:'',
+      at:'2026-09-20T06:10:00.000Z'
+    }
+  }),
   'kianos:xizong:system-recall:circulation:v1':JSON.stringify({
     completedAt:'2026-09-20T06:00:00.000Z',
     afterRoundId:'round-1',
@@ -90,5 +130,11 @@ assert.equal(packet.current.memory_today.find((row)=>row.card_id==='core:a1-b01-
 assert.equal(packet.current.active_repairs[0].task_id,'r1');
 assert.equal(packet.current.active_repairs[0].created_at,'2026-09-20T02:10:00.000Z');
 assert.equal(packet.evidence_semantics.memory_today.includes('not mastery debt'),true);
+assert.equal(packet.current.pending_chat_returns.length,1);
+assert.equal(packet.current.pending_chat_returns[0].return_id,'r-pending',
+  'unresolved pending Return remains visible even if received before this study day');
+assert.equal(packet.current.chat_return_receipt.status,'APPLIED');
+assert.equal(packet.current.chat_return_receipt.repair_tasks[0].origin,'BLOCK_CHAT_RETURN');
+assert.equal(packet.evidence_semantics.chat_return_control.includes('transport/control state only'),true);
 
 console.log('PASS Xizong daily evidence prototype: cross-Block same-day evidence with bootstrap filtering and explicit coverage gaps');
