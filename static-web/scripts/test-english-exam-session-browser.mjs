@@ -72,8 +72,11 @@ async function prepareExamStep(page, step, index, total) {
     await page.locator('[data-option]').first().click();
   } else if (step.task === 'reading_b') {
     const select = page.locator('[data-reading-b-select]').first();
-    const options = await select.locator('option').evaluateAll((nodes) => nodes.map((node) => node.value).filter(Boolean));
-    if (options.length) await select.selectOption(options[0]);
+    const options = await select.locator('option').evaluateAll((nodes) =>
+      nodes.filter((node) => node.value && !node.disabled).map((node) => node.value)
+    );
+    check(options.length > 0, 'full_reading_b_no_selectable_candidate', step.step_id);
+    await select.selectOption(options[0]);
   } else if (step.task === 'translation') {
     const boxes = page.locator('[data-attempt-id]');
     const count = await boxes.count();
