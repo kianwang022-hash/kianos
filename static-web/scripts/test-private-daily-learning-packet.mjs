@@ -209,4 +209,20 @@ assert.equal(packet.schedule.phase.id,'A');
 assert.equal(packet.subjects.xizong.plan.role,'主推');
 assert.equal(result.source_checkpoint_id,'daily-packet-proof');
 
-console.log('PASS private checkpoint -> one Daily Learning Packet: day-isolated time + three subject Resume/evidence');
+
+const isolatedCheckpoint=structuredClone(checkpoint);
+isolatedCheckpoint.payload.subjects.lexical={schema:'broken.lexical',entries:{bad:'{'}};
+isolatedCheckpoint.payload.subjects.politics={
+  schema:'kianos.politics.private-payload.v1',
+  entries:{'not-a-politics-key':JSON.stringify({bad:true})}
+};
+const isolated=buildDailyLearningPacketFromPrivateCheckpoint(isolatedCheckpoint,{now});
+assert.equal(isolated.packet.subjects.xizong.evidence.schema,'kianos.xizong.study_packet.v3');
+assert.equal(isolated.packet.subjects.english.evidence.schema,'kianos.english.evidence.v1');
+assert.equal(isolated.packet.subjects.politics.evidence,null,
+  'bad Politics checkpoint must degrade Politics to unknown without blocking other subjects');
+assert.ok(isolated.warnings.some(row=>row.startsWith('checkpoint:politics:')));
+assert.ok(!isolated.warnings.some(row=>row.startsWith('checkpoint:lexical:')),
+  'Lexical is outside the exam packet and must not participate in reconstruction');
+
+console.log('PASS private checkpoint -> one Daily Learning Packet: day-isolated time + subject-contained Resume/evidence');
