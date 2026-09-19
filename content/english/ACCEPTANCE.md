@@ -92,6 +92,12 @@ The harness materializes temporary synthetic routes using production components,
 
 Independent baseline model attack: **15 failures / 16 checks**, with Direct-mode plan behavior already passing. Candidate targeted checks are recorded in the exact-head workflow artifacts, not inferred from counts. Real source identities and form inventory are inspected independently of synthetic browser actions.
 
+Final bounded proof: GitHub Actions run `35409877237` on head `7bf14872c5409fbcf51bb2c8c72f006e1d64ca54` is **PASS**. It executes the shared private-checkpoint proof, 16 independent model attacks, 26 adversarial attacks, 6 delivery/recovery attacks, Chat-control validation, the integrated exam-session validator, and Lexical↔English handoff validation. `known_shared_blockers=[]`.
+
+Current reconciliation after the audit baseline was also bounded against `main@0e35757424ac509f893d0db5ecd62431c0f1b1d3`: no English or shared private-checkpoint owner changed on main. Relevant concurrent changes are confined to Lexical Baseline-v2 content/current work through o0700; the exact English↔Lexical integration proof uses a Current target outside that modified range and revalidates target revision/demand at return time.
+
+The earlier fresh browser run remains the browser evidence for task geometry/interaction. The later shared durability repair changes persistence/evidence ownership only, not learner-facing geometry. A local Chromium rerun was blocked before localhost navigation by the managed runner/browser environment and is not classified as a product failure.
+
 Bounded legacy reconciliation after independent findings:
 
 - Preserved: Objective/Translation/Writing capability models, natural task units, optional repair/Chat, source-form distinctions, source projection checks, Objective and Writing learning validators, Reading B source inventory.
