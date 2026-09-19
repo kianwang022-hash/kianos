@@ -39,6 +39,7 @@ export function initPoliticsMemoryWorkspace(root) {
 
   let revealed = false;
   let active = null;
+  const localStudyDay = () => new Date().toLocaleDateString('en-CA');
 
   const setHidden = (node, value) => {
     if (node instanceof HTMLElement) node.hidden = value;
@@ -57,7 +58,7 @@ export function initPoliticsMemoryWorkspace(root) {
 
     let next;
     try {
-      next = resolvePoliticsMemoryResume(localStorage, catalog);
+      next = resolvePoliticsMemoryResume(localStorage, catalog, { expectedDay: localStudyDay() });
     } catch (error) {
       if (status) status.textContent = '当前政治记忆记录无法安全读取：' + String(error?.message || error);
       active = null;
@@ -122,7 +123,7 @@ export function initPoliticsMemoryWorkspace(root) {
         candidate_id: active.candidate.id,
         response: value,
         observed_at: new Date().toISOString()
-      });
+      }, { expectedDay: localStudyDay() });
       if (status) status.textContent = '已记录：' + (responseLabels[value] || value);
       render();
     } catch (error) {
