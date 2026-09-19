@@ -60,6 +60,15 @@ assert.throws(() => applyPrivateControlCommand(storage, {
 'same command id with different payload must fail');
 
 const memory = createXizongMemoryState();
+memory.releasedBlocks['a1-b01'] = {
+  blockId: 'a1-b01',
+  systemId: 'circulation',
+  sourceHash: 'h1',
+  releasedAt: new Date(now).toISOString(),
+  refreshedAt: new Date(now).toISOString(),
+  coreCardIds: ['core:a1-b01-kp01'],
+  precisionCardIds: []
+};
 memory.cards['core:a1-b01-kp01'] = {
   id: 'core:a1-b01-kp01',
   family: 'CORE',
@@ -82,7 +91,7 @@ const x1 = {
     generated_at: new Date(t0 + 3000).toISOString(),
     current_step: 0,
     steps: [
-      { step_id:'m1', kind:'MEMORY_REVIEW', targets:[{card_id:'core:a1-b01-kp01',source_hash:'h1'}] },
+      { step_id:'m1', kind:'MEMORY_REVIEW', targets:[{card_id:'core:a1-b01-kp01',block_id:'a1-b01',source_hash:'h1'}] },
       { step_id:'q1', kind:'PRACTICE_SET', question_ids:['xizong-official-2024-n001'] }
     ]
   }
@@ -122,7 +131,7 @@ const x2 = {
     ...x1.payload,
     session_id:'xz-session-2',
     generated_at:new Date(t0 + 7000).toISOString(),
-    steps:[{step_id:'m2',kind:'MEMORY_REVIEW',targets:[{card_id:'core:a1-b01-kp01',source_hash:'h1'}]}]
+    steps:[{step_id:'m2',kind:'MEMORY_REVIEW',targets:[{card_id:'core:a1-b01-kp01',block_id:'a1-b01',source_hash:'h1'}]}]
   }
 };
 const xr2 = applyPrivateControlCommand(storage, x2, { expectedDay: day, now: t0 + 8000 });
