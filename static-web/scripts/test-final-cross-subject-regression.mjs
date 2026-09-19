@@ -46,22 +46,44 @@ const check = (condition, name, detail = '') => {
   console.log('PASS', name);
 };
 
-const server = spawn('npm', ['run', 'dev', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
-  cwd: process.cwd(),
-  env: { ...process.env, KIANOS_PRIVATE_DIR: privateDir },
-  stdio: ['ignore', 'pipe', 'pipe'],
-  detached: process.platform !== 'win32'
-});
+let server = null;
+let serverOutput = '';
 
-async function waitForServer() {
+async function startServer() {
+  serverOutput = '';
+  server = spawn('npm', ['run', 'dev', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
+    cwd: process.cwd(),
+    env: { ...process.env, KIANOS_PRIVATE_DIR: privateDir },
+    stdio: ['ignore', 'pipe', 'pipe'],
+    detached: process.platform !== 'win32'
+  });
+  server.stdout?.on('data', (chunk) => { serverOutput += chunk.toString(); });
+  server.stderr?.on('data', (chunk) => { serverOutput += chunk.toString(); });
+
   for (let i = 0; i < 120; i += 1) {
     try {
       const response = await fetch(BASE);
       if (response.ok) return;
     } catch {}
+    if (server.exitCode != null) throw new Error('FINAL_CROSS_SUBJECT_SERVER_EXITED:' + serverOutput.slice(-2400));
     await sleep(250);
   }
-  throw new Error('FINAL_CROSS_SUBJECT_SERVER_NOT_READY');
+  throw new Error('FINAL_CROSS_SUBJECT_SERVER_NOT_READY:' + serverOutput.slice(-2400));
+}
+
+async function stopServer() {
+  if (!server) return;
+  try {
+    if (process.platform === 'win32') server.kill('SIGTERM');
+    else process.kill(-server.pid, 'SIGTERM');
+  } catch {
+    try { server.kill('SIGTERM'); } catch {}
+  }
+  await Promise.race([
+    new Promise((resolve) => server.once('exit', resolve)),
+    sleep(1500)
+  ]);
+  server = null;
 }
 
 function freezeAndCaptureClipboard(context) {
@@ -253,7 +275,7 @@ const parseDailyCopy = (text) => {
 
 let browser;
 try {
-  await waitForServer();
+  await startServer();
   browser = await chromium.launch({ headless: true });
 
   // 1. Cold Home must not invent strategy without a Chat Plan.
@@ -405,7 +427,13 @@ try {
     && Boolean(remote.body.checkpoint?.payload?.subjects?.politics),
     'Private checkpoint captures Xizong + English + Politics subject payloads');
 
-  // 7. A clean browser context must restore exact shared/subject state from private checkpoint.
+  // 7. Restart Astro itself, then use a clean browser profile. Durable truth must survive both.
+  await context.close();
+  await stopServer();
+  await startServer();
+  check(fs.existsSync(path.join(privateDir, 'latest.json')),
+    'private checkpoint survives Astro process restart');
+
   const restoredContext = await browser.newContext({ viewport: { width: 1512, height: 982 }, timezoneId: 'Asia/Shanghai' });
   await freezeAndCaptureClipboard(restoredContext);
   const restoredPage = await restoredContext.newPage();
@@ -426,7 +454,7 @@ try {
     PRACTICE_KEYS.attempts
   ]);
   check(Object.values(restored).every((value) => typeof value === 'string' && value.length > 0),
-    'Fresh browser context restores shared + three-subject durable state');
+    'Astro restart + fresh browser profile restore shared + three-subject durable state');
   check(JSON.parse(restored[EXAM_CHAT_PLAN_KEY]).next_subject === 'xizong',
     'Restored Home keeps exact Chat Plan');
 
@@ -446,7 +474,6 @@ try {
   await restoredPage.screenshot({ path: path.join(evidenceDir, 'home-restored.png'), fullPage: false });
   report.screenshots.push('home-restored.png');
   await restoredContext.close();
-  await context.close();
 
   report.status = 'PASS';
   report.completed_at = new Date().toISOString();
@@ -460,9 +487,6 @@ try {
   throw error;
 } finally {
   try { await browser?.close(); } catch {}
-  try {
-    if (process.platform === 'win32') server.kill();
-    else process.kill(-server.pid, 'SIGTERM');
-  } catch { try { server.kill('SIGTERM'); } catch {} }
+  await stopServer();
   fs.rmSync(privateDir, { recursive: true, force: true });
 }
