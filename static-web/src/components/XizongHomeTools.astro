@@ -34,6 +34,12 @@ const {
     markedFragments,
     activeRepairTasks
   } from '../lib/xizongMemoryModel.mjs';
+  import {
+    XIZONG_SESSION_KEY,
+    activateXizongSessionNext,
+    validateXizongSessionInstruction
+  } from '../lib/xizongSessionInstruction.mjs';
+  import { studyDayAt } from '../lib/studyTimer.mjs';
 
   const root = document.querySelector('[data-xizong-home-tools]');
   if (root instanceof HTMLElement) {
@@ -51,6 +57,18 @@ const {
     const stage = root.querySelector('[data-xizong-continue-stage]');
     const position = root.querySelector('[data-xizong-continue-position]');
     const action = root.querySelector('[data-xizong-continue-action]');
+
+    let chatSessionNext = null;
+    try {
+      const raw = JSON.parse(localStorage.getItem(XIZONG_SESSION_KEY) || 'null');
+      const instruction = validateXizongSessionInstruction(raw, studyDayAt(Date.now()));
+      const holdoutYears = parse(localStorage.getItem('kianos:xizong:full-paper-holdout-years:v1'), []);
+      const result = activateXizongSessionNext(localStorage, instruction, {
+        holdoutYears: Array.isArray(holdoutYears) ? holdoutYears : [],
+        now: Date.now()
+      });
+      chatSessionNext = result?.next || null;
+    } catch {}
 
     const setText = (node, value) => {
       if (node) node.textContent = String(value || '');
@@ -86,7 +104,19 @@ const {
       return views[current] || ['继续学习', block?.label || '当前模块', '继续 →'];
     };
 
-    if (last?.href && link instanceof HTMLAnchorElement) {
+    if (chatSessionNext && link instanceof HTMLAnchorElement) {
+      link.href = chatSessionNext.href;
+      setText(location, '西综 · Chat 安排');
+      setText(title, chatSessionNext.step?.label || (
+        chatSessionNext.step?.kind === 'MEMORY_REVIEW' ? 'Memory 回收'
+          : chatSessionNext.step?.kind === 'PRACTICE_SET' ? 'Chat 自选题'
+            : '继续当前复习'
+      ));
+      setText(detail, chatSessionNext.step?.reason || '按当前 Chat 安排继续');
+      setText(stage, '当前复习');
+      setText(position, `第 ${chatSessionNext.index + 1} 步`);
+      setText(action, '继续 →');
+    } else if (last?.href && link instanceof HTMLAnchorElement) {
       const system = systems.find((row) => row?.systemId === last.systemId);
       const block = system?.blocks?.find((row) => row?.slug === last.blockSlug || row?.label === last.blockLabel);
 
