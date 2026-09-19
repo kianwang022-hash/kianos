@@ -262,4 +262,117 @@ await assert.rejects(
 );
 assert.equal(corruptWrites, 0, 'corrupt Xizong source state must not produce a partial checkpoint');
 
-console.log('PASS private learner checkpoint foundation: safe existing-read semantics + Xizong capture/restore + no overwrite');
+
+const englishExposureKey = 'kianos-english-material-exposure-v1';
+const externalAttemptKey = 'kianos-english-external-reading-attempt-v1:tpo56-p1';
+const lexicalLedgerKey = 'kianos-lexical-evidence-ledger-v2';
+const englishExposure = {
+  schema: 'kianos.english.material-exposure.v1',
+  materials: {
+    'tpo56-p1': {
+      object_id: 'tpo56-p1',
+      events: [{ event_id: 'attempt-1:opened', attempt_id: 'attempt-1', event: 'opened', at: new Date(now).toISOString() }]
+    }
+  }
+};
+const externalAttempt = {
+  binding: {
+    task: 'external_reading',
+    object_id: 'tpo56-p1',
+    source_hash: 'synthetic-external-hash',
+    attempt_id: 'attempt-1',
+    revision: 1,
+    prior_exposure: 'unknown',
+    assistance: 'unassisted'
+  },
+  stage: 'completed',
+  submitted: false
+};
+const lexicalLedger = {
+  schema: 'kianos.lexical.evidence_ledger.v2',
+  events: [],
+  conflicts: [],
+  identity_lineage: {}
+};
+const combinedSource = new MemoryStorage({
+  [EXAM_PROFILE_KEY]: JSON.stringify(profile),
+  [EXAM_CHAT_PLAN_KEY]: JSON.stringify(chatPlan),
+  [STUDY_TIMER_STATE_KEY]: JSON.stringify(timerState),
+  [STUDY_TIMER_LEDGER_KEY]: JSON.stringify(timerLedger),
+  [xizongStudyKey]: xizongSource.getItem(xizongStudyKey),
+  [xizongEvidenceKey]: xizongSource.getItem(xizongEvidenceKey),
+  [xizongLastKey]: xizongSource.getItem(xizongLastKey),
+  [englishExposureKey]: JSON.stringify(englishExposure),
+  [externalAttemptKey]: JSON.stringify(externalAttempt),
+  [lexicalLedgerKey]: JSON.stringify(lexicalLedger)
+});
+let combinedSaved = null;
+await saveSharedControlToPrivate(combinedSource, {
+  now,
+  readCheckpoint: async () => ({ status: 'missing', checkpoint: null }),
+  writeCheckpoint: async (value) => { combinedSaved = value; return { status: 'saved' }; }
+});
+assert.equal(combinedSaved.payload.subjects.xizong.schema, 'kianos.xizong.private-checkpoint.v1');
+assert.equal(combinedSaved.payload.subjects.english.schema, 'kianos.english.private-payload.v1');
+assert.equal(combinedSaved.payload.subjects.lexical.schema, 'kianos.lexical.private-payload.v1');
+assert.ok(combinedSaved.payload.subjects.english.entries[externalAttemptKey],
+  'External Reading private attempt must be captured by the shared English checkpoint');
+
+const combinedRestore = new MemoryStorage();
+const combinedRestored = await restoreSharedControlFromPrivate(combinedRestore, {
+  now,
+  readCheckpoint: async () => ({ status: 'ready', checkpoint: combinedSaved })
+});
+assert.equal(combinedRestored.status, 'restored');
+assert.equal(combinedRestored.subjects.xizong.status, 'restored');
+assert.equal(combinedRestored.subjects.english.status, 'restored');
+assert.equal(combinedRestored.subjects.lexical.status, 'restored');
+assert.equal(JSON.parse(combinedRestore.getItem(externalAttemptKey)).binding.object_id, 'tpo56-p1');
+assert.equal(JSON.parse(combinedRestore.getItem(englishExposureKey)).materials['tpo56-p1'].object_id, 'tpo56-p1');
+assert.equal(JSON.parse(combinedRestore.getItem(lexicalLedgerKey)).schema, 'kianos.lexical.evidence_ledger.v2');
+
+const englishConflict = new MemoryStorage({
+  [englishExposureKey]: JSON.stringify({
+    schema: 'kianos.english.material-exposure.v1',
+    materials: { local: { object_id: 'local', events: [] } }
+  })
+});
+await assert.rejects(
+  () => restoreSharedControlFromPrivate(englishConflict, {
+    now,
+    readCheckpoint: async () => ({ status: 'ready', checkpoint: combinedSaved })
+  }),
+  /PRIVATE_CHECKPOINT_ENGLISH_CONFLICT_KEEP_LOCAL/
+);
+assert.deepEqual(JSON.parse(englishConflict.getItem(englishExposureKey)).materials, {
+  local: { object_id: 'local', events: [] }
+}, 'English conflict must keep local truth');
+assert.equal(englishConflict.getItem(EXAM_CHAT_PLAN_KEY), null,
+  'English conflict must reject before shared control is restored');
+assert.equal(englishConflict.getItem(xizongStudyKey), null,
+  'English conflict must reject before Xizong is partially restored');
+assert.equal(englishConflict.getItem(lexicalLedgerKey), null,
+  'English conflict must reject before Lexical is partially restored');
+
+const lexicalConflict = new MemoryStorage({
+  [lexicalLedgerKey]: JSON.stringify({
+    schema: 'kianos.lexical.evidence_ledger.v2',
+    events: [{ event_id: 'local-only' }],
+    conflicts: [],
+    identity_lineage: {}
+  })
+});
+await assert.rejects(
+  () => restoreSharedControlFromPrivate(lexicalConflict, {
+    now,
+    readCheckpoint: async () => ({ status: 'ready', checkpoint: combinedSaved })
+  }),
+  /PRIVATE_CHECKPOINT_LEXICAL_CONFLICT_KEEP_LOCAL/
+);
+assert.equal(lexicalConflict.getItem(EXAM_CHAT_PLAN_KEY), null,
+  'Lexical conflict must reject before shared control is restored');
+assert.equal(lexicalConflict.getItem(xizongStudyKey), null,
+  'Lexical conflict must reject before Xizong is partially restored');
+
+console.log('PASS private learner checkpoint foundation: Xizong + English + Lexical atomic capture/restore + safe conflicts');
+
