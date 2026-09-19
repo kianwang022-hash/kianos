@@ -7,6 +7,35 @@ export const PRACTICE_KEYS = Object.freeze({
   evidence: 'kianos-politics-evidence-v1'
 });
 const record = value => value !== null && typeof value === 'object' && !Array.isArray(value);
+
+const stableHash = (text) => {
+  let hash = 2166136261;
+  for (const char of String(text || '')) {
+    hash ^= char.charCodeAt(0);
+    hash = Math.imul(hash, 16777619);
+  }
+  return (hash >>> 0).toString(16).padStart(8, '0');
+};
+
+function politicsReviewBatchId(catalog, review, { day = '', filter = 'all', subject = 'all' } = {}) {
+  const basis = {
+    catalog_revision: String(catalog?.revision || ''),
+    study_day: String(day || ''),
+    scope: { filter: String(filter || 'all'), subject: String(subject || 'all') },
+    items: review.items.map((item) => ({
+      question_id: item.id,
+      first_owner: item.firstAttemptOwnerKey,
+      first_observed_at: item.firstAttempt?.observed_at || null,
+      first_outcome: item.firstAttempt?.outcome || null,
+      first_selected: item.firstAttempt?.selected || null,
+      current_outcome: item.outcome,
+      discussion: item.discussion,
+      note: item.note,
+      cause: item.cause
+    }))
+  };
+  return 'politics-review-' + stableHash(JSON.stringify(basis));
+}
 export function isPoliticsStorageValue(key, value) {
   if (key === PRACTICE_KEYS.evidence) return Array.isArray(value) && value.every(record);
   if ([PRACTICE_KEYS.session, PRACTICE_KEYS.last].includes(key) && value === null) return true;
@@ -141,25 +170,140 @@ export function resolvePoliticsContinue(catalog, snapshot, base = '/') {
 }
 
 export function politicsReviewPacket(catalog, snapshot, options = {}) {
-  const review = selectPoliticsReview(catalog, snapshot, options);
+  const scope = {
+    filter: String(options.filter || 'all'),
+    subject: String(options.subject || 'all')
+  };
+  const review = selectPoliticsReview(catalog, snapshot, {
+    day: options.day || '',
+    filter: scope.filter,
+    subject: scope.subject
+  });
   if (review.errors.length) throw new Error('POLITICS_REVIEW_EVIDENCE_UNREADABLE');
-  return { schema: 'kianos.politics.return_packet.v1', direction: 'LEARNER_TO_CHAT',
-    catalog_revision: catalog.revision, study_day: options.day || '',
-    exported_at: new Date().toISOString(), last_location: snapshot.last,
-    // Export is read-only transport, not a second queue or an accepted importer.
-    review_policy: { learner_triggered: true, group_by_underlying_failure: true,
-      keep_unrelated_failures_separate: true, no_follow_up_is_valid: true,
-      memory_requires_source_and_justification: true },
-    first_attempts: review.items.map(i => ({ question_id: i.id,
-      recorded_unit_key: i.firstAttemptOwnerKey, attempt: i.firstAttempt,
-      source_context_status: i.firstAttempt.source_context ? 'CAPTURED_AT_ATTEMPT' : 'LEGACY_SOURCE_CONTEXT_UNAVAILABLE' })),
+  const batchId = politicsReviewBatchId(catalog, review, {
+    day: options.day || '',
+    filter: scope.filter,
+    subject: scope.subject
+  });
+  return {
+    schema: 'kianos.politics.return_packet.v1',
+    direction: 'LEARNER_TO_CHAT',
+    batch_id: batchId,
+    catalog_revision: catalog.revision,
+    study_day: options.day || '',
+    scope,
+    exported_at: new Date().toISOString(),
+    last_location: snapshot.last,
+    // Export is read-only transport. Chat may return one typed diagnosis bound
+    // to this exact batch; the importer reconciles identity before any write.
+    review_policy: {
+      learner_triggered: true,
+      group_by_underlying_failure: true,
+      keep_unrelated_failures_separate: true,
+      no_follow_up_is_valid: true,
+      memory_requires_source_and_justification: true
+    },
+    chat_return_contract: {
+      schema: 'kianos.politics.chat-return.v1',
+      direction: 'CHAT_TO_LEARNER',
+      required_identity: ['batch_id', 'catalog_revision', 'study_day', 'scope'],
+      verdicts: ['NO_ACTION', 'FOLLOW_UP'],
+      follow_up_actions: ['SOURCE_RETURN', 'RETEST', 'DISCUSS', 'MEMORY_CANDIDATE'],
+      note: 'Use only question_ids from this packet. MEMORY_CANDIDATE requires source_basis. The website validates stale/replay/conflict before writing.'
+    },
+    first_attempts: review.items.map(i => ({
+      question_id: i.id,
+      recorded_unit_key: i.firstAttemptOwnerKey,
+      attempt: i.firstAttempt,
+      source_context_status: i.firstAttempt.source_context ? 'CAPTURED_AT_ATTEMPT' : 'LEGACY_SOURCE_CONTEXT_UNAVAILABLE'
+    })),
     events: review.items.flatMap(i => i.events.length ? i.events : [{
-      ...i.firstAttempt, source: 'xiao1000', recorded_unit_key: i.firstAttemptOwnerKey,
+      ...i.firstAttempt,
+      source: 'xiao1000',
+      recorded_unit_key: i.firstAttemptOwnerKey,
       source_context_status: i.firstAttempt.source_context ? 'CAPTURED_AT_ATTEMPT' : 'LEGACY_SOURCE_CONTEXT_UNAVAILABLE'
     }]),
-    review_context: review.items.map(i => ({ question_id: i.id, unit_key: i.unitKey,
-      subject: i.subject, chapter: i.chapter, unit_id: i.unitId,
-      current_outcome: i.outcome, discussion: i.discussion, note: i.note, cause: i.cause,
-      source_href: i.unitHref, source_href_role: 'CURRENT_NAVIGATION_NOT_HISTORICAL_PROVENANCE',
-      original_source_context: i.firstAttempt.source_context || null })) };
+    review_context: review.items.map(i => ({
+      question_id: i.id,
+      unit_key: i.unitKey,
+      subject: i.subject,
+      chapter: i.chapter,
+      unit_id: i.unitId,
+      current_outcome: i.outcome,
+      discussion: i.discussion,
+      note: i.note,
+      cause: i.cause,
+      source_href: i.unitHref,
+      source_href_role: 'CURRENT_NAVIGATION_NOT_HISTORICAL_PROVENANCE',
+      original_source_context: i.firstAttempt.source_context || null
+    }))
+  };
+}
+
+export function politicsDailyEvidencePacket(catalog, snapshot, {
+  day,
+  now = Date.now(),
+  base = '/'
+} = {}) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(day || ''))) {
+    throw new Error('POLITICS_DAILY_EVIDENCE_DAY_INVALID');
+  }
+  if (snapshot?.errors?.length) throw new Error('POLITICS_DAILY_EVIDENCE_UNREADABLE');
+
+  const todayAttempts = [];
+  for (const [unitKey, unit] of Object.entries(snapshot?.attempts?.units || {})) {
+    for (const attempt of Object.values(unit?.attempts || {})) {
+      if (attempt?.study_day !== day || !attempt?.question_id) continue;
+      const currentOutcome = snapshot?.meta?.latestOutcome?.[attempt.question_id] || attempt.outcome;
+      todayAttempts.push({
+        question_id: attempt.question_id,
+        unit_key: unitKey,
+        outcome: currentOutcome,
+        first_outcome: attempt.outcome,
+        uncertain: attempt.uncertain === true,
+        observed_at: attempt.observed_at || null,
+        source_context_status: attempt.source_context ? 'CAPTURED_AT_ATTEMPT' : 'LEGACY_SOURCE_CONTEXT_UNAVAILABLE',
+        note: String(snapshot?.meta?.notes?.[attempt.question_id] || ''),
+        cause: String(snapshot?.meta?.causes?.[attempt.question_id] || '')
+      });
+    }
+  }
+  todayAttempts.sort((a, b) => String(a.observed_at || '').localeCompare(String(b.observed_at || '')));
+
+  const review = selectPoliticsReview(catalog, snapshot, { filter: 'all', subject: 'all' });
+  const resume = resolvePoliticsContinue(catalog, snapshot, base);
+  const count = (outcome) => todayAttempts.filter((row) => row.outcome === outcome).length;
+
+  return {
+    schema: 'kianos.politics.study_packet.v1',
+    study_day: day,
+    generated_at: new Date(now).toISOString(),
+    catalog_revision: catalog?.revision || null,
+    resume: resume ? {
+      href: resume.href,
+      title: resume.title,
+      detail: resume.detail,
+      stale: resume.stale === true
+    } : null,
+    today: {
+      attempted_count: todayAttempts.length,
+      stable_count: count('STABLE'),
+      wrong_count: count('WRONG'),
+      uncertain_count: count('UNCERTAIN'),
+      attempts: todayAttempts
+    },
+    review: {
+      open_problem_count: review.problemIds.length,
+      discussion_count: review.discussionIds.length,
+      unit_groups: review.groups.map((group) => ({
+        unit_key: group.key,
+        title: group.title,
+        subject: group.subject,
+        chapter: group.chapter,
+        problem_count: group.items.filter((item) => item.needsReview).length,
+        discussion_count: group.items.filter((item) => item.discussion).length
+      }))
+    },
+    last_location: snapshot?.last || null
+  };
 }
