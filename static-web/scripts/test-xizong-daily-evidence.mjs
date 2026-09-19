@@ -39,7 +39,11 @@ const storage=new MemoryStorage({
   }),
   'kianos-xizong-astro-v2:xizong:a1-b01':JSON.stringify({
     sourceContactEvidence:[{segment_id:'s1',coverage_kind:'ACCEPTED_SOURCE_SEGMENT',source_contact_mode:'NATURAL_SOURCE_UNIT',kp_ids:['a1-b01-kp01'],completed_at:'2026-09-20T01:00:00.000Z',source_hash:'h1'}],
-    ttsxEvidence:{t1:{completedAt:'2026-09-20T01:10:00.000Z',checkpointIds:['t1'],annotations:{}}}
+    ttsxEvidence:{t1:{completedAt:'2026-09-20T01:10:00.000Z',checkpointIds:['t1'],annotations:{}}},
+    blockRecallDone:true,
+    blockRecallCompletedAt:'2026-09-20T01:20:00.000Z',
+    completed:true,
+    completedAt:'2026-09-20T01:25:00.000Z'
   }),
   'kianos:xizong:chat-set-question-sweep:chat-set:xz:q1:v1':JSON.stringify({
     attemptHistory:[
@@ -47,7 +51,14 @@ const storage=new MemoryStorage({
       {type:'QUESTION_ATTEMPT',evidence_origin:'BOOTSTRAP_EXISTING_RESULT',question_id:'xizong-official-2023-n001',status:'stable',submitted_at:'2026-09-20T05:01:00.000Z'}
     ]
   }),
-  'kianos:xizong:system-recall:circulation:v1':JSON.stringify({completedAt:'2026-09-20T06:00:00.000Z',afterRoundId:'round-1'})
+  'kianos:xizong:system-recall:circulation:v1':JSON.stringify({
+    completedAt:'2026-09-20T06:00:00.000Z',
+    afterRoundId:'round-1',
+    history:[
+      {event_id:'sr-1',completed_at:'2026-09-19T06:00:00.000Z',after_round_id:null},
+      {event_id:'sr-2',completed_at:'2026-09-20T06:00:00.000Z',after_round_id:'round-1'}
+    ]
+  })
 });
 
 const packet=buildXizongDailyEvidencePacket(storage,{
@@ -59,15 +70,20 @@ const packet=buildXizongDailyEvidencePacket(storage,{
 assert.equal(packet.schema,'kianos.xizong.daily_evidence.v1');
 assert.equal(packet.current_block.current.block_id,'a2-b03');
 assert.equal(packet.events.kp_recall.length,2,'cross-Block real KP Recall should be retained');
+assert.equal(packet.events.block_recall.length,1);
+assert.equal(packet.events.block_complete.length,1);
 assert.equal(packet.events.kp_recall.some(x=>x.kp_id==='a1-b01-kp02'),false,'bootstrap Recall must not become today learner evidence');
 assert.equal(packet.events.memory_recall.length,1);
 assert.equal(packet.events.question_attempt.length,1,'bootstrap question compatibility row must be excluded');
 assert.equal(packet.events.question_attempt[0].status,'wrong');
 assert.equal(packet.events.repair_lifecycle.length,2,'created and completed Repair lifecycle events remain observations');
 assert.equal(packet.events.system_recall.length,1);
+assert.equal(packet.events.system_recall[0].event_id,'sr-2');
 assert.equal(packet.events.source_contact.length,1);
 assert.equal(packet.events.ttsx.length,1);
-assert.equal(packet.coverage.block_recall_timestamp_history,'MISSING_IN_CURRENT_RUNTIME');
+assert.equal(packet.coverage.block_recall_timestamp_history,'PROTOTYPE_FIRST_COMPLETION_TIMESTAMP');
+assert.equal(packet.coverage.block_complete_timestamp_history,'PROTOTYPE_FIRST_COMPLETION_TIMESTAMP');
+assert.equal(packet.coverage.system_recall_history,'PROTOTYPE_APPEND_PRESERVED_WITH_LEGACY_FALLBACK');
 assert.equal(packet.evidence_semantics.repair_completed.includes('not mastery'),true);
 
 console.log('PASS Xizong daily evidence prototype: cross-Block same-day evidence with bootstrap filtering and explicit coverage gaps');
