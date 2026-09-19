@@ -120,10 +120,9 @@ export function initExamHome(root) {
 
   const nativeLink = (selector, titleSelector, fallback, label) => {
     const node = document.querySelector(selector);
-    const headlessRouteOwner = Boolean(node?.closest('[data-home-subject-route-bridge]'));
-    const routable = Boolean(node) && (headlessRouteOwner || !node.closest('[hidden]'));
-    const href = routable ? safeProductHref(node.getAttribute('href'), catalog.base) : null;
-    const sessionRef = routable ? String(node.getAttribute('data-session-ref') || '').trim() || null : null;
+    const visible = node && !node.closest('[hidden]');
+    const href = visible ? safeProductHref(node.getAttribute('href'), catalog.base) : null;
+    const sessionRef = visible ? String(node.getAttribute('data-session-ref') || '').trim() || null : null;
     return href
       ? { href, title: document.querySelector(titleSelector)?.textContent?.trim() || label, sessionRef }
       : { href: fallback, title: label, sessionRef: null };
