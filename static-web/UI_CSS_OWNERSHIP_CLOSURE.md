@@ -1,6 +1,6 @@
 # UI / CSS Ownership Closure
 
-Status: **ACTIVE · implementation closed · regression pending**
+Status: **CLOSED · PASS**
 
 Purpose: finish the website ownership cleanup without changing accepted learner presentation.
 
@@ -55,14 +55,29 @@ The mixed `site-visual-tuning.css` was split into Politics/Xizong owners without
 
 The gate is included in `test:final-cross-subject`.
 
-## Remaining closure
+## Final acceptance
 
-1. exact-head Astro build;
-2. CSS ownership gate;
-3. representative Home / English / Politics / Xizong / Lexical browser regression;
-4. macOS visual regression / screenshot evidence where the existing workflow provides it;
-5. if no material visual delta exists, record PASS and merge;
-6. if a material visual delta appears, return only that affected surface to Kian Human Gate.
+Post-cleanup proof:
+
+- Final Cross-subject Regression — **PASS**;
+- KianOS Mac Visual Gate — **PASS**;
+- English Family Coherence — **PASS**;
+- Static Web Xizong QA — **PASS**;
+- Objective Learner Journey — **PASS**;
+- Static Web Translation QA — **PASS**;
+- Static Web Writing QA — **PASS**;
+- LexicalOS Current Runtime — **PASS**.
+
+Politics broad QA remained red only on the pre-existing Ethics content audit, matching the already-red `main` baseline and therefore not attributable to this UI/CSS ownership change.
+
+Mechanical preservation proof:
+
+- retired shared workspace files → `shared-workspace-composition.css`: exact byte-equivalent concatenation in original cascade order;
+- retired mixed Politics/Xizong tuning: 199 unique leaf rules before, 199 after, 0 missing, 0 extra semantic rules;
+- accepted task-specific owners remain route-local;
+- Objective Guide legacy overlap was removed from `english.css`, making its route CSS the actual single visual owner.
+
+No material redesign was introduced. Ownership closure is complete.
 
 ## Stop condition
 
