@@ -200,6 +200,14 @@ assert.equal(packet.subjects.xizong.forecast_progress.schema,'kianos.xizong.fore
 assert.equal(packet.subjects.xizong.forecast_progress.canonical_scope.systems,8);
 assert.equal(packet.subjects.xizong.forecast_progress.canonical_scope.blocks,159);
 assert.equal(packet.subjects.xizong.forecast_progress.canonical_scope.canonical_kp,2517);
+assert.equal(packet.subjects.xizong.forecast_progress.canonical_scope.block_weights.length,159);
+assert.equal(
+  packet.subjects.xizong.forecast_progress.canonical_scope.block_weights.reduce(
+    (sum,row)=>sum+row.kp_count,
+    0
+  ),
+  2517
+);
 assert.ok(
   packet.subjects.xizong.forecast_progress.runtime_evidence.observed_blocks>=1,
   'current Xizong Block must appear in forecast runtime evidence'
