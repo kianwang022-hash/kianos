@@ -216,9 +216,11 @@ export async function publishDailyLearningPacket(input,{
 export async function syncPrivateDailyLearningPacketOnce({
   env=process.env,
   home=os.homedir(),
-  gitBin='git'
+  gitBin='git',
+  privateDir=null
 }={}){
   const config=privatePacketRelayConfig({env,home});
+  if(privateDir)config.privateDir=path.resolve(privateDir);
   if(!config.enabled)return{state:'disabled'};
   const checkpoint=readPrivateLearnerCheckpoint(config.privateDir);
   if(!checkpoint)return{state:'missing',reason:'private-checkpoint-missing'};
