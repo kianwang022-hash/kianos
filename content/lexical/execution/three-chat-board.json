@@ -28,7 +28,7 @@
       100
     ],
     "candidate_pr": 525,
-    "state": "AUDIT_COMPLETE_RECONCILIATION_REQUIRED",
+    "state": "RECONCILE_ALLOWED",
     "integration_owner": "A",
     "audit_brief": "content/lexical/semantic-audit/O0001_O0100_FINAL_STANDARD_FRESH_AUDIT_BRIEF.md",
     "audit_pack": "content/lexical/semantic-audit/O0001_O0100_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
@@ -39,7 +39,20 @@
       "o0066 add",
       "o0084 adult",
       "o0085 advance"
-    ]
+    ],
+    "reconciliation": {
+      "audit_pack": "content/lexical/semantic-audit/O0001_O0100_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
+      "audit_pack_commit": "53a871f1a54b053161c141c546432c51bb0e2b1a",
+      "findings": [
+        "o0029 access",
+        "o0057 act",
+        "o0066 add",
+        "o0084 adult",
+        "o0085 advance"
+      ],
+      "decision": "Repair all five within existing approved scope. Do not promote romantic/sexual advances to learner-visible in this reconciliation.",
+      "mutation_scope": "5 Word owners + reconciliation receipt only"
+    }
   },
   "audit_target": {
     "candidate_id": "BF00",
@@ -50,8 +63,8 @@
     "candidate_pr": 525,
     "candidate_branch": "work/lexical-continuous-backfill-o0001-o0100",
     "brief": "content/lexical/semantic-audit/O0001_O0100_FINAL_STANDARD_FRESH_AUDIT_BRIEF.md",
-    "state": "B_AUDIT_COMPLETE",
-    "after_completion": "A_RECONCILES; B_STOPS",
+    "state": "A_RECONCILING",
+    "after_completion": "AUTOMATION_APPLIES_BOUNDED_CORRECTIONS_THEN_A_VALIDATES_AND_MERGES",
     "audit_pack": "content/lexical/semantic-audit/O0001_O0100_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
     "audit_pack_commit": "53a871f1a54b053161c141c546432c51bb0e2b1a",
     "result": "HOLD_FOR_SOL",
@@ -145,7 +158,7 @@
       "bootstrap_integration": {
         "candidate_id": "BF00",
         "pr": 525,
-        "action": "Fresh B audit is complete at 53a871f1. Reconcile access/act/add/adult/advance; only a genuinely new learner-visible advance branch may require a bounded Human Gate."
+        "action": "BF00 reconciliation authorized. Apply the five audit findings within existing approved scope via Final Mutation Package; do not expose romantic/sexual advances without a separate future bounded Gate."
       },
       "scheduled_ranges": [
         [
