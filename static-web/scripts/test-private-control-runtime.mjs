@@ -91,7 +91,8 @@ const x1 = {
 const xr1 = applyPrivateControlCommand(storage, x1, { expectedDay: day, now: t0 + 4000 });
 assert.equal(xr1.status, 'APPLIED');
 assert.equal(JSON.parse(storage.getItem(XIZONG_SESSION_KEY)).session_id, 'xz-session-1');
-assert.equal(JSON.parse(storage.getItem(XIZONG_MEMORY_STORAGE_KEY)).attention['core:a1-b01-kp01'].reviewRequested, true);
+assert.equal(JSON.parse(storage.getItem(XIZONG_MEMORY_STORAGE_KEY)).attention['core:a1-b01-kp01'], undefined,
+  'control layer must not convert Chat selection into weak/attention evidence');
 assert.equal(storage.getItem(XIZONG_CHAT_SET_KEY), null,
   'control receipt may activate current step but must not pre-project later step');
 
