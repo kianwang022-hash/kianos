@@ -20,6 +20,7 @@ on:
       - "static-web/astro.config.mjs"
       - "static-web/scripts/test-private-control-*.mjs"
       - "static-web/scripts/test-english-generated-*.mjs"
+      - "static-web/scripts/test-english-evidence-resume.mjs"
       - "static-web/scripts/test-english-external-combined-store.mjs"
       - "static-web/scripts/test-english-home-*.mjs"
       - "static-web/scripts/test-daily-learning-packet.mjs"
@@ -72,6 +73,7 @@ jobs:
           node scripts/test-private-daily-learning-packet-relay.mjs
           node scripts/test-private-daily-learning-packet-bridge.mjs
           node scripts/test-english-generated-daily-packet.mjs
+          node scripts/test-english-evidence-resume.mjs
           node scripts/test-english-generated-drill-store.mjs
           node scripts/test-english-external-combined-store.mjs
           node scripts/test-exam-plan-read-model.mjs
