@@ -64,8 +64,8 @@ memory.releasedBlocks['a1-b01'] = {
   blockId: 'a1-b01',
   systemId: 'circulation',
   sourceHash: 'h1',
-  releasedAt: new Date(now).toISOString(),
-  refreshedAt: new Date(now).toISOString(),
+  releasedAt: new Date(t0).toISOString(),
+  refreshedAt: new Date(t0).toISOString(),
   coreCardIds: ['core:a1-b01-kp01'],
   precisionCardIds: []
 };
