@@ -32,7 +32,8 @@ They are **not** a required hop between Total Home and execution.
 - PR: **#559** — `candidate(exam): make Total Home the only normal entry`
 - base: `main`
 - PR state: **Draft**
-- current observed head: `3ba445197097a502c43470240f6fdfaed1e9f4e3`
+- last observed product-code head before this cursor-only commit: `3ba445197097a502c43470240f6fdfaed1e9f4e3`
+- the cursor commit itself advances the branch head; always refetch PR #559 before acting
 - main has **not** been changed by this line.
 
 Related bounded prototype evidence:
