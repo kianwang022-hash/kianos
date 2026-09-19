@@ -329,3 +329,29 @@ Do not store here:
 - subject task queues.
 
 Those already have canonical owners. This file stays a small website router/cursor.
+
+
+## Post-merge candidate — Forecast-ready Daily Learning Packet · PR #562
+
+State: **DRAFT CANDIDATE / NOT MERGED / SYSTEM ACCEPTANCE IN PROGRESS**
+
+The already-merged single-interface transport remains the production baseline.
+
+This follow-up candidate does not add another learner interface. It only hardens the existing `kianos.daily-learning-packet.v1` transport for forward control:
+
+- time-only remote sync is locally throttled while semantic/day-rollover changes still sync immediately;
+- Xizong exposes identity-only canonical workload structure plus bounded runtime evidence;
+- English exposes current session remaining task-family identity;
+- Politics exposes bounded progression/question-coverage signals;
+- missing runtime evidence remains UNKNOWN and never means learner non-completion;
+- no forecast field may be interpreted as mastery by Website/runtime infrastructure.
+
+Canonical campaign/forecast decisions remain outside KianOS Content/runtime and belong to the Personal Review / Campaign owner.
+
+Acceptance target:
+- Private Chat Control proof;
+- Authority Consistency;
+- Final Cross-subject Regression;
+- affected Xizong representation/build gates;
+- Personal Stress Lab G0–G8;
+- Human Gate before any production merge.
