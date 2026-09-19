@@ -1,0 +1,157 @@
+/* Xizong-only visual tuning owner. Selector/declaration values preserved from the accepted pre-closure cascade. */
+/* Stage 2: task-native desktop composition. The existing Runtime owns visibility, progress, answers, source and return. This stylesheet never changes those permissions or synthesizes content. */
+body#kianos-workspace :is(.politicsStudy,.politicsWorkbench,.politicsSubjectWorkbench,.xv6Block,.xv6SystemShell){--study-ink:#263730;--study-muted:#627267;}
+
+ body#kianos-workspace :is(.surface-politics,.surface-xizong) :is(button,a,summary,select,textarea):focus-visible{outline:3px solid #508278;outline-offset:3px;}
+
+ body#kianos-workspace :is(.surface-politics,.surface-xizong) button:disabled{cursor:not-allowed;opacity:.48;}
+
+ body#kianos-workspace :is(.politicsStudy,.politicsWorkbench,.xv6Block,.xv6SystemShell) :is(h1,h2,h3,h4){font-weight:650;text-wrap:pretty;}
+
+ body#kianos-workspace :is(.politicsStudy,.politicsWorkbench,.xv6Block,.xv6SystemShell) :is(p,li){text-wrap:pretty;}
+
+ @media(min-width:1101px){body#kianos-workspace.surfaceBody-xizong .portedStudyHeader{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;background:#fff;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyContextRow{grid-column:1/-1;min-height:37px;padding:3px 18px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyContextRow>span{font-size:13px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyShellActions button{min-height:29px;padding:4px 10px;font-size:13px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyIdentity{min-width:0;padding:10px 22px 13px;gap:18px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyIdentity h2{font-size:25px;line-height:1.35;margin:4px 0 0;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyIdentity>div:first-child::after{font-size:25px;line-height:1.35;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyIdentity>div>span{font-size:11px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyIdentityMeta{margin-left:auto;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyIdentityMeta strong{font-size:13px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyIdentityMeta small{font-size:11px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyTabs{align-self:center;gap:4px;margin:0 18px 0 6px;padding:4px;border:1px solid #dce5df;border-radius:8px;background:#f6f8f5;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyTabs button{min-width:82px;min-height:35px;padding:7px 15px;font-size:15px;border:0;border-radius:5px;background:transparent;box-shadow:none;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyTabs button.active{background:#fff;box-shadow:0 1px 4px #254c3520;color:#315e44;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyLayout{border-top:1px solid #dce5df;grid-template-columns:214px minmax(0,1fr) 286px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyLayout.outline-collapsed{grid-template-columns:0 minmax(0,1fr) 286px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyLayout.chain-collapsed{grid-template-columns:214px minmax(0,1fr) 0;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyLayout.outline-collapsed.chain-collapsed{grid-template-columns:0 minmax(0,1fr) 0;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedKpWorkspaceHeader{min-height:49px;padding:10px 23px;gap:15px;background:#fafcf9;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedKpWorkspaceHeader>div:first-child{display:flex;align-items:baseline;gap:13px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedKpWorkspaceHeader span{font-size:13px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedKpWorkspaceHeader strong{font-size:19px;line-height:1.5;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedKpWorkspaceHeader em{font-size:13px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedKpWorkspaceHeader button{width:32px;min-height:30px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard>header{padding:19px 25px 17px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard>header>p{font-size:19px;line-height:1.8;margin:7px 0;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard:has([data-kp-answer]:not([hidden]))>header{padding:10px 25px 12px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard:has([data-kp-answer]:not([hidden]))>header>p{font-size:17px;line-height:1.65;margin:5px 0 0;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard:has([data-kp-answer]:not([hidden]))>header>span{font-size:12px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedRecallAnswer{padding:20px 25px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedRecallAnswer>h4{font-size:25px;margin:0 0 15px;line-height:1.45;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedRecallAnswer .markdown{font-size:18px;line-height:1.85;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedRecallAnswer .markdown :is(h2,h3,h4){margin:12px 0 9px;font-size:18px;line-height:1.5;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedRecallAnswer .markdown ul{margin:8px 0;padding-left:22px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedRecallAnswer .markdown li{margin:5px 0;font-size:18px;line-height:1.75;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedRecallRating{padding:10px 23px;gap:12px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedRecallRating button{padding:8px 13px;font-size:16px;min-height:40px;}
+
+ body#kianos-workspace.surfaceBody-xizong :is(.portedStudyOutline,.portedStudyChain)>header{padding:13px 16px;}
+
+ body#kianos-workspace.surfaceBody-xizong :is(.portedStudyOutline,.portedStudyChain)>header>strong{font-size:18px;line-height:1.5;margin-top:2px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyOutline{background:#f6f9f5;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyOutline nav{padding:7px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyOutline nav button{padding:10px 9px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyOutline nav button>span{font-size:16px;line-height:1.65;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyChain{display:flex;flex-direction:column;background:#f6f9f5;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyChain>header{order:0;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyChain>ol{order:1;flex:0 0 auto;margin:0;padding:10px 12px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyChain>ol button{min-height:55px;padding:9px 12px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyChain>ol strong{font-size:16px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyChain>ol small{font-size:13px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyChain>.xv6PersonalDock{order:2;flex-shrink:0;margin:3px 13px 12px;padding:13px;border:1px solid #dce6dd;border-radius:8px;background:#fff;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyChain>footer{order:3;padding:12px 16px;font-size:13px;}
+
+ body#kianos-workspace.surfaceBody-xizong .xv6PersonalDock textarea{min-height:65px;font-size:15px;line-height:1.6;}
+
+ body#kianos-workspace.surfaceBody-xizong .xv6SystemShell{grid-template-columns:202px minmax(0,1fr) 265px;}
+
+ body#kianos-workspace.surfaceBody-xizong .xv6SystemHeroDense{padding:20px 25px;}
+
+ body#kianos-workspace.surfaceBody-xizong .xv6SystemHeroDense h2{font-size:29px;margin:5px 0 10px;}
+
+ body#kianos-workspace.surfaceBody-xizong .xv6Panel{padding:19px 25px;}
+
+ body#kianos-workspace.surfaceBody-xizong .xv6Panel h3{font-size:21px;margin:5px 0 12px;}
+
+ body#kianos-workspace.surfaceBody-xizong .xv6Spine{margin-top:14px;}
+
+ body#kianos-workspace.surfaceBody-xizong .xv6Spine li{padding:13px 15px;min-height:85px;}
+
+ body#kianos-workspace.surfaceBody-xizong .xv6LogicStage{padding:25px 28px;}
+
+ body#kianos-workspace.surfaceBody-xizong .xv6LogicStage h3{font-size:28px;margin:9px 0 17px;}
+
+ body#kianos-workspace.surfaceBody-xizong .xv6LogicGoal{font-size:19px;line-height:1.85;}
+
+ body#kianos-workspace.surfaceBody-xizong .xv6LogicTarget{margin:22px 0;padding:17px 20px;}
+
+ body#kianos-workspace.surfaceBody-xizong .xv6LectureHandoff{padding:22px 25px;}
+
+ body#kianos-workspace.surfaceBody-xizong .xv6GroupLecture>footer{padding:18px 25px;gap:14px;}
+}
+
+ @media(min-width:1101px) and (max-width:1300px){
+ body#kianos-workspace.surfaceBody-xizong .portedStudyLayout{grid-template-columns:190px minmax(0,1fr) 252px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyLayout.outline-collapsed{grid-template-columns:0 minmax(0,1fr) 252px;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyLayout.chain-collapsed{grid-template-columns:190px minmax(0,1fr) 0;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyLayout.outline-collapsed.chain-collapsed{grid-template-columns:0 minmax(0,1fr) 0;}
+
+ body#kianos-workspace.surfaceBody-xizong .portedStudyIdentityMeta small{max-width:155px;}
+}
+
+ @media(prefers-reduced-motion:reduce){body#kianos-workspace :is(.surface-politics,.surface-xizong) *{scroll-behavior:auto;transition:none;}
+}

@@ -1,0 +1,427 @@
+{
+  "schema": "kianos.lexical.three_chat_board.v1",
+  "status": "ACTIVE",
+  "updated_at": "2026-09-19",
+  "orchestration": "content/lexical/THREE_CHAT_RUNTIME.md",
+  "trigger_aliases": {
+    "词义A": "content/lexical/chat-roles/SEMANTIC_A.md",
+    "词义B": "content/lexical/chat-roles/SEMANTIC_B.md",
+    "词义C": "content/lexical/chat-roles/SEMANTIC_C.md"
+  },
+  "invariants": {
+    "producer_parallelism": 2,
+    "fresh_auditor_parallelism": 1,
+    "one_b_chat_per_batch": true,
+    "semantic_mutation_policy": "FRONTIER_SERIALIZED",
+    "later_batch_policy": "READ_AND_SELF_ATTACK_ALLOWED; CANONICAL_SEMANTIC_WRITE_FORBIDDEN_UNTIL_FRONTIER",
+    "user_gate": "ONLY_GENUINELY_NEW_MATERIAL_DELTA",
+    "mechanical_layer_semantic_authority": false,
+    "producer_allocation": "A_LOW_TO_HIGH__C_HIGH_TO_LOW",
+    "human_gate_sync_barrier": true,
+    "shared_semantic_dependency_control": "BOARD_CLAIM_PLUS_LATEST_MAIN_REFREEZE_PLUS_EXECUTOR_HASH_GUARD"
+  },
+  "frontier": {
+    "accepted_main_head": "0e653cf9d67a44b96d85ba35c1913cc6add267d0",
+    "current_candidate_id": "BF00",
+    "range": [
+      1,
+      100
+    ],
+    "candidate_pr": 525,
+    "state": "AUDIT_COMPLETE_RECONCILIATION_REQUIRED",
+    "integration_owner": "A",
+    "audit_brief": "content/lexical/semantic-audit/O0001_O0100_FINAL_STANDARD_FRESH_AUDIT_BRIEF.md",
+    "audit_pack": "content/lexical/semantic-audit/O0001_O0100_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
+    "audit_pack_commit": "53a871f1a54b053161c141c546432c51bb0e2b1a",
+    "audit_findings": [
+      "o0029 access",
+      "o0057 act",
+      "o0066 add",
+      "o0084 adult",
+      "o0085 advance"
+    ]
+  },
+  "audit_target": {
+    "candidate_id": "BF00",
+    "range": [
+      1,
+      100
+    ],
+    "candidate_pr": 525,
+    "candidate_branch": "work/lexical-continuous-backfill-o0001-o0100",
+    "brief": "content/lexical/semantic-audit/O0001_O0100_FINAL_STANDARD_FRESH_AUDIT_BRIEF.md",
+    "state": "B_AUDIT_COMPLETE",
+    "after_completion": "A_RECONCILES; B_STOPS",
+    "audit_pack": "content/lexical/semantic-audit/O0001_O0100_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
+    "audit_pack_commit": "53a871f1a54b053161c141c546432c51bb0e2b1a",
+    "result": "HOLD_FOR_SOL",
+    "findings": [
+      {
+        "ordinal": 29,
+        "word": "access",
+        "handoff": "BOUNDED_RECONCILIATION"
+      },
+      {
+        "ordinal": 57,
+        "word": "act",
+        "handoff": "BOUNDED_RECONCILIATION"
+      },
+      {
+        "ordinal": 66,
+        "word": "add",
+        "handoff": "BOUNDED_RECONCILIATION"
+      },
+      {
+        "ordinal": 84,
+        "word": "adult",
+        "handoff": "BOUNDED_RECONCILIATION"
+      },
+      {
+        "ordinal": 85,
+        "word": "advance",
+        "handoff": "NEW_SCOPE_GATE_ONLY_IF_ROMANTIC_SEXUAL_ADVANCES_BECOMES_LEARNER_VISIBLE"
+      }
+    ]
+  },
+  "lanes": {
+    "A": {
+      "role": "PRODUCTION_AND_FRONTIER_INTEGRATION",
+      "current_assignment": {
+        "candidate_id": "BF01",
+        "range": [
+          101,
+          200
+        ],
+        "state": "DELTA_APPROVED_WAIT_FOR_FRONTIER",
+        "review_head": "2fd29bf2e32e7e09d4300948e42a59a2821fe59e",
+        "review_branch": "lexical-final-standard-review-a-o0101-o0200",
+        "proposal_commit": "bfb959126bc12f98861081114ee5fbe032d0c541",
+        "proposal_path": "content/lexical/execution/manifests/o0101-o0200.final-standard-backfill-proposal.md",
+        "fresh_read_coverage": "100/100",
+        "self_attack": "COMPLETE",
+        "new_material_delta_owners": [
+          102,
+          104,
+          111,
+          118,
+          130,
+          142,
+          146,
+          150,
+          153,
+          154,
+          174,
+          178,
+          181,
+          182,
+          187,
+          189,
+          195
+        ],
+        "old_test_blueprints": 48,
+        "stabilized_test_blueprints": 25,
+        "shared_write_set_if_approved": [
+          "word:between@o0475",
+          "word:digital@o1378",
+          "word:number@o3277",
+          "word:analytical@o7720",
+          "existing relation alter↔alert",
+          "existing relation alternative↔alternate",
+          "new relation analog↔digital",
+          "new relation analytic↔analytical",
+          "new relation among↔between",
+          "new relation amount↔number"
+        ],
+        "next_action": "Wait for BF00 to close. Before BF01 materialization, run the p synchronization barrier again, refreeze latest main and semantic dependencies, then emit a Final Mutation Package.",
+        "semantic_dependency_policy": "Before p/materialization, refresh all related Word/Sense/Family/Form/Construction/Relation/Test dependencies and emit exact semantic_dependency_read_set in the mutation package.",
+        "human_gate": {
+          "approved": true,
+          "approved_at": "2026-09-19",
+          "approval_ref": "Kian p on o0101-o0200 final-standard proposal",
+          "proposal_path": "content/lexical/execution/manifests/o0101-o0200.final-standard-backfill-proposal.md",
+          "proposal_blob_sha": "4d83a7b22341a56a7b577b6861843a307a33b246"
+        }
+      },
+      "bootstrap_integration": {
+        "candidate_id": "BF00",
+        "pr": 525,
+        "action": "Fresh B audit is complete at 53a871f1. Reconcile access/act/add/adult/advance; only a genuinely new learner-visible advance branch may require a bounded Human Gate."
+      },
+      "scheduled_ranges": [
+        [
+          101,
+          200
+        ],
+        [
+          301,
+          400
+        ],
+        [
+          401,
+          500
+        ],
+        [
+          501,
+          600
+        ],
+        [
+          601,
+          700
+        ]
+      ]
+    },
+    "B": {
+      "role": "FRESH_INDEPENDENT_AUDIT",
+      "current_assignment": "audit_target",
+      "state": "OPEN_FRESH_CHAT_PER_BATCH",
+      "may_mutate_semantic_truth": false,
+      "must_stop_after_one_audit_pack": true
+    },
+    "C": {
+      "role": "PRODUCTION_LOOKAHEAD",
+      "current_assignment": {
+        "candidate_id": "BF02",
+        "range": [
+          201,
+          300
+        ],
+        "state": "POST_SELF_ATTACK_WAIT_FOR_FRONTIER",
+        "review_head": "2fd29bf2e32e7e09d4300948e42a59a2821fe59e",
+        "review_branch": "work/lexical-final-backfill-c-o0201-o0300",
+        "proposal_pr": 528,
+        "proposal_head": "7b316070a6a4b4b96e55f2784d7a0fec267e8ca7",
+        "proposal_path": "content/lexical/execution/manifests/o0201-o0300.production-c-lookahead.md",
+        "module_matrix_path": "content/lexical/execution/manifests/o0201-o0300.production-c-module-matrix.tsv",
+        "fresh_read_coverage": "100/100",
+        "self_attack": "COMPLETE",
+        "content_upgrades": 24,
+        "content_no_change": 76,
+        "blocked": 0,
+        "old_test_blueprints": 44,
+        "stabilized_test_blueprints": 15,
+        "new_material_delta": false,
+        "canonical_semantic_mutation": false,
+        "semantic_freshness_note": "main advanced after freeze, but comparison from review_head to current main showed no Word/Relation/Form/lexical-contract changes in o0201-o0300 scope; refreeze again when BF02 reaches frontier.",
+        "next_action": "Wait for BF02 to become the serialized frontier. Then refreeze latest main, reconcile changed/shared owners only, apply the stabilized proposal, materialize Final Learner Objects, and hand to a fresh B Chat for blind-first Independent Semantic Audit.",
+        "semantic_dependency_policy": "Before frontier materialization, refreeze all related Word/Sense/Family/Form/Construction/Relation/Test dependencies and emit exact semantic_dependency_read_set in the mutation package."
+      },
+      "scheduled_ranges": [
+        [
+          201,
+          300
+        ],
+        [
+          1101,
+          1150
+        ],
+        [
+          1001,
+          1100
+        ],
+        [
+          901,
+          1000
+        ],
+        [
+          801,
+          900
+        ],
+        [
+          701,
+          800
+        ]
+      ],
+      "next_new_review_range": [
+        1101,
+        1150
+      ],
+      "direction_note": "Preserve completed o0201-o0300 lookahead; all new C review proceeds high→low."
+    }
+  },
+  "preserved_candidates": [
+    {
+      "candidate_id": "F1151_1250",
+      "range": [
+        1151,
+        1250
+      ],
+      "pr": 520,
+      "branch": "work/lexical-continuous-o1151-o1250",
+      "state": "PRESERVED_AUDIT_PENDING",
+      "rule": "must receive a fresh B audit and be reconciled/rematerialized against then-current main before merge"
+    }
+  ],
+  "backfill_plan": {
+    "target_range": [
+      1,
+      1150
+    ],
+    "batch_size": 100,
+    "final_partial_range": [
+      1101,
+      1150
+    ],
+    "next_unallocated_start": 301,
+    "allocation_rule": "Preserve BF01/BF02 work. A reviews remaining low side upward; C reviews remaining high side downward. Primary Word allocation does not own shared semantic dependencies.",
+    "a_direction": "LOW_TO_HIGH",
+    "c_direction": "HIGH_TO_LOW"
+  },
+  "sync_barrier": {
+    "trigger": "every user p; every candidate materialization; every post-audit reconciliation",
+    "required_reads": [
+      "current main@HEAD",
+      "live three-chat-board.json",
+      "frontier candidate PR head",
+      "newest Audit Pack on audit-target candidate branch/PR",
+      "other producer lane write-set",
+      "other producer lane semantic dependency set",
+      "shared_semantic_claims",
+      "own proposal identity"
+    ],
+    "rule": "Record approval only against the still-current proposal. If B completed the live frontier audit, prioritize frontier reconciliation before later-batch materialization. Reconcile any changed material semantic dependency. Materially changed proposal delta requires a new bounded Gate."
+  },
+  "shared_semantic_dependency_rule": {
+    "mode": "CLAIM_COALESCE_RECONCILE_AND_HASH_GUARD",
+    "conflict_state": "SHARED_SEMANTIC_RECONCILE_REQUIRED",
+    "scope": [
+      "related Word/Sense truth",
+      "Family/morphology target",
+      "Form/identity",
+      "Construction/phraseology ownership",
+      "Relation/confusable/semantic-neighbor truth",
+      "Repair Test target identity",
+      "layer/lifecycle truth materially relied on by another batch"
+    ],
+    "proposal_rule": "A/C may review independently, but before freeze they must declare material cross-batch dependencies and coalesce equivalent claims.",
+    "landing_rule": "Before every mutation package, refreeze latest main and include exact semantic_dependency_read_set SHA256 hashes. Any drift fails closed as STALE_SEMANTIC_DEPENDENCY.",
+    "instruction": "Opposite-direction review is only a throughput optimization. Correctness comes from dependency reconciliation, latest-main refreeze, and executor hash guards."
+  },
+  "shared_semantic_claims": [
+    {
+      "claim_key": "RELATION:alert|alter:confusable",
+      "kind": "RELATION",
+      "participants": [
+        "word:alert",
+        "word:alter"
+      ],
+      "claimants": [
+        "BF01"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "cross-word semantic boundary"
+    },
+    {
+      "claim_key": "RELATION:alternate|alternative:confusable",
+      "kind": "RELATION",
+      "participants": [
+        "word:alternate",
+        "word:alternative"
+      ],
+      "claimants": [
+        "BF01"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "cross-word semantic boundary"
+    },
+    {
+      "claim_key": "RELATION:analog|digital:semantic_contrast",
+      "kind": "RELATION",
+      "participants": [
+        "word:analog",
+        "word:digital"
+      ],
+      "claimants": [
+        "BF01"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "cross-word semantic boundary"
+    },
+    {
+      "claim_key": "RELATION:analytic|analytical:usage_boundary",
+      "kind": "RELATION",
+      "participants": [
+        "word:analytic",
+        "word:analytical"
+      ],
+      "claimants": [
+        "BF01"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "cross-word semantic boundary"
+    },
+    {
+      "claim_key": "RELATION:among|between:selection_boundary",
+      "kind": "RELATION",
+      "participants": [
+        "word:among",
+        "word:between"
+      ],
+      "claimants": [
+        "BF01"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "cross-word semantic boundary"
+    },
+    {
+      "claim_key": "RELATION:amount|number:countability_boundary",
+      "kind": "RELATION",
+      "participants": [
+        "word:amount",
+        "word:number"
+      ],
+      "claimants": [
+        "BF01"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "cross-word semantic boundary"
+    },
+    {
+      "claim_key": "RELATION:answer|respond:redundancy_cleanup",
+      "kind": "RELATION",
+      "participants": [
+        "word:answer",
+        "word:respond"
+      ],
+      "claimants": [
+        "BF02"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "cross-word semantic boundary"
+    },
+    {
+      "claim_key": "RELATION:apartment|flat:regional_choice",
+      "kind": "RELATION",
+      "participants": [
+        "word:apartment",
+        "word:flat"
+      ],
+      "claimants": [
+        "BF02"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "cross-word semantic boundary"
+    },
+    {
+      "claim_key": "FORM:archaeology|archeology:regional_spelling_identity",
+      "kind": "FORM",
+      "participants": [
+        "word:archeology",
+        "word:archaeology"
+      ],
+      "claimants": [
+        "BF02"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "Form/identity boundary"
+    }
+  ]
+}

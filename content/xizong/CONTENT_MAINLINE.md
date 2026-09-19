@@ -155,7 +155,92 @@ No percentage-complete target exists.
 
 ---
 
-# 5｜Default concurrency
+# 5｜Unified D / E / F generation rule
+
+D / E / F inherit the same construction standard already proven across mature Xizong systems.
+
+Authority chain:
+
+```text
+LEARNING_ASSET_STANDARD.md
+→ content/xizong/LEARNING_CONTRACT.md
+→ exact System Source / Knowledge / Learning owner
+→ this Mainline for program sequencing
+```
+
+The shared generation sequence is:
+
+```text
+1. Source reconstruction / boundary
+2. Knowledge reconstruction
+3. independent K acceptance
+4. Learning Logic construction
+5. independent L acceptance
+6. Content Realization
+7. LG-by-LG Content sufficiency / density audit
+8. fresh independent Content closure
+9. only then downstream P / R / E where needed
+```
+
+Content Realization should use the stable responsibility set matured during D Phase 7:
+
+```text
+ORIENTATION
+SOURCE_CONTACT
+RETRIEVAL
+CORE_CHECK
+BOUNDARY
+COMPRESSION
+```
+
+These are content responsibilities, not mandatory file fields or UI sections.
+
+A / B / C are calibration evidence for quality and failure modes. They are not templates to copy.
+
+Therefore keep synchronized:
+
+- Source truth / gap discipline;
+- Knowledge quality bar;
+- Learning / Content construction sequence;
+- independent audit expectations;
+- Recall-front answer protection;
+- website-disappearance test;
+- no duplicate medical truth;
+- no UI/Runtime semantics inside Content.
+
+Do **not** synchronize by symmetry:
+
+- Block count or size;
+- KP count;
+- Logic Group count;
+- Source-contact granularity;
+- prerequisite graph / default route;
+- Visual quantity;
+- compression topology.
+
+Each System must derive those from its own Source and cognition.
+
+Hard rule:
+
+> Use A/B/C to calibrate quality, not to manufacture D/E/F shape.
+
+D Phase 7 is the current calibration for how accepted Knowledge + Learning become durable Content. E/F should start with this method rather than inventing a separate realization model, while remaining free to produce different medical topology when their Source requires it.
+
+Fresh-chat execution rule:
+
+```text
+read main@HEAD
+→ this Mainline
+→ exact active System cursor/owner
+→ inherit the unified generation rule above
+→ continue the earliest unresolved stage
+```
+
+Do not reopen the generation standard unless fresh evidence shows the shared method itself is wrong.
+
+---
+
+# 6｜Default concurrency
 
 ```text
 Medical:
@@ -174,7 +259,7 @@ Parallel work is safe only with independent write sets and no unresolved semanti
 
 ---
 
-# 6｜Relation to website / engineering mainline
+# 7｜Relation to website / engineering mainline
 
 Website engineering is separate under `static-web/` and `XIZONG_PRODUCT_STATUS.md`.
 
@@ -182,7 +267,7 @@ Current website sequence after #331 is System Workspace convergence; content lan
 
 ---
 
-# 7｜Definition of “continue”
+# 8｜Definition of “continue”
 
 “Continue Xizong content mainline” means:
 
@@ -208,7 +293,7 @@ Do not update this file for each Crosswalk batch, image crop, CI rerun, PR numbe
 
 ---
 
-# 8｜Current snapshot
+# 9｜Current snapshot
 
 ```text
 MAIN MEDICAL CONTENT

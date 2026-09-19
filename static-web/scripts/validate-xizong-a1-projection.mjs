@@ -8,7 +8,7 @@ const block = read('src/components/XizongBlockV6.astro');
 const guard = read('src/components/XizongRuntimeStageGuard.astro');
 const systemPage = read('src/pages/xizong/[system]/index.astro');
 const system = read('src/components/XizongSystemWorkspace.astro');
-const base = read('src/layouts/Base.astro');
+const frame = read('src/layouts/BaseFrame.astro');
 
 function assert(condition, code) {
   if (!condition) throw new Error(code);
@@ -55,8 +55,8 @@ assert(
 );
 
 // P5 — governance/provenance metadata stays out of Xizong learner chrome.
-assert(base.includes('body.surfaceBody-xizong .sourceDock'), 'A1_P_GOVERNANCE_DOCK_NOT_HIDDEN');
-assert(base.includes('body.surfaceBody-xizong .portedSourceFoot'), 'A1_P_SOURCE_FOOT_NOT_HIDDEN');
+assert(frame.includes('body.surfaceBody-xizong .sourceDock'), 'A1_P_GOVERNANCE_DOCK_NOT_HIDDEN');
+assert(frame.includes('body.surfaceBody-xizong .portedSourceFoot'), 'A1_P_SOURCE_FOOT_NOT_HIDDEN');
 
 // P6 — Projection does not invent Question→KP bindings in the Block learner surface.
 assert(!block.includes('questionToKp') && !block.includes('question_to_kp'), 'A1_P_INFERRED_QUESTION_KP_SURFACE');
