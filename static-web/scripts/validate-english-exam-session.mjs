@@ -62,15 +62,15 @@ for (const [index, step] of paper.steps.entries()) {
   if (step.task === 'cloze') {
     const packet = loadClozeAnswersById(step.object_id);
     payload = { answers: packet.answers };
-    answerSteps[step.step_id] = { task: step.task, object_id: step.object_id, answers: packet.answers };
+    answerSteps[step.step_id] = { task: step.task, object_id: step.object_id, source_hash: step.source_hash, answers: packet.answers };
   } else if (step.task === 'reading_a') {
     const packet = loadReadingAnswersById(step.object_id);
     payload = { answers: packet.answers };
-    answerSteps[step.step_id] = { task: step.task, object_id: step.object_id, answers: packet.answers };
+    answerSteps[step.step_id] = { task: step.task, object_id: step.object_id, source_hash: step.source_hash, answers: packet.answers };
   } else if (step.task === 'reading_b') {
     const packet = loadReadingBAnswersById(step.object_id);
     payload = { answers: packet.answers };
-    answerSteps[step.step_id] = { task: step.task, object_id: step.object_id, answers: packet.answers };
+    answerSteps[step.step_id] = { task: step.task, object_id: step.object_id, source_hash: step.source_hash, answers: packet.answers };
   } else if (step.task === 'translation') {
     payload = { answers: { demo: 'translation evidence' } };
   } else if (step.task === 'writing') {
