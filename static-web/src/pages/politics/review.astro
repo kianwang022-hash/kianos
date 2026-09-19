@@ -43,6 +43,19 @@ const catalog = politicsProductCatalog(base);
 
     <p data-review-error class="examError" role="alert" hidden></p>
 
+    <details class="reviewChatReturn" data-review-return>
+      <summary>导入 Chat 返回</summary>
+      <div class="reviewChatReturnBody">
+        <p>只接受从本页同一批次导出的结构化返回；旧批次、错误题号、冲突重放都会被拒绝。</p>
+        <textarea data-review-return-text rows="8" spellcheck="false" placeholder="把 Chat 返回的 kianos.politics.chat-return.v1 JSON 粘贴到这里"></textarea>
+        <div class="reviewChatReturnActions">
+          <button data-review-return-apply class="examQuiet" type="button">核对并导入</button>
+          <p data-review-return-status aria-live="polite"></p>
+        </div>
+        <div data-review-return-result class="reviewReturnResult"></div>
+      </div>
+    </details>
+
     <section class="reviewMainAction" data-review-action hidden>
       <div>
         <span>当前待处理</span>
