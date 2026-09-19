@@ -28,8 +28,6 @@ function validatePacket(value){
   return JSON.parse(JSON.stringify(value));
 }
 
-const stable=(value)=>JSON.stringify(value,Object.keys(value||{}).sort());
-
 function materialPacket(value){
   const packet=JSON.parse(JSON.stringify(validatePacket(value)));
   delete packet.generated_at;
@@ -101,12 +99,14 @@ async function fetchRuntimeRef(config,{gitBin='git'}={}){
     'fetch','--depth','1','origin',
     '+refs/heads/'+config.branch+':'+ref
   ],{cwd:config.repoDir,allowFailure:true});
-  return fetched===null?null:ref;
+  if(fetched===null)return null;
+  const sha=await run(gitBin,['rev-parse',ref],{cwd:config.repoDir});
+  return{ref,sha};
 }
 
-async function showFile(config,ref,file,{gitBin='git'}={}){
-  if(!ref)return null;
-  return await run(gitBin,['show',ref+':'+file],{
+async function showFile(config,remote,file,{gitBin='git'}={}){
+  if(!remote?.ref)return null;
+  return await run(gitBin,['show',remote.ref+':'+file],{
     cwd:config.repoDir,
     allowFailure:true
   });
@@ -118,7 +118,7 @@ function parsePacket(raw,label){
   catch(error){throw new Error(label+':'+(error instanceof Error?error.message:String(error)));}
 }
 
-async function publishRootTree(config,{ref,currentRaw,newPacket,sealRaw=null,sealDay=null,gitBin='git'}={}){
+async function publishRootTree(config,{remote,newPacket,sealRaw=null,sealDay=null,gitBin='git'}={}){
   const temp=fs.mkdtempSync(path.join(config.repoDir,'.packet-publish-'));
   const index=path.join(temp,'index');
   const env={
@@ -130,7 +130,7 @@ async function publishRootTree(config,{ref,currentRaw,newPacket,sealRaw=null,sea
     GIT_COMMITTER_EMAIL:'kianos-packet@local.invalid'
   };
   try{
-    if(ref)await run(gitBin,['read-tree',ref],{cwd:config.repoDir,env});
+    if(remote?.ref)await run(gitBin,['read-tree',remote.ref],{cwd:config.repoDir,env});
     else await run(gitBin,['read-tree','--empty'],{cwd:config.repoDir,env});
 
     const writeBlob=async(file,bytes)=>{
@@ -148,7 +148,14 @@ async function publishRootTree(config,{ref,currentRaw,newPacket,sealRaw=null,sea
 
     const tree=await run(gitBin,['write-tree'],{cwd:config.repoDir,env});
     const commit=await run(gitBin,['commit-tree',tree,'-m','Current KianOS Daily Learning Packet'],{cwd:config.repoDir,env});
-    await run(gitBin,['push','--force','origin',commit+':refs/heads/'+config.branch],{cwd:config.repoDir,env});
+    const remoteHead='refs/heads/'+config.branch;
+    const expected=remote?.sha||'';
+    await run(gitBin,[
+      'push',
+      '--force-with-lease='+remoteHead+':'+expected,
+      'origin',
+      commit+':'+remoteHead
+    ],{cwd:config.repoDir,env});
     return commit;
   }finally{
     fs.rmSync(temp,{recursive:true,force:true});
@@ -164,8 +171,8 @@ export async function publishDailyLearningPacket(input,{
   const config=privatePacketRelayConfig({env,home});
   if(!config.enabled)return{state:'disabled'};
 
-  const ref=await fetchRuntimeRef(config,{gitBin});
-  const currentRaw=await showFile(config,ref,config.currentPath,{gitBin});
+  const remote=await fetchRuntimeRef(config,{gitBin});
+  const currentRaw=await showFile(config,remote,config.currentPath,{gitBin});
   const current=parsePacket(currentRaw,'KIANOS_PACKET_REMOTE_CURRENT_INVALID');
 
   if(current){
@@ -182,7 +189,7 @@ export async function publishDailyLearningPacket(input,{
   if(current&&packet.study_day>current.study_day){
     sealDay=current.study_day;
     const dailyPath=config.dailyPrefix+'/'+sealDay+'.json';
-    const existingDailyRaw=await showFile(config,ref,dailyPath,{gitBin});
+    const existingDailyRaw=await showFile(config,remote,dailyPath,{gitBin});
     if(existingDailyRaw!=null){
       const existingDaily=parsePacket(existingDailyRaw,'KIANOS_PACKET_REMOTE_DAILY_INVALID');
       if(!materiallyEqual(existingDaily,current)){
@@ -194,8 +201,7 @@ export async function publishDailyLearningPacket(input,{
   }
 
   const commit=await publishRootTree(config,{
-    ref,
-    currentRaw,
+    remote,
     newPacket:packet,
     sealRaw,
     sealDay,
