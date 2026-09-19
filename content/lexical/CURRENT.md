@@ -551,6 +551,36 @@ If richer content exposes a real renderer defect, record it separately; do not s
 
 ---
 
+### Baseline-v2 quality gate — FROZEN 2026-09-19
+
+From **o1151–o1250 onward**, Baseline-v2 uses one fixed quality chain:
+
+```text
+fresh owner/module judgment
+→ Production self-adversarial attack
+→ one Kian Human Gate on the post-attack proposal
+→ approved branch materialization
+→ fresh Independent Semantic Audit (blind-first)
+→ bounded reconciliation
+→ merge / Final Learner Object readback
+→ next 100-owner Gate
+```
+
+Content attention model:
+
+```text
+Core / Decision       exam + broad-transfer necessity
+Expansion / Leverage  lexical breakthrough without Core inflation
+Reference             valid low-current-value truth
+Repair                evidence-triggered, not automatic Content debt
+```
+
+`Exam-first ≠ Exam-only`.
+
+Self-adversarial Production is **SELF** evidence and cannot replace the fresh Independent Audit required by `INDEPENDENT_SEMANTIC_AUDIT_CONTRACT.md`.
+
+The earlier draft reports for **o1151–o1250** are superseded by this frozen rule change. No semantic mutation for that batch was applied before the rule freeze. Re-run the batch under the frozen layered/self-attack protocol before requesting its Human Gate.
+
 ## Exact next action
 
 Start Lane A · o0001–o0200.

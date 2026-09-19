@@ -72,24 +72,28 @@ This matrix belongs in the receipt / audit evidence, not in semantic Natural Own
 
 ## 3B. One-shard Kian Human Gate
 
-Baseline-v2 review is **read-first, one report, one approval, then automatic closure**.
+Baseline-v2 review is **read-first, self-attack, one normal Human Gate, then independent semantic closure**.
 
-The normal interaction unit is one bounded shard, normally up to 50 owners.
+The normal learner-facing interaction unit is one Human-Gate batch of approximately **100 owners**. Backend semantic execution remains bounded in normally **≤50-owner shards**. Batch size is a Human interaction unit; shard size remains an execution/transport unit.
 
 Required sequence:
 
 ```text
 fresh-read the whole shard
 → judge Content + Repair Test needs together
+→ run the mandatory Production self-adversarial attack in §3C
+→ freeze the post-attack proposal
 → give Kian one plain-language shard report
 → Kian approves once
-→ automatically apply only the reported/approved Content fixes
+→ automatically apply only the reported/approved Content fixes on an isolated branch
 → automatically write the reported/approved Repair Test blueprints
 → rebuild derived Final Learner Objects
+→ run fresh Independent Semantic Audit under the blind-first contract
+→ automatically narrow/remove/refine already-approved mutations when the auditor stays within the approved learner intent
+→ if the auditor finds new material semantic scope, show Kian only that bounded delta before mutation
 → complete final-object readback + validation
-→ write the local receipt / advance the exact cursor
-→ immediately begin the next shard
-→ return the next shard report
+→ write receipts / advance the exact cursor
+→ immediately begin the next ~100-owner Human-Gate batch
 ```
 
 The single pre-change report should cover the whole shard and include only decision-relevant items:
@@ -107,7 +111,7 @@ One Kian approval for that shard authorizes all items explicitly included in tha
 - validation / receipt updates;
 - exact cursor advancement to the next shard.
 
-Do **not** insert a second approval gate between Content and Repair Test work, and do not ask again before starting the next shard. The next Human Gate is the next shard's combined report.
+Do **not** insert a routine second approval gate between Content, Repair Test, materialization, and Independent Audit. The only exceptional extra Gate is a bounded delta when the fresh auditor discovers **new material semantic scope** that was absent from the approved report. Do not re-gate the whole batch for a narrow delta.
 
 Hard rules:
 
@@ -116,12 +120,74 @@ Hard rules:
 - approval for one shard does not authorize unreported fixes in later shards;
 - `PRESERVE` / `NOT_NEEDED` decisions may be recorded without mutation;
 - mechanical derived materialization after approved changes does not need separate approval;
-- if writeback/readback exposes a **new semantic problem not present in the approved report**, stop that new mutation and surface it in the next report rather than silently expanding scope;
+- if writeback/readback or Independent Audit exposes a **new semantic problem not present in the approved report**, stop that new mutation; if it is material enough to prevent truthful batch closure, request one bounded delta Gate for that scope, otherwise record it as non-blocking debt for later evidence-triggered maintenance;
 - a critical correctness defect may be reported immediately, but still waits for approval unless leaving it unmodified would corrupt already-running data.
 
 Learner-page / UI changes remain governed separately and are never implied by Content approval.
 
 ---
+
+## 3C. Production self-adversarial attack — mandatory before Human Gate
+
+Baseline-v2 production must not send its first draft judgment directly to Kian.
+
+After the whole Human-Gate batch has received a fresh owner/module judgment, the **same Production Chat** performs one bounded self-adversarial pass before writing the report.
+
+This is stronger than casual self-review, but it is **not independent audit evidence**.
+
+Required challengers:
+
+```text
+A. OVER-UPGRADE
+   If we do nothing, would the learner actually lose a material decision,
+   transfer advantage, or high-leverage Expansion?
+   If no, remove/narrow the proposed mutation.
+
+B. UNDER-UPGRADE
+   What is the strongest plausible missed Core/Decision or high-leverage Expansion?
+   Look especially for familiar-new branches, non-obvious Form, morphology,
+   academic/professional use, and real cross-word boundaries.
+
+C. LAYER PLACEMENT
+   Is this truth correctly placed in Core / Expansion / Reference?
+   Good knowledge in the wrong attention layer is still a defect.
+
+D. OWNER PLACEMENT
+   Does the truth belong to Word, Relation, or Form/Identity?
+   Do not manufacture a Relation because a Form boundary exists, or a fake Sense
+   because pronunciation/capitalization owns the distinction.
+
+E. NEGATIVE SPACE
+   What should deliberately stay out of default Study?
+   Attack dictionary-completeness inflation, rare specialist micro-senses,
+   historical trivia, and decorative family trees.
+
+F. TEST INFLATION
+   If the learner answered the proposed Test wrong, would that change the next
+   Repair decision?
+   If no, do not prebuild the Test merely because the Content is worth learning.
+
+G. EXAM-ONLY OVERPRUNING
+   Did exam priority cause us to discard a genuinely high-leverage lexical asset
+   that supports broader vocabulary growth, academic English, morphology,
+   pronunciation/form recognition, or productive transfer?
+```
+
+The post-attack judgment supersedes the first draft.
+
+Record at batch level:
+
+```text
+draft upgrades/tests
+→ self-attack removals
+→ self-attack additions
+→ self-attack re-layerings / owner corrections
+→ final proposed Human-Gate set
+```
+
+The learner-facing Human Gate sees only the **post-attack** proposal, with plain-language before → after examples.
+
+Same-Chat self-attack may never be described as fresh or independent acceptance.
 
 ## 4. Fresh judgment and readback
 

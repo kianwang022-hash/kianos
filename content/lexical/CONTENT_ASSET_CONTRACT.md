@@ -35,6 +35,64 @@ The purpose of rebuilding 7,946 owners is partly to discover which words are saf
 
 ---
 
+### 0A. Learner objective and attention hierarchy — Exam-first, not Exam-only
+
+Lexical is built for two simultaneous goals:
+
+1. protect and improve current exam performance;
+2. compound into stronger long-run English lexical ability.
+
+Therefore:
+
+> **Exam-first does not mean Exam-only.**
+
+Canonical truth may be rich, but learner attention must be layered.
+
+```text
+CORE / DECISION
+= knowledge whose absence or mis-ranking can materially damage recognition,
+  branch selection, syntax/collocation choice, translation, writing, or broad transfer
+
+EXPANSION / LEVERAGE
+= non-Core knowledge with real lexical leverage:
+  morphology/irregular form, academic/professional use, regional form,
+  high-value word-family structure, pronunciation/form identity,
+  cross-word decision network, or reusable productive value
+
+REFERENCE
+= valid truth worth preserving/searching, but with low current learner leverage
+  or specialist/historical/completeness-only value
+
+REPAIR
+= not a fourth Knowledge layer;
+  it is evidence-triggered reactivation of an existing exact lexical object
+```
+
+Admission rules:
+
+- a fact does **not** enter Core merely because a dictionary lists it;
+- a fact does **not** disappear merely because it is not high-yield for the exam;
+- high-leverage non-Core truth belongs in Expansion when it improves future decoding, transfer, academic English, productive use, or lexical network quality;
+- low-value valid truth belongs in Reference;
+- whether an object deserves a Repair Test is decided separately from whether it deserves Content.
+
+Hard distinctions:
+
+```text
+worth knowing
+≠ must be Core
+
+worth learning in Expansion
+≠ deserves a prebuilt Test
+
+Content exists
+≠ future review debt
+```
+
+Do not use a numeric score to fake precision. The reviewer must name the learner job and the layer that earns the learner's attention.
+
+A Content mutation is justified only by an allowed gap in §4A. Discovery of another true or interesting fact is not itself a gap.
+
 ## 1. One lexical truth, many learner projections
 
 Canonical lexical truth remains owned by Current Natural Owners:
