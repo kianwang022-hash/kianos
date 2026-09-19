@@ -217,7 +217,7 @@ await check('second-response-completes-without-auto-extra-round', async () => {
     await page.locator('[data-memory-card]').waitFor({ state: 'visible' });
     await page.keyboard.press('Enter');
     await page.locator('[data-memory-controls]').waitFor({ state: 'visible' });
-    await page.keyboard.press('3');
+    await page.locator('[data-memory-response="STABLE"]').click();
     await page.locator('[data-memory-complete]').waitFor({ state: 'visible' });
     assert.equal(await page.locator('[data-memory-card]').isVisible(), false);
     const events = JSON.parse(await page.evaluate((key) => localStorage.getItem(key) || '[]', POLITICS_MEMORY_EVIDENCE_KEY));
@@ -229,6 +229,31 @@ await check('second-response-completes-without-auto-extra-round', async () => {
     assert.equal(await page.locator('[data-memory-card]').isVisible(), false);
     await shot(page, '03-complete');
     return { event_count: events.length };
+  } finally {
+    await context.close();
+  }
+});
+
+
+await check('keyboard-3-records-stable-and-completes-one-item-plan', async () => {
+  const onePlan = {
+    ...plan,
+    plan_id: 'synthetic-keyboard-stable',
+    items: [{ candidate_id: chosen[0].id, reason: 'synthetic keyboard mapping proof' }]
+  };
+  const { context, page } = await contextWith(onePlan);
+  try {
+    await page.goto(base + '/politics/memory/');
+    await page.locator('[data-memory-card]').waitFor({ state: 'visible' });
+    await page.keyboard.press('Enter');
+    await page.locator('[data-memory-controls]').waitFor({ state: 'visible' });
+    await page.keyboard.press('3');
+    await page.locator('[data-memory-complete]').waitFor({ state: 'visible' });
+    const events = JSON.parse(await page.evaluate((key) => localStorage.getItem(key) || '[]', POLITICS_MEMORY_EVIDENCE_KEY));
+    assert.equal(events.length, 1);
+    assert.equal(events[0].candidate_id, chosen[0].id);
+    assert.equal(events[0].response, 'STABLE');
+    return { response: events[0].response };
   } finally {
     await context.close();
   }
