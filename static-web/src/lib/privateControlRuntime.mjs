@@ -43,6 +43,15 @@ async function loadEnglishCatalog(){
     const parsed=JSON.parse(node?.textContent||'[]');
     staticRows=Array.isArray(parsed)?parsed:[];
   }catch{}
+  if(!staticRows.length){
+    try{
+      const response=await fetch(ENDPOINT+'/english-session-catalog',{cache:'no-store'});
+      if(response.ok){
+        const data=await response.json();
+        staticRows=Array.isArray(data?.rows)?data.rows:[];
+      }
+    }catch{}
+  }
   let externalRows=[];
   try{
     const response=await fetch('/__kianos-private/external-reading/catalog',{cache:'no-store'});
