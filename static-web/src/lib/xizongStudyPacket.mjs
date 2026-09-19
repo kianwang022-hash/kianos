@@ -88,7 +88,27 @@ export function buildXizongStudyPacketFromStorage({
     || (row?.type === 'MEMORY' && ['HOT', 'WARM'].includes(String(row?.state || '')))
   )).length;
 
-  const kpEvidence = kpRows.map((kp) => ({
+  const blockMemoryCards = Object.values(memory.cards || {})
+    .filter((card) => String(card?.blockId || '') === String(packetMeta.blockId || ''));
+  const coreCardByKp = new Map(
+    blockMemoryCards
+      .filter((card) => String(card?.family || '') === 'CORE' && card?.kpId)
+      .map((card) => [String(card.kpId), card])
+  );
+  const precisionCardsByKp = new Map();
+  blockMemoryCards
+    .filter((card) => String(card?.family || '') === 'PRECISION' && card?.kpId)
+    .forEach((card) => {
+      const key = String(card.kpId);
+      const rows = precisionCardsByKp.get(key) || [];
+      rows.push(card);
+      precisionCardsByKp.set(key, rows);
+    });
+
+  const kpEvidence = kpRows.map((kp) => {
+    const coreCard = coreCardByKp.get(String(kp.kpId)) || null;
+    const precisionCards = precisionCardsByKp.get(String(kp.kpId)) || [];
+    return {
     kp_id: kp.kpId,
     display_id: kp.displayId || '',
     title: kp.title || '',
@@ -103,12 +123,16 @@ export function buildXizongStudyPacketFromStorage({
     learned: Boolean(study?.learned?.[kp.kpId]),
     recall_rating: String(study?.ratings?.[kp.kpId] || ''),
     repeated_unstable_count: unstableCount(kp.kpId),
-    note: String(currentPersonal?.kp?.[kp.kpId]?.comment || '')
-  }));
+    note: String(currentPersonal?.kp?.[kp.kpId]?.comment || ''),
+    memory_binding: coreCard ? {
+      core_card_id: String(coreCard.id || ''),
+      source_hash: String(coreCard.sourceHash || ''),
+      precision_card_ids: precisionCards.map((card) => String(card.id || '')).filter(Boolean)
+    } : null
+  };
+  });
 
-  const blockCardIds = new Set(Object.values(memory.cards || {})
-    .filter((card) => String(card?.blockId || '') === String(packetMeta.blockId || ''))
-    .map((card) => String(card.id || '')));
+  const blockCardIds = new Set(blockMemoryCards.map((card) => String(card.id || '')));
   const belongsToBlock = (task) => String(task?.blockId || '') === String(packetMeta.blockId || '')
     || kpRows.some((kp) => kp.kpId === String(task?.kpId || ''));
 
@@ -121,6 +145,7 @@ export function buildXizongStudyPacketFromStorage({
       id: card.id,
       family: card.family,
       kp_id: card.kpId,
+      source_hash: card.sourceHash || '',
       weak_weight: card.weakWeight,
       review_requested: card.reviewRequested
     }));
@@ -143,6 +168,7 @@ export function buildXizongStudyPacketFromStorage({
       priority: task.priority,
       origin: task.origin,
       source_question_ids: task.sourceQuestionIds || [],
+      created_at: task.createdAt || '',
       block_href: task.blockHref || '',
       return_href: task.returnHref || ''
     }));
