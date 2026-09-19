@@ -112,7 +112,7 @@ Learning Logic construction
 
 Do not copy D topology for symmetry. Do not infer official-question membership from accepted K.
 
-## F｜Remaining Clinical — K CANDIDATE / INDEPENDENT ACCEPTANCE NEXT
+## F｜Remaining Clinical — K CANDIDATE / PAUSED UNTIL E CONTENT CLOSURE
 
 F Current identity has now been reconciled to **9 Blocks / 121 KP**.
 
@@ -133,7 +133,7 @@ The old 12-Block transition Guide is not Current F identity; its first three phy
 
 Approved original/current Lecture sources were re-bound from the user's File Library by title/page locator. F6 postoperative timing and the F8 P270 matrix are now Source-verified. Narrow exact gaps remain in F1/F2/F3/F4/F9 and must stay fail-closed.
 
-F Knowledge reconstruction is complete at candidate level. The candidate uses a disturbance-control-recovery network plus a deliberately low-connectivity F9 tail. Independent K acceptance is the next gate; do not begin F Learning before K PASS.
+F Knowledge reconstruction is complete at candidate level. The candidate uses a disturbance-control-recovery network plus a deliberately low-connectivity F9 tail. Independent K acceptance remains the next F gate, but **F is intentionally paused until E completes its full medical-content chain**. This restores one-System-at-a-time semantic focus after the E/F builder phase. Do not begin F Learning before both E content closure and F K PASS.
 
 ---
 
@@ -292,8 +292,10 @@ Do not reopen the generation standard unless fresh evidence shows the shared met
 
 ```text
 Medical:
-E Learning Logic construction = active content priority
-+ D scoped Projection may proceed independently downstream
+E Learning Logic construction = sole active medical-content priority
+→ finish E independent L + Content + fresh Content closure
+→ then resume F at fresh independent K acceptance
+D scoped Projection may proceed independently downstream only when it does not consume E/F semantic attention
 
 Questions:
 Crosswalk C2 batches
@@ -355,11 +357,14 @@ E S1 PASS
 → independent L acceptance
 → Content
 
-PARALLEL MEDICAL
+NEXT MEDICAL AFTER E CLOSURE
 F 9 Blocks / 121 KP
 → S1 PASS after Source rebind
 → K candidate built
-→ independent K acceptance next
+→ PAUSED while E finishes
+→ then fresh independent K acceptance
+→ Learning
+→ Content
 
 QUESTIONS
 Current trusted System-question entry = A1 / A2 / A3 only
