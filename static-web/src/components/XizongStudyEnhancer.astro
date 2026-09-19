@@ -221,9 +221,10 @@ const packetMeta = {
       }
     };
 
-    window.addEventListener('kianos:xizong-pending-chat-return', (event) => {
-      const targetObject = event instanceof CustomEvent ? String(event.detail?.object_id || '') : '';
-      if (targetObject && targetObject !== objectId) return;
+    window.addEventListener('kianos:private-control-consumed', (event) => {
+      const detail = event instanceof CustomEvent ? event.detail : null;
+      if (detail?.fresh !== true || detail?.target !== 'xizong.chat_return') return;
+      if (!['APPLIED','IDEMPOTENT'].includes(String(detail?.status || ''))) return;
       consumePendingReturn();
     });
     window.setTimeout(consumePendingReturn, 0);
