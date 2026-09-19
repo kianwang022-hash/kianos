@@ -11,6 +11,7 @@ export const POLITICS_CHAT_RETURN_PREFIX = 'kianos-politics-chat-return-v1:';
 export const POLITICS_CHAT_RETURN_LATEST_KEY = 'kianos-politics-chat-return-latest-v1';
 
 const ACTIONS = new Set(['SOURCE_RETURN', 'RETEST', 'DISCUSS', 'MEMORY_CANDIDATE']);
+const SUBJECTS = new Set(['all', 'marxism', 'history', 'mao', 'xi', 'ethics_law']);
 const PRACTICE_KEY_SET = new Set(Object.values(PRACTICE_KEYS));
 const clone = (value) => value == null ? value : JSON.parse(JSON.stringify(value));
 const record = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -97,6 +98,7 @@ function normalizeScope(value) {
   if (!['all', 'today', 'discussion', 'problems'].includes(filter)) {
     throw new Error('POLITICS_CHAT_RETURN_SCOPE_FILTER_INVALID');
   }
+  if (!SUBJECTS.has(subject || 'all')) throw new Error('POLITICS_CHAT_RETURN_SCOPE_SUBJECT_INVALID');
   return { filter, subject: subject || 'all' };
 }
 
@@ -219,7 +221,8 @@ export function readPoliticsChatReturn(storage, batchId = null) {
 }
 
 export function applyPoliticsChatReturn(storage, catalog, input, {
-  now = Date.now()
+  now = Date.now(),
+  expectedDay = new Date(now).toLocaleDateString('en-CA')
 } = {}) {
   if (!storage?.getItem || !storage?.setItem) throw new Error('POLITICS_CHAT_RETURN_STORAGE_UNAVAILABLE');
   const snapshot = readPoliticsSnapshot(storage);
@@ -227,6 +230,7 @@ export function applyPoliticsChatReturn(storage, catalog, input, {
 
   const scope = normalizeScope(input?.scope);
   const day = clean(input?.study_day, 20);
+  if (!day || day !== expectedDay) throw new Error('POLITICS_CHAT_RETURN_STALE_DAY');
   const currentPacket = politicsReviewPacket(catalog, snapshot, {
     day,
     filter: scope.filter,
