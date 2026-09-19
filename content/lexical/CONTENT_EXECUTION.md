@@ -283,6 +283,63 @@ A fallback must stay bounded and must not silently become the default for the re
 
 This section changes **transport only**. It does not reduce fresh-read coverage, the self-adversarial pass, Human Gate scope, Independent Audit coverage, or final readback requirements.
 
+
+## 5B. Final Mutation Executor — mechanical candidate landing
+
+After Human approval and fresh Independent Audit/reconciliation have produced a final semantic decision, the semantic Chat should stop hand-writing GitHub files one by one.
+
+The normal mechanical handoff is:
+
+```text
+A/C final semantic reconciliation
+→ content/lexical/execution/final-mutation-package.json
+→ Lexical Apply Final Mutation Package workflow
+→ exact stale-hash checks
+→ apply only declared Word / Relation / Test / receipt JSON mutations
+→ rebuild all 7,946 Final Learner Objects
+→ bounded lexical validation
+→ mechanical receipt
+→ commit candidate branch
+→ PR / final merge remains an explicit Chat/human landing decision
+```
+
+Authority boundary:
+
+- the executor has **zero semantic authority**;
+- it cannot invent, expand, narrow, rerank or reinterpret lexical content;
+- it only executes the exact package emitted after semantic decision;
+- it never merges `main`.
+
+Hard guards:
+
+1. execution is allowed only on `work/lexical-continuous-*` branches;
+2. the package request commit must change only `content/lexical/execution/final-mutation-package.json`;
+3. `source_head` must equal that request commit's parent;
+4. the live board must name the same candidate as the serialized frontier;
+5. frontier state must be one of `MATERIALIZE_ALLOWED / RECONCILE_ALLOWED / AUDIT_CORRECTION_ALLOWED`;
+6. the package must record the Human Gate approval reference;
+7. every existing file mutation carries the exact pre-write SHA256; drift is `STALE_FILE` and fails closed;
+8. new Relation files must be declared as expected-absent and must satisfy the deterministic Relation path hash;
+9. numeric array-index patching is forbidden; the package replaces complete named semantic fields/arrays so identity is reviewable;
+10. write scope is restricted to Lexical Word / Relation / Repair-Test / JSON receipt owners;
+11. Word identity/lifecycle and Relation reciprocal-view integrity are checked mechanically;
+12. Relation manifest count must equal the physical Relation owner count after mutation;
+13. Final Learner Object closure must remain exactly 7,946;
+14. the one-shot package file is removed after execution and a durable mutation receipt is preserved;
+15. `main_merge_authorized=false` remains in the receipt. Final merge is deliberately outside the executor.
+
+Package example:
+`content/lexical/execution/final-mutation-package.example.json`
+
+Executor:
+`tools/lexical_apply_final_mutation_package.py`
+
+Workflow:
+`.github/workflows/lexical-apply-final-mutation-package.yml`
+
+This is the preferred post-reconciliation write path. Direct per-file Chat writes remain a bounded fallback only when the executor itself is broken or the required mutation is outside its declared safe capability.
+
+
 ---
 
 ## 6. Continuation without a long Chat
