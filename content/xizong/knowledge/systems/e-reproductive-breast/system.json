@@ -180,7 +180,7 @@
   "mental_model": {
     "shape": "TWO_COUPLED_TRUNKS_WITH_LOCAL_BRANCHES",
     "control_time_trunk": "controller signal → gonadal cell/gamete output → cyclic target state → pregnancy relay → lactation production/ejection",
-    "tissue_identity_trunk": "normal compartment/lineage → displacement/metaplasia/hyperplasia/clonal change → barrier or stromal breach → local/regional/distant spread → evidence/stage/receptor → treatment objective",
+    "tissue_identity_trunk": "normal compartment/lineage → location/type/growth/flow-state change → separately assess barrier or stromal breach and local/regional/distant dissemination → evidence/stage/receptor → treatment objective",
     "coupling_rule": "Hormones and life stage alter tissue state and risk, but do not erase organ/lineage-specific disease identity. Do not force every pathology onto one endocrine causal chain."
   },
   "core_variables": [
@@ -206,7 +206,7 @@
     },
     {
       "id": "BARRIER_INVASION",
-      "meaning": "surface/basement membrane/stroma/myometrium/vessel or other structural boundary intact vs breached"
+      "meaning": "surface/basement membrane/stroma/myometrium/vessel or other structural boundary intact vs breached; assessed separately from metastatic competence"
     },
     {
       "id": "TRANSPORT_DRAINAGE",
@@ -230,6 +230,7 @@
     "Cycle and pregnancy questions require explicit time order: withdrawal/recruitment/dominance/ovulation/luteal state/hCG relay/placental takeover.",
     "Normal tissue identity is the reference frame for pathology: location change, cell-type change, hyperplasia, atypia and invasion are different operations.",
     "Barrier or stromal breach changes disease identity more decisively than many surface labels; full clinical staging is owned only where Current Source supports it.",
+    "Barrier/stromal breach and metastatic competence are separate variables: local invasion does not itself imply regional or distant spread; E6 invasive mole is the explicit Current counterexample.",
     "Tumor classification begins with organ/tissue lineage, then morphology/marker/receptor/evidence; it must not be collapsed into one generic tumor table.",
     "Milk production, milk ejection and milk drainage are three distinct variables; stasis plus infection changes the problem to source control.",
     "Breast cancer progresses across pathology identity (E12), clinical extent/evidence/receptor identity (E13) and treatment objective (E14); those owners should connect without duplicating one another.",
