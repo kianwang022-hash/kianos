@@ -69,7 +69,6 @@ jobs:
         run: |
           node scripts/test-private-control-relay.mjs
           node scripts/test-daily-learning-packet.mjs
-          node scripts/test-private-daily-learning-packet.mjs
           node scripts/test-private-daily-learning-packet-relay.mjs
           node scripts/test-private-daily-learning-packet-bridge.mjs
           node scripts/test-english-generated-daily-packet.mjs
@@ -81,6 +80,10 @@ jobs:
       - name: Install runtime
         working-directory: static-web
         run: npm install --no-audit --no-fund
+
+      - name: Private packet projection proof
+        working-directory: static-web
+        run: node scripts/test-private-daily-learning-packet.mjs
 
       - name: Build candidate site
         working-directory: static-web
