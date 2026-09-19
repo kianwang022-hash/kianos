@@ -18,7 +18,7 @@ const json=(res,status,value)=>{
   res.end(JSON.stringify(value));
 };
 
-export function privateExternalReadingBridge(){
+export function privateExternalReadingBridge(options = {}){
   return{
     name:'kianos-private-external-reading-bridge',
     apply:'serve',
@@ -32,7 +32,7 @@ export function privateExternalReadingBridge(){
           return json(res,405,{status:'method_not_allowed'});
         }
         try{
-          const state=ensureExternalReadingPrivateBundle();
+          const state=ensureExternalReadingPrivateBundle(options);
           if(url.pathname===ROOT+'/status'||url.pathname===ROOT+'/catalog'){
             const catalog=externalReadingCatalog(state);
             return json(res,catalog.status==='ready'?200:catalog.status==='missing_source'?404:503,catalog);
