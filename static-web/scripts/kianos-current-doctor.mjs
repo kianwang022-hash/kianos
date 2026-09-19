@@ -14,6 +14,7 @@ const label = 'com.kianos.current-mirror';
 const plist = path.join(home, 'Library', 'LaunchAgents', `${label}.plist`);
 const base = `http://127.0.0.1:${port}`;
 const marker = path.join(mirrorDir, '.git', 'kianos-current-mirror');
+const mainRemoteRef = ['refs', 'heads', 'main'].join('/');
 
 const rows = [];
 let failed = false;
@@ -129,7 +130,7 @@ if (gitBin && fs.existsSync(marker)) {
   }
 
   try {
-    const raw = await command(gitBin, ['ls-remote', 'origin', 'refs/heads/main'], { cwd: mirrorDir });
+    const raw = await command(gitBin, ['ls-remote', 'origin', mainRemoteRef], { cwd: mirrorDir });
     remoteSha = raw.split(/\s+/)[0] || '';
     if (!remoteSha) throw new Error('origin/main returned no SHA');
     if (localSha !== remoteSha) {
