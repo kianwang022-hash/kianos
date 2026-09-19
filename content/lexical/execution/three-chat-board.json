@@ -150,40 +150,25 @@
     "C": {
       "role": "PRODUCTION_LOOKAHEAD",
       "current_assignment": {
-        "candidate_id": "BF11",
+        "candidate_id": "BF10",
         "range": [
-          1101,
-          1150
+          1001,
+          1100
         ],
-        "state": "WAITING_BOUNDED_HUMAN_DELTA_GATE",
-        "review_head": "39e522540033804d9dd37e15ce9002853a6abf85",
-        "review_branch": "work/lexical-final-backfill-c-o1101-o1150",
-        "proposal_pr": 538,
-        "proposal_head": "12950389375d96d59ef2815c73589f7d3019443c",
-        "proposal_path": "content/lexical/execution/manifests/o1101-o1150.final-standard-backfill-c-proposal.md",
-        "module_matrix_path": "content/lexical/execution/manifests/o1101-o1150.final-standard-backfill-c-module-matrix.tsv",
-        "fresh_read_coverage": "50/50",
-        "self_attack": "COMPLETE",
-        "content_upgrades": 12,
-        "content_no_change": 38,
-        "blocked": 0,
-        "new_material_delta_owners": [
-          1116,
-          1133,
-          1148,
-          1150
+        "state": "READ_ONLY_PRODUCTION_ALLOWED",
+        "allowed_now": [
+          "freeze current main and export review bundle",
+          "fresh owner/module judgment",
+          "same-Chat Self-Adversarial Attack",
+          "write stabilized proposal/handoff metadata",
+          "request bounded Human delta Gate if genuinely new material scope exists"
         ],
-        "old_test_blueprints": 16,
-        "stabilized_test_blueprints": 9,
-        "canonical_semantic_mutation": false,
-        "shared_write_set_if_approved": [
-          "word:cozy@o5739",
-          "existing regional-spelling relation cosy↔cozy (retire/migrate to Form/Identity)",
-          "existing relation crazy↔mad (register/source-definition reconciliation)"
+        "forbidden_now": [
+          "mutate canonical Word/Relation/Form truth before frontier advances to this batch",
+          "materialize stale FLOB candidate",
+          "self-audit"
         ],
-        "semantic_freshness_note": "main advanced from review_head to 7ec3f81c, but the diff touched only the live board plus Xizong files; no lexical Word/Relation/Form owner or Lexical semantic contract in this proposal changed. Proposal remains current; refreeze semantic dependencies again at materialization.",
-        "semantic_dependency_policy": "Before approval consumption/materialization, refresh latest main, board, other-lane claims, and all related Word/Sense/Family/Form/Construction/Relation/Test dependencies; emit exact semantic_dependency_read_set in the mutation package.",
-        "next_action": "Kian reviews only the four genuinely new material deltas in the proposal. On p, mark DELTA_APPROVED_WAIT_FOR_FRONTIER. Do not materialize until BF11 is the serialized frontier."
+        "semantic_dependency_policy": "Before proposal freeze, inspect shared_semantic_claims and other producer dependencies; before any later materialization, refreeze latest main and emit exact semantic_dependency_read_set."
       },
       "scheduled_ranges": [
         [
@@ -212,8 +197,8 @@
         ]
       ],
       "next_new_review_range": [
-        1001,
-        1100
+        901,
+        1000
       ],
       "direction_note": "Preserve completed o0201-o0300 lookahead; all new C review proceeds high→low.",
       "preserved_assignments": [
@@ -242,6 +227,50 @@
           "semantic_freshness_note": "main advanced after freeze, but comparison from review_head to current main showed no Word/Relation/Form/lexical-contract changes in o0201-o0300 scope; refreeze again when BF02 reaches frontier.",
           "next_action": "Wait for BF02 to become the serialized frontier. Then refreeze latest main, reconcile changed/shared owners only, apply the stabilized proposal, materialize Final Learner Objects, and hand to a fresh B Chat for blind-first Independent Semantic Audit.",
           "semantic_dependency_policy": "Before frontier materialization, refreeze all related Word/Sense/Family/Form/Construction/Relation/Test dependencies and emit exact semantic_dependency_read_set in the mutation package."
+        },
+        {
+          "candidate_id": "BF11",
+          "range": [
+            1101,
+            1150
+          ],
+          "state": "DELTA_APPROVED_WAIT_FOR_FRONTIER",
+          "review_head": "39e522540033804d9dd37e15ce9002853a6abf85",
+          "review_branch": "work/lexical-final-backfill-c-o1101-o1150",
+          "proposal_pr": 538,
+          "proposal_head": "fb08729bb4087f701112d94ac34e56819dcb525e",
+          "proposal_path": "content/lexical/execution/manifests/o1101-o1150.final-standard-backfill-c-proposal.md",
+          "module_matrix_path": "content/lexical/execution/manifests/o1101-o1150.final-standard-backfill-c-module-matrix.tsv",
+          "fresh_read_coverage": "50/50",
+          "self_attack": "COMPLETE",
+          "content_upgrades": 12,
+          "content_no_change": 38,
+          "blocked": 0,
+          "new_material_delta_owners": [
+            1116,
+            1133,
+            1148,
+            1150
+          ],
+          "old_test_blueprints": 16,
+          "stabilized_test_blueprints": 9,
+          "canonical_semantic_mutation": false,
+          "shared_write_set_if_approved": [
+            "word:cozy@o5739",
+            "existing regional-spelling relation cosy↔cozy (retire/migrate to Form/Identity)",
+            "existing relation crazy↔mad (register/source-definition reconciliation)"
+          ],
+          "semantic_freshness_note": "main advanced from review_head to 7ec3f81c, but the diff touched only the live board plus Xizong files; no lexical Word/Relation/Form owner or Lexical semantic contract in this proposal changed. Proposal remains current; refreeze semantic dependencies again at materialization.",
+          "semantic_dependency_policy": "Before approval consumption/materialization, refresh latest main, board, other-lane claims, and all related Word/Sense/Family/Form/Construction/Relation/Test dependencies; emit exact semantic_dependency_read_set in the mutation package.",
+          "next_action": "Wait until BF11 is the serialized frontier. Then rerun the synchronization barrier, refreeze latest main and semantic dependencies, reconcile shared claims, emit the Final Mutation Package, materialize 7,946 Final Learner Objects, and hand to a fresh B Chat for blind-first Independent Semantic Audit.",
+          "human_gate": {
+            "approved": true,
+            "approved_at": "2026-09-19",
+            "approval_ref": "Kian p on o1101-o1150 Production C proposal",
+            "proposal_path": "content/lexical/execution/manifests/o1101-o1150.final-standard-backfill-c-proposal.md",
+            "proposal_blob_sha": "cda15b42cc78270baac48db66464f7b98599e1e2",
+            "sync_main_head": "e372c70eefedb4768247faef4198883afa698425"
+          }
         }
       ]
     }
