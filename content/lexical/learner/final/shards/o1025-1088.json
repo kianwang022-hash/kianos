@@ -331,7 +331,7 @@
     "ordinal": 1028,
     "word": "console",
     "source_owner_path": "content/lexical/words/by-ordinal/o1028.json",
-    "source_fingerprint": "07d9e05c1a902d6567adf1e8e1fc72c444d7f1e1c4c3e58b513f14262006bdfe",
+    "source_fingerprint": "b1ab38afa722d614c1fcf2677efb16b89cc4e4f5f7371ee63d932fc2f251a624",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -341,13 +341,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "安慰；控制台",
-      "decision_cn": "",
+      "summary_cn": "两个同形但来源不同的词：verb console = 安慰；noun console = 控制台/游戏机",
+      "decision_cn": "verb conSOLE → console someone；noun CONsole → game/control console。词性和重音一起选义。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "安慰；控制台"
+        "target_label": "两个同形但来源不同的词：verb console = 安慰；noun console = 控制台/游戏机"
       }
     },
     "senses": [
@@ -443,7 +443,43 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "console",
+            "condition": "verb: comfort",
+            "note": "动词重音在第二音节：conSOLE。"
+          },
+          {
+            "surface": "console",
+            "condition": "noun: control/game unit",
+            "note": "名词重音在第一音节：CONsole。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "console (verb)",
+            "ipa": "/kənˈsoʊl/"
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "console (noun)",
+            "ipa": "/ˈkɑːnsoʊl/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -878,7 +914,7 @@
     "ordinal": 1033,
     "word": "constituent",
     "source_owner_path": "content/lexical/words/by-ordinal/o1033.json",
-    "source_fingerprint": "42ccc4d3810bf53d3b5985c27b83ccdadcb8d09ae8544d1310283c12bca84ca8",
+    "source_fingerprint": "dc14f3d8febde68b9ddeaae82d8be57bb2a6613fa52e2adb3cc9c2cb981edbf8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -888,13 +924,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "构成部分或选民",
-      "decision_cn": "",
+      "summary_cn": "构成更大整体的一个成员/部分：在人群中可指选民，在结构中可指组成成分，在语法中可指句法成分",
+      "decision_cn": "district → constituent = 被代表的选民；whole/system → constituent part = 组成部分；grammar → constituent = 构成更大句法结构的成分。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "构成部分或选民"
+        "target_label": "构成更大整体的一个成员/部分：在人群中可指选民，在结构中可指组成成分，在语法中可指句法成分"
       }
     },
     "senses": [
@@ -1375,23 +1411,23 @@
     "ordinal": 1037,
     "word": "construct",
     "source_owner_path": "content/lexical/words/by-ordinal/o1037.json",
-    "source_fingerprint": "4870d9033035c81ed82ff8735ca81d052adda4a15bd918d88a38dccfc6e56161",
+    "source_fingerprint": "9408307c2dafc2ffe078218c2a00702a634d0308210e59f474e3744b800db0d4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(2+1)V",
+        "2V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "建造；构建",
-      "decision_cn": "",
+      "summary_cn": "把部分组织起来形成一个整体：动词可建造实体或构建理论；名词 construct 是被构造出的概念/理论对象",
+      "decision_cn": "verb conSTRUCT → construct a bridge/argument；noun CONstruct → a social/theoretical construct。词性改变重音。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "建造；构建"
+        "target_label": "把部分组织起来形成一个整体：动词可建造实体或构建理论；名词 construct 是被构造出的概念/理论对象"
       }
     },
     "senses": [
@@ -1506,27 +1542,48 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:construct:8153018d8b8e02a6",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "构思；构建（理论、论点等）",
-        "definition_en": "to create something such as a theory or argument by putting ideas together",
-        "pattern": "construct an argument/theory",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:construct:8153018d8b8e02a6",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "构思；构建（理论、论点等）"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "construct",
+            "condition": "verb",
+            "note": "动词重音在第二音节：conSTRUCT。"
+          },
+          {
+            "surface": "construct",
+            "condition": "noun",
+            "note": "名词重音在第一音节：CONstruct。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "construct (verb)",
+            "ipa": "/kənˈstrʌkt/"
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "construct (noun)",
+            "ipa": "/ˈkɑːnstrʌkt/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -2137,7 +2194,7 @@
     "ordinal": 1043,
     "word": "contagious",
     "source_owner_path": "content/lexical/words/by-ordinal/o1043.json",
-    "source_fingerprint": "32c3c8027aae9245904a88712fb49dd261ef095af86b4a3b9cfb0f8b96a93ea2",
+    "source_fingerprint": "526691620d8367523d4bce6dbcb8644c7b07047ac7d4bd86b9fa0268b9426d76",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2146,13 +2203,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "易传播的，接触传染的",
-      "decision_cn": "",
+      "summary_cn": "容易从一个人/个体传播给另一个人的；也可比喻情绪、笑声、热情等迅速感染他人",
+      "decision_cn": "contagious 强调“在人或群体间传播”；infectious 更宽，可强调由感染性病原体引起/具有感染性。日常疾病语境两词会有重叠，但不是完全等价。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "易传播的，接触传染的"
+        "target_label": "容易从一个人/个体传播给另一个人的；也可比喻情绪、笑声、热情等迅速感染他人"
       }
     },
     "senses": [
@@ -2183,28 +2240,15 @@
             "repair": null
           },
           {
-            "id": "collocation:5ca1779a74d3370054c4",
-            "source_locator": "record.senses[0].collocations[2]",
-            "phrase": "contagious vs infectious",
-            "meaning_cn": "contagious concerns spread between people; infectious concerns infection or disease-causing agents",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5ca1779a74d3370054c4",
-              "target_locator": "record.senses[0].collocations[2]",
-              "target_label": "contagious vs infectious"
-            }
-          },
-          {
             "id": "collocation:4fe658ad3edf012dc67a",
-            "source_locator": "record.senses[0].collocations[3]",
+            "source_locator": "record.senses[0].collocations[2]",
             "phrase": "contagious laughter/enthusiasm",
             "meaning_cn": "有感染力的笑声/热情",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:4fe658ad3edf012dc67a",
-              "target_locator": "record.senses[0].collocations[3]",
+              "target_locator": "record.senses[0].collocations[2]",
               "target_label": "contagious laughter/enthusiasm"
             }
           }
@@ -2221,7 +2265,33 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "contagious ↔ infectious",
+          "target_word": "infectious",
+          "lines": [
+            {
+              "text": "contagious 强调疾病、行为或情绪在人/个体之间传播；infectious 更强调由感染性病原体造成或具有感染能力。疾病语境存在重叠，但两词关注点不同。",
+              "lang": "cn"
+            },
+            {
+              "text": "contagious = spread between people/individuals；infectious = capable of causing/spreading infection。",
+              "lang": "en"
+            },
+            {
+              "text": "capable of spreading from one host/person to another",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:semantic_contrast:contagious-infectious",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "contagious ↔ infectious"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }
@@ -2232,7 +2302,7 @@
     "ordinal": 1044,
     "word": "contain",
     "source_owner_path": "content/lexical/words/by-ordinal/o1044.json",
-    "source_fingerprint": "beb568d5e346815b84be080392455e89313777c30e80f889afcd218536fab3e3",
+    "source_fingerprint": "b93ce88e691ac15a7d4cbb0c3c1213ed24ba1b634c76efb883c7cae68b72a6c6",
     "sense_lineage": [
       {
         "word_id": "word:contain",
@@ -2249,13 +2319,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "包含；控制",
-      "decision_cn": "",
+      "summary_cn": "把某物保持在边界之内：可表示内部包含，也可表示把火势、情绪、扩散等控制在范围内",
+      "decision_cn": "container contains X → 内含；contain a fire/outbreak → 遏制扩散；contain oneself → 克制自己。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "包含；控制"
+        "target_label": "把某物保持在边界之内：可表示内部包含，也可表示把火势、情绪、扩散等控制在范围内"
       }
     },
     "senses": [
@@ -2315,14 +2385,6 @@
             "meaning_cn": "控制火势",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:da8f66193ff89d31be53",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "contain oneself",
-            "meaning_cn": "克制自己",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -2336,18 +2398,18 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "construction:aa0848475dd3fdfbe80f",
+        "id": "construction:contain:baseline-v2-oneself",
         "source_locator": "record.constructions[0]",
         "pattern": "contain oneself",
         "lines": [
           {
-            "text": "克制自己；自制",
+            "text": "克制自己的情绪或反应",
             "lang": "cn"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:aa0848475dd3fdfbe80f",
+          "target_id": "construction:contain:baseline-v2-oneself",
           "target_locator": "record.constructions[0]",
           "target_label": "contain oneself"
         }
@@ -2973,7 +3035,7 @@
     "ordinal": 1050,
     "word": "content",
     "source_owner_path": "content/lexical/words/by-ordinal/o1050.json",
-    "source_fingerprint": "b9a392416c01e712a33c43a7e3dc400e224516fe458ffe0a723a75573906b48f",
+    "source_fingerprint": "b7eee3ce1ed6e9f73f42b2395d0af2b751d00208deb8e846e0a51504ee95aeb1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2984,13 +3046,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "内容；满足",
-      "decision_cn": "",
+      "summary_cn": "两个读音分支：CONtent = 内容/含量；conTENT = 满足的、使满足",
+      "decision_cn": "noun CONtent → article content/fat content；adjective/verb conTENT → be content with / content oneself with。词性决定重音和意义。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "内容；满足"
+        "target_label": "两个读音分支：CONtent = 内容/含量；conTENT = 满足的、使满足"
       }
     },
     "senses": [
@@ -3141,7 +3203,44 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "content",
+            "condition": "noun: material/amount",
+            "note": "名词重音在第一音节：CONtent。"
+          },
+          {
+            "surface": "content",
+            "condition": "adjective/verb: satisfied/make satisfied",
+            "note": "形容词/动词重音在第二音节：conTENT。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "content (noun)",
+            "ipa": "/ˈkɑːntent/"
+          },
+          {
+            "pos": [
+              "adjective",
+              "verb"
+            ],
+            "reading": "content (adjective/verb)",
+            "ipa": "/kənˈtent/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },

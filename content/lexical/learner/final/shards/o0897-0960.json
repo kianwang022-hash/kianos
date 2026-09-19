@@ -7384,7 +7384,7 @@
     "ordinal": 956,
     "word": "comply",
     "source_owner_path": "content/lexical/words/by-ordinal/o0956.json",
-    "source_fingerprint": "1dd7cd5aab91187dffd80973500c8c34a57fe449d3ef3b80559f75b7b70e18dc",
+    "source_fingerprint": "d4c1312e7e4f6866807a62fba1117b163c4295011ab3d5794b44e2aacb7c9389",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7394,7 +7394,7 @@
     },
     "word_feel": {
       "summary_cn": "遵从；服从",
-      "decision_cn": "",
+      "decision_cn": "comply 不直接接规则作宾语；常用 comply with + rule/request/requirement，表示让自己的行为符合外部要求。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7414,21 +7414,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:405a1e8d5728f93525cc",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "comply with + sth",
-            "meaning_cn": "遵守；服从",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:405a1e8d5728f93525cc",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "comply with + sth"
-            }
-          },
-          {
             "id": "collocation:0770b14021df8d450d0e",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "comply with the rules",
             "meaning_cn": "遵守规则",
             "kind": "usage_example",
@@ -7446,28 +7433,20 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "deep:constructions:comply:155d93ea2c1fda61",
+        "id": "construction:comply:baseline-v2-with",
         "source_locator": "record.constructions[0]",
-        "pattern": "vi. + with",
+        "pattern": "comply with sth",
         "lines": [
           {
-            "text": "遵从；服从",
+            "text": "遵守、依照或服从规则、要求、标准等",
             "lang": "cn"
-          },
-          {
-            "text": "comply with + sth 遵守；服从",
-            "lang": "cn"
-          },
-          {
-            "text": "act in accordance with someone's rules, commands, or wishes",
-            "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "deep:constructions:comply:155d93ea2c1fda61",
+          "target_id": "construction:comply:baseline-v2-with",
           "target_locator": "record.constructions[0]",
-          "target_label": "vi. + with"
+          "target_label": "comply with sth"
         }
       }
     ],
