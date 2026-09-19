@@ -1,0 +1,359 @@
+{
+  "schema": "kianos.xizong.system_knowledge.v1",
+  "status": "CANDIDATE",
+  "semantic_authority": "CURRENT_BLOCK_RECONSTRUCTION_CANDIDATE",
+  "system_id": "remaining-clinical",
+  "canonical_id": "F",
+  "title": "Remaining Clinical / Cross-cutting Acute & Peri-intervention",
+  "identity": {
+    "block_count": 9,
+    "canonical_kp_count": 121,
+    "stable_block_ids": [
+      "F1",
+      "F2",
+      "F3",
+      "F4",
+      "F5",
+      "F6",
+      "F7",
+      "F8",
+      "F9"
+    ],
+    "block_identity_change": false,
+    "kp_identity_change": false,
+    "kp_split_merge_renumber": false,
+    "rule": "The nine Current canonical F Block owners and their 121 embedded KP identities are the reconstruction substrate. Knowledge reconstruction may compress and relate them but may not revive the historical 12-Block Guide topology or silently split/merge/renumber KP identity."
+  },
+  "ownership": {
+    "system_level_owner": "content/xizong/knowledge/systems/f-remaining-clinical/system.json",
+    "medical_core_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/",
+    "historical_system_guide": "content/xizong/knowledge/system-guides/西综剩余总论_独立模块_System_Guide_v1_完整导学_认知依赖与学习顺序.md",
+    "historical_guide_role": "REFERENCE_ONLY_FOR_SOURCE_COVERAGE_AND_RECONSTRUCTION_CLUES; OLD_12_BLOCK_ROUTE_NOT_CURRENT_IDENTITY_OR_LEARNING_AUTHORITY",
+    "source_receipt": "content/xizong/knowledge/learner/F_PHASE0_SOURCE_RECONSTRUCTION.md",
+    "learning_owner": "NOT_YET_ACCEPTED",
+    "question_truth_owner": "content/xizong/questions/",
+    "question_relation_owner": "content/xizong/question-relations/",
+    "rule": "System Knowledge owns cross-Block medical compression, boundaries and interfaces only. Canonical Block Markdown owns F medical Core. Learner order/readiness, Logic Groups and Source-contact choreography belong to later Learning."
+  },
+  "source_boundary": {
+    "reconstruction_basis": "nine Current canonical F Block owners + Phase-0 Source reconstruction + approved re-bound lecture titles/page locators",
+    "source_families": [
+      {
+        "id": "F-SRC-TOX",
+        "source": "内科学讲义_AI阅读版 / Current unified internal-medicine lecture",
+        "blocks": [
+          "F1",
+          "F2"
+        ],
+        "locator_summary": [
+          "F1: book P286–287 / sequence P287–288",
+          "F2: book P288–292 / sequence P289–293"
+        ]
+      },
+      {
+        "id": "F-SRC-SURG",
+        "source": "外科学讲义_AI阅读版.md + 27 外科跟课合集改.pdf",
+        "blocks": [
+          "F3",
+          "F4",
+          "F5",
+          "F6",
+          "F7",
+          "F8",
+          "F9"
+        ],
+        "locator_summary": [
+          "F3: book P228 / PDF P283",
+          "F4: book P200–202 / PDF P248–250",
+          "F5: book P211 / PDF P262",
+          "F6: book P211–215 / PDF P262–266",
+          "F7: book P216–217 / PDF P268–269",
+          "F8: book P217–220 / PDF P269–272",
+          "F9: book P229–230 / PDF P284–285"
+        ]
+      }
+    ],
+    "verified_rebind_closures": [
+      "F6 postoperative fever timing: 1–4 d vs 2–7 d wording verified from approved original surgery Source",
+      "F8 P270 nerve-block complication matrix re-bound to approved original surgery Source; exact visual pairing remains Source-owned"
+    ],
+    "bounded_exact_gaps": [
+      "F1 selected poison-manifestation exact mappings remain Source-bound and fail-closed",
+      "F2 delayed polyneuropathy / rebound exact wording remains Source-bound and fail-closed",
+      "F3 delayed-primary / secondary-closure taxonomy detail remains Source-limited; one source conflict remains explicit",
+      "F4 complete first-day burn-fluid coefficient / weight-area formula / intraday distribution remains Source-bound / visual-only",
+      "F9 complete laparoscopy complication list remains Source-bound"
+    ],
+    "explicit_absences": [
+      "complete modern clinical toxicology",
+      "modern burn-center triage / full grafting / scar rehabilitation",
+      "complete ERAS / ICU perioperative pathways",
+      "complete modern anesthesiology, difficult-airway algorithms, full monitoring/MAC/extubation curricula",
+      "ultrasound-guided regional anesthesia and complete LAST management",
+      "transplant surgery and complete immunosuppression",
+      "complete dermatopathology / soft-tissue oncology",
+      "complete pharmacology"
+    ],
+    "visual_rule": "When a current exam fact is genuinely spatial/table-dependent, original Source remains the visual truth. System Knowledge may encode the reasoning role but may not fabricate a complete visual table from model prior.",
+    "exact_gap_rule": "Bounded unresolved exact facts stay explicit and fail-closed. Their absence does not authorize deletion from scope or model backfill."
+  },
+  "mission": "Handle non-organ-specific acute disturbance and medical intervention by identifying the ongoing harmful input and immediate physiologic threat, stabilizing vital function, terminating or containing the disturbance, applying bounded specific control, then monitoring intervention risk and recovery deviation—while delegating organ-specific physiology/pathology to their real owners.",
+  "mental_model": {
+    "shape": "DISTURBANCE_CONTROL_RECOVERY_NETWORK_WITH_LOW_CONNECTIVITY_TAIL",
+    "disturbance_layer": "toxic exposure / contamination / open injury / thermal injury / surgery / anesthesia / procedure",
+    "threat_layer": "airway, ventilation/oxygenation, circulation/perfusion, consciousness/neuromuscular function, barrier/tissue integrity and organ reserve",
+    "control_layer": "stop exposure or contamination → stabilize life-threatening function → causal/specific control or safe procedure → organ support",
+    "intervention_risk_layer": "treatment itself can create new hazards: anesthesia depth/airway, blockade level, fluid strategy, wound closure, medication or procedural complications",
+    "recovery_layer": "expected time-course vs deviation → detect complication/source failure → escalate",
+    "tail_rule": "F9 is deliberately low-connectivity. Ownership splitting precedes any Micro Primary; its residual topics must not be forced into a fake unified mechanism."
+  },
+  "core_variables": [
+    {
+      "id": "URGENCY",
+      "meaning": "immediate life-saving, time-sensitive, or deferrable/optimizable action window"
+    },
+    {
+      "id": "DISTURBANCE_SOURCE",
+      "meaning": "ongoing toxic exposure, contamination, thermal injury, procedural/surgical intervention or other active perturbation"
+    },
+    {
+      "id": "EXPOSURE_OR_SOURCE_CONTROL",
+      "meaning": "whether the harmful input is still entering/remaining and what action terminates or contains it"
+    },
+    {
+      "id": "VITAL_THREAT_LAYER",
+      "meaning": "airway, ventilation/oxygenation, circulation/perfusion, consciousness/seizure/neuromuscular function, barrier/tissue failure"
+    },
+    {
+      "id": "PHYSIOLOGIC_RESERVE",
+      "meaning": "cardiopulmonary, renal, hepatic, hematologic, nutritional and metabolic ability to tolerate disturbance/intervention"
+    },
+    {
+      "id": "BARRIER_TISSUE_STATE",
+      "meaning": "contamination, devitalized tissue, burn depth/area, wound integrity and infection-source potential"
+    },
+    {
+      "id": "CONTROL_MODE",
+      "meaning": "decontamination, elimination, antidote, source control, supportive care, surgery/procedure or anesthetic technique"
+    },
+    {
+      "id": "INTERVENTION_SPACE_DEPTH",
+      "meaning": "where a procedure/drug acts and how its spatial/depth reach predicts benefit and complication, especially anesthesia"
+    },
+    {
+      "id": "IATROGENIC_RISK",
+      "meaning": "new risk introduced by treatment, anesthesia, fluids, procedure, wound closure or prolonged support"
+    },
+    {
+      "id": "TIME_PHASE",
+      "meaning": "acute exposure, early injury/resuscitation, preoperative, intra/intervention, postoperative/recovery timing"
+    },
+    {
+      "id": "RECOVERY_DEVIATION",
+      "meaning": "failure to follow expected recovery pattern, including fever, respiratory/circulatory deterioration, wound/drain abnormalities, urinary/GI recovery failure"
+    },
+    {
+      "id": "OWNER_BOUNDARY",
+      "meaning": "whether a fact is true F Primary vs Recall/Apply from another System vs explicit Source gap"
+    }
+  ],
+  "core_relations": [
+    "Immediate physiologic danger outranks etiologic certainty: stabilize airway/breathing/circulation/neurologic failure before perfect naming of the poison or complication.",
+    "Stopping ongoing exposure/contamination/source and supporting failed organs are different control layers; neither replaces the other.",
+    "Decontamination, elimination, antidote and support solve different parts of toxicologic failure and must not be collapsed.",
+    "Barrier/tissue injury severity requires separate axes such as extent, depth, contamination/devitalization and systemic effect; one number cannot replace the model.",
+    "Preoperative optimization is constrained by urgency: correct reversible risk without delaying a necessary time-sensitive operation indefinitely.",
+    "General anesthesia, analgesia, reflex suppression, muscle relaxation, airway/ventilation and hemodynamic support are distinct functions; immobility does not prove unconsciousness or analgesia.",
+    "For local/regional/neuraxial anesthesia, intervention space/depth predicts block extent and complications; geometry is part of the medical model, not decoration.",
+    "Postoperative interpretation depends on time + location + evidence; calendar thresholds are cues, not substitutes for clinical context.",
+    "F9 first splits ownership: already-owned liver/transplant/tumor truth is Recall/Apply, while only residual micro-topics become F Primary.",
+    "Cross-System physiology/pathology remains with its real owner; F owns the acute/intervention decision context in which that truth is applied."
+  ],
+  "failure_modes": [
+    {
+      "id": "FM1",
+      "label": "diagnosis-first delay",
+      "examples": [
+        "guess poison before stabilizing respiratory/circulatory failure",
+        "name complication before treating immediate danger"
+      ]
+    },
+    {
+      "id": "FM2",
+      "label": "control-layer collapse",
+      "examples": [
+        "confuse decontamination with elimination",
+        "treat antidote as replacement for organ support"
+      ]
+    },
+    {
+      "id": "FM3",
+      "label": "ongoing-source neglect",
+      "examples": [
+        "leave exposure/contamination/devitalized source active while treating downstream effects"
+      ]
+    },
+    {
+      "id": "FM4",
+      "label": "injury-axis collapse",
+      "examples": [
+        "use burn area as depth",
+        "use one wound label to replace contamination/tissue viability/systemic effect"
+      ]
+    },
+    {
+      "id": "FM5",
+      "label": "urgency-reserve mismatch",
+      "examples": [
+        "delay urgent surgery until every risk is ideal",
+        "ignore correctable reserve deficits in elective surgery"
+      ]
+    },
+    {
+      "id": "FM6",
+      "label": "anesthesia-component conflation",
+      "examples": [
+        "equate muscle relaxation with unconsciousness or analgesia",
+        "equate sedation with protected airway/ventilation"
+      ]
+    },
+    {
+      "id": "FM7",
+      "label": "intervention-space error",
+      "examples": [
+        "ignore block level/spread",
+        "fail to link neuraxial or plexus anatomy to hemodynamic/respiratory complications"
+      ]
+    },
+    {
+      "id": "FM8",
+      "label": "recovery-timeline error",
+      "examples": [
+        "label every early fever infection",
+        "ignore timing/location/evidence when evaluating postoperative deviation"
+      ]
+    },
+    {
+      "id": "FM9",
+      "label": "ownership-duplication",
+      "examples": [
+        "rebuild shock, infection, renal clearance, nutrition or tumor biology inside F",
+        "turn F9 editorial miscellany into one fake medical model"
+      ]
+    },
+    {
+      "id": "FM10",
+      "label": "source-overreach",
+      "examples": [
+        "fill F4 formula or F9 complication list from model prior",
+        "replace Current Study wording with modern specialty guidelines silently"
+      ]
+    },
+    {
+      "id": "FM11",
+      "label": "precision-without-model",
+      "examples": [
+        "memorize thresholds/formulas without knowing what variable they control",
+        "use a numeric rule outside its Source-bound scenario"
+      ]
+    }
+  ],
+  "judgment_axes": [
+    "What harmful input or intervention is active now?",
+    "What can kill or irreversibly harm the patient first?",
+    "Which action stops/contains the source, and which action merely supports consequences?",
+    "What causal/specific control is justified by Current Source?",
+    "How urgent is the intervention, and what reversible reserve deficits can be corrected without harmful delay?",
+    "Where does the intervention act anatomically/physiologically, and what complication follows from that space/depth?",
+    "What new risk is introduced by treatment itself?",
+    "Is the current course expected recovery or a time/location/evidence-defined deviation?",
+    "Which facts are F Primary versus Recall/Apply from another owner?",
+    "Is an exact Source fact verified, or must it remain fail-closed?"
+  ],
+  "block_families": [
+    {
+      "id": "F-K1",
+      "label": "acute toxic exposure",
+      "blocks": [
+        "F1",
+        "F2"
+      ],
+      "role": "general toxicologic control layers plus organophosphate/cholinergic mechanism-specific application"
+    },
+    {
+      "id": "F-K2",
+      "label": "contamination, wound and thermal barrier injury",
+      "blocks": [
+        "F3",
+        "F4"
+      ],
+      "role": "sterility/source control, tissue viability/closure, burn extent-depth-systemic effect and early resuscitation"
+    },
+    {
+      "id": "F-K3",
+      "label": "perioperative suitability and recovery",
+      "blocks": [
+        "F5",
+        "F6"
+      ],
+      "role": "urgency-constrained preoperative optimization and postoperative recovery/deviation recognition"
+    },
+    {
+      "id": "F-K4",
+      "label": "anesthesia and intervention space",
+      "blocks": [
+        "F7",
+        "F8"
+      ],
+      "role": "separate anesthetic functions, airway/ventilation support, muscle relaxation, local/neuraxial spatial blockade and complications"
+    },
+    {
+      "id": "F-K5",
+      "label": "low-connectivity residual micro-primary",
+      "blocks": [
+        "F9"
+      ],
+      "role": "ownership split first; laparoscopy and surface-lesion Micro Primary only where no earlier owner already exists"
+    }
+  ],
+  "external_interfaces": {
+    "inputs": [
+      "A1 circulation: shock, perfusion, hemodynamic instability and resuscitation language",
+      "A2 respiratory: airway, ventilation, hypoxemia/hypercapnia and respiratory-failure interfaces",
+      "A3 urinary: fluid/electrolyte, renal failure and blood-purification interfaces",
+      "B digestive/metabolic/endocrine: liver reserve, nutrition and stress-metabolism interfaces",
+      "C hematology/immunity/infection: transfusion, infection/source control, sepsis, tetanus/gas-gangrene and transplant-immunity interfaces",
+      "D neuro/sensory/motor/orthopedics: neuromuscular junction, neural conduction and trauma interfaces",
+      "tumor-general / organ tumor owners: cancer prevention, cancer pain and antitumor-drug concepts remain external-owner truth"
+    ],
+    "outputs": [
+      "cross-System acute deterioration reasoning: threat-first stabilization + source control + support",
+      "perioperative decision context reusable by organ-specific surgical disease",
+      "anesthesia spatial/risk language reusable by later clinical integration"
+    ],
+    "fine_grain_rule": "System-level interfaces are descriptive only. No external Block/KP becomes a hard prerequisite until later Learning independently proves that dependency."
+  },
+  "construction_boundary": {
+    "stage": "KNOWLEDGE_CANDIDATE",
+    "candidate_contains": [
+      "9-Block / 121-KP stable identity",
+      "Source families, rebind closures, bounded exact gaps and specialty negative space",
+      "fresh disturbance-control-recovery mother model",
+      "core variables/relations/failure modes/judgment axes",
+      "five descriptive Block families",
+      "coarse external-owner interfaces"
+    ],
+    "not_accepted_here": [
+      "hard prerequisite or default learner route",
+      "Logic Group decomposition",
+      "Source-contact granularity",
+      "first-pass choreography",
+      "Content optimization or wrapper changes",
+      "Projection/UI fields",
+      "Runtime/Evidence semantics",
+      "exact official F System question membership",
+      "learner progress/mastery"
+    ],
+    "next_stage": "FRESH_INDEPENDENT_K_ACCEPTANCE"
+  }
+}
