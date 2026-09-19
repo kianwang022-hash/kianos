@@ -6,14 +6,29 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:cater:baseline-v2-cater-for",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "为某人、活动或需求提供所需（英式表达尤常见）",
+        "pattern": "cater for sb/sth"
+      },
+      {
+        "construction_id": "construction:cater:baseline-v2-cater-to",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "针对并满足某类人的需求、兴趣或偏好；有时带“迎合”意味",
+        "pattern": "cater to sb/sth"
+      }
+    ],
     "content_hash": "104e0ca286a752e0b513198369d9732bf7727765bd3a3f91bcd6fca0c7beae91",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "提供饮食或服务，或满足需求",
-      "core_meaning_en": "provide food or service, or satisfy a need",
-      "mental_model_cn": "提供饮食或服务，或满足需求",
-      "mental_model_en": ""
+      "core_meaning_cn": "围绕特定对象准备并提供其所需：可提供餐饮/服务，也可按人群的需求或偏好调整",
+      "core_meaning_en": "to provide or adapt what is needed for an event, group, or audience",
+      "mental_model_cn": "cater for 强调“为…提供所需”（尤常见于英式表达）；cater to 强调“针对/满足某类人的需求或偏好”，语境中有时带“迎合”意味。",
+      "mental_model_en": "Use for/to and context to distinguish providing for needs from tailoring to an audience."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -25,15 +40,6 @@
     "senses": [
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:366eb48c27efda0dd593",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:cater:f47ffad22eed5b5e:collocation:0"
-            ],
-            "meaning_cn": "为活动提供饮食服务",
-            "phrase": "cater for + an event"
-          },
           {
             "collocation_id": "collocation:8c8f2e72846f06de0d9e",
             "exam_value": "usage_example",
@@ -59,15 +65,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:32480f6c1004a25ae120",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:cater:5197af55e865500e:collocation:0"
-            ],
-            "meaning_cn": "迎合某人/某事",
-            "phrase": "cater to + sb/sth"
-          },
-          {
             "collocation_id": "collocation:4f71b8e5f23b38f46b09",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -78,8 +75,8 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "满足需求，迎合",
-        "definition_en": "satisfy a need or demand",
+        "definition_cn": "满足、适应（某人的需求或兴趣）；语境中可有“迎合”意味",
+        "definition_en": "to provide for or adapt to the needs, interests, or tastes of a person or group",
         "governing_pattern": "vi. + to",
         "level": "L1",
         "needs_human_review": 0,
@@ -189,7 +186,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0713-0720.json",
     "source_content_hash": "104e0ca286a752e0b513198369d9732bf7727765bd3a3f91bcd6fca0c7beae91",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

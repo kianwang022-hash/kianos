@@ -6,7 +6,15 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:cave:baseline-v2-cave-in",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "在压力、要求或威胁下屈服、让步",
+        "pattern": "cave in (to sb/sth)"
+      }
+    ],
     "content_hash": "c12e0c5682b2f7c3a92af15e4e3c9ceaa28cb8482789cd92f27b39c2368e3e28",
     "core_concept": {
       "core_clusters": [
@@ -28,10 +36,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "洞穴；塌陷；挖洞",
-      "core_meaning_en": "a natural underground hollow; to collapse or hollow out",
-      "mental_model_cn": "洞穴；塌陷；挖洞",
-      "mental_model_en": ""
+      "core_meaning_cn": "洞穴；向内塌陷；由“塌下去”引申为在压力下屈服",
+      "core_meaning_en": "a cave; to collapse inward, or figuratively to give in under pressure",
+      "mental_model_cn": "literal cave in = 顶部/结构向内塌；figurative cave in (to pressure/demands) = 顶不住压力而让步。",
+      "mental_model_en": "The inward-collapse image links the physical and figurative give-in branches."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -76,15 +84,6 @@
       },
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:66911057066f133cb7f3",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:cave:99ddfab7e27c50ec:collocation:0"
-            ],
-            "meaning_cn": "塌陷；屈服",
-            "phrase": "cave in"
-          },
           {
             "collocation_id": "collocation:e72eb9b4e88de3302f34",
             "exam_value": "usage_example",
@@ -244,7 +243,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0721-0728.json",
     "source_content_hash": "c12e0c5682b2f7c3a92af15e4e3c9ceaa28cb8482789cd92f27b39c2368e3e28",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
