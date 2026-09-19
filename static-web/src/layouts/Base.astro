@@ -134,13 +134,24 @@ const currentStatusUrl = `${base}__kianos-current.json`;
     });
   })();
 
+  import { createCurrentRefreshPolicy } from '../lib/currentRefreshPolicy.mjs';
+
   (() => {
     if (!['127.0.0.1', 'localhost'].includes(window.location.hostname)) return;
     const url = document.body?.dataset.currentStatusUrl;
     if (!url) return;
 
-    let baselineSha = null;
+    const refreshPolicy = createCurrentRefreshPolicy();
     let reloading = false;
+
+    const reloadIfPending = () => {
+      if (reloading) return;
+      const decision = refreshPolicy.onForegroundReturn();
+      if (!decision.reload) return;
+      reloading = true;
+      window.location.reload();
+    };
+
     const pollCurrent = async () => {
       if (reloading) return;
       try {
@@ -148,21 +159,16 @@ const currentStatusUrl = `${base}__kianos-current.json`;
         if (!response.ok) return;
         const status = await response.json();
         if (status?.state !== 'synced' || typeof status?.sha !== 'string' || !status.sha) return;
-        if (baselineSha === null) {
-          baselineSha = status.sha;
-          return;
-        }
-        if (status.sha !== baselineSha) {
-          reloading = true;
-          window.location.reload();
-        }
+        refreshPolicy.observe(status.sha);
       } catch {}
     };
 
     void pollCurrent();
     window.setInterval(() => void pollCurrent(), 3000);
     document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'visible') void pollCurrent();
+      if (document.visibilityState !== 'visible') return;
+      reloadIfPending();
+      if (!reloading) void pollCurrent();
     });
   })();
 </script>
