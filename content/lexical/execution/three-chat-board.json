@@ -54,24 +54,33 @@
           301,
           400
         ],
-        "state": "REVIEW_BUNDLE_NEEDED",
-        "allowed_now": [
-          "freeze current main and export review bundle",
-          "fresh owner/module judgment",
-          "same-Chat Self-Adversarial Attack",
-          "write smallest stabilized proposal",
-          "request bounded Human delta Gate only if genuinely new material scope exists",
-          "after approval or no-delta freeze immediately continue to o0401-o0500"
+        "state": "WAITING_BOUNDED_HUMAN_DELTA_GATE",
+        "review_head": "4b91ee9d2efd7f47f9ff999c0a0680b7a50bbbe3",
+        "review_branch": "work/lexical-final-backfill-a-o0301-o0400",
+        "review_request_commit": "a4d6e3b85d897658cca6e96cf916f292070c1075",
+        "review_workflow_run": 35452826254,
+        "review_artifact_id": 10586689978,
+        "review_bundle_coverage": "100/100",
+        "proposal_commit": "ae7c5761c7f1a08843c3394cc14d0a9557d0ab2b",
+        "proposal_path": "content/lexical/execution/manifests/o0301-o0400.final-sweep-a-proposal.md",
+        "fresh_read_coverage": "100/100",
+        "self_attack": "COMPLETE",
+        "content_affected_owners": 22,
+        "content_no_change": 78,
+        "blocked": 0,
+        "new_material_delta_owners": [
+          333,
+          343,
+          349,
+          367,
+          368,
+          398
         ],
-        "forbidden_now": [
-          "canonical semantic materialization",
-          "FLOB rebuild",
-          "launch B audit",
-          "merge backfill candidate",
-          "invent a newer semantic standard"
-        ],
+        "old_test_blueprints": 20,
+        "stabilized_test_blueprints": 10,
+        "canonical_semantic_mutation": false,
         "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
-        "next_action": "Create/consume o0301-o0400 review bundle, perform Fresh Read + Self Attack, freeze proposal, then continue to o0401-o0500."
+        "next_action": "Kian reviews only the six genuinely new material deltas. On p, freeze BF03 into approved backlog and immediately advance A to o0401-o0500. Do not materialize during PRODUCTION_SWEEP_ONLY."
       },
       "bootstrap_integration": {
         "candidate_id": "BF00",
