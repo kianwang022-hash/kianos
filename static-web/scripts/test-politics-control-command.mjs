@@ -122,6 +122,11 @@ assert.ok(storage.getItem(POLITICS_CONTROL_RECEIPT_PREFIX + command.command_id))
 const replay = applyPoliticsControlCommand(storage, catalog, command, { expectedDay: day, now });
 assert.equal(replay.status, 'idempotent');
 
+assert.throws(() => applyPoliticsControlCommand(storage, catalog, {
+  ...command,
+  payload: { ...chatReturn, diagnosis_summary: 'same id but mutated command body' }
+}, { expectedDay: day, now }), /COMMAND_REPLAY_CONFLICT/);
+
 const staleCommand = {
   ...command,
   command_id: 'pcmd-stale',
