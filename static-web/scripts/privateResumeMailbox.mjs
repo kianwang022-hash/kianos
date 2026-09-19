@@ -4,6 +4,7 @@ import { preparePrivateSubjectCheckpointRestore } from '../src/lib/privateSubjec
 import { validatePrivateLearnerCheckpoint } from './privateLearnerStore.mjs';
 
 export const SUBJECT_RESUME_MAILBOX_SCHEMA='kianos.subject-resume-mailbox.v1';
+export const SUBJECT_RESUME_MAILBOX_TTL_MS=15*60*1000;
 
 const record=v=>v&&typeof v==='object'&&!Array.isArray(v);
 const clone=v=>v==null?v:JSON.parse(JSON.stringify(v));
@@ -74,5 +75,5 @@ export function buildSubjectResumeMailbox(input,{now=Date.now()}={}){
   const checkpoint=validatePrivateLearnerCheckpoint(input);
   const subjects=checkpoint.payload?.subjects||{};
   preparePrivateSubjectCheckpointRestore(new MemoryStorage(),subjects,{onlyIfEmpty:true});
-  return{schema:SUBJECT_RESUME_MAILBOX_SCHEMA,generated_at:checkpoint.generated_at,study_day:checkpoint.study_day,source_checkpoint_id:checkpoint.checkpoint_id,source_generated_at:checkpoint.generated_at,subjects:{xizong:subjects.xizong?projectXizong(subjects.xizong):{status:'missing',continuation:null},english:subjects.english?projectEnglish(subjects.english,checkpoint.study_day):{status:'missing',continuation:null},politics:subjects.politics?projectPolitics(subjects.politics):{status:'missing',continuation:null}}};
+  return{schema:SUBJECT_RESUME_MAILBOX_SCHEMA,generated_at:checkpoint.generated_at,expires_at:new Date(Date.parse(checkpoint.generated_at)+SUBJECT_RESUME_MAILBOX_TTL_MS).toISOString(),study_day:checkpoint.study_day,source_checkpoint_id:checkpoint.checkpoint_id,source_generated_at:checkpoint.generated_at,subjects:{xizong:subjects.xizong?projectXizong(subjects.xizong):{status:'missing',continuation:null},english:subjects.english?projectEnglish(subjects.english,checkpoint.study_day):{status:'missing',continuation:null},politics:subjects.politics?projectPolitics(subjects.politics):{status:'missing',continuation:null}}};
 }
