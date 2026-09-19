@@ -19,9 +19,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "限制在范围内",
+      "core_meaning_cn": "把人或事物限制在某个边界/范围内；较低频还可表示与某地接壤",
       "core_meaning_en": "keep within limits",
-      "mental_model_cn": "限制在范围内",
+      "mental_model_cn": "confine sb/sth to X / be confined to X → 限制、局限；border geography → 接壤。默认先学“限制在范围内”。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -33,6 +33,27 @@
     "semantic_neighbors": [],
     "senses": [
       {
+        "collocations": [
+          {
+            "collocation_id": "collocation:confine:baseline-v2-to",
+            "exam_value": "fixed_pattern",
+            "meaning_cn": "把某人/某物限制在某范围内；仅限于",
+            "phrase": "confine sb/sth to sth / be confined to sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "限制、使局限于一定范围",
+        "definition_en": "to restrict or keep someone or something within limits or bounds",
+        "governing_pattern": "confine sb/sth to ... / be confined to ...",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:confine:3ec742797c75560d",
+        "sense_label_en": "to restrict or keep someone or something within limits or bounds",
+        "sort_order": 0,
+        "transitivity": "vt"
+      },
+      {
         "collocations": [],
         "confidence": "medium",
         "definition_cn": "邻接，交界",
@@ -43,22 +64,8 @@
         "pos": "verb",
         "sense_id": "sense:confine:f533ff512a24534e",
         "sense_label_en": "to share a border with",
-        "sort_order": 0,
+        "sort_order": 1,
         "transitivity": "vi"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "限制、使局限于一定范围",
-        "definition_en": "to restrict or keep someone or something within limits or bounds",
-        "governing_pattern": "confine sb/sth to ... / be confined to ...",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:confine:3ec742797c75560d",
-        "sense_label_en": "to restrict or keep someone or something within limits or bounds",
-        "sort_order": 999,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -193,7 +200,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0993-1000.json",
     "source_content_hash": "5fa29ce63abb0ef9b7161d6b1a147ca5981a830c69c2c68ce4c30c40c363db3d",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
