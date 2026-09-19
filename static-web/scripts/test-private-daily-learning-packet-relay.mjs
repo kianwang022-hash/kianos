@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { publishDailyLearningPacket } from './privateDailyLearningPacketRelay.mjs';
+import { localPacketSyncDecision, publishDailyLearningPacket } from './privateDailyLearningPacketRelay.mjs';
 
 const temp=fs.mkdtempSync(path.join(os.tmpdir(),'kianos-packet-relay-'));
 const remote=path.join(temp,'personal-remote.git');
@@ -40,6 +40,36 @@ try{
   };
 
   const d1a=packet('2026-09-20','2026-09-20T01:00:00.000Z',30,30,0,0);
+
+  const firstDecision=localPacketSyncDecision(d1a,{prior:null,timeOnlySyncMs:5*60*1000});
+  assert.equal(firstDecision.defer,false);
+  const localPrior={
+    study_day:d1a.study_day,
+    semantic:firstDecision.semantic,
+    last_remote_attempt_at:Date.parse(d1a.generated_at)
+  };
+  const localTimeOnly=packet('2026-09-20','2026-09-20T01:01:00.000Z',31,31,0,0);
+  const localDeferred=localPacketSyncDecision(localTimeOnly,{prior:localPrior,timeOnlySyncMs:5*60*1000});
+  assert.equal(localDeferred.defer,true,'time-only heartbeat must defer before remote fetch');
+
+  const localSemantic=packet('2026-09-20','2026-09-20T01:01:00.000Z',31,31,0,0);
+  localSemantic.subjects.english.evidence={
+    schema:'synthetic.english.evidence.v1',
+    resume:{status:'ready',task:'reading_a',object_id:'r-1'}
+  };
+  assert.equal(
+    localPacketSyncDecision(localSemantic,{prior:localPrior,timeOnlySyncMs:5*60*1000}).defer,
+    false,
+    'semantic change must bypass pre-fetch throttle'
+  );
+  assert.equal(
+    localPacketSyncDecision(packet('2026-09-21','2026-09-21T00:00:30.000Z',1,1,0,0),{
+      prior:localPrior,
+      timeOnlySyncMs:5*60*1000
+    }).defer,
+    false,
+    'study-day rollover must bypass pre-fetch throttle'
+  );
   const first=await publishDailyLearningPacket(d1a,{env,home:temp});
   assert.equal(first.status,'published');
 
