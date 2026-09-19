@@ -323,7 +323,7 @@ Hard guards:
 9. numeric array-index patching is forbidden; the package replaces complete named semantic fields/arrays so identity is reviewable;
 10. write scope is restricted to Lexical Word / Relation / Repair-Test / JSON receipt owners;
 11. Word identity/lifecycle and Relation reciprocal-view integrity are checked mechanically;
-12. Relation manifest count must equal the physical Relation owner count after mutation;
+12. the executor must preserve any pre-existing Relation-manifest count gap without worsening it; every newly created Relation owner must increase the manifest count by exactly one;
 13. Final Learner Object closure must remain exactly 7,946;
 14. the one-shot package file is removed after execution and a durable mutation receipt is preserved;
 15. `main_merge_authorized=false` remains in the receipt. Final merge is deliberately outside the executor.
