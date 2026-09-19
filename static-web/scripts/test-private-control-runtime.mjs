@@ -82,7 +82,7 @@ const x1 = {
     generated_at: new Date(t0 + 3000).toISOString(),
     current_step: 0,
     steps: [
-      { step_id:'m1', kind:'MEMORY_REVIEW', card_ids:['core:a1-b01-kp01'] },
+      { step_id:'m1', kind:'MEMORY_REVIEW', targets:[{card_id:'core:a1-b01-kp01',source_hash:'h1'}] },
       { step_id:'q1', kind:'PRACTICE_SET', question_ids:['xizong-official-2024-n001'] }
     ]
   }
@@ -122,7 +122,7 @@ const x2 = {
     ...x1.payload,
     session_id:'xz-session-2',
     generated_at:new Date(t0 + 7000).toISOString(),
-    steps:[{step_id:'m2',kind:'MEMORY_REVIEW',card_ids:['core:a1-b01-kp01']}]
+    steps:[{step_id:'m2',kind:'MEMORY_REVIEW',targets:[{card_id:'core:a1-b01-kp01',source_hash:'h1'}]}]
   }
 };
 const xr2 = applyPrivateControlCommand(storage, x2, { expectedDay: day, now: t0 + 8000 });
