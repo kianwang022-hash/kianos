@@ -234,6 +234,36 @@ After B finishes o0001–o0100, A reconciles/merges that candidate and advances 
 
 The already-built o1151–o1250 candidate PR #520 remains preserved and must receive its own fresh B audit/reconciliation before merge. It must be re-materialized against the then-current main if prior accepted backfill changed relevant owners or derived Final Learner Objects.
 
+## 8A. C lookahead conveyor
+
+C is a **continuous lookahead producer**, not a parked waiter.
+
+For any C-owned batch that is not the live serialized frontier:
+
+```text
+Fresh Read
+→ Self Attack
+→ if no genuinely new material delta: auto-freeze proposal
+→ if new material delta exists: show only that delta to Kian
+→ Kian p
+→ record approval durably
+→ move batch into approved/frozen backlog
+→ immediately start C's next unreviewed high→low batch
+```
+
+C must **not** stop merely because the approved batch is waiting for frontier materialization.
+
+C stops only when:
+- a genuinely new material delta is waiting for Kian's decision;
+- a real semantic/source/identity blocker prevents a stable proposal;
+- no assigned C review batch remains.
+
+A non-frontier batch may never materialize canonical semantic truth. It stays frozen as a proposal/backlog item until it reaches frontier, at which point C/A refreezes latest main and dependencies before emitting the mutation package.
+
+If a batch has **no genuinely new material scope**, no Human Gate is required and C should advance automatically after freezing the proposal.
+
+This rule optimizes review throughput without weakening serialized write safety.
+
 ## 9. Mechanical executor is not a fourth semantic Chat
 
 Mechanical GitHub workflows/scripts do not count as a semantic reviewer and may not decide meanings, layer placement, owner placement, or Test worth.
