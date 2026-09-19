@@ -255,6 +255,59 @@ assert.equal(empty.packet.subjects.xizong.evidence, null);
 assert.equal(empty.packet.subjects.english.evidence, null);
 assert.equal(empty.packet.subjects.politics.evidence, null);
 
+const crossOnlyStorage = new MemoryStorage({
+  [STUDY_TIMER_STATE_KEY]: JSON.stringify({
+    schema: STUDY_TIMER_SCHEMA,
+    running: false,
+    manualPaused: true,
+    subject: 'xizong',
+    context: { subject: 'xizong', route: 'xizong/memory/', detailKey: 'memory', detailLabel: 'Memory' },
+    segmentStartedAt: null,
+    lastSeenAt: now,
+    revision: 1,
+    updatedAt: now
+  }),
+  [STUDY_TIMER_LEDGER_KEY]: JSON.stringify({ schema: STUDY_TIMER_SCHEMA, sessions: [] }),
+  ['kianos-xizong-memory-v1']: JSON.stringify({
+    schema: 'kianos.xizong.memory.v1',
+    revision: 1,
+    releasedBlocks: {},
+    cards: {
+      'core:a1-r01-kp01': {
+        id: 'core:a1-r01-kp01',
+        family: 'CORE',
+        systemId: 'a1',
+        blockId: 'a1-r01',
+        kpId: 'a1-r01-kp01'
+      }
+    },
+    promptOverrides: {},
+    marks: {},
+    evidence: [{
+      id: 'memory:1',
+      cardId: 'core:a1-r01-kp01',
+      family: 'CORE',
+      rating: 'fuzzy',
+      origin: 'CORE_MEMORY_RECALL',
+      at: '2026-09-19T02:10:00.000Z'
+    }],
+    attention: {},
+    repairTasks: []
+  })
+});
+const crossOnly = buildHomeDailyLearningPacket({
+  storage: crossOnlyStorage,
+  day,
+  now,
+  xizongPacketIndex,
+  politicsCatalog,
+  base: '/'
+});
+assert.equal(crossOnly.coverage.xizong, 'attached',
+  'same-day Xizong review evidence must attach even without a resolvable current Block');
+assert.equal(crossOnly.packet.subjects.xizong.evidence.current_block, null);
+assert.equal(crossOnly.packet.subjects.xizong.evidence.events.memory_recall.length, 1);
+
 const corruptPolitics = new MemoryStorage(Object.fromEntries(storage.map.entries()));
 corruptPolitics.setItem(PRACTICE_KEYS.meta, '{bad-json');
 const partial = buildHomeDailyLearningPacket({
