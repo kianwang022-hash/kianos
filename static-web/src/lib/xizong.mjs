@@ -413,14 +413,11 @@ function xizongForecastBlockRecords(record) {
     const legacyBlockId = String(blockMatch?.[1] || '').trim();
     const headingCanonical = String((source.match(/^#\s+([A-Za-z]+\d+)\s*[｜|]/m) || [])[1] || '');
     const filename = relativePath.split('/').at(-1) || '';
+    const filenameUpper = filename.toUpperCase();
     const filenameCanonical = stableIds.find((stableId) => {
-      const escaped = stableId.replace(/[.*+?^${}()|[\]\\]/g, '\\    const blockMatch = frontmatter.match(/^block_id:\s*['\"]?([^'\"\n]+)['\"]?\s*$/m);
-    const blockId = String(blockMatch?.[1] || '').trim();
-    if (!stableSet.has(blockId)) continue;
-    if (found.has(blockId)) {
-      throw new Error('CURRENT_XIZONG_FORECAST_BLOCK_ID_DUPLICATE:' + record.identity.systemId + ':' + blockId);
-    }');
-      return new RegExp('(?:^|[_-])' + escaped + '(?:[_-]|$)', 'i').test(filename);
+      const token = String(stableId).toUpperCase();
+      return filenameUpper.startsWith(token + '_')
+        || filenameUpper.includes('_' + token + '_');
     }) || '';
     const blockId = stableSet.has(legacyBlockId)
       ? legacyBlockId
