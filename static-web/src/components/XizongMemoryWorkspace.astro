@@ -136,6 +136,7 @@ const base = import.meta.env.BASE_URL;
   } from '../lib/xizongMemoryModel.mjs';
   import {
     XIZONG_SESSION_KEY,
+    resolveXizongSessionNext,
     validateXizongSessionInstruction
   } from '../lib/xizongSessionInstruction.mjs';
   import { studyDayAt } from '../lib/studyTimer.mjs';
@@ -155,8 +156,11 @@ const base = import.meta.env.BASE_URL;
       try {
         const rawSession = JSON.parse(localStorage.getItem(XIZONG_SESSION_KEY) || 'null');
         const session = validateXizongSessionInstruction(rawSession, studyDayAt(Date.now()));
-        const step = session.session_id === requestedSessionId
-          ? session.steps.find((row) => row.step_id === requestedStepId && row.kind === 'MEMORY_REVIEW')
+        const current = session.session_id === requestedSessionId
+          ? resolveXizongSessionNext(localStorage, session)
+          : null;
+        const step = current?.step?.step_id === requestedStepId && current.step.kind === 'MEMORY_REVIEW'
+          ? current.step
           : null;
         if (step) chatCardIds = step.targets.map((target) => target.card_id).filter((id) => Boolean(state.cards[id]));
       } catch {}
