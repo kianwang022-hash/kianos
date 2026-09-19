@@ -46,7 +46,8 @@
     "test:shared-handoff": "node scripts/test-daily-learning-packet.mjs && node scripts/test-subject-daily-packets.mjs && node scripts/test-home-daily-learning-packet.mjs && node scripts/test-politics-chat-return.mjs && node scripts/test-private-learner-checkpoint.mjs",
     "test:final-cross-subject": "node scripts/test-final-cross-subject-regression.mjs",
     "current:doctor": "node scripts/kianos-current-doctor.mjs",
-    "current:open": "node scripts/kianos-current-open.mjs"
+    "current:open": "node scripts/kianos-current-open.mjs",
+    "current:backup": "node scripts/kianos-current-backup.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0",
