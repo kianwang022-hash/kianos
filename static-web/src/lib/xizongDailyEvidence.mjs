@@ -115,6 +115,7 @@ export function buildXizongDailyEvidencePacket(storage, {
     .map((row) => ({
       return_id: String(row?.return_id || ''),
       system_id: String(row?.system_id || ''),
+      study_day: row?.study_day ? String(row.study_day) : null,
       received_at: String(row?.received_at || '')
     }))
     .filter((row) => row.return_id && row.system_id);
