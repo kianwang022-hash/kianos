@@ -1,6 +1,6 @@
 # Exam Total Home Direct Workspace — CURRENT
 
-Status: **CANDIDATE / DRAFT PR / DO NOT MERGE YET**  
+Status: **HUMAN GATE PASS / READY TO MERGE**  
 Updated: 2026-09-20 (Asia/Shanghai)
 
 ## Current-first rule
@@ -15,43 +15,59 @@ Normal learner flow is:
 
 ```text
 Chat / Steward decides
-→ Total Home
-→ one unique Next Action
-→ exact subject Workspace
+→ existing Total Home
+→ existing right-side「下一步」
+→ exact existing subject function page
 → evidence
 → back to control
 ```
 
-Subject Homes are **fallback / manual navigation only**.
+The key boundary is:
 
-They are **not** a required hop between Total Home and execution.
+> **Do not redesign Total Home. Only connect the existing right-side scheduler / Next Action to Chat-controlled exact routes.**
 
-## Current integration owner
+## Learner-facing UI boundary
 
-- branch: `work/exam-home-direct-workspace-20260920`
-- PR: **#559** — `candidate(exam): make Total Home the only normal entry`
-- base: `main`
-- PR state: **Draft**
-- last observed product-code head before this cursor-only commit: `3ba445197097a502c43470240f6fdfaed1e9f4e3`
-- the cursor commit itself advances the branch head; always refetch PR #559 before acting
-- main has **not** been changed by this line.
+These learner-facing owners remain exactly the same as `main`:
 
-Related bounded prototype evidence:
-- #550 Xizong Chat-controlled review transport: **Human Gate READY / Draft / do not merge wholesale**
-- #551 Politics Chat-controlled Memory prototype: **Human Gate READY / Draft / do not merge wholesale**
-- English Chat-selected Resume/session control is already in `main`.
+- `static-web/src/pages/index.astro`
+- `static-web/src/styles/home-workbench.css`
+- `static-web/src/layouts/BaseFrame.astro`
+- `static-web/src/components/XizongHomeTools.astro`
+- `static-web/src/components/PoliticsHomeTools.astro`
 
-## What #559 is trying to reconcile
+Therefore:
 
-### Total Home
-- learner-facing Home should show phase/Gate + allocation + **one Next Action**;
-- old three-subject dashboard is not the normal execution surface;
-- Subject Home links stay available only as quiet fallback.
+- left Xizong / English / Politics surfaces remain visible and native;
+- Subject Homes remain available for manual browsing/navigation;
+- Chat does **not** repurpose the left Xizong or Politics Continue cards;
+- there is no replacement Home UI;
+- there is no parallel/headless route owner.
 
-### Shared browser control
-Extend existing `kianos.control-command.v1`, not the old parallel #550 control framework.
+## Right-side integration owner
 
-Supported candidate operations:
+The Total Home integration is intentionally narrow:
+
+### `ExamOrchestratorHome.astro`
+
+- keeps the existing visible right-side UI;
+- adds only hidden mechanical identity data needed to validate Politics Memory routing.
+
+### `examOrchestratorClient.mjs`
+
+- reads the current Chat Plan;
+- resolves the exact Chat-selected route for the right-side Next Action;
+- binds Xizong / Politics routes to the exact `session_ref`;
+- fails closed on stale/mismatched session identity;
+- falls back to the native subject Continue route when no valid Chat-controlled route exists;
+- refreshes the already-open Home when live Chat control arrives.
+
+## Shared browser control
+
+The candidate extends existing `kianos.control-command.v1`.
+
+Supported operations:
+
 - `english.session`
 - `xizong.session`
 - `xizong.chat_return`
@@ -59,130 +75,117 @@ Supported candidate operations:
 - `politics.memory_plan`
 - `exam.chat_plan`
 
-Cross-object `session_ref` mismatch must fail closed.
+This is shared transport only. It does not unify the three subjects' learning semantics.
 
-### Exact routes
-- Xizong Chat session → exact Memory / Practice / System Recall / Block Return route
-- Xizong typed Return → exact Block/System continuation route
-- English Chat session → exact Reading/Cloze/Part B/Translation/Writing/External Reading route
-- Politics Chat Memory plan → exact Politics Memory workspace
-- no valid Chat-selected task → native subject Resume fallback
+## Exact route behavior
 
-## Important implementation decisions already made
+### Xizong
 
-1. **Headless route bridge**
-   - Total Home must not mount full Subject Home/English Resume UIs as hidden duplicate owners.
-   - use one headless subject-route bridge so each route owner is unique.
+Chat-selected Xizong work can resolve directly to existing:
 
-2. **Politics authority**
-   - active Chat Memory plan must beat old/native Politics Resume.
-   - native Politics Resume is fallback only.
+- Memory Review
+- Practice Set
+- System Recall
+- Repair Task
+- typed Block Return / System W-U Return
 
-3. **English off-Home transport**
-   - ordinary English session validation must work even when Total Home is not open.
-   - private control bridge now exposes a mechanical English session identity catalog; no answer/strategy data.
+The left Xizong Continue card remains native.
 
-4. **Durability**
-   - Xizong session/runtime/handoff/pending Return are included in existing Xizong private checkpoint owner.
-   - Politics Memory current plan + Recall evidence are included in existing Politics private checkpoint owner.
-   - do not resurrect the old #550 parallel private-control runtime checkpoint owner.
+### English
 
-5. **Daily Review evidence**
-   - Politics Memory Recall evidence must flow into the shared Daily Learning Packet.
+Existing English session control resolves the exact current task, including:
 
-6. **UI**
-   - Total Home visible typography must preserve the existing macOS 16px readable floor.
-   - politics Memory stylesheet was renamed to avoid being misidentified as a competing Xizong Memory visual owner.
+- Reading A
+- Cloze
+- Part B
+- Translation
+- Writing
+- External Reading
 
-## Real red lights already found and addressed
+### Politics
 
-- Duplicate hidden `EnglishResume` DOM owner broke old Private Chat Control strict selectors.
-  - repaired by headless route bridge.
+A valid active Politics Memory plan resolves the right-side Next Action directly to the existing Politics Memory function page.
 
-- Politics old native Resume could preempt active Chat Memory.
-  - route authority moved to headless bridge.
+The left Politics Continue card remains native.
 
-- old Xizong acceptance expected System W/U Repair ownership in component code.
-  - #550 had moved real `setRepairTasks` ownership into `xizongSystemWuReturn.mjs`.
-  - candidate acceptance was updated to the proven owner rather than adding a fake import.
+## Evidence / durability
 
-- Xizong Memory single-style-owner audit treated `politics-memory-workspace.css` as a competing Memory stylesheet.
-  - Politics style owner renamed to `politics-recall-workspace.css`.
+The candidate preserves the already-proved subject-native evidence paths and adds only the minimum shared control/daily-packet wiring needed for Chat-controlled execution.
 
-- Home mac visual gate found visible 14px controls.
-  - candidate raised Total Home visible control/fallback typography to >=16px.
+Important retained boundaries:
 
-- early live-control proof waited for `networkidle` even though private control polls periodically.
-  - test was corrected to wait for actual Home ready state.
+- Xizong session/runtime/typed Return durability stays in Xizong-owned checkpoint logic;
+- Politics Memory plan + recall evidence stays in Politics-owned checkpoint logic;
+- Politics Memory recall evidence can flow into the shared Daily Learning Packet;
+- no parallel private-control checkpoint owner is introduced.
 
-## Current exact red light at handoff
+## Human Gate result
 
-Latest observed `Total Home Direct Workspace Candidate` run **#35472148911** failed in:
-
-`Prove shared control transport`
-
-Exact assertion:
+Kian reviewed the real Current Home at:
 
 ```text
-actual:   'superseded'
-expected: 'replaced_stale_day'
+http://127.0.0.1:4321/
 ```
 
-Location:
-`static-web/scripts/test-shared-control-three-subjects.mjs` around the Politics cross-day Memory-plan staging proof.
+and explicitly approved the product direction on 2026-09-20.
 
-Interpretation:
-- this is currently a **test/runtime contract mismatch** around `stagePoliticsMemoryPlan()` cross-day replacement status;
-- do **not** assume product logic is broken until current head is read;
-- first next action is to inspect current `politicsMemoryRuntime.mjs` + exact test fixture on PR #559 head and decide whether:
-  1. runtime should return `replaced_stale_day`, or
-  2. the test expectation is stale and `superseded` is the intended current contract.
+Human Gate PASS means:
 
-Do not patch blindly.
+> Keep the current Home UI. Connect only the existing right-side function interface so Chat can set the exact Next Action and one click enters an already-built function page.
 
-## CI state at handoff
+## Exact-head proof
 
-At the time this cursor was written, several exact-head jobs were still queued/in progress.
+Last code-tested head before this documentation-only cursor commit:
 
-Observed important runs around PR #559 current head:
-- Total Home Direct Workspace Candidate: one run failed on the cross-day status assertion above.
-- Private Chat Control: in progress.
-- Final Cross-subject Regression: in progress.
-- Static Web Xizong QA: in progress.
-- Static Web Politics QA: in progress.
-- Exam Orchestrator Current: in progress.
-- Xizong Memory Workspace: queued.
-- Xizong Golden Journey: queued.
-- KianOS Mac Visual Gate: queued.
-- Authority Consistency: pending.
+`3ff6c7795b1c7bb360261be88ee2b1c301ed77be`
 
-**New Chat must refetch current PR head and current workflow results before acting.**
+PASS on that exact code head:
 
-Do not reuse these statuses if GitHub has moved.
+- Total Home Direct Workspace Candidate
+  - shared control transport PASS
+  - build PASS
+  - Xizong exact direct route PASS
+  - Xizong typed Return exact direct route PASS
+  - English exact direct route PASS
+  - Politics Memory exact direct route PASS
+  - existing three-subject Home preserved PASS
+  - no replacement fallback Home UI PASS
+  - one right-side Next Action PASS
+  - no parallel headless route owner PASS
+  - left Xizong Continue not repurposed by Chat PASS
+  - left Politics Continue not repurposed by Chat PASS
+  - live Chat control updates the already-open Home PASS
+- Private Chat Control PASS
+- Final Cross-subject Regression PASS
+- Exam Orchestrator Current PASS
+- Xizong Memory Workspace PASS
+- Semantic Base Validity PASS
+- Authority Consistency PASS
+- Home Mac visual capture PASS
 
-## Next Chat — first actions
+The repository-wide Mac Visual workflow remains red only at the pre-existing downstream Xizong Block visual capture; the Home visual step itself is PASS.
 
-1. Fetch PR #559 current head and all relevant workflow results.
-2. Read this CURRENT file.
-3. If direct-workspace red is still the Politics cross-day status mismatch:
-   - inspect current `stagePoliticsMemoryPlan()`;
-   - inspect current test fixture;
-   - fix the earliest incorrect layer only.
-4. Rerun/observe exact-head:
-   - Total Home Direct Workspace Candidate
-   - Private Chat Control
-   - Final Cross-subject Regression
-   - Xizong Memory Workspace
-   - Xizong Golden Journey
-   - KianOS Mac Visual Gate
-   - Authority Consistency
-5. Only after exact-head proof is green, capture/review Total Home screenshots and perform Human Gate.
-6. Keep PR #559 Draft; do not merge or touch `main` before Human Gate.
+Known unrelated broad reds remain outside this integration scope:
 
-## Human Gate question eventually
+- Xizong A1 evidence acceptance: `stable-question-forced-to-repair`
+- Xizong A2 runtime acceptance: `block-initial-state`
+- Politics Ethics content closure: `ROOT_MANIFEST_NOT_CONTENT_CLOSED`
 
-Judge only the learner experience:
+Do not expand this Total Home integration to repair those subject-learning/content debts.
 
-> Chat decides → Total Home shows one Next Action → one click reaches exact Workspace → completion/evidence returns cleanly to control.
+## Merge boundary
 
-Do not judge based on repository internals or Subject Home screenshots.
+PR: **#559**  
+Branch: `work/exam-home-direct-workspace-20260920`  
+Base: `main`
+
+Human Gate: **PASS**.
+
+The next action is merge #559 into `main` once the current PR head is confirmed to contain only this documentation cursor change beyond the exact-tested code head.
+
+After merge:
+
+- GitHub `main` becomes the Current source;
+- Kian's `~/KianOS-current` mirror should auto-sync;
+- learner-facing Home should remain visually unchanged;
+- only the right-side Next Action gains the Chat-controlled exact-route behavior.
