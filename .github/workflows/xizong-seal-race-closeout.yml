@@ -1,0 +1,99 @@
+name: Xizong Seal Race Closeout
+on:
+  push:
+    branches: [work/xizong-final-learner-20260919-independent]
+    paths: ['.github/workflows/xizong-seal-race-closeout.yml']
+permissions:
+  contents: read
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      head: ${{ steps.head.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply exact consumer repair and remove this one-shot transport
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('static-web/src/components/XizongPracticeWorkbench.astro')
+          s=p.read_text()
+          old='        window.setTimeout(nextQuestion, preferences.fastSweep ? 90 : 180);'
+          new='''        const submittedQuestionId = currentQuestion.questionId;
+                  window.setTimeout(() => {
+                    // A saved draft may schedule navigation, but Seal or an explicit
+                    // learner navigation revokes that old task's permission to move.
+                    if (!paperSealed() && currentQuestion?.questionId === submittedQuestionId) nextQuestion();
+                  }, preferences.fastSweep ? 90 : 180);'''
+          assert s.count(old)==1
+          p.write_text(s.replace(old,new))
+          p=Path('static-web/scripts/test-xizong-final-visual-states.mjs');s=p.read_text()
+          old="   await page.locator('[data-paper-seal]').click();\n   await page.screenshot"
+          new="   await page.locator('[data-paper-seal]').click();\n   await page.waitForTimeout(600); // exceed the stale draft navigation delay\n   assert.equal(await page.locator('[data-paper-review-start]').isVisible(),true);\n   await page.screenshot"
+          assert s.count(old)==1
+          p.write_text(s.replace(old,new))
+          PY
+          git diff --check
+          git add static-web/src/components/XizongPracticeWorkbench.astro static-web/scripts/test-xizong-final-visual-states.mjs
+          git rm .github/workflows/xizong-seal-race-closeout.yml
+          git config user.name 'KianOS acceptance worker'
+          git config user.email 'noreply@users.noreply.github.com'
+          git commit -m 'fix(xizong): prevent pending draft navigation from dismissing sealed-paper score'
+          git push origin HEAD:work/xizong-final-learner-20260919-independent
+      - id: head
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+  proof:
+    needs: repair
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-14]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.repair.outputs.head }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install
+        working-directory: static-web
+        run: |
+          npm install --no-package-lock --no-audit --no-fund
+          npm install --no-save --no-package-lock --no-audit --no-fund playwright
+          npx playwright install chromium
+      - name: Independent probes
+        working-directory: static-web
+        env:
+          KIANOS_REPO_ROOT: ${{ github.workspace }}
+          XIZONG_AUDIT_HEAD: ${{ needs.repair.outputs.head }}
+          ASTRO_TELEMETRY_DISABLED: '1'
+        run: node scripts/test-xizong-final-independent.mjs
+      - name: Delayed Seal plus protected visual states
+        if: always()
+        working-directory: static-web
+        env:
+          KIANOS_REPO_ROOT: ${{ github.workspace }}
+          XIZONG_AUDIT_HEAD: ${{ needs.repair.outputs.head }}
+          ASTRO_TELEMETRY_DISABLED: '1'
+        run: node scripts/test-xizong-final-visual-states.mjs
+      - name: Bounded regression
+        if: always()
+        working-directory: static-web
+        run: |
+          status=0
+          for script in test-xizong-daily-learning-packet validate-xizong-paper-practice validate-xizong-retained-practice validate-xizong-projection-current validate-xizong-learner-object validate-xizong-representation-gate; do
+            node "scripts/$script.mjs" > ".qa/xizong-final-independent/$script.log" 2>&1 || status=1
+          done
+          python3 ../content/xizong/projection/tools/validate_projection.py --json .qa/xizong-final-independent/projection-assets.json > .qa/xizong-final-independent/projection-assets.log 2>&1 || status=1
+          exit "$status"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: xizong-final-${{ matrix.os }}-${{ needs.repair.outputs.head }}
+          path: static-web/.qa/xizong-final-independent
+          retention-days: 14
