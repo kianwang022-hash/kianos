@@ -1,0 +1,820 @@
+{
+  "schema": "kianos.lexical.final_mutation_package.v1",
+  "package_id": "BF00-POST-AUDIT-RECONCILE-20260919",
+  "candidate_id": "BF00",
+  "range": {
+    "start_ordinal": 1,
+    "end_ordinal": 100
+  },
+  "lane": "A",
+  "source_head": "e7339a50575fd210138b26e6b6dcb0c5ff234118",
+  "human_gate": {
+    "approved": true,
+    "approval_ref": "o0001-o0100 approved proposal: audit may narrow/remove/refine approved intent without re-gating; no new learner-visible advances branch is introduced"
+  },
+  "semantic_dependency_read_set": {
+    "content/lexical/CURRENT.md": "b1d3773ef52eae5d9b6773183612931fecfb84b2548df6919260e110e53fb809",
+    "content/lexical/LEARNING_CONTRACT.md": "b1d0b67f611fde916f9b39cd3227f44c9e9c3bc724e68f9467b33131b58c1a33",
+    "content/lexical/CONTENT_ASSET_CONTRACT.md": "a71c2c1054e8618f0c61c4a0d92441dddf5cc4d87389f261b6c570bbcdef8204",
+    "content/lexical/CONTENT_EXECUTION.md": "ac5ed5b6167553a78249ea9270d684972dbbcb3f348df2e7b5fb62eb3ba34dde",
+    "content/lexical/schema.json": "a14e8b61f1a1b67e618e4ea7a6089886354d1e5932d29c2c791fd05550d3d622",
+    "content/lexical/words/by-ordinal/o0029.json": "205f2ca347e17507bff665ee9b7aceb18994e052c7aab487ee6ddff955bb4e98",
+    "content/lexical/words/by-ordinal/o0057.json": "4c433804c0277e583ef3ecac81a74f8d0833053e081dd3cc08e88185d0252699",
+    "content/lexical/words/by-ordinal/o0066.json": "e01887491814b1fcd05292a10e6ff621ca8a43fc34c174801394c8f67f20c30a",
+    "content/lexical/words/by-ordinal/o0084.json": "925dbffe97bb1259c4ea24903a83afc1d0f8e2442bbafcda31d600d949f75776",
+    "content/lexical/words/by-ordinal/o0085.json": "60dd1f22ff97756aa939a05647781eea51262934039a14891e7abc8adaf57959"
+  },
+  "writes": [
+    {
+      "path": "content/lexical/words/by-ordinal/o0029.json",
+      "mode": "patch_json",
+      "expected_sha256": "205f2ca347e17507bff665ee9b7aceb18994e052c7aab487ee6ddff955bb4e98",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "使用权；接近或进入的机会；通路；入口；（计算机）存取；访问",
+                "label_en": "the right or opportunity to use or benefit from something; a way of entering or leaving a place; the operation of reading or writing data in a computer system",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:access:19bed9a501315d9d",
+                  "sense:access:eebda8857a67598d",
+                  "sense:access:c2ad21ce22535191"
+                ]
+              },
+              {
+                "label_cn": "访问；存取（数据）；进入；到达",
+                "label_en": "to obtain, read, or retrieve data from a computer system; to reach or enter a place or system",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:access:ce5556605dee5750",
+                  "sense:access:facb20d742a655ab"
+                ]
+              }
+            ],
+            "core_meaning_cn": "跨过一道门槛而获得进入、接触或使用的可能；名词表示权利/途径，动词表示直接进入或读取",
+            "core_meaning_en": "the right or means to cross a boundary and reach, enter, or use something; as a verb, to enter or retrieve directly",
+            "mental_model_cn": "最值得记的是语法分叉：have/gain access to sth（名词）但 access sth（动词，不加 to）。地点、系统和数据只是同一个“跨过门槛”的不同对象。",
+            "mental_model_en": "The key split is grammatical: have/gain access to something as a noun, but access something directly as a verb."
+          }
+        },
+        {
+          "pointer": "/record/senses",
+          "value": [
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:34093580f5a820465d63",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:access:19bed9a501315d9d:collocation:0"
+                  ],
+                  "meaning_cn": "有权使用某物；能接触到某物",
+                  "phrase": "have access to + sth"
+                },
+                {
+                  "collocation_id": "collocation:07ae99a595f50c181773",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:access:19bed9a501315d9d:collocation:1"
+                  ],
+                  "meaning_cn": "获得进入或使用某物的机会",
+                  "phrase": "gain access to + sth"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "使用权；接近或进入的机会",
+              "definition_en": "the right or opportunity to use or benefit from something",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:access:19bed9a501315d9d",
+              "sense_label_en": "the right or opportunity to use or benefit from something",
+              "sort_order": 0,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:42bce22a921acf273940",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:access:eebda8857a67598d:collocation:0"
+                  ],
+                  "meaning_cn": "进入大楼的通道",
+                  "phrase": "access to the building"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "通路；入口",
+              "definition_en": "a way of entering or leaving a place",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:access:eebda8857a67598d",
+              "sense_label_en": "a way of entering or leaving a place",
+              "sort_order": 1,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:e8cbfaa94d07c55fac5c",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:access:ce5556605dee5750:collocation:0"
+                  ],
+                  "meaning_cn": "访问数据库",
+                  "phrase": "access the database"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "访问；存取（数据）",
+              "definition_en": "to obtain, read, or retrieve data from a computer system",
+              "governing_pattern": "vt. + object",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:access:ce5556605dee5750",
+              "sense_label_en": "to obtain, read, or retrieve data from a computer system",
+              "sort_order": 4,
+              "transitivity": "vt"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:76433c2d285df2e4510b",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:access:c2ad21ce22535191:collocation:0"
+                  ],
+                  "meaning_cn": "随机存取存储器",
+                  "phrase": "random access memory"
+                },
+                {
+                  "collocation_id": "collocation:4f120d04fa51e2d40ddd",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:access:a2c075e1f92758c0:collocation:0"
+                  ],
+                  "meaning_cn": "访问代码",
+                  "phrase": "access code"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "（计算机）存取；访问",
+              "definition_en": "the operation of reading or writing data in a computer system",
+              "governing_pattern": "",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:access:c2ad21ce22535191",
+              "sense_label_en": "the operation of reading or writing data in a computer system",
+              "sort_order": 3,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:02a91811a7ca2acd830d",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:access:facb20d742a655ab:collocation:0"
+                  ],
+                  "meaning_cn": "进入大楼",
+                  "phrase": "access the building"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "进入；到达",
+              "definition_en": "to reach or enter a place or system",
+              "governing_pattern": "vt. + object",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:access:facb20d742a655ab",
+              "sense_label_en": "to reach or enter a place or system",
+              "sort_order": 5,
+              "transitivity": "vt"
+            }
+          ]
+        },
+        {
+          "pointer": "/reference_senses",
+          "value": [
+            {
+              "stable_sense_id": "sense:access:a2c075e1f92758c0",
+              "status": "deprecated",
+              "merged_into_sense_id": null,
+              "pos": "noun",
+              "definition_cn": "访问代码；口令",
+              "definition_en": "a code or password that allows entry to a computer system or network",
+              "semantic_key": "d22cef1905536d688f733b44e3d915d2b0e1223ae9485471b890589732458a00",
+              "semantic_key_history": [],
+              "legacy_aliases": [
+                "access:l2:3"
+              ],
+              "legacy_alias_history": [
+                {
+                  "legacy_sense_id": "access:l2:3",
+                  "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+                }
+              ],
+              "updated_at": "2026-08-13T21:08:34+00:00",
+              "source_row": 80,
+              "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json",
+              "reference_only": true
+            }
+          ]
+        },
+        {
+          "pointer": "/identity_refs/senses",
+          "value": [
+            {
+              "sense_id": "sense:access:19bed9a501315d9d",
+              "status": "active",
+              "merged_into_sense_id": null,
+              "source_row": 79,
+              "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json"
+            },
+            {
+              "sense_id": "sense:access:a2c075e1f92758c0",
+              "status": "deprecated",
+              "merged_into_sense_id": null,
+              "source_row": 80,
+              "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json"
+            },
+            {
+              "sense_id": "sense:access:c2ad21ce22535191",
+              "status": "active",
+              "merged_into_sense_id": null,
+              "source_row": 81,
+              "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json"
+            },
+            {
+              "sense_id": "sense:access:ce5556605dee5750",
+              "status": "active",
+              "merged_into_sense_id": null,
+              "source_row": 82,
+              "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json"
+            },
+            {
+              "sense_id": "sense:access:eebda8857a67598d",
+              "status": "active",
+              "merged_into_sense_id": null,
+              "source_row": 83,
+              "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json"
+            },
+            {
+              "sense_id": "sense:access:facb20d742a655ab",
+              "status": "active",
+              "merged_into_sense_id": null,
+              "source_row": 84,
+              "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json"
+            }
+          ]
+        },
+        {
+          "pointer": "/provenance/semantic_delta",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o0057.json",
+      "mode": "patch_json",
+      "expected_sha256": "4c433804c0277e583ef3ecac81a74f8d0833053e081dd3cc08e88185d0252699",
+      "edits": [
+        {
+          "pointer": "/reference_senses",
+          "value": [
+            {
+              "stable_sense_id": "sense:act:9b6dec4acd3151a9",
+              "status": "deprecated",
+              "merged_into_sense_id": null,
+              "pos": "verb",
+              "definition_cn": "表演，假装",
+              "definition_en": "to perform a role in a play or film; to pretend",
+              "semantic_key": "957d0ed7c612663a9b79e34fc3ed49cc651207ce824e32ca7d6d23572bcaaf3c",
+              "semantic_key_history": [
+                "27cc73b8d0e4c8bafed7cbf44789044a3f1d2fbefefc021e48623de19465e8c5"
+              ],
+              "legacy_aliases": [
+                "act:l2:3"
+              ],
+              "legacy_alias_history": [
+                {
+                  "legacy_sense_id": "act:l2:3",
+                  "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+                }
+              ],
+              "updated_at": "2026-09-09T00:00:00Z",
+              "source_row": 156,
+              "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json",
+              "reference_only": true
+            }
+          ]
+        },
+        {
+          "pointer": "/identity_refs/senses",
+          "value": [
+            {
+              "sense_id": "sense:act:27ae16abd7e25f5f",
+              "status": "active",
+              "merged_into_sense_id": null,
+              "source_row": 151,
+              "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
+            },
+            {
+              "sense_id": "sense:act:601bb18249c95285",
+              "status": "active",
+              "merged_into_sense_id": null,
+              "source_row": 152,
+              "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
+            },
+            {
+              "sense_id": "sense:act:73a74867a0775de3",
+              "status": "active",
+              "merged_into_sense_id": null,
+              "source_row": 153,
+              "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
+            },
+            {
+              "sense_id": "sense:act:91201571c8f9538c",
+              "status": "active",
+              "merged_into_sense_id": null,
+              "source_row": 154,
+              "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
+            },
+            {
+              "sense_id": "sense:act:9669b64cf18054d4",
+              "status": "active",
+              "merged_into_sense_id": null,
+              "source_row": 155,
+              "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
+            },
+            {
+              "sense_id": "sense:act:9b6dec4acd3151a9",
+              "status": "deprecated",
+              "merged_into_sense_id": null,
+              "source_row": 156,
+              "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o0066.json",
+      "mode": "patch_json",
+      "expected_sha256": "e01887491814b1fcd05292a10e6ff621ca8a43fc34c174801394c8f67f20c30a",
+      "edits": [
+        {
+          "pointer": "/record/senses",
+          "value": [
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:8bec28812b6c683c42a1",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:add:5a9d92edcbbf564b:collocation:0"
+                  ],
+                  "meaning_cn": "把某物添加到某物中",
+                  "phrase": "add + sth to + sth"
+                },
+                {
+                  "collocation_id": "collocation:99288478b4bcca940fe4",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:add:5a9d92edcbbf564b:collocation:1"
+                  ],
+                  "meaning_cn": "往咖啡里加糖",
+                  "phrase": "add sugar to coffee"
+                },
+                {
+                  "collocation_id": "collocation:b46a2ddfa396b1f3dd33",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:add:7a523e7306e657a2:collocation:0"
+                  ],
+                  "meaning_cn": "增加，增添",
+                  "phrase": "add to + sth"
+                },
+                {
+                  "collocation_id": "collocation:f54d24e1114a8b876558",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:add:7a523e7306e657a2:collocation:1"
+                  ],
+                  "meaning_cn": "增加困难",
+                  "phrase": "add to the difficulty"
+                },
+                {
+                  "collocation_id": "collocation:2c9afc651a6a14c49aa3",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:add:9187fb8196f45430:collocation:0"
+                  ],
+                  "meaning_cn": "增添，增加",
+                  "phrase": "add to + sth",
+                  "presentation_merge": {
+                    "surviving_phrase": "add to + sth",
+                    "surviving_source_sense_id": "sense:add:5a9d92edcbbf564b"
+                  }
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "增加；加入或结合；提高质量、数量、大小或范围",
+              "definition_en": "make an addition (to); join or combine or unite with others; increase the quality, quantity, size or scope of",
+              "governing_pattern": "vt. + object",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:add:5a9d92edcbbf564b",
+              "sense_label_en": "make an addition (to); join or combine or unite with others; increase th",
+              "sort_order": 0,
+              "transitivity": "I/T"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:c51c3801b87c735fe794",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:add:9f16909e3d785ca4:collocation:0"
+                  ],
+                  "meaning_cn": "补充说……",
+                  "phrase": "add that ..."
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "补充说，接着说",
+              "definition_en": "state or say further",
+              "governing_pattern": "vt. + object",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:add:9f16909e3d785ca4",
+              "sense_label_en": "state or say further",
+              "sort_order": 1,
+              "transitivity": "vt"
+            },
+            {
+              "collocations": [],
+              "confidence": "medium",
+              "definition_cn": "做加法，把数字相加",
+              "definition_en": "make an addition by combining numbers",
+              "governing_pattern": "I/T; add numbers / add A and B; add A to B",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:add:7a523e7306e657a2",
+              "sense_label_en": "make an addition by combining numbers",
+              "sort_order": 2,
+              "transitivity": "I/T"
+            }
+          ]
+        },
+        {
+          "pointer": "/provenance/semantic_delta",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o0084.json",
+      "mode": "patch_json",
+      "expected_sha256": "925dbffe97bb1259c4ea24903a83afc1d0f8e2442bbafcda31d600d949f75776",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "成人；成年动物；成体",
+                "label_en": "a fully developed person from maturity onward; any mature animal",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:adult:94659328fcb55673",
+                  "sense:adult:7521e9f148265054"
+                ]
+              },
+              {
+                "label_cn": "成年的",
+                "label_en": "fully grown or mature",
+                "pos": "adjective",
+                "sense_ids": [
+                  "sense:adult:167706f9ce525815"
+                ]
+              }
+            ],
+            "core_meaning_cn": "成年的人或动物",
+            "core_meaning_en": "a fully grown person or animal",
+            "mental_model_cn": "成年的人或动物",
+            "mental_model_en": ""
+          }
+        },
+        {
+          "pointer": "/record/senses",
+          "value": [
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:19aba15d4a30b5a04cab",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:adult:94659328fcb55673:collocation:0"
+                  ],
+                  "meaning_cn": "年轻人",
+                  "phrase": "young adult"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "成人",
+              "definition_en": "a fully developed person from maturity onward",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:adult:94659328fcb55673",
+              "sense_label_en": "a fully developed person from maturity onward",
+              "sort_order": 0,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [],
+              "confidence": "medium",
+              "definition_cn": "成年动物；成体",
+              "definition_en": "any mature animal",
+              "governing_pattern": "",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:adult:7521e9f148265054",
+              "sense_label_en": "any mature animal",
+              "sort_order": 1,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:cd506dbe0a0cdf5b08c4",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:adult:167706f9ce525815:collocation:0"
+                  ],
+                  "meaning_cn": "成人教育",
+                  "phrase": "adult education"
+                },
+                {
+                  "collocation_id": "collocation:d44bacc873103c36f790",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:adult:7521e9f148265054:collocation:0"
+                  ],
+                  "meaning_cn": "成年的；成体的",
+                  "phrase": "adult insect"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "成年的",
+              "definition_en": "fully grown or mature",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "adjective",
+              "sense_id": "sense:adult:167706f9ce525815",
+              "sense_label_en": "fully grown or mature",
+              "sort_order": 2,
+              "transitivity": "nonverb"
+            }
+          ]
+        },
+        {
+          "pointer": "/provenance/semantic_delta",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o0085.json",
+      "mode": "patch_json",
+      "expected_sha256": "60dd1f22ff97756aa939a05647781eea51262934039a14891e7abc8adaf57959",
+      "edits": [
+        {
+          "pointer": "/reference_senses",
+          "value": [
+            {
+              "stable_sense_id": "sense:advance:412776a1691953f8",
+              "status": "deprecated",
+              "merged_into_sense_id": null,
+              "pos": "verb",
+              "definition_cn": "预付",
+              "definition_en": "to pay money before it is due",
+              "semantic_key": "68534320b918380b18f46859d728a55a3083ad3cd4dc95c280c4f023931c5629",
+              "semantic_key_history": [
+                "0a52ceb6a79f531f3fca9d8c367e590beef84ffd63b2c9aa7de97042035e0b6c"
+              ],
+              "legacy_aliases": [
+                "advance:l2:3"
+              ],
+              "legacy_alias_history": [
+                {
+                  "legacy_sense_id": "advance:l2:3",
+                  "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+                }
+              ],
+              "updated_at": "2026-09-09T00:00:00Z",
+              "source_row": 233,
+              "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+              "reference_only": true
+            },
+            {
+              "stable_sense_id": "sense:advance:6327a3cf3629541d",
+              "status": "deprecated",
+              "merged_into_sense_id": null,
+              "pos": "noun",
+              "definition_cn": "求爱/亲近的举动；示好",
+              "definition_en": "an approach or suggestion intended to begin a closer, often romantic or sexual, relationship",
+              "semantic_key": "3ebe063742159ac47113cedf6d35414d93e9f86ccb3656898d1de16e899b38df",
+              "semantic_key_history": [
+                "b88f9d3882e5bc1d6d3562f8d697c266066e38123fc85f1cef517d91330db0e4"
+              ],
+              "legacy_aliases": [],
+              "legacy_alias_history": [],
+              "updated_at": "2026-09-09T00:00:00Z",
+              "source_row": 236,
+              "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+              "reference_only": true
+            },
+            {
+              "stable_sense_id": "sense:advance:76f144674d4a5021",
+              "status": "deprecated",
+              "merged_into_sense_id": null,
+              "pos": "verb",
+              "definition_cn": "晋升；提拔",
+              "definition_en": "to raise someone to a higher rank or position",
+              "semantic_key": "7cfb9fc9309d5828d5f0333140494d928686415cbc31e7de9f1253879544f2ef",
+              "semantic_key_history": [
+                "0f06e13315938b734d639180ec4cd8fb266ccd0da17572ea373a3e0365589503"
+              ],
+              "legacy_aliases": [],
+              "legacy_alias_history": [],
+              "updated_at": "2026-09-09T00:00:00Z",
+              "source_row": 237,
+              "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+              "reference_only": true
+            },
+            {
+              "stable_sense_id": "sense:advance:9eaaaa5945565726",
+              "status": "deprecated",
+              "merged_into_sense_id": null,
+              "pos": "noun",
+              "definition_cn": "上涨；涨价；升值",
+              "definition_en": "an increase in price, rate, or value",
+              "semantic_key": "ec258f0b9168963313b9cd930c293a6cea439e1a740d6d66864b5acfd527ab21",
+              "semantic_key_history": [
+                "bebd0cbe2c7a636cddf5561af2e09c3aaf31f443a7a13eaddfc23475ce51d410"
+              ],
+              "legacy_aliases": [],
+              "legacy_alias_history": [],
+              "updated_at": "2026-09-09T00:00:00Z",
+              "source_row": 238,
+              "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+              "reference_only": true
+            }
+          ]
+        },
+        {
+          "pointer": "/identity_refs/senses",
+          "value": [
+            {
+              "sense_id": "sense:advance:2baadc1a47175fde",
+              "status": "active",
+              "merged_into_sense_id": null,
+              "source_row": 232,
+              "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
+            },
+            {
+              "sense_id": "sense:advance:412776a1691953f8",
+              "status": "deprecated",
+              "merged_into_sense_id": null,
+              "source_row": 233,
+              "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
+            },
+            {
+              "sense_id": "sense:advance:4914ceb4ea685115",
+              "status": "active",
+              "merged_into_sense_id": null,
+              "source_row": 234,
+              "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
+            },
+            {
+              "sense_id": "sense:advance:4ee687e7f9cf5023",
+              "status": "active",
+              "merged_into_sense_id": null,
+              "source_row": 235,
+              "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
+            },
+            {
+              "sense_id": "sense:advance:6327a3cf3629541d",
+              "status": "deprecated",
+              "merged_into_sense_id": null,
+              "source_row": 236,
+              "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
+            },
+            {
+              "sense_id": "sense:advance:76f144674d4a5021",
+              "status": "deprecated",
+              "merged_into_sense_id": null,
+              "source_row": 237,
+              "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
+            },
+            {
+              "sense_id": "sense:advance:9eaaaa5945565726",
+              "status": "deprecated",
+              "merged_into_sense_id": null,
+              "source_row": 238,
+              "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
+            },
+            {
+              "sense_id": "sense:advance:cc7302211c275f0c",
+              "status": "active",
+              "merged_into_sense_id": null,
+              "source_row": 239,
+              "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
+            },
+            {
+              "sense_id": "sense:advance:cc83e0f6e6b950cf",
+              "status": "active",
+              "merged_into_sense_id": null,
+              "source_row": 240,
+              "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
+            }
+          ]
+        },
+        {
+          "pointer": "/provenance/semantic_delta",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/execution/manifests/o0001-o0100.final-standard-reconciliation.json",
+      "mode": "create_json",
+      "expected_absent": true,
+      "value": {
+        "schema": "kianos.lexical.final_standard_reconciliation.v1",
+        "candidate_id": "BF00",
+        "range": [
+          1,
+          100
+        ],
+        "audit_pack": "content/lexical/semantic-audit/O0001_O0100_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
+        "audit_pack_commit": "53a871f1a54b053161c141c546432c51bb0e2b1a",
+        "findings": [
+          {
+            "ordinal": 29,
+            "word": "access",
+            "decision": "ACCEPT_AUDIT_CORRECTION",
+            "scope": "retire false standalone access-code sense; preserve access code as collocation truth"
+          },
+          {
+            "ordinal": 57,
+            "word": "act",
+            "decision": "ACCEPT_AUDIT_IDENTITY_FIX",
+            "scope": "retire aggregate historical perform/pretend sense without false noun merge target"
+          },
+          {
+            "ordinal": 66,
+            "word": "add",
+            "decision": "ACCEPT_AUDIT_CORRECTION",
+            "scope": "correct arithmetic add to ordinary I/T pattern; preserve add up/add up to separately"
+          },
+          {
+            "ordinal": 84,
+            "word": "adult",
+            "decision": "ACCEPT_AUDIT_CORRECTION",
+            "scope": "general mature-animal Chinese label; insect-specific 成虫 only by context"
+          },
+          {
+            "ordinal": 85,
+            "word": "advance",
+            "decision": "ACCEPT_IDENTITY_FIX_NO_NEW_SCOPE",
+            "scope": "retire false historical merge targets; keep romantic/sexual advances reference-only and not learner-visible"
+          }
+        ],
+        "new_material_semantic_scope": false,
+        "human_delta_gate_required": false,
+        "repair_test_change": false,
+        "learner_ui_runtime_change": false,
+        "post_reconcile_requirement": "Rebuild 7,946 Final Learner Objects, read back five corrected owners, run bounded validation, then merge PR #525 if clean."
+      }
+    }
+  ]
+}
