@@ -36,7 +36,33 @@ If Kian wants a human-readable whole-system progress summary, Chat should read t
 
 Historical PRs, migration ledgers, audits and retired design notes are evidence only unless a Current owner explicitly routes to them.
 
-## Run locally
+## Normal Mac learner use
+
+For normal study, use the dedicated disposable Current mirror rather than the development worktree.
+
+One-time install, or repair if the Current service is unhealthy:
+
+```bash
+npm run current:install
+```
+
+Check that GitHub main, the local Current mirror, LaunchAgent, private learner-state directory and localhost are all ready:
+
+```bash
+npm run current:doctor
+```
+
+Open the learner site during normal use:
+
+```bash
+npm run current:open
+```
+
+After installation, the macOS LaunchAgent keeps the dedicated Current mirror synced to GitHub `main` and serves the learner site on `http://127.0.0.1:4321/`. Learner checkpoints live outside the disposable mirror in the private KianOS application-support directory.
+
+The development worktree remains separate and should not be used as the normal learner runtime.
+
+## Development run
 
 From the repository root:
 

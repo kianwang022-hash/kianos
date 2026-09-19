@@ -125,6 +125,10 @@ launchctl bootstrap "$DOMAIN" "$PLIST"
 launchctl kickstart -k "$DOMAIN/$LABEL"
 
 sleep 2
+DOCTOR="$MIRROR_DIR/static-web/scripts/kianos-current-doctor.mjs"
+if [[ -f "$DOCTOR" ]]; then
+  "$NODE_BIN" "$DOCTOR"
+fi
 open "http://127.0.0.1:$PORT/" >/dev/null 2>&1 || true
 
 cat <<EOF
