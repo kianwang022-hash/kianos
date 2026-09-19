@@ -178,7 +178,7 @@
           "invent a newer semantic standard"
         ],
         "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
-        "next_action": "Kian reviews only the three genuinely new material deltas in PR #546. On p, freeze BF09 as approved backlog and immediately continue C to o0801-o0900.",
+        "next_action": "Kian reviews only the two genuinely new material deltas in PR #546. On p, approve exactly those two plus the reported bounded corrections/Test changes, freeze BF09 backlog, and immediately continue C to o0801-o0900.",
         "review_head": "f860eff88e88e85bbc687dfbe8e7f4c5f6e55c5f",
         "review_branch": "work/lexical-final-backfill-c-o0901-o1000",
         "review_request_commit": "e959927b9b73d0f90dadfc6fcf8fd3d5eb7026df",
@@ -193,22 +193,24 @@
         "fresh_read_coverage": "100/100",
         "self_attack": "COMPLETE",
         "content_affected_owners": 27,
-        "content_no_change": 73,
+        "content_no_change": 77,
         "blocked": 0,
         "new_material_delta_owners": [
-          909,
-          922,
-          1000
+          913,
+          999
         ],
         "old_test_blueprints": 24,
         "stabilized_test_blueprints": 15,
         "canonical_semantic_mutation": false,
         "shared_write_set_if_approved": [
-          "existing compel↔oblige Relation reciprocal ownership",
-          "duplicate complement↔compliment Relations coalesced to one shared owner",
-          "commonwealth/Commonwealth identity boundary"
+          "family commence↔commencement; target word:commencement@o7737",
+          "coalesced complement↔compliment confusable Relation",
+          "repaired compose↔comprise↔consist-of syntax Relation; shared word:consist@o1026",
+          "family confirm↔confirmation; target word:confirmation@o6554",
+          "reciprocal confirm↔conform confusable Relation; shared word:conform@o1001"
         ],
-        "semantic_freshness_note": "Since BF09 freeze, main advanced only in the live board and Xizong files; no o0901-o1000 Word/Relation/Form semantic owner or Lexical semantic contract changed. Proposal remains current under FINAL_SEMANTIC_FREEZE v1."
+        "semantic_freshness_note": "Review froze from main f860eff8. Drift comparison before proposal freeze showed only three-chat-board and Xizong changes; no o0901-o1000 Word/Relation/Form owner or final semantic contract changed. FINAL_SEMANTIC_FREEZE v1 still governs.",
+        "content_upgrades": 23
       },
       "scheduled_ranges": [
         [
@@ -734,6 +736,63 @@
       "state": "PROPOSED_SHARED_SEMANTIC",
       "write_lease_candidate": null,
       "semantic_scope": "coalesce duplicate accepted confusable owners into one reciprocal relation"
+    },
+    {
+      "claim_key": "FAMILY:commence|commencement:derivation",
+      "kind": "FAMILY",
+      "participants": [
+        "word:commence",
+        "word:commencement"
+      ],
+      "claimants": [
+        "BF09"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "high-leverage family link; commencement includes nontransparent AmE graduation-ceremony branch"
+    },
+    {
+      "claim_key": "RELATION:compose|comprise|consist:part_whole_syntax",
+      "kind": "RELATION",
+      "participants": [
+        "word:compose",
+        "word:comprise",
+        "word:consist"
+      ],
+      "claimants": [
+        "BF09"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "whole comprises/consists of parts; parts compose/make up whole; reciprocal syntax decision"
+    },
+    {
+      "claim_key": "FAMILY:confirm|confirmation:derivation",
+      "kind": "FAMILY",
+      "participants": [
+        "word:confirm",
+        "word:confirmation"
+      ],
+      "claimants": [
+        "BF09"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "modern confirmation noun relation including booking/order/arrangement confirmation"
+    },
+    {
+      "claim_key": "RELATION:confirm|conform:confusable",
+      "kind": "RELATION",
+      "participants": [
+        "word:confirm",
+        "word:conform"
+      ],
+      "claimants": [
+        "BF09"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "reciprocal confirm=verify/make definite vs conform=comply/match boundary"
     }
   ],
   "last_closed": {
