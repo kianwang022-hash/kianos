@@ -205,3 +205,56 @@ export function resolvePoliticsMemoryResume(storage, catalog) {
     total: (plan.items || []).length
   };
 }
+
+
+export function politicsMemoryCheckpointKeyAllowed(key) {
+  const value = String(key || '');
+  return value === POLITICS_MEMORY_PLAN_KEY
+    || value === POLITICS_MEMORY_EVIDENCE_KEY
+    || value.startsWith(POLITICS_MEMORY_PLAN_PREFIX);
+}
+
+function validateStoredPlanShape(value) {
+  if (!record(value)
+      || value.schema !== POLITICS_MEMORY_PLAN_SCHEMA
+      || !clean(value.plan_id, 160)
+      || !validDay(value.study_day)
+      || !clean(value.generated_at, 80)
+      || Number.isNaN(Date.parse(value.generated_at))
+      || !clean(value.catalog_revision, 200)
+      || !Array.isArray(value.items)) {
+    fail('CHECKPOINT_PLAN_INVALID');
+  }
+  const ids = value.items.map((item) => clean(item?.candidate_id, 220)).filter(Boolean);
+  if (ids.length !== value.items.length || new Set(ids).size !== ids.length) {
+    fail('CHECKPOINT_PLAN_ITEMS_INVALID');
+  }
+  return value;
+}
+
+function validateStoredEvidenceShape(value) {
+  if (!Array.isArray(value)) fail('CHECKPOINT_EVIDENCE_INVALID');
+  for (const row of value) {
+    if (!record(row)
+        || row.schema !== 'kianos.politics.memory-recall-event.v1'
+        || !clean(row.event_id, 400)
+        || !clean(row.plan_id, 160)
+        || !validDay(row.study_day)
+        || !clean(row.candidate_id, 220)
+        || !RESPONSES.has(clean(row.response, 20).toUpperCase())
+        || !clean(row.observed_at, 80)
+        || Number.isNaN(Date.parse(row.observed_at))) {
+      fail('CHECKPOINT_EVIDENCE_INVALID');
+    }
+  }
+  return value;
+}
+
+export function validatePoliticsMemoryCheckpointValue(key, value) {
+  const k = String(key || '');
+  if (k === POLITICS_MEMORY_EVIDENCE_KEY) return validateStoredEvidenceShape(value);
+  if (k === POLITICS_MEMORY_PLAN_KEY || k.startsWith(POLITICS_MEMORY_PLAN_PREFIX)) {
+    return validateStoredPlanShape(value);
+  }
+  fail('CHECKPOINT_KEY_INVALID', k);
+}
