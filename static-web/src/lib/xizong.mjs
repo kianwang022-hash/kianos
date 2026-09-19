@@ -90,6 +90,30 @@ function systemRecordFromDir(dirName) {
   };
 }
 
+function forecastSystemRecordFromDir(dirName) {
+  const systemPath = SYSTEMS_ROOT + '/' + dirName + '/system.json';
+  if (!fs.existsSync(absolute(systemPath))) return null;
+  const text = readText(systemPath);
+  const system = JSON.parse(text);
+  const identity = systemIdentity(system);
+  const blockCount = Number(system?.identity?.block_count || 0);
+  const kpCount = Number(system?.identity?.canonical_kp_count || 0);
+  if (!identity.systemId || !identity.canonicalId || !identity.title) return null;
+  if (!Number.isInteger(blockCount) || blockCount < 1) {
+    throw new Error('CURRENT_XIZONG_FORECAST_SYSTEM_BLOCK_COUNT_INVALID:' + identity.systemId);
+  }
+  if (!Number.isInteger(kpCount) || kpCount < 1) {
+    throw new Error('CURRENT_XIZONG_FORECAST_SYSTEM_KP_COUNT_INVALID:' + identity.systemId);
+  }
+  return {
+    dirName,
+    systemPath,
+    system,
+    identity,
+    sourceHash: sha256(text),
+    projectionAccepted: systemProjectionAccepted(dirName)
+  };
+}
 function blockOrdinalFromFile(filename) {
   const match = String(filename).match(/(?:^|_)Block(\d+)_/i);
   return match ? Number(match[1]) : null;
@@ -414,7 +438,7 @@ function xizongForecastBlockRecords(record) {
 export function listXizongForecastScope() {
   const manifest = assertCurrentManifest();
   const systems = systemDirectoryCandidates()
-    .map(systemRecordFromDir)
+    .map(forecastSystemRecordFromDir)
     .filter(Boolean)
     .map((record) => {
       const blocks = xizongForecastBlockRecords(record);
