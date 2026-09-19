@@ -11,10 +11,10 @@ This file owns Work Cursor only. It does not own medical Core, accepted Learning
 ## Current Work Cursor
 
 **Scope:** D — Neuro / Sensory / Motor / Orthopedics  
-**Accepted upstream:** **S1 + K + L closed**  
-**Active construction stage:** **Content Realization / Optimization**  
-**Content state:** **PHASE 7B WRAPPER CLEANUP CLOSED + PHASE 7C NEURAL LG SUFFICIENCY CLOSED + PHASE 7D ORTHOPEDIC LG SUFFICIENCY CLOSED · CONTENT NOT CLOSED**  
-**Earliest eligible next action:** **Phase 7E — fresh independent Content closure audit**  
+**Accepted upstream:** **S1 + K + L + Content closed**  
+**Active construction stage:** **Content CLOSED · Projection next eligible**  
+**Content state:** **PHASE 7B WRAPPER CLEANUP CLOSED + PHASE 7C NEURAL LG SUFFICIENCY CLOSED + PHASE 7D ORTHOPEDIC LG SUFFICIENCY CLOSED + PHASE 7E FRESH INDEPENDENT CONTENT CLOSURE PASS**  
+**Earliest eligible next action:** **P — scoped Projection work over accepted D Content**  
 **Parallel Source boundary:** exact official D System question membership remains **UNTESTED** and gates the later trusted official-question sweep only
 
 ```text
@@ -22,10 +22,10 @@ S1 medical / first-learning Source boundary = PASS
 S2 exact official-question membership        = UNTESTED / parallel later boundary
 K Knowledge                                  = PASS
 L Learning Logic                             = PASS_AFTER_REPAIR
-Content Realization / Optimization           = ACTIVE / NOT_CLOSED
-P Projection                                  = downstream-frozen
-R Runtime                                     = downstream-frozen
-E Evidence                                    = downstream-frozen
+Content Realization / Optimization           = PASS
+P Projection                                 = UNTESTED / ACTIVE NEXT
+R Runtime                                     = UNTESTED / downstream-frozen
+E Evidence                                    = UNTESTED / downstream-frozen
 U Learner Use                                 = no repository claim
 ```
 
@@ -59,6 +59,7 @@ Content realization evidence:
 - `content/xizong/knowledge/learner/D_PHASE7B_BLOCK_WRAPPER_CLEANUP_EXECUTION.md`
 - `content/xizong/knowledge/learner/D_PHASE7C_NEURAL_CONTENT_SUFFICIENCY_AUDIT.md`
 - `content/xizong/knowledge/learner/D_PHASE7D_ORTHOPEDIC_CONTENT_SUFFICIENCY_AUDIT.md`
+- `content/xizong/knowledge/learner/D_PHASE7E_FRESH_INDEPENDENT_CONTENT_CLOSURE.md`
 
 Fresh independent L evidence:
 
@@ -200,31 +201,48 @@ Preserved negative space includes O12 clubfoot Source Gap, O13/O14/O15/O16 expli
 
 ---
 
-## Active Phase 7E — fresh independent Content closure audit
+## Phase 7E result — PASS / CONTENT CLOSED
 
-Earliest Content question now becomes:
+Fresh independent whole-D readback passed.
 
-> Does the complete D Content candidate still hold together when read fresh as one learner-facing system, including Page-disappearance, no-duplicate-truth, Source-role and boundary checks, without relying on the construction history that produced it?
+```text
+canonical Blocks                         = 27 / 27
+canonical KP identity                    = 356 / 356
+KP declaration / marker / heading        = 356 / 356 / 356
+accepted Logic Groups                    = 128 / 128
+LG → KP partition                        = 356 unique KP / 0 gap / 0 duplicate
+Content Source-release coverage          = 128 / 128 LG
+stale prerequisite / next-Block wrappers = 0
+Projection / Runtime implementation leak = 0 found
+```
 
-Phase 7E must be independent of the Phase 7C/7D repair decisions except as artifacts under test. It may reopen a concrete defect, but must not manufacture one for symmetry.
+Fresh attacks re-read the current owners rather than accepting Phase 7C/7D labels as proof. The most answer-leak-prone repaired fronts (N10-KP11, N11-KP12, O3, O12 and O16) still require reconstruction before Reveal; Source gaps/conflicts remain explicit in the live canonical Blocks.
 
-After Phase 7E PASS, D Content may close and Projection become eligible.
+The Page-disappearance test passes: the learner-worthy D asset remains the canonical Markdown + Source locators + accepted Learning/Content owners. Current website geometry is not required for the content to remain coherent. Visual-required cognition still requires the owning original Source visual rather than prose pretending to replace it.
 
+One real fresh defect was found: the Content owner had already advanced to Phase 7E readiness while one close-requirement string still said `PHASE7D_ACTIVE`. That stale state was repaired to `PHASE7D_CLOSED`; no medical Core, KP identity, LG topology or Source-contact design changed.
+
+Formal receipt:
+
+`content/xizong/knowledge/learner/D_PHASE7E_FRESH_INDEPENDENT_CONTENT_CLOSURE.md`
+
+D Content is now **CLOSED / PASS**. Scoped Projection is eligible; Runtime/Evidence remain downstream-frozen.
 ---
 
-## Content close requirements
+## Content close requirements — CLOSED
 
-Content remains open until:
+All Content-close requirements are satisfied:
 
-- every accepted LG has sufficient Core + retrieval/closure support;
-- full Core is available without becoming mandatory continuous KianOS reading;
-- Source gaps/conflicts remain explicit;
-- original Lecture remains primary for genuine new Source learning;
-- Page-disappearance test passes;
-- no Projection/UI decisions have been smuggled into Content.
+- wrapper authority / route semantics clean — **Phase 7B PASS**;
+- neural LG Core + retrieval/closure support — **Phase 7C PASS**;
+- orthopedic LG Core + retrieval/closure support — **Phase 7D PASS**;
+- full KP Core remains available without becoming compulsory continuous KianOS reading — **PASS**;
+- Source gaps/conflicts remain explicit and unresolved where appropriate — **PASS**;
+- original Lecture remains primary for genuine new Source learning — **PASS**;
+- Page-disappearance test — **PASS**;
+- Content assets do not choose UI geometry, disclosure widgets, runtime states or evidence semantics — **PASS**.
 
-Phase 7B closed wrapper-route / first-pass-role debt. Phase 7C closed neural LG sufficiency/density. Phase 7D closed orthopedic LG sufficiency/density.
-
+A future concrete upstream defect may reopen the smallest responsible owner. Otherwise D Content stays closed.
 ---
 
 ## Negative space

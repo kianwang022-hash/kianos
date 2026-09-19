@@ -1,8 +1,8 @@
 {
   "schema": "kianos.xizong.system_content_realization.v1",
-  "status": "CANDIDATE",
-  "construction_status": "PHASE7D_ORTHOPEDIC_LG_SUFFICIENCY_COMPLETE_PHASE7E_READY",
-  "authority": "CHAT_APPROVED_CONTENT_CANDIDATE",
+  "status": "ACCEPTED",
+  "construction_status": "PHASE7E_FRESH_INDEPENDENT_CONTENT_CLOSED",
+  "authority": "FRESH_INDEPENDENT_CONTENT_ACCEPTANCE",
   "system_id": "neuro-sensory-motor-orthopedics",
   "canonical_id": "D",
   "scope": "D learner-content organization over accepted canonical Block/KP Core; no medical-Core duplication, no Projection/UI decisions",
@@ -56,141 +56,422 @@
     ]
   },
   "block_realization": {
-    "N1": {"source_mode":"WHOLE_BLOCK_SOURCE","content_pattern":"ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"},
-    "N2": {"source_mode":"WHOLE_BLOCK_SOURCE","content_pattern":"ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"},
-    "N3": {"source_mode":"WHOLE_BLOCK_SOURCE","content_pattern":"ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"},
+    "N1": {
+      "source_mode": "WHOLE_BLOCK_SOURCE",
+      "content_pattern": "ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"
+    },
+    "N2": {
+      "source_mode": "WHOLE_BLOCK_SOURCE",
+      "content_pattern": "ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"
+    },
+    "N3": {
+      "source_mode": "WHOLE_BLOCK_SOURCE",
+      "content_pattern": "ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"
+    },
     "N4": {
-      "source_mode":"NATURAL_SOURCE_UNITS",
-      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
-      "source_units":[
-        {"id":"N4-SU1","label":"NMJ + excitation-contraction coupling","lg_refs":["N4-LG01","N4-LG02","N4-LG03"]},
-        {"id":"N4-SU2","label":"contractile mechanics + force regulation","lg_refs":["N4-LG04","N4-LG05","N4-LG06"]}
+      "source_mode": "NATURAL_SOURCE_UNITS",
+      "content_pattern": "SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "source_units": [
+        {
+          "id": "N4-SU1",
+          "label": "NMJ + excitation-contraction coupling",
+          "lg_refs": [
+            "N4-LG01",
+            "N4-LG02",
+            "N4-LG03"
+          ]
+        },
+        {
+          "id": "N4-SU2",
+          "label": "contractile mechanics + force regulation",
+          "lg_refs": [
+            "N4-LG04",
+            "N4-LG05",
+            "N4-LG06"
+          ]
+        }
       ]
     },
     "N5": {
-      "source_mode":"NATURAL_SOURCE_UNITS",
-      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
-      "source_units":[
-        {"id":"N5-SU1","label":"vestibular spatial unit","lg_refs":["N5-LG02"]},
-        {"id":"N5-SU2","label":"general sensation + pain + projection unit","lg_refs":["N5-LG01","N5-LG03","N5-LG04"]}
+      "source_mode": "NATURAL_SOURCE_UNITS",
+      "content_pattern": "SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "source_units": [
+        {
+          "id": "N5-SU1",
+          "label": "vestibular spatial unit",
+          "lg_refs": [
+            "N5-LG02"
+          ]
+        },
+        {
+          "id": "N5-SU2",
+          "label": "general sensation + pain + projection unit",
+          "lg_refs": [
+            "N5-LG01",
+            "N5-LG03",
+            "N5-LG04"
+          ]
+        }
       ],
-      "boundary":"olfaction/gustation standalone mechanism remains Source-limited; do not fabricate a complete model"
+      "boundary": "olfaction/gustation standalone mechanism remains Source-limited; do not fabricate a complete model"
     },
     "N6": {
-      "source_mode":"NATURAL_SOURCE_UNITS",
-      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
-      "source_units":[
-        {"id":"N6-SU1","label":"optics + near response","lg_refs":["N6-LG01","N6-LG02"]},
-        {"id":"N6-SU2","label":"retinal transduction/network + visual phenomena","lg_refs":["N6-LG03","N6-LG04","N6-LG05"]},
-        {"id":"N6-SU3","label":"visual pathway/field localization","lg_refs":["N6-LG06"]}
+      "source_mode": "NATURAL_SOURCE_UNITS",
+      "content_pattern": "SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "source_units": [
+        {
+          "id": "N6-SU1",
+          "label": "optics + near response",
+          "lg_refs": [
+            "N6-LG01",
+            "N6-LG02"
+          ]
+        },
+        {
+          "id": "N6-SU2",
+          "label": "retinal transduction/network + visual phenomena",
+          "lg_refs": [
+            "N6-LG03",
+            "N6-LG04",
+            "N6-LG05"
+          ]
+        },
+        {
+          "id": "N6-SU3",
+          "label": "visual pathway/field localization",
+          "lg_refs": [
+            "N6-LG06"
+          ]
+        }
       ]
     },
     "N7": {
-      "source_mode":"NATURAL_SOURCE_UNITS",
-      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
-      "source_units":[
-        {"id":"N7-SU1","label":"outer/middle-ear transmission","lg_refs":["N7-LG01"]},
-        {"id":"N7-SU2","label":"cochlear mechanics + transduction","lg_refs":["N7-LG02","N7-LG03","N7-LG04"]}
+      "source_mode": "NATURAL_SOURCE_UNITS",
+      "content_pattern": "SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "source_units": [
+        {
+          "id": "N7-SU1",
+          "label": "outer/middle-ear transmission",
+          "lg_refs": [
+            "N7-LG01"
+          ]
+        },
+        {
+          "id": "N7-SU2",
+          "label": "cochlear mechanics + transduction",
+          "lg_refs": [
+            "N7-LG02",
+            "N7-LG03",
+            "N7-LG04"
+          ]
+        }
       ]
     },
     "N8": {
-      "source_mode":"NATURAL_SOURCE_UNITS",
-      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
-      "source_units":[
-        {"id":"N8-SU1","label":"spinal reflex/tone","lg_refs":["N8-LG01","N8-LG02","N8-LG03","N8-LG04"]},
-        {"id":"N8-SU2","label":"basal ganglia + cerebellum","lg_refs":["N8-LG05"]},
-        {"id":"N8-SU3","label":"cortex/descending/UMN-LMN","lg_refs":["N8-LG06"]}
+      "source_mode": "NATURAL_SOURCE_UNITS",
+      "content_pattern": "SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "source_units": [
+        {
+          "id": "N8-SU1",
+          "label": "spinal reflex/tone",
+          "lg_refs": [
+            "N8-LG01",
+            "N8-LG02",
+            "N8-LG03",
+            "N8-LG04"
+          ]
+        },
+        {
+          "id": "N8-SU2",
+          "label": "basal ganglia + cerebellum",
+          "lg_refs": [
+            "N8-LG05"
+          ]
+        },
+        {
+          "id": "N8-SU3",
+          "label": "cortex/descending/UMN-LMN",
+          "lg_refs": [
+            "N8-LG06"
+          ]
+        }
       ]
     },
-    "N9": {"source_mode":"WHOLE_BLOCK_SOURCE","content_pattern":"ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"},
+    "N9": {
+      "source_mode": "WHOLE_BLOCK_SOURCE",
+      "content_pattern": "ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"
+    },
     "N10": {
-      "source_mode":"NATURAL_SOURCE_UNITS",
-      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
-      "source_units":[
-        {"id":"N10-SU1","label":"higher cortical function","lg_refs":["N10-LG01","N10-LG02","N10-LG03"]},
-        {"id":"N10-SU2","label":"hypothalamus","lg_refs":["N10-LG04","N10-LG05","N10-LG06"]}
+      "source_mode": "NATURAL_SOURCE_UNITS",
+      "content_pattern": "SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "source_units": [
+        {
+          "id": "N10-SU1",
+          "label": "higher cortical function",
+          "lg_refs": [
+            "N10-LG01",
+            "N10-LG02",
+            "N10-LG03"
+          ]
+        },
+        {
+          "id": "N10-SU2",
+          "label": "hypothalamus",
+          "lg_refs": [
+            "N10-LG04",
+            "N10-LG05",
+            "N10-LG06"
+          ]
+        }
       ]
     },
     "N11": {
-      "source_mode":"INTEGRATION_PRIMARY",
-      "content_pattern":"KIANOS_INTEGRATION_RETRIEVAL_WITH_TARGETED_SOURCE_RETURN",
-      "required_prior_owners":["N1","N5","N8"],
-      "targeted_source_returns":["tract/localization visuals","root/nerve/cord visuals","relevant surgery wording or uncertainty"],
-      "rule":"Do not manufacture a new continuous N11 Lecture pass."
+      "source_mode": "INTEGRATION_PRIMARY",
+      "content_pattern": "KIANOS_INTEGRATION_RETRIEVAL_WITH_TARGETED_SOURCE_RETURN",
+      "required_prior_owners": [
+        "N1",
+        "N5",
+        "N8"
+      ],
+      "targeted_source_returns": [
+        "tract/localization visuals",
+        "root/nerve/cord visuals",
+        "relevant surgery wording or uncertainty"
+      ],
+      "rule": "Do not manufacture a new continuous N11 Lecture pass."
     },
     "O1": {
-      "source_mode":"INTEGRATION_PRIMARY",
-      "content_pattern":"KIANOS_ORTHOPEDIC_ENTRY_INTEGRATION_WITH_TARGETED_SOURCE_RETURN",
-      "targeted_source_returns":["reviewed shared orthopedic visuals when available","specific evidence/function wording when uncertain"],
-      "rule":"O1 may orient independently; do not gate the orthopedic branch behind completion of the neural branch."
+      "source_mode": "INTEGRATION_PRIMARY",
+      "content_pattern": "KIANOS_ORTHOPEDIC_ENTRY_INTEGRATION_WITH_TARGETED_SOURCE_RETURN",
+      "targeted_source_returns": [
+        "reviewed shared orthopedic visuals when available",
+        "specific evidence/function wording when uncertain"
+      ],
+      "rule": "O1 may orient independently; do not gate the orthopedic branch behind completion of the neural branch."
     },
-    "O2": {"source_mode":"WHOLE_BLOCK_SOURCE","content_pattern":"ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"},
+    "O2": {
+      "source_mode": "WHOLE_BLOCK_SOURCE",
+      "content_pattern": "ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"
+    },
     "O3": {
-      "source_mode":"NATURAL_SOURCE_UNITS",
-      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
-      "hard_readiness":["N11"],
-      "source_units":[
-        {"id":"O3-SU1","label":"axial trauma/stability","lg_refs":["O3-LG01","O3-LG02","O3-LG03"]},
-        {"id":"O3-SU2","label":"cord/conus/cauda danger/localization","lg_refs":["O3-LG04","O3-LG05","O3-LG06"]}
+      "source_mode": "NATURAL_SOURCE_UNITS",
+      "content_pattern": "SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "hard_readiness": [
+        "N11"
+      ],
+      "source_units": [
+        {
+          "id": "O3-SU1",
+          "label": "axial trauma/stability",
+          "lg_refs": [
+            "O3-LG01",
+            "O3-LG02",
+            "O3-LG03"
+          ]
+        },
+        {
+          "id": "O3-SU2",
+          "label": "cord/conus/cauda danger/localization",
+          "lg_refs": [
+            "O3-LG04",
+            "O3-LG05",
+            "O3-LG06"
+          ]
+        }
       ]
     },
     "O4": {
-      "source_mode":"NATURAL_SOURCE_UNITS",
-      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
-      "hard_readiness":["N11"],
-      "source_units":[
-        {"id":"O4-SU1","label":"cervical compression","lg_refs":["O4-LG01","O4-LG02","O4-LG03"]},
-        {"id":"O4-SU2","label":"lumbar compression","lg_refs":["O4-LG04","O4-LG05"],"reactivate_lg_refs":["O4-LG01"]}
+      "source_mode": "NATURAL_SOURCE_UNITS",
+      "content_pattern": "SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "hard_readiness": [
+        "N11"
+      ],
+      "source_units": [
+        {
+          "id": "O4-SU1",
+          "label": "cervical compression",
+          "lg_refs": [
+            "O4-LG01",
+            "O4-LG02",
+            "O4-LG03"
+          ]
+        },
+        {
+          "id": "O4-SU2",
+          "label": "lumbar compression",
+          "lg_refs": [
+            "O4-LG04",
+            "O4-LG05"
+          ],
+          "reactivate_lg_refs": [
+            "O4-LG01"
+          ]
+        }
       ]
     },
     "O5": {
-      "source_mode":"NATURAL_SOURCE_UNITS",
-      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
-      "hard_readiness":["N11"],
-      "source_units":[
-        {"id":"O5-SU1","label":"common localization + plexus","lg_refs":["O5-LG01","O5-LG02"]},
-        {"id":"O5-SU2","label":"upper-limb named nerves","lg_refs":["O5-LG03"]},
-        {"id":"O5-SU3","label":"lower-limb named nerves","lg_refs":["O5-LG04"],"post_unit_closure_lg_refs":["O5-LG05"]}
+      "source_mode": "NATURAL_SOURCE_UNITS",
+      "content_pattern": "SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "hard_readiness": [
+        "N11"
+      ],
+      "source_units": [
+        {
+          "id": "O5-SU1",
+          "label": "common localization + plexus",
+          "lg_refs": [
+            "O5-LG01",
+            "O5-LG02"
+          ]
+        },
+        {
+          "id": "O5-SU2",
+          "label": "upper-limb named nerves",
+          "lg_refs": [
+            "O5-LG03"
+          ]
+        },
+        {
+          "id": "O5-SU3",
+          "label": "lower-limb named nerves",
+          "lg_refs": [
+            "O5-LG04"
+          ],
+          "post_unit_closure_lg_refs": [
+            "O5-LG05"
+          ]
+        }
       ]
     },
-    "O6": {"source_mode":"WHOLE_BLOCK_SOURCE","content_pattern":"ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"},
-    "O7": {"source_mode":"WHOLE_BLOCK_SOURCE","content_pattern":"ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"},
-    "O8": {"source_mode":"WHOLE_BLOCK_SOURCE","content_pattern":"ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"},
-    "O9": {"source_mode":"WHOLE_BLOCK_SOURCE","content_pattern":"ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"},
-    "O10": {"source_mode":"WHOLE_BLOCK_SOURCE","content_pattern":"ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"},
+    "O6": {
+      "source_mode": "WHOLE_BLOCK_SOURCE",
+      "content_pattern": "ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"
+    },
+    "O7": {
+      "source_mode": "WHOLE_BLOCK_SOURCE",
+      "content_pattern": "ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"
+    },
+    "O8": {
+      "source_mode": "WHOLE_BLOCK_SOURCE",
+      "content_pattern": "ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"
+    },
+    "O9": {
+      "source_mode": "WHOLE_BLOCK_SOURCE",
+      "content_pattern": "ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"
+    },
+    "O10": {
+      "source_mode": "WHOLE_BLOCK_SOURCE",
+      "content_pattern": "ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"
+    },
     "O11": {
-      "source_mode":"NATURAL_SOURCE_UNITS",
-      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
-      "source_units":[
-        {"id":"O11-SU1","label":"chronic soft-tissue overload","lg_refs":["O11-LG01","O11-LG02","O11-LG03","O11-LG04"]},
-        {"id":"O11-SU2","label":"chronic nerve compression","lg_refs":["O11-LG05"],"reactivation":"N11 only for root-vs-named-nerve discrimination; not a whole-Block gate"}
+      "source_mode": "NATURAL_SOURCE_UNITS",
+      "content_pattern": "SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "source_units": [
+        {
+          "id": "O11-SU1",
+          "label": "chronic soft-tissue overload",
+          "lg_refs": [
+            "O11-LG01",
+            "O11-LG02",
+            "O11-LG03",
+            "O11-LG04"
+          ]
+        },
+        {
+          "id": "O11-SU2",
+          "label": "chronic nerve compression",
+          "lg_refs": [
+            "O11-LG05"
+          ],
+          "reactivation": "N11 only for root-vs-named-nerve discrimination; not a whole-Block gate"
+        }
       ]
     },
-    "O12": {"source_mode":"WHOLE_BLOCK_SOURCE","content_pattern":"ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL","boundary":"clubfoot remains explicit Source gap"},
+    "O12": {
+      "source_mode": "WHOLE_BLOCK_SOURCE",
+      "content_pattern": "ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL",
+      "boundary": "clubfoot remains explicit Source gap"
+    },
     "O13": {
-      "source_mode":"NATURAL_SOURCE_UNITS",
-      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
-      "source_units":[
-        {"id":"O13-SU1","label":"acute bone/joint infection","lg_refs":["O13-LG01","O13-LG02","O13-LG03"]},
-        {"id":"O13-SU2","label":"chronic osteomyelitis/dead-space source control","lg_refs":["O13-LG04"]}
+      "source_mode": "NATURAL_SOURCE_UNITS",
+      "content_pattern": "SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "source_units": [
+        {
+          "id": "O13-SU1",
+          "label": "acute bone/joint infection",
+          "lg_refs": [
+            "O13-LG01",
+            "O13-LG02",
+            "O13-LG03"
+          ]
+        },
+        {
+          "id": "O13-SU2",
+          "label": "chronic osteomyelitis/dead-space source control",
+          "lg_refs": [
+            "O13-LG04"
+          ]
+        }
       ]
     },
     "O14": {
-      "source_mode":"NATURAL_SOURCE_UNITS",
-      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
-      "source_units":[
-        {"id":"O14-SU1","label":"spine TB","lg_refs":["O14-LG01","O14-LG02"]},
-        {"id":"O14-SU2","label":"hip/peripheral-joint TB","lg_refs":["O14-LG03"],"post_unit_closure_lg_refs":["O14-LG04"]}
+      "source_mode": "NATURAL_SOURCE_UNITS",
+      "content_pattern": "SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "source_units": [
+        {
+          "id": "O14-SU1",
+          "label": "spine TB",
+          "lg_refs": [
+            "O14-LG01",
+            "O14-LG02"
+          ]
+        },
+        {
+          "id": "O14-SU2",
+          "label": "hip/peripheral-joint TB",
+          "lg_refs": [
+            "O14-LG03"
+          ],
+          "post_unit_closure_lg_refs": [
+            "O14-LG04"
+          ]
+        }
       ]
     },
-    "O15": {"source_mode":"WHOLE_BLOCK_SOURCE","content_pattern":"ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"},
+    "O15": {
+      "source_mode": "WHOLE_BLOCK_SOURCE",
+      "content_pattern": "ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL"
+    },
     "O16": {
-      "source_mode":"NATURAL_SOURCE_UNITS",
-      "content_pattern":"SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
-      "source_units":[
-        {"id":"O16-SU1","label":"general tumor coordinate + evidence","lg_refs":["O16-LG01","O16-LG07"]},
-        {"id":"O16-SU2","label":"representative tumors/tumor-like lesions","lg_refs":["O16-LG02","O16-LG03","O16-LG04","O16-LG05","O16-LG06"]},
-        {"id":"O16-SU3","label":"spine/destructive differential","lg_refs":["O16-LG08"]}
+      "source_mode": "NATURAL_SOURCE_UNITS",
+      "content_pattern": "SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL",
+      "source_units": [
+        {
+          "id": "O16-SU1",
+          "label": "general tumor coordinate + evidence",
+          "lg_refs": [
+            "O16-LG01",
+            "O16-LG07"
+          ]
+        },
+        {
+          "id": "O16-SU2",
+          "label": "representative tumors/tumor-like lesions",
+          "lg_refs": [
+            "O16-LG02",
+            "O16-LG03",
+            "O16-LG04",
+            "O16-LG05",
+            "O16-LG06"
+          ]
+        },
+        {
+          "id": "O16-SU3",
+          "label": "spine/destructive differential",
+          "lg_refs": [
+            "O16-LG08"
+          ]
+        }
       ]
     }
   },
@@ -199,14 +480,16 @@
     "PHASE7B_CLOSED: Block first-pass role copy now distinguishes WHOLE_BLOCK_SOURCE, NATURAL_SOURCE_UNITS and INTEGRATION_PRIMARY.",
     "PHASE7B_CLOSED: benefits_from wording uses bounded reactivation/default-route language rather than assumed learner completion.",
     "PHASE7C_CLOSED: all 56 accepted N1–N11 Logic Groups passed content sufficiency/density after two bounded Recall-front repairs.",
-    "PHASE7D_ACTIVE: audit all 72 accepted O1–O16 Logic Groups for sufficient canonical Core, retrieval prompt, boundary and closure support without adding duplicate medical truth.",
-    "Keep full clinical-neurology/ophthalmology/ENT/rehab/guideline negative space closed.",
-    "Pass the page-disappearance test before P becomes eligible."
+    "PHASE7D_CLOSED: all 72 accepted O1–O16 Logic Groups passed content sufficiency/density after bounded Recall-front repair.",
+    "PHASE7E_CLOSED: fresh whole-D readback passed identity/partition, Source-release, Recall-front, Page-disappearance, no-duplicate-truth and boundary checks.",
+    "Full clinical-neurology/ophthalmology/ENT/rehab/guideline negative space remains closed.",
+    "Page-disappearance test PASS: canonical Markdown + Content/Learning owners remain coherent without current website geometry or runtime."
   ],
   "downstream_boundary": {
-    "projection": "FROZEN_UNTIL_CONTENT_ACCEPTANCE",
-    "runtime": "FROZEN",
-    "evidence": "FROZEN",
-    "rule": "Content roles may be rich and selective, but must not choose UI geometry, progressive-disclosure widgets, runtime states or learner evidence semantics."
-  }
+    "projection": "ELIGIBLE_AFTER_PHASE7E_CONTENT_ACCEPTANCE",
+    "runtime": "FROZEN_UNTIL_PROJECTION_ACCEPTANCE",
+    "evidence": "FROZEN_UNTIL_RUNTIME_ACCEPTANCE",
+    "rule": "Content closure makes scoped Projection eligible. Content still may not choose UI geometry, progressive-disclosure widgets, runtime states or learner evidence semantics."
+  },
+  "phase7e_fresh_independent_closure_receipt": "content/xizong/knowledge/learner/D_PHASE7E_FRESH_INDEPENDENT_CONTENT_CLOSURE.md"
 }

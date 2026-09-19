@@ -16,8 +16,8 @@ This file owns D-scoped readiness truth only. It does not own medical Core, lear
 | S2 — exact official D System question membership | **UNTESTED** | separate later Source sub-boundary; gates trusted official-question sweep only |
 | K — Knowledge | **PASS** | `system.json` + 27 canonical Block Core; 27 Blocks / 356 stable KPs |
 | L — Learning Logic | **PASS_AFTER_REPAIR** | Phase 6C fresh defect → Phase 6D bounded repair → Phase 6E fresh independent PASS |
-| Content Realization / Optimization | **ACTIVE / NOT_CLOSED** | Phase 7A role model built; **Phase 7B 27/27 wrapper cleanup PASS; Phase 7C neural 56/56 LG sufficiency PASS; Phase 7D orthopedic 72/72 LG sufficiency PASS**; fresh independent Content closure remains |
-| P — Projection | **UNTESTED / DOWNSTREAM-FROZEN** | not eligible before Content closure |
+| Content Realization / Optimization | **PASS** | Phase 7A role model; Phase 7B wrappers; Phase 7C neural; Phase 7D orthopedic; **Phase 7E fresh independent whole-D closure PASS** |
+| P — Projection | **UNTESTED / ACTIVE NEXT** | Content is accepted; scoped Projection is now the earliest eligible downstream gate |
 | R — Runtime | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | E — Evidence | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | U — Learner Use | **NO_CLAIM** | real Kian use only |
@@ -88,6 +88,7 @@ Phase evidence:
 - `content/xizong/knowledge/learner/D_PHASE7B_BLOCK_WRAPPER_CLEANUP_EXECUTION.md`
 - `content/xizong/knowledge/learner/D_PHASE7C_NEURAL_CONTENT_SUFFICIENCY_AUDIT.md`
 - `content/xizong/knowledge/learner/D_PHASE7D_ORTHOPEDIC_CONTENT_SUFFICIENCY_AUDIT.md`
+- `content/xizong/knowledge/learner/D_PHASE7E_FRESH_INDEPENDENT_CONTENT_CLOSURE.md`
 
 Status:
 
@@ -99,7 +100,7 @@ integration-primary realization   BUILT
 N1–N11 neural LG sufficiency      PASS / 56 of 56
 O1–O16 orthopedic LG sufficiency  PASS / 72 of 72
 canonical Core duplication        FORBIDDEN / NOT DONE
-Content PASS                       NOT CLAIMED
+Content PASS                       ACCEPTED / PHASE7E
 ```
 
 The candidate defines six content responsibilities:
@@ -298,37 +299,48 @@ Preserved limits include O12 clubfoot Source Gap; O13/O14/O15/O16 explicit Sourc
 
 ---
 
-## Active Content acceptance work — Phase 7E
+## Phase 7E acceptance — PASS / CONTENT CLOSED
 
-Content remains **NOT_CLOSED**. The earliest unresolved semantic question is a fresh independent whole-D Content closure audit.
+Evidence:
 
-Phase 7E must test the complete candidate without relying on the construction narrative:
+`content/xizong/knowledge/learner/D_PHASE7E_FRESH_INDEPENDENT_CONTENT_CLOSURE.md`
 
-1. accepted Knowledge / Learning identity is still preserved;
-2. Source contact remains primary for genuine new learning;
-3. every LG has retrieval + Core check + closure support without answer leakage;
-4. Page-disappearance test passes;
-5. canonical medical truth is not duplicated into a second owner;
-6. Source gaps/conflicts and external-owner boundaries remain explicit;
-7. Content does not choose Projection/UI, Runtime or Evidence semantics.
+Fresh independent whole-D closure established:
 
-A concrete defect may reopen the natural owner. Symmetry with A/B/C or with another D Block is not evidence.
+```text
+27 / 27 canonical Blocks present
+356 / 356 KP declarations, markers and headings agree
+128 / 128 accepted LGs present
+356 unique KP partitioned across LGs with 0 gap / 0 duplicate
+128 / 128 LGs covered by accepted Content Source-release behavior
+0 stale prerequisites / next_blocks in canonical D wrappers
+Page-disappearance PASS
+no duplicate medical-Core owner introduced
+Source gaps/conflicts and external-owner boundaries preserved
+Content-owned UI / Runtime / Evidence semantics not introduced
+```
+
+Fresh adversarial readback of the repaired Recall fronts (including N10-KP11, N11-KP12, O3, O12 and the O16 hotspot) found no remaining blocker. The only fresh defect was stale construction text inside the Content owner: `PHASE7D_ACTIVE` remained in one close-requirement string after Phase 7D had already closed. It was repaired without changing medical Core or Learning topology.
+
+Therefore D Content is accepted. P becomes the earliest eligible downstream gate; R/E remain frozen until their dependencies are accepted. S2 exact official-question membership remains separately UNTESTED and is not inferred from Content closure.
 
 ---
+---
 
-## Content close requirements
+## Content close requirements — CLOSED
 
-Content remains **NOT_CLOSED** until all are demonstrated:
+All required Content checks are now demonstrated:
 
-1. wrapper authority / route semantics remain clean — **Phase 7B PASS**;
-2. neural LG Core + retrieval/closure support — **Phase 7C PASS**;
-3. orthopedic LG Core + retrieval/closure support — **Phase 7D PASS**;
-4. full KP Core remains available but is not treated as compulsory continuous KianOS reading;
-5. Source gaps/conflicts remain explicit and unresolved where appropriate;
-6. original Lecture remains primary for genuine new Source learning;
-7. Page-disappearance test passes;
-8. Content assets do not choose UI geometry, disclosure widgets, runtime states or evidence semantics.
+1. wrapper authority / route semantics — **Phase 7B PASS**;
+2. neural LG Core + retrieval/closure — **Phase 7C PASS**;
+3. orthopedic LG Core + retrieval/closure — **Phase 7D PASS**;
+4. full Core available without compulsory continuous KianOS rereading — **PASS**;
+5. Source gaps/conflicts explicit — **PASS**;
+6. original Lecture primary for genuine new Source learning — **PASS**;
+7. Page-disappearance — **PASS**;
+8. no UI geometry / disclosure-widget / runtime-state / evidence semantics owned by Content — **PASS**.
 
+Content stays closed unless a concrete upstream defect reopens the smallest responsible owner.
 ---
 
 ## Negative space
