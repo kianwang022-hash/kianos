@@ -58,6 +58,7 @@ export function buildXizongDailyEvidencePacket(storage, {
   const keys = listKeys(storage);
   const memory = normalizeXizongMemoryState(readJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
   const pendingReturnState = readXizongPendingChatReturnState(storage);
+  const pendingReturnState = readXizongPendingChatReturnState(storage);
   const chatReturnReceipt = pendingReturnState.last_receipt && onDay(pendingReturnState.last_receipt.at, day)
     ? clone(pendingReturnState.last_receipt)
     : null;
@@ -273,6 +274,17 @@ export function buildXizongDailyEvidencePacket(storage, {
         weak_weight: Number(card?.weakWeight || 0),
         review_requested: card?.reviewRequested === true
       })),
+      pending_chat_returns: Object.values(pendingReturnState.pending_by_object || {}).map((row) => ({
+        handoff_id: String(row?.handoff_id || ''),
+        return_id: String(row?.return_id || ''),
+        object_id: String(row?.object_id || ''),
+        system_id: String(row?.system_id || ''),
+        block_id: String(row?.block_id || ''),
+        source_hash: String(row?.source_hash || ''),
+        evidence_version: String(row?.evidence_version || ''),
+        received_at: String(row?.received_at || '')
+      })),
+      chat_return_receipt: pendingReturnState.last_receipt ? clone(pendingReturnState.last_receipt) : null,
       active_repairs: activeRepairTasks(memory).map((task) => ({
         task_id: String(task?.id || ''),
         system_id: String(task?.systemId || ''),
@@ -305,6 +317,7 @@ export function buildXizongDailyEvidencePacket(storage, {
       block_complete: 'first-pass Block completion timestamp; not a mastery claim beyond the existing completion contract',
       system_recall: 'append-preserved System reconstruction event when current prototype history exists; legacy latest-only state remains labeled',
       memory_today: 'current native attention queue only; presence is not mastery debt and Chat may thin, defer, or ignore it based on current evidence',
+      chat_return_receipt: 'subject-level typed Return validation result; APPLIED/STALE/REJECTED is transport/repair-routing state, not mastery evidence',
       chat_return_control: 'pending_chat_returns and chat_return_receipt are transport/control state only; APPLIED/STALE never equals learner mastery or Repair success'
     }
   };
@@ -321,6 +334,8 @@ export function buildXizongDailyEvidencePacket(storage, {
     system_recall_events: systemRecallEvents.length,
     pending_chat_returns: pendingChatReturns.length,
     memory_today: packet.current.memory_today.length,
+    pending_chat_returns: packet.current.pending_chat_returns.length,
+    chat_return_receipt: packet.current.chat_return_receipt ? 1 : 0,
     active_repairs: packet.current.active_repairs.length
   };
 
