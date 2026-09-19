@@ -237,10 +237,13 @@ const base=import.meta.env.BASE_URL;
 
         if(state.submitted){
           const strip=document.createElement('div');strip.className='portedReadingAnswerStrip';
-          strip.innerHTML='<span>你的答案 <b></b></span><span>结果 <b></b></span>';
-          strip.querySelectorAll('b')[0].textContent=Array.isArray(state.answers[q.question_id])?state.answers[q.question_id].join(', '):(state.answers[q.question_id]||'—');
+          strip.innerHTML='<span>你的答案 <b></b></span><span>正式答案 <b></b></span><span>结果 <b></b></span>';
+          const bold=[...strip.querySelectorAll('b')];
+          bold[0].textContent=Array.isArray(state.answers[q.question_id])?state.answers[q.question_id].join(', '):(state.answers[q.question_id]||'—');
+          const formal=state.formalAnswers?.[q.question_id];
+          bold[1].textContent=Array.isArray(formal)?formal.join(', '):(formal??'—');
           const outcome=state.results?.[q.question_id]||'unscored';
-          strip.querySelectorAll('b')[1].textContent=outcome==='correct'?'✓':outcome==='unscored'?'需人工复盘':'需复盘';
+          bold[2].textContent=outcome==='correct'?'✓':outcome==='unscored'?'需人工复盘':'需复盘';
           section.appendChild(strip);
         }
         questionsBox.appendChild(section);
@@ -298,6 +301,7 @@ const base=import.meta.env.BASE_URL;
         submitted:saved.submitted===true,
         submittedAt:saved.submittedAt||'',
         results:saved.results||{},
+        formalAnswers:saved.formalAnswers||{},
         mode:saved.mode||'QUESTIONS',
         stage:saved.stage||'active'
       };
@@ -338,6 +342,7 @@ const base=import.meta.env.BASE_URL;
         const payload=await fetchJson(endpoint('answers?id='+encodeURIComponent(active.object_id)));
         if(payload.answers?.content_hash!==active.content_hash)throw new Error('EXTERNAL_READING_ANSWER_REVISION_MISMATCH');
         const formal=payload.answers?.answers||{};
+        state.formalAnswers=formal;
         state.results={};
         for(const q of active.questions||[]){
           const answer=formal[q.question_id];
