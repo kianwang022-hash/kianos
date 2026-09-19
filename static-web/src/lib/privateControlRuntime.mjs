@@ -11,6 +11,10 @@ import {
   EXAM_CHAT_PLAN_KEY,
   writeExamChatPlan
 } from './examChatPlan.mjs';
+import { installAndActivateXizongSessionInstruction } from './xizongSessionInstruction.mjs';
+import { stageXizongChatReturn } from './xizongPendingChatReturn.mjs';
+import { stageXizongSystemWuReturn } from './xizongSystemWuReturn.mjs';
+import { stagePoliticsMemoryPlan } from './politicsMemoryRuntime.mjs';
 
 const ENDPOINT='/__kianos-private/control';
 
@@ -33,17 +37,39 @@ const localDay=()=>new Date().toLocaleDateString('en-CA');
 const readJson=(storage,key)=>{try{return JSON.parse(storage.getItem(key)||'null');}catch{return null;}};
 
 async function loadEnglishCatalog(){
-  const response=await fetch('/__kianos-private/external-reading/catalog',{cache:'no-store'});
-  if(!response.ok)throw new Error('KIANOS_CONTROL_ENGLISH_CATALOG_UNAVAILABLE:'+response.status);
-  const data=await response.json();
-  return(data.collections||[]).flatMap(group=>group.passages||[]).map(row=>({
-    task:'external_reading',
-    object_id:row.object_id,
-    source_hash:row.content_hash,
-    label:row.title||row.object_id,
-    study_day:row.study_day||null,
-    origin:row.origin||null
-  }));
+  let staticRows=[];
+  try{
+    const node=document.querySelector('[data-english-resume-catalog]');
+    const parsed=JSON.parse(node?.textContent||'[]');
+    staticRows=Array.isArray(parsed)?parsed:[];
+  }catch{}
+  if(!staticRows.length){
+    try{
+      const response=await fetch(ENDPOINT+'/english-session-catalog',{cache:'no-store'});
+      if(response.ok){
+        const data=await response.json();
+        staticRows=Array.isArray(data?.rows)?data.rows:[];
+      }
+    }catch{}
+  }
+  let externalRows=[];
+  try{
+    const response=await fetch('/__kianos-private/external-reading/catalog',{cache:'no-store'});
+    if(response.ok){
+      const data=await response.json();
+      externalRows=(data.collections||[]).flatMap(group=>group.passages||[]).map(row=>({
+        task:'external_reading',
+        object_id:row.object_id,
+        source_hash:row.content_hash,
+        label:row.title||row.object_id,
+        study_day:row.study_day||null,
+        origin:row.origin||null
+      }));
+    }
+  }catch{}
+  const rows=[...staticRows,...externalRows];
+  if(!rows.length)throw new Error('KIANOS_CONTROL_ENGLISH_CATALOG_UNAVAILABLE');
+  return rows;
 }
 
 function changesBetween(real,shadow){
@@ -93,11 +119,30 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
 
   const shadow=new ShadowStorage(storage);
   const englishOp=command.operations.find(op=>op.kind==='english.session')||null;
+  const xizongSessionOp=command.operations.find(op=>op.kind==='xizong.session')||null;
+  const xizongReturnOp=command.operations.find(op=>op.kind==='xizong.chat_return')||null;
+  const xizongSystemReturnOp=command.operations.find(op=>op.kind==='xizong.system_wu_return')||null;
+  const politicsMemoryOp=command.operations.find(op=>op.kind==='politics.memory_plan')||null;
   const planOp=command.operations.find(op=>op.kind==='exam.chat_plan')||null;
 
   if(englishOp){
     const catalog=await loadEnglishCatalog();
     writeEnglishSessionInstruction(shadow,englishOp.payload,day,{catalog,now});
+  }
+  if(xizongSessionOp){
+    const holdoutYears=readJson(shadow,'kianos:xizong:full-paper-holdout-years:v1')||[];
+    installAndActivateXizongSessionInstruction(shadow,xizongSessionOp.payload,{
+      expectedDay:day,now,holdoutYears:Array.isArray(holdoutYears)?holdoutYears:[]
+    });
+  }
+  if(xizongReturnOp){
+    stageXizongChatReturn(shadow,xizongReturnOp.payload,{now,replace:true,studyDay:day});
+  }
+  if(xizongSystemReturnOp){
+    stageXizongSystemWuReturn(shadow,xizongSystemReturnOp.payload,{now,replace:true,studyDay:day});
+  }
+  if(politicsMemoryOp){
+    stagePoliticsMemoryPlan(shadow,politicsMemoryOp.payload,{expectedDay:day,now});
   }
   if(planOp){
     const prior=readJson(shadow,EXAM_CHAT_PLAN_KEY);
@@ -125,8 +170,16 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
   if(englishOp)window.dispatchEvent(new CustomEvent('kianos:english-session-updated',{
     detail:{schema:englishOp.payload?.schema||null,session_id:englishOp.payload?.session_id||null}
   }));
+  for(const op of [xizongSessionOp,xizongReturnOp,xizongSystemReturnOp].filter(Boolean)){
+    window.dispatchEvent(new CustomEvent('kianos:private-control-consumed',{
+      detail:{fresh:true,status:'APPLIED',target:op.kind,command_id:command.command_id}
+    }));
+  }
+  if(politicsMemoryOp)window.dispatchEvent(new CustomEvent('kianos:politics-memory-plan-updated',{
+    detail:{plan_id:politicsMemoryOp.payload?.plan_id||null}
+  }));
   if(planOp)window.dispatchEvent(new CustomEvent('kianos:control-command-applied',{
-    detail:{command_id:command.command_id,kind:'exam.chat_plan'}
+    detail:{command_id:command.command_id,kind:'exam.chat_plan',operations:command.operations.map(op=>op.kind)}
   }));
   return{status:'applied',command,changed_keys:keys};
 }

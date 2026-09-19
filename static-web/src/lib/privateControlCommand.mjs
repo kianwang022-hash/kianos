@@ -6,6 +6,10 @@ export const CONTROL_LOCAL_RECEIPT_KEY='kianos-control-receipt-v1';
 export const CONTROL_OPERATION_KINDS=Object.freeze([
   'english.generated_drill',
   'english.session',
+  'xizong.session',
+  'xizong.chat_return',
+  'xizong.system_wu_return',
+  'politics.memory_plan',
   'exam.chat_plan'
 ]);
 
@@ -46,21 +50,49 @@ export function validateControlCommand(value){
     : [];
   if(!operations.length||operations.length>20)fail('OP_COUNT_INVALID',String(operations.length));
 
-  const singletonKinds=['english.session','exam.chat_plan'];
+  const singletonKinds=['english.session','xizong.session','xizong.chat_return','xizong.system_wu_return','politics.memory_plan','exam.chat_plan'];
   for(const kind of singletonKinds){
     if(operations.filter(op=>op.kind===kind).length>1)fail('OP_DUPLICATE',kind);
   }
 
   const englishSession=operations.find(op=>op.kind==='english.session')?.payload||null;
+  const xizongSession=operations.find(op=>op.kind==='xizong.session')?.payload||null;
+  const xizongChatReturn=operations.find(op=>op.kind==='xizong.chat_return')?.payload||null;
+  const xizongSystemWuReturn=operations.find(op=>op.kind==='xizong.system_wu_return')?.payload||null;
+  const politicsMemoryPlan=operations.find(op=>op.kind==='politics.memory_plan')?.payload||null;
   const examPlan=operations.find(op=>op.kind==='exam.chat_plan')?.payload||null;
   const generatedDrills=operations.filter(op=>op.kind==='english.generated_drill').map(op=>op.payload);
   if(englishSession?.study_day&&englishSession.study_day!==studyDay)fail('SESSION_DAY_MISMATCH');
+  if(xizongSession?.study_day&&xizongSession.study_day!==studyDay)fail('XIZONG_SESSION_DAY_MISMATCH');
+  if(xizongChatReturn?.study_day&&xizongChatReturn.study_day!==studyDay)fail('XIZONG_RETURN_DAY_MISMATCH');
+  if(xizongSystemWuReturn?.study_day&&xizongSystemWuReturn.study_day!==studyDay)fail('XIZONG_SYSTEM_RETURN_DAY_MISMATCH');
+  if(politicsMemoryPlan?.study_day&&politicsMemoryPlan.study_day!==studyDay)fail('POLITICS_MEMORY_DAY_MISMATCH');
   if(examPlan?.study_day&&examPlan.study_day!==studyDay)fail('PLAN_DAY_MISMATCH');
   if(generatedDrills.some(drill=>drill?.study_day!==studyDay))fail('GENERATED_DRILL_DAY_MISMATCH');
-  if(!englishSession&&!examPlan)fail('NO_BROWSER_OPERATION');
+  if(!operations.some(op=>op.kind!=='english.generated_drill'))fail('NO_BROWSER_OPERATION');
   if(englishSession&&examPlan?.subjects?.english?.session_ref){
     if(String(examPlan.subjects.english.session_ref)!==String(englishSession.session_id||'')){
       fail('ENGLISH_SESSION_REF_MISMATCH');
+    }
+  }
+  if(xizongSession&&examPlan?.subjects?.xizong?.session_ref){
+    if(String(examPlan.subjects.xizong.session_ref)!==String(xizongSession.session_id||'')){
+      fail('XIZONG_SESSION_REF_MISMATCH');
+    }
+  }
+  if(!xizongSession&&xizongChatReturn&&examPlan?.subjects?.xizong?.session_ref){
+    if(String(examPlan.subjects.xizong.session_ref)!==String(xizongChatReturn.return_id||'')){
+      fail('XIZONG_RETURN_REF_MISMATCH');
+    }
+  }
+  if(!xizongSession&&!xizongChatReturn&&xizongSystemWuReturn&&examPlan?.subjects?.xizong?.session_ref){
+    if(String(examPlan.subjects.xizong.session_ref)!==String(xizongSystemWuReturn.return_id||'')){
+      fail('XIZONG_SYSTEM_RETURN_REF_MISMATCH');
+    }
+  }
+  if(politicsMemoryPlan&&examPlan?.subjects?.politics?.session_ref){
+    if(String(examPlan.subjects.politics.session_ref)!==String(politicsMemoryPlan.plan_id||'')){
+      fail('POLITICS_SESSION_REF_MISMATCH');
     }
   }
 
@@ -106,17 +138,41 @@ export function validateBrowserControlCommand(value,expectedDay=null){
     ? value.operations.map((op,i)=>normalizeOperation(op,i,{browserOnly:true}))
     : [];
   if(!operations.length||operations.length>10)fail('BROWSER_OP_COUNT_INVALID',String(operations.length));
-  const singletonKinds=['english.session','exam.chat_plan'];
+  const singletonKinds=['english.session','xizong.session','xizong.chat_return','xizong.system_wu_return','politics.memory_plan','exam.chat_plan'];
   for(const kind of singletonKinds){
     if(operations.filter(op=>op.kind===kind).length>1)fail('OP_DUPLICATE',kind);
   }
   const englishSession=operations.find(op=>op.kind==='english.session')?.payload||null;
+  const xizongSession=operations.find(op=>op.kind==='xizong.session')?.payload||null;
+  const xizongChatReturn=operations.find(op=>op.kind==='xizong.chat_return')?.payload||null;
+  const xizongSystemWuReturn=operations.find(op=>op.kind==='xizong.system_wu_return')?.payload||null;
+  const politicsMemoryPlan=operations.find(op=>op.kind==='politics.memory_plan')?.payload||null;
   const examPlan=operations.find(op=>op.kind==='exam.chat_plan')?.payload||null;
   if(englishSession?.study_day&&englishSession.study_day!==studyDay)fail('SESSION_DAY_MISMATCH');
+  if(xizongSession?.study_day&&xizongSession.study_day!==studyDay)fail('XIZONG_SESSION_DAY_MISMATCH');
+  if(xizongChatReturn?.study_day&&xizongChatReturn.study_day!==studyDay)fail('XIZONG_RETURN_DAY_MISMATCH');
+  if(xizongSystemWuReturn?.study_day&&xizongSystemWuReturn.study_day!==studyDay)fail('XIZONG_SYSTEM_RETURN_DAY_MISMATCH');
+  if(politicsMemoryPlan?.study_day&&politicsMemoryPlan.study_day!==studyDay)fail('POLITICS_MEMORY_DAY_MISMATCH');
   if(examPlan?.study_day&&examPlan.study_day!==studyDay)fail('PLAN_DAY_MISMATCH');
   if(englishSession&&examPlan?.subjects?.english?.session_ref
     && String(examPlan.subjects.english.session_ref)!==String(englishSession.session_id||'')){
     fail('ENGLISH_SESSION_REF_MISMATCH');
+  }
+  if(xizongSession&&examPlan?.subjects?.xizong?.session_ref
+    && String(examPlan.subjects.xizong.session_ref)!==String(xizongSession.session_id||'')){
+    fail('XIZONG_SESSION_REF_MISMATCH');
+  }
+  if(!xizongSession&&xizongChatReturn&&examPlan?.subjects?.xizong?.session_ref
+    && String(examPlan.subjects.xizong.session_ref)!==String(xizongChatReturn.return_id||'')){
+    fail('XIZONG_RETURN_REF_MISMATCH');
+  }
+  if(!xizongSession&&!xizongChatReturn&&xizongSystemWuReturn&&examPlan?.subjects?.xizong?.session_ref
+    && String(examPlan.subjects.xizong.session_ref)!==String(xizongSystemWuReturn.return_id||'')){
+    fail('XIZONG_SYSTEM_RETURN_REF_MISMATCH');
+  }
+  if(politicsMemoryPlan&&examPlan?.subjects?.politics?.session_ref
+    && String(examPlan.subjects.politics.session_ref)!==String(politicsMemoryPlan.plan_id||'')){
+    fail('POLITICS_SESSION_REF_MISMATCH');
   }
   return{
     schema:CONTROL_BROWSER_SCHEMA,

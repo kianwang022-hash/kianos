@@ -21,7 +21,13 @@ const DURABLE_KEY_PATTERNS = Object.freeze([
   /^kianos:xizong:full-paper-holdout-years:v1$/,
   /^kianos:xizong:chat-set:v1$/,
   /^kianos:xizong:retained-set:v1$/,
-  /^kianos:xizong:question-preferences:v1$/
+  /^kianos:xizong:question-preferences:v1$/,
+  /^kianos:xizong:session-instruction:v1$/,
+  /^kianos:xizong:session-runtime:v1$/,
+  /^kianos-xizong-chat-handoff-v1:[A-Za-z0-9._:-]+$/,
+  /^kianos-xizong-chat-return-v1:[A-Za-z0-9._:-]+$/,
+  /^kianos:xizong:pending-chat-return:v1$/,
+  /^kianos:xizong:pending-system-wu-return:v1$/
 ]);
 
 export function isXizongDurableStorageKey(key) {

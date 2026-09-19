@@ -1,0 +1,57 @@
+name: Total Home Direct Workspace Candidate
+
+on:
+  push:
+    branches:
+      - "work/exam-home-direct-workspace-20260920"
+  pull_request:
+    paths:
+      - "static-web/src/pages/index.astro"
+      - "static-web/src/components/ExamOrchestratorHome.astro"
+      - "static-web/src/components/XizongHomeTools.astro"
+      - "static-web/src/components/PoliticsHomeTools.astro"
+      - "static-web/src/components/XizongMemoryWorkspace.astro"
+      - "static-web/src/lib/xizongSessionInstruction.mjs"
+      - "static-web/src/lib/politicsMemory*.mjs"
+      - "static-web/src/pages/politics/memory/**"
+      - "static-web/src/styles/home-workbench.css"
+      - "static-web/src/styles/politics-recall-workspace.css"
+      - "static-web/scripts/test-total-home-direct-workspace-browser.mjs"
+      - ".github/workflows/total-home-direct-workspace-candidate.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  direct-workspace:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    defaults:
+      run:
+        working-directory: static-web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install
+        run: |
+          npm install --no-audit --no-fund
+          npm install --no-save playwright@1.56.1 --no-audit --no-fund
+          npx playwright install --with-deps chromium
+      - name: Prove shared control transport
+        run: node scripts/test-shared-control-three-subjects.mjs
+      - name: Build candidate
+        run: npm run build
+      - name: Prove Total Home one-click direct workspaces
+        run: node scripts/test-total-home-direct-workspace-browser.mjs
+      - name: Prove live control updates open Home
+        run: node scripts/test-total-home-live-control-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: total-home-direct-workspace
+          path: |
+            static-web/.qa/total-home-direct/
+            static-web/.qa/total-home-live-control/
+          retention-days: 14

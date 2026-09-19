@@ -21,11 +21,11 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
       <button type="button" class="secondary" data-return-sweep>回到当前真题</button>
     </div>
     <label>
-      <span>粘贴 Chat 返回计划</span>
-      <textarea rows="6" data-plan-text placeholder='{"plan":[{"question_id":"xizong-official-2026-n129","reason":"为什么要修","action":"怎么修","priority":"high"}]}'></textarea>
+      <span>粘贴 typed Chat Return（仅作为故障 fallback）</span>
+      <textarea rows="6" data-plan-text placeholder='{"schema":"kianos.xizong.system_wu_return.v1","return_id":"...","system_id":"...","decision":"REPAIR","plan":[{"question_id":"...","status":"wrong","attempt_id":"...","submitted_at":"...","round_id":"...","reason":"...","action":"...","priority":"high"}]}'></textarea>
     </label>
     <div class="xrrApplyRow">
-      <button type="button" data-apply-plan>导入修补计划</button>
+      <button type="button" data-apply-plan>导入 typed Return</button>
       <small data-plan-status>尚未导入。</small>
     </div>
     <div class="xrrList" data-plan-list></div>
@@ -35,15 +35,17 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
 
 <script>
   import {
-    XIZONG_MEMORY_STORAGE_KEY,
-    normalizeXizongMemoryState,
-    setRepairTasks
-  } from '../lib/xizongMemoryModel.mjs';
+    XIZONG_SYSTEM_WU_RETURN_SCHEMA,
+    applyXizongSystemWuReturn,
+    consumePendingXizongSystemWuReturn,
+    currentXizongSystemWuEvidence,
+    readXizongSystemWuPendingState
+  } from '../lib/xizongSystemWuReturn.mjs';
+  import { studyDayAt } from '../lib/studyTimer.mjs';
 
   const root = document.querySelector('[data-xizong-repair-return]');
   if (root instanceof HTMLElement) {
     const systemId = root.getAttribute('data-xizong-repair-return') || '';
-    const sweepKey = `kianos:xizong:system-question-sweep:${systemId}:v1`;
     const repairKey = `kianos:xizong:system-repair-return:${systemId}:v1`;
     const practiceHref = root.getAttribute('data-practice-href') || '';
     const status = root.querySelector('[data-plan-status]');
@@ -52,188 +54,143 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
     let data = null;
     try { routes = JSON.parse(root.querySelector('[data-block-routes]')?.textContent || '{}'); } catch {}
     try { data = JSON.parse(document.querySelector('[data-sweep-payload]')?.textContent || 'null'); } catch {}
+    const questions = Array.isArray(data?.questions) ? data.questions : [];
+    const questionById = new Map(questions.map((q) => [String(q?.questionId || ''), q]).filter(([id]) => id));
 
-    const readJson = (key, fallback) => {
-      try { return JSON.parse(localStorage.getItem(key) || '') || fallback; } catch { return fallback; }
-    };
-    const writeJson = (key, value) => {
-      try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch { return false; }
-    };
-    const sweepState = () => readJson(sweepKey, { results: {} });
-    const questionById = new Map((data?.questions || []).map((q) => [q.questionId, q]));
-    const currentWu = () => Object.entries(sweepState()?.results || {})
-      .filter(([, row]) => row && ['wrong', 'uncertain'].includes(row.status))
-      .map(([questionId, result]) => ({ question: questionById.get(questionId), result }))
-      .filter((row) => row.question);
-
-    const planRows = (parsed) => {
-      const raw = Array.isArray(parsed?.plan) ? parsed.plan
-        : Array.isArray(parsed?.items) ? parsed.items
-        : Array.isArray(parsed?.question_ids) ? parsed.question_ids
-        : [];
-      const allowed = new Set(currentWu().map((row) => row.question.questionId));
-      const seen = new Set();
-      if (parsed?.system_id && parsed.system_id !== systemId) throw new Error('Wrong System');
-      if (parsed?.schema) throw new Error('Typed Return is not supported by this legacy importer');
-      if (!raw.length) return [];
-      return raw.map((item) => {
-        if (typeof item !== 'string' && (!item || typeof item !== 'object' || Array.isArray(item))) throw new Error('Malformed repair row');
-        if (typeof item === 'object' && ['block_id','blockId','kp_id','kpId','target','target_kp_id'].some((key) => key in item)) throw new Error('Untrusted mapping');
-        const row = typeof item === 'string' ? { questionId:item, reason:'', action:'', priority:'' } : {
-          questionId:String(item.question_id || item.questionId || ''),
-          reason:String(item.reason || item.why || ''), action:String(item.action || item.task || ''), priority:String(item.priority || '')
-        };
-        if (!allowed.has(row.questionId) || seen.has(row.questionId)) throw new Error('Unknown, stale, or duplicate W/U identity');
-        if (row.priority && !['high','medium','low'].includes(row.priority)) throw new Error('Unknown priority');
-        seen.add(row.questionId); return row;
-      });
-    };
-
-    const deliverToBlock = (rows) => {
-      const writes = [];
-      const byBlockKp = new Map();
-      rows.forEach((row) => {
-        const question = questionById.get(row.questionId);
-        const relation = question?.relation;
-        if (!relation?.blockId || !relation?.primaryKpId || !routes?.[relation.blockId]) return;
-        const key = `${relation.blockId}::${relation.primaryKpId}`;
-        const old = byBlockKp.get(key) || {
-          blockId: relation.blockId,
-          kpId: relation.primaryKpId,
-          questionIds: [],
-          reasons: [],
-          actions: [],
-          priority: row.priority || ''
-        };
-        old.questionIds.push(row.questionId);
-        if (row.reason) old.reasons.push(row.reason);
-        if (row.action) old.actions.push(row.action);
-        if (!old.priority && row.priority) old.priority = row.priority;
-        byBlockKp.set(key, old);
-      });
-
-      const importedAt = new Date().toISOString();
-      const repairTasks = [];
-      byBlockKp.forEach((item) => {
-        const objectId = `xizong:${item.blockId}`;
-        const inboxKey = `kianos-xizong-repair-inbox-v1:${objectId}`;
-        const inbox = readJson(inboxKey, { plans: [] });
-        const existing = Array.isArray(inbox?.plans) ? inbox.plans : [];
-        const route = routes?.[item.blockId];
-        const plan = {
-          kpId: item.kpId,
-          reason: [...new Set(item.reasons)].join('；') || `来自 ${item.questionIds.length} 道 W/U 题`,
-          action: [...new Set(item.actions)].join('；') || '重新运行这一 KP 所属机制链，再回到题目主线。',
-          priority: item.priority || 'high',
-          sourceQuestionIds: item.questionIds,
-          blockHref: route?.href || '',
-          returnHref: practiceHref
-        };
-        const withoutSameKp = existing.filter((row) => String(row?.kpId || row?.kp_id || row || '') !== item.kpId);
-        writes.push([inboxKey, {
-          importedAt,
-          sourceSystemId: systemId,
-          plans: [...withoutSameKp, plan]
-        }]);
-        repairTasks.push({
-          id: `repair:system-wu:${systemId}:${item.blockId}:${item.kpId}`,
-          kpId: item.kpId,
-          blockId: item.blockId,
-          systemId,
-          title: [route?.label, item.kpId].filter(Boolean).join(' · '),
-          reason: plan.reason,
-          action: plan.action,
-          priority: plan.priority,
-          origin: 'SYSTEM_WU_CHAT_RETURN',
-          sourceQuestionIds: item.questionIds,
-          blockHref: plan.blockHref,
-          returnHref: plan.returnHref,
-          createdAt: importedAt,
-          status: 'ACTIVE'
-        });
-      });
-
-      if (repairTasks.length) {
-        const memory = normalizeXizongMemoryState(readJson(XIZONG_MEMORY_STORAGE_KEY, null));
-        const incomingIds = new Set(repairTasks.map((task) => task.id));
-        const preserved = (memory.repairTasks || []).filter((task) => !incomingIds.has(String(task?.id || '')));
-        const nextMemory = setRepairTasks(memory, [...preserved, ...repairTasks]);
-        writes.push([XIZONG_MEMORY_STORAGE_KEY, nextMemory]);
-      }
-      writes.push([repairKey, { importedAt, plan: rows }]);
-      const prior = writes.map(([key]) => [key, localStorage.getItem(key)]);
+    const currentWu = () => {
       try {
-        for (const [key, value] of writes) {
-          if (!writeJson(key, value)) throw new Error('Repair save failed');
-        }
-      } catch (error) {
-        let rollbackFailed = false;
-        for (const [key, value] of prior) {
-          try { if (value === null) localStorage.removeItem(key); else localStorage.setItem(key, value); } catch { rollbackFailed = true; }
-        }
-        if (rollbackFailed) throw new Error('REPAIR_ROLLBACK_INCOMPLETE');
-        throw error;
+        return currentXizongSystemWuEvidence(localStorage, systemId, questions)
+          .map((evidence) => ({ evidence, question: questionById.get(evidence.question_id) || null }))
+          .filter((row) => row.question);
+      } catch {
+        return [];
       }
     };
 
-    const render = (rows) => {
+    const render = (plan = [], repairTasks = [], unmapped = []) => {
       if (!list) return;
       list.replaceChildren();
-      rows.forEach((row) => {
-        const q = questionById.get(row.questionId);
-        if (!q) return;
-        const relation = q.relation;
-        const route = relation?.blockId ? routes?.[relation.blockId] : null;
+      const taskByQuestion = new Map();
+      for (const task of repairTasks || []) {
+        for (const questionId of task?.sourceQuestionIds || []) taskByQuestion.set(questionId, task);
+      }
+      const unmappedSet = new Set(unmapped || []);
+
+      for (const row of plan || []) {
+        const q = questionById.get(String(row?.question_id || ''));
+        if (!q) continue;
+        const task = taskByQuestion.get(q.questionId) || null;
         const article = document.createElement('article');
         const head = document.createElement('div');
         const title = document.createElement('strong');
         title.textContent = `${q.year} · 第 ${q.number} 题`;
         const badge = document.createElement('span');
-        badge.textContent = sweepState()?.results?.[row.questionId]?.status === 'wrong' ? 'Wrong' : 'Uncertain';
+        badge.textContent = String(row?.status || '').toLowerCase() === 'wrong' ? 'Wrong' : 'Uncertain';
         head.append(title, badge);
+
         const body = document.createElement('p');
-        body.textContent = [row.action, row.reason].filter(Boolean).join(' · ') || '按 Chat 计划做最小修补。';
+        body.textContent = [row?.action, row?.reason].filter(Boolean).join(' · ') || '按 Chat 计划做最小修补。';
         article.append(head, body);
-        if (route && relation?.primaryKpId) {
-          const meta = document.createElement('small');
-          meta.textContent = `已加入 Memory · Repair，并保留 ${route.label} · ${relation.primaryKpId} 的精确回链。`;
+
+        const meta = document.createElement('small');
+        if (task) {
+          meta.textContent = `已加入 Memory · Repair，并保留 ${task.blockId} · ${task.kpId} 的审核回链。`;
           const link = document.createElement('a');
-          link.href = route.href;
+          link.href = task.blockHref || '#';
           link.target = '_blank';
           link.rel = 'noopener';
-          link.textContent = `去 ${route.label} 修补 ↗`;
+          link.textContent = '去对应 Block 修补 ↗';
           article.append(meta, link);
+        } else if (unmappedSet.has(q.questionId)) {
+          meta.textContent = '当前没有审核过的精确 Block/KP 回链：保留题号，不自动猜。';
+          article.append(meta);
         } else {
-          const meta = document.createElement('small');
-          meta.textContent = '暂无审核过的精确 Block/KP 回链：保留题号给 Chat，不自动猜。';
+          meta.textContent = '当前未生成 Repair。';
           article.append(meta);
         }
         list.appendChild(article);
-      });
+      }
+    };
+
+    const applyTypedReturn = (value) => applyXizongSystemWuReturn(localStorage, value, {
+      questions,
+      routes,
+      practiceHref,
+      now: Date.now()
+    });
+
+    const consumePending = () => {
+      try {
+        const pending = readXizongSystemWuPendingState(localStorage)?.pending_by_system?.[systemId];
+        if (!pending) return { status:'no_pending' };
+        const result = consumePendingXizongSystemWuReturn(localStorage, {
+          systemId,
+          questions,
+          routes,
+          practiceHref,
+          now: Date.now(),
+          expectedDay: studyDayAt(Date.now())
+        });
+        const receipt = result?.receipt || null;
+        if (receipt?.status === 'APPLIED' || receipt?.status === 'ALREADY_APPLIED') {
+          const count = receipt.repair_tasks?.length || 0;
+          const unmapped = receipt.unmapped_question_ids?.length || 0;
+          if (status) status.textContent = count
+            ? `Chat Return 已按当前 W/U 安全应用：生成 ${count} 个 Repair${unmapped ? `；另有 ${unmapped} 题无审核回链，未猜映射` : ''}。`
+            : unmapped
+              ? `Chat Return 已核对；${unmapped} 题暂无审核回链，没有自动猜 Repair。`
+              : 'Chat Return 已核对；当前无需建立 Repair。';
+          render(result?.apply_result?.return_packet?.plan || pending.return_packet?.plan || [],
+            result?.apply_result?.repair_tasks || [],
+            receipt.unmapped_question_ids || []);
+        } else if (receipt?.status === 'STALE') {
+          if (status) status.textContent = '这份 W/U Return 对应的作答已经变化；未建立 Repair，等待 Chat 按最新 evidence 重判。';
+        } else if (receipt?.status === 'REJECTED') {
+          if (status) status.textContent = 'W/U Return 未通过当前题目/映射校验；学习状态没有被改动。';
+        }
+        window.dispatchEvent(new CustomEvent('kianos:xizong-system-wu-return-consumed', {
+          detail: {
+            system_id: systemId,
+            return_id: receipt?.return_id || '',
+            status: receipt?.status || ''
+          }
+        }));
+        return result;
+      } catch {
+        if (status) status.textContent = '待处理 W/U Return 无法安全读取；原学习状态未改动。';
+        return { status:'error' };
+      }
     };
 
     root.querySelector('[data-copy-chat]')?.addEventListener('click', async (event) => {
       const wu = currentWu();
       const packet = {
-        schema: 'kianos.xizong.system_wu_repair_handoff.v1',
-        system: { system_id: data?.systemId || systemId, canonical_id: data?.canonicalId || '', title: data?.title || '' },
-        wrong_uncertain: wu.map(({ question, result }) => ({
-          question_id: question.questionId,
+        schema: 'kianos.xizong.system_wu_repair_handoff.v2',
+        system: {
+          system_id: data?.systemId || systemId,
+          canonical_id: data?.canonicalId || '',
+          title: data?.title || ''
+        },
+        wrong_uncertain: wu.map(({ question, evidence }) => ({
+          ...evidence,
           year: question.year,
           number: question.number,
-          status: result.status,
-          learner_answer: result.selected || [],
+          learner_answer: (() => {
+            try {
+              const sweep = JSON.parse(localStorage.getItem(`kianos:xizong:system-question-sweep:${systemId}:v1`) || 'null');
+              return sweep?.results?.[question.questionId]?.selected || [];
+            } catch { return []; }
+          })(),
           correct_answer: question.correctAnswer,
           stem: question.stem,
-          explanation: question.explanation,
-          reviewed_relation: question.relation
+          explanation: question.explanation
         })),
-        request_to_chat: [
-          '只处理真正需要修的 Wrong / Uncertain；稳定内容不要制造复习。',
-          '区分记忆不稳、机制断点、Precision、条件/干扰项错误，优先给最小充分修补。',
-          '返回 JSON：{"plan":[{"question_id":"...","reason":"...","action":"...","priority":"high|medium|low"}]}。',
-          '不要返回未经审核的 Block/KP 映射；网页只会使用仓库已有 reviewed relation。'
-        ]
+        return_contract: {
+          schema: XIZONG_SYSTEM_WU_RETURN_SCHEMA,
+          system_id: systemId,
+          decision: 'NO_ACTION | REPAIR',
+          rule: 'Echo exact question_id/status/attempt_id/submitted_at/round_id from wrong_uncertain. Do not return Block/KP mapping; KianOS uses only current reviewed relations.'
+        }
       };
       const text = JSON.stringify(packet, null, 2);
       const button = event.currentTarget;
@@ -249,28 +206,45 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
       const text = root.querySelector('[data-plan-text]')?.value || '';
       try {
         const parsed = JSON.parse(text);
-        const rows = planRows(parsed);
-        if (!rows.length) {
-          if (status) status.textContent = '没有匹配到本轮真实 W/U 题号；未写入任何修补任务。';
-          render([]);
-          return;
+        if (parsed?.schema !== XIZONG_SYSTEM_WU_RETURN_SCHEMA) {
+          throw new Error('Typed System W/U Return required');
         }
-        deliverToBlock(rows);
-        if (status) status.textContent = `已接收 ${rows.length} 个修补任务；有审核回链的已加入 Memory · Repair。`;
-        render(rows);
-      } catch (error) {
-        if (status) status.textContent = error?.message === 'REPAIR_ROLLBACK_INCOMPLETE' ? '导入失败且未能完整回滚，请先备份本机记录再恢复；不要继续重复导入。' : '返回计划无效、含非本轮 W/U 题号，或未能安全保存；未应用本次计划。';
+        const result = applyTypedReturn(parsed);
+        const receipt = result.receipt || {};
+        const count = result.repair_tasks?.length || 0;
+        const unmapped = receipt.unmapped_question_ids?.length || 0;
+        if (status) status.textContent = count
+          ? `已安全导入 ${count} 个 Repair${unmapped ? `；${unmapped} 题无审核回链，未猜映射` : ''}。`
+          : unmapped
+            ? `已核对；${unmapped} 题没有审核回链，未建立 Repair。`
+            : '已核对；当前无需 Repair。';
+        render(result.return_packet?.plan || [], result.repair_tasks || [], receipt.unmapped_question_ids || []);
+      } catch {
+        if (status) status.textContent = 'Return 无效、作答已变化，或未能安全保存；没有应用本次计划。';
       }
     });
 
     root.querySelector('[data-return-sweep]')?.addEventListener('click', () => {
-      document.querySelector('[data-question-workspace]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.querySelector('[data-question-workspace]')?.scrollIntoView({ behavior:'smooth', block:'start' });
     });
 
-    const saved = readJson(repairKey, null);
-    if (Array.isArray(saved?.plan) && saved.plan.length) {
-      if (status) status.textContent = `已保存 ${saved.plan.length} 个修补任务。`;
-      render(saved.plan);
+    window.addEventListener('kianos:private-control-consumed', (event) => {
+      const detail = event instanceof CustomEvent ? event.detail : null;
+      if (detail?.fresh !== true || detail?.target !== 'xizong.system_wu_return') return;
+      if (!['APPLIED','IDEMPOTENT'].includes(String(detail?.status || ''))) return;
+      window.setTimeout(consumePending, 0);
+    });
+
+    const saved = (() => {
+      try { return JSON.parse(localStorage.getItem(repairKey) || 'null'); } catch { return null; }
+    })();
+    if (saved?.return_packet?.plan?.length) {
+      if (status) status.textContent = `已保存 ${saved.return_packet.plan.length} 个 W/U 诊断项。`;
+      render(saved.return_packet.plan, [], saved.unmapped_question_ids || []);
     }
+
+    // Run after synchronous SystemEvidenceGuard setup. If Current evidence is stale,
+    // the guard reloads first and this callback never applies the old W/U Return.
+    window.setTimeout(consumePending, 0);
   }
 </script>
