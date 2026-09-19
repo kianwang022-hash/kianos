@@ -31,6 +31,7 @@ function politicsReviewBatchId(catalog, review, { day = '', filter = 'all', subj
       first_observed_at: item.firstAttempt?.observed_at || null,
       first_outcome: item.firstAttempt?.outcome || null,
       first_selected: item.firstAttempt?.selected || null,
+      original_source_context: item.firstAttempt?.source_context || null,
       current_outcome: item.outcome,
       discussion: item.discussion,
       note: item.note,
@@ -236,6 +237,8 @@ export function politicsReviewPacket(catalog, snapshot, options = {}) {
       discussion: i.discussion,
       note: i.note,
       cause: i.cause,
+      recorded_unit_key: i.firstAttemptOwnerKey,
+      source_context_status: i.firstAttempt.source_context ? 'CAPTURED_AT_ATTEMPT' : 'LEGACY_SOURCE_CONTEXT_UNAVAILABLE',
       source_href: i.unitHref,
       source_href_role: 'CURRENT_NAVIGATION_NOT_HISTORICAL_PROVENANCE',
       original_source_context: i.firstAttempt.source_context || null
