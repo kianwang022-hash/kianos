@@ -101,14 +101,14 @@ const xr1 = applyPrivateControlCommand(storage, x1, { expectedDay: day, now: t0 
 assert.equal(xr1.status, 'APPLIED');
 assert.equal(JSON.parse(storage.getItem(XIZONG_SESSION_KEY)).session_id, 'xz-session-1');
 assert.equal(
-  JSON.parse(storage.getItem(XIZONG_MEMORY_STORAGE_KEY)).attention['core:a1-b01-kp01'].reviewRequested,
-  true,
-  'Chat control should activate the selected existing Memory object'
+  JSON.parse(storage.getItem(XIZONG_MEMORY_STORAGE_KEY)).attention['core:a1-b01-kp01'],
+  undefined,
+  'Chat control selection must remain session-local, not become Weak/Today attention'
 );
 assert.equal(
   JSON.parse(storage.getItem(XIZONG_MEMORY_STORAGE_KEY)).evidence.length,
   0,
-  'transport attention is not learner Recall evidence'
+  'transport selection is not learner Recall evidence'
 );
 assert.equal(storage.getItem(XIZONG_CHAT_SET_KEY), null,
   'control receipt may activate current step but must not pre-project later step');
