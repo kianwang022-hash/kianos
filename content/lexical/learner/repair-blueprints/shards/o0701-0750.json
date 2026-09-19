@@ -1,0 +1,353 @@
+{
+  "schema": "kianos.lexical.repair_blueprint_shard.v1",
+  "range": {
+    "start_ordinal": 701,
+    "end_ordinal": 750
+  },
+  "authority": "content/lexical/LEARNING_CONTRACT.md + CONTENT_ASSET_CONTRACT.md + approved shard Human Gate 2026-09-19",
+  "generation_rule": "Blueprints store stable diagnostic intent; concrete instances are generated fresh from latest canonical content + learner evidence.",
+  "entries": [
+    {
+      "blueprint_id": "repair-blueprint:o0701:carve:v1",
+      "word_id": "word:carve",
+      "ordinal": 701,
+      "word": "carve",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:6c9ef79bf7cdc3be4b9c",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定使用 carve out 表示“靠努力开辟/赢得位置、事业或声誉”。",
+      "decision_boundary_cn": "字面雕刻/切片与 figurative carve out 必须由对象和 out 结构区分。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 carve out 的抽象构式。",
+      "reconstruction_rule_cn": "换一个职业定位或市场细分语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0702:case:v1",
+      "word_id": "word:case",
+      "ordinal": 702,
+      "word": "case",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "在 situation / medical or legal matter / argument / container 之间准确选择 case 分支。",
+      "decision_boundary_cn": "领域词与 the case for/against、in case 等结构决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 case 的四类高价值分支。",
+      "reconstruction_rule_cn": "换一个病例、诉讼、论证和容器语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0703:cash:v1",
+      "word_id": "word:cash",
+      "ordinal": 703,
+      "word": "cash",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:cash:baseline-v2-cash-in-on",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定产出 cash in on sth，并与 cash a check 的字面金融义区分。",
+      "decision_boundary_cn": "cash + financial instrument = 兑现；cash in on + opportunity/trend = 趁机获利。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 cash in on 的构式边界。",
+      "reconstruction_rule_cn": "换一个支票兑现与利用市场热度的语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0706:cast:v1",
+      "word_id": "word:cast",
+      "ordinal": 706,
+      "word": "cast",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分投掷/投票、选角、铸造以及 noun cast 的阵容/石膏/铸件。",
+      "decision_boundary_cn": "对象域和词性决定 cast 分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 cast 的对象驱动分支。",
+      "reconstruction_rule_cn": "换一个投票、电影选角、金属铸造和骨折石膏语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0708:casual:v1",
+      "word_id": "word:casual",
+      "ordinal": 708,
+      "word": "casual",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 casual 的非正式、偶然、临时雇用和低投入/非专业分支。",
+      "decision_boundary_cn": "clothes/conversation、encounter/remark、labor/work、reader/user 等对象决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 casual 的低约束四分支。",
+      "reconstruction_rule_cn": "换一个穿着、偶遇、临时用工和普通读者语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0713:catch:v1",
+      "word_id": "word:catch",
+      "ordinal": 713,
+      "word": "catch",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 catch 的抓住、赶上、感染、听懂和 noun hidden drawback，并识别 catch up/on 构式。",
+      "decision_boundary_cn": "对象和 particle 是主要 selector。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 catch 的高价值分支和 phrasal 选择。",
+      "reconstruction_rule_cn": "换一个接球、赶车、感染、听懂及补进度语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0715:cater:v1",
+      "word_id": "word:cater",
+      "ordinal": 715,
+      "word": "cater",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定选择 cater for / cater to，并按语境表达提供所需、适应需求或迎合。",
+      "decision_boundary_cn": "for 常突出提供所需；to 常突出面向某人群的需求/偏好，语气可中性也可贬义。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 cater 的介词和语义倾向。",
+      "reconstruction_rule_cn": "换一个婚礼餐饮、无障碍需求和媒体迎合受众语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0717:catholic:v1",
+      "word_id": "word:catholic",
+      "ordinal": 717,
+      "word": "catholic",
+      "target": {
+        "target_kind": "form_identity",
+        "target_id": null,
+        "target_locator": "record.form_identity"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "根据大小写区分 Catholic 宗教义与 catholic“广泛/包容”的普通形容词义。",
+      "decision_boundary_cn": "capitalization + domain 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 Catholic/catholic 的大小写语义边界。",
+      "reconstruction_rule_cn": "换一个教会信徒与兴趣广泛的语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0719:cause:v1",
+      "word_id": "word:cause",
+      "ordinal": 719,
+      "word": "cause",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分客观原因、使役动词、理由根据和“事业/目标”，并利用现有 cause/get、cause/reason 对比。",
+      "decision_boundary_cn": "of/to-do/have cause/a cause 等结构和领域决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 cause 的结构选择与原因/理由边界。",
+      "reconstruction_rule_cn": "换一个疾病原因、导致行为、合理担忧和公益事业语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0722:cave:v1",
+      "word_id": "word:cave",
+      "ordinal": 722,
+      "word": "cave",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:cave:baseline-v2-cave-in",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 cave in 的物理塌陷与对压力/要求的屈服。",
+      "decision_boundary_cn": "physical structure vs pressure/demand context 决定 literal/figurative。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 cave in 的两分支。",
+      "reconstruction_rule_cn": "换一个屋顶塌陷与谈判让步语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0724:ceiling:v1",
+      "word_id": "word:ceiling",
+      "ordinal": 724,
+      "word": "ceiling",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分房间天花板与 price/debt/spending ceiling 的抽象上限。",
+      "decision_boundary_cn": "physical room vs quantitative policy/economic limit 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 ceiling 的物理顶面与抽象上限。",
+      "reconstruction_rule_cn": "换一个室内空间和债务上限语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0725:celebrate:v1",
+      "word_id": "word:celebrate",
+      "ordinal": 725,
+      "word": "celebrate",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 celebrate an occasion 的庆祝与 celebrate a person/quality/achievement 的赞颂。",
+      "decision_boundary_cn": "event vs valued person/quality/achievement 决定中文与语用。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 celebrate 的对象驱动分支。",
+      "reconstruction_rule_cn": "换一个生日庆祝与文章赞颂多样性的语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0729:cement:v1",
+      "word_id": "word:cement",
+      "ordinal": 729,
+      "word": "cement",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分水泥/粘合剂的字面义与 cement an alliance/reputation 的“巩固”义。",
+      "decision_boundary_cn": "material/physical joining vs relationship/agreement/reputation 决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 cement 的 literal vs figurative binding。",
+      "reconstruction_rule_cn": "换一个建筑材料与外交联盟语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0733:cent:v1",
+      "word_id": "word:cent",
+      "ordinal": 733,
+      "word": "cent",
+      "target": {
+        "target_kind": "relation",
+        "target_id": "deep:confusables:cent:5970c38b672c38e5",
+        "target_locator": "record.confusables[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "在同音条件下稳定区分 cent“分币”与 scent“气味”。",
+      "decision_boundary_cn": "拼写和语义域是唯一可靠 selector。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 cent/scent 同音拼写陷阱。",
+      "reconstruction_rule_cn": "换一个价格金额与气味描述语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0740:certain:v1",
+      "word_id": "word:certain",
+      "ordinal": 740,
+      "word": "certain",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分人的确信、客观确定/必然、specific-but-unnamed 的 a certain，并与 sure 的重叠边界保持一致。",
+      "decision_boundary_cn": "be certain、it is certain/certain to、a certain + noun 三类结构决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 certain 的三类核心结构和 sure 对比。",
+      "reconstruction_rule_cn": "换一个个人判断、必然结果和未点名人物语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0747:chalk:v1",
+      "word_id": "word:chalk",
+      "ordinal": 747,
+      "word": "chalk",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定使用 chalk up sth 与 chalk sth up to sth。",
+      "decision_boundary_cn": "记录/取得结果 vs 把结果归因于原因由宾语结构决定。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 chalk up 两个高价值构式。",
+      "reconstruction_rule_cn": "换一个球队取得胜场与把失误归因于疲劳的语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0748:challenge:v1",
+      "word_id": "word:challenge",
+      "ordinal": 748,
+      "word": "challenge",
+      "target": {
+        "target_kind": "construction",
+        "target_id": "construction:challenge:baseline-v2-sb-to",
+        "target_locator": "record.constructions[0]"
+      },
+      "demand": "production",
+      "diagnostic_intent_cn": "稳定使用 challenge sb to do sth，并与 challenge a claim/authority、face a challenge 区分。",
+      "decision_boundary_cn": "person + to-do 是直接挑战；claim/authority 是质疑有效性；noun task 是难题。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 challenge 的论元结构。",
+      "reconstruction_rule_cn": "换一个邀请对手证明能力与质疑研究结论的语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o0749:chamber:v1",
+      "word_id": "word:chamber",
+      "ordinal": 749,
+      "word": "chamber",
+      "target": {
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分房间、身体腔室、议院及 lexicalized chamber of commerce。",
+      "decision_boundary_cn": "physical/body/institutional domain 与固定短语决定分支。",
+      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
+      "minimum_repair_cn": "只修 chamber 的领域 selector 和商会固定短语。",
+      "reconstruction_rule_cn": "换一个心腔、上议院和当地商会语境。",
+      "concrete_instance_policy": "GENERATE_FRESH"
+    }
+  ]
+}

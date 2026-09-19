@@ -6,7 +6,15 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:chamber:baseline-v2-commerce",
+        "direction": "R",
+        "level": "L2",
+        "meaning_cn": "商会（商业组织，不是“房间”这一字面义）",
+        "pattern": "chamber of commerce"
+      }
+    ],
     "content_hash": "be547552b47b2dd601b47aae46ba33e85977c5ed7084f7e93d02d974fe6b6687",
     "core_concept": {
       "core_clusters": [
@@ -22,10 +30,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "室，房间",
+      "core_meaning_cn": "封闭的“室/腔”：可指房间、身体腔室，也可制度化为议院等机构；固定短语 chamber of commerce = 商会",
       "core_meaning_en": "an enclosed space or room",
-      "mental_model_cn": "室，房间",
-      "mental_model_en": ""
+      "mental_model_cn": "room/body cavity → 封闭空间；upper/lower chamber → 议院；chamber of commerce 是词组化的“商会”，不要按房间字面拆。",
+      "mental_model_en": "The enclosed-space image extends to body chambers and legislative chambers; chamber of commerce is a lexicalized institution."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -37,15 +45,6 @@
     "senses": [
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:d5cbdd08fe2413ac6091",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:chamber:8587414c0dd45b68:collocation:0"
-            ],
-            "meaning_cn": "商会",
-            "phrase": "a chamber of commerce"
-          },
           {
             "collocation_id": "collocation:fe86ebdbf8fe64ebc2e4",
             "exam_value": "usage_example",
@@ -76,7 +75,7 @@
             "legacy_source_object_ids": [
               "sense:chamber:badbd7f404045c65:collocation:0"
             ],
-            "meaning_cn": "心脏",
+            "meaning_cn": "心腔；心脏腔室",
             "phrase": "heart chamber"
           }
         ],
@@ -102,15 +101,6 @@
             ],
             "meaning_cn": "法官办公室",
             "phrase": "judge's chamber"
-          },
-          {
-            "collocation_id": "collocation:51039f9705d98a466386",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:chamber:1745ba0e20e45ae2:collocation:handoff-o0675-o0874"
-            ],
-            "meaning_cn": "商会这一组织或机构，而非房间",
-            "phrase": "chamber of commerce"
           }
         ],
         "confidence": "medium",
@@ -338,7 +328,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0745-0752.json",
     "source_content_hash": "be547552b47b2dd601b47aae46ba33e85977c5ed7084f7e93d02d974fe6b6687",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

@@ -6,7 +6,29 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:catch:baseline-v2-catch-up-with",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "追上某人/某物；赶上进度",
+        "pattern": "catch up with sb/sth"
+      },
+      {
+        "construction_id": "construction:catch:baseline-v2-catch-up-on",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "补做、补看或补上此前遗漏的事",
+        "pattern": "catch up on sth"
+      },
+      {
+        "construction_id": "construction:catch:baseline-v2-catch-on",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "理解、领会；也可指开始流行",
+        "pattern": "catch on (to sth)"
+      }
+    ],
     "content_hash": "f266ee8eeca53e1f4d34575b64cbc40152fe722e9caeeab303b85d1d48b2602b",
     "core_concept": {
       "core_clusters": [
@@ -31,10 +53,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "抓住；捕捉",
-      "core_meaning_en": "to seize or capture something, or a hidden problem",
-      "mental_model_cn": "抓住；捕捉",
-      "mental_model_en": ""
+      "core_meaning_cn": "把移动、流逝或传递中的东西“抓到”：接住、赶上、感染、听懂；名词 catch 是隐藏问题",
+      "core_meaning_en": "to get hold of something moving, passing, spreading, or being communicated; as a noun, a hidden drawback",
+      "mental_model_cn": "ball/person → 抓住；train/deadline → 赶上；disease → 感染；words/meaning → 听懂；noun there is a catch → 有隐藏条件。",
+      "mental_model_en": "Let the object select seize, reach in time, contract disease, understand, or hidden drawback."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -78,33 +100,6 @@
             ],
             "meaning_cn": "赶上火车",
             "phrase": "catch the train"
-          },
-          {
-            "collocation_id": "collocation:37a2a2c9afb1a7f65bab",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:catch:500d5f485c115cda:collocation:handoff-o0675-o0874"
-            ],
-            "meaning_cn": "追上某人或某物",
-            "phrase": "catch up with sb/sth"
-          },
-          {
-            "collocation_id": "collocation:addd591ae31e74387ad5",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:catch:500d5f485c115cda:collocation:handoff-o0675-o0874"
-            ],
-            "meaning_cn": "补做或补看遗漏的事",
-            "phrase": "catch up on sth"
-          },
-          {
-            "collocation_id": "collocation:460a7ce02901f43dbe0a",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:catch:500d5f485c115cda:collocation:handoff-o0675-o0874"
-            ],
-            "meaning_cn": "理解；开始流行",
-            "phrase": "catch on"
           }
         ],
         "confidence": "medium",
@@ -383,7 +378,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0713-0720.json",
     "source_content_hash": "f266ee8eeca53e1f4d34575b64cbc40152fe722e9caeeab303b85d1d48b2602b",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

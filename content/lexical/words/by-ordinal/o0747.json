@@ -6,7 +6,22 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:chalk:baseline-v2-chalk-up",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "取得、累计或记录某个结果/成绩",
+        "pattern": "chalk up sth"
+      },
+      {
+        "construction_id": "construction:chalk:baseline-v2-chalk-up-to",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "把某事归因于某个原因",
+        "pattern": "chalk sth up to sth"
+      }
+    ],
     "content_hash": "e9bf900741eae505499ffd1edebef29e945718bc57056f26a401569432dfe16c",
     "core_concept": {
       "core_clusters": [
@@ -29,8 +44,8 @@
       ],
       "core_meaning_cn": "粉笔或白垩；用粉笔写画",
       "core_meaning_en": "a soft white writing material or the act of using it",
-      "mental_model_cn": "粉笔或白垩；用粉笔写画",
-      "mental_model_en": ""
+      "mental_model_cn": "literal chalk = 粉笔/白垩；chalk up 从“记在板上”引申为记录/取得；chalk sth up to X = 把结果记到某原因名下，即“归因于”。",
+      "mental_model_en": "The idioms extend from marking a result to recording achievement or attributing it to a cause."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -74,24 +89,6 @@
             ],
             "meaning_cn": "用粉笔写某物",
             "phrase": "chalk + sth"
-          },
-          {
-            "collocation_id": "collocation:079297a20e81ad5cbfdb",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:chalk:82430128109a5251:collocation:handoff-o0675-o0874"
-            ],
-            "meaning_cn": "把某事归因于某事",
-            "phrase": "chalk sth up to sth"
-          },
-          {
-            "collocation_id": "collocation:efa07dd6060915f827d0",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:chalk:82430128109a5251:collocation:handoff-o0675-o0874"
-            ],
-            "meaning_cn": "取得或记录",
-            "phrase": "chalk up"
           }
         ],
         "confidence": "medium",
@@ -206,7 +203,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0745-0752.json",
     "source_content_hash": "e9bf900741eae505499ffd1edebef29e945718bc57056f26a401569432dfe16c",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

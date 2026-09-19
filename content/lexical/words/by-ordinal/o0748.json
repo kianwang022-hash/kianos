@@ -6,7 +6,15 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:challenge:baseline-v2-sb-to",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "向某人提出挑战，要求其证明能力或完成某事",
+        "pattern": "challenge sb to do sth"
+      }
+    ],
     "content_hash": "51baa0b130ad7cc5be1bbd7b9046d60ce0800567342acda8b05d11035791bc8a",
     "core_concept": {
       "core_clusters": [
@@ -31,8 +39,8 @@
       ],
       "core_meaning_cn": "把能力、有效性或权威置于高要求的检验之下",
       "core_meaning_en": "put ability, validity, or authority to a demanding test",
-      "mental_model_cn": "challenge 都在“检验能否站得住”：难题检验能力，质疑检验主张或权威。",
-      "mental_model_en": "A challenge tests whether something can stand: a task tests ability and an objection tests a claim or authority."
+      "mental_model_cn": "challenge 都在问“能不能站得住”：task tests ability；challenge a claim/authority tests validity；challenge sb to do tests willingness/ability through a direct dare or invitation.",
+      "mental_model_en": "A challenge tests whether ability, a claim, authority, or a person can stand up to scrutiny or demand."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -461,7 +469,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0745-0752.json",
     "source_content_hash": "11c7671822baca112bd06b8e6adbb2ac5292b3b0d7bfe2fd2200c2347be4736c",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

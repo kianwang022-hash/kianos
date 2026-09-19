@@ -30,8 +30,8 @@
       ],
       "core_meaning_cn": "与天主教会相关，或广泛普遍的",
       "core_meaning_en": "relating to the Catholic Church, or broad and universal",
-      "mental_model_cn": "与天主教会相关，或广泛普遍的",
-      "mental_model_en": ""
+      "mental_model_cn": "大写 Catholic 锚定天主教会/信徒；小写 catholic 是“范围很广、包容多种类型”的普通形容词。",
+      "mental_model_en": "Capitalization selects the religious branch versus the general broad/universal adjective."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -145,7 +145,43 @@
     },
     "word": "catholic",
     "word_family": [],
-    "word_id": "word:catholic"
+    "word_id": "word:catholic",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:catholic:capitalized-religious",
+          "canonical_form": "Catholic",
+          "learner_key": "Catholic",
+          "pos": [
+            "adjective",
+            "noun"
+          ],
+          "ipa": ""
+        },
+        {
+          "variant_id": "form:catholic:lowercase-general",
+          "canonical_form": "catholic",
+          "learner_key": "catholic",
+          "pos": [
+            "adjective"
+          ],
+          "ipa": ""
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "Catholic",
+          "condition": "religion / Church / believer",
+          "note": "宗教义通常大写：天主教的；天主教徒。"
+        },
+        {
+          "surface": "catholic",
+          "condition": "broad / universal / wide-ranging",
+          "note": "普通形容词小写：广泛的、包容的、普遍的。"
+        }
+      ],
+      "boundary": "宗教义 Catholic 与普通形容词 catholic 用大小写区分。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -223,7 +259,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0713-0720.json",
     "source_content_hash": "6596b4e4376cb758472a276a2c1ae002105eea8d5e6b918c11fc588dc1c7ea64",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
