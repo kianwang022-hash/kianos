@@ -133,11 +133,29 @@ try {
   check(await visibleStage(root) === 'block_learn', 'clean_state_starts_at_block_learn');
 
   const compactChrome = await page.evaluate(() => {
-    const subjectBar = document.querySelector('.kianosSubjectBar')?.getBoundingClientRect();
-    const blockHeader = document.querySelector('[data-xizong-v6-block] .portedStudyHeader')?.getBoundingClientRect();
+    const subjectBarNode = document.querySelector('.kianosSubjectBar');
+    const headerNode = document.querySelector('[data-xizong-v6-block] .portedStudyHeader');
+    const contextNode = headerNode?.querySelector('.portedStudyContextRow');
+    const identityNode = headerNode?.querySelector('.portedStudyIdentity');
+    const row = (node) => {
+      if (!(node instanceof HTMLElement)) return null;
+      const rect = node.getBoundingClientRect();
+      const style = getComputedStyle(node);
+      return {
+        height: rect.height,
+        minHeight: style.minHeight,
+        paddingTop: style.paddingTop,
+        paddingBottom: style.paddingBottom,
+        display: style.display,
+        gridTemplateRows: style.gridTemplateRows
+      };
+    };
     return {
-      subjectBarHeight: subjectBar?.height || 0,
-      blockHeaderHeight: blockHeader?.height || 0
+      subjectBarHeight: subjectBarNode?.getBoundingClientRect().height || 0,
+      blockHeaderHeight: headerNode?.getBoundingClientRect().height || 0,
+      header: row(headerNode),
+      context: row(contextNode),
+      identity: row(identityNode)
     };
   });
   check(compactChrome.subjectBarHeight > 0 && compactChrome.subjectBarHeight <= 48.5,
