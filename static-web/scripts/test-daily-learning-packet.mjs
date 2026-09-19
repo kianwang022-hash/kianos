@@ -92,6 +92,7 @@ assert.match(chatText, /LEARN state/);
 assert.match(chatText, /kianos\.exam\.chat-plan\.v1/);
 assert.match(chatText, /same study_day/);
 assert.match(chatText, /kianos-chat-plan-<study_day>\.json/);
+assert.match(chatText, /Home .* 安排说明 .* Chat Plan/s);
 assert.match(chatText, /CURRENT\.md/);
 assert.doesNotMatch(chatText, /route through .*CURRENT\.md/i);
 assert.match(chatText, /DAILY_PACKET_JSON/);
