@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
+import { loadXizongSystem, loadXizongBlock } from '../src/lib/xizong.mjs';
 
 const PORT = 4326;
 const BASE = `http://127.0.0.1:${PORT}`;
@@ -126,20 +127,23 @@ async function blockResumeAndEvidenceJourney(page) {
 }
 
 async function systemQuestionRepairJourney(page) {
-  const blockIds = [
-    'respiratory-r01','respiratory-r02','respiratory-r03','respiratory-r04','respiratory-r05','respiratory-r06',
-    'respiratory-r07','respiratory-r08','respiratory-r09','respiratory-r10','respiratory-r11','respiratory-r12'
-  ];
+  const respiratory = loadXizongSystem('respiratory');
+  const completedBlocks = Object.fromEntries(respiratory.blocks.map((ref) => {
+    const block = loadXizongBlock('respiratory', ref.slug);
+    return [block.blockId, {
+      completed: true,
+      blockRecallDone: true,
+      learned: Object.fromEntries(block.kpRecords.map((kp) => [kp.kpId, true])),
+      ratings: Object.fromEntries(block.kpRecords.map((kp) => [kp.kpId, 'known']))
+    }];
+  }));
 
   await page.goto(`${BASE}/xizong/respiratory/`, { waitUntil: 'domcontentloaded' });
-  await page.evaluate((ids) => {
-    ids.forEach((id) => {
-      const key = `kianos-xizong-astro-v2:xizong:${id}`;
-      const old = JSON.parse(localStorage.getItem(key) || '{}');
-      localStorage.setItem(key, JSON.stringify({ ...old, completed: true }));
+  await page.evaluate((rows) => {
+    Object.entries(rows).forEach(([id, state]) => {
+      localStorage.setItem(`kianos-xizong-astro-v2:xizong:${id}`, JSON.stringify(state));
     });
-  }, blockIds);
-
+  }, completedBlocks);
   await page.goto(`${BASE}/xizong/respiratory/recall/`, { waitUntil: 'domcontentloaded' });
   const recall = page.locator('[data-xizong-system-exit="respiratory"]');
   await recall.waitFor({ state: 'visible' });
