@@ -346,6 +346,7 @@ export function applyXizongChatReturn(storage, input, {
       status: 'already_applied',
       return_packet: valid,
       return_href: handoff.return_href,
+      resume: handoff.resume,
       receipt,
       repair_tasks: (memory.repairTasks || []).filter((task) => taskIds.includes(String(task?.id || '')))
     };
@@ -362,7 +363,10 @@ export function applyXizongChatReturn(storage, input, {
     reason: repair.reason,
     action: repair.action,
     priority: repair.priority,
-    sourceQuestionIds: [...repair.source_question_ids]
+    sourceQuestionIds: [...repair.source_question_ids],
+    sourceHandoffId: handoff.handoff_id,
+    sourceReturnId: valid.return_id,
+    sourceHash: handoff.origin.source_hash
   }));
 
   let repairTasks = [];
@@ -446,6 +450,7 @@ export function applyXizongChatReturn(storage, input, {
     status: 'applied',
     return_packet: valid,
     return_href: handoff.return_href,
+    resume: handoff.resume,
     receipt,
     repair_tasks: repairTasks
   };
