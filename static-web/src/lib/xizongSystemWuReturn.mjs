@@ -120,7 +120,8 @@ function writePending(storage, state) {
 
 export function stageXizongSystemWuReturn(storage, input, {
   now = Date.now(),
-  replace = false
+  replace = false,
+  studyDay = null
 } = {}) {
   if (!storage?.getItem || !storage?.setItem) fail('STORAGE_UNAVAILABLE');
   const value = validateXizongSystemWuReturn(input);
@@ -135,6 +136,7 @@ export function stageXizongSystemWuReturn(storage, input, {
   const entry = {
     return_id:value.return_id,
     system_id:value.system_id,
+    study_day:studyDay ? clean(studyDay,20) : null,
     received_at:new Date(now).toISOString(),
     return_packet:clone(value)
   };
@@ -291,7 +293,8 @@ export function applyXizongSystemWuReturn(storage, input, {
   questions = [],
   routes = {},
   practiceHref = '',
-  now = Date.now()
+  now = Date.now(),
+  expectedDay = null
 } = {}) {
   if (!storage?.getItem || !storage?.setItem) fail('STORAGE_UNAVAILABLE');
   const value = validateXizongSystemWuReturn(input);
@@ -400,6 +403,14 @@ export function consumePendingXizongSystemWuReturn(storage, {
   const state=readXizongSystemWuPendingState(storage);
   const entry=state.pending_by_system[id] || null;
   if (!entry) return {status:'no_pending',receipt:state.last_receipt};
+
+  if (expectedDay && entry.study_day && entry.study_day !== expectedDay) {
+    const nextReceipt=receipt(entry,'STALE',{message:'pending System W/U Return belongs to a different study day'},now);
+    const pending={...state.pending_by_system};
+    delete pending[id];
+    writePending(storage,{...state,pending_by_system:pending,last_receipt:nextReceipt});
+    return {status:'stale',receipt:clone(nextReceipt),apply_result:null};
+  }
 
   let applyResult=null;
   let nextReceipt;
