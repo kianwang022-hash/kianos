@@ -5,6 +5,9 @@
     "setup": "npm --prefix static-web install --no-audit --no-fund",
     "dev": "npm --prefix static-web run dev",
     "build": "npm --prefix static-web run build",
-    "preview": "npm --prefix static-web run preview"
+    "preview": "npm --prefix static-web run preview",
+    "current:install": "bash static-web/scripts/install-current-macos.sh",
+    "current:doctor": "node static-web/scripts/kianos-current-doctor.mjs",
+    "current:open": "node static-web/scripts/kianos-current-open.mjs"
   }
 }
