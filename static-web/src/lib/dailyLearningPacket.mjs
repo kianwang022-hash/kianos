@@ -1,6 +1,28 @@
 import { STUDY_SUBJECTS, buildDailyStudyTimePacket } from './studyTimer.mjs';
+import { readPrivateControlRuntimeState } from './privateControlRuntime.mjs';
 
 const cloneJson = (value) => value == null ? null : JSON.parse(JSON.stringify(value));
+
+function controlReceiptForDay(storage, day) {
+  try {
+    const state = readPrivateControlRuntimeState(storage);
+    const rows = (state.receipts || [])
+      .filter((row) => row?.study_day === day && row?.applied_at)
+      .sort((a, b) => String(a.applied_at).localeCompare(String(b.applied_at)));
+    const row = rows.at(-1);
+    if (!row) return null;
+    const status = String(row.status || '');
+    return {
+      command_id: String(row.command_id || ''),
+      target: String(row.target || ''),
+      status,
+      applied_at: String(row.applied_at || ''),
+      detail: ['REJECTED','STALE','ERROR'].includes(status) ? String(row.detail || '') : ''
+    };
+  } catch {
+    return { status: 'UNREADABLE' };
+  }
+}
 
 function subjectPacket(subjectPackets, subject) {
   const value = subjectPackets?.[subject];
@@ -35,6 +57,9 @@ export function buildDailyLearningPacket({
     generated_at: new Date(now).toISOString(),
     total_minutes: time.total_minutes,
     timer: cloneJson(time.timer),
+    control: {
+      last_receipt: controlReceiptForDay(storage, time.study_day)
+    },
     schedule: plan ? {
       schema: plan.schema || null,
       phase: cloneJson(plan.phase),
@@ -74,6 +99,7 @@ export function serializeDailyLearningPacketForChat(packet) {
     '',
     'HOW TO READ IT',
     '- Treat time, schedule, and each subject evidence payload as factual learner state. Do not invent mastery, debt, or missing events.',
+    '- control.last_receipt is transport acknowledgement only. APPLIED means KianOS accepted a command; it is never learner mastery or proof the assigned review worked.',
     '- subjects.<subject>.evidence is owned by that subject contract and may be null. Preserve unknown fields rather than guessing their meaning.',
     '- This handoff is LEARN state, not project-control state. Do not open root engineering CURRENT.md by default merely because GitHub is available.',
     '- If semantic/source context is actually needed, read only the exact subject Learning/Content owner required for that learner question.',
