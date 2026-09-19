@@ -851,7 +851,32 @@ Canonical Baseline-v2 receipt:
 Repair Test blueprints:
 `content/lexical/learner/repair-blueprints/shards/o0701-0750.json`
 
-Next Human-Gate batch: **o0751–o0850 — FRESH READ + COMBINED CONTENT/TEST REPORT**.
+Closed Human-Gate batch: **o0751–o0850 — CLOSED**.
+
+```text
+100 / 100 fresh owner/module judgments
+35 Word Content owners upgraded
+65 Word Content owners NO_CHANGE
+1 cross-word spelling Relation owner written (cheque ↔ check)
+30 Repair Test blueprints written and read back
+70 NO_TEST_NEEDED words
+0 BLOCKED
+0 learner-page/UI files changed
+Final Learner Object materialization PASS (7,946 objects)
+```
+
+Bounded note:
+- `cheese` specialist textile Sense remains canonical active truth and is now explicitly marked low-frequency L3 recognition-only in Content. The accepted materializer has no safe whole-Sense Explore-only disposition, so this batch did **not** alter the builder merely to hide it.
+
+Canonical Baseline-v2 receipts:
+- `content/lexical/audit/baseline-v2/lane-c/o0751-o0800.json`
+- `content/lexical/audit/baseline-v2/lane-d/o0801-o0850.json`
+
+Repair Test blueprints:
+- `content/lexical/learner/repair-blueprints/shards/o0751-0800.json`
+- `content/lexical/learner/repair-blueprints/shards/o0801-0850.json`
+
+Next Human-Gate batch: **o0851–o0950 — FRESH READ + COMBINED CONTENT/TEST REPORT**.
 
 Apply one Human Gate per ~100 owners: internally fresh-read in bounded ~50-owner slices, then combine real Content defects and worthwhile Repair Test candidates into one plain-language 100-owner report and wait for one Kian approval. After approval, automatically close the approved slices and advance to the next 100-owner batch.
 

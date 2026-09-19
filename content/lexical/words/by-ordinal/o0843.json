@@ -6,7 +6,15 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:click:baseline-v2-with",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "与某人很快合得来、相互理解或产生默契",
+        "pattern": "click with sb"
+      }
+    ],
     "content_hash": "8a3d5a5ed242890a6c58ae91406c61859981b6edc6da9bd339637a59d7c35fc6",
     "core_concept": {
       "core_clusters": [
@@ -29,9 +37,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "短促尖锐的声音或鼠标按压",
+      "core_meaning_cn": "短促的“咔哒”动作或瞬间接通：可指声音、鼠标点击，也可比喻突然理解或人与人迅速合拍",
       "core_meaning_en": "a short sharp sound or a mouse press",
-      "mental_model_cn": "短促尖锐的声音或鼠标按压",
+      "mental_model_cn": "sound/mechanism → 咔哒声；computer → 点击；it clicked → 突然明白；click with sb → 很快合得来/产生默契。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -100,15 +108,6 @@
             ],
             "meaning_cn": "突然明白了",
             "phrase": "it clicked"
-          },
-          {
-            "collocation_id": "collocation:5fa98461de057f5cd954",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:click:ccc9313271355d10:collocation:handoff-o0675-o0874"
-            ],
-            "meaning_cn": "立即理解、合得来或建立默契",
-            "phrase": "click with sb"
           }
         ],
         "confidence": "medium",
@@ -257,7 +256,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0841-0848.json",
     "source_content_hash": "8a3d5a5ed242890a6c58ae91406c61859981b6edc6da9bd339637a59d7c35fc6",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

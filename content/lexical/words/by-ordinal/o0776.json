@@ -6,21 +6,13 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [
-      {
-        "construction_id": "construction:079442aa36e6070a890a",
-        "direction": "R+P",
-        "level": "L2",
-        "meaning_cn": "BrE can mean pharmacist; general/AmE primarily a chemistry scientist",
-        "pattern": "chemist BrE vs AmE"
-      }
-    ],
+    "constructions": [],
     "content_hash": "094ef5b02e271c6e67db0174baf804c32209f71a350fb81bbac056d90144f932",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "化学家或药剂师",
+      "core_meaning_cn": "chemistry 专业人员；在英式英语中 chemist 也常指药剂师，chemist's 可指药房",
       "core_meaning_en": "a person who studies or works in chemistry",
-      "mental_model_cn": "化学家或药剂师",
+      "mental_model_cn": "science/lab → 化学家；BrE pharmacy context → 药剂师；the chemist's → 药房。美式英语说药剂师通常用 pharmacist。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -62,7 +54,8 @@
         "sense_id": "sense:chemist:ea9b6e3a7a4e5e74",
         "sense_label_en": "a scientist who specializes in chemistry",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "一般义为化学家；the chemist's 在英式英语中可指药房。"
       },
       {
         "collocations": [
@@ -86,7 +79,8 @@
         "sense_id": "sense:chemist:0ce3683e97495685",
         "sense_label_en": "a person who is qualified to prepare and sell medicines",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "药剂师这一义主要见于英式英语；美式英语通常用 pharmacist。"
       }
     ],
     "verification_summary": {
@@ -182,7 +176,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0769-0776.json",
     "source_content_hash": "094ef5b02e271c6e67db0174baf804c32209f71a350fb81bbac056d90144f932",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

@@ -171,7 +171,7 @@
     "ordinal": 770,
     "word": "check",
     "source_owner_path": "content/lexical/words/by-ordinal/o0770.json",
-    "source_fingerprint": "877495de4cc32727a5b8c40f5cc6981b37bbeacddd5f8ef25e2204726cd87493",
+    "source_fingerprint": "3be118ccace686d18d27f00fd2180bf42bfaf853f6c761457232abbbf82bfb47",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -181,13 +181,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "检查；支票",
-      "decision_cn": "",
+      "summary_cn": "先确认、核实或控制状态：可检查、制止、登记/寄存；名词还可指检查、支票或餐厅账单",
+      "decision_cn": "check facts → 核对；check for → 查有没有；check on → 查看状态；check in/out → 登记进入/离开；check out sth → 调查/检查；check spread → 抑制。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "检查；支票"
+        "target_label": "先确认、核实或控制状态：可检查、制止、登记/寄存；名词还可指检查、支票或餐厅账单"
       }
     },
     "senses": [
@@ -220,45 +220,6 @@
               "target_id": "collocation:a2462e108dfab4d8ad76",
               "target_locator": "record.senses[0].collocations[1]",
               "target_label": "check for + sth"
-            }
-          },
-          {
-            "id": "collocation:9914a8c3217702496dce",
-            "source_locator": "record.senses[0].collocations[2]",
-            "phrase": "check in/out",
-            "meaning_cn": "登记入住/退房或报到/离开",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:9914a8c3217702496dce",
-              "target_locator": "record.senses[0].collocations[2]",
-              "target_label": "check in/out"
-            }
-          },
-          {
-            "id": "collocation:8eb9849473774c001004",
-            "source_locator": "record.senses[0].collocations[3]",
-            "phrase": "check on sb/sth",
-            "meaning_cn": "核查某人的状态或某事进展",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:8eb9849473774c001004",
-              "target_locator": "record.senses[0].collocations[3]",
-              "target_label": "check on sb/sth"
-            }
-          },
-          {
-            "id": "collocation:97763fd4e1d43caf0be9",
-            "source_locator": "record.senses[0].collocations[4]",
-            "phrase": "check out sth",
-            "meaning_cn": "检查、调查；住店语境下退房",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:97763fd4e1d43caf0be9",
-              "target_locator": "record.senses[0].collocations[4]",
-              "target_label": "check out sth"
             }
           }
         ],
@@ -408,10 +369,88 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:check:baseline-v2-in-out",
+        "source_locator": "record.constructions[0]",
+        "pattern": "check in / check out",
+        "lines": [
+          {
+            "text": "登记入住/退房、报到/离开；具体义由场景决定",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:check:baseline-v2-in-out",
+          "target_locator": "record.constructions[0]",
+          "target_label": "check in / check out"
+        }
+      },
+      {
+        "id": "construction:check:baseline-v2-on",
+        "source_locator": "record.constructions[1]",
+        "pattern": "check on sb/sth",
+        "lines": [
+          {
+            "text": "查看某人状态或某事进展",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:check:baseline-v2-on",
+          "target_locator": "record.constructions[1]",
+          "target_label": "check on sb/sth"
+        }
+      },
+      {
+        "id": "construction:check:baseline-v2-check-out",
+        "source_locator": "record.constructions[2]",
+        "pattern": "check out sth",
+        "lines": [
+          {
+            "text": "查看、调查或检查某物；与不及物 check out 的退房义区分",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:check:baseline-v2-check-out",
+          "target_locator": "record.constructions[2]",
+          "target_label": "check out sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "check ↔ cheque",
+          "target_word": "cheque",
+          "lines": [
+            {
+              "text": "在“支票”义上，AmE 通常写 check，BrE 通常写 cheque；check 的其他义不与 cheque 对应。",
+              "lang": "cn"
+            },
+            {
+              "text": "AmE check ↔ BrE cheque，只在支票义对应。",
+              "lang": "cn"
+            },
+            {
+              "text": "written order to a bank to pay money",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:spelling_variant:cheque:check",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "check ↔ cheque"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }
@@ -725,7 +764,7 @@
     "ordinal": 773,
     "word": "cheese",
     "source_owner_path": "content/lexical/words/by-ordinal/o0773.json",
-    "source_fingerprint": "96deb1715c385b7640a1011ccf55802b2ff4799bd594d5cd83b6b3fd739c078e",
+    "source_fingerprint": "a56a15616e93eb63eb1ca62b0e675889137c46977485ccc42376f8e36fa9b63b",
     "sense_lineage": [
       {
         "word_id": "word:cheese",
@@ -794,7 +833,7 @@
         "governing_pattern": "vt. + object",
         "definition_cn": "把…绕在卷轴上",
         "definition_en": "wind onto a cheese (a spool or reel)",
-        "note": "",
+        "note": "低频纺织专业义：指把纱线等绕到 cheese 形卷装上；当前阶段仅需识别，不作为默认生产目标。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -907,7 +946,7 @@
     "ordinal": 775,
     "word": "chemical",
     "source_owner_path": "content/lexical/words/by-ordinal/o0775.json",
-    "source_fingerprint": "81464fd7b6f0f0629e7459ec0223ddb36149140d5ef0db8178cdf24c1584e7df",
+    "source_fingerprint": "f8b7bbf8c6a25ebeb4524349a007b88541e9afbde180cd01e70f4a8f588e9690",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -944,14 +983,6 @@
             "meaning_cn": "有毒化学品",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:9d71d1a7ad6f1b9d651f",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "chemical reaction",
-            "meaning_cn": "化学反应",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -986,6 +1017,14 @@
             "meaning_cn": "化学变化",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:9d71d1a7ad6f1b9d651f",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "chemical reaction",
+            "meaning_cn": "化学反应",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -1011,7 +1050,7 @@
     "ordinal": 776,
     "word": "chemist",
     "source_owner_path": "content/lexical/words/by-ordinal/o0776.json",
-    "source_fingerprint": "736737eb149279dbe13bdba72f6426a681c525d65c734dd50c89d90b41c8f328",
+    "source_fingerprint": "10e51835c45fff25d50721c7dc885d7dc89e3d08e17df091ff0763fd33cddeef",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1020,13 +1059,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "化学家或药剂师",
-      "decision_cn": "",
+      "summary_cn": "chemistry 专业人员；在英式英语中 chemist 也常指药剂师，chemist's 可指药房",
+      "decision_cn": "science/lab → 化学家；BrE pharmacy context → 药剂师；the chemist's → 药房。美式英语说药剂师通常用 pharmacist。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "化学家或药剂师"
+        "target_label": "chemistry 专业人员；在英式英语中 chemist 也常指药剂师，chemist's 可指药房"
       }
     },
     "senses": [
@@ -1037,7 +1076,7 @@
         "governing_pattern": "",
         "definition_cn": "化学家",
         "definition_en": "a scientist who specializes in chemistry",
-        "note": "",
+        "note": "一般义为化学家；the chemist's 在英式英语中可指药房。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1076,7 +1115,7 @@
         "governing_pattern": "",
         "definition_cn": "药剂师",
         "definition_en": "a person who is qualified to prepare and sell medicines",
-        "note": "",
+        "note": "药剂师这一义主要见于英式英语；美式英语通常用 pharmacist。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1097,25 +1136,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:079442aa36e6070a890a",
-        "source_locator": "record.constructions[0]",
-        "pattern": "chemist BrE vs AmE",
-        "lines": [
-          {
-            "text": "BrE can mean pharmacist; general/AmE primarily a chemistry scientist",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:079442aa36e6070a890a",
-          "target_locator": "record.constructions[0]",
-          "target_label": "chemist BrE vs AmE"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1129,7 +1150,7 @@
     "ordinal": 777,
     "word": "chemistry",
     "source_owner_path": "content/lexical/words/by-ordinal/o0777.json",
-    "source_fingerprint": "55eb6a03014703f05248d5c8eef199f8bcd2bc51e55b9213c4f2764aded0558a",
+    "source_fingerprint": "05122e4b1a0941d219af03a16ad92bc532f38b3ad2b45f51b42653302f72a1a4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1138,13 +1159,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "化学；物质组成与反应的科学",
-      "decision_cn": "",
+      "summary_cn": "研究物质如何组成并相互作用的“化学关系”；也可比喻人与人之间是否能自然产生吸引力或默契",
+      "decision_cn": "substance/soil → 化学组成与性质；people/team/couple → chemistry = 相处时自然产生的吸引力、默契或配合。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "化学；物质组成与反应的科学"
+        "target_label": "研究物质如何组成并相互作用的“化学关系”；也可比喻人与人之间是否能自然产生吸引力或默契"
       }
     },
     "senses": [
@@ -1263,7 +1284,7 @@
     "ordinal": 778,
     "word": "cheque",
     "source_owner_path": "content/lexical/words/by-ordinal/o0778.json",
-    "source_fingerprint": "3415b1ddc36ce07021b05241b2a8996c400b52cbf58e812c29299ae9838186e2",
+    "source_fingerprint": "bbe018aae0f30dbf262710e8721f464ab06185a1ae1003477042c09d5461ad8d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1334,7 +1355,33 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "cheque ↔ check",
+          "target_word": "check",
+          "lines": [
+            {
+              "text": "在“支票”义上，BrE 通常写 cheque，AmE 通常写 check；check 还另外有“检查、账单”等其他义。",
+              "lang": "cn"
+            },
+            {
+              "text": "BrE cheque ↔ AmE check，只在支票义对应。",
+              "lang": "cn"
+            },
+            {
+              "text": "written order to a bank to pay money",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:spelling_variant:cheque:check",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "cheque ↔ check"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }
@@ -1705,7 +1752,7 @@
     "ordinal": 783,
     "word": "chew",
     "source_owner_path": "content/lexical/words/by-ordinal/o0783.json",
-    "source_fingerprint": "6a1ec1848ecc48ebbc49437e5396a881344e5d13ad9067b7d8312af4f235b22d",
+    "source_fingerprint": "c6de6b26d6ab8246ede1a89c1b1a83ef3d72f0fee261c38788ecd9a992942e0e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1715,13 +1762,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "用牙齿咬碎",
-      "decision_cn": "",
+      "summary_cn": "反复咬碎；由“反复咀嚼”引申为把一个想法在脑中反复琢磨",
+      "decision_cn": "food/gum → 真正咀嚼；chew on/over an idea/problem → 反复考虑、琢磨。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "用牙齿咬碎"
+        "target_label": "反复咬碎；由“反复咀嚼”引申为把一个想法在脑中反复琢磨"
       }
     },
     "senses": [
@@ -1773,34 +1820,7 @@
         "definition_en": "to think about something carefully",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:35c55c774357e43655b2",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "chew on + sth",
-            "meaning_cn": "仔细考虑某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:35c55c774357e43655b2",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "chew on + sth"
-            }
-          },
-          {
-            "id": "collocation:2e88155f9914f8631113",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "chew over + sth",
-            "meaning_cn": "反复思考某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:2e88155f9914f8631113",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "chew over + sth"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:chew:a879cd051fde5965",
@@ -1836,7 +1856,42 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:chew:baseline-v2-on",
+        "source_locator": "record.constructions[0]",
+        "pattern": "chew on sth",
+        "lines": [
+          {
+            "text": "仔细考虑某个问题或想法",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:chew:baseline-v2-on",
+          "target_locator": "record.constructions[0]",
+          "target_label": "chew on sth"
+        }
+      },
+      {
+        "id": "construction:chew:baseline-v2-over",
+        "source_locator": "record.constructions[1]",
+        "pattern": "chew over sth",
+        "lines": [
+          {
+            "text": "反复思考、仔细琢磨某事",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:chew:baseline-v2-over",
+          "target_locator": "record.constructions[1]",
+          "target_label": "chew over sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1850,7 +1905,7 @@
     "ordinal": 784,
     "word": "chicken",
     "source_owner_path": "content/lexical/words/by-ordinal/o0784.json",
-    "source_fingerprint": "b790710d084d735355eecdfaf4fe540d2de1332541536a2452ffd5c1a4250672",
+    "source_fingerprint": "48df3e9278f4959833f67b887d6fdb587d153c8c81424dc6a9db66a9674a37e2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1861,7 +1916,7 @@
     },
     "word_feel": {
       "summary_cn": "鸡；鸡肉；胆小的",
-      "decision_cn": "",
+      "decision_cn": "literal chicken → 鸡/鸡肉；figurative chicken → 胆小的人或胆小的；chicken out (of sth) → 因害怕而退出。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1957,21 +2012,7 @@
         "definition_en": "easily frightened; cowardly",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:58ab7ce97084974bd716",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "chicken out",
-            "meaning_cn": "因害怕而退出",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:58ab7ce97084974bd716",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "chicken out"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:chicken:f840ba55a9f35391",
@@ -2373,7 +2414,7 @@
     "ordinal": 788,
     "word": "chill",
     "source_owner_path": "content/lexical/words/by-ordinal/o0788.json",
-    "source_fingerprint": "b94fd8c977b3c51987b3b7883eaaf7a3611b8dd76e3e91603858d99bde86e363",
+    "source_fingerprint": "e825c57a8242cfed221e9501eeba3f82e7a3fcd66a2c54c3d1caf2527339883b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2384,13 +2425,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "寒冷，寒意",
-      "decision_cn": "",
+      "summary_cn": "让温度或情绪降下来：可指寒冷/冰镇，也可指恐惧带来的寒意；chill out 则是放松、冷静",
+      "decision_cn": "cold air/body → 寒意；chill wine → 冰镇；a chill down one's spine → 恐惧发冷；chill out → 把紧张度降下来，放松。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "寒冷，寒意"
+        "target_label": "让温度或情绪降下来：可指寒冷/冰镇，也可指恐惧带来的寒意；chill out 则是放松、冷静"
       }
     },
     "senses": [
@@ -2499,21 +2540,7 @@
         "definition_en": "to become cold",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:17dcffcc0b946d3e9889",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "chill out",
-            "meaning_cn": "放松，冷静",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:17dcffcc0b946d3e9889",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "chill out"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:chill:01ce3214647854f7",
@@ -2549,7 +2576,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:chill:baseline-v2-out",
+        "source_locator": "record.constructions[0]",
+        "pattern": "chill out",
+        "lines": [
+          {
+            "text": "放松、冷静下来",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:chill:baseline-v2-out",
+          "target_locator": "record.constructions[0]",
+          "target_label": "chill out"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2637,7 +2682,7 @@
     "ordinal": 790,
     "word": "chin",
     "source_owner_path": "content/lexical/words/by-ordinal/o0790.json",
-    "source_fingerprint": "08521b01abd966aebf84aa04538ea916c0fea281f142743876b0eb12da70318e",
+    "source_fingerprint": "81a4e7c49bb13c14d263f18413b4c2187a9606ef8c6eddf42cf216b18e2da892",
     "sense_lineage": [
       {
         "word_id": "word:chin",
@@ -2654,13 +2699,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "面部下方突出的部分；引体向上",
-      "decision_cn": "",
+      "summary_cn": "下巴；嘴下方突出的面部部位",
+      "decision_cn": "当前主学习义就是身体部位“下巴”；旧的引体向上动词义只保留作低频参考。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "面部下方突出的部分；引体向上"
+        "target_label": "下巴；嘴下方突出的面部部位"
       }
     },
     "senses": [
@@ -2697,7 +2742,7 @@
     "ordinal": 791,
     "word": "china",
     "source_owner_path": "content/lexical/words/by-ordinal/o0791.json",
-    "source_fingerprint": "aa8210d6c5611345b4fd4fdebf950597c6962cf597c86181003c0b5dd69119f9",
+    "source_fingerprint": "593e5383bac95d55d4a5414a0878718d781617f295155f190f9c27e2bebd3882",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2708,7 +2753,7 @@
     },
     "word_feel": {
       "summary_cn": "中国或瓷器",
-      "decision_cn": "",
+      "decision_cn": "大写 China = 国家“中国”；小写 china = 瓷器/瓷质器皿。大小写直接参与选义。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2825,7 +2870,44 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "China",
+            "condition": "country / nationality-related proper name",
+            "note": "国家专名必须大写。"
+          },
+          {
+            "surface": "china",
+            "condition": "porcelain / tableware",
+            "note": "瓷器义通常小写。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun",
+              "adjective"
+            ],
+            "reading": "China",
+            "ipa": ""
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "china",
+            "ipa": ""
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -2835,7 +2917,7 @@
     "ordinal": 792,
     "word": "chip",
     "source_owner_path": "content/lexical/words/by-ordinal/o0792.json",
-    "source_fingerprint": "474c77d6be416a7e03a95b4a1bccf578be2e9d1d94152a04b016b6c9edd9006e",
+    "source_fingerprint": "6d90c7429a085852c01a3dc1657d8cd169a17c1b340c29286c055000ae1b1e42",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2845,13 +2927,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "碎片；削",
-      "decision_cn": "",
+      "summary_cn": "从物体上分出的小块：可指碎片、薯类小块、电子芯片、筹码；作动词是磕掉/剥落一小块",
+      "decision_cn": "piece broken off → 碎片；electronics → 芯片；gambling → 筹码；potato usage 有地区差异：AmE chips 通常是薯片，BrE chips 通常是薯条。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "碎片；削"
+        "target_label": "从物体上分出的小块：可指碎片、薯类小块、电子芯片、筹码；作动词是磕掉/剥落一小块"
       }
     },
     "senses": [
@@ -2896,7 +2978,7 @@
         "governing_pattern": "",
         "definition_cn": "薯条；炸土豆片",
         "definition_en": "a thin crisp slice of potato fried in deep fat",
-        "note": "",
+        "note": "地区差异：AmE chips 通常指薯片；BrE chips 通常指薯条（如 fish and chips）。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4092,7 +4174,7 @@
     "ordinal": 800,
     "word": "christ",
     "source_owner_path": "content/lexical/words/by-ordinal/o0800.json",
-    "source_fingerprint": "9848c30165d3b180c876f4d0c54cd58e41c1e7b47d8fdac202c2aaccefcd947b",
+    "source_fingerprint": "41009eb910dc42fb7c595d95d4ec70dfd2a9c282a0602d00bc97c436936ff86f",
     "sense_lineage": [
       {
         "word_id": "word:christ",
@@ -4109,13 +4191,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "耶稣的称号，或救世主",
-      "decision_cn": "",
+      "summary_cn": "Christ：基督教中对耶稣的称号；作为专名/称号通常首字母大写",
+      "decision_cn": "宗教专名称号写作 Christ；普通小写 christ 不作为当前主学习形式。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "耶稣的称号，或救世主"
+        "target_label": "Christ：基督教中对耶稣的称号；作为专名/称号通常首字母大写"
       }
     },
     "senses": [
@@ -4142,7 +4224,31 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "Christ",
+            "condition": "Christian title/name for Jesus",
+            "note": "作为耶稣的宗教称号时首字母大写。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "Christ",
+            "ipa": ""
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -4240,7 +4346,7 @@
     "ordinal": 802,
     "word": "christmas",
     "source_owner_path": "content/lexical/words/by-ordinal/o0802.json",
-    "source_fingerprint": "29611ff6558f29939c9b29c829b89ad4bb63b2a71c852ecef7361b3a1544620e",
+    "source_fingerprint": "58804a37344eb8a2cc9eb0b69bffdc59218faded1ea29a0765c97c2acf0a9e18",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4250,7 +4356,7 @@
     },
     "word_feel": {
       "summary_cn": "庆祝耶稣基督诞生的年度基督教节日",
-      "decision_cn": "",
+      "decision_cn": "Christmas 是节日专名，标准写法首字母大写；常见固定搭配包括 Merry Christmas / Christmas Eve。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4312,7 +4418,31 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "Christmas",
+            "condition": "name of the Christian festival",
+            "note": "节日专名首字母大写。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "Christmas",
+            "ipa": ""
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -5598,7 +5728,7 @@
     "ordinal": 815,
     "word": "cite",
     "source_owner_path": "content/lexical/words/by-ordinal/o0815.json",
-    "source_fingerprint": "cd17da95a3f885d6283fb1860b30c32c131ca02a3264f9daf7ba30d29c088357",
+    "source_fingerprint": "6252abf9bfa7fda117e9de4e758fca52cdb4b1fc3e2599349d808af592665665",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5607,13 +5737,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "引用",
-      "decision_cn": "",
+      "summary_cn": "把某人或某事正式“点出来”：学术语境可引用作证据，荣誉语境可表彰，法律语境可传唤",
+      "decision_cn": "cite a source/example → 引用；cite sb for bravery → 表彰；cite sb to appear in court → 正式传唤。另注意 cite/site/sight 同音混淆。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "引用"
+        "target_label": "把某人或某事正式“点出来”：学术语境可引用作证据，荣誉语境可表彰，法律语境可传唤"
       }
     },
     "senses": [
@@ -5980,7 +6110,7 @@
     "ordinal": 818,
     "word": "civil",
     "source_owner_path": "content/lexical/words/by-ordinal/o0818.json",
-    "source_fingerprint": "132ba2de69b7470a729ae9e6490432055073795c06e8adca9264442ee6197fd4",
+    "source_fingerprint": "9df4b7c3b3eec62f2b2884856019cad46cd4f8b61aca586a70bdf9c3d97ea5cf",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5989,13 +6119,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "公民的；文明的；有礼貌的",
-      "decision_cn": "",
+      "summary_cn": "与普通公民和国家内部事务相关，而非军事；还可指民事法律领域或礼貌克制的行为",
+      "decision_cn": "civil rights/war → 公民/国内；civil law/case → 民事而非刑事；civil aviation → 民用而非军用；be civil → 保持礼貌。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "公民的；文明的；有礼貌的"
+        "target_label": "与普通公民和国家内部事务相关，而非军事；还可指民事法律领域或礼貌克制的行为"
       }
     },
     "senses": [
@@ -6329,7 +6459,7 @@
     "ordinal": 821,
     "word": "civilise",
     "source_owner_path": "content/lexical/words/by-ordinal/o0821.json",
-    "source_fingerprint": "d992194690e99bc2865ed5bec0a0d8e7e101bf53f0f7b098d0aa7738403e3f4f",
+    "source_fingerprint": "125b9105f72b38a019f9873fb5be3bd84ff21e77a1a4746a277ea54fb8c8b142",
     "sense_lineage": [
       {
         "word_id": "word:civilise",
@@ -6346,13 +6476,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "使达到先进的社会文化发展状态",
-      "decision_cn": "",
+      "summary_cn": "使某人或社会符合被视为更文明/有教养的标准；该词在历史、殖民与文化比较语境中常带价值判断",
+      "decision_cn": "普通 refine/educate 语境可表示“使更有教养”；涉及民族/文化时要识别其中可能隐含的文明等级观。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "使达到先进的社会文化发展状态"
+        "target_label": "使某人或社会符合被视为更文明/有教养的标准；该词在历史、殖民与文化比较语境中常带价值判断"
       }
     },
     "senses": [
@@ -6361,9 +6491,9 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "教化，使文明",
-        "definition_en": "to educate or refine a person or society to a more advanced state",
-        "note": "",
+        "definition_cn": "使某人或社会符合某种被认为较文明、较有教养的标准；现代语境中常需注意其历史和价值判断色彩",
+        "definition_en": "to make a person or society conform to standards regarded as more civilized or refined; often historically or critically framed",
+        "note": "用于描述民族、文化或殖民历史时可能带有“以某套标准衡量谁更文明”的价值判断；现代使用常见于历史叙述或批判讨论。",
         "identity_overlay": {
           "text": "civilise is BrE; civilize is AmE; people/society examples require dated or ethnocentric caution",
           "repair": {
@@ -6388,18 +6518,10 @@
             }
           },
           {
-            "id": "collocation:1b7c063078e829b9ca66",
+            "id": "collocation:civilise:baseline-v2-society",
             "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "civilise the natives",
-            "meaning_cn": "教化土著",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:3e905a6db7cfdfe54502",
-            "source_locator": "record.senses[0].collocations[2]",
-            "phrase": "civilise into a modern state",
-            "meaning_cn": "发展成现代文明国家",
+            "phrase": "civilise a society",
+            "meaning_cn": "使社会制度或生活方式更加文明化（常需结合历史/批判语境理解）",
             "kind": "usage_example",
             "repair": null
           }
@@ -6408,7 +6530,7 @@
           "target_kind": "sense",
           "target_id": "sense:civilise:443008350e705ac7",
           "target_locator": "record.senses[0]",
-          "target_label": "教化，使文明"
+          "target_label": "使某人或社会符合某种被认为较文明、较有教养的标准；现代语境中常需注意其历史和价值判断色彩"
         }
       }
     ],
@@ -6427,23 +6549,23 @@
     "ordinal": 822,
     "word": "claim",
     "source_owner_path": "content/lexical/words/by-ordinal/o0822.json",
-    "source_fingerprint": "63088c49b621305041bda17436194fb2a47a8f9dd5c7f0cdfc1bcca21d6d3186",
+    "source_fingerprint": "8af0eac3523b7fb21ce8831e9ff24b6165d675e448afd1d14e078774b44463c2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(3+1)V",
+        "3V",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "把某事作为真实、应得或归属自己的东西提出",
-      "decision_cn": "claim 是“提出并要求承认”：主张为真、要求权利、索取应得之物。",
+      "summary_cn": "把某事“提出并要求被承认”：可以声称为真、主张权利、申请应得款项；灾难 claim lives 则表示夺去生命",
+      "decision_cn": "claim that → 声称；claim a right/land → 主张权利；insurance claim / claim compensation → 索赔；disaster claims lives → 夺去生命。noun claim 也可指一个有争议的断言。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "把某事作为真实、应得或归属自己的东西提出"
+        "target_label": "把某事“提出并要求被承认”：可以声称为真、主张权利、申请应得款项；灾难 claim lives 则表示夺去生命"
       }
     },
     "senses": [
@@ -6594,22 +6716,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:claim:74d83c7211b12f85",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "夺去生命",
-        "definition_en": "to cause someone's death",
-        "pattern": "claim lives",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:claim:74d83c7211b12f85",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "夺去生命"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -6642,7 +6749,7 @@
     "ordinal": 823,
     "word": "clap",
     "source_owner_path": "content/lexical/words/by-ordinal/o0823.json",
-    "source_fingerprint": "93c7fc49102b9dfe46d8fd65124281d66abc84b049533d458bc2e29ca1a64a24",
+    "source_fingerprint": "63314a1ae3697e7da4a5fb86a84982e56429a13d19a4f337ee25c9f1cbe92543",
     "sense_lineage": [
       {
         "word_id": "word:clap",
@@ -6660,13 +6767,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "拍手/鼓掌；突然的拍击声",
-      "decision_cn": "",
+      "summary_cn": "快速拍击并发出短促声音：最常见是鼓掌，也可指翅膀拍打；clap sth on/into 则是迅速、用力地放上/塞入",
+      "decision_cn": "hands → 鼓掌；thunder → 一声霹雳；wings → 拍打；clap sth on/into → 快速用力放置。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "拍手/鼓掌；突然的拍击声"
+        "target_label": "快速拍击并发出短促声音：最常见是鼓掌，也可指翅膀拍打；clap sth on/into 则是迅速、用力地放上/塞入"
       }
     },
     "senses": [
@@ -6699,19 +6806,6 @@
               "target_id": "collocation:ec8e26ef2d7659348adf",
               "target_locator": "record.senses[0].collocations[1]",
               "target_label": "clap for + sb/sth"
-            }
-          },
-          {
-            "id": "collocation:7bff59ba320ca09b0816",
-            "source_locator": "record.senses[0].collocations[2]",
-            "phrase": "clap sth on/into",
-            "meaning_cn": "迅速或用力地放上/塞入某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:7bff59ba320ca09b0816",
-              "target_locator": "record.senses[0].collocations[2]",
-              "target_label": "clap sth on/into"
             }
           }
         ],
@@ -6776,7 +6870,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:clap:baseline-v2-on-into",
+        "source_locator": "record.constructions[0]",
+        "pattern": "clap sth on/into sth",
+        "lines": [
+          {
+            "text": "迅速或用力地把某物放上、套上或塞入某处",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:clap:baseline-v2-on-into",
+          "target_locator": "record.constructions[0]",
+          "target_label": "clap sth on/into sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6790,7 +6902,7 @@
     "ordinal": 824,
     "word": "clarify",
     "source_owner_path": "content/lexical/words/by-ordinal/o0824.json",
-    "source_fingerprint": "51c1e98fceb60d04e7f14acb33b7cb00a80bfacbbaec35786bff7fb4c4a4cf2f",
+    "source_fingerprint": "9b937db1b14a23fbca3ab9da81474fc3df67c9d206005818c3f4c2233501686c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6799,13 +6911,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "澄清",
-      "decision_cn": "",
+      "summary_cn": "把原本浑浊或不清楚的东西变清楚：可指阐明意思，也可指使液体澄清",
+      "decision_cn": "issue/meaning → 让概念更清楚；butter/liquid → 去除杂质使液体清澈。两义共享“去掉使它不清楚的东西”。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "澄清"
+        "target_label": "把原本浑浊或不清楚的东西变清楚：可指阐明意思，也可指使液体澄清"
       }
     },
     "senses": [
@@ -7236,7 +7348,7 @@
     "ordinal": 828,
     "word": "class",
     "source_owner_path": "content/lexical/words/by-ordinal/o0828.json",
-    "source_fingerprint": "5f148bdbab822d565f61a84b1a5e3bb098d747ae3e83a1bf792b80efbe967d0d",
+    "source_fingerprint": "0c511ae734d01a54c542ebb83b70ad0b190d3778f6765bfb14629ef8e307f7bb",
     "sense_lineage": [
       {
         "word_id": "word:class",
@@ -7253,13 +7365,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "具有共同特征的一群人或物",
-      "decision_cn": "",
+      "summary_cn": "按共同特征组成或划出的一个群体/类别：可落到班级、社会阶层、类别、课程或等级",
+      "decision_cn": "students → 班级；social/economic → 阶层；objects/types → 类别；attend class → 课程；first class → 等级。classify 属于词族关系，不是 class 的句法构式。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "具有共同特征的一群人或物"
+        "target_label": "按共同特征组成或划出的一个群体/类别：可落到班级、社会阶层、类别、课程或等级"
       }
     },
     "senses": [
@@ -7395,25 +7507,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:1c01c5153a7f6268bb4f",
-        "source_locator": "record.constructions[0]",
-        "pattern": "class → classify",
-        "lines": [
-          {
-            "text": "classify is anchored to class as a category or type, not only a student group",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:1c01c5153a7f6268bb4f",
-          "target_locator": "record.constructions[0]",
-          "target_label": "class → classify"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7438,7 +7532,7 @@
     "ordinal": 829,
     "word": "classic",
     "source_owner_path": "content/lexical/words/by-ordinal/o0829.json",
-    "source_fingerprint": "238f37d35e38bfadb31cb84aee79d3f7794055d5de555bdabbb45778b9c13bae",
+    "source_fingerprint": "eaf68b51896c6be32818e8f39e717fed592ba4f9b7a89c31a059ef0687cb8b71",
     "sense_lineage": [
       {
         "word_id": "word:classic",
@@ -7463,13 +7557,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "经典；典范",
-      "decision_cn": "",
+      "summary_cn": "经得起时间检验的经典/典范，或某一类型最典型的标准例子",
+      "decision_cn": "a classic → 经典作品；classic design/work → 经久公认的经典；classic example/case → 典型例子。与 classical 的“古典传统/古希腊罗马/古典音乐”区分。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "经典；典范"
+        "target_label": "经得起时间检验的经典/典范，或某一类型最典型的标准例子"
       }
     },
     "senses": [
@@ -7504,8 +7598,8 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "典型的；具有代表性的标准范例",
-        "definition_en": "typical or characteristic; a standard example",
+        "definition_cn": "经典的；具有长期公认价值的；也可表示典型的、具有代表性的",
+        "definition_en": "recognized as a standard of enduring quality, or typical and representative",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7529,13 +7623,21 @@
               "target_locator": "record.senses[1].collocations[1]",
               "target_label": "a classic example/case"
             }
+          },
+          {
+            "id": "collocation:classic:baseline-v2-work",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "a classic work",
+            "meaning_cn": "经典作品",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:classic:af3830baf20b5a78",
           "target_locator": "record.senses[1]",
-          "target_label": "典型的；具有代表性的标准范例"
+          "target_label": "经典的；具有长期公认价值的；也可表示典型的、具有代表性的"
         }
       }
     ],

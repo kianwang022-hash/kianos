@@ -6,7 +6,15 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:clean:baseline-v2-energy",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "低污染、低碳或环境负担较小的能源、技术或燃料",
+        "pattern": "clean energy / clean technology / clean fuel"
+      }
+    ],
     "content_hash": "d8ea43782c20058e2b490d2688557c5fc81334d8fbf05904ef250f87f2168d99",
     "core_concept": {
       "core_clusters": [
@@ -38,9 +46,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "清洁，干净",
+      "core_meaning_cn": "没有不想要的污染、污点或杂质：可指物理干净，也可延伸到清白、简洁，以及低污染的 clean energy/technology",
       "core_meaning_en": "free from dirt or unwanted matter",
-      "mental_model_cn": "清洁，干净",
+      "mental_model_cn": "clean water/room → 无污物；clean record → 无污点/清白；clean lines → 简洁；clean energy/technology → 低污染、低碳或更少环境负担。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -127,15 +135,6 @@
             ],
             "meaning_cn": "清白的记录",
             "phrase": "a clean record"
-          },
-          {
-            "collocation_id": "collocation:9fa5a5e4b6665912750e",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:clean:e06b51622a4652ef:collocation:handoff-o0675-o0874"
-            ],
-            "meaning_cn": "低污染、低碳或不污染的能源/技术",
-            "phrase": "clean energy/technology"
           }
         ],
         "confidence": "medium",
@@ -359,7 +358,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0833-0840.json",
     "source_content_hash": "d8ea43782c20058e2b490d2688557c5fc81334d8fbf05904ef250f87f2168d99",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
