@@ -179,5 +179,12 @@ const {
         attentionRoot.hidden = !visible;
       }
     }
+
+    window.addEventListener('kianos:private-control-consumed', (event) => {
+      const detail = event instanceof CustomEvent ? event.detail : null;
+      if (detail?.fresh !== true || detail?.target !== 'xizong.session') return;
+      if (!['APPLIED','IDEMPOTENT'].includes(String(detail?.status || ''))) return;
+      window.location.reload();
+    });
   }
 </script>
