@@ -42,11 +42,11 @@ Do not revive historical UI migrations merely because old branches/PRs still exi
 
 ## Queued closure lane
 
-### UI Closure / CSS ownership consolidation — **ACTIVE**
+### UI Closure / CSS ownership consolidation — **PAUSED FOR REAL-USE STABILIZATION**
 
-Active ref: PR #474 · `ui-css-base-deglobalize-20260919` · Base de-globalization / ownership cleanup, no redesign.
+Paused ref: PR #474 · `ui-css-base-deglobalize-20260919`.
 
-This is now the active website-wide engineering mainline. Politics Practice Human Gate closed on 2026-09-19 and PR #470 is merged.
+Kian is switching the accepted website into genuine learner use. Do not promote or continue broad CSS ownership cleanup before real-use evidence exists. Reopen only if a concrete learner-visible defect or later maintenance decision justifies it; accepted learner presentation stays frozen in the meantime.
 
 Activation basis:
 
