@@ -13,7 +13,7 @@ Shared Visual / Shell landed
 → English + Lexical landed
 → Xizong material learner surfaces landed
 → Politics learner surfaces landed
-→ UI/CSS ownership cleanup deferred during real-use stabilization
+→ UI/CSS ownership cleanup ACTIVE · non-redesign closure
 → Chat-owned Home landed
 → private learner checkpoint foundation landed
 → subject Final Audit interfaces
@@ -42,11 +42,11 @@ Do not revive historical UI migrations merely because old branches/PRs still exi
 
 ## Queued closure lane
 
-### UI Closure / CSS ownership consolidation — **DEFERRED · NO ACTIVE PR**
+### UI Closure / CSS ownership consolidation — **ACTIVE · FRESH CURRENT BRANCH**
 
-Historical ref: closed PR #474 · `ui-css-base-deglobalize-20260919`.
+Current ref: `work/ui-css-closure-20260919-v2` · fresh from post-gate `main`. Historical closed PR #474 is evidence only, not the active implementation.
 
-KianOS is entering genuine learner use. Broad CSS ownership cleanup is not an active lane during this stabilization window. The accepted learner presentation is frozen; if real-use evidence later justifies maintenance, restart from fresh `main` with the smallest bounded non-redesign scope rather than reopening the historical draft.
+Kian explicitly reopened the final non-redesign ownership closure on 2026-09-19. The accepted learner presentation remains frozen: this lane may move CSS ownership and remove superseded writers, but it may not redesign accepted surfaces. Work restarts from fresh `main`, not the historical draft.
 
 Activation basis:
 
@@ -104,7 +104,7 @@ Closure is complete only when:
 4. representative English / Politics / Xizong / Lexical surfaces pass browser regression;
 5. future shared visual edits no longer require CSS archaeology across historical convergence/patch files.
 
-Exact cleanup inventory should be created **when this lane activates**, from the post-Human-Gate codebase. Do not freeze today's CSS file list as future Truth.
+Exact active inventory: `static-web/UI_CSS_OWNERSHIP_CLOSURE.md`. Keep it bounded to the live post-Human-Gate cleanup; it is not long-term presentation Truth.
 
 ---
 
@@ -213,7 +213,7 @@ CI green is not visual acceptance.
 - **Politics:** learner-facing material UI is fully landed. PR #470 merged after Kian Human Gate; Practice preserves the proven Workbench, uses exact-ID AI `takeaway` + AI `chat_explanation`, forbids Xiao1000 historical explanation from learner-facing fallback, and returns to the safest exact Chengfeng locator when one exists. Reopen only a concrete learner-visible defect.
 - **English:** landed; fix only concrete launch-visible defects.
 - **Lexical:** Vocabulary v2 learner-surface closure and English exact handoff/return are accepted; normal use only unless a concrete defect appears.
-- **Platform:** Gates 1–4 are closed and Gate 5 engineering freeze is active. Shared learner-data / Chat handoff + Home integration are landed through #498/#499; the reconciled #500 candidate passed final cross-subject regression 31/31. Broad platform construction is closed. Continue only concrete learner-visible/durability defects or explicitly bounded non-redesign maintenance such as the separate CSS ownership consolidation lane.
+- **Platform:** Gates 1–4 are closed and Gate 5 engineering freeze is active. Shared learner-data / Chat handoff + Home integration are landed through #498/#499; the reconciled #500 candidate passed final cross-subject regression 31/31. Broad platform construction is closed. Continue only concrete learner-visible/durability defects or the now-active bounded non-redesign CSS ownership consolidation lane.
 
 Exact branch/PR/cursor state must be read from the active owner/ref before work.
 
