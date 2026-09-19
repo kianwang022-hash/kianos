@@ -82,7 +82,7 @@ assert(!stageGuard.includes('personal?.lectureRead'), 'legacy-block-lecture-conf
 assert(stageGuard.includes("target.closest('[data-block-complete]')"), 'block-complete-transition-not-guarded');
 assert(stageGuard.includes('counts.learned >= counts.total'), 'block-complete-does-not-require-formal-contact');
 assert(stageGuard.includes('counts.recalled >= counts.total'), 'block-complete-does-not-require-kp-recall');
-assert(stageGuard.includes('Boolean(state?.blockRecallDone)'), 'block-complete-does-not-require-block-recall-evidence');
+assert(stageGuard.includes('(state?.blockRecallDone === true)'), 'block-complete-does-not-require-block-recall-evidence');
 
 console.log([
   'Xizong Functional First regression PASS',
