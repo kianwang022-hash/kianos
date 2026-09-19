@@ -117,21 +117,25 @@ export function buildHomeDailyLearningPacket({
   }
 
   if (politicsCatalog) {
+    const snapshot = readPoliticsSnapshot(storage);
+    let memory = null;
     try {
-      const snapshot = readPoliticsSnapshot(storage);
-      if (snapshot.errors.length) {
-        warnings.push('politics:POLITICS_EVIDENCE_UNREADABLE');
-      } else {
-        const memory = politicsMemoryDailyEvidence(storage, { day, now });
-        if (politicsEvidencePresent(snapshot) || memory.summary.recall_count > 0 || memory.current_plan) {
-          const politics = politicsDailyEvidencePacket(politicsCatalog, snapshot, { day, now, base });
-          politics.memory = memory;
-          packet = attachDailySubjectPacket(packet, 'politics', politics);
-          coverage.politics = 'attached';
-        }
-      }
+      memory = politicsMemoryDailyEvidence(storage, { day, now });
     } catch (error) {
-      warnings.push('politics:' + String(error?.message || error));
+      warnings.push('politics-memory:' + String(error?.message || error));
+    }
+
+    if (snapshot.errors.length) {
+      warnings.push('politics:POLITICS_EVIDENCE_UNREADABLE');
+    } else if (politicsEvidencePresent(snapshot) || memory?.summary?.recall_count > 0 || memory?.current_plan) {
+      try {
+        const politics = politicsDailyEvidencePacket(politicsCatalog, snapshot, { day, now, base });
+        politics.memory = memory;
+        packet = attachDailySubjectPacket(packet, 'politics', politics);
+        coverage.politics = 'attached';
+      } catch (error) {
+        warnings.push('politics:' + String(error?.message || error));
+      }
     }
   }
 
