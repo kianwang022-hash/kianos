@@ -21,9 +21,9 @@ import {
   studyDayAt
 } from './studyTimer.mjs';
 import {
+  applyPrivateSubjectCheckpointRestore,
   capturePrivateSubjectCheckpoints,
-  privateSubjectRestoreNeeded,
-  restorePrivateSubjectCheckpoints
+  preparePrivateSubjectCheckpointRestore
 } from './privateSubjectCheckpoints.mjs';
 
 export const PRIVATE_CHECKPOINT_RUNTIME_SCHEMA = 'kianos.private-checkpoint-runtime.v1';
@@ -64,29 +64,64 @@ export async function restoreSharedControlFromPrivate(storage, {
 
   const remote = await readCheckpoint();
   if (remote?.status !== 'ready' || remote?.checkpoint?.schema !== PRIVATE_CHECKPOINT_SCHEMA) {
+    if (!sharedEmpty) {
+      return {
+        status: 'skipped',
+        reason: 'local-state-present',
+        remote_status: remote?.status || 'unavailable',
+        study_day: studyDay
+      };
+    }
     return { status: remote?.status || 'unavailable', reason: remote?.error || null, study_day: studyDay };
   }
 
-  const subjects = remote.checkpoint?.payload?.subjects || {};
-  const subjectNeeded = privateSubjectRestoreNeeded(storage, subjects);
-  if (!sharedEmpty && !subjectNeeded) {
-    return { status: 'skipped', reason: 'local-state-present', study_day: studyDay };
+  const shared = remote.checkpoint?.payload?.shared;
+  if (sharedEmpty && (!shared || shared.schema !== SHARED_CONTROL_CHECKPOINT_SCHEMA)) {
+    return { status: 'invalid', reason: 'shared-control-payload-missing', study_day: studyDay };
   }
+
+  // Validate every subject payload and every keep-local conflict before mutating
+  // shared control. A conflict in English/Lexical must not leave Xizong/shared
+  // half-restored, and an existing Xizong state remains non-overwritable.
+  const preparedSubjects = preparePrivateSubjectCheckpointRestore(
+    storage,
+    remote.checkpoint?.payload?.subjects || {},
+    { onlyIfEmpty: true }
+  );
+
+  const subjectNeeded = preparedSubjects.changes.length > 0;
+  if (!sharedEmpty && !subjectNeeded) {
+    return {
+      status: 'skipped',
+      reason: 'local-state-present',
+      study_day: studyDay,
+      subjects: preparedSubjects.results
+    };
+  }
+
+  const touched = new Set(preparedSubjects.changes.map(([key]) => key));
+  if (sharedEmpty) SHARED_STORAGE_KEYS.forEach((key) => touched.add(key));
+  const before = new Map([...touched].map((key) => [key, safeGet(storage, key)]));
 
   let sharedStatus = 'skipped';
-  if (sharedEmpty) {
-    const shared = remote.checkpoint?.payload?.shared;
-    if (!shared || shared.schema !== SHARED_CONTROL_CHECKPOINT_SCHEMA) {
-      return { status: 'invalid', reason: 'shared-control-payload-missing', study_day: studyDay };
+  let subjectResults = preparedSubjects.results;
+  try {
+    if (sharedEmpty) {
+      restoreSharedControlCheckpoint(storage, sharedForCurrentDay(shared, studyDay), { expectedDay: studyDay });
+      sharedStatus = 'restored';
     }
-    const prepared = sharedForCurrentDay(shared, studyDay);
-    restoreSharedControlCheckpoint(storage, prepared, { expectedDay: studyDay });
-    sharedStatus = 'restored';
+    subjectResults = applyPrivateSubjectCheckpointRestore(storage, preparedSubjects);
+  } catch (error) {
+    for (const [key, raw] of before.entries()) {
+      try {
+        if (raw == null) storage.removeItem?.(key);
+        else storage.setItem?.(key, raw);
+      } catch {}
+    }
+    throw error;
   }
 
-  const subjectResults = restorePrivateSubjectCheckpoints(storage, subjects, { onlyIfEmpty: true });
   const subjectRestored = Object.values(subjectResults).some((row) => row?.status === 'restored');
-
   return {
     status: sharedStatus === 'restored' || subjectRestored ? 'restored' : 'skipped',
     study_day: studyDay,
