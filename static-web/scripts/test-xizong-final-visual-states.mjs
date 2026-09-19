@@ -52,6 +52,8 @@ try{
    assert.equal(await page.locator('[data-question-options] .correct,[data-question-options] .wrong').count(),0);
    await page.screenshot({path:path.join(out,'paper-pre-seal.png')});
    await page.locator('[data-paper-seal]').click();
+   await page.waitForTimeout(600); // exceed the stale draft navigation delay
+   assert.equal(await page.locator('[data-paper-review-start]').isVisible(),true);
    await page.screenshot({path:path.join(out,'paper-score.png')});
    await page.locator('[data-paper-review-start]').click();
    assert.equal(new URL(page.url()).pathname,'/xizong/practice/paper/2026/');

@@ -1087,7 +1087,12 @@ const payload = JSON.stringify({
       if (paperMode && !paperSealed()) {
         if (!persistPaperDraft()) return;
         renderQuestion(currentIndex);
-        window.setTimeout(nextQuestion, preferences.fastSweep ? 90 : 180);
+        const submittedQuestionId = currentQuestion.questionId;
+        window.setTimeout(() => {
+          // A saved draft may schedule navigation, but Seal or an explicit
+          // learner navigation revokes that old task's permission to move.
+          if (!paperSealed() && currentQuestion?.questionId === submittedQuestionId) nextQuestion();
+        }, preferences.fastSweep ? 90 : 180);
         return;
       }
       if (resultFor(currentQuestion.questionId)) return;
