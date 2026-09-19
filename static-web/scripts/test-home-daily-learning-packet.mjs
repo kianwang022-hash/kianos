@@ -408,6 +408,53 @@ assert.equal(returnOnly.coverage.xizong,'attached',
   'pending typed Xizong Return must remain visible even before new learner evidence');
 assert.equal(returnOnly.packet.subjects.xizong.evidence.current.pending_chat_returns.length,1);
 
+const wuOnlyStorage = new MemoryStorage({
+  [STUDY_TIMER_STATE_KEY]: JSON.stringify({
+    schema: STUDY_TIMER_SCHEMA,
+    running: false,
+    manualPaused: true,
+    subject: null,
+    context: null,
+    segmentStartedAt: null,
+    lastSeenAt: now,
+    revision: 1,
+    updatedAt: now
+  }),
+  [STUDY_TIMER_LEDGER_KEY]: JSON.stringify({ schema: STUDY_TIMER_SCHEMA, sessions: [] }),
+  ['kianos:xizong:system-question-sweep:a1:v1']: JSON.stringify({
+    results:{
+      'xizong-official-2022-n010':{
+        status:'uncertain',
+        attemptId:'wu-only-attempt',
+        roundId:'wu-only-round',
+        updatedAt:'2026-09-18T23:00:00.000Z'
+      }
+    },
+    attemptHistory:[{
+      type:'QUESTION_ATTEMPT',
+      evidence_origin:'USER_QUESTION_ATTEMPT',
+      question_id:'xizong-official-2022-n010',
+      attempt_id:'wu-only-attempt',
+      round_id:'wu-only-round',
+      status:'uncertain',
+      submitted_at:'2026-09-18T23:00:00.000Z'
+    }]
+  })
+});
+const wuOnly = buildHomeDailyLearningPacket({
+  storage:wuOnlyStorage,
+  day,
+  now,
+  xizongPacketIndex,
+  politicsCatalog,
+  base:'/'
+});
+assert.equal(wuOnly.coverage.xizong,'attached',
+  'unresolved current System W/U must attach even when today has no new learner event');
+assert.equal(wuOnly.packet.subjects.xizong.evidence.events.question_attempt.length,0);
+assert.equal(wuOnly.packet.subjects.xizong.evidence.current.current_system_wu.length,1);
+assert.equal(wuOnly.packet.subjects.xizong.evidence.current.current_system_wu[0].items[0].attempt_id,'wu-only-attempt');
+
 const corruptPolitics = new MemoryStorage(Object.fromEntries(storage.map.entries()));
 corruptPolitics.setItem(PRACTICE_KEYS.meta, '{bad-json');
 const partial = buildHomeDailyLearningPacket({
