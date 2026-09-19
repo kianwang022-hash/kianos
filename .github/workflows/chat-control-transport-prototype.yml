@@ -1,6 +1,9 @@
 name: Chat Control Transport Prototype
 
 on:
+  push:
+    branches:
+      - "work/chat-control-transport-prototype-20260920"
   pull_request:
     paths:
       - "static-web/src/lib/privateControlCommand.mjs"
@@ -79,6 +82,14 @@ jobs:
       - name: Xizong session private durability
         working-directory: static-web
         run: node scripts/test-xizong-session-checkpoint.mjs
+      - name: Xizong transport-aligned acceptance guards
+        working-directory: static-web
+        run: |
+          node scripts/validate-xizong-a1-evidence.mjs
+          node scripts/validate-xizong-a2-repair-return.mjs
+          node scripts/validate-xizong-repair-inbox.mjs
+          node scripts/validate-xizong-a3-runtime.mjs
+          node scripts/validate-xizong-a3-evidence.mjs
 
 
   browser-roundtrip:
