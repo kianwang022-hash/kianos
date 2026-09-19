@@ -132,6 +132,19 @@ try {
   check(Array.isArray(payload?.logicGroups) && payload.logicGroups.length >= 3, 'representative_has_logic_groups', String(payload?.logicGroups?.length || 0));
   check(await visibleStage(root) === 'block_learn', 'clean_state_starts_at_block_learn');
 
+  const compactChrome = await page.evaluate(() => {
+    const subjectBar = document.querySelector('.kianosSubjectBar')?.getBoundingClientRect();
+    const blockHeader = document.querySelector('[data-xizong-v6-block] .portedStudyHeader')?.getBoundingClientRect();
+    return {
+      subjectBarHeight: subjectBar?.height || 0,
+      blockHeaderHeight: blockHeader?.height || 0
+    };
+  });
+  check(compactChrome.subjectBarHeight > 0 && compactChrome.subjectBarHeight <= 48.5,
+    'xizong_subject_strip_compact_height', JSON.stringify(compactChrome));
+  check(compactChrome.blockHeaderHeight > 0 && compactChrome.blockHeaderHeight <= 86,
+    'block_header_compact_height', JSON.stringify(compactChrome));
+
   const toggle = root.locator('[data-logic-map-toggle]');
   check(await toggle.count() === 1, 'logic_map_toggle_present');
 
@@ -145,6 +158,28 @@ try {
   let stage = await visibleStage(root);
   check(['kp_learn', 'source_contact'].includes(stage), 'first_learning_enters_kp_companion', stage);
   check(await root.locator('[data-study-stage="ttsx_checkpoint"]').count() === 1, 'ttsx_checkpoint_surface_present');
+
+  const previewButton = root.locator('[data-block-framework-preview-open]');
+  await previewButton.waitFor({ state: 'visible' });
+  const previewStateBefore = await page.evaluate(() => {
+    const root = document.querySelector('[data-xizong-v6-block]');
+    const key = `kianos-xizong-astro-v2:${root?.getAttribute('data-study-object') || ''}`;
+    return localStorage.getItem(key);
+  });
+  await previewButton.click();
+  const previewDialog = root.locator('[data-block-framework-dialog]');
+  await previewDialog.waitFor({ state: 'visible' });
+  check((await previewDialog.innerText()).includes('只读回看'), 'block_framework_preview_is_explicitly_read_only');
+  check((await previewDialog.innerText()).includes('这块现在抓什么'), 'block_framework_preview_contains_block_orientation');
+  check(await visibleStage(root) === stage, 'block_framework_preview_does_not_change_visible_learning_stage', stage);
+  const previewStateAfter = await page.evaluate(() => {
+    const root = document.querySelector('[data-xizong-v6-block]');
+    const key = `kianos-xizong-astro-v2:${root?.getAttribute('data-study-object') || ''}`;
+    return localStorage.getItem(key);
+  });
+  check(previewStateAfter === previewStateBefore, 'block_framework_preview_does_not_mutate_resume_or_evidence');
+  await root.locator('[data-block-framework-preview-close]').click();
+  await previewDialog.waitFor({ state: 'hidden' });
 
   const learnCard = root.locator('[data-study-stage]:visible .xv6KpLearnCompanion[data-kp-id]');
   await learnCard.waitFor({ state: 'visible' });
