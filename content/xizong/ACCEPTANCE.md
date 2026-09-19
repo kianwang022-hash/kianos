@@ -5,49 +5,83 @@ Standard: root `LEARNING_ACCEPTANCE.md`
 Work cursor: `content/xizong/CURRENT.md`
 Execution brief: `FINAL_LEARNER_ACCEPTANCE_BRIEF.md`
 
-## Post-audit closure reconciliation — 2026-09-19
+## Final integration closure — 2026-09-19
 
-**Current candidate state: FINAL MERGE-REF REPROOF IN PROGRESS.**
+**ACCEPTED for the tested mature Current learner/runtime paths.**
 
-The original four blockers from the fresh independent audit have now been
-separated by owner rather than carried forward as one blanket engineering
-failure:
+This is the final integration conclusion after the fresh independent audit and
+its bounded repairs. It supersedes the earlier blanket `BLOCKED` release
+state below, while preserving that audit as historical provenance. It does
+**not** promote incomplete Systems/content to ready, does not claim all eight
+Systems or the full 306 content inventory are finished, and does not fabricate
+real learner `U`.
 
-1. **D1 shared private learner data — CLOSED ON CURRENT MAIN.** PR #492 landed
-   as `b7dc77db`. Xizong durable learner-state/evidence keys are captured by
-   the shared private checkpoint; restore writes only into an empty Xizong
-   durable store; an unreadable existing checkpoint authorizes zero replacement
-   writes. Shared checkpoint tests, Static Web Xizong QA, Golden Journey, A2
-   Functional First and Representative Workspace all passed on that change.
-2. **D2 typed Chat Return — CLOSED IN THE #491 CANDIDATE, pending final
-   latest-main merge-ref proof.** Study Packet v3 now creates an exact handoff
-   bound to object, Source hash, evidence version and interrupted Resume. The
-   typed Return accepts `NO_ACTION` or bounded `REPAIR`, rejects stale or
-   invented identity, is idempotent on identical replay, fails closed on
-   conflicting replay, and reuses the existing Repair Inbox. Ubuntu and
-   macOS-14 bounded dependent regression passed before integration into #491.
-3. **D3 B1 original inline media — SOURCE BLOCKED, not an engineering mystery.**
-   The two KP03 PNG paths were searched in Current `kianos`, archived
-   `kianos-legacy`, and both repositories' complete path-specific Git commit
-   history. The files themselves were never committed; only the Markdown
-   references exist. Do not substitute a similar or generated image. This
-   remains a scoped Source-availability limitation for those two original
-   figures, not a blanket A1/runtime blocker.
-4. **D4 Mac System-spine readability — HUMAN GATE PASS.** The accepted
-   content-density layout keeps short System spines horizontal and gives dense
-   long-label spines a vertical readable sequence. Real macOS 14 at 1512×982
-   proved A2 remains horizontal, A3 is vertical with ~968px node reading width,
-   and no document horizontal overflow. Kian accepted the candidate on
-   2026-09-19.
+Final merge carrier: **PR #496**, merged to `main` as
+`00f1a87e04f684d87b695fc94d167e5c37f0e30f`.
 
-A blanket lane-wide readiness headline is **not upgraded yet** merely from these
-closure commits. The final proof is the PR #491 **latest-main merge ref**, which
-must see Current main (including #492) together with the candidate repairs,
-typed Return and accepted A3 layout. Real learner U remains UNTESTED.
+Final proof head before merge: `5c1f048c8cba71d40bfb5dc191cf2eb00154aa71`.
+The final candidate proved the accepted integration on both Ubuntu and real
+macOS 14. Xizong-specific proof gates passed, including:
+
+- Fresh Independent Acceptance — Ubuntu + macOS;
+- Static Web Xizong QA / A1 browser Evidence;
+- A2 Functional First Journey;
+- A1/A2/A3/B/C Representative Workspace;
+- Golden Journey;
+- Projection Validation, including **95/95** adversarial mutation/control tests;
+- Production Semantic Projection / Representation / Asset closure;
+- Block / System / System Exit / Memory workspaces;
+- B+C compatibility;
+- KianOS Mac Visual Gate and the separately accepted A3 long-spine Human Gate.
+
+Repository-wide Governance / Authority audits still contain unrelated,
+pre-existing cross-lane debt. They were not used to weaken Xizong acceptance
+or to expand this lane's scope.
+
+### Closure of the four original blockers
+
+1. **D1 private learner durability — CLOSED.** PR #492
+   (`b7dc77db`) put approved Xizong learner-state/evidence into the shared
+   private checkpoint. Restore writes only into an empty Xizong durable store;
+   an unreadable existing checkpoint authorizes zero replacement writes.
+   Browser-reset recovery and failed-read safety are proved without writing
+   learner history to public GitHub.
+2. **D2 typed Chat Return — CLOSED.** Study Packet v3 now creates a typed
+   handoff bound to exact object, Source hash, evidence version and interrupted
+   Resume. Return accepts `NO_ACTION` or bounded `REPAIR`, rejects stale /
+   invented identity, is idempotent on identical replay, conflicts fail closed,
+   and the existing Repair Inbox remains the only repair consumer.
+3. **D3 B1 original inline media — SCOPED UPSTREAM SOURCE LIMITATION.** The two
+   KP03 PNGs were searched in Current `kianos`, archived `kianos-legacy`
+   and both repositories' path-specific Git histories. The original files were
+   never committed; only the exact Markdown references exist. Runtime preserves
+   those exact references, records `UPSTREAM_SOURCE_MISSING`, and does not use
+   a similar or generated substitute. This limits those two original figures;
+   it does **not** invalidate the rest of A1 or the mature integration path.
+4. **D4 Mac readability / Human Gate — CLOSED.** Short System spines remain
+   horizontal; dense long-label spines use the accepted readable sequence.
+   Real macOS 14 at 1512×982 proved the A2/A3 geometry and no document
+   horizontal overflow. Kian accepted the candidate on 2026-09-19.
+
+### Final claim boundary
+
+- Mature Current A1/A2/A3 learning/runtime/evidence/Practice/whole-paper/
+  Resume/Chat-return/durability paths are accepted at the integration level.
+- B/C compatibility and projectability evidence remains bounded evidence; it
+  does not promote unfinished local learner readiness.
+- D/E/F and any other incomplete System/content scope keep their own Current
+  and Acceptance owners and remain fail-closed where required.
+- The two missing B1 original figures remain an upstream Source recovery task
+  only if authoritative bytes are later recovered.
+- Real learner `U` remains **UNTESTED** until Kian actually studies/uses the
+  path; browser automation and synthetic evidence are not learner progress.
+- No broad Xizong re-acceptance should be restarted from this point. Reopen
+  only the smallest owner for a concrete learner-visible defect or new
+  authoritative Source.
 
 ---
 
-## Final independent integration result — 2026-09-19
+## Historical fresh independent audit result — 2026-09-19 · superseded for release state
 
 **BLOCKED for sustained, durable, end-to-end learner readiness.**
 
