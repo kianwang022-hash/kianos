@@ -180,30 +180,40 @@
     "C": {
       "role": "PRODUCTION_LOOKAHEAD",
       "current_assignment": {
-        "candidate_id": "BF02",
+        "candidate_id": "BF11",
         "range": [
-          201,
-          300
+          1101,
+          1150
         ],
-        "state": "POST_SELF_ATTACK_WAIT_FOR_FRONTIER",
-        "review_head": "2fd29bf2e32e7e09d4300948e42a59a2821fe59e",
-        "review_branch": "work/lexical-final-backfill-c-o0201-o0300",
-        "proposal_pr": 528,
-        "proposal_head": "7b316070a6a4b4b96e55f2784d7a0fec267e8ca7",
-        "proposal_path": "content/lexical/execution/manifests/o0201-o0300.production-c-lookahead.md",
-        "module_matrix_path": "content/lexical/execution/manifests/o0201-o0300.production-c-module-matrix.tsv",
-        "fresh_read_coverage": "100/100",
+        "state": "WAITING_BOUNDED_HUMAN_DELTA_GATE",
+        "review_head": "39e522540033804d9dd37e15ce9002853a6abf85",
+        "review_branch": "work/lexical-final-backfill-c-o1101-o1150",
+        "proposal_pr": 538,
+        "proposal_head": "12950389375d96d59ef2815c73589f7d3019443c",
+        "proposal_path": "content/lexical/execution/manifests/o1101-o1150.final-standard-backfill-c-proposal.md",
+        "module_matrix_path": "content/lexical/execution/manifests/o1101-o1150.final-standard-backfill-c-module-matrix.tsv",
+        "fresh_read_coverage": "50/50",
         "self_attack": "COMPLETE",
-        "content_upgrades": 24,
-        "content_no_change": 76,
+        "content_upgrades": 12,
+        "content_no_change": 38,
         "blocked": 0,
-        "old_test_blueprints": 44,
-        "stabilized_test_blueprints": 15,
-        "new_material_delta": false,
+        "new_material_delta_owners": [
+          1116,
+          1133,
+          1148,
+          1150
+        ],
+        "old_test_blueprints": 16,
+        "stabilized_test_blueprints": 9,
         "canonical_semantic_mutation": false,
-        "semantic_freshness_note": "main advanced after freeze, but comparison from review_head to current main showed no Word/Relation/Form/lexical-contract changes in o0201-o0300 scope; refreeze again when BF02 reaches frontier.",
-        "next_action": "Wait for BF02 to become the serialized frontier. Then refreeze latest main, reconcile changed/shared owners only, apply the stabilized proposal, materialize Final Learner Objects, and hand to a fresh B Chat for blind-first Independent Semantic Audit.",
-        "semantic_dependency_policy": "Before frontier materialization, refreeze all related Word/Sense/Family/Form/Construction/Relation/Test dependencies and emit exact semantic_dependency_read_set in the mutation package."
+        "shared_write_set_if_approved": [
+          "word:cozy@o5739",
+          "existing regional-spelling relation cosy↔cozy (retire/migrate to Form/Identity)",
+          "existing relation crazy↔mad (register/source-definition reconciliation)"
+        ],
+        "semantic_freshness_note": "main advanced from review_head to 7ec3f81c, but the diff touched only the live board plus Xizong files; no lexical Word/Relation/Form owner or Lexical semantic contract in this proposal changed. Proposal remains current; refreeze semantic dependencies again at materialization.",
+        "semantic_dependency_policy": "Before approval consumption/materialization, refresh latest main, board, other-lane claims, and all related Word/Sense/Family/Form/Construction/Relation/Test dependencies; emit exact semantic_dependency_read_set in the mutation package.",
+        "next_action": "Kian reviews only the four genuinely new material deltas in the proposal. On p, mark DELTA_APPROVED_WAIT_FOR_FRONTIER. Do not materialize until BF11 is the serialized frontier."
       },
       "scheduled_ranges": [
         [
@@ -232,10 +242,38 @@
         ]
       ],
       "next_new_review_range": [
-        1101,
-        1150
+        1001,
+        1100
       ],
-      "direction_note": "Preserve completed o0201-o0300 lookahead; all new C review proceeds high→low."
+      "direction_note": "Preserve completed o0201-o0300 lookahead; all new C review proceeds high→low.",
+      "preserved_assignments": [
+        {
+          "candidate_id": "BF02",
+          "range": [
+            201,
+            300
+          ],
+          "state": "POST_SELF_ATTACK_WAIT_FOR_FRONTIER",
+          "review_head": "2fd29bf2e32e7e09d4300948e42a59a2821fe59e",
+          "review_branch": "work/lexical-final-backfill-c-o0201-o0300",
+          "proposal_pr": 528,
+          "proposal_head": "7b316070a6a4b4b96e55f2784d7a0fec267e8ca7",
+          "proposal_path": "content/lexical/execution/manifests/o0201-o0300.production-c-lookahead.md",
+          "module_matrix_path": "content/lexical/execution/manifests/o0201-o0300.production-c-module-matrix.tsv",
+          "fresh_read_coverage": "100/100",
+          "self_attack": "COMPLETE",
+          "content_upgrades": 24,
+          "content_no_change": 76,
+          "blocked": 0,
+          "old_test_blueprints": 44,
+          "stabilized_test_blueprints": 15,
+          "new_material_delta": false,
+          "canonical_semantic_mutation": false,
+          "semantic_freshness_note": "main advanced after freeze, but comparison from review_head to current main showed no Word/Relation/Form/lexical-contract changes in o0201-o0300 scope; refreeze again when BF02 reaches frontier.",
+          "next_action": "Wait for BF02 to become the serialized frontier. Then refreeze latest main, reconcile changed/shared owners only, apply the stabilized proposal, materialize Final Learner Objects, and hand to a fresh B Chat for blind-first Independent Semantic Audit.",
+          "semantic_dependency_policy": "Before frontier materialization, refreeze all related Word/Sense/Family/Form/Construction/Relation/Test dependencies and emit exact semantic_dependency_read_set in the mutation package."
+        }
+      ]
     }
   },
   "preserved_candidates": [
@@ -422,6 +460,34 @@
       "state": "PROPOSED_SHARED_SEMANTIC",
       "write_lease_candidate": null,
       "semantic_scope": "Form/identity boundary"
+    },
+    {
+      "claim_key": "FORM:cosy|cozy:regional_spelling_identity",
+      "kind": "FORM",
+      "participants": [
+        "word:cosy",
+        "word:cozy"
+      ],
+      "claimants": [
+        "BF11"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "regional spelling identity; migrate away from semantic Relation ownership"
+    },
+    {
+      "claim_key": "RELATION:crazy|mad:semantic_contrast",
+      "kind": "RELATION",
+      "participants": [
+        "word:crazy",
+        "word:mad"
+      ],
+      "claimants": [
+        "BF11"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "register/source-definition reconciliation while preserving accepted crazy↔mad boundary"
     }
   ]
 }
