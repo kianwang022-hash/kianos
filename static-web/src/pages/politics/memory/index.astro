@@ -1,0 +1,94 @@
+---
+import Base from '../../../layouts/PoliticsBase.astro';
+import { buildPoliticsMemoryCandidateCatalogCurrent } from '../../../lib/politicsMemoryCandidates.mjs';
+import '../../../styles/product-closure.css';
+import '../../../styles/politics-memory-workspace.css';
+
+const catalog = buildPoliticsMemoryCandidateCatalogCurrent();
+const base = import.meta.env.BASE_URL;
+---
+
+<Base title="政治 · 今日记忆" active="politics" showLead={false}>
+  <section class="politicsMemoryWorkspace" data-politics-memory-workspace>
+    <script type="application/json" data-memory-catalog set:html={JSON.stringify(catalog).replace(/</g, '\\u003c')} />
+
+    <header class="politicsMemoryHead">
+      <div>
+        <p>政治 · 复习</p>
+        <h1>今日记忆</h1>
+      </div>
+      <strong data-memory-progress>0</strong>
+    </header>
+
+    <section class="politicsMemoryEmpty" data-memory-empty hidden>
+      <div>
+        <h2>今天没有记忆任务</h2>
+        <p>继续总 Home 当前安排即可。</p>
+      </div>
+      <a href={base}>回总 Home →</a>
+    </section>
+
+    <section class="politicsMemoryStale" data-memory-stale hidden>
+      <div>
+        <h2>这份计划已经失效</h2>
+        <p>政治 Current 或学习日已经变化，旧计划没有被替换成“差不多”的内容。</p>
+      </div>
+      <a href={base}>回总 Home →</a>
+    </section>
+
+    <section class="politicsMemoryComplete" data-memory-complete hidden>
+      <div>
+        <h2>这一组完成了</h2>
+        <p>回忆结果已经记录。下一步交给总 Home 的新安排。</p>
+      </div>
+      <a href={base}>回总 Home →</a>
+    </section>
+
+    <div class="politicsMemoryBody" data-memory-card hidden>
+      <article class="politicsMemoryStage">
+        <div class="politicsMemoryPrompt">
+          <span>当前</span>
+          <h2 data-memory-prompt></h2>
+        </div>
+
+        <button class="politicsMemoryReveal" type="button" data-memory-reveal>
+          显示答案
+          <kbd>Enter</kbd>
+        </button>
+
+        <section class="politicsMemoryAnswer" data-memory-answer hidden>
+          <span>答案</span>
+          <ul data-memory-answer-items></ul>
+        </section>
+
+        <nav class="politicsMemoryResponses" data-memory-controls hidden aria-label="回忆结果">
+          <button type="button" data-memory-response="FORGOT"><kbd>1</kbd><span>忘了</span></button>
+          <button type="button" data-memory-response="FUZZY"><kbd>2</kbd><span>模糊</span></button>
+          <button type="button" data-memory-response="STABLE"><kbd>3</kbd><span>稳定</span></button>
+        </nav>
+      </article>
+
+      <aside class="politicsMemoryCompanion">
+        <section>
+          <span>今天为什么背</span>
+          <p data-memory-reason hidden></p>
+          <p class="politicsMemoryReasonFallback">这是 Chat 今天选进来的记忆任务。</p>
+        </section>
+        <section class="politicsMemoryKeys">
+          <span>键盘</span>
+          <p><kbd>Enter</kbd> 显示答案</p>
+          <p><kbd>1</kbd> 忘了</p>
+          <p><kbd>2</kbd> 模糊</p>
+          <p><kbd>3</kbd> 稳定</p>
+        </section>
+      </aside>
+    </div>
+
+    <p class="politicsMemoryStatus" data-memory-status aria-live="polite"></p>
+  </section>
+</Base>
+
+<script>
+  import { initPoliticsMemoryWorkspace } from '../../../lib/politicsMemoryClient.mjs';
+  initPoliticsMemoryWorkspace(document.querySelector('[data-politics-memory-workspace]'));
+</script>
