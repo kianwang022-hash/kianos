@@ -144,6 +144,7 @@ try {
     'xizong_subject_strip_compact_height', JSON.stringify(compactChrome));
   check(compactChrome.blockHeaderHeight > 0 && compactChrome.blockHeaderHeight <= 86,
     'block_header_compact_height', JSON.stringify(compactChrome));
+  await page.screenshot({ path: path.join(auditDir, 'xizong-block-compact-header.png'), fullPage: false });
 
   const toggle = root.locator('[data-logic-map-toggle]');
   check(await toggle.count() === 1, 'logic_map_toggle_present');
@@ -178,6 +179,7 @@ try {
     return localStorage.getItem(key);
   });
   check(previewStateAfter === previewStateBefore, 'block_framework_preview_does_not_mutate_resume_or_evidence');
+  await page.screenshot({ path: path.join(auditDir, 'xizong-block-framework-preview.png'), fullPage: false });
   await root.locator('[data-block-framework-preview-close]').click();
   await previewDialog.waitFor({ state: 'hidden' });
 
