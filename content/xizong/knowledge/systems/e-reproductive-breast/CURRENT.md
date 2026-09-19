@@ -14,21 +14,23 @@ This file owns work cursor only. It does not own medical Core, accepted Learning
 **Scope:** E — Reproductive / Breast  
 **Lane-A role:** **ACTIVE CONTENT PRIORITY**  
 **Source boundary:** **S1 PASS**  
-**Knowledge state:** **fresh S/K candidate built · K NOT YET ACCEPTED**  
-**Earliest eligible next action:** **fresh independent K acceptance**  
-**Downstream:** Learning / Content / Projection / Runtime / Evidence frozen behind K
+**Knowledge state:** **K PASS_AFTER_BOUNDED_REPAIR · accepted Knowledge frozen**  
+**Earliest eligible next action:** **Learning Logic construction**  
+**Downstream:** Learning is eligible next; Content / Projection / Runtime / Evidence remain frozen behind accepted Learning
 
 ```text
 S1 Source boundary                     = PASS
 S2 exact official-question membership  = UNTESTED / separate later boundary
-K  Knowledge                           = UNTESTED / CANDIDATE_READY_FOR_INDEPENDENT_AUDIT
-L  Learning Logic                      = UNTESTED / downstream-frozen
+K  Knowledge                           = PASS_AFTER_BOUNDED_REPAIR
+L  Learning Logic                      = UNTESTED / ACTIVE NEXT
 Content                                = NOT_STARTED
 P / R / E                              = downstream-frozen
 U                                      = no claim
 ```
 
-Active builder branch: **none — candidate merged to main**
+Fresh K acceptance evidence:
+
+`content/xizong/knowledge/learner/E_PHASE1_FRESH_INDEPENDENT_K_ACCEPTANCE.md`
 
 Independent audit entry:
 
@@ -104,9 +106,9 @@ Exact official E System question membership remains separately UNTESTED.
 
 ---
 
-## Fresh Knowledge candidate
+## Accepted Knowledge
 
-The candidate does **not** copy the old Guide DAG.
+The accepted K model does **not** copy the old Guide DAG.
 
 Its mother model is two coupled trunks:
 
@@ -135,17 +137,16 @@ E9 remains an independent male-development surgical interface. It is not forced 
 
 ---
 
-## Next gate — independent K acceptance
+## Next gate — Learning Logic construction
 
-The next audit must attack the candidate rather than polish it.
+Fresh independent K audit result:
 
-At minimum test:
+```text
+FRESH_K_PASS_AFTER_BOUNDED_REPAIR
+```
 
-1. whether the two-trunk model actually compresses all 20 Blocks without flattening important organ-specific logic;
-2. whether any medical truth was duplicated from external owners;
-3. whether Source gaps/visual gaps/version boundaries remain live;
-4. whether the 7 coarse Block families are descriptive Knowledge grouping rather than hidden learner order;
-5. whether old Guide DAG assumptions leaked into K;
-6. whether any missing high-value cross-Block relation justifies K repair.
+The bounded repair separates **local barrier/stromal invasion** from **metastatic competence / spread extent**. E6 invasive mole is the explicit Current counterexample that prevents these from being modeled as one automatic linear progression.
 
-A K PASS may advance E to Learning Logic construction. A real defect reopens only the smallest responsible Source/Knowledge owner.
+Learning may now construct E-specific learner order, Logic Groups and Source-contact granularity from the accepted K owner. It must not copy the historical Guide DAG or D topology for symmetry.
+
+Content / Projection / Runtime / Evidence remain downstream-frozen until their own upstream gates are accepted.

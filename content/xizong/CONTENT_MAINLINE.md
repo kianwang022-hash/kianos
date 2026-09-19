@@ -69,7 +69,7 @@ D is no longer the active Lane-A **content** construction task. The next D depen
 
 ## E｜Reproductive / Breast — ACTIVE CONTENT PRIORITY
 
-E Source reconstruction and fresh Knowledge reconstruction are now complete at candidate level.
+E Source and Knowledge are now accepted through the K gate.
 
 Current exact owners:
 
@@ -82,32 +82,35 @@ Current state:
 ```text
 S1 Source boundary                     PASS
 S2 exact official-question membership  UNTESTED / separate later boundary
-K  Knowledge                           CANDIDATE / independent acceptance active
-L  Learning Logic                      downstream-frozen
+K  Knowledge                           PASS_AFTER_BOUNDED_REPAIR
+L  Learning Logic                      UNTESTED / ACTIVE NEXT
 Content                                downstream-frozen
 ```
 
-Fresh identity = **20 Blocks / 212 KP**.
+Fresh identity remains **20 Blocks / 212 KP**.
 
-The K candidate was reconstructed from Current Block Source/Primary ownership and uses a two-trunk model:
+Fresh independent K audit found one bounded System-level defect: local barrier/stromal invasion had been compressed into a linear progression toward spread. E6 invasive mole falsifies that collapse. The accepted K model now treats **invasion** and **metastatic competence / spread extent** as separate variables while retaining the two coupled mother trunks:
 
-- control/time physiology;
-- tissue-identity / barrier / evidence pathology.
+- control / time physiology;
+- tissue / compartment identity with location, growth, flow, boundary, evidence and treatment coordinates.
+
+Acceptance evidence:
+
+`content/xizong/knowledge/learner/E_PHASE1_FRESH_INDEPENDENT_K_ACCEPTANCE.md`
 
 The historical E System Guide remains reference-only; its old DAG is not accepted Learning truth.
 
 Required sequence now:
 
 ```text
-fresh independent K acceptance
-→ Learning Logic construction
+Learning Logic construction
 → independent L acceptance
 → Content Realization
 → LG-by-LG Content sufficiency / density audit
 → fresh independent Content closure
 ```
 
-Do not start E Learning or Content before K acceptance. Do not copy D topology for symmetry.
+Do not copy D topology for symmetry. Do not infer official-question membership from accepted K.
 
 ## F｜Remaining Clinical — K CANDIDATE / INDEPENDENT ACCEPTANCE NEXT
 
@@ -140,7 +143,21 @@ Keep two truths separate.
 
 ## B1｜Exact official System question scope
 
-High-value unresolved bounded work currently includes B exact System membership and later D S2 once the D boundary is stable enough. System membership does not imply Block/KP mapping.
+Current learner-facing exact System question scope is only accepted for **A1 / A2 / A3**. B / C / D / E / F must not be surfaced as trusted System-question sets until their exact official-question membership is independently established; System membership does not imply Block/KP mapping and must not be inferred from Outline or Block placement.
+
+### Deferred completion backlog — after E / F medical-content closure
+
+Decision 2026-09-20:
+
+```text
+finish E full medical-content chain
+→ finish F full medical-content chain
+→ return to exact System-question membership completion
+→ close B / C / D / E / F bounded official-question scopes
+→ only then expose those Systems in trusted learner-facing "按 System" question entry
+```
+
+This is a durable **content-completion backlog item**, not the current active lane. Do not interrupt E/F construction to broaden question scope unless a concrete E/F Source or Learning decision requires official-question evidence.
 
 ## B2｜Question → Knowledge Crosswalk
 
@@ -275,7 +292,7 @@ Do not reopen the generation standard unless fresh evidence shows the shared met
 
 ```text
 Medical:
-E Source / Knowledge reconstruction = active content priority
+E Learning Logic construction = active content priority
 + D scoped Projection may proceed independently downstream
 
 Questions:
@@ -333,9 +350,9 @@ D Content PASS / CLOSED
 
 ACTIVE CONTENT PRIORITY
 E S1 PASS
-→ K candidate built
-→ independent K acceptance ACTIVE
-→ Learning
+→ K PASS_AFTER_BOUNDED_REPAIR
+→ Learning Logic construction ACTIVE NEXT
+→ independent L acceptance
 → Content
 
 PARALLEL MEDICAL
@@ -345,7 +362,9 @@ F 9 Blocks / 121 KP
 → independent K acceptance next
 
 QUESTIONS
-B exact official-question scope where unresolved
+Current trusted System-question entry = A1 / A2 / A3 only
+B / C / D / E / F exact official-question membership = DEFERRED COMPLETION BACKLOG
+→ resume after E + F medical-content closure
 + Crosswalk C2 continuous reviewed batches
 
 VISUAL

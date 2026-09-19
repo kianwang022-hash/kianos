@@ -14,8 +14,8 @@ This file owns E-scoped readiness truth only. It does not own medical Core, lear
 | --- | --- | --- |
 | S1 — medical / first-learning Source boundary | **PASS** | 20/20 canonical Block Source readback; locator policy, visual gaps, Source gaps and clinical/version boundaries explicit |
 | S2 — exact official E System question membership | **UNTESTED** | separate later Source sub-boundary; no membership inferred from Block/Outline placement |
-| K — Knowledge | **UNTESTED / CANDIDATE READY** | fresh 20-Block/212-KP System candidate built; requires independent K acceptance |
-| L — Learning Logic | **UNTESTED / DOWNSTREAM-FROZEN** | not eligible before K acceptance |
+| K — Knowledge | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent K audit; one bounded System repair separated local invasion from metastatic competence / spread |
+| L — Learning Logic | **UNTESTED / ACTIVE NEXT** | now eligible after K acceptance |
 | Content Realization / Optimization | **NOT_STARTED / DOWNSTREAM-FROZEN** | not eligible before accepted Learning |
 | P — Projection | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | R — Runtime | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
@@ -65,13 +65,13 @@ Historical System Guide locators may aid re-binding, but historical coordinates 
 
 ---
 
-## K candidate — BUILT / NOT ACCEPTED
+## K acceptance — PASS_AFTER_BOUNDED_REPAIR
 
-Candidate owner:
+Canonical Knowledge owner:
 
 `content/xizong/knowledge/systems/e-reproductive-breast/system.json`
 
-Fresh reconstruction identity:
+Accepted identity:
 
 ```text
 20 stable Blocks
@@ -89,21 +89,33 @@ The candidate uses two coupled Knowledge trunks:
 
 These are Knowledge compression models, not learner-route claims.
 
-### Independence requirement
+### Fresh independent acceptance
 
-K must receive a fresh independent semantic audit before it can PASS. The audit must not assume that the historical Guide DAG, the 20-Block file order or the seven candidate families are correct merely because they exist.
+Evidence:
+
+`content/xizong/knowledge/learner/E_PHASE1_FRESH_INDEPENDENT_K_ACCEPTANCE.md`
+
+Verdict:
+
+```text
+FRESH_K_PASS_AFTER_BOUNDED_REPAIR
+```
+
+The original K candidate was broadly sufficient but compressed barrier/stromal breach and local/regional/distant spread into one linear chain. E6 falsifies that collapse: invasive mole can invade myometrium/vessels without behaving like a strongly metastatic clone. The System owner now models **invasion** and **metastatic competence / spread extent** as separate variables.
+
+No Source, Block or KP identity changed.
 
 ---
 
 ## Downstream freeze
 
-Until K passes:
+K is accepted. The next eligible stage is **Learning Logic construction**.
 
-- do not build E hard readiness or default route;
-- do not construct E Logic Groups;
-- do not decide Source-contact units;
+Until Learning passes:
+
+- do not treat any proposed learner route / Logic Group / Source-contact unit as accepted;
 - do not clean/optimize E Content wrappers;
 - do not start E Projection/Runtime/Evidence;
 - do not infer official question membership.
 
-The existing 20 Block Markdown files remain canonical medical Core substrate, not accepted proof of E Learning closure.
+The existing 20 Block Markdown files remain canonical medical Core substrate. Accepted K does not itself prove E Learning or Content closure.
