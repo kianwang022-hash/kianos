@@ -101,13 +101,14 @@ Do not create a new UI/runtime family for every source collection. Do not add ma
 
 ## Current final-acceptance relationship
 
-This lane is being restored as part of the English Final Learner Acceptance candidate.
+English-wide integration is landed through PR #498. The public compiler/bridge/runtime boundaries, exposure/durability integration and External Reading learner surface are part of the accepted English engineering chain.
 
-Before English-wide final integration:
+The remaining local operational boundary is intentionally machine-specific:
 
-1. prove private compiler/bridge on synthetic source fixtures;
-2. prove Current External workspace does not inherit English-I Reading-A cognition;
-3. prove private exposure/durability/Chat Resume integration;
-4. prove actual Mac private source bundle can open representative TPO + IELTS objects without consuming learner fresh evidence;
-5. any material learner-facing visual change still requires Kian Mac Human Gate;
-6. real study `U` remains real-use-only.
+1. the Mac private source root defaults to `~/Documents/Study/英语资料库/EnglishOS/External_Reading_Corpus`;
+2. the private runtime bundle is compiled under `~/Library/Application Support/KianOS/external-reading/`;
+3. `npm run current:doctor` reports whether the private TPO/IELTS source is ready without turning missing optional External Reading source into a whole-site failure;
+4. source-quality warnings/OCR debt remain explicit and are not silently cleaned;
+5. real study `U` remains real-use-only.
+
+Do not reopen English-wide integration merely because the private corpus is absent on one machine; repair the private source path/bundle only.
