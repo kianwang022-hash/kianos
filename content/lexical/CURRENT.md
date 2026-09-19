@@ -909,7 +909,41 @@ Repair Test blueprints:
 - `content/lexical/learner/repair-blueprints/shards/o0851-0900.json`
 - `content/lexical/learner/repair-blueprints/shards/o0901-0950.json`
 
-Next Human-Gate batch: **o0951–o1050 — FRESH READ + COMBINED CONTENT/TEST REPORT**.
+Closed Human-Gate batch: **o0951–o1050 — CLOSED**.
+
+```text
+100 / 100 fresh owner/module judgments
+24 Word Content owners upgraded
+76 Word Content owners NO_CHANGE
+1 cross-word Relation owner added (contagious ↔ infectious)
+25 Repair Test blueprints written and read back
+75 NO_TEST_NEEDED words
+0 BLOCKED
+0 learner-page/UI files changed
+Final Learner Object materialization PASS (7,946 objects)
+```
+
+Notable learner-facing closures:
+- compound / conduct / conflict / console / construct / content: part-of-speech stress/pronunciation boundaries made explicit
+- comprehend / concert: deprecated meanings removed from Core
+- concede: concede a goal/point corrected to allow the opponent to score / concede a score
+- concentrate: duplicate Core Sense ID removed
+- concern / consider / construct: duplicate active Secondary projections removed
+- concession: negotiation concession separated from concession fare/price
+- confine: restriction sense restored as the primary learner branch
+- conform / congratulate / congratulation / contain: duplicate or contradictory structures consolidated
+- Congress / congress: capitalization boundary made explicit
+- contagious / infectious: moved from fake fixed phrase to a semantic Relation
+
+Canonical Baseline-v2 receipts:
+- `content/lexical/audit/baseline-v2/lane-d/o0951-o1000.json`
+- `content/lexical/audit/baseline-v2/lane-d/o1001-o1050.json`
+
+Repair Test blueprints:
+- `content/lexical/learner/repair-blueprints/shards/o0951-1000.json`
+- `content/lexical/learner/repair-blueprints/shards/o1001-1050.json`
+
+Next Human-Gate batch: **o1051–o1150 — FRESH READ + COMBINED CONTENT/TEST REPORT**.
 
 Apply one Human Gate per ~100 owners: internally fresh-read in bounded ~50-owner slices, then combine real Content defects and worthwhile Repair Test candidates into one plain-language 100-owner report and wait for one Kian approval. After approval, automatically close the approved slices and advance to the next 100-owner batch.
 
