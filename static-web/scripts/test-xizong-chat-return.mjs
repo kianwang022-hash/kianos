@@ -229,3 +229,19 @@ assert.equal(rollbackStorage.getItem('kianos-xizong-memory-v1'),null);
 assert.equal(rollbackStorage.getItem('kianos-xizong-chat-return-v1:handoff-test-1'),null);
 
 console.log('PASS Xizong typed Chat Return: exact identity/version + visible Memory Repair + resume + atomic/idempotent fail-closed');
+
+
+const corruptMemoryStorage = new MemoryStorage({
+  [XIZONG_MEMORY_STORAGE_KEY]: '{bad-json'
+});
+writeXizongChatHandoff(corruptMemoryStorage, handoff);
+assert.throws(
+  () => applyXizongChatReturn(corruptMemoryStorage, repairReturn, { currentPacket: packet }),
+  /MEMORY_STATE_CORRUPT/
+);
+assert.equal(corruptMemoryStorage.getItem(XIZONG_MEMORY_STORAGE_KEY), '{bad-json',
+  'typed Return must preserve unreadable Memory bytes');
+assert.equal(corruptMemoryStorage.getItem('kianos-xizong-repair-inbox-v1:xizong:circulation-b01'), null,
+  'failed Memory mutation must roll back Repair inbox');
+assert.equal(corruptMemoryStorage.getItem('kianos-xizong-chat-return-v1:'+handoff.handoff_id), null,
+  'failed Memory mutation must not write Return receipt');
