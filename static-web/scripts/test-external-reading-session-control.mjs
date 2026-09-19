@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import {
   ENGLISH_SESSION_KEY,
   buildEnglishEvidencePacket,
+  englishSessionStepHref,
   readEnglishSessionInstruction,
   resolveEnglishSessionStep,
   writeEnglishSessionInstruction
@@ -45,6 +46,7 @@ assert.equal(written.steps[0].task,'external_reading');
 assert.equal(readEnglishSessionInstruction(storage,day).status,'ready');
 let selected=resolveEnglishSessionStep(storage,written,catalog);
 assert.equal(selected.step.object_id,'tpo56-p1');
+assert.equal(englishSessionStepHref(selected.step,'/'),'/external-reading/?id=tpo56-p1');
 
 const packet=buildEnglishEvidencePacket(storage,{day,now,catalog});
 assert.deepEqual(packet.available_external_reading,[{
@@ -77,6 +79,7 @@ assert.equal(selected,null,'completed External reading must not resurface as Res
 console.log(JSON.stringify({
   status:'PASS',
   exact_external_id:'PASS',
+  exact_external_resume_href:'PASS',
   stale_hash_rejected_atomically:'PASS',
   replay_idempotent:'PASS',
   factual_catalog_export:'PASS',
