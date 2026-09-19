@@ -299,7 +299,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
     const contextLabel = root.querySelector('[data-study-context-label]');
     const statusLabel = root.querySelector('[data-study-local-status]');
     const totalKp = kpData.length;
-    let state = { stage: 'block_learn', groupIndex: 0, kpIndex: 0, learned: {}, ratings: {}, ttsxEvidence: {}, ttsxAnnotations: {}, pendingTtsx: null, blockRecallDone: false, completed: false };
+    let state = { stage: 'block_learn', groupIndex: 0, kpIndex: 0, learned: {}, ratings: {}, ttsxEvidence: {}, ttsxAnnotations: {}, pendingTtsx: null, blockRecallDone: false, blockRecallCompletedAt: null, completed: false, completedAt: null };
     const suspend = (message) => {
       root.dataset.xizongStateBlocked = 'true';
       root.inert = true;
@@ -788,7 +788,10 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
     });
 
     root.querySelector('[data-block-recall-complete]')?.addEventListener('click', (event) => {
-      state.blockRecallDone = true;
+      if (!state.blockRecallDone) {
+        state.blockRecallDone = true;
+        state.blockRecallCompletedAt = new Date().toISOString();
+      }
       event.currentTarget.textContent = 'Block Recall 已完成';
       event.currentTarget.classList.add('completed');
       save();
@@ -796,7 +799,10 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
     });
     root.querySelector('[data-block-complete]')?.addEventListener('click', (event) => {
       if (!canComplete()) return;
-      state.completed = true;
+      if (!state.completed) {
+        state.completed = true;
+        state.completedAt = new Date().toISOString();
+      }
       event.currentTarget.textContent = 'Block 第一轮已完成';
       save();
       syncState();
