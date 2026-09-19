@@ -910,6 +910,19 @@ The learner should mostly do two things:
 1. report / expose meaningful real-world capacity changes when needed;
 2. actually study.
 
+Current website ↔ Chat daily handoff is:
+
+```text
+Home / private learner state
+→ kianos.daily-learning-packet.v1
+→ Chat planning under this contract
+→ kianos.exam.chat-plan.v1 for the same study_day
+→ Home validates/imports
+→ subject study
+```
+
+The Daily Learning Packet is factual learner/runtime evidence, not an engineering-control request. A fresh Chat should not enter root engineering Current merely because the packet mentions KianOS. Subject-specific typed Returns remain separate from this cross-subject plan.
+
 The learner should not be required to maintain the scheduling model manually.
 
 ---
