@@ -45,6 +45,25 @@ const storage=new MemoryStorage({
     completed:true,
     completedAt:'2026-09-20T01:25:00.000Z'
   }),
+  'kianos:xizong:system-question-sweep:circulation:v1':JSON.stringify({
+    results:{
+      'xizong-official-2022-n010':{
+        status:'wrong',
+        attemptId:'old-wu-attempt',
+        roundId:'old-wu-round',
+        updatedAt:'2026-09-19T05:00:00.000Z'
+      }
+    },
+    attemptHistory:[{
+      type:'QUESTION_ATTEMPT',
+      evidence_origin:'USER_QUESTION_ATTEMPT',
+      question_id:'xizong-official-2022-n010',
+      attempt_id:'old-wu-attempt',
+      round_id:'old-wu-round',
+      status:'wrong',
+      submitted_at:'2026-09-19T05:00:00.000Z'
+    }]
+  }),
   'kianos:xizong:chat-set-question-sweep:chat-set:xz:q1:v1':JSON.stringify({
     attemptHistory:[
       {type:'QUESTION_ATTEMPT',evidence_origin:'USER_QUESTION_ATTEMPT',question_id:'xizong-official-2024-n001',status:'wrong',system_id:'chat-set:xz:q1',canonical_id:'CHAT',study_phase:'SECOND_PASS',context:'CHAT_SET',round_id:'round-1',submitted_at:'2026-09-20T05:00:00.000Z'},
@@ -130,6 +149,18 @@ assert.equal(packet.current.memory_today.find((row)=>row.card_id==='core:a1-b01-
 assert.equal(packet.current.active_repairs[0].task_id,'r1');
 assert.equal(packet.current.active_repairs[0].created_at,'2026-09-20T02:10:00.000Z');
 assert.equal(packet.evidence_semantics.memory_today.includes('not mastery debt'),true);
+assert.equal(packet.current.current_system_wu.length,1,
+  'prior-day unresolved System W/U remains current even without a new same-day attempt');
+assert.equal(packet.current.current_system_wu[0].system_id,'circulation');
+assert.deepEqual(packet.current.current_system_wu[0].items[0],{
+  question_id:'xizong-official-2022-n010',
+  status:'wrong',
+  attempt_id:'old-wu-attempt',
+  submitted_at:'2026-09-19T05:00:00.000Z',
+  round_id:'old-wu-round'
+});
+assert.equal(packet.current.current_system_wu[0].return_contract.schema,'kianos.xizong.system_wu_return.v1');
+assert.equal(packet.summary.current_system_wu,1);
 assert.equal(packet.current.pending_chat_returns.length,1);
 assert.equal(packet.current.pending_chat_returns[0].return_id,'r-pending',
   'unresolved pending Return remains visible even if received before this study day');
