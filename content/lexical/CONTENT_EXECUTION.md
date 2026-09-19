@@ -243,13 +243,13 @@ For one ~100-owner Human-Gate batch:
 
 1. freeze one exact branch/head;
 2. generate bounded review bundles with `tools/lexical_shard.py export`;
-3. normally consume two ≤50-owner bundles; if byte limits force smaller bundles, continue deterministically until the full range is covered;
+3. consume as many ≤50-owner / byte-bounded bundles as needed to cover the full range; the byte budget may make a healthy 100-owner batch require many small bundles, and that is preferable to semantic truncation;
 4. include shared Relation dependencies once per bundle and preserve exact read-set hashes;
 5. Production reads the bundles, performs fresh judgment + self-attack, and only fetches an individual owner again for an oversized object, missing dependency, or explicit evidence escalation.
 
 A Chat must not simulate bundling by issuing dozens of sequential `fetch_file` calls when the bundle path is available.
 
-The repository workflow `.github/workflows/lexical-review-bundle-export.yml` is the normal remote wrapper. A batch Chat writes one request file on its working branch, downloads the resulting artifact, and reviews that artifact as the frozen transport projection. The artifact is not semantic authority.
+The repository workflow `.github/workflows/lexical-review-bundle-export.yml` is the normal remote wrapper. A batch Chat writes one request file on its working branch, downloads the resulting **single artifact containing all bounded bundles**, and reviews that artifact as the frozen transport projection. The artifact is not semantic authority.
 
 ### Post-Gate write transport
 
