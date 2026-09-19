@@ -2,64 +2,19 @@ name: Xizong Fresh Independent Acceptance
 on:
   push:
     branches: [work/xizong-final-learner-20260919-independent]
+    paths:
+      - '.github/workflows/xizong-final-independent.yml'
+      - 'static-web/src/**'
+      - 'static-web/scripts/test-xizong-final-*.mjs'
+      - 'content/xizong/knowledge/**'
+      - 'content/xizong/projection/**'
+permissions:
+  contents: read
 concurrency:
   group: xizong-final-independent
   cancel-in-progress: true
-permissions:
-  contents: read
 jobs:
-  prepare:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    outputs:
-      head: ${{ steps.head.outputs.sha }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Reconcile pinned Current and apply bounded repair
-        run: |
-          git config user.name 'KianOS acceptance worker'
-          git config user.email 'noreply@users.noreply.github.com'
-          git fetch --no-tags origin 14db655c5dd529d6676702075b785febab7c950c
-          git merge --no-edit FETCH_HEAD
-          if test -f .github/xizong-final-closeout.py; then
-            python3 .github/xizong-final-closeout.py
-            git diff --check
-            git add static-web/src/lib/xizong.mjs static-web/src/lib/xizongMemoryAutoRelease.mjs static-web/src/components/XizongRuntimeStageGuard.astro static-web/src/components/XizongLastLocation.astro static-web/src/components/XizongPracticeWorkbench.astro static-web/src/components/XizongBlockV6.astro static-web/scripts/test-xizong-final-independent.mjs
-            git rm .github/xizong-final-closeout.py
-            git commit -m 'fix(xizong): require exact current Block evidence at System and Resume gates'
-          fi
-          git push origin HEAD:work/xizong-final-learner-20260919-independent
-      - id: head
-        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
-  source-inspection:
-    needs: prepare
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ needs.prepare.outputs.head }}
-          fetch-depth: 0
-          persist-credentials: false
-      - name: Package exact scoped implementation
-        env:
-          CURRENT_MAIN: 14db655c5dd529d6676702075b785febab7c950c
-        run: |
-          mkdir -p /tmp/xizong-source-inspection
-          for ref in "$CURRENT_MAIN" "$(git rev-parse HEAD)"; do
-            git archive --format=tar.gz --output="/tmp/xizong-source-inspection/$ref.tar.gz" "$ref" content/xizong static-web/src static-web/scripts static-web/package.json static-web/astro.config.mjs .github/workflows AGENTS.md PROJECT_DEFINITION.md ARCHITECTURE.md LEARNING_ACCEPTANCE.md SYSTEM_CONTRACT.md 'static-web/*.md'
-          done
-          git diff "$CURRENT_MAIN" HEAD -- content/xizong static-web/src static-web/scripts SYSTEM_CONTRACT.md 'static-web/*.md' > /tmp/xizong-source-inspection/current-to-candidate.patch
-          printf 'Current main: %s\nCandidate: %s\nSynthetic tests only; no learner U.\n' "$CURRENT_MAIN" "$(git rev-parse HEAD)" > /tmp/xizong-source-inspection/PROVENANCE.txt
-      - uses: actions/upload-artifact@v4
-        with:
-          name: xizong-scoped-source-${{ needs.prepare.outputs.head }}
-          path: /tmp/xizong-source-inspection
-          retention-days: 7
   independent:
-    needs: prepare
     strategy:
       fail-fast: false
       matrix:
@@ -69,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ needs.prepare.outputs.head }}
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -83,9 +38,17 @@ jobs:
         working-directory: static-web
         env:
           KIANOS_REPO_ROOT: ${{ github.workspace }}
-          XIZONG_AUDIT_HEAD: ${{ needs.prepare.outputs.head }}
+          XIZONG_AUDIT_HEAD: ${{ github.sha }}
           ASTRO_TELEMETRY_DISABLED: '1'
         run: node scripts/test-xizong-final-independent.mjs
+      - name: Separate Block Recall and paper visual states
+        if: always()
+        working-directory: static-web
+        env:
+          KIANOS_REPO_ROOT: ${{ github.workspace }}
+          XIZONG_AUDIT_HEAD: ${{ github.sha }}
+          ASTRO_TELEMETRY_DISABLED: '1'
+        run: node scripts/test-xizong-final-visual-states.mjs
       - name: Bounded dependent regression, not broad CI
         if: always()
         working-directory: static-web
@@ -96,10 +59,11 @@ jobs:
           for script in test-xizong-daily-learning-packet validate-xizong-paper-practice validate-xizong-retained-practice validate-xizong-projection-current validate-xizong-learner-object validate-xizong-representation-gate; do
             node "scripts/$script.mjs" > ".qa/xizong-final-independent/$script.log" 2>&1 || status=1
           done
+          python3 ../content/xizong/projection/tools/validate_projection.py --json .qa/xizong-final-independent/projection-assets.json > .qa/xizong-final-independent/projection-assets.log 2>&1 || status=1
           exit "$status"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: xizong-fresh-${{ matrix.os }}-${{ needs.prepare.outputs.head }}
+          name: xizong-fresh-${{ matrix.os }}-${{ github.sha }}
           path: static-web/.qa/xizong-final-independent
           retention-days: 14
