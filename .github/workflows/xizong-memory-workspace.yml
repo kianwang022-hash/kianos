@@ -15,6 +15,7 @@ on:
       - 'static-web/scripts/validate-xizong-memory-workspace.mjs'
       - 'static-web/scripts/validate-xizong-memory-auto-release.mjs'
       - 'static-web/scripts/test-xizong-memory-workspace-browser.mjs'
+      - 'static-web/scripts/test-xizong-chat-session-browser.mjs'
       - 'static-web/scripts/test-xizong-memory-auto-release-browser.mjs'
       - '.github/workflows/xizong-memory-workspace.yml'
 
@@ -52,6 +53,8 @@ jobs:
         run: node scripts/test-xizong-memory-workspace-browser.mjs
       - name: Execute Block Complete Memory release journey
         run: node scripts/test-xizong-memory-auto-release-browser.mjs
+      - name: Execute Chat-controlled Xizong review journey
+        run: node scripts/test-xizong-chat-session-browser.mjs
       - name: Upload Memory browser evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -61,4 +64,5 @@ jobs:
             static-web/.qa/xizong-memory-workspace-browser.json
             static-web/.qa/xizong-memory-workspace.png
             static-web/.qa/xizong-memory-auto-release-browser.json
+            static-web/.qa/xizong-chat-session-browser.json
           if-no-files-found: warn
