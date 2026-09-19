@@ -122,8 +122,8 @@ try {
   });
   await page.reload({ waitUntil: 'domcontentloaded' });
   check((await page.locator('[data-xizong-continue-title]').textContent() || '').includes('B1'), 'continue_restores_last_block');
-  check((await page.locator('[data-xizong-continue-stage]').textContent() || '').trim() === 'KP RECALL', 'continue_translates_real_stage');
-  check((await page.locator('[data-xizong-continue-position]').textContent() || '').includes('KP 3'), 'continue_translates_real_kp_position');
+  check((await page.locator('[data-xizong-continue-stage]').textContent() || '').trim() === '主动回忆', 'continue_translates_real_stage');
+  check((await page.locator('[data-xizong-continue-position]').textContent() || '').includes('第 3'), 'continue_translates_real_kp_position');
   check((await page.locator('[data-xizong-continue]').getAttribute('href') || '').includes('/xizong/circulation/b01/'), 'continue_restores_last_href');
 
   await page.evaluate(() => {
@@ -141,8 +141,8 @@ try {
     }));
   });
   await page.reload({ waitUntil: 'domcontentloaded' });
-  check((await page.locator('[data-xizong-continue-title]').textContent() || '').includes('System Recall'), 'continue_labels_system_recall_truthfully');
-  check((await page.locator('[data-xizong-continue-stage]').textContent() || '').trim() === 'SYSTEM RECALL', 'continue_stage_system_recall');
+  check((await page.locator('[data-xizong-continue-title]').textContent() || '').includes('系统回忆'), 'continue_labels_system_recall_truthfully');
+  check((await page.locator('[data-xizong-continue-stage]').textContent() || '').trim() === '系统回忆', 'continue_stage_system_recall');
   check((await page.locator('[data-xizong-continue]').getAttribute('href') || '').includes('/xizong/circulation/recall/'), 'continue_restores_system_recall_href');
 
   await page.evaluate(() => {
