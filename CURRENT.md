@@ -9,7 +9,7 @@ Rule: current routing/status only. No semantic Truth, Acceptance ledger, learner
 
 | Program | State | Continue from |
 | --- | --- | --- |
-| Website / UI launch | **STEADY — launch closure complete; Gate 5 engineering freeze** | `static-web/CURRENT.md` |
+| Website / UI launch | **FINAL CLOSURE ACTIVE — CSS ownership consolidation + regression** | `static-web/CURRENT.md` |
 | Xizong Content | **ACTIVE** | `content/xizong/CONTENT_MAINLINE.md` |
 | English Content | **STEADY** — no broad rebuild | `content/english/CURRENT.md` |
 | Politics Content | **STEADY** — reopen only concrete defects | `content/politics/CURRENT.md` |
@@ -64,8 +64,8 @@ Shared authority routing:
 - Lexical / Vocabulary learner surfaces: landed.
 - Xizong material learner UI: landed through whole-paper Hidden/Seal/Review.
 - Politics learner UI: landed through final Practice Human Gate (#470).
-- All material subject learner UI is landed; broad UI/CSS ownership cleanup is deferred during the first real-use stabilization window.
-- Chat-owned Home, subject-owned durable evidence/typed Return reconciliation and the private checkpoint layer are landed. Final cross-subject regression passed 31/31 after Current sync + Astro restart + fresh-browser restore; broad website engineering is frozen.
+- All material subject learner UI is landed; the final non-redesign UI/CSS ownership consolidation has been explicitly reopened and is active on the fresh post-gate branch.
+- Chat-owned Home, subject-owned durable evidence/typed Return reconciliation and the private checkpoint layer are landed. The prior final cross-subject regression passed 31/31; one final ownership-only regression is now running after CSS de-globalization before the true freeze.
 - Material Visual changes still require real-browser screenshot + Kian Human Gate before merge.
 
 Exact branch / PR / screenshot state belongs to `static-web/CURRENT.md` or the exact UI owner.
@@ -100,7 +100,7 @@ Gate 5  Launch / engineering freeze
         broad website construction stops; reopen only concrete learner-visible defects
 ```
 
-**Current state: Gates 1–4 are closed; Gate 5 engineering freeze is active.** Broad website construction stops here. Reopen only the smallest responsible owner for a concrete learner-visible or durability defect; bounded non-redesign maintenance may continue under its own cursor.
+**Current state: Gates 1–4 are closed; Gate 5 finalization is ACTIVE only for the explicitly reopened non-redesign CSS ownership closure.** Broad redesign/construction remains frozen. After this ownership cleanup and representative regression PASS, Gate 5 returns to the true engineering freeze.
 
 This is a routing sequence, not a second progress dashboard. Exact subject findings stay in subject Current / Acceptance owners.
 
