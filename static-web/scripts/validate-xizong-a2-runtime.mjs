@@ -115,6 +115,7 @@ const enhancerUi = read('static-web/src/components/XizongStudyEnhancer.astro');
 const studyPacketLib = read('static-web/src/lib/xizongStudyPacket.mjs');
 const memoryWorkspace = read('static-web/src/components/XizongMemoryWorkspace.astro');
 const repairReturn = read('static-web/src/components/XizongSystemRepairReturn.astro');
+const systemWuReturn = read('static-web/src/lib/xizongSystemWuReturn.mjs');
 const practiceUi = read('static-web/src/components/XizongPracticeWorkbench.astro');
 const guardUi = read('static-web/src/components/XizongRuntimeStageGuard.astro');
 const blockPage = read('static-web/src/pages/xizong/[system]/[block].astro');
@@ -167,16 +168,16 @@ has(practiceUi, "!inspectXizongSystemCompletion(data.completionRequirements, loc
 has(practiceUi, 'data-question-uncertain', 'uncertain-control-missing');
 has(practiceUi, "currentUncertain ? 'uncertain' : 'stable'", 'correct-unsure-evidence-missing');
 has(practiceUi, "if (data.holdoutRequired !== false && !holdoutYears.length) { renderGate(); return; }", 'question-sweep-prerequisite-gate');
-has(repairReturn, ".filter(([, row]) => row && ['wrong', 'uncertain'].includes(row.status))", 'wu-only-handoff');
-has(repairReturn, '暂无审核过的精确 Block/KP 回链：保留题号给 Chat，不自动猜。', 'no-guessed-repair-route');
+has(systemWuReturn, "['wrong','uncertain'].includes(String(result.status || ''))", 'wu-only-handoff');
+has(repairReturn, '当前没有审核过的精确 Block/KP 回链：保留题号，不自动猜。', 'no-guessed-repair-route');
 has(questionLib, 'loadReviewedXizongQuestionRelation(questionId)', 'question-runtime-bypasses-crosswalk-owner');
 has(crosswalkLib, "if (!row || row.review_status !== 'REVIEWED') return null;", 'unreviewed-question-relation-accepted');
 
 has(studyPacketLib, "schema: 'kianos.xizong.study_packet.v3'", 'live-study-packet-missing');
 has(studyPacketLib, 'learning_state:', 'study-packet-learning-state-missing');
 has(repairReturn, 'const parsed = JSON.parse(text);', 'chat-return-json-parse');
-has(repairReturn, 'const allowed = new Set(currentWu().map', 'chat-return-not-scoped-to-current-wu');
-has(repairReturn, "origin: 'SYSTEM_WU_CHAT_RETURN'", 'chat-return-repair-role');
+has(systemWuReturn, 'assertCurrentWuBinding(row, currentWu.get(row.question_id) || null)', 'chat-return-not-scoped-to-current-wu');
+has(systemWuReturn, "origin:'SYSTEM_WU_CHAT_RETURN'", 'chat-return-repair-role');
 has(memoryWorkspace, 'data-repair-complete', 'visible-repair-completion-missing');
 
 has(lastLocation, "localStorage.setItem('kianos-xizong-last-location-v1', JSON.stringify(value))", 'last-location-write');

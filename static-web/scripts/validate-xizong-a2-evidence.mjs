@@ -63,6 +63,7 @@ const blockPage = read('static-web/src/pages/xizong/[system]/[block].astro');
 const recallPage = read('static-web/src/pages/xizong/[system]/recall.astro');
 const practicePage = read('static-web/src/pages/xizong/practice/[system].astro');
 const repairReturn = read('static-web/src/components/XizongSystemRepairReturn.astro');
+const systemWuReturn = read('static-web/src/lib/xizongSystemWuReturn.mjs');
 
 assert(blockGuard.includes('kianos-xizong-stale-evidence-v1:'), 'stale-block-evidence-not-archived');
 assert(blockGuard.includes('localStorage.removeItem(studyKey)'), 'stale-block-progress-remains-current');
@@ -81,13 +82,15 @@ assert(memoryModel.includes('export function completeRepairTask'), 'resolved-rep
 assert(memoryWorkspace.includes('completeRepairTask(state, item.id)'), 'visible-repair-not-closed-through-owner');
 assert(memoryWorkspace.includes('不把修完自动写成 mastery'), 'repair-promotes-mastery');
 
-assert(repairReturn.includes('kianos-xizong-repair-inbox-v1:'), 'system-repair-return-bypasses-inbox');
-assert(!repairReturn.includes('kianos-xizong-memory-review-v2:${objectId}'), 'system-repair-return-still-writes-block-evidence-store');
+assert(systemWuReturn.includes("inboxKey:'kianos-xizong-repair-inbox-v1:xizong:'"), 'system-repair-return-bypasses-inbox');
+assert(!systemWuReturn.includes('kianos-xizong-memory-review-v2:'), 'system-repair-return-still-writes-block-evidence-store');
 assert(repairBridge.includes('kianos-xizong-repair-inbox-v1:'), 'block-repair-inbox-not-consumed');
-assert(repairBridge.includes("type: 'SYSTEM_WU_PLAN_IMPORTED'"), 'inbox-import-evidence-missing');
-assert(repairBridge.includes("evidence_role: 'REPAIR_ONLY'"), 'inbox-import-evidence-role-regressed');
+assert(repairBridge.includes('const next = setRepairTasks(memory, [...preserved, ...incoming]);'), 'inbox-import-repair-task-missing');
+assert(!repairBridge.includes('appendMemoryEvidence') && !repairBridge.includes('evidence.push'), 'inbox-import-evidence-role-regressed');
 assert(repairBridge.includes("window.addEventListener('storage'"), 'open-block-tab-cannot-receive-repair');
-assert(repairBridge.includes('window.location.reload();'), 'inbox-consume-does-not-rebuild-local-owner-state');
+const repairMemoryWriteIndex = repairBridge.indexOf('if (!writeJson(XIZONG_MEMORY_STORAGE_KEY, next))');
+const repairInboxClearIndex = repairBridge.indexOf('localStorage.removeItem(inboxKey)', repairMemoryWriteIndex);
+assert(repairMemoryWriteIndex >= 0 && repairInboxClearIndex > repairMemoryWriteIndex, 'inbox-consume-does-not-persist-before-clear');
 
 assert(systemGuard.includes("phase = answered === 0 ? 'PRE_QUESTION'"), 'system-recall-phase-ledger-missing');
 assert(systemGuard.includes("'POST_QUESTION'"), 'post-question-recall-phase-missing');
@@ -100,7 +103,7 @@ assert(systemGuard.includes('localStorage.removeItem(sweepKey)'), 'stale-questio
 assert(recallPage.includes('<XizongSystemEvidenceGuard system={system} sweep={questionSweep} />'), 'recall-system-evidence-guard-not-mounted');
 assert(practicePage.includes('<XizongSystemEvidenceGuard system={system} sweep={sweep} />'), 'practice-system-evidence-guard-not-mounted');
 
-assert(repairReturn.includes('const sweepState = () => readJson'), 'system-repair-return-does-not-read-private-wu');
+assert(systemWuReturn.includes('currentXizongSystemWuEvidence(storage, value.system_id, questions)'), 'system-repair-return-does-not-read-private-wu');
 assert(!repairReturn.includes('localStorage.setItem("content/'), 'private-evidence-writing-shared-content');
 
 console.log([
