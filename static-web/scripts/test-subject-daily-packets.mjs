@@ -95,7 +95,7 @@ const politicsCatalog = {
     unitTitle: '自然单元 1',
     unitHref: '/politics/marxism/c01/#u01'
   }],
-  chapters: [],
+  chapters: [{ subject: 'marxism', code: 'c01', title: '第一章' }],
   units: []
 };
 const politicsSnapshot = {
@@ -125,7 +125,7 @@ const politicsSnapshot = {
   },
   session: null,
   last: {
-    href: '/politics/marxism/c01/#u01',
+    href: '/politics/marxism/c01/',
     subject: 'marxism',
     chapter: 'c01',
     title: '自然单元 1'
