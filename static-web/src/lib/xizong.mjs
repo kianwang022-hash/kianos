@@ -90,6 +90,30 @@ function systemRecordFromDir(dirName) {
   };
 }
 
+function forecastSystemRecordFromDir(dirName) {
+  const systemPath = SYSTEMS_ROOT + '/' + dirName + '/system.json';
+  if (!fs.existsSync(absolute(systemPath))) return null;
+  const text = readText(systemPath);
+  const system = JSON.parse(text);
+  const identity = systemIdentity(system);
+  const blockCount = Number(system?.identity?.block_count || 0);
+  const kpCount = Number(system?.identity?.canonical_kp_count || 0);
+  if (!identity.systemId || !identity.canonicalId || !identity.title) return null;
+  if (!Number.isInteger(blockCount) || blockCount < 1) {
+    throw new Error('CURRENT_XIZONG_FORECAST_SYSTEM_BLOCK_COUNT_INVALID:' + identity.systemId);
+  }
+  if (!Number.isInteger(kpCount) || kpCount < 1) {
+    throw new Error('CURRENT_XIZONG_FORECAST_SYSTEM_KP_COUNT_INVALID:' + identity.systemId);
+  }
+  return {
+    dirName,
+    systemPath,
+    system,
+    identity,
+    sourceHash: sha256(text),
+    projectionAccepted: systemProjectionAccepted(dirName)
+  };
+}
 function blockOrdinalFromFile(filename) {
   const match = String(filename).match(/(?:^|_)Block(\d+)_/i);
   return match ? Number(match[1]) : null;
@@ -333,6 +357,148 @@ function normalizeSystem(record) {
     sourceHash,
     learningSupport: loadLearningSupport(record),
     raw: system
+  };
+}
+
+
+function xizongForecastBlockRecords(record) {
+  const expectedBlocks = Number(record.system?.identity?.block_count || 0);
+  const expectedKp = Number(record.system?.identity?.canonical_kp_count || 0);
+
+  const direct = directBlockRoute(record.system);
+  if (direct.length && (!expectedBlocks || direct.length === expectedBlocks)) {
+    const rows = direct.map((row, index) => ({
+      blockId: String(row.id || ''),
+      order: index + 1,
+      kpCount: Number(row.kp || 0)
+    }));
+    if (rows.some((row) => !row.blockId || !Number.isInteger(row.kpCount) || row.kpCount < 1)) {
+      throw new Error('CURRENT_XIZONG_FORECAST_DIRECT_ROUTE_INVALID:' + record.identity.systemId);
+    }
+    const kpSum = rows.reduce((sum, row) => sum + row.kpCount, 0);
+    if (expectedKp && kpSum !== expectedKp) {
+      throw new Error('CURRENT_XIZONG_FORECAST_KP_COUNT_MISMATCH:' + record.identity.systemId + ':' + kpSum + '/' + expectedKp);
+    }
+    return rows;
+  }
+
+  const stableIds = Array.isArray(record.system?.identity?.stable_block_ids)
+    ? record.system.identity.stable_block_ids.map((value) => String(value || '')).filter(Boolean)
+    : [];
+  if (!stableIds.length) {
+    throw new Error('CURRENT_XIZONG_FORECAST_STABLE_BLOCK_IDS_MISSING:' + record.identity.systemId);
+  }
+  if (expectedBlocks && stableIds.length !== expectedBlocks) {
+    throw new Error('CURRENT_XIZONG_FORECAST_STABLE_BLOCK_COUNT_MISMATCH:' + record.identity.systemId + ':' + stableIds.length + '/' + expectedBlocks);
+  }
+
+  const systemRoot = SYSTEMS_ROOT + '/' + record.dirName;
+  const markdownFiles = [];
+  const walk = (relativeDir) => {
+    const entries = fs.readdirSync(absolute(relativeDir), { withFileTypes: true });
+    for (const entry of entries) {
+      const relativePath = relativeDir + '/' + entry.name;
+      if (entry.isDirectory()) { walk(relativePath); continue; }
+      if (entry.isFile() && /\.md$/i.test(entry.name)) markdownFiles.push(relativePath);
+    }
+  };
+  walk(systemRoot);
+
+  const stableSet = new Set(stableIds);
+  const found = new Map();
+  for (const relativePath of markdownFiles) {
+    const source = readText(relativePath);
+    const frontmatter = source.match(/^---\s*\n([\s\S]*?)\n---/m)?.[1] || '';
+    const blockMatch = frontmatter.match(/^block_id:\s*['\"]?([^'\"\n]+)['\"]?\s*$/m);
+    const legacyBlockId = String(blockMatch?.[1] || '').trim();
+    const headingCanonical = String((source.match(/^#\s+([A-Za-z]+\d+)\s*[｜|]/m) || [])[1] || '');
+    const filename = relativePath.split('/').at(-1) || '';
+    const filenameUpper = filename.toUpperCase();
+    const filenameCanonical = stableIds.find((stableId) => {
+      const token = String(stableId).toUpperCase();
+      return filenameUpper.startsWith(token + '_')
+        || filenameUpper.includes('_' + token + '_');
+    }) || '';
+    const blockId = stableSet.has(legacyBlockId)
+      ? legacyBlockId
+      : stableSet.has(headingCanonical)
+        ? headingCanonical
+        : filenameCanonical;
+    if (!blockId) continue;
+    if (found.has(blockId)) {
+      throw new Error('CURRENT_XIZONG_FORECAST_BLOCK_ID_DUPLICATE:' + record.identity.systemId + ':' + blockId);
+    }
+
+    const kpFrontmatter = Number((frontmatter.match(/^kp_count:\s*(\d+)\s*$/m) || [])[1] || 0);
+    const markerCount = (source.match(/kianos:kp/gi) || []).length;
+    const headingCount = (source.match(/^#{1,4}\s+KP\d+\b/gm) || []).length;
+    const kpCount = Number.isInteger(kpFrontmatter) && kpFrontmatter > 0
+      ? kpFrontmatter
+      : markerCount > 0 ? markerCount : headingCount;
+    if (!Number.isInteger(kpCount) || kpCount < 1) {
+      throw new Error('CURRENT_XIZONG_FORECAST_BLOCK_KP_MISSING:' + record.identity.systemId + ':' + blockId);
+    }
+    found.set(blockId, { blockId, kpCount });
+  }
+
+  const missing = stableIds.filter((blockId) => !found.has(blockId));
+  if (missing.length) {
+    throw new Error('CURRENT_XIZONG_FORECAST_BLOCK_FILES_MISSING:' + record.identity.systemId + ':' + missing.join(','));
+  }
+
+  const rows = stableIds.map((blockId, index) => ({
+    blockId,
+    order: index + 1,
+    kpCount: found.get(blockId).kpCount
+  }));
+  const kpSum = rows.reduce((sum, row) => sum + row.kpCount, 0);
+  if (expectedKp && kpSum !== expectedKp) {
+    throw new Error('CURRENT_XIZONG_FORECAST_KP_COUNT_MISMATCH:' + record.identity.systemId + ':' + kpSum + '/' + expectedKp);
+  }
+  return rows;
+}
+
+export function listXizongForecastScope() {
+  const manifest = assertCurrentManifest();
+  const systems = systemDirectoryCandidates()
+    .map(forecastSystemRecordFromDir)
+    .filter(Boolean)
+    .map((record) => {
+      const blocks = xizongForecastBlockRecords(record);
+      return {
+        systemId: record.identity.systemId,
+        canonicalId: record.identity.canonicalId,
+        title: record.identity.title,
+        projectionAccepted: Boolean(record.projectionAccepted),
+        blockCount: blocks.length,
+        canonicalKpCount: blocks.reduce((sum, row) => sum + row.kpCount, 0),
+        blocks: blocks.map((row) => ({ blockId: row.blockId, order: row.order, kpCount: row.kpCount }))
+      };
+    })
+    .sort((a, b) => String(a.canonicalId).localeCompare(String(b.canonicalId), undefined, { numeric: true }));
+
+  const blockCount = systems.reduce((sum, row) => sum + row.blockCount, 0);
+  const kpCount = systems.reduce((sum, row) => sum + row.canonicalKpCount, 0);
+  const expectedSystems = Number(manifest?.identity?.numbered_systems || systems.length);
+  const expectedBlocks = Number(manifest?.identity?.numbered_blocks || blockCount);
+  const expectedKp = Number(manifest?.identity?.numbered_canonical_kps || kpCount);
+
+  if (systems.length !== expectedSystems) {
+    throw new Error('CURRENT_XIZONG_FORECAST_SYSTEM_COUNT_MISMATCH:' + systems.length + '/' + expectedSystems);
+  }
+  if (blockCount !== expectedBlocks) {
+    throw new Error('CURRENT_XIZONG_FORECAST_TOTAL_BLOCK_MISMATCH:' + blockCount + '/' + expectedBlocks);
+  }
+  if (kpCount !== expectedKp) {
+    throw new Error('CURRENT_XIZONG_FORECAST_TOTAL_KP_MISMATCH:' + kpCount + '/' + expectedKp);
+  }
+
+  return {
+    schema: 'kianos.xizong.forecast-scope.v1',
+    systemCount: systems.length,
+    blockCount,
+    canonicalKpCount: kpCount,
+    systems
   };
 }
 
