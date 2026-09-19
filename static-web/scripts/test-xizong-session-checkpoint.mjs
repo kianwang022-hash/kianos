@@ -21,15 +21,20 @@ const source=new MemoryStorage({
     session_id:'xz-1',
     study_day:'2026-09-20',
     generated_at:'2026-09-20T01:00:00.000Z',
-    current_step:0,
-    steps:[{step_id:'m1',kind:'MEMORY_REVIEW',targets:[{card_id:'core:a1-b01-kp01',block_id:'a1-b01',source_hash:'h1'}]}]
+    steps:[{
+      step_id:'m1',
+      kind:'MEMORY_REVIEW',
+      targets:[{card_id:'core:a1-b01-kp01',block_id:'a1-b01',source_hash:'h1'}]
+    }]
   }),
   [runtimeKey]:JSON.stringify({
     schema:'kianos.xizong.session-runtime.v1',
     session_id:'xz-1',
-    installed_at:'2026-09-20T01:00:00.000Z',
-    activated_steps:['m1'],
-    activated_at_by_step:{m1:'2026-09-20T01:01:00.000Z'}
+    study_day:'2026-09-20',
+    instruction_generated_at:'2026-09-20T01:00:00.000Z',
+    current_step:0,
+    activated_at:'2026-09-20T01:01:00.000Z',
+    status:'ACTIVE'
   })
 });
 
@@ -41,6 +46,7 @@ const target=new MemoryStorage();
 const restored=restoreXizongPrivateCheckpoint(target,checkpoint,{onlyIfEmpty:true});
 assert.equal(restored.status,'restored');
 assert.equal(JSON.parse(target.getItem(sessionKey)).session_id,'xz-1');
-assert.deepEqual(JSON.parse(target.getItem(runtimeKey)).activated_steps,['m1']);
+assert.equal(JSON.parse(target.getItem(runtimeKey)).current_step,0);
+assert.equal(JSON.parse(target.getItem(runtimeKey)).status,'ACTIVE');
 
-console.log('PASS Xizong session durability: instruction/runtime captured and restored by existing private checkpoint');
+console.log('PASS Xizong session durability: immutable instruction + execution runtime captured/restored');
