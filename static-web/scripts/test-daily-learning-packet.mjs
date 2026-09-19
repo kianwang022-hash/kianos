@@ -5,6 +5,10 @@ import {
   STUDY_TIMER_SCHEMA
 } from '../src/lib/studyTimer.mjs';
 import { buildDailyLearningPacket, attachDailySubjectPacket, serializeDailyLearningPacketForChat } from '../src/lib/dailyLearningPacket.mjs';
+import {
+  PRIVATE_CONTROL_RUNTIME_STATE_KEY,
+  PRIVATE_CONTROL_RUNTIME_STATE_SCHEMA
+} from '../src/lib/privateControlRuntime.mjs';
 
 class MemoryStorage {
   constructor(entries = {}) { this.map = new Map(Object.entries(entries)); }
@@ -24,6 +28,21 @@ const storage = new MemoryStorage({
     lastSeenAt: t0,
     revision: 2,
     updatedAt: t0
+  }),
+  [PRIVATE_CONTROL_RUNTIME_STATE_KEY]: JSON.stringify({
+    schema: PRIVATE_CONTROL_RUNTIME_STATE_SCHEMA,
+    active_by_target: {},
+    receipts: [{
+      schema: 'kianos.private-control-receipt.v1',
+      command_id: 'cmd-xz-1',
+      target: 'xizong.session',
+      study_day: '2026-09-17',
+      issued_at: '2026-09-17T00:30:00.000Z',
+      command_signature: 'cmd-deadbeef',
+      status: 'APPLIED',
+      detail: '',
+      applied_at: '2026-09-17T00:31:00.000Z'
+    }]
   }),
   [STUDY_TIMER_LEDGER_KEY]: JSON.stringify({
     schema: STUDY_TIMER_SCHEMA,
@@ -83,6 +102,10 @@ assert.equal(packet.subjects.xizong.plan.remainingMinutes, 300);
 assert.deepEqual(packet.subjects.politics.evidence, politicsEvidence);
 assert.equal(packet.subjects.xizong.evidence, null);
 assert.equal(packet.schedule.capacity.remainingMinutes, 510);
+assert.equal(packet.control.last_receipt.command_id, 'cmd-xz-1');
+assert.equal(packet.control.last_receipt.target, 'xizong.session');
+assert.equal(packet.control.last_receipt.status, 'APPLIED');
+assert.equal(packet.control.last_receipt.detail, '', 'successful receipt should not dump transport detail');
 
 const chatText = serializeDailyLearningPacketForChat(packet);
 assert.match(chatText, /^KIANOS_DAILY_LEARNING_HANDOFF_V1/m);
@@ -98,6 +121,8 @@ assert.doesNotMatch(chatText, /route through .*CURRENT\.md/i);
 assert.match(chatText, /DAILY_PACKET_JSON/);
 assert.match(chatText, /"total_minutes": 90/);
 assert.match(chatText, /missing evidence means unknown/i);
+assert.match(chatText, /transport acknowledgement only/i);
+assert.match(chatText, /"command_id": "cmd-xz-1"/);
 
 const withXizong = attachDailySubjectPacket(packet, 'xizong', { schema: 'xizong.daily.v1', completed_blocks: ['B03'] });
 assert.equal(withXizong.subjects.xizong.evidence.completed_blocks[0], 'B03');
