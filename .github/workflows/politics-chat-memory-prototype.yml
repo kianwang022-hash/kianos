@@ -34,7 +34,10 @@ jobs:
         with:
           node-version: '22'
       - name: Install
-        run: npm install --no-audit --no-fund
+        run: |
+          npm install --no-audit --no-fund
+          npm install --no-save playwright@1.56.1 --no-audit --no-fund
+          npx playwright install chromium
       - name: Targeted runtime proof
         run: |
           node scripts/test-politics-memory-runtime.mjs
@@ -44,3 +47,13 @@ jobs:
           node scripts/test-private-learner-checkpoint.mjs
       - name: Build hidden learner prototype
         run: npm run build
+      - name: Real browser journey
+        env:
+          POLITICS_MEMORY_EVIDENCE: /tmp/politics-memory-prototype
+        run: node scripts/test-politics-memory-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: politics-memory-prototype
+          path: /tmp/politics-memory-prototype/
+          retention-days: 14
