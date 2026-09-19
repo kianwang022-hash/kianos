@@ -145,7 +145,16 @@ function buildXizongForecastProgress(storage){
     canonical_scope:{
       systems:scope.systemCount,
       blocks:scope.blockCount,
-      canonical_kp:scope.canonicalKpCount
+      canonical_kp:scope.canonicalKpCount,
+      block_weights:scope.systems.flatMap((system)=>
+        system.blocks.map((block)=>({
+          system_id:system.systemId,
+          canonical_id:system.canonicalId,
+          block_id:block.blockId,
+          kp_count:block.kpCount,
+          projection_accepted:system.projectionAccepted
+        }))
+      )
     },
     runtime_evidence:{
       observed_blocks:observedBlockCount,
