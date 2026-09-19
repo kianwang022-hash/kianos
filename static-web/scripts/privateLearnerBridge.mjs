@@ -34,7 +34,7 @@ async function readBody(req) {
   return JSON.parse(raw);
 }
 
-export function privateLearnerBridge({ privateDir = resolvePrivateLearnerDir() } = {}) {
+export function privateLearnerBridge({ privateDir = resolvePrivateLearnerDir(), resumeSync = syncPrivateResumeRelayOnce } = {}) {
   return {
     name: 'kianos-private-learner-bridge',
     apply: 'serve',
@@ -47,7 +47,7 @@ export function privateLearnerBridge({ privateDir = resolvePrivateLearnerDir() }
           return;
         }
         resumeSyncBusy = true;
-        void syncPrivateResumeRelayOnce()
+        void resumeSync()
           .catch(() => null)
           .finally(() => {
             resumeSyncBusy = false;
