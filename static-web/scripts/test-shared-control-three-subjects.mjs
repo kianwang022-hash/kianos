@@ -4,7 +4,11 @@ import {
   validateBrowserControlCommand
 } from '../src/lib/privateControlCommand.mjs';
 import { applyPrivateControlCommand } from '../src/lib/privateControlRuntime.mjs';
-import { POLITICS_MEMORY_PLAN_KEY } from '../src/lib/politicsMemoryRuntime.mjs';
+import {
+  POLITICS_MEMORY_PLAN_KEY,
+  POLITICS_MEMORY_PLAN_PREFIX,
+  stagePoliticsMemoryPlan
+} from '../src/lib/politicsMemoryRuntime.mjs';
 import { captureXizongPrivateCheckpoint } from '../src/lib/xizongPrivateCheckpoint.mjs';
 import { exportPoliticsCheckpoint, validatePoliticsPrivatePayload } from '../src/lib/politicsChatReturn.mjs';
 
@@ -186,6 +190,30 @@ const politicsCheckpoint=exportPoliticsCheckpoint(polStorage);
 const politicsEntries=new Map(validatePoliticsPrivatePayload(politicsCheckpoint));
 assert.ok(politicsEntries.has(POLITICS_MEMORY_PLAN_KEY),'Politics Memory plan must be durable');
 assert.ok(politicsEntries.has('kianos-politics-memory-evidence-v1'),'Politics Memory recall evidence must be durable');
+
+
+const stalePoliticsPlan={
+  ...polMemory,
+  plan_id:'politics-yesterday-plan',
+  study_day:'2026-09-19',
+  generated_at:'2026-09-18T21:00:00.000Z',
+  supersedes_plan_id:null
+};
+const newDayPoliticsPlan={
+  ...polMemory,
+  plan_id:'politics-new-day-plan',
+  generated_at:'2026-09-19T21:00:00.000Z',
+  supersedes_plan_id:null
+};
+const crossDayPoliticsStorage=new MemoryStorage({
+  [POLITICS_MEMORY_PLAN_KEY]:JSON.stringify(stalePoliticsPlan),
+  [POLITICS_MEMORY_PLAN_PREFIX+stalePoliticsPlan.plan_id]:JSON.stringify(stalePoliticsPlan)
+});
+const crossDayStage=stagePoliticsMemoryPlan(crossDayPoliticsStorage,newDayPoliticsPlan,{expectedDay:day,now});
+assert.equal(crossDayStage.status,'replaced_stale_day');
+assert.equal(JSON.parse(crossDayPoliticsStorage.getItem(POLITICS_MEMORY_PLAN_KEY)).plan_id,newDayPoliticsPlan.plan_id);
+assert.equal(JSON.parse(crossDayPoliticsStorage.getItem(POLITICS_MEMORY_PLAN_PREFIX+stalePoliticsPlan.plan_id)).plan_id,stalePoliticsPlan.plan_id,
+  'cross-day replacement must preserve exact prior plan history');
 
 assert.throws(()=>validateBrowserControlCommand({
   ...xzCommand,
