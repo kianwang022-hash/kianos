@@ -57,3 +57,35 @@ jobs:
           name: politics-memory-prototype
           path: /tmp/politics-memory-prototype/
           retention-days: 14
+
+
+  mac-visual-proof:
+    runs-on: macos-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: static-web
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser runtime
+        run: |
+          npm install --no-audit --no-fund
+          npm install --no-save playwright@1.56.1 --no-audit --no-fund
+          npx playwright install chromium
+      - name: Build exact candidate
+        run: npm run build
+      - name: Capture real macOS Memory journey
+        env:
+          POLITICS_MEMORY_EVIDENCE: /tmp/politics-memory-prototype-mac
+        run: node scripts/test-politics-memory-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: politics-memory-prototype-mac
+          path: /tmp/politics-memory-prototype-mac/
+          retention-days: 14
