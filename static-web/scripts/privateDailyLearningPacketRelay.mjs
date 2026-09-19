@@ -11,6 +11,7 @@ const DEFAULT_REPO_URL='https://github.com/kianwang022-hash/kian-personal-os.git
 const DEFAULT_BRANCH='runtime/kianos-learning';
 const DEFAULT_CURRENT_PATH='runtime/kianos-learning/current.json';
 const DEFAULT_DAILY_PREFIX='runtime/kianos-learning/daily';
+const DEFAULT_TIME_ONLY_SYNC_MS=5*60*1000;
 
 const clean=(value,max=4000)=>String(value??'').trim().slice(0,max);
 const validDay=day=>typeof day==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(day)
@@ -45,6 +46,27 @@ function materiallyEqual(a,b){
   return JSON.stringify(materialPacket(a))===JSON.stringify(materialPacket(b));
 }
 
+function nonTimeMaterialPacket(value){
+  const packet=materialPacket(value);
+  delete packet.total_minutes;
+  if(packet.timer&&typeof packet.timer==='object'){
+    delete packet.timer.running;
+  }
+  if(packet.schedule&&typeof packet.schedule==='object'){
+    delete packet.schedule.time;
+  }
+  for(const subject of ['xizong','english','politics']){
+    if(packet.subjects?.[subject]&&typeof packet.subjects[subject]==='object'){
+      delete packet.subjects[subject].time;
+    }
+  }
+  return packet;
+}
+
+function differsOnlyByTime(a,b){
+  return JSON.stringify(nonTimeMaterialPacket(a))===JSON.stringify(nonTimeMaterialPacket(b));
+}
+
 function packetOrder(a,b){
   if(a.study_day!==b.study_day)return a.study_day.localeCompare(b.study_day);
   return Date.parse(a.generated_at)-Date.parse(b.generated_at);
@@ -66,6 +88,9 @@ export function privatePacketRelayConfig({env=process.env,home=os.homedir()}={})
     branch:clean(env.KIANOS_PACKET_BRANCH,240)||DEFAULT_BRANCH,
     currentPath:clean(env.KIANOS_PACKET_CURRENT_PATH,800)||DEFAULT_CURRENT_PATH,
     dailyPrefix:clean(env.KIANOS_PACKET_DAILY_PREFIX,800)||DEFAULT_DAILY_PREFIX,
+    timeOnlySyncMs:Number.isFinite(Number(env.KIANOS_PACKET_TIME_SYNC_MS))
+      ?Math.max(0,Number(env.KIANOS_PACKET_TIME_SYNC_MS))
+      :DEFAULT_TIME_ONLY_SYNC_MS,
     privateDir:resolvePrivateLearnerDir({env,home})
   };
 }
@@ -189,6 +214,21 @@ export async function publishDailyLearningPacket(input,{
     if(order===0&&!materiallyEqual(packet,current))throw new Error('KIANOS_PACKET_SAME_IDENTITY_CONFLICT');
     if(packet.study_day===current.study_day&&materiallyEqual(packet,current)){
       return{state:'ready',status:'idempotent',study_day:packet.study_day};
+    }
+    if(
+      packet.study_day===current.study_day
+      && differsOnlyByTime(packet,current)
+      && Date.parse(packet.generated_at)-Date.parse(current.generated_at)<config.timeOnlySyncMs
+    ){
+      return{
+        state:'ready',
+        status:'deferred_time_only',
+        study_day:packet.study_day,
+        retry_after_ms:Math.max(
+          0,
+          config.timeOnlySyncMs-(Date.parse(packet.generated_at)-Date.parse(current.generated_at))
+        )
+      };
     }
   }
 
