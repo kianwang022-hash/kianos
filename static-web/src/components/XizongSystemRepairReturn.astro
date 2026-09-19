@@ -41,6 +41,7 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
     currentXizongSystemWuEvidence,
     readXizongSystemWuPendingState
   } from '../lib/xizongSystemWuReturn.mjs';
+  import { studyDayAt } from '../lib/studyTimer.mjs';
 
   const root = document.querySelector('[data-xizong-repair-return]');
   if (root instanceof HTMLElement) {
@@ -127,7 +128,8 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
           questions,
           routes,
           practiceHref,
-          now: Date.now()
+          now: Date.now(),
+          expectedDay: studyDayAt(Date.now())
         });
         const receipt = result?.receipt || null;
         if (receipt?.status === 'APPLIED' || receipt?.status === 'ALREADY_APPLIED') {
