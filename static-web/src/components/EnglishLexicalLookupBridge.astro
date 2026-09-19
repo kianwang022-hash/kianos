@@ -29,7 +29,8 @@ const base = import.meta.env.BASE_URL;
     const sourceSelectors = [
       '[data-local-port="reading"] [data-reading-passage]',
       '[data-objective-root][data-objective-task="cloze"] [data-objective-material]',
-      '[data-translation-runtime] [data-translation-source-text]'
+      '[data-translation-runtime] [data-translation-source-text]',
+      '[data-external-reading-runtime] [data-external-passage]'
     ];
     let activeSelection = null;
 
@@ -67,6 +68,11 @@ const base = import.meta.env.BASE_URL;
         objectId: translation.getAttribute('data-object-id') || '',
         sourceRoot
       };
+      const external = sourceRoot.closest('[data-external-reading-runtime]');
+      if (external instanceof HTMLElement) {
+        const id = new URLSearchParams(location.search).get('id') || '';
+        return { task: 'External Reading', objectId: id, sourceRoot };
+      }
       return null;
     };
 
@@ -166,7 +172,7 @@ const base = import.meta.env.BASE_URL;
       if (!activeSelection || new URLSearchParams(location.search).has('exam_session')) return;
       markEnglishAssistance(localStorage,activeSelection.task,activeSelection.objectId);
       const packet = [
-        '请结合这段考研英语上下文回答我接下来的问题。',
+        '请结合这段英语阅读上下文回答我接下来的问题。',
         `Task: ${activeSelection.task}${activeSelection.objectId ? ` · ${activeSelection.objectId}` : ''}`,
         `Selected: ${activeSelection.text}`,
         `Context: ${activeSelection.nearby}`
