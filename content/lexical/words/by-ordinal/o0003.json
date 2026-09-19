@@ -33,15 +33,6 @@
             ],
             "meaning_cn": "下腹部",
             "phrase": "lower abdomen"
-          },
-          {
-            "collocation_id": "collocation:f62fd00d25c875260a9c",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:abdomen:2b80b7c77fe65925:collocation:1"
-            ],
-            "meaning_cn": "腹痛",
-            "phrase": "abdominal pain"
           }
         ],
         "confidence": "medium",
@@ -73,7 +64,42 @@
       "runtime_model_calls": false
     },
     "word": "abdomen",
-    "word_family": [],
+    "word_family": [
+      {
+        "boundary": "abdomen (noun) → abdominal (adjective): 身体部位名词转为医学/解剖常用形容词；abdominal pain 属于 abdominal 的搭配，不是 abdomen 本身的搭配。",
+        "codex_reviewed": false,
+        "definition_cn": null,
+        "definition_en": "relating to the abdomen",
+        "dimensions": {
+          "morphology": "noun → adjective",
+          "semantic_continuity": "preserves the core lexical family"
+        },
+        "direction": "R+P",
+        "evidence": [],
+        "fact_id": "deep:word_family:final-standard:abdominal",
+        "family_sources": [
+          "Baseline-v2 final-standard backfill"
+        ],
+        "label_en": "abdominal",
+        "level": null,
+        "meaning_cn": null,
+        "module": "word_family",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": null,
+        "source_sense_id": "sense:abdomen:2b80b7c77fe65925",
+        "target_sense_id": null,
+        "target_word": "abdominal",
+        "task_tags": [
+          "reading",
+          "writing"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true
+      }
+    ],
     "word_id": "word:abdomen"
   },
   "relation_refs": [],
@@ -89,8 +115,7 @@
       }
     ],
     "active_collocations": [
-      "collocation:3117dcbc931dc76d4970",
-      "collocation:f62fd00d25c875260a9c"
+      "collocation:3117dcbc931dc76d4970"
     ],
     "facts": [],
     "collocations": [
@@ -127,7 +152,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0001-0008.json",
     "source_content_hash": "139c00df5274005f169dc3e309e9c150a5e33a44d2f1f4b0316dc696fe8ed8c7",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
