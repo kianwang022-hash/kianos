@@ -58,7 +58,6 @@ export function buildXizongDailyEvidencePacket(storage, {
   const keys = listKeys(storage);
   const memory = normalizeXizongMemoryState(readJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
   const pendingReturnState = readXizongPendingChatReturnState(storage);
-  const pendingReturnState = readXizongPendingChatReturnState(storage);
   const chatReturnReceipt = pendingReturnState.last_receipt && onDay(pendingReturnState.last_receipt.at, day)
     ? clone(pendingReturnState.last_receipt)
     : null;
@@ -274,17 +273,6 @@ export function buildXizongDailyEvidencePacket(storage, {
         weak_weight: Number(card?.weakWeight || 0),
         review_requested: card?.reviewRequested === true
       })),
-      pending_chat_returns: Object.values(pendingReturnState.pending_by_object || {}).map((row) => ({
-        handoff_id: String(row?.handoff_id || ''),
-        return_id: String(row?.return_id || ''),
-        object_id: String(row?.object_id || ''),
-        system_id: String(row?.system_id || ''),
-        block_id: String(row?.block_id || ''),
-        source_hash: String(row?.source_hash || ''),
-        evidence_version: String(row?.evidence_version || ''),
-        received_at: String(row?.received_at || '')
-      })),
-      chat_return_receipt: pendingReturnState.last_receipt ? clone(pendingReturnState.last_receipt) : null,
       active_repairs: activeRepairTasks(memory).map((task) => ({
         task_id: String(task?.id || ''),
         system_id: String(task?.systemId || ''),
@@ -332,9 +320,8 @@ export function buildXizongDailyEvidencePacket(storage, {
     question_attempts: questionEvents.length,
     repair_events: repairEvents.length,
     system_recall_events: systemRecallEvents.length,
-    pending_chat_returns: pendingChatReturns.length,
-    memory_today: packet.current.memory_today.length,
     pending_chat_returns: packet.current.pending_chat_returns.length,
+    memory_today: packet.current.memory_today.length,
     chat_return_receipt: packet.current.chat_return_receipt ? 1 : 0,
     active_repairs: packet.current.active_repairs.length
   };
