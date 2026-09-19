@@ -6,21 +6,13 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [
-      {
-        "construction_id": "construction:ce67c2d12b5d6a1e41f5",
-        "direction": "R+P",
-        "level": "L2",
-        "meaning_cn": "cloth is material; clothes are garments; clothing is an uncountable collective noun",
-        "pattern": "cloth vs clothes vs clothing"
-      }
-    ],
+    "constructions": [],
     "content_hash": "bd5b0565c1877ce72603b087cf56bc4ceea59d11c7f2b24fcd4725d918d79eb7",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "布料",
       "core_meaning_en": "woven or felted material made from fibers",
-      "mental_model_cn": "布料",
+      "mental_model_cn": "cloth 是“布料/织物”本身，不是衣服；clothes 是穿在身上的具体衣物总称；clothing 是不可数的集合概念。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -83,6 +75,12 @@
       "owner_path": "content/lexical/relations/by-id/8b/8bfb470dd545387d876c2385a8ef7c1fd75005b7332d7fca5dae325291c6f652.json",
       "field": "confusables",
       "index": 0
+    },
+    {
+      "relation_id": "relation:horizontal:cloth-clothes-clothing",
+      "owner_path": "content/lexical/relations/by-id/0c/0ceee291018459faf28af6e1b02526ed21d44c2c7dd9d4993f398642bd52ed47.json",
+      "field": "semantic_neighbors",
+      "index": 0
     }
   ],
   "reference_senses": [],
@@ -140,7 +138,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0857-0864.json",
     "source_content_hash": "bd5b0565c1877ce72603b087cf56bc4ceea59d11c7f2b24fcd4725d918d79eb7",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

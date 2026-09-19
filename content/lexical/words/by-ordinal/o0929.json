@@ -28,9 +28,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "通勤；交换；减轻",
+      "core_meaning_cn": "在两个状态/地点之间规律转换：最常见是通勤；法律语境可把刑罚改轻，旧义还可指交换/折偿",
       "core_meaning_en": "to travel regularly between home and work, or to exchange or reduce something",
-      "mental_model_cn": "通勤；交换；减轻",
+      "mental_model_cn": "home ↔ work → 通勤；commute a sentence → 把刑罚改为较轻处罚；exchange/折偿义低频，只需识别。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -86,39 +86,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:bd23fe0d7daac754feff",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:commute:013a0561af8d5a7c:collocation:0"
-            ],
-            "meaning_cn": "用某物交换某物",
-            "phrase": "commute + sth + for + sth"
-          },
-          {
-            "collocation_id": "collocation:fff9625cfe54374b2af6",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:commute:013a0561af8d5a7c:collocation:1"
-            ],
-            "meaning_cn": "折偿付款",
-            "phrase": "commute a payment"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "交换；折偿",
-        "definition_en": "to exchange one thing for another, especially a payment or obligation",
-        "governing_pattern": "vt. + object",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:commute:013a0561af8d5a7c",
-        "sense_label_en": "to exchange one thing for another, especially a payment or obligation",
-        "sort_order": 1,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
             "collocation_id": "collocation:7018e6a58db029ae766b",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -146,11 +113,18 @@
         "pos": "noun",
         "sense_id": "sense:commute:1406efa81ddc59cb",
         "sense_label_en": "a regular journey of some distance to and from your place of work",
-        "sort_order": 2,
+        "sort_order": 1,
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:commute:baseline-v2-sentence",
+            "exam_value": "fixed_pattern",
+            "meaning_cn": "减轻刑罚；将判决改为较轻处罚",
+            "phrase": "commute a sentence"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "减轻刑罚或判决",
         "definition_en": "to reduce a punishment or sentence to a less severe one",
@@ -160,8 +134,42 @@
         "pos": "verb",
         "sense_id": "sense:commute:a03105aadbf15a69",
         "sense_label_en": "to reduce a punishment or sentence to a less severe one",
-        "sort_order": 999,
+        "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:bd23fe0d7daac754feff",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:commute:013a0561af8d5a7c:collocation:0"
+            ],
+            "meaning_cn": "用某物交换某物",
+            "phrase": "commute + sth + for + sth"
+          },
+          {
+            "collocation_id": "collocation:fff9625cfe54374b2af6",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:commute:013a0561af8d5a7c:collocation:1"
+            ],
+            "meaning_cn": "折偿付款",
+            "phrase": "commute a payment"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "交换；折偿",
+        "definition_en": "to exchange one thing for another, especially a payment or obligation",
+        "governing_pattern": "vt. + object",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:commute:013a0561af8d5a7c",
+        "sense_label_en": "to exchange one thing for another, especially a payment or obligation",
+        "sort_order": 3,
+        "transitivity": "vt",
+        "usage_note": "低频正式旧义：交换、折偿；当前阶段识别即可。"
       }
     ],
     "verification_summary": {
@@ -305,7 +313,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0929-0936.json",
     "source_content_hash": "2cb59b496e0e9e66a79b5aa8167da1d7e946c219db3648d26023a42807aa9a10",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

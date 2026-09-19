@@ -25,17 +25,11 @@
           "sense_ids": [
             "sense:clothes:f503853ddd3756bf"
           ]
-        },
-        {
-          "label_cn": "给…穿衣；覆盖，笼罩",
-          "label_en": "provide with clothes or put clothes on; cover as if with clothing",
-          "pos": "verb",
-          "sense_ids": []
         }
       ],
-      "core_meaning_cn": "穿在身上的衣物",
+      "core_meaning_cn": "穿在身上的衣服总称；形式上按复数使用",
       "core_meaning_en": "items worn to cover the body",
-      "mental_model_cn": "穿在身上的衣物",
+      "mental_model_cn": "clothes = 具体衣物总称，语法上用复数；一件衣服不要说 a clothes，而说 an item/piece of clothing。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -99,7 +93,14 @@
     "word_family": [],
     "word_id": "word:clothes"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:horizontal:cloth-clothes-clothing",
+      "owner_path": "content/lexical/relations/by-id/0c/0ceee291018459faf28af6e1b02526ed21d44c2c7dd9d4993f398642bd52ed47.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [
     {
       "stable_sense_id": "sense:clothes:841b5d89cce053b2",
@@ -226,7 +227,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0857-0864.json",
     "source_content_hash": "650c05cb7c7536debbeaad5e078f92db2cce13827dacaa9da030c21f96e89113",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

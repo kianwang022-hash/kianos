@@ -12,7 +12,7 @@
       "core_clusters": [],
       "core_meaning_cn": "军队中的上校军衔",
       "core_meaning_en": "military rank above lieutenant colonel",
-      "mental_model_cn": "军队中的上校军衔",
+      "mental_model_cn": "拼写看似 co-lo-nel，但现代英语通常读成类似 kernel：AmE /ˈkɝːnəl/，BrE /ˈkɜːnəl/。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -71,7 +71,37 @@
     },
     "word": "colonel",
     "word_family": [],
-    "word_id": "word:colonel"
+    "word_id": "word:colonel",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:colonel:ame",
+          "canonical_form": "colonel",
+          "learner_key": "colonel (AmE)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": "/ˈkɝːnəl/"
+        },
+        {
+          "variant_id": "form:colonel:bre",
+          "canonical_form": "colonel",
+          "learner_key": "colonel (BrE)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": "/ˈkɜːnəl/"
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "colonel",
+          "condition": "all ordinary uses",
+          "note": "拼写与发音不透明；读音近似 kernel。"
+        }
+      ],
+      "boundary": "colonel 的发音不按拼写逐字母读，核心识别为 /ˈkɝːnəl/（AmE）或 /ˈkɜːnəl/（BrE）。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -128,7 +158,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0897-0904.json",
     "source_content_hash": "1207aa5b12cedd94bc145a68b7a78d76d34640f76fdd665a1e02b1a937499fd7",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

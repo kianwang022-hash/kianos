@@ -19,9 +19,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "壁橱",
+      "core_meaning_cn": "美式英语中的小壁橱/储藏空间；作形容词时可表示秘密、不公开的",
       "core_meaning_en": "a small room or cupboard",
-      "mental_model_cn": "壁橱",
+      "mental_model_cn": "noun closet → 壁橱、储藏空间；closet + person/identity/habit → 未公开、秘密的。默认先学名词，再识别形容词引申。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -33,15 +33,26 @@
     "semantic_neighbors": [],
     "senses": [
       {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "小柜子或小储藏空间，尤指美式英语",
+        "definition_en": "a small cupboard or storage space, especially in AmE",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:closet:465afe4fa3955973",
+        "sense_label_en": "a small cupboard or storage space, especially in AmE",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
         "collocations": [
           {
-            "collocation_id": "collocation:33ab82dda8d6ecbdad27",
+            "collocation_id": "collocation:closet:baseline-v2-supporter",
             "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:closet:6cbaf967fb7e5857:collocation:0"
-            ],
-            "meaning_cn": "未公开的同性恋者",
-            "phrase": "closet homosexual"
+            "meaning_cn": "不公开表达立场的支持者",
+            "phrase": "a closet supporter"
           },
           {
             "collocation_id": "collocation:6af495d2836f8d5b4c11",
@@ -62,21 +73,7 @@
         "pos": "adjective",
         "sense_id": "sense:closet:6cbaf967fb7e5857",
         "sense_label_en": "secret or private, especially about one's identity",
-        "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "小柜子或小储藏空间，尤指美式英语",
-        "definition_en": "a small cupboard or storage space, especially in AmE",
-        "governing_pattern": "",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:closet:465afe4fa3955973",
-        "sense_label_en": "a small cupboard or storage space, especially in AmE",
-        "sort_order": 999,
+        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -215,7 +212,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0857-0864.json",
     "source_content_hash": "b6baeeec63b482d29df0cd9885d617ad14df678a93152faf83fe219b080e8cf0",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

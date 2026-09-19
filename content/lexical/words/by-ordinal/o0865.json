@@ -6,7 +6,15 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:clue:baseline-v2-in-on",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "向某人透露、说明其此前不知道的情况或背景",
+        "pattern": "clue sb in on sth"
+      }
+    ],
     "content_hash": "09b9163589267af616adfc187c0e5c2699913e28f46879cbd6cf4140fecf60b2",
     "core_concept": {
       "core_clusters": [
@@ -29,7 +37,7 @@
       ],
       "core_meaning_cn": "线索",
       "core_meaning_en": "a piece of evidence or information that helps solve a problem",
-      "mental_model_cn": "线索",
+      "mental_model_cn": "noun clue → 帮你推断答案的线索；clue sb in on sth → 把某人此前不知道的背景/情况告诉他。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -74,17 +82,7 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:562f369d49685a25659f",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:clue:e599f593140d5ca5:collocation:0"
-            ],
-            "meaning_cn": "给某人提供关于某事的线索",
-            "phrase": "clue sb in on sth"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "给某人提供线索；暗示",
         "definition_en": "to give someone information or a hint about something",
@@ -196,7 +194,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0865-0872.json",
     "source_content_hash": "09b9163589267af616adfc187c0e5c2699913e28f46879cbd6cf4140fecf60b2",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
