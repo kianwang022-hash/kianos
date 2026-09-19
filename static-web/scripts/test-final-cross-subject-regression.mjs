@@ -5,6 +5,7 @@ import path from 'node:path';
 import { spawn, execFileSync } from 'node:child_process';
 import { chromium } from 'playwright';
 
+import { readPrivateLearnerCheckpoint as readCheckpointFile } from './privateLearnerStore.mjs';
 import {
   EXAM_PROFILE_KEY,
   emptyExamProfile
@@ -19,6 +20,7 @@ import {
   STUDY_TIMER_STATE_KEY
 } from '../src/lib/studyTimer.mjs';
 import { PRACTICE_KEYS } from '../src/lib/politicsPracticeState.mjs';
+import { POLITICS_CHAT_RETURN_LATEST_KEY } from '../src/lib/politicsChatReturn.mjs';
 import { buildPoliticsPracticeCatalogCurrent } from '../src/lib/politicsPractice.mjs';
 import { loadXizongBlock } from '../src/lib/xizong.mjs';
 import { buildXizongProductionBlock } from '../src/lib/xizongProductionProjection.mjs';
@@ -28,13 +30,18 @@ const BASE = `http://127.0.0.1:${PORT}`;
 const DAY = '2026-09-19';
 const FIXTURE_NOW = Date.parse('2026-09-19T03:00:00.000Z');
 const privateDir = fs.mkdtempSync(path.join(os.tmpdir(), 'kianos-final-cross-subject-'));
+const sourceWebRoot = process.cwd();
+const repoRoot = path.resolve(sourceWebRoot, '..');
+const currentSyncScratch = fs.mkdtempSync(path.join(os.tmpdir(), 'kianos-current-sync-regression-'));
+const currentSyncRemoteDir = path.join(currentSyncScratch, 'remote.git');
+const currentSyncMirrorDir = path.join(currentSyncScratch, 'mirror');
 const evidenceDir = path.resolve('../final-cross-subject-evidence');
 fs.mkdirSync(evidenceDir, { recursive: true });
 
 const report = {
   schema: 'kianos.final-cross-subject-regression.v1',
   tested_commit: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(),
-  environment: 'synthetic browser state + real Current routes; learner U is UNTESTED',
+  environment: 'synthetic browser state + real Current routes + disposable Current mirror sync + Astro restart; learner U is UNTESTED',
   checks: [],
   screenshots: []
 };
@@ -240,7 +247,10 @@ const politicsAttempts = {
           observed_at: new Date(FIXTURE_NOW - 12 * 60 * 1000).toISOString(),
           source_context: {
             unit_key: politicsQuestion.unitKey,
-            source: 'xiao1000'
+            source: 'xiao1000',
+            source_href: politicsQuestion.unitHref,
+            content_revision: politicsCatalog.revision,
+            task_revision: politicsQuestion.taskRevision || politicsCatalog.revision
           }
         }
       }
@@ -397,6 +407,14 @@ try {
     'Politics typed Return applies through learner UI');
   check(await page.locator('[data-review-return-result] .reviewReturnItem').count() === 1,
     'Politics typed Return renders one bounded follow-up');
+  const storedPoliticsReturn = await page.evaluate(
+    (key) => JSON.parse(localStorage.getItem(key) || 'null'),
+    POLITICS_CHAT_RETURN_LATEST_KEY
+  );
+  check(storedPoliticsReturn?.follow_ups?.[0]?.contexts?.[0]?.provenance?.recorded_unit_key === politicsQuestion.unitKey
+    && storedPoliticsReturn?.follow_ups?.[0]?.contexts?.[0]?.provenance?.original_source_context?.task_revision
+      === (politicsQuestion.taskRevision || politicsCatalog.revision),
+    'Politics typed Return preserves exact attempt provenance');
 
   await page.locator('[data-review-return-apply]').click();
   await page.waitForTimeout(50);
