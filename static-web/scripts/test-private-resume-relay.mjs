@@ -95,6 +95,8 @@ try{
 
   const raw1=execFileSync('git',['--git-dir',remote,'show',ref+':'+mailboxPath],{encoding:'utf8'});
   const m1=JSON.parse(raw1);
+  assert.equal(m1.schema,'kianos.subject-resume-mailbox.v1');
+  assert.equal(m1.expires_at,'2026-09-20T01:15:00.000Z');
   assert.equal(m1.subjects.xizong.continuation.last_location.blockId,'B05');
   assert.equal(m1.subjects.xizong.continuation.block_state.stage,'kp_recall');
   assert.equal(m1.subjects.english.continuation.step.task,'translation');
