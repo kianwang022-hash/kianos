@@ -170,20 +170,23 @@ The already-built o1151–o1250 candidate PR #520 remains preserved and must rec
 
 Mechanical GitHub workflows/scripts do not count as a semantic reviewer and may not decide meanings, layer placement, owner placement, or Test worth.
 
-The normal end of a semantic batch is now:
+The normal mechanical path is now used at **both** write stages:
 
 ```text
 A/C Production
 → Kian bounded delta Gate
-→ candidate materialization when frontier allows
+→ when frontier allows: Final Mutation Package
+→ GitHub mechanical executor
+→ approved candidate + 7,946 FLOB rebuild
 → fresh B Independent Audit
 → A/C semantic reconciliation
-→ Final Mutation Package
+→ if corrections are needed: second bounded Final Mutation Package
 → GitHub mechanical executor
-→ 7,946 FLOB rebuild + bounded validation
-→ candidate commit / PR
-→ explicit final merge
+→ corrected candidate + 7,946 FLOB rebuild
+→ candidate PR / explicit final merge
 ```
+
+If B returns a clean PASS with no semantic mutation required, the second package is unnecessary.
 
 The mechanical executor is:
 
@@ -192,4 +195,4 @@ The mechanical executor is:
 
 It is deliberately fail-closed and never merges `main`.
 
-Therefore A/C should not spend normal semantic turns manually transporting many JSON files after reconciliation. They emit one exact mutation package; GitHub performs the mechanical landing. Direct Chat writes are a fallback for executor defects, not the normal path.
+Therefore A/C should not spend normal semantic turns manually transporting many JSON files either after Human approval or after reconciliation. They emit one exact mutation package for each actually needed write stage; GitHub performs the mechanical landing. Direct Chat writes are a fallback for executor defects, not the normal path.
