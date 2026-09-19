@@ -155,7 +155,7 @@
           1001,
           1100
         ],
-        "state": "READ_ONLY_PRODUCTION_ALLOWED",
+        "state": "REVIEW_BUNDLE_READY",
         "allowed_now": [
           "freeze current main and export review bundle",
           "fresh owner/module judgment",
@@ -168,7 +168,23 @@
           "materialize stale FLOB candidate",
           "self-audit"
         ],
-        "semantic_dependency_policy": "Before proposal freeze, inspect shared_semantic_claims and other producer dependencies; before any later materialization, refreeze latest main and emit exact semantic_dependency_read_set."
+        "semantic_dependency_policy": "Before proposal freeze, inspect shared_semantic_claims and other producer dependencies; before any later materialization, refreeze latest main and emit exact semantic_dependency_read_set.",
+        "review_head": "16deb26e4777dc200c4b4e871c521410acb6dc99",
+        "review_branch": "work/lexical-final-backfill-c-o1001-o1100",
+        "review_request_commit": "89c45dde3219ca1ed6220b24bbd31e8ea2337cb7",
+        "review_transport_head": "7fec892ae54352595a8e29be6a70f6871c3169c5",
+        "review_workflow_run": 35451271234,
+        "review_artifact_id": 10586866145,
+        "review_artifact_digest": "sha256:edad6fef007a7a489b5c7691b841eceb3aed2cf54318108659ccb38ca2037930",
+        "review_bundle_coverage": "100/100",
+        "transport_shim": {
+          "reason": "o1043 contagious Relation relation_id hashes to 1b60... while Current physical owner remains at legacy 2df3... path",
+          "branch_only_path": "content/lexical/relations/by-id/1b/1b60f70a2f8856228caa1a53a29be4f8b5c9129de5fc771814f2d4a3ab9ff6aa.json",
+          "source_path": "content/lexical/relations/by-id/2d/2df3fb0a31b5e6c5c9a4b8230d8c6d187e4e5fe0262c019d53f4bd2a8ed248e7.json",
+          "semantic_delta": false,
+          "merge_to_main": false
+        },
+        "next_action": "Consume the frozen 100-owner review artifact, perform fresh owner/module judgment + same-Chat Self-Adversarial Attack, declare any shared semantic claims, then freeze the smallest proposal. Do not treat the branch-only relation path shim as canonical truth."
       },
       "scheduled_ranges": [
         [
