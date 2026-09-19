@@ -58,6 +58,14 @@ Open the learner site during normal use:
 npm run current:open
 ```
 
+Create a manual copy of the latest complete learner checkpoint when you want an extra backup:
+
+```bash
+npm run current:backup
+```
+
+The backup is written to `~/Documents/KianOS Backups/` with private file permissions. Before the first real learner checkpoint exists, the command exits cleanly and reports that there is nothing to back up.
+
 After installation, the macOS LaunchAgent keeps the dedicated Current mirror synced to GitHub `main` and serves the learner site on `http://127.0.0.1:4321/`. Learner checkpoints live outside the disposable mirror in the private KianOS application-support directory.
 
 The development worktree remains separate and should not be used as the normal learner runtime.
