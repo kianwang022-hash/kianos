@@ -79,19 +79,11 @@ export async function consumePrivateControlOnce(storage, {
 
   let receipt;
   try {
-    if (command.study_day !== expectedDay) {
-      receipt = buildPrivateControlReceipt(command, {
-        status:'STALE',
-        detail:'command study_day does not match current study day',
-        appliedAt:now
-      });
-    } else {
-      receipt = applyPrivateControlCommand(storage, command, {
-        expectedDay,
-        now,
-        holdoutYears: readHoldoutYears(storage)
-      });
-    }
+    receipt = applyPrivateControlCommand(storage, command, {
+      expectedDay,
+      now,
+      holdoutYears: readHoldoutYears(storage)
+    });
   } catch (error) {
     receipt = buildPrivateControlReceipt(command, {
       status:'ERROR',
