@@ -5,6 +5,48 @@ Standard: root `LEARNING_ACCEPTANCE.md`
 Work cursor: `content/xizong/CURRENT.md`
 Execution brief: `FINAL_LEARNER_ACCEPTANCE_BRIEF.md`
 
+## Post-audit closure reconciliation — 2026-09-19
+
+**Current candidate state: FINAL MERGE-REF REPROOF IN PROGRESS.**
+
+The original four blockers from the fresh independent audit have now been
+separated by owner rather than carried forward as one blanket engineering
+failure:
+
+1. **D1 shared private learner data — CLOSED ON CURRENT MAIN.** PR #492 landed
+   as `b7dc77db`. Xizong durable learner-state/evidence keys are captured by
+   the shared private checkpoint; restore writes only into an empty Xizong
+   durable store; an unreadable existing checkpoint authorizes zero replacement
+   writes. Shared checkpoint tests, Static Web Xizong QA, Golden Journey, A2
+   Functional First and Representative Workspace all passed on that change.
+2. **D2 typed Chat Return — CLOSED IN THE #491 CANDIDATE, pending final
+   latest-main merge-ref proof.** Study Packet v3 now creates an exact handoff
+   bound to object, Source hash, evidence version and interrupted Resume. The
+   typed Return accepts `NO_ACTION` or bounded `REPAIR`, rejects stale or
+   invented identity, is idempotent on identical replay, fails closed on
+   conflicting replay, and reuses the existing Repair Inbox. Ubuntu and
+   macOS-14 bounded dependent regression passed before integration into #491.
+3. **D3 B1 original inline media — SOURCE BLOCKED, not an engineering mystery.**
+   The two KP03 PNG paths were searched in Current `kianos`, archived
+   `kianos-legacy`, and both repositories' complete path-specific Git commit
+   history. The files themselves were never committed; only the Markdown
+   references exist. Do not substitute a similar or generated image. This
+   remains a scoped Source-availability limitation for those two original
+   figures, not a blanket A1/runtime blocker.
+4. **D4 Mac System-spine readability — HUMAN GATE PASS.** The accepted
+   content-density layout keeps short System spines horizontal and gives dense
+   long-label spines a vertical readable sequence. Real macOS 14 at 1512×982
+   proved A2 remains horizontal, A3 is vertical with ~968px node reading width,
+   and no document horizontal overflow. Kian accepted the candidate on
+   2026-09-19.
+
+A blanket lane-wide readiness headline is **not upgraded yet** merely from these
+closure commits. The final proof is the PR #491 **latest-main merge ref**, which
+must see Current main (including #492) together with the candidate repairs,
+typed Return and accepted A3 layout. Real learner U remains UNTESTED.
+
+---
+
 ## Final independent integration result — 2026-09-19
 
 **BLOCKED for sustained, durable, end-to-end learner readiness.**
