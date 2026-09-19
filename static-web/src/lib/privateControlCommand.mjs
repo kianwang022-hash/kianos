@@ -1,7 +1,7 @@
 export const PRIVATE_CONTROL_COMMAND_SCHEMA = 'kianos.private-control-command.v1';
 export const PRIVATE_CONTROL_RECEIPT_SCHEMA = 'kianos.private-control-receipt.v1';
 
-const TARGETS = new Set(['exam.chat_plan','xizong.session']);
+const TARGETS = new Set(['exam.chat_plan','xizong.session','xizong.chat_return']);
 const clean = (value, max = 500) => String(value || '').trim().slice(0, max);
 
 const validDay = (day) => typeof day === 'string'
