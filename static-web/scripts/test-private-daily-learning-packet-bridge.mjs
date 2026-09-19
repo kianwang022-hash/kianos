@@ -9,11 +9,13 @@ import { readPrivateLearnerCheckpoint } from './privateLearnerStore.mjs';
 const dir=fs.mkdtempSync(path.join(os.tmpdir(),'kianos-packet-bridge-'));
 let middleware=null;
 let syncCalls=0;
+let lastSyncPrivateDir=null;
 
 const plugin=privateLearnerBridge({
   privateDir:dir,
-  packetSync:async()=>{
+  packetSync:async(options={})=>{
     syncCalls+=1;
+    lastSyncPrivateDir=options.privateDir||null;
     throw new Error('synthetic packet relay failure');
   }
 });
@@ -65,6 +67,7 @@ try{
   assert.equal(readPrivateLearnerCheckpoint(dir).checkpoint_id,'packet-bridge-proof-1');
   await new Promise(resolve=>setTimeout(resolve,25));
   assert.ok(syncCalls>=2,'server start + successful checkpoint PUT should each schedule packet sync');
+  assert.equal(lastSyncPrivateDir,dir,'packet sync must read the exact checkpoint directory owned by the bridge');
   console.log('PASS packet bridge: local checkpoint save survives Git relay failure');
 }finally{
   fs.rmSync(dir,{recursive:true,force:true});
