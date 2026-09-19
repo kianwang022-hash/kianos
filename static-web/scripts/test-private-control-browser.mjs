@@ -46,6 +46,7 @@ try{
   await waitHttp(BASE+'/xizong/');
   browser=await chromium.launch({headless:true});
   const page=await browser.newPage({viewport:{width:1512,height:982}});
+  page.setDefaultNavigationTimeout(15000);
   const day=studyDayAt(Date.now());
   const generatedAt=new Date().toISOString();
   const sessionId='relay-xz-session-1';
@@ -53,7 +54,8 @@ try{
   const cardId='core:circulation-b01-kp01';
   const memoryKey='kianos-xizong-memory-v1';
 
-  await page.goto(BASE+'/xizong/',{waitUntil:'networkidle'});
+  await page.goto(BASE+'/xizong/',{waitUntil:'domcontentloaded'});
+  await page.locator('[data-xizong-home-tools]').waitFor({state:'attached'});
   await page.evaluate(({memoryKey,cardId,generatedAt})=>{
     for(const key of Object.keys(localStorage)){
       if(key.includes('xizong')||key.includes('private-control'))localStorage.removeItem(key);
@@ -82,7 +84,8 @@ try{
       promptOverrides:{},marks:{},evidence:[],attention:{},repairTasks:[]
     }));
   },{memoryKey,cardId,generatedAt});
-  await page.reload({waitUntil:'networkidle'});
+  await page.reload({waitUntil:'domcontentloaded'});
+  await page.locator('[data-xizong-home-tools]').waitFor({state:'attached'});
 
   const command={
     schema:'kianos.private-control-command.v1',
@@ -150,7 +153,8 @@ try{
   check(extraNavigations===0,'replayed_command_does_not_reload_home_again',String(extraNavigations));
 
   await page.locator('[data-xizong-continue]').click();
-  await page.waitForLoadState('networkidle');
+  await page.waitForURL(/\/xizong\/memory\//,{timeout:15000});
+  await page.locator('[data-memory-view-title]').waitFor({state:'visible'});
   check((await page.locator('[data-memory-view-title]').textContent()||'').includes('Chat 安排'),
     'relay_session_enters_exact_memory_view');
   check((await page.locator('[data-memory-summary-today]').textContent()||'').trim()==='0',
@@ -163,7 +167,7 @@ try{
   check(memoryAfter?.attention?.[cardId]?.reviewRequested===true,
     'fuzzy_result_enters_native_evidence_attention_not_transport_attention');
 
-  await page.goto(BASE+'/xizong/',{waitUntil:'networkidle'});
+  await page.goto(BASE+'/xizong/',{waitUntil:'domcontentloaded'});
   await page.waitForFunction(
     ()=>document.querySelector('[data-xizong-continue-title]')?.textContent?.includes('迁移题'),
     null,{timeout:10000}
@@ -171,8 +175,9 @@ try{
   check(true,'home_advances_to_native_practice_step');
 
   await page.locator('[data-xizong-continue]').click();
-  await page.waitForLoadState('networkidle');
+  await page.waitForURL(/\/xizong\/practice\/chat-set\//,{timeout:15000});
   const question=page.locator('[data-question-card]:visible');
+  await question.waitFor({state:'visible',timeout:15000});
   check(await question.count()===1,'native_chat_set_question_visible');
   const option=question.locator('[data-question-options] button').first();
   await option.click();
@@ -184,7 +189,7 @@ try{
   check(Array.isArray(sweep?.attemptHistory)&&sweep.attemptHistory.some(x=>x.question_id==='xizong-official-2024-n001'),
     'native_practice_creates_real_attempt_evidence');
 
-  await page.goto(BASE+'/xizong/',{waitUntil:'networkidle'});
+  await page.goto(BASE+'/xizong/',{waitUntil:'domcontentloaded'});
   check(!(await page.locator('[data-xizong-continue-location]').textContent()||'').includes('Chat 安排'),
     'completed_session_releases_home_to_native_resume');
 
