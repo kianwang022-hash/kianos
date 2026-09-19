@@ -66,8 +66,10 @@ assert.equal(storage.getItem(XIZONG_CHAT_SET_KEY), null,
 const first = activateXizongSessionNext(storage, instruction, { now: now + 100 });
 assert.equal(first.status, 'activated');
 assert.equal(first.next.step.kind, 'MEMORY_REVIEW');
-assert.equal(JSON.parse(storage.getItem(XIZONG_MEMORY_STORAGE_KEY)).attention['core:a1-b01-kp01'].reviewRequested, true);
+assert.equal(JSON.parse(storage.getItem(XIZONG_MEMORY_STORAGE_KEY)).attention['core:a1-b01-kp01'], undefined,
+  'Chat-selected Memory must not mutate long-term weak/attention state');
 assert.deepEqual(JSON.parse(storage.getItem(XIZONG_SESSION_RUNTIME_KEY)).activated_steps, ['m1']);
+assert.match(first.next.href, /\/xizong\/memory\/\?session=/);
 
 const repeatedActivation = activateXizongSessionNext(storage, instruction, { now: now + 200 });
 assert.equal(repeatedActivation.status, 'active');
@@ -91,7 +93,7 @@ nextMemory.evidence.push({
   family: 'CORE',
   rating: 'fuzzy',
   origin: 'CORE_MEMORY_RECALL',
-  at: new Date(now + 1000).toISOString()
+  at: new Date(now + 1200).toISOString()
 });
 storage.setItem(XIZONG_MEMORY_STORAGE_KEY, JSON.stringify(nextMemory));
 
@@ -100,7 +102,7 @@ assert.equal(secondPending.step.kind, 'PRACTICE_SET');
 assert.equal(storage.getItem(XIZONG_CHAT_SET_KEY), null,
   'later Practice must remain unprojected until activated');
 
-const second = activateXizongSessionNext(storage, instruction, { now: now + 1100, holdoutYears: [] });
+const second = activateXizongSessionNext(storage, instruction, { now: now + 1300, holdoutYears: [] });
 assert.equal(second.status, 'activated');
 assert.equal(second.next.step.kind, 'PRACTICE_SET');
 assert.equal(JSON.parse(storage.getItem(XIZONG_CHAT_SET_KEY)).question_ids.length, 2);
@@ -141,4 +143,15 @@ assert.equal(holdoutStorage.getItem(XIZONG_CHAT_SET_KEY), null,
 assert.deepEqual(JSON.parse(holdoutStorage.getItem(XIZONG_SESSION_RUNTIME_KEY)).activated_steps, [],
   'failed activation must not mark step active');
 
-console.log('PASS Xizong session prototype: lazy native projection, evidence completion, stale/holdout/idempotency guards');
+assert.throws(() => applyXizongSessionInstruction(new MemoryStorage({
+  [XIZONG_MEMORY_STORAGE_KEY]: JSON.stringify(memory)
+}), {
+  ...instruction,
+  session_id:'bad-nav',
+  steps:[
+    {step_id:'n1',kind:'NAVIGATE',href:'/xizong/circulation/'},
+    {step_id:'m1',kind:'MEMORY_REVIEW',card_ids:['core:a1-b01-kp01']}
+  ]
+}, {expectedDay:day,now}), /NAVIGATE_MUST_BE_TERMINAL/);
+
+console.log('PASS Xizong session prototype: non-polluting Memory selection, lazy native projection, evidence completion, stale/holdout/idempotency guards');
