@@ -131,34 +131,47 @@ Every producer must apply:
 
 Backfill must actively challenge old blueprint inflation. Removing a prebuilt Test does not delete canonical Content.
 
-## 6. Shared-owner concurrency rule
+## 6. Shared semantic dependency concurrency rule
 
-Cross-word Relation/Form truth is **not owned by A or C's ordinal range**.
+A/C ordinal allocation owns only the **primary Word review range**. It does not give either lane private ownership of semantically related truth elsewhere.
 
-A/C may discover the same shared boundary independently, but the first durable action is to publish a **shared-owner claim** on the live board, keyed by the semantic object (existing relation_id when known; otherwise a canonical participant/type key).
+A shared semantic dependency includes any current truth whose change could invalidate a batch judgment, including:
+
+- another Word or Sense used to define a boundary;
+- Family / morphology target;
+- Form / identity or regional spelling boundary;
+- Construction / phraseology ownership;
+- Relation / confusable / semantic-neighbor truth;
+- Repair Test target identity;
+- shared layer-placement or lifecycle truth that a proposal relies on.
+
+A/C may discover the same dependency independently. The first durable action is to publish a **shared semantic claim** on the live board. Claims are keyed by the semantic boundary/participants, not merely by one JSON file.
 
 Rules:
 
-1. before proposing a cross-word Relation/Form mutation, read the live board's `shared_owner_claims`;
-2. if the semantic object is already claimed, do not create a competing Relation/Form proposal from scratch;
-3. if the new lane agrees, attach its batch as another consumer and mark `FOLLOW_SHARED_OWNER`;
-4. if it disagrees materially, mark `SHARED_OWNER_RECONCILE_REQUIRED`; no lane may land that shared object until reconciliation;
-5. a claim does **not** permanently assign the Relation to the first lane that noticed it;
-6. the actual write lease is granted only when a candidate reaches serialized materialization and refreezes against latest main;
-7. after one candidate lands the shared truth, every later candidate must reread latest main and either reuse the existing Relation/Form or drop its now-satisfied duplicate intent;
-8. the mutation executor's stale-hash guards remain the final mechanical stop against overwriting newer shared truth.
+1. before freezing a proposal, read `shared_semantic_claims` and the other lane's declared dependency/write set;
+2. if an equivalent boundary is already claimed, do not invent a competing semantic model from stale context;
+3. compatible discoveries coalesce as consumers of one shared truth;
+4. material disagreement becomes `SHARED_SEMANTIC_RECONCILE_REQUIRED`; neither lane lands the affected dependency before reconciliation;
+5. a claim is not permanent ownership; it is only a coordination record;
+6. actual semantic mutation remains serialized at the live frontier and must refreeze against latest `main`;
+7. the Final Mutation Package must include a `semantic_dependency_read_set` of exact file SHA256 values for every dependency whose current truth materially supports the mutation;
+8. the executor rejects the package with `STALE_SEMANTIC_DEPENDENCY` if any declared dependency changed after reconciliation, even when the changed file is not itself in the write set;
+9. after one batch lands shared truth, later batches reread latest main and reuse/drop/revise their stale duplicate intent.
 
 Thus:
 
 ```text
-parallel semantic discovery
-→ shared claim / coalesce
-→ one serialized write lease
-→ latest-main write
-→ later lanes follow existing truth
+parallel semantic review
+→ declare semantic dependencies / shared claims
+→ coalesce or reconcile
+→ latest-main refreeze
+→ one serialized write
+→ dependency-hash guard
+→ later lanes follow accepted truth
 ```
 
-Opposite-direction review is a throughput optimization. **Shared-owner claim + serialized latest-main write is the correctness mechanism.**
+Opposite-direction A/C review reduces ordinary Word overlap. **Dependency reconciliation + latest-main refreeze + executor dependency hashes are the correctness mechanism.**
 
 ## 6A. `p` is a synchronization barrier
 
@@ -170,7 +183,7 @@ Before A or C consumes a `p`, it must freshly read:
 2. `content/lexical/execution/three-chat-board.json`;
 3. the current frontier candidate PR head;
 4. the current B audit target branch/PR for a newer Audit Pack, even if the board is stale;
-5. the other Production lane's current shared write-set / shared-owner claims;
+5. the other Production lane's current write-set / semantic dependency set / shared semantic claims;
 6. its own frozen proposal identity.
 
 Then resolve in this order:
@@ -178,7 +191,7 @@ Then resolve in this order:
 ```text
 record the user's approval against the still-current proposal
 → if B has completed the live frontier audit, switch first to frontier reconciliation
-→ if shared-owner state changed, coalesce/reconcile before materialization
+→ if any shared semantic dependency changed, coalesce/reconcile before materialization
 → only then materialize a candidate that is currently allowed
 ```
 

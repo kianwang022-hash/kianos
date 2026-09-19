@@ -205,6 +205,15 @@ def apply_package(root: Path, package_path: Path, branch_name: str | None):
     validate_branch_and_source(root, package, branch_name)
     validate_board(root, package)
 
+    deps = package.get("semantic_dependency_read_set", {})
+    require(isinstance(deps, dict), "SEMANTIC_DEPENDENCY_READ_SET_INVALID")
+    for rel, expected in deps.items():
+        require(isinstance(rel, str) and rel.startswith("content/lexical/"), "SEMANTIC_DEPENDENCY_SCOPE_INVALID")
+        require(isinstance(expected, str) and re.fullmatch(r"[0-9a-f]{64}", expected), "SEMANTIC_DEPENDENCY_HASH_INVALID")
+        p = safe(root, rel)
+        require(p.is_file(), "SEMANTIC_DEPENDENCY_MISSING:" + rel)
+        require(filehash(p) == expected, "STALE_SEMANTIC_DEPENDENCY:" + rel)
+
     writes = package.get("writes")
     require(isinstance(writes, list) and writes, "EMPTY_MUTATION_PACKAGE")
     paths = [w.get("path") for w in writes]
@@ -299,6 +308,8 @@ def apply_package(root: Path, package_path: Path, branch_name: str | None):
         "lane": package.get("lane"),
         "package_sha256": pkg_hash,
         "source_head": package.get("source_head"),
+        "semantic_dependency_read_set": deps,
+        "semantic_dependency_count": len(deps),
         "applied_paths": applied,
         "before_sha256": before_hashes,
         "after_sha256": {p: filehash(safe(root, p)) for p in applied},

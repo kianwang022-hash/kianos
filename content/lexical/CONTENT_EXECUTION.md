@@ -327,15 +327,34 @@ Hard guards:
 4. the live board must name the same candidate as the serialized frontier;
 5. frontier state must be one of `MATERIALIZE_ALLOWED / RECONCILE_ALLOWED / AUDIT_CORRECTION_ALLOWED`;
 6. the package must record the Human Gate approval reference;
-7. every existing file mutation carries the exact pre-write SHA256; drift is `STALE_FILE` and fails closed;
-8. new Relation files must be declared as expected-absent and must satisfy the deterministic Relation path hash;
-9. numeric array-index patching is forbidden; the package replaces complete named semantic fields/arrays so identity is reviewable;
-10. write scope is restricted to Lexical Word / Relation / Repair-Test / JSON receipt owners;
-11. Word identity/lifecycle and Relation reciprocal-view integrity are checked mechanically;
-12. the executor must preserve any pre-existing Relation-manifest count gap without worsening it; every newly created Relation owner must increase the manifest count by exactly one;
-13. Final Learner Object closure must remain exactly 7,946;
-14. the one-shot package file is removed after execution and a durable mutation receipt is preserved;
-15. `main_merge_authorized=false` remains in the receipt. Final merge is deliberately outside the executor.
+7. every existing file mutation carries the exact pre-write SHA256; direct write drift is `STALE_FILE` and fails closed;
+8. every material related semantic dependency that supports the final judgment is recorded in `semantic_dependency_read_set` with an exact file SHA256; any drift is `STALE_SEMANTIC_DEPENDENCY` and fails closed even if that file is not being written;
+9. new Relation files must be declared as expected-absent and must satisfy the deterministic Relation path hash;
+10. numeric array-index patching is forbidden; the package replaces complete named semantic fields/arrays so identity is reviewable;
+11. write scope is restricted to Lexical Word / Relation / Repair-Test / JSON receipt owners;
+12. Word identity/lifecycle and Relation reciprocal-view integrity are checked mechanically;
+13. the executor must preserve any pre-existing Relation-manifest count gap without worsening it; every newly created Relation owner must increase the manifest count by exactly one;
+14. Final Learner Object closure must remain exactly 7,946;
+15. the one-shot package file is removed after execution and a durable mutation receipt is preserved;
+16. `main_merge_authorized=false` remains in the receipt. Final merge is deliberately outside the executor.
+
+### Semantic dependency read-set
+
+The executor's write hashes prevent two workers from editing the same stale file, but that is not sufficient for lexical semantics. Two batches can write different files while relying on the same semantic boundary.
+
+Therefore every package must carry the exact hashes of material related truth used during final reconciliation:
+
+```json
+"semantic_dependency_read_set": {
+  "content/lexical/words/by-ordinal/o0182.json": "<sha256>",
+  "content/lexical/words/by-ordinal/o3277.json": "<sha256>",
+  "content/lexical/relations/by-id/...json": "<sha256>"
+}
+```
+
+Include dependencies whose change could alter the proposed decision: related Word/Sense branches, family targets, Form/identity boundaries, Construction ownership, Relation truth, Repair Test targets, or layer/lifecycle truth. Do not include unrelated files merely to create broad locks.
+
+If any hash changed, the executor stops with `STALE_SEMANTIC_DEPENDENCY`. The semantic Chat then rereads only the affected dependency and reconciles against latest main; it must not blindly replay the old proposal.
 
 Package example:
 `content/lexical/execution/final-mutation-package.example.json`
