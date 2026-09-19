@@ -121,6 +121,7 @@ export function stageXizongChatReturn(storage, input, {
 function receipt(entry, status, {
   decision = '',
   repairKpIds = [],
+  repairTasks = [],
   detail = '',
   at = Date.now()
 } = {}) {
@@ -136,6 +137,14 @@ function receipt(entry, status, {
     status,
     decision:text(decision, 40),
     repair_kp_ids:[...new Set((repairKpIds || []).map(String).filter(Boolean))],
+    repair_tasks:(Array.isArray(repairTasks) ? repairTasks : []).map((task) => ({
+      task_id:text(task?.id, 240),
+      created_at:text(task?.createdAt, 80),
+      system_id:text(task?.systemId, 160),
+      block_id:text(task?.blockId, 200),
+      kp_id:text(task?.kpId, 200),
+      origin:text(task?.origin, 80)
+    })).filter((task) => task.task_id && task.created_at),
     detail:text(detail, 1000),
     at:new Date(at).toISOString()
   };
@@ -178,6 +187,7 @@ export function consumePendingXizongChatReturnForObject(storage, {
     nextReceipt = receipt(entry, result.status === 'already_applied' ? 'ALREADY_APPLIED' : 'APPLIED', {
       decision,
       repairKpIds,
+      repairTasks: result?.repair_tasks || [],
       at:now
     });
   } catch (error) {
