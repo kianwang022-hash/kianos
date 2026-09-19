@@ -26,7 +26,24 @@ const base = import.meta.env.BASE_URL;
 
   const root = document.querySelector('[data-english-resume-surface]');
   if (root instanceof HTMLElement) {
-    const catalog = JSON.parse(document.querySelector('[data-english-resume-catalog]')?.textContent || '[]');
+    let catalog = JSON.parse(document.querySelector('[data-english-resume-catalog]')?.textContent || '[]');
+    let externalCatalogLoaded = false;
+    const loadExternalCatalog = async () => {
+      if (externalCatalogLoaded) return;
+      externalCatalogLoaded = true;
+      try {
+        const response = await fetch('/__kianos-private/external-reading/catalog', { cache: 'no-store' });
+        if (!response.ok) return;
+        const data = await response.json();
+        const rows = (data.collections || []).flatMap(group => group.passages || []).map(row => ({
+          task: 'external_reading',
+          object_id: row.object_id,
+          source_hash: row.content_hash,
+          label: row.title || row.object_id
+        }));
+        catalog = [...catalog, ...rows];
+      } catch {}
+    };
     const base = root.getAttribute('data-base') || '/';
     const resume = root.querySelector('[data-english-resume]');
     const title = root.querySelector('[data-english-resume-title]');
@@ -36,6 +53,7 @@ const base = import.meta.env.BASE_URL;
       reading_a: 'Reading A',
       cloze: 'Cloze',
       reading_b: 'Part B',
+      external_reading: 'External Reading',
       translation: 'Translation',
       writing: 'Writing'
     };
@@ -50,12 +68,13 @@ const base = import.meta.env.BASE_URL;
       return [WRITING_STATES.PASS_ACCEPTABLE, WRITING_STATES.REPAIR_COMPLETE].includes(record?.state);
     };
 
-    const render = () => {
+    const render = async () => {
       if (!(resume instanceof HTMLElement)
         || !(title instanceof HTMLElement)
         || !(meta instanceof HTMLElement)
         || !(link instanceof HTMLAnchorElement)) return;
 
+      await loadExternalCatalog();
       const state = readEnglishSessionInstruction(localStorage, localDay());
       if (state.status !== 'ready' || !state.instruction) {
         resume.hidden = true;
@@ -78,11 +97,11 @@ const base = import.meta.env.BASE_URL;
       link.href = href;
     };
 
-    window.addEventListener('kianos:english-session-updated', render);
+    window.addEventListener('kianos:english-session-updated', () => void render());
     window.addEventListener('storage', (event) => {
-      if (event.key === ENGLISH_SESSION_KEY || event.key === null) render();
+      if (event.key === ENGLISH_SESSION_KEY || event.key === null) void render();
     });
-    window.addEventListener('focus', render);
-    render();
+    window.addEventListener('focus', () => void render());
+    void render();
   }
 </script>
