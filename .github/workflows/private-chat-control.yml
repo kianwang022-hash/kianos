@@ -23,6 +23,7 @@ on:
       - "static-web/scripts/test-english-home-*.mjs"
       - "static-web/scripts/test-daily-learning-packet.mjs"
       - "static-web/scripts/test-private-daily-learning-packet.mjs"
+      - "static-web/scripts/test-private-daily-learning-packet-relay.mjs"
       - ".github/workflows/private-chat-control.yml"
   pull_request:
     branches: [main]
@@ -67,6 +68,7 @@ jobs:
           node scripts/test-private-control-relay.mjs
           node scripts/test-daily-learning-packet.mjs
           node scripts/test-private-daily-learning-packet.mjs
+          node scripts/test-private-daily-learning-packet-relay.mjs
           node scripts/test-english-generated-daily-packet.mjs
           node scripts/test-english-generated-drill-store.mjs
           node scripts/test-english-external-combined-store.mjs
