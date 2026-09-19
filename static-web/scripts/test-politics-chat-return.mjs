@@ -53,7 +53,14 @@ const attempts = {
           correct_answer: 'A',
           study_day: day,
           observed_at: '2026-09-19T01:00:00.000Z',
-          source_context: { unit_key: 'marxism/c01/u01', source: 'xiao1000' }
+          source_context: {
+            unit_key: 'marxism/c01/u01',
+            source: 'xiao1000',
+            source_href: '/politics/marxism/c01/#u01',
+            source_owner_ids: ['POL27-CF-MARX-C01-U01'],
+            content_revision: 'politics-test-rev-1',
+            task_revision: 'q1-task-rev-1'
+          }
         }
       }
     }
@@ -99,6 +106,9 @@ assert.ok(outbound.batch_id.startsWith('politics-review-'));
 assert.deepEqual(outbound.scope, { filter: 'all', subject: 'all' });
 assert.equal(outbound.review_context.length, 1);
 assert.equal(outbound.review_context[0].question_id, 'Q1');
+assert.equal(outbound.review_context[0].recorded_unit_key, 'marxism/c01/u01');
+assert.equal(outbound.review_context[0].source_context_status, 'CAPTURED_AT_ATTEMPT');
+assert.equal(outbound.review_context[0].original_source_context.task_revision, 'q1-task-rev-1');
 
 const validReturn = {
   schema: POLITICS_CHAT_RETURN_SCHEMA,
@@ -124,6 +134,9 @@ const applied = applyPoliticsChatReturn(storage, catalog, validReturn, {
 });
 assert.equal(applied.status, 'applied');
 assert.equal(applied.value.follow_ups[0].contexts[0].unit_key, 'marxism/c01/u01');
+assert.equal(applied.value.follow_ups[0].contexts[0].provenance.recorded_unit_key, 'marxism/c01/u01');
+assert.equal(applied.value.follow_ups[0].contexts[0].provenance.original_source_context.content_revision, 'politics-test-rev-1');
+assert.equal(applied.value.follow_ups[0].contexts[0].provenance.original_source_context.task_revision, 'q1-task-rev-1');
 assert.equal(applied.value.follow_ups[0].return_targets[0].href, '/politics/marxism/c01/#u01');
 assert.equal(readPoliticsChatReturn(storage, outbound.batch_id).diagnosis_summary, '同一个条件判断断点。');
 
@@ -155,6 +168,16 @@ const staleMeta = { ...meta, latestOutcome: { Q1: 'STABLE' }, discussion: { Q1: 
 staleStorage.setItem(PRACTICE_KEYS.meta, JSON.stringify(staleMeta));
 assert.throws(() => applyPoliticsChatReturn(staleStorage, catalog, validReturn), /POLITICS_CHAT_RETURN_STALE_BATCH/);
 
+const provenanceChangedStorage = source();
+const provenanceChangedAttempts = structuredClone(attempts);
+provenanceChangedAttempts.units['marxism/c01/u01'].attempts.Q1.source_context.task_revision = 'q1-task-rev-2';
+provenanceChangedStorage.setItem(PRACTICE_KEYS.attempts, JSON.stringify(provenanceChangedAttempts));
+assert.throws(
+  () => applyPoliticsChatReturn(provenanceChangedStorage, catalog, validReturn),
+  /POLITICS_CHAT_RETURN_STALE_BATCH/,
+  'attempt provenance changes must invalidate an older Chat return'
+);
+
 const noActionStorage = source();
 const noAction = applyPoliticsChatReturn(noActionStorage, catalog, {
   schema: POLITICS_CHAT_RETURN_SCHEMA,
@@ -176,4 +199,4 @@ assert.ok(checkpoint.entries[PRACTICE_KEYS.attempts]);
 assert.ok(Object.keys(checkpoint.entries).some((key) => key.startsWith('kianos-politics-chat-return-v1:')));
 assert.ok(validatePoliticsPrivatePayload(checkpoint).length >= 5);
 
-console.log('PASS politics typed Chat return: exact batch + stale rejection + idempotent replay + conflict safety + checkpoint');
+console.log('PASS politics typed Chat return: exact batch/provenance + stale rejection + idempotent replay + conflict safety + checkpoint');
