@@ -15,7 +15,10 @@
     "semantic_mutation_policy": "FRONTIER_SERIALIZED",
     "later_batch_policy": "READ_AND_SELF_ATTACK_ALLOWED; CANONICAL_SEMANTIC_WRITE_FORBIDDEN_UNTIL_FRONTIER",
     "user_gate": "ONLY_GENUINELY_NEW_MATERIAL_DELTA",
-    "mechanical_layer_semantic_authority": false
+    "mechanical_layer_semantic_authority": false,
+    "producer_allocation": "A_LOW_TO_HIGH__C_HIGH_TO_LOW",
+    "human_gate_sync_barrier": true,
+    "shared_relation_ownership": "BOARD_CLAIM_PLUS_SERIALIZED_LATEST_MAIN_WRITE"
   },
   "frontier": {
     "accepted_main_head": "0e653cf9d67a44b96d85ba35c1913cc6add267d0",
@@ -25,9 +28,18 @@
       100
     ],
     "candidate_pr": 525,
-    "state": "AUDIT_READY",
+    "state": "AUDIT_COMPLETE_RECONCILIATION_REQUIRED",
     "integration_owner": "A",
-    "audit_brief": "content/lexical/semantic-audit/O0001_O0100_FINAL_STANDARD_FRESH_AUDIT_BRIEF.md"
+    "audit_brief": "content/lexical/semantic-audit/O0001_O0100_FINAL_STANDARD_FRESH_AUDIT_BRIEF.md",
+    "audit_pack": "content/lexical/semantic-audit/O0001_O0100_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
+    "audit_pack_commit": "53a871f1a54b053161c141c546432c51bb0e2b1a",
+    "audit_findings": [
+      "o0029 access",
+      "o0057 act",
+      "o0066 add",
+      "o0084 adult",
+      "o0085 advance"
+    ]
   },
   "audit_target": {
     "candidate_id": "BF00",
@@ -38,8 +50,38 @@
     "candidate_pr": 525,
     "candidate_branch": "work/lexical-continuous-backfill-o0001-o0100",
     "brief": "content/lexical/semantic-audit/O0001_O0100_FINAL_STANDARD_FRESH_AUDIT_BRIEF.md",
-    "state": "READY_FOR_FRESH_B",
-    "after_completion": "STOP_AND_RETURN_AUDIT_PACK_ONLY"
+    "state": "B_AUDIT_COMPLETE",
+    "after_completion": "A_RECONCILES; B_STOPS",
+    "audit_pack": "content/lexical/semantic-audit/O0001_O0100_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
+    "audit_pack_commit": "53a871f1a54b053161c141c546432c51bb0e2b1a",
+    "result": "HOLD_FOR_SOL",
+    "findings": [
+      {
+        "ordinal": 29,
+        "word": "access",
+        "handoff": "BOUNDED_RECONCILIATION"
+      },
+      {
+        "ordinal": 57,
+        "word": "act",
+        "handoff": "BOUNDED_RECONCILIATION"
+      },
+      {
+        "ordinal": 66,
+        "word": "add",
+        "handoff": "BOUNDED_RECONCILIATION"
+      },
+      {
+        "ordinal": 84,
+        "word": "adult",
+        "handoff": "BOUNDED_RECONCILIATION"
+      },
+      {
+        "ordinal": 85,
+        "word": "advance",
+        "handoff": "NEW_SCOPE_GATE_ONLY_IF_ROMANTIC_SEXUAL_ADVANCES_BECOMES_LEARNER_VISIBLE"
+      }
+    ]
   },
   "lanes": {
     "A": {
@@ -95,7 +137,7 @@
       "bootstrap_integration": {
         "candidate_id": "BF00",
         "pr": 525,
-        "action": "after Fresh B Audit Pack, reconcile against latest main, rematerialize if needed, merge only if audit closure permits"
+        "action": "Fresh B audit is complete at 53a871f1. Reconcile access/act/add/adult/advance; only a genuinely new learner-visible advance branch may require a bounded Human Gate."
       },
       "scheduled_ranges": [
         [
@@ -107,20 +149,16 @@
           400
         ],
         [
+          401,
+          500
+        ],
+        [
           501,
           600
         ],
         [
-          701,
-          800
-        ],
-        [
-          901,
-          1000
-        ],
-        [
-          1101,
-          1150
+          601,
+          700
         ]
       ]
     },
@@ -164,22 +202,31 @@
           300
         ],
         [
-          401,
-          500
+          1101,
+          1150
         ],
         [
-          601,
-          700
+          1001,
+          1100
+        ],
+        [
+          901,
+          1000
         ],
         [
           801,
           900
         ],
         [
-          1001,
-          1100
+          701,
+          800
         ]
-      ]
+      ],
+      "next_new_review_range": [
+        1101,
+        1150
+      ],
+      "direction_note": "Preserve completed o0201-o0300 lookahead; all new C review proceeds high→low."
     }
   },
   "preserved_candidates": [
@@ -206,11 +253,145 @@
       1150
     ],
     "next_unallocated_start": 301,
-    "allocation_rule": "A and C alternate disjoint batches; allocation does not grant mutation authority ahead of frontier"
+    "allocation_rule": "Preserve BF01/BF02 work. A reviews remaining low side upward; C reviews remaining high side downward. Relation/Form ownership is independent of ordinal direction.",
+    "a_direction": "LOW_TO_HIGH",
+    "c_direction": "HIGH_TO_LOW"
   },
   "shared_owner_rule": {
     "mode": "LATEST_MAIN_RECONCILIATION_ONLY",
     "collision_state": "SHARED_OWNER_WAIT",
     "instruction": "If A and C touch the same shared Word/Relation/Form owner, the later lane must wait; do not land competing shared-owner versions."
-  }
+  },
+  "sync_barrier": {
+    "trigger": "every user p; every candidate materialization; every post-audit reconciliation",
+    "required_reads": [
+      "current main@HEAD",
+      "live three-chat-board.json",
+      "frontier candidate PR head",
+      "newest Audit Pack on audit-target candidate branch/PR",
+      "other producer lane shared write-set",
+      "shared_owner_claims",
+      "own proposal identity"
+    ],
+    "rule": "Record approval only against the still-current proposal. If B completed the live frontier audit, prioritize frontier reconciliation before later-batch materialization. Materially changed proposal delta requires a new bounded Gate."
+  },
+  "shared_owner_claims": [
+    {
+      "claim_key": "RELATION:alert|alter:confusable",
+      "kind": "RELATION",
+      "participants": [
+        "word:alert",
+        "word:alter"
+      ],
+      "claimants": [
+        "BF01"
+      ],
+      "state": "PROPOSED_SHARED_OWNER",
+      "write_lease_candidate": null
+    },
+    {
+      "claim_key": "RELATION:alternate|alternative:confusable",
+      "kind": "RELATION",
+      "participants": [
+        "word:alternate",
+        "word:alternative"
+      ],
+      "claimants": [
+        "BF01"
+      ],
+      "state": "PROPOSED_SHARED_OWNER",
+      "write_lease_candidate": null
+    },
+    {
+      "claim_key": "RELATION:analog|digital:semantic_contrast",
+      "kind": "RELATION",
+      "participants": [
+        "word:analog",
+        "word:digital"
+      ],
+      "claimants": [
+        "BF01"
+      ],
+      "state": "PROPOSED_SHARED_OWNER",
+      "write_lease_candidate": null
+    },
+    {
+      "claim_key": "RELATION:analytic|analytical:usage_boundary",
+      "kind": "RELATION",
+      "participants": [
+        "word:analytic",
+        "word:analytical"
+      ],
+      "claimants": [
+        "BF01"
+      ],
+      "state": "PROPOSED_SHARED_OWNER",
+      "write_lease_candidate": null
+    },
+    {
+      "claim_key": "RELATION:among|between:selection_boundary",
+      "kind": "RELATION",
+      "participants": [
+        "word:among",
+        "word:between"
+      ],
+      "claimants": [
+        "BF01"
+      ],
+      "state": "PROPOSED_SHARED_OWNER",
+      "write_lease_candidate": null
+    },
+    {
+      "claim_key": "RELATION:amount|number:countability_boundary",
+      "kind": "RELATION",
+      "participants": [
+        "word:amount",
+        "word:number"
+      ],
+      "claimants": [
+        "BF01"
+      ],
+      "state": "PROPOSED_SHARED_OWNER",
+      "write_lease_candidate": null
+    },
+    {
+      "claim_key": "RELATION:answer|respond:redundancy_cleanup",
+      "kind": "RELATION",
+      "participants": [
+        "word:answer",
+        "word:respond"
+      ],
+      "claimants": [
+        "BF02"
+      ],
+      "state": "PROPOSED_SHARED_OWNER",
+      "write_lease_candidate": null
+    },
+    {
+      "claim_key": "RELATION:apartment|flat:regional_choice",
+      "kind": "RELATION",
+      "participants": [
+        "word:apartment",
+        "word:flat"
+      ],
+      "claimants": [
+        "BF02"
+      ],
+      "state": "PROPOSED_SHARED_OWNER",
+      "write_lease_candidate": null
+    },
+    {
+      "claim_key": "FORM:archaeology|archeology:regional_spelling_identity",
+      "kind": "FORM",
+      "participants": [
+        "word:archeology",
+        "word:archaeology"
+      ],
+      "claimants": [
+        "BF02"
+      ],
+      "state": "PROPOSED_SHARED_OWNER",
+      "write_lease_candidate": null
+    }
+  ]
 }
