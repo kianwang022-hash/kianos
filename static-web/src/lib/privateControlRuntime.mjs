@@ -189,6 +189,13 @@ export function applyPrivateControlCommand(storage, rawCommand, {
     return sameId;
   }
 
+  if (Date.parse(command.issued_at) > Number(now) + 60_000) {
+    return persistNonAppliedReceipt(
+      storage, state, command, 'REJECTED',
+      'command issued_at is too far in the future', now
+    );
+  }
+
   if (expectedDay && command.study_day !== expectedDay) {
     return persistNonAppliedReceipt(
       storage, state, command, 'STALE',
