@@ -274,7 +274,10 @@ const politicsMemoryCatalog = buildPoliticsMemoryCandidateCatalogCurrent();
       refreshPolitics();
     };
 
-    window.addEventListener('kianos:english-session-updated', () => void refreshEnglish());
+    window.addEventListener('kianos:english-session-updated', () => {
+      externalCatalogPromise = null;
+      void refreshEnglish();
+    });
     window.addEventListener('kianos:politics-memory-plan-updated', refreshPolitics);
     window.addEventListener('kianos:private-control-consumed', (event) => {
       const detail = event instanceof CustomEvent ? event.detail : null;
