@@ -1,11 +1,14 @@
 ---
 import { politicsProductCatalog } from '../lib/productCatalog.mjs';
+import { buildPoliticsMemoryCandidateCatalogCurrent } from '../lib/politicsMemoryCandidates.mjs';
 const base = import.meta.env.BASE_URL;
 const catalog = politicsProductCatalog(base);
+const memoryCatalog = buildPoliticsMemoryCandidateCatalogCurrent();
 const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
 ---
 <section class="politicsHomeTools" data-politics-home-tools data-base={base}>
   <script type="application/json" data-politics-home-catalog set:html={JSON.stringify(catalog).replace(/</g, '\\u003c')} />
+  <script type="application/json" data-politics-memory-catalog set:html={JSON.stringify(memoryCatalog).replace(/</g, '\\u003c')} />
 
   <a class="politicsContinueCard" data-politics-continue href={firstHref}>
     <span class="politicsHomeEyebrow">继续学习</span>
@@ -48,11 +51,15 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
 
 <script>
   import { readPoliticsSnapshot, selectPoliticsReview, resolvePoliticsContinue } from '../lib/politicsPracticeState.mjs';
+  import { resolvePoliticsMemoryResume } from '../lib/politicsMemoryRuntime.mjs';
   const root = document.querySelector('[data-politics-home-tools]');
   if (root instanceof HTMLElement) {
     const catalogNode = root.querySelector('[data-politics-home-catalog]');
+    const memoryCatalogNode = root.querySelector('[data-politics-memory-catalog]');
     const catalog = JSON.parse(catalogNode?.textContent || '{}');
+    const memoryCatalog = JSON.parse(memoryCatalogNode?.textContent || '{}');
     catalogNode?.remove();
+    memoryCatalogNode?.remove();
     const base = root.dataset.base || '/';
     const firstHref = root.querySelector('[data-politics-continue]')?.getAttribute('href') || `${base}politics/learn/`;
     const firstTitle = root.querySelector('[data-politics-continue-title]')?.textContent || '选择科目和章节';
@@ -60,12 +67,23 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
 
     const outcomeLabel = (outcome) => outcome === 'WRONG' ? '错题' : outcome === 'UNCERTAIN' ? '不确定' : '已完成';
 
-    const renderContinue = (snapshot) => {
+    const renderContinue = (snapshot, memoryResume = null) => {
       const target = snapshot.errors.length ? null : resolvePoliticsContinue(catalog, snapshot, base);
       const link = root.querySelector('[data-politics-continue]');
-      if (link instanceof HTMLAnchorElement) link.href = target?.href || firstHref;
       const title = root.querySelector('[data-politics-continue-title]');
       const meta = root.querySelector('[data-politics-continue-meta]');
+
+      if (memoryResume?.status === 'ACTIVE') {
+        if (link instanceof HTMLAnchorElement) link.href = `${base}politics/memory/`;
+        if (title) title.textContent = memoryResume.candidate?.prompt || 'Chat 安排 · 今日记忆';
+        if (meta) {
+          const reason = memoryResume.item?.reason || '按今天 Chat 安排回忆';
+          meta.textContent = `Chat 安排 · 今日记忆 ${memoryResume.index + 1} / ${memoryResume.total} · ${reason}`;
+        }
+        return;
+      }
+
+      if (link instanceof HTMLAnchorElement) link.href = target?.href || firstHref;
       if (title) title.textContent = target?.title || firstTitle;
       if (meta) meta.textContent = snapshot.errors.length
         ? '记录未能完整读取，先进入复习核对。'
@@ -159,9 +177,13 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
 
     const update = () => {
       const snapshot = readPoliticsSnapshot(localStorage);
+      let memoryResume = null;
+      try {
+        memoryResume = resolvePoliticsMemoryResume(localStorage, memoryCatalog, { expectedDay: localStudyDay() });
+      } catch {}
       const allReview = selectPoliticsReview(catalog, snapshot);
       const todayReview = selectPoliticsReview(catalog, snapshot, { day: localStudyDay(), filter: 'today' });
-      renderContinue(snapshot);
+      renderContinue(snapshot, memoryResume);
       renderToday(snapshot, todayReview);
       renderRecent(snapshot);
       const link = root.querySelector('[data-politics-review-entry]');
