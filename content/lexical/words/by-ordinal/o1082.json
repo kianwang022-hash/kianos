@@ -38,9 +38,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "凉爽；使冷却或变凉",
+      "core_meaning_cn": "让温度、情绪或社交热度“降下来”：可指凉爽/冷却、冷淡、冷静，也可非正式表示时髦或不错",
       "core_meaning_en": "moderately cold; to make or become less hot or intense",
-      "mental_model_cn": "凉爽；使冷却或变凉",
+      "mental_model_cn": "temperature → 凉爽/冷却；emotion → cool down/off / keep cool = 冷静；social attitude → 冷淡；informal评价 → cool = 很酷、不错。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -48,7 +48,21 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "fact_id": "baseline-v2:secondary_sense:cool:calm",
+        "source_sense_id": null,
+        "pos": "adjective",
+        "definition_cn": "冷静的；沉着的",
+        "definition_en": "calm and self-controlled, especially under pressure",
+        "pattern": "keep / stay cool",
+        "level": "L1",
+        "priority": "A",
+        "publication_status": "publishable",
+        "verification_status": "verified",
+        "writing_safe": true
+      }
+    ],
     "semantic_neighbors": [],
     "senses": [
       {
@@ -196,17 +210,7 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:69100246df4168cb6514",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:cool:946333cf8ae7d199:collocation:handoff-o0875-o1124"
-            ],
-            "meaning_cn": "保持冷静",
-            "phrase": "keep/stay cool"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "时髦、令人赞叹或可以接受的（非正式）",
         "definition_en": "fashionable, impressive, good, or acceptable in informal use",
@@ -367,7 +371,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1081-1088.json",
     "source_content_hash": "8a61caf7bd88a1cf172813821934eb49e5969106017d89b762b3f449021f0ba0",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

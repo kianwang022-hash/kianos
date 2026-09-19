@@ -28,9 +28,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "竞赛或争夺；质疑或竞争",
+      "core_meaning_cn": "围绕胜负、资格或决定发生竞争或争议：名词多指比赛/争夺，动词多指竞选、争夺或质疑",
       "core_meaning_en": "a competition or struggle; to dispute or compete",
-      "mental_model_cn": "竞赛或争夺；质疑或竞争",
+      "mental_model_cn": "noun CONtest → a contest for power / a beauty contest；verb conTEST → contest an election/decision。词性改变重音。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -149,7 +149,42 @@
     },
     "word": "contest",
     "word_family": [],
-    "word_id": "word:contest"
+    "word_id": "word:contest",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:contest:noun",
+          "canonical_form": "contest",
+          "learner_key": "contest (noun)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": "/ˈkɑːntest/"
+        },
+        {
+          "variant_id": "form:contest:verb",
+          "canonical_form": "contest",
+          "learner_key": "contest (verb)",
+          "pos": [
+            "verb"
+          ],
+          "ipa": "/kənˈtest/"
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "contest",
+          "condition": "noun",
+          "note": "名词通常重音在第一音节：CONtest。"
+        },
+        {
+          "surface": "contest",
+          "condition": "verb",
+          "note": "动词通常重音在第二音节：conTEST。"
+        }
+      ],
+      "boundary": "contest 的名词/动词常通过重音区分。"
+    }
   },
   "relation_refs": [
     {
@@ -256,7 +291,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1049-1056.json",
     "source_content_hash": "c1adb0ad27afc74460c2806d1704a7883374734bd02d814f7671e31656709f0d",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

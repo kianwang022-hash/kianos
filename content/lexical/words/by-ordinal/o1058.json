@@ -29,9 +29,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "合同；收缩；感染",
+      "core_meaning_cn": "把双方“绑定”在一起的合同，或动词意义上的收缩、订约、感染疾病",
       "core_meaning_en": "a binding agreement or the act of making one; also to shrink or become infected",
-      "mental_model_cn": "合同；收缩；感染",
+      "mental_model_cn": "noun CONtract → 合同；verb conTRACT → 签约/承包、收缩、contract a disease 感染疾病。词性改变重音。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -43,45 +43,7 @@
       "deep:deep:word_family:contract:dddbfff17431b1db",
       "relation:deep:word_family:contract:dddbfff17431b1db"
     ],
-    "secondary_senses": [
-      {
-        "boundary": "contract a disease",
-        "codex_reviewed": false,
-        "definition_cn": "感染（疾病）",
-        "definition_en": "to become infected with a disease",
-        "dimensions": {},
-        "direction": "R+P",
-        "evidence": [
-          {
-            "evidence_id": "evidence:core-card:contract:624dd4604027",
-            "evidence_status": "source_checked",
-            "source_labels": [],
-            "source_locator": "contract:l2:2",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:secondary_senses:contract:65fdb297dc1b73b1",
-        "family_sources": [],
-        "label_en": "to become infected with a disease",
-        "level": "L2",
-        "meaning_cn": null,
-        "module": "secondary_senses",
-        "pattern": null,
-        "pos": "verb",
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:contract:cce5177050cd5676",
-        "target_sense_id": null,
-        "target_word": null,
-        "task_tags": [
-          "reading"
-        ],
-        "verification_status": "verified",
-        "writing_safe": true
-      }
-    ],
+    "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
       {
@@ -251,7 +213,42 @@
         "writing_safe": true
       }
     ],
-    "word_id": "word:contract"
+    "word_id": "word:contract",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:contract:noun",
+          "canonical_form": "contract",
+          "learner_key": "contract (noun)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": "/ˈkɑːntrækt/"
+        },
+        {
+          "variant_id": "form:contract:verb",
+          "canonical_form": "contract",
+          "learner_key": "contract (verb)",
+          "pos": [
+            "verb"
+          ],
+          "ipa": "/kənˈtrækt/"
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "contract",
+          "condition": "noun",
+          "note": "名词重音在第一音节：CONtract。"
+        },
+        {
+          "surface": "contract",
+          "condition": "verb",
+          "note": "动词重音在第二音节：conTRACT。"
+        }
+      ],
+      "boundary": "contract 的名词/动词读音靠重音区分。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -379,7 +376,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1057-1064.json",
     "source_content_hash": "d46d1a28a1797fe3f66dac2ed28d025d1ff451c852a73cd6733c5577892f5a75",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

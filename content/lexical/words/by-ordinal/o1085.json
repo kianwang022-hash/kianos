@@ -43,9 +43,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "协调或同等",
+      "core_meaning_cn": "把多个部分安排成彼此配合；名词可指坐标，形容词可指同等/并列",
       "core_meaning_en": "bring into harmony or equal standing",
-      "mental_model_cn": "协调或同等",
+      "mental_model_cn": "verb coordinate /koʊˈɔːrdəneɪt/ → 协调；noun/adjective coordinate /koʊˈɔːrdənət/ → 坐标、并列的。结尾读音随词性改变。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -155,7 +155,43 @@
     },
     "word": "coordinate",
     "word_family": [],
-    "word_id": "word:coordinate"
+    "word_id": "word:coordinate",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:coordinate:verb",
+          "canonical_form": "coordinate",
+          "learner_key": "coordinate (verb)",
+          "pos": [
+            "verb"
+          ],
+          "ipa": "/koʊˈɔːrdəneɪt/"
+        },
+        {
+          "variant_id": "form:coordinate:noun-adj",
+          "canonical_form": "coordinate",
+          "learner_key": "coordinate (noun/adjective)",
+          "pos": [
+            "noun",
+            "adjective"
+          ],
+          "ipa": "/koʊˈɔːrdənət/"
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "coordinate",
+          "condition": "verb",
+          "note": "动词结尾读 /-neɪt/。"
+        },
+        {
+          "surface": "coordinate",
+          "condition": "noun/adjective",
+          "note": "名词/形容词结尾读 /-nət/。"
+        }
+      ],
+      "boundary": "coordinate 的动词与名词/形容词主要通过结尾读音区分。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [
@@ -290,7 +326,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1081-1088.json",
     "source_content_hash": "28a9ede8b29ae988cd1c066a866d3f70d1d03a0ac77a0c8e5836146d5dad8d50",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
