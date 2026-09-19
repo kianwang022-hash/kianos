@@ -10,6 +10,13 @@ const relationRows = framework.formulas;
 const guideSections = guide?.sections || [];
 const hasGuide = guideSections.length > 0;
 const hasVariableRoles = variableRows.some((row) => row.role);
+const spineLabels = framework.spine.items.map((item) => String(item || '').trim());
+const spineTotalChars = spineLabels.reduce((sum, item) => sum + [...item].length, 0);
+const spineMaxChars = spineLabels.reduce((max, item) => Math.max(max, [...item].length), 0);
+const spineAverageChars = spineLabels.length ? spineTotalChars / spineLabels.length : 0;
+const spineLayout = spineLabels.length >= 6 && (spineAverageChars >= 10 || spineMaxChars >= 15)
+  ? 'vertical'
+  : 'horizontal';
 const axisRows = framework.judgmentAxes.items.map((item, index) => {
   const raw = String(item || '').trim();
   const pair = raw.includes('↔')
@@ -108,7 +115,13 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
 
           {framework.spine.items.length > 0 && (
             <div class="xzSystemSpineBlock" data-representation-kind={framework.spine.representation.kind}>
-              <ol class="xzSystemSpine" data-system-spine>
+              <ol
+                class="xzSystemSpine"
+                data-system-spine
+                data-spine-layout={spineLayout}
+                data-spine-average-chars={spineAverageChars.toFixed(1)}
+                data-spine-max-chars={spineMaxChars}
+              >
                 {framework.spine.items.map((item, index) => (
                   <li data-spine-node={index + 1}>
                     <b>{String(index + 1).padStart(2, '0')}</b>
