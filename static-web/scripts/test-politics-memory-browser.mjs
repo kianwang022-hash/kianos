@@ -68,8 +68,8 @@ async function contextWith(plan = null, evidence = null) {
     timezoneId: 'Asia/Shanghai'
   });
   await context.addInitScript(({ plan, evidence, planKey, evidenceKey }) => {
-    if (plan) localStorage.setItem(planKey, JSON.stringify(plan));
-    if (evidence) localStorage.setItem(evidenceKey, JSON.stringify(evidence));
+    if (plan && localStorage.getItem(planKey) == null) localStorage.setItem(planKey, JSON.stringify(plan));
+    if (evidence && localStorage.getItem(evidenceKey) == null) localStorage.setItem(evidenceKey, JSON.stringify(evidence));
   }, {
     plan,
     evidence,
@@ -218,27 +218,9 @@ await check('second-response-completes-without-auto-extra-round', async () => {
     await page.keyboard.press('Enter');
     await page.locator('[data-memory-controls]').waitFor({ state: 'visible' });
     await page.locator('[data-memory-response="STABLE"]').click();
-    const samples = [];
-    for (const delay of [0, 100, 400, 1000]) {
-      if (delay) await page.waitForTimeout(delay);
-      samples.push(await page.evaluate(({ planKey, evidenceKey }) => ({
-        at: Date.now(),
-        plan: JSON.parse(localStorage.getItem(planKey) || 'null'),
-        events: JSON.parse(localStorage.getItem(evidenceKey) || '[]'),
-        status: document.querySelector('[data-memory-status]')?.textContent || '',
-        prompt: document.querySelector('[data-memory-prompt]')?.textContent || '',
-        cardHidden: document.querySelector('[data-memory-card]')?.hidden ?? null,
-        completeHidden: document.querySelector('[data-memory-complete]')?.hidden ?? null
-      }), { planKey: POLITICS_MEMORY_PLAN_KEY, evidenceKey: POLITICS_MEMORY_EVIDENCE_KEY }));
-    }
-    console.log(JSON.stringify({ name: 'second-response-state-samples', samples }));
-    const completionDebug = samples.at(-1);
-    if (completionDebug.completeHidden) {
-      await shot(page, '03-complete-failure-debug');
-      throw new Error('POLITICS_MEMORY_COMPLETE_DEBUG:' + JSON.stringify(samples));
-    }
+    await page.locator('[data-memory-complete]').waitFor({ state: 'visible' });
     assert.equal(await page.locator('[data-memory-card]').isVisible(), false);
-    const events = completionDebug.events;
+    const events = JSON.parse(await page.evaluate((key) => localStorage.getItem(key) || '[]', POLITICS_MEMORY_EVIDENCE_KEY));
     assert.equal(events.length, 2);
     assert.equal(events[1].candidate_id, chosen[1].id);
     assert.equal(events[1].response, 'STABLE');
