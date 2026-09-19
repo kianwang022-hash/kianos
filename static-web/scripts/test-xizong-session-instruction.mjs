@@ -89,12 +89,38 @@ const first = resolveXizongSessionNext(storage, instruction);
 assert.equal(first.step.kind, 'MEMORY_REVIEW');
 assert.equal(first.href, '/xizong/memory/');
 
-// A mastered Memory event would normally clear reviewRequested. Simulate that outcome.
+// Any real post-session Recall event completes the requested action. The rating itself
+// remains learner evidence and must not be promoted to mastery by the session layer.
 const nextMemory = JSON.parse(storage.getItem(XIZONG_MEMORY_STORAGE_KEY));
-nextMemory.attention['core:a1-b01-kp01'].reviewRequested = false;
+nextMemory.evidence.push({
+  id: 'memory:core:a1-b01-kp01:1',
+  cardId: 'core:a1-b01-kp01',
+  family: 'CORE',
+  rating: 'fuzzy',
+  origin: 'CORE_MEMORY_RECALL',
+  at: new Date(now + 1000).toISOString()
+});
 storage.setItem(XIZONG_MEMORY_STORAGE_KEY, JSON.stringify(nextMemory));
 const second = resolveXizongSessionNext(storage, instruction);
 assert.equal(second.step.kind, 'PRACTICE_SET');
 assert.equal(second.href, '/xizong/practice/chat-set/');
+assert.equal(JSON.parse(storage.getItem(XIZONG_MEMORY_STORAGE_KEY)).evidence.at(-1).rating, 'fuzzy',
+  'session completion must not rewrite Recall quality');
 
-console.log('PASS Xizong session prototype: typed Memory + Practice dispatch, stale/holdout/idempotency guards');
+assert.throws(() => applyXizongSessionInstruction(new MemoryStorage({
+  [XIZONG_MEMORY_STORAGE_KEY]: JSON.stringify(memory)
+}), {
+  ...instruction,
+  session_id: 'dup-memory',
+  steps: [{ step_id: 'm1', kind: 'MEMORY_REVIEW', card_ids: ['core:a1-b01-kp01','core:a1-b01-kp01'] }]
+}, { expectedDay: day, now }), /MEMORY_CARD_IDS_DUPLICATE/);
+
+assert.throws(() => applyXizongSessionInstruction(new MemoryStorage({
+  [XIZONG_MEMORY_STORAGE_KEY]: JSON.stringify(memory)
+}), {
+  ...instruction,
+  session_id: 'dup-question',
+  steps: [{ step_id: 'q1', kind: 'PRACTICE_SET', question_ids: ['xizong-official-2024-n001','xizong-official-2024-n001'] }]
+}, { expectedDay: day, now }), /PRACTICE_IDS_DUPLICATE/);
+
+console.log('PASS Xizong session prototype: typed Memory + Practice dispatch, evidence-based completion, stale/holdout/idempotency guards');
