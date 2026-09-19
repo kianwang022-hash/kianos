@@ -29,9 +29,11 @@ P / R / E                                    = downstream-frozen
 U Learner Use                                = no claim
 ```
 
-Active construction branch:
+Active builder branch: **none — candidate merged to main**
 
-`work/xizong-f-knowledge-20260919-v1`
+Independent audit entry:
+
+`content/xizong/knowledge/learner/F_PHASE2_FRESH_INDEPENDENT_K_AUDIT_BRIEF.md`
 
 ---
 

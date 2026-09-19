@@ -28,9 +28,11 @@ P / R / E                              = downstream-frozen
 U                                      = no claim
 ```
 
-Active construction branch:
+Active builder branch: **none — candidate merged to main**
 
-`work/xizong-e-source-knowledge-20260919-v1`
+Independent audit entry:
+
+`content/xizong/knowledge/learner/E_PHASE1_FRESH_INDEPENDENT_K_AUDIT_BRIEF.md`
 
 ---
 
