@@ -203,7 +203,7 @@ async function repairReturnJourney(browser, task) {
     await page.goto(`${BASE}/english/`, { waitUntil: 'domcontentloaded' });
     check(await page.locator('[data-english-resume]').isHidden(), 'website_does_not_auto_rank_active_writing_repair');
 
-    await page.evaluate((taskId) => {
+    await page.evaluate(({ taskId, taskSourceHash }) => {
       const day = new Date().toLocaleDateString('en-CA');
       localStorage.setItem('kianos-english-session-instruction-v1', JSON.stringify({
         schema: 'kianos.english.session-instruction.v1',
