@@ -126,7 +126,9 @@ const homeTools = read('static-web/src/components/XizongHomeTools.astro');
 const questionLib = read('static-web/src/lib/xizongQuestions.mjs');
 const crosswalkLib = read('static-web/src/lib/xizongQuestionCrosswalk.mjs');
 
-has(blockUi, "let state = { stage: 'block_learn', groupIndex: 0, kpIndex: 0, learned: {}, ratings: {}, ttsxEvidence: {}, ttsxAnnotations: {}, pendingTtsx: null, blockRecallDone: false, completed: false }", 'block-initial-state');
+has(blockUi, "let state = { stage: 'block_learn', groupIndex: 0, kpIndex: 0, learned: {}, ratings: {}, ttsxEvidence: {}, ttsxAnnotations: {}, pendingTtsx: null, blockRecallDone: false", 'block-initial-state');
+has(blockUi, 'blockRecallCompletedAt: null', 'block-recall-initial-timestamp');
+has(blockUi, 'completed: false, completedAt: null', 'block-complete-initial-timestamp');
 has(blockUi, 'const raw = localStorage.getItem(storageKey);', 'block-state-raw-read');
 has(blockUi, 'const saved = JSON.parse(raw);', 'block-state-validated-json-read');
 has(blockUi, "suspend('本机学习记录无法安全读取", 'block-state-read-fail-closed');
