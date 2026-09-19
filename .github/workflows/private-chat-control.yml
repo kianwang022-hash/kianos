@@ -48,6 +48,9 @@ on:
       - "static-web/src/lib/examPlanReadModel.mjs"
       - "static-web/src/lib/examOrchestratorClient.mjs"
       - "static-web/src/lib/dailyLearningPacket.mjs"
+      - "static-web/src/lib/dailyLearningPacketRuntime.mjs"
+      - "static-web/src/lib/politicsPracticeState.mjs"
+      - "static-web/src/lib/xizong.mjs"
       - "static-web/src/layouts/BaseFrame.astro"
       - "static-web/astro.config.mjs"
       - "static-web/scripts/test-private-control-*.mjs"
@@ -76,6 +79,10 @@ jobs:
         with:
           node-version: "22"
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
       - name: Unit and transport proof
         working-directory: static-web
         run: |
@@ -89,11 +96,23 @@ jobs:
           node scripts/test-english-generated-drill-store.mjs
           node scripts/test-english-external-combined-store.mjs
           node scripts/test-exam-plan-read-model.mjs
+          node scripts/test-study-timer.mjs
+          node scripts/test-study-timer-review.mjs
+          node scripts/test-exam-study-time.mjs
           node scripts/test-english-home-no-cross-subject-autoswitch.mjs
+
+      - name: Authority ownership proof
+        run: |
+          python tools/authority_consistency_audit.py
+          python tools/authority_projection_audit.py
 
       - name: Install runtime
         working-directory: static-web
         run: npm install --no-audit --no-fund
+
+      - name: Xizong representation proof
+        working-directory: static-web
+        run: npm run validate:xizong-representation
 
       - name: Private packet projection proof
         working-directory: static-web
