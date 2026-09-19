@@ -35,6 +35,7 @@ export function initPoliticsMemoryWorkspace(root) {
   const empty = $('[data-memory-empty]');
   const stale = $('[data-memory-stale]');
   const complete = $('[data-memory-complete]');
+  const card = $('[data-memory-card]');
 
   let revealed = false;
   let active = null;
@@ -51,6 +52,7 @@ export function initPoliticsMemoryWorkspace(root) {
     setHidden(empty, true);
     setHidden(stale, true);
     setHidden(complete, true);
+    setHidden(card, true);
     if (status) status.textContent = '';
 
     let next;
@@ -84,6 +86,7 @@ export function initPoliticsMemoryWorkspace(root) {
 
     if (next.status !== 'ACTIVE') return;
 
+    setHidden(card, false);
     if (progress) progress.textContent = `${next.index + 1} / ${next.total}`;
     if (prompt) prompt.textContent = next.candidate.prompt || '回忆这一项';
     if (answerItems) {
