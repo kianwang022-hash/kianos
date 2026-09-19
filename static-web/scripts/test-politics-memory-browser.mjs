@@ -132,6 +132,21 @@ await check('explicit-zero-item-plan-means-no-memory-work', async () => {
   }
 });
 
+await check('home-routes-active-chat-memory-plan', async () => {
+  const { context, page } = await contextWith(plan);
+  try {
+    await page.goto(base + '/politics/');
+    await page.locator('[data-politics-continue]').waitFor({ state: 'visible' });
+    const href = await page.locator('[data-politics-continue]').getAttribute('href');
+    assert.ok(href?.includes('/politics/memory/'));
+    assert.ok((await page.locator('[data-politics-continue-meta]').textContent() || '').includes('Chat 安排'));
+    await shot(page, '00c-home-chat-memory');
+    return { href };
+  } finally {
+    await context.close();
+  }
+});
+
 await check('active-plan-hides-answer-until-reveal', async () => {
   const { context, page } = await contextWith(plan);
   try {
