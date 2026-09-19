@@ -66,6 +66,13 @@ assert.equal(packet.resume.object_id,'translation-next');
 assert.equal(packet.resume.step_index,1);
 assert.equal(packet.resume.step_count,2);
 assert.equal(packet.resume.href,'/translation/translation-next/');
+assert.equal(packet.forecast_progress.schema,'kianos.english.forecast-progress.v1');
+assert.equal(packet.forecast_progress.status,'active');
+assert.equal(packet.forecast_progress.total_steps,2);
+assert.equal(packet.forecast_progress.completed_steps,1);
+assert.equal(packet.forecast_progress.remaining_steps,1);
+assert.deepEqual(packet.forecast_progress.remaining_by_task,{translation:1});
+assert.equal(packet.forecast_progress.remaining[0].object_id,'translation-next');
 assert.ok(Array.isArray(packet.inventory)&&packet.inventory.some(row=>row.object_id==='reading-done'));
 
 console.log('PASS English evidence Resume advances past completed step to the next incomplete session task');
