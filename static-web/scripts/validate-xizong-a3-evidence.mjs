@@ -89,6 +89,7 @@ const practicePage = read('static-web/src/pages/xizong/practice/[system].astro')
 const practiceUi = read('static-web/src/components/XizongPracticeWorkbench.astro');
 const questionAttemptLib = read('static-web/src/lib/xizongQuestionAttempts.mjs');
 const repairReturn = read('static-web/src/components/XizongSystemRepairReturn.astro');
+const systemWuReturn = read('static-web/src/lib/xizongSystemWuReturn.mjs');
 
 assert(blockGuard.includes('kianos-xizong-stale-evidence-v1:'), 'stale-block-evidence-not-archived');
 assert(blockGuard.includes('localStorage.removeItem(studyKey)'), 'stale-block-progress-not-invalidated');
@@ -106,16 +107,18 @@ assert(memoryModel.includes('export function completeRepairTask'), 'resolved-rep
 assert(memoryWorkspace.includes('completeRepairTask(state, item.id)'), 'visible-repair-not-closed-through-owner');
 assert(memoryWorkspace.includes('不把修完自动写成 mastery'), 'repair-closure-semantics-too-strong');
 
-assert(repairReturn.includes('kianos-xizong-repair-inbox-v1:'), 'system-repair-return-bypasses-inbox');
-assert(!repairReturn.includes('kianos-xizong-memory-review-v2:${objectId}'), 'system-repair-return-competes-for-block-evidence-store');
+assert(systemWuReturn.includes("inboxKey:'kianos-xizong-repair-inbox-v1:xizong:'"), 'system-repair-return-bypasses-inbox');
+assert(!systemWuReturn.includes('kianos-xizong-memory-review-v2:'), 'system-repair-return-competes-for-block-evidence-store');
 assert(blockPage.includes('<XizongRepairInboxBridge block={projection} />'), 'repair-inbox-bridge-not-mounted');
 assert(repairBridge.includes('kianos-xizong-repair-inbox-v1:'), 'repair-inbox-not-consumed');
-assert(repairBridge.includes('kianos-xizong-memory-review-v2:'), 'repair-inbox-does-not-merge-into-current-block-store');
-assert(repairBridge.includes("type: 'SYSTEM_WU_PLAN_IMPORTED'"), 'repair-inbox-import-event-missing');
-assert(repairBridge.includes("evidence_role: 'REPAIR_ONLY'"), 'repair-inbox-promoted-beyond-repair');
-assert(repairBridge.includes('source_question_ids:'), 'repair-inbox-loses-question-provenance');
+assert(repairBridge.includes('const next = setRepairTasks(memory, [...preserved, ...incoming]);'), 'repair-inbox-does-not-merge-into-current-memory-owner');
+assert(!repairBridge.includes('appendMemoryEvidence') && !repairBridge.includes('evidence.push'), 'repair-inbox-promoted-beyond-repair');
+assert(repairBridge.includes('sourceQuestionIds,'), 'repair-inbox-loses-question-provenance');
 assert(repairBridge.includes("window.addEventListener('storage'"), 'already-open-block-tab-cannot-receive-inbox');
-assert(repairBridge.includes('window.location.reload();'), 'repair-inbox-consume-does-not-rebuild-in-memory-owner');
+assert(repairBridge.includes('kianos:xizong-repair-inbox-migrated'), 'repair-inbox-consume-does-not-notify-runtime');
+const repairMemoryWriteIndex = repairBridge.indexOf('if (!writeJson(XIZONG_MEMORY_STORAGE_KEY, next))');
+const repairInboxClearIndex = repairBridge.indexOf('localStorage.removeItem(inboxKey)', repairMemoryWriteIndex);
+assert(repairMemoryWriteIndex >= 0 && repairInboxClearIndex > repairMemoryWriteIndex, 'repair-inbox-clears-before-memory-write');
 
 assert(systemGuard.includes("phase = answered === 0 ? 'PRE_QUESTION'"), 'system-recall-phase-ledger-missing');
 assert(systemGuard.includes("'POST_QUESTION'"), 'post-question-recall-phase-missing');
@@ -138,8 +141,9 @@ assert(questionAttemptLib.includes('Boolean(marks[questionId])'), 'marked-target
 assert(practiceUi.includes("if (relation?.knowledgePath && ['RESOLVED_KP','RESOLVED_BLOCK','BLOCK_ONLY'].includes(relation.targetStatus))"), 'missing-relation-is-being-guessed');
 assert(practiceUi.includes("if (relationWrap) {\n        relationWrap.hidden = true;"), 'missing-relation-does-not-fail-closed');
 
-assert(repairReturn.includes('allowed.has(row.questionId)'), 'repair-plan-not-scoped-to-actual-wu');
-assert(repairReturn.includes('!relation?.blockId || !relation?.primaryKpId'), 'repair-route-not-reviewed-only');
+assert(systemWuReturn.includes('currentXizongSystemWuEvidence(storage, value.system_id, questions)'), 'repair-plan-not-scoped-to-actual-wu');
+assert(systemWuReturn.includes('assertCurrentWuBinding(row, currentWu.get(row.question_id) || null)'), 'repair-plan-not-bound-to-current-wu-observation');
+assert(systemWuReturn.includes('!relation?.blockId || !relation?.primaryKpId || !route'), 'repair-route-not-reviewed-only');
 assert(!repairReturn.includes('localStorage.setItem("content/'), 'private-learner-evidence-writing-shared-content');
 
 console.log([
