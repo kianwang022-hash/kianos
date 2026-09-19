@@ -881,3 +881,79 @@ body#kianos-workspace.surfaceBody-home .homeL3Support .examDailyPacketStatus:emp
   body#kianos-workspace.surfaceBody-home .homeL3Meta,
   body#kianos-workspace.surfaceBody-home .homeL3TaskLinks { margin-left: 0; }
 }
+
+
+/* Direct Home candidate: Total Home is the normal execution entry.
+   Subject Homes remain manual fallback/navigation only. */
+body#kianos-workspace.surfaceBody-home .homeDirect {
+  width:min(980px,calc(100% - 48px));
+  margin:0 auto;
+  padding:26px 0 44px;
+}
+body#kianos-workspace.surfaceBody-home .homeDirectControl {
+  min-width:0;
+  border:1px solid var(--study-line);
+  border-radius:var(--study-radius);
+  background:var(--study-surface);
+  box-shadow:var(--study-shadow);
+  overflow:hidden;
+}
+body#kianos-workspace.surfaceBody-home .homeDirectControl .examToday {
+  padding:22px 24px 24px;
+}
+body#kianos-workspace.surfaceBody-home .homeDirectControl .examTodayHead h2 {
+  font-size:22px;
+}
+body#kianos-workspace.surfaceBody-home .homeDirectControl .examNext {
+  margin-top:18px;
+  padding:18px 20px;
+  border-radius:var(--study-radius-medium);
+  background:var(--study-green-soft);
+}
+body#kianos-workspace.surfaceBody-home .homeDirectControl .examNext > span {
+  display:block;
+  margin-bottom:6px;
+  color:var(--study-muted);
+  font-size:14px;
+  font-weight:var(--study-weight-shell);
+}
+body#kianos-workspace.surfaceBody-home .homeDirectControl [data-exam-next] {
+  display:block;
+  color:var(--study-ink);
+  font-size:24px;
+  line-height:1.35;
+  font-weight:var(--study-weight-title);
+  text-decoration:none;
+}
+body#kianos-workspace.surfaceBody-home .homeDirectControl [data-exam-next][aria-disabled="true"] {
+  color:var(--study-muted);
+}
+body#kianos-workspace.surfaceBody-home .homeFallbackNav {
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+  padding:14px 4px 0;
+  color:var(--study-muted);
+  font-size:14px;
+}
+body#kianos-workspace.surfaceBody-home .homeFallbackNav a {
+  color:var(--study-green);
+  font-weight:var(--study-weight-shell);
+  text-decoration:none;
+}
+body#kianos-workspace.surfaceBody-home .homeFallbackNav a:hover {
+  text-decoration:underline;
+}
+body#kianos-workspace.surfaceBody-home .homeRouteProbes {
+  display:none !important;
+}
+@media(max-width:760px){
+  body#kianos-workspace.surfaceBody-home .homeDirect {
+    width:calc(100% - 28px);
+    padding-top:16px;
+  }
+  body#kianos-workspace.surfaceBody-home .homeDirectControl .examToday {
+    padding:18px;
+  }
+}
