@@ -76,12 +76,16 @@ async function openImporter(page) {
   await page.locator('[data-transfer-input]').waitFor({ state: 'visible' });
 }
 
-async function importReturn(page, payload, { expectSuccess = true } = {}) {
+async function importReturn(page, payload, { expectSuccess = true, expectHide = true } = {}) {
   await openImporter(page);
   const text = returnText(payload);
   await page.locator('[data-transfer-input]').fill(text);
   await page.locator('[data-transfer-apply]').click();
-  if (expectSuccess) await page.waitForFunction(() => document.querySelector('[data-transfer-import]')?.hasAttribute('hidden'));
+  if (expectSuccess && expectHide) {
+    await page.waitForFunction(() => document.querySelector('[data-transfer-import]')?.hasAttribute('hidden'));
+  } else if (expectSuccess) {
+    await page.waitForFunction(() => /已应用/.test(document.querySelector('[data-transfer-status]')?.textContent || ''));
+  }
   return text;
 }
 
@@ -234,7 +238,7 @@ async function chromiumJourney() {
   await assertNoVisibleEngineering(page, 'cloze_saved_review_surface_has_no_engineering_language');
   const claimId = clozeClaims[0].claimId;
 
-  await importReturn(page, completedReturn);
+  await importReturn(page, completedReturn, { expectSuccess: true, expectHide: false });
   clozeClaims = await storeClaims(page, 'cloze');
   check(clozeClaims.length === 1, 'duplicate_return_is_idempotent');
 
