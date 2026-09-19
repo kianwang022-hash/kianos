@@ -150,40 +150,41 @@
     "C": {
       "role": "PRODUCTION_LOOKAHEAD",
       "current_assignment": {
-        "candidate_id": "BF11",
+        "candidate_id": "BF10",
         "range": [
-          1101,
-          1150
+          1001,
+          1100
         ],
-        "state": "WAITING_BOUNDED_HUMAN_DELTA_GATE",
-        "review_head": "39e522540033804d9dd37e15ce9002853a6abf85",
-        "review_branch": "work/lexical-final-backfill-c-o1101-o1150",
-        "proposal_pr": 538,
-        "proposal_head": "12950389375d96d59ef2815c73589f7d3019443c",
-        "proposal_path": "content/lexical/execution/manifests/o1101-o1150.final-standard-backfill-c-proposal.md",
-        "module_matrix_path": "content/lexical/execution/manifests/o1101-o1150.final-standard-backfill-c-module-matrix.tsv",
-        "fresh_read_coverage": "50/50",
-        "self_attack": "COMPLETE",
-        "content_upgrades": 12,
-        "content_no_change": 38,
-        "blocked": 0,
-        "new_material_delta_owners": [
-          1116,
-          1133,
-          1148,
-          1150
+        "state": "REVIEW_BUNDLE_READY",
+        "allowed_now": [
+          "freeze current main and export review bundle",
+          "fresh owner/module judgment",
+          "same-Chat Self-Adversarial Attack",
+          "write stabilized proposal/handoff metadata",
+          "request bounded Human delta Gate if genuinely new material scope exists"
         ],
-        "old_test_blueprints": 16,
-        "stabilized_test_blueprints": 9,
-        "canonical_semantic_mutation": false,
-        "shared_write_set_if_approved": [
-          "word:cozy@o5739",
-          "existing regional-spelling relation cosy↔cozy (retire/migrate to Form/Identity)",
-          "existing relation crazy↔mad (register/source-definition reconciliation)"
+        "forbidden_now": [
+          "mutate canonical Word/Relation/Form truth before frontier advances to this batch",
+          "materialize stale FLOB candidate",
+          "self-audit"
         ],
-        "semantic_freshness_note": "main advanced from review_head to 7ec3f81c, but the diff touched only the live board plus Xizong files; no lexical Word/Relation/Form owner or Lexical semantic contract in this proposal changed. Proposal remains current; refreeze semantic dependencies again at materialization.",
-        "semantic_dependency_policy": "Before approval consumption/materialization, refresh latest main, board, other-lane claims, and all related Word/Sense/Family/Form/Construction/Relation/Test dependencies; emit exact semantic_dependency_read_set in the mutation package.",
-        "next_action": "Kian reviews only the four genuinely new material deltas in the proposal. On p, mark DELTA_APPROVED_WAIT_FOR_FRONTIER. Do not materialize until BF11 is the serialized frontier."
+        "semantic_dependency_policy": "Before proposal freeze, inspect shared_semantic_claims and other producer dependencies; before any later materialization, refreeze latest main and emit exact semantic_dependency_read_set.",
+        "review_head": "16deb26e4777dc200c4b4e871c521410acb6dc99",
+        "review_branch": "work/lexical-final-backfill-c-o1001-o1100",
+        "review_request_commit": "89c45dde3219ca1ed6220b24bbd31e8ea2337cb7",
+        "review_transport_head": "7fec892ae54352595a8e29be6a70f6871c3169c5",
+        "review_workflow_run": 35451271234,
+        "review_artifact_id": 10586866145,
+        "review_artifact_digest": "sha256:edad6fef007a7a489b5c7691b841eceb3aed2cf54318108659ccb38ca2037930",
+        "review_bundle_coverage": "100/100",
+        "transport_shim": {
+          "reason": "o1043 contagious Relation relation_id hashes to 1b60... while Current physical owner remains at legacy 2df3... path",
+          "branch_only_path": "content/lexical/relations/by-id/1b/1b60f70a2f8856228caa1a53a29be4f8b5c9129de5fc771814f2d4a3ab9ff6aa.json",
+          "source_path": "content/lexical/relations/by-id/2d/2df3fb0a31b5e6c5c9a4b8230d8c6d187e4e5fe0262c019d53f4bd2a8ed248e7.json",
+          "semantic_delta": false,
+          "merge_to_main": false
+        },
+        "next_action": "Consume the frozen 100-owner review artifact, perform fresh owner/module judgment + same-Chat Self-Adversarial Attack, declare any shared semantic claims, then freeze the smallest proposal. Do not treat the branch-only relation path shim as canonical truth."
       },
       "scheduled_ranges": [
         [
@@ -212,8 +213,8 @@
         ]
       ],
       "next_new_review_range": [
-        1001,
-        1100
+        901,
+        1000
       ],
       "direction_note": "Preserve completed o0201-o0300 lookahead; all new C review proceeds high→low.",
       "preserved_assignments": [
@@ -242,6 +243,50 @@
           "semantic_freshness_note": "main advanced after freeze, but comparison from review_head to current main showed no Word/Relation/Form/lexical-contract changes in o0201-o0300 scope; refreeze again when BF02 reaches frontier.",
           "next_action": "Wait for BF02 to become the serialized frontier. Then refreeze latest main, reconcile changed/shared owners only, apply the stabilized proposal, materialize Final Learner Objects, and hand to a fresh B Chat for blind-first Independent Semantic Audit.",
           "semantic_dependency_policy": "Before frontier materialization, refreeze all related Word/Sense/Family/Form/Construction/Relation/Test dependencies and emit exact semantic_dependency_read_set in the mutation package."
+        },
+        {
+          "candidate_id": "BF11",
+          "range": [
+            1101,
+            1150
+          ],
+          "state": "DELTA_APPROVED_WAIT_FOR_FRONTIER",
+          "review_head": "39e522540033804d9dd37e15ce9002853a6abf85",
+          "review_branch": "work/lexical-final-backfill-c-o1101-o1150",
+          "proposal_pr": 538,
+          "proposal_head": "fb08729bb4087f701112d94ac34e56819dcb525e",
+          "proposal_path": "content/lexical/execution/manifests/o1101-o1150.final-standard-backfill-c-proposal.md",
+          "module_matrix_path": "content/lexical/execution/manifests/o1101-o1150.final-standard-backfill-c-module-matrix.tsv",
+          "fresh_read_coverage": "50/50",
+          "self_attack": "COMPLETE",
+          "content_upgrades": 12,
+          "content_no_change": 38,
+          "blocked": 0,
+          "new_material_delta_owners": [
+            1116,
+            1133,
+            1148,
+            1150
+          ],
+          "old_test_blueprints": 16,
+          "stabilized_test_blueprints": 9,
+          "canonical_semantic_mutation": false,
+          "shared_write_set_if_approved": [
+            "word:cozy@o5739",
+            "existing regional-spelling relation cosy↔cozy (retire/migrate to Form/Identity)",
+            "existing relation crazy↔mad (register/source-definition reconciliation)"
+          ],
+          "semantic_freshness_note": "main advanced from review_head to 7ec3f81c, but the diff touched only the live board plus Xizong files; no lexical Word/Relation/Form owner or Lexical semantic contract in this proposal changed. Proposal remains current; refreeze semantic dependencies again at materialization.",
+          "semantic_dependency_policy": "Before approval consumption/materialization, refresh latest main, board, other-lane claims, and all related Word/Sense/Family/Form/Construction/Relation/Test dependencies; emit exact semantic_dependency_read_set in the mutation package.",
+          "next_action": "Wait until BF11 is the serialized frontier. Then rerun the synchronization barrier, refreeze latest main and semantic dependencies, reconcile shared claims, emit the Final Mutation Package, materialize 7,946 Final Learner Objects, and hand to a fresh B Chat for blind-first Independent Semantic Audit.",
+          "human_gate": {
+            "approved": true,
+            "approved_at": "2026-09-19",
+            "approval_ref": "Kian p on o1101-o1150 Production C proposal",
+            "proposal_path": "content/lexical/execution/manifests/o1101-o1150.final-standard-backfill-c-proposal.md",
+            "proposal_blob_sha": "cda15b42cc78270baac48db66464f7b98599e1e2",
+            "sync_main_head": "e372c70eefedb4768247faef4198883afa698425"
+          }
         }
       ]
     }
