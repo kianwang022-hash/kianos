@@ -303,6 +303,7 @@ function objectiveEvidence(storage, lastKey, attemptPrefix) {
     attempt: attempt ? {
       schema: clean(attempt.schema, 120) || null,
       submitted: attempt.submitted === true,
+      stage: clean(attempt.stage, 80) || null,
       problem_count: problemCount(attempt),
       uncertain_count: Array.isArray(attempt.uncertain) ? attempt.uncertain.length : 0,
       started_at: clean(attempt.startedAt, 80) || null,
@@ -355,7 +356,7 @@ export function englishAttemptInventory(storage) {
   return rows; // Facts, never a recommendation or a priority score.
 }
 
-export function buildEnglishEvidencePacket(storage, { day, now = Date.now() } = {}) {
+export function buildEnglishEvidencePacket(storage, { day, now = Date.now(), catalog = [] } = {}) {
   if (!storage?.getItem) throw new Error('ENGLISH_EVIDENCE_STORAGE_UNAVAILABLE');
   if (!validDay(day)) throw new Error('ENGLISH_EVIDENCE_DAY_INVALID');
 
@@ -372,12 +373,19 @@ export function buildEnglishEvidencePacket(storage, { day, now = Date.now() } = 
       translation: productiveEvidence(storage, 'translation'),
       writing: productiveEvidence(storage, 'writing')
     }),
-    exam_session: summarizeEnglishExamSession(readEnglishExamSession(storage))
+    exam_session: summarizeEnglishExamSession(readEnglishExamSession(storage)),
+    available_external_reading: (Array.isArray(catalog) ? catalog : [])
+      .filter(row => row?.task === 'external_reading')
+      .map(row => ({
+        object_id: clean(row.object_id, 240),
+        source_hash: clean(row.source_hash, 128),
+        label: clean(row.label, 180) || null
+      }))
   };
 }
 
-export function buildEnglishChatHandoffText(storage, { day, now = Date.now() } = {}) {
-  const evidence = buildEnglishEvidencePacket(storage, { day, now });
+export function buildEnglishChatHandoffText(storage, { day, now = Date.now(), catalog = [] } = {}) {
+  const evidence = buildEnglishEvidencePacket(storage, { day, now, catalog });
   const generatedAt = new Date(now).toISOString();
   const returnShape = {
     schema: ENGLISH_SESSION_SCHEMA,
