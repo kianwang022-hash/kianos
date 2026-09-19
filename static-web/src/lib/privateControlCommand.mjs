@@ -60,8 +60,27 @@ export function buildPrivateControlReceipt(command, {
     command_id: valid.command_id,
     target: valid.target,
     study_day: valid.study_day,
+    issued_at: valid.issued_at,
+    command_signature: privateControlCommandSignature(valid),
     status: normalizedStatus,
     detail: clean(detail, 1000),
     applied_at: new Date(appliedAt).toISOString()
   };
+}
+
+function stable(value) {
+  if (Array.isArray(value)) return value.map(stable);
+  if (!value || typeof value !== 'object') return value;
+  return Object.fromEntries(Object.keys(value).sort().map((key) => [key, stable(value[key])]));
+}
+
+export function privateControlCommandSignature(input) {
+  const value = validatePrivateControlCommand(input);
+  const raw = JSON.stringify(stable(value));
+  let hash = 0x811c9dc5;
+  for (let index = 0; index < raw.length; index += 1) {
+    hash ^= raw.charCodeAt(index);
+    hash = Math.imul(hash, 0x01000193) >>> 0;
+  }
+  return 'cmd-' + hash.toString(16).padStart(8, '0');
 }
