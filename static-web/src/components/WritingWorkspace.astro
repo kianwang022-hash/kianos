@@ -11,13 +11,14 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
 ---
 <section
   class="writingRuntime"
-  data-writing-runtime
+  data-writing-runtime data-english-source-hash={task.sourceHash}
   data-task-id={task.id}
   data-task-kind={task.kind}
   data-source-kind={task.sourceKind}
   data-title={task.title}
   data-base={base}
 >
+  <script type="application/json" data-english-task-snapshot set:html={JSON.stringify({task:task.learnerTask,kind:task.kind,targetWords:task.targetWords}).replace(/</g, "\\u003c")}></script>
   <header class="writingRuntimeHeader">
     <a href={`${base}writing/`}>‹ Writing</a>
     <div>
@@ -49,6 +50,7 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
         ) : (
           <>
             {task.learnerTask.visual_scenario && <p class="writingVisualScenario">{task.learnerTask.visual_scenario}</p>}
+            {task.learnerTask.images?.map(image => <img data-writing-source-visual src={`${base}${image.asset_path}`} alt={image.alt} style="max-width:100%;height:auto" />)}
             <blockquote>{task.learnerTask.directions}</blockquote>
           </>
         )}
@@ -182,6 +184,9 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
 </section>
 
 <script>
+  import {prepareEnglishLexicalReturn} from '../lib/englishLexicalReturn.mjs';
+  import {admitWritingTransferCandidate,createWritingEvidenceLedger} from '../lib/writingEvidenceModel.mjs';
+  import {readEnglishJson,inspectEnglishAttempt, saveEnglishAttempt, archiveEnglishAttempt, taskMetadata, preserveEnglishFailure} from "../lib/englishLearnerEvidence.mjs";
   import {
     WRITING_STATES,
     createInitialWritingRecord,
@@ -197,8 +202,10 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
     resetWritingAttempt
   } from '../lib/writingRuntimeModel.mjs';
 
+  function initWritingWorkspace() {
   const root = document.querySelector('[data-writing-runtime]');
-  if (root instanceof HTMLElement) {
+  if (root instanceof HTMLElement && !root.dataset.englishInitialized && !root.closest('[data-exam-runtime]')?.hidden) {
+    root.dataset.englishInitialized = 'true';
     let task = null;
     try { task = JSON.parse(root.querySelector('[data-writing-task]')?.textContent || 'null'); } catch {}
     if (!task?.id) throw new Error('WRITING_RUNTIME_TASK_PAYLOAD_MISSING');
@@ -208,9 +215,9 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
       ? `kianos-english-exam-task-v1:${examSessionId}:writing:${task.id}`
       : `kianos-writing-runtime-v1:${task.id}`;
     const lastLocationKey = 'kianos-writing-last-location-v1';
-    let saved = null;
-    try { saved = JSON.parse(localStorage.getItem(storageKey) || 'null'); } catch {}
-    let record = normalizeWritingRecord(task, saved);
+    const metadata=taskMetadata(root,'writing',task.id);
+    const saved=inspectEnglishAttempt(localStorage,storageKey,metadata,{sessionId:examSessionId,root});
+    let record;try{record=normalizeWritingRecord(task,saved);}catch(error){throw preserveEnglishFailure(root,error);}
 
     const stageMap = {
       [WRITING_STATES.ATTEMPT]: 'attempt',
@@ -239,7 +246,9 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
 
     function persist() {
       record.updatedAt = new Date().toISOString();
-      try { localStorage.setItem(storageKey, JSON.stringify(record)); } catch {}
+      const evidenceKey='kianos-writing-evidence-v1';
+      const extraChanges=examSessionId?[]:[[evidenceKey,admitWritingTransferCandidate(createWritingEvidenceLedger(readEnglishJson(localStorage,evidenceKey)),task,record)]];
+      saveEnglishAttempt(localStorage,storageKey,record,metadata,{sessionId:examSessionId,root,extraChanges});
       if (!examSessionId) {
         try {
           localStorage.setItem(lastLocationKey, JSON.stringify({
@@ -369,7 +378,7 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
           firstPlan: plan instanceof HTMLTextAreaElement ? plan.value : record.draftPlan,
           firstDraft: essay instanceof HTMLTextAreaElement ? essay.value : record.draftEssay
         });
-        setStatus('[data-attempt-status]', 'first evidence 已锁定。下一步交给 Chat 做 whole-essay semantic judgment。');
+        setStatus('[data-attempt-status]', '第一版已保留。稳定可以结束；有值得处理的问题再复盘。');
         render();
       } catch (error) {
         setStatus('[data-attempt-status]', error instanceof Error ? error.message : String(error), true);
@@ -381,11 +390,16 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
       catch (error) { setStatus('[data-copy-review-status]', error instanceof Error ? error.message : String(error), true); }
     });
 
-    root.querySelector('[data-import-review]')?.addEventListener('click', () => {
+    root.querySelector('[data-import-review]')?.addEventListener('click', async () => {
       try {
         const text = reviewReturnBox instanceof HTMLTextAreaElement ? reviewReturnBox.value : '';
         const parsed = validateWritingReviewReturn(text, task.id);
-        record = applyWritingReviewReturn(record, parsed);
+        if(JSON.stringify(record.reviewReturn)===JSON.stringify(parsed))return;
+        const rawState=localStorage.getItem(storageKey);
+        const next = applyWritingReviewReturn(record, parsed);
+        const lexical=await prepareEnglishLexicalReturn(localStorage,{task:'writing',objectId:task.id,attemptSubmittedAt:record.firstSubmittedAt,attemptBinding:record.firstEvidenceMeta||record.binding,threads:parsed.lexicalThreads||[],base:import.meta.env.BASE_URL});
+        saveEnglishAttempt(localStorage,storageKey,next,metadata,{root,extraChanges:lexical.changes,guards:[[storageKey,rawState],...lexical.guards]});
+        record=next;
         if (reviewReturnBox instanceof HTMLTextAreaElement) reviewReturnBox.value = '';
         setStatus('[data-review-status]', parsed.verdict === 'PASS_ACCEPTABLE' ? 'PASS / ACCEPTABLE · 不创建 repair debt。' : '已导入 first meaningful failure。');
         render();
@@ -430,6 +444,8 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
 
     root.querySelector('[data-reset-attempt]')?.addEventListener('click', () => {
       if (!confirm('归档本轮并重新开始这篇 synthetic Writing？')) return;
+      if(examSessionId)return;
+      archiveEnglishAttempt(localStorage,storageKey);
       record = resetWritingAttempt(task, record);
       if (reviewReturnBox instanceof HTMLTextAreaElement) reviewReturnBox.value = '';
       if (repairReturnBox instanceof HTMLTextAreaElement) repairReturnBox.value = '';
@@ -438,6 +454,9 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
 
     render();
   }
+  }
+  initWritingWorkspace();
+  window.addEventListener('kianos:writing-task-opened', initWritingWorkspace);
 </script>
 
 <style>

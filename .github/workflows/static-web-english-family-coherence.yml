@@ -14,14 +14,24 @@ on:
       - 'static-web/src/pages/reading/**'
       - 'static-web/src/pages/cloze/**'
       - 'static-web/src/pages/translation/**'
+      - 'static-web/src/pages/external-reading.astro'
       - 'static-web/src/pages/vocabulary/**'
       - 'static-web/src/components/English*.astro'
+      - 'static-web/src/components/External*.astro'
       - 'static-web/src/components/Reading*.astro'
       - 'static-web/src/components/Cloze*.astro'
       - 'static-web/src/components/Translation*.astro'
       - 'static-web/src/components/Vocabulary*.astro'
       - 'static-web/src/styles/english*.css'
       - 'static-web/src/lib/englishExamPaper.mjs'
+      - 'static-web/src/lib/englishLearnerEvidence.mjs'
+      - 'static-web/scripts/privateExternalReadingStore.mjs'
+      - 'static-web/scripts/privateExternalReadingBridge.mjs'
+      - 'static-web/scripts/test-external-reading-content.mjs'
+      - 'static-web/scripts/test-external-reading-session-control.mjs'
+      - 'static-web/scripts/test-external-reading-browser.mjs'
+      - 'static-web/scripts/externalReadingSyntheticFixture.mjs'
+      - 'tools/english-external/**'
       - 'static-web/src/lib/englishExamSession.mjs'
       - 'static-web/src/components/EnglishExamTaskBridge.astro'
       - 'static-web/src/pages/english-exam.astro'
@@ -49,14 +59,24 @@ on:
       - 'static-web/src/pages/reading/**'
       - 'static-web/src/pages/cloze/**'
       - 'static-web/src/pages/translation/**'
+      - 'static-web/src/pages/external-reading.astro'
       - 'static-web/src/pages/vocabulary/**'
       - 'static-web/src/components/English*.astro'
+      - 'static-web/src/components/External*.astro'
       - 'static-web/src/components/Reading*.astro'
       - 'static-web/src/components/Cloze*.astro'
       - 'static-web/src/components/Translation*.astro'
       - 'static-web/src/components/Vocabulary*.astro'
       - 'static-web/src/styles/english*.css'
       - 'static-web/src/lib/englishExamPaper.mjs'
+      - 'static-web/src/lib/englishLearnerEvidence.mjs'
+      - 'static-web/scripts/privateExternalReadingStore.mjs'
+      - 'static-web/scripts/privateExternalReadingBridge.mjs'
+      - 'static-web/scripts/test-external-reading-content.mjs'
+      - 'static-web/scripts/test-external-reading-session-control.mjs'
+      - 'static-web/scripts/test-external-reading-browser.mjs'
+      - 'static-web/scripts/externalReadingSyntheticFixture.mjs'
+      - 'tools/english-external/**'
       - 'static-web/src/lib/englishExamSession.mjs'
       - 'static-web/src/components/EnglishExamTaskBridge.astro'
       - 'static-web/src/pages/english-exam.astro'
@@ -93,6 +113,12 @@ jobs:
       - name: Install runtime
         working-directory: static-web
         run: npm install --no-audit --no-fund
+      - name: Validate External Reading private-content boundary
+        working-directory: static-web
+        run: node scripts/test-external-reading-content.mjs
+      - name: Validate External Reading Chat Resume
+        working-directory: static-web
+        run: node scripts/test-external-reading-session-control.mjs
       - name: Validate Chat-owned English control
         working-directory: static-web
         run: node scripts/validate-english-chat-control.mjs
@@ -110,6 +136,9 @@ jobs:
         run: |
           npm install --no-save --no-audit --no-fund playwright@1.56.1
           npx playwright install --with-deps chromium
+      - name: Execute External Reading browser journey
+        working-directory: static-web
+        run: node scripts/test-external-reading-browser.mjs
       - name: Execute English family coherence journey
         working-directory: static-web
         run: node scripts/test-english-family-coherence.mjs

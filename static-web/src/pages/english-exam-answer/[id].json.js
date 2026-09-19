@@ -30,6 +30,7 @@ export function GET({ props }) {
     steps[step.step_id] = {
       task: step.task,
       object_id: step.object_id,
+      source_hash:step.source_hash,
       answers: packet.answers
     };
   }

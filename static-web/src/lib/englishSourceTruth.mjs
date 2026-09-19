@@ -350,7 +350,8 @@ export function projectWritingRuntimeSourceTruth(task) {
       }
     : {
         ...(task.learnerTask || {}),
-        visual_scenario: [...visuals, ...contexts, ...materials].join('\n\n') || task.learnerTask?.visual_scenario || '',
+        visual_scenario: '', // Original visual, not provenance prose or an interpreted substitute.
+        images: (context.images || []).map(image => ({asset_path:image.asset_path, alt:'原始题面图表', asset_sha256:image.asset_sha256})),
         directions: officialPrompt || task.learnerTask?.directions || '',
         official: officialEvidence
       };

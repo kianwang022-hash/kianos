@@ -1,9 +1,11 @@
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 import path from 'node:path';
-import { listReadingSets } from './englishReadingSourceTruth.mjs';
-import { listClozeSets, listReadingBSets } from './englishObjectiveSourceTruth.mjs';
-import { listTranslationSets } from './englishTranslationSourceTruth.mjs';
-import { listWritingTasks } from './englishWriting.mjs';
+import { listReadingSets, loadReadingById } from './englishReadingSourceTruth.mjs';
+import { listClozeSets, listReadingBSets, loadClozeById, loadReadingBById } from './englishObjectiveSourceTruth.mjs';
+import { listTranslationSets, loadTranslationById } from './englishTranslationSourceTruth.mjs';
+
+import {loadWritingExamRuntimeTask,listWritingExamRuntimeTasks} from './englishWritingRuntimeSourceTruth.mjs';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT
   ? path.resolve(process.env.KIANOS_REPO_ROOT)
@@ -53,7 +55,13 @@ function writingByKind(rows, kind) {
 
 function buildStep(task, row, index, maxPoints, extra = {}) {
   if (!row?.id) throw new Error(`ENGLISH_EXAM_STEP_ID_MISSING:${task}:${index}`);
+  const object=({reading_a:loadReadingById,cloze:loadClozeById,reading_b:loadReadingBById,translation:loadTranslationById,writing:loadWritingExamRuntimeTask})[task](row.id);
+  const snapshot=task==='writing'?{task:object.learnerTask,kind:object.kind,targetWords:object.targetWords}:{title:object.title,paragraphs:object.paragraphs||null,material:object.material||null,context:object.context||null,candidates:object.candidates||null,questions:object.questions||null,prompts:object.prompts||null};
+  const ids=(object.questions||object.prompts||[]).map(q=>String(q.id||q.question_id));
   return {
+    source_hash: object.sourceHash || object.sourceHashes?.renderedObject || null,
+    question_ids: ids,
+    task_snapshot: snapshot,
     step_id: `${task}:${row.id}`,
     task,
     object_id: String(row.id),
@@ -70,7 +78,7 @@ function buildPapers() {
   const readingA = byPaper(listReadingSets());
   const readingB = byPaper(listReadingBSets());
   const translation = byPaper(listTranslationSets());
-  const writing = byPaper(listWritingTasks());
+  const writing = byPaper(listWritingExamRuntimeTasks());
 
   const candidates = [...new Set([
     ...cloze.keys(),
@@ -150,7 +158,7 @@ export function loadEnglishExamPaper(paperId) {
   if (!cache) cache = buildPapers();
   const paper = cache.find((row) => row.paper_id === paperId);
   if (!paper) throw new Error(`ENGLISH_EXAM_PAPER_NOT_READY:${paperId}`);
-  return JSON.parse(JSON.stringify(paper));
+  return {...JSON.parse(JSON.stringify(paper)), source_hash:crypto.createHash('sha256').update(JSON.stringify(paper)).digest('hex')};
 }
 
 export function reorderEnglishExamSteps(paper, taskOrder = null) {

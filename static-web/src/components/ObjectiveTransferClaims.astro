@@ -4,6 +4,8 @@ const { task = '' } = Astro.props;
 <span data-objective-transfer-runtime data-transfer-task={task} hidden></span>
 
 <script>
+  import {prepareEnglishLexicalReturn} from "../lib/englishLexicalReturn.mjs";
+  import {atomicEnglishWrites} from "../lib/englishLearnerEvidence.mjs";
   const STORE_KEY = 'kianos-english-objective-transfer-claims-v1';
   const RETURN_SCHEMA = 'kianos.english.objective_review_return.v1';
   const RETURN_MARKER = 'KIANOS_OBJECTIVE_RETURN_V1';
@@ -60,7 +62,8 @@ const { task = '' } = Astro.props;
     if (!thread || typeof thread !== 'object') return null;
     const route = String(thread.route || '').trim();
     if (!VALID_ROUTES.has(route)) return null;
-    const scope = VALID_SCOPES.has(String(thread.scope || '')) ? String(thread.scope) : 'local';
+    if(!VALID_SCOPES.has(String(thread.scope||'')))return null;
+    const scope=String(thread.scope);
     return {
       threadId: String(thread.threadId || `t${index + 1}`),
       scope,
@@ -68,6 +71,7 @@ const { task = '' } = Astro.props;
       route,
       summary: String(thread.summary || '').trim().slice(0, 1200),
       repairCompleted: thread.repairCompleted === true,
+      lexicalEvidence: thread.lexicalEvidence || null,
       repairEvidence: String(thread.repairEvidence || '').trim().slice(0, 1600)
     };
   };
@@ -201,7 +205,9 @@ const { task = '' } = Astro.props;
       }
     };
 
-    const applyReturn = () => {
+    let applying=false;
+    const applyReturn = async () => {
+      if(applying)return;
       const node = ensurePanel();
       const input = node.querySelector('[data-transfer-input]');
       const status = node.querySelector('[data-transfer-status]');
@@ -221,6 +227,19 @@ const { task = '' } = Astro.props;
         if (status) status.textContent = '当前作答尚未提交，不能导入学习状态。';
         return;
       }
+      if(payload.attemptSubmittedAt!==attempt.submittedAt || !payload.sourceHash || payload.sourceHash!==attempt.binding?.source_hash){
+        if(status)status.textContent='返回包不属于当前这次作答/内容版本，未写入。';return;
+      }
+      if(['threads','newClaims','claimUpdates'].some(k=>payload[k]!=null&&!Array.isArray(payload[k]))){if(status)status.textContent='返回包数组格式错误，未写入。';return;}
+      const fingerprint=JSON.stringify(payload);
+      const previousReview=readJson(reviewKey,null);
+      if(previousReview?.packetFingerprint===fingerprint && previousReview?.attemptSubmittedAt===attempt.submittedAt){if(status)status.textContent='这份返回已应用；没有重复写入。';return;}
+      const originalAttempt=localStorage.getItem(attemptKey);
+      const originalStore=localStorage.getItem(STORE_KEY);
+      const originalReview=localStorage.getItem(reviewKey);
+      const ids=new Set([...root.querySelectorAll(readingMode?'[data-question]':'[data-objective-question]')].map(n=>n.getAttribute(readingMode?'data-question':'data-objective-question')));
+      const rawThreads=Array.isArray(payload.threads)?payload.threads:[];
+      if(!Array.isArray(payload.threads) || rawThreads.some((t,i)=>!normalizeThread(t,i)||!Array.isArray(t.itemIds)||t.itemIds.some(id=>!ids.has(String(id)))) || new Set(rawThreads.map((t,i)=>t.threadId||`t${i+1}`)).size!==rawThreads.length){if(status)status.textContent='复盘目标不完整或不属于当前题组；整包未写入。';return;}
       const handoff = readHandoff();
       const allowedActive = new Set(Array.isArray(handoff?.activeClaimIds) ? handoff.activeClaimIds.map(String) : []);
       const allowedReopen = new Set(Array.isArray(handoff?.reopenCandidateIds) ? handoff.reopenCandidateIds.map(String) : []);
@@ -244,7 +263,7 @@ const { task = '' } = Astro.props;
         const index = claims.findIndex((claim) => claim?.claimId === claimId && claim?.task === task);
         if (index < 0) { skipped += 1; return; }
         const claim = claims[index];
-        const freshObject = String(claim?.sourceObjectId || '') !== objectId;
+        const freshObject = String(claim?.sourceObjectId || '') !== objectId && (attempt.firstEvidenceMeta||attempt.binding)?.prior_exposure==='unseen' && (attempt.firstEvidenceMeta||attempt.binding)?.assistance==='unassisted' && attempt.firstEvidenceMeta?.timing_status!=='budget_exceeded';
 
         if (requested === 'CLOSED') {
           if (!handoff || !allowedActive.has(claimId) || claim.status !== 'TRANSFER_PENDING' || !freshObject || !evidence) { skipped += 1; return; }
@@ -343,15 +362,23 @@ const { task = '' } = Astro.props;
         task,
         objectId,
         threads,
+        attemptSubmittedAt:attempt.submittedAt,attemptBinding:attempt.firstEvidenceMeta||attempt.binding,
+        sourceHash:payload.sourceHash,
+        packetFingerprint:fingerprint,
         importedAt,
         acceptedUpdates,
         acceptedClaims,
         skipped
       };
-      if (!persistPair({ version: 1, claims }, nextReview)) {
-        if (status) status.textContent = '本机保存失败，未完成导入；你的粘贴内容已保留，可以重试。';
-        return;
-      }
+      if(skipped){if(status)status.textContent='返回包含不匹配或证据不足的项目；整包未写入，请修正后重试。';return;}
+      applying=true;
+      try {
+        const prepared=await prepareEnglishLexicalReturn(localStorage,{task,objectId,attemptSubmittedAt:attempt.submittedAt,attemptBinding:attempt.firstEvidenceMeta||attempt.binding,threads:rawThreads});
+        if(localStorage.getItem(attemptKey)!==originalAttempt || localStorage.getItem(STORE_KEY)!==originalStore || localStorage.getItem(reviewKey)!==originalReview || prepared.guards.some(([key,raw])=>localStorage.getItem(key)!==raw))throw new Error('ENGLISH_RETURN_STALE_DURING_VALIDATION');
+        atomicEnglishWrites(localStorage,[[STORE_KEY,{version:1,claims}],[reviewKey,nextReview],...prepared.changes]);
+        if(prepared.events.length)window.dispatchEvent(new CustomEvent('kianos:lexical-evidence-changed'));
+      } catch(error){if(status)status.textContent='整包未应用：'+String(error.message||error);return;}
+      finally{applying=false;}
 
       if (input) input.value = '';
       const importBox = node.querySelector('[data-transfer-import]');

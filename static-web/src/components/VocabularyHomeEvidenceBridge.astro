@@ -36,7 +36,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
     const saveJson = (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); } catch {} };
     const rawLedger = normalizeLexicalLedger(readJson(LEXICAL_LEDGER_STORAGE_KEY, emptyLexicalLedger()));
     const reconciled = reconcileEvidenceIdentity(rawLedger, lineage).ledger;
-    saveJson(LEXICAL_LEDGER_STORAGE_KEY, reconciled);
+    if(!(new URLSearchParams(location.search).has('lookup')||new URLSearchParams(location.search).get('from')==='english'))saveJson(LEXICAL_LEDGER_STORAGE_KEY, reconciled);
     const readLedger = () => normalizeLexicalLedger(readJson(LEXICAL_LEDGER_STORAGE_KEY, reconciled));
     const localStudyDay = () => new Date().toLocaleDateString('en-CA');
     const eventLocalDay = (iso) => {

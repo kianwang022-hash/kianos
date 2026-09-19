@@ -1,6 +1,6 @@
 # English Current
 
-Role: **English engineering Work Cursor + scope router**  
+Role: **English engineering Work Cursor + scope router**
 Parent: root `CURRENT.md`
 
 This file does not own English Learning Logic, canonical Content, Acceptance Truth or learner progress.
@@ -11,7 +11,16 @@ A bare `继续英语 / 继续 Reading / 继续 Translation / 继续 Writing / �
 
 ## Current engineering state
 
-Objective / Translation / Writing remain accepted through their current scoped `S/K/L/P/R/E` evidence; real learner `U` remains real-use-only.
+Fresh independent final audit has executed against `c8ae5404fcaf57f3bf5f8c583b1a0249e0907f9b` and produced a repaired candidate.
+
+**Active ref:** `audit/english-final-independent-20260919`
+**Result:** read `content/english/ACCEPTANCE.md` from that ref, not a missing/stale main copy.
+**Stage:** independent execution/reconciliation complete; English-wide release **BLOCKED**.
+**Remaining:** exact 2011/2026 Big Writing originals; material Mac Kian Human Gate. External Reading remains inventory-only and must not be described as executable.
+**Next:** obtain the bounded Source/Human Gate inputs; revalidate only the affected Source/presentation slices. Shared English+Lexical checkpoint durability is closed for the tested boundary. Do not restart A/B/C or broad historical CI.
+**U:** UNTESTED; no synthetic evidence becomes learner history.
+
+Task brief: `FINAL_LEARNER_ACCEPTANCE_BRIEF.md` on the active ref. Candidate tests/fixes are not deployed on main merely because this cursor routes to them. Historical child PASS is retained only within the narrowed path boundaries recorded by the fresh result.
 
 Shared Visual Foundation + Shared Shell are now cross-system Current on `main` through #389. English is **not** the current owner/writer of Shared Shell merely because older UI work once used that assignment.
 
