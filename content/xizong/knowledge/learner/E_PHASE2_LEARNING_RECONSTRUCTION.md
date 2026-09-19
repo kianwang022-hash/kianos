@@ -3,7 +3,8 @@
 Status: **BUILDER CANDIDATE COMPLETE · READY FOR FRESH INDEPENDENT L AUDIT**  
 Date: 2026-09-20  
 Scope: E — Reproductive / Breast  
-Object: `content/xizong/knowledge/learner/e-reproductive-breast-learning.json`
+Object: `content/xizong/knowledge/learner/e-reproductive-breast-learning-candidate.json`  
+Lifecycle rule: **unaccepted candidate stays outside the live `*-learning.json` owner namespace; only fresh L acceptance may promote it to the canonical live owner.**
 
 ## 1｜Authority and construction boundary
 
