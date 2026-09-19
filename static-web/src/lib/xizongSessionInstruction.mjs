@@ -1,7 +1,6 @@
 import {
   XIZONG_MEMORY_STORAGE_KEY,
-  normalizeXizongMemoryState,
-  requestMemoryReview
+  normalizeXizongMemoryState
 } from './xizongMemoryModel.mjs';
 
 export const XIZONG_SESSION_SCHEMA = 'kianos.xizong.session-instruction.v1';
@@ -33,8 +32,8 @@ function memoryTarget(raw, stepId, index) {
   const cardId = clean(raw.card_id || raw.cardId, 240);
   const sourceHash = clean(raw.source_hash || raw.sourceHash, 180);
   const blockId = clean(raw.block_id || raw.blockId, 200);
-  if (!cardId || !sourceHash) fail('MEMORY_TARGET_IDENTITY_REQUIRED', stepId + ':' + index);
-  return { card_id: cardId, source_hash: sourceHash, block_id: blockId || null };
+  if (!cardId || !blockId || !sourceHash) fail('MEMORY_TARGET_IDENTITY_REQUIRED', stepId + ':' + index);
+  return { card_id: cardId, block_id: blockId, source_hash: sourceHash };
 }
 
 function normalizeStep(raw, index) {
@@ -168,46 +167,24 @@ function writeAtomically(storage, writes) {
   }
 }
 
-function exactSessionReason(instruction, step) {
-  return 'CHAT_SESSION:' + instruction.session_id + ':' + step.step_id;
-}
-
 function validateMemoryTargets(memory, step) {
   for (const target of step.targets) {
     const card = memory.cards?.[target.card_id];
     if (!card) fail('MEMORY_CARD_UNKNOWN', target.card_id);
-    if (String(card.sourceHash || '') !== target.source_hash) {
-      fail('MEMORY_SOURCE_REVISION_MISMATCH', target.card_id);
-    }
-    if (target.block_id && String(card.blockId || '') !== target.block_id) {
+    if (String(card.blockId || '') !== target.block_id) {
       fail('MEMORY_BLOCK_MISMATCH', target.card_id);
     }
-  }
-}
-
-function clearSessionOwnedMemoryAttention(memoryInput, instruction, step) {
-  let memory = normalizeXizongMemoryState(memoryInput);
-  for (const target of step.targets) {
-    const row = memory.attention?.[target.card_id];
-    if (row?.reviewRequested === true && String(row?.reason || '') === exactSessionReason(instruction, step)) {
-      memory = requestMemoryReview(memory, target.card_id, false, '');
+    const releasedBlock = memory.releasedBlocks?.[target.block_id];
+    if (!releasedBlock) fail('MEMORY_RELEASE_OWNER_MISSING', target.block_id);
+    if (String(releasedBlock.sourceHash || '') !== target.source_hash) {
+      fail('MEMORY_SOURCE_REVISION_MISMATCH', target.card_id);
     }
   }
-  return memory;
 }
 
 function cleanupSupersededSession(storage, priorInstruction, priorRuntime) {
   const writes = [];
   const current = priorInstruction.steps[priorRuntime.current_step] || null;
-
-  if (current?.kind === 'MEMORY_REVIEW' && priorRuntime.activated_at) {
-    const memory = clearSessionOwnedMemoryAttention(
-      parseJson(storage, XIZONG_MEMORY_STORAGE_KEY, null),
-      priorInstruction,
-      current
-    );
-    writes.push([XIZONG_MEMORY_STORAGE_KEY, memory]);
-  }
 
   const activeSet = parseJson(storage, XIZONG_CHAT_SET_KEY, null);
   if (activeSet?.set_id && String(activeSet.set_id).startsWith(priorInstruction.session_id + ':')) {
@@ -278,7 +255,11 @@ function stepComplete(storage, instruction, runtime, step) {
 
   if (step.kind === 'PRACTICE_SET') {
     const sweep = parseJson(storage, xizongChatSetSweepKey(instruction.session_id, step.step_id), null);
-    return step.question_ids.every((id) => sweep?.results?.[id]);
+    const history = Array.isArray(sweep?.attemptHistory) ? sweep.attemptHistory : [];
+    return step.question_ids.every((id) =>
+      Boolean(sweep?.results?.[id])
+      || history.some((row) => row?.type === 'QUESTION_ATTEMPT' && row?.question_id === id)
+    );
   }
 
   return false;
@@ -295,14 +276,7 @@ export function advanceXizongSessionIfComplete(storage) {
   }
 
   const writes = [];
-  if (step.kind === 'MEMORY_REVIEW') {
-    const memory = clearSessionOwnedMemoryAttention(
-      parseJson(storage, XIZONG_MEMORY_STORAGE_KEY, null),
-      instruction,
-      step
-    );
-    writes.push([XIZONG_MEMORY_STORAGE_KEY, memory]);
-  } else if (step.kind === 'PRACTICE_SET') {
+  if (step.kind === 'PRACTICE_SET') {
     const activeSet = parseJson(storage, XIZONG_CHAT_SET_KEY, null);
     if (activeSet?.set_id === instruction.session_id + ':' + step.step_id) {
       writes.push([XIZONG_CHAT_SET_KEY, null]);
@@ -345,17 +319,10 @@ export function activateXizongSessionCurrentStep(storage, {
   const writes = [];
 
   if (step.kind === 'MEMORY_REVIEW') {
-    let memory = normalizeXizongMemoryState(parseJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
+    const memory = normalizeXizongMemoryState(parseJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
     validateMemoryTargets(memory, step);
-    for (const target of step.targets) {
-      memory = requestMemoryReview(
-        memory,
-        target.card_id,
-        true,
-        exactSessionReason(instruction, step)
-      );
-    }
-    writes.push([XIZONG_MEMORY_STORAGE_KEY, memory]);
+    // Chat selection is session-local execution state, not durable weakness/attention.
+    // The Memory page reads exact targets from the active Session instruction.
   }
 
   if (step.kind === 'PRACTICE_SET') {
