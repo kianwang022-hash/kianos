@@ -1,4 +1,5 @@
 import {
+  XIZONG_MEMORY_SCHEMA,
   XIZONG_MEMORY_STORAGE_KEY,
   normalizeXizongMemoryState,
   setRepairTasks
@@ -15,6 +16,17 @@ const PRIORITIES = new Set(['high', 'medium', 'low', 'normal']);
 
 function fail(code, detail = '') {
   throw new Error('XIZONG_CHAT_RETURN_' + code + (detail ? ':' + detail : ''));
+}
+
+function readMemoryForMutation(raw) {
+  if (raw == null) return normalizeXizongMemoryState(null);
+  let value;
+  try { value = JSON.parse(raw); }
+  catch { fail('MEMORY_STATE_CORRUPT'); }
+  if (!value || typeof value !== 'object' || Array.isArray(value)) fail('MEMORY_STATE_INVALID');
+  if (value.schema && value.schema !== XIZONG_MEMORY_SCHEMA) fail('MEMORY_SCHEMA_INVALID');
+  if (value.repairTasks != null && !Array.isArray(value.repairTasks)) fail('MEMORY_REPAIR_TASKS_INVALID');
+  return normalizeXizongMemoryState(value);
 }
 
 function stable(value) {
