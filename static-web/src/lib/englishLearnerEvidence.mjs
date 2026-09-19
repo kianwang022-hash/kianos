@@ -113,15 +113,16 @@ export function markEnglishAssistance(storage,task,objectId,now=Date.now()){
 }
 
 const ENGLISH_KEYS=/^kianos-(?:reading-(?:attempt|session|continuous|last-location)|cloze-(?:attempt|last-location)|reading-b-(?:attempt|last-location)|translation-(?:attempt|transfer|last-location)|writing-(?:runtime|evidence|last-location)|english-(?:exam|session|objective|material|attempt))/;
+export function englishCheckpointKeyAllowed(key){return ENGLISH_KEYS.test(String(key||''));}
 export function exportEnglishCheckpoint(storage){
- const entries={};for(let i=0;i<storage.length;i++){const key=storage.key(i);if(ENGLISH_KEYS.test(key)){const raw=storage.getItem(key);JSON.parse(raw);entries[key]=raw;}}
+ const entries={};for(let i=0;i<storage.length;i++){const key=storage.key(i);if(englishCheckpointKeyAllowed(key)){const raw=storage.getItem(key);JSON.parse(raw);entries[key]=raw;}}
  return {schema:'kianos.english.private-payload.v1',entries};
 }
 export function restoreEnglishCheckpoint(storage,payload){
  if(payload?.schema!=='kianos.english.private-payload.v1'||!payload.entries||Array.isArray(payload.entries))throw new Error('ENGLISH_CHECKPOINT_SCHEMA_INVALID');
  const changes=[];
  for(const [key,raw] of Object.entries(payload.entries)){
-  if(!ENGLISH_KEYS.test(key)||typeof raw!=='string')throw new Error('ENGLISH_CHECKPOINT_KEY_INVALID');JSON.parse(raw);
+  if(!englishCheckpointKeyAllowed(key)||typeof raw!=='string')throw new Error('ENGLISH_CHECKPOINT_KEY_INVALID');JSON.parse(raw);
   const existing=storage.getItem(key);if(existing!=null&&existing!==raw)throw new Error('ENGLISH_CHECKPOINT_CONFLICT_KEEP_LOCAL:'+key);
   changes.push([key,raw]);
  }
