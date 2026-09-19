@@ -93,6 +93,8 @@ const exported2=attachXizongChatReturnContract(storage,packet,{
 assert.equal(exported1.chat_return_contract.handoff_id,exported2.chat_return_contract.handoff_id,
   'same current evidence must reuse one stable handoff');
 assert.equal(exported1.chat_return_contract.origin.evidence_version,xizongStudyPacketEvidenceVersion(packet));
+assert.deepEqual(exported1.chat_return_contract.allowed_kp_ids,['kp01','kp02']);
+assert.deepEqual(exported1.chat_return_contract.allowed_question_ids,['xizong-official-2024-n001']);
 assert.equal([...storage.map.keys()].filter(k=>k.startsWith('kianos-xizong-chat-handoff-v1:')).length,1);
 
 const ret=repairReturn(exported1);

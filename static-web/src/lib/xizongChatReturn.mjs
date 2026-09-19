@@ -242,6 +242,8 @@ export function buildXizongChatExport(packet, handoff) {
       origin: clone(validHandoff.origin),
       resume: clone(validHandoff.resume),
       decision: 'NO_ACTION | REPAIR',
+      allowed_kp_ids: clone(validHandoff.allowed_kp_ids),
+      allowed_question_ids: clone(validHandoff.allowed_question_ids),
       repair_shape: {
         kp_id: '<must be one of allowed_kp_ids>',
         reason: '<why repair is justified>',
