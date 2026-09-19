@@ -251,6 +251,80 @@ assert.equal(
   'cmd-xz-return-1'
 );
 
+// A newer trusted Return may replace an older unconsumed Return for the same Block.
+const replaceReturnStorage = new MemoryStorage({
+  [XIZONG_MEMORY_STORAGE_KEY]: JSON.stringify(memory)
+});
+const replaceExport = attachXizongChatReturnContract(replaceReturnStorage, returnPacket, {
+  returnHref:'/xizong/circulation/b01/',
+  now:t0 + 16_000
+});
+const replaceBase = {
+  schema:'kianos.xizong.chat_return.v1',
+  handoff_id:replaceExport.chat_return_contract.handoff_id,
+  origin:replaceExport.chat_return_contract.origin,
+  resume:replaceExport.chat_return_contract.resume,
+  decision:'REPAIR',
+  repairs:[{
+    kp_id:'a1-b01-kp01',
+    reason:'old pending reason',
+    action:'old pending action',
+    priority:'high',
+    source_question_ids:[]
+  }]
+};
+const replaceCommandA = {
+  schema:PRIVATE_CONTROL_COMMAND_SCHEMA,
+  command_id:'replace-pending-return-a',
+  issued_at:new Date(t0 + 17_000).toISOString(),
+  study_day:day,
+  target:'xizong.chat_return',
+  payload:{...replaceBase,return_id:'replace-return-a'}
+};
+const replaceReceiptA = applyPrivateControlCommand(replaceReturnStorage, replaceCommandA, {
+  expectedDay:day,
+  now:t0 + 18_000
+});
+assert.equal(replaceReceiptA.status,'APPLIED');
+
+const replaceCommandB = {
+  ...replaceCommandA,
+  command_id:'replace-pending-return-b',
+  issued_at:new Date(t0 + 19_000).toISOString(),
+  payload:{
+    ...replaceBase,
+    return_id:'replace-return-b',
+    repairs:[{
+      ...replaceBase.repairs[0],
+      reason:'new authoritative pending reason',
+      action:'new authoritative pending action'
+    }]
+  }
+};
+const replaceReceiptB = applyPrivateControlCommand(replaceReturnStorage, replaceCommandB, {
+  expectedDay:day,
+  now:t0 + 20_000
+});
+assert.equal(replaceReceiptB.status,'APPLIED');
+const replacedPending = JSON.parse(replaceReturnStorage.getItem(XIZONG_PENDING_CHAT_RETURN_KEY));
+assert.equal(replacedPending.pending_by_object['xizong:a1-b01'].return_id,'replace-return-b');
+assert.equal(replaceReturnStorage.getItem('kianos-xizong-repair-inbox-v1:xizong:a1-b01'),null);
+assert.equal(
+  JSON.parse(replaceReturnStorage.getItem(XIZONG_MEMORY_STORAGE_KEY)).repairTasks.length,
+  0,
+  'replacing pending transport must not execute either Return'
+);
+const replaceApply = consumePendingXizongChatReturnForObject(replaceReturnStorage, {
+  objectId:'xizong:a1-b01',
+  currentPacket:returnPacket,
+  now:t0 + 21_000
+});
+assert.equal(replaceApply.status,'applied');
+const replaceMemory = JSON.parse(replaceReturnStorage.getItem(XIZONG_MEMORY_STORAGE_KEY));
+assert.equal(replaceMemory.repairTasks.length,1);
+assert.equal(replaceMemory.repairTasks[0].reason,'new authoritative pending reason');
+assert.equal(replaceMemory.repairTasks.some((task)=>task.reason==='old pending reason'),false);
+
 // A rejected activation must roll back both Xizong target state and active command state.
 const holdoutStorage = new MemoryStorage();
 holdoutStorage.setItem(XIZONG_MEMORY_STORAGE_KEY, JSON.stringify(memory));
