@@ -5,6 +5,7 @@ import {
   todayMemoryQueue
 } from './xizongMemoryModel.mjs';
 import { studyDayAt } from './studyTimer.mjs';
+import { readXizongPendingChatReturnState } from './xizongPendingChatReturn.mjs';
 
 export const XIZONG_DAILY_EVIDENCE_SCHEMA = 'kianos.xizong.daily_evidence.v1';
 
@@ -56,6 +57,21 @@ export function buildXizongDailyEvidencePacket(storage, {
 
   const keys = listKeys(storage);
   const memory = normalizeXizongMemoryState(readJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
+  const pendingReturnState = readXizongPendingChatReturnState(storage);
+  const pendingChatReturns = Object.values(pendingReturnState.pending_by_object || {})
+    .map((row) => ({
+      handoff_id: String(row?.handoff_id || ''),
+      return_id: String(row?.return_id || ''),
+      object_id: String(row?.object_id || ''),
+      system_id: String(row?.system_id || ''),
+      block_id: String(row?.block_id || ''),
+      source_hash: String(row?.source_hash || ''),
+      evidence_version: String(row?.evidence_version || ''),
+      return_href: String(row?.return_href || ''),
+      received_at: String(row?.received_at || '')
+    }))
+    .filter((row) => row.object_id && row.return_id)
+    .sort((a, b) => a.received_at.localeCompare(b.received_at));
 
   const memoryEvents = (memory.evidence || [])
     .filter((row) => onDay(row?.at, day))
@@ -239,6 +255,8 @@ export function buildXizongDailyEvidencePacket(storage, {
       system_recall: systemRecallEvents
     },
     current: {
+      pending_chat_returns: pendingChatReturns,
+      chat_return_receipt: clone(pendingReturnState.last_receipt),
       memory_today: todayMemoryQueue(memory).map((card) => ({
         card_id: String(card?.id || ''),
         family: String(card?.family || ''),
@@ -283,7 +301,8 @@ export function buildXizongDailyEvidencePacket(storage, {
       block_recall: 'first-pass Block reconstruction completion timestamp; repeated later-pass Block Recall is not yet a separate executor',
       block_complete: 'first-pass Block completion timestamp; not a mastery claim beyond the existing completion contract',
       system_recall: 'append-preserved System reconstruction event when current prototype history exists; legacy latest-only state remains labeled',
-      memory_today: 'current native attention queue only; presence is not mastery debt and Chat may thin, defer, or ignore it based on current evidence'
+      memory_today: 'current native attention queue only; presence is not mastery debt and Chat may thin, defer, or ignore it based on current evidence',
+      chat_return_control: 'pending_chat_returns and chat_return_receipt are transport/control state only; APPLIED/STALE never equals learner mastery or Repair success'
     }
   };
 
@@ -297,6 +316,7 @@ export function buildXizongDailyEvidencePacket(storage, {
     question_attempts: questionEvents.length,
     repair_events: repairEvents.length,
     system_recall_events: systemRecallEvents.length,
+    pending_chat_returns: pendingChatReturns.length,
     memory_today: packet.current.memory_today.length,
     active_repairs: packet.current.active_repairs.length
   };
