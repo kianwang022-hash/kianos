@@ -1,0 +1,44 @@
+name: Politics Chat Memory Prototype
+
+on:
+  pull_request:
+    paths:
+      - 'static-web/src/lib/politicsMemory*.mjs'
+      - 'static-web/src/lib/politicsControlCommand.mjs'
+      - 'static-web/src/lib/politicsChatReturn.mjs'
+      - 'static-web/src/pages/politics/memory/**'
+      - 'static-web/scripts/test-politics-memory-runtime.mjs'
+      - 'static-web/scripts/test-politics-control-command.mjs'
+      - '.github/workflows/politics-chat-memory-prototype.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: politics-chat-memory-prototype-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  targeted-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: static-web
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install
+        run: npm install --no-audit --no-fund
+      - name: Targeted runtime proof
+        run: |
+          node scripts/test-politics-memory-runtime.mjs
+          node scripts/test-politics-control-command.mjs
+          node scripts/test-politics-chat-return.mjs
+          node scripts/test-private-learner-checkpoint.mjs
+      - name: Build hidden learner prototype
+        run: npm run build
