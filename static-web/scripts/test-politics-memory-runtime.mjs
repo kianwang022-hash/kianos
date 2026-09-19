@@ -10,7 +10,8 @@ import {
   recordPoliticsMemoryResponse,
   resolvePoliticsMemoryResume,
   politicsMemoryCheckpointKeyAllowed,
-  validatePoliticsMemoryCheckpointValue
+  validatePoliticsMemoryCheckpointValue,
+  politicsMemoryDailyEvidence
 } from '../src/lib/politicsMemoryRuntime.mjs';
 
 class MemoryStorage {
@@ -128,11 +129,22 @@ assert.throws(() => applyPoliticsMemoryPlan(new MemoryStorage(), catalog, {
   items: [{ candidate_id: 'missing', reason: 'invalid' }]
 }, { expectedDay: day, now }), /PLAN_UNKNOWN_CANDIDATE/);
 
-assert.equal(JSON.parse(storage.getItem(POLITICS_MEMORY_EVIDENCE_KEY)).length, 2);
+const storedEvidence = JSON.parse(storage.getItem(POLITICS_MEMORY_EVIDENCE_KEY));
+assert.equal(storedEvidence.length, 2);
+assert.equal(storedEvidence[0].catalog_revision, catalog.revision);
+assert.equal(storedEvidence[0].candidate_snapshot.id, resume1.candidate.id);
+assert.deepEqual(storedEvidence[0].candidate_snapshot.answer_items, resume1.candidate.answer_items);
+
+const dailyMemory = politicsMemoryDailyEvidence(storage, { day, now: now + 3000 });
+assert.equal(dailyMemory.schema, 'kianos.politics.memory-evidence.v1');
+assert.equal(dailyMemory.summary.recall_count, 2);
+assert.equal(dailyMemory.summary.fuzzy_count, 1);
+assert.equal(dailyMemory.summary.stable_count, 1);
+assert.equal(dailyMemory.events.length, 2);
 assert.equal(politicsMemoryCheckpointKeyAllowed(POLITICS_MEMORY_PLAN_KEY), true);
 assert.equal(politicsMemoryCheckpointKeyAllowed(POLITICS_MEMORY_EVIDENCE_KEY), true);
 validatePoliticsMemoryCheckpointValue(POLITICS_MEMORY_PLAN_KEY, JSON.parse(storage.getItem(POLITICS_MEMORY_PLAN_KEY)));
-validatePoliticsMemoryCheckpointValue(POLITICS_MEMORY_EVIDENCE_KEY, JSON.parse(storage.getItem(POLITICS_MEMORY_EVIDENCE_KEY)));
+validatePoliticsMemoryCheckpointValue(POLITICS_MEMORY_EVIDENCE_KEY, storedEvidence);
 
 const staleCatalog = { ...catalog, revision: 'catalog-r2' };
 assert.equal(resolvePoliticsMemoryResume(storage, staleCatalog, { expectedDay: day }).status, 'STALE');
