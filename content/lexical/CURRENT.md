@@ -851,8 +851,8 @@ Canonical Baseline-v2 receipt:
 Repair Test blueprints:
 `content/lexical/learner/repair-blueprints/shards/o0701-0750.json`
 
-Next internal shard: **o0751–o0800 — FRESH READ + COMBINED CONTENT/TEST REPORT**.
+Next Human-Gate batch: **o0751–o0850 — FRESH READ + COMBINED CONTENT/TEST REPORT**.
 
-Apply the one-shard Human Gate: fresh-read all 50 owners, combine real Content defects and worthwhile Repair Test candidates into one plain-language report, then wait for one Kian approval. After approval, automatically close all reported work and advance to the next shard.
+Apply one Human Gate per ~100 owners: internally fresh-read in bounded ~50-owner slices, then combine real Content defects and worthwhile Repair Test candidates into one plain-language 100-owner report and wait for one Kian approval. After approval, automatically close the approved slices and advance to the next 100-owner batch.
 
-Interaction rule: **one bounded shard (normally 50 owners) = one Kian Human Gate**. The shard report combines Content fixes + Repair Test candidates. Once Kian approves that report, automatically write all reported/approved Content and Test changes, rebuild/read back/validate, advance the cursor, and begin the next shard without inserting another approval step.
+Interaction rule: **one Human Gate = ~100 owners**, while backend semantic review remains bounded in ~50-owner slices. The combined report merges Content fixes + Repair Test candidates across both slices. Once Kian approves that report, automatically write all reported/approved Content and Test changes, rebuild/read back/validate, advance the cursor, and begin the next 100-owner batch without inserting another approval step.
