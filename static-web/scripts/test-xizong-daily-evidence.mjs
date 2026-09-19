@@ -137,4 +137,30 @@ assert.equal(packet.current.chat_return_receipt.status,'APPLIED');
 assert.equal(packet.current.chat_return_receipt.repair_tasks[0].origin,'BLOCK_CHAT_RETURN');
 assert.equal(packet.evidence_semantics.chat_return_control.includes('transport/control state only'),true);
 
-console.log('PASS Xizong daily evidence prototype: cross-Block same-day evidence with bootstrap filtering and explicit coverage gaps');
+const oldReceiptStorage=new MemoryStorage({
+  [XIZONG_MEMORY_STORAGE_KEY]:JSON.stringify(createXizongMemoryState()),
+  'kianos:xizong:pending-chat-return:v1':JSON.stringify({
+    schema:'kianos.xizong.pending-chat-return.v1',
+    pending_by_object:{},
+    last_receipt:{
+      schema:'kianos.xizong.pending-chat-return-receipt.v1',
+      handoff_id:'old-h',
+      return_id:'old-r',
+      object_id:'xizong:old',
+      status:'APPLIED',
+      decision:'NO_ACTION',
+      repair_kp_ids:[],
+      repair_tasks:[],
+      detail:'',
+      at:'2026-09-19T05:00:00.000Z'
+    }
+  })
+});
+const oldReceiptPacket=buildXizongDailyEvidencePacket(oldReceiptStorage,{
+  day,
+  now:Date.parse('2026-09-20T07:00:00.000Z')
+});
+assert.equal(oldReceiptPacket.current.chat_return_receipt,null,
+  'resolved transport receipts from prior study days must not pollute future Daily Packets');
+
+console.log('PASS Xizong daily evidence prototype: cross-Block evidence + current executable/control state with bounded history');
