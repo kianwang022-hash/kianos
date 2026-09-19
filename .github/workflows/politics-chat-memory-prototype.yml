@@ -6,6 +6,7 @@ on:
       - 'static-web/src/lib/politicsMemory*.mjs'
       - 'static-web/src/lib/politicsControlCommand.mjs'
       - 'static-web/src/lib/politicsChatReturn.mjs'
+      - 'static-web/src/lib/dailyLearningPacketRuntime.mjs'
       - 'static-web/src/pages/politics/memory/**'
       - 'static-web/scripts/test-politics-memory-runtime.mjs'
       - 'static-web/scripts/test-politics-control-command.mjs'
@@ -39,6 +40,7 @@ jobs:
           node scripts/test-politics-memory-runtime.mjs
           node scripts/test-politics-control-command.mjs
           node scripts/test-politics-chat-return.mjs
+          node scripts/test-home-daily-learning-packet.mjs
           node scripts/test-private-learner-checkpoint.mjs
       - name: Build hidden learner prototype
         run: npm run build
