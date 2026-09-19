@@ -46,7 +46,7 @@ One-time install, or repair if the Current service is unhealthy:
 npm run current:install
 ```
 
-Check that GitHub main, the local Current mirror, LaunchAgent, private learner-state directory and localhost are all ready:
+Check that GitHub main, the local Current mirror, LaunchAgent, private learner-state bridge and localhost are ready. The doctor also reports External Reading private-source readiness as a separate warning/pass item:
 
 ```bash
 npm run current:doctor

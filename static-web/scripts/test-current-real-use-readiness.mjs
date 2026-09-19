@@ -34,6 +34,11 @@ for (const required of [
   '__kianos-current.json',
   'GitHub main sync',
   'Private learner-state directory',
+  'Private checkpoint bridge',
+  'External Reading private source',
+  '/__kianos-private/checkpoint',
+  '/__kianos-private/external-reading/status',
+  'waitForMirrorSha',
   'mode === 0o700',
   'READY: KianOS Current is ready for learner use'
 ]) {
