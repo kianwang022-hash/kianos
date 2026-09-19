@@ -52,7 +52,7 @@ assert.ok(block.kpRecords.length>0);
 
 const politics=politicsProductCatalog('/');
 const pSubject=politics.subjects[0];
-const pChapter=politics.chapters.find(row=>row.subject===pSubject.subject)||politics.chapters[0];
+const pChapter=politics.chapters.find(row=>row.subject===pSubject.id)||politics.chapters[0];
 assert.ok(pChapter);
 
 const profile=emptyExamProfile();
@@ -160,8 +160,8 @@ const storage=new MemoryStorage({
   }),
 
   'kianos-politics-last-location-v1':JSON.stringify({
-    href:'/politics/'+pSubject.subject+'/'+pChapter.code+'/',
-    subject:pSubject.subject,
+    href:'/politics/'+pChapter.subject+'/'+pChapter.code+'/',
+    subject:pChapter.subject,
     chapter:pChapter.code,
     title:pChapter.title
   }),
