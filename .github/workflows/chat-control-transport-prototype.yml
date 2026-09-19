@@ -28,6 +28,7 @@ on:
       - "static-web/scripts/privateControlStore.mjs"
       - "static-web/scripts/test-private-control-browser.mjs"
       - "static-web/scripts/test-xizong-native-session-actions-browser.mjs"
+      - "static-web/scripts/test-xizong-auto-chat-return-browser.mjs"
       - "static-web/scripts/privateControlRelay.mjs"
       - "static-web/scripts/test-private-control-relay.mjs"
       - ".github/workflows/chat-control-transport-prototype.yml"
@@ -88,6 +89,8 @@ jobs:
         run: node scripts/test-private-control-browser.mjs
       - name: Execute native Xizong session actions
         run: node scripts/test-xizong-native-session-actions-browser.mjs
+      - name: Execute automatic typed Xizong Return round trip
+        run: node scripts/test-xizong-auto-chat-return-browser.mjs
       - name: Upload control browser evidence
         if: always()
         uses: actions/upload-artifact@v4
