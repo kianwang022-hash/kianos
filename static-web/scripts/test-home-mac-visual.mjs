@@ -142,7 +142,7 @@ try {
   await page.locator('[data-exam-home][data-ready="true"]').waitFor();
   await page.evaluate(() => document.fonts.ready);
 
-  const typography = await page.locator('body#kianos-workspace.surfaceBody-home').evaluate((root) => {
+  const typography = await page.locator('.productCanvas.surface-home').evaluate((root) => {
     const rows = [...root.querySelectorAll('h1,h2,h3,p,span,small,strong,b,a,button')]
       .filter((node) => {
         const style = getComputedStyle(node);
