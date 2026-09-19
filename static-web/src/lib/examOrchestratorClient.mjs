@@ -20,7 +20,6 @@ import {
 } from './examChatPlan.mjs';
 import { buildExamStudyTimeOverlay } from './examStudyTime.mjs';
 import { buildChatControlledExamReadModel } from './examPlanReadModel.mjs';
-import { readPoliticsSnapshot, resolvePoliticsContinue } from './politicsPracticeState.mjs';
 import { buildHomeDailyLearningPacket } from './dailyLearningPacketRuntime.mjs';
 import { serializeDailyLearningPacketForChat } from './dailyLearningPacket.mjs';
 
@@ -141,8 +140,12 @@ export function initExamHome(root) {
       english: { subject: 'english', ...nativeLink('[data-english-resume-link]', '[data-english-resume-title]', `${catalog.base}english/`, '选择英语完整任务') },
       politics: {
         subject: 'politics',
-        ...(resolvePoliticsContinue(catalog.politics, readPoliticsSnapshot(localStorage), catalog.base)
-          || nativeLink('[data-politics-continue]', '[data-politics-continue-title]', `${catalog.base}politics/`, '选择政治学习位置'))
+        ...nativeLink(
+          '[data-politics-continue]',
+          '[data-politics-continue-title]',
+          `${catalog.base}politics/`,
+          '选择政治学习位置'
+        )
       }
     };
 
