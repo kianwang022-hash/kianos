@@ -6,7 +6,7 @@ import {
 } from './privateLearnerStore.mjs';
 
 const ROUTE = '/__kianos-private/checkpoint';
-const MAX_BYTES = 5 * 1024 * 1024;
+const MAX_BYTES = 24 * 1024 * 1024;
 
 const isLoopback = (address) => {
   const value = String(address || '').toLowerCase();
