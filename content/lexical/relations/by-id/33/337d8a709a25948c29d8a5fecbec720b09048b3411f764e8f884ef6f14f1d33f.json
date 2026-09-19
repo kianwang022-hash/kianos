@@ -1,0 +1,70 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:baseline-v2:acute-chronic:semantic_contrast",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:acute",
+      "source_ordinal": 64,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "In medical contexts, acute usually means rapid onset/short course and may be severe; chronic means persistent, long-lasting, or recurrent. The pair is useful but not an absolute logical opposite in every context."
+        ],
+        "boundary": "医学语境中 acute 通常指起病快、病程短，常可很严重；chronic 指长期持续或反复。不要把它简化成“严重 vs 不严重”。",
+        "direction": "C",
+        "learning_note": "Use time-course first: acute = rapid/short course; chronic = persistent/long-term or recurrent.",
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "relation_id": "relation:baseline-v2:acute-chronic:semantic_contrast",
+        "relation_scope": "sense",
+        "relation_type": "semantic_contrast",
+        "source_sense_id": "sense:acute:b608631df7be5c8a",
+        "target_sense_id": "sense:chronic:493b43841ca154ff",
+        "target_word": "chronic",
+        "task_tags": [
+          "reading",
+          "translation",
+          "writing"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true
+      }
+    },
+    {
+      "source_word_id": "word:chronic",
+      "source_ordinal": 803,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "chronic = persistent, long-lasting, or recurrent; acute = rapid onset/short course and may be severe. The contrast is mainly time course, not a simple severity scale."
+        ],
+        "boundary": "chronic 指长期持续或反复；acute 通常指起病快、病程短。核心区别首先是病程时间轴，不是单纯严重程度。",
+        "direction": "C",
+        "learning_note": "Use time-course first: chronic = persistent/long-term or recurrent; acute = rapid/short course.",
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "relation_id": "relation:baseline-v2:acute-chronic:semantic_contrast",
+        "relation_scope": "sense",
+        "relation_type": "semantic_contrast",
+        "source_sense_id": "sense:chronic:493b43841ca154ff",
+        "target_sense_id": "sense:acute:b608631df7be5c8a",
+        "target_word": "acute",
+        "task_tags": [
+          "reading",
+          "translation",
+          "writing"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "baseline_v2_final_standard_backfill_o0001_o0100",
+    "semantic_delta": 1
+  }
+}

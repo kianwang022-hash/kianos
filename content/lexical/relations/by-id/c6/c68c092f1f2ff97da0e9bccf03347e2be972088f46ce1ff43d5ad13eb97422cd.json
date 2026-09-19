@@ -1,0 +1,70 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:baseline-v2:actual-current:semantic_contrast",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:actual",
+      "source_ordinal": 63,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "actual = real/in fact; current = belonging to the present time. They may overlap in Chinese translation but answer different semantic questions."
+        ],
+        "boundary": "actual 强调“真实、事实上的”；current 强调“当前、现行的”。不要把 actual 当作“目前的”。",
+        "direction": "C",
+        "learning_note": "actual asks whether something is real; current asks whether it belongs to the present time.",
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "relation_id": "relation:baseline-v2:actual-current:semantic_contrast",
+        "relation_scope": "sense",
+        "relation_type": "semantic_contrast",
+        "source_sense_id": "sense:actual:cd2de18275525602",
+        "target_sense_id": "sense:current:0221493022d150ef",
+        "target_word": "current",
+        "task_tags": [
+          "reading",
+          "translation",
+          "writing"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true
+      }
+    },
+    {
+      "source_word_id": "word:current",
+      "source_ordinal": 1193,
+      "field": "semantic_neighbors",
+      "index": 1,
+      "payload": {
+        "boundaries": [
+          "current = belonging to the present time; actual = real/in fact. They may overlap in Chinese translation but answer different semantic questions."
+        ],
+        "boundary": "current 强调“当前、现行的”；actual 强调“真实、事实上的”。",
+        "direction": "C",
+        "learning_note": "current is a time-axis word; actual is a reality-axis word.",
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "relation_id": "relation:baseline-v2:actual-current:semantic_contrast",
+        "relation_scope": "sense",
+        "relation_type": "semantic_contrast",
+        "source_sense_id": "sense:current:0221493022d150ef",
+        "target_sense_id": "sense:actual:cd2de18275525602",
+        "target_word": "actual",
+        "task_tags": [
+          "reading",
+          "translation",
+          "writing"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "baseline_v2_final_standard_backfill_o0001_o0100",
+    "semantic_delta": 1
+  }
+}
