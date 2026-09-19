@@ -16,13 +16,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Install locked build dependencies
+      - name: Install build dependencies using repository convention
         working-directory: static-web
-        run: npm ci --no-audit --no-fund
+        run: npm install --no-audit --no-fund
       - name: Archive build dependencies only
         run: |
           mkdir -p /tmp/english-independent-audit
           git rev-parse HEAD > /tmp/english-independent-audit/HEAD.txt
+          cp static-web/package-lock.json /tmp/english-independent-audit/resolved-package-lock.json
           tar -czf /tmp/english-independent-audit/node-modules.tar.gz -C static-web node_modules
       - uses: actions/upload-artifact@v4
         with:
