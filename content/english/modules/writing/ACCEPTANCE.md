@@ -22,10 +22,10 @@ Six primitives and whole-essay generation remain valid. Direct and Planned paths
 | S | BLOCKED for 2011/2026 Big originals; 47 other true-exam Writing tasks have exact available Source. |
 | K / L | PASS for the freshly re-accepted capability model, natural task unit and targeted/skippable learning design. |
 | P | BLOCKED pending material Writing Mac Human Gate. |
-| R / E | Fresh candidate tests PASS only for the named browser-local paths. Shared automatic private recovery remains BLOCKED, and candidate fixes are not a deployed main claim. |
+| R / E | Fresh candidate tests PASS for the named browser-local paths plus the repaired shared English+Lexical private-checkpoint boundary. Candidate fixes remain audit-branch evidence until integrated. |
 | U | UNTESTED for every path in this audit. |
 
-Allowed statement: **Writing has path-scoped candidate evidence, not an unqualified English-wide readiness PASS.** See the English integration owner for Source, shared durability, Mac Human Gate and precise test boundaries.
+Allowed statement: **Writing has path-scoped candidate evidence, not an unqualified English-wide readiness PASS.** See the English integration owner for Source, Mac Human Gate and precise test boundaries.
 
 ## Historical evidence below
 
