@@ -243,7 +243,9 @@ export function applyPrivateControlCommand(storage, rawCommand, {
         holdoutYears
       });
     } else if (command.target === 'xizong.chat_return') {
-      stageXizongChatReturn(storage, command.payload, { now });
+      // The private control layer has already enforced command identity/replay/time ordering.
+      // A newer trusted Return may replace an older unconsumed Return for the same Block.
+      stageXizongChatReturn(storage, command.payload, { now, replace: true });
     } else {
       fail('TARGET_UNIMPLEMENTED', command.target);
     }
