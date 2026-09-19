@@ -39,6 +39,9 @@ export function validatePoliticsMemoryPlan(input, catalog, {
   if (Date.parse(generatedAt) > Number(now) + 60_000) fail('PLAN_FUTURE');
 
   const byId = catalogMap(catalog);
+  const catalogRevision = clean(catalog?.revision, 200);
+  if (!catalogRevision) fail('CATALOG_REVISION_REQUIRED');
+  if (clean(input.catalog_revision, 200) !== catalogRevision) fail('PLAN_CATALOG_MISMATCH');
   const rawItems = Array.isArray(input.items) ? input.items : [];
   if (rawItems.length > 100) fail('PLAN_TOO_LARGE');
   const seen = new Set();
@@ -59,6 +62,7 @@ export function validatePoliticsMemoryPlan(input, catalog, {
     plan_id: planId,
     study_day: studyDay,
     generated_at: new Date(generatedAt).toISOString(),
+    catalog_revision: catalogRevision,
     phase: phase || null,
     supersedes_plan_id: clean(input.supersedes_plan_id, 160) || null,
     items
@@ -115,7 +119,7 @@ function readEvidence(storage) {
   }
 }
 
-export function recordPoliticsMemoryResponse(storage, {
+export function recordPoliticsMemoryResponse(storage, catalog, {
   plan_id,
   candidate_id,
   response,
@@ -131,6 +135,9 @@ export function recordPoliticsMemoryResponse(storage, {
   try { current = JSON.parse(storage.getItem(POLITICS_MEMORY_PLAN_KEY) || 'null'); }
   catch { fail('CURRENT_PLAN_UNREADABLE'); }
   if (!current || current.plan_id !== planId) fail('RESPONSE_PLAN_NOT_CURRENT');
+  const byId = catalogMap(catalog);
+  if (!catalog?.revision || current.catalog_revision !== catalog.revision) fail('RESPONSE_CATALOG_STALE');
+  if (!byId.has(candidateId)) fail('RESPONSE_CANDIDATE_STALE', candidateId);
   if (!(current.items || []).some((item) => item.candidate_id === candidateId)) {
     fail('RESPONSE_CANDIDATE_OUT_OF_PLAN', candidateId);
   }
@@ -158,6 +165,13 @@ export function resolvePoliticsMemoryResume(storage, catalog) {
   if (!plan) return null;
 
   const byId = catalogMap(catalog);
+  if (!catalog?.revision || plan.catalog_revision !== catalog.revision) {
+    return {
+      status: 'STALE',
+      reason: 'catalog-revision-changed',
+      plan_id: plan.plan_id
+    };
+  }
   const evidence = readEvidence(storage);
   const done = new Set(evidence
     .filter((row) => row?.plan_id === plan.plan_id)
