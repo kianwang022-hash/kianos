@@ -5,6 +5,8 @@ import {
 } from '../src/lib/privateControlCommand.mjs';
 import { applyPrivateControlCommand } from '../src/lib/privateControlRuntime.mjs';
 import { POLITICS_MEMORY_PLAN_KEY } from '../src/lib/politicsMemoryRuntime.mjs';
+import { captureXizongPrivateCheckpoint } from '../src/lib/xizongPrivateCheckpoint.mjs';
+import { exportPoliticsCheckpoint, validatePoliticsPrivatePayload } from '../src/lib/politicsChatReturn.mjs';
 
 class MemoryStorage {
   constructor(entries={}){this.map=new Map(Object.entries(entries));}
@@ -78,6 +80,9 @@ const xzResult=await applyPrivateControlCommand(xzStorage,xzCommand,{day,now});
 assert.equal(xzResult.status,'applied');
 assert.equal(JSON.parse(xzStorage.getItem('kianos:xizong:session-instruction:v1')).session_id,xzSession.session_id);
 assert.equal(JSON.parse(xzStorage.getItem('kianos-exam-chat-plan-v1')).subjects.xizong.session_ref,xzSession.session_id);
+const xzCheckpoint=captureXizongPrivateCheckpoint(xzStorage,{now});
+assert.ok(xzCheckpoint.entries.some(row=>row.key==='kianos:xizong:session-instruction:v1'),'Xizong session must be durable');
+assert.ok(xzCheckpoint.entries.some(row=>row.key==='kianos:xizong:session-runtime:v1'),'Xizong session runtime must be durable');
 
 const polMemory={
   schema:'kianos.politics.memory-plan.v1',
@@ -111,6 +116,9 @@ const polResult=await applyPrivateControlCommand(polStorage,polCommand,{day,now}
 assert.equal(polResult.status,'applied');
 assert.equal(JSON.parse(polStorage.getItem(POLITICS_MEMORY_PLAN_KEY)).plan_id,polMemory.plan_id);
 assert.equal(JSON.parse(polStorage.getItem('kianos-exam-chat-plan-v1')).subjects.politics.session_ref,polMemory.plan_id);
+const politicsCheckpoint=exportPoliticsCheckpoint(polStorage);
+const politicsEntries=new Map(validatePoliticsPrivatePayload(politicsCheckpoint));
+assert.ok(politicsEntries.has(POLITICS_MEMORY_PLAN_KEY),'Politics Memory plan must be durable');
 
 assert.throws(()=>validateBrowserControlCommand({
   ...xzCommand,
