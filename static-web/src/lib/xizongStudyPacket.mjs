@@ -49,6 +49,7 @@ export function buildXizongStudyPacketFromStorage({
   kpRows,
   currentStage = '',
   currentIndex = null,
+  studyState = undefined,
   now = Date.now()
 } = {}) {
   if (!storage?.getItem) throw new Error('XIZONG_STUDY_PACKET_STORAGE_UNAVAILABLE');
@@ -66,7 +67,8 @@ export function buildXizongStudyPacketFromStorage({
   const repairInboxKey = `kianos-xizong-repair-inbox-v1:${objectId}`;
   const holdoutKey = 'kianos:xizong:full-paper-holdout-years:v1';
 
-  const study = readJson(storage, studyKey, null);
+  const storedStudy = readJson(storage, studyKey, null);
+  const study = record(studyState) ? studyState : storedStudy;
   if (!record(study)) return null;
 
   const currentPersonal = readJson(storage, personalKey, {}) || {};
