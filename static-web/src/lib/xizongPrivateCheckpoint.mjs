@@ -26,7 +26,8 @@ const DURABLE_KEY_PATTERNS = Object.freeze([
   /^kianos:xizong:session-runtime:v1$/,
   /^kianos-xizong-chat-handoff-v1:[A-Za-z0-9._:-]+$/,
   /^kianos-xizong-chat-return-v1:[A-Za-z0-9._:-]+$/,
-  /^kianos:xizong:pending-chat-return:v1$/
+  /^kianos:xizong:pending-chat-return:v1$/,
+  /^kianos:xizong:pending-system-wu-return:v1$/
 ]);
 
 export function isXizongDurableStorageKey(key) {
