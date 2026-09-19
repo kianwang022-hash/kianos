@@ -45,8 +45,21 @@ function normalizePlanRow(row, index) {
   if (!questionId) fail('QUESTION_ID_REQUIRED', String(index));
   const priority = clean(row.priority || 'normal', 20).toLowerCase();
   if (!PRIORITIES.has(priority)) fail('PRIORITY_INVALID', priority);
+  const status = clean(row.status || row.evidence_status, 20).toLowerCase();
+  if (!['wrong','uncertain'].includes(status)) fail('EVIDENCE_STATUS_INVALID', questionId);
+  const attemptId = clean(row.attempt_id || row.attemptId, 180);
+  const submittedAtRaw = clean(row.submitted_at || row.submittedAt, 80);
+  const submittedAt = submittedAtRaw && !Number.isNaN(Date.parse(submittedAtRaw))
+    ? new Date(submittedAtRaw).toISOString()
+    : '';
+  const roundId = clean(row.round_id || row.roundId, 180);
+  if (!attemptId && !submittedAt) fail('EVIDENCE_BINDING_REQUIRED', questionId);
   return {
     question_id: questionId,
+    status,
+    attempt_id: attemptId,
+    submitted_at: submittedAt,
+    round_id: roundId,
     reason: clean(row.reason || row.why, 1200),
     action: clean(row.action || row.task, 1600),
     priority
@@ -132,14 +145,55 @@ export function stageXizongSystemWuReturn(storage, input, {
   return {status:existing?'replaced':'staged',entry:clone(entry)};
 }
 
-function currentWuQuestionIds(storage, systemId, questionById) {
-  const sweep = readJsonStrict(storage, `kianos:xizong:system-question-sweep:${systemId}:v1`, {results:{}});
-  const out = new Set();
-  for (const [questionId, result] of Object.entries(sweep?.results || {})) {
-    if (!questionById.has(questionId)) continue;
-    if (['wrong','uncertain'].includes(String(result?.status || ''))) out.add(questionId);
+function currentWuObservation(state, questionId) {
+  const result = state?.results?.[questionId] || null;
+  if (!result || !['wrong','uncertain'].includes(String(result.status || ''))) return null;
+  const history = Array.isArray(state?.attemptHistory) ? state.attemptHistory : [];
+  const byAttempt = result?.attemptId
+    ? history.find((event) => event?.type === 'QUESTION_ATTEMPT' && event?.attempt_id === result.attemptId)
+    : null;
+  const latest = byAttempt || [...history].reverse().find((event) =>
+    event?.type === 'QUESTION_ATTEMPT' && String(event?.question_id || '') === questionId
+  ) || null;
+  const submittedAtRaw = String(latest?.submitted_at || result?.updatedAt || result?.submitted_at || '');
+  const submittedAt = submittedAtRaw && !Number.isNaN(Date.parse(submittedAtRaw))
+    ? new Date(submittedAtRaw).toISOString()
+    : '';
+  return {
+    question_id: questionId,
+    status: String(result?.status || latest?.status || ''),
+    attempt_id: String(result?.attemptId || latest?.attempt_id || ''),
+    submitted_at: submittedAt,
+    round_id: String(result?.roundId || latest?.round_id || '')
+  };
+}
+
+export function currentXizongSystemWuEvidence(storage, systemId, questions = []) {
+  if (!storage?.getItem) fail('STORAGE_UNAVAILABLE');
+  const id = clean(systemId, 160);
+  const questionById = new Map((Array.isArray(questions) ? questions : [])
+    .map((q) => [String(q?.questionId || ''), q])
+    .filter(([qid]) => qid));
+  const state = readJsonStrict(storage, `kianos:xizong:system-question-sweep:${id}:v1`, {results:{}});
+  return Object.keys(state?.results || {})
+    .filter((questionId) => questionById.has(questionId))
+    .map((questionId) => currentWuObservation(state, questionId))
+    .filter(Boolean)
+    .sort((a, b) => String(b.submitted_at || '').localeCompare(String(a.submitted_at || '')));
+}
+
+function assertCurrentWuBinding(row, current) {
+  if (!current) fail('QUESTION_NOT_CURRENT_WU', row.question_id);
+  if (row.status !== current.status) fail('QUESTION_EVIDENCE_STALE', row.question_id + ':status');
+  if (row.attempt_id && row.attempt_id !== current.attempt_id) {
+    fail('QUESTION_EVIDENCE_STALE', row.question_id + ':attempt_id');
   }
-  return out;
+  if (row.submitted_at && row.submitted_at !== current.submitted_at) {
+    fail('QUESTION_EVIDENCE_STALE', row.question_id + ':submitted_at');
+  }
+  if (row.round_id && row.round_id !== current.round_id) {
+    fail('QUESTION_EVIDENCE_STALE', row.question_id + ':round_id');
+  }
 }
 
 function planToTasks({
@@ -241,9 +295,12 @@ export function applyXizongSystemWuReturn(storage, input, {
   if (!storage?.getItem || !storage?.setItem) fail('STORAGE_UNAVAILABLE');
   const value = validateXizongSystemWuReturn(input);
   const questionById = new Map((Array.isArray(questions)?questions:[]).map((q)=>[String(q?.questionId || ''),q]).filter(([id])=>id));
-  const allowed = currentWuQuestionIds(storage,value.system_id,questionById);
+  const currentWu = new Map(
+    currentXizongSystemWuEvidence(storage, value.system_id, questions)
+      .map((row) => [row.question_id, row])
+  );
   for (const row of value.plan) {
-    if (!allowed.has(row.question_id)) fail('QUESTION_NOT_CURRENT_WU', row.question_id);
+    assertCurrentWuBinding(row, currentWu.get(row.question_id) || null);
   }
 
   const resultKey=`kianos:xizong:system-repair-return:${value.system_id}:v1`;
@@ -355,7 +412,9 @@ export function consumePendingXizongSystemWuReturn(storage, {
     );
   } catch (error) {
     const message=String(error?.message || error);
-    const status=message.includes('QUESTION_NOT_CURRENT_WU')?'STALE':'REJECTED';
+    const status=(message.includes('QUESTION_NOT_CURRENT_WU') || message.includes('QUESTION_EVIDENCE_STALE'))
+      ? 'STALE'
+      : 'REJECTED';
     nextReceipt=receipt(entry,status,{message},now);
   }
 
