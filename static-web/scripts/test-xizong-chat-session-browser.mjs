@@ -96,7 +96,15 @@ try {
         }
       ]
     }));
-    localStorage.removeItem(runtimeKey);
+    localStorage.setItem(runtimeKey,JSON.stringify({
+      schema:'kianos.xizong.session-runtime.v1',
+      session_id:sessionId,
+      study_day:day,
+      instruction_generated_at:generatedAt,
+      current_step:0,
+      activated_at:null,
+      status:'ACTIVE'
+    }));
     localStorage.removeItem(chatSetKey);
   },{day,generatedAt,sessionId,memoryKey,sessionKey,runtimeKey,chatSetKey,cardId});
 
@@ -109,7 +117,8 @@ try {
   check(memoryHref?.includes('/xizong/memory/?session='),'home_points_to_exact_memory_session',memoryHref||'');
 
   const runtimeAfterHome=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),runtimeKey);
-  check(runtimeAfterHome?.activated_steps?.includes('m1'),'home_activates_current_memory_step');
+  check(runtimeAfterHome?.current_step===0 && Boolean(runtimeAfterHome?.activated_at),
+    'home_activates_current_memory_step');
   const memoryBefore=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),memoryKey);
   check(!memoryBefore?.attention?.[cardId],
     'chat_memory_selection_does_not_create_weak_attention');
