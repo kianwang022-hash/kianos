@@ -143,7 +143,21 @@ Keep two truths separate.
 
 ## B1｜Exact official System question scope
 
-High-value unresolved bounded work currently includes B exact System membership and later D S2 once the D boundary is stable enough. System membership does not imply Block/KP mapping.
+Current learner-facing exact System question scope is only accepted for **A1 / A2 / A3**. B / C / D / E / F must not be surfaced as trusted System-question sets until their exact official-question membership is independently established; System membership does not imply Block/KP mapping and must not be inferred from Outline or Block placement.
+
+### Deferred completion backlog — after E / F medical-content closure
+
+Decision 2026-09-20:
+
+```text
+finish E full medical-content chain
+→ finish F full medical-content chain
+→ return to exact System-question membership completion
+→ close B / C / D / E / F bounded official-question scopes
+→ only then expose those Systems in trusted learner-facing "按 System" question entry
+```
+
+This is a durable **content-completion backlog item**, not the current active lane. Do not interrupt E/F construction to broaden question scope unless a concrete E/F Source or Learning decision requires official-question evidence.
 
 ## B2｜Question → Knowledge Crosswalk
 
@@ -348,7 +362,9 @@ F 9 Blocks / 121 KP
 → independent K acceptance next
 
 QUESTIONS
-B exact official-question scope where unresolved
+Current trusted System-question entry = A1 / A2 / A3 only
+B / C / D / E / F exact official-question membership = DEFERRED COMPLETION BACKLOG
+→ resume after E + F medical-content closure
 + Crosswalk C2 continuous reviewed batches
 
 VISUAL
