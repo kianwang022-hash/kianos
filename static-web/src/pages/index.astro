@@ -94,6 +94,19 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
       </div>
     </header>
 
+    <div class="homeRouteProbes" aria-hidden="true">
+      <XizongHomeTools
+        firstHref={xizongHref}
+        firstLabel={firstSystem ? `${firstSystem.canonicalId} · ${firstSystem.title}` : '查看西综入口'}
+        resumeIndex={xizongResumeIndex}
+      />
+      <EnglishResume />
+      <PoliticsHomeTools
+        firstHref={politicsHref}
+        firstLabel={firstChapter ? `${firstSubject.label} · ${firstChapter.title}` : '查看政治入口'}
+      />
+    </div>
+
     <section class="homeDirectControl" aria-label="今日总控">
       <ExamOrchestratorHome xizongPacketIndex={xizongPacketIndex} />
     </section>
