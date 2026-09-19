@@ -364,6 +364,50 @@ assert.equal(queueOnly.packet.subjects.xizong.evidence.events.memory_recall.leng
 assert.equal(queueOnly.packet.subjects.xizong.evidence.current.memory_today.length,1);
 assert.equal(queueOnly.packet.subjects.xizong.evidence.current.memory_today[0].source_hash,'queue-source');
 
+const returnOnlyStorage = new MemoryStorage({
+  [STUDY_TIMER_STATE_KEY]: JSON.stringify({
+    schema: STUDY_TIMER_SCHEMA,
+    running: false,
+    manualPaused: true,
+    subject: null,
+    context: null,
+    segmentStartedAt: null,
+    lastSeenAt: now,
+    revision: 1,
+    updatedAt: now
+  }),
+  [STUDY_TIMER_LEDGER_KEY]: JSON.stringify({ schema: STUDY_TIMER_SCHEMA, sessions: [] }),
+  ['kianos:xizong:pending-chat-return:v1']: JSON.stringify({
+    schema:'kianos.xizong.pending-chat-return.v1',
+    pending_by_object:{
+      'xizong:a1-r01':{
+        handoff_id:'h1',
+        return_id:'r1',
+        object_id:'xizong:a1-r01',
+        system_id:'a1',
+        block_id:'a1-r01',
+        source_hash:'source-hash-a1-r01',
+        evidence_version:'ev-1',
+        return_href:'/xizong/a1/r01/',
+        received_at:'2026-09-19T02:55:00.000Z',
+        return_packet:{schema:'kianos.xizong.chat_return.v1'}
+      }
+    },
+    last_receipt:null
+  })
+});
+const returnOnly = buildHomeDailyLearningPacket({
+  storage:returnOnlyStorage,
+  day,
+  now,
+  xizongPacketIndex,
+  politicsCatalog,
+  base:'/'
+});
+assert.equal(returnOnly.coverage.xizong,'attached',
+  'pending typed Xizong Return must remain visible even before new learner evidence');
+assert.equal(returnOnly.packet.subjects.xizong.evidence.current.pending_chat_returns.length,1);
+
 const corruptPolitics = new MemoryStorage(Object.fromEntries(storage.map.entries()));
 corruptPolitics.setItem(PRACTICE_KEYS.meta, '{bad-json');
 const partial = buildHomeDailyLearningPacket({
