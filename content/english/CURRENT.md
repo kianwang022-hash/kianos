@@ -16,8 +16,8 @@ Fresh independent final audit has executed against `c8ae5404fcaf57f3bf5f8c583b1a
 **Active ref:** `audit/english-final-independent-20260919`
 **Result:** read `content/english/ACCEPTANCE.md` from that ref, not a missing/stale main copy.
 **Stage:** independent execution/reconciliation complete; English-wide release **BLOCKED**.
-**Remaining:** exact 2011/2026 Big Writing originals; material Mac Kian Human Gate; shared subject-checkpoint integration.
-**Next:** obtain those Source/Human Gate inputs; shared owner closes durability; revalidate only affected slices. Do not restart A/B/C or broad historical CI.
+**Remaining:** exact 2011/2026 Big Writing originals; material Mac Kian Human Gate. External Reading remains inventory-only and must not be described as executable.
+**Next:** obtain the bounded Source/Human Gate inputs; revalidate only the affected Source/presentation slices. Shared English+Lexical checkpoint durability is closed for the tested boundary. Do not restart A/B/C or broad historical CI.
 **U:** UNTESTED; no synthetic evidence becomes learner history.
 
 Task brief: `FINAL_LEARNER_ACCEPTANCE_BRIEF.md` on the active ref. Candidate tests/fixes are not deployed on main merely because this cursor routes to them. Historical child PASS is retained only within the narrowed path boundaries recorded by the fresh result.
