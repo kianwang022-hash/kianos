@@ -4,7 +4,6 @@ import path from 'node:path';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { readPrivateLearnerCheckpoint, resolvePrivateLearnerDir } from './privateLearnerStore.mjs';
-import { buildDailyLearningPacketFromPrivateCheckpoint } from './privateDailyLearningPacket.mjs';
 
 const execFileAsync=promisify(execFile);
 
@@ -223,6 +222,7 @@ export async function syncPrivateDailyLearningPacketOnce({
   if(!config.enabled)return{state:'disabled'};
   const checkpoint=readPrivateLearnerCheckpoint(config.privateDir);
   if(!checkpoint)return{state:'missing',reason:'private-checkpoint-missing'};
+  const { buildDailyLearningPacketFromPrivateCheckpoint } = await import('./privateDailyLearningPacket.mjs');
   const projection=buildDailyLearningPacketFromPrivateCheckpoint(checkpoint);
   return publishDailyLearningPacket(projection.packet,{env,home,gitBin});
 }
